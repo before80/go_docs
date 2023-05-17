@@ -1,0 +1,399 @@
++++
+title = "ioutil"
+date = 2023-05-17T11:11:20+08:00
+description = ""
+isCJKLanguage = true
+draft = false
++++
+# ioutil
+
+[https://pkg.go.dev/io/ioutil@go1.20.1](https://pkg.go.dev/io/ioutil@go1.20.1)
+
+Package ioutil implements some I/O utility functions.
+
+Deprecated: As of Go 1.16, the same functionality is now provided by package io or package os, and those implementations should be preferred in new code. See the specific function documentation for details.
+
+
+
+
+## 常量 
+
+This section is empty.
+
+### 变量
+
+[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=95)
+
+```go linenums="1"
+var Discard io.Writer = io.Discard
+```
+
+Discard is an io.Writer on which all Write calls succeed without doing anything.
+
+Discard是一个io.Writer，在它上面所有的Write调用都会成功而不做任何事情。
+
+Deprecated: As of Go 1.16, this value is simply io.Discard.
+
+已废弃：从Go 1.16开始，这个值只是io.Discard。
+
+## 函数
+
+#### func [NopCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=87) DEPRECATED
+
+```go linenums="1"
+func NopCloser(r io.Reader) io.ReadCloser
+```
+
+NopCloser returns a ReadCloser with a no-op Close method wrapping the provided Reader r.
+
+NopCloser返回一个ReadCloser，它有一个无操作的Close方法来包装提供的Reader r。
+
+Deprecated: As of Go 1.16, this function simply calls io.NopCloser.
+
+已废弃：从Go 1.16开始，此函数只需调用io.NopCloser。
+
+#### func [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=26) DEPRECATED
+
+```go linenums="1"
+func ReadAll(r io.Reader) ([]byte, error)
+```
+
+ReadAll reads from r until an error or EOF and returns the data it read. A successful call returns err == nil, not err == EOF. Because ReadAll is defined to read from src until EOF, it does not treat an EOF from Read as an error to be reported.
+
+ReadAll从r读取数据，直到出现错误或EOF，并返回它所读取的数据。一个成功的调用返回err == nil，而不是err == EOF。因为ReadAll被定义为从src读到EOF为止，所以它不把Read的EOF当作一个需要报告的错误。
+
+Deprecated: As of Go 1.16, this function simply calls io.ReadAll.
+
+已废弃：从Go 1.16开始，这个函数只是调用io.ReadAll。
+
+##### ReadAll Example
+
+```go linenums="1"
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"strings"
+)
+
+func main() {
+	r := strings.NewReader("Go is a general-purpose language designed with systems programming in mind.")
+
+	b, err := ioutil.ReadAll(r)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%s", b)
+
+}
+Output:
+
+Go is a general-purpose language designed with systems programming in mind.
+```
+
+#### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=69) DEPRECATED
+
+```go linenums="1"
+func ReadDir(dirname string) ([]fs.FileInfo, error)
+```
+
+ReadDir reads the directory named by dirname and returns a list of fs.FileInfo for the directory's contents, sorted by filename. If an error occurs reading the directory, ReadDir returns no directory entries along with the error.
+
+ReadDir读取以dirname命名的目录，并返回该目录内容的fs.FileInfo列表，按文件名排序。如果读取目录时发生错误，ReadDir会返回没有目录的条目和错误。
+
+Deprecated: As of Go 1.16, os.ReadDir is a more efficient and correct choice: it returns a list of fs.DirEntry instead of fs.FileInfo, and it returns partial results in the case of an error midway through reading a directory.
+
+已废弃：从 Go 1.16 开始，os.ReadDir 是一个更有效、更正确的选择：它返回 fs.DirEntry 列表，而不是 fs.FileInfo，并且在读取目录的中途出现错误时，它返回部分结果。
+
+If you must continue obtaining a list of fs.FileInfo, you still can:
+
+如果你必须继续获得fs.FileInfo的列表，你仍然可以。
+
+```go linenums="1"
+entries, err := os.ReadDir(dirname)
+if err != nil { ... }
+infos := make([]fs.FileInfo, 0, len(entries))
+for _, entry := range entries {
+	info, err := entry.Info()
+	if err != nil { ... }
+	infos = append(infos, info)
+}
+```
+
+##### ReadDir Example
+
+```go linenums="1"
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+)
+
+func main() {
+	files, err := ioutil.ReadDir(".")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, file := range files {
+		fmt.Println(file.Name())
+	}
+}
+Output:
+
+.dockerenv
+bin
+dev
+etc
+home
+lib
+lib64
+proc
+root
+sys
+tmp
+tmpfs
+usr
+var
+```
+
+#### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=36) DEPRECATED
+
+```go linenums="1"
+func ReadFile(filename string) ([]byte, error)
+```
+
+ReadFile reads the file named by filename and returns the contents. A successful call returns err == nil, not err == EOF. Because ReadFile reads the whole file, it does not treat an EOF from Read as an error to be reported.
+
+ReadFile 读取以文件名命名的文件并返回其内容。一个成功的调用返回err == nil，而不是err == EOF。因为ReadFile读取的是整个文件，所以它不把来自Read的EOF当作一个要报告的错误。
+
+Deprecated: As of Go 1.16, this function simply calls os.ReadFile.
+
+已废弃：从Go 1.16开始，这个函数只是调用os.ReadFile。
+
+##### ReadFile Example
+
+```go linenums="1"
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+)
+
+func main() {
+	content, err := ioutil.ReadFile("testdata/hello")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("File contents: %s", content)
+
+}
+Output:
+
+File contents: Hello, Gophers!
+```
+
+#### func [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=39) DEPRECATED
+
+```go linenums="1"
+func TempDir(dir, pattern string) (name string, err error)
+```
+
+TempDir creates a new temporary directory in the directory dir. The directory name is generated by taking pattern and applying a random string to the end. If pattern includes a "*", the random string replaces the last "*". TempDir returns the name of the new directory. If dir is the empty string, TempDir uses the default directory for temporary files (see os.TempDir). Multiple programs calling TempDir simultaneously will not choose the same directory. It is the caller's responsibility to remove the directory when no longer needed.
+
+TempDir在目录dir中创建一个新的临时目录。目录名是通过采取pattern并在末尾应用一个随机字符串而产生的。如果pattern包括一个 "*"，随机字符串将取代最后的 "*"。TempDir返回新目录的名称。如果dir是空字符串，TempDir使用默认的目录来存放临时文件(见os.TempDir)。多个程序同时调用TempDir不会选择同一个目录。当不再需要该目录时，由调用者负责删除。
+
+Deprecated: As of Go 1.17, this function simply calls os.MkdirTemp.
+
+已废弃：从 Go 1.17 开始，这个函数只是调用 os.MkdirTemp。
+
+##### TempDir Example
+
+```go linenums="1"
+package main
+
+import (
+	"io/ioutil"
+	"log"
+	"os"
+	"path/filepath"
+)
+
+func main() {
+	content := []byte("temporary file's content")
+	dir, err := ioutil.TempDir("", "example")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer os.RemoveAll(dir) // clean up
+
+	tmpfn := filepath.Join(dir, "tmpfile")
+	if err := ioutil.WriteFile(tmpfn, content, 0666); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+##### TempDir Example(Suffix)
+
+```go linenums="1"
+package main
+
+import (
+	"io/ioutil"
+	"log"
+	"os"
+	"path/filepath"
+)
+
+func main() {
+	parentDir := os.TempDir()
+	logsDir, err := ioutil.TempDir(parentDir, "*-logs")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer os.RemoveAll(logsDir) // clean up
+
+	// Logs can be cleaned out earlier if needed by searching
+	// for all directories whose suffix ends in *-logs.
+	globPattern := filepath.Join(parentDir, "*-logs")
+	matches, err := filepath.Glob(globPattern)
+	if err != nil {
+		log.Fatalf("Failed to match %q: %v", globPattern, err)
+	}
+
+	for _, match := range matches {
+		if err := os.RemoveAll(match); err != nil {
+			log.Printf("Failed to remove %q: %v", match, err)
+		}
+	}
+}
+
+```
+
+#### func [TempFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=24) DEPRECATED
+
+```go linenums="1"
+func TempFile(dir, pattern string) (f *os.File, err error)
+```
+
+TempFile creates a new temporary file in the directory dir, opens the file for reading and writing, and returns the resulting *os.File. The filename is generated by taking pattern and adding a random string to the end. If pattern includes a "*", the random string replaces the last "*". If dir is the empty string, TempFile uses the default directory for temporary files (see os.TempDir). Multiple programs calling TempFile simultaneously will not choose the same file. The caller can use f.Name() to find the pathname of the file. It is the caller's responsibility to remove the file when no longer needed.
+
+TempFile在目录dir中创建一个新的临时文件，打开该文件进行读写，并返回结果*os.File。文件名是通过采取pattern并在末尾添加一个随机字符串来生成的。如果pattern包括一个 "*"，随机字符串将取代最后的 "*"。如果dir是空字符串，TempFile就使用默认的目录来存放临时文件(见os.TempDir)。多个程序同时调用TempFile将不会选择同一个文件。调用者可以使用 f.Name() 来查找文件的路径名。当不再需要该文件时，调用者有责任删除该文件。
+
+Deprecated: As of Go 1.17, this function simply calls os.CreateTemp.
+
+已废弃：从Go 1.17开始，这个函数只是调用os.CreateTemp。
+
+
+
+##### TempFile Example
+
+```go linenums="1"
+package main
+
+import (
+	"io/ioutil"
+	"log"
+	"os"
+)
+
+func main() {
+	content := []byte("temporary file's content")
+	tmpfile, err := ioutil.TempFile("", "example")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer os.Remove(tmpfile.Name()) // clean up
+
+	if _, err := tmpfile.Write(content); err != nil {
+		log.Fatal(err)
+	}
+	if err := tmpfile.Close(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+TempFile Example(Suffix)
+
+```go linenums="1"
+package main
+
+import (
+	"io/ioutil"
+	"log"
+	"os"
+)
+
+func main() {
+	content := []byte("temporary file's content")
+	tmpfile, err := ioutil.TempFile("", "example.*.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer os.Remove(tmpfile.Name()) // clean up
+
+	if _, err := tmpfile.Write(content); err != nil {
+		tmpfile.Close()
+		log.Fatal(err)
+	}
+	if err := tmpfile.Close(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+#### func [WriteFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=45) DEPRECATED
+
+```go linenums="1"
+func WriteFile(filename string, data []byte, perm fs.FileMode) error
+```
+
+WriteFile writes data to a file named by filename. If the file does not exist, WriteFile creates it with permissions perm (before umask); otherwise WriteFile truncates it before writing, without changing permissions.
+
+WriteFile 将数据写入一个以文件名命名的文件。如果该文件不存在，WriteFile 用权限 perm 创建它(在 umask 之前)；否则，WriteFile 在写入前截断它，而不改变权限。
+
+Deprecated: As of Go 1.16, this function simply calls os.WriteFile.
+
+已废弃：从 Go 1.16 开始，这个函数只是调用 os.WriteFile。
+
+##### WriteFile Example
+
+```go linenums="1"
+package main
+
+import (
+	"io/ioutil"
+	"log"
+)
+
+func main() {
+	message := []byte("Hello, Gophers!")
+	err := ioutil.WriteFile("hello", message, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+
+
+## 类型
+
+This section is empty.

@@ -1,0 +1,18 @@
+
+{{- $src := .Destination | safeURL -}}
+{{ if strings.HasPrefix $src "http" }}
+<img src="{{ $src }}"
+     alt="{{ .Text }}"
+     {{ with .Title }} title="{{ . }}"{{ end }}
+/>
+{{ else }}
+{{ $rel := .Destination | relURL }}
+{{ $str := .Page.File | path.Dir }}
+<img src="/{{- $str -}}{{- $rel -}}"
+     alt="{{ .Text }}"
+     {{ with .Title }} title="{{ . }}"{{ end }}
+/>
+{{ end }}
+
+
+
