@@ -1,0 +1,947 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.3">
+<link rel="canonical" type="text/html" href="http://ngd.cn/docs/stdLib/mime/">
+<link rel="alternate" type="application/rss&#43;xml" href="http://ngd.cn/docs/stdLib/mime/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>mime | go文档集</title>
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+<meta property="og:title" content="mime" />
+<meta property="og:description" content="The most popular HTML, CSS, and JS library in the world." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://ngd.cn/docs/stdLib/mime/" />
+<meta itemprop="name" content="mime">
+<meta itemprop="description" content="The most popular HTML, CSS, and JS library in the world."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="mime"/>
+<meta name="twitter:description" content="The most popular HTML, CSS, and JS library in the world."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" as="style">
+<link href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" rel="stylesheet" integrity="">
+
+<link href="/css/extra.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-00000000-0');
+}
+</script>
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">go文档集</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/docs/"><span class="active">文档</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search">
+  <div class="td-search__icon"></div>
+  <input type="search" class="td-search__input form-control td-search-input" placeholder="" aria-label="" autocomplete="off">
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+
+<a href="#" onclick="print();return false;"></a>.
+</p><p>
+<a href="/docs/stdLib/mime/"></a>.
+</p>
+</div>
+
+
+
+<h1 class="title">mime</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-caf4d3116253a575e543cc25cb2a58e4">mime</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-732d9aab5e7e27adafb05089e937d4e4">multipart</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f73782cd84af7549a50df1a35b7feb46">quotedprintable</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-caf4d3116253a575e543cc25cb2a58e4">1 - mime</h1>
+    
+	<h1 id="mime">mime</h1>
+<p><a href="https://pkg.go.dev/mime@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/mime@go1.20.1</a></p>
+<p>Package mime implements parts of the MIME spec.</p>
+<h2 id="常量">常量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=21" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// BEncoding represents Base64 encoding scheme as defined by RFC 2045.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">BEncoding</span> = <span style="color:#61afef;font-weight:bold">WordEncoder</span>(<span style="color:#98c379">&#39;b&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// QEncoding represents the Q-encoding scheme as defined by RFC 2047.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">QEncoding</span> = <span style="color:#61afef;font-weight:bold">WordEncoder</span>(<span style="color:#98c379">&#39;q&#39;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变量">变量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/mediatype.go;l=127" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">ErrInvalidMediaParameter</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;mime: invalid media parameter&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ErrInvalidMediaParameter is returned by ParseMediaType if the media type value was found but there was an error parsing the optional parameters</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-addextensiontypehttpscsopensourcegooglegogogo1201srcmimetypegol167">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/type.go;l=167" target="_blank" rel="noopener">AddExtensionType</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">AddExtensionType</span>(<span style="color:#e06c75">ext</span>, <span style="color:#e06c75">typ</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>AddExtensionType sets the MIME type associated with the extension ext to typ. The extension should begin with a leading dot, as in &ldquo;.html&rdquo;.</p>
+<h4 id="func-extensionsbytypehttpscsopensourcegooglegogogo1201srcmimetypegol148----go15">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/type.go;l=148" target="_blank" rel="noopener">ExtensionsByType</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">ExtensionsByType</span>(<span style="color:#e06c75">typ</span> <span style="color:#e5c07b">string</span>) ([]<span style="color:#e5c07b">string</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ExtensionsByType returns the extensions known to be associated with the MIME type typ. The returned extensions will each begin with a leading dot, as in &ldquo;.html&rdquo;. When typ has no associated extensions, ExtensionsByType returns an nil slice.</p>
+<h4 id="func-formatmediatypehttpscsopensourcegooglegogogo1201srcmimemediatypegol20">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/mediatype.go;l=20" target="_blank" rel="noopener">FormatMediaType</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">FormatMediaType</span>(<span style="color:#e06c75">t</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">param</span> <span style="color:#c678dd">map</span>[<span style="color:#e5c07b">string</span>]<span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>FormatMediaType serializes mediatype t and the parameters param as a media type conforming to <a href="https://rfc-editor.org/rfc/rfc2045.html" target="_blank" rel="noopener">RFC 2045</a> and <a href="https://rfc-editor.org/rfc/rfc2616.html" target="_blank" rel="noopener">RFC 2616</a>. The type and parameter names are written in lower-case. When any of the arguments result in a standard violation then FormatMediaType returns the empty string.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-parsemediatypehttpscsopensourcegooglegogogo1201srcmimemediatypegol139">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/mediatype.go;l=139" target="_blank" rel="noopener">ParseMediaType</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">ParseMediaType</span>(<span style="color:#e06c75">v</span> <span style="color:#e5c07b">string</span>) (<span style="color:#e06c75">mediatype</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">params</span> <span style="color:#c678dd">map</span>[<span style="color:#e5c07b">string</span>]<span style="color:#e5c07b">string</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ParseMediaType parses a media type value and any optional parameters, per <a href="https://rfc-editor.org/rfc/rfc1521.html" target="_blank" rel="noopener">RFC 1521</a>. Media types are the values in Content-Type and Content-Disposition headers (<a href="https://rfc-editor.org/rfc/rfc2183.html" target="_blank" rel="noopener">RFC 2183</a>). On success, ParseMediaType returns the media type converted to lowercase and trimmed of white space and a non-nil map. If there is an error parsing the optional parameter, the media type will be returned along with the error ErrInvalidMediaParameter. The returned map, params, maps from the lowercase attribute to the attribute value with its case preserved.</p>
+<h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-typebyextensionhttpscsopensourcegooglegogogo1201srcmimetypegol111">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/type.go;l=111" target="_blank" rel="noopener">TypeByExtension</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">TypeByExtension</span>(<span style="color:#e06c75">ext</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>TypeByExtension returns the MIME type associated with the file extension ext. The extension ext should begin with a leading dot, as in &ldquo;.html&rdquo;. When ext has no associated type, TypeByExtension returns &ldquo;&rdquo;.</p>
+<p>Extensions are looked up first case-sensitively, then case-insensitively.</p>
+<p>The built-in table is small but on unix it is augmented by the local system&rsquo;s MIME-info database or mime.types file(s) if available under one or more of these names:</p>
+<pre tabindex="0"><code>/usr/local/share/mime/globs2
+/usr/share/mime/globs2
+/etc/mime.types
+/etc/apache2/mime.types
+/etc/apache/mime.types
+</code></pre><p>On Windows, MIME types are extracted from the registry.</p>
+<p>Text types have the charset parameter set to &ldquo;utf-8&rdquo; by default.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-worddecoderhttpscsopensourcegooglegogogo1201srcmimeencodedwordgol187----go15">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=187" target="_blank" rel="noopener">WordDecoder</a>  &lt;- go1.5</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">WordDecoder</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// CharsetReader, if non-nil, defines a function to generate
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// charset-conversion readers, converting from the provided
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// charset into UTF-8.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// Charsets are always lower-case. utf-8, iso-8859-1 and us-ascii charsets
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// are handled by default.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// One of the CharsetReader&#39;s result values must be non-nil.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">CharsetReader</span> <span style="color:#c678dd">func</span>(<span style="color:#e06c75">charset</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">input</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e5c07b">error</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A WordDecoder decodes MIME headers containing <a href="https://rfc-editor.org/rfc/rfc2047.html" target="_blank" rel="noopener">RFC 2047</a> encoded-words.</p>
+<h4 id="worddecoder-decodehttpscsopensourcegooglegogogo1201srcmimeencodedwordgol198----go15">(*WordDecoder) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=198" target="_blank" rel="noopener">Decode</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">d</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">WordDecoder</span>) <span style="color:#61afef;font-weight:bold">Decode</span>(<span style="color:#e06c75">word</span> <span style="color:#e5c07b">string</span>) (<span style="color:#e5c07b">string</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Decode decodes an <a href="https://rfc-editor.org/rfc/rfc2047.html" target="_blank" rel="noopener">RFC 2047</a> encoded-word.</p>
+<h5 id="example-2">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="worddecoder-decodeheaderhttpscsopensourcegooglegogogo1201srcmimeencodedwordgol230----go15">(*WordDecoder) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=230" target="_blank" rel="noopener">DecodeHeader</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">d</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">WordDecoder</span>) <span style="color:#61afef;font-weight:bold">DecodeHeader</span>(<span style="color:#e06c75">header</span> <span style="color:#e5c07b">string</span>) (<span style="color:#e5c07b">string</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>DecodeHeader decodes all encoded-words of the given string. It returns an error if and only if CharsetReader of d returns an error.</p>
+<h5 id="example-3">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-wordencoderhttpscsopensourcegooglegogogo1201srcmimeencodedwordgol19----go15">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=19" target="_blank" rel="noopener">WordEncoder</a>  &lt;- go1.5</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">WordEncoder</span> <span style="color:#e5c07b">byte</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A WordEncoder is an <a href="https://rfc-editor.org/rfc/rfc2047.html" target="_blank" rel="noopener">RFC 2047</a> encoded-word encoder.</p>
+<h4 id="wordencoder-encodehttpscsopensourcegooglegogogo1201srcmimeencodedwordgol35----go15">(WordEncoder) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/encodedword.go;l=35" target="_blank" rel="noopener">Encode</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">e</span> <span style="color:#e06c75">WordEncoder</span>) <span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#e06c75">charset</span>, <span style="color:#e06c75">s</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Encode returns the encoded-word form of s. If s is ASCII without special characters, it is returned unchanged. The provided charset is the IANA charset name of s. It is case insensitive.</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;mime&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">mime</span>.<span style="color:#e06c75">QEncoding</span>.<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#98c379">&#34;utf-8&#34;</span>, <span style="color:#98c379">&#34;¡Hola, señor!&#34;</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">mime</span>.<span style="color:#e06c75">QEncoding</span>.<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#98c379">&#34;utf-8&#34;</span>, <span style="color:#98c379">&#34;Hello!&#34;</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">mime</span>.<span style="color:#e06c75">BEncoding</span>.<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#98c379">&#34;UTF-8&#34;</span>, <span style="color:#98c379">&#34;¡Hola, señor!&#34;</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">mime</span>.<span style="color:#e06c75">QEncoding</span>.<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#98c379">&#34;ISO-8859-1&#34;</span>, <span style="color:#98c379">&#34;Caf\xE9&#34;</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-732d9aab5e7e27adafb05089e937d4e4">2 - multipart</h1>
+    
+	<h1 id="multipart">multipart</h1>
+<p><a href="https://pkg.go.dev/mime/multipart@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/mime/multipart@go1.20.1</a></p>
+<p>Package multipart implements MIME multipart parsing, as defined in <a href="https://rfc-editor.org/rfc/rfc2046.html" target="_blank" rel="noopener">RFC 2046</a>.</p>
+<p>The implementation is sufficient for HTTP (<a href="https://rfc-editor.org/rfc/rfc2388.html" target="_blank" rel="noopener">RFC 2388</a>) and the multipart bodies generated by popular browsers.</p>
+<p>Copyright 2023 The Go Authors. All rights reserved. Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.</p>
+<h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=19" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">ErrMessageTooLarge</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;multipart: message too large&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ErrMessageTooLarge is returned by ReadForm if the message form data is too large to be processed.</p>
+<h2 id="函数">函数</h2>
+<p>This section is empty.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-filehttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol246">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=246" target="_blank" rel="noopener">File</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">File</span> <span style="color:#c678dd">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReaderAt</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Seeker</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Closer</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>File is an interface to access the file part of a multipart message. Its contents may be either stored in memory or on disk. If stored on disk, the File&rsquo;s underlying concrete type will be an *os.File.</p>
+<h3 id="type-fileheaderhttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol215">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=215" target="_blank" rel="noopener">FileHeader</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">FileHeader</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Filename</span> <span style="color:#e5c07b">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Header</span>   <span style="color:#e06c75">textproto</span>.<span style="color:#e06c75">MIMEHeader</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Size</span>     <span style="color:#e5c07b">int64</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A FileHeader describes a file part of a multipart request.</p>
+<h4 id="fileheader-openhttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol227">(*FileHeader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=227" target="_blank" rel="noopener">Open</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">fh</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">FileHeader</span>) <span style="color:#61afef;font-weight:bold">Open</span>() (<span style="color:#e06c75">File</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open opens and returns the FileHeader&rsquo;s associated File.</p>
+<h3 id="type-formhttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol193">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=193" target="_blank" rel="noopener">Form</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Form</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Value</span> <span style="color:#c678dd">map</span>[<span style="color:#e5c07b">string</span>][]<span style="color:#e5c07b">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">File</span>  <span style="color:#c678dd">map</span>[<span style="color:#e5c07b">string</span>][]<span style="color:#56b6c2">*</span><span style="color:#e06c75">FileHeader</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Form is a parsed multipart form. Its File parts are stored either in memory or on disk, and are accessible via the *FileHeader&rsquo;s Open method. Its Value parts are stored as strings. Both are keyed by field name.</p>
+<h4 id="form-removeallhttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol199">(*Form) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=199" target="_blank" rel="noopener">RemoveAll</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">f</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Form</span>) <span style="color:#61afef;font-weight:bold">RemoveAll</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>RemoveAll removes any temporary files associated with a Form.</p>
+<h3 id="type-parthttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol35">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=35" target="_blank" rel="noopener">Part</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Part</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// The headers of the body, if any, with the keys canonicalized
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// in the same fashion that the Go http.Request headers are.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// For example, &#34;foo-bar&#34; changes case to &#34;Foo-Bar&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Header</span> <span style="color:#e06c75">textproto</span>.<span style="color:#e06c75">MIMEHeader</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Part represents a single part in a multipart body.</p>
+<h4 id="part-closehttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol308">(*Part) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=308" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">p</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="part-filenamehttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol74">(*Part) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=74" target="_blank" rel="noopener">FileName</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">p</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>) <span style="color:#61afef;font-weight:bold">FileName</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>FileName returns the filename parameter of the Part&rsquo;s Content-Disposition header. If not empty, the filename is passed through filepath.Base (which is platform dependent) before being returned.</p>
+<h4 id="part-formnamehttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol59">(*Part) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=59" target="_blank" rel="noopener">FormName</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">p</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>) <span style="color:#61afef;font-weight:bold">FormName</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>FormName returns the name parameter if p has a Content-Disposition of type &ldquo;form-data&rdquo;. Otherwise it returns the empty string.</p>
+<h4 id="part-readhttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol167">(*Part) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=167" target="_blank" rel="noopener">Read</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">p</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>) <span style="color:#61afef;font-weight:bold">Read</span>(<span style="color:#e06c75">d</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Read reads the body of a part, after its headers and before the next part (if any) begins.</p>
+<h3 id="type-readerhttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol316">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=316" target="_blank" rel="noopener">Reader</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Reader</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reader is an iterator over parts in a MIME multipart body. Reader&rsquo;s underlying parser consumes its input as needed. Seeking isn&rsquo;t supported.</p>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol102">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=102" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">boundary</span> <span style="color:#e5c07b">string</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader creates a new multipart Reader reading from r using the given MIME boundary.</p>
+<p>The boundary is usually obtained from the &ldquo;boundary&rdquo; parameter of the message&rsquo;s &ldquo;Content-Type&rdquo; header. Use mime.ParseMediaType to parse such headers.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="reader-nextparthttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol339">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=339" target="_blank" rel="noopener">NextPart</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">NextPart</span>() (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NextPart returns the next part in the multipart or an error. When there are no more parts, the error io.EOF is returned.</p>
+<p>As a special case, if the &ldquo;Content-Transfer-Encoding&rdquo; header has a value of &ldquo;quoted-printable&rdquo;, that header is instead hidden and the body is transparently decoded during Read calls.</p>
+<h4 id="reader-nextrawparthttpscsopensourcegooglegogogo1201srcmimemultipartmultipartgol348----go114">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/multipart.go;l=348" target="_blank" rel="noopener">NextRawPart</a>  &lt;- go1.14</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">NextRawPart</span>() (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Part</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NextRawPart returns the next part in the multipart or an error. When there are no more parts, the error io.EOF is returned.</p>
+<p>Unlike NextPart, it does not have special handling for &ldquo;Content-Transfer-Encoding: quoted-printable&rdquo;.</p>
+<h4 id="reader-readformhttpscsopensourcegooglegogogo1201srcmimemultipartformdatagol31">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/formdata.go;l=31" target="_blank" rel="noopener">ReadForm</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">ReadForm</span>(<span style="color:#e06c75">maxMemory</span> <span style="color:#e5c07b">int64</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Form</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ReadForm parses an entire multipart message whose parts have a Content-Disposition of &ldquo;form-data&rdquo;. It stores up to maxMemory bytes + 10MB (reserved for non-file parts) in memory. File parts which can&rsquo;t be stored in memory will be stored on disk in temporary files. It returns ErrMessageTooLarge if all non-file parts can&rsquo;t be stored in memory.</p>
+<h3 id="type-writerhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol19">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=19" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Writer generates multipart messages.</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol27">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=27" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter returns a new multipart Writer with a random boundary, writing to w.</p>
+<h4 id="writer-boundaryhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol35">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=35" target="_blank" rel="noopener">Boundary</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Boundary</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Boundary returns the Writer&rsquo;s boundary.</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srcmimemultipartwritergol170">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=170" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close finishes the multipart message and writes the trailing boundary end line to the output.</p>
+<h4 id="writer-createformfieldhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol151">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=151" target="_blank" rel="noopener">CreateFormField</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">CreateFormField</span>(<span style="color:#e06c75">fieldname</span> <span style="color:#e5c07b">string</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CreateFormField calls CreatePart with a header using the given field name.</p>
+<h4 id="writer-createformfilehttpscsopensourcegooglegogogo1201srcmimemultipartwritergol140">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=140" target="_blank" rel="noopener">CreateFormFile</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">CreateFormFile</span>(<span style="color:#e06c75">fieldname</span>, <span style="color:#e06c75">filename</span> <span style="color:#e5c07b">string</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CreateFormFile is a convenience wrapper around CreatePart. It creates a new form-data header with the provided field name and file name.</p>
+<h4 id="writer-createparthttpscsopensourcegooglegogogo1201srcmimemultipartwritergol97">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=97" target="_blank" rel="noopener">CreatePart</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">CreatePart</span>(<span style="color:#e06c75">header</span> <span style="color:#e06c75">textproto</span>.<span style="color:#e06c75">MIMEHeader</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>CreatePart creates a new multipart section with the provided header. The body of the part should be written to the returned Writer. After calling CreatePart, any previous part may no longer be written to.</p>
+<h4 id="writer-formdatacontenttypehttpscsopensourcegooglegogogo1201srcmimemultipartwritergol74">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=74" target="_blank" rel="noopener">FormDataContentType</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">FormDataContentType</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>FormDataContentType returns the Content-Type for an HTTP multipart/form-data with this Writer&rsquo;s Boundary.</p>
+<h4 id="writer-setboundaryhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol45----go11">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=45" target="_blank" rel="noopener">SetBoundary</a>  &lt;- go1.1</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">SetBoundary</span>(<span style="color:#e06c75">boundary</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>SetBoundary overrides the Writer&rsquo;s default randomly-generated boundary separator with an explicit value.</p>
+<p>SetBoundary must be called before any parts are created, may only contain certain ASCII characters, and must be non-empty and at most 70 bytes long.</p>
+<h4 id="writer-writefieldhttpscsopensourcegooglegogogo1201srcmimemultipartwritergol159">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/multipart/writer.go;l=159" target="_blank" rel="noopener">WriteField</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">WriteField</span>(<span style="color:#e06c75">fieldname</span>, <span style="color:#e06c75">value</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>WriteField calls CreateFormField and then writes the given value.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f73782cd84af7549a50df1a35b7feb46">3 - quotedprintable</h1>
+    
+	<h1 id="quotedprintable">quotedprintable</h1>
+<p><a href="https://pkg.go.dev/mime/quotedprintable@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/mime/quotedprintable@go1.20.1</a></p>
+<p>Package quotedprintable implements quoted-printable encoding as specified by <a href="https://rfc-editor.org/rfc/rfc2045.html" target="_blank" rel="noopener">RFC 2045</a>.</p>
+<h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<p>This section is empty.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-readerhttpscsopensourcegooglegogogo1201srcmimequotedprintablereadergol17">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/reader.go;l=17" target="_blank" rel="noopener">Reader</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Reader</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reader is a quoted-printable decoder.</p>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srcmimequotedprintablereadergol24">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/reader.go;l=24" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader returns a quoted-printable reader, decoding from r.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="reader-readhttpscsopensourcegooglegogogo1201srcmimequotedprintablereadergol72">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/reader.go;l=72" target="_blank" rel="noopener">Read</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Read</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Read reads and decodes quoted-printable data from the underlying reader.</p>
+<h3 id="type-writerhttpscsopensourcegooglegogogo1201srcmimequotedprintablewritergol12">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/writer.go;l=12" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Binary mode treats the writer&#39;s input as pure binary and processes end of
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// line bytes as binary data.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Binary</span> <span style="color:#e5c07b">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Writer is a quoted-printable writer that implements io.WriteCloser.</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srcmimequotedprintablewritergol24">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/writer.go;l=24" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter returns a new Writer that writes to w.</p>
+<h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="writer-closehttpscsopensourcegooglegogogo1201srcmimequotedprintablewritergol67">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/writer.go;l=67" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Writer, flushing any unwritten data to the underlying io.Writer, but does not close the underlying io.Writer.</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srcmimequotedprintablewritergol31">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/mime/quotedprintable/writer.go;l=31" target="_blank" rel="noopener">Write</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Write encodes p using quoted-printable encoding and writes it to the underlying io.Writer. It limits line length to 76 characters. The encoded bytes are not necessarily flushed until the Writer is closed.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Docsy Authors </small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener"></a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.9069af235eb4d4956fc4dc29e5ca46caef0cdcae593856be4e33c99075bc5ea2.js" integrity="sha256-kGmvI1601JVvxNwp5cpGyu8M3K5ZOFa&#43;TjPJkHW8XqI=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script src='/js/deal-zero-width-space.js'></script>
+  </body>
+</html>

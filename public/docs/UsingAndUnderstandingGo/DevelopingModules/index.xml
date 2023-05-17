@@ -1,0 +1,718 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go文档集 – 开发模块</title>
+    <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/</link>
+    <description>Recent content in 开发模块 on go文档集</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 17 May 2023 15:03:14 +0800</lastBuildDate>
+    
+	  <atom:link href="http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 开发和发布模块</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/DevelopingAndPublishingModules/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/DevelopingAndPublishingModules/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;developing-and-publishing-modules---开发和发布模块&#34;&gt;Developing and publishing modules - 开发和发布模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&#34;https://go.dev/doc/modules/developing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://go.dev/doc/modules/developing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​	您可以将相关的包收集到模块中，然后发布该模块供其他开发人员使用。本主题概述了开发和发布模块的概述。&lt;/p&gt;
+&lt;p&gt;​	为了支持模块的开发、发布和使用，您需要使用以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过该流程，您可以开发和发布模块，并随时间进行新版本的修订。请参阅&amp;quot;开发和发布模块的工作流程&amp;quot;。&lt;/li&gt;
+&lt;li&gt;设计实践，帮助模块的用户理解并以稳定的方式升级到新版本。请参阅&amp;quot;设计和开发&amp;quot;。&lt;/li&gt;
+&lt;li&gt;一个去中心化系统，用于发布模块和检索其代码。您可以将自己的模块从自己的存储库中提供给其他开发人员使用，并发布一个版本号。请参阅&amp;quot;去中心化发布&amp;quot;。&lt;/li&gt;
+&lt;li&gt;一个包搜索引擎和文档浏览器（pkg.go.dev），开发人员可以在其中找到您的模块。请参阅&amp;quot;包发现&amp;quot;。&lt;/li&gt;
+&lt;li&gt;一种模块版本编号约定，以向使用您的模块的开发人员传达稳定性和向后兼容性的期望。请参阅&amp;quot;版本控制&amp;quot;。&lt;/li&gt;
+&lt;li&gt;Go 工具可以使其他开发人员更轻松地管理依赖项，包括获取您的模块源代码、升级等。请参阅&amp;quot;&lt;a href=&#34;../../ManagingDependencies&#34;&gt;管理依赖项&lt;/a&gt;&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另请参阅&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果您只是想使用其他人开发的包，这个主题不适合你。请参阅&amp;quot;&lt;a href=&#34;../../ManagingDependencies&#34;&gt;管理依赖项&lt;/a&gt;&amp;quot;。&lt;/li&gt;
+&lt;li&gt;有关包括一些模块开发基础的教程，请参阅&amp;quot;&lt;a href=&#34;../../../GettingStarted/TutorialCreateAGoModule&#34;&gt;教程：创建一个Go模块&lt;/a&gt;&amp;quot;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;开发和发布模块的工作流程&#34;&gt;开发和发布模块的工作流程&lt;/h2&gt;
+&lt;p&gt;​	当您想要为其他人发布模块时，您需要采用一些约定，以便使用这些模块更加容易。&lt;/p&gt;
+&lt;p&gt;​	以下高级步骤在&amp;quot;&lt;a href=&#34;../ModuleReleaseAndVersioningWorkflow&#34;&gt;模块发布和版本控制工作流程&lt;/a&gt;&amp;ldquo;中有更详细的描述。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设计和编写模块包含的包。&lt;/li&gt;
+&lt;li&gt;使用确保通过 Go 工具可供其他人使用的约定将代码提交到存储库。&lt;/li&gt;
+&lt;li&gt;发布模块以使其可供开发人员发现。&lt;/li&gt;
+&lt;li&gt;随时间修订模块，使用一种版本编号约定来表示每个版本的稳定性和向后兼容性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;设计与开发&#34;&gt;设计与开发&lt;/h2&gt;
+&lt;p&gt;​	如果模块中的函数和包形成了一个一致的整体，那么其他开发人员将更容易找到和使用您的模块。在设计模块的公共API时，请尽量使其功能集中和离散化。&lt;/p&gt;
+&lt;p&gt;​	此外，考虑到向后兼容性来设计和开发模块有助于其用户在升级时最小化其代码的重构。您可以在代码中使用某些技术，以避免发布破坏向后兼容性的版本。有关这些技术的更多信息，请参见Go博客中的&amp;rdquo;&lt;a href=&#34;../../../GoBlog/2020/KeepingYourModulesCompatible&#34;&gt;保持模块兼容&lt;/a&gt;&amp;quot;。&lt;/p&gt;
+&lt;p&gt;​	在发布模块之前，您可以使用&amp;quot;replace&amp;quot;指令在本地文件系统上引用它。这使编写客户端代码来调用模块中的函数更容易，同时模块仍处于开发中。有关更多信息，请参见&amp;quot;&lt;a href=&#34;../ModuleReleaseAndVersioningWorkflow&#34;&gt;模块发布和版本控制工作流程&lt;/a&gt;&amp;ldquo;中的&amp;quot;针对未发布模块的编码&amp;rdquo;。&lt;/p&gt;
+&lt;h2 id=&#34;去中心化发布&#34;&gt;去中心化发布&lt;/h2&gt;
+&lt;p&gt;​	在Go中，您通过在存储库中标记其代码来发布模块，以使其他开发人员可以使用它。您无需将模块推送到集中式服务，因为Go工具可以直接从您的存储库（使用省略了协议的URL作为模块路径）或代理服务器下载您的模块。&lt;/p&gt;
+&lt;p&gt;​	在其代码中导入您的包后，开发人员使用Go工具（包括&lt;code&gt;go get&lt;/code&gt;命令）下载您的模块代码以进行编译。为支持此模型，您需要遵循使Go工具（代表另一个开发人员）从您的存储库检索模块源代码的惯例和最佳实践。例如，Go工具使用您指定的模块路径以及您用于标记模块发布的模块版本号来定位并下载模块以供其用户使用。&lt;/p&gt;
+&lt;p&gt;​	有关源和发布惯例和最佳实践的更多信息，请参见&amp;quot;&lt;a href=&#34;../ManagingModuleSource&#34;&gt;管理模块源&lt;/a&gt;&amp;quot;。&lt;/p&gt;
+&lt;p&gt;​	有关发布模块的逐步说明，请参见&amp;quot;&lt;a href=&#34;../PublishingAModule&#34;&gt;发布模块&lt;/a&gt;&amp;quot;。&lt;/p&gt;
+&lt;h2 id=&#34;包发现&#34;&gt;包发现&lt;/h2&gt;
+&lt;p&gt;​	在您发布了模块并有人使用Go工具获取它之后，它将出现在Go包发现站点&lt;a href=&#34;https://pkg.go.dev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pkg.go.dev&lt;/a&gt;上。在那里，开发人员可以搜索该站点以找到它并阅读其文档。&lt;/p&gt;
+&lt;p&gt;​	要开始使用该模块，开发人员从该模块中导入包，然后运行&lt;code&gt;go get&lt;/code&gt;命令以下载其源代码以进行编译。&lt;/p&gt;
+&lt;p&gt;​	有关开发人员如何找到和使用模块的更多信息，请参见&amp;quot;&lt;a href=&#34;../../ManagingDependencies&#34;&gt;管理依赖项&lt;/a&gt;&amp;quot;。&lt;/p&gt;
+&lt;h2 id=&#34;版本控制&#34;&gt;版本控制&lt;/h2&gt;
+&lt;p&gt;​	随着时间的推移，当你对模块进行修订和改进时，你会分配版本号（基于语义化版本控制模型），旨在标识每个版本的稳定性和向后兼容性。这有助于使用你的模块的开发人员确定模块何时稳定，以及升级是否可能包含行为上的重大更改。你可以通过在代码库中标记模块的源代码来指示模块的版本号。&lt;/p&gt;
+&lt;p&gt;​	关于开发主版本更新的更多信息，请参见&lt;a href=&#34;../DevelopingAmajorVersionUpdate&#34;&gt;开发主版本更新&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;​	关于如何使用 Go 模块的语义化版本控制模型的更多信息，请参见&lt;a href=&#34;../ModuleVersionNumbering&#34;&gt;模块版本编号&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 模块发布和版本管理的工作流程</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ModuleReleaseAndVersioningWorkflow/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ModuleReleaseAndVersioningWorkflow/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;module-release-and-versioning-workflow---模块发布和版本管理的工作流程&#34;&gt;Module release and versioning workflow - 模块发布和版本管理的工作流程&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&#34;https://go.dev/doc/modules/release-workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://go.dev/doc/modules/release-workflow&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When you develop modules for use by other developers, you can follow a workflow that helps ensure a reliable, consistent experience for developers using the module. This topic describes the high-level steps in that workflow.&lt;/p&gt;
+&lt;p&gt;当你开发模块供其他开发者使用时，你可以遵循一个工作流程，以帮助确保使用该模块的开发者获得可靠、一致的体验。本主题描述了该工作流程中的高级步骤。&lt;/p&gt;
+&lt;p&gt;For an overview of module development, see &lt;a href=&#34;https://go.dev/doc/modules/developing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing and publishing modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;关于模块开发的概述，请参阅开发和发布模块。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See also&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;另见&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you’re merely wanting to use external packages in your code, be sure to see &lt;a href=&#34;https://go.dev/doc/modules/managing-dependencies&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing dependencies&lt;/a&gt;.如果你只是想在你的代码中使用外部包，一定要看管理依赖性。&lt;/li&gt;
+&lt;li&gt;With each new version, you signal the changes to your module with its version number. For more, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.在每一个新的版本中，你都要用版本号来表示你的模块的变化。更多信息，请参见模块版本号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;common-workflow-steps-常见的工作流程步骤&#34;&gt;Common workflow steps 常见的工作流程步骤&lt;/h2&gt;
+&lt;p&gt;The following sequence illustrates release and versioning workflow steps for an example new module. For more about each step, see the sections in this topic.&lt;/p&gt;
+&lt;p&gt;下面的顺序说明了一个新模块例子的发布和版本管理工作流程步骤。关于每个步骤的更多信息，请参见本主题中的章节。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Begin a module&lt;/strong&gt; and organize its sources to make it easier for developers to use and for you to maintain.开始一个模块，并组织它的源代码，使它更容易被开发人员使用，也更容易被你维护。&lt;/p&gt;
+&lt;p&gt;If you’re brand new to developing modules, check out &lt;a href=&#34;https://go.dev/doc/tutorial/create-module&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tutorial: Create a Go module&lt;/a&gt;.如果你是开发模块的新手，请查看教程。创建一个Go模块。&lt;/p&gt;
+&lt;p&gt;In Go’s decentralized module publishing system, how you organize your code matters. For more, see &lt;a href=&#34;https://go.dev/doc/modules/managing-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing module source&lt;/a&gt;.在Go的分散式模块发布系统中，你如何组织你的代码很重要。更多信息，请看管理模块源代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set up to &lt;strong&gt;write local client code&lt;/strong&gt; that calls functions in the unpublished module.设置编写本地客户端代码，调用未发布模块中的函数。&lt;/p&gt;
+&lt;p&gt;Before you publish a module, it’s unavailable for the typical dependency management workflow using commands such as &lt;code&gt;go get&lt;/code&gt;. A good way to test your module code at this stage is to try it while it is in a directory local to your calling code.在你发布一个模块之前，它在典型的依赖性管理工作流程中是不可用的，比如使用 go get 命令。在这个阶段，测试你的模块代码的一个好方法是，当它在你的调用代码的本地目录中时，就可以尝试它。&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#unpublished&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Coding against an unpublished module&lt;/a&gt; for more about local development.关于本地开发的更多信息，请参见针对未发布模块的编码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When the module’s code is ready for other developers to try it out, &lt;strong&gt;begin publishing v0 pre-releases&lt;/strong&gt; such as alphas and betas. See &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#pre-release&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing pre-release versions&lt;/a&gt; for more.当模块的代码准备好供其他开发者试用时，开始发布预发布版本，如alphas和betas。参见发布预发布版本以了解更多信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Release a v0&lt;/strong&gt; that’s not guaranteed to be stable, but which users can try out. For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#first-unstable&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing the first (unstable) version&lt;/a&gt;.发布一个不保证稳定的v0版本，但用户可以试用。更多内容请参见发布第一个（不稳定）版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After your v0 version is published, you can (and should!) continue to &lt;strong&gt;release new versions&lt;/strong&gt; of it.在你的v0版本发布之后，你可以（而且应该！）继续发布新的版本。&lt;/p&gt;
+&lt;p&gt;These new versions might include bug fixes (patch releases), additions to the module’s public API (minor releases), and even breaking changes. Because a v0 release makes no guarantees of stability or backward compatibility, you can make breaking changes in its versions.这些新版本可能包括错误的修正（补丁发布），对模块的公共API的补充（次要发布），甚至是突破性的改变。因为v0版本不保证稳定性或向后兼容性，所以你可以在其版本中进行破坏性的修改。&lt;/p&gt;
+&lt;p&gt;For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#bug-fixes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing bug fixes&lt;/a&gt; and &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#non-breaking&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing non-breaking API changes&lt;/a&gt;.更多信息，请参阅发布错误修复和发布非破坏性的API变化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When you’re getting a stable version ready for release, you &lt;strong&gt;publish pre-releases as alphas and betas&lt;/strong&gt;. For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#pre-release&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing pre-release versions&lt;/a&gt;.当你准备发布一个稳定的版本时，你可以将预发布版本作为alphas和betas发布。更多信息，请参见发布预发布版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Release a v1 as the &lt;strong&gt;first stable release&lt;/strong&gt;.发布一个v1版本作为第一个稳定版本。&lt;/p&gt;
+&lt;p&gt;This is the first release that makes commitments about the module’s stability. For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#first-stable&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing the first stable version&lt;/a&gt;.这是对模块的稳定性做出承诺的第一个版本。更多信息，请参见发布第一个稳定版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the v1 version, &lt;strong&gt;continue to fix bugs&lt;/strong&gt; and, where necessary, make additions to the module’s public API.在v1版本中，继续修复bug，必要时对模块的公共API进行补充。&lt;/p&gt;
+&lt;p&gt;For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#bug-fixes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing bug fixes&lt;/a&gt; and &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#non-breaking&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing non-breaking API changes&lt;/a&gt;.更多信息，请参见发布错误修复和发布非破坏性的API变化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When it can’t be avoided, publish breaking changes in a &lt;strong&gt;new major version&lt;/strong&gt;.当无法避免时，在一个新的主要版本中发布破坏性变化。&lt;/p&gt;
+&lt;p&gt;A major version update – such as from v1.x.x to v2.x.x – can be a very disruptive upgrade for your module’s users. It should be a last resort. For more, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow#breaking&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing breaking API changes&lt;/a&gt;.一个主要的版本更新&amp;ndash;比如从v1.x.x到v2.x.x&amp;ndash;对你的模块用户来说可能是一个非常有破坏性的升级。这应该是最后的手段。更多信息，请看发布破坏性的API变化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;coding-against-an-unpublished-module-针对未发布的模块进行编码&#34;&gt;Coding against an unpublished module 针对未发布的模块进行编码&lt;/h2&gt;
+&lt;p&gt;When you begin developing a module or a new version of a module, you won’t yet have published it. Before you publish a module, you won’t be able to use Go commands to add the module as a dependency. Instead, at first, when writing client code in a different module that calls functions in the unpublished module, you’ll need to reference a copy of the module on the local file system.&lt;/p&gt;
+&lt;p&gt;当你开始开发一个模块或一个模块的新版本时，你还没有发布它。在你发布模块之前，你无法使用Go命令将该模块作为一个依赖项添加。相反，一开始，当在不同的模块中写客户端代码调用未发布的模块中的函数时，你需要在本地文件系统中引用该模块的一个副本。&lt;/p&gt;
+&lt;p&gt;You can reference a module locally from the client module’s go.mod file by using the &lt;code&gt;replace&lt;/code&gt; directive in the client module’s go.mod file. For more information, see in &lt;a href=&#34;https://go.dev/doc/modules/managing-dependencies#local_directory&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Requiring module code in a local directory&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你可以通过在客户端模块的go.mod文件中使用替换指令，在本地引用一个模块。更多信息，请参见《要求本地目录中的模块代码》。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-pre-release-versions-发布预发布版本&#34;&gt;Publishing pre-release versions 发布预发布版本&lt;/h2&gt;
+&lt;p&gt;You can publish pre-release versions to make a module available for others to try it out and give you feedback. A pre-release version includes no guarantee of stability.&lt;/p&gt;
+&lt;p&gt;你可以发布预发布版本，让其他人试用模块并给你反馈。预发布版本不包括稳定性的保证。&lt;/p&gt;
+&lt;p&gt;Pre-release version numbers are appended with a pre-release identifier. For more on version numbers, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;预发布的版本号后面有一个预发布的标识符。更多关于版本号的信息，请参见模块版本号。&lt;/p&gt;
+&lt;p&gt;Here are two examples:&lt;/p&gt;
+&lt;p&gt;这里有两个例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;v0.2.1-beta.1
+v1.2.3-alpha
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When making a pre-release available, keep in mind that developers using the pre-release will need to explicitly specify it by version with the &lt;code&gt;go get&lt;/code&gt; command. That’s because, by default, the &lt;code&gt;go&lt;/code&gt; command prefers release versions over pre-release versions when locating the module you’re asking for. So developers must get the pre-release by specifying it explicitly, as in the following example:&lt;/p&gt;
+&lt;p&gt;在提供预发布版本时，请记住，使用预发布版本的开发者需要用go get命令明确指定它的版本。这是因为，默认情况下，go命令在定位你所要求的模块时，更倾向于选择发布版本而不是预发布版本。因此，开发者必须通过明确指定预发布版本来获得预发布版本，如下面的例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;go get example.com/theirmodule@v1.2.3-alpha
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You publish a pre-release by tagging the module code in your repository, specifying the pre-release identifier in the tag. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你可以通过在你的版本库中标记模块代码来发布预发布版本，在标记中指定预发布版本的标识符。更多信息请参见发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-the-first-unstable-version-发布第一个不稳定版本&#34;&gt;Publishing the first (unstable) version 发布第一个（不稳定）版本&lt;/h2&gt;
+&lt;p&gt;As when you publish a pre-release version, you can publish release versions that don’t guarantee stability or backward compatibility, but give your users an opportunity to try out the module and give you feedback.&lt;/p&gt;
+&lt;p&gt;就像你发布预发布版本一样，你可以发布不保证稳定性或向后兼容性的发布版本，但给你的用户一个机会来试用模块并给你反馈。&lt;/p&gt;
+&lt;p&gt;Unstable releases are those whose version numbers are in the v0.x.x range. A v0 version makes no stability or backward compatibility guarantees. But it gives you a way to get feedback and refine your API before making stability commitments with v1 and later. For more see, &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;不稳定的版本是指那些版本号在v0.x.x范围内的版本。v0版本没有稳定性或向后兼容性的保证。但它为你提供了一种方法，让你在对v1及以后的版本做出稳定性承诺之前获得反馈并完善你的API。更多信息请见，模块的版本编号。&lt;/p&gt;
+&lt;p&gt;As with other published versions, you can increment the minor and patch parts of the v0 version number as you make changes toward releasing a stable v1 version. For example, after releasing a v.0.0.0, you might release a v0.0.1 with the first set of bug fixes.&lt;/p&gt;
+&lt;p&gt;与其他发布的版本一样，当你为发布稳定的v1版本而进行修改时，你可以增加v0版本号的次要部分和补丁部分。例如，在发布了v.0.0.0之后，你可以发布带有第一组错误修复的v0.0.1。&lt;/p&gt;
+&lt;p&gt;Here’s an example version number:&lt;/p&gt;
+&lt;p&gt;下面是一个版本号的例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;v0.1.3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You publish an unstable release by tagging the module code in your repository, specifying a v0 version number in the tag. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你可以通过在你的版本库中标记模块代码来发布一个不稳定的版本，并在标记中指定一个v0的版本号。更多信息，请看发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-the-first-stable-version-发布第一个稳定版本&#34;&gt;Publishing the first stable version 发布第一个稳定版本&lt;/h2&gt;
+&lt;p&gt;Your first stable release will have a v1.x.x version number. The first stable release follows pre-release and v0 releases through which you got feedback, fixed bugs, and stabilized the module for users.&lt;/p&gt;
+&lt;p&gt;你的第一个稳定版本会有一个v1.x.x的版本号。第一个稳定版本是在预发布和v0版本之后发布的，通过这些版本你可以得到反馈，修复错误，并为用户稳定模块。&lt;/p&gt;
+&lt;p&gt;With a v1 release, you’re making the following commitments to developers using your module:&lt;/p&gt;
+&lt;p&gt;有了v1版本，你就对使用你的模块的开发者做出了以下承诺：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;They can upgrade to the major version’s subsequent minor and patch releases without breaking their own code. 他们可以升级到主要版本的后续次要版本和补丁版本，而不会破坏自己的代码。&lt;/li&gt;
+&lt;li&gt;You won’t be making further changes to the module’s public API – including its function and method signatures – that break backward compatibility.你不会对模块的公共API（包括其函数和方法签名）做进一步的修改，从而破坏向后的兼容性。&lt;/li&gt;
+&lt;li&gt;You won’t be removing any exported types, which would break backward compatibility.你不会删除任何导出的类型，这将破坏后向兼容性。&lt;/li&gt;
+&lt;li&gt;Future changes to your API (such as adding a new field to a struct) will be backward compatible and will be included in a new minor release.未来对你的API的改变（比如给结构添加一个新的字段）将是向后兼容的，并将包含在一个新的次要版本中。&lt;/li&gt;
+&lt;li&gt;Bug fixes (such as a security fix) will be included in a patch release or as part of a minor release.错误修复（如安全修复）将包含在补丁发布中或作为小版本的一部分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; While your first major version might be a v0 release, a v0 version does not signal stability or backward compatibility guarantees. As a result, when you increment from v0 to v1, you needn’t be mindful of breaking backward compatibility because the v0 release was not considered stable.&lt;/p&gt;
+&lt;p&gt;注意：虽然你的第一个主要版本可能是v0版本，但v0版本并不代表稳定性或向后兼容性的保证。因此，当你从v0增加到v1时，你不需要注意破坏后向兼容性，因为v0版本不被视为稳定。&lt;/p&gt;
+&lt;p&gt;For more about version numbers, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;欲了解更多关于版本号的信息，请参见模块版本号。&lt;/p&gt;
+&lt;p&gt;Here’s an example of a stable version number:&lt;/p&gt;
+&lt;p&gt;下面是一个稳定版本号的例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;v1.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You publish a first stable release by tagging the module code in your repository, specifying a v1 version number in the tag. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你通过在你的版本库中标记模块代码来发布第一个稳定版本，并在标记中指定v1的版本号。更多信息，请参见发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-bug-fixes-发布错误修复&#34;&gt;Publishing bug fixes 发布错误修复&lt;/h2&gt;
+&lt;p&gt;You can publish a release in which the changes are limited to bug fixes. This is known as a patch release.&lt;/p&gt;
+&lt;p&gt;你可以发布一个变化仅限于错误修复的版本。这就是所谓的补丁发布。&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;patch release&lt;/em&gt; includes only minor changes. In particular, it includes no changes to the module’s public API. Developers of consuming code can upgrade to this version safely and without needing to change their code.&lt;/p&gt;
+&lt;p&gt;补丁发布只包括微小的变化。特别是，它不包括对模块的公共API的改变。消耗代码的开发者可以安全地升级到这个版本，而不需要改变他们的代码。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Your patch release should try not to upgrade any of that module’s own transitive dependencies by more than a patch release. Otherwise, someone upgrading to the patch of your module could wind up accidentally pulling in a more invasive change to a transitive dependency that they use.&lt;/p&gt;
+&lt;p&gt;注意：你的补丁版本应该尽量不要将该模块自身的横向依赖关系升级到一个以上的补丁版本。否则，升级到你的模块的补丁的人可能会意外地对他们使用的过渡性依赖关系进行更多的修改。&lt;/p&gt;
+&lt;p&gt;A patch release increments the patch part of the module’s version number. For more see, &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;补丁的发布会增加模块的版本号中的补丁部分。更多信息请看，模块版本号。&lt;/p&gt;
+&lt;p&gt;In the following example, v1.0.1 is a patch release.&lt;/p&gt;
+&lt;p&gt;在下面的例子中，v1.0.1是一个补丁版本。&lt;/p&gt;
+&lt;p&gt;Old version: &lt;code&gt;v1.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;New version: &lt;code&gt;v1.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You publish a patch release by tagging the module code in your repository, incrementing the patch version number in the tag. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你可以通过在版本库中标记模块代码来发布一个补丁版本，在标记中增加补丁版本号。更多信息请参见发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-non-breaking-api-changes-发布非破坏性的api变更&#34;&gt;Publishing non-breaking API changes 发布非破坏性的API变更&lt;/h2&gt;
+&lt;p&gt;You can make non-breaking changes to your module’s public API and publish those changes in a &lt;em&gt;minor&lt;/em&gt; version release.&lt;/p&gt;
+&lt;p&gt;你可以对你的模块的公共API进行非破坏性的修改，并将这些修改发布在一个小版本中。&lt;/p&gt;
+&lt;p&gt;This version changes the API, but not in a way that breaks calling code. This might include changes to a module’s own dependencies or the addition of new functions, methods, struct fields, or types. Even with the changes it includes, this kind of release guarantees backward compatibility and stability for existing code that calls the module’s functions.&lt;/p&gt;
+&lt;p&gt;这个版本会改变API，但不会破坏调用代码。这可能包括对模块本身的依赖性的改变，或者增加新的函数、方法、结构域或类型。即使它包括了一些变化，这种版本也能保证调用该模块功能的现有代码的向后兼容性和稳定性。&lt;/p&gt;
+&lt;p&gt;A minor release increments the minor part of the module’s version number. For more, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;一个次要版本会增加模块的版本号的次要部分。更多信息请参见模块版本号。&lt;/p&gt;
+&lt;p&gt;In the following example, v1.1.0 is a minor release.&lt;/p&gt;
+&lt;p&gt;在下面的例子中，v1.1.0是一个次要版本。&lt;/p&gt;
+&lt;p&gt;Old version: &lt;code&gt;v1.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;New version: &lt;code&gt;v1.1.0&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You publish a minor release by tagging the module code in your repository, incrementing the minor version number in the tag. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;你可以通过在版本库中标记模块代码来发布一个次要版本，在标记中增加次要版本号。更多信息请参见发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;publishing-breaking-api-changes-发布破坏性的api变化&#34;&gt;Publishing breaking API changes 发布破坏性的API变化&lt;/h2&gt;
+&lt;p&gt;You can publish a version that breaks backward compatibility by publishing a &lt;em&gt;major&lt;/em&gt; version release.&lt;/p&gt;
+&lt;p&gt;你可以通过发布一个主要版本来发布一个破坏后向兼容性的版本。&lt;/p&gt;
+&lt;p&gt;A major version release doesn’t guarantee backward compatibility, typically because it includes changes to the module’s public API that would break code using the module’s previous versions.&lt;/p&gt;
+&lt;p&gt;一个主要版本的发布并不能保证向后兼容，通常是因为它包括对模块的公共API的修改，这些修改会破坏使用该模块以前版本的代码。&lt;/p&gt;
+&lt;p&gt;Given the disruptive effect a major version upgrade can have on code relying on the module, you should avoid a major version update if you can. For more about major version updates, see &lt;a href=&#34;https://go.dev/doc/modules/major-version&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing a major version update&lt;/a&gt;. For strategies to avoid making breaking changes, see the blog post &lt;a href=&#34;https://blog.golang.org/module-compatibility&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Keeping your modules compatible&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;考虑到主要版本升级对依赖该模块的代码可能产生的破坏性影响，如果可以的话，你应该避免主要版本更新。更多关于主要版本更新的信息，请看开发主要版本更新。关于避免破坏性修改的策略，请看博客文章《保持你的模块的兼容性》。&lt;/p&gt;
+&lt;p&gt;Where publishing other kinds of versions requires essentially tagging the module code with the version number, publishing a major version update requires more steps.&lt;/p&gt;
+&lt;p&gt;发布其他类型的版本只需要在模块代码上标记版本号，而发布主要版本更新需要更多的步骤。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Before beginning development of the new major version, in your repository create a place for the new version’s source. 在开始开发新的主要版本之前，在你的版本库中为新版本的源代码创建一个地方。&lt;/p&gt;
+&lt;p&gt;One way to do this is to create a new branch in your repository that is specifically for the new major version and its subsequent minor and patch versions. For more, see &lt;a href=&#34;https://go.dev/doc/modules/managing-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing module source&lt;/a&gt;.一种方法是在你的版本库中创建一个新的分支，专门用于新的主版本及其后续的次版本和补丁版本。更多信息请参见管理模块源代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the module’s go.mod file, revise the module path to append the new major version number, as in the following example:在模块的go.mod文件中，修改模块的路径，添加新的主要版本号，如下面的例子。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;example.com/mymodule/v2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Given that the module path is the module’s identifier, this change effectively creates a new module. It also changes the package path, ensuring that developers won’t unintentionally import a version that breaks their code. Instead, those wanting to upgrade will explicitly replace occurrences of the old path with the new one.考虑到模块路径是模块的标识符，这一改变有效地创建了一个新模块。它也改变了包的路径，确保开发者不会无意中导入一个破坏他们代码的版本。相反，那些想要升级的人将明确地用新的路径来替换旧的路径的出现。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In your code, change any package paths where you’re importing packages in the module you’re updating, including packages in the module you’re updating. You need to do this because you changed your module path.在你的代码中，改变任何你要导入的模块中的包的路径，包括你要更新的模块中的包。你需要这样做是因为你改变了你的模块路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As with any new release, you should publish pre-release versions to get feedback and bug reports before publishing an official release.与任何新版本一样，在发布正式版本之前，你应该发布预发布版本以获得反馈和错误报告。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Publish the new major version by tagging the module code in your repository, incrementing the major version number in the tag – such as from v1.5.2 to v2.0.0.通过在你的版本库中标记模块代码来发布新的主要版本，在标记中增加主要版本号&amp;ndash;比如从v1.5.2到v2.0.0。&lt;/p&gt;
+&lt;p&gt;For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;更多信息请参见发布模块。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 管理模块来源</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ManagingModuleSource/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ManagingModuleSource/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;managing-module-source---管理模块来源&#34;&gt;Managing module source - 管理模块来源&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&#34;https://go.dev/doc/modules/managing-source&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://go.dev/doc/modules/managing-source&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When you’re developing modules to publish for others to use, you can help ensure that your modules are easier for other developers to use by following the repository conventions described in this topic.&lt;/p&gt;
+&lt;p&gt;当你开发模块并发布给其他人使用时，你可以通过遵循本主题中描述的版本库惯例，帮助确保你的模块更容易被其他开发者使用。&lt;/p&gt;
+&lt;p&gt;This topic describes actions you might take when managing your module repository. For information about the sequence of workflow steps you’d take when revising from version to version, see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module release and versioning workflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;本主题描述了你在管理你的模块库时可能采取的行动。关于你在修订版本时采取的工作流程步骤的顺序，请参阅模块发布和版本工作流程。&lt;/p&gt;
+&lt;p&gt;Some of the conventions described here are required in modules, while others are best practices. This content assumes you’re familiar with the basic module use practices described in &lt;a href=&#34;https://go.dev/doc/modules/managing-dependencies&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing dependencies&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;这里描述的一些惯例在模块中是必须的，而另一些则是最佳实践。本内容假定你已经熟悉了管理依赖关系中描述的基本模块使用惯例。&lt;/p&gt;
+&lt;p&gt;Go supports the following repositories for publishing modules: Git, Subversion, Mercurial, Bazaar, and Fossil.&lt;/p&gt;
+&lt;p&gt;Go支持以下发布模块的存储库。Git、Subversion、Mercurial、Bazaar和Fossil。&lt;/p&gt;
+&lt;p&gt;For an overview of module development, see &lt;a href=&#34;https://go.dev/doc/modules/developing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing and publishing modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;关于模块开发的概述，请参阅开发和发布模块。&lt;/p&gt;
+&lt;h2 id=&#34;how-go-tools-find-your-published-module-go工具如何找到你发布的模块&#34;&gt;How Go tools find your published module Go工具如何找到你发布的模块&lt;/h2&gt;
+&lt;p&gt;In Go’s decentralized system for publishing modules and retrieving their code, you can publish your module while leaving the code in your repository. Go tools rely on naming rules that have repository paths and repository tags indicating a module’s name and version number. When your repository follows these requirements, your module code is downloadable from your repository by Go tools such as the &lt;a href=&#34;https://go.dev/ref/mod#go-get&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;go get&lt;/code&gt; command&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;在 Go 的发布模块和检索其代码的分散系统中，你可以发布你的模块，同时将代码留在你的仓库中。Go工具依赖于命名规则，这些规则有版本库路径和版本库标签，表明模块的名称和版本号。当你的版本库遵循这些要求时，你的模块代码就可以被Go工具（如go get命令）从你的版本库下载。&lt;/p&gt;
+&lt;p&gt;When a developer uses the &lt;code&gt;go get&lt;/code&gt; command to get source code for packages their code imports, the command does the following:&lt;/p&gt;
+&lt;p&gt;当开发者使用go get命令来获取他们的代码所导入的包的源代码时，该命令会做以下工作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;From &lt;code&gt;import&lt;/code&gt; statements in Go source code, &lt;code&gt;go get&lt;/code&gt; identifies the module path within the package path.从 Go 源代码中的导入语句，go get 识别包路径中的模块路径。&lt;/li&gt;
+&lt;li&gt;Using a URL derived from the module path, the command locates the module source on a module proxy server or at its repository directly.使用从模块路径导出的URL，该命令在模块代理服务器上或直接在其存储库中定位模块源。&lt;/li&gt;
+&lt;li&gt;Locates source for the module version to download by matching the module’s version number to a repository tag to discover the code in the repository. When a version number to use is not yet known, &lt;code&gt;go get&lt;/code&gt; locates the latest release version.通过将模块的版本号与资源库的标签相匹配来发现资源库中的代码，从而找到要下载的模块版本的源。当使用的版本号还不知道时，go get会找到最新的发布版本。&lt;/li&gt;
+&lt;li&gt;Retrieves module source and downloads it to the developer’s local module cache.检索模块源并下载到开发者的本地模块缓存。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;organizing-code-in-the-repository-在版本库中组织代码&#34;&gt;Organizing code in the repository 在版本库中组织代码&lt;/h2&gt;
+&lt;p&gt;You can keep maintenance simple and improve developers&amp;rsquo; experience with your module by following the conventions described here. Getting your module code into a repository is generally as simple as with other code.&lt;/p&gt;
+&lt;p&gt;你可以通过遵循这里描述的惯例来保持维护的简单性，并改善开发者对你的模块的体验。将你的模块代码放入版本库通常和其他代码一样简单。&lt;/p&gt;
+&lt;p&gt;The following diagram illustrates a source hierarchy for a simple module with two packages.&lt;/p&gt;
+&lt;p&gt;下图说明了一个有两个包的简单模块的源代码层次结构。&lt;/p&gt;
+&lt;p&gt;
+
+
+&lt;img src=&#34;http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ManagingModuleSource_img/source-hierarchy.png&#34;
+     alt=&#34;Diagram illustrating a module source code hierarchy&#34;
+     
+/&gt;
+
+
+
+
+&lt;/p&gt;
+&lt;p&gt;Diagram illustrating a module source code hierarchy&lt;/p&gt;
+&lt;p&gt;图示模块源代码的层次结构&lt;/p&gt;
+&lt;p&gt;Your initial commit should include files listed in the following table:&lt;/p&gt;
+&lt;p&gt;你的初始提交应该包括下表中所列的文件：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;LICENSE&lt;/td&gt;
+&lt;td&gt;The module&amp;rsquo;s license. 模块的许可证。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;go.mod&lt;/td&gt;
+&lt;td&gt;Describes the module, including its module path (in effect, its name) and its dependencies. For more, see the &lt;a href=&#34;https://go.dev/doc/modules/gomod-ref&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;go.mod reference&lt;/a&gt;.The module path will be given in a module directive, such as:&lt;code&gt;module example.com/mymodule&lt;/code&gt;For more about choosing a module path, see &lt;a href=&#34;https://go.dev/doc/modules/managing-dependencies#naming_module&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing dependencies&lt;/a&gt;.Though you can edit the go.mod file, you&amp;rsquo;ll find it more reliable to make changes through &lt;code&gt;go&lt;/code&gt; commands.描述模块，包括它的模块路径（实际上是它的名字）和它的依赖关系。更多信息请参见 go.mod 参考。模块路径将在一个模块指令中给出，例如模块 example.com/mymodule。关于选择模块路径的更多信息，请参见管理依赖关系。尽管你可以编辑go.mod文件，但你会发现通过go命令进行修改更为可靠。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;go.sum&lt;/td&gt;
+&lt;td&gt;Contains cryptographic hashes that represent the module&amp;rsquo;s dependencies. Go tools use these hashes to authenticate downloaded modules, attempting to confirm that the downloaded module is authentic. Where this confirmation fails, Go will display a security error.The file will be empty or not present when there are no dependencies. You shouldn&amp;rsquo;t edit this file except by using the &lt;code&gt;go mod tidy&lt;/code&gt; command, which removes unneeded entries.包含代表模块依赖关系的加密哈希值。Go工具使用这些哈希值来验证下载的模块，试图确认下载的模块是真实的。如果确认失败，Go 会显示一个安全错误。当没有依赖关系时，该文件将为空或不存在。你不应该编辑这个文件，除非使用 go mod tidy 命令，它可以删除不需要的条目。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Package directories and .go sources.&lt;/td&gt;
+&lt;td&gt;Directories and .go files that comprise the Go packages and sources in the module.组成模块中Go包和源的目录和.go文件。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;From the command-line, you can create an empty repository, add the files that will be part of your initial commit, and commit with a message. Here’s an example using git:&lt;/p&gt;
+&lt;p&gt;在命令行中，你可以创建一个空的仓库，添加将成为初始提交的一部分的文件，并提交一个消息。下面是一个使用git的例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git init
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git add --all
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git commit -m &lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;mycode: initial commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;choosing-repository-scope-选择版本库范围&#34;&gt;Choosing repository scope 选择版本库范围&lt;/h2&gt;
+&lt;p&gt;You publish code in a module when the code should be versioned independently from code in other modules.&lt;/p&gt;
+&lt;p&gt;当你在一个模块中发布代码时，该代码应该独立于其他模块的代码进行版本管理。&lt;/p&gt;
+&lt;p&gt;Designing your repository so that it hosts a single module at its root directory will help keep maintenance simpler, particularly over time as you publish new minor and patch versions, branch into new major versions, and so on. However, if your needs require it, you can instead maintain a collection of modules in a single repository.&lt;/p&gt;
+&lt;p&gt;设计你的版本库，使其在根目录下承载单一的模块，将有助于保持更简单的维护，特别是随着时间的推移，你发布新的次要和补丁版本，分支到新的主要版本，等等。然而，如果你的需求需要，你可以在一个版本库中维护一系列的模块。&lt;/p&gt;
+&lt;h3 id=&#34;sourcing-one-module-per-repository-每个版本库采购一个模块&#34;&gt;Sourcing one module per repository 每个版本库采购一个模块&lt;/h3&gt;
+&lt;p&gt;You can maintain a repository that has a single module’s source in it. In this model, you place your go.mod file at the repository root, with package subdirectories containing Go source beneath.&lt;/p&gt;
+&lt;p&gt;你可以维护一个只有一个模块源代码的版本库。在这种模式下，你把go.mod文件放在版本库根目录下，下面是包含Go源代码的包子目录。&lt;/p&gt;
+&lt;p&gt;This is the simplest approach, making your module likely easier to manage over time. It helps you avoid the need to prefix a module version number with a directory path.&lt;/p&gt;
+&lt;p&gt;这是最简单的方法，使你的模块可能更容易长期管理。它可以帮助你避免在模块的版本号前加上目录路径。&lt;/p&gt;
+&lt;p&gt;
+
+
+&lt;img src=&#34;http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ManagingModuleSource_img/single-module.png&#34;
+     alt=&#34;Diagram illustrating a single module&amp;amp;rsquo;s source in its repository&#34;
+     
+/&gt;
+
+
+
+
+&lt;/p&gt;
+&lt;p&gt;Diagram illustrating a single module&amp;rsquo;s source in its repository&lt;/p&gt;
+&lt;p&gt;图示单个模块在其资源库中的源代码&lt;/p&gt;
+&lt;h3 id=&#34;sourcing-multiple-modules-in-a-single-repository-在一个资源库中采购多个模块&#34;&gt;Sourcing multiple modules in a single repository 在一个资源库中采购多个模块&lt;/h3&gt;
+&lt;p&gt;You can publish multiple modules from a single repository. For example, you might have code in a single repository that constitutes multiple modules, but want to version those modules separately.&lt;/p&gt;
+&lt;p&gt;你可以从一个资源库发布多个模块。例如，你可能在一个版本库中拥有构成多个模块的代码，但想分别对这些模块进行版本管理。&lt;/p&gt;
+&lt;p&gt;Each subdirectory that is a module root directory must have its own go.mod file.&lt;/p&gt;
+&lt;p&gt;每个作为模块根目录的子目录必须有自己的 go.mod 文件。&lt;/p&gt;
+&lt;p&gt;Sourcing module code in subdirectories changes the form of the version tag you must use when publishing a module. You must prefix the version number part of the tag with the name of the subdirectory that is the module root. For more about version numbers, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;在子目录中采购模块代码会改变你在发布模块时必须使用的版本标签的形式。你必须在标签的版本号部分前面加上作为模块根目录的子目录的名称。更多关于版本号的信息，请参见模块版本号。&lt;/p&gt;
+&lt;p&gt;For example, for module &lt;code&gt;example.com/mymodules/module1&lt;/code&gt; below, you would have the following for version v1.2.3:&lt;/p&gt;
+&lt;p&gt;例如，对于下面的模块example.com/mymodules/module1，你会有以下版本v1.2.3：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Module path: &lt;code&gt;example.com/mymodules/module1&lt;/code&gt; 模块路径: example.com/mymodules/module1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Version tag: &lt;code&gt;module1/v1.2.3&lt;/code&gt;  版本标签： module1/v1.2.3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Package path imported by a user: &lt;code&gt;example.com/mymodules/module1/package1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;用户导入的软件包路径: example.com/mymodules/module1/package1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Module path as given in a user’s require directive: &lt;code&gt;example.com/mymodules/module1 module1/v1.2.3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;用户在require指令中给出的模块路径：example.com/mymodules/module1 module1/v1.2.3&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+&lt;img src=&#34;http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ManagingModuleSource_img/multiple-modules.png&#34;
+     alt=&#34;Diagram illustrating two modules in a single repository&#34;
+     
+/&gt;
+
+
+
+
+&lt;/p&gt;
+&lt;p&gt;Diagram illustrating two modules in a single repository&lt;/p&gt;
+&lt;p&gt;图中说明了单个资源库中的两个模块&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 开发主版本更新</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/DevelopingAmajorVersionUpdate/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/DevelopingAmajorVersionUpdate/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;developing-a-major-version-update---开发主版本更新&#34;&gt;Developing a major version update - 开发主版本更新&lt;/h1&gt;
+&lt;p&gt;​	当您在潜在的新版本中所做的更改无法保证模块用户的向后兼容性时，您必须更新到一个主要版本。例如，如果您更改了模块的公共API以使其破坏使用先前版本模块的客户端代码，则将进行此更改。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：每种发布类型——主要、次要、修订或预发布——对于模块的用户都有不同的含义。这些用户依赖于这些差异来理解发布对其自身代码所代表的风险水平。换句话说，在准备发布时，请确保其版本号准确反映了自上一版本发布以来的更改性质。有关版本号的更多信息，请参阅&lt;a href=&#34;../ModuleVersionNumbering&#34;&gt;模块版本编号&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另请参阅&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有关模块开发的概述，请参阅 &lt;a href=&#34;../DevelopingAndPublishingModules&#34;&gt;开发和发布模块&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;有关端到端的视图，请参阅 &lt;a href=&#34;../ModuleReleaseAndVersioningWorkflow&#34;&gt;模块发布和版本控制工作流程&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;主要版本更新的注意事项&#34;&gt;主要版本更新的注意事项&lt;/h2&gt;
+&lt;p&gt;​	仅当绝对必要时，您才应更新到新的主要版本。主要版本更新对您和模块的用户都会产生重大变动。在考虑进行主要版本更新时，请考虑以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;向用户明确新的主要版本发布对以前主要版本的支持意味着什么。&lt;/p&gt;
+&lt;p&gt;以前的版本是否已废弃？是否像以前一样受到支持？您是否将维护以前的版本，包括修复bug？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;准备好承担两个版本的维护工作：旧版本和新版本。例如，如果您在其中一个版本中修复了bug，则通常会将这些修复移植到另一个版本中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请记住，新的主要版本从依赖管理的角度来看是一个新模块。在您发布之后，您的用户需要更新以使用新模块，而不仅仅是简单地升级。&lt;/p&gt;
+&lt;p&gt;这是因为新的主要版本具有不同的模块路径，与前一个主要版本不同。例如，对于其模块路径为&lt;code&gt;example.com/mymodule&lt;/code&gt;的模块，而v2版本的模块路径为&lt;code&gt;example.com/mymodule/v2&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当您开发一个新的主要版本时，您还必须更新代码导入包的导入路径，无论从哪个模块导入包。如果你的模块的用户想升级到新的主要版本，他们也必须更新他们的导入路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;为主要版本发布创建分支&#34;&gt;为主要版本发布创建分支&lt;/h2&gt;
+&lt;p&gt;​	在准备开发一个新的主版本时，处理源代码的最直接方法是在上一个主版本的最新版本上对版本库进行分支。&lt;/p&gt;
+&lt;p&gt;​	例如，在命令提示符下，你可以切换到模块的根目录，然后在那里创建一个新的 v2 分支。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cd mymodule
+$ git checkout -b v2
+Switched to a new branch &amp;#34;v2&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;
+
+
+&lt;img src=&#34;http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/DevelopingAmajorVersionUpdate_img/v2-branch-module.png&#34;
+     alt=&#34;Diagram illustrating a repository branched from master to v2&#34;
+     
+/&gt;
+
+
+
+
+&lt;/p&gt;
+&lt;p&gt;一张描绘从主分支(master)分支出v2版本的仓库的图示
+{: caption }&lt;/p&gt;
+&lt;p&gt;​	一旦你创建了源代码的分支，你就需要对新版本的源代码进行以下更改：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在新版本的go.mod文件中，在模块路径中添加新的主版本号，如下所示：
+&lt;ul&gt;
+&lt;li&gt;现有版本: &lt;code&gt;example.com/mymodule&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新版本: &lt;code&gt;example.com/mymodule/v2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在你的Go代码中，更新每个导入的包路径，在你从该模块中导入一个包时，将主版本号附加到模块路径部分。
+&lt;ul&gt;
+&lt;li&gt;旧的导入语句: &lt;code&gt;import &amp;quot;example.com/mymodule/package1&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新的导入语句: &lt;code&gt;import &amp;quot;example.com/mymodule/v2/package1&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	有关发布步骤，请参阅&lt;a href=&#34;../PublishingAModule&#34;&gt;发布模块&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 发布模块</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/PublishingAModule/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/PublishingAModule/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;publishing-a-module---发布模块&#34;&gt;Publishing a module - 发布模块&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://go.dev/doc/modules/publishing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When you want to make a module available for other developers, you publish it so that it’s visible to Go tools. Once you’ve published the module, developers importing its packages will be able to resolve a dependency on the module by running commands such as &lt;code&gt;go get&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;当你想把一个模块提供给其他开发者时，你可以发布它，这样它就能被Go工具看到。一旦你发布了模块，导入其软件包的开发者就可以通过运行go get等命令来解决对该模块的依赖。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Don’t change a tagged version of a module after publishing it. For developers using the module, Go tools authenticate a downloaded module against the first downloaded copy. If the two differ, Go tools will return a security error. Instead of changing the code for a previously published version, publish a new version.注意：不要在发布模块后改变模块的标记版本。对于使用该模块的开发者来说，Go工具会根据第一个下载的副本来验证下载的模块。如果两者不同，Go工具将返回一个安全错误。不要改变之前发布的版本的代码，而是发布一个新的版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;See also&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;另见&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For an overview of module development, see &lt;a href=&#34;https://go.dev/doc/modules/developing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Developing and publishing modules&lt;/a&gt;关于模块开发的概述，见开发和发布模块&lt;/li&gt;
+&lt;li&gt;For a high-level module development workflow – which includes publishing – see &lt;a href=&#34;https://go.dev/doc/modules/release-workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module release and versioning workflow&lt;/a&gt;.关于高层次的模块开发工作流程&amp;ndash;包括发布&amp;ndash;见模块发布和版本工作流程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;publishing-steps-发布步骤&#34;&gt;Publishing steps 发布步骤&lt;/h2&gt;
+&lt;p&gt;Use the following steps to publish a module.&lt;/p&gt;
+&lt;p&gt;使用下面的步骤来发布模块。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open a command prompt and change to your module’s root directory in the local repository.打开命令提示符，切换到本地版本库中模块的根目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;go mod tidy&lt;/code&gt;, which removes any dependencies the module might have accumulated that are no longer necessary.运行go mod tidy，删除模块可能积累的不再需要的任何依赖关系。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ go mod tidy
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;go test ./...&lt;/code&gt; a final time to make sure everything is working.最后一次运行go test ./&amp;hellip;以确保一切正常。&lt;/p&gt;
+&lt;p&gt;This runs the unit tests you’ve written to use the Go testing framework.这将运行你编写的单元测试，以使用Go测试框架。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ go test ./...
+ok      example.com/mymodule       0.015s
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tag the project with a new version number using the &lt;code&gt;git tag&lt;/code&gt; command.使用git tag命令给项目贴上新的版本号。&lt;/p&gt;
+&lt;p&gt;For the version number, use a number that signals to users the nature of changes in this release. For more, see &lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module version numbering&lt;/a&gt;.对于版本号，请使用一个能向用户表明此版本中变化性质的数字。更多信息请参见模块的版本号。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git commit -m &amp;#34;mymodule: changes for v0.1.0&amp;#34;
+$ git tag v0.1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push the new tag to the origin repository.推送新的标签到原点仓库。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git push origin v0.1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make the module available by running the &lt;a href=&#34;https://go.dev/cmd/go/#hdr-List_packages_or_modules&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;go list&lt;/code&gt; command&lt;/a&gt; to prompt Go to update its index of modules with information about the module you’re publishing.通过运行 go list 命令使模块可用，以提示 Go 用你要发布的模块的信息更新其模块索引。&lt;/p&gt;
+&lt;p&gt;Precede the command with a statement to set the &lt;code&gt;GOPROXY&lt;/code&gt; environment variable to a Go proxy. This will ensure that your request reaches the proxy.在命令的前面加上一条语句，将GOPROXY环境变量设置为Go代理。这将确保你的请求到达代理。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ GOPROXY=proxy.golang.org go list -m example.com/mymodule@v0.1.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Developers interested in your module import a package from it and run the &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;go get&lt;/code&gt; command&lt;/a&gt; just as they would with any other module. They can run the &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;go get&lt;/code&gt; command&lt;/a&gt; for latest versions or they can specify a particular version, as in the following example:&lt;/p&gt;
+&lt;p&gt;对你的模块感兴趣的开发者从你的模块中导入一个包，然后像对待其他模块一样运行 go get 命令。他们可以运行go get命令获取最新的版本，也可以指定一个特定的版本，就像下面的例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ go get example.com/mymodule@v0.1.0
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 模块的版本编号</title>
+      <link>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNumbering/</link>
+      <pubDate>Wed, 17 May 2023 15:03:14 +0800</pubDate>
+      
+      <guid>http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNumbering/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;module-version-numbering---模块的版本编号&#34;&gt;Module version numbering - 模块的版本编号&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原文：&lt;a href=&#34;https://go.dev/doc/modules/version-numbers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://go.dev/doc/modules/version-numbers&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A module’s developer uses each part of a module’s version number to signal the version’s stability and backward compatibility. For each new release, a module’s release version number specifically reflects the nature of the module’s changes since the preceding release.&lt;/p&gt;
+&lt;p&gt;一个模块的开发者使用一个模块的版本号的每一部分来表示该版本的稳定性和向后兼容性。对于每一个新的版本，模块的发布版本号具体反映了模块自前一个版本以来的变化性质。&lt;/p&gt;
+&lt;p&gt;When you’re developing code that uses external modules, you can use the version numbers to understand an external module’s stability when you’re considering an upgrade. When you’re developing your own modules, your version numbers will signal your modules&amp;rsquo; stability and backward compatibility to other developers.&lt;/p&gt;
+&lt;p&gt;当你在开发使用外部模块的代码时，当你考虑升级时，你可以使用版本号来了解外部模块的稳定性。当你开发你自己的模块时，你的版本号将向其他开发者表明你的模块的稳定性和向后兼容性。&lt;/p&gt;
+&lt;p&gt;This topic describes what module version numbers mean.&lt;/p&gt;
+&lt;p&gt;本主题描述了模块版本号的含义。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See also&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;另见&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When you’re using external packages in your code, you can manage those dependencies with Go tools. For more, see &lt;a href=&#34;https://go.dev/doc/modules/managing-dependencies&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Managing dependencies&lt;/a&gt;.当你在代码中使用外部包时，你可以用Go工具管理这些依赖关系。更多信息，请参见管理依赖关系。&lt;/li&gt;
+&lt;li&gt;If you’re developing modules for others to use, you apply a version number when you publish the module, tagging the module in its repository. For more, see &lt;a href=&#34;https://go.dev/doc/modules/publishing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Publishing a module&lt;/a&gt;.如果你正在开发模块供他人使用，你可以在发布模块时应用一个版本号，在其仓库中标记该模块。更多信息，请参见发布模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A released module is published with a version number in the semantic versioning model, as in the following illustration:&lt;/p&gt;
+&lt;p&gt;发布的模块在语义版本模型中带有一个版本号，如下图所示：&lt;/p&gt;
+&lt;p&gt;
+
+
+&lt;img src=&#34;http://ngd.cn/docs/UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNnumbering_img/version-number.png&#34;
+     alt=&#34;Diagram illustrating a semantic version number showing major version 1, minor version 4, patch version 0, and pre-release version beta 2&#34;
+     
+/&gt;
+
+
+
+
+&lt;/p&gt;
+&lt;p&gt;Diagram illustrating a semantic version number showing major version 1, minor version 4, patch version 0, and pre-release version beta 2&lt;/p&gt;
+&lt;p&gt;语义版本号示意图，显示主版本1、次版本4、补丁版本0和预发布版本β2&lt;/p&gt;
+&lt;p&gt;The following table describes how the parts of a version number signify a module’s stability and backward compatibility.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version stage 版本阶段&lt;/th&gt;
+&lt;th&gt;Example  例子&lt;/th&gt;
+&lt;th&gt;Message to developers 给开发者的信息&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://go.dev/doc/modules/version-numbers#in-development&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In development&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Automatic pseudo-version numberv&lt;strong&gt;0&lt;/strong&gt;.x.x&lt;/td&gt;
+&lt;td&gt;Signals that the module is still &lt;strong&gt;in development and unstable&lt;/strong&gt;. This release carries no backward compatibility or stability guarantees.标志着该模块仍在开发中，不稳定。这个版本没有向后兼容性或稳定性保证。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://go.dev/doc/modules/version-numbers#major&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Major version&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;v&lt;strong&gt;1&lt;/strong&gt;.x.x&lt;/td&gt;
+&lt;td&gt;Signals &lt;strong&gt;backward-incompatible public API changes&lt;/strong&gt;. This release carries no guarantee that it will be backward compatible with preceding major versions.主要版本v1.x.x 标志着向后不兼容的公共API变化。该版本不保证与之前的主要版本向后兼容。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://go.dev/doc/modules/version-numbers#minor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Minor version&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;vx.&lt;strong&gt;4&lt;/strong&gt;.x&lt;/td&gt;
+&lt;td&gt;Signals &lt;strong&gt;backward-compatible public API changes&lt;/strong&gt;. This release guarantees backward compatibility and stability.次要版本vx.4.x标志着向后兼容的公共API变化。此版本保证向后兼容和稳定。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://go.dev/doc/modules/version-numbers#patch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Patch version&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;vx.x.&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Signals &lt;strong&gt;changes that don&amp;rsquo;t affect the module&amp;rsquo;s public API&lt;/strong&gt; or its dependencies. This release guarantees backward compatibility and stability.补丁版本vx.x.1 标志着不影响模块的公共API或其依赖关系的变化。这个版本保证了向后的兼容性和稳定性。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://go.dev/doc/modules/version-numbers#pre-release&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pre-release version&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;vx.x.x-&lt;strong&gt;beta.2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Signals that this is a &lt;strong&gt;pre-release milestone, such as an alpha or beta&lt;/strong&gt;. This release carries no stability guarantees.预发布版本 vx.x.x-beta.2 标志着这是一个预发布的里程碑，例如 alpha 或 beta。这个版本没有稳定性保证。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;in-development-开发中&#34;&gt;In development 开发中&lt;/h2&gt;
+&lt;p&gt;Signals that the module is still in development and &lt;strong&gt;unstable&lt;/strong&gt;. This release carries no backward compatibility or stability guarantees.&lt;/p&gt;
+&lt;p&gt;标志着该模块仍在开发中，不稳定。这个版本没有向后兼容性或稳定性保证。&lt;/p&gt;
+&lt;p&gt;The version number can take one of the following forms:&lt;/p&gt;
+&lt;p&gt;版本号可以采取以下形式之一：&lt;/p&gt;
+&lt;p&gt;**Pseudo-version number **伪版本号&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;v0.0.0-20170915032832-14c0d48ead0c&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;v0 number&lt;/strong&gt; v0编号&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;v0.x.x&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;pseudo-version-number-伪版本号&#34;&gt;Pseudo-version number 伪版本号&lt;/h3&gt;
+&lt;p&gt;When a module has not been tagged in its repository, Go tools will generate a pseudo-version number for use in the go.mod file of code that calls functions in the module.&lt;/p&gt;
+&lt;p&gt;当一个模块在其仓库中没有被标记时，Go工具将生成一个伪版本号，用于调用该模块函数的代码的go.mod文件中。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; As a best practice, always allow Go tools to generate the pseudo-version number rather than creating your own.&lt;/p&gt;
+&lt;p&gt;注意: 作为一个最佳实践，总是让Go工具生成伪版本号，而不是自己创建。&lt;/p&gt;
+&lt;p&gt;Pseudo-versions are useful when a developer of code consuming the module’s functions needs to develop against a commit that hasn’t been tagged with a semantic version tag yet.&lt;/p&gt;
+&lt;p&gt;当使用模块函数的代码开发人员需要针对尚未被标记为语义版本标签的提交进行开发时，伪版本号非常有用。&lt;/p&gt;
+&lt;p&gt;A pseudo-version number has three parts separated by dashes, as shown in the following form:&lt;/p&gt;
+&lt;p&gt;伪版本号有三个部分，用破折号隔开，如以下形式所示：&lt;/p&gt;
+&lt;h4 id=&#34;syntax-语法&#34;&gt;Syntax 语法&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;baseVersionPrefix&lt;/em&gt;-&lt;em&gt;timestamp&lt;/em&gt;-&lt;em&gt;revisionIdentifier&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;parts-部件&#34;&gt;Parts 部件&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;baseVersionPrefix&lt;/strong&gt; (vX.0.0 or vX.Y.Z-0) is a value derived either from a semantic version tag that precedes the revision or from vX.0.0 if there is no such tag.timestamp（yymmddhhmmss）是该修订版的UTC时间。在Git中，这是提交时间，而不是作者时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;timestamp&lt;/strong&gt; (yymmddhhmmss) is the UTC time the revision was created. In Git, this is the commit time, not the author time.revisionIdentifier (abcdefabcdef) 是提交哈希值的12个字符的前缀，或者在Subversion中，是一个零填充的版本号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;revisionIdentifier&lt;/strong&gt; (abcdefabcdef) is a 12-character prefix of the commit hash, or in Subversion, a zero-padded revision number.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;v0-number-v0号&#34;&gt;v0 number v0号&lt;/h3&gt;
+&lt;p&gt;A module published with a v0 number will have a formal semantic version number with a major, minor, and patch part, as well as an optional pre-release identifier.&lt;/p&gt;
+&lt;p&gt;一个以v0编号发布的模块将有一个正式的语义上的版本号，包括主要、次要和补丁部分，以及一个可选的预发布标识符。&lt;/p&gt;
+&lt;p&gt;Though a v0 version can be used in production, it makes no stability or backward compatibility guarantees. In addition, versions v1 and later are allowed to break backward compatibility for code using the v0 versions. For this reason, a developer with code consuming functions in a v0 module is responsible for adapting to incompatible changes until v1 is released.&lt;/p&gt;
+&lt;p&gt;尽管v0版本可以在生产中使用，但它不做任何稳定性或向后兼容性的保证。此外，v1及以后的版本允许打破使用v0版本的代码的向后兼容性。由于这个原因，拥有消耗v0模块功能的代码的开发者有责任适应不兼容的变化，直到v1版本发布。&lt;/p&gt;
+&lt;h2 id=&#34;pre-release-version-预发布版本&#34;&gt;Pre-release version 预发布版本&lt;/h2&gt;
+&lt;p&gt;Signals that this is a pre-release milestone, such as an alpha or beta. This release carries no stability guarantees.&lt;/p&gt;
+&lt;p&gt;标志着这是一个预发布的里程碑，如alpha或beta。这个版本没有稳定性保证。&lt;/p&gt;
+&lt;h4 id=&#34;example-例如&#34;&gt;Example 例如&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vx.x.x-beta.2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A module’s developer can use a pre-release identifier with any major.minor.patch combination by appending a hyphen and the pre-release identifier.&lt;/p&gt;
+&lt;p&gt;一个模块的开发者可以在任何major.minor.patch组合中使用预发布标识符，方法是在预发布标识符后面加上一个连字符。&lt;/p&gt;
+&lt;h2 id=&#34;minor-version-次要版本&#34;&gt;Minor version 次要版本&lt;/h2&gt;
+&lt;p&gt;Signals backward-compatible changes to the module’s public API. This release guarantees backward compatibility and stability.&lt;/p&gt;
+&lt;p&gt;标志着模块的公共API向后兼容的变化。这个版本保证了向后的兼容性和稳定性。&lt;/p&gt;
+&lt;h4 id=&#34;example-例如-1&#34;&gt;Example 例如&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vx.4.x
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This version changes the module’s public API, but not in a way that breaks calling code. This might include changes to a module’s own dependencies or the addition of new functions, methods, struct fields, or types.&lt;/p&gt;
+&lt;p&gt;这个版本改变了模块的公共API，但不是以破坏调用代码的方式。这可能包括对模块本身的依赖性的改变，或增加新的函数、方法、结构域或类型。&lt;/p&gt;
+&lt;p&gt;In other words, this version might include enhancements through new functions that another developer might want to use. However, a developer using previous minor versions needn’t change their code otherwise.&lt;/p&gt;
+&lt;p&gt;换句话说，这个版本可能包括通过另一个开发者可能想要使用的新函数进行的增强。然而，使用以前次要版本的开发者不需要改变他们的代码。&lt;/p&gt;
+&lt;h2 id=&#34;patch-version-补丁版本&#34;&gt;Patch version 补丁版本&lt;/h2&gt;
+&lt;p&gt;Signals changes that don’t affect the module’s public API or its dependencies. This release guarantees backward compatibility and stability.&lt;/p&gt;
+&lt;p&gt;标志着不影响模块的公共API或其依赖关系的变化。这个版本保证了向后的兼容性和稳定性。&lt;/p&gt;
+&lt;h4 id=&#34;example-例如-2&#34;&gt;Example 例如&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vx.x.1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;An update that increments this number is only for minor changes such as bug fixes. Developers of consuming code can upgrade to this version safely without needing to change their code.&lt;/p&gt;
+&lt;p&gt;递增这个数字的更新只针对微小的变化，如错误修复。消耗代码的开发者可以安全地升级到这个版本而不需要改变他们的代码。&lt;/p&gt;
+&lt;h2 id=&#34;major-version-主要版本&#34;&gt;Major version 主要版本&lt;/h2&gt;
+&lt;p&gt;Signals backward-incompatible changes in a module’s public API. This release carries no guarantee that it will be backward compatible with preceding major versions.&lt;/p&gt;
+&lt;p&gt;标志着一个模块的公共API向后兼容的变化。这个版本不保证它能向后兼容之前的主要版本。&lt;/p&gt;
+&lt;h4 id=&#34;example-例如-3&#34;&gt;Example 例如&lt;/h4&gt;
+&lt;p&gt;v1.x.x&lt;/p&gt;
+&lt;p&gt;A v1 or above version number signals that the module is stable for use (with exceptions for its pre-release versions).&lt;/p&gt;
+&lt;p&gt;一个v1或以上的版本号表示该模块可以稳定使用（其预发布版本除外）。&lt;/p&gt;
+&lt;p&gt;Note that because a version 0 makes no stability or backward compatibility guarantees, a developer upgrading a module from v0 to v1 is responsible for adapting to changes that break backward compatibility.&lt;/p&gt;
+&lt;p&gt;请注意，由于0版本没有稳定性或向后兼容性的保证，开发者要负责将模块从v0升级到v1，以适应破坏向后兼容性的变化。&lt;/p&gt;
+&lt;p&gt;A module developer should increment this number past v1 only when necessary because the version upgrade represents significant disruption for developers whose code uses function in the upgraded module. This disruption includes backward-incompatible changes to the public API, as well as the need for developers using the module to update the package path wherever they import packages from the module.&lt;/p&gt;
+&lt;p&gt;一个模块的开发者只有在必要的时候才应该把这个数字增加到v1以上，因为版本升级对那些代码使用升级后的模块功能的开发者来说意味着重大的破坏。这种干扰包括对公共API的向后兼容的改变，以及使用该模块的开发者需要在他们从该模块导入包的地方更新包路径。&lt;/p&gt;
+&lt;p&gt;A major version update to a number higher than v1 will also have a new module path. That’s because the module path will have the major version number appended, as in the following example:&lt;/p&gt;
+&lt;p&gt;一个主要的版本更新到高于v1的数字，也会有一个新的模块路径。这是因为模块路径将附加主要的版本号，如下面的例子：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;module example.com/mymodule/v2 v2.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A major version update makes this a new module with a separate history from the module’s previous version. If you’re developing modules to publish for others, see “Publishing breaking API changes” in &lt;a href=&#34;https://go.dev/doc/modules/release-workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Module release and versioning workflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;一个主要版本的更新使得这是一个新的模块，与该模块之前的版本有一个独立的历史。如果你开发的模块要为他人发布，请参阅模块发布和版本工作流程中的 &amp;ldquo;发布破坏性的API变化&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;For more on the module directive, see &lt;a href=&#34;https://go.dev/doc/modules/gomod-ref&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;go.mod reference&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;关于模块指令的更多信息，请参见go.mod参考。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

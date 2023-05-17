@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go文档集 – 并发</title>
+    <link>http://ngd.cn/docs/GoTour/Concurrency/</link>
+    <description>Recent content in 并发 on go文档集</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 17 May 2023 12:10:24 +0800</lastBuildDate>
+    
+	  <atom:link href="http://ngd.cn/docs/GoTour/Concurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

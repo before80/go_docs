@@ -1,0 +1,892 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.3">
+<link rel="canonical" type="text/html" href="http://ngd.cn/docs/stdLib/container/">
+<link rel="alternate" type="application/rss&#43;xml" href="http://ngd.cn/docs/stdLib/container/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>container | go文档集</title>
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+<meta property="og:title" content="container" />
+<meta property="og:description" content="The most popular HTML, CSS, and JS library in the world." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://ngd.cn/docs/stdLib/container/" />
+<meta itemprop="name" content="container">
+<meta itemprop="description" content="The most popular HTML, CSS, and JS library in the world."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="container"/>
+<meta name="twitter:description" content="The most popular HTML, CSS, and JS library in the world."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" as="style">
+<link href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" rel="stylesheet" integrity="">
+
+<link href="/css/extra.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-00000000-0');
+}
+</script>
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">go文档集</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/docs/"><span class="active">文档</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search">
+  <div class="td-search__icon"></div>
+  <input type="search" class="td-search__input form-control td-search-input" placeholder="" aria-label="" autocomplete="off">
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+
+<a href="#" onclick="print();return false;"></a>.
+</p><p>
+<a href="/docs/stdLib/container/"></a>.
+</p>
+</div>
+
+
+
+<h1 class="title">container</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-e4dcb218b0577a89561aa3f718c374be">heap</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-ece99cc9bcd75af2e8917f20bd5912fa">list</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-48e64938003ba4cb2456a29c6e17f01b">ring</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-e4dcb218b0577a89561aa3f718c374be">1 - heap</h1>
+    
+	<h1 id="heap">heap</h1>
+<p><a href="https://pkg.go.dev/container/heap@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/container/heap@go1.20.1</a></p>
+<p>Package heap provides heap operations for any type that implements heap.Interface. A heap is a tree with the property that each node is the minimum-valued node in its subtree.</p>
+<p>包heap为任何实现heap.Interface的类型提供堆操作。堆是一棵树，其属性是每个节点都是其子树中的最小值节点。</p>
+<p>The minimum element in the tree is the root, at index 0.</p>
+<p>树中的最小元素是根，索引为0。</p>
+<p>A heap is a common way to implement a priority queue. To build a priority queue, implement the Heap interface with the (negative) priority as the ordering for the Less method, so Push adds items while Pop removes the highest-priority item from the queue. The Examples include such an implementation; the file example_pq_test.go has the complete source.</p>
+<p>heap 是实现优先级队列的一种常见方式。要建立一个优先级队列，要用(负)优先级作为Less方法的排序来实现Heap接口，因此Push增加项目，而Pop从队列中删除优先级最高的项目。实例中包括这样的实现；文件example_pq_test.go中有完整的源代码。</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-fixhttpscsopensourcegooglegogogo1201srccontainerheapheapgol83----go12">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=83" target="_blank" rel="noopener">Fix</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Fix</span>(<span style="color:#e06c75">h</span> <span style="color:#e06c75">Interface</span>, <span style="color:#e06c75">i</span> <span style="color:#e5c07b">int</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Fix re-establishes the heap ordering after the element at index i has changed its value. Changing the value of the element at index i and then calling Fix is equivalent to, but less expensive than, calling Remove(h, i) followed by a Push of the new value. The complexity is O(log n) where n = h.Len().</p>
+<p>Fix在索引i处的元素改变其值后重新建立堆的顺序。改变索引i处元素的值，然后调用Fix，相当于调用Remove(h, i)，然后推送新的值，但成本较低。复杂度是O(log n)，其中n = h.Len()。</p>
+<h4 id="func-inithttpscsopensourcegooglegogogo1201srccontainerheapheapgol41">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=41" target="_blank" rel="noopener">Init</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Init</span>(<span style="color:#e06c75">h</span> <span style="color:#e06c75">Interface</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Init establishes the heap invariants required by the other routines in this package. Init is idempotent with respect to the heap invariants and may be called whenever the heap invariants may have been invalidated. The complexity is O(n) where n = h.Len().</p>
+<p>Init建立了本包中其他例程所要求的堆不变性。Init对于堆不变性来说是等价的，只要堆不变性可能已经失效，就可以调用它。复杂度为O(n)，其中n = h.Len()。</p>
+<h4 id="func-pophttpscsopensourcegooglegogogo1201srccontainerheapheapgol59">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=59" target="_blank" rel="noopener">Pop</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Pop</span>(<span style="color:#e06c75">h</span> <span style="color:#e06c75">Interface</span>) <span style="color:#e06c75">any</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Pop removes and returns the minimum element (according to Less) from the heap. The complexity is O(log n) where n = h.Len(). Pop is equivalent to Remove(h, 0).</p>
+<p>Pop删除并返回堆中的最小元素(根据Less)。复杂度为O(log n)，其中n = h.Len()。Pop等同于Remove(h, 0)。</p>
+<h4 id="func-pushhttpscsopensourcegooglegogogo1201srccontainerheapheapgol51">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=51" target="_blank" rel="noopener">Push</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Push</span>(<span style="color:#e06c75">h</span> <span style="color:#e06c75">Interface</span>, <span style="color:#e06c75">x</span> <span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Push pushes the element x onto the heap. The complexity is O(log n) where n = h.Len().</p>
+<p>Push将元素x推到堆上。复杂度为O(log n)，其中n = h.Len()。</p>
+<h4 id="func-removehttpscsopensourcegooglegogogo1201srccontainerheapheapgol68">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=68" target="_blank" rel="noopener">Remove</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Remove</span>(<span style="color:#e06c75">h</span> <span style="color:#e06c75">Interface</span>, <span style="color:#e06c75">i</span> <span style="color:#e5c07b">int</span>) <span style="color:#e06c75">any</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Remove removes and returns the element at index i from the heap. The complexity is O(log n) where n = h.Len().</p>
+<p>Remove从堆中删除并返回索引为i的元素。复杂度为O(log n)，其中n = h.Len()。</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-interfacehttpscsopensourcegooglegogogo1201srccontainerheapheapgol31">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/heap/heap.go;l=31" target="_blank" rel="noopener">Interface</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Interface</span> <span style="color:#c678dd">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">sort</span>.<span style="color:#e06c75">Interface</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#61afef;font-weight:bold">Push</span>(<span style="color:#e06c75">x</span> <span style="color:#e06c75">any</span>) <span style="color:#7f848e">// add x as element Len()  //添加x为元素Len()
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#61afef;font-weight:bold">Pop</span>() <span style="color:#e06c75">any</span>   <span style="color:#7f848e">// remove and return element Len() - 1.  // 删除并返回元素Len() - 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The Interface type describes the requirements for a type using the routines in this package. Any type that implements it may be used as a min-heap with the following invariants (established after Init has been called or if the data is empty or sorted):</p>
+<p>接口类型描述了一个使用本包中的例程的类型的要求。任何实现它的类型都可以作为最小堆使用，并具有以下不变性(在调用Init后或数据为空或被排序后建立)：</p>
+<pre tabindex="0"><code>!h.Less(j, i) for 0 &lt;= i &lt; h.Len() and 2*i+1 &lt;= j &lt;= 2*i+2 and j &lt; h.Len()
+</code></pre><p>Note that Push and Pop in this interface are for package heap&rsquo;s implementation to call. To add and remove things from the heap, use heap.Push and heap.Pop.</p>
+<p>注意，这个接口中的Push和Pop是供包堆的实现调用的。要从堆中添加和删除东西，请使用heap.Push和heap.Pop。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ece99cc9bcd75af2e8917f20bd5912fa">2 - list</h1>
+    
+	<h1 id="list">list</h1>
+<p><a href="https://pkg.go.dev/container/list@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/container/list@go1.20.1</a></p>
+<p>Package list implements a doubly linked list.</p>
+<p>包list实现了一个双链表。</p>
+<p>To iterate over a list (where l is a *List):</p>
+<p>要在一个列表上进行迭代(其中l是一个*List)：</p>
+<pre tabindex="0"><code>for e := l.Front(); e != nil; e = e.Next() {
+	// do something with e.Value
+	//对e.Value做一些处理
+}
+</code></pre><h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<p>This section is empty.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-elementhttpscsopensourcegooglegogogo1201srccontainerlistlistgol15">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=15" target="_blank" rel="noopener">Element</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Element</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// The value stored with this element.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#7f848e">// 这个元素存储的值。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Value</span> <span style="color:#e06c75">any</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Element is an element of a linked list.</p>
+<p>Element是链接列表的一个元素。</p>
+<h4 id="element-nexthttpscsopensourcegooglegogogo1201srccontainerlistlistgol31">(*Element) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=31" target="_blank" rel="noopener">Next</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">e</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>) <span style="color:#61afef;font-weight:bold">Next</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next returns the next list element or nil.</p>
+<p>Next 返回下一个列表元素或nil。</p>
+<h4 id="element-prevhttpscsopensourcegooglegogogo1201srccontainerlistlistgol39">(*Element) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=39" target="_blank" rel="noopener">Prev</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">e</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>) <span style="color:#61afef;font-weight:bold">Prev</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Prev returns the previous list element or nil.</p>
+<p>Prev返回前一个列表元素或nil。</p>
+<h3 id="type-listhttpscsopensourcegooglegogogo1201srccontainerlistlistgol48">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=48" target="_blank" rel="noopener">List</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">List</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>List represents a doubly linked list. The zero value for List is an empty list ready to use.</p>
+<p>List表示一个双链表。List的零值是一个准备使用的空列表。</p>
+<h4 id="func-newhttpscsopensourcegooglegogogo1201srccontainerlistlistgol62">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=62" target="_blank" rel="noopener">New</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">New</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>New returns an initialized list.</p>
+<p>New返回一个初始化的列表。</p>
+<h4 id="list-backhttpscsopensourcegooglegogogo1201srccontainerlistlistgol77">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=77" target="_blank" rel="noopener">Back</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">Back</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Back returns the last element of list l or nil if the list is empty.</p>
+<p>Back返回列表l的最后一个元素，如果列表为空，则返回nil。</p>
+<h4 id="list-fronthttpscsopensourcegooglegogogo1201srccontainerlistlistgol69">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=69" target="_blank" rel="noopener">Front</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">Front</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Front returns the first element of list l or nil if the list is empty.</p>
+<p>Front返回列表l的第一个元素，如果列表为空则返回nil。</p>
+<h4 id="list-inithttpscsopensourcegooglegogogo1201srccontainerlistlistgol54">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=54" target="_blank" rel="noopener">Init</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">Init</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Init initializes or clears list l.</p>
+<p>Init 初始化或清除列表l。</p>
+<h4 id="list-insertafterhttpscsopensourcegooglegogogo1201srccontainerlistlistgol169">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=169" target="_blank" rel="noopener">InsertAfter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">InsertAfter</span>(<span style="color:#e06c75">v</span> <span style="color:#e06c75">any</span>, <span style="color:#e06c75">mark</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>InsertAfter inserts a new element e with value v immediately after mark and returns e. If mark is not an element of l, the list is not modified. The mark must not be nil.</p>
+<p>InsertAfter在mark之后插入一个新的元素e，其值为v，并返回e。如果mark不是l的一个元素，列表不会被修改。mark不能是nil。</p>
+<h4 id="list-insertbeforehttpscsopensourcegooglegogogo1201srccontainerlistlistgol158">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=158" target="_blank" rel="noopener">InsertBefore</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">InsertBefore</span>(<span style="color:#e06c75">v</span> <span style="color:#e06c75">any</span>, <span style="color:#e06c75">mark</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>InsertBefore inserts a new element e with value v immediately before mark and returns e. If mark is not an element of l, the list is not modified. The mark must not be nil.</p>
+<p>InsertBefore在mark之前插入一个新的元素e，其值为v，并返回e，如果mark不是l的一个元素，列表就不会被修改。mark不能是nil。</p>
+<h4 id="list-lenhttpscsopensourcegooglegogogo1201srccontainerlistlistgol66">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=66" target="_blank" rel="noopener">Len</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">Len</span>() <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Len returns the number of elements of list l. The complexity is O(1).</p>
+<p>Len返回列表l的元素数，其复杂度为O(1)。</p>
+<h4 id="list-moveafterhttpscsopensourcegooglegogogo1201srccontainerlistlistgol212----go12">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=212" target="_blank" rel="noopener">MoveAfter</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">MoveAfter</span>(<span style="color:#e06c75">e</span>, <span style="color:#e06c75">mark</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MoveAfter moves element e to its new position after mark. If e or mark is not an element of l, or e == mark, the list is not modified. The element and mark must not be nil.</p>
+<p>MoveAfter将元素e移动到mark之后的新位置。如果e或mark不是l的一个元素，或者e == mark，列表不会被修改。元素和mark不能是nil。</p>
+<h4 id="list-movebeforehttpscsopensourcegooglegogogo1201srccontainerlistlistgol202----go12">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=202" target="_blank" rel="noopener">MoveBefore</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">MoveBefore</span>(<span style="color:#e06c75">e</span>, <span style="color:#e06c75">mark</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MoveBefore moves element e to its new position before mark. If e or mark is not an element of l, or e == mark, the list is not modified. The element and mark must not be nil.</p>
+<p>MoveBefore将元素e移动到mark之前的新位置。如果e或mark不是l的一个元素，或者e == mark，列表不会被修改。元素和mark不能是nil。</p>
+<h4 id="list-movetobackhttpscsopensourcegooglegogogo1201srccontainerlistlistgol191">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=191" target="_blank" rel="noopener">MoveToBack</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">MoveToBack</span>(<span style="color:#e06c75">e</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MoveToBack moves element e to the back of list l. If e is not an element of l, the list is not modified. The element must not be nil.</p>
+<p>MoveToBack把元素e移到列表l的后面。如果e不是l的一个元素，列表不会被修改。该元素不能是nil。</p>
+<h4 id="list-movetofronthttpscsopensourcegooglegogogo1201srccontainerlistlistgol180">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=180" target="_blank" rel="noopener">MoveToFront</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">MoveToFront</span>(<span style="color:#e06c75">e</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>MoveToFront moves element e to the front of list l. If e is not an element of l, the list is not modified. The element must not be nil.</p>
+<p>MoveToFront把元素e移到列表l的前面，如果e不是l的元素，列表不被修改。该元素不能是nil。</p>
+<h4 id="list-pushbackhttpscsopensourcegooglegogogo1201srccontainerlistlistgol150">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=150" target="_blank" rel="noopener">PushBack</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">PushBack</span>(<span style="color:#e06c75">v</span> <span style="color:#e06c75">any</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PushBack inserts a new element e with value v at the back of list l and returns e.</p>
+<p>PushBack在列表l的后面插入一个新元素e，其值为v，并返回e。</p>
+<h4 id="list-pushbacklisthttpscsopensourcegooglegogogo1201srccontainerlistlistgol221">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=221" target="_blank" rel="noopener">PushBackList</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">PushBackList</span>(<span style="color:#e06c75">other</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PushBackList inserts a copy of another list at the back of list l. The lists l and other may be the same. They must not be nil.</p>
+<p>PushBackList在列表l的后面插入一个另一个列表的副本。它们不能是nil。</p>
+<h4 id="list-pushfronthttpscsopensourcegooglegogogo1201srccontainerlistlistgol144">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=144" target="_blank" rel="noopener">PushFront</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">PushFront</span>(<span style="color:#e06c75">v</span> <span style="color:#e06c75">any</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PushFront inserts a new element e with value v at the front of list l and returns e.</p>
+<p>PushFront在列表l的前面插入一个值为v的新元素e，并返回e。</p>
+<h4 id="list-pushfrontlisthttpscsopensourcegooglegogogo1201srccontainerlistlistgol230">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=230" target="_blank" rel="noopener">PushFrontList</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">PushFrontList</span>(<span style="color:#e06c75">other</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PushFrontList inserts a copy of another list at the front of list l. The lists l and other may be the same. They must not be nil.</p>
+<p>PushFrontList在列表l的前面插入一个另一个列表的副本。它们不能是nil。</p>
+<h4 id="list-removehttpscsopensourcegooglegogogo1201srccontainerlistlistgol134">(*List) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/list/list.go;l=134" target="_blank" rel="noopener">Remove</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">List</span>) <span style="color:#61afef;font-weight:bold">Remove</span>(<span style="color:#e06c75">e</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Element</span>) <span style="color:#e06c75">any</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Remove removes e from l if e is an element of list l. It returns the element value e.Value. The element must not be nil.</p>
+<p>如果e是列表l的一个元素，Remove将e从l中移除，并返回元素值e.Value。该元素不能是nil。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-48e64938003ba4cb2456a29c6e17f01b">3 - ring</h1>
+    
+	<h1 id="ring">ring</h1>
+<p><a href="https://pkg.go.dev/container/ring@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/container/ring@go1.20.1</a></p>
+<p>Package ring implements operations on circular lists.</p>
+<p>ring 包实现了对循环列表的操作。</p>
+<h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<p>This section is empty.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-ringhttpscsopensourcegooglegogogo1201srccontainerringringgol13">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=13" target="_blank" rel="noopener">Ring</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Ring</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Value</span> <span style="color:#e06c75">any</span> <span style="color:#7f848e">// for use by client; untouched by this library// 供客户端使用；本库不触及。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Ring is an element of a circular list, or ring. Rings do not have a beginning or end; a pointer to any ring element serves as reference to the entire ring. Empty rings are represented as nil Ring pointers. The zero value for a Ring is a one-element ring with a nil Value.</p>
+<p>Ring是一个循环列表的一个元素，或者说是环。环没有开始或结束；任何环元素的指针都可以作为整个环的参考。空的环表示为nil Ring指针。一个环的零值是一个具有nil值的单元素环。</p>
+<h4 id="func-newhttpscsopensourcegooglegogogo1201srccontainerringringgol60">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=60" target="_blank" rel="noopener">New</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>New creates a ring of n elements.</p>
+<p>New创建一个有n个元素的环。</p>
+<h4 id="ring-dohttpscsopensourcegooglegogogo1201srccontainerringringgol129">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=129" target="_blank" rel="noopener">Do</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Do</span>(<span style="color:#e06c75">f</span> <span style="color:#c678dd">func</span>(<span style="color:#e06c75">any</span>))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Do calls function f on each element of the ring, in forward order. The behavior of Do is undefined if f changes *r.</p>
+<p>Do在环的每个元素上以正向顺序调用函数f。如果f改变了*r，Do的行为是未定义的。</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-lenhttpscsopensourcegooglegogogo1201srccontainerringringgol116">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=116" target="_blank" rel="noopener">Len</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Len</span>() <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Len computes the number of elements in ring r. It executes in time proportional to the number of elements.</p>
+<p>Len计算环中元素的数量，执行时间与元素的数量成正比。</p>
+<h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-linkhttpscsopensourcegooglegogogo1201srccontainerringringgol90">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=90" target="_blank" rel="noopener">Link</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Link</span>(<span style="color:#e06c75">s</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Link connects ring r with ring s such that r.Next() becomes s and returns the original value for r.Next(). r must not be empty.</p>
+<p>Link将r环和s环连接起来，这样r.Next()就变成了s，并返回r.Next()的原始值，r不能为空。</p>
+<p>If r and s point to the same ring, linking them removes the elements between r and s from the ring. The removed elements form a subring and the result is a reference to that subring (if no elements were removed, the result is still the original value for r.Next(), and not nil).</p>
+<p>如果r和s指向同一个环，连接它们会从环中移除r和s之间的元素。被移除的元素形成一个子环，结果是对该子环的引用(如果没有元素被移除，结果仍然是r.Next()的原始值，而不是nil)。</p>
+<p>If r and s point to different rings, linking them creates a single ring with the elements of s inserted after r. The result points to the element following the last element of s after insertion.</p>
+<p>如果r和s指向不同的环，连接它们会创建一个单一的环，其中s的元素插入到r之后。</p>
+<h5 id="example-2">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-movehttpscsopensourcegooglegogogo1201srccontainerringringgol42">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=42" target="_blank" rel="noopener">Move</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Move</span>(<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Move moves n % r.Len() elements backward (n &lt; 0) or forward (n &gt;= 0) in the ring and returns that ring element. r must not be empty.</p>
+<p>Move在环中向后(n &lt; 0)或向前(n &gt;= 0)移动n % r.Len()元素，并返回该环元素。</p>
+<h5 id="example-3">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-nexthttpscsopensourcegooglegogogo1201srccontainerringringgol25">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=25" target="_blank" rel="noopener">Next</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Next</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next returns the next ring element. r must not be empty.</p>
+<p>Next 返回下一个环状元素，r必须不是空的。</p>
+<h5 id="example-4">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-prevhttpscsopensourcegooglegogogo1201srccontainerringringgol33">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=33" target="_blank" rel="noopener">Prev</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Prev</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Prev returns the previous ring element. r must not be empty.</p>
+<p>Prev返回上一个环状元素，r不能为空。</p>
+<h5 id="example-5">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="ring-unlinkhttpscsopensourcegooglegogogo1201srccontainerringringgol107">(*Ring) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/container/ring/ring.go;l=107" target="_blank" rel="noopener">Unlink</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>) <span style="color:#61afef;font-weight:bold">Unlink</span>(<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Ring</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Unlink removes n % r.Len() elements from the ring r, starting at r.Next(). If n % r.Len() == 0, r remains unchanged. The result is the removed subring. r must not be empty.</p>
+<p>Unlink从r环中移除n % r.Len()元素，从r.Next()开始。如果n % r.Len() == 0，r保持不变。结果是移除的子环。</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;container/ring&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Create a new ring of size 6
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">r</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">ring</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#d19a66">6</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Get the length of the ring
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">n</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Len</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Initialize the ring with some integer values
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#c678dd">for</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">:=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> &lt; <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">r</span>.<span style="color:#e06c75">Value</span> = <span style="color:#e06c75">i</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">r</span> = <span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Next</span>()
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Unlink three elements from r, starting from r.Next()
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Unlink</span>(<span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Iterate through the remaining ring and print its contents
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Do</span>(<span style="color:#c678dd">func</span>(<span style="color:#e06c75">p</span> <span style="color:#e06c75">any</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">p</span>.(<span style="color:#e5c07b">int</span>))
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">Output</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#d19a66">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#d19a66">5</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Docsy Authors </small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener"></a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.9069af235eb4d4956fc4dc29e5ca46caef0cdcae593856be4e33c99075bc5ea2.js" integrity="sha256-kGmvI1601JVvxNwp5cpGyu8M3K5ZOFa&#43;TjPJkHW8XqI=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script src='/js/deal-zero-width-space.js'></script>
+  </body>
+</html>

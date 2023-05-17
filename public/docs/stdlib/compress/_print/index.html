@@ -1,0 +1,1242 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.3">
+<link rel="canonical" type="text/html" href="http://ngd.cn/docs/stdLib/compress/">
+<link rel="alternate" type="application/rss&#43;xml" href="http://ngd.cn/docs/stdLib/compress/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>compress | go文档集</title>
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+<meta property="og:title" content="compress" />
+<meta property="og:description" content="The most popular HTML, CSS, and JS library in the world." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://ngd.cn/docs/stdLib/compress/" />
+<meta itemprop="name" content="compress">
+<meta itemprop="description" content="The most popular HTML, CSS, and JS library in the world."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="compress"/>
+<meta name="twitter:description" content="The most popular HTML, CSS, and JS library in the world."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" as="style">
+<link href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" rel="stylesheet" integrity="">
+
+<link href="/css/extra.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-00000000-0');
+}
+</script>
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">go文档集</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/docs/"><span class="active">文档</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search">
+  <div class="td-search__icon"></div>
+  <input type="search" class="td-search__input form-control td-search-input" placeholder="" aria-label="" autocomplete="off">
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+
+<a href="#" onclick="print();return false;"></a>.
+</p><p>
+<a href="/docs/stdLib/compress/"></a>.
+</p>
+</div>
+
+
+
+<h1 class="title">compress</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-d2cb4823ebb89dc3d55b0ebea391e4d0">bzip2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-b8e810283613ae8710e0130a52e81af5">flate</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-2502597b3fc6d3ba391eea03286717e1">gzip</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-9b773d9d85b554a06ef43c4b44c9c91a">lzw</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-7a59c158d2a5898708fbe525e1d846e5">zlib</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d2cb4823ebb89dc3d55b0ebea391e4d0">1 - bzip2</h1>
+    
+	<h1 id="bzip2">bzip2</h1>
+<p><a href="https://pkg.go.dev/compress/bzip2@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/compress/bzip2@go1.20.1</a></p>
+<p>Package bzip2 implements bzip2 decompression.</p>
+<h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srccompressbzip2bzip2gol46">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/bzip2/bzip2.go;l=46" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader returns an io.Reader which decompresses bzip2 data from r. If r does not also implement io.ByteReader, the decompressor may read more data than necessary from r.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-structuralerrorhttpscsopensourcegooglegogogo1201srccompressbzip2bzip2gol17">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/bzip2/bzip2.go;l=17" target="_blank" rel="noopener">StructuralError</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">StructuralError</span> <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A StructuralError is returned when the bzip2 data is found to be syntactically invalid.</p>
+<h4 id="structuralerror-errorhttpscsopensourcegooglegogogo1201srccompressbzip2bzip2gol19">(StructuralError) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/bzip2/bzip2.go;l=19" target="_blank" rel="noopener">Error</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">s</span> <span style="color:#e06c75">StructuralError</span>) <span style="color:#61afef;font-weight:bold">Error</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b8e810283613ae8710e0130a52e81af5">2 - flate</h1>
+    
+	<h1 id="flate">flate</h1>
+<p><a href="https://pkg.go.dev/compress/flate@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/compress/flate@go1.20.1</a></p>
+<p>Package flate implements the DEFLATE compressed data format, described in <a href="https://rfc-editor.org/rfc/rfc1951.html" target="_blank" rel="noopener">RFC 1951</a>. The gzip and zlib packages implement access to DEFLATE-based file formats.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h5 id="example-2">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h2 id="常量">常量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=14" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">NoCompression</span>      = <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestSpeed</span>          = <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestCompression</span>    = <span style="color:#d19a66">9</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">DefaultCompression</span> = <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// HuffmanOnly disables Lempel-Ziv match searching and only performs Huffman
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// entropy encoding. This mode is useful in compressing data that has
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// already been compressed with an LZ style algorithm (e.g. Snappy or LZ4)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// that lacks an entropy encoder. Compression gains are achieved when
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// certain bytes in the input stream occur more frequently than others.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// Note that HuffmanOnly produces a compressed output that is
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// RFC 1951 compliant. That is, any valid DEFLATE decompressor will
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// continue to be able to decompress this output.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">HuffmanOnly</span> = <span style="color:#56b6c2">-</span><span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srccompressflateinflategol796">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=796" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) <span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReadCloser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader returns a new ReadCloser that can be used to read the uncompressed version of r. If r does not also implement io.ByteReader, the decompressor may read more data than necessary from r. The reader returns io.EOF after the final block in the DEFLATE stream has been encountered. Any trailing data after the final block is ignored.</p>
+<p>The ReadCloser returned by NewReader also implements Resetter.</p>
+<h4 id="func-newreaderdicthttpscsopensourcegooglegogogo1201srccompressflateinflategol815">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=815" target="_blank" rel="noopener">NewReaderDict</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReaderDict</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) <span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReadCloser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReaderDict is like NewReader but initializes the reader with a preset dictionary. The returned Reader behaves as if the uncompressed data stream started with the given dictionary, which has already been read. NewReaderDict is typically used to read data compressed by NewWriterDict.</p>
+<p>The ReadCloser returned by NewReader also implements Resetter.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-corruptinputerrorhttpscsopensourcegooglegogogo1201srccompressflateinflategol33">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=33" target="_blank" rel="noopener">CorruptInputError</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">CorruptInputError</span> <span style="color:#e5c07b">int64</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A CorruptInputError reports the presence of corrupt input at a given offset.</p>
+<h4 id="corruptinputerror-errorhttpscsopensourcegooglegogogo1201srccompressflateinflategol35">(CorruptInputError) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=35" target="_blank" rel="noopener">Error</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">e</span> <span style="color:#e06c75">CorruptInputError</span>) <span style="color:#61afef;font-weight:bold">Error</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-internalerrorhttpscsopensourcegooglegogogo1201srccompressflateinflategol40">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=40" target="_blank" rel="noopener">InternalError</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">InternalError</span> <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>An InternalError reports an error in the flate code itself.</p>
+<h4 id="internalerror-errorhttpscsopensourcegooglegogogo1201srccompressflateinflategol42">(InternalError) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=42" target="_blank" rel="noopener">Error</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">e</span> <span style="color:#e06c75">InternalError</span>) <span style="color:#61afef;font-weight:bold">Error</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="example-3">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-readerhttpscsopensourcegooglegogogo1201srccompressflateinflategol261">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=261" target="_blank" rel="noopener">Reader</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Reader</span> <span style="color:#c678dd">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">io</span>.<span style="color:#e06c75">ByteReader</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The actual read interface needed by NewReader. If the passed in io.Reader does not also have ReadByte, the NewReader will introduce its own buffering.</p>
+<h3 id="type-resetterhttpscsopensourcegooglegogogo1201srccompressflateinflategol71----go14">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/inflate.go;l=71" target="_blank" rel="noopener">Resetter</a>  &lt;- go1.4</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Resetter</span> <span style="color:#c678dd">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Reset discards any buffered data and resets the Resetter as if it was
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// newly initialized with the given reader.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) <span style="color:#e5c07b">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to a new underlying Reader. This permits reusing a ReadCloser instead of allocating a new one.</p>
+<h5 id="example-4">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-writerhttpscsopensourcegooglegogogo1201srccompressflatedeflategol702">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=702" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Writer takes data written to it and writes the compressed form of that data to an underlying writer (see NewWriter).</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srccompressflatedeflategol665">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=665" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">level</span> <span style="color:#e5c07b">int</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter returns a new Writer compressing data at the given level. Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression); higher levels typically run slower but compress more. Level 0 (NoCompression) does not attempt any compression; it only adds the necessary DEFLATE framing. Level -1 (DefaultCompression) uses the default compression level. Level -2 (HuffmanOnly) will use Huffman compression only, giving a very fast compression for all types of input, but sacrificing considerable compression efficiency.</p>
+<p>If level is in the range [-2, 9] then the error returned will be nil. Otherwise the error returned will be non-nil.</p>
+<h4 id="func-newwriterdicthttpscsopensourcegooglegogogo1201srccompressflatedeflategol679">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=679" target="_blank" rel="noopener">NewWriterDict</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriterDict</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">level</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriterDict is like NewWriter but initializes the new Writer with a preset dictionary. The returned Writer behaves as if the dictionary had been written to it without producing any compressed output. The compressed data written to w can only be decompressed by a Reader initialized with the same dictionary.</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srccompressflatedeflategol729">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=729" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close flushes and closes the writer.</p>
+<h4 id="writer-flushhttpscsopensourcegooglegogogo1201srccompressflatedeflategol722">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=722" target="_blank" rel="noopener">Flush</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Flush</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Flush flushes any pending data to the underlying writer. It is useful mainly in compressed network protocols, to ensure that a remote reader has enough data to reconstruct a packet. Flush does not return until the data has been written. Calling Flush when there is no pending data still causes the Writer to emit a sync marker of at least 4 bytes. If the underlying writer returns an error, Flush returns that error.</p>
+<p>In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.</p>
+<h4 id="writer-resethttpscsopensourcegooglegogogo1201srccompressflatedeflategol736----go12">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=736" target="_blank" rel="noopener">Reset</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">dst</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset discards the writer&rsquo;s state and makes it equivalent to the result of NewWriter or NewWriterDict called with dst and w&rsquo;s level and dictionary.</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srccompressflatedeflategol709">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/flate/deflate.go;l=709" target="_blank" rel="noopener">Write</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">data</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Write writes data to w, which will eventually write the compressed form of data to its underlying writer.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2502597b3fc6d3ba391eea03286717e1">3 - gzip</h1>
+    
+	<h1 id="gzip">gzip</h1>
+<p><a href="https://pkg.go.dev/compress/gzip@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/compress/gzip@go1.20.1</a></p>
+<p>Package gzip implements reading and writing of gzip format compressed files, as specified in <a href="https://rfc-editor.org/rfc/rfc1952.html" target="_blank" rel="noopener">RFC 1952</a>.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h2 id="常量">常量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=18" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">NoCompression</span>      = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">NoCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestSpeed</span>          = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">BestSpeed</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestCompression</span>    = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">BestCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">DefaultCompression</span> = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">DefaultCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">HuffmanOnly</span>        = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">HuffmanOnly</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>These constants are copied from the flate package, so that code that imports &ldquo;compress/gzip&rdquo; does not also have to import &ldquo;compress/flate&rdquo;.</p>
+<h2 id="变量">变量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=30" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// ErrChecksum is returned when reading GZIP data that has an invalid checksum.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ErrChecksum</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;gzip: invalid checksum&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// ErrHeader is returned when reading GZIP data that has an invalid header.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ErrHeader</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;gzip: invalid header&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数">函数</h2>
+<p>This section is empty.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-headerhttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol52">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=52" target="_blank" rel="noopener">Header</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Header</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Comment</span> <span style="color:#e5c07b">string</span>    <span style="color:#7f848e">// comment
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Extra</span>   []<span style="color:#e5c07b">byte</span>    <span style="color:#7f848e">// &#34;extra data&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ModTime</span> <span style="color:#e06c75">time</span>.<span style="color:#e06c75">Time</span> <span style="color:#7f848e">// modification time
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Name</span>    <span style="color:#e5c07b">string</span>    <span style="color:#7f848e">// file name
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">OS</span>      <span style="color:#e5c07b">byte</span>      <span style="color:#7f848e">// operating system type
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The gzip file stores a header giving metadata about the compressed file. That header is exposed as the fields of the Writer and Reader structs.</p>
+<p>Strings must be UTF-8 encoded and may only contain Unicode code points U+0001 through U+00FF, due to limitations of the GZIP file format.</p>
+<h3 id="type-readerhttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol74">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=74" target="_blank" rel="noopener">Reader</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Reader</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Header</span> <span style="color:#7f848e">// valid after NewReader or Reader.Reset
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Reader is an io.Reader that can be read to retrieve uncompressed data from a gzip-format compressed file.</p>
+<p>In general, a gzip file can be a concatenation of gzip files, each with its own header. Reads from the Reader return the concatenation of the uncompressed data of each. Only the first header is recorded in the Reader fields.</p>
+<p>Gzip files store a length and checksum of the uncompressed data. The Reader will return an ErrChecksum when Read reaches the end of the uncompressed data if it does not have the expected length or checksum. Clients should treat data returned by Read as tentative until they receive the io.EOF marking the end of the data.</p>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol92">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=92" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader creates a new Reader reading the given reader. If r does not also implement io.ByteReader, the decompressor may read more data than necessary from r.</p>
+<p>It is the caller&rsquo;s responsibility to call Close on the Reader when done.</p>
+<p>The Reader.Header fields will be valid in the Reader returned.</p>
+<h4 id="reader-closehttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol290">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=290" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Reader. It does not close the underlying io.Reader. In order for the GZIP checksum to be verified, the reader must be fully consumed until the io.EOF.</p>
+<h4 id="reader-multistreamhttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol133----go14">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=133" target="_blank" rel="noopener">Multistream</a>  &lt;- go1.4</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Multistream</span>(<span style="color:#e06c75">ok</span> <span style="color:#e5c07b">bool</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Multistream controls whether the reader supports multistream files.</p>
+<p>If enabled (the default), the Reader expects the input to be a sequence of individually gzipped data streams, each with its own header and trailer, ending at EOF. The effect is that the concatenation of a sequence of gzipped files is treated as equivalent to the gzip of the concatenation of the sequence. This is standard behavior for gzip readers.</p>
+<p>Calling Multistream(false) disables this behavior; disabling the behavior can be useful when reading file formats that distinguish individual gzip data streams or mix gzip data streams with other data streams. In this mode, when the Reader reaches the end of the data stream, Read returns io.EOF. The underlying reader must implement io.ByteReader in order to be left positioned just after the gzip stream. To start the next stream, call z.Reset(r) followed by z.Multistream(false). If there is no next stream, z.Reset(r) will return io.EOF.</p>
+<h5 id="example-2">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="reader-readhttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol246">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=246" target="_blank" rel="noopener">Read</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Read</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Read implements io.Reader, reading uncompressed bytes from its underlying Reader.</p>
+<h4 id="reader-resethttpscsopensourcegooglegogogo1201srccompressgzipgunzipgol103----go13">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gunzip.go;l=103" target="_blank" rel="noopener">Reset</a>  &lt;- go1.3</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset discards the Reader z&rsquo;s state and makes it equivalent to the result of its original state from NewReader, but reading from r instead. This permits reusing a Reader rather than allocating a new one.</p>
+<h3 id="type-writerhttpscsopensourcegooglegogogo1201srccompressgzipgzipgol28">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=28" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Header</span> <span style="color:#7f848e">// written at first call to Write, Flush, or Close
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Writer is an io.WriteCloser. Writes to a Writer are compressed and written to w.</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srccompressgzipgzipgol49">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=49" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter returns a new Writer. Writes to the returned writer are compressed and written to w.</p>
+<p>It is the caller&rsquo;s responsibility to call Close on the Writer when done. Writes may be buffered and not flushed until Close.</p>
+<p>Callers that wish to set the fields in Writer.Header must do so before the first call to Write, Flush, or Close.</p>
+<h4 id="func-newwriterlevelhttpscsopensourcegooglegogogo1201srccompressgzipgzipgol60">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=60" target="_blank" rel="noopener">NewWriterLevel</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriterLevel</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">level</span> <span style="color:#e5c07b">int</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriterLevel is like NewWriter but specifies the compression level instead of assuming DefaultCompression.</p>
+<p>The compression level can be DefaultCompression, NoCompression, HuffmanOnly or any integer value between BestSpeed and BestCompression inclusive. The error returned will be nil if the level is valid.</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srccompressgzipgzipgol228">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=228" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Writer by flushing any unwritten data to the underlying io.Writer and writing the GZIP footer. It does not close the underlying io.Writer.</p>
+<h4 id="writer-flushhttpscsopensourcegooglegogogo1201srccompressgzipgzipgol208----go11">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=208" target="_blank" rel="noopener">Flush</a>  &lt;- go1.1</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Flush</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Flush flushes any pending compressed data to the underlying writer.</p>
+<p>It is useful mainly in compressed network protocols, to ensure that a remote reader has enough data to reconstruct a packet. Flush does not return until the data has been written. If the underlying writer returns an error, Flush returns that error.</p>
+<p>In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.</p>
+<h4 id="writer-resethttpscsopensourcegooglegogogo1201srccompressgzipgzipgol88----go12">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=88" target="_blank" rel="noopener">Reset</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset discards the Writer z&rsquo;s state and makes it equivalent to the result of its original state from NewWriter or NewWriterLevel, but writing to w instead. This permits reusing a Writer rather than allocating a new one.</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srccompressgzipgzipgol139">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/gzip/gzip.go;l=139" target="_blank" rel="noopener">Write</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Write writes a compressed form of p to the underlying io.Writer. The compressed bytes are not necessarily flushed until the Writer is closed.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9b773d9d85b554a06ef43c4b44c9c91a">4 - lzw</h1>
+    
+	<h1 id="lzw">lzw</h1>
+<p><a href="https://pkg.go.dev/compress/lzw@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/compress/lzw@go1.20.1</a></p>
+<p>Package lzw implements the Lempel-Ziv-Welch compressed data format, described in T. A. Welch, &ldquo;A Technique for High-Performance Data Compression&rdquo;, Computer, 17(6) (June 1984), pp 8-19.</p>
+<p>In particular, it implements LZW as used by the GIF and PDF file formats, which means variable-width codes up to 12 bits and the first two non-literal codes are a clear code and an EOF code.</p>
+<p>The TIFF file format uses a similar but incompatible version of the LZW algorithm. See the golang.org/x/image/tiff/lzw package for an implementation.</p>
+<h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srccompresslzwreadergol254">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=254" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">order</span> <span style="color:#e06c75">Order</span>, <span style="color:#e06c75">litWidth</span> <span style="color:#e5c07b">int</span>) <span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReadCloser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader creates a new io.ReadCloser. Reads from the returned io.ReadCloser read and decompress data from r. If r does not also implement io.ByteReader, the decompressor may read more data than necessary from r. It is the caller&rsquo;s responsibility to call Close on the ReadCloser when finished reading. The number of bits to use for literal codes, litWidth, must be in the range [2,8] and is typically 8. It must equal the litWidth used during compression.</p>
+<p>It is guaranteed that the underlying type of the returned io.ReadCloser is a *Reader.</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srccompresslzwwritergol257">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/writer.go;l=257" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">order</span> <span style="color:#e06c75">Order</span>, <span style="color:#e06c75">litWidth</span> <span style="color:#e5c07b">int</span>) <span style="color:#e06c75">io</span>.<span style="color:#e06c75">WriteCloser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter creates a new io.WriteCloser. Writes to the returned io.WriteCloser are compressed and written to w. It is the caller&rsquo;s responsibility to call Close on the WriteCloser when finished writing. The number of bits to use for literal codes, litWidth, must be in the range [2,8] and is typically 8. Input bytes must be less than 1&laquo;litWidth.</p>
+<p>It is guaranteed that the underlying type of the returned io.WriteCloser is a *Writer.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-orderhttpscsopensourcegooglegogogo1201srccompresslzwreadergol29">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=29" target="_blank" rel="noopener">Order</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Order</span> <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Order specifies the bit ordering in an LZW data stream.</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// LSB means Least Significant Bits first, as used in the GIF file format.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">LSB</span> <span style="color:#e06c75">Order</span> = <span style="color:#e5c07b">iota</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// MSB means Most Significant Bits first, as used in the TIFF and PDF
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// file formats.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">MSB</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-readerhttpscsopensourcegooglegogogo1201srccompresslzwreadergol47----go117">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=47" target="_blank" rel="noopener">Reader</a>  &lt;- go1.17</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Reader</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reader is an io.Reader which can be used to read compressed data in the LZW format.</p>
+<h4 id="reader-closehttpscsopensourcegooglegogogo1201srccompresslzwreadergol230----go117">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=230" target="_blank" rel="noopener">Close</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Reader and returns an error for any future read operation. It does not close the underlying io.Reader.</p>
+<h4 id="reader-readhttpscsopensourcegooglegogogo1201srccompresslzwreadergol122----go117">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=122" target="_blank" rel="noopener">Read</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Read</span>(<span style="color:#e06c75">b</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Read implements io.Reader, reading uncompressed bytes from its underlying Reader.</p>
+<h4 id="reader-resethttpscsopensourcegooglegogogo1201srccompresslzwreadergol237----go117">(*Reader) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/reader.go;l=237" target="_blank" rel="noopener">Reset</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Reader</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">src</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">order</span> <span style="color:#e06c75">Order</span>, <span style="color:#e06c75">litWidth</span> <span style="color:#e5c07b">int</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset clears the Reader&rsquo;s state and allows it to be reused again as a new Reader.</p>
+<h3 id="type-writerhttpscsopensourcegooglegogogo1201srccompresslzwwritergol36----go117">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/writer.go;l=36" target="_blank" rel="noopener">Writer</a>  &lt;- go1.17</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Writer is an LZW compressor. It writes the compressed form of the data to an underlying writer (see NewWriter).</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srccompresslzwwritergol200----go117">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/writer.go;l=200" target="_blank" rel="noopener">Close</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Writer, flushing any pending output. It does not close w&rsquo;s underlying writer.</p>
+<h4 id="writer-resethttpscsopensourcegooglegogogo1201srccompresslzwwritergol243----go117">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/writer.go;l=243" target="_blank" rel="noopener">Reset</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">dst</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">order</span> <span style="color:#e06c75">Order</span>, <span style="color:#e06c75">litWidth</span> <span style="color:#e5c07b">int</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset clears the Writer&rsquo;s state and allows it to be reused again as a new Writer.</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srccompresslzwwritergol122----go117">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/lzw/writer.go;l=122" target="_blank" rel="noopener">Write</a>  &lt;- go1.17</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Write writes a compressed representation of p to w&rsquo;s underlying writer.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7a59c158d2a5898708fbe525e1d846e5">5 - zlib</h1>
+    
+	<h1 id="zlib">zlib</h1>
+<p><a href="https://pkg.go.dev/compress/zlib@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/compress/zlib@go1.20.1</a></p>
+<p>Package zlib implements reading and writing of zlib format compressed data, as specified in <a href="https://rfc-editor.org/rfc/rfc1950.html" target="_blank" rel="noopener">RFC 1950</a>.</p>
+<p>The implementation provides filters that uncompress during reading and compress during writing. For example, to write compressed data to a buffer:</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">b</span> <span style="color:#e06c75">bytes</span>.<span style="color:#e06c75">Buffer</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">w</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">zlib</span>.<span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">w</span>.<span style="color:#61afef;font-weight:bold">Write</span>([]<span style="color:#e5c07b">byte</span>(<span style="color:#98c379">&#34;hello, world\n&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">w</span>.<span style="color:#61afef;font-weight:bold">Close</span>()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and to read that data back:</p>
+<pre tabindex="0"><code>r, err := zlib.NewReader(&amp;b)
+io.Copy(os.Stdout, r)
+r.Close()
+</code></pre><h2 id="常量">常量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=18" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">NoCompression</span>      = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">NoCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestSpeed</span>          = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">BestSpeed</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">BestCompression</span>    = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">BestCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">DefaultCompression</span> = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">DefaultCompression</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">HuffmanOnly</span>        = <span style="color:#e06c75">flate</span>.<span style="color:#e06c75">HuffmanOnly</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>These constants are copied from the flate package, so that code that imports &ldquo;compress/zlib&rdquo; does not also have to import &ldquo;compress/flate&rdquo;.</p>
+<h2 id="变量">变量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/reader.go;l=40" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// ErrChecksum is returned when reading ZLIB data that has an invalid checksum.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ErrChecksum</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;zlib: invalid checksum&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// ErrDictionary is returned when reading ZLIB data that has an invalid dictionary.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ErrDictionary</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;zlib: invalid dictionary&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// ErrHeader is returned when reading ZLIB data that has an invalid header.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">ErrHeader</span> = <span style="color:#e06c75">errors</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#98c379">&#34;zlib: invalid header&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数">函数</h2>
+<h4 id="func-newreaderhttpscsopensourcegooglegogogo1201srccompresszlibreadergol73">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/reader.go;l=73" target="_blank" rel="noopener">NewReader</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReader</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReadCloser</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReader creates a new ReadCloser. Reads from the returned ReadCloser read and decompress data from r. If r does not implement io.ByteReader, the decompressor may read more data than necessary from r. It is the caller&rsquo;s responsibility to call Close on the ReadCloser when done.</p>
+<p>The ReadCloser returned by NewReader also implements Resetter.</p>
+<h5 id="example">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-newreaderdicthttpscsopensourcegooglegogogo1201srccompresszlibreadergol82">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/reader.go;l=82" target="_blank" rel="noopener">NewReaderDict</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewReaderDict</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">io</span>.<span style="color:#e06c75">ReadCloser</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewReaderDict is like NewReader but uses a preset dictionary. NewReaderDict ignores the dictionary if the compressed data does not refer to it. If the compressed data refers to a different dictionary, NewReaderDict returns ErrDictionary.</p>
+<p>The ReadCloser returned by NewReaderDict also implements Resetter.</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-resetterhttpscsopensourcegooglegogogo1201srccompresszlibreadergol60----go14">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/reader.go;l=60" target="_blank" rel="noopener">Resetter</a>  &lt;- go1.4</h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Resetter</span> <span style="color:#c678dd">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// Reset discards any buffered data and resets the Resetter as if it was
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// newly initialized with the given reader.
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Reader</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) <span style="color:#e5c07b">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to a new underlying Reader. This permits reusing a ReadCloser instead of allocating a new one.</p>
+<h3 id="type-writerhttpscsopensourcegooglegogogo1201srccompresszlibwritergol28">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=28" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// contains filtered or unexported fields
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A Writer takes data written to it and writes the compressed form of that data to an underlying writer (see NewWriter).</p>
+<h4 id="func-newwriterhttpscsopensourcegooglegogogo1201srccompresszlibwritergol44">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=44" target="_blank" rel="noopener">NewWriter</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriter</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriter creates a new Writer. Writes to the returned Writer are compressed and written to w.</p>
+<p>It is the caller&rsquo;s responsibility to call Close on the Writer when done. Writes may be buffered and not flushed until Close.</p>
+<h5 id="example-1">Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-newwriterlevelhttpscsopensourcegooglegogogo1201srccompresszlibwritergol55">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=55" target="_blank" rel="noopener">NewWriterLevel</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriterLevel</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">level</span> <span style="color:#e5c07b">int</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriterLevel is like NewWriter but specifies the compression level instead of assuming DefaultCompression.</p>
+<p>The compression level can be DefaultCompression, NoCompression, HuffmanOnly or any integer value between BestSpeed and BestCompression inclusive. The error returned will be nil if the level is valid.</p>
+<h4 id="func-newwriterleveldicthttpscsopensourcegooglegogogo1201srccompresszlibwritergol64">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=64" target="_blank" rel="noopener">NewWriterLevelDict</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewWriterLevelDict</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">level</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">dict</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NewWriterLevelDict is like NewWriterLevel but specifies a dictionary to compress with.</p>
+<p>The dictionary may be nil. If not, its contents should not be modified until the Writer is closed.</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srccompresszlibwritergol177">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=177" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Close closes the Writer, flushing any unwritten data to the underlying io.Writer, but does not close the underlying io.Writer.</p>
+<h4 id="writer-flushhttpscsopensourcegooglegogogo1201srccompresszlibwritergol164">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=164" target="_blank" rel="noopener">Flush</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Flush</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Flush flushes the Writer to its underlying io.Writer.</p>
+<h4 id="writer-resethttpscsopensourcegooglegogogo1201srccompresszlibwritergol78----go12">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=78" target="_blank" rel="noopener">Reset</a>  &lt;- go1.2</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Reset</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Reset clears the state of the Writer z such that it is equivalent to its initial state from NewWriterLevel or NewWriterLevelDict, but instead writing to w.</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srccompresszlibwritergol144">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/compress/zlib/writer.go;l=144" target="_blank" rel="noopener">Write</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">z</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">p</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e06c75">n</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">err</span> <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Write writes a compressed form of p to the underlying io.Writer. The compressed bytes are not necessarily flushed until the Writer is closed or explicitly flushed.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Docsy Authors </small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener"></a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.9069af235eb4d4956fc4dc29e5ca46caef0cdcae593856be4e33c99075bc5ea2.js" integrity="sha256-kGmvI1601JVvxNwp5cpGyu8M3K5ZOFa&#43;TjPJkHW8XqI=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script src='/js/deal-zero-width-space.js'></script>
+  </body>
+</html>

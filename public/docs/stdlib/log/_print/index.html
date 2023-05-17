@@ -1,0 +1,1102 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.3">
+<link rel="canonical" type="text/html" href="http://ngd.cn/docs/stdLib/log/">
+<link rel="alternate" type="application/rss&#43;xml" href="http://ngd.cn/docs/stdLib/log/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>log | go文档集</title>
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
+<meta property="og:title" content="log" />
+<meta property="og:description" content="The most popular HTML, CSS, and JS library in the world." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://ngd.cn/docs/stdLib/log/" />
+<meta itemprop="name" content="log">
+<meta itemprop="description" content="The most popular HTML, CSS, and JS library in the world."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="log"/>
+<meta name="twitter:description" content="The most popular HTML, CSS, and JS library in the world."/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" as="style">
+<link href="/scss/main.min.bb1f3a37154c4661ae02d3cb1a733edd8005db70f626370ca004c689a63ab7d4.css" rel="stylesheet" integrity="">
+
+<link href="/css/extra.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-00000000-0"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-00000000-0');
+}
+</script>
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">go文档集</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/docs/"><span class="active">文档</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search">
+  <div class="td-search__icon"></div>
+  <input type="search" class="td-search__input form-control td-search-input" placeholder="" aria-label="" autocomplete="off">
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+
+<a href="#" onclick="print();return false;"></a>.
+</p><p>
+<a href="/docs/stdLib/log/"></a>.
+</p>
+</div>
+
+
+
+<h1 class="title">log</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-fe2f60706d6da6dcea00f82f4cd28145">log</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-3b39156774fe65af75515a716eab2963">logAnalysis</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-303555cf4c08bc235860b657049c619d">syslog</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-fe2f60706d6da6dcea00f82f4cd28145">1 - log</h1>
+    
+	<h1 id="log">log</h1>
+<p><a href="https://pkg.go.dev/log@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/log@go1.20.1</a></p>
+<p>​	log包实现了一个简单的日志包。它定义了一个类型Logger，该类型具有格式化输出的方法。它还有一个预定义的&quot;标准&quot;Logger，可以通过Print[f|ln]、Fatal[f|ln]和Panic[f|ln]帮助函数访问，这比手动创建Logger更容易。该记录器(logger )将写入标准错误，并打印每个记录消息的日期和时间。每条日志消息都在单独的一行上输出：如果要打印的消息没有以换行符结尾，该记录器(logger )将添加一个换行符。Fatal函数在写入日志消息后调用os.Exit(1)。Panic函数在写入日志消息后调用panic。</p>
+<h2 id="常量">常量</h2>
+<p><a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=41" target="_blank" rel="noopener">View Source</a></p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Ldate</span>         = <span style="color:#d19a66">1</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e5c07b">iota</span>     <span style="color:#7f848e">// 当地时区的日期：2009/01/23
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Ltime</span>                         <span style="color:#7f848e">// 当地时区的时间：01:23:23
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Lmicroseconds</span> <span style="color:#7f848e">// 微秒级分辨率：01:23:23.123123.假设是Ltime。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Llongfile</span>    <span style="color:#7f848e">// 完整的文件名和行数：/a/b/c/d.go:23
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Lshortfile</span>  <span style="color:#7f848e">// 最后的文件名元素和行数: d.go:23. 覆盖Llongfile。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">LUTC</span>  <span style="color:#7f848e">// 如果设置了Ldate或Ltime，则使用UTC而不是本地时区。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">Lmsgprefix</span>  <span style="color:#7f848e">// 将 &#34;前缀&#34;从行首移至信息之前
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">LstdFlags</span>     = <span style="color:#e06c75">Ldate</span> | <span style="color:#e06c75">Ltime</span> <span style="color:#7f848e">// 标准记录器的初始值
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	这些标志定义了记录器生成每个日志条目时要添加的文本。位或运算将它们连接在一起以控制打印内容。除了 Lmsgprefix 标志外，没有控制它们出现的顺序(按此处列出的顺序)或它们呈现的格式(如注释中所述)。只有当指定了 Llongfile 或 Lshortfile 时，前缀后面才跟有一个冒号。例如，标志 Ldate | Ltime(或 LstdFlags)会产生以下输出：</p>
+<pre tabindex="0"><code>2009/01/23 01:23:23 message
+</code></pre><p>而标志 Ldate | Ltime | Lmicroseconds | Llongfile 会产生以下输出：</p>
+<pre tabindex="0"><code>2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message
+</code></pre><h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-fatalhttpscsopensourcegooglegogogo1201srclogloggol363">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=363" target="_blank" rel="noopener">Fatal</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Fatal</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatal函数等效于 Print()，然后调用 os.Exit(1)。</p>
+<h4 id="func-fatalfhttpscsopensourcegooglegogogo1201srclogloggol369">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=369" target="_blank" rel="noopener">Fatalf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Fatalf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatalf函数等效于 Printf()，然后调用 os.Exit(1)。</p>
+<h4 id="func-fatallnhttpscsopensourcegooglegogogo1201srclogloggol375">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=375" target="_blank" rel="noopener">Fatalln</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Fatalln</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatalln函数等效于 Println()，然后调用 os.Exit(1)。</p>
+<h4 id="func-flagshttpscsopensourcegooglegogogo1201srclogloggol308">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=308" target="_blank" rel="noopener">Flags</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Flags</span>() <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Flags函数返回标准日志记录器的输出标志。标志位是 Ldate、Ltime 等等。</p>
+<h4 id="func-outputhttpscsopensourcegooglegogogo1201srclogloggol408----go15">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=408" target="_blank" rel="noopener">Output</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Output</span>(<span style="color:#e06c75">calldepth</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">s</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Output 方法用于写入日志事件的输出。字符串 s 包含在 Logger 的标志指定前缀之后要打印的文本。如果 s 的最后一个字符不是换行符，则会附加一个换行符。当设置 Llongfile 或 Lshortfile 标志时，calldepth 是要跳过的帧数，以计算文件名和行号；当 calldepth 的值为 1 时，将会打印 Output 的调用者的细节信息。</p>
+<h4 id="func-panichttpscsopensourcegooglegogogo1201srclogloggol381">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=381" target="_blank" rel="noopener">Panic</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Panic</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panic函数等效于 Print()，然后调用 panic()。</p>
+<h4 id="func-panicfhttpscsopensourcegooglegogogo1201srclogloggol388">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=388" target="_blank" rel="noopener">Panicf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Panicf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panicf函数相当于调用Printf()后再调用panic()。</p>
+<h4 id="func-paniclnhttpscsopensourcegooglegogogo1201srclogloggol395">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=395" target="_blank" rel="noopener">Panicln</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Panicln</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panicln函数相当于调用Println()后再调用panic()。</p>
+<h4 id="func-prefixhttpscsopensourcegooglegogogo1201srclogloggol319">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=319" target="_blank" rel="noopener">Prefix</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Prefix</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Prefix函数返回标准记录器的输出前缀。</p>
+<h4 id="func-printhttpscsopensourcegooglegogogo1201srclogloggol337">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=337" target="_blank" rel="noopener">Print</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Print</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Print函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Print。</p>
+<h4 id="func-printfhttpscsopensourcegooglegogogo1201srclogloggol346">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=346" target="_blank" rel="noopener">Printf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Printf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Printf函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Printf。</p>
+<h4 id="func-printlnhttpscsopensourcegooglegogogo1201srclogloggol355">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=355" target="_blank" rel="noopener">Println</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Println函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Println。</p>
+<h4 id="func-setflagshttpscsopensourcegooglegogogo1201srclogloggol314">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=314" target="_blank" rel="noopener">SetFlags</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">SetFlags</span>(<span style="color:#e06c75">flag</span> <span style="color:#e5c07b">int</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetFlags函数设置标准记录器的输出标志。标志位包括Ldate、Ltime等等。</p>
+<h4 id="func-setoutputhttpscsopensourcegooglegogogo1201srclogloggol302">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=302" target="_blank" rel="noopener">SetOutput</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">SetOutput</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetOutput函数设置标准记录器的输出目的地。</p>
+<h4 id="func-setprefixhttpscsopensourcegooglegogogo1201srclogloggol324">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=324" target="_blank" rel="noopener">SetPrefix</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">SetPrefix</span>(<span style="color:#e06c75">prefix</span> <span style="color:#e5c07b">string</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetPrefix函数设置标准记录器的输出前缀。</p>
+<h4 id="func-writerhttpscsopensourcegooglegogogo1201srclogloggol329----go113">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=329" target="_blank" rel="noopener">Writer</a>  &lt;- go1.13</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Writer</span>() <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Writer函数返回标准记录器的输出目的地。</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-loggerhttpscsopensourcegooglegogogo1201srclogloggol56">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=56" target="_blank" rel="noopener">Logger</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Logger</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">mu</span>        <span style="color:#e06c75">sync</span>.<span style="color:#e06c75">Mutex</span> <span style="color:#7f848e">// 保证原子写入；保护以下字段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">prefix</span>    <span style="color:#e5c07b">string</span> <span style="color:#7f848e">// 每行日志前缀以标识记录器(参见 Lmsgprefix)
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">flag</span>      <span style="color:#e5c07b">int</span>        <span style="color:#7f848e">// 属性
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">out</span>       <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>  <span style="color:#7f848e">// 输出目的地
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">buf</span>       []<span style="color:#e5c07b">byte</span>     <span style="color:#7f848e">// 用于累积要写入的文本
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">isDiscard</span> <span style="color:#e5c07b">int32</span> <span style="color:#7f848e">// 原子布尔值：是否 out == io.Discard
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Logger表示一个活动的日志记录对象，它生成输出行到一个io.Writer。每个日志操作都会调用Writer的Write方法。一个Logger可以同时从多个goroutine使用；它保证对Writer的访问是序列化的。</p>
+<h5 id="logger-example">Logger Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;bytes&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">var</span> (
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">buf</span>    <span style="color:#e06c75">bytes</span>.<span style="color:#e06c75">Buffer</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">logger</span> = <span style="color:#e06c75">log</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">buf</span>, <span style="color:#98c379">&#34;logger: &#34;</span>, <span style="color:#e06c75">log</span>.<span style="color:#e06c75">Lshortfile</span>)
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">logger</span>.<span style="color:#61afef;font-weight:bold">Print</span>(<span style="color:#98c379">&#34;Hello, log file!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Print</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">buf</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">Output</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">logger</span>: <span style="color:#e06c75">example_test</span>.<span style="color:#c678dd">go</span>:<span style="color:#d19a66">19</span>: <span style="color:#e06c75">Hello</span>, <span style="color:#e06c75">log</span> <span style="color:#e06c75">file</span>!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-defaulthttpscsopensourcegooglegogogo1201srclogloggol89----go116">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=89" target="_blank" rel="noopener">Default</a>  &lt;- go1.16</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Default</span>() <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Default函数返回由包级别输出函数使用的标准记录器。</p>
+<h4 id="func-newhttpscsopensourcegooglegogogo1201srclogloggol70">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=70" target="_blank" rel="noopener">New</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#e06c75">out</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>, <span style="color:#e06c75">prefix</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">flag</span> <span style="color:#e5c07b">int</span>) <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	New创建一个新的Logger。out变量设置将写入日志数据的目的地。prefix出现在每个生成的日志行的开头，或者如果提供了Lmsgprefix标志，则出现在日志标题之后。flag参数定义日志属性。</p>
+<h4 id="logger-fatalhttpscsopensourcegooglegogogo1201srclogloggol226">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=226" target="_blank" rel="noopener">Fatal</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Fatal</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatal方法相当于 l.Print() 后面跟一个 os.Exit(1) 的调用。</p>
+<h4 id="logger-fatalfhttpscsopensourcegooglegogogo1201srclogloggol232">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=232" target="_blank" rel="noopener">Fatalf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Fatalf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatalf方法相当于 l.Printf() 后面跟一个 os.Exit(1) 的调用。</p>
+<h4 id="logger-fatallnhttpscsopensourcegooglegogogo1201srclogloggol238">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=238" target="_blank" rel="noopener">Fatalln</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Fatalln</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Fatalln方法相当于 l.Println() 后面跟一个 os.Exit(1) 的调用。</p>
+<h4 id="logger-flagshttpscsopensourcegooglegogogo1201srclogloggol266">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=266" target="_blank" rel="noopener">Flags</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Flags</span>() <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Flags方法返回 Logger 的输出标志。标志位包括 Ldate、Ltime 等。</p>
+<h4 id="logger-outputhttpscsopensourcegooglegogogo1201srclogloggol171">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=171" target="_blank" rel="noopener">Output</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Output</span>(<span style="color:#e06c75">calldepth</span> <span style="color:#e5c07b">int</span>, <span style="color:#e06c75">s</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Output方法写入日志事件的输出。字符串 s 包含在 Logger 的标志指定的前缀之后要打印的文本。如果 s 的最后一个字符不是换行符，则附加一个换行符。Calldepth 用于恢复 PC，并提供一般性，尽管目前在所有预定义的路径上它将是 2。</p>
+<h5 id="output--example">Output  Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;bytes&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">var</span> (
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">buf</span>    <span style="color:#e06c75">bytes</span>.<span style="color:#e06c75">Buffer</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">logger</span> = <span style="color:#e06c75">log</span>.<span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">buf</span>, <span style="color:#98c379">&#34;INFO: &#34;</span>, <span style="color:#e06c75">log</span>.<span style="color:#e06c75">Lshortfile</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">infof</span> = <span style="color:#c678dd">func</span>(<span style="color:#e06c75">info</span> <span style="color:#e5c07b">string</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">logger</span>.<span style="color:#61afef;font-weight:bold">Output</span>(<span style="color:#d19a66">2</span>, <span style="color:#e06c75">info</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#61afef;font-weight:bold">infof</span>(<span style="color:#98c379">&#34;Hello world&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Print</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">buf</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">Output</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">INFO</span>: <span style="color:#e06c75">example_test</span>.<span style="color:#c678dd">go</span>:<span style="color:#d19a66">36</span>: <span style="color:#e06c75">Hello</span> <span style="color:#e06c75">world</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="logger-panichttpscsopensourcegooglegogogo1201srclogloggol244">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=244" target="_blank" rel="noopener">Panic</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Panic</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panic方法相当于 l.Print() 后面跟一个 panic() 的调用。</p>
+<h4 id="logger-panicfhttpscsopensourcegooglegogogo1201srclogloggol251">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=251" target="_blank" rel="noopener">Panicf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Panicf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panicf方法相当于 l.Printf() 后面跟一个 panic() 的调用。</p>
+<h4 id="logger-paniclnhttpscsopensourcegooglegogogo1201srclogloggol258">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=258" target="_blank" rel="noopener">Panicln</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Panicln</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Panicln方法相当于 l.Println() 后面跟一个 panic() 的调用。</p>
+<h4 id="logger-prefixhttpscsopensourcegooglegogogo1201srclogloggol281">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=281" target="_blank" rel="noopener">Prefix</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Prefix</span>() <span style="color:#e5c07b">string</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Prefix方法返回 Logger 的输出前缀。</p>
+<h4 id="logger-printhttpscsopensourcegooglegogogo1201srclogloggol209">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=209" target="_blank" rel="noopener">Print</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Print</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Print方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Print。</p>
+<h4 id="logger-printfhttpscsopensourcegooglegogogo1201srclogloggol200">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=200" target="_blank" rel="noopener">Printf</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Printf</span>(<span style="color:#e06c75">format</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Printf方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Printf。</p>
+<h4 id="logger-printlnhttpscsopensourcegooglegogogo1201srclogloggol218">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=218" target="_blank" rel="noopener">Println</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Println</span>(<span style="color:#e06c75">v</span> <span style="color:#56b6c2">...</span><span style="color:#e06c75">any</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Println方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Println。</p>
+<h4 id="logger-setflagshttpscsopensourcegooglegogogo1201srclogloggol274">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=274" target="_blank" rel="noopener">SetFlags</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">SetFlags</span>(<span style="color:#e06c75">flag</span> <span style="color:#e5c07b">int</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetFlags方法设置 Logger 的输出标志。标志位包括 Ldate、Ltime 等。</p>
+<h4 id="logger-setoutputhttpscsopensourcegooglegogogo1201srclogloggol79----go15">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=79" target="_blank" rel="noopener">SetOutput</a>  &lt;- go1.5</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">SetOutput</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetOutput方法设置 Logger 的输出目的地。</p>
+<h4 id="logger-setprefixhttpscsopensourcegooglegogogo1201srclogloggol288">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=288" target="_blank" rel="noopener">SetPrefix</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">SetPrefix</span>(<span style="color:#e06c75">prefix</span> <span style="color:#e5c07b">string</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	SetPrefix方法设置Logger 的输出前缀。</p>
+<h4 id="logger-writerhttpscsopensourcegooglegogogo1201srclogloggol295----go112">(*Logger) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/log.go;l=295" target="_blank" rel="noopener">Writer</a>  &lt;- go1.12</h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">l</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Logger</span>) <span style="color:#61afef;font-weight:bold">Writer</span>() <span style="color:#e06c75">io</span>.<span style="color:#e06c75">Writer</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Writer方法返回Logger 的输出目的地。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3b39156774fe65af75515a716eab2963">2 - logAnalysis</h1>
+    
+	<h1 id="log包分析">log包分析</h1>
+<p>参考网址：</p>
+<p><a href="https://juejin.cn/post/7061196709040226340" target="_blank" rel="noopener">掘金——Go语言之log包源码分析</a></p>
+<p><a href="https://xie.infoq.cn/article/7cc26ee34f00c7ae9921972de" target="_blank" rel="noopener">InfoQ - Go 入门很简单：如何在 Go 中使用日志包</a></p>
+<p><a href="https://tonybai.com/2022/03/05/go-logging-practice/" target="_blank" rel="noopener">Tony Bai - 聊聊Go应用输出日志的工程实践</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-303555cf4c08bc235860b657049c619d">3 - syslog</h1>
+    
+	<h1 id="syslog">syslog</h1>
+<p><a href="https://pkg.go.dev/log/syslog@go1.20.1" target="_blank" rel="noopener">https://pkg.go.dev/log/syslog@go1.20.1</a></p>
+<p>​	syslog包提供了一个简单的接口来访问系统日志服务。它可以使用 UNIX 域套接字、UDP 或 TCP 发送消息到 syslog 守护进程。</p>
+<p>​	只需要调用一次 Dial函数。在写入失败时，syslog 客户端将尝试重新连接服务器并重试写入。</p>
+<p>​	syslog 包被冻结，不再接受新功能。一些外部包提供更多功能。参见：</p>
+<pre tabindex="0"><code>https://godoc.org/?q=syslog
+</code></pre><h2 id="常量">常量</h2>
+<p>This section is empty.</p>
+<h2 id="变量">变量</h2>
+<p>This section is empty.</p>
+<h2 id="函数">函数</h2>
+<h4 id="func-newloggerhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol312">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=312" target="_blank" rel="noopener">NewLogger</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">NewLogger</span>(<span style="color:#e06c75">p</span> <span style="color:#e06c75">Priority</span>, <span style="color:#e06c75">logFlag</span> <span style="color:#e5c07b">int</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">log</span>.<span style="color:#e06c75">Logger</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	NewLogger函数创建一个 log.Logger，其输出被写入具有指定优先级的系统日志服务，该优先级是 syslog 设施和严重性的组合。logFlag 参数是传递给 log.New 以创建 Logger 的 flag 集。</p>
+<h2 id="类型">类型</h2>
+<h3 id="type-priorityhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol24">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=24" target="_blank" rel="noopener">Priority</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Priority</span> <span style="color:#e5c07b">int</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Priority 是 syslog 设施和严重性的组合。例如，LOG_ALERT | LOG_FTP 从 FTP 设施发送警报严重性消息。默认的严重性为 LOG_EMERG，默认的设施为 LOG_KERN。</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">39
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   	<span style="color:#7f848e">// 来自 /usr/include/sys/syslog.h。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// 在 Linux、BSD 和 OS X 上相同。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">LOG_EMERG</span> <span style="color:#e06c75">Priority</span> = <span style="color:#e5c07b">iota</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_ALERT</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_CRIT</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_ERR</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_WARNING</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_NOTICE</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_INFO</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_DEBUG</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> (
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">//来自/usr/include/sys/syslog.h。
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#7f848e">// 这些在Linux、BSD和OS X上与LOG_FTP相同。  
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>	<span style="color:#e06c75">LOG_KERN</span> <span style="color:#e06c75">Priority</span> = <span style="color:#e5c07b">iota</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#d19a66">3</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_USER</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_MAIL</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_DAEMON</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_AUTH</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_SYSLOG</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LPR</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_NEWS</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_UUCP</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_CRON</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_AUTHPRIV</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_FTP</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL3</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL4</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL5</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL6</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LOG_LOCAL7</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="type-writerhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol76">type <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=76" target="_blank" rel="noopener">Writer</a></h3>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Writer</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 包含已过滤或未导出的字段
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Writer 是与 syslog 服务器的连接。</p>
+<h4 id="func-dialhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol118">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=118" target="_blank" rel="noopener">Dial</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">Dial</span>(<span style="color:#e06c75">network</span>, <span style="color:#e06c75">raddr</span> <span style="color:#e5c07b">string</span>, <span style="color:#e06c75">priority</span> <span style="color:#e06c75">Priority</span>, <span style="color:#e06c75">tag</span> <span style="color:#e5c07b">string</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Dial函数通过在指定网络上连接到地址 raddr 来建立与日志守护程序的连接。对返回的 Writer 的每次写入都会使用设施和严重性(从 priority)和标记发送日志消息。如果标记为空，则使用 os.Args[0]。如果 network 为空，则 Dial 将连接到本地 syslog 服务器。否则，请参见 net.Dial 的文档以获取 network 和 raddr 的有效值。</p>
+<h5 id="dial-example">Dial Example</h5>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;log/syslog&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">sysLog</span>, <span style="color:#e06c75">err</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">syslog</span>.<span style="color:#61afef;font-weight:bold">Dial</span>(<span style="color:#98c379">&#34;tcp&#34;</span>, <span style="color:#98c379">&#34;localhost:1234&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">syslog</span>.<span style="color:#e06c75">LOG_WARNING</span>|<span style="color:#e06c75">syslog</span>.<span style="color:#e06c75">LOG_DAEMON</span>, <span style="color:#98c379">&#34;demotag&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">err</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">log</span>.<span style="color:#61afef;font-weight:bold">Fatal</span>(<span style="color:#e06c75">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Fprintf</span>(<span style="color:#e06c75">sysLog</span>, <span style="color:#98c379">&#34;This is a daemon warning with demotag.&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">sysLog</span>.<span style="color:#61afef;font-weight:bold">Emerg</span>(<span style="color:#98c379">&#34;And this is a daemon emergency with demotag.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="func-newhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol107">func <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=107" target="_blank" rel="noopener">New</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">New</span>(<span style="color:#e06c75">priority</span> <span style="color:#e06c75">Priority</span>, <span style="color:#e06c75">tag</span> <span style="color:#e5c07b">string</span>) (<span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	New 函数用于建立与系统日志守护进程的新连接。返回的 writer 对象可用于向日志守护进程发送日志消息，其中每个消息都具有给定的优先级(syslog 的设施和严重性的组合)和前缀标签。如果标签为空，则使用 os.Args[0]。</p>
+<h4 id="writer-alerthttpscsopensourcegooglegogogo1201srclogsyslogsysloggol203">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=203" target="_blank" rel="noopener">Alert</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Alert</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Alert 方法以 LOG_ALERT 严重性记录消息，忽略在 New 函数传递的严重性。</p>
+<h4 id="writer-closehttpscsopensourcegooglegogogo1201srclogsyslogsysloggol182">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=182" target="_blank" rel="noopener">Close</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Close</span>() <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Close 方法用于关闭与 syslog 守护进程的连接。</p>
+<h4 id="writer-crithttpscsopensourcegooglegogogo1201srclogsyslogsysloggol210">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=210" target="_blank" rel="noopener">Crit</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Crit</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Crit 方法以 LOG_CRIT 严重性记录消息，忽略在 New 函数传递的严重性。</p>
+<h4 id="writer-debughttpscsopensourcegooglegogogo1201srclogsyslogsysloggol245">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=245" target="_blank" rel="noopener">Debug</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Debug</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Debug 方法以 LOG_DEBUG 严重性记录消息，忽略在 New 函数传递的严重性。</p>
+<h4 id="writer-emerghttpscsopensourcegooglegogogo1201srclogsyslogsysloggol196">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=196" target="_blank" rel="noopener">Emerg</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Emerg</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Emerg 方法以 LOG_EMERG 严重性记录消息，忽略在 New 函数传递的严重性。</p>
+<h4 id="writer-errhttpscsopensourcegooglegogogo1201srclogsyslogsysloggol217">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=217" target="_blank" rel="noopener">Err</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Err</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Err 方法以 LOG_ERR 严重性记录消息，忽略在 New 方法传递的严重性。</p>
+<h4 id="writer-infohttpscsopensourcegooglegogogo1201srclogsyslogsysloggol238">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=238" target="_blank" rel="noopener">Info</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Info</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Info方法使用 LOG_INFO 严重性记录一条消息，忽略在 New 方法传递的严重性。</p>
+<h4 id="writer-noticehttpscsopensourcegooglegogogo1201srclogsyslogsysloggol231">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=231" target="_blank" rel="noopener">Notice</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Notice</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Notice方法使用 LOG_NOTICE 严重性记录一条消息，忽略在 New 方法传递的严重性。</p>
+<h4 id="writer-warninghttpscsopensourcegooglegogogo1201srclogsyslogsysloggol224">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=224" target="_blank" rel="noopener">Warning</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Warning</span>(<span style="color:#e06c75">m</span> <span style="color:#e5c07b">string</span>) <span style="color:#e5c07b">error</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Warning方法使用 LOG_WARNING 严重性记录一条消息，忽略在 New 方法传递的严重性。</p>
+<h4 id="writer-writehttpscsopensourcegooglegogogo1201srclogsyslogsysloggol177">(*Writer) <a href="https://cs.opensource.google/go/go/&#43;/go1.20.1:src/log/syslog/syslog.go;l=177" target="_blank" rel="noopener">Write</a></h4>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#c678dd">func</span> (<span style="color:#e06c75">w</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">Writer</span>) <span style="color:#61afef;font-weight:bold">Write</span>(<span style="color:#e06c75">b</span> []<span style="color:#e5c07b">byte</span>) (<span style="color:#e5c07b">int</span>, <span style="color:#e5c07b">error</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	Write方法将一条日志消息发送到系统日志守护程序(syslog daemon)。</p>
+<h2 id="notes">Notes</h2>
+<h2 id="bugs">Bugs</h2>
+<ul>
+<li>该包在 Windows 上没有实现。由于 syslog 包被冻结，因此鼓励 Windows 用户使用标准库之外的包。有关背景，请参见 <a href="https://golang.org/issue/1108" target="_blank" rel="noopener">https://golang.org/issue/1108</a>。</li>
+<li>该包在 Plan 9 上没有实现。</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Docsy Authors </small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener"></a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.9069af235eb4d4956fc4dc29e5ca46caef0cdcae593856be4e33c99075bc5ea2.js" integrity="sha256-kGmvI1601JVvxNwp5cpGyu8M3K5ZOFa&#43;TjPJkHW8XqI=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script src='/js/deal-zero-width-space.js'></script>
+  </body>
+</html>
