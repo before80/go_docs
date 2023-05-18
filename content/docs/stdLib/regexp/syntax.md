@@ -7,7 +7,7 @@ draft = false
 +++
 # syntax
 
-[https://pkg.go.dev/regexp/syntax@go1.20.1](https://pkg.go.dev/regexp/syntax@go1.20.1)
+https://pkg.go.dev/regexp/syntax@go1.20.1
 
 ​	包语法将正则表达式解析为解析树，并将解析树编译为程序。大多数正则表达式的客户端将使用 regexp 包的工具(例如 Compile 和 Match)而不是此包。
 
@@ -168,7 +168,7 @@ This section is empty.
 
 ## 函数
 
-#### func [IsWordChar](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=108) 
+#### func IsWordChar 
 
 ``` go 
 func IsWordChar(r rune) bool
@@ -178,7 +178,7 @@ func IsWordChar(r rune) bool
 
 ## 类型
 
-### type [EmptyOp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=63) 
+### type EmptyOp 
 
 ``` go 
 type EmptyOp uint8
@@ -197,7 +197,7 @@ const (
 )
 ```
 
-#### func [EmptyOpContext](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=80) 
+#### func EmptyOpContext 
 
 ``` go 
 func EmptyOpContext(r1, r2 rune) EmptyOp
@@ -205,7 +205,7 @@ func EmptyOpContext(r1, r2 rune) EmptyOp
 
 ​	EmptyOpContext函数返回在符文 r1 和 r2 之间位置的满足零宽断言的内容。传递 r1 == -1 表示位置位于文本开头。传递 r2 == -1 表示位置位于文本末尾。
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=16) 
+### type Error 
 
 ``` go 
 type Error struct {
@@ -216,13 +216,13 @@ type Error struct {
 
 ​	Error结构体描述了无法解析正则表达式的失败，并提供了出错的表达式。
 
-#### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=21) 
+#### (*Error) Error 
 
 ``` go 
 func (e *Error) Error() string
 ```
 
-### type [ErrorCode](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=26) 
+### type ErrorCode 
 
 ``` go 
 type ErrorCode string
@@ -254,13 +254,13 @@ const (
 )
 ```
 
-#### (ErrorCode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=50) 
+#### (ErrorCode) String 
 
 ``` go 
 func (e ErrorCode) String() string
 ```
 
-### type [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=55) 
+### type Flags 
 
 ``` go 
 type Flags uint16
@@ -288,7 +288,7 @@ const (
 )
 ```
 
-### type [Inst](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=113) 
+### type Inst 
 
 ``` go 
 type Inst struct {
@@ -301,7 +301,7 @@ type Inst struct {
 
 ​	Inst是正则表达式程序中的单个指令。
 
-#### (*Inst) [MatchEmptyWidth](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=264) 
+#### (*Inst) MatchEmptyWidth 
 
 ``` go 
 func (i *Inst) MatchEmptyWidth(before rune, after rune) bool
@@ -309,7 +309,7 @@ func (i *Inst) MatchEmptyWidth(before rune, after rune) bool
 
 ​	MatchEmptyWidth方法报告指令是否在before和after之间匹配空字符串。仅在i.Op == InstEmptyWidth时才应调用它。
 
-#### (*Inst) [MatchRune](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=193) 
+#### (*Inst) MatchRune 
 
 ``` go 
 func (i *Inst) MatchRune(r rune) bool
@@ -317,7 +317,7 @@ func (i *Inst) MatchRune(r rune) bool
 
 ​	MatchRune方法报告指令是否与r匹配(并消耗r)。仅在i.Op == InstRune时才应调用它。
 
-#### (*Inst) [MatchRunePos](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=202)  <- go1.3
+#### (*Inst) MatchRunePos  <- go1.3
 
 ``` go 
 func (i *Inst) MatchRunePos(r rune) int
@@ -325,13 +325,13 @@ func (i *Inst) MatchRunePos(r rune) int
 
 ​	MatchRunePos方法检查指令是否与r匹配(并消耗r)。如果是，则MatchRunePos返回匹配符号对的索引(或者当len(i.Rune) == 1时，返回符号单例)。如果不是，则MatchRunePos返回-1。MatchRunePos仅在i.Op == InstRune时应调用。
 
-#### (*Inst) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=282) 
+#### (*Inst) String 
 
 ``` go 
 func (i *Inst) String() string
 ```
 
-### type [InstOp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=25) 
+### type InstOp 
 
 ``` go 
 type InstOp uint8
@@ -355,13 +355,13 @@ const (
 )
 ```
 
-#### (InstOp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=55)  <- go1.3
+#### (InstOp) String  <- go1.3
 
 ``` go 
 func (i InstOp) String() string
 ```
 
-### type [Op](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=32) 
+### type Op 
 
 ``` go 
 type Op uint8
@@ -393,13 +393,13 @@ const (
 )
 ```
 
-#### (Op) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/op_string.go;l=16)  <- go1.11
+#### (Op) String  <- go1.11
 
 ``` go 
 func (i Op) String() string
 ```
 
-### type [Prog](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=18) 
+### type Prog 
 
 ``` go 
 type Prog struct {
@@ -411,7 +411,7 @@ type Prog struct {
 
 一个Prog是一个已编译的正则表达式程序。
 
-#### func [Compile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/compile.go;l=71) 
+#### func Compile 
 
 ``` go 
 func Compile(re *Regexp) (*Prog, error)
@@ -419,7 +419,7 @@ func Compile(re *Regexp) (*Prog, error)
 
 ​	Compile方法将正则表达式编译成可执行程序。 正则表达式应该已经被简化(从re.Simplify返回)。
 
-#### (*Prog) [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=148) 
+#### (*Prog) Prefix 
 
 ``` go 
 func (p *Prog) Prefix() (prefix string, complete bool)
@@ -427,7 +427,7 @@ func (p *Prog) Prefix() (prefix string, complete bool)
 
 ​	Prefix方法返回一个字面字符串，该字符串是所有匹配该正则表达式的字符串必须以此开头。如果该字符串是整个匹配，则 complete 参数为 true。
 
-#### (*Prog) [StartCond](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=167) 
+#### (*Prog) StartCond 
 
 ``` go 
 func (p *Prog) StartCond() EmptyOp
@@ -435,7 +435,7 @@ func (p *Prog) StartCond() EmptyOp
 
 ​	StartCond方法返回必须在任何匹配中为真的前导空宽度条件。如果没有匹配，则返回 ^EmptyOp(0)。
 
-#### (*Prog) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=120) 
+#### (*Prog) String 
 
 ``` go 
 func (p *Prog) String() string
@@ -443,7 +443,7 @@ func (p *Prog) String() string
 
 ​	String方法返回表示程序的字符串。
 
-### type [Regexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=17) 
+### type Regexp 
 
 ``` go 
 type Regexp struct {
@@ -461,7 +461,7 @@ type Regexp struct {
 
 ​	Regexp结构体是正则表达式语法树中的一个节点。
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=890) 
+#### func Parse 
 
 ``` go 
 func Parse(s string, flags Flags) (*Regexp, error)
@@ -469,7 +469,7 @@ func Parse(s string, flags Flags) (*Regexp, error)
 
 ​	Parse方法解析一个受 flags 控制的正则表达式字符串 s，并返回一个正则表达式语法树。语法在顶层注释中描述。
 
-#### (*Regexp) [CapNames](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=307) 
+#### (*Regexp) CapNames 
 
 ``` go 
 func (re *Regexp) CapNames() []string
@@ -477,7 +477,7 @@ func (re *Regexp) CapNames() []string
 
 ​	CapNames方法遍历正则表达式以查找捕获组的名称。
 
-#### (*Regexp) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=63) 
+#### (*Regexp) Equal 
 
 ``` go 
 func (x *Regexp) Equal(y *Regexp) bool
@@ -485,7 +485,7 @@ func (x *Regexp) Equal(y *Regexp) bool
 
 ​	Equal方法报告 x 和 y 是否具有相同的结构。
 
-#### (*Regexp) [MaxCap](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=293) 
+#### (*Regexp) MaxCap 
 
 ``` go 
 func (re *Regexp) MaxCap() int
@@ -493,7 +493,7 @@ func (re *Regexp) MaxCap() int
 
 ​	MaxCap方法遍历正则表达式以查找最大捕获索引。
 
-#### (*Regexp) [Simplify](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/simplify.go;l=14) 
+#### (*Regexp) Simplify 
 
 ``` go 
 func (re *Regexp) Simplify() *Regexp
@@ -501,7 +501,7 @@ func (re *Regexp) Simplify() *Regexp
 
 ​	Simplify方法返回等效于 re 的正则表达式，但不包括计数重复，并进行各种其他简化，例如将 `/(?:a+)+/` 重写为 `/a+/`。生成的正则表达式将正确执行，但其字符串表示形式不会生成相同的解析树，因为捕获括号可能已复制或删除。例如，`/(x){1,2}/` 的简化形式是`/(x)(x)?/`，但两个括号都捕获为 `$1`。返回的正则表达式可能与原始表达式共享结构，也可能是原始表达式的副本。
 
-#### (*Regexp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=246) 
+#### (*Regexp) String 
 
 ``` go 
 func (re *Regexp) String() string

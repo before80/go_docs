@@ -30,7 +30,7 @@ func ValidMAC(message, messageMAC, key []byte) bool {
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/hmac@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -40,7 +40,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/hmac/hmac.go;l=175) [¶](https://pkg.go.dev/crypto/hmac@go1.20.1#Equal)added in go1.1
+#### func Equal [¶](https://pkg.go.dev/crypto/hmac@go1.20.1#Equal)added in go1.1
 
 ```
 func Equal(mac1, mac2 []byte) bool
@@ -48,7 +48,7 @@ func Equal(mac1, mac2 []byte) bool
 
 Equal compares two MACs for equality without leaking timing information.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/hmac/hmac.go;l=129) [¶](https://pkg.go.dev/crypto/hmac@go1.20.1#New)
+#### func New [¶](https://pkg.go.dev/crypto/hmac@go1.20.1#New)
 
 ```
 func New(h func() hash.Hash, key []byte) hash.Hash

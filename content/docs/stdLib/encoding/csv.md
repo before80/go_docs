@@ -129,7 +129,7 @@ This section is empty.
 
 ## 类型
 
-### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=66) 
+### type ParseError 
 
 ``` go 
 type ParseError struct {
@@ -144,19 +144,19 @@ A ParseError is returned for parsing errors. Line numbers are 1-indexed and colu
 
 对于解析错误会返回一个ParseError。行号是1-索引的，列是0-索引的。
 
-#### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=73) 
+#### (*ParseError) Error 
 
 ``` go 
 func (e *ParseError) Error() string
 ```
 
-#### (*ParseError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=83)  <- go1.13
+#### (*ParseError) Unwrap  <- go1.13
 
 ``` go 
 func (e *ParseError) Unwrap() error
 ```
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=110) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -238,7 +238,7 @@ Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行�
 ``` go 
 ```
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=180) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) *Reader
@@ -248,7 +248,7 @@ NewReader returns a new Reader that reads from r.
 
 NewReader返回一个新的阅读器，从r中读取数据。
 
-#### (*Reader) [FieldPos](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=211)  <- go1.17
+#### (*Reader) FieldPos  <- go1.17
 
 ``` go 
 func (r *Reader) FieldPos(field int) (line, column int)
@@ -262,7 +262,7 @@ If this is called with an out-of-bounds index, it panics.
 
 如果在调用这个函数时，索引超出了范围，它就会惊慌失措。
 
-#### (*Reader) [InputOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=222)  <- go1.19
+#### (*Reader) InputOffset  <- go1.19
 
 ``` go 
 func (r *Reader) InputOffset() int64
@@ -272,7 +272,7 @@ InputOffset returns the input stream byte offset of the current reader position.
 
 InputOffset返回当前阅读器位置的输入流字节偏移。这个偏移量给出了最近读取的行的结束和下一行的开始的位置。
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=195) 
+#### (*Reader) Read 
 
 ``` go 
 func (r *Reader) Read() (record []string, err error)
@@ -282,7 +282,7 @@ Read reads one record (a slice of fields) from r. If the record has an unexpecte
 
 如果记录有一个意外的字段数，Read会返回记录和错误ErrFieldCount。除了这种情况，Read总是返回一个非空的记录或一个非空的错误，但不会同时返回。如果没有数据可读，Read返回nil，即io.EOF。如果ReuseRecord为真，返回的片断可以在多次调用Read时共享。
 
-#### (*Reader) [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=236) 
+#### (*Reader) ReadAll 
 
 ``` go 
 func (r *Reader) ReadAll() (records [][]string, err error)
@@ -296,7 +296,7 @@ ReadAll从r读取所有剩余的记录。一个成功的调用返回err == nil�
 ``` go 
 ```
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=30) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -330,7 +330,7 @@ The writes of individual records are buffered. After all data has been written, 
 ``` go 
 ```
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=37) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -340,7 +340,7 @@ NewWriter returns a new Writer that writes to w.
 
 NewWriter返回一个新的写入w的Writer。
 
-#### (*Writer) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=128)  <- go1.1
+#### (*Writer) Error  <- go1.1
 
 ``` go 
 func (w *Writer) Error() error
@@ -350,7 +350,7 @@ Error reports any error that has occurred during a previous Write or Flush.
 
 Error报告在之前的写或刷新过程中发生的任何错误。
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=123) 
+#### (*Writer) Flush 
 
 ``` go 
 func (w *Writer) Flush()
@@ -360,7 +360,7 @@ Flush writes any buffered data to the underlying io.Writer. To check if an error
 
 Flush将任何缓冲的数据写入底层的io.Writer。要检查在Flush过程中是否有错误发生，请调用Error。
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=48) 
+#### (*Writer) Write 
 
 ``` go 
 func (w *Writer) Write(record []string) error
@@ -370,7 +370,7 @@ Write writes a single CSV record to w along with any necessary quoting. A record
 
 Write将一条CSV记录和任何必要的引号一起写到w中。一个记录是一个字符串的切片，每个字符串是一个字段。写入是缓冲的，所以最终必须调用Flush以确保记录被写入底层的io.Writer。
 
-#### (*Writer) [WriteAll](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=135) 
+#### (*Writer) WriteAll 
 
 ``` go 
 func (w *Writer) WriteAll(records [][]string) error

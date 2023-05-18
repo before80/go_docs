@@ -29,7 +29,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=312) 
+#### func NewLogger 
 
 ```go 
 func NewLogger(p Priority, logFlag int) (*log.Logger, error)
@@ -39,7 +39,7 @@ func NewLogger(p Priority, logFlag int) (*log.Logger, error)
 
 ## 类型
 
-### type [Priority](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=24) 
+### type Priority 
 
 ```go 
 type Priority int
@@ -89,7 +89,7 @@ const (
 )
 ```
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=76) 
+### type Writer 
 
 ```go 
 type Writer struct {
@@ -99,7 +99,7 @@ type Writer struct {
 
 ​	Writer 是与 syslog 服务器的连接。
 
-#### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=118) 
+#### func Dial 
 
 ```go 
 func Dial(network, raddr string, priority Priority, tag string) (*Writer, error)
@@ -132,7 +132,7 @@ func main() {
 
 
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=107) 
+#### func New 
 
 ```go 
 func New(priority Priority, tag string) (*Writer, error)
@@ -140,7 +140,7 @@ func New(priority Priority, tag string) (*Writer, error)
 
 ​	New 函数用于建立与系统日志守护进程的新连接。返回的 writer 对象可用于向日志守护进程发送日志消息，其中每个消息都具有给定的优先级(syslog 的设施和严重性的组合)和前缀标签。如果标签为空，则使用 os.Args[0]。
 
-#### (*Writer) [Alert](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=203) 
+#### (*Writer) Alert 
 
 ```go 
 func (w *Writer) Alert(m string) error
@@ -148,7 +148,7 @@ func (w *Writer) Alert(m string) error
 
 ​	Alert 方法以 LOG_ALERT 严重性记录消息，忽略在 New 函数传递的严重性。
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=182) 
+#### (*Writer) Close 
 
 ```go 
 func (w *Writer) Close() error
@@ -156,7 +156,7 @@ func (w *Writer) Close() error
 
 ​	Close 方法用于关闭与 syslog 守护进程的连接。
 
-#### (*Writer) [Crit](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=210) 
+#### (*Writer) Crit 
 
 ```go 
 func (w *Writer) Crit(m string) error
@@ -164,7 +164,7 @@ func (w *Writer) Crit(m string) error
 
 ​	Crit 方法以 LOG_CRIT 严重性记录消息，忽略在 New 函数传递的严重性。
 
-#### (*Writer) [Debug](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=245) 
+#### (*Writer) Debug 
 
 ```go 
 func (w *Writer) Debug(m string) error
@@ -172,7 +172,7 @@ func (w *Writer) Debug(m string) error
 
 ​	Debug 方法以 LOG_DEBUG 严重性记录消息，忽略在 New 函数传递的严重性。
 
-#### (*Writer) [Emerg](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=196) 
+#### (*Writer) Emerg 
 
 ```go 
 func (w *Writer) Emerg(m string) error
@@ -180,7 +180,7 @@ func (w *Writer) Emerg(m string) error
 
 ​	Emerg 方法以 LOG_EMERG 严重性记录消息，忽略在 New 函数传递的严重性。
 
-#### (*Writer) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=217) 
+#### (*Writer) Err 
 
 ```go 
 func (w *Writer) Err(m string) error
@@ -188,7 +188,7 @@ func (w *Writer) Err(m string) error
 
 ​	Err 方法以 LOG_ERR 严重性记录消息，忽略在 New 方法传递的严重性。
 
-#### (*Writer) [Info](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=238) 
+#### (*Writer) Info 
 
 ```go 
 func (w *Writer) Info(m string) error
@@ -196,7 +196,7 @@ func (w *Writer) Info(m string) error
 
 ​	Info方法使用 LOG_INFO 严重性记录一条消息，忽略在 New 方法传递的严重性。
 
-#### (*Writer) [Notice](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=231) 
+#### (*Writer) Notice 
 
 ```go 
 func (w *Writer) Notice(m string) error
@@ -204,7 +204,7 @@ func (w *Writer) Notice(m string) error
 
 ​	Notice方法使用 LOG_NOTICE 严重性记录一条消息，忽略在 New 方法传递的严重性。
 
-#### (*Writer) [Warning](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=224) 
+#### (*Writer) Warning 
 
 ```go 
 func (w *Writer) Warning(m string) error
@@ -214,7 +214,7 @@ func (w *Writer) Warning(m string) error
 
 
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=177) 
+#### (*Writer) Write 
 
 ```go 
 func (w *Writer) Write(b []byte) (int, error)

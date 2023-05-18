@@ -7,7 +7,7 @@ draft = false
 +++
 # regexp
 
-[https://pkg.go.dev/regexp@go1.20.1](https://pkg.go.dev/regexp@go1.20.1)
+https://pkg.go.dev/regexp@go1.20.1
 
 ​	regexp包实现了正则表达式搜索。
 
@@ -87,7 +87,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=567) 
+#### func Match 
 
 ``` go 
 func Match(pattern string, b []byte) (matched bool, err error)
@@ -123,7 +123,7 @@ false error parsing regexp: missing closing ): `a(b`
 
 
 
-#### func [MatchReader](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=545) 
+#### func MatchReader 
 
 ``` go 
 func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)
@@ -131,7 +131,7 @@ func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)
 
 ​	MatchReader函数报告RuneReader返回的文本是否包含正则表达式模式的任何匹配项。更复杂的查询需要使用Compile和完整的Regexp接口。
 
-#### func [MatchString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=556) 
+#### func MatchString 
 
 ``` go 
 func MatchString(pattern string, s string) (matched bool, err error)
@@ -166,7 +166,7 @@ false error parsing regexp: missing closing ): `a(b`
 
 
 
-#### func [QuoteMeta](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=728) 
+#### func QuoteMeta 
 
 ``` go 
 func QuoteMeta(s string) string
@@ -194,7 +194,7 @@ func main() {
 
 ## 类型
 
-### type [Regexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=86) 
+### type Regexp 
 
 ``` go 
 type Regexp struct {
@@ -205,7 +205,7 @@ type Regexp struct {
 
 ​	Regexp 是已编译的正则表达式的表示。Regexp 可以被多个 goroutine 安全地并发使用，除了 Longest 等配置方法之外。
 
-#### func [Compile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=136) 
+#### func Compile 
 
 ``` go 
 func Compile(expr string) (*Regexp, error)
@@ -215,7 +215,7 @@ func Compile(expr string) (*Regexp, error)
 
 ​	在匹配文本时，正则表达式返回一个尽可能早地开始的匹配(最左边的)，并从其中选择一个回溯搜索最先发现的匹配。这种所谓的最左优先匹配是 Perl、Python 和其他实现使用的语义，尽管此包实现它而不需要回溯的开销。有关 POSIX 最左最长匹配，请参见 CompilePOSIX。
 
-#### func [CompilePOSIX](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=159) 
+#### func CompilePOSIX 
 
 ``` go 
 func CompilePOSIX(expr string) (*Regexp, error)
@@ -227,7 +227,7 @@ func CompilePOSIX(expr string) (*Regexp, error)
 
 ​	但是，可能会有多个最左最长匹配，其中具有不同子匹配选择，这里的此包与 POSIX 不同。在可能的最左最长匹配中，此包选择回溯搜索最先发现的匹配，而 POSIX 规定应选择使第一个子表达式的长度最大，然后是第二个表达式，依此类推，从左到右。POSIX 规则计算上过于繁琐，甚至无法定义。有关详细信息，请参见 https://swtch.com/~rsc/regexp/regexp2.html#posix。
 
-#### func [MustCompile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=316) 
+#### func MustCompile 
 
 ``` go 
 func MustCompile(str string) *Regexp
@@ -235,7 +235,7 @@ func MustCompile(str string) *Regexp
 
 ​	MustCompile函数类似于 Compile方法，但如果无法解析表达式，则会 panic。它简化了持有已编译的正则表达式的全局变量的安全初始化。
 
-#### func [MustCompilePOSIX](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=327) 
+#### func MustCompilePOSIX 
 
 ``` go 
 func MustCompilePOSIX(str string) *Regexp
@@ -243,7 +243,7 @@ func MustCompilePOSIX(str string) *Regexp
 
 ​	MustCompilePOSIX函数类似于 CompilePOSIX，但如果无法解析表达式，则会 panic。它简化了持有已编译的正则表达式的全局变量的安全初始化。
 
-#### (*Regexp) [Expand](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=921) 
+#### (*Regexp) Expand 
 
 ``` go 
 func (re *Regexp) Expand(dst []byte, template []byte, src []byte, match []int) []byte
@@ -304,7 +304,7 @@ option3=value3
 
 
 
-#### (*Regexp) [ExpandString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=928) 
+#### (*Regexp) ExpandString 
 
 ``` go 
 func (re *Regexp) ExpandString(dst []byte, template string, src string, match []int) []byte
@@ -357,7 +357,7 @@ option3=value3
 
 
 
-#### (*Regexp) [Find](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=824) 
+#### (*Regexp) Find 
 
 ``` go 
 func (re *Regexp) Find(b []byte) []byte
@@ -387,7 +387,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAll](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1083) 
+#### (*Regexp) FindAll 
 
 ``` go 
 func (re *Regexp) FindAll(b []byte, n int) [][]byte
@@ -417,7 +417,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1101) 
+#### (*Regexp) FindAllIndex 
 
 ``` go 
 func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
@@ -449,7 +449,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1119) 
+#### (*Regexp) FindAllString 
 
 ``` go 
 func (re *Regexp) FindAllString(s string, n int) []string
@@ -484,7 +484,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllStringIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1137) 
+#### (*Regexp) FindAllStringIndex 
 
 ``` go 
 func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
@@ -492,7 +492,7 @@ func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
 
 ​	FindAllStringIndex方法是FindStringIndex方法的"All"版本；它返回一个切片，其中包含表达式的所有连续匹配项，如包注释中的"All"描述所定义。返回值nil表示没有匹配项。
 
-#### (*Regexp) [FindAllStringSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1197) 
+#### (*Regexp) FindAllStringSubmatch 
 
 ``` go 
 func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
@@ -527,7 +527,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllStringSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1222) 
+#### (*Regexp) FindAllStringSubmatchIndex 
 
 ``` go 
 func (re *Regexp) FindAllStringSubmatchIndex(s string, n int) [][]int
@@ -567,7 +567,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1155) 
+#### (*Regexp) FindAllSubmatch 
 
 ``` go 
 func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
@@ -597,7 +597,7 @@ Output:
 
 
 
-#### (*Regexp) [FindAllSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1179) 
+#### (*Regexp) FindAllSubmatchIndex 
 
 ``` go 
 func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
@@ -645,7 +645,7 @@ value2
 
 
 
-#### (*Regexp) [FindIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=837) 
+#### (*Regexp) FindIndex 
 
 ``` go 
 func (re *Regexp) FindIndex(b []byte) (loc []int)
@@ -684,7 +684,7 @@ option1: value1
 
 
 
-#### (*Regexp) [FindReaderIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=876) 
+#### (*Regexp) FindReaderIndex 
 
 ``` go 
 func (re *Regexp) FindReaderIndex(r io.RuneReader) (loc []int)
@@ -692,7 +692,7 @@ func (re *Regexp) FindReaderIndex(r io.RuneReader) (loc []int)
 
 ​	FindReaderIndex方法返回一个包含两个整数的切片，这个切片定义了从RuneReader读取的文本中与正则表达式最左匹配的位置。匹配文本在输入流中的字节偏移量为`loc[0]`至l`oc[1]-1`。如果没有匹配，返回值为nil。
 
-#### (*Regexp) [FindReaderSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1073) 
+#### (*Regexp) FindReaderSubmatchIndex 
 
 ``` go 
 func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int
@@ -700,7 +700,7 @@ func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int
 
 ​	FindReaderSubmatchIndex方法返回一个切片，该切片包含标识正则表达式左侧最匹配的文本的索引对，以及它的子表达式(如果有)的匹配，如包注释中的"Submatch"和"Index"描述所定义。如果没有匹配，返回值为nil。
 
-#### (*Regexp) [FindString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=850) 
+#### (*Regexp) FindString 
 
 ``` go 
 func (re *Regexp) FindString(s string) string
@@ -731,7 +731,7 @@ Output:
 
 
 
-#### (*Regexp) [FindStringIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=863) 
+#### (*Regexp) FindStringIndex 
 
 ``` go 
 func (re *Regexp) FindStringIndex(s string) (loc []int)
@@ -762,7 +762,7 @@ true
 
 
 
-#### (*Regexp) [FindStringSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1044) 
+#### (*Regexp) FindStringSubmatch 
 
 ``` go 
 func (re *Regexp) FindStringSubmatch(s string) []string
@@ -793,7 +793,7 @@ Output:
 
 
 
-#### (*Regexp) [FindStringSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1064) 
+#### (*Regexp) FindStringSubmatchIndex 
 
 ``` go 
 func (re *Regexp) FindStringSubmatchIndex(s string) []int
@@ -801,7 +801,7 @@ func (re *Regexp) FindStringSubmatchIndex(s string) []int
 
 ​	FindStringSubmatchIndex方法返回一个切片，其中包含识别字符串s中最左侧的正则表达式匹配项及其子表达式(如果有)的索引对，如"Submatch"和"Index"描述所定义。如果没有匹配项，则返回nil。
 
-#### (*Regexp) [FindSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=889) 
+#### (*Regexp) FindSubmatch 
 
 ``` go 
 func (re *Regexp) FindSubmatch(b []byte) [][]byte
@@ -831,7 +831,7 @@ Output:
 
 
 
-#### (*Regexp) [FindSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1035) 
+#### (*Regexp) FindSubmatchIndex 
 
 ``` go 
 func (re *Regexp) FindSubmatchIndex(b []byte) []int
@@ -871,7 +871,7 @@ Output:
 
 
 
-#### (*Regexp) [LiteralPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=520) 
+#### (*Regexp) LiteralPrefix 
 
 ``` go 
 func (re *Regexp) LiteralPrefix() (prefix string, complete bool)
@@ -879,7 +879,7 @@ func (re *Regexp) LiteralPrefix() (prefix string, complete bool)
 
 ​	LiteralPrefix方法返回一个字符串文本，该文本必须以正则表达式re的开头。如果文本字符串包含整个正则表达式，则返回布尔值true。
 
-#### (*Regexp) [Longest](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=169)  <- go1.1
+#### (*Regexp) Longest  <- go1.1
 
 ``` go 
 func (re *Regexp) Longest()
@@ -911,7 +911,7 @@ ab
 
 
 
-#### (*Regexp) [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=538) 
+#### (*Regexp) Match 
 
 ``` go 
 func (re *Regexp) Match(b []byte) bool
@@ -943,7 +943,7 @@ false
 
 
 
-#### (*Regexp) [MatchReader](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=526) 
+#### (*Regexp) MatchReader 
 
 ``` go 
 func (re *Regexp) MatchReader(r io.RuneReader) bool
@@ -951,7 +951,7 @@ func (re *Regexp) MatchReader(r io.RuneReader) bool
 
 ​	MatchReader方法报告RuneReader返回的文本是否包含正则表达式re的任何匹配项。
 
-#### (*Regexp) [MatchString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=532) 
+#### (*Regexp) MatchString 
 
 ``` go 
 func (re *Regexp) MatchString(s string) bool
@@ -984,7 +984,7 @@ true
 
 
 
-#### (*Regexp) [NumSubexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=343) 
+#### (*Regexp) NumSubexp 
 
 ``` go 
 func (re *Regexp) NumSubexp() int
@@ -1017,7 +1017,7 @@ Output:
 
 
 
-#### (*Regexp) [ReplaceAll](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=677) 
+#### (*Regexp) ReplaceAll 
 
 ``` go 
 func (re *Regexp) ReplaceAll(src, repl []byte) []byte
@@ -1052,7 +1052,7 @@ Output:
 
 
 
-#### (*Regexp) [ReplaceAllFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=705) 
+#### (*Regexp) ReplaceAllFunc 
 
 ``` go 
 func (re *Regexp) ReplaceAllFunc(src []byte, repl func([]byte) []byte) []byte
@@ -1060,7 +1060,7 @@ func (re *Regexp) ReplaceAllFunc(src []byte, repl func([]byte) []byte) []byte
 
 ​	ReplaceAllFunc方法返回src的副本，其中所有Regexp的匹配项都已被应用于匹配的字节切片的repl函数的返回值所替换。 repl返回的替换会直接被替换，而不使用Expand方法。
 
-#### (*Regexp) [ReplaceAllLiteral](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=695) 
+#### (*Regexp) ReplaceAllLiteral 
 
 ``` go 
 func (re *Regexp) ReplaceAllLiteral(src, repl []byte) []byte
@@ -1068,7 +1068,7 @@ func (re *Regexp) ReplaceAllLiteral(src, repl []byte) []byte
 
 ​	ReplaceAllLiteral方法返回一个 src 的副本，将所有与 Regexp 匹配的内容替换为 replacement bytes repl。替换 repl 时，不使用 Expand。
 
-#### (*Regexp) [ReplaceAllLiteralString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=592) 
+#### (*Regexp) ReplaceAllLiteralString 
 
 ``` go 
 func (re *Regexp) ReplaceAllLiteralString(src, repl string) string
@@ -1103,7 +1103,7 @@ Output:
 
 
 
-#### (*Regexp) [ReplaceAllString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=578) 
+#### (*Regexp) ReplaceAllString 
 
 ``` go 
 func (re *Regexp) ReplaceAllString(src, repl string) string
@@ -1138,7 +1138,7 @@ Output:
 
 
 
-#### (*Regexp) [ReplaceAllStringFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=602) 
+#### (*Regexp) ReplaceAllStringFunc 
 
 ``` go 
 func (re *Regexp) ReplaceAllStringFunc(src string, repl func(string) string) string
@@ -1168,7 +1168,7 @@ SeaFooD FooL
 
 
 
-#### (*Regexp) [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1253)  <- go1.1
+#### (*Regexp) Split  <- go1.1
 
 ``` go 
 func (re *Regexp) Split(s string, n int) []string
@@ -1229,7 +1229,7 @@ Output:
 
 
 
-#### (*Regexp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=109) 
+#### (*Regexp) String 
 
 ``` go 
 func (re *Regexp) String() string
@@ -1237,7 +1237,7 @@ func (re *Regexp) String() string
 
 ​	String方法返回用于编译正则表达式的源文本。
 
-#### (*Regexp) [SubexpIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=363)  <- go1.15
+#### (*Regexp) SubexpIndex  <- go1.15
 
 ``` go 
 func (re *Regexp) SubexpIndex(name string) int
@@ -1274,7 +1274,7 @@ Turing
 
 
 
-#### (*Regexp) [SubexpNames](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=352) 
+#### (*Regexp) SubexpNames 
 
 ``` go 
 func (re *Regexp) SubexpNames() []string

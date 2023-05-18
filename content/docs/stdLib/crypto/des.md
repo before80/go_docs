@@ -25,7 +25,7 @@ DES is cryptographically broken and should not be used for secure applications.
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/des@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/des/cipher.go;l=15)
 
@@ -41,7 +41,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewCipher](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/des/cipher.go;l=29) [¶](https://pkg.go.dev/crypto/des@go1.20.1#NewCipher)
+#### func NewCipher [¶](https://pkg.go.dev/crypto/des@go1.20.1#NewCipher)
 
 ```
 func NewCipher(key []byte) (cipher.Block, error)
@@ -49,7 +49,7 @@ func NewCipher(key []byte) (cipher.Block, error)
 
 NewCipher creates and returns a new cipher.Block.
 
-#### func [NewTripleDESCipher](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/des/cipher.go;l=73) [¶](https://pkg.go.dev/crypto/des@go1.20.1#NewTripleDESCipher)
+#### func NewTripleDESCipher [¶](https://pkg.go.dev/crypto/des@go1.20.1#NewTripleDESCipher)
 
 ```
 func NewTripleDESCipher(key []byte) (cipher.Block, error)
@@ -61,13 +61,13 @@ NewTripleDESCipher creates and returns a new cipher.Block.
 
 ## 类型
 
-### type [KeySizeError](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/des/cipher.go;l=17) [¶](https://pkg.go.dev/crypto/des@go1.20.1#KeySizeError)
+### type KeySizeError [¶](https://pkg.go.dev/crypto/des@go1.20.1#KeySizeError)
 
 ```
 type KeySizeError int
 ```
 
-#### (KeySizeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/des/cipher.go;l=19) [¶](https://pkg.go.dev/crypto/des@go1.20.1#KeySizeError.Error)
+#### (KeySizeError) Error [¶](https://pkg.go.dev/crypto/des@go1.20.1#KeySizeError.Error)
 
 ```
 func (k KeySizeError) Error() string

@@ -31,7 +31,7 @@ This section is empty.
 
 ## 类型
 
-### type [BuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=32) 
+### type BuildInfo 
 
 ``` go 
 type BuildInfo = debug.BuildInfo
@@ -41,7 +41,7 @@ Type alias for build info. We cannot move the types here, since runtime/debug wo
 
 构建信息的类型别名。我们不能把类型移到这里，因为 runtime/debug 需要导入这个包，这将使它成为一个更大的依赖关系。
 
-#### func [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=74) 
+#### func Read 
 
 ``` go 
 func Read(r io.ReaderAt) (*BuildInfo, error)
@@ -51,7 +51,7 @@ Read returns build information embedded in a Go binary file accessed through the
 
 Read 返回嵌入在通过给定的ReaderAt访问的Go二进制文件中的构建信息。大多数信息只适用于有模块支持的二进制文件。
 
-#### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=54) 
+#### func ReadFile 
 
 ``` go 
 func ReadFile(name string) (info *BuildInfo, err error)

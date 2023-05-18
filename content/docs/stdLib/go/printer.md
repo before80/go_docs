@@ -29,7 +29,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1426) 
+#### func Fprint 
 
 ``` go 
 func Fprint(output io.Writer, fset *token.FileSet, node any) error
@@ -43,7 +43,7 @@ Fprint "pretty-prints" an AST node to output. It calls Config.Fprint with defaul
 
 ## 类型
 
-### type [CommentedNode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1409) 
+### type CommentedNode 
 
 ``` go 
 type CommentedNode struct {
@@ -54,7 +54,7 @@ type CommentedNode struct {
 
 A CommentedNode bundles an AST node and corresponding comments. It may be provided as argument to any of the Fprint functions.
 
-### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1312) 
+### type Config 
 
 ``` go 
 type Config struct {
@@ -66,7 +66,7 @@ type Config struct {
 
 A Config node controls the output of Fprint.
 
-#### (*Config) [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1418) 
+#### (*Config) Fprint 
 
 ``` go 
 func (cfg *Config) Fprint(output io.Writer, fset *token.FileSet, node any) error
@@ -74,7 +74,7 @@ func (cfg *Config) Fprint(output io.Writer, fset *token.FileSet, node any) error
 
 Fprint "pretty-prints" an AST node to output for a given configuration cfg. Position information is interpreted relative to the file set fset. The node type must be *ast.File, *CommentedNode, []ast.Decl, []ast.Stmt, or assignment-compatible to ast.Expr, ast.Decl, ast.Spec, or ast.Stmt.
 
-### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1286) 
+### type Mode 
 
 ``` go 
 type Mode uint

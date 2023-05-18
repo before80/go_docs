@@ -7,7 +7,7 @@ draft = false
 +++
 # time
 
-[https://pkg.go.dev/time@go1.20.1](https://pkg.go.dev/time@go1.20.1)
+https://pkg.go.dev/time@go1.20.1
 
 ​	包time提供了测量和显示时间的功能。
 
@@ -170,7 +170,7 @@ This section is empty.
 
 ## 函数
 
-#### func [After](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=156) 
+#### func After 
 
 ``` go 
 func After(d Duration) <-chan Time
@@ -202,7 +202,7 @@ func main() {
 
 ```
 
-#### func [Sleep](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=9) 
+#### func Sleep 
 
 ``` go 
 func Sleep(d Duration)
@@ -224,7 +224,7 @@ func main() {
 
 ```
 
-#### func [Tick](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=68) 
+#### func Tick 
 
 ``` go 
 func Tick(d Duration) <-chan Time
@@ -254,7 +254,7 @@ func main() {
 
 ## 类型
 
-### type [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=612) 
+### type Duration 
 
 ``` go 
 type Duration int64
@@ -282,7 +282,7 @@ func main() {
 
 ```
 
-#### func [ParseDuration](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1589) 
+#### func ParseDuration 
 
 ``` go 
 func ParseDuration(s string) (Duration, error)
@@ -321,7 +321,7 @@ There are 1000 nanoseconds in 1µs.
 There are 1.00e-06 seconds in 1µs.
 ```
 
-#### func [Since](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=911) 
+#### func Since 
 
 ``` go 
 func Since(t Time) Duration
@@ -329,7 +329,7 @@ func Since(t Time) Duration
 
 ​	Since 函数返回自 t 以来经过的时间。它相当于 time.Now().Sub(t)。
 
-#### func [Until](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=924)  <- go1.8
+#### func Until  <- go1.8
 
 ``` go 
 func Until(t Time) Duration
@@ -337,7 +337,7 @@ func Until(t Time) Duration
 
 ​	Until 函数返回直到 t 的时间间隔。它相当于 t.Sub(time.Now())。
 
-#### (Duration) [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=844)  <- go1.19
+#### (Duration) Abs  <- go1.19
 
 ``` go 
 func (d Duration) Abs() Duration
@@ -345,7 +345,7 @@ func (d Duration) Abs() Duration
 
 ​	Abs方法返回 d 的绝对值。作为特殊情况，将 math.MinInt64 转换为 math.MaxInt64。
 
-#### (Duration) [Hours](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=791) 
+#### (Duration) Hours 
 
 ``` go 
 func (d Duration) Hours() float64
@@ -371,7 +371,7 @@ Output:
 I've got 4.5 hours of work left.
 ```
 
-#### (Duration) [Microseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=762)  <- go1.13
+#### (Duration) Microseconds  <- go1.13
 
 ``` go 
 func (d Duration) Microseconds() int64
@@ -397,7 +397,7 @@ Output:
 One second is 1000000 microseconds.
 ```
 
-#### (Duration) [Milliseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=765)  <- go1.13
+#### (Duration) Milliseconds  <- go1.13
 
 ``` go 
 func (d Duration) Milliseconds() int64
@@ -423,7 +423,7 @@ Output:
 One second is 1000 milliseconds.
 ```
 
-#### (Duration) [Minutes](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=784) 
+#### (Duration) Minutes 
 
 ``` go 
 func (d Duration) Minutes() float64
@@ -449,7 +449,7 @@ Output:
 The movie is 90 minutes long.
 ```
 
-#### (Duration) [Nanoseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=759) 
+#### (Duration) Nanoseconds 
 
 ``` go 
 func (d Duration) Nanoseconds() int64
@@ -475,7 +475,7 @@ Output:
 One microsecond is 1000 nanoseconds.
 ```
 
-#### (Duration) [Round](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=818)  <- go1.9
+#### (Duration) Round  <- go1.9
 
 ``` go 
 func (d Duration) Round(m Duration) Duration
@@ -525,7 +525,7 @@ d.Round( 10m0s) = 1h20m0s
 d.Round(1h0m0s) = 1h0m0s
 ```
 
-#### (Duration) [Seconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=777) 
+#### (Duration) Seconds 
 
 ``` go 
 func (d Duration) Seconds() float64
@@ -551,7 +551,7 @@ Output:
 Take off in t-90 seconds.
 ```
 
-#### (Duration) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=644) 
+#### (Duration) String 
 
 ``` go 
 func (d Duration) String() string
@@ -578,7 +578,7 @@ Output:
 300ms
 ```
 
-#### (Duration) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=799)  <- go1.9
+#### (Duration) Truncate  <- go1.9
 
 ``` go 
 func (d Duration) Truncate(m Duration) Duration
@@ -628,7 +628,7 @@ d.Truncate( 10m0s) = 1h10m0s
 d.Truncate(1h0m0s) = 1h0m0s
 ```
 
-### type [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=19) 
+### type Location 
 
 ``` go 
 type Location struct {
@@ -683,7 +683,7 @@ var UTC *Location = &utcLoc
 
 ​	UTC 表示协调世界时 (UTC)。
 
-#### func [FixedZone](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=108) 
+#### func FixedZone 
 
 ``` go 
 func FixedZone(name string, offset int) *Location
@@ -710,7 +710,7 @@ Output:
 The time is: 10 Nov 09 23:00 UTC-8
 ```
 
-#### func [LoadLocation](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=662) 
+#### func LoadLocation 
 
 ``` go 
 func LoadLocation(name string) (*Location, error)
@@ -752,7 +752,7 @@ Output:
 2018-08-30 05:00:00 -0700 PDT
 ```
 
-#### func [LoadLocationFromTZData](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo_read.go;l=116)  <- go1.10
+#### func LoadLocationFromTZData  <- go1.10
 
 ``` go 
 func LoadLocationFromTZData(name string, data []byte) (*Location, error)
@@ -760,7 +760,7 @@ func LoadLocationFromTZData(name string, data []byte) (*Location, error)
 
 ​	LoadLocationFromTZData 函数从 IANA 时区数据库格式的数据中返回一个指定名字的 Location。该数据应该采用标准的 IANA 时区文件格式(例如，在 Unix 系统上的 /etc/localtime 内容)。
 
-#### (*Location) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=99) 
+#### (*Location) String 
 
 ``` go 
 func (l *Location) String() string
@@ -768,7 +768,7 @@ func (l *Location) String() string
 
 ​	String 方法返回一个描述性的字符串，表示时区信息，对应于 LoadLocation 或 FixedZone 中的 name 参数。
 
-### type [Month](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=303) 
+### type Month 
 
 ``` go 
 type Month int
@@ -811,7 +811,7 @@ const (
 )
 ```
 
-#### (Month) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=321) 
+#### (Month) String 
 
 ``` go 
 func (m Month) String() string
@@ -819,7 +819,7 @@ func (m Month) String() string
 
 ​	String 方法返回该月份的英文名称("January"、"February" 等)。
 
-### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=819) 
+### type ParseError 
 
 ``` go 
 type ParseError struct {
@@ -833,7 +833,7 @@ type ParseError struct {
 
 ​	ParseError 类型描述解析时间字符串时的问题。
 
-#### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=886) 
+#### (*ParseError) Error 
 
 ``` go 
 func (e *ParseError) Error() string
@@ -841,7 +841,7 @@ func (e *ParseError) Error() string
 
 ​	Error 方法返回 ParseError 的字符串表示形式。
 
-### type [Ticker](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=11) 
+### type Ticker 
 
 ``` go 
 type Ticker struct {
@@ -852,7 +852,7 @@ type Ticker struct {
 
 ​	Ticker 持有一个通道，该通道以时间间隔提供时钟"滴答声"。
 
-#### func [NewTicker](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=22) 
+#### func NewTicker 
 
 ``` go 
 func NewTicker(d Duration) *Ticker
@@ -890,7 +890,7 @@ func main() {
 
 ```
 
-#### (*Ticker) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=53)  <- go1.15
+#### (*Ticker) Reset  <- go1.15
 
 ``` go 
 func (t *Ticker) Reset(d Duration)
@@ -898,7 +898,7 @@ func (t *Ticker) Reset(d Duration)
 
 ​	Reset方法停止一个 Ticker 并将其周期重置为指定的 duration。下一个 tick 将在新周期过去后到达。duration d 必须大于零；否则，Reset 会 panic。
 
-#### (*Ticker) [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=46) 
+#### (*Ticker) Stop 
 
 ``` go 
 func (t *Ticker) Stop()
@@ -906,7 +906,7 @@ func (t *Ticker) Stop()
 
 ​	Stop方法关闭一个 Ticker。Stop 后，将不会再发送任何 tick。Stop 不会关闭通道，以防止并发的 goroutine 从通道中读取到错误的"tick"。
 
-### type [Time](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=129) 
+### type Time 
 
 ``` go 
 type Time struct {
@@ -932,7 +932,7 @@ type Time struct {
 
 ​	请注意，Go 的 == 操作符不仅比较时间瞬间，还比较 Location 和单调时钟读数。因此，在未保证所有值都已设置相同的 Location 之前，不应将 Time 值用作映射或数据库键，可以通过使用 UTC 或 Local 方法来实现，同时剥离单调时钟读数，设置 t = t.Round(0)。通常，优先使用 t.Equal(u) 而不是 t == u，因为 t.Equal 使用可用的最准确的比较，并正确处理仅有一个参数具有单调时钟读数的情况。
 
-#### func [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1467) 
+#### func Date 
 
 ``` go 
 func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time
@@ -964,7 +964,7 @@ Output:
 Go launched at 2009-11-10 15:00:00 -0800 PST
 ```
 
-#### func [Now](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1110) 
+#### func Now 
 
 ``` go 
 func Now() Time
@@ -972,7 +972,7 @@ func Now() Time
 
 ​	Now函数返回当前本地时间。
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1007) 
+#### func Parse 
 
 ``` go 
 func Parse(layout, value string) (Time, error)
@@ -1046,7 +1046,7 @@ Output:
 error parsing time "2006-01-02T15:04:05Z07:00": extra text: "07:00"
 ```
 
-#### func [ParseInLocation](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1022)  <- go1.1
+#### func ParseInLocation  <- go1.1
 
 ``` go 
 func ParseInLocation(layout, value string, loc *Location) (Time, error)
@@ -1083,7 +1083,7 @@ Output:
 2012-07-09 00:00:00 +0200 CEST
 ```
 
-#### func [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1396) 
+#### func Unix 
 
 ``` go 
 func Unix(sec int64, nsec int64) Time
@@ -1115,7 +1115,7 @@ Output:
 2009-11-10 23:00:00 +0000 UTC
 ```
 
-#### func [UnixMicro](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1417)  <- go1.17
+#### func UnixMicro  <- go1.17
 
 ``` go 
 func UnixMicro(usec int64) Time
@@ -1145,7 +1145,7 @@ Output:
 2009-11-10 23:00:00 +0000 UTC
 ```
 
-#### func [UnixMilli](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1411)  <- go1.17
+#### func UnixMilli  <- go1.17
 
 ``` go 
 func UnixMilli(msec int64) Time
@@ -1175,7 +1175,7 @@ Output:
 2009-11-10 23:00:00 +0000 UTC
 ```
 
-#### (Time) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=856) 
+#### (Time) Add 
 
 ``` go 
 func (t Time) Add(d Duration) Time
@@ -1215,7 +1215,7 @@ start.Add(time.Hour * 10) = 2009-01-01 22:00:00 +0000 UTC
 start.Add(time.Hour * 24 * 10) = 2009-01-11 12:00:00 +0000 UTC
 ```
 
-#### (Time) [AddDate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=943) 
+#### (Time) AddDate 
 
 ``` go 
 func (t Time) AddDate(years int, months int, days int) Time
@@ -1252,7 +1252,7 @@ oneMonthLater: start.AddDate(0, 1, 0) = 2009-02-01 00:00:00 +0000 UTC
 oneYearLater: start.AddDate(1, 0, 0) = 2010-01-01 00:00:00 +0000 UTC
 ```
 
-#### (Time) [After](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=250) 
+#### (Time) After 
 
 ``` go 
 func (t Time) After(u Time) bool
@@ -1286,7 +1286,7 @@ year3000.After(year2000) = true
 year2000.After(year3000) = false
 ```
 
-#### (Time) [AppendFormat](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=636)  <- go1.5
+#### (Time) AppendFormat  <- go1.5
 
 ``` go 
 func (t Time) AppendFormat(b []byte, layout string) []byte
@@ -1316,7 +1316,7 @@ Output:
 Time: 11:00AM
 ```
 
-#### (Time) [Before](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=260) 
+#### (Time) Before 
 
 ``` go 
 func (t Time) Before(u Time) bool
@@ -1350,7 +1350,7 @@ year2000.Before(year3000) = true
 year3000.Before(year2000) = false
 ```
 
-#### (Time) [Clock](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=567) 
+#### (Time) Clock 
 
 ``` go 
 func (t Time) Clock() (hour, min, sec int)
@@ -1358,7 +1358,7 @@ func (t Time) Clock() (hour, min, sec int)
 
 ​	Clock方法返回指定 t 的所在日的小时、分钟和秒。
 
-#### (Time) [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=271)  <- go1.20
+#### (Time) Compare  <- go1.20
 
 ``` go 
 func (t Time) Compare(u Time) int
@@ -1366,7 +1366,7 @@ func (t Time) Compare(u Time) int
 
 ​	Compare方法比较时间点 t 和 u。如果 t 在 u 之前，则返回 -1；如果 t 在 u 之后，则返回 +1；如果它们相同，则返回 0。
 
-#### (Time) [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=504) 
+#### (Time) Date 
 
 ``` go 
 func (t Time) Date() (year int, month Month, day int)
@@ -1399,7 +1399,7 @@ month = February
 day = 1
 ```
 
-#### (Time) [Day](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=522) 
+#### (Time) Day 
 
 ``` go 
 func (t Time) Day() int
@@ -1428,7 +1428,7 @@ Output:
 day = 1
 ```
 
-#### (Time) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=295) 
+#### (Time) Equal 
 
 ``` go 
 func (t Time) Equal(u Time) bool
@@ -1467,7 +1467,7 @@ datesEqualUsingEqualOperator = false
 datesEqualUsingFunction = true
 ```
 
-#### (Time) [Format](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=620) 
+#### (Time) Format 
 
 ``` go 
 func (t Time) Format(layout string) string
@@ -1647,7 +1647,7 @@ Zeros            "<02>" gives "<07>"
 Suppressed pad   "04:05" gives "06:39"
 ```
 
-#### (Time) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=558)  <- go1.17
+#### (Time) GoString  <- go1.17
 
 ``` go 
 func (t Time) GoString() string
@@ -1659,7 +1659,7 @@ func (t Time) GoString() string
 ``` go 
 ```
 
-#### (*Time) [GobDecode](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1335) 
+#### (*Time) GobDecode 
 
 ``` go 
 func (t *Time) GobDecode(data []byte) error
@@ -1667,7 +1667,7 @@ func (t *Time) GobDecode(data []byte) error
 
 ​	GobDecode方法实现了 gob.GobDecoder 接口。
 
-#### (Time) [GobEncode](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1330) 
+#### (Time) GobEncode 
 
 ``` go 
 func (t Time) GobEncode() ([]byte, error)
@@ -1675,7 +1675,7 @@ func (t Time) GobEncode() ([]byte, error)
 
 ​	GobEncode方法实现了 gob.GobEncoder 接口。
 
-#### (Time) [Hour](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=582) 
+#### (Time) Hour 
 
 ``` go 
 func (t Time) Hour() int
@@ -1683,7 +1683,7 @@ func (t Time) Hour() int
 
 ​	Hour方法返回 t 所在的一天中的小时数，范围为 [0, 23]。
 
-#### (Time) [ISOWeek](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=543) 
+#### (Time) ISOWeek 
 
 ``` go 
 func (t Time) ISOWeek() (year, week int)
@@ -1691,7 +1691,7 @@ func (t Time) ISOWeek() (year, week int)
 
 ​	ISOWeek方法返回 t 所在的 ISO 8601 年份和周数。周数从 1 到 53。一月 1 日到 3 日属于年 n 的第 52 或 53 周，而 12 月 29 日到 31 日可能属于年 n+1 的第 1 周。
 
-#### (Time) [In](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1144) 
+#### (Time) In 
 
 ``` go 
 func (t Time) In(loc *Location) Time
@@ -1701,7 +1701,7 @@ func (t Time) In(loc *Location) Time
 
 ​	如果 loc 为 nil，则会引发 panic。
 
-#### (Time) [IsDST](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1422)  <- go1.17
+#### (Time) IsDST  <- go1.17
 
 ``` go 
 func (t Time) IsDST() bool
@@ -1709,7 +1709,7 @@ func (t Time) IsDST() bool
 
 ​	IsDST方法报告配置位置中的时间是否处于夏令时。
 
-#### (Time) [IsZero](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=455) 
+#### (Time) IsZero 
 
 ``` go 
 func (t Time) IsZero() bool
@@ -1717,7 +1717,7 @@ func (t Time) IsZero() bool
 
 ​	IsZero方法报告t是否表示零时刻，即UTC时间的January 1, year 1, 00:00:00.
 
-#### (Time) [Local](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1134) 
+#### (Time) Local 
 
 ``` go 
 func (t Time) Local() Time
@@ -1725,7 +1725,7 @@ func (t Time) Local() Time
 
 ​	Local方法返回t对应的本地时间。
 
-#### (Time) [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1153) 
+#### (Time) Location 
 
 ``` go 
 func (t Time) Location() *Location
@@ -1733,7 +1733,7 @@ func (t Time) Location() *Location
 
 ​	Location方法返回t对应的时区信息。
 
-#### (Time) [MarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1230)  <- go1.2
+#### (Time) MarshalBinary  <- go1.2
 
 ``` go 
 func (t Time) MarshalBinary() ([]byte, error)
@@ -1741,7 +1741,7 @@ func (t Time) MarshalBinary() ([]byte, error)
 
 ​	MarshalBinary方法实现encoding.BinaryMarshaler接口。
 
-#### (Time) [MarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1343) 
+#### (Time) MarshalJSON 
 
 ``` go 
 func (t Time) MarshalJSON() ([]byte, error)
@@ -1749,7 +1749,7 @@ func (t Time) MarshalJSON() ([]byte, error)
 
 ​	MarshalJSON方法实现json.Marshaler接口。时间使用带有亚秒精度的[RFC 3339](https://rfc-editor.org/rfc/rfc3339.html)格式的带引号的字符串表示。如果时间戳无法表示为有效的[RFC 3339](https://rfc-editor.org/rfc/rfc3339.html)格式(例如，年份超出范围)，则报告错误。
 
-#### (Time) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1374)  <- go1.2
+#### (Time) MarshalText  <- go1.2
 
 ``` go 
 func (t Time) MarshalText() ([]byte, error)
@@ -1757,7 +1757,7 @@ func (t Time) MarshalText() ([]byte, error)
 
 ​	MarshalText方法实现encoding.TextMarshaler接口。时间使用带有亚秒精度的[RFC 3339](https://rfc-editor.org/rfc/rfc3339.html)格式表示。如果时间戳无法表示为有效的[RFC 3339](https://rfc-editor.org/rfc/rfc3339.html)格式(例如，年份超出范围)，则报告错误。
 
-#### (Time) [Minute](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=587) 
+#### (Time) Minute 
 
 ``` go 
 func (t Time) Minute() int
@@ -1765,7 +1765,7 @@ func (t Time) Minute() int
 
 ​	Minute方法返回t对应的小时内分钟数，范围为[0, 59]。
 
-#### (Time) [Month](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=516) 
+#### (Time) Month 
 
 ``` go 
 func (t Time) Month() Month
@@ -1773,7 +1773,7 @@ func (t Time) Month() Month
 
 ​	Month方法返回t对应的月份。
 
-#### (Time) [Nanosecond](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=598) 
+#### (Time) Nanosecond 
 
 ``` go 
 func (t Time) Nanosecond() int
@@ -1781,7 +1781,7 @@ func (t Time) Nanosecond() int
 
 ​	Nanosecond方法返回t对应的秒内纳秒数，范围为[0, 999999999]。
 
-#### (Time) [Round](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1545)  <- go1.1
+#### (Time) Round  <- go1.1
 
 ``` go 
 func (t Time) Round(d Duration) Time
@@ -1829,7 +1829,7 @@ t.Round( 10m0s) = 12:20:00
 t.Round(1h0m0s) = 12:00:00
 ```
 
-#### (Time) [Second](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=592) 
+#### (Time) Second 
 
 ``` go 
 func (t Time) Second() int
@@ -1837,7 +1837,7 @@ func (t Time) Second() int
 
 ​	Second方法返回 t 所代表的时间的秒数偏移量，范围在 [0, 59] 之间。
 
-#### (Time) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=527) 
+#### (Time) String 
 
 ``` go 
 func (t Time) String() string
@@ -1879,7 +1879,7 @@ withNanoseconds = 2000-02-01 12:13:14.000000015 +0000 UTC
 withoutNanoseconds = 2000-02-01 12:13:14 +0000 UTC
 ```
 
-#### (Time) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=884) 
+#### (Time) Sub 
 
 ``` go 
 func (t Time) Sub(u Time) Duration
@@ -1909,7 +1909,7 @@ Output:
 difference = 12h0m0s
 ```
 
-#### (Time) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1528)  <- go1.1
+#### (Time) Truncate  <- go1.1
 
 ``` go 
 func (t Time) Truncate(d Duration) Time
@@ -1959,7 +1959,7 @@ t.Truncate( 1m0s) = 12:15:00
 t.Truncate(10m0s) = 12:10:00
 ```
 
-#### (Time) [UTC](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1128) 
+#### (Time) UTC 
 
 ``` go 
 func (t Time) UTC() Time
@@ -1967,7 +1967,7 @@ func (t Time) UTC() Time
 
 ​	UTC方法将位置设置为 UTC 并返回 t。
 
-#### (Time) [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1192) 
+#### (Time) Unix 
 
 ``` go 
 func (t Time) Unix() int64
@@ -2004,7 +2004,7 @@ Output:
 1000000000000000000
 ```
 
-#### (Time) [UnixMicro](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1210)  <- go1.17
+#### (Time) UnixMicro  <- go1.17
 
 ``` go 
 func (t Time) UnixMicro() int64
@@ -2012,7 +2012,7 @@ func (t Time) UnixMicro() int64
 
 ​	UnixMicro方法将 t 表示为 Unix 时间，即自 1970 年 1 月 1 日 UTC 起经过的微秒数。如果 Unix 时间不能被 int64 表示(即在年份 -290307 之前或 294246 之后)，则结果未定义。结果不取决于与 t 关联的位置。
 
-#### (Time) [UnixMilli](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1201)  <- go1.17
+#### (Time) UnixMilli  <- go1.17
 
 ``` go 
 func (t Time) UnixMilli() int64
@@ -2020,7 +2020,7 @@ func (t Time) UnixMilli() int64
 
 ​	UnixMilli方法将 t 表示为 Unix 时间，即自 1970 年 1 月 1 日 UTC 起经过的毫秒数。如果 Unix 时间不能被 int64 表示(即在 1970 年之前或之后的 29.2 亿年)，则结果未定义。结果不取决于与 t 关联的位置。
 
-#### (Time) [UnixNano](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1220) 
+#### (Time) UnixNano 
 
 ``` go 
 func (t Time) UnixNano() int64
@@ -2028,7 +2028,7 @@ func (t Time) UnixNano() int64
 
 ​	UnixNano方法将 t 表示为 Unix 时间，即自 1970 年 1 月 1 日 UTC 起经过的纳秒数。如果 Unix 时间不能被 int64 表示(即在 1678 年之前或 2262 年之后的日期)，则结果未定义。请注意，这意味着在零时间上调用 UnixNano 的结果是未定义的。结果不取决于与 t 关联的位置。
 
-#### (*Time) [UnmarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1278)  <- go1.2
+#### (*Time) UnmarshalBinary  <- go1.2
 
 ``` go 
 func (t *Time) UnmarshalBinary(data []byte) error
@@ -2036,7 +2036,7 @@ func (t *Time) UnmarshalBinary(data []byte) error
 
 ​	UnmarshalBinary方法实现了 encoding.BinaryUnmarshaler 接口。
 
-#### (*Time) [UnmarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1356) 
+#### (*Time) UnmarshalJSON 
 
 ``` go 
 func (t *Time) UnmarshalJSON(data []byte) error
@@ -2044,7 +2044,7 @@ func (t *Time) UnmarshalJSON(data []byte) error
 
 ​	UnmarshalJSON方法实现了 json.Unmarshaler 接口。时间必须是[RFC 3339](https://rfc-editor.org/rfc/rfc3339.html) 格式的引号字符串。
 
-#### (*Time) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1385)  <- go1.2
+#### (*Time) UnmarshalText  <- go1.2
 
 ``` go 
 func (t *Time) UnmarshalText(data []byte) error
@@ -2052,7 +2052,7 @@ func (t *Time) UnmarshalText(data []byte) error
 
 ​	UnmarshalText方法实现了 encoding.TextUnmarshaler 接口。时间必须是 [RFC 3339](https://rfc-editor.org/rfc/rfc3339.html)格式。
 
-#### (Time) [Weekday](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=528) 
+#### (Time) Weekday 
 
 ``` go 
 func (t Time) Weekday() Weekday
@@ -2060,7 +2060,7 @@ func (t Time) Weekday() Weekday
 
 ​	Weekday方法返回 t 指定的星期几。
 
-#### (Time) [Year](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=510) 
+#### (Time) Year 
 
 ``` go 
 func (t Time) Year() int
@@ -2068,7 +2068,7 @@ func (t Time) Year() int
 
 ​	Year方法返回 t 所在的年份。
 
-#### (Time) [YearDay](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=604)  <- go1.1
+#### (Time) YearDay  <- go1.1
 
 ``` go 
 func (t Time) YearDay() int
@@ -2076,7 +2076,7 @@ func (t Time) YearDay() int
 
 ​	YearDay方法返回 t 指定的年份的天数，在非闰年中为 [1,365] 范围内的数，闰年中为 [1,366]。
 
-#### (Time) [Zone](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1163) 
+#### (Time) Zone 
 
 ``` go 
 func (t Time) Zone() (name string, offset int)
@@ -2084,7 +2084,7 @@ func (t Time) Zone() (name string, offset int)
 
 ​	Zone 方法计算 t 所在时区，返回时区的缩写名称(例如"CET")和其相对于 UTC 的偏移量(以秒为单位)。
 
-#### (Time) [ZoneBounds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1173)  <- go1.19
+#### (Time) ZoneBounds  <- go1.19
 
 ``` go 
 func (t Time) ZoneBounds() (start, end Time)
@@ -2092,7 +2092,7 @@ func (t Time) ZoneBounds() (start, end Time)
 
 ​	ZoneBounds方法返回t时刻所在时区的起始时间和终止时间。该时区从start开始，下一个时区从end开始。如果该时区从时间开始时刻开始，则start将作为零值Time返回。如果时区一直持续下去，则end将作为零值Time返回。返回的时间Location与t相同。
 
-### type [Timer](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=50) 
+### type Timer 
 
 ``` go 
 type Timer struct {
@@ -2103,7 +2103,7 @@ type Timer struct {
 
 ​	Timer类型表示单个事件。当Timer过期时，当前时间将发送到C通道，除非Timer是由AfterFunc创建的。Timer必须使用NewTimer或AfterFunc创建。
 
-#### func [AfterFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=163) 
+#### func AfterFunc 
 
 ``` go 
 func AfterFunc(d Duration, f func()) *Timer
@@ -2111,7 +2111,7 @@ func AfterFunc(d Duration, f func()) *Timer
 
 ​	AfterFunc函数等待持续时间过去，然后在其自己的goroutine中调用f。它返回一个Timer，可以使用它的Stop方法取消调用。
 
-#### func [NewTimer](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=86) 
+#### func NewTimer 
 
 ``` go 
 func NewTimer(d Duration) *Timer
@@ -2119,7 +2119,7 @@ func NewTimer(d Duration) *Timer
 
 ​	NewTimer函数创建一个新的Timer，它将在至少持续时间d之后在其通道上发送当前时间。
 
-#### (*Timer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=134)  <- go1.1
+#### (*Timer) Reset  <- go1.1
 
 ``` go 
 func (t *Timer) Reset(d Duration) bool
@@ -2144,7 +2144,7 @@ t.Reset(d)
 
 ​	对于使用AfterFunc(d，f)创建的Timer，Reset或重新调度f将运行，此时Reset返回true，或安排f再次运行，此时它将返回false。当Reset返回false时，Reset既不等待之前的f完成，也不保证随后运行f的goroutine不与之前的goroutine并发运行。如果调用程序需要知道f的前一次执行是否完成，它必须显式与f进行协调。
 
-#### (*Timer) [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=77) 
+#### (*Timer) Stop 
 
 ``` go 
 func (t *Timer) Stop() bool
@@ -2164,7 +2164,7 @@ if !t.Stop() {
 
 ​	对于使用AfterFunc(d, f)创建的Timer，如果t.Stop返回false，则计时器已经过期，并且已经在自己的goroutine中启动了函数f。在返回之前，Stop不会等待f完成。如果调用方需要知道f是否完成，它必须显式与f进行协调。
 
-### type [Weekday](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=331) 
+### type Weekday 
 
 ``` go 
 type Weekday int
@@ -2184,7 +2184,7 @@ const (
 )
 ```
 
-#### (Weekday) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=344) 
+#### (Weekday) String 
 
 ``` go 
 func (d Weekday) String() string

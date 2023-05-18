@@ -7,7 +7,7 @@ draft = false
 +++
 # exec
 
-[https://pkg.go.dev/os/exec@go1.20.1](https://pkg.go.dev/os/exec@go1.20.1)
+https://pkg.go.dev/os/exec@go1.20.1
 
 ​	exec包可以运行外部命令。它包装了 os.StartProcess，以便更轻松地重新映射 stdin 和 stdout，连接管道的 I/O，以及做其他调整。
 
@@ -108,7 +108,7 @@ var ErrWaitDelay = errors.New("exec: WaitDelay expired before I/O complete")
 
 ## 函数
 
-#### func [LookPath](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/lp_unix.go;l=52) 
+#### func LookPath 
 
 ``` go 
 func LookPath(file string) (string, error)
@@ -143,7 +143,7 @@ func main() {
 
 ## 类型
 
-### type [Cmd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=147) 
+### type Cmd 
 
 ``` go 
 type Cmd struct {
@@ -287,7 +287,7 @@ type Cmd struct {
 
 ​	在调用其 Run、Output 或 CombinedOutput 方法之后，Cmd 不能被重用。
 
-#### func [Command](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=376) 
+#### func Command 
 
 ``` go 
 func Command(name string, arg ...string) *Cmd
@@ -357,7 +357,7 @@ func main() {
 
 
 
-#### func [CommandContext](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=442)  <- go1.7
+#### func CommandContext  <- go1.7
 
 ``` go 
 func CommandContext(ctx context.Context, name string, arg ...string) *Cmd
@@ -394,7 +394,7 @@ func main() {
 
 
 
-#### (*Cmd) [CombinedOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=995) 
+#### (*Cmd) CombinedOutput 
 
 ``` go 
 func (c *Cmd) CombinedOutput() ([]byte, error)
@@ -426,7 +426,7 @@ func main() {
 
 
 
-#### (*Cmd) [Environ](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1205)  <- go1.19
+#### (*Cmd) Environ  <- go1.19
 
 ``` go 
 func (c *Cmd) Environ() []string
@@ -464,7 +464,7 @@ func main() {
 
 
 
-#### (*Cmd) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=972) 
+#### (*Cmd) Output 
 
 ``` go 
 func (c *Cmd) Output() ([]byte, error)
@@ -493,7 +493,7 @@ func main() {
 
 
 
-#### (*Cmd) [Run](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=586) 
+#### (*Cmd) Run 
 
 ``` go 
 func (c *Cmd) Run() error
@@ -530,7 +530,7 @@ func main() {
 
 
 
-#### (*Cmd) [Start](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=625) 
+#### (*Cmd) Start 
 
 ``` go 
 func (c *Cmd) Start() error
@@ -567,7 +567,7 @@ func main() {
 
 
 
-#### (*Cmd) [StderrPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1065) 
+#### (*Cmd) StderrPipe 
 
 ``` go 
 func (c *Cmd) StderrPipe() (io.ReadCloser, error)
@@ -612,7 +612,7 @@ func main() {
 
 
 
-#### (*Cmd) [StdinPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1015) 
+#### (*Cmd) StdinPipe 
 
 ``` go 
 func (c *Cmd) StdinPipe() (io.WriteCloser, error)
@@ -656,7 +656,7 @@ func main() {
 
 
 
-#### (*Cmd) [StdoutPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1040) 
+#### (*Cmd) StdoutPipe 
 
 ``` go 
 func (c *Cmd) StdoutPipe() (io.ReadCloser, error)
@@ -704,7 +704,7 @@ func main() {
 
 
 
-#### (*Cmd) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=458)  <- go1.13
+#### (*Cmd) String  <- go1.13
 
 ``` go 
 func (c *Cmd) String() string
@@ -712,7 +712,7 @@ func (c *Cmd) String() string
 
 ​	String方法返回c的人类可读描述。它仅用于调试。特别是，它不适合用作shell的输入。String的输出可能会因Go版本而异。
 
-#### (*Cmd) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=882) 
+#### (*Cmd) Wait 
 
 ``` go 
 func (c *Cmd) Wait() error
@@ -730,7 +730,7 @@ func (c *Cmd) Wait() error
 
 ​	Wait释放与Cmd关联的任何资源。
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=111) 
+### type Error 
 
 ``` go 
 type Error struct {
@@ -743,19 +743,19 @@ type Error struct {
 
 ​	当 LookPath函数无法将文件分类为可执行文件时，将返回 Error。
 
-#### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=118) 
+#### (*Error) Error 
 
 ``` go 
 func (e *Error) Error() string
 ```
 
-#### (*Error) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=122)  <- go1.13
+#### (*Error) Unwrap  <- go1.13
 
 ``` go 
 func (e *Error) Unwrap() error
 ```
 
-### type [ExitError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=845) 
+### type ExitError 
 
 ``` go 
 type ExitError struct {
@@ -775,7 +775,7 @@ type ExitError struct {
 
 ​	ExitError 报告命令未能成功退出。
 
-#### (*ExitError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=861) 
+#### (*ExitError) Error 
 
 ``` go 
 func (e *ExitError) Error() string

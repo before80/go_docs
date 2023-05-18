@@ -31,7 +31,7 @@ This section is empty.
 
 ## 函数
 
-#### func [ParseDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=139) 
+#### func ParseDir 
 
 ``` go 
 func ParseDir(fset *token.FileSet, path string, filter func(fs.FileInfo) bool, mode Mode) (pkgs map[string]*ast.Package, first error)
@@ -43,7 +43,7 @@ If filter != nil, only the files with fs.FileInfo entries passing through the fi
 
 If the directory couldn't be read, a nil map and the respective error are returned. If a parse error occurred, a non-nil but incomplete map and the first error encountered are returned.
 
-#### func [ParseExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=236) 
+#### func ParseExpr 
 
 ``` go 
 func ParseExpr(x string) (ast.Expr, error)
@@ -53,7 +53,7 @@ ParseExpr is a convenience function for obtaining the AST of an expression x. Th
 
 If syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
-#### func [ParseExprFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=189)  <- go1.5
+#### func ParseExprFrom  <- go1.5
 
 ``` go 
 func ParseExprFrom(fset *token.FileSet, filename string, src any, mode Mode) (expr ast.Expr, err error)
@@ -63,7 +63,7 @@ ParseExprFrom is a convenience function for parsing an expression. The arguments
 
 If the source couldn't be read, the returned AST is nil and the error indicates the specific failure. If the source was read but syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
-#### func [ParseFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=82) 
+#### func ParseFile 
 
 ``` go 
 func ParseFile(fset *token.FileSet, filename string, src any, mode Mode) (f *ast.File, err error)
@@ -85,7 +85,7 @@ If the source couldn't be read, the returned AST is nil and the error indicates 
 
 ## 类型
 
-### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=47) 
+### type Mode 
 
 ``` go 
 type Mode uint

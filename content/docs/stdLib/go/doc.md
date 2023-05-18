@@ -39,7 +39,7 @@ IllegalPrefixes is a list of lower-case prefixes that identify a comment as not 
 
 ## 函数
 
-#### func [IsPredeclared](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/reader.go;l=950)  <- go1.8
+#### func IsPredeclared  <- go1.8
 
 ``` go 
 func IsPredeclared(s string) bool
@@ -61,7 +61,7 @@ IsPredeclared reports whether s is a predeclared identifier.
 
 ## 类型
 
-### type [Example](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/example.go;l=22) 
+### type Example 
 
 ``` go 
 type Example struct {
@@ -80,7 +80,7 @@ type Example struct {
 
 An Example represents an example function found in a test source file.
 
-#### func [Examples](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/example.go;l=50) 
+#### func Examples 
 
 ``` go 
 func Examples(testFiles ...*ast.File) []*Example
@@ -93,13 +93,13 @@ Playable Examples must be in a package whose name ends in "_test". An Example is
 - The example function is self-contained: the function references only identifiers from other packages (or predeclared identifiers, such as "int") and the test file does not include a dot import.
 - The entire test file is the example: the file contains exactly one example function, zero test, fuzz test, or benchmark function, and at least one top-level function, type, variable, or constant declaration other than the example function.
 
-### type [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/filter.go;l=9) 
+### type Filter 
 
 ``` go 
 type Filter func(string) bool
 ```
 
-### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=72) 
+### type Func 
 
 ``` go 
 type Func struct {
@@ -122,7 +122,7 @@ type Func struct {
 
 Func is the documentation for a func declaration.
 
-### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=100) 
+### type Mode 
 
 ``` go 
 type Mode int
@@ -147,7 +147,7 @@ const (
 )
 ```
 
-### type [Note](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=93)  <- go1.1
+### type Note  <- go1.1
 
 ``` go 
 type Note struct {
@@ -159,7 +159,7 @@ type Note struct {
 
 A Note represents a marked comment starting with "MARKER(uid): note body". Any note with a marker of 2 or more upper case [A-Z] letters and a uid of at least one character is recognized. The ":" following the uid is optional. Notes are collected in the Package.Notes map indexed by the notes marker.
 
-### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=17) 
+### type Package 
 
 ``` go 
 type Package struct {
@@ -190,7 +190,7 @@ type Package struct {
 
 Package is the documentation for an entire package.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=121) 
+#### func New 
 
 ``` go 
 func New(pkg *ast.Package, importPath string, mode Mode) *Package
@@ -198,7 +198,7 @@ func New(pkg *ast.Package, importPath string, mode Mode) *Package
 
 New computes the package documentation for the given package AST. New takes ownership of the AST pkg and may edit or overwrite it. To have the Examples fields populated, use NewFromFiles and include the package's _test.go files.
 
-#### func [NewFromFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=208)  <- go1.14
+#### func NewFromFiles  <- go1.14
 
 ``` go 
 func NewFromFiles(fset *token.FileSet, files []*ast.File, importPath string, opts ...any) (*Package, error)
@@ -218,7 +218,7 @@ NewFromFiles takes ownership of the AST files and may edit them, unless the Pres
 ``` go 
 ```
 
-#### (*Package) [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/filter.go;l=100) 
+#### (*Package) Filter 
 
 ``` go 
 func (p *Package) Filter(f Filter)
@@ -226,7 +226,7 @@ func (p *Package) Filter(f Filter)
 
 Filter eliminates documentation for names that don't pass through the filter f. TODO(gri): Recognize "Type.Method" as a name.
 
-#### (*Package) [HTML](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=332)  <- go1.19
+#### (*Package) HTML  <- go1.19
 
 ``` go 
 func (p *Package) HTML(text string) []byte
@@ -236,7 +236,7 @@ HTML returns formatted HTML for the doc comment text.
 
 To customize details of the HTML, use [Package.Printer](https://pkg.go.dev/go/doc@go1.20.1#Package.Printer) to obtain a [comment.Printer](https://pkg.go.dev/go/doc/comment#Printer), and configure it before calling its HTML method.
 
-#### (*Package) [Markdown](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=341)  <- go1.19
+#### (*Package) Markdown  <- go1.19
 
 ``` go 
 func (p *Package) Markdown(text string) []byte
@@ -246,7 +246,7 @@ Markdown returns formatted Markdown for the doc comment text.
 
 To customize details of the Markdown, use [Package.Printer](https://pkg.go.dev/go/doc@go1.20.1#Package.Printer) to obtain a [comment.Printer](https://pkg.go.dev/go/doc/comment#Printer), and configure it before calling its Markdown method.
 
-#### (*Package) [Parser](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=310)  <- go1.19
+#### (*Package) Parser  <- go1.19
 
 ``` go 
 func (p *Package) Parser() *comment.Parser
@@ -254,7 +254,7 @@ func (p *Package) Parser() *comment.Parser
 
 Parser returns a doc comment parser configured for parsing doc comments from package p. Each call returns a new parser, so that the caller may customize it before use.
 
-#### (*Package) [Printer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=321)  <- go1.19
+#### (*Package) Printer  <- go1.19
 
 ``` go 
 func (p *Package) Printer() *comment.Printer
@@ -262,7 +262,7 @@ func (p *Package) Printer() *comment.Printer
 
 Printer returns a doc comment printer configured for printing doc comments from package p. Each call returns a new printer, so that the caller may customize it before use.
 
-#### (*Package) [Synopsis](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/synopsis.go;l=59)  <- go1.19
+#### (*Package) Synopsis  <- go1.19
 
 ``` go 
 func (p *Package) Synopsis(text string) string
@@ -270,7 +270,7 @@ func (p *Package) Synopsis(text string) string
 
 Synopsis returns a cleaned version of the first sentence in text. That sentence ends after the first period followed by space and not preceded by exactly one uppercase letter, or at the first paragraph break. The result string has no \n, \r, or \t characters and uses only single spaces between words. If text starts with any of the IllegalPrefixes, the result is the empty string.
 
-#### (*Package) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=352)  <- go1.19
+#### (*Package) Text  <- go1.19
 
 ``` go 
 func (p *Package) Text(text string) []byte
@@ -280,7 +280,7 @@ Text returns formatted text for the doc comment text, wrapped to 80 Unicode code
 
 To customize details of the formatting, use [Package.Printer](https://pkg.go.dev/go/doc@go1.20.1#Package.Printer) to obtain a [comment.Printer](https://pkg.go.dev/go/doc/comment#Printer), and configure it before calling its Text method.
 
-### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=54) 
+### type Type 
 
 ``` go 
 type Type struct {
@@ -303,7 +303,7 @@ type Type struct {
 
 Type is the documentation for a type declaration.
 
-### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=45) 
+### type Value 
 
 ``` go 
 type Value struct {

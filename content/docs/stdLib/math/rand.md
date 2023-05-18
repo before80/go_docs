@@ -48,7 +48,7 @@ This section is empty.
 
 ## 函数
 
-#### func [ExpFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=401) 
+#### func ExpFloat64 
 
 ``` go 
 func ExpFloat64() float64
@@ -60,7 +60,7 @@ ExpFloat64 returns an exponentially distributed float64 in the range (0, +math.M
 sample = ExpFloat64() / desiredRateParameter
 ```
 
-#### func [Float32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=366) 
+#### func Float32 
 
 ``` go 
 func Float32() float32
@@ -68,7 +68,7 @@ func Float32() float32
 
 Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0) from the default Source.
 
-#### func [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=362) 
+#### func Float64 
 
 ``` go 
 func Float64() float64
@@ -76,7 +76,7 @@ func Float64() float64
 
 Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0) from the default Source.
 
-#### func [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=343) 
+#### func Int 
 
 ``` go 
 func Int() int
@@ -84,7 +84,7 @@ func Int() int
 
 Int returns a non-negative pseudo-random int from the default Source.
 
-#### func [Int31](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=340) 
+#### func Int31 
 
 ``` go 
 func Int31() int32
@@ -92,7 +92,7 @@ func Int31() int32
 
 Int31 returns a non-negative pseudo-random 31-bit integer as an int32 from the default Source.
 
-#### func [Int31n](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=353) 
+#### func Int31n 
 
 ``` go 
 func Int31n(n int32) int32
@@ -100,7 +100,7 @@ func Int31n(n int32) int32
 
 Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n <= 0.
 
-#### func [Int63](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=328) 
+#### func Int63 
 
 ``` go 
 func Int63() int64
@@ -108,7 +108,7 @@ func Int63() int64
 
 Int63 returns a non-negative pseudo-random 63-bit integer as an int64 from the default Source.
 
-#### func [Int63n](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=348) 
+#### func Int63n 
 
 ``` go 
 func Int63n(n int64) int64
@@ -116,7 +116,7 @@ func Int63n(n int64) int64
 
 Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n) from the default Source. It panics if n <= 0.
 
-#### func [Intn](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=358) 
+#### func Intn 
 
 ``` go 
 func Intn(n int) int
@@ -128,7 +128,7 @@ Intn returns, as an int, a non-negative pseudo-random number in the half-open in
 ``` go 
 ```
 
-#### func [NormFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=392) 
+#### func NormFloat64 
 
 ``` go 
 func NormFloat64() float64
@@ -140,7 +140,7 @@ NormFloat64 returns a normally distributed float64 in the range [-math.MaxFloat6
 sample = NormFloat64() * desiredStdDev + desiredMean
 ```
 
-#### func [Perm](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=370) 
+#### func Perm 
 
 ``` go 
 func Perm(n int) []int
@@ -160,7 +160,7 @@ Perm returns, as a slice of n ints, a pseudo-random permutation of the integers 
 ``` go 
 ```
 
-#### func [Shuffle](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=375)  <- go1.10
+#### func Shuffle  <- go1.10
 
 ``` go 
 func Shuffle(n int, swap func(i, j int))
@@ -176,7 +176,7 @@ Shuffle pseudo-randomizes the order of elements using the default Source. n is t
 ``` go 
 ```
 
-#### func [Uint32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=332) 
+#### func Uint32 
 
 ``` go 
 func Uint32() uint32
@@ -184,7 +184,7 @@ func Uint32() uint32
 
 Uint32 returns a pseudo-random 32-bit value as a uint32 from the default Source.
 
-#### func [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=336)  <- go1.8
+#### func Uint64  <- go1.8
 
 ``` go 
 func Uint64() uint64
@@ -194,7 +194,7 @@ Uint64 returns a pseudo-random 64-bit value as a uint64 from the default Source.
 
 ## 类型
 
-### type [Rand](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=61) 
+### type Rand 
 
 ``` go 
 type Rand struct {
@@ -204,7 +204,7 @@ type Rand struct {
 
 A Rand is a source of random numbers.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=77) 
+#### func New 
 
 ``` go 
 func New(src Source) *Rand
@@ -212,7 +212,7 @@ func New(src Source) *Rand
 
 New returns a new Rand that uses random values from src to generate other random values.
 
-#### (*Rand) [ExpFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/exp.go;l=30) 
+#### (*Rand) ExpFloat64 
 
 ``` go 
 func (r *Rand) ExpFloat64() float64
@@ -224,7 +224,7 @@ ExpFloat64 returns an exponentially distributed float64 in the range (0, +math.M
 sample = ExpFloat64() / desiredRateParameter
 ```
 
-#### (*Rand) [Float32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=214) 
+#### (*Rand) Float32 
 
 ``` go 
 func (r *Rand) Float32() float32
@@ -232,7 +232,7 @@ func (r *Rand) Float32() float32
 
 Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0).
 
-#### (*Rand) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=188) 
+#### (*Rand) Float64 
 
 ``` go 
 func (r *Rand) Float64() float64
@@ -240,7 +240,7 @@ func (r *Rand) Float64() float64
 
 Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0).
 
-#### (*Rand) [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=112) 
+#### (*Rand) Int 
 
 ``` go 
 func (r *Rand) Int() int
@@ -248,7 +248,7 @@ func (r *Rand) Int() int
 
 Int returns a non-negative pseudo-random int.
 
-#### (*Rand) [Int31](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=109) 
+#### (*Rand) Int31 
 
 ``` go 
 func (r *Rand) Int31() int32
@@ -256,7 +256,7 @@ func (r *Rand) Int31() int32
 
 Int31 returns a non-negative pseudo-random 31-bit integer as an int32.
 
-#### (*Rand) [Int31n](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=136) 
+#### (*Rand) Int31n 
 
 ``` go 
 func (r *Rand) Int31n(n int32) int32
@@ -264,7 +264,7 @@ func (r *Rand) Int31n(n int32) int32
 
 Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n). It panics if n <= 0.
 
-#### (*Rand) [Int63](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=95) 
+#### (*Rand) Int63 
 
 ``` go 
 func (r *Rand) Int63() int64
@@ -272,7 +272,7 @@ func (r *Rand) Int63() int64
 
 Int63 returns a non-negative pseudo-random 63-bit integer as an int64.
 
-#### (*Rand) [Int63n](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=119) 
+#### (*Rand) Int63n 
 
 ``` go 
 func (r *Rand) Int63n(n int64) int64
@@ -280,7 +280,7 @@ func (r *Rand) Int63n(n int64) int64
 
 Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n). It panics if n <= 0.
 
-#### (*Rand) [Intn](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=177) 
+#### (*Rand) Intn 
 
 ``` go 
 func (r *Rand) Intn(n int) int
@@ -288,7 +288,7 @@ func (r *Rand) Intn(n int) int
 
 Intn returns, as an int, a non-negative pseudo-random number in the half-open interval [0,n). It panics if n <= 0.
 
-#### (*Rand) [NormFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/normal.go;l=37) 
+#### (*Rand) NormFloat64 
 
 ``` go 
 func (r *Rand) NormFloat64() float64
@@ -300,7 +300,7 @@ NormFloat64 returns a normally distributed float64 in the range -math.MaxFloat64
 sample = NormFloat64() * desiredStdDev + desiredMean
 ```
 
-#### (*Rand) [Perm](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=228) 
+#### (*Rand) Perm 
 
 ``` go 
 func (r *Rand) Perm(n int) []int
@@ -308,7 +308,7 @@ func (r *Rand) Perm(n int) []int
 
 Perm returns, as a slice of n ints, a pseudo-random permutation of the integers in the half-open interval [0,n).
 
-#### (*Rand) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=271)  <- go1.6
+#### (*Rand) Read  <- go1.6
 
 ``` go 
 func (r *Rand) Read(p []byte) (n int, err error)
@@ -316,7 +316,7 @@ func (r *Rand) Read(p []byte) (n int, err error)
 
 Read generates len(p) random bytes and writes them into p. It always returns len(p) and a nil error. Read should not be called concurrently with any other Rand method.
 
-#### (*Rand) [Seed](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=84) 
+#### (*Rand) Seed 
 
 ``` go 
 func (r *Rand) Seed(seed int64)
@@ -324,7 +324,7 @@ func (r *Rand) Seed(seed int64)
 
 Seed uses the provided seed value to initialize the generator to a deterministic state. Seed should not be called concurrently with any other Rand method.
 
-#### (*Rand) [Shuffle](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=246)  <- go1.10
+#### (*Rand) Shuffle  <- go1.10
 
 ``` go 
 func (r *Rand) Shuffle(n int, swap func(i, j int))
@@ -332,7 +332,7 @@ func (r *Rand) Shuffle(n int, swap func(i, j int))
 
 Shuffle pseudo-randomizes the order of elements. n is the number of elements. Shuffle panics if n < 0. swap swaps the elements with indexes i and j.
 
-#### (*Rand) [Uint32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=98) 
+#### (*Rand) Uint32 
 
 ``` go 
 func (r *Rand) Uint32() uint32
@@ -340,7 +340,7 @@ func (r *Rand) Uint32() uint32
 
 Uint32 returns a pseudo-random 32-bit value as a uint32.
 
-#### (*Rand) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=101)  <- go1.8
+#### (*Rand) Uint64  <- go1.8
 
 ``` go 
 func (r *Rand) Uint64() uint64
@@ -348,7 +348,7 @@ func (r *Rand) Uint64() uint64
 
 Uint64 returns a pseudo-random 64-bit value as a uint64.
 
-### type [Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=30) 
+### type Source 
 
 ``` go 
 type Source interface {
@@ -361,7 +361,7 @@ A Source represents a source of uniformly-distributed pseudo-random int64 values
 
 A Source is not safe for concurrent use by multiple goroutines.
 
-#### func [NewSource](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=50) 
+#### func NewSource 
 
 ``` go 
 func NewSource(seed int64) Source
@@ -369,7 +369,7 @@ func NewSource(seed int64) Source
 
 NewSource returns a new pseudo-random Source seeded with the given value. Unlike the default Source used by top-level functions, this source is not safe for concurrent use by multiple goroutines. The returned Source implements Source64.
 
-### type [Source64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/rand.go;l=41)  <- go1.8
+### type Source64  <- go1.8
 
 ``` go 
 type Source64 interface {
@@ -380,7 +380,7 @@ type Source64 interface {
 
 A Source64 is a Source that can also generate uniformly-distributed pseudo-random uint64 values in the range [0, 1<<64) directly. If a Rand r's underlying Source s implements Source64, then r.Uint64 returns the result of one call to s.Uint64 instead of making two calls to s.Int63.
 
-### type [Zipf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/zipf.go;l=15) 
+### type Zipf 
 
 ``` go 
 type Zipf struct {
@@ -390,7 +390,7 @@ type Zipf struct {
 
 A Zipf generates Zipf distributed variates.
 
-#### func [NewZipf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/zipf.go;l=39) 
+#### func NewZipf 
 
 ``` go 
 func NewZipf(r *Rand, s float64, v float64, imax uint64) *Zipf
@@ -398,7 +398,7 @@ func NewZipf(r *Rand, s float64, v float64, imax uint64) *Zipf
 
 NewZipf returns a Zipf variate generator. The generator generates values k ∈ [0, imax] such that P(k) is proportional to (v + k) ** (-s). Requirements: s > 1 and v >= 1.
 
-#### (*Zipf) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/rand/zipf.go;l=58) 
+#### (*Zipf) Uint64 
 
 ``` go 
 func (z *Zipf) Uint64() uint64

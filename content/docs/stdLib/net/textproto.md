@@ -37,7 +37,7 @@ This section is empty.
 
 ## 函数
 
-#### func [CanonicalMIMEHeaderKey](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=605) 
+#### func CanonicalMIMEHeaderKey 
 
 ``` go 
 func CanonicalMIMEHeaderKey(s string) string
@@ -45,7 +45,7 @@ func CanonicalMIMEHeaderKey(s string) string
 
 CanonicalMIMEHeaderKey returns the canonical format of the MIME header key s. The canonicalization converts the first letter and any letter following a hyphen to upper case; the rest are converted to lowercase. For example, the canonical key for "accept-encoding" is "Accept-Encoding". MIME header keys are assumed to be ASCII only. If s contains a space or invalid header field bytes, it is returned without modifications.
 
-#### func [TrimBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=135)  <- go1.1
+#### func TrimBytes  <- go1.1
 
 ``` go 
 func TrimBytes(b []byte) []byte
@@ -53,7 +53,7 @@ func TrimBytes(b []byte) []byte
 
 TrimBytes returns b without leading and trailing ASCII space.
 
-#### func [TrimString](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=124)  <- go1.1
+#### func TrimString  <- go1.1
 
 ``` go 
 func TrimString(s string) string
@@ -63,7 +63,7 @@ TrimString returns s without leading and trailing ASCII space.
 
 ## 类型
 
-### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=57) 
+### type Conn 
 
 ``` go 
 type Conn struct {
@@ -76,7 +76,7 @@ type Conn struct {
 
 A Conn represents a textual network protocol connection. It consists of a Reader and Writer to manage I/O and a Pipeline to sequence concurrent requests on the connection. These embedded types carry methods with them; see the documentation of those types for details.
 
-#### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=80) 
+#### func Dial 
 
 ``` go 
 func Dial(network, addr string) (*Conn, error)
@@ -84,7 +84,7 @@ func Dial(network, addr string) (*Conn, error)
 
 Dial connects to the given address on the given network using net.Dial and then returns a new Conn for the connection.
 
-#### func [NewConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=65) 
+#### func NewConn 
 
 ``` go 
 func NewConn(conn io.ReadWriteCloser) *Conn
@@ -92,7 +92,7 @@ func NewConn(conn io.ReadWriteCloser) *Conn
 
 NewConn returns a new Conn using conn for I/O.
 
-#### (*Conn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=74) 
+#### (*Conn) Close 
 
 ``` go 
 func (c *Conn) Close() error
@@ -100,7 +100,7 @@ func (c *Conn) Close() error
 
 Close closes the connection.
 
-#### (*Conn) [Cmd](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=112) 
+#### (*Conn) Cmd 
 
 ``` go 
 func (c *Conn) Cmd(format string, args ...any) (id uint, err error)
@@ -129,7 +129,7 @@ if err != nil {
 return c.ReadCodeLine(250)
 ```
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=35) 
+### type Error 
 
 ``` go 
 type Error struct {
@@ -140,13 +140,13 @@ type Error struct {
 
 An Error represents a numeric error response from a server.
 
-#### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=40) 
+#### (*Error) Error 
 
 ``` go 
 func (e *Error) Error() string
 ```
 
-### type [MIMEHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=9) 
+### type MIMEHeader 
 
 ``` go 
 type MIMEHeader map[string][]string
@@ -154,7 +154,7 @@ type MIMEHeader map[string][]string
 
 A MIMEHeader represents a MIME-style header mapping keys to sets of values.
 
-#### (MIMEHeader) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=13) 
+#### (MIMEHeader) Add 
 
 ``` go 
 func (h MIMEHeader) Add(key, value string)
@@ -162,7 +162,7 @@ func (h MIMEHeader) Add(key, value string)
 
 Add adds the key, value pair to the header. It appends to any existing values associated with key.
 
-#### (MIMEHeader) [Del](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=54) 
+#### (MIMEHeader) Del 
 
 ``` go 
 func (h MIMEHeader) Del(key string)
@@ -170,7 +170,7 @@ func (h MIMEHeader) Del(key string)
 
 Del deletes the values associated with key.
 
-#### (MIMEHeader) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=30) 
+#### (MIMEHeader) Get 
 
 ``` go 
 func (h MIMEHeader) Get(key string) string
@@ -178,7 +178,7 @@ func (h MIMEHeader) Get(key string) string
 
 Get gets the first value associated with the given key. It is case insensitive; CanonicalMIMEHeaderKey is used to canonicalize the provided key. If there are no values associated with the key, Get returns "". To use non-canonical keys, access the map directly.
 
-#### (MIMEHeader) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=21) 
+#### (MIMEHeader) Set 
 
 ``` go 
 func (h MIMEHeader) Set(key, value string)
@@ -186,7 +186,7 @@ func (h MIMEHeader) Set(key, value string)
 
 Set sets the header entries associated with key to the single element value. It replaces any existing values associated with key.
 
-#### (MIMEHeader) [Values](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/header.go;l=46)  <- go1.14
+#### (MIMEHeader) Values  <- go1.14
 
 ``` go 
 func (h MIMEHeader) Values(key string) []string
@@ -194,7 +194,7 @@ func (h MIMEHeader) Values(key string) []string
 
 Values returns all values associated with the given key. It is case insensitive; CanonicalMIMEHeaderKey is used to canonicalize the provided key. To use non-canonical keys, access the map directly. The returned slice is not a copy.
 
-### type [Pipeline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=28) 
+### type Pipeline 
 
 ``` go 
 type Pipeline struct {
@@ -220,7 +220,7 @@ p.EndResponse(id)	// notify Pipeline that response is read
 
 A pipelined server can use the same calls to ensure that responses computed in parallel are written in the correct order.
 
-#### (*Pipeline) [EndRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=52) 
+#### (*Pipeline) EndRequest 
 
 ``` go 
 func (p *Pipeline) EndRequest(id uint)
@@ -228,7 +228,7 @@ func (p *Pipeline) EndRequest(id uint)
 
 EndRequest notifies p that the request with the given id has been sent (or, if this is a server, received).
 
-#### (*Pipeline) [EndResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=64) 
+#### (*Pipeline) EndResponse 
 
 ``` go 
 func (p *Pipeline) EndResponse(id uint)
@@ -236,7 +236,7 @@ func (p *Pipeline) EndResponse(id uint)
 
 EndResponse notifies p that the response with the given id has been received (or, if this is a server, sent).
 
-#### (*Pipeline) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=36) 
+#### (*Pipeline) Next 
 
 ``` go 
 func (p *Pipeline) Next() uint
@@ -244,7 +244,7 @@ func (p *Pipeline) Next() uint
 
 Next returns the next id for a request/response pair.
 
-#### (*Pipeline) [StartRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=46) 
+#### (*Pipeline) StartRequest 
 
 ``` go 
 func (p *Pipeline) StartRequest(id uint)
@@ -252,7 +252,7 @@ func (p *Pipeline) StartRequest(id uint)
 
 StartRequest blocks until it is time to send (or, if this is a server, receive) the request with the given id.
 
-#### (*Pipeline) [StartResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/pipeline.go;l=58) 
+#### (*Pipeline) StartResponse 
 
 ``` go 
 func (p *Pipeline) StartResponse(id uint)
@@ -260,7 +260,7 @@ func (p *Pipeline) StartResponse(id uint)
 
 StartResponse blocks until it is time to receive (or, if this is a server, send) the request with the given id.
 
-### type [ProtocolError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=46) 
+### type ProtocolError 
 
 ``` go 
 type ProtocolError string
@@ -268,13 +268,13 @@ type ProtocolError string
 
 A ProtocolError describes a protocol violation such as an invalid response or a hung-up connection.
 
-#### (ProtocolError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/textproto.go;l=48) 
+#### (ProtocolError) Error 
 
 ``` go 
 func (p ProtocolError) Error() string
 ```
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=21) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -285,7 +285,7 @@ type Reader struct {
 
 A Reader implements convenience methods for reading requests or responses from a text protocol network connection.
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=32) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r *bufio.Reader) *Reader
@@ -295,7 +295,7 @@ NewReader returns a new Reader reading from r.
 
 To avoid denial of service attacks, the provided bufio.Reader should be reading from an io.LimitReader or similar Reader to bound the size of responses.
 
-#### (*Reader) [DotReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=308) 
+#### (*Reader) DotReader 
 
 ``` go 
 func (r *Reader) DotReader() io.Reader
@@ -307,7 +307,7 @@ Dot encoding is a common framing used for data blocks in text protocols such as 
 
 The decoded form returned by the Reader's Read method rewrites the "\r\n" line endings into the simpler "\n", removes leading dot escapes if present, and stops with error io.EOF after consuming (and discarding) the end-of-sequence line.
 
-#### (*Reader) [ReadCodeLine](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=232) 
+#### (*Reader) ReadCodeLine 
 
 ``` go 
 func (r *Reader) ReadCodeLine(expectCode int) (code int, message string, err error)
@@ -331,7 +331,7 @@ If the response is multi-line, ReadCodeLine returns an error.
 
 An expectCode <= 0 disables the check of the status code.
 
-#### (*Reader) [ReadContinuedLine](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=90) 
+#### (*Reader) ReadContinuedLine 
 
 ``` go 
 func (r *Reader) ReadContinuedLine() (string, error)
@@ -351,7 +351,7 @@ The first call to ReadContinuedLine will return "Line 1 continued..." and the se
 
 Empty lines are never continued.
 
-#### (*Reader) [ReadContinuedLineBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=111) 
+#### (*Reader) ReadContinuedLineBytes 
 
 ``` go 
 func (r *Reader) ReadContinuedLineBytes() ([]byte, error)
@@ -359,7 +359,7 @@ func (r *Reader) ReadContinuedLineBytes() ([]byte, error)
 
 ReadContinuedLineBytes is like ReadContinuedLine but returns a []byte instead of a string.
 
-#### (*Reader) [ReadDotBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=424) 
+#### (*Reader) ReadDotBytes 
 
 ``` go 
 func (r *Reader) ReadDotBytes() ([]byte, error)
@@ -369,7 +369,7 @@ ReadDotBytes reads a dot-encoding and returns the decoded data.
 
 See the documentation for the DotReader method for details about dot-encoding.
 
-#### (*Reader) [ReadDotLines](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=432) 
+#### (*Reader) ReadDotLines 
 
 ``` go 
 func (r *Reader) ReadDotLines() ([]string, error)
@@ -379,7 +379,7 @@ ReadDotLines reads a dot-encoding and returns a slice containing the decoded lin
 
 See the documentation for the DotReader method for details about dot-encoding.
 
-#### (*Reader) [ReadLine](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=38) 
+#### (*Reader) ReadLine 
 
 ``` go 
 func (r *Reader) ReadLine() (string, error)
@@ -387,7 +387,7 @@ func (r *Reader) ReadLine() (string, error)
 
 ReadLine reads a single line from r, eliding the final \n or \r\n from the returned string.
 
-#### (*Reader) [ReadLineBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=44) 
+#### (*Reader) ReadLineBytes 
 
 ``` go 
 func (r *Reader) ReadLineBytes() ([]byte, error)
@@ -395,7 +395,7 @@ func (r *Reader) ReadLineBytes() ([]byte, error)
 
 ReadLineBytes is like ReadLine but returns a []byte instead of a string.
 
-#### (*Reader) [ReadMIMEHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=481) 
+#### (*Reader) ReadMIMEHeader 
 
 ``` go 
 func (r *Reader) ReadMIMEHeader() (MIMEHeader, error)
@@ -421,7 +421,7 @@ map[string][]string{
 }
 ```
 
-#### (*Reader) [ReadResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/reader.go;l=266) 
+#### (*Reader) ReadResponse 
 
 ``` go 
 func (r *Reader) ReadResponse(expectCode int) (code int, message string, err error)
@@ -451,7 +451,7 @@ If the prefix of the status does not match the digits in expectCode, ReadRespons
 
 An expectCode <= 0 disables the check of the status code.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/writer.go;l=15) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -462,7 +462,7 @@ type Writer struct {
 
 A Writer implements convenience methods for writing requests or responses to a text protocol network connection.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/writer.go;l=21) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w *bufio.Writer) *Writer
@@ -470,7 +470,7 @@ func NewWriter(w *bufio.Writer) *Writer
 
 NewWriter returns a new Writer writing to w.
 
-#### (*Writer) [DotWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/writer.go;l=43) 
+#### (*Writer) DotWriter 
 
 ``` go 
 func (w *Writer) DotWriter() io.WriteCloser
@@ -480,7 +480,7 @@ DotWriter returns a writer that can be used to write a dot-encoding to w. It tak
 
 See the documentation for Reader's DotReader method for details about dot-encoding.
 
-#### (*Writer) [PrintfLine](https://cs.opensource.google/go/go/+/go1.20.1:src/net/textproto/writer.go;l=29) 
+#### (*Writer) PrintfLine 
 
 ``` go 
 func (w *Writer) PrintfLine(format string, args ...any) error

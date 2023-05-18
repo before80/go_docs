@@ -29,7 +29,7 @@ Package crypto collects common cryptographic constants.
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -39,7 +39,7 @@ This section is empty.
 
 ## 函数
 
-#### func [RegisterHash](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=145) [¶](https://pkg.go.dev/crypto@go1.20.1#RegisterHash)
+#### func RegisterHash [¶](https://pkg.go.dev/crypto@go1.20.1#RegisterHash)
 
 ```
 func RegisterHash(h Hash, f func() hash.Hash)
@@ -49,7 +49,7 @@ RegisterHash registers a function that returns a new instance of the given hash 
 
 ## 类型
 
-### type [Decrypter](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=212) [¶](https://pkg.go.dev/crypto@go1.20.1#Decrypter)added in go1.5
+### type Decrypter [¶](https://pkg.go.dev/crypto@go1.20.1#Decrypter)added in go1.5
 
 ```
 type Decrypter interface {
@@ -66,13 +66,13 @@ type Decrypter interface {
 
 Decrypter is an interface for an opaque private key that can be used for asymmetric decryption operations. An example would be an RSA key kept in a hardware module.
 
-### type [DecrypterOpts](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=223) [¶](https://pkg.go.dev/crypto@go1.20.1#DecrypterOpts)added in go1.5
+### type DecrypterOpts [¶](https://pkg.go.dev/crypto@go1.20.1#DecrypterOpts)added in go1.5
 
 ```
 type DecrypterOpts any
 ```
 
-### type [Hash](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=16) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash)
+### type Hash [¶](https://pkg.go.dev/crypto@go1.20.1#Hash)
 
 ```
 type Hash uint
@@ -105,7 +105,7 @@ const (
 )
 ```
 
-#### (Hash) [Available](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=138) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.Available)
+#### (Hash) Available [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.Available)
 
 ```
 func (h Hash) Available() bool
@@ -113,7 +113,7 @@ func (h Hash) Available() bool
 
 Available reports whether the given hash function is linked into the binary.
 
-#### (Hash) [HashFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=19) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.HashFunc)added in go1.4
+#### (Hash) HashFunc [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.HashFunc)added in go1.4
 
 ```
 func (h Hash) HashFunc() Hash
@@ -121,7 +121,7 @@ func (h Hash) HashFunc() Hash
 
 HashFunc simply returns the value of h so that Hash implements SignerOpts.
 
-#### (Hash) [New](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=127) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.New)
+#### (Hash) New [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.New)
 
 ```
 func (h Hash) New() hash.Hash
@@ -129,7 +129,7 @@ func (h Hash) New() hash.Hash
 
 New returns a new hash.Hash calculating the given hash function. New panics if the hash function is not linked into the binary.
 
-#### (Hash) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=116) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.Size)
+#### (Hash) Size [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.Size)
 
 ```
 func (h Hash) Size() int
@@ -137,13 +137,13 @@ func (h Hash) Size() int
 
 Size returns the length, in bytes, of a digest resulting from the given hash function. It doesn't require that the hash function in question be linked into the program.
 
-#### (Hash) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=23) [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.String)added in go1.15
+#### (Hash) String [¶](https://pkg.go.dev/crypto@go1.20.1#Hash.String)added in go1.15
 
 ```
 func (h Hash) String() string
 ```
 
-### type [PrivateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=176) [¶](https://pkg.go.dev/crypto@go1.20.1#PrivateKey)
+### type PrivateKey [¶](https://pkg.go.dev/crypto@go1.20.1#PrivateKey)
 
 ```
 type PrivateKey any
@@ -162,7 +162,7 @@ interface{
 
 as well as purpose-specific interfaces such as Signer and Decrypter, which can be used for increased type safety within applications.
 
-### type [PublicKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=162) [¶](https://pkg.go.dev/crypto@go1.20.1#PublicKey)added in go1.2
+### type PublicKey [¶](https://pkg.go.dev/crypto@go1.20.1#PublicKey)added in go1.2
 
 ```
 type PublicKey any
@@ -180,7 +180,7 @@ interface{
 
 which can be used for increased type safety within applications.
 
-### type [Signer](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=180) [¶](https://pkg.go.dev/crypto@go1.20.1#Signer)added in go1.4
+### type Signer [¶](https://pkg.go.dev/crypto@go1.20.1#Signer)added in go1.4
 
 ```
 type Signer interface {
@@ -207,7 +207,7 @@ type Signer interface {
 
 Signer is an interface for an opaque private key that can be used for signing operations. For example, an RSA key kept in a hardware module.
 
-### type [SignerOpts](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/crypto.go;l=202) [¶](https://pkg.go.dev/crypto@go1.20.1#SignerOpts)added in go1.4
+### type SignerOpts [¶](https://pkg.go.dev/crypto@go1.20.1#SignerOpts)added in go1.4
 
 ```
 type SignerOpts interface {

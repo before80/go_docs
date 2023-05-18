@@ -49,7 +49,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Fix](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=83)  <- go1.2
+#### func Fix  <- go1.2
 
 ``` go 
 func Fix(h Interface, i int)
@@ -59,7 +59,7 @@ Fix re-establishes the heap ordering after the element at index i has changed it
 
 Fix在索引i处的元素改变其值后重新建立堆的顺序。改变索引i处元素的值，然后调用Fix，相当于调用Remove(h, i)，然后推送新的值，但成本较低。复杂度是O(log n)，其中n = h.Len()。
 
-#### func [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=41) 
+#### func Init 
 
 ``` go 
 func Init(h Interface)
@@ -69,7 +69,7 @@ Init establishes the heap invariants required by the other routines in this pack
 
 Init建立了本包中其他例程所要求的堆不变性。Init对于堆不变性来说是等价的，只要堆不变性可能已经失效，就可以调用它。复杂度为O(n)，其中n = h.Len()。
 
-#### func [Pop](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=59) 
+#### func Pop 
 
 ``` go 
 func Pop(h Interface) any
@@ -79,7 +79,7 @@ Pop removes and returns the minimum element (according to Less) from the heap. T
 
 Pop删除并返回堆中的最小元素(根据Less)。复杂度为O(log n)，其中n = h.Len()。Pop等同于Remove(h, 0)。
 
-#### func [Push](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=51) 
+#### func Push 
 
 ``` go 
 func Push(h Interface, x any)
@@ -89,7 +89,7 @@ Push pushes the element x onto the heap. The complexity is O(log n) where n = h.
 
 Push将元素x推到堆上。复杂度为O(log n)，其中n = h.Len()。
 
-#### func [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=68) 
+#### func Remove 
 
 ``` go 
 func Remove(h Interface, i int) any
@@ -101,7 +101,7 @@ Remove从堆中删除并返回索引为i的元素。复杂度为O(log n)，其�
 
 ## 类型
 
-### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=31) 
+### type Interface 
 
 ``` go 
 type Interface interface {

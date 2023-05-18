@@ -65,7 +65,7 @@ This section is empty.
 
 ## 类型
 
-### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=52) 
+### type Header 
 
 ``` go 
 type Header struct {
@@ -81,7 +81,7 @@ The gzip file stores a header giving metadata about the compressed file. That he
 
 Strings must be UTF-8 encoded and may only contain Unicode code points U+0001 through U+00FF, due to limitations of the GZIP file format.
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=74) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -96,7 +96,7 @@ In general, a gzip file can be a concatenation of gzip files, each with its own 
 
 Gzip files store a length and checksum of the uncompressed data. The Reader will return an ErrChecksum when Read reaches the end of the uncompressed data if it does not have the expected length or checksum. Clients should treat data returned by Read as tentative until they receive the io.EOF marking the end of the data.
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=92) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) (*Reader, error)
@@ -108,7 +108,7 @@ It is the caller's responsibility to call Close on the Reader when done.
 
 The Reader.Header fields will be valid in the Reader returned.
 
-#### (*Reader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=290) 
+#### (*Reader) Close 
 
 ``` go 
 func (z *Reader) Close() error
@@ -116,7 +116,7 @@ func (z *Reader) Close() error
 
 Close closes the Reader. It does not close the underlying io.Reader. In order for the GZIP checksum to be verified, the reader must be fully consumed until the io.EOF.
 
-#### (*Reader) [Multistream](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=133)  <- go1.4
+#### (*Reader) Multistream  <- go1.4
 
 ``` go 
 func (z *Reader) Multistream(ok bool)
@@ -132,7 +132,7 @@ Calling Multistream(false) disables this behavior; disabling the behavior can be
 ``` go 
 ```
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=246) 
+#### (*Reader) Read 
 
 ``` go 
 func (z *Reader) Read(p []byte) (n int, err error)
@@ -140,7 +140,7 @@ func (z *Reader) Read(p []byte) (n int, err error)
 
 Read implements io.Reader, reading uncompressed bytes from its underlying Reader.
 
-#### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=103)  <- go1.3
+#### (*Reader) Reset  <- go1.3
 
 ``` go 
 func (z *Reader) Reset(r io.Reader) error
@@ -148,7 +148,7 @@ func (z *Reader) Reset(r io.Reader) error
 
 Reset discards the Reader z's state and makes it equivalent to the result of its original state from NewReader, but reading from r instead. This permits reusing a Reader rather than allocating a new one.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=28) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -159,7 +159,7 @@ type Writer struct {
 
 A Writer is an io.WriteCloser. Writes to a Writer are compressed and written to w.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=49) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -171,7 +171,7 @@ It is the caller's responsibility to call Close on the Writer when done. Writes 
 
 Callers that wish to set the fields in Writer.Header must do so before the first call to Write, Flush, or Close.
 
-#### func [NewWriterLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=60) 
+#### func NewWriterLevel 
 
 ``` go 
 func NewWriterLevel(w io.Writer, level int) (*Writer, error)
@@ -181,7 +181,7 @@ NewWriterLevel is like NewWriter but specifies the compression level instead of 
 
 The compression level can be DefaultCompression, NoCompression, HuffmanOnly or any integer value between BestSpeed and BestCompression inclusive. The error returned will be nil if the level is valid.
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=228) 
+#### (*Writer) Close 
 
 ``` go 
 func (z *Writer) Close() error
@@ -189,7 +189,7 @@ func (z *Writer) Close() error
 
 Close closes the Writer by flushing any unwritten data to the underlying io.Writer and writing the GZIP footer. It does not close the underlying io.Writer.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=208)  <- go1.1
+#### (*Writer) Flush  <- go1.1
 
 ``` go 
 func (z *Writer) Flush() error
@@ -201,7 +201,7 @@ It is useful mainly in compressed network protocols, to ensure that a remote rea
 
 In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.
 
-#### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=88)  <- go1.2
+#### (*Writer) Reset  <- go1.2
 
 ``` go 
 func (z *Writer) Reset(w io.Writer)
@@ -209,7 +209,7 @@ func (z *Writer) Reset(w io.Writer)
 
 Reset discards the Writer z's state and makes it equivalent to the result of its original state from NewWriter or NewWriterLevel, but writing to w instead. This permits reusing a Writer rather than allocating a new one.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=139) 
+#### (*Writer) Write 
 
 ``` go 
 func (z *Writer) Write(p []byte) (int, error)

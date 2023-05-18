@@ -8,7 +8,7 @@ draft = false
 +++
 # strconv
 
-[https://pkg.go.dev/strconv@go1.20.1](https://pkg.go.dev/strconv@go1.20.1)
+https://pkg.go.dev/strconv@go1.20.1
 
 ​	strconv包实现了基本数据类型的字符串表示与其相互转换的功能。
 
@@ -98,7 +98,7 @@ var ErrSyntax = errors.New("invalid syntax")
 
 ## 函数
 
-#### func [AppendBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=30) 
+#### func AppendBool 
 
 ``` go 
 func AppendBool(dst []byte, b bool) []byte
@@ -126,7 +126,7 @@ Output:
 bool:true
 ```
 
-#### func [AppendFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ftoa.go;l=53) 
+#### func AppendFloat 
 
 ``` go 
 func AppendFloat(dst []byte, f float64, fmt byte, prec, bitSize int) []byte
@@ -159,7 +159,7 @@ float32:3.1415927E+00
 float64:3.1415926535E+00
 ```
 
-#### func [AppendInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=40) 
+#### func AppendInt 
 
 ``` go 
 func AppendInt(dst []byte, i int64, base int) []byte
@@ -192,7 +192,7 @@ int (base 10):-42
 int (base 16):-2a
 ```
 
-#### func [AppendQuote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=134) 
+#### func AppendQuote 
 
 ``` go 
 func AppendQuote(dst []byte, s string) []byte
@@ -220,7 +220,7 @@ Output:
 quote:"\"Fran & Freddie's Diner\""
 ```
 
-#### func [AppendQuoteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=176) 
+#### func AppendQuoteRune 
 
 ``` go 
 func AppendQuoteRune(dst []byte, r rune) []byte
@@ -248,7 +248,7 @@ Output:
 rune:'☺'
 ```
 
-#### func [AppendQuoteRuneToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=192) 
+#### func AppendQuoteRuneToASCII 
 
 ``` go 
 func AppendQuoteRuneToASCII(dst []byte, r rune) []byte
@@ -276,7 +276,7 @@ Output:
 rune (ascii):'\u263a'
 ```
 
-#### func [AppendQuoteRuneToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=208)  <- go1.6
+#### func AppendQuoteRuneToGraphic  <- go1.6
 
 ``` go 
 func AppendQuoteRuneToGraphic(dst []byte, r rune) []byte
@@ -284,7 +284,7 @@ func AppendQuoteRuneToGraphic(dst []byte, r rune) []byte
 
 ​	AppendQuoteRuneToGraphic函数将表示rune的单引号Go字符文本(由QuoteRuneToGraphic函数生成)附加到dst并返回扩展的缓冲区。
 
-#### func [AppendQuoteToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=147) 
+#### func AppendQuoteToASCII 
 
 ``` go 
 func AppendQuoteToASCII(dst []byte, s string) []byte
@@ -312,7 +312,7 @@ Output:
 quote (ascii):"\"Fran & Freddie's Diner\""
 ```
 
-#### func [AppendQuoteToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=161)  <- go1.6
+#### func AppendQuoteToGraphic  <- go1.6
 
 ``` go 
 func AppendQuoteToGraphic(dst []byte, s string) []byte
@@ -320,7 +320,7 @@ func AppendQuoteToGraphic(dst []byte, s string) []byte
 
 ​	AppendQuoteToGraphic函数将表示s的双引号Go字符串文本(由QuoteToGraphic函数生成)附加到dst并返回扩展的缓冲区。
 
-#### func [AppendUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=50) 
+#### func AppendUint 
 
 ``` go 
 func AppendUint(dst []byte, i uint64, base int) []byte
@@ -353,7 +353,7 @@ uint (base 10):42
 uint (base 16):2a
 ```
 
-#### func [Atoi](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=247) 
+#### func Atoi 
 
 ``` go 
 func Atoi(s string) (int, error)
@@ -382,7 +382,7 @@ Output:
 int, 10
 ```
 
-#### func [CanBackquote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=215) 
+#### func CanBackquote 
 
 ``` go 
 func CanBackquote(s string) bool
@@ -412,7 +412,7 @@ true
 false
 ```
 
-#### func [FormatBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=21) 
+#### func FormatBool 
 
 ``` go 
 func FormatBool(b bool) string
@@ -440,7 +440,7 @@ Output:
 string, true
 ```
 
-#### func [FormatComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ctoa.go;l=14)  <- go1.15
+#### func FormatComplex  <- go1.15
 
 ``` go 
 func FormatComplex(c complex128, fmt byte, prec, bitSize int) string
@@ -450,7 +450,7 @@ func FormatComplex(c complex128, fmt byte, prec, bitSize int) string
 
 ​	格式 fmt 和精度 prec 的含义与 FormatFloat函数 相同。它假定原始值是从 bitSize 位的复数值(complex64 的 bitSize 必须是 64，而 complex128 的 bitSize 必须是 128)获得的，四舍五入结果。
 
-#### func [FormatFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ftoa.go;l=47) 
+#### func FormatFloat 
 
 ``` go 
 func FormatFloat(f float64, fmt byte, prec, bitSize int) string
@@ -487,7 +487,7 @@ string, 3.1415927E+00
 string, 3.1415926535E+00
 ```
 
-#### func [FormatInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=25) 
+#### func FormatInt 
 
 ``` go 
 func FormatInt(i int64, base int) string
@@ -520,7 +520,7 @@ string, -42
 string, -2a
 ```
 
-#### func [FormatUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=14) 
+#### func FormatUint 
 
 ``` go 
 func FormatUint(i uint64, base int) string
@@ -553,7 +553,7 @@ string, 42
 string, 2a
 ```
 
-#### func [IsGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=586)  <- go1.6
+#### func IsGraphic  <- go1.6
 
 ``` go 
 func IsGraphic(r rune) bool
@@ -588,7 +588,7 @@ true
 false
 ```
 
-#### func [IsPrint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=540) 
+#### func IsPrint 
 
 ``` go 
 func IsPrint(r rune) bool
@@ -619,7 +619,7 @@ true
 false
 ```
 
-#### func [Itoa](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=34) 
+#### func Itoa 
 
 ``` go 
 func Itoa(i int) string
@@ -649,7 +649,7 @@ Output:
 string, 10
 ```
 
-#### func [ParseBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=10) 
+#### func ParseBool 
 
 ``` go 
 func ParseBool(str string) (bool, error)
@@ -678,7 +678,7 @@ Output:
 bool, true
 ```
 
-#### func [ParseComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoc.go;l=42)  <- go1.15
+#### func ParseComplex  <- go1.15
 
 ``` go 
 func ParseComplex(s string, bitSize int) (complex128, error)
@@ -694,7 +694,7 @@ func ParseComplex(s string, bitSize int) (complex128, error)
 
 ​	如果s的语法正确，但任一组件距离给定组件大小的最大浮点数超过1/2 ULP，则ParseComplex函数返回err.Err = ErrRange和c =±Inf，分别对应于组件。
 
-#### func [ParseFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atof.go;l=695) 
+#### func ParseFloat 
 
 ``` go 
 func ParseFloat(s string, bitSize int) (float64, error)
@@ -742,7 +742,7 @@ func main() {
 
 ```
 
-#### func [ParseInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=202) 
+#### func ParseInt 
 
 ``` go 
 func ParseInt(s string, base int, bitSize int) (i int64, err error)
@@ -783,7 +783,7 @@ uint64, 42
 uint64, 42
 ```
 
-#### func [ParseUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=78) 
+#### func ParseUint 
 
 ``` go 
 func ParseUint(s string, base int, bitSize int) (uint64, error)
@@ -813,7 +813,7 @@ Output:
 "\"Fran & Freddie's Diner\t☺\""
 ```
 
-#### func [Quote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=128) 
+#### func Quote 
 
 ``` go 
 func Quote(s string) string
@@ -841,7 +841,7 @@ Output:
 "\"Fran & Freddie's Diner\t☺\""
 ```
 
-#### func [QuoteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=170) 
+#### func QuoteRune 
 
 ``` go 
 func QuoteRune(r rune) string
@@ -878,7 +878,7 @@ Output:
 '☺'
 ```
 
-#### func [QuoteRuneToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=186) 
+#### func QuoteRuneToASCII 
 
 ``` go 
 func QuoteRuneToASCII(r rune) string
@@ -905,7 +905,7 @@ Output:
 '\u263a'
 ```
 
-#### func [QuoteRuneToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=202)  <- go1.6
+#### func QuoteRuneToGraphic  <- go1.6
 
 ``` go 
 func QuoteRuneToGraphic(r rune) string
@@ -944,7 +944,7 @@ Output:
 '\t'
 ```
 
-#### func [QuoteToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=141) 
+#### func QuoteToASCII 
 
 ``` go 
 func QuoteToASCII(s string) string
@@ -972,7 +972,7 @@ Output:
 "\"Fran & Freddie's Diner\t\u263a\""
 ```
 
-#### func [QuoteToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=155)  <- go1.6
+#### func QuoteToGraphic  <- go1.6
 
 ``` go 
 func QuoteToGraphic(s string) string
@@ -1008,7 +1008,7 @@ Output:
 "\" This is a ☺ \\n \""
 ```
 
-#### func [QuotedPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=375)  <- go1.17
+#### func QuotedPrefix  <- go1.17
 
 ``` go 
 func QuotedPrefix(s string) (string, error)
@@ -1016,7 +1016,7 @@ func QuotedPrefix(s string) (string, error)
 
 ​	QuotedPrefix函数返回 s 的前缀处的带引号字符串(如 Unquote函数理解的那样)。如果 s 不以有效的带引号字符串开头，则 QuotedPrefix函数返回一个错误。
 
-#### func [Unquote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=385) 
+#### func Unquote 
 
 ``` go 
 func Unquote(s string) (string, error)
@@ -1063,7 +1063,7 @@ Output:
 "", invalid syntax
 ```
 
-#### func [UnquoteChar](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=262) 
+#### func UnquoteChar 
 
 ``` go 
 func UnquoteChar(s string, quote byte) (value rune, multibyte bool, tail string, err error)
@@ -1124,7 +1124,7 @@ H true \u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064
 
 ## 类型
 
-### type [NumError](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=24) 
+### type NumError 
 
 ``` go 
 type NumError struct {
@@ -1164,13 +1164,13 @@ Err: invalid syntax
 strconv.ParseFloat: parsing "Not a number": invalid syntax
 ```
 
-#### (*NumError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=30) 
+#### (*NumError) Error 
 
 ``` go 
 func (e *NumError) Error() string
 ```
 
-#### (*NumError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=34)  <- go1.14
+#### (*NumError) Unwrap  <- go1.14
 
 ``` go 
 func (e *NumError) Unwrap() error

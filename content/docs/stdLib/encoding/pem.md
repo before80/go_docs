@@ -30,7 +30,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=240) 
+#### func Encode 
 
 ``` go 
 func Encode(out io.Writer, b *Block) error
@@ -44,7 +44,7 @@ Encode将b的PEM编码写到out。
 ``` go 
 ```
 
-#### func [EncodeToMemory](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=310) 
+#### func EncodeToMemory 
 
 ``` go 
 func EncodeToMemory(b *Block) []byte
@@ -60,7 +60,7 @@ If b has invalid headers and cannot be encoded, EncodeToMemory returns nil. If i
 
 ## 类型
 
-### type [Block](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=29) 
+### type Block 
 
 ``` go 
 type Block struct {
@@ -89,7 +89,7 @@ where Headers is a possibly empty sequence of Key: Value lines.
 
 其中Headers是一个可能是空的Key.Value的序列。值的行。
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=89) 
+#### func Decode 
 
 ``` go 
 func Decode(data []byte) (p *Block, rest []byte)

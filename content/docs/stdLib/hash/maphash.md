@@ -35,7 +35,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=42)  <- go1.19
+#### func Bytes  <- go1.19
 
 ``` go 
 func Bytes(seed Seed, b []byte) uint64
@@ -52,7 +52,7 @@ h.Write(b)
 return h.Sum64()
 ```
 
-#### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=68)  <- go1.19
+#### func String  <- go1.19
 
 ``` go 
 func String(seed Seed, s string) uint64
@@ -71,7 +71,7 @@ return h.Sum64()
 
 ## 类型
 
-### type [Hash](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=105) 
+### type Hash 
 
 ``` go 
 type Hash struct {
@@ -97,7 +97,7 @@ Hashes are intended to be collision-resistant, even for situations where an adve
 
 A Hash is not safe for concurrent use by multiple goroutines, but a Seed is. If multiple goroutines must compute the same seeded hash, each can declare its own Hash and call SetSeed with a common Seed.
 
-#### (*Hash) [BlockSize](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=308) 
+#### (*Hash) BlockSize 
 
 ``` go 
 func (h *Hash) BlockSize() int
@@ -105,7 +105,7 @@ func (h *Hash) BlockSize() int
 
 BlockSize returns h's block size.
 
-#### (*Hash) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=224) 
+#### (*Hash) Reset 
 
 ``` go 
 func (h *Hash) Reset()
@@ -113,7 +113,7 @@ func (h *Hash) Reset()
 
 Reset discards all bytes added to h. (The seed remains the same.)
 
-#### (*Hash) [Seed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=203) 
+#### (*Hash) Seed 
 
 ``` go 
 func (h *Hash) Seed() Seed
@@ -121,7 +121,7 @@ func (h *Hash) Seed() Seed
 
 Seed returns h's seed value.
 
-#### (*Hash) [SetSeed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=213) 
+#### (*Hash) SetSeed 
 
 ``` go 
 func (h *Hash) SetSeed(seed Seed)
@@ -129,7 +129,7 @@ func (h *Hash) SetSeed(seed Seed)
 
 SetSeed sets h to use seed, which must have been returned by MakeSeed or by another Hash's Seed method. Two Hash objects with the same seed behave identically. Two Hash objects with different seeds will very likely behave differently. Any bytes added to h before this call will be discarded.
 
-#### (*Hash) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=305) 
+#### (*Hash) Size 
 
 ``` go 
 func (h *Hash) Size() int
@@ -137,7 +137,7 @@ func (h *Hash) Size() int
 
 Size returns h's hash value size, 8 bytes.
 
-#### (*Hash) [Sum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=291) 
+#### (*Hash) Sum 
 
 ``` go 
 func (h *Hash) Sum(b []byte) []byte
@@ -145,7 +145,7 @@ func (h *Hash) Sum(b []byte) []byte
 
 Sum appends the hash's current 64-bit value to b. It exists for implementing hash.Hash. For direct calls, it is more efficient to use Sum64.
 
-#### (*Hash) [Sum64](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=247) 
+#### (*Hash) Sum64 
 
 ``` go 
 func (h *Hash) Sum64() uint64
@@ -155,7 +155,7 @@ Sum64 returns h's current 64-bit value, which depends on h's seed and the sequen
 
 All bits of the Sum64 result are close to uniformly and independently distributed, so it can be safely reduced by using bit masking, shifting, or modular arithmetic.
 
-#### (*Hash) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=145) 
+#### (*Hash) Write 
 
 ``` go 
 func (h *Hash) Write(b []byte) (int, error)
@@ -163,7 +163,7 @@ func (h *Hash) Write(b []byte) (int, error)
 
 Write adds b to the sequence of bytes hashed by h. It always writes all of b and never fails; the count and error result are for implementing io.Writer.
 
-#### (*Hash) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=134) 
+#### (*Hash) WriteByte 
 
 ``` go 
 func (h *Hash) WriteByte(b byte) error
@@ -171,7 +171,7 @@ func (h *Hash) WriteByte(b byte) error
 
 WriteByte adds b to the sequence of bytes hashed by h. It never fails; the error result is for implementing io.ByteWriter.
 
-#### (*Hash) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=177) 
+#### (*Hash) WriteString 
 
 ``` go 
 func (h *Hash) WriteString(s string) (int, error)
@@ -179,7 +179,7 @@ func (h *Hash) WriteString(s string) (int, error)
 
 WriteString adds the bytes of s to the sequence of bytes hashed by h. It always writes all of s and never fails; the count and error result are for implementing io.StringWriter.
 
-### type [Seed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=30) 
+### type Seed 
 
 ``` go 
 type Seed struct {
@@ -193,7 +193,7 @@ A Seed must be initialized by calling MakeSeed. The zero seed is uninitialized a
 
 Each Seed value is local to a single process and cannot be serialized or otherwise recreated in a different process.
 
-#### func [MakeSeed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=253) 
+#### func MakeSeed 
 
 ``` go 
 func MakeSeed() Seed

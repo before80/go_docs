@@ -108,7 +108,7 @@ This section is empty.
 
 ## 函数
 
-#### func [IsEnabled](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=180)  <- go1.11
+#### func IsEnabled  <- go1.11
 
 ``` go 
 func IsEnabled() bool
@@ -116,7 +116,7 @@ func IsEnabled() bool
 
 IsEnabled reports whether tracing is enabled. The information is advisory only. The tracing status may have changed by the time this function returns.
 
-#### func [Log](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=95)  <- go1.11
+#### func Log  <- go1.11
 
 ``` go 
 func Log(ctx context.Context, category, message string)
@@ -124,7 +124,7 @@ func Log(ctx context.Context, category, message string)
 
 Log emits a one-off event with the given category and message. Category can be empty and the API assumes there are only a handful of unique categories in the system.
 
-#### func [Logf](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=101)  <- go1.11
+#### func Logf  <- go1.11
 
 ``` go 
 func Logf(ctx context.Context, category, format string, args ...any)
@@ -132,7 +132,7 @@ func Logf(ctx context.Context, category, format string, args ...any)
 
 Logf is like Log, but the value is formatted using the specified format spec.
 
-#### func [Start](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/trace.go;l=121) 
+#### func Start 
 
 ``` go 
 func Start(w io.Writer) error
@@ -140,7 +140,7 @@ func Start(w io.Writer) error
 
 Start enables tracing for the current program. While tracing, the trace will be buffered and written to w. Start returns an error if tracing is already enabled.
 
-#### func [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/trace.go;l=143) 
+#### func Stop 
 
 ``` go 
 func Stop()
@@ -148,7 +148,7 @@ func Stop()
 
 Stop stops the current tracing, if any. Stop only returns after all the writes for the trace have completed.
 
-#### func [WithRegion](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=122)  <- go1.11
+#### func WithRegion  <- go1.11
 
 ``` go 
 func WithRegion(ctx context.Context, regionType string, fn func())
@@ -160,7 +160,7 @@ The regionType is used to classify regions, so there should be only a handful of
 
 ## 类型
 
-### type [Region](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=162)  <- go1.11
+### type Region  <- go1.11
 
 ``` go 
 type Region struct {
@@ -170,7 +170,7 @@ type Region struct {
 
 Region is a region of code whose execution time interval is traced.
 
-#### func [StartRegion](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=152)  <- go1.11
+#### func StartRegion  <- go1.11
 
 ``` go 
 func StartRegion(ctx context.Context, regionType string) *Region
@@ -182,7 +182,7 @@ StartRegion starts a region and returns a function for marking the end of the re
 defer trace.StartRegion(ctx, "myTracedRegion").End()
 ```
 
-#### (*Region) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=170)  <- go1.11
+#### (*Region) End  <- go1.11
 
 ``` go 
 func (r *Region) End()
@@ -190,7 +190,7 @@ func (r *Region) End()
 
 End marks the end of the traced code region.
 
-### type [Task](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=73)  <- go1.11
+### type Task  <- go1.11
 
 ``` go 
 type Task struct {
@@ -200,7 +200,7 @@ type Task struct {
 
 Task is a data type for tracing a user-defined, logical operation.
 
-#### func [NewTask](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=38)  <- go1.11
+#### func NewTask  <- go1.11
 
 ``` go 
 func NewTask(pctx context.Context, taskType string) (ctx context.Context, task *Task)
@@ -222,7 +222,7 @@ go func() {  // continue processing the task in a separate goroutine.
 }()
 ```
 
-#### (*Task) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace/annotation.go;l=79)  <- go1.11
+#### (*Task) End  <- go1.11
 
 ``` go 
 func (t *Task) End()

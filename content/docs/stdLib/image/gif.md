@@ -37,7 +37,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=565) 
+#### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -45,7 +45,7 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a GIF image from r and returns the first embedded image as an image.Image.
 
-#### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=627) 
+#### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -53,7 +53,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the global color model and dimensions of a GIF image without decoding the entire image.
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=418)  <- go1.2
+#### func Encode  <- go1.2
 
 ``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
@@ -61,7 +61,7 @@ func Encode(w io.Writer, m image.Image, o *Options) error
 
 Encode writes the Image m to w in GIF format.
 
-#### func [EncodeAll](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=372)  <- go1.2
+#### func EncodeAll  <- go1.2
 
 ``` go 
 func EncodeAll(w io.Writer, g *GIF) error
@@ -71,7 +71,7 @@ EncodeAll writes the images in g to w in GIF format with the given loop count an
 
 ## 类型
 
-### type [GIF](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=574) 
+### type GIF 
 
 ``` go 
 type GIF struct {
@@ -106,7 +106,7 @@ type GIF struct {
 
 GIF represents the possibly multiple images stored in a GIF file.
 
-#### func [DecodeAll](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=605) 
+#### func DecodeAll 
 
 ``` go 
 func DecodeAll(r io.Reader) (*GIF, error)
@@ -114,7 +114,7 @@ func DecodeAll(r io.Reader) (*GIF, error)
 
 DecodeAll reads a GIF image from r and returns the sequential frames and timing information.
 
-### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=356)  <- go1.2
+### type Options  <- go1.2
 
 ``` go 
 type Options struct {

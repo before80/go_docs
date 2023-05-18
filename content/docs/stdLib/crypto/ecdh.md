@@ -32,7 +32,7 @@ Package ecdh implements Elliptic Curve Diffie-Hellman over NIST curves and Curve
   
   
 
-## 常量 [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -46,7 +46,7 @@ This section is empty.
 
 ## 类型
 
-### type [Curve](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=17) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#Curve)
+### type Curve [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#Curve)
 
 ```
 type Curve interface {
@@ -77,7 +77,7 @@ type Curve interface {
 }
 ```
 
-#### func [P256](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/nist.go;l=219) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P256)
+#### func P256 [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P256)
 
 ```
 func P256() Curve
@@ -87,7 +87,7 @@ P256 returns a Curve which implements NIST P-256 (FIPS 186-3, section D.2.3), al
 
 Multiple invocations of this function will return the same value, which can be used for equality checks and switch statements.
 
-#### func [P384](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/nist.go;l=238) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P384)
+#### func P384 [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P384)
 
 ```
 func P384() Curve
@@ -97,7 +97,7 @@ P384 returns a Curve which implements NIST P-384 (FIPS 186-3, section D.2.4), al
 
 Multiple invocations of this function will return the same value, which can be used for equality checks and switch statements.
 
-#### func [P521](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/nist.go;l=259) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P521)
+#### func P521 [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#P521)
 
 ```
 func P521() Curve
@@ -107,7 +107,7 @@ P521 returns a Curve which implements NIST P-521 (FIPS 186-3, section D.2.5), al
 
 Multiple invocations of this function will return the same value, which can be used for equality checks and switch statements.
 
-#### func [X25519](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/x25519.go;l=25) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#X25519)
+#### func X25519 [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#X25519)
 
 ```
 func X25519() Curve
@@ -117,7 +117,7 @@ X25519 returns a Curve which implements the X25519 function over Curve25519 ([RF
 
 Multiple invocations of this function will return the same value, so it can be used for equality checks and switch statements.
 
-### type [PrivateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=102) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey)
+### type PrivateKey [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey)
 
 ```
 type PrivateKey struct {
@@ -129,7 +129,7 @@ PrivateKey is an ECDH private key, usually kept secret.
 
 These keys can be parsed with [crypto/x509.ParsePKCS8PrivateKey](https://pkg.go.dev/crypto/x509#ParsePKCS8PrivateKey) and encoded with [crypto/x509.MarshalPKCS8PrivateKey](https://pkg.go.dev/crypto/x509#MarshalPKCS8PrivateKey). For NIST curves, they then need to be converted with [crypto/ecdsa.PrivateKey.ECDH](https://pkg.go.dev/crypto/ecdsa#PrivateKey.ECDH) after parsing.
 
-#### (*PrivateKey) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=125) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Bytes)
+#### (*PrivateKey) Bytes [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Bytes)
 
 ```
 func (k *PrivateKey) Bytes() []byte
@@ -137,13 +137,13 @@ func (k *PrivateKey) Bytes() []byte
 
 Bytes returns a copy of the encoding of the private key.
 
-#### (*PrivateKey) [Curve](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=148) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Curve)
+#### (*PrivateKey) Curve [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Curve)
 
 ```
 func (k *PrivateKey) Curve() Curve
 ```
 
-#### (*PrivateKey) [ECDH](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=120) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.ECDH)
+#### (*PrivateKey) ECDH [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.ECDH)
 
 ```
 func (k *PrivateKey) ECDH(remote *PublicKey) ([]byte, error)
@@ -155,7 +155,7 @@ For NIST curves, this performs ECDH as specified in SEC 1, Version 2.0, Section 
 
 For X25519, this performs ECDH as specified in [RFC 7748, Section 6.1](https://rfc-editor.org/rfc/rfc7748.html#section-6.1). If the result is the all-zero value, ECDH returns an error.
 
-#### (*PrivateKey) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=139) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Equal)
+#### (*PrivateKey) Equal [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Equal)
 
 ```
 func (k *PrivateKey) Equal(x crypto.PrivateKey) bool
@@ -167,7 +167,7 @@ Note that there can be equivalent private keys with different encodings which wo
 
 This check is performed in constant time as long as the key types and their curve match.
 
-#### (*PrivateKey) [Public](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=177) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Public)
+#### (*PrivateKey) Public [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.Public)
 
 ```
 func (k *PrivateKey) Public() crypto.PublicKey
@@ -175,13 +175,13 @@ func (k *PrivateKey) Public() crypto.PublicKey
 
 Public implements the implicit interface of all standard library private keys. See the docs of crypto.PrivateKey.
 
-#### (*PrivateKey) [PublicKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=152) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.PublicKey)
+#### (*PrivateKey) PublicKey [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PrivateKey.PublicKey)
 
 ```
 func (k *PrivateKey) PublicKey() *PublicKey
 ```
 
-### type [PublicKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=63) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey)
+### type PublicKey [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey)
 
 ```
 type PublicKey struct {
@@ -193,7 +193,7 @@ PublicKey is an ECDH public key, usually a peer's ECDH share sent over the wire.
 
 These keys can be parsed with [crypto/x509.ParsePKIXPublicKey](https://pkg.go.dev/crypto/x509#ParsePKIXPublicKey) and encoded with [crypto/x509.MarshalPKIXPublicKey](https://pkg.go.dev/crypto/x509#MarshalPKIXPublicKey). For NIST curves, they then need to be converted with [crypto/ecdsa.PublicKey.ECDH](https://pkg.go.dev/crypto/ecdsa#PublicKey.ECDH) after parsing.
 
-#### (*PublicKey) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=70) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Bytes)
+#### (*PublicKey) Bytes [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Bytes)
 
 ```
 func (k *PublicKey) Bytes() []byte
@@ -201,13 +201,13 @@ func (k *PublicKey) Bytes() []byte
 
 Bytes returns a copy of the encoding of the public key.
 
-#### (*PublicKey) [Curve](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=93) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Curve)
+#### (*PublicKey) Curve [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Curve)
 
 ```
 func (k *PublicKey) Curve() Curve
 ```
 
-#### (*PublicKey) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/ecdh/ecdh.go;l=84) [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Equal)
+#### (*PublicKey) Equal [¶](https://pkg.go.dev/crypto/ecdh@go1.20.1#PublicKey.Equal)
 
 ```
 func (k *PublicKey) Equal(x crypto.PublicKey) bool

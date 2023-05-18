@@ -33,7 +33,7 @@ This section is empty.
 
 ## 函数
 
-#### func [WithClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=34) 
+#### func WithClientTrace 
 
 ``` go 
 func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context
@@ -43,7 +43,7 @@ WithClientTrace returns a new context based on the provided parent ctx. HTTP cli
 
 ## 类型
 
-### type [ClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=80) 
+### type ClientTrace 
 
 ``` go 
 type ClientTrace struct {
@@ -139,7 +139,7 @@ ClientTrace currently traces a single HTTP request & response during a single ro
 
 See https://blog.golang.org/http-tracing for more.
 
-#### func [ContextClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=24) 
+#### func ContextClientTrace 
 
 ``` go 
 func ContextClientTrace(ctx context.Context) *ClientTrace
@@ -147,7 +147,7 @@ func ContextClientTrace(ctx context.Context) *ClientTrace
 
 ContextClientTrace returns the ClientTrace associated with the provided context. If none, it returns nil.
 
-### type [DNSDoneInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=216) 
+### type DNSDoneInfo 
 
 ``` go 
 type DNSDoneInfo struct {
@@ -166,7 +166,7 @@ type DNSDoneInfo struct {
 
 DNSDoneInfo contains information about the results of a DNS lookup.
 
-### type [DNSStartInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=211) 
+### type DNSStartInfo 
 
 ``` go 
 type DNSStartInfo struct {
@@ -176,7 +176,7 @@ type DNSStartInfo struct {
 
 DNSStartInfo contains information about a DNS request.
 
-### type [GotConnInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=238) 
+### type GotConnInfo 
 
 ``` go 
 type GotConnInfo struct {
@@ -201,7 +201,7 @@ type GotConnInfo struct {
 
 GotConnInfo is the argument to the ClientTrace.GotConn function and contains information about the obtained connection.
 
-### type [WroteRequestInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=168) 
+### type WroteRequestInfo 
 
 ``` go 
 type WroteRequestInfo struct {

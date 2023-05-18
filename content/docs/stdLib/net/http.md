@@ -7,7 +7,7 @@ draft = false
 +++
 # http
 
-[https://pkg.go.dev/net/http@go1.20.1](https://pkg.go.dev/net/http@go1.20.1)
+https://pkg.go.dev/net/http@go1.20.1
 
 ​	http包提供了 HTTP 客户端和服务端的实现。
 
@@ -436,7 +436,7 @@ var NoBody = noBody{}
 
 ## 函数
 
-#### func [CanonicalHeaderKey](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=240) 
+#### func CanonicalHeaderKey 
 
 ``` go 
 func CanonicalHeaderKey(s string) string
@@ -444,7 +444,7 @@ func CanonicalHeaderKey(s string) string
 
 ​	CanonicalHeaderKey返回标头键s的规范格式。规范化将第一个字母和任何连字符后面的字母转换为大写字母；其余字母转换为小写字母。例如，"accept-encoding"的规范键是"Accept-Encoding"。如果s包含空格或无效的标头字段字节，则返回不带修改的s。
 
-#### func [DetectContentType](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/sniff.go;l=21) 
+#### func DetectContentType 
 
 ``` go 
 func DetectContentType(data []byte) string
@@ -452,7 +452,7 @@ func DetectContentType(data []byte) string
 
 ​	DetectContentType实现在https://mimesniff.spec.whatwg.org/上描述的算法，以确定给定数据的Content-Type。它最多考虑前512个字节的数据。DetectContentType始终返回有效的MIME类型：如果无法确定更具体的类型，则返回"application/octet-stream"。
 
-#### func [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2131) 
+#### func Error 
 
 ``` go 
 func Error(w ResponseWriter, error string, code int)
@@ -460,7 +460,7 @@ func Error(w ResponseWriter, error string, code int)
 
 ​	Error使用指定的错误消息和HTTP代码回复请求。它不会以其他方式结束请求；调用者应确保不会对w进行进一步的写入。错误消息应为纯文本。
 
-#### func [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2559) 
+#### func Handle 
 
 ``` go 
 func Handle(pattern string, handler Handler)
@@ -498,7 +498,7 @@ func main() {
 
 ```
 
-#### func [HandleFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2564) 
+#### func HandleFunc 
 
 ``` go 
 func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
@@ -532,7 +532,7 @@ func main() {
 
 ```
 
-#### func [ListenAndServe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3240) 
+#### func ListenAndServe 
 
 ``` go 
 func ListenAndServe(addr string, handler Handler) error
@@ -567,7 +567,7 @@ func main() {
 
 ```
 
-#### func [ListenAndServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3250) 
+#### func ListenAndServeTLS 
 
 ``` go 
 func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
@@ -598,7 +598,7 @@ func main() {
 
 ```
 
-#### func [MaxBytesReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1141) 
+#### func MaxBytesReader 
 
 ``` go 
 func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser
@@ -608,7 +608,7 @@ func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser
 
 ​	MaxBytesReader 防止客户端意外或恶意发送大型请求并浪费服务器资源。如果可能，它会告诉 ResponseWriter 在达到限制后关闭连接。
 
-#### func [NotFound](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2139) 
+#### func NotFound 
 
 ``` go 
 func NotFound(w ResponseWriter, r *Request)
@@ -616,7 +616,7 @@ func NotFound(w ResponseWriter, r *Request)
 
 ​	NotFound 函数返回一个 HTTP 404 错误响应。
 
-#### func [ParseHTTPVersion](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=794) 
+#### func ParseHTTPVersion 
 
 ``` go 
 func ParseHTTPVersion(vers string) (major, minor int, ok bool)
@@ -624,7 +624,7 @@ func ParseHTTPVersion(vers string) (major, minor int, ok bool)
 
 ​	ParseHTTPVersion 函数按照 [RFC 7230 第 2.6 节](https://rfc-editor.org/rfc/rfc7230.html#section-2.6)解析 HTTP 版本字符串。例如 "HTTP/1.0" 会返回 (1, 0, true)。请注意，不带次要版本号的字符串，例如 "HTTP/2"，是无效的。
 
-#### func [ParseTime](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=129)  <- go1.1
+#### func ParseTime  <- go1.1
 
 ``` go 
 func ParseTime(text string) (t time.Time, err error)
@@ -632,7 +632,7 @@ func ParseTime(text string) (t time.Time, err error)
 
 ​	ParseTime 函数解析时间头(如 Date 头)，尝试 HTTP/1.1 所允许的三种格式：TimeFormat、time.RFC850 和 time.ANSIC。
 
-#### func [ProxyFromEnvironment](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=447) 
+#### func ProxyFromEnvironment 
 
 ``` go 
 func ProxyFromEnvironment(req *Request) (*url.URL, error)
@@ -646,7 +646,7 @@ func ProxyFromEnvironment(req *Request) (*url.URL, error)
 
 ​	作为特例，如果 req.URL.Host 是 "localhost"(带或不带端口号)，则会返回 nil URL 和 nil 错误。
 
-#### func [ProxyURL](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=453) 
+#### func ProxyURL 
 
 ``` go 
 func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error)
@@ -654,7 +654,7 @@ func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error)
 
 ​	ProxyURL 函数返回一个代理函数(供 Transport 使用)，该函数始终返回相同的 URL。
 
-#### func [Redirect](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2182) 
+#### func Redirect 
 
 ``` go 
 func Redirect(w ResponseWriter, r *Request, url string, code int)
@@ -666,7 +666,7 @@ func Redirect(w ResponseWriter, r *Request, url string, code int)
 
 ​	如果尚未设置 Content-Type 标头，则 Redirect 函数会将其设置为 "text/html; charset=utf-8" 并写入小的 HTML 主体。设置 Content-Type 标头为任何值(包括 nil)都会禁用该行为。
 
-#### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2579) 
+#### func Serve 
 
 ``` go 
 func Serve(l net.Listener, handler Handler) error
@@ -680,7 +680,7 @@ func Serve(l net.Listener, handler Handler) error
 
 ​	Serve 函数始终返回非 nil 错误。
 
-#### func [ServeContent](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=194) 
+#### func ServeContent 
 
 ``` go 
 func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time, content io.ReadSeeker)
@@ -698,7 +698,7 @@ func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time
 
 ​	请注意，`*os.File` 实现了 io.ReadSeeker 接口。
 
-#### func [ServeFile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=730) 
+#### func ServeFile 
 
 ``` go 
 func ServeFile(w ResponseWriter, r *Request, name string)
@@ -714,7 +714,7 @@ func ServeFile(w ResponseWriter, r *Request, name string)
 
 ​	除了这两个特殊情况外，ServeFile 不使用 r.URL.Path 来选择要提供的文件或目录；只使用名称参数中提供的文件或目录。
 
-#### func [ServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2596)  <- go1.9
+#### func ServeTLS  <- go1.9
 
 ``` go 
 func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error
@@ -728,7 +728,7 @@ func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error
 
 ​	ServeTLS 函数总是返回非 nil 的错误。
 
-#### func [SetCookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=169) 
+#### func SetCookie 
 
 ``` go 
 func SetCookie(w ResponseWriter, cookie *Cookie)
@@ -736,7 +736,7 @@ func SetCookie(w ResponseWriter, cookie *Cookie)
 
 ​	SetCookie 函数将 Set-Cookie 头添加到提供的 ResponseWriter 的头中。提供的 cookie 必须有一个有效的名称。无效的 cookie 可能会被静默丢弃。
 
-#### func [StatusText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/status.go;l=81) 
+#### func StatusText 
 
 ``` go 
 func StatusText(code int) string
@@ -746,7 +746,7 @@ func StatusText(code int) string
 
 ## 类型
 
-### type [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=58) 
+### type Client 
 
 ``` go 
 type Client struct {
@@ -809,7 +809,7 @@ type Client struct {
 
 -  使用非空 cookie Jar 转发"Cookie"标头时。由于每个重定向可能会更改 cookie jar 的状态，重定向可能会更改在初始请求中设置的 cookie。在转发"Cookie"标头时，任何已更改的 cookie 都将被省略，预期 Jar 将使用更新后的值插入这些已更改的 cookie(假设原点匹配)。如果 Jar 为 nil，则初始 cookie 会不加更改地转发。
 
-#### (*Client) [CloseIdleConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=935)  <- go1.12
+#### (*Client) CloseIdleConnections  <- go1.12
 
 ``` go 
 func (c *Client) CloseIdleConnections()
@@ -819,7 +819,7 @@ func (c *Client) CloseIdleConnections()
 
 ​	如果 Client 的 Transport 没有 CloseIdleConnections 方法，则此方法不执行任何操作。
 
-#### (*Client) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=581) 
+#### (*Client) Do 
 
 ``` go 
 func (c *Client) Do(req *Request) (*Response, error)
@@ -841,7 +841,7 @@ func (c *Client) Do(req *Request) (*Response, error)
 
 ​	任何返回的错误都将是 `*url.Error` 类型。url.Error 值的 Timeout 方法将在请求超时时报告 true。
 
-#### (*Client) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=475) 
+#### (*Client) Get 
 
 ``` go 
 func (c *Client) Get(url string) (resp *Response, err error)
@@ -865,7 +865,7 @@ func (c *Client) Get(url string) (resp *Response, err error)
 
 ​	要使用指定的 context.Context 发出请求，请使用 NewRequestWithContext 和 Client.Do。
 
-#### (*Client) [Head](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=920) 
+#### (*Client) Head 
 
 ``` go 
 func (c *Client) Head(url string) (resp *Response, err error)
@@ -883,7 +883,7 @@ func (c *Client) Head(url string) (resp *Response, err error)
 
 ​	使用NewRequestWithContext和Client.Do可以指定context.Context进行请求。
 
-#### (*Client) [Post](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=843) 
+#### (*Client) Post 
 
 ``` go 
 func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, err error)
@@ -901,7 +901,7 @@ func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, 
 
 ​	有关如何处理重定向的详细信息，请参阅Client.Do方法文档。
 
-#### (*Client) [PostForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=886) 
+#### (*Client) PostForm 
 
 ``` go 
 func (c *Client) PostForm(url string, data url.Values) (resp *Response, err error)
@@ -917,7 +917,7 @@ func (c *Client) PostForm(url string, data url.Values) (resp *Response, err erro
 
 ​	要使用指定的context.Context进行请求，请使用NewRequestWithContext和Client.Do。
 
-### type [ConnState](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2859)  <- go1.3
+### type ConnState  <- go1.3
 
 ``` go 
 type ConnState int
@@ -958,13 +958,13 @@ const (
 )
 ```
 
-#### (ConnState) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2905)  <- go1.3
+#### (ConnState) String  <- go1.3
 
 ``` go 
 func (c ConnState) String() string
 ```
 
-### type [Cookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=23) 
+### type Cookie 
 
 ``` go 
 type Cookie struct {
@@ -992,7 +992,7 @@ type Cookie struct {
 
 ​	详见[https://tools.ietf.org/html/rfc6265](https://tools.ietf.org/html/rfc6265)。
 
-#### (*Cookie) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=179) 
+#### (*Cookie) String 
 
 ``` go 
 func (c *Cookie) String() string
@@ -1000,7 +1000,7 @@ func (c *Cookie) String() string
 
 ​	String 返回 cookie 的序列化字符串，以用于 Cookie 标头(如果仅设置了 Name 和 Value)或 Set-Cookie 响应标头(如果设置了其他字段)。如果 c 为 nil 或 c.Name 无效，则返回空字符串。
 
-#### (*Cookie) [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=243)  <- go1.18
+#### (*Cookie) Valid  <- go1.18
 
 ``` go 
 func (c *Cookie) Valid() error
@@ -1008,7 +1008,7 @@ func (c *Cookie) Valid() error
 
 ​	Valid 函数用于判断 cookie 是否有效。
 
-### type [CookieJar](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/jar.go;l=17) 
+### type CookieJar 
 
 ``` go 
 type CookieJar interface {
@@ -1028,7 +1028,7 @@ type CookieJar interface {
 
 ​	net/http/cookiejar 包提供了 CookieJar 的实现。
 
-### type [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=44) 
+### type Dir 
 
 ``` go 
 type Dir string
@@ -1042,7 +1042,7 @@ type Dir string
 
 ​	一个空的 Dir 被视为 "`.`"。
 
-#### (Dir) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=72) 
+#### (Dir) Open 
 
 ``` go 
 func (d Dir) Open(name string) (File, error)
@@ -1050,7 +1050,7 @@ func (d Dir) Open(name string) (File, error)
 
 ​	Open 实现 FileSystem 接口，使用 os.Open 打开文件进行读取，根据目录 d 来确定其路径。
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=104) 
+### type File 
 
 ``` go 
 type File interface {
@@ -1066,7 +1066,7 @@ type File interface {
 
 ​	该接口的方法应与 `*os.File` 上的方法表现相同。
 
-### type [FileSystem](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=96) 
+### type FileSystem 
 
 ``` go 
 type FileSystem interface {
@@ -1078,7 +1078,7 @@ type FileSystem interface {
 
 ​	该接口早于 fs.FS 接口，可以使用 fs.FS 代替：FS 适配器函数将 fs.FS 转换为 FileSystem。
 
-#### func [FS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=837)  <- go1.16
+#### func FS  <- go1.16
 
 ``` go 
 func FS(fsys fs.FS) FileSystem
@@ -1086,7 +1086,7 @@ func FS(fsys fs.FS) FileSystem
 
 ​	FS 将 fsys 转换为 FileSystem 实现，供 FileServer 和 NewFileTransport 使用。由 fsys 提供的文件必须实现 io.Seeker。
 
-### type [Flusher](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=173) 
+### type Flusher 
 
 ``` go 
 type Flusher interface {
@@ -1101,7 +1101,7 @@ type Flusher interface {
 
 ​	请注意，即使对于支持 Flush 的 ResponseWriter，如果客户端通过 HTTP 代理连接，则缓冲的数据可能要等到响应完成后才能到达客户端。
 
-### type [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=86) 
+### type Handler 
 
 ``` go 
 type Handler interface {
@@ -1119,7 +1119,7 @@ type Handler interface {
 
 ​	如果ServeHTTP恐慌，服务器(ServeHTTP的调用者)假定恐慌的影响仅限于活动请求。它会恢复panic，将堆栈跟踪记录到服务器错误日志，并关闭网络连接或发送HTTP/2 RST_STREAM，具体取决于HTTP协议。为了中止处理程序，以便客户端看到中断的响应但服务器不记录错误，请使用值为ErrAbortHandler的panic。
 
-#### func [AllowQuerySemicolons](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2950)  <- go1.17
+#### func AllowQuerySemicolons  <- go1.17
 
 ``` go 
 func AllowQuerySemicolons(h Handler) Handler
@@ -1131,7 +1131,7 @@ func AllowQuerySemicolons(h Handler) Handler
 
 ​	在调用Request.ParseForm之前，应调用AllowQuerySemicolons。
 
-#### func [FileServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=856) 
+#### func FileServer 
 
 ``` go 
 func FileServer(root FileSystem) Handler
@@ -1258,7 +1258,7 @@ func main() {
 
 ```
 
-#### func [MaxBytesHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3638)  <- go1.18
+#### func MaxBytesHandler  <- go1.18
 
 ``` go 
 func MaxBytesHandler(h Handler, n int64) Handler
@@ -1266,7 +1266,7 @@ func MaxBytesHandler(h Handler, n int64) Handler
 
 ​	MaxBytesHandler返回一个处理程序，该处理程序使用其ResponseWriter和Request.Body包装了一个MaxBytesReader。
 
-#### func [NotFoundHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2143) 
+#### func NotFoundHandler 
 
 ``` go 
 func NotFoundHandler() Handler
@@ -1304,7 +1304,7 @@ func main() {
 
 ```
 
-#### func [RedirectHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2267) 
+#### func RedirectHandler 
 
 ``` go 
 func RedirectHandler(url string, code int) Handler
@@ -1314,7 +1314,7 @@ func RedirectHandler(url string, code int) Handler
 
 ​	提供的状态码应该在 3xx 范围内，通常为 StatusMovedPermanently、StatusFound 或 StatusSeeOther。
 
-#### func [StripPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2151) 
+#### func StripPrefix 
 
 ``` go 
 func StripPrefix(prefix string, h Handler) Handler
@@ -1339,7 +1339,7 @@ func main() {
 
 ```
 
-#### func [TimeoutHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3346) 
+#### func TimeoutHandler 
 
 ``` go 
 func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler
@@ -1351,7 +1351,7 @@ func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler
 
 ​	TimeoutHandler 支持 Pusher 接口，但不支持 Hijacker 或 Flusher 接口。
 
-### type [HandlerFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2118) 
+### type HandlerFunc 
 
 ``` go 
 type HandlerFunc func(ResponseWriter, *Request)
@@ -1359,7 +1359,7 @@ type HandlerFunc func(ResponseWriter, *Request)
 
 ​	HandlerFunc 类型是一个适配器，允许使用普通函数作为 HTTP 处理程序。如果 f 是具有适当签名的函数，则 HandlerFunc(f) 是调用 f 的处理程序。
 
-#### (HandlerFunc) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2121) 
+#### (HandlerFunc) ServeHTTP 
 
 ``` go 
 func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
@@ -1367,7 +1367,7 @@ func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 
 ​	ServeHTTP 调用 f(w, r)。
 
-### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=24) 
+### type Header 
 
 ``` go 
 type Header map[string][]string
@@ -1377,7 +1377,7 @@ type Header map[string][]string
 
 ​	键应该是规范化形式，即由 CanonicalHeaderKey函数返回的形式。
 
-#### (Header) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=30) 
+#### (Header) Add 
 
 ``` go 
 func (h Header) Add(key, value string)
@@ -1385,7 +1385,7 @@ func (h Header) Add(key, value string)
 
 ​	Add方法向 Header 中添加一个键值对，它会将值附加到与键相关联的任何现有值的末尾。键的大小写不敏感，因此会通过 CanonicalHeaderKey 进行规范化。
 
-#### (Header) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=94)  <- go1.13
+#### (Header) Clone  <- go1.13
 
 ``` go 
 func (h Header) Clone() Header
@@ -1393,7 +1393,7 @@ func (h Header) Clone() Header
 
 ​	Clone方法返回 h 的一个副本，如果 h 为 nil，则返回 nil。
 
-#### (Header) [Del](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=80) 
+#### (Header) Del 
 
 ``` go 
 func (h Header) Del(key string)
@@ -1401,7 +1401,7 @@ func (h Header) Del(key string)
 
 ​	Del方法删除与 key 关联的值。键的大小写不敏感，因此会通过 CanonicalHeaderKey函数进行规范化。
 
-#### (Header) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=49) 
+#### (Header) Get 
 
 ``` go 
 func (h Header) Get(key string) string
@@ -1409,7 +1409,7 @@ func (h Header) Get(key string) string
 
 ​	Get方法获取与给定键关联的第一个值。如果没有与该键关联的值，则 Get 返回 ""。键的大小写不敏感，因此使用 textproto.CanonicalMIMEHeaderKey 来规范化提供的键。Get 假定所有键都以规范形式存储。要使用非规范键，请直接访问映射。
 
-#### (Header) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=39) 
+#### (Header) Set 
 
 ``` go 
 func (h Header) Set(key, value string)
@@ -1417,7 +1417,7 @@ func (h Header) Set(key, value string)
 
 ​	Set方法将与 key 关联的 header 条目设置为单个元素值。它将替换与 key 关联的任何现有值。键的大小写不敏感，因此会通过 textproto.CanonicalMIMEHeaderKey 进行规范化。要使用非规范键，请直接分配到映射中。
 
-#### (Header) [Values](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=58)  <- go1.14
+#### (Header) Values  <- go1.14
 
 ``` go 
 func (h Header) Values(key string) []string
@@ -1425,7 +1425,7 @@ func (h Header) Values(key string) []string
 
 ​	Values方法返回与给定键关联的所有值。键的大小写不敏感，因此使用 textproto.CanonicalMIMEHeaderKey 来规范化提供的键。要使用非规范键，请直接访问映射。返回的切片不是副本。
 
-#### (Header) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=85) 
+#### (Header) Write 
 
 ``` go 
 func (h Header) Write(w io.Writer) error
@@ -1433,7 +1433,7 @@ func (h Header) Write(w io.Writer) error
 
 ​	Write 方法以 wire format 写入 Header。
 
-#### (Header) [WriteSubset](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=192) 
+#### (Header) WriteSubset 
 
 ``` go 
 func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
@@ -1441,7 +1441,7 @@ func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
 
 ​	WriteSubset 方法以 wire format 写入 Header。如果 exclude 不为 nil，则不会写入其中 exclude[key] == true 的键。写入之前不会对键进行规范化。
 
-### type [Hijacker](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=185) 
+### type Hijacker 
 
 ``` go 
 type Hijacker interface {
@@ -1504,7 +1504,7 @@ func main() {
 
 ```
 
-### type [MaxBytesError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1149)  <- go1.19
+### type MaxBytesError  <- go1.19
 
 ``` go 
 type MaxBytesError struct {
@@ -1514,13 +1514,13 @@ type MaxBytesError struct {
 
 ​	MaxBytesReader读取的字节数超过其读取限制时返回MaxBytesError。
 
-#### (*MaxBytesError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1153)  <- go1.19
+#### (*MaxBytesError) Error  <- go1.19
 
 ``` go 
 func (e *MaxBytesError) Error() string
 ```
 
-### type [PushOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/http.go;l=119)  <- go1.8
+### type PushOptions  <- go1.8
 
 ``` go 
 type PushOptions struct {
@@ -1537,7 +1537,7 @@ type PushOptions struct {
 
 PushOptions describes options for Pusher.Push.
 
-### type [Pusher](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/http.go;l=133)  <- go1.8
+### type Pusher  <- go1.8
 
 ``` go 
 type Pusher interface {
@@ -1570,7 +1570,7 @@ type Pusher interface {
 
 ​	Pusher是ResponseWriters实现的接口，用于支持HTTP/2服务器推送。有关更多背景信息，请参见https://tools.ietf.org/html/rfc7540#section-8.2。
 
-### type [Request](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=106) 
+### type Request 
 
 ``` go 
 type Request struct {
@@ -1767,7 +1767,7 @@ type Request struct {
 
 ​	客户端和服务器使用中字段语义略有不同。除了下面字段的注释外，请参阅Request.Write和RoundTripper的文档。
 
-#### func [NewRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=839) 
+#### func NewRequest 
 
 ``` go 
 func NewRequest(method, url string, body io.Reader) (*Request, error)
@@ -1775,7 +1775,7 @@ func NewRequest(method, url string, body io.Reader) (*Request, error)
 
 ​	NewRequest使用context.Background包装NewRequestWithContext。
 
-#### func [NewRequestWithContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=865)  <- go1.13
+#### func NewRequestWithContext  <- go1.13
 
 ``` go 
 func NewRequestWithContext(ctx context.Context, method, url string, body io.Reader) (*Request, error)
@@ -1787,7 +1787,7 @@ func NewRequestWithContext(ctx context.Context, method, url string, body io.Read
 
 ​	如果body的类型为*bytes.Buffer、*bytes.Reader或*strings.Reader，则返回的请求的ContentLength将设置为其确切值(而不是-1)，GetBody将被填充(因此307和308重定向可以重放body)，如果ContentLength为0，则Body将设置为NoBody。
 
-#### func [ReadRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1024) 
+#### func ReadRequest 
 
 ``` go 
 func ReadRequest(b *bufio.Reader) (*Request, error)
@@ -1797,7 +1797,7 @@ func ReadRequest(b *bufio.Reader) (*Request, error)
 
 ​	ReadRequest是一个低级函数，只应用于专用应用程序；大多数代码应该使用Server来读取请求并通过Handler接口处理它们。ReadRequest仅支持HTTP/1.x请求。对于HTTP/2，请使用golang.org/x/net/http2。
 
-#### (*Request) [AddCookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=437) 
+#### (*Request) AddCookie 
 
 ``` go 
 func (r *Request) AddCookie(c *Cookie)
@@ -1805,7 +1805,7 @@ func (r *Request) AddCookie(c *Cookie)
 
 ​	AddCookie向请求中添加一个cookie。根据[RFC 6265第5.4节](https://rfc-editor.org/rfc/rfc6265.html#section-5.4)，AddCookie不会添加超过一个Cookie头字段，这意味着所有cookie(如果有)都将写入同一行，由分号分隔。AddCookie仅对c的名称和值进行清理，不对已经存在于请求中的Cookie头进行清理。
 
-#### (*Request) [BasicAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=949)  <- go1.4
+#### (*Request) BasicAuth  <- go1.4
 
 ``` go 
 func (r *Request) BasicAuth() (username, password string, ok bool)
@@ -1813,7 +1813,7 @@ func (r *Request) BasicAuth() (username, password string, ok bool)
 
 ​	BasicAuth返回请求头中提供的用户名和密码，如果请求使用HTTP基本身份验证。请参阅[RFC 2617第2节](https://rfc-editor.org/rfc/rfc2617.html#section-2)。
 
-#### (*Request) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=372)  <- go1.13
+#### (*Request) Clone  <- go1.13
 
 ``` go 
 func (r *Request) Clone(ctx context.Context) *Request
@@ -1823,7 +1823,7 @@ func (r *Request) Clone(ctx context.Context) *Request
 
 ​	对于出站客户端请求，上下文控制请求及其响应的整个生命周期：获取连接，发送请求和读取响应标头和主体。
 
-#### (*Request) [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=340)  <- go1.7
+#### (*Request) Context  <- go1.7
 
 ``` go 
 func (r *Request) Context() context.Context
@@ -1837,7 +1837,7 @@ func (r *Request) Context() context.Context
 
 ​	对于传入的服务器请求，当客户端连接关闭，请求被取消(使用HTTP/2)或ServeHTTP方法返回时，上下文被取消。
 
-#### (*Request) [Cookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=421) 
+#### (*Request) Cookie 
 
 ``` go 
 func (r *Request) Cookie(name string) (*Cookie, error)
@@ -1845,7 +1845,7 @@ func (r *Request) Cookie(name string) (*Cookie, error)
 
 ​	Cookie方法返回请求中提供的指定cookie或ErrNoCookie(如果没有找到)。如果有多个cookie与给定名称匹配，则仅返回一个cookie。
 
-#### (*Request) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=410) 
+#### (*Request) Cookies 
 
 ``` go 
 func (r *Request) Cookies() []*Cookie
@@ -1853,7 +1853,7 @@ func (r *Request) Cookies() []*Cookie
 
 ​	Cookies方法解析并返回发送请求的HTTP cookie。
 
-#### (*Request) [FormFile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1397) 
+#### (*Request) FormFile 
 
 ``` go 
 func (r *Request) FormFile(key string) (multipart.File, *multipart.FileHeader, error)
@@ -1861,7 +1861,7 @@ func (r *Request) FormFile(key string) (multipart.File, *multipart.FileHeader, e
 
 ​	FormFile方法返回所提供的表单键的第一个文件。如果需要，FormFile方法调用ParseMultipartForm方法和ParseForm方法。
 
-#### (*Request) [FormValue](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1370) 
+#### (*Request) FormValue 
 
 ``` go 
 func (r *Request) FormValue(key string) string
@@ -1869,7 +1869,7 @@ func (r *Request) FormValue(key string) string
 
 ​	FormValue方法返回查询的指定组件的第一个值。POST和PUT请求体参数优先于URL查询字符串值。FormValue如果需要，调用ParseMultipartForm方法和ParseForm方法，并忽略这些函数返回的任何错误。如果键不存在，则FormValue方法返回空字符串。要访问同一键的多个值，请调用ParseForm，然后直接检查Request.Form方法。
 
-#### (*Request) [MultipartReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=470) 
+#### (*Request) MultipartReader 
 
 ``` go 
 func (r *Request) MultipartReader() (*multipart.Reader, error)
@@ -1877,7 +1877,7 @@ func (r *Request) MultipartReader() (*multipart.Reader, error)
 
 ​	MultipartReader方法如果这是multipart/form-data或multipart/mixed POST请求，则返回MIME多部分读取器；否则返回nil和错误。使用此方法而不是ParseMultipartForm方法处理请求正文作为流。
 
-#### (*Request) [ParseForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1282) 
+#### (*Request) ParseForm 
 
 ``` go 
 func (r *Request) ParseForm() error
@@ -1895,7 +1895,7 @@ func (r *Request) ParseForm() error
 
 ​	ParseMultipartForm方法会自动调用ParseForm方法。ParseForm方法是幂等的。
 
-#### (*Request) [ParseMultipartForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1325) 
+#### (*Request) ParseMultipartForm 
 
 ``` go 
 func (r *Request) ParseMultipartForm(maxMemory int64) error
@@ -1903,7 +1903,7 @@ func (r *Request) ParseMultipartForm(maxMemory int64) error
 
 ​	ParseMultipartForm方法将请求体解析为multipart/form-data。整个请求体被解析，并且它的文件部分的最多maxMemory字节数在内存中存储，其余部分在临时文件中存储。ParseMultipartForm方法在必要时调用ParseForm方法。如果ParseForm方法返回错误，则ParseMultipartForm方法返回该错误，但也会继续解析请求体。调用一次ParseMultipartForm方法之后，随后的调用没有任何效果。
 
-#### (*Request) [PostFormValue](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1385)  <- go1.1
+#### (*Request) PostFormValue  <- go1.1
 
 ``` go 
 func (r *Request) PostFormValue(key string) string
@@ -1911,7 +1911,7 @@ func (r *Request) PostFormValue(key string) string
 
 ​	PostFormValue方法返回POST、PATCH或PUT请求体中命名组件的第一个值。忽略URL查询参数。PostFormValue方法在必要时调用ParseMultipartForm和ParseForm方法，并忽略这些函数返回的任何错误。如果key不存在，则PostFormValue方法返回空字符串。
 
-#### (*Request) [ProtoAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=399) 
+#### (*Request) ProtoAtLeast 
 
 ``` go 
 func (r *Request) ProtoAtLeast(major, minor int) bool
@@ -1919,7 +1919,7 @@ func (r *Request) ProtoAtLeast(major, minor int) bool
 
 ​	ProtoAtLeast方法报告请求中使用的HTTP协议是否至少为major.minor。
 
-#### (*Request) [Referer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=454) 
+#### (*Request) Referer 
 
 ``` go 
 func (r *Request) Referer() string
@@ -1929,7 +1929,7 @@ func (r *Request) Referer() string
 
 ​	Referer方法在请求本身中就被错误地拼写为Referer，这是HTTP早期的一个错误。这个值也可以从Header映射中获取，如`Header["Referer"]`；将其作为方法可用的好处是编译器可以诊断使用替代(正确的英文)拼写`req.Referrer()`的程序，但无法诊断使用`Header["Referrer"]`的程序。
 
-#### (*Request) [SetBasicAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=988) 
+#### (*Request) SetBasicAuth 
 
 ``` go 
 func (r *Request) SetBasicAuth(username, password string)
@@ -1941,7 +1941,7 @@ func (r *Request) SetBasicAuth(username, password string)
 
 ​	用户名不能包含冒号。某些协议可能会对预转义用户名和密码有额外的要求。例如，当与OAuth2一起使用时，必须首先使用url.QueryEscape对两个参数进行URL编码。
 
-#### (*Request) [UserAgent](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=405) 
+#### (*Request) UserAgent 
 
 ``` go 
 func (r *Request) UserAgent() string
@@ -1949,7 +1949,7 @@ func (r *Request) UserAgent() string
 
 ​	UserAgent方法返回客户端的User-Agent，如果在请求中发送。
 
-#### (*Request) [WithContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=356)  <- go1.7
+#### (*Request) WithContext  <- go1.7
 
 ``` go 
 func (r *Request) WithContext(ctx context.Context) *Request
@@ -1961,7 +1961,7 @@ func (r *Request) WithContext(ctx context.Context) *Request
 
 ​	要使用上下文创建新请求，请使用NewRequestWithContext函数。要使用新上下文对请求进行深层复制，请使用Request.Clone方法。
 
-#### (*Request) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=534) 
+#### (*Request) Write 
 
 ``` go 
 func (r *Request) Write(w io.Writer) error
@@ -1981,7 +1981,7 @@ Body
 
 ​	如果Body存在，Content-Length小于等于0且TransferEncoding未设置为"identity"，Write将"Transfer-Encoding: chunked"添加到头部。Body在发送后被关闭。
 
-#### (*Request) [WriteProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=544) 
+#### (*Request) WriteProxy 
 
 ``` go 
 func (r *Request) WriteProxy(w io.Writer) error
@@ -1989,7 +1989,7 @@ func (r *Request) WriteProxy(w io.Writer) error
 
 ​	WriteProxy方法类似于 Write 方法，但是将请求写成 HTTP 代理所期望的格式。特别是，WriteProxy 使用绝对 URI 写入请求的初始 Request-URI 行，根据 [RFC 7230 第 5.3 节](https://rfc-editor.org/rfc/rfc7230.html)，包括方案和主机。无论哪种情况，WriteProxy 还会使用 r.Host 或 r.URL.Host 写入 Host 标头。
 
-### type [Response](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=35) 
+### type Response 
 
 ``` go 
 type Response struct {
@@ -2082,7 +2082,7 @@ type Response struct {
 
 ​	一旦接收到响应头，客户端和传输机制就会从服务器返回响应。随着读取Body字段的增长，响应体会被按需流式传输。
 
-#### func [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=448) 
+#### func Get 
 
 ``` go 
 func Get(url string) (resp *Response, err error)
@@ -2137,7 +2137,7 @@ func main() {
 
 ```
 
-#### func [Head](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=904) 
+#### func Head 
 
 ``` go 
 func Head(url string) (resp *Response, err error)
@@ -2157,7 +2157,7 @@ func Head(url string) (resp *Response, err error)
 
 ​	要使用指定的context.Context发出请求，请使用NewRequestWithContext函数和DefaultClient.Do方法。
 
-#### func [Post](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=825) 
+#### func Post 
 
 ``` go 
 func Post(url, contentType string, body io.Reader) (resp *Response, err error)
@@ -2177,7 +2177,7 @@ func Post(url, contentType string, body io.Reader) (resp *Response, err error)
 
 ​	要使用指定的context.Context发出请求，请使用NewRequestWithContext函数和DefaultClient.Do方法。
 
-#### func [PostForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=868) 
+#### func PostForm 
 
 ``` go 
 func PostForm(url string, data url.Values) (resp *Response, err error)
@@ -2195,7 +2195,7 @@ func PostForm(url string, data url.Values) (resp *Response, err error)
 
 ​	要使用指定的context.Context发出请求，请使用NewRequestWithContext和DefaultClient.Do。
 
-#### func [ReadResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=154) 
+#### func ReadResponse 
 
 ``` go 
 func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
@@ -2203,7 +2203,7 @@ func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
 
 ​	ReadResponse函数从r中读取并返回HTTP响应。 req参数可选地指定与此Response对应的Request。如果为nil，则假定为GET请求。客户端必须在完成读取resp.Body后调用resp.Body.Close。在该调用之后，客户端可以检查resp.Trailer以查找包含在响应trailer中的键/值对。
 
-#### (*Response) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=125) 
+#### (*Response) Cookies 
 
 ``` go 
 func (r *Response) Cookies() []*Cookie
@@ -2211,7 +2211,7 @@ func (r *Response) Cookies() []*Cookie
 
 ​	Cookies方法解析并返回在Set-Cookie头中设置的Cookie。
 
-#### (*Response) [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=137) 
+#### (*Response) Location 
 
 ``` go 
 func (r *Response) Location() (*url.URL, error)
@@ -2219,7 +2219,7 @@ func (r *Response) Location() (*url.URL, error)
 
 ​	Location方法返回响应头"Location"字段的URL，如果存在的话。相对URL会根据响应的请求进行解析。如果没有Location头，会返回ErrNoLocation。
 
-#### (*Response) [ProtoAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=224) 
+#### (*Response) ProtoAtLeast 
 
 ``` go 
 func (r *Response) ProtoAtLeast(major, minor int) bool
@@ -2227,7 +2227,7 @@ func (r *Response) ProtoAtLeast(major, minor int) bool
 
 ​	ProtoAtLeast方法报告响应中使用的HTTP协议是否至少为major.minor。
 
-#### (*Response) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=245) 
+#### (*Response) Write 
 
 ``` go 
 func (r *Response) Write(w io.Writer) error
@@ -2251,7 +2251,7 @@ Header, 非规范键的值将具有不可预测的行为
 
 ​	响应主体在发送后将被关闭。
 
-### type [ResponseController](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=17)  <- go1.20
+### type ResponseController  <- go1.20
 
 ``` go 
 type ResponseController struct {
@@ -2263,7 +2263,7 @@ type ResponseController struct {
 
 ​	在Handler.ServeHTTP方法返回之后，不得再使用ResponseController。
 
-#### func [NewResponseController](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=37)  <- go1.20
+#### func NewResponseController  <- go1.20
 
 ``` go 
 func NewResponseController(rw ResponseWriter) *ResponseController
@@ -2285,7 +2285,7 @@ SetWriteDeadline(deadline time.Time) error
 
 ​	如果ResponseWriter不支持某个方法，则ResponseController返回与ErrNotSupported相匹配的错误。
 
-#### (*ResponseController) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=46)  <- go1.20
+#### (*ResponseController) Flush  <- go1.20
 
 ``` go 
 func (c *ResponseController) Flush() error
@@ -2293,7 +2293,7 @@ func (c *ResponseController) Flush() error
 
 ​	Flush方法将缓冲数据刷新到客户端。
 
-#### (*ResponseController) [Hijack](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=65)  <- go1.20
+#### (*ResponseController) Hijack  <- go1.20
 
 ``` go 
 func (c *ResponseController) Hijack() (net.Conn, *bufio.ReadWriter, error)
@@ -2301,7 +2301,7 @@ func (c *ResponseController) Hijack() (net.Conn, *bufio.ReadWriter, error)
 
 ​	Hijack方法允许调用者接管连接。有关详细信息，请参见Hijacker接口。
 
-#### (*ResponseController) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=84)  <- go1.20
+#### (*ResponseController) SetReadDeadline  <- go1.20
 
 ``` go 
 func (c *ResponseController) SetReadDeadline(deadline time.Time) error
@@ -2311,7 +2311,7 @@ func (c *ResponseController) SetReadDeadline(deadline time.Time) error
 
 ​	在超过期限后设置读取期限将不会延长它。
 
-#### (*ResponseController) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=104)  <- go1.20
+#### (*ResponseController) SetWriteDeadline  <- go1.20
 
 ``` go 
 func (c *ResponseController) SetWriteDeadline(deadline time.Time) error
@@ -2321,7 +2321,7 @@ func (c *ResponseController) SetWriteDeadline(deadline time.Time) error
 
 ​	在超过期限后设置写入期限将不会延长它。
 
-### type [ResponseWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=95) 
+### type ResponseWriter 
 
 ``` go 
 type ResponseWriter interface {
@@ -2424,7 +2424,7 @@ func main() {
 
 ```
 
-### type [RoundTripper](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=117) 
+### type RoundTripper 
 
 ``` go 
 type RoundTripper interface {
@@ -2472,7 +2472,7 @@ var DefaultTransport RoundTripper = &Transport{
 
 ​	DefaultTransport是Transport的默认实现，并由DefaultClient使用。它根据需要建立网络连接并将其缓存以供后续调用重用。它按照环境变量HTTP_PROXY、HTTPS_PROXY和NO_PROXY(或其小写版本)的指示使用HTTP代理。
 
-#### func [NewFileTransport](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/filetransport.go;l=30) 
+#### func NewFileTransport 
 
 ``` go 
 func NewFileTransport(fs FileSystem) RoundTripper
@@ -2490,7 +2490,7 @@ res, err := c.Get("file:///etc/passwd")
 ...
 ```
 
-### type [SameSite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=49)  <- go1.11
+### type SameSite  <- go1.11
 
 ``` go 
 type SameSite int
@@ -2509,7 +2509,7 @@ const (
 )
 ```
 
-### type [ServeMux](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2306) 
+### type ServeMux 
 
 ``` go 
 type ServeMux struct {
@@ -2529,7 +2529,7 @@ type ServeMux struct {
 
 ​	ServeMux 还负责对 URL 请求路径和 Host 标头进行清理，删除端口号，并将包含 . 或 .. 元素或重复斜杠的任何请求重定向到等效且更清晰的 URL。
 
-#### func [NewServeMux](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2319) 
+#### func NewServeMux 
 
 ``` go 
 func NewServeMux() *ServeMux
@@ -2537,7 +2537,7 @@ func NewServeMux() *ServeMux
 
 ​	NewServeMux函数分配并返回一个新的 ServeMux。
 
-#### (*ServeMux) [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2505) 
+#### (*ServeMux) Handle 
 
 ``` go 
 func (mux *ServeMux) Handle(pattern string, handler Handler)
@@ -2574,7 +2574,7 @@ func main() {
 
 ```
 
-#### (*ServeMux) [HandleFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2549) 
+#### (*ServeMux) HandleFunc 
 
 ``` go 
 func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Request))
@@ -2582,7 +2582,7 @@ func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Re
 
 ​	HandleFunc方法为给定的模式注册处理函数。
 
-#### (*ServeMux) [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2436)  <- go1.1
+#### (*ServeMux) Handler  <- go1.1
 
 ``` go 
 func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
@@ -2596,7 +2596,7 @@ func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
 
 ​	如果没有已注册的处理程序适用于请求，则 Handler方法返回一个"页面未找到"的处理程序和一个空模式。
 
-#### (*ServeMux) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2491) 
+#### (*ServeMux) ServeHTTP 
 
 ``` go 
 func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
@@ -2604,7 +2604,7 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 
 ​	ServeHTTP方法将请求分派到模式最接近请求 URL 的处理程序。
 
-### type [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2603) 
+### type Server 
 
 ``` go 
 type Server struct {
@@ -2700,7 +2700,7 @@ type Server struct {
 
 ​	Server定义了运行HTTP服务器的参数。Server的零值是有效的配置。
 
-#### (*Server) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2722)  <- go1.8
+#### (*Server) Close  <- go1.8
 
 ``` go 
 func (srv *Server) Close() error
@@ -2712,7 +2712,7 @@ func (srv *Server) Close() error
 
 ​	Close方法返回从关闭Server的底层Listener(s)返回的任何错误。
 
-#### (*Server) [ListenAndServe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2976) 
+#### (*Server) ListenAndServe 
 
 ``` go 
 func (srv *Server) ListenAndServe() error
@@ -2724,7 +2724,7 @@ func (srv *Server) ListenAndServe() error
 
 ​	ListenAndServe方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
-#### (*Server) [ListenAndServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3270) 
+#### (*Server) ListenAndServeTLS 
 
 ``` go 
 func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error
@@ -2738,7 +2738,7 @@ func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error
 
 ​	ListenAndServeTLS方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
-#### (*Server) [RegisterOnShutdown](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2815)  <- go1.9
+#### (*Server) RegisterOnShutdown  <- go1.9
 
 ``` go 
 func (srv *Server) RegisterOnShutdown(f func())
@@ -2746,7 +2746,7 @@ func (srv *Server) RegisterOnShutdown(f func())
 
 ​	RegisterOnShutdown方法注册一个在Shutdown时调用的函数。这可用于优雅地关闭已经进行了ALPN协议升级或已被劫持的连接。此函数应启动协议特定的优雅关闭，但不应等待关闭完成。
 
-#### (*Server) [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3029) 
+#### (*Server) Serve 
 
 ``` go 
 func (srv *Server) Serve(l net.Listener) error
@@ -2758,7 +2758,7 @@ func (srv *Server) Serve(l net.Listener) error
 
 ​	Serve方法总是返回一个非nil错误并关闭l。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
-#### (*Server) [ServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3106)  <- go1.9
+#### (*Server) ServeTLS  <- go1.9
 
 ``` go 
 func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
@@ -2770,7 +2770,7 @@ func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
 
 ​	ServeTLS方法总是返回一个非nil错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
-#### (*Server) [SetKeepAlivesEnabled](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3200)  <- go1.3
+#### (*Server) SetKeepAlivesEnabled  <- go1.3
 
 ``` go 
 func (srv *Server) SetKeepAlivesEnabled(v bool)
@@ -2778,7 +2778,7 @@ func (srv *Server) SetKeepAlivesEnabled(v bool)
 
 ​	SetKeepAlivesEnabled方法控制是否启用HTTP keep-alives。默认情况下，keep-alives始终启用。只有非常资源受限的环境或正在关闭的服务器才应禁用它们。
 
-#### (*Server) [Shutdown](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2772)  <- go1.8
+#### (*Server) Shutdown  <- go1.8
 
 ``` go 
 func (srv *Server) Shutdown(ctx context.Context) error
@@ -2831,7 +2831,7 @@ func main() {
 
 ```
 
-### type [Transport](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=95) 
+### type Transport 
 
 ``` go 
 type Transport struct {
@@ -3007,7 +3007,7 @@ type Transport struct {
 
 ​	仅当请求是幂等的并且没有主体或其 Request.GetBody 已定义时，Transport 才在遇到网络错误时重试请求。如果 HTTP 请求具有 HTTP 方法 GET、HEAD、OPTIONS 或 TRACE，或者它们的 Header 映射包含 "Idempotency-Key" 或 "X-Idempotency-Key" 条目，则被视为幂等的。如果幂等键值为零长度切片，则将该请求视为幂等，但不会将头部发送到网络。
 
-#### (*Transport) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=313)  <- go1.13
+#### (*Transport) Clone  <- go1.13
 
 ``` go 
 func (t *Transport) Clone() *Transport
@@ -3015,7 +3015,7 @@ func (t *Transport) Clone() *Transport
 
 ​	Clone方法返回 t 的导出字段的深度副本。
 
-#### (*Transport) [CloseIdleConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=772) 
+#### (*Transport) CloseIdleConnections 
 
 ``` go 
 func (t *Transport) CloseIdleConnections()
@@ -3023,7 +3023,7 @@ func (t *Transport) CloseIdleConnections()
 
 ​	CloseIdleConnections方法关闭之前从先前的请求连接到的但现在处于"保持活动"状态的空闲连接。它不会中断当前正在使用的任何连接。
 
-#### (*Transport) [RegisterProtocol](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=753) 
+#### (*Transport) RegisterProtocol 
 
 ``` go 
 func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)
@@ -3035,7 +3035,7 @@ func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)
 
 ​	如果rt.RoundTrip返回ErrSkipAltProtocol，则Transport将自己处理该请求的RoundTrip，就好像未注册该协议一样。
 
-#### (*Transport) [RoundTrip](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/roundtrip.go;l=16) 
+#### (*Transport) RoundTrip 
 
 ``` go 
 func (t *Transport) RoundTrip(req *Request) (*Response, error)

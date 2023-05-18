@@ -8,7 +8,7 @@ draft = false
 +++
 # fmt
 
-[https://pkg.go.dev/fmt@go1.20.1](https://pkg.go.dev/fmt@go1.20.1)
+https://pkg.go.dev/fmt@go1.20.1
 
 ​	fmt包实现了类似于C的printf和scanf的格式化I/O输入Input 和输出 Ouput)功能。格式化的"verbs(动词)"来自于C，但更简单。
 
@@ -629,7 +629,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Append](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=287)  <- go1.19
+#### func Append  <- go1.19
 
 ``` go 
 func Append(b []byte, a ...any) []byte
@@ -637,7 +637,7 @@ func Append(b []byte, a ...any) []byte
 
 ​	Append函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
-#### func [Appendf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=247)  <- go1.19
+#### func Appendf  <- go1.19
 
 ``` go 
 func Appendf(b []byte, format string, a ...any) []byte
@@ -645,7 +645,7 @@ func Appendf(b []byte, format string, a ...any) []byte
 
 ​	Appendf函数按照格式说明符进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
-#### func [Appendln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=330)  <- go1.19
+#### func Appendln  <- go1.19
 
 ``` go 
 func Appendln(b []byte, a ...any) []byte
@@ -653,7 +653,7 @@ func Appendln(b []byte, a ...any) []byte
 
 ​	Appendln函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。在操作数之间始终添加空格，并附加一个换行符。
 
-#### func [Errorf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/errors.go;l=22) 
+#### func Errorf 
 
 ``` go 
 func Errorf(format string, a ...any) error
@@ -682,7 +682,7 @@ Output:
 user "bueller" (id 17) not found
 ```
 
-#### func [FormatString](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=81)  <- go1.20
+#### func FormatString  <- go1.20
 
 ``` go 
 func FormatString(state State, verb rune) string
@@ -690,7 +690,7 @@ func FormatString(state State, verb rune) string
 
 ​	FormatString函数返回一个字符串，表示由State捕获的完全限定的格式化指令，后跟操作数verb。(State本身不包含操作数。)结果具有一个前导百分号，后跟任何标志、宽度和精度。缺少的标志、宽度和精度将被省略。此函数允许Formatter重建触发调用Format的原始指令。
 
-#### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=260) 
+#### func Fprint 
 
 ``` go 
 func Fprint(w io.Writer, a ...any) (n int, err error)
@@ -725,7 +725,7 @@ Kim is 22 years old.
 21 bytes written.
 ```
 
-#### func [Fprintf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=222) 
+#### func Fprintf 
 
 ``` go 
 func Fprintf(w io.Writer, format string, a ...any) (n int, err error)
@@ -760,7 +760,7 @@ Kim is 22 years old.
 21 bytes written.
 ```
 
-#### func [Fprintln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=302) 
+#### func Fprintln 
 
 ``` go 
 func Fprintln(w io.Writer, a ...any) (n int, err error)
@@ -795,7 +795,7 @@ Kim is 22 years old.
 21 bytes written.
 ```
 
-#### func [Fscan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=121) 
+#### func Fscan 
 
 ``` go 
 func Fscan(r io.Reader, a ...any) (n int, err error)
@@ -803,7 +803,7 @@ func Fscan(r io.Reader, a ...any) (n int, err error)
 
 ​	Fscan函数从r中读取文本，将连续的以空格分隔的值存储到连续的参数中。换行符也被视为空格。它返回成功扫描的条目数。如果返回值小于参数个数，则err报告失败的原因。
 
-#### func [Fscanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=141) 
+#### func Fscanf 
 
 ``` go 
 func Fscanf(r io.Reader, format string, a ...any) (n int, err error)
@@ -841,7 +841,7 @@ Output:
 3
 ```
 
-#### func [Fscanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=130) 
+#### func Fscanln 
 
 ``` go 
 func Fscanln(r io.Reader, a ...any) (n int, err error)
@@ -883,7 +883,7 @@ Output:
 3: ken, 271828, 3.141590
 ```
 
-#### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=271) 
+#### func Print 
 
 ``` go 
 func Print(a ...any) (n int, err error)
@@ -912,7 +912,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=232) 
+#### func Printf 
 
 ``` go 
 func Printf(format string, a ...any) (n int, err error)
@@ -941,7 +941,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=313) 
+#### func Println 
 
 ``` go 
 func Println(a ...any) (n int, err error)
@@ -970,7 +970,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=63) 
+#### func Scan 
 
 ``` go 
 func Scan(a ...any) (n int, err error)
@@ -978,7 +978,7 @@ func Scan(a ...any) (n int, err error)
 
 ​	Scan函数扫描从标准输入读取的文本，将连续的以空格分隔的值存储到连续的参数中。换行符会被视为空格。它返回成功扫描的项数。如果它小于参数数目，那么 err 将会报告原因。
 
-#### func [Scanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=80) 
+#### func Scanf 
 
 ``` go 
 func Scanf(format string, a ...any) (n int, err error)
@@ -986,7 +986,7 @@ func Scanf(format string, a ...any) (n int, err error)
 
 ​	Scanf函数扫描从标准输入读取的文本，根据格式将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项数。如果它小于参数数目，那么 err 将会报告原因。输入中的换行符必须与格式中的换行符相匹配。唯一的例外是，%c 动词总是扫描输入中的下一个符文，即使它是空格(或制表符等)或换行符。
 
-#### func [Scanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=69) 
+#### func Scanln 
 
 ``` go 
 func Scanln(a ...any) (n int, err error)
@@ -994,7 +994,7 @@ func Scanln(a ...any) (n int, err error)
 
 ​	Scanln函数与 Scan函数类似，但会在换行符处停止扫描，在最后一项后必须有一个换行符或 EOF。
 
-#### func [Sprint](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=277) 
+#### func Sprint 
 
 ``` go 
 func Sprint(a ...any) string
@@ -1024,7 +1024,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Sprintf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=237) 
+#### func Sprintf 
 
 ``` go 
 func Sprintf(format string, a ...any) string
@@ -1054,7 +1054,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Sprintln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=319) 
+#### func Sprintln 
 
 ``` go 
 func Sprintln(a ...any) string
@@ -1084,7 +1084,7 @@ Output:
 Kim is 22 years old.
 ```
 
-#### func [Sscan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=99) 
+#### func Sscan 
 
 ``` go 
 func Sscan(str string, a ...any) (n int, err error)
@@ -1092,7 +1092,7 @@ func Sscan(str string, a ...any) (n int, err error)
 
 ​	Sscan函数扫描参数字符串，将连续的以空格分隔的值存储到连续的参数中。换行符视为空格。它返回成功扫描的项目数。如果此数小于参数数，则err会报告原因。
 
-#### func [Sscanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=113) 
+#### func Sscanf 
 
 ``` go 
 func Sscanf(str string, format string, a ...any) (n int, err error)
@@ -1123,7 +1123,7 @@ Output:
 2: Kim, 22
 ```
 
-#### func [Sscanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=105) 
+#### func Sscanln 
 
 ``` go 
 func Sscanln(str string, a ...any) (n int, err error)
@@ -1133,7 +1133,7 @@ func Sscanln(str string, a ...any) (n int, err error)
 
 ## 类型
 
-### type [Formatter](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=54) 
+### type Formatter 
 
 ``` go 
 type Formatter interface {
@@ -1143,7 +1143,7 @@ type Formatter interface {
 
 ​	Formatter 由任何具有 Format 方法的值实现。实现控制如何解释 State 和 rune，并可以调用 Sprint(f) 或 Fprint(f) 等来生成其输出。
 
-### type [GoStringer](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=71) 
+### type GoStringer 
 
 ``` go 
 type GoStringer interface {
@@ -1213,7 +1213,7 @@ Person{Name: "Warren", Age: 31, Addr: &Address{City: "Denver", State: "CO", Coun
 Person{Name: "Theia", Age: 4}
 ```
 
-### type [ScanState](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=21) 
+### type ScanState 
 
 ``` go 
 type ScanState interface {
@@ -1247,7 +1247,7 @@ type ScanState interface {
 
 ​	ScanState表示传递给自定义扫描器的扫描器状态。扫描器可以逐个rune扫描，也可以要求ScanState发现下一个以空格分隔的标记。
 
-### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=55) 
+### type Scanner 
 
 ``` go 
 type Scanner interface {
@@ -1257,7 +1257,7 @@ type Scanner interface {
 
 ​	Scanner由具有Scan方法的任何值实现，该方法扫描输入以查找值的表示，并将结果存储在接收器中，后者必须是指针才能有用。对于实现Scan方法的任何参数，都将调用Scan，Scanf或Scanln。
 
-### type [State](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=39) 
+### type State 
 
 ``` go 
 type State interface {
@@ -1275,7 +1275,7 @@ type State interface {
 
 ​	State表示传递给自定义格式化程序的打印机状态。它提供了对io.Writer接口的访问以及有关操作数格式说明符的标志和选项的信息。
 
-### type [Stringer](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=63) 
+### type Stringer 
 
 ``` go 
 type Stringer interface {

@@ -22,7 +22,7 @@ The AES operations in this package are not implemented using constant-time algor
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/aes@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=15)
 
@@ -38,7 +38,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewCipher](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=33) [¶](https://pkg.go.dev/crypto/aes@go1.20.1#NewCipher)
+#### func NewCipher [¶](https://pkg.go.dev/crypto/aes@go1.20.1#NewCipher)
 
 ```
 func NewCipher(key []byte) (cipher.Block, error)
@@ -48,13 +48,13 @@ NewCipher creates and returns a new cipher.Block. The key argument should be the
 
 ## 类型
 
-### type [KeySizeError](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=23) [¶](https://pkg.go.dev/crypto/aes@go1.20.1#KeySizeError)
+### type KeySizeError [¶](https://pkg.go.dev/crypto/aes@go1.20.1#KeySizeError)
 
 ```
 type KeySizeError int
 ```
 
-#### (KeySizeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=25) [¶](https://pkg.go.dev/crypto/aes@go1.20.1#KeySizeError.Error)
+#### (KeySizeError) Error [¶](https://pkg.go.dev/crypto/aes@go1.20.1#KeySizeError.Error)
 
 ```
 func (k KeySizeError) Error() string

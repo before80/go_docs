@@ -27,7 +27,7 @@ This section is empty.
 
 ## 类型
 
-### type [DecodingError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=761) 
+### type DecodingError 
 
 ``` go 
 type DecodingError struct {
@@ -37,13 +37,13 @@ type DecodingError struct {
 
 DecodingError represents an error during the decoding of the symbol table.
 
-#### (*DecodingError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=767) 
+#### (*DecodingError) Error 
 
 ``` go 
 func (e *DecodingError) Error() string
 ```
 
-### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=131) 
+### type Func 
 
 ``` go 
 type Func struct {
@@ -60,7 +60,7 @@ type Func struct {
 
 A Func collects information about a single function.
 
-### type [LineTable](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/pclntab.go;l=43) 
+### type LineTable 
 
 ``` go 
 type LineTable struct {
@@ -79,7 +79,7 @@ In Go 1.2, the format of the data changed so that there is a single LineTable fo
 
 For the most part, LineTable's methods should be treated as an internal detail of the package; callers should use the methods on Table instead.
 
-#### func [NewLineTable](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/pclntab.go;l=152) 
+#### func NewLineTable 
 
 ``` go 
 func NewLineTable(data []byte, text uint64) *LineTable
@@ -95,7 +95,7 @@ NewLineTable returns a new PC/line table corresponding to the encoded data. Text
 ``` go 
 ```
 
-### type [Obj](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=153) 
+### type Obj 
 
 ``` go 
 type Obj struct {
@@ -120,7 +120,7 @@ In Go 1 and Go 1.1, each package produced one Obj for all Go sources and one Obj
 
 In Go 1.2, there is a single Obj for the entire program.
 
-### type [Sym](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=23) 
+### type Sym 
 
 ``` go 
 type Sym struct {
@@ -136,7 +136,7 @@ type Sym struct {
 
 A Sym represents a single symbol table entry.
 
-#### (*Sym) [BaseName](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=112) 
+#### (*Sym) BaseName 
 
 ``` go 
 func (s *Sym) BaseName() string
@@ -144,7 +144,7 @@ func (s *Sym) BaseName() string
 
 BaseName returns the symbol name without the package or receiver name.
 
-#### (*Sym) [PackageName](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=57) 
+#### (*Sym) PackageName 
 
 ``` go 
 func (s *Sym) PackageName() string
@@ -152,7 +152,7 @@ func (s *Sym) PackageName() string
 
 PackageName returns the package part of the symbol name, or the empty string if there is none.
 
-#### (*Sym) [ReceiverName](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=87) 
+#### (*Sym) ReceiverName 
 
 ``` go 
 func (s *Sym) ReceiverName() string
@@ -160,7 +160,7 @@ func (s *Sym) ReceiverName() string
 
 ReceiverName returns the receiver type name of this symbol, or the empty string if there is none. A receiver name is only detected in the case that s.Name is fully-specified with a package name.
 
-#### (*Sym) [Static](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=35) 
+#### (*Sym) Static 
 
 ``` go 
 func (s *Sym) Static() bool
@@ -168,7 +168,7 @@ func (s *Sym) Static() bool
 
 Static reports whether this symbol is static (not visible outside its file).
 
-### type [Table](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=171) 
+### type Table 
 
 ``` go 
 type Table struct {
@@ -182,7 +182,7 @@ type Table struct {
 
 Table represents a Go symbol table. It stores all of the symbols decoded from the program and provides methods to translate between symbols, names, and addresses.
 
-#### func [NewTable](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=336) 
+#### func NewTable 
 
 ``` go 
 func NewTable(symtab []byte, pcln *LineTable) (*Table, error)
@@ -190,7 +190,7 @@ func NewTable(symtab []byte, pcln *LineTable) (*Table, error)
 
 NewTable decodes the Go symbol table (the ".gosymtab" section in ELF), returning an in-memory representation. Starting with Go 1.3, the Go symbol table no longer includes symbol data.
 
-#### (*Table) [LineToPC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=572) 
+#### (*Table) LineToPC 
 
 ``` go 
 func (t *Table) LineToPC(file string, line int) (pc uint64, fn *Func, err error)
@@ -198,7 +198,7 @@ func (t *Table) LineToPC(file string, line int) (pc uint64, fn *Func, err error)
 
 LineToPC looks up the first program counter on the given line in the named file. It returns UnknownPathError or UnknownLineError if there is an error looking up this line.
 
-#### (*Table) [LookupFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=618) 
+#### (*Table) LookupFunc 
 
 ``` go 
 func (t *Table) LookupFunc(name string) *Func
@@ -206,7 +206,7 @@ func (t *Table) LookupFunc(name string) *Func
 
 LookupFunc returns the text, data, or bss symbol with the given name, or nil if no such symbol is found.
 
-#### (*Table) [LookupSym](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=602) 
+#### (*Table) LookupSym 
 
 ``` go 
 func (t *Table) LookupSym(name string) *Sym
@@ -214,7 +214,7 @@ func (t *Table) LookupSym(name string) *Sym
 
 LookupSym returns the text, data, or bss symbol with the given name, or nil if no such symbol is found.
 
-#### (*Table) [PCToFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=537) 
+#### (*Table) PCToFunc 
 
 ``` go 
 func (t *Table) PCToFunc(pc uint64) *Func
@@ -222,7 +222,7 @@ func (t *Table) PCToFunc(pc uint64) *Func
 
 PCToFunc returns the function containing the program counter pc, or nil if there is no such function.
 
-#### (*Table) [PCToLine](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=556) 
+#### (*Table) PCToLine 
 
 ``` go 
 func (t *Table) PCToLine(pc uint64) (file string, line int, fn *Func)
@@ -230,7 +230,7 @@ func (t *Table) PCToLine(pc uint64) (file string, line int, fn *Func)
 
 PCToLine looks up line number information for a program counter. If there is no information, it returns fn == nil.
 
-#### (*Table) [SymByAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=629) 
+#### (*Table) SymByAddr 
 
 ``` go 
 func (t *Table) SymByAddr(addr uint64) *Sym
@@ -238,7 +238,7 @@ func (t *Table) SymByAddr(addr uint64) *Sym
 
 SymByAddr returns the text, data, or bss symbol starting at the given address.
 
-### type [UnknownFileError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=743) 
+### type UnknownFileError 
 
 ``` go 
 type UnknownFileError string
@@ -246,13 +246,13 @@ type UnknownFileError string
 
 UnknownFileError represents a failure to find the specific file in the symbol table.
 
-#### (UnknownFileError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=745) 
+#### (UnknownFileError) Error 
 
 ``` go 
 func (e UnknownFileError) Error() string
 ```
 
-### type [UnknownLineError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=750) 
+### type UnknownLineError 
 
 ``` go 
 type UnknownLineError struct {
@@ -263,7 +263,7 @@ type UnknownLineError struct {
 
 UnknownLineError represents a failure to map a line to a program counter, either because the line is beyond the bounds of the file or because there is no code on the given line.
 
-#### (*UnknownLineError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/gosym/symtab.go;l=755) 
+#### (*UnknownLineError) Error 
 
 ``` go 
 func (e *UnknownLineError) Error() string

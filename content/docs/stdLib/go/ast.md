@@ -31,7 +31,7 @@ This section is empty.
 
 ## 函数
 
-#### func [FileExports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=27) 
+#### func FileExports 
 
 ``` go 
 func FileExports(src *File) bool
@@ -41,7 +41,7 @@ FileExports trims the AST for a Go source file in place such that only exported 
 
 FileExports reports whether there are exported declarations.
 
-#### func [FilterDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=229) 
+#### func FilterDecl 
 
 ``` go 
 func FilterDecl(decl Decl, f Filter) bool
@@ -51,7 +51,7 @@ FilterDecl trims the AST for a Go declaration in place by removing all names (in
 
 FilterDecl reports whether there are any declared names left after filtering.
 
-#### func [FilterFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=253) 
+#### func FilterFile 
 
 ``` go 
 func FilterFile(src *File, f Filter) bool
@@ -61,7 +61,7 @@ FilterFile trims the AST for a Go file in place by removing all names from top-l
 
 FilterFile reports whether there are any top-level declarations left after filtering.
 
-#### func [FilterPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=279) 
+#### func FilterPackage 
 
 ``` go 
 func FilterPackage(pkg *Package, f Filter) bool
@@ -71,7 +71,7 @@ FilterPackage trims the AST for a Go package in place by removing all names from
 
 FilterPackage reports whether there are any top-level declarations left after filtering.
 
-#### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=39) 
+#### func Fprint 
 
 ``` go 
 func Fprint(w io.Writer, fset *token.FileSet, x any, f FieldFilter) error
@@ -81,7 +81,7 @@ Fprint prints the (sub-)tree starting at AST node x to w. If fset != nil, positi
 
 A non-nil FieldFilter f may be provided to control the output: struct fields for which f(fieldname, fieldvalue) is true are printed; all others are filtered from the output. Unexported struct fields are never printed.
 
-#### func [Inspect](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=396) 
+#### func Inspect 
 
 ``` go 
 func Inspect(node Node, f func(Node) bool)
@@ -93,7 +93,7 @@ Inspect traverses an AST in depth-first order: It starts by calling f(node); nod
 ``` go 
 ```
 
-#### func [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=583) 
+#### func IsExported 
 
 ``` go 
 func IsExported(name string) bool
@@ -101,7 +101,7 @@ func IsExported(name string) bool
 
 IsExported reports whether name starts with an upper-case letter.
 
-#### func [NotNilFilter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=22) 
+#### func NotNilFilter 
 
 ``` go 
 func NotNilFilter(_ string, v reflect.Value) bool
@@ -109,7 +109,7 @@ func NotNilFilter(_ string, v reflect.Value) bool
 
 NotNilFilter returns true for field values that are not nil; it returns false otherwise.
 
-#### func [PackageExports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=37) 
+#### func PackageExports 
 
 ``` go 
 func PackageExports(pkg *Package) bool
@@ -119,7 +119,7 @@ PackageExports trims the AST for a Go package in place such that only exported n
 
 PackageExports reports whether there are exported declarations; it returns false otherwise.
 
-#### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=73) 
+#### func Print 
 
 ``` go 
 func Print(fset *token.FileSet, x any) error
@@ -131,7 +131,7 @@ Print prints x to standard output, skipping nil fields. Print(fset, x) is the sa
 ``` go 
 ```
 
-#### func [SortImports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/import.go;l=15) 
+#### func SortImports 
 
 ``` go 
 func SortImports(fset *token.FileSet, f *File)
@@ -139,7 +139,7 @@ func SortImports(fset *token.FileSet, f *File)
 
 SortImports sorts runs of consecutive import lines in import blocks in f. It also removes duplicate imports when it is possible to do so without data loss.
 
-#### func [Walk](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=50) 
+#### func Walk 
 
 ``` go 
 func Walk(v Visitor, node Node)
@@ -149,7 +149,7 @@ Walk traverses an AST in depth-first order: It starts by calling v.Visit(node); 
 
 ## 类型
 
-### type [ArrayType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=432) 
+### type ArrayType 
 
 ``` go 
 type ArrayType struct {
@@ -161,19 +161,19 @@ type ArrayType struct {
 
 An ArrayType node represents an array or slice type.
 
-#### (*ArrayType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=536) 
+#### (*ArrayType) End 
 
 ``` go 
 func (x *ArrayType) End() token.Pos
 ```
 
-#### (*ArrayType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=502) 
+#### (*ArrayType) Pos 
 
 ``` go 
 func (x *ArrayType) Pos() token.Pos
 ```
 
-### type [AssignStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=654) 
+### type AssignStmt 
 
 ``` go 
 type AssignStmt struct {
@@ -186,19 +186,19 @@ type AssignStmt struct {
 
 An AssignStmt node represents an assignment or a short variable declaration.
 
-#### (*AssignStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=801) 
+#### (*AssignStmt) End 
 
 ``` go 
 func (s *AssignStmt) End() token.Pos
 ```
 
-#### (*AssignStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=772) 
+#### (*AssignStmt) Pos 
 
 ``` go 
 func (s *AssignStmt) Pos() token.Pos
 ```
 
-### type [BadDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=957) 
+### type BadDecl 
 
 ``` go 
 type BadDecl struct {
@@ -208,19 +208,19 @@ type BadDecl struct {
 
 A BadDecl node is a placeholder for a declaration containing syntax errors for which a correct declaration node cannot be created.
 
-#### (*BadDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=997) 
+#### (*BadDecl) End 
 
 ``` go 
 func (d *BadDecl) End() token.Pos
 ```
 
-#### (*BadDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=993) 
+#### (*BadDecl) Pos 
 
 ``` go 
 func (d *BadDecl) Pos() token.Pos
 ```
 
-### type [BadExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=282) 
+### type BadExpr 
 
 ``` go 
 type BadExpr struct {
@@ -230,19 +230,19 @@ type BadExpr struct {
 
 A BadExpr node is a placeholder for an expression containing syntax errors for which a correct expression node cannot be created.
 
-#### (*BadExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=514) 
+#### (*BadExpr) End 
 
 ``` go 
 func (x *BadExpr) End() token.Pos
 ```
 
-#### (*BadExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=480) 
+#### (*BadExpr) Pos 
 
 ``` go 
 func (x *BadExpr) Pos() token.Pos
 ```
 
-### type [BadStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=605) 
+### type BadStmt 
 
 ``` go 
 type BadStmt struct {
@@ -252,19 +252,19 @@ type BadStmt struct {
 
 A BadStmt node is a placeholder for statements containing syntax errors for which no correct statement nodes can be created.
 
-#### (*BadStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=787) 
+#### (*BadStmt) End 
 
 ``` go 
 func (s *BadStmt) End() token.Pos
 ```
 
-#### (*BadStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=765) 
+#### (*BadStmt) Pos 
 
 ``` go 
 func (s *BadStmt) Pos() token.Pos
 ```
 
-### type [BasicLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=302) 
+### type BasicLit 
 
 ``` go 
 type BasicLit struct {
@@ -276,19 +276,19 @@ type BasicLit struct {
 
 A BasicLit node represents a literal of basic type.
 
-#### (*BasicLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=522) 
+#### (*BasicLit) End 
 
 ``` go 
 func (x *BasicLit) End() token.Pos
 ```
 
-#### (*BasicLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=483) 
+#### (*BasicLit) Pos 
 
 ``` go 
 func (x *BasicLit) Pos() token.Pos
 ```
 
-### type [BinaryExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=401) 
+### type BinaryExpr 
 
 ``` go 
 type BinaryExpr struct {
@@ -301,19 +301,19 @@ type BinaryExpr struct {
 
 A BinaryExpr node represents a binary expression.
 
-#### (*BinaryExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=534) 
+#### (*BinaryExpr) End 
 
 ``` go 
 func (x *BinaryExpr) End() token.Pos
 ```
 
-#### (*BinaryExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=500) 
+#### (*BinaryExpr) Pos 
 
 ``` go 
 func (x *BinaryExpr) Pos() token.Pos
 ```
 
-### type [BlockStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=689) 
+### type BlockStmt 
 
 ``` go 
 type BlockStmt struct {
@@ -325,19 +325,19 @@ type BlockStmt struct {
 
 A BlockStmt node represents a braced statement list.
 
-#### (*BlockStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=816) 
+#### (*BlockStmt) End 
 
 ``` go 
 func (s *BlockStmt) End() token.Pos
 ```
 
-#### (*BlockStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=777) 
+#### (*BlockStmt) Pos 
 
 ``` go 
 func (s *BlockStmt) Pos() token.Pos
 ```
 
-### type [BranchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=682) 
+### type BranchStmt 
 
 ``` go 
 type BranchStmt struct {
@@ -349,19 +349,19 @@ type BranchStmt struct {
 
 A BranchStmt node represents a break, continue, goto, or fallthrough statement.
 
-#### (*BranchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=810) 
+#### (*BranchStmt) End 
 
 ``` go 
 func (s *BranchStmt) End() token.Pos
 ```
 
-#### (*BranchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=776) 
+#### (*BranchStmt) Pos 
 
 ``` go 
 func (s *BranchStmt) Pos() token.Pos
 ```
 
-### type [CallExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=375) 
+### type CallExpr 
 
 ``` go 
 type CallExpr struct {
@@ -375,19 +375,19 @@ type CallExpr struct {
 
 A CallExpr node represents an expression followed by an argument list.
 
-#### (*CallExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=531) 
+#### (*CallExpr) End 
 
 ``` go 
 func (x *CallExpr) End() token.Pos
 ```
 
-#### (*CallExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=497) 
+#### (*CallExpr) Pos 
 
 ``` go 
 func (x *CallExpr) Pos() token.Pos
 ```
 
-### type [CaseClause](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=705) 
+### type CaseClause 
 
 ``` go 
 type CaseClause struct {
@@ -400,19 +400,19 @@ type CaseClause struct {
 
 A CaseClause represents a case of an expression or type switch statement.
 
-#### (*CaseClause) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=831) 
+#### (*CaseClause) End 
 
 ``` go 
 func (s *CaseClause) End() token.Pos
 ```
 
-#### (*CaseClause) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=779) 
+#### (*CaseClause) Pos 
 
 ``` go 
 func (s *CaseClause) Pos() token.Pos
 ```
 
-### type [ChanDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=420) 
+### type ChanDir 
 
 ``` go 
 type ChanDir int
@@ -427,7 +427,7 @@ const (
 )
 ```
 
-### type [ChanType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=470) 
+### type ChanType 
 
 ``` go 
 type ChanType struct {
@@ -440,19 +440,19 @@ type ChanType struct {
 
 A ChanType node represents a channel type.
 
-#### (*ChanType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=546) 
+#### (*ChanType) End 
 
 ``` go 
 func (x *ChanType) End() token.Pos
 ```
 
-#### (*ChanType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=512) 
+#### (*ChanType) Pos 
 
 ``` go 
 func (x *ChanType) Pos() token.Pos
 ```
 
-### type [CommClause](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=729) 
+### type CommClause 
 
 ``` go 
 type CommClause struct {
@@ -465,19 +465,19 @@ type CommClause struct {
 
 A CommClause node represents a case of a select statement.
 
-#### (*CommClause) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=839) 
+#### (*CommClause) End 
 
 ``` go 
 func (s *CommClause) End() token.Pos
 ```
 
-#### (*CommClause) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=782) 
+#### (*CommClause) Pos 
 
 ``` go 
 func (s *CommClause) Pos() token.Pos
 ```
 
-### type [Comment](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=64) 
+### type Comment 
 
 ``` go 
 type Comment struct {
@@ -490,19 +490,19 @@ A Comment node represents a single //-style or /*-style comment.
 
 The Text field contains the comment text without carriage returns (\r) that may have been present in the source. Because a comment's end position is computed using len(Text), the position reported by End() does not match the true source end position for comments containing carriage returns.
 
-#### (*Comment) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=70) 
+#### (*Comment) End 
 
 ``` go 
 func (c *Comment) End() token.Pos
 ```
 
-#### (*Comment) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=69) 
+#### (*Comment) Pos 
 
 ``` go 
 func (c *Comment) Pos() token.Pos
 ```
 
-### type [CommentGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=74) 
+### type CommentGroup 
 
 ``` go 
 type CommentGroup struct {
@@ -512,19 +512,19 @@ type CommentGroup struct {
 
 A CommentGroup represents a sequence of comments with no other tokens and no empty lines between.
 
-#### (*CommentGroup) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=79) 
+#### (*CommentGroup) End 
 
 ``` go 
 func (g *CommentGroup) End() token.Pos
 ```
 
-#### (*CommentGroup) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=78) 
+#### (*CommentGroup) Pos 
 
 ``` go 
 func (g *CommentGroup) Pos() token.Pos
 ```
 
-#### (*CommentGroup) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=97) 
+#### (*CommentGroup) Text 
 
 ``` go 
 func (g *CommentGroup) Text() string
@@ -532,7 +532,7 @@ func (g *CommentGroup) Text() string
 
 Text returns the text of the comment. Comment markers (//, /*, and */), the first space of a line comment, and leading and trailing empty lines are removed. Comment directives like "//line" and "//go:noinline" are also removed. Multiple empty lines are reduced to one, and trailing space on lines is trimmed. Unless the result is empty, it is newline-terminated.
 
-### type [CommentMap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=34)  <- go1.1
+### type CommentMap  <- go1.1
 
 ``` go 
 type CommentMap map[Node][]*CommentGroup
@@ -544,7 +544,7 @@ A CommentMap maps an AST node to a list of comment groups associated with it. Se
 ``` go 
 ```
 
-#### func [NewCommentMap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=136)  <- go1.1
+#### func NewCommentMap  <- go1.1
 
 ``` go 
 func NewCommentMap(fset *token.FileSet, node Node, comments []*CommentGroup) CommentMap
@@ -560,7 +560,7 @@ A comment group g is associated with a node n if:
 
 NewCommentMap tries to associate a comment group to the "largest" node possible: For instance, if the comment is a line comment trailing an assignment, the comment is associated with the entire assignment rather than just the last operand in the assignment.
 
-#### (CommentMap) [Comments](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=262)  <- go1.1
+#### (CommentMap) Comments  <- go1.1
 
 ``` go 
 func (cmap CommentMap) Comments() []*CommentGroup
@@ -568,7 +568,7 @@ func (cmap CommentMap) Comments() []*CommentGroup
 
 Comments returns the list of comment groups in the comment map. The result is sorted in source order.
 
-#### (CommentMap) [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=249)  <- go1.1
+#### (CommentMap) Filter  <- go1.1
 
 ``` go 
 func (cmap CommentMap) Filter(node Node) CommentMap
@@ -576,13 +576,13 @@ func (cmap CommentMap) Filter(node Node) CommentMap
 
 Filter returns a new comment map consisting of only those entries of cmap for which a corresponding node exists in the AST specified by node.
 
-#### (CommentMap) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=307)  <- go1.1
+#### (CommentMap) String  <- go1.1
 
 ``` go 
 func (cmap CommentMap) String() string
 ```
 
-#### (CommentMap) [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=238)  <- go1.1
+#### (CommentMap) Update  <- go1.1
 
 ``` go 
 func (cmap CommentMap) Update(old, new Node) Node
@@ -590,7 +590,7 @@ func (cmap CommentMap) Update(old, new Node) Node
 
 Update replaces an old node in the comment map with the new node and returns the new node. Comments that were associated with the old node are associated with the new node.
 
-### type [CompositeLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=315) 
+### type CompositeLit 
 
 ``` go 
 type CompositeLit struct {
@@ -604,19 +604,19 @@ type CompositeLit struct {
 
 A CompositeLit node represents a composite literal.
 
-#### (*CompositeLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=524) 
+#### (*CompositeLit) End 
 
 ``` go 
 func (x *CompositeLit) End() token.Pos
 ```
 
-#### (*CompositeLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=485) 
+#### (*CompositeLit) Pos 
 
 ``` go 
 func (x *CompositeLit) Pos() token.Pos
 ```
 
-### type [Decl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=50) 
+### type Decl 
 
 ``` go 
 type Decl interface {
@@ -627,7 +627,7 @@ type Decl interface {
 
 All declaration nodes implement the Decl interface.
 
-### type [DeclStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=610) 
+### type DeclStmt 
 
 ``` go 
 type DeclStmt struct {
@@ -637,19 +637,19 @@ type DeclStmt struct {
 
 A DeclStmt node represents a declaration in a statement list.
 
-#### (*DeclStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=788) 
+#### (*DeclStmt) End 
 
 ``` go 
 func (s *DeclStmt) End() token.Pos
 ```
 
-#### (*DeclStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=766) 
+#### (*DeclStmt) Pos 
 
 ``` go 
 func (s *DeclStmt) Pos() token.Pos
 ```
 
-### type [DeferStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=668) 
+### type DeferStmt 
 
 ``` go 
 type DeferStmt struct {
@@ -660,19 +660,19 @@ type DeferStmt struct {
 
 A DeferStmt node represents a defer statement.
 
-#### (*DeferStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=803) 
+#### (*DeferStmt) End 
 
 ``` go 
 func (s *DeferStmt) End() token.Pos
 ```
 
-#### (*DeferStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=774) 
+#### (*DeferStmt) Pos 
 
 ``` go 
 func (s *DeferStmt) Pos() token.Pos
 ```
 
-### type [Ellipsis](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=296) 
+### type Ellipsis 
 
 ``` go 
 type Ellipsis struct {
@@ -683,19 +683,19 @@ type Ellipsis struct {
 
 An Ellipsis node stands for the "..." type in a parameter list or the "..." length in an array type.
 
-#### (*Ellipsis) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=516) 
+#### (*Ellipsis) End 
 
 ``` go 
 func (x *Ellipsis) End() token.Pos
 ```
 
-#### (*Ellipsis) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=482) 
+#### (*Ellipsis) Pos 
 
 ``` go 
 func (x *Ellipsis) Pos() token.Pos
 ```
 
-### type [EmptyStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=618) 
+### type EmptyStmt 
 
 ``` go 
 type EmptyStmt struct {
@@ -706,19 +706,19 @@ type EmptyStmt struct {
 
 An EmptyStmt node represents an empty statement. The "position" of the empty statement is the position of the immediately following (explicit or implicit) semicolon.
 
-#### (*EmptyStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=789) 
+#### (*EmptyStmt) End 
 
 ``` go 
 func (s *EmptyStmt) End() token.Pos
 ```
 
-#### (*EmptyStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=767) 
+#### (*EmptyStmt) Pos 
 
 ``` go 
 func (s *EmptyStmt) Pos() token.Pos
 ```
 
-### type [Expr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=38) 
+### type Expr 
 
 ``` go 
 type Expr interface {
@@ -729,7 +729,7 @@ type Expr interface {
 
 All expression nodes implement the Expr interface.
 
-### type [ExprStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=633) 
+### type ExprStmt 
 
 ``` go 
 type ExprStmt struct {
@@ -739,19 +739,19 @@ type ExprStmt struct {
 
 An ExprStmt node represents a (stand-alone) expression in a statement list.
 
-#### (*ExprStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=796) 
+#### (*ExprStmt) End 
 
 ``` go 
 func (s *ExprStmt) End() token.Pos
 ```
 
-#### (*ExprStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=769) 
+#### (*ExprStmt) Pos 
 
 ``` go 
 func (s *ExprStmt) Pos() token.Pos
 ```
 
-### type [Field](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=197) 
+### type Field 
 
 ``` go 
 type Field struct {
@@ -765,19 +765,19 @@ type Field struct {
 
 A Field represents a Field declaration list in a struct type, a method list in an interface type, or a parameter/result declaration in a signature. Field.Names is nil for unnamed parameters (parameter lists which only contain types) and embedded struct fields. In the latter case, the field name is the type name.
 
-#### (*Field) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=215) 
+#### (*Field) End 
 
 ``` go 
 func (f *Field) End() token.Pos
 ```
 
-#### (*Field) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=205) 
+#### (*Field) Pos 
 
 ``` go 
 func (f *Field) Pos() token.Pos
 ```
 
-### type [FieldFilter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=18) 
+### type FieldFilter 
 
 ``` go 
 type FieldFilter func(name string, value reflect.Value) bool
@@ -785,7 +785,7 @@ type FieldFilter func(name string, value reflect.Value) bool
 
 A FieldFilter may be provided to Fprint to control the output.
 
-### type [FieldList](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=230) 
+### type FieldList 
 
 ``` go 
 type FieldList struct {
@@ -797,13 +797,13 @@ type FieldList struct {
 
 A FieldList represents a list of Fields, enclosed by parentheses, curly braces, or square brackets.
 
-#### (*FieldList) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=248) 
+#### (*FieldList) End 
 
 ``` go 
 func (f *FieldList) End() token.Pos
 ```
 
-#### (*FieldList) [NumFields](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=261) 
+#### (*FieldList) NumFields 
 
 ``` go 
 func (f *FieldList) NumFields() int
@@ -811,13 +811,13 @@ func (f *FieldList) NumFields() int
 
 NumFields returns the number of parameters or struct fields represented by a FieldList.
 
-#### (*FieldList) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=236) 
+#### (*FieldList) Pos 
 
 ``` go 
 func (f *FieldList) Pos() token.Pos
 ```
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1038) 
+### type File 
 
 ``` go 
 type File struct {
@@ -842,7 +842,7 @@ For correct printing of source code containing comments (using packages go/forma
 
 Whether and how a comment is associated with a node depends on the interpretation of the syntax tree by the manipulating program: Except for Doc and Comment comments directly associated with nodes, the remaining comments are "free-floating" (see also issues #18593, #20744).
 
-#### func [MergePackageFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=335) 
+#### func MergePackageFiles 
 
 ``` go 
 func MergePackageFiles(pkg *Package, mode MergeMode) *File
@@ -850,7 +850,7 @@ func MergePackageFiles(pkg *Package, mode MergeMode) *File
 
 MergePackageFiles creates a file AST by merging the ASTs of the files belonging to a package. The mode flags control merging behavior.
 
-#### (*File) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1057) 
+#### (*File) End 
 
 ``` go 
 func (f *File) End() token.Pos
@@ -858,7 +858,7 @@ func (f *File) End() token.Pos
 
 End returns the end of the last declaration in the file. (Use FileEnd for the end of the entire file.)
 
-#### (*File) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1053) 
+#### (*File) Pos 
 
 ``` go 
 func (f *File) Pos() token.Pos
@@ -866,13 +866,13 @@ func (f *File) Pos() token.Pos
 
 Pos returns the position of the package declaration. (Use FileStart for the start of the entire file.)
 
-### type [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=44) 
+### type Filter 
 
 ``` go 
 type Filter func(string) bool
 ```
 
-### type [ForStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=743) 
+### type ForStmt 
 
 ``` go 
 type ForStmt struct {
@@ -886,19 +886,19 @@ type ForStmt struct {
 
 A ForStmt represents a for statement.
 
-#### (*ForStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=846) 
+#### (*ForStmt) End 
 
 ``` go 
 func (s *ForStmt) End() token.Pos
 ```
 
-#### (*ForStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=784) 
+#### (*ForStmt) Pos 
 
 ``` go 
 func (s *ForStmt) Pos() token.Pos
 ```
 
-### type [FuncDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=982) 
+### type FuncDecl 
 
 ``` go 
 type FuncDecl struct {
@@ -912,19 +912,19 @@ type FuncDecl struct {
 
 A FuncDecl node represents a function declaration.
 
-#### (*FuncDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1004) 
+#### (*FuncDecl) End 
 
 ``` go 
 func (d *FuncDecl) End() token.Pos
 ```
 
-#### (*FuncDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=995) 
+#### (*FuncDecl) Pos 
 
 ``` go 
 func (d *FuncDecl) Pos() token.Pos
 ```
 
-### type [FuncLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=309) 
+### type FuncLit 
 
 ``` go 
 type FuncLit struct {
@@ -935,19 +935,19 @@ type FuncLit struct {
 
 A FuncLit node represents a function literal.
 
-#### (*FuncLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=523) 
+#### (*FuncLit) End 
 
 ``` go 
 func (x *FuncLit) End() token.Pos
 ```
 
-#### (*FuncLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=484) 
+#### (*FuncLit) Pos 
 
 ``` go 
 func (x *FuncLit) Pos() token.Pos
 ```
 
-### type [FuncType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=448) 
+### type FuncType 
 
 ``` go 
 type FuncType struct {
@@ -960,19 +960,19 @@ type FuncType struct {
 
 A FuncType node represents a function type.
 
-#### (*FuncType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=538) 
+#### (*FuncType) End 
 
 ``` go 
 func (x *FuncType) End() token.Pos
 ```
 
-#### (*FuncType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=504) 
+#### (*FuncType) Pos 
 
 ``` go 
 func (x *FuncType) Pos() token.Pos
 ```
 
-### type [GenDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=972) 
+### type GenDecl 
 
 ``` go 
 type GenDecl struct {
@@ -996,19 +996,19 @@ token.TYPE    *TypeSpec
 token.VAR     *ValueSpec
 ```
 
-#### (*GenDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=998) 
+#### (*GenDecl) End 
 
 ``` go 
 func (d *GenDecl) End() token.Pos
 ```
 
-#### (*GenDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=994) 
+#### (*GenDecl) Pos 
 
 ``` go 
 func (d *GenDecl) Pos() token.Pos
 ```
 
-### type [GoStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=662) 
+### type GoStmt 
 
 ``` go 
 type GoStmt struct {
@@ -1019,19 +1019,19 @@ type GoStmt struct {
 
 A GoStmt node represents a go statement.
 
-#### (*GoStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=802) 
+#### (*GoStmt) End 
 
 ``` go 
 func (s *GoStmt) End() token.Pos
 ```
 
-#### (*GoStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=773) 
+#### (*GoStmt) Pos 
 
 ``` go 
 func (s *GoStmt) Pos() token.Pos
 ```
 
-### type [Ident](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=287) 
+### type Ident 
 
 ``` go 
 type Ident struct {
@@ -1043,7 +1043,7 @@ type Ident struct {
 
 An Ident node represents an identifier.
 
-#### func [NewIdent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=580) 
+#### func NewIdent 
 
 ``` go 
 func NewIdent(name string) *Ident
@@ -1051,13 +1051,13 @@ func NewIdent(name string) *Ident
 
 NewIdent creates a new Ident without position. Useful for ASTs generated by code other than the Go parser.
 
-#### (*Ident) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=515) 
+#### (*Ident) End 
 
 ``` go 
 func (x *Ident) End() token.Pos
 ```
 
-#### (*Ident) [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=586) 
+#### (*Ident) IsExported 
 
 ``` go 
 func (id *Ident) IsExported() bool
@@ -1065,19 +1065,19 @@ func (id *Ident) IsExported() bool
 
 IsExported reports whether id starts with an upper-case letter.
 
-#### (*Ident) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=481) 
+#### (*Ident) Pos 
 
 ``` go 
 func (x *Ident) Pos() token.Pos
 ```
 
-#### (*Ident) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=588) 
+#### (*Ident) String 
 
 ``` go 
 func (id *Ident) String() string
 ```
 
-### type [IfStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=696) 
+### type IfStmt 
 
 ``` go 
 type IfStmt struct {
@@ -1091,19 +1091,19 @@ type IfStmt struct {
 
 An IfStmt node represents an if statement.
 
-#### (*IfStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=825) 
+#### (*IfStmt) End 
 
 ``` go 
 func (s *IfStmt) End() token.Pos
 ```
 
-#### (*IfStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=778) 
+#### (*IfStmt) Pos 
 
 ``` go 
 func (s *IfStmt) Pos() token.Pos
 ```
 
-### type [ImportSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=886) 
+### type ImportSpec 
 
 ``` go 
 type ImportSpec struct {
@@ -1117,19 +1117,19 @@ type ImportSpec struct {
 
 An ImportSpec node represents a single package import.
 
-#### (*ImportSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=927) 
+#### (*ImportSpec) End 
 
 ``` go 
 func (s *ImportSpec) End() token.Pos
 ```
 
-#### (*ImportSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=918) 
+#### (*ImportSpec) Pos 
 
 ``` go 
 func (s *ImportSpec) Pos() token.Pos
 ```
 
-### type [Importer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/resolve.go;l=63) 
+### type Importer 
 
 ``` go 
 type Importer func(imports map[string]*Object, path string) (pkg *Object, err error)
@@ -1137,7 +1137,7 @@ type Importer func(imports map[string]*Object, path string) (pkg *Object, err er
 
 An Importer resolves import paths to package Objects. The imports map records the packages already imported, indexed by package id (canonical import path). An Importer must determine the canonical import path and check the map to see if it is already present in the imports map. If so, the Importer can return the map entry. Otherwise, the Importer should load the package data for the given path into a new *Object (pkg), record pkg in the imports map, and then return pkg.
 
-### type [IncDecStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=645) 
+### type IncDecStmt 
 
 ``` go 
 type IncDecStmt struct {
@@ -1149,19 +1149,19 @@ type IncDecStmt struct {
 
 An IncDecStmt node represents an increment or decrement statement.
 
-#### (*IncDecStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=798) 
+#### (*IncDecStmt) End 
 
 ``` go 
 func (s *IncDecStmt) End() token.Pos
 ```
 
-#### (*IncDecStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=771) 
+#### (*IncDecStmt) Pos 
 
 ``` go 
 func (s *IncDecStmt) Pos() token.Pos
 ```
 
-### type [IndexExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=337) 
+### type IndexExpr 
 
 ``` go 
 type IndexExpr struct {
@@ -1174,19 +1174,19 @@ type IndexExpr struct {
 
 An IndexExpr node represents an expression followed by an index.
 
-#### (*IndexExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=527) 
+#### (*IndexExpr) End 
 
 ``` go 
 func (x *IndexExpr) End() token.Pos
 ```
 
-#### (*IndexExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=493) 
+#### (*IndexExpr) Pos 
 
 ``` go 
 func (x *IndexExpr) Pos() token.Pos
 ```
 
-### type [IndexListExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=346)  <- go1.18
+### type IndexListExpr  <- go1.18
 
 ``` go 
 type IndexListExpr struct {
@@ -1199,19 +1199,19 @@ type IndexListExpr struct {
 
 An IndexListExpr node represents an expression followed by multiple indices.
 
-#### (*IndexListExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=528)  <- go1.18
+#### (*IndexListExpr) End  <- go1.18
 
 ``` go 
 func (x *IndexListExpr) End() token.Pos
 ```
 
-#### (*IndexListExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=494)  <- go1.18
+#### (*IndexListExpr) Pos  <- go1.18
 
 ``` go 
 func (x *IndexListExpr) Pos() token.Pos
 ```
 
-### type [InterfaceType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=456) 
+### type InterfaceType 
 
 ``` go 
 type InterfaceType struct {
@@ -1223,19 +1223,19 @@ type InterfaceType struct {
 
 An InterfaceType node represents an interface type.
 
-#### (*InterfaceType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=544) 
+#### (*InterfaceType) End 
 
 ``` go 
 func (x *InterfaceType) End() token.Pos
 ```
 
-#### (*InterfaceType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=510) 
+#### (*InterfaceType) Pos 
 
 ``` go 
 func (x *InterfaceType) Pos() token.Pos
 ```
 
-### type [KeyValueExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=411) 
+### type KeyValueExpr 
 
 ``` go 
 type KeyValueExpr struct {
@@ -1247,19 +1247,19 @@ type KeyValueExpr struct {
 
 A KeyValueExpr node represents (key : value) pairs in composite literals.
 
-#### (*KeyValueExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=535) 
+#### (*KeyValueExpr) End 
 
 ``` go 
 func (x *KeyValueExpr) End() token.Pos
 ```
 
-#### (*KeyValueExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=501) 
+#### (*KeyValueExpr) Pos 
 
 ``` go 
 func (x *KeyValueExpr) Pos() token.Pos
 ```
 
-### type [LabeledStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=624) 
+### type LabeledStmt 
 
 ``` go 
 type LabeledStmt struct {
@@ -1271,19 +1271,19 @@ type LabeledStmt struct {
 
 A LabeledStmt node represents a labeled statement.
 
-#### (*LabeledStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=795) 
+#### (*LabeledStmt) End 
 
 ``` go 
 func (s *LabeledStmt) End() token.Pos
 ```
 
-#### (*LabeledStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=768) 
+#### (*LabeledStmt) Pos 
 
 ``` go 
 func (s *LabeledStmt) Pos() token.Pos
 ```
 
-### type [MapType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=463) 
+### type MapType 
 
 ``` go 
 type MapType struct {
@@ -1295,19 +1295,19 @@ type MapType struct {
 
 A MapType node represents a map type.
 
-#### (*MapType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=545) 
+#### (*MapType) End 
 
 ``` go 
 func (x *MapType) End() token.Pos
 ```
 
-#### (*MapType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=511) 
+#### (*MapType) Pos 
 
 ``` go 
 func (x *MapType) Pos() token.Pos
 ```
 
-### type [MergeMode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=297) 
+### type MergeMode 
 
 ``` go 
 type MergeMode uint
@@ -1327,7 +1327,7 @@ const (
 )
 ```
 
-### type [Node](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=32) 
+### type Node 
 
 ``` go 
 type Node interface {
@@ -1338,7 +1338,7 @@ type Node interface {
 
 All node types implement the Node interface.
 
-### type [ObjKind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=133) 
+### type ObjKind 
 
 ``` go 
 type ObjKind int
@@ -1360,13 +1360,13 @@ const (
 
 The list of possible Object kinds.
 
-#### (ObjKind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=156) 
+#### (ObjKind) String 
 
 ``` go 
 func (kind ObjKind) String() string
 ```
 
-### type [Object](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=72) 
+### type Object 
 
 ``` go 
 type Object struct {
@@ -1388,7 +1388,7 @@ Pkg     *Scope            package scope
 Con     int               iota for the respective declaration
 ```
 
-#### func [NewObj](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=81) 
+#### func NewObj 
 
 ``` go 
 func NewObj(kind ObjKind, name string) *Object
@@ -1396,7 +1396,7 @@ func NewObj(kind ObjKind, name string) *Object
 
 NewObj creates a new object of a given kind and name.
 
-#### (*Object) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=88) 
+#### (*Object) Pos 
 
 ``` go 
 func (obj *Object) Pos() token.Pos
@@ -1404,7 +1404,7 @@ func (obj *Object) Pos() token.Pos
 
 Pos computes the source position of the declaration of an object name. The result may be an invalid position if it cannot be computed (obj.Decl may be nil or not correct).
 
-### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1066) 
+### type Package 
 
 ``` go 
 type Package struct {
@@ -1417,7 +1417,7 @@ type Package struct {
 
 A Package node represents a set of source files collectively building a Go package.
 
-#### func [NewPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/resolve.go;l=73) 
+#### func NewPackage 
 
 ``` go 
 func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, universe *Scope) (*Package, error)
@@ -1425,19 +1425,19 @@ func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, 
 
 NewPackage creates a new Package node from a set of File nodes. It resolves unresolved identifiers across files and updates each file's Unresolved list accordingly. If a non-nil importer and universe scope are provided, they are used to resolve identifiers not declared in any of the package files. Any remaining unresolved identifiers are reported as undeclared. If the files belong to different packages, one package name is selected and files with different package names are reported and then ignored. The result is a package node and a scanner.ErrorList if there were errors.
 
-#### (*Package) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1074) 
+#### (*Package) End 
 
 ``` go 
 func (p *Package) End() token.Pos
 ```
 
-#### (*Package) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1073) 
+#### (*Package) Pos 
 
 ``` go 
 func (p *Package) Pos() token.Pos
 ```
 
-### type [ParenExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=324) 
+### type ParenExpr 
 
 ``` go 
 type ParenExpr struct {
@@ -1449,19 +1449,19 @@ type ParenExpr struct {
 
 A ParenExpr node represents a parenthesized expression.
 
-#### (*ParenExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=525) 
+#### (*ParenExpr) End 
 
 ``` go 
 func (x *ParenExpr) End() token.Pos
 ```
 
-#### (*ParenExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=491) 
+#### (*ParenExpr) Pos 
 
 ``` go 
 func (x *ParenExpr) Pos() token.Pos
 ```
 
-### type [RangeStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=752) 
+### type RangeStmt 
 
 ``` go 
 type RangeStmt struct {
@@ -1477,19 +1477,19 @@ type RangeStmt struct {
 
 A RangeStmt represents a for statement with a range clause.
 
-#### (*RangeStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=847) 
+#### (*RangeStmt) End 
 
 ``` go 
 func (s *RangeStmt) End() token.Pos
 ```
 
-#### (*RangeStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=785) 
+#### (*RangeStmt) Pos 
 
 ``` go 
 func (s *RangeStmt) Pos() token.Pos
 ```
 
-### type [ReturnStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=674) 
+### type ReturnStmt 
 
 ``` go 
 type ReturnStmt struct {
@@ -1500,19 +1500,19 @@ type ReturnStmt struct {
 
 A ReturnStmt node represents a return statement.
 
-#### (*ReturnStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=804) 
+#### (*ReturnStmt) End 
 
 ``` go 
 func (s *ReturnStmt) End() token.Pos
 ```
 
-#### (*ReturnStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=775) 
+#### (*ReturnStmt) Pos 
 
 ``` go 
 func (s *ReturnStmt) Pos() token.Pos
 ```
 
-### type [Scope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=18) 
+### type Scope 
 
 ``` go 
 type Scope struct {
@@ -1523,7 +1523,7 @@ type Scope struct {
 
 A Scope maintains the set of named language entities declared in the scope and a link to the immediately surrounding (outer) scope.
 
-#### func [NewScope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=24) 
+#### func NewScope 
 
 ``` go 
 func NewScope(outer *Scope) *Scope
@@ -1531,7 +1531,7 @@ func NewScope(outer *Scope) *Scope
 
 NewScope creates a new scope nested in the outer scope.
 
-#### (*Scope) [Insert](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=40) 
+#### (*Scope) Insert 
 
 ``` go 
 func (s *Scope) Insert(obj *Object) (alt *Object)
@@ -1539,7 +1539,7 @@ func (s *Scope) Insert(obj *Object) (alt *Object)
 
 Insert attempts to insert a named object obj into the scope s. If the scope already contains an object alt with the same name, Insert leaves the scope unchanged and returns alt. Otherwise it inserts obj and returns nil.
 
-#### (*Scope) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=32) 
+#### (*Scope) Lookup 
 
 ``` go 
 func (s *Scope) Lookup(name string) *Object
@@ -1547,7 +1547,7 @@ func (s *Scope) Lookup(name string) *Object
 
 Lookup returns the object with the given name if it is found in scope s, otherwise it returns nil. Outer scopes are ignored.
 
-#### (*Scope) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=48) 
+#### (*Scope) String 
 
 ``` go 
 func (s *Scope) String() string
@@ -1555,7 +1555,7 @@ func (s *Scope) String() string
 
 Debugging support
 
-### type [SelectStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=737) 
+### type SelectStmt 
 
 ``` go 
 type SelectStmt struct {
@@ -1566,19 +1566,19 @@ type SelectStmt struct {
 
 A SelectStmt node represents a select statement.
 
-#### (*SelectStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=845) 
+#### (*SelectStmt) End 
 
 ``` go 
 func (s *SelectStmt) End() token.Pos
 ```
 
-#### (*SelectStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=783) 
+#### (*SelectStmt) Pos 
 
 ``` go 
 func (s *SelectStmt) Pos() token.Pos
 ```
 
-### type [SelectorExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=331) 
+### type SelectorExpr 
 
 ``` go 
 type SelectorExpr struct {
@@ -1589,19 +1589,19 @@ type SelectorExpr struct {
 
 A SelectorExpr node represents an expression followed by a selector.
 
-#### (*SelectorExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=526) 
+#### (*SelectorExpr) End 
 
 ``` go 
 func (x *SelectorExpr) End() token.Pos
 ```
 
-#### (*SelectorExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=492) 
+#### (*SelectorExpr) Pos 
 
 ``` go 
 func (x *SelectorExpr) Pos() token.Pos
 ```
 
-### type [SendStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=638) 
+### type SendStmt 
 
 ``` go 
 type SendStmt struct {
@@ -1613,19 +1613,19 @@ type SendStmt struct {
 
 A SendStmt node represents a send statement.
 
-#### (*SendStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=797) 
+#### (*SendStmt) End 
 
 ``` go 
 func (s *SendStmt) End() token.Pos
 ```
 
-#### (*SendStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=770) 
+#### (*SendStmt) Pos 
 
 ``` go 
 func (s *SendStmt) Pos() token.Pos
 ```
 
-### type [SliceExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=354) 
+### type SliceExpr 
 
 ``` go 
 type SliceExpr struct {
@@ -1641,19 +1641,19 @@ type SliceExpr struct {
 
 A SliceExpr node represents an expression followed by slice indices.
 
-#### (*SliceExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=529) 
+#### (*SliceExpr) End 
 
 ``` go 
 func (x *SliceExpr) End() token.Pos
 ```
 
-#### (*SliceExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=495) 
+#### (*SliceExpr) Pos 
 
 ``` go 
 func (x *SliceExpr) Pos() token.Pos
 ```
 
-### type [Spec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=880) 
+### type Spec 
 
 ``` go 
 type Spec interface {
@@ -1664,7 +1664,7 @@ type Spec interface {
 
 The Spec type stands for any of *ImportSpec, *ValueSpec, and *TypeSpec.
 
-### type [StarExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=386) 
+### type StarExpr 
 
 ``` go 
 type StarExpr struct {
@@ -1675,19 +1675,19 @@ type StarExpr struct {
 
 A StarExpr node represents an expression of the form "*" Expression. Semantically it could be a unary "*" expression, or a pointer type.
 
-#### (*StarExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=532) 
+#### (*StarExpr) End 
 
 ``` go 
 func (x *StarExpr) End() token.Pos
 ```
 
-#### (*StarExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=498) 
+#### (*StarExpr) Pos 
 
 ``` go 
 func (x *StarExpr) Pos() token.Pos
 ```
 
-### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=44) 
+### type Stmt 
 
 ``` go 
 type Stmt interface {
@@ -1698,7 +1698,7 @@ type Stmt interface {
 
 All statement nodes implement the Stmt interface.
 
-### type [StructType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=439) 
+### type StructType 
 
 ``` go 
 type StructType struct {
@@ -1710,19 +1710,19 @@ type StructType struct {
 
 A StructType node represents a struct type.
 
-#### (*StructType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=537) 
+#### (*StructType) End 
 
 ``` go 
 func (x *StructType) End() token.Pos
 ```
 
-#### (*StructType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=503) 
+#### (*StructType) Pos 
 
 ``` go 
 func (x *StructType) Pos() token.Pos
 ```
 
-### type [SwitchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=713) 
+### type SwitchStmt 
 
 ``` go 
 type SwitchStmt struct {
@@ -1735,19 +1735,19 @@ type SwitchStmt struct {
 
 A SwitchStmt node represents an expression switch statement.
 
-#### (*SwitchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=837) 
+#### (*SwitchStmt) End 
 
 ``` go 
 func (s *SwitchStmt) End() token.Pos
 ```
 
-#### (*SwitchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=780) 
+#### (*SwitchStmt) Pos 
 
 ``` go 
 func (s *SwitchStmt) Pos() token.Pos
 ```
 
-### type [TypeAssertExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=367) 
+### type TypeAssertExpr 
 
 ``` go 
 type TypeAssertExpr struct {
@@ -1760,19 +1760,19 @@ type TypeAssertExpr struct {
 
 A TypeAssertExpr node represents an expression followed by a type assertion.
 
-#### (*TypeAssertExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=530) 
+#### (*TypeAssertExpr) End 
 
 ``` go 
 func (x *TypeAssertExpr) End() token.Pos
 ```
 
-#### (*TypeAssertExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=496) 
+#### (*TypeAssertExpr) Pos 
 
 ``` go 
 func (x *TypeAssertExpr) Pos() token.Pos
 ```
 
-### type [TypeSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=906) 
+### type TypeSpec 
 
 ``` go 
 type TypeSpec struct {
@@ -1787,19 +1787,19 @@ type TypeSpec struct {
 
 A TypeSpec node represents a type declaration (TypeSpec production).
 
-#### (*TypeSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=943) 
+#### (*TypeSpec) End 
 
 ``` go 
 func (s *TypeSpec) End() token.Pos
 ```
 
-#### (*TypeSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=925) 
+#### (*TypeSpec) Pos 
 
 ``` go 
 func (s *TypeSpec) Pos() token.Pos
 ```
 
-### type [TypeSwitchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=721) 
+### type TypeSwitchStmt 
 
 ``` go 
 type TypeSwitchStmt struct {
@@ -1812,19 +1812,19 @@ type TypeSwitchStmt struct {
 
 A TypeSwitchStmt node represents a type switch statement.
 
-#### (*TypeSwitchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=838) 
+#### (*TypeSwitchStmt) End 
 
 ``` go 
 func (s *TypeSwitchStmt) End() token.Pos
 ```
 
-#### (*TypeSwitchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=781) 
+#### (*TypeSwitchStmt) Pos 
 
 ``` go 
 func (s *TypeSwitchStmt) Pos() token.Pos
 ```
 
-### type [UnaryExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=394) 
+### type UnaryExpr 
 
 ``` go 
 type UnaryExpr struct {
@@ -1836,19 +1836,19 @@ type UnaryExpr struct {
 
 A UnaryExpr node represents a unary expression. Unary "*" expressions are represented via StarExpr nodes.
 
-#### (*UnaryExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=533) 
+#### (*UnaryExpr) End 
 
 ``` go 
 func (x *UnaryExpr) End() token.Pos
 ```
 
-#### (*UnaryExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=499) 
+#### (*UnaryExpr) Pos 
 
 ``` go 
 func (x *UnaryExpr) Pos() token.Pos
 ```
 
-### type [ValueSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=897) 
+### type ValueSpec 
 
 ``` go 
 type ValueSpec struct {
@@ -1862,19 +1862,19 @@ type ValueSpec struct {
 
 A ValueSpec node represents a constant or variable declaration (ConstSpec or VarSpec production).
 
-#### (*ValueSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=934) 
+#### (*ValueSpec) End 
 
 ``` go 
 func (s *ValueSpec) End() token.Pos
 ```
 
-#### (*ValueSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=924) 
+#### (*ValueSpec) Pos 
 
 ``` go 
 func (s *ValueSpec) Pos() token.Pos
 ```
 
-### type [Visitor](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=12) 
+### type Visitor 
 
 ``` go 
 type Visitor interface {

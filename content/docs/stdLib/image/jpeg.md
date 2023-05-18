@@ -33,7 +33,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=774) 
+#### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -41,7 +41,7 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a JPEG image from r and returns it as an image.Image.
 
-#### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=781) 
+#### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -49,7 +49,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the color model and dimensions of a JPEG image without decoding the entire image.
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=575) 
+#### func Encode 
 
 ``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
@@ -59,7 +59,7 @@ Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given opti
 
 ## 类型
 
-### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=18) 
+### type FormatError 
 
 ``` go 
 type FormatError string
@@ -67,13 +67,13 @@ type FormatError string
 
 A FormatError reports that the input is not a valid JPEG.
 
-#### (FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=20) 
+#### (FormatError) Error 
 
 ``` go 
 func (e FormatError) Error() string
 ```
 
-### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=569) 
+### type Options 
 
 ``` go 
 type Options struct {
@@ -87,7 +87,7 @@ Options are the encoding parameters. Quality ranges from 1 to 100 inclusive, hig
 ``` go 
 ```
 
-### type [UnsupportedError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=23) 
+### type UnsupportedError 
 
 ``` go 
 type UnsupportedError string
@@ -95,7 +95,7 @@ type UnsupportedError string
 
 An UnsupportedError reports that the input uses a valid but unimplemented JPEG feature.
 
-#### (UnsupportedError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=25) 
+#### (UnsupportedError) Error 
 
 ``` go 
 func (e UnsupportedError) Error() string

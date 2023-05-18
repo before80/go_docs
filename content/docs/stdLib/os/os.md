@@ -7,7 +7,7 @@ draft = false
 +++
 # os
 
-[https://pkg.go.dev/os@go1.20.1](https://pkg.go.dev/os@go1.20.1)
+https://pkg.go.dev/os@go1.20.1
 
 ​	os包提供了一个独立于平台的操作系统功能接口。设计类 Unix，但错误处理类 Go；失败的调用会返回类型为 error 而不是错误号的值。通常，在错误中还有更多的信息。例如，如果一个以文件名为参数的调用失败了，比如 Open 或 Stat，错误消息将在打印时包括失败的文件名，并且类型为 `*PathError`，可以拆开以获取更多信息。
 
@@ -177,7 +177,7 @@ var ErrProcessDone = errors.New("os: process already finished")
 
 ## 函数
 
-#### func [Chdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=287) 
+#### func Chdir 
 
 ``` go 
 func Chdir(dir string) error
@@ -185,7 +185,7 @@ func Chdir(dir string) error
 
 ​	Chdir函数将当前工作目录更改为指定的目录。如果出错，将返回 `*PathError` 类型的错误。
 
-#### func [Chmod](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=528) 
+#### func Chmod 
 
 ``` go 
 func Chmod(name string, mode FileMode) error
@@ -223,7 +223,7 @@ func main() {
 
 
 
-#### func [Chown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=107) 
+#### func Chown 
 
 ``` go 
 func Chown(name string, uid, gid int) error
@@ -233,7 +233,7 @@ func Chown(name string, uid, gid int) error
 
 ​	在 Windows 或 Plan 9 上，Chown 始终返回 syscall.EWINDOWS 或 EPLAN9 错误，包装在 *PathError 中。
 
-#### func [Chtimes](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=180) 
+#### func Chtimes 
 
 ``` go 
 func Chtimes(name string, atime time.Time, mtime time.Time) error
@@ -267,7 +267,7 @@ func main() {
 
 
 
-#### func [Clearenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=133) 
+#### func Clearenv 
 
 ``` go 
 func Clearenv()
@@ -275,7 +275,7 @@ func Clearenv()
 
 ​	Clearenv函数删除所有环境变量。
 
-#### func [DirFS](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=603)  <- go1.16
+#### func DirFS  <- go1.16
 
 ``` go 
 func DirFS(dir string) fs.FS
@@ -289,7 +289,7 @@ func DirFS(dir string) fs.FS
 
 ​	该结果实现 fs.StatFS。
 
-#### func [Environ](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=139) 
+#### func Environ 
 
 ``` go 
 func Environ() []string
@@ -297,7 +297,7 @@ func Environ() []string
 
 ​	Environ函数返回表示环境变量的字符串副本，格式为"key=value"。
 
-#### func [Executable](https://cs.opensource.google/go/go/+/go1.20.1:src/os/executable.go;l=18)  <- go1.8
+#### func Executable  <- go1.8
 
 ``` go 
 func Executable() (string, error)
@@ -309,7 +309,7 @@ func Executable() (string, error)
 
 ​	主要用例是查找相对于可执行文件的资源。
 
-#### func [Exit](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=62) 
+#### func Exit 
 
 ``` go 
 func Exit(code int)
@@ -319,7 +319,7 @@ func Exit(code int)
 
 ​	为了可移植性，状态代码应在[0，125]范围内。
 
-#### func [Expand](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=16) 
+#### func Expand 
 
 ``` go 
 func Expand(s string, mapping func(string) string) string
@@ -358,7 +358,7 @@ Good morning, Gopher!
 
 
 
-#### func [ExpandEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=50) 
+#### func ExpandEnv 
 
 ``` go 
 func ExpandEnv(s string) string
@@ -389,7 +389,7 @@ gopher lives in /usr/gopher.
 
 
 
-#### func [Getegid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=46) 
+#### func Getegid 
 
 ``` go 
 func Getegid() int
@@ -399,7 +399,7 @@ func Getegid() int
 
 ​	在Windows上，它返回-1。
 
-#### func [Getenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=101) 
+#### func Getenv 
 
 ``` go 
 func Getenv(key string) string
@@ -429,7 +429,7 @@ gopher lives in /usr/gopher.
 
 
 
-#### func [Geteuid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=36) 
+#### func Geteuid 
 
 ``` go 
 func Geteuid() int
@@ -439,7 +439,7 @@ func Geteuid() int
 
 ​	在Windows上，它返回-1。
 
-#### func [Getgid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=41) 
+#### func Getgid 
 
 ``` go 
 func Getgid() int
@@ -449,7 +449,7 @@ func Getgid() int
 
 ​	在Windows上，它返回-1。
 
-#### func [Getgroups](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=52) 
+#### func Getgroups 
 
 ``` go 
 func Getgroups() ([]int, error)
@@ -459,7 +459,7 @@ func Getgroups() ([]int, error)
 
 ​	在Windows上，它返回syscall.EWINDOWS。有关可能的替代方案，请参见os/user包。
 
-#### func [Getpagesize](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=13) 
+#### func Getpagesize 
 
 ``` go 
 func Getpagesize() int
@@ -467,7 +467,7 @@ func Getpagesize() int
 
 ​	Getpagesize函数返回底层系统的内存页面大小。
 
-#### func [Getpid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=78) 
+#### func Getpid 
 
 ``` go 
 func Getpid() int
@@ -475,7 +475,7 @@ func Getpid() int
 
 ​	Getpid函数返回调用方的进程 ID。
 
-#### func [Getppid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=81) 
+#### func Getppid 
 
 ``` go 
 func Getppid() int
@@ -483,7 +483,7 @@ func Getppid() int
 
 ​	Getppid函数返回调用方的父进程 ID。
 
-#### func [Getuid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=31) 
+#### func Getuid 
 
 ``` go 
 func Getuid() int
@@ -493,7 +493,7 @@ func Getuid() int
 
 ​	在Windows上，它返回-1。
 
-#### func [Getwd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/getwd.go;l=22) 
+#### func Getwd 
 
 ``` go 
 func Getwd() (dir string, err error)
@@ -501,7 +501,7 @@ func Getwd() (dir string, err error)
 
 ​	Getwd函数返回对应于当前目录的根路径名。如果可以通过多个路径到达当前目录(由于符号链接)，Getwd可能返回其中任何一个。
 
-#### func [Hostname](https://cs.opensource.google/go/go/+/go1.20.1:src/os/sys.go;l=8) 
+#### func Hostname 
 
 ``` go 
 func Hostname() (name string, err error)
@@ -509,7 +509,7 @@ func Hostname() (name string, err error)
 
 ​	Hostname函数返回内核报告的主机名。
 
-#### func [IsExist](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=80) 
+#### func IsExist 
 
 ``` go 
 func IsExist(err error) bool
@@ -519,7 +519,7 @@ func IsExist(err error) bool
 
 ​	此函数先于errors.Is。它仅支持由os包返回的错误。新代码应使用errors.Is(err，fs.ErrExist)。
 
-#### func [IsNotExist](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=90) 
+#### func IsNotExist 
 
 ``` go 
 func IsNotExist(err error) bool
@@ -529,7 +529,7 @@ func IsNotExist(err error) bool
 
 ​	此函数先于errors.Is。它仅支持由os包返回的错误。新代码应使用errors.Is(err，fs.ErrNotExist)。
 
-#### func [IsPathSeparator](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path_unix.go;l=15) 
+#### func IsPathSeparator 
 
 ``` go 
 func IsPathSeparator(c uint8) bool
@@ -537,7 +537,7 @@ func IsPathSeparator(c uint8) bool
 
 IsPathSeparator函数返回一个布尔值，指示c是否为目录分隔符字符。
 
-#### func [IsPermission](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=100) 
+#### func IsPermission 
 
 ``` go 
 func IsPermission(err error) bool
@@ -547,7 +547,7 @@ func IsPermission(err error) bool
 
 ​	此函数早于errors.Is。它仅支持由os包返回的错误。新代码应使用errors.Is(err，fs.ErrPermission)。
 
-#### func [IsTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=112)  <- go1.10
+#### func IsTimeout  <- go1.10
 
 ``` go 
 func IsTimeout(err error) bool
@@ -557,7 +557,7 @@ func IsTimeout(err error) bool
 
 ​	此函数早于errors.Is，并且错误是否表示超时的概念可能不明确。例如，Unix错误EWOULDBLOCK有时指示超时，有时不是。新代码应使用与返回错误的调用相适应的值，例如os.ErrDeadlineExceeded。
 
-#### func [Lchown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=123) 
+#### func Lchown 
 
 ``` go 
 func Lchown(name string, uid, gid int) error
@@ -567,7 +567,7 @@ func Lchown(name string, uid, gid int) error
 
 ​	在Windows上，它总是返回syscall.EWINDOWS错误，包装在*PathError中。
 
-#### func [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=352) 
+#### func Link 
 
 ``` go 
 func Link(oldname, newname string) error
@@ -575,7 +575,7 @@ func Link(oldname, newname string) error
 
 ​	Link函数将newname创建为oldname文件的硬链接。如果有错误，它将是`*LinkError`类型。
 
-#### func [LookupEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=112)  <- go1.5
+#### func LookupEnv  <- go1.5
 
 ``` go 
 func LookupEnv(key string) (string, bool)
@@ -618,7 +618,7 @@ MISSING_KEY not set
 
 
 
-#### func [Mkdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=253) 
+#### func Mkdir 
 
 ``` go 
 func Mkdir(name string, perm FileMode) error
@@ -649,7 +649,7 @@ func main() {
 
 
 
-#### func [MkdirAll](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path.go;l=18) 
+#### func MkdirAll 
 
 ``` go 
 func MkdirAll(path string, perm FileMode) error
@@ -680,7 +680,7 @@ func main() {
 
 
 
-#### func [MkdirTemp](https://cs.opensource.google/go/go/+/go1.20.1:src/os/tempfile.go;l=80)  <- go1.16
+#### func MkdirTemp  <- go1.16
 
 ``` go 
 func MkdirTemp(dir, pattern string) (string, error)
@@ -751,7 +751,7 @@ func main() {
 
 
 
-#### func [NewSyscallError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=67) 
+#### func NewSyscallError 
 
 ``` go 
 func NewSyscallError(syscall string, err error) error
@@ -759,7 +759,7 @@ func NewSyscallError(syscall string, err error) error
 
 ​	NewSyscallError函数返回一个新的SyscallError，其中包含给定的系统调用名称和错误详细信息作为错误。为方便起见，如果err为nil，则NewSyscallError返回nil。
 
-#### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/pipe2_unix.go;l=13) 
+#### func Pipe 
 
 ``` go 
 func Pipe() (r *File, w *File, err error)
@@ -767,7 +767,7 @@ func Pipe() (r *File, w *File, err error)
 
 ​	Pipe函数返回一对连接的文件。从r读取的字节返回到w中。如果有错误，则返回文件和错误。
 
-#### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=674)  <- go1.16
+#### func ReadFile  <- go1.16
 
 ``` go 
 func ReadFile(name string) ([]byte, error)
@@ -798,7 +798,7 @@ func main() {
 
 
 
-#### func [Readlink](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=378) 
+#### func Readlink 
 
 ``` go 
 func Readlink(name string) (string, error)
@@ -806,7 +806,7 @@ func Readlink(name string) (string, error)
 
 ​	Readlink函数返回指定符号链接的目标。如果有错误，则错误类型为* PathError。
 
-#### func [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=305) 
+#### func Remove 
 
 ``` go 
 func Remove(name string) error
@@ -814,7 +814,7 @@ func Remove(name string) error
 
 ​	Remove函数删除指定的文件或(空)目录。如果有错误，则错误类型为`* PathError`。
 
-#### func [RemoveAll](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path.go;l=66) 
+#### func RemoveAll 
 
 ``` go 
 func RemoveAll(path string) error
@@ -822,7 +822,7 @@ func RemoveAll(path string) error
 
 ​	RemoveAll函数删除路径及其包含的所有子项。它会尽可能删除所有内容，但返回遇到的第一个错误。如果路径不存在，则RemoveAll返回nil(无错误)。如果有错误，则错误类型为`* PathError`。
 
-#### func [Rename](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=343) 
+#### func Rename 
 
 ``` go 
 func Rename(oldpath, newpath string) error
@@ -830,7 +830,7 @@ func Rename(oldpath, newpath string) error
 
 ​	Rename函数将oldpath重命名(移动)为newpath。如果newpath已经存在且不是目录，则会替换它。当oldpath和newpath在不同目录中时，可能会受到操作系统特定的限制。即使在同一个目录中，对于非Unix平台，Rename操作也不是原子性的。如果出错，错误类型为`*LinkError`。
 
-#### func [SameFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=67) 
+#### func SameFile 
 
 ``` go 
 func SameFile(fi1, fi2 FileInfo) bool
@@ -838,7 +838,7 @@ func SameFile(fi1, fi2 FileInfo) bool
 
 ​	SameFile函数报告fi1和fi2描述的是否是同一文件。例如，在Unix上，这意味着两个底层结构的设备和inode字段是相同的；在其他系统上，决策可能基于路径名。SameFile仅适用于此包的Stat返回的结果。在其他情况下返回false。
 
-#### func [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=119) 
+#### func Setenv 
 
 ``` go 
 func Setenv(key, value string) error
@@ -846,7 +846,7 @@ func Setenv(key, value string) error
 
 ​	Setenv函数设置由键名key命名的环境变量的值。如果有任何错误，它将返回该错误。
 
-#### func [Symlink](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=366) 
+#### func Symlink 
 
 ``` go 
 func Symlink(oldname, newname string) error
@@ -854,7 +854,7 @@ func Symlink(oldname, newname string) error
 
 ​	Symlink函数将newname创建为指向oldname的符号链接。在Windows上，指向不存在的oldname的符号链接会创建一个文件符号链接；如果后来将oldname创建为目录，则符号链接将无法正常工作。如果出错，错误类型为`*LinkError`。
 
-#### func [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=378) 
+#### func TempDir 
 
 ``` go 
 func TempDir() string
@@ -866,7 +866,7 @@ func TempDir() string
 
 ​	该目录既不保证存在，也不保证可访问权限。
 
-#### func [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=293) 
+#### func Truncate 
 
 ``` go 
 func Truncate(name string, size int64) error
@@ -874,7 +874,7 @@ func Truncate(name string, size int64) error
 
 ​	Truncate函数更改命名文件的大小。如果文件是符号链接，则更改链接目标的大小。如果出错，错误类型为`*PathError`。
 
-#### func [Unsetenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=128)  <- go1.4
+#### func Unsetenv  <- go1.4
 
 ``` go 
 func Unsetenv(key string) error
@@ -900,7 +900,7 @@ func main() {
 
 
 
-#### func [UserCacheDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=395)  <- go1.11
+#### func UserCacheDir  <- go1.11
 
 ``` go 
 func UserCacheDir() (string, error)
@@ -912,7 +912,7 @@ func UserCacheDir() (string, error)
 
 ​	如果无法确定位置(例如，$HOME未定义)，则它将返回一个错误。
 
-#### func [UserConfigDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=446)  <- go1.13
+#### func UserConfigDir  <- go1.13
 
 ``` go 
 func UserConfigDir() (string, error)
@@ -924,7 +924,7 @@ func UserConfigDir() (string, error)
 
 ​	如果无法确定位置(例如未定义 `$HOME`)，则返回错误。
 
-#### func [UserHomeDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=489)  <- go1.12
+#### func UserHomeDir  <- go1.12
 
 ``` go 
 func UserHomeDir() (string, error)
@@ -934,7 +934,7 @@ func UserHomeDir() (string, error)
 
 ​	在 Unix 系统(包括 macOS)上，它返回 `$HOME` 环境变量。在 Windows 上，它返回`%USERPROFILE%`。在 Plan 9 上，它返回 `$home` 环境变量。
 
-#### func [WriteFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=720)  <- go1.16
+#### func WriteFile  <- go1.16
 
 ``` go 
 func WriteFile(name string, data []byte, perm FileMode) error
@@ -965,7 +965,7 @@ func main() {
 
 ## 类型
 
-### type [DirEntry](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=82)  <- go1.16
+### type DirEntry  <- go1.16
 
 ``` go 
 type DirEntry = fs.DirEntry
@@ -973,7 +973,7 @@ type DirEntry = fs.DirEntry
 
 ​	DirEntry 是从目录中读取的条目(使用 ReadDir 函数或 File 的 ReadDir 方法)。
 
-#### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=115)  <- go1.16
+#### func ReadDir  <- go1.16
 
 ``` go 
 func ReadDir(name string) ([]DirEntry, error)
@@ -1007,7 +1007,7 @@ func main() {
 
 
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=16) 
+### type File 
 
 ``` go 
 type File struct {
@@ -1018,7 +1018,7 @@ type File struct {
 
 ​	File结构体表示一个打开的文件描述符。
 
-#### func [Create](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=314) 
+#### func Create 
 
 ``` go 
 func Create(name string) (*File, error)
@@ -1026,7 +1026,7 @@ func Create(name string) (*File, error)
 
 ​	Create函数创建或截断命名文件。如果文件已经存在，则将其截断。如果文件不存在，则创建它以使用 mode 0666(在 umask 前)。如果成功，则返回的 File 上的方法可用于 I/O；相关的文件描述符具有 mode O_RDWR。如果有错误，它将是 `*PathError` 类型。
 
-#### func [CreateTemp](https://cs.opensource.google/go/go/+/go1.20.1:src/os/tempfile.go;l=30)  <- go1.16
+#### func CreateTemp  <- go1.16
 
 ``` go 
 func CreateTemp(dir, pattern string) (*File, error)
@@ -1091,7 +1091,7 @@ func main() {
 
 
 
-#### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=101) 
+#### func NewFile 
 
 ``` go 
 func NewFile(fd uintptr, name string) *File
@@ -1101,7 +1101,7 @@ func NewFile(fd uintptr, name string) *File
 
 ​	将其传递给 NewFile 后，fd 可能会在与 Fd 方法的注释相同的条件下无效，同样的限制也适用。
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=305) 
+#### func Open 
 
 ``` go 
 func Open(name string) (*File, error)
@@ -1109,7 +1109,7 @@ func Open(name string) (*File, error)
 
 ​	Open函数打开具有指定名称的文件以供读取。如果成功，可以使用返回的文件上的方法进行读取。关联的文件描述符具有 O_RDONLY 模式。如果出现错误，类型为 `*PathError`。
 
-#### func [OpenFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=324) 
+#### func OpenFile 
 
 ``` go 
 func OpenFile(name string, flag int, perm FileMode) (*File, error)
@@ -1168,7 +1168,7 @@ func main() {
 
 
 
-#### (*File) [Chdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=193) 
+#### (*File) Chdir 
 
 ``` go 
 func (f *File) Chdir() error
@@ -1176,7 +1176,7 @@ func (f *File) Chdir() error
 
 ​	Chdir方法将当前工作目录更改为文件。它必须是目录。如果出现错误，类型为 `*PathError`。
 
-#### (*File) [Chmod](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=532) 
+#### (*File) Chmod 
 
 ``` go 
 func (f *File) Chmod(mode FileMode) error
@@ -1184,7 +1184,7 @@ func (f *File) Chmod(mode FileMode) error
 
 ​	Chmod方法将文件的模式更改为 mode。如果出现错误，类型为 `*PathError`。
 
-#### (*File) [Chown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=138) 
+#### (*File) Chown 
 
 ``` go 
 func (f *File) Chown(uid, gid int) error
@@ -1194,7 +1194,7 @@ func (f *File) Chown(uid, gid int) error
 
 ​	在 Windows 上，它始终返回 syscall.EWINDOWS 错误，包装在 `*PathError` 中。
 
-#### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=21) 
+#### (*File) Close 
 
 ``` go 
 func (f *File) Close() error
@@ -1202,7 +1202,7 @@ func (f *File) Close() error
 
 ​	Close方法关闭文件，使其不能用于I/O。对于支持SetDeadline的文件，任何待处理的I/O操作都将被取消，并立即返回ErrClosed错误。如果已经调用过Close方法，则Close将返回一个错误。
 
-#### (*File) [Fd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=75) 
+#### (*File) Fd 
 
 ``` go 
 func (f *File) Fd() uintptr
@@ -1212,7 +1212,7 @@ func (f *File) Fd() uintptr
 
 ​	作为替代方案，请参见f.SyscallConn方法。
 
-#### (*File) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=56) 
+#### (*File) Name 
 
 ``` go 
 func (f *File) Name() string
@@ -1220,7 +1220,7 @@ func (f *File) Name() string
 
 ​	Name方法返回打开文件的名称。
 
-#### (*File) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=114) 
+#### (*File) Read 
 
 ``` go 
 func (f *File) Read(b []byte) (n int, err error)
@@ -1228,7 +1228,7 @@ func (f *File) Read(b []byte) (n int, err error)
 
 ​	Read方法从文件中读取最多len(b)字节，并将其存储在b中。它返回读取的字节数和任何遇到的错误。在文件末尾，Read返回0，io.EOF。
 
-#### (*File) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=126) 
+#### (*File) ReadAt 
 
 ``` go 
 func (f *File) ReadAt(b []byte, off int64) (n int, err error)
@@ -1236,7 +1236,7 @@ func (f *File) ReadAt(b []byte, off int64) (n int, err error)
 
 ​	ReadAt方法从文件中读取len(b)字节，从偏移量off处开始。它返回读取的字节数和错误(如果有)。当n < len(b)时，ReadAt总是返回非nil错误。在文件末尾，该错误为io.EOF。
 
-#### (*File) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=94)  <- go1.16
+#### (*File) ReadDir  <- go1.16
 
 ``` go 
 func (f *File) ReadDir(n int) ([]DirEntry, error)
@@ -1248,7 +1248,7 @@ func (f *File) ReadDir(n int) ([]DirEntry, error)
 
 ​	如果n <= 0，则ReadDir将返回剩余目录中的所有DirEntry记录。当它成功时，它返回一个nil错误(而不是io.EOF)。
 
-#### (*File) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=149)  <- go1.15
+#### (*File) ReadFrom  <- go1.15
 
 ``` go 
 func (f *File) ReadFrom(r io.Reader) (n int64, err error)
@@ -1256,7 +1256,7 @@ func (f *File) ReadFrom(r io.Reader) (n int64, err error)
 
 ​	ReadFrom方法实现了io.ReaderFrom。
 
-#### (*File) [Readdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=37) 
+#### (*File) Readdir 
 
 ``` go 
 func (f *File) Readdir(n int) ([]FileInfo, error)
@@ -1270,7 +1270,7 @@ func (f *File) Readdir(n int) ([]FileInfo, error)
 
 ​	大多数客户端最好使用更高效的 ReadDir 方法。
 
-#### (*File) [Readdirnames](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=66) 
+#### (*File) Readdirnames 
 
 ``` go 
 func (f *File) Readdirnames(n int) (names []string, err error)
@@ -1282,7 +1282,7 @@ func (f *File) Readdirnames(n int) (names []string, err error)
 
 ​	如果 n <= 0，则 Readdirnames 以单个切片返回目录中的所有名称。在这种情况下，如果 Readdirnames 成功(一直读到目录结尾)，它将返回切片和 nil 错误。如果在目录结尾之前遇到错误，则 Readdirnames 返回读取到该点的名称和非 nil 错误。
 
-#### (*File) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=229) 
+#### (*File) Seek 
 
 ``` go 
 func (f *File) Seek(offset int64, whence int) (ret int64, err error)
@@ -1290,7 +1290,7 @@ func (f *File) Seek(offset int64, whence int) (ret int64, err error)
 
 ​	Seek方法将下一个文件上的读取或写入的偏移量设置为 offset，根据 whence 进行解释：0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾。它返回新的偏移量和错误(如果有)。对于使用 O_APPEND 打开的文件，Seek 的行为未指定。
 
-#### (*File) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=558)  <- go1.10
+#### (*File) SetDeadline  <- go1.10
 
 ``` go 
 func (f *File) SetDeadline(t time.Time) error
@@ -1308,7 +1308,7 @@ func (f *File) SetDeadline(t time.Time) error
 
 ​	t 的零值表示 I/O 操作不会超时。
 
-#### (*File) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=566)  <- go1.10
+#### (*File) SetReadDeadline  <- go1.10
 
 ``` go 
 func (f *File) SetReadDeadline(t time.Time) error
@@ -1316,7 +1316,7 @@ func (f *File) SetReadDeadline(t time.Time) error
 
 ​	SetReadDeadline方法设置将来的 Read 调用和任何当前阻塞的 Read 调用的截止时间。t 的零值表示 Read 不会超时。不是所有文件都支持设置截止时间；请参见 SetDeadline。
 
-#### (*File) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=576)  <- go1.10
+#### (*File) SetWriteDeadline  <- go1.10
 
 ``` go 
 func (f *File) SetWriteDeadline(t time.Time) error
@@ -1324,7 +1324,7 @@ func (f *File) SetWriteDeadline(t time.Time) error
 
 ​	SetWriteDeadline方法设置任何将来的 Write 调用和任何当前阻塞的 Write 调用的截止时间。即使 Write 超时，它也可能返回 n > 0，表示某些数据已成功写入。t 的零值表示 Write 不会超时。不是所有文件都支持设置截止时间；请参见 SetDeadline。
 
-#### (*File) [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat_unix.go;l=15) 
+#### (*File) Stat 
 
 ``` go 
 func (f *File) Stat() (FileInfo, error)
@@ -1332,7 +1332,7 @@ func (f *File) Stat() (FileInfo, error)
 
 ​	Stat方法返回描述文件的 FileInfo 结构。如果有错误，它将是 `*PathError` 类型。
 
-#### (*File) [Sync](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=164) 
+#### (*File) Sync 
 
 ``` go 
 func (f *File) Sync() error
@@ -1340,7 +1340,7 @@ func (f *File) Sync() error
 
 ​	Sync方法将文件的当前内容提交到稳定存储。通常，这意味着将文件系统的最近写入数据的内存副本刷新到磁盘。
 
-#### (*File) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=582)  <- go1.12
+#### (*File) SyscallConn  <- go1.12
 
 ``` go 
 func (f *File) SyscallConn() (syscall.RawConn, error)
@@ -1348,7 +1348,7 @@ func (f *File) SyscallConn() (syscall.RawConn, error)
 
 ​	SyscallConn方法返回一个原始文件。它实现了 syscall.Conn 接口。
 
-#### (*File) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=151) 
+#### (*File) Truncate 
 
 ``` go 
 func (f *File) Truncate(size int64) error
@@ -1356,7 +1356,7 @@ func (f *File) Truncate(size int64) error
 
 ​	Truncate方法改变文件的大小。它不会改变 I/O 偏移量。如果有错误，它将是 `*PathError` 类型。
 
-#### (*File) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=171) 
+#### (*File) Write 
 
 ``` go 
 func (f *File) Write(b []byte) (n int, err error)
@@ -1364,7 +1364,7 @@ func (f *File) Write(b []byte) (n int, err error)
 
 ​	Write方法将 len(b) 个字节从 b 写入 File 中。它返回写入的字节数和错误(如果有)。当 n != len(b) 时，Write 返回非 nil 错误。
 
-#### (*File) [WriteAt](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=199) 
+#### (*File) WriteAt 
 
 ``` go 
 func (f *File) WriteAt(b []byte, off int64) (n int, err error)
@@ -1374,7 +1374,7 @@ func (f *File) WriteAt(b []byte, off int64) (n int, err error)
 
 ​	如果打开 file 时使用了 O_APPEND 标志，则 WriteAt 返回一个错误。
 
-#### (*File) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=245) 
+#### (*File) WriteString 
 
 ``` go 
 func (f *File) WriteString(s string) (n int, err error)
@@ -1382,7 +1382,7 @@ func (f *File) WriteString(s string) (n int, err error)
 
 ​	WriteString方法类似于 Write，但它写入字符串 s 的内容而不是字节切片。
 
-### type [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=21) 
+### type FileInfo 
 
 ``` go 
 type FileInfo = fs.FileInfo
@@ -1390,7 +1390,7 @@ type FileInfo = fs.FileInfo
 
 ​	FileInfo 描述一个文件，并由 Stat 和 Lstat 返回。
 
-#### func [Lstat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat.go;l=20) 
+#### func Lstat 
 
 ``` go 
 func Lstat(name string) (FileInfo, error)
@@ -1398,7 +1398,7 @@ func Lstat(name string) (FileInfo, error)
 
 ​	Lstat函数返回描述命名文件的 FileInfo。如果文件是符号链接，则返回的 FileInfo 描述符号链接。Lstat 不会尝试跟随链接。如果有错误，它将是 `*PathError` 类型的。
 
-#### func [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat.go;l=11) 
+#### func Stat 
 
 ``` go 
 func Stat(name string) (FileInfo, error)
@@ -1406,7 +1406,7 @@ func Stat(name string) (FileInfo, error)
 
 ​	Stat函数返回描述命名文件的 FileInfo。如果有错误，它将是 `*PathError` 类型的。
 
-### type [FileMode](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=28) 
+### type FileMode 
 
 ``` go 
 type FileMode = fs.FileMode
@@ -1449,7 +1449,7 @@ func main() {
 
 
 
-### type [LinkError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=96) 
+### type LinkError 
 
 ``` go 
 type LinkError struct {
@@ -1462,19 +1462,19 @@ type LinkError struct {
 
 ​	LinkError结构体记录了link、symlink或rename系统调用期间发生的错误和引起错误的路径。
 
-#### (*LinkError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=103) 
+#### (*LinkError) Error 
 
 ``` go 
 func (e *LinkError) Error() string
 ```
 
-#### (*LinkError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=107)  <- go1.13
+#### (*LinkError) Unwrap  <- go1.13
 
 ``` go 
 func (e *LinkError) Unwrap() error
 ```
 
-### type [PathError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=46) 
+### type PathError 
 
 ``` go 
 type PathError = fs.PathError
@@ -1482,7 +1482,7 @@ type PathError = fs.PathError
 
 ​	PathError类型记录了错误和引起错误的操作和文件路径。
 
-### type [ProcAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=44) 
+### type ProcAttr 
 
 ``` go 
 type ProcAttr struct {
@@ -1508,7 +1508,7 @@ type ProcAttr struct {
 
 ​	ProcAttr结构体保存将应用于由StartProcess启动的新进程的属性。
 
-### type [Process](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=21) 
+### type Process 
 
 ``` go 
 type Process struct {
@@ -1520,7 +1520,7 @@ type Process struct {
 
 ​	Process结构体存储由StartProcess创建的进程的信息。
 
-#### func [FindProcess](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=90) 
+#### func FindProcess 
 
 ``` go 
 func FindProcess(pid int) (*Process, error)
@@ -1532,7 +1532,7 @@ func FindProcess(pid int) (*Process, error)
 
 ​	在Unix系统上，FindProcess始终成功并返回给定pid的Process，无论进程是否存在。
 
-#### func [StartProcess](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=107) 
+#### func StartProcess 
 
 ``` go 
 func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
@@ -1546,7 +1546,7 @@ func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
 
 ​	如果有错误，则为`*PathError`类型。
 
-#### (*Process) [Kill](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=122) 
+#### (*Process) Kill 
 
 ``` go 
 func (p *Process) Kill() error
@@ -1554,7 +1554,7 @@ func (p *Process) Kill() error
 
 ​	Kill方法使进程立即退出。Kill不会等待进程实际退出。这只会杀死进程本身，而不是它可能启动的任何其他进程。
 
-#### (*Process) [Release](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=115) 
+#### (*Process) Release 
 
 ``` go 
 func (p *Process) Release() error
@@ -1562,7 +1562,7 @@ func (p *Process) Release() error
 
 ​	Release方法释放与进程p关联的任何资源，使其在将来无法使用。如果不使用Wait，则只需要调用Release。
 
-#### (*Process) [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=137) 
+#### (*Process) Signal 
 
 ``` go 
 func (p *Process) Signal(sig Signal) error
@@ -1570,7 +1570,7 @@ func (p *Process) Signal(sig Signal) error
 
 ​	Signal方法向进程发送信号。在Windows上发送中断信号未实现。
 
-#### (*Process) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=131) 
+#### (*Process) Wait 
 
 ``` go 
 func (p *Process) Wait() (*ProcessState, error)
@@ -1578,7 +1578,7 @@ func (p *Process) Wait() (*ProcessState, error)
 
 ​	Wait方法等待进程退出，然后返回ProcessState描述其状态和任何错误。Wait释放与进程关联的任何资源。在大多数操作系统上，进程必须是当前进程的子进程，否则将返回一个错误。
 
-### type [ProcessState](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=71) 
+### type ProcessState 
 
 ``` go 
 type ProcessState struct {
@@ -1588,7 +1588,7 @@ type ProcessState struct {
 
 ​	ProcessState结构体存储关于进程的信息，由Wait方法报告。
 
-#### (*ProcessState) [ExitCode](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=130)  <- go1.12
+#### (*ProcessState) ExitCode  <- go1.12
 
 ``` go 
 func (p *ProcessState) ExitCode() int
@@ -1596,7 +1596,7 @@ func (p *ProcessState) ExitCode() int
 
 ​	ExitCode方法返回退出的进程的退出代码，如果进程尚未退出或被信号终止，则返回-1。
 
-#### (*ProcessState) [Exited](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=154) 
+#### (*ProcessState) Exited 
 
 ``` go 
 func (p *ProcessState) Exited() bool
@@ -1604,7 +1604,7 @@ func (p *ProcessState) Exited() bool
 
 ​	Exited方法报告程序是否已退出。在Unix系统上，如果程序由于调用exit而退出，则此项报告为true，但如果程序由于信号终止而终止，则此项报告为false。
 
-#### (*ProcessState) [Pid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=78) 
+#### (*ProcessState) Pid 
 
 ``` go 
 func (p *ProcessState) Pid() int
@@ -1612,13 +1612,13 @@ func (p *ProcessState) Pid() int
 
 ​	Pid方法返回已退出进程的进程ID。
 
-#### (*ProcessState) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=98) 
+#### (*ProcessState) String 
 
 ``` go 
 func (p *ProcessState) String() string
 ```
 
-#### (*ProcessState) [Success](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=160) 
+#### (*ProcessState) Success 
 
 ``` go 
 func (p *ProcessState) Success() bool
@@ -1626,7 +1626,7 @@ func (p *ProcessState) Success() bool
 
 ​	Success方法报告程序是否成功退出，例如在Unix上以退出状态0退出。
 
-#### (*ProcessState) [Sys](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=167) 
+#### (*ProcessState) Sys 
 
 ``` go 
 func (p *ProcessState) Sys() any
@@ -1634,7 +1634,7 @@ func (p *ProcessState) Sys() any
 
 ​	Sys方法返回有关进程的系统相关退出信息。将其转换为适当的底层类型，例如在Unix上的syscall.WaitStatus，以访问其内容。
 
-#### (*ProcessState) [SysUsage](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=176) 
+#### (*ProcessState) SysUsage 
 
 ``` go 
 func (p *ProcessState) SysUsage() any
@@ -1642,7 +1642,7 @@ func (p *ProcessState) SysUsage() any
 
 ​	SysUsage方法返回有关已退出进程的系统相关资源使用情况信息。将其转换为适当的底层类型，例如在Unix上的`*syscall.Rusage`，以访问其内容。(在Unix上，`*syscall.Rusage`与getrusage(2)手册页中定义的struct rusage匹配。)
 
-#### (*ProcessState) [SystemTime](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=147) 
+#### (*ProcessState) SystemTime 
 
 ``` go 
 func (p *ProcessState) SystemTime() time.Duration
@@ -1650,7 +1650,7 @@ func (p *ProcessState) SystemTime() time.Duration
 
 ​	SystemTime方法返回已退出进程及其子进程的系统CPU时间。
 
-#### (*ProcessState) [UserTime](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=142) 
+#### (*ProcessState) UserTime 
 
 ``` go 
 func (p *ProcessState) UserTime() time.Duration
@@ -1658,7 +1658,7 @@ func (p *ProcessState) UserTime() time.Duration
 
 ​	UserTime方法返回已退出进程及其子进程的用户CPU时间。
 
-### type [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=72) 
+### type Signal 
 
 ``` go 
 type Signal interface {
@@ -1678,7 +1678,7 @@ var (
 
 ​	在所有系统上os包中保证存在的唯一信号值是os.Interrupt(发送中断信号给进程)和os.Kill(强制进程退出)。在Windows上，使用os.Process.Signal将os.Interrupt发送到进程不起作用；它会返回一个错误，而不是发送信号。
 
-### type [SyscallError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=49) 
+### type SyscallError 
 
 ``` go 
 type SyscallError struct {
@@ -1689,13 +1689,13 @@ type SyscallError struct {
 
 ​	SyscallError结构体记录特定系统调用的错误。
 
-#### (*SyscallError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=54) 
+#### (*SyscallError) Error 
 
 ``` go 
 func (e *SyscallError) Error() string
 ```
 
-#### (*SyscallError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=59)  <- go1.10
+#### (*SyscallError) Timeout  <- go1.10
 
 ``` go 
 func (e *SyscallError) Timeout() bool
@@ -1703,7 +1703,7 @@ func (e *SyscallError) Timeout() bool
 
 ​	Timeout方法报告此错误是否表示超时。
 
-#### (*SyscallError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=56)  <- go1.13
+#### (*SyscallError) Unwrap  <- go1.13
 
 ``` go 
 func (e *SyscallError) Unwrap() error

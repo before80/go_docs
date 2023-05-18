@@ -21,7 +21,7 @@ Note that it does NOT provide access to the build configuration used to build th
   
   
 
-## 常量 [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=42)
 
@@ -75,7 +75,7 @@ Note: must agree with runtime.framepointer_enabled.
 
 ## 函数
 
-#### func [Check](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/cfg.go;l=42) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#Check)
+#### func Check [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#Check)
 
 ```
 func Check()
@@ -83,7 +83,7 @@ func Check()
 
 Check exits the program with a fatal error if Error is non-nil.
 
-#### func [GOGOARCH](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/cfg.go;l=177) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#GOGOARCH)added in go1.20
+#### func GOGOARCH [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#GOGOARCH)added in go1.20
 
 ```
 func GOGOARCH() (name, value string)
@@ -91,7 +91,7 @@ func GOGOARCH() (name, value string)
 
 GOGOARCH returns the name and value of the GO$GOARCH setting. For example, if GOARCH is "amd64" it might return "GOAMD64", "v2".
 
-#### func [Getgoextlinkenabled](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/cfg.go;l=152) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#Getgoextlinkenabled)
+#### func Getgoextlinkenabled [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#Getgoextlinkenabled)
 
 ```
 func Getgoextlinkenabled() string
@@ -99,7 +99,7 @@ func Getgoextlinkenabled() string
 
 ## 类型
 
-### type [ExperimentFlags](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=17) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags)added in go1.19
+### type ExperimentFlags [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags)added in go1.19
 
 ```
 type ExperimentFlags struct {
@@ -127,7 +127,7 @@ Experiment contains the toolchain experiments enabled for the current build.
 
 experimentBaseline specifies the experiment flags that are enabled by default in the current toolchain. This is, in effect, the "control" configuration and any variation from this is an experiment.
 
-#### func [ParseGOEXPERIMENT](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=58) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ParseGOEXPERIMENT)
+#### func ParseGOEXPERIMENT [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ParseGOEXPERIMENT)
 
 ```
 func ParseGOEXPERIMENT(goos, goarch, goexp string) (*ExperimentFlags, error)
@@ -137,7 +137,7 @@ ParseGOEXPERIMENT parses a (GOOS, GOARCH, GOEXPERIMENT) configuration tuple and 
 
 TODO(mdempsky): Move to internal/goexperiment.
 
-#### (*ExperimentFlags) [All](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=189) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.All)added in go1.19
+#### (*ExperimentFlags) All [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.All)added in go1.19
 
 ```
 func (exp *ExperimentFlags) All() []string
@@ -145,7 +145,7 @@ func (exp *ExperimentFlags) All() []string
 
 All returns a list of all experiment settings. Disabled experiments appear in the list prefixed by "no".
 
-#### (*ExperimentFlags) [Enabled](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=183) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.Enabled)added in go1.19
+#### (*ExperimentFlags) Enabled [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.Enabled)added in go1.19
 
 ```
 func (exp *ExperimentFlags) Enabled() []string
@@ -153,7 +153,7 @@ func (exp *ExperimentFlags) Enabled() []string
 
 Enabled returns a list of enabled experiments, as lower-cased experiment names.
 
-#### (*ExperimentFlags) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=147) [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.String)added in go1.19
+#### (*ExperimentFlags) String [¶](https://pkg.go.dev/internal/buildcfg@go1.20.1#ExperimentFlags.String)added in go1.19
 
 ```
 func (exp *ExperimentFlags) String() string

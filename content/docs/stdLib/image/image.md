@@ -71,7 +71,7 @@ ErrFormat indicates that decoding encountered an unknown format.
 
 ## 函数
 
-#### func [RegisterFormat](https://cs.opensource.google/go/go/+/go1.20.1:src/image/format.go;l=37) 
+#### func RegisterFormat 
 
 ``` go 
 func RegisterFormat(name, magic string, decode func(io.Reader) (Image, error), decodeConfig func(io.Reader) (Config, error))
@@ -81,7 +81,7 @@ RegisterFormat registers an image format for use by Decode. Name is the name of 
 
 ## 类型
 
-### type [Alpha](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=610) 
+### type Alpha 
 
 ``` go 
 type Alpha struct {
@@ -97,7 +97,7 @@ type Alpha struct {
 
 Alpha is an in-memory image whose At method returns color.Alpha values.
 
-#### func [NewAlpha](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=709) 
+#### func NewAlpha 
 
 ``` go 
 func NewAlpha(r Rectangle) *Alpha
@@ -105,31 +105,31 @@ func NewAlpha(r Rectangle) *Alpha
 
 NewAlpha returns a new Alpha image with the given bounds.
 
-#### (*Alpha) [AlphaAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=634)  <- go1.4
+#### (*Alpha) AlphaAt  <- go1.4
 
 ``` go 
 func (p *Alpha) AlphaAt(x, y int) color.Alpha
 ```
 
-#### (*Alpha) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=624) 
+#### (*Alpha) At 
 
 ``` go 
 func (p *Alpha) At(x, y int) color.Color
 ```
 
-#### (*Alpha) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=622) 
+#### (*Alpha) Bounds 
 
 ``` go 
 func (p *Alpha) Bounds() Rectangle
 ```
 
-#### (*Alpha) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=620) 
+#### (*Alpha) ColorModel 
 
 ``` go 
 func (p *Alpha) ColorModel() color.Model
 ```
 
-#### (*Alpha) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=691) 
+#### (*Alpha) Opaque 
 
 ``` go 
 func (p *Alpha) Opaque() bool
@@ -137,7 +137,7 @@ func (p *Alpha) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Alpha) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=644) 
+#### (*Alpha) PixOffset 
 
 ``` go 
 func (p *Alpha) PixOffset(x, y int) int
@@ -145,31 +145,31 @@ func (p *Alpha) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Alpha) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=628)  <- go1.17
+#### (*Alpha) RGBA64At  <- go1.17
 
 ``` go 
 func (p *Alpha) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Alpha) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=648) 
+#### (*Alpha) Set 
 
 ``` go 
 func (p *Alpha) Set(x, y int, c color.Color)
 ```
 
-#### (*Alpha) [SetAlpha](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=664) 
+#### (*Alpha) SetAlpha 
 
 ``` go 
 func (p *Alpha) SetAlpha(x, y int, c color.Alpha)
 ```
 
-#### (*Alpha) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=656)  <- go1.17
+#### (*Alpha) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *Alpha) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Alpha) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=674) 
+#### (*Alpha) SubImage 
 
 ``` go 
 func (p *Alpha) SubImage(r Rectangle) Image
@@ -177,7 +177,7 @@ func (p *Alpha) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [Alpha16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=718) 
+### type Alpha16 
 
 ``` go 
 type Alpha16 struct {
@@ -193,7 +193,7 @@ type Alpha16 struct {
 
 Alpha16 is an in-memory image whose At method returns color.Alpha16 values.
 
-#### func [NewAlpha16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=820) 
+#### func NewAlpha16 
 
 ``` go 
 func NewAlpha16(r Rectangle) *Alpha16
@@ -201,31 +201,31 @@ func NewAlpha16(r Rectangle) *Alpha16
 
 NewAlpha16 returns a new Alpha16 image with the given bounds.
 
-#### (*Alpha16) [Alpha16At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=741)  <- go1.4
+#### (*Alpha16) Alpha16At  <- go1.4
 
 ``` go 
 func (p *Alpha16) Alpha16At(x, y int) color.Alpha16
 ```
 
-#### (*Alpha16) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=732) 
+#### (*Alpha16) At 
 
 ``` go 
 func (p *Alpha16) At(x, y int) color.Color
 ```
 
-#### (*Alpha16) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=730) 
+#### (*Alpha16) Bounds 
 
 ``` go 
 func (p *Alpha16) Bounds() Rectangle
 ```
 
-#### (*Alpha16) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=728) 
+#### (*Alpha16) ColorModel 
 
 ``` go 
 func (p *Alpha16) ColorModel() color.Model
 ```
 
-#### (*Alpha16) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=802) 
+#### (*Alpha16) Opaque 
 
 ``` go 
 func (p *Alpha16) Opaque() bool
@@ -233,7 +233,7 @@ func (p *Alpha16) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Alpha16) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=751) 
+#### (*Alpha16) PixOffset 
 
 ``` go 
 func (p *Alpha16) PixOffset(x, y int) int
@@ -241,31 +241,31 @@ func (p *Alpha16) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Alpha16) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=736)  <- go1.17
+#### (*Alpha16) RGBA64At  <- go1.17
 
 ``` go 
 func (p *Alpha16) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Alpha16) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=755) 
+#### (*Alpha16) Set 
 
 ``` go 
 func (p *Alpha16) Set(x, y int, c color.Color)
 ```
 
-#### (*Alpha16) [SetAlpha16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=774) 
+#### (*Alpha16) SetAlpha16 
 
 ``` go 
 func (p *Alpha16) SetAlpha16(x, y int, c color.Alpha16)
 ```
 
-#### (*Alpha16) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=765)  <- go1.17
+#### (*Alpha16) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *Alpha16) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Alpha16) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=785) 
+#### (*Alpha16) SubImage 
 
 ``` go 
 func (p *Alpha16) SubImage(r Rectangle) Image
@@ -273,7 +273,7 @@ func (p *Alpha16) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [CMYK](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1026)  <- go1.5
+### type CMYK  <- go1.5
 
 ``` go 
 type CMYK struct {
@@ -289,7 +289,7 @@ type CMYK struct {
 
 CMYK is an in-memory image whose At method returns color.CMYK values.
 
-#### func [NewCMYK](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1126)  <- go1.5
+#### func NewCMYK  <- go1.5
 
 ``` go 
 func NewCMYK(r Rectangle) *CMYK
@@ -297,31 +297,31 @@ func NewCMYK(r Rectangle) *CMYK
 
 NewCMYK returns a new CMYK image with the given bounds.
 
-#### (*CMYK) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1040)  <- go1.5
+#### (*CMYK) At  <- go1.5
 
 ``` go 
 func (p *CMYK) At(x, y int) color.Color
 ```
 
-#### (*CMYK) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1038)  <- go1.5
+#### (*CMYK) Bounds  <- go1.5
 
 ``` go 
 func (p *CMYK) Bounds() Rectangle
 ```
 
-#### (*CMYK) [CMYKAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1049)  <- go1.5
+#### (*CMYK) CMYKAt  <- go1.5
 
 ``` go 
 func (p *CMYK) CMYKAt(x, y int) color.CMYK
 ```
 
-#### (*CMYK) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1036)  <- go1.5
+#### (*CMYK) ColorModel  <- go1.5
 
 ``` go 
 func (p *CMYK) ColorModel() color.Model
 ```
 
-#### (*CMYK) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1121)  <- go1.5
+#### (*CMYK) Opaque  <- go1.5
 
 ``` go 
 func (p *CMYK) Opaque() bool
@@ -329,7 +329,7 @@ func (p *CMYK) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*CMYK) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1060)  <- go1.5
+#### (*CMYK) PixOffset  <- go1.5
 
 ``` go 
 func (p *CMYK) PixOffset(x, y int) int
@@ -337,31 +337,31 @@ func (p *CMYK) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*CMYK) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1044)  <- go1.17
+#### (*CMYK) RGBA64At  <- go1.17
 
 ``` go 
 func (p *CMYK) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*CMYK) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1064)  <- go1.5
+#### (*CMYK) Set  <- go1.5
 
 ``` go 
 func (p *CMYK) Set(x, y int, c color.Color)
 ```
 
-#### (*CMYK) [SetCMYK](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1090)  <- go1.5
+#### (*CMYK) SetCMYK  <- go1.5
 
 ``` go 
 func (p *CMYK) SetCMYK(x, y int, c color.CMYK)
 ```
 
-#### (*CMYK) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1077)  <- go1.17
+#### (*CMYK) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *CMYK) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*CMYK) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1104)  <- go1.5
+#### (*CMYK) SubImage  <- go1.5
 
 ``` go 
 func (p *CMYK) SubImage(r Rectangle) Image
@@ -369,7 +369,7 @@ func (p *CMYK) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=31) 
+### type Config 
 
 ``` go 
 type Config struct {
@@ -380,7 +380,7 @@ type Config struct {
 
 Config holds an image's color model and dimensions.
 
-#### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/format.go;l=101) 
+#### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (Config, string, error)
@@ -388,7 +388,7 @@ func DecodeConfig(r io.Reader) (Config, string, error)
 
 DecodeConfig decodes the color model and dimensions of an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec-specific package.
 
-### type [Gray](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=829) 
+### type Gray 
 
 ``` go 
 type Gray struct {
@@ -404,7 +404,7 @@ type Gray struct {
 
 Gray is an in-memory image whose At method returns color.Gray values.
 
-#### func [NewGray](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=917) 
+#### func NewGray 
 
 ``` go 
 func NewGray(r Rectangle) *Gray
@@ -412,31 +412,31 @@ func NewGray(r Rectangle) *Gray
 
 NewGray returns a new Gray image with the given bounds.
 
-#### (*Gray) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=843) 
+#### (*Gray) At 
 
 ``` go 
 func (p *Gray) At(x, y int) color.Color
 ```
 
-#### (*Gray) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=841) 
+#### (*Gray) Bounds 
 
 ``` go 
 func (p *Gray) Bounds() Rectangle
 ```
 
-#### (*Gray) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=839) 
+#### (*Gray) ColorModel 
 
 ``` go 
 func (p *Gray) ColorModel() color.Model
 ```
 
-#### (*Gray) [GrayAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=853)  <- go1.4
+#### (*Gray) GrayAt  <- go1.4
 
 ``` go 
 func (p *Gray) GrayAt(x, y int) color.Gray
 ```
 
-#### (*Gray) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=912) 
+#### (*Gray) Opaque 
 
 ``` go 
 func (p *Gray) Opaque() bool
@@ -444,7 +444,7 @@ func (p *Gray) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Gray) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=863) 
+#### (*Gray) PixOffset 
 
 ``` go 
 func (p *Gray) PixOffset(x, y int) int
@@ -452,31 +452,31 @@ func (p *Gray) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Gray) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=847)  <- go1.17
+#### (*Gray) RGBA64At  <- go1.17
 
 ``` go 
 func (p *Gray) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Gray) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=867) 
+#### (*Gray) Set 
 
 ``` go 
 func (p *Gray) Set(x, y int, c color.Color)
 ```
 
-#### (*Gray) [SetGray](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=885) 
+#### (*Gray) SetGray 
 
 ``` go 
 func (p *Gray) SetGray(x, y int, c color.Gray)
 ```
 
-#### (*Gray) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=875)  <- go1.17
+#### (*Gray) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *Gray) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Gray) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=895) 
+#### (*Gray) SubImage 
 
 ``` go 
 func (p *Gray) SubImage(r Rectangle) Image
@@ -484,7 +484,7 @@ func (p *Gray) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [Gray16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=926) 
+### type Gray16 
 
 ``` go 
 type Gray16 struct {
@@ -500,7 +500,7 @@ type Gray16 struct {
 
 Gray16 is an in-memory image whose At method returns color.Gray16 values.
 
-#### func [NewGray16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1017) 
+#### func NewGray16 
 
 ``` go 
 func NewGray16(r Rectangle) *Gray16
@@ -508,31 +508,31 @@ func NewGray16(r Rectangle) *Gray16
 
 NewGray16 returns a new Gray16 image with the given bounds.
 
-#### (*Gray16) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=940) 
+#### (*Gray16) At 
 
 ``` go 
 func (p *Gray16) At(x, y int) color.Color
 ```
 
-#### (*Gray16) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=938) 
+#### (*Gray16) Bounds 
 
 ``` go 
 func (p *Gray16) Bounds() Rectangle
 ```
 
-#### (*Gray16) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=936) 
+#### (*Gray16) ColorModel 
 
 ``` go 
 func (p *Gray16) ColorModel() color.Model
 ```
 
-#### (*Gray16) [Gray16At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=949)  <- go1.4
+#### (*Gray16) Gray16At  <- go1.4
 
 ``` go 
 func (p *Gray16) Gray16At(x, y int) color.Gray16
 ```
 
-#### (*Gray16) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1012) 
+#### (*Gray16) Opaque 
 
 ``` go 
 func (p *Gray16) Opaque() bool
@@ -540,7 +540,7 @@ func (p *Gray16) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Gray16) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=959) 
+#### (*Gray16) PixOffset 
 
 ``` go 
 func (p *Gray16) PixOffset(x, y int) int
@@ -548,31 +548,31 @@ func (p *Gray16) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Gray16) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=944)  <- go1.17
+#### (*Gray16) RGBA64At  <- go1.17
 
 ``` go 
 func (p *Gray16) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Gray16) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=963) 
+#### (*Gray16) Set 
 
 ``` go 
 func (p *Gray16) Set(x, y int, c color.Color)
 ```
 
-#### (*Gray16) [SetGray16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=984) 
+#### (*Gray16) SetGray16 
 
 ``` go 
 func (p *Gray16) SetGray16(x, y int, c color.Gray16)
 ```
 
-#### (*Gray16) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=973)  <- go1.17
+#### (*Gray16) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *Gray16) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Gray16) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=995) 
+#### (*Gray16) SubImage 
 
 ``` go 
 func (p *Gray16) SubImage(r Rectangle) Image
@@ -580,7 +580,7 @@ func (p *Gray16) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [Image](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=38) 
+### type Image 
 
 ``` go 
 type Image interface {
@@ -598,7 +598,7 @@ type Image interface {
 
 Image is a finite rectangular grid of color.Color values taken from a color model.
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/format.go;l=87) 
+#### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (Image, string, error)
@@ -606,7 +606,7 @@ func Decode(r io.Reader) (Image, string, error)
 
 Decode decodes an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec- specific package.
 
-### type [NRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=339) 
+### type NRGBA 
 
 ``` go 
 type NRGBA struct {
@@ -622,7 +622,7 @@ type NRGBA struct {
 
 NRGBA is an in-memory image whose At method returns color.NRGBA values.
 
-#### func [NewNRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=457) 
+#### func NewNRGBA 
 
 ``` go 
 func NewNRGBA(r Rectangle) *NRGBA
@@ -630,31 +630,31 @@ func NewNRGBA(r Rectangle) *NRGBA
 
 NewNRGBA returns a new NRGBA image with the given bounds.
 
-#### (*NRGBA) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=353) 
+#### (*NRGBA) At 
 
 ``` go 
 func (p *NRGBA) At(x, y int) color.Color
 ```
 
-#### (*NRGBA) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=351) 
+#### (*NRGBA) Bounds 
 
 ``` go 
 func (p *NRGBA) Bounds() Rectangle
 ```
 
-#### (*NRGBA) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=349) 
+#### (*NRGBA) ColorModel 
 
 ``` go 
 func (p *NRGBA) ColorModel() color.Model
 ```
 
-#### (*NRGBA) [NRGBAAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=362)  <- go1.4
+#### (*NRGBA) NRGBAAt  <- go1.4
 
 ``` go 
 func (p *NRGBA) NRGBAAt(x, y int) color.NRGBA
 ```
 
-#### (*NRGBA) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=439) 
+#### (*NRGBA) Opaque 
 
 ``` go 
 func (p *NRGBA) Opaque() bool
@@ -662,7 +662,7 @@ func (p *NRGBA) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NRGBA) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=373) 
+#### (*NRGBA) PixOffset 
 
 ``` go 
 func (p *NRGBA) PixOffset(x, y int) int
@@ -670,31 +670,31 @@ func (p *NRGBA) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*NRGBA) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=357)  <- go1.17
+#### (*NRGBA) RGBA64At  <- go1.17
 
 ``` go 
 func (p *NRGBA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NRGBA) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=377) 
+#### (*NRGBA) Set 
 
 ``` go 
 func (p *NRGBA) Set(x, y int, c color.Color)
 ```
 
-#### (*NRGBA) [SetNRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=408) 
+#### (*NRGBA) SetNRGBA 
 
 ``` go 
 func (p *NRGBA) SetNRGBA(x, y int, c color.NRGBA)
 ```
 
-#### (*NRGBA) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=390)  <- go1.17
+#### (*NRGBA) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *NRGBA) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*NRGBA) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=422) 
+#### (*NRGBA) SubImage 
 
 ``` go 
 func (p *NRGBA) SubImage(r Rectangle) Image
@@ -702,7 +702,7 @@ func (p *NRGBA) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [NRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=466) 
+### type NRGBA64 
 
 ``` go 
 type NRGBA64 struct {
@@ -718,7 +718,7 @@ type NRGBA64 struct {
 
 NRGBA64 is an in-memory image whose At method returns color.NRGBA64 values.
 
-#### func [NewNRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=601) 
+#### func NewNRGBA64 
 
 ``` go 
 func NewNRGBA64(r Rectangle) *NRGBA64
@@ -726,31 +726,31 @@ func NewNRGBA64(r Rectangle) *NRGBA64
 
 NewNRGBA64 returns a new NRGBA64 image with the given bounds.
 
-#### (*NRGBA64) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=480) 
+#### (*NRGBA64) At 
 
 ``` go 
 func (p *NRGBA64) At(x, y int) color.Color
 ```
 
-#### (*NRGBA64) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=478) 
+#### (*NRGBA64) Bounds 
 
 ``` go 
 func (p *NRGBA64) Bounds() Rectangle
 ```
 
-#### (*NRGBA64) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=476) 
+#### (*NRGBA64) ColorModel 
 
 ``` go 
 func (p *NRGBA64) ColorModel() color.Model
 ```
 
-#### (*NRGBA64) [NRGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=489)  <- go1.4
+#### (*NRGBA64) NRGBA64At  <- go1.4
 
 ``` go 
 func (p *NRGBA64) NRGBA64At(x, y int) color.NRGBA64
 ```
 
-#### (*NRGBA64) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=583) 
+#### (*NRGBA64) Opaque 
 
 ``` go 
 func (p *NRGBA64) Opaque() bool
@@ -758,7 +758,7 @@ func (p *NRGBA64) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NRGBA64) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=505) 
+#### (*NRGBA64) PixOffset 
 
 ``` go 
 func (p *NRGBA64) PixOffset(x, y int) int
@@ -766,31 +766,31 @@ func (p *NRGBA64) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*NRGBA64) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=484)  <- go1.17
+#### (*NRGBA64) RGBA64At  <- go1.17
 
 ``` go 
 func (p *NRGBA64) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NRGBA64) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=509) 
+#### (*NRGBA64) Set 
 
 ``` go 
 func (p *NRGBA64) Set(x, y int, c color.Color)
 ```
 
-#### (*NRGBA64) [SetNRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=548) 
+#### (*NRGBA64) SetNRGBA64 
 
 ``` go 
 func (p *NRGBA64) SetNRGBA64(x, y int, c color.NRGBA64)
 ```
 
-#### (*NRGBA64) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=526)  <- go1.17
+#### (*NRGBA64) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *NRGBA64) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*NRGBA64) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=566) 
+#### (*NRGBA64) SubImage 
 
 ``` go 
 func (p *NRGBA64) SubImage(r Rectangle) Image
@@ -798,7 +798,7 @@ func (p *NRGBA64) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [NYCbCrA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=205)  <- go1.6
+### type NYCbCrA  <- go1.6
 
 ``` go 
 type NYCbCrA struct {
@@ -810,7 +810,7 @@ type NYCbCrA struct {
 
 NYCbCrA is an in-memory image of non-alpha-premultiplied Y'CbCr-with-alpha colors. A and AStride are analogous to the Y and YStride fields of the embedded YCbCr.
 
-#### func [NewNYCbCrA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=299)  <- go1.6
+#### func NewNYCbCrA  <- go1.6
 
 ``` go 
 func NewNYCbCrA(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *NYCbCrA
@@ -818,7 +818,7 @@ func NewNYCbCrA(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *NYCbCrA
 
 NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample ratio.
 
-#### (*NYCbCrA) [AOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=243)  <- go1.6
+#### (*NYCbCrA) AOffset  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) AOffset(x, y int) int
@@ -826,25 +826,25 @@ func (p *NYCbCrA) AOffset(x, y int) int
 
 AOffset returns the index of the first element of A that corresponds to the pixel at (x, y).
 
-#### (*NYCbCrA) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=215)  <- go1.6
+#### (*NYCbCrA) At  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) At(x, y int) color.Color
 ```
 
-#### (*NYCbCrA) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=211)  <- go1.6
+#### (*NYCbCrA) ColorModel  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) ColorModel() color.Model
 ```
 
-#### (*NYCbCrA) [NYCbCrAAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=224)  <- go1.6
+#### (*NYCbCrA) NYCbCrAAt  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) NYCbCrAAt(x, y int) color.NYCbCrA
 ```
 
-#### (*NYCbCrA) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=280)  <- go1.6
+#### (*NYCbCrA) Opaque  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) Opaque() bool
@@ -852,13 +852,13 @@ func (p *NYCbCrA) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NYCbCrA) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=219)  <- go1.17
+#### (*NYCbCrA) RGBA64At  <- go1.17
 
 ``` go 
 func (p *NYCbCrA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NYCbCrA) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=249)  <- go1.6
+#### (*NYCbCrA) SubImage  <- go1.6
 
 ``` go 
 func (p *NYCbCrA) SubImage(r Rectangle) Image
@@ -866,7 +866,7 @@ func (p *NYCbCrA) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [Paletted](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1135) 
+### type Paletted 
 
 ``` go 
 type Paletted struct {
@@ -884,7 +884,7 @@ type Paletted struct {
 
 Paletted is an in-memory image of uint8 indices into a given palette.
 
-#### func [NewPaletted](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1266) 
+#### func NewPaletted 
 
 ``` go 
 func NewPaletted(r Rectangle, p color.Palette) *Paletted
@@ -892,31 +892,31 @@ func NewPaletted(r Rectangle, p color.Palette) *Paletted
 
 NewPaletted returns a new Paletted image with the given width, height and palette.
 
-#### (*Paletted) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1151) 
+#### (*Paletted) At 
 
 ``` go 
 func (p *Paletted) At(x, y int) color.Color
 ```
 
-#### (*Paletted) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1149) 
+#### (*Paletted) Bounds 
 
 ``` go 
 func (p *Paletted) Bounds() Rectangle
 ```
 
-#### (*Paletted) [ColorIndexAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1204) 
+#### (*Paletted) ColorIndexAt 
 
 ``` go 
 func (p *Paletted) ColorIndexAt(x, y int) uint8
 ```
 
-#### (*Paletted) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1147) 
+#### (*Paletted) ColorModel 
 
 ``` go 
 func (p *Paletted) ColorModel() color.Model
 ```
 
-#### (*Paletted) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1242) 
+#### (*Paletted) Opaque 
 
 ``` go 
 func (p *Paletted) Opaque() bool
@@ -924,7 +924,7 @@ func (p *Paletted) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Paletted) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1184) 
+#### (*Paletted) PixOffset 
 
 ``` go 
 func (p *Paletted) PixOffset(x, y int) int
@@ -932,31 +932,31 @@ func (p *Paletted) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Paletted) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1162)  <- go1.17
+#### (*Paletted) RGBA64At  <- go1.17
 
 ``` go 
 func (p *Paletted) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Paletted) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1188) 
+#### (*Paletted) Set 
 
 ``` go 
 func (p *Paletted) Set(x, y int, c color.Color)
 ```
 
-#### (*Paletted) [SetColorIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1212) 
+#### (*Paletted) SetColorIndex 
 
 ``` go 
 func (p *Paletted) SetColorIndex(x, y int, index uint8)
 ```
 
-#### (*Paletted) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1196)  <- go1.17
+#### (*Paletted) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *Paletted) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Paletted) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=1222) 
+#### (*Paletted) SubImage 
 
 ``` go 
 func (p *Paletted) SubImage(r Rectangle) Image
@@ -964,7 +964,7 @@ func (p *Paletted) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [PalettedImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=66) 
+### type PalettedImage 
 
 ``` go 
 type PalettedImage interface {
@@ -976,7 +976,7 @@ type PalettedImage interface {
 
 PalettedImage is an image whose colors may come from a limited palette. If m is a PalettedImage and m.ColorModel() returns a color.Palette p, then m.At(x, y) should be equivalent to p[m.ColorIndexAt(x, y)]. If m's color model is not a color.Palette, then ColorIndexAt's behavior is undefined.
 
-### type [Point](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=14) 
+### type Point 
 
 ``` go 
 type Point struct {
@@ -994,7 +994,7 @@ ZP is the zero Point.
 
 Deprecated: Use a literal image.Point{} instead.
 
-#### func [Pt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=76) 
+#### func Pt 
 
 ``` go 
 func Pt(X, Y int) Point
@@ -1002,7 +1002,7 @@ func Pt(X, Y int) Point
 
 Pt is shorthand for Point{X, Y}.
 
-#### (Point) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=24) 
+#### (Point) Add 
 
 ``` go 
 func (p Point) Add(q Point) Point
@@ -1010,7 +1010,7 @@ func (p Point) Add(q Point) Point
 
 Add returns the vector p+q.
 
-#### (Point) [Div](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=39) 
+#### (Point) Div 
 
 ``` go 
 func (p Point) Div(k int) Point
@@ -1018,7 +1018,7 @@ func (p Point) Div(k int) Point
 
 Div returns the vector p/k.
 
-#### (Point) [Eq](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=66) 
+#### (Point) Eq 
 
 ``` go 
 func (p Point) Eq(q Point) bool
@@ -1026,7 +1026,7 @@ func (p Point) Eq(q Point) bool
 
 Eq reports whether p and q are equal.
 
-#### (Point) [In](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=44) 
+#### (Point) In 
 
 ``` go 
 func (p Point) In(r Rectangle) bool
@@ -1034,7 +1034,7 @@ func (p Point) In(r Rectangle) bool
 
 In reports whether p is in r.
 
-#### (Point) [Mod](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=51) 
+#### (Point) Mod 
 
 ``` go 
 func (p Point) Mod(r Rectangle) Point
@@ -1042,7 +1042,7 @@ func (p Point) Mod(r Rectangle) Point
 
 Mod returns the point q in r such that p.X-q.X is a multiple of r's width and p.Y-q.Y is a multiple of r's height.
 
-#### (Point) [Mul](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=34) 
+#### (Point) Mul 
 
 ``` go 
 func (p Point) Mul(k int) Point
@@ -1050,7 +1050,7 @@ func (p Point) Mul(k int) Point
 
 Mul returns the vector p*k.
 
-#### (Point) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=19) 
+#### (Point) String 
 
 ``` go 
 func (p Point) String() string
@@ -1058,7 +1058,7 @@ func (p Point) String() string
 
 String returns a string representation of p like "(3,4)".
 
-#### (Point) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=29) 
+#### (Point) Sub 
 
 ``` go 
 func (p Point) Sub(q Point) Point
@@ -1066,7 +1066,7 @@ func (p Point) Sub(q Point) Point
 
 Sub returns the vector p-q.
 
-### type [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=88) 
+### type RGBA 
 
 ``` go 
 type RGBA struct {
@@ -1082,7 +1082,7 @@ type RGBA struct {
 
 RGBA is an in-memory image whose At method returns color.RGBA values.
 
-#### func [NewRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=213) 
+#### func NewRGBA 
 
 ``` go 
 func NewRGBA(r Rectangle) *RGBA
@@ -1090,25 +1090,25 @@ func NewRGBA(r Rectangle) *RGBA
 
 NewRGBA returns a new RGBA image with the given bounds.
 
-#### (*RGBA) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=102) 
+#### (*RGBA) At 
 
 ``` go 
 func (p *RGBA) At(x, y int) color.Color
 ```
 
-#### (*RGBA) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=100) 
+#### (*RGBA) Bounds 
 
 ``` go 
 func (p *RGBA) Bounds() Rectangle
 ```
 
-#### (*RGBA) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=98) 
+#### (*RGBA) ColorModel 
 
 ``` go 
 func (p *RGBA) ColorModel() color.Model
 ```
 
-#### (*RGBA) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=195) 
+#### (*RGBA) Opaque 
 
 ``` go 
 func (p *RGBA) Opaque() bool
@@ -1116,7 +1116,7 @@ func (p *RGBA) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*RGBA) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=135) 
+#### (*RGBA) PixOffset 
 
 ``` go 
 func (p *RGBA) PixOffset(x, y int) int
@@ -1124,37 +1124,37 @@ func (p *RGBA) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*RGBA) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=106)  <- go1.17
+#### (*RGBA) RGBA64At  <- go1.17
 
 ``` go 
 func (p *RGBA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*RGBA) [RGBAAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=124)  <- go1.4
+#### (*RGBA) RGBAAt  <- go1.4
 
 ``` go 
 func (p *RGBA) RGBAAt(x, y int) color.RGBA
 ```
 
-#### (*RGBA) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=139) 
+#### (*RGBA) Set 
 
 ``` go 
 func (p *RGBA) Set(x, y int, c color.Color)
 ```
 
-#### (*RGBA) [SetRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=164) 
+#### (*RGBA) SetRGBA 
 
 ``` go 
 func (p *RGBA) SetRGBA(x, y int, c color.RGBA)
 ```
 
-#### (*RGBA) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=152)  <- go1.17
+#### (*RGBA) SetRGBA64  <- go1.17
 
 ``` go 
 func (p *RGBA) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*RGBA) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=178) 
+#### (*RGBA) SubImage 
 
 ``` go 
 func (p *RGBA) SubImage(r Rectangle) Image
@@ -1162,7 +1162,7 @@ func (p *RGBA) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [RGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=222) 
+### type RGBA64 
 
 ``` go 
 type RGBA64 struct {
@@ -1178,7 +1178,7 @@ type RGBA64 struct {
 
 RGBA64 is an in-memory image whose At method returns color.RGBA64 values.
 
-#### func [NewRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=330) 
+#### func NewRGBA64 
 
 ``` go 
 func NewRGBA64(r Rectangle) *RGBA64
@@ -1186,25 +1186,25 @@ func NewRGBA64(r Rectangle) *RGBA64
 
 NewRGBA64 returns a new RGBA64 image with the given bounds.
 
-#### (*RGBA64) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=236) 
+#### (*RGBA64) At 
 
 ``` go 
 func (p *RGBA64) At(x, y int) color.Color
 ```
 
-#### (*RGBA64) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=234) 
+#### (*RGBA64) Bounds 
 
 ``` go 
 func (p *RGBA64) Bounds() Rectangle
 ```
 
-#### (*RGBA64) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=232) 
+#### (*RGBA64) ColorModel 
 
 ``` go 
 func (p *RGBA64) ColorModel() color.Model
 ```
 
-#### (*RGBA64) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=312) 
+#### (*RGBA64) Opaque 
 
 ``` go 
 func (p *RGBA64) Opaque() bool
@@ -1212,7 +1212,7 @@ func (p *RGBA64) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*RGBA64) [PixOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=256) 
+#### (*RGBA64) PixOffset 
 
 ``` go 
 func (p *RGBA64) PixOffset(x, y int) int
@@ -1220,25 +1220,25 @@ func (p *RGBA64) PixOffset(x, y int) int
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*RGBA64) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=240)  <- go1.4
+#### (*RGBA64) RGBA64At  <- go1.4
 
 ``` go 
 func (p *RGBA64) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*RGBA64) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=260) 
+#### (*RGBA64) Set 
 
 ``` go 
 func (p *RGBA64) Set(x, y int, c color.Color)
 ```
 
-#### (*RGBA64) [SetRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=277) 
+#### (*RGBA64) SetRGBA64 
 
 ``` go 
 func (p *RGBA64) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*RGBA64) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=295) 
+#### (*RGBA64) SubImage 
 
 ``` go 
 func (p *RGBA64) SubImage(r Rectangle) Image
@@ -1246,7 +1246,7 @@ func (p *RGBA64) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type [RGBA64Image](https://cs.opensource.google/go/go/+/go1.20.1:src/image/image.go;l=52)  <- go1.17
+### type RGBA64Image  <- go1.17
 
 ``` go 
 type RGBA64Image interface {
@@ -1261,7 +1261,7 @@ type RGBA64Image interface {
 
 RGBA64Image is an Image whose pixels can be converted directly to a color.RGBA64.
 
-### type [Rectangle](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=88) 
+### type Rectangle 
 
 ``` go 
 type Rectangle struct {
@@ -1281,7 +1281,7 @@ ZR is the zero Rectangle.
 
 Deprecated: Use a literal image.Rectangle{} instead.
 
-#### func [Rect](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=275) 
+#### func Rect 
 
 ``` go 
 func Rect(x0, y0, x1, y1 int) Rectangle
@@ -1289,7 +1289,7 @@ func Rect(x0, y0, x1, y1 int) Rectangle
 
 Rect is shorthand for Rectangle{Pt(x0, y0), Pt(x1, y1)}. The returned rectangle has minimum and maximum coordinates swapped if necessary so that it is well-formed.
 
-#### (Rectangle) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=116) 
+#### (Rectangle) Add 
 
 ``` go 
 func (r Rectangle) Add(p Point) Rectangle
@@ -1297,7 +1297,7 @@ func (r Rectangle) Add(p Point) Rectangle
 
 Add returns the rectangle r translated by p.
 
-#### (Rectangle) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=242)  <- go1.5
+#### (Rectangle) At  <- go1.5
 
 ``` go 
 func (r Rectangle) At(x, y int) color.Color
@@ -1305,7 +1305,7 @@ func (r Rectangle) At(x, y int) color.Color
 
 At implements the Image interface.
 
-#### (Rectangle) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=258)  <- go1.5
+#### (Rectangle) Bounds  <- go1.5
 
 ``` go 
 func (r Rectangle) Bounds() Rectangle
@@ -1313,7 +1313,7 @@ func (r Rectangle) Bounds() Rectangle
 
 Bounds implements the Image interface.
 
-#### (Rectangle) [Canon](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=231) 
+#### (Rectangle) Canon 
 
 ``` go 
 func (r Rectangle) Canon() Rectangle
@@ -1321,7 +1321,7 @@ func (r Rectangle) Canon() Rectangle
 
 Canon returns the canonical version of r. The returned rectangle has minimum and maximum coordinates swapped if necessary so that it is well-formed.
 
-#### (Rectangle) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=263)  <- go1.5
+#### (Rectangle) ColorModel  <- go1.5
 
 ``` go 
 func (r Rectangle) ColorModel() color.Model
@@ -1329,7 +1329,7 @@ func (r Rectangle) ColorModel() color.Model
 
 ColorModel implements the Image interface.
 
-#### (Rectangle) [Dx](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=98) 
+#### (Rectangle) Dx 
 
 ``` go 
 func (r Rectangle) Dx() int
@@ -1337,7 +1337,7 @@ func (r Rectangle) Dx() int
 
 Dx returns r's width.
 
-#### (Rectangle) [Dy](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=103) 
+#### (Rectangle) Dy 
 
 ``` go 
 func (r Rectangle) Dy() int
@@ -1345,7 +1345,7 @@ func (r Rectangle) Dy() int
 
 Dy returns r's height.
 
-#### (Rectangle) [Empty](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=201) 
+#### (Rectangle) Empty 
 
 ``` go 
 func (r Rectangle) Empty() bool
@@ -1353,7 +1353,7 @@ func (r Rectangle) Empty() bool
 
 Empty reports whether the rectangle contains no points.
 
-#### (Rectangle) [Eq](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=207) 
+#### (Rectangle) Eq 
 
 ``` go 
 func (r Rectangle) Eq(s Rectangle) bool
@@ -1361,7 +1361,7 @@ func (r Rectangle) Eq(s Rectangle) bool
 
 Eq reports whether r and s contain the same set of points. All empty rectangles are considered equal.
 
-#### (Rectangle) [In](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=219) 
+#### (Rectangle) In 
 
 ``` go 
 func (r Rectangle) In(s Rectangle) bool
@@ -1369,7 +1369,7 @@ func (r Rectangle) In(s Rectangle) bool
 
 In reports whether every point in r is in s.
 
-#### (Rectangle) [Inset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=134) 
+#### (Rectangle) Inset 
 
 ``` go 
 func (r Rectangle) Inset(n int) Rectangle
@@ -1377,7 +1377,7 @@ func (r Rectangle) Inset(n int) Rectangle
 
 Inset returns the rectangle r inset by n, which may be negative. If either of r's dimensions is less than 2*n then an empty rectangle near the center of r will be returned.
 
-#### (Rectangle) [Intersect](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=154) 
+#### (Rectangle) Intersect 
 
 ``` go 
 func (r Rectangle) Intersect(s Rectangle) Rectangle
@@ -1385,7 +1385,7 @@ func (r Rectangle) Intersect(s Rectangle) Rectangle
 
 Intersect returns the largest rectangle contained by both r and s. If the two rectangles do not overlap then the zero rectangle will be returned.
 
-#### (Rectangle) [Overlaps](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=212) 
+#### (Rectangle) Overlaps 
 
 ``` go 
 func (r Rectangle) Overlaps(s Rectangle) bool
@@ -1393,7 +1393,7 @@ func (r Rectangle) Overlaps(s Rectangle) bool
 
 Overlaps reports whether r and s have a non-empty intersection.
 
-#### (Rectangle) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=250)  <- go1.17
+#### (Rectangle) RGBA64At  <- go1.17
 
 ``` go 
 func (r Rectangle) RGBA64At(x, y int) color.RGBA64
@@ -1401,7 +1401,7 @@ func (r Rectangle) RGBA64At(x, y int) color.RGBA64
 
 RGBA64At implements the RGBA64Image interface.
 
-#### (Rectangle) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=108) 
+#### (Rectangle) Size 
 
 ``` go 
 func (r Rectangle) Size() Point
@@ -1409,7 +1409,7 @@ func (r Rectangle) Size() Point
 
 Size returns r's width and height.
 
-#### (Rectangle) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=93) 
+#### (Rectangle) String 
 
 ``` go 
 func (r Rectangle) String() string
@@ -1417,7 +1417,7 @@ func (r Rectangle) String() string
 
 String returns a string representation of r like "(3,4)-(6,5)".
 
-#### (Rectangle) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=124) 
+#### (Rectangle) Sub 
 
 ``` go 
 func (r Rectangle) Sub(p Point) Rectangle
@@ -1425,7 +1425,7 @@ func (r Rectangle) Sub(p Point) Rectangle
 
 Sub returns the rectangle r translated by -p.
 
-#### (Rectangle) [Union](https://cs.opensource.google/go/go/+/go1.20.1:src/image/geom.go;l=178) 
+#### (Rectangle) Union 
 
 ``` go 
 func (r Rectangle) Union(s Rectangle) Rectangle
@@ -1433,7 +1433,7 @@ func (r Rectangle) Union(s Rectangle) Rectangle
 
 Union returns the smallest rectangle that contains both r and s.
 
-### type [Uniform](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=24) 
+### type Uniform 
 
 ``` go 
 type Uniform struct {
@@ -1443,7 +1443,7 @@ type Uniform struct {
 
 Uniform is an infinite-sized Image of uniform color. It implements the color.Color, color.Model, and Image interfaces.
 
-#### func [NewUniform](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=56) 
+#### func NewUniform 
 
 ``` go 
 func NewUniform(c color.Color) *Uniform
@@ -1451,31 +1451,31 @@ func NewUniform(c color.Color) *Uniform
 
 NewUniform returns a new Uniform image of the given color.
 
-#### (*Uniform) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=42) 
+#### (*Uniform) At 
 
 ``` go 
 func (c *Uniform) At(x, y int) color.Color
 ```
 
-#### (*Uniform) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=40) 
+#### (*Uniform) Bounds 
 
 ``` go 
 func (c *Uniform) Bounds() Rectangle
 ```
 
-#### (*Uniform) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=32) 
+#### (*Uniform) ColorModel 
 
 ``` go 
 func (c *Uniform) ColorModel() color.Model
 ```
 
-#### (*Uniform) [Convert](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=36) 
+#### (*Uniform) Convert 
 
 ``` go 
 func (c *Uniform) Convert(color.Color) color.Color
 ```
 
-#### (*Uniform) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=50) 
+#### (*Uniform) Opaque 
 
 ``` go 
 func (c *Uniform) Opaque() bool
@@ -1483,19 +1483,19 @@ func (c *Uniform) Opaque() bool
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Uniform) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=28) 
+#### (*Uniform) RGBA 
 
 ``` go 
 func (c *Uniform) RGBA() (r, g, b, a uint32)
 ```
 
-#### (*Uniform) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=44)  <- go1.17
+#### (*Uniform) RGBA64At  <- go1.17
 
 ``` go 
 func (c *Uniform) RGBA64At(x, y int) color.RGBA64
 ```
 
-### type [YCbCr](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=55) 
+### type YCbCr 
 
 ``` go 
 type YCbCr struct {
@@ -1518,7 +1518,7 @@ For 4:1:1, CStride == YStride/4 && len(Cb) == len(Cr) == len(Y)/4.
 For 4:1:0, CStride == YStride/4 && len(Cb) == len(Cr) == len(Y)/8.
 ```
 
-#### func [NewYCbCr](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=175) 
+#### func NewYCbCr 
 
 ``` go 
 func NewYCbCr(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *YCbCr
@@ -1526,19 +1526,19 @@ func NewYCbCr(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *YCbCr
 
 NewYCbCr returns a new YCbCr image with the given bounds and subsample ratio.
 
-#### (*YCbCr) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=71) 
+#### (*YCbCr) At 
 
 ``` go 
 func (p *YCbCr) At(x, y int) color.Color
 ```
 
-#### (*YCbCr) [Bounds](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=67) 
+#### (*YCbCr) Bounds 
 
 ``` go 
 func (p *YCbCr) Bounds() Rectangle
 ```
 
-#### (*YCbCr) [COffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=101) 
+#### (*YCbCr) COffset 
 
 ``` go 
 func (p *YCbCr) COffset(x, y int) int
@@ -1546,25 +1546,25 @@ func (p *YCbCr) COffset(x, y int) int
 
 COffset returns the index of the first element of Cb or Cr that corresponds to the pixel at (x, y).
 
-#### (*YCbCr) [ColorModel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=63) 
+#### (*YCbCr) ColorModel 
 
 ``` go 
 func (p *YCbCr) ColorModel() color.Model
 ```
 
-#### (*YCbCr) [Opaque](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=143) 
+#### (*YCbCr) Opaque 
 
 ``` go 
 func (p *YCbCr) Opaque() bool
 ```
 
-#### (*YCbCr) [RGBA64At](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=75)  <- go1.17
+#### (*YCbCr) RGBA64At  <- go1.17
 
 ``` go 
 func (p *YCbCr) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*YCbCr) [SubImage](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=120) 
+#### (*YCbCr) SubImage 
 
 ``` go 
 func (p *YCbCr) SubImage(r Rectangle) Image
@@ -1572,13 +1572,13 @@ func (p *YCbCr) SubImage(r Rectangle) Image
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-#### (*YCbCr) [YCbCrAt](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=80)  <- go1.4
+#### (*YCbCr) YCbCrAt  <- go1.4
 
 ``` go 
 func (p *YCbCr) YCbCrAt(x, y int) color.YCbCr
 ```
 
-#### (*YCbCr) [YOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=95) 
+#### (*YCbCr) YOffset 
 
 ``` go 
 func (p *YCbCr) YOffset(x, y int) int
@@ -1586,7 +1586,7 @@ func (p *YCbCr) YOffset(x, y int) int
 
 YOffset returns the index of the first element of Y that corresponds to the pixel at (x, y).
 
-### type [YCbCrSubsampleRatio](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=12) 
+### type YCbCrSubsampleRatio 
 
 ``` go 
 type YCbCrSubsampleRatio int
@@ -1605,7 +1605,7 @@ const (
 )
 ```
 
-#### (YCbCrSubsampleRatio) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/image/ycbcr.go;l=23) 
+#### (YCbCrSubsampleRatio) String 
 
 ``` go 
 func (s YCbCrSubsampleRatio) String() string

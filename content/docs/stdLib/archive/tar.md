@@ -93,7 +93,7 @@ This section is empty.
 
 ## 类型
 
-### type [Format](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/format.go;l=46)  <- go1.10
+### type Format  <- go1.10
 
 ``` go 
 type Format int
@@ -181,13 +181,13 @@ const (
 
 Constants to identify various tar formats.
 
-#### (Format) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/format.go;l=117)  <- go1.10
+#### (Format) String  <- go1.10
 
 ``` go 
 func (f Format) String() string
 ```
 
-### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/common.go;l=146) 
+### type Header 
 
 ``` go 
 type Header struct {
@@ -260,7 +260,7 @@ A Header represents a single header in a tar archive. Some fields may not be pop
 
 For forward compatibility, users that retrieve a Header from Reader.Next, mutate it in some ways, and then pass it back to Writer.WriteHeader should do so by creating a new Header and copying the fields that they are interested in preserving.
 
-#### func [FileInfoHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/common.go;l=638)  <- go1.1
+#### func FileInfoHeader  <- go1.1
 
 ``` go 
 func FileInfoHeader(fi fs.FileInfo, link string) (*Header, error)
@@ -270,7 +270,7 @@ FileInfoHeader creates a partially-populated Header from fi. If fi describes a s
 
 Since fs.FileInfo's Name method only returns the base name of the file it describes, it may be necessary to modify Header.Name to provide the full path name of the file.
 
-#### (*Header) [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/common.go;l=538)  <- go1.1
+#### (*Header) FileInfo  <- go1.1
 
 ``` go 
 func (h *Header) FileInfo() fs.FileInfo
@@ -278,7 +278,7 @@ func (h *Header) FileInfo() fs.FileInfo
 
 FileInfo returns an fs.FileInfo for the Header.
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/reader.go;l=19) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -288,7 +288,7 @@ type Reader struct {
 
 Reader provides sequential access to the contents of a tar archive. Reader.Next advances to the next file in the archive (including the first), and then Reader can be treated as an io.Reader to access the file's data.
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/reader.go;l=39) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) *Reader
@@ -296,7 +296,7 @@ func NewReader(r io.Reader) *Reader
 
 NewReader creates a new Reader reading from r.
 
-#### (*Reader) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/reader.go;l=54) 
+#### (*Reader) Next 
 
 ``` go 
 func (tr *Reader) Next() (*Header, error)
@@ -306,7 +306,7 @@ Next advances to the next entry in the tar archive. The Header.Size determines h
 
 If Next encounters a non-local name (as defined by [filepath.IsLocal](https://pkg.go.dev/path/filepath#IsLocal)) and the GODEBUG environment variable contains `tarinsecurepath=0`, Next returns the header with an ErrInsecurePath error. A future version of Go may introduce this behavior by default. Programs that want to accept non-local names can ignore the ErrInsecurePath error and use the returned header.
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/reader.go;l=631) 
+#### (*Reader) Read 
 
 ``` go 
 func (tr *Reader) Read(b []byte) (int, error)
@@ -318,7 +318,7 @@ If the current file is sparse, then the regions marked as a hole are read back a
 
 Calling Read on special types like TypeLink, TypeSymlink, TypeChar, TypeBlock, TypeDir, and TypeFifo returns (0, io.EOF) regardless of what the Header.Size claims.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=19) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -328,7 +328,7 @@ type Writer struct {
 
 Writer provides sequential writing of a tar archive. Write.WriteHeader begins a new file with the provided Header, and then Writer can be treated as an io.Writer to supply that file's data.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=33) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -336,7 +336,7 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter creates a new Writer writing to w.
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=469) 
+#### (*Writer) Close 
 
 ``` go 
 func (tw *Writer) Close() error
@@ -344,7 +344,7 @@ func (tw *Writer) Close() error
 
 Close closes the tar archive by flushing the padding, and writing the footer. If the current file (from a prior call to WriteHeader) is not fully written, then this returns an error.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=49) 
+#### (*Writer) Flush 
 
 ``` go 
 func (tw *Writer) Flush() error
@@ -354,7 +354,7 @@ Flush finishes writing the current file's block padding. The current file must b
 
 This is unnecessary as the next call to WriteHeader or Close will implicitly flush out the file's padding.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=434) 
+#### (*Writer) Write 
 
 ``` go 
 func (tw *Writer) Write(b []byte) (int, error)
@@ -364,7 +364,7 @@ Write writes to the current file in the tar archive. Write returns the error Err
 
 Calling Write on special types like TypeLink, TypeSymlink, TypeChar, TypeBlock, TypeDir, and TypeFifo returns (0, ErrWriteTooLong) regardless of what the Header.Size claims.
 
-#### (*Writer) [WriteHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/tar/writer.go;l=67) 
+#### (*Writer) WriteHeader 
 
 ``` go 
 func (tw *Writer) WriteHeader(hdr *Header) error

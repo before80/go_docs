@@ -89,7 +89,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/runtime.go;l=40)  <- go1.9
+#### func Do  <- go1.9
 
 ``` go 
 func Do(ctx context.Context, labels LabelSet, f func(context.Context))
@@ -97,7 +97,7 @@ func Do(ctx context.Context, labels LabelSet, f func(context.Context))
 
 Do calls f with a copy of the parent context with the given labels added to the parent's label map. Goroutines spawned while executing f will inherit the augmented label-set. Each key/value pair in labels is inserted into the label map in the order provided, overriding any previous value for the same key. The augmented label map will be set for the duration of the call to f and restored once f returns.
 
-#### func [ForLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=101)  <- go1.9
+#### func ForLabels  <- go1.9
 
 ``` go 
 func ForLabels(ctx context.Context, f func(key, value string) bool)
@@ -105,7 +105,7 @@ func ForLabels(ctx context.Context, f func(key, value string) bool)
 
 ForLabels invokes f with each label set on the context. The function f should return true to continue iteration or false to stop iteration early.
 
-#### func [Label](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=93)  <- go1.9
+#### func Label  <- go1.9
 
 ``` go 
 func Label(ctx context.Context, key string) (string, bool)
@@ -113,7 +113,7 @@ func Label(ctx context.Context, key string) (string, bool)
 
 Label returns the value of the label with the given key on ctx, and a boolean indicating whether that label exists.
 
-#### func [SetGoroutineLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/runtime.go;l=28)  <- go1.9
+#### func SetGoroutineLabels  <- go1.9
 
 ``` go 
 func SetGoroutineLabels(ctx context.Context)
@@ -121,7 +121,7 @@ func SetGoroutineLabels(ctx context.Context)
 
 SetGoroutineLabels sets the current goroutine's labels to match ctx. A new goroutine inherits the labels of the goroutine that created it. This is a lower-level API than Do, which should be used instead when possible.
 
-#### func [StartCPUProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=771) 
+#### func StartCPUProfile 
 
 ``` go 
 func StartCPUProfile(w io.Writer) error
@@ -131,7 +131,7 @@ StartCPUProfile enables CPU profiling for the current process. While profiling, 
 
 On Unix-like systems, StartCPUProfile does not work by default for Go code built with -buildmode=c-archive or -buildmode=c-shared. StartCPUProfile relies on the SIGPROF signal, but that signal will be delivered to the main program's SIGPROF signal handler (if any) not to the one used by Go. To make it work, call os/signal.Notify for syscall.SIGPROF, but note that doing so may break any profiling being done by the main program.
 
-#### func [StopCPUProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=830) 
+#### func StopCPUProfile 
 
 ``` go 
 func StopCPUProfile()
@@ -139,7 +139,7 @@ func StopCPUProfile()
 
 StopCPUProfile stops the current CPU profile, if any. StopCPUProfile only returns after all the writes for the profile have completed.
 
-#### func [WithLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=59)  <- go1.9
+#### func WithLabels  <- go1.9
 
 ``` go 
 func WithLabels(ctx context.Context, labels LabelSet) context.Context
@@ -147,7 +147,7 @@ func WithLabels(ctx context.Context, labels LabelSet) context.Context
 
 WithLabels returns a new context.Context with the given labels added. A label overwrites a prior label with the same key.
 
-#### func [WriteHeapProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=520) 
+#### func WriteHeapProfile 
 
 ``` go 
 func WriteHeapProfile(w io.Writer) error
@@ -157,7 +157,7 @@ WriteHeapProfile is shorthand for Lookup("heap").WriteTo(w, 0). It is preserved 
 
 ## 类型
 
-### type [LabelSet](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=20)  <- go1.9
+### type LabelSet  <- go1.9
 
 ``` go 
 type LabelSet struct {
@@ -167,7 +167,7 @@ type LabelSet struct {
 
 LabelSet is a set of labels.
 
-#### func [Labels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=80)  <- go1.9
+#### func Labels  <- go1.9
 
 ``` go 
 func Labels(args ...string) LabelSet
@@ -175,7 +175,7 @@ func Labels(args ...string) LabelSet
 
 Labels takes an even number of strings representing key-value pairs and makes a LabelSet containing them. A label overwrites a prior label with the same key. Currently only the CPU and goroutine profiles utilize any labels information. See https://golang.org/issue/23458 for details.
 
-### type [Profile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=132) 
+### type Profile 
 
 ``` go 
 type Profile struct {
@@ -208,7 +208,7 @@ The allocs profile is the same as the heap profile but changes the default pprof
 
 The CPU profile is not available as a Profile. It has a special API, the StartCPUProfile and StopCPUProfile functions, because it streams output to a writer during profiling.
 
-#### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=225) 
+#### func Lookup 
 
 ``` go 
 func Lookup(name string) *Profile
@@ -216,7 +216,7 @@ func Lookup(name string) *Profile
 
 Lookup returns the profile with the given name, or nil if no such profile exists.
 
-#### func [NewProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=207) 
+#### func NewProfile 
 
 ``` go 
 func NewProfile(name string) *Profile
@@ -224,7 +224,7 @@ func NewProfile(name string) *Profile
 
 NewProfile creates a new profile with the given name. If a profile with that name already exists, NewProfile panics. The convention is to use a 'import/path.' prefix to create separate name spaces for each package. For compatibility with various tools that read pprof data, profile names should not contain spaces.
 
-#### func [Profiles](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=232) 
+#### func Profiles 
 
 ``` go 
 func Profiles() []*Profile
@@ -232,7 +232,7 @@ func Profiles() []*Profile
 
 Profiles returns a slice of all the known profiles, sorted by name.
 
-#### (*Profile) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=277) 
+#### (*Profile) Add 
 
 ``` go 
 func (p *Profile) Add(value any, skip int)
@@ -251,7 +251,7 @@ called from main.main
 
 Passing skip=0 begins the stack trace at the call to Add inside rpc.NewClient. Passing skip=1 begins the stack trace at the call to NewClient inside mypkg.Run.
 
-#### (*Profile) [Count](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=251) 
+#### (*Profile) Count 
 
 ``` go 
 func (p *Profile) Count() int
@@ -259,7 +259,7 @@ func (p *Profile) Count() int
 
 Count returns the number of execution stacks currently in the profile.
 
-#### (*Profile) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=246) 
+#### (*Profile) Name 
 
 ``` go 
 func (p *Profile) Name() string
@@ -267,7 +267,7 @@ func (p *Profile) Name() string
 
 Name returns this profile's name, which can be passed to Lookup to reobtain the profile.
 
-#### (*Profile) [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=303) 
+#### (*Profile) Remove 
 
 ``` go 
 func (p *Profile) Remove(value any)
@@ -275,7 +275,7 @@ func (p *Profile) Remove(value any)
 
 Remove removes the execution stack associated with value from the profile. It is a no-op if the value is not in the profile.
 
-#### (*Profile) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=324) 
+#### (*Profile) WriteTo 
 
 ``` go 
 func (p *Profile) WriteTo(w io.Writer, debug int) error

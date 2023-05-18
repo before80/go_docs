@@ -24,7 +24,7 @@ https://pkg.go.dev/internal/coverage@go1.20.1
 
 
 
-## 常量 [¶](https://pkg.go.dev/internal/coverage@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=325)
 
@@ -128,7 +128,7 @@ CovMetaMagic holds the magic string for a meta-data file.
 
 ## 函数
 
-#### func [HardCodedPkgID](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/pkid.go;l=73) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#HardCodedPkgID)
+#### func HardCodedPkgID [¶](https://pkg.go.dev/internal/coverage@go1.20.1#HardCodedPkgID)
 
 ```
 func HardCodedPkgID(pkgpath string) int
@@ -136,7 +136,7 @@ func HardCodedPkgID(pkgpath string) int
 
 HardCodedPkgID returns the hard-coded ID for the specified package path, or -1 if we don't use a hard-coded ID. Hard-coded IDs start at -2 and decrease as we go down the list.
 
-#### func [Round4](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=343) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#Round4)
+#### func Round4 [¶](https://pkg.go.dev/internal/coverage@go1.20.1#Round4)
 
 ```
 func Round4(x int) int
@@ -144,7 +144,7 @@ func Round4(x int) int
 
 ## 类型
 
-### type [CounterFileFooter](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=314) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFileFooter)
+### type CounterFileFooter [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFileFooter)
 
 ```
 type CounterFileFooter struct {
@@ -157,7 +157,7 @@ type CounterFileFooter struct {
 
 CounterFileFooter appears at the tail end of a counter data file, and stores the number of segments it contains.
 
-### type [CounterFileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=280) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFileHeader)
+### type CounterFileHeader [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFileHeader)
 
 ```
 type CounterFileHeader struct {
@@ -172,7 +172,7 @@ type CounterFileHeader struct {
 
 CounterFileHeader stores files header information for a counter-data file.
 
-### type [CounterFlavor](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=331) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFlavor)
+### type CounterFlavor [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterFlavor)
 
 ```
 type CounterFlavor uint8
@@ -192,7 +192,7 @@ const (
 )
 ```
 
-### type [CounterGranularity](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=246) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterGranularity)
+### type CounterGranularity [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterGranularity)
 
 ```
 type CounterGranularity uint8
@@ -208,13 +208,13 @@ const (
 )
 ```
 
-#### (CounterGranularity) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=254) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterGranularity.String)
+#### (CounterGranularity) String [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterGranularity.String)
 
 ```
 func (cm CounterGranularity) String() string
 ```
 
-### type [CounterMode](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=198) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterMode)
+### type CounterMode [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterMode)
 
 ```
 type CounterMode uint8
@@ -233,19 +233,19 @@ const (
 )
 ```
 
-#### func [ParseCounterMode](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=225) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#ParseCounterMode)
+#### func ParseCounterMode [¶](https://pkg.go.dev/internal/coverage@go1.20.1#ParseCounterMode)
 
 ```
 func ParseCounterMode(mode string) CounterMode
 ```
 
-#### (CounterMode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=209) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterMode.String)
+#### (CounterMode) String [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterMode.String)
 
 ```
 func (cm CounterMode) String() string
 ```
 
-### type [CounterSegmentHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=306) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterSegmentHeader)
+### type CounterSegmentHeader [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CounterSegmentHeader)
 
 ```
 type CounterSegmentHeader struct {
@@ -259,7 +259,7 @@ CounterSegmentHeader encapsulates information about a specific segment in a coun
 
 The "args" section of a segment is used to store annotations describing where the counter data came from; this section is basically a series of key-value pairs (can be thought of as an encoded 'map[string]string'). At the moment we only write os.Args() data to this section, using pairs of the form "argc=<integer>", "argv0=<os.Args[0]>", "argv1=<os.Args[1]>", and so on. In the future the args table may also include things like GOOS/GOARCH values, and/or tags indicating which tests were run to generate the counter data.
 
-### type [CoverFixupConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/cmddefs.go;l=43) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverFixupConfig)
+### type CoverFixupConfig [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverFixupConfig)
 
 ```
 type CoverFixupConfig struct {
@@ -297,7 +297,7 @@ type CoverFixupConfig struct {
 
 CoverFixupConfig contains annotations/notes generated by the cmd/cover tool (during instrumentation) to be passed on to the compiler when the instrumented code is compiled. The cmd/cover tool creates a struct of this type, JSON-encodes it, and emits the result to a file, which the Go command then passes to the compiler when the instrumented package is built.
 
-### type [CoverPkgConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/cmddefs.go;l=12) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverPkgConfig)
+### type CoverPkgConfig [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverPkgConfig)
 
 ```
 type CoverPkgConfig struct {
@@ -328,7 +328,7 @@ type CoverPkgConfig struct {
 
 CoverPkgConfig is a bundle of information passed from the Go command to the cover command during "go build -cover" runs. The Go command creates and fills in a struct as below, then passes file containing the encoded JSON for the struct to the "cover" tool when instrumenting the source files in a Go package.
 
-### type [CoverableUnit](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=189) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverableUnit)
+### type CoverableUnit [¶](https://pkg.go.dev/internal/coverage@go1.20.1#CoverableUnit)
 
 ```
 type CoverableUnit struct {
@@ -351,7 +351,7 @@ For the code above we would have three simple units (one for each line), then an
 
 Note: in the initial version of the coverage revamp, only simple units will be in use.
 
-### type [FuncDesc](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=161) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#FuncDesc)
+### type FuncDesc [¶](https://pkg.go.dev/internal/coverage@go1.20.1#FuncDesc)
 
 ```
 type FuncDesc struct {
@@ -364,7 +364,7 @@ type FuncDesc struct {
 
 FuncDesc encapsulates the meta-data definitions for a single Go function. This version assumes that we're looking at a function before inlining; if we want to capture a post-inlining view of the world, the representations of source positions would need to be a good deal more complicated.
 
-### type [MetaFileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=68) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#MetaFileHeader)
+### type MetaFileHeader [¶](https://pkg.go.dev/internal/coverage@go1.20.1#MetaFileHeader)
 
 ```
 type MetaFileHeader struct {
@@ -383,7 +383,7 @@ type MetaFileHeader struct {
 
 MetaFileHeader stores file header information for a meta-data file.
 
-### type [MetaSymbolHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=84) [¶](https://pkg.go.dev/internal/coverage@go1.20.1#MetaSymbolHeader)
+### type MetaSymbolHeader [¶](https://pkg.go.dev/internal/coverage@go1.20.1#MetaSymbolHeader)
 
 ```
 type MetaSymbolHeader struct {

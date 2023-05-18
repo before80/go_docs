@@ -195,7 +195,7 @@ This section is empty.
 
 ## 类型
 
-### type [FS](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=148) 
+### type FS 
 
 ``` go 
 type FS struct {
@@ -219,7 +219,7 @@ See the package documentation for more details about initializing an FS.
 
 关于初始化一个FS的更多细节，请看包的文档。
 
-#### (FS) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=301) 
+#### (FS) Open 
 
 ``` go 
 func (f FS) Open(name string) (fs.File, error)
@@ -233,7 +233,7 @@ The returned file implements io.Seeker when the file is not a directory.
 
 当文件不是一个目录时，返回的文件实现了io.Seeker。
 
-#### (FS) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=313) 
+#### (FS) ReadDir 
 
 ``` go 
 func (f FS) ReadDir(name string) ([]fs.DirEntry, error)
@@ -243,7 +243,7 @@ ReadDir reads and returns the entire named directory.
 
 ReadDir读取并返回整个命名的目录。
 
-#### (FS) [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=330) 
+#### (FS) ReadFile 
 
 ``` go 
 func (f FS) ReadFile(name string) ([]byte, error)

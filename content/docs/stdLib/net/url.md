@@ -55,7 +55,7 @@ This section is empty.
 
 ## 函数
 
-#### func [JoinPath](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1261)  <- go1.19
+#### func JoinPath  <- go1.19
 
 ``` go 
 func JoinPath(base string, elem ...string) (result string, err error)
@@ -63,7 +63,7 @@ func JoinPath(base string, elem ...string) (result string, err error)
 
 JoinPath returns a URL string with the provided path elements joined to the existing path of base and the resulting path cleaned of any ./ or ../ elements.
 
-#### func [PathEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=281)  <- go1.8
+#### func PathEscape  <- go1.8
 
 ``` go 
 func PathEscape(s string) string
@@ -75,7 +75,7 @@ PathEscape escapes the string so it can be safely placed inside a URL path segme
 ``` go 
 ```
 
-#### func [PathUnescape](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=194)  <- go1.8
+#### func PathUnescape  <- go1.8
 
 ``` go 
 func PathUnescape(s string) (string, error)
@@ -89,7 +89,7 @@ PathUnescape is identical to QueryUnescape except that it does not unescape '+' 
 ``` go 
 ```
 
-#### func [QueryEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=275) 
+#### func QueryEscape 
 
 ``` go 
 func QueryEscape(s string) string
@@ -101,7 +101,7 @@ QueryEscape escapes the string so it can be safely placed inside a URL query.
 ``` go 
 ```
 
-#### func [QueryUnescape](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=183) 
+#### func QueryUnescape 
 
 ``` go 
 func QueryUnescape(s string) (string, error)
@@ -115,7 +115,7 @@ QueryUnescape does the inverse transformation of QueryEscape, converting each 3-
 
 ## 类型
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=23) 
+### type Error 
 
 ``` go 
 type Error struct {
@@ -127,55 +127,55 @@ type Error struct {
 
 Error reports an error and the operation and URL that caused it.
 
-#### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=30) 
+#### (*Error) Error 
 
 ``` go 
 func (e *Error) Error() string
 ```
 
-#### (*Error) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=39)  <- go1.6
+#### (*Error) Temporary  <- go1.6
 
 ``` go 
 func (e *Error) Temporary() bool
 ```
 
-#### (*Error) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=32)  <- go1.6
+#### (*Error) Timeout  <- go1.6
 
 ``` go 
 func (e *Error) Timeout() bool
 ```
 
-#### (*Error) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=29)  <- go1.13
+#### (*Error) Unwrap  <- go1.13
 
 ``` go 
 func (e *Error) Unwrap() error
 ```
 
-### type [EscapeError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=84) 
+### type EscapeError 
 
 ``` go 
 type EscapeError string
 ```
 
-#### (EscapeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=86) 
+#### (EscapeError) Error 
 
 ``` go 
 func (e EscapeError) Error() string
 ```
 
-### type [InvalidHostError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=90)  <- go1.6
+### type InvalidHostError  <- go1.6
 
 ``` go 
 type InvalidHostError string
 ```
 
-#### (InvalidHostError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=92)  <- go1.6
+#### (InvalidHostError) Error  <- go1.6
 
 ``` go 
 func (e InvalidHostError) Error() string
 ```
 
-### type [URL](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=362) 
+### type URL 
 
 ``` go 
 type URL struct {
@@ -221,7 +221,7 @@ URL's String method uses the EscapedPath method to obtain the path.
 ``` go 
 ```
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=466) 
+#### func Parse 
 
 ``` go 
 func Parse(rawURL string) (*URL, error)
@@ -231,7 +231,7 @@ Parse parses a raw url into a URL structure.
 
 The url may be relative (a path, without a host) or absolute (starting with a scheme). Trying to parse a hostname and path without a scheme is invalid but may not necessarily return an error, due to parsing ambiguities.
 
-#### func [ParseRequestURI](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=487) 
+#### func ParseRequestURI 
 
 ``` go 
 func ParseRequestURI(rawURL string) (*URL, error)
@@ -239,7 +239,7 @@ func ParseRequestURI(rawURL string) (*URL, error)
 
 ParseRequestURI parses a raw url into a URL structure. It assumes that url was received in an HTTP request, so the url is interpreted only as an absolute URI or an absolute path. The string url is assumed not to have a #fragment suffix. (Web browsers strip #fragment before sending the URL to a web server.)
 
-#### (*URL) [EscapedFragment](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=760)  <- go1.15
+#### (*URL) EscapedFragment  <- go1.15
 
 ``` go 
 func (u *URL) EscapedFragment() string
@@ -251,7 +251,7 @@ EscapedFragment returns the escaped form of u.Fragment. In general there are mul
 ``` go 
 ```
 
-#### (*URL) [EscapedPath](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=697)  <- go1.5
+#### (*URL) EscapedPath  <- go1.5
 
 ``` go 
 func (u *URL) EscapedPath() string
@@ -263,7 +263,7 @@ EscapedPath returns the escaped form of u.Path. In general there are multiple po
 ``` go 
 ```
 
-#### (*URL) [Hostname](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1146)  <- go1.8
+#### (*URL) Hostname  <- go1.8
 
 ``` go 
 func (u *URL) Hostname() string
@@ -277,7 +277,7 @@ If the result is enclosed in square brackets, as literal IPv6 addresses are, the
 ``` go 
 ```
 
-#### (*URL) [IsAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1061) 
+#### (*URL) IsAbs 
 
 ``` go 
 func (u *URL) IsAbs() bool
@@ -289,7 +289,7 @@ IsAbs reports whether the URL is absolute. Absolute means that it has a non-empt
 ``` go 
 ```
 
-#### (*URL) [JoinPath](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1196)  <- go1.19
+#### (*URL) JoinPath  <- go1.19
 
 ``` go 
 func (u *URL) JoinPath(elem ...string) *URL
@@ -297,7 +297,7 @@ func (u *URL) JoinPath(elem ...string) *URL
 
 JoinPath returns a new URL with the provided path elements joined to any existing path and the resulting path cleaned of any ./ or ../ elements. Any sequences of multiple / characters will be reduced to a single /.
 
-#### (*URL) [MarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1180)  <- go1.8
+#### (*URL) MarshalBinary  <- go1.8
 
 ``` go 
 func (u *URL) MarshalBinary() (text []byte, err error)
@@ -307,7 +307,7 @@ func (u *URL) MarshalBinary() (text []byte, err error)
 ``` go 
 ```
 
-#### (*URL) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1068) 
+#### (*URL) Parse 
 
 ``` go 
 func (u *URL) Parse(ref string) (*URL, error)
@@ -319,7 +319,7 @@ Parse parses a URL in the context of the receiver. The provided URL may be relat
 ``` go 
 ```
 
-#### (*URL) [Port](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1154)  <- go1.8
+#### (*URL) Port  <- go1.8
 
 ``` go 
 func (u *URL) Port() string
@@ -333,7 +333,7 @@ If u.Host doesn't contain a valid numeric port, Port returns an empty string.
 ``` go 
 ```
 
-#### (*URL) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1117) 
+#### (*URL) Query 
 
 ``` go 
 func (u *URL) Query() Values
@@ -345,7 +345,7 @@ Query parses RawQuery and returns the corresponding values. It silently discards
 ``` go 
 ```
 
-#### (*URL) [Redacted](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=863)  <- go1.15
+#### (*URL) Redacted  <- go1.15
 
 ``` go 
 func (u *URL) Redacted() string
@@ -357,7 +357,7 @@ Redacted is like String but replaces any password with "xxxxx". Only the passwor
 ``` go 
 ```
 
-#### (*URL) [RequestURI](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1124) 
+#### (*URL) RequestURI 
 
 ``` go 
 func (u *URL) RequestURI() string
@@ -369,7 +369,7 @@ RequestURI returns the encoded path?query or opaque?query string that would be u
 ``` go 
 ```
 
-#### (*URL) [ResolveReference](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1082) 
+#### (*URL) ResolveReference 
 
 ``` go 
 func (u *URL) ResolveReference(ref *URL) *URL
@@ -381,7 +381,7 @@ ResolveReference resolves a URI reference to an absolute URI from an absolute ba
 ``` go 
 ```
 
-#### (*URL) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=808) 
+#### (*URL) String 
 
 ``` go 
 func (u *URL) String() string
@@ -410,7 +410,7 @@ In the second form, the following rules apply:
 ``` go 
 ```
 
-#### (*URL) [UnmarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=1184)  <- go1.8
+#### (*URL) UnmarshalBinary  <- go1.8
 
 ``` go 
 func (u *URL) UnmarshalBinary(text []byte) error
@@ -420,7 +420,7 @@ func (u *URL) UnmarshalBinary(text []byte) error
 ``` go 
 ```
 
-### type [Userinfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=398) 
+### type Userinfo 
 
 ``` go 
 type Userinfo struct {
@@ -430,7 +430,7 @@ type Userinfo struct {
 
 The Userinfo type is an immutable encapsulation of username and password details for a URL. An existing Userinfo value is guaranteed to have a username set (potentially empty, as allowed by [RFC 2396](https://rfc-editor.org/rfc/rfc2396.html)), and optionally a password.
 
-#### func [User](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=378) 
+#### func User 
 
 ``` go 
 func User(username string) *Userinfo
@@ -438,7 +438,7 @@ func User(username string) *Userinfo
 
 User returns a Userinfo containing the provided username and no password set.
 
-#### func [UserPassword](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=390) 
+#### func UserPassword 
 
 ``` go 
 func UserPassword(username, password string) *Userinfo
@@ -448,7 +448,7 @@ UserPassword returns a Userinfo containing the provided username and password.
 
 This functionality should only be used with legacy web sites. [RFC 2396](https://rfc-editor.org/rfc/rfc2396.html) warns that interpreting Userinfo this way "is NOT RECOMMENDED, because the passing of authentication information in clear text (such as URI) has proven to be a security risk in almost every case where it has been used."
 
-#### (*Userinfo) [Password](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=413) 
+#### (*Userinfo) Password 
 
 ``` go 
 func (u *Userinfo) Password() (string, bool)
@@ -456,7 +456,7 @@ func (u *Userinfo) Password() (string, bool)
 
 Password returns the password in case it is set, and whether it is set.
 
-#### (*Userinfo) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=422) 
+#### (*Userinfo) String 
 
 ``` go 
 func (u *Userinfo) String() string
@@ -464,7 +464,7 @@ func (u *Userinfo) String() string
 
 String returns the encoded userinfo information in the standard form of "username[:password]".
 
-#### (*Userinfo) [Username](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=405) 
+#### (*Userinfo) Username 
 
 ``` go 
 func (u *Userinfo) Username() string
@@ -472,7 +472,7 @@ func (u *Userinfo) Username() string
 
 Username returns the username.
 
-### type [Values](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=879) 
+### type Values 
 
 ``` go 
 type Values map[string][]string
@@ -484,7 +484,7 @@ Values maps a string key to a list of values. It is typically used for query par
 ``` go 
 ```
 
-#### func [ParseQuery](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=929) 
+#### func ParseQuery 
 
 ``` go 
 func ParseQuery(query string) (Values, error)
@@ -498,7 +498,7 @@ Query is expected to be a list of key=value settings separated by ampersands. A 
 ``` go 
 ```
 
-#### (Values) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=904) 
+#### (Values) Add 
 
 ``` go 
 func (v Values) Add(key, value string)
@@ -510,7 +510,7 @@ Add adds the value to key. It appends to any existing values associated with key
 ``` go 
 ```
 
-#### (Values) [Del](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=909) 
+#### (Values) Del 
 
 ``` go 
 func (v Values) Del(key string)
@@ -522,7 +522,7 @@ Del deletes the values associated with key.
 ``` go 
 ```
 
-#### (Values) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=968) 
+#### (Values) Encode 
 
 ``` go 
 func (v Values) Encode() string
@@ -534,7 +534,7 @@ Encode encodes the values into "URL encoded" form ("bar=baz&foo=quux") sorted by
 ``` go 
 ```
 
-#### (Values) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=885) 
+#### (Values) Get 
 
 ``` go 
 func (v Values) Get(key string) string
@@ -546,7 +546,7 @@ Get gets the first value associated with the given key. If there are no values a
 ``` go 
 ```
 
-#### (Values) [Has](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=914)  <- go1.17
+#### (Values) Has  <- go1.17
 
 ``` go 
 func (v Values) Has(key string) bool
@@ -558,7 +558,7 @@ Has checks whether a given key is set.
 ``` go 
 ```
 
-#### (Values) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/net/url/url.go;l=898) 
+#### (Values) Set 
 
 ``` go 
 func (v Values) Set(key, value string)

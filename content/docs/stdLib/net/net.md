@@ -7,7 +7,7 @@ draft = false
 +++
 # net
 
-[https://pkg.go.dev/net@go1.20.1](https://pkg.go.dev/net@go1.20.1)
+https://pkg.go.dev/net@go1.20.1
 
 ​	net包提供了一个可移植的网络 I/O 接口，包括 TCP/IP、UDP、域名解析和 Unix 域套接字。
 
@@ -135,7 +135,7 @@ var (
 
 ## 函数
 
-#### func [JoinHostPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ipsock.go;l=235) 
+#### func JoinHostPort 
 
 ``` go 
 func JoinHostPort(host, port string) string
@@ -145,7 +145,7 @@ func JoinHostPort(host, port string) string
 
 ​	有关 host 和 port 参数的说明，请参见 func Dial。
 
-#### func [LookupAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=645) 
+#### func LookupAddr 
 
 ``` go 
 func LookupAddr(addr string) (names []string, err error)
@@ -159,7 +159,7 @@ func LookupAddr(addr string) (names []string, err error)
 
 ​	LookupAddr函数在内部使用 context.Background；要指定上下文，请使用 Resolver.LookupAddr。
 
-#### func [LookupCNAME](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=456) 
+#### func LookupCNAME 
 
 ``` go 
 func LookupCNAME(host string) (cname string, err error)
@@ -173,7 +173,7 @@ func LookupCNAME(host string) (cname string, err error)
 
 ​	LookupCNAME函数在内部使用 context.Background；要指定上下文，请使用 Resolver.LookupCNAME。
 
-#### func [LookupHost](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=176) 
+#### func LookupHost 
 
 ``` go 
 func LookupHost(host string) (addrs []string, err error)
@@ -183,7 +183,7 @@ func LookupHost(host string) (addrs []string, err error)
 
 ​	LookupHost函数在内部使用context.Background；要指定上下文，请使用Resolver.LookupHost。
 
-#### func [LookupPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=414) 
+#### func LookupPort 
 
 ``` go 
 func LookupPort(network, service string) (port int, err error)
@@ -193,7 +193,7 @@ func LookupPort(network, service string) (port int, err error)
 
 ​	LookupPort函数在内部使用context.Background；要指定上下文，请使用Resolver.LookupPort。
 
-#### func [LookupTXT](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=624) 
+#### func LookupTXT 
 
 ``` go 
 func LookupTXT(name string) ([]string, error)
@@ -203,7 +203,7 @@ func LookupTXT(name string) ([]string, error)
 
 ​	LookupTXT函数在内部使用context.Background；要指定上下文，请使用Resolver.LookupTXT。
 
-#### func [ParseCIDR](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=741) 
+#### func ParseCIDR 
 
 ``` go 
 func ParseCIDR(s string) (IP, *IPNet, error)
@@ -247,7 +247,7 @@ Output:
 2001:db8::/32
 ```
 
-#### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/pipe.go;l=113) 
+#### func Pipe 
 
 ``` go 
 func Pipe() (Conn, Conn)
@@ -255,7 +255,7 @@ func Pipe() (Conn, Conn)
 
 ​	Pipe函数创建一个同步的内存中全双工网络连接；两端都实现了Conn接口。一个端口的读取与另一个端口的写入匹配，直接在两者之间复制数据；没有内部缓冲。
 
-#### func [SplitHostPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ipsock.go;l=164) 
+#### func SplitHostPort 
 
 ``` go 
 func SplitHostPort(hostport string) (host, port string, err error)
@@ -269,7 +269,7 @@ func SplitHostPort(hostport string) (host, port string, err error)
 
 ## 类型
 
-### type [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=105) 
+### type Addr 
 
 ``` go 
 type Addr interface {
@@ -282,7 +282,7 @@ type Addr interface {
 
 ​	Network 和 String 两个方法一般返回可以作为 Dial 函数参数的字符串，但字符串的确切格式和含义取决于实现。
 
-#### func [InterfaceAddrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=118) 
+#### func InterfaceAddrs 
 
 ``` go 
 func InterfaceAddrs() ([]Addr, error)
@@ -292,7 +292,7 @@ func InterfaceAddrs() ([]Addr, error)
 
 ​	返回的列表不包含关联接口的标识，使用 Interfaces 和 Interface.Addrs 获取更多详细信息。
 
-### type [AddrError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=554) 
+### type AddrError 
 
 ``` go 
 type AddrError struct {
@@ -301,25 +301,25 @@ type AddrError struct {
 }
 ```
 
-#### (*AddrError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=559) 
+#### (*AddrError) Error 
 
 ``` go 
 func (e *AddrError) Error() string
 ```
 
-#### (*AddrError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=571) 
+#### (*AddrError) Temporary 
 
 ``` go 
 func (e *AddrError) Temporary() bool
 ```
 
-#### (*AddrError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=570) 
+#### (*AddrError) Timeout 
 
 ``` go 
 func (e *AddrError) Timeout() bool
 ```
 
-### type [Buffers](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=712)  <- go1.8
+### type Buffers  <- go1.8
 
 ``` go 
 type Buffers [][]byte
@@ -329,7 +329,7 @@ type Buffers [][]byte
 
 ​	在某些机器上，对于某些类型的连接，这可以被优化为操作系统特定的批量写操作(例如 "writev")。
 
-#### (*Buffers) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=747)  <- go1.8
+#### (*Buffers) Read  <- go1.8
 
 ``` go 
 func (v *Buffers) Read(p []byte) (n int, err error)
@@ -341,7 +341,7 @@ func (v *Buffers) Read(p []byte) (n int, err error)
 
 ​	Read方法修改了切片 v 和 v[i]，其中 0 <= i < len(v)，但不修改 v[i][j]，其中 i 和 j 为任意值。
 
-#### (*Buffers) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=725)  <- go1.8
+#### (*Buffers) WriteTo  <- go1.8
 
 ``` go 
 func (v *Buffers) WriteTo(w io.Writer) (n int64, err error)
@@ -353,7 +353,7 @@ func (v *Buffers) WriteTo(w io.Writer) (n int64, err error)
 
 ​	WriteTo方法修改了切片 v 和 v[i]，其中 0 <= i < len(v)，但不修改 v[i][j]，其中 i 和 j 为任意值。
 
-### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=113) 
+### type Conn 
 
 ``` go 
 type Conn interface {
@@ -408,7 +408,7 @@ type Conn interface {
 
 ​	多个 goroutine 可以同时调用 Conn 上的方法。
 
-#### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=332) 
+#### func Dial 
 
 ``` go 
 func Dial(network, address string) (Conn, error)
@@ -445,7 +445,7 @@ Dial("ip6:58", "fe80::1%lo0")
 
 ​	对于 Unix 网络，地址必须是一个文件系统路径。
 
-#### func [DialTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=347) 
+#### func DialTimeout 
 
 ``` go 
 func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
@@ -457,7 +457,7 @@ func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
 
 ​	有关网络和地址参数的说明，请参见 func Dial。
 
-#### func [FileConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=21) 
+#### func FileConn 
 
 ``` go 
 func FileConn(f *os.File) (c Conn, err error)
@@ -465,7 +465,7 @@ func FileConn(f *os.File) (c Conn, err error)
 
 ​	FileConn函数返回与打开文件 f 对应的网络连接的副本。当结束时，调用者负责关闭 f。关闭 c 不会影响 f，关闭 f 也不会影响 c。
 
-### type [DNSConfigError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=610) 
+### type DNSConfigError 
 
 ``` go 
 type DNSConfigError struct {
@@ -475,31 +475,31 @@ type DNSConfigError struct {
 
 ​	DNSConfigError 表示读取计算机 DNS 配置的错误。(不再使用；为了向后兼容而保留。)
 
-#### (*DNSConfigError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=615) 
+#### (*DNSConfigError) Error 
 
 ``` go 
 func (e *DNSConfigError) Error() string
 ```
 
-#### (*DNSConfigError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=617) 
+#### (*DNSConfigError) Temporary 
 
 ``` go 
 func (e *DNSConfigError) Temporary() bool
 ```
 
-#### (*DNSConfigError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=616) 
+#### (*DNSConfigError) Timeout 
 
 ``` go 
 func (e *DNSConfigError) Timeout() bool
 ```
 
-#### (*DNSConfigError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=614)  <- go1.13
+#### (*DNSConfigError) Unwrap  <- go1.13
 
 ``` go 
 func (e *DNSConfigError) Unwrap() error
 ```
 
-### type [DNSError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=625) 
+### type DNSError 
 
 ``` go 
 type DNSError struct {
@@ -514,13 +514,13 @@ type DNSError struct {
 
 ​	DNSError 表示 DNS 查找错误。
 
-#### (*DNSError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=634) 
+#### (*DNSError) Error 
 
 ``` go 
 func (e *DNSError) Error() string
 ```
 
-#### (*DNSError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=654) 
+#### (*DNSError) Temporary 
 
 ``` go 
 func (e *DNSError) Temporary() bool
@@ -528,7 +528,7 @@ func (e *DNSError) Temporary() bool
 
 ​	Temporary方法报告DNS错误是否已知为临时错误。这并非总是已知的；DNS查找可能由于临时错误而失败，并返回一个DNSError，其中Temporary返回false。
 
-#### (*DNSError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=649) 
+#### (*DNSError) Timeout 
 
 ``` go 
 func (e *DNSError) Timeout() bool
@@ -536,7 +536,7 @@ func (e *DNSError) Timeout() bool
 
 ​	Timeout方法报告DNS查找是否已知已超时。这并非总是已知的；DNS查找可能由于超时而失败，并返回一个DNSError，其中Timeout返回false。
 
-### type [Dialer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=27)  <- go1.1
+### type Dialer  <- go1.1
 
 ``` go 
 type Dialer struct {
@@ -684,7 +684,7 @@ func main() {
 
 ```
 
-#### (*Dialer) [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=366)  <- go1.1
+#### (*Dialer) Dial  <- go1.1
 
 ``` go 
 func (d *Dialer) Dial(network, address string) (Conn, error)
@@ -696,7 +696,7 @@ func (d *Dialer) Dial(network, address string) (Conn, error)
 
 ​	Dial在内部使用context.Background；要指定上下文，请使用DialContext。
 
-#### (*Dialer) [DialContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=388)  <- go1.7
+#### (*Dialer) DialContext  <- go1.7
 
 ``` go 
 func (d *Dialer) DialContext(ctx context.Context, network, address string) (Conn, error)
@@ -710,7 +710,7 @@ func (d *Dialer) DialContext(ctx context.Context, network, address string) (Conn
 
 ​	有关网络和地址参数的描述，请参见func Dial。
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=397) 
+### type Error 
 
 ``` go 
 type Error interface {
@@ -726,7 +726,7 @@ type Error interface {
 
 ​	Error接口表示网络错误。
 
-### type [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=39) 
+### type Flags 
 
 ``` go 
 type Flags uint
@@ -740,13 +740,13 @@ const (
 )
 ```
 
-#### (Flags) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=59) 
+#### (Flags) String 
 
 ``` go 
 func (f Flags) String() string
 ```
 
-### type [HardwareAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=10) 
+### type HardwareAddr 
 
 ``` go 
 type HardwareAddr []byte
@@ -754,7 +754,7 @@ type HardwareAddr []byte
 
 ​	HardwareAddr表示一个物理硬件地址。
 
-#### func [ParseMAC](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=39) 
+#### func ParseMAC 
 
 ``` go 
 func ParseMAC(s string) (hw HardwareAddr, err error)
@@ -774,13 +774,13 @@ func ParseMAC(s string) (hw HardwareAddr, err error)
 0000.0000.fe80.0000.0000.0000.0200.5e10.0000.0001
 ```
 
-#### (HardwareAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=12) 
+#### (HardwareAddr) String 
 
 ``` go 
 func (a HardwareAddr) String() string
 ```
 
-### type [IP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=35) 
+### type IP 
 
 ``` go 
 type IP []byte
@@ -813,7 +813,7 @@ Output:
 10.255.0.0
 ```
 
-#### func [IPv4](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=51) 
+#### func IPv4 
 
 ``` go 
 func IPv4(a, b, c, d byte) IP
@@ -839,7 +839,7 @@ Output:
 8.8.8.8
 ```
 
-#### func [LookupIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=196) 
+#### func LookupIP 
 
 ``` go 
 func LookupIP(host string) ([]IP, error)
@@ -847,7 +847,7 @@ func LookupIP(host string) ([]IP, error)
 
 ​	LookupIP函数使用本地解析器查找主机，返回该主机的IPv4和IPv6地址切片。
 
-#### func [ParseIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=707) 
+#### func ParseIP 
 
 ``` go 
 func ParseIP(s string) IP
@@ -877,7 +877,7 @@ Output:
 <nil>
 ```
 
-#### (IP) [DefaultMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=246) 
+#### (IP) DefaultMask 
 
 ``` go 
 func (ip IP) DefaultMask() IPMask
@@ -904,7 +904,7 @@ Output:
 ffffff00
 ```
 
-#### (IP) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=432) 
+#### (IP) Equal 
 
 ``` go 
 func (ip IP) Equal(x IP) bool
@@ -938,7 +938,7 @@ false
 true
 ```
 
-#### (IP) [IsGlobalUnicast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=190) 
+#### (IP) IsGlobalUnicast 
 
 ``` go 
 func (ip IP) IsGlobalUnicast() bool
@@ -985,7 +985,7 @@ true
 false
 ```
 
-#### (IP) [IsInterfaceLocalMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=160) 
+#### (IP) IsInterfaceLocalMulticast 
 
 ``` go 
 func (ip IP) IsInterfaceLocalMulticast() bool
@@ -1019,7 +1019,7 @@ false
 false
 ```
 
-#### (IP) [IsLinkLocalMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=166) 
+#### (IP) IsLinkLocalMulticast 
 
 ``` go 
 func (ip IP) IsLinkLocalMulticast() bool
@@ -1056,7 +1056,7 @@ true
 false
 ```
 
-#### (IP) [IsLinkLocalUnicast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=175) 
+#### (IP) IsLinkLocalUnicast 
 
 ``` go 
 func (ip IP) IsLinkLocalUnicast() bool
@@ -1093,7 +1093,7 @@ true
 false
 ```
 
-#### (IP) [IsLoopback](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=124) 
+#### (IP) IsLoopback 
 
 ``` go 
 func (ip IP) IsLoopback() bool
@@ -1130,7 +1130,7 @@ true
 false
 ```
 
-#### (IP) [IsMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=151) 
+#### (IP) IsMulticast 
 
 ``` go 
 func (ip IP) IsMulticast() bool
@@ -1173,7 +1173,7 @@ true
 false
 ```
 
-#### (IP) [IsPrivate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=133)  <- go1.17
+#### (IP) IsPrivate  <- go1.17
 
 ``` go 
 func (ip IP) IsPrivate() bool
@@ -1210,7 +1210,7 @@ true
 false
 ```
 
-#### (IP) [IsUnspecified](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=119) 
+#### (IP) IsUnspecified 
 
 ``` go 
 func (ip IP) IsUnspecified() bool
@@ -1247,7 +1247,7 @@ true
 false
 ```
 
-#### (IP) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=403)  <- go1.2
+#### (IP) MarshalText  <- go1.2
 
 ``` go 
 func (ip IP) MarshalText() ([]byte, error)
@@ -1255,7 +1255,7 @@ func (ip IP) MarshalText() ([]byte, error)
 
 ​	MarshalText方法实现encoding.TextMarshaler接口。编码与String返回的编码相同，唯一的区别是当len(ip)为零时，它会返回一个空切片。
 
-#### (IP) [Mask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=270) 
+#### (IP) Mask 
 
 ``` go 
 func (ip IP) Mask(mask IPMask) IP
@@ -1290,7 +1290,7 @@ Output:
 2001:db8::
 ```
 
-#### (IP) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=313) 
+#### (IP) String 
 
 ``` go 
 func (ip IP) String() string
@@ -1328,7 +1328,7 @@ fc00::
 10.255.0.0
 ```
 
-#### (IP) [To16](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=226) 
+#### (IP) To16 
 
 ``` go 
 func (ip IP) To16() IP
@@ -1359,7 +1359,7 @@ fc00::
 10.255.0.0
 ```
 
-#### (IP) [To4](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=211) 
+#### (IP) To4 
 
 ``` go 
 func (ip IP) To4() IP
@@ -1367,7 +1367,7 @@ func (ip IP) To4() IP
 
 ​	To4方法将IPv4地址ip转换为4字节表示。如果ip不是IPv4地址，则To4返回nil。
 
-#### (*IP) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=415)  <- go1.2
+#### (*IP) UnmarshalText  <- go1.2
 
 ``` go 
 func (ip *IP) UnmarshalText(text []byte) error
@@ -1375,7 +1375,7 @@ func (ip *IP) UnmarshalText(text []byte) error
 
 ​	UnmarshalText方法实现encoding.TextUnmarshaler接口。IP地址应该以ParseIP接受的形式出现。
 
-### type [IPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=31) 
+### type IPAddr 
 
 ``` go 
 type IPAddr struct {
@@ -1386,7 +1386,7 @@ type IPAddr struct {
 
 ​	IPAddr结构体表示IP端点的地址。
 
-#### func [ResolveIPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=77) 
+#### func ResolveIPAddr 
 
 ``` go 
 func ResolveIPAddr(network, address string) (*IPAddr, error)
@@ -1400,7 +1400,7 @@ func ResolveIPAddr(network, address string) (*IPAddr, error)
 
 ​	有关网络和地址参数的描述，请参见func Dial。
 
-#### (*IPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=37) 
+#### (*IPAddr) Network 
 
 ``` go 
 func (a *IPAddr) Network() string
@@ -1408,13 +1408,13 @@ func (a *IPAddr) Network() string
 
 ​	Network方法返回地址的网络名称，即"ip"。
 
-#### (*IPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=39) 
+#### (*IPAddr) String 
 
 ``` go 
 func (a *IPAddr) String() string
 ```
 
-### type [IPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=99) 
+### type IPConn 
 
 ``` go 
 type IPConn struct {
@@ -1424,7 +1424,7 @@ type IPConn struct {
 
 ​	IPConn结构体是IP网络连接的Conn和PacketConn接口的实现。
 
-#### func [DialIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=211) 
+#### func DialIP 
 
 ``` go 
 func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error)
@@ -1436,7 +1436,7 @@ func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error)
 
 ​	如果laddr为nil，则会自动选择本地地址。如果raddr的IP字段为nil或未指定的IP地址，则假定为本地系统。
 
-#### func [ListenIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=230) 
+#### func ListenIP 
 
 ``` go 
 func ListenIP(network string, laddr *IPAddr) (*IPConn, error)
@@ -1448,7 +1448,7 @@ func ListenIP(network string, laddr *IPAddr) (*IPConn, error)
 
 ​	如果laddr的IP字段为nil或未指定的IP地址，则ListenIP会侦听本地系统的所有可用IP地址，但不包括多播IP地址。
 
-#### (*IPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
+#### (*IPConn) Close 
 
 ``` go 
 func (c *IPConn) Close() error
@@ -1456,7 +1456,7 @@ func (c *IPConn) Close() error
 
 ​	Close方法关闭连接。
 
-#### (*IPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
+#### (*IPConn) File 
 
 ``` go 
 func (c *IPConn) File() (f *os.File, err error)
@@ -1466,7 +1466,7 @@ func (c *IPConn) File() (f *os.File, err error)
 
 ​	返回的os.File的文件描述符与连接的不同。尝试使用此副本更改原始文件的属性可能会或可能不会产生预期的效果。
 
-#### (*IPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
+#### (*IPConn) LocalAddr 
 
 ``` go 
 func (c *IPConn) LocalAddr() Addr
@@ -1474,7 +1474,7 @@ func (c *IPConn) LocalAddr() Addr
 
 ​	LocalAddr方法返回本地网络地址。返回的Addr由LocalAddr的所有调用共享，因此不要修改它。
 
-#### (*IPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
+#### (*IPConn) Read 
 
 ``` go 
 func (c *IPConn) Read(b []byte) (int, error)
@@ -1482,7 +1482,7 @@ func (c *IPConn) Read(b []byte) (int, error)
 
 ​	Read方法实现Conn Read方法。
 
-#### (*IPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=125) 
+#### (*IPConn) ReadFrom 
 
 ``` go 
 func (c *IPConn) ReadFrom(b []byte) (int, Addr, error)
@@ -1490,7 +1490,7 @@ func (c *IPConn) ReadFrom(b []byte) (int, Addr, error)
 
 ​	ReadFrom方法实现PacketConn ReadFrom 方法。
 
-#### (*IPConn) [ReadFromIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=113) 
+#### (*IPConn) ReadFromIP 
 
 ``` go 
 func (c *IPConn) ReadFromIP(b []byte) (int, *IPAddr, error)
@@ -1498,7 +1498,7 @@ func (c *IPConn) ReadFromIP(b []byte) (int, *IPAddr, error)
 
 ​	ReadFromIP方法类似于ReadFrom但返回IPAddr。
 
-#### (*IPConn) [ReadMsgIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=146)  <- go1.1
+#### (*IPConn) ReadMsgIP  <- go1.1
 
 ``` go 
 func (c *IPConn) ReadMsgIP(b, oob []byte) (n, oobn, flags int, addr *IPAddr, err error)
@@ -1508,7 +1508,7 @@ func (c *IPConn) ReadMsgIP(b, oob []byte) (n, oobn, flags int, addr *IPAddr, err
 
 ​	golang.org/x/net/ipv4 和 golang.org/x/net/ipv6 包可用于操作oob中的IP级套接字选项。
 
-#### (*IPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
+#### (*IPConn) RemoteAddr 
 
 ``` go 
 func (c *IPConn) RemoteAddr() Addr
@@ -1516,7 +1516,7 @@ func (c *IPConn) RemoteAddr() Addr
 
 ​	RemoteAddr方法返回远程网络地址。返回的Addr由RemoteAddr的所有调用共享，因此不要修改它。
 
-#### (*IPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
+#### (*IPConn) SetDeadline 
 
 ``` go 
 func (c *IPConn) SetDeadline(t time.Time) error
@@ -1524,7 +1524,7 @@ func (c *IPConn) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法实现Conn SetDeadline方法。
 
-#### (*IPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
+#### (*IPConn) SetReadBuffer 
 
 ``` go 
 func (c *IPConn) SetReadBuffer(bytes int) error
@@ -1532,7 +1532,7 @@ func (c *IPConn) SetReadBuffer(bytes int) error
 
 ​	SetReadBuffer方法设置与连接相关联的操作系统接收缓冲区的大小。
 
-#### (*IPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
+#### (*IPConn) SetReadDeadline 
 
 ``` go 
 func (c *IPConn) SetReadDeadline(t time.Time) error
@@ -1540,7 +1540,7 @@ func (c *IPConn) SetReadDeadline(t time.Time) error
 
 ​	SetReadDeadline方法实现Conn SetReadDeadline方法。
 
-#### (*IPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
+#### (*IPConn) SetWriteBuffer 
 
 ``` go 
 func (c *IPConn) SetWriteBuffer(bytes int) error
@@ -1548,7 +1548,7 @@ func (c *IPConn) SetWriteBuffer(bytes int) error
 
 ​	SetWriteBuffer方法设置与连接相关联的操作系统传输缓冲区的大小。
 
-#### (*IPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
+#### (*IPConn) SetWriteDeadline 
 
 ``` go 
 func (c *IPConn) SetWriteDeadline(t time.Time) error
@@ -1556,7 +1556,7 @@ func (c *IPConn) SetWriteDeadline(t time.Time) error
 
 ​	SetWriteDeadline方法实现Conn SetWriteDeadline方法。
 
-#### (*IPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=105)  <- go1.9
+#### (*IPConn) SyscallConn  <- go1.9
 
 ``` go 
 func (c *IPConn) SyscallConn() (syscall.RawConn, error)
@@ -1564,7 +1564,7 @@ func (c *IPConn) SyscallConn() (syscall.RawConn, error)
 
 ​	SyscallConn方法返回原始网络连接。这实现了syscall.Conn接口。
 
-#### (*IPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
+#### (*IPConn) Write 
 
 ``` go 
 func (c *IPConn) Write(b []byte) (int, error)
@@ -1572,7 +1572,7 @@ func (c *IPConn) Write(b []byte) (int, error)
 
 ​	Write方法实现Conn Write方法。
 
-#### (*IPConn) [WriteMsgIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=191)  <- go1.1
+#### (*IPConn) WriteMsgIP  <- go1.1
 
 ``` go 
 func (c *IPConn) WriteMsgIP(b, oob []byte, addr *IPAddr) (n, oobn int, err error)
@@ -1582,7 +1582,7 @@ func (c *IPConn) WriteMsgIP(b, oob []byte, addr *IPAddr) (n, oobn int, err error
 
 ​	golang.org/x/net/ipv4 和 golang.org/x/net/ipv6 包可用于操作oob中的IP级套接字选项。
 
-#### (*IPConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=170) 
+#### (*IPConn) WriteTo 
 
 ``` go 
 func (c *IPConn) WriteTo(b []byte, addr Addr) (int, error)
@@ -1590,7 +1590,7 @@ func (c *IPConn) WriteTo(b []byte, addr Addr) (int, error)
 
 ​	WriteTo方法实现PacketConn WriteTo方法。
 
-#### (*IPConn) [WriteToIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=158) 
+#### (*IPConn) WriteToIP 
 
 ``` go 
 func (c *IPConn) WriteToIP(b []byte, addr *IPAddr) (int, error)
@@ -1598,7 +1598,7 @@ func (c *IPConn) WriteToIP(b []byte, addr *IPAddr) (int, error)
 
 ​	WriteToIP方法类似于WriteTo但接受IPAddr。
 
-### type [IPMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=41) 
+### type IPMask 
 
 ``` go 
 type IPMask []byte
@@ -1608,7 +1608,7 @@ type IPMask []byte
 
 ​	有关详细信息，请参见类型IPNet和函数ParseCIDR。
 
-#### func [CIDRMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=77) 
+#### func CIDRMask 
 
 ``` go 
 func CIDRMask(ones, bits int) IPMask
@@ -1639,7 +1639,7 @@ fffffffe
 ffffffffffffffff0000000000000000
 ```
 
-#### func [IPv4Mask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=65) 
+#### func IPv4Mask 
 
 ``` go 
 func IPv4Mask(a, b, c, d byte) IPMask
@@ -1665,7 +1665,7 @@ Output:
 ffffff00
 ```
 
-#### (IPMask) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=481) 
+#### (IPMask) Size 
 
 ``` go 
 func (m IPMask) Size() (ones, bits int)
@@ -1673,7 +1673,7 @@ func (m IPMask) Size() (ones, bits int)
 
 ​	Size方法返回掩码中前导1位和总位数。如果掩码不在规范形式——1位后面是0位——那么Size将返回0, 0。
 
-#### (IPMask) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=490) 
+#### (IPMask) String 
 
 ``` go 
 func (m IPMask) String() string
@@ -1681,7 +1681,7 @@ func (m IPMask) String() string
 
 ​	String方法以无标点符号的十六进制形式返回m。
 
-### type [IPNet](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=44) 
+### type IPNet 
 
 ``` go 
 type IPNet struct {
@@ -1692,7 +1692,7 @@ type IPNet struct {
 
 ​	IPNet表示IP网络。
 
-#### (*IPNet) [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=521) 
+#### (*IPNet) Contains 
 
 ``` go 
 func (n *IPNet) Contains(ip IP) bool
@@ -1700,7 +1700,7 @@ func (n *IPNet) Contains(ip IP) bool
 
 ​	Contains方法报告网络是否包含ip。
 
-#### (*IPNet) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=539) 
+#### (*IPNet) Network 
 
 ``` go 
 func (n *IPNet) Network() string
@@ -1708,7 +1708,7 @@ func (n *IPNet) Network() string
 
 ​	Network方法返回地址的网络名称，"ip+net"。
 
-#### (*IPNet) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=547) 
+#### (*IPNet) String 
 
 ``` go 
 func (n *IPNet) String() string
@@ -1716,7 +1716,7 @@ func (n *IPNet) String() string
 
 ​	String方法返回n的CIDR表示形式，例如"192.0.2.0/24"或"2001:db8::/48"，如[RFC 4632](https://rfc-editor.org/rfc/rfc4632.html)和[RFC 4291](https://rfc-editor.org/rfc/rfc4291.html)所定义。如果掩码不在规范形式中，则返回的字符串由IP地址和斜杠字符和表示为十六进制形式且无标点符号的掩码组成，例如"198.51.100.0/c000ff00"。
 
-### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=31) 
+### type Interface 
 
 ``` go 
 type Interface struct {
@@ -1730,7 +1730,7 @@ type Interface struct {
 
 ​	Interface结构体表示网络接口名称和索引之间的映射。它还表示网络接口设施信息。
 
-#### func [InterfaceByIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=131) 
+#### func InterfaceByIndex 
 
 ``` go 
 func InterfaceByIndex(index int) (*Interface, error)
@@ -1740,7 +1740,7 @@ func InterfaceByIndex(index int) (*Interface, error)
 
 ​	在Solaris上，它返回共享逻辑数据链路的逻辑网络接口之一；要获得更精确的结果，请使用InterfaceByName。
 
-#### func [InterfaceByName](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=156) 
+#### func InterfaceByName 
 
 ``` go 
 func InterfaceByName(name string) (*Interface, error)
@@ -1748,7 +1748,7 @@ func InterfaceByName(name string) (*Interface, error)
 
 ​	InterfaceByName函数返回指定名称的接口。
 
-#### func [Interfaces](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=102) 
+#### func Interfaces 
 
 ``` go 
 func Interfaces() ([]Interface, error)
@@ -1756,7 +1756,7 @@ func Interfaces() ([]Interface, error)
 
 ​	Interfaces函数返回系统的网络接口列表。
 
-#### (*Interface) [Addrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=77) 
+#### (*Interface) Addrs 
 
 ``` go 
 func (ifi *Interface) Addrs() ([]Addr, error)
@@ -1764,7 +1764,7 @@ func (ifi *Interface) Addrs() ([]Addr, error)
 
 ​	Addrs方法返回特定接口的单播接口地址列表。
 
-#### (*Interface) [MulticastAddrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=90) 
+#### (*Interface) MulticastAddrs 
 
 ``` go 
 func (ifi *Interface) MulticastAddrs() ([]Addr, error)
@@ -1772,31 +1772,31 @@ func (ifi *Interface) MulticastAddrs() ([]Addr, error)
 
 ​	MulticastAddrs方法返回特定接口的多播、组播地址列表。
 
-### type [InvalidAddrError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=579) 
+### type InvalidAddrError 
 
 ``` go 
 type InvalidAddrError string
 ```
 
-#### (InvalidAddrError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=581) 
+#### (InvalidAddrError) Error 
 
 ``` go 
 func (e InvalidAddrError) Error() string
 ```
 
-#### (InvalidAddrError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=583) 
+#### (InvalidAddrError) Temporary 
 
 ``` go 
 func (e InvalidAddrError) Temporary() bool
 ```
 
-#### (InvalidAddrError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=582) 
+#### (InvalidAddrError) Timeout 
 
 ``` go 
 func (e InvalidAddrError) Timeout() bool
 ```
 
-### type [ListenConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=600)  <- go1.11
+### type ListenConfig  <- go1.11
 
 ``` go 
 type ListenConfig struct {
@@ -1818,7 +1818,7 @@ type ListenConfig struct {
 
 ​	ListenConfig结构体包含用于监听地址的选项。
 
-#### (*ListenConfig) [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=622)  <- go1.11
+#### (*ListenConfig) Listen  <- go1.11
 
 ``` go 
 func (lc *ListenConfig) Listen(ctx context.Context, network, address string) (Listener, error)
@@ -1828,7 +1828,7 @@ func (lc *ListenConfig) Listen(ctx context.Context, network, address string) (Li
 
 ​	有关网络和地址参数的描述，请参见 func Listen。
 
-#### (*ListenConfig) [ListenPacket](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=652)  <- go1.11
+#### (*ListenConfig) ListenPacket  <- go1.11
 
 ``` go 
 func (lc *ListenConfig) ListenPacket(ctx context.Context, network, address string) (PacketConn, error)
@@ -1838,7 +1838,7 @@ func (lc *ListenConfig) ListenPacket(ctx context.Context, network, address strin
 
 ​	有关网络和地址参数的描述，请参见 func ListenPacket。
 
-### type [Listener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=384) 
+### type Listener 
 
 ``` go 
 type Listener interface {
@@ -1896,7 +1896,7 @@ func main() {
 
 ```
 
-#### func [FileListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=33) 
+#### func FileListener 
 
 ``` go 
 func FileListener(f *os.File) (ln Listener, err error)
@@ -1904,7 +1904,7 @@ func FileListener(f *os.File) (ln Listener, err error)
 
 ​	FileListener函数返回与已打开文件 f 相应的网络监听器的副本。调用者有责任在完成时关闭 ln。关闭 ln 不会影响 f，关闭 f 不会影响 ln。
 
-#### func [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=707) 
+#### func Listen 
 
 ``` go 
 func Listen(network, address string) (Listener, error)
@@ -1920,7 +1920,7 @@ func Listen(network, address string) (Listener, error)
 
 ​	Listen 在内部使用 context.Background；要指定上下文，请使用 ListenConfig.Listen。
 
-### type [MX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=204) 
+### type MX 
 
 ``` go 
 type MX struct {
@@ -1931,7 +1931,7 @@ type MX struct {
 
 ​	MX结构体表示单个 DNS MX 记录。
 
-#### func [LookupMX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=549) 
+#### func LookupMX 
 
 ``` go 
 func LookupMX(name string) ([]*MX, error)
@@ -1943,7 +1943,7 @@ func LookupMX(name string) ([]*MX, error)
 
 ​	LookupMX 在内部使用 context.Background；要指定上下文，请使用 Resolver.LookupMX。
 
-### type [NS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=226)  <- go1.1
+### type NS  <- go1.1
 
 ``` go 
 type NS struct {
@@ -1953,7 +1953,7 @@ type NS struct {
 
 ​	NS结构体表示单个 DNS NS 记录。
 
-#### func [LookupNS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=589)  <- go1.1
+#### func LookupNS  <- go1.1
 
 ``` go 
 func LookupNS(name string) ([]*NS, error)
@@ -1965,7 +1965,7 @@ func LookupNS(name string) ([]*NS, error)
 
 ​	LookupNS 在内部使用 context.Background；要指定上下文，请使用 Resolver.LookupNS。
 
-### type [OpError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=444) 
+### type OpError 
 
 ``` go 
 type OpError struct {
@@ -1994,31 +1994,31 @@ type OpError struct {
 
 ​	OpError结构体是通常由net包中的函数返回的错误类型。它描述了错误的操作、网络类型和地址。
 
-#### (*OpError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=473) 
+#### (*OpError) Error 
 
 ``` go 
 func (e *OpError) Error() string
 ```
 
-#### (*OpError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=524) 
+#### (*OpError) Temporary 
 
 ``` go 
 func (e *OpError) Temporary() bool
 ```
 
-#### (*OpError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=511) 
+#### (*OpError) Timeout 
 
 ``` go 
 func (e *OpError) Timeout() bool
 ```
 
-#### (*OpError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=471)  <- go1.13
+#### (*OpError) Unwrap  <- go1.13
 
 ``` go 
 func (e *OpError) Unwrap() error
 ```
 
-### type [PacketConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=309) 
+### type PacketConn 
 
 ``` go 
 type PacketConn interface {
@@ -2078,7 +2078,7 @@ type PacketConn interface {
 
 ​	多个 goroutine 可以同时调用 PacketConn 上的方法。
 
-#### func [FilePacketConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=45) 
+#### func FilePacketConn 
 
 ``` go 
 func FilePacketConn(f *os.File) (c PacketConn, err error)
@@ -2086,7 +2086,7 @@ func FilePacketConn(f *os.File) (c PacketConn, err error)
 
 ​	FilePacketConn函数返回与打开的文件 f 对应的数据包网络连接的副本。当使用完毕时，调用方负责关闭 f。关闭 c 不影响 f，关闭 f 也不影响 c。
 
-#### func [ListenPacket](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=737) 
+#### func ListenPacket 
 
 ``` go 
 func ListenPacket(network, address string) (PacketConn, error)
@@ -2102,7 +2102,7 @@ func ListenPacket(network, address string) (PacketConn, error)
 
 ​	ListenPacket 在内部使用 context.Background；要指定上下文，请使用 ListenConfig.ListenPacket。
 
-### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=540) 
+### type ParseError 
 
 ``` go 
 type ParseError struct {
@@ -2117,25 +2117,25 @@ type ParseError struct {
 
 ​	ParseError结构体是文字网络地址解析器的错误类型。
 
-#### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=549) 
+#### (*ParseError) Error 
 
 ``` go 
 func (e *ParseError) Error() string
 ```
 
-#### (*ParseError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=552)  <- go1.17
+#### (*ParseError) Temporary  <- go1.17
 
 ``` go 
 func (e *ParseError) Temporary() bool
 ```
 
-#### (*ParseError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=551)  <- go1.17
+#### (*ParseError) Timeout  <- go1.17
 
 ``` go 
 func (e *ParseError) Timeout() bool
 ```
 
-### type [Resolver](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=123)  <- go1.8
+### type Resolver  <- go1.8
 
 ``` go 
 type Resolver struct {
@@ -2170,7 +2170,7 @@ type Resolver struct {
 
 ​	nil 的 *Resolver 等效于零 Resolver。
 
-#### (*Resolver) [LookupAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=655)  <- go1.8
+#### (*Resolver) LookupAddr  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupAddr(ctx context.Context, addr string) ([]string, error)
@@ -2180,7 +2180,7 @@ func (r *Resolver) LookupAddr(ctx context.Context, addr string) ([]string, error
 
 ​	返回的名称经过验证，以确保格式正确的呈现格式域名。如果响应包含无效名称，则这些记录将被过滤掉，并在剩余结果(如果有)的同时返回错误。
 
-#### (*Resolver) [LookupCNAME](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=473)  <- go1.8
+#### (*Resolver) LookupCNAME  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupCNAME(ctx context.Context, host string) (string, error)
@@ -2192,7 +2192,7 @@ func (r *Resolver) LookupCNAME(ctx context.Context, host string) (string, error)
 
 ​	返回的规范名称经过验证，以确保格式正确的呈现格式域名。
 
-#### (*Resolver) [LookupHost](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=182)  <- go1.8
+#### (*Resolver) LookupHost  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupHost(ctx context.Context, host string) (addrs []string, err error)
@@ -2200,7 +2200,7 @@ func (r *Resolver) LookupHost(ctx context.Context, host string) (addrs []string,
 
 ​	LookupHost方法使用本地解析器查找给定的主机。它返回该主机的地址片段。
 
-#### (*Resolver) [LookupIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=218)  <- go1.15
+#### (*Resolver) LookupIP  <- go1.15
 
 ``` go 
 func (r *Resolver) LookupIP(ctx context.Context, network, host string) ([]IP, error)
@@ -2208,7 +2208,7 @@ func (r *Resolver) LookupIP(ctx context.Context, network, host string) ([]IP, er
 
 ​	LookupIP方法使用本地解析器查找给定网络的主机。它返回该主机指定类型的 IP 地址的片段。network 必须是 "ip"、"ip4" 或 "ip6" 之一。
 
-#### (*Resolver) [LookupIPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=210)  <- go1.8
+#### (*Resolver) LookupIPAddr  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupIPAddr(ctx context.Context, host string) ([]IPAddr, error)
@@ -2216,7 +2216,7 @@ func (r *Resolver) LookupIPAddr(ctx context.Context, host string) ([]IPAddr, err
 
 ​	LookupIPAddr方法使用本地解析器查找主机。它返回该主机的 IPv4 和 IPv6 地址的片段。
 
-#### (*Resolver) [LookupMX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=559)  <- go1.8
+#### (*Resolver) LookupMX  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupMX(ctx context.Context, name string) ([]*MX, error)
@@ -2226,7 +2226,7 @@ func (r *Resolver) LookupMX(ctx context.Context, name string) ([]*MX, error)
 
 ​	返回的邮件服务器名称经过验证，以确保格式正确的呈现格式域名。如果响应包含无效名称，则这些记录将被过滤掉，并在剩余结果(如果有)的同时返回错误。
 
-#### (*Resolver) [LookupNS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=599)  <- go1.8
+#### (*Resolver) LookupNS  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupNS(ctx context.Context, name string) ([]*NS, error)
@@ -2236,7 +2236,7 @@ func (r *Resolver) LookupNS(ctx context.Context, name string) ([]*NS, error)
 
 ​	返回的名称服务器名称已验证为格式正确的演示格式域名。如果响应包含无效名称，则这些记录将被过滤，并将返回一个错误以及剩余结果(如果有)。
 
-#### (*Resolver) [LookupNetIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=248)  <- go1.18
+#### (*Resolver) LookupNetIP  <- go1.18
 
 ``` go 
 func (r *Resolver) LookupNetIP(ctx context.Context, network, host string) ([]netip.Addr, error)
@@ -2244,7 +2244,7 @@ func (r *Resolver) LookupNetIP(ctx context.Context, network, host string) ([]net
 
 ​	LookupNetIP方法使用本地解析器查找主机。它返回指定网络类型的主机 IP 地址切片。网络类型必须是"ip"、"ip4"或"ip6"。
 
-#### (*Resolver) [LookupPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=419)  <- go1.8
+#### (*Resolver) LookupPort  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupPort(ctx context.Context, network, service string) (port int, err error)
@@ -2252,7 +2252,7 @@ func (r *Resolver) LookupPort(ctx context.Context, network, service string) (por
 
 ​	LookupPort方法查找给定网络和服务的端口。
 
-#### (*Resolver) [LookupSRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=516)  <- go1.8
+#### (*Resolver) LookupSRV  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupSRV(ctx context.Context, service, proto, name string) (string, []*SRV, error)
@@ -2266,7 +2266,7 @@ func (r *Resolver) LookupSRV(ctx context.Context, service, proto, name string) (
 
 
 
-#### (*Resolver) [LookupTXT](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=629)  <- go1.8
+#### (*Resolver) LookupTXT  <- go1.8
 
 ``` go 
 func (r *Resolver) LookupTXT(ctx context.Context, name string) ([]string, error)
@@ -2274,7 +2274,7 @@ func (r *Resolver) LookupTXT(ctx context.Context, name string) ([]string, error)
 
 ​	LookupTXT方法返回给定域名的 DNS TXT 记录。
 
-### type [SRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=150) 
+### type SRV 
 
 ``` go 
 type SRV struct {
@@ -2287,7 +2287,7 @@ type SRV struct {
 
 ​	SRV 表示单个 DNS SRV 记录。
 
-#### func [LookupSRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=498) 
+#### func LookupSRV 
 
 ``` go 
 func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err error)
@@ -2299,7 +2299,7 @@ func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err err
 
 ​	返回的服务名已验证为格式正确的表示格式的域名。如果响应包含无效名称，则这些记录将被过滤掉，并且将返回错误以及剩余结果(如果有)。
 
-### type [TCPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=21) 
+### type TCPAddr 
 
 ``` go 
 type TCPAddr struct {
@@ -2311,7 +2311,7 @@ type TCPAddr struct {
 
 ​	TCPAddr结构体表示 TCP 端点的地址。
 
-#### func [ResolveTCPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=84) 
+#### func ResolveTCPAddr 
 
 ``` go 
 func ResolveTCPAddr(network, address string) (*TCPAddr, error)
@@ -2325,7 +2325,7 @@ func ResolveTCPAddr(network, address string) (*TCPAddr, error)
 
 ​	有关 network 和 address 参数的说明，请参见 func Dial。
 
-#### func [TCPAddrFromAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=102)  <- go1.18
+#### func TCPAddrFromAddrPort  <- go1.18
 
 ``` go 
 func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr
@@ -2333,7 +2333,7 @@ func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr
 
 ​	TCPAddrFromAddrPort函数将 addr 转换为 TCPAddr。如果 addr.IsValid() 为 false，则返回的 TCPAddr 将包含一个空的 IP 字段，表示不指定地址族的未指定地址。
 
-#### (*TCPAddr) [AddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=32)  <- go1.18
+#### (*TCPAddr) AddrPort  <- go1.18
 
 ``` go 
 func (a *TCPAddr) AddrPort() netip.AddrPort
@@ -2345,7 +2345,7 @@ func (a *TCPAddr) AddrPort() netip.AddrPort
 
 ​	如果 a 为 nil，则返回零值。
 
-#### (*TCPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=42) 
+#### (*TCPAddr) Network 
 
 ``` go 
 func (a *TCPAddr) Network() string
@@ -2353,13 +2353,13 @@ func (a *TCPAddr) Network() string
 
 ​	Network方法返回地址的网络名称，即"tcp"。
 
-#### (*TCPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=44) 
+#### (*TCPAddr) String 
 
 ``` go 
 func (a *TCPAddr) String() string
 ```
 
-### type [TCPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=112) 
+### type TCPConn 
 
 ``` go 
 type TCPConn struct {
@@ -2369,7 +2369,7 @@ type TCPConn struct {
 
 ​	TCPConn结构体是TCP网络连接的Conn接口实现。
 
-#### func [DialTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=242) 
+#### func DialTCP 
 
 ``` go 
 func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error)
@@ -2381,7 +2381,7 @@ func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error)
 
 ​	如果laddr是nil，则会自动选择本地地址。如果raddr的IP字段为nil或未指定IP地址，则会假定为本地系统。
 
-#### (*TCPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
+#### (*TCPConn) Close 
 
 ``` go 
 func (c *TCPConn) Close() error
@@ -2389,7 +2389,7 @@ func (c *TCPConn) Close() error
 
 ​	Close方法关闭连接。
 
-#### (*TCPConn) [CloseRead](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=139) 
+#### (*TCPConn) CloseRead 
 
 ``` go 
 func (c *TCPConn) CloseRead() error
@@ -2397,7 +2397,7 @@ func (c *TCPConn) CloseRead() error
 
 ​	CloseRead方法关闭TCP连接的读取侧。大多数调用方应该使用Close。
 
-#### (*TCPConn) [CloseWrite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=151) 
+#### (*TCPConn) CloseWrite 
 
 ``` go 
 func (c *TCPConn) CloseWrite() error
@@ -2405,7 +2405,7 @@ func (c *TCPConn) CloseWrite() error
 
 ​	CloseWrite方法关闭TCP连接的写入侧。大多数调用方应该使用Close。
 
-#### (*TCPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
+#### (*TCPConn) File 
 
 ``` go 
 func (c *TCPConn) File() (f *os.File, err error)
@@ -2415,7 +2415,7 @@ func (c *TCPConn) File() (f *os.File, err error)
 
 ​	返回的os.File的文件描述符与连接的不同。尝试使用此副本更改原始文件的属性可能会或可能不会产生预期的效果。
 
-#### (*TCPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
+#### (*TCPConn) LocalAddr 
 
 ``` go 
 func (c *TCPConn) LocalAddr() Addr
@@ -2423,7 +2423,7 @@ func (c *TCPConn) LocalAddr() Addr
 
 ​	LocalAddr方法返回本地网络地址。返回的Addr被所有调用LocalAddr共享，因此请勿修改它。
 
-#### (*TCPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
+#### (*TCPConn) Read 
 
 ``` go 
 func (c *TCPConn) Read(b []byte) (int, error)
@@ -2431,7 +2431,7 @@ func (c *TCPConn) Read(b []byte) (int, error)
 
 Read方法实现了Conn的Read方法。
 
-#### (*TCPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=126) 
+#### (*TCPConn) ReadFrom 
 
 ``` go 
 func (c *TCPConn) ReadFrom(r io.Reader) (int64, error)
@@ -2439,7 +2439,7 @@ func (c *TCPConn) ReadFrom(r io.Reader) (int64, error)
 
 ​	ReadFrom方法实现了io.ReaderFrom的ReadFrom方法。
 
-#### (*TCPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
+#### (*TCPConn) RemoteAddr 
 
 ``` go 
 func (c *TCPConn) RemoteAddr() Addr
@@ -2447,7 +2447,7 @@ func (c *TCPConn) RemoteAddr() Addr
 
 ​	RemoteAddr方法返回远程网络地址。返回的Addr由所有RemoteAddr调用共享，因此请不要修改它。
 
-#### (*TCPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
+#### (*TCPConn) SetDeadline 
 
 ``` go 
 func (c *TCPConn) SetDeadline(t time.Time) error
@@ -2455,7 +2455,7 @@ func (c *TCPConn) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法实现了Conn的SetDeadline方法。
 
-#### (*TCPConn) [SetKeepAlive](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=185) 
+#### (*TCPConn) SetKeepAlive 
 
 ``` go 
 func (c *TCPConn) SetKeepAlive(keepalive bool) error
@@ -2463,7 +2463,7 @@ func (c *TCPConn) SetKeepAlive(keepalive bool) error
 
 ​	SetKeepAlive方法设置操作系统是否应在连接上发送保持活动消息。
 
-#### (*TCPConn) [SetKeepAlivePeriod](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=196)  <- go1.2
+#### (*TCPConn) SetKeepAlivePeriod  <- go1.2
 
 ``` go 
 func (c *TCPConn) SetKeepAlivePeriod(d time.Duration) error
@@ -2471,7 +2471,7 @@ func (c *TCPConn) SetKeepAlivePeriod(d time.Duration) error
 
 ​	SetKeepAlivePeriod方法设置保持活动消息之间的时间间隔。
 
-#### (*TCPConn) [SetLinger](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=173) 
+#### (*TCPConn) SetLinger 
 
 ``` go 
 func (c *TCPConn) SetLinger(sec int) error
@@ -2485,7 +2485,7 @@ func (c *TCPConn) SetLinger(sec int) error
 
 ​	如果sec > 0，则数据像sec < 0一样在后台发送。在某些操作系统上，经过sec秒后，任何剩余的未发送数据可能会被丢弃。
 
-#### (*TCPConn) [SetNoDelay](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=210) 
+#### (*TCPConn) SetNoDelay 
 
 ``` go 
 func (c *TCPConn) SetNoDelay(noDelay bool) error
@@ -2493,7 +2493,7 @@ func (c *TCPConn) SetNoDelay(noDelay bool) error
 
 ​	SetNoDelay方法控制操作系统是否应推迟数据包传输，以期望发送较少的数据包(Nagle算法)。默认值为true(无延迟)，这意味着在Write之后尽快发送数据。
 
-#### (*TCPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
+#### (*TCPConn) SetReadBuffer 
 
 ``` go 
 func (c *TCPConn) SetReadBuffer(bytes int) error
@@ -2501,7 +2501,7 @@ func (c *TCPConn) SetReadBuffer(bytes int) error
 
 ​	SetReadBuffer方法设置与连接关联的操作系统接收缓冲区的大小。
 
-#### (*TCPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
+#### (*TCPConn) SetReadDeadline 
 
 ``` go 
 func (c *TCPConn) SetReadDeadline(t time.Time) error
@@ -2509,7 +2509,7 @@ func (c *TCPConn) SetReadDeadline(t time.Time) error
 
 ​	SetReadDeadline方法实现Conn SetReadDeadline方法。
 
-#### (*TCPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
+#### (*TCPConn) SetWriteBuffer 
 
 ``` go 
 func (c *TCPConn) SetWriteBuffer(bytes int) error
@@ -2517,7 +2517,7 @@ func (c *TCPConn) SetWriteBuffer(bytes int) error
 
 ​	SetWriteBuffer方法设置与连接关联的操作系统传输缓冲区的大小。
 
-#### (*TCPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
+#### (*TCPConn) SetWriteDeadline 
 
 ``` go 
 func (c *TCPConn) SetWriteDeadline(t time.Time) error
@@ -2525,7 +2525,7 @@ func (c *TCPConn) SetWriteDeadline(t time.Time) error
 
 ​	SetWriteDeadline方法实现Conn SetWriteDeadline方法。
 
-#### (*TCPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=118)  <- go1.9
+#### (*TCPConn) SyscallConn  <- go1.9
 
 ``` go 
 func (c *TCPConn) SyscallConn() (syscall.RawConn, error)
@@ -2533,7 +2533,7 @@ func (c *TCPConn) SyscallConn() (syscall.RawConn, error)
 
 ​	SyscallConn方法返回一个原始的网络连接。这实现了syscall.Conn接口。
 
-#### (*TCPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
+#### (*TCPConn) Write 
 
 ``` go 
 func (c *TCPConn) Write(b []byte) (int, error)
@@ -2541,7 +2541,7 @@ func (c *TCPConn) Write(b []byte) (int, error)
 
 ​	Write方法实现了Conn接口的Write方法。
 
-### type [TCPListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=261) 
+### type TCPListener 
 
 ``` go 
 type TCPListener struct {
@@ -2551,7 +2551,7 @@ type TCPListener struct {
 
 ​	TCPListener结构体是TCP网络侦听器。客户端通常应该使用类型为Listener的变量，而不是假定为TCP。
 
-#### func [ListenTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=360) 
+#### func ListenTCP 
 
 ``` go 
 func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
@@ -2563,7 +2563,7 @@ func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
 
 ​	如果laddr的IP字段为nil或未指定的IP地址，则ListenTCP将侦听本地系统的所有可用单播和任播IP地址。如果laddr的Port字段为0，则自动选择端口号。
 
-#### (*TCPListener) [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=293) 
+#### (*TCPListener) Accept 
 
 ``` go 
 func (l *TCPListener) Accept() (Conn, error)
@@ -2571,7 +2571,7 @@ func (l *TCPListener) Accept() (Conn, error)
 
 ​	Accept方法实现了 Listener 接口的 Accept 方法；它等待下一个呼叫并返回一个通用的 Conn。
 
-#### (*TCPListener) [AcceptTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=280) 
+#### (*TCPListener) AcceptTCP 
 
 ``` go 
 func (l *TCPListener) AcceptTCP() (*TCPConn, error)
@@ -2579,7 +2579,7 @@ func (l *TCPListener) AcceptTCP() (*TCPConn, error)
 
 ​	AcceptTCP方法接受下一个传入的呼叫并返回新连接。
 
-#### (*TCPListener) [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=319) 
+#### (*TCPListener) Addr 
 
 ``` go 
 func (l *TCPListener) Addr() Addr
@@ -2587,7 +2587,7 @@ func (l *TCPListener) Addr() Addr
 
 ​	Addr方法返回监听器的网络地址，即 *TCPAddr。返回的 Addr 在所有调用 Addr 的地方都是共享的，因此不要修改它。
 
-#### (*TCPListener) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=306) 
+#### (*TCPListener) Close 
 
 ``` go 
 func (l *TCPListener) Close() error
@@ -2595,7 +2595,7 @@ func (l *TCPListener) Close() error
 
 ​	Close方法停止在 TCP 地址上的监听。已经接受的连接不会关闭。
 
-#### (*TCPListener) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=340) 
+#### (*TCPListener) File 
 
 ``` go 
 func (l *TCPListener) File() (f *os.File, err error)
@@ -2605,7 +2605,7 @@ func (l *TCPListener) File() (f *os.File, err error)
 
 ​	返回的 os.File 的文件描述符与连接的不同。尝试使用此副本更改原始连接的属性可能会或可能不会产生预期的效果。
 
-#### (*TCPListener) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=323) 
+#### (*TCPListener) SetDeadline 
 
 ``` go 
 func (l *TCPListener) SetDeadline(t time.Time) error
@@ -2613,7 +2613,7 @@ func (l *TCPListener) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法设置监听器关联的截止日期。零时间值禁用截止日期。
 
-#### (*TCPListener) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=271)  <- go1.10
+#### (*TCPListener) SyscallConn  <- go1.10
 
 ``` go 
 func (l *TCPListener) SyscallConn() (syscall.RawConn, error)
@@ -2623,7 +2623,7 @@ func (l *TCPListener) SyscallConn() (syscall.RawConn, error)
 
 ​	返回的 RawConn 仅支持调用 Control。Read 和 Write 返回一个错误。
 
-### type [UDPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=24) 
+### type UDPAddr 
 
 ``` go 
 type UDPAddr struct {
@@ -2635,7 +2635,7 @@ type UDPAddr struct {
 
 ​	UDPAddr结构体表示 UDP 端点的地址。
 
-#### func [ResolveUDPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=87) 
+#### func ResolveUDPAddr 
 
 ``` go 
 func ResolveUDPAddr(network, address string) (*UDPAddr, error)
@@ -2649,7 +2649,7 @@ func ResolveUDPAddr(network, address string) (*UDPAddr, error)
 
 ​	有关网络和地址参数的说明，请参见 func Dial。
 
-#### func [UDPAddrFromAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=105)  <- go1.18
+#### func UDPAddrFromAddrPort  <- go1.18
 
 ``` go 
 func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr
@@ -2657,7 +2657,7 @@ func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr
 
 ​	UDPAddrFromAddrPort函数将 addr 转换为 UDPAddr。如果 addr.IsValid() 为 false，则返回的 UDPAddr 将包含一个 nil IP 字段，表示未指定地址簇的未指定地址。
 
-#### (*UDPAddr) [AddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=35)  <- go1.18
+#### (*UDPAddr) AddrPort  <- go1.18
 
 ``` go 
 func (a *UDPAddr) AddrPort() netip.AddrPort
@@ -2669,7 +2669,7 @@ func (a *UDPAddr) AddrPort() netip.AddrPort
 
 ​	如果 a 为 nil，则返回零值。
 
-#### (*UDPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=45) 
+#### (*UDPAddr) Network 
 
 ``` go 
 func (a *UDPAddr) Network() string
@@ -2677,13 +2677,13 @@ func (a *UDPAddr) Network() string
 
 ​	Network方法返回地址的网络名称，即 "udp"。
 
-#### (*UDPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=47) 
+#### (*UDPAddr) String 
 
 ``` go 
 func (a *UDPAddr) String() string
 ```
 
-### type [UDPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=122) 
+### type UDPConn 
 
 ``` go 
 type UDPConn struct {
@@ -2693,7 +2693,7 @@ type UDPConn struct {
 
 ​	UDPConn结构体是 UDP 网络连接的 Conn 和 PacketConn 接口实现。
 
-#### func [DialUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=290) 
+#### func DialUDP 
 
 ``` go 
 func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error)
@@ -2705,7 +2705,7 @@ func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error)
 
 ​	如果 laddr 为 nil，则自动选择本地地址。如果 raddr 的 IP 字段为 nil 或未指定 IP 地址，则假定为本地系统。
 
-#### func [ListenMulticastUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=353) 
+#### func ListenMulticastUDP 
 
 ``` go 
 func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPConn, error)
@@ -2721,7 +2721,7 @@ func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPCon
 
 ​	请注意，ListenMulticastUDP将在IPPROTO_IP下将IP_MULTICAST_LOOP套接字选项设置为0，以禁用组播数据包的回送。
 
-#### func [ListenUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=316) 
+#### func ListenUDP 
 
 ``` go 
 func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
@@ -2733,7 +2733,7 @@ func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
 
 ​	如果laddr的IP字段为nil或未指定的IP地址，则ListenUDP会在本地系统的所有可用IP地址上进行侦听，但不包括多播IP地址。如果laddr的Port字段为0，则自动选择端口号。
 
-#### (*UDPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
+#### (*UDPConn) Close 
 
 ``` go 
 func (c *UDPConn) Close() error
@@ -2741,7 +2741,7 @@ func (c *UDPConn) Close() error
 
 ​	Close方法关闭连接。
 
-#### (*UDPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
+#### (*UDPConn) File 
 
 ``` go 
 func (c *UDPConn) File() (f *os.File, err error)
@@ -2751,7 +2751,7 @@ func (c *UDPConn) File() (f *os.File, err error)
 
 ​	返回的os.File的文件描述符与连接的不同。尝试使用此副本更改原始的属性可能会产生预期或非预期的影响。
 
-#### (*UDPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
+#### (*UDPConn) LocalAddr 
 
 ``` go 
 func (c *UDPConn) LocalAddr() Addr
@@ -2759,7 +2759,7 @@ func (c *UDPConn) LocalAddr() Addr
 
 ​	LocalAddr方法返回本地网络地址。返回的Addr由LocalAddr的所有调用共享，因此不要修改它。
 
-#### (*UDPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
+#### (*UDPConn) Read 
 
 ``` go 
 func (c *UDPConn) Read(b []byte) (int, error)
@@ -2767,7 +2767,7 @@ func (c *UDPConn) Read(b []byte) (int, error)
 
 ​	Read方法实现Conn Read方法。
 
-#### (*UDPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=157) 
+#### (*UDPConn) ReadFrom 
 
 ``` go 
 func (c *UDPConn) ReadFrom(b []byte) (int, Addr, error)
@@ -2775,7 +2775,7 @@ func (c *UDPConn) ReadFrom(b []byte) (int, Addr, error)
 
 ​	ReadFrom方法实现PacketConn ReadFrom方法。
 
-#### (*UDPConn) [ReadFromUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=136) 
+#### (*UDPConn) ReadFromUDP 
 
 ``` go 
 func (c *UDPConn) ReadFromUDP(b []byte) (n int, addr *UDPAddr, err error)
@@ -2783,7 +2783,7 @@ func (c *UDPConn) ReadFromUDP(b []byte) (n int, addr *UDPAddr, err error)
 
 ​	ReadFromUDP方法的行为类似于ReadFrom，但返回一个UDPAddr。
 
-#### (*UDPConn) [ReadFromUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=171)  <- go1.18
+#### (*UDPConn) ReadFromUDPAddrPort  <- go1.18
 
 ``` go 
 func (c *UDPConn) ReadFromUDPAddrPort(b []byte) (n int, addr netip.AddrPort, err error)
@@ -2793,7 +2793,7 @@ func (c *UDPConn) ReadFromUDPAddrPort(b []byte) (n int, addr netip.AddrPort, err
 
 ​	如果c绑定到未指定的地址，则返回的netip.AddrPort的地址可能是一个IPv4映射的IPv6地址。使用netip.Addr.Unmap获取不带IPv6前缀的地址。
 
-#### (*UDPConn) [ReadMsgUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=189)  <- go1.1
+#### (*UDPConn) ReadMsgUDP  <- go1.1
 
 ``` go 
 func (c *UDPConn) ReadMsgUDP(b, oob []byte) (n, oobn, flags int, addr *UDPAddr, err error)
@@ -2803,7 +2803,7 @@ func (c *UDPConn) ReadMsgUDP(b, oob []byte) (n, oobn, flags int, addr *UDPAddr, 
 
 ​	可以使用golang.org/x/net/ipv4和golang.org/x/net/ipv6包来操作oob中的IP级套接字选项。
 
-#### (*UDPConn) [ReadMsgUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=199)  <- go1.18
+#### (*UDPConn) ReadMsgUDPAddrPort  <- go1.18
 
 ``` go 
 func (c *UDPConn) ReadMsgUDPAddrPort(b, oob []byte) (n, oobn, flags int, addr netip.AddrPort, err error)
@@ -2811,7 +2811,7 @@ func (c *UDPConn) ReadMsgUDPAddrPort(b, oob []byte) (n, oobn, flags int, addr ne
 
 ​	ReadMsgUDPAddrPort方法与ReadMsgUDP方法类似，但返回的是netip.AddrPort而不是UDPAddr。
 
-#### (*UDPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
+#### (*UDPConn) RemoteAddr 
 
 ``` go 
 func (c *UDPConn) RemoteAddr() Addr
@@ -2819,7 +2819,7 @@ func (c *UDPConn) RemoteAddr() Addr
 
 ​	RemoteAddr方法返回远程网络地址。返回的 Addr 在所有 RemoteAddr 的调用中共享，因此不要修改它。
 
-#### (*UDPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
+#### (*UDPConn) SetDeadline 
 
 ``` go 
 func (c *UDPConn) SetDeadline(t time.Time) error
@@ -2827,7 +2827,7 @@ func (c *UDPConn) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法实现了 Conn SetDeadline 方法。
 
-#### (*UDPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
+#### (*UDPConn) SetReadBuffer 
 
 ``` go 
 func (c *UDPConn) SetReadBuffer(bytes int) error
@@ -2835,7 +2835,7 @@ func (c *UDPConn) SetReadBuffer(bytes int) error
 
 ​	SetReadBuffer方法设置与连接关联的操作系统接收缓冲区的大小。
 
-#### (*UDPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
+#### (*UDPConn) SetReadDeadline 
 
 ``` go 
 func (c *UDPConn) SetReadDeadline(t time.Time) error
@@ -2843,7 +2843,7 @@ func (c *UDPConn) SetReadDeadline(t time.Time) error
 
 ​	SetReadDeadline方法实现了 Conn SetReadDeadline 方法。
 
-#### (*UDPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
+#### (*UDPConn) SetWriteBuffer 
 
 ``` go 
 func (c *UDPConn) SetWriteBuffer(bytes int) error
@@ -2851,7 +2851,7 @@ func (c *UDPConn) SetWriteBuffer(bytes int) error
 
 ​	SetWriteBuffer方法设置与连接关联的操作系统传输缓冲区的大小。
 
-#### (*UDPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
+#### (*UDPConn) SetWriteDeadline 
 
 ``` go 
 func (c *UDPConn) SetWriteDeadline(t time.Time) error
@@ -2859,7 +2859,7 @@ func (c *UDPConn) SetWriteDeadline(t time.Time) error
 
 ​	SetWriteDeadline方法实现了 Conn SetWriteDeadline 方法。
 
-#### (*UDPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=128)  <- go1.9
+#### (*UDPConn) SyscallConn  <- go1.9
 
 ``` go 
 func (c *UDPConn) SyscallConn() (syscall.RawConn, error)
@@ -2867,7 +2867,7 @@ func (c *UDPConn) SyscallConn() (syscall.RawConn, error)
 
 ​	SyscallConn方法返回原始网络连接。这实现了 syscall.Conn 接口。
 
-#### (*UDPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
+#### (*UDPConn) Write 
 
 ``` go 
 func (c *UDPConn) Write(b []byte) (int, error)
@@ -2875,7 +2875,7 @@ func (c *UDPConn) Write(b []byte) (int, error)
 
 ​	Write方法实现了 Conn Write 方法。
 
-#### (*UDPConn) [WriteMsgUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=258)  <- go1.1
+#### (*UDPConn) WriteMsgUDP  <- go1.1
 
 ``` go 
 func (c *UDPConn) WriteMsgUDP(b, oob []byte, addr *UDPAddr) (n, oobn int, err error)
@@ -2885,7 +2885,7 @@ func (c *UDPConn) WriteMsgUDP(b, oob []byte, addr *UDPAddr) (n, oobn int, err er
 
 ​	包 golang.org/x/net/ipv4 和 golang.org/x/net/ipv6 可用于操作 oob 中的 IP 级 socket 选项。
 
-#### (*UDPConn) [WriteMsgUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=270)  <- go1.18
+#### (*UDPConn) WriteMsgUDPAddrPort  <- go1.18
 
 ``` go 
 func (c *UDPConn) WriteMsgUDPAddrPort(b, oob []byte, addr netip.AddrPort) (n, oobn int, err error)
@@ -2893,7 +2893,7 @@ func (c *UDPConn) WriteMsgUDPAddrPort(b, oob []byte, addr netip.AddrPort) (n, oo
 
 ​	WriteMsgUDPAddrPort方法与WriteMsgUDP方法类似，但是接受netip.AddrPort而不是UDPAddr。
 
-#### (*UDPConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=235) 
+#### (*UDPConn) WriteTo 
 
 ``` go 
 func (c *UDPConn) WriteTo(b []byte, addr Addr) (int, error)
@@ -2933,7 +2933,7 @@ func main() {
 
 ```
 
-#### (*UDPConn) [WriteToUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=211) 
+#### (*UDPConn) WriteToUDP 
 
 ``` go 
 func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
@@ -2941,7 +2941,7 @@ func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 
 ​	WriteToUDP方法类似于WriteTo，但是需要一个UDPAddr参数。
 
-#### (*UDPConn) [WriteToUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=223)  <- go1.18
+#### (*UDPConn) WriteToUDPAddrPort  <- go1.18
 
 ``` go 
 func (c *UDPConn) WriteToUDPAddrPort(b []byte, addr netip.AddrPort) (int, error)
@@ -2949,7 +2949,7 @@ func (c *UDPConn) WriteToUDPAddrPort(b []byte, addr netip.AddrPort) (int, error)
 
 ​	WriteToUDPAddrPort方法类似于WriteTo，但是需要一个netip.AddrPort参数。
 
-### type [UnixAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=22) 
+### type UnixAddr 
 
 ``` go 
 type UnixAddr struct {
@@ -2960,7 +2960,7 @@ type UnixAddr struct {
 
 ​	UnixAddr结构体表示Unix域套接字终端的地址。
 
-#### func [ResolveUnixAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=57) 
+#### func ResolveUnixAddr 
 
 ``` go 
 func ResolveUnixAddr(network, address string) (*UnixAddr, error)
@@ -2972,7 +2972,7 @@ func ResolveUnixAddr(network, address string) (*UnixAddr, error)
 
 ​	有关network和address参数的说明，请参见func Dial。
 
-#### (*UnixAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=29) 
+#### (*UnixAddr) Network 
 
 ``` go 
 func (a *UnixAddr) Network() string
@@ -2980,13 +2980,13 @@ func (a *UnixAddr) Network() string
 
 ​	Network方法返回地址的网络名称，即"unix"、"unixgram"或"unixpacket"。
 
-#### (*UnixAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=33) 
+#### (*UnixAddr) String 
 
 ``` go 
 func (a *UnixAddr) String() string
 ```
 
-### type [UnixConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=68) 
+### type UnixConn 
 
 ``` go 
 type UnixConn struct {
@@ -2996,7 +2996,7 @@ type UnixConn struct {
 
 ​	UnixConn结构体是用于Unix域套接字连接的Conn接口的实现。
 
-#### func [DialUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=203) 
+#### func DialUnix 
 
 ``` go 
 func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error)
@@ -3008,7 +3008,7 @@ func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error)
 
 ​	如果laddr非nil，则用作连接的本地地址。
 
-#### func [ListenUnixgram](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=337) 
+#### func ListenUnixgram 
 
 ``` go 
 func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error)
@@ -3018,7 +3018,7 @@ func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error)
 
 ​	network参数必须是"unixgram"。
 
-#### (*UnixConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
+#### (*UnixConn) Close 
 
 ``` go 
 func (c *UnixConn) Close() error
@@ -3026,7 +3026,7 @@ func (c *UnixConn) Close() error
 
 ​	Close方法关闭连接。
 
-#### (*UnixConn) [CloseRead](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=83)  <- go1.1
+#### (*UnixConn) CloseRead  <- go1.1
 
 ``` go 
 func (c *UnixConn) CloseRead() error
@@ -3034,7 +3034,7 @@ func (c *UnixConn) CloseRead() error
 
 ​	CloseRead方法关闭Unix域连接的读取端。大多数调用方应该只使用Close。
 
-#### (*UnixConn) [CloseWrite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=95)  <- go1.1
+#### (*UnixConn) CloseWrite  <- go1.1
 
 ``` go 
 func (c *UnixConn) CloseWrite() error
@@ -3042,7 +3042,7 @@ func (c *UnixConn) CloseWrite() error
 
 ​	CloseWrite方法关闭Unix域连接的写入端。大多数调用方应该只使用Close。
 
-#### (*UnixConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
+#### (*UnixConn) File 
 
 ``` go 
 func (c *UnixConn) File() (f *os.File, err error)
@@ -3052,7 +3052,7 @@ func (c *UnixConn) File() (f *os.File, err error)
 
 ​	返回的os.File的文件描述符与连接的不同。尝试使用此副本更改原始文件的属性可能会或可能不会产生所需的效果。
 
-#### (*UnixConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
+#### (*UnixConn) LocalAddr 
 
 ``` go 
 func (c *UnixConn) LocalAddr() Addr
@@ -3060,7 +3060,7 @@ func (c *UnixConn) LocalAddr() Addr
 
 ​	LocalAddr方法返回本地网络地址。返回的Addr由LocalAddr的所有调用共享，因此不要修改它。
 
-#### (*UnixConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
+#### (*UnixConn) Read 
 
 ``` go 
 func (c *UnixConn) Read(b []byte) (int, error)
@@ -3068,7 +3068,7 @@ func (c *UnixConn) Read(b []byte) (int, error)
 
 ​	Read方法实现了Conn Read方法。
 
-#### (*UnixConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=118) 
+#### (*UnixConn) ReadFrom 
 
 ``` go 
 func (c *UnixConn) ReadFrom(b []byte) (int, Addr, error)
@@ -3076,7 +3076,7 @@ func (c *UnixConn) ReadFrom(b []byte) (int, Addr, error)
 
 ​	ReadFrom方法实现了PacketConn ReadFrom方法。
 
-#### (*UnixConn) [ReadFromUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=106) 
+#### (*UnixConn) ReadFromUnix 
 
 ``` go 
 func (c *UnixConn) ReadFromUnix(b []byte) (int, *UnixAddr, error)
@@ -3084,7 +3084,7 @@ func (c *UnixConn) ReadFromUnix(b []byte) (int, *UnixAddr, error)
 
 ​	ReadFromUnix方法类似于ReadFrom，但返回一个UnixAddr。
 
-#### (*UnixConn) [ReadMsgUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=139) 
+#### (*UnixConn) ReadMsgUnix 
 
 ``` go 
 func (c *UnixConn) ReadMsgUnix(b, oob []byte) (n, oobn, flags int, addr *UnixAddr, err error)
@@ -3094,7 +3094,7 @@ func (c *UnixConn) ReadMsgUnix(b, oob []byte) (n, oobn, flags int, addr *UnixAdd
 
 ​	请注意，如果len(b) == 0且len(oob) > 0，则此函数仍将从连接中读取(并丢弃)1个字节。
 
-#### (*UnixConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
+#### (*UnixConn) RemoteAddr 
 
 ``` go 
 func (c *UnixConn) RemoteAddr() Addr
@@ -3102,7 +3102,7 @@ func (c *UnixConn) RemoteAddr() Addr
 
 ​	RemoteAddr方法返回远程网络地址。返回的Addr由RemoteAddr的所有调用共享，因此不要修改它。
 
-#### (*UnixConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
+#### (*UnixConn) SetDeadline 
 
 ``` go 
 func (c *UnixConn) SetDeadline(t time.Time) error
@@ -3110,7 +3110,7 @@ func (c *UnixConn) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法实现了Conn SetDeadline方法。
 
-#### (*UnixConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
+#### (*UnixConn) SetReadBuffer 
 
 ``` go 
 func (c *UnixConn) SetReadBuffer(bytes int) error
@@ -3118,7 +3118,7 @@ func (c *UnixConn) SetReadBuffer(bytes int) error
 
 ​	SetReadBuffer方法设置与连接关联的操作系统接收缓冲区的大小。
 
-#### (*UnixConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
+#### (*UnixConn) SetReadDeadline 
 
 ``` go 
 func (c *UnixConn) SetReadDeadline(t time.Time) error
@@ -3126,7 +3126,7 @@ func (c *UnixConn) SetReadDeadline(t time.Time) error
 
 ​	SetReadDeadline方法实现了Conn SetReadDeadline方法。
 
-#### (*UnixConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
+#### (*UnixConn) SetWriteBuffer 
 
 ``` go 
 func (c *UnixConn) SetWriteBuffer(bytes int) error
@@ -3134,7 +3134,7 @@ func (c *UnixConn) SetWriteBuffer(bytes int) error
 
 ​	SetWriteBuffer方法设置与连接关联的操作系统传输缓冲区的大小。
 
-#### (*UnixConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
+#### (*UnixConn) SetWriteDeadline 
 
 ``` go 
 func (c *UnixConn) SetWriteDeadline(t time.Time) error
@@ -3142,7 +3142,7 @@ func (c *UnixConn) SetWriteDeadline(t time.Time) error
 
 ​	SetWriteDeadline方法实现了Conn SetWriteDeadline方法。
 
-#### (*UnixConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=74)  <- go1.9
+#### (*UnixConn) SyscallConn  <- go1.9
 
 ``` go 
 func (c *UnixConn) SyscallConn() (syscall.RawConn, error)
@@ -3150,7 +3150,7 @@ func (c *UnixConn) SyscallConn() (syscall.RawConn, error)
 
 ​	SyscallConn方法返回原始网络连接。这实现了syscall.Conn接口。
 
-#### (*UnixConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
+#### (*UnixConn) Write 
 
 ``` go 
 func (c *UnixConn) Write(b []byte) (int, error)
@@ -3158,7 +3158,7 @@ func (c *UnixConn) Write(b []byte) (int, error)
 
 ​	Write方法实现了Conn Write方法。
 
-#### (*UnixConn) [WriteMsgUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=184) 
+#### (*UnixConn) WriteMsgUnix 
 
 ``` go 
 func (c *UnixConn) WriteMsgUnix(b, oob []byte, addr *UnixAddr) (n, oobn int, err error)
@@ -3168,7 +3168,7 @@ func (c *UnixConn) WriteMsgUnix(b, oob []byte, addr *UnixAddr) (n, oobn int, err
 
 ​	请注意，如果len(b) == 0且len(oob) > 0，则此函数仍将向连接写入1个字节。
 
-#### (*UnixConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=163) 
+#### (*UnixConn) WriteTo 
 
 ``` go 
 func (c *UnixConn) WriteTo(b []byte, addr Addr) (int, error)
@@ -3176,7 +3176,7 @@ func (c *UnixConn) WriteTo(b []byte, addr Addr) (int, error)
 
 ​	WriteTo方法实现了PacketConn WriteTo方法。
 
-#### (*UnixConn) [WriteToUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=151) 
+#### (*UnixConn) WriteToUnix 
 
 ``` go 
 func (c *UnixConn) WriteToUnix(b []byte, addr *UnixAddr) (int, error)
@@ -3184,7 +3184,7 @@ func (c *UnixConn) WriteToUnix(b []byte, addr *UnixAddr) (int, error)
 
 ​	WriteToUnix方法类似于WriteTo，但需要一个UnixAddr参数。
 
-### type [UnixListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=220) 
+### type UnixListener 
 
 ``` go 
 type UnixListener struct {
@@ -3194,7 +3194,7 @@ type UnixListener struct {
 
 ​	UnixListener结构体是Unix域套接字侦听器。客户端通常应使用类型为Listener的变量，而不是假定Unix域套接字。
 
-#### func [ListenUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=317) 
+#### func ListenUnix 
 
 ``` go 
 func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error)
@@ -3204,7 +3204,7 @@ func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error)
 
 ​	network必须是"unix"或"unixpacket"。
 
-#### (*UnixListener) [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=256) 
+#### (*UnixListener) Accept 
 
 ``` go 
 func (l *UnixListener) Accept() (Conn, error)
@@ -3212,7 +3212,7 @@ func (l *UnixListener) Accept() (Conn, error)
 
 ​	Accept方法实现了Listener接口中的Accept方法。返回的连接将是*UnixConn类型。
 
-#### (*UnixListener) [AcceptUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=243) 
+#### (*UnixListener) AcceptUnix 
 
 ``` go 
 func (l *UnixListener) AcceptUnix() (*UnixConn, error)
@@ -3220,7 +3220,7 @@ func (l *UnixListener) AcceptUnix() (*UnixConn, error)
 
 ​	AcceptUnix方法接受下一个传入的调用并返回新的连接。
 
-#### (*UnixListener) [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=282) 
+#### (*UnixListener) Addr 
 
 ``` go 
 func (l *UnixListener) Addr() Addr
@@ -3228,7 +3228,7 @@ func (l *UnixListener) Addr() Addr
 
 ​	Addr方法返回侦听器的网络地址。返回的Addr由所有Addr调用共享，因此不要修改它。
 
-#### (*UnixListener) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=269) 
+#### (*UnixListener) Close 
 
 ``` go 
 func (l *UnixListener) Close() error
@@ -3236,7 +3236,7 @@ func (l *UnixListener) Close() error
 
 ​	Close方法停止侦听Unix地址。已接受的连接不会关闭。
 
-#### (*UnixListener) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=303) 
+#### (*UnixListener) File 
 
 ``` go 
 func (l *UnixListener) File() (f *os.File, err error)
@@ -3246,7 +3246,7 @@ func (l *UnixListener) File() (f *os.File, err error)
 
 ​	返回的os.File的文件描述符与连接的不同。尝试使用此副本更改原始文件的属性可能会产生预期的效果，也可能不会。
 
-#### (*UnixListener) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=286) 
+#### (*UnixListener) SetDeadline 
 
 ``` go 
 func (l *UnixListener) SetDeadline(t time.Time) error
@@ -3254,7 +3254,7 @@ func (l *UnixListener) SetDeadline(t time.Time) error
 
 ​	SetDeadline方法设置与侦听器关联的截止日期。零时间值禁用截止日期。
 
-#### (*UnixListener) [SetUnlinkOnClose](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock_posix.go;l=215)  <- go1.8
+#### (*UnixListener) SetUnlinkOnClose  <- go1.8
 
 ``` go 
 func (l *UnixListener) SetUnlinkOnClose(unlink bool)
@@ -3264,7 +3264,7 @@ func (l *UnixListener) SetUnlinkOnClose(unlink bool)
 
 ​	默认行为是仅在包net创建它时取消连接套接字文件。也就是说，当使用调用Listen或ListenUnix创建侦听器和底层套接字文件时，默认情况下，关闭侦听器将删除套接字文件。但是，如果通过调用FileListener创建侦听器来使用已经存在的套接字文件，则默认情况下，关闭侦听器不会删除套接字文件。
 
-#### (*UnixListener) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=234)  <- go1.10
+#### (*UnixListener) SyscallConn  <- go1.10
 
 ``` go 
 func (l *UnixListener) SyscallConn() (syscall.RawConn, error)
@@ -3274,25 +3274,25 @@ func (l *UnixListener) SyscallConn() (syscall.RawConn, error)
 
 ​	返回的RawConn仅支持调用Control。读取和写入返回错误。
 
-### type [UnknownNetworkError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=573) 
+### type UnknownNetworkError 
 
 ``` go 
 type UnknownNetworkError string
 ```
 
-#### (UnknownNetworkError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=575) 
+#### (UnknownNetworkError) Error 
 
 ``` go 
 func (e UnknownNetworkError) Error() string
 ```
 
-#### (UnknownNetworkError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=577) 
+#### (UnknownNetworkError) Temporary 
 
 ``` go 
 func (e UnknownNetworkError) Temporary() bool
 ```
 
-#### (UnknownNetworkError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=576) 
+#### (UnknownNetworkError) Timeout 
 
 ``` go 
 func (e UnknownNetworkError) Timeout() bool

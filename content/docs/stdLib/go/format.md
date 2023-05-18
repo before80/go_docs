@@ -33,7 +33,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Node](https://cs.opensource.google/go/go/+/go1.20.1:src/go/format/format.go;l=53) 
+#### func Node 
 
 ``` go 
 func Node(dst io.Writer, fset *token.FileSet, node any) error
@@ -49,7 +49,7 @@ The function may return early (before the entire result is written) and return a
 ``` go 
 ```
 
-#### func [Source](https://cs.opensource.google/go/go/+/go1.20.1:src/go/format/format.go;l=101) 
+#### func Source 
 
 ``` go 
 func Source(src []byte) ([]byte, error)

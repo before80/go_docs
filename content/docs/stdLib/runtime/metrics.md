@@ -290,7 +290,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/sample.go;l=45) 
+#### func Read 
 
 ``` go 
 func Read(m []Sample)
@@ -316,7 +316,7 @@ Sample values with names not appearing in All will have their Value populated as
 
 ## 类型
 
-### type [Description](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/description.go;l=8) 
+### type Description 
 
 ``` go 
 type Description struct {
@@ -365,7 +365,7 @@ type Description struct {
 
 Description describes a runtime metric.
 
-#### func [All](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/description.go;l=378) 
+#### func All 
 
 ``` go 
 func All() []Description
@@ -373,7 +373,7 @@ func All() []Description
 
 All returns a slice of containing metric descriptions for all supported metrics.
 
-### type [Float64Histogram](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/histogram.go;l=8) 
+### type Float64Histogram 
 
 ``` go 
 type Float64Histogram struct {
@@ -406,7 +406,7 @@ type Float64Histogram struct {
 
 Float64Histogram represents a distribution of float64 values.
 
-### type [Sample](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/sample.go;l=13) 
+### type Sample 
 
 ``` go 
 type Sample struct {
@@ -423,7 +423,7 @@ type Sample struct {
 
 Sample captures a single metric sample.
 
-### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=30) 
+### type Value 
 
 ``` go 
 type Value struct {
@@ -433,7 +433,7 @@ type Value struct {
 
 Value represents a metric value returned by the runtime.
 
-#### (Value) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=54) 
+#### (Value) Float64 
 
 ``` go 
 func (v Value) Float64() float64
@@ -443,7 +443,7 @@ Float64 returns the internal float64 value for the metric.
 
 If v.Kind() != KindFloat64, this method panics.
 
-#### (Value) [Float64Histogram](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=64) 
+#### (Value) Float64Histogram 
 
 ``` go 
 func (v Value) Float64Histogram() *Float64Histogram
@@ -453,7 +453,7 @@ Float64Histogram returns the internal *Float64Histogram value for the metric.
 
 If v.Kind() != KindFloat64Histogram, this method panics.
 
-#### (Value) [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=37) 
+#### (Value) Kind 
 
 ``` go 
 func (v Value) Kind() ValueKind
@@ -461,7 +461,7 @@ func (v Value) Kind() ValueKind
 
 Kind returns the tag representing the kind of value this is.
 
-#### (Value) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=44) 
+#### (Value) Uint64 
 
 ``` go 
 func (v Value) Uint64() uint64
@@ -471,7 +471,7 @@ Uint64 returns the internal uint64 value for the metric.
 
 If v.Kind() != KindUint64, this method panics.
 
-### type [ValueKind](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=13) 
+### type ValueKind 
 
 ``` go 
 type ValueKind int

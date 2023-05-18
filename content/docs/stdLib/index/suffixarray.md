@@ -44,7 +44,7 @@ This section is empty.
 
 ## 类型
 
-### type [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=34) 
+### type Index 
 
 ``` go 
 type Index struct {
@@ -54,7 +54,7 @@ type Index struct {
 
 Index implements a suffix array for fast substring search.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=75) 
+#### func New 
 
 ``` go 
 func New(data []byte) *Index
@@ -62,7 +62,7 @@ func New(data []byte) *Index
 
 New creates a new Index for data. Index creation time is O(N) for N = len(data).
 
-#### (*Index) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=232) 
+#### (*Index) Bytes 
 
 ``` go 
 func (x *Index) Bytes() []byte
@@ -70,7 +70,7 @@ func (x *Index) Bytes() []byte
 
 Bytes returns the data over which the index was created. It must not be modified.
 
-#### (*Index) [FindAllIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=286) 
+#### (*Index) FindAllIndex 
 
 ``` go 
 func (x *Index) FindAllIndex(r *regexp.Regexp, n int) (result [][]int)
@@ -78,7 +78,7 @@ func (x *Index) FindAllIndex(r *regexp.Regexp, n int) (result [][]int)
 
 FindAllIndex returns a sorted list of non-overlapping matches of the regular expression r, where a match is a pair of indices specifying the matched slice of x.Bytes(). If n < 0, all matches are returned in successive order. Otherwise, at most n matches are returned and they may not be successive. The result is nil if there are no matches, or if n == 0.
 
-#### (*Index) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=256) 
+#### (*Index) Lookup 
 
 ``` go 
 func (x *Index) Lookup(s []byte, n int) (result []int)
@@ -90,7 +90,7 @@ Lookup returns an unsorted list of at most n indices where the byte string s occ
 ``` go 
 ```
 
-#### (*Index) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=154) 
+#### (*Index) Read 
 
 ``` go 
 func (x *Index) Read(r io.Reader) error
@@ -98,7 +98,7 @@ func (x *Index) Read(r io.Reader) error
 
 Read reads the index from r into x; x must not be nil.
 
-#### (*Index) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/index/suffixarray/suffixarray.go;l=204) 
+#### (*Index) Write 
 
 ``` go 
 func (x *Index) Write(w io.Writer) error

@@ -61,7 +61,7 @@ Operations in this package are implemented using constant-time algorithms, excep
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pss.go;l=247)
 
@@ -104,7 +104,7 @@ ErrVerification represents a failure to verify a signature. It is deliberately v
 
 ## 函数
 
-#### func [DecryptOAEP](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=663) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptOAEP)
+#### func DecryptOAEP [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptOAEP)
 
 ```
 func DecryptOAEP(hash hash.Hash, random io.Reader, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error)
@@ -120,7 +120,7 @@ The label parameter must match the value given when encrypting. See EncryptOAEP 
 
 <details tabindex="-1" id="example-DecryptOAEP" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/rsa@go1.20.1#example-DecryptOAEP" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 19.625rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div></details>
 
-#### func [DecryptPKCS1v15](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=89) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptPKCS1v15)
+#### func DecryptPKCS1v15 [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptPKCS1v15)
 
 ```
 func DecryptPKCS1v15(random io.Reader, priv *PrivateKey, ciphertext []byte) ([]byte, error)
@@ -130,7 +130,7 @@ DecryptPKCS1v15 decrypts a plaintext using RSA and the padding scheme from PKCS 
 
 Note that whether this function returns an error or not discloses secret information. If an attacker can cause this function to run repeatedly and learn whether each instance returned an error then they can decrypt and forge signatures as if they had the private key. See DecryptPKCS1v15SessionKey for a way of solving this problem.
 
-#### func [DecryptPKCS1v15SessionKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=135) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptPKCS1v15SessionKey)
+#### func DecryptPKCS1v15SessionKey [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#DecryptPKCS1v15SessionKey)
 
 ```
 func DecryptPKCS1v15SessionKey(random io.Reader, priv *PrivateKey, ciphertext []byte, key []byte) error
@@ -142,7 +142,7 @@ Note that if the session key is too small then it may be possible for an attacke
 
 <details tabindex="-1" id="example-DecryptPKCS1v15SessionKey" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/rsa@go1.20.1#example-DecryptPKCS1v15SessionKey" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 55.875rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div></details>
 
-#### func [EncryptOAEP](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=496) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#EncryptOAEP)
+#### func EncryptOAEP [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#EncryptOAEP)
 
 ```
 func EncryptOAEP(hash hash.Hash, random io.Reader, pub *PublicKey, msg []byte, label []byte) ([]byte, error)
@@ -160,7 +160,7 @@ The message must be no longer than the length of the public modulus minus twice 
 
 <details tabindex="-1" id="example-EncryptOAEP" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/rsa@go1.20.1#example-EncryptOAEP" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 22.125rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div></details>
 
-#### func [EncryptPKCS1v15](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=38) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#EncryptPKCS1v15)
+#### func EncryptPKCS1v15 [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#EncryptPKCS1v15)
 
 ```
 func EncryptPKCS1v15(random io.Reader, pub *PublicKey, msg []byte) ([]byte, error)
@@ -172,7 +172,7 @@ The random parameter is used as a source of entropy to ensure that encrypting th
 
 WARNING: use of this function to encrypt plaintexts other than session keys is dangerous. Use RSA OAEP in new protocols.
 
-#### func [SignPKCS1v15](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=269) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#SignPKCS1v15)
+#### func SignPKCS1v15 [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#SignPKCS1v15)
 
 ```
 func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error)
@@ -186,7 +186,7 @@ This function is deterministic. Thus, if the set of possible messages is small, 
 
 <details tabindex="-1" id="example-SignPKCS1v15" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/rsa@go1.20.1#example-SignPKCS1v15" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 22.125rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div></details>
 
-#### func [SignPSS](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pss.go;l=288) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#SignPSS)added in go1.2
+#### func SignPSS [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#SignPSS)added in go1.2
 
 ```
 func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error)
@@ -196,7 +196,7 @@ SignPSS calculates the signature of digest using PSS.
 
 digest must be the result of hashing the input message using the given hash function. The opts argument may be nil, in which case sensible defaults are used. If opts.Hash is set, it overrides hash.
 
-#### func [VerifyPKCS1v15](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=306) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#VerifyPKCS1v15)
+#### func VerifyPKCS1v15 [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#VerifyPKCS1v15)
 
 ```
 func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte) error
@@ -206,7 +206,7 @@ VerifyPKCS1v15 verifies an RSA PKCS #1 v1.5 signature. hashed is the result of h
 
 <details tabindex="-1" id="example-VerifyPKCS1v15" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/rsa@go1.20.1#example-VerifyPKCS1v15" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 23.375rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div></details>
 
-#### func [VerifyPSS](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pss.go;l=331) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#VerifyPSS)added in go1.2
+#### func VerifyPSS [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#VerifyPSS)added in go1.2
 
 ```
 func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts *PSSOptions) error
@@ -218,7 +218,7 @@ A valid signature is indicated by returning a nil error. digest must be the resu
 
 ## 类型
 
-### type [CRTValue](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=217) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#CRTValue)
+### type CRTValue [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#CRTValue)
 
 ```
 type CRTValue struct {
@@ -230,7 +230,7 @@ type CRTValue struct {
 
 CRTValue contains the precomputed Chinese remainder theorem values.
 
-### type [OAEPOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=72) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#OAEPOptions)added in go1.5
+### type OAEPOptions [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#OAEPOptions)added in go1.5
 
 ```
 type OAEPOptions struct {
@@ -249,7 +249,7 @@ type OAEPOptions struct {
 
 OAEPOptions is an interface for passing options to OAEP decryption using the crypto.Decrypter interface.
 
-### type [PKCS1v15DecryptOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pkcs1v15.go;l=20) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PKCS1v15DecryptOptions)added in go1.5
+### type PKCS1v15DecryptOptions [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PKCS1v15DecryptOptions)added in go1.5
 
 ```
 type PKCS1v15DecryptOptions struct {
@@ -263,7 +263,7 @@ type PKCS1v15DecryptOptions struct {
 
 PKCS1v15DecryptOptions is for passing options to PKCS #1 v1.5 decryption using the crypto.Decrypter interface.
 
-### type [PSSOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pss.go;l=257) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PSSOptions)added in go1.2
+### type PSSOptions [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PSSOptions)added in go1.2
 
 ```
 type PSSOptions struct {
@@ -281,7 +281,7 @@ type PSSOptions struct {
 
 PSSOptions contains options for creating and verifying PSS signatures.
 
-#### (*PSSOptions) [HashFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/pss.go;l=270) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PSSOptions.HashFunc)added in go1.4
+#### (*PSSOptions) HashFunc [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PSSOptions.HashFunc)added in go1.4
 
 ```
 func (opts *PSSOptions) HashFunc() crypto.Hash
@@ -289,7 +289,7 @@ func (opts *PSSOptions) HashFunc() crypto.Hash
 
 HashFunc returns opts.Hash so that PSSOptions implements crypto.SignerOpts.
 
-### type [PrecomputedValues](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=198) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrecomputedValues)
+### type PrecomputedValues [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrecomputedValues)
 
 ```
 type PrecomputedValues struct {
@@ -310,7 +310,7 @@ type PrecomputedValues struct {
 }
 ```
 
-### type [PrivateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=110) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey)
+### type PrivateKey [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey)
 
 ```
 type PrivateKey struct {
@@ -327,7 +327,7 @@ type PrivateKey struct {
 
 A PrivateKey represents an RSA key
 
-#### func [GenerateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=263) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#GenerateKey)
+#### func GenerateKey [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#GenerateKey)
 
 ```
 func GenerateKey(random io.Reader, bits int) (*PrivateKey, error)
@@ -335,7 +335,7 @@ func GenerateKey(random io.Reader, bits int) (*PrivateKey, error)
 
 GenerateKey generates an RSA keypair of the given bit size using the random source random (for example, crypto/rand.Reader).
 
-#### func [GenerateMultiPrimeKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=286) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#GenerateMultiPrimeKey)
+#### func GenerateMultiPrimeKey [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#GenerateMultiPrimeKey)
 
 ```
 func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey, error)
@@ -351,7 +351,7 @@ This package does not implement CRT optimizations for multi-prime RSA, so the ke
 
 Note: The use of this function with a number of primes different from two is not recommended for the above security, compatibility, and performance reasons. Use GenerateKey instead.
 
-#### (*PrivateKey) [Decrypt](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=166) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Decrypt)added in go1.5
+#### (*PrivateKey) Decrypt [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Decrypt)added in go1.5
 
 ```
 func (priv *PrivateKey) Decrypt(rand io.Reader, ciphertext []byte, opts crypto.DecrypterOpts) (plaintext []byte, err error)
@@ -359,7 +359,7 @@ func (priv *PrivateKey) Decrypt(rand io.Reader, ciphertext []byte, opts crypto.D
 
 Decrypt decrypts ciphertext with priv. If opts is nil or of type *PKCS1v15DecryptOptions then PKCS #1 v1.5 decryption is performed. Otherwise opts must have type *OAEPOptions and OAEP decryption is done.
 
-#### (*PrivateKey) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=128) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Equal)added in go1.15
+#### (*PrivateKey) Equal [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Equal)added in go1.15
 
 ```
 func (priv *PrivateKey) Equal(x crypto.PrivateKey) bool
@@ -367,7 +367,7 @@ func (priv *PrivateKey) Equal(x crypto.PrivateKey) bool
 
 Equal reports whether priv and x have equivalent values. It ignores Precomputed values.
 
-#### (*PrivateKey) [Precompute](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=557) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Precompute)
+#### (*PrivateKey) Precompute [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Precompute)
 
 ```
 func (priv *PrivateKey) Precompute()
@@ -375,7 +375,7 @@ func (priv *PrivateKey) Precompute()
 
 Precompute performs some calculations that speed up private key operations in the future.
 
-#### (*PrivateKey) [Public](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=122) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Public)added in go1.4
+#### (*PrivateKey) Public [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Public)added in go1.4
 
 ```
 func (priv *PrivateKey) Public() crypto.PublicKey
@@ -383,7 +383,7 @@ func (priv *PrivateKey) Public() crypto.PublicKey
 
 Public returns the public key corresponding to priv.
 
-#### (*PrivateKey) [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=155) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Sign)added in go1.4
+#### (*PrivateKey) Sign [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Sign)added in go1.4
 
 ```
 func (priv *PrivateKey) Sign(rand io.Reader, digest []byte, opts crypto.SignerOpts) ([]byte, error)
@@ -393,7 +393,7 @@ Sign signs digest with priv, reading randomness from rand. If opts is a *PSSOpti
 
 This method implements crypto.Signer, which is an interface to support keys where the private part is kept in, for example, a hardware module. Common uses should use the Sign* functions in this package directly.
 
-#### (*PrivateKey) [Validate](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=225) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Validate)
+#### (*PrivateKey) Validate [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PrivateKey.Validate)
 
 ```
 func (priv *PrivateKey) Validate() error
@@ -401,7 +401,7 @@ func (priv *PrivateKey) Validate() error
 
 Validate performs basic sanity checks on the key. It returns nil if the key is valid, or else an error describing a problem.
 
-### type [PublicKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=47) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey)
+### type PublicKey [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey)
 
 ```
 type PublicKey struct {
@@ -412,7 +412,7 @@ type PublicKey struct {
 
 A PublicKey represents the public part of an RSA key.
 
-#### (*PublicKey) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=62) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey.Equal)added in go1.15
+#### (*PublicKey) Equal [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey.Equal)added in go1.15
 
 ```
 func (pub *PublicKey) Equal(x crypto.PublicKey) bool
@@ -420,7 +420,7 @@ func (pub *PublicKey) Equal(x crypto.PublicKey) bool
 
 Equal reports whether pub and x have the same value.
 
-#### (*PublicKey) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=57) [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey.Size)added in go1.11
+#### (*PublicKey) Size [¶](https://pkg.go.dev/crypto/rsa@go1.20.1#PublicKey.Size)added in go1.11
 
 ```
 func (pub *PublicKey) Size() int

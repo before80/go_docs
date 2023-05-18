@@ -7,7 +7,7 @@ draft = false
 +++
 # runtime
 
-[https://pkg.go.dev/runtime@go1.20.1](https://pkg.go.dev/runtime@go1.20.1)
+https://pkg.go.dev/runtime@go1.20.1
 
 ​	runtime包包含与Go运行时系统交互的操作，例如控制goroutine的函数。它还包括reflect包使用的低级类型信息；有关可编程接口的运行时类型系统，请参见reflect的文档。
 
@@ -161,7 +161,7 @@ var MemProfileRate int = 512 * 1024
 
 ## 函数
 
-#### func [BlockProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=752)  <- go1.1
+#### func BlockProfile  <- go1.1
 
 ``` go 
 func BlockProfile(p []BlockProfileRecord) (n int, ok bool)
@@ -171,7 +171,7 @@ func BlockProfile(p []BlockProfileRecord) (n int, ok bool)
 
 ​	大多数客户端应该使用 runtime/pprof 包或 testing 包的 -test.blockprofile 标志，而不是直接调用 BlockProfile函数。
 
-#### func [Breakpoint](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/proc.go;l=4511) 
+#### func Breakpoint 
 
 ``` go 
 func Breakpoint()
@@ -179,7 +179,7 @@ func Breakpoint()
 
 ​	Breakpoint函数执行断点陷阱。
 
-#### func [Caller](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/extern.go;l=233) 
+#### func Caller 
 
 ``` go 
 func Caller(skip int) (pc uintptr, file string, line int, ok bool)
@@ -187,7 +187,7 @@ func Caller(skip int) (pc uintptr, file string, line int, ok bool)
 
 ​	Caller函数报告关于调用 goroutine 栈上函数调用的文件和行号信息。skip 是要上升的栈帧数，其中 0 表示 Caller函数的调用者(由于历史原因，skip 在 Caller函数和 Callers函数之间的含义不同)。返回值报告相应调用的程序计数器、文件名和文件中的行号。如果无法恢复信息，则布尔值 ok 为 false。
 
-#### func [Callers](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/extern.go;l=256) 
+#### func Callers 
 
 ``` go 
 func Callers(skip int, pc []uintptr) int
@@ -197,7 +197,7 @@ func Callers(skip int, pc []uintptr) int
 
 ​	要将这些程序计数器转换为符号信息，例如函数名称和行号，请使用CallersFrames函数。 CallersFrames函数考虑了内联函数并将返回程序计数器调整为调用程序计数器。不建议直接迭代返回的PCs切片，也不建议在任何返回的PC上使用FuncForPC函数，因为这些都无法考虑到内联或返回程序计数器的调整。
 
-#### func [GC](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mgc.go;l=411) 
+#### func GC 
 
 ``` go 
 func GC()
@@ -205,7 +205,7 @@ func GC()
 
 ​	GC函数运行垃圾回收并阻塞调用者，直到垃圾回收完成。它也可能阻止整个程序。
 
-#### func [GOMAXPROCS](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug.go;l=16) 
+#### func GOMAXPROCS 
 
 ``` go 
 func GOMAXPROCS(n int) int
@@ -213,7 +213,7 @@ func GOMAXPROCS(n int) int
 
 ​	GOMAXPROCS函数设置可以同时执行的最大CPU数量并返回先前的设置。默认值为runtime.NumCPU的值。如果n < 1，则不更改当前设置。当调度程序改进时，此调用将被取消(This call will go away when the scheduler improves.)。
 
-#### func [GOROOT](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/extern.go;l=271) 
+#### func GOROOT 
 
 ``` go 
 func GOROOT() string
@@ -221,7 +221,7 @@ func GOROOT() string
 
 ​	GOROOT函数返回Go树的根。如果在进程启动时设置了GOROOT环境变量，则使用它，否则使用Go构建期间使用的根目录。
 
-#### func [Goexit](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/panic.go;l=488) 
+#### func Goexit 
 
 ``` go 
 func Goexit()
@@ -231,7 +231,7 @@ func Goexit()
 
 ​	从主goroutine调用Goexit将终止该goroutine，而不是返回func main。由于func main没有返回，程序将继续执行其他goroutine。如果所有其他goroutine退出，则程序崩溃。
 
-#### func [GoroutineProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=1175) 
+#### func GoroutineProfile 
 
 ``` go 
 func GoroutineProfile(p []StackRecord) (n int, ok bool)
@@ -241,7 +241,7 @@ func GoroutineProfile(p []StackRecord) (n int, ok bool)
 
 ​	大多数客户端应该使用runtime/pprof包而不是直接调用GoroutineProfile函数。
 
-#### func [Gosched](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/proc.go;l=319) 
+#### func Gosched 
 
 ``` go 
 func Gosched()
@@ -249,7 +249,7 @@ func Gosched()
 
 ​	Gosched函数让出处理器，允许其他goroutine运行。它不挂起当前的goroutine，因此执行将自动恢复。
 
-#### func [KeepAlive](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mfinal.go;l=511)  <- go1.7
+#### func KeepAlive  <- go1.7
 
 ``` go 
 func KeepAlive(x any)
@@ -276,7 +276,7 @@ runtime.KeepAlive(p)
 
 注意：KeepAlive函数应该仅用于防止终结器过早运行。特别地，当与 unsafe.Pointer 一起使用时，仍然适用于 unsafe.Pointer 的有效使用规则。
 
-#### func [LockOSThread](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/proc.go;l=4545) 
+#### func LockOSThread 
 
 ``` go 
 func LockOSThread()
@@ -288,7 +288,7 @@ func LockOSThread()
 
 ​	在调用 OS 服务或依赖于每个线程状态的非 Go 库函数之前，goroutine 应该调用 LockOSThread函数。
 
-#### func [MemProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=650) 
+#### func MemProfile 
 
 ``` go 
 func MemProfile(p []MemProfileRecord, inuseZero bool) (n int, ok bool)
@@ -308,7 +308,7 @@ func MemProfile(p []MemProfileRecord, inuseZero bool) (n int, ok bool)
 
 ​	大多数客户端应该使用 runtime/pprof 包或testing 包的 -test.memprofile 标志，而不是直接调用 MemProfile函数。
 
-#### func [MutexProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=796)  <- go1.8
+#### func MutexProfile  <- go1.8
 
 ``` go 
 func MutexProfile(p []BlockProfileRecord) (n int, ok bool)
@@ -318,7 +318,7 @@ func MutexProfile(p []BlockProfileRecord) (n int, ok bool)
 
 ​	大多数客户端应该使用runtime/pprof包而不是直接调用MutexProfile函数。
 
-#### func [NumCPU](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug.go;l=42) 
+#### func NumCPU 
 
 ``` go 
 func NumCPU() int
@@ -330,7 +330,7 @@ The set of available CPUs is checked by querying the operating system at process
 
 ​	可用的 CPU 集合通过在进程启动时查询操作系统进行检查。进程启动后对操作系统 CPU 分配的更改不会反映出来。
 
-#### func [NumCgoCall](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug.go;l=47) 
+#### func NumCgoCall 
 
 ``` go 
 func NumCgoCall() int64
@@ -338,7 +338,7 @@ func NumCgoCall() int64
 
 NumCgoCall returns the number of cgo calls made by the current process.
 
-#### func [NumGoroutine](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug.go;l=56) 
+#### func NumGoroutine 
 
 ``` go 
 func NumGoroutine() int
@@ -346,7 +346,7 @@ func NumGoroutine() int
 
 NumGoroutine returns the number of goroutines that currently exist.
 
-#### func [ReadMemStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mstats.go;l=349) 
+#### func ReadMemStats 
 
 ``` go 
 func ReadMemStats(m *MemStats)
@@ -356,7 +356,7 @@ ReadMemStats populates m with memory allocator statistics.
 
 The returned memory allocator statistics are up to date as of the call to ReadMemStats. This is in contrast with a heap profile, which is a snapshot as of the most recently completed garbage collection cycle.
 
-#### func [ReadTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace.go;l=434)  <- go1.5
+#### func ReadTrace  <- go1.5
 
 ``` go 
 func ReadTrace() []byte
@@ -364,7 +364,7 @@ func ReadTrace() []byte
 
 ReadTrace returns the next chunk of binary tracing data, blocking until data is available. If tracing is turned off and all the data accumulated while it was on has been returned, ReadTrace returns nil. The caller must copy the returned data before calling ReadTrace again. ReadTrace must be called from one goroutine at a time.
 
-#### func [SetBlockProfileRate](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=463)  <- go1.1
+#### func SetBlockProfileRate  <- go1.1
 
 ``` go 
 func SetBlockProfileRate(rate int)
@@ -374,7 +374,7 @@ SetBlockProfileRate controls the fraction of goroutine blocking events that are 
 
 To include every blocking event in the profile, pass rate = 1. To turn off profiling entirely, pass rate <= 0.
 
-#### func [SetCPUProfileRate](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cpuprof.go;l=68) 
+#### func SetCPUProfileRate 
 
 ``` go 
 func SetCPUProfileRate(hz int)
@@ -384,7 +384,7 @@ SetCPUProfileRate sets the CPU profiling rate to hz samples per second. If hz <=
 
 Most clients should use the runtime/pprof package or the testing package's -test.cpuprofile flag instead of calling SetCPUProfileRate directly.
 
-#### func [SetCgoTraceback](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/traceback.go;l=1235)  <- go1.7
+#### func SetCgoTraceback  <- go1.7
 
 ``` go 
 func SetCgoTraceback(version int, traceback, context, symbolizer unsafe.Pointer)
@@ -488,7 +488,7 @@ The symbolizer function may be nil, in which case the results of the traceback f
 
 SetCgoTraceback should be called only once, ideally from an init function.
 
-#### func [SetFinalizer](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mfinal.go;l=363) 
+#### func SetFinalizer 
 
 ``` go 
 func SetFinalizer(obj any, finalizer any)
@@ -518,7 +518,7 @@ A single goroutine runs all finalizers for a program, sequentially. If a finaliz
 
 In the terminology of the Go memory model, a call SetFinalizer(x, f) "synchronizes before" the finalization call f(x). However, there is no guarantee that KeepAlive(x) or any other use of x "synchronizes before" f(x), so in general a finalizer should use a mutex or other synchronization mechanism if it needs to access mutable state in x. For example, consider a finalizer that inspects a mutable field in x that is modified from time to time in the main program before x becomes unreachable and the finalizer is invoked. The modifications in the main program and the inspection in the finalizer need to use appropriate synchronization, such as mutexes or atomic updates, to avoid read-write races.
 
-#### func [SetMutexProfileFraction](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=541)  <- go1.8
+#### func SetMutexProfileFraction  <- go1.8
 
 ``` go 
 func SetMutexProfileFraction(rate int) int
@@ -528,7 +528,7 @@ SetMutexProfileFraction controls the fraction of mutex contention events that ar
 
 To turn off profiling entirely, pass rate 0. To just read the current rate, pass rate < 0. (For n>1 the details of sampling may change.)
 
-#### func [Stack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=1191) 
+#### func Stack 
 
 ``` go 
 func Stack(buf []byte, all bool) int
@@ -536,7 +536,7 @@ func Stack(buf []byte, all bool) int
 
 Stack formats a stack trace of the calling goroutine into buf and returns the number of bytes written to buf. If all is true, Stack formats stack traces of all other goroutines into buf after the trace for the current goroutine.
 
-#### func [StartTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace.go;l=205)  <- go1.5
+#### func StartTrace  <- go1.5
 
 ``` go 
 func StartTrace() error
@@ -544,7 +544,7 @@ func StartTrace() error
 
 StartTrace enables tracing for the current process. While tracing, the data will be buffered and available via ReadTrace. StartTrace returns an error if tracing is already enabled. Most clients should use the runtime/trace package or the testing package's -test.trace flag instead of calling StartTrace directly.
 
-#### func [StopTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/trace.go;l=327)  <- go1.5
+#### func StopTrace  <- go1.5
 
 ``` go 
 func StopTrace()
@@ -552,7 +552,7 @@ func StopTrace()
 
 StopTrace stops tracing, if it was previously enabled. StopTrace only returns after all the reads for the trace have completed.
 
-#### func [ThreadCreateProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=826) 
+#### func ThreadCreateProfile 
 
 ``` go 
 func ThreadCreateProfile(p []StackRecord) (n int, ok bool)
@@ -562,7 +562,7 @@ ThreadCreateProfile returns n, the number of records in the thread creation prof
 
 Most clients should use the runtime/pprof package instead of calling ThreadCreateProfile directly.
 
-#### func [UnlockOSThread](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/proc.go;l=4598) 
+#### func UnlockOSThread 
 
 ``` go 
 func UnlockOSThread()
@@ -572,7 +572,7 @@ UnlockOSThread undoes an earlier call to LockOSThread. If this drops the number 
 
 Before calling UnlockOSThread, the caller must ensure that the OS thread is suitable for running other goroutines. If the caller made any permanent changes to the state of the thread that would affect other goroutines, it should not call this function and thus leave the goroutine locked to the OS thread until the goroutine (and hence the thread) exits.
 
-#### func [Version](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/extern.go;l=292) 
+#### func Version 
 
 ``` go 
 func Version() string
@@ -582,7 +582,7 @@ Version returns the Go tree's version string. It is either the commit hash and d
 
 ## 类型
 
-### type [BlockProfileRecord](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=739)  <- go1.1
+### type BlockProfileRecord  <- go1.1
 
 ``` go 
 type BlockProfileRecord struct {
@@ -594,7 +594,7 @@ type BlockProfileRecord struct {
 
 BlockProfileRecord describes blocking events originated at a particular call sequence (stack trace).
 
-### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/error.go;l=10) 
+### type Error 
 
 ``` go 
 type Error interface {
@@ -610,7 +610,7 @@ type Error interface {
 
 The Error interface identifies a run time error.
 
-### type [Frame](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=26)  <- go1.7
+### type Frame  <- go1.7
 
 ``` go 
 type Frame struct {
@@ -649,7 +649,7 @@ type Frame struct {
 
 Frame is the information returned by Frames for each call frame.
 
-### type [Frames](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=16)  <- go1.7
+### type Frames  <- go1.7
 
 ``` go 
 type Frames struct {
@@ -722,7 +722,7 @@ Output:
 - more:true | runtime_test.ExampleFrames
 ```
 
-#### func [CallersFrames](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=75)  <- go1.7
+#### func CallersFrames  <- go1.7
 
 ``` go 
 func CallersFrames(callers []uintptr) *Frames
@@ -730,7 +730,7 @@ func CallersFrames(callers []uintptr) *Frames
 
 CallersFrames takes a slice of PC values returned by Callers and prepares to return function/file/line information. Do not change the slice until you are done with the Frames.
 
-#### (*Frames) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=90)  <- go1.7
+#### (*Frames) Next  <- go1.7
 
 ``` go 
 func (ci *Frames) Next() (frame Frame, more bool)
@@ -742,7 +742,7 @@ The more result indicates whether the next call to Next will return a valid Fram
 
 See the Frames example for idiomatic usage.
 
-### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=285) 
+### type Func 
 
 ``` go 
 type Func struct {
@@ -752,7 +752,7 @@ type Func struct {
 
 A Func represents a Go function in the running binary.
 
-#### func [FuncForPC](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=738) 
+#### func FuncForPC 
 
 ``` go 
 func FuncForPC(pc uintptr) *Func
@@ -762,7 +762,7 @@ FuncForPC returns a *Func describing the function that contains the given progra
 
 If pc represents multiple functions because of inlining, it returns the *Func describing the innermost function, but with an entry of the outermost function.
 
-#### (*Func) [Entry](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=781) 
+#### (*Func) Entry 
 
 ``` go 
 func (f *Func) Entry() uintptr
@@ -770,7 +770,7 @@ func (f *Func) Entry() uintptr
 
 Entry returns the entry address of the function.
 
-#### (*Func) [FileLine](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=794) 
+#### (*Func) FileLine 
 
 ``` go 
 func (f *Func) FileLine(pc uintptr) (file string, line int)
@@ -778,7 +778,7 @@ func (f *Func) FileLine(pc uintptr) (file string, line int)
 
 FileLine returns the file name and line number of the source code corresponding to the program counter pc. The result will not be accurate if pc is not a program counter within f.
 
-#### (*Func) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/symtab.go;l=768) 
+#### (*Func) Name 
 
 ``` go 
 func (f *Func) Name() string
@@ -786,7 +786,7 @@ func (f *Func) Name() string
 
 Name returns the name of the function.
 
-### type [MemProfileRecord](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=604) 
+### type MemProfileRecord 
 
 ``` go 
 type MemProfileRecord struct {
@@ -798,7 +798,7 @@ type MemProfileRecord struct {
 
 A MemProfileRecord describes the live objects allocated by a particular call sequence (stack trace).
 
-#### (*MemProfileRecord) [InUseBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=611) 
+#### (*MemProfileRecord) InUseBytes 
 
 ``` go 
 func (r *MemProfileRecord) InUseBytes() int64
@@ -806,7 +806,7 @@ func (r *MemProfileRecord) InUseBytes() int64
 
 InUseBytes returns the number of bytes in use (AllocBytes - FreeBytes).
 
-#### (*MemProfileRecord) [InUseObjects](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=614) 
+#### (*MemProfileRecord) InUseObjects 
 
 ``` go 
 func (r *MemProfileRecord) InUseObjects() int64
@@ -814,7 +814,7 @@ func (r *MemProfileRecord) InUseObjects() int64
 
 InUseObjects returns the number of objects in use (AllocObjects - FreeObjects).
 
-#### (*MemProfileRecord) [Stack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=620) 
+#### (*MemProfileRecord) Stack 
 
 ``` go 
 func (r *MemProfileRecord) Stack() []uintptr
@@ -822,7 +822,7 @@ func (r *MemProfileRecord) Stack() []uintptr
 
 Stack returns the stack trace associated with the record, a prefix of r.Stack0.
 
-### type [MemStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mstats.go;l=58) 
+### type MemStats 
 
 ``` go 
 type MemStats struct {
@@ -1059,7 +1059,7 @@ type MemStats struct {
 
 A MemStats records statistics about the memory allocator.
 
-### type [StackRecord](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=566) 
+### type StackRecord 
 
 ``` go 
 type StackRecord struct {
@@ -1069,7 +1069,7 @@ type StackRecord struct {
 
 A StackRecord describes a single execution stack.
 
-#### (*StackRecord) [Stack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/mprof.go;l=572) 
+#### (*StackRecord) Stack 
 
 ``` go 
 func (r *StackRecord) Stack() []uintptr
@@ -1077,7 +1077,7 @@ func (r *StackRecord) Stack() []uintptr
 
 Stack returns the stack trace associated with the record, a prefix of r.Stack0.
 
-### type [TypeAssertionError](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/error.go;l=21) 
+### type TypeAssertionError 
 
 ``` go 
 type TypeAssertionError struct {
@@ -1087,13 +1087,13 @@ type TypeAssertionError struct {
 
 A TypeAssertionError explains a failed type assertion.
 
-#### (*TypeAssertionError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/error.go;l=30) 
+#### (*TypeAssertionError) Error 
 
 ``` go 
 func (e *TypeAssertionError) Error() string
 ```
 
-#### (*TypeAssertionError) [RuntimeError](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/error.go;l=28) 
+#### (*TypeAssertionError) RuntimeError 
 
 ``` go 
 func (*TypeAssertionError) RuntimeError()

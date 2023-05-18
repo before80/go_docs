@@ -25,7 +25,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=186) 
+#### func Decode 
 
 ``` go 
 func Decode(dst, src []byte, flush bool) (ndst, nsrc int, err error)
@@ -37,7 +37,7 @@ If flush is true, Decode assumes that src represents the end of the input stream
 
 NewDecoder wraps an io.Reader interface around Decode.
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=27) 
+#### func Encode 
 
 ``` go 
 func Encode(dst, src []byte) int
@@ -49,7 +49,7 @@ The encoding handles 4-byte chunks, using a special encoding for the last fragme
 
 Often, ascii85-encoded data is wrapped in <~ and ~> symbols. Encode does not add these.
 
-#### func [MaxEncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=86) 
+#### func MaxEncodedLen 
 
 ``` go 
 func MaxEncodedLen(n int) int
@@ -57,7 +57,7 @@ func MaxEncodedLen(n int) int
 
 MaxEncodedLen returns the maximum length of an encoding of n source bytes.
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=243) 
+#### func NewDecoder 
 
 ``` go 
 func NewDecoder(r io.Reader) io.Reader
@@ -65,7 +65,7 @@ func NewDecoder(r io.Reader) io.Reader
 
 NewDecoder constructs a new ascii85 stream decoder.
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=93) 
+#### func NewEncoder 
 
 ``` go 
 func NewEncoder(w io.Writer) io.WriteCloser
@@ -75,13 +75,13 @@ NewEncoder returns a new ascii85 stream encoder. Data written to the returned wr
 
 ## 类型
 
-### type [CorruptInputError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=167) 
+### type CorruptInputError 
 
 ``` go 
 type CorruptInputError int64
 ```
 
-#### (CorruptInputError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=169) 
+#### (CorruptInputError) Error 
 
 ``` go 
 func (e CorruptInputError) Error() string

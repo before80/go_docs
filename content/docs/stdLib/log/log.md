@@ -7,7 +7,7 @@ draft = false
 +++
 # log
 
-[https://pkg.go.dev/log@go1.20.1](https://pkg.go.dev/log@go1.20.1)
+https://pkg.go.dev/log@go1.20.1
 
 ​	log包实现了一个简单的日志包。它定义了一个类型Logger，该类型具有格式化输出的方法。它还有一个预定义的"标准"Logger，可以通过Print[f|ln]、Fatal[f|ln]和Panic[f|ln]帮助函数访问，这比手动创建Logger更容易。该记录器(logger )将写入标准错误，并打印每个记录消息的日期和时间。每条日志消息都在单独的一行上输出：如果要打印的消息没有以换行符结尾，该记录器(logger )将添加一个换行符。Fatal函数在写入日志消息后调用os.Exit(1)。Panic函数在写入日志消息后调用panic。
 
@@ -47,7 +47,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=363) 
+#### func Fatal 
 
 ```go 
 func Fatal(v ...any)
@@ -55,7 +55,7 @@ func Fatal(v ...any)
 
 ​	Fatal函数等效于 Print()，然后调用 os.Exit(1)。
 
-#### func [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=369) 
+#### func Fatalf 
 
 ```go 
 func Fatalf(format string, v ...any)
@@ -63,7 +63,7 @@ func Fatalf(format string, v ...any)
 
 ​	Fatalf函数等效于 Printf()，然后调用 os.Exit(1)。
 
-#### func [Fatalln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=375) 
+#### func Fatalln 
 
 ```go 
 func Fatalln(v ...any)
@@ -71,7 +71,7 @@ func Fatalln(v ...any)
 
 ​	Fatalln函数等效于 Println()，然后调用 os.Exit(1)。
 
-#### func [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=308) 
+#### func Flags 
 
 ```go 
 func Flags() int
@@ -79,7 +79,7 @@ func Flags() int
 
 ​	Flags函数返回标准日志记录器的输出标志。标志位是 Ldate、Ltime 等等。
 
-#### func [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=408)  <- go1.5
+#### func Output  <- go1.5
 
 ```go 
 func Output(calldepth int, s string) error
@@ -87,7 +87,7 @@ func Output(calldepth int, s string) error
 
 ​	Output 方法用于写入日志事件的输出。字符串 s 包含在 Logger 的标志指定前缀之后要打印的文本。如果 s 的最后一个字符不是换行符，则会附加一个换行符。当设置 Llongfile 或 Lshortfile 标志时，calldepth 是要跳过的帧数，以计算文件名和行号；当 calldepth 的值为 1 时，将会打印 Output 的调用者的细节信息。
 
-#### func [Panic](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=381) 
+#### func Panic 
 
 ```go 
 func Panic(v ...any)
@@ -95,7 +95,7 @@ func Panic(v ...any)
 
 ​	Panic函数等效于 Print()，然后调用 panic()。
 
-#### func [Panicf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=388) 
+#### func Panicf 
 
 ```go 
 func Panicf(format string, v ...any)
@@ -103,7 +103,7 @@ func Panicf(format string, v ...any)
 
 ​	Panicf函数相当于调用Printf()后再调用panic()。
 
-#### func [Panicln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=395) 
+#### func Panicln 
 
 ```go 
 func Panicln(v ...any)
@@ -111,7 +111,7 @@ func Panicln(v ...any)
 
 ​	Panicln函数相当于调用Println()后再调用panic()。
 
-#### func [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=319) 
+#### func Prefix 
 
 ```go 
 func Prefix() string
@@ -119,7 +119,7 @@ func Prefix() string
 
 ​	Prefix函数返回标准记录器的输出前缀。
 
-#### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=337) 
+#### func Print 
 
 ```go 
 func Print(v ...any)
@@ -127,7 +127,7 @@ func Print(v ...any)
 
 ​	Print函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Print。
 
-#### func [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=346) 
+#### func Printf 
 
 ```go 
 func Printf(format string, v ...any)
@@ -135,7 +135,7 @@ func Printf(format string, v ...any)
 
 ​	Printf函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Printf。
 
-#### func [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=355) 
+#### func Println 
 
 ```go 
 func Println(v ...any)
@@ -143,7 +143,7 @@ func Println(v ...any)
 
 ​	Println函数通过调用Output函数向标准记录器打印内容。参数的处理方式类似于fmt.Println。
 
-#### func [SetFlags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=314) 
+#### func SetFlags 
 
 ```go 
 func SetFlags(flag int)
@@ -151,7 +151,7 @@ func SetFlags(flag int)
 
 ​	SetFlags函数设置标准记录器的输出标志。标志位包括Ldate、Ltime等等。
 
-#### func [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=302) 
+#### func SetOutput 
 
 ```go 
 func SetOutput(w io.Writer)
@@ -159,7 +159,7 @@ func SetOutput(w io.Writer)
 
 ​	SetOutput函数设置标准记录器的输出目的地。
 
-#### func [SetPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=324) 
+#### func SetPrefix 
 
 ```go 
 func SetPrefix(prefix string)
@@ -167,7 +167,7 @@ func SetPrefix(prefix string)
 
 ​	SetPrefix函数设置标准记录器的输出前缀。
 
-#### func [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=329)  <- go1.13
+#### func Writer  <- go1.13
 
 ```go 
 func Writer() io.Writer
@@ -177,7 +177,7 @@ func Writer() io.Writer
 
 ## 类型
 
-### type [Logger](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=56) 
+### type Logger 
 
 ```go 
 type Logger struct {
@@ -220,7 +220,7 @@ logger: example_test.go:19: Hello, log file!
 
 
 
-#### func [Default](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=89)  <- go1.16
+#### func Default  <- go1.16
 
 ```go 
 func Default() *Logger
@@ -228,7 +228,7 @@ func Default() *Logger
 
 ​	Default函数返回由包级别输出函数使用的标准记录器。
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=70) 
+#### func New 
 
 ```go 
 func New(out io.Writer, prefix string, flag int) *Logger
@@ -236,7 +236,7 @@ func New(out io.Writer, prefix string, flag int) *Logger
 
 ​	New创建一个新的Logger。out变量设置将写入日志数据的目的地。prefix出现在每个生成的日志行的开头，或者如果提供了Lmsgprefix标志，则出现在日志标题之后。flag参数定义日志属性。
 
-#### (*Logger) [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=226) 
+#### (*Logger) Fatal 
 
 ```go 
 func (l *Logger) Fatal(v ...any)
@@ -244,7 +244,7 @@ func (l *Logger) Fatal(v ...any)
 
 ​	Fatal方法相当于 l.Print() 后面跟一个 os.Exit(1) 的调用。
 
-#### (*Logger) [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=232) 
+#### (*Logger) Fatalf 
 
 ```go 
 func (l *Logger) Fatalf(format string, v ...any)
@@ -252,7 +252,7 @@ func (l *Logger) Fatalf(format string, v ...any)
 
 ​	Fatalf方法相当于 l.Printf() 后面跟一个 os.Exit(1) 的调用。
 
-#### (*Logger) [Fatalln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=238) 
+#### (*Logger) Fatalln 
 
 ```go 
 func (l *Logger) Fatalln(v ...any)
@@ -260,7 +260,7 @@ func (l *Logger) Fatalln(v ...any)
 
 ​	Fatalln方法相当于 l.Println() 后面跟一个 os.Exit(1) 的调用。
 
-#### (*Logger) [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=266) 
+#### (*Logger) Flags 
 
 ```go 
 func (l *Logger) Flags() int
@@ -268,7 +268,7 @@ func (l *Logger) Flags() int
 
 ​	Flags方法返回 Logger 的输出标志。标志位包括 Ldate、Ltime 等。
 
-#### (*Logger) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=171) 
+#### (*Logger) Output 
 
 ```go 
 func (l *Logger) Output(calldepth int, s string) error
@@ -308,7 +308,7 @@ INFO: example_test.go:36: Hello world
 
 
 
-#### (*Logger) [Panic](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=244) 
+#### (*Logger) Panic 
 
 ```go 
 func (l *Logger) Panic(v ...any)
@@ -316,7 +316,7 @@ func (l *Logger) Panic(v ...any)
 
 ​	Panic方法相当于 l.Print() 后面跟一个 panic() 的调用。
 
-#### (*Logger) [Panicf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=251) 
+#### (*Logger) Panicf 
 
 ```go 
 func (l *Logger) Panicf(format string, v ...any)
@@ -324,7 +324,7 @@ func (l *Logger) Panicf(format string, v ...any)
 
 ​	Panicf方法相当于 l.Printf() 后面跟一个 panic() 的调用。
 
-#### (*Logger) [Panicln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=258) 
+#### (*Logger) Panicln 
 
 ```go 
 func (l *Logger) Panicln(v ...any)
@@ -332,7 +332,7 @@ func (l *Logger) Panicln(v ...any)
 
 ​	Panicln方法相当于 l.Println() 后面跟一个 panic() 的调用。
 
-#### (*Logger) [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=281) 
+#### (*Logger) Prefix 
 
 ```go 
 func (l *Logger) Prefix() string
@@ -340,7 +340,7 @@ func (l *Logger) Prefix() string
 
 ​	Prefix方法返回 Logger 的输出前缀。
 
-#### (*Logger) [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=209) 
+#### (*Logger) Print 
 
 ```go 
 func (l *Logger) Print(v ...any)
@@ -348,7 +348,7 @@ func (l *Logger) Print(v ...any)
 
 ​	Print方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Print。
 
-#### (*Logger) [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=200) 
+#### (*Logger) Printf 
 
 ```go 
 func (l *Logger) Printf(format string, v ...any)
@@ -356,7 +356,7 @@ func (l *Logger) Printf(format string, v ...any)
 
 ​	Printf方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Printf。
 
-#### (*Logger) [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=218) 
+#### (*Logger) Println 
 
 ```go 
 func (l *Logger) Println(v ...any)
@@ -364,7 +364,7 @@ func (l *Logger) Println(v ...any)
 
 ​	Println方法调用 l.Output 来向 Logger 打印信息。参数的处理方式类似于 fmt.Println。
 
-#### (*Logger) [SetFlags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=274) 
+#### (*Logger) SetFlags 
 
 ```go 
 func (l *Logger) SetFlags(flag int)
@@ -372,7 +372,7 @@ func (l *Logger) SetFlags(flag int)
 
 ​	SetFlags方法设置 Logger 的输出标志。标志位包括 Ldate、Ltime 等。
 
-#### (*Logger) [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=79)  <- go1.5
+#### (*Logger) SetOutput  <- go1.5
 
 ```go 
 func (l *Logger) SetOutput(w io.Writer)
@@ -380,7 +380,7 @@ func (l *Logger) SetOutput(w io.Writer)
 
 ​	SetOutput方法设置 Logger 的输出目的地。
 
-#### (*Logger) [SetPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=288) 
+#### (*Logger) SetPrefix 
 
 ```go 
 func (l *Logger) SetPrefix(prefix string)
@@ -388,7 +388,7 @@ func (l *Logger) SetPrefix(prefix string)
 
 ​	SetPrefix方法设置Logger 的输出前缀。
 
-#### (*Logger) [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=295)  <- go1.12
+#### (*Logger) Writer  <- go1.12
 
 ```go 
 func (l *Logger) Writer() io.Writer

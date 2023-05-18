@@ -10,7 +10,7 @@ Package cfg holds configuration shared by the Go command and internal/testenv. D
 
 
 
-## 常量 [¶](https://pkg.go.dev/internal/cfg@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/cfg/cfg.go;l=12)
 

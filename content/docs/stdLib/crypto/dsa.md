@@ -29,7 +29,7 @@ Deprecated: DSA is a legacy algorithm, and modern alternatives such as Ed25519 (
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -45,7 +45,7 @@ ErrInvalidPublicKey results when a public key is not usable by this code. FIPS i
 
 ## 函数
 
-#### func [GenerateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=159) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#GenerateKey)
+#### func GenerateKey [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#GenerateKey)
 
 ```
 func GenerateKey(priv *PrivateKey, rand io.Reader) error
@@ -53,7 +53,7 @@ func GenerateKey(priv *PrivateKey, rand io.Reader) error
 
 GenerateKey generates a public&private key pair. The Parameters of the PrivateKey must already be valid (see GenerateParameters).
 
-#### func [GenerateParameters](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=65) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#GenerateParameters)
+#### func GenerateParameters [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#GenerateParameters)
 
 ```
 func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes) error
@@ -61,7 +61,7 @@ func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes
 
 GenerateParameters puts a random, valid set of DSA parameters into params. This function can take many seconds, even on fast machines.
 
-#### func [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=205) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Sign)
+#### func Sign [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Sign)
 
 ```
 func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)
@@ -73,7 +73,7 @@ Note that FIPS 186-3 section 4.6 specifies that the hash should be truncated to 
 
 Be aware that calling Sign with an attacker-controlled PrivateKey may require an arbitrary amount of CPU.
 
-#### func [Verify](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=273) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Verify)
+#### func Verify [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Verify)
 
 ```
 func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool
@@ -85,7 +85,7 @@ Note that FIPS 186-3 section 4.6 specifies that the hash should be truncated to 
 
 ## 类型
 
-### type [ParameterSizes](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=50) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#ParameterSizes)
+### type ParameterSizes [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#ParameterSizes)
 
 ```
 type ParameterSizes int
@@ -102,7 +102,7 @@ const (
 )
 ```
 
-### type [Parameters](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=26) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Parameters)
+### type Parameters [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#Parameters)
 
 ```
 type Parameters struct {
@@ -112,7 +112,7 @@ type Parameters struct {
 
 Parameters represents the domain parameters for a key. These parameters can be shared across many keys. The bit length of Q must be a multiple of 8.
 
-### type [PrivateKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=37) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#PrivateKey)
+### type PrivateKey [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#PrivateKey)
 
 ```
 type PrivateKey struct {
@@ -123,7 +123,7 @@ type PrivateKey struct {
 
 PrivateKey represents a DSA private key.
 
-### type [PublicKey](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=31) [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#PublicKey)
+### type PublicKey [¶](https://pkg.go.dev/crypto/dsa@go1.20.1#PublicKey)
 
 ```
 type PublicKey struct {

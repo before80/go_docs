@@ -8,7 +8,7 @@ draft = false
 +++
 # json
 
-[https://pkg.go.dev/encoding/json@go1.20.1](https://pkg.go.dev/encoding/json@go1.20.1)
+https://pkg.go.dev/encoding/json@go1.20.1
 
 ​	json包实现了[RFC 7159](https://rfc-editor.org/rfc/rfc7159.html)中定义的JSON编解码。JSON和Go值之间的映射在Marshal和Unmarshal函数的文档中有描述。
 
@@ -166,7 +166,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Compact](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/indent.go;l=13) 
+#### func Compact 
 
 ``` go 
 func Compact(dst *bytes.Buffer, src []byte) error
@@ -174,7 +174,7 @@ func Compact(dst *bytes.Buffer, src []byte) error
 
 ​	Compact函数将JSON编码的src附加到dst中，省略了不重要的空格字符。
 
-#### func [HTMLEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=192) 
+#### func HTMLEscape 
 
 ``` go 
 func HTMLEscape(dst *bytes.Buffer, src []byte)
@@ -202,7 +202,7 @@ Output:
 {"Name":"\u003cb\u003eHTML content\u003c/b\u003e"}
 ```
 
-#### func [Indent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/indent.go;l=81) 
+#### func Indent 
 
 ``` go 
 func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error
@@ -254,7 +254,7 @@ Output:
 =]
 ```
 
-#### func [Marshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=157) 
+#### func Marshal 
 
 ``` go 
 func Marshal(v any) ([]byte, error)
@@ -377,7 +377,7 @@ Output:
 {"ID":1,"Name":"Reds","Colors":["Crimson","Red","Ruby","Maroon"]}
 ```
 
-#### func [MarshalIndent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=173) 
+#### func MarshalIndent 
 
 ``` go 
 func MarshalIndent(v any, prefix, indent string) ([]byte, error)
@@ -416,7 +416,7 @@ Output:
 <prefix>}
 ```
 
-#### func [Unmarshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=97) 
+#### func Unmarshal 
 
 ``` go 
 func Unmarshal(data []byte, v any) error
@@ -485,7 +485,7 @@ Output:
 [{Name:Platypus Order:Monotremata} {Name:Quoll Order:Dasyuromorphia}]
 ```
 
-#### func [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=22)  <- go1.9
+#### func Valid  <- go1.9
 
 ``` go 
 func Valid(data []byte) bool
@@ -515,7 +515,7 @@ true false
 
 ## 类型
 
-### type [Decoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=14) 
+### type Decoder 
 
 ``` go 
 type Decoder struct {
@@ -565,7 +565,7 @@ func main() {
 
 ```
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=31) 
+#### func NewDecoder 
 
 ``` go 
 func NewDecoder(r io.Reader) *Decoder
@@ -575,7 +575,7 @@ func NewDecoder(r io.Reader) *Decoder
 
 ​	Decoder 引入了自己的缓冲，可能会从 r 中读取超出请求的 JSON 值的数据。
 
-#### (*Decoder) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=83)  <- go1.1
+#### (*Decoder) Buffered  <- go1.1
 
 ``` go 
 func (dec *Decoder) Buffered() io.Reader
@@ -583,7 +583,7 @@ func (dec *Decoder) Buffered() io.Reader
 
 ​	Buffered方法返回 Decoder 缓冲区中剩余的数据的 reader。该 reader 在下次调用 Decode 之前有效。
 
-#### (*Decoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=49) 
+#### (*Decoder) Decode 
 
 ``` go 
 func (dec *Decoder) Decode(v any) error
@@ -660,7 +660,7 @@ Ed: Go fmt yourself!
 json.Delim: ]
 ```
 
-#### (*Decoder) [DisallowUnknownFields](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=42)  <- go1.10
+#### (*Decoder) DisallowUnknownFields  <- go1.10
 
 ``` go 
 func (dec *Decoder) DisallowUnknownFields()
@@ -668,7 +668,7 @@ func (dec *Decoder) DisallowUnknownFields()
 
 ​	DisallowUnknownFields方法会导致在目标对象为结构体且输入包含在目标中不存在的、未被忽略的公开字段的对象键时，解码器返回一个错误。
 
-#### (*Decoder) [InputOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=513)  <- go1.14
+#### (*Decoder) InputOffset  <- go1.14
 
 ``` go 
 func (dec *Decoder) InputOffset() int64
@@ -676,7 +676,7 @@ func (dec *Decoder) InputOffset() int64
 
 ​	InputOffset方法返回当前解码器位置的输入流字节偏移量。该偏移量给出了最近返回的标记的结束位置和下一个标记的开始位置。
 
-#### (*Decoder) [More](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=486)  <- go1.5
+#### (*Decoder) More  <- go1.5
 
 ``` go 
 func (dec *Decoder) More() bool
@@ -684,7 +684,7 @@ func (dec *Decoder) More() bool
 
 ​	More方法报告当前正在解析的数组或对象中是否还有另一个元素。
 
-#### (*Decoder) [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=371)  <- go1.5
+#### (*Decoder) Token  <- go1.5
 
 ``` go 
 func (dec *Decoder) Token() (Token, error)
@@ -749,7 +749,7 @@ float64: 1.234
 json.Delim: }
 ```
 
-#### (*Decoder) [UseNumber](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=37)  <- go1.1
+#### (*Decoder) UseNumber  <- go1.1
 
 ``` go 
 func (dec *Decoder) UseNumber()
@@ -757,7 +757,7 @@ func (dec *Decoder) UseNumber()
 
 ​	UseNumber方法会导致解码器将数字解组为Number类型的接口{}，而不是解组为float64。
 
-### type [Delim](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=354)  <- go1.5
+### type Delim  <- go1.5
 
 ``` go 
 type Delim rune
@@ -765,13 +765,13 @@ type Delim rune
 
 ​	Delim是JSON数组或对象分隔符，其中之一是[ ] { 或 }。
 
-#### (Delim) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=356)  <- go1.5
+#### (Delim) String  <- go1.5
 
 ``` go 
 func (d Delim) String() string
 ```
 
-### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=181) 
+### type Encoder 
 
 ``` go 
 type Encoder struct {
@@ -781,7 +781,7 @@ type Encoder struct {
 
 ​	Encoder将JSON值写入输出流。
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=192) 
+#### func NewEncoder 
 
 ``` go 
 func NewEncoder(w io.Writer) *Encoder
@@ -789,7 +789,7 @@ func NewEncoder(w io.Writer) *Encoder
 
 ​	NewEncoder 函数返回一个新的编码器，它将写入到 w。
 
-#### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=201) 
+#### (*Encoder) Encode 
 
 ``` go 
 func (enc *Encoder) Encode(v any) error
@@ -799,7 +799,7 @@ func (enc *Encoder) Encode(v any) error
 
 ​	有关将 Go 值转换为 JSON 的详细信息，请参见 Marshal 的文档。
 
-#### (*Encoder) [SetEscapeHTML](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=255)  <- go1.7
+#### (*Encoder) SetEscapeHTML  <- go1.7
 
 ``` go 
 func (enc *Encoder) SetEscapeHTML(on bool)
@@ -809,7 +809,7 @@ func (enc *Encoder) SetEscapeHTML(on bool)
 
 ​	在非 HTML 环境中，当转义干扰输出的可读性时，SetEscapeHTML(false) 将禁用此行为。
 
-#### (*Encoder) [SetIndent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=243)  <- go1.7
+#### (*Encoder) SetIndent  <- go1.7
 
 ``` go 
 func (enc *Encoder) SetIndent(prefix, indent string)
@@ -817,7 +817,7 @@ func (enc *Encoder) SetIndent(prefix, indent string)
 
 ​	SetIndent方法指示编码器将每个后续编码值格式化为由 package-level 函数 Indent(dst、src、prefix、indent) 缩进的形式。调用 SetIndent("", "") 禁用缩进。
 
-### type [InvalidUnmarshalError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=156) 
+### type InvalidUnmarshalError 
 
 ``` go 
 type InvalidUnmarshalError struct {
@@ -827,13 +827,13 @@ type InvalidUnmarshalError struct {
 
 ​	InvalidUnmarshalError 描述传递给 Unmarshal 的无效参数。(传递给 Unmarshal 的参数必须是非 nil 指针。)
 
-#### (*InvalidUnmarshalError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=160) 
+#### (*InvalidUnmarshalError) Error 
 
 ``` go 
 func (e *InvalidUnmarshalError) Error() string
 ```
 
-### type [Marshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=223) 
+### type Marshaler 
 
 ``` go 
 type Marshaler interface {
@@ -843,7 +843,7 @@ type Marshaler interface {
 
 ​	Marshaler 是一种类型的接口，这种类型可以将自身编组为有效的 JSON。
 
-### type [MarshalerError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=263) 
+### type MarshalerError 
 
 ``` go 
 type MarshalerError struct {
@@ -855,13 +855,13 @@ type MarshalerError struct {
 
 ​	MarshalerError 表示调用 MarshalJSON 或 MarshalText 方法时的错误。
 
-#### (*MarshalerError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=269) 
+#### (*MarshalerError) Error 
 
 ``` go 
 func (e *MarshalerError) Error() string
 ```
 
-#### (*MarshalerError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=280)  <- go1.13
+#### (*MarshalerError) Unwrap  <- go1.13
 
 ``` go 
 func (e *MarshalerError) Unwrap() error
@@ -869,7 +869,7 @@ func (e *MarshalerError) Unwrap() error
 
 ​	Unwrap方法返回基本的错误。
 
-### type [Number](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=189)  <- go1.1
+### type Number  <- go1.1
 
 ``` go 
 type Number string
@@ -877,7 +877,7 @@ type Number string
 
 ​	Number类型表示JSON数值字面。
 
-#### (Number) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=195)  <- go1.1
+#### (Number) Float64  <- go1.1
 
 ``` go 
 func (n Number) Float64() (float64, error)
@@ -885,7 +885,7 @@ func (n Number) Float64() (float64, error)
 
 ​	Float64方法将数值转换为float64。
 
-#### (Number) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=200)  <- go1.1
+#### (Number) Int64  <- go1.1
 
 ``` go 
 func (n Number) Int64() (int64, error)
@@ -893,7 +893,7 @@ func (n Number) Int64() (int64, error)
 
 ​	Int64方法将数值转换为int64。
 
-#### (Number) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=192)  <- go1.1
+#### (Number) String  <- go1.1
 
 ``` go 
 func (n Number) String() string
@@ -901,7 +901,7 @@ func (n Number) String() string
 
 ​	String方法返回数值的文字表示形式。
 
-### type [RawMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=262) 
+### type RawMessage 
 
 ``` go 
 type RawMessage []byte
@@ -1007,7 +1007,7 @@ YCbCr &{255 0 -10}
 RGB &{98 218 255}
 ```
 
-#### (RawMessage) [MarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=265) 
+#### (RawMessage) MarshalJSON 
 
 ``` go 
 func (m RawMessage) MarshalJSON() ([]byte, error)
@@ -1015,7 +1015,7 @@ func (m RawMessage) MarshalJSON() ([]byte, error)
 
 ​	MarshalJSON方法返回m的JSON编码。
 
-#### (*RawMessage) [UnmarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=273) 
+#### (*RawMessage) UnmarshalJSON 
 
 ``` go 
 func (m *RawMessage) UnmarshalJSON(data []byte) error
@@ -1023,7 +1023,7 @@ func (m *RawMessage) UnmarshalJSON(data []byte) error
 
 ​	UnmarshalJSON方法将data的一个副本设置为`*m`。
 
-### type [SyntaxError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=47) 
+### type SyntaxError 
 
 ``` go 
 type SyntaxError struct {
@@ -1034,13 +1034,13 @@ type SyntaxError struct {
 
 ​	SyntaxError描述了一个JSON语法错误。如果JSON不能被解析，Unmarshal函数将返回SyntaxError。
 
-#### (*SyntaxError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=52) 
+#### (*SyntaxError) Error 
 
 ``` go 
 func (e *SyntaxError) Error() string
 ```
 
-### type [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=292)  <- go1.5
+### type Token  <- go1.5
 
 ``` go 
 type Token any
@@ -1057,7 +1057,7 @@ string, for JSON string literals
 nil, for JSON null
 ```
 
-### type [UnmarshalTypeError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=125) 
+### type UnmarshalTypeError 
 
 ``` go 
 type UnmarshalTypeError struct {
@@ -1071,13 +1071,13 @@ type UnmarshalTypeError struct {
 
 ​	UnmarshalTypeError描述了一个不适合特定Go类型值的JSON值。
 
-#### (*UnmarshalTypeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=133) 
+#### (*UnmarshalTypeError) Error 
 
 ``` go 
 func (e *UnmarshalTypeError) Error() string
 ```
 
-### type [Unmarshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=119) 
+### type Unmarshaler 
 
 ``` go 
 type Unmarshaler interface {
@@ -1089,7 +1089,7 @@ type Unmarshaler interface {
 
 ​	按照惯例，为了近似于Unmarshal本身的行为，Unmarshalers将UnmarshalJSON([]byte("null"))实现为无操作。
 
-### type [UnsupportedTypeError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=229) 
+### type UnsupportedTypeError 
 
 ``` go 
 type UnsupportedTypeError struct {
@@ -1099,13 +1099,13 @@ type UnsupportedTypeError struct {
 
 ​	在尝试对不受支持的值类型进行编码时，Marshal返回UnsupportedTypeError。
 
-#### (*UnsupportedTypeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=233) 
+#### (*UnsupportedTypeError) Error 
 
 ``` go 
 func (e *UnsupportedTypeError) Error() string
 ```
 
-### type [UnsupportedValueError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=239) 
+### type UnsupportedValueError 
 
 ``` go 
 type UnsupportedValueError struct {
@@ -1116,7 +1116,7 @@ type UnsupportedValueError struct {
 
 ​	在尝试对不受支持的值进行编码时，Marshal返回UnsupportedValueError。
 
-#### (*UnsupportedValueError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=244) 
+#### (*UnsupportedValueError) Error 
 
 ``` go 
 func (e *UnsupportedValueError) Error() string

@@ -42,7 +42,7 @@ var ErrHeaderNotPresent = errors.New("mail: header not in message")
 
 ## 函数
 
-#### func [ParseDate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=99)  <- go1.8
+#### func ParseDate  <- go1.8
 
 ``` go 
 func ParseDate(date string) (time.Time, error)
@@ -52,7 +52,7 @@ ParseDate parses an [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) date str
 
 ## 类型
 
-### type [Address](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=183) 
+### type Address 
 
 ``` go 
 type Address struct {
@@ -63,7 +63,7 @@ type Address struct {
 
 Address represents a single mail address. An address such as "Barry Gibbs <bg@example.com>" is represented as Address{Name: "Barry Gibbs", Address: "bg@example.com"}.
 
-#### func [ParseAddress](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=189)  <- go1.1
+#### func ParseAddress  <- go1.1
 
 ``` go 
 func ParseAddress(address string) (*Address, error)
@@ -75,7 +75,7 @@ ParseAddress parses a single [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html)
 ``` go 
 ```
 
-#### func [ParseAddressList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=194)  <- go1.1
+#### func ParseAddressList  <- go1.1
 
 ``` go 
 func ParseAddressList(list string) ([]*Address, error)
@@ -87,7 +87,7 @@ ParseAddressList parses the given string as a list of addresses.
 ``` go 
 ```
 
-#### (*Address) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=219) 
+#### (*Address) String 
 
 ``` go 
 func (a *Address) String() string
@@ -95,7 +95,7 @@ func (a *Address) String() string
 
 String formats the address as a valid [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) address. If the address's name contains non-ASCII characters the name will be rendered according to [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html).
 
-### type [AddressParser](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=199)  <- go1.5
+### type AddressParser  <- go1.5
 
 ``` go 
 type AddressParser struct {
@@ -106,7 +106,7 @@ type AddressParser struct {
 
 An AddressParser is an [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) address parser.
 
-#### (*AddressParser) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=206)  <- go1.5
+#### (*AddressParser) Parse  <- go1.5
 
 ``` go 
 func (p *AddressParser) Parse(address string) (*Address, error)
@@ -114,7 +114,7 @@ func (p *AddressParser) Parse(address string) (*Address, error)
 
 Parse parses a single [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) address of the form "Gogh Fir <gf@example.com>" or "foo@example.com".
 
-#### (*AddressParser) [ParseList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=212)  <- go1.5
+#### (*AddressParser) ParseList  <- go1.5
 
 ``` go 
 func (p *AddressParser) ParseList(list string) ([]*Address, error)
@@ -122,7 +122,7 @@ func (p *AddressParser) ParseList(list string) ([]*Address, error)
 
 ParseList parses the given string as a list of comma-separated addresses of the form "Gogh Fir <gf@example.com>" or "foo@example.com".
 
-### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=148) 
+### type Header 
 
 ``` go 
 type Header map[string][]string
@@ -130,7 +130,7 @@ type Header map[string][]string
 
 A Header represents the key-value pairs in a mail message header.
 
-#### (Header) [AddressList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=172) 
+#### (Header) AddressList 
 
 ``` go 
 func (h Header) AddressList(key string) ([]*Address, error)
@@ -138,7 +138,7 @@ func (h Header) AddressList(key string) ([]*Address, error)
 
 AddressList parses the named header field as a list of addresses.
 
-#### (Header) [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=163) 
+#### (Header) Date 
 
 ``` go 
 func (h Header) Date() (time.Time, error)
@@ -146,7 +146,7 @@ func (h Header) Date() (time.Time, error)
 
 Date parses the Date header field.
 
-#### (Header) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=156) 
+#### (Header) Get 
 
 ``` go 
 func (h Header) Get(key string) string
@@ -154,7 +154,7 @@ func (h Header) Get(key string) string
 
 Get gets the first value associated with the given key. It is case insensitive; CanonicalMIMEHeaderKey is used to canonicalize the provided key. If there are no values associated with the key, Get returns "". To access multiple values of a key, or to use non-canonical keys, access the map directly.
 
-### type [Message](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=45) 
+### type Message 
 
 ``` go 
 type Message struct {
@@ -165,7 +165,7 @@ type Message struct {
 
 A Message represents a parsed mail message.
 
-#### func [ReadMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=53) 
+#### func ReadMessage 
 
 ``` go 
 func ReadMessage(r io.Reader) (msg *Message, err error)

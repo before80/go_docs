@@ -78,9 +78,10 @@ anchor = "smart"
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
-[markup.goldmark.renderer.tableOfContents]
+[markup.tableOfContents]
 startLevel = 1
 endLevel = 6
+ordered = false
 [markup.highlight]
 # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
 style = "onedark"

@@ -25,7 +25,7 @@ This section is empty.
 
 ## 函数
 
-#### func [IsEmptyTree](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=270) 
+#### func IsEmptyTree 
 
 ``` go 
 func IsEmptyTree(n Node) bool
@@ -33,7 +33,7 @@ func IsEmptyTree(n Node) bool
 
 IsEmptyTree reports whether this tree (node) is empty of everything but space or comments.
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=62) 
+#### func Parse 
 
 ``` go 
 func Parse(name, text, leftDelim, rightDelim string, funcs ...map[string]any) (map[string]*Tree, error)
@@ -43,7 +43,7 @@ Parse returns a map from template name to parse.Tree, created by parsing the tem
 
 ## 类型
 
-### type [ActionNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=257) 
+### type ActionNode 
 
 ``` go 
 type ActionNode struct {
@@ -58,19 +58,19 @@ type ActionNode struct {
 
 ActionNode holds an action (something bounded by delimiters). Control actions have their own nodes; ActionNode represents simple ones such as field evaluations and parenthesized pipelines.
 
-#### (*ActionNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=285) 
+#### (*ActionNode) Copy 
 
 ``` go 
 func (a *ActionNode) Copy() Node
 ```
 
-#### (*ActionNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=269) 
+#### (*ActionNode) String 
 
 ``` go 
 func (a *ActionNode) String() string
 ```
 
-### type [BoolNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=582) 
+### type BoolNode 
 
 ``` go 
 type BoolNode struct {
@@ -84,19 +84,19 @@ type BoolNode struct {
 
 BoolNode holds a boolean constant.
 
-#### (*BoolNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=608) 
+#### (*BoolNode) Copy 
 
 ``` go 
 func (b *BoolNode) Copy() Node
 ```
 
-#### (*BoolNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=593) 
+#### (*BoolNode) String 
 
 ``` go 
 func (b *BoolNode) String() string
 ```
 
-### type [BranchNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=841) 
+### type BranchNode 
 
 ``` go 
 type BranchNode struct {
@@ -113,19 +113,19 @@ type BranchNode struct {
 
 BranchNode is the common representation of if, range, and with.
 
-#### (*BranchNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=886)  <- go1.4
+#### (*BranchNode) Copy  <- go1.4
 
 ``` go 
 func (b *BranchNode) Copy() Node
 ```
 
-#### (*BranchNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=851) 
+#### (*BranchNode) String 
 
 ``` go 
 func (b *BranchNode) String() string
 ```
 
-### type [BreakNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=913)  <- go1.18
+### type BreakNode  <- go1.18
 
 ``` go 
 type BreakNode struct {
@@ -138,19 +138,19 @@ type BreakNode struct {
 
 BreakNode represents a {{break}} action.
 
-#### (*BreakNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=924)  <- go1.18
+#### (*BreakNode) Copy  <- go1.18
 
 ``` go 
 func (b *BreakNode) Copy() Node
 ```
 
-#### (*BreakNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=925)  <- go1.18
+#### (*BreakNode) String  <- go1.18
 
 ``` go 
 func (b *BreakNode) String() string
 ```
 
-### type [ChainNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=529)  <- go1.1
+### type ChainNode  <- go1.1
 
 ``` go 
 type ChainNode struct {
@@ -165,7 +165,7 @@ type ChainNode struct {
 
 ChainNode holds a term followed by a chain of field accesses (identifier starting with '.'). The names may be chained ('.x.y'). The periods are dropped from each ident.
 
-#### (*ChainNode) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=542)  <- go1.1
+#### (*ChainNode) Add  <- go1.1
 
 ``` go 
 func (c *ChainNode) Add(field string)
@@ -173,19 +173,19 @@ func (c *ChainNode) Add(field string)
 
 Add adds the named field (which should start with a period) to the end of the chain.
 
-#### (*ChainNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=577)  <- go1.1
+#### (*ChainNode) Copy  <- go1.1
 
 ``` go 
 func (c *ChainNode) Copy() Node
 ```
 
-#### (*ChainNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=553)  <- go1.1
+#### (*ChainNode) String  <- go1.1
 
 ``` go 
 func (c *ChainNode) String() string
 ```
 
-### type [CommandNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=291) 
+### type CommandNode 
 
 ``` go 
 type CommandNode struct {
@@ -199,19 +199,19 @@ type CommandNode struct {
 
 CommandNode holds a command (a pipeline inside an evaluating action).
 
-#### (*CommandNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=331) 
+#### (*CommandNode) Copy 
 
 ``` go 
 func (c *CommandNode) Copy() Node
 ```
 
-#### (*CommandNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=306) 
+#### (*CommandNode) String 
 
 ``` go 
 func (c *CommandNode) String() string
 ```
 
-### type [CommentNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=156)  <- go1.16
+### type CommentNode  <- go1.16
 
 ``` go 
 type CommentNode struct {
@@ -225,19 +225,19 @@ type CommentNode struct {
 
 CommentNode holds a comment.
 
-#### (*CommentNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=183)  <- go1.16
+#### (*CommentNode) Copy  <- go1.16
 
 ``` go 
 func (c *CommentNode) Copy() Node
 ```
 
-#### (*CommentNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=167)  <- go1.16
+#### (*CommentNode) String  <- go1.16
 
 ``` go 
 func (c *CommentNode) String() string
 ```
 
-### type [ContinueNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=930)  <- go1.18
+### type ContinueNode  <- go1.18
 
 ``` go 
 type ContinueNode struct {
@@ -250,19 +250,19 @@ type ContinueNode struct {
 
 ContinueNode represents a {{continue}} action.
 
-#### (*ContinueNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=941)  <- go1.18
+#### (*ContinueNode) Copy  <- go1.18
 
 ``` go 
 func (c *ContinueNode) Copy() Node
 ```
 
-#### (*ContinueNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=942)  <- go1.18
+#### (*ContinueNode) String  <- go1.18
 
 ``` go 
 func (c *ContinueNode) String() string
 ```
 
-### type [DotNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=424) 
+### type DotNode 
 
 ``` go 
 type DotNode struct {
@@ -274,25 +274,25 @@ type DotNode struct {
 
 DotNode holds the special identifier '.'.
 
-#### (*DotNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=453) 
+#### (*DotNode) Copy 
 
 ``` go 
 func (d *DotNode) Copy() Node
 ```
 
-#### (*DotNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=441) 
+#### (*DotNode) String 
 
 ``` go 
 func (d *DotNode) String() string
 ```
 
-#### (*DotNode) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=434) 
+#### (*DotNode) Type 
 
 ``` go 
 func (d *DotNode) Type() NodeType
 ```
 
-### type [FieldNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=494) 
+### type FieldNode 
 
 ``` go 
 type FieldNode struct {
@@ -306,19 +306,19 @@ type FieldNode struct {
 
 FieldNode holds a field (identifier starting with '.'). The names may be chained ('.x.y'). The period is dropped from each ident.
 
-#### (*FieldNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=522) 
+#### (*FieldNode) Copy 
 
 ``` go 
 func (f *FieldNode) Copy() Node
 ```
 
-#### (*FieldNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=505) 
+#### (*FieldNode) String 
 
 ``` go 
 func (f *FieldNode) String() string
 ```
 
-### type [IdentifierNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=343) 
+### type IdentifierNode 
 
 ``` go 
 type IdentifierNode struct {
@@ -332,7 +332,7 @@ type IdentifierNode struct {
 
 IdentifierNode holds an identifier.
 
-#### func [NewIdentifier](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=351) 
+#### func NewIdentifier 
 
 ``` go 
 func NewIdentifier(ident string) *IdentifierNode
@@ -340,13 +340,13 @@ func NewIdentifier(ident string) *IdentifierNode
 
 NewIdentifier returns a new IdentifierNode with the given identifier name.
 
-#### (*IdentifierNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=383) 
+#### (*IdentifierNode) Copy 
 
 ``` go 
 func (i *IdentifierNode) Copy() Node
 ```
 
-#### (*IdentifierNode) [SetPos](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=358)  <- go1.1
+#### (*IdentifierNode) SetPos  <- go1.1
 
 ``` go 
 func (i *IdentifierNode) SetPos(pos Pos) *IdentifierNode
@@ -354,7 +354,7 @@ func (i *IdentifierNode) SetPos(pos Pos) *IdentifierNode
 
 SetPos sets the position. NewIdentifier is a public method so we can't modify its signature. Chained for convenience. TODO: fix one day?
 
-#### (*IdentifierNode) [SetTree](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=366)  <- go1.4
+#### (*IdentifierNode) SetTree  <- go1.4
 
 ``` go 
 func (i *IdentifierNode) SetTree(t *Tree) *IdentifierNode
@@ -362,13 +362,13 @@ func (i *IdentifierNode) SetTree(t *Tree) *IdentifierNode
 
 SetTree sets the parent tree for the node. NewIdentifier is a public method so we can't modify its signature. Chained for convenience. TODO: fix one day?
 
-#### (*IdentifierNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=371) 
+#### (*IdentifierNode) String 
 
 ``` go 
 func (i *IdentifierNode) String() string
 ```
 
-### type [IfNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=900) 
+### type IfNode 
 
 ``` go 
 type IfNode struct {
@@ -378,13 +378,13 @@ type IfNode struct {
 
 IfNode represents an {{if}} action and its commands.
 
-#### (*IfNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=908) 
+#### (*IfNode) Copy 
 
 ``` go 
 func (i *IfNode) Copy() Node
 ```
 
-### type [ListNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=81) 
+### type ListNode 
 
 ``` go 
 type ListNode struct {
@@ -398,25 +398,25 @@ type ListNode struct {
 
 ListNode holds a sequence of nodes.
 
-#### (*ListNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=123) 
+#### (*ListNode) Copy 
 
 ``` go 
 func (l *ListNode) Copy() Node
 ```
 
-#### (*ListNode) [CopyList](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=112) 
+#### (*ListNode) CopyList 
 
 ``` go 
 func (l *ListNode) CopyList() *ListNode
 ```
 
-#### (*ListNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=100) 
+#### (*ListNode) String 
 
 ``` go 
 func (l *ListNode) String() string
 ```
 
-### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=38)  <- go1.16
+### type Mode  <- go1.16
 
 ``` go 
 type Mode uint
@@ -431,7 +431,7 @@ const (
 )
 ```
 
-### type [NilNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=458)  <- go1.1
+### type NilNode  <- go1.1
 
 ``` go 
 type NilNode struct {
@@ -443,25 +443,25 @@ type NilNode struct {
 
 NilNode holds the special identifier 'nil' representing an untyped nil constant.
 
-#### (*NilNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=487)  <- go1.1
+#### (*NilNode) Copy  <- go1.1
 
 ``` go 
 func (n *NilNode) Copy() Node
 ```
 
-#### (*NilNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=475)  <- go1.1
+#### (*NilNode) String  <- go1.1
 
 ``` go 
 func (n *NilNode) String() string
 ```
 
-#### (*NilNode) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=468)  <- go1.1
+#### (*NilNode) Type  <- go1.1
 
 ``` go 
 func (n *NilNode) Type() NodeType
 ```
 
-### type [Node](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=20) 
+### type Node 
 
 ``` go 
 type Node interface {
@@ -478,7 +478,7 @@ type Node interface {
 
 A Node is an element in the parse tree. The interface is trivial. The interface contains an unexported method so that only types local to this package can satisfy it.
 
-### type [NodeType](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=36) 
+### type NodeType 
 
 ``` go 
 type NodeType int
@@ -513,7 +513,7 @@ const (
 )
 ```
 
-#### (NodeType) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=48) 
+#### (NodeType) Type 
 
 ``` go 
 func (t NodeType) Type() NodeType
@@ -521,7 +521,7 @@ func (t NodeType) Type() NodeType
 
 Type returns itself and provides an easy default implementation for embedding in a Node. Embedded in all non-trivial Nodes.
 
-### type [NumberNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=615) 
+### type NumberNode 
 
 ``` go 
 type NumberNode struct {
@@ -543,19 +543,19 @@ type NumberNode struct {
 
 NumberNode holds a number: signed or unsigned integer, float, or complex. The value is parsed and stored under all the types that can represent the value. This simulates in a small amount of code the behavior of Go's ideal constants.
 
-#### (*NumberNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=745) 
+#### (*NumberNode) Copy 
 
 ``` go 
 func (n *NumberNode) Copy() Node
 ```
 
-#### (*NumberNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=733) 
+#### (*NumberNode) String 
 
 ``` go 
 func (n *NumberNode) String() string
 ```
 
-### type [PipeNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=188) 
+### type PipeNode 
 
 ``` go 
 type PipeNode struct {
@@ -572,25 +572,25 @@ type PipeNode struct {
 
 PipeNode holds a pipeline with optional declaration
 
-#### (*PipeNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=250) 
+#### (*PipeNode) Copy 
 
 ``` go 
 func (p *PipeNode) Copy() Node
 ```
 
-#### (*PipeNode) [CopyPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=234) 
+#### (*PipeNode) CopyPipe 
 
 ``` go 
 func (p *PipeNode) CopyPipe() *PipeNode
 ```
 
-#### (*PipeNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=206) 
+#### (*PipeNode) String 
 
 ``` go 
 func (p *PipeNode) String() string
 ```
 
-### type [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=40)  <- go1.1
+### type Pos  <- go1.1
 
 ``` go 
 type Pos int
@@ -598,13 +598,13 @@ type Pos int
 
 Pos represents a byte position in the original input text from which this template was parsed.
 
-#### (Pos) [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=42)  <- go1.1
+#### (Pos) Position  <- go1.1
 
 ``` go 
 func (p Pos) Position() Pos
 ```
 
-### type [RangeNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=947) 
+### type RangeNode 
 
 ``` go 
 type RangeNode struct {
@@ -614,13 +614,13 @@ type RangeNode struct {
 
 RangeNode represents a {{range}} action and its commands.
 
-#### (*RangeNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=955) 
+#### (*RangeNode) Copy 
 
 ``` go 
 func (r *RangeNode) Copy() Node
 ```
 
-### type [StringNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=752) 
+### type StringNode 
 
 ``` go 
 type StringNode struct {
@@ -635,19 +635,19 @@ type StringNode struct {
 
 StringNode holds a string constant. The value has been "unquoted".
 
-#### (*StringNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=776) 
+#### (*StringNode) Copy 
 
 ``` go 
 func (s *StringNode) Copy() Node
 ```
 
-#### (*StringNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=764) 
+#### (*StringNode) String 
 
 ``` go 
 func (s *StringNode) String() string
 ```
 
-### type [TemplateNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=973) 
+### type TemplateNode 
 
 ``` go 
 type TemplateNode struct {
@@ -663,19 +663,19 @@ type TemplateNode struct {
 
 TemplateNode represents a {{template}} action.
 
-#### (*TemplateNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=1006) 
+#### (*TemplateNode) Copy 
 
 ``` go 
 func (t *TemplateNode) Copy() Node
 ```
 
-#### (*TemplateNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=986) 
+#### (*TemplateNode) String 
 
 ``` go 
 func (t *TemplateNode) String() string
 ```
 
-### type [TextNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=128) 
+### type TextNode 
 
 ``` go 
 type TextNode struct {
@@ -689,19 +689,19 @@ type TextNode struct {
 
 TextNode holds plain text.
 
-#### (*TextNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=151) 
+#### (*TextNode) Copy 
 
 ``` go 
 func (t *TextNode) Copy() Node
 ```
 
-#### (*TextNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=139) 
+#### (*TextNode) String 
 
 ``` go 
 func (t *TextNode) String() string
 ```
 
-### type [Tree](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=20) 
+### type Tree 
 
 ``` go 
 type Tree struct {
@@ -715,7 +715,7 @@ type Tree struct {
 
 Tree is the representation of a single parsed template.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=131) 
+#### func New 
 
 ``` go 
 func New(name string, funcs ...map[string]any) *Tree
@@ -723,7 +723,7 @@ func New(name string, funcs ...map[string]any) *Tree
 
 New allocates a new parse tree with the given name.
 
-#### (*Tree) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=46)  <- go1.2
+#### (*Tree) Copy  <- go1.2
 
 ``` go 
 func (t *Tree) Copy() *Tree
@@ -731,7 +731,7 @@ func (t *Tree) Copy() *Tree
 
 Copy returns a copy of the Tree. Any parsing state is discarded.
 
-#### (*Tree) [ErrorContext](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=141)  <- go1.1
+#### (*Tree) ErrorContext  <- go1.1
 
 ``` go 
 func (t *Tree) ErrorContext(n Node) (location, context string)
@@ -739,7 +739,7 @@ func (t *Tree) ErrorContext(n Node) (location, context string)
 
 ErrorContext returns a textual representation of the location of the node in the input text. The receiver is only used when the node does not have a pointer to the tree inside, which can occur in old code.
 
-#### (*Tree) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/parse.go;l=245) 
+#### (*Tree) Parse 
 
 ``` go 
 func (t *Tree) Parse(text, leftDelim, rightDelim string, treeSet map[string]*Tree, funcs ...map[string]any) (tree *Tree, err error)
@@ -747,7 +747,7 @@ func (t *Tree) Parse(text, leftDelim, rightDelim string, treeSet map[string]*Tre
 
 Parse parses the template definition string to construct a representation of the template for execution. If either action delimiter string is empty, the default ("{{" or "}}") is used. Embedded template definitions are added to the treeSet map.
 
-### type [VariableNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=389) 
+### type VariableNode 
 
 ``` go 
 type VariableNode struct {
@@ -761,19 +761,19 @@ type VariableNode struct {
 
 VariableNode holds a list of variable names, possibly with chained field accesses. The dollar sign is part of the (first) name.
 
-#### (*VariableNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=419) 
+#### (*VariableNode) Copy 
 
 ``` go 
 func (v *VariableNode) Copy() Node
 ```
 
-#### (*VariableNode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=400) 
+#### (*VariableNode) String 
 
 ``` go 
 func (v *VariableNode) String() string
 ```
 
-### type [WithNode](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=960) 
+### type WithNode 
 
 ``` go 
 type WithNode struct {
@@ -783,7 +783,7 @@ type WithNode struct {
 
 WithNode represents a {{with}} action and its commands.
 
-#### (*WithNode) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/parse/node.go;l=968) 
+#### (*WithNode) Copy 
 
 ``` go 
 func (w *WithNode) Copy() Node

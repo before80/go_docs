@@ -8,7 +8,7 @@ draft = false
 +++
 # flag
 
-[https://pkg.go.dev/flag@go1.20.1](https://pkg.go.dev/flag@go1.20.1)
+https://pkg.go.dev/flag@go1.20.1
 
 ​	flag包实现了命令行标志解析。
 
@@ -204,7 +204,7 @@ var Usage = func() {
 
 ## 函数
 
-#### func [Arg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=698) 
+#### func Arg 
 
 ``` go 
 func Arg(i int) string
@@ -212,7 +212,7 @@ func Arg(i int) string
 
 ​	Arg函数返回第 i 个命令行参数。Arg(0) 是在处理标志后剩下的第一个参数。如果请求的元素不存在，则 Arg 返回空字符串。
 
-#### func [Args](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=712) 
+#### func Args 
 
 ``` go 
 func Args() []string
@@ -220,7 +220,7 @@ func Args() []string
 
 ​	Args函数返回非标志命令行参数。
 
-#### func [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=736) 
+#### func Bool 
 
 ``` go 
 func Bool(name string, value bool, usage string) *bool
@@ -228,7 +228,7 @@ func Bool(name string, value bool, usage string) *bool
 
 ​	Bool函数定义一个具有指定名称、默认值和用法字符串的布尔标志。返回值是存储标志值的布尔变量的地址。
 
-#### func [BoolVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=722) 
+#### func BoolVar 
 
 ``` go 
 func BoolVar(p *bool, name string, value bool, usage string)
@@ -236,7 +236,7 @@ func BoolVar(p *bool, name string, value bool, usage string)
 
 ​	BoolVar函数定义一个具有指定名称、默认值和用法字符串的布尔标志。参数 p 指向一个布尔变量，用于存储标志的值。
 
-#### func [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=922) 
+#### func Duration 
 
 ``` go 
 func Duration(name string, value time.Duration, usage string) *time.Duration
@@ -244,7 +244,7 @@ func Duration(name string, value time.Duration, usage string) *time.Duration
 
 ​	Duration函数定义一个具有指定名称、默认值和用法字符串的 time.Duration 标志。返回值是存储标志值的 time.Duration 变量的地址。标志接受符合 time.ParseDuration 的值。
 
-#### func [DurationVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=906) 
+#### func DurationVar 
 
 ``` go 
 func DurationVar(p *time.Duration, name string, value time.Duration, usage string)
@@ -252,7 +252,7 @@ func DurationVar(p *time.Duration, name string, value time.Duration, usage strin
 
 ​	DurationVar函数定义一个具有指定名称、默认值和用法字符串的 time.Duration 标志。参数 p 指向一个 time.Duration 变量，用于存储标志的值。标志接受符合 time.ParseDuration 的值。
 
-#### func [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=892) 
+#### func Float64 
 
 ``` go 
 func Float64(name string, value float64, usage string) *float64
@@ -260,7 +260,7 @@ func Float64(name string, value float64, usage string) *float64
 
 ​	Float64函数定义一个具有指定名称、默认值和用法字符串的 float64 标志。返回值是存储标志值的 float64 变量的地址。
 
-#### func [Float64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=878) 
+#### func Float64Var 
 
 ``` go 
 func Float64Var(p *float64, name string, value float64, usage string)
@@ -268,7 +268,7 @@ func Float64Var(p *float64, name string, value float64, usage string)
 
 ​	Float64Var函数定义一个具有指定名称、默认值和用法字符串的 float64 标志。参数 p 指向一个 float64 变量，用于存储标志的值。
 
-#### func [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=954)  <- go1.16
+#### func Func  <- go1.16
 
 ``` go 
 func Func(name, usage string, fn func(string) error)
@@ -318,7 +318,7 @@ Usage of ExampleFunc:
 {ip: <nil>, loopback: false}
 ```
 
-#### func [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=762) 
+#### func Int 
 
 ``` go 
 func Int(name string, value int, usage string) *int
@@ -326,7 +326,7 @@ func Int(name string, value int, usage string) *int
 
 ​	Int函数定义一个具有指定名称、默认值和用法字符串的 int 标志。返回值是存储标志值的 int 变量的地址。
 
-#### func [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=788) 
+#### func Int64 
 
 ``` go 
 func Int64(name string, value int64, usage string) *int64
@@ -334,7 +334,7 @@ func Int64(name string, value int64, usage string) *int64
 
 ​	Int64函数定义一个具有指定名称、默认值和用法字符串的 int64 标志。返回值是存储标志值的 int64 变量的地址。
 
-#### func [Int64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=774) 
+#### func Int64Var 
 
 ``` go 
 func Int64Var(p *int64, name string, value int64, usage string)
@@ -342,7 +342,7 @@ func Int64Var(p *int64, name string, value int64, usage string)
 
 ​	Int64Var函数定义一个具有指定名称、默认值和用法字符串的 int64 标志。参数 p 指向一个 int64 变量，用于存储标志的值。
 
-#### func [IntVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=748) 
+#### func IntVar 
 
 ``` go 
 func IntVar(p *int, name string, value int, usage string)
@@ -350,7 +350,7 @@ func IntVar(p *int, name string, value int, usage string)
 
 ​	IntVar函数定义一个具有指定名称、默认值和用法字符串的 int 标志。参数 p 指向一个 int 变量，用于存储标志的值。
 
-#### func [NArg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=706) 
+#### func NArg 
 
 ``` go 
 func NArg() int
@@ -358,7 +358,7 @@ func NArg() int
 
 ​	NArg函数返回在处理标志后剩余的参数数目。
 
-#### func [NFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=683) 
+#### func NFlag 
 
 ``` go 
 func NFlag() int
@@ -366,7 +366,7 @@ func NFlag() int
 
 ​	NFlag函数返回已设置的命令行标志数目。
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1137) 
+#### func Parse 
 
 ``` go 
 func Parse()
@@ -374,7 +374,7 @@ func Parse()
 
 ​	Parse函数从 `os.Args[1:]` 解析命令行标志。必须在定义所有标志并在程序访问标志之前调用它。
 
-#### func [Parsed](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1143) 
+#### func Parsed 
 
 ``` go 
 func Parsed() bool
@@ -382,7 +382,7 @@ func Parsed() bool
 
 ​	Parsed函数报告命令行标志是否已被解析。
 
-#### func [PrintDefaults](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=647) 
+#### func PrintDefaults 
 
 ``` go 
 func PrintDefaults()
@@ -410,7 +410,7 @@ flag.String("I", "", "search `directory` for include files")
 
 要更改标志消息的目标，请调用 CommandLine.SetOutput。
 
-#### func [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=500) 
+#### func Set 
 
 ``` go 
 func Set(name, value string) error
@@ -418,7 +418,7 @@ func Set(name, value string) error
 
 ​	Set函数设置命名的命令行标志的值。
 
-#### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=866) 
+#### func String 
 
 ``` go 
 func String(name string, value string, usage string) *string
@@ -426,7 +426,7 @@ func String(name string, value string, usage string) *string
 
 ​	String函数定义一个具有指定名称、默认值和用法字符串的字符串标志。返回值是存储标志值的字符串变量的地址。
 
-#### func [StringVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=852) 
+#### func StringVar 
 
 ``` go 
 func StringVar(p *string, name string, value string, usage string)
@@ -434,7 +434,7 @@ func StringVar(p *string, name string, value string, usage string)
 
 ​	StringVar函数定义一个具有指定名称、默认值和用法字符串的字符串标志。参数 p 指向一个字符串变量，用于存储标志的值。
 
-#### func [TextVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=940)  <- go1.19
+#### func TextVar  <- go1.19
 
 ``` go 
 func TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string)
@@ -478,7 +478,7 @@ Usage of ExampleTextVar:
 {ip: <nil>}
 ```
 
-#### func [Uint](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=814) 
+#### func Uint 
 
 ``` go 
 func Uint(name string, value uint, usage string) *uint
@@ -486,7 +486,7 @@ func Uint(name string, value uint, usage string) *uint
 
 ​	Uint函数定义一个具有指定名称、默认值和用法字符串的 uint 标志。返回值是存储标志值的 uint 变量的地址。
 
-#### func [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=840) 
+#### func Uint64 
 
 ``` go 
 func Uint64(name string, value uint64, usage string) *uint64
@@ -494,7 +494,7 @@ func Uint64(name string, value uint64, usage string) *uint64
 
 ​	Uint64函数定义一个指定名称、默认值和使用说明的 uint64 标志。返回值是一个 uint64 变量的地址，该变量存储标志的值。
 
-#### func [Uint64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=826) 
+#### func Uint64Var 
 
 ``` go 
 func Uint64Var(p *uint64, name string, value uint64, usage string)
@@ -502,7 +502,7 @@ func Uint64Var(p *uint64, name string, value uint64, usage string)
 
 ​	Uint64Var函数定义一个指定名称、默认值和使用说明的 uint64 标志。参数 p 指向一个 uint64 变量，用于存储标志的值。
 
-#### func [UintVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=800) 
+#### func UintVar 
 
 ``` go 
 func UintVar(p *uint, name string, value uint, usage string)
@@ -510,7 +510,7 @@ func UintVar(p *uint, name string, value uint, usage string)
 
 ​	UintVar函数定义一个指定名称、默认值和使用说明的 uint 标志。参数 p 指向一个 uint 变量，用于存储标志的值。
 
-#### func [UnquoteUsage](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=536)  <- go1.5
+#### func UnquoteUsage  <- go1.5
 
 ``` go 
 func UnquoteUsage(flag *Flag) (name string, usage string)
@@ -518,7 +518,7 @@ func UnquoteUsage(flag *Flag) (name string, usage string)
 
 ​	UnquoteUsage函数从标志的使用说明中提取带反引号的名称，并返回未引用的名称和使用说明。给定 "a `name` to show"，返回 ("name", "a name to show")。如果没有反引号，则名称是标志值类型的猜测，如果标志是布尔值，则为空字符串。
 
-#### func [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=996) 
+#### func Var 
 
 ``` go 
 func Var(value Value, name string, usage string)
@@ -526,7 +526,7 @@ func Var(value Value, name string, usage string)
 
 ​	Var函数定义一个具有指定名称和使用说明的标志。标志的类型和值由第一个参数 Value 表示，该参数通常持有 Value 的用户定义实现。例如，调用者可以创建一个标志，将逗号分隔的字符串转换为字符串切片，给定的切片具有 Value 的方法；特别是，Set 会将逗号分隔的字符串分解为切片。
 
-#### func [Visit](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=467) 
+#### func Visit 
 
 ``` go 
 func Visit(fn func(*Flag))
@@ -534,7 +534,7 @@ func Visit(fn func(*Flag))
 
 ​	Visit函数按字典顺序访问命令行标志，并为每个标志调用 fn。它仅访问已设置的标志。
 
-#### func [VisitAll](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=453) 
+#### func VisitAll 
 
 ``` go 
 func VisitAll(fn func(*Flag))
@@ -544,7 +544,7 @@ func VisitAll(fn func(*Flag))
 
 ## 类型
 
-### type [ErrorHandling](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=365) 
+### type ErrorHandling 
 
 ``` go 
 type ErrorHandling int
@@ -562,7 +562,7 @@ const (
 
 如果解析失败，这些常量会使FlagSet.Parse按照描述的行为进行操作。
 
-### type [Flag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=397) 
+### type Flag 
 
 ``` go 
 type Flag struct {
@@ -575,7 +575,7 @@ type Flag struct {
 
 ​	Flag表示标志的状态。
 
-#### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=478) 
+#### func Lookup 
 
 ``` go 
 func Lookup(name string) *Flag
@@ -583,7 +583,7 @@ func Lookup(name string) *Flag
 
 ​	Lookup函数返回命名的命令行标志的Flag结构，如果不存在则返回nil。
 
-### type [FlagSet](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=379) 
+### type FlagSet 
 
 ``` go 
 type FlagSet struct {
@@ -601,7 +601,7 @@ type FlagSet struct {
 
 ​	标志名称必须在FlagSet内唯一。尝试定义其名称已在使用中的标志将导致恐慌。
 
-#### func [NewFlagSet](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1167) 
+#### func NewFlagSet 
 
 ``` go 
 func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
@@ -609,7 +609,7 @@ func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 
 ​	NewFlagSet方法返回一个新的、空的FlagSet，其中包含指定的名称和错误处理属性。如果名称不为空，它将在默认用法消息和错误消息中打印。
 
-#### (*FlagSet) [Arg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=688) 
+#### (*FlagSet) Arg 
 
 ``` go 
 func (f *FlagSet) Arg(i int) string
@@ -617,7 +617,7 @@ func (f *FlagSet) Arg(i int) string
 
 ​	Arg方法返回第i个参数。Arg(0)是在处理标志后剩余的第一个参数。如果请求的元素不存在，则Arg返回空字符串。
 
-#### (*FlagSet) [Args](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=709) 
+#### (*FlagSet) Args 
 
 ``` go 
 func (f *FlagSet) Args() []string
@@ -625,7 +625,7 @@ func (f *FlagSet) Args() []string
 
 ​	Args方法返回非标志参数。
 
-#### (*FlagSet) [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=728) 
+#### (*FlagSet) Bool 
 
 ``` go 
 func (f *FlagSet) Bool(name string, value bool, usage string) *bool
@@ -633,7 +633,7 @@ func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 
 ​	Bool方法定义具有指定名称、默认值和用法字符串的布尔标志。返回值是一个bool变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [BoolVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=716) 
+#### (*FlagSet) BoolVar 
 
 ``` go 
 func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
@@ -641,7 +641,7 @@ func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 
 ​	BoolVar方法定义具有指定名称、默认值和用法字符串的布尔标志。参数p指向一个bool变量，用于存储标志的值。
 
-#### (*FlagSet) [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=913) 
+#### (*FlagSet) Duration 
 
 ``` go 
 func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time.Duration
@@ -649,7 +649,7 @@ func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time
 
 ​	Duration方法定义具有指定名称、默认值和用法字符串的time.Duration标志。返回值是一个time.Duration变量的地址，该变量存储标志的值。该标志接受一个可接受的time.ParseDuration值。
 
-#### (*FlagSet) [DurationVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=899) 
+#### (*FlagSet) DurationVar 
 
 ``` go 
 func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration, usage string)
@@ -657,7 +657,7 @@ func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration
 
 ​	DurationVar方法定义具有指定名称、默认值和用法字符串的time.Duration标志。参数p指向一个time.Duration变量，用于存储标志的值。该标志接受一个可接受的time.ParseDuration值。
 
-#### (*FlagSet) [ErrorHandling](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=433)  <- go1.10
+#### (*FlagSet) ErrorHandling  <- go1.10
 
 ```go 
 func (f *FlagSet) ErrorHandling() ErrorHandling
@@ -665,7 +665,7 @@ func (f *FlagSet) ErrorHandling() ErrorHandling
 
 ​	ErrorHandling方法返回标志集的错误处理行为。
 
-#### (*FlagSet) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=884) 
+#### (*FlagSet) Float64 
 
 ```go 
 func (f *FlagSet) Float64(name string, value float64, usage string) *float64
@@ -673,7 +673,7 @@ func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 
 ​	Float64方法定义了一个指定名称、默认值和用法说明的 float64 标志(flag)。返回值是一个 float64 变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [Float64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=872) 
+#### (*FlagSet) Float64Var 
 
 ```go 
 func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage string)
@@ -681,7 +681,7 @@ func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage strin
 
 ​	Float64Var方法定义了一个指定名称、默认值和用法说明的 float64 标志。参数 p 是一个指向 float64 变量的指针，用于存储标志的值。
 
-#### (*FlagSet) [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=947)  <- go1.16
+#### (*FlagSet) Func  <- go1.16
 
 ```go 
 func (f *FlagSet) Func(name, usage string, fn func(string) error)
@@ -689,7 +689,7 @@ func (f *FlagSet) Func(name, usage string, fn func(string) error)
 
 ​	Func方法定义了一个指定名称和用法说明的标志。每次遇到该标志时，都会将标志的值传递给 fn 函数。如果 fn 函数返回一个非 nil 错误，则将其视为标志值解析错误。
 
-#### (*FlagSet) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1179) 
+#### (*FlagSet) Init 
 
 ```go 
 func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
@@ -697,7 +697,7 @@ func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 
 ​	Init方法为一个标志集设置名称和错误处理属性。默认情况下，零值 FlagSet 使用一个空名称和 ContinueOnError 错误处理策略。
 
-#### (*FlagSet) [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=754) 
+#### (*FlagSet) Int 
 
 ```go 
 func (f *FlagSet) Int(name string, value int, usage string) *int
@@ -705,7 +705,7 @@ func (f *FlagSet) Int(name string, value int, usage string) *int
 
 ​	Int方法定义了一个指定名称、默认值和用法说明的 int 标志。返回值是一个 int 变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=780) 
+#### (*FlagSet) Int64 
 
 ``` go 
 func (f *FlagSet) Int64(name string, value int64, usage string) *int64
@@ -713,7 +713,7 @@ func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 
 ​	Int64 函数定义了一个指定名称、默认值和用法说明的 int64 标志。返回值是一个 int64 变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [Int64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=768) 
+#### (*FlagSet) Int64Var 
 
 ```go 
 func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
@@ -721,7 +721,7 @@ func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 
 ​	Int64Var方法定义了一个指定名称、默认值和用法说明的 int64 标志。参数 p 是一个指向 int64 变量的指针，用于存储标志的值。
 
-#### (*FlagSet) [IntVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=742) 
+#### (*FlagSet) IntVar 
 
 ```go 
 func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
@@ -729,7 +729,7 @@ func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 
 ​	IntVar方法定义了一个指定名称、默认值和用法说明的 int 标志。参数 p 是一个指向 int 变量的指针，用于存储标志的值。
 
-#### (*FlagSet) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=472) 
+#### (*FlagSet) Lookup 
 
 ```go 
 func (f *FlagSet) Lookup(name string) *Flag
@@ -737,7 +737,7 @@ func (f *FlagSet) Lookup(name string) *Flag
 
 ​	Lookup方法返回指定名称的标志(flag)结构体，如果不存在则返回nil。
 
-#### (*FlagSet) [NArg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=703) 
+#### (*FlagSet) NArg 
 
 ```go 
 func (f *FlagSet) NArg() int
@@ -745,7 +745,7 @@ func (f *FlagSet) NArg() int
 
 ​	NArg方法返回处理完flag后剩余的参数个数。
 
-#### (*FlagSet) [NFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=680) 
+#### (*FlagSet) NFlag 
 
 ```go 
 func (f *FlagSet) NFlag() int
@@ -753,7 +753,7 @@ func (f *FlagSet) NFlag() int
 
 ​	NFlag方法返回已设置的flag的数量。
 
-#### (*FlagSet) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=428)  <- go1.10
+#### (*FlagSet) Name  <- go1.10
 
 ```go 
 func (f *FlagSet) Name() string
@@ -763,7 +763,7 @@ func (f *FlagSet) Name() string
 
 ​	Name方法返回flag set的名称。
 
-#### (*FlagSet) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=420)  <- go1.10
+#### (*FlagSet) Output  <- go1.10
 
 ```go 
 func (f *FlagSet) Output() io.Writer
@@ -771,7 +771,7 @@ func (f *FlagSet) Output() io.Writer
 
 ​	Output方法返回用于使用说明和错误信息的目标io.Writer。如果未设置或设置为nil，则返回os.Stderr。
 
-#### (*FlagSet) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1104) 
+#### (*FlagSet) Parse 
 
 ```go 
 func (f *FlagSet) Parse(arguments []string) error
@@ -779,7 +779,7 @@ func (f *FlagSet) Parse(arguments []string) error
 
 ​	Parse方法从参数列表中解析flag定义，该列表不应包括命令名称。必须在FlagSet中定义所有flag并在程序访问flag之前调用。如果设置了但未定义-help或-h，则返回ErrHelp。
 
-#### (*FlagSet) [Parsed](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1131) 
+#### (*FlagSet) Parsed 
 
 ```go 
 func (f *FlagSet) Parsed() bool
@@ -787,7 +787,7 @@ func (f *FlagSet) Parsed() bool
 
 ​	Parsed方法返回是否已调用f.Parse。
 
-#### (*FlagSet) [PrintDefaults](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=575) 
+#### (*FlagSet) PrintDefaults 
 
 ```go 
 func (f *FlagSet) PrintDefaults()
@@ -795,7 +795,7 @@ func (f *FlagSet) PrintDefaults()
 
 ​	PrintDefaults方法将标志集合中所有定义的命令行标志的默认值打印到标准错误(除非另有配置)。有关更多信息，请参见全局函数PrintDefaults的文档。
 
-#### (*FlagSet) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=483) 
+#### (*FlagSet) Set 
 
 ```go 
 func (f *FlagSet) Set(name, value string) error
@@ -803,7 +803,7 @@ func (f *FlagSet) Set(name, value string) error
 
 ​	Set方法设置指定名称的flag的值。
 
-#### (*FlagSet) [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=439) 
+#### (*FlagSet) SetOutput 
 
 ```go 
 func (f *FlagSet) SetOutput(output io.Writer)
@@ -811,7 +811,7 @@ func (f *FlagSet) SetOutput(output io.Writer)
 
 ​	SetOutput方法设置用于帮助信息和错误信息输出的目标。如果output为nil，则使用os.Stderr。
 
-#### (*FlagSet) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=858) 
+#### (*FlagSet) String 
 
 ```go 
 func (f *FlagSet) String(name string, value string, usage string) *string
@@ -819,7 +819,7 @@ func (f *FlagSet) String(name string, value string, usage string) *string
 
 ​	String方法定义了一个指定名称、默认值和用法说明的字符串标志。返回值是一个string类型变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [StringVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=846) 
+#### (*FlagSet) StringVar 
 
 ```go 
 func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
@@ -827,7 +827,7 @@ func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 
 ​	StringVar方法定义了一个指定名称、默认值和用法说明的字符串标志。参数p指向一个string类型的变量，用于存储标志的值。
 
-#### (*FlagSet) [TextVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=931)  <- go1.19
+#### (*FlagSet) TextVar  <- go1.19
 
 ```go 
 func (f *FlagSet) TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string)
@@ -835,7 +835,7 @@ func (f *FlagSet) TextVar(p encoding.TextUnmarshaler, name string, value encodin
 
 ​	TextVar方法定义了一个指定名称、默认值和用法说明的标志。参数p必须是一个指向将保存标志值的变量的指针，p必须实现encoding.TextUnmarshaler接口。如果使用了该标志，则标志值将传递给p的UnmarshalText方法。默认值的类型必须与p的类型相同。
 
-#### (*FlagSet) [Uint](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=806) 
+#### (*FlagSet) Uint 
 
 ```go 
 func (f *FlagSet) Uint(name string, value uint, usage string) *uint
@@ -843,7 +843,7 @@ func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 
 ​	Uint方法定义了一个指定名称、默认值和用法说明的uint标志。返回值是一个uint变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=832) 
+#### (*FlagSet) Uint64 
 
 ```go 
 func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
@@ -851,7 +851,7 @@ func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 
 ​	Uint64方法定义了一个指定名称、默认值和用法说明的uint64标志。返回值是一个uint64变量的地址，该变量存储标志的值。
 
-#### (*FlagSet) [Uint64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=820) 
+#### (*FlagSet) Uint64Var 
 
 ```go 
 func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
@@ -859,7 +859,7 @@ func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 
 ​	Uint64Var方法定义了一个指定名称、默认值和用法说明的uint64标志。参数p指向一个uint64类型的变量，用于存储标志的值。
 
-#### (*FlagSet) [UintVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=794) 
+#### (*FlagSet) UintVar 
 
 ```go 
 func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
@@ -867,7 +867,7 @@ func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 
 ​	UintVar方法定义了一个指定名称、默认值和用法说明的uint标志。参数p指向一个uint类型的变量，用于存储标志的值。
 
-#### (*FlagSet) [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=964) 
+#### (*FlagSet) Var 
 
 ```go 
 func (f *FlagSet) Var(value Value, name string, usage string)
@@ -875,7 +875,7 @@ func (f *FlagSet) Var(value Value, name string, usage string)
 
 ​	Var方法定义了一个指定名称和用法说明的标志。标志的类型和值由第一个参数Value表示，通常Value持有一个用户定义的实现。例如，调用方可以创建一个标志，通过给该slice的方法提供Value，将逗号分隔的字符串转换为字符串的slice；特别地，Set会将逗号分隔的字符串分解为slice。
 
-#### (*FlagSet) [Visit](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=459) 
+#### (*FlagSet) Visit 
 
 ```go 
 func (f *FlagSet) Visit(fn func(*Flag))
@@ -883,7 +883,7 @@ func (f *FlagSet) Visit(fn func(*Flag))
 
 ​	Visit方法按词典顺序访问设置了值的标志，对于每个标志调用fn函数。它只访问已设置的标志。
 
-#### (*FlagSet) [VisitAll](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=445) 
+#### (*FlagSet) VisitAll 
 
 ```go 
 func (f *FlagSet) VisitAll(fn func(*Flag))
@@ -891,7 +891,7 @@ func (f *FlagSet) VisitAll(fn func(*Flag))
 
 ​	VisitAll方法按词典顺序访问所有标志，对于每个标志调用fn函数，即使标志未设置也会访问。
 
-### type [Getter](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=359)  <- go1.2
+### type Getter  <- go1.2
 
 ```go 
 type Getter interface {
@@ -902,7 +902,7 @@ type Getter interface {
 
 ​	Getter是一个接口，允许检索存储在标志中的值。它包装了Value接口，而不是作为其一部分，因为它出现在Go 1之后，并具有其兼容性规则。由此包提供的所有Value类型都满足Getter接口，除了Func使用的类型。
 
-### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=350) 
+### type Value 
 
 ```go 
 type Value interface {

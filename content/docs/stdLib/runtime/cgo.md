@@ -29,7 +29,7 @@ This section is empty.
 
 ## 类型
 
-### type [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=97) 
+### type Handle 
 
 ``` go 
 type Handle uintptr
@@ -115,7 +115,7 @@ func main() {
 }
 ```
 
-#### func [NewHandle](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=108) 
+#### func NewHandle 
 
 ``` go 
 func NewHandle(v any) Handle
@@ -127,7 +127,7 @@ The handle is valid until the program calls Delete on it. The handle uses resour
 
 The intended use is to pass the returned handle to C code, which passes it back to Go, which calls Value.
 
-#### (Handle) [Delete](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=134) 
+#### (Handle) Delete 
 
 ``` go 
 func (h Handle) Delete()
@@ -137,7 +137,7 @@ Delete invalidates a handle. This method should only be called once the program 
 
 The method panics if the handle is invalid.
 
-#### (Handle) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=121) 
+#### (Handle) Value 
 
 ``` go 
 func (h Handle) Value() any
@@ -147,7 +147,7 @@ Value returns the associated Go value for a valid handle.
 
 The method panics if the handle is invalid.
 
-### type [Incomplete](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/cgo.go;l=38)  <- go1.20
+### type Incomplete  <- go1.20
 
 ``` go 
 type Incomplete struct {

@@ -7,7 +7,7 @@ draft = false
 +++
 # cgi
 
-[https://pkg.go.dev/net/http/cgi@go1.20.1](https://pkg.go.dev/net/http/cgi@go1.20.1)
+https://pkg.go.dev/net/http/cgi@go1.20.1
 
 
 
@@ -27,7 +27,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Request](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=28) 
+#### func Request 
 
 ``` go 
 func Request() (*http.Request, error)
@@ -35,7 +35,7 @@ func Request() (*http.Request, error)
 
 Request returns the HTTP request as represented in the current environment. This assumes the current program is being run by a web server in a CGI environment. The returned Request's Body is populated, if applicable.
 
-#### func [RequestFromMap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=51) 
+#### func RequestFromMap 
 
 ``` go 
 func RequestFromMap(params map[string]string) (*http.Request, error)
@@ -43,7 +43,7 @@ func RequestFromMap(params map[string]string) (*http.Request, error)
 
 RequestFromMap creates an http.Request from CGI variables. The returned Request's Body field is not populated.
 
-#### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=145) 
+#### func Serve 
 
 ``` go 
 func Serve(handler http.Handler) error
@@ -53,7 +53,7 @@ Serve executes the provided Handler on the currently active CGI request, if any.
 
 ## 类型
 
-### type [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/host.go;l=57) 
+### type Handler 
 
 ``` go 
 type Handler struct {
@@ -86,7 +86,7 @@ type Handler struct {
 
 Handler runs an executable in a subprocess with a CGI environment.
 
-#### (*Handler) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/host.go;l=117) 
+#### (*Handler) ServeHTTP 
 
 ``` go 
 func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request)

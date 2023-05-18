@@ -9,7 +9,7 @@ draft = false
 
 # unicode
 
-[https://pkg.go.dev/unicode@go1.20.1](https://pkg.go.dev/unicode@go1.20.1)
+https://pkg.go.dev/unicode@go1.20.1
 
 ​	unicode包提供了测试Unicode码点某些属性的数据和函数。
 
@@ -595,7 +595,7 @@ var Scripts = map[string]*RangeTable{}/* 156 elements not displayed */
 
 ## 函数
 
-#### func [In](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=69)  <- go1.2
+#### func In  <- go1.2
 
 ``` go 
 func In(r rune, ranges ...*RangeTable) bool
@@ -603,7 +603,7 @@ func In(r rune, ranges ...*RangeTable) bool
 
 ​	In函数报告符文是否属于其中一个范围。
 
-#### func [Is](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=157) 
+#### func Is 
 
 ``` go 
 func Is(rangeTab *RangeTable, r rune) bool
@@ -611,7 +611,7 @@ func Is(rangeTab *RangeTable, r rune) bool
 
 ​	Is函数报告符文是否在指定的范围表中。
 
-#### func [IsControl](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=81) 
+#### func IsControl 
 
 ``` go 
 func IsControl(r rune) bool
@@ -619,7 +619,7 @@ func IsControl(r rune) bool
 
 ​	IsControl函数报告符文是否为控制字符。C (Other) Unicode类别包括更多的码点，例如代理项；使用Is(C, r) 进行测试。
 
-#### func [IsDigit](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/digit.go;l=8) 
+#### func IsDigit 
 
 ``` go 
 func IsDigit(r rune) bool
@@ -646,7 +646,7 @@ true
 false
 ```
 
-#### func [IsGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=36) 
+#### func IsGraphic 
 
 ``` go 
 func IsGraphic(r rune) bool
@@ -654,7 +654,7 @@ func IsGraphic(r rune) bool
 
 ​	IsGraphic函数报告符文是否根据Unicode定义为图形字符。这些字符包括类别L、M、N、P、S、Zs的字母、标记、数字、标点、符号和空格。
 
-#### func [IsLetter](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=90) 
+#### func IsLetter 
 
 ``` go 
 func IsLetter(r rune) bool
@@ -681,7 +681,7 @@ true
 false
 ```
 
-#### func [IsLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=193) 
+#### func IsLower 
 
 ``` go 
 func IsLower(r rune) bool
@@ -708,7 +708,7 @@ true
 false
 ```
 
-#### func [IsMark](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=98) 
+#### func IsMark 
 
 ``` go 
 func IsMark(r rune) bool
@@ -716,7 +716,7 @@ func IsMark(r rune) bool
 
 ​	IsMark函数报告符文是否为标记字符(类别M)。
 
-#### func [IsNumber](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=104) 
+#### func IsNumber 
 
 ``` go 
 func IsNumber(r rune) bool
@@ -743,7 +743,7 @@ true
 false
 ```
 
-#### func [IsOneOf](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=59) 
+#### func IsOneOf 
 
 ``` go 
 func IsOneOf(ranges []*RangeTable, r rune) bool
@@ -751,7 +751,7 @@ func IsOneOf(ranges []*RangeTable, r rune) bool
 
 ​	IsOneOf函数报告符文是否属于其中一个范围。函数"In"提供了更好的签名，应优先使用IsOneOf。
 
-#### func [IsPrint](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=50) 
+#### func IsPrint 
 
 ``` go 
 func IsPrint(r rune) bool
@@ -759,7 +759,7 @@ func IsPrint(r rune) bool
 
 ​	IsPrint函数报告符文是否根据Go定义为可打印字符。这些字符包括类别L、M、N、P、S和ASCII空格字符。此分类与IsGraphic相同，除了唯一的间距字符是ASCII空格U+0020。
 
-#### func [IsPunct](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=113) 
+#### func IsPunct 
 
 ``` go 
 func IsPunct(r rune) bool
@@ -767,7 +767,7 @@ func IsPunct(r rune) bool
 
 ​	IsPunct函数报告符文是否为Unicode标点字符(类别P)。
 
-#### func [IsSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=128) 
+#### func IsSpace 
 
 ``` go 
 func IsSpace(r rune) bool
@@ -804,7 +804,7 @@ true
 false
 ```
 
-#### func [IsSymbol](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=141) 
+#### func IsSymbol 
 
 ``` go 
 func IsSymbol(r rune) bool
@@ -812,7 +812,7 @@ func IsSymbol(r rune) bool
 
 ​	IsSymbol函数判断rune是否为Unicode符号字符。
 
-#### func [IsTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=202) 
+#### func IsTitle 
 
 ``` go 
 func IsTitle(r rune) bool
@@ -839,7 +839,7 @@ true
 false
 ```
 
-#### func [IsUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=184) 
+#### func IsUpper 
 
 ``` go 
 func IsUpper(r rune) bool
@@ -866,7 +866,7 @@ true
 false
 ```
 
-#### func [SimpleFold](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=340) 
+#### func SimpleFold 
 
 ``` go 
 func SimpleFold(r rune) rune
@@ -917,7 +917,7 @@ U+004B 'K'
 U+0031 '1'
 ```
 
-#### func [To](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=248) 
+#### func To 
 
 ``` go 
 func To(_case int, r rune) rune
@@ -956,7 +956,7 @@ U+0067 'g'
 U+0047 'G'
 ```
 
-#### func [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=265) 
+#### func ToLower 
 
 ``` go 
 func ToLower(r rune) rune
@@ -983,7 +983,7 @@ Output:
 U+0067 'g'
 ```
 
-#### func [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=276) 
+#### func ToTitle 
 
 ``` go 
 func ToTitle(r rune) rune
@@ -1010,7 +1010,7 @@ Output:
 U+0047 'G'
 ```
 
-#### func [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=254) 
+#### func ToUpper 
 
 ``` go 
 func ToUpper(r rune) rune
@@ -1039,7 +1039,7 @@ U+0047 'G'
 
 ## 类型
 
-### type [CaseRange](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=56) 
+### type CaseRange 
 
 ``` go 
 type CaseRange struct {
@@ -1051,7 +1051,7 @@ type CaseRange struct {
 
 ​	CaseRange结构体表示Unicode码点的一个范围，用于简单(一个码点对一个码点)的大小写转换。范围从Lo到Hi，包括Lo和Hi，步幅为1。Delta是添加到码点的数字，以达到该字符的不同大小写的码点。它们可以是负数。如果是零，则表示该字符的大小写相同。有一种特殊情况，表示交替的对应的大写和小写字符序列。它显示为具有固定Delta的{UpperLower，UpperLower，UpperLower}。常量UpperLower具有无法实现的Delta值。
 
-### type [Range16](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=29) 
+### type Range16 
 
 ``` go 
 type Range16 struct {
@@ -1063,7 +1063,7 @@ type Range16 struct {
 
 ​	Range16结构体表示16位Unicode码点的一个范围。范围从Lo到Hi，包括Lo和Hi，并具有指定的步幅。
 
-### type [Range32](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=38) 
+### type Range32 
 
 ``` go 
 type Range32 struct {
@@ -1075,7 +1075,7 @@ type Range32 struct {
 
 ​	Range32结构体表示 Unicode 码点的范围，当一个或多个值无法适应 16 位时使用。该范围从 Lo 到 Hi，包括 Lo 和 Hi，并具有指定的步长。Lo 和 Hi 必须始终 >= 1<<16。
 
-### type [RangeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=21) 
+### type RangeTable 
 
 ``` go 
 type RangeTable struct {
@@ -1087,7 +1087,7 @@ type RangeTable struct {
 
 ​	RangeTable结构体通过列出集合内码点的范围来定义 Unicode 码点的集合。范围在两个切片中列出以节省空间：一个 16 位范围的切片和一个 32 位范围的切片。两个切片必须按排序顺序且不重叠。此外，R32 应仅包含值 >= 0x10000(1<<16)。
 
-### type [SpecialCase](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=64) 
+### type SpecialCase 
 
 ``` go 
 type SpecialCase []CaseRange
@@ -1133,7 +1133,7 @@ var AzeriCase SpecialCase = _TurkishCase
 var TurkishCase SpecialCase = _TurkishCase
 ```
 
-#### (SpecialCase) [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=305) 
+#### (SpecialCase) ToLower 
 
 ``` go 
 func (special SpecialCase) ToLower(r rune) rune
@@ -1141,7 +1141,7 @@ func (special SpecialCase) ToLower(r rune) rune
 
 ​	ToLower方法将符文映射为小写字母，优先考虑特殊映射。
 
-#### (SpecialCase) [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=296) 
+#### (SpecialCase) ToTitle 
 
 ``` go 
 func (special SpecialCase) ToTitle(r rune) rune
@@ -1149,7 +1149,7 @@ func (special SpecialCase) ToTitle(r rune) rune
 
 ​	ToTitle方法将符文映射为标题大小写，优先考虑特殊映射。
 
-#### (SpecialCase) [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=287) 
+#### (SpecialCase) ToUpper 
 
 ``` go 
 func (special SpecialCase) ToUpper(r rune) rune

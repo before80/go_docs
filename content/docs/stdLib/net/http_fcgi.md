@@ -43,7 +43,7 @@ ErrRequestAborted is returned by Read when a handler attempts to read the body o
 
 ## 函数
 
-#### func [ProcessEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=366)  <- go1.9
+#### func ProcessEnv  <- go1.9
 
 ``` go 
 func ProcessEnv(r *http.Request) map[string]string
@@ -51,7 +51,7 @@ func ProcessEnv(r *http.Request) map[string]string
 
 ProcessEnv returns FastCGI environment variables associated with the request r for which no effort was made to be included in the request itself - the data is hidden in the request's context. As an example, if REMOTE_USER is set for a request, it will not be found anywhere in r, but it will be included in ProcessEnv's response (via r's context).
 
-#### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=339) 
+#### func Serve 
 
 ``` go 
 func Serve(l net.Listener, handler http.Handler) error

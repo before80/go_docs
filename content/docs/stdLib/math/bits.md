@@ -72,7 +72,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=360)  <- go1.12
+#### func Add  <- go1.12
 
 ``` go 
 func Add(x, y, carry uint) (sum, carryOut uint)
@@ -82,7 +82,7 @@ Add returns the sum with carry of x, y and carry: sum = x + y + carry. The carry
 
 This function's execution time does not depend on the inputs.
 
-#### func [Add32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=374)  <- go1.12
+#### func Add32  <- go1.12
 
 ``` go 
 func Add32(x, y, carry uint32) (sum, carryOut uint32)
@@ -96,7 +96,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [Add64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=386)  <- go1.12
+#### func Add64  <- go1.12
 
 ``` go 
 func Add64(x, y, carry uint64) (sum, carryOut uint64)
@@ -110,7 +110,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [Div](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=492)  <- go1.12
+#### func Div  <- go1.12
 
 ``` go 
 func Div(hi, lo, y uint) (quo, rem uint)
@@ -118,7 +118,7 @@ func Div(hi, lo, y uint) (quo, rem uint)
 
 Div returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 
-#### func [Div32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=505)  <- go1.12
+#### func Div32  <- go1.12
 
 ``` go 
 func Div32(hi, lo, y uint32) (quo, rem uint32)
@@ -130,7 +130,7 @@ Div32 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo
 ``` go 
 ```
 
-#### func [Div64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=518)  <- go1.12
+#### func Div64  <- go1.12
 
 ``` go 
 func Div64(hi, lo, y uint64) (quo, rem uint64)
@@ -142,7 +142,7 @@ Div64 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo
 ``` go 
 ```
 
-#### func [LeadingZeros](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=25) 
+#### func LeadingZeros 
 
 ``` go 
 func LeadingZeros(x uint) int
@@ -150,7 +150,7 @@ func LeadingZeros(x uint) int
 
 LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
 
-#### func [LeadingZeros16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=31) 
+#### func LeadingZeros16 
 
 ``` go 
 func LeadingZeros16(x uint16) int
@@ -162,7 +162,7 @@ LeadingZeros16 returns the number of leading zero bits in x; the result is 16 fo
 ``` go 
 ```
 
-#### func [LeadingZeros32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=34) 
+#### func LeadingZeros32 
 
 ``` go 
 func LeadingZeros32(x uint32) int
@@ -174,7 +174,7 @@ LeadingZeros32 returns the number of leading zero bits in x; the result is 32 fo
 ``` go 
 ```
 
-#### func [LeadingZeros64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=37) 
+#### func LeadingZeros64 
 
 ``` go 
 func LeadingZeros64(x uint64) int
@@ -186,7 +186,7 @@ LeadingZeros64 returns the number of leading zero bits in x; the result is 64 fo
 ``` go 
 ```
 
-#### func [LeadingZeros8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=28) 
+#### func LeadingZeros8 
 
 ``` go 
 func LeadingZeros8(x uint8) int
@@ -198,7 +198,7 @@ LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for 
 ``` go 
 ```
 
-#### func [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=302) 
+#### func Len 
 
 ``` go 
 func Len(x uint) int
@@ -206,7 +206,7 @@ func Len(x uint) int
 
 Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
-#### func [Len16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=315) 
+#### func Len16 
 
 ``` go 
 func Len16(x uint16) (n int)
@@ -218,7 +218,7 @@ Len16 returns the minimum number of bits required to represent x; the result is 
 ``` go 
 ```
 
-#### func [Len32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=324) 
+#### func Len32 
 
 ``` go 
 func Len32(x uint32) (n int)
@@ -230,7 +230,7 @@ Len32 returns the minimum number of bits required to represent x; the result is 
 ``` go 
 ```
 
-#### func [Len64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=337) 
+#### func Len64 
 
 ``` go 
 func Len64(x uint64) (n int)
@@ -242,7 +242,7 @@ Len64 returns the minimum number of bits required to represent x; the result is 
 ``` go 
 ```
 
-#### func [Len8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=310) 
+#### func Len8 
 
 ``` go 
 func Len8(x uint8) int
@@ -254,7 +254,7 @@ Len8 returns the minimum number of bits required to represent x; the result is 0
 ``` go 
 ```
 
-#### func [Mul](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=445)  <- go1.12
+#### func Mul  <- go1.12
 
 ``` go 
 func Mul(x, y uint) (hi, lo uint)
@@ -264,7 +264,7 @@ Mul returns the full-width product of x and y: (hi, lo) = x * y with the product
 
 This function's execution time does not depend on the inputs.
 
-#### func [Mul32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=459)  <- go1.12
+#### func Mul32  <- go1.12
 
 ``` go 
 func Mul32(x, y uint32) (hi, lo uint32)
@@ -278,7 +278,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [Mul64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=470)  <- go1.12
+#### func Mul64  <- go1.12
 
 ``` go 
 func Mul64(x, y uint64) (hi, lo uint64)
@@ -292,7 +292,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [OnesCount](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=117) 
+#### func OnesCount 
 
 ``` go 
 func OnesCount(x uint) int
@@ -304,7 +304,7 @@ OnesCount returns the number of one bits ("population count") in x.
 ``` go 
 ```
 
-#### func [OnesCount16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=130) 
+#### func OnesCount16 
 
 ``` go 
 func OnesCount16(x uint16) int
@@ -316,7 +316,7 @@ OnesCount16 returns the number of one bits ("population count") in x.
 ``` go 
 ```
 
-#### func [OnesCount32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=135) 
+#### func OnesCount32 
 
 ``` go 
 func OnesCount32(x uint32) int
@@ -328,7 +328,7 @@ OnesCount32 returns the number of one bits ("population count") in x.
 ``` go 
 ```
 
-#### func [OnesCount64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=140) 
+#### func OnesCount64 
 
 ``` go 
 func OnesCount64(x uint64) int
@@ -340,7 +340,7 @@ OnesCount64 returns the number of one bits ("population count") in x.
 ``` go 
 ```
 
-#### func [OnesCount8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=125) 
+#### func OnesCount8 
 
 ``` go 
 func OnesCount8(x uint8) int
@@ -352,7 +352,7 @@ OnesCount8 returns the number of one bits ("population count") in x.
 ``` go 
 ```
 
-#### func [Rem](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=573)  <- go1.14
+#### func Rem  <- go1.14
 
 ``` go 
 func Rem(hi, lo, y uint) uint
@@ -360,7 +360,7 @@ func Rem(hi, lo, y uint) uint
 
 Rem returns the remainder of (hi, lo) divided by y. Rem panics for y == 0 (division by zero) but, unlike Div, it doesn't panic on a quotient overflow.
 
-#### func [Rem32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=583)  <- go1.14
+#### func Rem32  <- go1.14
 
 ``` go 
 func Rem32(hi, lo, y uint32) uint32
@@ -368,7 +368,7 @@ func Rem32(hi, lo, y uint32) uint32
 
 Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics for y == 0 (division by zero) but, unlike Div32, it doesn't panic on a quotient overflow.
 
-#### func [Rem64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=590)  <- go1.14
+#### func Rem64  <- go1.14
 
 ``` go 
 func Rem64(hi, lo, y uint64) uint64
@@ -376,7 +376,7 @@ func Rem64(hi, lo, y uint64) uint64
 
 Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics for y == 0 (division by zero) but, unlike Div64, it doesn't panic on a quotient overflow.
 
-#### func [Reverse](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=226) 
+#### func Reverse 
 
 ``` go 
 func Reverse(x uint) uint
@@ -384,7 +384,7 @@ func Reverse(x uint) uint
 
 Reverse returns the value of x with its bits in reversed order.
 
-#### func [Reverse16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=239) 
+#### func Reverse16 
 
 ``` go 
 func Reverse16(x uint16) uint16
@@ -396,7 +396,7 @@ Reverse16 returns the value of x with its bits in reversed order.
 ``` go 
 ```
 
-#### func [Reverse32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=244) 
+#### func Reverse32 
 
 ``` go 
 func Reverse32(x uint32) uint32
@@ -408,7 +408,7 @@ Reverse32 returns the value of x with its bits in reversed order.
 ``` go 
 ```
 
-#### func [Reverse64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=253) 
+#### func Reverse64 
 
 ``` go 
 func Reverse64(x uint64) uint64
@@ -420,7 +420,7 @@ Reverse64 returns the value of x with its bits in reversed order.
 ``` go 
 ```
 
-#### func [Reverse8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=234) 
+#### func Reverse8 
 
 ``` go 
 func Reverse8(x uint8) uint8
@@ -432,7 +432,7 @@ Reverse8 returns the value of x with its bits in reversed order.
 ``` go 
 ```
 
-#### func [ReverseBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=266) 
+#### func ReverseBytes 
 
 ``` go 
 func ReverseBytes(x uint) uint
@@ -442,7 +442,7 @@ ReverseBytes returns the value of x with its bytes in reversed order.
 
 This function's execution time does not depend on the inputs.
 
-#### func [ReverseBytes16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=276) 
+#### func ReverseBytes16 
 
 ``` go 
 func ReverseBytes16(x uint16) uint16
@@ -456,7 +456,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [ReverseBytes32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=283) 
+#### func ReverseBytes32 
 
 ``` go 
 func ReverseBytes32(x uint32) uint32
@@ -470,7 +470,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [ReverseBytes64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=292) 
+#### func ReverseBytes64 
 
 ``` go 
 func ReverseBytes64(x uint64) uint64
@@ -484,7 +484,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [RotateLeft](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=176) 
+#### func RotateLeft 
 
 ``` go 
 func RotateLeft(x uint, k int) uint
@@ -494,7 +494,7 @@ RotateLeft returns the value of x rotated left by (k mod UintSize) bits. To rota
 
 This function's execution time does not depend on the inputs.
 
-#### func [RotateLeft16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=197) 
+#### func RotateLeft16 
 
 ``` go 
 func RotateLeft16(x uint16, k int) uint16
@@ -508,7 +508,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [RotateLeft32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=207) 
+#### func RotateLeft32 
 
 ``` go 
 func RotateLeft32(x uint32, k int) uint32
@@ -522,7 +522,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [RotateLeft64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=217) 
+#### func RotateLeft64 
 
 ``` go 
 func RotateLeft64(x uint64, k int) uint64
@@ -536,7 +536,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [RotateLeft8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=187) 
+#### func RotateLeft8 
 
 ``` go 
 func RotateLeft8(x uint8, k int) uint8
@@ -550,7 +550,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=402)  <- go1.12
+#### func Sub  <- go1.12
 
 ``` go 
 func Sub(x, y, borrow uint) (diff, borrowOut uint)
@@ -560,7 +560,7 @@ Sub returns the difference of x, y and borrow: diff = x - y - borrow. The borrow
 
 This function's execution time does not depend on the inputs.
 
-#### func [Sub32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=416)  <- go1.12
+#### func Sub32  <- go1.12
 
 ``` go 
 func Sub32(x, y, borrow uint32) (diff, borrowOut uint32)
@@ -574,7 +574,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [Sub64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=431)  <- go1.12
+#### func Sub64  <- go1.12
 
 ``` go 
 func Sub64(x, y, borrow uint64) (diff, borrowOut uint64)
@@ -588,7 +588,7 @@ This function's execution time does not depend on the inputs.
 ``` go 
 ```
 
-#### func [TrailingZeros](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=59) 
+#### func TrailingZeros 
 
 ``` go 
 func TrailingZeros(x uint) int
@@ -596,7 +596,7 @@ func TrailingZeros(x uint) int
 
 TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
 
-#### func [TrailingZeros16](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=72) 
+#### func TrailingZeros16 
 
 ``` go 
 func TrailingZeros16(x uint16) int
@@ -608,7 +608,7 @@ TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 
 ``` go 
 ```
 
-#### func [TrailingZeros32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=81) 
+#### func TrailingZeros32 
 
 ``` go 
 func TrailingZeros32(x uint32) int
@@ -620,7 +620,7 @@ TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 
 ``` go 
 ```
 
-#### func [TrailingZeros64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=90) 
+#### func TrailingZeros64 
 
 ``` go 
 func TrailingZeros64(x uint64) int
@@ -632,7 +632,7 @@ TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 
 ``` go 
 ```
 
-#### func [TrailingZeros8](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=67) 
+#### func TrailingZeros8 
 
 ``` go 
 func TrailingZeros8(x uint8) int

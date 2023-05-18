@@ -25,7 +25,7 @@ This section is empty.
 
 ## 函数
 
-#### func [FreeOSMemory](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=103)  <- go1.1
+#### func FreeOSMemory  <- go1.1
 
 ``` go 
 func FreeOSMemory()
@@ -33,7 +33,7 @@ func FreeOSMemory()
 
 FreeOSMemory forces a garbage collection followed by an attempt to return as much memory to the operating system as possible. (Even if this is not called, the runtime gradually returns memory to the operating system in a background task.)
 
-#### func [PrintStack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/stack.go;l=15) 
+#### func PrintStack 
 
 ``` go 
 func PrintStack()
@@ -41,7 +41,7 @@ func PrintStack()
 
 PrintStack prints to standard error the stack trace returned by runtime.Stack.
 
-#### func [ReadGCStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=31)  <- go1.1
+#### func ReadGCStats  <- go1.1
 
 ``` go 
 func ReadGCStats(stats *GCStats)
@@ -49,7 +49,7 @@ func ReadGCStats(stats *GCStats)
 
 ReadGCStats reads statistics about garbage collection into stats. The number of entries in the pause history is system-dependent; stats.Pause slice will be reused if large enough, reallocated otherwise. ReadGCStats may use the full capacity of the stats.Pause slice. If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles summarizing the distribution of pause time. For example, if len(stats.PauseQuantiles) is 5, it will be filled with the minimum, 25%, 50%, 75%, and maximum pause times.
 
-#### func [SetGCPercent](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=95)  <- go1.1
+#### func SetGCPercent  <- go1.1
 
 ``` go 
 func SetGCPercent(percent int) int
@@ -57,7 +57,7 @@ func SetGCPercent(percent int) int
 
 SetGCPercent sets the garbage collection target percentage: a collection is triggered when the ratio of freshly allocated data to live data remaining after the previous collection reaches this percentage. SetGCPercent returns the previous setting. The initial setting is the value of the GOGC environment variable at startup, or 100 if the variable is not set. This setting may be effectively reduced in order to maintain a memory limit. A negative percentage effectively disables garbage collection, unless the memory limit is reached. See SetMemoryLimit for more details.
 
-#### func [SetMaxStack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=119)  <- go1.2
+#### func SetMaxStack  <- go1.2
 
 ``` go 
 func SetMaxStack(bytes int) int
@@ -67,7 +67,7 @@ SetMaxStack sets the maximum amount of memory that can be used by a single gorou
 
 SetMaxStack is useful mainly for limiting the damage done by goroutines that enter an infinite recursion. It only limits future stack growth.
 
-#### func [SetMaxThreads](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=137)  <- go1.2
+#### func SetMaxThreads  <- go1.2
 
 ``` go 
 func SetMaxThreads(threads int) int
@@ -79,7 +79,7 @@ The limit controls the number of operating system threads, not the number of gor
 
 SetMaxThreads is useful mainly for limiting the damage done by programs that create an unbounded number of threads. The idea is to take down the program before it takes down the operating system.
 
-#### func [SetMemoryLimit](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=236)  <- go1.19
+#### func SetMemoryLimit  <- go1.19
 
 ``` go 
 func SetMemoryLimit(limit int64) int64
@@ -113,7 +113,7 @@ The initial setting is math.MaxInt64 unless the GOMEMLIMIT environment variable 
 
 SetMemoryLimit returns the previously set memory limit. A negative input does not adjust the limit, and allows for retrieval of the currently set memory limit.
 
-#### func [SetPanicOnFault](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=157)  <- go1.3
+#### func SetPanicOnFault  <- go1.3
 
 ``` go 
 func SetPanicOnFault(enabled bool) bool
@@ -127,7 +127,7 @@ Addr() uintptr
 
 If that method exists, it returns the memory address which triggered the fault. The results of Addr are best-effort and the veracity of the result may depend on the platform. SetPanicOnFault applies only to the current goroutine. It returns the previous setting.
 
-#### func [SetTraceback](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=181)  <- go1.6
+#### func SetTraceback  <- go1.6
 
 ``` go 
 func SetTraceback(level string)
@@ -135,7 +135,7 @@ func SetTraceback(level string)
 
 SetTraceback sets the amount of detail printed by the runtime in the traceback it prints before exiting due to an unrecovered panic or an internal runtime error. The level argument takes the same values as the GOTRACEBACK environment variable. For example, SetTraceback("all") ensure that the program prints all goroutines when it crashes. See the package runtime documentation for details. If SetTraceback is called with a level lower than that of the environment variable, the call is ignored.
 
-#### func [Stack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/stack.go;l=21) 
+#### func Stack 
 
 ``` go 
 func Stack() []byte
@@ -143,7 +143,7 @@ func Stack() []byte
 
 Stack returns a formatted stack trace of the goroutine that calls it. It calls runtime.Stack with a large enough buffer to capture the entire trace.
 
-#### func [WriteHeapDump](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=170)  <- go1.3
+#### func WriteHeapDump  <- go1.3
 
 ``` go 
 func WriteHeapDump(fd uintptr)
@@ -157,7 +157,7 @@ The heap dump format is defined at https://golang.org/s/go15heapdump.
 
 ## 类型
 
-### type [BuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=41)  <- go1.12
+### type BuildInfo  <- go1.12
 
 ``` go 
 type BuildInfo struct {
@@ -183,13 +183,13 @@ type BuildInfo struct {
 
 BuildInfo represents the build information read from a Go binary.
 
-#### func [ParseBuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=149)  <- go1.18
+#### func ParseBuildInfo  <- go1.18
 
 ``` go 
 func ParseBuildInfo(data string) (bi *BuildInfo, err error)
 ```
 
-#### func [ReadBuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=20)  <- go1.12
+#### func ReadBuildInfo  <- go1.12
 
 ``` go 
 func ReadBuildInfo() (info *BuildInfo, ok bool)
@@ -197,13 +197,13 @@ func ReadBuildInfo() (info *BuildInfo, ok bool)
 
 ReadBuildInfo returns the build information embedded in the running binary. The information is available only in binaries built with module support.
 
-#### (*BuildInfo) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=104)  <- go1.18
+#### (*BuildInfo) String  <- go1.18
 
 ``` go 
 func (bi *BuildInfo) String() string
 ```
 
-### type [BuildSetting](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=87)  <- go1.18
+### type BuildSetting  <- go1.18
 
 ``` go 
 type BuildSetting struct {
@@ -233,7 +233,7 @@ Defined keys include:
 - vcs.time: the modification time associated with vcs.revision, in RFC3339 format
 - vcs.modified: true or false indicating whether the source tree had local modifications
 
-### type [GCStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=14)  <- go1.1
+### type GCStats  <- go1.1
 
 ``` go 
 type GCStats struct {
@@ -248,7 +248,7 @@ type GCStats struct {
 
 GCStats collect information about recent garbage collections.
 
-### type [Module](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=62)  <- go1.12
+### type Module  <- go1.12
 
 ``` go 
 type Module struct {

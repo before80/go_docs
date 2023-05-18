@@ -64,7 +64,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=796) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) io.ReadCloser
@@ -74,7 +74,7 @@ NewReader returns a new ReadCloser that can be used to read the uncompressed ver
 
 The ReadCloser returned by NewReader also implements Resetter.
 
-#### func [NewReaderDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=815) 
+#### func NewReaderDict 
 
 ``` go 
 func NewReaderDict(r io.Reader, dict []byte) io.ReadCloser
@@ -86,7 +86,7 @@ The ReadCloser returned by NewReader also implements Resetter.
 
 ## 类型
 
-### type [CorruptInputError](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=33) 
+### type CorruptInputError 
 
 ``` go 
 type CorruptInputError int64
@@ -94,13 +94,13 @@ type CorruptInputError int64
 
 A CorruptInputError reports the presence of corrupt input at a given offset.
 
-#### (CorruptInputError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=35) 
+#### (CorruptInputError) Error 
 
 ``` go 
 func (e CorruptInputError) Error() string
 ```
 
-### type [InternalError](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=40) 
+### type InternalError 
 
 ``` go 
 type InternalError string
@@ -108,7 +108,7 @@ type InternalError string
 
 An InternalError reports an error in the flate code itself.
 
-#### (InternalError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=42) 
+#### (InternalError) Error 
 
 ``` go 
 func (e InternalError) Error() string
@@ -118,7 +118,7 @@ func (e InternalError) Error() string
 ``` go 
 ```
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=261) 
+### type Reader 
 
 ``` go 
 type Reader interface {
@@ -129,7 +129,7 @@ type Reader interface {
 
 The actual read interface needed by NewReader. If the passed in io.Reader does not also have ReadByte, the NewReader will introduce its own buffering.
 
-### type [Resetter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/inflate.go;l=71)  <- go1.4
+### type Resetter  <- go1.4
 
 ``` go 
 type Resetter interface {
@@ -145,7 +145,7 @@ Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to
 ``` go 
 ```
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=702) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -155,7 +155,7 @@ type Writer struct {
 
 A Writer takes data written to it and writes the compressed form of that data to an underlying writer (see NewWriter).
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=665) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer, level int) (*Writer, error)
@@ -165,7 +165,7 @@ NewWriter returns a new Writer compressing data at the given level. Following zl
 
 If level is in the range [-2, 9] then the error returned will be nil. Otherwise the error returned will be non-nil.
 
-#### func [NewWriterDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=679) 
+#### func NewWriterDict 
 
 ``` go 
 func NewWriterDict(w io.Writer, level int, dict []byte) (*Writer, error)
@@ -173,7 +173,7 @@ func NewWriterDict(w io.Writer, level int, dict []byte) (*Writer, error)
 
 NewWriterDict is like NewWriter but initializes the new Writer with a preset dictionary. The returned Writer behaves as if the dictionary had been written to it without producing any compressed output. The compressed data written to w can only be decompressed by a Reader initialized with the same dictionary.
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=729) 
+#### (*Writer) Close 
 
 ``` go 
 func (w *Writer) Close() error
@@ -181,7 +181,7 @@ func (w *Writer) Close() error
 
 Close flushes and closes the writer.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=722) 
+#### (*Writer) Flush 
 
 ``` go 
 func (w *Writer) Flush() error
@@ -191,7 +191,7 @@ Flush flushes any pending data to the underlying writer. It is useful mainly in 
 
 In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.
 
-#### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=736)  <- go1.2
+#### (*Writer) Reset  <- go1.2
 
 ``` go 
 func (w *Writer) Reset(dst io.Writer)
@@ -199,7 +199,7 @@ func (w *Writer) Reset(dst io.Writer)
 
 Reset discards the writer's state and makes it equivalent to the result of NewWriter or NewWriterDict called with dst and w's level and dictionary.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/flate/deflate.go;l=709) 
+#### (*Writer) Write 
 
 ``` go 
 func (w *Writer) Write(data []byte) (n int, err error)

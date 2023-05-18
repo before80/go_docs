@@ -9,7 +9,7 @@ draft = false
 
 # bufio
 
-[https://pkg.go.dev/bufio@go1.20.1](https://pkg.go.dev/bufio@go1.20.1)
+https://pkg.go.dev/bufio@go1.20.1
 
 ​	bufio包实现了带缓冲的 I/O 操作。它包装了一个 io.Reader 或 io.Writer 对象，创建另一个实现相同接口的对象(Reader 或 Writer)，但提供了缓冲和一些文本 I/O 的辅助。
 
@@ -64,7 +64,7 @@ var ErrFinalToken = errors.New("final token")
 
 ## 函数 
 
-#### func [ScanBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=289)  <- go1.1
+#### func ScanBytes  <- go1.1
 
 ``` go 
 func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -72,7 +72,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ​	ScanBytes函数是一个用于 Scanner 的分割函数，将每个字节作为一个标记返回。
 
-#### func [ScanLines](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=350)  <- go1.1
+#### func ScanLines  <- go1.1
 
 ``` go 
 func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -80,7 +80,7 @@ func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ​		ScanLines函数是一个用于 Scanner 的分割函数，返回每行文本，删除任何尾随的行尾标记。返回的行可能为空。行尾标记是一个可选的回车符后跟一个必需的换行符。在正则表达式符号中，它是 `\r?\n`。即使最后一个非空行没有换行符，它也会被返回。
 
-#### func [ScanRunes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=304)  <- go1.1
+#### func ScanRunes  <- go1.1
 
 ``` go 
 func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -88,7 +88,7 @@ func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ​		ScanRunes函数是一个用于 Scanner 的分割函数，返回每个 UTF-8 编码的符文作为一个标记。返回的符文序列等同于作为字符串遍历输入的范围循环的符文序列，这意味着错误的 UTF-8 编码将被翻译为 U+FFFD = "\xef\xbf\xbd"。由于 Scan 接口的限制，这使得客户端无法区分正确编码的替换符与编码错误。
 
-#### func [ScanWords](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=395)  <- go1.1
+#### func ScanWords  <- go1.1
 
 ``` go 
 func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -98,7 +98,7 @@ func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ## 类型 
 
-### type [ReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=820) 
+### type ReadWriter 
 
 ``` go 
 type ReadWriter struct {
@@ -109,7 +109,7 @@ type ReadWriter struct {
 
 ​	ReadWriter结构体存储指向 Reader 和 Writer 的指针。它实现了 io.ReadWriter。
 
-#### func [NewReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=826) 
+#### func NewReadWriter 
 
 ``` go 
 func NewReadWriter(r *Reader, w *Writer) *ReadWriter
@@ -117,7 +117,7 @@ func NewReadWriter(r *Reader, w *Writer) *ReadWriter
 
 ​	NewReadWriter函数分配一个新的 ReadWriter，将其分派给 r 和 w。
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=32) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -127,7 +127,7 @@ type Reader struct {
 
 ​	Reader结构体为 io.Reader 对象实现缓冲。
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=62) 
+#### func NewReader 
 
 ``` go 
 func NewReader(rd io.Reader) *Reader
@@ -135,7 +135,7 @@ func NewReader(rd io.Reader) *Reader
 
 ​	NewReader函数返回一个具有默认大小的新 Reader。
 
-#### func [NewReaderSize](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=47) 
+#### func NewReaderSize 
 
 ``` go 
 func NewReaderSize(rd io.Reader, size int) *Reader
@@ -143,7 +143,7 @@ func NewReaderSize(rd io.Reader, size int) *Reader
 
 ​	NewReaderSize函数返回一个具有至少指定大小的新 Reader。如果参数 io.Reader 已经是一个具有足够大的大小的 Reader，则返回底层 Reader。
 
-####  (*Reader) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=331) 
+####  (*Reader) Buffered 
 
 ``` go 
 func (b *Reader) Buffered() int
@@ -151,7 +151,7 @@ func (b *Reader) Buffered() int
 
 ​	Buffered方法返回当前缓冲区中可以读取的字节数。
 
-####  (*Reader) [Discard](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=169)  <- go1.5
+####  (*Reader) Discard  <- go1.5
 
 ``` go 
 func (b *Reader) Discard(n int) (discarded int, err error)
@@ -159,7 +159,7 @@ func (b *Reader) Discard(n int) (discarded int, err error)
 
 ​	Discard方法跳过接下来的 n 个字节，返回已丢弃的字节数。如果 Discard 跳过的字节数少于 n，则还会返回一个错误。如果 0 <= n <= b.Buffered()，则保证 Discard 在不从底层 io.Reader 读取的情况下成功执行。
 
-####  (*Reader) [Peek](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=135) 
+####  (*Reader) Peek 
 
 ``` go 
 func (b *Reader) Peek(n int) ([]byte, error)
@@ -167,7 +167,7 @@ func (b *Reader) Peek(n int) ([]byte, error)
 
 ​	Peek方法返回下一个 n 个字节，但不推进读取器。在下一次读取调用时，这些字节将不再有效。如果 Peek 返回少于 n 个字节，则还会返回一个说明读取不足的错误。如果 n 大于 b 的缓冲区大小，则该错误为 ErrBufferFull。调用 Peek 会阻止 UnreadByte 或 UnreadRune 调用成功，直到下一次读取操作。
 
-####  (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=208) 
+####  (*Reader) Read 
 
 ``` go 
 func (b *Reader) Read(p []byte) (n int, err error)
@@ -175,7 +175,7 @@ func (b *Reader) Read(p []byte) (n int, err error)
 
 ​	Read方法读取数据到 p 中，并返回读取到 p 中的字节数。这些字节最多从底层 Reader 的一个 Read 中取出，因此 n 可能小于 len(p)。要读取确切的 len(p) 个字节，请使用 io.ReadFull(b, p)。如果底层 Reader 在 io.EOF 时返回非零计数，则此 Read 方法也可以这样做；请参见 [io.Reader](../io/index#type-reader)文档。
 
-####  (*Reader) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=259) 
+####  (*Reader) ReadByte 
 
 ``` go 
 func (b *Reader) ReadByte() (byte, error)
@@ -183,7 +183,7 @@ func (b *Reader) ReadByte() (byte, error)
 
 ​	ReadByte方法读取并返回一个字节。如果没有可用字节，则返回一个错误。
 
-####  (*Reader) [ReadBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=473) 
+####  (*Reader) ReadBytes 
 
 ``` go 
 func (b *Reader) ReadBytes(delim byte) ([]byte, error)
@@ -191,7 +191,7 @@ func (b *Reader) ReadBytes(delim byte) ([]byte, error)
 
 ​	ReadBytes方法读取直到输入中第一次出现分隔符 delim，返回包含数据和分隔符的切片。如果 ReadBytes 在找到分隔符之前遇到错误，它将返回读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以 delim 结尾，则 ReadBytes 返回 err != nil。对于简单的用途，使用Scanner结构体的方法可能更方便。
 
-####  (*Reader) [ReadLine](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=400) 
+####  (*Reader) ReadLine 
 
 ``` go 
 func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
@@ -203,7 +203,7 @@ func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 
 ​	从 ReadLine方法返回的文本不包括行尾符("\r\n" 或 "\n")。如果输入结束时没有最终的行尾符，则不提供指示或错误。调用 ReadLine 后调用 UnreadByte 将始终撤消最后一个读取的字节(可能是属于行尾符的字符)，即使该字节不是 ReadLine方法返回的行的一部分。
 
-####  (*Reader) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=298) 
+####  (*Reader) ReadRune 
 
 ``` go 
 func (b *Reader) ReadRune() (r rune, size int, err error)
@@ -239,7 +239,7 @@ func TestReaderReadRune(t *testing.T) {
 
 
 
-####  (*Reader) [ReadSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=343) 
+####  (*Reader) ReadSlice 
 
 ``` go 
 func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
@@ -286,7 +286,7 @@ func TestReaderReadSlice(t *testing.T) {
 
 
 
-####  (*Reader) [ReadString](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=493) 
+####  (*Reader) ReadString 
 
 ``` go 
 func (b *Reader) ReadString(delim byte) (string, error)
@@ -294,7 +294,7 @@ func (b *Reader) ReadString(delim byte) (string, error)
 
 ​	ReadString方法读取直到在输入中第一次出现分隔符 delim，返回一个包含直到分隔符(包含分隔符)的数据的字符串。如果在找到分隔符之前遇到错误，它将返回错误之前读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以分隔符结束，则 ReadString 将返回 err != nil。对于简单的用法，可以使用 Scanner 更方便。
 
-####  (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=73)  <- go1.2
+####  (*Reader) Reset  <- go1.2
 
 ``` go 
 func (b *Reader) Reset(r io.Reader)
@@ -302,7 +302,7 @@ func (b *Reader) Reset(r io.Reader)
 
 ​	Reset方法丢弃任何缓冲数据，重置所有状态，并将缓冲读取器切换到从 r 读取。在 Reader 的零值上调用 Reset 将初始化内部缓冲区为默认大小。
 
-####  (*Reader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=67)  <- go1.10
+####  (*Reader) Size  <- go1.10
 
 ``` go 
 func (b *Reader) Size() int
@@ -310,7 +310,7 @@ func (b *Reader) Size() int
 
 ​	Size方法返回底层缓冲区的大小(以字节为单位)。
 
-####  (*Reader) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=278) 
+####  (*Reader) UnreadByte 
 
 ``` go 
 func (b *Reader) UnreadByte() error
@@ -350,7 +350,7 @@ func TestReaderUnReadByte(t *testing.T) {
 
 
 
-####  (*Reader) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=320) 
+####  (*Reader) UnreadRune 
 
 ``` go 
 func (b *Reader) UnreadRune() error
@@ -358,7 +358,7 @@ func (b *Reader) UnreadRune() error
 
 ​	UnreadRune方法取消读取最后一个符文。如果在 Reader 上最近调用的方法不是 ReadRune，则 UnreadRune 返回错误。(在这方面，它比 UnreadByte 更严格，后者可以取消读取任何读取操作中的最后一个字节。)
 
-####  (*Reader) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=510)  <- go1.1
+####  (*Reader) WriteTo  <- go1.1
 
 ``` go 
 func (b *Reader) WriteTo(w io.Writer) (n int64, err error)
@@ -366,7 +366,7 @@ func (b *Reader) WriteTo(w io.Writer) (n int64, err error)
 
 ​	WriteTo方法实现了 io.WriterTo。这可能会多次调用底层 Reader 的 Read 方法。如果底层 Reader 支持 WriteTo 方法，则不使用缓冲区调用底层的 WriteTo方法。
 
-### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=29)  <- go1.1
+### type Scanner  <- go1.1
 
 ``` go 
 type Scanner struct {
@@ -546,7 +546,7 @@ func main() {
 
 
 
-#### func [NewScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=87)  <- go1.1
+#### func NewScanner  <- go1.1
 
 ``` go 
 func NewScanner(r io.Reader) *Scanner
@@ -554,7 +554,7 @@ func NewScanner(r io.Reader) *Scanner
 
 ​	NewScanner函数返回一个从r中读取数据的新Scanner。默认情况下，分割函数为ScanLines。
 
-####  (*Scanner) [Buffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=267)  <- go1.6
+####  (*Scanner) Buffer  <- go1.6
 
 ``` go 
 func (s *Scanner) Buffer(buf []byte, max int)
@@ -566,7 +566,7 @@ func (s *Scanner) Buffer(buf []byte, max int)
 
 ​	如果在扫描开始后调用Buffer方法，则会引发panic。
 
-####  (*Scanner) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=106)  <- go1.1
+####  (*Scanner) Bytes  <- go1.1
 
 ``` go 
 func (s *Scanner) Bytes() []byte
@@ -600,7 +600,7 @@ Output:
 true
 ```
 
-####  (*Scanner) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=96)  <- go1.1
+####  (*Scanner) Err  <- go1.1
 
 ``` go 
 func (s *Scanner) Err() error
@@ -608,7 +608,7 @@ func (s *Scanner) Err() error
 
 ​	Err方法返回Scanner遇到的第一个非EOF错误。
 
-####  (*Scanner) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=135)  <- go1.1
+####  (*Scanner) Scan  <- go1.1
 
 ``` go 
 func (s *Scanner) Scan() bool
@@ -616,7 +616,7 @@ func (s *Scanner) Scan() bool
 
 ​	Scan方法将Scanner推进到下一个标记，然后可以通过Bytes或Text方法获得该标记。当扫描停止时，要么是到达输入的末尾，要么是发生了错误，则返回false。在Scan返回false之后，Err方法将返回扫描期间发生的任何错误，除非它是io.EOF，则Err将返回nil。如果分割函数返回太多的空标记而不推进输入，则Scan方法会panic。这是扫描器的常见错误模式。
 
-####  (*Scanner) [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=279)  <- go1.1
+####  (*Scanner) Split  <- go1.1
 
 ``` go 
 func (s *Scanner) Split(split SplitFunc)
@@ -626,7 +626,7 @@ func (s *Scanner) Split(split SplitFunc)
 
 ​	如果在扫描开始后调用Split方法，会panic。
 
-####  (*Scanner) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=112)  <- go1.1
+####  (*Scanner) Text  <- go1.1
 
 ``` go 
 func (s *Scanner) Text() string
@@ -634,7 +634,7 @@ func (s *Scanner) Text() string
 
 ​	Text方法返回最近一次Scan调用生成的token，以一个新分配的字符串形式返回。
 
-### type [SplitFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=65)  <- go1.1
+### type SplitFunc  <- go1.1
 
 ``` go 
 type SplitFunc func(data []byte, atEOF bool) (advance int, token []byte, err error)
@@ -648,7 +648,7 @@ type SplitFunc func(data []byte, atEOF bool) (advance int, token []byte, err err
 
 ​	除非atEOF为true，否则该函数永远不会使用空数据切片调用。但是，如果atEOF为true，则数据可能是非空的，并且一如既往地包含未处理的文本。
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=572) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -680,7 +680,7 @@ Output:
 Hello, world!
 ```
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=600) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -688,7 +688,7 @@ func NewWriter(w io.Writer) *Writer
 
 ​	NewWriter函数返回一个新的Writer，其缓冲区具有默认大小。如果参数io.Writer已经是具有足够大缓冲区大小的Writer，则返回底层Writer。
 
-#### func [NewWriterSize](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=582) 
+#### func NewWriterSize 
 
 ``` go 
 func NewWriterSize(w io.Writer, size int) *Writer
@@ -696,7 +696,7 @@ func NewWriterSize(w io.Writer, size int) *Writer
 
 ​	NewWriterSize函数返回一个新的 Writer，它的缓冲区大小至少为指定大小。如果 io.Writer 参数已经是具有足够大的大小的 Writer，则返回底层 Writer。
 
-####  (*Writer) [Available](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=645) 
+####  (*Writer) Available 
 
 ``` go 
 func (b *Writer) Available() int
@@ -704,7 +704,7 @@ func (b *Writer) Available() int
 
 ​	Available方法返回缓冲区中未使用的字节数。
 
-####  (*Writer) [AvailableBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=651)  <- go1.18
+####  (*Writer) AvailableBuffer  <- go1.18
 
 ``` go 
 func (b *Writer) AvailableBuffer() []byte
@@ -740,7 +740,7 @@ Output:
 
 
 
-####  (*Writer) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=656) 
+####  (*Writer) Buffered 
 
 ``` go 
 func (b *Writer) Buffered() int
@@ -748,7 +748,7 @@ func (b *Writer) Buffered() int
 
 ​	Buffered方法返回已写入当前缓冲区的字节数。
 
-####  (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=621) 
+####  (*Writer) Flush 
 
 ``` go 
 func (b *Writer) Flush() error
@@ -756,7 +756,7 @@ func (b *Writer) Flush() error
 
 ​	Flush方法将任何缓冲的数据写入底层 io.Writer。
 
-####  (*Writer) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=770)  <- go1.1
+####  (*Writer) ReadFrom  <- go1.1
 
 ``` go 
 func (b *Writer) ReadFrom(r io.Reader) (n int64, err error)
@@ -764,7 +764,7 @@ func (b *Writer) ReadFrom(r io.Reader) (n int64, err error)
 
 ​	ReadFrom方法实现 io.ReaderFrom接口。如果底层写入器支持 ReadFrom 方法，则会调用底层 ReadFrom。如果存在缓冲数据和底层 ReadFrom，则在调用 ReadFrom 之前填充缓冲区并将其写入。
 
-####  (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=611)  <- go1.2
+####  (*Writer) Reset  <- go1.2
 
 ``` go 
 func (b *Writer) Reset(w io.Writer)
@@ -772,7 +772,7 @@ func (b *Writer) Reset(w io.Writer)
 
 ​	Reset方法丢弃任何未刷新的缓冲数据，清除任何错误，并将 b 重置为将其输出写入 w。在零值 Writer 上调用 Reset 会将内部缓冲区初始化为默认大小。
 
-####  (*Writer) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=605)  <- go1.10
+####  (*Writer) Size  <- go1.10
 
 ``` go 
 func (b *Writer) Size() int
@@ -780,7 +780,7 @@ func (b *Writer) Size() int
 
 ​	Size方法返回底层缓冲区的大小(以字节为单位)。
 
-####  (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=662) 
+####  (*Writer) Write 
 
 ``` go 
 func (b *Writer) Write(p []byte) (nn int, err error)
@@ -788,7 +788,7 @@ func (b *Writer) Write(p []byte) (nn int, err error)
 
 ​	Write方法将 p 的内容写入缓冲区。它返回写入的字节数。如果 nn < len(p)，它还会返回一个错误，解释为什么写入不足。
 
-####  (*Writer) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=687) 
+####  (*Writer) WriteByte 
 
 ``` go 
 func (b *Writer) WriteByte(c byte) error
@@ -796,7 +796,7 @@ func (b *Writer) WriteByte(c byte) error
 
 ​	WriteByte方法写入一个单独的字节。
 
-####  (*Writer) [WriteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=701) 
+####  (*Writer) WriteRune 
 
 ``` go 
 func (b *Writer) WriteRune(r rune) (size int, err error)
@@ -804,7 +804,7 @@ func (b *Writer) WriteRune(r rune) (size int, err error)
 
 ​	WriteRune方法写入一个单独的 Unicode 码点，返回写入的字节数和任何错误。
 
-####  (*Writer) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=733) 
+####  (*Writer) WriteString 
 
 ``` go 
 func (b *Writer) WriteString(s string) (int, error)

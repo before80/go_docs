@@ -58,7 +58,7 @@ var (
 
 ## 函数
 
-#### func [RegisterCompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=127)  <- go1.2
+#### func RegisterCompressor  <- go1.2
 
 ``` go 
 func RegisterCompressor(method uint16, comp Compressor)
@@ -66,7 +66,7 @@ func RegisterCompressor(method uint16, comp Compressor)
 
 RegisterCompressor registers custom compressors for a specified method ID. The common methods Store and Deflate are built in.
 
-#### func [RegisterDecompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=119)  <- go1.2
+#### func RegisterDecompressor  <- go1.2
 
 ``` go 
 func RegisterDecompressor(method uint16, dcomp Decompressor)
@@ -76,7 +76,7 @@ RegisterDecompressor allows custom decompressors for a specified method ID. The 
 
 ## 类型
 
-### type [Compressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=19)  <- go1.2
+### type Compressor  <- go1.2
 
 ``` go 
 type Compressor func(w io.Writer) (io.WriteCloser, error)
@@ -84,7 +84,7 @@ type Compressor func(w io.Writer) (io.WriteCloser, error)
 
 A Compressor returns a new compressing writer, writing to w. The WriteCloser's Close method must be used to flush pending data to w. The Compressor itself must be safe to invoke from multiple goroutines simultaneously, but each returned writer will be used only by one goroutine at a time.
 
-### type [Decompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=26)  <- go1.2
+### type Decompressor  <- go1.2
 
 ``` go 
 type Decompressor func(r io.Reader) io.ReadCloser
@@ -92,7 +92,7 @@ type Decompressor func(r io.Reader) io.ReadCloser
 
 A Decompressor returns a new decompressing reader, reading from r. The ReadCloser's Close method must be used to release associated resources. The Decompressor itself must be safe to invoke from multiple goroutines simultaneously, but each returned reader will be used only by one goroutine at a time.
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=60) 
+### type File 
 
 ``` go 
 type File struct {
@@ -103,7 +103,7 @@ type File struct {
 
 A File is a single file in a ZIP archive. The file information is in the embedded FileHeader. The file content can be accessed by calling Open.
 
-#### (*File) [DataOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=212)  <- go1.2
+#### (*File) DataOffset  <- go1.2
 
 ``` go 
 func (f *File) DataOffset() (offset int64, err error)
@@ -113,7 +113,7 @@ DataOffset returns the offset of the file's possibly-compressed data, relative t
 
 Most callers should instead use Open, which transparently decompresses data and verifies checksums.
 
-#### (*File) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=222) 
+#### (*File) Open 
 
 ``` go 
 func (f *File) Open() (io.ReadCloser, error)
@@ -121,7 +121,7 @@ func (f *File) Open() (io.ReadCloser, error)
 
 Open returns a ReadCloser that provides access to the File's contents. Multiple files may be read concurrently.
 
-#### (*File) [OpenRaw](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=265)  <- go1.17
+#### (*File) OpenRaw  <- go1.17
 
 ``` go 
 func (f *File) OpenRaw() (io.Reader, error)
@@ -129,7 +129,7 @@ func (f *File) OpenRaw() (io.Reader, error)
 
 OpenRaw returns a Reader that provides access to the File's contents without decompression.
 
-### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=86) 
+### type FileHeader 
 
 ``` go 
 type FileHeader struct {
@@ -212,7 +212,7 @@ type FileHeader struct {
 
 FileHeader describes a file within a ZIP file. See the [ZIP specification](https://www.pkware.com/appnote) for details.
 
-#### func [FileInfoHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=200) 
+#### func FileInfoHeader 
 
 ``` go 
 func FileInfoHeader(fi fs.FileInfo) (*FileHeader, error)
@@ -220,7 +220,7 @@ func FileInfoHeader(fi fs.FileInfo) (*FileHeader, error)
 
 FileInfoHeader creates a partially-populated FileHeader from an fs.FileInfo. Because fs.FileInfo's Name method returns only the base name of the file it describes, it may be necessary to modify the Name field of the returned header to provide the full path name of the file. If compression is desired, callers should set the FileHeader.Method field; it is unset by default.
 
-#### (*FileHeader) [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=164) 
+#### (*FileHeader) FileInfo 
 
 ``` go 
 func (h *FileHeader) FileInfo() fs.FileInfo
@@ -232,7 +232,7 @@ FileInfo returns an fs.FileInfo for the FileHeader.
 ``` go 
 ```
 
-#### (*FileHeader) [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=309) 
+#### (*FileHeader) Mode 
 
 ``` go 
 func (h *FileHeader) Mode() (mode fs.FileMode)
@@ -244,7 +244,7 @@ Mode returns the permission and mode bits for the FileHeader.
 ``` go 
 ```
 
-#### (*FileHeader) [SetMode](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=323) 
+#### (*FileHeader) SetMode 
 
 ``` go 
 func (h *FileHeader) SetMode(mode fs.FileMode)
@@ -252,7 +252,7 @@ func (h *FileHeader) SetMode(mode fs.FileMode)
 
 SetMode changes the permission and mode bits for the FileHeader.
 
-### type [ReadCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=52) 
+### type ReadCloser 
 
 ``` go 
 type ReadCloser struct {
@@ -263,7 +263,7 @@ type ReadCloser struct {
 
 A ReadCloser is a Reader that must be closed when no longer needed.
 
-#### func [OpenReader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=69) 
+#### func OpenReader 
 
 ``` go 
 func OpenReader(name string) (*ReadCloser, error)
@@ -271,7 +271,7 @@ func OpenReader(name string) (*ReadCloser, error)
 
 OpenReader will open the Zip file specified by name and return a ReadCloser.
 
-#### (*ReadCloser) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=203) 
+#### (*ReadCloser) Close 
 
 ``` go 
 func (rc *ReadCloser) Close() error
@@ -279,7 +279,7 @@ func (rc *ReadCloser) Close() error
 
 Close closes the Zip file, rendering it unusable for I/O.
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=35) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -295,7 +295,7 @@ A Reader serves content from a ZIP archive.
 ``` go 
 ```
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=98) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.ReaderAt, size int64) (*Reader, error)
@@ -305,7 +305,7 @@ NewReader returns a new Reader reading from r, which is assumed to have the give
 
 If any file inside the archive uses a non-local name (as defined by [filepath.IsLocal](https://pkg.go.dev/path/filepath#IsLocal)) or a name containing backslashes and the GODEBUG environment variable contains `zipinsecurepath=0`, NewReader returns the reader with an ErrInsecurePath error. A future version of Go may introduce this behavior by default. Programs that want to accept non-local names can ignore the ErrInsecurePath error and use the returned reader.
 
-#### (*Reader) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=857)  <- go1.16
+#### (*Reader) Open  <- go1.16
 
 ``` go 
 func (r *Reader) Open(name string) (fs.File, error)
@@ -313,7 +313,7 @@ func (r *Reader) Open(name string) (fs.File, error)
 
 Open opens the named file in the ZIP archive, using the semantics of fs.FS.Open: paths are always slash separated, with no leading / or ../ elements.
 
-#### (*Reader) [RegisterDecompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=187)  <- go1.6
+#### (*Reader) RegisterDecompressor  <- go1.6
 
 ``` go 
 func (z *Reader) RegisterDecompressor(method uint16, dcomp Decompressor)
@@ -321,7 +321,7 @@ func (z *Reader) RegisterDecompressor(method uint16, dcomp Decompressor)
 
 RegisterDecompressor registers or overrides a custom decompressor for a specific method ID. If a decompressor for a given method is not found, Reader will default to looking up the decompressor at the package level.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=24) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -335,7 +335,7 @@ Writer implements a zip file writer.
 ``` go 
 ```
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=44) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -343,7 +343,7 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter returns a new Writer writing a zip file to w.
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=77) 
+#### (*Writer) Close 
 
 ``` go 
 func (w *Writer) Close() error
@@ -351,7 +351,7 @@ func (w *Writer) Close() error
 
 Close finishes writing the zip file by writing the central directory. It does not close the underlying writer.
 
-#### (*Writer) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=475)  <- go1.17
+#### (*Writer) Copy  <- go1.17
 
 ``` go 
 func (w *Writer) Copy(f *File) error
@@ -359,7 +359,7 @@ func (w *Writer) Copy(f *File) error
 
 Copy copies the file f (obtained from a Reader) into w. It copies the raw form directly bypassing decompression, compression, and validation.
 
-#### (*Writer) [Create](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=218) 
+#### (*Writer) Create 
 
 ``` go 
 func (w *Writer) Create(name string) (io.Writer, error)
@@ -367,7 +367,7 @@ func (w *Writer) Create(name string) (io.Writer, error)
 
 Create adds a file to the zip file using the provided name. It returns a Writer to which the file contents should be written. The file contents will be compressed using the Deflate method. The name must be a relative path: it must not start with a drive letter (e.g. C:) or leading slash, and only forward slashes are allowed. To create a directory instead of a file, add a trailing slash to the name. The file's contents must be written to the io.Writer before the next call to Create, CreateHeader, or Close.
 
-#### (*Writer) [CreateHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=271) 
+#### (*Writer) CreateHeader 
 
 ``` go 
 func (w *Writer) CreateHeader(fh *FileHeader) (io.Writer, error)
@@ -377,7 +377,7 @@ CreateHeader adds a file to the zip archive using the provided FileHeader for th
 
 This returns a Writer to which the file contents should be written. The file's contents must be written to the io.Writer before the next call to Create, CreateHeader, CreateRaw, or Close.
 
-#### (*Writer) [CreateRaw](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=442)  <- go1.17
+#### (*Writer) CreateRaw  <- go1.17
 
 ``` go 
 func (w *Writer) CreateRaw(fh *FileHeader) (io.Writer, error)
@@ -387,7 +387,7 @@ CreateRaw adds a file to the zip archive using the provided FileHeader and retur
 
 In contrast to CreateHeader, the bytes passed to Writer are not compressed.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=61)  <- go1.4
+#### (*Writer) Flush  <- go1.4
 
 ``` go 
 func (w *Writer) Flush() error
@@ -395,7 +395,7 @@ func (w *Writer) Flush() error
 
 Flush flushes any buffered data to the underlying writer. Calling Flush is not normally necessary; calling Close is sufficient.
 
-#### (*Writer) [RegisterCompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=491)  <- go1.6
+#### (*Writer) RegisterCompressor  <- go1.6
 
 ``` go 
 func (w *Writer) RegisterCompressor(method uint16, comp Compressor)
@@ -407,7 +407,7 @@ RegisterCompressor registers or overrides a custom compressor for a specific met
 ``` go 
 ```
 
-#### (*Writer) [SetComment](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=67)  <- go1.10
+#### (*Writer) SetComment  <- go1.10
 
 ``` go 
 func (w *Writer) SetComment(comment string) error
@@ -415,7 +415,7 @@ func (w *Writer) SetComment(comment string) error
 
 SetComment sets the end-of-central-directory comment field. It can only be called before Close.
 
-#### (*Writer) [SetOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=52)  <- go1.5
+#### (*Writer) SetOffset  <- go1.5
 
 ``` go 
 func (w *Writer) SetOffset(n int64)

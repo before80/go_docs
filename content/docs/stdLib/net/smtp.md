@@ -49,7 +49,7 @@ This section is empty.
 
 ## 函数
 
-#### func [SendMail](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=321) 
+#### func SendMail 
 
 ``` go 
 func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
@@ -69,7 +69,7 @@ The SendMail function and the net/smtp package are low-level mechanisms and prov
 
 ## 类型
 
-### type [Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=15) 
+### type Auth 
 
 ``` go 
 type Auth interface {
@@ -93,7 +93,7 @@ type Auth interface {
 
 Auth is implemented by an SMTP authentication mechanism.
 
-#### func [CRAMMD5Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=93) 
+#### func CRAMMD5Auth 
 
 ``` go 
 func CRAMMD5Auth(username, secret string) Auth
@@ -101,7 +101,7 @@ func CRAMMD5Auth(username, secret string) Auth
 
 CRAMMD5Auth returns an Auth that implements the CRAM-MD5 authentication mechanism as defined in [RFC 2195](https://rfc-editor.org/rfc/rfc2195.html). The returned Auth uses the given username and secret to authenticate to the server using the challenge-response mechanism.
 
-#### func [PlainAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=53) 
+#### func PlainAuth 
 
 ``` go 
 func PlainAuth(identity, username, password, host string) Auth
@@ -115,7 +115,7 @@ PlainAuth will only send the credentials if the connection is using TLS or is co
 ``` go 
 ```
 
-### type [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=32) 
+### type Client 
 
 ``` go 
 type Client struct {
@@ -128,7 +128,7 @@ type Client struct {
 
 A Client represents a client connection to an SMTP server.
 
-#### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=53) 
+#### func Dial 
 
 ``` go 
 func Dial(addr string) (*Client, error)
@@ -136,7 +136,7 @@ func Dial(addr string) (*Client, error)
 
 Dial returns a new Client connected to an SMTP server at addr. The addr must include a port, as in "mail.example.com:smtp".
 
-#### func [NewClient](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=64) 
+#### func NewClient 
 
 ``` go 
 func NewClient(conn net.Conn, host string) (*Client, error)
@@ -144,7 +144,7 @@ func NewClient(conn net.Conn, host string) (*Client, error)
 
 NewClient returns a new Client using an existing connection and host as a server name to be used when authenticating.
 
-#### (*Client) [Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=197) 
+#### (*Client) Auth 
 
 ``` go 
 func (c *Client) Auth(a Auth) error
@@ -152,7 +152,7 @@ func (c *Client) Auth(a Auth) error
 
 Auth authenticates a client using the provided authentication mechanism. A failed authentication closes the connection. Only servers that advertise the AUTH extension support this function.
 
-#### (*Client) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=77)  <- go1.2
+#### (*Client) Close  <- go1.2
 
 ``` go 
 func (c *Client) Close() error
@@ -160,7 +160,7 @@ func (c *Client) Close() error
 
 Close closes the connection.
 
-#### (*Client) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=291) 
+#### (*Client) Data 
 
 ``` go 
 func (c *Client) Data() (io.WriteCloser, error)
@@ -168,7 +168,7 @@ func (c *Client) Data() (io.WriteCloser, error)
 
 Data issues a DATA command to the server and returns a writer that can be used to write the mail headers and body. The caller should close the writer before calling any more methods on c. A call to Data must be preceded by one or more calls to Rcpt.
 
-#### (*Client) [Extension](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=382) 
+#### (*Client) Extension 
 
 ``` go 
 func (c *Client) Extension(ext string) (bool, string)
@@ -176,7 +176,7 @@ func (c *Client) Extension(ext string) (bool, string)
 
 Extension reports whether an extension is support by the server. The extension name is case-insensitive. If the extension is supported, Extension also returns a string that contains any parameters the server specifies for the extension.
 
-#### (*Client) [Hello](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=98)  <- go1.1
+#### (*Client) Hello  <- go1.1
 
 ``` go 
 func (c *Client) Hello(localName string) error
@@ -184,7 +184,7 @@ func (c *Client) Hello(localName string) error
 
 Hello sends a HELO or EHLO to the server as the given host name. Calling this method is only necessary if the client needs control over the host name used. The client will introduce itself as "localhost" automatically otherwise. If Hello is called, it must be called before any of the other methods.
 
-#### (*Client) [Mail](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=245) 
+#### (*Client) Mail 
 
 ``` go 
 func (c *Client) Mail(from string) error
@@ -192,7 +192,7 @@ func (c *Client) Mail(from string) error
 
 Mail issues a MAIL command to the server using the provided email address. If the server supports the 8BITMIME extension, Mail adds the BODY=8BITMIME parameter. If the server supports the SMTPUTF8 extension, Mail adds the SMTPUTF8 parameter. This initiates a mail transaction and is followed by one or more Rcpt calls.
 
-#### (*Client) [Noop](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=406)  <- go1.10
+#### (*Client) Noop  <- go1.10
 
 ``` go 
 func (c *Client) Noop() error
@@ -200,7 +200,7 @@ func (c *Client) Noop() error
 
 Noop sends the NOOP command to the server. It does nothing but check that the connection to the server is okay.
 
-#### (*Client) [Quit](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=415) 
+#### (*Client) Quit 
 
 ``` go 
 func (c *Client) Quit() error
@@ -208,7 +208,7 @@ func (c *Client) Quit() error
 
 Quit sends the QUIT command and closes the connection to the server.
 
-#### (*Client) [Rcpt](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=268) 
+#### (*Client) Rcpt 
 
 ``` go 
 func (c *Client) Rcpt(to string) error
@@ -216,7 +216,7 @@ func (c *Client) Rcpt(to string) error
 
 Rcpt issues a RCPT command to the server using the provided email address. A call to Rcpt must be preceded by a call to Mail and may be followed by a Data call or another Rcpt call.
 
-#### (*Client) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=396) 
+#### (*Client) Reset 
 
 ``` go 
 func (c *Client) Reset() error
@@ -224,7 +224,7 @@ func (c *Client) Reset() error
 
 Reset sends the RSET command to the server, aborting the current mail transaction.
 
-#### (*Client) [StartTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=154) 
+#### (*Client) StartTLS 
 
 ``` go 
 func (c *Client) StartTLS(config *tls.Config) error
@@ -232,7 +232,7 @@ func (c *Client) StartTLS(config *tls.Config) error
 
 StartTLS sends the STARTTLS command and encrypts all further communication. Only servers that advertise the STARTTLS extension support this function.
 
-#### (*Client) [TLSConnectionState](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=171)  <- go1.5
+#### (*Client) TLSConnectionState  <- go1.5
 
 ``` go 
 func (c *Client) TLSConnectionState() (state tls.ConnectionState, ok bool)
@@ -240,7 +240,7 @@ func (c *Client) TLSConnectionState() (state tls.ConnectionState, ok bool)
 
 TLSConnectionState returns the client's TLS connection state. The return values are their zero values if StartTLS did not succeed.
 
-#### (*Client) [Verify](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=183) 
+#### (*Client) Verify 
 
 ``` go 
 func (c *Client) Verify(addr string) error
@@ -248,7 +248,7 @@ func (c *Client) Verify(addr string) error
 
 Verify checks the validity of an email address on the server. If Verify returns nil, the address is valid. A non-nil return does not necessarily indicate an invalid address. Many servers will not verify addresses for security reasons.
 
-### type [ServerInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=34) 
+### type ServerInfo 
 
 ``` go 
 type ServerInfo struct {

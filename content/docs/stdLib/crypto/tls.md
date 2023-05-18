@@ -86,7 +86,7 @@ Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/tls@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=664)
 
@@ -157,7 +157,7 @@ This section is empty.
 
 ## 函数
 
-#### func [CipherSuiteName](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=100) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuiteName)added in go1.14
+#### func CipherSuiteName [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuiteName)added in go1.14
 
 ```
 func CipherSuiteName(id uint16) string
@@ -165,7 +165,7 @@ func CipherSuiteName(id uint16) string
 
 CipherSuiteName returns the standard name for the passed cipher suite ID (e.g. "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"), or a fallback representation of the ID value if the cipher suite is not implemented by this package.
 
-#### func [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=88) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Listen)
+#### func Listen [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Listen)
 
 ```
 func Listen(network, laddr string, config *Config) (net.Listener, error)
@@ -173,7 +173,7 @@ func Listen(network, laddr string, config *Config) (net.Listener, error)
 
 Listen creates a TLS listener accepting connections on the given network address using net.Listen. The configuration config must be non-nil and must include at least one certificate or else set GetCertificate.
 
-#### func [NewListener](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=77) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#NewListener)
+#### func NewListener [¶](https://pkg.go.dev/crypto/tls@go1.20.1#NewListener)
 
 ```
 func NewListener(inner net.Listener, config *Config) net.Listener
@@ -183,7 +183,7 @@ NewListener creates a Listener which accepts connections from an inner Listener 
 
 ## 类型
 
-### type [Certificate](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1365) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Certificate)
+### type Certificate [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Certificate)
 
 ```
 type Certificate struct {
@@ -211,7 +211,7 @@ type Certificate struct {
 
 A Certificate is a chain of one or more certificates, leaf first.
 
-#### func [LoadX509KeyPair](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=230) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#LoadX509KeyPair)
+#### func LoadX509KeyPair [¶](https://pkg.go.dev/crypto/tls@go1.20.1#LoadX509KeyPair)
 
 ```
 func LoadX509KeyPair(certFile, keyFile string) (Certificate, error)
@@ -221,7 +221,7 @@ LoadX509KeyPair reads and parses a public/private key pair from a pair of files.
 
 <details tabindex="-1" id="example-LoadX509KeyPair" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/tls@go1.20.1#example-LoadX509KeyPair" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 25.875rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div><div class="Documentation-exampleButtonsContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0.5rem 0px 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; justify-content: flex-end;"><p class="Documentation-exampleError" role="alert" aria-atomic="true" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px 0.5rem 0px 0px; vertical-align: baseline; max-width: 60rem; color: var(--pink);"></p><button class="Documentation-exampleShareButton" aria-label="Share Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleFormatButton" aria-label="Format Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleRunButton" aria-label="Run Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--turq-dark); color: var(--white);"></button></div></details>
 
-#### func [X509KeyPair](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=245) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#X509KeyPair)
+#### func X509KeyPair [¶](https://pkg.go.dev/crypto/tls@go1.20.1#X509KeyPair)
 
 ```
 func X509KeyPair(certPEMBlock, keyPEMBlock []byte) (Certificate, error)
@@ -233,7 +233,7 @@ X509KeyPair parses a public/private key pair from a pair of PEM encoded data. On
 
 <details tabindex="-1" id="example-X509KeyPair-HttpServer" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example (HttpServer)<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/tls@go1.20.1#example-X509KeyPair-HttpServer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 49.625rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div><div class="Documentation-exampleButtonsContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0.5rem 0px 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; justify-content: flex-end;"><p class="Documentation-exampleError" role="alert" aria-atomic="true" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px 0.5rem 0px 0px; vertical-align: baseline; max-width: 60rem; color: var(--pink);"></p><button class="Documentation-exampleShareButton" aria-label="Share Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleFormatButton" aria-label="Format Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleRunButton" aria-label="Run Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--turq-dark); color: var(--white);"></button></div></details>
 
-### type [CertificateRequestInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=463) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo)added in go1.8
+### type CertificateRequestInfo [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo)added in go1.8
 
 ```
 type CertificateRequestInfo struct {
@@ -255,7 +255,7 @@ type CertificateRequestInfo struct {
 
 CertificateRequestInfo contains information from a server's CertificateRequest message, which is used to demand a certificate and proof of control from a client.
 
-#### (*CertificateRequestInfo) [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=484) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo.Context)added in go1.17
+#### (*CertificateRequestInfo) Context [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo.Context)added in go1.17
 
 ```
 func (c *CertificateRequestInfo) Context() context.Context
@@ -263,7 +263,7 @@ func (c *CertificateRequestInfo) Context() context.Context
 
 Context returns the context of the handshake that is in progress. This context is a child of the context passed to HandshakeContext, if any, and is canceled when the handshake concludes.
 
-#### (*CertificateRequestInfo) [SupportsCertificate](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1283) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo.SupportsCertificate)added in go1.14
+#### (*CertificateRequestInfo) SupportsCertificate [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateRequestInfo.SupportsCertificate)added in go1.14
 
 ```
 func (cri *CertificateRequestInfo) SupportsCertificate(c *Certificate) error
@@ -271,7 +271,7 @@ func (cri *CertificateRequestInfo) SupportsCertificate(c *Certificate) error
 
 SupportsCertificate returns nil if the provided certificate is supported by the server that sent the CertificateRequest. Otherwise, it returns an error describing the reason for the incompatibility.
 
-### type [CertificateVerificationError](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1498) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError)added in go1.20
+### type CertificateVerificationError [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError)added in go1.20
 
 ```
 type CertificateVerificationError struct {
@@ -283,19 +283,19 @@ type CertificateVerificationError struct {
 
 CertificateVerificationError is returned when certificate verification fails during the handshake.
 
-#### (*CertificateVerificationError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1504) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError.Error)added in go1.20
+#### (*CertificateVerificationError) Error [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError.Error)added in go1.20
 
 ```
 func (e *CertificateVerificationError) Error() string
 ```
 
-#### (*CertificateVerificationError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1508) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError.Unwrap)added in go1.20
+#### (*CertificateVerificationError) Unwrap [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CertificateVerificationError.Unwrap)added in go1.20
 
 ```
 func (e *CertificateVerificationError) Unwrap() error
 ```
 
-### type [CipherSuite](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=27) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuite)added in go1.14
+### type CipherSuite [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuite)added in go1.14
 
 ```
 type CipherSuite struct {
@@ -314,7 +314,7 @@ type CipherSuite struct {
 
 CipherSuite is a TLS cipher suite. Note that most functions in this package accept and expose cipher suite IDs instead of this type.
 
-#### func [CipherSuites](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=53) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuites)added in go1.14
+#### func CipherSuites [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CipherSuites)added in go1.14
 
 ```
 func CipherSuites() []*CipherSuite
@@ -324,7 +324,7 @@ CipherSuites returns a list of cipher suites currently implemented by this packa
 
 The list is sorted by ID. Note that the default cipher suites selected by this package might depend on logic that can't be captured by a static list, and might not match those returned by this function.
 
-#### func [InsecureCipherSuites](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=82) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#InsecureCipherSuites)added in go1.14
+#### func InsecureCipherSuites [¶](https://pkg.go.dev/crypto/tls@go1.20.1#InsecureCipherSuites)added in go1.14
 
 ```
 func InsecureCipherSuites() []*CipherSuite
@@ -334,7 +334,7 @@ InsecureCipherSuites returns a list of cipher suites currently implemented by th
 
 Most applications should not use the cipher suites in this list, and should only use those returned by CipherSuites.
 
-### type [ClientAuthType](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=295) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientAuthType)
+### type ClientAuthType [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientAuthType)
 
 ```
 type ClientAuthType int
@@ -368,13 +368,13 @@ const (
 )
 ```
 
-#### (ClientAuthType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common_string.go;l=111) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientAuthType.String)added in go1.15
+#### (ClientAuthType) String [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientAuthType.String)added in go1.15
 
 ```
 func (i ClientAuthType) String() string
 ```
 
-### type [ClientHelloInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=401) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo)added in go1.4
+### type ClientHelloInfo [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo)added in go1.4
 
 ```
 type ClientHelloInfo struct {
@@ -426,7 +426,7 @@ type ClientHelloInfo struct {
 
 ClientHelloInfo contains information from a ClientHello message in order to guide application logic in the GetCertificate and GetConfigForClient callbacks.
 
-#### (*ClientHelloInfo) [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=456) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo.Context)added in go1.17
+#### (*ClientHelloInfo) Context [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo.Context)added in go1.17
 
 ```
 func (c *ClientHelloInfo) Context() context.Context
@@ -434,7 +434,7 @@ func (c *ClientHelloInfo) Context() context.Context
 
 Context returns the context of the handshake that is in progress. This context is a child of the context passed to HandshakeContext, if any, and is canceled when the handshake concludes.
 
-#### (*ClientHelloInfo) [SupportsCertificate](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1130) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo.SupportsCertificate)added in go1.14
+#### (*ClientHelloInfo) SupportsCertificate [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientHelloInfo.SupportsCertificate)added in go1.14
 
 ```
 func (chi *ClientHelloInfo) SupportsCertificate(c *Certificate) error
@@ -446,7 +446,7 @@ If this ClientHelloInfo was passed to a GetConfigForClient or GetCertificate cal
 
 This function will call x509.ParseCertificate unless c.Leaf is set, which can incur a significant performance cost.
 
-### type [ClientSessionCache](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=357) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientSessionCache)added in go1.3
+### type ClientSessionCache [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientSessionCache)added in go1.3
 
 ```
 type ClientSessionCache interface {
@@ -464,7 +464,7 @@ type ClientSessionCache interface {
 
 ClientSessionCache is a cache of ClientSessionState objects that can be used by a client to resume a TLS session with a given server. ClientSessionCache implementations should expect to be called concurrently from different goroutines. Up to TLS 1.2, only ticket-based resumption is supported, not SessionID-based resumption. In TLS 1.3 they were merged into PSK modes, which are supported via this interface.
 
-#### func [NewLRUClientSessionCache](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1419) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#NewLRUClientSessionCache)added in go1.3
+#### func NewLRUClientSessionCache [¶](https://pkg.go.dev/crypto/tls@go1.20.1#NewLRUClientSessionCache)added in go1.3
 
 ```
 func NewLRUClientSessionCache(capacity int) ClientSessionCache
@@ -472,7 +472,7 @@ func NewLRUClientSessionCache(capacity int) ClientSessionCache
 
 NewLRUClientSessionCache returns a ClientSessionCache with the given capacity that uses an LRU strategy. If capacity is < 1, a default capacity is used instead.
 
-### type [ClientSessionState](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=334) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientSessionState)added in go1.3
+### type ClientSessionState [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ClientSessionState)added in go1.3
 
 ```
 type ClientSessionState struct {
@@ -482,7 +482,7 @@ type ClientSessionState struct {
 
 ClientSessionState contains the state needed by clients to resume TLS sessions.
 
-### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=521) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config)
+### type Config [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config)
 
 ```
 type Config struct {
@@ -711,7 +711,7 @@ A Config structure is used to configure a TLS client or server. After one has be
 
 <details class="Documentation-deprecatedDetails js-deprecatedDetails" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; display: block; color: var(--color-text-subtle);"><summary style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; list-style: none; opacity: 1;"><h4 tabindex="-1" id="Config.BuildNameToCertificate" data-kind="method" class="Documentation-typeMethodHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 600; font-stretch: inherit; line-height: 1.25em; font-family: inherit; font-size: 1.125rem; margin: 1.5rem 0px 0.5rem; padding: 0px; vertical-align: baseline; word-break: break-word; align-items: baseline; display: flex; justify-content: space-between;"><span class="Documentation-deprecatedTitle" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; gap: 0.5rem;">func (*Config)<a class="Documentation-source" href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1319" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none; opacity: 1;">BuildNameToCertificate</a><span class="Documentation-deprecatedTag" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: 1.375; font-family: inherit; font-size: 0.75rem; margin: 0px; padding: 0.125rem 0.25rem; vertical-align: middle; background-color: var(--color-border); border-radius: 0.125rem; color: var(--color-text-inverted); text-transform: uppercase;">DEPRECATED</span><span class="Documentation-deprecatedBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 0.87rem; margin: 0px 0.5rem 0px 0.25rem; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span></span><span class="Documentation-sinceVersion" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 0.9375rem; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span></h4></summary><div class="go-Message go-Message--warning Documentation-deprecatedItemBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 0.875rem; margin: 0px; padding: 1rem 1rem 0.5rem; vertical-align: baseline; color: var(--gray-1); width: 981.76px; background-color: var(--color-background-warning);"><div class="Documentation-declaration" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: 0px; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: var(--border-radius); color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; scroll-padding-top: calc(var(--js-sticky-header-height, 3.5rem) + 0.75rem); word-break: break-all; overflow-wrap: break-word;"><a href="https://pkg.go.dev/crypto/tls@go1.20.1#Config" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></pre></div><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p></div></details>
 
-#### (*Config) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=792) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config.Clone)added in go1.8
+#### (*Config) Clone [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config.Clone)added in go1.8
 
 ```
 func (c *Config) Clone() *Config
@@ -719,7 +719,7 @@ func (c *Config) Clone() *Config
 
 Clone returns a shallow clone of c or nil if c is nil. It is safe to clone a Config that is being used concurrently by a TLS client or server.
 
-#### (*Config) [SetSessionTicketKeys](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=941) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config.SetSessionTicketKeys)added in go1.5
+#### (*Config) SetSessionTicketKeys [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Config.SetSessionTicketKeys)added in go1.5
 
 ```
 func (c *Config) SetSessionTicketKeys(keys [][32]byte)
@@ -733,7 +733,7 @@ Calling this function will turn off automatic session ticket key rotation.
 
 If multiple servers are terminating connections for the same host they should all have the same session ticket keys. If the session ticket keys leaks, previously recorded and future TLS connections using those keys might be compromised.
 
-### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=27) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn)
+### type Conn [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn)
 
 ```
 type Conn struct {
@@ -743,7 +743,7 @@ type Conn struct {
 
 A Conn represents a secured connection. It implements the net.Conn interface.
 
-#### func [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=47) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Client)
+#### func Client [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Client)
 
 ```
 func Client(conn net.Conn, config *Config) *Conn
@@ -751,7 +751,7 @@ func Client(conn net.Conn, config *Config) *Conn
 
 Client returns a new TLS client side connection using conn as the underlying transport. The config cannot be nil: users must set either ServerName or InsecureSkipVerify in the config.
 
-#### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=170) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dial)
+#### func Dial [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dial)
 
 ```
 func Dial(network, addr string, config *Config) (*Conn, error)
@@ -761,7 +761,7 @@ Dial connects to the given network address using net.Dial and then initiates a T
 
 <details tabindex="-1" id="example-Dial" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/crypto/tls@go1.20.1#example-Dial" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 67.125rem; outline: none; resize: none; width: 981.76px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div><div class="Documentation-exampleButtonsContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0.5rem 0px 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; justify-content: flex-end;"><p class="Documentation-exampleError" role="alert" aria-atomic="true" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px 0.5rem 0px 0px; vertical-align: baseline; max-width: 60rem; color: var(--pink);"></p><button class="Documentation-exampleShareButton" aria-label="Share Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleFormatButton" aria-label="Format Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleRunButton" aria-label="Run Code" style="box-sizing: border-box; border: 0.0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--turq-dark); color: var(--white);"></button></div></details>
 
-#### func [DialWithDialer](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=116) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#DialWithDialer)added in go1.3
+#### func DialWithDialer [¶](https://pkg.go.dev/crypto/tls@go1.20.1#DialWithDialer)added in go1.3
 
 ```
 func DialWithDialer(dialer *net.Dialer, network, addr string, config *Config) (*Conn, error)
@@ -773,7 +773,7 @@ DialWithDialer interprets a nil configuration as equivalent to the zero configur
 
 DialWithDialer uses context.Background internally; to specify the context, use Dialer.DialContext with NetDialer set to the desired dialer.
 
-#### func [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=34) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Server)
+#### func Server [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Server)
 
 ```
 func Server(conn net.Conn, config *Config) *Conn
@@ -781,7 +781,7 @@ func Server(conn net.Conn, config *Config) *Conn
 
 Server returns a new TLS server side connection using conn as the underlying transport. The configuration config must be non-nil and must include at least one certificate or else set GetCertificate.
 
-#### (*Conn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1346) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Close)
+#### (*Conn) Close [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Close)
 
 ```
 func (c *Conn) Close() error
@@ -789,7 +789,7 @@ func (c *Conn) Close() error
 
 Close closes the connection.
 
-#### (*Conn) [CloseWrite](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1386) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.CloseWrite)added in go1.8
+#### (*Conn) CloseWrite [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.CloseWrite)added in go1.8
 
 ```
 func (c *Conn) CloseWrite() error
@@ -797,7 +797,7 @@ func (c *Conn) CloseWrite() error
 
 CloseWrite shuts down the writing side of the connection. It should only be called once the handshake has completed and does not call CloseWrite on the underlying connection. Most callers should just use Close.
 
-#### (*Conn) [ConnectionState](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1511) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.ConnectionState)
+#### (*Conn) ConnectionState [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.ConnectionState)
 
 ```
 func (c *Conn) ConnectionState() ConnectionState
@@ -805,7 +805,7 @@ func (c *Conn) ConnectionState() ConnectionState
 
 ConnectionState returns basic TLS details about the connection.
 
-#### (*Conn) [Handshake](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1417) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Handshake)
+#### (*Conn) Handshake [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Handshake)
 
 ```
 func (c *Conn) Handshake() error
@@ -817,7 +817,7 @@ Most uses of this package need not call Handshake explicitly: the first Read or 
 
 For control over canceling or setting a timeout on a handshake, use HandshakeContext or the Dialer's DialContext method instead.
 
-#### (*Conn) [HandshakeContext](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1431) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.HandshakeContext)added in go1.17
+#### (*Conn) HandshakeContext [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.HandshakeContext)added in go1.17
 
 ```
 func (c *Conn) HandshakeContext(ctx context.Context) error
@@ -829,7 +829,7 @@ The provided Context must be non-nil. If the context is canceled before the hand
 
 Most uses of this package need not call HandshakeContext explicitly: the first Read or Write will call it automatically.
 
-#### (*Conn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=127) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.LocalAddr)
+#### (*Conn) LocalAddr [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.LocalAddr)
 
 ```
 func (c *Conn) LocalAddr() net.Addr
@@ -837,7 +837,7 @@ func (c *Conn) LocalAddr() net.Addr
 
 LocalAddr returns the local network address.
 
-#### (*Conn) [NetConn](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=159) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.NetConn)added in go1.18
+#### (*Conn) NetConn [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.NetConn)added in go1.18
 
 ```
 func (c *Conn) NetConn() net.Conn
@@ -845,7 +845,7 @@ func (c *Conn) NetConn() net.Conn
 
 NetConn returns the underlying connection that is wrapped by c. Note that writing to or reading from this connection directly will corrupt the TLS session.
 
-#### (*Conn) [OCSPResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1547) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.OCSPResponse)
+#### (*Conn) OCSPResponse [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.OCSPResponse)
 
 ```
 func (c *Conn) OCSPResponse() []byte
@@ -853,7 +853,7 @@ func (c *Conn) OCSPResponse() []byte
 
 OCSPResponse returns the stapled OCSP response from the TLS server, if any. (Only valid for client connections.)
 
-#### (*Conn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1302) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Read)
+#### (*Conn) Read [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Read)
 
 ```
 func (c *Conn) Read(b []byte) (int, error)
@@ -863,7 +863,7 @@ Read reads data from the connection.
 
 As Read calls Handshake, in order to prevent indefinite blocking a deadline must be set for both Read and Write before Read is called when the handshake has not yet completed. See SetDeadline, SetReadDeadline, and SetWriteDeadline.
 
-#### (*Conn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=132) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.RemoteAddr)
+#### (*Conn) RemoteAddr [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.RemoteAddr)
 
 ```
 func (c *Conn) RemoteAddr() net.Addr
@@ -871,7 +871,7 @@ func (c *Conn) RemoteAddr() net.Addr
 
 RemoteAddr returns the remote network address.
 
-#### (*Conn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=139) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetDeadline)
+#### (*Conn) SetDeadline [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetDeadline)
 
 ```
 func (c *Conn) SetDeadline(t time.Time) error
@@ -879,7 +879,7 @@ func (c *Conn) SetDeadline(t time.Time) error
 
 SetDeadline sets the read and write deadlines associated with the connection. A zero value for t means Read and Write will not time out. After a Write has timed out, the TLS state is corrupt and all future writes will return the same error.
 
-#### (*Conn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=145) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetReadDeadline)
+#### (*Conn) SetReadDeadline [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetReadDeadline)
 
 ```
 func (c *Conn) SetReadDeadline(t time.Time) error
@@ -887,7 +887,7 @@ func (c *Conn) SetReadDeadline(t time.Time) error
 
 SetReadDeadline sets the read deadline on the underlying connection. A zero value for t means Read will not time out.
 
-#### (*Conn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=152) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetWriteDeadline)
+#### (*Conn) SetWriteDeadline [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.SetWriteDeadline)
 
 ```
 func (c *Conn) SetWriteDeadline(t time.Time) error
@@ -895,7 +895,7 @@ func (c *Conn) SetWriteDeadline(t time.Time) error
 
 SetWriteDeadline sets the write deadline on the underlying connection. A zero value for t means Write will not time out. After a Write has timed out, the TLS state is corrupt and all future writes will return the same error.
 
-#### (*Conn) [VerifyHostname](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1557) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.VerifyHostname)
+#### (*Conn) VerifyHostname [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.VerifyHostname)
 
 ```
 func (c *Conn) VerifyHostname(host string) error
@@ -903,7 +903,7 @@ func (c *Conn) VerifyHostname(host string) error
 
 VerifyHostname checks that the peer certificate chain is valid for connecting to host. If so, it returns nil; if not, it returns an error describing the problem.
 
-#### (*Conn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=1134) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Write)
+#### (*Conn) Write [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Conn.Write)
 
 ```
 func (c *Conn) Write(b []byte) (int, error)
@@ -913,7 +913,7 @@ Write writes data to the connection.
 
 As Write calls Handshake, in order to prevent indefinite blocking a deadline must be set for both Read and Write before Write is called when the handshake has not yet completed. See SetDeadline, SetReadDeadline, and SetWriteDeadline.
 
-### type [ConnectionState](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=215) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ConnectionState)
+### type ConnectionState [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ConnectionState)
 
 ```
 type ConnectionState struct {
@@ -987,7 +987,7 @@ type ConnectionState struct {
 
 ConnectionState records basic TLS details about the connection.
 
-#### (*ConnectionState) [ExportKeyingMaterial](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=289) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ConnectionState.ExportKeyingMaterial)added in go1.11
+#### (*ConnectionState) ExportKeyingMaterial [¶](https://pkg.go.dev/crypto/tls@go1.20.1#ConnectionState.ExportKeyingMaterial)added in go1.11
 
 ```
 func (cs *ConnectionState) ExportKeyingMaterial(label string, context []byte, length int) ([]byte, error)
@@ -995,7 +995,7 @@ func (cs *ConnectionState) ExportKeyingMaterial(label string, context []byte, le
 
 ExportKeyingMaterial returns length bytes of exported key material in a new slice as defined in [RFC 5705](https://rfc-editor.org/rfc/rfc5705.html). If context is nil, it is not used as part of the seed. If the connection was set to allow renegotiation via Config.Renegotiation, this function will return an error.
 
-### type [CurveID](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=115) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CurveID)added in go1.3
+### type CurveID [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CurveID)added in go1.3
 
 ```
 type CurveID uint16
@@ -1014,13 +1014,13 @@ const (
 )
 ```
 
-#### (CurveID) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common_string.go;l=85) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CurveID.String)added in go1.15
+#### (CurveID) String [¶](https://pkg.go.dev/crypto/tls@go1.20.1#CurveID.String)added in go1.15
 
 ```
 func (i CurveID) String() string
 ```
 
-### type [Dialer](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=176) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer)added in go1.15
+### type Dialer [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer)added in go1.15
 
 ```
 type Dialer struct {
@@ -1039,7 +1039,7 @@ type Dialer struct {
 
 Dialer dials TLS connections given a configuration and a Dialer for the underlying connection.
 
-#### (*Dialer) [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=196) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer.Dial)added in go1.15
+#### (*Dialer) Dial [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer.Dial)added in go1.15
 
 ```
 func (d *Dialer) Dial(network, addr string) (net.Conn, error)
@@ -1051,7 +1051,7 @@ The returned Conn, if any, will always be of type *Conn.
 
 Dial uses context.Background internally; to specify the context, use DialContext.
 
-#### (*Dialer) [DialContext](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/tls.go;l=216) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer.DialContext)added in go1.15
+#### (*Dialer) DialContext [¶](https://pkg.go.dev/crypto/tls@go1.20.1#Dialer.DialContext)added in go1.15
 
 ```
 func (d *Dialer) DialContext(ctx context.Context, network, addr string) (net.Conn, error)
@@ -1063,7 +1063,7 @@ The provided Context must be non-nil. If the context expires before the connecti
 
 The returned Conn, if any, will always be of type *Conn.
 
-### type [RecordHeaderError](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=560) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RecordHeaderError)added in go1.6
+### type RecordHeaderError [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RecordHeaderError)added in go1.6
 
 ```
 type RecordHeaderError struct {
@@ -1082,13 +1082,13 @@ type RecordHeaderError struct {
 
 RecordHeaderError is returned when a TLS record header is invalid.
 
-#### (RecordHeaderError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/conn.go;l=573) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RecordHeaderError.Error)added in go1.6
+#### (RecordHeaderError) Error [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RecordHeaderError.Error)added in go1.6
 
 ```
 func (e RecordHeaderError) Error() string
 ```
 
-### type [RenegotiationSupport](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=502) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RenegotiationSupport)added in go1.7
+### type RenegotiationSupport [¶](https://pkg.go.dev/crypto/tls@go1.20.1#RenegotiationSupport)added in go1.7
 
 ```
 type RenegotiationSupport int
@@ -1115,7 +1115,7 @@ const (
 )
 ```
 
-### type [SignatureScheme](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=373) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#SignatureScheme)added in go1.8
+### type SignatureScheme [¶](https://pkg.go.dev/crypto/tls@go1.20.1#SignatureScheme)added in go1.8
 
 ```
 type SignatureScheme uint16
@@ -1149,7 +1149,7 @@ const (
 )
 ```
 
-#### (SignatureScheme) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common_string.go;l=41) [¶](https://pkg.go.dev/crypto/tls@go1.20.1#SignatureScheme.String)added in go1.15
+#### (SignatureScheme) String [¶](https://pkg.go.dev/crypto/tls@go1.20.1#SignatureScheme.String)added in go1.15
 
 ```
 func (i SignatureScheme) String() string

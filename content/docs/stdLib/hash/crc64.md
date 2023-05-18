@@ -45,7 +45,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Checksum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=214) 
+#### func Checksum 
 
 ``` go 
 func Checksum(data []byte, tab *Table) uint64
@@ -53,7 +53,7 @@ func Checksum(data []byte, tab *Table) uint64
 
 Checksum returns the CRC-64 checksum of data using the polynomial represented by the Table.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=100) 
+#### func New 
 
 ``` go 
 func New(tab *Table) hash.Hash64
@@ -61,7 +61,7 @@ func New(tab *Table) hash.Hash64
 
 New creates a new hash.Hash64 computing the CRC-64 checksum using the polynomial represented by the Table. Its Sum method will lay the value out in big-endian byte order. The returned Hash64 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=196) 
+#### func Update 
 
 ``` go 
 func Update(crc uint64, tab *Table, p []byte) uint64
@@ -71,7 +71,7 @@ Update returns the result of adding the bytes in p to the crc.
 
 ## 类型
 
-### type [Table](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=29) 
+### type Table 
 
 ``` go 
 type Table [256]uint64
@@ -79,7 +79,7 @@ type Table [256]uint64
 
 Table is a 256-word table representing the polynomial for efficient processing.
 
-#### func [MakeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=48) 
+#### func MakeTable 
 
 ``` go 
 func MakeTable(poly uint64) *Table

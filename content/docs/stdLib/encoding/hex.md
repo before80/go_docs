@@ -44,7 +44,7 @@ ErrLength报告使用Decode或DecodeString解码一个奇长的输入的尝试�
 
 ## 函数
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=77) 
+#### func Decode 
 
 ``` go 
 func Decode(dst, src []byte) (int, error)
@@ -62,7 +62,7 @@ Decode expects that src contains only hexadecimal characters and that src has ev
 ``` go 
 ```
 
-#### func [DecodeString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=118) 
+#### func DecodeString 
 
 ``` go 
 func DecodeString(s string) ([]byte, error)
@@ -80,7 +80,7 @@ DecodeString期望src只包含十六进制的字符，并且src具有偶数长�
 ``` go 
 ```
 
-#### func [DecodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=68) 
+#### func DecodedLen 
 
 ``` go 
 func DecodedLen(x int) int
@@ -90,7 +90,7 @@ DecodedLen returns the length of a decoding of x source bytes. Specifically, it 
 
 DecodedLen返回x个源字节的解码长度。具体来说，它返回x/2。
 
-#### func [Dump](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=128) 
+#### func Dump 
 
 ``` go 
 func Dump(data []byte) string
@@ -104,7 +104,7 @@ Dump返回一个包含给定数据的十六进制转储的字符串。十六进�
 ``` go 
 ```
 
-#### func [Dumper](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=224) 
+#### func Dumper 
 
 ``` go 
 func Dumper(w io.Writer) io.WriteCloser
@@ -118,7 +118,7 @@ Dumper返回一个WriteCloser，将所有写入的数据的十六进制转储到
 ``` go 
 ```
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=44) 
+#### func Encode 
 
 ``` go 
 func Encode(dst, src []byte) int
@@ -132,7 +132,7 @@ Encode将src编码为dst的EncodedLen(len(src))字节。为了方便起见，它
 ``` go 
 ```
 
-#### func [EncodeToString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=106) 
+#### func EncodeToString 
 
 ``` go 
 func EncodeToString(src []byte) string
@@ -146,7 +146,7 @@ EncodeToString返回src的十六进制编码。
 ``` go 
 ```
 
-#### func [EncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=38) 
+#### func EncodedLen 
 
 ``` go 
 func EncodedLen(n int) int
@@ -156,7 +156,7 @@ EncodedLen returns the length of an encoding of n source bytes. Specifically, it
 
 EncodedLen返回n个源字节的编码的长度。具体来说，它返回n * 2。
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=184)  <- go1.10
+#### func NewDecoder  <- go1.10
 
 ``` go 
 func NewDecoder(r io.Reader) io.Reader
@@ -166,7 +166,7 @@ NewDecoder returns an io.Reader that decodes hexadecimal characters from r. NewD
 
 NewDecoder返回一个io.Reader，对r中的十六进制字符进行解码。NewDecoder希望r中只包含偶数的十六进制字符。
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=155)  <- go1.10
+#### func NewEncoder  <- go1.10
 
 ``` go 
 func NewEncoder(w io.Writer) io.Writer
@@ -178,7 +178,7 @@ NewEncoder返回一个io.Writer，将小写的十六进制字符写入w中。
 
 ## 类型
 
-### type [InvalidByteError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=60) 
+### type InvalidByteError 
 
 ``` go 
 type InvalidByteError byte
@@ -188,7 +188,7 @@ InvalidByteError values describe errors resulting from an invalid byte in a hex 
 
 InvalidByteError值描述由十六进制字符串中的无效字节导致的错误。
 
-#### (InvalidByteError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=62) 
+#### (InvalidByteError) Error 
 
 ``` go 
 func (e InvalidByteError) Error() string

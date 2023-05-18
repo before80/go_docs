@@ -37,7 +37,7 @@ This section is empty.
 
 ## 类型
 
-### type [Hash](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=26) 
+### type Hash 
 
 ``` go 
 type Hash interface {
@@ -69,7 +69,7 @@ Hash implementations in the standard library (e.g. hash/crc32 and crypto/sha256)
 
 Compatibility: Any future changes to hash or crypto packages will endeavor to maintain compatibility with state encoded using previous versions. That is, any released versions of the packages should be able to decode data written with any previously released version, subject to issues such as security fixes. See the Go compatibility document for background: https://golang.org/doc/go1compat
 
-### type [Hash32](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=49) 
+### type Hash32 
 
 ``` go 
 type Hash32 interface {
@@ -80,7 +80,7 @@ type Hash32 interface {
 
 Hash32 is the common interface implemented by all 32-bit hash functions.
 
-### type [Hash64](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=55) 
+### type Hash64 
 
 ``` go 
 type Hash64 interface {

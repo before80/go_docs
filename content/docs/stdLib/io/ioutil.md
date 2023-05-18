@@ -7,7 +7,7 @@ draft = false
 +++
 # ioutil
 
-[https://pkg.go.dev/io/ioutil@go1.20.1](https://pkg.go.dev/io/ioutil@go1.20.1)
+https://pkg.go.dev/io/ioutil@go1.20.1
 
 Package ioutil implements some I/O utility functions.
 
@@ -38,7 +38,7 @@ Deprecated: As of Go 1.16, this value is simply io.Discard.
 
 ## 函数
 
-#### func [NopCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=87) DEPRECATED
+#### func NopCloser DEPRECATED
 
 ```go 
 func NopCloser(r io.Reader) io.ReadCloser
@@ -52,7 +52,7 @@ Deprecated: As of Go 1.16, this function simply calls io.NopCloser.
 
 已废弃：从Go 1.16开始，此函数只需调用io.NopCloser。
 
-#### func [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=26) DEPRECATED
+#### func ReadAll DEPRECATED
 
 ```go 
 func ReadAll(r io.Reader) ([]byte, error)
@@ -94,7 +94,7 @@ Output:
 Go is a general-purpose language designed with systems programming in mind.
 ```
 
-#### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=69) DEPRECATED
+#### func ReadDir DEPRECATED
 
 ```go 
 func ReadDir(dirname string) ([]fs.FileInfo, error)
@@ -162,7 +162,7 @@ usr
 var
 ```
 
-#### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=36) DEPRECATED
+#### func ReadFile DEPRECATED
 
 ```go 
 func ReadFile(filename string) ([]byte, error)
@@ -201,7 +201,7 @@ Output:
 File contents: Hello, Gophers!
 ```
 
-#### func [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=39) DEPRECATED
+#### func TempDir DEPRECATED
 
 ```go 
 func TempDir(dir, pattern string) (name string, err error)
@@ -281,7 +281,7 @@ func main() {
 
 ```
 
-#### func [TempFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=24) DEPRECATED
+#### func TempFile DEPRECATED
 
 ```go 
 func TempFile(dir, pattern string) (f *os.File, err error)
@@ -358,7 +358,7 @@ func main() {
 
 ```
 
-#### func [WriteFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=45) DEPRECATED
+#### func WriteFile DEPRECATED
 
 ```go 
 func WriteFile(filename string, data []byte, perm fs.FileMode) error

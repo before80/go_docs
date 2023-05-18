@@ -408,7 +408,7 @@ This section is empty.
 
 ## 函数
 
-#### func [HTMLEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=611) 
+#### func HTMLEscape 
 
 ``` go 
 func HTMLEscape(w io.Writer, b []byte)
@@ -416,7 +416,7 @@ func HTMLEscape(w io.Writer, b []byte)
 
 HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
 
-#### func [HTMLEscapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=639) 
+#### func HTMLEscapeString 
 
 ``` go 
 func HTMLEscapeString(s string) string
@@ -424,7 +424,7 @@ func HTMLEscapeString(s string) string
 
 HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
 
-#### func [HTMLEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=651) 
+#### func HTMLEscaper 
 
 ``` go 
 func HTMLEscaper(args ...any) string
@@ -432,7 +432,7 @@ func HTMLEscaper(args ...any) string
 
 HTMLEscaper returns the escaped HTML equivalent of the textual representation of its arguments.
 
-#### func [IsTrue](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=320)  <- go1.6
+#### func IsTrue  <- go1.6
 
 ``` go 
 func IsTrue(val any) (truth, ok bool)
@@ -440,7 +440,7 @@ func IsTrue(val any) (truth, ok bool)
 
 IsTrue reports whether the value is 'true', in the sense of not the zero of its type, and whether the value has a meaningful truth value. This is the definition of truth used by if and other such actions.
 
-#### func [JSEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=671) 
+#### func JSEscape 
 
 ``` go 
 func JSEscape(w io.Writer, b []byte)
@@ -448,7 +448,7 @@ func JSEscape(w io.Writer, b []byte)
 
 JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
 
-#### func [JSEscapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=722) 
+#### func JSEscapeString 
 
 ``` go 
 func JSEscapeString(s string) string
@@ -456,7 +456,7 @@ func JSEscapeString(s string) string
 
 JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
 
-#### func [JSEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=742) 
+#### func JSEscaper 
 
 ``` go 
 func JSEscaper(args ...any) string
@@ -464,7 +464,7 @@ func JSEscaper(args ...any) string
 
 JSEscaper returns the escaped JavaScript equivalent of the textual representation of its arguments.
 
-#### func [URLQueryEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=748) 
+#### func URLQueryEscaper 
 
 ``` go 
 func URLQueryEscaper(args ...any) string
@@ -474,7 +474,7 @@ URLQueryEscaper returns the escaped value of the textual representation of its a
 
 ## 类型
 
-### type [ExecError](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=121)  <- go1.6
+### type ExecError  <- go1.6
 
 ``` go 
 type ExecError struct {
@@ -485,19 +485,19 @@ type ExecError struct {
 
 ExecError is the custom error type returned when Execute has an error evaluating its template. (If a write error occurs, the actual error is returned; it will not be of type ExecError.)
 
-#### (ExecError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=126)  <- go1.6
+#### (ExecError) Error  <- go1.6
 
 ``` go 
 func (e ExecError) Error() string
 ```
 
-#### (ExecError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=130)  <- go1.13
+#### (ExecError) Unwrap  <- go1.13
 
 ``` go 
 func (e ExecError) Unwrap() error
 ```
 
-### type [FuncMap](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=33) 
+### type FuncMap 
 
 ``` go 
 type FuncMap map[string]any
@@ -509,7 +509,7 @@ Errors returned by Execute wrap the underlying error; call errors.As to uncover 
 
 When template execution invokes a function with an argument list, that list must be assignable to the function's parameter types. Functions meant to apply to arguments of arbitrary type can use parameters of type interface{} or of type reflect.Value. Similarly, functions meant to return a result of arbitrary type can return interface{} or reflect.Value.
 
-### type [Template](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=29) 
+### type Template 
 
 ``` go 
 type Template struct {
@@ -544,7 +544,7 @@ Template is the representation of a parsed template. The *parse.Tree field is ex
 ``` go 
 ```
 
-#### func [Must](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=24) 
+#### func Must 
 
 ``` go 
 func Must(t *Template, err error) *Template
@@ -556,7 +556,7 @@ Must is a helper that wraps a call to a function returning (*Template, error) an
 var t = template.Must(template.New("name").Parse("text"))
 ```
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=38) 
+#### func New 
 
 ``` go 
 func New(name string) *Template
@@ -564,7 +564,7 @@ func New(name string) *Template
 
 New allocates a new, undefined template with the given name.
 
-#### func [ParseFS](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=138)  <- go1.16
+#### func ParseFS  <- go1.16
 
 ``` go 
 func ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
@@ -572,7 +572,7 @@ func ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 
 ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys instead of the host operating system's file system. It accepts a list of glob patterns. (Note that most file names serve as glob patterns matching only themselves.)
 
-#### func [ParseFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=40) 
+#### func ParseFiles 
 
 ``` go 
 func ParseFiles(filenames ...string) (*Template, error)
@@ -582,7 +582,7 @@ ParseFiles creates a new Template and parses the template definitions from the n
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results. For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template named "foo", while "a/foo" is unavailable.
 
-#### func [ParseGlob](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=105) 
+#### func ParseGlob 
 
 ``` go 
 func ParseGlob(pattern string) (*Template, error)
@@ -592,7 +592,7 @@ ParseGlob creates a new Template and parses the template definitions from the fi
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-#### (*Template) [AddParseTree](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=129) 
+#### (*Template) AddParseTree 
 
 ``` go 
 func (t *Template) AddParseTree(name string, tree *parse.Tree) (*Template, error)
@@ -600,7 +600,7 @@ func (t *Template) AddParseTree(name string, tree *parse.Tree) (*Template, error
 
 AddParseTree associates the argument parse tree with the template t, giving it the specified name. If the template has not been defined, this tree becomes its definition. If it has been defined and already has that name, the existing definition is replaced; otherwise a new template is created, defined, and returned.
 
-#### (*Template) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=86) 
+#### (*Template) Clone 
 
 ``` go 
 func (t *Template) Clone() (*Template, error)
@@ -608,7 +608,7 @@ func (t *Template) Clone() (*Template, error)
 
 Clone returns a duplicate of the template, including all associated templates. The actual representation is not copied, but the name space of associated templates is, so further calls to Parse in the copy will add templates to the copy but not to the original. Clone can be used to prepare common templates and use them with variant definitions for other templates by adding the variants after the clone is made.
 
-#### (*Template) [DefinedTemplates](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=232)  <- go1.5
+#### (*Template) DefinedTemplates  <- go1.5
 
 ``` go 
 func (t *Template) DefinedTemplates() string
@@ -616,7 +616,7 @@ func (t *Template) DefinedTemplates() string
 
 DefinedTemplates returns a string listing the defined templates, prefixed by the string "; defined templates are: ". If there are none, it returns the empty string. For generating an error message here and in html/template.
 
-#### (*Template) [Delims](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=164) 
+#### (*Template) Delims 
 
 ``` go 
 func (t *Template) Delims(left, right string) *Template
@@ -624,7 +624,7 @@ func (t *Template) Delims(left, right string) *Template
 
 Delims sets the action delimiters to the specified strings, to be used in subsequent calls to Parse, ParseFiles, or ParseGlob. Nested template definitions will inherit the settings. An empty delimiter stands for the corresponding default: {{ or }}. The return value is the template, so calls can be chained.
 
-#### (*Template) [Execute](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=206) 
+#### (*Template) Execute 
 
 ``` go 
 func (t *Template) Execute(wr io.Writer, data any) error
@@ -634,7 +634,7 @@ Execute applies a parsed template to the specified data object, and writes the o
 
 If data is a reflect.Value, the template applies to the concrete value that the reflect.Value holds, as in fmt.Print.
 
-#### (*Template) [ExecuteTemplate](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=188) 
+#### (*Template) ExecuteTemplate 
 
 ``` go 
 func (t *Template) ExecuteTemplate(wr io.Writer, name string, data any) error
@@ -642,7 +642,7 @@ func (t *Template) ExecuteTemplate(wr io.Writer, name string, data any) error
 
 ExecuteTemplate applies the template associated with t that has the given name to the specified data object and writes the output to wr. If an error occurs executing the template or writing its output, execution stops, but partial results may already have been written to the output writer. A template may be executed safely in parallel, although if parallel executions share a Writer the output may be interleaved.
 
-#### (*Template) [Funcs](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=177) 
+#### (*Template) Funcs 
 
 ``` go 
 func (t *Template) Funcs(funcMap FuncMap) *Template
@@ -650,7 +650,7 @@ func (t *Template) Funcs(funcMap FuncMap) *Template
 
 Funcs adds the elements of the argument map to the template's function map. It must be called before the template is parsed. It panics if a value in the map is not a function with appropriate return type or if the name cannot be used syntactically as a function in a template. It is legal to overwrite elements of the map. The return value is the template, so calls can be chained.
 
-#### (*Template) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=188) 
+#### (*Template) Lookup 
 
 ``` go 
 func (t *Template) Lookup(name string) *Template
@@ -658,7 +658,7 @@ func (t *Template) Lookup(name string) *Template
 
 Lookup returns the template with the given name that is associated with t. It returns nil if there is no such template or the template has no definition.
 
-#### (*Template) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=47) 
+#### (*Template) Name 
 
 ``` go 
 func (t *Template) Name() string
@@ -666,7 +666,7 @@ func (t *Template) Name() string
 
 Name returns the name of the template.
 
-#### (*Template) [New](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=58) 
+#### (*Template) New 
 
 ``` go 
 func (t *Template) New(name string) *Template
@@ -676,7 +676,7 @@ New allocates a new, undefined template associated with the given one and with t
 
 Because associated templates share underlying data, template construction cannot be done safely in parallel. Once the templates are constructed, they can be executed in parallel.
 
-#### (*Template) [Option](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/option.go;l=42)  <- go1.5
+#### (*Template) Option  <- go1.5
 
 ``` go 
 func (t *Template) Option(opt ...string) *Template
@@ -699,7 +699,7 @@ missingkey: Control the behavior during execution if a map is indexed with a key
 	Execution stops immediately with an error.
 ```
 
-#### (*Template) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=207) 
+#### (*Template) Parse 
 
 ``` go 
 func (t *Template) Parse(text string) (*Template, error)
@@ -709,7 +709,7 @@ Parse parses text as a template body for t. Named template definitions ({{define
 
 Templates can be redefined in successive calls to Parse. A template definition with a body containing only white space and comments is considered empty and will not replace an existing template's body. This allows using Parse to add new named template definitions without overwriting the main template body.
 
-#### (*Template) [ParseFS](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=146)  <- go1.16
+#### (*Template) ParseFS  <- go1.16
 
 ``` go 
 func (t *Template) ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
@@ -717,7 +717,7 @@ func (t *Template) ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 
 ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys instead of the host operating system's file system. It accepts a list of glob patterns. (Note that most file names serve as glob patterns matching only themselves.)
 
-#### (*Template) [ParseFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=55) 
+#### (*Template) ParseFiles 
 
 ``` go 
 func (t *Template) ParseFiles(filenames ...string) (*Template, error)
@@ -727,7 +727,7 @@ ParseFiles parses the named files and associates the resulting templates with t.
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-#### (*Template) [ParseGlob](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=117) 
+#### (*Template) ParseGlob 
 
 ``` go 
 func (t *Template) ParseGlob(pattern string) (*Template, error)
@@ -737,7 +737,7 @@ ParseGlob parses the template definitions in the files identified by the pattern
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-#### (*Template) [Templates](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=145) 
+#### (*Template) Templates 
 
 ``` go 
 func (t *Template) Templates() []*Template

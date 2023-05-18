@@ -7,7 +7,7 @@ draft = false
 +++
 # quick
 
-[https://pkg.go.dev/testing/quick@go1.20.1](https://pkg.go.dev/testing/quick@go1.20.1)
+https://pkg.go.dev/testing/quick@go1.20.1
 
 quick包实现了一些实用的函数，以帮助黑盒测试。
 
@@ -23,7 +23,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Check](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=263) 
+#### func Check 
 
 ``` go 
 func Check(f any, config *Config) error
@@ -43,7 +43,7 @@ func TestOddMultipleOfThree(t *testing.T) {
 }
 ```
 
-#### func [CheckEqual](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=302) 
+#### func CheckEqual 
 
 ``` go 
 func CheckEqual(f, g any, config *Config) error
@@ -51,7 +51,7 @@ func CheckEqual(f, g any, config *Config) error
 
 ​	CheckEqual函数会查找一个输入，使得`f`和`g`返回不同的结果。它会重复调用`f`和`g`，对于每个参数都使用任意值。如果`f`和`g`返回不同的答案，则CheckEqual函数会返回一个`*CheckEqualError`，描述输入和输出。
 
-#### func [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=59) 
+#### func Value 
 
 ``` go 
 func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)
@@ -61,7 +61,7 @@ func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)
 
 ## 类型
 
-### type [CheckEqualError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=238) 
+### type CheckEqualError 
 
 ``` go 
 type CheckEqualError struct {
@@ -73,13 +73,13 @@ type CheckEqualError struct {
 
 ​	CheckEqualError结构体是CheckEqual函数发现错误的结果。
 
-#### (*CheckEqualError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=244) 
+#### (*CheckEqualError) Error 
 
 ``` go 
 func (s *CheckEqualError) Error() string
 ```
 
-### type [CheckError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=228) 
+### type CheckError 
 
 ``` go 
 type CheckError struct {
@@ -90,13 +90,13 @@ type CheckError struct {
 
 ​	CheckError结构体是Check函数发现错误的结果。
 
-#### (*CheckError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=233) 
+#### (*CheckError) Error 
 
 ``` go 
 func (s *CheckError) Error() string
 ```
 
-### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=177) 
+### type Config 
 
 ``` go 
 type Config struct {
@@ -120,7 +120,7 @@ A Config structure contains options for running a test.
 
 Config结构包含运行测试的选项。
 
-### type [Generator](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=23) 
+### type Generator 
 
 ``` go 
 type Generator interface {
@@ -131,7 +131,7 @@ type Generator interface {
 
 ​	Generator接口可以生成其自身类型的随机值。
 
-### type [SetupError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=223) 
+### type SetupError 
 
 ``` go 
 type SetupError string
@@ -139,7 +139,7 @@ type SetupError string
 
 ​	SetupError类型是check的使用方式中出现的错误结果，与被测试的函数无关。
 
-#### (SetupError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=225) 
+#### (SetupError) Error 
 
 ``` go 
 func (s SetupError) Error() string

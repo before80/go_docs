@@ -127,7 +127,7 @@ ToolDir是包含构建工具的目录。
 
 ## 函数
 
-#### func [ArchChar](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=2010) 
+#### func ArchChar 
 
 ``` go 
 func ArchChar(goarch string) (string, error)
@@ -137,7 +137,7 @@ ArchChar returns "?" and an error. In earlier versions of Go, the returned strin
 
 ArchChar返回"？"和一个错误。在Go的早期版本中，返回的字符串被用来推导出编译器和链接器的工具名称、默认对象文件后缀和默认链接器输出名称。从 Go 1.5 开始，这些字符串不再因架构而异；它们分别是编译、链接、.o 和 a.out。
 
-#### func [IsLocalImport](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=2000) 
+#### func IsLocalImport 
 
 ``` go 
 func IsLocalImport(path string) bool
@@ -149,7 +149,7 @@ IsLocalImport报告导入路径是否为本地导入路径，如"."、"..."、".
 
 ## 类型
 
-### type [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=34) 
+### type Context 
 
 ``` go 
 type Context struct {
@@ -266,7 +266,7 @@ Default is the default Context for builds. It uses the GOARCH, GOOS, GOROOT, and
 
 Default是用于构建的默认上下文。它使用 GOARCH、GOOS、GOROOT 和 GOPATH 环境变量(如果设置了)，否则就使用编译后的代码的 GOARCH、GOOS 和 GOROOT。
 
-#### (*Context) [Import](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=541) 
+#### (*Context) Import 
 
 ``` go 
 func (ctxt *Context) Import(path string, srcDir string, mode ImportMode) (*Package, error)
@@ -288,7 +288,7 @@ If an error occurs, Import returns a non-nil error and a non-nil *Package contai
 
 如果发生错误，Import会返回一个非零的错误和一个非零的*Package，包含部分信息。
 
-#### (*Context) [ImportDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=488) 
+#### (*Context) ImportDir 
 
 ``` go 
 func (ctxt *Context) ImportDir(dir string, mode ImportMode) (*Package, error)
@@ -298,7 +298,7 @@ ImportDir is like Import but processes the Go package found in the named directo
 
 ImportDir与Import类似，但处理在指定目录中发现的Go包。
 
-#### (*Context) [MatchFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=1374)  <- go1.2
+#### (*Context) MatchFile  <- go1.2
 
 ``` go 
 func (ctxt *Context) MatchFile(dir, name string) (match bool, err error)
@@ -312,7 +312,7 @@ MatchFile considers the name of the file and may use ctxt.OpenFile to read some 
 
 MatchFile考虑文件的名称，并可能使用ctxt.OpenFile读取部分或全部文件的内容。
 
-#### (*Context) [SrcDirs](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=266) 
+#### (*Context) SrcDirs 
 
 ``` go 
 func (ctxt *Context) SrcDirs() []string
@@ -322,7 +322,7 @@ SrcDirs returns a list of package source root directories. It draws from the cur
 
 SrcDirs 返回包源码根目录的列表。它从当前的 Go 根目录和 Go 路径中提取，但会省略不存在的目录。
 
-### type [ImportMode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=366) 
+### type ImportMode 
 
 ``` go 
 type ImportMode uint
@@ -396,7 +396,7 @@ const (
 )
 ```
 
-### type [MultiplePackageError](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=505)  <- go1.4
+### type MultiplePackageError  <- go1.4
 
 ``` go 
 type MultiplePackageError struct {
@@ -410,13 +410,13 @@ MultiplePackageError describes a directory containing multiple buildable Go sour
 
 MultiplePackageError 描述了一个包含多个包的多个可构建Go源代码文件的目录。
 
-#### (*MultiplePackageError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=511)  <- go1.4
+#### (*MultiplePackageError) Error  <- go1.4
 
 ``` go 
 func (e *MultiplePackageError) Error() string
 ```
 
-### type [NoGoError](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=495) 
+### type NoGoError 
 
 ``` go 
 type NoGoError struct {
@@ -428,13 +428,13 @@ NoGoError is the error used by Import to describe a directory containing no buil
 
 NoGoError是Import用来描述一个不包含可构建的Go源文件的目录的错误。(它可能仍然包含测试文件、被构建标签隐藏的文件，等等。)
 
-#### (*NoGoError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=499) 
+#### (*NoGoError) Error 
 
 ``` go 
 func (e *NoGoError) Error() string
 ```
 
-### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=413) 
+### type Package 
 
 ``` go 
 type Package struct {
@@ -508,7 +508,7 @@ A Package describes the Go package found in a directory.
 
 一个Package描述了在一个目录中发现的Go包。
 
-#### func [Import](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=1487) 
+#### func Import 
 
 ``` go 
 func Import(path, srcDir string, mode ImportMode) (*Package, error)
@@ -518,7 +518,7 @@ Import is shorthand for Default.Import.
 
 Import是Default.Import的简写。
 
-#### func [ImportDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=1492) 
+#### func ImportDir 
 
 ``` go 
 func ImportDir(dir string, mode ImportMode) (*Package, error)
@@ -528,7 +528,7 @@ ImportDir is shorthand for Default.ImportDir.
 
 ImportDir是Default.ImportDir的简写。
 
-#### (*Package) [IsCommand](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/build.go;l=482) 
+#### (*Package) IsCommand 
 
 ``` go 
 func (p *Package) IsCommand() bool

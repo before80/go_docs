@@ -7,7 +7,7 @@ draft = false
 +++
 # signal
 
-[https://pkg.go.dev/os/signal@go1.20.1](https://pkg.go.dev/os/signal@go1.20.1)
+https://pkg.go.dev/os/signal@go1.20.1
 
 ​	signal包实现对进入的信号的访问。
 
@@ -103,7 +103,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Ignore](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=86)  <- go1.5
+#### func Ignore  <- go1.5
 
 ``` go 
 func Ignore(sig ...os.Signal)
@@ -111,7 +111,7 @@ func Ignore(sig ...os.Signal)
 
 ​	Ignore函数将提供的信号设置为被忽略。如果程序收到这些信号，将不会发生任何事情。 Ignore函数会撤销之前对所提供信号的Notify调用的效果。如果没有提供信号，则会忽略所有传入的信号。
 
-#### func [Ignored](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=91)  <- go1.11
+#### func Ignored  <- go1.11
 
 ``` go 
 func Ignored(sig os.Signal) bool
@@ -119,7 +119,7 @@ func Ignored(sig os.Signal) bool
 
 ​	Ignored函数报告sig信号当前是否被忽略。
 
-#### func [Notify](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=121) 
+#### func Notify 
 
 ``` go 
 func Notify(c chan<- os.Signal, sig ...os.Signal)
@@ -187,7 +187,7 @@ func main() {
 
 
 
-#### func [NotifyContext](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=277)  <- go1.16
+#### func NotifyContext  <- go1.16
 
 ``` go 
 func NotifyContext(parent context.Context, signals ...os.Signal) (ctx context.Context, stop context.CancelFunc)
@@ -245,7 +245,7 @@ func main() {
 
 
 
-#### func [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=173)  <- go1.5
+#### func Reset  <- go1.5
 
 ``` go 
 func Reset(sig ...os.Signal)
@@ -253,7 +253,7 @@ func Reset(sig ...os.Signal)
 
 ​	Reset函数将提供的信号的Notify调用效果撤销。如果没有提供信号，则将重置所有信号处理程序。
 
-#### func [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=180)  <- go1.1
+#### func Stop  <- go1.1
 
 ``` go 
 func Stop(c chan<- os.Signal)

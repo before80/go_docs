@@ -8,7 +8,7 @@ draft = false
 +++
 # unsafe
 
-[https://pkg.go.dev/unsafe@go1.20.1](https://pkg.go.dev/unsafe@go1.20.1)
+https://pkg.go.dev/unsafe@go1.20.1
 
 ​	unsafe包包含了绕过Go程序类型安全的操作。
 
@@ -24,7 +24,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Alignof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=217) 
+#### func Alignof 
 
 ``` go 
 func Alignof(x ArbitraryType) uintptr
@@ -32,7 +32,7 @@ func Alignof(x ArbitraryType) uintptr
 
 ​	Alignof函数取任何类型的表达式x，并返回假定变量v通过var v = x声明后的所需对齐方式。它是最大的值m，使得v的地址始终为0 mod m。它与reflect.TypeOf(x).Align()返回的值相同。作为特例，如果变量s是结构体类型，f是该结构体中的字段，则Alignof(s.f)将返回该类型字段在结构体中所需的对齐方式。该情况与reflect.TypeOf(s.f).FieldAlign()返回的值相同。如果参数的类型不具有可变大小，则Alignof函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见Sizeof函数的描述。)
 
-#### func [Offsetof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=204) 
+#### func Offsetof 
 
 ``` go 
 func Offsetof(x ArbitraryType) uintptr
@@ -40,7 +40,7 @@ func Offsetof(x ArbitraryType) uintptr
 
 ​	Offsetof函数返回由x表示的字段在结构体内的偏移量，x必须是structValue.field的形式。换句话说，它返回结构体开始和字段开始之间的字节数。如果参数x的类型不具有可变大小，则Offsetof函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见[Sizeof](https://pkg.go.dev/unsafe@go1.20.1#Sizeof)函数的描述。)
 
-#### func [Sizeof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=196) 
+#### func Sizeof 
 
 ``` go 
 func Sizeof(x ArbitraryType) uintptr
@@ -48,7 +48,7 @@ func Sizeof(x ArbitraryType) uintptr
 
 ​	Sizeof函数取任何类型的表达式x，并返回假定变量v通过var v = x声明后的大小(以字节为单位)。该大小不包括x可能引用的任何内存。例如，如果x是一个切片，则Sizeof函数返回切片描述符的大小，而不是切片引用的内存的大小。对于结构体，大小包括由字段对齐引入的任何填充。如果参数x的类型不具有可变大小，则Sizeof函数的返回值是一个Go常量。(类型具有可变大小，如果它是类型参数，或者它是具有可变大小元素的数组或结构体类型)。
 
-#### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=262)  <- go1.20
+#### func String  <- go1.20
 
 ``` go 
 func String(ptr *byte, len IntegerType) string
@@ -60,7 +60,7 @@ func String(ptr *byte, len IntegerType) string
 
 ​	由于Go字符串是不可变的，因此在调用String函数后不得修改传递的字节。
 
-#### func [StringData](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=269)  <- go1.20
+#### func StringData  <- go1.20
 
 ``` go 
 func StringData(str string) *byte
@@ -77,7 +77,7 @@ Arbitrary `adj.任意的，随心所欲的；专横的，武断的`
 - 英*/*ˈɑːbɪtrəri*/*
 - 美*/*ˈɑːrbɪtreri*/*
 
-### type [ArbitraryType](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=15) 
+### type ArbitraryType 
 
 ``` go 
 type ArbitraryType int
@@ -85,7 +85,7 @@ type ArbitraryType int
 
 ​	ArbitraryType仅用于文档目的，实际上不属于unsafe包。它表示任意Go表达式的类型。
 
-#### func [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=241)  <- go1.17
+#### func Slice  <- go1.17
 
 ``` go 
 func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
@@ -101,7 +101,7 @@ func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
 
 ​	len参数必须是整数类型或无类型常量。常量len参数必须为非负数，并且可以由int类型的值表示；如果它是无类型常量，则给定类型为int。运行时，如果len为负数，或者ptr为nil且len不为零，则会发生运行时恐慌。
 
-#### func [SliceData](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=249)  <- go1.20
+#### func SliceData  <- go1.20
 
 ``` go 
 func SliceData(slice []ArbitraryType) *ArbitraryType
@@ -113,7 +113,7 @@ func SliceData(slice []ArbitraryType) *ArbitraryType
 - 如果slice == nil，SliceData返回nil。 如果slice == nil，则SliceData返回nil。
 - 否则，SliceData返回一个非nil指向未指定内存地址的指针。
 
-### type [IntegerType](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=19)  <- go1.17
+### type IntegerType  <- go1.17
 
 ``` go 
 type IntegerType int
@@ -121,7 +121,7 @@ type IntegerType int
 
 ​	IntegerType仅用于文档目的，实际上不属于unsafe包。它表示任意整数类型。
 
-### type [Pointer](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=184) 
+### type Pointer 
 
 ``` go 
 type Pointer *ArbitraryType
@@ -274,7 +274,7 @@ hdr.Len = n
 s := *(*string)(unsafe.Pointer(&hdr)) // p可能已经丢失
 ```
 
-#### func [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=225)  <- go1.17
+#### func Add  <- go1.17
 
 ``` go 
 func Add(ptr Pointer, len IntegerType) Pointer

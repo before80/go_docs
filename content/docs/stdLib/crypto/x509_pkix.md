@@ -31,7 +31,7 @@ Package pkix contains shared, low level structures used for ASN.1 parsing and se
 
 
 
-## 常量 [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -45,7 +45,7 @@ This section is empty.
 
 ## 类型
 
-### type [AlgorithmIdentifier](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=19) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AlgorithmIdentifier)
+### type AlgorithmIdentifier [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AlgorithmIdentifier)
 
 ```
 type AlgorithmIdentifier struct {
@@ -56,7 +56,7 @@ type AlgorithmIdentifier struct {
 
 AlgorithmIdentifier represents the ASN.1 structure of the same name. See [RFC 5280, section 4.1.1.2](https://rfc-editor.org/rfc/rfc5280.html#section-4.1.1.2).
 
-### type [AttributeTypeAndValue](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=99) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AttributeTypeAndValue)
+### type AttributeTypeAndValue [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AttributeTypeAndValue)
 
 ```
 type AttributeTypeAndValue struct {
@@ -67,7 +67,7 @@ type AttributeTypeAndValue struct {
 
 AttributeTypeAndValue mirrors the ASN.1 structure of the same name in [RFC 5280, Section 4.1.2.4](https://rfc-editor.org/rfc/rfc5280.html#section-4.1.2.4).
 
-### type [AttributeTypeAndValueSET](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=106) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AttributeTypeAndValueSET)added in go1.3
+### type AttributeTypeAndValueSET [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AttributeTypeAndValueSET)added in go1.3
 
 ```
 type AttributeTypeAndValueSET struct {
@@ -80,7 +80,7 @@ AttributeTypeAndValueSET represents a set of ASN.1 sequences of AttributeTypeAnd
 
 <details class="Documentation-deprecatedDetails js-deprecatedDetails" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; display: block; color: var(--color-text-subtle);"><summary style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; list-style: none; opacity: 1;"><h4 tabindex="-1" id="CertificateList" data-kind="type" class="Documentation-typeHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 600; font-stretch: inherit; line-height: 1.25em; font-family: inherit; font-size: 1.125rem; margin: 1.5rem 0px 0.5rem; padding: 0px; vertical-align: baseline; word-break: break-word; align-items: baseline; display: flex; justify-content: space-between;"><span class="Documentation-deprecatedTitle" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; gap: 0.5rem;">type<a class="Documentation-source" href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=288" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none; opacity: 1;">CertificateList</a><span class="Documentation-deprecatedTag" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: 1.375; font-family: inherit; font-size: 0.75rem; margin: 0px; padding: 0.125rem 0.25rem; vertical-align: middle; background-color: var(--color-border); border-radius: 0.125rem; color: var(--color-text-inverted); text-transform: uppercase;">DEPRECATED</span><span class="Documentation-deprecatedBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 0.87rem; margin: 0px 0.5rem 0px 0.25rem; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span></span><span class="Documentation-sinceVersion" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 0.9375rem; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span></h4></summary><div class="go-Message go-Message--warning Documentation-deprecatedItemBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 0.875rem; margin: 0px; padding: 1rem 1rem 0.5rem; vertical-align: baseline; color: var(--gray-1); width: 981.76px; background-color: var(--color-background-warning);"><div class="Documentation-declaration" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: 0px; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: var(--border-radius); color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre; scroll-padding-top: calc(var(--js-sticky-header-height, 3.5rem) + 0.75rem);"><span id="CertificateList.TBSCertList" data-kind="field" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><a href="https://pkg.go.dev/crypto/x509/pkix@go1.20.1#TBSCertificateList" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></span><span id="CertificateList.SignatureAlgorithm" data-kind="field" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><a href="https://pkg.go.dev/crypto/x509/pkix@go1.20.1#AlgorithmIdentifier" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></span><span id="CertificateList.SignatureValue" data-kind="field" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><a href="https://pkg.go.dev/encoding/asn1" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a><a href="https://pkg.go.dev/encoding/asn1#BitString" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></span></pre></div><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"><a href="https://rfc-editor.org/rfc/rfc5280.html#section-5.1" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></p><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p><div class="Documentation-typeMethod" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><h4 tabindex="-1" id="CertificateList.HasExpired" data-kind="method" class="Documentation-typeMethodHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 600; font-stretch: inherit; line-height: 1.25em; font-family: inherit; font-size: 1.125rem; margin: 1.5rem 0px 0.5rem; padding: 0px; vertical-align: baseline; word-break: break-word; align-items: baseline; display: flex; justify-content: space-between;"><span style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline;"><a class="Documentation-source" href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=295" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none; opacity: 1;"></a><a class="Documentation-idLink" href="https://pkg.go.dev/crypto/x509/pkix@go1.20.1#CertificateList.HasExpired" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none; opacity: 0;"></a></span><span class="Documentation-sinceVersion" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 0.9375rem; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span></h4><div class="Documentation-declaration" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline;"><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-size: 0.875rem; margin: 0px; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: var(--border-radius); color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; scroll-padding-top: calc(var(--js-sticky-header-height, 3.5rem) + 0.75rem); word-break: break-all; overflow-wrap: break-word;"><a href="https://pkg.go.dev/crypto/x509/pkix@go1.20.1#CertificateList" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a><a href="https://pkg.go.dev/time" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a><a href="https://pkg.go.dev/time#Time" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a><a href="https://pkg.go.dev/builtin#bool" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none;"></a></pre></div><p style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px; vertical-align: baseline; max-width: 60rem;"></p></div></div></details>
 
-### type [Extension](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=113) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Extension)
+### type Extension [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Extension)
 
 ```
 type Extension struct {
@@ -92,7 +92,7 @@ type Extension struct {
 
 Extension represents the ASN.1 structure of the same name. See [RFC 5280, section 4.2](https://rfc-editor.org/rfc/rfc5280.html#section-4.2).
 
-### type [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=123) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name)
+### type Name [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name)
 
 ```
 type Name struct {
@@ -116,7 +116,7 @@ type Name struct {
 
 Name represents an X.509 distinguished name. This only includes the common elements of a DN. Note that Name is only an approximation of the X.509 structure. If an accurate representation is needed, asn1.Unmarshal the raw subject or issuer as an RDNSequence.
 
-#### (*Name) [FillFromRDNSequence](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=144) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.FillFromRDNSequence)
+#### (*Name) FillFromRDNSequence [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.FillFromRDNSequence)
 
 ```
 func (n *Name) FillFromRDNSequence(rdns *RDNSequence)
@@ -124,7 +124,7 @@ func (n *Name) FillFromRDNSequence(rdns *RDNSequence)
 
 FillFromRDNSequence populates n from the provided RDNSequence. Multi-entry RDNs are flattened, all entries are added to the relevant n fields, and the grouping is not preserved.
 
-#### (Name) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=249) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.String)added in go1.10
+#### (Name) String [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.String)added in go1.10
 
 ```
 func (n Name) String() string
@@ -132,7 +132,7 @@ func (n Name) String() string
 
 String returns the string form of n, roughly following the [RFC 2253](https://rfc-editor.org/rfc/rfc2253.html) Distinguished Names syntax.
 
-#### (Name) [ToRDNSequence](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=226) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.ToRDNSequence)
+#### (Name) ToRDNSequence [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#Name.ToRDNSequence)
 
 ```
 func (n Name) ToRDNSequence() (ret RDNSequence)
@@ -150,13 +150,13 @@ ToRDNSequence converts n into a single RDNSequence. The following attributes are
 
 Each ExtraNames entry is encoded as an individual RDN.
 
-### type [RDNSequence](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=24) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RDNSequence)
+### type RDNSequence [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RDNSequence)
 
 ```
 type RDNSequence []RelativeDistinguishedNameSET
 ```
 
-#### (RDNSequence) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=40) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RDNSequence.String)added in go1.10
+#### (RDNSequence) String [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RDNSequence.String)added in go1.10
 
 ```
 func (r RDNSequence) String() string
@@ -164,13 +164,13 @@ func (r RDNSequence) String() string
 
 String returns a string representation of the sequence r, roughly following the [RFC 2253](https://rfc-editor.org/rfc/rfc2253.html) Distinguished Names syntax.
 
-### type [RelativeDistinguishedNameSET](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=95) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RelativeDistinguishedNameSET)
+### type RelativeDistinguishedNameSET [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RelativeDistinguishedNameSET)
 
 ```
 type RelativeDistinguishedNameSET []AttributeTypeAndValue
 ```
 
-### type [RevokedCertificate](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/x509/pkix/pkix.go;l=316) [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RevokedCertificate)
+### type RevokedCertificate [¶](https://pkg.go.dev/crypto/x509/pkix@go1.20.1#RevokedCertificate)
 
 ```
 type RevokedCertificate struct {

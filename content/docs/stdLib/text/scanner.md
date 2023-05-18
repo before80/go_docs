@@ -99,7 +99,7 @@ This section is empty.
 
 ## 函数
 
-#### func [TokenString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=102) 
+#### func TokenString 
 
 ``` go 
 func TokenString(tok rune) string
@@ -109,7 +109,7 @@ TokenString returns a printable string for a token or Unicode character.
 
 ## 类型
 
-### type [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=28) 
+### type Position 
 
 ``` go 
 type Position struct {
@@ -122,7 +122,7 @@ type Position struct {
 
 Position is a value that represents a source position. A position is valid if Line > 0.
 
-#### (*Position) [IsValid](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=36) 
+#### (*Position) IsValid 
 
 ``` go 
 func (pos *Position) IsValid() bool
@@ -130,13 +130,13 @@ func (pos *Position) IsValid() bool
 
 IsValid reports whether the position is valid.
 
-#### (Position) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=38) 
+#### (Position) String 
 
 ``` go 
 func (pos Position) String() string
 ```
 
-### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=116) 
+### type Scanner 
 
 ``` go 
 type Scanner struct {
@@ -180,7 +180,7 @@ type Scanner struct {
 
 A Scanner implements reading of Unicode characters and tokens from an io.Reader.
 
-#### (*Scanner) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=181) 
+#### (*Scanner) Init 
 
 ``` go 
 func (s *Scanner) Init(src io.Reader) *Scanner
@@ -188,7 +188,7 @@ func (s *Scanner) Init(src io.Reader) *Scanner
 
 Init initializes a Scanner with a new source and returns s. Error is set to nil, ErrorCount is set to 0, Mode is set to GoTokens, and Whitespace is set to GoWhitespace.
 
-#### (*Scanner) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=304) 
+#### (*Scanner) Next 
 
 ``` go 
 func (s *Scanner) Next() rune
@@ -196,7 +196,7 @@ func (s *Scanner) Next() rune
 
 Next reads and returns the next Unicode character. It returns EOF at the end of the source. It reports a read error by calling s.Error, if not nil; otherwise it prints an error message to os.Stderr. Next does not update the Scanner's Position field; use Pos() to get the current position.
 
-#### (*Scanner) [Peek](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=317) 
+#### (*Scanner) Peek 
 
 ``` go 
 func (s *Scanner) Peek() rune
@@ -204,7 +204,7 @@ func (s *Scanner) Peek() rune
 
 Peek returns the next Unicode character in the source without advancing the scanner. It returns EOF if the scanner's position is at the last character of the source.
 
-#### (*Scanner) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=748) 
+#### (*Scanner) Pos 
 
 ``` go 
 func (s *Scanner) Pos() (pos Position)
@@ -212,7 +212,7 @@ func (s *Scanner) Pos() (pos Position)
 
 Pos returns the position of the character immediately after the character or token returned by the last call to Next or Scan. Use the Scanner's Position field for the start position of the most recently scanned token.
 
-#### (*Scanner) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=646) 
+#### (*Scanner) Scan 
 
 ``` go 
 func (s *Scanner) Scan() rune
@@ -220,7 +220,7 @@ func (s *Scanner) Scan() rune
 
 Scan reads the next token or Unicode character from source and returns it. It only recognizes tokens t for which the respective Mode bit (1<<-t) is set. It returns EOF at the end of the source. It reports scanner errors (read and token errors) by calling s.Error, if not nil; otherwise it prints an error message to os.Stderr.
 
-#### (*Scanner) [TokenText](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=770) 
+#### (*Scanner) TokenText 
 
 ``` go 
 func (s *Scanner) TokenText() string

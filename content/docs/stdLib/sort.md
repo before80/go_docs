@@ -8,7 +8,7 @@ draft = false
 +++
 # sort
 
-[https://pkg.go.dev/sort@go1.20.1](https://pkg.go.dev/sort@go1.20.1)
+https://pkg.go.dev/sort@go1.20.1
 
 ​	sort包提供了对切片和用户定义集合进行排序的基本功能。
 
@@ -394,7 +394,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Find](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=99)  <- go1.19
+#### func Find  <- go1.19
 
 ``` go 
 func Find(n int, cmp func(int) int) (i int, found bool)
@@ -417,7 +417,7 @@ if found {
 }
 ```
 
-#### func [Float64s](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=161) 
+#### func Float64s 
 
 ``` go 
 func Float64s(x []float64)
@@ -451,7 +451,7 @@ Output:
 [NaN -Inf 0 +Inf]
 ```
 
-#### func [Float64sAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=171) 
+#### func Float64sAreSorted 
 
 ``` go 
 func Float64sAreSorted(x []float64) bool
@@ -486,7 +486,7 @@ false
 false
 ```
 
-#### func [Ints](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=157) 
+#### func Ints 
 
 ``` go 
 func Ints(x []int)
@@ -513,7 +513,7 @@ Output:
 [1 2 3 4 5 6]
 ```
 
-#### func [IntsAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=167) 
+#### func IntsAreSorted 
 
 ``` go 
 func IntsAreSorted(x []int) bool
@@ -548,7 +548,7 @@ false
 false
 ```
 
-#### func [IsSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=99) 
+#### func IsSorted 
 
 ``` go 
 func IsSorted(data Interface) bool
@@ -556,7 +556,7 @@ func IsSorted(data Interface) bool
 
 ​	IsSorted函数判断 data 是否已经排好序。
 
-#### func [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=58) 
+#### func Search 
 
 ``` go 
 func Search(n int, f func(int) bool) int
@@ -653,7 +653,7 @@ Output:
 found 6 at index 7 in [55 45 36 28 21 15 10 6 3 1]
 ```
 
-#### func [SearchFloat64s](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=131) 
+#### func SearchFloat64s 
 
 ``` go 
 func SearchFloat64s(a []float64, x float64) int
@@ -697,7 +697,7 @@ found 2 at index 1 in [1 2 3.3 4.6 6.1 7.2 8]
 
 > `%g` 格式化占位符用于格式化浮点数，可以自动选择使用 %e 或 %f 进行格式化，具体是使用哪一种方式取决于数值的大小和精度。如果数值很大或者很小，将使用 %e 进行格式化，否则将使用 %f 进行格式化。例如，对于 12345.6789，使用 `%g` 进行格式化的结果可能是 `1.23456789e+04`。
 
-#### func [SearchInts](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=123) 
+#### func SearchInts 
 
 ``` go 
 func SearchInts(a []int, x int) int
@@ -736,7 +736,7 @@ found 2 at index 1 in [1 2 3 4 6 7 8]
 5 not found, can be inserted at index 4 in [1 2 3 4 6 7 8]
 ```
 
-#### func [SearchStrings](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=139) 
+#### func SearchStrings 
 
 ``` go 
 func SearchStrings(a []string, x string) int
@@ -744,7 +744,7 @@ func SearchStrings(a []string, x string) int
 
 ​	SearchStrings函数在已排序的字符串切片中搜索x并返回其下标，如Search所定义的那样。如果x不存在，则返回插入x的下标(可能是len(a))。切片必须按升序排序。
 
-#### func [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=21)  <- go1.8
+#### func Slice  <- go1.8
 
 ``` go 
 func Slice(x any, less func(i, j int) bool)
@@ -787,7 +787,7 @@ By name: [{Alice 55} {Bob 75} {Gopher 7} {Vera 24}]
 By age: [{Gopher 7} {Vera 24} {Alice 55} {Bob 75}]
 ```
 
-#### func [SliceIsSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=43)  <- go1.8
+#### func SliceIsSorted  <- go1.8
 
 ``` go 
 func SliceIsSorted(x any, less func(i, j int) bool) bool
@@ -795,7 +795,7 @@ func SliceIsSorted(x any, less func(i, j int) bool) bool
 
 ​	SliceIsSorted函数报告切片x是否按照提供的less函数排序。如果x不是切片，则会引发panic。
 
-#### func [SliceStable](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=35)  <- go1.8
+#### func SliceStable  <- go1.8
 
 ``` go 
 func SliceStable(x any, less func(i, j int) bool)
@@ -845,7 +845,7 @@ By name: [{Alice 25} {Alice 75} {Alice 75} {Bob 75} {Bob 25} {Colin 25} {Elizabe
 By age,name: [{Alice 25} {Bob 25} {Colin 25} {Elizabeth 25} {Alice 75} {Alice 75} {Bob 75} {Elizabeth 75}]
 ```
 
-#### func [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=42) 
+#### func Sort 
 
 ``` go 
 func Sort(data Interface)
@@ -853,7 +853,7 @@ func Sort(data Interface)
 
 ​	Sort函数按照Less方法的规定，以升序对数据进行排序。它对data.Len进行一次调用以确定n，对data.Less和data.Swap进行`O(n*log(n))`次调用。排序不保证是稳定的。
 
-#### func [Stable](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=207)  <- go1.2
+#### func Stable  <- go1.2
 
 ``` go 
 func Stable(data Interface)
@@ -863,7 +863,7 @@ func Stable(data Interface)
 
 ​	它对 data.Len 进行一次调用来确定 n，对 data.Less 进行 `O(n*log(n))` 次调用，对 data.Swap 进行 `O(n*log(n)*log(n))` 次调用。
 
-#### func [Strings](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=164) 
+#### func Strings 
 
 ``` go 
 func Strings(x []string)
@@ -890,7 +890,7 @@ Output:
 [Alpha Bravo Delta Go Gopher Grin]
 ```
 
-#### func [StringsAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=174) 
+#### func StringsAreSorted 
 
 ``` go 
 func StringsAreSorted(x []string) bool
@@ -900,7 +900,7 @@ func StringsAreSorted(x []string) bool
 
 ## 类型
 
-### type [Float64Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=123) 
+### type Float64Slice 
 
 ``` go 
 type Float64Slice []float64
@@ -908,7 +908,7 @@ type Float64Slice []float64
 
 ​	 Float64Slice 类型实现了 Interface 接口，适用于 []float64，按升序排列，其中 Not-a-Number(NaN)值排在其他值之前。
 
-#### (Float64Slice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=125) 
+#### (Float64Slice) Len 
 
 ``` go 
 func (x Float64Slice) Len() int
@@ -916,7 +916,7 @@ func (x Float64Slice) Len() int
 
 ​	Len方法返回切片长度。
 
-#### (Float64Slice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=133) 
+#### (Float64Slice) Less 
 
 ``` go 
 func (x Float64Slice) Less(i, j int) bool
@@ -928,7 +928,7 @@ func (x Float64Slice) Less(i, j int) bool
 x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
 ```
 
-#### (Float64Slice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=147) 
+#### (Float64Slice) Search 
 
 ``` go 
 func (p Float64Slice) Search(x float64) int
@@ -989,7 +989,7 @@ Output:
 
 
 
-#### (Float64Slice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=142) 
+#### (Float64Slice) Sort 
 
 ``` go 
 func (x Float64Slice) Sort()
@@ -1022,7 +1022,7 @@ After sorting: [0.1 2.2 5.5 8.8 9.9]
 
 
 
-#### (Float64Slice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=134) 
+#### (Float64Slice) Swap 
 
 ``` go 
 func (x Float64Slice) Swap(i, j int)
@@ -1064,7 +1064,7 @@ After swapping: [2.4 3.6 1.2 0.8]
 
 
 
-### type [IntSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=112) 
+### type IntSlice 
 
 ``` go 
 type IntSlice []int
@@ -1072,19 +1072,19 @@ type IntSlice []int
 
  	IntSlice类型将 `Interface 的方法`附加到 []int，按升序排列。
 
-#### (IntSlice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=114) 
+#### (IntSlice) Len 
 
 ``` go 
 func (x IntSlice) Len() int
 ```
 
-#### (IntSlice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=115) 
+#### (IntSlice) Less 
 
 ``` go 
 func (x IntSlice) Less(i, j int) bool
 ```
 
-#### (IntSlice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=144) 
+#### (IntSlice) Search 
 
 ``` go 
 func (p IntSlice) Search(x int) int
@@ -1096,7 +1096,7 @@ Search returns the result of applying SearchInts to the receiver and x.
 
 ​	Search方法用于在已排序的int切片p中查找元素x，并返回x的索引值，如果x不存在，则返回x应该插入的位置(即第一个大于x的元素的索引)，p必须是按升序排序的。
 
-#### (IntSlice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=119) 
+#### (IntSlice) Sort 
 
 ``` go 
 func (x IntSlice) Sort()
@@ -1106,7 +1106,7 @@ func (x IntSlice) Sort()
 
 ​	Sort方法是IntSlice的方法，用于按升序对切片进行排序，使用方法为x.Sort()。
 
-#### (IntSlice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=116) 
+#### (IntSlice) Swap 
 
 ``` go 
 func (x IntSlice) Swap(i, j int)
@@ -1114,7 +1114,7 @@ func (x IntSlice) Swap(i, j int)
 
 ​	Swap方法是IntSlice的方法，用于交换切片x中索引为i和j的两个元素。
 
-### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=14) 
+### type Interface 
 
 ``` go 
 type Interface interface {
@@ -1149,7 +1149,7 @@ type Interface interface {
 
 > 注意，Less方法需要满足传递性条件：如果Less(i, j)和Less(j, k)都为真，则Less(i, k)也为真。如果Less(i, j)和Less(j, k)都为假，则Less(i, k)也为假。此外，当涉及到NaN值时，浮点数比较(即float32或float64值上的<运算符)不是传递性关系。对于浮点数值，需要使用正确的实现，例如Float64Slice.Less方法。
 
-#### func [Reverse](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=94)  <- go1.1
+#### func Reverse  <- go1.1
 
 ``` go 
 func Reverse(data Interface) Interface
@@ -1176,7 +1176,7 @@ Output:
 [6 5 4 3 2 1]
 ```
 
-### type [StringSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=145) 
+### type StringSlice 
 
 ``` go 
 type StringSlice []string
@@ -1184,7 +1184,7 @@ type StringSlice []string
 
 ​	StringSlice类型将`Interface的方法`附加到[]string上，按升序排序。
 
-#### (StringSlice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=147) 
+#### (StringSlice) Len 
 
 ``` go 
 func (x StringSlice) Len() int
@@ -1192,7 +1192,7 @@ func (x StringSlice) Len() int
 
 ​	Len方法返回StringSlice的元素数量。
 
-#### (StringSlice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=148) 
+#### (StringSlice) Less 
 
 ``` go 
 func (x StringSlice) Less(i, j int) bool
@@ -1200,7 +1200,7 @@ func (x StringSlice) Less(i, j int) bool
 
 ​	Less方法根据升序规则报告x[i]是否应在x[j]之前排序。
 
-#### (StringSlice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=150) 
+#### (StringSlice) Search 
 
 ``` go 
 func (p StringSlice) Search(x string) int
@@ -1208,7 +1208,7 @@ func (p StringSlice) Search(x string) int
 
 ​	Search方法返回将SearchStrings应用于接收器和x的结果。
 
-#### (StringSlice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=152) 
+#### (StringSlice) Sort 
 
 ``` go 
 func (x StringSlice) Sort()
@@ -1216,7 +1216,7 @@ func (x StringSlice) Sort()
 
 ​	Sort方法是一个便捷方法：x.Sort() 调用Sort(x)函数。
 
-#### (StringSlice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=149) 
+#### (StringSlice) Swap 
 
 ``` go 
 func (x StringSlice) Swap(i, j int)

@@ -8,7 +8,7 @@ draft = false
 +++
 # bytes
 
-[https://pkg.go.dev/bytes@go1.20.1](https://pkg.go.dev/bytes@go1.20.1)
+https://pkg.go.dev/bytes@go1.20.1
 
 ​	bytes包实现了操作字节切片的功能。它类似于strings包的功能。
 
@@ -34,7 +34,7 @@ var ErrTooLarge = errors.New("bytes.Buffer: too large")
 
 ## 函数 
 
-#### func [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1350)  <- go1.20
+#### func Clone  <- go1.20
 
 ``` go 
 func Clone(b []byte) []byte
@@ -42,7 +42,7 @@ func Clone(b []byte) []byte
 
 ​	Clone函数返回b[:len(b)]的副本。其结果可能有额外的未使用的容量。	Clone(nil)返回nil。
 
-#### func [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=26) 
+#### func Compare 
 
 ``` go 
 func Compare(a, b []byte) int
@@ -109,7 +109,7 @@ func main() {
 
 ```
 
-#### func [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=75) 
+#### func Contains 
 
 ``` go 
 func Contains(b, subslice []byte) bool
@@ -140,7 +140,7 @@ true
 true
 ```
 
-#### func [ContainsAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=80)  <- go1.7
+#### func ContainsAny  <- go1.7
 
 ``` go 
 func ContainsAny(b []byte, chars string) bool
@@ -171,7 +171,7 @@ false
 false
 ```
 
-#### func [ContainsRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=85)  <- go1.7
+#### func ContainsRune  <- go1.7
 
 ``` go 
 func ContainsRune(b []byte, r rune) bool
@@ -204,7 +204,7 @@ true
 false
 ```
 
-#### func [Count](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=55) 
+#### func Count 
 
 ``` go 
 func Count(s, sep []byte) int
@@ -231,7 +231,7 @@ Output:
 5
 ```
 
-#### func [Cut](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1340)  <- go1.18
+#### func Cut  <- go1.18
 
 ``` go 
 func Cut(s, sep []byte) (before, after []byte, found bool)
@@ -268,7 +268,7 @@ Cut("Gopher", "er") = "Goph", "", true
 Cut("Gopher", "Badger") = "Gopher", "", false
 ```
 
-#### func [CutPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1363)  <- go1.20
+#### func CutPrefix  <- go1.20
 
 ``` go 
 func CutPrefix(s, prefix []byte) (after []byte, found bool)
@@ -289,7 +289,7 @@ after, found := bytes.CutPrefix(s, prefix)
 
 
 
-#### func [CutSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1376)  <- go1.20
+#### func CutSuffix  <- go1.20
 
 ``` go 
 func CutSuffix(s, suffix []byte) (before []byte, found bool)
@@ -312,7 +312,7 @@ before, found := bytes.CutSuffix(s, suffix)
 
 
 
-#### func [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=18) 
+#### func Equal 
 
 ``` go 
 func Equal(a, b []byte) bool
@@ -339,7 +339,7 @@ true
 false
 ```
 
-#### func [EqualFold](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1163) 
+#### func EqualFold 
 
 ``` go 
 func EqualFold(s, t []byte) bool
@@ -364,7 +364,7 @@ Output:
 true
 ```
 
-#### func [Fields](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=417) 
+#### func Fields 
 
 ``` go 
 func Fields(s []byte) [][]byte
@@ -392,7 +392,7 @@ Fields are: ["foo" "bar" "baz"]
 Fields are: [][]uint8{[]uint8{0x66, 0x6f, 0x6f}, []uint8{0x62, 0x61, 0x72}, []uint8{0x62, 0x61, 0x7a}}
 ```
 
-#### func [FieldsFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=474) 
+#### func FieldsFunc 
 
 ``` go 
 func FieldsFunc(s []byte, f func(rune) bool) [][]byte
@@ -438,7 +438,7 @@ Fields are: ["foo1" "bar2" "baz3"]
 ["a " " c"]
 ```
 
-#### func [HasPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=546) 
+#### func HasPrefix 
 
 ``` go 
 func HasPrefix(s, prefix []byte) bool
@@ -467,7 +467,7 @@ false
 true
 ```
 
-#### func [HasSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=551) 
+#### func HasSuffix 
 
 ``` go 
 func HasSuffix(s, suffix []byte) bool
@@ -498,7 +498,7 @@ false
 true
 ```
 
-#### func [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1247) 
+#### func Index 
 
 ``` go 
 func Index(s, sep []byte) int
@@ -525,7 +525,7 @@ Output:
 -1
 ```
 
-#### func [IndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=181) 
+#### func IndexAny 
 
 ``` go 
 func IndexAny(s []byte, chars string) int
@@ -552,7 +552,7 @@ Output:
 -1
 ```
 
-#### func [IndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=90) 
+#### func IndexByte 
 
 ``` go 
 func IndexByte(b []byte, c byte) int
@@ -579,7 +579,7 @@ Output:
 -1
 ```
 
-#### func [IndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=841) 
+#### func IndexFunc 
 
 ``` go 
 func IndexFunc(s []byte, f func(r rune) bool) int
@@ -610,7 +610,7 @@ Output:
 -1
 ```
 
-#### func [IndexRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=155) 
+#### func IndexRune 
 
 ``` go 
 func IndexRune(s []byte, r rune) int
@@ -637,7 +637,7 @@ Output:
 -1
 ```
 
-#### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=523) 
+#### func Join 
 
 ``` go 
 func Join(s [][]byte, sep []byte) []byte
@@ -667,7 +667,7 @@ Output:
 foo, bar, baz
 ```
 
-#### func [LastIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=104) 
+#### func LastIndex 
 
 ``` go 
 func LastIndex(s, sep []byte) int
@@ -696,7 +696,7 @@ Output:
 -1
 ```
 
-#### func [LastIndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=259) 
+#### func LastIndexAny 
 
 ``` go 
 func LastIndexAny(s []byte, chars string) int
@@ -725,7 +725,7 @@ Output:
 -1
 ```
 
-#### func [LastIndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=141)  <- go1.5
+#### func LastIndexByte  <- go1.5
 
 ``` go 
 func LastIndexByte(s []byte, c byte) int
@@ -754,7 +754,7 @@ Output:
 -1
 ```
 
-#### func [LastIndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=848) 
+#### func LastIndexFunc 
 
 ``` go 
 func LastIndexFunc(s []byte, f func(r rune) bool) int
@@ -784,7 +784,7 @@ Output:
 -1
 ```
 
-#### func [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=559) 
+#### func Map 
 
 ``` go 
 func Map(mapping func(r rune) rune, s []byte) []byte
@@ -820,7 +820,7 @@ Hell0, W0rld!
 
 
 
-#### func [Repeat](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=583) 
+#### func Repeat 
 
 ``` go 
 func Repeat(b []byte, count int) []byte
@@ -847,7 +847,7 @@ Output:
 banana
 ```
 
-#### func [Replace](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1115) 
+#### func Replace 
 
 ``` go 
 func Replace(s, old, new []byte, n int) []byte
@@ -876,7 +876,7 @@ oinky oinky oink
 moo moo moo
 ```
 
-#### func [ReplaceAll](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1156)  <- go1.12
+#### func ReplaceAll  <- go1.12
 
 ``` go 
 func ReplaceAll(s, old, new []byte) []byte
@@ -903,7 +903,7 @@ moo moo moo
 -123-L-123-O-123-V-123-E-123-
 ```
 
-#### func [Runes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1097) 
+#### func Runes 
 
 ``` go 
 func Runes(s []byte) []rune
@@ -942,7 +942,7 @@ U+0065 'e'
 U+0072 'r'
 ```
 
-#### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=401) 
+#### func Split 
 
 ``` go 
 func Split(s, sep []byte) [][]byte
@@ -975,7 +975,7 @@ Output:
 [""]
 ```
 
-#### func [SplitAfter](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=407) 
+#### func SplitAfter 
 
 ``` go 
 func SplitAfter(s, sep []byte) [][]byte
@@ -1000,7 +1000,7 @@ Output:
 ["a," "b," "c"]
 ```
 
-#### func [SplitAfterN](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=391) 
+#### func SplitAfterN 
 
 ``` go 
 func SplitAfterN(s, sep []byte, n int) [][]byte
@@ -1034,7 +1034,7 @@ Output:
 ["a," "b,c"]
 ```
 
-#### func [SplitN](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=381) 
+#### func SplitN 
 
 ``` go 
 func SplitN(s, sep []byte, n int) [][]byte
@@ -1074,7 +1074,7 @@ Output:
 
 
 
-#### func [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=666) 
+#### func ToLower 
 
 ``` go 
 func ToLower(s []byte) []byte
@@ -1099,7 +1099,7 @@ Output:
 gopher
 ```
 
-#### func [ToLowerSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=705) 
+#### func ToLowerSpecial 
 
 ``` go 
 func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1129,7 +1129,7 @@ Original : AHOJ VÝVOJÁRİ GOLANG
 ToLower : ahoj vývojári golang
 ```
 
-#### func [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=695) 
+#### func ToTitle 
 
 ``` go 
 func ToTitle(s []byte) []byte
@@ -1156,7 +1156,7 @@ LOUD NOISES
 ХЛЕБ
 ```
 
-#### func [ToTitleSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=711) 
+#### func ToTitleSpecial 
 
 ``` go 
 func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1186,7 +1186,7 @@ Original : ahoj vývojári golang
 ToTitle : AHOJ VÝVOJÁRİ GOLANG
 ```
 
-#### func [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=635) 
+#### func ToUpper 
 
 ``` go 
 func ToUpper(s []byte) []byte
@@ -1219,7 +1219,7 @@ Output:
 GOPHER
 ```
 
-#### func [ToUpperSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=699) 
+#### func ToUpperSpecial 
 
 ``` go 
 func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1249,7 +1249,7 @@ Original : ahoj vývojári golang
 ToUpper : AHOJ VÝVOJÁRİ GOLANG
 ```
 
-#### func [ToValidUTF8](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=717)  <- go1.13
+#### func ToValidUTF8  <- go1.13
 
 ``` go 
 func ToValidUTF8(s, replacement []byte) []byte
@@ -1257,7 +1257,7 @@ func ToValidUTF8(s, replacement []byte) []byte
 
 ​	ToValidUTF8 函数将 s 视为 UTF-8 编码的字节并返回一份副本，其中每个表示无效 UTF-8 的字节序列被替换为 replacement 中的字节，replacement 可以为空。
 
-#### func [Trim](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=930) 
+#### func Trim 
 
 ``` go 
 func Trim(s []byte, cutset string) []byte
@@ -1282,7 +1282,7 @@ Output:
 ["Achtung! Achtung"]
 ```
 
-#### func [TrimFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=816) 
+#### func TrimFunc 
 
 ``` go 
 func TrimFunc(s []byte, f func(r rune) bool) []byte
@@ -1314,7 +1314,7 @@ go-gopher
 go-gopher!
 ```
 
-#### func [TrimLeft](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=949) 
+#### func TrimLeft 
 
 ``` go 
 func TrimLeft(s []byte, cutset string) []byte
@@ -1339,7 +1339,7 @@ Output:
 gopher8257
 ```
 
-#### func [TrimLeftFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=793) 
+#### func TrimLeftFunc 
 
 ``` go 
 func TrimLeftFunc(s []byte, f func(r rune) bool) []byte
@@ -1369,7 +1369,7 @@ go-gopher!
 go-gopher!567
 ```
 
-#### func [TrimPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=822)  <- go1.1
+#### func TrimPrefix  <- go1.1
 
 ``` go 
 func TrimPrefix(s, prefix []byte) []byte
@@ -1397,7 +1397,7 @@ Output:
 Hello, world!
 ```
 
-#### func [TrimRight](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1011) 
+#### func TrimRight 
 
 ``` go 
 func TrimRight(s []byte, cutset string) []byte
@@ -1422,7 +1422,7 @@ Output:
 453gopher
 ```
 
-#### func [TrimRightFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=803) 
+#### func TrimRightFunc 
 
 ``` go 
 func TrimRightFunc(s []byte, f func(r rune) bool) []byte
@@ -1452,7 +1452,7 @@ go-gopher
 1234go-gopher!
 ```
 
-#### func [TrimSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1057) 
+#### func TrimSpace 
 
 ``` go 
 func TrimSpace(s []byte) []byte
@@ -1477,7 +1477,7 @@ Output:
 a lone gopher
 ```
 
-#### func [TrimSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=831)  <- go1.1
+#### func TrimSuffix  <- go1.1
 
 ``` go 
 func TrimSuffix(s, suffix []byte) []byte
@@ -1508,7 +1508,7 @@ Hello, world
 
 ## 类型 
 
-### type [Buffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=20) 
+### type Buffer 
 
 ``` go 
 type Buffer struct {
@@ -1569,7 +1569,7 @@ Output:
 Gophers rule!
 ```
 
-#### func [NewBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=463) 
+#### func NewBuffer 
 
 ``` go 
 func NewBuffer(buf []byte) *Buffer
@@ -1579,7 +1579,7 @@ func NewBuffer(buf []byte) *Buffer
 
 ​	在大多数情况下，new(Buffer)(或仅声明一个Buffer变量)足以初始化一个Buffer。
 
-#### func [NewBufferString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=471) 
+#### func NewBufferString 
 
 ``` go 
 func NewBufferString(s string) *Buffer
@@ -1589,7 +1589,7 @@ func NewBufferString(s string) *Buffer
 
 ​	在大多数情况下，new(Buffer)(或仅声明一个Buffer变量)足以初始化一个Buffer。
 
-#### (*Buffer) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=54) 
+#### (*Buffer) Bytes 
 
 ``` go 
 func (b *Buffer) Bytes() []byte
@@ -1616,7 +1616,7 @@ Output:
 hello world
 ```
 
-#### (*Buffer) [Cap](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=77)  <- go1.5
+#### (*Buffer) Cap  <- go1.5
 
 ``` go 
 func (b *Buffer) Cap() int
@@ -1645,7 +1645,7 @@ Output:
 10
 ```
 
-#### (*Buffer) [Grow](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=155)  <- go1.1
+#### (*Buffer) Grow  <- go1.1
 
 ``` go 
 func (b *Buffer) Grow(n int)
@@ -1674,7 +1674,7 @@ Output:
 "64 bytes or fewer"
 ```
 
-#### (*Buffer) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=73) 
+#### (*Buffer) Len 
 
 ``` go 
 func (b *Buffer) Len() int
@@ -1702,7 +1702,7 @@ Output:
 5
 ```
 
-#### (*Buffer) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=331) 
+#### (*Buffer) Next 
 
 ``` go 
 func (b *Buffer) Next(n int) []byte
@@ -1734,7 +1734,7 @@ cd
 e
 ```
 
-#### (*Buffer) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=309) 
+#### (*Buffer) Read 
 
 ``` go 
 func (b *Buffer) Read(p []byte) (n int, err error)
@@ -1771,7 +1771,7 @@ func main() {
 
 ```
 
-#### (*Buffer) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=347) 
+#### (*Buffer) ReadByte 
 
 ``` go 
 func (b *Buffer) ReadByte() (byte, error)
@@ -1805,7 +1805,7 @@ func main() {
 
 ```
 
-#### (*Buffer) [ReadBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=421) 
+#### (*Buffer) ReadBytes 
 
 ``` go 
 func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
@@ -1813,7 +1813,7 @@ func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 
 ​	ReadBytes方法从输入中读取，直到遇到第一个分隔符 delim，返回包含数据和分隔符的切片。如果在找到分隔符之前遇到错误，则返回在错误之前读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以 delim 结尾，则 ReadBytes 返回 err != nil。
 
-#### (*Buffer) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=197) 
+#### (*Buffer) ReadFrom 
 
 ``` go 
 func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
@@ -1821,7 +1821,7 @@ func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 
 ​	ReadFrom方法从 `r` 中读取数据，直到遇到 EOF，然后将其附加到缓冲区中，`并根据需要增加缓冲区的大小`。返回值 n 是读取的字节数。读取期间遇到的除 io.EOF 以外的任何错误也将被返回。如果缓冲区变得太大，ReadFrom 方法将使用 ErrTooLarge 引发 panic。
 
-#### (*Buffer) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=364) 
+#### (*Buffer) ReadRune 
 
 ``` go 
 func (b *Buffer) ReadRune() (r rune, size int, err error)
@@ -1829,7 +1829,7 @@ func (b *Buffer) ReadRune() (r rune, size int, err error)
 
 ​	ReadRune方法从缓冲区读取并返回下一个 UTF-8 编码的 Unicode 码点。如果没有字节可用，则返回的错误是 io.EOF。如果字节是错误的 UTF-8 编码，则它会消耗一个字节并返回 U+FFFD，1。
 
-#### (*Buffer) [ReadString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=449) 
+#### (*Buffer) ReadString 
 
 ``` go 
 func (b *Buffer) ReadString(delim byte) (line string, err error)
@@ -1837,7 +1837,7 @@ func (b *Buffer) ReadString(delim byte) (line string, err error)
 
 ​	ReadString方法从输入中读取，直到遇到第一个分隔符 delim，返回包含数据和分隔符的字符串。如果在找到分隔符之前遇到错误，则返回在错误之前读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以 delim 结尾，则 ReadString 返回 err != nil。
 
-#### (*Buffer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=97) 
+#### (*Buffer) Reset 
 
 ``` go 
 func (b *Buffer) Reset()
@@ -1845,7 +1845,7 @@ func (b *Buffer) Reset()
 
 ​	Reset方法将缓冲区重置为空，但保留底层存储空间供未来写入使用。Reset方法相当于Truncate(0)。
 
-#### (*Buffer) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=60) 
+#### (*Buffer) String 
 
 ``` go 
 func (b *Buffer) String() string
@@ -1855,7 +1855,7 @@ func (b *Buffer) String() string
 
 ​	为了更有效地构建字符串，可以使用strings.Builder类型。
 
-#### (*Buffer) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=82) 
+#### (*Buffer) Truncate 
 
 ``` go 
 func (b *Buffer) Truncate(n int)
@@ -1863,7 +1863,7 @@ func (b *Buffer) Truncate(n int)
 
 ​	Truncate方法将缓冲区保留未读的前n个字节，但继续使用相同的分配存储空间。如果n为负数或大于缓冲区的长度，则会引发panic。
 
-#### (*Buffer) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=404) 
+#### (*Buffer) UnreadByte 
 
 ``` go 
 func (b *Buffer) UnreadByte() error
@@ -1871,7 +1871,7 @@ func (b *Buffer) UnreadByte() error
 
 ​	UnreadByte方法撤消最近一次成功读取至少一个字节的读操作返回的最后一个字节。如果自上次读取以来已经发生写入，或者上次读取返回错误，或者读取了零个字节，则UnreadByte会返回错误。
 
-#### (*Buffer) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=387) 
+#### (*Buffer) UnreadRune 
 
 ``` go 
 func (b *Buffer) UnreadRune() error
@@ -1879,7 +1879,7 @@ func (b *Buffer) UnreadRune() error
 
 ​	UnreadRune方法撤消ReadRune方法返回的最后一个符文。如果缓冲区上最近一次读取或写入操作不是成功的ReadRune，则UnreadRune会返回错误。(在这方面，它比UnreadByte更严格，后者会从任何读操作中撤消最后一个字节。)
 
-#### (*Buffer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=166) 
+#### (*Buffer) Write 
 
 ``` go 
 func (b *Buffer) Write(p []byte) (n int, err error)
@@ -1887,7 +1887,7 @@ func (b *Buffer) Write(p []byte) (n int, err error)
 
 ​	Write方法将`p`的内容附加到缓冲区，必要时扩展缓冲区。返回值`n`是p的长度；err始终为nil。如果缓冲区变得太大，Write方法会发生ErrTooLarge的panic。
 
-#### (*Buffer) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=276) 
+#### (*Buffer) WriteByte 
 
 ``` go 
 func (b *Buffer) WriteByte(c byte) error
@@ -1895,7 +1895,7 @@ func (b *Buffer) WriteByte(c byte) error
 
 ​	WriteByte方法将字节`c`附加到缓冲区，必要时扩展缓冲区。返回的错误始终为nil，但包含在其中是为了与bufio.Writer的WriteByte方法匹配。如果缓冲区变得太大，WriteByte方法会发生ErrTooLarge的panic。
 
-#### (*Buffer) [WriteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=290) 
+#### (*Buffer) WriteRune 
 
 ``` go 
 func (b *Buffer) WriteRune(r rune) (n int, err error)
@@ -1903,7 +1903,7 @@ func (b *Buffer) WriteRune(r rune) (n int, err error)
 
 ​	WriteRune方法将Unicode码点`r`的UTF-8编码附加到缓冲区，返回其长度和错误(始终为nil，但包含在其中是为了与bufio.Writer的WriteRune方法匹配)。必要时扩展缓冲区；如果缓冲区变得太大，则WriteRune方法会发生ErrTooLarge的panic。
 
-#### (*Buffer) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=178) 
+#### (*Buffer) WriteString 
 
 ``` go 
 func (b *Buffer) WriteString(s string) (n int, err error)
@@ -1911,7 +1911,7 @@ func (b *Buffer) WriteString(s string) (n int, err error)
 
 ​	WriteString方法将`s`的内容附加到缓冲区，必要时扩展缓冲区。返回值`n`是s的长度；err总是nil。如果缓冲区变得太大，WriteString方法会发生ErrTooLarge的panic。
 
-#### (*Buffer) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=249) 
+#### (*Buffer) WriteTo 
 
 ``` go 
 func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
@@ -1919,7 +1919,7 @@ func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
 
 ​	WriteTo方法将缓冲区中的数据写入`w`中，直到缓冲区被耗尽或出现错误。返回值`n`为写入的字节数；它总是能够适合int，但是为了匹配io.WriterTo接口，它是int64类型。任何在写入过程中遇到的错误也会被返回。
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=18) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -1931,7 +1931,7 @@ type Reader struct {
 
 ​	Reader通过从一个字节切片读取实现io.Reader、io.ReaderAt、io.WriterTo、io.Seeker、io.ByteScanner和io.RuneScanner接口。与Buffer不同，Reader是只读的，并支持寻找。Reader的零值操作方式类似于空切片的Reader。
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=159) 
+#### func NewReader 
 
 ``` go 
 func NewReader(b []byte) *Reader
@@ -1939,7 +1939,7 @@ func NewReader(b []byte) *Reader
 
 ​	NewReader函数返回一个从`b`读取的新Reader。
 
-#### (*Reader) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=26) 
+#### (*Reader) Len 
 
 ``` go 
 func (r *Reader) Len() int
@@ -1966,7 +1966,7 @@ Output:
 16
 ```
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=39) 
+#### (*Reader) Read 
 
 ``` go 
 func (r *Reader) Read(b []byte) (n int, err error)
@@ -1974,7 +1974,7 @@ func (r *Reader) Read(b []byte) (n int, err error)
 
 ​	Read方法实现io.Reader接口。
 
-#### (*Reader) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=50) 
+#### (*Reader) ReadAt 
 
 ``` go 
 func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
@@ -1982,7 +1982,7 @@ func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 
 ​	ReadAt方法实现io.ReaderAt接口。
 
-#### (*Reader) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=66) 
+#### (*Reader) ReadByte 
 
 ``` go 
 func (r *Reader) ReadByte() (byte, error)
@@ -1990,7 +1990,7 @@ func (r *Reader) ReadByte() (byte, error)
 
 ​	ReadByte方法实现io.ByteReader接口。
 
-#### (*Reader) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=87) 
+#### (*Reader) ReadRune 
 
 ``` go 
 func (r *Reader) ReadRune() (ch rune, size int, err error)
@@ -1998,7 +1998,7 @@ func (r *Reader) ReadRune() (ch rune, size int, err error)
 
 ​	ReadRune方法实现io.RuneReader接口。
 
-#### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=156)  <- go1.7
+#### (*Reader) Reset  <- go1.7
 
 ``` go 
 func (r *Reader) Reset(b []byte)
@@ -2006,7 +2006,7 @@ func (r *Reader) Reset(b []byte)
 
 ​	Reset方法将Reader重置为从b读取。
 
-#### (*Reader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=116) 
+#### (*Reader) Seek 
 
 ``` go 
 func (r *Reader) Seek(offset int64, whence int) (int64, error)
@@ -2014,7 +2014,7 @@ func (r *Reader) Seek(offset int64, whence int) (int64, error)
 
 ​	Seek方法实现io.Seeker接口。
 
-#### (*Reader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=36)  <- go1.5
+#### (*Reader) Size  <- go1.5
 
 ``` go 
 func (r *Reader) Size() int64
@@ -2022,7 +2022,7 @@ func (r *Reader) Size() int64
 
 ​	Size方法返回底层字节切片的原始长度。Size方法是可通过ReadAt方法读取的字节数。该结果不受任何方法调用的影响，除了Reset方法。
 
-#### (*Reader) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=77) 
+#### (*Reader) UnreadByte 
 
 ``` go 
 func (r *Reader) UnreadByte() error
@@ -2030,7 +2030,7 @@ func (r *Reader) UnreadByte() error
 
 ​	UnreadByte 方法实现了 io.ByteScanner 接口，用于将上一次读取的一个字节退回到 Reader 中。
 
-#### (*Reader) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=103) 
+#### (*Reader) UnreadRune 
 
 ``` go 
 func (r *Reader) UnreadRune() error
@@ -2038,7 +2038,7 @@ func (r *Reader) UnreadRune() error
 
 ​	UnreadRune 方法实现了 io.RuneScanner 接口，用于将上一次读取的一个符文退回到 Reader 中。
 
-#### (*Reader) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=137)  <- go1.1
+#### (*Reader) WriteTo  <- go1.1
 
 ``` go 
 func (r *Reader) WriteTo(w io.Writer) (n int64, err error)

@@ -7,7 +7,7 @@ draft = false
 +++
 # driver
 
-[https://pkg.go.dev/database/sql/driver@go1.20.1](https://pkg.go.dev/database/sql/driver@go1.20.1)
+https://pkg.go.dev/database/sql/driver@go1.20.1
 
 ​	driver包定义了数据库驱动需要实现的接口，供sql包使用。
 
@@ -110,7 +110,7 @@ var String stringType
 
 ## 函数
 
-#### func [IsScanValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=191) 
+#### func IsScanValue 
 
 ``` go 
 func IsScanValue(v any) bool
@@ -118,7 +118,7 @@ func IsScanValue(v any) bool
 
 ​	IsScanValue函数等价于 IsValue。它存在是为了兼容性。
 
-#### func [IsValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=176) 
+#### func IsValue 
 
 ``` go 
 func IsValue(v any) bool
@@ -128,7 +128,7 @@ func IsValue(v any) bool
 
 ## 类型
 
-### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=233) 
+### type Conn 
 
 ``` go 
 type Conn interface {
@@ -154,7 +154,7 @@ type Conn interface {
 
 ​	Conn 被认为是有状态的。
 
-### type [ConnBeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=279)  <- go1.8
+### type ConnBeginTx  <- go1.8
 
 ``` go 
 type ConnBeginTx interface {
@@ -172,7 +172,7 @@ type ConnBeginTx interface {
 
 ​	ConnBeginTx 使用上下文和 TxOptions 增强了 Conn 接口。
 
-### type [ConnPrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=257)  <- go1.8
+### type ConnPrepareContext  <- go1.8
 
 ``` go 
 type ConnPrepareContext interface {
@@ -184,7 +184,7 @@ type ConnPrepareContext interface {
 
 ​	ConnPrepareContext 通过上下文增强 Conn 接口。
 
-### type [Connector](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=121)  <- go1.10
+### type Connector  <- go1.10
 
 ``` go 
 type Connector interface {
@@ -211,7 +211,7 @@ type Connector interface {
 
 ​	如果 Connector 实现了 io.Closer，则 sql 包的 DB.Close 方法将调用 Close 并返回错误(如果有)。
 
-### type [Driver](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=84) 
+### type Driver 
 
 ``` go 
 type Driver interface {
@@ -230,7 +230,7 @@ type Driver interface {
 
 ​	数据库驱动程序可以实现 DriverContext，以便访问上下文并仅解析一次名称以获得连接池，而不是每个连接都解析一次。
 
-### type [DriverContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=103)  <- go1.10
+### type DriverContext  <- go1.10
 
 ``` go 
 type DriverContext interface {
@@ -243,7 +243,7 @@ type DriverContext interface {
 
 ​	如果 Driver 实现了 DriverContext 接口，那么 sql.DB 将调用 OpenConnector 来获取 Connector，并调用该 Connector 的 Connect 方法来获取每个所需的连接，而不是为每个连接调用 Driver 的 Open 方法。这个两步的过程允许驱动程序只解析一次名称，并且提供对每个 Conn 的上下文访问。
 
-### type [ExecerContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=198)  <- go1.8
+### type ExecerContext  <- go1.8
 
 ``` go 
 type ExecerContext interface {
@@ -259,7 +259,7 @@ type ExecerContext interface {
 
 ​	ExecContext 必须遵守上下文超时，并在上下文取消时返回。
 
-### type [IsolationLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=268)  <- go1.8
+### type IsolationLevel  <- go1.8
 
 ``` go 
 type IsolationLevel int
@@ -269,7 +269,7 @@ type IsolationLevel int
 
 ​	这个类型应该被认为与 sql.IsolationLevel 相同，以及其上定义的任何值。
 
-### type [NamedValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=64)  <- go1.8
+### type NamedValue  <- go1.8
 
 ``` go 
 type NamedValue struct {
@@ -288,7 +288,7 @@ type NamedValue struct {
 
 ​	NamedValue 持有值的名称和值。
 
-### type [NamedValueChecker](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=402)  <- go1.9
+### type NamedValueChecker  <- go1.9
 
 ``` go 
 type NamedValueChecker interface {
@@ -307,7 +307,7 @@ type NamedValueChecker interface {
 
 ​	如果返回ErrSkip，则对于该参数将使用列转换器错误检查路径。驱动程序可能会在耗尽其自己的特殊情况后返回ErrSkip。
 
-### type [NotNull](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=164) 
+### type NotNull 
 
 ``` go 
 type NotNull struct {
@@ -317,13 +317,13 @@ type NotNull struct {
 
 ​	NotNull结构体是一种类型，通过禁止nil值但否则委托给另一个ValueConverter来实现ValueConverter。
 
-#### (NotNull) [ConvertValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=168) 
+#### (NotNull) ConvertValue 
 
 ``` go 
 func (n NotNull) ConvertValue(v any) (Value, error)
 ```
 
-### type [Null](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=151) 
+### type Null 
 
 ``` go 
 type Null struct {
@@ -333,13 +333,13 @@ type Null struct {
 
 ​	Null结构体是一种类型，通过允许nil值但否则委托给另一个ValueConverter来实现ValueConverter。
 
-#### (Null) [ConvertValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=155) 
+#### (Null) ConvertValue 
 
 ``` go 
 func (n Null) ConvertValue(v any) (Value, error)
 ```
 
-### type [Pinger](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=171)  <- go1.8
+### type Pinger  <- go1.8
 
 ``` go 
 type Pinger interface {
@@ -353,7 +353,7 @@ type Pinger interface {
 
 ​	如果Conn.Ping返回ErrBadConn，则DB.Ping和DB.PingContext将从池中删除Conn。
 
-### type [QueryerContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=225)  <- go1.8
+### type QueryerContext  <- go1.8
 
 ``` go 
 type QueryerContext interface {
@@ -369,7 +369,7 @@ type QueryerContext interface {
 
 ​	QueryContext必须遵守上下文超时并在取消上下文时返回。
 
-### type [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=316) 
+### type Result 
 
 ``` go 
 type Result interface {
@@ -384,7 +384,7 @@ type Result interface {
 
 ​	Result接口表示一个查询操作的结果。
 
-### type [Rows](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=423) 
+### type Rows 
 
 ``` go 
 type Rows interface {
@@ -408,7 +408,7 @@ type Rows interface {
 
 ​	Rows接口是一个已执行查询的结果集迭代器。
 
-### type [RowsAffected](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=525) 
+### type RowsAffected 
 
 ``` go 
 type RowsAffected int64
@@ -416,19 +416,19 @@ type RowsAffected int64
 
 ​	RowsAffected 表示执行 INSERT 或 UPDATE 操作所影响的行数，实现了 Result 接口。
 
-#### (RowsAffected) [LastInsertId](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=529) 
+#### (RowsAffected) LastInsertId 
 
 ``` go 
 func (RowsAffected) LastInsertId() (int64, error)
 ```
 
-#### (RowsAffected) [RowsAffected](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=533) 
+#### (RowsAffected) RowsAffected 
 
 ``` go 
 func (v RowsAffected) RowsAffected() (int64, error)
 ```
 
-### type [RowsColumnTypeDatabaseTypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=474)  <- go1.8
+### type RowsColumnTypeDatabaseTypeName  <- go1.8
 
 ``` go 
 type RowsColumnTypeDatabaseTypeName interface {
@@ -439,7 +439,7 @@ type RowsColumnTypeDatabaseTypeName interface {
 
 ​	RowsColumnTypeDatabaseTypeName接口可以被 Rows 实现。它应该返回数据库系统类型名称，但不包括长度信息。类型名称应大写。以下是各种类型的返回示例："VARCHAR"、"NVARCHAR"、"VARCHAR2"、"CHAR"、"TEXT"、"DECIMAL"、"SMALLINT"、"INT"、"BIGINT"、"BOOL"、"[]BIGINT"、"JSONB"、"XML"、"TIMESTAMP"。
 
-### type [RowsColumnTypeLength](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=491)  <- go1.8
+### type RowsColumnTypeLength  <- go1.8
 
 ``` go 
 type RowsColumnTypeLength interface {
@@ -459,7 +459,7 @@ int           (0, false)
 bytea(30)     (30, true)
 ```
 
-### type [RowsColumnTypeNullable](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=500)  <- go1.8
+### type RowsColumnTypeNullable  <- go1.8
 
 ``` go 
 type RowsColumnTypeNullable interface {
@@ -470,7 +470,7 @@ type RowsColumnTypeNullable interface {
 
 ​	RowsColumnTypeNullable接口是由Rows实现的可选接口。如果已知该列可以为null，则可为空值应为true；如果已知该列不可为空，则为空值为false。如果列的可空性未知，则ok应为false。
 
-### type [RowsColumnTypePrecisionScale](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=512)  <- go1.8
+### type RowsColumnTypePrecisionScale  <- go1.8
 
 ``` go 
 type RowsColumnTypePrecisionScale interface {
@@ -487,7 +487,7 @@ int               (0, 0, false)
 decimal           (math.MaxInt64, math.MaxInt64, true)
 ```
 
-### type [RowsColumnTypeScanType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=464)  <- go1.8
+### type RowsColumnTypeScanType  <- go1.8
 
 ``` go 
 type RowsColumnTypeScanType interface {
@@ -498,7 +498,7 @@ type RowsColumnTypeScanType interface {
 
 ​	RowsColumnTypeScanType接口是由Rows实现的可选接口。它应返回可以用于扫描类型的值类型。例如，对于数据库列类型"bigint"，这应返回"reflect.TypeOf(int64(0))"。
 
-### type [RowsNextResultSet](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=447)  <- go1.8
+### type RowsNextResultSet  <- go1.8
 
 ``` go 
 type RowsNextResultSet interface {
@@ -518,7 +518,7 @@ type RowsNextResultSet interface {
 
 ​	RowsNextResultSet接口通过提供一种信号方式来扩展Rows接口，以使驱动程序前进到下一个结果集。
 
-### type [SessionResetter](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=297)  <- go1.10
+### type SessionResetter  <- go1.10
 
 ``` go 
 type SessionResetter interface {
@@ -531,7 +531,7 @@ type SessionResetter interface {
 
 ​	SessionResetter接口可以由Conn实现，以允许驱动程序重置与连接相关的会话状态并发出坏连接信号。
 
-### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=329) 
+### type Stmt 
 
 ``` go 
 type Stmt interface {
@@ -568,7 +568,7 @@ type Stmt interface {
 
 ​	Stmt接口是预处理语句。它绑定到Conn，不能被多个goroutine同时使用。
 
-### type [StmtExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=364)  <- go1.8
+### type StmtExecContext  <- go1.8
 
 ``` go 
 type StmtExecContext interface {
@@ -580,7 +580,7 @@ type StmtExecContext interface {
 
 ​	StmtExecContext接口通过提供带有上下文的Exec来增强Stmt接口。
 
-### type [StmtQueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=373)  <- go1.8
+### type StmtQueryContext  <- go1.8
 
 ``` go 
 type StmtQueryContext interface {
@@ -592,7 +592,7 @@ type StmtQueryContext interface {
 
 ​	StmtQueryContext接口通过提供带有上下文的Query来增强Stmt接口。
 
-### type [Tx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=518) 
+### type Tx 
 
 ``` go 
 type Tx interface {
@@ -603,7 +603,7 @@ type Tx interface {
 
 ​	Tx 是事务。
 
-### type [TxOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=273)  <- go1.8
+### type TxOptions  <- go1.8
 
 ``` go 
 type TxOptions struct {
@@ -616,7 +616,7 @@ type TxOptions struct {
 
 ​	此类型应被认为与 sql.TxOptions 相同。
 
-### type [Validator](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=309)  <- go1.15
+### type Validator  <- go1.15
 
 ``` go 
 type Validator interface {
@@ -630,7 +630,7 @@ type Validator interface {
 
 ​	如果实现了 Validator，则驱动程序可能会从查询中返回基础错误，即使连接应该由连接池丢弃。
 
-### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=61) 
+### type Value 
 
 ``` go 
 type Value any
@@ -649,7 +649,7 @@ time.Time
 
 ​	如果驱动程序支持游标，则返回的 Value 还可以在此包中实现 Rows 接口。例如，当用户选择类似于"select cursor(select * from my_table) from dual"这样的光标时。如果从选择中的 Rows 被关闭，则光标 Rows 也将被关闭。
 
-### type [ValueConverter](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=30) 
+### type ValueConverter 
 
 ``` go 
 type ValueConverter interface {
@@ -666,7 +666,7 @@ ValueConverter接口是提供 ConvertValue 方法的接口。
 - 将从数据库中给出的值转换为驱动程序 Value 类型之一。
 - 由 sql 包，在扫描中将驱动程序的 Value 类型转换为用户的类型。
 
-### type [Valuer](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=39) 
+### type Valuer 
 
 ``` go 
 type Valuer interface {

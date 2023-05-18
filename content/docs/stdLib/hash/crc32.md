@@ -67,7 +67,7 @@ IEEETable is the table for the IEEE polynomial.
 
 ## 函数
 
-#### func [Checksum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=246) 
+#### func Checksum 
 
 ``` go 
 func Checksum(data []byte, tab *Table) uint32
@@ -75,7 +75,7 @@ func Checksum(data []byte, tab *Table) uint32
 
 Checksum returns the CRC-32 checksum of data using the polynomial represented by the Table.
 
-#### func [ChecksumIEEE](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=250) 
+#### func ChecksumIEEE 
 
 ``` go 
 func ChecksumIEEE(data []byte) uint32
@@ -83,7 +83,7 @@ func ChecksumIEEE(data []byte) uint32
 
 ChecksumIEEE returns the CRC-32 checksum of data using the IEEE polynomial.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=147) 
+#### func New 
 
 ``` go 
 func New(tab *Table) hash.Hash32
@@ -91,7 +91,7 @@ func New(tab *Table) hash.Hash32
 
 New creates a new hash.Hash32 computing the CRC-32 checksum using the polynomial represented by the Table. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func [NewIEEE](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=159) 
+#### func NewIEEE 
 
 ``` go 
 func NewIEEE() hash.Hash32
@@ -99,7 +99,7 @@ func NewIEEE() hash.Hash32
 
 NewIEEE creates a new hash.Hash32 computing the CRC-32 checksum using the IEEE polynomial. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=224) 
+#### func Update 
 
 ``` go 
 func Update(crc uint32, tab *Table, p []byte) uint32
@@ -109,7 +109,7 @@ Update returns the result of adding the bytes in p to the crc.
 
 ## 类型
 
-### type [Table](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=43) 
+### type Table 
 
 ``` go 
 type Table [256]uint32
@@ -117,7 +117,7 @@ type Table [256]uint32
 
 Table is a 256-word table representing the polynomial for efficient processing.
 
-#### func [MakeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=123) 
+#### func MakeTable 
 
 ``` go 
 func MakeTable(poly uint32) *Table

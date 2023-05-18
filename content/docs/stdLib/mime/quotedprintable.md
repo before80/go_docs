@@ -34,7 +34,7 @@ This section is empty.
 
 ## 类型
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=17) 
+### type Reader 
 
 ``` go 
 type Reader struct {
@@ -44,7 +44,7 @@ type Reader struct {
 
 Reader is a quoted-printable decoder.
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=24) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) *Reader
@@ -56,7 +56,7 @@ NewReader returns a quoted-printable reader, decoding from r.
 ``` go 
 ```
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=72) 
+#### (*Reader) Read 
 
 ``` go 
 func (r *Reader) Read(p []byte) (n int, err error)
@@ -64,7 +64,7 @@ func (r *Reader) Read(p []byte) (n int, err error)
 
 Read reads and decodes quoted-printable data from the underlying reader.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=12) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -77,7 +77,7 @@ type Writer struct {
 
 A Writer is a quoted-printable writer that implements io.WriteCloser.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=24) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -89,7 +89,7 @@ NewWriter returns a new Writer that writes to w.
 ``` go 
 ```
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=67) 
+#### (*Writer) Close 
 
 ``` go 
 func (w *Writer) Close() error
@@ -97,7 +97,7 @@ func (w *Writer) Close() error
 
 Close closes the Writer, flushing any unwritten data to the underlying io.Writer, but does not close the underlying io.Writer.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=31) 
+#### (*Writer) Write 
 
 ``` go 
 func (w *Writer) Write(p []byte) (n int, err error)

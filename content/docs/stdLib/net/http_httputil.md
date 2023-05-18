@@ -53,7 +53,7 @@ ErrLineTooLong is returned when reading malformed chunked data with lines that a
 
 ## 函数
 
-#### func [DumpRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=218) 
+#### func DumpRequest 
 
 ``` go 
 func DumpRequest(req *http.Request, body bool) ([]byte, error)
@@ -69,7 +69,7 @@ The documentation for http.Request.Write details which fields of req are include
 ``` go 
 ```
 
-#### func [DumpRequestOut](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=77) 
+#### func DumpRequestOut 
 
 ``` go 
 func DumpRequestOut(req *http.Request, body bool) ([]byte, error)
@@ -81,7 +81,7 @@ DumpRequestOut is like DumpRequest but for outgoing client requests. It includes
 ``` go 
 ```
 
-#### func [DumpResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=305) 
+#### func DumpResponse 
 
 ``` go 
 func DumpResponse(resp *http.Response, body bool) ([]byte, error)
@@ -93,7 +93,7 @@ DumpResponse is like DumpRequest but dumps a response.
 ``` go 
 ```
 
-#### func [NewChunkedReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/httputil.go;l=20) 
+#### func NewChunkedReader 
 
 ``` go 
 func NewChunkedReader(r io.Reader) io.Reader
@@ -103,7 +103,7 @@ NewChunkedReader returns a new chunkedReader that translates the data read from 
 
 NewChunkedReader is not needed by normal applications. The http package automatically decodes chunking when reading response bodies.
 
-#### func [NewChunkedWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/httputil.go;l=35) 
+#### func NewChunkedWriter 
 
 ``` go 
 func NewChunkedWriter(w io.Writer) io.WriteCloser
@@ -115,7 +115,7 @@ NewChunkedWriter is not needed by normal applications. The http package adds chu
 
 ## 类型
 
-### type [BufferPool](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=204)  <- go1.6
+### type BufferPool  <- go1.6
 
 ``` go 
 type BufferPool interface {
@@ -128,7 +128,7 @@ A BufferPool is an interface for getting and returning temporary byte slices for
 
 
 
-### type [ProxyRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=30)  <- go1.20
+### type ProxyRequest  <- go1.20
 
 ``` go 
 type ProxyRequest struct {
@@ -146,7 +146,7 @@ type ProxyRequest struct {
 
 A ProxyRequest contains a request to be rewritten by a ReverseProxy.
 
-#### (*ProxyRequest) [SetURL](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=54)  <- go1.20
+#### (*ProxyRequest) SetURL  <- go1.20
 
 ``` go 
 func (r *ProxyRequest) SetURL(target *url.URL)
@@ -163,7 +163,7 @@ rewriteFunc := func(r *httputil.ProxyRequest) {
 }
 ```
 
-#### (*ProxyRequest) [SetXForwarded](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=78)  <- go1.20
+#### (*ProxyRequest) SetXForwarded  <- go1.20
 
 ``` go 
 func (r *ProxyRequest) SetXForwarded()
@@ -184,7 +184,7 @@ rewriteFunc := func(r *httputil.ProxyRequest) {
 }
 ```
 
-### type [ReverseProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=103) 
+### type ReverseProxy 
 
 ``` go 
 type ReverseProxy struct {
@@ -295,7 +295,7 @@ ReverseProxy is an HTTP Handler that takes an incoming request and sends it to a
 ``` go 
 ```
 
-#### func [NewSingleHostReverseProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=262) 
+#### func NewSingleHostReverseProxy 
 
 ``` go 
 func NewSingleHostReverseProxy(target *url.URL) *ReverseProxy
@@ -316,13 +316,13 @@ proxy := &ReverseProxy{
 }
 ```
 
-#### (*ReverseProxy) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=332) 
+#### (*ReverseProxy) ServeHTTP 
 
 ``` go 
 func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 ```
 
-### type[ServerConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=37)  DEPRECATED
+### typeServerConn  DEPRECATED
 
 ``` go 
 type ServerConn struct {
@@ -334,7 +334,7 @@ ServerConn is an artifact of Go's early HTTP implementation. It is low-level, ol
 
 Deprecated: Use the Server in package net/http instead.
 
-#### func[NewServerConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=54)DEPRECATED
+#### funcNewServerConnDEPRECATED
 
 ``` go 
 func NewServerConn(c net.Conn, r *bufio.Reader) *ServerConn
@@ -346,7 +346,7 @@ Deprecated: Use the Server in package net/http instead.
 
 
 
-#### (*ServerConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=76) 
+#### (*ServerConn) Close 
 
 ``` go 
 func (sc *ServerConn) Close() error
@@ -354,7 +354,7 @@ func (sc *ServerConn) Close() error
 
 Close calls Hijack and then also closes the underlying connection.
 
-#### (*ServerConn) [Hijack](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=65) 
+#### (*ServerConn) Hijack 
 
 ``` go 
 func (sc *ServerConn) Hijack() (net.Conn, *bufio.Reader)
@@ -362,7 +362,7 @@ func (sc *ServerConn) Hijack() (net.Conn, *bufio.Reader)
 
 Hijack detaches the ServerConn and returns the underlying connection as well as the read-side bufio which may have some left over data. Hijack may be called before Read has signaled the end of the keep-alive logic. The user should not call Hijack while Read or Write is in progress.
 
-#### (*ServerConn) [Pending](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=166) 
+#### (*ServerConn) Pending 
 
 ``` go 
 func (sc *ServerConn) Pending() int
@@ -370,7 +370,7 @@ func (sc *ServerConn) Pending() int
 
 Pending returns the number of unanswered requests that have been received on the connection.
 
-#### (*ServerConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=88) 
+#### (*ServerConn) Read 
 
 ``` go 
 func (sc *ServerConn) Read() (*http.Request, error)
@@ -378,7 +378,7 @@ func (sc *ServerConn) Read() (*http.Request, error)
 
 Read returns the next request on the wire. An ErrPersistEOF is returned if it is gracefully determined that there are no more requests (e.g. after the first request on an HTTP/1.0 connection, or after a Connection:close on a HTTP/1.1 connection).
 
-#### (*ServerConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=175) 
+#### (*ServerConn) Write 
 
 ``` go 
 func (sc *ServerConn) Write(req *http.Request, resp *http.Response) error

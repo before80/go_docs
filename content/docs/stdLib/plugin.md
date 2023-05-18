@@ -70,7 +70,7 @@ This section is empty.
 
 ## 类型
 
-### type [Plugin](https://cs.opensource.google/go/go/+/go1.20.1:src/plugin/plugin.go;l=69) 
+### type Plugin 
 
 ``` go 
 type Plugin struct {
@@ -82,7 +82,7 @@ Plugin is a loaded Go plugin.
 
 Plugin是一个加载的Go插件。
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/plugin/plugin.go;l=79) 
+#### func Open 
 
 ``` go 
 func Open(path string) (*Plugin, error)
@@ -92,7 +92,7 @@ Open opens a Go plugin. If a path has already been opened, then the existing *Pl
 
 开启一个Go插件。如果一个路径已经被打开，那么就会返回现有的*Plugin。它对多个goroutine的并发使用是安全的。
 
-#### (*Plugin) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/plugin/plugin.go;l=87) 
+#### (*Plugin) Lookup 
 
 ``` go 
 func (p *Plugin) Lookup(symName string) (Symbol, error)
@@ -102,7 +102,7 @@ Lookup searches for a symbol named symName in plugin p. A symbol is any exported
 
 Lookup在插件p中搜索一个名为symName的符号。如果没有找到该符号，它会报告一个错误。它对多个goroutine的并发使用是安全的。
 
-### type [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/plugin/plugin.go;l=120) 
+### type Symbol 
 
 ``` go 
 type Symbol any

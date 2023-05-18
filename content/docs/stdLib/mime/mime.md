@@ -48,7 +48,7 @@ ErrInvalidMediaParameter is returned by ParseMediaType if the media type value w
 
 ## 函数
 
-#### func [AddExtensionType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=167) 
+#### func AddExtensionType 
 
 ``` go 
 func AddExtensionType(ext, typ string) error
@@ -56,7 +56,7 @@ func AddExtensionType(ext, typ string) error
 
 AddExtensionType sets the MIME type associated with the extension ext to typ. The extension should begin with a leading dot, as in ".html".
 
-#### func [ExtensionsByType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=148)  <- go1.5
+#### func ExtensionsByType  <- go1.5
 
 ``` go 
 func ExtensionsByType(typ string) ([]string, error)
@@ -64,7 +64,7 @@ func ExtensionsByType(typ string) ([]string, error)
 
 ExtensionsByType returns the extensions known to be associated with the MIME type typ. The returned extensions will each begin with a leading dot, as in ".html". When typ has no associated extensions, ExtensionsByType returns an nil slice.
 
-#### func [FormatMediaType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=20) 
+#### func FormatMediaType 
 
 ``` go 
 func FormatMediaType(t string, param map[string]string) string
@@ -76,7 +76,7 @@ FormatMediaType serializes mediatype t and the parameters param as a media type 
 ``` go 
 ```
 
-#### func [ParseMediaType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=139) 
+#### func ParseMediaType 
 
 ``` go 
 func ParseMediaType(v string) (mediatype string, params map[string]string, err error)
@@ -88,7 +88,7 @@ ParseMediaType parses a media type value and any optional parameters, per [RFC 1
 ``` go 
 ```
 
-#### func [TypeByExtension](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=111) 
+#### func TypeByExtension 
 
 ``` go 
 func TypeByExtension(ext string) string
@@ -114,7 +114,7 @@ Text types have the charset parameter set to "utf-8" by default.
 
 ## 类型
 
-### type [WordDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=187)  <- go1.5
+### type WordDecoder  <- go1.5
 
 ``` go 
 type WordDecoder struct {
@@ -130,7 +130,7 @@ type WordDecoder struct {
 
 A WordDecoder decodes MIME headers containing [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html) encoded-words.
 
-#### (*WordDecoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=198)  <- go1.5
+#### (*WordDecoder) Decode  <- go1.5
 
 ``` go 
 func (d *WordDecoder) Decode(word string) (string, error)
@@ -142,7 +142,7 @@ Decode decodes an [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html) encoded-wo
 ``` go 
 ```
 
-#### (*WordDecoder) [DecodeHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=230)  <- go1.5
+#### (*WordDecoder) DecodeHeader  <- go1.5
 
 ``` go 
 func (d *WordDecoder) DecodeHeader(header string) (string, error)
@@ -154,7 +154,7 @@ DecodeHeader decodes all encoded-words of the given string. It returns an error 
 ``` go 
 ```
 
-### type [WordEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=19)  <- go1.5
+### type WordEncoder  <- go1.5
 
 ``` go 
 type WordEncoder byte
@@ -162,7 +162,7 @@ type WordEncoder byte
 
 A WordEncoder is an [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html) encoded-word encoder.
 
-#### (WordEncoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=35)  <- go1.5
+#### (WordEncoder) Encode  <- go1.5
 
 ``` go 
 func (e WordEncoder) Encode(charset, s string) string

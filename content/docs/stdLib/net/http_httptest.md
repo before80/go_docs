@@ -38,7 +38,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/httptest.go;l=40)  <- go1.7
+#### func NewRequest  <- go1.7
 
 ``` go 
 func NewRequest(method, target string, body io.Reader) *http.Request
@@ -62,7 +62,7 @@ To generate a client HTTP request instead of a server request, see the NewReques
 
 ## 类型
 
-### type [ResponseRecorder](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=21) 
+### type ResponseRecorder 
 
 ``` go 
 type ResponseRecorder struct {
@@ -98,7 +98,7 @@ ResponseRecorder is an implementation of http.ResponseWriter that records its mu
 ``` go 
 ```
 
-#### func [NewRecorder](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=51) 
+#### func NewRecorder 
 
 ``` go 
 func NewRecorder() *ResponseRecorder
@@ -106,7 +106,7 @@ func NewRecorder() *ResponseRecorder
 
 NewRecorder returns an initialized ResponseRecorder.
 
-#### (*ResponseRecorder) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=159) 
+#### (*ResponseRecorder) Flush 
 
 ``` go 
 func (rw *ResponseRecorder) Flush()
@@ -114,7 +114,7 @@ func (rw *ResponseRecorder) Flush()
 
 Flush implements http.Flusher. To test whether Flush was called, see rw.Flushed.
 
-#### (*ResponseRecorder) [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=67) 
+#### (*ResponseRecorder) Header 
 
 ``` go 
 func (rw *ResponseRecorder) Header() http.Header
@@ -122,7 +122,7 @@ func (rw *ResponseRecorder) Header() http.Header
 
 Header implements http.ResponseWriter. It returns the response headers to mutate within a handler. To test the headers that were written after a handler completes, use the Result method and see the returned Response value's Header.
 
-#### (*ResponseRecorder) [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=181)  <- go1.7
+#### (*ResponseRecorder) Result  <- go1.7
 
 ``` go 
 func (rw *ResponseRecorder) Result() *http.Response
@@ -138,7 +138,7 @@ The Response.Body is guaranteed to be non-nil and Body.Read call is guaranteed t
 
 Result must only be called after the handler has finished running.
 
-#### (*ResponseRecorder) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=107) 
+#### (*ResponseRecorder) Write 
 
 ``` go 
 func (rw *ResponseRecorder) Write(buf []byte) (int, error)
@@ -146,7 +146,7 @@ func (rw *ResponseRecorder) Write(buf []byte) (int, error)
 
 Write implements http.ResponseWriter. The data in buf is written to rw.Body, if not nil.
 
-#### (*ResponseRecorder) [WriteHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=143) 
+#### (*ResponseRecorder) WriteHeader 
 
 ``` go 
 func (rw *ResponseRecorder) WriteHeader(code int)
@@ -154,7 +154,7 @@ func (rw *ResponseRecorder) WriteHeader(code int)
 
 WriteHeader implements http.ResponseWriter.
 
-#### (*ResponseRecorder) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=117)  <- go1.6
+#### (*ResponseRecorder) WriteString  <- go1.6
 
 ``` go 
 func (rw *ResponseRecorder) WriteString(str string) (int, error)
@@ -162,7 +162,7 @@ func (rw *ResponseRecorder) WriteString(str string) (int, error)
 
 WriteString implements io.StringWriter. The data in str is written to rw.Body, if not nil.
 
-### type [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=26) 
+### type Server 
 
 ``` go 
 type Server struct {
@@ -196,7 +196,7 @@ A Server is an HTTP server listening on a system-chosen port on the local loopba
 ``` go 
 ```
 
-#### func [NewServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=105) 
+#### func NewServer 
 
 ``` go 
 func NewServer(handler http.Handler) *Server
@@ -204,7 +204,7 @@ func NewServer(handler http.Handler) *Server
 
 NewServer starts and returns a new Server. The caller should call Close when finished, to shut it down.
 
-#### func [NewTLSServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=190) 
+#### func NewTLSServer 
 
 ``` go 
 func NewTLSServer(handler http.Handler) *Server
@@ -216,7 +216,7 @@ NewTLSServer starts and returns a new Server using TLS. The caller should call C
 ``` go 
 ```
 
-#### func [NewUnstartedServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=117) 
+#### func NewUnstartedServer 
 
 ``` go 
 func NewUnstartedServer(handler http.Handler) *Server
@@ -228,7 +228,7 @@ After changing its configuration, the caller should call Start or StartTLS.
 
 The caller should call Close when finished, to shut it down.
 
-#### (*Server) [Certificate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=295)  <- go1.9
+#### (*Server) Certificate  <- go1.9
 
 ``` go 
 func (s *Server) Certificate() *x509.Certificate
@@ -236,7 +236,7 @@ func (s *Server) Certificate() *x509.Certificate
 
 Certificate returns the certificate used by the server, or nil if the server doesn't use TLS.
 
-#### (*Server) [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=302)  <- go1.9
+#### (*Server) Client  <- go1.9
 
 ``` go 
 func (s *Server) Client() *http.Client
@@ -244,7 +244,7 @@ func (s *Server) Client() *http.Client
 
 Client returns an HTTP client configured for making requests to the server. It is configured to trust the server's TLS test certificate and will close its idle connections on Server.Close.
 
-#### (*Server) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=202) 
+#### (*Server) Close 
 
 ``` go 
 func (s *Server) Close()
@@ -252,7 +252,7 @@ func (s *Server) Close()
 
 Close shuts down the server and blocks until all outstanding requests on this server have completed.
 
-#### (*Server) [CloseClientConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=266) 
+#### (*Server) CloseClientConnections 
 
 ``` go 
 func (s *Server) CloseClientConnections()
@@ -260,7 +260,7 @@ func (s *Server) CloseClientConnections()
 
 CloseClientConnections closes any open HTTP connections to the test Server.
 
-#### (*Server) [Start](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=125) 
+#### (*Server) Start 
 
 ``` go 
 func (s *Server) Start()
@@ -268,7 +268,7 @@ func (s *Server) Start()
 
 Start starts a server from NewUnstartedServer.
 
-#### (*Server) [StartTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=142) 
+#### (*Server) StartTLS 
 
 ``` go 
 func (s *Server) StartTLS()

@@ -86,7 +86,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Cmdline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=96) 
+#### func Cmdline 
 
 ``` go 
 func Cmdline(w http.ResponseWriter, r *http.Request)
@@ -94,7 +94,7 @@ func Cmdline(w http.ResponseWriter, r *http.Request)
 
 Cmdline responds with the running program's command line, with arguments separated by NUL bytes. The package initialization registers it as /debug/pprof/cmdline.
 
-#### func [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=231) 
+#### func Handler 
 
 ``` go 
 func Handler(name string) http.Handler
@@ -102,7 +102,7 @@ func Handler(name string) http.Handler
 
 Handler returns an HTTP handler that serves the named profile. Available profiles can be found in [runtime/pprof.Profile](https://pkg.go.dev/runtime/pprof#Profile).
 
-#### func [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=373) 
+#### func Index 
 
 ``` go 
 func Index(w http.ResponseWriter, r *http.Request)
@@ -110,7 +110,7 @@ func Index(w http.ResponseWriter, r *http.Request)
 
 Index responds with the pprof-formatted profile named by the request. For example, "/debug/pprof/heap" serves the "heap" profile. Index responds to a request for "/debug/pprof/" with an HTML page listing the available profiles.
 
-#### func [Profile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=125) 
+#### func Profile 
 
 ``` go 
 func Profile(w http.ResponseWriter, r *http.Request)
@@ -118,7 +118,7 @@ func Profile(w http.ResponseWriter, r *http.Request)
 
 Profile responds with the pprof-formatted cpu profile. Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified. The package initialization registers it as /debug/pprof/profile.
 
-#### func [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=183) 
+#### func Symbol 
 
 ``` go 
 func Symbol(w http.ResponseWriter, r *http.Request)
@@ -126,7 +126,7 @@ func Symbol(w http.ResponseWriter, r *http.Request)
 
 Symbol looks up the program counters listed in the request, responding with a table mapping program counters to function names. The package initialization registers it as /debug/pprof/symbol.
 
-#### func [Trace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=154)  <- go1.5
+#### func Trace  <- go1.5
 
 ``` go 
 func Trace(w http.ResponseWriter, r *http.Request)

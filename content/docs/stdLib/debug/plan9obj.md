@@ -51,7 +51,7 @@ This section is empty.
 
 ## 类型
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=38) 
+### type File 
 
 ``` go 
 type File struct {
@@ -63,7 +63,7 @@ type File struct {
 
 A File represents an open Plan 9 a.out file.
 
-#### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=141) 
+#### func NewFile 
 
 ``` go 
 func NewFile(r io.ReaderAt) (*File, error)
@@ -71,7 +71,7 @@ func NewFile(r io.ReaderAt) (*File, error)
 
 NewFile creates a new File for accessing a Plan 9 binary in an underlying reader. The Plan 9 binary is expected to start at position 0 in the ReaderAt.
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=104) 
+#### func Open 
 
 ``` go 
 func Open(name string) (*File, error)
@@ -79,7 +79,7 @@ func Open(name string) (*File, error)
 
 Open opens the named file using os.Open and prepares it for use as a Plan 9 a.out binary.
 
-#### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=121) 
+#### (*File) Close 
 
 ``` go 
 func (f *File) Close() error
@@ -87,7 +87,7 @@ func (f *File) Close() error
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
 
-#### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=333) 
+#### (*File) Section 
 
 ``` go 
 func (f *File) Section(name string) *Section
@@ -95,7 +95,7 @@ func (f *File) Section(name string) *Section
 
 Section returns a section with the given name, or nil if no such section exists.
 
-#### (*File) [Symbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=317) 
+#### (*File) Symbols 
 
 ``` go 
 func (f *File) Symbols() ([]Sym, error)
@@ -103,7 +103,7 @@ func (f *File) Symbols() ([]Sym, error)
 
 Symbols returns the symbol table for f.
 
-### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=28) 
+### type FileHeader 
 
 ``` go 
 type FileHeader struct {
@@ -118,7 +118,7 @@ type FileHeader struct {
 
 A FileHeader represents a Plan 9 a.out file header.
 
-### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=54) 
+### type Section 
 
 ``` go 
 type Section struct {
@@ -137,7 +137,7 @@ type Section struct {
 
 A Section represents a single section in a Plan 9 a.out file.
 
-#### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=68) 
+#### (*Section) Data 
 
 ``` go 
 func (s *Section) Data() ([]byte, error)
@@ -145,7 +145,7 @@ func (s *Section) Data() ([]byte, error)
 
 Data reads and returns the contents of the Plan 9 a.out section.
 
-#### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=73) 
+#### (*Section) Open 
 
 ``` go 
 func (s *Section) Open() io.ReadSeeker
@@ -153,7 +153,7 @@ func (s *Section) Open() io.ReadSeeker
 
 Open returns a new ReadSeeker reading the Plan 9 a.out section.
 
-### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=47) 
+### type SectionHeader 
 
 ``` go 
 type SectionHeader struct {
@@ -165,7 +165,7 @@ type SectionHeader struct {
 
 A SectionHeader represents a single Plan 9 a.out section header. This structure doesn't exist on-disk, but eases navigation through the object file.
 
-### type [Sym](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=76) 
+### type Sym 
 
 ``` go 
 type Sym struct {

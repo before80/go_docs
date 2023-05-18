@@ -14,7 +14,7 @@ https://pkg.go.dev/internal/abi@go1.20.1
 
   
 
-## 常量 [¶](https://pkg.go.dev/internal/abi@go1.20.1#pkg-constants)
+## 常量 ¶
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi_amd64.go;l=7)
 
@@ -38,7 +38,7 @@ This section is empty.
 
 ## 函数
 
-#### func [FuncPCABI0](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=117) [¶](https://pkg.go.dev/internal/abi@go1.20.1#FuncPCABI0)
+#### func FuncPCABI0 [¶](https://pkg.go.dev/internal/abi@go1.20.1#FuncPCABI0)
 
 ```
 func FuncPCABI0(f any) uintptr
@@ -48,7 +48,7 @@ FuncPCABI0 returns the entry PC of the function f, which must be a direct refere
 
 Implemented as a compile intrinsic.
 
-#### func [FuncPCABIInternal](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=126) [¶](https://pkg.go.dev/internal/abi@go1.20.1#FuncPCABIInternal)
+#### func FuncPCABIInternal [¶](https://pkg.go.dev/internal/abi@go1.20.1#FuncPCABIInternal)
 
 ```
 func FuncPCABIInternal(f any) uintptr
@@ -60,7 +60,7 @@ Implemented as a compile intrinsic.
 
 ## 类型
 
-### type [IntArgRegBitmap](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=87) [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap)
+### type IntArgRegBitmap [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap)
 
 ```
 type IntArgRegBitmap [(IntArgRegs + 7) / 8]uint8
@@ -68,7 +68,7 @@ type IntArgRegBitmap [(IntArgRegs + 7) / 8]uint8
 
 IntArgRegBitmap is a bitmap large enough to hold one bit per integer argument/return register.
 
-#### (*IntArgRegBitmap) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=100) [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap.Get)
+#### (*IntArgRegBitmap) Get [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap.Get)
 
 ```
 func (b *IntArgRegBitmap) Get(i int) bool
@@ -78,7 +78,7 @@ Get returns whether the i'th bit of the bitmap is set.
 
 nosplit because it's called in extremely sensitive contexts, like on the reflectcall return path.
 
-#### (*IntArgRegBitmap) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=90) [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap.Set)
+#### (*IntArgRegBitmap) Set [¶](https://pkg.go.dev/internal/abi@go1.20.1#IntArgRegBitmap.Set)
 
 ```
 func (b *IntArgRegBitmap) Set(i int)
@@ -86,7 +86,7 @@ func (b *IntArgRegBitmap) Set(i int)
 
 Set sets the i'th bit of the bitmap to 1.
 
-### type [RegArgs](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=21) [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs)
+### type RegArgs [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs)
 
 ```
 type RegArgs struct {
@@ -120,13 +120,13 @@ Assembly code knows the layout of the first two fields of RegArgs.
 
 RegArgs also contains additional space to hold pointers when it may not be safe to keep them only in the integer register space otherwise.
 
-#### (*RegArgs) [Dump](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=47) [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs.Dump)added in go1.17.6
+#### (*RegArgs) Dump [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs.Dump)added in go1.17.6
 
 ```
 func (r *RegArgs) Dump()
 ```
 
-#### (*RegArgs) [IntRegArgAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi.go;l=74) [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs.IntRegArgAddr)added in go1.18
+#### (*RegArgs) IntRegArgAddr [¶](https://pkg.go.dev/internal/abi@go1.20.1#RegArgs.IntRegArgAddr)added in go1.18
 
 ```
 func (r *RegArgs) IntRegArgAddr(reg int, argSize uintptr) unsafe.Pointer

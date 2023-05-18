@@ -32,7 +32,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=976) 
+#### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -44,7 +44,7 @@ Decode reads a PNG image from r and returns it as an image.Image. The type of Im
 ``` go 
 ```
 
-#### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=1000) 
+#### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -52,7 +52,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the color model and dimensions of a PNG image without decoding the entire image.
 
-#### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=590) 
+#### func Encode 
 
 ``` go 
 func Encode(w io.Writer, m image.Image) error
@@ -66,7 +66,7 @@ Encode writes the Image m to w in PNG format. Any Image may be encoded, but imag
 
 ## 类型
 
-### type [CompressionLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=55)  <- go1.4
+### type CompressionLevel  <- go1.4
 
 ``` go 
 type CompressionLevel int
@@ -83,7 +83,7 @@ const (
 )
 ```
 
-### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=19)  <- go1.4
+### type Encoder  <- go1.4
 
 ``` go 
 type Encoder struct {
@@ -97,7 +97,7 @@ type Encoder struct {
 
 Encoder configures encoding PNG images.
 
-#### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=596)  <- go1.4
+#### (*Encoder) Encode  <- go1.4
 
 ``` go 
 func (enc *Encoder) Encode(w io.Writer, m image.Image) error
@@ -105,7 +105,7 @@ func (enc *Encoder) Encode(w io.Writer, m image.Image) error
 
 Encode writes the Image m to w in PNG format.
 
-### type [EncoderBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=36)  <- go1.9
+### type EncoderBuffer  <- go1.9
 
 ``` go 
 type EncoderBuffer encoder
@@ -113,7 +113,7 @@ type EncoderBuffer encoder
 
 EncoderBuffer holds the buffers used for encoding PNG images.
 
-### type [EncoderBufferPool](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=30)  <- go1.9
+### type EncoderBufferPool  <- go1.9
 
 ``` go 
 type EncoderBufferPool interface {
@@ -124,7 +124,7 @@ type EncoderBufferPool interface {
 
 EncoderBufferPool is an interface for getting and returning temporary instances of the EncoderBuffer struct. This can be used to reuse buffers when encoding multiple images.
 
-### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=128) 
+### type FormatError 
 
 ``` go 
 type FormatError string
@@ -132,13 +132,13 @@ type FormatError string
 
 A FormatError reports that the input is not a valid PNG.
 
-#### (FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=130) 
+#### (FormatError) Error 
 
 ``` go 
 func (e FormatError) Error() string
 ```
 
-### type [UnsupportedError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=135) 
+### type UnsupportedError 
 
 ``` go 
 type UnsupportedError string
@@ -146,7 +146,7 @@ type UnsupportedError string
 
 An UnsupportedError reports that the input uses a valid but unimplemented PNG feature.
 
-#### (UnsupportedError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=137) 
+#### (UnsupportedError) Error 
 
 ``` go 
 func (e UnsupportedError) Error() string

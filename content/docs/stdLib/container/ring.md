@@ -40,7 +40,7 @@ This section is empty.
 
 ## 类型
 
-### type [Ring](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=13) 
+### type Ring 
 
 ``` go 
 type Ring struct {
@@ -53,7 +53,7 @@ A Ring is an element of a circular list, or ring. Rings do not have a beginning 
 
 Ring是一个循环列表的一个元素，或者说是环。环没有开始或结束；任何环元素的指针都可以作为整个环的参考。空的环表示为nil Ring指针。一个环的零值是一个具有nil值的单元素环。
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=60) 
+#### func New 
 
 ``` go 
 func New(n int) *Ring
@@ -63,7 +63,7 @@ New creates a ring of n elements.
 
 New创建一个有n个元素的环。
 
-#### (*Ring) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=129) 
+#### (*Ring) Do 
 
 ``` go 
 func (r *Ring) Do(f func(any))
@@ -77,7 +77,7 @@ Do在环的每个元素上以正向顺序调用函数f。如果f改变了*r，Do
 ``` go 
 ```
 
-#### (*Ring) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=116) 
+#### (*Ring) Len 
 
 ``` go 
 func (r *Ring) Len() int
@@ -91,7 +91,7 @@ Len计算环中元素的数量，执行时间与元素的数量成正比。
 ``` go 
 ```
 
-#### (*Ring) [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=90) 
+#### (*Ring) Link 
 
 ``` go 
 func (r *Ring) Link(s *Ring) *Ring
@@ -113,7 +113,7 @@ If r and s point to different rings, linking them creates a single ring with the
 ``` go 
 ```
 
-#### (*Ring) [Move](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=42) 
+#### (*Ring) Move 
 
 ``` go 
 func (r *Ring) Move(n int) *Ring
@@ -127,7 +127,7 @@ Move在环中向后(n < 0)或向前(n >= 0)移动n % r.Len()元素，并返回�
 ``` go 
 ```
 
-#### (*Ring) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=25) 
+#### (*Ring) Next 
 
 ``` go 
 func (r *Ring) Next() *Ring
@@ -141,7 +141,7 @@ Next 返回下一个环状元素，r必须不是空的。
 ``` go 
 ```
 
-#### (*Ring) [Prev](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=33) 
+#### (*Ring) Prev 
 
 ``` go 
 func (r *Ring) Prev() *Ring
@@ -155,7 +155,7 @@ Prev返回上一个环状元素，r不能为空。
 ``` go 
 ```
 
-#### (*Ring) [Unlink](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=107) 
+#### (*Ring) Unlink 
 
 ``` go 
 func (r *Ring) Unlink(n int) *Ring

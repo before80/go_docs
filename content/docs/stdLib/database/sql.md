@@ -7,7 +7,7 @@ draft = false
 +++
 # sql
 
-[https://pkg.go.dev/database/sql@go1.20.1](https://pkg.go.dev/database/sql@go1.20.1)
+https://pkg.go.dev/database/sql@go1.20.1
 
 ​	sql包提供了一个围绕SQL(或类SQL)数据库的通用接口。
 
@@ -289,7 +289,7 @@ var ErrTxDone = errors.New("sql: transaction has already been committed or rolle
 
 ## 函数
 
-#### func [Drivers](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=64)  <- go1.4
+#### func Drivers  <- go1.4
 
 ``` go 
 func Drivers() []string
@@ -297,7 +297,7 @@ func Drivers() []string
 
 ​	Drivers函数返回已注册驱动程序名称的排序列表。
 
-#### func [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=44) 
+#### func Register 
 
 ``` go 
 func Register(name string, driver driver.Driver)
@@ -307,7 +307,7 @@ func Register(name string, driver driver.Driver)
 
 ## 类型
 
-### type [ColumnType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3083)  <- go1.8
+### type ColumnType  <- go1.8
 
 ``` go 
 type ColumnType struct {
@@ -318,7 +318,7 @@ type ColumnType struct {
 
 ​	ColumnType结构体包含列的名称和类型。
 
-#### (*ColumnType) [DatabaseTypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3137)  <- go1.8
+#### (*ColumnType) DatabaseTypeName  <- go1.8
 
 ``` go 
 func (ci *ColumnType) DatabaseTypeName() string
@@ -326,7 +326,7 @@ func (ci *ColumnType) DatabaseTypeName() string
 
 ​	DatabaseTypeName方法返回列类型的数据库系统名称。如果返回空字符串，则不支持驱动程序类型名称。请查阅您的驱动程序文档以获取驱动程序数据类型列表。不包括长度说明符。常见类型名称包括"VARCHAR"，"TEXT"，"NVARCHAR"，"DECIMAL"，"BOOL"，"INT"和"BIGINT"。
 
-#### (*ColumnType) [DecimalSize](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3114)  <- go1.8
+#### (*ColumnType) DecimalSize  <- go1.8
 
 ``` go 
 func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
@@ -334,7 +334,7 @@ func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 
 ​	DecimalSize方法返回十进制类型的比例和精度。如果不适用或不受支持，则为假。
 
-#### (*ColumnType) [Length](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3108)  <- go1.8
+#### (*ColumnType) Length  <- go1.8
 
 ``` go 
 func (ci *ColumnType) Length() (length int64, ok bool)
@@ -342,7 +342,7 @@ func (ci *ColumnType) Length() (length int64, ok bool)
 
 ​	Length方法返回变量长度列类型(如文本和二进制字段类型)的列类型长度。如果类型长度不受限制，则值将是math.MaxInt64(任何数据库限制仍将适用)。如果列类型不是可变长度，例如int，或者驱动程序不支持，则为false。
 
-#### (*ColumnType) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3099)  <- go1.8
+#### (*ColumnType) Name  <- go1.8
 
 ``` go 
 func (ci *ColumnType) Name() string
@@ -350,7 +350,7 @@ func (ci *ColumnType) Name() string
 
 ​	Name方法返回列的名称或别名。
 
-#### (*ColumnType) [Nullable](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3127)  <- go1.8
+#### (*ColumnType) Nullable  <- go1.8
 
 ``` go 
 func (ci *ColumnType) Nullable() (nullable, ok bool)
@@ -358,7 +358,7 @@ func (ci *ColumnType) Nullable() (nullable, ok bool)
 
 ​	Nullable方法报告列是否可以为null。如果驱动程序不支持此属性，则ok将为false。
 
-#### (*ColumnType) [ScanType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3121)  <- go1.8
+#### (*ColumnType) ScanType  <- go1.8
 
 ``` go 
 func (ci *ColumnType) ScanType() reflect.Type
@@ -366,7 +366,7 @@ func (ci *ColumnType) ScanType() reflect.Type
 
 ​	ScanType方法返回适合使用Rows.Scan进行扫描的Go类型。如果驱动程序不支持此属性，则ScanType将返回空接口的类型。
 
-### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1938)  <- go1.9
+### type Conn  <- go1.9
 
 ```go 
 type Conn struct {
@@ -381,7 +381,7 @@ type Conn struct {
 
 ​	调用 Close方法后，连接上的所有操作都将失败，并返回 ErrConnDone。
 
-#### (*Conn) [BeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2065)  <- go1.9
+#### (*Conn) BeginTx  <- go1.9
 
 ``` go 
 func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
@@ -393,7 +393,7 @@ func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 
 ​	提供的 TxOptions 是可选的，如果应使用默认值，则可以为 nil。如果使用了非默认的隔离级别，并且该驱动程序不支持，将返回一个错误。
 
-#### (*Conn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2107)  <- go1.9
+#### (*Conn) Close  <- go1.9
 
 ``` go 
 func (c *Conn) Close() error
@@ -401,7 +401,7 @@ func (c *Conn) Close() error
 
 ​	Close方法将连接返回到连接池。Close方法后的所有操作都将返回 ErrConnDone。Close 方法可以与其他操作并发调用，它将阻塞，直到所有其他操作完成。在调用 Close 前，先取消任何使用的上下文，然后直接调用它可能会很有用。
 
-#### (*Conn) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1977)  <- go1.9
+#### (*Conn) ExecContext  <- go1.9
 
 ``` go 
 func (c *Conn) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
@@ -449,7 +449,7 @@ func main() {
 
 ```
 
-#### (*Conn) [PingContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1967)  <- go1.9
+#### (*Conn) PingContext  <- go1.9
 
 ``` go 
 func (c *Conn) PingContext(ctx context.Context) error
@@ -457,7 +457,7 @@ func (c *Conn) PingContext(ctx context.Context) error
 
 ​	PingContext方法验证与数据库的连接是否仍然存活。
 
-#### (*Conn) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2014)  <- go1.9
+#### (*Conn) PrepareContext  <- go1.9
 
 ``` go 
 func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
@@ -467,7 +467,7 @@ func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 ​	提供的上下文用于准备语句，而不是执行语句的上下文。
 
-#### (*Conn) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1987)  <- go1.9
+#### (*Conn) QueryContext  <- go1.9
 
 ``` go 
 func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
@@ -475,7 +475,7 @@ func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Ro
 
 ​	QueryContext方法执行一个返回行的查询，通常是SELECT。args参数用于查询中的任何占位符参数。
 
-#### (*Conn) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2001)  <- go1.9
+#### (*Conn) QueryRowContext  <- go1.9
 
 ``` go 
 func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *Row
@@ -483,7 +483,7 @@ func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *
 
 ​	QueryRowContext方法执行一个预期返回最多一行的查询。QueryRowContext总是返回一个非nil值。错误会被推迟到调用Row的Scan方法时返回。如果查询没有选择任何行，则`* Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan扫描第一个选择的行并丢弃其余的行。
 
-#### (*Conn) [Raw](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2027)  <- go1.13
+#### (*Conn) Raw  <- go1.13
 
 ``` go 
 func (c *Conn) Raw(f func(driverConn any) error) (err error)
@@ -493,7 +493,7 @@ func (c *Conn) Raw(f func(driverConn any) error) (err error)
 
 ​	一旦f返回且err不是driver.ErrBadConn，Conn将继续可用，直到调用Conn.Close为止。
 
-### type [DB](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=455) 
+### type DB 
 
 ``` go 
 type DB struct {
@@ -505,7 +505,7 @@ type DB struct {
 
 ​	sql包会自动创建和释放连接；它还维护一个空闲连接的自由池。如果数据库有每个连接状态的概念，则可以在事务(Tx)或连接(Conn)中可靠地观察到此状态。一旦调用DB.Begin，返回的Tx将绑定到单个连接。一旦在事务上调用Commit或Rollback，该事务的连接就会返回到DB的空闲连接池中。池的大小可以使用SetMaxIdleConns进行控制。
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=813) 
+#### func Open 
 
 ``` go 
 func Open(driverName, dataSourceName string) (*DB, error)
@@ -519,7 +519,7 @@ func Open(driverName, dataSourceName string) (*DB, error)
 
 ​	返回的DB可安全地由多个goroutine并发使用，并维护其自己的空闲连接池。因此，应该只调用一次Open函数。很少需要关闭DB。
 
-#### func [OpenDB](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=781)  <- go1.10
+#### func OpenDB  <- go1.10
 
 ``` go 
 func OpenDB(c driver.Connector) *DB
@@ -533,7 +533,7 @@ func OpenDB(c driver.Connector) *DB
 
 ​	返回的DB安全地支持多个goroutine的并发使用，并维护其自己的空闲连接池。因此，OpenDB函数应该只调用一次。很少需要关闭DB。
 
-#### (*DB) [Begin](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1848) 
+#### (*DB) Begin 
 
 ``` go 
 func (db *DB) Begin() (*Tx, error)
@@ -543,7 +543,7 @@ func (db *DB) Begin() (*Tx, error)
 
 ​	Begin方法在内部使用context.Background；要指定上下文，请使用BeginTx方法。
 
-#### (*DB) [BeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1831)  <- go1.8
+#### (*DB) BeginTx  <- go1.8
 
 ``` go 
 func (db *DB) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
@@ -589,7 +589,7 @@ func main() {
 
 ```
 
-#### (*DB) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=876) 
+#### (*DB) Close 
 
 ``` go 
 func (db *DB) Close() error
@@ -599,7 +599,7 @@ func (db *DB) Close() error
 
 ​	很少需要关闭DB，因为DB句柄应该是长期存在的并在许多goroutine之间共享。
 
-#### (*DB) [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1907)  <- go1.9
+#### (*DB) Conn  <- go1.9
 
 ``` go 
 func (db *DB) Conn(ctx context.Context) (*Conn, error)
@@ -609,7 +609,7 @@ func (db *DB) Conn(ctx context.Context) (*Conn, error)
 
 ​	每个 Conn方法必须通过调用 Conn.Close 返回到数据库池中。
 
-#### (*DB) [Driver](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1892) 
+#### (*DB) Driver 
 
 ``` go 
 func (db *DB) Driver() driver.Driver
@@ -617,7 +617,7 @@ func (db *DB) Driver() driver.Driver
 
 ​	Driver方法返回数据库的底层驱动程序。
 
-#### (*DB) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1646) 
+#### (*DB) Exec 
 
 ``` go 
 func (db *DB) Exec(query string, args ...any) (Result, error)
@@ -627,7 +627,7 @@ func (db *DB) Exec(query string, args ...any) (Result, error)
 
 ​	Exec方法内部使用 context.Background。要指定上下文，请使用 ExecContext方法。
 
-#### (*DB) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1629)  <- go1.8
+#### (*DB) ExecContext  <- go1.8
 
 ``` go 
 func (db *DB) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
@@ -668,7 +668,7 @@ func main() {
 
 ```
 
-#### (*DB) [Ping](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=866)  <- go1.1
+#### (*DB) Ping  <- go1.1
 
 ``` go 
 func (db *DB) Ping() error
@@ -678,7 +678,7 @@ func (db *DB) Ping() error
 
 ​	Ping方法内部使用 context.Background。要指定上下文，请使用 PingContext方法。
 
-#### (*DB) [PingContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=845)  <- go1.8
+#### (*DB) PingContext  <- go1.8
 
 ``` go 
 func (db *DB) PingContext(ctx context.Context) error
@@ -721,7 +721,7 @@ func main() {
 
 ```
 
-#### (*DB) [Prepare](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1576) 
+#### (*DB) Prepare 
 
 ``` go 
 func (db *DB) Prepare(query string) (*Stmt, error)
@@ -770,7 +770,7 @@ func main() {
 
 ```
 
-#### (*DB) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1556)  <- go1.8
+#### (*DB) PrepareContext  <- go1.8
 
 ``` go 
 func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
@@ -780,7 +780,7 @@ func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 ​	提供的上下文用于语句的准备，而不是语句的执行。
 
-#### (*DB) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1716) 
+#### (*DB) Query 
 
 ``` go 
 func (db *DB) Query(query string, args ...any) (*Rows, error)
@@ -867,7 +867,7 @@ from
 
 ```
 
-#### (*DB) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1699)  <- go1.8
+#### (*DB) QueryContext  <- go1.8
 
 ```go 
 func (db *DB) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
@@ -928,7 +928,7 @@ func main() {
 
 ```
 
-#### (*DB) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1817) 
+#### (*DB) QueryRow 
 
 ``` go 
 func (db *DB) QueryRow(query string, args ...any) *Row
@@ -938,7 +938,7 @@ func (db *DB) QueryRow(query string, args ...any) *Row
 
 ​	QueryRow方法内部使用 context.Background。要指定上下文，请使用 QueryRowContext方法。
 
-#### (*DB) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1803)  <- go1.8
+#### (*DB) QueryRowContext  <- go1.8
 
 ``` go 
 func (db *DB) QueryRowContext(ctx context.Context, query string, args ...any) *Row
@@ -980,7 +980,7 @@ func main() {
 
 ```
 
-#### (*DB) [SetConnMaxIdleTime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1026)  <- go1.15
+#### (*DB) SetConnMaxIdleTime  <- go1.15
 
 ``` go 
 func (db *DB) SetConnMaxIdleTime(d time.Duration)
@@ -992,7 +992,7 @@ func (db *DB) SetConnMaxIdleTime(d time.Duration)
 
 ​	如果d <= 0，则连接不会因连接的空闲时间而关闭。
 
-#### (*DB) [SetConnMaxLifetime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1004)  <- go1.6
+#### (*DB) SetConnMaxLifetime  <- go1.6
 
 ``` go 
 func (db *DB) SetConnMaxLifetime(d time.Duration)
@@ -1004,7 +1004,7 @@ func (db *DB) SetConnMaxLifetime(d time.Duration)
 
 ​	如果d <= 0，则不会因连接的年龄而关闭连接。
 
-#### (*DB) [SetMaxIdleConns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=952)  <- go1.1
+#### (*DB) SetMaxIdleConns  <- go1.1
 
 ``` go 
 func (db *DB) SetMaxIdleConns(n int)
@@ -1018,7 +1018,7 @@ func (db *DB) SetMaxIdleConns(n int)
 
 ​	默认的最大空闲连接数当前为2。这可能会在将来的版本中更改。
 
-#### (*DB) [SetMaxOpenConns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=986)  <- go1.2
+#### (*DB) SetMaxOpenConns  <- go1.2
 
 ``` go 
 func (db *DB) SetMaxOpenConns(n int)
@@ -1030,7 +1030,7 @@ func (db *DB) SetMaxOpenConns(n int)
 
 ​	如果n <= 0，则没有打开连接的数量限制。默认值为0(无限制)。
 
-#### (*DB) [Stats](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1172)  <- go1.5
+#### (*DB) Stats  <- go1.5
 
 ``` go 
 func (db *DB) Stats() DBStats
@@ -1038,7 +1038,7 @@ func (db *DB) Stats() DBStats
 
 ​	Stats方法返回数据库统计信息。
 
-### type [DBStats](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1155)  <- go1.5
+### type DBStats  <- go1.5
 
 ```go 
 type DBStats struct {
@@ -1060,7 +1060,7 @@ type DBStats struct {
 
 ​	DBStats包含数据库统计信息。
 
-### type [IsolationLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=119)  <- go1.8
+### type IsolationLevel  <- go1.8
 
 ``` go 
 type IsolationLevel int
@@ -1085,7 +1085,7 @@ const (
 
 ​	参见https://en.wikipedia.org/wiki/Isolation_(database_systems)#Isolation_levels。
 
-#### (IsolationLevel) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=137)  <- go1.11
+#### (IsolationLevel) String  <- go1.11
 
 ``` go 
 func (i IsolationLevel) String() string
@@ -1093,7 +1093,7 @@ func (i IsolationLevel) String() string
 
 ​	String 函数返回事务隔离级别的名称。
 
-### type [NamedArg](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=81)  <- go1.8
+### type NamedArg  <- go1.8
 
 ```go 
 type NamedArg struct {
@@ -1116,7 +1116,7 @@ type NamedArg struct {
 
 ​	为了更简洁地创建 NamedArg 值，请参考 Named 函数。
 
-#### func [Named](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=110)  <- go1.8
+#### func Named  <- go1.8
 
 ``` go 
 func Named(name string, value any) NamedArg
@@ -1139,7 +1139,7 @@ db.ExecContext(ctx, `
 )
 ```
 
-### type [NullBool](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=345) 
+### type NullBool 
 
 ```go 
 type NullBool struct {
@@ -1150,7 +1150,7 @@ type NullBool struct {
 
 ​	NullBool结构体表示可能为空的 bool 值。NullBool 实现了 Scanner 接口，因此它可以用作扫描目标，类似于 NullString。
 
-#### (*NullBool) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=351) 
+#### (*NullBool) Scan 
 
 ``` go 
 func (n *NullBool) Scan(value any) error
@@ -1158,7 +1158,7 @@ func (n *NullBool) Scan(value any) error
 
 ​	Scan方法实现了 Scanner 接口。
 
-#### (NullBool) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=361) 
+#### (NullBool) Value 
 
 ``` go 
 func (n NullBool) Value() (driver.Value, error)
@@ -1166,7 +1166,7 @@ func (n NullBool) Value() (driver.Value, error)
 
 ​	Value方法实现了 driver Valuer 接口。
 
-### type [NullByte](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=292)  <- go1.17
+### type NullByte  <- go1.17
 
 ```go 
 type NullByte struct {
@@ -1177,7 +1177,7 @@ type NullByte struct {
 
 ​	NullByte结构体表示一个可能为空的 byte。NullByte 实现了 Scanner 接口，因此它可以像 NullString 一样用作扫描目标。
 
-#### (*NullByte) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=298)  <- go1.17
+#### (*NullByte) Scan  <- go1.17
 
 ``` go 
 func (n *NullByte) Scan(value any) error
@@ -1185,7 +1185,7 @@ func (n *NullByte) Scan(value any) error
 
 ​	Scan方法实现了 Scanner 接口。
 
-#### (NullByte) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=309)  <- go1.17
+#### (NullByte) Value  <- go1.17
 
 ``` go 
 func (n NullByte) Value() (driver.Value, error)
@@ -1193,7 +1193,7 @@ func (n NullByte) Value() (driver.Value, error)
 
 ​	Value方法实现了 driver Valuer 接口。
 
-### type [NullFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=319) 
+### type NullFloat64 
 
 ```go 
 type NullFloat64 struct {
@@ -1204,7 +1204,7 @@ type NullFloat64 struct {
 
 ​	NullFloat64结构体表示一个可能为空的 float64。NullFloat64 实现了 Scanner 接口，因此它可以像 NullString 一样用作扫描目标。
 
-#### (*NullFloat64) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=325) 
+#### (*NullFloat64) Scan 
 
 ``` go 
 func (n *NullFloat64) Scan(value any) error
@@ -1212,7 +1212,7 @@ func (n *NullFloat64) Scan(value any) error
 
 ​	Scan方法实现了 Scanner 接口。
 
-#### (NullFloat64) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=335) 
+#### (NullFloat64) Value 
 
 ``` go 
 func (n NullFloat64) Value() (driver.Value, error)
@@ -1220,7 +1220,7 @@ func (n NullFloat64) Value() (driver.Value, error)
 
 ​	Value方法实现了 driver Valuer 接口。
 
-### type [NullInt16](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=265)  <- go1.17
+### type NullInt16  <- go1.17
 
 ```go 
 type NullInt16 struct {
@@ -1231,7 +1231,7 @@ type NullInt16 struct {
 
 ​	NullInt16结构体表示可能为null的int16。NullInt16实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
 
-#### (*NullInt16) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=271)  <- go1.17
+#### (*NullInt16) Scan  <- go1.17
 
 ``` go 
 func (n *NullInt16) Scan(value any) error
@@ -1239,7 +1239,7 @@ func (n *NullInt16) Scan(value any) error
 
 ​	Scan方法实现Scanner接口。
 
-#### (NullInt16) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=282)  <- go1.17
+#### (NullInt16) Value  <- go1.17
 
 ``` go 
 func (n NullInt16) Value() (driver.Value, error)
@@ -1247,7 +1247,7 @@ func (n NullInt16) Value() (driver.Value, error)
 
 ​	Value方法实现driver Valuer接口。
 
-### type [NullInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=239)  <- go1.13
+### type NullInt32  <- go1.13
 
 ```go 
 type NullInt32 struct {
@@ -1258,7 +1258,7 @@ type NullInt32 struct {
 
 ​	NullInt32结构体表示可能为null的int32。NullInt32实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
 
-#### (*NullInt32) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=245)  <- go1.13
+#### (*NullInt32) Scan  <- go1.13
 
 ``` go 
 func (n *NullInt32) Scan(value any) error
@@ -1266,7 +1266,7 @@ func (n *NullInt32) Scan(value any) error
 
 ​	Scan方法实现Scanner接口。
 
-#### (NullInt32) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=255)  <- go1.13
+#### (NullInt32) Value  <- go1.13
 
 ``` go 
 func (n NullInt32) Value() (driver.Value, error)
@@ -1274,7 +1274,7 @@ func (n NullInt32) Value() (driver.Value, error)
 
 ​	Value方法实现driver Valuer接口。
 
-### type [NullInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=213) 
+### type NullInt64 
 
 ``` go 
 type NullInt64 struct {
@@ -1285,7 +1285,7 @@ type NullInt64 struct {
 
 ​	NullInt64结构体表示可能为null的int64。NullInt64实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
 
-#### (*NullInt64) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=219) 
+#### (*NullInt64) Scan 
 
 ``` go 
 func (n *NullInt64) Scan(value any) error
@@ -1293,7 +1293,7 @@ func (n *NullInt64) Scan(value any) error
 
 ​	Scan方法实现Scanner接口。
 
-#### (NullInt64) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=229) 
+#### (NullInt64) Value 
 
 ``` go 
 func (n NullInt64) Value() (driver.Value, error)
@@ -1301,7 +1301,7 @@ func (n NullInt64) Value() (driver.Value, error)
 
 ​	Value方法实现driver Valuer接口。
 
-### type [NullString](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=187) 
+### type NullString 
 
 ```go 
 type NullString struct {
@@ -1323,7 +1323,7 @@ if s.Valid {
 }
 ```
 
-#### (*NullString) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=193) 
+#### (*NullString) Scan 
 
 ``` go 
 func (ns *NullString) Scan(value any) error
@@ -1331,7 +1331,7 @@ func (ns *NullString) Scan(value any) error
 
 ​	Scan方法实现了 Scanner 接口。
 
-#### (NullString) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=203) 
+#### (NullString) Value 
 
 ``` go 
 func (ns NullString) Value() (driver.Value, error)
@@ -1339,7 +1339,7 @@ func (ns NullString) Value() (driver.Value, error)
 
 ​	Value方法实现了 driver Valuer 接口。
 
-### type [NullTime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=371)  <- go1.13
+### type NullTime  <- go1.13
 
 ```go 
 type NullTime struct {
@@ -1350,7 +1350,7 @@ type NullTime struct {
 
 ​	NullTime结构体表示可能为 null 的 time.Time。NullTime 实现了 Scanner 接口，因此可以用作扫描目标，类似于 NullString。
 
-#### (*NullTime) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=377)  <- go1.13
+#### (*NullTime) Scan  <- go1.13
 
 ``` go 
 func (n *NullTime) Scan(value any) error
@@ -1358,7 +1358,7 @@ func (n *NullTime) Scan(value any) error
 
 ​	Scan方法实现了 Scanner 接口。
 
-#### (NullTime) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=387)  <- go1.13
+#### (NullTime) Value  <- go1.13
 
 ``` go 
 func (n NullTime) Value() (driver.Value, error)
@@ -1366,7 +1366,7 @@ func (n NullTime) Value() (driver.Value, error)
 
 ​	Value方法实现了 driver Valuer 接口。
 
-### type [Out](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=425)  <- go1.9
+### type Out  <- go1.9
 
 ```go 
 type Out struct {
@@ -1397,7 +1397,7 @@ var outArg string
 _, err := db.ExecContext(ctx, "ProcName", sql.Named("Arg1", sql.Out{Dest: &outArg}))
 ```
 
-### type [RawBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=173) 
+### type RawBytes 
 
 ``` go 
 type RawBytes []byte
@@ -1405,7 +1405,7 @@ type RawBytes []byte
 
 ​	RawBytes 是一个字节切片，它持有数据库本身拥有的内存引用。将 RawBytes扫描后，该切片仅在下一次调用 Next方法、Scan方法或 Close方法之前有效。
 
-### type [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3365) 
+### type Result 
 
 ```go 
 type Result interface {
@@ -1422,7 +1422,7 @@ type Result interface {
 
 ​	Result 是对执行的 SQL 命令的摘要。
 
-### type [Row](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3306) 
+### type Row 
 
 ```go 
 type Row struct {
@@ -1432,7 +1432,7 @@ type Row struct {
 
 ​	Row结构体是调用 QueryRow方法选择单行时的结果。
 
-#### (*Row) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3360)  <- go1.15
+#### (*Row) Err  <- go1.15
 
 ``` go 
 func (r *Row) Err() error
@@ -1440,7 +1440,7 @@ func (r *Row) Err() error
 
 ​	Err方法提供了一种方法，使封装的包在不调用 Scan方法的情况下检查查询错误。如果在运行查询时遇到错误，Err 返回错误(如果有)。如果此错误不是 nil，则还将从 Scan 返回此错误。
 
-#### (*Row) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3317) 
+#### (*Row) Scan 
 
 ``` go 
 func (r *Row) Scan(dest ...any) error
@@ -1448,7 +1448,7 @@ func (r *Row) Scan(dest ...any) error
 
 ​	Scan方法将匹配的行中的列复制到 dest 指向的值中。有关详细信息，请参见 Rows.Scan 的文档。如果有多行与查询匹配，则 Scan方法使用第一行并且忽略其余的行。如果没有行与查询匹配，则 Scan方法返回 ErrNoRows。
 
-### type [Rows](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2882) 
+### type Rows 
 
 ```go 
 type Rows struct {
@@ -1501,7 +1501,7 @@ func main() {
 
 ```
 
-#### (*Rows) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3269) 
+#### (*Rows) Close 
 
 ``` go 
 func (rs *Rows) Close() error
@@ -1509,7 +1509,7 @@ func (rs *Rows) Close() error
 
 ​	Close方法方法关闭 Rows，防止进一步枚举。如果调用 Next 并且返回 false，并且没有其他结果集，则 Rows 将自动关闭，并且检查 Err 的结果就足够了。Close方法是幂等的，不会影响 Err 的结果。
 
-#### (*Rows) [ColumnTypes](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3067)  <- go1.8
+#### (*Rows) ColumnTypes  <- go1.8
 
 ``` go 
 func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
@@ -1517,7 +1517,7 @@ func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
 
 ​	ColumnTypes方法返回列信息，例如列类型、长度和可空性。某些信息可能不适用于某些驱动程序。
 
-#### (*Rows) [Columns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3050) 
+#### (*Rows) Columns 
 
 ``` go 
 func (rs *Rows) Columns() ([]string, error)
@@ -1525,7 +1525,7 @@ func (rs *Rows) Columns() ([]string, error)
 
 ​	Columns方法返回列名。如果行已关闭，则 Columns方法返回错误。
 
-#### (*Rows) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3039) 
+#### (*Rows) Err 
 
 ``` go 
 func (rs *Rows) Err() error
@@ -1533,7 +1533,7 @@ func (rs *Rows) Err() error
 
 ​	Err方法返回迭代过程中遇到的错误(如果有)。Err方法可以在显式或隐式 Close 后调用。
 
-#### (*Rows) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2949) 
+#### (*Rows) Next 
 
 ``` go 
 func (rs *Rows) Next() bool
@@ -1543,7 +1543,7 @@ func (rs *Rows) Next() bool
 
 ​	每次调用 Scan方法，即使是第一次调用，也必须先调用 Next方法。
 
-#### (*Rows) [NextResultSet](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3003)  <- go1.8
+#### (*Rows) NextResultSet  <- go1.8
 
 ``` go 
 func (rs *Rows) NextResultSet() bool
@@ -1553,7 +1553,7 @@ func (rs *Rows) NextResultSet() bool
 
 ​	在调用 NextResultSet方法后，应始终在扫描之前调用 Next 方法。如果还有其他结果集，则它们可能没有结果集中的行。
 
-#### (*Rows) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3232) 
+#### (*Rows) Scan 
 
 ``` go 
 func (rs *Rows) Scan(dest ...any) error
@@ -1594,7 +1594,7 @@ any type implementing Scanner (see Scanner docs)
 
 ​	如果实现 Scanner 接口的第一个参数返回错误，则该错误将包装在返回的错误中。
 
-### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=395) 
+### type Scanner 
 
 ```go 
 type Scanner interface {
@@ -1621,7 +1621,7 @@ type Scanner interface {
 
 ​	Scanner是由Scan使用的接口。
 
-### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2558) 
+### type Stmt 
 
 ```go 
 type Stmt struct {
@@ -1673,7 +1673,7 @@ func main() {
 
 ```
 
-#### (*Stmt) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2837) 
+#### (*Stmt) Close 
 
 ``` go 
 func (s *Stmt) Close() error
@@ -1681,7 +1681,7 @@ func (s *Stmt) Close() error
 
 ​	Close方法关闭该语句。
 
-#### (*Stmt) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2622) 
+#### (*Stmt) Exec 
 
 ``` go 
 func (s *Stmt) Exec(args ...any) (Result, error)
@@ -1691,7 +1691,7 @@ func (s *Stmt) Exec(args ...any) (Result, error)
 
 ​	Exec方法在内部使用context.Background。要指定上下文，请使用ExecContext方法。
 
-#### (*Stmt) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2598)  <- go1.8
+#### (*Stmt) ExecContext  <- go1.8
 
 ``` go 
 func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
@@ -1699,7 +1699,7 @@ func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
 
 ​	ExecContext方法使用给定的参数执行预处理语句，并返回概括语句效果的Result。
 
-#### (*Stmt) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2790) 
+#### (*Stmt) Query 
 
 ``` go 
 func (s *Stmt) Query(args ...any) (*Rows, error)
@@ -1709,7 +1709,7 @@ func (s *Stmt) Query(args ...any) (*Rows, error)
 
 ​	Query方法在内部使用context.Background。要指定上下文，请使用QueryContext方法。
 
-#### (*Stmt) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2738)  <- go1.8
+#### (*Stmt) QueryContext  <- go1.8
 
 ``` go 
 func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
@@ -1717,7 +1717,7 @@ func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
 
 ​	QueryContext方法使用给定的参数执行预处理查询语句，并将查询结果作为`*Rows`返回。
 
-#### (*Stmt) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2832) 
+#### (*Stmt) QueryRow 
 
 ``` go 
 func (s *Stmt) QueryRow(args ...any) *Row
@@ -1734,7 +1734,7 @@ err := nameByUseridStmt.QueryRow(id).Scan(&name)
 
 ​	QueryRow方法在内部使用context.Background；要指定上下文，请使用QueryRowContext方法。
 
-#### (*Stmt) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2810)  <- go1.8
+#### (*Stmt) QueryRowContext  <- go1.8
 
 ``` go 
 func (s *Stmt) QueryRowContext(ctx context.Context, args ...any) *Row
@@ -1782,7 +1782,7 @@ func main() {
 
 ```
 
-### type [Tx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2121) 
+### type Tx 
 
 ```go 
 type Tx struct {
@@ -1799,7 +1799,7 @@ type Tx struct {
 
 ​	通过调用事务的Prepare方法或Stmt方法方法准备的语句将在调用Commit方法或Rollback方法时关闭。
 
-#### (*Tx) [Commit](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2242) 
+#### (*Tx) Commit 
 
 ``` go 
 func (tx *Tx) Commit() error
@@ -1807,7 +1807,7 @@ func (tx *Tx) Commit() error
 
 ​	Commit方法提交事务。
 
-#### (*Tx) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2479) 
+#### (*Tx) Exec 
 
 ``` go 
 func (tx *Tx) Exec(query string, args ...any) (Result, error)
@@ -1817,7 +1817,7 @@ func (tx *Tx) Exec(query string, args ...any) (Result, error)
 
 ​	Exec方法在内部使用context.Background；要指定上下文，请使用ExecContext方法。
 
-#### (*Tx) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2466)  <- go1.8
+#### (*Tx) ExecContext  <- go1.8
 
 ``` go 
 func (tx *Tx) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
@@ -1861,7 +1861,7 @@ func main() {
 
 ```
 
-#### (*Tx) [Prepare](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2352) 
+#### (*Tx) Prepare 
 
 ``` go 
 func (tx *Tx) Prepare(query string) (*Stmt, error)
@@ -1923,7 +1923,7 @@ func main() {
 
 ```
 
-#### (*Tx) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2327)  <- go1.8
+#### (*Tx) PrepareContext  <- go1.8
 
 ``` go 
 func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
@@ -1937,7 +1937,7 @@ func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 ​	提供的上下文将用于准备上下文，而不是用于执行返回的语句。返回的语句将在事务上下文中运行。
 
-#### (*Tx) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2497) 
+#### (*Tx) Query 
 
 ``` go 
 func (tx *Tx) Query(query string, args ...any) (*Rows, error)
@@ -1947,7 +1947,7 @@ func (tx *Tx) Query(query string, args ...any) (*Rows, error)
 
 ​	Query方法在内部使用context.Background；要指定上下文，请使用QueryContext方法。
 
-#### (*Tx) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2484)  <- go1.8
+#### (*Tx) QueryContext  <- go1.8
 
 ``` go 
 func (tx *Tx) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
@@ -1955,7 +1955,7 @@ func (tx *Tx) QueryContext(ctx context.Context, query string, args ...any) (*Row
 
 ​	QueryContext方法执行返回行的查询，通常是 SELECT。
 
-#### (*Tx) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2521) 
+#### (*Tx) QueryRow 
 
 ```go 
 func (tx *Tx) QueryRow(query string, args ...any) *Row
@@ -1965,7 +1965,7 @@ func (tx *Tx) QueryRow(query string, args ...any) *Row
 
 ​	QueryRow方法在内部使用context.Background；要指定上下文，请使用QueryRowContext。
 
-#### (*Tx) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2507)  <- go1.8
+#### (*Tx) QueryRowContext  <- go1.8
 
 ```go 
 func (tx *Tx) QueryRowContext(ctx context.Context, query string, args ...any) *Row
@@ -1973,7 +1973,7 @@ func (tx *Tx) QueryRowContext(ctx context.Context, query string, args ...any) *R
 
 ​	QueryRowContext方法执行预期最多返回一行的查询。QueryRowContext方法总是返回一个非空值。错误被延迟到调用 Row 的 Scan 方法时才会返回。如果查询未选择行，则 `*Row` 的 Scan 将返回 ErrNoRows。否则，`*Row` 的 Scan 扫描第一个选择的行并丢弃其余的行。
 
-#### (*Tx) [Rollback](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2313) 
+#### (*Tx) Rollback 
 
 ```go 
 func (tx *Tx) Rollback() error
@@ -2026,7 +2026,7 @@ func main() {
 
 
 
-#### (*Tx) [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2460) 
+#### (*Tx) Stmt 
 
 ```go 
 func (tx *Tx) Stmt(stmt *Stmt) *Stmt
@@ -2048,7 +2048,7 @@ res, err := tx.Stmt(updateMoney).Exec(123.45, 98293203)
 
 ​	Stmt在内部使用context.Background；要指定上下文，请使用StmtContext。
 
-#### (*Tx) [StmtContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2372)  <- go1.8
+#### (*Tx) StmtContext  <- go1.8
 
 ```go 
 func (tx *Tx) StmtContext(ctx context.Context, stmt *Stmt) *Stmt
@@ -2070,7 +2070,7 @@ res, err := tx.StmtContext(ctx, updateMoney).Exec(123.45, 98293203)
 
 ​	返回的语句在事务中运行，并在事务提交或回滚后关闭。
 
-### type [TxOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=163)  <- go1.8
+### type TxOptions  <- go1.8
 
 ```go 
 type TxOptions struct {

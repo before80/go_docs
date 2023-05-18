@@ -42,7 +42,7 @@ Package profile provides a representation of github.com/google/pprof/proto/profi
 
 
 
-## 常量 [¶](https://pkg.go.dev/internal/profile@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -67,7 +67,7 @@ This section is empty.
 
 ## 类型
 
-### type [Demangler](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=548) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Demangler)
+### type Demangler [¶](https://pkg.go.dev/internal/profile@go1.20.1#Demangler)
 
 ```
 type Demangler func(name []string) (map[string]string, error)
@@ -75,7 +75,7 @@ type Demangler func(name []string) (map[string]string, error)
 
 Demangler maps symbol names to a human-readable form. This may include C++ demangling and additional simplification. Names that are not demangled may be missing from the resulting map.
 
-### type [Function](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=111) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Function)
+### type Function [¶](https://pkg.go.dev/internal/profile@go1.20.1#Function)
 
 ```
 type Function struct {
@@ -90,7 +90,7 @@ type Function struct {
 
 Function corresponds to Profile.Function
 
-### type [Label](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=67) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Label)
+### type Label [¶](https://pkg.go.dev/internal/profile@go1.20.1#Label)
 
 ```
 type Label struct {
@@ -100,7 +100,7 @@ type Label struct {
 
 Label corresponds to Profile.Label
 
-### type [Line](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=103) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Line)
+### type Line [¶](https://pkg.go.dev/internal/profile@go1.20.1#Line)
 
 ```
 type Line struct {
@@ -112,7 +112,7 @@ type Line struct {
 
 Line corresponds to Profile.Line
 
-### type [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=92) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Location)
+### type Location [¶](https://pkg.go.dev/internal/profile@go1.20.1#Location)
 
 ```
 type Location struct {
@@ -127,7 +127,7 @@ type Location struct {
 
 Location corresponds to Profile.Location
 
-### type [Mapping](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=75) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Mapping)
+### type Mapping [¶](https://pkg.go.dev/internal/profile@go1.20.1#Mapping)
 
 ```
 type Mapping struct {
@@ -147,7 +147,7 @@ type Mapping struct {
 
 Mapping corresponds to Profile.Mapping
 
-### type [Profile](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=21) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile)
+### type Profile [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile)
 
 ```
 type Profile struct {
@@ -172,7 +172,7 @@ type Profile struct {
 
 Profile is an in-memory representation of profile.proto.
 
-#### func [Merge](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/merge.go;l=21) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Merge)
+#### func Merge [¶](https://pkg.go.dev/internal/profile@go1.20.1#Merge)
 
 ```
 func Merge(srcs []*Profile) (*Profile, error)
@@ -180,7 +180,7 @@ func Merge(srcs []*Profile) (*Profile, error)
 
 Merge merges all the profiles in profs into a single Profile. Returns a new profile independent of the input profiles. The merged profile is compacted to eliminate unused samples, locations, functions and mappings. Profiles must have identical profile sample and period types or the merge will fail. profile.Period of the resulting profile will be the maximum of all profiles, and profile.TimeNanos will be the earliest nonzero one.
 
-#### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=126) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Parse)
+#### func Parse [¶](https://pkg.go.dev/internal/profile@go1.20.1#Parse)
 
 ```
 func Parse(r io.Reader) (*Profile, error)
@@ -188,7 +188,7 @@ func Parse(r io.Reader) (*Profile, error)
 
 Parse parses a profile and checks for its validity. The input may be a gzip-compressed encoded protobuf or one of many legacy profile formats which may be unsupported in the future.
 
-#### func [ParseTracebacks](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/legacy_profile.go;l=252) [¶](https://pkg.go.dev/internal/profile@go1.20.1#ParseTracebacks)
+#### func ParseTracebacks [¶](https://pkg.go.dev/internal/profile@go1.20.1#ParseTracebacks)
 
 ```
 func ParseTracebacks(b []byte) (*Profile, error)
@@ -196,7 +196,7 @@ func ParseTracebacks(b []byte) (*Profile, error)
 
 ParseTracebacks parses a set of tracebacks and returns a newly populated profile. It will accept any text file and generate a Profile out of it with any hex addresses it can identify, including a process map if it can recognize one. Each sample will include a tag "source" with the addresses recognized in string format.
 
-#### (*Profile) [Aggregate](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=294) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Aggregate)
+#### (*Profile) Aggregate [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Aggregate)
 
 ```
 func (p *Profile) Aggregate(inlineFrame, function, filename, linenumber, address bool) error
@@ -204,7 +204,7 @@ func (p *Profile) Aggregate(inlineFrame, function, filename, linenumber, address
 
 Aggregate merges the locations in the profile into equivalence classes preserving the request attributes. It also updates the samples to point to the merged locations.
 
-#### (*Profile) [CheckValid](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=232) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.CheckValid)
+#### (*Profile) CheckValid [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.CheckValid)
 
 ```
 func (p *Profile) CheckValid() error
@@ -215,7 +215,7 @@ CheckValid tests whether the profile is valid. Checks include, but are not limit
 - len(Profile.Sample[n].value) == len(Profile.value_unit)
 - Sample.id has a corresponding Profile.Location
 
-#### (*Profile) [Compatible](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=482) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Compatible)
+#### (*Profile) Compatible [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Compatible)
 
 ```
 func (p *Profile) Compatible(pb *Profile) error
@@ -223,7 +223,7 @@ func (p *Profile) Compatible(pb *Profile) error
 
 Compatible determines if two profiles can be compared/merged. returns nil if the profiles are compatible; otherwise an error with details on the incompatibility.
 
-#### (*Profile) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=530) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Copy)
+#### (*Profile) Copy [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Copy)
 
 ```
 func (p *Profile) Copy() *Profile
@@ -231,7 +231,7 @@ func (p *Profile) Copy() *Profile
 
 Copy makes a fully independent copy of a profile.
 
-#### (*Profile) [Demangle](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=553) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Demangle)
+#### (*Profile) Demangle [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Demangle)
 
 ```
 func (p *Profile) Demangle(d Demangler) error
@@ -239,7 +239,7 @@ func (p *Profile) Demangle(d Demangler) error
 
 Demangle attempts to demangle and optionally simplify any function names referenced in the profile. It works on a best-effort basis: it will silently preserve the original names in case of any errors.
 
-#### (*Profile) [Empty](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=574) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Empty)
+#### (*Profile) Empty [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Empty)
 
 ```
 func (p *Profile) Empty() bool
@@ -247,7 +247,7 @@ func (p *Profile) Empty() bool
 
 Empty reports whether the profile contains no samples.
 
-#### (*Profile) [FilterSamplesByName](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/filter.go;l=14) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.FilterSamplesByName)
+#### (*Profile) FilterSamplesByName [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.FilterSamplesByName)
 
 ```
 func (p *Profile) FilterSamplesByName(focus, ignore, hide *regexp.Regexp) (fm, im, hm bool)
@@ -255,7 +255,7 @@ func (p *Profile) FilterSamplesByName(focus, ignore, hide *regexp.Regexp) (fm, i
 
 FilterSamplesByName filters the samples in a profile and only keeps samples where at least one frame matches focus but none match ignore. Returns true is the corresponding regexp matched at least one sample.
 
-#### (*Profile) [FilterSamplesByTag](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/filter.go;l=119) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.FilterSamplesByTag)
+#### (*Profile) FilterSamplesByTag [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.FilterSamplesByTag)
 
 ```
 func (p *Profile) FilterSamplesByTag(focus, ignore TagMatch) (fm, im bool)
@@ -263,7 +263,7 @@ func (p *Profile) FilterSamplesByTag(focus, ignore TagMatch) (fm, im bool)
 
 FilterSamplesByTag removes all samples from the profile, except those that match focus and do not match the ignore regular expression.
 
-#### (*Profile) [HasFileLines](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=513) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.HasFileLines)
+#### (*Profile) HasFileLines [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.HasFileLines)
 
 ```
 func (p *Profile) HasFileLines() bool
@@ -271,7 +271,7 @@ func (p *Profile) HasFileLines() bool
 
 HasFileLines determines if all locations in this profile have symbolized file and line number information.
 
-#### (*Profile) [HasFunctions](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=502) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.HasFunctions)
+#### (*Profile) HasFunctions [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.HasFunctions)
 
 ```
 func (p *Profile) HasFunctions() bool
@@ -279,7 +279,7 @@ func (p *Profile) HasFunctions() bool
 
 HasFunctions determines if all locations in this profile have symbolized function information.
 
-#### (*Profile) [Merge](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=441) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Merge)
+#### (*Profile) Merge [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Merge)
 
 ```
 func (p *Profile) Merge(pb *Profile, r float64) error
@@ -287,7 +287,7 @@ func (p *Profile) Merge(pb *Profile, r float64) error
 
 Merge adds profile p adjusted by ratio r into profile p. Profiles must be compatible (same Type and SampleType). TODO(rsilvera): consider normalizing the profiles based on the total samples collected.
 
-#### (*Profile) [Normalize](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/merge.go;l=73) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Normalize)
+#### (*Profile) Normalize [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Normalize)
 
 ```
 func (p *Profile) Normalize(pb *Profile) error
@@ -295,7 +295,7 @@ func (p *Profile) Normalize(pb *Profile) error
 
 Normalize normalizes the source profile by multiplying each value in profile by the ratio of the sum of the base profile's values of that sample type to the sum of the source profile's value of that sample type.
 
-#### (*Profile) [ParseMemoryMap](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/legacy_profile.go;l=1024) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.ParseMemoryMap)
+#### (*Profile) ParseMemoryMap [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.ParseMemoryMap)
 
 ```
 func (p *Profile) ParseMemoryMap(rd io.Reader) error
@@ -303,7 +303,7 @@ func (p *Profile) ParseMemoryMap(rd io.Reader) error
 
 ParseMemoryMap parses a memory map in the format of /proc/self/maps, and overrides the mappings in the current profile. It renumbers the samples and locations in the profile correspondingly.
 
-#### (*Profile) [Prune](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/prune.go;l=17) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Prune)
+#### (*Profile) Prune [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Prune)
 
 ```
 func (p *Profile) Prune(dropRx, keepRx *regexp.Regexp)
@@ -311,7 +311,7 @@ func (p *Profile) Prune(dropRx, keepRx *regexp.Regexp)
 
 Prune removes all nodes beneath a node matching dropRx, and not matching keepRx. If the root node of a Sample matches, the sample will have an empty stack.
 
-#### (*Profile) [RemoveUninteresting](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/prune.go;l=81) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.RemoveUninteresting)
+#### (*Profile) RemoveUninteresting [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.RemoveUninteresting)
 
 ```
 func (p *Profile) RemoveUninteresting() error
@@ -319,7 +319,7 @@ func (p *Profile) RemoveUninteresting() error
 
 RemoveUninteresting prunes and elides profiles using built-in tables of uninteresting function names.
 
-#### (*Profile) [Scale](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=579) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Scale)
+#### (*Profile) Scale [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Scale)
 
 ```
 func (p *Profile) Scale(ratio float64)
@@ -327,7 +327,7 @@ func (p *Profile) Scale(ratio float64)
 
 Scale multiplies all sample values in a profile by a constant.
 
-#### (*Profile) [ScaleN](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=591) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.ScaleN)
+#### (*Profile) ScaleN [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.ScaleN)
 
 ```
 func (p *Profile) ScaleN(ratios []float64) error
@@ -335,7 +335,7 @@ func (p *Profile) ScaleN(ratios []float64) error
 
 ScaleN multiplies each sample values in a sample by a different amount.
 
-#### (*Profile) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=337) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.String)
+#### (*Profile) String [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.String)
 
 ```
 func (p *Profile) String() string
@@ -343,7 +343,7 @@ func (p *Profile) String() string
 
 Print dumps a text representation of a profile. Intended mainly for debugging purposes.
 
-#### (*Profile) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=219) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Write)
+#### (*Profile) Write [¶](https://pkg.go.dev/internal/profile@go1.20.1#Profile.Write)
 
 ```
 func (p *Profile) Write(w io.Writer) error
@@ -351,7 +351,7 @@ func (p *Profile) Write(w io.Writer) error
 
 Write writes the profile as a gzip-compressed marshaled protobuf.
 
-### type [Sample](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=55) [¶](https://pkg.go.dev/internal/profile@go1.20.1#Sample)
+### type Sample [¶](https://pkg.go.dev/internal/profile@go1.20.1#Sample)
 
 ```
 type Sample struct {
@@ -366,7 +366,7 @@ type Sample struct {
 
 Sample corresponds to Profile.Sample
 
-### type [TagMatch](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/filter.go;l=114) [¶](https://pkg.go.dev/internal/profile@go1.20.1#TagMatch)
+### type TagMatch [¶](https://pkg.go.dev/internal/profile@go1.20.1#TagMatch)
 
 ```
 type TagMatch func(key, val string, nval int64) bool
@@ -374,7 +374,7 @@ type TagMatch func(key, val string, nval int64) bool
 
 TagMatch selects tags for filtering
 
-### type [ValueType](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/profile.go;l=46) [¶](https://pkg.go.dev/internal/profile@go1.20.1#ValueType)
+### type ValueType [¶](https://pkg.go.dev/internal/profile@go1.20.1#ValueType)
 
 ```
 type ValueType struct {

@@ -11,7 +11,7 @@ https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1
 
   
 
-## 常量 [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#pkg-constants)
+## 常量 ¶
 
 This section is empty.
 
@@ -25,7 +25,7 @@ This section is empty.
 
 ## 类型
 
-### type [CounterVisitor](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=55) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CounterVisitor)
+### type CounterVisitor [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CounterVisitor)
 
 ```
 type CounterVisitor interface {
@@ -36,7 +36,7 @@ type CounterVisitor interface {
 
 CounterVisitor describes a helper object used during counter file writing; when writing counter data files, clients pass a CounterVisitor to the write/emit routines. The writers will then first invoke the visitor's NumFuncs() method to find out how many function's worth of data to write, then it will invoke VisitFuncs. The expectation is that the VisitFuncs method will then invoke the callback "f" with data for each function to emit to the file.
 
-### type [CounterVisitorFn](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=62) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CounterVisitorFn)
+### type CounterVisitorFn [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CounterVisitorFn)
 
 ```
 type CounterVisitorFn func(pkid uint32, funcid uint32, counters []uint32) error
@@ -44,7 +44,7 @@ type CounterVisitorFn func(pkid uint32, funcid uint32, counters []uint32) error
 
 CounterVisitorFn describes a callback function invoked when writing coverage counter data.
 
-### type [CoverageDataWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=26) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter)
+### type CoverageDataWriter [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter)
 
 ```
 type CoverageDataWriter struct {
@@ -52,13 +52,13 @@ type CoverageDataWriter struct {
 }
 ```
 
-#### func [NewCoverageDataWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=35) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#NewCoverageDataWriter)
+#### func NewCoverageDataWriter [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#NewCoverageDataWriter)
 
 ```
 func NewCoverageDataWriter(w io.Writer, flav coverage.CounterFlavor) *CoverageDataWriter
 ```
 
-#### (*CoverageDataWriter) [AppendSegment](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=161) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter.AppendSegment)
+#### (*CoverageDataWriter) AppendSegment [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter.AppendSegment)
 
 ```
 func (cfw *CoverageDataWriter) AppendSegment(args map[string]string, visitor CounterVisitor) error
@@ -66,7 +66,7 @@ func (cfw *CoverageDataWriter) AppendSegment(args map[string]string, visitor Cou
 
 AppendSegment appends a new segment to a counter data, with a new args section followed by a payload of counter data clauses.
 
-#### (*CoverageDataWriter) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/encodecounter/encode.go;l=67) [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter.Write)
+#### (*CoverageDataWriter) Write [¶](https://pkg.go.dev/internal/coverage/encodecounter@go1.20.1#CoverageDataWriter.Write)
 
 ```
 func (cfw *CoverageDataWriter) Write(metaFileHash [16]byte, args map[string]string, visitor CounterVisitor) error

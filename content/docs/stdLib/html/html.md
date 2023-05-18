@@ -30,7 +30,7 @@ This section is empty.
 
 ## 函数
 
-#### func [EscapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/html/escape.go;l=178) 
+#### func EscapeString 
 
 ``` go 
 func EscapeString(s string) string
@@ -42,7 +42,7 @@ EscapeString escapes special characters like "<" to become "&lt;". It escapes on
 ``` go 
 ```
 
-#### func [UnescapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/html/escape.go;l=187) 
+#### func UnescapeString 
 
 ``` go 
 func UnescapeString(s string) string

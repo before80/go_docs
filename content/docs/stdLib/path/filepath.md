@@ -7,7 +7,7 @@ draft = false
 +++
 # filepath
 
-[https://pkg.go.dev/path/filepath@go1.20.1](https://pkg.go.dev/path/filepath@go1.20.1)
+https://pkg.go.dev/path/filepath@go1.20.1
 
 ​	filepath 包实现了操作文件名路径的实用程序，以与目标操作系统定义的文件路径兼容的方式。
 
@@ -55,7 +55,7 @@ var SkipDir error = fs.SkipDir
 
 ## 函数
 
-#### func [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=296) 
+#### func Abs 
 
 ``` go 
 func Abs(path string) (string, error)
@@ -63,7 +63,7 @@ func Abs(path string) (string, error)
 
 ​	Abs函数返回 path 的绝对路径表示形式。如果 path 不是绝对路径，它将与当前工作目录连接以将其转换为绝对路径。给定文件的绝对路径名不能保证唯一。Abs函数对结果调用 Clean函数。
 
-#### func [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=615) 
+#### func Base 
 
 ``` go 
 func Base(path string) string
@@ -107,7 +107,7 @@ todo.txt
 .
 ```
 
-#### func [Clean](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=90) 
+#### func Clean 
 
 ``` go 
 func Clean(path string) string
@@ -133,7 +133,7 @@ func Clean(path string) string
 
 ​	另请参见Rob Pike，"Plan 9中的词汇文件名或获取点点正确"，https://9p.io/sys/doc/lexnames.html
 
-#### func [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=646) 
+#### func Dir 
 
 ``` go 
 func Dir(path string) string
@@ -179,7 +179,7 @@ On Unix:
 .
 ```
 
-#### func [EvalSymlinks](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=287) 
+#### func EvalSymlinks 
 
 ``` go 
 func EvalSymlinks(path string) (string, error)
@@ -187,7 +187,7 @@ func EvalSymlinks(path string) (string, error)
 
 ​	EvalSymlinks函数返回任何符号链接评估后的路径名。如果路径是相对路径，则结果将相对于当前目录，除非其中一个组件是绝对符号链接。EvalSymlinks函数在结果上调用Clean函数。
 
-#### func [Ext](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=273) 
+#### func Ext 
 
 ``` go 
 func Ext(path string) string
@@ -216,7 +216,7 @@ One dot: ".js"
 Two dots: ".js"
 ```
 
-#### func [FromSlash](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=229) 
+#### func FromSlash 
 
 ``` go 
 func FromSlash(path string) string
@@ -224,7 +224,7 @@ func FromSlash(path string) string
 
 ​	FromSlash函数返回将 path 中的每个斜杠('/')字符替换为分隔符字符的结果。多个斜杠将被多个分隔符替换。
 
-#### func [Glob](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/match.go;l=242) 
+#### func Glob 
 
 ``` go 
 func Glob(pattern string) (matches []string, err error)
@@ -234,7 +234,7 @@ func Glob(pattern string) (matches []string, err error)
 
 ​	Glob函数忽略文件系统错误，例如读取目录时的 I/O 错误。当模式格式错误时，仅可能返回 ErrBadPattern。
 
-#### func [IsAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path_unix.go;l=16) 
+#### func IsAbs 
 
 ``` go 
 func IsAbs(path string) bool
@@ -272,7 +272,7 @@ true
 false
 ```
 
-#### func [IsLocal](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=190)  <- go1.20
+#### func IsLocal  <- go1.20
 
 ``` go 
 func IsLocal(path string) bool
@@ -289,7 +289,7 @@ func IsLocal(path string) bool
 
 ​	IsLocal函数是纯词法操作。特别地，它不考虑文件系统中可能存在的任何符号链接的影响。
 
-#### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=265) 
+#### func Join 
 
 ``` go 
 func Join(elem ...string) string
@@ -326,7 +326,7 @@ a/b/c
 ../xyz
 ```
 
-#### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/match.go;l=43) 
+#### func Match 
 
 ``` go 
 func Match(pattern, name string) (matched bool, err error)
@@ -382,7 +382,7 @@ true <nil>
 true <nil>
 ```
 
-#### func [Rel](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=319) 
+#### func Rel 
 
 ``` go 
 func Rel(basepath, targpath string) (string, error)
@@ -422,7 +422,7 @@ On Unix:
 "./b/c": "" Rel: can't make ./b/c relative to /a
 ```
 
-#### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=249) 
+#### func Split 
 
 ``` go 
 func Split(path string) (dir, file string)
@@ -469,7 +469,7 @@ input: "/usr/local//go"
 	file: "go"
 ```
 
-#### func [SplitList](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=240) 
+#### func SplitList 
 
 ``` go 
 func SplitList(path string) []string
@@ -494,7 +494,7 @@ Output:
 On Unix: [/a/b/c /usr/bin]
 ```
 
-#### func [ToSlash](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=219) 
+#### func ToSlash 
 
 ``` go 
 func ToSlash(path string) string
@@ -502,7 +502,7 @@ func ToSlash(path string) string
 
 ​	ToSlash函数返回将路径中的每个分隔符字符替换为斜杠('/')字符的结果。多个分隔符被多个斜杠替换。
 
-#### func [VolumeName](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=664) 
+#### func VolumeName 
 
 ``` go 
 func VolumeName(path string) string
@@ -510,7 +510,7 @@ func VolumeName(path string) string
 
 ​	VolumeName函数返回 Windows 系统下的卷名，例如 "C:\foo\bar" 将返回 "C:" ，"\host\share\foo" 将返回 "\host\share"。在其他平台上，返回空字符串。
 
-#### func [Walk](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=566) 
+#### func Walk 
 
 ``` go 
 func Walk(root string, fn WalkFunc) error
@@ -593,7 +593,7 @@ visited file or dir: "dir/to/walk"
 skipping a dir without errors: skip
 ```
 
-#### func [WalkDir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=530)  <- go1.16
+#### func WalkDir  <- go1.16
 
 ``` go 
 func WalkDir(root string, fn fs.WalkDirFunc) error
@@ -611,7 +611,7 @@ WalkDir函数遍历以 root 为根的文件树，对树中的每个文件或目�
 
 ## 类型
 
-### type [WalkFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=439) 
+### type WalkFunc 
 
 ``` go 
 type WalkFunc func(path string, info fs.FileInfo, err error) error

@@ -30,7 +30,7 @@ This section is empty.
 
 ## 函数
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=254) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser
@@ -40,7 +40,7 @@ NewReader creates a new io.ReadCloser. Reads from the returned io.ReadCloser rea
 
 It is guaranteed that the underlying type of the returned io.ReadCloser is a *Reader.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=257) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer, order Order, litWidth int) io.WriteCloser
@@ -52,7 +52,7 @@ It is guaranteed that the underlying type of the returned io.WriteCloser is a *W
 
 ## 类型
 
-### type [Order](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=29) 
+### type Order 
 
 ``` go 
 type Order int
@@ -70,7 +70,7 @@ const (
 )
 ```
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=47)  <- go1.17
+### type Reader  <- go1.17
 
 ``` go 
 type Reader struct {
@@ -80,7 +80,7 @@ type Reader struct {
 
 Reader is an io.Reader which can be used to read compressed data in the LZW format.
 
-#### (*Reader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=230)  <- go1.17
+#### (*Reader) Close  <- go1.17
 
 ``` go 
 func (r *Reader) Close() error
@@ -88,7 +88,7 @@ func (r *Reader) Close() error
 
 Close closes the Reader and returns an error for any future read operation. It does not close the underlying io.Reader.
 
-#### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=122)  <- go1.17
+#### (*Reader) Read  <- go1.17
 
 ``` go 
 func (r *Reader) Read(b []byte) (int, error)
@@ -96,7 +96,7 @@ func (r *Reader) Read(b []byte) (int, error)
 
 Read implements io.Reader, reading uncompressed bytes from its underlying Reader.
 
-#### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=237)  <- go1.17
+#### (*Reader) Reset  <- go1.17
 
 ``` go 
 func (r *Reader) Reset(src io.Reader, order Order, litWidth int)
@@ -104,7 +104,7 @@ func (r *Reader) Reset(src io.Reader, order Order, litWidth int)
 
 Reset clears the Reader's state and allows it to be reused again as a new Reader.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=36)  <- go1.17
+### type Writer  <- go1.17
 
 ``` go 
 type Writer struct {
@@ -114,7 +114,7 @@ type Writer struct {
 
 Writer is an LZW compressor. It writes the compressed form of the data to an underlying writer (see NewWriter).
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=200)  <- go1.17
+#### (*Writer) Close  <- go1.17
 
 ``` go 
 func (w *Writer) Close() error
@@ -122,7 +122,7 @@ func (w *Writer) Close() error
 
 Close closes the Writer, flushing any pending output. It does not close w's underlying writer.
 
-#### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=243)  <- go1.17
+#### (*Writer) Reset  <- go1.17
 
 ``` go 
 func (w *Writer) Reset(dst io.Writer, order Order, litWidth int)
@@ -130,7 +130,7 @@ func (w *Writer) Reset(dst io.Writer, order Order, litWidth int)
 
 Reset clears the Writer's state and allows it to be reused again as a new Writer.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=122)  <- go1.17
+#### (*Writer) Write  <- go1.17
 
 ``` go 
 func (w *Writer) Write(p []byte) (n int, err error)

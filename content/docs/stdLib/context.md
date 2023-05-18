@@ -8,7 +8,7 @@ draft = false
 +++
 # context
 
-[https://pkg.go.dev/context@go1.20.1](https://pkg.go.dev/context@go1.20.1)
+https://pkg.go.dev/context@go1.20.1
 
 ​	context包context 定义了 Context 类型，它在 API 边界和进程之间传递截止时间、取消信号和其他请求作用域值。
 
@@ -61,7 +61,7 @@ var DeadlineExceeded error = deadlineExceededError{}
 
 ## 函数
 
-#### func [Cause](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=286)  <- go1.20
+#### func Cause  <- go1.20
 
 ```go 
 func Cause(c Context) error
@@ -69,7 +69,7 @@ func Cause(c Context) error
 
 ​	Cause函数返回一个非nil的错误，解释为什么c被取消。c或其父级的第一个取消设置原因。如果取消是通过对CancelCauseFunc(err)的调用进行的，则Cause返回err。否则，Cause(c)返回与c.Err()相同的值。如果c尚未被取消，则Cause返回nil。
 
-#### func [WithCancel](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=238) 
+#### func WithCancel 
 
 ```go 
 func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
@@ -129,7 +129,7 @@ Output:
 5
 ```
 
-#### func [WithCancelCause](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=266)  <- go1.20
+#### func WithCancelCause  <- go1.20
 
 ```go 
 func WithCancelCause(parent Context) (ctx Context, cancel CancelCauseFunc)
@@ -146,7 +146,7 @@ ctx.Err() // returns context.Canceled
 context.Cause(ctx) // returns myError
 ```
 
-#### func [WithDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=494) 
+#### func WithDeadline 
 
 ```go 
 func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
@@ -193,7 +193,7 @@ Output:
 context deadline exceeded
 ```
 
-#### func [WithTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=566) 
+#### func WithTimeout 
 
 ```go 
 func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
@@ -247,7 +247,7 @@ context deadline exceeded
 
 ## 类型
 
-### type [CancelCauseFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=253)  <- go1.20
+### type CancelCauseFunc  <- go1.20
 
 ```go 
 type CancelCauseFunc func(cause error)
@@ -260,7 +260,7 @@ type CancelCauseFunc func(cause error)
 - 如果parentContext在childContext之前以cause1取消，则Cause(parentContext) == Cause(childContext) == cause1  (即 parentContext 可以影响到 childContext )
 - 如果childContext在parentContext之前以cause2取消，则Cause(parentContext) == cause1，并且Cause(childContext) == cause2。(即 childContext 影响不到 parentContext )
 
-### type [CancelFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=230) 
+### type CancelFunc 
 
 ```go 
 type CancelFunc func()
@@ -268,7 +268,7 @@ type CancelFunc func()
 
 ​	CancelFunc类型告诉操作放弃它的工作。CancelFunc类型不等待工作停止。`多个goroutine可以同时调用CancelFunc`。在第一次调用之后，对CancelFunc的后续调用不起作用。
 
-### type [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=68) 
+### type Context 
 
 ```go 
 type Context interface {
@@ -365,7 +365,7 @@ type Context interface {
 
 ​	Context的方法可以同时被多个goroutine调用。
 
-#### func [Background](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=214) 
+#### func Background 
 
 ```go 
 func Background() Context
@@ -373,7 +373,7 @@ func Background() Context
 
 ​	Background函数返回一个非nil、空的Context。它永远不会被取消，没有值，也没有截止时间。它通常由main函数、初始化和测试以及作为传入请求的顶级Context使用。
 
-#### func [TODO](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=222) 
+#### func TODO 
 
 ```go 
 func TODO() Context
@@ -381,7 +381,7 @@ func TODO() Context
 
 ​	TODO函数返回一个非nil、空的Context。当不清楚使用哪个Context或尚未可用(因为周围的函数尚未扩展为接受Context参数)时，代码应使用context.TODO。
 
-#### func [WithValue](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=583) 
+#### func WithValue 
 
 ```go 
 func WithValue(parent Context, key, val any) Context

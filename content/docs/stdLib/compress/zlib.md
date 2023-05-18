@@ -71,7 +71,7 @@ var (
 
 ## 函数
 
-#### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=73) 
+#### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) (io.ReadCloser, error)
@@ -85,7 +85,7 @@ The ReadCloser returned by NewReader also implements Resetter.
 ``` go 
 ```
 
-#### func [NewReaderDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=82) 
+#### func NewReaderDict 
 
 ``` go 
 func NewReaderDict(r io.Reader, dict []byte) (io.ReadCloser, error)
@@ -97,7 +97,7 @@ The ReadCloser returned by NewReaderDict also implements Resetter.
 
 ## 类型
 
-### type [Resetter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=60)  <- go1.4
+### type Resetter  <- go1.4
 
 ``` go 
 type Resetter interface {
@@ -109,7 +109,7 @@ type Resetter interface {
 
 Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to a new underlying Reader. This permits reusing a ReadCloser instead of allocating a new one.
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=28) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -119,7 +119,7 @@ type Writer struct {
 
 A Writer takes data written to it and writes the compressed form of that data to an underlying writer (see NewWriter).
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=44) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer) *Writer
@@ -133,7 +133,7 @@ It is the caller's responsibility to call Close on the Writer when done. Writes 
 ``` go 
 ```
 
-#### func [NewWriterLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=55) 
+#### func NewWriterLevel 
 
 ``` go 
 func NewWriterLevel(w io.Writer, level int) (*Writer, error)
@@ -143,7 +143,7 @@ NewWriterLevel is like NewWriter but specifies the compression level instead of 
 
 The compression level can be DefaultCompression, NoCompression, HuffmanOnly or any integer value between BestSpeed and BestCompression inclusive. The error returned will be nil if the level is valid.
 
-#### func [NewWriterLevelDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=64) 
+#### func NewWriterLevelDict 
 
 ``` go 
 func NewWriterLevelDict(w io.Writer, level int, dict []byte) (*Writer, error)
@@ -153,7 +153,7 @@ NewWriterLevelDict is like NewWriterLevel but specifies a dictionary to compress
 
 The dictionary may be nil. If not, its contents should not be modified until the Writer is closed.
 
-#### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=177) 
+#### (*Writer) Close 
 
 ``` go 
 func (z *Writer) Close() error
@@ -161,7 +161,7 @@ func (z *Writer) Close() error
 
 Close closes the Writer, flushing any unwritten data to the underlying io.Writer, but does not close the underlying io.Writer.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=164) 
+#### (*Writer) Flush 
 
 ``` go 
 func (z *Writer) Flush() error
@@ -169,7 +169,7 @@ func (z *Writer) Flush() error
 
 Flush flushes the Writer to its underlying io.Writer.
 
-#### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=78)  <- go1.2
+#### (*Writer) Reset  <- go1.2
 
 ``` go 
 func (z *Writer) Reset(w io.Writer)
@@ -177,7 +177,7 @@ func (z *Writer) Reset(w io.Writer)
 
 Reset clears the state of the Writer z such that it is equivalent to its initial state from NewWriterLevel or NewWriterLevelDict, but instead writing to w.
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=144) 
+#### (*Writer) Write 
 
 ``` go 
 func (z *Writer) Write(p []byte) (n int, err error)

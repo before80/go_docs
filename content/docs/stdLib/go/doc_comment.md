@@ -45,7 +45,7 @@ This section is empty.
 
 ## 函数
 
-#### func [DefaultLookupPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=277) 
+#### func DefaultLookupPackage 
 
 ``` go 
 func DefaultLookupPackage(name string) (importPath string, ok bool)
@@ -57,7 +57,7 @@ Note that the go/doc package provides a more sophisticated lookup based on the i
 
 ## 类型
 
-### type [Block](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=32) 
+### type Block 
 
 ``` go 
 type Block interface {
@@ -67,7 +67,7 @@ type Block interface {
 
 A Block is block-level content in a doc comment, one of [*Code](https://pkg.go.dev/go/doc/comment@go1.20.1#Code), [*Heading](https://pkg.go.dev/go/doc/comment@go1.20.1#Heading), [*List](https://pkg.go.dev/go/doc/comment@go1.20.1#List), or [*Paragraph](https://pkg.go.dev/go/doc/comment@go1.20.1#Paragraph).
 
-### type [Code](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=125) 
+### type Code 
 
 ``` go 
 type Code struct {
@@ -80,7 +80,7 @@ type Code struct {
 
 A Code is a preformatted code block.
 
-### type [Doc](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=15) 
+### type Doc 
 
 ``` go 
 type Doc struct {
@@ -94,7 +94,7 @@ type Doc struct {
 
 A Doc is a parsed Go doc comment.
 
-### type [DocLink](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=160) 
+### type DocLink 
 
 ``` go 
 type DocLink struct {
@@ -116,7 +116,7 @@ type DocLink struct {
 
 A DocLink is a link to documentation for a Go package or symbol.
 
-#### (*DocLink) [DefaultURL](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=97) 
+#### (*DocLink) DefaultURL 
 
 ``` go 
 func (l *DocLink) DefaultURL(baseURL string) string
@@ -141,7 +141,7 @@ If baseURL ends in a trailing slash, then DefaultURL inserts a slash between Imp
 ""      → "/math#Sqrt"
 ```
 
-### type [Heading](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=37) 
+### type Heading 
 
 ``` go 
 type Heading struct {
@@ -151,7 +151,7 @@ type Heading struct {
 
 A Heading is a doc comment heading.
 
-#### (*Heading) [DefaultID](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=127) 
+#### (*Heading) DefaultID 
 
 ``` go 
 func (h *Heading) DefaultID() string
@@ -161,7 +161,7 @@ DefaultID returns the default anchor ID for the heading h.
 
 The default anchor ID is constructed by converting every rune that is not alphanumeric ASCII to an underscore and then adding the prefix "hdr-". For example, if the heading text is "Go Doc Comments", the default ID is "hdr-Go_Doc_Comments".
 
-### type [Italic](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=146) 
+### type Italic 
 
 ``` go 
 type Italic string
@@ -169,7 +169,7 @@ type Italic string
 
 An Italic is a string rendered as italicized text.
 
-### type [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=151) 
+### type Link 
 
 ``` go 
 type Link struct {
@@ -181,7 +181,7 @@ type Link struct {
 
 A Link is a link to a specific URL.
 
-### type [LinkDef](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=24) 
+### type LinkDef 
 
 ``` go 
 type LinkDef struct {
@@ -193,7 +193,7 @@ type LinkDef struct {
 
 A LinkDef is a single link definition.
 
-### type [List](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=47) 
+### type List 
 
 ``` go 
 type List struct {
@@ -222,7 +222,7 @@ type List struct {
 
 A List is a numbered or bullet list. Lists are always non-empty: len(Items) > 0. In a numbered list, every Items[i].Number is a non-empty string. In a bullet list, every Items[i].Number is an empty string.
 
-#### (*List) [BlankBefore](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=79) 
+#### (*List) BlankBefore 
 
 ``` go 
 func (l *List) BlankBefore() bool
@@ -230,7 +230,7 @@ func (l *List) BlankBefore() bool
 
 BlankBefore reports whether a reformatting of the comment should include a blank line before the list. The default rule is the same as for [BlankBetween]: if the list item content contains any blank lines (meaning at least one item has multiple paragraphs) then the list itself must be preceded by a blank line. A preceding blank line can be forced by setting [List](https://pkg.go.dev/go/doc/comment@go1.20.1#List).ForceBlankBefore.
 
-#### (*List) [BlankBetween](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=89) 
+#### (*List) BlankBetween 
 
 ``` go 
 func (l *List) BlankBetween() bool
@@ -238,7 +238,7 @@ func (l *List) BlankBetween() bool
 
 BlankBetween reports whether a reformatting of the comment should include a blank line between each pair of list items. The default rule is that if the list item content contains any blank lines (meaning at least one item has multiple paragraphs) then list items must themselves be separated by blank lines. Blank line separators can be forced by setting [List](https://pkg.go.dev/go/doc/comment@go1.20.1#List).ForceBlankBetween.
 
-### type [ListItem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=106) 
+### type ListItem 
 
 ``` go 
 type ListItem struct {
@@ -255,7 +255,7 @@ type ListItem struct {
 
 A ListItem is a single item in a numbered or bullet list.
 
-### type [Paragraph](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=118) 
+### type Paragraph 
 
 ``` go 
 type Paragraph struct {
@@ -265,7 +265,7 @@ type Paragraph struct {
 
 A Paragraph is a paragraph of text.
 
-### type [Parser](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=181) 
+### type Parser 
 
 ``` go 
 type Parser struct {
@@ -316,7 +316,7 @@ type Parser struct {
 
 A Parser is a doc comment parser. The fields in the struct can be filled in before calling Parse in order to customize the details of the parsing process.
 
-#### (*Parser) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=286) 
+#### (*Parser) Parse 
 
 ``` go 
 func (p *Parser) Parse(text string) *Doc
@@ -324,7 +324,7 @@ func (p *Parser) Parse(text string) *Doc
 
 Parse parses the doc comment text and returns the *Doc form. Comment markers (/* // and */) in the text must have already been removed.
 
-### type [Plain](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=141) 
+### type Plain 
 
 ``` go 
 type Plain string
@@ -332,7 +332,7 @@ type Plain string
 
 A Plain is a string rendered as plain text (not italicized).
 
-### type [Printer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=17) 
+### type Printer 
 
 ``` go 
 type Printer struct {
@@ -379,7 +379,7 @@ type Printer struct {
 
 A Printer is a doc comment printer. The fields in the struct can be filled in before calling any of the printing methods in order to customize the details of the printing process.
 
-#### (*Printer) [Comment](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=157) 
+#### (*Printer) Comment 
 
 ``` go 
 func (p *Printer) Comment(d *Doc) []byte
@@ -387,7 +387,7 @@ func (p *Printer) Comment(d *Doc) []byte
 
 Comment returns the standard Go formatting of the Doc, without any comment markers.
 
-#### (*Printer) [HTML](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/html.go;l=21) 
+#### (*Printer) HTML 
 
 ``` go 
 func (p *Printer) HTML(d *Doc) []byte
@@ -395,7 +395,7 @@ func (p *Printer) HTML(d *Doc) []byte
 
 HTML returns an HTML formatting of the Doc. See the [Printer](https://pkg.go.dev/go/doc/comment@go1.20.1#Printer) documentation for ways to customize the HTML output.
 
-#### (*Printer) [Markdown](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/markdown.go;l=22) 
+#### (*Printer) Markdown 
 
 ``` go 
 func (p *Printer) Markdown(d *Doc) []byte
@@ -403,7 +403,7 @@ func (p *Printer) Markdown(d *Doc) []byte
 
 Markdown returns a Markdown formatting of the Doc. See the [Printer](https://pkg.go.dev/go/doc/comment@go1.20.1#Printer) documentation for ways to customize the Markdown output.
 
-#### (*Printer) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/text.go;l=26) 
+#### (*Printer) Text 
 
 ``` go 
 func (p *Printer) Text(d *Doc) []byte
@@ -411,7 +411,7 @@ func (p *Printer) Text(d *Doc) []byte
 
 Text returns a textual formatting of the Doc. See the [Printer](https://pkg.go.dev/go/doc/comment@go1.20.1#Printer) documentation for ways to customize the text output.
 
-### type [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=136) 
+### type Text 
 
 ``` go 
 type Text interface {

@@ -55,7 +55,7 @@ StdEncoding is the standard base32 encoding, as defined in [RFC 4648](https://rf
 
 ## 函数
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=537) 
+#### func NewDecoder 
 
 ``` go 
 func NewDecoder(enc *Encoding, r io.Reader) io.Reader
@@ -63,7 +63,7 @@ func NewDecoder(enc *Encoding, r io.Reader) io.Reader
 
 NewDecoder constructs a new base32 stream decoder.
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=263) 
+#### func NewEncoder 
 
 ``` go 
 func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser
@@ -77,19 +77,19 @@ NewEncoder returns a new base32 stream encoder. Data written to the returned wri
 
 ## 类型
 
-### type [CorruptInputError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=280) 
+### type CorruptInputError 
 
 ``` go 
 type CorruptInputError int64
 ```
 
-#### (CorruptInputError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=282) 
+#### (CorruptInputError) Error 
 
 ``` go 
 func (e CorruptInputError) Error() string
 ```
 
-### type [Encoding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=21) 
+### type Encoding 
 
 ``` go 
 type Encoding struct {
@@ -99,7 +99,7 @@ type Encoding struct {
 
 An Encoding is a radix 32 encoding/decoding scheme, defined by a 32-character alphabet. The most common is the "base32" encoding introduced for SASL GSSAPI and standardized in [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html). The alternate "base32hex" encoding is used in DNSSEC.
 
-#### func [NewEncoding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=54) 
+#### func NewEncoding 
 
 ``` go 
 func NewEncoding(encoder string) *Encoding
@@ -107,7 +107,7 @@ func NewEncoding(encoder string) *Encoding
 
 NewEncoding returns a new Encoding defined by the given alphabet, which must be a 32-byte string.
 
-#### (*Encoding) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=378) 
+#### (*Encoding) Decode 
 
 ``` go 
 func (enc *Encoding) Decode(dst, src []byte) (n int, err error)
@@ -119,7 +119,7 @@ Decode decodes src using the encoding enc. It writes at most DecodedLen(len(src)
 ``` go 
 ```
 
-#### (*Encoding) [DecodeString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=386) 
+#### (*Encoding) DecodeString 
 
 ``` go 
 func (enc *Encoding) DecodeString(s string) ([]byte, error)
@@ -131,7 +131,7 @@ DecodeString returns the bytes represented by the base32 string s.
 ``` go 
 ```
 
-#### (*Encoding) [DecodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=543) 
+#### (*Encoding) DecodedLen 
 
 ``` go 
 func (enc *Encoding) DecodedLen(n int) int
@@ -139,7 +139,7 @@ func (enc *Encoding) DecodedLen(n int) int
 
 DecodedLen returns the maximum length in bytes of the decoded data corresponding to n bytes of base32-encoded data.
 
-#### (*Encoding) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=108) 
+#### (*Encoding) Encode 
 
 ``` go 
 func (enc *Encoding) Encode(dst, src []byte)
@@ -153,7 +153,7 @@ The encoding pads the output to a multiple of 8 bytes, so Encode is not appropri
 ``` go 
 ```
 
-#### (*Encoding) [EncodeToString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=184) 
+#### (*Encoding) EncodeToString 
 
 ``` go 
 func (enc *Encoding) EncodeToString(src []byte) string
@@ -165,7 +165,7 @@ EncodeToString returns the base32 encoding of src.
 ``` go 
 ```
 
-#### (*Encoding) [EncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=269) 
+#### (*Encoding) EncodedLen 
 
 ``` go 
 func (enc *Encoding) EncodedLen(n int) int
@@ -173,7 +173,7 @@ func (enc *Encoding) EncodedLen(n int) int
 
 EncodedLen returns the length in bytes of the base32 encoding of an input buffer of length n.
 
-#### (Encoding) [WithPadding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base32/base32.go;l=83)  <- go1.9
+#### (Encoding) WithPadding  <- go1.9
 
 ``` go 
 func (enc Encoding) WithPadding(padding rune) *Encoding

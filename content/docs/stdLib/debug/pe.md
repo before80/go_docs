@@ -196,7 +196,7 @@ This section is empty.
 
 ## 类型
 
-### type [COFFSymbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=19)  <- go1.1
+### type COFFSymbol  <- go1.1
 
 ``` go 
 type COFFSymbol struct {
@@ -211,7 +211,7 @@ type COFFSymbol struct {
 
 COFFSymbol represents single COFF symbol table record.
 
-#### (*COFFSymbol) [FullName](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=109)  <- go1.8
+#### (*COFFSymbol) FullName  <- go1.8
 
 ``` go 
 func (sym *COFFSymbol) FullName(st StringTable) (string, error)
@@ -219,7 +219,7 @@ func (sym *COFFSymbol) FullName(st StringTable) (string, error)
 
 FullName finds real name of symbol sym. Normally name is stored in sym.Name, but if it is longer then 8 characters, it is stored in COFF string table st instead.
 
-### type [COFFSymbolAuxFormat5](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=162)  <- go1.19
+### type COFFSymbolAuxFormat5  <- go1.19
 
 ``` go 
 type COFFSymbolAuxFormat5 struct {
@@ -235,7 +235,7 @@ type COFFSymbolAuxFormat5 struct {
 
 COFFSymbolAuxFormat5 describes the expected form of an aux symbol attached to a section definition symbol. The PE format defines a number of different aux symbol formats: format 1 for function definitions, format 2 for .be and .ef symbols, and so on. Format 5 holds extra info associated with a section definition, including number of relocations + line numbers, as well as COMDAT info. See https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions for more on what's going on here.
 
-### type [DataDirectory](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/pe.go;l=17)  <- go1.3
+### type DataDirectory  <- go1.3
 
 ``` go 
 type DataDirectory struct {
@@ -244,7 +244,7 @@ type DataDirectory struct {
 }
 ```
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=33) 
+### type File 
 
 ``` go 
 type File struct {
@@ -260,7 +260,7 @@ type File struct {
 
 A File represents an open PE file.
 
-#### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=74) 
+#### func NewFile 
 
 ``` go 
 func NewFile(r io.ReaderAt) (*File, error)
@@ -268,7 +268,7 @@ func NewFile(r io.ReaderAt) (*File, error)
 
 NewFile creates a new File for accessing a PE binary in an underlying reader.
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=45) 
+#### func Open 
 
 ``` go 
 func Open(name string) (*File, error)
@@ -276,7 +276,7 @@ func Open(name string) (*File, error)
 
 Open opens the named file using os.Open and prepares it for use as a PE binary.
 
-#### (*File) [COFFSymbolReadSectionDefAux](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=192)  <- go1.19
+#### (*File) COFFSymbolReadSectionDefAux  <- go1.19
 
 ``` go 
 func (f *File) COFFSymbolReadSectionDefAux(idx int) (*COFFSymbolAuxFormat5, error)
@@ -286,7 +286,7 @@ COFFSymbolReadSectionDefAux returns a blob of axiliary information (including CO
 
 auxiliary symbols: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-symbol-records COMDAT sections: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#comdat-sections-object-only auxiliary info for section definitions: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions
 
-#### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=62) 
+#### (*File) Close 
 
 ``` go 
 func (f *File) Close() error
@@ -294,13 +294,13 @@ func (f *File) Close() error
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
 
-#### (*File) [DWARF](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=221) 
+#### (*File) DWARF 
 
 ``` go 
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
-#### (*File) [ImportedLibraries](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=452) 
+#### (*File) ImportedLibraries 
 
 ``` go 
 func (f *File) ImportedLibraries() ([]string, error)
@@ -308,7 +308,7 @@ func (f *File) ImportedLibraries() ([]string, error)
 
 ImportedLibraries returns the names of all libraries referred to by the binary f that are expected to be linked with the binary at dynamic link time.
 
-#### (*File) [ImportedSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=333) 
+#### (*File) ImportedSymbols 
 
 ``` go 
 func (f *File) ImportedSymbols() ([]string, error)
@@ -316,7 +316,7 @@ func (f *File) ImportedSymbols() ([]string, error)
 
 ImportedSymbols returns the names of all symbols referred to by the binary f that are expected to be satisfied by other libraries at dynamic load time. It does not return weak symbols.
 
-#### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=212) 
+#### (*File) Section 
 
 ``` go 
 func (f *File) Section(name string) *Section
@@ -324,7 +324,7 @@ func (f *File) Section(name string) *Section
 
 Section returns the first section with the given name, or nil if no such section exists.
 
-### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/pe.go;l=7) 
+### type FileHeader 
 
 ``` go 
 type FileHeader struct {
@@ -338,7 +338,7 @@ type FileHeader struct {
 }
 ```
 
-### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=460) 
+### type FormatError 
 
 ``` go 
 type FormatError struct {
@@ -347,13 +347,13 @@ type FormatError struct {
 
 FormatError is unused. The type is retained for compatibility.
 
-#### (*FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=463) 
+#### (*FormatError) Error 
 
 ``` go 
 func (e *FormatError) Error() string
 ```
 
-### type [ImportDirectory](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/file.go;l=319) 
+### type ImportDirectory 
 
 ``` go 
 type ImportDirectory struct {
@@ -366,7 +366,7 @@ type ImportDirectory struct {
 }
 ```
 
-### type [OptionalHeader32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/pe.go;l=22)  <- go1.3
+### type OptionalHeader32  <- go1.3
 
 ``` go 
 type OptionalHeader32 struct {
@@ -404,7 +404,7 @@ type OptionalHeader32 struct {
 }
 ```
 
-### type [OptionalHeader64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/pe.go;l=56)  <- go1.3
+### type OptionalHeader64  <- go1.3
 
 ``` go 
 type OptionalHeader64 struct {
@@ -441,7 +441,7 @@ type OptionalHeader64 struct {
 }
 ```
 
-### type [Reloc](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=47)  <- go1.8
+### type Reloc  <- go1.8
 
 ``` go 
 type Reloc struct {
@@ -453,7 +453,7 @@ type Reloc struct {
 
 Reloc represents a PE COFF relocation. Each section contains its own relocation list.
 
-### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=85) 
+### type Section 
 
 ``` go 
 type Section struct {
@@ -473,7 +473,7 @@ type Section struct {
 
 Section provides access to PE COFF section.
 
-#### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=100) 
+#### (*Section) Data 
 
 ``` go 
 func (s *Section) Data() ([]byte, error)
@@ -481,7 +481,7 @@ func (s *Section) Data() ([]byte, error)
 
 Data reads and returns the contents of the PE section s.
 
-#### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=105) 
+#### (*Section) Open 
 
 ``` go 
 func (s *Section) Open() io.ReadSeeker
@@ -489,7 +489,7 @@ func (s *Section) Open() io.ReadSeeker
 
 Open returns a new ReadSeeker reading the PE section s.
 
-### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=71) 
+### type SectionHeader 
 
 ``` go 
 type SectionHeader struct {
@@ -508,7 +508,7 @@ type SectionHeader struct {
 
 SectionHeader is similar to SectionHeader32 with Name field replaced by Go string.
 
-### type [SectionHeader32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=16) 
+### type SectionHeader32 
 
 ``` go 
 type SectionHeader32 struct {
@@ -527,7 +527,7 @@ type SectionHeader32 struct {
 
 SectionHeader32 represents real PE COFF section header.
 
-### type [StringTable](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/string.go;l=26)  <- go1.8
+### type StringTable  <- go1.8
 
 ``` go 
 type StringTable []byte
@@ -535,7 +535,7 @@ type StringTable []byte
 
 StringTable is a COFF string table.
 
-#### (StringTable) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/string.go;l=59)  <- go1.8
+#### (StringTable) String  <- go1.8
 
 ``` go 
 func (st StringTable) String(start uint32) (string, error)
@@ -543,7 +543,7 @@ func (st StringTable) String(start uint32) (string, error)
 
 String extracts string from COFF string table st at offset start.
 
-### type [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=146)  <- go1.1
+### type Symbol  <- go1.1
 
 ``` go 
 type Symbol struct {

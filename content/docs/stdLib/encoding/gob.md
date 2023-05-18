@@ -246,7 +246,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=836) 
+#### func Register 
 
 ``` go 
 func Register(value any)
@@ -254,7 +254,7 @@ func Register(value any)
 
 Register records a type, identified by a value for that type, under its internal type name. That name will identify the concrete type of a value sent or received as an interface variable. Only types that will be transferred as implementations of interface values need to be registered. Expecting to be used only during initialization, it panics if the mapping between types and names is not a bijection.
 
-#### func [RegisterName](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=807) 
+#### func RegisterName 
 
 ``` go 
 func RegisterName(name string, value any)
@@ -264,7 +264,7 @@ RegisterName is like Register but uses the provided name rather than the type's 
 
 ## 类型
 
-### type [CommonType](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=216) 
+### type CommonType 
 
 ``` go 
 type CommonType struct {
@@ -275,7 +275,7 @@ type CommonType struct {
 
 CommonType holds elements of all types. It is a historical artifact, kept for binary compatibility and exported only for the benefit of the package's encoding of type descriptors. It is not intended for direct use by clients.
 
-### type [Decoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=28) 
+### type Decoder 
 
 ``` go 
 type Decoder struct {
@@ -287,7 +287,7 @@ A Decoder manages the receipt of type and data information read from the remote 
 
 The Decoder does only basic sanity checking on decoded input sizes, and its limits are not configurable. Take caution when decoding gob data from untrusted sources.
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=43) 
+#### func NewDecoder 
 
 ``` go 
 func NewDecoder(r io.Reader) *Decoder
@@ -295,7 +295,7 @@ func NewDecoder(r io.Reader) *Decoder
 
 NewDecoder returns a new decoder that reads from the io.Reader. If r does not also implement io.ByteReader, it will be wrapped in a bufio.Reader.
 
-#### (*Decoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=193) 
+#### (*Decoder) Decode 
 
 ``` go 
 func (dec *Decoder) Decode(e any) error
@@ -303,7 +303,7 @@ func (dec *Decoder) Decode(e any) error
 
 Decode reads the next value from the input stream and stores it in the data represented by the empty interface value. If e is nil, the value will be discarded. Otherwise, the value underlying e must be a pointer to the correct type for the next data item received. If the input is at EOF, Decode returns io.EOF and does not modify e.
 
-#### (*Decoder) [DecodeValue](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=213) 
+#### (*Decoder) DecodeValue 
 
 ``` go 
 func (dec *Decoder) DecodeValue(v reflect.Value) error
@@ -311,7 +311,7 @@ func (dec *Decoder) DecodeValue(v reflect.Value) error
 
 DecodeValue reads the next value from the input stream. If v is the zero reflect.Value (v.Kind() == Invalid), DecodeValue discards the value. Otherwise, it stores the value into v. In that case, v must represent a non-nil pointer to data or be an assignable reflect.Value (v.CanSet()) If the input is at EOF, DecodeValue returns io.EOF and does not modify v.
 
-### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=17) 
+### type Encoder 
 
 ``` go 
 type Encoder struct {
@@ -321,7 +321,7 @@ type Encoder struct {
 
 An Encoder manages the transmission of type and data information to the other side of a connection. It is safe for concurrent use by multiple goroutines.
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=34) 
+#### func NewEncoder 
 
 ``` go 
 func NewEncoder(w io.Writer) *Encoder
@@ -329,7 +329,7 @@ func NewEncoder(w io.Writer) *Encoder
 
 NewEncoder returns a new encoder that will transmit on the io.Writer.
 
-#### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=175) 
+#### (*Encoder) Encode 
 
 ``` go 
 func (enc *Encoder) Encode(e any) error
@@ -337,7 +337,7 @@ func (enc *Encoder) Encode(e any) error
 
 Encode transmits the data item represented by the empty interface value, guaranteeing that all necessary type information has been transmitted first. Passing a nil pointer to Encoder will panic, as they cannot be transmitted by gob.
 
-#### (*Encoder) [EncodeValue](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=218) 
+#### (*Encoder) EncodeValue 
 
 ``` go 
 func (enc *Encoder) EncodeValue(value reflect.Value) error
@@ -345,7 +345,7 @@ func (enc *Encoder) EncodeValue(value reflect.Value) error
 
 EncodeValue transmits the data item represented by the reflection value, guaranteeing that all necessary type information has been transmitted first. Passing a nil pointer to EncodeValue will panic, as they cannot be transmitted by gob.
 
-### type [GobDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=793) 
+### type GobDecoder 
 
 ``` go 
 type GobDecoder interface {
@@ -358,7 +358,7 @@ type GobDecoder interface {
 
 GobDecoder is the interface describing data that provides its own routine for decoding transmitted values sent by a GobEncoder.
 
-### type [GobEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=784) 
+### type GobEncoder 
 
 ``` go 
 type GobEncoder interface {

@@ -87,7 +87,7 @@ This section is empty.
 
 ## 类型
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=89) 
+### type Writer 
 
 ``` go 
 type Writer struct {
@@ -122,7 +122,7 @@ The formfeed character acts like a newline but it also terminates all columns in
 
 The Writer must buffer input internally, because proper spacing of one line may depend on the cells in future lines. Clients must call Flush when done calling Write.
 
-#### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=598) 
+#### func NewWriter 
 
 ``` go 
 func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
@@ -130,7 +130,7 @@ func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, 
 
 NewWriter allocates and initializes a new tabwriter.Writer. The parameters are the same as for the Init function.
 
-#### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=487) 
+#### (*Writer) Flush 
 
 ``` go 
 func (b *Writer) Flush() error
@@ -138,7 +138,7 @@ func (b *Writer) Flush() error
 
 Flush should be called after the last call to Write to ensure that any data buffered in the Writer is written to output. Any incomplete escape sequence at the end is considered complete for formatting purposes.
 
-#### (*Writer) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=208) 
+#### (*Writer) Init 
 
 ``` go 
 func (b *Writer) Init(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
@@ -163,7 +163,7 @@ flags		formatting control
 ``` go 
 ```
 
-#### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=522) 
+#### (*Writer) Write 
 
 ``` go 
 func (b *Writer) Write(buf []byte) (n int, err error)

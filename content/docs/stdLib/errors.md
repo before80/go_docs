@@ -155,7 +155,7 @@ This section is empty.
 
 ## 函数
 
-#### func [As](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=92)  <- go1.13
+#### func As  <- go1.13
 
 ``` go 
 func As(err error, target any) bool
@@ -198,7 +198,7 @@ Output:
 Failed at path: non-existing
 ```
 
-#### func [Is](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=43)  <- go1.13
+#### func Is  <- go1.13
 
 ``` go 
 func Is(err, target error) bool
@@ -244,7 +244,7 @@ Output:
 file does not exist
 ```
 
-#### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/join.go;l=13)  <- go1.20
+#### func Join  <- go1.20
 
 ``` go 
 func Join(errs ...error) error
@@ -281,7 +281,7 @@ err is err1
 err is err2
 ```
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/errors.go;l=61) 
+#### func New 
 
 ``` go 
 func New(text string) error
@@ -332,7 +332,7 @@ Output:
 user "bimmler" (id 17) not found
 ```
 
-#### func [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=16)  <- go1.13
+#### func Unwrap  <- go1.13
 
 ``` go 
 func Unwrap(err error) error

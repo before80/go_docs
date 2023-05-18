@@ -40,7 +40,7 @@ This section is empty.
 
 ## 函数
 
-#### func [BitLen](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=645) 
+#### func BitLen 
 
 ``` go 
 func BitLen(x Value) int
@@ -48,7 +48,7 @@ func BitLen(x Value) int
 
 BitLen returns the number of bits required to represent the absolute value x in binary representation; x must be an Int or an Unknown. If x is Unknown, the result is 0.
 
-#### func [BoolVal](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=480) 
+#### func BoolVal 
 
 ``` go 
 func BoolVal(x Value) bool
@@ -56,7 +56,7 @@ func BoolVal(x Value) bool
 
 BoolVal returns the Go boolean value of x, which must be a Bool or an Unknown. If x is Unknown, the result is false.
 
-#### func [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=702) 
+#### func Bytes 
 
 ``` go 
 func Bytes(x Value) []byte
@@ -64,7 +64,7 @@ func Bytes(x Value) []byte
 
 Bytes returns the bytes for the absolute value of x in little- endian binary representation; x must be an Int.
 
-#### func [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=1337) 
+#### func Compare 
 
 ``` go 
 func Compare(x_ Value, op token.Token, y_ Value) bool
@@ -76,7 +76,7 @@ Compare returns the result of the comparison x op y. The comparison must be defi
 ``` go 
 ```
 
-#### func [Float32Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=537) 
+#### func Float32Val 
 
 ``` go 
 func Float32Val(x Value) (float32, bool)
@@ -84,7 +84,7 @@ func Float32Val(x Value) (float32, bool)
 
 Float32Val is like Float64Val but for float32 instead of float64.
 
-#### func [Float64Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=562) 
+#### func Float64Val 
 
 ``` go 
 func Float64Val(x Value) (float64, bool)
@@ -92,7 +92,7 @@ func Float64Val(x Value) (float64, bool)
 
 Float64Val returns the nearest Go float64 value of x and whether the result is exact; x must be numeric or an Unknown, but not Complex. For values too small (too close to 0) to represent as float64, Float64Val silently underflows to 0. The result sign always matches the sign of x, even for 0. If x is Unknown, the result is (0, false).
 
-#### func [Int64Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=507) 
+#### func Int64Val 
 
 ``` go 
 func Int64Val(x Value) (int64, bool)
@@ -100,7 +100,7 @@ func Int64Val(x Value) (int64, bool)
 
 Int64Val returns the Go int64 value of x and whether the result is exact; x must be an Int or an Unknown. If the result is not exact, its value is undefined. If x is Unknown, the result is (0, false).
 
-#### func [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=665) 
+#### func Sign 
 
 ``` go 
 func Sign(x Value) int
@@ -112,7 +112,7 @@ Sign returns -1, 0, or 1 depending on whether x < 0, x == 0, or x > 0; x must be
 ``` go 
 ```
 
-#### func [StringVal](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=493) 
+#### func StringVal 
 
 ``` go 
 func StringVal(x Value) string
@@ -120,7 +120,7 @@ func StringVal(x Value) string
 
 StringVal returns the Go string value of x, which must be a String or an Unknown. If x is Unknown, the result is "".
 
-#### func [Uint64Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=523) 
+#### func Uint64Val 
 
 ``` go 
 func Uint64Val(x Value) (uint64, bool)
@@ -128,7 +128,7 @@ func Uint64Val(x Value) (uint64, bool)
 
 Uint64Val returns the Go uint64 value of x and whether the result is exact; x must be an Int or an Unknown. If the result is not exact, its value is undefined. If x is Unknown, the result is (0, false).
 
-#### func [Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=593)  <- go1.13
+#### func Val  <- go1.13
 
 ``` go 
 func Val(x Value) any
@@ -152,7 +152,7 @@ everything else    nil
 
 ## 类型
 
-### type [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=29) 
+### type Kind 
 
 ``` go 
 type Kind int
@@ -176,13 +176,13 @@ const (
 )
 ```
 
-#### (Kind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/kind_string.go;l=23)  <- go1.18
+#### (Kind) String  <- go1.18
 
 ``` go 
 func (i Kind) String() string
 ```
 
-### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=46) 
+### type Value 
 
 ``` go 
 type Value interface {
@@ -204,7 +204,7 @@ type Value interface {
 
 A Value represents the value of a Go constant.
 
-#### func [BinaryOp](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=1103) 
+#### func BinaryOp 
 
 ``` go 
 func BinaryOp(x_ Value, op token.Token, y_ Value) Value
@@ -218,7 +218,7 @@ To force integer division of Int operands, use op == token.QUO_ASSIGN instead of
 ``` go 
 ```
 
-#### func [Denom](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=788) 
+#### func Denom 
 
 ``` go 
 func Denom(x Value) Value
@@ -226,7 +226,7 @@ func Denom(x Value) Value
 
 Denom returns the denominator of x; x must be Int, Float, or Unknown. If x is Unknown, or if it is too large or small to represent as a fraction, the result is Unknown. Otherwise the result is an Int >= 1.
 
-#### func [Imag](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=836) 
+#### func Imag 
 
 ``` go 
 func Imag(x Value) Value
@@ -234,7 +234,7 @@ func Imag(x Value) Value
 
 Imag returns the imaginary part of x, which must be a numeric or unknown value. If x is Unknown, the result is Unknown.
 
-#### func [Make](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=623)  <- go1.13
+#### func Make  <- go1.13
 
 ``` go 
 func Make(x any) Value
@@ -254,7 +254,7 @@ int64            Int
 anything else    Unknown
 ```
 
-#### func [MakeBool](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=386) 
+#### func MakeBool 
 
 ``` go 
 func MakeBool(b bool) Value
@@ -262,7 +262,7 @@ func MakeBool(b bool) Value
 
 MakeBool returns the Bool value for b.
 
-#### func [MakeFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=412) 
+#### func MakeFloat64 
 
 ``` go 
 func MakeFloat64(x float64) Value
@@ -270,7 +270,7 @@ func MakeFloat64(x float64) Value
 
 MakeFloat64 returns the Float value for x. If x is -0.0, the result is 0.0. If x is not finite, the result is an Unknown.
 
-#### func [MakeFromBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=734) 
+#### func MakeFromBytes 
 
 ``` go 
 func MakeFromBytes(bytes []byte) Value
@@ -278,7 +278,7 @@ func MakeFromBytes(bytes []byte) Value
 
 MakeFromBytes returns the Int value given the bytes of its little-endian binary representation. An empty byte slice argument represents 0.
 
-#### func [MakeFromLiteral](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=427) 
+#### func MakeFromLiteral 
 
 ``` go 
 func MakeFromLiteral(lit string, tok token.Token, zero uint) Value
@@ -286,7 +286,7 @@ func MakeFromLiteral(lit string, tok token.Token, zero uint) Value
 
 MakeFromLiteral returns the corresponding integer, floating-point, imaginary, character, or string value for a Go literal string. The tok value must be one of token.INT, token.FLOAT, token.IMAG, token.CHAR, or token.STRING. The final argument must be zero. If the literal string syntax is invalid, the result is an Unknown.
 
-#### func [MakeImag](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=810) 
+#### func MakeImag 
 
 ``` go 
 func MakeImag(x Value) Value
@@ -294,7 +294,7 @@ func MakeImag(x Value) Value
 
 MakeImag returns the Complex value x*i; x must be Int, Float, or Unknown. If x is Unknown, the result is Unknown.
 
-#### func [MakeInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=399) 
+#### func MakeInt64 
 
 ``` go 
 func MakeInt64(x int64) Value
@@ -302,7 +302,7 @@ func MakeInt64(x int64) Value
 
 MakeInt64 returns the Int value for x.
 
-#### func [MakeString](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=389) 
+#### func MakeString 
 
 ``` go 
 func MakeString(s string) Value
@@ -310,7 +310,7 @@ func MakeString(s string) Value
 
 MakeString returns the String value for s.
 
-#### func [MakeUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=402) 
+#### func MakeUint64 
 
 ``` go 
 func MakeUint64(x uint64) Value
@@ -318,7 +318,7 @@ func MakeUint64(x uint64) Value
 
 MakeUint64 returns the Int value for x.
 
-#### func [MakeUnknown](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=383) 
+#### func MakeUnknown 
 
 ``` go 
 func MakeUnknown() Value
@@ -326,7 +326,7 @@ func MakeUnknown() Value
 
 MakeUnknown returns the Unknown value.
 
-#### func [Num](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=766) 
+#### func Num 
 
 ``` go 
 func Num(x Value) Value
@@ -334,7 +334,7 @@ func Num(x Value) Value
 
 Num returns the numerator of x; x must be Int, Float, or Unknown. If x is Unknown, or if it is too large or small to represent as a fraction, the result is Unknown. Otherwise the result is an Int with the same sign as x.
 
-#### func [Real](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=823) 
+#### func Real 
 
 ``` go 
 func Real(x Value) Value
@@ -342,7 +342,7 @@ func Real(x Value) Value
 
 Real returns the real part of x, which must be a numeric or unknown value. If x is Unknown, the result is Unknown.
 
-#### func [Shift](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=1282) 
+#### func Shift 
 
 ``` go 
 func Shift(x Value, op token.Token, s uint) Value
@@ -350,7 +350,7 @@ func Shift(x Value, op token.Token, s uint) Value
 
 Shift returns the result of the shift expression x op s with op == token.SHL or token.SHR (<< or >>). x must be an Int or an Unknown. If x is Unknown, the result is x.
 
-#### func [ToComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=929)  <- go1.6
+#### func ToComplex  <- go1.6
 
 ``` go 
 func ToComplex(x Value) Value
@@ -358,7 +358,7 @@ func ToComplex(x Value) Value
 
 ToComplex converts x to a Complex value if x is representable as a Complex. Otherwise it returns an Unknown.
 
-#### func [ToFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=908)  <- go1.6
+#### func ToFloat  <- go1.6
 
 ``` go 
 func ToFloat(x Value) Value
@@ -366,7 +366,7 @@ func ToFloat(x Value) Value
 
 ToFloat converts x to a Float value if x is representable as a Float. Otherwise it returns an Unknown.
 
-#### func [ToInt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=854)  <- go1.6
+#### func ToInt  <- go1.6
 
 ``` go 
 func ToInt(x Value) Value
@@ -374,7 +374,7 @@ func ToInt(x Value) Value
 
 ToInt converts x to an Int value if x is representable as an Int. Otherwise it returns an Unknown.
 
-#### func [UnaryOp](https://cs.opensource.google/go/go/+/go1.20.1:src/go/constant/value.go;l=958) 
+#### func UnaryOp 
 
 ``` go 
 func UnaryOp(op token.Token, y Value, prec uint) Value

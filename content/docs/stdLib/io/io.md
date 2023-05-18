@@ -7,7 +7,7 @@ draft = false
 +++
 # io
 
-[https://pkg.go.dev/io@go1.20.1](https://pkg.go.dev/io@go1.20.1)
+https://pkg.go.dev/io@go1.20.1
 
 ​	io包提供了基本的I/O原语接口。它的主要任务是将这些原语的现有实现(例如os包中的实现)封装到共享的公共接口中，以抽象功能，以及一些其他相关的原语。
 
@@ -67,7 +67,7 @@ var ErrUnexpectedEOF = errors.New("unexpected EOF")
 
 ## 函数
 
-#### func [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=385) 
+#### func Copy 
 
 ``` go 
 func Copy(dst Writer, src Reader) (written int64, err error)
@@ -104,7 +104,7 @@ Output:
 some io.Reader stream to be read
 ```
 
-#### func [CopyBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=396)  <- go1.5
+#### func CopyBuffer  <- go1.5
 
 ``` go 
 func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
@@ -148,7 +148,7 @@ first reader
 second reader
 ```
 
-#### func [CopyN](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=361) 
+#### func CopyN 
 
 ``` go 
 func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
@@ -183,7 +183,7 @@ Output:
 some
 ```
 
-#### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=199) 
+#### func Pipe 
 
 ``` go 
 func Pipe() (*PipeReader, *PipeWriter)
@@ -225,7 +225,7 @@ Output:
 some io.Reader stream to be read
 ```
 
-#### func [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=694)  <- go1.16
+#### func ReadAll  <- go1.16
 
 ``` go 
 func ReadAll(r Reader) ([]byte, error)
@@ -261,7 +261,7 @@ Output:
 Go is a general-purpose language designed with systems programming in mind.
 ```
 
-#### func [ReadAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=326) 
+#### func ReadAtLeast 
 
 ``` go 
 func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
@@ -310,7 +310,7 @@ error: short buffer
 error: unexpected EOF
 ```
 
-#### func [ReadFull](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=350) 
+#### func ReadFull 
 
 ``` go 
 func ReadFull(r Reader, buf []byte) (n int, err error)
@@ -352,7 +352,7 @@ some
 error: unexpected EOF
 ```
 
-#### func [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=311) 
+#### func WriteString 
 
 ``` go 
 func WriteString(w Writer, s string) (n int, err error)
@@ -384,7 +384,7 @@ Hello World
 
 ## 类型
 
-### type [ByteReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=259) 
+### type ByteReader 
 
 ``` go 
 type ByteReader interface {
@@ -398,7 +398,7 @@ type ByteReader interface {
 
 ​	ReadByte提供了逐字节处理的有效接口。如果Reader未实现ByteReader，则可以使用bufio.NewReader进行封装以添加此方法。
 
-### type [ByteScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=271) 
+### type ByteScanner 
 
 ``` go 
 type ByteScanner interface {
@@ -411,7 +411,7 @@ type ByteScanner interface {
 
 ​	UnreadByte方法使得下一次调用ReadByte方法返回上次读取的最后一个字节。如果上次操作不是对ReadByte方法的成功调用，则UnreadByte方法可能会返回错误，未读取最后一个字节(或上一个未读取字节)，或(在支持Seeker接口的实现中)将偏移量设置为当前偏移量前一个字节。
 
-### type [ByteWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=277)  <- go1.1
+### type ByteWriter  <- go1.1
 
 ``` go 
 type ByteWriter interface {
@@ -421,7 +421,7 @@ type ByteWriter interface {
 
 ​	ByteWriter是封装了WriteByte方法的接口。
 
-### type [Closer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=104) 
+### type Closer 
 
 ``` go 
 type Closer interface {
@@ -433,7 +433,7 @@ type Closer interface {
 
 ​	第一次调用Close方法后的行为是未定义的。具体的实现可能会记录自己的行为。
 
-### type [LimitedReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=465) 
+### type LimitedReader 
 
 ``` go 
 type LimitedReader struct {
@@ -444,13 +444,13 @@ type LimitedReader struct {
 
 ​	LimitedReader结构体从 R 中读取数据，但是限制了返回数据的数量，只有最多 N 个字节。每次调用 Read 都会更新 N 的值以反映新的剩余字节数。当 N <= 0 或者底层的 R 返回 EOF 时，Read 会返回 EOF。
 
-#### (*LimitedReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=470) 
+#### (*LimitedReader) Read 
 
 ``` go 
 func (l *LimitedReader) Read(p []byte) (n int, err error)
 ```
 
-### type [OffsetWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=559)  <- go1.20
+### type OffsetWriter  <- go1.20
 
 ``` go 
 type OffsetWriter struct {
@@ -461,7 +461,7 @@ type OffsetWriter struct {
 
 ​	OffsetWriter结构体将写入基于 offset 的数据映射到底层 Writer 中基于 base+off 的偏移位置。
 
-#### func [NewOffsetWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=567)  <- go1.20
+#### func NewOffsetWriter  <- go1.20
 
 ``` go 
 func NewOffsetWriter(w WriterAt, off int64) *OffsetWriter
@@ -469,25 +469,25 @@ func NewOffsetWriter(w WriterAt, off int64) *OffsetWriter
 
 ​	NewOffsetWriter函数返回一个 OffsetWriter，它从 offset 位置开始写入 w。
 
-#### (*OffsetWriter) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=582)  <- go1.20
+#### (*OffsetWriter) Seek  <- go1.20
 
 ``` go 
 func (o *OffsetWriter) Seek(offset int64, whence int) (int64, error)
 ```
 
-#### (*OffsetWriter) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=571)  <- go1.20
+#### (*OffsetWriter) Write  <- go1.20
 
 ``` go 
 func (o *OffsetWriter) Write(p []byte) (n int, err error)
 ```
 
-#### (*OffsetWriter) [WriteAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=577)  <- go1.20
+#### (*OffsetWriter) WriteAt  <- go1.20
 
 ``` go 
 func (o *OffsetWriter) WriteAt(p []byte, off int64) (n int, err error)
 ```
 
-### type [PipeReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=126) 
+### type PipeReader 
 
 ``` go 
 type PipeReader struct {
@@ -498,7 +498,7 @@ type PipeReader struct {
 
 ​	PipeReader结构体是管道的读取端。
 
-#### (*PipeReader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=141) 
+#### (*PipeReader) Close 
 
 ``` go 
 func (r *PipeReader) Close() error
@@ -506,7 +506,7 @@ func (r *PipeReader) Close() error
 
 ​	Close方法关闭读取器；后续对管道写入端的写入将返回 ErrClosedPipe 错误。
 
-#### (*PipeReader) [CloseWithError](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=150) 
+#### (*PipeReader) CloseWithError 
 
 ``` go 
 func (r *PipeReader) CloseWithError(err error) error
@@ -516,7 +516,7 @@ func (r *PipeReader) CloseWithError(err error) error
 
 ​	如果存在先前的错误，CloseWithError不会覆盖它并始终返回nil。
 
-#### (*PipeReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=135) 
+#### (*PipeReader) Read 
 
 ``` go 
 func (r *PipeReader) Read(data []byte) (n int, err error)
@@ -524,7 +524,7 @@ func (r *PipeReader) Read(data []byte) (n int, err error)
 
 ​	Read方法实现标准的Read接口：它从管道中读取数据，在写入方到达或写入端关闭之前阻塞。如果写入端以错误关闭，则将该错误作为err返回；否则err为EOF。
 
-### type [PipeWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=155) 
+### type PipeWriter 
 
 ``` go 
 type PipeWriter struct {
@@ -535,7 +535,7 @@ type PipeWriter struct {
 
 ​	PipeWriter结构体是管道的写入方。
 
-#### (*PipeWriter) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=170) 
+#### (*PipeWriter) Close 
 
 ``` go 
 func (w *PipeWriter) Close() error
@@ -543,7 +543,7 @@ func (w *PipeWriter) Close() error
 
 ​	Close关闭写入器；随后从读取器读取数据将不会返回字节和EOF。
 
-#### (*PipeWriter) [CloseWithError](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=180) 
+#### (*PipeWriter) CloseWithError 
 
 ``` go 
 func (w *PipeWriter) CloseWithError(err error) error
@@ -553,7 +553,7 @@ func (w *PipeWriter) CloseWithError(err error) error
 
 ​	如果存在先前的错误，CloseWithError不会覆盖它并始终返回nil。
 
-#### (*PipeWriter) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=164) 
+#### (*PipeWriter) Write 
 
 ``` go 
 func (w *PipeWriter) Write(data []byte) (n int, err error)
@@ -561,7 +561,7 @@ func (w *PipeWriter) Write(data []byte) (n int, err error)
 
 ​	Write方法实现标准的Write接口：它将数据写入管道，阻塞直到一个或多个读取器消耗了所有数据或读取端关闭。如果读取端以错误关闭，则将该err返回；否则err为ErrClosedPipe。
 
-### type [ReadCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=134) 
+### type ReadCloser 
 
 ``` go 
 type ReadCloser interface {
@@ -572,7 +572,7 @@ type ReadCloser interface {
 
  	ReadCloser接口组合了基本的Read和Close方法。
 
-#### func [NopCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=667)  <- go1.16
+#### func NopCloser  <- go1.16
 
 ``` go 
 func NopCloser(r Reader) ReadCloser
@@ -580,7 +580,7 @@ func NopCloser(r Reader) ReadCloser
 
 ​	NopCloser函数返回一个带有no-op Close方法的ReadCloser，封装提供的Reader r。如果r实现了WriterTo，则返回的ReadCloser将通过转发调用来实现WriterTo方法。
 
-### type [ReadSeekCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=160)  <- go1.16
+### type ReadSeekCloser  <- go1.16
 
 ``` go 
 type ReadSeekCloser interface {
@@ -592,7 +592,7 @@ type ReadSeekCloser interface {
 
 ​	ReadSeekCloser接口组合了基本的Read、Seek和Close方法。
 
-### type [ReadSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=153) 
+### type ReadSeeker 
 
 ``` go 
 type ReadSeeker interface {
@@ -603,7 +603,7 @@ type ReadSeeker interface {
 
 ​	ReadSeeker接口组合了基本的Read、Seek方法。
 
-### type [ReadWriteCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=146) 
+### type ReadWriteCloser 
 
 ``` go 
 type ReadWriteCloser interface {
@@ -615,7 +615,7 @@ type ReadWriteCloser interface {
 
 ​	ReadWriteCloser接口组合了基本的Read、Write和Close方法。
 
-### type [ReadWriteSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=173) 
+### type ReadWriteSeeker 
 
 ``` go 
 type ReadWriteSeeker interface {
@@ -627,7 +627,7 @@ type ReadWriteSeeker interface {
 
 ​	ReadWriteSeeker接口组合了基本的Read、Write和Seek方法。
 
-### type [ReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=128) 
+### type ReadWriter 
 
 ``` go 
 type ReadWriter interface {
@@ -638,7 +638,7 @@ type ReadWriter interface {
 
 ​	ReadWriter接口组合了基本的Read和Write方法。
 
-### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=83) 
+### type Reader 
 
 ``` go 
 type Reader interface {
@@ -658,7 +658,7 @@ type Reader interface {
 
 ​	实现不能保留p。
 
-#### func [LimitReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=459) 
+#### func LimitReader 
 
 ``` go 
 func LimitReader(r Reader, n int64) Reader
@@ -692,7 +692,7 @@ Output:
 some
 ```
 
-#### func [MultiReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/multi.go;l=73) 
+#### func MultiReader 
 
 ``` go 
 func MultiReader(readers ...Reader) Reader
@@ -728,7 +728,7 @@ Output:
 first reader second reader third reader
 ```
 
-#### func [TeeReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=603) 
+#### func TeeReader 
 
 ``` go 
 func TeeReader(r Reader, w Writer) Reader
@@ -764,7 +764,7 @@ Output:
 some io.Reader stream to be read
 ```
 
-### type [ReaderAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=227) 
+### type ReaderAt 
 
 ``` go 
 type ReaderAt interface {
@@ -788,7 +788,7 @@ type ReaderAt interface {
 
 ​	实现不得保留 p。
 
-### type [ReaderFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=186) 
+### type ReaderFrom 
 
 ``` go 
 type ReaderFrom interface {
@@ -802,7 +802,7 @@ type ReaderFrom interface {
 
 ​	如果可用，Copy函数将使用 ReaderFrom方法。
 
-### type [RuneReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=286) 
+### type RuneReader 
 
 ``` go 
 type RuneReader interface {
@@ -814,7 +814,7 @@ type RuneReader interface {
 
 ​	ReadRune方法读取一个单一的编码的 Unicode 字符并返回该字符以及其所占用的字节数。如果没有字符可用，则 err 将被设置。
 
-### type [RuneScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=298) 
+### type RuneScanner 
 
 ``` go 
 type RuneScanner interface {
@@ -827,7 +827,7 @@ type RuneScanner interface {
 
 ​	UnreadRune方法会导致下一次调用 ReadRune方法返回上次读取的最后一个字符。如果上次操作不是成功的 ReadRune方法调用，则 UnreadRune方法可能会返回错误、未读取最后一个字符(或最后一个未读取字符之前的字符)，或者(在支持 Seeker 接口的实现中)定位到当前偏移量之前的字符的开头。
 
-### type [SectionReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=499) 
+### type SectionReader 
 
 ``` go 
 type SectionReader struct {
@@ -864,7 +864,7 @@ Output:
 io.Reader stream
 ```
 
-#### func [NewSectionReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=484) 
+#### func NewSectionReader 
 
 ``` go 
 func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader
@@ -872,7 +872,7 @@ func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader
 
 ​	NewSectionReader函数返回一个 SectionReader，该 Reader 从偏移量 off 处开始从 r 读取并在 n 字节后以 EOF 结束。
 
-#### (*SectionReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=506) 
+#### (*SectionReader) Read 
 
 ``` go 
 func (s *SectionReader) Read(p []byte) (n int, err error)
@@ -909,7 +909,7 @@ io.Reader
 
 
 
-#### (*SectionReader) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=539) 
+#### (*SectionReader) ReadAt 
 
 ``` go 
 func (s *SectionReader) ReadAt(p []byte, off int64) (n int, err error)
@@ -946,7 +946,7 @@ stream
 
 
 
-#### (*SectionReader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=521) 
+#### (*SectionReader) Seek 
 
 ``` go 
 func (s *SectionReader) Seek(offset int64, whence int) (int64, error)
@@ -984,7 +984,7 @@ stream
 
 
 
-#### (*SectionReader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=556) 
+#### (*SectionReader) Size 
 
 ``` go 
 func (s *SectionReader) Size() int64
@@ -1017,7 +1017,7 @@ Output:
 
 
 
-### type [Seeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=123) 
+### type Seeker 
 
 ``` go 
 type Seeker interface {
@@ -1031,7 +1031,7 @@ type Seeker interface {
 
 ​	寻找到文件开头之前的偏移量是一个错误。寻找任何正偏移量可能是允许的，但是如果新的偏移量超过底层对象的大小，则随后的 I/O 操作的行为取决于实现。
 
-### type [StringWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=304)  <- go1.12
+### type StringWriter  <- go1.12
 
 ``` go 
 type StringWriter interface {
@@ -1041,7 +1041,7 @@ type StringWriter interface {
 
 ​	StringWriter 是封装 WriteString 方法的接口。
 
-### type [WriteCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=140) 
+### type WriteCloser 
 
 ``` go 
 type WriteCloser interface {
@@ -1052,7 +1052,7 @@ type WriteCloser interface {
 
 ​	WriteCloser 是组合基本的 Write 和 Close 方法的接口。
 
-### type [WriteSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=167) 
+### type WriteSeeker 
 
 ``` go 
 type WriteSeeker interface {
@@ -1063,7 +1063,7 @@ type WriteSeeker interface {
 
 ​	WriteSeeker 是组合基本的 Write 和 Seek 方法的接口。
 
-### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=96) 
+### type Writer 
 
 ``` go 
 type Writer interface {
@@ -1083,7 +1083,7 @@ var Discard Writer = discard{}
 
 ​	Discard 是一个 Writer，所有的写入调用都会成功地且不进行任何操作。
 
-#### func [MultiWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/multi.go;l=127) 
+#### func MultiWriter 
 
 ``` go 
 func MultiWriter(writers ...Writer) Writer
@@ -1127,7 +1127,7 @@ some io.Reader stream to be read
 
 
 
-### type [WriterAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=246) 
+### type WriterAt 
 
 ``` go 
 type WriterAt interface {
@@ -1145,7 +1145,7 @@ type WriterAt interface {
 
 ​	实现不得保留p。
 
-### type [WriterTo](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=197) 
+### type WriterTo 
 
 ``` go 
 type WriterTo interface {

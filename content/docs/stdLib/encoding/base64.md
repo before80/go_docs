@@ -86,7 +86,7 @@ URLEncoding是RFC 4648中定义的备用base64编码。它通常在URL和文件�
 
 ## 函数
 
-#### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=614) 
+#### func NewDecoder 
 
 ``` go 
 func NewDecoder(enc *Encoding, r io.Reader) io.Reader
@@ -96,7 +96,7 @@ NewDecoder constructs a new base64 stream decoder.
 
 NewDecoder构建一个新的base64流解码器。
 
-#### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=270) 
+#### func NewEncoder 
 
 ``` go 
 func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser
@@ -112,19 +112,19 @@ NewEncoder返回一个新的base64流编码器。写入返回的写入器的数�
 
 ## 类型
 
-### type [CorruptInputError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=287) 
+### type CorruptInputError 
 
 ``` go 
 type CorruptInputError int64
 ```
 
-#### (CorruptInputError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=289) 
+#### (CorruptInputError) Error 
 
 ``` go 
 func (e CorruptInputError) Error() string
 ```
 
-### type [Encoding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=23) 
+### type Encoding 
 
 ``` go 
 type Encoding struct {
@@ -136,7 +136,7 @@ An Encoding is a radix 64 encoding/decoding scheme, defined by a 64-character al
 
 编码是一个弧度为64的编码/解码方案，由一个64字符的字母表定义。最常见的编码是RFC 4648中定义的 "base64 "编码，在MIME(RFC 2045)和PEM(RFC 1421)中使用。RFC 4648还定义了一个备用编码，即用-和_代替+和/的标准编码。
 
-#### func [NewEncoding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=60) 
+#### func NewEncoding 
 
 ``` go 
 func NewEncoding(encoder string) *Encoding
@@ -146,7 +146,7 @@ NewEncoding returns a new padded Encoding defined by the given alphabet, which m
 
 NewEncoding返回一个由给定字母定义的新的填充编码，它必须是一个64字节的字符串，不包含填充字符或CR / LF('\r', '\n')。产生的Encoding使用默认的padding字符('=')，可以通过WithPadding改变或禁用。
 
-#### (*Encoding) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=484) 
+#### (*Encoding) Decode 
 
 ``` go 
 func (enc *Encoding) Decode(dst, src []byte) (n int, err error)
@@ -160,7 +160,7 @@ Decode使用enc编码对src进行解码。它最多向dst写入DecodedLen(len(sr
 ``` go 
 ```
 
-#### (*Encoding) [DecodeString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=396) 
+#### (*Encoding) DecodeString 
 
 ``` go 
 func (enc *Encoding) DecodeString(s string) ([]byte, error)
@@ -174,7 +174,7 @@ DecodeString返回base64字符串s所代表的字节。
 ``` go 
 ```
 
-#### (*Encoding) [DecodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=620) 
+#### (*Encoding) DecodedLen 
 
 ``` go 
 func (enc *Encoding) DecodedLen(n int) int
@@ -184,7 +184,7 @@ DecodedLen returns the maximum length in bytes of the decoded data corresponding
 
 DecodedLen返回对应于base64编码的n个字节的解码数据的最大长度(字节)。
 
-#### (*Encoding) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=140) 
+#### (*Encoding) Encode 
 
 ``` go 
 func (enc *Encoding) Encode(dst, src []byte)
@@ -202,7 +202,7 @@ The encoding pads the output to a multiple of 4 bytes, so Encode is not appropri
 ``` go 
 ```
 
-#### (*Encoding) [EncodeToString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=192) 
+#### (*Encoding) EncodeToString 
 
 ``` go 
 func (enc *Encoding) EncodeToString(src []byte) string
@@ -216,7 +216,7 @@ EncodeToString返回src的base64编码。
 ``` go 
 ```
 
-#### (*Encoding) [EncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=276) 
+#### (*Encoding) EncodedLen 
 
 ``` go 
 func (enc *Encoding) EncodedLen(n int) int
@@ -226,7 +226,7 @@ EncodedLen returns the length in bytes of the base64 encoding of an input buffer
 
 EncodedLen返回一个长度为n的输入缓冲区的base64编码的字节长度。
 
-#### (Encoding) [Strict](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=107)  <- go1.8
+#### (Encoding) Strict  <- go1.8
 
 ``` go 
 func (enc Encoding) Strict() *Encoding
@@ -240,7 +240,7 @@ Note that the input is still malleable, as new line characters (CR and LF) are s
 
 注意，输入仍然是可塑的，因为新的行字符(CR和LF)仍然被忽略。
 
-#### (Encoding) [WithPadding](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/base64/base64.go;l=86)  <- go1.5
+#### (Encoding) WithPadding  <- go1.5
 
 ``` go 
 func (enc Encoding) WithPadding(padding rune) *Encoding

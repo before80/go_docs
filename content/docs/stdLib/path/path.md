@@ -7,7 +7,7 @@ draft = false
 +++
 # path
 
-[https://pkg.go.dev/path@go1.20.1](https://pkg.go.dev/path@go1.20.1)
+https://pkg.go.dev/path@go1.20.1
 
 ​	path包实现了用于操作斜杠分隔路径的实用程序函数。
 
@@ -30,7 +30,7 @@ var ErrBadPattern = errors.New("syntax error in pattern")
 
 ## 函数
 
-#### func [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=199) 
+#### func Base 
 
 ``` go 
 func Base(path string) string
@@ -59,7 +59,7 @@ b
 .
 ```
 
-#### func [Clean](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=70) 
+#### func Clean 
 
 ``` go 
 func Clean(path string) string
@@ -114,7 +114,7 @@ Clean("/../a/b/../././/c") = "/a/c"
 Clean("") = "."
 ```
 
-#### func [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=230) 
+#### func Dir 
 
 ``` go 
 func Dir(path string) string
@@ -149,7 +149,7 @@ a
 .
 ```
 
-#### func [Ext](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=186) 
+#### func Ext 
 
 ``` go 
 func Ext(path string) string
@@ -176,7 +176,7 @@ Output:
 .css
 ```
 
-#### func [IsAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=219) 
+#### func IsAbs 
 
 ``` go 
 func IsAbs(path string) bool
@@ -201,7 +201,7 @@ Output:
 true
 ```
 
-#### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=162) 
+#### func Join 
 
 ``` go 
 func Join(elem ...string) string
@@ -241,7 +241,7 @@ a
 a
 ```
 
-#### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/path/match.go;l=37) 
+#### func Match 
 
 ``` go 
 func Match(pattern, name string) (matched bool, err error)
@@ -289,7 +289,7 @@ true <nil>
 false <nil>
 ```
 
-#### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=152) 
+#### func Split 
 
 ``` go 
 func Split(path string) (dir, file string)

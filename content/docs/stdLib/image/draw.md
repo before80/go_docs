@@ -31,7 +31,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Draw](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=110) 
+#### func Draw 
 
 ``` go 
 func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)
@@ -39,7 +39,7 @@ func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)
 
 Draw calls DrawMask with a nil mask.
 
-#### func [DrawMask](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=116) 
+#### func DrawMask 
 
 ``` go 
 func DrawMask(dst Image, r image.Rectangle, src image.Image, sp image.Point, mask image.Image, mp image.Point, op Op)
@@ -49,7 +49,7 @@ DrawMask aligns r.Min in dst with sp in src and mp in mask and then replaces the
 
 ## 类型
 
-### type [Drawer](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=60)  <- go1.2
+### type Drawer  <- go1.2
 
 ``` go 
 type Drawer interface {
@@ -71,7 +71,7 @@ var FloydSteinberg Drawer = floydSteinberg{}
 
 FloydSteinberg is a Drawer that is the Src Op with Floyd-Steinberg error diffusion.
 
-### type [Image](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=21) 
+### type Image 
 
 ``` go 
 type Image interface {
@@ -82,7 +82,7 @@ type Image interface {
 
 Image is an image.Image with a Set method to change a single pixel.
 
-### type [Op](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=44) 
+### type Op 
 
 ``` go 
 type Op int
@@ -99,7 +99,7 @@ const (
 )
 ```
 
-#### (Op) [Draw](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=55)  <- go1.2
+#### (Op) Draw  <- go1.2
 
 ``` go 
 func (op Op) Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point)
@@ -107,7 +107,7 @@ func (op Op) Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point)
 
 Draw implements the Drawer interface by calling the Draw function with this Op.
 
-### type [Quantizer](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=37)  <- go1.2
+### type Quantizer  <- go1.2
 
 ``` go 
 type Quantizer interface {
@@ -119,7 +119,7 @@ type Quantizer interface {
 
 Quantizer produces a palette for an image.
 
-### type [RGBA64Image](https://cs.opensource.google/go/go/+/go1.20.1:src/image/draw/draw.go;l=30)  <- go1.17
+### type RGBA64Image  <- go1.17
 
 ``` go 
 type RGBA64Image interface {

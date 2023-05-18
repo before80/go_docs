@@ -7,7 +7,7 @@ draft = false
 +++
 # iotest
 
-[https://pkg.go.dev/testing/iotest@go1.20.1](https://pkg.go.dev/testing/iotest@go1.20.1)
+https://pkg.go.dev/testing/iotest@go1.20.1
 
 包 iotest 实现了一些用于测试的 Reader 和 Writer。
 
@@ -27,7 +27,7 @@ var ErrTimeout = errors.New("timeout")
 
 ## 函数
 
-#### func [DataErrReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=47) 
+#### func DataErrReader 
 
 ``` go 
 func DataErrReader(r io.Reader) io.Reader
@@ -35,7 +35,7 @@ func DataErrReader(r io.Reader) io.Reader
 
 ​	DataErrReader函数更改 Reader 处理错误的方式。通常，Reader 在读取最后一块数据后的第一次读取调用中返回一个错误(通常是 EOF)。DataErrReader 包装一个 Reader 并更改其行为，以便最终的错误与最终数据一起返回，而不是在最终数据后的第一次调用中返回。
 
-#### func [ErrReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=94)  <- go1.16
+#### func ErrReader  <- go1.16
 
 ``` go 
 func ErrReader(err error) io.Reader
@@ -66,7 +66,7 @@ n:   0
 err: "custom error"
 ```
 
-#### func [HalfReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=32) 
+#### func HalfReader 
 
 ``` go 
 func HalfReader(r io.Reader) io.Reader
@@ -74,7 +74,7 @@ func HalfReader(r io.Reader) io.Reader
 
 ​	HalfReader函数返回一个 Reader，它通过从 `r` 读取一半所需的字节数来实现 Read。
 
-#### func [NewReadLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/logger.go;l=52) 
+#### func NewReadLogger 
 
 ``` go 
 func NewReadLogger(prefix string, r io.Reader) io.Reader
@@ -82,7 +82,7 @@ func NewReadLogger(prefix string, r io.Reader) io.Reader
 
 ​	NewReadLogger函数返回一个 Reader，它的行为类似于 `r`，但记录(使用 log.Printf)每次读取到标准错误输出，打印前缀和十六进制读取的数据。
 
-#### func [NewWriteLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/logger.go;l=30) 
+#### func NewWriteLogger 
 
 ``` go 
 func NewWriteLogger(prefix string, w io.Writer) io.Writer
@@ -90,7 +90,7 @@ func NewWriteLogger(prefix string, w io.Writer) io.Writer
 
 ​	NewWriteLogger函数返回一个 Writer，它的行为类似于 `w`，但记录(使用 log.Printf)每次写入到标准错误输出，打印前缀和十六进制写入的数据。
 
-#### func [OneByteReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=17) 
+#### func OneByteReader 
 
 ``` go 
 func OneByteReader(r io.Reader) io.Reader
@@ -98,7 +98,7 @@ func OneByteReader(r io.Reader) io.Reader
 
 ​	OneByteReader函数返回一个 Reader，它通过从 `r` 读取一个字节来实现每个非空的 Read。
 
-#### func [TestReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=136)  <- go1.16
+#### func TestReader  <- go1.16
 
 ``` go 
 func TestReader(r io.Reader, content []byte) error
@@ -108,7 +108,7 @@ func TestReader(r io.Reader, content []byte) error
 
 ​	如果 TestReader函数发现任何行为不当，它将返回报告这些问题的错误。错误文本可能跨越多行。
 
-#### func [TimeoutReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=78) 
+#### func TimeoutReader 
 
 ``` go 
 func TimeoutReader(r io.Reader) io.Reader
@@ -116,7 +116,7 @@ func TimeoutReader(r io.Reader) io.Reader
 
 ​	TimeoutReader函数在第二次无数据的读取上返回 ErrTimeout。随后的读取调用成功。
 
-#### func [TruncateWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/writer.go;l=11) 
+#### func TruncateWriter 
 
 ``` go 
 func TruncateWriter(w io.Writer, n int64) io.Writer

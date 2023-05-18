@@ -7,7 +7,7 @@ draft = false
 +++
 # user
 
-[https://pkg.go.dev/os/user@go1.20.1](https://pkg.go.dev/os/user@go1.20.1)
+https://pkg.go.dev/os/user@go1.20.1
 
 ​	user包允许按名称或 ID 查找用户帐户。
 
@@ -29,7 +29,7 @@ This section is empty.
 
 ## 类型
 
-### type [Group](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=61)  <- go1.7
+### type Group  <- go1.7
 
 ``` go 
 type Group struct {
@@ -42,7 +42,7 @@ type Group struct {
 
 ​	在 POSIX 系统上，Gid 包含表示组 ID 的十进制数。
 
-#### func [LookupGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=57)  <- go1.7
+#### func LookupGroup  <- go1.7
 
 ``` go 
 func LookupGroup(name string) (*Group, error)
@@ -50,7 +50,7 @@ func LookupGroup(name string) (*Group, error)
 
 ​	LookupGroup函数按名称查找组。如果找不到组，则返回的错误是 UnknownGroupError 类型。
 
-#### func [LookupGroupId](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=63)  <- go1.7
+#### func LookupGroupId  <- go1.7
 
 ``` go 
 func LookupGroupId(gid string) (*Group, error)
@@ -58,7 +58,7 @@ func LookupGroupId(gid string) (*Group, error)
 
 ​	LookupGroupId函数按组 ID 查找组。如果找不到组，则返回的错误是 UnknownGroupIdError 类型。
 
-### type [UnknownGroupError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=91)  <- go1.7
+### type UnknownGroupError  <- go1.7
 
 ``` go 
 type UnknownGroupError string
@@ -66,13 +66,13 @@ type UnknownGroupError string
 
 ​	LookupGroup函数无法找到组时返回 UnknownGroupError。
 
-#### (UnknownGroupError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=93)  <- go1.7
+#### (UnknownGroupError) Error  <- go1.7
 
 ``` go 
 func (e UnknownGroupError) Error() string
 ```
 
-### type [UnknownGroupIdError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=83)  <- go1.7
+### type UnknownGroupIdError  <- go1.7
 
 ``` go 
 type UnknownGroupIdError string
@@ -80,13 +80,13 @@ type UnknownGroupIdError string
 
 ​	LookupGroupId函数无法找到组时返回 UnknownGroupIdError。
 
-#### (UnknownGroupIdError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=85)  <- go1.7
+#### (UnknownGroupIdError) Error  <- go1.7
 
 ``` go 
 func (e UnknownGroupIdError) Error() string
 ```
 
-### type [UnknownUserError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=75) 
+### type UnknownUserError 
 
 ``` go 
 type UnknownUserError string
@@ -94,13 +94,13 @@ type UnknownUserError string
 
 ​	Lookup函数无法找到用户时返回 UnknownUserError。
 
-#### (UnknownUserError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=77) 
+#### (UnknownUserError) Error 
 
 ``` go 
 func (e UnknownUserError) Error() string
 ```
 
-### type [UnknownUserIdError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=67) 
+### type UnknownUserIdError 
 
 ``` go 
 type UnknownUserIdError int
@@ -108,13 +108,13 @@ type UnknownUserIdError int
 
 ​	LookupId函数无法找到用户时返回 UnknownUserIdError。
 
-#### (UnknownUserIdError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=69) 
+#### (UnknownUserIdError) Error 
 
 ``` go 
 func (e UnknownUserIdError) Error() string
 ```
 
-### type [User](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=34) 
+### type User 
 
 ``` go 
 type User struct {
@@ -144,7 +144,7 @@ type User struct {
 
 ​	User 表示用户帐户。
 
-#### func [Current](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=21) 
+#### func Current 
 
 ``` go 
 func Current() (*User, error)
@@ -154,7 +154,7 @@ func Current() (*User, error)
 
 ​	第一次调用将缓存当前用户信息。后续调用将返回缓存值，不会反映当前用户的更改。
 
-#### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=39) 
+#### func Lookup 
 
 ``` go 
 func Lookup(username string) (*User, error)
@@ -162,7 +162,7 @@ func Lookup(username string) (*User, error)
 
 ​	Lookup函数按用户名查找用户。如果找不到用户，则返回的错误是 UnknownUserError 类型。
 
-#### func [LookupId](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=48) 
+#### func LookupId 
 
 ``` go 
 func LookupId(uid string) (*User, error)
@@ -170,7 +170,7 @@ func LookupId(uid string) (*User, error)
 
 ​	LookupId函数按用户 ID 查找用户。如果找不到用户，则返回的错误是 UnknownUserIdError 类型。
 
-#### (*User) [GroupIds](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=68)  <- go1.7
+#### (*User) GroupIds  <- go1.7
 
 ``` go 
 func (u *User) GroupIds() ([]string, error)

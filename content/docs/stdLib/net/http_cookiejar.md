@@ -33,7 +33,7 @@ This section is empty.
 
 ## 类型
 
-### type [Jar](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=61) 
+### type Jar 
 
 ``` go 
 type Jar struct {
@@ -43,7 +43,7 @@ type Jar struct {
 
 Jar implements the http.CookieJar interface from the net/http package.
 
-#### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=78) 
+#### func New 
 
 ``` go 
 func New(o *Options) (*Jar, error)
@@ -55,7 +55,7 @@ New returns a new cookie jar. A nil *Options is equivalent to a zero Options.
 ``` go 
 ```
 
-#### (*Jar) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=157) 
+#### (*Jar) Cookies 
 
 ``` go 
 func (j *Jar) Cookies(u *url.URL) (cookies []*http.Cookie)
@@ -65,7 +65,7 @@ Cookies implements the Cookies method of the http.CookieJar interface.
 
 It returns an empty slice if the URL's scheme is not HTTP or HTTPS.
 
-#### (*Jar) [SetCookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=232) 
+#### (*Jar) SetCookies 
 
 ``` go 
 func (j *Jar) SetCookies(u *url.URL, cookies []*http.Cookie)
@@ -75,7 +75,7 @@ SetCookies implements the SetCookies method of the http.CookieJar interface.
 
 It does nothing if the URL's scheme is not HTTP or HTTPS.
 
-### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=50) 
+### type Options 
 
 ``` go 
 type Options struct {
@@ -91,7 +91,7 @@ type Options struct {
 
 Options are the options for creating a new Jar.
 
-### type [PublicSuffixList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=35) 
+### type PublicSuffixList 
 
 ``` go 
 type PublicSuffixList interface {

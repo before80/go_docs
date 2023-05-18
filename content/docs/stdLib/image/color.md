@@ -36,7 +36,7 @@ Standard colors.
 
 ## 函数
 
-#### func [CMYKToRGB](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=336)  <- go1.5
+#### func CMYKToRGB  <- go1.5
 
 ``` go 
 func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8)
@@ -44,7 +44,7 @@ func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8)
 
 CMYKToRGB converts a CMYK quadruple to an RGB triple.
 
-#### func [RGBToCMYK](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=315)  <- go1.5
+#### func RGBToCMYK  <- go1.5
 
 ``` go 
 func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8)
@@ -52,7 +52,7 @@ func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8)
 
 RGBToCMYK converts an RGB triple to a CMYK quadruple.
 
-#### func [RGBToYCbCr](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=8) 
+#### func RGBToYCbCr 
 
 ``` go 
 func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8)
@@ -60,7 +60,7 @@ func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8)
 
 RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
 
-#### func [YCbCrToRGB](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=58) 
+#### func YCbCrToRGB 
 
 ``` go 
 func YCbCrToRGB(y, cb, cr uint8) (uint8, uint8, uint8)
@@ -70,7 +70,7 @@ YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
 
 ## 类型
 
-### type [Alpha](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=99) 
+### type Alpha 
 
 ``` go 
 type Alpha struct {
@@ -80,13 +80,13 @@ type Alpha struct {
 
 Alpha represents an 8-bit alpha color.
 
-#### (Alpha) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=103) 
+#### (Alpha) RGBA 
 
 ``` go 
 func (c Alpha) RGBA() (r, g, b, a uint32)
 ```
 
-### type [Alpha16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=110) 
+### type Alpha16 
 
 ``` go 
 type Alpha16 struct {
@@ -96,13 +96,13 @@ type Alpha16 struct {
 
 Alpha16 represents a 16-bit alpha color.
 
-#### (Alpha16) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=114) 
+#### (Alpha16) RGBA 
 
 ``` go 
 func (c Alpha16) RGBA() (r, g, b, a uint32)
 ```
 
-### type [CMYK](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=348)  <- go1.5
+### type CMYK  <- go1.5
 
 ``` go 
 type CMYK struct {
@@ -114,13 +114,13 @@ CMYK represents a fully opaque CMYK color, having 8 bits for each of cyan, magen
 
 It is not associated with any particular color profile.
 
-#### (CMYK) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=352)  <- go1.5
+#### (CMYK) RGBA  <- go1.5
 
 ``` go 
 func (c CMYK) RGBA() (uint32, uint32, uint32, uint32)
 ```
 
-### type [Color](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=10) 
+### type Color 
 
 ``` go 
 type Color interface {
@@ -137,7 +137,7 @@ type Color interface {
 
 Color can convert itself to alpha-premultiplied 16-bits per channel RGBA. The conversion may be lossy.
 
-### type [Gray](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=120) 
+### type Gray 
 
 ``` go 
 type Gray struct {
@@ -147,13 +147,13 @@ type Gray struct {
 
 Gray represents an 8-bit grayscale color.
 
-#### (Gray) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=124) 
+#### (Gray) RGBA 
 
 ``` go 
 func (c Gray) RGBA() (r, g, b, a uint32)
 ```
 
-### type [Gray16](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=131) 
+### type Gray16 
 
 ``` go 
 type Gray16 struct {
@@ -163,13 +163,13 @@ type Gray16 struct {
 
 Gray16 represents a 16-bit grayscale color.
 
-#### (Gray16) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=135) 
+#### (Gray16) RGBA 
 
 ``` go 
 func (c Gray16) RGBA() (r, g, b, a uint32)
 ```
 
-### type [Model](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=142) 
+### type Model 
 
 ``` go 
 type Model interface {
@@ -212,7 +212,7 @@ var YCbCrModel Model = ModelFunc(yCbCrModel)
 
 YCbCrModel is the Model for Y'CbCr colors.
 
-#### func [ModelFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=147) 
+#### func ModelFunc 
 
 ``` go 
 func ModelFunc(f func(Color) Color) Model
@@ -220,7 +220,7 @@ func ModelFunc(f func(Color) Color) Model
 
 ModelFunc returns a Model that invokes f to implement the conversion.
 
-### type [NRGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=56) 
+### type NRGBA 
 
 ``` go 
 type NRGBA struct {
@@ -230,13 +230,13 @@ type NRGBA struct {
 
 NRGBA represents a non-alpha-premultiplied 32-bit color.
 
-#### (NRGBA) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=60) 
+#### (NRGBA) RGBA 
 
 ``` go 
 func (c NRGBA) RGBA() (r, g, b, a uint32)
 ```
 
-### type [NRGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=80) 
+### type NRGBA64 
 
 ``` go 
 type NRGBA64 struct {
@@ -246,13 +246,13 @@ type NRGBA64 struct {
 
 NRGBA64 represents a non-alpha-premultiplied 64-bit color, having 16 bits for each of red, green, blue and alpha.
 
-#### (NRGBA64) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=84) 
+#### (NRGBA64) RGBA 
 
 ``` go 
 func (c NRGBA64) RGBA() (r, g, b, a uint32)
 ```
 
-### type [NYCbCrA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=242)  <- go1.6
+### type NYCbCrA  <- go1.6
 
 ``` go 
 type NYCbCrA struct {
@@ -263,13 +263,13 @@ type NYCbCrA struct {
 
 NYCbCrA represents a non-alpha-premultiplied Y'CbCr-with-alpha color, having 8 bits each for one luma, two chroma and one alpha component.
 
-#### (NYCbCrA) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=247)  <- go1.6
+#### (NYCbCrA) RGBA  <- go1.6
 
 ``` go 
 func (c NYCbCrA) RGBA() (uint32, uint32, uint32, uint32)
 ```
 
-### type [Palette](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=280) 
+### type Palette 
 
 ``` go 
 type Palette []Color
@@ -277,7 +277,7 @@ type Palette []Color
 
 Palette is a palette of colors.
 
-#### (Palette) [Convert](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=283) 
+#### (Palette) Convert 
 
 ``` go 
 func (p Palette) Convert(c Color) Color
@@ -285,7 +285,7 @@ func (p Palette) Convert(c Color) Color
 
 Convert returns the palette color closest to c in Euclidean R,G,B space.
 
-#### (Palette) [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=292) 
+#### (Palette) Index 
 
 ``` go 
 func (p Palette) Index(c Color) int
@@ -293,7 +293,7 @@ func (p Palette) Index(c Color) int
 
 Index returns the index of the palette color closest to c in Euclidean R,G,B,A space.
 
-### type [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=26) 
+### type RGBA 
 
 ``` go 
 type RGBA struct {
@@ -305,13 +305,13 @@ RGBA represents a traditional 32-bit alpha-premultiplied color, having 8 bits fo
 
 An alpha-premultiplied color component C has been scaled by alpha (A), so has valid values 0 <= C <= A.
 
-#### (RGBA) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=30) 
+#### (RGBA) RGBA 
 
 ``` go 
 func (c RGBA) RGBA() (r, g, b, a uint32)
 ```
 
-### type [RGBA64](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=47) 
+### type RGBA64 
 
 ``` go 
 type RGBA64 struct {
@@ -323,13 +323,13 @@ RGBA64 represents a 64-bit alpha-premultiplied color, having 16 bits for each of
 
 An alpha-premultiplied color component C has been scaled by alpha (A), so has valid values 0 <= C <= A.
 
-#### (RGBA64) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=51) 
+#### (RGBA64) RGBA 
 
 ``` go 
 func (c RGBA64) RGBA() (r, g, b, a uint32)
 ```
 
-### type [YCbCr](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=167) 
+### type YCbCr 
 
 ``` go 
 type YCbCr struct {
@@ -343,7 +343,7 @@ JPEG, VP8, the MPEG family and other codecs use this color model. Such codecs of
 
 Conversion between RGB and Y'CbCr is lossy and there are multiple, slightly different formulae for converting between the two. This package follows the JFIF specification at https://www.w3.org/Graphics/JPEG/jfif3.pdf.
 
-#### (YCbCr) [RGBA](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/ycbcr.go;l=171) 
+#### (YCbCr) RGBA 
 
 ``` go 
 func (c YCbCr) RGBA() (uint32, uint32, uint32, uint32)

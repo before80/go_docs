@@ -123,7 +123,7 @@ This section is empty.
 
 ## 函数
 
-#### func [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/math/abs.go;l=13) 
+#### func Abs 
 
 ``` go 
 func Abs(x float64) float64
@@ -142,7 +142,7 @@ Abs(NaN) = NaN
 ``` go 
 ```
 
-#### func [Acos](https://cs.opensource.google/go/go/+/go1.20.1:src/math/asin.go;l=58) 
+#### func Acos 
 
 ``` go 
 func Acos(x float64) float64
@@ -160,7 +160,7 @@ Acos(x) = NaN if x < -1 or x > 1
 ``` go 
 ```
 
-#### func [Acosh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/acosh.go;l=43) 
+#### func Acosh 
 
 ``` go 
 func Acosh(x float64) float64
@@ -180,7 +180,7 @@ Acosh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Asin](https://cs.opensource.google/go/go/+/go1.20.1:src/math/asin.go;l=20) 
+#### func Asin 
 
 ``` go 
 func Asin(x float64) float64
@@ -199,7 +199,7 @@ Asin(x) = NaN if x < -1 or x > 1
 ``` go 
 ```
 
-#### func [Asinh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/asinh.go;l=40) 
+#### func Asinh 
 
 ``` go 
 func Asinh(x float64) float64
@@ -219,7 +219,7 @@ Asinh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Atan](https://cs.opensource.google/go/go/+/go1.20.1:src/math/atan.go;l=96) 
+#### func Atan 
 
 ``` go 
 func Atan(x float64) float64
@@ -238,7 +238,7 @@ Atan(±Inf) = ±Pi/2
 ``` go 
 ```
 
-#### func [Atan2](https://cs.opensource.google/go/go/+/go1.20.1:src/math/atan2.go;l=30) 
+#### func Atan2 
 
 ``` go 
 func Atan2(y, x float64) float64
@@ -272,7 +272,7 @@ Atan2(-Inf, x) = -Pi/2
 ``` go 
 ```
 
-#### func [Atanh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/atanh.go;l=48) 
+#### func Atanh 
 
 ``` go 
 func Atanh(x float64) float64
@@ -294,7 +294,7 @@ Atanh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Cbrt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/cbrt.go;l=26) 
+#### func Cbrt 
 
 ``` go 
 func Cbrt(x float64) float64
@@ -314,7 +314,7 @@ Cbrt(NaN) = NaN
 ``` go 
 ```
 
-#### func [Ceil](https://cs.opensource.google/go/go/+/go1.20.1:src/math/floor.go;l=43) 
+#### func Ceil 
 
 ``` go 
 func Ceil(x float64) float64
@@ -334,7 +334,7 @@ Ceil(NaN) = NaN
 ``` go 
 ```
 
-#### func [Copysign](https://cs.opensource.google/go/go/+/go1.20.1:src/math/copysign.go;l=9) 
+#### func Copysign 
 
 ``` go 
 func Copysign(f, sign float64) float64
@@ -346,7 +346,7 @@ Copysign returns a value with the magnitude of f and the sign of sign.
 ``` go 
 ```
 
-#### func [Cos](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sin.go;l=118) 
+#### func Cos 
 
 ``` go 
 func Cos(x float64) float64
@@ -365,7 +365,7 @@ Cos(NaN) = NaN
 ``` go 
 ```
 
-#### func [Cosh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sinh.go;l=79) 
+#### func Cosh 
 
 ``` go 
 func Cosh(x float64) float64
@@ -385,7 +385,7 @@ Cosh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Dim](https://cs.opensource.google/go/go/+/go1.20.1:src/math/dim.go;l=14) 
+#### func Dim 
 
 ``` go 
 func Dim(x, y float64) float64
@@ -405,7 +405,7 @@ Dim(x, NaN) = Dim(NaN, x) = NaN
 ``` go 
 ```
 
-#### func [Erf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/erf.go;l=189) 
+#### func Erf 
 
 ``` go 
 func Erf(x float64) float64
@@ -421,7 +421,7 @@ Erf(-Inf) = -1
 Erf(NaN) = NaN
 ```
 
-#### func [Erfc](https://cs.opensource.google/go/go/+/go1.20.1:src/math/erf.go;l=274) 
+#### func Erfc 
 
 ``` go 
 func Erfc(x float64) float64
@@ -437,7 +437,7 @@ Erfc(-Inf) = 2
 Erfc(NaN) = NaN
 ```
 
-#### func [Erfcinv](https://cs.opensource.google/go/go/+/go1.20.1:src/math/erfinv.go;l=127)  <- go1.10
+#### func Erfcinv  <- go1.10
 
 ``` go 
 func Erfcinv(x float64) float64
@@ -454,7 +454,7 @@ Erfcinv(x) = NaN if x < 0 or x > 2
 Erfcinv(NaN) = NaN
 ```
 
-#### func [Erfinv](https://cs.opensource.google/go/go/+/go1.20.1:src/math/erfinv.go;l=77)  <- go1.10
+#### func Erfinv  <- go1.10
 
 ``` go 
 func Erfinv(x float64) float64
@@ -471,7 +471,7 @@ Erfinv(x) = NaN if x < -1 or x > 1
 Erfinv(NaN) = NaN
 ```
 
-#### func [Exp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/exp.go;l=16) 
+#### func Exp 
 
 ``` go 
 func Exp(x float64) float64
@@ -492,7 +492,7 @@ Very large values overflow to 0 or +Inf. Very small values underflow to 1.
 ``` go 
 ```
 
-#### func [Exp2](https://cs.opensource.google/go/go/+/go1.20.1:src/math/exp.go;l=142) 
+#### func Exp2 
 
 ``` go 
 func Exp2(x float64) float64
@@ -506,7 +506,7 @@ Special cases are the same as Exp.
 ``` go 
 ```
 
-#### func [Expm1](https://cs.opensource.google/go/go/+/go1.20.1:src/math/expm1.go;l=126) 
+#### func Expm1 
 
 ``` go 
 func Expm1(x float64) float64
@@ -528,7 +528,7 @@ Very large values overflow to -1 or +Inf.
 ``` go 
 ```
 
-#### func [FMA](https://cs.opensource.google/go/go/+/go1.20.1:src/math/fma.go;l=95)  <- go1.14
+#### func FMA  <- go1.14
 
 ``` go 
 func FMA(x, y, z float64) float64
@@ -536,7 +536,7 @@ func FMA(x, y, z float64) float64
 
 FMA returns x * y + z, computed with only one rounding. (That is, FMA returns the fused multiply-add of x, y, and z.)
 
-#### func [Float32bits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/unsafe.go;l=12) 
+#### func Float32bits 
 
 ``` go 
 func Float32bits(f float32) uint32
@@ -544,7 +544,7 @@ func Float32bits(f float32) uint32
 
 Float32bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position. Float32bits(Float32frombits(x)) == x.
 
-#### func [Float32frombits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/unsafe.go;l=18) 
+#### func Float32frombits 
 
 ``` go 
 func Float32frombits(b uint32) float32
@@ -552,7 +552,7 @@ func Float32frombits(b uint32) float32
 
 Float32frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float32frombits(Float32bits(x)) == x.
 
-#### func [Float64bits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/unsafe.go;l=23) 
+#### func Float64bits 
 
 ``` go 
 func Float64bits(f float64) uint64
@@ -560,7 +560,7 @@ func Float64bits(f float64) uint64
 
 Float64bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position, and Float64bits(Float64frombits(x)) == x.
 
-#### func [Float64frombits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/unsafe.go;l=29) 
+#### func Float64frombits 
 
 ``` go 
 func Float64frombits(b uint64) float64
@@ -568,7 +568,7 @@ func Float64frombits(b uint64) float64
 
 Float64frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float64frombits(Float64bits(x)) == x.
 
-#### func [Floor](https://cs.opensource.google/go/go/+/go1.20.1:src/math/floor.go;l=14) 
+#### func Floor 
 
 ``` go 
 func Floor(x float64) float64
@@ -588,7 +588,7 @@ Floor(NaN) = NaN
 ``` go 
 ```
 
-#### func [Frexp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/frexp.go;l=17) 
+#### func Frexp 
 
 ``` go 
 func Frexp(f float64) (frac float64, exp int)
@@ -604,7 +604,7 @@ Frexp(±Inf) = ±Inf, 0
 Frexp(NaN) = NaN, 0
 ```
 
-#### func [Gamma](https://cs.opensource.google/go/go/+/go1.20.1:src/math/gamma.go;l=131) 
+#### func Gamma 
 
 ``` go 
 func Gamma(x float64) float64
@@ -623,7 +623,7 @@ Gamma(-Inf) = NaN
 Gamma(NaN) = NaN
 ```
 
-#### func [Hypot](https://cs.opensource.google/go/go/+/go1.20.1:src/math/hypot.go;l=20) 
+#### func Hypot 
 
 ``` go 
 func Hypot(p, q float64) float64
@@ -640,7 +640,7 @@ Hypot(NaN, q) = NaN
 Hypot(p, NaN) = NaN
 ```
 
-#### func [Ilogb](https://cs.opensource.google/go/go/+/go1.20.1:src/math/logb.go;l=34) 
+#### func Ilogb 
 
 ``` go 
 func Ilogb(x float64) int
@@ -656,7 +656,7 @@ Ilogb(0) = MinInt32
 Ilogb(NaN) = MaxInt32
 ```
 
-#### func [Inf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits.go;l=20) 
+#### func Inf 
 
 ``` go 
 func Inf(sign int) float64
@@ -664,7 +664,7 @@ func Inf(sign int) float64
 
 Inf returns positive infinity if sign >= 0, negative infinity if sign < 0.
 
-#### func [IsInf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits.go;l=46) 
+#### func IsInf 
 
 ``` go 
 func IsInf(f float64, sign int) bool
@@ -672,7 +672,7 @@ func IsInf(f float64, sign int) bool
 
 IsInf reports whether f is an infinity, according to sign. If sign > 0, IsInf reports whether f is positive infinity. If sign < 0, IsInf reports whether f is negative infinity. If sign == 0, IsInf reports whether f is either infinity.
 
-#### func [IsNaN](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits.go;l=34) 
+#### func IsNaN 
 
 ``` go 
 func IsNaN(f float64) (is bool)
@@ -680,7 +680,7 @@ func IsNaN(f float64) (is bool)
 
 IsNaN reports whether f is an IEEE 754 "not-a-number" value.
 
-#### func [J0](https://cs.opensource.google/go/go/+/go1.20.1:src/math/j0.go;l=77) 
+#### func J0 
 
 ``` go 
 func J0(x float64) float64
@@ -696,7 +696,7 @@ J0(0) = 1
 J0(NaN) = NaN
 ```
 
-#### func [J1](https://cs.opensource.google/go/go/+/go1.20.1:src/math/j1.go;l=75) 
+#### func J1 
 
 ``` go 
 func J1(x float64) float64
@@ -711,7 +711,7 @@ J1(±Inf) = 0
 J1(NaN) = NaN
 ```
 
-#### func [Jn](https://cs.opensource.google/go/go/+/go1.20.1:src/math/jn.go;l=54) 
+#### func Jn 
 
 ``` go 
 func Jn(n int, x float64) float64
@@ -726,7 +726,7 @@ Jn(n, ±Inf) = 0
 Jn(n, NaN) = NaN
 ```
 
-#### func [Ldexp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/ldexp.go;l=15) 
+#### func Ldexp 
 
 ``` go 
 func Ldexp(frac float64, exp int) float64
@@ -742,7 +742,7 @@ Ldexp(±Inf, exp) = ±Inf
 Ldexp(NaN, exp) = NaN
 ```
 
-#### func [Lgamma](https://cs.opensource.google/go/go/+/go1.20.1:src/math/lgamma.go;l=175) 
+#### func Lgamma 
 
 ``` go 
 func Lgamma(x float64) (lgamma float64, sign int)
@@ -760,7 +760,7 @@ Lgamma(-Inf) = -Inf
 Lgamma(NaN) = NaN
 ```
 
-#### func [Log](https://cs.opensource.google/go/go/+/go1.20.1:src/math/log.go;l=81) 
+#### func Log 
 
 ``` go 
 func Log(x float64) float64
@@ -781,7 +781,7 @@ Log(NaN) = NaN
 ``` go 
 ```
 
-#### func [Log10](https://cs.opensource.google/go/go/+/go1.20.1:src/math/log10.go;l=9) 
+#### func Log10 
 
 ``` go 
 func Log10(x float64) float64
@@ -793,7 +793,7 @@ Log10 returns the decimal logarithm of x. The special cases are the same as for 
 ``` go 
 ```
 
-#### func [Log1p](https://cs.opensource.google/go/go/+/go1.20.1:src/math/log1p.go;l=96) 
+#### func Log1p 
 
 ``` go 
 func Log1p(x float64) float64
@@ -811,7 +811,7 @@ Log1p(x < -1) = NaN
 Log1p(NaN) = NaN
 ```
 
-#### func [Log2](https://cs.opensource.google/go/go/+/go1.20.1:src/math/log10.go;l=22) 
+#### func Log2 
 
 ``` go 
 func Log2(x float64) float64
@@ -823,7 +823,7 @@ Log2 returns the binary logarithm of x. The special cases are the same as for Lo
 ``` go 
 ```
 
-#### func [Logb](https://cs.opensource.google/go/go/+/go1.20.1:src/math/logb.go;l=14) 
+#### func Logb 
 
 ``` go 
 func Logb(x float64) float64
@@ -839,7 +839,7 @@ Logb(0) = -Inf
 Logb(NaN) = NaN
 ```
 
-#### func [Max](https://cs.opensource.google/go/go/+/go1.20.1:src/math/dim.go;l=37) 
+#### func Max 
 
 ``` go 
 func Max(x, y float64) float64
@@ -856,7 +856,7 @@ Max(+0, ±0) = Max(±0, +0) = +0
 Max(-0, -0) = -0
 ```
 
-#### func [Min](https://cs.opensource.google/go/go/+/go1.20.1:src/math/dim.go;l=70) 
+#### func Min 
 
 ``` go 
 func Min(x, y float64) float64
@@ -872,7 +872,7 @@ Min(x, NaN) = Min(NaN, x) = NaN
 Min(-0, ±0) = Min(±0, -0) = -0
 ```
 
-#### func [Mod](https://cs.opensource.google/go/go/+/go1.20.1:src/math/mod.go;l=22) 
+#### func Mod 
 
 ``` go 
 func Mod(x, y float64) float64
@@ -894,7 +894,7 @@ Mod(x, NaN) = NaN
 ``` go 
 ```
 
-#### func [Modf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/modf.go;l=14) 
+#### func Modf 
 
 ``` go 
 func Modf(f float64) (int float64, frac float64)
@@ -913,7 +913,7 @@ Modf(NaN) = NaN, NaN
 ``` go 
 ```
 
-#### func [NaN](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits.go;l=31) 
+#### func NaN 
 
 ``` go 
 func NaN() float64
@@ -921,7 +921,7 @@ func NaN() float64
 
 NaN returns an IEEE 754 "not-a-number" value.
 
-#### func [Nextafter](https://cs.opensource.google/go/go/+/go1.20.1:src/math/nextafter.go;l=37) 
+#### func Nextafter 
 
 ``` go 
 func Nextafter(x, y float64) (r float64)
@@ -937,7 +937,7 @@ Nextafter(NaN, y) = NaN
 Nextafter(x, NaN) = NaN
 ```
 
-#### func [Nextafter32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/nextafter.go;l=14)  <- go1.4
+#### func Nextafter32  <- go1.4
 
 ``` go 
 func Nextafter32(x, y float32) (r float32)
@@ -953,7 +953,7 @@ Nextafter32(NaN, y) = NaN
 Nextafter32(x, NaN) = NaN
 ```
 
-#### func [Pow](https://cs.opensource.google/go/go/+/go1.20.1:src/math/pow.go;l=39) 
+#### func Pow 
 
 ``` go 
 func Pow(x, y float64) float64
@@ -990,7 +990,7 @@ Pow(x, y) = NaN for finite x < 0 and finite non-integer y
 ``` go 
 ```
 
-#### func [Pow10](https://cs.opensource.google/go/go/+/go1.20.1:src/math/pow10.go;l=31) 
+#### func Pow10 
 
 ``` go 
 func Pow10(n int) float64
@@ -1009,7 +1009,7 @@ Pow10(n) = +Inf for n > 308
 ``` go 
 ```
 
-#### func [Remainder](https://cs.opensource.google/go/go/+/go1.20.1:src/math/remainder.go;l=38) 
+#### func Remainder 
 
 ``` go 
 func Remainder(x, y float64) float64
@@ -1031,7 +1031,7 @@ Remainder(x, NaN) = NaN
 ``` go 
 ```
 
-#### func [Round](https://cs.opensource.google/go/go/+/go1.20.1:src/math/floor.go;l=83)  <- go1.10
+#### func Round  <- go1.10
 
 ``` go 
 func Round(x float64) float64
@@ -1051,7 +1051,7 @@ Round(NaN) = NaN
 ``` go 
 ```
 
-#### func [RoundToEven](https://cs.opensource.google/go/go/+/go1.20.1:src/math/floor.go;l=121)  <- go1.10
+#### func RoundToEven  <- go1.10
 
 ``` go 
 func RoundToEven(x float64) float64
@@ -1071,7 +1071,7 @@ RoundToEven(NaN) = NaN
 ``` go 
 ```
 
-#### func [Signbit](https://cs.opensource.google/go/go/+/go1.20.1:src/math/signbit.go;l=8) 
+#### func Signbit 
 
 ``` go 
 func Signbit(x float64) bool
@@ -1079,7 +1079,7 @@ func Signbit(x float64) bool
 
 Signbit reports whether x is negative or negative zero.
 
-#### func [Sin](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sin.go;l=185) 
+#### func Sin 
 
 ``` go 
 func Sin(x float64) float64
@@ -1099,7 +1099,7 @@ Sin(NaN) = NaN
 ``` go 
 ```
 
-#### func [Sincos](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sincos.go;l=16) 
+#### func Sincos 
 
 ``` go 
 func Sincos(x float64) (sin, cos float64)
@@ -1119,7 +1119,7 @@ Sincos(NaN) = NaN, NaN
 ``` go 
 ```
 
-#### func [Sinh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sinh.go;l=26) 
+#### func Sinh 
 
 ``` go 
 func Sinh(x float64) float64
@@ -1139,7 +1139,7 @@ Sinh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Sqrt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/sqrt.go;l=93) 
+#### func Sqrt 
 
 ``` go 
 func Sqrt(x float64) float64
@@ -1160,7 +1160,7 @@ Sqrt(NaN) = NaN
 ``` go 
 ```
 
-#### func [Tan](https://cs.opensource.google/go/go/+/go1.20.1:src/math/tan.go;l=83) 
+#### func Tan 
 
 ``` go 
 func Tan(x float64) float64
@@ -1180,7 +1180,7 @@ Tan(NaN) = NaN
 ``` go 
 ```
 
-#### func [Tanh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/tanh.go;l=75) 
+#### func Tanh 
 
 ``` go 
 func Tanh(x float64) float64
@@ -1200,7 +1200,7 @@ Tanh(NaN) = NaN
 ``` go 
 ```
 
-#### func [Trunc](https://cs.opensource.google/go/go/+/go1.20.1:src/math/floor.go;l=61) 
+#### func Trunc 
 
 ``` go 
 func Trunc(x float64) float64
@@ -1220,7 +1220,7 @@ Trunc(NaN) = NaN
 ``` go 
 ```
 
-#### func [Y0](https://cs.opensource.google/go/go/+/go1.20.1:src/math/j0.go;l=156) 
+#### func Y0 
 
 ``` go 
 func Y0(x float64) float64
@@ -1237,7 +1237,7 @@ Y0(x < 0) = NaN
 Y0(NaN) = NaN
 ```
 
-#### func [Y1](https://cs.opensource.google/go/go/+/go1.20.1:src/math/j1.go;l=156) 
+#### func Y1 
 
 ``` go 
 func Y1(x float64) float64
@@ -1254,7 +1254,7 @@ Y1(x < 0) = NaN
 Y1(NaN) = NaN
 ```
 
-#### func [Yn](https://cs.opensource.google/go/go/+/go1.20.1:src/math/jn.go;l=235) 
+#### func Yn 
 
 ``` go 
 func Yn(n int, x float64) float64

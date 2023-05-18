@@ -7,7 +7,7 @@ draft = false
 +++
 # fstest
 
-[https://pkg.go.dev/testing/fstest@go1.20.1](https://pkg.go.dev/testing/fstest@go1.20.1)
+https://pkg.go.dev/testing/fstest@go1.20.1
 
 fstest包实现了用于测试文件系统实现和用户的支持。
 
@@ -21,7 +21,7 @@ This section is empty.
 
 ## 函数
 
-#### func [TestFS](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/testfs.go;l=36) 
+#### func TestFS 
 
 ``` go 
 func TestFS(fsys fs.FS, expected ...string) error
@@ -41,7 +41,7 @@ if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
 
 ## 类型
 
-### type [MapFS](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=33) 
+### type MapFS 
 
 ``` go 
 type MapFS map[string]*MapFile
@@ -53,13 +53,13 @@ type MapFS map[string]*MapFile
 
 ​	文件系统操作直接从映射中读取，因此可以通过编辑映射来更改文件系统。一个含义是文件系统操作不能与对映射的更改同时运行，这将导致竞争。另一个含义是打开或读取目录需要迭代整个映射，因此MapFS通常应仅用于少于几百个条目或目录读取的情况。
 
-#### (MapFS) [Glob](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=133) 
+#### (MapFS) Glob 
 
 ``` go 
 func (fsys MapFS) Glob(pattern string) ([]string, error)
 ```
 
-#### (MapFS) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=47) 
+#### (MapFS) Open 
 
 ``` go 
 func (fsys MapFS) Open(name string) (fs.File, error)
@@ -67,31 +67,31 @@ func (fsys MapFS) Open(name string) (fs.File, error)
 
 Open opens the named file.
 
-#### (MapFS) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=129) 
+#### (MapFS) ReadDir 
 
 ``` go 
 func (fsys MapFS) ReadDir(name string) ([]fs.DirEntry, error)
 ```
 
-#### (MapFS) [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=121) 
+#### (MapFS) ReadFile 
 
 ``` go 
 func (fsys MapFS) ReadFile(name string) ([]byte, error)
 ```
 
-#### (MapFS) [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=125) 
+#### (MapFS) Stat 
 
 ``` go 
 func (fsys MapFS) Stat(name string) (fs.FileInfo, error)
 ```
 
-#### (MapFS) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=143) 
+#### (MapFS) Sub 
 
 ``` go 
 func (fsys MapFS) Sub(dir string) (fs.FS, error)
 ```
 
-### type [MapFile](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=36) 
+### type MapFile 
 
 ``` go 
 type MapFile struct {

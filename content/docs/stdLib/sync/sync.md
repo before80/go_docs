@@ -7,7 +7,7 @@ draft = false
 +++
 # sync
 
-[https://pkg.go.dev/sync@go1.20.1](https://pkg.go.dev/sync@go1.20.1)
+https://pkg.go.dev/sync@go1.20.1
 
 ​	 sync包提供了基本的同步原语，如互斥锁。除了 Once 和 WaitGroup 类型外，大多数都是用于低级库例程的。更高级别的同步最好通过通道和通信实现。
 
@@ -29,7 +29,7 @@ This section is empty.
 
 ## 类型
 
-### type [Cond](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=36) 
+### type Cond 
 
 ``` go 
 type Cond struct {
@@ -52,7 +52,7 @@ type Cond struct {
 
 ​	有关替代 sync.Cond 的更多信息，请参见 [Roberto Clapis 的高级并发模式系列](https://blogtitle.github.io/categories/concurrency/)以及 [Bryan Mills 的并发模式演讲](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view)。
 
-#### func [NewCond](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=47) 
+#### func NewCond 
 
 ``` go 
 func NewCond(l Locker) *Cond
@@ -60,7 +60,7 @@ func NewCond(l Locker) *Cond
 
 ​	NewCond函数返回一个带有 Locker l 的新 Cond。
 
-#### (*Cond) [Broadcast](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=90) 
+#### (*Cond) Broadcast 
 
 ``` go 
 func (c *Cond) Broadcast()
@@ -70,7 +70,7 @@ func (c *Cond) Broadcast()
 
 ​	调用者可以在调用时持有c.L，但不是必须的。
 
-#### (*Cond) [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=81)
+#### (*Cond) Signal
 
 ```
 func (c *Cond) Signal()
@@ -82,7 +82,7 @@ func (c *Cond) Signal()
 
 ​	Signal() 不会影响 goroutine 的调度优先级；如果其他 goroutine 正在尝试锁定 c.L，则它们可能会在"等待(waiting)"goroutine之前被唤醒。
 
-#### (*Cond) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=66) 
+#### (*Cond) Wait 
 
 ``` go 
 func (c *Cond) Wait()
@@ -101,7 +101,7 @@ for !condition() {
 c.L.Unlock()
 ```
 
-### type [Locker](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=40) 
+### type Locker 
 
 ``` go 
 type Locker interface {
@@ -112,7 +112,7 @@ type Locker interface {
 
 ​	Locker接口表示一个可以锁定和解锁的对象。
 
-### type [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=35)  <- go1.9
+### type Map  <- go1.9
 
 ``` go 
 type Map struct {
@@ -130,7 +130,7 @@ type Map struct {
 
 ​	根据Go内存模型的术语，Map安排写操作"在"观察到写操作的效果的任何读取操作"之前"，其中读取和写操作定义如下。Load，LoadAndDelete，LoadOrStore，Swap，CompareAndSwap和CompareAndDelete是读取操作; Delete，LoadAndDelete，Store和Swap是写操作;当LoadOrStore返回loaded设置为false时，它是一个写操作;当CompareAndSwap返回swapped设置为true时，它是一个写操作;当CompareAndDelete返回deleted设置为true时，它是一个写操作。
 
-#### (*Map) [CompareAndDelete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=406)  <- go1.20
+#### (*Map) CompareAndDelete  <- go1.20
 
 ``` go 
 func (m *Map) CompareAndDelete(key, old any) (deleted bool)
@@ -140,7 +140,7 @@ func (m *Map) CompareAndDelete(key, old any) (deleted bool)
 
 ​	如果map中没有当前键的值，则CompareAndDelete方法返回false(即使旧值是nil接口值)。
 
-#### (*Map) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=374)  <- go1.20
+#### (*Map) CompareAndSwap  <- go1.20
 
 ``` go 
 func (m *Map) CompareAndSwap(key, old, new any) bool
@@ -148,7 +148,7 @@ func (m *Map) CompareAndSwap(key, old, new any) bool
 
 ​	CompareAndSwap方法会交换键的旧值和新值，如果存储在map中的值等于旧值。旧值必须是可比较类型。
 
-#### (*Map) [Delete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=296)  <- go1.9
+#### (*Map) Delete  <- go1.9
 
 ``` go 
 func (m *Map) Delete(key any)
@@ -156,7 +156,7 @@ func (m *Map) Delete(key any)
 
 ​	Delete方法用于删除一个键的值。
 
-#### (*Map) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=120)  <- go1.9
+#### (*Map) Load  <- go1.9
 
 ``` go 
 func (m *Map) Load(key any) (value any, ok bool)
@@ -164,7 +164,7 @@ func (m *Map) Load(key any) (value any, ok bool)
 
 ​	Load方法用于获取一个键对应的值。如果键不存在，返回值value为nil，ok为false。
 
-#### (*Map) [LoadAndDelete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=272)  <- go1.15
+#### (*Map) LoadAndDelete  <- go1.15
 
 ``` go 
 func (m *Map) LoadAndDelete(key any) (value any, loaded bool)
@@ -172,7 +172,7 @@ func (m *Map) LoadAndDelete(key any) (value any, loaded bool)
 
 ​	LoadAndDelete方法用于获取一个键对应的值并从Map中删除该键值对。如果键不存在，则返回值value为nil，loaded为false。
 
-#### (*Map) [LoadOrStore](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=203)  <- go1.9
+#### (*Map) LoadOrStore  <- go1.9
 
 ``` go 
 func (m *Map) LoadOrStore(key, value any) (actual any, loaded bool)
@@ -180,7 +180,7 @@ func (m *Map) LoadOrStore(key, value any) (actual any, loaded bool)
 
 ​	LoadOrStore方法用于获取一个键对应的值。如果键存在，返回值actual为已存在的值，loaded为true。如果键不存在，会将给定的值存储并返回，此时loaded为false。
 
-#### (*Map) [Range](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=449)  <- go1.9
+#### (*Map) Range  <- go1.9
 
 ``` go 
 func (m *Map) Range(f func(key, value any) bool)
@@ -192,7 +192,7 @@ func (m *Map) Range(f func(key, value any) bool)
 
 ​	即使f返回false，Range方法的时间复杂度可能为O(N)，其中N为Map中元素的数量。
 
-#### (*Map) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=154)  <- go1.9
+#### (*Map) Store  <- go1.9
 
 ``` go 
 func (m *Map) Store(key, value any)
@@ -200,7 +200,7 @@ func (m *Map) Store(key, value any)
 
 ​	Store方法用于设置一个键的值。
 
-#### (*Map) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=330)  <- go1.20
+#### (*Map) Swap  <- go1.20
 
 ``` go 
 func (m *Map) Swap(key, value any) (previous any, loaded bool)
@@ -208,7 +208,7 @@ func (m *Map) Swap(key, value any) (previous any, loaded bool)
 
 ​	Swap方法交换给定键的值并返回先前的值(如果存在)。loaded结果报告键是否存在。
 
-### type [Mutex](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=34) 
+### type Mutex 
 
 ``` go 
 type Mutex struct {
@@ -222,7 +222,7 @@ type Mutex struct {
 
 ​	根据Go内存模型的术语，第n次Unlock调用"在" m次调用Lock之前同步，其中n < m。成功调用TryLock等效于调用Lock。TryLock的失败调用根本不建立任何"在之前同步"的关系。
 
-#### (*Mutex) [Lock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=81) 
+#### (*Mutex) Lock 
 
 ``` go 
 func (m *Mutex) Lock()
@@ -230,7 +230,7 @@ func (m *Mutex) Lock()
 
 ​	Lock方法锁定m。如果锁已经在使用中，则调用goroutine会阻塞，直到互斥锁可用。
 
-#### (*Mutex) [TryLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=98)  <- go1.18
+#### (*Mutex) TryLock  <- go1.18
 
 ``` go 
 func (m *Mutex) TryLock() bool
@@ -240,7 +240,7 @@ func (m *Mutex) TryLock() bool
 
 ​	请注意，尽管存在正确使用TryLock方法，但它们很少出现，并且使用TryLock方法通常是特定互斥锁使用中更深层次问题的标志。
 
-#### (*Mutex) [Unlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=212) 
+#### (*Mutex) Unlock 
 
 ``` go 
 func (m *Mutex) Unlock()
@@ -250,7 +250,7 @@ func (m *Mutex) Unlock()
 
 ​	锁定的互斥锁与特定goroutine不相关联。允许一个goroutine锁定Mutex，然后安排另一个goroutine解锁它。
 
-### type [Once](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/once.go;l=18) 
+### type Once 
 
 ``` go 
 type Once struct {
@@ -294,7 +294,7 @@ Output:
 Only once
 ```
 
-#### (*Once) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/once.go;l=48) 
+#### (*Once) Do 
 
 ``` go 
 func (o *Once) Do(f func())
@@ -318,7 +318,7 @@ config.once.Do(func() { config.init(filename) })
 
 ​	如果 f 引发 panic，Do方法将视其为已返回；将来的 Do方法调用将在不调用 f 的情况下返回。
 
-### type [Pool](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=49)  <- go1.3
+### type Pool  <- go1.3
 
 ``` go 
 type Pool struct {
@@ -396,7 +396,7 @@ Output:
 2006-01-02T15:04:05Z path=/search?q=flowers
 ```
 
-#### (*Pool) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=127)  <- go1.3
+#### (*Pool) Get  <- go1.3
 
 ``` go 
 func (p *Pool) Get() any
@@ -406,7 +406,7 @@ func (p *Pool) Get() any
 
 ​	如果 Get方法原本会返回 nil，且 p.New 不为 nil，则 Get 返回调用 p.New 的结果。
 
-#### (*Pool) [Put](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=95)  <- go1.3
+#### (*Pool) Put  <- go1.3
 
 ``` go 
 func (p *Pool) Put(x any)
@@ -414,7 +414,7 @@ func (p *Pool) Put(x any)
 
 ​	Put 方法将 x 添加到池中。
 
-### type [RWMutex](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=36) 
+### type RWMutex 
 
 ``` go 
 type RWMutex struct {
@@ -430,7 +430,7 @@ type RWMutex struct {
 
 ​	按照 Go 内存模型的术语，第 n 次调用 Unlock "在之前同步"第 m 次调用 Lock，就像 Mutex 一样。对于任何对 RLock 的调用，都存在一个 n，使得第 n 次调用 Unlock "在之前同步"该对 RLock 的调用，而相应的 RUnlock 调用"在之前同步"第 n+1 次调用 Lock。
 
-#### (*RWMutex) [Lock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=141) 
+#### (*RWMutex) Lock 
 
 ``` go 
 func (rw *RWMutex) Lock()
@@ -438,7 +438,7 @@ func (rw *RWMutex) Lock()
 
 ​	Lock方法锁定 rw 进行写入。如果锁已被锁定以供读取或写入，则 Lock 阻塞，直到锁可用。
 
-#### (*RWMutex) [RLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=64) 
+#### (*RWMutex) RLock 
 
 ``` go 
 func (rw *RWMutex) RLock()
@@ -448,7 +448,7 @@ func (rw *RWMutex) RLock()
 
 ​	它不应该用于递归读取锁定；一个被阻塞的 Lock 调用排除了新的读取器获取锁定。请参见 RWMutex 类型的文档。
 
-#### (*RWMutex) [RLocker](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=224) 
+#### (*RWMutex) RLocker 
 
 ``` go 
 func (rw *RWMutex) RLocker() Locker
@@ -456,7 +456,7 @@ func (rw *RWMutex) RLocker() Locker
 
 ​	RLocker方法返回一个Locker接口，该接口通过调用rw.RLock和rw.RUnlock实现Lock和Unlock方法。
 
-#### (*RWMutex) [RUnlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=111) 
+#### (*RWMutex) RUnlock 
 
 ``` go 
 func (rw *RWMutex) RUnlock()
@@ -464,7 +464,7 @@ func (rw *RWMutex) RUnlock()
 
 ​	RUnlock方法撤消单个RLock调用；它不会影响其他同时读取者。如果rw在进入RUnlock时未被读取锁定，则会出现运行时错误。
 
-#### (*RWMutex) [TryLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=166)  <- go1.18
+#### (*RWMutex) TryLock  <- go1.18
 
 ``` go 
 func (rw *RWMutex) TryLock() bool
@@ -474,7 +474,7 @@ func (rw *RWMutex) TryLock() bool
 
 ​	请注意，尽管TryLock方法的正确使用确实存在，但TryLock方法的使用往往是特定互斥锁使用中深层问题的迹象。
 
-#### (*RWMutex) [TryRLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=84)  <- go1.18
+#### (*RWMutex) TryRLock  <- go1.18
 
 ``` go 
 func (rw *RWMutex) TryRLock() bool
@@ -484,7 +484,7 @@ func (rw *RWMutex) TryRLock() bool
 
 ​	请注意，尽管TryRLock方法的正确使用确实存在，但TryRLock的使用往往是特定互斥锁使用中深层问题的迹象。
 
-#### (*RWMutex) [Unlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=198) 
+#### (*RWMutex) Unlock 
 
 ``` go 
 func (rw *RWMutex) Unlock()
@@ -494,7 +494,7 @@ func (rw *RWMutex) Unlock()
 
 ​	与Mutexes一样，锁定的RWMutex不与特定的goroutine相关联。一个goroutine可以RLock(Lock)RWMutex，然后安排另一个goroutine RUnlock(Unlock)它。
 
-### type [WaitGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=23) 
+### type WaitGroup 
 
 ``` go 
 type WaitGroup struct {
@@ -546,7 +546,7 @@ func main() {
 
 ```
 
-#### (*WaitGroup) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=43) 
+#### (*WaitGroup) Add 
 
 ``` go 
 func (wg *WaitGroup) Add(delta int)
@@ -556,7 +556,7 @@ func (wg *WaitGroup) Add(delta int)
 
 ​	请注意，在计数器为零时具有正delta的调用必须在Wait之前发生。具有负delta的调用，或者在计数器大于零时开始具有正delta的调用，可以随时发生。通常，这意味着在创建goroutine或等待其他事件的语句之前执行Add调用。如果要重用WaitGroup以等待几组独立的事件，则所有先前的Wait调用都必须返回后才能发生新的Add调用。有关WaitGroup的示例，请参见官方文档。
 
-#### (*WaitGroup) [Done](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=86) 
+#### (*WaitGroup) Done 
 
 ``` go 
 func (wg *WaitGroup) Done()
@@ -564,7 +564,7 @@ func (wg *WaitGroup) Done()
 
 ​	Done方法将WaitGroup计数器减一。
 
-#### (*WaitGroup) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=91) 
+#### (*WaitGroup) Wait 
 
 ``` go 
 func (wg *WaitGroup) Wait()

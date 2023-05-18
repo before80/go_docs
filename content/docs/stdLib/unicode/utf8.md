@@ -9,7 +9,7 @@ draft = false
 
 # utf8
 
-[https://pkg.go.dev/unicode/utf8@go1.20.1](https://pkg.go.dev/unicode/utf8@go1.20.1)
+https://pkg.go.dev/unicode/utf8@go1.20.1
 
 ​	utf8包实现了支持使用 UTF-8 编码的文本的函数和常量。它包括了在符文和 UTF-8 字节序列之间进行转换的函数。参见 https://en.wikipedia.org/wiki/UTF-8。
 
@@ -35,7 +35,7 @@ This section is empty.
 
 ## 函数
 
-#### func [AppendRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=375)  <- go1.18
+#### func AppendRune  <- go1.18
 
 ``` go 
 func AppendRune(p []byte, r rune) []byte
@@ -64,7 +64,7 @@ Output:
 init𐀀
 ```
 
-#### func [DecodeLastRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=247) 
+#### func DecodeLastRune 
 
 ``` go 
 func DecodeLastRune(p []byte) (r rune, size int)
@@ -106,7 +106,7 @@ e 1
 H 1
 ```
 
-#### func [DecodeLastRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=287) 
+#### func DecodeLastRuneInString 
 
 ``` go 
 func DecodeLastRuneInString(s string) (r rune, size int)
@@ -148,7 +148,7 @@ e 1
 H 1
 ```
 
-#### func [DecodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=151) 
+#### func DecodeRune 
 
 ``` go 
 func DecodeRune(p []byte) (r rune, size int)
@@ -190,7 +190,7 @@ o 1
 界 3
 ```
 
-#### func [DecodeRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=199) 
+#### func DecodeRuneInString 
 
 ``` go 
 func DecodeRuneInString(s string) (r rune, size int)
@@ -232,7 +232,7 @@ o 1
 界 3
 ```
 
-#### func [EncodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=342) 
+#### func EncodeRune 
 
 ``` go 
 func EncodeRune(p []byte, r rune) int
@@ -297,7 +297,7 @@ Output:
 2: [239 191 189] � 3
 ```
 
-#### func [FullRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=104) 
+#### func FullRune 
 
 ``` go 
 func FullRune(p []byte) bool
@@ -325,7 +325,7 @@ true
 false
 ```
 
-#### func [FullRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=124) 
+#### func FullRuneInString 
 
 ``` go 
 func FullRuneInString(s string) bool
@@ -353,7 +353,7 @@ true
 false
 ```
 
-#### func [RuneCount](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=400) 
+#### func RuneCount 
 
 ``` go 
 func RuneCount(p []byte) int
@@ -381,7 +381,7 @@ bytes = 13
 runes = 9
 ```
 
-#### func [RuneCountInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=437) 
+#### func RuneCountInString 
 
 ``` go 
 func RuneCountInString(s string) (n int)
@@ -409,7 +409,7 @@ bytes = 13
 runes = 9
 ```
 
-#### func [RuneLen](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=321) 
+#### func RuneLen 
 
 ``` go 
 func RuneLen(r rune) int
@@ -436,7 +436,7 @@ Output:
 3
 ```
 
-#### func [RuneStart](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=474) 
+#### func RuneStart 
 
 ``` go 
 func RuneStart(b byte) bool
@@ -466,7 +466,7 @@ true
 false
 ```
 
-#### func [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=477) 
+#### func Valid 
 
 ``` go 
 func Valid(p []byte) bool
@@ -496,7 +496,7 @@ true
 false
 ```
 
-#### func [ValidRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=575)  <- go1.1
+#### func ValidRune  <- go1.1
 
 ``` go 
 func ValidRune(r rune) bool
@@ -526,7 +526,7 @@ true
 false
 ```
 
-#### func [ValidString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=528) 
+#### func ValidString 
 
 ``` go 
 func ValidString(s string) bool

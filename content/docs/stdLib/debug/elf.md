@@ -79,43 +79,43 @@ ErrNoSymbols is returned by File.Symbols and File.DynamicSymbols if there is no 
 
 ## 函数
 
-#### func [R_INFO](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3412) 
+#### func R_INFO 
 
 ``` go 
 func R_INFO(sym, typ uint32) uint64
 ```
 
-#### func [R_INFO32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3310) 
+#### func R_INFO32 
 
 ``` go 
 func R_INFO32(sym, typ uint32) uint32
 ```
 
-#### func [R_SYM32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3308) 
+#### func R_SYM32 
 
 ``` go 
 func R_SYM32(info uint32) uint32
 ```
 
-#### func [R_SYM64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3410) 
+#### func R_SYM64 
 
 ``` go 
 func R_SYM64(info uint64) uint32
 ```
 
-#### func [R_TYPE32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3309) 
+#### func R_TYPE32 
 
 ``` go 
 func R_TYPE32(info uint32) uint32
 ```
 
-#### func [R_TYPE64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3411) 
+#### func R_TYPE64 
 
 ``` go 
 func R_TYPE64(info uint64) uint32
 ```
 
-#### func [ST_INFO](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3326) 
+#### func ST_INFO 
 
 ``` go 
 func ST_INFO(bind SymBind, typ SymType) uint8
@@ -123,7 +123,7 @@ func ST_INFO(bind SymBind, typ SymType) uint8
 
 ## 类型
 
-### type [Chdr32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3285)  <- go1.6
+### type Chdr32  <- go1.6
 
 ``` go 
 type Chdr32 struct {
@@ -135,7 +135,7 @@ type Chdr32 struct {
 
 ELF32 Compression header.
 
-### type [Chdr64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3386)  <- go1.6
+### type Chdr64  <- go1.6
 
 ``` go 
 type Chdr64 struct {
@@ -149,7 +149,7 @@ type Chdr64 struct {
 
 ELF64 Compression header.
 
-### type [Class](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=84) 
+### type Class 
 
 ``` go 
 type Class byte
@@ -165,19 +165,19 @@ const (
 )
 ```
 
-#### (Class) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=99) 
+#### (Class) GoString 
 
 ``` go 
 func (i Class) GoString() string
 ```
 
-#### (Class) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=98) 
+#### (Class) String 
 
 ``` go 
 func (i Class) String() string
 ```
 
-### type [CompressionType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=727)  <- go1.6
+### type CompressionType  <- go1.6
 
 ``` go 
 type CompressionType int
@@ -195,19 +195,19 @@ const (
 )
 ```
 
-#### (CompressionType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=746)  <- go1.6
+#### (CompressionType) GoString  <- go1.6
 
 ``` go 
 func (i CompressionType) GoString() string
 ```
 
-#### (CompressionType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=745)  <- go1.6
+#### (CompressionType) String  <- go1.6
 
 ``` go 
 func (i CompressionType) String() string
 ```
 
-### type [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=102) 
+### type Data 
 
 ``` go 
 type Data byte
@@ -223,19 +223,19 @@ const (
 )
 ```
 
-#### (Data) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=117) 
+#### (Data) GoString 
 
 ``` go 
 func (i Data) GoString() string
 ```
 
-#### (Data) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=116) 
+#### (Data) String 
 
 ``` go 
 func (i Data) String() string
 ```
 
-### type [Dyn32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3279) 
+### type Dyn32 
 
 ``` go 
 type Dyn32 struct {
@@ -246,7 +246,7 @@ type Dyn32 struct {
 
 ELF32 Dynamic structure. The ".dynamic" section contains an array of them.
 
-### type [Dyn64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3380) 
+### type Dyn64 
 
 ``` go 
 type Dyn64 struct {
@@ -257,7 +257,7 @@ type Dyn64 struct {
 
 ELF64 Dynamic structure. The ".dynamic" section contains an array of them.
 
-### type [DynFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1082) 
+### type DynFlag 
 
 ``` go 
 type DynFlag int
@@ -282,19 +282,19 @@ const (
 )
 ```
 
-#### (DynFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1108) 
+#### (DynFlag) GoString 
 
 ``` go 
 func (i DynFlag) GoString() string
 ```
 
-#### (DynFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1107) 
+#### (DynFlag) String 
 
 ``` go 
 func (i DynFlag) String() string
 ```
 
-### type [DynTag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=849) 
+### type DynTag 
 
 ``` go 
 type DynTag int
@@ -451,19 +451,19 @@ const (
 )
 ```
 
-#### (DynTag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1079) 
+#### (DynTag) GoString 
 
 ``` go 
 func (i DynTag) GoString() string
 ```
 
-#### (DynTag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1078) 
+#### (DynTag) String 
 
 ``` go 
 func (i DynTag) String() string
 ```
 
-### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=62) 
+### type File 
 
 ``` go 
 type File struct {
@@ -476,7 +476,7 @@ type File struct {
 
 A File represents an open ELF file.
 
-#### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=257) 
+#### func NewFile 
 
 ``` go 
 func NewFile(r io.ReaderAt) (*File, error)
@@ -484,7 +484,7 @@ func NewFile(r io.ReaderAt) (*File, error)
 
 NewFile creates a new File for accessing an ELF binary in an underlying reader. The ELF binary is expected to start at position 0 in the ReaderAt.
 
-#### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=218) 
+#### func Open 
 
 ``` go 
 func Open(name string) (*File, error)
@@ -492,7 +492,7 @@ func Open(name string) (*File, error)
 
 Open opens the named file using os.Open and prepares it for use as an ELF binary.
 
-#### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=235) 
+#### (*File) Close 
 
 ``` go 
 func (f *File) Close() error
@@ -500,13 +500,13 @@ func (f *File) Close() error
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
 
-#### (*File) [DWARF](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1293) 
+#### (*File) DWARF 
 
 ``` go 
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
-#### (*File) [DynString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1602)  <- go1.1
+#### (*File) DynString  <- go1.1
 
 ``` go 
 func (f *File) DynString(tag DynTag) ([]string, error)
@@ -516,7 +516,7 @@ DynString returns the strings listed for the given tag in the file's dynamic sec
 
 The tag must be one that takes string values: DT_NEEDED, DT_SONAME, DT_RPATH, or DT_RUNPATH.
 
-#### (*File) [DynamicSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1450)  <- go1.4
+#### (*File) DynamicSymbols  <- go1.4
 
 ``` go 
 func (f *File) DynamicSymbols() ([]Symbol, error)
@@ -528,7 +528,7 @@ If f has a symbol version table, the returned Symbols will have initialized Vers
 
 For compatibility with Symbols, DynamicSymbols omits the null symbol at index 0. After retrieving the symbols as symtab, an externally supplied index x corresponds to symtab[x-1], not symtab[x].
 
-#### (*File) [ImportedLibraries](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1593) 
+#### (*File) ImportedLibraries 
 
 ``` go 
 func (f *File) ImportedLibraries() ([]string, error)
@@ -536,7 +536,7 @@ func (f *File) ImportedLibraries() ([]string, error)
 
 ImportedLibraries returns the names of all libraries referred to by the binary f that are expected to be linked with the binary at dynamic link time.
 
-#### (*File) [ImportedSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1473) 
+#### (*File) ImportedSymbols 
 
 ``` go 
 func (f *File) ImportedSymbols() ([]ImportedSymbol, error)
@@ -544,7 +544,7 @@ func (f *File) ImportedSymbols() ([]ImportedSymbol, error)
 
 ImportedSymbols returns the names of all symbols referred to by the binary f that are expected to be satisfied by other libraries at dynamic load time. It does not return weak symbols.
 
-#### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=703) 
+#### (*File) Section 
 
 ``` go 
 func (f *File) Section(name string) *Section
@@ -552,7 +552,7 @@ func (f *File) Section(name string) *Section
 
 Section returns a section with the given name, or nil if no such section exists.
 
-#### (*File) [SectionByType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=246) 
+#### (*File) SectionByType 
 
 ``` go 
 func (f *File) SectionByType(typ SectionType) *Section
@@ -560,7 +560,7 @@ func (f *File) SectionByType(typ SectionType) *Section
 
 SectionByType returns the first section in f with the given type, or nil if there is no such section.
 
-#### (*File) [Symbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1436) 
+#### (*File) Symbols 
 
 ``` go 
 func (f *File) Symbols() ([]Symbol, error)
@@ -570,7 +570,7 @@ Symbols returns the symbol table for f. The symbols will be listed in the order 
 
 For compatibility with Go 1.0, Symbols omits the null symbol at index 0. After retrieving the symbols as symtab, an externally supplied index x corresponds to symtab[x-1], not symtab[x].
 
-### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=49) 
+### type FileHeader 
 
 ``` go 
 type FileHeader struct {
@@ -588,7 +588,7 @@ type FileHeader struct {
 
 A FileHeader represents an ELF file header.
 
-### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=202) 
+### type FormatError 
 
 ``` go 
 type FormatError struct {
@@ -596,13 +596,13 @@ type FormatError struct {
 }
 ```
 
-#### (*FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=208) 
+#### (*FormatError) Error 
 
 ``` go 
 func (e *FormatError) Error() string
 ```
 
-### type [Header32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3235) 
+### type Header32 
 
 ``` go 
 type Header32 struct {
@@ -625,7 +625,7 @@ type Header32 struct {
 
 ELF32 File header.
 
-### type [Header64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3336) 
+### type Header64 
 
 ``` go 
 type Header64 struct {
@@ -648,7 +648,7 @@ type Header64 struct {
 
 ELF64 file header.
 
-### type [ImportedSymbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1463) 
+### type ImportedSymbol 
 
 ``` go 
 type ImportedSymbol struct {
@@ -658,7 +658,7 @@ type ImportedSymbol struct {
 }
 ```
 
-### type [Machine](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=202) 
+### type Machine 
 
 ``` go 
 type Machine uint16
@@ -860,19 +860,19 @@ const (
 )
 ```
 
-#### (Machine) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=589) 
+#### (Machine) GoString 
 
 ``` go 
 func (i Machine) GoString() string
 ```
 
-#### (Machine) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=588) 
+#### (Machine) String 
 
 ``` go 
 func (i Machine) String() string
 ```
 
-### type [NType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1111) 
+### type NType 
 
 ``` go 
 type NType int
@@ -888,19 +888,19 @@ const (
 )
 ```
 
-#### (NType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1126) 
+#### (NType) GoString 
 
 ``` go 
 func (i NType) GoString() string
 ```
 
-#### (NType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1125) 
+#### (NType) String 
 
 ``` go 
 func (i NType) String() string
 ```
 
-### type [OSABI](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=120) 
+### type OSABI 
 
 ``` go 
 type OSABI byte
@@ -933,19 +933,19 @@ const (
 )
 ```
 
-#### (OSABI) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=169) 
+#### (OSABI) GoString 
 
 ``` go 
 func (i OSABI) GoString() string
 ```
 
-#### (OSABI) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=168) 
+#### (OSABI) String 
 
 ``` go 
 func (i OSABI) String() string
 ```
 
-### type [Prog](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=169) 
+### type Prog 
 
 ``` go 
 type Prog struct {
@@ -964,7 +964,7 @@ type Prog struct {
 
 A Prog represents a single ELF program header in an ELF binary.
 
-#### (*Prog) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=183) 
+#### (*Prog) Open 
 
 ``` go 
 func (p *Prog) Open() io.ReadSeeker
@@ -972,7 +972,7 @@ func (p *Prog) Open() io.ReadSeeker
 
 Open returns a new ReadSeeker reading the ELF program body.
 
-### type [Prog32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3267) 
+### type Prog32 
 
 ``` go 
 type Prog32 struct {
@@ -989,7 +989,7 @@ type Prog32 struct {
 
 ELF32 Program header.
 
-### type [Prog64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3368) 
+### type Prog64 
 
 ``` go 
 type Prog64 struct {
@@ -1006,7 +1006,7 @@ type Prog64 struct {
 
 ELF64 Program header.
 
-### type [ProgFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=829) 
+### type ProgFlag 
 
 ``` go 
 type ProgFlag uint32
@@ -1024,19 +1024,19 @@ const (
 )
 ```
 
-#### (ProgFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=846) 
+#### (ProgFlag) GoString 
 
 ``` go 
 func (i ProgFlag) GoString() string
 ```
 
-#### (ProgFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=845) 
+#### (ProgFlag) String 
 
 ``` go 
 func (i ProgFlag) String() string
 ```
 
-### type [ProgHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=157) 
+### type ProgHeader 
 
 ``` go 
 type ProgHeader struct {
@@ -1053,7 +1053,7 @@ type ProgHeader struct {
 
 A ProgHeader represents a single ELF program header.
 
-### type [ProgType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=749) 
+### type ProgType 
 
 ``` go 
 type ProgType int
@@ -1111,19 +1111,19 @@ const (
 )
 ```
 
-#### (ProgType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=826) 
+#### (ProgType) GoString 
 
 ``` go 
 func (i ProgType) GoString() string
 ```
 
-#### (ProgType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=825) 
+#### (ProgType) String 
 
 ``` go 
 func (i ProgType) String() string
 ```
 
-### type [R_386](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1951) 
+### type R_386 
 
 ``` go 
 type R_386 int
@@ -1178,19 +1178,19 @@ const (
 )
 ```
 
-#### (R_386) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2044) 
+#### (R_386) GoString 
 
 ``` go 
 func (i R_386) GoString() string
 ```
 
-#### (R_386) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2043) 
+#### (R_386) String 
 
 ``` go 
 func (i R_386) String() string
 ```
 
-### type [R_390](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2974)  <- go1.7
+### type R_390  <- go1.7
 
 ``` go 
 type R_390 int
@@ -1264,19 +1264,19 @@ const (
 )
 ```
 
-#### (R_390) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3105)  <- go1.7
+#### (R_390) GoString  <- go1.7
 
 ``` go 
 func (i R_390) GoString() string
 ```
 
-#### (R_390) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3104)  <- go1.7
+#### (R_390) String  <- go1.7
 
 ``` go 
 func (i R_390) String() string
 ```
 
-### type [R_AARCH64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1311)  <- go1.4
+### type R_AARCH64  <- go1.4
 
 ``` go 
 type R_AARCH64 int
@@ -1419,19 +1419,19 @@ const (
 )
 ```
 
-#### (R_AARCH64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1580)  <- go1.4
+#### (R_AARCH64) GoString  <- go1.4
 
 ``` go 
 func (i R_AARCH64) GoString() string
 ```
 
-#### (R_AARCH64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1579)  <- go1.4
+#### (R_AARCH64) String  <- go1.4
 
 ``` go 
 func (i R_AARCH64) String() string
 ```
 
-### type [R_ALPHA](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1583) 
+### type R_ALPHA 
 
 ``` go 
 type R_ALPHA int
@@ -1472,19 +1472,19 @@ const (
 )
 ```
 
-#### (R_ALPHA) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1648) 
+#### (R_ALPHA) GoString 
 
 ``` go 
 func (i R_ALPHA) GoString() string
 ```
 
-#### (R_ALPHA) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1647) 
+#### (R_ALPHA) String 
 
 ``` go 
 func (i R_ALPHA) String() string
 ```
 
-### type [R_ARM](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1651) 
+### type R_ARM 
 
 ``` go 
 type R_ARM int
@@ -1641,19 +1641,19 @@ const (
 )
 ```
 
-#### (R_ARM) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1948) 
+#### (R_ARM) GoString 
 
 ``` go 
 func (i R_ARM) GoString() string
 ```
 
-#### (R_ARM) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1947) 
+#### (R_ARM) String 
 
 ``` go 
 func (i R_ARM) String() string
 ```
 
-### type [R_LARCH](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2156)  <- go1.19
+### type R_LARCH  <- go1.19
 
 ``` go 
 type R_LARCH int
@@ -1755,19 +1755,19 @@ const (
 )
 ```
 
-#### (R_LARCH) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2343)  <- go1.19
+#### (R_LARCH) GoString  <- go1.19
 
 ``` go 
 func (i R_LARCH) GoString() string
 ```
 
-#### (R_LARCH) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2342)  <- go1.19
+#### (R_LARCH) String  <- go1.19
 
 ``` go 
 func (i R_LARCH) String() string
 ```
 
-### type [R_MIPS](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2047)  <- go1.6
+### type R_MIPS  <- go1.6
 
 ``` go 
 type R_MIPS int
@@ -1829,19 +1829,19 @@ const (
 )
 ```
 
-#### (R_MIPS) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2153)  <- go1.6
+#### (R_MIPS) GoString  <- go1.6
 
 ``` go 
 func (i R_MIPS) GoString() string
 ```
 
-#### (R_MIPS) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2152)  <- go1.6
+#### (R_MIPS) String  <- go1.6
 
 ``` go 
 func (i R_MIPS) String() string
 ```
 
-### type [R_PPC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2351) 
+### type R_PPC 
 
 ``` go 
 type R_PPC int
@@ -1933,19 +1933,19 @@ const (
 )
 ```
 
-#### (R_PPC) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2514) 
+#### (R_PPC) GoString 
 
 ``` go 
 func (i R_PPC) GoString() string
 ```
 
-#### (R_PPC) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2513) 
+#### (R_PPC) String 
 
 ``` go 
 func (i R_PPC) String() string
 ```
 
-### type [R_PPC64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2522)  <- go1.5
+### type R_PPC64  <- go1.5
 
 ``` go 
 type R_PPC64 int
@@ -2120,19 +2120,19 @@ const (
 )
 ```
 
-#### (R_PPC64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2851)  <- go1.5
+#### (R_PPC64) GoString  <- go1.5
 
 ``` go 
 func (i R_PPC64) GoString() string
 ```
 
-#### (R_PPC64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2850)  <- go1.5
+#### (R_PPC64) String  <- go1.5
 
 ``` go 
 func (i R_PPC64) String() string
 ```
 
-### type [R_RISCV](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2854)  <- go1.11
+### type R_RISCV  <- go1.11
 
 ``` go 
 type R_RISCV int
@@ -2199,19 +2199,19 @@ const (
 )
 ```
 
-#### (R_RISCV) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2971)  <- go1.11
+#### (R_RISCV) GoString  <- go1.11
 
 ``` go 
 func (i R_RISCV) GoString() string
 ```
 
-#### (R_RISCV) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2970)  <- go1.11
+#### (R_RISCV) String  <- go1.11
 
 ``` go 
 func (i R_RISCV) String() string
 ```
 
-### type [R_SPARC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3108) 
+### type R_SPARC 
 
 ``` go 
 type R_SPARC int
@@ -2280,19 +2280,19 @@ const (
 )
 ```
 
-#### (R_SPARC) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3229) 
+#### (R_SPARC) GoString 
 
 ``` go 
 func (i R_SPARC) GoString() string
 ```
 
-#### (R_SPARC) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3228) 
+#### (R_SPARC) String 
 
 ``` go 
 func (i R_SPARC) String() string
 ```
 
-### type [R_X86_64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1213) 
+### type R_X86_64 
 
 ``` go 
 type R_X86_64 int
@@ -2348,19 +2348,19 @@ const (
 )
 ```
 
-#### (R_X86_64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1308) 
+#### (R_X86_64) GoString 
 
 ``` go 
 func (i R_X86_64) GoString() string
 ```
 
-#### (R_X86_64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1307) 
+#### (R_X86_64) String 
 
 ``` go 
 func (i R_X86_64) String() string
 ```
 
-### type [Rel32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3296) 
+### type Rel32 
 
 ``` go 
 type Rel32 struct {
@@ -2371,7 +2371,7 @@ type Rel32 struct {
 
 ELF32 Relocations that don't need an addend field.
 
-### type [Rel64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3398) 
+### type Rel64 
 
 ``` go 
 type Rel64 struct {
@@ -2382,7 +2382,7 @@ type Rel64 struct {
 
 ELF64 relocations that don't need an addend field.
 
-### type [Rela32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3302) 
+### type Rela32 
 
 ``` go 
 type Rela32 struct {
@@ -2394,7 +2394,7 @@ type Rela32 struct {
 
 ELF32 Relocations that need an addend field.
 
-### type [Rela64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3404) 
+### type Rela64 
 
 ``` go 
 type Rela64 struct {
@@ -2406,7 +2406,7 @@ type Rela64 struct {
 
 ELF64 relocations that need an addend field.
 
-### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=92) 
+### type Section 
 
 ``` go 
 type Section struct {
@@ -2429,7 +2429,7 @@ type Section struct {
 
 A Section represents a single section in an ELF file.
 
-#### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=117) 
+#### (*Section) Data 
 
 ``` go 
 func (s *Section) Data() ([]byte, error)
@@ -2439,7 +2439,7 @@ Data reads and returns the contents of the ELF section. Even if the section is s
 
 For an SHT_NOBITS section, Data always returns a non-nil error.
 
-#### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=136) 
+#### (*Section) Open 
 
 ``` go 
 func (s *Section) Open() io.ReadSeeker
@@ -2449,7 +2449,7 @@ Open returns a new ReadSeeker reading the ELF section. Even if the section is st
 
 For an SHT_NOBITS section, all calls to the opened reader will return a non-nil error.
 
-### type [Section32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3253) 
+### type Section32 
 
 ``` go 
 type Section32 struct {
@@ -2468,7 +2468,7 @@ type Section32 struct {
 
 ELF32 Section header.
 
-### type [Section64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3354) 
+### type Section64 
 
 ``` go 
 type Section64 struct {
@@ -2487,7 +2487,7 @@ type Section64 struct {
 
 ELF64 Section header.
 
-### type [SectionFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=691) 
+### type SectionFlag 
 
 ``` go 
 type SectionFlag uint32
@@ -2513,19 +2513,19 @@ const (
 )
 ```
 
-#### (SectionFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=724) 
+#### (SectionFlag) GoString 
 
 ``` go 
 func (i SectionFlag) GoString() string
 ```
 
-#### (SectionFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=723) 
+#### (SectionFlag) String 
 
 ``` go 
 func (i SectionFlag) String() string
 ```
 
-### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=72) 
+### type SectionHeader 
 
 ``` go 
 type SectionHeader struct {
@@ -2550,7 +2550,7 @@ type SectionHeader struct {
 
 A SectionHeader represents a single ELF section header.
 
-### type [SectionIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=592) 
+### type SectionIndex 
 
 ``` go 
 type SectionIndex int
@@ -2573,19 +2573,19 @@ const (
 )
 ```
 
-#### (SectionIndex) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=617) 
+#### (SectionIndex) GoString 
 
 ``` go 
 func (i SectionIndex) GoString() string
 ```
 
-#### (SectionIndex) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=616) 
+#### (SectionIndex) String 
 
 ``` go 
 func (i SectionIndex) String() string
 ```
 
-### type [SectionType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=620) 
+### type SectionType 
 
 ``` go 
 type SectionType uint32
@@ -2628,19 +2628,19 @@ const (
 )
 ```
 
-#### (SectionType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=688) 
+#### (SectionType) GoString 
 
 ``` go 
 func (i SectionType) GoString() string
 ```
 
-#### (SectionType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=687) 
+#### (SectionType) String 
 
 ``` go 
 func (i SectionType) String() string
 ```
 
-### type [Sym32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3313) 
+### type Sym32 
 
 ``` go 
 type Sym32 struct {
@@ -2655,7 +2655,7 @@ type Sym32 struct {
 
 ELF32 Symbol.
 
-### type [Sym64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3415) 
+### type Sym64 
 
 ``` go 
 type Sym64 struct {
@@ -2670,7 +2670,7 @@ type Sym64 struct {
 
 ELF64 symbol table entries.
 
-### type [SymBind](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1129) 
+### type SymBind 
 
 ``` go 
 type SymBind int
@@ -2690,25 +2690,25 @@ const (
 )
 ```
 
-#### func [ST_BIND](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3324) 
+#### func ST_BIND 
 
 ``` go 
 func ST_BIND(info uint8) SymBind
 ```
 
-#### (SymBind) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1152) 
+#### (SymBind) GoString 
 
 ``` go 
 func (i SymBind) GoString() string
 ```
 
-#### (SymBind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1151) 
+#### (SymBind) String 
 
 ``` go 
 func (i SymBind) String() string
 ```
 
-### type [SymType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1155) 
+### type SymType 
 
 ``` go 
 type SymType int
@@ -2732,25 +2732,25 @@ const (
 )
 ```
 
-#### func [ST_TYPE](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3325) 
+#### func ST_TYPE 
 
 ``` go 
 func ST_TYPE(info uint8) SymType
 ```
 
-#### (SymType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1186) 
+#### (SymType) GoString 
 
 ``` go 
 func (i SymType) GoString() string
 ```
 
-#### (SymType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1185) 
+#### (SymType) String 
 
 ``` go 
 func (i SymType) String() string
 ```
 
-### type [SymVis](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1189) 
+### type SymVis 
 
 ``` go 
 type SymVis int
@@ -2767,25 +2767,25 @@ const (
 )
 ```
 
-#### func [ST_VISIBILITY](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3329) 
+#### func ST_VISIBILITY 
 
 ``` go 
 func ST_VISIBILITY(other uint8) SymVis
 ```
 
-#### (SymVis) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1206) 
+#### (SymVis) GoString 
 
 ``` go 
 func (i SymVis) GoString() string
 ```
 
-#### (SymVis) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1205) 
+#### (SymVis) String 
 
 ``` go 
 func (i SymVis) String() string
 ```
 
-### type [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=186) 
+### type Symbol 
 
 ``` go 
 type Symbol struct {
@@ -2803,7 +2803,7 @@ type Symbol struct {
 
 A Symbol represents an entry in an ELF symbol table section.
 
-### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=172) 
+### type Type 
 
 ``` go 
 type Type uint16
@@ -2825,19 +2825,19 @@ const (
 )
 ```
 
-#### (Type) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=199) 
+#### (Type) GoString 
 
 ``` go 
 func (i Type) GoString() string
 ```
 
-#### (Type) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=198) 
+#### (Type) String 
 
 ``` go 
 func (i Type) String() string
 ```
 
-### type [Version](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=68) 
+### type Version 
 
 ``` go 
 type Version byte
@@ -2852,13 +2852,13 @@ const (
 )
 ```
 
-#### (Version) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=81) 
+#### (Version) GoString 
 
 ``` go 
 func (i Version) GoString() string
 ```
 
-#### (Version) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=80) 
+#### (Version) String 
 
 ``` go 
 func (i Version) String() string
