@@ -9,7 +9,7 @@
 {{ $rel := .Destination | relURL }}
 {{ $str := .Page.File | path.Dir }}
 <img src="/{{- $str -}}{{- $rel -}}"
-     alt="{{ .Text }}"
+     alt="{{ .Text }}" data-str="{{- $str -}}" data-rel="{{- $rel -}}"
      {{ with .Title }} title="{{ . }}"{{ end }}
 />
 {{ end }}
