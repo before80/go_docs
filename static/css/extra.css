@@ -247,3 +247,7 @@
   font-size: 1.2rem;
 }
 
+li > code,p > code,h2 > code,h3 > code, h4 > code {
+  color: darkorange !important;
+  background-color: transparent !important;
+}
