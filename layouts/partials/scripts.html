@@ -103,5 +103,9 @@ window.markmap = {
 
 <script src='{{ "js/tabpane-persist.js" | relURL }}'></script>
 {{ partial "hooks/body-end.html" . -}}
-
-<script src='/js/deal-zero-width-space.js'></script>
+{{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
+{{ if eq $MyDefLastUrlEle "" }}
+<script src="/js/deal-zero-width-space.js"></script>
+{{ else }}
+<script src="{{- $MyDefLastUrlEle -}}/js/deal-zero-width-space.js"></script>
+{{ end }}

@@ -9,4 +9,11 @@
 <link rel="preload" href="{{ $css.RelPermalink }}" as="style">
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" integrity="{{ $css.Data.integrity }}">
 {{ end }}
+
+{{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
+{{ if eq $MyDefLastUrlEle "" }}
 <link href="/css/extra.css" rel="stylesheet">
+{{ else }}
+<link href="{{- $MyDefLastUrlEle -}}/css/extra.css" rel="stylesheet">
+{{ end }}
+
