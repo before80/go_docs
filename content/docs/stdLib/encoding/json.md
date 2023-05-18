@@ -4,6 +4,7 @@ date = 2023-05-17T11:11:20+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # json
 
@@ -269,7 +270,7 @@ func Marshal(v any) ([]byte, error)
 
 ​	浮点数、整数和Number类型的值被编码为JSON数字。
 
-​	字符串类型的值被编码为JSON字符串，被强制转换为有效的UTF-8编码，无效的字节会被替换为Unicode替换符。为了将JSON安全地嵌入到HTML的<script>标签中，使用HTMLEscape对字符串进行编码，将"<", ">", "&", U+2028, 和 U+2029转义为"\u003c", "\u003e", "\u0026", "\u2028"和"\u2029"。使用Encoder时，可以通过调用SetEscapeHTML(false)来禁用此替换。
+​	字符串类型的值被编码为JSON字符串，被强制转换为有效的UTF-8编码，无效的字节会被替换为Unicode替换符。为了将JSON安全地嵌入到HTML的`<script>`标签中，使用HTMLEscape对字符串进行编码，将"`<`", "`>`", "`&`", U+2028, 和 U+2029转义为"\u003c", "\u003e", "\u0026", "\u2028"和"\u2029"。使用Encoder时，可以通过调用SetEscapeHTML(false)来禁用此替换。
 
 ​	数组和切片类型的值被编码为JSON数组，但[]byte类型的值会被编码为base64编码的字符串，而nil切片类型的值会被编码为null。
 
