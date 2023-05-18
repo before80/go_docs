@@ -23,9 +23,6 @@ enableGitInfo = true
 # disableKinds = ["taxonomy", "taxonomyTerm"]
 
 
-
-
-
 # You can add your own taxonomies
 [taxonomies]
 tag = "tags"
@@ -64,7 +61,7 @@ anchor = "smart"
 [services]
 [services.googleAnalytics]
 # Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-00000000-0"
+#id = "UA-00000000-0"
 
 # Language configuration
 
@@ -117,7 +114,7 @@ linenos = true
 
 [params]
 _merge = "deep"
-copyright = "The Docsy Authors"
+copyright = "作者zlongx"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
@@ -142,19 +139,21 @@ version = "0.0"
 url_latest_version = "https://example.com"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
+# github_repo = "https://github.com/google/docsy-example"
+github_repo = "https://github.com/before80/go_docs_with_hugo"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+#github_project_repo = "https://github.com/google/docsy"
+github_project_repo = "https://github.com/before80/go_docs_with_hugo"
 
 # Specify a value here if your content directory is not in your repo's root directory
 # github_subdir = ""
 
 # Uncomment this if your GitHub repo does not have "main" as the default branch,
 # or specify a new value if you want to reference another branch in your GitHub links
-github_branch= "master"
+github_branch= "main"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "d72aa9b2712488cc3"
+#gcs_engine_id = "d72aa9b2712488cc3"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
