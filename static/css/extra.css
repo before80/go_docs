@@ -39,7 +39,8 @@
   margin: 1rem 1.25rem;
   padding: 3rem 0 1rem;
   outline: none;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  /*text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);*/
+  text-shadow: 0 0 1px rgb(62, 165, 77);
   z-index: 2;
   font-size: 2rem;
 }
@@ -217,7 +218,7 @@
   font-style: italic;
   font-size: 4rem;
   /* color: #ccc7ce; */
-  color: rgb(204, 199, 206, 0.2);  
+  color: rgb(204, 199, 206, 0.2);
 }
 
 
@@ -229,13 +230,19 @@
   top: -1.5rem;
   z-index: -1;
 }
-.td-content h2:hover::before,
-.td-content h3:hover::before,
-.td-content h4:hover::before,
-.td-content h5:hover::before {
+
+.td-content h2:hover::before {
   color: rgba(15, 26, 58, 0.3);
   z-index: -1;
 }
+
+.td-content h3:hover::before,
+.td-content h4:hover::before,
+.td-content h5:hover::before {
+  color: rgba(255, 166, 17, 0.95);
+  z-index: -1;
+}
+
 .td-content p {
   font-size: 1.2rem;
 }
