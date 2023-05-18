@@ -1,17 +1,27 @@
 
 {{- $src := .Destination | safeURL -}}
 {{ if strings.HasPrefix $src "http" }}
-<img src="{{ $src }}"
-     alt="{{ .Text }}"
-     {{ with .Title }} title="{{ . }}"{{ end }}
-/>
+    <img src="{{ $src }}"
+         alt="{{ .Text }}"
+         {{ with .Title }} title="{{ . }}"{{ end }}
+    />
 {{ else }}
-{{ $rel := .Destination | relURL }}
-{{ $str := .Page.File | path.Dir }}
-<img src="/{{- $str -}}{{- $rel -}}"
-     alt="{{ .Text }}" data-str="{{- $str -}}" data-rel="{{- $rel -}}"
-     {{ with .Title }} title="{{ . }}"{{ end }}
-/>
+    {{ $rel := .Destination | relURL }}
+    {{ $curDir := .Page.File | path.Dir }}
+    {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
+    {{ if eq $MyDefLastUrlEle "" }}
+    {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
+    <img src="/{{- $curDir -}}{{- $rel -}}"
+         alt="{{ .Text }}" data-1str="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
+         {{ with .Title }} title="{{ . }}"{{ end }}
+    />
+    {{ else }}
+    {{/* 站点配置中 $MyDefLastUrlEle != "" 的情况 */}}
+    <img src="{{- $MyDefLastUrlEle -}}{{- $curDir -}}{{- strings.TrimLeft $MyDefLastUrlEle $rel -}}"
+         alt="{{ .Text }}" data-2str="{{- $curDir -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
+         {{ with .Title }} title="{{ . }}"{{ end }}
+    />
+    {{ end }}
 {{ end }}
 
 
