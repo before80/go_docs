@@ -34,7 +34,7 @@ To be backwards compatible the FileHeader has both 32 and 64 bit Size fields. Th
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=31)
 
-``` go linenums="1"
+``` go 
 const (
 	Store   uint16 = 0 // no compression
 	Deflate uint16 = 8 // DEFLATE compressed
@@ -47,7 +47,7 @@ Compression methods.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=27)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrFormat       = errors.New("zip: not a valid zip file")
 	ErrAlgorithm    = errors.New("zip: unsupported compression algorithm")
@@ -60,7 +60,7 @@ var (
 
 #### func [RegisterCompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=127)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func RegisterCompressor(method uint16, comp Compressor)
 ```
 
@@ -68,7 +68,7 @@ RegisterCompressor registers custom compressors for a specified method ID. The c
 
 #### func [RegisterDecompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=119)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func RegisterDecompressor(method uint16, dcomp Decompressor)
 ```
 
@@ -78,7 +78,7 @@ RegisterDecompressor allows custom decompressors for a specified method ID. The 
 
 ### type [Compressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=19)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Compressor func(w io.Writer) (io.WriteCloser, error)
 ```
 
@@ -86,7 +86,7 @@ A Compressor returns a new compressing writer, writing to w. The WriteCloser's C
 
 ### type [Decompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/register.go;l=26)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Decompressor func(r io.Reader) io.ReadCloser
 ```
 
@@ -94,7 +94,7 @@ A Decompressor returns a new decompressing reader, reading from r. The ReadClose
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=60) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	FileHeader
 	// contains filtered or unexported fields
@@ -105,7 +105,7 @@ A File is a single file in a ZIP archive. The file information is in the embedde
 
 #### (*File) [DataOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=212)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (f *File) DataOffset() (offset int64, err error)
 ```
 
@@ -115,7 +115,7 @@ Most callers should instead use Open, which transparently decompresses data and 
 
 #### (*File) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=222) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Open() (io.ReadCloser, error)
 ```
 
@@ -123,7 +123,7 @@ Open returns a ReadCloser that provides access to the File's contents. Multiple 
 
 #### (*File) [OpenRaw](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=265)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (f *File) OpenRaw() (io.Reader, error)
 ```
 
@@ -131,7 +131,7 @@ OpenRaw returns a Reader that provides access to the File's contents without dec
 
 ### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type FileHeader struct {
 	// Name is the name of the file.
 	//
@@ -214,7 +214,7 @@ FileHeader describes a file within a ZIP file. See the [ZIP specification](https
 
 #### func [FileInfoHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=200) 
 
-``` go linenums="1"
+``` go 
 func FileInfoHeader(fi fs.FileInfo) (*FileHeader, error)
 ```
 
@@ -222,31 +222,31 @@ FileInfoHeader creates a partially-populated FileHeader from an fs.FileInfo. Bec
 
 #### (*FileHeader) [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func (h *FileHeader) FileInfo() fs.FileInfo
 ```
 
 FileInfo returns an fs.FileInfo for the FileHeader.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*FileHeader) [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=309) 
 
-``` go linenums="1"
+``` go 
 func (h *FileHeader) Mode() (mode fs.FileMode)
 ```
 
 Mode returns the permission and mode bits for the FileHeader.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*FileHeader) [SetMode](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/struct.go;l=323) 
 
-``` go linenums="1"
+``` go 
 func (h *FileHeader) SetMode(mode fs.FileMode)
 ```
 
@@ -254,7 +254,7 @@ SetMode changes the permission and mode bits for the FileHeader.
 
 ### type [ReadCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=52) 
 
-``` go linenums="1"
+``` go 
 type ReadCloser struct {
 	Reader
 	// contains filtered or unexported fields
@@ -265,7 +265,7 @@ A ReadCloser is a Reader that must be closed when no longer needed.
 
 #### func [OpenReader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func OpenReader(name string) (*ReadCloser, error)
 ```
 
@@ -273,7 +273,7 @@ OpenReader will open the Zip file specified by name and return a ReadCloser.
 
 #### (*ReadCloser) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (rc *ReadCloser) Close() error
 ```
 
@@ -281,7 +281,7 @@ Close closes the Zip file, rendering it unusable for I/O.
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	File    []*File
 	Comment string
@@ -292,12 +292,12 @@ type Reader struct {
 A Reader serves content from a ZIP archive.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.ReaderAt, size int64) (*Reader, error)
 ```
 
@@ -307,7 +307,7 @@ If any file inside the archive uses a non-local name (as defined by [filepath.Is
 
 #### (*Reader) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=857)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Open(name string) (fs.File, error)
 ```
 
@@ -315,7 +315,7 @@ Open opens the named file in the ZIP archive, using the semantics of fs.FS.Open:
 
 #### (*Reader) [RegisterDecompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/reader.go;l=187)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (z *Reader) RegisterDecompressor(method uint16, dcomp Decompressor)
 ```
 
@@ -323,7 +323,7 @@ RegisterDecompressor registers or overrides a custom decompressor for a specific
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -332,12 +332,12 @@ type Writer struct {
 Writer implements a zip file writer.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -345,7 +345,7 @@ NewWriter returns a new Writer writing a zip file to w.
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Close() error
 ```
 
@@ -353,7 +353,7 @@ Close finishes writing the zip file by writing the central directory. It does no
 
 #### (*Writer) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=475)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Copy(f *File) error
 ```
 
@@ -361,7 +361,7 @@ Copy copies the file f (obtained from a Reader) into w. It copies the raw form d
 
 #### (*Writer) [Create](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=218) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Create(name string) (io.Writer, error)
 ```
 
@@ -369,7 +369,7 @@ Create adds a file to the zip file using the provided name. It returns a Writer 
 
 #### (*Writer) [CreateHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=271) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) CreateHeader(fh *FileHeader) (io.Writer, error)
 ```
 
@@ -379,7 +379,7 @@ This returns a Writer to which the file contents should be written. The file's c
 
 #### (*Writer) [CreateRaw](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=442)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (w *Writer) CreateRaw(fh *FileHeader) (io.Writer, error)
 ```
 
@@ -389,7 +389,7 @@ In contrast to CreateHeader, the bytes passed to Writer are not compressed.
 
 #### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=61)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Flush() error
 ```
 
@@ -397,19 +397,19 @@ Flush flushes any buffered data to the underlying writer. Calling Flush is not n
 
 #### (*Writer) [RegisterCompressor](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=491)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (w *Writer) RegisterCompressor(method uint16, comp Compressor)
 ```
 
 RegisterCompressor registers or overrides a custom compressor for a specific method ID. If a compressor for a given method is not found, Writer will default to looking up the compressor at the package level.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Writer) [SetComment](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=67)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (w *Writer) SetComment(comment string) error
 ```
 
@@ -417,7 +417,7 @@ SetComment sets the end-of-central-directory comment field. It can only be calle
 
 #### (*Writer) [SetOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/archive/zip/writer.go;l=52)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (w *Writer) SetOffset(n int64)
 ```
 

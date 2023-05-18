@@ -17,14 +17,14 @@ Go doc comment syntax is a simplified subset of Markdown that supports links, he
 
 To parse the text associated with a doc comment (after removing comment markers), use a [Parser](https://pkg.go.dev/go/doc/comment@go1.20.1#Parser):
 
-``` go linenums="1"
+``` go 
 var p comment.Parser
 doc := p.Parse(text)
 ```
 
 The result is a [*Doc](https://pkg.go.dev/go/doc/comment@go1.20.1#Doc). To reformat it as a doc comment, HTML, Markdown, or plain text, use a [Printer](https://pkg.go.dev/go/doc/comment@go1.20.1#Printer):
 
-``` go linenums="1"
+``` go 
 var pr comment.Printer
 os.Stdout.Write(pr.Text(doc))
 ```
@@ -47,7 +47,7 @@ This section is empty.
 
 #### func [DefaultLookupPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=277) 
 
-``` go linenums="1"
+``` go 
 func DefaultLookupPackage(name string) (importPath string, ok bool)
 ```
 
@@ -59,7 +59,7 @@ Note that the go/doc package provides a more sophisticated lookup based on the i
 
 ### type [Block](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type Block interface {
 	// contains filtered or unexported methods
 }
@@ -69,7 +69,7 @@ A Block is block-level content in a doc comment, one of [*Code](https://pkg.go.d
 
 ### type [Code](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=125) 
 
-``` go linenums="1"
+``` go 
 type Code struct {
 	// Text is the preformatted text, ending with a newline character.
 	// It may be multiple lines, each of which ends with a newline character.
@@ -82,7 +82,7 @@ A Code is a preformatted code block.
 
 ### type [Doc](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type Doc struct {
 	// Content is the sequence of content blocks in the comment.
 	Content []Block
@@ -96,7 +96,7 @@ A Doc is a parsed Go doc comment.
 
 ### type [DocLink](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=160) 
 
-``` go linenums="1"
+``` go 
 type DocLink struct {
 	Text []Text // text of link
 
@@ -118,7 +118,7 @@ A DocLink is a link to documentation for a Go package or symbol.
 
 #### (*DocLink) [DefaultURL](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func (l *DocLink) DefaultURL(baseURL string) string
 ```
 
@@ -143,7 +143,7 @@ If baseURL ends in a trailing slash, then DefaultURL inserts a slash between Imp
 
 ### type [Heading](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=37) 
 
-``` go linenums="1"
+``` go 
 type Heading struct {
 	Text []Text // the heading text
 }
@@ -153,7 +153,7 @@ A Heading is a doc comment heading.
 
 #### (*Heading) [DefaultID](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=127) 
 
-``` go linenums="1"
+``` go 
 func (h *Heading) DefaultID() string
 ```
 
@@ -163,7 +163,7 @@ The default anchor ID is constructed by converting every rune that is not alphan
 
 ### type [Italic](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=146) 
 
-``` go linenums="1"
+``` go 
 type Italic string
 ```
 
@@ -171,7 +171,7 @@ An Italic is a string rendered as italicized text.
 
 ### type [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=151) 
 
-``` go linenums="1"
+``` go 
 type Link struct {
 	Auto bool   // is this an automatic (implicit) link of a literal URL?
 	Text []Text // text of link
@@ -183,7 +183,7 @@ A Link is a link to a specific URL.
 
 ### type [LinkDef](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type LinkDef struct {
 	Text string // the link text
 	URL  string // the link URL
@@ -195,7 +195,7 @@ A LinkDef is a single link definition.
 
 ### type [List](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=47) 
 
-``` go linenums="1"
+``` go 
 type List struct {
 	// Items is the list items.
 	Items []*ListItem
@@ -224,7 +224,7 @@ A List is a numbered or bullet list. Lists are always non-empty: len(Items) > 0.
 
 #### (*List) [BlankBefore](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=79) 
 
-``` go linenums="1"
+``` go 
 func (l *List) BlankBefore() bool
 ```
 
@@ -232,7 +232,7 @@ BlankBefore reports whether a reformatting of the comment should include a blank
 
 #### (*List) [BlankBetween](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=89) 
 
-``` go linenums="1"
+``` go 
 func (l *List) BlankBetween() bool
 ```
 
@@ -240,7 +240,7 @@ BlankBetween reports whether a reformatting of the comment should include a blan
 
 ### type [ListItem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=106) 
 
-``` go linenums="1"
+``` go 
 type ListItem struct {
 	// Number is a decimal string in a numbered list
 	// or an empty string in a bullet list.
@@ -257,7 +257,7 @@ A ListItem is a single item in a numbered or bullet list.
 
 ### type [Paragraph](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=118) 
 
-``` go linenums="1"
+``` go 
 type Paragraph struct {
 	Text []Text
 }
@@ -267,7 +267,7 @@ A Paragraph is a paragraph of text.
 
 ### type [Parser](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=181) 
 
-``` go linenums="1"
+``` go 
 type Parser struct {
 	// Words is a map of Go identifier words that
 	// should be italicized and potentially linked.
@@ -318,7 +318,7 @@ A Parser is a doc comment parser. The fields in the struct can be filled in befo
 
 #### (*Parser) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=286) 
 
-``` go linenums="1"
+``` go 
 func (p *Parser) Parse(text string) *Doc
 ```
 
@@ -326,7 +326,7 @@ Parse parses the doc comment text and returns the *Doc form. Comment markers (/*
 
 ### type [Plain](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=141) 
 
-``` go linenums="1"
+``` go 
 type Plain string
 ```
 
@@ -334,7 +334,7 @@ A Plain is a string rendered as plain text (not italicized).
 
 ### type [Printer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Printer struct {
 	// HeadingLevel is the nesting level used for
 	// HTML and Markdown headings.
@@ -381,7 +381,7 @@ A Printer is a doc comment printer. The fields in the struct can be filled in be
 
 #### (*Printer) [Comment](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/print.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func (p *Printer) Comment(d *Doc) []byte
 ```
 
@@ -389,7 +389,7 @@ Comment returns the standard Go formatting of the Doc, without any comment marke
 
 #### (*Printer) [HTML](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/html.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func (p *Printer) HTML(d *Doc) []byte
 ```
 
@@ -397,7 +397,7 @@ HTML returns an HTML formatting of the Doc. See the [Printer](https://pkg.go.dev
 
 #### (*Printer) [Markdown](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/markdown.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func (p *Printer) Markdown(d *Doc) []byte
 ```
 
@@ -405,7 +405,7 @@ Markdown returns a Markdown formatting of the Doc. See the [Printer](https://pkg
 
 #### (*Printer) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/text.go;l=26) 
 
-``` go linenums="1"
+``` go 
 func (p *Printer) Text(d *Doc) []byte
 ```
 
@@ -413,7 +413,7 @@ Text returns a textual formatting of the Doc. See the [Printer](https://pkg.go.d
 
 ### type [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/comment/parse.go;l=136) 
 
-``` go linenums="1"
+``` go 
 type Text interface {
 	// contains filtered or unexported methods
 }

@@ -82,7 +82,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1303)
 
-``` go linenums="1"
+``` go 
 var ErrDot = errors.New("cannot run executable found relative to current directory")
 ```
 
@@ -92,7 +92,7 @@ var ErrDot = errors.New("cannot run executable found relative to current directo
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/lp_unix.go;l=20)
 
-``` go linenums="1"
+``` go 
 var ErrNotFound = errors.New("executable file not found in $PATH")
 ```
 
@@ -100,7 +100,7 @@ var ErrNotFound = errors.New("executable file not found in $PATH")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=127)
 
-``` go linenums="1"
+``` go 
 var ErrWaitDelay = errors.New("exec: WaitDelay expired before I/O complete")
 ```
 
@@ -110,7 +110,7 @@ var ErrWaitDelay = errors.New("exec: WaitDelay expired before I/O complete")
 
 #### func [LookPath](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/lp_unix.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func LookPath(file string) (string, error)
 ```
 
@@ -120,7 +120,7 @@ func LookPath(file string) (string, error)
 
 ##### LookPath Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -145,7 +145,7 @@ func main() {
 
 ### type [Cmd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=147) 
 
-``` go linenums="1"
+``` go 
 type Cmd struct {
 	// Path 是要运行的命令的路径。
 	//
@@ -289,7 +289,7 @@ type Cmd struct {
 
 #### func [Command](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=376) 
 
-``` go linenums="1"
+``` go 
 func Command(name string, arg ...string) *Cmd
 ```
 
@@ -305,7 +305,7 @@ func Command(name string, arg ...string) *Cmd
 
 ##### Command Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -333,7 +333,7 @@ func main() {
 
 ##### Command Example(Environment) 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -359,7 +359,7 @@ func main() {
 
 #### func [CommandContext](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=442)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func CommandContext(ctx context.Context, name string, arg ...string) *Cmd
 ```
 
@@ -371,7 +371,7 @@ func CommandContext(ctx context.Context, name string, arg ...string) *Cmd
 
 ##### CommandContext Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -396,7 +396,7 @@ func main() {
 
 #### (*Cmd) [CombinedOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=995) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) CombinedOutput() ([]byte, error)
 ```
 
@@ -404,7 +404,7 @@ func (c *Cmd) CombinedOutput() ([]byte, error)
 
 ##### CombinedOutput Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -428,7 +428,7 @@ func main() {
 
 #### (*Cmd) [Environ](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1205)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) Environ() []string
 ```
 
@@ -436,7 +436,7 @@ func (c *Cmd) Environ() []string
 
 ##### Environ Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -466,13 +466,13 @@ func main() {
 
 #### (*Cmd) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=972) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) Output() ([]byte, error)
 ```
 
 ​	Output方法运行命令并返回其标准输出。任何返回的错误通常都是`*ExitError`类型。如果c.Stderr为nil，则Output将填充ExitError.Stderr。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -495,7 +495,7 @@ func main() {
 
 #### (*Cmd) [Run](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=586) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) Run() error
 ```
 
@@ -509,7 +509,7 @@ func (c *Cmd) Run() error
 
 ##### Run Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -532,7 +532,7 @@ func main() {
 
 #### (*Cmd) [Start](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=625) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) Start() error
 ```
 
@@ -544,7 +544,7 @@ func (c *Cmd) Start() error
 
 ##### Start Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -569,7 +569,7 @@ func main() {
 
 #### (*Cmd) [StderrPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1065) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) StderrPipe() (io.ReadCloser, error)
 ```
 
@@ -579,7 +579,7 @@ func (c *Cmd) StderrPipe() (io.ReadCloser, error)
 
 ##### StderrPipe Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -614,7 +614,7 @@ func main() {
 
 #### (*Cmd) [StdinPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1015) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) StdinPipe() (io.WriteCloser, error)
 ```
 
@@ -622,7 +622,7 @@ func (c *Cmd) StdinPipe() (io.WriteCloser, error)
 
 ##### StdinPipe Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -658,7 +658,7 @@ func main() {
 
 #### (*Cmd) [StdoutPipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=1040) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) StdoutPipe() (io.ReadCloser, error)
 ```
 
@@ -668,7 +668,7 @@ func (c *Cmd) StdoutPipe() (io.ReadCloser, error)
 
 ##### StdoutPipe Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -706,7 +706,7 @@ func main() {
 
 #### (*Cmd) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=458)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) String() string
 ```
 
@@ -714,7 +714,7 @@ func (c *Cmd) String() string
 
 #### (*Cmd) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=882) 
 
-``` go linenums="1"
+``` go 
 func (c *Cmd) Wait() error
 ```
 
@@ -732,7 +732,7 @@ func (c *Cmd) Wait() error
 
 ### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=111) 
 
-``` go linenums="1"
+``` go 
 type Error struct {
 	// Name 是出现错误的文件名。
 	Name string
@@ -745,19 +745,19 @@ type Error struct {
 
 #### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func (e *Error) Error() string
 ```
 
 #### (*Error) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=122)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *Error) Unwrap() error
 ```
 
 ### type [ExitError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=845) 
 
-``` go linenums="1"
+``` go 
 type ExitError struct {
 	*os.ProcessState
 
@@ -777,6 +777,6 @@ type ExitError struct {
 
 #### (*ExitError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec/exec.go;l=861) 
 
-``` go linenums="1"
+``` go 
 func (e *ExitError) Error() string
 ```

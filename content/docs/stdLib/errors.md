@@ -16,7 +16,7 @@ https://pkg.go.dev/errors@go1.20.1
 
 ​	如果e的类型具有下列方法之一：
 
-```go linenums="1"
+```go 
 Unwrap() error
 Unwrap() []error
 ```
@@ -25,7 +25,7 @@ Unwrap() []error
 
 ### 使用Unwrap方法的示例
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -78,13 +78,13 @@ wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
 
 ​	Is函数检查其第一个参数的树，查找与第二个参数匹配的错误。它报告它是否找到匹配项。应优先使用它，而不是简单的相等性检查：
 
-```go linenums="1"
+```go 
 if errors.Is(err, fs.ErrExist)
 ```
 
 优于
 
-```go linenums="1"
+```go 
 if err == fs.ErrExist
 ```
 
@@ -92,7 +92,7 @@ if err == fs.ErrExist
 
 ​	As检查其第一个参数的树，查找可以分配给其第二个参数的错误，`该参数必须为指针`。如果成功，则执行分配并返回true。否则，它将返回false。下面这种形式是优先使用的：
 
-``` go linenums="1"
+``` go 
 var perr *fs.PathError
 if errors.As(err, &perr) {
 	fmt.Println(perr.Path)
@@ -101,7 +101,7 @@ if errors.As(err, &perr) {
 
 优于
 
-```go linenums="1"
+```go 
 if perr, ok := err.(*fs.PathError); ok {
 	fmt.Println(perr.Path)
 }
@@ -110,7 +110,7 @@ if perr, ok := err.(*fs.PathError); ok {
 ​	因为前者将成功地匹配err包装了`*fs.PathError`。
 
 ### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -157,7 +157,7 @@ This section is empty.
 
 #### func [As](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=92)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func As(err error, target any) bool
 ```
 
@@ -172,7 +172,7 @@ func As(err error, target any) bool
 ​	如果 target 不是一个实现了 error 接口的类型或任何接口类型的非 nil 指针，则 As 函数会引发 panic。
 
 ##### As Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -200,7 +200,7 @@ Failed at path: non-existing
 
 #### func [Is](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=43)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func Is(err, target error) bool
 ```
 
@@ -212,14 +212,14 @@ func Is(err, target error) bool
 
 ​	错误类型可能会提供 Is 方法，以便可以将其视为与现有错误等效。例如，如果 MyError 定义了
 
-``` go linenums="1"
+``` go 
 func (m MyError) Is(target error) bool { return target == fs.ErrExist }
 ```
 
 ​	那么 Is(MyError{}, fs.ErrExist) 返回 true。标准库中的 [syscall.Errno.Is]() 就是一个示例。Is 方法只应该浅层比较 err 和 target，不要对它们中的任何一个调用 Unwrap。
 
 ##### Is Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -246,14 +246,14 @@ file does not exist
 
 #### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/join.go;l=13)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func Join(errs ...error) error
 ```
 
 ​	Join 函数返回一个包含给定错误的错误。任何 nil 错误值都会被丢弃。如果 errs 不包含任何非 nil 值，则返回 nil。该错误的格式为 errs 中每个元素的 Error 方法返回值的串联，每个字符串之间都有一个换行符。
 
 ##### Join Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -283,14 +283,14 @@ err is err2
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/errors.go;l=61) 
 
-``` go linenums="1"
+``` go 
 func New(text string) error
 ```
 
 ​	New 函数返回一个错误，该错误格式化为给定的文本。即使文本相同，每次调用 New 都会返回一个不同的错误值。
 
 ##### New Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -313,7 +313,7 @@ emit macho dwarf: elf header corrupted
 
 ​	fmt 包的 Errorf 函数允许我们使用该包的格式化功能来创建描述性错误消息。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -334,7 +334,7 @@ user "bimmler" (id 17) not found
 
 #### func [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/errors/wrap.go;l=16)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func Unwrap(err error) error
 ```
 
@@ -343,7 +343,7 @@ func Unwrap(err error) error
 ​	如果 Unwrap 方法返回 []error，则 Unwrap 函数返回 nil。
 
 ##### Unwrap Example
-``` go linenums="1"
+``` go 
 package main
 
 import (

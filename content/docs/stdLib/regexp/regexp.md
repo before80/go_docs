@@ -51,7 +51,7 @@ MatchReader, FindReaderIndex, FindReaderSubmatchIndex
 
 (还有一些不符合此模式的方法。)
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -89,7 +89,7 @@ This section is empty.
 
 #### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=567) 
 
-``` go linenums="1"
+``` go 
 func Match(pattern string, b []byte) (matched bool, err error)
 ```
 
@@ -97,7 +97,7 @@ func Match(pattern string, b []byte) (matched bool, err error)
 
 ##### Match Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -125,7 +125,7 @@ false error parsing regexp: missing closing ): `a(b`
 
 #### func [MatchReader](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=545) 
 
-``` go linenums="1"
+``` go 
 func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)
 ```
 
@@ -133,7 +133,7 @@ func MatchReader(pattern string, r io.RuneReader) (matched bool, err error)
 
 #### func [MatchString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=556) 
 
-``` go linenums="1"
+``` go 
 func MatchString(pattern string, s string) (matched bool, err error)
 ```
 
@@ -141,7 +141,7 @@ func MatchString(pattern string, s string) (matched bool, err error)
 
 ##### MatchString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -168,7 +168,7 @@ false error parsing regexp: missing closing ): `a(b`
 
 #### func [QuoteMeta](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=728) 
 
-``` go linenums="1"
+``` go 
 func QuoteMeta(s string) string
 ```
 
@@ -176,7 +176,7 @@ func QuoteMeta(s string) string
 
 ##### QuoteMeta Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -196,7 +196,7 @@ func main() {
 
 ### type [Regexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type Regexp struct {
 	// contains filtered or unexported fields
     // 包含已过滤或未导出的字段
@@ -207,7 +207,7 @@ type Regexp struct {
 
 #### func [Compile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=136) 
 
-``` go linenums="1"
+``` go 
 func Compile(expr string) (*Regexp, error)
 ```
 
@@ -217,7 +217,7 @@ func Compile(expr string) (*Regexp, error)
 
 #### func [CompilePOSIX](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func CompilePOSIX(expr string) (*Regexp, error)
 ```
 
@@ -229,7 +229,7 @@ func CompilePOSIX(expr string) (*Regexp, error)
 
 #### func [MustCompile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=316) 
 
-``` go linenums="1"
+``` go 
 func MustCompile(str string) *Regexp
 ```
 
@@ -237,7 +237,7 @@ func MustCompile(str string) *Regexp
 
 #### func [MustCompilePOSIX](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=327) 
 
-``` go linenums="1"
+``` go 
 func MustCompilePOSIX(str string) *Regexp
 ```
 
@@ -245,7 +245,7 @@ func MustCompilePOSIX(str string) *Regexp
 
 #### (*Regexp) [Expand](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=921) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Expand(dst []byte, template []byte, src []byte, match []int) []byte
 ```
 
@@ -259,7 +259,7 @@ func (re *Regexp) Expand(dst []byte, template []byte, src []byte, match []int) [
 
 ##### Expand Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -306,7 +306,7 @@ option3=value3
 
 #### (*Regexp) [ExpandString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=928) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ExpandString(dst []byte, template string, src string, match []int) []byte
 ```
 
@@ -314,7 +314,7 @@ func (re *Regexp) ExpandString(dst []byte, template string, src string, match []
 
 ##### ExpandString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -359,7 +359,7 @@ option3=value3
 
 #### (*Regexp) [Find](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=824) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Find(b []byte) []byte
 ```
 
@@ -367,7 +367,7 @@ func (re *Regexp) Find(b []byte) []byte
 
 ##### Find Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -389,7 +389,7 @@ Output:
 
 #### (*Regexp) [FindAll](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1083) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAll(b []byte, n int) [][]byte
 ```
 
@@ -397,7 +397,7 @@ func (re *Regexp) FindAll(b []byte, n int) [][]byte
 
 ##### FindAll Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -419,7 +419,7 @@ Output:
 
 #### (*Regexp) [FindAllIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1101) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
 ```
 
@@ -427,7 +427,7 @@ func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
 
 ##### FindAllIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -451,7 +451,7 @@ Output:
 
 #### (*Regexp) [FindAllString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1119) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllString(s string, n int) []string
 ```
 
@@ -459,7 +459,7 @@ func (re *Regexp) FindAllString(s string, n int) []string
 
 ##### FindAllString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -486,7 +486,7 @@ Output:
 
 #### (*Regexp) [FindAllStringIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1137) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
 ```
 
@@ -494,7 +494,7 @@ func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
 
 #### (*Regexp) [FindAllStringSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1197) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
 ```
 
@@ -502,7 +502,7 @@ func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
 
 ##### FindAllStringSubmatch Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -529,7 +529,7 @@ Output:
 
 #### (*Regexp) [FindAllStringSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1222) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllStringSubmatchIndex(s string, n int) [][]int
 ```
 
@@ -537,7 +537,7 @@ func (re *Regexp) FindAllStringSubmatchIndex(s string, n int) [][]int
 
 ##### FindAllStringSubmatchIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -569,7 +569,7 @@ Output:
 
 #### (*Regexp) [FindAllSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1155) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
 ```
 
@@ -577,7 +577,7 @@ func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
 
 ##### FindAllSubmatch Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -599,7 +599,7 @@ Output:
 
 #### (*Regexp) [FindAllSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1179) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
 ```
 
@@ -607,7 +607,7 @@ func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
 
 ##### FindAllSubmatchIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -647,7 +647,7 @@ value2
 
 #### (*Regexp) [FindIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=837) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindIndex(b []byte) (loc []int)
 ```
 
@@ -655,7 +655,7 @@ func (re *Regexp) FindIndex(b []byte) (loc []int)
 
 ##### FindIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -686,7 +686,7 @@ option1: value1
 
 #### (*Regexp) [FindReaderIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=876) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindReaderIndex(r io.RuneReader) (loc []int)
 ```
 
@@ -694,7 +694,7 @@ func (re *Regexp) FindReaderIndex(r io.RuneReader) (loc []int)
 
 #### (*Regexp) [FindReaderSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1073) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int
 ```
 
@@ -702,7 +702,7 @@ func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int
 
 #### (*Regexp) [FindString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=850) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindString(s string) string
 ```
 
@@ -710,7 +710,7 @@ func (re *Regexp) FindString(s string) string
 
 ##### FindString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -733,7 +733,7 @@ Output:
 
 #### (*Regexp) [FindStringIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=863) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindStringIndex(s string) (loc []int)
 ```
 
@@ -741,7 +741,7 @@ FindStringIndex方法返回一个包含两个整数的切片，这个切片定�
 
 ##### FindStringIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -764,7 +764,7 @@ true
 
 #### (*Regexp) [FindStringSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1044) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindStringSubmatch(s string) []string
 ```
 
@@ -772,7 +772,7 @@ FindStringSubmatch方法返回一个字符串切片，该切片包含s中正则�
 
 ##### FindStringSubmatch Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -795,7 +795,7 @@ Output:
 
 #### (*Regexp) [FindStringSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1064) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindStringSubmatchIndex(s string) []int
 ```
 
@@ -803,7 +803,7 @@ func (re *Regexp) FindStringSubmatchIndex(s string) []int
 
 #### (*Regexp) [FindSubmatch](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=889) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindSubmatch(b []byte) [][]byte
 ```
 
@@ -811,7 +811,7 @@ func (re *Regexp) FindSubmatch(b []byte) [][]byte
 
 ##### FindSubmatch Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -833,7 +833,7 @@ Output:
 
 #### (*Regexp) [FindSubmatchIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1035) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) FindSubmatchIndex(b []byte) []int
 ```
 
@@ -841,7 +841,7 @@ func (re *Regexp) FindSubmatchIndex(b []byte) []int
 
 ##### FindSubmatchIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -873,7 +873,7 @@ Output:
 
 #### (*Regexp) [LiteralPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=520) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) LiteralPrefix() (prefix string, complete bool)
 ```
 
@@ -881,7 +881,7 @@ func (re *Regexp) LiteralPrefix() (prefix string, complete bool)
 
 #### (*Regexp) [Longest](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=169)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Longest()
 ```
 
@@ -889,7 +889,7 @@ func (re *Regexp) Longest()
 
 ##### Longest Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -913,7 +913,7 @@ ab
 
 #### (*Regexp) [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=538) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Match(b []byte) bool
 ```
 
@@ -921,7 +921,7 @@ func (re *Regexp) Match(b []byte) bool
 
 ##### Match Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -945,7 +945,7 @@ false
 
 #### (*Regexp) [MatchReader](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=526) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) MatchReader(r io.RuneReader) bool
 ```
 
@@ -953,7 +953,7 @@ func (re *Regexp) MatchReader(r io.RuneReader) bool
 
 #### (*Regexp) [MatchString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=532) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) MatchString(s string) bool
 ```
 
@@ -961,7 +961,7 @@ func (re *Regexp) MatchString(s string) bool
 
 ##### MatchString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -986,7 +986,7 @@ true
 
 #### (*Regexp) [NumSubexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=343) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) NumSubexp() int
 ```
 
@@ -994,7 +994,7 @@ func (re *Regexp) NumSubexp() int
 
 ##### NumSubexp Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1019,7 +1019,7 @@ Output:
 
 #### (*Regexp) [ReplaceAll](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=677) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAll(src, repl []byte) []byte
 ```
 
@@ -1027,7 +1027,7 @@ func (re *Regexp) ReplaceAll(src, repl []byte) []byte
 
 ##### ReplaceAll Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1054,7 +1054,7 @@ Output:
 
 #### (*Regexp) [ReplaceAllFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=705) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAllFunc(src []byte, repl func([]byte) []byte) []byte
 ```
 
@@ -1062,7 +1062,7 @@ func (re *Regexp) ReplaceAllFunc(src []byte, repl func([]byte) []byte) []byte
 
 #### (*Regexp) [ReplaceAllLiteral](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=695) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAllLiteral(src, repl []byte) []byte
 ```
 
@@ -1070,7 +1070,7 @@ func (re *Regexp) ReplaceAllLiteral(src, repl []byte) []byte
 
 #### (*Regexp) [ReplaceAllLiteralString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=592) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAllLiteralString(src, repl string) string
 ```
 
@@ -1078,7 +1078,7 @@ func (re *Regexp) ReplaceAllLiteralString(src, repl string) string
 
 ##### ReplaceAllLiteralString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1105,7 +1105,7 @@ Output:
 
 #### (*Regexp) [ReplaceAllString](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=578) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAllString(src, repl string) string
 ```
 
@@ -1113,7 +1113,7 @@ func (re *Regexp) ReplaceAllString(src, repl string) string
 
 ##### ReplaceAllString Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1140,7 +1140,7 @@ Output:
 
 #### (*Regexp) [ReplaceAllStringFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=602) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) ReplaceAllStringFunc(src string, repl func(string) string) string
 ```
 
@@ -1148,7 +1148,7 @@ func (re *Regexp) ReplaceAllStringFunc(src string, repl func(string) string) str
 
 ##### ReplaceAllStringFunc Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1170,7 +1170,7 @@ SeaFooD FooL
 
 #### (*Regexp) [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=1253)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Split(s string, n int) []string
 ```
 
@@ -1195,7 +1195,7 @@ n < 0：所有子字符串
 
 ##### Split Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1231,7 +1231,7 @@ Output:
 
 #### (*Regexp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=109) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) String() string
 ```
 
@@ -1239,7 +1239,7 @@ func (re *Regexp) String() string
 
 #### (*Regexp) [SubexpIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=363)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) SubexpIndex(name string) int
 ```
 
@@ -1249,7 +1249,7 @@ SubexpIndex方法返回第一个名称为 name 的子表达式的索引；如果
 
 ##### SubexpIndex  Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1276,7 +1276,7 @@ Turing
 
 #### (*Regexp) [SubexpNames](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/regexp.go;l=352) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) SubexpNames() []string
 ```
 
@@ -1284,7 +1284,7 @@ func (re *Regexp) SubexpNames() []string
 
 ##### SubexpNames  Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (

@@ -16,13 +16,13 @@ draft = false
 
 用法：
 
-```shell linenums="1"
+```shell 
 go <command> [arguments]
 ```
 
 这些命令（目前18个）是：
 
-```shell linenums="1"
+```shell 
 bug         start a bug report 
 			=> 开始一个bug报告
 			
@@ -110,7 +110,7 @@ vcs             controlling version control with GOVCS
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go bug
 ```
 
@@ -122,7 +122,7 @@ Bug打开默认的浏览器并启动一个新的错误报告。该报告包括�
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go build [-o output] [build flags] [packages]
 ```
 
@@ -363,7 +363,7 @@ See also: go install, go get, go clean.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go clean [clean flags] [build flags] [packages]
 ```
 
@@ -437,7 +437,7 @@ For more about specifying packages, see 'go help packages'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go doc [doc flags] [package|[package.]symbol[.methodOrField]]
 ```
 
@@ -453,7 +453,7 @@ Given no arguments, that is, when run as
 
 在没有参数的情况下，也就是说，当运行为
 
-```shell linenums="1"
+```shell 
 go doc
 ```
 
@@ -465,7 +465,7 @@ When run with one argument, the argument is treated as a Go-syntax-like represen
 
 当运行时有一个参数，该参数被视为要记录的项目的类似Go-syntax的表述。参数选择的内容取决于GOROOT和GOPATH中安装的内容，以及参数的形式，从图上看是其中之一：
 
-```shell linenums="1"
+```shell 
 go doc <pkg>
 go doc <sym>[.<methodOrField>]
 go doc [<pkg>.]<sym>[.<methodOrField>]
@@ -492,7 +492,7 @@ When run with two arguments, the first is a package path (full path or suffix), 
 
 当运行时有两个参数，第一个是包的路径（完整的路径或后缀），第二个是一个符号，或带有方法或结构域的符号：
 
-```shell linenums="1"
+```shell 
 go doc <pkg> <sym>[.<methodOrField>]
 ```
 
@@ -504,7 +504,7 @@ Examples:
 
 例子
 
-```shell linenums="1"
+```shell 
 go doc
 	Show documentation for current package.
 go doc Foo
@@ -583,7 +583,7 @@ Flags:
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go env [-json] [-u] [-w] [var ...]
 ```
 
@@ -615,7 +615,7 @@ For more about environment variables, see 'go help environment'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go fix [-fix list] [packages]
 ```
 
@@ -643,7 +643,7 @@ See also: go fmt, go vet.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go fmt [-n] [-x] [packages]
 ```
 
@@ -675,7 +675,7 @@ See also: go fix, go vet.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go generate [-run regexp] [-n] [-v] [-x] [build flags] [file.go... | packages]
 ```
 
@@ -691,7 +691,7 @@ Go generate scans the file for directives, which are lines of the form,
 
 Go generate 会扫描文件中的指令，这些指令的形式是。
 
-```shell linenums="1"
+```shell 
 //go:generate command argument...
 ```
 
@@ -817,7 +817,7 @@ For more about specifying packages, see 'go help packages'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go get [-t] [-u] [-v] [build flags] [packages]
 ```
 
@@ -829,7 +829,7 @@ To add a dependency for a package or upgrade it to its latest version:
 
 要添加一个包的依赖关系或将其升级到最新版本：
 
-```shell linenums="1"
+```shell 
 go get example.com/pkg
 ```
 
@@ -837,7 +837,7 @@ To upgrade or downgrade a package to a specific version:
 
 要将一个包升级或降级到一个特定的版本：
 
-```shell linenums="1"
+```shell 
 go get example.com/pkg@v1.2.3
 ```
 
@@ -845,7 +845,7 @@ To remove a dependency on a module and downgrade modules that require it:
 
 要删除一个模块的依赖关系和降级需要它的模块：
 
-```shell linenums="1"
+```shell 
 go get example.com/mod@none
 ```
 
@@ -857,7 +857,7 @@ In earlier versions of Go, 'go get' was used to build and install packages. Now,
 
 在Go的早期版本中，'go get'被用来构建和安装包。现在，'go get'专门用来调整go.mod中的依赖关系。'go install'可以用来代替构建和安装命令。当指定一个版本时，'go install'在模块感知模式下运行，忽略当前目录下的go.mod文件。比如说：
 
-```shell linenums="1"
+```shell 
 go install example.com/pkg@v1.2.3
 go install example.com/pkg@latest
 ```
@@ -910,7 +910,7 @@ See also: go build, go install, go clean, go mod.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go install [build flags] [packages]
 ```
 
@@ -974,7 +974,7 @@ See also: go build, go get, go clean.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go list [-f format] [-json] [-m] [list flags] [build flags] [packages]
 ```
 
@@ -997,7 +997,7 @@ The -f flag specifies an alternate format for the list, using the syntax of pack
 
 -f标志指定了列表的另一种格式，使用包模板的语法。默认输出相当于-f '{{.ImportPath}}。被传递给模板的结构是：
 
-```go linenums="1"
+```go 
 type Package struct {
     Dir           string   // directory containing package sources
     ImportPath    string   // import path of package in dir
@@ -1076,7 +1076,7 @@ The error information, if any, is
 
 错误信息，如果有的话，是
 
-```go linenums="1"
+```go 
 type PackageError struct {
     ImportStack   []string // shortest path from package named on command line to this one
     Pos           string   // position of error (if present, file:line:col)
@@ -1096,7 +1096,7 @@ The template function "context" returns the build context, defined as:
 
 模板函数 "context "返回构建上下文，定义如下。
 
-```go linenums="1"
+```go 
 type Context struct {
     GOARCH        string   // target architecture
     GOOS          string   // target operating system
@@ -1160,7 +1160,7 @@ When listing modules, the -f flag still specifies a format template applied to a
 
 当列出模块时，-f 标志仍然指定应用于 Go 结构的格式模板，但现在是一个 Module 结构：
 
-```go linenums="1"
+```go 
 type Module struct {
     Path       string        // module path
     Query      string        // version query corresponding to this version
@@ -1266,7 +1266,7 @@ Note that support for modules is built into all the go commands, not just 'go mo
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod <command> [arguments]
 ```
 
@@ -1293,7 +1293,7 @@ Use "go help mod <command>" for more information about a command.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod download [-x] [-json] [-reuse=old.json] [modules]
 ```
 
@@ -1317,7 +1317,7 @@ The -json flag causes download to print a sequence of JSON objects to standard o
 
 -json 标志使 download 将一连串的 JSON 对象打印到标准输出，描述每个下载的模块（或失败），对应于这个 Go 结构：
 
-```golinenums="1"
+```go
 type Module struct {
     Path     string // module path
     Query    string // version query corresponding to this version
@@ -1354,7 +1354,7 @@ See https://golang.org/ref/mod#version-queries for more about version queries.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod edit [editing flags] [-fmt|-print|-json] [go.mod]
 ```
 
@@ -1410,7 +1410,7 @@ The -json flag prints the final go.mod file in JSON format instead of writing it
 
 -json标志以JSON格式打印最终的go.mod文件，而不是将其写回go.mod。JSON输出对应的是这些Go类型：
 
-```go linenums="1"
+```go 
 type Module struct {
 	Path    string
 	Version string
@@ -1464,7 +1464,7 @@ See https://golang.org/ref/mod#go-mod-edit for more about 'go mod edit'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod graph [-go=version]
 ```
 
@@ -1484,7 +1484,7 @@ See https://golang.org/ref/mod#go-mod-graph for more about 'go mod graph'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod init [module-path]
 ```
 
@@ -1508,7 +1508,7 @@ See https://golang.org/ref/mod#go-mod-init for more about 'go mod init'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod tidy [-e] [-v] [-go=version] [-compat=version]
 ```
 
@@ -1540,7 +1540,7 @@ See https://golang.org/ref/mod#go-mod-tidy for more about 'go mod tidy'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod vendor [-e] [-v] [-o outdir]
 ```
 
@@ -1568,7 +1568,7 @@ See https://golang.org/ref/mod#go-mod-vendor for more about 'go mod vendor'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod verify
 ```
 
@@ -1584,7 +1584,7 @@ See https://golang.org/ref/mod#go-mod-verify for more about 'go mod verify'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go mod why [-m] [-vendor] packages...
 ```
 
@@ -1604,7 +1604,7 @@ For example:
 
 比如说：
 
-```shell linenums="1"
+```shell 
 $ go mod why golang.org/x/text/language golang.org/x/text/encoding
 # golang.org/x/text/language
 rsc.io/quote
@@ -1688,7 +1688,7 @@ To determine whether the go command is operating in workspace mode, use the "go 
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go work <command> [arguments]
 ```
 
@@ -1711,7 +1711,7 @@ Use "go help work <command>" for more information about a command.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go work edit [editing flags] [go.work]
 ```
 
@@ -1755,7 +1755,7 @@ The -json flag prints the final go.work file in JSON format instead of writing i
 
 -json标志以JSON格式打印最终的go.work文件，而不是将其写回go.mod。JSON输出对应的是这些Go类型。
 
-```go linenums="1"
+```go 
 type GoWork struct {
 	Go      string
 	Use     []Use
@@ -1786,7 +1786,7 @@ See the workspaces reference at https://go.dev/ref/mod#workspaces for more infor
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go work init [moddirs]
 ```
 
@@ -1810,7 +1810,7 @@ See the workspaces reference at https://go.dev/ref/mod#workspaces for more infor
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go work sync
 ```
 
@@ -1834,7 +1834,7 @@ See the workspaces reference at https://go.dev/ref/mod#workspaces for more infor
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go work use [-r] moddirs
 ```
 
@@ -1858,7 +1858,7 @@ See the workspaces reference at https://go.dev/ref/mod#workspaces for more infor
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go run [build flags] [-exec xprog] package [arguments...]
 ```
 
@@ -1906,7 +1906,7 @@ See also: go build.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go test [build/test flags] [packages] [build/test flags & test binary flags]
 ```
 
@@ -1980,7 +1980,7 @@ ok   compress/gzip 0.033s
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go tool [-n] command [args...]
 ```
 
@@ -2000,7 +2000,7 @@ For more about each tool command, see 'go doc cmd/<command>'.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go version [-m] [-v] [file ...]
 ```
 
@@ -2032,7 +2032,7 @@ See also: go doc runtime/debug.BuildInfo.
 
 使用方法：
 
-```shell linenums="1"
+```shell 
 go vet [-n] [-x] [-vettool prog] [build flags] [vet flags] [packages]
 ```
 
@@ -2884,7 +2884,7 @@ For example,
 
 比如说，
 
-```go linenums="1"
+```go 
 import "example.org/user/foo.hg"
 ```
 
@@ -2892,7 +2892,7 @@ denotes the root directory of the Mercurial repository at example.org/user/foo o
 
 表示位于example.org/user/foo或foo.hg的Mercurial仓库的根目录，而
 
-```go linenums="1"
+```go 
 import "example.org/repo.git/foo/bar"
 ```
 
@@ -2916,7 +2916,7 @@ The meta tag has the form:
 
 这个 meta 的形式是：
 
-```html linenums="1"
+```html 
 <meta name="go-import" content="import-prefix vcs repo-root">
 ```
 
@@ -2940,7 +2940,7 @@ For example,
 
 比如说，
 
-```go linenums="1"
+```go 
 import "example.org/pkg/foo"
 ```
 
@@ -2957,7 +2957,7 @@ If that page contains the meta tag
 
 如果该页面包含meta 
 
-```html linenums="1"
+```html 
 <meta name="go-import" content="example.org git https://code.org/r/p/exproj">
 ```
 
@@ -2977,7 +2977,7 @@ When using modules, an additional variant of the go-import meta tag is recognize
 
 当使用模块时，go-import元标签的另一个变体被识别，并且比那些列出版本控制系统的变体更受欢迎。该变体在内容值中使用 "mod "作为vcs，如：。
 
-```html linenums="1"
+```html 
 <meta name="go-import" content="example.org mod https://code.org/moduleproxy">
 ```
 
@@ -3058,7 +3058,7 @@ Many commands apply to a set of packages:
 
 许多命令适用于一组包：
 
-```shell linenums="1"
+```shell 
 go action [packages]
 ```
 
@@ -3444,7 +3444,7 @@ For instance, the command
 
 例如，命令
 
-```shell linenums="1"
+```shell 
 go test -v -args -x -v
 ```
 
@@ -3452,7 +3452,7 @@ will compile the test binary and then run it as
 
 将编译测试二进制文件，然后作为
 
-```shell linenums="1"
+```shell 
 pkg.test -test.v -x -v
 ```
 
@@ -3460,7 +3460,7 @@ Similarly,
 
 类似地，
 
-```shell linenums="1"
+```shell 
 go test -args math
 ```
 
@@ -3486,7 +3486,7 @@ A test function is one named TestXxx (where Xxx does not start with a lower case
 
 一个测试函数被命名为TestXxx（其中Xxx不以小写字母开头），并且应该有这样的签名。
 
-```go linenums="1"
+```go 
 func TestXxx(t *testing.T) { ... }
 ```
 
@@ -3494,7 +3494,7 @@ A benchmark function is one named BenchmarkXxx and should have the signature,
 
 基准函数是一个名为BenchmarkXxx的函数，应该有这样的签名，
 
-```go linenums="1"
+```go 
 func BenchmarkXxx(b *testing.B) { ... }
 ```
 
@@ -3502,7 +3502,7 @@ A fuzz test is one named FuzzXxx and should have the signature,
 
 一个模糊测试是一个名为FuzzXxx的测试，应该有这样的签名，
 
-```go linenums="1"
+```go 
 func FuzzXxx(f *testing.F) { ... }
 ```
 
@@ -3518,7 +3518,7 @@ Here is an example of an example:
 
 下面是一个例子的例子：
 
-```go linenums="1"
+```go 
 func ExamplePrintln() {
 	Println("The output of\nthis example.")
 	// Output: The output of
@@ -3530,7 +3530,7 @@ Here is another example where the ordering of the output is ignored:
 
 这里是另一个例子，输出的顺序被忽略了：
 
-```go linenums="1"
+```go 
 func ExamplePerm() {
 	for _, value := range Perm(4) {
 		fmt.Println(value)

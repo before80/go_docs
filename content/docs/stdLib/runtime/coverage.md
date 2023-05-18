@@ -23,7 +23,7 @@ This section is empty.
 
 #### func [ClearCounters](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/coverage/apis.go;l=89) 
 
-``` go linenums="1"
+``` go 
 func ClearCounters() error
 ```
 
@@ -31,7 +31,7 @@ ClearCounters clears/resets all coverage counter variables in the currently runn
 
 #### func [WriteCounters](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/coverage/apis.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func WriteCounters(w io.Writer) error
 ```
 
@@ -39,7 +39,7 @@ WriteCounters writes coverage counter-data content for the currently running pro
 
 #### func [WriteCountersDir](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/coverage/apis.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func WriteCountersDir(dir string) error
 ```
 
@@ -47,7 +47,7 @@ WriteCountersDir writes a coverage counter-data file for the currently running p
 
 #### func [WriteMeta](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/coverage/apis.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func WriteMeta(w io.Writer) error
 ```
 
@@ -55,7 +55,7 @@ WriteMeta writes the meta-data content (the payload that would normally be emitt
 
 #### func [WriteMetaDir](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/coverage/apis.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func WriteMetaDir(dir string) error
 ```
 

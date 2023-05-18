@@ -24,7 +24,7 @@ draft = false
 
 ​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare](https://pkg.go.dev/database/sql#DB.Prepare)返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。你可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
 
-```go linenums="1" hl_lines="14 14"
+```go  hl_lines="14 14"
 // AlbumByID retrieves the specified album.
 func AlbumByID(id int) (Album, error) {
     // Define a prepared statement. You'd typically define the statement

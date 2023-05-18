@@ -24,7 +24,7 @@ This section is empty.
 
 #### func [AppendRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=89)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func AppendRune(a []uint16, r rune) []uint16
 ```
 
@@ -32,7 +32,7 @@ func AppendRune(a []uint16, r rune) []uint16
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=105) 
 
-``` go linenums="1"
+``` go 
 func Decode(s []uint16) []rune
 ```
 
@@ -40,7 +40,7 @@ func Decode(s []uint16) []rune
 
 #### func [DecodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func DecodeRune(r1, r2 rune) rune
 ```
 
@@ -48,7 +48,7 @@ func DecodeRune(r1, r2 rune) rune
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=56) 
 
-``` go linenums="1"
+``` go 
 func Encode(s []rune) []uint16
 ```
 
@@ -56,7 +56,7 @@ func Encode(s []rune) []uint16
 
 #### func [EncodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func EncodeRune(r rune) (r1, r2 rune)
 ```
 
@@ -64,7 +64,7 @@ func EncodeRune(r rune) (r1, r2 rune)
 
 #### func [IsSurrogate](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf16/utf16.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func IsSurrogate(r rune) bool
 ```
 

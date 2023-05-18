@@ -31,7 +31,7 @@ draft = false
 
 ​	举例来说，没有必要花时间排列结构体字段上的注释。`Gofmt`会帮你做到这一点。给出的声明：
 
-``` go linenums="1"
+``` go 
 type T struct {
     name string // name of the object
     value int // its value
@@ -40,7 +40,7 @@ type T struct {
 
 `gofmt`会对齐列：
 
-``` go linenums="1"
+``` go 
 type T struct {
     name    string // name of the object
     value   int    // its value
@@ -85,7 +85,7 @@ type T struct {
 
 ​	当导入一个包时，包名称变成该内容的访问器。在执行：
 
-``` go linenums="1"
+``` go 
 import "bytes"
 ```
 
@@ -103,7 +103,7 @@ import "bytes"
 
 ​	Go不提供getter和setter的自动支持。自己提供getter和setter没有问题，而且通常是适当的，但在getter的名称中添加`Get`既不符合惯例，也不必要。如果你有一个名为`owner`（小写，未公开）的字段，getter方法应该被称为`Owner`（大写，公开），而不是`GetOwner`。大写名称的使用为导出提供了钩子，以区分字段和方法。如果需要setter函数，它很可能被称为`SetOwner`。在实践中，这两个名称都很好读：
 
-``` go linenums="1"
+``` go 
 owner := obj.Owner()
 if owner != user {
     obj.SetOwner(user)
@@ -126,7 +126,7 @@ if owner != user {
 
 ​	规则如下。如果换行符之前的最后一个标记是标识符（包括像 `int` 和 `float64` 这样的单词）、基本字面量（如数字或字符串常量）或以下任一标记：
 
-``` go linenums="1"
+``` go 
 break continue fallthrough return ++ -- ) }
 ```
 
@@ -134,7 +134,7 @@ break continue fallthrough return ++ -- ) }
 
 ​	分号也可以省略在一个右花括号之前，因此像这样的语句
 
-``` go linenums="1"
+``` go 
 go func() { for { dst <- <-src } }()
 ```
 
@@ -142,7 +142,7 @@ go func() { for { dst <- <-src } }()
 
 ​	分号插入规则的一个后果是，您不能将控制结构（`if`、`for`、`switch` 或 `select`）的开头括号放在下一行。如果您这样做，会在括号之前插入一个分号，这可能会导致意外的效果。应该这样写：
 
-``` go linenums="1"
+``` go 
 if i < f() {
     g()
 }
@@ -150,7 +150,7 @@ if i < f() {
 
 而不是这样写：
 
-``` go linenums="1"
+``` go 
 if i < f()  // wrong!
 {           // wrong!
     g()
@@ -165,7 +165,7 @@ if i < f()  // wrong!
 
 ​	在Go中，一个简单的`if`看起来像这样：
 
-``` go linenums="1"
+``` go 
 if x > 0 {
     return y
 }
@@ -175,7 +175,7 @@ if x > 0 {
 
 ​	由于`if`和`switch`接受初始化语句，因此经常看到用它来设置局部变量。
 
-``` go linenums="1"
+``` go 
 if err := file.Chmod(0664); err != nil {
     log.Print(err)
     return err
@@ -184,7 +184,7 @@ if err := file.Chmod(0664); err != nil {
 
 ​	在Go库中，你会发现当`if`语句不流入下一条语句时——也就是说，主体以`break`、`continue`、`goto`或`return`结束——不必要的`else`被省略了。
 
-``` go linenums="1"
+``` go 
 f, err := os.Open(name)
 if err != nil {
     return err
@@ -194,7 +194,7 @@ codeUsing(f)
 
 ​	这是一个常见情况的例子，代码必须防范一系列的错误条件。如果满足条件的控制流顺着页面运行，在出现错误时消除错误情况，那么代码读起来就很容易。由于错误情况往往在`return`语句中结束，因此之后的代码不需要`else`语句。
 
-``` go linenums="1"
+``` go 
 f, err := os.Open(name)
 if err != nil {
     return err
@@ -211,13 +211,13 @@ codeUsing(f, d)
 
 ​	提示：上一节中最后一个例子演示了`:=`短声明形式如何工作的一个细节。调用`os.Open`的声明是这样的
 
-``` go linenums="1"
+``` go 
 f, err := os.Open(name)
 ```
 
 这个语句声明了两个变量，`f`和`err`。几行之后，对`f.Stat`的调用是这样的
 
-``` go linenums="1"
+``` go 
 d, err := f.Stat()
 ```
 
@@ -240,7 +240,7 @@ d, err := f.Stat()
 
 ​	Go 的 `for` 循环与 C 的类似，但不一样。它统一了`for`和`while`，没有`do-while`。有三种形式，其中只有一种有分号。
 
-``` go linenums="1"
+``` go 
 // Like a C for
 for init; condition; post { }
 
@@ -253,7 +253,7 @@ for { }
 
 ​	短声明使我们很容易在循环中直接声明索引变量。
 
-``` go linenums="1"
+``` go 
 sum := 0
 for i := 0; i < 10; i++ {
     sum += i
@@ -262,7 +262,7 @@ for i := 0; i < 10; i++ {
 
 ​	如果你在一个数组、切片、字符串或映射上进行循环，或者从一个通道中读取，一个`range`子句可以管理循环。
 
-``` go linenums="1"
+``` go 
 for key, value := range oldMap {
     newMap[key] = value
 }
@@ -270,7 +270,7 @@ for key, value := range oldMap {
 
 如果你只需要遍历中的第一个项（键或索引），去掉第二个就行：
 
-``` go linenums="1"
+``` go 
 for key := range m {
     if key.expired() {
         delete(m, key)
@@ -280,7 +280,7 @@ for key := range m {
 
 ​	如果你只需要遍历中的第二个项（值），使用空白标识符（即`_`），来丢弃第一个项：
 
-``` go linenums="1"
+``` go 
 sum := 0
 for _, value := range array {
     sum += value
@@ -291,7 +291,7 @@ for _, value := range array {
 
 ​	对于字符串，`range`为你做了更多的工作，通过解析`UTF-8`来分解出各个Unicode码点。错误的编码将会占用一个字节并用符文（rune）`U+FFFD`来替换。(名称(带有相关的内建类型)`rune`，是Go对单个Unicode码点的称谓。详见[语言规范](../../References/LanguageSpecification/LexicalElements#rune-literals-rune)）。循环
 
-``` go linenums="1"
+``` go 
 for pos, char := range "日本\x80語" { // \x80 is an illegal UTF-8 encoding => \x80 是一个非法的 UTF-8编码（字符）
     fmt.Printf("character %#U starts at byte position %d\n", char, pos)
 }
@@ -308,7 +308,7 @@ character U+8A9E '語' starts at byte position 7
 
 ​	最后，**Go没有逗号运算符**，**`++`和`--`是语句而不是表达式**。因此，如果你想在一个`for`中使用多个变量，你应该采用平行赋值（虽然它会拒绝`++`和`--`）。
 
-``` go linenums="1"
+``` go 
 // Reverse a => 反转 a
 for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
     a[i], a[j] = a[j], a[i]
@@ -319,7 +319,7 @@ for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
 
 ​	Go的`switch`比C的`switch`更通用。其表达式无需为常量，甚至无需为整数，`case` 从上到下进行求值，直到找到匹配的`case`，如果`switch`没有表达式，则它将匹配`true`。因此，可以将`if`-`else`-`if`-`else`链写成一个`switch，而且这也更符合 Go 的风格。
 
-``` go linenums="1"
+``` go 
 func unhex(c byte) byte {
     switch {
     case '0' <= c && c <= '9':
@@ -335,7 +335,7 @@ func unhex(c byte) byte {
 
 ​	`switch` 并不会自动下溯，但`case`可以用逗号分隔的列表呈现。
 
-``` go linenums="1"
+``` go 
 func shouldEscape(c byte) bool {
     switch c {
     case ' ', '?', '&', '=', '#', '+', '%':
@@ -349,7 +349,7 @@ Although they are not nearly as common in Go as some other C-like languages, `br
 
 ​	尽管它们在Go中并不像其他类 C语言那样常见，但`break`语句可以用来提前终止`switch`。有时候也必须打破层层的循环，而不仅仅是`switch`，在Go中可以通过在循环上加一个标签并 "breaking"该标签来实现。这个例子展示了这两种用法。
 
-``` go linenums="1"
+``` go 
 Loop:
     for n := 0; n < len(src); n += size {
         switch {
@@ -378,7 +378,7 @@ Loop:
 
 ​	作为本节的结束，下面是一个使用两个`switch`语句的字节片比较例程。
 
-``` go linenums="1"
+``` go 
 // Compare returns an integer comparing the two byte slices,lexicographically.
 // => 比较两个字节型切片，返回一个整数，按字典顺序。
 // The result will be 0 if a == b, -1 if a < b, and +1 if a > b
@@ -406,7 +406,7 @@ func Compare(a, b []byte) int {
 
 ​	`switch`也可以用来判断接口变量的动态类型。这样的`type switch`使用类型断言的语法，圆括号内有关键字`type`。如果`switch`在表达式中声明了一个变量，那么该变量将在每个子句中具有对应的类型。在每一个 `case` 子句中，重复利用该变量名字也是惯常的做法，实际上这是在每一个 `case` 子句中，分别声明一个拥有相同名字，但类型不同的新变量。
 
-``` go linenums="1"
+``` go 
 var t interface{}
 t = functionOfSomeType()
 switch t := t.(type) {
@@ -431,7 +431,7 @@ case *int:
 
 ​	在C语言中，写入操作发生的错误会用一个负数标记，而错误代码被隐藏在一个易失性位置。在Go中，`Write`可以返回一个计数以及一个错误："是的，你写了一些字节，但不是全部，因为你填满了设备"。`os`包中的文件的`Write`方法的签名是：
 
-``` go linenums="1"
+``` go 
 func (file *File) Write(b []byte) (n int, err error)
 ```
 
@@ -439,7 +439,7 @@ func (file *File) Write(b []byte) (n int, err error)
 
 ​	我们可以采用一种简单的方法来避免为模拟引用参数而传入指针。下面是一个简单的函数，从一个字节切片的某个位置抓取一个数字，并返回该数值和下一个位置。
 
-``` go linenums="1"
+``` go 
 func nextInt(b []byte, i int) (int, int) {
     for ; i < len(b) && !isDigit(b[i]); i++ {
     }
@@ -453,7 +453,7 @@ func nextInt(b []byte, i int) (int, int) {
 
 ​	你可以用下面这样的（代码）来扫描一个输入切片`b`中的数字：
 
-``` go linenums="1"
+``` go 
     for i := 0; i < len(b); {
         x, i = nextInt(b, i)
         fmt.Println(x)
@@ -466,13 +466,13 @@ func nextInt(b []byte, i int) (int, int) {
 
 ​	这些名称不是强制性的，但它们可以使代码更短、更清晰：它们就是文档。如果我们给 `nextInt` 的结果命名，那么哪个返回的是 `int` 就很明显了。
 
-``` go linenums="1"
+``` go 
 func nextInt(b []byte, pos int) (value, nextPos int) {
 ```
 
 ​	由于被命名的结果已经初始化，且已经关联至无参数的返回，它们就能让代码简单而清晰。下面是`io.ReadFull`的一个版本，就是很好地使用了它们：
 
-``` go linenums="1"
+``` go 
 func ReadFull(r Reader, buf []byte) (n int, err error) {
     for len(buf) > 0 && err == nil {
         var nr int
@@ -488,7 +488,7 @@ func ReadFull(r Reader, buf []byte) (n int, err error) {
 
 ​	Go的`defer`语句预设了一个函数调用（即**推迟执行**函数），该函数会在执行 `defer` 的函数返回之前立即执行。这是一种不寻常但有效的方法，可以处理诸如资源必须被释放的情况，而不管一个函数采取哪种路径返回。典型的例子是解锁`mutex`和关闭文件。
 
-``` go linenums="1"
+``` go 
 // Contents returns the file's contents as a string. => Contents将文件的内容作为一个字符串返回。
 func Contents(filename string) (string, error) {
     f, err := os.Open(filename)
@@ -517,7 +517,7 @@ func Contents(filename string) (string, error) {
 
 ​	被延迟函数的实参（如果函数是方法的话，还包括接收器）在**推迟**执行时就会求值，而不是在**调用**执行时。这样不仅无需担心变量值在函数执行时被改变， 同时还意味着单个已推迟的调用可推迟多个函数的执行。这里有一个简单的例子。
 
-``` go linenums="1"
+``` go 
 for i := 0; i < 5; i++ {
     defer fmt.Printf("%d ", i)
 }
@@ -525,7 +525,7 @@ for i := 0; i < 5; i++ {
 
 ​	被推迟的函数是按`后进先出（LIFO）`的顺序执行，所以这段代码会导致函数返回时打印出`4 3 2 1 0`。一个更合理的例子是通过程序追踪函数执行的简单方法。我们可以这样写几个简单的追踪程序：
 
-``` go linenums="1"
+``` go 
 func trace(s string)   { fmt.Println("entering:", s) }
 func untrace(s string) { fmt.Println("leaving:", s) }
 
@@ -539,7 +539,7 @@ func a() {
 
 ​	我们可以充分利用这个特点，即被推迟函数的实参在`defer`执行时就会求值。追踪例程可以为反追踪例程设置实参。这个例子：
 
-``` go linenums="1"
+``` go 
 func trace(s string) string {
     fmt.Println("entering:", s)
     return s
@@ -588,7 +588,7 @@ leaving: b
 
 ​	"零值属性" 可以带来各种好处。考虑一下这个类型声明。
 
-``` go linenums="1"
+``` go 
 type SyncedBuffer struct {
     lock    sync.Mutex
     buffer  bytes.Buffer
@@ -597,7 +597,7 @@ type SyncedBuffer struct {
 
 `SyncedBuffer`类型的值也是在分配或声明时就可以立即使用。后续代码中， `p` 和 `v` 无需进一步处理即可正确工作。
 
-``` go linenums="1"
+``` go 
 p := new(SyncedBuffer)  // type *SyncedBuffer
 var v SyncedBuffer      // type  SyncedBuffer
 ```
@@ -606,7 +606,7 @@ var v SyncedBuffer      // type  SyncedBuffer
 
 ​	有时零值还不够好，这时需要一个初始化构造函数，就像这个源自`os`包的例子。
 
-``` go linenums="1"
+``` go 
 func NewFile(fd int, name string) *File {
     if fd < 0 {
         return nil
@@ -622,7 +622,7 @@ func NewFile(fd int, name string) *File {
 
 ​	这里面有很多繁文缛节。**我们可以使用复合字面量来简化它**，复合字面是一个表达式，每次求值都会创建一个新的实例。
 
-``` go linenums="1"
+``` go 
 func NewFile(fd int, name string) *File {
     if fd < 0 {
         return nil
@@ -634,13 +634,13 @@ func NewFile(fd int, name string) *File {
 
 注意，与C语言不同的是，`返回局部变量的地址是完全可以的`；与该变量相关的存储（数据）在函数返回后仍然存在。事实上，获取一个复合字面量的地址在每次求值时都会分配一个新的实例，所以我们可以将最后两行合并起来。
 
-``` go linenums="1"
+``` go 
     return &File{fd, name, nil, 0}
 ```
 
 ​	复合字面量的字段必须按顺序全部列出。但如果以 **字段**`:`**值** 对的形式明确地标出元素，初始化字段时就可以按任何顺序出现，未给出的字段值将赋予零值。因此我们可以用如下形式
 
-``` go linenums="1"
+``` go 
     return &File{fd: fd, name: name}
 ```
 
@@ -648,7 +648,7 @@ func NewFile(fd int, name string) *File {
 
 ​	复合字面量同样可用于创建数组、切片和映射，字段标签（field labels）可以是索引或映射的键值。在这些例子中，不管`Enone`、`Eio`和`Einval`的值是什么，只要它们的标签不同，初始化就会正常进行。
 
-``` go linenums="1"
+``` go 
 a := [...]string   {Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
 s := []string      {Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
 m := map[int]string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
@@ -658,7 +658,7 @@ m := map[int]string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
 
 ​	回到内存分配上。内置函数`make(T, args)`的目的与`new(T)`不同。`它只用于创建切片、映射和通道`，并返回一个初始化（**非置零**）的`T`（而不是`*T`）类型的值。出现这种用差异的原因在于，**这三种类型本质上为引用数据类型，它们在使用前必须初始化**。例如，切片是一个包含指向（在一个数组内）数据的指针、长度和容量的三个项的描述符，在这些项被初始化之前，这个切片为`nil`。对于切片、映射和通道，`make`初始化内部数据结构，并准备好使用的值。例如，
 
-``` go linenums="1"
+``` go 
 make([]int, 10, 100)
 ```
 
@@ -666,7 +666,7 @@ make([]int, 10, 100)
 
 ​	这些例子说明了`new`和`make`的区别。
 
-``` go linenums="1"
+``` go 
 var p *[]int = new([]int)       // allocates slice structure; *p == nil; rarely useful => 分配切片结构；*p == nil；很少用到
 var v  []int = make([]int, 100) // the slice v now refers to a new array of 100 ints => 切片 v 现在引用了一个具有 100 个 int 元素的新数组
 
@@ -692,7 +692,7 @@ v := make([]int, 100)
 
 ​	数组为值属性可能很有用，但也代价高昂；如果你想获得类似C语言那样的行为和效率，你可以传递一个指向数组的指针。
 
-``` go linenums="1"
+``` go 
 func Sum(a *[3]float64) (sum float64) {
     for _, v := range *a {
         sum += v
@@ -714,19 +714,19 @@ Slices hold references to an underlying array, and if you assign one slice to an
 
 ​	切片持有对底层数组的引用，如果你把一个切片赋予另一个切片，两者都会引用同一个数组。如果某个函数接受一个切片参数，那么它对切片中的元素所做的改变对调用者来说是可见的，类似于传递一个指向底层数组的指针。因此，`Read`函数可以接受一个切片实参，而不是一个指针和一个计数；切片中的长度决定了可读取数据的上限。下面是`os`包中文件类型的读取方法的签名：
 
-``` go linenums="1"
+``` go 
 func (f *File) Read(buf []byte) (n int, err error)
 ```
 
 ​	该方法返回读取的字节数和一个错误值（如果有的话）。要读入一个更大的缓冲区`buf`的前32个字节，可以对缓冲区进行切片（这里作为动词使用）。
 
-``` go linenums="1"
+``` go 
     n, err := f.Read(buf[0:32])
 ```
 
 ​	这样的切片是很常见的，而且很有效。若不谈效率，下面的切片也会读取缓冲区的前32个字节。
 
-``` go linenums="1"
+``` go 
     var n int
     var err error
     for i := 0; i < 32; i++ {
@@ -741,7 +741,7 @@ func (f *File) Read(buf []byte) (n int, err error)
 
 ​	切片的长度可以改变，只要它仍然符合底层数组的限制；只需将它赋予其自身的切片即可。一个切片的容量，可以通过内置函数`cap`获得，它将给出该切片可能取得的最大长度。以下有一个将数据追加到切片的函数。如果数据超过了容量，切片将被重新分配。返回值即为所得的切片。该函数利用`len`和`cap`在应用于`nil` 切片时是合法的，它将返回0。
 
-``` go linenums="1"
+``` go 
 func Append(slice, data []byte) []byte {
     l := len(slice)
     if l + len(data) > cap(slice) {  // reallocate => 重新分配
@@ -765,14 +765,14 @@ func Append(slice, data []byte) []byte {
 
 ​	Go 的数组和切片都是一维的。要创建相当于二维数组或切片，必须定义一个数组的数组或切片的切片，像这样：
 
-``` go linenums="1"
+``` go 
 type Transform [3][3]float64  // A 3x3 array, really an array of arrays.
 type LinesOfText [][]byte     // A slice of byte slices.
 ```
 
 ​	由于切片是可变长度的，因此有可能让每个内部的切片都是不同的长度。这可能是一种常见的情况，就像我们的`LinesOfText`例子：每行都有其自己的长度：
 
-``` go linenums="1"
+``` go 
 text := LinesOfText{
     []byte("Now is the time"),
     []byte("for all good gophers"),
@@ -784,7 +784,7 @@ Sometimes it's necessary to allocate a 2D slice, a situation that can arise when
 
 ​	有时，有必要分配一个二维切片，例如，在处理像素的扫描行时，这种情况就会发生。有两种方式可以实现这一点。一种是独立地分配每个切片；另一种是分配一个数组，将各个切片指向它。使用哪种方法取决于你的应用。如果切片可能会增长或缩小，则它们应该独立分配，以避免覆盖下一行；如果不会，用单次分配构建对象可能更有效率。以下是这两种方法的大概代码，仅供参考。首先是一次分配一行。
 
-``` go linenums="1"
+``` go 
 // Allocate the top-level slice. => 分配底层切片
 picture := make([][]uint8, YSize) // One row per unit of y. => 每 y 个单元一行
 // Loop over the rows, allocating the slice for each row.
@@ -795,7 +795,7 @@ for i := range picture {
 
 现在是作为一个分配，对行进行切片：
 
-``` go linenums="1"
+``` go 
 // Allocate the top-level slice, the same as before. => 分配底层切片， 和上面的一样
 picture := make([][]uint8, YSize) // One row per unit of y. => 每 y 个单元一行
 // Allocate one large slice to hold all the pixels. => 分配一个大一点的切片用来容纳所有的像素
@@ -812,7 +812,7 @@ for i := range picture {
 
 ​	映射可以使用一般的复合字面量语法和冒号分隔的键值对来构建，所以在初始化过程中很容易构建它们。	
 
-``` go linenums="1"
+``` go 
 var timeZone = map[string]int{
     "UTC":  0*60*60,
     "EST": -5*60*60,
@@ -824,13 +824,13 @@ var timeZone = map[string]int{
 
 ​	赋值和获取映射值在语法上看起来就像对数组和切片做同样的事情，只是索引无需是一个整数。
 
-``` go linenums="1"
+``` go 
 offset := timeZone["EST"]
 ```
 
 ​	试图通过映射中不存在的键来获取值，就会返回与该映射中项的类型对应的零值。例如，如果映射包含整数，查找一个不存在的键将返回`0`。集合可以被实现为一个值类型为`bool`的映射。将该映射中的项置为 `true` 可将该值放入集合中，此后通过简单的索引操作即可判断是否存在。
 
-``` go linenums="1"
+``` go 
 attended := map[string]bool{
     "Ann": true,
     "Joe": true,
@@ -844,7 +844,7 @@ if attended[person] { // will be false if person is not in the map => 若 person
 
 ​	有时你需要区分某项是不存在还是其值为零值。是有一个 "`UTC` "的条目，还是因为它根本就不在映射中，所以是`0`？你可以用一种`多重赋值`的形式进行区分。
 
-``` go linenums="1" hl_lines="3 3"
+``` go  hl_lines="3 3"
 var seconds int
 var ok bool
 seconds, ok = timeZone[tz]
@@ -852,7 +852,7 @@ seconds, ok = timeZone[tz]
 
 ​	由于明显的原因，这被称为 "逗号ok "惯用法。在这个例子中，如果`tz`存在，`seconds`将被适当地设置，`ok`将为`true`；如果不存在，`seconds`将被设置为零，`ok`将为`false`。下面是一个函数，它把它和一个很好的错误报告放在一起：
 
-``` go linenums="1"
+``` go 
 func offset(tz string) int {
     if seconds, ok := timeZone[tz]; ok {
         return seconds
@@ -864,13 +864,13 @@ func offset(tz string) int {
 
 ​	若仅需判断映射中是否存在某项而不关心实际的值，你可以用[空白标识符](#the-blank-identifier)（`_`）来代替该值的一般变量。
 
-``` go linenums="1"
+``` go 
 _, present := timeZone[tz]
 ```
 
 ​	要删除映射中的项，请使用`delete`内置函数，它以映射及要被删除的键为实参。即使该键已经不在映射中，此操作也是安全的。
 
-``` go linenums="1"
+``` go 
 delete(timeZone, "PDT")  // Now on Standard Time
 ```
 
@@ -880,7 +880,7 @@ delete(timeZone, "PDT")  // Now on Standard Time
 
 ​	你无需提供一个格式字符串。对于`Printf`、`Fprintf`和`Sprintf`中的每一个，都分别有对应另外的函数，例如`Print`和`Println`。这些函数不接受格式字符串，而是为每个实参生成一种默认格式。`Println`版本的函数还在实参之间插入一个空白，并在输出中附加一个换行符，而`Print`版本的函数仅在两边的操作数都不是字符串的情况下添加空白。在这个例子中，每一行都产生相同的输出。
 
-``` go linenums="1"
+``` go 
 fmt.Printf("Hello %d\n", 23)
 fmt.Fprint(os.Stdout, "Hello ", 23, "\n")
 fmt.Println("Hello", 23)
@@ -891,7 +891,7 @@ fmt.Println(fmt.Sprint("Hello ", 23))
 
 ​	从这里开始，就与 C 有些不同了。首先，像 `%d` 这样的数值格式并不接受表示符号或大小的标记， 打印例程会根据实参的类型来决定这些属性。
 
-``` go linenums="1"
+``` go 
 var x uint64 = 1<<64 - 1
 fmt.Printf("%d %x; %d %x\n", x, x, int64(x), int64(x))
 ```
@@ -904,7 +904,7 @@ fmt.Printf("%d %x; %d %x\n", x, x, int64(x), int64(x))
 
 ​	如果你只想得到默认的转换，比如整数的十进制，你可以使用通用格式`%v`（代表 "值"）；其结果与 `Print`和`Println`的输出完全相同。此外，这种格式可以打印任何数值，甚至是数组、切片、结构体和映射。下面是上一节中定义的时区映射的打印语句。
 
-``` go linenums="1"
+``` go 
 fmt.Printf("%v\n", timeZone)  // or just fmt.Println(timeZone)
 ```
 
@@ -918,7 +918,7 @@ map[CST:-21600 EST:-18000 MST:-25200 PST:-28800 UTC:0]
 
 ​	在打印结构体时，修改后的格式`%+v`对结构体的字段进行注解，对于任何值，替代格式`%#v`以完整的Go语法打印出该值。
 
-``` go linenums="1"
+``` go 
 type T struct {
     a int
     b float64
@@ -944,19 +944,19 @@ map[string]int{"CST":-21600, "EST":-18000, "MST":-25200, "PST":-28800, "UTC":0}
 
 ​	另一种实用的格式是`%T`，它打印出某个值的类型。
 
-``` go linenums="1"
+``` go 
 fmt.Printf("%T\n", timeZone)
 ```
 
 打印
 
-``` go linenums="1"
+``` go 
 map[string]int
 ```
 
 ​	如果你想控制自定义类型的默认格式，只需要在该类型上定义一个具有`String() string`签名的方法。对于我们的简单类型`T`，可能看起来像这样。
 
-``` go linenums="1"
+``` go 
 func (t *T) String() string {
     return fmt.Sprintf("%d/%g/%q", t.a, t.b, t.c)
 }
@@ -973,7 +973,7 @@ fmt.Printf("%v\n", t)
 
 ​	我们的`String`方法能够调用`Sprintf`，因为打印例程是完全可重入的，并可以用这种方式进行封装。不过，关于这种方法有一个重要的细节需要知道：**请勿通过调用`Sprintf`的方式来构造`String`方法，这样它会无限递归你的`String`方法**。如果`Sprintf`调用试图将接收器直接打印成字符串，而该字符串又将再次调用该方法，则会发生这种情况。这是一个常见且容易犯的错误，正如本例所示。
 
-``` go linenums="1"
+``` go 
 type MyString string
 
 func (m MyString) String() string {
@@ -983,7 +983,7 @@ func (m MyString) String() string {
 
 ​	这也很容易解决：将实参转换为基本字符串类型，该实参没有这个方法。
 
-``` go linenums="1"
+``` go 
 type MyString string
 func (m MyString) String() string {
     return fmt.Sprintf("MyString=%s", string(m)) // OK: note conversion. =>  可以：注意转换
@@ -994,13 +994,13 @@ func (m MyString) String() string {
 
 ​	另一种打印技术是将打印例程的实参直接传递给另一个这样的例程。`Printf`的签名为它的最后一个参数使用了`...interface{}`类型，这样格式的后面就能出现（任意类型之一的）任意数量的参数。
 
-``` go linenums="1"
+``` go 
 func Printf(format string, v ...interface{}) (n int, err error) {
 ```
 
 ​	在函数`Printf`中，`v`的行为就像一个`[]interface{}`类型的变量，**但如果它被传递给另一个变参函数，它的行为就像一个普通的实参列表**。以下是我们之前用过的 `log.Println` 的实现。它直接将实参传递给 `fmt.Sprintln` 来进行实际格式化。
 
-``` go linenums="1" hl_lines="4 4"
+``` go  hl_lines="4 4"
 // Println prints to the standard logger in the manner of fmt.Println.
 // => Println 通过 fmt.Println 的方式将日志打印到标准记录器
 func Println(v ...interface{}) {
@@ -1014,7 +1014,7 @@ func Println(v ...interface{}) {
 
 ​	顺便说一下，**`...`形参可指定具体的类型**，例如`...int`用于`min`函数，该函数选择整数列表中的最小值。
 
-``` go linenums="1" hl_lines="1"
+``` go  hl_lines="1"
 func Min(a ...int) int {
     min := int(^uint(0) >> 1)  // largest int
     for _, i := range a {
@@ -1030,7 +1030,7 @@ func Min(a ...int) int {
 
 ​	现在我们有了解释`append`内置函数的设计所需的缺失部分。`append`的签名与我们上面的自定义`Append`函数不同。大致来说，它是这样的：
 
-``` go linenums="1"
+``` go 
 func append(slice []T, elements ...T) []T
 ```
 
@@ -1038,7 +1038,7 @@ func append(slice []T, elements ...T) []T
 
 ​	`append`所做的是将元素追加到切片的末尾并返回结果。结果需要被返回，原因与我们手写的`Append`一样，即底层数组可能会改变。这个简单的例子
 
-``` go linenums="1"
+``` go 
 x := []int{1,2,3}
 x = append(x, 4, 5, 6)
 fmt.Println(x)
@@ -1048,7 +1048,7 @@ fmt.Println(x)
 
 ​	但如果我们要像 `Append` 那样将一个切片追加到另一个切片中呢？很简单：在调用处使用`...`，就像我们在上面调用`Output`时那样。以下代码片段的输出与上一个相同。
 
-``` go linenums="1" hl_lines="3 3"
+``` go  hl_lines="3 3"
 x := []int{1,2,3}
 y := []int{4,5,6}
 x = append(x, y...)
@@ -1067,7 +1067,7 @@ fmt.Println(x)
 
 ​	在Go中，枚举常量是使用`iota`枚举器创建的。由于`iota`可以是表达式的一部分，而且表达式可以隐式地重复，这样也就更容易构建复杂的值的集合了。
 
-``` go linenums="1"
+``` go 
 type ByteSize float64
 
 const (
@@ -1085,7 +1085,7 @@ const (
 
 ​	由于可将 `String` 之类的方法附加在用户定义的类型上， 因此它就为打印时自动格式化任意值提供了可能性。虽然你会看到它最常被应用于结构体，但这种技术对标量类型也很有用，如`ByteSize`等浮点类型。
 
-``` go linenums="1"
+``` go 
 func (b ByteSize) String() string {
     switch {
     case b >= YB:
@@ -1117,7 +1117,7 @@ func (b ByteSize) String() string {
 
 ​	变量可以像常量一样被初始化，而且可以初始化为一个可在运行时得出结果的普通表达式。
 
-``` go linenums="1"
+``` go 
 var (
     home   = os.Getenv("HOME")
     user   = os.Getenv("USER")
@@ -1131,7 +1131,7 @@ var (
 
 ​	除了那些不能被表示成声明的初始化外，`init` 函数还常被用在程序真正开始执行前，检验或校正程序的状态。
 
-``` go linenums="1"
+``` go 
 func init() {
     if user == "" {
         log.Fatal("$USER not set")
@@ -1155,7 +1155,7 @@ func init() {
 
 ​	在上面关于切片的讨论中，我们写了一个`Append`函数。我们可以把它定义为切片上的方法。要做到这一点，我们首先声明一个命名的类型，我们可以将该方法与之绑定，然后使该方法的接收器成为该类型的值。
 
-``` go linenums="1"
+``` go 
 type ByteSlice []byte
 
 func (slice ByteSlice) Append(data []byte) []byte {
@@ -1165,7 +1165,7 @@ func (slice ByteSlice) Append(data []byte) []byte {
 
 ​	这仍然需要该方法返回更新后的切片。为了消除这种不便，我们可通过重新定义该方法， 将一个指向 `ByteSlice` 的指针作为该方法的接收器， 这样该方法就能重写调用者提供的切片了。
 
-``` go linenums="1"
+``` go 
 func (p *ByteSlice) Append(data []byte) {
     slice := *p
     // Body as above, without the return.
@@ -1175,7 +1175,7 @@ func (p *ByteSlice) Append(data []byte) {
 
 ​	事实上，我们可以做得更好。如果我们修改我们的函数，使它看起来像一个标准的`Write`方法，像这样：
 
-``` go linenums="1"
+``` go 
 func (p *ByteSlice) Write(data []byte) (n int, err error) {
     slice := *p
     // Again as above.
@@ -1188,7 +1188,7 @@ then the type `*ByteSlice` satisfies the standard interface `io.Writer`, which i
 
 那么`*ByteSlice`类型就满足标准接口`io.Writer`，这会很实用。例如，我们可以通过打印将内容写入。
 
-``` go linenums="1"
+``` go 
 var b ByteSlice
 fmt.Fprintf(&b, "This hour has %d days\n", 7)
 ```
@@ -1207,7 +1207,7 @@ fmt.Fprintf(&b, "This hour has %d days\n", 7)
 
 ​	每种类型都能实现多个接口。例如一个实现了 `sort.Interface` 接口的集合就可通过 `sort` 包中的例程进行排序。该接口包括了 `Len()`、`Less(i, j int) bool` 以及 `Swap(i, j int)`，另外，该集合仍然可以有一个自定义的格式化器。 以下特意构建的例子 `Sequence` 就同时满足这两种情况。
 
-``` go linenums="1"
+``` go 
 type Sequence []int
 
 // sort.Interface所需的方法。
@@ -1246,7 +1246,7 @@ func (s Sequence) String() string {
 
 ​	`Sequence` 的 `String` 方法重新实现了 `Sprint` 为切片实现的功能。（它还具有O(N²)的复杂度，这是很差的。）若我们在调用 `Sprint` 之前将 `Sequence` 转换为纯粹的 `[]int`，就能共享已实现的功能。
 
-``` go linenums="1"
+``` go 
 func (s Sequence) String() string {
     s = s.Copy()
     sort.Sort(s)
@@ -1258,7 +1258,7 @@ func (s Sequence) String() string {
 
 ​	在Go程序中，为访问不同的方法集而进行类型转换的情况非常常见。例如，我们可以使用现有的`sort.IntSlice`类型类型来简化整个示例：
 
-``` go linenums="1" hl_lines="6 6"
+``` go  hl_lines="6 6"
 type Sequence []int
 
 // 打印方法-在打印之前对元素进行排序
@@ -1275,7 +1275,7 @@ func (s Sequence) String() string {
 
 ​	[类型开关](#type-switch)是一种类型转换形式：它们接受一种接口，在开关 （switch）中根据其判断选择对应的情况（case），并在某种意义上将其转换为该种类型。以下代码为`fmt.Printf`通过使用类型开关将一个值变成一个字符串的简化版本。若它已经为字符串，我们想要接口持有的实际字符串值，若它有 String 方法，我们想要调用该方法所得的结果。
 
-``` go linenums="1"
+``` go 
 type Stringer interface {
     String() string
 }
@@ -1293,19 +1293,19 @@ case Stringer:
 
 ​	如果我们只关心一种类型呢？如果我们知道这个值持有一个`string`类型，而我们只想提取它？ 只需一种情况的类型开关就行，但它需要**类型断言**。类型断言接受一个接口值并从中提取一个指定的显式类型的值。这种语法借鉴自类型开关开头的子句，但它需要一个显式的类型名， 而非 `type` 关键字：
 
-``` go linenums="1"
+``` go 
 value.(typeName)
 ```
 
 而其结果则是具有静态类型 `typeName` 的新值。该类型必须是该接口所持有的具体类型，或者是该值可以被转换为的第二种接口类型。为了提取我们知道在该值中的字符串，我们可以写：
 
-``` go linenums="1"
+``` go 
 str := value.(string)
 ```
 
 > 以下给出示例来解释下：该类型必须是该接口所持有的具体类型，或者是该值可以被转换为的第二种接口类型。
 >
-> ```go linenums="1"
+> ```go 
 > type Animal interface {
 >     MakeSound() string
 > }
@@ -1338,7 +1338,7 @@ str := value.(string)
 
 ​	但是如果结果发现值不包含字符串，程序就会因运行时错误而崩溃。为了防止这种情况的发生，可以使用"comma, ok"惯用测试它能安全地判断该值是否为字符串：
 
-``` go linenums="1"
+``` go 
 str, ok := value.(string)
 if ok {
     fmt.Printf("string value is: %q\n", str)
@@ -1351,7 +1351,7 @@ if ok {
 
 ​	作为（"comma, ok"）能力的说明，这里有一个`if-else`语句，相当于本节开头的类型开关。
 
-``` go linenums="1"
+``` go 
 if str, ok := value.(string); ok {
     return str
 } else if str, ok := value.(Stringer); ok {
@@ -1371,7 +1371,7 @@ if str, ok := value.(string); ok {
 
 ​	`crypto/cipher` 接口如下：
 
-``` go linenums="1"
+``` go 
 type Block interface {
     BlockSize() int
     Encrypt(dst, src []byte)
@@ -1385,7 +1385,7 @@ type Stream interface {
 
 ​	以下是计数器模式（CTR）流的定义，它将块加密转换为流加密；请注意块加密的细节已被抽象掉：
 
-``` go linenums="1"
+``` go 
 // NewCTR returns a Stream that encrypts/decrypts using the given Block in
 // counter mode. The length of iv must be the same as the Block's block size.
 func NewCTR(block Block, iv []byte) Stream
@@ -1397,7 +1397,7 @@ func NewCTR(block Block, iv []byte) Stream
 
 ​	由于几乎任何类型都能添加方法，因此几乎任何类型都能满足一个接口。一个很直观的例子就是 `http` 包中定义的 `Handler` 接口。任何实现了 `Handler` 的对象都能够处理 HTTP 请求。
 
-``` go linenums="1"
+``` go 
 type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
 }
@@ -1407,7 +1407,7 @@ type Handler interface {
 
 ​	为简单起见，我们假设所有的 HTTP 请求都是 GET 方法，而忽略 POST 方法， 这种简化不会影响处理程序的建立方式。这里有个短小却完整的处理程序实现， 它用于记录某个页面被访问的次数。
 
-``` go linenums="1"
+``` go 
 // 简单的计数器服务器。
 type Counter struct {
     n int
@@ -1423,7 +1423,7 @@ func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 ​	作为参考，这里演示了如何将这样一个服务器添加到 URL 树的一个节点上。
 
-``` go linenums="1"
+``` go 
 import "net/http"
 ...
 ctr := new(Counter)
@@ -1432,7 +1432,7 @@ http.Handle("/counter", ctr)
 
 ​	但是为什么要将`Counter`定义为一个结构体呢？只需要一个整数即可。（接收器必须为指针，增量操作对于调用者才可见。）
 
-``` go linenums="1"
+``` go 
 // 简单的计数器服务器。
 type Counter int
 
@@ -1444,7 +1444,7 @@ func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 ​	当页面被访问时，怎样通知你的程序去更新一些内部状态呢？为 Web 页面绑定个通道吧。
 
-``` go linenums="1"
+``` go 
 // 每次浏览该通道都会发送一个提醒。
 // （可能需要带缓冲的通道。）
 type Chan chan *http.Request
@@ -1457,7 +1457,7 @@ func (ch Chan) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 ​	最后，假设我们想在`/args`上展示调用服务器二进制文件时使用的参数。编写一个函数来打印这些参数是很容易的。
 
-``` go linenums="1"
+``` go 
 func ArgServer() {
     fmt.Println(os.Args)
 }
@@ -1465,7 +1465,7 @@ func ArgServer() {
 
 ​	我们如何将它转换为 HTTP 服务器呢？我们可以将 `ArgServer` 实现为某种可忽略值的方法，不过还有种更简单的方法。 既然我们可以为除指针和接口以外的任何类型定义方法，同样也能为一个函数写一个方法。 `http` 包里有这样的代码：
 
-``` go linenums="1"
+``` go 
 // HandlerFunc 类型是一个适配器，
 // 它允许将普通函数用做HTTP处理程序。
 // 若 f 是个具有适当签名的函数，
@@ -1482,7 +1482,7 @@ func (f HandlerFunc) ServeHTTP(w ResponseWriter, req *Request) {
 
 ​	为了使`ArgServer`成为一个HTTP服务器，我们首先要修改它，使其具有正确的签名。
 
-``` go linenums="1"
+``` go 
 // Argument server.
 func ArgServer(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, os.Args)
@@ -1491,7 +1491,7 @@ func ArgServer(w http.ResponseWriter, req *http.Request) {
 
 ​	`ArgServer`现在具有与`HandlerFunc`相同的签名，所以它可以被转换为该类型以访问其方法，就像我们将`Sequence`转换为`IntSlice`以访问`IntSlice.Sort`一样。设置它的代码很简洁：
 
-``` go linenums="1"
+``` go 
 http.Handle("/args", http.HandlerFunc(ArgServer))
 ```
 
@@ -1515,7 +1515,7 @@ If an assignment requires multiple values on the left side, but one of the value
 
 如果一个赋值在左边需要多个值，但其中一个值不会被程序使用，在赋值的左边使用空白标识符可以避免创建一个虚拟变量，并清楚地表明该值将被丢弃。例如，当调用一个返回一个值和一个错误的函数，但只有错误是重要的，使用空白标识符来丢弃不相关的值。
 
-``` go linenums="1"
+``` go 
 if _, err := os.Stat(path); os.IsNotExist(err) {
     fmt.Printf("%s does not exist\n", path)
 }
@@ -1525,7 +1525,7 @@ Occasionally you'll see code that discards the error value in order to ignore th
 
 偶尔你会看到为了忽略错误而丢弃错误值的代码；这是很糟糕的做法。一定要检查错误返回；它们的出现是有原因的。
 
-``` go linenums="1"
+``` go 
 // Bad! This code will crash if path does not exist.
 fi, _ := os.Stat(path)
 if fi.IsDir() {
@@ -1543,7 +1543,7 @@ This half-written program has two unused imports (`fmt` and `io`) and an unused 
 
 这个写了一半的程序有两个未使用的导入（fmt和io）和一个未使用的变量（fd），所以它不会被编译，但是看看到目前为止的代码是否正确也不错。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1566,7 +1566,7 @@ To silence complaints about the unused imports, use a blank identifier to refer 
 
 为了消除对未使用的导入的抱怨，使用一个空白标识符来引用导入包中的符号。同样地，将未使用的变量fd分配给空白标识符，将使未使用的变量错误不再出现。这个版本的程序确实可以编译。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1599,7 +1599,7 @@ An unused import like `fmt` or `io` in the previous example should eventually be
 
 像前面例子中的fmt或io这样的未使用的导入，最终应该被使用或删除：空白的赋值表明代码正在进行中。但有时导入一个包只是为了它的副作用，而没有任何明确的用途，是很有用的。例如，在其初始函数中，net/http/pprof 包注册了提供调试信息的 HTTP 处理程序。它有一个导出的API，但大多数客户端只需要注册处理程序，并通过网页访问数据。要想只为它的副作用导入包，请将包重命名为空白标识符：
 
-``` go linenums="1"
+``` go 
 import _ "net/http/pprof"
 ```
 
@@ -1617,7 +1617,7 @@ Some interface checks do happen at run-time, though. One instance is in the `enc
 
 不过，有些接口检查确实发生在运行时。一个例子是在编码/json包中，它定义了一个Marshaler接口。当JSON编码器收到一个实现该接口的值时，编码器会调用该值的marshaling方法将其转换为JSON，而不是做标准转换。编码器在运行时用一个类型断言来检查这个属性，比如：
 
-``` go linenums="1"
+``` go 
 m, ok := val.(json.Marshaler)
 ```
 
@@ -1625,7 +1625,7 @@ If it's necessary only to ask whether a type implements an interface, without ac
 
 如果只需要询问一个类型是否实现了一个接口，而没有实际使用该接口本身，也许是作为错误检查的一部分，使用空白标识符来忽略类型断言的值：
 
-``` go linenums="1"
+``` go 
 if _, ok := val.(json.Marshaler); ok {
     fmt.Printf("value %v of type %T implements json.Marshaler\n", val, val)
 }
@@ -1635,7 +1635,7 @@ One place this situation arises is when it is necessary to guarantee within the 
 
 这种情况出现的一个地方是，当有必要在实现该类型的包中保证它确实满足接口。如果一个类型——例如json.RawMessage——需要一个自定义的JSON表示法，它应该实现json.Marshaler，但是没有静态转换可以使编译器自动验证这一点。如果该类型无意中未能满足接口，JSON编码器仍将工作，但不会使用自定义的实现。为了保证实现的正确性，可以在包中使用一个使用空白标识符的全局声明：
 
-``` go linenums="1"
+``` go 
 var _ json.Marshaler = (*RawMessage)(nil)
 ```
 
@@ -1653,7 +1653,7 @@ The appearance of the blank identifier in this construct indicates that the decl
 
 ​	接口嵌入非常简单。我们之前提到了`io.Reader`和`io.Writer`接口; 以下是它们的定义。
 
-``` go linenums="1"
+``` go 
 type Reader interface {
     Read(p []byte) (n int, err error)
 }
@@ -1665,7 +1665,7 @@ type Writer interface {
 
 ​	`io`包还导出了几个其他接口，用于指定可以实现多个这样的方法的对象。例如，有一个`io.ReadWriter`，一个包含`Read`和`Write`方法的接口。我们可以通过显式列出这两种方法来指定`io.ReadWriter`，但通过嵌入这两个接口来形成新接口更容易且更具启示性，就像这样：
 
-``` go linenums="1"
+``` go 
 // ReadWriter是将Reader和Writer接口结合在一起的接口。
 type ReadWriter interface {
     Reader
@@ -1677,7 +1677,7 @@ type ReadWriter interface {
 
 ​	相同的基本思想也适用于结构体，但影响更为深远。`bufio`包有两个结构体类型`bufio.Reader`和`bufio.Writer`，它们分别实现了来自`io`包的相应接口。而且`bufio`还实现了一个缓冲reader/writer，它通过使用嵌入将reader 和writer组合成一个结构体来实现：它列出了结构体内的类型，但不给它们字段名。
 
-``` go linenums="1"
+``` go 
 // ReadWriter存储Reader和Writer的指针。
 // 它实现了io.ReadWriter。
 type ReadWriter struct {
@@ -1688,7 +1688,7 @@ type ReadWriter struct {
 
 ​	嵌入的元素是结构体的指针，在使用之前必须初始化为指向有效的结构体。`ReadWriter`结构体可以编写为：
 
-``` go linenums="1"
+``` go 
 type ReadWriter struct {
     reader *Reader
     writer *Writer
@@ -1697,7 +1697,7 @@ type ReadWriter struct {
 
 ​	但是为了促进字段的方法并满足`io`接口，我们还需要提供转发方法，就像这样：
 
-``` go linenums="1"
+``` go 
 func (rw *ReadWriter) Read(p []byte) (n int, err error) {
     return rw.reader.Read(p)
 }
@@ -1709,7 +1709,7 @@ func (rw *ReadWriter) Read(p []byte) (n int, err error) {
 
 ​	嵌入也可以是一个简单的便利。这个例子展示了一个嵌入字段和一个常规命名字段。
 
-``` go linenums="1"
+``` go 
 type Job struct {
     Command string
     *log.Logger
@@ -1718,13 +1718,13 @@ type Job struct {
 
 ​	现在，`Job`类型具有`*log.Logger`的`Print`，`Printf`，`Println`和其他方法。当然，我们可以给`Logger`一个字段名，但没有必要这样做。现在，一旦初始化，我们就可以用`Job`记录：
 
-``` go linenums="1"
+``` go 
 job.Println("starting now...")
 ```
 
 ​	`Logger`是`Job`结构的常规字段，因此我们可以在`Job`的构造函数中按照通常的方式进行初始化，例如：
 
-``` go linenums="1"
+``` go 
 func NewJob(command string, logger *log.Logger) *Job {
     return &Job{command, logger}
 }
@@ -1732,13 +1732,13 @@ func NewJob(command string, logger *log.Logger) *Job {
 
 或者使用复合字面值，例如：
 
-``` go linenums="1"
+``` go 
 job := &Job{command, log.New(os.Stderr, "Job: ", log.Ldate)}
 ```
 
 ​	如果我们需要直接引用嵌入字段，则字段名称作为字段名，忽略包限定符，就像在我们的`ReadWriter`结构的`Read`方法中一样。在这里，如果我们需要访问`Job`变量`job`的`*log.Logger`，则会写成`job.Logger`，这对于我们想完善`Logger`的方法很有用。
 
-``` go linenums="1"
+``` go 
 func (job *Job) Printf(format string, args ...interface{}) {
     job.Logger.Printf("%q: %s", job.Command, fmt.Sprintf(format, args...))
 }
@@ -1749,7 +1749,7 @@ func (job *Job) Printf(format string, args ...interface{}) {
 ​	其次，如果在相同的嵌套级别上出现相同的名称，通常会出现错误；如果Job结构包含另一个名为`Logger`的字段或方法，则嵌入`log.Logger`将是错误的。但是，如果在程序类型定义之外从未提到重复的名称，则没有问题。这种限定提供了一些保护，以防从外部嵌入的类型进行更改；如果添加了与另一个子类型中的另一个字段冲突的字段，但若两个字段都从未被使用，则没有问题。（不好理解，以下给出ChatGPT给出的示例）
 
 > 下面是一个示例，演示了嵌入类型中出现相同名称时，只要名称没有被使用，程序就不会有问题：
-> ```go linenums="1"
+> ```go 
 > package main
 > 
 > import "fmt"
@@ -1809,13 +1809,13 @@ func (job *Job) Printf(format string, args ...interface{}) {
 
 ​	在一个函数或方法调用之前加上 `go` 关键字以在新的 goroutine 中运行该调用。当调用完成时，goroutine 静默退出。（效果类似于 Unix shell 的`&`符号，用于在后台运行命令。）
 
-``` go linenums="1"
+``` go 
 go list.Sort()  // 并发运行 list.Sort；不等待它。
 ```
 
 ​	函数字面量在goroutine调用中非常方便。
 
-``` go linenums="1"
+``` go 
 func Announce(message string, delay time.Duration) {
     go func() {
         time.Sleep(delay)
@@ -1832,7 +1832,7 @@ func Announce(message string, delay time.Duration) {
 
 ​	与映射一样，通道是使用`make`分配的，而生成的值充当底层数据结构的引用。如果提供了可选的整数参数，则会为通道设置缓冲区大小。默认值为零，表示无缓冲或同步通道。
 
-``` go linenums="1"
+``` go 
 ci := make(chan int)            // 整数无缓冲通道
 cj := make(chan int, 0)         // 整数无缓冲通道
 cs := make(chan *os.File, 100)  // 100个指向文件的缓冲通道
@@ -1842,7 +1842,7 @@ cs := make(chan *os.File, 100)  // 100个指向文件的缓冲通道
 
 ​	有很多使用通道的好习惯。这里有一个开始的例子。在前一节中，我们在后台启动了一个排序。通道可以让启动的goroutine等待排序完成。
 
-``` go linenums="1"
+``` go 
 c := make(chan int)  // 分配一个通道。
 // 在goroutine中启动排序；当它完成时，向通道发出信号。
 go func() {
@@ -1861,7 +1861,7 @@ A buffered channel can be used like a semaphore, for instance to limit throughpu
 
 ​	缓冲通道可用作信号量，例如限制吞吐量。在此示例中，传入的请求传递给`handle`，handle将一个值发送到通道中，处理请求，然后从通道中接收一个值以准备好下一个使用者的"信号量"。通道缓冲区的容量限制了对进程的同时调用数量。
 
-``` go linenums="1"
+``` go 
 var sem = make(chan int, MaxOutstanding)
 
 func handle(r *Request) {
@@ -1882,7 +1882,7 @@ func Serve(queue chan *Request) {
 
 ​	但这种设计存在问题：即使只有`MaxOutstanding`中的一部分可以运行，`Serve`还是会为每个传入的请求创建一个新的goroutine。结果，如果请求过于频繁，程序可能会消耗无限的资源。我们可以通过更改`Serve`来限制goroutine的创建来解决这个问题。下面是一个显而易见的解决方案，但要注意它有一个bug，我们随后会修复：
 
-``` go linenums="1"
+``` go 
 func Serve(queue chan *Request) {
     for req := range queue {
         sem <- 1
@@ -1896,7 +1896,7 @@ func Serve(queue chan *Request) {
 
 ​	bug在于，在Go for循环中，循环变量在每次迭代中都会被重用，因此`req`变量会在所有goroutine之间共享。这不是我们想要的。我们需要确保对于每个goroutine，`req`都是唯一的。下面是一种将`req`的值作为参数传递给goroutine中的闭包的方法：
 
-``` go linenums="1"
+``` go 
 func Serve(queue chan *Request) {
     for req := range queue {
         sem <- 1
@@ -1910,7 +1910,7 @@ func Serve(queue chan *Request) {
 
 ​	将此版本与之前的版本进行比较，查看闭包声明和运行方式的差异。另一个解决方案是仅创建一个具有相同名称的新变量，如以下示例所示：
 
-``` go linenums="1"
+``` go 
 func Serve(queue chan *Request) {
     for req := range queue {
         req := req // 为goroutine创建req的新实例。
@@ -1925,7 +1925,7 @@ func Serve(queue chan *Request) {
 
 写成
 
-``` go linenums="1"
+``` go 
 req := req
 ```
 
@@ -1933,7 +1933,7 @@ req := req
 
 ​	回到编写服务器的一般问题上，另一种管理资源的好方法是启动一定数量的处理goroutine，它们都从请求通道中读取。goroutine的数量限制了对`process`的同时调用次数。此`Serve`函数还接受一个通道，在该通道上将告诉它退出；在启动goroutine后，它会阻塞接收该通道。
 
-``` go linenums="1"
+``` go 
 func handle(queue chan *Request) {
     for r := range queue {
         process(r)
@@ -1955,7 +1955,7 @@ func Serve(clientRequests chan *Request, quit chan bool) {
 
 ​	在前一节的示例中，`handle`是一个理想化的处理程序，但我们没有定义它处理的类型。如果该类型包含一个通道来回复，每个客户端都可以提供自己的答案路径。这是`Request`类型的示意定义。
 
-``` go linenums="1"
+``` go 
 type Request struct {
     args        []int
     f           func([]int) int
@@ -1965,7 +1965,7 @@ type Request struct {
 
 ​	客户端提供一个函数和它的参数，以及一个请求对象内部的通道，用于接收答案。
 
-``` go linenums="1"
+``` go 
 func sum(a []int) (s int) {
     for _, v := range a {
         s += v
@@ -1982,7 +1982,7 @@ fmt.Printf("answer: %d\n", <-request.resultChan)
 
 ​	在服务器端，处理函数是唯一需要更改的内容。
 
-``` go linenums="1"
+``` go 
 func handle(queue chan *Request) {
     for req := range queue {
         req.resultChan <- req.f(req.args)
@@ -1998,7 +1998,7 @@ func handle(queue chan *Request) {
 
 ​	假设我们需要对一组项的向量执行一个昂贵的操作，而且每个项的操作值是独立的，就像这个理想化的例子：
 
-``` go linenums="1"
+``` go 
 type Vector []float64
 
 // 对v[i]、v[i+1] … 一直到v[n-1]执行操作。
@@ -2012,7 +2012,7 @@ func (v Vector) DoSome(i, n int, u Vector, c chan int) {
 
 ​	我们在一个循环中独立地启动每个部分，每个CPU一个部分。它们可以以任何顺序完成，但这无关紧要；我们只需通过在启动所有goroutine后从通道中取出信号来计算完成信号的数量。
 
-``` go linenums="1"
+``` go 
 const numCPU = 4 // CPU核心数
 
 func (v Vector) DoAll(u Vector) {
@@ -2030,13 +2030,13 @@ func (v Vector) DoAll(u Vector) {
 
 ​	与其为numCPU创建一个常量值，我们可以询问运行时适当的值是多少。函数`runtime.NumCPU`返回机器中硬件CPU核心的数量，因此我们可以编写：
 
-``` go linenums="1"
+``` go 
 var numCPU = runtime.NumCPU()
 ```
 
 ​	还有一个函数`runtime.GOMAXPROCS`，它报告（或设置）Go程序可以同时运行的用户指定的核心数。默认值为`runtime.NumCPU`的值，但可以通过设置类似命名的shell环境变量或调用带有正整数参数的函数来覆盖。调用它时，如果使用零，则只是查询该值。因此，如果我们想遵守用户的资源请求，我们应该编写：
 
-``` go linenums="1"
+``` go 
 var numCPU = runtime.GOMAXPROCS(0)
 ```
 
@@ -2046,7 +2046,7 @@ var numCPU = runtime.GOMAXPROCS(0)
 
 ​	并发编程的工具甚至可以使非并发的想法更容易表达。以下是一个从RPC包中抽象出来的示例。客户端 goroutine 循环从某些来源（例如网络）接收数据。为避免分配和释放缓冲区，它保持一个空闲列表，并使用缓冲的通道来表示它。如果通道为空，则会分配一个新的缓冲区。一旦消息缓冲区准备好，它就会被发送到 `serverChan` 上的服务器。
 
-``` go linenums="1"
+``` go 
 var freeList = make(chan *Buffer, 100)
 var serverChan = make(chan *Buffer)
 
@@ -2069,7 +2069,7 @@ func client() {
 
 ​	服务器循环从客户端接收每条消息，处理它并将缓冲区返回到空闲列表中。
 
-``` go linenums="1"
+``` go 
 func server() {
     for {
         b := <-serverChan    // 等待任务。
@@ -2093,7 +2093,7 @@ func server() {
 
 ​	按照惯例，错误类型为 `error`，它是一个简单的内置接口。
 
-``` go linenums="1"
+``` go 
 type error interface {
     Error() string
 }
@@ -2101,7 +2101,7 @@ type error interface {
 
 ​	一个库的作者可以自由地在底层实现这个接口，使用更丰富的模型，不仅可以看到错误，还可以提供一些上下文信息。正如前面提到的，除了通常的`*os.File`返回值外，`os.Open`还返回一个错误值。如果文件成功打开，错误将为`nil`，但是当出现问题时，它将包含一个`os.PathError`：
 
-``` go linenums="1"
+``` go 
 // PathError 记录错误和导致错误的操作和文件路径。
 type PathError struct {
     Op string    // "open", "unlink", etc.
@@ -2116,7 +2116,7 @@ func (e *PathError) Error() string {
 
 ​	`PathError`的`Error`方法生成像这样的字符串：
 
-``` go linenums="1"
+``` go 
 open /etc/passwx: no such file or directory
 ```
 
@@ -2126,7 +2126,7 @@ open /etc/passwx: no such file or directory
 
 ​	关心精确错误详情的调用方可以使用类型开关或类型断言查找特定错误并提取详细信息。对于`PathErrors`，这可能包括检查内部`Err`字段以进行可恢复的故障。
 
-``` go linenums="1"
+``` go 
 for try := 0; try < 2; try++ {
     file, err = os.Create(filename)
     if err == nil {
@@ -2156,7 +2156,7 @@ For this purpose, there is a built-in function `panic` that in effect creates a 
 
 ​	为此，有一个内置函数 `panic`，实际上创建一个运行时错误，将停止程序（但请参见下一节）。该函数接受一个任意类型的单个参数，通常是一个字符串，用于在程序停止时打印。这也是一种指示发生了不可能的事情（比如退出一个无限循环）的方法。
 
-``` go linenums="1"
+``` go 
 // A toy implementation of cube root using Newton's method.
 // 一个使用牛顿法的立方根玩具实现。
 func CubeRoot(x float64) float64 {
@@ -2175,7 +2175,7 @@ func CubeRoot(x float64) float64 {
 
 ​	这只是一个示例，但真正的库函数应该避免 `panic`。如果问题可以被掩盖或绕过，让事情继续运行总是比将整个程序关闭更好。一个可能的反例是在初始化期间：如果库确实不能设置自身，可能会出现 panic，可以这么说。
 
-``` go linenums="1"
+``` go 
 var user = os.Getenv("USER")
 
 func init() {
@@ -2193,7 +2193,7 @@ func init() {
 
 ​	`recover`的一个应用是在服务器内部关闭一个失败的goroutine，而不会杀死其他正在执行的goroutines。
 
-``` go linenums="1"
+``` go 
 func server(workChan <-chan *Work) {
     for work := range workChan {
         go safelyDo(work)
@@ -2220,7 +2220,7 @@ With our recovery pattern in place, the `do` function (and anything it calls) ca
 
 ​	有了我们的恢复模式，`do` 函数（以及它调用的任何内容）都可以通过调用 `panic` 干净地摆脱任何不良情况。我们可以利用这个想法简化复杂软件中的错误处理。让我们来看一个`regexp`包的理想化版本，它通过使用一个本地的错误类型，通过调用 `panic` 来报告解析错误。这是 `Error`、`Error` 方法和 `Compile` 函数的定义。
 
-``` go linenums="1"
+``` go 
 // Error 是解析错误的类型；它满足 error 接口。
 type Error string
 func (e Error) Error() string {
@@ -2250,7 +2250,7 @@ func Compile(str string) (regexp *Regexp, err error) {
 
 ​	有了错误处理，`error` 方法（因为它是绑定到一个类型的方法，因此它具有与内置 `error` 类型相同的名称是可以的，甚至是自然的）使报告解析错误变得容易，而不必手动展开解析栈：
 
-``` go linenums="1"
+``` go 
 if pos == 0 {
     re.error("'*' illegal at start of expression")
 }
@@ -2270,7 +2270,7 @@ Here's the complete program. An explanation follows.
 
 这里是完整的程序。下面是一个解释。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (

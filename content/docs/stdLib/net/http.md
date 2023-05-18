@@ -110,7 +110,7 @@ GODEBUG=http2debug=2   # ... even more verbose, with frame dumps
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/method.go;l=10)
 
-``` go linenums="1"
+``` go 
 const (
 	MethodGet     = "GET"
 	MethodHead    = "HEAD"
@@ -130,7 +130,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/status.go;l=9)
 
-``` go linenums="1"
+``` go 
 const (
 	StatusContinue           = 100 // RFC 9110, 15.2.1
 	StatusSwitchingProtocols = 101 // RFC 9110, 15.2.2
@@ -206,7 +206,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=857)
 
-``` go linenums="1"
+``` go 
 const DefaultMaxHeaderBytes = 1 << 20 // 1 MB
 ```
 
@@ -214,7 +214,7 @@ const DefaultMaxHeaderBytes = 1 << 20 // 1 MB
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=58)
 
-``` go linenums="1"
+``` go 
 const DefaultMaxIdleConnsPerHost = 2
 ```
 
@@ -222,7 +222,7 @@ const DefaultMaxIdleConnsPerHost = 2
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=934)
 
-``` go linenums="1"
+``` go 
 const TimeFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
 ```
 
@@ -232,7 +232,7 @@ For parsing this time format, see ParseTime.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=513)
 
-``` go linenums="1"
+``` go 
 const TrailerPrefix = "Trailer:"
 ```
 
@@ -249,7 +249,7 @@ https://pkg.go.dev/net/http#example-ResponseWriter-Trailers
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=51)
 
-``` go linenums="1"
+``` go 
 var (
 	// ErrNotSupported 表示不支持某一特性。
 	//
@@ -287,7 +287,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=37)
 
-``` go linenums="1"
+``` go 
 var (
 	// ErrBodyNotAllowed 在 ResponseWriter.Write 调用时，
     // 当 HTTP 方法或响应状态码不允许 body 时返回。
@@ -315,7 +315,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=238)
 
-``` go linenums="1"
+``` go 
 var (
 	// ServerContextKey 是一个 context key。
     // 它可在 HTTP 处理程序中使用 Context.Value 
@@ -332,7 +332,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=110)
 
-``` go linenums="1"
+``` go 
 var DefaultClient = &Client{}
 ```
 
@@ -340,7 +340,7 @@ var DefaultClient = &Client{}
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2322)
 
-``` go linenums="1"
+``` go 
 var DefaultServeMux = &defaultServeMux
 ```
 
@@ -348,7 +348,7 @@ var DefaultServeMux = &defaultServeMux
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=1826)
 
-``` go linenums="1"
+``` go 
 var ErrAbortHandler = errors.New("net/http: abort Handler")
 ```
 
@@ -356,7 +356,7 @@ var ErrAbortHandler = errors.New("net/http: abort Handler")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transfer.go;l=823)
 
-``` go linenums="1"
+``` go 
 var ErrBodyReadAfterClose = errors.New("http: invalid Read on closed Body")
 ```
 
@@ -364,7 +364,7 @@ var ErrBodyReadAfterClose = errors.New("http: invalid Read on closed Body")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3356)
 
-``` go linenums="1"
+``` go 
 var ErrHandlerTimeout = errors.New("http: Handler timeout")
 ```
 
@@ -372,7 +372,7 @@ var ErrHandlerTimeout = errors.New("http: Handler timeout")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transfer.go;l=29)
 
-``` go linenums="1"
+``` go 
 var ErrLineTooLong = internal.ErrLineTooLong
 ```
 
@@ -380,7 +380,7 @@ var ErrLineTooLong = internal.ErrLineTooLong
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=39)
 
-``` go linenums="1"
+``` go 
 var ErrMissingFile = errors.New("http: no such file")
 ```
 
@@ -388,7 +388,7 @@ var ErrMissingFile = errors.New("http: no such file")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=415)
 
-``` go linenums="1"
+``` go 
 var ErrNoCookie = errors.New("http: named cookie not present")
 ```
 
@@ -396,7 +396,7 @@ var ErrNoCookie = errors.New("http: named cookie not present")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=131)
 
-``` go linenums="1"
+``` go 
 var ErrNoLocation = errors.New("http: no Location header in response")
 ```
 
@@ -404,7 +404,7 @@ var ErrNoLocation = errors.New("http: no Location header in response")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3017)
 
-``` go linenums="1"
+``` go 
 var ErrServerClosed = errors.New("http: Server closed")
 ```
 
@@ -412,7 +412,7 @@ var ErrServerClosed = errors.New("http: Server closed")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=741)
 
-``` go linenums="1"
+``` go 
 var ErrSkipAltProtocol = errors.New("net/http: skip alternate protocol")
 ```
 
@@ -420,7 +420,7 @@ var ErrSkipAltProtocol = errors.New("net/http: skip alternate protocol")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=489)
 
-``` go linenums="1"
+``` go 
 var ErrUseLastResponse = errors.New("net/http: use last response")
 ```
 
@@ -428,7 +428,7 @@ var ErrUseLastResponse = errors.New("net/http: use last response")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/http.go;l=104)
 
-``` go linenums="1"
+``` go 
 var NoBody = noBody{}
 ```
 
@@ -438,7 +438,7 @@ var NoBody = noBody{}
 
 #### func [CanonicalHeaderKey](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=240) 
 
-``` go linenums="1"
+``` go 
 func CanonicalHeaderKey(s string) string
 ```
 
@@ -446,7 +446,7 @@ func CanonicalHeaderKey(s string) string
 
 #### func [DetectContentType](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/sniff.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func DetectContentType(data []byte) string
 ```
 
@@ -454,7 +454,7 @@ func DetectContentType(data []byte) string
 
 #### func [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2131) 
 
-``` go linenums="1"
+``` go 
 func Error(w ResponseWriter, error string, code int)
 ```
 
@@ -462,14 +462,14 @@ func Error(w ResponseWriter, error string, code int)
 
 #### func [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2559) 
 
-``` go linenums="1"
+``` go 
 func Handle(pattern string, handler Handler)
 ```
 
 ​	Handle 在 DefaultServeMux 中为给定的 pattern 注册 handler。ServeMux 的文档解释了如何匹配 pattern。
 
 ##### Handle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -500,14 +500,14 @@ func main() {
 
 #### func [HandleFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2564) 
 
-``` go linenums="1"
+``` go 
 func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 ```
 
 ​	HandleFunc 在 DefaultServeMux 中为给定的 pattern 注册 handler function。ServeMux 的文档解释了如何匹配 pattern。
 
 ##### HandleFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -534,7 +534,7 @@ func main() {
 
 #### func [ListenAndServe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3240) 
 
-``` go linenums="1"
+``` go 
 func ListenAndServe(addr string, handler Handler) error
 ```
 
@@ -545,7 +545,7 @@ func ListenAndServe(addr string, handler Handler) error
 ​	ListenAndServe 总是返回非 nil 错误。
 
 ##### ListenAndServe Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -569,14 +569,14 @@ func main() {
 
 #### func [ListenAndServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3250) 
 
-``` go linenums="1"
+``` go 
 func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 ```
 
 ​	ListenAndServeTLS 的行为与 ListenAndServe 相同，除了它预期 HTTPS 连接。另外，必须提供包含服务器证书和匹配私钥的文件。如果证书由证书颁发机构签署，则 certFile 应该是服务器证书、任何中间文件以及 CA 的证书的连接。
 
 ##### ListenAndServeTLS Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -600,7 +600,7 @@ func main() {
 
 #### func [MaxBytesReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1141) 
 
-``` go linenums="1"
+``` go 
 func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser
 ```
 
@@ -610,7 +610,7 @@ func MaxBytesReader(w ResponseWriter, r io.ReadCloser, n int64) io.ReadCloser
 
 #### func [NotFound](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2139) 
 
-``` go linenums="1"
+``` go 
 func NotFound(w ResponseWriter, r *Request)
 ```
 
@@ -618,7 +618,7 @@ func NotFound(w ResponseWriter, r *Request)
 
 #### func [ParseHTTPVersion](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=794) 
 
-``` go linenums="1"
+``` go 
 func ParseHTTPVersion(vers string) (major, minor int, ok bool)
 ```
 
@@ -626,7 +626,7 @@ func ParseHTTPVersion(vers string) (major, minor int, ok bool)
 
 #### func [ParseTime](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=129)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ParseTime(text string) (t time.Time, err error)
 ```
 
@@ -634,7 +634,7 @@ func ParseTime(text string) (t time.Time, err error)
 
 #### func [ProxyFromEnvironment](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=447) 
 
-``` go linenums="1"
+``` go 
 func ProxyFromEnvironment(req *Request) (*url.URL, error)
 ```
 
@@ -648,7 +648,7 @@ func ProxyFromEnvironment(req *Request) (*url.URL, error)
 
 #### func [ProxyURL](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=453) 
 
-``` go linenums="1"
+``` go 
 func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error)
 ```
 
@@ -656,7 +656,7 @@ func ProxyURL(fixedURL *url.URL) func(*Request) (*url.URL, error)
 
 #### func [Redirect](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2182) 
 
-``` go linenums="1"
+``` go 
 func Redirect(w ResponseWriter, r *Request, url string, code int)
 ```
 
@@ -668,7 +668,7 @@ func Redirect(w ResponseWriter, r *Request, url string, code int)
 
 #### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2579) 
 
-``` go linenums="1"
+``` go 
 func Serve(l net.Listener, handler Handler) error
 ```
 
@@ -682,7 +682,7 @@ func Serve(l net.Listener, handler Handler) error
 
 #### func [ServeContent](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=194) 
 
-``` go linenums="1"
+``` go 
 func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time, content io.ReadSeeker)
 ```
 
@@ -700,7 +700,7 @@ func ServeContent(w ResponseWriter, req *Request, name string, modtime time.Time
 
 #### func [ServeFile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=730) 
 
-``` go linenums="1"
+``` go 
 func ServeFile(w ResponseWriter, r *Request, name string)
 ```
 
@@ -716,7 +716,7 @@ func ServeFile(w ResponseWriter, r *Request, name string)
 
 #### func [ServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2596)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error
 ```
 
@@ -730,7 +730,7 @@ func ServeTLS(l net.Listener, handler Handler, certFile, keyFile string) error
 
 #### func [SetCookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=169) 
 
-``` go linenums="1"
+``` go 
 func SetCookie(w ResponseWriter, cookie *Cookie)
 ```
 
@@ -738,7 +738,7 @@ func SetCookie(w ResponseWriter, cookie *Cookie)
 
 #### func [StatusText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/status.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func StatusText(code int) string
 ```
 
@@ -748,7 +748,7 @@ func StatusText(code int) string
 
 ### type [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=58) 
 
-``` go linenums="1"
+``` go 
 type Client struct {
 	// Transport 指定单个 HTTP 请求的执行机制。
 	// 如果为 nil，则使用 DefaultTransport。
@@ -811,7 +811,7 @@ type Client struct {
 
 #### (*Client) [CloseIdleConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=935)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (c *Client) CloseIdleConnections()
 ```
 
@@ -821,7 +821,7 @@ func (c *Client) CloseIdleConnections()
 
 #### (*Client) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=581) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Do(req *Request) (*Response, error)
 ```
 
@@ -843,7 +843,7 @@ func (c *Client) Do(req *Request) (*Response, error)
 
 #### (*Client) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=475) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Get(url string) (resp *Response, err error)
 ```
 
@@ -867,7 +867,7 @@ func (c *Client) Get(url string) (resp *Response, err error)
 
 #### (*Client) [Head](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=920) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Head(url string) (resp *Response, err error)
 ```
 
@@ -885,7 +885,7 @@ func (c *Client) Head(url string) (resp *Response, err error)
 
 #### (*Client) [Post](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=843) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, err error)
 ```
 
@@ -903,7 +903,7 @@ func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, 
 
 #### (*Client) [PostForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=886) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) PostForm(url string, data url.Values) (resp *Response, err error)
 ```
 
@@ -919,13 +919,13 @@ func (c *Client) PostForm(url string, data url.Values) (resp *Response, err erro
 
 ### type [ConnState](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2859)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type ConnState int
 ```
 
 ​	ConnState表示与服务器的客户端连接状态。它由可选的Server.ConnState钩子使用。
 
-``` go linenums="1"
+``` go 
 const (
 	// StateNew 表示一个新的连接，该连接预计会立即发送请求。
     // 连接从此状态开始，然后转换为 StateActive 或 StateClosed。
@@ -960,13 +960,13 @@ const (
 
 #### (ConnState) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2905)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (c ConnState) String() string
 ```
 
 ### type [Cookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=23) 
 
-``` go linenums="1"
+``` go 
 type Cookie struct {
 	Name  string
 	Value string
@@ -994,7 +994,7 @@ type Cookie struct {
 
 #### (*Cookie) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func (c *Cookie) String() string
 ```
 
@@ -1002,7 +1002,7 @@ func (c *Cookie) String() string
 
 #### (*Cookie) [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=243)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *Cookie) Valid() error
 ```
 
@@ -1010,7 +1010,7 @@ func (c *Cookie) Valid() error
 
 ### type [CookieJar](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/jar.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type CookieJar interface {
 	// SetCookies 处理收到的回复中的 cookie。
     // 根据 jar 的策略和实现，它可能会选择保存 cookie。
@@ -1030,7 +1030,7 @@ type CookieJar interface {
 
 ### type [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type Dir string
 ```
 
@@ -1044,7 +1044,7 @@ type Dir string
 
 #### (Dir) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=72) 
 
-``` go linenums="1"
+``` go 
 func (d Dir) Open(name string) (File, error)
 ```
 
@@ -1052,7 +1052,7 @@ func (d Dir) Open(name string) (File, error)
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=104) 
 
-``` go linenums="1"
+``` go 
 type File interface {
 	io.Closer
 	io.Reader
@@ -1068,7 +1068,7 @@ type File interface {
 
 ### type [FileSystem](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=96) 
 
-``` go linenums="1"
+``` go 
 type FileSystem interface {
 	Open(name string) (File, error)
 }
@@ -1080,7 +1080,7 @@ type FileSystem interface {
 
 #### func [FS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=837)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func FS(fsys fs.FS) FileSystem
 ```
 
@@ -1088,7 +1088,7 @@ func FS(fsys fs.FS) FileSystem
 
 ### type [Flusher](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=173) 
 
-``` go linenums="1"
+``` go 
 type Flusher interface {
 	// Flush sends any buffered data to the client.
 	Flush()
@@ -1103,7 +1103,7 @@ type Flusher interface {
 
 ### type [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type Handler interface {
 	ServeHTTP(ResponseWriter, *Request)
 }
@@ -1121,7 +1121,7 @@ type Handler interface {
 
 #### func [AllowQuerySemicolons](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2950)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func AllowQuerySemicolons(h Handler) Handler
 ```
 
@@ -1133,7 +1133,7 @@ func AllowQuerySemicolons(h Handler) Handler
 
 #### func [FileServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fs.go;l=856) 
 
-``` go linenums="1"
+``` go 
 func FileServer(root FileSystem) Handler
 ```
 
@@ -1154,7 +1154,7 @@ http.Handle("/", http.FileServer(http.FS(fsys)))
 ```
 
 ##### FileServer Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1170,7 +1170,7 @@ func main() {
 ```
 
 ##### FileServer Example (DotFileHiding)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1242,7 +1242,7 @@ func main() {
 ```
 
 ##### FileServer Example (StripPrefix) 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1260,7 +1260,7 @@ func main() {
 
 #### func [MaxBytesHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3638)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func MaxBytesHandler(h Handler, n int64) Handler
 ```
 
@@ -1268,14 +1268,14 @@ func MaxBytesHandler(h Handler, n int64) Handler
 
 #### func [NotFoundHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2143) 
 
-``` go linenums="1"
+``` go 
 func NotFoundHandler() Handler
 ```
 
 ​	NotFoundHandler返回一个简单的请求处理程序，它回复每个请求的"404页面未找到"回复。
 
 ##### NotFoundHandler Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1306,7 +1306,7 @@ func main() {
 
 #### func [RedirectHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2267) 
 
-``` go linenums="1"
+``` go 
 func RedirectHandler(url string, code int) Handler
 ```
 
@@ -1316,14 +1316,14 @@ func RedirectHandler(url string, code int) Handler
 
 #### func [StripPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2151) 
 
-``` go linenums="1"
+``` go 
 func StripPrefix(prefix string, h Handler) Handler
 ```
 
 ​	StripPrefix 函数返回一个处理程序，它通过从请求 URL 的路径(如果设置，则为 RawPath)中删除给定前缀并调用处理程序 h 来服务 HTTP 请求。如果路径不以前缀开头，则 StripPrefix 会用 HTTP 404 未找到错误回复。前缀必须精确匹配：如果请求中的前缀包含转义字符，则回复也是 HTTP 404 未找到错误。
 
 ##### StripPrefix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1341,7 +1341,7 @@ func main() {
 
 #### func [TimeoutHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3346) 
 
-``` go linenums="1"
+``` go 
 func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler
 ```
 
@@ -1353,7 +1353,7 @@ func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler
 
 ### type [HandlerFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2118) 
 
-``` go linenums="1"
+``` go 
 type HandlerFunc func(ResponseWriter, *Request)
 ```
 
@@ -1361,7 +1361,7 @@ type HandlerFunc func(ResponseWriter, *Request)
 
 #### (HandlerFunc) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2121) 
 
-``` go linenums="1"
+``` go 
 func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
@@ -1369,7 +1369,7 @@ func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 
 ### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type Header map[string][]string
 ```
 
@@ -1379,7 +1379,7 @@ type Header map[string][]string
 
 #### (Header) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Add(key, value string)
 ```
 
@@ -1387,7 +1387,7 @@ func (h Header) Add(key, value string)
 
 #### (Header) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=94)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (h Header) Clone() Header
 ```
 
@@ -1395,7 +1395,7 @@ func (h Header) Clone() Header
 
 #### (Header) [Del](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Del(key string)
 ```
 
@@ -1403,7 +1403,7 @@ func (h Header) Del(key string)
 
 #### (Header) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Get(key string) string
 ```
 
@@ -1411,7 +1411,7 @@ func (h Header) Get(key string) string
 
 #### (Header) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Set(key, value string)
 ```
 
@@ -1419,7 +1419,7 @@ func (h Header) Set(key, value string)
 
 #### (Header) [Values](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=58)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (h Header) Values(key string) []string
 ```
 
@@ -1427,7 +1427,7 @@ func (h Header) Values(key string) []string
 
 #### (Header) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=85) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Write(w io.Writer) error
 ```
 
@@ -1435,7 +1435,7 @@ func (h Header) Write(w io.Writer) error
 
 #### (Header) [WriteSubset](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/header.go;l=192) 
 
-``` go linenums="1"
+``` go 
 func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
 ```
 
@@ -1443,7 +1443,7 @@ func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
 
 ### type [Hijacker](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=185) 
 
-``` go linenums="1"
+``` go 
 type Hijacker interface {
 	// Hijack允许调用方接管连接。
 	// 调用Hijack后，HTTP服务器库将不会再对连接进行任何操作。
@@ -1467,7 +1467,7 @@ type Hijacker interface {
 ​	默认的HTTP/1.x连接的ResponseWriter支持Hijacker，但是HTTP/2连接有意不支持它。 ResponseWriter包装器也可能不支持Hijacker。处理程序应始终在运行时测试此能力。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1506,7 +1506,7 @@ func main() {
 
 ### type [MaxBytesError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1149)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type MaxBytesError struct {
 	Limit int64
 }
@@ -1516,13 +1516,13 @@ type MaxBytesError struct {
 
 #### (*MaxBytesError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1153)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (e *MaxBytesError) Error() string
 ```
 
 ### type [PushOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/http.go;l=119)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type PushOptions struct {
 	// Method指定承诺请求的HTTP方法。
     // 如果设置，则必须是"GET"或"HEAD"。空表示"GET"。
@@ -1539,7 +1539,7 @@ PushOptions describes options for Pusher.Push.
 
 ### type [Pusher](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/http.go;l=133)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type Pusher interface {
 	// Push启动HTTP/2服务器推送。
     // 这将使用给定的目标和选项构造合成请求，
@@ -1572,7 +1572,7 @@ type Pusher interface {
 
 ### type [Request](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=106) 
 
-``` go linenums="1"
+``` go 
 type Request struct {
 	// Method 指定HTTP方法(GET，POST，PUT等)。
 	// 对于客户端请求，空字符串表示GET。
@@ -1769,7 +1769,7 @@ type Request struct {
 
 #### func [NewRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=839) 
 
-``` go linenums="1"
+``` go 
 func NewRequest(method, url string, body io.Reader) (*Request, error)
 ```
 
@@ -1777,7 +1777,7 @@ func NewRequest(method, url string, body io.Reader) (*Request, error)
 
 #### func [NewRequestWithContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=865)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func NewRequestWithContext(ctx context.Context, method, url string, body io.Reader) (*Request, error)
 ```
 
@@ -1789,7 +1789,7 @@ func NewRequestWithContext(ctx context.Context, method, url string, body io.Read
 
 #### func [ReadRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1024) 
 
-``` go linenums="1"
+``` go 
 func ReadRequest(b *bufio.Reader) (*Request, error)
 ```
 
@@ -1799,7 +1799,7 @@ func ReadRequest(b *bufio.Reader) (*Request, error)
 
 #### (*Request) [AddCookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=437) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) AddCookie(c *Cookie)
 ```
 
@@ -1807,7 +1807,7 @@ func (r *Request) AddCookie(c *Cookie)
 
 #### (*Request) [BasicAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=949)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (r *Request) BasicAuth() (username, password string, ok bool)
 ```
 
@@ -1815,7 +1815,7 @@ func (r *Request) BasicAuth() (username, password string, ok bool)
 
 #### (*Request) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=372)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (r *Request) Clone(ctx context.Context) *Request
 ```
 
@@ -1825,7 +1825,7 @@ func (r *Request) Clone(ctx context.Context) *Request
 
 #### (*Request) [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=340)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (r *Request) Context() context.Context
 ```
 
@@ -1839,7 +1839,7 @@ func (r *Request) Context() context.Context
 
 #### (*Request) [Cookie](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=421) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) Cookie(name string) (*Cookie, error)
 ```
 
@@ -1847,7 +1847,7 @@ func (r *Request) Cookie(name string) (*Cookie, error)
 
 #### (*Request) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=410) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) Cookies() []*Cookie
 ```
 
@@ -1855,7 +1855,7 @@ func (r *Request) Cookies() []*Cookie
 
 #### (*Request) [FormFile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1397) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) FormFile(key string) (multipart.File, *multipart.FileHeader, error)
 ```
 
@@ -1863,7 +1863,7 @@ func (r *Request) FormFile(key string) (multipart.File, *multipart.FileHeader, e
 
 #### (*Request) [FormValue](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1370) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) FormValue(key string) string
 ```
 
@@ -1871,7 +1871,7 @@ func (r *Request) FormValue(key string) string
 
 #### (*Request) [MultipartReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=470) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) MultipartReader() (*multipart.Reader, error)
 ```
 
@@ -1879,7 +1879,7 @@ func (r *Request) MultipartReader() (*multipart.Reader, error)
 
 #### (*Request) [ParseForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1282) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) ParseForm() error
 ```
 
@@ -1897,7 +1897,7 @@ func (r *Request) ParseForm() error
 
 #### (*Request) [ParseMultipartForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1325) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) ParseMultipartForm(maxMemory int64) error
 ```
 
@@ -1905,7 +1905,7 @@ func (r *Request) ParseMultipartForm(maxMemory int64) error
 
 #### (*Request) [PostFormValue](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=1385)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r *Request) PostFormValue(key string) string
 ```
 
@@ -1913,7 +1913,7 @@ func (r *Request) PostFormValue(key string) string
 
 #### (*Request) [ProtoAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=399) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) ProtoAtLeast(major, minor int) bool
 ```
 
@@ -1921,7 +1921,7 @@ func (r *Request) ProtoAtLeast(major, minor int) bool
 
 #### (*Request) [Referer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=454) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) Referer() string
 ```
 
@@ -1931,7 +1931,7 @@ func (r *Request) Referer() string
 
 #### (*Request) [SetBasicAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=988) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) SetBasicAuth(username, password string)
 ```
 
@@ -1943,7 +1943,7 @@ func (r *Request) SetBasicAuth(username, password string)
 
 #### (*Request) [UserAgent](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=405) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) UserAgent() string
 ```
 
@@ -1951,7 +1951,7 @@ func (r *Request) UserAgent() string
 
 #### (*Request) [WithContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=356)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (r *Request) WithContext(ctx context.Context) *Request
 ```
 
@@ -1963,7 +1963,7 @@ func (r *Request) WithContext(ctx context.Context) *Request
 
 #### (*Request) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=534) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) Write(w io.Writer) error
 ```
 
@@ -1983,7 +1983,7 @@ Body
 
 #### (*Request) [WriteProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/request.go;l=544) 
 
-``` go linenums="1"
+``` go 
 func (r *Request) WriteProxy(w io.Writer) error
 ```
 
@@ -1991,7 +1991,7 @@ func (r *Request) WriteProxy(w io.Writer) error
 
 ### type [Response](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type Response struct {
 	Status     string // Status 表示响应状态，例如 "200 OK"。
 	StatusCode int    // StatusCode 表示响应状态码，例如 200
@@ -2084,7 +2084,7 @@ type Response struct {
 
 #### func [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=448) 
 
-``` go linenums="1"
+``` go 
 func Get(url string) (resp *Response, err error)
 ```
 
@@ -2109,7 +2109,7 @@ func Get(url string) (resp *Response, err error)
 ​	要使用指定的context.Context进行请求，请使用NewRequestWithContext函数和DefaultClient.Do方法。
 
 ##### Get Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2139,7 +2139,7 @@ func main() {
 
 #### func [Head](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=904) 
 
-``` go linenums="1"
+``` go 
 func Head(url string) (resp *Response, err error)
 ```
 
@@ -2159,7 +2159,7 @@ func Head(url string) (resp *Response, err error)
 
 #### func [Post](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=825) 
 
-``` go linenums="1"
+``` go 
 func Post(url, contentType string, body io.Reader) (resp *Response, err error)
 ```
 
@@ -2179,7 +2179,7 @@ func Post(url, contentType string, body io.Reader) (resp *Response, err error)
 
 #### func [PostForm](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=868) 
 
-``` go linenums="1"
+``` go 
 func PostForm(url string, data url.Values) (resp *Response, err error)
 ```
 
@@ -2197,7 +2197,7 @@ func PostForm(url string, data url.Values) (resp *Response, err error)
 
 #### func [ReadResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=154) 
 
-``` go linenums="1"
+``` go 
 func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
 ```
 
@@ -2205,7 +2205,7 @@ func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
 
 #### (*Response) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (r *Response) Cookies() []*Cookie
 ```
 
@@ -2213,7 +2213,7 @@ func (r *Response) Cookies() []*Cookie
 
 #### (*Response) [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=137) 
 
-``` go linenums="1"
+``` go 
 func (r *Response) Location() (*url.URL, error)
 ```
 
@@ -2221,7 +2221,7 @@ func (r *Response) Location() (*url.URL, error)
 
 #### (*Response) [ProtoAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func (r *Response) ProtoAtLeast(major, minor int) bool
 ```
 
@@ -2229,7 +2229,7 @@ func (r *Response) ProtoAtLeast(major, minor int) bool
 
 #### (*Response) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/response.go;l=245) 
 
-``` go linenums="1"
+``` go 
 func (r *Response) Write(w io.Writer) error
 ```
 
@@ -2253,7 +2253,7 @@ Header, 非规范键的值将具有不可预测的行为
 
 ### type [ResponseController](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=17)  <- go1.20
 
-``` go linenums="1"
+``` go 
 type ResponseController struct {
 	// contains filtered or unexported fields
 }
@@ -2265,7 +2265,7 @@ type ResponseController struct {
 
 #### func [NewResponseController](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=37)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func NewResponseController(rw ResponseWriter) *ResponseController
 ```
 
@@ -2287,7 +2287,7 @@ SetWriteDeadline(deadline time.Time) error
 
 #### (*ResponseController) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=46)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (c *ResponseController) Flush() error
 ```
 
@@ -2295,7 +2295,7 @@ func (c *ResponseController) Flush() error
 
 #### (*ResponseController) [Hijack](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=65)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (c *ResponseController) Hijack() (net.Conn, *bufio.ReadWriter, error)
 ```
 
@@ -2303,7 +2303,7 @@ func (c *ResponseController) Hijack() (net.Conn, *bufio.ReadWriter, error)
 
 #### (*ResponseController) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=84)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (c *ResponseController) SetReadDeadline(deadline time.Time) error
 ```
 
@@ -2313,7 +2313,7 @@ func (c *ResponseController) SetReadDeadline(deadline time.Time) error
 
 #### (*ResponseController) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/responsecontroller.go;l=104)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (c *ResponseController) SetWriteDeadline(deadline time.Time) error
 ```
 
@@ -2323,7 +2323,7 @@ func (c *ResponseController) SetWriteDeadline(deadline time.Time) error
 
 ### type [ResponseWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=95) 
 
-``` go linenums="1"
+``` go 
 type ResponseWriter interface {
 	// Header 返回将由 WriteHeader 发送的标头映射。
     // Header 映射也是处理程序设置 HTTP 尾随项的机制。
@@ -2394,7 +2394,7 @@ type ResponseWriter interface {
 
 ​	HTTP 尾部标签(HTTP Trailers)是一组键/值对，类似于报头(headers)，但是它们出现在 HTTP 响应的末尾而不是前面。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2426,7 +2426,7 @@ func main() {
 
 ### type [RoundTripper](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/client.go;l=117) 
 
-``` go linenums="1"
+``` go 
 type RoundTripper interface {
 	// RoundTrip执行单个HTTP事务，为提供的Request返回一个Response。
 	//
@@ -2455,7 +2455,7 @@ type RoundTripper interface {
 
 ​	RoundTripper必须对多个goroutine进行并发使用的安全。
 
-``` go linenums="1"
+``` go 
 var DefaultTransport RoundTripper = &Transport{
 	Proxy: ProxyFromEnvironment,
 	DialContext: defaultTransportDialContext(&net.Dialer{
@@ -2474,7 +2474,7 @@ var DefaultTransport RoundTripper = &Transport{
 
 #### func [NewFileTransport](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/filetransport.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func NewFileTransport(fs FileSystem) RoundTripper
 ```
 
@@ -2492,7 +2492,7 @@ res, err := c.Get("file:///etc/passwd")
 
 ### type [SameSite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookie.go;l=49)  <- go1.11
 
-``` go linenums="1"
+``` go 
 type SameSite int
 ```
 
@@ -2500,7 +2500,7 @@ type SameSite int
 
 详见 https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00。
 
-``` go linenums="1"
+``` go 
 const (
 	SameSiteDefaultMode SameSite = iota + 1
 	SameSiteLaxMode
@@ -2511,7 +2511,7 @@ const (
 
 ### type [ServeMux](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2306) 
 
-``` go linenums="1"
+``` go 
 type ServeMux struct {
 	// 包含过滤或未公开的字段
 }
@@ -2531,7 +2531,7 @@ type ServeMux struct {
 
 #### func [NewServeMux](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2319) 
 
-``` go linenums="1"
+``` go 
 func NewServeMux() *ServeMux
 ```
 
@@ -2539,14 +2539,14 @@ func NewServeMux() *ServeMux
 
 #### (*ServeMux) [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2505) 
 
-``` go linenums="1"
+``` go 
 func (mux *ServeMux) Handle(pattern string, handler Handler)
 ```
 
 ​	Handle方法为给定的模式注册处理程序。如果已存在处理程序，则 Handle 方法会引发 panic。
 
 ##### Handle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2576,7 +2576,7 @@ func main() {
 
 #### (*ServeMux) [HandleFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2549) 
 
-``` go linenums="1"
+``` go 
 func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 ```
 
@@ -2584,7 +2584,7 @@ func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Re
 
 #### (*ServeMux) [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2436)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
 ```
 
@@ -2598,7 +2598,7 @@ func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
 
 #### (*ServeMux) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2491) 
 
-``` go linenums="1"
+``` go 
 func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
@@ -2606,7 +2606,7 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 
 ### type [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2603) 
 
-``` go linenums="1"
+``` go 
 type Server struct {
 	// Addr 可选地指定服务器监听的 TCP 地址，
     // 格式为 "host:port"。如果为空，则使用 ":http"(端口80)。
@@ -2702,7 +2702,7 @@ type Server struct {
 
 #### (*Server) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2722)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (srv *Server) Close() error
 ```
 
@@ -2714,7 +2714,7 @@ func (srv *Server) Close() error
 
 #### (*Server) [ListenAndServe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2976) 
 
-``` go linenums="1"
+``` go 
 func (srv *Server) ListenAndServe() error
 ```
 
@@ -2726,7 +2726,7 @@ func (srv *Server) ListenAndServe() error
 
 #### (*Server) [ListenAndServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3270) 
 
-``` go linenums="1"
+``` go 
 func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error
 ```
 
@@ -2740,7 +2740,7 @@ func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error
 
 #### (*Server) [RegisterOnShutdown](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2815)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (srv *Server) RegisterOnShutdown(f func())
 ```
 
@@ -2748,7 +2748,7 @@ func (srv *Server) RegisterOnShutdown(f func())
 
 #### (*Server) [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3029) 
 
-``` go linenums="1"
+``` go 
 func (srv *Server) Serve(l net.Listener) error
 ```
 
@@ -2760,7 +2760,7 @@ func (srv *Server) Serve(l net.Listener) error
 
 #### (*Server) [ServeTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3106)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
 ```
 
@@ -2772,7 +2772,7 @@ func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
 
 #### (*Server) [SetKeepAlivesEnabled](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=3200)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (srv *Server) SetKeepAlivesEnabled(v bool)
 ```
 
@@ -2780,7 +2780,7 @@ func (srv *Server) SetKeepAlivesEnabled(v bool)
 
 #### (*Server) [Shutdown](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=2772)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (srv *Server) Shutdown(ctx context.Context) error
 ```
 
@@ -2793,7 +2793,7 @@ func (srv *Server) Shutdown(ctx context.Context) error
 ​	一旦在服务器上调用了 Shutdown方法，就不能重用它；诸如 Serve 等方法的未来调用将返回 ErrServerClosed。
 
 ##### Shutdown Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2833,7 +2833,7 @@ func main() {
 
 ### type [Transport](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=95) 
 
-``` go linenums="1"
+``` go 
 type Transport struct {
 
 	// Proxy 指定返回给定请求的代理函数。
@@ -3009,7 +3009,7 @@ type Transport struct {
 
 #### (*Transport) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=313)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (t *Transport) Clone() *Transport
 ```
 
@@ -3017,7 +3017,7 @@ func (t *Transport) Clone() *Transport
 
 #### (*Transport) [CloseIdleConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=772) 
 
-``` go linenums="1"
+``` go 
 func (t *Transport) CloseIdleConnections()
 ```
 
@@ -3025,7 +3025,7 @@ func (t *Transport) CloseIdleConnections()
 
 #### (*Transport) [RegisterProtocol](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/transport.go;l=753) 
 
-``` go linenums="1"
+``` go 
 func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)
 ```
 
@@ -3037,7 +3037,7 @@ func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)
 
 #### (*Transport) [RoundTrip](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/roundtrip.go;l=16) 
 
-``` go linenums="1"
+``` go 
 func (t *Transport) RoundTrip(req *Request) (*Response, error)
 ```
 

@@ -37,7 +37,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/universe.go;l=38)
 
-``` go linenums="1"
+``` go 
 var Typ = []*Basic{
 	Invalid: {Invalid, 0, "invalid type"},
 
@@ -78,7 +78,7 @@ The *Basic type for Typ[Byte] will have the name "uint8". Use Universe.Lookup("b
 
 #### func [AssertableTo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=427) 
 
-``` go linenums="1"
+``` go 
 func AssertableTo(V *Interface, T Type) bool
 ```
 
@@ -92,7 +92,7 @@ The behavior of AssertableTo is unspecified in three cases:
 
 #### func [AssignableTo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=441) 
 
-``` go linenums="1"
+``` go 
 func AssignableTo(V, T Type) bool
 ```
 
@@ -102,7 +102,7 @@ The behavior of AssignableTo is unspecified if V or T is Typ[Invalid] or an unin
 
 #### func [CheckExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/eval.go;l=56)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func CheckExpr(fset *token.FileSet, pkg *Package, pos token.Pos, expr ast.Expr, info *Info) (err error)
 ```
 
@@ -116,7 +116,7 @@ Note: Eval and CheckExpr should not be used instead of running Check to compute 
 
 #### func [Comparable](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/predicates.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func Comparable(T Type) bool
 ```
 
@@ -124,7 +124,7 @@ Comparable reports whether values of type T are comparable.
 
 #### func [ConvertibleTo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=452) 
 
-``` go linenums="1"
+``` go 
 func ConvertibleTo(V, T Type) bool
 ```
 
@@ -134,7 +134,7 @@ The behavior of ConvertibleTo is unspecified if V or T is Typ[Invalid] or an uni
 
 #### func [DefPredeclaredTestFuncs](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/universe.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func DefPredeclaredTestFuncs()
 ```
 
@@ -142,7 +142,7 @@ DefPredeclaredTestFuncs defines the assert and trace built-ins. These built-ins 
 
 #### func [ExprString](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/exprstring.go;l=19) 
 
-``` go linenums="1"
+``` go 
 func ExprString(x ast.Expr) string
 ```
 
@@ -150,7 +150,7 @@ ExprString returns the (possibly shortened) string representation for x. Shorten
 
 #### func [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func Id(pkg *Package, name string) string
 ```
 
@@ -158,7 +158,7 @@ Id returns name if it is exported, otherwise it returns the name qualified with 
 
 #### func [Identical](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=484) 
 
-``` go linenums="1"
+``` go 
 func Identical(x, y Type) bool
 ```
 
@@ -166,7 +166,7 @@ Identical reports whether x and y are identical types. Receivers of Signature ty
 
 #### func [IdenticalIgnoreTags](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=490)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func IdenticalIgnoreTags(x, y Type) bool
 ```
 
@@ -174,7 +174,7 @@ IdenticalIgnoreTags reports whether x and y are identical types if tags are igno
 
 #### func [Implements](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=461) 
 
-``` go linenums="1"
+``` go 
 func Implements(V Type, T *Interface) bool
 ```
 
@@ -184,7 +184,7 @@ The behavior of Implements is unspecified if V is Typ[Invalid] or an uninstantia
 
 #### func [IsInterface](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/predicates.go;l=85) 
 
-``` go linenums="1"
+``` go 
 func IsInterface(t Type) bool
 ```
 
@@ -192,7 +192,7 @@ IsInterface reports whether t is an interface type.
 
 #### func [ObjectString](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=532) 
 
-``` go linenums="1"
+``` go 
 func ObjectString(obj Object, qf Qualifier) string
 ```
 
@@ -200,7 +200,7 @@ ObjectString returns the string form of obj. The Qualifier controls the printing
 
 #### func [Satisfies](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=478)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func Satisfies(V Type, T *Interface) bool
 ```
 
@@ -210,7 +210,7 @@ The behavior of Satisfies is unspecified if V is Typ[Invalid] or an uninstantiat
 
 #### func [SelectionString](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func SelectionString(s *Selection, qf Qualifier) string
 ```
 
@@ -226,7 +226,7 @@ Examples:
 
 #### func [TypeString](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typestring.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func TypeString(typ Type, qf Qualifier) string
 ```
 
@@ -234,7 +234,7 @@ TypeString returns the string representation of typ. The Qualifier controls the 
 
 #### func [WriteExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/exprstring.go;l=28) 
 
-``` go linenums="1"
+``` go 
 func WriteExpr(buf *bytes.Buffer, x ast.Expr)
 ```
 
@@ -242,7 +242,7 @@ WriteExpr writes the (possibly shortened) string representation for x to buf. Sh
 
 #### func [WriteSignature](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typestring.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func WriteSignature(buf *bytes.Buffer, sig *Signature, qf Qualifier)
 ```
 
@@ -250,7 +250,7 @@ WriteSignature writes the representation of the signature sig to buf, without a 
 
 #### func [WriteType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typestring.go;l=57) 
 
-``` go linenums="1"
+``` go 
 func WriteType(buf *bytes.Buffer, typ Type, qf Qualifier)
 ```
 
@@ -260,7 +260,7 @@ WriteType writes the string representation of typ to buf. The Qualifier controls
 
 ### type [ArgumentError](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=64)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type ArgumentError struct {
 	Index int
 	Err   error
@@ -271,19 +271,19 @@ An ArgumentError holds an error associated with an argument index.
 
 #### (*ArgumentError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=69)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (e *ArgumentError) Error() string
 ```
 
 #### (*ArgumentError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=70)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (e *ArgumentError) Unwrap() error
 ```
 
 ### type [Array](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Array struct {
 	// contains filtered or unexported fields
 }
@@ -293,7 +293,7 @@ An Array represents an array type.
 
 #### func [NewArray](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func NewArray(elem Type, len int64) *Array
 ```
 
@@ -301,7 +301,7 @@ NewArray returns a new array type for the given element type and length. A negat
 
 #### (*Array) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func (a *Array) Elem() Type
 ```
 
@@ -309,7 +309,7 @@ Elem returns element type of array a.
 
 #### (*Array) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=19) 
 
-``` go linenums="1"
+``` go 
 func (a *Array) Len() int64
 ```
 
@@ -317,19 +317,19 @@ Len returns the length of array a. A negative result indicates an unknown length
 
 #### (*Array) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func (t *Array) String() string
 ```
 
 #### (*Array) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/array.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func (t *Array) Underlying() Type
 ```
 
 ### type [Basic](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=66) 
 
-``` go linenums="1"
+``` go 
 type Basic struct {
 	// contains filtered or unexported fields
 }
@@ -339,7 +339,7 @@ A Basic represents a basic type.
 
 #### (*Basic) [Info](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=76) 
 
-``` go linenums="1"
+``` go 
 func (b *Basic) Info() BasicInfo
 ```
 
@@ -347,7 +347,7 @@ Info returns information about properties of basic type b.
 
 #### (*Basic) [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func (b *Basic) Kind() BasicKind
 ```
 
@@ -355,7 +355,7 @@ Kind returns the kind of basic type b.
 
 #### (*Basic) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=79) 
 
-``` go linenums="1"
+``` go 
 func (b *Basic) Name() string
 ```
 
@@ -363,25 +363,25 @@ Name returns the name of basic type b.
 
 #### (*Basic) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func (t *Basic) String() string
 ```
 
 #### (*Basic) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func (t *Basic) Underlying() Type
 ```
 
 ### type [BasicInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=48) 
 
-``` go linenums="1"
+``` go 
 type BasicInfo int
 ```
 
 BasicInfo is a set of flags describing properties of a basic type.
 
-``` go linenums="1"
+``` go 
 const (
 	IsBoolean BasicInfo = 1 << iota
 	IsInteger
@@ -401,13 +401,13 @@ Properties of basic types.
 
 ### type [BasicKind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/basic.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type BasicKind int
 ```
 
 BasicKind describes the kind of basic type.
 
-``` go linenums="1"
+``` go 
 const (
 	Invalid BasicKind = iota // type is invalid
 
@@ -448,7 +448,7 @@ const (
 
 ### type [Builtin](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=401) 
 
-``` go linenums="1"
+``` go 
 type Builtin struct {
 	// contains filtered or unexported fields
 }
@@ -458,7 +458,7 @@ A Builtin represents a built-in function. Builtins don't have a valid type.
 
 #### (*Builtin) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Exported() bool
 ```
 
@@ -466,7 +466,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Builtin) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Id() string
 ```
 
@@ -474,7 +474,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Builtin) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Name() string
 ```
 
@@ -482,7 +482,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Builtin) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Parent() *Scope
 ```
 
@@ -490,7 +490,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Builtin) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Pkg() *Package
 ```
 
@@ -498,7 +498,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Builtin) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Pos() token.Pos
 ```
 
@@ -506,13 +506,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Builtin) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=544) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) String() string
 ```
 
 #### (*Builtin) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Builtin) Type() Type
 ```
 
@@ -520,7 +520,7 @@ Type returns the object's type.
 
 ### type [Chan](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Chan struct {
 	// contains filtered or unexported fields
 }
@@ -530,7 +530,7 @@ A Chan represents a channel type.
 
 #### func [NewChan](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func NewChan(dir ChanDir, elem Type) *Chan
 ```
 
@@ -538,7 +538,7 @@ NewChan returns a new channel type for the given direction and element type.
 
 #### (*Chan) [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=29) 
 
-``` go linenums="1"
+``` go 
 func (c *Chan) Dir() ChanDir
 ```
 
@@ -546,7 +546,7 @@ Dir returns the direction of channel c.
 
 #### (*Chan) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=32) 
 
-``` go linenums="1"
+``` go 
 func (c *Chan) Elem() Type
 ```
 
@@ -554,25 +554,25 @@ Elem returns the element type of channel c.
 
 #### (*Chan) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=35) 
 
-``` go linenums="1"
+``` go 
 func (t *Chan) String() string
 ```
 
 #### (*Chan) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func (t *Chan) Underlying() Type
 ```
 
 ### type [ChanDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/chan.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type ChanDir int
 ```
 
 A ChanDir value indicates a channel direction.
 
-``` go linenums="1"
+``` go 
 const (
 	SendRecv ChanDir = iota
 	SendOnly
@@ -584,7 +584,7 @@ The direction of a channel is indicated by one of these constants.
 
 ### type [Checker](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/check.go;l=93) 
 
-``` go linenums="1"
+``` go 
 type Checker struct {
 	*Info
 	// contains filtered or unexported fields
@@ -595,7 +595,7 @@ A Checker maintains the state of the type checker. It must be created with NewCh
 
 #### func [NewChecker](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/check.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func NewChecker(conf *Config, fset *token.FileSet, pkg *Package, info *Info) *Checker
 ```
 
@@ -603,7 +603,7 @@ NewChecker returns a new Checker instance for a given package. Package files may
 
 #### (*Checker) [Files](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/check.go;l=304) 
 
-``` go linenums="1"
+``` go 
 func (check *Checker) Files(files []*ast.File) error
 ```
 
@@ -611,7 +611,7 @@ Files checks the provided files as part of the checker's package.
 
 ### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=112) 
 
-``` go linenums="1"
+``` go 
 type Config struct {
 	// Context is the context used for resolving global identifiers. If nil, the
 	// type checker will initialize this field with a newly created context.
@@ -669,7 +669,7 @@ A Config specifies the configuration for type checking. The zero value for Confi
 
 #### (*Config) [Check](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=415) 
 
-``` go linenums="1"
+``` go 
 func (conf *Config) Check(path string, fset *token.FileSet, files []*ast.File, info *Info) (*Package, error)
 ```
 
@@ -681,7 +681,7 @@ The package is specified by a list of *ast.Files and corresponding file set, and
 
 ### type [Const](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=200) 
 
-``` go linenums="1"
+``` go 
 type Const struct {
 	// contains filtered or unexported fields
 }
@@ -691,7 +691,7 @@ A Const represents a declared constant.
 
 #### func [NewConst](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=207) 
 
-``` go linenums="1"
+``` go 
 func NewConst(pos token.Pos, pkg *Package, name string, typ Type, val constant.Value) *Const
 ```
 
@@ -699,7 +699,7 @@ NewConst returns a new constant with value val. The remaining arguments set the 
 
 #### (*Const) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Exported() bool
 ```
 
@@ -707,7 +707,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Const) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Id() string
 ```
 
@@ -715,7 +715,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Const) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Name() string
 ```
 
@@ -723,7 +723,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Const) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Parent() *Scope
 ```
 
@@ -731,7 +731,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Const) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Pkg() *Package
 ```
 
@@ -739,7 +739,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Const) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Pos() token.Pos
 ```
 
@@ -747,13 +747,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Const) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=539) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) String() string
 ```
 
 #### (*Const) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Type() Type
 ```
 
@@ -761,7 +761,7 @@ Type returns the object's type.
 
 #### (*Const) [Val](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=212) 
 
-``` go linenums="1"
+``` go 
 func (obj *Const) Val() constant.Value
 ```
 
@@ -769,7 +769,7 @@ Val returns the constant's value.
 
 ### type [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/context.go;l=41)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type Context struct {
 	// contains filtered or unexported fields
 }
@@ -781,7 +781,7 @@ The use of a shared context does not guarantee that identical instances are dedu
 
 #### func [NewContext](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/context.go;l=55)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func NewContext() *Context
 ```
 
@@ -789,7 +789,7 @@ NewContext creates a new Context.
 
 ### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=41) 
 
-``` go linenums="1"
+``` go 
 type Error struct {
 	Fset *token.FileSet // file set for interpretation of Pos
 	Pos  token.Pos      // error position
@@ -803,7 +803,7 @@ An Error describes a type-checking error; it implements the error interface. A "
 
 #### (Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func (err Error) Error() string
 ```
 
@@ -811,7 +811,7 @@ Error returns an error string formatted as follows: filename:line:column: messag
 
 ### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=322) 
 
-``` go linenums="1"
+``` go 
 type Func struct {
 	// contains filtered or unexported fields
 }
@@ -821,7 +821,7 @@ A Func represents a declared function, concrete method, or abstract (interface) 
 
 #### func [MissingMethod](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/lookup.go;l=307) 
 
-``` go linenums="1"
+``` go 
 func MissingMethod(V Type, T *Interface, static bool) (method *Func, wrongType bool)
 ```
 
@@ -831,7 +831,7 @@ For non-interface types V, or if static is set, V implements T if all methods of
 
 #### func [NewFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=330) 
 
-``` go linenums="1"
+``` go 
 func NewFunc(pos token.Pos, pkg *Package, name string, sig *Signature) *Func
 ```
 
@@ -839,7 +839,7 @@ NewFunc returns a new function with the given signature, representing the functi
 
 #### (*Func) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Exported() bool
 ```
 
@@ -847,7 +847,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Func) [FullName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=341) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) FullName() string
 ```
 
@@ -855,7 +855,7 @@ FullName returns the package- or receiver-type-qualified name of function or met
 
 #### (*Func) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Id() string
 ```
 
@@ -863,7 +863,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Func) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Name() string
 ```
 
@@ -871,7 +871,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Func) [Origin](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=359)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Origin() *Func
 ```
 
@@ -881,7 +881,7 @@ For synthetic functions created during instantiation (such as methods on an inst
 
 #### (*Func) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Parent() *Scope
 ```
 
@@ -889,7 +889,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Func) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Pkg() *Package
 ```
 
@@ -897,7 +897,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Func) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Pos() token.Pos
 ```
 
@@ -905,7 +905,7 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Func) [Scope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=350) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Scope() *Scope
 ```
 
@@ -913,13 +913,13 @@ Scope returns the scope of the function's body block. The result is nil for impo
 
 #### (*Func) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=542) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) String() string
 ```
 
 #### (*Func) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Func) Type() Type
 ```
 
@@ -927,7 +927,7 @@ Type returns the object's type.
 
 ### type [ImportMode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=85)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type ImportMode int
 ```
 
@@ -935,7 +935,7 @@ ImportMode is reserved for future use.
 
 ### type [Importer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=77) 
 
-``` go linenums="1"
+``` go 
 type Importer interface {
 	// Import returns the imported package for the given import path.
 	// The semantics is like for ImporterFrom.ImportFrom except that
@@ -950,7 +950,7 @@ CAUTION: This interface does not support the import of locally vendored packages
 
 ### type [ImporterFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=90)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type ImporterFrom interface {
 	// Importer is present for backward-compatibility. Calling
 	// Import(path) is the same as calling ImportFrom(path, "", 0);
@@ -976,7 +976,7 @@ An ImporterFrom resolves import paths to packages; it supports vendoring per htt
 
 ### type [Info](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=185) 
 
-``` go linenums="1"
+``` go 
 type Info struct {
 	// Types maps expressions to their types, and for constant
 	// expressions, also their values. Invalid expressions are
@@ -1082,12 +1082,12 @@ type Info struct {
 Info holds result type information for a type-checked package. Only the information for which a map is provided is collected. If the package has type errors, the collected information may be incomplete.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Info) [ObjectOf](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=307) 
 
-``` go linenums="1"
+``` go 
 func (info *Info) ObjectOf(id *ast.Ident) Object
 ```
 
@@ -1099,7 +1099,7 @@ Precondition: the Uses and Defs maps are populated.
 
 #### (*Info) [TypeOf](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=288) 
 
-``` go linenums="1"
+``` go 
 func (info *Info) TypeOf(e ast.Expr) Type
 ```
 
@@ -1107,7 +1107,7 @@ TypeOf returns the type of expression e, or nil if not found. Precondition: the 
 
 ### type [Initializer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=386) 
 
-``` go linenums="1"
+``` go 
 type Initializer struct {
 	Lhs []*Var // var Lhs = Rhs
 	Rhs ast.Expr
@@ -1118,13 +1118,13 @@ An Initializer describes a package-level variable, or a list of variables in cas
 
 #### (*Initializer) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=391) 
 
-``` go linenums="1"
+``` go 
 func (init *Initializer) String() string
 ```
 
 ### type [Instance](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=378)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type Instance struct {
 	TypeArgs *TypeList
 	Type     Type
@@ -1135,7 +1135,7 @@ Instance reports the type arguments and instantiated type for type and function 
 
 ### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Interface struct {
 	// contains filtered or unexported fields
 }
@@ -1144,12 +1144,12 @@ type Interface struct {
 An Interface represents an interface type.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewInterfaceType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=53)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func NewInterfaceType(methods []*Func, embeddeds []Type) *Interface
 ```
 
@@ -1159,7 +1159,7 @@ To avoid race conditions, the interface's type set should be computed before con
 
 #### (*Interface) [Complete](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) Complete() *Interface
 ```
 
@@ -1168,12 +1168,12 @@ Complete computes the interface's type set. It must be called by users of NewInt
 Interface types that have been completed are safe for concurrent use.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Interface) [EmbeddedType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=110)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (t *Interface) EmbeddedType(i int) Type
 ```
 
@@ -1181,7 +1181,7 @@ EmbeddedType returns the i'th embedded type of interface t for 0 <= i < t.NumEmb
 
 #### (*Interface) [Empty](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=120) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) Empty() bool
 ```
 
@@ -1189,7 +1189,7 @@ Empty reports whether t is the empty interface.
 
 #### (*Interface) [ExplicitMethod](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) ExplicitMethod(i int) *Func
 ```
 
@@ -1197,7 +1197,7 @@ ExplicitMethod returns the i'th explicitly declared method of interface t for 0 
 
 #### (*Interface) [IsComparable](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=123)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Interface) IsComparable() bool
 ```
 
@@ -1205,7 +1205,7 @@ IsComparable reports whether each type in interface t's type set is comparable.
 
 #### (*Interface) [IsImplicit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=130)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Interface) IsImplicit() bool
 ```
 
@@ -1213,7 +1213,7 @@ IsImplicit reports whether the interface t is a wrapper for a type set literal.
 
 #### (*Interface) [IsMethodSet](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=127)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Interface) IsMethodSet() bool
 ```
 
@@ -1221,7 +1221,7 @@ IsMethodSet reports whether the interface t is fully described by its method set
 
 #### (*Interface) [MarkImplicit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=89)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Interface) MarkImplicit()
 ```
 
@@ -1229,7 +1229,7 @@ MarkImplicit marks the interface t as implicit, meaning this interface correspon
 
 #### (*Interface) [Method](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) Method(i int) *Func
 ```
 
@@ -1237,7 +1237,7 @@ Method returns the i'th method of interface t for 0 <= i < t.NumMethods(). The m
 
 #### (*Interface) [NumEmbeddeds](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) NumEmbeddeds() int
 ```
 
@@ -1245,7 +1245,7 @@ NumEmbeddeds returns the number of embedded types in interface t.
 
 #### (*Interface) [NumExplicitMethods](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=94) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) NumExplicitMethods() int
 ```
 
@@ -1253,7 +1253,7 @@ NumExplicitMethods returns the number of explicitly declared methods of interfac
 
 #### (*Interface) [NumMethods](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) NumMethods() int
 ```
 
@@ -1261,19 +1261,19 @@ NumMethods returns the total number of methods of interface t.
 
 #### (*Interface) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=148) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) String() string
 ```
 
 #### (*Interface) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/interface.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (t *Interface) Underlying() Type
 ```
 
 ### type [Label](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=389) 
 
-``` go linenums="1"
+``` go 
 type Label struct {
 	// contains filtered or unexported fields
 }
@@ -1283,7 +1283,7 @@ A Label represents a declared label. Labels don't have a type.
 
 #### func [NewLabel](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=395) 
 
-``` go linenums="1"
+``` go 
 func NewLabel(pos token.Pos, pkg *Package, name string) *Label
 ```
 
@@ -1291,7 +1291,7 @@ NewLabel returns a new label.
 
 #### (*Label) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Exported() bool
 ```
 
@@ -1299,7 +1299,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Label) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Id() string
 ```
 
@@ -1307,7 +1307,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Label) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Name() string
 ```
 
@@ -1315,7 +1315,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Label) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Parent() *Scope
 ```
 
@@ -1323,7 +1323,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Label) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Pkg() *Package
 ```
 
@@ -1331,7 +1331,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Label) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Pos() token.Pos
 ```
 
@@ -1339,13 +1339,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Label) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=543) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) String() string
 ```
 
 #### (*Label) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Label) Type() Type
 ```
 
@@ -1353,7 +1353,7 @@ Type returns the object's type.
 
 ### type [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Map struct {
 	// contains filtered or unexported fields
 }
@@ -1363,7 +1363,7 @@ A Map represents a map type.
 
 #### func [NewMap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func NewMap(key, elem Type) *Map
 ```
 
@@ -1371,7 +1371,7 @@ NewMap returns a new map for the given key and element types.
 
 #### (*Map) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func (m *Map) Elem() Type
 ```
 
@@ -1379,7 +1379,7 @@ Elem returns the element type of map m.
 
 #### (*Map) [Key](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func (m *Map) Key() Type
 ```
 
@@ -1387,19 +1387,19 @@ Key returns the key type of map m.
 
 #### (*Map) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func (t *Map) String() string
 ```
 
 #### (*Map) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/map.go;l=23) 
 
-``` go linenums="1"
+``` go 
 func (t *Map) Underlying() Type
 ```
 
 ### type [MethodSet](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type MethodSet struct {
 	// contains filtered or unexported fields
 }
@@ -1408,12 +1408,12 @@ type MethodSet struct {
 A MethodSet is an ordered set of concrete or abstract (interface) methods; a method is a MethodVal selection, and they are ordered by ascending m.Obj().Id(). The zero value for a MethodSet is a ready-to-use empty method set.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewMethodSet](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=72) 
 
-``` go linenums="1"
+``` go 
 func NewMethodSet(T Type) *MethodSet
 ```
 
@@ -1421,7 +1421,7 @@ NewMethodSet returns the method set for the given type T. It always returns a no
 
 #### (*MethodSet) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=40) 
 
-``` go linenums="1"
+``` go 
 func (s *MethodSet) At(i int) *Selection
 ```
 
@@ -1429,7 +1429,7 @@ At returns the i'th method in s for 0 <= i < s.Len().
 
 #### (*MethodSet) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func (s *MethodSet) Len() int
 ```
 
@@ -1437,7 +1437,7 @@ Len returns the number of methods in s.
 
 #### (*MethodSet) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (s *MethodSet) Lookup(pkg *Package, name string) *Selection
 ```
 
@@ -1445,13 +1445,13 @@ Lookup returns the method with matching package and name, or nil if not found.
 
 #### (*MethodSet) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/methodset.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func (s *MethodSet) String() string
 ```
 
 ### type [Named](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=94) 
 
-``` go linenums="1"
+``` go 
 type Named struct {
 	// contains filtered or unexported fields
 }
@@ -1461,7 +1461,7 @@ A Named represents a named (defined) type.
 
 #### func [NewNamed](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func NewNamed(obj *TypeName, underlying Type, methods []*Func) *Named
 ```
 
@@ -1469,7 +1469,7 @@ NewNamed returns a new named type for the given type name, underlying type, and 
 
 #### (*Named) [AddMethod](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=448) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) AddMethod(m *Func)
 ```
 
@@ -1477,7 +1477,7 @@ AddMethod adds method m unless it is already in the method list. t must not have
 
 #### (*Named) [Method](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=337) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) Method(i int) *Func
 ```
 
@@ -1487,7 +1487,7 @@ For an ordinary or instantiated type t, the receiver base type of this method is
 
 #### (*Named) [NumMethods](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=328) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) NumMethods() int
 ```
 
@@ -1495,7 +1495,7 @@ NumMethods returns the number of explicit methods defined for t.
 
 #### (*Named) [Obj](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=292) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) Obj() *TypeName
 ```
 
@@ -1503,7 +1503,7 @@ Obj returns the type name for the declaration defining the named type t. For ins
 
 #### (*Named) [Origin](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=301)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Named) Origin() *Named
 ```
 
@@ -1511,7 +1511,7 @@ Origin returns the generic type from which the named type t is instantiated. If 
 
 #### (*Named) [SetTypeParams](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=314)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Named) SetTypeParams(tparams []*TypeParam)
 ```
 
@@ -1519,7 +1519,7 @@ SetTypeParams sets the type parameters of the named type t. t must not have type
 
 #### (*Named) [SetUnderlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=432) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) SetUnderlying(underlying Type)
 ```
 
@@ -1527,13 +1527,13 @@ SetUnderlying sets the underlying type and marks t as complete. t must not have 
 
 #### (*Named) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=457) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) String() string
 ```
 
 #### (*Named) [TypeArgs](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=320)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Named) TypeArgs() *TypeList
 ```
 
@@ -1541,7 +1541,7 @@ TypeArgs returns the type arguments used to instantiate the named type t.
 
 #### (*Named) [TypeParams](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=310)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Named) TypeParams() *TypeParamList
 ```
 
@@ -1549,13 +1549,13 @@ TypeParams returns the type parameters of the named type t, or nil. The result i
 
 #### (*Named) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/named.go;l=456) 
 
-``` go linenums="1"
+``` go 
 func (t *Named) Underlying() Type
 ```
 
 ### type [Nil](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=411) 
 
-``` go linenums="1"
+``` go 
 type Nil struct {
 	// contains filtered or unexported fields
 }
@@ -1565,7 +1565,7 @@ Nil represents the predeclared value nil.
 
 #### (*Nil) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Exported() bool
 ```
 
@@ -1573,7 +1573,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Nil) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Id() string
 ```
 
@@ -1581,7 +1581,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Nil) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Name() string
 ```
 
@@ -1589,7 +1589,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Nil) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Parent() *Scope
 ```
 
@@ -1597,7 +1597,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Nil) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Pkg() *Package
 ```
 
@@ -1605,7 +1605,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Nil) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Pos() token.Pos
 ```
 
@@ -1613,13 +1613,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Nil) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=545) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) String() string
 ```
 
 #### (*Nil) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Nil) Type() Type
 ```
 
@@ -1627,7 +1627,7 @@ Type returns the object's type.
 
 ### type [Object](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Object interface {
 	Parent() *Scope // scope in which this object is declared; nil for methods and struct fields
 	Pos() token.Pos // position of object identifier in declaration
@@ -1647,7 +1647,7 @@ An Object describes a named language entity such as a package, constant, type, v
 
 #### func [LookupFieldOrMethod](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/lookup.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func LookupFieldOrMethod(T Type, addressable bool, pkg *Package, name string) (obj Object, index []int, indirect bool)
 ```
 
@@ -1668,7 +1668,7 @@ If no entry is found, a nil object is returned. In this case, the returned index
 
 ### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=13) 
 
-``` go linenums="1"
+``` go 
 type Package struct {
 	// contains filtered or unexported fields
 }
@@ -1676,7 +1676,7 @@ type Package struct {
 
 A Package describes a Go package.
 
-``` go linenums="1"
+``` go 
 var Unsafe *Package
 ```
 
@@ -1684,7 +1684,7 @@ The Unsafe package is the package returned by an importer for the import path "u
 
 #### func [NewPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func NewPackage(path, name string) *Package
 ```
 
@@ -1692,7 +1692,7 @@ NewPackage returns a new Package for the given package path and name. The packag
 
 #### (*Package) [Complete](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) Complete() bool
 ```
 
@@ -1700,7 +1700,7 @@ A package is complete if its scope contains (at least) all exported objects; oth
 
 #### (*Package) [Imports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) Imports() []*Package
 ```
 
@@ -1712,7 +1712,7 @@ If pkg uses cgo and the FakeImportC configuration option was enabled, the import
 
 #### (*Package) [MarkComplete](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=55) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) MarkComplete()
 ```
 
@@ -1720,7 +1720,7 @@ MarkComplete marks a package as complete.
 
 #### (*Package) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) Name() string
 ```
 
@@ -1728,7 +1728,7 @@ Name returns the package name.
 
 #### (*Package) [Path](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) Path() string
 ```
 
@@ -1736,7 +1736,7 @@ Path returns the package path.
 
 #### (*Package) [Scope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) Scope() *Scope
 ```
 
@@ -1744,7 +1744,7 @@ Scope returns the (complete or incomplete) package scope holding the objects dec
 
 #### (*Package) [SetImports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) SetImports(list []*Package)
 ```
 
@@ -1752,7 +1752,7 @@ SetImports sets the list of explicitly imported packages to list. It is the call
 
 #### (*Package) [SetName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=37)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) SetName(name string)
 ```
 
@@ -1760,13 +1760,13 @@ SetName sets the package name.
 
 #### (*Package) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/package.go;l=72) 
 
-``` go linenums="1"
+``` go 
 func (pkg *Package) String() string
 ```
 
 ### type [PkgName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=183) 
 
-``` go linenums="1"
+``` go 
 type PkgName struct {
 	// contains filtered or unexported fields
 }
@@ -1776,7 +1776,7 @@ A PkgName represents an imported Go package. PkgNames don't have a type.
 
 #### func [NewPkgName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func NewPkgName(pos token.Pos, pkg *Package, name string, imported *Package) *PkgName
 ```
 
@@ -1784,7 +1784,7 @@ NewPkgName returns a new PkgName object representing an imported package. The re
 
 #### (*PkgName) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Exported() bool
 ```
 
@@ -1792,7 +1792,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*PkgName) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Id() string
 ```
 
@@ -1800,7 +1800,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*PkgName) [Imported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=197) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Imported() *Package
 ```
 
@@ -1808,7 +1808,7 @@ Imported returns the package that was imported. It is distinct from Pkg(), which
 
 #### (*PkgName) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Name() string
 ```
 
@@ -1816,7 +1816,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*PkgName) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Parent() *Scope
 ```
 
@@ -1824,7 +1824,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*PkgName) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Pkg() *Package
 ```
 
@@ -1832,7 +1832,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*PkgName) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Pos() token.Pos
 ```
 
@@ -1840,13 +1840,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*PkgName) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=538) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) String() string
 ```
 
 #### (*PkgName) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *PkgName) Type() Type
 ```
 
@@ -1854,7 +1854,7 @@ Type returns the object's type.
 
 ### type [Pointer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/pointer.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Pointer struct {
 	// contains filtered or unexported fields
 }
@@ -1864,7 +1864,7 @@ A Pointer represents a pointer type.
 
 #### func [NewPointer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/pointer.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func NewPointer(elem Type) *Pointer
 ```
 
@@ -1872,7 +1872,7 @@ NewPointer returns a new pointer type for the given element (base) type.
 
 #### (*Pointer) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/pointer.go;l=16) 
 
-``` go linenums="1"
+``` go 
 func (p *Pointer) Elem() Type
 ```
 
@@ -1880,19 +1880,19 @@ Elem returns the element type for the given pointer p.
 
 #### (*Pointer) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/pointer.go;l=19) 
 
-``` go linenums="1"
+``` go 
 func (t *Pointer) String() string
 ```
 
 #### (*Pointer) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/pointer.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func (t *Pointer) Underlying() Type
 ```
 
 ### type [Qualifier](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typestring.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Qualifier func(*Package) string
 ```
 
@@ -1904,7 +1904,7 @@ Using a nil Qualifier is equivalent to using (*Package).Path: the object is qual
 
 #### func [RelativeTo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typestring.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func RelativeTo(pkg *Package) Qualifier
 ```
 
@@ -1912,7 +1912,7 @@ RelativeTo returns a Qualifier that fully qualifies members of all packages othe
 
 ### type [Scope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=22) 
 
-``` go linenums="1"
+``` go 
 type Scope struct {
 	// contains filtered or unexported fields
 }
@@ -1921,10 +1921,10 @@ type Scope struct {
 A Scope maintains a set of objects and links to its containing (parent) and contained (children) scopes. Objects may be inserted and looked up by name. The zero value for Scope is a ready-to-use empty scope.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
-``` go linenums="1"
+``` go 
 var Universe *Scope
 ```
 
@@ -1932,7 +1932,7 @@ The Universe scope contains all predeclared objects of Go. It is the outermost s
 
 #### func [NewScope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func NewScope(parent *Scope, pos, end token.Pos, comment string) *Scope
 ```
 
@@ -1940,7 +1940,7 @@ NewScope returns a new, empty scope contained in the given parent scope, if any.
 
 #### (*Scope) [Child](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Child(i int) *Scope
 ```
 
@@ -1948,7 +1948,7 @@ Child returns the i'th child scope for 0 <= i < NumChildren().
 
 #### (*Scope) [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Contains(pos token.Pos) bool
 ```
 
@@ -1956,13 +1956,13 @@ Contains reports whether pos is within the scope's extent. The result is guarant
 
 #### (*Scope) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=172) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) End() token.Pos
 ```
 
 #### (*Scope) [Innermost](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=186) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Innermost(pos token.Pos) *Scope
 ```
 
@@ -1970,7 +1970,7 @@ Innermost returns the innermost (child) scope containing pos. If pos is not with
 
 #### (*Scope) [Insert](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Insert(obj Object) Object
 ```
 
@@ -1978,7 +1978,7 @@ Insert attempts to insert an object obj into scope s. If s already contains an a
 
 #### (*Scope) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Len() int
 ```
 
@@ -1986,7 +1986,7 @@ Len returns the number of scope elements.
 
 #### (*Scope) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Lookup(name string) Object
 ```
 
@@ -1994,7 +1994,7 @@ Lookup returns the object in scope s with the given name if such an object exist
 
 #### (*Scope) [LookupParent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=84) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) LookupParent(name string, pos token.Pos) (*Scope, Object)
 ```
 
@@ -2004,7 +2004,7 @@ Note that obj.Parent() may be different from the returned scope if the object wa
 
 #### (*Scope) [Names](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Names() []string
 ```
 
@@ -2012,7 +2012,7 @@ Names returns the scope's element names in sorted order.
 
 #### (*Scope) [NumChildren](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=63) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) NumChildren() int
 ```
 
@@ -2020,7 +2020,7 @@ NumChildren returns the number of scopes nested in s.
 
 #### (*Scope) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=45) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Parent() *Scope
 ```
 
@@ -2028,7 +2028,7 @@ Parent returns the scope's containing (parent) scope.
 
 #### (*Scope) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=171) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Pos() token.Pos
 ```
 
@@ -2036,7 +2036,7 @@ Pos and End describe the scope's source code extent [pos, end). The results are 
 
 #### (*Scope) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=234) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) String() string
 ```
 
@@ -2044,7 +2044,7 @@ String returns a string representation of the scope, for debugging.
 
 #### (*Scope) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/scope.go;l=213) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) WriteTo(w io.Writer, n int, recurse bool)
 ```
 
@@ -2052,7 +2052,7 @@ WriteTo writes a string representation of the scope to w, with the scope element
 
 ### type [Selection](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type Selection struct {
 	// contains filtered or unexported fields
 }
@@ -2060,7 +2060,7 @@ type Selection struct {
 
 A Selection describes a selector expression x.f. For the declarations:
 
-``` go linenums="1"
+``` go 
 type T struct{ x int; E }
 type E struct{}
 func (e E) m() {}
@@ -2079,7 +2079,7 @@ T.m         MethodExpr    T       m      func(T)    {1, 0}    false
 
 #### (*Selection) [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Index() []int
 ```
 
@@ -2093,7 +2093,7 @@ The earlier index entries are the indices of the embedded fields implicitly trav
 
 #### (*Selection) [Indirect](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=105) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Indirect() bool
 ```
 
@@ -2101,7 +2101,7 @@ Indirect reports whether any pointer indirection was required to get from x to f
 
 #### (*Selection) [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Kind() SelectionKind
 ```
 
@@ -2109,7 +2109,7 @@ Kind returns the selection kind.
 
 #### (*Selection) [Obj](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=55) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Obj() Object
 ```
 
@@ -2117,7 +2117,7 @@ Obj returns the object denoted by x.f; a *Var for a field selection, and a *Func
 
 #### (*Selection) [Recv](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Recv() Type
 ```
 
@@ -2125,13 +2125,13 @@ Recv returns the type of x in x.f.
 
 #### (*Selection) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) String() string
 ```
 
 #### (*Selection) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func (s *Selection) Type() Type
 ```
 
@@ -2139,13 +2139,13 @@ Type returns the type of x.f, which may be different from the type of f. See Sel
 
 ### type [SelectionKind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/selection.go;l=16) 
 
-``` go linenums="1"
+``` go 
 type SelectionKind int
 ```
 
 SelectionKind describes the kind of a selector expression x.f (excluding qualified identifiers).
 
-``` go linenums="1"
+``` go 
 const (
 	FieldVal   SelectionKind = iota // x.f is a struct field selector
 	MethodVal                       // x.f is a method selector
@@ -2155,7 +2155,7 @@ const (
 
 ### type [Signature](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=19) 
 
-``` go linenums="1"
+``` go 
 type Signature struct {
 	// contains filtered or unexported fields
 }
@@ -2164,12 +2164,12 @@ type Signature struct {
 A Signature represents a (non-builtin) function or method type. The receiver is ignored when comparing signatures for identity.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewSignatureType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=49)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func NewSignatureType(recv *Var, recvTypeParams, typeParams []*TypeParam, params, results *Tuple, variadic bool) *Signature
 ```
 
@@ -2177,7 +2177,7 @@ NewSignatureType creates a new function type for the given receiver, receiver ty
 
 #### (*Signature) [Params](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=91) 
 
-``` go linenums="1"
+``` go 
 func (s *Signature) Params() *Tuple
 ```
 
@@ -2185,7 +2185,7 @@ Params returns the parameters of signature s, or nil.
 
 #### (*Signature) [Recv](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func (s *Signature) Recv() *Var
 ```
 
@@ -2195,7 +2195,7 @@ For an abstract method, Recv returns the enclosing interface either as a *Named 
 
 #### (*Signature) [RecvTypeParams](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=88)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (s *Signature) RecvTypeParams() *TypeParamList
 ```
 
@@ -2203,7 +2203,7 @@ RecvTypeParams returns the receiver type parameters of signature s, or nil.
 
 #### (*Signature) [Results](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=94) 
 
-``` go linenums="1"
+``` go 
 func (s *Signature) Results() *Tuple
 ```
 
@@ -2211,13 +2211,13 @@ Results returns the results of signature s, or nil.
 
 #### (*Signature) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=100) 
 
-``` go linenums="1"
+``` go 
 func (t *Signature) String() string
 ```
 
 #### (*Signature) [TypeParams](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=85)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (s *Signature) TypeParams() *TypeParamList
 ```
 
@@ -2225,13 +2225,13 @@ TypeParams returns the type parameters of signature s, or nil.
 
 #### (*Signature) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=99) 
 
-``` go linenums="1"
+``` go 
 func (t *Signature) Underlying() Type
 ```
 
 #### (*Signature) [Variadic](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/signature.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func (s *Signature) Variadic() bool
 ```
 
@@ -2239,7 +2239,7 @@ Variadic reports whether the signature s is variadic.
 
 ### type [Sizes](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=10) 
 
-``` go linenums="1"
+``` go 
 type Sizes interface {
 	// Alignof returns the alignment of a variable of type T.
 	// Alignof must implement the alignment guarantees required by the spec.
@@ -2259,7 +2259,7 @@ Sizes defines the sizing functions for package unsafe.
 
 #### func [SizesFor](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=217)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func SizesFor(compiler, arch string) Sizes
 ```
 
@@ -2269,7 +2269,7 @@ Supported architectures for compiler "gc": "386", "amd64", "amd64p32", "arm", "a
 
 ### type [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/slice.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Slice struct {
 	// contains filtered or unexported fields
 }
@@ -2279,7 +2279,7 @@ A Slice represents a slice type.
 
 #### func [NewSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/slice.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func NewSlice(elem Type) *Slice
 ```
 
@@ -2287,7 +2287,7 @@ NewSlice returns a new slice type for the given element type.
 
 #### (*Slice) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/slice.go;l=16) 
 
-``` go linenums="1"
+``` go 
 func (s *Slice) Elem() Type
 ```
 
@@ -2295,19 +2295,19 @@ Elem returns the element type of slice s.
 
 #### (*Slice) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/slice.go;l=19) 
 
-``` go linenums="1"
+``` go 
 func (t *Slice) String() string
 ```
 
 #### (*Slice) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/slice.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func (t *Slice) Underlying() Type
 ```
 
 ### type [StdSizes](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=42) 
 
-``` go linenums="1"
+``` go 
 type StdSizes struct {
 	WordSize int64 // word size in bytes - must be >= 4 (32bits)
 	MaxAlign int64 // maximum alignment in bytes - must be >= 1
@@ -2328,25 +2328,25 @@ StdSizes is a convenience type for creating commonly used Sizes. It makes the fo
 
 #### (*StdSizes) [Alignof](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (s *StdSizes) Alignof(T Type) int64
 ```
 
 #### (*StdSizes) [Offsetsof](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=119) 
 
-``` go linenums="1"
+``` go 
 func (s *StdSizes) Offsetsof(fields []*Var) []int64
 ```
 
 #### (*StdSizes) [Sizeof](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/sizes.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (s *StdSizes) Sizeof(T Type) int64
 ```
 
 ### type [Struct](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Struct struct {
 	// contains filtered or unexported fields
 }
@@ -2356,7 +2356,7 @@ A Struct represents a struct type.
 
 #### func [NewStruct](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func NewStruct(fields []*Var, tags []string) *Struct
 ```
 
@@ -2364,7 +2364,7 @@ NewStruct returns a new struct with the given fields and corresponding field tag
 
 #### (*Struct) [Field](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func (s *Struct) Field(i int) *Var
 ```
 
@@ -2372,7 +2372,7 @@ Field returns the i'th field for 0 <= i < NumFields().
 
 #### (*Struct) [NumFields](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (s *Struct) NumFields() int
 ```
 
@@ -2380,13 +2380,13 @@ NumFields returns the number of fields in the struct (including blank and embedd
 
 #### (*Struct) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=57) 
 
-``` go linenums="1"
+``` go 
 func (t *Struct) String() string
 ```
 
 #### (*Struct) [Tag](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func (s *Struct) Tag(i int) string
 ```
 
@@ -2394,13 +2394,13 @@ Tag returns the i'th field tag for 0 <= i < NumFields().
 
 #### (*Struct) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/struct.go;l=56) 
 
-``` go linenums="1"
+``` go 
 func (t *Struct) Underlying() Type
 ```
 
 ### type [Term](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=37)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type Term term
 ```
 
@@ -2408,7 +2408,7 @@ A Term represents a term in a Union.
 
 #### func [NewTerm](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=40)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func NewTerm(tilde bool, typ Type) *Term
 ```
 
@@ -2416,25 +2416,25 @@ NewTerm returns a new union term.
 
 #### (*Term) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=44)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Term) String() string
 ```
 
 #### (*Term) [Tilde](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=42)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Term) Tilde() bool
 ```
 
 #### (*Term) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=43)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *Term) Type() Type
 ```
 
 ### type [Tuple](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=10) 
 
-``` go linenums="1"
+``` go 
 type Tuple struct {
 	// contains filtered or unexported fields
 }
@@ -2444,7 +2444,7 @@ A Tuple represents an ordered list of variables; a nil *Tuple is a valid (empty)
 
 #### func [NewTuple](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func NewTuple(x ...*Var) *Tuple
 ```
 
@@ -2452,7 +2452,7 @@ NewTuple returns a new tuple for the given variables.
 
 #### (*Tuple) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (t *Tuple) At(i int) *Var
 ```
 
@@ -2460,7 +2460,7 @@ At returns the i'th variable of tuple t.
 
 #### (*Tuple) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=23) 
 
-``` go linenums="1"
+``` go 
 func (t *Tuple) Len() int
 ```
 
@@ -2468,19 +2468,19 @@ Len returns the number variables of tuple t.
 
 #### (*Tuple) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func (t *Tuple) String() string
 ```
 
 #### (*Tuple) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/tuple.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func (t *Tuple) Underlying() Type
 ```
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/type.go;l=9) 
 
-``` go linenums="1"
+``` go 
 type Type interface {
 	// Underlying returns the underlying type of a type.
 	Underlying() Type
@@ -2494,7 +2494,7 @@ A Type represents a type of Go. All types implement the Type interface.
 
 #### func [Default](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/predicates.go;l=479)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Default(t Type) Type
 ```
 
@@ -2502,7 +2502,7 @@ Default returns the default "typed" type for an "untyped" type; it returns the i
 
 #### func [Instantiate](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/instantiate.go;l=43)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func Instantiate(ctxt *Context, orig Type, targs []Type, validate bool) (Type, error)
 ```
 
@@ -2516,7 +2516,7 @@ If validate is not set, Instantiate does not verify the type argument count or w
 
 ### type [TypeAndValue](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=316) 
 
-``` go linenums="1"
+``` go 
 type TypeAndValue struct {
 	Type  Type
 	Value constant.Value
@@ -2528,7 +2528,7 @@ TypeAndValue reports the type and value (for constants) of the corresponding exp
 
 #### func [Eval](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/eval.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func Eval(fset *token.FileSet, pkg *Package, pos token.Pos, expr string) (_ TypeAndValue, err error)
 ```
 
@@ -2538,7 +2538,7 @@ The meaning of the parameters fset, pkg, and pos is the same as in CheckExpr. An
 
 #### (TypeAndValue) [Addressable](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=358) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) Addressable() bool
 ```
 
@@ -2546,7 +2546,7 @@ Addressable reports whether the corresponding expression is addressable (https:/
 
 #### (TypeAndValue) [Assignable](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=364) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) Assignable() bool
 ```
 
@@ -2554,7 +2554,7 @@ Assignable reports whether the corresponding expression is assignable to (provid
 
 #### (TypeAndValue) [HasOk](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=370) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) HasOk() bool
 ```
 
@@ -2562,7 +2562,7 @@ HasOk reports whether the corresponding expression may be used on the rhs of a c
 
 #### (TypeAndValue) [IsBuiltin](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=335) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) IsBuiltin() bool
 ```
 
@@ -2570,7 +2570,7 @@ IsBuiltin reports whether the corresponding expression denotes a (possibly paren
 
 #### (TypeAndValue) [IsNil](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=352) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) IsNil() bool
 ```
 
@@ -2578,7 +2578,7 @@ IsNil reports whether the corresponding expression denotes the predeclared value
 
 #### (TypeAndValue) [IsType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=329) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) IsType() bool
 ```
 
@@ -2586,7 +2586,7 @@ IsType reports whether the corresponding expression specifies a type.
 
 #### (TypeAndValue) [IsValue](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=342) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) IsValue() bool
 ```
 
@@ -2594,7 +2594,7 @@ IsValue reports whether the corresponding expression is a value. Builtins are no
 
 #### (TypeAndValue) [IsVoid](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/api.go;l=324) 
 
-``` go linenums="1"
+``` go 
 func (tv TypeAndValue) IsVoid() bool
 ```
 
@@ -2602,7 +2602,7 @@ IsVoid reports whether the corresponding expression is a function call without r
 
 ### type [TypeList](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=28)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type TypeList struct {
 	// contains filtered or unexported fields
 }
@@ -2612,7 +2612,7 @@ TypeList holds a list of types.
 
 #### (*TypeList) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=43)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (l *TypeList) At(i int) Type
 ```
 
@@ -2620,7 +2620,7 @@ At returns the i'th type in the list.
 
 #### (*TypeList) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=40)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (l *TypeList) Len() int
 ```
 
@@ -2628,7 +2628,7 @@ Len returns the number of types in the list. It is safe to call on a nil receive
 
 ### type [TypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=217) 
 
-``` go linenums="1"
+``` go 
 type TypeName struct {
 	// contains filtered or unexported fields
 }
@@ -2638,7 +2638,7 @@ A TypeName represents a name for a (defined or alias) type.
 
 #### func [NewTypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func NewTypeName(pos token.Pos, pkg *Package, name string, typ Type) *TypeName
 ```
 
@@ -2648,7 +2648,7 @@ The typ argument may be a defined (Named) type or an alias type. It may also be 
 
 #### (*TypeName) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Exported() bool
 ```
 
@@ -2656,7 +2656,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*TypeName) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Id() string
 ```
 
@@ -2664,7 +2664,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*TypeName) [IsAlias](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=241)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) IsAlias() bool
 ```
 
@@ -2672,7 +2672,7 @@ IsAlias reports whether obj is an alias name for a type.
 
 #### (*TypeName) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Name() string
 ```
 
@@ -2680,7 +2680,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*TypeName) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Parent() *Scope
 ```
 
@@ -2688,7 +2688,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*TypeName) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Pkg() *Package
 ```
 
@@ -2696,7 +2696,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*TypeName) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Pos() token.Pos
 ```
 
@@ -2704,13 +2704,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*TypeName) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=540) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) String() string
 ```
 
 #### (*TypeName) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *TypeName) Type() Type
 ```
 
@@ -2718,7 +2718,7 @@ Type returns the object's type.
 
 ### type [TypeParam](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=21)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type TypeParam struct {
 	// contains filtered or unexported fields
 }
@@ -2728,7 +2728,7 @@ A TypeParam represents a type parameter type.
 
 #### func [NewTypeParam](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=35)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func NewTypeParam(obj *TypeName, constraint Type) *TypeParam
 ```
 
@@ -2738,7 +2738,7 @@ The constraint argument can be nil, and set later via SetConstraint. If the cons
 
 #### (*TypeParam) [Constraint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=71)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) Constraint() Type
 ```
 
@@ -2746,7 +2746,7 @@ Constraint returns the type constraint specified for t.
 
 #### (*TypeParam) [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=63)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) Index() int
 ```
 
@@ -2754,7 +2754,7 @@ Index returns the index of the type param within its param list, or -1 if the ty
 
 #### (*TypeParam) [Obj](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=68)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) Obj() *TypeName
 ```
 
@@ -2762,7 +2762,7 @@ Obj returns the type name for t.
 
 #### (*TypeParam) [SetConstraint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=81)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) SetConstraint(bound Type)
 ```
 
@@ -2772,19 +2772,19 @@ It must be called by users of NewTypeParam after the bound's underlying is fully
 
 #### (*TypeParam) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=95)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) String() string
 ```
 
 #### (*TypeParam) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typeparam.go;l=91)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (t *TypeParam) Underlying() Type
 ```
 
 ### type [TypeParamList](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=8)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type TypeParamList struct {
 	// contains filtered or unexported fields
 }
@@ -2794,7 +2794,7 @@ TypeParamList holds a list of type parameters.
 
 #### (*TypeParamList) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=15)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (l *TypeParamList) At(i int) *TypeParam
 ```
 
@@ -2802,7 +2802,7 @@ At returns the i'th type parameter in the list.
 
 #### (*TypeParamList) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/typelists.go;l=12)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (l *TypeParamList) Len() int
 ```
 
@@ -2810,7 +2810,7 @@ Len returns the number of type parameters in the list. It is safe to call on a n
 
 ### type [Union](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=17)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type Union struct {
 	// contains filtered or unexported fields
 }
@@ -2820,7 +2820,7 @@ A Union represents a union of terms embedded in an interface.
 
 #### func [NewUnion](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=23)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func NewUnion(terms []*Term) *Union
 ```
 
@@ -2828,31 +2828,31 @@ NewUnion returns a new Union type with the given terms. It is an error to create
 
 #### (*Union) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=30)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (u *Union) Len() int
 ```
 
 #### (*Union) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=34)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (u *Union) String() string
 ```
 
 #### (*Union) [Term](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=31)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (u *Union) Term(i int) *Term
 ```
 
 #### (*Union) [Underlying](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/union.go;l=33)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (u *Union) Underlying() Type
 ```
 
 ### type [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=267) 
 
-``` go linenums="1"
+``` go 
 type Var struct {
 	// contains filtered or unexported fields
 }
@@ -2862,7 +2862,7 @@ A Variable represents a declared variable (including function parameters and res
 
 #### func [NewField](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=289) 
 
-``` go linenums="1"
+``` go 
 func NewField(pos token.Pos, pkg *Package, name string, typ Type, embedded bool) *Var
 ```
 
@@ -2870,7 +2870,7 @@ NewField returns a new variable representing a struct field. For embedded fields
 
 #### func [NewParam](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=282) 
 
-``` go linenums="1"
+``` go 
 func NewParam(pos token.Pos, pkg *Package, name string, typ Type) *Var
 ```
 
@@ -2878,7 +2878,7 @@ NewParam returns a new variable representing a function parameter.
 
 #### func [NewVar](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=277) 
 
-``` go linenums="1"
+``` go 
 func NewVar(pos token.Pos, pkg *Package, name string, typ Type) *Var
 ```
 
@@ -2886,7 +2886,7 @@ NewVar returns a new variable. The arguments set the attributes found with all O
 
 #### (*Var) [Anonymous](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=295) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Anonymous() bool
 ```
 
@@ -2894,7 +2894,7 @@ Anonymous reports whether the variable is an embedded field. Same as Embedded; o
 
 #### (*Var) [Embedded](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=298)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Embedded() bool
 ```
 
@@ -2902,7 +2902,7 @@ Embedded reports whether the variable is an embedded field.
 
 #### (*Var) [Exported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Exported() bool
 ```
 
@@ -2910,7 +2910,7 @@ Exported reports whether the object is exported (starts with a capital letter). 
 
 #### (*Var) [Id](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=146) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Id() string
 ```
 
@@ -2918,7 +2918,7 @@ Id is a wrapper for Id(obj.Pkg(), obj.Name()).
 
 #### (*Var) [IsField](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=301) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) IsField() bool
 ```
 
@@ -2926,7 +2926,7 @@ IsField reports whether the variable is a struct field.
 
 #### (*Var) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Name() string
 ```
 
@@ -2934,7 +2934,7 @@ Name returns the object's (package-local, unqualified) name.
 
 #### (*Var) [Origin](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=310)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Origin() *Var
 ```
 
@@ -2944,7 +2944,7 @@ For synthetic Vars created during instantiation (such as struct fields or functi
 
 #### (*Var) [Parent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Parent() *Scope
 ```
 
@@ -2952,7 +2952,7 @@ Parent returns the scope in which the object is declared. The result is nil for 
 
 #### (*Var) [Pkg](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Pkg() *Package
 ```
 
@@ -2960,7 +2960,7 @@ Pkg returns the package to which the object belongs. The result is nil for label
 
 #### (*Var) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Pos() token.Pos
 ```
 
@@ -2968,13 +2968,13 @@ Pos returns the declaration position of the object's identifier.
 
 #### (*Var) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=541) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) String() string
 ```
 
 #### (*Var) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/types/object.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (obj *Var) Type() Type
 ```
 

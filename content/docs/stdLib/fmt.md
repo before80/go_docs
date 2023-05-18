@@ -121,7 +121,7 @@ pointer to above:   &{}, &[], &map[]
 
 ​	宽度和精度以Unicode码点为单位衡量，即符文。 (这与C的printf不同，其中单位始终以字节为单位衡量。)其中一个或两个标志可以用字符'`*`'替换，从而导致它们的值从要格式化的下一个操作数(必须是`int`类型的)获取。
 
-```go linenums="1"
+```go 
 	fmt.Printf("%0*.*f \n", 7, 3, 3.454489123456)  //003.454 
 	fmt.Printf("%0*.*f \n", 8, 3, 3.454489123456)  //0003.454
 	fmt.Printf("%0*.*f \n", 9, 3, 3.454489123456)  //00003.454  
@@ -162,7 +162,7 @@ pointer to above:   &{}, &[], &map[]
 
 ​		对于浮点值，宽度设置字段的最小宽度，精度设置小数点后的位数(如果适用)，但是对于`%g` 或 `%G`，精度设置最大有效数字的数量(尾随零被删除)。例如，给定12.345，格式`%6.3f`打印12.345，而`%.3g`打印12.3。`%e`，`%f`和`%＃g`的默认精度为6；对于`%g`，它是唯一确定该值的最小数字数。(不好理解，见以下例子)
 
-```go linenums="1"
+```go 
 	fmt.Printf("%08.1f \n", 123.444) // 000123.4 
 	fmt.Printf("%08.1f \n", 123.456) // 000123.5
 
@@ -207,7 +207,7 @@ pointer to above:   &{}, &[], &map[]
 
 ​	使用`%q`格式化单个整数码点或符文字符串(类型`[] rune`)时，无效的Unicode码点将更改为Unicode替换字符`U+FFFD`，如strconv.QuoteRune中所述。(不好理解，见以下例子)
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -287,7 +287,7 @@ func main() {
 
 ​	无论动词如何，如果操作数是接口值，则使用内部具体值，而不是接口本身。因此：
 
-``` go linenums="1"
+``` go 
 var i interface{} = 23
 fmt.Printf("%v\n", i)
 ```
@@ -311,14 +311,14 @@ fmt.Printf("%v\n", i)
 
 ​	为避免出现递归，例如
 
-``` go linenums="1"
+``` go 
 type X string
 func (x X) String() string { return Sprintf("<%s>", x) }
 ```
 
 ​	在递归之前将值转换：
 
-``` go linenums="1"
+``` go 
 func (x X) String() string { return Sprintf("<%s>", string(x)) }
 ```
 
@@ -433,7 +433,7 @@ Sscanf(" 12 34 567 ", "%5s%d", &s, &i)
 
 ​	这些示例演示了使用格式化字符串进行打印的基础知识。Printf、Sprintf和Fprintf都采用格式化字符串，指定如何格式化后续参数。例如，%d(我们称之为"动词")表示要打印相应的参数，该参数必须是十进制整数(或包含整数的内容，例如int切片)。动词%v("v"表示"value")始终以默认形式格式化参数，就像Print或Println显示它一样。特殊动词%T("T"表示"Type")打印参数的类型而不是其值。这些示例并不详尽，有关所有细节，请参见包的注释。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -582,7 +582,7 @@ map[dachshund:false peanut:true] map[string]bool{"dachshund":false, "peanut":tru
 
 ​	Print、Println和Printf在它们的参数布局方面有所不同。在这个示例中，我们可以比较它们的行为。Println始终在它打印的项之间添加空格，而Print仅在非字符串参数之间添加空格，并且Printf完全按照指令执行。Sprint、Sprintln、Sprintf、Fprint、Fprintln和Fprintf的行为与它们对应的Print、Println和Printf函数相同。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -631,7 +631,7 @@ This section is empty.
 
 #### func [Append](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=287)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func Append(b []byte, a ...any) []byte
 ```
 
@@ -639,7 +639,7 @@ func Append(b []byte, a ...any) []byte
 
 #### func [Appendf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=247)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func Appendf(b []byte, format string, a ...any) []byte
 ```
 
@@ -647,7 +647,7 @@ func Appendf(b []byte, format string, a ...any) []byte
 
 #### func [Appendln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=330)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func Appendln(b []byte, a ...any) []byte
 ```
 
@@ -655,7 +655,7 @@ func Appendln(b []byte, a ...any) []byte
 
 #### func [Errorf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/errors.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func Errorf(format string, a ...any) error
 ```
 
@@ -664,7 +664,7 @@ func Errorf(format string, a ...any) error
 ​	如果格式说明符包含一个带有错误操作数的`%w`动词，则返回的错误将实现一个返回该操作数的Unwrap方法。如果有多个`%w`动词，则返回的错误将实现一个返回按出现在参数中的顺序包含所有`%w`操作数的[]error类型的Unwrap方法。为`%w`动词提供未实现[错误接口](../builtin#type-error)的操作数是无效的。否则，`%w`动词是`%v`的同义词。
 
 ##### Errorf Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -684,7 +684,7 @@ user "bueller" (id 17) not found
 
 #### func [FormatString](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=81)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func FormatString(state State, verb rune) string
 ```
 
@@ -692,14 +692,14 @@ func FormatString(state State, verb rune) string
 
 #### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=260) 
 
-``` go linenums="1"
+``` go 
 func Fprint(w io.Writer, a ...any) (n int, err error)
 ```
 
 ​	Fprint函数使用操作数的默认格式进行格式化，并写入w中。当没有一个操作数是字符串时，它们之间添加空格。它返回写入的字节数和遇到的任何写入错误。
 
 ##### Fprint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -727,14 +727,14 @@ Kim is 22 years old.
 
 #### func [Fprintf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=222) 
 
-``` go linenums="1"
+``` go 
 func Fprintf(w io.Writer, format string, a ...any) (n int, err error)
 ```
 
 ​	Fprintf函数按照格式说明符对数据进行格式化，并将结果写入w。它返回写入的字节数和遇到的任何写入错误。
 
 ##### Fprintf Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -762,14 +762,14 @@ Kim is 22 years old.
 
 #### func [Fprintln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=302) 
 
-``` go linenums="1"
+``` go 
 func Fprintln(w io.Writer, a ...any) (n int, err error)
 ```
 
 ​	Fprintln函数按照默认格式对数据进行格式化，并将结果写入w。操作数之间总是添加空格，并追加一个换行符。它返回写入的字节数和遇到的任何写入错误。
 
 ##### Fprintln Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -797,7 +797,7 @@ Kim is 22 years old.
 
 #### func [Fscan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func Fscan(r io.Reader, a ...any) (n int, err error)
 ```
 
@@ -805,14 +805,14 @@ func Fscan(r io.Reader, a ...any) (n int, err error)
 
 #### func [Fscanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func Fscanf(r io.Reader, format string, a ...any) (n int, err error)
 ```
 
 ​	Fscanf函数从r中读取文本，按照格式说明符确定的方式，将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的条目数。输入中的换行符必须与格式中的换行符匹配。
 
 ##### Fscanf Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -843,14 +843,14 @@ Output:
 
 #### func [Fscanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=130) 
 
-``` go linenums="1"
+``` go 
 func Fscanln(r io.Reader, a ...any) (n int, err error)
 ```
 
 ​	Fscanln函数类似于Fscan，但会在换行符处停止扫描，在最后一个项目之后必须有一个换行符或EOF。
 
 ##### Fscanln Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -885,14 +885,14 @@ Output:
 
 #### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=271) 
 
-``` go linenums="1"
+``` go 
 func Print(a ...any) (n int, err error)
 ```
 
 ​	Print函数按照默认格式对数据进行格式化，并写入标准输出。当两个操作数都不是字符串时，它们之间添加空格。它返回写入的字节数和遇到的任何写入错误。
 
 ##### Print Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -914,14 +914,14 @@ Kim is 22 years old.
 
 #### func [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=232) 
 
-``` go linenums="1"
+``` go 
 func Printf(format string, a ...any) (n int, err error)
 ```
 
 ​	Printf函数根据格式说明符格式化并写入标准输出。它返回写入的字节数和任何遇到的写入错误。
 
 ##### Printf Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -943,14 +943,14 @@ Kim is 22 years old.
 
 #### func [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=313) 
 
-``` go linenums="1"
+``` go 
 func Println(a ...any) (n int, err error)
 ```
 
 ​	Println函数根据操作数的默认格式进行格式化并写入标准输出。无论操作数是什么，都会添加空格，并追加一个换行符。它返回写入的字节数和任何遇到的写入错误。
 
 ##### Println Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -972,7 +972,7 @@ Kim is 22 years old.
 
 #### func [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=63) 
 
-``` go linenums="1"
+``` go 
 func Scan(a ...any) (n int, err error)
 ```
 
@@ -980,7 +980,7 @@ func Scan(a ...any) (n int, err error)
 
 #### func [Scanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func Scanf(format string, a ...any) (n int, err error)
 ```
 
@@ -988,7 +988,7 @@ func Scanf(format string, a ...any) (n int, err error)
 
 #### func [Scanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func Scanln(a ...any) (n int, err error)
 ```
 
@@ -996,14 +996,14 @@ func Scanln(a ...any) (n int, err error)
 
 #### func [Sprint](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=277) 
 
-``` go linenums="1"
+``` go 
 func Sprint(a ...any) string
 ```
 
 ​	Sprint函数根据操作数的默认格式进行格式化，并返回生成的字符串。当两个操作数都不是字符串时，将它们之间添加空格。
 
 ##### Sprint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1026,14 +1026,14 @@ Kim is 22 years old.
 
 #### func [Sprintf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=237) 
 
-``` go linenums="1"
+``` go 
 func Sprintf(format string, a ...any) string
 ```
 
 ​	Sprintf函数根据格式说明符格式化并返回一个字符串。
 
 ##### Sprintf Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1056,14 +1056,14 @@ Kim is 22 years old.
 
 #### func [Sprintln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=319) 
 
-``` go linenums="1"
+``` go 
 func Sprintln(a ...any) string
 ```
 
 ​	Sprintln函数使用其操作数的默认格式进行格式化，并返回生成的字符串。在操作数之间始终添加空格，并附加换行符。
 
 ##### Sprintln Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1086,7 +1086,7 @@ Kim is 22 years old.
 
 #### func [Sscan](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=99) 
 
-``` go linenums="1"
+``` go 
 func Sscan(str string, a ...any) (n int, err error)
 ```
 
@@ -1094,14 +1094,14 @@ func Sscan(str string, a ...any) (n int, err error)
 
 #### func [Sscanf](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func Sscanf(str string, format string, a ...any) (n int, err error)
 ```
 
 ​	Sscanf函数扫描参数字符串，将根据格式将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项目数。输入中的换行符必须与格式中的换行符匹配。
 
 ##### Sscanf  Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1125,7 +1125,7 @@ Output:
 
 #### func [Sscanln](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=105) 
 
-``` go linenums="1"
+``` go 
 func Sscanln(str string, a ...any) (n int, err error)
 ```
 
@@ -1135,7 +1135,7 @@ func Sscanln(str string, a ...any) (n int, err error)
 
 ### type [Formatter](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=54) 
 
-``` go linenums="1"
+``` go 
 type Formatter interface {
 	Format(f State, verb rune)
 }
@@ -1145,7 +1145,7 @@ type Formatter interface {
 
 ### type [GoStringer](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=71) 
 
-``` go linenums="1"
+``` go 
 type GoStringer interface {
 	GoString() string
 }
@@ -1154,7 +1154,7 @@ type GoStringer interface {
 ​	GoStringer 由任何具有 GoString 方法的值实现，该方法定义该值的 Go 语法。GoString 方法用于打印作为 %#v 格式的操作数传递的值。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1215,7 +1215,7 @@ Person{Name: "Theia", Age: 4}
 
 ### type [ScanState](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type ScanState interface {
 	// ReadRune从输入中读取下一个符文(Unicode码点)。
 	// 如果在Scanln、Fscanln或Sscanln期间调用，
@@ -1249,7 +1249,7 @@ type ScanState interface {
 
 ### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/scan.go;l=55) 
 
-``` go linenums="1"
+``` go 
 type Scanner interface {
 	Scan(state ScanState, verb rune) error
 }
@@ -1259,7 +1259,7 @@ type Scanner interface {
 
 ### type [State](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type State interface {
 	// Write是调用以将格式化输出发射到打印机的函数。
 	Write(b []byte) (n int, err error)
@@ -1277,7 +1277,7 @@ type State interface {
 
 ### type [Stringer](https://cs.opensource.google/go/go/+/go1.20.1:src/fmt/print.go;l=63) 
 
-``` go linenums="1"
+``` go 
 type Stringer interface {
 	String() string
 }
@@ -1286,7 +1286,7 @@ type Stringer interface {
 ​	Stringer由任何具有String方法的值实现，该方法定义该值的"原生"格式。String方法用于打印作为接受字符串的任何格式的操作数或打印机传递的未格式化操作数，例如Print。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (

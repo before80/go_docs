@@ -13,7 +13,7 @@ draft = false
 ​	sort包提供了对切片和用户定义集合进行排序的基本功能。
 
 #### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -73,7 +73,7 @@ Output:
 
 ​	ExampleSortKeys 展示了使用可编程排序标准对结构体类型进行排序的技术。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -175,7 +175,7 @@ ExampleMultiKeys demonstrates a technique for sorting a struct type using differ
 
 ​	ExampleMultiKeys演示了一种在比较中使用不同的多字段集对结构类型进行排序的技术。我们将 "Less"函数串联起来，每个函数都对一个字段进行比较。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -306,7 +306,7 @@ By language,<lines,user: [{dmr C 100} {ken C 150} {r C 150} {gri Go 100} {r Go 1
 ```
 
 #### Example (SortWrapper)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -396,7 +396,7 @@ This section is empty.
 
 #### func [Find](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=99)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func Find(n int, cmp func(int) int) (i int, found bool)
 ```
 
@@ -406,7 +406,7 @@ func Find(n int, cmp func(int) int) (i int, found bool)
 
 ​	例如，在已排序的随机访问字符串列表中查找特定字符串的方法如下：
 
-```go linenums="1"
+```go 
 i, found := sort.Find(x.Len(), func(i int) int {
     return strings.Compare(target, x.At(i))
 })
@@ -419,14 +419,14 @@ if found {
 
 #### func [Float64s](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=161) 
 
-``` go linenums="1"
+``` go 
 func Float64s(x []float64)
 ```
 
 ​	Float64s函数以递增顺序对float64s切片进行排序。非数字(NaN)值在其他值之前排序。
 
 ##### Float64s Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -453,14 +453,14 @@ Output:
 
 #### func [Float64sAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=171) 
 
-``` go linenums="1"
+``` go 
 func Float64sAreSorted(x []float64) bool
 ```
 
 ​	Float64sAreSorted函数报告切片x是否按递增顺序排序，其中非数字(NaN)值在任何其他值之前。
 
 ##### Float64sAreSorted Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -488,14 +488,14 @@ false
 
 #### func [Ints](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func Ints(x []int)
 ```
 
 ​	Ints函数按递增顺序对int的切片进行排序。
 
 ##### Ints Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -515,14 +515,14 @@ Output:
 
 #### func [IntsAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func IntsAreSorted(x []int) bool
 ```
 
 ​	IntsAreSorted函数报告切片x是否按递增顺序排序。
 
 ##### IntsAreSorted Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -550,7 +550,7 @@ false
 
 #### func [IsSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=99) 
 
-``` go linenums="1"
+``` go 
 func IsSorted(data Interface) bool
 ```
 
@@ -558,7 +558,7 @@ func IsSorted(data Interface) bool
 
 #### func [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=58) 
 
-``` go linenums="1"
+``` go 
 func Search(n int, f func(int) bool) int
 ```
 
@@ -572,7 +572,7 @@ func Search(n int, f func(int) bool) int
 
 ​	为了完成上面的例子，以下代码尝试在升序排列的整数切片 data 中查找值 x：
 
-```go linenums="1"
+```go 
 x := 23
 i := sort.Search(len(data), func(i int) bool { return data[i] >= x })
 if i < len(data) && data[i] == x {
@@ -584,7 +584,7 @@ if i < len(data) && data[i] == x {
 
 ​	作为一个更为玩乐的例子，以下程序可以猜测你选的数字：
 
-``` go linenums="1"
+``` go 
 func GuessingGame() {
 	var s string
 	fmt.Printf("Pick an integer from 0 to 100.\n")
@@ -601,7 +601,7 @@ func GuessingGame() {
 
 ​	此示例演示如何搜索按升序排序的列表。
 
-``` go linenums="1" hl_lines="11 11"
+``` go  hl_lines="11 11"
 package main
 
 import (
@@ -629,7 +629,7 @@ found 6 at index 2 in [1 3 6 10 15 21 28 36 45 55]
 
 ​	此示例演示如何搜索按降序排序的列表。这种方法与按升序搜索列表相同，但条件颠倒了。
 
-``` go linenums="1" hl_lines="11 11"
+``` go  hl_lines="11 11"
 package main
 
 import (
@@ -655,7 +655,7 @@ found 6 at index 7 in [55 45 36 28 21 15 10 6 3 1]
 
 #### func [SearchFloat64s](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=131) 
 
-``` go linenums="1"
+``` go 
 func SearchFloat64s(a []float64, x float64) int
 ```
 
@@ -665,7 +665,7 @@ func SearchFloat64s(a []float64, x float64) int
 
 ​	这个例子演示了如何在升序排序的列表中搜索 float64。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -699,14 +699,14 @@ found 2 at index 1 in [1 2 3.3 4.6 6.1 7.2 8]
 
 #### func [SearchInts](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func SearchInts(a []int, x int) int
 ```
 
 ​	SearchInts函数在一个已排序的整数切片中搜索x并返回其下标，如Search所定义的那样。如果x不存在，则返回插入x的下标(可能是len(a))。切片必须按升序排序。
 
 ##### SearchInts Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -738,7 +738,7 @@ found 2 at index 1 in [1 2 3 4 6 7 8]
 
 #### func [SearchStrings](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func SearchStrings(a []string, x string) int
 ```
 
@@ -746,7 +746,7 @@ func SearchStrings(a []string, x string) int
 
 #### func [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=21)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Slice(x any, less func(i, j int) bool)
 ```
 
@@ -757,7 +757,7 @@ func Slice(x any, less func(i, j int) bool)
 ​	less函数必须满足Interface类型的Less方法的相同要求。
 
 ##### Slice Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -789,7 +789,7 @@ By age: [{Gopher 7} {Vera 24} {Alice 55} {Bob 75}]
 
 #### func [SliceIsSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=43)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func SliceIsSorted(x any, less func(i, j int) bool) bool
 ```
 
@@ -797,7 +797,7 @@ func SliceIsSorted(x any, less func(i, j int) bool) bool
 
 #### func [SliceStable](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/slice.go;l=35)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func SliceStable(x any, less func(i, j int) bool)
 ```
 
@@ -806,7 +806,7 @@ func SliceStable(x any, less func(i, j int) bool)
 ​	less函数必须满足Interface类型的Less方法的相同要求。
 
 ##### SliceStable Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -847,7 +847,7 @@ By age,name: [{Alice 25} {Bob 25} {Colin 25} {Elizabeth 25} {Alice 75} {Alice 75
 
 #### func [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=42) 
 
-``` go linenums="1"
+``` go 
 func Sort(data Interface)
 ```
 
@@ -855,7 +855,7 @@ func Sort(data Interface)
 
 #### func [Stable](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=207)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Stable(data Interface)
 ```
 
@@ -865,14 +865,14 @@ func Stable(data Interface)
 
 #### func [Strings](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func Strings(x []string)
 ```
 
 ​	Strings函数按照升序规则对字符串切片 x 进行排序。
 
 ##### Strings Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -892,7 +892,7 @@ Output:
 
 #### func [StringsAreSorted](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=174) 
 
-``` go linenums="1"
+``` go 
 func StringsAreSorted(x []string) bool
 ```
 
@@ -902,7 +902,7 @@ func StringsAreSorted(x []string) bool
 
 ### type [Float64Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=123) 
 
-``` go linenums="1"
+``` go 
 type Float64Slice []float64
 ```
 
@@ -910,7 +910,7 @@ type Float64Slice []float64
 
 #### (Float64Slice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (x Float64Slice) Len() int
 ```
 
@@ -918,7 +918,7 @@ func (x Float64Slice) Len() int
 
 #### (Float64Slice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func (x Float64Slice) Less(i, j int) bool
 ```
 
@@ -930,7 +930,7 @@ x[i] < x[j] || (math.IsNaN(x[i]) && !math.IsNaN(x[j]))
 
 #### (Float64Slice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (p Float64Slice) Search(x float64) int
 ```
 
@@ -938,7 +938,7 @@ func (p Float64Slice) Search(x float64) int
 
 ##### Search Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -991,7 +991,7 @@ Output:
 
 #### (Float64Slice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=142) 
 
-``` go linenums="1"
+``` go 
 func (x Float64Slice) Sort()
 ```
 
@@ -999,7 +999,7 @@ func (x Float64Slice) Sort()
 
 ##### Sort Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1024,7 +1024,7 @@ After sorting: [0.1 2.2 5.5 8.8 9.9]
 
 #### (Float64Slice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (x Float64Slice) Swap(i, j int)
 ```
 
@@ -1032,7 +1032,7 @@ func (x Float64Slice) Swap(i, j int)
 
 ##### Swap Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1066,7 +1066,7 @@ After swapping: [2.4 3.6 1.2 0.8]
 
 ### type [IntSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=112) 
 
-``` go linenums="1"
+``` go 
 type IntSlice []int
 ```
 
@@ -1074,19 +1074,19 @@ type IntSlice []int
 
 #### (IntSlice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=114) 
 
-``` go linenums="1"
+``` go 
 func (x IntSlice) Len() int
 ```
 
 #### (IntSlice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=115) 
 
-``` go linenums="1"
+``` go 
 func (x IntSlice) Less(i, j int) bool
 ```
 
 #### (IntSlice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=144) 
 
-``` go linenums="1"
+``` go 
 func (p IntSlice) Search(x int) int
 ```
 
@@ -1098,7 +1098,7 @@ Search returns the result of applying SearchInts to the receiver and x.
 
 #### (IntSlice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=119) 
 
-``` go linenums="1"
+``` go 
 func (x IntSlice) Sort()
 ```
 
@@ -1108,7 +1108,7 @@ func (x IntSlice) Sort()
 
 #### (IntSlice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func (x IntSlice) Swap(i, j int)
 ```
 
@@ -1116,7 +1116,7 @@ func (x IntSlice) Swap(i, j int)
 
 ### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type Interface interface {
     // Len方法返回集合中的元素数
 	Len() int
@@ -1151,14 +1151,14 @@ type Interface interface {
 
 #### func [Reverse](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=94)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Reverse(data Interface) Interface
 ```
 
 ​	Reverse函数返回data的逆序。
 
 ##### Reverse Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1178,7 +1178,7 @@ Output:
 
 ### type [StringSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=145) 
 
-``` go linenums="1"
+``` go 
 type StringSlice []string
 ```
 
@@ -1186,7 +1186,7 @@ type StringSlice []string
 
 #### (StringSlice) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (x StringSlice) Len() int
 ```
 
@@ -1194,7 +1194,7 @@ func (x StringSlice) Len() int
 
 #### (StringSlice) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=148) 
 
-``` go linenums="1"
+``` go 
 func (x StringSlice) Less(i, j int) bool
 ```
 
@@ -1202,7 +1202,7 @@ func (x StringSlice) Less(i, j int) bool
 
 #### (StringSlice) [Search](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/search.go;l=150) 
 
-``` go linenums="1"
+``` go 
 func (p StringSlice) Search(x string) int
 ```
 
@@ -1210,7 +1210,7 @@ func (p StringSlice) Search(x string) int
 
 #### (StringSlice) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=152) 
 
-``` go linenums="1"
+``` go 
 func (x StringSlice) Sort()
 ```
 
@@ -1218,7 +1218,7 @@ func (x StringSlice) Sort()
 
 #### (StringSlice) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sort/sort.go;l=149) 
 
-``` go linenums="1"
+``` go 
 func (x StringSlice) Swap(i, j int)
 ```
 

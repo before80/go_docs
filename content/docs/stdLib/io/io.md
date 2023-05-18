@@ -15,7 +15,7 @@ draft = false
 
 ## 常量 
 
-``` go linenums="1"
+``` go 
 const (
 	SeekStart   = 0 // 相对于文件的起点进行寻找
 	SeekCurrent = 1 // 相对于当前偏移量进行寻找
@@ -29,37 +29,37 @@ Seek whence values.
 
 ## 变量
 
-``` go linenums="1"
+``` go 
 var EOF = errors.New("EOF")
 ```
 
 ​	EOF 是 Read方法在没有更多输入可用时返回的错误。(Read方法必须自己返回 EOF，而不是封装 EOF 的错误，因为调用者将使用 == 测试 EOF。)函数只应返回 EOF 来表示输入的优雅结束。如果 EOF 在结构化数据流中意外发生，则适当的错误是 ErrUnexpectedEOF 或提供更多详细信息的其他错误。
 
-``` go linenums="1"
+``` go 
 var ErrClosedPipe = errors.New("io: read/write on closed pipe")
 ```
 
 ​	ErrClosedPipe是在关闭的管道上进行读取或写入操作时使用的错误。
 
-``` go linenums="1"
+``` go 
 var ErrNoProgress = errors.New("multiple Read calls return no data or error")
 ```
 
 ​	ErrNoProgress 是一些 Reader 的客户端在多次调用 Read 后未返回任何数据或错误时返回的错误，通常表明 Reader 实现有问题。
 
-``` go linenums="1"
+``` go 
 var ErrShortBuffer = errors.New("short buffer")
 ```
 
 ​	ErrShortBuffer表示读取所需的缓冲区比提供的缓冲区要长。
 
-``` go linenums="1"
+``` go 
 var ErrShortWrite = errors.New("short write")
 ```
 
 ​	ErrShortWrite表示写入接受的字节数比请求的字节数少，但未返回明确的错误。
 
-``` go linenums="1"
+``` go 
 var ErrUnexpectedEOF = errors.New("unexpected EOF")
 ```
 
@@ -69,7 +69,7 @@ var ErrUnexpectedEOF = errors.New("unexpected EOF")
 
 #### func [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=385) 
 
-``` go linenums="1"
+``` go 
 func Copy(dst Writer, src Reader) (written int64, err error)
 ```
 
@@ -81,7 +81,7 @@ func Copy(dst Writer, src Reader) (written int64, err error)
 
 #####    Copy Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -106,7 +106,7 @@ some io.Reader stream to be read
 
 #### func [CopyBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=396)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
 ```
 
@@ -116,7 +116,7 @@ func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
 
 #####    CopyBuffer Example 
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -150,7 +150,7 @@ second reader
 
 #### func [CopyN](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=361) 
 
-``` go linenums="1"
+``` go 
 func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
 ```
 
@@ -160,7 +160,7 @@ func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
 
 #####    CopyN Example 
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -185,7 +185,7 @@ some
 
 #### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func Pipe() (*PipeReader, *PipeWriter)
 ```
 
@@ -197,7 +197,7 @@ func Pipe() (*PipeReader, *PipeWriter)
 
 #####    Pipe Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -227,7 +227,7 @@ some io.Reader stream to be read
 
 #### func [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=694)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func ReadAll(r Reader) ([]byte, error)
 ```
 
@@ -235,7 +235,7 @@ func ReadAll(r Reader) ([]byte, error)
 
 #####    ReadAll Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -263,7 +263,7 @@ Go is a general-purpose language designed with systems programming in mind.
 
 #### func [ReadAtLeast](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=326) 
 
-``` go linenums="1"
+``` go 
 func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
 ```
 
@@ -271,7 +271,7 @@ func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
 
 #####    ReadAtLeast Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -312,7 +312,7 @@ error: unexpected EOF
 
 #### func [ReadFull](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=350) 
 
-``` go linenums="1"
+``` go 
 func ReadFull(r Reader, buf []byte) (n int, err error)
 ```
 
@@ -320,7 +320,7 @@ func ReadFull(r Reader, buf []byte) (n int, err error)
 
 #####    ReadFull Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -354,7 +354,7 @@ error: unexpected EOF
 
 #### func [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=311) 
 
-``` go linenums="1"
+``` go 
 func WriteString(w Writer, s string) (n int, err error)
 ```
 
@@ -362,7 +362,7 @@ func WriteString(w Writer, s string) (n int, err error)
 
 #####    WriteString Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -386,7 +386,7 @@ Hello World
 
 ### type [ByteReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=259) 
 
-``` go linenums="1"
+``` go 
 type ByteReader interface {
 	ReadByte() (byte, error)
 }
@@ -400,7 +400,7 @@ type ByteReader interface {
 
 ### type [ByteScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=271) 
 
-``` go linenums="1"
+``` go 
 type ByteScanner interface {
 	ByteReader
 	UnreadByte() error
@@ -413,7 +413,7 @@ type ByteScanner interface {
 
 ### type [ByteWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=277)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type ByteWriter interface {
 	WriteByte(c byte) error
 }
@@ -423,7 +423,7 @@ type ByteWriter interface {
 
 ### type [Closer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=104) 
 
-``` go linenums="1"
+``` go 
 type Closer interface {
 	Close() error
 }
@@ -435,7 +435,7 @@ type Closer interface {
 
 ### type [LimitedReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=465) 
 
-``` go linenums="1"
+``` go 
 type LimitedReader struct {
 	R Reader // 底层的 Reader
 	N int64  // 最多可以读取的字节数
@@ -446,13 +446,13 @@ type LimitedReader struct {
 
 #### (*LimitedReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=470) 
 
-``` go linenums="1"
+``` go 
 func (l *LimitedReader) Read(p []byte) (n int, err error)
 ```
 
 ### type [OffsetWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=559)  <- go1.20
 
-``` go linenums="1"
+``` go 
 type OffsetWriter struct {
 	// contains filtered or unexported fields
     // 包含已过滤或未导出的字段
@@ -463,7 +463,7 @@ type OffsetWriter struct {
 
 #### func [NewOffsetWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=567)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func NewOffsetWriter(w WriterAt, off int64) *OffsetWriter
 ```
 
@@ -471,25 +471,25 @@ func NewOffsetWriter(w WriterAt, off int64) *OffsetWriter
 
 #### (*OffsetWriter) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=582)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (o *OffsetWriter) Seek(offset int64, whence int) (int64, error)
 ```
 
 #### (*OffsetWriter) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=571)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (o *OffsetWriter) Write(p []byte) (n int, err error)
 ```
 
 #### (*OffsetWriter) [WriteAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=577)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (o *OffsetWriter) WriteAt(p []byte, off int64) (n int, err error)
 ```
 
 ### type [PipeReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=126) 
 
-``` go linenums="1"
+``` go 
 type PipeReader struct {
 	// contains filtered or unexported fields
     // 包含已过滤或未导出的字段
@@ -500,7 +500,7 @@ type PipeReader struct {
 
 #### (*PipeReader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func (r *PipeReader) Close() error
 ```
 
@@ -508,7 +508,7 @@ func (r *PipeReader) Close() error
 
 #### (*PipeReader) [CloseWithError](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=150) 
 
-``` go linenums="1"
+``` go 
 func (r *PipeReader) CloseWithError(err error) error
 ```
 
@@ -518,7 +518,7 @@ func (r *PipeReader) CloseWithError(err error) error
 
 #### (*PipeReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (r *PipeReader) Read(data []byte) (n int, err error)
 ```
 
@@ -526,7 +526,7 @@ func (r *PipeReader) Read(data []byte) (n int, err error)
 
 ### type [PipeWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=155) 
 
-``` go linenums="1"
+``` go 
 type PipeWriter struct {
 	// contains filtered or unexported fields
     // 包含已过滤或未导出的字段
@@ -537,7 +537,7 @@ type PipeWriter struct {
 
 #### (*PipeWriter) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func (w *PipeWriter) Close() error
 ```
 
@@ -545,7 +545,7 @@ func (w *PipeWriter) Close() error
 
 #### (*PipeWriter) [CloseWithError](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=180) 
 
-``` go linenums="1"
+``` go 
 func (w *PipeWriter) CloseWithError(err error) error
 ```
 
@@ -555,7 +555,7 @@ func (w *PipeWriter) CloseWithError(err error) error
 
 #### (*PipeWriter) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/io/pipe.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func (w *PipeWriter) Write(data []byte) (n int, err error)
 ```
 
@@ -563,7 +563,7 @@ func (w *PipeWriter) Write(data []byte) (n int, err error)
 
 ### type [ReadCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=134) 
 
-``` go linenums="1"
+``` go 
 type ReadCloser interface {
 	Reader
 	Closer
@@ -574,7 +574,7 @@ type ReadCloser interface {
 
 #### func [NopCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=667)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func NopCloser(r Reader) ReadCloser
 ```
 
@@ -582,7 +582,7 @@ func NopCloser(r Reader) ReadCloser
 
 ### type [ReadSeekCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=160)  <- go1.16
 
-``` go linenums="1"
+``` go 
 type ReadSeekCloser interface {
 	Reader
 	Seeker
@@ -594,7 +594,7 @@ type ReadSeekCloser interface {
 
 ### type [ReadSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=153) 
 
-``` go linenums="1"
+``` go 
 type ReadSeeker interface {
 	Reader
 	Seeker
@@ -605,7 +605,7 @@ type ReadSeeker interface {
 
 ### type [ReadWriteCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=146) 
 
-``` go linenums="1"
+``` go 
 type ReadWriteCloser interface {
 	Reader
 	Writer
@@ -617,7 +617,7 @@ type ReadWriteCloser interface {
 
 ### type [ReadWriteSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=173) 
 
-``` go linenums="1"
+``` go 
 type ReadWriteSeeker interface {
 	Reader
 	Writer
@@ -629,7 +629,7 @@ type ReadWriteSeeker interface {
 
 ### type [ReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=128) 
 
-``` go linenums="1"
+``` go 
 type ReadWriter interface {
 	Reader
 	Writer
@@ -640,7 +640,7 @@ type ReadWriter interface {
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=83) 
 
-``` go linenums="1"
+``` go 
 type Reader interface {
 	Read(p []byte) (n int, err error)
 }
@@ -660,7 +660,7 @@ type Reader interface {
 
 #### func [LimitReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=459) 
 
-``` go linenums="1"
+``` go 
 func LimitReader(r Reader, n int64) Reader
 ```
 
@@ -668,7 +668,7 @@ func LimitReader(r Reader, n int64) Reader
 
 #####    LimitReader Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -694,7 +694,7 @@ some
 
 #### func [MultiReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/multi.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func MultiReader(readers ...Reader) Reader
 ```
 
@@ -702,7 +702,7 @@ func MultiReader(readers ...Reader) Reader
 
 #####    MultiReaderExample 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -730,7 +730,7 @@ first reader second reader third reader
 
 #### func [TeeReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=603) 
 
-``` go linenums="1"
+``` go 
 func TeeReader(r Reader, w Writer) Reader
 ```
 
@@ -738,7 +738,7 @@ func TeeReader(r Reader, w Writer) Reader
 
 #####    TeeReader Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -766,7 +766,7 @@ some io.Reader stream to be read
 
 ### type [ReaderAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=227) 
 
-``` go linenums="1"
+``` go 
 type ReaderAt interface {
 	ReadAt(p []byte, off int64) (n int, err error)
 }
@@ -790,7 +790,7 @@ type ReaderAt interface {
 
 ### type [ReaderFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=186) 
 
-``` go linenums="1"
+``` go 
 type ReaderFrom interface {
 	ReadFrom(r Reader) (n int64, err error)
 }
@@ -804,7 +804,7 @@ type ReaderFrom interface {
 
 ### type [RuneReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=286) 
 
-``` go linenums="1"
+``` go 
 type RuneReader interface {
 	ReadRune() (r rune, size int, err error)
 }
@@ -816,7 +816,7 @@ type RuneReader interface {
 
 ### type [RuneScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=298) 
 
-``` go linenums="1"
+``` go 
 type RuneScanner interface {
 	RuneReader
 	UnreadRune() error
@@ -829,7 +829,7 @@ type RuneScanner interface {
 
 ### type [SectionReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=499) 
 
-``` go linenums="1"
+``` go 
 type SectionReader struct {
 	// contains filtered or unexported fields
     // 包含已过滤或未导出的字段
@@ -840,7 +840,7 @@ type SectionReader struct {
 
 #####    SectionReader Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -866,7 +866,7 @@ io.Reader stream
 
 #### func [NewSectionReader](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=484) 
 
-``` go linenums="1"
+``` go 
 func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader
 ```
 
@@ -874,13 +874,13 @@ func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader
 
 #### (*SectionReader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=506) 
 
-``` go linenums="1"
+``` go 
 func (s *SectionReader) Read(p []byte) (n int, err error)
 ```
 
 ##### Read Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -911,13 +911,13 @@ io.Reader
 
 #### (*SectionReader) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=539) 
 
-``` go linenums="1"
+``` go 
 func (s *SectionReader) ReadAt(p []byte, off int64) (n int, err error)
 ```
 
 #####    ReadAt Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -948,13 +948,13 @@ stream
 
 #### (*SectionReader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=521) 
 
-``` go linenums="1"
+``` go 
 func (s *SectionReader) Seek(offset int64, whence int) (int64, error)
 ```
 
 #####    Seek Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -986,7 +986,7 @@ stream
 
 #### (*SectionReader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=556) 
 
-``` go linenums="1"
+``` go 
 func (s *SectionReader) Size() int64
 ```
 
@@ -994,7 +994,7 @@ func (s *SectionReader) Size() int64
 
 #####    Size Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1019,7 +1019,7 @@ Output:
 
 ### type [Seeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=123) 
 
-``` go linenums="1"
+``` go 
 type Seeker interface {
 	Seek(offset int64, whence int) (int64, error)
 }
@@ -1033,7 +1033,7 @@ type Seeker interface {
 
 ### type [StringWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=304)  <- go1.12
 
-``` go linenums="1"
+``` go 
 type StringWriter interface {
 	WriteString(s string) (n int, err error)
 }
@@ -1043,7 +1043,7 @@ type StringWriter interface {
 
 ### type [WriteCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=140) 
 
-``` go linenums="1"
+``` go 
 type WriteCloser interface {
 	Writer
 	Closer
@@ -1054,7 +1054,7 @@ type WriteCloser interface {
 
 ### type [WriteSeeker](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=167) 
 
-``` go linenums="1"
+``` go 
 type WriteSeeker interface {
 	Writer
 	Seeker
@@ -1065,7 +1065,7 @@ type WriteSeeker interface {
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=96) 
 
-``` go linenums="1"
+``` go 
 type Writer interface {
 	Write(p []byte) (n int, err error)
 }
@@ -1077,7 +1077,7 @@ type Writer interface {
 
 ​	实现不得保留p。
 
-``` go linenums="1"
+``` go 
 var Discard Writer = discard{}
 ```
 
@@ -1085,7 +1085,7 @@ var Discard Writer = discard{}
 
 #### func [MultiWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/io/multi.go;l=127) 
 
-``` go linenums="1"
+``` go 
 func MultiWriter(writers ...Writer) Writer
 ```
 
@@ -1095,7 +1095,7 @@ func MultiWriter(writers ...Writer) Writer
 
 ##### MultiWriter  Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1129,7 +1129,7 @@ some io.Reader stream to be read
 
 ### type [WriterAt](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=246) 
 
-``` go linenums="1"
+``` go 
 type WriterAt interface {
 	WriteAt(p []byte, off int64) (n int, err error)
 }
@@ -1147,7 +1147,7 @@ type WriterAt interface {
 
 ### type [WriterTo](https://cs.opensource.google/go/go/+/go1.20.1:src/io/io.go;l=197) 
 
-``` go linenums="1"
+``` go 
 type WriterTo interface {
 	WriteTo(w Writer) (n int64, err error)
 }

@@ -31,7 +31,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=19)
 
-``` go linenums="1"
+``` go 
 var ErrMessageTooLarge = errors.New("multipart: message too large")
 ```
 
@@ -45,7 +45,7 @@ This section is empty.
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=246) 
 
-``` go linenums="1"
+``` go 
 type File interface {
 	io.Reader
 	io.ReaderAt
@@ -58,7 +58,7 @@ File is an interface to access the file part of a multipart message. Its content
 
 ### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=215) 
 
-``` go linenums="1"
+``` go 
 type FileHeader struct {
 	Filename string
 	Header   textproto.MIMEHeader
@@ -71,7 +71,7 @@ A FileHeader describes a file part of a multipart request.
 
 #### (*FileHeader) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (fh *FileHeader) Open() (File, error)
 ```
 
@@ -79,7 +79,7 @@ Open opens and returns the FileHeader's associated File.
 
 ### type [Form](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=193) 
 
-``` go linenums="1"
+``` go 
 type Form struct {
 	Value map[string][]string
 	File  map[string][]*FileHeader
@@ -90,7 +90,7 @@ Form is a parsed multipart form. Its File parts are stored either in memory or o
 
 #### (*Form) [RemoveAll](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func (f *Form) RemoveAll() error
 ```
 
@@ -98,7 +98,7 @@ RemoveAll removes any temporary files associated with a Form.
 
 ### type [Part](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type Part struct {
 	// The headers of the body, if any, with the keys canonicalized
 	// in the same fashion that the Go http.Request headers are.
@@ -112,13 +112,13 @@ A Part represents a single part in a multipart body.
 
 #### (*Part) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=308) 
 
-``` go linenums="1"
+``` go 
 func (p *Part) Close() error
 ```
 
 #### (*Part) [FileName](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=74) 
 
-``` go linenums="1"
+``` go 
 func (p *Part) FileName() string
 ```
 
@@ -126,7 +126,7 @@ FileName returns the filename parameter of the Part's Content-Disposition header
 
 #### (*Part) [FormName](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func (p *Part) FormName() string
 ```
 
@@ -134,7 +134,7 @@ FormName returns the name parameter if p has a Content-Disposition of type "form
 
 #### (*Part) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func (p *Part) Read(d []byte) (n int, err error)
 ```
 
@@ -142,7 +142,7 @@ Read reads the body of a part, after its headers and before the next part (if an
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=316) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -152,7 +152,7 @@ Reader is an iterator over parts in a MIME multipart body. Reader's underlying p
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=102) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader, boundary string) *Reader
 ```
 
@@ -161,12 +161,12 @@ NewReader creates a new multipart Reader reading from r using the given MIME bou
 The boundary is usually obtained from the "boundary" parameter of the message's "Content-Type" header. Use mime.ParseMediaType to parse such headers.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Reader) [NextPart](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=339) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) NextPart() (*Part, error)
 ```
 
@@ -176,7 +176,7 @@ As a special case, if the "Content-Transfer-Encoding" header has a value of "quo
 
 #### (*Reader) [NextRawPart](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/multipart.go;l=348)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (r *Reader) NextRawPart() (*Part, error)
 ```
 
@@ -186,7 +186,7 @@ Unlike NextPart, it does not have special handling for "Content-Transfer-Encodin
 
 #### (*Reader) [ReadForm](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/formdata.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadForm(maxMemory int64) (*Form, error)
 ```
 
@@ -194,7 +194,7 @@ ReadForm parses an entire multipart message whose parts have a Content-Dispositi
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=19) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -204,7 +204,7 @@ A Writer generates multipart messages.
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -212,7 +212,7 @@ NewWriter returns a new multipart Writer with a random boundary, writing to w.
 
 #### (*Writer) [Boundary](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=35) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Boundary() string
 ```
 
@@ -220,7 +220,7 @@ Boundary returns the Writer's boundary.
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Close() error
 ```
 
@@ -228,7 +228,7 @@ Close finishes the multipart message and writes the trailing boundary end line t
 
 #### (*Writer) [CreateFormField](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) CreateFormField(fieldname string) (io.Writer, error)
 ```
 
@@ -236,7 +236,7 @@ CreateFormField calls CreatePart with a header using the given field name.
 
 #### (*Writer) [CreateFormFile](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=140) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) CreateFormFile(fieldname, filename string) (io.Writer, error)
 ```
 
@@ -244,7 +244,7 @@ CreateFormFile is a convenience wrapper around CreatePart. It creates a new form
 
 #### (*Writer) [CreatePart](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) CreatePart(header textproto.MIMEHeader) (io.Writer, error)
 ```
 
@@ -252,7 +252,7 @@ CreatePart creates a new multipart section with the provided header. The body of
 
 #### (*Writer) [FormDataContentType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=74) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) FormDataContentType() string
 ```
 
@@ -260,7 +260,7 @@ FormDataContentType returns the Content-Type for an HTTP multipart/form-data wit
 
 #### (*Writer) [SetBoundary](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=45)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (w *Writer) SetBoundary(boundary string) error
 ```
 
@@ -270,7 +270,7 @@ SetBoundary must be called before any parts are created, may only contain certai
 
 #### (*Writer) [WriteField](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/multipart/writer.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) WriteField(fieldname, value string) error
 ```
 

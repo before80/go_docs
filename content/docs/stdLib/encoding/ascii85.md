@@ -27,7 +27,7 @@ This section is empty.
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=186) 
 
-``` go linenums="1"
+``` go 
 func Decode(dst, src []byte, flush bool) (ndst, nsrc int, err error)
 ```
 
@@ -39,7 +39,7 @@ NewDecoder wraps an io.Reader interface around Decode.
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func Encode(dst, src []byte) int
 ```
 
@@ -51,7 +51,7 @@ Often, ascii85-encoded data is wrapped in <~ and ~> symbols. Encode does not add
 
 #### func [MaxEncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func MaxEncodedLen(n int) int
 ```
 
@@ -59,7 +59,7 @@ MaxEncodedLen returns the maximum length of an encoding of n source bytes.
 
 #### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=243) 
 
-``` go linenums="1"
+``` go 
 func NewDecoder(r io.Reader) io.Reader
 ```
 
@@ -67,7 +67,7 @@ NewDecoder constructs a new ascii85 stream decoder.
 
 #### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=93) 
 
-``` go linenums="1"
+``` go 
 func NewEncoder(w io.Writer) io.WriteCloser
 ```
 
@@ -77,12 +77,12 @@ NewEncoder returns a new ascii85 stream encoder. Data written to the returned wr
 
 ### type [CorruptInputError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=167) 
 
-``` go linenums="1"
+``` go 
 type CorruptInputError int64
 ```
 
 #### (CorruptInputError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/ascii85/ascii85.go;l=169) 
 
-``` go linenums="1"
+``` go 
 func (e CorruptInputError) Error() string
 ```

@@ -21,7 +21,7 @@ draft = false
 
 ​	在这个例子中，`Abs` 方法有一个名为 `v` 的`Vertex`类型的接收器。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -52,7 +52,7 @@ func main() {
 
 ​	下面是`Abs`写成的普通函数，功能上并没有变化。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -85,7 +85,7 @@ func main() {
 
 ​	你只能声明一个带有`接收器`的方法，其类型与该方法定义在同一个包中。你不能用一个类型定义在另一个包中的接收器来声明一个方法（其中包括内置类型，如`int`）。（即：接收器的类型定义和方法声明必须在同一包内，不能为内建类型声明方法）
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -127,7 +127,7 @@ This means the receiver type has the literal syntax `*T` for some type `T`. (Als
 
 ​	若使用值接收器，`Scale`方法在原始`Vertex`值的副本上操作。(这与其他函数实参的行为相同。)`Scale`方法必须有一个指针接收器来改变`main`函数中声明的`Vertex`值。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -166,7 +166,7 @@ func main() {
 
 (如果你不确定，继续看下一页）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -201,7 +201,7 @@ func main() {
 
 ​	对比前面两个程序，你可能会注意到，带有指针参数的函数必须接受一个指针。
 
-```go linenums="1"
+```go 
 var v Vertex
 ScaleFunc(v, 5)  // Compile error!
 ScaleFunc(&v, 5) // OK
@@ -209,7 +209,7 @@ ScaleFunc(&v, 5) // OK
 
 ​	而`带有指针接收器的方法`在被调用时，接收器既能为值，也能为指针。
 
-```go linenums="1"
+```go 
 var v Vertex
 v.Scale(5)  // OK
 p := &v
@@ -218,7 +218,7 @@ p.Scale(10) // OK
 
 ​	对于`v.Scale(5)`这个语句，即使`v`是一个值而不是一个指针，也会自动调用带有指针接收器的方法。也就是说，为了方便起见，Go将语句`v.Scale(5)`解释为`(&v).Scale(5)`，因为`Scale`方法有一个指针接收器。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -259,7 +259,7 @@ func main() {
 
 ​	接受一个值形参的函数必须接受一个特定类型的值：
 
-```go linenums="1"
+```go 
 var v Vertex
 fmt.Println(AbsFunc(v))  // OK
 fmt.Println(AbsFunc(&v)) // Compile error!
@@ -267,7 +267,7 @@ fmt.Println(AbsFunc(&v)) // Compile error!
 
 ​	而以值为接收器的方法在被调用时，接收器既能为值，也能为指针：
 
-```go linenums="1"
+```go 
 var v Vertex
 fmt.Println(v.Abs()) // OK
 p := &v
@@ -276,7 +276,7 @@ fmt.Println(p.Abs()) // OK
 
 在这种情况下，方法调用`p.Abs()`被解释为`(*p).Abs()`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -322,7 +322,7 @@ func main() {
 
 ​	通常来说，给定类型的所有方法都应该有值接收器或指针接收器，而不是两者的混合。(我们将在接下来的几页中看到原因）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -362,7 +362,7 @@ func main() {
 
 注意：在示例代码的第22行有一个错误。`Vertex`（值类型）没有实现`Abser`，因为`Abs`方法只定义在`*Vertex`（指针类型）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -416,7 +416,7 @@ func (v *Vertex) Abs() float64 {
 
 ​	`隐式接口`将接口的定义与它的实现解耦，这样接口的实现就可以在任何包中出现，而无需提前准备。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -457,7 +457,7 @@ func main() {
 
 ​	在接口值上调用一个方法会在其底层类型上执行同名的方法。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -511,7 +511,7 @@ func describe(i I) {
 
 ​	请注意，保存了`nil`具体值的接口值本身并不是`nil`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -559,7 +559,7 @@ func describe(i I) {
 
 ​	在`nil`接口上调用方法会产生运行时错误，因为在接口元组里面并未包含能够指明调用哪个具体方法的类型。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -586,7 +586,7 @@ func describe(i I) {
 
 ​	未指定任何方法的接口类型被称为`空接口`。
 
-```go linenums="1"
+```go 
 interface{}
 ```
 
@@ -594,7 +594,7 @@ interface{}
 
 ​	空接口被用来处理未知类型的值。例如，`fmt.Print`接受任何数量的`interface{}`类型的形参。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -622,7 +622,7 @@ func describe(i interface{}) {
 
 ​	类型断言提供了对一个接口值的底层具体值的访问。
 
-```go linenums="1"
+```go 
 t := i.(T)
 ```
 
@@ -632,7 +632,7 @@ t := i.(T)
 
 ​	为了测试一个接口值是否持有一个特定的类型，类型断言可以返回两个值：`底层值`和一个报告断言是否成功的`布尔值`。
 
-```go linenums="1"
+```go 
 t, ok := i.(T)
 ```
 
@@ -642,7 +642,7 @@ t, ok := i.(T)
 
 ​	注意这种语法和读取一个映射的语法有相似之处。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -673,7 +673,7 @@ func main() {
 
 ​	`类型选择`与一般的switch语句相似，但是类型选择中的`case分支为类型（而不是值）`，这些值与给定的接口值所保存的值类型进行比较。
 
-```go linenums="1"
+```go 
 switch v := i.(type) {
 case T:
     // here v has type T
@@ -688,7 +688,7 @@ default:
 
 ​	这个选择语句测试接口值`i`保存值的类型是`T`还是`S`类型。在 `T` 或 `S` 的情况下，变量 `v` 会分别按 `T` 或 `S` 类型保存 `i` 拥有的值。**在默认情况下（没有匹配），变量`v`与`i`的接口类型和值相同**。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -718,7 +718,7 @@ func main() {
 
 ​	`fmt`包中定义的[Stringer](https://go.dev/pkg/fmt/#Stringer)是最普遍的接口之一。
 
-```go linenums="1"
+```go 
 type Stringer interface {
     String() string
 }
@@ -726,7 +726,7 @@ type Stringer interface {
 
 ​	`Stringer`是一个可以字符串描述自己的类型。`fmt`包（和其他许多包）都通过此接口来打印数值。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -756,7 +756,7 @@ func main() {
 
 ​	例如，`IPAddr{1, 2, 3, 4}`应打印为 `"1.2.3.4"`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -797,7 +797,7 @@ func main() {
 
 ​	`error`类型是一个类似于`fmt.Stringer`的内置接口。
 
-```go linenums="1"
+```go 
 type error interface {
     Error() string
 }
@@ -807,7 +807,7 @@ type error interface {
 
 ​	函数通常返回一个`error`值，调用它的代码应该通过测试错误是否等于`nil`来处理错误。
 
-```go linenums="1"
+```go 
 i, err := strconv.Atoi("42")
 if err != nil {
     fmt.Printf("couldn't convert number: %v\n", err)
@@ -818,7 +818,7 @@ fmt.Println("Converted integer:", i)
 
 `error`为`nil`表示成功；非`nil`的 `error`表示失败。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -861,13 +861,13 @@ func main() {
 
 创建一个新的类型
 
-```go linenums="1"
+```go 
 type ErrNegativeSqrt float64
 ```
 
 并为其实现：
 
-```go linenums="1"
+```go 
 func (e ErrNegativeSqrt) Error() string
 ```
 
@@ -877,7 +877,7 @@ func (e ErrNegativeSqrt) Error() string
 
 ​	修改你的`Sqrt`函数，当给定一个负数时返回一个`ErrNegativeSqrt`值。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -922,7 +922,7 @@ func main() {
 
 ​	`io.Reader` 接口有一个 `Read` 方法：
 
-```go linenums="1"
+```go 
 func (T) Read(b []byte) (n int, err error)
 ```
 
@@ -930,7 +930,7 @@ func (T) Read(b []byte) (n int, err error)
 
 ​	该示例代码创建了一个[strings.Reader](https://go.dev/pkg/strings/#Reader)，并以每次8个字节的速度读取它的输出。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -961,7 +961,7 @@ func main() {
 
 ​	实现一个`Reader`类型，它可以产生一个ASCII字符'A'的无限流。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -1008,7 +1008,7 @@ func main() {
 
 ​	`rot13Reader`的类型是为你提供了。通过实现它的`Read`方法使其成为实现`io.Reader`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -1052,7 +1052,7 @@ func main() {
 
 ​	[image](https://go.dev/pkg/image/#Image)包定义了`Image`接口。
 
-```go linenums="1"
+```go 
 package image
 
 type Image interface {
@@ -1068,7 +1068,7 @@ type Image interface {
 
 ​	`color.Color` 和 `color.Model` 类型也是接口，但是通常因为直接使用预定义的实现 `image.RGBA` 和 `image.RGBAModel` 而被忽视了。这些接口和类型由 [image/color](https://go-zh.org/pkg/image/color/) 包定义。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -1098,7 +1098,7 @@ func main() {
 
 `At`应当返回一种颜色；上一个图片生成器中的值`v`对应于此次的`color.RGBA{v, v, 255, 255}`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (

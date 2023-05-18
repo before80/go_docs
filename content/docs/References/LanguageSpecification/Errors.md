@@ -12,7 +12,7 @@ draft = false
 
 预先声明的`error`类型被定义为
 
-```go linenums="1"
+```go 
 type error interface {
 	Error() string
 }
@@ -20,6 +20,6 @@ type error interface {
 
 ​	它是代表错误条件的常规接口，`nil`值代表没有错误。例如，可以定义一个从文件中读取数据的函数：
 
-```go linenums="1"
+```go 
 func Read(f *File, b []byte) (n int, err error)
 ```

@@ -21,7 +21,7 @@ JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=565)
 
-``` go linenums="1"
+``` go 
 const DefaultQuality = 75
 ```
 
@@ -35,7 +35,7 @@ This section is empty.
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=774) 
 
-``` go linenums="1"
+``` go 
 func Decode(r io.Reader) (image.Image, error)
 ```
 
@@ -43,7 +43,7 @@ Decode reads a JPEG image from r and returns it as an image.Image.
 
 #### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=781) 
 
-``` go linenums="1"
+``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
 ```
 
@@ -51,7 +51,7 @@ DecodeConfig returns the color model and dimensions of a JPEG image without deco
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=575) 
 
-``` go linenums="1"
+``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
 ```
 
@@ -61,7 +61,7 @@ Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given opti
 
 ### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type FormatError string
 ```
 
@@ -69,13 +69,13 @@ A FormatError reports that the input is not a valid JPEG.
 
 #### (FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func (e FormatError) Error() string
 ```
 
 ### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=569) 
 
-``` go linenums="1"
+``` go 
 type Options struct {
 	Quality int
 }
@@ -84,12 +84,12 @@ type Options struct {
 Options are the encoding parameters. Quality ranges from 1 to 100 inclusive, higher is better.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ### type [UnsupportedError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=23) 
 
-``` go linenums="1"
+``` go 
 type UnsupportedError string
 ```
 
@@ -97,6 +97,6 @@ An UnsupportedError reports that the input uses a valid but unimplemented JPEG f
 
 #### (UnsupportedError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/reader.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func (e UnsupportedError) Error() string
 ```

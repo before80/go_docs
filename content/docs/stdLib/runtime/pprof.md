@@ -25,7 +25,7 @@ go test -cpuprofile cpu.prof -memprofile mem.prof -bench .
 
 To add equivalent profiling support to a standalone program, add code like the following to your main function:
 
-``` go linenums="1"
+``` go 
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to `file`")
 var memprofile = flag.String("memprofile", "", "write memory profile to `file`")
 
@@ -91,7 +91,7 @@ This section is empty.
 
 #### func [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/runtime.go;l=40)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func Do(ctx context.Context, labels LabelSet, f func(context.Context))
 ```
 
@@ -99,7 +99,7 @@ Do calls f with a copy of the parent context with the given labels added to the 
 
 #### func [ForLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=101)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func ForLabels(ctx context.Context, f func(key, value string) bool)
 ```
 
@@ -107,7 +107,7 @@ ForLabels invokes f with each label set on the context. The function f should re
 
 #### func [Label](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=93)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func Label(ctx context.Context, key string) (string, bool)
 ```
 
@@ -115,7 +115,7 @@ Label returns the value of the label with the given key on ctx, and a boolean in
 
 #### func [SetGoroutineLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/runtime.go;l=28)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func SetGoroutineLabels(ctx context.Context)
 ```
 
@@ -123,7 +123,7 @@ SetGoroutineLabels sets the current goroutine's labels to match ctx. A new gorou
 
 #### func [StartCPUProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=771) 
 
-``` go linenums="1"
+``` go 
 func StartCPUProfile(w io.Writer) error
 ```
 
@@ -133,7 +133,7 @@ On Unix-like systems, StartCPUProfile does not work by default for Go code built
 
 #### func [StopCPUProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=830) 
 
-``` go linenums="1"
+``` go 
 func StopCPUProfile()
 ```
 
@@ -141,7 +141,7 @@ StopCPUProfile stops the current CPU profile, if any. StopCPUProfile only return
 
 #### func [WithLabels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=59)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func WithLabels(ctx context.Context, labels LabelSet) context.Context
 ```
 
@@ -149,7 +149,7 @@ WithLabels returns a new context.Context with the given labels added. A label ov
 
 #### func [WriteHeapProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=520) 
 
-``` go linenums="1"
+``` go 
 func WriteHeapProfile(w io.Writer) error
 ```
 
@@ -159,7 +159,7 @@ WriteHeapProfile is shorthand for Lookup("heap").WriteTo(w, 0). It is preserved 
 
 ### type [LabelSet](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=20)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type LabelSet struct {
 	// contains filtered or unexported fields
 }
@@ -169,7 +169,7 @@ LabelSet is a set of labels.
 
 #### func [Labels](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/label.go;l=80)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func Labels(args ...string) LabelSet
 ```
 
@@ -177,7 +177,7 @@ Labels takes an even number of strings representing key-value pairs and makes a 
 
 ### type [Profile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=132) 
 
-``` go linenums="1"
+``` go 
 type Profile struct {
 	// contains filtered or unexported fields
 }
@@ -210,7 +210,7 @@ The CPU profile is not available as a Profile. It has a special API, the StartCP
 
 #### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=225) 
 
-``` go linenums="1"
+``` go 
 func Lookup(name string) *Profile
 ```
 
@@ -218,7 +218,7 @@ Lookup returns the profile with the given name, or nil if no such profile exists
 
 #### func [NewProfile](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=207) 
 
-``` go linenums="1"
+``` go 
 func NewProfile(name string) *Profile
 ```
 
@@ -226,7 +226,7 @@ NewProfile creates a new profile with the given name. If a profile with that nam
 
 #### func [Profiles](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=232) 
 
-``` go linenums="1"
+``` go 
 func Profiles() []*Profile
 ```
 
@@ -234,7 +234,7 @@ Profiles returns a slice of all the known profiles, sorted by name.
 
 #### (*Profile) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=277) 
 
-``` go linenums="1"
+``` go 
 func (p *Profile) Add(value any, skip int)
 ```
 
@@ -253,7 +253,7 @@ Passing skip=0 begins the stack trace at the call to Add inside rpc.NewClient. P
 
 #### (*Profile) [Count](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=251) 
 
-``` go linenums="1"
+``` go 
 func (p *Profile) Count() int
 ```
 
@@ -261,7 +261,7 @@ Count returns the number of execution stacks currently in the profile.
 
 #### (*Profile) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (p *Profile) Name() string
 ```
 
@@ -269,7 +269,7 @@ Name returns this profile's name, which can be passed to Lookup to reobtain the 
 
 #### (*Profile) [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=303) 
 
-``` go linenums="1"
+``` go 
 func (p *Profile) Remove(value any)
 ```
 
@@ -277,7 +277,7 @@ Remove removes the execution stack associated with value from the profile. It is
 
 #### (*Profile) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/pprof/pprof.go;l=324) 
 
-``` go linenums="1"
+``` go 
 func (p *Profile) WriteTo(w io.Writer, debug int) error
 ```
 

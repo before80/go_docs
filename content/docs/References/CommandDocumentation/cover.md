@@ -24,7 +24,7 @@ go tool cover -help
 
 === "cover.go"
 
-```go linenums="1"
+```go 
 // Copyright 2013 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -758,7 +758,7 @@ func dedup(p1, p2 token.Position) (r1, r2 token.Position) {
 
 === "cover_test.go"
 
-```go linenums="1"
+```go 
 // Copyright 2013 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -1335,7 +1335,7 @@ func run(c *exec.Cmd, t *testing.T) {
 
 === "doc.go"
 
-```go linenums="1"
+```go 
 // Copyright 2013 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -1366,7 +1366,7 @@ package main
 
 === "func.go"
 
-```go linenums="1"
+```go 
 // Copyright 2013 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -1619,7 +1619,7 @@ func percent(covered, total int64) float64 {
 
 === "html.go"
 
-```go linenums="1"
+```go 
 // Copyright 2013 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.

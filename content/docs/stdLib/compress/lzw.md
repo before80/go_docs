@@ -32,7 +32,7 @@ This section is empty.
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=254) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser
 ```
 
@@ -42,7 +42,7 @@ It is guaranteed that the underlying type of the returned io.ReadCloser is a *Re
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer, order Order, litWidth int) io.WriteCloser
 ```
 
@@ -54,13 +54,13 @@ It is guaranteed that the underlying type of the returned io.WriteCloser is a *W
 
 ### type [Order](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Order int
 ```
 
 Order specifies the bit ordering in an LZW data stream.
 
-``` go linenums="1"
+``` go 
 const (
 	// LSB means Least Significant Bits first, as used in the GIF file format.
 	LSB Order = iota
@@ -72,7 +72,7 @@ const (
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=47)  <- go1.17
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -82,7 +82,7 @@ Reader is an io.Reader which can be used to read compressed data in the LZW form
 
 #### (*Reader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=230)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Close() error
 ```
 
@@ -90,7 +90,7 @@ Close closes the Reader and returns an error for any future read operation. It d
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=122)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Read(b []byte) (int, error)
 ```
 
@@ -98,7 +98,7 @@ Read implements io.Reader, reading uncompressed bytes from its underlying Reader
 
 #### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/reader.go;l=237)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Reset(src io.Reader, order Order, litWidth int)
 ```
 
@@ -106,7 +106,7 @@ Reset clears the Reader's state and allows it to be reused again as a new Reader
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=36)  <- go1.17
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -116,7 +116,7 @@ Writer is an LZW compressor. It writes the compressed form of the data to an und
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=200)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Close() error
 ```
 
@@ -124,7 +124,7 @@ Close closes the Writer, flushing any pending output. It does not close w's unde
 
 #### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=243)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Reset(dst io.Writer, order Order, litWidth int)
 ```
 
@@ -132,7 +132,7 @@ Reset clears the Writer's state and allows it to be reused again as a new Writer
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/lzw/writer.go;l=122)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Write(p []byte) (n int, err error)
 ```
 

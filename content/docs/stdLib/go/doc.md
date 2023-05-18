@@ -27,7 +27,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/synopsis.go;l=47)
 
-``` go linenums="1"
+``` go 
 var IllegalPrefixes = []string{
 	"copyright",
 	"all rights",
@@ -41,29 +41,29 @@ IllegalPrefixes is a list of lower-case prefixes that identify a comment as not 
 
 #### func [IsPredeclared](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/reader.go;l=950)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func IsPredeclared(s string) bool
 ```
 
 IsPredeclared reports whether s is a predeclared identifier.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [Example](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/example.go;l=22) 
 
-``` go linenums="1"
+``` go 
 type Example struct {
 	Name        string // name of the item being exemplified (including optional suffix)
 	Suffix      string // example suffix, without leading '_' (only populated by NewFromFiles)
@@ -82,7 +82,7 @@ An Example represents an example function found in a test source file.
 
 #### func [Examples](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/example.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func Examples(testFiles ...*ast.File) []*Example
 ```
 
@@ -95,13 +95,13 @@ Playable Examples must be in a package whose name ends in "_test". An Example is
 
 ### type [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/filter.go;l=9) 
 
-``` go linenums="1"
+``` go 
 type Filter func(string) bool
 ```
 
 ### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=72) 
 
-``` go linenums="1"
+``` go 
 type Func struct {
 	Doc  string
 	Name string
@@ -124,13 +124,13 @@ Func is the documentation for a func declaration.
 
 ### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=100) 
 
-``` go linenums="1"
+``` go 
 type Mode int
 ```
 
 Mode values control the operation of New and NewFromFiles.
 
-``` go linenums="1"
+``` go 
 const (
 	// AllDecls says to extract documentation for all package-level
 	// declarations, not just exported ones.
@@ -149,7 +149,7 @@ const (
 
 ### type [Note](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=93)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type Note struct {
 	Pos, End token.Pos // position range of the comment containing the marker
 	UID      string    // uid found with the marker
@@ -161,7 +161,7 @@ A Note represents a marked comment starting with "MARKER(uid): note body". Any n
 
 ### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Package struct {
 	Doc        string
 	Name       string
@@ -192,7 +192,7 @@ Package is the documentation for an entire package.
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func New(pkg *ast.Package, importPath string, mode Mode) *Package
 ```
 
@@ -200,7 +200,7 @@ New computes the package documentation for the given package AST. New takes owne
 
 #### func [NewFromFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=208)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func NewFromFiles(fset *token.FileSet, files []*ast.File, importPath string, opts ...any) (*Package, error)
 ```
 
@@ -215,12 +215,12 @@ Optionally, a single extra argument of type Mode can be provided to control low-
 NewFromFiles takes ownership of the AST files and may edit them, unless the PreserveAST Mode bit is on.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Package) [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/filter.go;l=100) 
 
-``` go linenums="1"
+``` go 
 func (p *Package) Filter(f Filter)
 ```
 
@@ -228,7 +228,7 @@ Filter eliminates documentation for names that don't pass through the filter f. 
 
 #### (*Package) [HTML](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=332)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) HTML(text string) []byte
 ```
 
@@ -238,7 +238,7 @@ To customize details of the HTML, use [Package.Printer](https://pkg.go.dev/go/do
 
 #### (*Package) [Markdown](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=341)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) Markdown(text string) []byte
 ```
 
@@ -248,7 +248,7 @@ To customize details of the Markdown, use [Package.Printer](https://pkg.go.dev/g
 
 #### (*Package) [Parser](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=310)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) Parser() *comment.Parser
 ```
 
@@ -256,7 +256,7 @@ Parser returns a doc comment parser configured for parsing doc comments from pac
 
 #### (*Package) [Printer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=321)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) Printer() *comment.Printer
 ```
 
@@ -264,7 +264,7 @@ Printer returns a doc comment printer configured for printing doc comments from 
 
 #### (*Package) [Synopsis](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/synopsis.go;l=59)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) Synopsis(text string) string
 ```
 
@@ -272,7 +272,7 @@ Synopsis returns a cleaned version of the first sentence in text. That sentence 
 
 #### (*Package) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=352)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (p *Package) Text(text string) []byte
 ```
 
@@ -282,7 +282,7 @@ To customize details of the formatting, use [Package.Printer](https://pkg.go.dev
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=54) 
 
-``` go linenums="1"
+``` go 
 type Type struct {
 	Doc  string
 	Name string
@@ -305,7 +305,7 @@ Type is the documentation for a type declaration.
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/go/doc/doc.go;l=45) 
 
-``` go linenums="1"
+``` go 
 type Value struct {
 	Doc   string
 	Names []string // var or const names in declaration order

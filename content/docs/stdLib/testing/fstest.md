@@ -23,7 +23,7 @@ This section is empty.
 
 #### func [TestFS](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/testfs.go;l=36) 
 
-``` go linenums="1"
+``` go 
 func TestFS(fsys fs.FS, expected ...string) error
 ```
 
@@ -43,7 +43,7 @@ if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
 
 ### type [MapFS](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=33) 
 
-``` go linenums="1"
+``` go 
 type MapFS map[string]*MapFile
 ```
 
@@ -55,13 +55,13 @@ type MapFS map[string]*MapFile
 
 #### (MapFS) [Glob](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) Glob(pattern string) ([]string, error)
 ```
 
 #### (MapFS) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) Open(name string) (fs.File, error)
 ```
 
@@ -69,31 +69,31 @@ Open opens the named file.
 
 #### (MapFS) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=129) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) ReadDir(name string) ([]fs.DirEntry, error)
 ```
 
 #### (MapFS) [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) ReadFile(name string) ([]byte, error)
 ```
 
 #### (MapFS) [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) Stat(name string) (fs.FileInfo, error)
 ```
 
 #### (MapFS) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (fsys MapFS) Sub(dir string) (fs.FS, error)
 ```
 
 ### type [MapFile](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fstest/mapfs.go;l=36) 
 
-``` go linenums="1"
+``` go 
 type MapFile struct {
 	Data    []byte      // file content
 	Mode    fs.FileMode // FileInfo.Mode

@@ -25,11 +25,11 @@ A heap is a common way to implement a priority queue. To build a priority queue,
 heap 是实现优先级队列的一种常见方式。要建立一个优先级队列，要用(负)优先级作为Less方法的排序来实现Heap接口，因此Push增加项目，而Pop从队列中删除优先级最高的项目。实例中包括这样的实现；文件example_pq_test.go中有完整的源代码。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -51,7 +51,7 @@ This section is empty.
 
 #### func [Fix](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=83)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Fix(h Interface, i int)
 ```
 
@@ -61,7 +61,7 @@ Fix在索引i处的元素改变其值后重新建立堆的顺序。改变索引i
 
 #### func [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=41) 
 
-``` go linenums="1"
+``` go 
 func Init(h Interface)
 ```
 
@@ -71,7 +71,7 @@ Init建立了本包中其他例程所要求的堆不变性。Init对于堆不变
 
 #### func [Pop](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func Pop(h Interface) any
 ```
 
@@ -81,7 +81,7 @@ Pop删除并返回堆中的最小元素(根据Less)。复杂度为O(log n)，其
 
 #### func [Push](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func Push(h Interface, x any)
 ```
 
@@ -91,7 +91,7 @@ Push将元素x推到堆上。复杂度为O(log n)，其中n = h.Len()。
 
 #### func [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func Remove(h Interface, i int) any
 ```
 
@@ -103,7 +103,7 @@ Remove从堆中删除并返回索引为i的元素。复杂度为O(log n)，其�
 
 ### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/container/heap/heap.go;l=31) 
 
-``` go linenums="1"
+``` go 
 type Interface interface {
 	sort.Interface
 	Push(x any) // add x as element Len()  //添加x为元素Len()

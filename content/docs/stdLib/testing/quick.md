@@ -25,13 +25,13 @@ This section is empty.
 
 #### func [Check](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=263) 
 
-``` go linenums="1"
+``` go 
 func Check(f any, config *Config) error
 ```
 
 ​	Check函数会查找一个`f`的输入，即任何返回bool类型的函数，使得`f`返回false。它会重复调用`f`，对于每个参数都使用任意值。如果`f`在给定的输入上返回false，则Check会将该输入作为`*CheckError`返回。例如：
 
-``` go linenums="1"
+``` go 
 func TestOddMultipleOfThree(t *testing.T) {
 	f := func(x int) bool {
 		y := OddMultipleOfThree(x)
@@ -45,7 +45,7 @@ func TestOddMultipleOfThree(t *testing.T) {
 
 #### func [CheckEqual](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=302) 
 
-``` go linenums="1"
+``` go 
 func CheckEqual(f, g any, config *Config) error
 ```
 
@@ -53,7 +53,7 @@ func CheckEqual(f, g any, config *Config) error
 
 #### func [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)
 ```
 
@@ -63,7 +63,7 @@ func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)
 
 ### type [CheckEqualError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=238) 
 
-``` go linenums="1"
+``` go 
 type CheckEqualError struct {
 	CheckError
 	Out1 []any
@@ -75,13 +75,13 @@ type CheckEqualError struct {
 
 #### (*CheckEqualError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=244) 
 
-``` go linenums="1"
+``` go 
 func (s *CheckEqualError) Error() string
 ```
 
 ### type [CheckError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=228) 
 
-``` go linenums="1"
+``` go 
 type CheckError struct {
 	Count int
 	In    []any
@@ -92,13 +92,13 @@ type CheckError struct {
 
 #### (*CheckError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=233) 
 
-``` go linenums="1"
+``` go 
 func (s *CheckError) Error() string
 ```
 
 ### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=177) 
 
-``` go linenums="1"
+``` go 
 type Config struct {
 	// MaxCount设置最大迭代次数。
 	// 如果为零，则使用MaxCountScale。
@@ -122,7 +122,7 @@ Config结构包含运行测试的选项。
 
 ### type [Generator](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=23) 
 
-``` go linenums="1"
+``` go 
 type Generator interface {
 	// Generate使用size作为大小提示，返回其所属类型的随机实例。
 	Generate(rand *rand.Rand, size int) reflect.Value
@@ -133,7 +133,7 @@ type Generator interface {
 
 ### type [SetupError](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=223) 
 
-``` go linenums="1"
+``` go 
 type SetupError string
 ```
 
@@ -141,6 +141,6 @@ type SetupError string
 
 #### (SetupError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/quick/quick.go;l=225) 
 
-``` go linenums="1"
+``` go 
 func (s SetupError) Error() string
 ```

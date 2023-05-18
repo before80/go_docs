@@ -81,7 +81,7 @@ U	referenced but undefined symbol
 
 === "doc.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2013 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.
@@ -127,7 +127,7 @@ U	referenced but undefined symbol
 
 === "nm.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2013 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.
@@ -299,7 +299,7 @@ U	referenced but undefined symbol
 
 === "nm_test.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2017 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.
@@ -361,7 +361,7 @@ U	referenced but undefined symbol
 
 === "nm_cgo_test.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2014 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.

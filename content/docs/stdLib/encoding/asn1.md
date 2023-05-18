@@ -21,7 +21,7 @@ See also "A Layman's Guide to a Subset of ASN.1, BER, and DER," http://luca.ntop
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/common.go;l=22)
 
-``` go linenums="1"
+``` go 
 const (
 	TagBoolean         = 1
 	TagInteger         = 2
@@ -48,7 +48,7 @@ ASN.1 tags represent the type of the following object.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/common.go;l=44)
 
-``` go linenums="1"
+``` go 
 const (
 	ClassUniversal       = 0
 	ClassApplication     = 1
@@ -63,7 +63,7 @@ ASN.1 class types represent the namespace of the tag.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=217)
 
-``` go linenums="1"
+``` go 
 var NullBytes = []byte{TagNull, 0}
 ```
 
@@ -71,7 +71,7 @@ NullBytes contains bytes representing the DER-encoded ASN.1 NULL type.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=214)
 
-``` go linenums="1"
+``` go 
 var NullRawValue = RawValue{Tag: TagNull}
 ```
 
@@ -81,7 +81,7 @@ NullRawValue is a RawValue with its Tag set to the ASN.1 NULL type tag (5).
 
 #### func [Marshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/marshal.go;l=733) 
 
-``` go linenums="1"
+``` go 
 func Marshal(val any) ([]byte, error)
 ```
 
@@ -100,7 +100,7 @@ generalized: causes time.Time to be marshaled as ASN.1, GeneralizedTime values
 
 #### func [MarshalWithParams](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/marshal.go;l=739)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func MarshalWithParams(val any, params string) ([]byte, error)
 ```
 
@@ -108,7 +108,7 @@ MarshalWithParams allows field parameters to be specified for the top-level elem
 
 #### func [Unmarshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=1089) 
 
-``` go linenums="1"
+``` go 
 func Unmarshal(b []byte, val any) (rest []byte, err error)
 ```
 
@@ -164,7 +164,7 @@ Other ASN.1 types are not supported; if it encounters them, Unmarshal returns a 
 
 #### func [UnmarshalWithParams](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=1112) 
 
-``` go linenums="1"
+``` go 
 func UnmarshalWithParams(b []byte, val any, params string) (rest []byte, err error)
 ```
 
@@ -174,7 +174,7 @@ UnmarshalWithParams allows field parameters to be specified for the top-level el
 
 ### type [BitString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=159) 
 
-``` go linenums="1"
+``` go 
 type BitString struct {
 	Bytes     []byte // bits packed into bytes.
 	BitLength int    // length in bits.
@@ -185,7 +185,7 @@ BitString is the structure to use when you want an ASN.1 BIT STRING type. A bit 
 
 #### (BitString) [At](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=166) 
 
-``` go linenums="1"
+``` go 
 func (b BitString) At(i int) int
 ```
 
@@ -193,7 +193,7 @@ At returns the bit at the given index. If the index is out of range it returns 0
 
 #### (BitString) [RightAlign](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func (b BitString) RightAlign() []byte
 ```
 
@@ -201,7 +201,7 @@ RightAlign returns a slice where the padding bits are at the beginning. The slic
 
 ### type [Enumerated](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=295) 
 
-``` go linenums="1"
+``` go 
 type Enumerated int
 ```
 
@@ -209,7 +209,7 @@ An Enumerated is represented as a plain int.
 
 ### type [Flag](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=300) 
 
-``` go linenums="1"
+``` go 
 type Flag bool
 ```
 
@@ -217,7 +217,7 @@ A Flag accepts any data and is set to true if present.
 
 ### type [ObjectIdentifier](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=222) 
 
-``` go linenums="1"
+``` go 
 type ObjectIdentifier []int
 ```
 
@@ -225,7 +225,7 @@ An ObjectIdentifier represents an ASN.1 OBJECT IDENTIFIER.
 
 #### (ObjectIdentifier) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=225) 
 
-``` go linenums="1"
+``` go 
 func (oi ObjectIdentifier) Equal(other ObjectIdentifier) bool
 ```
 
@@ -233,13 +233,13 @@ Equal reports whether oi and other represent the same identifier.
 
 #### (ObjectIdentifier) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=238)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (oi ObjectIdentifier) String() string
 ```
 
 ### type [RawContent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=519) 
 
-``` go linenums="1"
+``` go 
 type RawContent []byte
 ```
 
@@ -247,7 +247,7 @@ RawContent is used to signal that the undecoded, DER data needs to be preserved 
 
 ### type [RawValue](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=509) 
 
-``` go linenums="1"
+``` go 
 type RawValue struct {
 	Class, Tag int
 	IsCompound bool
@@ -260,7 +260,7 @@ A RawValue represents an undecoded ASN.1 object.
 
 ### type [StructuralError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=36) 
 
-``` go linenums="1"
+``` go 
 type StructuralError struct {
 	Msg string
 }
@@ -270,13 +270,13 @@ A StructuralError suggests that the ASN.1 data is valid, but the Go type which i
 
 #### (StructuralError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=40) 
 
-``` go linenums="1"
+``` go 
 func (e StructuralError) Error() string
 ```
 
 ### type [SyntaxError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=43) 
 
-``` go linenums="1"
+``` go 
 type SyntaxError struct {
 	Msg string
 }
@@ -286,6 +286,6 @@ A SyntaxError suggests that the ASN.1 data is invalid.
 
 #### (SyntaxError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/asn1/asn1.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (e SyntaxError) Error() string
 ```

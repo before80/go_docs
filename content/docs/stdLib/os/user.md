@@ -31,7 +31,7 @@ This section is empty.
 
 ### type [Group](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=61)  <- go1.7
 
-``` go linenums="1"
+``` go 
 type Group struct {
 	Gid  string // group ID
 	Name string // group name
@@ -44,7 +44,7 @@ type Group struct {
 
 #### func [LookupGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=57)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func LookupGroup(name string) (*Group, error)
 ```
 
@@ -52,7 +52,7 @@ func LookupGroup(name string) (*Group, error)
 
 #### func [LookupGroupId](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=63)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func LookupGroupId(gid string) (*Group, error)
 ```
 
@@ -60,7 +60,7 @@ func LookupGroupId(gid string) (*Group, error)
 
 ### type [UnknownGroupError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=91)  <- go1.7
 
-``` go linenums="1"
+``` go 
 type UnknownGroupError string
 ```
 
@@ -68,13 +68,13 @@ type UnknownGroupError string
 
 #### (UnknownGroupError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=93)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (e UnknownGroupError) Error() string
 ```
 
 ### type [UnknownGroupIdError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=83)  <- go1.7
 
-``` go linenums="1"
+``` go 
 type UnknownGroupIdError string
 ```
 
@@ -82,13 +82,13 @@ type UnknownGroupIdError string
 
 #### (UnknownGroupIdError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=85)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (e UnknownGroupIdError) Error() string
 ```
 
 ### type [UnknownUserError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=75) 
 
-``` go linenums="1"
+``` go 
 type UnknownUserError string
 ```
 
@@ -96,13 +96,13 @@ type UnknownUserError string
 
 #### (UnknownUserError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (e UnknownUserError) Error() string
 ```
 
 ### type [UnknownUserIdError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=67) 
 
-``` go linenums="1"
+``` go 
 type UnknownUserIdError int
 ```
 
@@ -110,13 +110,13 @@ type UnknownUserIdError int
 
 #### (UnknownUserIdError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func (e UnknownUserIdError) Error() string
 ```
 
 ### type [User](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/user.go;l=34) 
 
-``` go linenums="1"
+``` go 
 type User struct {
 	// Uid 是用户 ID。
 	// 在 POSIX 系统上，这是表示 uid 的十进制数。
@@ -146,7 +146,7 @@ type User struct {
 
 #### func [Current](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func Current() (*User, error)
 ```
 
@@ -156,7 +156,7 @@ func Current() (*User, error)
 
 #### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func Lookup(username string) (*User, error)
 ```
 
@@ -164,7 +164,7 @@ func Lookup(username string) (*User, error)
 
 #### func [LookupId](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func LookupId(uid string) (*User, error)
 ```
 
@@ -172,7 +172,7 @@ func LookupId(uid string) (*User, error)
 
 #### (*User) [GroupIds](https://cs.opensource.google/go/go/+/go1.20.1:src/os/user/lookup.go;l=68)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (u *User) GroupIds() ([]string, error)
 ```
 

@@ -46,7 +46,7 @@ elapsed := t.Sub(start)
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=101)
 
-``` go linenums="1"
+``` go 
 const (
 	Layout      = "01/02 03:04:05PM '06 -0700" // The reference time, in numerical order.
 	ANSIC       = "Mon Jan _2 15:04:05 2006"
@@ -137,7 +137,7 @@ AM/PM mark: "PM"
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=631)
 
-``` go linenums="1"
+``` go 
 const (
 	Nanosecond  Duration = 1
 	Microsecond          = 1000 * Nanosecond
@@ -172,14 +172,14 @@ This section is empty.
 
 #### func [After](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=156) 
 
-``` go linenums="1"
+``` go 
 func After(d Duration) <-chan Time
 ```
 
 ​	After函数等待持续时间过去，然后在返回的通道上发送当前时间。它等效于 NewTimer(d).C。底层定时器直到定时器触发才被垃圾回收器回收。如果效率是一个问题，应该使用 NewTimer，并在不再需要定时器时调用 Timer.Stop。
 
 ##### After Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -204,14 +204,14 @@ func main() {
 
 #### func [Sleep](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=9) 
 
-``` go linenums="1"
+``` go 
 func Sleep(d Duration)
 ```
 
 ​	Sleep函数暂停当前 goroutine 至少持续时间 d。负或零持续时间会使 Sleep 立即返回。
 
 ##### Sleep Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -226,14 +226,14 @@ func main() {
 
 #### func [Tick](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func Tick(d Duration) <-chan Time
 ```
 
 ​	Tick 函数是 NewTicker 的方便封装，只提供访问时间 channel。虽然 Tick 对于没有关闭 Ticker 需求的客户端非常有用，但请注意，如果没有关闭 Ticker，底层 Ticker 将无法被垃圾回收；它会"泄漏"。与 NewTicker 不同，如果 d <= 0，Tick 将返回 nil。
 
 ##### Tick Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -256,14 +256,14 @@ func main() {
 
 ### type [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=612) 
 
-``` go linenums="1"
+``` go 
 type Duration int64
 ```
 
 ​	Duration类型表示两个时间点之间经过的时间，以 int64 纳秒计数的方式表示。该表示方式将最大可表示的持续时间限制在大约 290 年左右。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -284,14 +284,14 @@ func main() {
 
 #### func [ParseDuration](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1589) 
 
-``` go linenums="1"
+``` go 
 func ParseDuration(s string) (Duration, error)
 ```
 
 ​	ParseDuration 函数解析一个持续时间字符串。持续时间字符串是一个可能带有符号的十进制数序列，每个数字都可以有小数部分和单位后缀，例如 "300ms"、"-1.5h" 或 "2h45m"。有效的时间单位有 "ns"、"us"(或 "µs")、"ms"、"s"、"m" 和 "h"。
 
 ##### ParseDuration Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -323,7 +323,7 @@ There are 1.00e-06 seconds in 1µs.
 
 #### func [Since](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=911) 
 
-``` go linenums="1"
+``` go 
 func Since(t Time) Duration
 ```
 
@@ -331,7 +331,7 @@ func Since(t Time) Duration
 
 #### func [Until](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=924)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Until(t Time) Duration
 ```
 
@@ -339,7 +339,7 @@ func Until(t Time) Duration
 
 #### (Duration) [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=844)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (d Duration) Abs() Duration
 ```
 
@@ -347,14 +347,14 @@ func (d Duration) Abs() Duration
 
 #### (Duration) [Hours](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=791) 
 
-``` go linenums="1"
+``` go 
 func (d Duration) Hours() float64
 ```
 
 ​	Hours 方法返回持续时间作为小时数的浮点数。
 
 ##### Hours Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -373,14 +373,14 @@ I've got 4.5 hours of work left.
 
 #### (Duration) [Microseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=762)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (d Duration) Microseconds() int64
 ```
 
 ​	Microseconds方法返回以整数微秒计算的持续时间。
 
 ##### Microseconds Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -399,14 +399,14 @@ One second is 1000000 microseconds.
 
 #### (Duration) [Milliseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=765)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (d Duration) Milliseconds() int64
 ```
 
 ​	Milliseconds方法返回以整数毫秒计算的持续时间。
 
 ##### Milliseconds Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -425,14 +425,14 @@ One second is 1000 milliseconds.
 
 #### (Duration) [Minutes](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=784) 
 
-``` go linenums="1"
+``` go 
 func (d Duration) Minutes() float64
 ```
 
 ​	Minutes方法返回浮点数表示的分钟数持续时间。
 
 ##### Minutes Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -451,14 +451,14 @@ The movie is 90 minutes long.
 
 #### (Duration) [Nanoseconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=759) 
 
-``` go linenums="1"
+``` go 
 func (d Duration) Nanoseconds() int64
 ```
 
 ​	Nanoseconds方法返回以整数纳秒计算的持续时间。
 
 ##### Nanoseconds Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -477,14 +477,14 @@ One microsecond is 1000 nanoseconds.
 
 #### (Duration) [Round](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=818)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (d Duration) Round(m Duration) Duration
 ```
 
 ​	Round方法返回将d四舍五入为m的最近倍数的结果。如果结果超过可以存储在Duration中的最大(或最小)值，则Round返回最大(或最小)持续时间。如果m<=0，则Round返回未更改的d。
 
 ##### Round Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -527,14 +527,14 @@ d.Round(1h0m0s) = 1h0m0s
 
 #### (Duration) [Seconds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=777) 
 
-``` go linenums="1"
+``` go 
 func (d Duration) Seconds() float64
 ```
 
 ​	Seconds方法返回浮点数表示的秒数持续时间。
 
 ##### Seconds Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -553,14 +553,14 @@ Take off in t-90 seconds.
 
 #### (Duration) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=644) 
 
-``` go linenums="1"
+``` go 
 func (d Duration) String() string
 ```
 
 ​	String方法以 "72h3m0.5s" 的形式返回持续时间的字符串表示形式。省略前导零的单位。作为特殊情况，持续时间小于一秒的格式使用更小的单位(毫秒、微秒或纳秒)，以确保前导数字不为零。零持续时间格式化为0s。
 
 ##### String Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -580,14 +580,14 @@ Output:
 
 #### (Duration) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=799)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (d Duration) Truncate(m Duration) Duration
 ```
 
 ​	Truncate方法将 d 向零舍入为 m 的倍数并返回结果。如果 m <= 0，则 Truncate 返回未经更改的 d。
 
 ##### Truncate Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -630,7 +630,7 @@ d.Truncate(1h0m0s) = 1h0m0s
 
 ### type [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=19) 
 
-``` go linenums="1"
+``` go 
 type Location struct {
 	// contains filtered or unexported fields
 }
@@ -639,7 +639,7 @@ type Location struct {
 ​	Location结构体将时间时刻映射到使用的时区。通常，Location 表示在地理区域中使用的时间偏移集合。对于许多 Location，时间偏移量取决于在时间时刻是否使用夏令时。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -671,13 +671,13 @@ Output:
 true
 ```
 
-``` go linenums="1"
+``` go 
 var Local *Location = &localLoc
 ```
 
 ​	Local表示系统的本地时区。在 Unix 系统上，Local 会查询 TZ 环境变量以找到要使用的时区。没有 TZ 意味着使用系统默认值 /etc/localtime。TZ="" 表示使用 UTC。TZ="foo" 表示使用系统时区目录中的文件 foo。
 
-``` go linenums="1"
+``` go 
 var UTC *Location = &utcLoc
 ```
 
@@ -685,14 +685,14 @@ var UTC *Location = &utcLoc
 
 #### func [FixedZone](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=108) 
 
-``` go linenums="1"
+``` go 
 func FixedZone(name string, offset int) *Location
 ```
 
 ​	FixedZone函数返回始终使用给定区域名称和偏移量(相对于 UTC 的秒数)的 Location。
 
 ##### FixedZone Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -712,7 +712,7 @@ The time is: 10 Nov 09 23:00 UTC-8
 
 #### func [LoadLocation](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=662) 
 
-``` go linenums="1"
+``` go 
 func LoadLocation(name string) (*Location, error)
 ```
 
@@ -730,7 +730,7 @@ func LoadLocation(name string) (*Location, error)
 - 如果导入了 time/tzdata 包，它将用于查找时区信息。
 
 ##### LoadLocation Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -754,7 +754,7 @@ Output:
 
 #### func [LoadLocationFromTZData](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo_read.go;l=116)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func LoadLocationFromTZData(name string, data []byte) (*Location, error)
 ```
 
@@ -762,7 +762,7 @@ func LoadLocationFromTZData(name string, data []byte) (*Location, error)
 
 #### (*Location) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/zoneinfo.go;l=99) 
 
-``` go linenums="1"
+``` go 
 func (l *Location) String() string
 ```
 
@@ -770,14 +770,14 @@ func (l *Location) String() string
 
 ### type [Month](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=303) 
 
-``` go linenums="1"
+``` go 
 type Month int
 ```
 
 ​	Month 类型表示一年中的月份(1 代表一月，……)。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -794,7 +794,7 @@ func main() {
 
 ```
 
-``` go linenums="1"
+``` go 
 const (
 	January Month = 1 + iota
 	February
@@ -813,7 +813,7 @@ const (
 
 #### (Month) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=321) 
 
-``` go linenums="1"
+``` go 
 func (m Month) String() string
 ```
 
@@ -821,7 +821,7 @@ func (m Month) String() string
 
 ### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=819) 
 
-``` go linenums="1"
+``` go 
 type ParseError struct {
 	Layout     string
 	Value      string
@@ -835,7 +835,7 @@ type ParseError struct {
 
 #### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=886) 
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Error() string
 ```
 
@@ -843,7 +843,7 @@ func (e *ParseError) Error() string
 
 ### type [Ticker](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=11) 
 
-``` go linenums="1"
+``` go 
 type Ticker struct {
 	C <-chan Time // The channel on which the ticks are delivered.
 	// contains filtered or unexported fields
@@ -854,14 +854,14 @@ type Ticker struct {
 
 #### func [NewTicker](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func NewTicker(d Duration) *Ticker
 ```
 
 ​	NewTicker函数返回一个新的 Ticker，它包含一个通道，每个 tick 都会在通道上发送当前时间。tick 的周期由 duration 参数指定。ticker 会调整时间间隔或者丢弃 ticks 来弥补慢的接收器。duration d 必须大于零；否则，NewTicker 会 panic。停止 ticker 以释放相关资源。
 
 ##### NewTicker Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -892,7 +892,7 @@ func main() {
 
 #### (*Ticker) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=53)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (t *Ticker) Reset(d Duration)
 ```
 
@@ -900,7 +900,7 @@ func (t *Ticker) Reset(d Duration)
 
 #### (*Ticker) [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/time/tick.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func (t *Ticker) Stop()
 ```
 
@@ -908,7 +908,7 @@ func (t *Ticker) Stop()
 
 ### type [Time](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=129) 
 
-``` go linenums="1"
+``` go 
 type Time struct {
 	// contains filtered or unexported fields
 }
@@ -934,7 +934,7 @@ type Time struct {
 
 #### func [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1467) 
 
-``` go linenums="1"
+``` go 
 func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time
 ```
 
@@ -947,7 +947,7 @@ func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) T
 ​	如果 loc 为 nil，Date 将 panic。
 
 ##### Date Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -966,7 +966,7 @@ Go launched at 2009-11-10 15:00:00 -0800 PST
 
 #### func [Now](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1110) 
 
-``` go linenums="1"
+``` go 
 func Now() Time
 ```
 
@@ -974,7 +974,7 @@ func Now() Time
 
 #### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1007) 
 
-``` go linenums="1"
+``` go 
 func Parse(layout, value string) (Time, error)
 ```
 
@@ -997,7 +997,7 @@ func Parse(layout, value string) (Time, error)
 ​	当解析具有类似于 MST 的区域缩写的时间时，如果该区域缩写在当前位置具有定义的偏移量，则使用该偏移量。无论位置如何，"UTC"区域缩写都被认为是 UTC。如果区域缩写未知，则 Parse 记录该时间处于具有给定区域缩写和零偏移量的虚构位置。此选择意味着可以使用相同的布局无损地解析和重新格式化此类时间，但是表示中使用的确切时刻将与实际区域偏移量不同。为避免此类问题，请使用使用数字区域偏移量的时间布局，或使用 ParseInLocation。
 
 ##### Parse Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1048,14 +1048,14 @@ error parsing time "2006-01-02T15:04:05Z07:00": extra text: "07:00"
 
 #### func [ParseInLocation](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=1022)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ParseInLocation(layout, value string, loc *Location) (Time, error)
 ```
 
 ​	ParseInLocation函数与Parse函数类似，但有两个重要区别。首先，在缺少时区信息的情况下，Parse将一个时间解释为UTC；而ParseInLocation则将时间解释为给定时区的时间。其次，当给定时区偏移量或缩写时，Parse会尝试将其与本地时区匹配；而ParseInLocation使用给定时区。
 
 ##### ParseInLocation Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1085,7 +1085,7 @@ Output:
 
 #### func [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1396) 
 
-``` go linenums="1"
+``` go 
 func Unix(sec int64, nsec int64) Time
 ```
 
@@ -1094,7 +1094,7 @@ func Unix(sec int64, nsec int64) Time
 
 
 ##### Unix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1117,14 +1117,14 @@ Output:
 
 #### func [UnixMicro](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1417)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func UnixMicro(usec int64) Time
 ```
 
 ​	UnixMicro函数返回与自1970年1月1日UTC以来的usec微秒对应的本地时间。
 
 ##### UnixMicro Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1147,14 +1147,14 @@ Output:
 
 #### func [UnixMilli](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1411)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func UnixMilli(msec int64) Time
 ```
 
 ​	UnixMilli函数返回与自1970年1月1日UTC以来的msec毫秒对应的本地时间。
 
 ##### UnixMilli Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1177,14 +1177,14 @@ Output:
 
 #### (Time) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=856) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Add(d Duration) Time
 ```
 
 ​	Add方法返回t+d时间。
 
 ##### Add Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1217,7 +1217,7 @@ start.Add(time.Hour * 24 * 10) = 2009-01-11 12:00:00 +0000 UTC
 
 #### (Time) [AddDate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=943) 
 
-``` go linenums="1"
+``` go 
 func (t Time) AddDate(years int, months int, days int) Time
 ```
 
@@ -1226,7 +1226,7 @@ func (t Time) AddDate(years int, months int, days int) Time
 ​	AddDate方法会像 Date 方法一样对其结果进行规范化，因此例如将 10 月 31 日加一月会得到规范化后的 11 月 31 日，即 12 月 1 日。
 
 ##### AddDate Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1254,14 +1254,14 @@ oneYearLater: start.AddDate(1, 0, 0) = 2010-01-01 00:00:00 +0000 UTC
 
 #### (Time) [After](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=250) 
 
-``` go linenums="1"
+``` go 
 func (t Time) After(u Time) bool
 ```
 
 ​	After方法报告时间点 t 是否在 u 之后。
 
 ##### After Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1288,14 +1288,14 @@ year2000.After(year3000) = false
 
 #### (Time) [AppendFormat](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=636)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (t Time) AppendFormat(b []byte, layout string) []byte
 ```
 
 ​	AppendFormat方法与 Format方法类似，但将文本表示附加到 b 中并返回扩展缓冲区。
 
 ##### AppendFormat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1318,14 +1318,14 @@ Time: 11:00AM
 
 #### (Time) [Before](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=260) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Before(u Time) bool
 ```
 
 ​	Before方法报告时间点 t 是否在 u 之前。
 
 ##### Before Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1352,7 +1352,7 @@ year3000.Before(year2000) = false
 
 #### (Time) [Clock](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=567) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Clock() (hour, min, sec int)
 ```
 
@@ -1360,7 +1360,7 @@ func (t Time) Clock() (hour, min, sec int)
 
 #### (Time) [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=271)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (t Time) Compare(u Time) int
 ```
 
@@ -1368,14 +1368,14 @@ func (t Time) Compare(u Time) int
 
 #### (Time) [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=504) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Date() (year int, month Month, day int)
 ```
 
 ​	Date方法返回 t 所代表的年、月、日。
 
 ##### Date Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1401,14 +1401,14 @@ day = 1
 
 #### (Time) [Day](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=522) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Day() int
 ```
 
 ​	Day方法返回 t 所代表的月份中的第几天。
 
 ##### Day Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1430,14 +1430,14 @@ day = 1
 
 #### (Time) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=295) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Equal(u Time) bool
 ```
 
 ​	Equal方法报告 t 和 u 是否代表同一时刻。即使两个时间处于不同的时区，它们也可以相等。例如，6:00 +0200 和 4:00 UTC 是相等的。有关使用 == 与 Time 值时遇到的问题，请参阅 Time 类型的文档；大多数代码应该使用 Equal。
 
 ##### Equal Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1469,7 +1469,7 @@ datesEqualUsingFunction = true
 
 #### (Time) [Format](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=620) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Format(layout string) string
 ```
 
@@ -1478,7 +1478,7 @@ func (t Time) Format(layout string) string
 ​	Time.Format 的可执行示例详细演示了布局字符串的工作方式，是一个很好的参考。
 
 ##### Format Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1592,7 +1592,7 @@ No fraction      "Mon Jan _2 15:04:05 MST 2006" gives "Wed Feb 25 11:06:39 PST 2
 ```
 
 ##### Format Example(Pad)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1649,19 +1649,19 @@ Suppressed pad   "04:05" gives "06:39"
 
 #### (Time) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=558)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (t Time) GoString() string
 ```
 
 ​	GoString方法实现了 fmt.GoStringer 接口，并将 t 格式化为可打印的 Go 源代码。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Time) [GobDecode](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1335) 
 
-``` go linenums="1"
+``` go 
 func (t *Time) GobDecode(data []byte) error
 ```
 
@@ -1669,7 +1669,7 @@ func (t *Time) GobDecode(data []byte) error
 
 #### (Time) [GobEncode](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1330) 
 
-``` go linenums="1"
+``` go 
 func (t Time) GobEncode() ([]byte, error)
 ```
 
@@ -1677,7 +1677,7 @@ func (t Time) GobEncode() ([]byte, error)
 
 #### (Time) [Hour](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=582) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Hour() int
 ```
 
@@ -1685,7 +1685,7 @@ func (t Time) Hour() int
 
 #### (Time) [ISOWeek](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=543) 
 
-``` go linenums="1"
+``` go 
 func (t Time) ISOWeek() (year, week int)
 ```
 
@@ -1693,7 +1693,7 @@ func (t Time) ISOWeek() (year, week int)
 
 #### (Time) [In](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1144) 
 
-``` go linenums="1"
+``` go 
 func (t Time) In(loc *Location) Time
 ```
 
@@ -1703,7 +1703,7 @@ func (t Time) In(loc *Location) Time
 
 #### (Time) [IsDST](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1422)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (t Time) IsDST() bool
 ```
 
@@ -1711,7 +1711,7 @@ func (t Time) IsDST() bool
 
 #### (Time) [IsZero](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=455) 
 
-``` go linenums="1"
+``` go 
 func (t Time) IsZero() bool
 ```
 
@@ -1719,7 +1719,7 @@ func (t Time) IsZero() bool
 
 #### (Time) [Local](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1134) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Local() Time
 ```
 
@@ -1727,7 +1727,7 @@ func (t Time) Local() Time
 
 #### (Time) [Location](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1153) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Location() *Location
 ```
 
@@ -1735,7 +1735,7 @@ func (t Time) Location() *Location
 
 #### (Time) [MarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1230)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (t Time) MarshalBinary() ([]byte, error)
 ```
 
@@ -1743,7 +1743,7 @@ func (t Time) MarshalBinary() ([]byte, error)
 
 #### (Time) [MarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1343) 
 
-``` go linenums="1"
+``` go 
 func (t Time) MarshalJSON() ([]byte, error)
 ```
 
@@ -1751,7 +1751,7 @@ func (t Time) MarshalJSON() ([]byte, error)
 
 #### (Time) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1374)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (t Time) MarshalText() ([]byte, error)
 ```
 
@@ -1759,7 +1759,7 @@ func (t Time) MarshalText() ([]byte, error)
 
 #### (Time) [Minute](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=587) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Minute() int
 ```
 
@@ -1767,7 +1767,7 @@ func (t Time) Minute() int
 
 #### (Time) [Month](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=516) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Month() Month
 ```
 
@@ -1775,7 +1775,7 @@ func (t Time) Month() Month
 
 #### (Time) [Nanosecond](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=598) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Nanosecond() int
 ```
 
@@ -1783,7 +1783,7 @@ func (t Time) Nanosecond() int
 
 #### (Time) [Round](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1545)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (t Time) Round(d Duration) Time
 ```
 
@@ -1792,7 +1792,7 @@ func (t Time) Round(d Duration) Time
 ​	Round方法以自零时间以来的绝对持续时间为基础操作时间；它不以时间的表现形式为基础。因此，Round(Hour)可能会返回具有非零分钟的时间，这取决于时间的Location。
 
 ##### Round Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1831,7 +1831,7 @@ t.Round(1h0m0s) = 12:00:00
 
 #### (Time) [Second](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=592) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Second() int
 ```
 
@@ -1839,7 +1839,7 @@ func (t Time) Second() int
 
 #### (Time) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=527) 
 
-``` go linenums="1"
+``` go 
 func (t Time) String() string
 ```
 
@@ -1854,7 +1854,7 @@ String returns the time formatted using the format string
 ​	返回的字符串仅用于调试；对于稳定的序列化表示，使用 t.MarshalText、t.MarshalBinary 或带有显式格式字符串的 t.Format。
 
 ##### String Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1881,14 +1881,14 @@ withoutNanoseconds = 2000-02-01 12:13:14 +0000 UTC
 
 #### (Time) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=884) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Sub(u Time) Duration
 ```
 
 ​	Sub方法返回 t-u 的持续时间。如果结果超过可以存储在 Duration 中的最大(或最小)值，则将返回最大(或最小)持续时间。要计算 t-d 的持续时间 d，请使用 t.Add(-d)。
 
 ##### Sub Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1911,7 +1911,7 @@ difference = 12h0m0s
 
 #### (Time) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1528)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (t Time) Truncate(d Duration) Time
 ```
 
@@ -1920,7 +1920,7 @@ func (t Time) Truncate(d Duration) Time
 ​	Truncate方法在绝对时间自零时以来的持续时间上操作；它不会操作时间的表现形式。因此，Truncate(Hour) 可能会返回带有非零分钟的时间，具体取决于时间的位置。
 
 ##### Truncate Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1961,7 +1961,7 @@ t.Truncate(10m0s) = 12:10:00
 
 #### (Time) [UTC](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1128) 
 
-``` go linenums="1"
+``` go 
 func (t Time) UTC() Time
 ```
 
@@ -1969,14 +1969,14 @@ func (t Time) UTC() Time
 
 #### (Time) [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1192) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Unix() int64
 ```
 
 ​	Unix方法返回 t 作为 Unix 时间，即自 1970 年 1 月 1 日 UTC 以来经过的秒数。结果不依赖于与t关联的位置。类 Unix 操作系统通常将时间记录为 32 位秒计数，但由于此方法返回 64 位值，因此对过去或未来数十亿年都有效。
 
 ##### Unix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2006,7 +2006,7 @@ Output:
 
 #### (Time) [UnixMicro](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1210)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (t Time) UnixMicro() int64
 ```
 
@@ -2014,7 +2014,7 @@ func (t Time) UnixMicro() int64
 
 #### (Time) [UnixMilli](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1201)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (t Time) UnixMilli() int64
 ```
 
@@ -2022,7 +2022,7 @@ func (t Time) UnixMilli() int64
 
 #### (Time) [UnixNano](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1220) 
 
-``` go linenums="1"
+``` go 
 func (t Time) UnixNano() int64
 ```
 
@@ -2030,7 +2030,7 @@ func (t Time) UnixNano() int64
 
 #### (*Time) [UnmarshalBinary](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1278)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (t *Time) UnmarshalBinary(data []byte) error
 ```
 
@@ -2038,7 +2038,7 @@ func (t *Time) UnmarshalBinary(data []byte) error
 
 #### (*Time) [UnmarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1356) 
 
-``` go linenums="1"
+``` go 
 func (t *Time) UnmarshalJSON(data []byte) error
 ```
 
@@ -2046,7 +2046,7 @@ func (t *Time) UnmarshalJSON(data []byte) error
 
 #### (*Time) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1385)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (t *Time) UnmarshalText(data []byte) error
 ```
 
@@ -2054,7 +2054,7 @@ func (t *Time) UnmarshalText(data []byte) error
 
 #### (Time) [Weekday](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=528) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Weekday() Weekday
 ```
 
@@ -2062,7 +2062,7 @@ func (t Time) Weekday() Weekday
 
 #### (Time) [Year](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=510) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Year() int
 ```
 
@@ -2070,7 +2070,7 @@ func (t Time) Year() int
 
 #### (Time) [YearDay](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=604)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (t Time) YearDay() int
 ```
 
@@ -2078,7 +2078,7 @@ func (t Time) YearDay() int
 
 #### (Time) [Zone](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1163) 
 
-``` go linenums="1"
+``` go 
 func (t Time) Zone() (name string, offset int)
 ```
 
@@ -2086,7 +2086,7 @@ func (t Time) Zone() (name string, offset int)
 
 #### (Time) [ZoneBounds](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=1173)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (t Time) ZoneBounds() (start, end Time)
 ```
 
@@ -2094,7 +2094,7 @@ func (t Time) ZoneBounds() (start, end Time)
 
 ### type [Timer](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=50) 
 
-``` go linenums="1"
+``` go 
 type Timer struct {
 	C <-chan Time
 	// contains filtered or unexported fields
@@ -2105,7 +2105,7 @@ type Timer struct {
 
 #### func [AfterFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=163) 
 
-``` go linenums="1"
+``` go 
 func AfterFunc(d Duration, f func()) *Timer
 ```
 
@@ -2113,7 +2113,7 @@ func AfterFunc(d Duration, f func()) *Timer
 
 #### func [NewTimer](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func NewTimer(d Duration) *Timer
 ```
 
@@ -2121,7 +2121,7 @@ func NewTimer(d Duration) *Timer
 
 #### (*Timer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=134)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (t *Timer) Reset(d Duration) bool
 ```
 
@@ -2146,7 +2146,7 @@ t.Reset(d)
 
 #### (*Timer) [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/time/sleep.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (t *Timer) Stop() bool
 ```
 
@@ -2166,13 +2166,13 @@ if !t.Stop() {
 
 ### type [Weekday](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=331) 
 
-``` go linenums="1"
+``` go 
 type Weekday int
 ```
 
 ​	Weekday类型指定一周中的某一天(星期日= 0，...)。
 
-``` go linenums="1"
+``` go 
 const (
 	Sunday Weekday = iota
 	Monday
@@ -2186,7 +2186,7 @@ const (
 
 #### (Weekday) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=344) 
 
-``` go linenums="1"
+``` go 
 func (d Weekday) String() string
 ```
 

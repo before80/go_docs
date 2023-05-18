@@ -27,19 +27,19 @@ This section is empty.
 
 #### func [Default](https://cs.opensource.google/go/go/+/go1.20.1:src/go/importer/importer.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func Default() types.Importer
 ```
 
 Default returns an Importer for the compiler that built the running binary. If available, the result implements types.ImporterFrom.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [ForCompiler](https://cs.opensource.google/go/go/+/go1.20.1:src/go/importer/importer.go;l=40)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func ForCompiler(fset *token.FileSet, compiler string, lookup Lookup) types.Importer
 ```
 
@@ -53,7 +53,7 @@ A lookup function must be provided for correct module-aware operation. Deprecate
 
 ### type [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/importer/importer.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type Lookup func(path string) (io.ReadCloser, error)
 ```
 

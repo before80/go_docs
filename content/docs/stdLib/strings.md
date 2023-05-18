@@ -26,7 +26,7 @@ This section is empty.
 
 #### func [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/clone.go;l=21)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func Clone(s string) string
 ```
 
@@ -34,7 +34,7 @@ func Clone(s string) string
 
 #### func [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/compare.go;l=13)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func Compare(a, b string) int
 ```
 
@@ -49,7 +49,7 @@ func Compare(a, b string) int
 ​	Compare 函数只是为了与 bytes 包保持对称性而被包含进来的。使用内置的字符串比较运算符 ==、<、> 等通常更加清晰明了，而且速度更快。
 
 ##### Compare Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -71,14 +71,14 @@ Output:
 
 #### func [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=58) 
 
-``` go linenums="1"
+``` go 
 func Contains(s, substr string) bool
 ```
 
 ​	Contains函数报告 substr 是否在 s 中。
 
 ##### Contains Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -102,14 +102,14 @@ true
 
 #### func [ContainsAny](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=63) 
 
-``` go linenums="1"
+``` go 
 func ContainsAny(s, chars string) bool
 ```
 
 ​	ContainsAny函数报告 s 中是否包含 chars 中的任何 Unicode 码点。
 
 ##### ContainsAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -137,14 +137,14 @@ false
 
 #### func [ContainsRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func ContainsRune(s string, r rune) bool
 ```
 
 ​	ContainsRune函数报告 Unicode 码点 r 是否在 s 中。
 
 ##### ContainsRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -166,14 +166,14 @@ false
 
 #### func [Count](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func Count(s, substr string) int
 ```
 
 ​	Count函数返回 s 中不重叠的 substr 实例数。如果 substr 是空字符串，则 Count 返回 s 中 Unicode 码点的数量加 1。
 
 ##### Count Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -193,14 +193,14 @@ Output:
 
 #### func [Cut](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1262)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func Cut(s, sep string) (before, after string, found bool)
 ```
 
 ​	Cut函数围绕第一个 sep 实例对 s 进行切片，返回 sep 之前和之后的文本。found 结果报告 sep 是否出现在 s 中。如果 sep 不出现在 s 中，则 Cut 返回 s、""、false。
 
 ##### Cut Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -228,7 +228,7 @@ Cut("Gopher", "Badger") = "Gopher", "", false
 
 #### func [CutPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1273)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func CutPrefix(s, prefix string) (after string, found bool)
 ```
 
@@ -236,7 +236,7 @@ func CutPrefix(s, prefix string) (after string, found bool)
 
 #### func [CutSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1284)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func CutSuffix(s, suffix string) (before string, found bool)
 ```
 
@@ -244,14 +244,14 @@ func CutSuffix(s, suffix string) (before string, found bool)
 
 #### func [EqualFold](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1095) 
 
-``` go linenums="1"
+``` go 
 func EqualFold(s, t string) bool
 ```
 
 ​	EqualFold函数报告s和t在简单的Unicode折叠(一种更一般的不区分大小写的形式)下是否相等，这是一种更一般的不区分大小写的形式。
 
 ##### EqualFold Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -273,14 +273,14 @@ false
 
 #### func [Fields](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=326) 
 
-``` go linenums="1"
+``` go 
 func Fields(s string) []string
 ```
 
 ​	Fields函数将字符串s按一个或多个连续的空格字符(由unicode.IsSpace定义)分割，返回s的子字符串切片或一个空切片，如果s仅包含空格，则返回空切片。
 
 ##### Fields Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -298,7 +298,7 @@ Fields are: ["foo" "bar" "baz"]
 
 #### func [FieldsFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=381) 
 
-``` go linenums="1"
+``` go 
 func FieldsFunc(s string, f func(rune) bool) []string
 ```
 
@@ -307,7 +307,7 @@ func FieldsFunc(s string, f func(rune) bool) []string
 ​	FieldsFunc函数不保证调用f(c) 的顺序，并假定f始终为给定c返回相同的值。
 
 ##### FieldsFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -329,14 +329,14 @@ Fields are: ["foo1" "bar2" "baz3"]
 
 #### func [HasPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=450) 
 
-``` go linenums="1"
+``` go 
 func HasPrefix(s, prefix string) bool
 ```
 
 ​	HasPrefix函数测试字符串s是否以prefix开头。
 
 ##### HasPrefix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -360,14 +360,14 @@ true
 
 #### func [HasSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=455) 
 
-``` go linenums="1"
+``` go 
 func HasSuffix(s, suffix string) bool
 ```
 
 ​	HasSuffix函数测试字符串s是否以后缀suffix结尾。
 
 ##### HasSuffix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -391,14 +391,14 @@ true
 
 #### func [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1178) 
 
-``` go linenums="1"
+``` go 
 func Index(s, substr string) int
 ```
 
 ​	Index函数返回substr在s中第一次出现的索引，如果substr不在s中，则返回-1。
 
 ##### Index Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -418,14 +418,14 @@ Output:
 
 #### func [IndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func IndexAny(s, chars string) int
 ```
 
 ​	IndexAny函数返回s中任何Unicode码点中chars的第一个实例的索引，如果s中不存在来自chars的Unicode码点，则返回-1。
 
 ##### IndexAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -445,14 +445,14 @@ Output:
 
 #### func [IndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=110)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func IndexByte(s string, c byte) int
 ```
 
 ​	IndexByte函数返回c在s中第一次出现的索引，如果c不在s中，则返回-1。
 
 ##### IndexByte Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -474,14 +474,14 @@ Output:
 
 #### func [IndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=814) 
 
-``` go linenums="1"
+``` go 
 func IndexFunc(s string, f func(rune) bool) int
 ```
 
 ​	IndexFunc函数返回第一个满足f(c) 的Unicode码点c在s中的索引，如果没有则返回-1。
 
 ##### IndexFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -505,14 +505,14 @@ Output:
 
 #### func [IndexRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func IndexRune(s string, r rune) int
 ```
 
 ​	IndexRune函数返回Unicode码点r在字符串s中第一次出现的索引，如果r不在s中，则返回-1。如果r是utf8.RuneError，则返回任何无效的UTF-8字节序列的第一个实例。
 
 ##### IndexRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -532,14 +532,14 @@ Output:
 
 #### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=427) 
 
-``` go linenums="1"
+``` go 
 func Join(elems []string, sep string) string
 ```
 
 ​	Join函数将其第一个参数的元素连接起来以创建单个字符串。分隔符字符串sep放置在结果字符串中的元素之间。
 
 ##### Join Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -558,14 +558,14 @@ foo, bar, baz
 
 #### func [LastIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func LastIndex(s, substr string) int
 ```
 
 ​	LastIndexByte函数返回c在s中最后一次出现的索引，如果c不在s中，则返回-1。
 
 ##### LastIndex Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -587,14 +587,14 @@ Output:
 
 #### func [LastIndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=172) 
 
-``` go linenums="1"
+``` go 
 func LastIndexAny(s, chars string) int
 ```
 
 ​	LastIndexAny函数返回 chars 中任何 Unicode 码点在 s 中最后一次出现的索引，如果 s 中没有来自 chars 的 Unicode 码点，则返回 -1。
 
 ##### LastIndexAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -616,14 +616,14 @@ Output:
 
 #### func [LastIndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=222)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func LastIndexByte(s string, c byte) int
 ```
 
 ​	LastIndexByte函数返回 c 在 s 中最后一次出现的索引，如果 c 不在 s 中，则返回 -1。
 
 ##### LastIndexByte Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -645,14 +645,14 @@ Output:
 
 #### func [LastIndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=820) 
 
-``` go linenums="1"
+``` go 
 func LastIndexFunc(s string, f func(rune) bool) int
 ```
 
 ​	LastIndexFunc函数返回最后一个满足 f(c) 的 Unicode 码点在 s 中的索引，如果没有，则返回-1。
 
 ##### LastIndexFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -675,14 +675,14 @@ Output:
 
 #### func [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=462) 
 
-``` go linenums="1"
+``` go 
 func Map(mapping func(rune) rune, s string) string
 ```
 
 ​	Map函数返回一个新的字符串，其中包含根据映射函数修改的 s 中的所有字符。如果 mapping 返回负值，则删除该字符而不替换。
 
 ##### Map Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -709,7 +709,7 @@ Output:
 
 #### func [Repeat](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=525) 
 
-``` go linenums="1"
+``` go 
 func Repeat(s string, count int) string
 ```
 
@@ -718,7 +718,7 @@ func Repeat(s string, count int) string
 ​	如果 count 为负数或 `(len(s) * count)` 的结果溢出，则会发生 panic。
 
 ##### Repeat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -736,14 +736,14 @@ banana
 
 #### func [Replace](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1049) 
 
-``` go linenums="1"
+``` go 
 func Replace(s, old, new string, n int) string
 ```
 
 ​	Replace函数将字符串s中前`n`个非重叠old实例替换为new，并返回新的字符串。如果old为空，则它匹配字符串开头和每个UTF-8序列之后，为k个rune字符串提供最多`k+1`个替换。如果n < 0，则不限制替换次数。
 
 ##### Replace Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -763,14 +763,14 @@ moo moo moo
 
 #### func [ReplaceAll](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1088)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func ReplaceAll(s, old, new string) string
 ```
 
 ​	ReplaceAll函数将字符串s中所有非重叠old实例替换为new，并返回新的字符串。如果old为空，则它匹配字符串开头和每个UTF-8序列之后，为k个rune字符串提供最多k+1个替换。
 
 ##### ReplaceAll Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -788,7 +788,7 @@ moo moo moo
 
 #### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func Split(s, sep string) []string
 ```
 
@@ -803,7 +803,7 @@ func Split(s, sep string) []string
 ​	要在第一个分隔符实例周围分割，请参见[Cut 函数](#func-cut-go118)。
 
 ##### Split Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -827,7 +827,7 @@ Output:
 
 #### func [SplitAfter](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=317) 
 
-``` go linenums="1"
+``` go 
 func SplitAfter(s, sep string) []string
 ```
 
@@ -840,7 +840,7 @@ func SplitAfter(s, sep string) []string
 ​	它等价于带有计数`-1`的SplitAfterN函数。
 
 ##### SplitAfter Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -858,7 +858,7 @@ Output:
 
 #### func [SplitAfterN](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=289) 
 
-``` go linenums="1"
+``` go 
 func SplitAfterN(s, sep string, n int) []string
 ```
 
@@ -875,7 +875,7 @@ n < 0：所有子字符串
 ​	s和sep的边缘情况(例如，空字符串)的处理方式如SplitAfter函数文档中所述。
 
 ##### SplitAfterN Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -893,7 +893,7 @@ Output:
 
 #### func [SplitN](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=276) 
 
-``` go linenums="1"
+``` go 
 func SplitN(s, sep string, n int) []string
 ```
 
@@ -912,7 +912,7 @@ n < 0：所有子字符串
 ​	如果要在第一个分隔符周围进行分割，请参阅 [Cut函数](#func-cut-go118)。
 
 ##### SplitN Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -935,14 +935,14 @@ Output:
 
 #### func [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=625) 
 
-``` go linenums="1"
+``` go 
 func ToLower(s string) string
 ```
 
 ​	ToLower函数返回s的所有Unicode字母均被映射为它们的小写形式的副本。
 
 ##### ToLower Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -960,14 +960,14 @@ gopher
 
 #### func [ToLowerSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=676) 
 
-``` go linenums="1"
+``` go 
 func ToLowerSpecial(c unicode.SpecialCase, s string) string
 ```
 
 ​	ToLowerSpecial函数返回s的所有Unicode字母均被映射为它们的小写形式的副本，使用由c指定的大小写映射。
 
 ##### ToLowerSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -986,14 +986,14 @@ Output:
 
 #### func [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=666) 
 
-``` go linenums="1"
+``` go 
 func ToTitle(s string) string
 ```
 
 ​	ToTitle函数返回s的所有Unicode字母均被映射为它们的Unicode标题形式的副本。
 
 ##### ToTitle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1016,14 +1016,14 @@ LOUD NOISES
 
 #### func [ToTitleSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=682) 
 
-``` go linenums="1"
+``` go 
 func ToTitleSpecial(c unicode.SpecialCase, s string) string
 ```
 
 ​	ToTitleSpecial函数返回s的所有Unicode字母均被映射为它们的Unicode标题形式的副本，优先考虑特殊的大小写规则。
 
 ##### ToTitleSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1042,14 +1042,14 @@ DÜNYANIN İLK BORSA YAPISI AİZONAİ KABUL EDİLİR
 
 #### func [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=585) 
 
-``` go linenums="1"
+``` go 
 func ToUpper(s string) string
 ```
 
 ​	ToUpper函数返回s的所有Unicode字母均被映射为它们的大写形式的副本。
 
 ##### ToUpper Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1067,14 +1067,14 @@ GOPHER
 
 #### func [ToUpperSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=670) 
 
-``` go linenums="1"
+``` go 
 func ToUpperSpecial(c unicode.SpecialCase, s string) string
 ```
 
 ​	ToUpperSpecial函数返回s的所有Unicode字母均被映射为它们的大写形式的副本，使用由c指定的大小写映射。
 
 ##### ToUpperSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1093,7 +1093,7 @@ Output:
 
 #### func [ToValidUTF8](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=688)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func ToValidUTF8(s, replacement string) string
 ```
 
@@ -1101,14 +1101,14 @@ func ToValidUTF8(s, replacement string) string
 
 #### func [Trim](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=880) 
 
-``` go linenums="1"
+``` go 
 func Trim(s, cutset string) string
 ```
 
 ​	Trim函数返回字符串s的所有前导和尾随Unicode码点都包含在cutset中，这些码点被删除的切片。
 
 ##### Trim Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1126,14 +1126,14 @@ Hello, Gophers
 
 #### func [TrimFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=808) 
 
-``` go linenums="1"
+``` go 
 func TrimFunc(s string, f func(rune) bool) string
 ```
 
 ​	TrimFunc函数返回字符串 s 中所有符合函数 f 的 Unicode 码点的前缀和后缀都被删除后的子字符串。
 
 ##### TrimFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1154,7 +1154,7 @@ Hello, Gophers
 
 #### func [TrimLeft](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=897) 
 
-``` go linenums="1"
+``` go 
 func TrimLeft(s, cutset string) string
 ```
 
@@ -1163,7 +1163,7 @@ func TrimLeft(s, cutset string) string
 ​	如果要去掉一个前缀，请使用 TrimPrefix函数。
 
 ##### TrimLeft Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1181,14 +1181,14 @@ Hello, Gophers!!!
 
 #### func [TrimLeftFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=785) 
 
-``` go linenums="1"
+``` go 
 func TrimLeftFunc(s string, f func(rune) bool) string
 ```
 
 ​	TrimLeftFunc函数返回字符串 s 去掉所有前导符合函数 f 的 Unicode 码点后的子字符串。
 
 ##### TrimLeftFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1209,14 +1209,14 @@ Hello, Gophers!!!
 
 #### func [TrimPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1027)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func TrimPrefix(s, prefix string) string
 ```
 
 ​	TrimPrefix函数返回字符串 s 去掉提供的前缀字符串 prefix。如果 s 不以 prefix 开头，则返回 s 不变。
 
 ##### TrimPrefix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1237,7 +1237,7 @@ Gophers!!!
 
 #### func [TrimRight](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=945) 
 
-``` go linenums="1"
+``` go 
 func TrimRight(s, cutset string) string
 ```
 
@@ -1246,7 +1246,7 @@ func TrimRight(s, cutset string) string
 ​	如果要去掉一个后缀，请使用 TrimSuffix函数。
 
 ##### TrimRight Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1264,14 +1264,14 @@ Output:
 
 #### func [TrimRightFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=795) 
 
-``` go linenums="1"
+``` go 
 func TrimRightFunc(s string, f func(rune) bool) string
 ```
 
 ​	TrimRightFunc函数返回字符串 s 去掉所有后缀符合函数 f 的 Unicode 码点后的子字符串。
 
 ##### TrimRightFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1292,14 +1292,14 @@ Output:
 
 #### func [TrimSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=991) 
 
-``` go linenums="1"
+``` go 
 func TrimSpace(s string) string
 ```
 
 ​	TrimSpace函数返回字符串 s 去掉所有前导和后缀的空白字符，根据 Unicode 定义。
 
 ##### TrimSpace Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1317,14 +1317,14 @@ Hello, Gophers
 
 #### func [TrimSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/strings.go;l=1036)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func TrimSuffix(s, suffix string) string
 ```
 
 ​	TrimSuffix函数返回字符串 s 去掉提供的后缀字符串 suffix。如果 s 不以 suffix 结尾，则返回 s 不变。
 
 ##### TrimSuffix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1347,7 +1347,7 @@ Output:
 
 ### type [Builder](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=15)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type Builder struct {
     addr *Builder // of receiver, to detect copies by value
 	buf  []byte
@@ -1357,7 +1357,7 @@ type Builder struct {
 ​	Builder结构体用于使用 Write 方法高效地构建字符串。它最小化了内存复制。零值可直接使用。不要复制非零值 Builder。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1381,7 +1381,7 @@ Output:
 
 #### (*Builder) [Cap](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=57)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (b *Builder) Cap() int
 ```
 
@@ -1389,7 +1389,7 @@ func (b *Builder) Cap() int
 
 #### (*Builder) [Grow](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=76)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) Grow(n int)
 ```
 
@@ -1397,7 +1397,7 @@ func (b *Builder) Grow(n int)
 
 #### (*Builder) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=52)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) Len() int
 ```
 
@@ -1405,7 +1405,7 @@ func (b *Builder) Len() int
 
 #### (*Builder) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=60)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) Reset()
 ```
 
@@ -1413,7 +1413,7 @@ func (b *Builder) Reset()
 
 #### (*Builder) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=47)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) String() string
 ```
 
@@ -1421,7 +1421,7 @@ func (b *Builder) String() string
 
 #### (*Builder) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=88)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) Write(p []byte) (int, error)
 ```
 
@@ -1429,7 +1429,7 @@ func (b *Builder) Write(p []byte) (int, error)
 
 #### (*Builder) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=96)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) WriteByte(c byte) error
 ```
 
@@ -1437,7 +1437,7 @@ func (b *Builder) WriteByte(c byte) error
 
 #### (*Builder) [WriteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=104)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) WriteRune(r rune) (int, error)
 ```
 
@@ -1445,7 +1445,7 @@ func (b *Builder) WriteRune(r rune) (int, error)
 
 #### (*Builder) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/builder.go;l=113)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Builder) WriteString(s string) (int, error)
 ```
 
@@ -1453,7 +1453,7 @@ func (b *Builder) WriteString(s string) (int, error)
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -1463,7 +1463,7 @@ type Reader struct {
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=160) 
 
-``` go linenums="1"
+``` go 
 func NewReader(s string) *Reader
 ```
 
@@ -1471,7 +1471,7 @@ func NewReader(s string) *Reader
 
 #### (*Reader) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Len() int
 ```
 
@@ -1479,7 +1479,7 @@ func (r *Reader) Len() int
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Read(b []byte) (n int, err error)
 ```
 
@@ -1487,7 +1487,7 @@ func (r *Reader) Read(b []byte) (n int, err error)
 
 #### (*Reader) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 ```
 
@@ -1495,7 +1495,7 @@ func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 
 #### (*Reader) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadByte() (byte, error)
 ```
 
@@ -1503,7 +1503,7 @@ func (r *Reader) ReadByte() (byte, error)
 
 #### (*Reader) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=87) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadRune() (ch rune, size int, err error)
 ```
 
@@ -1511,7 +1511,7 @@ func (r *Reader) ReadRune() (ch rune, size int, err error)
 
 #### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=156)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Reset(s string)
 ```
 
@@ -1519,7 +1519,7 @@ func (r *Reader) Reset(s string)
 
 #### (*Reader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Seek(offset int64, whence int) (int64, error)
 ```
 
@@ -1527,7 +1527,7 @@ func (r *Reader) Seek(offset int64, whence int) (int64, error)
 
 #### (*Reader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=36)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Size() int64
 ```
 
@@ -1535,7 +1535,7 @@ func (r *Reader) Size() int64
 
 #### (*Reader) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) UnreadByte() error
 ```
 
@@ -1543,7 +1543,7 @@ func (r *Reader) UnreadByte() error
 
 #### (*Reader) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=103) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) UnreadRune() error
 ```
 
@@ -1551,7 +1551,7 @@ func (r *Reader) UnreadRune() error
 
 #### (*Reader) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/reader.go;l=137)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r *Reader) WriteTo(w io.Writer) (n int64, err error)
 ```
 
@@ -1559,7 +1559,7 @@ func (r *Reader) WriteTo(w io.Writer) (n int64, err error)
 
 ### type [Replacer](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/replace.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type Replacer struct {
 	// contains filtered or unexported fields
 }
@@ -1569,7 +1569,7 @@ type Replacer struct {
 
 #### func [NewReplacer](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/replace.go;l=32) 
 
-``` go linenums="1"
+``` go 
 func NewReplacer(oldnew ...string) *Replacer
 ```
 
@@ -1578,7 +1578,7 @@ func NewReplacer(oldnew ...string) *Replacer
 ​	如果传入奇数个参数，NewReplacer函数将 panic。
 
 ##### NewReplacer Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1597,7 +1597,7 @@ This is &lt;b&gt;HTML&lt;/b&gt;!
 
 #### (*Replacer) [Replace](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/replace.go;l=95) 
 
-``` go linenums="1"
+``` go 
 func (r *Replacer) Replace(s string) string
 ```
 
@@ -1605,7 +1605,7 @@ func (r *Replacer) Replace(s string) string
 
 #### (*Replacer) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/strings/replace.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func (r *Replacer) WriteString(w io.Writer, s string) (n int, err error)
 ```
 

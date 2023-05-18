@@ -105,7 +105,7 @@ This section is empty.
 
 #### func [Ignore](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=86)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func Ignore(sig ...os.Signal)
 ```
 
@@ -113,7 +113,7 @@ func Ignore(sig ...os.Signal)
 
 #### func [Ignored](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=91)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func Ignored(sig os.Signal) bool
 ```
 
@@ -121,7 +121,7 @@ func Ignored(sig os.Signal) bool
 
 #### func [Notify](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func Notify(c chan<- os.Signal, sig ...os.Signal)
 ```
 
@@ -135,7 +135,7 @@ func Notify(c chan<- os.Signal, sig ...os.Signal)
 
 ##### Notify Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -160,7 +160,7 @@ func main() {
 
 ##### Notify Example (AllSignals) 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -189,7 +189,7 @@ func main() {
 
 #### func [NotifyContext](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=277)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func NotifyContext(parent context.Context, signals ...os.Signal) (ctx context.Context, stop context.CancelFunc)
 ```
 
@@ -203,7 +203,7 @@ func NotifyContext(parent context.Context, signals ...os.Signal) (ctx context.Co
 
 这个例子使用了带有信号的上下文，以便在接收到信号后告诉一个阻塞的函数它应该放弃它的工作。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -247,7 +247,7 @@ func main() {
 
 #### func [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=173)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func Reset(sig ...os.Signal)
 ```
 
@@ -255,7 +255,7 @@ func Reset(sig ...os.Signal)
 
 #### func [Stop](https://cs.opensource.google/go/go/+/go1.20.1:src/os/signal/signal.go;l=180)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Stop(c chan<- os.Signal)
 ```
 

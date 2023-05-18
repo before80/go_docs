@@ -21,7 +21,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=273)
 
-``` go linenums="1"
+``` go 
 const Ptr = Pointer
 ```
 
@@ -35,7 +35,7 @@ This section is empty.
 
 #### func [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2862) 
 
-``` go linenums="1"
+``` go 
 func Copy(dst, src Value) int
 ```
 
@@ -45,7 +45,7 @@ func Copy(dst, src Value) int
 
 #### func [DeepEqual](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/deepequal.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func DeepEqual(x, y any) bool
 ```
 
@@ -73,7 +73,7 @@ func DeepEqual(x, y any) bool
 
 #### func [Swapper](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/swapper.go;l=17)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Swapper(slice any) func(i, j int)
 ```
 
@@ -85,13 +85,13 @@ func Swapper(slice any) func(i, j int)
 
 ### type [ChanDir](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=354) 
 
-``` go linenums="1"
+``` go 
 type ChanDir int
 ```
 
 ​	ChanDir 表示通道类型的方向。
 
-``` go linenums="1"
+``` go 
 const (
 	RecvDir ChanDir             = 1 << iota // <-chan
 	SendDir                                 // chan<-
@@ -101,7 +101,7 @@ const (
 
 #### (ChanDir) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1104) 
 
-``` go linenums="1"
+``` go 
 func (d ChanDir) String() string
 ```
 
@@ -109,7 +109,7 @@ func (d ChanDir) String() string
 
 ### type [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=240) 
 
-``` go linenums="1"
+``` go 
 type Kind uint
 ```
 
@@ -117,7 +117,7 @@ type Kind uint
 
 ##### Kind Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -147,7 +147,7 @@ unhandled kind func
 
 
 
-``` go linenums="1"
+``` go 
 const (
 	Invalid Kind = iota
 	Bool
@@ -181,7 +181,7 @@ const (
 
 #### (Kind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=634) 
 
-``` go linenums="1"
+``` go 
 func (k Kind) String() string
 ```
 
@@ -189,7 +189,7 @@ func (k Kind) String() string
 
 ### type [MapIter](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1820)  <- go1.12
 
-``` go linenums="1"
+``` go 
 type MapIter struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -200,7 +200,7 @@ type MapIter struct {
 
 #### (*MapIter) [Key](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1826)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (iter *MapIter) Key() Value
 ```
 
@@ -208,7 +208,7 @@ func (iter *MapIter) Key() Value
 
 #### (*MapIter) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1914)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (iter *MapIter) Next() bool
 ```
 
@@ -216,7 +216,7 @@ func (iter *MapIter) Next() bool
 
 #### (*MapIter) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1933)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (iter *MapIter) Reset(v Value)
 ```
 
@@ -224,7 +224,7 @@ func (iter *MapIter) Reset(v Value)
 
 #### (*MapIter) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1869)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (iter *MapIter) Value() Value
 ```
 
@@ -232,7 +232,7 @@ func (iter *MapIter) Value() Value
 
 ### type [Method](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=606) 
 
-``` go linenums="1"
+``` go 
 type Method struct {
 	// Name 是方法名。
 	Name string
@@ -254,7 +254,7 @@ type Method struct {
 
 #### (Method) [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=623)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (m Method) IsExported() bool
 ```
 
@@ -262,7 +262,7 @@ func (m Method) IsExported() bool
 
 ### type [SelectCase](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2957)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type SelectCase struct {
 	Dir  SelectDir // case 方向
 	Chan Value     // 使用的通道 (用于发送或接收)
@@ -280,13 +280,13 @@ type SelectCase struct {
 
 ### type [SelectDir](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2930)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type SelectDir int
 ```
 
 ​	SelectDir 描述 select case 的通信方向。
 
-``` go linenums="1"
+``` go 
 const (
 	SelectSend    SelectDir // case Chan <- Send
 	SelectRecv              // case <-Chan:
@@ -296,7 +296,7 @@ const (
 
 ### type [SliceHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2760) 
 
-``` go linenums="1"
+``` go 
 type SliceHeader struct {
 	Data uintptr
 	Len  int
@@ -310,7 +310,7 @@ type SliceHeader struct {
 
 ### type [StringHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2747) 
 
-``` go linenums="1"
+``` go 
 type StringHeader struct {
 	Data uintptr
 	Len  int
@@ -323,7 +323,7 @@ type StringHeader struct {
 
 ### type [StructField](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1154) 
 
-``` go linenums="1"
+``` go 
 type StructField struct {
 	// Name 是字段名。
 	Name string
@@ -345,7 +345,7 @@ type StructField struct {
 
 #### func [VisibleFields](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/visiblefields.go;l=16)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func VisibleFields(t Type) []StructField
 ```
 
@@ -355,7 +355,7 @@ func VisibleFields(t Type) []StructField
 
 #### (StructField) [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1171)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (f StructField) IsExported() bool
 ```
 
@@ -363,7 +363,7 @@ func (f StructField) IsExported() bool
 
 ### type [StructTag](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1183) 
 
-``` go linenums="1"
+``` go 
 type StructTag string
 ```
 
@@ -375,7 +375,7 @@ By convention, tag strings are a concatenation of optionally space-separated key
 
 ##### StructTag Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -403,7 +403,7 @@ blue gopher
 
 #### (StructTag) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1190) 
 
-``` go linenums="1"
+``` go 
 func (tag StructTag) Get(key string) string
 ```
 
@@ -411,7 +411,7 @@ func (tag StructTag) Get(key string) string
 
 #### (StructTag) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1201)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (tag StructTag) Lookup(key string) (value string, ok bool)
 ```
 
@@ -419,7 +419,7 @@ func (tag StructTag) Lookup(key string) (value string, ok bool)
 
 ##### Lookup Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -461,7 +461,7 @@ field_0
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=38) 
 
-``` go linenums="1"
+``` go 
 type Type interface {
 	// Align方法返回该类型在内存中分配时所需的字节对齐方式。
 	Align() int
@@ -633,7 +633,7 @@ type Type interface {
 
 #### func [ArrayOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=2899)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func ArrayOf(length int, elem Type) Type
 ```
 
@@ -643,7 +643,7 @@ func ArrayOf(length int, elem Type) Type
 
 #### func [ChanOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1865)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ChanOf(dir ChanDir, t Type) Type
 ```
 
@@ -653,7 +653,7 @@ func ChanOf(dir ChanDir, t Type) Type
 
 #### func [FuncOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=2030)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func FuncOf(in, out []Type, variadic bool) Type
 ```
 
@@ -663,7 +663,7 @@ func FuncOf(in, out []Type, variadic bool) Type
 
 #### func [MapOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1928)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func MapOf(key, elem Type) Type
 ```
 
@@ -673,7 +673,7 @@ func MapOf(key, elem Type) Type
 
 #### func [PointerTo](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1461)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func PointerTo(t Type) Type
 ```
 
@@ -681,7 +681,7 @@ func PointerTo(t Type) Type
 
 #### func [PtrTo](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1457) 
 
-``` go linenums="1"
+``` go 
 func PtrTo(t Type) Type
 ```
 
@@ -691,7 +691,7 @@ func PtrTo(t Type) Type
 
 #### func [SliceOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=2347)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func SliceOf(t Type) Type
 ```
 
@@ -699,7 +699,7 @@ func SliceOf(t Type) Type
 
 #### func [StructOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=2428)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func StructOf(fields []StructField) Type
 ```
 
@@ -709,7 +709,7 @@ func StructOf(fields []StructField) Type
 
 ##### StructOf Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -764,7 +764,7 @@ value: &{Height:1.5 Age:10}
 
 #### func [TypeOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/type.go;l=1438) 
 
-``` go linenums="1"
+``` go 
 func TypeOf(i any) Type
 ```
 
@@ -772,7 +772,7 @@ func TypeOf(i any) Type
 
 #### typeOf Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -800,7 +800,7 @@ true
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type Value struct {
 	//包含已过滤或未导出的字段
 }
@@ -818,7 +818,7 @@ type Value struct {
 
 #### func [Append](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2832) 
 
-``` go linenums="1"
+``` go 
 func Append(s Value, x ...Value) Value
 ```
 
@@ -826,7 +826,7 @@ func Append(s Value, x ...Value) Value
 
 #### func [AppendSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2844) 
 
-``` go linenums="1"
+``` go 
 func AppendSlice(s, t Value) Value
 ```
 
@@ -834,7 +834,7 @@ func AppendSlice(s, t Value) Value
 
 #### func [Indirect](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3130) 
 
-``` go linenums="1"
+``` go 
 func Indirect(v Value) Value
 ```
 
@@ -842,7 +842,7 @@ func Indirect(v Value) Value
 
 #### func [MakeChan](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3096) 
 
-``` go linenums="1"
+``` go 
 func MakeChan(typ Type, buffer int) Value
 ```
 
@@ -850,7 +850,7 @@ func MakeChan(typ Type, buffer int) Value
 
 #### func [MakeFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/makefunc.go;l=46)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func MakeFunc(typ Type, fn func(args []Value) (results []Value)) Value
 ```
 
@@ -868,7 +868,7 @@ func MakeFunc(typ Type, fn func(args []Value) (results []Value)) Value
 
 ##### MakeFunc Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -922,7 +922,7 @@ Output:
 
 #### func [MakeMap](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3112) 
 
-``` go linenums="1"
+``` go 
 func MakeMap(typ Type) Value
 ```
 
@@ -930,7 +930,7 @@ func MakeMap(typ Type) Value
 
 #### func [MakeMapWithSize](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3118)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func MakeMapWithSize(typ Type, n int) Value
 ```
 
@@ -938,7 +938,7 @@ func MakeMapWithSize(typ Type, n int) Value
 
 #### func [MakeSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3077) 
 
-``` go linenums="1"
+``` go 
 func MakeSlice(typ Type, len, cap int) Value
 ```
 
@@ -946,7 +946,7 @@ func MakeSlice(typ Type, len, cap int) Value
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3184) 
 
-``` go linenums="1"
+``` go 
 func New(typ Type) Value
 ```
 
@@ -954,7 +954,7 @@ func New(typ Type) Value
 
 #### func [NewAt](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3201) 
 
-``` go linenums="1"
+``` go 
 func NewAt(typ Type, p unsafe.Pointer) Value
 ```
 
@@ -962,7 +962,7 @@ func NewAt(typ Type, p unsafe.Pointer) Value
 
 #### func [Select](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2971)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool)
 ```
 
@@ -970,7 +970,7 @@ func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool)
 
 #### func [ValueOf](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3139) 
 
-``` go linenums="1"
+``` go 
 func ValueOf(i any) Value
 ```
 
@@ -978,7 +978,7 @@ func ValueOf(i any) Value
 
 #### func [Zero](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3158) 
 
-``` go linenums="1"
+``` go 
 func Zero(typ Type) Value
 ```
 
@@ -986,7 +986,7 @@ func Zero(typ Type) Value
 
 #### (Value) [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=271) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Addr() Value
 ```
 
@@ -994,7 +994,7 @@ func (v Value) Addr() Value
 
 #### (Value) [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=283) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Bool() bool
 ```
 
@@ -1002,7 +1002,7 @@ func (v Value) Bool() bool
 
 #### (Value) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=300) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Bytes() []byte
 ```
 
@@ -1010,7 +1010,7 @@ func (v Value) Bytes() []byte
 
 #### (Value) [Call](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=367) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Call(in []Value) []Value
 ```
 
@@ -1018,7 +1018,7 @@ func (v Value) Call(in []Value) []Value
 
 #### (Value) [CallSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=380) 
 
-``` go linenums="1"
+``` go 
 func (v Value) CallSlice(in []Value) []Value
 ```
 
@@ -1026,7 +1026,7 @@ func (v Value) CallSlice(in []Value) []Value
 
 #### (Value) [CanAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=346) 
 
-``` go linenums="1"
+``` go 
 func (v Value) CanAddr() bool
 ```
 
@@ -1034,7 +1034,7 @@ func (v Value) CanAddr() bool
 
 #### (Value) [CanComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1188)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) CanComplex() bool
 ```
 
@@ -1042,7 +1042,7 @@ func (v Value) CanComplex() bool
 
 #### (Value) [CanConvert](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3264)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (v Value) CanConvert(t Type) bool
 ```
 
@@ -1050,7 +1050,7 @@ func (v Value) CanConvert(t Type) bool
 
 #### (Value) [CanFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1364)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) CanFloat() bool
 ```
 
@@ -1058,7 +1058,7 @@ func (v Value) CanFloat() bool
 
 #### (Value) [CanInt](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1435)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) CanInt() bool
 ```
 
@@ -1066,7 +1066,7 @@ func (v Value) CanInt() bool
 
 #### (Value) [CanInterface](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1465) 
 
-``` go linenums="1"
+``` go 
 func (v Value) CanInterface() bool
 ```
 
@@ -1074,7 +1074,7 @@ func (v Value) CanInterface() bool
 
 #### (Value) [CanSet](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=355) 
 
-``` go linenums="1"
+``` go 
 func (v Value) CanSet() bool
 ```
 
@@ -1082,7 +1082,7 @@ func (v Value) CanSet() bool
 
 #### (Value) [CanUint](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2638)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) CanUint() bool
 ```
 
@@ -1090,7 +1090,7 @@ func (v Value) CanUint() bool
 
 #### (Value) [Cap](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1155) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Cap() int
 ```
 
@@ -1098,7 +1098,7 @@ func (v Value) Cap() int
 
 #### (Value) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1181) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Close()
 ```
 
@@ -1106,7 +1106,7 @@ func (v Value) Close()
 
 #### (Value) [Comparable](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3289)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (v Value) Comparable() bool
 ```
 
@@ -1114,7 +1114,7 @@ func (v Value) Comparable() bool
 
 #### (Value) [Complex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1199) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Complex() complex128
 ```
 
@@ -1122,7 +1122,7 @@ func (v Value) Complex() complex128
 
 #### (Value) [Convert](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3251)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (v Value) Convert(t Type) Value
 ```
 
@@ -1130,7 +1130,7 @@ func (v Value) Convert(t Type) Value
 
 #### (Value) [Elem](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1214) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Elem() Value
 ```
 
@@ -1138,7 +1138,7 @@ func (v Value) Elem() Value
 
 #### (Value) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=3331)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (v Value) Equal(u Value) bool
 ```
 
@@ -1146,7 +1146,7 @@ func (v Value) Equal(u Value) bool
 
 #### (Value) [Field](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1266) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Field(i int) Value
 ```
 
@@ -1154,7 +1154,7 @@ func (v Value) Field(i int) Value
 
 #### (Value) [FieldByIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1299) 
 
-``` go linenums="1"
+``` go 
 func (v Value) FieldByIndex(index []int) Value
 ```
 
@@ -1162,7 +1162,7 @@ func (v Value) FieldByIndex(index []int) Value
 
 ##### FieldByIndex Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1203,7 +1203,7 @@ embedded last name: Embedded Doe
 
 #### (Value) [FieldByIndexErr](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1322)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) FieldByIndexErr(index []int) (Value, error)
 ```
 
@@ -1211,7 +1211,7 @@ func (v Value) FieldByIndexErr(index []int) (Value, error)
 
 #### (Value) [FieldByName](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1344) 
 
-``` go linenums="1"
+``` go 
 func (v Value) FieldByName(name string) Value
 ```
 
@@ -1219,7 +1219,7 @@ func (v Value) FieldByName(name string) Value
 
 ##### FieldByName Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1248,7 +1248,7 @@ Name: John
 
 #### (Value) [FieldByNameFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1356) 
 
-``` go linenums="1"
+``` go 
 func (v Value) FieldByNameFunc(match func(string) bool) Value
 ```
 
@@ -1256,7 +1256,7 @@ func (v Value) FieldByNameFunc(match func(string) bool) Value
 
 #### (Value) [Float](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1375) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Float() float64
 ```
 
@@ -1264,7 +1264,7 @@ func (v Value) Float() float64
 
 #### (Value) [Grow](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2789)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (v Value) Grow(n int)
 ```
 
@@ -1274,7 +1274,7 @@ func (v Value) Grow(n int)
 
 #### (Value) [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1390) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Index(i int) Value
 ```
 
@@ -1282,7 +1282,7 @@ func (v Value) Index(i int) Value
 
 #### (Value) [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1446) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Int() int64
 ```
 
@@ -1290,13 +1290,13 @@ func (v Value) Int() int64
 
 #### (Value) [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1479) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Interface() (i any)
 ```
 
 ​	Interface方法将v的当前值作为interface{}返回。它等同于：
 
-``` go linenums="1"
+``` go 
 var i interface{} = (v's underlying value)
 ```
 
@@ -1304,7 +1304,7 @@ var i interface{} = (v's underlying value)
 
 #### (Value) [IsNil](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1539) 
 
-``` go linenums="1"
+``` go 
 func (v Value) IsNil() bool
 ```
 
@@ -1312,7 +1312,7 @@ func (v Value) IsNil() bool
 
 #### (Value) [IsValid](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1564) 
 
-``` go linenums="1"
+``` go 
 func (v Value) IsValid() bool
 ```
 
@@ -1320,7 +1320,7 @@ func (v Value) IsValid() bool
 
 #### (Value) [IsZero](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1570)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (v Value) IsZero() bool
 ```
 
@@ -1328,7 +1328,7 @@ func (v Value) IsZero() bool
 
 #### (Value) [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1682) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Kind() Kind
 ```
 
@@ -1336,7 +1336,7 @@ func (v Value) Kind() Kind
 
 #### (Value) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1688) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Len() int
 ```
 
@@ -1344,7 +1344,7 @@ func (v Value) Len() int
 
 #### (Value) [MapIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1723) 
 
-``` go linenums="1"
+``` go 
 func (v Value) MapIndex(key Value) Value
 ```
 
@@ -1352,7 +1352,7 @@ func (v Value) MapIndex(key Value) Value
 
 #### (Value) [MapKeys](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1762) 
 
-``` go linenums="1"
+``` go 
 func (v Value) MapKeys() []Value
 ```
 
@@ -1360,7 +1360,7 @@ func (v Value) MapKeys() []Value
 
 #### (Value) [MapRange](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1956)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (v Value) MapRange() *MapIter
 ```
 
@@ -1381,7 +1381,7 @@ for iter.Next() {
 
 #### (Value) [Method](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1988) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Method(i int) Value
 ```
 
@@ -1389,7 +1389,7 @@ func (v Value) Method(i int) Value
 
 #### (Value) [MethodByName](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2024) 
 
-``` go linenums="1"
+``` go 
 func (v Value) MethodByName(name string) Value
 ```
 
@@ -1397,7 +1397,7 @@ func (v Value) MethodByName(name string) Value
 
 #### (Value) [NumField](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2040) 
 
-``` go linenums="1"
+``` go 
 func (v Value) NumField() int
 ```
 
@@ -1405,7 +1405,7 @@ func (v Value) NumField() int
 
 #### (Value) [NumMethod](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2009) 
 
-``` go linenums="1"
+``` go 
 func (v Value) NumMethod() int
 ```
 
@@ -1417,7 +1417,7 @@ func (v Value) NumMethod() int
 
 #### (Value) [OverflowComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2048) 
 
-``` go linenums="1"
+``` go 
 func (v Value) OverflowComplex(x complex128) bool
 ```
 
@@ -1425,7 +1425,7 @@ func (v Value) OverflowComplex(x complex128) bool
 
 #### (Value) [OverflowFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2061) 
 
-``` go linenums="1"
+``` go 
 func (v Value) OverflowFloat(x float64) bool
 ```
 
@@ -1433,7 +1433,7 @@ func (v Value) OverflowFloat(x float64) bool
 
 #### (Value) [OverflowInt](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2081) 
 
-``` go linenums="1"
+``` go 
 func (v Value) OverflowInt(x int64) bool
 ```
 
@@ -1441,7 +1441,7 @@ func (v Value) OverflowInt(x int64) bool
 
 #### (Value) [OverflowUint](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2094) 
 
-``` go linenums="1"
+``` go 
 func (v Value) OverflowUint(x uint64) bool
 ```
 
@@ -1449,7 +1449,7 @@ func (v Value) OverflowUint(x uint64) bool
 
 #### (Value) [Pointer](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2123) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Pointer() uintptr
 ```
 
@@ -1463,7 +1463,7 @@ func (v Value) Pointer() uintptr
 
 #### (Value) [Recv](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2168) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Recv() (x Value, ok bool)
 ```
 
@@ -1471,7 +1471,7 @@ func (v Value) Recv() (x Value, ok bool)
 
 #### (Value) [Send](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2201) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Send(x Value)
 ```
 
@@ -1479,7 +1479,7 @@ func (v Value) Send(x Value)
 
 #### (Value) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2229) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Set(x Value)
 ```
 
@@ -1487,7 +1487,7 @@ func (v Value) Set(x Value)
 
 #### (Value) [SetBool](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2250) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetBool(x bool)
 ```
 
@@ -1495,7 +1495,7 @@ func (v Value) SetBool(x bool)
 
 #### (Value) [SetBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2258) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetBytes(x []byte)
 ```
 
@@ -1503,7 +1503,7 @@ func (v Value) SetBytes(x []byte)
 
 #### (Value) [SetCap](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2342)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (v Value) SetCap(n int)
 ```
 
@@ -1511,7 +1511,7 @@ func (v Value) SetCap(n int)
 
 #### (Value) [SetComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2280) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetComplex(x complex128)
 ```
 
@@ -1519,7 +1519,7 @@ func (v Value) SetComplex(x complex128)
 
 #### (Value) [SetFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2294) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetFloat(x float64)
 ```
 
@@ -1527,7 +1527,7 @@ func (v Value) SetFloat(x float64)
 
 #### (Value) [SetInt](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2308) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetInt(x int64)
 ```
 
@@ -1535,7 +1535,7 @@ func (v Value) SetInt(x int64)
 
 #### (Value) [SetIterKey](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1844)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) SetIterKey(iter *MapIter)
 ```
 
@@ -1543,7 +1543,7 @@ func (v Value) SetIterKey(iter *MapIter)
 
 #### (Value) [SetIterValue](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1887)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) SetIterValue(iter *MapIter)
 ```
 
@@ -1551,7 +1551,7 @@ func (v Value) SetIterValue(iter *MapIter)
 
 #### (Value) [SetLen](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2329) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetLen(n int)
 ```
 
@@ -1559,7 +1559,7 @@ func (v Value) SetLen(n int)
 
 #### (Value) [SetMapIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2358) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetMapIndex(key, elem Value)
 ```
 
@@ -1567,7 +1567,7 @@ func (v Value) SetMapIndex(key, elem Value)
 
 #### (Value) [SetPointer](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2428) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetPointer(x unsafe.Pointer)
 ```
 
@@ -1575,7 +1575,7 @@ func (v Value) SetPointer(x unsafe.Pointer)
 
 #### (Value) [SetString](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2436) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetString(x string)
 ```
 
@@ -1583,7 +1583,7 @@ func (v Value) SetString(x string)
 
 #### (Value) [SetUint](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2406) 
 
-``` go linenums="1"
+``` go 
 func (v Value) SetUint(x uint64)
 ```
 
@@ -1591,7 +1591,7 @@ func (v Value) SetUint(x uint64)
 
 #### (Value) [SetZero](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=1628)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (v Value) SetZero()
 ```
 
@@ -1599,7 +1599,7 @@ func (v Value) SetZero()
 
 #### (Value) [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2445) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Slice(i, j int) Value
 ```
 
@@ -1607,7 +1607,7 @@ func (v Value) Slice(i, j int) Value
 
 #### (Value) [Slice3](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2507)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (v Value) Slice3(i, j, k int) Value
 ```
 
@@ -1615,7 +1615,7 @@ func (v Value) Slice3(i, j, k int) Value
 
 #### (Value) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2562) 
 
-``` go linenums="1"
+``` go 
 func (v Value) String() string
 ```
 
@@ -1623,7 +1623,7 @@ func (v Value) String() string
 
 #### (Value) [TryRecv](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2584) 
 
-``` go linenums="1"
+``` go 
 func (v Value) TryRecv() (x Value, ok bool)
 ```
 
@@ -1631,7 +1631,7 @@ func (v Value) TryRecv() (x Value, ok bool)
 
 #### (Value) [TrySend](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2594) 
 
-``` go linenums="1"
+``` go 
 func (v Value) TrySend(x Value) bool
 ```
 
@@ -1639,7 +1639,7 @@ func (v Value) TrySend(x Value) bool
 
 #### (Value) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2601) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Type() Type
 ```
 
@@ -1647,7 +1647,7 @@ func (v Value) Type() Type
 
 #### (Value) [Uint](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2649) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Uint() uint64
 ```
 
@@ -1655,7 +1655,7 @@ func (v Value) Uint() uint64
 
 #### (Value) [UnsafeAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2678) 
 
-``` go linenums="1"
+``` go 
 func (v Value) UnsafeAddr() uintptr
 ```
 
@@ -1665,7 +1665,7 @@ func (v Value) UnsafeAddr() uintptr
 
 #### (Value) [UnsafePointer](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=2699)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (v Value) UnsafePointer() unsafe.Pointer
 ```
 
@@ -1677,7 +1677,7 @@ func (v Value) UnsafePointer() unsafe.Pointer
 
 ### type [ValueError](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=163) 
 
-``` go linenums="1"
+``` go 
 type ValueError struct {
 	Method string
 	Kind   Kind
@@ -1688,7 +1688,7 @@ type ValueError struct {
 
 #### (*ValueError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/reflect/value.go;l=168) 
 
-``` go linenums="1"
+``` go 
 func (e *ValueError) Error() string
 ```
 

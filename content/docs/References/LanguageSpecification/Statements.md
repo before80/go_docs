@@ -77,12 +77,12 @@ ExpressionStmt = Expression .
 
 以下内置函数不允许出现在语句上下文中：
 
-```go linenums="1"
+```go 
 append cap complex imag len make new real
 unsafe.Add unsafe.Alignof unsafe.Offsetof unsafe.Sizeof unsafe.Slice
 ```
 
-```go linenums="1"
+```go 
 h(x+y)
 f.Close()
 <-ch
@@ -101,7 +101,7 @@ Channel  = Expression .
 
 ​	在通信开始之前，通道和值表达式都被求值。通信阻塞，直到发送（操作）可以进行。如果有接收端准备好了，那么在一个没有缓冲的通道上的发送可以继续进行。在缓冲通道上的发送可以在缓冲区有空间的情况下进行。在关闭的通道上进行发送会引起[运行时恐慌](../Run-timePanics)。在`nil`通道上的发送会永远阻塞。
 
-```go linenums="1"
+```go 
 ch <- 3  // send value 3 to channel ch
 ```
 
@@ -133,7 +133,7 @@ assign_op = [ add_op | mul_op ] "=" .
 
 ​	每个左操作数必须是[可寻址的](../Expressions#address-operators)，或是一个映射索引表达式，或是（仅对`=`赋值）[空白标识符，即`_`](../DeclarationsAndScope#blank-identifier)。操作数可以用圆括号括起来。
 
-```go linenums="1"
+```go 
 x = 1
 *p = f()
 a[i] = 23
@@ -142,33 +142,33 @@ a[i] = 23
 
 ​	赋值操作`x` op`=` `y`，其中`op`是一个[二元算术运算符](../Expressions#arithmetic-operators)，相当于`x` `=` `x` op `(y)`，但只对`x`进行一次求值。op`=`结构是一个单一的标记。在赋值操作中，左表达式和右表达式列表都必须正好包含一个单值表达式，并且左表达式不能是空白标识符。
 
-```go linenums="1"
+```go 
 a[i] <<= 2
 i &^= 1<<n
 ```
 
 ​	多元赋值将多值运算的各个元素分配给一个变量列表。有两种形式。在第一种形式中，右操作数是单个多值表达式，如一个函数调用、一个[通道](../Types#channel-types)或[映射](../Types#map-types)操作，或一个[类型断言](../Expressions#type-assertions)。左操作数必须与值的数量相匹配。例如，如果`f`是一个返回两个值的函数，
 
-```go linenums="1"
+```go 
 x, y = f()
 ```
 
 将第一个值赋给 `x`，将第二个值赋给 `y`。在第二种形式中，左操作数必须等于右表达式数量，每个表达式必须是单值的，右边的第`n`个表达式被分配给左边的第`n`个操作数：
 
-```go linenums="1"
+```go 
 one, two, three = '一', '二', '三'
 ```
 
 [空白标识符，即`_`](../DeclarationsAndScope#blank-identifier)提供了一种在赋值中忽略右值的方法：
 
-```go linenums="1"
+```go 
 _ = x       // evaluate x but ignore it => 对 x 求值，但忽略它
 x, _ = f()  // evaluate f() but ignore second result value => 对 f() 求值，但忽略它的第二个结果值
 ```
 
 ​	赋值分两个阶段进行。第一阶段，左边的[索引表达式](../Expressions#index-expressions)和[指针间接](../Expressions#address-operators)（包括[选择器](../Expressions#selectors)中的隐式指针间接）的操作数以及右边的表达式都按照[通常的顺序被求值](../Expressions#order-of-evaluation)。第二阶段，赋值是按照从左到右的顺序进行的。
 
-```go linenums="1"
+```go 
 a, b = b, a  // exchange a and b => 交换 a 和 b
 
 x := []int{1, 2, 3}
@@ -213,7 +213,7 @@ if x > max {
 
 表达式前面可以有一个简单的语句，它在表达式被求值之前执行。
 
-```go linenums="1"
+```go 
 if x := f(); x < y {
 	return x
 } else if x > z {
@@ -253,7 +253,7 @@ ExprSwitchCase = "case" ExpressionList | "default" .
 
 ​	`switch 表达式`前面可以有一个简单的语句，它在表达式被求值之前执行。
 
-```go linenums="1"
+```go 
 switch tag {
 default: s3()
 case 0, 1, 2, 3: s1()
@@ -278,7 +278,7 @@ case x == 4: f3()
 
 ​	`类型开关`比较的是`类型`而不是值。它与`表达式开关`类似。它由一个特殊的`switch 表达式`标记，该表达式具有[类型断言](../Expressions#type-assertions)的形式，使用关键字`type`而不是实际的类型：
 
-```go linenums="1"
+```go 
 switch x.(type) {
 // cases
 }
@@ -299,7 +299,7 @@ TypeSwitchCase  = "case" TypeList | "default" .
 
 ​	给定一个`interface{}`类型的表达式`x`，下面的类型开关：
 
-```go linenums="1"
+```go 
 switch i := x.(type) {
 case nil:
 	printString("x is nil")                // type of i is type of x (interface{}) => i 类型是 x 的类型（interface{}）
@@ -318,7 +318,7 @@ default:
 
 可以重写：
 
-```go linenums="1"
+```go 
 v := x  // x is evaluated exactly once => x 只被求值一次
 if v == nil {
 	i := v                                 // type of i is type of x (interface{})
@@ -344,7 +344,7 @@ if v == nil {
 
 ​	[类型参数](../DeclarationsAndScope#type-parameter-declarations)或[泛型](../DeclarationsAndScope#type-declarations)可以作为 case 中的一个类型。如果在[实例化](../Expressions#instantiations)时，该类型被发现与开关中的另一个条目重复，则选择第一个匹配的case。
 
-```go linenums="1" hl_lines="7 7"
+```go  hl_lines="7 7"
 func f[P any](x any) int {
 	switch x.(type) {
 	case P:
@@ -381,7 +381,7 @@ Condition = Expression .
 
 ​	在其最简单的形式中，"for "语句指定重复执行一个块，只要一个布尔条件被求值为真。该条件在每次迭代前被求值。如果条件不存在，它就等同于布尔值`true`。
 
-```go linenums="1"
+```go 
 for a < b {
 	a *= 2
 }
@@ -442,7 +442,7 @@ channel         c  chan E, <-chan E       element  e  E
 
 ​	迭代变量可以由 "range "子句使用[短变量声明](../DeclarationsAndScope#short-variable-declarations)的形式（`:=`）来声明。在这种情况下，它们的类型被设置为各自的迭代值的类型，它们的[作用域](../DeclarationsAndScope)是 "for "语句的块；它们在每个迭代中被重复使用。如果迭代变量是在 "for "语句之外声明的，执行后它们的值将是最后一次迭代的值。
 
-```go linenums="1"
+```go 
 var testdata *struct {
 	a *[7]int
 }
@@ -490,7 +490,7 @@ GoStmt = "go" Expression .
 
 ​	函数值和参数在调用的goroutine中[像往常一样被求值](../Expressions#order-of-evaluation)，但与普通调用不同的是，程序执行不会等待被调用的函数完成。相反，该函数开始在一个新的goroutine中独立执行。当函数终止时，其goroutine也会终止。如果该函数有任何返回值，当函数完成时，它们会被丢弃。
 
-```go linenums="1"
+```go 
 go Server()
 go func(ch chan<- bool) { for { sleep(10); ch <- true }} (c)
 ```
@@ -519,7 +519,7 @@ RecvExpr   = Expression .
 
 ​	由于在`nil`通道上的通信永远不能进行，所以只有`nil`通道且没有default case 的`select`语句会永远阻塞。
 
-```go linenums="1"
+```go 
 var a []int
 var c, c1, c2, c3, c4 chan int
 var i1, i2 int
@@ -562,7 +562,7 @@ ReturnStmt = "return" [ ExpressionList ] .
 
 ​	在没有结果类型的函数中，"`return`"语句必须不指定任何结果值。
 
-```go linenums="1"
+```go 
 func noResult() {
 	return
 }
@@ -572,7 +572,7 @@ func noResult() {
 
 1. 可以在 "`return`"语句中明确列出一个或多个返回值。每个表达式必须是单值的，并且可以分配给函数的结果类型的相应元素。
 
-   ```go linenums="1"
+   ```go 
    func simpleF() int {
    	return 2
    }
@@ -584,7 +584,7 @@ func noResult() {
    
 2. "`return`"语句中的表达式列表可能是对一个多值函数的单一调用。其效果就像从该函数返回的每个值都被分配到一个临时变量中，其类型为相应的值，随后的 "`return`"语句列出了这些变量，此时，前一种情况的规则适用。
 
-   ```go linenums="1"
+   ```go 
    func complexF2() (re float64, im float64) {
    	return complexF1()
    }
@@ -592,7 +592,7 @@ func noResult() {
    
 3. 如果函数的结果类型为其结果参数指定了名称，表达式列表可能是空的。结果参数作为普通的局部变量，函数可以根据需要给它们赋值。`return`语句会返回这些变量的值。
 
-   ```go linenums="1"
+   ```go 
    func complexF3() (re float64, im float64) {
    	re = 7.0
    	im = 4.0
@@ -609,7 +609,7 @@ func noResult() {
 
 实现限制：如果在返回的地方有一个与结果参数同名的不同实体（常量、类型或变量）在[作用域](../DeclarationsAndScope)内，编译器可能不允许在 "`return`"语句中出现空表达式列表。
 
-```go linenums="1"
+```go 
 func f(n int) (res int, err error) {
 	if _, err := f(n-1); err != nil {
 		return  // invalid return statement: err is shadowed => 无效的返回语句： err 被遮蔽了
@@ -628,7 +628,7 @@ BreakStmt = "break" [ Label ] .
 
 ​	如果有一个标签，它必须是一个封闭的 "`for`"、"`switch` "或 "`select` "语句的标签，而且是执行终止的那一个。
 
-```go linenums="1"
+```go 
 OuterLoop:
 	for i = 0; i < n; i++ {
 		for j = 0; j < m; j++ {
@@ -654,7 +654,7 @@ ContinueStmt = "continue" [ Label ] .
 
 ​	如果有一个标签，它必须是一个封闭的 "`for` "语句的标签，而且是执行前进的那一个。
 
-```go linenums="1"
+```go 
 RowLoop:
 	for y, row := range rows {
 		for x, data := range row {
@@ -677,7 +677,7 @@ goto Error
 
 ​	执行 "`goto` "语句不能导致任何变量进入goto处的作用域之外的[作用域](../DeclarationsAndScope)。例如，这个例子：
 
-```go linenums="1"
+```go 
 	goto L  // BAD
 	v := 3
 L:
@@ -687,7 +687,7 @@ L:
 
 ​	[块](../Blocks)外的 "`goto` "语句不能跳到该块内的标签。例如，这个例子：
 
-```go linenums="1"
+```go 
 if n%2 == 1 {
 	goto L1
 }
@@ -724,7 +724,7 @@ DeferStmt = "defer" Expression .
 
 ​	例如，如果`被延迟函数`是一个[函数字面量](../Expressions#function-literals)，并且外层的函数有在该字面量的作用域内的[命名结果参数](../Types#function-types)，那么该`被延迟函数`可以在这些结果参数被返回之前访问和修改它们。如果`被延迟函数`有任何返回值，这些返回值将在函数完成时被丢弃。(参见[处理恐慌](../Built-inFunctions#handling-panics)一节)。
 
-```go linenums="1"
+```go 
 lock(l)
 defer unlock(l)  // unlocking happens before surrounding function returns => unlock 发生在外层函数返回之前
 

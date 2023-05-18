@@ -35,7 +35,7 @@ This section is empty.
 
 #### func [Node](https://cs.opensource.google/go/go/+/go1.20.1:src/go/format/format.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func Node(dst io.Writer, fset *token.FileSet, node any) error
 ```
 
@@ -46,12 +46,12 @@ The node type must be *ast.File, *printer.CommentedNode, []ast.Decl, []ast.Stmt,
 The function may return early (before the entire result is written) and return a formatting error, for instance due to an incorrect AST.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Source](https://cs.opensource.google/go/go/+/go1.20.1:src/go/format/format.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func Source(src []byte) ([]byte, error)
 ```
 

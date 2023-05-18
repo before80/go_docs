@@ -170,7 +170,7 @@ This section is empty.
 
 #### func [IsWordChar](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=108) 
 
-``` go linenums="1"
+``` go 
 func IsWordChar(r rune) bool
 ```
 
@@ -180,13 +180,13 @@ func IsWordChar(r rune) bool
 
 ### type [EmptyOp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=63) 
 
-``` go linenums="1"
+``` go 
 type EmptyOp uint8
 ```
 
 ​	EmptyOp 指定零宽断言的一种或多种种类。
 
-``` go linenums="1"
+``` go 
 const (
 	EmptyBeginLine EmptyOp = 1 << iota
 	EmptyEndLine
@@ -199,7 +199,7 @@ const (
 
 #### func [EmptyOpContext](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func EmptyOpContext(r1, r2 rune) EmptyOp
 ```
 
@@ -207,7 +207,7 @@ func EmptyOpContext(r1, r2 rune) EmptyOp
 
 ### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=16) 
 
-``` go linenums="1"
+``` go 
 type Error struct {
 	Code ErrorCode
 	Expr string
@@ -218,19 +218,19 @@ type Error struct {
 
 #### (*Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func (e *Error) Error() string
 ```
 
 ### type [ErrorCode](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=26) 
 
-``` go linenums="1"
+``` go 
 type ErrorCode string
 ```
 
 ​	ErrorCode 描述了无法解析正则表达式的失败。
 
-``` go linenums="1"
+``` go 
 const (
 	// 意外的错误
 	ErrInternalError ErrorCode = "regexp/syntax: internal error"
@@ -256,19 +256,19 @@ const (
 
 #### (ErrorCode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func (e ErrorCode) String() string
 ```
 
 ### type [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=55) 
 
-``` go linenums="1"
+``` go 
 type Flags uint16
 ```
 
 ​	Flags 控制解析器的行为并记录有关正则表达式上下文的信息。
 
-``` go linenums="1"
+``` go 
 const (
 	FoldCase      Flags = 1 << iota // 不区分大小写匹配
 	Literal                         // 将模式视为字面字符串
@@ -290,7 +290,7 @@ const (
 
 ### type [Inst](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=113) 
 
-``` go linenums="1"
+``` go 
 type Inst struct {
 	Op   InstOp
 	Out  uint32 // 所有操作除了InstMatch和InstFail
@@ -303,7 +303,7 @@ type Inst struct {
 
 #### (*Inst) [MatchEmptyWidth](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=264) 
 
-``` go linenums="1"
+``` go 
 func (i *Inst) MatchEmptyWidth(before rune, after rune) bool
 ```
 
@@ -311,7 +311,7 @@ func (i *Inst) MatchEmptyWidth(before rune, after rune) bool
 
 #### (*Inst) [MatchRune](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func (i *Inst) MatchRune(r rune) bool
 ```
 
@@ -319,7 +319,7 @@ func (i *Inst) MatchRune(r rune) bool
 
 #### (*Inst) [MatchRunePos](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=202)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (i *Inst) MatchRunePos(r rune) int
 ```
 
@@ -327,19 +327,19 @@ func (i *Inst) MatchRunePos(r rune) int
 
 #### (*Inst) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=282) 
 
-``` go linenums="1"
+``` go 
 func (i *Inst) String() string
 ```
 
 ### type [InstOp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=25) 
 
-``` go linenums="1"
+``` go 
 type InstOp uint8
 ```
 
 ​	InstOp是一个指令操作码。
 
-``` go linenums="1"
+``` go 
 const (
 	InstAlt InstOp = iota
 	InstAltMatch
@@ -357,19 +357,19 @@ const (
 
 #### (InstOp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=55)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (i InstOp) String() string
 ```
 
 ### type [Op](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type Op uint8
 ```
 
 一个Op是一个单一的正则表达式运算符。
 
-``` go linenums="1"
+``` go 
 const (
 	OpNoMatch        Op = 1 + iota // 不匹配任何字符串
 	OpEmptyMatch                   // 匹配空字符串
@@ -395,13 +395,13 @@ const (
 
 #### (Op) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/op_string.go;l=16)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (i Op) String() string
 ```
 
 ### type [Prog](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Prog struct {
 	Inst   []Inst
 	Start  int // 起始指令的索引
@@ -413,7 +413,7 @@ type Prog struct {
 
 #### func [Compile](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/compile.go;l=71) 
 
-``` go linenums="1"
+``` go 
 func Compile(re *Regexp) (*Prog, error)
 ```
 
@@ -421,7 +421,7 @@ func Compile(re *Regexp) (*Prog, error)
 
 #### (*Prog) [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=148) 
 
-``` go linenums="1"
+``` go 
 func (p *Prog) Prefix() (prefix string, complete bool)
 ```
 
@@ -429,7 +429,7 @@ func (p *Prog) Prefix() (prefix string, complete bool)
 
 #### (*Prog) [StartCond](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func (p *Prog) StartCond() EmptyOp
 ```
 
@@ -437,7 +437,7 @@ func (p *Prog) StartCond() EmptyOp
 
 #### (*Prog) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/prog.go;l=120) 
 
-``` go linenums="1"
+``` go 
 func (p *Prog) String() string
 ```
 
@@ -445,7 +445,7 @@ func (p *Prog) String() string
 
 ### type [Regexp](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Regexp struct {
 	Op       Op // 运算符
 	Flags    Flags
@@ -463,7 +463,7 @@ type Regexp struct {
 
 #### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/parse.go;l=890) 
 
-``` go linenums="1"
+``` go 
 func Parse(s string, flags Flags) (*Regexp, error)
 ```
 
@@ -471,7 +471,7 @@ func Parse(s string, flags Flags) (*Regexp, error)
 
 #### (*Regexp) [CapNames](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=307) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) CapNames() []string
 ```
 
@@ -479,7 +479,7 @@ func (re *Regexp) CapNames() []string
 
 #### (*Regexp) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=63) 
 
-``` go linenums="1"
+``` go 
 func (x *Regexp) Equal(y *Regexp) bool
 ```
 
@@ -487,7 +487,7 @@ func (x *Regexp) Equal(y *Regexp) bool
 
 #### (*Regexp) [MaxCap](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=293) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) MaxCap() int
 ```
 
@@ -495,7 +495,7 @@ func (re *Regexp) MaxCap() int
 
 #### (*Regexp) [Simplify](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/simplify.go;l=14) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) Simplify() *Regexp
 ```
 
@@ -503,7 +503,7 @@ func (re *Regexp) Simplify() *Regexp
 
 #### (*Regexp) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/regexp/syntax/regexp.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (re *Regexp) String() string
 ```
 

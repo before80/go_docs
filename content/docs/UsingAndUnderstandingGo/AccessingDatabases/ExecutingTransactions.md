@@ -71,7 +71,7 @@ draft = false
 
 ​	这个例子使用了`Tx`方法，这些方法需要一个`context.Context`实参。这使得函数的执行——包括数据库操作——在其运行时间过长或客户端连接关闭的情况下有可能被取消。更多信息请参见[Canceling in-progress operations（取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
-```go linenums="1"
+```go 
 // CreateOrder creates an order for an album and returns the new order ID. => CreateOrder 为 album 创建一个订单，并返回新的订单 ID。
 func CreateOrder(ctx context.Context, albumID, quantity, custID int) (orderID int64, err error) {
 

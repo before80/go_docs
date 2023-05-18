@@ -26,7 +26,7 @@ Package httptest provides utilities for HTTP testing.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=61)
 
-``` go linenums="1"
+``` go 
 const DefaultRemoteAddr = "1.2.3.4"
 ```
 
@@ -40,7 +40,7 @@ This section is empty.
 
 #### func [NewRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/httptest.go;l=40)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func NewRequest(method, target string, body io.Reader) *http.Request
 ```
 
@@ -64,7 +64,7 @@ To generate a client HTTP request instead of a server request, see the NewReques
 
 ### type [ResponseRecorder](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type ResponseRecorder struct {
 	// Code is the HTTP response code set by WriteHeader.
 	//
@@ -95,12 +95,12 @@ type ResponseRecorder struct {
 ResponseRecorder is an implementation of http.ResponseWriter that records its mutations for later inspection in tests.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewRecorder](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func NewRecorder() *ResponseRecorder
 ```
 
@@ -108,7 +108,7 @@ NewRecorder returns an initialized ResponseRecorder.
 
 #### (*ResponseRecorder) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) Flush()
 ```
 
@@ -116,7 +116,7 @@ Flush implements http.Flusher. To test whether Flush was called, see rw.Flushed.
 
 #### (*ResponseRecorder) [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=67) 
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) Header() http.Header
 ```
 
@@ -124,7 +124,7 @@ Header implements http.ResponseWriter. It returns the response headers to mutate
 
 #### (*ResponseRecorder) [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=181)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) Result() *http.Response
 ```
 
@@ -140,7 +140,7 @@ Result must only be called after the handler has finished running.
 
 #### (*ResponseRecorder) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) Write(buf []byte) (int, error)
 ```
 
@@ -148,7 +148,7 @@ Write implements http.ResponseWriter. The data in buf is written to rw.Body, if 
 
 #### (*ResponseRecorder) [WriteHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=143) 
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) WriteHeader(code int)
 ```
 
@@ -156,7 +156,7 @@ WriteHeader implements http.ResponseWriter.
 
 #### (*ResponseRecorder) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/recorder.go;l=117)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (rw *ResponseRecorder) WriteString(str string) (int, error)
 ```
 
@@ -164,7 +164,7 @@ WriteString implements io.StringWriter. The data in str is written to rw.Body, i
 
 ### type [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=26) 
 
-``` go linenums="1"
+``` go 
 type Server struct {
 	URL      string // base URL of form http://ipaddr:port with no trailing slash
 	Listener net.Listener
@@ -189,16 +189,16 @@ type Server struct {
 A Server is an HTTP server listening on a system-chosen port on the local loopback interface, for use in end-to-end HTTP tests.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=105) 
 
-``` go linenums="1"
+``` go 
 func NewServer(handler http.Handler) *Server
 ```
 
@@ -206,19 +206,19 @@ NewServer starts and returns a new Server. The caller should call Close when fin
 
 #### func [NewTLSServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=190) 
 
-``` go linenums="1"
+``` go 
 func NewTLSServer(handler http.Handler) *Server
 ```
 
 NewTLSServer starts and returns a new Server using TLS. The caller should call Close when finished, to shut it down.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewUnstartedServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func NewUnstartedServer(handler http.Handler) *Server
 ```
 
@@ -230,7 +230,7 @@ The caller should call Close when finished, to shut it down.
 
 #### (*Server) [Certificate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=295)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (s *Server) Certificate() *x509.Certificate
 ```
 
@@ -238,7 +238,7 @@ Certificate returns the certificate used by the server, or nil if the server doe
 
 #### (*Server) [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=302)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (s *Server) Client() *http.Client
 ```
 
@@ -246,7 +246,7 @@ Client returns an HTTP client configured for making requests to the server. It i
 
 #### (*Server) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=202) 
 
-``` go linenums="1"
+``` go 
 func (s *Server) Close()
 ```
 
@@ -254,7 +254,7 @@ Close shuts down the server and blocks until all outstanding requests on this se
 
 #### (*Server) [CloseClientConnections](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=266) 
 
-``` go linenums="1"
+``` go 
 func (s *Server) CloseClientConnections()
 ```
 
@@ -262,7 +262,7 @@ CloseClientConnections closes any open HTTP connections to the test Server.
 
 #### (*Server) [Start](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (s *Server) Start()
 ```
 
@@ -270,7 +270,7 @@ Start starts a server from NewUnstartedServer.
 
 #### (*Server) [StartTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptest/server.go;l=142) 
 
-``` go linenums="1"
+``` go 
 func (s *Server) StartTLS()
 ```
 

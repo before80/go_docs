@@ -40,13 +40,13 @@ draft = false
 
 ​	为了使你的代码能够使用该驱动程序，你可以像导入其他Go包一样导入它。下面是一个例子：
 
-```go linenums="1"
+```go 
 import "github.com/go-sql-driver/mysql"
 ```
 
 ​	注意，如果你没有直接从驱动包中调用任何函数——比如它被`sql`包隐式使用——你需要使用空白导入，它在导入路径前加了一个下划线：
 
-```go linenums="1"
+```go 
 import _ "github.com/go-sql-driver/mysql"
 ```
 
@@ -69,7 +69,7 @@ import _ "github.com/go-sql-driver/mysql"
 
 下面是一个关于MySQL的例子：
 
-```go linenums="1"
+```go 
 db, err = sql.Open("mysql", "username:password@tcp(127.0.0.1:3306)/jazzrecords")
 if err != nil {
     log.Fatal(err)
@@ -80,7 +80,7 @@ if err != nil {
 
 ​	例如，你可以把前面的例子换成下面的例子，它使用MySQL驱动的[Config](https://pkg.go.dev/github.com/go-sql-driver/mysql#Config)来指定属性，并使用[FormatDSN](https://pkg.go.dev/github.com/go-sql-driver/mysql#Config.FormatDSN)方法来构建一个连接字符串。
 
-```go linenums="1"
+```go 
 // Specify connection properties.
 cfg := mysql.Config{
     User:   username,
@@ -103,7 +103,7 @@ if err != nil {
 
 ​	将前面的`sql.Open`例子改成使用`sql.OpenDB`，你可以用下面的代码创建一个句柄：
 
-```go linenums="1"
+```go 
 // Specify connection properties.
 cfg := mysql.Config{
     User:   username,
@@ -133,7 +133,7 @@ db = sql.OpenDB(connector)
 
 下面的例子中的代码对数据库进行ping，以确认连接。
 
-```go linenums="1"
+```go 
 db, err = sql.Open("mysql", connString)
 
 // Confirm a successful connection.
@@ -148,7 +148,7 @@ if err := db.Ping(); err != nil {
 
 ​	一种流行的方法是在程序启动前将秘密存储在环境中，可能是从秘密管理器中加载，然后你的 Go 程序可以使用 [os.Getenv](https://pkg.go.dev/os#Getenv) 读取这些秘密：
 
-```go linenums="1"
+```go 
 username := os.Getenv("DB_USER")
 password := os.Getenv("DB_PASS")
 ```
@@ -163,7 +163,7 @@ password := os.Getenv("DB_PASS")
 
 ​	在下面的例子中，代码延迟`Close`，以释放由[sql.Rows](https://pkg.go.dev/database/sql#Rows)持有的资源。
 
-```go linenums="1" hl_lines="5 5"
+```go  hl_lines="5 5"
 rows, err := db.Query("SELECT * FROM album WHERE artist = ?", artist)
 if err != nil {
     log.Fatal(err)

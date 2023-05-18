@@ -31,21 +31,21 @@ This section is empty.
 
 #### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1426) 
 
-``` go linenums="1"
+``` go 
 func Fprint(output io.Writer, fset *token.FileSet, node any) error
 ```
 
 Fprint "pretty-prints" an AST node to output. It calls Config.Fprint with default settings. Note that gofmt uses tabs for indentation but spaces for alignment; use format.Node (package go/format) for output that matches gofmt.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [CommentedNode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1409) 
 
-``` go linenums="1"
+``` go 
 type CommentedNode struct {
 	Node     any // *ast.File, or ast.Expr, ast.Decl, ast.Spec, or ast.Stmt
 	Comments []*ast.CommentGroup
@@ -56,7 +56,7 @@ A CommentedNode bundles an AST node and corresponding comments. It may be provid
 
 ### type [Config](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1312) 
 
-``` go linenums="1"
+``` go 
 type Config struct {
 	Mode     Mode // default: 0
 	Tabwidth int  // default: 8
@@ -68,7 +68,7 @@ A Config node controls the output of Fprint.
 
 #### (*Config) [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1418) 
 
-``` go linenums="1"
+``` go 
 func (cfg *Config) Fprint(output io.Writer, fset *token.FileSet, node any) error
 ```
 
@@ -76,13 +76,13 @@ Fprint "pretty-prints" an AST node to output for a given configuration cfg. Posi
 
 ### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/printer/printer.go;l=1286) 
 
-``` go linenums="1"
+``` go 
 type Mode uint
 ```
 
 A Mode value is a set of flags (or 0). They control printing.
 
-``` go linenums="1"
+``` go 
 const (
 	RawFormat Mode = 1 << iota // do not use a tabwriter; if set, UseSpaces is ignored
 	TabIndent                  // use tabs for indentation independent of UseSpaces

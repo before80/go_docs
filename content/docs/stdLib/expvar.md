@@ -51,7 +51,7 @@ This section is empty.
 
 #### func [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=329) 
 
-``` go linenums="1"
+``` go 
 func Do(f func(KeyValue))
 ```
 
@@ -61,7 +61,7 @@ Do为每个导出的变量调用f。在迭代过程中，全局变量图被锁�
 
 #### func [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=355)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Handler() http.Handler
 ```
 
@@ -75,7 +75,7 @@ This is only needed to install the handler in a non-standard location.
 
 #### func [Publish](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=282) 
 
-``` go linenums="1"
+``` go 
 func Publish(name string, v Var)
 ```
 
@@ -87,7 +87,7 @@ Publish 声明了一个命名的导出变量。这应该从包的init函数中�
 
 ### type [Float](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=69) 
 
-``` go linenums="1"
+``` go 
 type Float struct {
 	// contains filtered or unexported fields
 }
@@ -99,13 +99,13 @@ Float是一个满足Var接口的64位浮点数变量。
 
 #### func [NewFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=308) 
 
-``` go linenums="1"
+``` go 
 func NewFloat(name string) *Float
 ```
 
 #### (*Float) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=83) 
 
-``` go linenums="1"
+``` go 
 func (v *Float) Add(delta float64)
 ```
 
@@ -115,7 +115,7 @@ Add将delta添加到v中。
 
 #### (*Float) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=96) 
 
-``` go linenums="1"
+``` go 
 func (v *Float) Set(value float64)
 ```
 
@@ -125,19 +125,19 @@ Set 将v设置为值。
 
 #### (*Float) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (v *Float) String() string
 ```
 
 #### (*Float) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=73)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (v *Float) Value() float64
 ```
 
 ### type [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=261) 
 
-``` go linenums="1"
+``` go 
 type Func func() any
 ```
 
@@ -147,19 +147,19 @@ Func通过调用函数和使用JSON格式化返回值来实现Var。
 
 #### (Func) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=267) 
 
-``` go linenums="1"
+``` go 
 func (f Func) String() string
 ```
 
 #### (Func) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=263)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (f Func) Value() any
 ```
 
 ### type [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=48) 
 
-``` go linenums="1"
+``` go 
 type Int struct {
 	// contains filtered or unexported fields
 }
@@ -171,37 +171,37 @@ Int是一个满足Var接口的64位整数变量。
 
 #### func [NewInt](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=302) 
 
-``` go linenums="1"
+``` go 
 func NewInt(name string) *Int
 ```
 
 #### (*Int) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=60) 
 
-``` go linenums="1"
+``` go 
 func (v *Int) Add(delta int64)
 ```
 
 #### (*Int) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func (v *Int) Set(value int64)
 ```
 
 #### (*Int) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=56) 
 
-``` go linenums="1"
+``` go 
 func (v *Int) String() string
 ```
 
 #### (*Int) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=52)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (v *Int) Value() int64
 ```
 
 ### type [KeyValue](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=108) 
 
-``` go linenums="1"
+``` go 
 type KeyValue struct {
 	Key   string
 	Value Var
@@ -214,7 +214,7 @@ KeyValue代表了一个Map中的一个条目。
 
 ### type [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=101) 
 
-``` go linenums="1"
+``` go 
 type Map struct {
 	// contains filtered or unexported fields
 }
@@ -226,13 +226,13 @@ Map是一个满足Var接口的字符串到Var的map变量。
 
 #### func [NewMap](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=314) 
 
-``` go linenums="1"
+``` go 
 func NewMap(name string) *Map
 ```
 
 #### (*Map) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=180) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) Add(key string, delta int64)
 ```
 
@@ -242,7 +242,7 @@ Add将delta添加到存储在给定map键下的*Int值中。
 
 #### (*Map) [AddFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=197) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) AddFloat(key string, delta float64)
 ```
 
@@ -252,7 +252,7 @@ AddFloat将delta添加到存储在给定map键下的*Float值。
 
 #### (*Map) [Delete](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=214)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (v *Map) Delete(key string)
 ```
 
@@ -262,7 +262,7 @@ Delete 将给定的键从map上删除。
 
 #### (*Map) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) Do(f func(KeyValue))
 ```
 
@@ -272,13 +272,13 @@ Do为map中的每个条目调用f。在迭代过程中，map被锁定，但现�
 
 #### (*Map) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) Get(key string) Var
 ```
 
 #### (*Map) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) Init() *Map
 ```
 
@@ -288,19 +288,19 @@ Init会从map上删除所有的键。
 
 #### (*Map) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=165) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) Set(key string, av Var)
 ```
 
 #### (*Map) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func (v *Map) String() string
 ```
 
 ### type [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=238) 
 
-``` go linenums="1"
+``` go 
 type String struct {
 	// contains filtered or unexported fields
 }
@@ -312,19 +312,19 @@ String是一个字符串变量，并且满足Var接口。
 
 #### func [NewString](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=320) 
 
-``` go linenums="1"
+``` go 
 func NewString(name string) *String
 ```
 
 #### (*String) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=255) 
 
-``` go linenums="1"
+``` go 
 func (v *String) Set(value string)
 ```
 
 #### (*String) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=249) 
 
-``` go linenums="1"
+``` go 
 func (v *String) String() string
 ```
 
@@ -334,13 +334,13 @@ String实现了Var接口。要获得未引用的字符串请使用Value。
 
 #### (*String) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=242)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (v *String) Value() string
 ```
 
 ### type [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=40) 
 
-``` go linenums="1"
+``` go 
 type Var interface {
 	// String returns a valid JSON value for the variable.
 	// Types with String methods that do not return valid JSON
@@ -357,7 +357,7 @@ Var是一个抽象类型，用于所有导出的变量。
 
 #### func [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/expvar/expvar.go;l=294) 
 
-``` go linenums="1"
+``` go 
 func Get(name string) Var
 ```
 

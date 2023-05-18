@@ -36,7 +36,7 @@ This section is empty.
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -46,19 +46,19 @@ Reader is a quoted-printable decoder.
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader) *Reader
 ```
 
 NewReader returns a quoted-printable reader, decoding from r.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/reader.go;l=72) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Read(p []byte) (n int, err error)
 ```
 
@@ -66,7 +66,7 @@ Read reads and decodes quoted-printable data from the underlying reader.
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=12) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// Binary mode treats the writer's input as pure binary and processes end of
 	// line bytes as binary data.
@@ -79,19 +79,19 @@ A Writer is a quoted-printable writer that implements io.WriteCloser.
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
 NewWriter returns a new Writer that writes to w.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=67) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Close() error
 ```
 
@@ -99,7 +99,7 @@ Close closes the Writer, flushing any unwritten data to the underlying io.Writer
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/quotedprintable/writer.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Write(p []byte) (n int, err error)
 ```
 

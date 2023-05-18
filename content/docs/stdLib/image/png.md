@@ -34,19 +34,19 @@ This section is empty.
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=976) 
 
-``` go linenums="1"
+``` go 
 func Decode(r io.Reader) (image.Image, error)
 ```
 
 Decode reads a PNG image from r and returns it as an image.Image. The type of Image returned depends on the PNG contents.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=1000) 
 
-``` go linenums="1"
+``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
 ```
 
@@ -54,27 +54,27 @@ DecodeConfig returns the color model and dimensions of a PNG image without decod
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=590) 
 
-``` go linenums="1"
+``` go 
 func Encode(w io.Writer, m image.Image) error
 ```
 
 Encode writes the Image m to w in PNG format. Any Image may be encoded, but images that are not image.NRGBA might be encoded lossily.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [CompressionLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=55)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type CompressionLevel int
 ```
 
 CompressionLevel indicates the compression level.
 
-``` go linenums="1"
+``` go 
 const (
 	DefaultCompression CompressionLevel = 0
 	NoCompression      CompressionLevel = -1
@@ -85,7 +85,7 @@ const (
 
 ### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=19)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type Encoder struct {
 	CompressionLevel CompressionLevel
 
@@ -99,7 +99,7 @@ Encoder configures encoding PNG images.
 
 #### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=596)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Encode(w io.Writer, m image.Image) error
 ```
 
@@ -107,7 +107,7 @@ Encode writes the Image m to w in PNG format.
 
 ### type [EncoderBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=36)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type EncoderBuffer encoder
 ```
 
@@ -115,7 +115,7 @@ EncoderBuffer holds the buffers used for encoding PNG images.
 
 ### type [EncoderBufferPool](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/writer.go;l=30)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type EncoderBufferPool interface {
 	Get() *EncoderBuffer
 	Put(*EncoderBuffer)
@@ -126,7 +126,7 @@ EncoderBufferPool is an interface for getting and returning temporary instances 
 
 ### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=128) 
 
-``` go linenums="1"
+``` go 
 type FormatError string
 ```
 
@@ -134,13 +134,13 @@ A FormatError reports that the input is not a valid PNG.
 
 #### (FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=130) 
 
-``` go linenums="1"
+``` go 
 func (e FormatError) Error() string
 ```
 
 ### type [UnsupportedError](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=135) 
 
-``` go linenums="1"
+``` go 
 type UnsupportedError string
 ```
 
@@ -148,6 +148,6 @@ An UnsupportedError reports that the input uses a valid but unimplemented PNG fe
 
 #### (UnsupportedError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/image/png/reader.go;l=137) 
 
-``` go linenums="1"
+``` go 
 func (e UnsupportedError) Error() string
 ```

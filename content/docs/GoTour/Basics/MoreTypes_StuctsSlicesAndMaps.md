@@ -16,20 +16,20 @@ draft = false
 
 ​	类型`*T`是一个指向`T`类型值的指针。它的零值是`nil`。
 
-```go linenums="1"
+```go 
 var p *int
 ```
 
 ​	`&`操算符产生一个指向其操作数的指针。
 
-```go linenums="1"
+```go 
 i := 42
 p = &i
 ```
 
 `*`操算符表示指针指向的底层值。
 
-```go linenums="1"
+```go 
 fmt.Println(*p) // read i through the pointer p
 *p = 21         // set i through the pointer p
 ```
@@ -38,7 +38,7 @@ fmt.Println(*p) // read i through the pointer p
 
 与C不同，`Go没有指针运算`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -64,7 +64,7 @@ func main() {
 
 一个结构体（`struct`）就是一组字段（field）的集合。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -86,7 +86,7 @@ func main() {
 
 ​	结构体字段使用点号来访问。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -112,7 +112,7 @@ func main() {
 
 ​	当我们拥有结构体指针`p`时，要访问结构体的字段`X`，我们可以写成`(*p).X`。然而，这种记法很麻烦，所以`Go语言允许我们只写 p.X`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -141,7 +141,7 @@ func main() {
 
 ​	特殊前缀`&`会返回一个指向结构体值的指针。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -171,7 +171,7 @@ func main() {
 
 表达式：
 
-```go linenums="1"
+```go 
 var a [10]int
 ```
 
@@ -179,7 +179,7 @@ var a [10]int
 
 ​	`数组的长度是其类型的一部分`，所以`数组不能被改变大小`。这似乎很有局限性，但不用担心；Go提供了更加便利的方式来使用数组。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -219,7 +219,7 @@ a[low : high]
 a[1:4]
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -243,7 +243,7 @@ func main() {
 
 ​	共享同一底层数组的其他切片将观测这些改变。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -285,17 +285,17 @@ func main() {
 
 这是一个数组字面量：
 
-```go linenums="1"
+```go 
 [3]bool{true, true, false}
 ```
 
 下面这样，则将创建一个与上面相同的数组，然后建立一个引用它的切片：
 
-```go linenums="1"
+```go 
 []bool{true, true, false}
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -333,13 +333,13 @@ func main() {
 
 对于数组：
 
-```go linenums="1"
+```go 
 var a [10]int
 ```
 
 来说，这些切片表达式是等价的：
 
-```go linenums="1"
+```go 
 a[0:10]
 a[:10]
 a[0:]
@@ -348,7 +348,7 @@ a[:]
 
 
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -382,7 +382,7 @@ func main() {
 
 ​	只要有足够的容量，你可以通过重新切片来扩展一个切片。试着改变示例程序中的切片操作，使其超过其容量，看看会发生什么。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -418,7 +418,7 @@ func printSlice(s []int) {
 
 ​	`nil` 切片的长度和容量为0，`并且没有底层数组`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -441,20 +441,20 @@ func main() {
 
 ​	`make`函数分配了一个元素为零值数组，并返回一个指向该数组的切片：
 
-```go linenums="1"
+```go 
 a := make([]int, 5)  // len(a)=5
 ```
 
 要指定容量，可以向`make`传递第三个参数：
 
-```go linenums="1"
+```go 
 b := make([]int, 0, 5) // len(b)=0, cap(b)=5
 
 b = b[:cap(b)] // len(b)=5, cap(b)=5
 b = b[1:]      // len(b)=4, cap(b)=4
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -486,7 +486,7 @@ func printSlice(s string, x []int) {
 
 ​	切片可包含任何类型，甚至包括其它的切片。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -522,7 +522,7 @@ func main() {
 
 ​	将新的元素追加到切片中是很常见的，因此Go提供了一个内置的`append`函数。内置包的[文档](https://go.dev/pkg/builtin/#append)描述了`append`。
 
-```go linenums="1"
+```go 
 func append(s []T, vs ...T) []T
 ```
 
@@ -534,7 +534,7 @@ func append(s []T, vs ...T) []T
 
 (要了解更多关于切片的信息，请阅读[Slices: usage and internals](../../../GoBlog/2011/GoSlicesUsageAndInternals)文章)。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -573,7 +573,7 @@ func printSlice(s []int) {
 
 ​	当对一个切片使用 `range` 进行遍历时，每次迭代都会返回两个值。`第一个是索引`，`第二个是该索引对应元素的副本`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -594,18 +594,18 @@ func main() {
 
 ​	可以通过赋值给`_`来忽略索引或值。
 
-```go linenums="1"
+```go 
 for i, _ := range pow
 for _, value := range pow
 ```
 
 若你只需得到索引，则可以忽略第二个变量。
 
-```go linenums="1"
+```go 
 for i := range pow
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -634,7 +634,7 @@ func main() {
 
 (请使用`uint8(intValue)`在不同类型之间转换。)
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "golang.org/x/tour/pic"
@@ -672,7 +672,7 @@ The `make` function returns a map of the given type, initialized and ready for u
 
 make函数返回一个给定类型的映射，初始化并准备使用。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -699,7 +699,7 @@ func main() {
 
 ​	映射字面量与结构体字面量类似，不过映射字面量必须有键名。
 
-```go title="main.go" linenums="1" hl_lines="10 14"
+```go title="main.go"  hl_lines="10 14"
 package main
 
 import "fmt"
@@ -729,7 +729,7 @@ func main() {
 
 如果顶层类型只是一个类型名，你可以从字面量的元素中省略它。
 
-```go title="main.go" linenums="1" hl_lines="10 11"
+```go title="main.go"  hl_lines="10 11"
 package main
 
 import "fmt"
@@ -755,25 +755,25 @@ func main() {
 
 ​	在映射`m`中插入或修改元素：
 
-```go linenums="1"
+```go 
 m[key] = elem
 ```
 
 ​	获取元素：
 
-```go linenums="1"
+```go 
 elem = m[key]
 ```
 
 ​	删除元素：
 
-```go linenums="1"
+```go 
 delete(m, key)
 ```
 
 ​	用双赋值来测试某个键是否存在：
 
-```go linenums="1"
+```go 
 elem, ok = m[key]
 ```
 
@@ -783,11 +783,11 @@ elem, ok = m[key]
 
 注意：如果`elem`或`ok`还未被声明，你可以使用短变量声明。
 
-```go linenums="1"
+```go 
 elem, ok := m[key]
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -818,7 +818,7 @@ func main() {
 
 ​	你会发现[strings.Fields](https://go.dev/pkg/strings/#Fields)很有帮助。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -849,7 +849,7 @@ func main() {
 
 ​	函数值可以作为函数的实参和返回值使用。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -881,7 +881,7 @@ func main() {
 
 ​	例如，`adder`函数返回一个`闭包`。每个闭包都被绑定在其各自的`sum`变量上。
 
-```go title="main.go" linenums="1" hl_lines="6 6"
+```go title="main.go"  hl_lines="6 6"
 package main
 
 import "fmt"
@@ -914,7 +914,7 @@ func main() {
 
 ​	实现一个 `fibonacci` 函数，它返回一个函数（闭包），该函数返回连续的 [fibonacci 数字](https://en.wikipedia.org/wiki/Fibonacci_number)（0, 1, 1, 2, 3, 5, ...）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"

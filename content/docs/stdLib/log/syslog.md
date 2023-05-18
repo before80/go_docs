@@ -31,7 +31,7 @@ This section is empty.
 
 #### func [NewLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=312) 
 
-```go linenums="1"
+```go 
 func NewLogger(p Priority, logFlag int) (*log.Logger, error)
 ```
 
@@ -41,13 +41,13 @@ func NewLogger(p Priority, logFlag int) (*log.Logger, error)
 
 ### type [Priority](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=24) 
 
-```go linenums="1"
+```go 
 type Priority int
 ```
 
 ​	Priority 是 syslog 设施和严重性的组合。例如，LOG_ALERT | LOG_FTP 从 FTP 设施发送警报严重性消息。默认的严重性为 LOG_EMERG，默认的设施为 LOG_KERN。
 
-```go linenums="1"
+```go 
 const (
 
    	// 来自 /usr/include/sys/syslog.h。
@@ -91,7 +91,7 @@ const (
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=76) 
 
-```go linenums="1"
+```go 
 type Writer struct {
     // 包含已过滤或未导出的字段
 }
@@ -101,7 +101,7 @@ type Writer struct {
 
 #### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=118) 
 
-```go linenums="1"
+```go 
 func Dial(network, raddr string, priority Priority, tag string) (*Writer, error)
 ```
 
@@ -109,7 +109,7 @@ func Dial(network, raddr string, priority Priority, tag string) (*Writer, error)
 
 ##### Dial Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -134,7 +134,7 @@ func main() {
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=107) 
 
-```go linenums="1"
+```go 
 func New(priority Priority, tag string) (*Writer, error)
 ```
 
@@ -142,7 +142,7 @@ func New(priority Priority, tag string) (*Writer, error)
 
 #### (*Writer) [Alert](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=203) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Alert(m string) error
 ```
 
@@ -150,7 +150,7 @@ func (w *Writer) Alert(m string) error
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=182) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Close() error
 ```
 
@@ -158,7 +158,7 @@ func (w *Writer) Close() error
 
 #### (*Writer) [Crit](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=210) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Crit(m string) error
 ```
 
@@ -166,7 +166,7 @@ func (w *Writer) Crit(m string) error
 
 #### (*Writer) [Debug](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=245) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Debug(m string) error
 ```
 
@@ -174,7 +174,7 @@ func (w *Writer) Debug(m string) error
 
 #### (*Writer) [Emerg](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=196) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Emerg(m string) error
 ```
 
@@ -182,7 +182,7 @@ func (w *Writer) Emerg(m string) error
 
 #### (*Writer) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=217) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Err(m string) error
 ```
 
@@ -190,7 +190,7 @@ func (w *Writer) Err(m string) error
 
 #### (*Writer) [Info](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=238) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Info(m string) error
 ```
 
@@ -198,7 +198,7 @@ func (w *Writer) Info(m string) error
 
 #### (*Writer) [Notice](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=231) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Notice(m string) error
 ```
 
@@ -206,7 +206,7 @@ func (w *Writer) Notice(m string) error
 
 #### (*Writer) [Warning](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=224) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Warning(m string) error
 ```
 
@@ -216,7 +216,7 @@ func (w *Writer) Warning(m string) error
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/log/syslog/syslog.go;l=177) 
 
-```go linenums="1"
+```go 
 func (w *Writer) Write(b []byte) (int, error)
 ```
 

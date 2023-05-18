@@ -35,7 +35,7 @@ This section is empty.
 
 ### type [Jar](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=61) 
 
-``` go linenums="1"
+``` go 
 type Jar struct {
 	// contains filtered or unexported fields
 }
@@ -45,19 +45,19 @@ Jar implements the http.CookieJar interface from the net/http package.
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func New(o *Options) (*Jar, error)
 ```
 
 New returns a new cookie jar. A nil *Options is equivalent to a zero Options.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Jar) [Cookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func (j *Jar) Cookies(u *url.URL) (cookies []*http.Cookie)
 ```
 
@@ -67,7 +67,7 @@ It returns an empty slice if the URL's scheme is not HTTP or HTTPS.
 
 #### (*Jar) [SetCookies](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=232) 
 
-``` go linenums="1"
+``` go 
 func (j *Jar) SetCookies(u *url.URL, cookies []*http.Cookie)
 ```
 
@@ -77,7 +77,7 @@ It does nothing if the URL's scheme is not HTTP or HTTPS.
 
 ### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=50) 
 
-``` go linenums="1"
+``` go 
 type Options struct {
 	// PublicSuffixList is the public suffix list that determines whether
 	// an HTTP server can set a cookie for a domain.
@@ -93,7 +93,7 @@ Options are the options for creating a new Jar.
 
 ### type [PublicSuffixList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cookiejar/jar.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type PublicSuffixList interface {
 	// PublicSuffix returns the public suffix of domain.
 	//

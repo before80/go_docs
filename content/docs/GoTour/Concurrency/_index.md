@@ -15,13 +15,13 @@ draft = false
 
 ​	goroutine是一个由Go运行时管理的轻量级线程。
 
-```go linenums="1"
+```go 
 go f(x, y, z)
 ```
 
 会启动一个新的goroutine，并运行
 
-```go linenums="1"
+```go 
 f(x, y, z)
 ```
 
@@ -29,7 +29,7 @@ f(x, y, z)
 
 ​	goroutine 在相同的地址空间中运行，因此在访问共享内存时必须进行同步。[sync](https://go.dev/pkg/sync/)包提供了这种能力，不过在Go中并不经常用到，因为还有其他的办法。(见下一张幻灯片）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -57,7 +57,7 @@ func main() {
 
 ​	通道是一个类型化的管道，你可以通过通道操作符`<-`来发送和接收值。
 
-```go linenums="1"
+```go 
 ch <- v    // Send v to channel ch. => 将 v 发送至通道 ch。
 v := <-ch  // Receive from ch, and assign value to v. => 从 ch 接收值并赋予 v。
 ```
@@ -66,7 +66,7 @@ v := <-ch  // Receive from ch, and assign value to v. => 从 ch 接收值并赋�
 
 像映射和切片一样，通道在使用前必须被创建：
 
-```go linenums="1"
+```go 
 ch := make(chan int)
 ```
 
@@ -74,7 +74,7 @@ ch := make(chan int)
 
 ​	这个例子的代码是对切片中的数字进行求和，将任务分配给两个goroutine。一旦两个goroutines都完成了计算，它就会计算出最终结果。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -106,7 +106,7 @@ func main() {
 
 ​	通道可以是带缓冲的。提供缓冲区长度作为`make`的第二个参数，以初始化一个缓冲通道：
 
-```go linenums="1"
+```go 
 ch := make(chan int, 100)
 ```
 
@@ -114,7 +114,7 @@ ch := make(chan int, 100)
 
 修改示例填满缓冲区，然后看看会发生什么。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -136,7 +136,7 @@ func main() {
 
 ​	发送者可以`close`（关闭）一个通道，表示不再发送任何值。接收者可以通过给`接收表达式`分配`第二个参数`来测试一个通道是否被关闭，在执行完
 
-```go linenums="1"
+```go 
 v, ok := <-ch
 ```
 
@@ -152,7 +152,7 @@ v, ok := <-ch
 
 	另一个注意事项：通道不像文件，你通常不需要关闭它们。只有当接收方必须被告知没有更多的值时才需要关闭，例如终止一个`range`循环。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -186,7 +186,7 @@ func main() {
 
 ​	`select`语句会阻塞，直到它的一个`case`可以运行，然后它就执行这个`case`。如果有多个准备好了，它就随机选择一个。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -226,7 +226,7 @@ func main() {
 
 ​	为了在尝试发送或者接收时不发生阻塞，可使用 `default` 分支：
 
-```go linenums="1"
+```go 
 select {
 case i := <-c:
     // use i
@@ -235,7 +235,7 @@ default:
 }
 ```
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -274,7 +274,7 @@ func main() {
 
 这个例子使用了`tree`包，它定义了类型：
 
-```go linenums="1"
+```go 
 type Tree struct {
     Left  *Tree
     Value int
@@ -296,7 +296,7 @@ type Tree struct {
 
 创建一个新的通道`ch`并且对其进行步进：
 
-```go linenums="1"
+```go 
 go Walk(tree.New(1), ch)
 ```
 
@@ -314,7 +314,7 @@ Then read and print 10 values from the channel. It should be the numbers 1, 2, 3
 
 Tree的文档可以在[这里](https://godoc.org/golang.org/x/tour/tree#Tree)找到。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -382,7 +382,7 @@ func main() {
 
 ​	我们也可以用 `defer` 语句来保证互斥锁一定会被解锁。参见`Value`方法。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -437,7 +437,7 @@ func main() {
 
 提示：你可以用一个 map 来缓存已经获取的 URL，但是要注意 map 本身并不是并发安全的！
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (

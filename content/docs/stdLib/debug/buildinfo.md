@@ -33,7 +33,7 @@ This section is empty.
 
 ### type [BuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type BuildInfo = debug.BuildInfo
 ```
 
@@ -43,7 +43,7 @@ Type alias for build info. We cannot move the types here, since runtime/debug wo
 
 #### func [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=74) 
 
-``` go linenums="1"
+``` go 
 func Read(r io.ReaderAt) (*BuildInfo, error)
 ```
 
@@ -53,7 +53,7 @@ Read 返回嵌入在通过给定的ReaderAt访问的Go二进制文件中的构�
 
 #### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/buildinfo/buildinfo.go;l=54) 
 
-``` go linenums="1"
+``` go 
 func ReadFile(name string) (info *BuildInfo, err error)
 ```
 

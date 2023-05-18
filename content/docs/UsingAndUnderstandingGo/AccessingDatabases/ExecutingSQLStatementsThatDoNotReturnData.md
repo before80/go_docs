@@ -18,7 +18,7 @@ draft = false
 
 ​	下面的例子中的代码使用[DB.Exec](https://pkg.go.dev/database/sql#DB.Exec)来执行一条语句，将一个新的记录专辑添加到一个`album`表中。
 
-```go linenums="1"
+```go 
 func AddAlbum(alb Album) (int64, error) {
     result, err := db.Exec("INSERT INTO album (title, artist) VALUES (?, ?)", alb.Title, alb.Artist)
     if err != nil {

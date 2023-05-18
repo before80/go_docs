@@ -18,7 +18,7 @@ draft = false
 
 ​	变量的静态类型（或仅仅是类型）是在其声明中给出的类型、在`new`调用或复合字面量中提供的类型、或是结构化变量的元素的类型。接口类型的变量也有一个独特的动态类型，它是运行时分配给变量的值的（非接口）类型（除非该值是预先声明的标识符`nil`，它没有类型）。在执行过程中，动态类型可能会发生变化，但是存储在接口变量中的值总是可以赋给变量的静态类型。
 
-```go linenums="1"
+```go 
 var x interface{}  // x is nil and has static type interface{}  => x 为 nil，具有静态类型 interface{}
 var v *T           // v has value nil, static type *T =>  v 具有值 nil，静态类型 * T
 x = 42             // x has value 42 and dynamic type int =>  x 具有值42，动态类型 int

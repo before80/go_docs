@@ -36,7 +36,7 @@ draft = false
 
 ​	当你准备继续前进时，点击下面的`右箭头`或键入`PageDown`键。
 
-```go linenums="1"
+```go 
 package main
 
 import "fmt"
@@ -91,7 +91,7 @@ go install golang.org/x/website/tour@latest
 
 阅读 "[Inside the Go Playground](../../../GoBlog/2013/InsideTheGoPlayground) "以了解更多。
 
-```go linenums="1"
+```go 
 package main
 
 import (

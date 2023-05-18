@@ -107,7 +107,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=86)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrBareQuote  = errors.New("bare \" in non-quoted-field")
 	ErrQuote      = errors.New("extraneous or missing \" in quoted-field")
@@ -131,7 +131,7 @@ This section is empty.
 
 ### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=66) 
 
-``` go linenums="1"
+``` go 
 type ParseError struct {
 	StartLine int   // Line where the record starts// 记录开始的那一行
 	Line      int   // Line where the error occurred// 发生错误的那一行
@@ -146,19 +146,19 @@ A ParseError is returned for parsing errors. Line numbers are 1-indexed and colu
 
 #### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Error() string
 ```
 
 #### (*ParseError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=83)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Unwrap() error
 ```
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=110) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// Comma is the field delimiter.
 	// It is set to comma (',') by NewReader.
@@ -231,16 +231,16 @@ The Reader converts all \r\n sequences in its input to plain \n, including in mu
 Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=180) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader) *Reader
 ```
 
@@ -250,7 +250,7 @@ NewReader返回一个新的阅读器，从r中读取数据。
 
 #### (*Reader) [FieldPos](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=211)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (r *Reader) FieldPos(field int) (line, column int)
 ```
 
@@ -264,7 +264,7 @@ If this is called with an out-of-bounds index, it panics.
 
 #### (*Reader) [InputOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=222)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (r *Reader) InputOffset() int64
 ```
 
@@ -274,7 +274,7 @@ InputOffset返回当前阅读器位置的输入流字节偏移。这个偏移量
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=195) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Read() (record []string, err error)
 ```
 
@@ -284,7 +284,7 @@ Read reads one record (a slice of fields) from r. If the record has an unexpecte
 
 #### (*Reader) [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/reader.go;l=236) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadAll() (records [][]string, err error)
 ```
 
@@ -293,12 +293,12 @@ ReadAll reads all the remaining records from r. Each record is a slice of fields
 ReadAll从r读取所有剩余的记录。一个成功的调用返回err == nil，而不是err == io.EOF。因为ReadAll被定义为读到EOF为止，它不把文件结束作为一个错误来报告。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=30) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	Comma   rune // Field delimiter (set to ',' by NewWriter) // 字段分隔符(NewWriter设置为',' )。
 	UseCRLF bool // True to use \r\n as the line terminator // True，使用 \r\n 作为行结束符。
@@ -327,12 +327,12 @@ The writes of individual records are buffered. After all data has been written, 
 单个记录的写入是缓冲的。在所有数据被写入后，客户端应该调用Flush方法以保证所有数据都被转发到底层的io.Writer。任何发生的错误都应该通过调用Error方法来检查。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -342,7 +342,7 @@ NewWriter返回一个新的写入w的Writer。
 
 #### (*Writer) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=128)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Error() error
 ```
 
@@ -352,7 +352,7 @@ Error报告在之前的写或刷新过程中发生的任何错误。
 
 #### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Flush()
 ```
 
@@ -362,7 +362,7 @@ Flush将任何缓冲的数据写入底层的io.Writer。要检查在Flush过程�
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) Write(record []string) error
 ```
 
@@ -372,7 +372,7 @@ Write将一条CSV记录和任何必要的引号一起写到w中。一个记录�
 
 #### (*Writer) [WriteAll](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/csv/writer.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (w *Writer) WriteAll(records [][]string) error
 ```
 
@@ -380,7 +380,7 @@ WriteAll writes multiple CSV records to w using Write and then calls Flush, retu
 
 WriteAll使用Write将多个CSV记录写入w，然后调用Flush，返回Flush的任何错误。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (

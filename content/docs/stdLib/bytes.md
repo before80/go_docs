@@ -16,7 +16,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=191)
 
-``` go linenums="1"
+``` go 
 const MinRead = 512
 ```
 
@@ -26,7 +26,7 @@ const MinRead = 512
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=44)
 
-``` go linenums="1"
+``` go 
 var ErrTooLarge = errors.New("bytes.Buffer: too large")
 ```
 
@@ -36,7 +36,7 @@ var ErrTooLarge = errors.New("bytes.Buffer: too large")
 
 #### func [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1350)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func Clone(b []byte) []byte
 ```
 
@@ -44,14 +44,14 @@ func Clone(b []byte) []byte
 
 #### func [Compare](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=26) 
 
-``` go linenums="1"
+``` go 
 func Compare(a, b []byte) int
 ```
 
 ​	Compare函数返回一个整数，按字典顺序比较两个字节切片。如果a == b，结果是0，如果a < b，结果是-1，如果a > b，结果是+1。nil参数等效于空切片。
 
 ##### Compare Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -86,7 +86,7 @@ func main() {
 ```
 
 ##### Compare Example (Search)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -111,14 +111,14 @@ func main() {
 
 #### func [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=75) 
 
-``` go linenums="1"
+``` go 
 func Contains(b, subslice []byte) bool
 ```
 
 ​	Contains函数报告子字节切片subslice是否在字节切片b中。
 
 ##### Contains Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -142,14 +142,14 @@ true
 
 #### func [ContainsAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=80)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func ContainsAny(b []byte, chars string) bool
 ```
 
 ​	ContainsAny函数报告chars中是否存在任何一个使用UTF-8编码的码点在字节切片b中。
 
 ##### ContainsAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -173,14 +173,14 @@ false
 
 #### func [ContainsRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=85)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func ContainsRune(b []byte, r rune) bool
 ```
 
 ​	ContainsRune函数报告符文`r`是否包含在UTF-8编码的字节切片b中。
 
 ##### ContainsRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -206,14 +206,14 @@ false
 
 #### func [Count](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=55) 
 
-``` go linenums="1"
+``` go 
 func Count(s, sep []byte) int
 ```
 
 ​	Count函数计算s中sep的非重叠实例数。如果 sep 是一个空切片，则 Count 返回 s 中 UTF-8 编码的码点数加 1。
 
 ##### Count Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -233,7 +233,7 @@ Output:
 
 #### func [Cut](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1340)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func Cut(s, sep []byte) (before, after []byte, found bool)
 ```
 
@@ -242,7 +242,7 @@ func Cut(s, sep []byte) (before, after []byte, found bool)
 ​	Cut函数返回原始切片s的切片，而不是副本。
 
 ##### Cut Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -270,7 +270,7 @@ Cut("Gopher", "Badger") = "Gopher", "", false
 
 #### func [CutPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1363)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func CutPrefix(s, prefix []byte) (after []byte, found bool)
 ```
 
@@ -280,7 +280,7 @@ func CutPrefix(s, prefix []byte) (after []byte, found bool)
 
 ##### CutPrefix Example
 
-```go linenums="1"
+```go 
 s := []byte("foo bar foo bar foo")
 prefix := []byte("foo ")
 after, found := bytes.CutPrefix(s, prefix) 
@@ -291,7 +291,7 @@ after, found := bytes.CutPrefix(s, prefix)
 
 #### func [CutSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1376)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func CutSuffix(s, suffix []byte) (before []byte, found bool)
 ```
 
@@ -303,7 +303,7 @@ func CutSuffix(s, suffix []byte) (before []byte, found bool)
 
 ##### CutSuffix Example
 
-```go linenums="1"
+```go 
 s := []byte("foo bar foo bar foo")
 suffix := []byte(" foo")
 before, found := bytes.CutSuffix(s, suffix) 
@@ -314,14 +314,14 @@ before, found := bytes.CutSuffix(s, suffix)
 
 #### func [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func Equal(a, b []byte) bool
 ```
 
 ​	Equal 函数报告 a 和 b 是否具有相同的长度并包含相同的字节。nil 参数等价于空切片。
 
 ##### Equal Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -341,14 +341,14 @@ false
 
 #### func [EqualFold](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1163) 
 
-``` go linenums="1"
+``` go 
 func EqualFold(s, t []byte) bool
 ```
 
 ​	EqualFold 函数报告将 s 和 t(解释为 UTF-8 字符串)在简单的 Unicode 大小写折叠下是否相等，这是一种更通用的不区分大小写的形式。
 
 ##### EqualFold Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -366,14 +366,14 @@ true
 
 #### func [Fields](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=417) 
 
-``` go linenums="1"
+``` go 
 func Fields(s []byte) [][]byte
 ```
 
 ​	Fields函数将s解释为UTF-8编码的码点序列，并根据unicode.IsSpace定义的一个或多个连续的空白字符实例分隔切片s，返回s的子切片的切片，如果s仅包含空白，则返回一个空切片。
 
 ##### Fields Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -394,7 +394,7 @@ Fields are: [][]uint8{[]uint8{0x66, 0x6f, 0x6f}, []uint8{0x62, 0x61, 0x72}, []ui
 
 #### func [FieldsFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=474) 
 
-``` go linenums="1"
+``` go 
 func FieldsFunc(s []byte, f func(rune) bool) [][]byte
 ```
 
@@ -405,7 +405,7 @@ func FieldsFunc(s []byte, f func(rune) bool) [][]byte
 > 需要注意的是，bytes.FieldsFunc函数对于调用f(c)的顺序没有保证，这是因为FieldsFunc函数是并行调用f(c)的，以便更快地处理输入。
 
 ##### FieldsFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -440,14 +440,14 @@ Fields are: ["foo1" "bar2" "baz3"]
 
 #### func [HasPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=546) 
 
-``` go linenums="1"
+``` go 
 func HasPrefix(s, prefix []byte) bool
 ```
 
 ​	HasPrefix测试字节切片 s 是否以前缀 prefix 开头。
 
 ##### HasPrefix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -469,14 +469,14 @@ true
 
 #### func [HasSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=551) 
 
-``` go linenums="1"
+``` go 
 func HasSuffix(s, suffix []byte) bool
 ```
 
 ​	HasSuffix函数测试字节切片s是否以后缀 suffix 结尾。
 
 ##### HasSuffix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -500,14 +500,14 @@ true
 
 #### func [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1247) 
 
-``` go linenums="1"
+``` go 
 func Index(s, sep []byte) int
 ```
 
 ​	Index函数返回sep在s中第一次出现的索引，如果sep不在s中，则返回-1。
 
 ##### Index Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -527,14 +527,14 @@ Output:
 
 #### func [IndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=181) 
 
-``` go linenums="1"
+``` go 
 func IndexAny(s []byte, chars string) int
 ```
 
 ​	IndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回chars中任何一个Unicode码点在s中第一次出现的字节索引。如果chars为空或在s中没有公共的码点，则返回-1。
 
 ##### IndexAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -554,14 +554,14 @@ Output:
 
 #### func [IndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func IndexByte(b []byte, c byte) int
 ```
 
 ​	IndexByte函数返回c在b中第一次出现的索引，如果c不在b中，则返回-1。
 
 ##### IndexByte Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -581,14 +581,14 @@ Output:
 
 #### func [IndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=841) 
 
-``` go linenums="1"
+``` go 
 func IndexFunc(s []byte, f func(r rune) bool) int
 ```
 
 ​	IndexFunc函数将s解释为UTF-8编码的码点序列。它返回s中第一个满足f(c)的Unicode码点的字节索引，如果没有则返回-1。
 
 ##### IndexFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -612,14 +612,14 @@ Output:
 
 #### func [IndexRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=155) 
 
-``` go linenums="1"
+``` go 
 func IndexRune(s []byte, r rune) int
 ```
 
 ​	IndexRune函数将s解释为UTF-8编码的码点序列。它返回给定符文在s中第一次出现的字节索引。如果rune不存在于s中，则返回-1。如果r是utf8.RuneError，则返回任何无效UTF-8字节序列的第一个实例。
 
 ##### IndexRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -639,7 +639,7 @@ Output:
 
 #### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=523) 
 
-``` go linenums="1"
+``` go 
 func Join(s [][]byte, sep []byte) []byte
 ```
 
@@ -650,7 +650,7 @@ Join函数将s的元素连接起来，创建一个新的字节切片。分隔符
 ​	Join函数将s中的元素连接起来以创建一个新的字节切片。分隔符sep放置在结果切片中的元素之间。
 
 ##### Join Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -669,14 +669,14 @@ foo, bar, baz
 
 #### func [LastIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func LastIndex(s, sep []byte) int
 ```
 
 ​	LastIndex函数返回sep在s中最后一次出现的索引，如果sep不在s中，则返回-1。
 
 ##### LastIndex Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -698,14 +698,14 @@ Output:
 
 #### func [LastIndexAny](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=259) 
 
-``` go linenums="1"
+``` go 
 func LastIndexAny(s []byte, chars string) int
 ```
 
 ​	LastIndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回s中任何一个Unicode代码点(chars中的)的最后一次出现的字节索引。如果chars为空或没有共同码点，则返回-1。
 
 ##### LastIndexAny Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -727,14 +727,14 @@ Output:
 
 #### func [LastIndexByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=141)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func LastIndexByte(s []byte, c byte) int
 ```
 
 ​	LastIndexByte函数返回c在s中最后一次出现的实例索引，如果c不在s中，则返回-1。
 
 ##### LastIndexByte Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -756,14 +756,14 @@ Output:
 
 #### func [LastIndexFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=848) 
 
-``` go linenums="1"
+``` go 
 func LastIndexFunc(s []byte, f func(r rune) bool) int
 ```
 
 ​	LastIndexFunc将s解释为UTF-8编码的码点序列。它返回s中最后一个满足f(c)的Unicode码点(rune)的字节索引，如果没有符合条件的，则返回-1。
 
 ##### LastIndexFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -786,7 +786,7 @@ Output:
 
 #### func [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=559) 
 
-``` go linenums="1"
+``` go 
 func Map(mapping func(r rune) rune, s []byte) []byte
 ```
 
@@ -794,7 +794,7 @@ func Map(mapping func(r rune) rune, s []byte) []byte
 
 ##### Map Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -822,7 +822,7 @@ Hell0, W0rld!
 
 #### func [Repeat](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=583) 
 
-``` go linenums="1"
+``` go 
 func Repeat(b []byte, count int) []byte
 ```
 
@@ -831,7 +831,7 @@ func Repeat(b []byte, count int) []byte
 ​	如果count为负数或者(len(b) * count)的结果溢出，它就会发生panic。
 
 ##### Repeat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -849,7 +849,7 @@ banana
 
 #### func [Replace](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1115) 
 
-``` go linenums="1"
+``` go 
 func Replace(s, old, new []byte, n int) []byte
 ```
 
@@ -858,7 +858,7 @@ Replace returns a copy of the slice s with the first n non-overlapping instances
 Replace函数返回一个片断s的副本，用new替换old的前n个不重叠的实例。如果old是空的，它在片断的开头和每个UTF-8序列之后进行匹配，对于一个k-rune片断，最多产生k+1个替换。如果n<0，则对替换的数量没有限制。
 
 ##### Replace Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -878,14 +878,14 @@ moo moo moo
 
 #### func [ReplaceAll](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1156)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func ReplaceAll(s, old, new []byte) []byte
 ```
 
 ​	ReplaceAll函数返回将 s 中所有非重叠的 old 替换为 new 后得到的新 byte 切片。如果 old 是空的，则匹配从切片开头和每个 UTF-8 序列之后开始，最多得到 k+1 次替换，其中 k 是切片中的 Unicode 码点数。
 
 ##### ReplaceAll Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -905,14 +905,14 @@ moo moo moo
 
 #### func [Runes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1097) 
 
-``` go linenums="1"
+``` go 
 func Runes(s []byte) []rune
 ```
 
 ​	Runes函数将 s 解释为一系列 UTF-8 编码的码点。它返回一个等价于 s 的码点切片(Unicode 码点)。
 
 ##### Runes Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -944,7 +944,7 @@ U+0072 'r'
 
 #### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=401) 
 
-``` go linenums="1"
+``` go 
 func Split(s, sep []byte) [][]byte
 ```
 
@@ -953,7 +953,7 @@ func Split(s, sep []byte) [][]byte
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
 ##### Split Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -977,14 +977,14 @@ Output:
 
 #### func [SplitAfter](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=407) 
 
-``` go linenums="1"
+``` go 
 func SplitAfter(s, sep []byte) [][]byte
 ```
 
 ​	SplitAfter函数将 s 切分成在每个 sep 实例之后的所有子切片，并返回这些子切片的切片。如果 sep 是空的，则 SplitAfter 在每个 UTF-8 序列之后分隔。它等同于SplitAfterN，计数为-1。
 
 ##### SplitAfter Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1002,7 +1002,7 @@ Output:
 
 #### func [SplitAfterN](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=391) 
 
-``` go linenums="1"
+``` go 
 func SplitAfterN(s, sep []byte, n int) [][]byte
 ```
 
@@ -1018,7 +1018,7 @@ n > 0：最多 n 个子切片；最后一个子切片将是未拆分的剩余部
 
 ##### SplitAfterN Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1036,7 +1036,7 @@ Output:
 
 #### func [SplitN](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=381) 
 
-``` go linenums="1"
+``` go 
 func SplitN(s, sep []byte, n int) [][]byte
 ```
 
@@ -1053,7 +1053,7 @@ n < 0：所有子切片
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
 ##### SplitN Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1076,14 +1076,14 @@ Output:
 
 #### func [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=666) 
 
-``` go linenums="1"
+``` go 
 func ToLower(s []byte) []byte
 ```
 
 ​	ToLower函数返回一个将 s 中所有 Unicode 字母都转为其小写形式的新字节切片。
 
 ##### ToLower Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1101,14 +1101,14 @@ gopher
 
 #### func [ToLowerSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=705) 
 
-``` go linenums="1"
+``` go 
 func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
 
 ​	ToLowerSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其小写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
 ##### ToLowerSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1131,14 +1131,14 @@ ToLower : ahoj vývojári golang
 
 #### func [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=695) 
 
-``` go linenums="1"
+``` go 
 func ToTitle(s []byte) []byte
 ```
 
 ​	ToTitle函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片。
 
 ##### ToTitle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1158,14 +1158,14 @@ LOUD NOISES
 
 #### func [ToTitleSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=711) 
 
-``` go linenums="1"
+``` go 
 func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
 
 ​	ToTitleSpecia函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片，其规则按照特定的 casing 规则进行。
 
 ##### ToTitleSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1188,7 +1188,7 @@ ToTitle : AHOJ VÝVOJÁRİ GOLANG
 
 #### func [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=635) 
 
-``` go linenums="1"
+``` go 
 func ToUpper(s []byte) []byte
 ```
 
@@ -1203,7 +1203,7 @@ func ToUpper(s []byte) []byte
 > ​	因此，`bytes.ToTitle` 方法在进行字符大小写转换时比`bytes.ToUpper` 更加智能和准确。但是，由于其对 Unicode 的完全支持，可能会导致一些性能问题，特别是在处理非常大的字符串时。
 
 ##### ToUpper Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1221,14 +1221,14 @@ GOPHER
 
 #### func [ToUpperSpecial](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=699) 
 
-``` go linenums="1"
+``` go 
 func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
 
 ​		ToUpperSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其大写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
 ##### ToUpperSpecial Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1251,7 +1251,7 @@ ToUpper : AHOJ VÝVOJÁRİ GOLANG
 
 #### func [ToValidUTF8](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=717)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func ToValidUTF8(s, replacement []byte) []byte
 ```
 
@@ -1259,14 +1259,14 @@ func ToValidUTF8(s, replacement []byte) []byte
 
 #### func [Trim](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=930) 
 
-``` go linenums="1"
+``` go 
 func Trim(s []byte, cutset string) []byte
 ```
 
 ​	Trim函数返回一个将 s 去掉开头和结尾的包含在 cutset 中的所有 UTF-8 编码的码点后的新字节切片。
 
 ##### Trim Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1284,14 +1284,14 @@ Output:
 
 #### func [TrimFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=816) 
 
-``` go linenums="1"
+``` go 
 func TrimFunc(s []byte, f func(r rune) bool) []byte
 ```
 
 ​	TrimFunc函数返回一个将 s 去掉开头和结尾的所有满足 f(c) 的 UTF-8 编码的码点后的新字节切片。
 
 ##### TrimFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1316,14 +1316,14 @@ go-gopher!
 
 #### func [TrimLeft](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=949) 
 
-``` go linenums="1"
+``` go 
 func TrimLeft(s []byte, cutset string) []byte
 ```
 
 ​	TrimLeft函数返回一个去除了s中前部包含在cutset中的Unicode编码字符的子字节切片。
 
 ##### TrimLeft Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1341,14 +1341,14 @@ gopher8257
 
 #### func [TrimLeftFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=793) 
 
-``` go linenums="1"
+``` go 
 func TrimLeftFunc(s []byte, f func(r rune) bool) []byte
 ```
 
 ​	TrimLeftFunc函数返回一个去除了s中前部符合函数f(c) 的Unicode编码字符的子字节切片。
 
 ##### TrimLeftFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1371,14 +1371,14 @@ go-gopher!567
 
 #### func [TrimPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=822)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func TrimPrefix(s, prefix []byte) []byte
 ```
 
 ​	TrimPrefix函数返回一个去除了s中前缀prefix的字节切片。如果s不是以prefix开头，则返回s本身。
 
 ##### TrimPrefix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1399,14 +1399,14 @@ Hello, world!
 
 #### func [TrimRight](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1011) 
 
-``` go linenums="1"
+``` go 
 func TrimRight(s []byte, cutset string) []byte
 ```
 
 ​	TrimRight函数返回一个去除了s中尾部包含在cutset中的Unicode编码字符的子字节切片。
 
 ##### TrimRight Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1424,14 +1424,14 @@ Output:
 
 #### func [TrimRightFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=803) 
 
-``` go linenums="1"
+``` go 
 func TrimRightFunc(s []byte, f func(r rune) bool) []byte
 ```
 
 ​	TrimRightFunc 函数返回一个 s 的子切片，该子切片去除了满足 f(c) 的所有后缀 UTF-8 编码的码点。
 
 ##### TrimRightFunc Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1454,14 +1454,14 @@ go-gopher
 
 #### func [TrimSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=1057) 
 
-``` go linenums="1"
+``` go 
 func TrimSpace(s []byte) []byte
 ```
 
 ​	TrimSpace 函数返回 s 的子切片，该子切片去除了所有的前导和尾随 Unicode 定义的空格。
 
 ##### TrimSpace Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1479,14 +1479,14 @@ a lone gopher
 
 #### func [TrimSuffix](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/bytes.go;l=831)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func TrimSuffix(s, suffix []byte) []byte
 ```
 
 ​	TrimSuffix 函数返回不包含指定后缀的字节切片 s。如果 s 不以后缀结尾，则返回未更改的 s。
 
 ##### TrimSuffix Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1510,7 +1510,7 @@ Hello, world
 
 ### type [Buffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=20) 
 
-``` go linenums="1"
+``` go 
 type Buffer struct {
 	buf      []byte // buf是一个字节切片，
     				//它的内容是buf[off:len(buf)]，即从off到buf末尾的部分。
@@ -1527,7 +1527,7 @@ type Buffer struct {
 > Reader实现了io.Reader、io.ReaderAt、io.WriterTo、io.Seeker、io.ByteScanner和io.RuneScanner接口，通过从一个字节切片中读取数据。与Buffer不同，Reader是只读的并支持寻址。Reader的零值类似于一个空切片的Reader。
 
 ##### Buffer Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1548,7 +1548,7 @@ Hello world!
 ```
 
 ##### Buffer Example(Reader)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1571,7 +1571,7 @@ Gophers rule!
 
 #### func [NewBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=463) 
 
-``` go linenums="1"
+``` go 
 func NewBuffer(buf []byte) *Buffer
 ```
 
@@ -1581,7 +1581,7 @@ func NewBuffer(buf []byte) *Buffer
 
 #### func [NewBufferString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=471) 
 
-``` go linenums="1"
+``` go 
 func NewBufferString(s string) *Buffer
 ```
 
@@ -1591,14 +1591,14 @@ func NewBufferString(s string) *Buffer
 
 #### (*Buffer) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=54) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Bytes() []byte
 ```
 
 ​	Bytes方法返回一个长度为b.Len()的切片，其中包含缓冲区未读部分。切片仅在下一次缓冲区修改之前有效(即只在下一次像Read、Write、Reset或Truncate这样的方法调用之前有效)。切片至少与缓冲区内容同步，直到下一次缓冲区修改，因此立即更改切片将影响将来读取的结果。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1618,14 +1618,14 @@ hello world
 
 #### (*Buffer) [Cap](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=77)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Cap() int
 ```
 
 ​	Cap方法返回缓冲区底层字节切片的容量，即分配给缓冲区数据的总空间。
 
 ##### Cap Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1647,14 +1647,14 @@ Output:
 
 #### (*Buffer) [Grow](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=155)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Grow(n int)
 ```
 
 ​	Grow方法增加缓冲区的容量(必要时)，以保证另外n个字节的空间。调用Grow(n)之后，可以将至少n个字节写入缓冲区，而不需要另一个分配。如果n为负数，Grow方法将发生panic。如果缓冲区无法增长，它将发生ErrTooLarge的panic。
 
 ##### Grow Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1676,14 +1676,14 @@ Output:
 
 #### (*Buffer) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Len() int
 ```
 
 ​	Len方法返回缓冲区未读部分的字节数；`b.Len() == len(b.Bytes())`。
 
 ##### Len Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1704,14 +1704,14 @@ Output:
 
 #### (*Buffer) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=331) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Next(n int) []byte
 ```
 
 ​	Next方法返回一个包含从缓冲区中取出的下一个 n 个字节的切片，并将缓冲区推进，就像这些字节已经被 Read 返回一样。如果缓冲区中的字节数少于 n，则 Next 返回整个缓冲区。该切片只在下一次读或写方法调用之前有效。
 
 ##### Next Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1736,14 +1736,14 @@ e
 
 #### (*Buffer) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=309) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Read(p []byte) (n int, err error)
 ```
 
 ​	Read方法从缓冲区读取 len(p) 个字节或直到缓冲区被耗尽。返回值 n 是读取的字节数。如果缓冲区没有数据可返回，则 err 为 io.EOF， len(p) == 0否则为 nil。
 
 ##### Read Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1773,14 +1773,14 @@ func main() {
 
 #### (*Buffer) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=347) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) ReadByte() (byte, error)
 ```
 
 ​	ReadByte方法从缓冲区读取并返回下一个字节。如果没有字节可用，则返回错误 io.EOF。
 
 ##### ReadByte Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1807,7 +1807,7 @@ func main() {
 
 #### (*Buffer) [ReadBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=421) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 ```
 
@@ -1815,7 +1815,7 @@ func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 
 #### (*Buffer) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=197) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 ```
 
@@ -1823,7 +1823,7 @@ func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 
 #### (*Buffer) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=364) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) ReadRune() (r rune, size int, err error)
 ```
 
@@ -1831,7 +1831,7 @@ func (b *Buffer) ReadRune() (r rune, size int, err error)
 
 #### (*Buffer) [ReadString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=449) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) ReadString(delim byte) (line string, err error)
 ```
 
@@ -1839,7 +1839,7 @@ func (b *Buffer) ReadString(delim byte) (line string, err error)
 
 #### (*Buffer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Reset()
 ```
 
@@ -1847,7 +1847,7 @@ func (b *Buffer) Reset()
 
 #### (*Buffer) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=60) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) String() string
 ```
 
@@ -1857,7 +1857,7 @@ func (b *Buffer) String() string
 
 #### (*Buffer) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Truncate(n int)
 ```
 
@@ -1865,7 +1865,7 @@ func (b *Buffer) Truncate(n int)
 
 #### (*Buffer) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=404) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) UnreadByte() error
 ```
 
@@ -1873,7 +1873,7 @@ func (b *Buffer) UnreadByte() error
 
 #### (*Buffer) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=387) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) UnreadRune() error
 ```
 
@@ -1881,7 +1881,7 @@ func (b *Buffer) UnreadRune() error
 
 #### (*Buffer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=166) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) Write(p []byte) (n int, err error)
 ```
 
@@ -1889,7 +1889,7 @@ func (b *Buffer) Write(p []byte) (n int, err error)
 
 #### (*Buffer) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=276) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) WriteByte(c byte) error
 ```
 
@@ -1897,7 +1897,7 @@ func (b *Buffer) WriteByte(c byte) error
 
 #### (*Buffer) [WriteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=290) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) WriteRune(r rune) (n int, err error)
 ```
 
@@ -1905,7 +1905,7 @@ func (b *Buffer) WriteRune(r rune) (n int, err error)
 
 #### (*Buffer) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=178) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) WriteString(s string) (n int, err error)
 ```
 
@@ -1913,7 +1913,7 @@ func (b *Buffer) WriteString(s string) (n int, err error)
 
 #### (*Buffer) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=249) 
 
-``` go linenums="1"
+``` go 
 func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
 ```
 
@@ -1921,7 +1921,7 @@ func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	s        []byte
 	i        int64 // current reading index
@@ -1933,7 +1933,7 @@ type Reader struct {
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func NewReader(b []byte) *Reader
 ```
 
@@ -1941,14 +1941,14 @@ func NewReader(b []byte) *Reader
 
 #### (*Reader) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=26) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Len() int
 ```
 
 ​	Len方法返回未读部分的字节数。
 
 ##### Len Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1968,7 +1968,7 @@ Output:
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Read(b []byte) (n int, err error)
 ```
 
@@ -1976,7 +1976,7 @@ func (r *Reader) Read(b []byte) (n int, err error)
 
 #### (*Reader) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 ```
 
@@ -1984,7 +1984,7 @@ func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 
 #### (*Reader) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadByte() (byte, error)
 ```
 
@@ -1992,7 +1992,7 @@ func (r *Reader) ReadByte() (byte, error)
 
 #### (*Reader) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=87) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ReadRune() (ch rune, size int, err error)
 ```
 
@@ -2000,7 +2000,7 @@ func (r *Reader) ReadRune() (ch rune, size int, err error)
 
 #### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=156)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Reset(b []byte)
 ```
 
@@ -2008,7 +2008,7 @@ func (r *Reader) Reset(b []byte)
 
 #### (*Reader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Seek(offset int64, whence int) (int64, error)
 ```
 
@@ -2016,7 +2016,7 @@ func (r *Reader) Seek(offset int64, whence int) (int64, error)
 
 #### (*Reader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=36)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Size() int64
 ```
 
@@ -2024,7 +2024,7 @@ func (r *Reader) Size() int64
 
 #### (*Reader) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) UnreadByte() error
 ```
 
@@ -2032,7 +2032,7 @@ func (r *Reader) UnreadByte() error
 
 #### (*Reader) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=103) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) UnreadRune() error
 ```
 
@@ -2040,7 +2040,7 @@ func (r *Reader) UnreadRune() error
 
 #### (*Reader) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/reader.go;l=137)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r *Reader) WriteTo(w io.Writer) (n int64, err error)
 ```
 

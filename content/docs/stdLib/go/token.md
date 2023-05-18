@@ -14,7 +14,7 @@ https://pkg.go.dev/go/token@go1.20.1
 Package token defines constants representing the lexical tokens of the Go programming language and basic operations on tokens (printing, predicates).
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -27,7 +27,7 @@ Package token defines constants representing the lexical tokens of the Go progra
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=257)
 
-``` go linenums="1"
+``` go 
 const (
 	LowestPrec  = 0 // non-operators
 	UnaryPrec   = 6
@@ -45,7 +45,7 @@ This section is empty.
 
 #### func [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=316)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func IsExported(name string) bool
 ```
 
@@ -53,7 +53,7 @@ IsExported reports whether name starts with an upper-case letter.
 
 #### func [IsIdentifier](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=331)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func IsIdentifier(name string) bool
 ```
 
@@ -61,7 +61,7 @@ IsIdentifier reports whether name is a Go identifier, that is, a non-empty strin
 
 #### func [IsKeyword](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=322)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func IsKeyword(name string) bool
 ```
 
@@ -71,7 +71,7 @@ IsKeyword reports whether name is a Go keyword, such as "func" or "return".
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=95) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	// contains filtered or unexported fields
 }
@@ -81,7 +81,7 @@ A File is a handle for a file belonging to a FileSet. A File has a name, size, a
 
 #### (*File) [AddLine](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=132) 
 
-``` go linenums="1"
+``` go 
 func (f *File) AddLine(offset int)
 ```
 
@@ -89,7 +89,7 @@ AddLine adds the line offset for a new line. The line offset must be larger than
 
 #### (*File) [AddLineColumnInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=246)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (f *File) AddLineColumnInfo(offset int, filename string, line, column int)
 ```
 
@@ -99,7 +99,7 @@ AddLineColumnInfo is typically used to register alternative position information
 
 #### (*File) [AddLineInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=234) 
 
-``` go linenums="1"
+``` go 
 func (f *File) AddLineInfo(offset int, filename string, line int)
 ```
 
@@ -107,7 +107,7 @@ AddLineInfo is like AddLineColumnInfo with a column = 1 argument. It is here for
 
 #### (*File) [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=112) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Base() int
 ```
 
@@ -115,7 +115,7 @@ Base returns the base offset of file f as registered with AddFile.
 
 #### (*File) [Line](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=276) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Line(p Pos) int
 ```
 
@@ -123,7 +123,7 @@ Line returns the line number for the given file position p; p must be a Pos valu
 
 #### (*File) [LineCount](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=122) 
 
-``` go linenums="1"
+``` go 
 func (f *File) LineCount() int
 ```
 
@@ -131,7 +131,7 @@ LineCount returns the number of lines in file f.
 
 #### (*File) [LineStart](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=210)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (f *File) LineStart(line int) Pos
 ```
 
@@ -139,7 +139,7 @@ LineStart returns the Pos value of the start of the specified line. It ignores a
 
 #### (*File) [MergeLine](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=144)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (f *File) MergeLine(line int)
 ```
 
@@ -147,7 +147,7 @@ MergeLine merges a line with the following line. It is akin to replacing the new
 
 #### (*File) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Name() string
 ```
 
@@ -155,7 +155,7 @@ Name returns the file name of file f as registered with AddFile.
 
 #### (*File) [Offset](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=267) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Offset(p Pos) int
 ```
 
@@ -163,7 +163,7 @@ Offset returns the offset for the given file position p; p must be a valid Pos v
 
 #### (*File) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Pos(offset int) Pos
 ```
 
@@ -171,7 +171,7 @@ Pos returns the Pos value for the given file offset; the offset must be <= f.Siz
 
 #### (*File) [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=345) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Position(p Pos) (pos Position)
 ```
 
@@ -179,7 +179,7 @@ Position returns the Position value for the given file position p. Calling f.Pos
 
 #### (*File) [PositionFor](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=333)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (f *File) PositionFor(p Pos, adjusted bool) (pos Position)
 ```
 
@@ -187,7 +187,7 @@ PositionFor returns the Position value for the given file position p. If adjuste
 
 #### (*File) [SetLines](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func (f *File) SetLines(lines []int) bool
 ```
 
@@ -195,7 +195,7 @@ SetLines sets the line offsets for a file and reports whether it succeeded. The 
 
 #### (*File) [SetLinesForContent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=188) 
 
-``` go linenums="1"
+``` go 
 func (f *File) SetLinesForContent(content []byte)
 ```
 
@@ -203,7 +203,7 @@ SetLinesForContent sets the line offsets for the given file content. It ignores 
 
 #### (*File) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Size() int
 ```
 
@@ -211,7 +211,7 @@ Size returns the size of file f as registered with AddFile.
 
 ### type [FileSet](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=374) 
 
-``` go linenums="1"
+``` go 
 type FileSet struct {
 	// contains filtered or unexported fields
 }
@@ -227,7 +227,7 @@ A File may be removed from a FileSet when it is no longer needed. This may reduc
 
 #### func [NewFileSet](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=382) 
 
-``` go linenums="1"
+``` go 
 func NewFileSet() *FileSet
 ```
 
@@ -235,7 +235,7 @@ NewFileSet creates a new file set.
 
 #### (*FileSet) [AddFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=413) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) AddFile(filename string, base, size int) *File
 ```
 
@@ -251,7 +251,7 @@ with offs in the range [0, size] and thus p in the range [base, base+size]. For 
 
 #### (*FileSet) [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=390) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) Base() int
 ```
 
@@ -259,7 +259,7 @@ Base returns the minimum base offset that must be provided to AddFile when addin
 
 #### (*FileSet) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=506) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) File(p Pos) (f *File)
 ```
 
@@ -267,7 +267,7 @@ File returns the file that contains the position p. If no such file is found (fo
 
 #### (*FileSet) [Iterate](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=462) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) Iterate(f func(*File) bool)
 ```
 
@@ -275,7 +275,7 @@ Iterate calls f for the files in the file set in the order they were added until
 
 #### (*FileSet) [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=528) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) Position(p Pos) (pos Position)
 ```
 
@@ -283,7 +283,7 @@ Position converts a Pos p in the fileset into a Position value. Calling s.Positi
 
 #### (*FileSet) [PositionFor](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=517)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) PositionFor(p Pos, adjusted bool) (pos Position)
 ```
 
@@ -291,7 +291,7 @@ PositionFor converts a Pos p in the fileset into a Position value. If adjusted i
 
 #### (*FileSet) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/serialize.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) Read(decode func(any) error) error
 ```
 
@@ -299,7 +299,7 @@ Read calls decode to deserialize a file set into s; s must not be nil.
 
 #### (*FileSet) [RemoveFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=447)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) RemoveFile(file *File)
 ```
 
@@ -309,7 +309,7 @@ Removing a file that does not belong to the set has no effect.
 
 #### (*FileSet) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/serialize.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func (s *FileSet) Write(encode func(any) error) error
 ```
 
@@ -317,7 +317,7 @@ Write calls encode to serialize the file set s.
 
 ### type [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=77) 
 
-``` go linenums="1"
+``` go 
 type Pos int
 ```
 
@@ -329,7 +329,7 @@ To create the Pos value for a specific source offset (measured in bytes), first 
 
 Pos values can be compared directly with the usual comparison operators: If two Pos values p and q are in the same file, comparing p and q is equivalent to comparing the respective source file offsets. If p and q are in different files, p < q is true if the file implied by p was added to the respective file set before the file implied by q.
 
-``` go linenums="1"
+``` go 
 const NoPos Pos = 0
 ```
 
@@ -337,7 +337,7 @@ The zero value for Pos is NoPos; there is no file and line information associate
 
 #### (Pos) [IsValid](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func (p Pos) IsValid() bool
 ```
 
@@ -345,7 +345,7 @@ IsValid reports whether the position is valid.
 
 ### type [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=20) 
 
-``` go linenums="1"
+``` go 
 type Position struct {
 	Filename string // filename, if any
 	Offset   int    // offset, starting at 0
@@ -358,7 +358,7 @@ Position describes an arbitrary source position including the file, line, and co
 
 #### (*Position) [IsValid](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=28) 
 
-``` go linenums="1"
+``` go 
 func (pos *Position) IsValid() bool
 ```
 
@@ -366,7 +366,7 @@ IsValid reports whether the position is valid.
 
 #### (Position) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/position.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func (pos Position) String() string
 ```
 
@@ -383,13 +383,13 @@ file                invalid position with file name
 
 ### type [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=16) 
 
-``` go linenums="1"
+``` go 
 type Token int
 ```
 
 Token is the set of lexical tokens of the Go programming language.
 
-``` go linenums="1"
+``` go 
 const (
 	// Special tokens
 	ILLEGAL Token = iota
@@ -502,7 +502,7 @@ The list of tokens.
 
 #### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=292) 
 
-``` go linenums="1"
+``` go 
 func Lookup(ident string) Token
 ```
 
@@ -510,7 +510,7 @@ Lookup maps an identifier to its keyword token or IDENT (if not a keyword).
 
 #### (Token) [IsKeyword](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=313) 
 
-``` go linenums="1"
+``` go 
 func (tok Token) IsKeyword() bool
 ```
 
@@ -518,7 +518,7 @@ IsKeyword returns true for tokens corresponding to keywords; it returns false ot
 
 #### (Token) [IsLiteral](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=303) 
 
-``` go linenums="1"
+``` go 
 func (tok Token) IsLiteral() bool
 ```
 
@@ -526,7 +526,7 @@ IsLiteral returns true for tokens corresponding to identifiers and basic type li
 
 #### (Token) [IsOperator](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=307) 
 
-``` go linenums="1"
+``` go 
 func (tok Token) IsOperator() bool
 ```
 
@@ -534,7 +534,7 @@ IsOperator returns true for tokens corresponding to operators and delimiters; it
 
 #### (Token) [Precedence](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=266) 
 
-``` go linenums="1"
+``` go 
 func (op Token) Precedence() int
 ```
 
@@ -542,7 +542,7 @@ Precedence returns the operator precedence of the binary operator op. If op is n
 
 #### (Token) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/token/token.go;l=241) 
 
-``` go linenums="1"
+``` go 
 func (tok Token) String() string
 ```
 

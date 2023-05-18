@@ -29,7 +29,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=730)
 
-``` go linenums="1"
+``` go 
 var ErrUnknownPC = errors.New("ErrUnknownPC")
 ```
 
@@ -43,7 +43,7 @@ This section is empty.
 
 ### type [AddrType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=91) 
 
-``` go linenums="1"
+``` go 
 type AddrType struct {
 	BasicType
 }
@@ -53,7 +53,7 @@ An AddrType represents a machine address type.
 
 ### type [ArrayType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=114) 
 
-``` go linenums="1"
+``` go 
 type ArrayType struct {
 	CommonType
 	Type          Type
@@ -66,25 +66,25 @@ An ArrayType represents a fixed size array type.
 
 #### (*ArrayType) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (t *ArrayType) Size() int64
 ```
 
 #### (*ArrayType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func (t *ArrayType) String() string
 ```
 
 ### type [Attr](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/const.go;l=12) 
 
-``` go linenums="1"
+``` go 
 type Attr uint32
 ```
 
 An Attr identifies the attribute type in a DWARF Entry's Field.
 
-``` go linenums="1"
+``` go 
 const (
 	AttrSibling        Attr = 0x01
 	AttrLocation       Attr = 0x02
@@ -215,19 +215,19 @@ const (
 
 #### (Attr) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/const.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func (a Attr) GoString() string
 ```
 
 #### (Attr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/attr_string.go;l=260) 
 
-``` go linenums="1"
+``` go 
 func (i Attr) String() string
 ```
 
 ### type [BasicType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type BasicType struct {
 	CommonType
 	BitSize       int64
@@ -242,19 +242,19 @@ See the documentation for StructField for more info on the interpretation of the
 
 #### (*BasicType) [Basic](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func (b *BasicType) Basic() *BasicType
 ```
 
 #### (*BasicType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (t *BasicType) String() string
 ```
 
 ### type [BoolType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type BoolType struct {
 	BasicType
 }
@@ -264,7 +264,7 @@ A BoolType represents a boolean type.
 
 ### type [CharType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=56) 
 
-``` go linenums="1"
+``` go 
 type CharType struct {
 	BasicType
 }
@@ -274,7 +274,7 @@ A CharType represents a signed character type.
 
 ### type [Class](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=283)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type Class int
 ```
 
@@ -284,7 +284,7 @@ In general, a given attribute's value may take on one of several possible classe
 
 DWARF version 4 distinguishes attribute value classes more finely than previous versions of DWARF. The reader will disambiguate coarser classes from earlier versions of DWARF into the appropriate DWARF 4 class. For example, DWARF 2 uses "constant" for constants as well as all types of section offsets, but the reader will canonicalize attributes in DWARF 2 files that refer to section offsets to one of the Class*Ptr classes, even though these classes were only defined in DWARF 3.
 
-``` go linenums="1"
+``` go 
 const (
 	// ClassUnknown represents values of unknown DWARF class.
 	ClassUnknown Class = iota
@@ -376,19 +376,19 @@ const (
 
 #### (Class) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=375)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i Class) GoString() string
 ```
 
 #### (Class) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/class_string.go;l=32)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i Class) String() string
 ```
 
 ### type [CommonType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type CommonType struct {
 	ByteSize int64  // size of value of this type, in bytes
 	Name     string // name that can be used to refer to type
@@ -399,19 +399,19 @@ A CommonType holds fields common to multiple types. If a field is not known or n
 
 #### (*CommonType) [Common](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=29) 
 
-``` go linenums="1"
+``` go 
 func (c *CommonType) Common() *CommonType
 ```
 
 #### (*CommonType) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (c *CommonType) Size() int64
 ```
 
 ### type [ComplexType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=81) 
 
-``` go linenums="1"
+``` go 
 type ComplexType struct {
 	BasicType
 }
@@ -421,7 +421,7 @@ A ComplexType represents a complex floating point type.
 
 ### type [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/open.go;l=27) 
 
-``` go linenums="1"
+``` go 
 type Data struct {
 	// contains filtered or unexported fields
 }
@@ -431,7 +431,7 @@ Data represents the DWARF debugging information loaded from an executable file (
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/open.go;l=63) 
 
-``` go linenums="1"
+``` go 
 func New(abbrev, aranges, frame, info, line, pubnames, ranges, str []byte) (*Data, error)
 ```
 
@@ -441,7 +441,7 @@ The []byte arguments are the data from the corresponding debug section in the ob
 
 #### (*Data) [AddSection](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/open.go;l=126)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (d *Data) AddSection(name string, contents []byte) error
 ```
 
@@ -449,7 +449,7 @@ AddSection adds another DWARF section by name. The name should be a DWARF sectio
 
 #### (*Data) [AddTypes](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/open.go;l=118)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (d *Data) AddTypes(name string, types []byte) error
 ```
 
@@ -457,7 +457,7 @@ AddTypes will add one .debug_types section to the DWARF data. A typical object w
 
 #### (*Data) [LineReader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=143)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (d *Data) LineReader(cu *Entry) (*LineReader, error)
 ```
 
@@ -467,7 +467,7 @@ If this compilation unit has no line table, it returns nil, nil.
 
 #### (*Data) [Ranges](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=998)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (d *Data) Ranges(e *Entry) ([][2]uint64, error)
 ```
 
@@ -475,7 +475,7 @@ Ranges returns the PC ranges covered by e, a slice of [low,high) pairs. Only som
 
 #### (*Data) [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=812) 
 
-``` go linenums="1"
+``` go 
 func (d *Data) Reader() *Reader
 ```
 
@@ -483,7 +483,7 @@ Reader returns a new Reader for Data. The reader is positioned at byte offset 0 
 
 #### (*Data) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=375) 
 
-``` go linenums="1"
+``` go 
 func (d *Data) Type(off Offset) (Type, error)
 ```
 
@@ -491,7 +491,7 @@ Type reads the type at off in the DWARF "info" section.
 
 ### type [DecodeError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/buf.go;l=197) 
 
-``` go linenums="1"
+``` go 
 type DecodeError struct {
 	Name   string
 	Offset Offset
@@ -501,13 +501,13 @@ type DecodeError struct {
 
 #### (DecodeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/buf.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (e DecodeError) Error() string
 ```
 
 ### type [DotDotDotType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=332) 
 
-``` go linenums="1"
+``` go 
 type DotDotDotType struct {
 	CommonType
 }
@@ -517,13 +517,13 @@ A DotDotDotType represents the variadic ... function parameter.
 
 #### (*DotDotDotType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=336) 
 
-``` go linenums="1"
+``` go 
 func (t *DotDotDotType) String() string
 ```
 
 ### type [Entry](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=233) 
 
-``` go linenums="1"
+``` go 
 type Entry struct {
 	Offset   Offset // offset of Entry in DWARF info
 	Tag      Tag    // tag (kind of Entry)
@@ -536,7 +536,7 @@ An entry is a sequence of attribute/value pairs.
 
 #### (*Entry) [AttrField](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=395)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (e *Entry) AttrField(a Attr) *Field
 ```
 
@@ -544,7 +544,7 @@ AttrField returns the Field associated with attribute Attr in Entry, or nil if t
 
 #### (*Entry) [Val](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=386) 
 
-``` go linenums="1"
+``` go 
 func (e *Entry) Val(a Attr) any
 ```
 
@@ -558,7 +558,7 @@ v, ok := e.Val(AttrSibling).(int64)
 
 ### type [EnumType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=281) 
 
-``` go linenums="1"
+``` go 
 type EnumType struct {
 	CommonType
 	EnumName string
@@ -570,13 +570,13 @@ An EnumType represents an enumerated type. The only indication of its native int
 
 #### (*EnumType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=293) 
 
-``` go linenums="1"
+``` go 
 func (t *EnumType) String() string
 ```
 
 ### type [EnumValue](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=288) 
 
-``` go linenums="1"
+``` go 
 type EnumValue struct {
 	Name string
 	Val  int64
@@ -587,7 +587,7 @@ An EnumValue represents a single enumeration value.
 
 ### type [Field](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=263) 
 
-``` go linenums="1"
+``` go 
 type Field struct {
 	Attr  Attr
 	Val   any
@@ -621,7 +621,7 @@ For unrecognized or vendor-defined attributes, Class may be ClassUnknown.
 
 ### type [FloatType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=76) 
 
-``` go linenums="1"
+``` go 
 type FloatType struct {
 	BasicType
 }
@@ -631,7 +631,7 @@ A FloatType represents a floating point type.
 
 ### type [FuncType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=310) 
 
-``` go linenums="1"
+``` go 
 type FuncType struct {
 	CommonType
 	ReturnType Type
@@ -643,13 +643,13 @@ A FuncType represents a function type.
 
 #### (*FuncType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=316) 
 
-``` go linenums="1"
+``` go 
 func (t *FuncType) String() string
 ```
 
 ### type [IntType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=66) 
 
-``` go linenums="1"
+``` go 
 type IntType struct {
 	BasicType
 }
@@ -659,7 +659,7 @@ An IntType represents a signed integer type.
 
 ### type [LineEntry](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=54)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type LineEntry struct {
 	// Address is the program-counter value of a machine
 	// instruction generated by the compiler. This LineEntry
@@ -743,7 +743,7 @@ A LineEntry is a row in a DWARF line table.
 
 ### type [LineFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=133)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type LineFile struct {
 	Name   string
 	Mtime  uint64 // Implementation defined modification time, or 0 if unknown
@@ -755,7 +755,7 @@ A LineFile is a source file referenced by a DWARF line table entry.
 
 ### type [LineReader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=20)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type LineReader struct {
 	// contains filtered or unexported fields
 }
@@ -765,7 +765,7 @@ A LineReader reads a sequence of LineEntry structures from a DWARF "line" sectio
 
 #### (*LineReader) [Files](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=724)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) Files() []*LineFile
 ```
 
@@ -777,7 +777,7 @@ The file name table of a compilation unit is not fixed. Files returns the file t
 
 #### (*LineReader) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=481)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) Next(entry *LineEntry) error
 ```
 
@@ -787,7 +787,7 @@ Rows are always in order of increasing entry.Address, but entry.Line may go forw
 
 #### (*LineReader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=679)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) Reset()
 ```
 
@@ -795,7 +795,7 @@ Reset repositions the line table reader at the beginning of the line table.
 
 #### (*LineReader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=669)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) Seek(pos LineReaderPos)
 ```
 
@@ -805,7 +805,7 @@ The argument pos must have been returned by a call to Tell on this line table.
 
 #### (*LineReader) [SeekPC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=744)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) SeekPC(pc uint64, entry *LineEntry) error
 ```
 
@@ -817,7 +817,7 @@ Note that DWARF line tables only permit sequential, forward scans. Hence, in the
 
 #### (*LineReader) [Tell](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=661)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *LineReader) Tell() LineReaderPos
 ```
 
@@ -825,7 +825,7 @@ Tell returns the current position in the line table.
 
 ### type [LineReaderPos](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/line.go;l=649)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type LineReaderPos struct {
 	// contains filtered or unexported fields
 }
@@ -835,7 +835,7 @@ A LineReaderPos represents a position in a line table.
 
 ### type [Offset](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=406) 
 
-``` go linenums="1"
+``` go 
 type Offset uint32
 ```
 
@@ -843,7 +843,7 @@ An Offset represents the location of an Entry within the DWARF info. (See Reader
 
 ### type [PtrType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=140) 
 
-``` go linenums="1"
+``` go 
 type PtrType struct {
 	CommonType
 	Type Type
@@ -854,13 +854,13 @@ A PtrType represents a pointer type.
 
 #### (*PtrType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=145) 
 
-``` go linenums="1"
+``` go 
 func (t *PtrType) String() string
 ```
 
 ### type [QualType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=103) 
 
-``` go linenums="1"
+``` go 
 type QualType struct {
 	CommonType
 	Qual string
@@ -872,19 +872,19 @@ A QualType represents a type that has the C/C++ "const", "restrict", or "volatil
 
 #### (*QualType) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=111) 
 
-``` go linenums="1"
+``` go 
 func (t *QualType) Size() int64
 ```
 
 #### (*QualType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=109) 
 
-``` go linenums="1"
+``` go 
 func (t *QualType) String() string
 ```
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=799) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -894,7 +894,7 @@ A Reader allows reading Entry structures from a DWARF "info" section. The Entry 
 
 #### (*Reader) [AddressSize](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=820)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (r *Reader) AddressSize() int
 ```
 
@@ -902,7 +902,7 @@ AddressSize returns the size in bytes of addresses in the current compilation un
 
 #### (*Reader) [ByteOrder](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=825)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (r *Reader) ByteOrder() binary.ByteOrder
 ```
 
@@ -910,7 +910,7 @@ ByteOrder returns the byte order in the current compilation unit.
 
 #### (*Reader) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=878) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Next() (*Entry, error)
 ```
 
@@ -918,7 +918,7 @@ Next reads the next entry from the encoded entry stream. It returns nil, nil whe
 
 #### (*Reader) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=831) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) Seek(off Offset)
 ```
 
@@ -926,7 +926,7 @@ Seek positions the Reader at offset off in the encoded entry stream. Offset 0 ca
 
 #### (*Reader) [SeekPC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=965)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (r *Reader) SeekPC(pc uint64) (*Entry, error)
 ```
 
@@ -936,7 +936,7 @@ Because compilation units can describe multiple regions of the executable, in th
 
 #### (*Reader) [SkipChildren](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/entry.go;l=911) 
 
-``` go linenums="1"
+``` go 
 func (r *Reader) SkipChildren()
 ```
 
@@ -944,7 +944,7 @@ SkipChildren skips over the child entries associated with the last Entry returne
 
 ### type [StructField](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=229) 
 
-``` go linenums="1"
+``` go 
 type StructField struct {
 	Name          string
 	Type          Type
@@ -1013,7 +1013,7 @@ DWARF also allow for the possibility of base types that have non-zero bit size a
 
 ### type [StructType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=148) 
 
-``` go linenums="1"
+``` go 
 type StructType struct {
 	CommonType
 	StructName string
@@ -1027,25 +1027,25 @@ A StructType represents a struct, union, or C++ class type.
 
 #### (*StructType) [Defn](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=253) 
 
-``` go linenums="1"
+``` go 
 func (t *StructType) Defn() string
 ```
 
 #### (*StructType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=239) 
 
-``` go linenums="1"
+``` go 
 func (t *StructType) String() string
 ```
 
 ### type [Tag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/const.go;l=207) 
 
-``` go linenums="1"
+``` go 
 type Tag uint32
 ```
 
 A Tag is the classification (the type) of an Entry.
 
-``` go linenums="1"
+``` go 
 const (
 	TagArrayType              Tag = 0x01
 	TagClassType              Tag = 0x02
@@ -1124,19 +1124,19 @@ const (
 
 #### (Tag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/const.go;l=284) 
 
-``` go linenums="1"
+``` go 
 func (t Tag) GoString() string
 ```
 
 #### (Tag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/tag_string.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func (i Tag) String() string
 ```
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type Type interface {
 	Common() *CommonType
 	String() string
@@ -1148,7 +1148,7 @@ A Type conventionally represents a pointer to any of the specific Type structure
 
 ### type [TypedefType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=339) 
 
-``` go linenums="1"
+``` go 
 type TypedefType struct {
 	CommonType
 	Type Type
@@ -1159,19 +1159,19 @@ A TypedefType represents a named type.
 
 #### (*TypedefType) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=346) 
 
-``` go linenums="1"
+``` go 
 func (t *TypedefType) Size() int64
 ```
 
 #### (*TypedefType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=344) 
 
-``` go linenums="1"
+``` go 
 func (t *TypedefType) String() string
 ```
 
 ### type [UcharType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=61) 
 
-``` go linenums="1"
+``` go 
 type UcharType struct {
 	BasicType
 }
@@ -1181,7 +1181,7 @@ A UcharType represents an unsigned character type.
 
 ### type [UintType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=71) 
 
-``` go linenums="1"
+``` go 
 type UintType struct {
 	BasicType
 }
@@ -1191,7 +1191,7 @@ A UintType represents an unsigned integer type.
 
 ### type [UnspecifiedType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=96)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type UnspecifiedType struct {
 	BasicType
 }
@@ -1201,7 +1201,7 @@ An UnspecifiedType represents an implicit, unknown, ambiguous or nonexistent typ
 
 ### type [UnsupportedType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=350)  <- go1.13
 
-``` go linenums="1"
+``` go 
 type UnsupportedType struct {
 	CommonType
 	Tag Tag
@@ -1212,13 +1212,13 @@ An UnsupportedType is a placeholder returned in situations where we encounter a 
 
 #### (*UnsupportedType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=355)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (t *UnsupportedType) String() string
 ```
 
 ### type [VoidType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=133) 
 
-``` go linenums="1"
+``` go 
 type VoidType struct {
 	CommonType
 }
@@ -1228,6 +1228,6 @@ A VoidType represents the C void type.
 
 #### (*VoidType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/dwarf/type.go;l=137) 
 
-``` go linenums="1"
+``` go 
 func (t *VoidType) String() string
 ```

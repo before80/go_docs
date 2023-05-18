@@ -18,14 +18,14 @@ draft = false
 
 ​	下面的代码声明了一个整数标志 -n，存储在指针 nFlag 中，类型为 `*int`：
 
-```go linenums="1"
+```go 
 import "flag"
 var nFlag = flag.Int("n", 1234, "help message for flag n")
 ```
 
 ​	如果你喜欢，可以使用 Var() 函数将标志绑定到变量。
 
-```go linenums="1"
+```go 
 var flagvar int
 func init() {
 	flag.IntVar(&flagvar, "flagname", 1234, "help message for flagname")
@@ -90,7 +90,7 @@ cmd -x *
 
 ### Example
 
-``` go linenums="1"
+``` go 
 //这些例子展示了flag包的更复杂的用途。
 package main
 
@@ -177,7 +177,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1150)
 
-``` go linenums="1"
+``` go 
 var CommandLine = NewFlagSet(os.Args[0], ExitOnError)
 ```
 
@@ -185,7 +185,7 @@ var CommandLine = NewFlagSet(os.Args[0], ExitOnError)
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=100)
 
-``` go linenums="1"
+``` go 
 var ErrHelp = errors.New("flag: help requested")
 ```
 
@@ -193,7 +193,7 @@ var ErrHelp = errors.New("flag: help requested")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=674)
 
-``` go linenums="1"
+``` go 
 var Usage = func() {
 	fmt.Fprintf(CommandLine.Output(), "Usage of %s:\n", os.Args[0])
 	PrintDefaults()
@@ -206,7 +206,7 @@ var Usage = func() {
 
 #### func [Arg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=698) 
 
-``` go linenums="1"
+``` go 
 func Arg(i int) string
 ```
 
@@ -214,7 +214,7 @@ func Arg(i int) string
 
 #### func [Args](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=712) 
 
-``` go linenums="1"
+``` go 
 func Args() []string
 ```
 
@@ -222,7 +222,7 @@ func Args() []string
 
 #### func [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=736) 
 
-``` go linenums="1"
+``` go 
 func Bool(name string, value bool, usage string) *bool
 ```
 
@@ -230,7 +230,7 @@ func Bool(name string, value bool, usage string) *bool
 
 #### func [BoolVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=722) 
 
-``` go linenums="1"
+``` go 
 func BoolVar(p *bool, name string, value bool, usage string)
 ```
 
@@ -238,7 +238,7 @@ func BoolVar(p *bool, name string, value bool, usage string)
 
 #### func [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=922) 
 
-``` go linenums="1"
+``` go 
 func Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -246,7 +246,7 @@ func Duration(name string, value time.Duration, usage string) *time.Duration
 
 #### func [DurationVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=906) 
 
-``` go linenums="1"
+``` go 
 func DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
@@ -254,7 +254,7 @@ func DurationVar(p *time.Duration, name string, value time.Duration, usage strin
 
 #### func [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=892) 
 
-``` go linenums="1"
+``` go 
 func Float64(name string, value float64, usage string) *float64
 ```
 
@@ -262,7 +262,7 @@ func Float64(name string, value float64, usage string) *float64
 
 #### func [Float64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=878) 
 
-``` go linenums="1"
+``` go 
 func Float64Var(p *float64, name string, value float64, usage string)
 ```
 
@@ -270,14 +270,14 @@ func Float64Var(p *float64, name string, value float64, usage string)
 
 #### func [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=954)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func Func(name, usage string, fn func(string) error)
 ```
 
 ​	Func函数定义一个具有指定名称和用法字符串的标志。每次看到标志时，fn 都会使用标志的值调用。如果 fn 返回非 nil 错误，则将其视为标志值解析错误。
 
 ##### Func Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -320,7 +320,7 @@ Usage of ExampleFunc:
 
 #### func [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=762) 
 
-``` go linenums="1"
+``` go 
 func Int(name string, value int, usage string) *int
 ```
 
@@ -328,7 +328,7 @@ func Int(name string, value int, usage string) *int
 
 #### func [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=788) 
 
-``` go linenums="1"
+``` go 
 func Int64(name string, value int64, usage string) *int64
 ```
 
@@ -336,7 +336,7 @@ func Int64(name string, value int64, usage string) *int64
 
 #### func [Int64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=774) 
 
-``` go linenums="1"
+``` go 
 func Int64Var(p *int64, name string, value int64, usage string)
 ```
 
@@ -344,7 +344,7 @@ func Int64Var(p *int64, name string, value int64, usage string)
 
 #### func [IntVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=748) 
 
-``` go linenums="1"
+``` go 
 func IntVar(p *int, name string, value int, usage string)
 ```
 
@@ -352,7 +352,7 @@ func IntVar(p *int, name string, value int, usage string)
 
 #### func [NArg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=706) 
 
-``` go linenums="1"
+``` go 
 func NArg() int
 ```
 
@@ -360,7 +360,7 @@ func NArg() int
 
 #### func [NFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=683) 
 
-``` go linenums="1"
+``` go 
 func NFlag() int
 ```
 
@@ -368,7 +368,7 @@ func NFlag() int
 
 #### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1137) 
 
-``` go linenums="1"
+``` go 
 func Parse()
 ```
 
@@ -376,7 +376,7 @@ func Parse()
 
 #### func [Parsed](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1143) 
 
-``` go linenums="1"
+``` go 
 func Parsed() bool
 ```
 
@@ -384,7 +384,7 @@ func Parsed() bool
 
 #### func [PrintDefaults](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=647) 
 
-``` go linenums="1"
+``` go 
 func PrintDefaults()
 ```
 
@@ -412,7 +412,7 @@ flag.String("I", "", "search `directory` for include files")
 
 #### func [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=500) 
 
-``` go linenums="1"
+``` go 
 func Set(name, value string) error
 ```
 
@@ -420,7 +420,7 @@ func Set(name, value string) error
 
 #### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=866) 
 
-``` go linenums="1"
+``` go 
 func String(name string, value string, usage string) *string
 ```
 
@@ -428,7 +428,7 @@ func String(name string, value string, usage string) *string
 
 #### func [StringVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=852) 
 
-``` go linenums="1"
+``` go 
 func StringVar(p *string, name string, value string, usage string)
 ```
 
@@ -436,14 +436,14 @@ func StringVar(p *string, name string, value string, usage string)
 
 #### func [TextVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=940)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string)
 ```
 
 ​	TextVar函数定义一个具有指定名称、默认值和用法字符串的标志。参数 p 必须是一个指向将保存标志值的变量的指针，并且 p 必须实现 encoding.TextUnmarshaler 接口。如果使用标志，则将标志值传递给 p 的 UnmarshalText 方法。默认值的类型必须与 p 的类型相同。
 
 ##### TextVar Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -480,7 +480,7 @@ Usage of ExampleTextVar:
 
 #### func [Uint](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=814) 
 
-``` go linenums="1"
+``` go 
 func Uint(name string, value uint, usage string) *uint
 ```
 
@@ -488,7 +488,7 @@ func Uint(name string, value uint, usage string) *uint
 
 #### func [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=840) 
 
-``` go linenums="1"
+``` go 
 func Uint64(name string, value uint64, usage string) *uint64
 ```
 
@@ -496,7 +496,7 @@ func Uint64(name string, value uint64, usage string) *uint64
 
 #### func [Uint64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=826) 
 
-``` go linenums="1"
+``` go 
 func Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
@@ -504,7 +504,7 @@ func Uint64Var(p *uint64, name string, value uint64, usage string)
 
 #### func [UintVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=800) 
 
-``` go linenums="1"
+``` go 
 func UintVar(p *uint, name string, value uint, usage string)
 ```
 
@@ -512,7 +512,7 @@ func UintVar(p *uint, name string, value uint, usage string)
 
 #### func [UnquoteUsage](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=536)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func UnquoteUsage(flag *Flag) (name string, usage string)
 ```
 
@@ -520,7 +520,7 @@ func UnquoteUsage(flag *Flag) (name string, usage string)
 
 #### func [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=996) 
 
-``` go linenums="1"
+``` go 
 func Var(value Value, name string, usage string)
 ```
 
@@ -528,7 +528,7 @@ func Var(value Value, name string, usage string)
 
 #### func [Visit](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=467) 
 
-``` go linenums="1"
+``` go 
 func Visit(fn func(*Flag))
 ```
 
@@ -536,7 +536,7 @@ func Visit(fn func(*Flag))
 
 #### func [VisitAll](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=453) 
 
-``` go linenums="1"
+``` go 
 func VisitAll(fn func(*Flag))
 ```
 
@@ -546,13 +546,13 @@ func VisitAll(fn func(*Flag))
 
 ### type [ErrorHandling](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=365) 
 
-``` go linenums="1"
+``` go 
 type ErrorHandling int
 ```
 
 ​	ErrorHandling定义了FlagSet.Parse在解析失败时的行为。
 
-``` go linenums="1"
+``` go 
 const (
 	ContinueOnError ErrorHandling = iota // 返回一个描述性错误。
 	ExitOnError  // 调用os.Exit(2) 或对于-h/-help 则调用Exit(0)。
@@ -564,7 +564,7 @@ const (
 
 ### type [Flag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=397) 
 
-``` go linenums="1"
+``` go 
 type Flag struct {
 	Name     string // 在命令行中出现的名称
 	Usage    string // 帮助信息
@@ -577,7 +577,7 @@ type Flag struct {
 
 #### func [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=478) 
 
-``` go linenums="1"
+``` go 
 func Lookup(name string) *Flag
 ```
 
@@ -585,7 +585,7 @@ func Lookup(name string) *Flag
 
 ### type [FlagSet](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=379) 
 
-``` go linenums="1"
+``` go 
 type FlagSet struct {
 	// Usage是解析标志时发生错误时调用的函数。
 	// 该字段是一个函数(不是方法)，可以更改以指向自定义错误处理程序。
@@ -603,7 +603,7 @@ type FlagSet struct {
 
 #### func [NewFlagSet](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1167) 
 
-``` go linenums="1"
+``` go 
 func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 ```
 
@@ -611,7 +611,7 @@ func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 
 #### (*FlagSet) [Arg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=688) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) Arg(i int) string
 ```
 
@@ -619,7 +619,7 @@ func (f *FlagSet) Arg(i int) string
 
 #### (*FlagSet) [Args](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=709) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) Args() []string
 ```
 
@@ -627,7 +627,7 @@ func (f *FlagSet) Args() []string
 
 #### (*FlagSet) [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=728) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 ```
 
@@ -635,7 +635,7 @@ func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 
 #### (*FlagSet) [BoolVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=716) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 ```
 
@@ -643,7 +643,7 @@ func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 
 #### (*FlagSet) [Duration](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=913) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -651,7 +651,7 @@ func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time
 
 #### (*FlagSet) [DurationVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=899) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
@@ -659,7 +659,7 @@ func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration
 
 #### (*FlagSet) [ErrorHandling](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=433)  <- go1.10
 
-```go linenums="1"
+```go 
 func (f *FlagSet) ErrorHandling() ErrorHandling
 ```
 
@@ -667,7 +667,7 @@ func (f *FlagSet) ErrorHandling() ErrorHandling
 
 #### (*FlagSet) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=884) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 ```
 
@@ -675,7 +675,7 @@ func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 
 #### (*FlagSet) [Float64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=872) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage string)
 ```
 
@@ -683,7 +683,7 @@ func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage strin
 
 #### (*FlagSet) [Func](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=947)  <- go1.16
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Func(name, usage string, fn func(string) error)
 ```
 
@@ -691,7 +691,7 @@ func (f *FlagSet) Func(name, usage string, fn func(string) error)
 
 #### (*FlagSet) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1179) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 ```
 
@@ -699,7 +699,7 @@ func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 
 #### (*FlagSet) [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=754) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Int(name string, value int, usage string) *int
 ```
 
@@ -707,7 +707,7 @@ func (f *FlagSet) Int(name string, value int, usage string) *int
 
 #### (*FlagSet) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=780) 
 
-``` go linenums="1"
+``` go 
 func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 ```
 
@@ -715,7 +715,7 @@ func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 
 #### (*FlagSet) [Int64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=768) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 ```
 
@@ -723,7 +723,7 @@ func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 
 #### (*FlagSet) [IntVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=742) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 ```
 
@@ -731,7 +731,7 @@ func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 
 #### (*FlagSet) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=472) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Lookup(name string) *Flag
 ```
 
@@ -739,7 +739,7 @@ func (f *FlagSet) Lookup(name string) *Flag
 
 #### (*FlagSet) [NArg](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=703) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) NArg() int
 ```
 
@@ -747,7 +747,7 @@ func (f *FlagSet) NArg() int
 
 #### (*FlagSet) [NFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=680) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) NFlag() int
 ```
 
@@ -755,7 +755,7 @@ func (f *FlagSet) NFlag() int
 
 #### (*FlagSet) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=428)  <- go1.10
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Name() string
 ```
 
@@ -765,7 +765,7 @@ func (f *FlagSet) Name() string
 
 #### (*FlagSet) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=420)  <- go1.10
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Output() io.Writer
 ```
 
@@ -773,7 +773,7 @@ func (f *FlagSet) Output() io.Writer
 
 #### (*FlagSet) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1104) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Parse(arguments []string) error
 ```
 
@@ -781,7 +781,7 @@ func (f *FlagSet) Parse(arguments []string) error
 
 #### (*FlagSet) [Parsed](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=1131) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Parsed() bool
 ```
 
@@ -789,7 +789,7 @@ func (f *FlagSet) Parsed() bool
 
 #### (*FlagSet) [PrintDefaults](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=575) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) PrintDefaults()
 ```
 
@@ -797,7 +797,7 @@ func (f *FlagSet) PrintDefaults()
 
 #### (*FlagSet) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=483) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Set(name, value string) error
 ```
 
@@ -805,7 +805,7 @@ func (f *FlagSet) Set(name, value string) error
 
 #### (*FlagSet) [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=439) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) SetOutput(output io.Writer)
 ```
 
@@ -813,7 +813,7 @@ func (f *FlagSet) SetOutput(output io.Writer)
 
 #### (*FlagSet) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=858) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) String(name string, value string, usage string) *string
 ```
 
@@ -821,7 +821,7 @@ func (f *FlagSet) String(name string, value string, usage string) *string
 
 #### (*FlagSet) [StringVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=846) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 ```
 
@@ -829,7 +829,7 @@ func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 
 #### (*FlagSet) [TextVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=931)  <- go1.19
 
-```go linenums="1"
+```go 
 func (f *FlagSet) TextVar(p encoding.TextUnmarshaler, name string, value encoding.TextMarshaler, usage string)
 ```
 
@@ -837,7 +837,7 @@ func (f *FlagSet) TextVar(p encoding.TextUnmarshaler, name string, value encodin
 
 #### (*FlagSet) [Uint](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=806) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 ```
 
@@ -845,7 +845,7 @@ func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 
 #### (*FlagSet) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=832) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 ```
 
@@ -853,7 +853,7 @@ func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 
 #### (*FlagSet) [Uint64Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=820) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
@@ -861,7 +861,7 @@ func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 
 #### (*FlagSet) [UintVar](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=794) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 ```
 
@@ -869,7 +869,7 @@ func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 
 #### (*FlagSet) [Var](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=964) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Var(value Value, name string, usage string)
 ```
 
@@ -877,7 +877,7 @@ func (f *FlagSet) Var(value Value, name string, usage string)
 
 #### (*FlagSet) [Visit](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=459) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) Visit(fn func(*Flag))
 ```
 
@@ -885,7 +885,7 @@ func (f *FlagSet) Visit(fn func(*Flag))
 
 #### (*FlagSet) [VisitAll](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=445) 
 
-```go linenums="1"
+```go 
 func (f *FlagSet) VisitAll(fn func(*Flag))
 ```
 
@@ -893,7 +893,7 @@ func (f *FlagSet) VisitAll(fn func(*Flag))
 
 ### type [Getter](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=359)  <- go1.2
 
-```go linenums="1"
+```go 
 type Getter interface {
 	Value
 	Get() any
@@ -904,7 +904,7 @@ type Getter interface {
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/flag/flag.go;l=350) 
 
-```go linenums="1"
+```go 
 type Value interface {
 	String() string
 	Set(string) error
@@ -919,7 +919,7 @@ type Value interface {
 
 ##### Value Example
 
-```go linenums="1"
+```go 
 package main
 
 import (

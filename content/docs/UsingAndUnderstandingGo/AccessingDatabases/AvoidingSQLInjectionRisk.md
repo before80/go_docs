@@ -14,7 +14,7 @@ draft = false
 
 ​	下面的例子中的代码使用`?` 符号作为`id`参数的占位符，该参数是作为函数实参提供的：
 
-```go linenums="1"
+```go 
 // Correct format for executing an SQL statement with parameters. => 执行带参数的SQL语句的正确格式。
 rows, err := db.Query("SELECT * FROM user WHERE id = ?", id)
 ```
@@ -25,7 +25,7 @@ rows, err := db.Query("SELECT * FROM user WHERE id = ?", id)
 
 ​	你可能会想使用`fmt`包中的一个函数来把SQL语句组合成一个包含参数的字符串——比如这样：
 
-```go linenums="1"
+```go 
 // SECURITY RISK! => 安全风险!
 rows, err := db.Query(fmt.Sprintf("SELECT * FROM user WHERE id = %s", id))
 ```

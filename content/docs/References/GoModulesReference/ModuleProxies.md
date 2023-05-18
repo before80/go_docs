@@ -38,7 +38,7 @@ draft = false
 
 ​	返回有关模块的特定版本的JSON格式的元数据。响应必须是与下面的GO数据结构体相对应的JSON对象：
 
-```go linenums="1"
+```go 
 type Info struct {
     Version string    // version string
     Time    time.Time // commit time

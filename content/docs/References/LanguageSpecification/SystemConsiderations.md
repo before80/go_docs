@@ -14,7 +14,7 @@ draft = false
 
 ​	编译器知道的内置包`unsafe`，可以通过[导入路径](../Packages#import-declarations) "`unsafe` "访问，它为低级编程提供了便利，包括违反（violate）类型系统的操作。使用`unsafe`的包必须手动审查其类型安全，并且可能无法移植。该包提供以下接口：
 
-```go linenums="1"
+```go 
 package unsafe
 
 type ArbitraryType int  // shorthand for an arbitrary Go type; it is not a real type
@@ -31,7 +31,7 @@ func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
 
 ​	`Pointer`是一个[指针类型](../Types#pointer-types)，但是`Pointer`的值不能被[解除引用](../Expressions#address-operators)。任何[底层类型](../Types)为`uintptr`的指针或值都可以被[转换](../Expressions#conversions)为底层类型`Pointer`的类型，反之亦然。在`Pointer`和`uintptr`之间转换的效果是由实现定义的。
 
-```go linenums="1"
+```go 
 var f float64
 bits = *(*uint64)(unsafe.Pointer(&f))
 
@@ -45,13 +45,13 @@ var p ptr = nil
 
 ​	`Offsetof`函数接收一个（可能是括号内的）[选择器](../Expressions#selectors)`s.f`，表示由`s`或`*s`表示的结构体中的字段`f`，并返回相对于该结构体地址的字段偏移量（字节）。如果`f`是一个[嵌入字段](../Types#struct-types)，它必须可以通过结构体的字段在没有指针间接的情况下访问。对于带有字段`f`的结构体`s`：
 
-```go linenums="1"
+```go 
 uintptr(unsafe.Pointer(&s)) + unsafe.Offsetof(s.f) == uintptr(unsafe.Pointer(&s.f))
 ```
 
 ​	计算机体系结构可能要求内存地址被对齐；也就是说，变量的地址必须是一个因子的倍数，即变量类型的对齐方式。函数`Alignof`接收一个表示任何类型的变量的表达式，并返回（该类型的）变量的对齐方式，单位为字节。对于变量`x`：
 
-```go linenums="1"
+```go 
 uintptr(unsafe.Pointer(&x)) % unsafe.Alignof(x) == 0
 ```
 
@@ -61,7 +61,7 @@ uintptr(unsafe.Pointer(&x)) % unsafe.Alignof(x) == 0
 
 ​	`Slice` 函数返回一个切片，其底层数组从 `ptr` 开始，其长度和容量为 `len`。`Slice(ptr, len)` 等于
 
-```go linenums="1"
+```go 
 (*[len]ArbitraryType)(unsafe.Pointer(ptr))[:]
 ```
 
@@ -73,7 +73,7 @@ uintptr(unsafe.Pointer(&x)) % unsafe.Alignof(x) == 0
 
 对于数值型，以下大小是有保证的：
 
-```go linenums="1"
+```go 
 type                                 size in bytes
 
 byte, uint8, int8                     1

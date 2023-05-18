@@ -21,7 +21,7 @@ The GIF specification is at https://www.w3.org/Graphics/GIF/spec-gif89a.txt.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=45)
 
-``` go linenums="1"
+``` go 
 const (
 	DisposalNone       = 0x01
 	DisposalBackground = 0x02
@@ -39,7 +39,7 @@ This section is empty.
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=565) 
 
-``` go linenums="1"
+``` go 
 func Decode(r io.Reader) (image.Image, error)
 ```
 
@@ -47,7 +47,7 @@ Decode reads a GIF image from r and returns the first embedded image as an image
 
 #### func [DecodeConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=627) 
 
-``` go linenums="1"
+``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
 ```
 
@@ -55,7 +55,7 @@ DecodeConfig returns the global color model and dimensions of a GIF image withou
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=418)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
 ```
 
@@ -63,7 +63,7 @@ Encode writes the Image m to w in GIF format.
 
 #### func [EncodeAll](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=372)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func EncodeAll(w io.Writer, g *GIF) error
 ```
 
@@ -73,7 +73,7 @@ EncodeAll writes the images in g to w in GIF format with the given loop count an
 
 ### type [GIF](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=574) 
 
-``` go linenums="1"
+``` go 
 type GIF struct {
 	Image []*image.Paletted // The successive images.
 	Delay []int             // The successive delay times, one per frame, in 100ths of a second.
@@ -108,7 +108,7 @@ GIF represents the possibly multiple images stored in a GIF file.
 
 #### func [DecodeAll](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=605) 
 
-``` go linenums="1"
+``` go 
 func DecodeAll(r io.Reader) (*GIF, error)
 ```
 
@@ -116,7 +116,7 @@ DecodeAll reads a GIF image from r and returns the sequential frames and timing 
 
 ### type [Options](https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/writer.go;l=356)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Options struct {
 	// NumColors is the maximum number of colors used in the image.
 	// It ranges from 1 to 256.

@@ -30,7 +30,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=17)
 
-``` go linenums="1"
+``` go 
 var (
 	// Deprecated: No longer used.
 	ErrPersistEOF = &http.ProtocolError{ErrorString: "persistent connection closed"}
@@ -45,7 +45,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/httputil.go;l=41)
 
-``` go linenums="1"
+``` go 
 var ErrLineTooLong = internal.ErrLineTooLong
 ```
 
@@ -55,7 +55,7 @@ ErrLineTooLong is returned when reading malformed chunked data with lines that a
 
 #### func [DumpRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=218) 
 
-``` go linenums="1"
+``` go 
 func DumpRequest(req *http.Request, body bool) ([]byte, error)
 ```
 
@@ -66,36 +66,36 @@ If body is true, DumpRequest also returns the body. To do so, it consumes req.Bo
 The documentation for http.Request.Write details which fields of req are included in the dump.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [DumpRequestOut](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func DumpRequestOut(req *http.Request, body bool) ([]byte, error)
 ```
 
 DumpRequestOut is like DumpRequest but for outgoing client requests. It includes any headers that the standard http.Transport adds, such as User-Agent.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [DumpResponse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/dump.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func DumpResponse(resp *http.Response, body bool) ([]byte, error)
 ```
 
 DumpResponse is like DumpRequest but dumps a response.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewChunkedReader](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/httputil.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func NewChunkedReader(r io.Reader) io.Reader
 ```
 
@@ -105,7 +105,7 @@ NewChunkedReader is not needed by normal applications. The http package automati
 
 #### func [NewChunkedWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/httputil.go;l=35) 
 
-``` go linenums="1"
+``` go 
 func NewChunkedWriter(w io.Writer) io.WriteCloser
 ```
 
@@ -117,7 +117,7 @@ NewChunkedWriter is not needed by normal applications. The http package adds chu
 
 ### type [BufferPool](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=204)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type BufferPool interface {
 	Get() []byte
 	Put([]byte)
@@ -130,7 +130,7 @@ A BufferPool is an interface for getting and returning temporary byte slices for
 
 ### type [ProxyRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=30)  <- go1.20
 
-``` go linenums="1"
+``` go 
 type ProxyRequest struct {
 	// In is the request received by the proxy.
 	// The Rewrite function must not modify In.
@@ -148,7 +148,7 @@ A ProxyRequest contains a request to be rewritten by a ReverseProxy.
 
 #### (*ProxyRequest) [SetURL](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=54)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (r *ProxyRequest) SetURL(target *url.URL)
 ```
 
@@ -165,7 +165,7 @@ rewriteFunc := func(r *httputil.ProxyRequest) {
 
 #### (*ProxyRequest) [SetXForwarded](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=78)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (r *ProxyRequest) SetXForwarded()
 ```
 
@@ -186,7 +186,7 @@ rewriteFunc := func(r *httputil.ProxyRequest) {
 
 ### type [ReverseProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=103) 
 
-``` go linenums="1"
+``` go 
 type ReverseProxy struct {
 	// Rewrite must be a function which modifies
 	// the request into a new request to be sent
@@ -292,12 +292,12 @@ ReverseProxy is an HTTP Handler that takes an incoming request and sends it to a
 1xx responses are forwarded to the client if the underlying transport supports ClientTrace.Got1xxResponse.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewSingleHostReverseProxy](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=262) 
 
-``` go linenums="1"
+``` go 
 func NewSingleHostReverseProxy(target *url.URL) *ReverseProxy
 ```
 
@@ -318,13 +318,13 @@ proxy := &ReverseProxy{
 
 #### (*ReverseProxy) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/reverseproxy.go;l=332) 
 
-``` go linenums="1"
+``` go 
 func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 ```
 
 ### type[ServerConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=37)  DEPRECATED
 
-``` go linenums="1"
+``` go 
 type ServerConn struct {
 	// contains filtered or unexported fields
 }
@@ -336,7 +336,7 @@ Deprecated: Use the Server in package net/http instead.
 
 #### func[NewServerConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=54)DEPRECATED
 
-``` go linenums="1"
+``` go 
 func NewServerConn(c net.Conn, r *bufio.Reader) *ServerConn
 ```
 
@@ -348,7 +348,7 @@ Deprecated: Use the Server in package net/http instead.
 
 #### (*ServerConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=76) 
 
-``` go linenums="1"
+``` go 
 func (sc *ServerConn) Close() error
 ```
 
@@ -356,7 +356,7 @@ Close calls Hijack and then also closes the underlying connection.
 
 #### (*ServerConn) [Hijack](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=65) 
 
-``` go linenums="1"
+``` go 
 func (sc *ServerConn) Hijack() (net.Conn, *bufio.Reader)
 ```
 
@@ -364,7 +364,7 @@ Hijack detaches the ServerConn and returns the underlying connection as well as 
 
 #### (*ServerConn) [Pending](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=166) 
 
-``` go linenums="1"
+``` go 
 func (sc *ServerConn) Pending() int
 ```
 
@@ -372,7 +372,7 @@ Pending returns the number of unanswered requests that have been received on the
 
 #### (*ServerConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=88) 
 
-``` go linenums="1"
+``` go 
 func (sc *ServerConn) Read() (*http.Request, error)
 ```
 
@@ -380,7 +380,7 @@ Read returns the next request on the wire. An ErrPersistEOF is returned if it is
 
 #### (*ServerConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httputil/persist.go;l=175) 
 
-``` go linenums="1"
+``` go 
 func (sc *ServerConn) Write(req *http.Request, resp *http.Response) error
 ```
 

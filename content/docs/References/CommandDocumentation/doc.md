@@ -52,7 +52,7 @@ For complete documentation, run "go help doc".
 
 === "dirs.go"
 
-```go linenums="1"
+```go 
 // Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -377,7 +377,7 @@ func getMainModuleAnd114() (*moduleJSON, bool, error) {
 
 === "doc_test.go"
 
-```go linenums="1"
+```go 
 // Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -1457,7 +1457,7 @@ func TestTrim(t *testing.T) {
 
 === "main.go"
 
-```go linenums="1"
+```go 
 // Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -1876,7 +1876,7 @@ func splitGopath() []string {
 
 === "pkg.go"
 
-```go linenums="1"
+```go 
 // Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.

@@ -28,7 +28,7 @@ This section is empty.
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/bzip2/bzip2.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader) io.Reader
 ```
 
@@ -38,7 +38,7 @@ NewReader returns an io.Reader which decompresses bzip2 data from r. If r does n
 
 ### type [StructuralError](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/bzip2/bzip2.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type StructuralError string
 ```
 
@@ -46,6 +46,6 @@ A StructuralError is returned when the bzip2 data is found to be syntactically i
 
 #### (StructuralError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/bzip2/bzip2.go;l=19) 
 
-``` go linenums="1"
+``` go 
 func (s StructuralError) Error() string
 ```

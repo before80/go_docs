@@ -14,7 +14,7 @@ https://pkg.go.dev/net/http/httptrace@go1.20.1
 Package httptrace provides mechanisms to trace the events within HTTP client requests.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -35,7 +35,7 @@ This section is empty.
 
 #### func [WithClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context
 ```
 
@@ -45,7 +45,7 @@ WithClientTrace returns a new context based on the provided parent ctx. HTTP cli
 
 ### type [ClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=80) 
 
-``` go linenums="1"
+``` go 
 type ClientTrace struct {
 	// GetConn is called before a connection is created or
 	// retrieved from an idle pool. The hostPort is the
@@ -141,7 +141,7 @@ See https://blog.golang.org/http-tracing for more.
 
 #### func [ContextClientTrace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func ContextClientTrace(ctx context.Context) *ClientTrace
 ```
 
@@ -149,7 +149,7 @@ ContextClientTrace returns the ClientTrace associated with the provided context.
 
 ### type [DNSDoneInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=216) 
 
-``` go linenums="1"
+``` go 
 type DNSDoneInfo struct {
 	// Addrs are the IPv4 and/or IPv6 addresses found in the DNS
 	// lookup. The contents of the slice should not be mutated.
@@ -168,7 +168,7 @@ DNSDoneInfo contains information about the results of a DNS lookup.
 
 ### type [DNSStartInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=211) 
 
-``` go linenums="1"
+``` go 
 type DNSStartInfo struct {
 	Host string
 }
@@ -178,7 +178,7 @@ DNSStartInfo contains information about a DNS request.
 
 ### type [GotConnInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=238) 
 
-``` go linenums="1"
+``` go 
 type GotConnInfo struct {
 	// Conn is the connection that was obtained. It is owned by
 	// the http.Transport and should not be read, written or
@@ -203,7 +203,7 @@ GotConnInfo is the argument to the ClientTrace.GotConn function and contains inf
 
 ### type [WroteRequestInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/httptrace/trace.go;l=168) 
 
-``` go linenums="1"
+``` go 
 type WroteRequestInfo struct {
 	// Err is any error encountered while writing the Request.
 	Err error

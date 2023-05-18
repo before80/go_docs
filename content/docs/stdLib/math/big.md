@@ -21,7 +21,7 @@ Float  floating-point numbers
 
 The zero value for an Int, Rat, or Float correspond to 0. Thus, new values can be declared in the usual ways and denote 0 without further initialization:
 
-``` go linenums="1"
+``` go 
 var x Int        // &x is an *Int of value 0
 var r = &Rat{}   // r is a *Rat of value 0
 y := new(Float)  // y is a *Float of value 0
@@ -29,13 +29,13 @@ y := new(Float)  // y is a *Float of value 0
 
 Alternatively, new values can be allocated and initialized with factory functions of the form:
 
-``` go linenums="1"
+``` go 
 func NewT(v V) *T
 ```
 
 For instance, NewInt(x) returns an *Int set to the value of the int64 argument x, NewRat(a, b) returns a *Rat set to the fraction a/b where a and b are int64 values, and NewFloat(f) returns a *Float initialized to the float64 argument f. More flexibility is provided with explicit setters, for instance:
 
-``` go linenums="1"
+``` go 
 var z1 Int
 z1.SetUint64(123)                 // z1 := 123
 z2 := new(Rat).SetFloat64(1.25)   // z2 := 5/4
@@ -44,7 +44,7 @@ z3 := new(Float).SetInt(z1)       // z3 := 123.0
 
 Setters, numeric operations and predicates are represented as methods of the form:
 
-``` go linenums="1"
+``` go 
 func (z *T) SetV(v V) *T          // z = v
 func (z *T) Unary(x *T) *T        // z = unary x
 func (z *T) Binary(x, y *T) *T    // z = x binary y
@@ -73,7 +73,7 @@ Notational convention: Incoming method parameters (including the receiver) are n
 
 For instance, the arguments for (*Int).Add are named x and y, and because the receiver specifies the result destination, it is called z:
 
-``` go linenums="1"
+``` go 
 func (z *Int) Add(x, y *Int) *Int
 ```
 
@@ -81,7 +81,7 @@ Methods of this form typically return the incoming receiver as well, to enable s
 
 Methods which don't require a result value to be passed in (for instance, Int.Sign), simply return the result. In this case, the receiver is typically the first operand, named x:
 
-``` go linenums="1"
+``` go 
 func (x *Int) Sign() int
 ```
 
@@ -90,15 +90,15 @@ Various methods support conversions between strings and corresponding numeric va
 Finally, *Int, *Rat, and *Float satisfy the fmt package's Scanner interface for scanning and (except for *Rat) the Formatter interface for formatted printing.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -123,7 +123,7 @@ Finally, *Int, *Rat, and *Float satisfy the fmt package's Scanner interface for 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=96)
 
-``` go linenums="1"
+``` go 
 const (
 	MaxExp  = math.MaxInt32  // largest supported exponent
 	MinExp  = math.MinInt32  // smallest supported exponent
@@ -135,7 +135,7 @@ Exponent and precision limits.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/natconv.go;l=24)
 
-``` go linenums="1"
+``` go 
 const MaxBase = 10 + ('z' - 'a' + 1) + ('Z' - 'A' + 1)
 ```
 
@@ -149,7 +149,7 @@ This section is empty.
 
 #### func [Jacobi](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=909)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func Jacobi(x, y *Int) int
 ```
 
@@ -159,13 +159,13 @@ Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0. The y argument must
 
 ### type [Accuracy](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=148)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type Accuracy int8
 ```
 
 Accuracy describes the rounding error produced by the most recent operation that generated a Float value, relative to the exact value.
 
-``` go linenums="1"
+``` go 
 const (
 	Below Accuracy = -1
 	Exact Accuracy = 0
@@ -177,13 +177,13 @@ Constants describing the Accuracy of a Float.
 
 #### (Accuracy) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/accuracy_string.go;l=11)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i Accuracy) String() string
 ```
 
 ### type [ErrNaN](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=77)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type ErrNaN struct {
 	// contains filtered or unexported fields
 }
@@ -193,13 +193,13 @@ An ErrNaN panic is raised by a Float operation that would lead to a NaN under IE
 
 #### (ErrNaN) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=81)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (err ErrNaN) Error() string
 ```
 
 ### type [Float](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=65)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type Float struct {
 	// contains filtered or unexported fields
 }
@@ -226,12 +226,12 @@ The zero (uninitialized) value for a Float is ready to use and represents the nu
 Operations always take pointer arguments (*Float) rather than Float values, and each unique Float value requires its own unique *Float pointer. To "copy" a Float value, an existing (or newly allocated) Float must be set to a new value using the Float.Set method; shallow copies of Floats are not supported and may lead to errors.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=88)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func NewFloat(x float64) *Float
 ```
 
@@ -239,7 +239,7 @@ NewFloat allocates and returns a new Float set to x, with precision 53 and round
 
 #### func [ParseFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatconv.go;l=287)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func ParseFloat(s string, base int, prec uint, mode RoundingMode) (f *Float, b int, err error)
 ```
 
@@ -247,7 +247,7 @@ ParseFloat is like f.Parse(s, base) with f set to the given precision and roundi
 
 #### (*Float) [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1175)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Abs(x *Float) *Float
 ```
 
@@ -255,7 +255,7 @@ Abs sets z to the (possibly rounded) value |x| (the absolute value of x) and ret
 
 #### (*Float) [Acc](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=230)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Acc() Accuracy
 ```
 
@@ -263,19 +263,19 @@ Acc returns the accuracy of x produced by the most recent operation, unless expl
 
 #### (*Float) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1442)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Add(x, y *Float) *Float
 ```
 
 Add sets z to the rounded sum x+y and returns z. If z's precision is 0, it is changed to the larger of x's or y's precision before the operation. Rounding is performed according to z's precision and rounding mode; and z's accuracy reports the result error relative to the exact (not rounded) result. Add panics with ErrNaN if x and y are infinities with opposite signs. The value of z is undefined in that case.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Float) [Append](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ftoa.go;l=63)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Append(buf []byte, fmt byte, prec int) []byte
 ```
 
@@ -283,7 +283,7 @@ Append appends to buf the string form of the floating-point number x, as generat
 
 #### (*Float) [Cmp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1674)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Cmp(y *Float) int
 ```
 
@@ -296,12 +296,12 @@ Cmp compares x and y and returns:
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Float) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=671)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Copy(x *Float) *Float
 ```
 
@@ -309,7 +309,7 @@ Copy sets z to x, with the same precision, rounding mode, and accuracy as x, and
 
 #### (*Float) [Float32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=834)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Float32() (float32, Accuracy)
 ```
 
@@ -317,7 +317,7 @@ Float32 returns the float32 value nearest to x. If x is too small to be represen
 
 #### (*Float) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=954)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Float64() (float64, Accuracy)
 ```
 
@@ -325,7 +325,7 @@ Float64 returns the float64 value nearest to x. If x is too small to be represen
 
 #### (*Float) [Format](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ftoa.go;l=465)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Format(s fmt.State, format rune)
 ```
 
@@ -333,7 +333,7 @@ Format implements fmt.Formatter. It accepts all the regular formats for floating
 
 #### (*Float) [GobDecode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatmarsh.go;l=65)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (z *Float) GobDecode(buf []byte) error
 ```
 
@@ -341,7 +341,7 @@ GobDecode implements the gob.GobDecoder interface. The result is rounded per the
 
 #### (*Float) [GobEncode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatmarsh.go;l=21)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (x *Float) GobEncode() ([]byte, error)
 ```
 
@@ -349,7 +349,7 @@ GobEncode implements the gob.GobEncoder interface. The Float value and all its a
 
 #### (*Float) [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1075)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Int(z *Int) (*Int, Accuracy)
 ```
 
@@ -357,7 +357,7 @@ Int returns the result of truncating x towards zero; or nil if x is an infinity.
 
 #### (*Float) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=779)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Int64() (int64, Accuracy)
 ```
 
@@ -365,7 +365,7 @@ Int64 returns the integer resulting from truncating x towards zero. If math.MinI
 
 #### (*Float) [IsInf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=340)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) IsInf() bool
 ```
 
@@ -373,7 +373,7 @@ IsInf reports whether x is +Inf or -Inf.
 
 #### (*Float) [IsInt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=346)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) IsInt() bool
 ```
 
@@ -381,7 +381,7 @@ IsInt reports whether x is an integer. ±Inf values are not integers.
 
 #### (*Float) [MantExp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=267)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) MantExp(mant *Float) (exp int)
 ```
 
@@ -398,7 +398,7 @@ x and mant may be the same in which case x is set to its mantissa value.
 
 #### (*Float) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatmarsh.go;l=108)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (x *Float) MarshalText() (text []byte, err error)
 ```
 
@@ -406,7 +406,7 @@ MarshalText implements the encoding.TextMarshaler interface. Only the Float valu
 
 #### (*Float) [MinPrec](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=215)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) MinPrec() uint
 ```
 
@@ -414,7 +414,7 @@ MinPrec returns the minimum precision required to represent x exactly (i.e., the
 
 #### (*Float) [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=223)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Mode() RoundingMode
 ```
 
@@ -422,7 +422,7 @@ Mode returns the rounding mode of x.
 
 #### (*Float) [Mul](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1583)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Mul(x, y *Float) *Float
 ```
 
@@ -430,7 +430,7 @@ Mul sets z to the rounded product x*y and returns z. Precision, rounding, and ac
 
 #### (*Float) [Neg](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1183)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Neg(x *Float) *Float
 ```
 
@@ -438,7 +438,7 @@ Neg sets z to the (possibly rounded) value of x with its sign negated, and retur
 
 #### (*Float) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatconv.go;l=259)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Parse(s string, base int) (f *Float, b int, err error)
 ```
 
@@ -470,7 +470,7 @@ The returned *Float f is nil and the value of z is valid but not defined if an e
 
 #### (*Float) [Prec](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=208)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Prec() uint
 ```
 
@@ -478,7 +478,7 @@ Prec returns the mantissa precision of x in bits. The result may be 0 for |x| ==
 
 #### (*Float) [Quo](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1628)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Quo(x, y *Float) *Float
 ```
 
@@ -486,7 +486,7 @@ Quo sets z to the rounded quotient x/y and returns z. Precision, rounding, and a
 
 #### (*Float) [Rat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1131)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Rat(z *Rat) (*Rat, Accuracy)
 ```
 
@@ -494,19 +494,19 @@ Rat returns the rational number corresponding to x; or nil if x is an infinity. 
 
 #### (*Float) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatconv.go;l=298)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (z *Float) Scan(s fmt.ScanState, ch rune) error
 ```
 
 Scan is a support routine for fmt.Scanner; it sets z to the value of the scanned number. It accepts formats whose verbs are supported by fmt.Scan for floating point values, which are: 'b' (binary), 'e', 'E', 'f', 'F', 'g' and 'G'. Scan doesn't handle ±Inf.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Float) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=647)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Set(x *Float) *Float
 ```
 
@@ -514,7 +514,7 @@ Set sets z to the (possibly rounded) value of x and returns z. If z's precision 
 
 #### (*Float) [SetFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=545)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetFloat64(x float64) *Float
 ```
 
@@ -522,7 +522,7 @@ SetFloat64 sets z to the (possibly rounded) value of x and returns z. If z's pre
 
 #### (*Float) [SetInf](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=634)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetInf(signbit bool) *Float
 ```
 
@@ -530,7 +530,7 @@ SetInf sets z to the infinite Float -Inf if signbit is set, or +Inf if signbit i
 
 #### (*Float) [SetInt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=593)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetInt(x *Int) *Float
 ```
 
@@ -538,7 +538,7 @@ SetInt sets z to the (possibly rounded) value of x and returns z. If z's precisi
 
 #### (*Float) [SetInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=532)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetInt64(x int64) *Float
 ```
 
@@ -546,7 +546,7 @@ SetInt64 sets z to the (possibly rounded) value of x and returns z. If z's preci
 
 #### (*Float) [SetMantExp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=320)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetMantExp(mant *Float, exp int) *Float
 ```
 
@@ -568,7 +568,7 @@ z and mant may be the same in which case z's exponent is set to exp.
 
 #### (*Float) [SetMode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=200)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetMode(mode RoundingMode) *Float
 ```
 
@@ -576,7 +576,7 @@ SetMode sets z's rounding mode to mode and returns an exact z. z remains unchang
 
 #### (*Float) [SetPrec](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=164)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetPrec(prec uint) *Float
 ```
 
@@ -584,7 +584,7 @@ SetPrec sets z's precision to prec and returns the (possibly) rounded value of z
 
 #### (*Float) [SetRat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=617)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetRat(x *Rat) *Float
 ```
 
@@ -592,19 +592,19 @@ SetRat sets z to the (possibly rounded) value of x and returns z. If z's precisi
 
 #### (*Float) [SetString](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatconv.go;l=22)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetString(s string) (*Float, bool)
 ```
 
 SetString sets z to the value of s and returns z and a boolean indicating success. s must be a floating-point number of the same format as accepted by Parse, with base argument 0. The entire string (not just a prefix) must be valid for success. If the operation failed, the value of z is undefined but the returned value is nil.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Float) [SetUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=525)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) SetUint64(x uint64) *Float
 ```
 
@@ -612,7 +612,7 @@ SetUint64 sets z to the (possibly rounded) value of x and returns z. If z's prec
 
 #### (*Float) [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=239)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Sign() int
 ```
 
@@ -626,7 +626,7 @@ Sign returns:
 
 #### (*Float) [Signbit](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=335)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Signbit() bool
 ```
 
@@ -634,7 +634,7 @@ Signbit reports whether x is negative or negative zero.
 
 #### (*Float) [Sqrt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/sqrt.go;l=33)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (z *Float) Sqrt(x *Float) *Float
 ```
 
@@ -646,7 +646,7 @@ The function panics if z < 0. The value of z is undefined in that case.
 
 #### (*Float) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ftoa.go;l=57)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) String() string
 ```
 
@@ -654,7 +654,7 @@ String formats x like x.Text('g', 10). (String must be called explicitly, Float.
 
 #### (*Float) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=1516)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Float) Sub(x, y *Float) *Float
 ```
 
@@ -662,7 +662,7 @@ Sub sets z to the rounded difference x-y and returns z. Precision, rounding, and
 
 #### (*Float) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ftoa.go;l=47)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Text(format byte, prec int) string
 ```
 
@@ -695,7 +695,7 @@ The precision prec controls the number of digits (excluding the exponent) printe
 
 #### (*Float) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=734)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (x *Float) Uint64() (uint64, Accuracy)
 ```
 
@@ -703,7 +703,7 @@ Uint64 returns the unsigned integer resulting from truncating x towards zero. If
 
 #### (*Float) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/floatmarsh.go;l=120)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (z *Float) UnmarshalText(text []byte) error
 ```
 
@@ -711,7 +711,7 @@ UnmarshalText implements the encoding.TextUnmarshaler interface. The result is r
 
 ### type [Int](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=25) 
 
-``` go linenums="1"
+``` go 
 type Int struct {
 	// contains filtered or unexported fields
 }
@@ -723,7 +723,7 @@ Operations always take pointer arguments (*Int) rather than Int values, and each
 
 #### func [NewInt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func NewInt(x int64) *Int
 ```
 
@@ -731,7 +731,7 @@ NewInt allocates and returns a new Int set to x.
 
 #### (*Int) [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=120) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Abs(x *Int) *Int
 ```
 
@@ -739,7 +739,7 @@ Abs sets z to |x| (the absolute value of x) and returns z.
 
 #### (*Int) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Add(x, y *Int) *Int
 ```
 
@@ -747,7 +747,7 @@ Add sets z to the sum x+y and returns z.
 
 #### (*Int) [And](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1147) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) And(x, y *Int) *Int
 ```
 
@@ -755,7 +755,7 @@ And sets z = x & y and returns z.
 
 #### (*Int) [AndNot](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1177) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) AndNot(x, y *Int) *Int
 ```
 
@@ -763,7 +763,7 @@ AndNot sets z = x &^ y and returns z.
 
 #### (*Int) [Append](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intconv.go;l=30)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (x *Int) Append(buf []byte, base int) []byte
 ```
 
@@ -771,7 +771,7 @@ Append appends the string representation of x, as generated by x.Text(base), to 
 
 #### (*Int) [Binomial](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=215) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Binomial(n, k int64) *Int
 ```
 
@@ -779,7 +779,7 @@ Binomial sets z to the binomial coefficient C(n, k) and returns z.
 
 #### (*Int) [Bit](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1107) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Bit(i int) uint
 ```
 
@@ -787,7 +787,7 @@ Bit returns the value of the i'th bit of x. That is, it returns (x>>i)&1. The bi
 
 #### (*Int) [BitLen](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=518) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) BitLen() int
 ```
 
@@ -795,7 +795,7 @@ BitLen returns the length of the absolute value of x in bits. The bit length of 
 
 #### (*Int) [Bits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Bits() []Word
 ```
 
@@ -803,7 +803,7 @@ Bits provides raw (unchecked but fast) access to x by returning its absolute val
 
 #### (*Int) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=495) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Bytes() []byte
 ```
 
@@ -813,7 +813,7 @@ To use a fixed length slice, or a preallocated one, use FillBytes.
 
 #### (*Int) [Cmp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=365) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Cmp(y *Int) (r int)
 ```
 
@@ -827,7 +827,7 @@ Cmp compares x and y and returns:
 
 #### (*Int) [CmpAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=391)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (x *Int) CmpAbs(y *Int) int
 ```
 
@@ -841,7 +841,7 @@ CmpAbs compares the absolute values of x and y and returns:
 
 #### (*Int) [Div](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=294) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Div(x, y *Int) *Int
 ```
 
@@ -849,7 +849,7 @@ Div sets z to the quotient x/y for y != 0 and returns z. If y == 0, a division-b
 
 #### (*Int) [DivMod](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=342) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) DivMod(x, y, m *Int) (*Int, *Int)
 ```
 
@@ -866,7 +866,7 @@ m = x - y*q  with 0 <= m < |y|
 
 #### (*Int) [Exp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=537) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Exp(x, y, m *Int) *Int
 ```
 
@@ -876,7 +876,7 @@ Modular exponentiation of inputs of a particular size is not a cryptographically
 
 #### (*Int) [FillBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=507)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (x *Int) FillBytes(buf []byte) []byte
 ```
 
@@ -886,7 +886,7 @@ If the absolute value of x doesn't fit in buf, FillBytes will panic.
 
 #### (*Int) [Format](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intconv.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Format(s fmt.State, ch rune)
 ```
 
@@ -894,7 +894,7 @@ Format implements fmt.Formatter. It accepts the formats 'b' (binary), 'o' (octal
 
 #### (*Int) [GCD](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=591) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) GCD(x, y, a, b *Int) *Int
 ```
 
@@ -910,7 +910,7 @@ If a != 0 and b == 0, GCD sets z = |a|, x = sign(a) * 1, y = 0.
 
 #### (*Int) [GobDecode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) GobDecode(buf []byte) error
 ```
 
@@ -918,7 +918,7 @@ GobDecode implements the gob.GobDecoder interface.
 
 #### (*Int) [GobEncode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) GobEncode() ([]byte, error)
 ```
 
@@ -926,7 +926,7 @@ GobEncode implements the gob.GobEncoder interface.
 
 #### (*Int) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=417) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Int64() int64
 ```
 
@@ -934,7 +934,7 @@ Int64 returns the int64 representation of x. If x cannot be represented in an in
 
 #### (*Int) [IsInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=432)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (x *Int) IsInt64() bool
 ```
 
@@ -942,7 +942,7 @@ IsInt64 reports whether x can be represented as an int64.
 
 #### (*Int) [IsUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=441)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (x *Int) IsUint64() bool
 ```
 
@@ -950,7 +950,7 @@ IsUint64 reports whether x can be represented as a uint64.
 
 #### (*Int) [Lsh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1083) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Lsh(x *Int, n uint) *Int
 ```
 
@@ -958,7 +958,7 @@ Lsh sets z = x << n and returns z.
 
 #### (*Int) [MarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=69)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (x *Int) MarshalJSON() ([]byte, error)
 ```
 
@@ -966,7 +966,7 @@ MarshalJSON implements the json.Marshaler interface.
 
 #### (*Int) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=49)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (x *Int) MarshalText() (text []byte, err error)
 ```
 
@@ -974,7 +974,7 @@ MarshalText implements the encoding.TextMarshaler interface.
 
 #### (*Int) [Mod](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=311) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Mod(x, y *Int) *Int
 ```
 
@@ -982,7 +982,7 @@ Mod sets z to the modulus x%y for y != 0 and returns z. If y == 0, a division-by
 
 #### (*Int) [ModInverse](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=874) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) ModInverse(g, n *Int) *Int
 ```
 
@@ -990,7 +990,7 @@ ModInverse sets z to the multiplicative inverse of g in the ring ℤ/nℤ and re
 
 #### (*Int) [ModSqrt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1056)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (z *Int) ModSqrt(x, p *Int) *Int
 ```
 
@@ -998,7 +998,7 @@ ModSqrt sets z to a square root of x mod p if such a square root exists, and ret
 
 #### (*Int) [Mul](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=176) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Mul(x, y *Int) *Int
 ```
 
@@ -1006,7 +1006,7 @@ Mul sets z to the product x*y and returns z.
 
 #### (*Int) [MulRange](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=194) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) MulRange(a, b int64) *Int
 ```
 
@@ -1014,7 +1014,7 @@ MulRange sets z to the product of all integers in the range [a, b] inclusively a
 
 #### (*Int) [Neg](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=127) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Neg(x *Int) *Int
 ```
 
@@ -1022,7 +1022,7 @@ Neg sets z to -x and returns z.
 
 #### (*Int) [Not](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1270) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Not(x *Int) *Int
 ```
 
@@ -1030,7 +1030,7 @@ Not sets z = ^x and returns z.
 
 #### (*Int) [Or](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1210) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Or(x, y *Int) *Int
 ```
 
@@ -1038,7 +1038,7 @@ Or sets z = x | y and returns z.
 
 #### (*Int) [ProbablyPrime](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/prime.go;l=26) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) ProbablyPrime(n int) bool
 ```
 
@@ -1054,7 +1054,7 @@ As of Go 1.8, ProbablyPrime(0) is allowed and applies only a Baillie-PSW test. B
 
 #### (*Int) [Quo](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=259) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Quo(x, y *Int) *Int
 ```
 
@@ -1062,7 +1062,7 @@ Quo sets z to the quotient x/y for y != 0 and returns z. If y == 0, a division-b
 
 #### (*Int) [QuoRem](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=285) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) QuoRem(x, y, r *Int) (*Int, *Int)
 ```
 
@@ -1079,7 +1079,7 @@ r = x - y*q
 
 #### (*Int) [Rand](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=858) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Rand(rnd *rand.Rand, n *Int) *Int
 ```
 
@@ -1089,7 +1089,7 @@ As this uses the math/rand package, it must not be used for security-sensitive w
 
 #### (*Int) [Rem](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=268) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Rem(x, y *Int) *Int
 ```
 
@@ -1097,7 +1097,7 @@ Rem sets z to the remainder x%y for y != 0 and returns z. If y == 0, a division-
 
 #### (*Int) [Rsh](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1090) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Rsh(x *Int, n uint) *Int
 ```
 
@@ -1105,19 +1105,19 @@ Rsh sets z = x >> n and returns z.
 
 #### (*Int) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intconv.go;l=236) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Scan(s fmt.ScanState, ch rune) error
 ```
 
 Scan is a support routine for fmt.Scanner; it sets z to the value of the scanned number. It accepts the formats 'b' (binary), 'o' (octal), 'd' (decimal), 'x' (lowercase hexadecimal), and 'X' (uppercase hexadecimal).
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Int) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=88) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Set(x *Int) *Int
 ```
 
@@ -1125,7 +1125,7 @@ Set sets z to x and returns z.
 
 #### (*Int) [SetBit](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1130) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetBit(x *Int, i int, b uint) *Int
 ```
 
@@ -1133,7 +1133,7 @@ SetBit sets z to x, with x's i'th bit set to b (0 or 1). That is, if b is 1 SetB
 
 #### (*Int) [SetBits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetBits(abs []Word) *Int
 ```
 
@@ -1141,7 +1141,7 @@ SetBits provides raw (unchecked but fast) access to z by setting its value to ab
 
 #### (*Int) [SetBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=486) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetBytes(buf []byte) *Int
 ```
 
@@ -1149,7 +1149,7 @@ SetBytes interprets buf as the bytes of a big-endian unsigned integer, sets z to
 
 #### (*Int) [SetInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetInt64(x int64) *Int
 ```
 
@@ -1157,7 +1157,7 @@ SetInt64 sets z to x and returns z.
 
 #### (*Int) [SetString](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=467) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetString(s string, base int) (*Int, bool)
 ```
 
@@ -1170,12 +1170,12 @@ For bases <= 36, lower and upper case letters are considered the same: The lette
 For base 0, an underscore character "_" may appear between a base prefix and an adjacent digit, and between successive digits; such underscores do not change the value of the number. Incorrect placement of underscores is reported as an error if there are no other errors. If base != 0, underscores are not recognized and act like any other character that is not a valid digit.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Int) [SetUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=63)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (z *Int) SetUint64(x uint64) *Int
 ```
 
@@ -1183,7 +1183,7 @@ SetUint64 sets z to x and returns z.
 
 #### (*Int) [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) Sign() int
 ```
 
@@ -1197,7 +1197,7 @@ Sign returns:
 
 #### (*Int) [Sqrt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1286)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (z *Int) Sqrt(x *Int) *Int
 ```
 
@@ -1205,7 +1205,7 @@ Sqrt sets z to ⌊√x⌋, the largest integer such that z² ≤ x, and returns 
 
 #### (*Int) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intconv.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (x *Int) String() string
 ```
 
@@ -1213,7 +1213,7 @@ String returns the decimal representation of x as generated by x.Text(10).
 
 #### (*Int) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=155) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Sub(x, y *Int) *Int
 ```
 
@@ -1221,7 +1221,7 @@ Sub sets z to the difference x-y and returns z.
 
 #### (*Int) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intconv.go;l=21)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (x *Int) Text(base int) string
 ```
 
@@ -1229,7 +1229,7 @@ Text returns the string representation of x in the given base. Base must be betw
 
 #### (*Int) [TrailingZeroBits](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=527)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (x *Int) TrailingZeroBits() uint
 ```
 
@@ -1237,7 +1237,7 @@ TrailingZeroBits returns the number of consecutive least significant zero bits o
 
 #### (*Int) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=427)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (x *Int) Uint64() uint64
 ```
 
@@ -1245,7 +1245,7 @@ Uint64 returns the uint64 representation of x. If x cannot be represented in a u
 
 #### (*Int) [UnmarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=77)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (z *Int) UnmarshalJSON(text []byte) error
 ```
 
@@ -1253,7 +1253,7 @@ UnmarshalJSON implements the json.Unmarshaler interface.
 
 #### (*Int) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/intmarsh.go;l=57)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (z *Int) UnmarshalText(text []byte) error
 ```
 
@@ -1261,7 +1261,7 @@ UnmarshalText implements the encoding.TextUnmarshaler interface.
 
 #### (*Int) [Xor](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/int.go;l=1240) 
 
-``` go linenums="1"
+``` go 
 func (z *Int) Xor(x, y *Int) *Int
 ```
 
@@ -1269,7 +1269,7 @@ Xor sets z = x ^ y and returns z.
 
 ### type [Rat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=23) 
 
-``` go linenums="1"
+``` go 
 type Rat struct {
 	// contains filtered or unexported fields
 }
@@ -1281,7 +1281,7 @@ Operations always take pointer arguments (*Rat) rather than Rat values, and each
 
 #### func [NewRat](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func NewRat(a, b int64) *Rat
 ```
 
@@ -1289,7 +1289,7 @@ NewRat creates a new Rat with numerator a and denominator b.
 
 #### (*Rat) [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=366) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Abs(x *Rat) *Rat
 ```
 
@@ -1297,7 +1297,7 @@ Abs sets z to |x| (the absolute value of x) and returns z.
 
 #### (*Rat) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=492) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Add(x, y *Rat) *Rat
 ```
 
@@ -1305,7 +1305,7 @@ Add sets z to the sum x+y and returns z.
 
 #### (*Rat) [Cmp](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=484) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Cmp(y *Rat) int
 ```
 
@@ -1319,7 +1319,7 @@ Cmp compares x and y and returns:
 
 #### (*Rat) [Denom](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=419) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Denom() *Int
 ```
 
@@ -1327,7 +1327,7 @@ Denom returns the denominator of x; it is always > 0. The result is a reference 
 
 #### (*Rat) [Float32](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=273)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Float32() (f float32, exact bool)
 ```
 
@@ -1335,7 +1335,7 @@ Float32 returns the nearest float32 value for x and a bool indicating whether f 
 
 #### (*Rat) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=289)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Float64() (f float64, exact bool)
 ```
 
@@ -1343,7 +1343,7 @@ Float64 returns the nearest float64 value for x and a bool indicating whether f 
 
 #### (*Rat) [FloatString](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratconv.go;l=330) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) FloatString(prec int) string
 ```
 
@@ -1351,7 +1351,7 @@ FloatString returns a string representation of x in decimal form with prec digit
 
 #### (*Rat) [GobDecode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratmarsh.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) GobDecode(buf []byte) error
 ```
 
@@ -1359,7 +1359,7 @@ GobDecode implements the gob.GobDecoder interface.
 
 #### (*Rat) [GobEncode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratmarsh.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) GobEncode() ([]byte, error)
 ```
 
@@ -1367,7 +1367,7 @@ GobEncode implements the gob.GobEncoder interface.
 
 #### (*Rat) [Inv](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=381) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Inv(x *Rat) *Rat
 ```
 
@@ -1375,7 +1375,7 @@ Inv sets z to 1/x and returns z. If x == 0, Inv panics.
 
 #### (*Rat) [IsInt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=400) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) IsInt() bool
 ```
 
@@ -1383,7 +1383,7 @@ IsInt reports whether the denominator of x is 1.
 
 #### (*Rat) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratmarsh.go;l=72)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (x *Rat) MarshalText() (text []byte, err error)
 ```
 
@@ -1391,7 +1391,7 @@ MarshalText implements the encoding.TextMarshaler interface.
 
 #### (*Rat) [Mul](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=512) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Mul(x, y *Rat) *Rat
 ```
 
@@ -1399,7 +1399,7 @@ Mul sets z to the product x*y and returns z.
 
 #### (*Rat) [Neg](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=373) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Neg(x *Rat) *Rat
 ```
 
@@ -1407,7 +1407,7 @@ Neg sets z to -x and returns z.
 
 #### (*Rat) [Num](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=408) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Num() *Int
 ```
 
@@ -1415,7 +1415,7 @@ Num returns the numerator of x; it may be <= 0. The result is a reference to x's
 
 #### (*Rat) [Quo](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=531) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Quo(x, y *Rat) *Rat
 ```
 
@@ -1423,7 +1423,7 @@ Quo sets z to the quotient x/y and returns z. If y == 0, Quo panics.
 
 #### (*Rat) [RatString](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratconv.go;l=320) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) RatString() string
 ```
 
@@ -1431,19 +1431,19 @@ RatString returns a string representation of x in the form "a/b" if b != 1, and 
 
 #### (*Rat) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratconv.go;l=26) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Scan(s fmt.ScanState, ch rune) error
 ```
 
 Scan is a support routine for fmt.Scanner. It accepts the formats 'e', 'E', 'f', 'F', 'g', 'G', and 'v'. All formats are equivalent.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Rat) [Set](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=354) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Set(x *Rat) *Rat
 ```
 
@@ -1451,7 +1451,7 @@ Set sets z to x (by making a copy of x) and returns z.
 
 #### (*Rat) [SetFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=39)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetFloat64(f float64) *Rat
 ```
 
@@ -1459,7 +1459,7 @@ SetFloat64 sets z to exactly f and returns z. If f is not finite, SetFloat retur
 
 #### (*Rat) [SetFrac](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=303) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetFrac(a, b *Int) *Rat
 ```
 
@@ -1467,7 +1467,7 @@ SetFrac sets z to a/b and returns z. If b == 0, SetFrac panics.
 
 #### (*Rat) [SetFrac64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=319) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetFrac64(a, b int64) *Rat
 ```
 
@@ -1475,7 +1475,7 @@ SetFrac64 sets z to a/b and returns z. If b == 0, SetFrac64 panics.
 
 #### (*Rat) [SetInt](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=333) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetInt(x *Int) *Rat
 ```
 
@@ -1483,7 +1483,7 @@ SetInt sets z to x (by making a copy of x) and returns z.
 
 #### (*Rat) [SetInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=340) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetInt64(x int64) *Rat
 ```
 
@@ -1491,19 +1491,19 @@ SetInt64 sets z to x and returns z.
 
 #### (*Rat) [SetString](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratconv.go;l=58) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetString(s string) (*Rat, bool)
 ```
 
 SetString sets z to the value of s and returns z and a boolean indicating success. s can be given as a (possibly signed) fraction "a/b", or as a floating-point number optionally followed by an exponent. If a fraction is provided, both the dividend and the divisor may be a decimal integer or independently use a prefix of "0b", "0" or "0o", or "0x" (or their upper-case variants) to denote a binary, octal, or hexadecimal integer, respectively. The divisor may not be signed. If a floating-point number is provided, it may be in decimal form or use any of the same prefixes as above but for "0" to denote a non-decimal mantissa. A leading "0" is considered a decimal leading 0; it does not indicate octal representation in this case. An optional base-10 "e" or base-2 "p" (or their upper-case variants) exponent may be provided as well, except for hexadecimal floats which only accept an (optional) "p" exponent (because an "e" or "E" cannot be distinguished from a mantissa digit). If the exponent's absolute value is too large, the operation may fail. The entire string, not just a prefix, must be valid for success. If the operation failed, the value of z is undefined but the returned value is nil.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Rat) [SetUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=347)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (z *Rat) SetUint64(x uint64) *Rat
 ```
 
@@ -1511,7 +1511,7 @@ SetUint64 sets z to x and returns z.
 
 #### (*Rat) [Sign](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=395) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) Sign() int
 ```
 
@@ -1525,7 +1525,7 @@ Sign returns:
 
 #### (*Rat) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratconv.go;l=301) 
 
-``` go linenums="1"
+``` go 
 func (x *Rat) String() string
 ```
 
@@ -1533,7 +1533,7 @@ String returns a string representation of x in the form "a/b" (even if b == 1).
 
 #### (*Rat) [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/rat.go;l=502) 
 
-``` go linenums="1"
+``` go 
 func (z *Rat) Sub(x, y *Rat) *Rat
 ```
 
@@ -1541,7 +1541,7 @@ Sub sets z to the difference x-y and returns z.
 
 #### (*Rat) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/ratmarsh.go;l=80)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (z *Rat) UnmarshalText(text []byte) error
 ```
 
@@ -1549,17 +1549,17 @@ UnmarshalText implements the encoding.TextUnmarshaler interface.
 
 ### type [RoundingMode](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/float.go;l=132)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type RoundingMode byte
 ```
 
 RoundingMode determines how a Float value is rounded to the desired precision. Rounding may change the Float value; the rounding error is described by the Float's Accuracy.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
-``` go linenums="1"
+``` go 
 const (
 	ToNearestEven RoundingMode = iota // == IEEE 754-2008 roundTiesToEven
 	ToNearestAway                     // == IEEE 754-2008 roundTiesToAway
@@ -1574,13 +1574,13 @@ These constants define supported rounding modes.
 
 #### (RoundingMode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/roundingmode_string.go;l=11)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i RoundingMode) String() string
 ```
 
 ### type [Word](https://cs.opensource.google/go/go/+/go1.20.1:src/math/big/arith.go;l=16) 
 
-``` go linenums="1"
+``` go 
 type Word uint
 ```
 

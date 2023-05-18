@@ -16,21 +16,21 @@ draft = false
 
 这两个简单的声明是等同的：
 
-```go linenums="1"
+```go 
 var i int
 var i int = 0
 ```
 
 在
 
-```go linenums="1"
+```go 
 type T struct { i int; f float64; next *T }
 t := new(T)
 ```
 
 之后，以下情况成立：
 
-```go linenums="1"
+```go 
 t.i == 0
 t.f == 0.0
 t.next == nil
@@ -38,7 +38,7 @@ t.next == nil
 
  同样的情况，在以下情况下也会成立
 
-```go linenums="1"
+```go 
 var t T
 ```
 
@@ -52,7 +52,7 @@ var t T
 
 ​	变量声明左侧的多个变量（由右侧的单个（多值）表达式来初始化）是一起被初始化的：如果左侧的任何一个变量被初始化，那么所有这些变量都在同一步骤中被初始化。
 
-```go linenums="1"
+```go 
 var x = a
 var a, b = f() // a and b are initialized together, before x is initialized => a 和 b 是在 x 被初始化之前一起被初始化的
 ```
@@ -69,7 +69,7 @@ var a, b = f() // a and b are initialized together, before x is initialized => a
 
 例如，给定的声明有
 
-```go linenums="1"
+```go 
 var (
 	a = c + b  // == 9
 	b = f()    // == 4
@@ -89,7 +89,7 @@ func f() int {
 
 例如，给定的声明有
 
-```go linenums="1"
+```go 
 var x = I(T{}).ab()   // x has an undetected, hidden dependency on a and b => x 存在 在 a 和 b 上的未被发现的隐藏依赖
 var _ = sideEffect()  // unrelated to x, a, or b => 与 x, a, 或 b 无关
 var a = b
@@ -104,7 +104,7 @@ func (T) ab() []int   { return []int{a, b} }
 
 ​	变量也可以使用在包块中声明的（不带实参，也没有结果参数）的名为`init`的函数来初始化。
 
-```go linenums="1"
+```go 
 func init() { … }
 ```
 
@@ -120,7 +120,7 @@ func init() { … }
 
 ​	一个完整的程序是通过将一个名为（单个非导入包）`main`包与它所导入的所有包链接起来而创建的。主包必须有包名`main`，并声明一个不接受实参且不返回值的`main`函数。
 
-```go linenums="1"
+```go 
 func main() { … }
 ```
 

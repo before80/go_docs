@@ -84,7 +84,7 @@ For example:
 
 例如：
 
-``` go linenums="1"
+``` go 
 package server
 
 import "embed"
@@ -172,7 +172,7 @@ To support tools that analyze Go packages, the patterns found in //go:embed line
 为了支持分析Go包的工具，在//go:embed行中发现的模式可以在 "go list "输出中使用。参见 "go help list "输出中的EmbedPatterns、TestEmbedPatterns和XTestEmbedPatterns字段。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -197,7 +197,7 @@ This section is empty.
 
 ### type [FS](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=148) 
 
-``` go linenums="1"
+``` go 
 type FS struct {
 	// contains filtered or unexported fields
 }
@@ -221,7 +221,7 @@ See the package documentation for more details about initializing an FS.
 
 #### (FS) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=301) 
 
-``` go linenums="1"
+``` go 
 func (f FS) Open(name string) (fs.File, error)
 ```
 
@@ -235,7 +235,7 @@ The returned file implements io.Seeker when the file is not a directory.
 
 #### (FS) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=313) 
 
-``` go linenums="1"
+``` go 
 func (f FS) ReadDir(name string) ([]fs.DirEntry, error)
 ```
 
@@ -245,7 +245,7 @@ ReadDir读取并返回整个命名的目录。
 
 #### (FS) [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/embed/embed.go;l=330) 
 
-``` go linenums="1"
+``` go 
 func (f FS) ReadFile(name string) ([]byte, error)
 ```
 

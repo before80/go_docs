@@ -27,7 +27,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=191)
 
-``` go linenums="1"
+``` go 
 var ErrConnClosed = errors.New("fcgi: connection to web server closed")
 ```
 
@@ -35,7 +35,7 @@ ErrConnClosed is returned by Read when a handler attempts to read the body of a 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=187)
 
-``` go linenums="1"
+``` go 
 var ErrRequestAborted = errors.New("fcgi: request aborted by web server")
 ```
 
@@ -45,7 +45,7 @@ ErrRequestAborted is returned by Read when a handler attempts to read the body o
 
 #### func [ProcessEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=366)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func ProcessEnv(r *http.Request) map[string]string
 ```
 
@@ -53,7 +53,7 @@ ProcessEnv returns FastCGI environment variables associated with the request r f
 
 #### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/fcgi/child.go;l=339) 
 
-``` go linenums="1"
+``` go 
 func Serve(l net.Listener, handler http.Handler) error
 ```
 

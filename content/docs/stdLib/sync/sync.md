@@ -31,7 +31,7 @@ This section is empty.
 
 ### type [Cond](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=36) 
 
-``` go linenums="1"
+``` go 
 type Cond struct {
 
 	// 在观察或更改条件时保持 L
@@ -54,7 +54,7 @@ type Cond struct {
 
 #### func [NewCond](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func NewCond(l Locker) *Cond
 ```
 
@@ -62,7 +62,7 @@ func NewCond(l Locker) *Cond
 
 #### (*Cond) [Broadcast](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func (c *Cond) Broadcast()
 ```
 
@@ -84,7 +84,7 @@ func (c *Cond) Signal()
 
 #### (*Cond) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/cond.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (c *Cond) Wait()
 ```
 
@@ -103,7 +103,7 @@ c.L.Unlock()
 
 ### type [Locker](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=40) 
 
-``` go linenums="1"
+``` go 
 type Locker interface {
 	Lock()
 	Unlock()
@@ -114,7 +114,7 @@ type Locker interface {
 
 ### type [Map](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=35)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type Map struct {
 	// contains filtered or unexported fields
 }
@@ -132,7 +132,7 @@ type Map struct {
 
 #### (*Map) [CompareAndDelete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=406)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (m *Map) CompareAndDelete(key, old any) (deleted bool)
 ```
 
@@ -142,7 +142,7 @@ func (m *Map) CompareAndDelete(key, old any) (deleted bool)
 
 #### (*Map) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=374)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (m *Map) CompareAndSwap(key, old, new any) bool
 ```
 
@@ -150,7 +150,7 @@ func (m *Map) CompareAndSwap(key, old, new any) bool
 
 #### (*Map) [Delete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=296)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (m *Map) Delete(key any)
 ```
 
@@ -158,7 +158,7 @@ func (m *Map) Delete(key any)
 
 #### (*Map) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=120)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (m *Map) Load(key any) (value any, ok bool)
 ```
 
@@ -166,7 +166,7 @@ func (m *Map) Load(key any) (value any, ok bool)
 
 #### (*Map) [LoadAndDelete](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=272)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (m *Map) LoadAndDelete(key any) (value any, loaded bool)
 ```
 
@@ -174,7 +174,7 @@ func (m *Map) LoadAndDelete(key any) (value any, loaded bool)
 
 #### (*Map) [LoadOrStore](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=203)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (m *Map) LoadOrStore(key, value any) (actual any, loaded bool)
 ```
 
@@ -182,7 +182,7 @@ func (m *Map) LoadOrStore(key, value any) (actual any, loaded bool)
 
 #### (*Map) [Range](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=449)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (m *Map) Range(f func(key, value any) bool)
 ```
 
@@ -194,7 +194,7 @@ func (m *Map) Range(f func(key, value any) bool)
 
 #### (*Map) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=154)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (m *Map) Store(key, value any)
 ```
 
@@ -202,7 +202,7 @@ func (m *Map) Store(key, value any)
 
 #### (*Map) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/map.go;l=330)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (m *Map) Swap(key, value any) (previous any, loaded bool)
 ```
 
@@ -210,7 +210,7 @@ func (m *Map) Swap(key, value any) (previous any, loaded bool)
 
 ### type [Mutex](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=34) 
 
-``` go linenums="1"
+``` go 
 type Mutex struct {
 	// contains filtered or unexported fields
 }
@@ -224,7 +224,7 @@ type Mutex struct {
 
 #### (*Mutex) [Lock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func (m *Mutex) Lock()
 ```
 
@@ -232,7 +232,7 @@ func (m *Mutex) Lock()
 
 #### (*Mutex) [TryLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=98)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (m *Mutex) TryLock() bool
 ```
 
@@ -242,7 +242,7 @@ func (m *Mutex) TryLock() bool
 
 #### (*Mutex) [Unlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/mutex.go;l=212) 
 
-``` go linenums="1"
+``` go 
 func (m *Mutex) Unlock()
 ```
 
@@ -252,7 +252,7 @@ func (m *Mutex) Unlock()
 
 ### type [Once](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/once.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Once struct {
 	// contains filtered or unexported fields
 }
@@ -265,7 +265,7 @@ type Once struct {
 ​	在 Go 内存模型的术语中，f 函数的返回值在 any 调用 once.Do(f) 的返回值之前"同步"。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -296,13 +296,13 @@ Only once
 
 #### (*Once) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/once.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (o *Once) Do(f func())
 ```
 
 ​	Do方法只在第一次针对该 Once 实例调用 Do 时调用函数 f。换句话说，给定
 
-``` go linenums="1"
+``` go 
 var once Once
 ```
 
@@ -320,7 +320,7 @@ config.once.Do(func() { config.init(filename) })
 
 ### type [Pool](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=49)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type Pool struct {
 
 	// New optionally specifies a function to generate
@@ -350,7 +350,7 @@ type Pool struct {
 ​	在 Go 内存模型的术语中，Put(x) 的调用"在" Get 返回同一值 x 之前同步。同样，New 返回 x 的调用"在" Get 返回同一值 x 之前同步。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -398,7 +398,7 @@ Output:
 
 #### (*Pool) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=127)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (p *Pool) Get() any
 ```
 
@@ -408,7 +408,7 @@ func (p *Pool) Get() any
 
 #### (*Pool) [Put](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/pool.go;l=95)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (p *Pool) Put(x any)
 ```
 
@@ -416,7 +416,7 @@ func (p *Pool) Put(x any)
 
 ### type [RWMutex](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=36) 
 
-``` go linenums="1"
+``` go 
 type RWMutex struct {
 	// contains filtered or unexported fields
 }
@@ -432,7 +432,7 @@ type RWMutex struct {
 
 #### (*RWMutex) [Lock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) Lock()
 ```
 
@@ -440,7 +440,7 @@ func (rw *RWMutex) Lock()
 
 #### (*RWMutex) [RLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) RLock()
 ```
 
@@ -450,7 +450,7 @@ func (rw *RWMutex) RLock()
 
 #### (*RWMutex) [RLocker](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) RLocker() Locker
 ```
 
@@ -458,7 +458,7 @@ func (rw *RWMutex) RLocker() Locker
 
 #### (*RWMutex) [RUnlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=111) 
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) RUnlock()
 ```
 
@@ -466,7 +466,7 @@ func (rw *RWMutex) RUnlock()
 
 #### (*RWMutex) [TryLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=166)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) TryLock() bool
 ```
 
@@ -476,7 +476,7 @@ func (rw *RWMutex) TryLock() bool
 
 #### (*RWMutex) [TryRLock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=84)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) TryRLock() bool
 ```
 
@@ -486,7 +486,7 @@ func (rw *RWMutex) TryRLock() bool
 
 #### (*RWMutex) [Unlock](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/rwmutex.go;l=198) 
 
-``` go linenums="1"
+``` go 
 func (rw *RWMutex) Unlock()
 ```
 
@@ -496,7 +496,7 @@ func (rw *RWMutex) Unlock()
 
 ### type [WaitGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=23) 
 
-``` go linenums="1"
+``` go 
 type WaitGroup struct {
 	// contains filtered or unexported fields
 }
@@ -509,7 +509,7 @@ type WaitGroup struct {
 ​	在Go内存模型的术语中，Done的调用"在"解除任何Wait调用之前"同步返回它的阻塞。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -548,7 +548,7 @@ func main() {
 
 #### (*WaitGroup) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (wg *WaitGroup) Add(delta int)
 ```
 
@@ -558,7 +558,7 @@ func (wg *WaitGroup) Add(delta int)
 
 #### (*WaitGroup) [Done](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func (wg *WaitGroup) Done()
 ```
 
@@ -566,7 +566,7 @@ func (wg *WaitGroup) Done()
 
 #### (*WaitGroup) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/waitgroup.go;l=91) 
 
-``` go linenums="1"
+``` go 
 func (wg *WaitGroup) Wait()
 ```
 

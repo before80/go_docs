@@ -22,7 +22,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/path/match.go;l=14)
 
-``` go linenums="1"
+``` go 
 var ErrBadPattern = errors.New("syntax error in pattern")
 ```
 
@@ -32,14 +32,14 @@ var ErrBadPattern = errors.New("syntax error in pattern")
 
 #### func [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func Base(path string) string
 ```
 
 ​	Base函数返回path的最后一个元素。在提取最后一个元素之前，尾部的斜杠将被删除。如果路径为空，则Base返回"."。如果路径完全由斜杠组成，则Base返回"/"。
 
 ##### Base Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -61,7 +61,7 @@ b
 
 #### func [Clean](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func Clean(path string) string
 ```
 
@@ -79,7 +79,7 @@ func Clean(path string) string
 ​	请参见Rob Pike，"Plan 9中的词法文件名或正确处理点-点"，https://9p.io/sys/doc/lexnames.html
 
 ##### Clean Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -116,14 +116,14 @@ Clean("") = "."
 
 #### func [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=230) 
 
-``` go linenums="1"
+``` go 
 func Dir(path string) string
 ```
 
 ​	Dir函数返回路径path中除去最后一个元素后的路径(即路径的目录部分)。使用Split去掉最后一个元素，然后将路径清理并删除尾部的斜杠。如果路径为空，则Dir返回"."。如果路径由一系列斜杠后跟非斜杠字符组成，则Dir返回单个斜杠。在任何其他情况下，返回的路径不以斜杠结尾。
 
 ##### Dir Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -151,14 +151,14 @@ a
 
 #### func [Ext](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=186) 
 
-``` go linenums="1"
+``` go 
 func Ext(path string) string
 ```
 
 ​	Ext函数返回路径path的文件扩展名。扩展名是路径的最终斜杠分隔元素中最后一个点号开始的后缀；如果没有点，则为空。
 
 ##### Ext Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -178,14 +178,14 @@ Output:
 
 #### func [IsAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=219) 
 
-``` go linenums="1"
+``` go 
 func IsAbs(path string) bool
 ```
 
 ​	IsAbs函数报告路径path是否是绝对路径。
 
 ##### IsAbs Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -203,14 +203,14 @@ true
 
 #### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=162) 
 
-``` go linenums="1"
+``` go 
 func Join(elem ...string) string
 ```
 
 ​	Join函数将任意数量的路径元素连接成单个路径，使用斜杠进行分隔。忽略空元素。结果会被清理。但是，如果参数列表为空或其所有元素都为空，则Join返回一个空字符串。
 
 ##### Join Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -243,7 +243,7 @@ a
 
 #### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/path/match.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func Match(pattern, name string) (matched bool, err error)
 ```
 
@@ -269,7 +269,7 @@ character-range:
 ​	Match函数要求pattern与name完全匹配，而不仅仅是子字符串。可能返回的唯一错误是ErrBadPattern，当pattern格式不正确时。
 
 ##### Match Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -291,14 +291,14 @@ false <nil>
 
 #### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/path/path.go;l=152) 
 
-``` go linenums="1"
+``` go 
 func Split(path string) (dir, file string)
 ```
 
 ​	Split函数在最后一个斜杠后立即拆分path，将其分成目录和文件名两个组成部分。如果path中没有斜杠，则Split返回一个空目录和一个文件名设置为path的文件名。返回值的属性为path = dir + file。
 
 ##### Split Example
-``` go linenums="1"
+``` go 
 package main
 
 import (

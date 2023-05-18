@@ -22,7 +22,7 @@ draft = false
 
 (1)不要在结构类型中存储 Context；相反，将 Context 显式传递给需要它的每个函数。Context 应该是第一个参数，通常命名为 ctx：
 
-```go linenums="1"
+```go 
 func DoSomething(ctx context.Context, arg Arg) error {
 	// ... use ctx ...
 }
@@ -45,7 +45,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=163)
 
-```go linenums="1"
+```go 
 var Canceled = errors.New("context canceled")
 ```
 
@@ -53,7 +53,7 @@ var Canceled = errors.New("context canceled")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=167)
 
-```go linenums="1"
+```go 
 var DeadlineExceeded error = deadlineExceededError{}
 ```
 
@@ -63,7 +63,7 @@ var DeadlineExceeded error = deadlineExceededError{}
 
 #### func [Cause](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=286)  <- go1.20
 
-```go linenums="1"
+```go 
 func Cause(c Context) error
 ```
 
@@ -71,7 +71,7 @@ func Cause(c Context) error
 
 #### func [WithCancel](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=238) 
 
-```go linenums="1"
+```go 
 func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
 ```
 
@@ -83,7 +83,7 @@ func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
 
 ​	这个例子演示了使用可取消的上下文来防止 Goroutine 泄漏。在例子函数的结尾处，由 gen 启动的 Goroutine 将在不泄漏的情况下返回。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -131,7 +131,7 @@ Output:
 
 #### func [WithCancelCause](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=266)  <- go1.20
 
-```go linenums="1"
+```go 
 func WithCancelCause(parent Context) (ctx Context, cancel CancelCauseFunc)
 ```
 
@@ -139,7 +139,7 @@ func WithCancelCause(parent Context) (ctx Context, cancel CancelCauseFunc)
 
 例如使用：
 
-```go linenums="1"
+```go 
 ctx, cancel := context.WithCancelCause(parent)
 cancel(myError)
 ctx.Err() // returns context.Canceled
@@ -148,7 +148,7 @@ context.Cause(ctx) // returns myError
 
 #### func [WithDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=494) 
 
-```go linenums="1"
+```go 
 func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 ```
 
@@ -160,7 +160,7 @@ func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 
 此示例传递了一个带有任意deadline 的上下文，以告诉阻塞函数，它应该在到达deadline 后立即放弃它的工作。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -195,7 +195,7 @@ context deadline exceeded
 
 #### func [WithTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=566) 
 
-```go linenums="1"
+```go 
 func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 ```
 
@@ -203,7 +203,7 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 
 ​	取消此Context会释放与其关联的资源，因此代码应在此Context中运行的操作完成后尽快调用cancel：
 
-```go linenums="1"
+```go 
 func slowOperationWithTimeout(ctx context.Context) (Result, error) {
 	ctx, cancel := context.WithTimeout(ctx, 100*time.Millisecond)
 	defer cancel()  // 如果slowOperation在超时前完成，则释放资源
@@ -215,7 +215,7 @@ func slowOperationWithTimeout(ctx context.Context) (Result, error) {
 
 此示例传递了一个带有超时的上下文，以告诉阻塞函数在超时过后应该放弃它的工作。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -249,7 +249,7 @@ context deadline exceeded
 
 ### type [CancelCauseFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=253)  <- go1.20
 
-```go linenums="1"
+```go 
 type CancelCauseFunc func(cause error)
 ```
 
@@ -262,7 +262,7 @@ type CancelCauseFunc func(cause error)
 
 ### type [CancelFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=230) 
 
-```go linenums="1"
+```go 
 type CancelFunc func()
 ```
 
@@ -270,7 +270,7 @@ type CancelFunc func()
 
 ### type [Context](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=68) 
 
-```go linenums="1"
+```go 
 type Context interface {
     // Deadline返回代表该上下文所做的工作应该被取消的时间。
     // 如果没有设置deadline，Deadline方法返回ok==false。
@@ -367,7 +367,7 @@ type Context interface {
 
 #### func [Background](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=214) 
 
-```go linenums="1"
+```go 
 func Background() Context
 ```
 
@@ -375,7 +375,7 @@ func Background() Context
 
 #### func [TODO](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=222) 
 
-```go linenums="1"
+```go 
 func TODO() Context
 ```
 
@@ -383,7 +383,7 @@ func TODO() Context
 
 #### func [WithValue](https://cs.opensource.google/go/go/+/go1.20.1:src/context/context.go;l=583) 
 
-```go linenums="1"
+```go 
 func WithValue(parent Context, key, val any) Context
 ```
 
@@ -394,7 +394,7 @@ func WithValue(parent Context, key, val any) Context
 ​	所提供的key 必须是可比较的，不应该是字符串或任何其他内置类型，以避免不同包之间的冲突。使用WithValue的用户应该为它们自己的key 定义类型。为了避免在分配给接口{}时分配内存，context键通常具有具体类型struct{}。或者，导出的上下文key 变量的静态类型应该是指针或接口。
 
 ##### WithValue Example
-``` go linenums="1"
+``` go 
 package main
 
 import (

@@ -31,7 +31,7 @@ This section is empty.
 
 ### type [Handle](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=97) 
 
-``` go linenums="1"
+``` go 
 type Handle uintptr
 ```
 
@@ -41,7 +41,7 @@ The underlying type of Handle is guaranteed to fit in an integer type that is la
 
 For instance, on the Go side:
 
-``` go linenums="1"
+``` go 
 package main
 
 /*
@@ -84,7 +84,7 @@ void myprint(uintptr_t handle) {
 
 Some C functions accept a void* argument that points to an arbitrary data value supplied by the caller. It is not safe to coerce a cgo.Handle (an integer) to a Go unsafe.Pointer, but instead we can pass the address of the cgo.Handle to the void* parameter, as in this variant of the previous example:
 
-``` go linenums="1"
+``` go 
 package main
 
 /*
@@ -117,7 +117,7 @@ func main() {
 
 #### func [NewHandle](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=108) 
 
-``` go linenums="1"
+``` go 
 func NewHandle(v any) Handle
 ```
 
@@ -129,7 +129,7 @@ The intended use is to pass the returned handle to C code, which passes it back 
 
 #### (Handle) [Delete](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (h Handle) Delete()
 ```
 
@@ -139,7 +139,7 @@ The method panics if the handle is invalid.
 
 #### (Handle) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/handle.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func (h Handle) Value() any
 ```
 
@@ -149,7 +149,7 @@ The method panics if the handle is invalid.
 
 ### type [Incomplete](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/cgo/cgo.go;l=38)  <- go1.20
 
-``` go linenums="1"
+``` go 
 type Incomplete struct {
 	// contains filtered or unexported fields
 }

@@ -18,7 +18,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=15)
 
-``` go linenums="1"
+``` go 
 const (
 	RuneError = '\uFFFD'     //  "错误" 符文或 "Unicode 替换字符"
 	RuneSelf  = 0x80         // 低于 RuneSelf 的字符可以用单个字节表示。
@@ -37,14 +37,14 @@ This section is empty.
 
 #### func [AppendRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=375)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func AppendRune(p []byte, r rune) []byte
 ```
 
 ​	AppendRune函数将 r 的 UTF-8 编码附加到 p 的结尾并返回扩展后的缓冲区。如果符文超出范围，则附加 RuneError 的编码。
 
 ##### AppendRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -66,7 +66,7 @@ init𐀀
 
 #### func [DecodeLastRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=247) 
 
-``` go linenums="1"
+``` go 
 func DecodeLastRune(p []byte) (r rune, size int)
 ```
 
@@ -75,7 +75,7 @@ func DecodeLastRune(p []byte) (r rune, size int)
 ​	如果编码不正确，编码超出范围或不是该值的最短可能UTF-8编码，则编码无效。不执行其他验证。
 
 ##### DecodeLastRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -108,7 +108,7 @@ H 1
 
 #### func [DecodeLastRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=287) 
 
-``` go linenums="1"
+``` go 
 func DecodeLastRuneInString(s string) (r rune, size int)
 ```
 
@@ -117,7 +117,7 @@ func DecodeLastRuneInString(s string) (r rune, size int)
 ​	如果编码不正确，编码超出范围或不是该值的最短可能UTF-8编码，则编码无效。不执行其他验证。
 
 ##### DecodeLastRuneInString Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -150,7 +150,7 @@ H 1
 
 #### func [DecodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func DecodeRune(p []byte) (r rune, size int)
 ```
 
@@ -159,7 +159,7 @@ func DecodeRune(p []byte) (r rune, size int)
 ​	如果编码不正确，编码超出范围或不是该值的最短可能UTF-8编码，则编码无效。不执行其他验证。
 
 ##### DecodeRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -192,7 +192,7 @@ o 1
 
 #### func [DecodeRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func DecodeRuneInString(s string) (r rune, size int)
 ```
 
@@ -201,7 +201,7 @@ func DecodeRuneInString(s string) (r rune, size int)
 ​	如果编码不正确，编码超出范围或不是该值的最短可能UTF-8编码，则编码无效。不执行其他验证。
 
 ##### DecodeRuneInString Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -234,7 +234,7 @@ o 1
 
 #### func [EncodeRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=342) 
 
-``` go linenums="1"
+``` go 
 func EncodeRune(p []byte, r rune) int
 ```
 
@@ -243,7 +243,7 @@ EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the 
 EncodeRune函数将符文的UTF-8编码写入p(p必须足够大)。如果符文超出范围，则写入RuneError的编码。返回写入的字节数。
 
 ##### EncodeRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -267,7 +267,7 @@ Output:
 ```
 
 ##### EncodeRune Example(OutOfRange)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -299,14 +299,14 @@ Output:
 
 #### func [FullRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func FullRune(p []byte) bool
 ```
 
 ​	FullRune函数报告p中的字节是否以完整的UTF-8符文编码开头。无效的编码被认为是完整的符文，因为它们将转换为宽度为1的错误符文。 
 
 ##### FullRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -327,14 +327,14 @@ false
 
 #### func [FullRuneInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=124) 
 
-``` go linenums="1"
+``` go 
 func FullRuneInString(s string) bool
 ```
 
 ​	FullRuneInString函数类似于FullRune，但其输入是字符串。
 
 ##### FullRuneInString Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -355,14 +355,14 @@ false
 
 #### func [RuneCount](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=400) 
 
-``` go linenums="1"
+``` go 
 func RuneCount(p []byte) int
 ```
 
 ​	RuneCount函数返回p中符文的数量。错误和短编码被视为宽度为1个字节的单个符文。
 
 ##### RuneCount Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -383,14 +383,14 @@ runes = 9
 
 #### func [RuneCountInString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=437) 
 
-``` go linenums="1"
+``` go 
 func RuneCountInString(s string) (n int)
 ```
 
 ​	RuneCountInString函数类似于RuneCount，但其输入是字符串。
 
 ##### RuneCountInString Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -411,14 +411,14 @@ runes = 9
 
 #### func [RuneLen](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=321) 
 
-``` go linenums="1"
+``` go 
 func RuneLen(r rune) int
 ```
 
 ​	RuneLen函数返回编码符文所需的字节数。如果符文不是UTF-8的有效值，则返回-1。
 
 ##### RuneLen Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -438,14 +438,14 @@ Output:
 
 #### func [RuneStart](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=474) 
 
-``` go linenums="1"
+``` go 
 func RuneStart(b byte) bool
 ```
 
 ​	RuneStart函数报告字节是否可以是编码的第一个字节，可能无效。第二个及后续字节的前两位始终设置为10。
 
 ##### RuneStart Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -468,14 +468,14 @@ false
 
 #### func [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=477) 
 
-``` go linenums="1"
+``` go 
 func Valid(p []byte) bool
 ```
 
 ​	Valid函数报告p是否完全由有效的UTF-8编码符文组成。
 
 ##### Valid Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -498,14 +498,14 @@ false
 
 #### func [ValidRune](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=575)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ValidRune(r rune) bool
 ```
 
 ​	ValidRune函数报告r是否可以合法地编码为UTF-8。超出范围或替代字符的一半的代码点是非法的。
 
 ##### ValidRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -528,14 +528,14 @@ false
 
 #### func [ValidString](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/utf8/utf8.go;l=528) 
 
-``` go linenums="1"
+``` go 
 func ValidString(s string) bool
 ```
 
 ​	ValidString函数报告s是否完全由有效的UTF-8编码符文组成。
 
 ##### ValidString Example
-``` go linenums="1"
+``` go 
 package main
 
 import (

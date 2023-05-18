@@ -25,7 +25,7 @@ This package is not designed to be hardened against adversarial inputs, and is o
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=33)
 
-``` go linenums="1"
+``` go 
 const (
 	Magic32  uint32 = 0xfeedface
 	Magic64  uint32 = 0xfeedfacf
@@ -35,7 +35,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=203)
 
-``` go linenums="1"
+``` go 
 const (
 	FlagNoUndefs              uint32 = 0x1
 	FlagIncrLink              uint32 = 0x2
@@ -70,7 +70,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=41)
 
-``` go linenums="1"
+``` go 
 var ErrNotFat = &FormatError{0, "not a fat Mach-O file", nil}
 ```
 
@@ -84,13 +84,13 @@ This section is empty.
 
 ### type [Cpu](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=60) 
 
-``` go linenums="1"
+``` go 
 type Cpu uint32
 ```
 
 A Cpu is a Mach-O cpu type.
 
-``` go linenums="1"
+``` go 
 const (
 	Cpu386   Cpu = 7
 	CpuAmd64 Cpu = Cpu386 | cpuArch64
@@ -103,19 +103,19 @@ const (
 
 #### (Cpu) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=83) 
 
-``` go linenums="1"
+``` go 
 func (i Cpu) GoString() string
 ```
 
 #### (Cpu) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func (i Cpu) String() string
 ```
 
 ### type [Dylib](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=142) 
 
-``` go linenums="1"
+``` go 
 type Dylib struct {
 	LoadBytes
 	Name           string
@@ -129,7 +129,7 @@ A Dylib represents a Mach-O load dynamic library command.
 
 ### type [DylibCmd](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=178) 
 
-``` go linenums="1"
+``` go 
 type DylibCmd struct {
 	Cmd            LoadCmd
 	Len            uint32
@@ -144,7 +144,7 @@ A DylibCmd is a Mach-O load dynamic library command.
 
 ### type [Dysymtab](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=158) 
 
-``` go linenums="1"
+``` go 
 type Dysymtab struct {
 	LoadBytes
 	DysymtabCmd
@@ -156,7 +156,7 @@ A Dysymtab represents a Mach-O dynamic symbol table command.
 
 ### type [DysymtabCmd](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=154) 
 
-``` go linenums="1"
+``` go 
 type DysymtabCmd struct {
 	Cmd            LoadCmd
 	Len            uint32
@@ -185,7 +185,7 @@ A DysymtabCmd is a Mach-O dynamic symbol table command.
 
 ### type [FatArch](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=34)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type FatArch struct {
 	FatArchHeader
 	*File
@@ -196,7 +196,7 @@ A FatArch is a Mach-O File inside a FatFile.
 
 ### type [FatArchHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=23)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type FatArchHeader struct {
 	Cpu    Cpu
 	SubCpu uint32
@@ -210,7 +210,7 @@ A FatArchHeader represents a fat header for a specific image architecture.
 
 ### type [FatFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=16)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type FatFile struct {
 	Magic  uint32
 	Arches []FatArch
@@ -222,7 +222,7 @@ A FatFile is a Mach-O universal binary that contains at least one architecture.
 
 #### func [NewFatFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=46)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func NewFatFile(r io.ReaderAt) (*FatFile, error)
 ```
 
@@ -230,7 +230,7 @@ NewFatFile creates a new FatFile for accessing all the Mach-O images in a univer
 
 #### func [OpenFat](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=132)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func OpenFat(name string) (*FatFile, error)
 ```
 
@@ -238,13 +238,13 @@ OpenFat opens the named file using os.Open and prepares it for use as a Mach-O u
 
 #### (*FatFile) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/fat.go;l=146)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (ff *FatFile) Close() error
 ```
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=33) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	FileHeader
 	ByteOrder binary.ByteOrder
@@ -261,7 +261,7 @@ A File represents an open Mach-O file.
 
 #### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func NewFile(r io.ReaderAt) (*File, error)
 ```
 
@@ -269,7 +269,7 @@ NewFile creates a new File for accessing a Mach-O binary in an underlying reader
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=201) 
 
-``` go linenums="1"
+``` go 
 func Open(name string) (*File, error)
 ```
 
@@ -277,7 +277,7 @@ Open opens the named file using os.Open and prepares it for use as a Mach-O bina
 
 #### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=218) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Close() error
 ```
 
@@ -285,7 +285,7 @@ Close closes the File. If the File was created using NewFile directly instead of
 
 #### (*File) [DWARF](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=609) 
 
-``` go linenums="1"
+``` go 
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
@@ -293,7 +293,7 @@ DWARF returns the DWARF debug information for the Mach-O file.
 
 #### (*File) [ImportedLibraries](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=718) 
 
-``` go linenums="1"
+``` go 
 func (f *File) ImportedLibraries() ([]string, error)
 ```
 
@@ -301,7 +301,7 @@ ImportedLibraries returns the paths of all libraries referred to by the binary f
 
 #### (*File) [ImportedSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=701) 
 
-``` go linenums="1"
+``` go 
 func (f *File) ImportedSymbols() ([]string, error)
 ```
 
@@ -309,7 +309,7 @@ ImportedSymbols returns the names of all symbols referred to by the binary f tha
 
 #### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=599) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Section(name string) *Section
 ```
 
@@ -317,7 +317,7 @@ Section returns the first section with the given name, or nil if no such section
 
 #### (*File) [Segment](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=588) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Segment(name string) *Segment
 ```
 
@@ -325,7 +325,7 @@ Segment returns the first Segment with the given name, or nil if no such segment
 
 ### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type FileHeader struct {
 	Magic  uint32
 	Cpu    Cpu
@@ -341,7 +341,7 @@ A FileHeader represents a Mach-O file header.
 
 ### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=185) 
 
-``` go linenums="1"
+``` go 
 type FormatError struct {
 	// contains filtered or unexported fields
 }
@@ -351,13 +351,13 @@ FormatError is returned by some operations if the data does not have the correct
 
 #### (*FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (e *FormatError) Error() string
 ```
 
 ### type [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=46) 
 
-``` go linenums="1"
+``` go 
 type Load interface {
 	Raw() []byte
 }
@@ -367,7 +367,7 @@ A Load represents any Mach-O load command.
 
 ### type [LoadBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=51) 
 
-``` go linenums="1"
+``` go 
 type LoadBytes []byte
 ```
 
@@ -375,19 +375,19 @@ A LoadBytes is the uninterpreted bytes of a Mach-O load command.
 
 #### (LoadBytes) [Raw](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func (b LoadBytes) Raw() []byte
 ```
 
 ### type [LoadCmd](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type LoadCmd uint32
 ```
 
 A LoadCmd is a Mach-O load command.
 
-``` go linenums="1"
+``` go 
 const (
 	LoadCmdSegment    LoadCmd = 0x1
 	LoadCmdSymtab     LoadCmd = 0x2
@@ -403,19 +403,19 @@ const (
 
 #### (LoadCmd) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=110) 
 
-``` go linenums="1"
+``` go 
 func (i LoadCmd) GoString() string
 ```
 
 #### (LoadCmd) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=109) 
 
-``` go linenums="1"
+``` go 
 func (i LoadCmd) String() string
 ```
 
 ### type [Nlist32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=264) 
 
-``` go linenums="1"
+``` go 
 type Nlist32 struct {
 	Name  uint32
 	Type  uint8
@@ -429,7 +429,7 @@ An Nlist32 is a Mach-O 32-bit symbol table entry.
 
 ### type [Nlist64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=273) 
 
-``` go linenums="1"
+``` go 
 type Nlist64 struct {
 	Name  uint32
 	Type  uint8
@@ -443,7 +443,7 @@ An Nlist64 is a Mach-O 64-bit symbol table entry.
 
 ### type [Regs386](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=282) 
 
-``` go linenums="1"
+``` go 
 type Regs386 struct {
 	AX    uint32
 	BX    uint32
@@ -468,7 +468,7 @@ Regs386 is the Mach-O 386 register structure.
 
 ### type [RegsAMD64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=302) 
 
-``` go linenums="1"
+``` go 
 type RegsAMD64 struct {
 	AX    uint64
 	BX    uint64
@@ -498,7 +498,7 @@ RegsAMD64 is the Mach-O AMD64 register structure.
 
 ### type [Reloc](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=106)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type Reloc struct {
 	Addr  uint32
 	Value uint32
@@ -517,7 +517,7 @@ A Reloc represents a Mach-O relocation.
 
 ### type [RelocTypeARM](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=39)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type RelocTypeARM int
 const (
 	ARM_RELOC_VANILLA        RelocTypeARM = 0
@@ -535,19 +535,19 @@ const (
 
 #### (RelocTypeARM) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=54)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (r RelocTypeARM) GoString() string
 ```
 
 #### (RelocTypeARM) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype_string.go;l=33)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (i RelocTypeARM) String() string
 ```
 
 ### type [RelocTypeARM64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=56)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type RelocTypeARM64 int
 const (
 	ARM64_RELOC_UNSIGNED            RelocTypeARM64 = 0
@@ -566,19 +566,19 @@ const (
 
 #### (RelocTypeARM64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=72)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (r RelocTypeARM64) GoString() string
 ```
 
 #### (RelocTypeARM64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype_string.go;l=44)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (i RelocTypeARM64) String() string
 ```
 
 ### type [RelocTypeGeneric](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=9)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type RelocTypeGeneric int
 const (
 	GENERIC_RELOC_VANILLA        RelocTypeGeneric = 0
@@ -592,19 +592,19 @@ const (
 
 #### (RelocTypeGeneric) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=20)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (r RelocTypeGeneric) GoString() string
 ```
 
 #### (RelocTypeGeneric) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype_string.go;l=11)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (i RelocTypeGeneric) String() string
 ```
 
 ### type [RelocTypeX86_64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=22)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type RelocTypeX86_64 int
 const (
 	X86_64_RELOC_UNSIGNED   RelocTypeX86_64 = 0
@@ -622,19 +622,19 @@ const (
 
 #### (RelocTypeX86_64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype.go;l=37)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (r RelocTypeX86_64) GoString() string
 ```
 
 #### (RelocTypeX86_64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/reloctype_string.go;l=22)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (i RelocTypeX86_64) String() string
 ```
 
 ### type [Rpath](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=165)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type Rpath struct {
 	LoadBytes
 	Path string
@@ -645,7 +645,7 @@ A Rpath represents a Mach-O rpath command.
 
 ### type [RpathCmd](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=188)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type RpathCmd struct {
 	Cmd  LoadCmd
 	Len  uint32
@@ -657,7 +657,7 @@ A RpathCmd is a Mach-O rpath command.
 
 ### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=119) 
 
-``` go linenums="1"
+``` go 
 type Section struct {
 	SectionHeader
 	Relocs []Reloc
@@ -675,7 +675,7 @@ type Section struct {
 
 #### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Data() ([]byte, error)
 ```
 
@@ -683,7 +683,7 @@ Data reads and returns the contents of the Mach-O section.
 
 #### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Open() io.ReadSeeker
 ```
 
@@ -691,7 +691,7 @@ Open returns a new ReadSeeker reading the Mach-O section.
 
 ### type [Section32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=233) 
 
-``` go linenums="1"
+``` go 
 type Section32 struct {
 	Name     [16]byte
 	Seg      [16]byte
@@ -711,7 +711,7 @@ A Section32 is a 32-bit Mach-O section header.
 
 ### type [Section64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=248) 
 
-``` go linenums="1"
+``` go 
 type Section64 struct {
 	Name     [16]byte
 	Seg      [16]byte
@@ -732,7 +732,7 @@ A Section64 is a 64-bit Mach-O section header.
 
 ### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=93) 
 
-``` go linenums="1"
+``` go 
 type SectionHeader struct {
 	Name   string
 	Seg    string
@@ -748,7 +748,7 @@ type SectionHeader struct {
 
 ### type [Segment](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=71) 
 
-``` go linenums="1"
+``` go 
 type Segment struct {
 	LoadBytes
 	SegmentHeader
@@ -768,7 +768,7 @@ A Segment represents a Mach-O 32-bit or 64-bit load segment command.
 
 #### (*Segment) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func (s *Segment) Data() ([]byte, error)
 ```
 
@@ -776,7 +776,7 @@ Data reads and returns the contents of the segment.
 
 #### (*Segment) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=91) 
 
-``` go linenums="1"
+``` go 
 func (s *Segment) Open() io.ReadSeeker
 ```
 
@@ -784,7 +784,7 @@ Open returns a new ReadSeeker reading the segment.
 
 ### type [Segment32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=114) 
 
-``` go linenums="1"
+``` go 
 type Segment32 struct {
 	Cmd     LoadCmd
 	Len     uint32
@@ -804,7 +804,7 @@ A Segment32 is a 32-bit Mach-O segment load command.
 
 ### type [Segment64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=129) 
 
-``` go linenums="1"
+``` go 
 type Segment64 struct {
 	Cmd     LoadCmd
 	Len     uint32
@@ -824,7 +824,7 @@ A Segment64 is a 64-bit Mach-O segment load command.
 
 ### type [SegmentHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=56) 
 
-``` go linenums="1"
+``` go 
 type SegmentHeader struct {
 	Cmd     LoadCmd
 	Len     uint32
@@ -844,7 +844,7 @@ A SegmentHeader is the header for a Mach-O 32-bit or 64-bit load segment command
 
 ### type [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=171) 
 
-``` go linenums="1"
+``` go 
 type Symbol struct {
 	Name  string
 	Type  uint8
@@ -858,7 +858,7 @@ A Symbol is a Mach-O 32-bit or 64-bit symbol table entry.
 
 ### type [Symtab](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/file.go;l=151) 
 
-``` go linenums="1"
+``` go 
 type Symtab struct {
 	LoadBytes
 	SymtabCmd
@@ -870,7 +870,7 @@ A Symtab represents a Mach-O symbol table command.
 
 ### type [SymtabCmd](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=144) 
 
-``` go linenums="1"
+``` go 
 type SymtabCmd struct {
 	Cmd     LoadCmd
 	Len     uint32
@@ -885,7 +885,7 @@ A SymtabCmd is a Mach-O symbol table command.
 
 ### type [Thread](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=195) 
 
-``` go linenums="1"
+``` go 
 type Thread struct {
 	Cmd  LoadCmd
 	Len  uint32
@@ -898,13 +898,13 @@ A Thread is a Mach-O thread state command.
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=40) 
 
-``` go linenums="1"
+``` go 
 type Type uint32
 ```
 
 A Type is the Mach-O file type, e.g. an object file, executable, or dynamic library.
 
-``` go linenums="1"
+``` go 
 const (
 	TypeObj    Type = 1
 	TypeExec   Type = 2
@@ -915,12 +915,12 @@ const (
 
 #### (Type) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=57)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (t Type) GoString() string
 ```
 
 #### (Type) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/macho/macho.go;l=56)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (t Type) String() string
 ```

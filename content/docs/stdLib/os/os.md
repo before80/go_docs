@@ -45,7 +45,7 @@ fmt.Printf("read %d bytes: %q\n", count, data[:count])
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=72)
 
-``` go linenums="1"
+``` go 
 const (
 	// 必须精确指定 O_RDONLY、O_WRONLY 或 O_RDWR 中的一个。
 	O_RDONLY int = syscall.O_RDONLY // 只读打开文件。
@@ -64,7 +64,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=88)
 
-``` go linenums="1"
+``` go 
 const (
 	SEEK_SET int = 0 // 从文件的起始位置寻址
 	SEEK_CUR int = 1 // 相对于当前位置寻址
@@ -78,7 +78,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path_unix.go;l=9)
 
-``` go linenums="1"
+``` go 
 const (
 	PathSeparator     = '/' // 特定于操作系统的路径分隔符
 	PathListSeparator = ':' // 特定于操作系统的路径列表分隔符
@@ -87,7 +87,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=35)
 
-``` go linenums="1"
+``` go 
 const (
 	// 单个字母是 String 方法格式化时使用的缩写。
 	ModeDir        = fs.ModeDir        // d：目录
@@ -115,7 +115,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=211)
 
-``` go linenums="1"
+``` go 
 const DevNull = "/dev/null"
 ```
 
@@ -125,7 +125,7 @@ const DevNull = "/dev/null"
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=16)
 
-``` go linenums="1"
+``` go 
 var (
 	// ErrInvalid 表示无效的参数
 	// 如果接收器为 nil，则 File 上的方法将返回此错误。
@@ -147,7 +147,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=64)
 
-``` go linenums="1"
+``` go 
 var (
 	Stdin  = NewFile(uintptr(syscall.Stdin), "/dev/stdin")
 	Stdout = NewFile(uintptr(syscall.Stdout), "/dev/stdout")
@@ -161,7 +161,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=16)
 
-``` go linenums="1"
+``` go 
 var Args []string
 ```
 
@@ -169,7 +169,7 @@ var Args []string
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=18)
 
-``` go linenums="1"
+``` go 
 var ErrProcessDone = errors.New("os: process already finished")
 ```
 
@@ -179,7 +179,7 @@ var ErrProcessDone = errors.New("os: process already finished")
 
 #### func [Chdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=287) 
 
-``` go linenums="1"
+``` go 
 func Chdir(dir string) error
 ```
 
@@ -187,7 +187,7 @@ func Chdir(dir string) error
 
 #### func [Chmod](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=528) 
 
-``` go linenums="1"
+``` go 
 func Chmod(name string, mode FileMode) error
 ```
 
@@ -201,7 +201,7 @@ func Chmod(name string, mode FileMode) error
 
 ​	在 Plan 9 上，使用 mode 的权限位 ModeAppend、ModeExclusive 和 ModeTemporary。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -225,7 +225,7 @@ func main() {
 
 #### func [Chown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func Chown(name string, uid, gid int) error
 ```
 
@@ -235,7 +235,7 @@ func Chown(name string, uid, gid int) error
 
 #### func [Chtimes](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=180) 
 
-``` go linenums="1"
+``` go 
 func Chtimes(name string, atime time.Time, mtime time.Time) error
 ```
 
@@ -243,7 +243,7 @@ func Chtimes(name string, atime time.Time, mtime time.Time) error
 
 ​	底层文件系统可能会将值截断或舍入为较不精确的时间单位。如果出错，将返回 `*PathError` 类型的错误。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -269,7 +269,7 @@ func main() {
 
 #### func [Clearenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func Clearenv()
 ```
 
@@ -277,7 +277,7 @@ func Clearenv()
 
 #### func [DirFS](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=603)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func DirFS(dir string) fs.FS
 ```
 
@@ -291,7 +291,7 @@ func DirFS(dir string) fs.FS
 
 #### func [Environ](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func Environ() []string
 ```
 
@@ -299,7 +299,7 @@ func Environ() []string
 
 #### func [Executable](https://cs.opensource.google/go/go/+/go1.20.1:src/os/executable.go;l=18)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Executable() (string, error)
 ```
 
@@ -311,7 +311,7 @@ func Executable() (string, error)
 
 #### func [Exit](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func Exit(code int)
 ```
 
@@ -321,13 +321,13 @@ func Exit(code int)
 
 #### func [Expand](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=16) 
 
-``` go linenums="1"
+``` go 
 func Expand(s string, mapping func(string) string) string
 ```
 
 ​	Expand函数根据映射函数替换字符串中的`${var}`或`$var`。例如，os.ExpandEnv(s)相当于os.Expand(s，os.Getenv)。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -360,13 +360,13 @@ Good morning, Gopher!
 
 #### func [ExpandEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func ExpandEnv(s string) string
 ```
 
 ​	ExpandEnv函数根据当前环境变量的值替换字符串中的`${var}`或`$var`。对未定义的变量的引用将替换为空字符串。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -391,7 +391,7 @@ gopher lives in /usr/gopher.
 
 #### func [Getegid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func Getegid() int
 ```
 
@@ -401,13 +401,13 @@ func Getegid() int
 
 #### func [Getenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func Getenv(key string) string
 ```
 
 ​	Getenv函数检索由键指定的环境变量的值。它返回值，如果变量不存在，则为空。要区分空值和未设置的值，请使用LookupEnv。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -431,7 +431,7 @@ gopher lives in /usr/gopher.
 
 #### func [Geteuid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=36) 
 
-``` go linenums="1"
+``` go 
 func Geteuid() int
 ```
 
@@ -441,7 +441,7 @@ func Geteuid() int
 
 #### func [Getgid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=41) 
 
-``` go linenums="1"
+``` go 
 func Getgid() int
 ```
 
@@ -451,7 +451,7 @@ func Getgid() int
 
 #### func [Getgroups](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func Getgroups() ([]int, error)
 ```
 
@@ -461,7 +461,7 @@ func Getgroups() ([]int, error)
 
 #### func [Getpagesize](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func Getpagesize() int
 ```
 
@@ -469,7 +469,7 @@ func Getpagesize() int
 
 #### func [Getpid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func Getpid() int
 ```
 
@@ -477,7 +477,7 @@ func Getpid() int
 
 #### func [Getppid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func Getppid() int
 ```
 
@@ -485,7 +485,7 @@ func Getppid() int
 
 #### func [Getuid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/proc.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func Getuid() int
 ```
 
@@ -495,7 +495,7 @@ func Getuid() int
 
 #### func [Getwd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/getwd.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func Getwd() (dir string, err error)
 ```
 
@@ -503,7 +503,7 @@ func Getwd() (dir string, err error)
 
 #### func [Hostname](https://cs.opensource.google/go/go/+/go1.20.1:src/os/sys.go;l=8) 
 
-``` go linenums="1"
+``` go 
 func Hostname() (name string, err error)
 ```
 
@@ -511,7 +511,7 @@ func Hostname() (name string, err error)
 
 #### func [IsExist](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func IsExist(err error) bool
 ```
 
@@ -521,7 +521,7 @@ func IsExist(err error) bool
 
 #### func [IsNotExist](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func IsNotExist(err error) bool
 ```
 
@@ -531,7 +531,7 @@ func IsNotExist(err error) bool
 
 #### func [IsPathSeparator](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path_unix.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func IsPathSeparator(c uint8) bool
 ```
 
@@ -539,7 +539,7 @@ IsPathSeparator函数返回一个布尔值，指示c是否为目录分隔符字�
 
 #### func [IsPermission](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=100) 
 
-``` go linenums="1"
+``` go 
 func IsPermission(err error) bool
 ```
 
@@ -549,7 +549,7 @@ func IsPermission(err error) bool
 
 #### func [IsTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=112)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func IsTimeout(err error) bool
 ```
 
@@ -559,7 +559,7 @@ func IsTimeout(err error) bool
 
 #### func [Lchown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func Lchown(name string, uid, gid int) error
 ```
 
@@ -569,7 +569,7 @@ func Lchown(name string, uid, gid int) error
 
 #### func [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=352) 
 
-``` go linenums="1"
+``` go 
 func Link(oldname, newname string) error
 ```
 
@@ -577,13 +577,13 @@ func Link(oldname, newname string) error
 
 #### func [LookupEnv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=112)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func LookupEnv(key string) (string, bool)
 ```
 
 ​	LookupEnv函数检索由key指定的环境变量的值。如果变量存在于环境中，则返回值(可能为空)为true。否则，返回的值将为空，布尔值将为false。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -620,13 +620,13 @@ MISSING_KEY not set
 
 #### func [Mkdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=253) 
 
-``` go linenums="1"
+``` go 
 func Mkdir(name string, perm FileMode) error
 ```
 
 ​	Mkdir函数使用指定的名称和权限位(umask之前)创建一个新目录。如果有错误，它将是`*PathError`类型。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -651,13 +651,13 @@ func main() {
 
 #### func [MkdirAll](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path.go;l=18) 
 
-``` go linenums="1"
+``` go 
 func MkdirAll(path string, perm FileMode) error
 ```
 
 ​	MkdirAll函数创建一个名为path的目录，并创建所有必要的父级目录，返回nil，否则返回错误。所有由MkdirAll创建的目录都将使用perm(在umask之前)设置的权限位。如果path已经是一个目录，则MkdirAll不执行任何操作并返回nil。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -682,7 +682,7 @@ func main() {
 
 #### func [MkdirTemp](https://cs.opensource.google/go/go/+/go1.20.1:src/os/tempfile.go;l=80)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func MkdirTemp(dir, pattern string) (string, error)
 ```
 
@@ -690,7 +690,7 @@ func MkdirTemp(dir, pattern string) (string, error)
 
 ##### MkdirTemp Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -716,7 +716,7 @@ func main() {
 
 ##### MkdirTemp Example(Suffix)
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -753,7 +753,7 @@ func main() {
 
 #### func [NewSyscallError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=67) 
 
-``` go linenums="1"
+``` go 
 func NewSyscallError(syscall string, err error) error
 ```
 
@@ -761,7 +761,7 @@ func NewSyscallError(syscall string, err error) error
 
 #### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/os/pipe2_unix.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func Pipe() (r *File, w *File, err error)
 ```
 
@@ -769,7 +769,7 @@ func Pipe() (r *File, w *File, err error)
 
 #### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=674)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func ReadFile(name string) ([]byte, error)
 ```
 
@@ -777,7 +777,7 @@ func ReadFile(name string) ([]byte, error)
 
 ##### ReadFile Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -800,7 +800,7 @@ func main() {
 
 #### func [Readlink](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=378) 
 
-``` go linenums="1"
+``` go 
 func Readlink(name string) (string, error)
 ```
 
@@ -808,7 +808,7 @@ func Readlink(name string) (string, error)
 
 #### func [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func Remove(name string) error
 ```
 
@@ -816,7 +816,7 @@ func Remove(name string) error
 
 #### func [RemoveAll](https://cs.opensource.google/go/go/+/go1.20.1:src/os/path.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func RemoveAll(path string) error
 ```
 
@@ -824,7 +824,7 @@ func RemoveAll(path string) error
 
 #### func [Rename](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=343) 
 
-``` go linenums="1"
+``` go 
 func Rename(oldpath, newpath string) error
 ```
 
@@ -832,7 +832,7 @@ func Rename(oldpath, newpath string) error
 
 #### func [SameFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=67) 
 
-``` go linenums="1"
+``` go 
 func SameFile(fi1, fi2 FileInfo) bool
 ```
 
@@ -840,7 +840,7 @@ func SameFile(fi1, fi2 FileInfo) bool
 
 #### func [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=119) 
 
-``` go linenums="1"
+``` go 
 func Setenv(key, value string) error
 ```
 
@@ -848,7 +848,7 @@ func Setenv(key, value string) error
 
 #### func [Symlink](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=366) 
 
-``` go linenums="1"
+``` go 
 func Symlink(oldname, newname string) error
 ```
 
@@ -856,7 +856,7 @@ func Symlink(oldname, newname string) error
 
 #### func [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=378) 
 
-``` go linenums="1"
+``` go 
 func TempDir() string
 ```
 
@@ -868,7 +868,7 @@ func TempDir() string
 
 #### func [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=293) 
 
-``` go linenums="1"
+``` go 
 func Truncate(name string, size int64) error
 ```
 
@@ -876,7 +876,7 @@ func Truncate(name string, size int64) error
 
 #### func [Unsetenv](https://cs.opensource.google/go/go/+/go1.20.1:src/os/env.go;l=128)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func Unsetenv(key string) error
 ```
 
@@ -884,7 +884,7 @@ func Unsetenv(key string) error
 
 ##### Unsetenv Example 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -902,7 +902,7 @@ func main() {
 
 #### func [UserCacheDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=395)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func UserCacheDir() (string, error)
 ```
 
@@ -914,7 +914,7 @@ func UserCacheDir() (string, error)
 
 #### func [UserConfigDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=446)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func UserConfigDir() (string, error)
 ```
 
@@ -926,7 +926,7 @@ func UserConfigDir() (string, error)
 
 #### func [UserHomeDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=489)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func UserHomeDir() (string, error)
 ```
 
@@ -936,7 +936,7 @@ func UserHomeDir() (string, error)
 
 #### func [WriteFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=720)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func WriteFile(name string, data []byte, perm FileMode) error
 ```
 
@@ -944,7 +944,7 @@ func WriteFile(name string, data []byte, perm FileMode) error
 
 ##### WriteFile Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -967,7 +967,7 @@ func main() {
 
 ### type [DirEntry](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=82)  <- go1.16
 
-``` go linenums="1"
+``` go 
 type DirEntry = fs.DirEntry
 ```
 
@@ -975,7 +975,7 @@ type DirEntry = fs.DirEntry
 
 #### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=115)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func ReadDir(name string) ([]DirEntry, error)
 ```
 
@@ -983,7 +983,7 @@ func ReadDir(name string) ([]DirEntry, error)
 
 ##### ReadDir Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1009,7 +1009,7 @@ func main() {
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=16) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -1020,7 +1020,7 @@ type File struct {
 
 #### func [Create](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=314) 
 
-``` go linenums="1"
+``` go 
 func Create(name string) (*File, error)
 ```
 
@@ -1028,7 +1028,7 @@ func Create(name string) (*File, error)
 
 #### func [CreateTemp](https://cs.opensource.google/go/go/+/go1.20.1:src/os/tempfile.go;l=30)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func CreateTemp(dir, pattern string) (*File, error)
 ```
 
@@ -1036,7 +1036,7 @@ func CreateTemp(dir, pattern string) (*File, error)
 
 CreateTemp Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1063,7 +1063,7 @@ func main() {
 
 ##### CreateTemp Example (Suffix)
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1093,7 +1093,7 @@ func main() {
 
 #### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func NewFile(fd uintptr, name string) *File
 ```
 
@@ -1103,7 +1103,7 @@ func NewFile(fd uintptr, name string) *File
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func Open(name string) (*File, error)
 ```
 
@@ -1111,7 +1111,7 @@ func Open(name string) (*File, error)
 
 #### func [OpenFile](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=324) 
 
-``` go linenums="1"
+``` go 
 func OpenFile(name string, flag int, perm FileMode) (*File, error)
 ```
 
@@ -1119,7 +1119,7 @@ func OpenFile(name string, flag int, perm FileMode) (*File, error)
 
 ##### OpenFile Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1141,7 +1141,7 @@ func main() {
 
 ##### OpenFile Example(Append) 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1170,7 +1170,7 @@ func main() {
 
 #### (*File) [Chdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Chdir() error
 ```
 
@@ -1178,7 +1178,7 @@ func (f *File) Chdir() error
 
 #### (*File) [Chmod](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=532) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Chmod(mode FileMode) error
 ```
 
@@ -1186,7 +1186,7 @@ func (f *File) Chmod(mode FileMode) error
 
 #### (*File) [Chown](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=138) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Chown(uid, gid int) error
 ```
 
@@ -1196,7 +1196,7 @@ func (f *File) Chown(uid, gid int) error
 
 #### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Close() error
 ```
 
@@ -1204,7 +1204,7 @@ func (f *File) Close() error
 
 #### (*File) [Fd](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_unix.go;l=75) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Fd() uintptr
 ```
 
@@ -1214,7 +1214,7 @@ func (f *File) Fd() uintptr
 
 #### (*File) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=56) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Name() string
 ```
 
@@ -1222,7 +1222,7 @@ func (f *File) Name() string
 
 #### (*File) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=114) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Read(b []byte) (n int, err error)
 ```
 
@@ -1230,7 +1230,7 @@ func (f *File) Read(b []byte) (n int, err error)
 
 #### (*File) [ReadAt](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=126) 
 
-``` go linenums="1"
+``` go 
 func (f *File) ReadAt(b []byte, off int64) (n int, err error)
 ```
 
@@ -1238,7 +1238,7 @@ func (f *File) ReadAt(b []byte, off int64) (n int, err error)
 
 #### (*File) [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=94)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func (f *File) ReadDir(n int) ([]DirEntry, error)
 ```
 
@@ -1250,7 +1250,7 @@ func (f *File) ReadDir(n int) ([]DirEntry, error)
 
 #### (*File) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=149)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (f *File) ReadFrom(r io.Reader) (n int64, err error)
 ```
 
@@ -1258,7 +1258,7 @@ func (f *File) ReadFrom(r io.Reader) (n int64, err error)
 
 #### (*File) [Readdir](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Readdir(n int) ([]FileInfo, error)
 ```
 
@@ -1272,7 +1272,7 @@ func (f *File) Readdir(n int) ([]FileInfo, error)
 
 #### (*File) [Readdirnames](https://cs.opensource.google/go/go/+/go1.20.1:src/os/dir.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Readdirnames(n int) (names []string, err error)
 ```
 
@@ -1284,7 +1284,7 @@ func (f *File) Readdirnames(n int) (names []string, err error)
 
 #### (*File) [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Seek(offset int64, whence int) (ret int64, err error)
 ```
 
@@ -1292,7 +1292,7 @@ func (f *File) Seek(offset int64, whence int) (ret int64, err error)
 
 #### (*File) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=558)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (f *File) SetDeadline(t time.Time) error
 ```
 
@@ -1310,7 +1310,7 @@ func (f *File) SetDeadline(t time.Time) error
 
 #### (*File) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=566)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (f *File) SetReadDeadline(t time.Time) error
 ```
 
@@ -1318,7 +1318,7 @@ func (f *File) SetReadDeadline(t time.Time) error
 
 #### (*File) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=576)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (f *File) SetWriteDeadline(t time.Time) error
 ```
 
@@ -1326,7 +1326,7 @@ func (f *File) SetWriteDeadline(t time.Time) error
 
 #### (*File) [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat_unix.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Stat() (FileInfo, error)
 ```
 
@@ -1334,7 +1334,7 @@ func (f *File) Stat() (FileInfo, error)
 
 #### (*File) [Sync](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Sync() error
 ```
 
@@ -1342,7 +1342,7 @@ func (f *File) Sync() error
 
 #### (*File) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=582)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (f *File) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -1350,7 +1350,7 @@ func (f *File) SyscallConn() (syscall.RawConn, error)
 
 #### (*File) [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file_posix.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Truncate(size int64) error
 ```
 
@@ -1358,7 +1358,7 @@ func (f *File) Truncate(size int64) error
 
 #### (*File) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=171) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Write(b []byte) (n int, err error)
 ```
 
@@ -1366,7 +1366,7 @@ func (f *File) Write(b []byte) (n int, err error)
 
 #### (*File) [WriteAt](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func (f *File) WriteAt(b []byte, off int64) (n int, err error)
 ```
 
@@ -1376,7 +1376,7 @@ func (f *File) WriteAt(b []byte, off int64) (n int, err error)
 
 #### (*File) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=245) 
 
-``` go linenums="1"
+``` go 
 func (f *File) WriteString(s string) (n int, err error)
 ```
 
@@ -1384,7 +1384,7 @@ func (f *File) WriteString(s string) (n int, err error)
 
 ### type [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type FileInfo = fs.FileInfo
 ```
 
@@ -1392,7 +1392,7 @@ type FileInfo = fs.FileInfo
 
 #### func [Lstat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func Lstat(name string) (FileInfo, error)
 ```
 
@@ -1400,7 +1400,7 @@ func Lstat(name string) (FileInfo, error)
 
 #### func [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/os/stat.go;l=11) 
 
-``` go linenums="1"
+``` go 
 func Stat(name string) (FileInfo, error)
 ```
 
@@ -1408,7 +1408,7 @@ func Stat(name string) (FileInfo, error)
 
 ### type [FileMode](https://cs.opensource.google/go/go/+/go1.20.1:src/os/types.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type FileMode = fs.FileMode
 ```
 
@@ -1416,7 +1416,7 @@ type FileMode = fs.FileMode
 
 ##### FileMode Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1451,7 +1451,7 @@ func main() {
 
 ### type [LinkError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=96) 
 
-``` go linenums="1"
+``` go 
 type LinkError struct {
 	Op  string
 	Old string
@@ -1464,19 +1464,19 @@ type LinkError struct {
 
 #### (*LinkError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=103) 
 
-``` go linenums="1"
+``` go 
 func (e *LinkError) Error() string
 ```
 
 #### (*LinkError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/file.go;l=107)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *LinkError) Unwrap() error
 ```
 
 ### type [PathError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=46) 
 
-``` go linenums="1"
+``` go 
 type PathError = fs.PathError
 ```
 
@@ -1484,7 +1484,7 @@ type PathError = fs.PathError
 
 ### type [ProcAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type ProcAttr struct {
 	// 如果Dir不为空，则子进程在创建进程之前进入该目录。
 	Dir string
@@ -1510,7 +1510,7 @@ type ProcAttr struct {
 
 ### type [Process](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type Process struct {
 	Pid int
 	// contains filtered or unexported fields
@@ -1522,7 +1522,7 @@ type Process struct {
 
 #### func [FindProcess](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func FindProcess(pid int) (*Process, error)
 ```
 
@@ -1534,7 +1534,7 @@ func FindProcess(pid int) (*Process, error)
 
 #### func [StartProcess](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
 ```
 
@@ -1548,7 +1548,7 @@ func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
 
 #### (*Process) [Kill](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=122) 
 
-``` go linenums="1"
+``` go 
 func (p *Process) Kill() error
 ```
 
@@ -1556,7 +1556,7 @@ func (p *Process) Kill() error
 
 #### (*Process) [Release](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=115) 
 
-``` go linenums="1"
+``` go 
 func (p *Process) Release() error
 ```
 
@@ -1564,7 +1564,7 @@ func (p *Process) Release() error
 
 #### (*Process) [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=137) 
 
-``` go linenums="1"
+``` go 
 func (p *Process) Signal(sig Signal) error
 ```
 
@@ -1572,7 +1572,7 @@ func (p *Process) Signal(sig Signal) error
 
 #### (*Process) [Wait](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=131) 
 
-``` go linenums="1"
+``` go 
 func (p *Process) Wait() (*ProcessState, error)
 ```
 
@@ -1580,7 +1580,7 @@ func (p *Process) Wait() (*ProcessState, error)
 
 ### type [ProcessState](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=71) 
 
-``` go linenums="1"
+``` go 
 type ProcessState struct {
 	// contains filtered or unexported fields
 }
@@ -1590,7 +1590,7 @@ type ProcessState struct {
 
 #### (*ProcessState) [ExitCode](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=130)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) ExitCode() int
 ```
 
@@ -1598,7 +1598,7 @@ func (p *ProcessState) ExitCode() int
 
 #### (*ProcessState) [Exited](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=154) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) Exited() bool
 ```
 
@@ -1606,7 +1606,7 @@ func (p *ProcessState) Exited() bool
 
 #### (*ProcessState) [Pid](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) Pid() int
 ```
 
@@ -1614,13 +1614,13 @@ func (p *ProcessState) Pid() int
 
 #### (*ProcessState) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec_posix.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) String() string
 ```
 
 #### (*ProcessState) [Success](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=160) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) Success() bool
 ```
 
@@ -1628,7 +1628,7 @@ func (p *ProcessState) Success() bool
 
 #### (*ProcessState) [Sys](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) Sys() any
 ```
 
@@ -1636,7 +1636,7 @@ func (p *ProcessState) Sys() any
 
 #### (*ProcessState) [SysUsage](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=176) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) SysUsage() any
 ```
 
@@ -1644,7 +1644,7 @@ func (p *ProcessState) SysUsage() any
 
 #### (*ProcessState) [SystemTime](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) SystemTime() time.Duration
 ```
 
@@ -1652,7 +1652,7 @@ func (p *ProcessState) SystemTime() time.Duration
 
 #### (*ProcessState) [UserTime](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=142) 
 
-``` go linenums="1"
+``` go 
 func (p *ProcessState) UserTime() time.Duration
 ```
 
@@ -1660,7 +1660,7 @@ func (p *ProcessState) UserTime() time.Duration
 
 ### type [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/os/exec.go;l=72) 
 
-``` go linenums="1"
+``` go 
 type Signal interface {
 	String() string
 	Signal() // to distinguish from other Stringers
@@ -1669,7 +1669,7 @@ type Signal interface {
 
 ​	Signal接口表示操作系统信号。通常底层实现是操作系统相关的：在Unix上，它是syscall.Signal。
 
-``` go linenums="1"
+``` go 
 var (
 	Interrupt Signal = syscall.SIGINT
 	Kill      Signal = syscall.SIGKILL
@@ -1680,7 +1680,7 @@ var (
 
 ### type [SyscallError](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=49) 
 
-``` go linenums="1"
+``` go 
 type SyscallError struct {
 	Syscall string
 	Err     error
@@ -1691,13 +1691,13 @@ type SyscallError struct {
 
 #### (*SyscallError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=54) 
 
-``` go linenums="1"
+``` go 
 func (e *SyscallError) Error() string
 ```
 
 #### (*SyscallError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=59)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (e *SyscallError) Timeout() bool
 ```
 
@@ -1705,6 +1705,6 @@ func (e *SyscallError) Timeout() bool
 
 #### (*SyscallError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/os/error.go;l=56)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *SyscallError) Unwrap() error
 ```

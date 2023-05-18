@@ -24,7 +24,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=95)
 
-```go linenums="1"
+```go 
 var Discard io.Writer = io.Discard
 ```
 
@@ -40,7 +40,7 @@ Deprecated: As of Go 1.16, this value is simply io.Discard.
 
 #### func [NopCloser](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=87) DEPRECATED
 
-```go linenums="1"
+```go 
 func NopCloser(r io.Reader) io.ReadCloser
 ```
 
@@ -54,7 +54,7 @@ Deprecated: As of Go 1.16, this function simply calls io.NopCloser.
 
 #### func [ReadAll](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=26) DEPRECATED
 
-```go linenums="1"
+```go 
 func ReadAll(r io.Reader) ([]byte, error)
 ```
 
@@ -68,7 +68,7 @@ Deprecated: As of Go 1.16, this function simply calls io.ReadAll.
 
 ##### ReadAll Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -96,7 +96,7 @@ Go is a general-purpose language designed with systems programming in mind.
 
 #### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=69) DEPRECATED
 
-```go linenums="1"
+```go 
 func ReadDir(dirname string) ([]fs.FileInfo, error)
 ```
 
@@ -112,7 +112,7 @@ If you must continue obtaining a list of fs.FileInfo, you still can:
 
 如果你必须继续获得fs.FileInfo的列表，你仍然可以。
 
-```go linenums="1"
+```go 
 entries, err := os.ReadDir(dirname)
 if err != nil { ... }
 infos := make([]fs.FileInfo, 0, len(entries))
@@ -125,7 +125,7 @@ for _, entry := range entries {
 
 ##### ReadDir Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -164,7 +164,7 @@ var
 
 #### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=36) DEPRECATED
 
-```go linenums="1"
+```go 
 func ReadFile(filename string) ([]byte, error)
 ```
 
@@ -178,7 +178,7 @@ Deprecated: As of Go 1.16, this function simply calls os.ReadFile.
 
 ##### ReadFile Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -203,7 +203,7 @@ File contents: Hello, Gophers!
 
 #### func [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=39) DEPRECATED
 
-```go linenums="1"
+```go 
 func TempDir(dir, pattern string) (name string, err error)
 ```
 
@@ -217,7 +217,7 @@ Deprecated: As of Go 1.17, this function simply calls os.MkdirTemp.
 
 ##### TempDir Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -246,7 +246,7 @@ func main() {
 
 ##### TempDir Example(Suffix)
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -283,7 +283,7 @@ func main() {
 
 #### func [TempFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/tempfile.go;l=24) DEPRECATED
 
-```go linenums="1"
+```go 
 func TempFile(dir, pattern string) (f *os.File, err error)
 ```
 
@@ -299,7 +299,7 @@ Deprecated: As of Go 1.17, this function simply calls os.CreateTemp.
 
 ##### TempFile Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -329,7 +329,7 @@ func main() {
 
 TempFile Example(Suffix)
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -360,7 +360,7 @@ func main() {
 
 #### func [WriteFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/ioutil/ioutil.go;l=45) DEPRECATED
 
-```go linenums="1"
+```go 
 func WriteFile(filename string, data []byte, perm fs.FileMode) error
 ```
 
@@ -374,7 +374,7 @@ Deprecated: As of Go 1.16, this function simply calls os.WriteFile.
 
 ##### WriteFile Example
 
-```go linenums="1"
+```go 
 package main
 
 import (

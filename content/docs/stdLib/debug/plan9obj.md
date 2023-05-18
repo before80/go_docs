@@ -25,7 +25,7 @@ This package is not designed to be hardened against adversarial inputs, and is o
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/plan9obj.go;l=30)
 
-``` go linenums="1"
+``` go 
 const (
 	Magic64 = 0x8000 // 64-bit expanded header
 
@@ -39,7 +39,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=314)
 
-``` go linenums="1"
+``` go 
 var ErrNoSymbols = errors.New("no symbol section")
 ```
 
@@ -53,7 +53,7 @@ This section is empty.
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=38) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	FileHeader
 	Sections []*Section
@@ -65,7 +65,7 @@ A File represents an open Plan 9 a.out file.
 
 #### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func NewFile(r io.ReaderAt) (*File, error)
 ```
 
@@ -73,7 +73,7 @@ NewFile creates a new File for accessing a Plan 9 binary in an underlying reader
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func Open(name string) (*File, error)
 ```
 
@@ -81,7 +81,7 @@ Open opens the named file using os.Open and prepares it for use as a Plan 9 a.ou
 
 #### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Close() error
 ```
 
@@ -89,7 +89,7 @@ Close closes the File. If the File was created using NewFile directly instead of
 
 #### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=333) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Section(name string) *Section
 ```
 
@@ -97,7 +97,7 @@ Section returns a section with the given name, or nil if no such section exists.
 
 #### (*File) [Symbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=317) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Symbols() ([]Sym, error)
 ```
 
@@ -105,7 +105,7 @@ Symbols returns the symbol table for f.
 
 ### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type FileHeader struct {
 	Magic       uint32
 	Bss         uint32
@@ -120,7 +120,7 @@ A FileHeader represents a Plan 9 a.out file header.
 
 ### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=54) 
 
-``` go linenums="1"
+``` go 
 type Section struct {
 	SectionHeader
 
@@ -139,7 +139,7 @@ A Section represents a single section in a Plan 9 a.out file.
 
 #### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Data() ([]byte, error)
 ```
 
@@ -147,7 +147,7 @@ Data reads and returns the contents of the Plan 9 a.out section.
 
 #### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Open() io.ReadSeeker
 ```
 
@@ -155,7 +155,7 @@ Open returns a new ReadSeeker reading the Plan 9 a.out section.
 
 ### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=47) 
 
-``` go linenums="1"
+``` go 
 type SectionHeader struct {
 	Name   string
 	Size   uint32
@@ -167,7 +167,7 @@ A SectionHeader represents a single Plan 9 a.out section header. This structure 
 
 ### type [Sym](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/plan9obj/file.go;l=76) 
 
-``` go linenums="1"
+``` go 
 type Sym struct {
 	Value uint64
 	Type  rune

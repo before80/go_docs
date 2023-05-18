@@ -21,7 +21,7 @@ Deprecated: this package is locked down. Callers should use the corresponding pa
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_linux.go;l=17)
 
-``` go linenums="1"
+``` go 
 const (
 	CLONE_VM             = 0x00000100 // set if VM shared between processes
 	CLONE_FS             = 0x00000200 // set if fs info shared between processes
@@ -59,7 +59,7 @@ Linux unshare/clone/clone2/clone3 flags, architecture-independent, copied from l
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zerrors_linux_amd64.go;l=11)
 
-``` go linenums="1"
+``` go 
 const (
 	AF_ALG                           = 0x26
 	AF_APPLETALK                     = 0x5
@@ -1234,7 +1234,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zerrors_linux_amd64.go;l=1183)
 
-``` go linenums="1"
+``` go 
 const (
 	E2BIG           = Errno(0x7)
 	EACCES          = Errno(0xd)
@@ -1376,7 +1376,7 @@ Errors
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zerrors_linux_amd64.go;l=1320)
 
-``` go linenums="1"
+``` go 
 const (
 	SIGABRT   = Signal(0x6)
 	SIGALRM   = Signal(0xe)
@@ -1420,7 +1420,7 @@ Signals
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsysnum_linux_amd64.go;l=8)
 
-``` go linenums="1"
+``` go 
 const (
 	SYS_READ                   = 0
 	SYS_WRITE                  = 1
@@ -1730,7 +1730,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=310)
 
-``` go linenums="1"
+``` go 
 const (
 	SizeofSockaddrInet4     = 0x10
 	SizeofSockaddrInet6     = 0x1c
@@ -1755,7 +1755,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=331)
 
-``` go linenums="1"
+``` go 
 const (
 	IFA_UNSPEC          = 0x0
 	IFA_ADDRESS         = 0x1
@@ -1853,7 +1853,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=488)
 
-``` go linenums="1"
+``` go 
 const (
 	SizeofSockFilter = 0x8
 	SizeofSockFprog  = 0x10
@@ -1862,7 +1862,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=618)
 
-``` go linenums="1"
+``` go 
 const (
 	VINTR    = 0x0
 	VQUIT    = 0x1
@@ -1968,13 +1968,13 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=342)
 
-``` go linenums="1"
+``` go 
 const ImplementsGetwd = true
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=8)
 
-``` go linenums="1"
+``` go 
 const (
 	PathMax = 0x1000
 )
@@ -1982,7 +1982,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=514)
 
-``` go linenums="1"
+``` go 
 const SizeofInotifyEvent = 0x10
 ```
 
@@ -1990,7 +1990,7 @@ const SizeofInotifyEvent = 0x10
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=19)
 
-``` go linenums="1"
+``` go 
 var (
 	Stdin  = 0
 	Stdout = 1
@@ -2000,13 +2000,13 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=66)
 
-``` go linenums="1"
+``` go 
 var ForkLock sync.RWMutex
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=258)
 
-``` go linenums="1"
+``` go 
 var SocketDisableIPv6 bool
 ```
 
@@ -2016,35 +2016,35 @@ For testing: clients can set this flag to force creation of IPv6 sockets to retu
 
 #### func [Access](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func Access(path string, mode uint32) (err error)
 ```
 
 #### func [Acct](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=253) 
 
-``` go linenums="1"
+``` go 
 func Acct(path string) (err error)
 ```
 
 #### func [Adjtimex](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=268) 
 
-``` go linenums="1"
+``` go 
 func Adjtimex(buf *Timex) (state int, err error)
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Bind](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=282) 
 
-``` go linenums="1"
+``` go 
 func Bind(fd int, sa Sockaddr) (err error)
 ```
 
 #### func [BindToDevice](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=809) 
 
-``` go linenums="1"
+``` go 
 func BindToDevice(fd int, device string) (err error)
 ```
 
@@ -2052,7 +2052,7 @@ BindToDevice binds the socket associated with fd to device.
 
 #### func [BytePtrFromString](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=67)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func BytePtrFromString(s string) (*byte, error)
 ```
 
@@ -2060,7 +2060,7 @@ BytePtrFromString returns a pointer to a NUL-terminated array of bytes containin
 
 #### func [ByteSliceFromString](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=48)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ByteSliceFromString(s string) ([]byte, error)
 ```
 
@@ -2068,49 +2068,49 @@ ByteSliceFromString returns a NUL-terminated slice of bytes containing the text 
 
 #### func [Chdir](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=279) 
 
-``` go linenums="1"
+``` go 
 func Chdir(path string) (err error)
 ```
 
 #### func [Chmod](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=108) 
 
-``` go linenums="1"
+``` go 
 func Chmod(path string, mode uint32) (err error)
 ```
 
 #### func [Chown](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=112) 
 
-``` go linenums="1"
+``` go 
 func Chown(path string, uid int, gid int) (err error)
 ```
 
 #### func [Chroot](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=294) 
 
-``` go linenums="1"
+``` go 
 func Chroot(path string) (err error)
 ```
 
 #### func [Clearenv](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/env_unix.go;l=126) 
 
-``` go linenums="1"
+``` go 
 func Clearenv()
 ```
 
 #### func [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=309) 
 
-``` go linenums="1"
+``` go 
 func Close(fd int) (err error)
 ```
 
 #### func [CloseOnExec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func CloseOnExec(fd int)
 ```
 
 #### func [CmsgLen](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=17) 
 
-``` go linenums="1"
+``` go 
 func CmsgLen(datalen int) int
 ```
 
@@ -2118,7 +2118,7 @@ CmsgLen returns the value to store in the Len field of the Cmsghdr structure, ta
 
 #### func [CmsgSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=23) 
 
-``` go linenums="1"
+``` go 
 func CmsgSpace(datalen int) int
 ```
 
@@ -2126,71 +2126,71 @@ CmsgSpace returns the number of bytes an ancillary element with payload of the p
 
 #### func [Connect](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=290) 
 
-``` go linenums="1"
+``` go 
 func Connect(fd int, sa Sockaddr) (err error)
 ```
 
 #### func [Creat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func Creat(path string, mode uint32) (fd int, err error)
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Dup](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=319) 
 
-``` go linenums="1"
+``` go 
 func Dup(oldfd int) (fd int, err error)
 ```
 
 #### func [Dup2](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1075) 
 
-``` go linenums="1"
+``` go 
 func Dup2(oldfd int, newfd int) (err error)
 ```
 
 #### func [Dup3](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=330)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Dup3(oldfd int, newfd int, flags int) (err error)
 ```
 
 #### func [Environ](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/env_unix.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func Environ() []string
 ```
 
 #### func [EpollCreate](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=120) 
 
-``` go linenums="1"
+``` go 
 func EpollCreate(size int) (fd int, err error)
 ```
 
 #### func [EpollCreate1](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=340) 
 
-``` go linenums="1"
+``` go 
 func EpollCreate1(flag int) (fd int, err error)
 ```
 
 #### func [EpollCtl](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=351) 
 
-``` go linenums="1"
+``` go 
 func EpollCtl(epfd int, op int, fd int, event *EpollEvent) (err error)
 ```
 
 #### func [EpollWait](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1590) 
 
-``` go linenums="1"
+``` go 
 func EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
 ```
 
 #### func [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=270) 
 
-``` go linenums="1"
+``` go 
 func Exec(argv0 string, argv []string, envv []string) (err error)
 ```
 
@@ -2198,55 +2198,55 @@ Exec invokes the execve(2) system call.
 
 #### func [Exit](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=102) 
 
-``` go linenums="1"
+``` go 
 func Exit(code int)
 ```
 
 #### func [Faccessat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=144) 
 
-``` go linenums="1"
+``` go 
 func Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
 #### func [Fallocate](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=361) 
 
-``` go linenums="1"
+``` go 
 func Fallocate(fd int, mode uint32, off int64, len int64) (err error)
 ```
 
 #### func [Fchdir](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=371) 
 
-``` go linenums="1"
+``` go 
 func Fchdir(fd int) (err error)
 ```
 
 #### func [Fchmod](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=381) 
 
-``` go linenums="1"
+``` go 
 func Fchmod(fd int, mode uint32) (err error)
 ```
 
 #### func [Fchmodat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
 #### func [Fchown](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1085) 
 
-``` go linenums="1"
+``` go 
 func Fchown(fd int, uid int, gid int) (err error)
 ```
 
 #### func [Fchownat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=391) 
 
-``` go linenums="1"
+``` go 
 func Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
 ```
 
 #### func [FcntlFlock](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/flock.go;l=16)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func FcntlFlock(fd uintptr, cmd int, lk *Flock_t) error
 ```
 
@@ -2254,19 +2254,19 @@ FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command
 
 #### func [Fdatasync](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=417) 
 
-``` go linenums="1"
+``` go 
 func Fdatasync(fd int) (err error)
 ```
 
 #### func [Flock](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=427) 
 
-``` go linenums="1"
+``` go 
 func Flock(fd int, how int) (err error)
 ```
 
 #### func [ForkExec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=249) 
 
-``` go linenums="1"
+``` go 
 func ForkExec(argv0 string, argv []string, attr *ProcAttr) (pid int, err error)
 ```
 
@@ -2274,347 +2274,347 @@ Combination of fork and exec, careful to be thread safe.
 
 #### func [Fstat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1095) 
 
-``` go linenums="1"
+``` go 
 func Fstat(fd int, stat *Stat_t) (err error)
 ```
 
 #### func [Fstatfs](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1105) 
 
-``` go linenums="1"
+``` go 
 func Fstatfs(fd int, buf *Statfs_t) (err error)
 ```
 
 #### func [Fsync](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=437) 
 
-``` go linenums="1"
+``` go 
 func Fsync(fd int) (err error)
 ```
 
 #### func [Ftruncate](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1115) 
 
-``` go linenums="1"
+``` go 
 func Ftruncate(fd int, length int64) (err error)
 ```
 
 #### func [Futimes](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=336) 
 
-``` go linenums="1"
+``` go 
 func Futimes(fd int, tv []Timeval) (err error)
 ```
 
 #### func [Futimesat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=329) 
 
-``` go linenums="1"
+``` go 
 func Futimesat(dirfd int, path string, tv []Timeval) (err error)
 ```
 
 #### func [Getcwd](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=175) 
 
-``` go linenums="1"
+``` go 
 func Getcwd(buf []byte) (n int, err error)
 ```
 
 #### func [Getdents](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=447) 
 
-``` go linenums="1"
+``` go 
 func Getdents(fd int, buf []byte) (n int, err error)
 ```
 
 #### func [Getegid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1125) 
 
-``` go linenums="1"
+``` go 
 func Getegid() (egid int)
 ```
 
 #### func [Getenv](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/env_unix.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func Getenv(key string) (value string, found bool)
 ```
 
 #### func [Geteuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1133) 
 
-``` go linenums="1"
+``` go 
 func Geteuid() (euid int)
 ```
 
 #### func [Getgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1141) 
 
-``` go linenums="1"
+``` go 
 func Getgid() (gid int)
 ```
 
 #### func [Getgroups](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=366) 
 
-``` go linenums="1"
+``` go 
 func Getgroups() (gids []int, err error)
 ```
 
 #### func [Getpagesize](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func Getpagesize() int
 ```
 
 #### func [Getpgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=464) 
 
-``` go linenums="1"
+``` go 
 func Getpgid(pid int) (pgid int, err error)
 ```
 
 #### func [Getpgrp](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1023) 
 
-``` go linenums="1"
+``` go 
 func Getpgrp() (pid int)
 ```
 
 #### func [Getpid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=475) 
 
-``` go linenums="1"
+``` go 
 func Getpid() (pid int)
 ```
 
 #### func [Getppid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=483) 
 
-``` go linenums="1"
+``` go 
 func Getppid() (ppid int)
 ```
 
 #### func [Getpriority](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=491)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Getpriority(which int, who int) (prio int, err error)
 ```
 
 #### func [Getrlimit](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1149) 
 
-``` go linenums="1"
+``` go 
 func Getrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
 #### func [Getrusage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=502) 
 
-``` go linenums="1"
+``` go 
 func Getrusage(who int, rusage *Rusage) (err error)
 ```
 
 #### func [GetsockoptInet4Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=683) 
 
-``` go linenums="1"
+``` go 
 func GetsockoptInet4Addr(fd, level, opt int) (value [4]byte, err error)
 ```
 
 #### func [GetsockoptInt](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=307) 
 
-``` go linenums="1"
+``` go 
 func GetsockoptInt(fd, level, opt int) (value int, err error)
 ```
 
 #### func [Gettid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=512) 
 
-``` go linenums="1"
+``` go 
 func Gettid() (tid int)
 ```
 
 #### func [Gettimeofday](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func Gettimeofday(tv *Timeval) (err error)
 ```
 
 #### func [Getuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1159) 
 
-``` go linenums="1"
+``` go 
 func Getuid() (uid int)
 ```
 
 #### func [Getwd](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=346) 
 
-``` go linenums="1"
+``` go 
 func Getwd() (wd string, err error)
 ```
 
 #### func [Getxattr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=520)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Getxattr(path string, attr string, dest []byte) (sz int, err error)
 ```
 
 #### func [InotifyAddWatch](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=547) 
 
-``` go linenums="1"
+``` go 
 func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
 ```
 
 #### func [InotifyInit](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1167) 
 
-``` go linenums="1"
+``` go 
 func InotifyInit() (fd int, err error)
 ```
 
 #### func [InotifyInit1](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=563) 
 
-``` go linenums="1"
+``` go 
 func InotifyInit1(flags int) (fd int, err error)
 ```
 
 #### func [InotifyRmWatch](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=574) 
 
-``` go linenums="1"
+``` go 
 func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
 ```
 
 #### func [Ioperm](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1178) 
 
-``` go linenums="1"
+``` go 
 func Ioperm(from int, num int, on int) (err error)
 ```
 
 #### func [Iopl](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1188) 
 
-``` go linenums="1"
+``` go 
 func Iopl(level int) (err error)
 ```
 
 #### func [Kill](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=585) 
 
-``` go linenums="1"
+``` go 
 func Kill(pid int, sig Signal) (err error)
 ```
 
 #### func [Klogctl](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=595) 
 
-``` go linenums="1"
+``` go 
 func Klogctl(typ int, buf []byte) (n int, err error)
 ```
 
 #### func [Lchown](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=65) 
 
-``` go linenums="1"
+``` go 
 func Lchown(path string, uid int, gid int) (err error)
 ```
 
 #### func [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=242) 
 
-``` go linenums="1"
+``` go 
 func Link(oldpath string, newpath string) (err error)
 ```
 
 #### func [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1198) 
 
-``` go linenums="1"
+``` go 
 func Listen(s int, n int) (err error)
 ```
 
 #### func [Listxattr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=612)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Listxattr(path string, dest []byte) (sz int, err error)
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Lstat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func Lstat(path string, stat *Stat_t) (err error)
 ```
 
 #### func [Madvise](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=991) 
 
-``` go linenums="1"
+``` go 
 func Madvise(b []byte, advice int) (err error)
 ```
 
 #### func [Mkdir](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func Mkdir(path string, mode uint32) (err error)
 ```
 
 #### func [Mkdirat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=634) 
 
-``` go linenums="1"
+``` go 
 func Mkdirat(dirfd int, path string, mode uint32) (err error)
 ```
 
 #### func [Mkfifo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=493) 
 
-``` go linenums="1"
+``` go 
 func Mkfifo(path string, mode uint32) (err error)
 ```
 
 #### func [Mknod](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=250) 
 
-``` go linenums="1"
+``` go 
 func Mknod(path string, mode uint32, dev int) (err error)
 ```
 
 #### func [Mknodat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=649) 
 
-``` go linenums="1"
+``` go 
 func Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
 ```
 
 #### func [Mlock](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1023) 
 
-``` go linenums="1"
+``` go 
 func Mlock(b []byte) (err error)
 ```
 
 #### func [Mlockall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1055) 
 
-``` go linenums="1"
+``` go 
 func Mlockall(flags int) (err error)
 ```
 
 #### func [Mmap](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1233) 
 
-``` go linenums="1"
+``` go 
 func Mmap(fd int, offset int64, length int, prot int, flags int) (data []byte, err error)
 ```
 
 #### func [Mount](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=983) 
 
-``` go linenums="1"
+``` go 
 func Mount(source string, target string, fstype string, flags uintptr, data string) (err error)
 ```
 
 #### func [Mprotect](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1007) 
 
-``` go linenums="1"
+``` go 
 func Mprotect(b []byte, prot int) (err error)
 ```
 
 #### func [Munlock](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1039) 
 
-``` go linenums="1"
+``` go 
 func Munlock(b []byte) (err error)
 ```
 
 #### func [Munlockall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1065) 
 
-``` go linenums="1"
+``` go 
 func Munlockall() (err error)
 ```
 
 #### func [Munmap](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1237) 
 
-``` go linenums="1"
+``` go 
 func Munmap(b []byte) (err error)
 ```
 
 #### func [Nanosleep](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=664) 
 
-``` go linenums="1"
+``` go 
 func Nanosleep(time *Timespec, leftover *Timespec) (err error)
 ```
 
 #### func [NetlinkRIB](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func NetlinkRIB(proto, family int) ([]byte, error)
 ```
 
@@ -2622,19 +2622,19 @@ NetlinkRIB returns routing information base, as known as RIB, which consists of 
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=254) 
 
-``` go linenums="1"
+``` go 
 func Open(path string, mode int, perm uint32) (fd int, err error)
 ```
 
 #### func [Openat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=260) 
 
-``` go linenums="1"
+``` go 
 func Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
 ```
 
 #### func [ParseDirent](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/dirent.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func ParseDirent(buf []byte, max int, names []string) (consumed int, count int, newnames []string)
 ```
 
@@ -2642,7 +2642,7 @@ ParseDirent parses up to max directory entries in buf, appending the names to na
 
 #### func [ParseUnixRights](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=79) 
 
-``` go linenums="1"
+``` go 
 func ParseUnixRights(m *SocketControlMessage) ([]int, error)
 ```
 
@@ -2650,401 +2650,401 @@ ParseUnixRights decodes a socket control message that contains an integer array 
 
 #### func [Pause](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1208) 
 
-``` go linenums="1"
+``` go 
 func Pause() (err error)
 ```
 
 #### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=264) 
 
-``` go linenums="1"
+``` go 
 func Pipe(p []int) error
 ```
 
 #### func [Pipe2](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=270)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Pipe2(p []int, flags int) error
 ```
 
 #### func [PivotRoot](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=674) 
 
-``` go linenums="1"
+``` go 
 func PivotRoot(newroot string, putold string) (err error)
 ```
 
 #### func [Pread](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=220) 
 
-``` go linenums="1"
+``` go 
 func Pread(fd int, p []byte, offset int64) (n int, err error)
 ```
 
 #### func [PtraceAttach](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=951) 
 
-``` go linenums="1"
+``` go 
 func PtraceAttach(pid int) (err error)
 ```
 
 #### func [PtraceCont](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=941) 
 
-``` go linenums="1"
+``` go 
 func PtraceCont(pid int, signal int) (err error)
 ```
 
 #### func [PtraceDetach](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=953) 
 
-``` go linenums="1"
+``` go 
 func PtraceDetach(pid int) (err error)
 ```
 
 #### func [PtraceGetEventMsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=934) 
 
-``` go linenums="1"
+``` go 
 func PtraceGetEventMsg(pid int) (msg uint, err error)
 ```
 
 #### func [PtraceGetRegs](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=922) 
 
-``` go linenums="1"
+``` go 
 func PtraceGetRegs(pid int, regsout *PtraceRegs) (err error)
 ```
 
 #### func [PtracePeekData](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=859) 
 
-``` go linenums="1"
+``` go 
 func PtracePeekData(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
 #### func [PtracePeekText](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=855) 
 
-``` go linenums="1"
+``` go 
 func PtracePeekText(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
 #### func [PtracePokeData](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=918) 
 
-``` go linenums="1"
+``` go 
 func PtracePokeData(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
 #### func [PtracePokeText](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=914) 
 
-``` go linenums="1"
+``` go 
 func PtracePokeText(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
 #### func [PtraceSetOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=930) 
 
-``` go linenums="1"
+``` go 
 func PtraceSetOptions(pid int, options int) (err error)
 ```
 
 #### func [PtraceSetRegs](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=926) 
 
-``` go linenums="1"
+``` go 
 func PtraceSetRegs(pid int, regs *PtraceRegs) (err error)
 ```
 
 #### func [PtraceSingleStep](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=949) 
 
-``` go linenums="1"
+``` go 
 func PtraceSingleStep(pid int) (err error)
 ```
 
 #### func [PtraceSyscall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=945)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func PtraceSyscall(pid int, signal int) (err error)
 ```
 
 #### func [Pwrite](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=239) 
 
-``` go linenums="1"
+``` go 
 func Pwrite(fd int, p []byte, offset int64) (n int, err error)
 ```
 
 #### func [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func Read(fd int, p []byte) (n int, err error)
 ```
 
 #### func [ReadDirent](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=961) 
 
-``` go linenums="1"
+``` go 
 func ReadDirent(fd int, buf []byte) (n int, err error)
 ```
 
 #### func [Readlink](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=285) 
 
-``` go linenums="1"
+``` go 
 func Readlink(path string, buf []byte) (n int, err error)
 ```
 
 #### func [Reboot](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=957) 
 
-``` go linenums="1"
+``` go 
 func Reboot(cmd int) (err error)
 ```
 
 #### func [Removexattr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=721)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Removexattr(path string, attr string) (err error)
 ```
 
 #### func [Rename](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=289) 
 
-``` go linenums="1"
+``` go 
 func Rename(oldpath string, newpath string) (err error)
 ```
 
 #### func [Renameat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1252) 
 
-``` go linenums="1"
+``` go 
 func Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
 ```
 
 #### func [Rmdir](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=293) 
 
-``` go linenums="1"
+``` go 
 func Rmdir(path string) error
 ```
 
 #### func [Seek](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1272) 
 
-``` go linenums="1"
+``` go 
 func Seek(fd int, offset int64, whence int) (off int64, err error)
 ```
 
 #### func [Select](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1283) 
 
-``` go linenums="1"
+``` go 
 func Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
 ```
 
 #### func [Sendfile](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=512) 
 
-``` go linenums="1"
+``` go 
 func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
 ```
 
 #### func [Sendmsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=390) 
 
-``` go linenums="1"
+``` go 
 func Sendmsg(fd int, p, oob []byte, to Sockaddr, flags int) (err error)
 ```
 
 #### func [SendmsgN](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=395)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func SendmsgN(fd int, p, oob []byte, to Sockaddr, flags int) (n int, err error)
 ```
 
 #### func [Sendto](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=439) 
 
-``` go linenums="1"
+``` go 
 func Sendto(fd int, p []byte, flags int, to Sockaddr) (err error)
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [SetNonblock](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=106) 
 
-``` go linenums="1"
+``` go 
 func SetNonblock(fd int, nonblocking bool) (err error)
 ```
 
 #### func [Setdomainname](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=741) 
 
-``` go linenums="1"
+``` go 
 func Setdomainname(p []byte) (err error)
 ```
 
 #### func [Setegid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1106)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func Setegid(egid int) (err error)
 ```
 
 #### func [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/env_unix.go;l=91) 
 
-``` go linenums="1"
+``` go 
 func Setenv(key, value string) error
 ```
 
 #### func [Seteuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1119)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func Seteuid(euid int) (err error)
 ```
 
 #### func [Setfsgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1305) 
 
-``` go linenums="1"
+``` go 
 func Setfsgid(gid int) (err error)
 ```
 
 #### func [Setfsuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1315) 
 
-``` go linenums="1"
+``` go 
 func Setfsuid(uid int) (err error)
 ```
 
 #### func [Setgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1132) 
 
-``` go linenums="1"
+``` go 
 func Setgid(gid int) (err error)
 ```
 
 #### func [Setgroups](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=394) 
 
-``` go linenums="1"
+``` go 
 func Setgroups(gids []int) (err error)
 ```
 
 #### func [Sethostname](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=757) 
 
-``` go linenums="1"
+``` go 
 func Sethostname(p []byte) (err error)
 ```
 
 #### func [Setpgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=773) 
 
-``` go linenums="1"
+``` go 
 func Setpgid(pid int, pgid int) (err error)
 ```
 
 #### func [Setpriority](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=804)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func Setpriority(which int, who int, prio int) (err error)
 ```
 
 #### func [Setregid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1145) 
 
-``` go linenums="1"
+``` go 
 func Setregid(rgid, egid int) (err error)
 ```
 
 #### func [Setresgid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1158) 
 
-``` go linenums="1"
+``` go 
 func Setresgid(rgid, egid, sgid int) (err error)
 ```
 
 #### func [Setresuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1171) 
 
-``` go linenums="1"
+``` go 
 func Setresuid(ruid, euid, suid int) (err error)
 ```
 
 #### func [Setreuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1184) 
 
-``` go linenums="1"
+``` go 
 func Setreuid(ruid, euid int) (err error)
 ```
 
 #### func [Setrlimit](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1325) 
 
-``` go linenums="1"
+``` go 
 func Setrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
 #### func [Setsid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=783) 
 
-``` go linenums="1"
+``` go 
 func Setsid() (pid int, err error)
 ```
 
 #### func [SetsockoptByte](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=453)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SetsockoptByte(fd, level, opt int, value byte) (err error)
 ```
 
 #### func [SetsockoptICMPv6Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=474)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SetsockoptICMPv6Filter(fd, level, opt int, filter *ICMPv6Filter) error
 ```
 
 #### func [SetsockoptIPMreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=466) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptIPMreq(fd, level, opt int, mreq *IPMreq) (err error)
 ```
 
 #### func [SetsockoptIPMreqn](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=731) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptIPMreqn(fd, level, opt int, mreq *IPMreqn) (err error)
 ```
 
 #### func [SetsockoptIPv6Mreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=470) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptIPv6Mreq(fd, level, opt int, mreq *IPv6Mreq) (err error)
 ```
 
 #### func [SetsockoptInet4Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=462) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptInet4Addr(fd, level, opt int, value [4]byte) (err error)
 ```
 
 #### func [SetsockoptInt](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=457) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptInt(fd, level, opt int, value int) (err error)
 ```
 
 #### func [SetsockoptLinger](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=478) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptLinger(fd, level, opt int, l *Linger) (err error)
 ```
 
 #### func [SetsockoptString](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=482) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptString(fd, level, opt int, s string) (err error)
 ```
 
 #### func [SetsockoptTimeval](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=490) 
 
-``` go linenums="1"
+``` go 
 func SetsockoptTimeval(fd, level, opt int, tv *Timeval) (err error)
 ```
 
 #### func [Settimeofday](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=794) 
 
-``` go linenums="1"
+``` go 
 func Settimeofday(tv *Timeval) (err error)
 ```
 
 #### func [Setuid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1197) 
 
-``` go linenums="1"
+``` go 
 func Setuid(uid int) (err error)
 ```
 
 #### func [Setxattr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=814)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Setxattr(path string, attr string, data []byte, flags int) (err error)
 ```
 
 #### func [Shutdown](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1335) 
 
-``` go linenums="1"
+``` go 
 func Shutdown(fd int, how int) (err error)
 ```
 
 #### func [SlicePtrFromStrings](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=85)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func SlicePtrFromStrings(ss []string) ([]*byte, error)
 ```
 
@@ -3052,25 +3052,25 @@ SlicePtrFromStrings converts a slice of strings to a slice of pointers to NUL-te
 
 #### func [Socket](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=494) 
 
-``` go linenums="1"
+``` go 
 func Socket(domain, typ, proto int) (fd int, err error)
 ```
 
 #### func [Socketpair](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=502) 
 
-``` go linenums="1"
+``` go 
 func Socketpair(domain, typ, proto int) (fd [2]int, err error)
 ```
 
 #### func [Splice](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1345) 
 
-``` go linenums="1"
+``` go 
 func Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
 ```
 
 #### func [StartProcess](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=254) 
 
-``` go linenums="1"
+``` go 
 func StartProcess(argv0 string, argv []string, attr *ProcAttr) (pid int, handle uintptr, err error)
 ```
 
@@ -3078,73 +3078,73 @@ StartProcess wraps ForkExec for package os.
 
 #### func [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=61) 
 
-``` go linenums="1"
+``` go 
 func Stat(path string, stat *Stat_t) (err error)
 ```
 
 #### func [Statfs](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1356) 
 
-``` go linenums="1"
+``` go 
 func Statfs(path string, buf *Statfs_t) (err error)
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Symlink](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=299) 
 
-``` go linenums="1"
+``` go 
 func Symlink(oldpath string, newpath string) (err error)
 ```
 
 #### func [Sync](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=840) 
 
-``` go linenums="1"
+``` go 
 func Sync()
 ```
 
 #### func [SyncFileRange](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1371) 
 
-``` go linenums="1"
+``` go 
 func SyncFileRange(fd int, off int64, n int64, flags int) (err error)
 ```
 
 #### func [Sysinfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=847) 
 
-``` go linenums="1"
+``` go 
 func Sysinfo(info *Sysinfo_t) (err error)
 ```
 
 #### func [Tee](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=857) 
 
-``` go linenums="1"
+``` go 
 func Tee(rfd int, wfd int, len int, flags int) (n int64, err error)
 ```
 
 #### func [Tgkill](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=868) 
 
-``` go linenums="1"
+``` go 
 func Tgkill(tgid int, tid int, sig Signal) (err error)
 ```
 
 #### func [Times](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=878) 
 
-``` go linenums="1"
+``` go 
 func Times(tms *Tms) (ticks uintptr, err error)
 ```
 
 #### func [TimespecToNsec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/timestruct.go;l=10) 
 
-``` go linenums="1"
+``` go 
 func TimespecToNsec(ts Timespec) int64
 ```
 
@@ -3152,7 +3152,7 @@ TimespecToNSec returns the time stored in ts as nanoseconds.
 
 #### func [TimevalToNsec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/timestruct.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func TimevalToNsec(tv Timeval) int64
 ```
 
@@ -3160,25 +3160,25 @@ TimevalToNsec returns the time stored in tv as nanoseconds.
 
 #### func [Truncate](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1381) 
 
-``` go linenums="1"
+``` go 
 func Truncate(path string, length int64) (err error)
 ```
 
 #### func [Umask](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=889) 
 
-``` go linenums="1"
+``` go 
 func Umask(mask int) (oldmask int)
 ```
 
 #### func [Uname](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=897) 
 
-``` go linenums="1"
+``` go 
 func Uname(buf *Utsname) (err error)
 ```
 
 #### func [UnixCredentials](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_linux.go;l=14) 
 
-``` go linenums="1"
+``` go 
 func UnixCredentials(ucred *Ucred) []byte
 ```
 
@@ -3186,7 +3186,7 @@ UnixCredentials encodes credentials into a socket control message for sending to
 
 #### func [UnixRights](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func UnixRights(fds ...int) []byte
 ```
 
@@ -3194,67 +3194,67 @@ UnixRights encodes a set of open file descriptors into a socket control message 
 
 #### func [Unlink](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=303) 
 
-``` go linenums="1"
+``` go 
 func Unlink(path string) error
 ```
 
 #### func [Unlinkat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=309) 
 
-``` go linenums="1"
+``` go 
 func Unlinkat(dirfd int, path string) error
 ```
 
 #### func [Unmount](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=907) 
 
-``` go linenums="1"
+``` go 
 func Unmount(target string, flags int) (err error)
 ```
 
 #### func [Unsetenv](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/env_unix.go;l=55)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func Unsetenv(key string) error
 ```
 
 #### func [Unshare](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=922) 
 
-``` go linenums="1"
+``` go 
 func Unshare(flags int) (err error)
 ```
 
 #### func [Ustat](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1396) 
 
-``` go linenums="1"
+``` go 
 func Ustat(dev int, ubuf *Ustat_t) (err error)
 ```
 
 #### func [Utime](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zsyscall_linux_amd64.go;l=1622) 
 
-``` go linenums="1"
+``` go 
 func Utime(path string, buf *Utimbuf) (err error)
 ```
 
 #### func [Utimes](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=313) 
 
-``` go linenums="1"
+``` go 
 func Utimes(path string, tv []Timeval) (err error)
 ```
 
 #### func [UtimesNano](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=322)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func UtimesNano(path string, ts []Timespec) (err error)
 ```
 
 #### func [Wait4](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=484) 
 
-``` go linenums="1"
+``` go 
 func Wait4(pid int, wstatus *WaitStatus, options int, rusage *Rusage) (wpid int, err error)
 ```
 
 #### func [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=196) 
 
-``` go linenums="1"
+``` go 
 func Write(fd int, p []byte) (n int, err error)
 ```
 
@@ -3262,7 +3262,7 @@ func Write(fd int, p []byte) (n int, err error)
 
 ### type [Cmsghdr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=244) 
 
-``` go linenums="1"
+``` go 
 type Cmsghdr struct {
 	Len   uint64
 	Level int32
@@ -3272,13 +3272,13 @@ type Cmsghdr struct {
 
 #### (*Cmsghdr) [SetLen](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=121) 
 
-``` go linenums="1"
+``` go 
 func (cmsg *Cmsghdr) SetLen(length int)
 ```
 
 ### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/net.go;l=31)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type Conn interface {
 	// SyscallConn returns a raw network connection.
 	SyscallConn() (RawConn, error)
@@ -3289,7 +3289,7 @@ Conn is implemented by some types in the net and os packages to provide access t
 
 ### type [Credential](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=122) 
 
-``` go linenums="1"
+``` go 
 type Credential struct {
 	Uid         uint32   // User ID.
 	Gid         uint32   // Group ID.
@@ -3302,7 +3302,7 @@ Credential holds user and group identities to be assumed by a child process star
 
 ### type [Dirent](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=134) 
 
-``` go linenums="1"
+``` go 
 type Dirent struct {
 	Ino       uint64
 	Off       int64
@@ -3315,7 +3315,7 @@ type Dirent struct {
 
 ### type [EpollEvent](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=587) 
 
-``` go linenums="1"
+``` go 
 type EpollEvent struct {
 	Events uint32
 	Fd     int32
@@ -3325,7 +3325,7 @@ type EpollEvent struct {
 
 ### type [Errno](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=105) 
 
-``` go linenums="1"
+``` go 
 type Errno uintptr
 ```
 
@@ -3347,7 +3347,7 @@ if errors.Is(err, fs.ErrNotExist) ...
 
 #### func [AllThreadsSyscall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1077)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func AllThreadsSyscall(trap, a1, a2, a3 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
@@ -3359,7 +3359,7 @@ AllThreadsSyscall is unaware of any threads that are launched explicitly by cgo 
 
 #### func [AllThreadsSyscall6](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=1089)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func AllThreadsSyscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
@@ -3367,55 +3367,55 @@ AllThreadsSyscall6 is like AllThreadsSyscall, but extended to six arguments.
 
 #### func [RawSyscall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=61) 
 
-``` go linenums="1"
+``` go 
 func RawSyscall(trap, a1, a2, a3 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
 #### func [RawSyscall6](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func RawSyscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
 #### func [Syscall](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func Syscall(trap, a1, a2, a3 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
 #### func [Syscall6](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func Syscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
 #### (Errno) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func (e Errno) Error() string
 ```
 
 #### (Errno) [Is](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=117)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e Errno) Is(target error) bool
 ```
 
 #### (Errno) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=129) 
 
-``` go linenums="1"
+``` go 
 func (e Errno) Temporary() bool
 ```
 
 #### (Errno) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func (e Errno) Timeout() bool
 ```
 
 ### type [FdSet](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=546) 
 
-``` go linenums="1"
+``` go 
 type FdSet struct {
 	Bits [16]int64
 }
@@ -3423,7 +3423,7 @@ type FdSet struct {
 
 ### type [Flock_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=147)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type Flock_t struct {
 	Type      int16
 	Whence    int16
@@ -3437,7 +3437,7 @@ type Flock_t struct {
 
 ### type [Fsid](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=143) 
 
-``` go linenums="1"
+``` go 
 type Fsid struct {
 	X__val [2]int32
 }
@@ -3445,7 +3445,7 @@ type Fsid struct {
 
 ### type [ICMPv6Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=266)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type ICMPv6Filter struct {
 	Data [8]uint32
 }
@@ -3453,13 +3453,13 @@ type ICMPv6Filter struct {
 
 #### func [GetsockoptICMPv6Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=717)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func GetsockoptICMPv6Filter(fd, level, opt int) (*ICMPv6Filter, error)
 ```
 
 ### type [IPMreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=216) 
 
-``` go linenums="1"
+``` go 
 type IPMreq struct {
 	Multiaddr [4]byte /* in_addr */
 	Interface [4]byte /* in_addr */
@@ -3468,13 +3468,13 @@ type IPMreq struct {
 
 #### func [GetsockoptIPMreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=689) 
 
-``` go linenums="1"
+``` go 
 func GetsockoptIPMreq(fd, level, opt int) (*IPMreq, error)
 ```
 
 ### type [IPMreqn](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=221) 
 
-``` go linenums="1"
+``` go 
 type IPMreqn struct {
 	Multiaddr [4]byte /* in_addr */
 	Address   [4]byte /* in_addr */
@@ -3484,13 +3484,13 @@ type IPMreqn struct {
 
 #### func [GetsockoptIPMreqn](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=696) 
 
-``` go linenums="1"
+``` go 
 func GetsockoptIPMreqn(fd, level, opt int) (*IPMreqn, error)
 ```
 
 ### type [IPv6MTUInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=261)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type IPv6MTUInfo struct {
 	Addr RawSockaddrInet6
 	Mtu  uint32
@@ -3499,13 +3499,13 @@ type IPv6MTUInfo struct {
 
 #### func [GetsockoptIPv6MTUInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=710)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func GetsockoptIPv6MTUInfo(fd, level, opt int) (*IPv6MTUInfo, error)
 ```
 
 ### type [IPv6Mreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=227) 
 
-``` go linenums="1"
+``` go 
 type IPv6Mreq struct {
 	Multiaddr [16]byte /* in6_addr */
 	Interface uint32
@@ -3514,13 +3514,13 @@ type IPv6Mreq struct {
 
 #### func [GetsockoptIPv6Mreq](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=703) 
 
-``` go linenums="1"
+``` go 
 func GetsockoptIPv6Mreq(fd, level, opt int) (*IPv6Mreq, error)
 ```
 
 ### type [IfAddrmsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=461) 
 
-``` go linenums="1"
+``` go 
 type IfAddrmsg struct {
 	Family    uint8
 	Prefixlen uint8
@@ -3532,7 +3532,7 @@ type IfAddrmsg struct {
 
 ### type [IfInfomsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=452) 
 
-``` go linenums="1"
+``` go 
 type IfInfomsg struct {
 	Family     uint8
 	X__ifi_pad uint8
@@ -3545,7 +3545,7 @@ type IfInfomsg struct {
 
 ### type [Inet4Pktinfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=250) 
 
-``` go linenums="1"
+``` go 
 type Inet4Pktinfo struct {
 	Ifindex  int32
 	Spec_dst [4]byte /* in_addr */
@@ -3555,7 +3555,7 @@ type Inet4Pktinfo struct {
 
 ### type [Inet6Pktinfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=256) 
 
-``` go linenums="1"
+``` go 
 type Inet6Pktinfo struct {
 	Addr    [16]byte /* in6_addr */
 	Ifindex uint32
@@ -3564,7 +3564,7 @@ type Inet6Pktinfo struct {
 
 ### type [InotifyEvent](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=506) 
 
-``` go linenums="1"
+``` go 
 type InotifyEvent struct {
 	Wd     int32
 	Mask   uint32
@@ -3576,7 +3576,7 @@ type InotifyEvent struct {
 
 ### type [Iovec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=211) 
 
-``` go linenums="1"
+``` go 
 type Iovec struct {
 	Base *byte
 	Len  uint64
@@ -3585,13 +3585,13 @@ type Iovec struct {
 
 #### (*Iovec) [SetLen](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func (iov *Iovec) SetLen(length int)
 ```
 
 ### type [Linger](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=206) 
 
-``` go linenums="1"
+``` go 
 type Linger struct {
 	Onoff  int32
 	Linger int32
@@ -3600,7 +3600,7 @@ type Linger struct {
 
 ### type [Msghdr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=232) 
 
-``` go linenums="1"
+``` go 
 type Msghdr struct {
 	Name       *byte
 	Namelen    uint32
@@ -3616,13 +3616,13 @@ type Msghdr struct {
 
 #### (*Msghdr) [SetControllen](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (msghdr *Msghdr) SetControllen(length int)
 ```
 
 ### type [NetlinkMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=108) 
 
-``` go linenums="1"
+``` go 
 type NetlinkMessage struct {
 	Header NlMsghdr
 	Data   []byte
@@ -3633,7 +3633,7 @@ NetlinkMessage represents a netlink message.
 
 #### func [ParseNetlinkMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=115) 
 
-``` go linenums="1"
+``` go 
 func ParseNetlinkMessage(b []byte) ([]NetlinkMessage, error)
 ```
 
@@ -3641,7 +3641,7 @@ ParseNetlinkMessage parses b as an array of netlink messages and returns the sli
 
 ### type [NetlinkRouteAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=139) 
 
-``` go linenums="1"
+``` go 
 type NetlinkRouteAttr struct {
 	Attr  RtAttr
 	Value []byte
@@ -3652,7 +3652,7 @@ NetlinkRouteAttr represents a netlink route attribute.
 
 #### func [ParseNetlinkRouteAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func ParseNetlinkRouteAttr(m *NetlinkMessage) ([]NetlinkRouteAttr, error)
 ```
 
@@ -3660,7 +3660,7 @@ ParseNetlinkRouteAttr parses m's payload as an array of netlink route attributes
 
 ### type [NetlinkRouteRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/netlink_linux.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type NetlinkRouteRequest struct {
 	Header NlMsghdr
 	Data   RtGenmsg
@@ -3671,7 +3671,7 @@ NetlinkRouteRequest represents a request message to receive routing and link sta
 
 ### type [NlAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=442) 
 
-``` go linenums="1"
+``` go 
 type NlAttr struct {
 	Len  uint16
 	Type uint16
@@ -3680,7 +3680,7 @@ type NlAttr struct {
 
 ### type [NlMsgerr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=433) 
 
-``` go linenums="1"
+``` go 
 type NlMsgerr struct {
 	Error int32
 	Msg   NlMsghdr
@@ -3689,7 +3689,7 @@ type NlMsgerr struct {
 
 ### type [NlMsghdr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=425) 
 
-``` go linenums="1"
+``` go 
 type NlMsghdr struct {
 	Len   uint32
 	Type  uint16
@@ -3701,7 +3701,7 @@ type NlMsghdr struct {
 
 ### type [ProcAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_unix.go;l=131) 
 
-``` go linenums="1"
+``` go 
 type ProcAttr struct {
 	Dir   string    // Current working directory.
 	Env   []string  // Environment.
@@ -3714,7 +3714,7 @@ ProcAttr holds attributes that will be applied to a new process started by Start
 
 ### type [PtraceRegs](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=516) 
 
-``` go linenums="1"
+``` go 
 type PtraceRegs struct {
 	R15      uint64
 	R14      uint64
@@ -3748,19 +3748,19 @@ type PtraceRegs struct {
 
 #### (*PtraceRegs) [PC](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=109) 
 
-``` go linenums="1"
+``` go 
 func (r *PtraceRegs) PC() uint64
 ```
 
 #### (*PtraceRegs) [SetPC](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=111) 
 
-``` go linenums="1"
+``` go 
 func (r *PtraceRegs) SetPC(pc uint64)
 ```
 
 ### type [RawConn](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/net.go;l=8)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type RawConn interface {
 	// Control invokes f on the underlying connection's file
 	// descriptor or handle.
@@ -3787,7 +3787,7 @@ A RawConn is a raw network connection.
 
 ### type [RawSockaddr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=194) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddr struct {
 	Family uint16
 	Data   [14]int8
@@ -3796,7 +3796,7 @@ type RawSockaddr struct {
 
 ### type [RawSockaddrAny](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=199) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrAny struct {
 	Addr RawSockaddr
 	Pad  [96]int8
@@ -3805,7 +3805,7 @@ type RawSockaddrAny struct {
 
 ### type [RawSockaddrInet4](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=157) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrInet4 struct {
 	Family uint16
 	Port   uint16
@@ -3816,7 +3816,7 @@ type RawSockaddrInet4 struct {
 
 ### type [RawSockaddrInet6](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=164) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrInet6 struct {
 	Family   uint16
 	Port     uint16
@@ -3828,7 +3828,7 @@ type RawSockaddrInet6 struct {
 
 ### type [RawSockaddrLinklayer](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=177) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrLinklayer struct {
 	Family   uint16
 	Protocol uint16
@@ -3842,7 +3842,7 @@ type RawSockaddrLinklayer struct {
 
 ### type [RawSockaddrNetlink](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=187) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrNetlink struct {
 	Family uint16
 	Pad    uint16
@@ -3853,7 +3853,7 @@ type RawSockaddrNetlink struct {
 
 ### type [RawSockaddrUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=172) 
 
-``` go linenums="1"
+``` go 
 type RawSockaddrUnix struct {
 	Family uint16
 	Path   [108]int8
@@ -3862,7 +3862,7 @@ type RawSockaddrUnix struct {
 
 ### type [Rlimit](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=94) 
 
-``` go linenums="1"
+``` go 
 type Rlimit struct {
 	Cur uint64
 	Max uint64
@@ -3871,7 +3871,7 @@ type Rlimit struct {
 
 ### type [RtAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=447) 
 
-``` go linenums="1"
+``` go 
 type RtAttr struct {
 	Len  uint16
 	Type uint16
@@ -3880,7 +3880,7 @@ type RtAttr struct {
 
 ### type [RtGenmsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=438) 
 
-``` go linenums="1"
+``` go 
 type RtGenmsg struct {
 	Family uint8
 }
@@ -3888,7 +3888,7 @@ type RtGenmsg struct {
 
 ### type [RtMsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=469) 
 
-``` go linenums="1"
+``` go 
 type RtMsg struct {
 	Family   uint8
 	Dst_len  uint8
@@ -3904,7 +3904,7 @@ type RtMsg struct {
 
 ### type [RtNexthop](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=481) 
 
-``` go linenums="1"
+``` go 
 type RtNexthop struct {
 	Len     uint16
 	Flags   uint8
@@ -3915,7 +3915,7 @@ type RtNexthop struct {
 
 ### type [Rusage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=75) 
 
-``` go linenums="1"
+``` go 
 type Rusage struct {
 	Utime    Timeval
 	Stime    Timeval
@@ -3938,7 +3938,7 @@ type Rusage struct {
 
 ### type [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=163) 
 
-``` go linenums="1"
+``` go 
 type Signal int
 ```
 
@@ -3946,19 +3946,19 @@ A Signal is a number describing a process signal. It implements the os.Signal in
 
 #### (Signal) [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=165) 
 
-``` go linenums="1"
+``` go 
 func (s Signal) Signal()
 ```
 
 #### (Signal) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func (s Signal) String() string
 ```
 
 ### type [SockFilter](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=493) 
 
-``` go linenums="1"
+``` go 
 type SockFilter struct {
 	Code uint16
 	Jt   uint8
@@ -3968,16 +3968,16 @@ type SockFilter struct {
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ### type [SockFprog](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=500) 
 
-``` go linenums="1"
+``` go 
 type SockFprog struct {
 	Len       uint16
 	Pad_cgo_0 [6]byte
@@ -3987,7 +3987,7 @@ type SockFprog struct {
 
 ### type [Sockaddr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=260) 
 
-``` go linenums="1"
+``` go 
 type Sockaddr interface {
 	// contains filtered or unexported methods
 }
@@ -3995,43 +3995,43 @@ type Sockaddr interface {
 
 #### func [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_accept4.go;l=12) 
 
-``` go linenums="1"
+``` go 
 func Accept(fd int) (nfd int, sa Sockaddr, err error)
 ```
 
 #### func [Accept4](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=656)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Accept4(fd int, flags int) (nfd int, sa Sockaddr, err error)
 ```
 
 #### func [Getpeername](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func Getpeername(fd int) (sa Sockaddr, err error)
 ```
 
 #### func [Getsockname](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=674) 
 
-``` go linenums="1"
+``` go 
 func Getsockname(fd int) (sa Sockaddr, err error)
 ```
 
 #### func [Recvfrom](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=314) 
 
-``` go linenums="1"
+``` go 
 func Recvfrom(fd int, p []byte, flags int) (n int, from Sockaddr, err error)
 ```
 
 #### func [Recvmsg](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=380) 
 
-``` go linenums="1"
+``` go 
 func Recvmsg(fd int, p, oob []byte, flags int) (n, oobn int, recvflags int, from Sockaddr, err error)
 ```
 
 ### type [SockaddrInet4](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=264) 
 
-``` go linenums="1"
+``` go 
 type SockaddrInet4 struct {
 	Port int
 	Addr [4]byte
@@ -4041,7 +4041,7 @@ type SockaddrInet4 struct {
 
 ### type [SockaddrInet6](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=270) 
 
-``` go linenums="1"
+``` go 
 type SockaddrInet6 struct {
 	Port   int
 	ZoneId uint32
@@ -4052,7 +4052,7 @@ type SockaddrInet6 struct {
 
 ### type [SockaddrLinklayer](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=549) 
 
-``` go linenums="1"
+``` go 
 type SockaddrLinklayer struct {
 	Protocol uint16
 	Ifindex  int
@@ -4066,7 +4066,7 @@ type SockaddrLinklayer struct {
 
 ### type [SockaddrNetlink](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=573) 
 
-``` go linenums="1"
+``` go 
 type SockaddrNetlink struct {
 	Family uint16
 	Pad    uint16
@@ -4078,7 +4078,7 @@ type SockaddrNetlink struct {
 
 ### type [SockaddrUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_unix.go;l=277) 
 
-``` go linenums="1"
+``` go 
 type SockaddrUnix struct {
 	Name string
 	// contains filtered or unexported fields
@@ -4087,7 +4087,7 @@ type SockaddrUnix struct {
 
 ### type [SocketControlMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type SocketControlMessage struct {
 	Header Cmsghdr
 	Data   []byte
@@ -4098,7 +4098,7 @@ SocketControlMessage represents a socket control message.
 
 #### func [ParseSocketControlMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_unix.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func ParseSocketControlMessage(b []byte) ([]SocketControlMessage, error)
 ```
 
@@ -4106,7 +4106,7 @@ ParseSocketControlMessage parses b as an array of socket control messages.
 
 ### type [Stat_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=101) 
 
-``` go linenums="1"
+``` go 
 type Stat_t struct {
 	Dev       uint64
 	Ino       uint64
@@ -4128,7 +4128,7 @@ type Stat_t struct {
 
 ### type [Statfs_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=119) 
 
-``` go linenums="1"
+``` go 
 type Statfs_t struct {
 	Type    int64
 	Bsize   int64
@@ -4147,7 +4147,7 @@ type Statfs_t struct {
 
 ### type [SysProcAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_linux.go;l=62) 
 
-``` go linenums="1"
+``` go 
 type SysProcAttr struct {
 	Chroot     string      // Chroot.
 	Credential *Credential // Credential.
@@ -4195,7 +4195,7 @@ type SysProcAttr struct {
 
 ### type [SysProcIDMap](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/exec_linux.go;l=56)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type SysProcIDMap struct {
 	ContainerID int // Container ID.
 	HostID      int // Host ID.
@@ -4207,7 +4207,7 @@ SysProcIDMap holds Container ID to Host ID mappings used for User Namespaces in 
 
 ### type [Sysinfo_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=550) 
 
-``` go linenums="1"
+``` go 
 type Sysinfo_t struct {
 	Uptime    int64
 	Loads     [3]uint64
@@ -4230,7 +4230,7 @@ type Sysinfo_t struct {
 
 ### type [TCPInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=276)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type TCPInfo struct {
 	State          uint8
 	Ca_state       uint8
@@ -4268,7 +4268,7 @@ type TCPInfo struct {
 
 ### type [Termios](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=606) 
 
-``` go linenums="1"
+``` go 
 type Termios struct {
 	Iflag     uint32
 	Oflag     uint32
@@ -4284,19 +4284,19 @@ type Termios struct {
 
 ### type [Time_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=61) 
 
-``` go linenums="1"
+``` go 
 type Time_t int64
 ```
 
 #### func [Time](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux_amd64.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func Time(t *Time_t) (tt Time_t, err error)
 ```
 
 ### type [Timespec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type Timespec struct {
 	Sec  int64
 	Nsec int64
@@ -4305,7 +4305,7 @@ type Timespec struct {
 
 #### func [NsecToTimespec](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/timestruct.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func NsecToTimespec(nsec int64) Timespec
 ```
 
@@ -4313,7 +4313,7 @@ NsecToTimespec converts a number of nanoseconds into a Timespec.
 
 #### (*Timespec) [Nano](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func (ts *Timespec) Nano() int64
 ```
 
@@ -4321,7 +4321,7 @@ Nano returns the time stored in ts as nanoseconds.
 
 #### (*Timespec) [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func (ts *Timespec) Unix() (sec int64, nsec int64)
 ```
 
@@ -4329,7 +4329,7 @@ Unix returns the time stored in ts as seconds plus nanoseconds.
 
 ### type [Timeval](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Timeval struct {
 	Sec  int64
 	Usec int64
@@ -4338,7 +4338,7 @@ type Timeval struct {
 
 #### func [NsecToTimeval](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/timestruct.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func NsecToTimeval(nsec int64) Timeval
 ```
 
@@ -4346,7 +4346,7 @@ NsecToTimeval converts a number of nanoseconds into a Timeval.
 
 #### (*Timeval) [Nano](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=95) 
 
-``` go linenums="1"
+``` go 
 func (tv *Timeval) Nano() int64
 ```
 
@@ -4354,7 +4354,7 @@ Nano returns the time stored in tv as nanoseconds.
 
 #### (*Timeval) [Unix](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall.go;l=85) 
 
-``` go linenums="1"
+``` go 
 func (tv *Timeval) Unix() (sec int64, nsec int64)
 ```
 
@@ -4362,7 +4362,7 @@ Unix returns the time stored in tv as seconds plus nanoseconds.
 
 ### type [Timex](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=34) 
 
-``` go linenums="1"
+``` go 
 type Timex struct {
 	Modes     uint32
 	Pad_cgo_0 [4]byte
@@ -4393,7 +4393,7 @@ type Timex struct {
 
 ### type [Tms](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=63) 
 
-``` go linenums="1"
+``` go 
 type Tms struct {
 	Utime  int64
 	Stime  int64
@@ -4404,7 +4404,7 @@ type Tms struct {
 
 ### type [Ucred](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=270) 
 
-``` go linenums="1"
+``` go 
 type Ucred struct {
 	Pid int32
 	Uid uint32
@@ -4414,13 +4414,13 @@ type Ucred struct {
 
 #### func [GetsockoptUcred](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=724)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func GetsockoptUcred(fd, level, opt int) (*Ucred, error)
 ```
 
 #### func [ParseUnixCredentials](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/sockcmsg_linux.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func ParseUnixCredentials(m *SocketControlMessage) (*Ucred, error)
 ```
 
@@ -4428,7 +4428,7 @@ ParseUnixCredentials decodes a socket control message that contains credentials 
 
 ### type [Ustat_t](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=578) 
 
-``` go linenums="1"
+``` go 
 type Ustat_t struct {
 	Tfree     int32
 	Pad_cgo_0 [4]byte
@@ -4441,7 +4441,7 @@ type Ustat_t struct {
 
 ### type [Utimbuf](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=70) 
 
-``` go linenums="1"
+``` go 
 type Utimbuf struct {
 	Actime  int64
 	Modtime int64
@@ -4450,7 +4450,7 @@ type Utimbuf struct {
 
 ### type [Utsname](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/ztypes_linux_amd64.go;l=569) 
 
-``` go linenums="1"
+``` go 
 type Utsname struct {
 	Sysname    [65]int8
 	Nodename   [65]int8
@@ -4463,60 +4463,60 @@ type Utsname struct {
 
 ### type [WaitStatus](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=425) 
 
-``` go linenums="1"
+``` go 
 type WaitStatus uint32
 ```
 
 #### (WaitStatus) [Continued](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=450) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) Continued() bool
 ```
 
 #### (WaitStatus) [CoreDump](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=452) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) CoreDump() bool
 ```
 
 #### (WaitStatus) [ExitStatus](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=454) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) ExitStatus() int
 ```
 
 #### (WaitStatus) [Exited](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=444) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) Exited() bool
 ```
 
 #### (WaitStatus) [Signal](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=461) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) Signal() Signal
 ```
 
 #### (WaitStatus) [Signaled](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=446) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) Signaled() bool
 ```
 
 #### (WaitStatus) [StopSignal](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=468) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) StopSignal() Signal
 ```
 
 #### (WaitStatus) [Stopped](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=448) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) Stopped() bool
 ```
 
 #### (WaitStatus) [TrapCause](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/syscall_linux.go;l=475) 
 
-``` go linenums="1"
+``` go 
 func (w WaitStatus) TrapCause() int
 ```

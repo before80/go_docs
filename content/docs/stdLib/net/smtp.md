@@ -28,7 +28,7 @@ https://godoc.org/?q=smtp
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -51,7 +51,7 @@ This section is empty.
 
 #### func [SendMail](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=321) 
 
-``` go linenums="1"
+``` go 
 func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
 ```
 
@@ -64,14 +64,14 @@ The msg parameter should be an [RFC 822](https://rfc-editor.org/rfc/rfc822.html)
 The SendMail function and the net/smtp package are low-level mechanisms and provide no support for DKIM signing, MIME attachments (see the mime/multipart package), or other mail functionality. Higher-level packages exist outside of the standard library.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type Auth interface {
 	// Start begins an authentication with a server.
 	// It returns the name of the authentication protocol
@@ -95,7 +95,7 @@ Auth is implemented by an SMTP authentication mechanism.
 
 #### func [CRAMMD5Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=93) 
 
-``` go linenums="1"
+``` go 
 func CRAMMD5Auth(username, secret string) Auth
 ```
 
@@ -103,7 +103,7 @@ CRAMMD5Auth returns an Auth that implements the CRAM-MD5 authentication mechanis
 
 #### func [PlainAuth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func PlainAuth(identity, username, password, host string) Auth
 ```
 
@@ -112,12 +112,12 @@ PlainAuth returns an Auth that implements the PLAIN authentication mechanism as 
 PlainAuth will only send the credentials if the connection is using TLS or is connected to localhost. Otherwise authentication will fail with an error, without sending the credentials.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ### type [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type Client struct {
 	// Text is the textproto.Conn used by the Client. It is exported to allow for
 	// clients to add extensions.
@@ -130,7 +130,7 @@ A Client represents a client connection to an SMTP server.
 
 #### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func Dial(addr string) (*Client, error)
 ```
 
@@ -138,7 +138,7 @@ Dial returns a new Client connected to an SMTP server at addr. The addr must inc
 
 #### func [NewClient](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func NewClient(conn net.Conn, host string) (*Client, error)
 ```
 
@@ -146,7 +146,7 @@ NewClient returns a new Client using an existing connection and host as a server
 
 #### (*Client) [Auth](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=197) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Auth(a Auth) error
 ```
 
@@ -154,7 +154,7 @@ Auth authenticates a client using the provided authentication mechanism. A faile
 
 #### (*Client) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=77)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (c *Client) Close() error
 ```
 
@@ -162,7 +162,7 @@ Close closes the connection.
 
 #### (*Client) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=291) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Data() (io.WriteCloser, error)
 ```
 
@@ -170,7 +170,7 @@ Data issues a DATA command to the server and returns a writer that can be used t
 
 #### (*Client) [Extension](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=382) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Extension(ext string) (bool, string)
 ```
 
@@ -178,7 +178,7 @@ Extension reports whether an extension is support by the server. The extension n
 
 #### (*Client) [Hello](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=98)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *Client) Hello(localName string) error
 ```
 
@@ -186,7 +186,7 @@ Hello sends a HELO or EHLO to the server as the given host name. Calling this me
 
 #### (*Client) [Mail](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=245) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Mail(from string) error
 ```
 
@@ -194,7 +194,7 @@ Mail issues a MAIL command to the server using the provided email address. If th
 
 #### (*Client) [Noop](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=406)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (c *Client) Noop() error
 ```
 
@@ -202,7 +202,7 @@ Noop sends the NOOP command to the server. It does nothing but check that the co
 
 #### (*Client) [Quit](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=415) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Quit() error
 ```
 
@@ -210,7 +210,7 @@ Quit sends the QUIT command and closes the connection to the server.
 
 #### (*Client) [Rcpt](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=268) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Rcpt(to string) error
 ```
 
@@ -218,7 +218,7 @@ Rcpt issues a RCPT command to the server using the provided email address. A cal
 
 #### (*Client) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=396) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Reset() error
 ```
 
@@ -226,7 +226,7 @@ Reset sends the RSET command to the server, aborting the current mail transactio
 
 #### (*Client) [StartTLS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=154) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) StartTLS(config *tls.Config) error
 ```
 
@@ -234,7 +234,7 @@ StartTLS sends the STARTTLS command and encrypts all further communication. Only
 
 #### (*Client) [TLSConnectionState](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=171)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (c *Client) TLSConnectionState() (state tls.ConnectionState, ok bool)
 ```
 
@@ -242,7 +242,7 @@ TLSConnectionState returns the client's TLS connection state. The return values 
 
 #### (*Client) [Verify](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/smtp.go;l=183) 
 
-``` go linenums="1"
+``` go 
 func (c *Client) Verify(addr string) error
 ```
 
@@ -250,7 +250,7 @@ Verify checks the validity of an email address on the server. If Verify returns 
 
 ### type [ServerInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/smtp/auth.go;l=34) 
 
-``` go linenums="1"
+``` go 
 type ServerInfo struct {
 	Name string   // SMTP server name
 	TLS  bool     // using TLS, with valid certificate for Name

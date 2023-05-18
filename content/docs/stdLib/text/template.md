@@ -33,7 +33,7 @@ Once parsed, a template may be executed safely in parallel, although if parallel
 
 Here is a trivial example that prints "17 items are made of wool".
 
-``` go linenums="1"
+``` go 
 type Inventory struct {
 	Material string
 	Count    uint
@@ -410,7 +410,7 @@ This section is empty.
 
 #### func [HTMLEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=611) 
 
-``` go linenums="1"
+``` go 
 func HTMLEscape(w io.Writer, b []byte)
 ```
 
@@ -418,7 +418,7 @@ HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
 
 #### func [HTMLEscapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=639) 
 
-``` go linenums="1"
+``` go 
 func HTMLEscapeString(s string) string
 ```
 
@@ -426,7 +426,7 @@ HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
 
 #### func [HTMLEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=651) 
 
-``` go linenums="1"
+``` go 
 func HTMLEscaper(args ...any) string
 ```
 
@@ -434,7 +434,7 @@ HTMLEscaper returns the escaped HTML equivalent of the textual representation of
 
 #### func [IsTrue](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=320)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func IsTrue(val any) (truth, ok bool)
 ```
 
@@ -442,7 +442,7 @@ IsTrue reports whether the value is 'true', in the sense of not the zero of its 
 
 #### func [JSEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=671) 
 
-``` go linenums="1"
+``` go 
 func JSEscape(w io.Writer, b []byte)
 ```
 
@@ -450,7 +450,7 @@ JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
 
 #### func [JSEscapeString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=722) 
 
-``` go linenums="1"
+``` go 
 func JSEscapeString(s string) string
 ```
 
@@ -458,7 +458,7 @@ JSEscapeString returns the escaped JavaScript equivalent of the plain text data 
 
 #### func [JSEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=742) 
 
-``` go linenums="1"
+``` go 
 func JSEscaper(args ...any) string
 ```
 
@@ -466,7 +466,7 @@ JSEscaper returns the escaped JavaScript equivalent of the textual representatio
 
 #### func [URLQueryEscaper](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=748) 
 
-``` go linenums="1"
+``` go 
 func URLQueryEscaper(args ...any) string
 ```
 
@@ -476,7 +476,7 @@ URLQueryEscaper returns the escaped value of the textual representation of its a
 
 ### type [ExecError](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=121)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type ExecError struct {
 	Name string // Name of template.
 	Err  error  // Pre-formatted error.
@@ -487,19 +487,19 @@ ExecError is the custom error type returned when Execute has an error evaluating
 
 #### (ExecError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=126)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (e ExecError) Error() string
 ```
 
 #### (ExecError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=130)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e ExecError) Unwrap() error
 ```
 
 ### type [FuncMap](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/funcs.go;l=33) 
 
-``` go linenums="1"
+``` go 
 type FuncMap map[string]any
 ```
 
@@ -511,7 +511,7 @@ When template execution invokes a function with an argument list, that list must
 
 ### type [Template](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Template struct {
 	*parse.Tree
 	// contains filtered or unexported fields
@@ -521,44 +521,44 @@ type Template struct {
 Template is the representation of a parsed template. The *parse.Tree field is exported only for use by html/template and should be treated as unexported by all other clients.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Must](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func Must(t *Template, err error) *Template
 ```
 
 Must is a helper that wraps a call to a function returning (*Template, error) and panics if the error is non-nil. It is intended for use in variable initializations such as
 
-``` go linenums="1"
+``` go 
 var t = template.Must(template.New("name").Parse("text"))
 ```
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func New(name string) *Template
 ```
 
@@ -566,7 +566,7 @@ New allocates a new, undefined template with the given name.
 
 #### func [ParseFS](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=138)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 ```
 
@@ -574,7 +574,7 @@ ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys inst
 
 #### func [ParseFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=40) 
 
-``` go linenums="1"
+``` go 
 func ParseFiles(filenames ...string) (*Template, error)
 ```
 
@@ -584,7 +584,7 @@ When parsing multiple files with the same name in different directories, the las
 
 #### func [ParseGlob](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=105) 
 
-``` go linenums="1"
+``` go 
 func ParseGlob(pattern string) (*Template, error)
 ```
 
@@ -594,7 +594,7 @@ When parsing multiple files with the same name in different directories, the las
 
 #### (*Template) [AddParseTree](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=129) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) AddParseTree(name string, tree *parse.Tree) (*Template, error)
 ```
 
@@ -602,7 +602,7 @@ AddParseTree associates the argument parse tree with the template t, giving it t
 
 #### (*Template) [Clone](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=86) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Clone() (*Template, error)
 ```
 
@@ -610,7 +610,7 @@ Clone returns a duplicate of the template, including all associated templates. T
 
 #### (*Template) [DefinedTemplates](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=232)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (t *Template) DefinedTemplates() string
 ```
 
@@ -618,7 +618,7 @@ DefinedTemplates returns a string listing the defined templates, prefixed by the
 
 #### (*Template) [Delims](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Delims(left, right string) *Template
 ```
 
@@ -626,7 +626,7 @@ Delims sets the action delimiters to the specified strings, to be used in subseq
 
 #### (*Template) [Execute](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=206) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Execute(wr io.Writer, data any) error
 ```
 
@@ -636,7 +636,7 @@ If data is a reflect.Value, the template applies to the concrete value that the 
 
 #### (*Template) [ExecuteTemplate](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/exec.go;l=188) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) ExecuteTemplate(wr io.Writer, name string, data any) error
 ```
 
@@ -644,7 +644,7 @@ ExecuteTemplate applies the template associated with t that has the given name t
 
 #### (*Template) [Funcs](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Funcs(funcMap FuncMap) *Template
 ```
 
@@ -652,7 +652,7 @@ Funcs adds the elements of the argument map to the template's function map. It m
 
 #### (*Template) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=188) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Lookup(name string) *Template
 ```
 
@@ -660,7 +660,7 @@ Lookup returns the template with the given name that is associated with t. It re
 
 #### (*Template) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Name() string
 ```
 
@@ -668,7 +668,7 @@ Name returns the name of the template.
 
 #### (*Template) [New](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=58) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) New(name string) *Template
 ```
 
@@ -678,7 +678,7 @@ Because associated templates share underlying data, template construction cannot
 
 #### (*Template) [Option](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/option.go;l=42)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (t *Template) Option(opt ...string) *Template
 ```
 
@@ -701,7 +701,7 @@ missingkey: Control the behavior during execution if a map is indexed with a key
 
 #### (*Template) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=207) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Parse(text string) (*Template, error)
 ```
 
@@ -711,7 +711,7 @@ Templates can be redefined in successive calls to Parse. A template definition w
 
 #### (*Template) [ParseFS](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=146)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func (t *Template) ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 ```
 
@@ -719,7 +719,7 @@ ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys inst
 
 #### (*Template) [ParseFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=55) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) ParseFiles(filenames ...string) (*Template, error)
 ```
 
@@ -729,7 +729,7 @@ When parsing multiple files with the same name in different directories, the las
 
 #### (*Template) [ParseGlob](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/helper.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) ParseGlob(pattern string) (*Template, error)
 ```
 
@@ -739,7 +739,7 @@ When parsing multiple files with the same name in different directories, the las
 
 #### (*Template) [Templates](https://cs.opensource.google/go/go/+/go1.20.1:src/text/template/template.go;l=145) 
 
-``` go linenums="1"
+``` go 
 func (t *Template) Templates() []*Template
 ```
 

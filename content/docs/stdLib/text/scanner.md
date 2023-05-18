@@ -16,19 +16,19 @@ Package scanner provides a scanner and tokenizer for UTF-8-encoded text. It take
 By default, a Scanner skips white space and Go comments and recognizes all literals as defined by the Go language specification. It may be customized to recognize only a subset of those literals and to recognize different identifier and white space characters.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -44,7 +44,7 @@ By default, a Scanner skips white space and Go comments and recognizes all liter
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=63)
 
-``` go linenums="1"
+``` go 
 const (
 	ScanIdents     = 1 << -Ident
 	ScanInts       = 1 << -Int
@@ -70,7 +70,7 @@ Use GoTokens to configure the Scanner such that it accepts all Go literal tokens
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=76)
 
-``` go linenums="1"
+``` go 
 const (
 	EOF = -(iota + 1)
 	Ident
@@ -87,7 +87,7 @@ The result of Scan is one of these tokens or a Unicode character.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=111)
 
-``` go linenums="1"
+``` go 
 const GoWhitespace = 1<<'\t' | 1<<'\n' | 1<<'\r' | 1<<' '
 ```
 
@@ -101,7 +101,7 @@ This section is empty.
 
 #### func [TokenString](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=102) 
 
-``` go linenums="1"
+``` go 
 func TokenString(tok rune) string
 ```
 
@@ -111,7 +111,7 @@ TokenString returns a printable string for a token or Unicode character.
 
 ### type [Position](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type Position struct {
 	Filename string // filename, if any
 	Offset   int    // byte offset, starting at 0
@@ -124,7 +124,7 @@ Position is a value that represents a source position. A position is valid if Li
 
 #### (*Position) [IsValid](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=36) 
 
-``` go linenums="1"
+``` go 
 func (pos *Position) IsValid() bool
 ```
 
@@ -132,13 +132,13 @@ IsValid reports whether the position is valid.
 
 #### (Position) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func (pos Position) String() string
 ```
 
 ### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=116) 
 
-``` go linenums="1"
+``` go 
 type Scanner struct {
 
 	// Error is called for each error encountered. If no Error
@@ -182,7 +182,7 @@ A Scanner implements reading of Unicode characters and tokens from an io.Reader.
 
 #### (*Scanner) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=181) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Init(src io.Reader) *Scanner
 ```
 
@@ -190,7 +190,7 @@ Init initializes a Scanner with a new source and returns s. Error is set to nil,
 
 #### (*Scanner) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=304) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Next() rune
 ```
 
@@ -198,7 +198,7 @@ Next reads and returns the next Unicode character. It returns EOF at the end of 
 
 #### (*Scanner) [Peek](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=317) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Peek() rune
 ```
 
@@ -206,7 +206,7 @@ Peek returns the next Unicode character in the source without advancing the scan
 
 #### (*Scanner) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=748) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Pos() (pos Position)
 ```
 
@@ -214,7 +214,7 @@ Pos returns the position of the character immediately after the character or tok
 
 #### (*Scanner) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=646) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Scan() rune
 ```
 
@@ -222,7 +222,7 @@ Scan reads the next token or Unicode character from source and returns it. It on
 
 #### (*Scanner) [TokenText](https://cs.opensource.google/go/go/+/go1.20.1:src/text/scanner/scanner.go;l=770) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) TokenText() string
 ```
 

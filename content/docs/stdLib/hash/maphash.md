@@ -16,7 +16,7 @@ Package maphash provides hash functions on byte sequences. These hash functions 
 The hash functions are not cryptographically secure. (See crypto/sha256 and crypto/sha512 for cryptographic use.)
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -37,7 +37,7 @@ This section is empty.
 
 #### func [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=42)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func Bytes(seed Seed, b []byte) uint64
 ```
 
@@ -45,7 +45,7 @@ Bytes returns the hash of b with the given seed.
 
 Bytes is equivalent to, but more convenient and efficient than:
 
-``` go linenums="1"
+``` go 
 var h Hash
 h.SetSeed(seed)
 h.Write(b)
@@ -54,7 +54,7 @@ return h.Sum64()
 
 #### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=68)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func String(seed Seed, s string) uint64
 ```
 
@@ -62,7 +62,7 @@ String returns the hash of s with the given seed.
 
 String is equivalent to, but more convenient and efficient than:
 
-``` go linenums="1"
+``` go 
 var h Hash
 h.SetSeed(seed)
 h.WriteString(s)
@@ -73,7 +73,7 @@ return h.Sum64()
 
 ### type [Hash](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=105) 
 
-``` go linenums="1"
+``` go 
 type Hash struct {
 	// contains filtered or unexported fields
 }
@@ -99,7 +99,7 @@ A Hash is not safe for concurrent use by multiple goroutines, but a Seed is. If 
 
 #### (*Hash) [BlockSize](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=308) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) BlockSize() int
 ```
 
@@ -107,7 +107,7 @@ BlockSize returns h's block size.
 
 #### (*Hash) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Reset()
 ```
 
@@ -115,7 +115,7 @@ Reset discards all bytes added to h. (The seed remains the same.)
 
 #### (*Hash) [Seed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Seed() Seed
 ```
 
@@ -123,7 +123,7 @@ Seed returns h's seed value.
 
 #### (*Hash) [SetSeed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=213) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) SetSeed(seed Seed)
 ```
 
@@ -131,7 +131,7 @@ SetSeed sets h to use seed, which must have been returned by MakeSeed or by anot
 
 #### (*Hash) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Size() int
 ```
 
@@ -139,7 +139,7 @@ Size returns h's hash value size, 8 bytes.
 
 #### (*Hash) [Sum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=291) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Sum(b []byte) []byte
 ```
 
@@ -147,7 +147,7 @@ Sum appends the hash's current 64-bit value to b. It exists for implementing has
 
 #### (*Hash) [Sum64](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=247) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Sum64() uint64
 ```
 
@@ -157,7 +157,7 @@ All bits of the Sum64 result are close to uniformly and independently distribute
 
 #### (*Hash) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=145) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) Write(b []byte) (int, error)
 ```
 
@@ -165,7 +165,7 @@ Write adds b to the sequence of bytes hashed by h. It always writes all of b and
 
 #### (*Hash) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) WriteByte(b byte) error
 ```
 
@@ -173,7 +173,7 @@ WriteByte adds b to the sequence of bytes hashed by h. It never fails; the error
 
 #### (*Hash) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func (h *Hash) WriteString(s string) (int, error)
 ```
 
@@ -181,7 +181,7 @@ WriteString adds the bytes of s to the sequence of bytes hashed by h. It always 
 
 ### type [Seed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=30) 
 
-``` go linenums="1"
+``` go 
 type Seed struct {
 	// contains filtered or unexported fields
 }
@@ -195,7 +195,7 @@ Each Seed value is local to a single process and cannot be serialized or otherwi
 
 #### func [MakeSeed](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/maphash/maphash.go;l=253) 
 
-``` go linenums="1"
+``` go 
 func MakeSeed() Seed
 ```
 

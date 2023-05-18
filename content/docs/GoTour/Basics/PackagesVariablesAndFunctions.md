@@ -26,7 +26,7 @@ draft = false
 
 (要想看到一个不同的数字，请给数字生成器不同的种子数；见[rand.Seed](https://go.dev/pkg/math/rand/#Seed)。在练习场中的时间是常量，因此你需要使用其他的值作为种子数）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -47,14 +47,14 @@ func main() {
 
 ​	你也可以写多个导入语句，例如：
 
-```go linenums="1"
+```go 
 import "fmt"
 import "math"
 ```
 
 ​	不过，使用分组导入语句是更好的形式。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -84,7 +84,7 @@ func main() {
 
 ​	为了解决这个错误，将`math.pi`重命名为`math.Pi`，然后再试一次。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -111,7 +111,7 @@ func main() {
 
 ​	(更多关于这种声明形式出现的原因，请参见[Go的声明语法](../../../GoBlog/2010/GosDeclarationSyntax)一文）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -146,7 +146,7 @@ x int, y int
 x, y int
 ```
 
-```go title="main.go" linenums="1" hl_lines="5 5"
+```go title="main.go"  hl_lines="5 5"
 package main
 
 import "fmt"
@@ -169,7 +169,7 @@ func main() {
 
 `swap`函数返回两个字符串。
 
-```go title="main.go" linenums="1" hl_lines="5 5"
+```go title="main.go"  hl_lines="5 5"
 package main
 
 import "fmt"
@@ -197,7 +197,7 @@ func main() {
 
 ​	直接返回语句应当仅用在下面这样的短函数中。在较长的函数中，它们会影响代码的可读性。
 
-```go title="main.go" linenums="1" hl_lines="8 8"
+```go title="main.go"  hl_lines="8 8"
 package main
 
 import "fmt"
@@ -222,7 +222,7 @@ func main() {
 
 ​	就像本例子中看到的一样，`var` 语句可以出现在包或函数级别。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -244,7 +244,7 @@ func main() {
 
 ​	如果初始化值已经存在，可以省略类型；变量会从初始化值中获得类型。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -266,7 +266,7 @@ func main() {
 
 ​	在函数外，每个语句都以关键字开始（`var`、`func`等），因此`:=`结构不能在函数外使用。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -309,7 +309,7 @@ complex64 complex128
 
 ​	`int`、`uint`和`uintptr`类型在32位系统上通常是32位宽，在64位系统上是64位宽。当你需要一个整数值时，你应该使用`int`，除非你有特别的理由使用一个固定大小或无符号的整数类型。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -343,7 +343,7 @@ func main() {
 - 布尔类型为`false`，而
 - 字符串为`""`（空字符串）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -366,7 +366,7 @@ func main() {
 
 ​	一些关于数值的转换：
 
-```go linenums="1"
+```go 
 var i int = 42
 var f float64 = float64(i)
 var u uint = uint(f)
@@ -374,7 +374,7 @@ var u uint = uint(f)
 
 或者，更简单：
 
-```go linenums="1"
+```go 
 i := 42
 f := float64(i)
 u := uint(f)
@@ -382,7 +382,7 @@ u := uint(f)
 
 ​	与C语言不同，Go语言中不同类型的项之间的赋值需要显示转换。尝试去掉例子中的`float64`或`uint`转换，看看会发生什么。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -407,14 +407,14 @@ func main() {
 
 ​	当右值声明了类型时，新变量的类型与其相同：
 
-```go linenums="1"
+```go 
 var i int
 j := i // j is an int
 ```
 
 ​	但是当右边包含一个无类型的数值常量时，新变量可能是`int`、`float64`或者`complex128`，这取决于常量的精度：
 
-```go linenums="1"
+```go 
 i := 42           // int
 f := 3.142        // float64
 g := 0.867 + 0.5i // complex128
@@ -422,7 +422,7 @@ g := 0.867 + 0.5i // complex128
 
 ​	试着改变示例代码中`v`的初始值，观察它是如何影响类型的。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -444,7 +444,7 @@ func main() {
 
 ​	常量不能用 `:=` 语法来声明。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -474,7 +474,7 @@ func main() {
 
 (一个`int`最多能存储64位的整数，（根据所用的系统平台）有时甚至更少。)
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"

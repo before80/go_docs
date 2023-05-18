@@ -14,7 +14,7 @@ draft = false
 ​	有关此包的介绍，请参见[JSON和Go](https://golang.org/doc/articles/json_and_go.html)。
 
 ##### Example (CustomMarshalJSON)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -88,7 +88,7 @@ Zoo Census:
 ```
 
 ##### Example(TextMarshalJSON)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -167,7 +167,7 @@ This section is empty.
 
 #### func [Compact](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/indent.go;l=13) 
 
-``` go linenums="1"
+``` go 
 func Compact(dst *bytes.Buffer, src []byte) error
 ```
 
@@ -175,14 +175,14 @@ func Compact(dst *bytes.Buffer, src []byte) error
 
 #### func [HTMLEscape](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=192) 
 
-``` go linenums="1"
+``` go 
 func HTMLEscape(dst *bytes.Buffer, src []byte)
 ```
 
 ​	HTMLEscape函数将JSON编码的src附加到dst中，将字符串文字内的<、>、&、U+2028和U+2029字符更改为\u003c、\u003e、\u0026、\u2028、\u2029，以使JSON可以安全地嵌入HTML `<script>`标记中。由于历史原因，Web浏览器不支持在`<script>`标记中使用标准的HTML转义，因此必须使用替代的JSON编码。
 
 ##### HTMLEscape Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -203,14 +203,14 @@ Output:
 
 #### func [Indent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/indent.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error
 ```
 
 ​	Indent函数将JSON编码的src的缩进形式附加到dst中。JSON对象或数组中的每个元素都在新的缩进行上开始，该行以prefix开头，后跟一个或多个indent的副本，具体取决于缩进嵌套。附加到dst的数据不以prefix或任何缩进开始，以使其更容易嵌入其他格式化的JSON数据中。虽然src开头的前导空格字符(空格、制表符、回车、换行符)会被删除，但src末尾的尾随空格字符会被保留并复制到dst中。例如，如果src没有尾随空格，则dst也没有；如果src以尾随换行符结束，则dst也是如此。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -255,7 +255,7 @@ Output:
 
 #### func [Marshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func Marshal(v any) ([]byte, error)
 ```
 
@@ -345,7 +345,7 @@ Int64String int64 `json:",string"`
 ​	JSON 不能表示循环数据结构，Marshal 也无法处理它们。将循环结构传递给 Marshal 将导致错误。
 
 ##### Marshal Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -378,14 +378,14 @@ Output:
 
 #### func [MarshalIndent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=173) 
 
-``` go linenums="1"
+``` go 
 func MarshalIndent(v any, prefix, indent string) ([]byte, error)
 ```
 
 ​	MarshalIndent函数类似于 Marshal函数，但应用 Indent 以格式化输出。输出中的每个 JSON 元素都将在新行上开始，以前缀开头，后跟一个或多个 indent 副本，具体取决于缩进嵌套。
 
 ##### MarshalIndent Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -417,7 +417,7 @@ Output:
 
 #### func [Unmarshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func Unmarshal(data []byte, v any) error
 ```
 
@@ -455,7 +455,7 @@ func Unmarshal(data []byte, v any) error
 ​	解组引用字符串时，无效的UTF-8或无效的UTF-16代理对不会被视为错误。相反，它们将被替换为Unicode替换字符U+FFFD。
 
 ##### Unmarshal Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -486,14 +486,14 @@ Output:
 
 #### func [Valid](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=22)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func Valid(data []byte) bool
 ```
 
 ​	Valid 函数判断数据 data 是否是有效的 JSON 编码。
 
 ##### Valid Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -516,7 +516,7 @@ true false
 
 ### type [Decoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type Decoder struct {
 	// contains filtered or unexported fields
 }
@@ -528,7 +528,7 @@ type Decoder struct {
 
 ​	这个例子使用了 Decoder 来解码一系列不同的 JSON 值流。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -566,7 +566,7 @@ func main() {
 
 #### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func NewDecoder(r io.Reader) *Decoder
 ```
 
@@ -576,7 +576,7 @@ func NewDecoder(r io.Reader) *Decoder
 
 #### (*Decoder) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=83)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) Buffered() io.Reader
 ```
 
@@ -584,7 +584,7 @@ func (dec *Decoder) Buffered() io.Reader
 
 #### (*Decoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) Decode(v any) error
 ```
 
@@ -596,7 +596,7 @@ func (dec *Decoder) Decode(v any) error
 
 ​	这个示例使用解码器(Decoder)来解码一个 JSON 对象流数组。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -661,7 +661,7 @@ json.Delim: ]
 
 #### (*Decoder) [DisallowUnknownFields](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=42)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) DisallowUnknownFields()
 ```
 
@@ -669,7 +669,7 @@ func (dec *Decoder) DisallowUnknownFields()
 
 #### (*Decoder) [InputOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=513)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) InputOffset() int64
 ```
 
@@ -677,7 +677,7 @@ func (dec *Decoder) InputOffset() int64
 
 #### (*Decoder) [More](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=486)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) More() bool
 ```
 
@@ -685,7 +685,7 @@ func (dec *Decoder) More() bool
 
 #### (*Decoder) [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=371)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) Token() (Token, error)
 ```
 
@@ -699,7 +699,7 @@ func (dec *Decoder) Token() (Token, error)
 
 ​	这个例子使用 Decoder 来解码一个由不同的 JSON 值组成的流。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -750,7 +750,7 @@ json.Delim: }
 
 #### (*Decoder) [UseNumber](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=37)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) UseNumber()
 ```
 
@@ -758,7 +758,7 @@ func (dec *Decoder) UseNumber()
 
 ### type [Delim](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=354)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type Delim rune
 ```
 
@@ -766,13 +766,13 @@ type Delim rune
 
 #### (Delim) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=356)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (d Delim) String() string
 ```
 
 ### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=181) 
 
-``` go linenums="1"
+``` go 
 type Encoder struct {
 	// contains filtered or unexported fields
 }
@@ -782,7 +782,7 @@ type Encoder struct {
 
 #### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=192) 
 
-``` go linenums="1"
+``` go 
 func NewEncoder(w io.Writer) *Encoder
 ```
 
@@ -790,7 +790,7 @@ func NewEncoder(w io.Writer) *Encoder
 
 #### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=201) 
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Encode(v any) error
 ```
 
@@ -800,7 +800,7 @@ func (enc *Encoder) Encode(v any) error
 
 #### (*Encoder) [SetEscapeHTML](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=255)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) SetEscapeHTML(on bool)
 ```
 
@@ -810,7 +810,7 @@ func (enc *Encoder) SetEscapeHTML(on bool)
 
 #### (*Encoder) [SetIndent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=243)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) SetIndent(prefix, indent string)
 ```
 
@@ -818,7 +818,7 @@ func (enc *Encoder) SetIndent(prefix, indent string)
 
 ### type [InvalidUnmarshalError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=156) 
 
-``` go linenums="1"
+``` go 
 type InvalidUnmarshalError struct {
 	Type reflect.Type
 }
@@ -828,13 +828,13 @@ type InvalidUnmarshalError struct {
 
 #### (*InvalidUnmarshalError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=160) 
 
-``` go linenums="1"
+``` go 
 func (e *InvalidUnmarshalError) Error() string
 ```
 
 ### type [Marshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=223) 
 
-``` go linenums="1"
+``` go 
 type Marshaler interface {
 	MarshalJSON() ([]byte, error)
 }
@@ -844,7 +844,7 @@ type Marshaler interface {
 
 ### type [MarshalerError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=263) 
 
-``` go linenums="1"
+``` go 
 type MarshalerError struct {
 	Type reflect.Type
 	Err  error
@@ -856,13 +856,13 @@ type MarshalerError struct {
 
 #### (*MarshalerError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (e *MarshalerError) Error() string
 ```
 
 #### (*MarshalerError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=280)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *MarshalerError) Unwrap() error
 ```
 
@@ -870,7 +870,7 @@ func (e *MarshalerError) Unwrap() error
 
 ### type [Number](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=189)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type Number string
 ```
 
@@ -878,7 +878,7 @@ type Number string
 
 #### (Number) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=195)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (n Number) Float64() (float64, error)
 ```
 
@@ -886,7 +886,7 @@ func (n Number) Float64() (float64, error)
 
 #### (Number) [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=200)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (n Number) Int64() (int64, error)
 ```
 
@@ -894,7 +894,7 @@ func (n Number) Int64() (int64, error)
 
 #### (Number) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=192)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (n Number) String() string
 ```
 
@@ -902,7 +902,7 @@ func (n Number) String() string
 
 ### type [RawMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=262) 
 
-``` go linenums="1"
+``` go 
 type RawMessage []byte
 ```
 
@@ -912,7 +912,7 @@ type RawMessage []byte
 
 ​	这个示例使用 RawMessage 来在编组时使用预计算的 JSON。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -950,7 +950,7 @@ Output:
 
 ​	这个示例使用 RawMessage 来延迟解析 JSON 消息的一部分。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1008,7 +1008,7 @@ RGB &{98 218 255}
 
 #### (RawMessage) [MarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=265) 
 
-``` go linenums="1"
+``` go 
 func (m RawMessage) MarshalJSON() ([]byte, error)
 ```
 
@@ -1016,7 +1016,7 @@ func (m RawMessage) MarshalJSON() ([]byte, error)
 
 #### (*RawMessage) [UnmarshalJSON](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=273) 
 
-``` go linenums="1"
+``` go 
 func (m *RawMessage) UnmarshalJSON(data []byte) error
 ```
 
@@ -1024,7 +1024,7 @@ func (m *RawMessage) UnmarshalJSON(data []byte) error
 
 ### type [SyntaxError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=47) 
 
-``` go linenums="1"
+``` go 
 type SyntaxError struct {
 	Offset int64 // error occurred after reading Offset bytes // 读取Offset bytes后发生错误
 	// contains filtered or unexported fields
@@ -1035,13 +1035,13 @@ type SyntaxError struct {
 
 #### (*SyntaxError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/scanner.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func (e *SyntaxError) Error() string
 ```
 
 ### type [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/stream.go;l=292)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type Token any
 ```
 
@@ -1058,7 +1058,7 @@ nil, for JSON null
 
 ### type [UnmarshalTypeError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=125) 
 
-``` go linenums="1"
+``` go 
 type UnmarshalTypeError struct {
 	Value  string       // JSON值的描述 - "bool"、"array"、"number -5"
 	Type   reflect.Type // 无法赋值给Go值的类型
@@ -1072,13 +1072,13 @@ type UnmarshalTypeError struct {
 
 #### (*UnmarshalTypeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func (e *UnmarshalTypeError) Error() string
 ```
 
 ### type [Unmarshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/decode.go;l=119) 
 
-``` go linenums="1"
+``` go 
 type Unmarshaler interface {
 	UnmarshalJSON([]byte) error
 }
@@ -1090,7 +1090,7 @@ type Unmarshaler interface {
 
 ### type [UnsupportedTypeError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=229) 
 
-``` go linenums="1"
+``` go 
 type UnsupportedTypeError struct {
 	Type reflect.Type
 }
@@ -1100,13 +1100,13 @@ type UnsupportedTypeError struct {
 
 #### (*UnsupportedTypeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=233) 
 
-``` go linenums="1"
+``` go 
 func (e *UnsupportedTypeError) Error() string
 ```
 
 ### type [UnsupportedValueError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=239) 
 
-``` go linenums="1"
+``` go 
 type UnsupportedValueError struct {
 	Value reflect.Value
 	Str   string
@@ -1117,6 +1117,6 @@ type UnsupportedValueError struct {
 
 #### (*UnsupportedValueError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/json/encode.go;l=244) 
 
-``` go linenums="1"
+``` go 
 func (e *UnsupportedValueError) Error() string
 ```

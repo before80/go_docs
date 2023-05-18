@@ -292,7 +292,7 @@ This section is empty.
 
 #### func [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/sample.go;l=45) 
 
-``` go linenums="1"
+``` go 
 func Read(m []Sample)
 ```
 
@@ -307,18 +307,18 @@ It is safe to execute multiple Read calls concurrently, but their arguments must
 Sample values with names not appearing in All will have their Value populated as KindBad to indicate that the name is unknown.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [Description](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/description.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Description struct {
 	// Name is the full name of the metric which includes the unit.
 	//
@@ -367,7 +367,7 @@ Description describes a runtime metric.
 
 #### func [All](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/description.go;l=378) 
 
-``` go linenums="1"
+``` go 
 func All() []Description
 ```
 
@@ -375,7 +375,7 @@ All returns a slice of containing metric descriptions for all supported metrics.
 
 ### type [Float64Histogram](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/histogram.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type Float64Histogram struct {
 	// Counts contains the weights for each histogram bucket.
 	//
@@ -408,7 +408,7 @@ Float64Histogram represents a distribution of float64 values.
 
 ### type [Sample](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/sample.go;l=13) 
 
-``` go linenums="1"
+``` go 
 type Sample struct {
 	// Name is the name of the metric sampled.
 	//
@@ -425,7 +425,7 @@ Sample captures a single metric sample.
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=30) 
 
-``` go linenums="1"
+``` go 
 type Value struct {
 	// contains filtered or unexported fields
 }
@@ -435,7 +435,7 @@ Value represents a metric value returned by the runtime.
 
 #### (Value) [Float64](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=54) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Float64() float64
 ```
 
@@ -445,7 +445,7 @@ If v.Kind() != KindFloat64, this method panics.
 
 #### (Value) [Float64Histogram](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Float64Histogram() *Float64Histogram
 ```
 
@@ -455,7 +455,7 @@ If v.Kind() != KindFloat64Histogram, this method panics.
 
 #### (Value) [Kind](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Kind() ValueKind
 ```
 
@@ -463,7 +463,7 @@ Kind returns the tag representing the kind of value this is.
 
 #### (Value) [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func (v Value) Uint64() uint64
 ```
 
@@ -473,13 +473,13 @@ If v.Kind() != KindUint64, this method panics.
 
 ### type [ValueKind](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/metrics/value.go;l=13) 
 
-``` go linenums="1"
+``` go 
 type ValueKind int
 ```
 
 ValueKind is a tag for a metric Value which indicates its type.
 
-``` go linenums="1"
+``` go 
 const (
 	// KindBad indicates that the Value has no type and should not be used.
 	KindBad ValueKind = iota

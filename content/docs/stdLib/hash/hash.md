@@ -14,7 +14,7 @@ https://pkg.go.dev/hash@go1.20.1
 Package hash provides interfaces for hash functions.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -39,7 +39,7 @@ This section is empty.
 
 ### type [Hash](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=26) 
 
-``` go linenums="1"
+``` go 
 type Hash interface {
 	// Write (via the embedded io.Writer interface) adds more data to the running hash.
 	// It never returns an error.
@@ -71,7 +71,7 @@ Compatibility: Any future changes to hash or crypto packages will endeavor to ma
 
 ### type [Hash32](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=49) 
 
-``` go linenums="1"
+``` go 
 type Hash32 interface {
 	Hash
 	Sum32() uint32
@@ -82,7 +82,7 @@ Hash32 is the common interface implemented by all 32-bit hash functions.
 
 ### type [Hash64](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/hash.go;l=55) 
 
-``` go linenums="1"
+``` go 
 type Hash64 interface {
 	Hash
 	Sum64() uint64

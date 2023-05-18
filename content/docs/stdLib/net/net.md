@@ -68,7 +68,7 @@ export GODEBUG=netdns=cgo   # force native resolver (cgo, win32)
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=21)
 
-``` go linenums="1"
+``` go 
 const (
 	IPv4len = 4
 	IPv6len = 16
@@ -81,7 +81,7 @@ IP地址长度(以字节为单位)。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=100)
 
-``` go linenums="1"
+``` go 
 var (
 	IPv4bcast     = IPv4(255, 255, 255, 255) // 有限广播
 	IPv4allsys    = IPv4(224, 0, 0, 1)       // 所有系统
@@ -94,7 +94,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=108)
 
-``` go linenums="1"
+``` go 
 var (
 	IPv6zero                   = IP{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	IPv6unspecified            = IP{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -109,7 +109,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=118)
 
-``` go linenums="1"
+``` go 
 var DefaultResolver = &Resolver{}
 ```
 
@@ -117,7 +117,7 @@ var DefaultResolver = &Resolver{}
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=665)
 
-``` go linenums="1"
+``` go 
 var ErrClosed error = errClosed
 ```
 
@@ -125,7 +125,7 @@ var ErrClosed error = errClosed
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=408)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrWriteToConnected = errors.New("use of WriteTo with pre-connected connection")
 )
@@ -137,7 +137,7 @@ var (
 
 #### func [JoinHostPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ipsock.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func JoinHostPort(host, port string) string
 ```
 
@@ -147,7 +147,7 @@ func JoinHostPort(host, port string) string
 
 #### func [LookupAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=645) 
 
-``` go linenums="1"
+``` go 
 func LookupAddr(addr string) (names []string, err error)
 ```
 
@@ -161,7 +161,7 @@ func LookupAddr(addr string) (names []string, err error)
 
 #### func [LookupCNAME](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=456) 
 
-``` go linenums="1"
+``` go 
 func LookupCNAME(host string) (cname string, err error)
 ```
 
@@ -175,7 +175,7 @@ func LookupCNAME(host string) (cname string, err error)
 
 #### func [LookupHost](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=176) 
 
-``` go linenums="1"
+``` go 
 func LookupHost(host string) (addrs []string, err error)
 ```
 
@@ -185,7 +185,7 @@ func LookupHost(host string) (addrs []string, err error)
 
 #### func [LookupPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=414) 
 
-``` go linenums="1"
+``` go 
 func LookupPort(network, service string) (port int, err error)
 ```
 
@@ -195,7 +195,7 @@ func LookupPort(network, service string) (port int, err error)
 
 #### func [LookupTXT](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=624) 
 
-``` go linenums="1"
+``` go 
 func LookupTXT(name string) ([]string, error)
 ```
 
@@ -205,7 +205,7 @@ func LookupTXT(name string) ([]string, error)
 
 #### func [ParseCIDR](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=741) 
 
-``` go linenums="1"
+``` go 
 func ParseCIDR(s string) (IP, *IPNet, error)
 ```
 
@@ -214,7 +214,7 @@ func ParseCIDR(s string) (IP, *IPNet, error)
 ​	它返回IP地址和由IP和前缀长度隐含的网络。例如，ParseCIDR("192.0.2.1/24")返回IP地址192.0.2.1和网络192.0.2.0/24。
 
 ##### ParseCIDR Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -249,7 +249,7 @@ Output:
 
 #### func [Pipe](https://cs.opensource.google/go/go/+/go1.20.1:src/net/pipe.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func Pipe() (Conn, Conn)
 ```
 
@@ -257,7 +257,7 @@ func Pipe() (Conn, Conn)
 
 #### func [SplitHostPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ipsock.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func SplitHostPort(hostport string) (host, port string, err error)
 ```
 
@@ -271,7 +271,7 @@ func SplitHostPort(hostport string) (host, port string, err error)
 
 ### type [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=105) 
 
-``` go linenums="1"
+``` go 
 type Addr interface {
 	Network() string // 网络的名称(例如 "tcp"、"udp")
 	String() string  // 地址的字符串表示形式(例如 "192.0.2.1:25"、"[2001:db8::1]:80")
@@ -284,7 +284,7 @@ type Addr interface {
 
 #### func [InterfaceAddrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func InterfaceAddrs() ([]Addr, error)
 ```
 
@@ -294,7 +294,7 @@ func InterfaceAddrs() ([]Addr, error)
 
 ### type [AddrError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=554) 
 
-``` go linenums="1"
+``` go 
 type AddrError struct {
 	Err  string
 	Addr string
@@ -303,25 +303,25 @@ type AddrError struct {
 
 #### (*AddrError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=559) 
 
-``` go linenums="1"
+``` go 
 func (e *AddrError) Error() string
 ```
 
 #### (*AddrError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=571) 
 
-``` go linenums="1"
+``` go 
 func (e *AddrError) Temporary() bool
 ```
 
 #### (*AddrError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=570) 
 
-``` go linenums="1"
+``` go 
 func (e *AddrError) Timeout() bool
 ```
 
 ### type [Buffers](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=712)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type Buffers [][]byte
 ```
 
@@ -331,7 +331,7 @@ type Buffers [][]byte
 
 #### (*Buffers) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=747)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (v *Buffers) Read(p []byte) (n int, err error)
 ```
 
@@ -343,7 +343,7 @@ func (v *Buffers) Read(p []byte) (n int, err error)
 
 #### (*Buffers) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=725)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (v *Buffers) WriteTo(w io.Writer) (n int64, err error)
 ```
 
@@ -355,7 +355,7 @@ func (v *Buffers) WriteTo(w io.Writer) (n int64, err error)
 
 ### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=113) 
 
-``` go linenums="1"
+``` go 
 type Conn interface {
 	// Read 从连接中读取数据。
 	// Read 可以设置超时时间，在固定时间限制后超时并返回错误；
@@ -410,7 +410,7 @@ type Conn interface {
 
 #### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=332) 
 
-``` go linenums="1"
+``` go 
 func Dial(network, address string) (Conn, error)
 ```
 
@@ -447,7 +447,7 @@ Dial("ip6:58", "fe80::1%lo0")
 
 #### func [DialTimeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=347) 
 
-``` go linenums="1"
+``` go 
 func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
 ```
 
@@ -459,7 +459,7 @@ func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
 
 #### func [FileConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func FileConn(f *os.File) (c Conn, err error)
 ```
 
@@ -467,7 +467,7 @@ func FileConn(f *os.File) (c Conn, err error)
 
 ### type [DNSConfigError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=610) 
 
-``` go linenums="1"
+``` go 
 type DNSConfigError struct {
 	Err error
 }
@@ -477,31 +477,31 @@ type DNSConfigError struct {
 
 #### (*DNSConfigError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=615) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSConfigError) Error() string
 ```
 
 #### (*DNSConfigError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=617) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSConfigError) Temporary() bool
 ```
 
 #### (*DNSConfigError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=616) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSConfigError) Timeout() bool
 ```
 
 #### (*DNSConfigError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=614)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *DNSConfigError) Unwrap() error
 ```
 
 ### type [DNSError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=625) 
 
-``` go linenums="1"
+``` go 
 type DNSError struct {
 	Err         string // 错误描述
 	Name        string // 查找的名称
@@ -516,13 +516,13 @@ type DNSError struct {
 
 #### (*DNSError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=634) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSError) Error() string
 ```
 
 #### (*DNSError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=654) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSError) Temporary() bool
 ```
 
@@ -530,7 +530,7 @@ func (e *DNSError) Temporary() bool
 
 #### (*DNSError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=649) 
 
-``` go linenums="1"
+``` go 
 func (e *DNSError) Timeout() bool
 ```
 
@@ -538,7 +538,7 @@ func (e *DNSError) Timeout() bool
 
 ### type [Dialer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=27)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type Dialer struct {
 	// Timeout是拨号等待连接完成的最大时间。
     // 如果Deadline也设置了，可能会更早失败。
@@ -622,7 +622,7 @@ type Dialer struct {
 ​	并发调用Dialer的方法是安全的。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -651,7 +651,7 @@ func main() {
 ```
 
 ##### Example(Unix)
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -686,7 +686,7 @@ func main() {
 
 #### (*Dialer) [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=366)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (d *Dialer) Dial(network, address string) (Conn, error)
 ```
 
@@ -698,7 +698,7 @@ func (d *Dialer) Dial(network, address string) (Conn, error)
 
 #### (*Dialer) [DialContext](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=388)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (d *Dialer) DialContext(ctx context.Context, network, address string) (Conn, error)
 ```
 
@@ -712,7 +712,7 @@ func (d *Dialer) DialContext(ctx context.Context, network, address string) (Conn
 
 ### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=397) 
 
-``` go linenums="1"
+``` go 
 type Error interface {
 	error
 	Timeout() bool // 错误是否超时？
@@ -728,7 +728,7 @@ type Error interface {
 
 ### type [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type Flags uint
 const (
 	FlagUp           Flags = 1 << iota // 接口已被管理员开启
@@ -742,13 +742,13 @@ const (
 
 #### (Flags) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func (f Flags) String() string
 ```
 
 ### type [HardwareAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=10) 
 
-``` go linenums="1"
+``` go 
 type HardwareAddr []byte
 ```
 
@@ -756,7 +756,7 @@ type HardwareAddr []byte
 
 #### func [ParseMAC](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func ParseMAC(s string) (hw HardwareAddr, err error)
 ```
 
@@ -776,13 +776,13 @@ func ParseMAC(s string) (hw HardwareAddr, err error)
 
 #### (HardwareAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mac.go;l=12) 
 
-``` go linenums="1"
+``` go 
 func (a HardwareAddr) String() string
 ```
 
 ### type [IP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type IP []byte
 ```
 
@@ -791,7 +791,7 @@ type IP []byte
 ​	请注意，在本文档中，将IP地址称为IPv4地址或IPv6地址是地址的语义属性，而不仅仅是字节片的长度：16字节的片仍然可以是IPv4地址。
 
 ##### IP Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -815,14 +815,14 @@ Output:
 
 #### func [IPv4](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func IPv4(a, b, c, d byte) IP
 ```
 
 ​	IPv4函数返回IPv4地址a.b.c.d的IP地址(以16字节形式)。
 
 ##### IPv4 Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -841,7 +841,7 @@ Output:
 
 #### func [LookupIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=196) 
 
-``` go linenums="1"
+``` go 
 func LookupIP(host string) ([]IP, error)
 ```
 
@@ -849,14 +849,14 @@ func LookupIP(host string) ([]IP, error)
 
 #### func [ParseIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=707) 
 
-``` go linenums="1"
+``` go 
 func ParseIP(s string) IP
 ```
 
 ​	ParseIP函数将 s 解析为一个 IP 地址并返回结果。字符串 s 可以是 IPv4 的点分十进制表示("192.0.2.1")、IPv6 的十六进制表示("`2001:db8::68`")或 IPv4 映射的 IPv6 表示形式("`::ffff:192.0.2.1`")。如果 s 不是有效的文本表示形式的 IP 地址，则 ParseIP 返回 nil。
 
 ##### ParseIP Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -879,14 +879,14 @@ Output:
 
 #### (IP) [DefaultMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) DefaultMask() IPMask
 ```
 
 ​	DefaultMask方法返回 IP 地址 ip 的默认 IP 掩码。只有 IPv4 地址有默认掩码；如果 ip 不是有效的 IPv4 地址，则 DefaultMask 返回 nil。
 
 ##### DefaultMask Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -906,14 +906,14 @@ ffffff00
 
 #### (IP) [Equal](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=432) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) Equal(x IP) bool
 ```
 
 ​	Equal方法报告 ip 和 x 是否是相同的 IP 地址。IPv4 地址和相同的 IPv6 地址被认为是相等的。
 
 ##### Equal Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -940,7 +940,7 @@ true
 
 #### (IP) [IsGlobalUnicast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=190) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsGlobalUnicast() bool
 ```
 
@@ -949,7 +949,7 @@ func (ip IP) IsGlobalUnicast() bool
 ​	全局单播地址的标识使用 [RFC 1122](https://rfc-editor.org/rfc/rfc1122.html)、[RFC 4632](https://rfc-editor.org/rfc/rfc4632.html) 和 [RFC 4291](https://rfc-editor.org/rfc/rfc4291.html) 中定义的地址类型标识，但 IPv4 定向广播地址除外。即使 ip 在 IPv4 私有地址空间或本地 IPv6 单播地址空间中，它也返回 true。
 
 ##### IsGlobalUnicast Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -987,14 +987,14 @@ false
 
 #### (IP) [IsInterfaceLocalMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=160) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsInterfaceLocalMulticast() bool
 ```
 
 ​	IsInterfaceLocalMulticast方法报告 ip 是否是接口本地组播地址。
 
 ##### IsInterfaceLocalMulticast Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1021,14 +1021,14 @@ false
 
 #### (IP) [IsLinkLocalMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=166) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsLinkLocalMulticast() bool
 ```
 
 ​	IsLinkLocalMulticast方法报告 ip 是否是链路本地组播地址。
 
 ##### IsLinkLocalMulticast Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1058,14 +1058,14 @@ false
 
 #### (IP) [IsLinkLocalUnicast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=175) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsLinkLocalUnicast() bool
 ```
 
 ​	IsLinkLocalUnicast方法报告IP地址ip是否为链路本地单播地址。
 
 ##### IsLinkLocalUnicast Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1095,14 +1095,14 @@ false
 
 #### (IP) [IsLoopback](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=124) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsLoopback() bool
 ```
 
 ​	IsLoopback方法报告IP地址ip是否为回环地址。
 
 ##### IsLoopback Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1132,14 +1132,14 @@ false
 
 #### (IP) [IsMulticast](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsMulticast() bool
 ```
 
 ​	IsMulticast方法报告IP地址ip是否为多播地址。
 
 ##### IsMulticast Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1175,14 +1175,14 @@ false
 
 #### (IP) [IsPrivate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=133)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsPrivate() bool
 ```
 
 ​	IsPrivate方法报告IP地址ip是否为私有地址，根据[RFC 1918](https://rfc-editor.org/rfc/rfc1918.html)(IPv4地址)和[RFC 4193](https://rfc-editor.org/rfc/rfc4193.html)(IPv6地址)。
 
 ##### IsPrivate Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1212,14 +1212,14 @@ false
 
 #### (IP) [IsUnspecified](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=119) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) IsUnspecified() bool
 ```
 
 ​	IsUnspecified方法报告IP地址ip是否为未指定地址，即IPv4地址"0.0.0.0"或IPv6地址"::"。
 
 ##### IsUnspecified Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1249,7 +1249,7 @@ false
 
 #### (IP) [MarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=403)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (ip IP) MarshalText() ([]byte, error)
 ```
 
@@ -1257,14 +1257,14 @@ func (ip IP) MarshalText() ([]byte, error)
 
 #### (IP) [Mask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=270) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) Mask(mask IPMask) IP
 ```
 
 ​	Mask方法返回使用掩码mask对IP地址ip进行掩码后的结果。
 
 ##### Mask Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1292,7 +1292,7 @@ Output:
 
 #### (IP) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=313) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) String() string
 ```
 
@@ -1306,7 +1306,7 @@ String方法返回IP地址ip的字符串形式。它返回以下4种形式之一
 
 
 ##### String Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1330,14 +1330,14 @@ fc00::
 
 #### (IP) [To16](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=226) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) To16() IP
 ```
 
 ​	To16 方法将IP地址ip转换为16字节表示。如果ip不是IP地址(长度不正确)，To16 返回nil。
 
 ##### To16 Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1361,7 +1361,7 @@ fc00::
 
 #### (IP) [To4](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=211) 
 
-``` go linenums="1"
+``` go 
 func (ip IP) To4() IP
 ```
 
@@ -1369,7 +1369,7 @@ func (ip IP) To4() IP
 
 #### (*IP) [UnmarshalText](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=415)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (ip *IP) UnmarshalText(text []byte) error
 ```
 
@@ -1377,7 +1377,7 @@ func (ip *IP) UnmarshalText(text []byte) error
 
 ### type [IPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=31) 
 
-``` go linenums="1"
+``` go 
 type IPAddr struct {
 	IP   IP
 	Zone string // IPv6有作用域的寻址区域
@@ -1388,7 +1388,7 @@ type IPAddr struct {
 
 #### func [ResolveIPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func ResolveIPAddr(network, address string) (*IPAddr, error)
 ```
 
@@ -1402,7 +1402,7 @@ func ResolveIPAddr(network, address string) (*IPAddr, error)
 
 #### (*IPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func (a *IPAddr) Network() string
 ```
 
@@ -1410,13 +1410,13 @@ func (a *IPAddr) Network() string
 
 #### (*IPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (a *IPAddr) String() string
 ```
 
 ### type [IPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=99) 
 
-``` go linenums="1"
+``` go 
 type IPConn struct {
 	// 包含过滤或未导出字段
 }
@@ -1426,7 +1426,7 @@ type IPConn struct {
 
 #### func [DialIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=211) 
 
-``` go linenums="1"
+``` go 
 func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error)
 ```
 
@@ -1438,7 +1438,7 @@ func DialIP(network string, laddr, raddr *IPAddr) (*IPConn, error)
 
 #### func [ListenIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=230) 
 
-``` go linenums="1"
+``` go 
 func ListenIP(network string, laddr *IPAddr) (*IPConn, error)
 ```
 
@@ -1450,7 +1450,7 @@ func ListenIP(network string, laddr *IPAddr) (*IPConn, error)
 
 #### (*IPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) Close() error
 ```
 
@@ -1458,7 +1458,7 @@ func (c *IPConn) Close() error
 
 #### (*IPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) File() (f *os.File, err error)
 ```
 
@@ -1468,7 +1468,7 @@ func (c *IPConn) File() (f *os.File, err error)
 
 #### (*IPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) LocalAddr() Addr
 ```
 
@@ -1476,7 +1476,7 @@ func (c *IPConn) LocalAddr() Addr
 
 #### (*IPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) Read(b []byte) (int, error)
 ```
 
@@ -1484,7 +1484,7 @@ func (c *IPConn) Read(b []byte) (int, error)
 
 #### (*IPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) ReadFrom(b []byte) (int, Addr, error)
 ```
 
@@ -1492,7 +1492,7 @@ func (c *IPConn) ReadFrom(b []byte) (int, Addr, error)
 
 #### (*IPConn) [ReadFromIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) ReadFromIP(b []byte) (int, *IPAddr, error)
 ```
 
@@ -1500,7 +1500,7 @@ func (c *IPConn) ReadFromIP(b []byte) (int, *IPAddr, error)
 
 #### (*IPConn) [ReadMsgIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=146)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) ReadMsgIP(b, oob []byte) (n, oobn, flags int, addr *IPAddr, err error)
 ```
 
@@ -1510,7 +1510,7 @@ func (c *IPConn) ReadMsgIP(b, oob []byte) (n, oobn, flags int, addr *IPAddr, err
 
 #### (*IPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) RemoteAddr() Addr
 ```
 
@@ -1518,7 +1518,7 @@ func (c *IPConn) RemoteAddr() Addr
 
 #### (*IPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SetDeadline(t time.Time) error
 ```
 
@@ -1526,7 +1526,7 @@ func (c *IPConn) SetDeadline(t time.Time) error
 
 #### (*IPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SetReadBuffer(bytes int) error
 ```
 
@@ -1534,7 +1534,7 @@ func (c *IPConn) SetReadBuffer(bytes int) error
 
 #### (*IPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SetReadDeadline(t time.Time) error
 ```
 
@@ -1542,7 +1542,7 @@ func (c *IPConn) SetReadDeadline(t time.Time) error
 
 #### (*IPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SetWriteBuffer(bytes int) error
 ```
 
@@ -1550,7 +1550,7 @@ func (c *IPConn) SetWriteBuffer(bytes int) error
 
 #### (*IPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SetWriteDeadline(t time.Time) error
 ```
 
@@ -1558,7 +1558,7 @@ func (c *IPConn) SetWriteDeadline(t time.Time) error
 
 #### (*IPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=105)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -1566,7 +1566,7 @@ func (c *IPConn) SyscallConn() (syscall.RawConn, error)
 
 #### (*IPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) Write(b []byte) (int, error)
 ```
 
@@ -1574,7 +1574,7 @@ func (c *IPConn) Write(b []byte) (int, error)
 
 #### (*IPConn) [WriteMsgIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=191)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) WriteMsgIP(b, oob []byte, addr *IPAddr) (n, oobn int, err error)
 ```
 
@@ -1584,7 +1584,7 @@ func (c *IPConn) WriteMsgIP(b, oob []byte, addr *IPAddr) (n, oobn int, err error
 
 #### (*IPConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) WriteTo(b []byte, addr Addr) (int, error)
 ```
 
@@ -1592,7 +1592,7 @@ func (c *IPConn) WriteTo(b []byte, addr Addr) (int, error)
 
 #### (*IPConn) [WriteToIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/iprawsock.go;l=158) 
 
-``` go linenums="1"
+``` go 
 func (c *IPConn) WriteToIP(b []byte, addr *IPAddr) (int, error)
 ```
 
@@ -1600,7 +1600,7 @@ func (c *IPConn) WriteToIP(b []byte, addr *IPAddr) (int, error)
 
 ### type [IPMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=41) 
 
-``` go linenums="1"
+``` go 
 type IPMask []byte
 ```
 
@@ -1610,14 +1610,14 @@ type IPMask []byte
 
 #### func [CIDRMask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func CIDRMask(ones, bits int) IPMask
 ```
 
 ​	CIDRMask函数返回一个IPMask，它由"ones"个1位组成，后跟0位，总长度为"bits"位。对于这种形式的掩码，CIDRMask是IPMask.Size的反函数。
 
 ##### CIDRMask Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1641,14 +1641,14 @@ ffffffffffffffff0000000000000000
 
 #### func [IPv4Mask](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=65) 
 
-``` go linenums="1"
+``` go 
 func IPv4Mask(a, b, c, d byte) IPMask
 ```
 
 ​	IPv4Mask函数返回IPv4掩码a.b.c.d的IP掩码(以4字节形式)。
 
 ##### IPv4Mask Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1667,7 +1667,7 @@ ffffff00
 
 #### (IPMask) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=481) 
 
-``` go linenums="1"
+``` go 
 func (m IPMask) Size() (ones, bits int)
 ```
 
@@ -1675,7 +1675,7 @@ func (m IPMask) Size() (ones, bits int)
 
 #### (IPMask) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=490) 
 
-``` go linenums="1"
+``` go 
 func (m IPMask) String() string
 ```
 
@@ -1683,7 +1683,7 @@ func (m IPMask) String() string
 
 ### type [IPNet](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type IPNet struct {
 	IP   IP     // 网络号
 	Mask IPMask // 网络掩码
@@ -1694,7 +1694,7 @@ type IPNet struct {
 
 #### (*IPNet) [Contains](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=521) 
 
-``` go linenums="1"
+``` go 
 func (n *IPNet) Contains(ip IP) bool
 ```
 
@@ -1702,7 +1702,7 @@ func (n *IPNet) Contains(ip IP) bool
 
 #### (*IPNet) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=539) 
 
-``` go linenums="1"
+``` go 
 func (n *IPNet) Network() string
 ```
 
@@ -1710,7 +1710,7 @@ func (n *IPNet) Network() string
 
 #### (*IPNet) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/ip.go;l=547) 
 
-``` go linenums="1"
+``` go 
 func (n *IPNet) String() string
 ```
 
@@ -1718,7 +1718,7 @@ func (n *IPNet) String() string
 
 ### type [Interface](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=31) 
 
-``` go linenums="1"
+``` go 
 type Interface struct {
 	Index        int          // 正整数，从1开始，0永远不使用
 	MTU          int          // 最大传输单元
@@ -1732,7 +1732,7 @@ type Interface struct {
 
 #### func [InterfaceByIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=131) 
 
-``` go linenums="1"
+``` go 
 func InterfaceByIndex(index int) (*Interface, error)
 ```
 
@@ -1742,7 +1742,7 @@ func InterfaceByIndex(index int) (*Interface, error)
 
 #### func [InterfaceByName](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=156) 
 
-``` go linenums="1"
+``` go 
 func InterfaceByName(name string) (*Interface, error)
 ```
 
@@ -1750,7 +1750,7 @@ func InterfaceByName(name string) (*Interface, error)
 
 #### func [Interfaces](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=102) 
 
-``` go linenums="1"
+``` go 
 func Interfaces() ([]Interface, error)
 ```
 
@@ -1758,7 +1758,7 @@ func Interfaces() ([]Interface, error)
 
 #### (*Interface) [Addrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (ifi *Interface) Addrs() ([]Addr, error)
 ```
 
@@ -1766,7 +1766,7 @@ func (ifi *Interface) Addrs() ([]Addr, error)
 
 #### (*Interface) [MulticastAddrs](https://cs.opensource.google/go/go/+/go1.20.1:src/net/interface.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func (ifi *Interface) MulticastAddrs() ([]Addr, error)
 ```
 
@@ -1774,31 +1774,31 @@ func (ifi *Interface) MulticastAddrs() ([]Addr, error)
 
 ### type [InvalidAddrError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=579) 
 
-``` go linenums="1"
+``` go 
 type InvalidAddrError string
 ```
 
 #### (InvalidAddrError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=581) 
 
-``` go linenums="1"
+``` go 
 func (e InvalidAddrError) Error() string
 ```
 
 #### (InvalidAddrError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=583) 
 
-``` go linenums="1"
+``` go 
 func (e InvalidAddrError) Temporary() bool
 ```
 
 #### (InvalidAddrError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=582) 
 
-``` go linenums="1"
+``` go 
 func (e InvalidAddrError) Timeout() bool
 ```
 
 ### type [ListenConfig](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=600)  <- go1.11
 
-``` go linenums="1"
+``` go 
 type ListenConfig struct {
 	// 如果 Control 不是 nil，
     // 则在创建网络连接但在将其绑定到操作系统之前调用它。
@@ -1820,7 +1820,7 @@ type ListenConfig struct {
 
 #### (*ListenConfig) [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=622)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (lc *ListenConfig) Listen(ctx context.Context, network, address string) (Listener, error)
 ```
 
@@ -1830,7 +1830,7 @@ func (lc *ListenConfig) Listen(ctx context.Context, network, address string) (Li
 
 #### (*ListenConfig) [ListenPacket](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=652)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (lc *ListenConfig) ListenPacket(ctx context.Context, network, address string) (PacketConn, error)
 ```
 
@@ -1840,7 +1840,7 @@ func (lc *ListenConfig) ListenPacket(ctx context.Context, network, address strin
 
 ### type [Listener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=384) 
 
-``` go linenums="1"
+``` go 
 type Listener interface {
 	// Accept 等待并返回到监听器的下一个连接。
 	Accept() (Conn, error)
@@ -1859,7 +1859,7 @@ type Listener interface {
 ​	多个 goroutine 可同时调用 Listener 上的方法。
 
 ##### Listener Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1898,7 +1898,7 @@ func main() {
 
 #### func [FileListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func FileListener(f *os.File) (ln Listener, err error)
 ```
 
@@ -1906,7 +1906,7 @@ func FileListener(f *os.File) (ln Listener, err error)
 
 #### func [Listen](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=707) 
 
-``` go linenums="1"
+``` go 
 func Listen(network, address string) (Listener, error)
 ```
 
@@ -1922,7 +1922,7 @@ func Listen(network, address string) (Listener, error)
 
 ### type [MX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=204) 
 
-``` go linenums="1"
+``` go 
 type MX struct {
 	Host string
 	Pref uint16
@@ -1933,7 +1933,7 @@ type MX struct {
 
 #### func [LookupMX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=549) 
 
-``` go linenums="1"
+``` go 
 func LookupMX(name string) ([]*MX, error)
 ```
 
@@ -1945,7 +1945,7 @@ func LookupMX(name string) ([]*MX, error)
 
 ### type [NS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=226)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type NS struct {
 	Host string
 }
@@ -1955,7 +1955,7 @@ type NS struct {
 
 #### func [LookupNS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=589)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func LookupNS(name string) ([]*NS, error)
 ```
 
@@ -1967,7 +1967,7 @@ func LookupNS(name string) ([]*NS, error)
 
 ### type [OpError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=444) 
 
-``` go linenums="1"
+``` go 
 type OpError struct {
 	// Op(操作)是引起错误的操作，例如"read"或"write"。
 	Op string
@@ -1996,31 +1996,31 @@ type OpError struct {
 
 #### (*OpError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=473) 
 
-``` go linenums="1"
+``` go 
 func (e *OpError) Error() string
 ```
 
 #### (*OpError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=524) 
 
-``` go linenums="1"
+``` go 
 func (e *OpError) Temporary() bool
 ```
 
 #### (*OpError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=511) 
 
-``` go linenums="1"
+``` go 
 func (e *OpError) Timeout() bool
 ```
 
 #### (*OpError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=471)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (e *OpError) Unwrap() error
 ```
 
 ### type [PacketConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=309) 
 
-``` go linenums="1"
+``` go 
 type PacketConn interface {
 	// ReadFrom 从连接中读取一个数据包，将有效载荷复制到 p 中。
 	// 它返回复制到 p 中的字节数以及在数据包上的返回地址。
@@ -2080,7 +2080,7 @@ type PacketConn interface {
 
 #### func [FilePacketConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/file.go;l=45) 
 
-``` go linenums="1"
+``` go 
 func FilePacketConn(f *os.File) (c PacketConn, err error)
 ```
 
@@ -2088,7 +2088,7 @@ func FilePacketConn(f *os.File) (c PacketConn, err error)
 
 #### func [ListenPacket](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dial.go;l=737) 
 
-``` go linenums="1"
+``` go 
 func ListenPacket(network, address string) (PacketConn, error)
 ```
 
@@ -2104,7 +2104,7 @@ func ListenPacket(network, address string) (PacketConn, error)
 
 ### type [ParseError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=540) 
 
-``` go linenums="1"
+``` go 
 type ParseError struct {
 	// Type 是预期的字符串类型，例如
 	// "IP 地址"、"CIDR 地址"。
@@ -2119,25 +2119,25 @@ type ParseError struct {
 
 #### (*ParseError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=549) 
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Error() string
 ```
 
 #### (*ParseError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=552)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Temporary() bool
 ```
 
 #### (*ParseError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=551)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (e *ParseError) Timeout() bool
 ```
 
 ### type [Resolver](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=123)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type Resolver struct {
 	// PreferGo 控制在可用平台上是否优先使用 Go 的内置 DNS 解析器。
 	// 它等效于设置 GODEBUG=netdns=go，但仅限于此解析器。
@@ -2172,7 +2172,7 @@ type Resolver struct {
 
 #### (*Resolver) [LookupAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=655)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupAddr(ctx context.Context, addr string) ([]string, error)
 ```
 
@@ -2182,7 +2182,7 @@ func (r *Resolver) LookupAddr(ctx context.Context, addr string) ([]string, error
 
 #### (*Resolver) [LookupCNAME](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=473)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupCNAME(ctx context.Context, host string) (string, error)
 ```
 
@@ -2194,7 +2194,7 @@ func (r *Resolver) LookupCNAME(ctx context.Context, host string) (string, error)
 
 #### (*Resolver) [LookupHost](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=182)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupHost(ctx context.Context, host string) (addrs []string, err error)
 ```
 
@@ -2202,7 +2202,7 @@ func (r *Resolver) LookupHost(ctx context.Context, host string) (addrs []string,
 
 #### (*Resolver) [LookupIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=218)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupIP(ctx context.Context, network, host string) ([]IP, error)
 ```
 
@@ -2210,7 +2210,7 @@ func (r *Resolver) LookupIP(ctx context.Context, network, host string) ([]IP, er
 
 #### (*Resolver) [LookupIPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=210)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupIPAddr(ctx context.Context, host string) ([]IPAddr, error)
 ```
 
@@ -2218,7 +2218,7 @@ func (r *Resolver) LookupIPAddr(ctx context.Context, host string) ([]IPAddr, err
 
 #### (*Resolver) [LookupMX](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=559)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupMX(ctx context.Context, name string) ([]*MX, error)
 ```
 
@@ -2228,7 +2228,7 @@ func (r *Resolver) LookupMX(ctx context.Context, name string) ([]*MX, error)
 
 #### (*Resolver) [LookupNS](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=599)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupNS(ctx context.Context, name string) ([]*NS, error)
 ```
 
@@ -2238,7 +2238,7 @@ func (r *Resolver) LookupNS(ctx context.Context, name string) ([]*NS, error)
 
 #### (*Resolver) [LookupNetIP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=248)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupNetIP(ctx context.Context, network, host string) ([]netip.Addr, error)
 ```
 
@@ -2246,7 +2246,7 @@ func (r *Resolver) LookupNetIP(ctx context.Context, network, host string) ([]net
 
 #### (*Resolver) [LookupPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=419)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupPort(ctx context.Context, network, service string) (port int, err error)
 ```
 
@@ -2254,7 +2254,7 @@ func (r *Resolver) LookupPort(ctx context.Context, network, service string) (por
 
 #### (*Resolver) [LookupSRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=516)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupSRV(ctx context.Context, service, proto, name string) (string, []*SRV, error)
 ```
 
@@ -2268,7 +2268,7 @@ func (r *Resolver) LookupSRV(ctx context.Context, service, proto, name string) (
 
 #### (*Resolver) [LookupTXT](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=629)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (r *Resolver) LookupTXT(ctx context.Context, name string) ([]string, error)
 ```
 
@@ -2276,7 +2276,7 @@ func (r *Resolver) LookupTXT(ctx context.Context, name string) ([]string, error)
 
 ### type [SRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/dnsclient.go;l=150) 
 
-``` go linenums="1"
+``` go 
 type SRV struct {
 	Target   string
 	Port     uint16
@@ -2289,7 +2289,7 @@ type SRV struct {
 
 #### func [LookupSRV](https://cs.opensource.google/go/go/+/go1.20.1:src/net/lookup.go;l=498) 
 
-``` go linenums="1"
+``` go 
 func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err error)
 ```
 
@@ -2301,7 +2301,7 @@ func LookupSRV(service, proto, name string) (cname string, addrs []*SRV, err err
 
 ### type [TCPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type TCPAddr struct {
 	IP   IP
 	Port int
@@ -2313,7 +2313,7 @@ type TCPAddr struct {
 
 #### func [ResolveTCPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=84) 
 
-``` go linenums="1"
+``` go 
 func ResolveTCPAddr(network, address string) (*TCPAddr, error)
 ```
 
@@ -2327,7 +2327,7 @@ func ResolveTCPAddr(network, address string) (*TCPAddr, error)
 
 #### func [TCPAddrFromAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=102)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr
 ```
 
@@ -2335,7 +2335,7 @@ func TCPAddrFromAddrPort(addr netip.AddrPort) *TCPAddr
 
 #### (*TCPAddr) [AddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=32)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (a *TCPAddr) AddrPort() netip.AddrPort
 ```
 
@@ -2347,7 +2347,7 @@ func (a *TCPAddr) AddrPort() netip.AddrPort
 
 #### (*TCPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=42) 
 
-``` go linenums="1"
+``` go 
 func (a *TCPAddr) Network() string
 ```
 
@@ -2355,13 +2355,13 @@ func (a *TCPAddr) Network() string
 
 #### (*TCPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func (a *TCPAddr) String() string
 ```
 
 ### type [TCPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=112) 
 
-``` go linenums="1"
+``` go 
 type TCPConn struct {
 	// 包含过滤或未公开的字段
 }
@@ -2371,7 +2371,7 @@ type TCPConn struct {
 
 #### func [DialTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=242) 
 
-``` go linenums="1"
+``` go 
 func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error)
 ```
 
@@ -2383,7 +2383,7 @@ func DialTCP(network string, laddr, raddr *TCPAddr) (*TCPConn, error)
 
 #### (*TCPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) Close() error
 ```
 
@@ -2391,7 +2391,7 @@ func (c *TCPConn) Close() error
 
 #### (*TCPConn) [CloseRead](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) CloseRead() error
 ```
 
@@ -2399,7 +2399,7 @@ func (c *TCPConn) CloseRead() error
 
 #### (*TCPConn) [CloseWrite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) CloseWrite() error
 ```
 
@@ -2407,7 +2407,7 @@ func (c *TCPConn) CloseWrite() error
 
 #### (*TCPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) File() (f *os.File, err error)
 ```
 
@@ -2417,7 +2417,7 @@ func (c *TCPConn) File() (f *os.File, err error)
 
 #### (*TCPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) LocalAddr() Addr
 ```
 
@@ -2425,7 +2425,7 @@ func (c *TCPConn) LocalAddr() Addr
 
 #### (*TCPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) Read(b []byte) (int, error)
 ```
 
@@ -2433,7 +2433,7 @@ Read方法实现了Conn的Read方法。
 
 #### (*TCPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=126) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) ReadFrom(r io.Reader) (int64, error)
 ```
 
@@ -2441,7 +2441,7 @@ func (c *TCPConn) ReadFrom(r io.Reader) (int64, error)
 
 #### (*TCPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) RemoteAddr() Addr
 ```
 
@@ -2449,7 +2449,7 @@ func (c *TCPConn) RemoteAddr() Addr
 
 #### (*TCPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetDeadline(t time.Time) error
 ```
 
@@ -2457,7 +2457,7 @@ func (c *TCPConn) SetDeadline(t time.Time) error
 
 #### (*TCPConn) [SetKeepAlive](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=185) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetKeepAlive(keepalive bool) error
 ```
 
@@ -2465,7 +2465,7 @@ func (c *TCPConn) SetKeepAlive(keepalive bool) error
 
 #### (*TCPConn) [SetKeepAlivePeriod](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=196)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetKeepAlivePeriod(d time.Duration) error
 ```
 
@@ -2473,7 +2473,7 @@ func (c *TCPConn) SetKeepAlivePeriod(d time.Duration) error
 
 #### (*TCPConn) [SetLinger](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=173) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetLinger(sec int) error
 ```
 
@@ -2487,7 +2487,7 @@ func (c *TCPConn) SetLinger(sec int) error
 
 #### (*TCPConn) [SetNoDelay](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=210) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetNoDelay(noDelay bool) error
 ```
 
@@ -2495,7 +2495,7 @@ func (c *TCPConn) SetNoDelay(noDelay bool) error
 
 #### (*TCPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetReadBuffer(bytes int) error
 ```
 
@@ -2503,7 +2503,7 @@ func (c *TCPConn) SetReadBuffer(bytes int) error
 
 #### (*TCPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetReadDeadline(t time.Time) error
 ```
 
@@ -2511,7 +2511,7 @@ func (c *TCPConn) SetReadDeadline(t time.Time) error
 
 #### (*TCPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetWriteBuffer(bytes int) error
 ```
 
@@ -2519,7 +2519,7 @@ func (c *TCPConn) SetWriteBuffer(bytes int) error
 
 #### (*TCPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SetWriteDeadline(t time.Time) error
 ```
 
@@ -2527,7 +2527,7 @@ func (c *TCPConn) SetWriteDeadline(t time.Time) error
 
 #### (*TCPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=118)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -2535,7 +2535,7 @@ func (c *TCPConn) SyscallConn() (syscall.RawConn, error)
 
 #### (*TCPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (c *TCPConn) Write(b []byte) (int, error)
 ```
 
@@ -2543,7 +2543,7 @@ func (c *TCPConn) Write(b []byte) (int, error)
 
 ### type [TCPListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=261) 
 
-``` go linenums="1"
+``` go 
 type TCPListener struct {
 	// contains filtered or unexported fields
 }
@@ -2553,7 +2553,7 @@ type TCPListener struct {
 
 #### func [ListenTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=360) 
 
-``` go linenums="1"
+``` go 
 func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
 ```
 
@@ -2565,7 +2565,7 @@ func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
 
 #### (*TCPListener) [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=293) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) Accept() (Conn, error)
 ```
 
@@ -2573,7 +2573,7 @@ func (l *TCPListener) Accept() (Conn, error)
 
 #### (*TCPListener) [AcceptTCP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=280) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) AcceptTCP() (*TCPConn, error)
 ```
 
@@ -2581,7 +2581,7 @@ func (l *TCPListener) AcceptTCP() (*TCPConn, error)
 
 #### (*TCPListener) [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=319) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) Addr() Addr
 ```
 
@@ -2589,7 +2589,7 @@ func (l *TCPListener) Addr() Addr
 
 #### (*TCPListener) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=306) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) Close() error
 ```
 
@@ -2597,7 +2597,7 @@ func (l *TCPListener) Close() error
 
 #### (*TCPListener) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=340) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) File() (f *os.File, err error)
 ```
 
@@ -2607,7 +2607,7 @@ func (l *TCPListener) File() (f *os.File, err error)
 
 #### (*TCPListener) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=323) 
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) SetDeadline(t time.Time) error
 ```
 
@@ -2615,7 +2615,7 @@ func (l *TCPListener) SetDeadline(t time.Time) error
 
 #### (*TCPListener) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/tcpsock.go;l=271)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (l *TCPListener) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -2625,7 +2625,7 @@ func (l *TCPListener) SyscallConn() (syscall.RawConn, error)
 
 ### type [UDPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type UDPAddr struct {
 	IP   IP
 	Port int
@@ -2637,7 +2637,7 @@ type UDPAddr struct {
 
 #### func [ResolveUDPAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=87) 
 
-``` go linenums="1"
+``` go 
 func ResolveUDPAddr(network, address string) (*UDPAddr, error)
 ```
 
@@ -2651,7 +2651,7 @@ func ResolveUDPAddr(network, address string) (*UDPAddr, error)
 
 #### func [UDPAddrFromAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=105)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr
 ```
 
@@ -2659,7 +2659,7 @@ func UDPAddrFromAddrPort(addr netip.AddrPort) *UDPAddr
 
 #### (*UDPAddr) [AddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=35)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (a *UDPAddr) AddrPort() netip.AddrPort
 ```
 
@@ -2671,7 +2671,7 @@ func (a *UDPAddr) AddrPort() netip.AddrPort
 
 #### (*UDPAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=45) 
 
-``` go linenums="1"
+``` go 
 func (a *UDPAddr) Network() string
 ```
 
@@ -2679,13 +2679,13 @@ func (a *UDPAddr) Network() string
 
 #### (*UDPAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (a *UDPAddr) String() string
 ```
 
 ### type [UDPConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=122) 
 
-``` go linenums="1"
+``` go 
 type UDPConn struct {
 	// contains filtered or unexported fields
 }
@@ -2695,7 +2695,7 @@ type UDPConn struct {
 
 #### func [DialUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=290) 
 
-``` go linenums="1"
+``` go 
 func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error)
 ```
 
@@ -2707,7 +2707,7 @@ func DialUDP(network string, laddr, raddr *UDPAddr) (*UDPConn, error)
 
 #### func [ListenMulticastUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=353) 
 
-``` go linenums="1"
+``` go 
 func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPConn, error)
 ```
 
@@ -2723,7 +2723,7 @@ func ListenMulticastUDP(network string, ifi *Interface, gaddr *UDPAddr) (*UDPCon
 
 #### func [ListenUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=316) 
 
-``` go linenums="1"
+``` go 
 func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
 ```
 
@@ -2735,7 +2735,7 @@ func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
 
 #### (*UDPConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) Close() error
 ```
 
@@ -2743,7 +2743,7 @@ func (c *UDPConn) Close() error
 
 #### (*UDPConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) File() (f *os.File, err error)
 ```
 
@@ -2753,7 +2753,7 @@ func (c *UDPConn) File() (f *os.File, err error)
 
 #### (*UDPConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) LocalAddr() Addr
 ```
 
@@ -2761,7 +2761,7 @@ func (c *UDPConn) LocalAddr() Addr
 
 #### (*UDPConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) Read(b []byte) (int, error)
 ```
 
@@ -2769,7 +2769,7 @@ func (c *UDPConn) Read(b []byte) (int, error)
 
 #### (*UDPConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) ReadFrom(b []byte) (int, Addr, error)
 ```
 
@@ -2777,7 +2777,7 @@ func (c *UDPConn) ReadFrom(b []byte) (int, Addr, error)
 
 #### (*UDPConn) [ReadFromUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=136) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) ReadFromUDP(b []byte) (n int, addr *UDPAddr, err error)
 ```
 
@@ -2785,7 +2785,7 @@ func (c *UDPConn) ReadFromUDP(b []byte) (n int, addr *UDPAddr, err error)
 
 #### (*UDPConn) [ReadFromUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=171)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) ReadFromUDPAddrPort(b []byte) (n int, addr netip.AddrPort, err error)
 ```
 
@@ -2795,7 +2795,7 @@ func (c *UDPConn) ReadFromUDPAddrPort(b []byte) (n int, addr netip.AddrPort, err
 
 #### (*UDPConn) [ReadMsgUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=189)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) ReadMsgUDP(b, oob []byte) (n, oobn, flags int, addr *UDPAddr, err error)
 ```
 
@@ -2805,7 +2805,7 @@ func (c *UDPConn) ReadMsgUDP(b, oob []byte) (n, oobn, flags int, addr *UDPAddr, 
 
 #### (*UDPConn) [ReadMsgUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=199)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) ReadMsgUDPAddrPort(b, oob []byte) (n, oobn, flags int, addr netip.AddrPort, err error)
 ```
 
@@ -2813,7 +2813,7 @@ func (c *UDPConn) ReadMsgUDPAddrPort(b, oob []byte) (n, oobn, flags int, addr ne
 
 #### (*UDPConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) RemoteAddr() Addr
 ```
 
@@ -2821,7 +2821,7 @@ func (c *UDPConn) RemoteAddr() Addr
 
 #### (*UDPConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SetDeadline(t time.Time) error
 ```
 
@@ -2829,7 +2829,7 @@ func (c *UDPConn) SetDeadline(t time.Time) error
 
 #### (*UDPConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SetReadBuffer(bytes int) error
 ```
 
@@ -2837,7 +2837,7 @@ func (c *UDPConn) SetReadBuffer(bytes int) error
 
 #### (*UDPConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SetReadDeadline(t time.Time) error
 ```
 
@@ -2845,7 +2845,7 @@ func (c *UDPConn) SetReadDeadline(t time.Time) error
 
 #### (*UDPConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SetWriteBuffer(bytes int) error
 ```
 
@@ -2853,7 +2853,7 @@ func (c *UDPConn) SetWriteBuffer(bytes int) error
 
 #### (*UDPConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SetWriteDeadline(t time.Time) error
 ```
 
@@ -2861,7 +2861,7 @@ func (c *UDPConn) SetWriteDeadline(t time.Time) error
 
 #### (*UDPConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=128)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -2869,7 +2869,7 @@ func (c *UDPConn) SyscallConn() (syscall.RawConn, error)
 
 #### (*UDPConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) Write(b []byte) (int, error)
 ```
 
@@ -2877,7 +2877,7 @@ func (c *UDPConn) Write(b []byte) (int, error)
 
 #### (*UDPConn) [WriteMsgUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=258)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) WriteMsgUDP(b, oob []byte, addr *UDPAddr) (n, oobn int, err error)
 ```
 
@@ -2887,7 +2887,7 @@ func (c *UDPConn) WriteMsgUDP(b, oob []byte, addr *UDPAddr) (n, oobn int, err er
 
 #### (*UDPConn) [WriteMsgUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=270)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) WriteMsgUDPAddrPort(b, oob []byte, addr netip.AddrPort) (n, oobn int, err error)
 ```
 
@@ -2895,14 +2895,14 @@ func (c *UDPConn) WriteMsgUDPAddrPort(b, oob []byte, addr netip.AddrPort) (n, oo
 
 #### (*UDPConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) WriteTo(b []byte, addr Addr) (int, error)
 ```
 
 ​	WriteTo方法实现了PacketConn WriteTo方法。
 
 ##### WriteTo Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -2935,7 +2935,7 @@ func main() {
 
 #### (*UDPConn) [WriteToUDP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=211) 
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 ```
 
@@ -2943,7 +2943,7 @@ func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 
 #### (*UDPConn) [WriteToUDPAddrPort](https://cs.opensource.google/go/go/+/go1.20.1:src/net/udpsock.go;l=223)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *UDPConn) WriteToUDPAddrPort(b []byte, addr netip.AddrPort) (int, error)
 ```
 
@@ -2951,7 +2951,7 @@ func (c *UDPConn) WriteToUDPAddrPort(b []byte, addr netip.AddrPort) (int, error)
 
 ### type [UnixAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=22) 
 
-``` go linenums="1"
+``` go 
 type UnixAddr struct {
 	Name string
 	Net  string
@@ -2962,7 +2962,7 @@ type UnixAddr struct {
 
 #### func [ResolveUnixAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=57) 
 
-``` go linenums="1"
+``` go 
 func ResolveUnixAddr(network, address string) (*UnixAddr, error)
 ```
 
@@ -2974,7 +2974,7 @@ func ResolveUnixAddr(network, address string) (*UnixAddr, error)
 
 #### (*UnixAddr) [Network](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=29) 
 
-``` go linenums="1"
+``` go 
 func (a *UnixAddr) Network() string
 ```
 
@@ -2982,13 +2982,13 @@ func (a *UnixAddr) Network() string
 
 #### (*UnixAddr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func (a *UnixAddr) String() string
 ```
 
 ### type [UnixConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=68) 
 
-``` go linenums="1"
+``` go 
 type UnixConn struct {
 	// 包含过滤或未公开的字段
 }
@@ -2998,7 +2998,7 @@ type UnixConn struct {
 
 #### func [DialUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error)
 ```
 
@@ -3010,7 +3010,7 @@ func DialUnix(network string, laddr, raddr *UnixAddr) (*UnixConn, error)
 
 #### func [ListenUnixgram](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=337) 
 
-``` go linenums="1"
+``` go 
 func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error)
 ```
 
@@ -3020,7 +3020,7 @@ func ListenUnixgram(network string, laddr *UnixAddr) (*UnixConn, error)
 
 #### (*UnixConn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) Close() error
 ```
 
@@ -3028,7 +3028,7 @@ func (c *UnixConn) Close() error
 
 #### (*UnixConn) [CloseRead](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=83)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) CloseRead() error
 ```
 
@@ -3036,7 +3036,7 @@ func (c *UnixConn) CloseRead() error
 
 #### (*UnixConn) [CloseWrite](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=95)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) CloseWrite() error
 ```
 
@@ -3044,7 +3044,7 @@ func (c *UnixConn) CloseWrite() error
 
 #### (*UnixConn) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) File() (f *os.File, err error)
 ```
 
@@ -3054,7 +3054,7 @@ func (c *UnixConn) File() (f *os.File, err error)
 
 #### (*UnixConn) [LocalAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=217) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) LocalAddr() Addr
 ```
 
@@ -3062,7 +3062,7 @@ func (c *UnixConn) LocalAddr() Addr
 
 #### (*UnixConn) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) Read(b []byte) (int, error)
 ```
 
@@ -3070,7 +3070,7 @@ func (c *UnixConn) Read(b []byte) (int, error)
 
 #### (*UnixConn) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) ReadFrom(b []byte) (int, Addr, error)
 ```
 
@@ -3078,7 +3078,7 @@ func (c *UnixConn) ReadFrom(b []byte) (int, Addr, error)
 
 #### (*UnixConn) [ReadFromUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=106) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) ReadFromUnix(b []byte) (int, *UnixAddr, error)
 ```
 
@@ -3086,7 +3086,7 @@ func (c *UnixConn) ReadFromUnix(b []byte) (int, *UnixAddr, error)
 
 #### (*UnixConn) [ReadMsgUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) ReadMsgUnix(b, oob []byte) (n, oobn, flags int, addr *UnixAddr, err error)
 ```
 
@@ -3096,7 +3096,7 @@ func (c *UnixConn) ReadMsgUnix(b, oob []byte) (n, oobn, flags int, addr *UnixAdd
 
 #### (*UnixConn) [RemoteAddr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=227) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) RemoteAddr() Addr
 ```
 
@@ -3104,7 +3104,7 @@ func (c *UnixConn) RemoteAddr() Addr
 
 #### (*UnixConn) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SetDeadline(t time.Time) error
 ```
 
@@ -3112,7 +3112,7 @@ func (c *UnixConn) SetDeadline(t time.Time) error
 
 #### (*UnixConn) [SetReadBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SetReadBuffer(bytes int) error
 ```
 
@@ -3120,7 +3120,7 @@ func (c *UnixConn) SetReadBuffer(bytes int) error
 
 #### (*UnixConn) [SetReadDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SetReadDeadline(t time.Time) error
 ```
 
@@ -3128,7 +3128,7 @@ func (c *UnixConn) SetReadDeadline(t time.Time) error
 
 #### (*UnixConn) [SetWriteBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=281) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SetWriteBuffer(bytes int) error
 ```
 
@@ -3136,7 +3136,7 @@ func (c *UnixConn) SetWriteBuffer(bytes int) error
 
 #### (*UnixConn) [SetWriteDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SetWriteDeadline(t time.Time) error
 ```
 
@@ -3144,7 +3144,7 @@ func (c *UnixConn) SetWriteDeadline(t time.Time) error
 
 #### (*UnixConn) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=74)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -3152,7 +3152,7 @@ func (c *UnixConn) SyscallConn() (syscall.RawConn, error)
 
 #### (*UnixConn) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) Write(b []byte) (int, error)
 ```
 
@@ -3160,7 +3160,7 @@ func (c *UnixConn) Write(b []byte) (int, error)
 
 #### (*UnixConn) [WriteMsgUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=184) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) WriteMsgUnix(b, oob []byte, addr *UnixAddr) (n, oobn int, err error)
 ```
 
@@ -3170,7 +3170,7 @@ func (c *UnixConn) WriteMsgUnix(b, oob []byte, addr *UnixAddr) (n, oobn int, err
 
 #### (*UnixConn) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=163) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) WriteTo(b []byte, addr Addr) (int, error)
 ```
 
@@ -3178,7 +3178,7 @@ func (c *UnixConn) WriteTo(b []byte, addr Addr) (int, error)
 
 #### (*UnixConn) [WriteToUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=151) 
 
-``` go linenums="1"
+``` go 
 func (c *UnixConn) WriteToUnix(b []byte, addr *UnixAddr) (int, error)
 ```
 
@@ -3186,7 +3186,7 @@ func (c *UnixConn) WriteToUnix(b []byte, addr *UnixAddr) (int, error)
 
 ### type [UnixListener](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=220) 
 
-``` go linenums="1"
+``` go 
 type UnixListener struct {
 	// 包含过滤或未公开的字段
 }
@@ -3196,7 +3196,7 @@ type UnixListener struct {
 
 #### func [ListenUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=317) 
 
-``` go linenums="1"
+``` go 
 func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error)
 ```
 
@@ -3206,7 +3206,7 @@ func ListenUnix(network string, laddr *UnixAddr) (*UnixListener, error)
 
 #### (*UnixListener) [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=256) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) Accept() (Conn, error)
 ```
 
@@ -3214,7 +3214,7 @@ func (l *UnixListener) Accept() (Conn, error)
 
 #### (*UnixListener) [AcceptUnix](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=243) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) AcceptUnix() (*UnixConn, error)
 ```
 
@@ -3222,7 +3222,7 @@ func (l *UnixListener) AcceptUnix() (*UnixConn, error)
 
 #### (*UnixListener) [Addr](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=282) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) Addr() Addr
 ```
 
@@ -3230,7 +3230,7 @@ func (l *UnixListener) Addr() Addr
 
 #### (*UnixListener) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=269) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) Close() error
 ```
 
@@ -3238,7 +3238,7 @@ func (l *UnixListener) Close() error
 
 #### (*UnixListener) [File](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=303) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) File() (f *os.File, err error)
 ```
 
@@ -3248,7 +3248,7 @@ func (l *UnixListener) File() (f *os.File, err error)
 
 #### (*UnixListener) [SetDeadline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=286) 
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) SetDeadline(t time.Time) error
 ```
 
@@ -3256,7 +3256,7 @@ func (l *UnixListener) SetDeadline(t time.Time) error
 
 #### (*UnixListener) [SetUnlinkOnClose](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock_posix.go;l=215)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) SetUnlinkOnClose(unlink bool)
 ```
 
@@ -3266,7 +3266,7 @@ func (l *UnixListener) SetUnlinkOnClose(unlink bool)
 
 #### (*UnixListener) [SyscallConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/unixsock.go;l=234)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (l *UnixListener) SyscallConn() (syscall.RawConn, error)
 ```
 
@@ -3276,25 +3276,25 @@ func (l *UnixListener) SyscallConn() (syscall.RawConn, error)
 
 ### type [UnknownNetworkError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=573) 
 
-``` go linenums="1"
+``` go 
 type UnknownNetworkError string
 ```
 
 #### (UnknownNetworkError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=575) 
 
-``` go linenums="1"
+``` go 
 func (e UnknownNetworkError) Error() string
 ```
 
 #### (UnknownNetworkError) [Temporary](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=577) 
 
-``` go linenums="1"
+``` go 
 func (e UnknownNetworkError) Temporary() bool
 ```
 
 #### (UnknownNetworkError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/net/net.go;l=576) 
 
-``` go linenums="1"
+``` go 
 func (e UnknownNetworkError) Timeout() bool
 ```
 

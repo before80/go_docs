@@ -42,7 +42,7 @@ This section is empty.
 
 ### type [Ring](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=13) 
 
-``` go linenums="1"
+``` go 
 type Ring struct {
 	Value any // for use by client; untouched by this library// 供客户端使用；本库不触及。
 	// contains filtered or unexported fields
@@ -55,7 +55,7 @@ Ring是一个循环列表的一个元素，或者说是环。环没有开始或�
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=60) 
 
-``` go linenums="1"
+``` go 
 func New(n int) *Ring
 ```
 
@@ -65,7 +65,7 @@ New创建一个有n个元素的环。
 
 #### (*Ring) [Do](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=129) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Do(f func(any))
 ```
 
@@ -74,12 +74,12 @@ Do calls function f on each element of the ring, in forward order. The behavior 
 Do在环的每个元素上以正向顺序调用函数f。如果f改变了*r，Do的行为是未定义的。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Len() int
 ```
 
@@ -88,12 +88,12 @@ Len computes the number of elements in ring r. It executes in time proportional 
 Len计算环中元素的数量，执行时间与元素的数量成正比。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Link](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Link(s *Ring) *Ring
 ```
 
@@ -110,12 +110,12 @@ If r and s point to different rings, linking them creates a single ring with the
 如果r和s指向不同的环，连接它们会创建一个单一的环，其中s的元素插入到r之后。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Move](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=42) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Move(n int) *Ring
 ```
 
@@ -124,12 +124,12 @@ Move moves n % r.Len() elements backward (n < 0) or forward (n >= 0) in the ring
 Move在环中向后(n < 0)或向前(n >= 0)移动n % r.Len()元素，并返回该环元素。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Next() *Ring
 ```
 
@@ -138,12 +138,12 @@ Next returns the next ring element. r must not be empty.
 Next 返回下一个环状元素，r必须不是空的。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Prev](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Prev() *Ring
 ```
 
@@ -152,12 +152,12 @@ Prev returns the previous ring element. r must not be empty.
 Prev返回上一个环状元素，r不能为空。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Ring) [Unlink](https://cs.opensource.google/go/go/+/go1.20.1:src/container/ring/ring.go;l=107) 
 
-``` go linenums="1"
+``` go 
 func (r *Ring) Unlink(n int) *Ring
 ```
 
@@ -165,7 +165,7 @@ Unlink removes n % r.Len() elements from the ring r, starting at r.Next(). If n 
 
 Unlink从r环中移除n % r.Len()元素，从r.Next()开始。如果n % r.Len() == 0，r保持不变。结果是移除的子环。
 
-```go linenums="1"
+```go 
 package main
 
 import (

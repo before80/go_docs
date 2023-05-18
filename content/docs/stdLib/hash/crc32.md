@@ -27,7 +27,7 @@ See https://en.wikipedia.org/wiki/Mathematics_of_cyclic_redundancy_checks#Revers
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=26)
 
-``` go linenums="1"
+``` go 
 const (
 	// IEEE is by far and away the most common CRC-32 polynomial.
 	// Used by ethernet (IEEE 802.3), v.42, fddi, gzip, zip, png, ...
@@ -49,7 +49,7 @@ Predefined polynomials.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=23)
 
-``` go linenums="1"
+``` go 
 const Size = 4
 ```
 
@@ -59,7 +59,7 @@ The size of a CRC-32 checksum in bytes.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=101)
 
-``` go linenums="1"
+``` go 
 var IEEETable = simpleMakeTable(IEEE)
 ```
 
@@ -69,7 +69,7 @@ IEEETable is the table for the IEEE polynomial.
 
 #### func [Checksum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func Checksum(data []byte, tab *Table) uint32
 ```
 
@@ -77,7 +77,7 @@ Checksum returns the CRC-32 checksum of data using the polynomial represented by
 
 #### func [ChecksumIEEE](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=250) 
 
-``` go linenums="1"
+``` go 
 func ChecksumIEEE(data []byte) uint32
 ```
 
@@ -85,7 +85,7 @@ ChecksumIEEE returns the CRC-32 checksum of data using the IEEE polynomial.
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func New(tab *Table) hash.Hash32
 ```
 
@@ -93,7 +93,7 @@ New creates a new hash.Hash32 computing the CRC-32 checksum using the polynomial
 
 #### func [NewIEEE](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func NewIEEE() hash.Hash32
 ```
 
@@ -101,7 +101,7 @@ NewIEEE creates a new hash.Hash32 computing the CRC-32 checksum using the IEEE p
 
 #### func [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func Update(crc uint32, tab *Table, p []byte) uint32
 ```
 
@@ -111,7 +111,7 @@ Update returns the result of adding the bytes in p to the crc.
 
 ### type [Table](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=43) 
 
-``` go linenums="1"
+``` go 
 type Table [256]uint32
 ```
 
@@ -119,7 +119,7 @@ Table is a 256-word table representing the polynomial for efficient processing.
 
 #### func [MakeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc32/crc32.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func MakeTable(poly uint32) *Table
 ```
 

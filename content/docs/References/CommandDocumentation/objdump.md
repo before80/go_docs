@@ -40,7 +40,7 @@ Each stanza gives the disassembly for a contiguous range of addresses all mapped
 
 === "main.go"
 
-    ``` go linenums="1"
+    ``` go 
     // Copyright 2012 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.
@@ -150,7 +150,7 @@ Each stanza gives the disassembly for a contiguous range of addresses all mapped
 
 === "objdump_test.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2014 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.

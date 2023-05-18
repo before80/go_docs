@@ -16,11 +16,11 @@ Package xml implements a simple XML 1.0 parser that understands XML name spaces.
 包xml实现了一个简单的XML 1.0解析器，它可以理解XML的名称空间。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -37,7 +37,7 @@ Package xml implements a simple XML 1.0 parser that understands XML name spaces.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=19)
 
-``` go linenums="1"
+``` go 
 const (
 	// Header is a generic XML header suitable for use with the output of Marshal.
 	// This is not automatically added to any output of this package,
@@ -53,7 +53,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=1866)
 
-``` go linenums="1"
+``` go 
 var HTMLAutoClose []string = htmlAutoClose
 ```
 
@@ -67,7 +67,7 @@ See the Decoder.Strict and Decoder.Entity fields' documentation.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=1597)
 
-``` go linenums="1"
+``` go 
 var HTMLEntity map[string]string = htmlEntity
 ```
 
@@ -83,7 +83,7 @@ See the Decoder.Strict and Decoder.Entity fields' documentation.
 
 #### func [Escape](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=1996) 
 
-``` go linenums="1"
+``` go 
 func Escape(w io.Writer, s []byte)
 ```
 
@@ -93,7 +93,7 @@ Escape和EscapeText一样，但省略了错误的返回值。它是为了向后�
 
 #### func [EscapeText](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=1902)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func EscapeText(w io.Writer, s []byte) error
 ```
 
@@ -103,7 +103,7 @@ EscapeText向w写出经过适当转义的纯文本数据s的XML等价物。
 
 #### func [Marshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func Marshal(v any) ([]byte, error)
 ```
 
@@ -160,7 +160,7 @@ Marshal will return an error if asked to marshal a channel, function, or map.
 
 #### func [MarshalIndent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=130) 
 
-``` go linenums="1"
+``` go 
 func MarshalIndent(v any, prefix, indent string) ([]byte, error)
 ```
 
@@ -169,12 +169,12 @@ MarshalIndent works like Marshal, but each XML element begins on a new indented 
 MarshalIndent的工作原理与Marshal类似，但每个XML元素都在一个新的缩进行上开始，该行以prefix开始，后面根据嵌套深度有一个或多个缩进副本。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Unmarshal](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=133) 
 
-``` go linenums="1"
+``` go 
 func Unmarshal(data []byte, v any) error
 ```
 
@@ -245,14 +245,14 @@ A missing element or empty attribute value will be unmarshaled as a zero value. 
 一个缺失的元素或空属性值将被解封为一个零值。如果字段是一个片断，一个零值将被附加到字段上。否则，字段将被设置为其零值。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [Attr](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=45) 
 
-``` go linenums="1"
+``` go 
 type Attr struct {
 	Name  Name
 	Value string
@@ -265,7 +265,7 @@ An Attr represents an attribute in an XML element (Name=Value).
 
 ### type [CharData](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=81) 
 
-``` go linenums="1"
+``` go 
 type CharData []byte
 ```
 
@@ -275,7 +275,7 @@ A CharData represents XML character data (raw text), in which XML escape sequenc
 
 #### (CharData) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=84) 
 
-``` go linenums="1"
+``` go 
 func (c CharData) Copy() CharData
 ```
 
@@ -285,7 +285,7 @@ Copy 创建一个新的CharData的副本。
 
 ### type [Comment](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=88) 
 
-``` go linenums="1"
+``` go 
 type Comment []byte
 ```
 
@@ -295,7 +295,7 @@ A Comment represents an XML comment of the form <!--comment-->. The bytes do not
 
 #### (Comment) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=91) 
 
-``` go linenums="1"
+``` go 
 func (c Comment) Copy() Comment
 ```
 
@@ -305,7 +305,7 @@ Copy创建一个Comment的新副本。
 
 ### type [Decoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=148) 
 
-``` go linenums="1"
+``` go 
 type Decoder struct {
 	// Strict defaults to true, enforcing the requirements
 	// of the XML specification.
@@ -381,7 +381,7 @@ Decoder 代表一个读取特定输入流的XML解析器。该解析器假定其
 
 #### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=221) 
 
-``` go linenums="1"
+``` go 
 func NewDecoder(r io.Reader) *Decoder
 ```
 
@@ -391,7 +391,7 @@ NewDecoder creates a new XML parser reading from r. If r does not implement io.B
 
 #### func [NewTokenDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=233)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func NewTokenDecoder(t TokenReader) *Decoder
 ```
 
@@ -401,7 +401,7 @@ NewTokenDecoder使用底层令牌流创建一个新的XML解析器。
 
 #### (*Decoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) Decode(v any) error
 ```
 
@@ -411,7 +411,7 @@ Decode的工作原理与Unmarshal类似，只是它读取解码器流来寻找�
 
 #### (*Decoder) [DecodeElement](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) DecodeElement(v any, start *StartElement) error
 ```
 
@@ -421,7 +421,7 @@ DecodeElement的工作原理与Unmarshal类似，只是它需要一个指向起�
 
 #### (*Decoder) [InputOffset](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=927)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) InputOffset() int64
 ```
 
@@ -431,7 +431,7 @@ InputOffset返回当前解码器位置的输入流字节偏移。这个偏移量
 
 #### (*Decoder) [InputPos](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=934)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) InputPos() (line, column int)
 ```
 
@@ -441,7 +441,7 @@ InputPos返回当前解码器位置的行，以及该行的基于1的输入位�
 
 #### (*Decoder) [RawToken](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=537) 
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) RawToken() (Token, error)
 ```
 
@@ -451,7 +451,7 @@ RawToken和Token一样，但是不验证开始和结束元素是否匹配，也�
 
 #### (*Decoder) [Skip](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=758) 
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) Skip() error
 ```
 
@@ -461,7 +461,7 @@ Skip reads tokens until it has consumed the end element matching the most recent
 
 #### (*Decoder) [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=271) 
 
-``` go linenums="1"
+``` go 
 func (d *Decoder) Token() (Token, error)
 ```
 
@@ -487,7 +487,7 @@ Token 实现了 XML 名称空间，如 https://www.w3.org/TR/REC-xml-names/ 所�
 
 ### type [Directive](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=107) 
 
-``` go linenums="1"
+``` go 
 type Directive []byte
 ```
 
@@ -497,7 +497,7 @@ Directive代表一个XML指令，其形式为<！text>。字节不包括<！和>
 
 #### (Directive) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=110) 
 
-``` go linenums="1"
+``` go 
 func (d Directive) Copy() Directive
 ```
 
@@ -507,7 +507,7 @@ Copy创建Directive的一个新副本。
 
 ### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=144) 
 
-``` go linenums="1"
+``` go 
 type Encoder struct {
 	// contains filtered or unexported fields
 }
@@ -518,12 +518,12 @@ An Encoder writes XML data to an output stream.
 Encoder 将XML数据写入一个输出流。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=149) 
 
-``` go linenums="1"
+``` go 
 func NewEncoder(w io.Writer) *Encoder
 ```
 
@@ -533,7 +533,7 @@ NewEncoder返回一个向w写的新编码器。
 
 #### (*Encoder) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=314)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Close() error
 ```
 
@@ -543,7 +543,7 @@ Close the Encoder, indicating that no more data will be written. It flushes any 
 
 #### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=169) 
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Encode(v any) error
 ```
 
@@ -561,7 +561,7 @@ Encode在返回之前调用Flush。
 
 #### (*Encoder) [EncodeElement](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=184)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) EncodeElement(v any, start StartElement) error
 ```
 
@@ -579,7 +579,7 @@ EncodeElement在返回前调用Flush。
 
 #### (*Encoder) [EncodeToken](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=210)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) EncodeToken(t Token) error
 ```
 
@@ -597,7 +597,7 @@ EncodeToken允许写一个ProcInst，目标设置为 "xml"，只作为流中的�
 
 #### (*Encoder) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=307)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Flush() error
 ```
 
@@ -607,7 +607,7 @@ Flush将任何缓冲的XML冲到底层写入器中。关于什么时候需要这
 
 #### (*Encoder) [Indent](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=158)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Indent(prefix, indent string)
 ```
 
@@ -617,7 +617,7 @@ Indent sets the encoder to generate XML in which each element begins on a new in
 
 ### type [EndElement](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=74) 
 
-``` go linenums="1"
+``` go 
 type EndElement struct {
 	Name Name
 }
@@ -629,7 +629,7 @@ An EndElement represents an XML end element.
 
 ### type [Marshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=108)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Marshaler interface {
 	MarshalXML(e *Encoder, start StartElement) error
 }
@@ -645,7 +645,7 @@ MarshalXML将接收器编码为零个或多个XML元素。根据惯例，数组�
 
 ### type [MarshalerAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=123)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type MarshalerAttr interface {
 	MarshalXMLAttr(name Name) (Attr, error)
 }
@@ -661,7 +661,7 @@ MarshalXMLAttr返回一个带有接收器编码值的XML属性。使用 name 作
 
 ### type [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=40) 
 
-``` go linenums="1"
+``` go 
 type Name struct {
 	Space, Local string
 }
@@ -673,7 +673,7 @@ A Name represents an XML name (Local) annotated with a name space identifier (Sp
 
 ### type [ProcInst](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=94) 
 
-``` go linenums="1"
+``` go 
 type ProcInst struct {
 	Target string
 	Inst   []byte
@@ -686,7 +686,7 @@ A ProcInst represents an XML processing instruction of the form <?target inst?>
 
 #### (ProcInst) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=100) 
 
-``` go linenums="1"
+``` go 
 func (p ProcInst) Copy() ProcInst
 ```
 
@@ -696,7 +696,7 @@ Copy 创建ProcInst的新副本。
 
 ### type [StartElement](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=55) 
 
-``` go linenums="1"
+``` go 
 type StartElement struct {
 	Name Name
 	Attr []Attr
@@ -709,7 +709,7 @@ StartElement代表一个XML起始元素。
 
 #### (StartElement) [Copy](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=61) 
 
-``` go linenums="1"
+``` go 
 func (e StartElement) Copy() StartElement
 ```
 
@@ -719,7 +719,7 @@ Copy 创建一个 StartElement 的新副本。
 
 #### (StartElement) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=69)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (e StartElement) End() EndElement
 ```
 
@@ -729,7 +729,7 @@ End返回相应的XML结束元素。
 
 ### type [SyntaxError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=26) 
 
-``` go linenums="1"
+``` go 
 type SyntaxError struct {
 	Msg  string
 	Line int
@@ -742,13 +742,13 @@ SyntaxError代表XML输入流中的一个语法错误。
 
 #### (*SyntaxError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (e *SyntaxError) Error() string
 ```
 
 ### type [TagPathError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/typeinfo.go;l=337) 
 
-``` go linenums="1"
+``` go 
 type TagPathError struct {
 	Struct       reflect.Type
 	Field1, Tag1 string
@@ -762,13 +762,13 @@ TagPathError表示在解封过程中，由于使用了路径冲突的字段标�
 
 #### (*TagPathError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/typeinfo.go;l=343) 
 
-``` go linenums="1"
+``` go 
 func (e *TagPathError) Error() string
 ```
 
 ### type [Token](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=52) 
 
-``` go linenums="1"
+``` go 
 type Token any
 ```
 
@@ -778,7 +778,7 @@ Token是一个接口，持有一个令牌类型。StartElement, EndElement, Char
 
 #### func [CopyToken](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func CopyToken(t Token) Token
 ```
 
@@ -788,7 +788,7 @@ CopyToken返回一个令牌的副本。
 
 ### type [TokenReader](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/xml.go;l=142)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type TokenReader interface {
 	Token() (Token, error)
 }
@@ -808,7 +808,7 @@ Implementations of Token are discouraged from returning a nil token with a nil e
 
 ### type [UnmarshalError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=160) 
 
-``` go linenums="1"
+``` go 
 type UnmarshalError string
 ```
 
@@ -818,13 +818,13 @@ An UnmarshalError represents an error in the unmarshaling process.
 
 #### (UnmarshalError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=162) 
 
-``` go linenums="1"
+``` go 
 func (e UnmarshalError) Error() string
 ```
 
 ### type [Unmarshaler](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=179)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Unmarshaler interface {
 	UnmarshalXML(d *Decoder, start StartElement) error
 }
@@ -840,7 +840,7 @@ UnmarshalXML对从给定的start元素开始的单个XML元素进行解码。如
 
 ### type [UnmarshalerAttr](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/read.go;l=191)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type UnmarshalerAttr interface {
 	UnmarshalXMLAttr(attr Attr) error
 }
@@ -856,7 +856,7 @@ UnmarshalXMLAttr 解码一个单一的 XML 属性。如果它返回一个错误�
 
 ### type [UnsupportedTypeError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=1105) 
 
-``` go linenums="1"
+``` go 
 type UnsupportedTypeError struct {
 	Type reflect.Type
 }
@@ -868,7 +868,7 @@ UnsupportedTypeError is returned when Marshal encounters a type that cannot be c
 
 #### (*UnsupportedTypeError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/xml/marshal.go;l=1109) 
 
-``` go linenums="1"
+``` go 
 func (e *UnsupportedTypeError) Error() string
 ```
 

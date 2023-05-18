@@ -29,7 +29,7 @@ This section is empty.
 
 #### func [Request](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=28) 
 
-``` go linenums="1"
+``` go 
 func Request() (*http.Request, error)
 ```
 
@@ -37,7 +37,7 @@ Request returns the HTTP request as represented in the current environment. This
 
 #### func [RequestFromMap](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=51) 
 
-``` go linenums="1"
+``` go 
 func RequestFromMap(params map[string]string) (*http.Request, error)
 ```
 
@@ -45,7 +45,7 @@ RequestFromMap creates an http.Request from CGI variables. The returned Request'
 
 #### func [Serve](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/child.go;l=145) 
 
-``` go linenums="1"
+``` go 
 func Serve(handler http.Handler) error
 ```
 
@@ -55,7 +55,7 @@ Serve executes the provided Handler on the currently active CGI request, if any.
 
 ### type [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/host.go;l=57) 
 
-``` go linenums="1"
+``` go 
 type Handler struct {
 	Path string // path to the CGI executable
 	Root string // root URI prefix of handler or empty for "/"
@@ -88,7 +88,7 @@ Handler runs an executable in a subprocess with a CGI environment.
 
 #### (*Handler) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/cgi/host.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 ```
 

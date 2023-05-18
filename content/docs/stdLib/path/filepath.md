@@ -18,7 +18,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=62)
 
-``` go linenums="1"
+``` go 
 const (
 	Separator     = os.PathSeparator
 	ListSeparator = os.PathListSeparator
@@ -29,7 +29,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/match.go;l=17)
 
-``` go linenums="1"
+``` go 
 var ErrBadPattern = errors.New("syntax error in pattern")
 ```
 
@@ -37,7 +37,7 @@ ErrBadPattern 指示模式格式错误。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=399)
 
-``` go linenums="1"
+``` go 
 var SkipAll error = fs.SkipAll
 ```
 
@@ -45,7 +45,7 @@ var SkipAll error = fs.SkipAll
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=394)
 
-``` go linenums="1"
+``` go 
 var SkipDir error = fs.SkipDir
 ```
 
@@ -57,7 +57,7 @@ var SkipDir error = fs.SkipDir
 
 #### func [Abs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=296) 
 
-``` go linenums="1"
+``` go 
 func Abs(path string) (string, error)
 ```
 
@@ -65,14 +65,14 @@ func Abs(path string) (string, error)
 
 #### func [Base](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=615) 
 
-``` go linenums="1"
+``` go 
 func Base(path string) string
 ```
 
 ​	Base函数返回路径的最后一个元素。 在提取最后一个元素之前，末尾的路径分隔符会被删除。如果路径为空，则Base函数返回"。"。如果路径完全由分隔符组成，则Base函数返回单个分隔符。
 
 ##### Base Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -109,7 +109,7 @@ todo.txt
 
 #### func [Clean](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func Clean(path string) string
 ```
 
@@ -135,14 +135,14 @@ func Clean(path string) string
 
 #### func [Dir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=646) 
 
-``` go linenums="1"
+``` go 
 func Dir(path string) string
 ```
 
 ​	Dir函数返回除路径的最后一个元素(通常是路径的目录)之外的所有内容。删除最后一个元素后，Dir函数在路径上调用Clean函数，尾随斜杠被删除。如果路径为空，则Dir返回"。"。如果路径完全由分隔符组成，则Dir返回单个分隔符。返回的路径不以分隔符结尾，除非它是根目录。
 
 ##### Dir Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -181,7 +181,7 @@ On Unix:
 
 #### func [EvalSymlinks](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=287) 
 
-``` go linenums="1"
+``` go 
 func EvalSymlinks(path string) (string, error)
 ```
 
@@ -189,14 +189,14 @@ func EvalSymlinks(path string) (string, error)
 
 #### func [Ext](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=273) 
 
-``` go linenums="1"
+``` go 
 func Ext(path string) string
 ```
 
 ​	Ext函数返回 path 使用的文件名扩展名。扩展名是从 path 的最后一个元素的最后一个句点开始的后缀；如果没有句点，则为空。
 
 ##### Ext Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -218,7 +218,7 @@ Two dots: ".js"
 
 #### func [FromSlash](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func FromSlash(path string) string
 ```
 
@@ -226,7 +226,7 @@ func FromSlash(path string) string
 
 #### func [Glob](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/match.go;l=242) 
 
-``` go linenums="1"
+``` go 
 func Glob(pattern string) (matches []string, err error)
 ```
 
@@ -236,14 +236,14 @@ func Glob(pattern string) (matches []string, err error)
 
 #### func [IsAbs](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path_unix.go;l=16) 
 
-``` go linenums="1"
+``` go 
 func IsAbs(path string) bool
 ```
 
 ​	IsAbs函数报告路径是否为绝对路径。
 
 ##### IsAbs Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -274,7 +274,7 @@ false
 
 #### func [IsLocal](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=190)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func IsLocal(path string) bool
 ```
 
@@ -291,14 +291,14 @@ func IsLocal(path string) bool
 
 #### func [Join](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=265) 
 
-``` go linenums="1"
+``` go 
 func Join(elem ...string) string
 ```
 
 ​	Join函数将任意数量的路径元素连接为单个路径，并使用特定于操作系统的分隔符进行分隔。空元素将被忽略。结果将经过清理。但是，如果参数列表为空或其所有元素为空，则 Join函数返回一个空字符串。在 Windows 上，如果第一个非空元素是 UNC 路径，则结果将只是一个 UNC 路径。
 
 ##### Join Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -328,7 +328,7 @@ a/b/c
 
 #### func [Match](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/match.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func Match(pattern, name string) (matched bool, err error)
 ```
 
@@ -357,7 +357,7 @@ character-range:
 
 ##### Match Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -384,14 +384,14 @@ true <nil>
 
 #### func [Rel](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=319) 
 
-``` go linenums="1"
+``` go 
 func Rel(basepath, targpath string) (string, error)
 ```
 
 ​	Rel函数返回一个相对路径，该路径在插入分隔符后连接到 basepath 上时与 targpath 在词法上等效。也就是说，Join(basepath, Rel(basepath, targpath)) 等价于 targpath。成功时，返回的路径将始终相对于 basepath，即使 basepath 和 targpath 没有共享元素。如果无法将 targpath 变成相对于 basepath 的路径，或者需要知道当前工作目录才能计算它，则会返回错误。Rel函数对结果调用 Clean函数。
 
 ##### Rel Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -424,14 +424,14 @@ On Unix:
 
 #### func [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=249) 
 
-``` go linenums="1"
+``` go 
 func Split(path string) (dir, file string)
 ```
 
 ​	Split函数在最后一个分隔符之后立即分割路径，将其分割为目录和文件名组件。如果 path 中没有分隔符，则 Split 返回一个 dir 和 file 均为 path 的空字符串。返回的值具有 path = dir+file 的属性。
 
 ##### Split Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -471,14 +471,14 @@ input: "/usr/local//go"
 
 #### func [SplitList](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=240) 
 
-``` go linenums="1"
+``` go 
 func SplitList(path string) []string
 ```
 
 ​	SplitList函数将由 OS 特定 ListSeparator 连接的路径列表拆分为多个路径，通常在 PATH 或 GOPATH 环境变量中找到。与 strings.Split 不同，当传入空字符串时，SplitList函数返回一个空切片。
 
 ##### SplitList Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -496,7 +496,7 @@ On Unix: [/a/b/c /usr/bin]
 
 #### func [ToSlash](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=219) 
 
-``` go linenums="1"
+``` go 
 func ToSlash(path string) string
 ```
 
@@ -504,7 +504,7 @@ func ToSlash(path string) string
 
 #### func [VolumeName](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=664) 
 
-``` go linenums="1"
+``` go 
 func VolumeName(path string) string
 ```
 
@@ -512,7 +512,7 @@ func VolumeName(path string) string
 
 #### func [Walk](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=566) 
 
-``` go linenums="1"
+``` go 
 func Walk(root string, fn WalkFunc) error
 ```
 
@@ -527,7 +527,7 @@ func Walk(root string, fn WalkFunc) error
 ​	Walk 函数不如在 Go 1.16 中引入的 WalkDir 函数高效，后者避免了在访问每个文件或目录时调用 os.Lstat 的问题。
 
 ##### Walk Example
-``` go linenums="1"
+``` go 
 //go:build !windows && !plan9
 
 package main
@@ -595,7 +595,7 @@ skipping a dir without errors: skip
 
 #### func [WalkDir](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=530)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func WalkDir(root string, fn fs.WalkDirFunc) error
 ```
 
@@ -613,7 +613,7 @@ WalkDir函数遍历以 root 为根的文件树，对树中的每个文件或目�
 
 ### type [WalkFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/path/filepath/path.go;l=439) 
 
-``` go linenums="1"
+``` go 
 type WalkFunc func(path string, info fs.FileInfo, err error) error
 ```
 

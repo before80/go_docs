@@ -28,7 +28,7 @@ for e := l.Front(); e != nil; e = e.Next() {
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -53,7 +53,7 @@ This section is empty.
 
 ### type [Element](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type Element struct {
 
 	// The value stored with this element.
@@ -69,7 +69,7 @@ Element是链接列表的一个元素。
 
 #### (*Element) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=31) 
 
-``` go linenums="1"
+``` go 
 func (e *Element) Next() *Element
 ```
 
@@ -79,7 +79,7 @@ Next 返回下一个列表元素或nil。
 
 #### (*Element) [Prev](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func (e *Element) Prev() *Element
 ```
 
@@ -89,7 +89,7 @@ Prev返回前一个列表元素或nil。
 
 ### type [List](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=48) 
 
-``` go linenums="1"
+``` go 
 type List struct {
 	// contains filtered or unexported fields
 }
@@ -101,7 +101,7 @@ List表示一个双链表。List的零值是一个准备使用的空列表。
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func New() *List
 ```
 
@@ -111,7 +111,7 @@ New返回一个初始化的列表。
 
 #### (*List) [Back](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func (l *List) Back() *Element
 ```
 
@@ -121,7 +121,7 @@ Back返回列表l的最后一个元素，如果列表为空，则返回nil。
 
 #### (*List) [Front](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func (l *List) Front() *Element
 ```
 
@@ -131,7 +131,7 @@ Front返回列表l的第一个元素，如果列表为空则返回nil。
 
 #### (*List) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=54) 
 
-``` go linenums="1"
+``` go 
 func (l *List) Init() *List
 ```
 
@@ -141,7 +141,7 @@ Init 初始化或清除列表l。
 
 #### (*List) [InsertAfter](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=169) 
 
-``` go linenums="1"
+``` go 
 func (l *List) InsertAfter(v any, mark *Element) *Element
 ```
 
@@ -151,7 +151,7 @@ InsertAfter在mark之后插入一个新的元素e，其值为v，并返回e。�
 
 #### (*List) [InsertBefore](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=158) 
 
-``` go linenums="1"
+``` go 
 func (l *List) InsertBefore(v any, mark *Element) *Element
 ```
 
@@ -161,7 +161,7 @@ InsertBefore在mark之前插入一个新的元素e，其值为v，并返回e，�
 
 #### (*List) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=66) 
 
-``` go linenums="1"
+``` go 
 func (l *List) Len() int
 ```
 
@@ -171,7 +171,7 @@ Len返回列表l的元素数，其复杂度为O(1)。
 
 #### (*List) [MoveAfter](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=212)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (l *List) MoveAfter(e, mark *Element)
 ```
 
@@ -181,7 +181,7 @@ MoveAfter将元素e移动到mark之后的新位置。如果e或mark不是l的一
 
 #### (*List) [MoveBefore](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=202)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (l *List) MoveBefore(e, mark *Element)
 ```
 
@@ -191,7 +191,7 @@ MoveBefore将元素e移动到mark之前的新位置。如果e或mark不是l的�
 
 #### (*List) [MoveToBack](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func (l *List) MoveToBack(e *Element)
 ```
 
@@ -201,7 +201,7 @@ MoveToBack把元素e移到列表l的后面。如果e不是l的一个元素，列
 
 #### (*List) [MoveToFront](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=180) 
 
-``` go linenums="1"
+``` go 
 func (l *List) MoveToFront(e *Element)
 ```
 
@@ -211,7 +211,7 @@ MoveToFront把元素e移到列表l的前面，如果e不是l的元素，列表�
 
 #### (*List) [PushBack](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=150) 
 
-``` go linenums="1"
+``` go 
 func (l *List) PushBack(v any) *Element
 ```
 
@@ -221,7 +221,7 @@ PushBack在列表l的后面插入一个新元素e，其值为v，并返回e。
 
 #### (*List) [PushBackList](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=221) 
 
-``` go linenums="1"
+``` go 
 func (l *List) PushBackList(other *List)
 ```
 
@@ -231,7 +231,7 @@ PushBackList在列表l的后面插入一个另一个列表的副本。它们不�
 
 #### (*List) [PushFront](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=144) 
 
-``` go linenums="1"
+``` go 
 func (l *List) PushFront(v any) *Element
 ```
 
@@ -241,7 +241,7 @@ PushFront在列表l的前面插入一个值为v的新元素e，并返回e。
 
 #### (*List) [PushFrontList](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=230) 
 
-``` go linenums="1"
+``` go 
 func (l *List) PushFrontList(other *List)
 ```
 
@@ -251,7 +251,7 @@ PushFrontList在列表l的前面插入一个另一个列表的副本。它们不
 
 #### (*List) [Remove](https://cs.opensource.google/go/go/+/go1.20.1:src/container/list/list.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func (l *List) Remove(e *Element) any
 ```
 

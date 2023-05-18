@@ -88,7 +88,7 @@ This section is empty.
 
 #### func [Cmdline](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=96) 
 
-``` go linenums="1"
+``` go 
 func Cmdline(w http.ResponseWriter, r *http.Request)
 ```
 
@@ -96,7 +96,7 @@ Cmdline responds with the running program's command line, with arguments separat
 
 #### func [Handler](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=231) 
 
-``` go linenums="1"
+``` go 
 func Handler(name string) http.Handler
 ```
 
@@ -104,7 +104,7 @@ Handler returns an HTTP handler that serves the named profile. Available profile
 
 #### func [Index](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=373) 
 
-``` go linenums="1"
+``` go 
 func Index(w http.ResponseWriter, r *http.Request)
 ```
 
@@ -112,7 +112,7 @@ Index responds with the pprof-formatted profile named by the request. For exampl
 
 #### func [Profile](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=125) 
 
-``` go linenums="1"
+``` go 
 func Profile(w http.ResponseWriter, r *http.Request)
 ```
 
@@ -120,7 +120,7 @@ Profile responds with the pprof-formatted cpu profile. Profiling lasts for durat
 
 #### func [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=183) 
 
-``` go linenums="1"
+``` go 
 func Symbol(w http.ResponseWriter, r *http.Request)
 ```
 
@@ -128,7 +128,7 @@ Symbol looks up the program counters listed in the request, responding with a ta
 
 #### func [Trace](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/pprof/pprof.go;l=154)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func Trace(w http.ResponseWriter, r *http.Request)
 ```
 

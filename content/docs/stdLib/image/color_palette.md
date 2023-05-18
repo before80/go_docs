@@ -23,7 +23,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/palette/palette.go;l=23)
 
-``` go linenums="1"
+``` go 
 var Plan9 = []color.Color{}/* 256 elements not displayed */
 ```
 
@@ -33,7 +33,7 @@ This palette was used in the Plan 9 Operating System, described at https://9p.io
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/palette/palette.go;l=286)
 
-``` go linenums="1"
+``` go 
 var WebSafe = []color.Color{}/* 216 elements not displayed */
 ```
 

@@ -19,7 +19,7 @@ draft = false
 
 ### Example (OpenDBCLI) 
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -103,7 +103,7 @@ func Query(ctx context.Context, id int64) {
 
 ### Example (OpenDBService) 
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -265,7 +265,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1898)
 
-``` go linenums="1"
+``` go 
 var ErrConnDone = errors.New("sql: connection is already closed")
 ```
 
@@ -273,7 +273,7 @@ var ErrConnDone = errors.New("sql: connection is already closed")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=441)
 
-``` go linenums="1"
+``` go 
 var ErrNoRows = errors.New("sql: no rows in result set")
 ```
 
@@ -281,7 +281,7 @@ var ErrNoRows = errors.New("sql: no rows in result set")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2185)
 
-``` go linenums="1"
+``` go 
 var ErrTxDone = errors.New("sql: transaction has already been committed or rolled back")
 ```
 
@@ -291,7 +291,7 @@ var ErrTxDone = errors.New("sql: transaction has already been committed or rolle
 
 #### func [Drivers](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=64)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func Drivers() []string
 ```
 
@@ -299,7 +299,7 @@ func Drivers() []string
 
 #### func [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func Register(name string, driver driver.Driver)
 ```
 
@@ -309,7 +309,7 @@ func Register(name string, driver driver.Driver)
 
 ### type [ColumnType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3083)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type ColumnType struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -320,7 +320,7 @@ type ColumnType struct {
 
 #### (*ColumnType) [DatabaseTypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3137)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) DatabaseTypeName() string
 ```
 
@@ -328,7 +328,7 @@ func (ci *ColumnType) DatabaseTypeName() string
 
 #### (*ColumnType) [DecimalSize](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3114)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 ```
 
@@ -336,7 +336,7 @@ func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 
 #### (*ColumnType) [Length](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3108)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) Length() (length int64, ok bool)
 ```
 
@@ -344,7 +344,7 @@ func (ci *ColumnType) Length() (length int64, ok bool)
 
 #### (*ColumnType) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3099)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) Name() string
 ```
 
@@ -352,7 +352,7 @@ func (ci *ColumnType) Name() string
 
 #### (*ColumnType) [Nullable](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3127)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) Nullable() (nullable, ok bool)
 ```
 
@@ -360,7 +360,7 @@ func (ci *ColumnType) Nullable() (nullable, ok bool)
 
 #### (*ColumnType) [ScanType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3121)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (ci *ColumnType) ScanType() reflect.Type
 ```
 
@@ -368,7 +368,7 @@ func (ci *ColumnType) ScanType() reflect.Type
 
 ### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1938)  <- go1.9
 
-```go linenums="1"
+```go 
 type Conn struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -383,7 +383,7 @@ type Conn struct {
 
 #### (*Conn) [BeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2065)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 ```
 
@@ -395,7 +395,7 @@ func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 
 #### (*Conn) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2107)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) Close() error
 ```
 
@@ -403,7 +403,7 @@ func (c *Conn) Close() error
 
 #### (*Conn) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1977)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
 ```
 
@@ -411,7 +411,7 @@ func (c *Conn) ExecContext(ctx context.Context, query string, args ...any) (Resu
 
 ##### ExecContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -451,7 +451,7 @@ func main() {
 
 #### (*Conn) [PingContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1967)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) PingContext(ctx context.Context) error
 ```
 
@@ -459,7 +459,7 @@ func (c *Conn) PingContext(ctx context.Context) error
 
 #### (*Conn) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2014)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
@@ -469,7 +469,7 @@ func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 #### (*Conn) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1987)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
 ```
 
@@ -477,7 +477,7 @@ func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Ro
 
 #### (*Conn) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2001)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
@@ -485,7 +485,7 @@ func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *
 
 #### (*Conn) [Raw](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2027)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (c *Conn) Raw(f func(driverConn any) error) (err error)
 ```
 
@@ -495,7 +495,7 @@ func (c *Conn) Raw(f func(driverConn any) error) (err error)
 
 ### type [DB](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=455) 
 
-``` go linenums="1"
+``` go 
 type DB struct {
 	// contains filtered or unexported fields
 }
@@ -507,7 +507,7 @@ type DB struct {
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=813) 
 
-``` go linenums="1"
+``` go 
 func Open(driverName, dataSourceName string) (*DB, error)
 ```
 
@@ -521,7 +521,7 @@ func Open(driverName, dataSourceName string) (*DB, error)
 
 #### func [OpenDB](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=781)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func OpenDB(c driver.Connector) *DB
 ```
 
@@ -535,7 +535,7 @@ func OpenDB(c driver.Connector) *DB
 
 #### (*DB) [Begin](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1848) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Begin() (*Tx, error)
 ```
 
@@ -545,7 +545,7 @@ func (db *DB) Begin() (*Tx, error)
 
 #### (*DB) [BeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1831)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (db *DB) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 ```
 
@@ -557,7 +557,7 @@ func (db *DB) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 
 ##### BeginTx Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -591,7 +591,7 @@ func main() {
 
 #### (*DB) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=876) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Close() error
 ```
 
@@ -601,7 +601,7 @@ func (db *DB) Close() error
 
 #### (*DB) [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1907)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (db *DB) Conn(ctx context.Context) (*Conn, error)
 ```
 
@@ -611,7 +611,7 @@ func (db *DB) Conn(ctx context.Context) (*Conn, error)
 
 #### (*DB) [Driver](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1892) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Driver() driver.Driver
 ```
 
@@ -619,7 +619,7 @@ func (db *DB) Driver() driver.Driver
 
 #### (*DB) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1646) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Exec(query string, args ...any) (Result, error)
 ```
 
@@ -629,7 +629,7 @@ func (db *DB) Exec(query string, args ...any) (Result, error)
 
 #### (*DB) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1629)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (db *DB) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
 ```
 
@@ -637,7 +637,7 @@ func (db *DB) ExecContext(ctx context.Context, query string, args ...any) (Resul
 
 ##### ExecContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -670,7 +670,7 @@ func main() {
 
 #### (*DB) [Ping](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=866)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (db *DB) Ping() error
 ```
 
@@ -680,7 +680,7 @@ func (db *DB) Ping() error
 
 #### (*DB) [PingContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=845)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (db *DB) PingContext(ctx context.Context) error
 ```
 
@@ -688,7 +688,7 @@ func (db *DB) PingContext(ctx context.Context) error
 
 ##### PingContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -723,7 +723,7 @@ func main() {
 
 #### (*DB) [Prepare](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1576) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Prepare(query string) (*Stmt, error)
 ```
 
@@ -733,7 +733,7 @@ func (db *DB) Prepare(query string) (*Stmt, error)
 
 ##### Prepare Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -772,7 +772,7 @@ func main() {
 
 #### (*DB) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1556)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
@@ -782,7 +782,7 @@ func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 #### (*DB) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1716) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) Query(query string, args ...any) (*Rows, error)
 ```
 
@@ -792,7 +792,7 @@ func (db *DB) Query(query string, args ...any) (*Rows, error)
 
 ##### Query Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -869,7 +869,7 @@ from
 
 #### (*DB) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1699)  <- go1.8
 
-```go linenums="1"
+```go 
 func (db *DB) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
 ```
 
@@ -877,7 +877,7 @@ func (db *DB) QueryContext(ctx context.Context, query string, args ...any) (*Row
 
 ##### QueryContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -930,7 +930,7 @@ func main() {
 
 #### (*DB) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1817) 
 
-``` go linenums="1"
+``` go 
 func (db *DB) QueryRow(query string, args ...any) *Row
 ```
 
@@ -940,7 +940,7 @@ func (db *DB) QueryRow(query string, args ...any) *Row
 
 #### (*DB) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1803)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (db *DB) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
@@ -948,7 +948,7 @@ func (db *DB) QueryRowContext(ctx context.Context, query string, args ...any) *R
 
 ##### QueryRowContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -982,7 +982,7 @@ func main() {
 
 #### (*DB) [SetConnMaxIdleTime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1026)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (db *DB) SetConnMaxIdleTime(d time.Duration)
 ```
 
@@ -994,7 +994,7 @@ func (db *DB) SetConnMaxIdleTime(d time.Duration)
 
 #### (*DB) [SetConnMaxLifetime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1004)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (db *DB) SetConnMaxLifetime(d time.Duration)
 ```
 
@@ -1006,7 +1006,7 @@ func (db *DB) SetConnMaxLifetime(d time.Duration)
 
 #### (*DB) [SetMaxIdleConns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=952)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (db *DB) SetMaxIdleConns(n int)
 ```
 
@@ -1020,7 +1020,7 @@ func (db *DB) SetMaxIdleConns(n int)
 
 #### (*DB) [SetMaxOpenConns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=986)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (db *DB) SetMaxOpenConns(n int)
 ```
 
@@ -1032,7 +1032,7 @@ func (db *DB) SetMaxOpenConns(n int)
 
 #### (*DB) [Stats](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1172)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (db *DB) Stats() DBStats
 ```
 
@@ -1040,7 +1040,7 @@ func (db *DB) Stats() DBStats
 
 ### type [DBStats](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=1155)  <- go1.5
 
-```go linenums="1"
+```go 
 type DBStats struct {
 	MaxOpenConnections int //打开到数据库的最大连接数。
 
@@ -1062,13 +1062,13 @@ type DBStats struct {
 
 ### type [IsolationLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=119)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type IsolationLevel int
 ```
 
 ​	IsolationLevel是在TxOptions中使用的事务隔离级别。
 
-```go linenums="1"
+```go 
 const (
 	LevelDefault IsolationLevel = iota
 	LevelReadUncommitted
@@ -1087,7 +1087,7 @@ const (
 
 #### (IsolationLevel) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=137)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (i IsolationLevel) String() string
 ```
 
@@ -1095,7 +1095,7 @@ func (i IsolationLevel) String() string
 
 ### type [NamedArg](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=81)  <- go1.8
 
-```go linenums="1"
+```go 
 type NamedArg struct {
 
 	// Name 是参数占位符的名称。
@@ -1118,7 +1118,7 @@ type NamedArg struct {
 
 #### func [Named](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=110)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func Named(name string, value any) NamedArg
 ```
 
@@ -1128,7 +1128,7 @@ Example usage:
 
 使用示例：
 
-```go linenums="1"
+```go 
 db.ExecContext(ctx, `
     delete from Invoice
     where
@@ -1141,7 +1141,7 @@ db.ExecContext(ctx, `
 
 ### type [NullBool](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=345) 
 
-```go linenums="1"
+```go 
 type NullBool struct {
 	Bool  bool
 	Valid bool // 如果Bool不是NULL，Valid为真。
@@ -1152,7 +1152,7 @@ type NullBool struct {
 
 #### (*NullBool) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=351) 
 
-``` go linenums="1"
+``` go 
 func (n *NullBool) Scan(value any) error
 ```
 
@@ -1160,7 +1160,7 @@ func (n *NullBool) Scan(value any) error
 
 #### (NullBool) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=361) 
 
-``` go linenums="1"
+``` go 
 func (n NullBool) Value() (driver.Value, error)
 ```
 
@@ -1168,7 +1168,7 @@ func (n NullBool) Value() (driver.Value, error)
 
 ### type [NullByte](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=292)  <- go1.17
 
-```go linenums="1"
+```go 
 type NullByte struct {
 	Byte  byte
 	Valid bool // 如果 Byte 不为 NULL，则 Valid 为 true
@@ -1179,7 +1179,7 @@ type NullByte struct {
 
 #### (*NullByte) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=298)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (n *NullByte) Scan(value any) error
 ```
 
@@ -1187,7 +1187,7 @@ func (n *NullByte) Scan(value any) error
 
 #### (NullByte) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=309)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (n NullByte) Value() (driver.Value, error)
 ```
 
@@ -1195,7 +1195,7 @@ func (n NullByte) Value() (driver.Value, error)
 
 ### type [NullFloat64](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=319) 
 
-```go linenums="1"
+```go 
 type NullFloat64 struct {
 	Float64 float64
 	Valid   bool // 如果 Float64 不为 NULL，则 Valid 为 true
@@ -1206,7 +1206,7 @@ type NullFloat64 struct {
 
 #### (*NullFloat64) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=325) 
 
-``` go linenums="1"
+``` go 
 func (n *NullFloat64) Scan(value any) error
 ```
 
@@ -1214,7 +1214,7 @@ func (n *NullFloat64) Scan(value any) error
 
 #### (NullFloat64) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=335) 
 
-``` go linenums="1"
+``` go 
 func (n NullFloat64) Value() (driver.Value, error)
 ```
 
@@ -1222,7 +1222,7 @@ func (n NullFloat64) Value() (driver.Value, error)
 
 ### type [NullInt16](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=265)  <- go1.17
 
-```go linenums="1"
+```go 
 type NullInt16 struct {
 	Int16 int16
 	Valid bool // 如果Int16不是NULL，Valid为true
@@ -1233,7 +1233,7 @@ type NullInt16 struct {
 
 #### (*NullInt16) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=271)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (n *NullInt16) Scan(value any) error
 ```
 
@@ -1241,7 +1241,7 @@ func (n *NullInt16) Scan(value any) error
 
 #### (NullInt16) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=282)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (n NullInt16) Value() (driver.Value, error)
 ```
 
@@ -1249,7 +1249,7 @@ func (n NullInt16) Value() (driver.Value, error)
 
 ### type [NullInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=239)  <- go1.13
 
-```go linenums="1"
+```go 
 type NullInt32 struct {
 	Int32 int32
 	Valid bool //如果Int32不是NULL，Valid为true
@@ -1260,7 +1260,7 @@ type NullInt32 struct {
 
 #### (*NullInt32) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=245)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (n *NullInt32) Scan(value any) error
 ```
 
@@ -1268,7 +1268,7 @@ func (n *NullInt32) Scan(value any) error
 
 #### (NullInt32) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=255)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (n NullInt32) Value() (driver.Value, error)
 ```
 
@@ -1276,7 +1276,7 @@ func (n NullInt32) Value() (driver.Value, error)
 
 ### type [NullInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=213) 
 
-``` go linenums="1"
+``` go 
 type NullInt64 struct {
 	Int64 int64
 	Valid bool // 如果Int64不是NULL，Valid为true
@@ -1287,7 +1287,7 @@ type NullInt64 struct {
 
 #### (*NullInt64) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=219) 
 
-``` go linenums="1"
+``` go 
 func (n *NullInt64) Scan(value any) error
 ```
 
@@ -1295,7 +1295,7 @@ func (n *NullInt64) Scan(value any) error
 
 #### (NullInt64) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func (n NullInt64) Value() (driver.Value, error)
 ```
 
@@ -1303,7 +1303,7 @@ func (n NullInt64) Value() (driver.Value, error)
 
 ### type [NullString](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=187) 
 
-```go linenums="1"
+```go 
 type NullString struct {
 	String string
 	Valid  bool // 如果 String 不为 NULL，则 Valid 为 true
@@ -1312,7 +1312,7 @@ type NullString struct {
 
 ​	NullString结构体表示可能为 null 的字符串。NullString 实现了 Scanner 接口，因此可以用作扫描目标：
 
-```go linenums="1"
+```go 
 var s NullString
 err := db.QueryRow("SELECT name FROM foo WHERE id=?", id).Scan(&s)
 ...
@@ -1325,7 +1325,7 @@ if s.Valid {
 
 #### (*NullString) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func (ns *NullString) Scan(value any) error
 ```
 
@@ -1333,7 +1333,7 @@ func (ns *NullString) Scan(value any) error
 
 #### (NullString) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=203) 
 
-``` go linenums="1"
+``` go 
 func (ns NullString) Value() (driver.Value, error)
 ```
 
@@ -1341,7 +1341,7 @@ func (ns NullString) Value() (driver.Value, error)
 
 ### type [NullTime](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=371)  <- go1.13
 
-```go linenums="1"
+```go 
 type NullTime struct {
 	Time  time.Time
 	Valid bool // 如果 Time 不为 NULL，则 Valid 为 true
@@ -1352,7 +1352,7 @@ type NullTime struct {
 
 #### (*NullTime) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=377)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (n *NullTime) Scan(value any) error
 ```
 
@@ -1360,7 +1360,7 @@ func (n *NullTime) Scan(value any) error
 
 #### (NullTime) [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=387)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (n NullTime) Value() (driver.Value, error)
 ```
 
@@ -1368,7 +1368,7 @@ func (n NullTime) Value() (driver.Value, error)
 
 ### type [Out](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=425)  <- go1.9
 
-```go linenums="1"
+```go 
 type Out struct {
 
 	// Dest is a pointer to the value that will be set to the result of the
@@ -1392,14 +1392,14 @@ type Out struct {
 
 使用示例：
 
-```go linenums="1"
+```go 
 var outArg string
 _, err := db.ExecContext(ctx, "ProcName", sql.Named("Arg1", sql.Out{Dest: &outArg}))
 ```
 
 ### type [RawBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=173) 
 
-``` go linenums="1"
+``` go 
 type RawBytes []byte
 ```
 
@@ -1407,7 +1407,7 @@ type RawBytes []byte
 
 ### type [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3365) 
 
-```go linenums="1"
+```go 
 type Result interface {
 	// LastInsertId 返回数据库在响应命令时生成的整数。
 	// 通常这将来自插入新行时的"自增"列。
@@ -1424,7 +1424,7 @@ type Result interface {
 
 ### type [Row](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3306) 
 
-```go linenums="1"
+```go 
 type Row struct {
 	// 包含已过滤或未导出的字段
 }
@@ -1434,7 +1434,7 @@ type Row struct {
 
 #### (*Row) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3360)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (r *Row) Err() error
 ```
 
@@ -1442,7 +1442,7 @@ func (r *Row) Err() error
 
 #### (*Row) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3317) 
 
-``` go linenums="1"
+``` go 
 func (r *Row) Scan(dest ...any) error
 ```
 
@@ -1450,7 +1450,7 @@ func (r *Row) Scan(dest ...any) error
 
 ### type [Rows](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2882) 
 
-```go linenums="1"
+```go 
 type Rows struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -1461,7 +1461,7 @@ type Rows struct {
 
 ##### Rows Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1503,7 +1503,7 @@ func main() {
 
 #### (*Rows) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3269) 
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) Close() error
 ```
 
@@ -1511,7 +1511,7 @@ func (rs *Rows) Close() error
 
 #### (*Rows) [ColumnTypes](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3067)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
 ```
 
@@ -1519,7 +1519,7 @@ func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
 
 #### (*Rows) [Columns](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3050) 
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) Columns() ([]string, error)
 ```
 
@@ -1527,7 +1527,7 @@ func (rs *Rows) Columns() ([]string, error)
 
 #### (*Rows) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3039) 
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) Err() error
 ```
 
@@ -1535,7 +1535,7 @@ func (rs *Rows) Err() error
 
 #### (*Rows) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2949) 
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) Next() bool
 ```
 
@@ -1545,7 +1545,7 @@ func (rs *Rows) Next() bool
 
 #### (*Rows) [NextResultSet](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3003)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) NextResultSet() bool
 ```
 
@@ -1555,7 +1555,7 @@ func (rs *Rows) NextResultSet() bool
 
 #### (*Rows) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=3232) 
 
-``` go linenums="1"
+``` go 
 func (rs *Rows) Scan(dest ...any) error
 ```
 
@@ -1596,7 +1596,7 @@ any type implementing Scanner (see Scanner docs)
 
 ### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=395) 
 
-```go linenums="1"
+```go 
 type Scanner interface {
 	// Scan从数据库驱动程序中分配一个值。
 	//
@@ -1623,7 +1623,7 @@ type Scanner interface {
 
 ### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2558) 
 
-```go linenums="1"
+```go 
 type Stmt struct {
 	// 包含已过滤或未导出的字段
 }
@@ -1635,7 +1635,7 @@ type Stmt struct {
 
 ##### Stmt Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1675,7 +1675,7 @@ func main() {
 
 #### (*Stmt) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2837) 
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) Close() error
 ```
 
@@ -1683,7 +1683,7 @@ func (s *Stmt) Close() error
 
 #### (*Stmt) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2622) 
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) Exec(args ...any) (Result, error)
 ```
 
@@ -1693,7 +1693,7 @@ func (s *Stmt) Exec(args ...any) (Result, error)
 
 #### (*Stmt) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2598)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
 ```
 
@@ -1701,7 +1701,7 @@ func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
 
 #### (*Stmt) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2790) 
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) Query(args ...any) (*Rows, error)
 ```
 
@@ -1711,7 +1711,7 @@ func (s *Stmt) Query(args ...any) (*Rows, error)
 
 #### (*Stmt) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2738)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
 ```
 
@@ -1719,7 +1719,7 @@ func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
 
 #### (*Stmt) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2832) 
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) QueryRow(args ...any) *Row
 ```
 
@@ -1727,7 +1727,7 @@ func (s *Stmt) QueryRow(args ...any) *Row
 
 使用示例：
 
-```go linenums="1"
+```go 
 var name string
 err := nameByUseridStmt.QueryRow(id).Scan(&name)
 ```
@@ -1736,7 +1736,7 @@ err := nameByUseridStmt.QueryRow(id).Scan(&name)
 
 #### (*Stmt) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2810)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (s *Stmt) QueryRowContext(ctx context.Context, args ...any) *Row
 ```
 
@@ -1744,7 +1744,7 @@ func (s *Stmt) QueryRowContext(ctx context.Context, args ...any) *Row
 
 ##### QueryRowContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1784,7 +1784,7 @@ func main() {
 
 ### type [Tx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2121) 
 
-```go linenums="1"
+```go 
 type Tx struct {
 	// contains filtered or unexported fields
 	// 包含已过滤或未导出的字段
@@ -1801,7 +1801,7 @@ type Tx struct {
 
 #### (*Tx) [Commit](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2242) 
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) Commit() error
 ```
 
@@ -1809,7 +1809,7 @@ func (tx *Tx) Commit() error
 
 #### (*Tx) [Exec](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2479) 
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) Exec(query string, args ...any) (Result, error)
 ```
 
@@ -1819,7 +1819,7 @@ func (tx *Tx) Exec(query string, args ...any) (Result, error)
 
 #### (*Tx) [ExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2466)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
 ```
 
@@ -1827,7 +1827,7 @@ func (tx *Tx) ExecContext(ctx context.Context, query string, args ...any) (Resul
 
 ##### ExecContext Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1863,7 +1863,7 @@ func main() {
 
 #### (*Tx) [Prepare](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2352) 
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) Prepare(query string) (*Stmt, error)
 ```
 
@@ -1877,7 +1877,7 @@ func (tx *Tx) Prepare(query string) (*Stmt, error)
 
 ##### Prepare Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -1925,7 +1925,7 @@ func main() {
 
 #### (*Tx) [PrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2327)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
@@ -1939,7 +1939,7 @@ func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 
 #### (*Tx) [Query](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2497) 
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) Query(query string, args ...any) (*Rows, error)
 ```
 
@@ -1949,7 +1949,7 @@ func (tx *Tx) Query(query string, args ...any) (*Rows, error)
 
 #### (*Tx) [QueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2484)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (tx *Tx) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
 ```
 
@@ -1957,7 +1957,7 @@ func (tx *Tx) QueryContext(ctx context.Context, query string, args ...any) (*Row
 
 #### (*Tx) [QueryRow](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2521) 
 
-```go linenums="1"
+```go 
 func (tx *Tx) QueryRow(query string, args ...any) *Row
 ```
 
@@ -1967,7 +1967,7 @@ func (tx *Tx) QueryRow(query string, args ...any) *Row
 
 #### (*Tx) [QueryRowContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2507)  <- go1.8
 
-```go linenums="1"
+```go 
 func (tx *Tx) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
@@ -1975,7 +1975,7 @@ func (tx *Tx) QueryRowContext(ctx context.Context, query string, args ...any) *R
 
 #### (*Tx) [Rollback](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2313) 
 
-```go linenums="1"
+```go 
 func (tx *Tx) Rollback() error
 ```
 
@@ -1983,7 +1983,7 @@ func (tx *Tx) Rollback() error
 
 ##### Rollback Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -2028,7 +2028,7 @@ func main() {
 
 #### (*Tx) [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2460) 
 
-```go linenums="1"
+```go 
 func (tx *Tx) Stmt(stmt *Stmt) *Stmt
 ```
 
@@ -2036,7 +2036,7 @@ func (tx *Tx) Stmt(stmt *Stmt) *Stmt
 
 示例：
 
-```go linenums="1"
+```go 
 updateMoney, err := db.Prepare("UPDATE balance SET money=money+? WHERE id=?")
 ...
 tx, err := db.Begin()
@@ -2050,7 +2050,7 @@ res, err := tx.Stmt(updateMoney).Exec(123.45, 98293203)
 
 #### (*Tx) [StmtContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2372)  <- go1.8
 
-```go linenums="1"
+```go 
 func (tx *Tx) StmtContext(ctx context.Context, stmt *Stmt) *Stmt
 ```
 
@@ -2058,7 +2058,7 @@ func (tx *Tx) StmtContext(ctx context.Context, stmt *Stmt) *Stmt
 
 Example:
 
-```go linenums="1"
+```go 
 updateMoney, err := db.Prepare("UPDATE balance SET money=money+? WHERE id=?")
 ...
 tx, err := db.Begin()
@@ -2072,7 +2072,7 @@ res, err := tx.StmtContext(ctx, updateMoney).Exec(123.45, 98293203)
 
 ### type [TxOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=163)  <- go1.8
 
-```go linenums="1"
+```go 
 type TxOptions struct {
 	// Isolation是事务隔离级别。
 	// 如果为零，则使用驱动程序或数据库的默认级别。

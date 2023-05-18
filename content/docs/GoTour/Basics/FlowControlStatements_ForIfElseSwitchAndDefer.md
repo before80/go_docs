@@ -26,7 +26,7 @@ draft = false
 
 注意：与其他语言如C、Java或JavaScript不同的是，`for`语句的三个部分没有小括号，大括号`{ }`总是必需的。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -47,7 +47,7 @@ func main() {
 
 初始化语句和后置语句都是可选的。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -68,7 +68,7 @@ func main() {
 
 ​	此时，你可以放弃分号。C的`while`在Go中叫做`for`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -89,7 +89,7 @@ func main() {
 
 ​	如果你省略了循环条件，它就会永远循环下去。因此无限循环可以写得很紧凑。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 func main() {
@@ -105,7 +105,7 @@ func main() {
 
 ​	Go的`if`语句与它的`for`循环类似；表达式`不需要`用小括号`()`包围，`但需要`用大括号`{}`。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -136,7 +136,7 @@ func main() {
 
 ​	(尝试在最后的`return`语句中使用`v`)。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -168,7 +168,7 @@ func main() {
 
 ​	(对`pow`的两次调用都在`main`中对`fmt.Println`的调用开始之前返回其结果）。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -213,7 +213,7 @@ z -= (z*z - x) / (2*z)
 
 提示：要声明和初始化一个浮点值，要给它以浮点的语法或使用转换：
 
-```go linenums="1"
+```go 
 z := 1.0
 z := float64(1)
 ```
@@ -222,7 +222,7 @@ z := float64(1)
 
 (注：如果你对算法的细节感兴趣，上面的`z²-x`是指`z²`到它所要到达的值（即x）的距离，除以`2z`为`z²`的导数，以缩放我们通过`z²`的变化速度调整`z`的程度。这种一般方法被称为[牛顿法](https://en.wikipedia.org/wiki/Newton's_method)。它对许多函数都很有效，但对平方根尤其有效)。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -246,7 +246,7 @@ func main() {
 
 ​	Go的`switch`与C、C++、Java、JavaScript和PHP中的`switch`一样，只是Go只运行选定的`case`，而不是之后的所有情况。实际上，Go中是自动提供了在这些语言中每个case结尾所需的break语句。【除非在每个case语句结尾加上 `fallthrough`，否则case 分支会自动终止】。另一个重要的区别是，Go的`switch` 的 `case`无需是常量，且值也不必是整数。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -278,7 +278,7 @@ func main() {
 
 (例如：
 
-```go  linenums="1"
+```go  
 switch i {
 case 0:
 case f():
@@ -291,7 +291,7 @@ case f():
 
 注意：Go练习场上的时间总是从`2009-11-10 23:00:00 UTC`开始，这个数值的意义留给读者发现。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -324,7 +324,7 @@ func main() {
 
 ​	这种形式能将一长串的`if-then-else`写得更加简洁。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import (
@@ -354,7 +354,7 @@ func main() {
 
 ​	推迟调用的函数的参数会被立即求值，但直到外层函数返回之前，该函数都不会被调用。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"
@@ -375,7 +375,7 @@ func main() {
 
 ​	要了解更多关于`defer`语句的信息，请阅读[这篇博文](../../../GoBlog/2010/DeferPanicAandRecover)。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 import "fmt"

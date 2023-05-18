@@ -112,7 +112,7 @@ Version of June 6, 2022
 
 ​	例如，在这个程序中：
 
-```go linenums="1"
+```go 
 var a string
 
 func f() {
@@ -131,7 +131,7 @@ func hello() {
 
 ​	退出 goroutine 的行为不能保证在程序中的任何事件之前同步。例如，在以下程序中：
 
-```go linenums="1"
+```go 
 var a string
 
 func hello() {
@@ -152,7 +152,7 @@ func hello() {
 
 下面的程序：
 
-```go linenums="1"
+```go 
 var c = make(chan int, 10)
 var a string
 
@@ -178,7 +178,7 @@ func main() {
 
 ​	下面这个程序（与上面相同，但发送和接收语句交换，使用非缓冲通道）：
 
-```go linenums="1"
+```go 
 var c = make(chan int)
 var a string
 
@@ -204,7 +204,7 @@ func main() {
 
 ​	该程序对于工作列表中的每个条目启动一个协程，但协程使用 limit 通道进行协调，以确保最多有三个工作函数同时运行。
 
-```go linenums="1"
+```go 
 var limit = make(chan int, 3)
 
 func main() {
@@ -227,7 +227,7 @@ func main() {
 
 ​	该程序：
 
-```go linenums="1"
+```go 
 var l sync.Mutex
 var a string
 
@@ -258,7 +258,7 @@ func main() {
 
 ​	该程序：
 
-```go linenums="1"
+```go 
 var a string
 var once sync.Once
 
@@ -301,7 +301,7 @@ func twoprint() {
 
 ​	在下面的程序中：
 
-```go linenums="1"
+```go 
 var a, b int
 
 func f() {
@@ -326,7 +326,7 @@ func main() {
 
 ​	Double-checked locking是为了避免同步的开销。例如，twoprint程序可能会写成不正确的形式：
 
-```go linenums="1"
+```go 
 var a string
 var done bool
 
@@ -352,7 +352,7 @@ func twoprint() {
 
 ​	另一个不正确的习惯是忙等待一个值，如下所示：
 
-```go linenums="1"
+```go 
 var a string
 var done bool
 
@@ -373,7 +373,7 @@ func main() {
 
 ​	还有更微妙的变体，例如下面的程序：
 
-```go linenums="1"
+```go 
 type T struct {
 	msg string
 }
@@ -406,7 +406,7 @@ func main() {
 
 ​	不要在无竞争的程序中引入数据竞争，这意味着不要将写操作移出它们出现在的条件语句中。例如，编译器不应该翻转以下程序中的条件语句：
 
-```go linenums="1"
+```go 
 *p = 1
 if cond {
 	*p = 2
@@ -415,7 +415,7 @@ if cond {
 
 也就是说，编译器不应该将程序重写为：
 
-```go linenums="1"
+```go 
 *p = 2
 if !cond {
 	*p = 1
@@ -426,7 +426,7 @@ if !cond {
 
 ​	不要在无竞争的程序中引入数据竞争，这也意味着不要假设循环一定会终止。例如，在以下程序中，编译器通常不能将对 `*p` 或 `*q` 的访问移到循环之前：
 
-```go linenums="1"
+```go 
 n := 0
 for e := list; e != nil; e = e.next {
 	n++
@@ -439,7 +439,7 @@ i := *p
 
 ​	不要在无竞争的程序中引入数据竞争，这也意味着不要假设被调用的函数总是返回或不包含同步操作。例如，在以下程序中，编译器不应该在函数调用之前移动对 `*p` 或 `*q` 的访问（至少不应该没有对 f 的确切行为有直接了解）：
 
-```go linenums="1"
+```go 
 f()
 i := *p
 *q = 1
@@ -449,7 +449,7 @@ i := *p
 
 ​	不允许一个读取操作观察到多个值意味着不从共享内存中重新加载本地变量。例如，在这个程序中，编译器不得丢弃i并在`funcs[i]()`之前重新加载`i = *p`：
 
-```go linenums="1"
+```go 
 i := *p
 if i < 0 || i >= len(funcs) {
 	panic("invalid function index")
@@ -463,13 +463,13 @@ funcs[i]()
 
 ​	不允许单个写入操作写入多个值也意味着不要在写入之前使用本地变量将写入内存用作临时存储。例如，在此程序中，编译器不得在`*p`中使用临时存储：
 
-```go linenums="1"
+```go 
 *p = i + *p/2
 ```
 
 也就是说，它不得将程序重写为：
 
-```go linenums="1"
+```go 
 *p /= 2
 *p += i
 ```
@@ -480,7 +480,7 @@ funcs[i]()
 
 ​	请注意，如果编译器可以证明竞争不会影响目标平台上的正确执行，则禁止引入数据竞争并不适用。例如，在基本上所有CPU上，将
 
-```go linenums="1"
+```go 
 n := 0
 for i := 0; i < m; i++ {
 	n += *shared
@@ -489,7 +489,7 @@ for i := 0; i < m; i++ {
 
 转换为：
 
-```go linenums="1"
+```go 
 n := 0
 local := *shared
 for i := 0; i < m; i++ {

@@ -31,7 +31,7 @@ This section is empty.
 
 #### func [PrintError](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=112) 
 
-``` go linenums="1"
+``` go 
 func PrintError(w io.Writer, err error)
 ```
 
@@ -41,7 +41,7 @@ PrintError is a utility function that prints a list of errors to w, one error pe
 
 ### type [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Error struct {
 	Pos token.Position
 	Msg string
@@ -52,7 +52,7 @@ In an ErrorList, an error is represented by an *Error. The position Pos, if vali
 
 #### (Error) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func (e Error) Error() string
 ```
 
@@ -60,7 +60,7 @@ Error implements the error interface.
 
 ### type [ErrorHandler](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/scanner.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type ErrorHandler func(pos token.Position, msg string)
 ```
 
@@ -68,7 +68,7 @@ An ErrorHandler may be provided to Scanner.Init. If a syntax error is encountere
 
 ### type [ErrorList](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=35) 
 
-``` go linenums="1"
+``` go 
 type ErrorList []*Error
 ```
 
@@ -76,7 +76,7 @@ ErrorList is a list of *Errors. The zero value for an ErrorList is an empty Erro
 
 #### (*ErrorList) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func (p *ErrorList) Add(pos token.Position, msg string)
 ```
 
@@ -84,7 +84,7 @@ Add adds an Error with given position and error message to an ErrorList.
 
 #### (ErrorList) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=102) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Err() error
 ```
 
@@ -92,7 +92,7 @@ Err returns an error equivalent to this error list. If the list is empty, Err re
 
 #### (ErrorList) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Error() string
 ```
 
@@ -100,7 +100,7 @@ An ErrorList implements the error interface.
 
 #### (ErrorList) [Len](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=46) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Len() int
 ```
 
@@ -108,13 +108,13 @@ ErrorList implements the sort Interface.
 
 #### (ErrorList) [Less](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Less(i, j int) bool
 ```
 
 #### (*ErrorList) [RemoveMultiples](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=75) 
 
-``` go linenums="1"
+``` go 
 func (p *ErrorList) RemoveMultiples()
 ```
 
@@ -122,7 +122,7 @@ RemoveMultiples sorts an ErrorList and removes all but the first error per line.
 
 #### (*ErrorList) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (p *ErrorList) Reset()
 ```
 
@@ -130,7 +130,7 @@ Reset resets an ErrorList to no errors.
 
 #### (ErrorList) [Sort](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Sort()
 ```
 
@@ -138,19 +138,19 @@ Sort sorts an ErrorList. *Error entries are sorted by position, other errors are
 
 #### (ErrorList) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/errors.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (p ErrorList) Swap(i, j int)
 ```
 
 ### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/scanner.go;l=102) 
 
-``` go linenums="1"
+``` go 
 type Mode uint
 ```
 
 A mode value is a set of flags (or 0). They control scanner behavior.
 
-``` go linenums="1"
+``` go 
 const (
 	ScanComments Mode = 1 << iota // return comments as COMMENT tokens
 
@@ -159,7 +159,7 @@ const (
 
 ### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/scanner.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Scanner struct {
 
 	// public state - ok to modify
@@ -172,7 +172,7 @@ A Scanner holds the scanner's internal state while processing a given text. It c
 
 #### (*Scanner) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/scanner.go;l=123) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Init(file *token.File, src []byte, err ErrorHandler, mode Mode)
 ```
 
@@ -184,7 +184,7 @@ Note that Init may call err if there is an error in the first character of the f
 
 #### (*Scanner) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/go/scanner/scanner.go;l=786) 
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Scan() (pos token.Pos, tok token.Token, lit string)
 ```
 

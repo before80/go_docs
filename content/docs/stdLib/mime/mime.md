@@ -27,7 +27,7 @@ Package mime implements parts of the MIME spec.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=21)
 
-``` go linenums="1"
+``` go 
 const (
 	// BEncoding represents Base64 encoding scheme as defined by RFC 2045.
 	BEncoding = WordEncoder('b')
@@ -40,7 +40,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=127)
 
-``` go linenums="1"
+``` go 
 var ErrInvalidMediaParameter = errors.New("mime: invalid media parameter")
 ```
 
@@ -50,7 +50,7 @@ ErrInvalidMediaParameter is returned by ParseMediaType if the media type value w
 
 #### func [AddExtensionType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=167) 
 
-``` go linenums="1"
+``` go 
 func AddExtensionType(ext, typ string) error
 ```
 
@@ -58,7 +58,7 @@ AddExtensionType sets the MIME type associated with the extension ext to typ. Th
 
 #### func [ExtensionsByType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=148)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func ExtensionsByType(typ string) ([]string, error)
 ```
 
@@ -66,31 +66,31 @@ ExtensionsByType returns the extensions known to be associated with the MIME typ
 
 #### func [FormatMediaType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func FormatMediaType(t string, param map[string]string) string
 ```
 
 FormatMediaType serializes mediatype t and the parameters param as a media type conforming to [RFC 2045](https://rfc-editor.org/rfc/rfc2045.html) and [RFC 2616](https://rfc-editor.org/rfc/rfc2616.html). The type and parameter names are written in lower-case. When any of the arguments result in a standard violation then FormatMediaType returns the empty string.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [ParseMediaType](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/mediatype.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func ParseMediaType(v string) (mediatype string, params map[string]string, err error)
 ```
 
 ParseMediaType parses a media type value and any optional parameters, per [RFC 1521](https://rfc-editor.org/rfc/rfc1521.html). Media types are the values in Content-Type and Content-Disposition headers ([RFC 2183](https://rfc-editor.org/rfc/rfc2183.html)). On success, ParseMediaType returns the media type converted to lowercase and trimmed of white space and a non-nil map. If there is an error parsing the optional parameter, the media type will be returned along with the error ErrInvalidMediaParameter. The returned map, params, maps from the lowercase attribute to the attribute value with its case preserved.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [TypeByExtension](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/type.go;l=111) 
 
-``` go linenums="1"
+``` go 
 func TypeByExtension(ext string) string
 ```
 
@@ -116,7 +116,7 @@ Text types have the charset parameter set to "utf-8" by default.
 
 ### type [WordDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=187)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type WordDecoder struct {
 	// CharsetReader, if non-nil, defines a function to generate
 	// charset-conversion readers, converting from the provided
@@ -132,31 +132,31 @@ A WordDecoder decodes MIME headers containing [RFC 2047](https://rfc-editor.org/
 
 #### (*WordDecoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=198)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (d *WordDecoder) Decode(word string) (string, error)
 ```
 
 Decode decodes an [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html) encoded-word.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*WordDecoder) [DecodeHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=230)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (d *WordDecoder) DecodeHeader(header string) (string, error)
 ```
 
 DecodeHeader decodes all encoded-words of the given string. It returns an error if and only if CharsetReader of d returns an error.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ### type [WordEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=19)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type WordEncoder byte
 ```
 
@@ -164,13 +164,13 @@ A WordEncoder is an [RFC 2047](https://rfc-editor.org/rfc/rfc2047.html) encoded-
 
 #### (WordEncoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/mime/encodedword.go;l=35)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (e WordEncoder) Encode(charset, s string) string
 ```
 
 Encode returns the encoded-word form of s. If s is ASCII without special characters, it is returned unchanged. The provided charset is the IANA charset name of s. It is case insensitive.
 
-```go linenums="1"
+```go 
 package main
 
 import (

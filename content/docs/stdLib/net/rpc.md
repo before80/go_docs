@@ -34,7 +34,7 @@ In effect, the method must look schematically like
 
 实际上，方法的原型应该看起来像这样：
 
-``` go linenums="1"
+``` go 
 func (t *T) MethodName(argType T1, replyType *T2) error
 ```
 
@@ -66,7 +66,7 @@ Here is a simple example. A server wishes to export an object of type Arith:
 
 以下是一个简单的示例。服务器希望导出Arith类型的对象：
 
-``` go linenums="1"
+``` go 
 package server
 
 import "errors"
@@ -100,7 +100,7 @@ The server calls (for HTTP service):
 
 服务器调用(用于 HTTP 服务)：
 
-```go linenums="1"
+```go 
 arith := new(Arith)
 rpc.Register(arith)
 rpc.HandleHTTP()
@@ -115,7 +115,7 @@ At this point, clients can see a service "Arith" with methods "Arith.Multiply" a
 
 此时，客户端可以看到一个名为"Arith"的服务，其具有"Arith.Multiply"和"Arith.Divide"方法。要调用其中一个，客户端首先要拨号到服务器：
 
-```go linenums="1"
+```go 
 client, err := rpc.DialHTTP("tcp", serverAddress + ":1234")
 if err != nil {
 	log.Fatal("dialing:", err)
@@ -126,7 +126,7 @@ Then it can make a remote call:
 
 然后可以进行远程调用：
 
-```go linenums="1"
+```go 
 // 同步调用
 args := &server.Args{7,8}
 var reply int
@@ -139,7 +139,7 @@ fmt.Printf("Arith: %d*%d=%d", args.A, args.B, reply)
 
 或
 
-```go linenums="1"
+```go 
 // 异步调用
 quotient := new(Quotient)
 divCall := client.Go("Arith.Divide", args, quotient, nil)
@@ -161,7 +161,7 @@ net/rpc 包已经被冻结，不再接受新功能。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=143)
 
-``` go linenums="1"
+``` go 
 const (
 	// HandleHTTP使用的默认值
 	DefaultRPCPath   = "/_goRPC_"
@@ -173,7 +173,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=202)
 
-``` go linenums="1"
+``` go 
 var DefaultServer = NewServer()
 ```
 
@@ -183,7 +183,7 @@ DefaultServer is the default instance of *Server.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=26)
 
-``` go linenums="1"
+``` go 
 var ErrShutdown = errors.New("connection is shut down")
 ```
 
@@ -191,7 +191,7 @@ var ErrShutdown = errors.New("connection is shut down")
 
 #### func [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=690) 
 
-``` go linenums="1"
+``` go 
 func Accept(lis net.Listener)
 ```
 
@@ -201,7 +201,7 @@ Accept accepts connections on the listener and serves requests to DefaultServer 
 
 #### func [HandleHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=723) 
 
-``` go linenums="1"
+``` go 
 func HandleHTTP()
 ```
 
@@ -211,7 +211,7 @@ HandleHTTP registers an HTTP handler for RPC messages to DefaultServer on Defaul
 
 #### func [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=640) 
 
-``` go linenums="1"
+``` go 
 func Register(rcvr any) error
 ```
 
@@ -221,7 +221,7 @@ Register publishes the receiver's methods in the DefaultServer.
 
 #### func [RegisterName](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=644) 
 
-``` go linenums="1"
+``` go 
 func RegisterName(name string, rcvr any) error
 ```
 
@@ -231,7 +231,7 @@ RegisterName is like Register but uses the provided name for the type instead of
 
 #### func [ServeCodec](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=677) 
 
-``` go linenums="1"
+``` go 
 func ServeCodec(codec ServerCodec)
 ```
 
@@ -241,7 +241,7 @@ ServeCodec is like ServeConn but uses the specified codec to decode requests and
 
 #### func [ServeConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=671) 
 
-``` go linenums="1"
+``` go 
 func ServeConn(conn io.ReadWriteCloser)
 ```
 
@@ -251,7 +251,7 @@ ServeConn runs the DefaultServer on a single connection. ServeConn blocks, servi
 
 #### func [ServeRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=683) 
 
-``` go linenums="1"
+``` go 
 func ServeRequest(codec ServerCodec) error
 ```
 
@@ -263,7 +263,7 @@ ServeRequest is like ServeCodec but synchronously serves a single request. It do
 
 ### type [Call](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Call struct {
 	ServiceMethod string     // The name of the service and method to call.
 	Args          any        // The argument to the function (*struct).
@@ -279,7 +279,7 @@ Call represents an active RPC.
 
 ### type [Client](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=41) 
 
-``` go linenums="1"
+``` go 
 type Client struct {
 	// contains filtered or unexported fields
 }
@@ -291,7 +291,7 @@ Client represents an RPC Client. There may be multiple outstanding Calls associa
 
 #### func [Dial](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=273) 
 
-``` go linenums="1"
+``` go 
 func Dial(network, address string) (*Client, error)
 ```
 
@@ -301,7 +301,7 @@ Dial connects to an RPC server at the specified network address.
 
 #### func [DialHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=241) 
 
-``` go linenums="1"
+``` go 
 func DialHTTP(network, address string) (*Client, error)
 ```
 
@@ -311,7 +311,7 @@ DialHTTP connects to an HTTP RPC server at the specified network address listeni
 
 #### func [DialHTTPPath](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=247) 
 
-``` go linenums="1"
+``` go 
 func DialHTTPPath(network, address, path string) (*Client, error)
 ```
 
@@ -321,7 +321,7 @@ DialHTTPPath connects to an HTTP RPC server at the specified network address and
 
 #### func [NewClient](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func NewClient(conn io.ReadWriteCloser) *Client
 ```
 
@@ -335,7 +335,7 @@ The read and write halves of the connection are serialized independently, so no 
 
 #### func [NewClientWithCodec](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=201) 
 
-``` go linenums="1"
+``` go 
 func NewClientWithCodec(codec ClientCodec) *Client
 ```
 
@@ -345,7 +345,7 @@ NewClientWithCodec is like NewClient but uses the specified codec to encode requ
 
 #### (*Client) [Call](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=320) 
 
-``` go linenums="1"
+``` go 
 func (client *Client) Call(serviceMethod string, args any, reply any) error
 ```
 
@@ -355,7 +355,7 @@ Call invokes the named function, waits for it to complete, and returns its error
 
 #### (*Client) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=283) 
 
-``` go linenums="1"
+``` go 
 func (client *Client) Close() error
 ```
 
@@ -365,7 +365,7 @@ Close calls the underlying codec's Close method. If the connection is already sh
 
 #### (*Client) [Go](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (client *Client) Go(serviceMethod string, args any, reply any, done chan *Call) *Call
 ```
 
@@ -375,7 +375,7 @@ Go invokes the function asynchronously. It returns the Call structure representi
 
 ### type [ClientCodec](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=63) 
 
-``` go linenums="1"
+``` go 
 type ClientCodec interface {
 	WriteRequest(*Request, any) error
 	ReadResponseHeader(*Response) error
@@ -391,7 +391,7 @@ A ClientCodec implements writing of RPC requests and reading of RPC responses fo
 
 ### type [Request](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=171) 
 
-``` go linenums="1"
+``` go 
 type Request struct {
 	ServiceMethod string // format: "Service.Method"
 	Seq           uint64 // 由客户端选择的序列号
@@ -405,7 +405,7 @@ Request is a header written before every RPC call. It is used internally but doc
 
 ### type [Response](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=180) 
 
-``` go linenums="1"
+``` go 
 type Response struct {
 	ServiceMethod string // 与 Request 相同
 	Seq           uint64 // 与请求的序列号相同
@@ -420,7 +420,7 @@ Response is a header written before every RPC return. It is used internally but 
 
 ### type [Server](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=188) 
 
-``` go linenums="1"
+``` go 
 type Server struct {
 	// contains filtered or unexported fields
 }
@@ -432,7 +432,7 @@ Server represents an RPC Server.
 
 #### func [NewServer](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=197) 
 
-``` go linenums="1"
+``` go 
 func NewServer() *Server
 ```
 
@@ -442,7 +442,7 @@ NewServer returns a new Server.
 
 #### (*Server) [Accept](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=628) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) Accept(lis net.Listener)
 ```
 
@@ -452,7 +452,7 @@ Accept accepts connections on the listener and serves requests for each incoming
 
 #### (*Server) [HandleHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=715) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) HandleHTTP(rpcPath, debugPath string)
 ```
 
@@ -462,7 +462,7 @@ HandleHTTP registers an HTTP handler for RPC messages on rpcPath, and a debuggin
 
 #### (*Server) [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=225) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) Register(rcvr any) error
 ```
 
@@ -485,7 +485,7 @@ It returns an error if the receiver is not an exported type or has no suitable m
 
 #### (*Server) [RegisterName](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=231) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) RegisterName(name string, rcvr any) error
 ```
 
@@ -495,7 +495,7 @@ RegisterName is like Register but uses the provided name for the type instead of
 
 #### (*Server) [ServeCodec](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=459) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) ServeCodec(codec ServerCodec)
 ```
 
@@ -505,7 +505,7 @@ ServeCodec is like ServeConn but uses the specified codec to decode requests and
 
 #### (*Server) [ServeConn](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=446) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) ServeConn(conn io.ReadWriteCloser)
 ```
 
@@ -515,7 +515,7 @@ ServeConn runs the server on a single connection. ServeConn blocks, serving the 
 
 #### (*Server) [ServeHTTP](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=696) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) ServeHTTP(w http.ResponseWriter, req *http.Request)
 ```
 
@@ -525,7 +525,7 @@ ServeHTTP 实现了一个 http.Handler，用于响应 RPC 请求。
 
 #### (*Server) [ServeRequest](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=489) 
 
-``` go linenums="1"
+``` go 
 func (server *Server) ServeRequest(codec ServerCodec) error
 ```
 
@@ -535,7 +535,7 @@ ServeRequest is like ServeCodec but synchronously serves a single request. It do
 
 ### type [ServerCodec](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/server.go;l=656) 
 
-``` go linenums="1"
+``` go 
 type ServerCodec interface {
 	ReadRequestHeader(*Request) error
 	ReadRequestBody(any) error
@@ -553,7 +553,7 @@ A ServerCodec implements reading of RPC requests and writing of RPC responses fo
 
 ### type [ServerError](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=20) 
 
-``` go linenums="1"
+``` go 
 type ServerError string
 ```
 
@@ -563,6 +563,6 @@ ServerError 表示从 RPC 连接的远程一侧返回的错误。
 
 #### (ServerError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/net/rpc/client.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func (e ServerError) Error() string
 ```

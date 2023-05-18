@@ -17,7 +17,7 @@ draft = false
 
 ​	以 "Is" 开头的函数可以用于检查一个 rune 属于哪个范围的表。请注意，一个 rune 可能适用于多个范围。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -134,7 +134,7 @@ For 'G':
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=9)
 
-``` go linenums="1"
+``` go 
 const (
 	MaxRune         = '\U0010FFFF' // Maximum valid Unicode code point. 最大有效Unicode码点。
 	ReplacementChar = '\uFFFD'     // Represents invalid code points.表示无效码点。
@@ -145,7 +145,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=70)
 
-``` go linenums="1"
+``` go 
 const (
 	UpperCase = iota
 	LowerCase
@@ -158,7 +158,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=82)
 
-``` go linenums="1"
+``` go 
 const (
 	UpperLower = MaxRune + 1 // (不能是有效的增量。)
 )
@@ -168,7 +168,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6)
 
-``` go linenums="1"
+``` go 
 const Version = "13.0.0"
 ```
 
@@ -178,7 +178,7 @@ const Version = "13.0.0"
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=3604)
 
-``` go linenums="1"
+``` go 
 var (
 	Cc     = _Cc // Cc是类别为Cc(其他，控制)的Unicode字符集。
 	Cf     = _Cf // Cf是类别为Cf(其他，格式)的Unicode字符集。
@@ -234,7 +234,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=5585)
 
-``` go linenums="1"
+``` go 
 var (
 	Adlam                  = _Adlam                  // Adlam 是脚本 Adlam 中的 Unicode 字符集。
 	Ahom                   = _Ahom                   // Ahom 是脚本 Ahom 中的 Unicode 字符集。
@@ -399,7 +399,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6889)
 
-``` go linenums="1"
+``` go 
 var (
 	ASCII_Hex_Digit                    = _ASCII_Hex_Digit                    // ASCII_Hex_Digit 是具有 ASCII_Hex_Digit 属性的 Unicode 字符集。
 	Bidi_Control                       = _Bidi_Control                       // Bidi_Control 是具有 Bidi_Control 属性的 Unicode 字符集。
@@ -443,7 +443,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6929)
 
-``` go linenums="1"
+``` go 
 var CaseRanges = _CaseRanges
 ```
 
@@ -451,7 +451,7 @@ var CaseRanges = _CaseRanges
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=9)
 
-``` go linenums="1"
+``` go 
 var Categories = map[string]*RangeTable{
 	"C":  C,
 	"Cc": Cc,
@@ -496,7 +496,7 @@ var Categories = map[string]*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=7736)
 
-``` go linenums="1"
+``` go 
 var FoldCategory = map[string]*RangeTable{
 	"L":  foldL,
 	"Ll": foldLl,
@@ -511,7 +511,7 @@ var FoldCategory = map[string]*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=8026)
 
-``` go linenums="1"
+``` go 
 var FoldScript = map[string]*RangeTable{
 	"Common":    foldCommon,
 	"Greek":     foldGreek,
@@ -523,7 +523,7 @@ var FoldScript = map[string]*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=23)
 
-``` go linenums="1"
+``` go 
 var GraphicRanges = []*RangeTable{
 	L, M, N, P, S, Zs,
 }
@@ -533,7 +533,7 @@ var GraphicRanges = []*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=29)
 
-``` go linenums="1"
+``` go 
 var PrintRanges = []*RangeTable{
 	L, M, N, P, S,
 }
@@ -543,7 +543,7 @@ var PrintRanges = []*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=5745)
 
-``` go linenums="1"
+``` go 
 var Properties = map[string]*RangeTable{
 	"ASCII_Hex_Digit":                    ASCII_Hex_Digit,
 	"Bidi_Control":                       Bidi_Control,
@@ -587,7 +587,7 @@ var Properties = map[string]*RangeTable{
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=3655)
 
-``` go linenums="1"
+``` go 
 var Scripts = map[string]*RangeTable{}/* 156 elements not displayed */
 ```
 
@@ -597,7 +597,7 @@ var Scripts = map[string]*RangeTable{}/* 156 elements not displayed */
 
 #### func [In](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=69)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func In(r rune, ranges ...*RangeTable) bool
 ```
 
@@ -605,7 +605,7 @@ func In(r rune, ranges ...*RangeTable) bool
 
 #### func [Is](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=157) 
 
-``` go linenums="1"
+``` go 
 func Is(rangeTab *RangeTable, r rune) bool
 ```
 
@@ -613,7 +613,7 @@ func Is(rangeTab *RangeTable, r rune) bool
 
 #### func [IsControl](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func IsControl(r rune) bool
 ```
 
@@ -621,14 +621,14 @@ func IsControl(r rune) bool
 
 #### func [IsDigit](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/digit.go;l=8) 
 
-``` go linenums="1"
+``` go 
 func IsDigit(r rune) bool
 ```
 
 ​	IsDigit函数报告符文是否为十进制数字。
 
 ##### IsDigit Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -648,7 +648,7 @@ false
 
 #### func [IsGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=36) 
 
-``` go linenums="1"
+``` go 
 func IsGraphic(r rune) bool
 ```
 
@@ -656,14 +656,14 @@ func IsGraphic(r rune) bool
 
 #### func [IsLetter](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=90) 
 
-``` go linenums="1"
+``` go 
 func IsLetter(r rune) bool
 ```
 
 ​	IsLetter函数报告符文是否为字母(类别L)。
 
 ##### IsLetter Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -683,14 +683,14 @@ false
 
 #### func [IsLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func IsLower(r rune) bool
 ```
 
 ​	IsLower函数报告符文是否为小写字母。
 
 ##### IsLower Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -710,7 +710,7 @@ false
 
 #### func [IsMark](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func IsMark(r rune) bool
 ```
 
@@ -718,14 +718,14 @@ func IsMark(r rune) bool
 
 #### func [IsNumber](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=104) 
 
-``` go linenums="1"
+``` go 
 func IsNumber(r rune) bool
 ```
 
 ​	IsNumber函数报告符文是否为数字(类别N)。
 
 ##### IsNumber Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -745,7 +745,7 @@ false
 
 #### func [IsOneOf](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=59) 
 
-``` go linenums="1"
+``` go 
 func IsOneOf(ranges []*RangeTable, r rune) bool
 ```
 
@@ -753,7 +753,7 @@ func IsOneOf(ranges []*RangeTable, r rune) bool
 
 #### func [IsPrint](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func IsPrint(r rune) bool
 ```
 
@@ -761,7 +761,7 @@ func IsPrint(r rune) bool
 
 #### func [IsPunct](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=113) 
 
-``` go linenums="1"
+``` go 
 func IsPunct(r rune) bool
 ```
 
@@ -769,7 +769,7 @@ func IsPunct(r rune) bool
 
 #### func [IsSpace](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func IsSpace(r rune) bool
 ```
 
@@ -782,7 +782,7 @@ func IsSpace(r rune) bool
 以及其他由类别Z和属性Pattern_White_Space定义的空格字符。
 
 ##### IsSpace Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -806,7 +806,7 @@ false
 
 #### func [IsSymbol](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func IsSymbol(r rune) bool
 ```
 
@@ -814,14 +814,14 @@ func IsSymbol(r rune) bool
 
 #### func [IsTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=202) 
 
-``` go linenums="1"
+``` go 
 func IsTitle(r rune) bool
 ```
 
 ​	IsTitle函数判断rune是否为Unicode标题大小写字母。
 
 ##### IsTitle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -841,14 +841,14 @@ false
 
 #### func [IsUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=184) 
 
-``` go linenums="1"
+``` go 
 func IsUpper(r rune) bool
 ```
 
 ​	IsUpper函数判断rune是否为Unicode大写字母。
 
 ##### IsUpper Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -868,7 +868,7 @@ false
 
 #### func [SimpleFold](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=340) 
 
-``` go linenums="1"
+``` go 
 func SimpleFold(r rune) rune
 ```
 
@@ -890,7 +890,7 @@ SimpleFold(-2) = -2
 ```
 
 ##### SimpleFold Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -919,14 +919,14 @@ U+0031 '1'
 
 #### func [To](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=248) 
 
-``` go linenums="1"
+``` go 
 func To(_case int, r rune) rune
 ```
 
 ​	To函数将rune映射到指定的大小写：UpperCase，LowerCase或TitleCase。
 
 ##### To Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -958,14 +958,14 @@ U+0047 'G'
 
 #### func [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=265) 
 
-``` go linenums="1"
+``` go 
 func ToLower(r rune) rune
 ```
 
 ​	ToLower函数将rune映射为小写字母。
 
 ##### ToLower  Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -985,14 +985,14 @@ U+0067 'g'
 
 #### func [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=276) 
 
-``` go linenums="1"
+``` go 
 func ToTitle(r rune) rune
 ```
 
 ​	ToTitle函数将rune映射为标题大小写。
 
 ##### ToTitle Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1012,14 +1012,14 @@ U+0047 'G'
 
 #### func [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=254) 
 
-``` go linenums="1"
+``` go 
 func ToUpper(r rune) rune
 ```
 
 ​	ToUpper函数将rune映射为大写字母。
 
 ##### ToUpper Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1041,7 +1041,7 @@ U+0047 'G'
 
 ### type [CaseRange](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=56) 
 
-``` go linenums="1"
+``` go 
 type CaseRange struct {
 	Lo    uint32
 	Hi    uint32
@@ -1053,7 +1053,7 @@ type CaseRange struct {
 
 ### type [Range16](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Range16 struct {
 	Lo     uint16
 	Hi     uint16
@@ -1065,7 +1065,7 @@ type Range16 struct {
 
 ### type [Range32](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=38) 
 
-``` go linenums="1"
+``` go 
 type Range32 struct {
 	Lo     uint32
 	Hi     uint32
@@ -1077,7 +1077,7 @@ type Range32 struct {
 
 ### type [RangeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type RangeTable struct {
 	R16         []Range16
 	R32         []Range32
@@ -1089,14 +1089,14 @@ type RangeTable struct {
 
 ### type [SpecialCase](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=64) 
 
-``` go linenums="1"
+``` go 
 type SpecialCase []CaseRange
 ```
 
 ​	SpecialCase表示特定语言的大小写映射，例如土耳其语。SpecialCase 的方法通过自定义(覆盖)标准映射来定制。
 
 ##### SpecialCase Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1128,14 +1128,14 @@ U+0130 'İ'
 U+0130 'İ'
 ```
 
-``` go linenums="1"
+``` go 
 var AzeriCase SpecialCase = _TurkishCase
 var TurkishCase SpecialCase = _TurkishCase
 ```
 
 #### (SpecialCase) [ToLower](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=305) 
 
-``` go linenums="1"
+``` go 
 func (special SpecialCase) ToLower(r rune) rune
 ```
 
@@ -1143,7 +1143,7 @@ func (special SpecialCase) ToLower(r rune) rune
 
 #### (SpecialCase) [ToTitle](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=296) 
 
-``` go linenums="1"
+``` go 
 func (special SpecialCase) ToTitle(r rune) rune
 ```
 
@@ -1151,7 +1151,7 @@ func (special SpecialCase) ToTitle(r rune) rune
 
 #### (SpecialCase) [ToUpper](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=287) 
 
-``` go linenums="1"
+``` go 
 func (special SpecialCase) ToUpper(r rune) rune
 ```
 

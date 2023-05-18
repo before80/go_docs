@@ -97,7 +97,7 @@ ExpressionList = Expression { "," Expression } .
 
 ​	如果表达式的值是`无类型的（untyped）`[常量](../Constants)，那么声明的常量仍然是无类型，并且常量标识符表示该`无类型的`常量值。例如，如果表达式是一个浮点字面量，那么常量标识符就表示一个浮点常量，即使字面量的小数部分是0。
 
-```go linenums="1"
+```go 
 const Pi float64 = 3.14159265358979323846
 const zero = 0.0         // untyped floating-point constant => 无类型浮点数数常量
 const (
@@ -110,7 +110,7 @@ const u, v float32 = 0, 3    // u = 0.0, v = 3.0
 
 ​	在括号内的`const`声明列表中，除了第一个ConstSpec外的任何表达式都可以省略表达式列表。这样的空列表相当于对前面第一个非空表达式列表及其类型（如果有的话）进行文本替换。因此，`省略表达式列表等同于重复前面的列表`。标识符的数量必须等于`上一个列表`中表达式的数量。与[iota 常量生成器](#iota)一起使用，此机制允许对连续值进行轻量级声明。
 
-```go linenums="1"
+```go 
 const (
 	Sunday = iota
 	Monday
@@ -127,7 +127,7 @@ const (
 
 ​	在[常量声明](#constant-declarations)中，预先声明的标识符`iota`表示连续的无类型整数[常量](../Constants)。它的值是该常量声明中各个 ConstSpec 的索引，从零开始。它可以被用来构造一组相关的常量：
 
-```go linenums="1"
+```go 
 const (
 	c0 = iota  // c0 == 0
 	c1 = iota  // c1 == 1
@@ -153,7 +153,7 @@ const y = iota  // y == 0
 
 ​	根据定义，在同一个ConstSpec中（可以认为是同一行中）多次使用`iota`都有相同的值：
 
-```go linenums="1"
+```go 
 const (
 	bit0, mask0 = 1 << iota, 1<<iota - 1  // bit0 == 1, mask0 == 0  (iota == 0)
 	bit1, mask1                           // bit1 == 2, mask1 == 1  (iota == 1)
@@ -183,7 +183,7 @@ AliasDecl = identifier "=" Type .
 
 在标识符的[作用域](#declarations-and-scope)内，它作为该类型的别名。
 
-```go linenums="1"
+```go 
 type (
 	nodeList = []*Node  // nodeList and []*Node are identical types => nodeList 和[]*Node 类型是一致的
 	Polar    = polar    // Polar and polar denote identical types => Polar 和 polar 表示一致的类型
@@ -200,7 +200,7 @@ TypeDef = identifier [ TypeParameters ] Type .
 
 ​	这个新的类型被称为`已定义类型`。它与任何其他类型（包括它创建时使用的类型）不同。
 
-```go linenums="1"
+```go 
 type (
 	Point struct{ x, y float64 }  // Point and struct{ x, y float64 } are different types
 	polar Point                   // polar and Point denote different types
@@ -220,7 +220,7 @@ type Block interface {
 
 ​	一个已定义类型可以有与之相关的方法。这一新定义的类型不会继承绑定到给定类型的任何方法，但是`接口类型`或`复合类型的元素`的[方法集](../PropertiesOfTypesAndValues#method-sets)保持不变。
 
-```go linenums="1"
+```go 
 // A Mutex is a data type with two methods, Lock and Unlock. 
 //=> Mutex 是一个数据类型，其有 Lock 和 Unlock 两个方法
 type Mutex struct         { /* Mutex fields */ }
@@ -251,7 +251,7 @@ type MyBlock Block
 
 类型定义可用于定义不同的布尔型、数值型或字符串型，并为它们绑定方法：
 
-```go linenums="1"
+```go 
 type TimeZone int
 
 const (
@@ -268,7 +268,7 @@ func (tz TimeZone) String() string {
 
 ​	如果类型定义指定了[类型参数](#type-parameter-declarations)，那么这个`类型名称`表示一个`泛型`。`泛型`在使用时必须被[实例化](../Expressions#instantiations)。
 
-```go linenums="1" hl_lines="1 1"
+```go  hl_lines="1 1"
 type List[T any] struct {
 	next  *List[T]
 	value T
@@ -279,7 +279,7 @@ In a type definition the given type cannot be a type parameter.
 
 在一个类型定义中，给定的类型不能是一个`类型参数`。
 
-```go linenums="1"
+```go 
 type T[P any] P    // illegal: P is a type parameter 
 //=> 非法的：P 是一个类型参数
 
@@ -291,7 +291,7 @@ func f[T any]() {
 
 ​	泛型也可以有与之相关的[方法](#method-declarations)。在这种情况下，方法接收器必须声明与`泛型定义`中存在的相同数量的类型参数。=>仍有疑问？？
 
-```go linenums="1"
+```go 
 // The method Len returns the number of elements in the linked list l. 
 //=> 方法 Len 会返回链接列表 l 中的元素的数量
 func (l *List[T]) Len() int  { … }
@@ -321,7 +321,7 @@ TypeParamDecl   = IdentifierList TypeConstraint .
 
 ​	当泛型的类型参数列表声明了一个带有约束条件`C`的单一类型参数`P`，从而使文本`P C`构成一个有效的表达式时，就会出现解析歧义：
 
-```go linenums="1"
+```go 
 type T[P *C] …
 type T[P (C)] …
 type T[P *C|Q] …
@@ -330,7 +330,7 @@ type T[P *C|Q] …
 
 ​	在这些罕见的情况下，类型参数列表很难与表达式进行区别，导致该类型声明被解析为一个数组类型声明。为了解决这种歧义，可将约束嵌入到一个[接口](../Types#interface-types)中或者在尾部使用逗号：
 
-```go linenums="1"
+```go 
 type T[P interface{*C}] …
 type T[P *C,] …
 ```
@@ -347,7 +347,7 @@ TypeConstraint = TypeElem .
 
 ​	如果约束是一个形式为`interface{E}`的接口字面量，其中`E`是一个嵌入的类型元素（不是方法），在类型参数列表中，为了方便起见，可以省略参数列表中封闭的`interface{ … }`：
 
-```go linenums="1"
+```go 
 [T []P]                      // = [T interface{[]P}]
 [T ~int]                     // = [T interface{~int}]
 [T int|string]               // = [T interface{int|string}]
@@ -362,7 +362,7 @@ type Constraint ~int         // illegal: ~int is not inside a type parameter lis
 
 ​	尽管非类型参数的接口可以被[比较](../Expressions#comparison-operators)（可能导致运行时恐慌），但它们也没有实现`comparable`。
 
-```go linenums="1"
+```go 
 int                          // implements comparable => 实现了 comparable
 []byte                       // does not implement comparable (slices cannot be compared) 
 //=> 未实现 comparable （切片不能被比较）
@@ -386,7 +386,7 @@ interface{ ~int | ~[]byte }  // type parameter only: does not implement comparab
 
 ​	变量声明创建一个或多个变量，为它们绑定相应的标识符，并为每个变量设定一个类型和一个初始值。
 
-```go linenums="1"
+```go 
 VarDecl     = "var" ( VarSpec | "(" { VarSpec ";" } ")" ) .
 VarSpec     = IdentifierList ( Type [ "=" ExpressionList ] | "=" ExpressionList ) .
 var i int
@@ -405,7 +405,7 @@ var _, found = entries[name]  // map lookup; only interested in "found"
 
 ​	如果变量声明时提供了类型，则每个变量都被指定为该类型。否则，每个变量都被设定为赋值中相应的初始化值的类型。如果该值是一个`无类型的`常量，它首先被隐式[转换](../Expressions#conversions)为其[默认类型](../Constants)；如果它是一个`无类型的`布尔值，它首先被隐式转换为`bool`。预先声明的值`nil`不能用来初始化一个没有明确类型的变量。
 
-```go linenums="1"
+```go 
 var d = math.Sin(0.5)  // d is float64
 var i = 42             // i is int
 var t, ok = x.(T)      // t is T, ok is bool
@@ -455,7 +455,7 @@ FunctionBody = Block .
 
 ​	如果函数的[签名](../Types#function-types)声明了结果参数，那么函数体的语句列表必须以一个[终止语句](../Statements#terminating-statements)结束。
 
-```go linenums="1"
+```go 
 func IndexRune(s string, r rune) int {
 	for i, c := range s {
 		if c == r {
@@ -469,7 +469,7 @@ func IndexRune(s string, r rune) int {
 
 ​	如果函数声明中指定了[类型参数](#type-parameter-declarations)，那么函数名就表示一个`泛型函数`。在被调用或作为值使用之前，泛型函数必须先被实例化。
 
-```go linenums="1"
+```go 
 func min[T ~int|~float64](x, y T) T {
 	if x < y {
 		return x
@@ -480,7 +480,7 @@ func min[T ~int|~float64](x, y T) T {
 
 ​	没有类型参数的函数声明可以省略函数体。这样的声明提供了一个在Go外部实现的函数的签名，比如一个汇编程序。
 
-```go linenums="1"
+```go 
 func flushICache(begin, end uintptr)  // implemented externally => 由外部实现
 ```
 
@@ -501,7 +501,7 @@ Receiver   = Parameters .
 
 给出定义类型`Point`，其声明：
 
-```go linenums="1"
+```go 
 func (p *Point) Length() float64 {
 	return math.Sqrt(p.x * p.x + p.y * p.y)
 }
@@ -518,7 +518,7 @@ If the receiver base type is a [generic type](https://go.dev/ref/spec#Type_decla
 
 ​	如果接收器的基本类型是一个[泛型](#type-declarations)，接收器规范必须为要使用的方法声明相应的类型形参。这使得接收器的类型形参对该方法可用。从语法上讲，这个类型形参声明看起来就像接收器基本类型的实例化：类型实参必须是表示被声明的类型参数的标识符，接收器基本类型的每个类型形参各有一个。`类型形参名无需匹配接收器基本类型定义中对应的形参名`，并且所有非空白形参名在接收器形参部分和方法签名中必须是唯一的。接收器类型形参的约束是由接收器基本类型定义所隐含的：相应的类型形参有相应的约束。=> 仍有疑问？？
 
-```go linenums="1"
+```go 
 type Pair[A, B any] struct {
 	a A
 	b B

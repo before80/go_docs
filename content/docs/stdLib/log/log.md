@@ -16,7 +16,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=41)
 
-```go linenums="1"
+```go 
 const (
 	Ldate         = 1 << iota     // 当地时区的日期：2009/01/23
 	Ltime                         // 当地时区的时间：01:23:23
@@ -49,7 +49,7 @@ This section is empty.
 
 #### func [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=363) 
 
-```go linenums="1"
+```go 
 func Fatal(v ...any)
 ```
 
@@ -57,7 +57,7 @@ func Fatal(v ...any)
 
 #### func [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=369) 
 
-```go linenums="1"
+```go 
 func Fatalf(format string, v ...any)
 ```
 
@@ -65,7 +65,7 @@ func Fatalf(format string, v ...any)
 
 #### func [Fatalln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=375) 
 
-```go linenums="1"
+```go 
 func Fatalln(v ...any)
 ```
 
@@ -73,7 +73,7 @@ func Fatalln(v ...any)
 
 #### func [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=308) 
 
-```go linenums="1"
+```go 
 func Flags() int
 ```
 
@@ -81,7 +81,7 @@ func Flags() int
 
 #### func [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=408)  <- go1.5
 
-```go linenums="1"
+```go 
 func Output(calldepth int, s string) error
 ```
 
@@ -89,7 +89,7 @@ func Output(calldepth int, s string) error
 
 #### func [Panic](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=381) 
 
-```go linenums="1"
+```go 
 func Panic(v ...any)
 ```
 
@@ -97,7 +97,7 @@ func Panic(v ...any)
 
 #### func [Panicf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=388) 
 
-```go linenums="1"
+```go 
 func Panicf(format string, v ...any)
 ```
 
@@ -105,7 +105,7 @@ func Panicf(format string, v ...any)
 
 #### func [Panicln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=395) 
 
-```go linenums="1"
+```go 
 func Panicln(v ...any)
 ```
 
@@ -113,7 +113,7 @@ func Panicln(v ...any)
 
 #### func [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=319) 
 
-```go linenums="1"
+```go 
 func Prefix() string
 ```
 
@@ -121,7 +121,7 @@ func Prefix() string
 
 #### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=337) 
 
-```go linenums="1"
+```go 
 func Print(v ...any)
 ```
 
@@ -129,7 +129,7 @@ func Print(v ...any)
 
 #### func [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=346) 
 
-```go linenums="1"
+```go 
 func Printf(format string, v ...any)
 ```
 
@@ -137,7 +137,7 @@ func Printf(format string, v ...any)
 
 #### func [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=355) 
 
-```go linenums="1"
+```go 
 func Println(v ...any)
 ```
 
@@ -145,7 +145,7 @@ func Println(v ...any)
 
 #### func [SetFlags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=314) 
 
-```go linenums="1"
+```go 
 func SetFlags(flag int)
 ```
 
@@ -153,7 +153,7 @@ func SetFlags(flag int)
 
 #### func [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=302) 
 
-```go linenums="1"
+```go 
 func SetOutput(w io.Writer)
 ```
 
@@ -161,7 +161,7 @@ func SetOutput(w io.Writer)
 
 #### func [SetPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=324) 
 
-```go linenums="1"
+```go 
 func SetPrefix(prefix string)
 ```
 
@@ -169,7 +169,7 @@ func SetPrefix(prefix string)
 
 #### func [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=329)  <- go1.13
 
-```go linenums="1"
+```go 
 func Writer() io.Writer
 ```
 
@@ -179,7 +179,7 @@ func Writer() io.Writer
 
 ### type [Logger](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=56) 
 
-```go linenums="1"
+```go 
 type Logger struct {
     mu        sync.Mutex // 保证原子写入；保护以下字段
 	prefix    string // 每行日志前缀以标识记录器(参见 Lmsgprefix)
@@ -194,7 +194,7 @@ type Logger struct {
 
 ##### Logger Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -222,7 +222,7 @@ logger: example_test.go:19: Hello, log file!
 
 #### func [Default](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=89)  <- go1.16
 
-```go linenums="1"
+```go 
 func Default() *Logger
 ```
 
@@ -230,7 +230,7 @@ func Default() *Logger
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=70) 
 
-```go linenums="1"
+```go 
 func New(out io.Writer, prefix string, flag int) *Logger
 ```
 
@@ -238,7 +238,7 @@ func New(out io.Writer, prefix string, flag int) *Logger
 
 #### (*Logger) [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=226) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Fatal(v ...any)
 ```
 
@@ -246,7 +246,7 @@ func (l *Logger) Fatal(v ...any)
 
 #### (*Logger) [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=232) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Fatalf(format string, v ...any)
 ```
 
@@ -254,7 +254,7 @@ func (l *Logger) Fatalf(format string, v ...any)
 
 #### (*Logger) [Fatalln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=238) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Fatalln(v ...any)
 ```
 
@@ -262,7 +262,7 @@ func (l *Logger) Fatalln(v ...any)
 
 #### (*Logger) [Flags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=266) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Flags() int
 ```
 
@@ -270,7 +270,7 @@ func (l *Logger) Flags() int
 
 #### (*Logger) [Output](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=171) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Output(calldepth int, s string) error
 ```
 
@@ -278,7 +278,7 @@ func (l *Logger) Output(calldepth int, s string) error
 
 ##### Output  Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -310,7 +310,7 @@ INFO: example_test.go:36: Hello world
 
 #### (*Logger) [Panic](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=244) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Panic(v ...any)
 ```
 
@@ -318,7 +318,7 @@ func (l *Logger) Panic(v ...any)
 
 #### (*Logger) [Panicf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=251) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Panicf(format string, v ...any)
 ```
 
@@ -326,7 +326,7 @@ func (l *Logger) Panicf(format string, v ...any)
 
 #### (*Logger) [Panicln](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=258) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Panicln(v ...any)
 ```
 
@@ -334,7 +334,7 @@ func (l *Logger) Panicln(v ...any)
 
 #### (*Logger) [Prefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=281) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Prefix() string
 ```
 
@@ -342,7 +342,7 @@ func (l *Logger) Prefix() string
 
 #### (*Logger) [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=209) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Print(v ...any)
 ```
 
@@ -350,7 +350,7 @@ func (l *Logger) Print(v ...any)
 
 #### (*Logger) [Printf](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=200) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Printf(format string, v ...any)
 ```
 
@@ -358,7 +358,7 @@ func (l *Logger) Printf(format string, v ...any)
 
 #### (*Logger) [Println](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=218) 
 
-```go linenums="1"
+```go 
 func (l *Logger) Println(v ...any)
 ```
 
@@ -366,7 +366,7 @@ func (l *Logger) Println(v ...any)
 
 #### (*Logger) [SetFlags](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=274) 
 
-```go linenums="1"
+```go 
 func (l *Logger) SetFlags(flag int)
 ```
 
@@ -374,7 +374,7 @@ func (l *Logger) SetFlags(flag int)
 
 #### (*Logger) [SetOutput](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=79)  <- go1.5
 
-```go linenums="1"
+```go 
 func (l *Logger) SetOutput(w io.Writer)
 ```
 
@@ -382,7 +382,7 @@ func (l *Logger) SetOutput(w io.Writer)
 
 #### (*Logger) [SetPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=288) 
 
-```go linenums="1"
+```go 
 func (l *Logger) SetPrefix(prefix string)
 ```
 
@@ -390,7 +390,7 @@ func (l *Logger) SetPrefix(prefix string)
 
 #### (*Logger) [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/log/log.go;l=295)  <- go1.12
 
-```go linenums="1"
+```go 
 func (l *Logger) Writer() io.Writer
 ```
 

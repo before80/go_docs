@@ -27,7 +27,7 @@ This section is empty.
 
 #### func [FreeOSMemory](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=103)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func FreeOSMemory()
 ```
 
@@ -35,7 +35,7 @@ FreeOSMemory forces a garbage collection followed by an attempt to return as muc
 
 #### func [PrintStack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/stack.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func PrintStack()
 ```
 
@@ -43,7 +43,7 @@ PrintStack prints to standard error the stack trace returned by runtime.Stack.
 
 #### func [ReadGCStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=31)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ReadGCStats(stats *GCStats)
 ```
 
@@ -51,7 +51,7 @@ ReadGCStats reads statistics about garbage collection into stats. The number of 
 
 #### func [SetGCPercent](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=95)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func SetGCPercent(percent int) int
 ```
 
@@ -59,7 +59,7 @@ SetGCPercent sets the garbage collection target percentage: a collection is trig
 
 #### func [SetMaxStack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=119)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SetMaxStack(bytes int) int
 ```
 
@@ -69,7 +69,7 @@ SetMaxStack is useful mainly for limiting the damage done by goroutines that ent
 
 #### func [SetMaxThreads](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=137)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SetMaxThreads(threads int) int
 ```
 
@@ -81,7 +81,7 @@ SetMaxThreads is useful mainly for limiting the damage done by programs that cre
 
 #### func [SetMemoryLimit](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=236)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func SetMemoryLimit(limit int64) int64
 ```
 
@@ -115,7 +115,7 @@ SetMemoryLimit returns the previously set memory limit. A negative input does no
 
 #### func [SetPanicOnFault](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=157)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func SetPanicOnFault(enabled bool) bool
 ```
 
@@ -129,7 +129,7 @@ If that method exists, it returns the memory address which triggered the fault. 
 
 #### func [SetTraceback](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=181)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func SetTraceback(level string)
 ```
 
@@ -137,7 +137,7 @@ SetTraceback sets the amount of detail printed by the runtime in the traceback i
 
 #### func [Stack](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/stack.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func Stack() []byte
 ```
 
@@ -145,7 +145,7 @@ Stack returns a formatted stack trace of the goroutine that calls it. It calls r
 
 #### func [WriteHeapDump](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=170)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func WriteHeapDump(fd uintptr)
 ```
 
@@ -159,7 +159,7 @@ The heap dump format is defined at https://golang.org/s/go15heapdump.
 
 ### type [BuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=41)  <- go1.12
 
-``` go linenums="1"
+``` go 
 type BuildInfo struct {
 	// GoVersion is the version of the Go toolchain that built the binary
 	// (for example, "go1.19.2").
@@ -185,13 +185,13 @@ BuildInfo represents the build information read from a Go binary.
 
 #### func [ParseBuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=149)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func ParseBuildInfo(data string) (bi *BuildInfo, err error)
 ```
 
 #### func [ReadBuildInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=20)  <- go1.12
 
-``` go linenums="1"
+``` go 
 func ReadBuildInfo() (info *BuildInfo, ok bool)
 ```
 
@@ -199,13 +199,13 @@ ReadBuildInfo returns the build information embedded in the running binary. The 
 
 #### (*BuildInfo) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=104)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (bi *BuildInfo) String() string
 ```
 
 ### type [BuildSetting](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=87)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type BuildSetting struct {
 	// Key and Value describe the build setting.
 	// Key must not contain an equals sign, space, tab, or newline.
@@ -235,7 +235,7 @@ Defined keys include:
 
 ### type [GCStats](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/garbage.go;l=14)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type GCStats struct {
 	LastGC         time.Time       // time of last collection
 	NumGC          int64           // number of garbage collections
@@ -250,7 +250,7 @@ GCStats collect information about recent garbage collections.
 
 ### type [Module](https://cs.opensource.google/go/go/+/go1.20.1:src/runtime/debug/mod.go;l=62)  <- go1.12
 
-``` go linenums="1"
+``` go 
 type Module struct {
 	Path    string  // module path
 	Version string  // module version

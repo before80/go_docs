@@ -33,7 +33,7 @@ draft = false
 
 ​	下面的例子使用一个查询来找出是否有足够的库存来支持购买。如果有足够的库存，该SQL语句返回`true`，如果没有则返回`false`。[Row.Scan](https://pkg.go.dev/database/sql#Row.Scan)通过一个指针将布尔型的返回值复制到`enough`变量中。
 
-```go linenums="1" hl_lines="5 5"
+```go  hl_lines="5 5"
 func canPurchase(id int, quantity int) (bool, error) {
     var enough bool
     // Query for a value based on a single row.
@@ -71,7 +71,7 @@ func canPurchase(id int, quantity int) (bool, error) {
 
 ​	下面的例子执行了一个查询，返回指定艺术家的专辑。这些专辑被返回到一个`sql.Rows`中。该代码使用[Rows.Scan](https://pkg.go.dev/database/sql#Rows.Scan)将列值复制到由指针表示的变量中。
 
-```go linenums="1"
+```go 
 func albumsByArtist(artist string) ([]Album, error) {
     rows, err := db.Query("SELECT * FROM album WHERE artist = ?", artist)
     if err != nil {
@@ -129,7 +129,7 @@ Be sure to check for an error from `sql.Rows` after looping over query results. 
 
 ​	下面的例子中的代码查询了一个客户名称。如果名字的值是`null`的，代码会替换另一个值在应用程序中使用。
 
-```go linenums="1"
+```go 
 var s sql.NullString
 err := db.QueryRow("SELECT name FROM customer WHERE id = ?", id).Scan(&s)
 if err != nil {
@@ -170,7 +170,7 @@ if s.Valid {
 
 ​	下面的例子中的代码使用`DB.Query`来执行两个SQL语句。第一个结果集来自过程中的第一个查询，检索`album`表中的所有记录。下一个结果集是来自于第二个查询，从`song`表中检索记录。
 
-```go linenums="1" hl_lines="13 13"
+```go  hl_lines="13 13"
 rows, err := db.Query("SELECT * from album; SELECT * from song;")
 if err != nil {
     log.Fatal(err)

@@ -19,7 +19,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=136)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrInvalid    = errInvalid()    // "参数无效"
 	ErrPermission = errPermission() // "权限被拒绝"
@@ -33,7 +33,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/walk.go;l=20)
 
-``` go linenums="1"
+``` go 
 var SkipAll = errors.New("skip everything and stop the walk")
 ```
 
@@ -41,7 +41,7 @@ var SkipAll = errors.New("skip everything and stop the walk")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/walk.go;l=15)
 
-``` go linenums="1"
+``` go 
 var SkipDir = errors.New("skip this directory")
 ```
 
@@ -51,7 +51,7 @@ var SkipDir = errors.New("skip this directory")
 
 #### func [Glob](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/glob.go;l=33) 
 
-``` go linenums="1"
+``` go 
 func Glob(fsys FS, pattern string) (matches []string, err error)
 ```
 
@@ -63,7 +63,7 @@ func Glob(fsys FS, pattern string) (matches []string, err error)
 
 #### func [ReadFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/readfile.go;l=32) 
 
-``` go linenums="1"
+``` go 
 func ReadFile(fsys FS, name string) ([]byte, error)
 ```
 
@@ -73,7 +73,7 @@ func ReadFile(fsys FS, name string) ([]byte, error)
 
 #### func [ValidPath](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func ValidPath(name string) bool
 ```
 
@@ -97,7 +97,7 @@ Note that paths are slash-separated on all systems, even Windows. Paths containi
 
 #### func [WalkDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/walk.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func WalkDir(fsys FS, root string, fn WalkDirFunc) error
 ```
 
@@ -127,7 +127,7 @@ WalkDir 不会遵循目录中发现的符号链接，但如果 root 本身是符
 
 ##### WalkDir Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -158,7 +158,7 @@ func main() {
 
 ### type [DirEntry](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=86) 
 
-``` go linenums="1"
+``` go 
 type DirEntry interface {
     // Name 返回该条目描述的文件(或子目录)的名称。
     // 该名称仅为路径的最后一个元素(基本名称)，而不是整个路径。
@@ -191,7 +191,7 @@ DirEntry 是从目录中读取的一个条目(使用 ReadDir 函数或 ReadDirFi
 
 #### func [FileInfoToDirEntry](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/readdir.go;l=72)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func FileInfoToDirEntry(info FileInfo) DirEntry
 ```
 
@@ -203,7 +203,7 @@ FileInfoToDirEntry 返回一个从 info 中获取信息的 DirEntry。如果 inf
 
 #### func [ReadDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/readdir.go;l=28) 
 
-``` go linenums="1"
+``` go 
 func ReadDir(fsys FS, name string) ([]DirEntry, error)
 ```
 
@@ -219,7 +219,7 @@ If fs implements ReadDirFS, ReadDir calls fs.ReadDir. Otherwise ReadDir calls fs
 
 ### type [FS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type FS interface {
 	// Open opens the named file.
 	//
@@ -253,7 +253,7 @@ FS 接口是文件系统所需的最小实现。文件系统可能会实现其�
 
 #### func [Sub](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/sub.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func Sub(fsys FS, dir string) (FS, error)
 ```
 
@@ -277,7 +277,7 @@ Note that Sub(os.DirFS("/"), "prefix") is equivalent to os.DirFS("/prefix") and 
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=78) 
 
-``` go linenums="1"
+``` go 
 type File interface {
 	Stat() (FileInfo, error)
 	Read([]byte) (int, error)
@@ -293,7 +293,7 @@ File接口提供对单个文件的访问。File接口是文件所需的最小实
 
 ### type [FileInfo](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=151) 
 
-``` go linenums="1"
+``` go 
 type FileInfo interface {
 	Name() string       // base name of the file// 文件的基本名称
 	Size() int64        // length in bytes for regular files; system-dependent for others// 普通文件的长度，以字节为单位；其他文件则取决于系统。
@@ -312,7 +312,7 @@ FileInfo接口描述文件并由Stat返回。
 
 #### func [Stat](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/stat.go;l=20) 
 
-``` go linenums="1"
+``` go 
 func Stat(fsys FS, name string) (FileInfo, error)
 ```
 
@@ -330,7 +330,7 @@ If fs implements StatFS, Stat calls fs.Stat. Otherwise, Stat opens the file to s
 
 ### type [FileMode](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=165) 
 
-``` go linenums="1"
+``` go 
 type FileMode uint32
 ```
 
@@ -340,7 +340,7 @@ A FileMode represents a file's mode and permission bits. The bits have the same 
 
 FileMode表示文件的模式和权限位。这些位在所有系统上具有相同的定义，以便可以在不同系统之间可移植地移动文件信息。并非所有位都适用于所有系统。唯一必需的位是ModeDir，适用于目录。
 
-``` go linenums="1"
+``` go 
 const (
 	// The single letters are the abbreviations
 	// used by the String method's formatting.
@@ -375,7 +375,7 @@ The defined file mode bits are the most significant bits of the FileMode. The ni
 
 #### (FileMode) [IsDir](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=223) 
 
-``` go linenums="1"
+``` go 
 func (m FileMode) IsDir() bool
 ```
 
@@ -387,7 +387,7 @@ IsDir 报告 m 是否描述一个目录。也就是说，它测试 ModeDir 位�
 
 #### (FileMode) [IsRegular](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func (m FileMode) IsRegular() bool
 ```
 
@@ -399,7 +399,7 @@ IsRegular 报告 m 是否描述一个普通文件。也就是说，它测试是�
 
 #### (FileMode) [Perm](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=234) 
 
-``` go linenums="1"
+``` go 
 func (m FileMode) Perm() FileMode
 ```
 
@@ -411,13 +411,13 @@ Perm 返回 m 中的 Unix 权限位(m＆ModePerm)。
 
 #### (FileMode) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=195) 
 
-``` go linenums="1"
+``` go 
 func (m FileMode) String() string
 ```
 
 #### (FileMode) [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=239) 
 
-``` go linenums="1"
+``` go 
 func (m FileMode) Type() FileMode
 ```
 
@@ -429,7 +429,7 @@ Type 返回 m 中的类型位(m＆ModeType)。
 
 ### type [GlobFS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/glob.go;l=12) 
 
-``` go linenums="1"
+``` go 
 type GlobFS interface {
 	FS
 
@@ -447,7 +447,7 @@ GlobFS 是具有 Glob 方法的文件系统。
 
 ### type [PathError](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=244) 
 
-``` go linenums="1"
+``` go 
 type PathError struct {
 	Op   string
 	Path string
@@ -463,13 +463,13 @@ PathError 记录了一个错误以及导致该错误的操作和文件路径。
 
 #### (*PathError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=250) 
 
-``` go linenums="1"
+``` go 
 func (e *PathError) Error() string
 ```
 
 #### (*PathError) [Timeout](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=255) 
 
-``` go linenums="1"
+``` go 
 func (e *PathError) Timeout() bool
 ```
 
@@ -481,13 +481,13 @@ Timeout报告此错误是否表示超时。
 
 #### (*PathError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=252) 
 
-``` go linenums="1"
+``` go 
 func (e *PathError) Unwrap() error
 ```
 
 ### type [ReadDirFS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/readdir.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type ReadDirFS interface {
 	FS
 
@@ -504,7 +504,7 @@ ReadDirFS是由提供了ReadDir的文件系统所实现的接口。
 
 ### type [ReadDirFile](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/fs.go;l=112) 
 
-``` go linenums="1"
+``` go 
 type ReadDirFile interface {
 	File
 
@@ -535,7 +535,7 @@ ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。�
 
 ### type [ReadFileFS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/readfile.go;l=11) 
 
-``` go linenums="1"
+``` go 
 type ReadFileFS interface {
 	FS
 
@@ -557,7 +557,7 @@ ReadFileFS是一个文件系统，它提供了ReadFile的优化实现。
 
 ### type [StatFS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/stat.go;l=8) 
 
-``` go linenums="1"
+``` go 
 type StatFS interface {
 	FS
 
@@ -575,7 +575,7 @@ A StatFS is a file system with a Stat method.
 
 ### type [SubFS](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/sub.go;l=13) 
 
-``` go linenums="1"
+``` go 
 type SubFS interface {
 	FS
 
@@ -592,7 +592,7 @@ SubFS是一个具有Sub方法的文件系统。
 
 ### type [WalkDirFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/walk.go;l=69) 
 
-``` go linenums="1"
+``` go 
 type WalkDirFunc func(path string, d DirEntry, err error) error
 ```
 

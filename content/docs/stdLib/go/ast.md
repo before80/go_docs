@@ -33,7 +33,7 @@ This section is empty.
 
 #### func [FileExports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=27) 
 
-``` go linenums="1"
+``` go 
 func FileExports(src *File) bool
 ```
 
@@ -43,7 +43,7 @@ FileExports reports whether there are exported declarations.
 
 #### func [FilterDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=229) 
 
-``` go linenums="1"
+``` go 
 func FilterDecl(decl Decl, f Filter) bool
 ```
 
@@ -53,7 +53,7 @@ FilterDecl reports whether there are any declared names left after filtering.
 
 #### func [FilterFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=253) 
 
-``` go linenums="1"
+``` go 
 func FilterFile(src *File, f Filter) bool
 ```
 
@@ -63,7 +63,7 @@ FilterFile reports whether there are any top-level declarations left after filte
 
 #### func [FilterPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=279) 
 
-``` go linenums="1"
+``` go 
 func FilterPackage(pkg *Package, f Filter) bool
 ```
 
@@ -73,7 +73,7 @@ FilterPackage reports whether there are any top-level declarations left after fi
 
 #### func [Fprint](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=39) 
 
-``` go linenums="1"
+``` go 
 func Fprint(w io.Writer, fset *token.FileSet, x any, f FieldFilter) error
 ```
 
@@ -83,19 +83,19 @@ A non-nil FieldFilter f may be provided to control the output: struct fields for
 
 #### func [Inspect](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=396) 
 
-``` go linenums="1"
+``` go 
 func Inspect(node Node, f func(Node) bool)
 ```
 
 Inspect traverses an AST in depth-first order: It starts by calling f(node); node must not be nil. If f returns true, Inspect invokes f recursively for each of the non-nil children of node, followed by a call of f(nil).
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=583) 
 
-``` go linenums="1"
+``` go 
 func IsExported(name string) bool
 ```
 
@@ -103,7 +103,7 @@ IsExported reports whether name starts with an upper-case letter.
 
 #### func [NotNilFilter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=22) 
 
-``` go linenums="1"
+``` go 
 func NotNilFilter(_ string, v reflect.Value) bool
 ```
 
@@ -111,7 +111,7 @@ NotNilFilter returns true for field values that are not nil; it returns false ot
 
 #### func [PackageExports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=37) 
 
-``` go linenums="1"
+``` go 
 func PackageExports(pkg *Package) bool
 ```
 
@@ -121,19 +121,19 @@ PackageExports reports whether there are exported declarations; it returns false
 
 #### func [Print](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func Print(fset *token.FileSet, x any) error
 ```
 
 Print prints x to standard output, skipping nil fields. Print(fset, x) is the same as Fprint(os.Stdout, fset, x, NotNilFilter).
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [SortImports](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/import.go;l=15) 
 
-``` go linenums="1"
+``` go 
 func SortImports(fset *token.FileSet, f *File)
 ```
 
@@ -141,7 +141,7 @@ SortImports sorts runs of consecutive import lines in import blocks in f. It als
 
 #### func [Walk](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func Walk(v Visitor, node Node)
 ```
 
@@ -151,7 +151,7 @@ Walk traverses an AST in depth-first order: It starts by calling v.Visit(node); 
 
 ### type [ArrayType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=432) 
 
-``` go linenums="1"
+``` go 
 type ArrayType struct {
 	Lbrack token.Pos // position of "["
 	Len    Expr      // Ellipsis node for [...]T array types, nil for slice types
@@ -163,19 +163,19 @@ An ArrayType node represents an array or slice type.
 
 #### (*ArrayType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=536) 
 
-``` go linenums="1"
+``` go 
 func (x *ArrayType) End() token.Pos
 ```
 
 #### (*ArrayType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=502) 
 
-``` go linenums="1"
+``` go 
 func (x *ArrayType) Pos() token.Pos
 ```
 
 ### type [AssignStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=654) 
 
-``` go linenums="1"
+``` go 
 type AssignStmt struct {
 	Lhs    []Expr
 	TokPos token.Pos   // position of Tok
@@ -188,19 +188,19 @@ An AssignStmt node represents an assignment or a short variable declaration.
 
 #### (*AssignStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=801) 
 
-``` go linenums="1"
+``` go 
 func (s *AssignStmt) End() token.Pos
 ```
 
 #### (*AssignStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=772) 
 
-``` go linenums="1"
+``` go 
 func (s *AssignStmt) Pos() token.Pos
 ```
 
 ### type [BadDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=957) 
 
-``` go linenums="1"
+``` go 
 type BadDecl struct {
 	From, To token.Pos // position range of bad declaration
 }
@@ -210,19 +210,19 @@ A BadDecl node is a placeholder for a declaration containing syntax errors for w
 
 #### (*BadDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=997) 
 
-``` go linenums="1"
+``` go 
 func (d *BadDecl) End() token.Pos
 ```
 
 #### (*BadDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=993) 
 
-``` go linenums="1"
+``` go 
 func (d *BadDecl) Pos() token.Pos
 ```
 
 ### type [BadExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=282) 
 
-``` go linenums="1"
+``` go 
 type BadExpr struct {
 	From, To token.Pos // position range of bad expression
 }
@@ -232,19 +232,19 @@ A BadExpr node is a placeholder for an expression containing syntax errors for w
 
 #### (*BadExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=514) 
 
-``` go linenums="1"
+``` go 
 func (x *BadExpr) End() token.Pos
 ```
 
 #### (*BadExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=480) 
 
-``` go linenums="1"
+``` go 
 func (x *BadExpr) Pos() token.Pos
 ```
 
 ### type [BadStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=605) 
 
-``` go linenums="1"
+``` go 
 type BadStmt struct {
 	From, To token.Pos // position range of bad statement
 }
@@ -254,19 +254,19 @@ A BadStmt node is a placeholder for statements containing syntax errors for whic
 
 #### (*BadStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=787) 
 
-``` go linenums="1"
+``` go 
 func (s *BadStmt) End() token.Pos
 ```
 
 #### (*BadStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=765) 
 
-``` go linenums="1"
+``` go 
 func (s *BadStmt) Pos() token.Pos
 ```
 
 ### type [BasicLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=302) 
 
-``` go linenums="1"
+``` go 
 type BasicLit struct {
 	ValuePos token.Pos   // literal position
 	Kind     token.Token // token.INT, token.FLOAT, token.IMAG, token.CHAR, or token.STRING
@@ -278,19 +278,19 @@ A BasicLit node represents a literal of basic type.
 
 #### (*BasicLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=522) 
 
-``` go linenums="1"
+``` go 
 func (x *BasicLit) End() token.Pos
 ```
 
 #### (*BasicLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=483) 
 
-``` go linenums="1"
+``` go 
 func (x *BasicLit) Pos() token.Pos
 ```
 
 ### type [BinaryExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=401) 
 
-``` go linenums="1"
+``` go 
 type BinaryExpr struct {
 	X     Expr        // left operand
 	OpPos token.Pos   // position of Op
@@ -303,19 +303,19 @@ A BinaryExpr node represents a binary expression.
 
 #### (*BinaryExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=534) 
 
-``` go linenums="1"
+``` go 
 func (x *BinaryExpr) End() token.Pos
 ```
 
 #### (*BinaryExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=500) 
 
-``` go linenums="1"
+``` go 
 func (x *BinaryExpr) Pos() token.Pos
 ```
 
 ### type [BlockStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=689) 
 
-``` go linenums="1"
+``` go 
 type BlockStmt struct {
 	Lbrace token.Pos // position of "{"
 	List   []Stmt
@@ -327,19 +327,19 @@ A BlockStmt node represents a braced statement list.
 
 #### (*BlockStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=816) 
 
-``` go linenums="1"
+``` go 
 func (s *BlockStmt) End() token.Pos
 ```
 
 #### (*BlockStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=777) 
 
-``` go linenums="1"
+``` go 
 func (s *BlockStmt) Pos() token.Pos
 ```
 
 ### type [BranchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=682) 
 
-``` go linenums="1"
+``` go 
 type BranchStmt struct {
 	TokPos token.Pos   // position of Tok
 	Tok    token.Token // keyword token (BREAK, CONTINUE, GOTO, FALLTHROUGH)
@@ -351,19 +351,19 @@ A BranchStmt node represents a break, continue, goto, or fallthrough statement.
 
 #### (*BranchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=810) 
 
-``` go linenums="1"
+``` go 
 func (s *BranchStmt) End() token.Pos
 ```
 
 #### (*BranchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=776) 
 
-``` go linenums="1"
+``` go 
 func (s *BranchStmt) Pos() token.Pos
 ```
 
 ### type [CallExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=375) 
 
-``` go linenums="1"
+``` go 
 type CallExpr struct {
 	Fun      Expr      // function expression
 	Lparen   token.Pos // position of "("
@@ -377,19 +377,19 @@ A CallExpr node represents an expression followed by an argument list.
 
 #### (*CallExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=531) 
 
-``` go linenums="1"
+``` go 
 func (x *CallExpr) End() token.Pos
 ```
 
 #### (*CallExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=497) 
 
-``` go linenums="1"
+``` go 
 func (x *CallExpr) Pos() token.Pos
 ```
 
 ### type [CaseClause](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=705) 
 
-``` go linenums="1"
+``` go 
 type CaseClause struct {
 	Case  token.Pos // position of "case" or "default" keyword
 	List  []Expr    // list of expressions or types; nil means default case
@@ -402,25 +402,25 @@ A CaseClause represents a case of an expression or type switch statement.
 
 #### (*CaseClause) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=831) 
 
-``` go linenums="1"
+``` go 
 func (s *CaseClause) End() token.Pos
 ```
 
 #### (*CaseClause) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=779) 
 
-``` go linenums="1"
+``` go 
 func (s *CaseClause) Pos() token.Pos
 ```
 
 ### type [ChanDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=420) 
 
-``` go linenums="1"
+``` go 
 type ChanDir int
 ```
 
 The direction of a channel type is indicated by a bit mask including one or both of the following constants.
 
-``` go linenums="1"
+``` go 
 const (
 	SEND ChanDir = 1 << iota
 	RECV
@@ -429,7 +429,7 @@ const (
 
 ### type [ChanType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=470) 
 
-``` go linenums="1"
+``` go 
 type ChanType struct {
 	Begin token.Pos // position of "chan" keyword or "<-" (whichever comes first)
 	Arrow token.Pos // position of "<-" (token.NoPos if there is no "<-")
@@ -442,19 +442,19 @@ A ChanType node represents a channel type.
 
 #### (*ChanType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=546) 
 
-``` go linenums="1"
+``` go 
 func (x *ChanType) End() token.Pos
 ```
 
 #### (*ChanType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=512) 
 
-``` go linenums="1"
+``` go 
 func (x *ChanType) Pos() token.Pos
 ```
 
 ### type [CommClause](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=729) 
 
-``` go linenums="1"
+``` go 
 type CommClause struct {
 	Case  token.Pos // position of "case" or "default" keyword
 	Comm  Stmt      // send or receive statement; nil means default case
@@ -467,19 +467,19 @@ A CommClause node represents a case of a select statement.
 
 #### (*CommClause) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=839) 
 
-``` go linenums="1"
+``` go 
 func (s *CommClause) End() token.Pos
 ```
 
 #### (*CommClause) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=782) 
 
-``` go linenums="1"
+``` go 
 func (s *CommClause) Pos() token.Pos
 ```
 
 ### type [Comment](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=64) 
 
-``` go linenums="1"
+``` go 
 type Comment struct {
 	Slash token.Pos // position of "/" starting the comment
 	Text  string    // comment text (excluding '\n' for //-style comments)
@@ -492,19 +492,19 @@ The Text field contains the comment text without carriage returns (\r) that may 
 
 #### (*Comment) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=70) 
 
-``` go linenums="1"
+``` go 
 func (c *Comment) End() token.Pos
 ```
 
 #### (*Comment) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=69) 
 
-``` go linenums="1"
+``` go 
 func (c *Comment) Pos() token.Pos
 ```
 
 ### type [CommentGroup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=74) 
 
-``` go linenums="1"
+``` go 
 type CommentGroup struct {
 	List []*Comment // len(List) > 0
 }
@@ -514,19 +514,19 @@ A CommentGroup represents a sequence of comments with no other tokens and no emp
 
 #### (*CommentGroup) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=79) 
 
-``` go linenums="1"
+``` go 
 func (g *CommentGroup) End() token.Pos
 ```
 
 #### (*CommentGroup) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func (g *CommentGroup) Pos() token.Pos
 ```
 
 #### (*CommentGroup) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func (g *CommentGroup) Text() string
 ```
 
@@ -534,19 +534,19 @@ Text returns the text of the comment. Comment markers (//, /*, and */), the firs
 
 ### type [CommentMap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=34)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type CommentMap map[Node][]*CommentGroup
 ```
 
 A CommentMap maps an AST node to a list of comment groups associated with it. See NewCommentMap for a description of the association.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewCommentMap](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=136)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func NewCommentMap(fset *token.FileSet, node Node, comments []*CommentGroup) CommentMap
 ```
 
@@ -562,7 +562,7 @@ NewCommentMap tries to associate a comment group to the "largest" node possible:
 
 #### (CommentMap) [Comments](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=262)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (cmap CommentMap) Comments() []*CommentGroup
 ```
 
@@ -570,7 +570,7 @@ Comments returns the list of comment groups in the comment map. The result is so
 
 #### (CommentMap) [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=249)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (cmap CommentMap) Filter(node Node) CommentMap
 ```
 
@@ -578,13 +578,13 @@ Filter returns a new comment map consisting of only those entries of cmap for wh
 
 #### (CommentMap) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=307)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (cmap CommentMap) String() string
 ```
 
 #### (CommentMap) [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/commentmap.go;l=238)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (cmap CommentMap) Update(old, new Node) Node
 ```
 
@@ -592,7 +592,7 @@ Update replaces an old node in the comment map with the new node and returns the
 
 ### type [CompositeLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=315) 
 
-``` go linenums="1"
+``` go 
 type CompositeLit struct {
 	Type       Expr      // literal type; or nil
 	Lbrace     token.Pos // position of "{"
@@ -606,19 +606,19 @@ A CompositeLit node represents a composite literal.
 
 #### (*CompositeLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=524) 
 
-``` go linenums="1"
+``` go 
 func (x *CompositeLit) End() token.Pos
 ```
 
 #### (*CompositeLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=485) 
 
-``` go linenums="1"
+``` go 
 func (x *CompositeLit) Pos() token.Pos
 ```
 
 ### type [Decl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=50) 
 
-``` go linenums="1"
+``` go 
 type Decl interface {
 	Node
 	// contains filtered or unexported methods
@@ -629,7 +629,7 @@ All declaration nodes implement the Decl interface.
 
 ### type [DeclStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=610) 
 
-``` go linenums="1"
+``` go 
 type DeclStmt struct {
 	Decl Decl // *GenDecl with CONST, TYPE, or VAR token
 }
@@ -639,19 +639,19 @@ A DeclStmt node represents a declaration in a statement list.
 
 #### (*DeclStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=788) 
 
-``` go linenums="1"
+``` go 
 func (s *DeclStmt) End() token.Pos
 ```
 
 #### (*DeclStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=766) 
 
-``` go linenums="1"
+``` go 
 func (s *DeclStmt) Pos() token.Pos
 ```
 
 ### type [DeferStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=668) 
 
-``` go linenums="1"
+``` go 
 type DeferStmt struct {
 	Defer token.Pos // position of "defer" keyword
 	Call  *CallExpr
@@ -662,19 +662,19 @@ A DeferStmt node represents a defer statement.
 
 #### (*DeferStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=803) 
 
-``` go linenums="1"
+``` go 
 func (s *DeferStmt) End() token.Pos
 ```
 
 #### (*DeferStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=774) 
 
-``` go linenums="1"
+``` go 
 func (s *DeferStmt) Pos() token.Pos
 ```
 
 ### type [Ellipsis](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=296) 
 
-``` go linenums="1"
+``` go 
 type Ellipsis struct {
 	Ellipsis token.Pos // position of "..."
 	Elt      Expr      // ellipsis element type (parameter lists only); or nil
@@ -685,19 +685,19 @@ An Ellipsis node stands for the "..." type in a parameter list or the "..." leng
 
 #### (*Ellipsis) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=516) 
 
-``` go linenums="1"
+``` go 
 func (x *Ellipsis) End() token.Pos
 ```
 
 #### (*Ellipsis) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=482) 
 
-``` go linenums="1"
+``` go 
 func (x *Ellipsis) Pos() token.Pos
 ```
 
 ### type [EmptyStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=618) 
 
-``` go linenums="1"
+``` go 
 type EmptyStmt struct {
 	Semicolon token.Pos // position of following ";"
 	Implicit  bool      // if set, ";" was omitted in the source
@@ -708,19 +708,19 @@ An EmptyStmt node represents an empty statement. The "position" of the empty sta
 
 #### (*EmptyStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=789) 
 
-``` go linenums="1"
+``` go 
 func (s *EmptyStmt) End() token.Pos
 ```
 
 #### (*EmptyStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=767) 
 
-``` go linenums="1"
+``` go 
 func (s *EmptyStmt) Pos() token.Pos
 ```
 
 ### type [Expr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=38) 
 
-``` go linenums="1"
+``` go 
 type Expr interface {
 	Node
 	// contains filtered or unexported methods
@@ -731,7 +731,7 @@ All expression nodes implement the Expr interface.
 
 ### type [ExprStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=633) 
 
-``` go linenums="1"
+``` go 
 type ExprStmt struct {
 	X Expr // expression
 }
@@ -741,19 +741,19 @@ An ExprStmt node represents a (stand-alone) expression in a statement list.
 
 #### (*ExprStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=796) 
 
-``` go linenums="1"
+``` go 
 func (s *ExprStmt) End() token.Pos
 ```
 
 #### (*ExprStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=769) 
 
-``` go linenums="1"
+``` go 
 func (s *ExprStmt) Pos() token.Pos
 ```
 
 ### type [Field](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=197) 
 
-``` go linenums="1"
+``` go 
 type Field struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Names   []*Ident      // field/method/(type) parameter names; or nil
@@ -767,19 +767,19 @@ A Field represents a Field declaration list in a struct type, a method list in a
 
 #### (*Field) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=215) 
 
-``` go linenums="1"
+``` go 
 func (f *Field) End() token.Pos
 ```
 
 #### (*Field) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=205) 
 
-``` go linenums="1"
+``` go 
 func (f *Field) Pos() token.Pos
 ```
 
 ### type [FieldFilter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/print.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type FieldFilter func(name string, value reflect.Value) bool
 ```
 
@@ -787,7 +787,7 @@ A FieldFilter may be provided to Fprint to control the output.
 
 ### type [FieldList](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=230) 
 
-``` go linenums="1"
+``` go 
 type FieldList struct {
 	Opening token.Pos // position of opening parenthesis/brace/bracket, if any
 	List    []*Field  // field list; or nil
@@ -799,13 +799,13 @@ A FieldList represents a list of Fields, enclosed by parentheses, curly braces, 
 
 #### (*FieldList) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=248) 
 
-``` go linenums="1"
+``` go 
 func (f *FieldList) End() token.Pos
 ```
 
 #### (*FieldList) [NumFields](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=261) 
 
-``` go linenums="1"
+``` go 
 func (f *FieldList) NumFields() int
 ```
 
@@ -813,13 +813,13 @@ NumFields returns the number of parameters or struct fields represented by a Fie
 
 #### (*FieldList) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=236) 
 
-``` go linenums="1"
+``` go 
 func (f *FieldList) Pos() token.Pos
 ```
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1038) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Package token.Pos     // position of "package" keyword
@@ -844,7 +844,7 @@ Whether and how a comment is associated with a node depends on the interpretatio
 
 #### func [MergePackageFiles](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=335) 
 
-``` go linenums="1"
+``` go 
 func MergePackageFiles(pkg *Package, mode MergeMode) *File
 ```
 
@@ -852,7 +852,7 @@ MergePackageFiles creates a file AST by merging the ASTs of the files belonging 
 
 #### (*File) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1057) 
 
-``` go linenums="1"
+``` go 
 func (f *File) End() token.Pos
 ```
 
@@ -860,7 +860,7 @@ End returns the end of the last declaration in the file. (Use FileEnd for the en
 
 #### (*File) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1053) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Pos() token.Pos
 ```
 
@@ -868,13 +868,13 @@ Pos returns the position of the package declaration. (Use FileStart for the star
 
 ### type [Filter](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type Filter func(string) bool
 ```
 
 ### type [ForStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=743) 
 
-``` go linenums="1"
+``` go 
 type ForStmt struct {
 	For  token.Pos // position of "for" keyword
 	Init Stmt      // initialization statement; or nil
@@ -888,19 +888,19 @@ A ForStmt represents a for statement.
 
 #### (*ForStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=846) 
 
-``` go linenums="1"
+``` go 
 func (s *ForStmt) End() token.Pos
 ```
 
 #### (*ForStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=784) 
 
-``` go linenums="1"
+``` go 
 func (s *ForStmt) Pos() token.Pos
 ```
 
 ### type [FuncDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=982) 
 
-``` go linenums="1"
+``` go 
 type FuncDecl struct {
 	Doc  *CommentGroup // associated documentation; or nil
 	Recv *FieldList    // receiver (methods); or nil (functions)
@@ -914,19 +914,19 @@ A FuncDecl node represents a function declaration.
 
 #### (*FuncDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1004) 
 
-``` go linenums="1"
+``` go 
 func (d *FuncDecl) End() token.Pos
 ```
 
 #### (*FuncDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=995) 
 
-``` go linenums="1"
+``` go 
 func (d *FuncDecl) Pos() token.Pos
 ```
 
 ### type [FuncLit](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=309) 
 
-``` go linenums="1"
+``` go 
 type FuncLit struct {
 	Type *FuncType  // function type
 	Body *BlockStmt // function body
@@ -937,19 +937,19 @@ A FuncLit node represents a function literal.
 
 #### (*FuncLit) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=523) 
 
-``` go linenums="1"
+``` go 
 func (x *FuncLit) End() token.Pos
 ```
 
 #### (*FuncLit) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=484) 
 
-``` go linenums="1"
+``` go 
 func (x *FuncLit) Pos() token.Pos
 ```
 
 ### type [FuncType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=448) 
 
-``` go linenums="1"
+``` go 
 type FuncType struct {
 	Func       token.Pos  // position of "func" keyword (token.NoPos if there is no "func")
 	TypeParams *FieldList // type parameters; or nil
@@ -962,19 +962,19 @@ A FuncType node represents a function type.
 
 #### (*FuncType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=538) 
 
-``` go linenums="1"
+``` go 
 func (x *FuncType) End() token.Pos
 ```
 
 #### (*FuncType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=504) 
 
-``` go linenums="1"
+``` go 
 func (x *FuncType) Pos() token.Pos
 ```
 
 ### type [GenDecl](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=972) 
 
-``` go linenums="1"
+``` go 
 type GenDecl struct {
 	Doc    *CommentGroup // associated documentation; or nil
 	TokPos token.Pos     // position of Tok
@@ -998,19 +998,19 @@ token.VAR     *ValueSpec
 
 #### (*GenDecl) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=998) 
 
-``` go linenums="1"
+``` go 
 func (d *GenDecl) End() token.Pos
 ```
 
 #### (*GenDecl) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=994) 
 
-``` go linenums="1"
+``` go 
 func (d *GenDecl) Pos() token.Pos
 ```
 
 ### type [GoStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=662) 
 
-``` go linenums="1"
+``` go 
 type GoStmt struct {
 	Go   token.Pos // position of "go" keyword
 	Call *CallExpr
@@ -1021,19 +1021,19 @@ A GoStmt node represents a go statement.
 
 #### (*GoStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=802) 
 
-``` go linenums="1"
+``` go 
 func (s *GoStmt) End() token.Pos
 ```
 
 #### (*GoStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=773) 
 
-``` go linenums="1"
+``` go 
 func (s *GoStmt) Pos() token.Pos
 ```
 
 ### type [Ident](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=287) 
 
-``` go linenums="1"
+``` go 
 type Ident struct {
 	NamePos token.Pos // identifier position
 	Name    string    // identifier name
@@ -1045,7 +1045,7 @@ An Ident node represents an identifier.
 
 #### func [NewIdent](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=580) 
 
-``` go linenums="1"
+``` go 
 func NewIdent(name string) *Ident
 ```
 
@@ -1053,13 +1053,13 @@ NewIdent creates a new Ident without position. Useful for ASTs generated by code
 
 #### (*Ident) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=515) 
 
-``` go linenums="1"
+``` go 
 func (x *Ident) End() token.Pos
 ```
 
 #### (*Ident) [IsExported](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=586) 
 
-``` go linenums="1"
+``` go 
 func (id *Ident) IsExported() bool
 ```
 
@@ -1067,19 +1067,19 @@ IsExported reports whether id starts with an upper-case letter.
 
 #### (*Ident) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=481) 
 
-``` go linenums="1"
+``` go 
 func (x *Ident) Pos() token.Pos
 ```
 
 #### (*Ident) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=588) 
 
-``` go linenums="1"
+``` go 
 func (id *Ident) String() string
 ```
 
 ### type [IfStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=696) 
 
-``` go linenums="1"
+``` go 
 type IfStmt struct {
 	If   token.Pos // position of "if" keyword
 	Init Stmt      // initialization statement; or nil
@@ -1093,19 +1093,19 @@ An IfStmt node represents an if statement.
 
 #### (*IfStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=825) 
 
-``` go linenums="1"
+``` go 
 func (s *IfStmt) End() token.Pos
 ```
 
 #### (*IfStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=778) 
 
-``` go linenums="1"
+``` go 
 func (s *IfStmt) Pos() token.Pos
 ```
 
 ### type [ImportSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=886) 
 
-``` go linenums="1"
+``` go 
 type ImportSpec struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Name    *Ident        // local package name (including "."); or nil
@@ -1119,19 +1119,19 @@ An ImportSpec node represents a single package import.
 
 #### (*ImportSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=927) 
 
-``` go linenums="1"
+``` go 
 func (s *ImportSpec) End() token.Pos
 ```
 
 #### (*ImportSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=918) 
 
-``` go linenums="1"
+``` go 
 func (s *ImportSpec) Pos() token.Pos
 ```
 
 ### type [Importer](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/resolve.go;l=63) 
 
-``` go linenums="1"
+``` go 
 type Importer func(imports map[string]*Object, path string) (pkg *Object, err error)
 ```
 
@@ -1139,7 +1139,7 @@ An Importer resolves import paths to package Objects. The imports map records th
 
 ### type [IncDecStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=645) 
 
-``` go linenums="1"
+``` go 
 type IncDecStmt struct {
 	X      Expr
 	TokPos token.Pos   // position of Tok
@@ -1151,19 +1151,19 @@ An IncDecStmt node represents an increment or decrement statement.
 
 #### (*IncDecStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=798) 
 
-``` go linenums="1"
+``` go 
 func (s *IncDecStmt) End() token.Pos
 ```
 
 #### (*IncDecStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=771) 
 
-``` go linenums="1"
+``` go 
 func (s *IncDecStmt) Pos() token.Pos
 ```
 
 ### type [IndexExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=337) 
 
-``` go linenums="1"
+``` go 
 type IndexExpr struct {
 	X      Expr      // expression
 	Lbrack token.Pos // position of "["
@@ -1176,19 +1176,19 @@ An IndexExpr node represents an expression followed by an index.
 
 #### (*IndexExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=527) 
 
-``` go linenums="1"
+``` go 
 func (x *IndexExpr) End() token.Pos
 ```
 
 #### (*IndexExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=493) 
 
-``` go linenums="1"
+``` go 
 func (x *IndexExpr) Pos() token.Pos
 ```
 
 ### type [IndexListExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=346)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type IndexListExpr struct {
 	X       Expr      // expression
 	Lbrack  token.Pos // position of "["
@@ -1201,19 +1201,19 @@ An IndexListExpr node represents an expression followed by multiple indices.
 
 #### (*IndexListExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=528)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (x *IndexListExpr) End() token.Pos
 ```
 
 #### (*IndexListExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=494)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (x *IndexListExpr) Pos() token.Pos
 ```
 
 ### type [InterfaceType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=456) 
 
-``` go linenums="1"
+``` go 
 type InterfaceType struct {
 	Interface  token.Pos  // position of "interface" keyword
 	Methods    *FieldList // list of embedded interfaces, methods, or types
@@ -1225,19 +1225,19 @@ An InterfaceType node represents an interface type.
 
 #### (*InterfaceType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=544) 
 
-``` go linenums="1"
+``` go 
 func (x *InterfaceType) End() token.Pos
 ```
 
 #### (*InterfaceType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=510) 
 
-``` go linenums="1"
+``` go 
 func (x *InterfaceType) Pos() token.Pos
 ```
 
 ### type [KeyValueExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=411) 
 
-``` go linenums="1"
+``` go 
 type KeyValueExpr struct {
 	Key   Expr
 	Colon token.Pos // position of ":"
@@ -1249,19 +1249,19 @@ A KeyValueExpr node represents (key : value) pairs in composite literals.
 
 #### (*KeyValueExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=535) 
 
-``` go linenums="1"
+``` go 
 func (x *KeyValueExpr) End() token.Pos
 ```
 
 #### (*KeyValueExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=501) 
 
-``` go linenums="1"
+``` go 
 func (x *KeyValueExpr) Pos() token.Pos
 ```
 
 ### type [LabeledStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=624) 
 
-``` go linenums="1"
+``` go 
 type LabeledStmt struct {
 	Label *Ident
 	Colon token.Pos // position of ":"
@@ -1273,19 +1273,19 @@ A LabeledStmt node represents a labeled statement.
 
 #### (*LabeledStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=795) 
 
-``` go linenums="1"
+``` go 
 func (s *LabeledStmt) End() token.Pos
 ```
 
 #### (*LabeledStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=768) 
 
-``` go linenums="1"
+``` go 
 func (s *LabeledStmt) Pos() token.Pos
 ```
 
 ### type [MapType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=463) 
 
-``` go linenums="1"
+``` go 
 type MapType struct {
 	Map   token.Pos // position of "map" keyword
 	Key   Expr
@@ -1297,25 +1297,25 @@ A MapType node represents a map type.
 
 #### (*MapType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=545) 
 
-``` go linenums="1"
+``` go 
 func (x *MapType) End() token.Pos
 ```
 
 #### (*MapType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=511) 
 
-``` go linenums="1"
+``` go 
 func (x *MapType) Pos() token.Pos
 ```
 
 ### type [MergeMode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/filter.go;l=297) 
 
-``` go linenums="1"
+``` go 
 type MergeMode uint
 ```
 
 The MergeMode flags control the behavior of MergePackageFiles.
 
-``` go linenums="1"
+``` go 
 const (
 	// If set, duplicate function declarations are excluded.
 	FilterFuncDuplicates MergeMode = 1 << iota
@@ -1329,7 +1329,7 @@ const (
 
 ### type [Node](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type Node interface {
 	Pos() token.Pos // position of first character belonging to the node
 	End() token.Pos // position of first character immediately after the node
@@ -1340,13 +1340,13 @@ All node types implement the Node interface.
 
 ### type [ObjKind](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=133) 
 
-``` go linenums="1"
+``` go 
 type ObjKind int
 ```
 
 ObjKind describes what an object represents.
 
-``` go linenums="1"
+``` go 
 const (
 	Bad ObjKind = iota // for error handling
 	Pkg                // package
@@ -1362,13 +1362,13 @@ The list of possible Object kinds.
 
 #### (ObjKind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=156) 
 
-``` go linenums="1"
+``` go 
 func (kind ObjKind) String() string
 ```
 
 ### type [Object](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=72) 
 
-``` go linenums="1"
+``` go 
 type Object struct {
 	Kind ObjKind
 	Name string // declared name
@@ -1390,7 +1390,7 @@ Con     int               iota for the respective declaration
 
 #### func [NewObj](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func NewObj(kind ObjKind, name string) *Object
 ```
 
@@ -1398,7 +1398,7 @@ NewObj creates a new object of a given kind and name.
 
 #### (*Object) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=88) 
 
-``` go linenums="1"
+``` go 
 func (obj *Object) Pos() token.Pos
 ```
 
@@ -1406,7 +1406,7 @@ Pos computes the source position of the declaration of an object name. The resul
 
 ### type [Package](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1066) 
 
-``` go linenums="1"
+``` go 
 type Package struct {
 	Name    string             // package name
 	Scope   *Scope             // package scope across all files
@@ -1419,7 +1419,7 @@ A Package node represents a set of source files collectively building a Go packa
 
 #### func [NewPackage](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/resolve.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, universe *Scope) (*Package, error)
 ```
 
@@ -1427,19 +1427,19 @@ NewPackage creates a new Package node from a set of File nodes. It resolves unre
 
 #### (*Package) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1074) 
 
-``` go linenums="1"
+``` go 
 func (p *Package) End() token.Pos
 ```
 
 #### (*Package) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=1073) 
 
-``` go linenums="1"
+``` go 
 func (p *Package) Pos() token.Pos
 ```
 
 ### type [ParenExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=324) 
 
-``` go linenums="1"
+``` go 
 type ParenExpr struct {
 	Lparen token.Pos // position of "("
 	X      Expr      // parenthesized expression
@@ -1451,19 +1451,19 @@ A ParenExpr node represents a parenthesized expression.
 
 #### (*ParenExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=525) 
 
-``` go linenums="1"
+``` go 
 func (x *ParenExpr) End() token.Pos
 ```
 
 #### (*ParenExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=491) 
 
-``` go linenums="1"
+``` go 
 func (x *ParenExpr) Pos() token.Pos
 ```
 
 ### type [RangeStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=752) 
 
-``` go linenums="1"
+``` go 
 type RangeStmt struct {
 	For        token.Pos   // position of "for" keyword
 	Key, Value Expr        // Key, Value may be nil
@@ -1479,19 +1479,19 @@ A RangeStmt represents a for statement with a range clause.
 
 #### (*RangeStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=847) 
 
-``` go linenums="1"
+``` go 
 func (s *RangeStmt) End() token.Pos
 ```
 
 #### (*RangeStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=785) 
 
-``` go linenums="1"
+``` go 
 func (s *RangeStmt) Pos() token.Pos
 ```
 
 ### type [ReturnStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=674) 
 
-``` go linenums="1"
+``` go 
 type ReturnStmt struct {
 	Return  token.Pos // position of "return" keyword
 	Results []Expr    // result expressions; or nil
@@ -1502,19 +1502,19 @@ A ReturnStmt node represents a return statement.
 
 #### (*ReturnStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=804) 
 
-``` go linenums="1"
+``` go 
 func (s *ReturnStmt) End() token.Pos
 ```
 
 #### (*ReturnStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=775) 
 
-``` go linenums="1"
+``` go 
 func (s *ReturnStmt) Pos() token.Pos
 ```
 
 ### type [Scope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=18) 
 
-``` go linenums="1"
+``` go 
 type Scope struct {
 	Outer   *Scope
 	Objects map[string]*Object
@@ -1525,7 +1525,7 @@ A Scope maintains the set of named language entities declared in the scope and a
 
 #### func [NewScope](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func NewScope(outer *Scope) *Scope
 ```
 
@@ -1533,7 +1533,7 @@ NewScope creates a new scope nested in the outer scope.
 
 #### (*Scope) [Insert](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=40) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Insert(obj *Object) (alt *Object)
 ```
 
@@ -1541,7 +1541,7 @@ Insert attempts to insert a named object obj into the scope s. If the scope alre
 
 #### (*Scope) [Lookup](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=32) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) Lookup(name string) *Object
 ```
 
@@ -1549,7 +1549,7 @@ Lookup returns the object with the given name if it is found in scope s, otherwi
 
 #### (*Scope) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/scope.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func (s *Scope) String() string
 ```
 
@@ -1557,7 +1557,7 @@ Debugging support
 
 ### type [SelectStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=737) 
 
-``` go linenums="1"
+``` go 
 type SelectStmt struct {
 	Select token.Pos  // position of "select" keyword
 	Body   *BlockStmt // CommClauses only
@@ -1568,19 +1568,19 @@ A SelectStmt node represents a select statement.
 
 #### (*SelectStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=845) 
 
-``` go linenums="1"
+``` go 
 func (s *SelectStmt) End() token.Pos
 ```
 
 #### (*SelectStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=783) 
 
-``` go linenums="1"
+``` go 
 func (s *SelectStmt) Pos() token.Pos
 ```
 
 ### type [SelectorExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=331) 
 
-``` go linenums="1"
+``` go 
 type SelectorExpr struct {
 	X   Expr   // expression
 	Sel *Ident // field selector
@@ -1591,19 +1591,19 @@ A SelectorExpr node represents an expression followed by a selector.
 
 #### (*SelectorExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=526) 
 
-``` go linenums="1"
+``` go 
 func (x *SelectorExpr) End() token.Pos
 ```
 
 #### (*SelectorExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=492) 
 
-``` go linenums="1"
+``` go 
 func (x *SelectorExpr) Pos() token.Pos
 ```
 
 ### type [SendStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=638) 
 
-``` go linenums="1"
+``` go 
 type SendStmt struct {
 	Chan  Expr
 	Arrow token.Pos // position of "<-"
@@ -1615,19 +1615,19 @@ A SendStmt node represents a send statement.
 
 #### (*SendStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=797) 
 
-``` go linenums="1"
+``` go 
 func (s *SendStmt) End() token.Pos
 ```
 
 #### (*SendStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=770) 
 
-``` go linenums="1"
+``` go 
 func (s *SendStmt) Pos() token.Pos
 ```
 
 ### type [SliceExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=354) 
 
-``` go linenums="1"
+``` go 
 type SliceExpr struct {
 	X      Expr      // expression
 	Lbrack token.Pos // position of "["
@@ -1643,19 +1643,19 @@ A SliceExpr node represents an expression followed by slice indices.
 
 #### (*SliceExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=529) 
 
-``` go linenums="1"
+``` go 
 func (x *SliceExpr) End() token.Pos
 ```
 
 #### (*SliceExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=495) 
 
-``` go linenums="1"
+``` go 
 func (x *SliceExpr) Pos() token.Pos
 ```
 
 ### type [Spec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=880) 
 
-``` go linenums="1"
+``` go 
 type Spec interface {
 	Node
 	// contains filtered or unexported methods
@@ -1666,7 +1666,7 @@ The Spec type stands for any of *ImportSpec, *ValueSpec, and *TypeSpec.
 
 ### type [StarExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=386) 
 
-``` go linenums="1"
+``` go 
 type StarExpr struct {
 	Star token.Pos // position of "*"
 	X    Expr      // operand
@@ -1677,19 +1677,19 @@ A StarExpr node represents an expression of the form "*" Expression. Semanticall
 
 #### (*StarExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=532) 
 
-``` go linenums="1"
+``` go 
 func (x *StarExpr) End() token.Pos
 ```
 
 #### (*StarExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=498) 
 
-``` go linenums="1"
+``` go 
 func (x *StarExpr) Pos() token.Pos
 ```
 
 ### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type Stmt interface {
 	Node
 	// contains filtered or unexported methods
@@ -1700,7 +1700,7 @@ All statement nodes implement the Stmt interface.
 
 ### type [StructType](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=439) 
 
-``` go linenums="1"
+``` go 
 type StructType struct {
 	Struct     token.Pos  // position of "struct" keyword
 	Fields     *FieldList // list of field declarations
@@ -1712,19 +1712,19 @@ A StructType node represents a struct type.
 
 #### (*StructType) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=537) 
 
-``` go linenums="1"
+``` go 
 func (x *StructType) End() token.Pos
 ```
 
 #### (*StructType) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=503) 
 
-``` go linenums="1"
+``` go 
 func (x *StructType) Pos() token.Pos
 ```
 
 ### type [SwitchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=713) 
 
-``` go linenums="1"
+``` go 
 type SwitchStmt struct {
 	Switch token.Pos  // position of "switch" keyword
 	Init   Stmt       // initialization statement; or nil
@@ -1737,19 +1737,19 @@ A SwitchStmt node represents an expression switch statement.
 
 #### (*SwitchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=837) 
 
-``` go linenums="1"
+``` go 
 func (s *SwitchStmt) End() token.Pos
 ```
 
 #### (*SwitchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=780) 
 
-``` go linenums="1"
+``` go 
 func (s *SwitchStmt) Pos() token.Pos
 ```
 
 ### type [TypeAssertExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=367) 
 
-``` go linenums="1"
+``` go 
 type TypeAssertExpr struct {
 	X      Expr      // expression
 	Lparen token.Pos // position of "("
@@ -1762,19 +1762,19 @@ A TypeAssertExpr node represents an expression followed by a type assertion.
 
 #### (*TypeAssertExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=530) 
 
-``` go linenums="1"
+``` go 
 func (x *TypeAssertExpr) End() token.Pos
 ```
 
 #### (*TypeAssertExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=496) 
 
-``` go linenums="1"
+``` go 
 func (x *TypeAssertExpr) Pos() token.Pos
 ```
 
 ### type [TypeSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=906) 
 
-``` go linenums="1"
+``` go 
 type TypeSpec struct {
 	Doc        *CommentGroup // associated documentation; or nil
 	Name       *Ident        // type name
@@ -1789,19 +1789,19 @@ A TypeSpec node represents a type declaration (TypeSpec production).
 
 #### (*TypeSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=943) 
 
-``` go linenums="1"
+``` go 
 func (s *TypeSpec) End() token.Pos
 ```
 
 #### (*TypeSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=925) 
 
-``` go linenums="1"
+``` go 
 func (s *TypeSpec) Pos() token.Pos
 ```
 
 ### type [TypeSwitchStmt](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=721) 
 
-``` go linenums="1"
+``` go 
 type TypeSwitchStmt struct {
 	Switch token.Pos  // position of "switch" keyword
 	Init   Stmt       // initialization statement; or nil
@@ -1814,19 +1814,19 @@ A TypeSwitchStmt node represents a type switch statement.
 
 #### (*TypeSwitchStmt) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=838) 
 
-``` go linenums="1"
+``` go 
 func (s *TypeSwitchStmt) End() token.Pos
 ```
 
 #### (*TypeSwitchStmt) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=781) 
 
-``` go linenums="1"
+``` go 
 func (s *TypeSwitchStmt) Pos() token.Pos
 ```
 
 ### type [UnaryExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=394) 
 
-``` go linenums="1"
+``` go 
 type UnaryExpr struct {
 	OpPos token.Pos   // position of Op
 	Op    token.Token // operator
@@ -1838,19 +1838,19 @@ A UnaryExpr node represents a unary expression. Unary "*" expressions are repres
 
 #### (*UnaryExpr) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=533) 
 
-``` go linenums="1"
+``` go 
 func (x *UnaryExpr) End() token.Pos
 ```
 
 #### (*UnaryExpr) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=499) 
 
-``` go linenums="1"
+``` go 
 func (x *UnaryExpr) Pos() token.Pos
 ```
 
 ### type [ValueSpec](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=897) 
 
-``` go linenums="1"
+``` go 
 type ValueSpec struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Names   []*Ident      // value names (len(Names) > 0)
@@ -1864,19 +1864,19 @@ A ValueSpec node represents a constant or variable declaration (ConstSpec or Var
 
 #### (*ValueSpec) [End](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=934) 
 
-``` go linenums="1"
+``` go 
 func (s *ValueSpec) End() token.Pos
 ```
 
 #### (*ValueSpec) [Pos](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/ast.go;l=924) 
 
-``` go linenums="1"
+``` go 
 func (s *ValueSpec) Pos() token.Pos
 ```
 
 ### type [Visitor](https://cs.opensource.google/go/go/+/go1.20.1:src/go/ast/walk.go;l=12) 
 
-``` go linenums="1"
+``` go 
 type Visitor interface {
 	Visit(node Node) (w Visitor)
 }

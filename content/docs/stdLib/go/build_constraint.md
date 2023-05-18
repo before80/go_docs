@@ -30,7 +30,7 @@ This section is empty.
 
 #### func [IsGoBuild](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=161) 
 
-``` go linenums="1"
+``` go 
 func IsGoBuild(line string) bool
 ```
 
@@ -38,7 +38,7 @@ IsGoBuild reports whether the line of text is a "//go:build" constraint. It only
 
 #### func [IsPlusBuild](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=350) 
 
-``` go linenums="1"
+``` go 
 func IsPlusBuild(line string) bool
 ```
 
@@ -46,7 +46,7 @@ IsPlusBuild reports whether the line of text is a "// +build" constraint. It onl
 
 #### func [PlusBuildLines](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=451) 
 
-``` go linenums="1"
+``` go 
 func PlusBuildLines(x Expr) ([]string, error)
 ```
 
@@ -56,7 +56,7 @@ PlusBuildLines returns a sequence of "// +build" lines that evaluate to the buil
 
 ### type [AndExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=76) 
 
-``` go linenums="1"
+``` go 
 type AndExpr struct {
 	X, Y Expr
 }
@@ -66,19 +66,19 @@ An AndExpr represents the expression X && Y.
 
 #### (*AndExpr) [Eval](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func (x *AndExpr) Eval(ok func(tag string) bool) bool
 ```
 
 #### (*AndExpr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=89) 
 
-``` go linenums="1"
+``` go 
 func (x *AndExpr) String() string
 ```
 
 ### type [Expr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=21) 
 
-``` go linenums="1"
+``` go 
 type Expr interface {
 	// String returns the string form of the expression,
 	// using the boolean syntax used in //go:build lines.
@@ -96,7 +96,7 @@ An Expr is a build tag constraint expression. The underlying concrete type is *A
 
 #### func [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=149) 
 
-``` go linenums="1"
+``` go 
 func Parse(line string) (Expr, error)
 ```
 
@@ -104,7 +104,7 @@ Parse parses a single build constraint line of the form "//go:build ..." or "// 
 
 ### type [NotExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=54) 
 
-``` go linenums="1"
+``` go 
 type NotExpr struct {
 	X Expr
 }
@@ -114,19 +114,19 @@ A NotExpr represents the expression !X (the negation of X).
 
 #### (*NotExpr) [Eval](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=60) 
 
-``` go linenums="1"
+``` go 
 func (x *NotExpr) Eval(ok func(tag string) bool) bool
 ```
 
 #### (*NotExpr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func (x *NotExpr) String() string
 ```
 
 ### type [OrExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=106) 
 
-``` go linenums="1"
+``` go 
 type OrExpr struct {
 	X, Y Expr
 }
@@ -136,19 +136,19 @@ An OrExpr represents the expression X || Y.
 
 #### (*OrExpr) [Eval](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=112) 
 
-``` go linenums="1"
+``` go 
 func (x *OrExpr) Eval(ok func(tag string) bool) bool
 ```
 
 #### (*OrExpr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=119) 
 
-``` go linenums="1"
+``` go 
 func (x *OrExpr) String() string
 ```
 
 ### type [SyntaxError](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=136) 
 
-``` go linenums="1"
+``` go 
 type SyntaxError struct {
 	Offset int    // byte offset in input where error was detected
 	Err    string // description of error
@@ -159,13 +159,13 @@ A SyntaxError reports a syntax error in a parsed build expression.
 
 #### (*SyntaxError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func (e *SyntaxError) Error() string
 ```
 
 ### type [TagExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=37) 
 
-``` go linenums="1"
+``` go 
 type TagExpr struct {
 	Tag string // for example, "linux" or "cgo"
 }
@@ -175,12 +175,12 @@ A TagExpr is an Expr for the single tag Tag.
 
 #### (*TagExpr) [Eval](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func (x *TagExpr) Eval(ok func(tag string) bool) bool
 ```
 
 #### (*TagExpr) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/go/build/constraint/expr.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func (x *TagExpr) String() string
 ```

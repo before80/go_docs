@@ -51,7 +51,7 @@ cap(s)    [n]T, *[n]T      array length (== n)
 
 ​	如果`s`是一个字符串[常量](../Constants)，那么表达式`len(s)`就是常量。如果`s`的类型是一个数组或指向数组的指针，并且表达式`s`不包含[通道接收](../Expressions#receive-operator)或（非常量）[函数调用](../Expressions#calls)，那么表达式`len(s)`和`cap(s)`是常量；在这种情况下，`s`不被求值。否则，`len`和`cap`的调用不是常量，`s`被求值。
 
-```go linenums="1"
+```go 
 const (
 	c1 = imag(2i)                    // imag(2i) = 2.0 is a constant
 	c2 = len([10]float64{2})         // [10]float64{2} contains no function calls
@@ -66,13 +66,13 @@ var z complex128
 
 ​	内置函数`new`接收一个类型`T`，在运行时为该类型的[变量](../Variables)分配存储空间，并返回一个[指向](../Types#pointer-types)它的`*T`类型的值。该变量被初始化，如[初始值](../ProgramInitializationAndExecution#the-zero-value)一节中所述。
 
-```go linenums="1"
+```go 
 new(T)
 ```
 
 举例来说
 
-```go linenums="1"
+```go 
 type S struct { a int; b float64 }
 new(S)
 ```
@@ -98,7 +98,7 @@ make(T, n)       channel      buffered channel of type T, buffer size n
 
 ​	每个大小实参`n`和`m`必须是[整型](../Types#numeric-types)，或者是一个只包含整型的类型集，或者是一个无类型的[常量](../Constants)。一个常量大小参数必须是非负数，并且可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability)；如果它是一个无类型的常量，它被赋予`int`类型。如果`n`和`m`都被提供并且是常量，那么`n`必须**不大于**`m`。对于切片和通道，如果`n`在运行时是负数或者大于`m`，就会发生[运行时恐慌](../Run-timePanics)。
 
-```go linenums="1"
+```go 
 s := make([]int, 10, 100)       // slice with len(s) == 10, cap(s) == 100
 s := make([]int, 1e3)           // slice with len(s) == cap(s) == 1000
 s := make([]int, 1<<63)         // illegal: len(s) is not representable by a value of type int => 非法的: len(s) 不能被 int 类型的值表示
@@ -117,13 +117,13 @@ The [variadic](https://go.dev/ref/spec#Function_types) function `append` appends
 
 ​	[可变参数](../Types#function-types)函数`append`将**零个或多个值**`x`追加到一个切片`s`，并返回与`s`相同类型的结果切片。值`x`被传递给一个类型为`...E`的参数，各自的[参数传递规则](../Expressions#passing-arguments-to-parameters)适用。**作为一个特例**，如果`s`的[核心类型](../PropertiesOfTypesAndValues#core-types)是`[]byte`，`append`也接受第二个参数，其核心类型是[bytestring](../PropertiesOfTypesAndValues#core-types)，后面是`...` 。这种形式追加了字节切片或字符串的字节。
 
-```go linenums="1"
+```go 
 append(s S, x ...E) S  // core type of S is []E
 ```
 
 ​	如果`s`的容量不足以容纳额外的值，`append`会分配一个新的、足够大的底层数组，同时容纳现有的切片元素和额外的值。否则，`append`复用原来的底层数组。
 
-```go linenums="1"
+```go 
 s0 := []int{0, 0}
 s1 := append(s0, 2)                // append a single element     s1 == []int{0, 0, 2}
 s2 := append(s1, 3, 5, 7)          // append multiple elements    s2 == []int{0, 0, 2, 3, 5, 7}
@@ -139,14 +139,14 @@ b = append(b, "bar"...)            // append string contents      b == []byte{'b
 
 ​	函数`copy`将切片元素从源`src`复制到目标`dst`，`并返回复制的元素数量`。两个参数的核心类型必须是具有[一致的](../PropertiesOfTypesAndValues#type-identity)元素类型的切片。复制的元素数是`len(src)`和`len(dst)`中的最小值。**作为一种特殊情况**，如果目标的[核心类型](../PropertiesOfTypesAndValues#core-types)是`[]byte`，`copy`也接受一个核心类型为[bytestring](../PropertiesOfTypesAndValues#core-types)的源参数。这种形式将字节切片或字符串中的字节复制到字节切片中。
 
-```go linenums="1"
+```go 
 copy(dst, src []T) int
 copy(dst []byte, src string) int
 ```
 
 例子：
 
-```go linenums="1"
+```go 
 var a = [...]int{0, 1, 2, 3, 4, 5, 6, 7}
 var s = make([]int, 6)
 var b = make([]byte, 5)
@@ -159,7 +159,7 @@ n3 := copy(b, "Hello, World!")  // n3 == 5, b == []byte("Hello")
 
 ​	内置函数`delete`可以从[映射](../Types#map-types)`m`中删除`键值`为`k`的元素，值`k`必须可以[分配](../PropertiesOfTypesAndValues#assignability)给`m`的键类型。
 
-```go linenums="1"
+```go 
 delete(m, k)  // remove element m[k] from map m
 ```
 
@@ -171,7 +171,7 @@ delete(m, k)  // remove element m[k] from map m
 
 ​	有三个函数`组装`和`分解`复数。内置函数 `complex` 从浮点实部和虚部构造一个复数值，而 `real` 和 `imag` 则提取复数值的实部和虚部。
 
-```go linenums="1"
+```go 
 complex(realPart, imaginaryPart floatT) complexT
 real(complexT) floatT
 imag(complexT) floatT
@@ -185,7 +185,7 @@ imag(complexT) floatT
 
 ​	如果这些函数的操作数都是常量，返回值就是一个常量。
 
-```go linenums="1"
+```go 
 var a = complex(2, -2)             // complex128 <=仍有疑问？？怎么推导出来是 complex128 ？
 const b = complex(1.0, -1.4)       // untyped complex constant 1 - 1.4i
 x := float32(math.Cos(math.Pi/2))  // float32
@@ -206,14 +206,14 @@ Arguments of type parameter type are not permitted.
 
 ​	两个内置函数，`panic`和`recover`，协助报告和处理[运行时恐慌](../Run-timePanics)和程序定义的错误情况。
 
-```go linenums="1"
+```go 
 func panic(interface{})
 func recover() interface{}
 ```
 
 ​	在执行函数`F`时，对`panic`的显式调用或[运行时恐慌](../Run-timePanics)终止了`F`的执行，然后被`F`延迟的任何函数会照常执行。接下来，任何被`F`的调用者[延迟](../Statements#defer-statements)的函数都会被运行，以此类推，直到被执行中的goroutine中的顶级函数所延迟的任何函数。此时，程序被终止，错误情况被报告，包括`panic`的实参值。这个终止过程被称为`panicking`。
 
-```go linenums="1"
+```go 
 panic(42)
 panic("unreachable")
 panic(Error("cannot parse"))
@@ -229,7 +229,7 @@ panic(Error("cannot parse"))
 
 下面的例子中的`protect`函数调用了函数实参`g`，并保护调用者免受`g`引发的运行时恐慌。
 
-```go linenums="1"
+```go 
 func protect(g func()) {
 	defer func() {
 		log.Println("done")  // Println executes normally even if there is a panic

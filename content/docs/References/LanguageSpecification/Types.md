@@ -33,7 +33,7 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 ​	整数类型、浮点类型或复数类型分别表示整数、浮点或复数的值的集合。它们被统称为`数值类型`。预先声明的与体系结构无关的数值类型有：
 
-```go linenums="1"
+```go 
 uint8       the set of all unsigned  8-bit integers (0 to 255)
 uint16      the set of all unsigned 16-bit integers (0 to 65535)
 uint32      the set of all unsigned 32-bit integers (0 to 4294967295)
@@ -60,7 +60,7 @@ rune        alias for int32
 
 ​	还有一组预先声明的整数类型，它们具有特定于实现的大小：
 
-```go linenums="1"
+```go 
 uint     either 32 or 64 bits
 int      same size as uint
 uintptr  an unsigned integer large enough to store the uninterpreted bits of a pointer value
@@ -86,7 +86,7 @@ ElementType = Type .
 
 ​	长度是数组类型的一部分；它必须求值为一个非负[常数](../Constants)，该常数可由 int 类型的值[表示](../PropertiesOfTypesAndValues#representability)。数组`a`的长度可以用内置函数`len`发现。元素可以通过整数[索引](../Expressions#index-expressions)0到`len(a)-1`进行寻址。数组类型总是一维的，但是可以组成多维类型。
 
-```go linenums="1"
+```go 
 [32]byte
 [2*N] struct { x, y int32 }
 [1000]*float64
@@ -110,13 +110,13 @@ SliceType = "[" "]" ElementType .
 
 ​	可以使用内置函数`make`来创建一个给定元素类型`T`的新的、初始化的切片值，该函数接受一个切片类型和指定长度和可选容量的参数。用`make`创建的切片总是分配一个新的、隐藏的数组，返回的切片值指向该数组。也就是说，执行
 
-```go linenums="1"
+```go 
 make([]T, length, capacity)
 ```
 
 产生的切片与分配一个数组并对其进行[切片](../Expressions#slice-expressions)是一样的，所以这两个表达式是等同的：
 
-```go linenums="1"
+```go 
 make([]int, 50, 100)
 new([100]int)[0:50]
 ```
@@ -147,7 +147,7 @@ struct {
 
 ​	一个声明了类型但没有明确字段名的字段被称为`嵌入式字段`。嵌入字段必须被指定为一个类型名`T`或一个指向非接口类型名`*T`的指针，而且`T`本身不能是一个指针类型。未限定类型名作为字段名。
 
-```go linenums="1"
+```go 
 // A struct with four embedded fields of types T1, *T2, P.T3 and *P.T4
 struct {
 	T1        // field name is T1
@@ -160,7 +160,7 @@ struct {
 
 下面的声明是非法的，`因为字段名在一个结构体类型中必须是唯一的`。
 
-```go linenums="1"
+```go 
 struct {
 	T     // conflicts with embedded field *T and *P.T
 	*T    // conflicts with embedded field T and *P.T
@@ -179,7 +179,7 @@ struct {
 
 ​	一个字段声明后面可以有一个可选的`字符串字面量标签`，它成为相应字段声明中所有字段的属性。一个空的标签字符串等同于一个不存在标签。标签通过[反射接口](https://pkg.go.dev/reflect#StructTag)可见，并参与结构体的[类型标识](../PropertiesOfTypesAndValues#type-identity)，但在其他情况下被忽略。
 
-```go linenums="1"
+```go 
 struct {
 	x, y float64 ""  // an empty tag string is like an absent tag
 	name string  "any string is permitted as a tag"
@@ -202,7 +202,7 @@ struct {
 
 ​	指针类型表示指向给定类型（称为指针的基本类型）[变量](../Variables)的所有指针的集合。一个未初始化的指针的值是`nil`。
 
-```go linenums="1"
+```go 
 PointerType = "*" BaseType .
 BaseType    = Type .
 *Point
@@ -226,7 +226,7 @@ ParameterDecl  = [ IdentifierList ] [ "..." ] Type .
 
 ​	在函数签名中的最后一个传入参数可以有一个`类型前缀` `...`。有这样一个参数的函数被称为 variadic （`可变参数函数`），可以用零个或多个参数来调用该函数。
 
-```go linenums="1"
+```go 
 func()
 func(x int) int
 func(a, _ int, z float32) bool
@@ -257,7 +257,7 @@ UnderlyingType = "~" Type .
 
 ​	在其最基本的形式中，接口指定了一个（可能是空的）方法列表。由这样一个接口定义的类型集是实现所有这些方法的类型集，而相应的方法集则完全由这个接口指定的方法组成。那些类型集可以`完全由一个方法列表`来定义的接口被称为`基本接口`。
 
-```go linenums="1"
+```go 
 // A simple File interface.
 interface {
 	Read([]byte) (int, error)
@@ -268,7 +268,7 @@ interface {
 
 每个显式指定的方法的名称必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers)的，不能是[空白](../PropertiesOfTypesAndValues#blank-identity)。
 
-```go linenums="1"
+```go 
 interface {
 	String() string
 	String() string  // illegal: String not unique
@@ -278,7 +278,7 @@ interface {
 
 ​	多个类型可以实现一个（相同的）接口。例如，如果两个类型`S1`和`S2`的方法设置为
 
-```go linenums="1"
+```go 
 func (p T) Read(p []byte) (n int, err error)
 func (p T) Write(p []byte) (n int, err error)
 func (p T) Close() error
@@ -288,7 +288,7 @@ func (p T) Close() error
 
 ​	作为接口类型集成员的每个类型都实现了该接口。任何给定的类型都可以实现几个不同的接口。例如，所有类型都实现`空接口` （interface {}），它代表所有（非接口）类型的集合：
 
-```go linenums="1"
+```go 
 interface{}
 ```
 
@@ -296,7 +296,7 @@ interface{}
 
 ​	类似地，考虑这个接口规范，它出现在定义名为 `Locker` 的接口的类型声明中：
 
-```go linenums="1"
+```go 
 type Locker interface {
 	Lock()
 	Unlock()
@@ -305,7 +305,7 @@ type Locker interface {
 
 如果`S1`和`S2`也实现了
 
-```go linenums="1"
+```go 
 func (p T) Lock() { … }
 func (p T) Unlock() { … }
 ```
@@ -316,7 +316,7 @@ func (p T) Unlock() { … }
 
 ​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E`。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
 
-```go linenums="1"
+```go 
 type Reader interface {
 	Read(p []byte) (n int, err error)
 	Close() error
@@ -336,7 +336,7 @@ type ReadWriter interface {
 
 在嵌入接口时，具有[相同](../DeclarationsAndScope#uniqueness-of-identifiers)名称的方法必须具有[相同](../PropertiesOfTypesAndValues#type-identity)的签名。
 
-```go linenums="1"
+```go 
 type ReadCloser interface {
 	Reader   // includes methods of Reader in ReadCloser's method set
 	Close()  // illegal: signatures of Reader.Close and Close are different
@@ -358,7 +358,7 @@ type ReadCloser interface {
 
 通过构造，`一个接口的类型集永远不会包含一个接口类型`。
 
-```go linenums="1"
+```go 
 // An interface representing only the type int.
 // 仅表示 int 类型的接口
 interface {
@@ -388,7 +388,7 @@ interface {
 
 ​	在形式为`~T`的术语中，`T`的底层类型必须是它自己，而且`T`不能是一个接口。
 
-```go linenums="1"
+```go 
 type MyInt int
 
 interface {
@@ -400,7 +400,7 @@ interface {
 
 联合元素表示类型集的联合：
 
-```go linenums="1"
+```go 
 // The Float interface represents all floating-point types
 // (including any named types whose underlying types are
 // either float32 or float64).
@@ -412,7 +412,7 @@ type Float interface {
 
 ​	形式为`T`或`~T`的术语中的类型`T`不能是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，所有非接口术语的类型集必须是成对不相交的（类型集的成对交集必须为空）。给定一个类型参数P：
 
-```go linenums="1"
+```go 
 interface {
 	P                // illegal: P is a type parameter => 非法的: P 是一个类型参数
 	int | ~P         // illegal: P is a type parameter => 非法的: P 是一个类型参数
@@ -425,7 +425,7 @@ interface {
 
 ​	非[基本接口](#basic-interfaces)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，也不能作为其他非接口类型的组成部分。
 
-```go linenums="1"
+```go 
 var x Float                     // illegal: Float is not a basic interface => 非法: Float 不是一个基本接口
 
 var x interface{} = Float(nil)  // illegal => 非法
@@ -437,7 +437,7 @@ type Floatish struct {
 
 接口类型 `T` 不能嵌入任何递归地包含或嵌入 `T` 的类型元素。
 
-```go linenums="1"
+```go 
 // illegal: Bad cannot embed itself => 非法: Bad 不能嵌入自己
 type Bad interface {
 	Bad
@@ -477,7 +477,7 @@ KeyType     = Type .
 
 ​	[比较运算符](../Expressions#comparison-operators)`==`和`!=`必须为键类型的操作数完全定义；`因此键类型不能是函数、映射或切片`。如果键类型是接口类型，则必须为动态键值定义这些比较运算符；失败将导致[运行时恐慌（run-time panic）](../Run-timePanics)。
 
-```go linenums="1"
+```go 
 map[string]int
 map[*T]struct{ x, y float64 }
 map[string]interface{}
@@ -487,7 +487,7 @@ map[string]interface{}
 
 ​	使用内置函数 `make` 创建一个新的空 map 值，它使用 map 类型和一个可选的容量提示作为参数：
 
-```go linenums="1"
+```go 
 make(map[string]int)
 make(map[string]int, 100)
 ```
@@ -504,7 +504,7 @@ ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
 
 ​	可选的`<-`操作符指定了通道的方向：发送或接收。如果指定了方向，则该通道是定向的，否则是双向的。通过[赋值](../Statements#assignment-statements)或显式[转换](../Expressions#conversions)，通道可以被限制为仅发送或仅接收。
 
-```go linenums="1"
+```go 
 chan T          // can be used to send and receive values of type T => 可用于发送或接收类型为 T 的值
 chan<- float64  // can only be used to send float64s => 仅用于发送 float64 类型
 <-chan int      // can only be used to receive ints => 仅用于接收 int 类型
@@ -512,7 +512,7 @@ chan<- float64  // can only be used to send float64s => 仅用于发送 float64 
 
 `<-` 操作符尽可能与最左边的 `chan` 相关联：
 
-```go linenums="1"
+```go 
 chan<- chan int    // same as chan<- (chan int) => 与 chan<- (chan int) 相同
 chan<- <-chan int  // same as chan<- (<-chan int) =>与 chan<- (<-chan int) 相同
 <-chan <-chan int  // same as <-chan (<-chan int) => 与 <-chan (<-chan int) 相同
@@ -521,7 +521,7 @@ chan (<-chan int)
 
 ​	可以使用内置函数 `make` 创建一个新的、初始化的 channel 值，它以channel 类型和可选的容量作为参数：
 
-```go linenums="1"
+```go 
 make(chan int, 100)
 ```
 

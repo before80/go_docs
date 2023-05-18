@@ -25,7 +25,7 @@ draft = false
 
 ​	下面的超时例子中的代码派生了一个Context，并将其传递给`sql.DB` [QueryContext](https://pkg.go.dev/database/sql#DB.QueryContext)方法。
 
-```go linenums="1"
+```go 
 func QueryWithTimeout(ctx context.Context) {
     // Create a Context with a timeout.
     queryCtx, cancel := context.WithTimeout(ctx, 5*time.Second)

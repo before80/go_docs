@@ -19,7 +19,7 @@ Package crc64 implements the 64-bit cyclic redundancy check, or CRC-64, checksum
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=20)
 
-``` go linenums="1"
+``` go 
 const (
 	// The ISO polynomial, defined in ISO 3309 and used in HDLC.
 	ISO = 0xD800000000000000
@@ -33,7 +33,7 @@ Predefined polynomials.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=17)
 
-``` go linenums="1"
+``` go 
 const Size = 8
 ```
 
@@ -47,7 +47,7 @@ This section is empty.
 
 #### func [Checksum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=214) 
 
-``` go linenums="1"
+``` go 
 func Checksum(data []byte, tab *Table) uint64
 ```
 
@@ -55,7 +55,7 @@ Checksum returns the CRC-64 checksum of data using the polynomial represented by
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=100) 
 
-``` go linenums="1"
+``` go 
 func New(tab *Table) hash.Hash64
 ```
 
@@ -63,7 +63,7 @@ New creates a new hash.Hash64 computing the CRC-64 checksum using the polynomial
 
 #### func [Update](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=196) 
 
-``` go linenums="1"
+``` go 
 func Update(crc uint64, tab *Table, p []byte) uint64
 ```
 
@@ -73,7 +73,7 @@ Update returns the result of adding the bytes in p to the crc.
 
 ### type [Table](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Table [256]uint64
 ```
 
@@ -81,7 +81,7 @@ Table is a 256-word table representing the polynomial for efficient processing.
 
 #### func [MakeTable](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/crc64/crc64.go;l=48) 
 
-``` go linenums="1"
+``` go 
 func MakeTable(poly uint64) *Table
 ```
 

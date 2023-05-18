@@ -34,7 +34,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=57)
 
-``` go linenums="1"
+``` go 
 var ErrLength = errors.New("encoding/hex: odd length hex string")
 ```
 
@@ -46,7 +46,7 @@ ErrLength报告使用Decode或DecodeString解码一个奇长的输入的尝试�
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=77) 
 
-``` go linenums="1"
+``` go 
 func Decode(dst, src []byte) (int, error)
 ```
 
@@ -59,12 +59,12 @@ Decode expects that src contains only hexadecimal characters and that src has ev
 解码期望src只包含十六进制的字符，并且src的长度是偶数。如果输入是畸形的，Decode会返回错误发生前的解码字节数。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [DecodeString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func DecodeString(s string) ([]byte, error)
 ```
 
@@ -77,12 +77,12 @@ DecodeString expects that src contains only hexadecimal characters and that src 
 DecodeString期望src只包含十六进制的字符，并且src具有偶数长度。如果输入是畸形的，DecodeString将返回错误之前的解码字节。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [DecodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=68) 
 
-``` go linenums="1"
+``` go 
 func DecodedLen(x int) int
 ```
 
@@ -92,7 +92,7 @@ DecodedLen返回x个源字节的解码长度。具体来说，它返回x/2。
 
 #### func [Dump](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func Dump(data []byte) string
 ```
 
@@ -101,12 +101,12 @@ Dump returns a string that contains a hex dump of the given data. The format of 
 Dump返回一个包含给定数据的十六进制转储的字符串。十六进制转储的格式与命令行中`hexdump -C`的输出相匹配。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Dumper](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=224) 
 
-``` go linenums="1"
+``` go 
 func Dumper(w io.Writer) io.WriteCloser
 ```
 
@@ -115,12 +115,12 @@ Dumper returns a WriteCloser that writes a hex dump of all written data to w. Th
 Dumper返回一个WriteCloser，将所有写入的数据的十六进制转储到w。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func Encode(dst, src []byte) int
 ```
 
@@ -129,12 +129,12 @@ Encode encodes src into EncodedLen(len(src)) bytes of dst. As a convenience, it 
 Encode将src编码为dst的EncodedLen(len(src))字节。为了方便起见，它返回写入dst的字节数，但这个值总是EncodedLen(len(src))。Encode实现了十六进制的编码。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [EncodeToString](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=106) 
 
-``` go linenums="1"
+``` go 
 func EncodeToString(src []byte) string
 ```
 
@@ -143,12 +143,12 @@ EncodeToString returns the hexadecimal encoding of src.
 EncodeToString返回src的十六进制编码。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [EncodedLen](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=38) 
 
-``` go linenums="1"
+``` go 
 func EncodedLen(n int) int
 ```
 
@@ -158,7 +158,7 @@ EncodedLen返回n个源字节的编码的长度。具体来说，它返回n * 2�
 
 #### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=184)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func NewDecoder(r io.Reader) io.Reader
 ```
 
@@ -168,7 +168,7 @@ NewDecoder返回一个io.Reader，对r中的十六进制字符进行解码。New
 
 #### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=155)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func NewEncoder(w io.Writer) io.Writer
 ```
 
@@ -180,7 +180,7 @@ NewEncoder返回一个io.Writer，将小写的十六进制字符写入w中。
 
 ### type [InvalidByteError](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=60) 
 
-``` go linenums="1"
+``` go 
 type InvalidByteError byte
 ```
 
@@ -190,6 +190,6 @@ InvalidByteError值描述由十六进制字符串中的无效字节导致的错�
 
 #### (InvalidByteError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/hex/hex.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func (e InvalidByteError) Error() string
 ```

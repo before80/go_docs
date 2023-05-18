@@ -63,7 +63,7 @@ x	extract files from the archive
 
 === "doc.go"
 
-    ``` go linenums="1"
+    ``` go 
     // Copyright 2014 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.
@@ -110,8 +110,8 @@ x	extract files from the archive
 
 === "pack.go"
 
-~~~go linenums="1"
-```go linenums="1"
+~~~go 
+```go 
 // Copyright 2014 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -459,7 +459,7 @@ func isGoCompilerObjFile(a *archive.Archive) bool {
 
 === "pack_test.go"
 
-    ```go linenums="1"
+    ```go 
     // Copyright 2014 The Go Authors. All rights reserved.
     // Use of this source code is governed by a BSD-style
     // license that can be found in the LICENSE file.

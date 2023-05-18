@@ -16,7 +16,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=17)
 
-``` go linenums="1"
+``` go 
 const (
 	true  = 0 == 0 // 无类型布尔值。
 	false = 0 != 0 // 无类型布尔值。
@@ -27,7 +27,7 @@ true 和 false 是两个无类型布尔值。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=107)
 
-``` go linenums="1"
+``` go 
 const iota = 0 // // 无类型整数。
 ```
 
@@ -37,7 +37,7 @@ const iota = 0 // // 无类型整数。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=111)
 
-``` go linenums="1"
+``` go 
 var nil Type // Type 必须是指针、通道、函数、接口、映射或切片类型。
 ```
 
@@ -47,26 +47,26 @@ var nil Type // Type 必须是指针、通道、函数、接口、映射或切�
 
 #### func [append](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func append(slice []Type, elems ...Type) []Type
 ```
 
 ​	append 内置函数将元素追加到切片的末尾。如果切片具有足够的容量，则目标切片就会被扩展以容纳新元素。如果没有足够的容量，将会分配一个新的底层数组。append 返回更新后的切片。因此，有必要将 append 的结果存储在变量中，通常是保存切片本身的变量：
 
-```go linenums="1"
+```go 
 slice = append(slice, elem1, elem2)
 slice = append(slice, anotherSlice...)
 ```
 
 ​	`作为特殊情况，可以将字符串附加到字节切片`，如下所示：
 
-```go linenums="1"
+```go 
 slice = append([]byte("hello "), "world"...)
 ```
 
 #### func [cap](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=187) 
 
-``` go linenums="1"
+``` go 
 func cap(v Type) int
 ```
 
@@ -83,13 +83,13 @@ Channel: 通道缓冲区的容量，以元素为单位；如果 v 为 nil，则 
 
 #### func [close](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=240) 
 
-``` go linenums="1"
+``` go 
 func close(c chan<- Type)
 ```
 
 ​	close 内置函数关闭一个通道，该通道必须是双向的或只能发送。它只应该由发送者执行，而不是接收者，并且在最后一个发送的值被接收后，会导致通道关闭。从关闭的信道 c 接收到最后一个值后，任何从 c 接收操作都将成功而不会被阻塞，返回信道元素的零值。如下形式：
 
-```go linenums="1"
+```go 
 x, ok := <-c
 ```
 
@@ -97,7 +97,7 @@ will also set ok to false for a closed and empty channel.
 
 #### func [complex](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=219) 
 
-``` go linenums="1"
+``` go 
 func complex(r, i FloatType) ComplexType
 ```
 
@@ -105,7 +105,7 @@ func complex(r, i FloatType) ComplexType
 
 #### func [copy](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=154) 
 
-``` go linenums="1"
+``` go 
 func copy(dst, src []Type) int
 ```
 
@@ -113,7 +113,7 @@ func copy(dst, src []Type) int
 
 #### func [delete](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=159) 
 
-``` go linenums="1"
+``` go 
 func delete(m map[Type]Type1, key Type)
 ```
 
@@ -121,7 +121,7 @@ func delete(m map[Type]Type1, key Type)
 
 #### func [imag](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func imag(c ComplexType) FloatType
 ```
 
@@ -129,7 +129,7 @@ func imag(c ComplexType) FloatType
 
 #### func [len](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=173) 
 
-``` go linenums="1"
+``` go 
 func len(v Type) int
 ```
 
@@ -147,7 +147,7 @@ Channel: 通道缓冲区中排队的元素数(未读)；如果 v 为 nil，则 l
 
 #### func [make](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=207) 
 
-``` go linenums="1"
+``` go 
 func make(t Type, size ...IntegerType) Type
 ```
 
@@ -165,7 +165,7 @@ Channel: 初始化通道的缓冲区以具有指定的缓冲区容量。如果si
 
 #### func [new](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=212) 
 
-``` go linenums="1"
+``` go 
 func new(Type) *Type
 ```
 
@@ -173,7 +173,7 @@ func new(Type) *Type
 
 #### func [panic](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=252) 
 
-``` go linenums="1"
+``` go 
 func panic(v any)
 ```
 
@@ -181,7 +181,7 @@ func panic(v any)
 
 #### func [print](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=269)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func print(args ...Type)
 ```
 
@@ -189,7 +189,7 @@ func print(args ...Type)
 
 #### func [println](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=276)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func println(args ...Type)
 ```
 
@@ -197,7 +197,7 @@ func println(args ...Type)
 
 #### func [real](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=223) 
 
-``` go linenums="1"
+``` go 
 func real(c ComplexType) FloatType
 ```
 
@@ -205,13 +205,13 @@ func real(c ComplexType) FloatType
 
 #### func [recover](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=263) 
 
-``` go linenums="1"
+``` go 
 func recover() any
 ```
 
 ​	recover内置函数允许程序管理发生panic的goroutine的行为。`在延迟函数内部`执行调用recover，(但不包括由其调用的任何函数)会通过恢复正常执行并检索传递给panic调用的错误值来停止panic序列。`如果在延迟函数之外`调用recover，则不会停止panic序列。在这种情况下，或者当goroutine没有发生panic或者传递给panic的参数为nil时，recover返回nil。因此，recover的返回值报告goroutine是否发生panic。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -249,7 +249,7 @@ Output:
 
 ### type [ComplexType](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=133) 
 
-``` go linenums="1"
+``` go 
 type ComplexType complex64
 ```
 
@@ -257,7 +257,7 @@ type ComplexType complex64
 
 ### type [FloatType](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=129) 
 
-``` go linenums="1"
+``` go 
 type FloatType float32
 ```
 
@@ -265,7 +265,7 @@ type FloatType float32
 
 ### type [IntegerType](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=125) 
 
-``` go linenums="1"
+``` go 
 type IntegerType int
 ```
 
@@ -273,7 +273,7 @@ type IntegerType int
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=116) 
 
-``` go linenums="1"
+``` go 
 type Type int
 ```
 
@@ -281,7 +281,7 @@ type Type int
 
 ### type [Type1](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=121) 
 
-``` go linenums="1"
+``` go 
 type Type1 int
 ```
 
@@ -289,7 +289,7 @@ type Type1 int
 
 ### type [any](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=95)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type any = interface{}
 ```
 
@@ -297,7 +297,7 @@ type any = interface{}
 
 ### type [bool](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=14) 
 
-``` go linenums="1"
+``` go 
 type bool bool
 ```
 
@@ -305,7 +305,7 @@ type bool bool
 
 ### type [byte](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=88) 
 
-``` go linenums="1"
+``` go 
 type byte = uint8
 ```
 
@@ -313,7 +313,7 @@ type byte = uint8
 
 ### type [comparable](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=102)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type comparable interface{ comparable }
 ```
 
@@ -321,7 +321,7 @@ type comparable interface{ comparable }
 
 ### type [complex128](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=66) 
 
-``` go linenums="1"
+``` go 
 type complex128 complex128
 ```
 
@@ -329,7 +329,7 @@ type complex128 complex128
 
 ### type [complex64](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=62) 
 
-``` go linenums="1"
+``` go 
 type complex64 complex64
 ```
 
@@ -337,7 +337,7 @@ type complex64 complex64
 
 ### type [error](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=280) 
 
-``` go linenums="1"
+``` go 
 type error interface {
 	Error() string
 }
@@ -347,7 +347,7 @@ type error interface {
 
 ### type [float32](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=55) 
 
-``` go linenums="1"
+``` go 
 type float32 float32
 ```
 
@@ -355,7 +355,7 @@ type float32 float32
 
 ### type [float64](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=58) 
 
-``` go linenums="1"
+``` go 
 type float64 float64
 ```
 
@@ -363,7 +363,7 @@ type float64 float64
 
 ### type [int](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=75) 
 
-``` go linenums="1"
+``` go 
 type int int
 ```
 
@@ -371,7 +371,7 @@ type int int
 
 ### type [int16](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=44) 
 
-``` go linenums="1"
+``` go 
 type int16 int16
 ```
 
@@ -379,7 +379,7 @@ type int16 int16
 
 ### type [int32](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=48) 
 
-``` go linenums="1"
+``` go 
 type int32 int32
 ```
 
@@ -387,7 +387,7 @@ type int32 int32
 
 ### type [int64](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=52) 
 
-``` go linenums="1"
+``` go 
 type int64 int64
 ```
 
@@ -395,7 +395,7 @@ type int64 int64
 
 ### type [int8](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=40) 
 
-``` go linenums="1"
+``` go 
 type int8 int8
 ```
 
@@ -403,7 +403,7 @@ type int8 int8
 
 ### type [rune](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=92) 
 
-``` go linenums="1"
+``` go 
 type rune = int32
 ```
 
@@ -411,7 +411,7 @@ type rune = int32
 
 ### type [string](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=71) 
 
-``` go linenums="1"
+``` go 
 type string string
 ```
 
@@ -419,7 +419,7 @@ type string string
 
 ### type [uint](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=79) 
 
-``` go linenums="1"
+``` go 
 type uint uint
 ```
 
@@ -427,7 +427,7 @@ type uint uint
 
 ### type [uint16](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type uint16 uint16
 ```
 
@@ -435,7 +435,7 @@ type uint16 uint16
 
 ### type [uint32](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type uint32 uint32
 ```
 
@@ -443,7 +443,7 @@ type uint32 uint32
 
 ### type [uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=36) 
 
-``` go linenums="1"
+``` go 
 type uint64 uint64
 ```
 
@@ -451,7 +451,7 @@ type uint64 uint64
 
 ### type [uint8](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type uint8 uint8
 ```
 
@@ -459,7 +459,7 @@ type uint8 uint8
 
 ### type [uintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/builtin/builtin.go;l=83) 
 
-``` go linenums="1"
+``` go 
 type uintptr uintptr
 ```
 

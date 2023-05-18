@@ -86,7 +86,7 @@ A boolean is encoded within an unsigned integer: 0 for false, 1 for true.
 
 A signed integer, i, is encoded within an unsigned integer, u. Within u, bits 1 upward contain the value; bit 0 says whether they should be complemented upon receipt. The encode algorithm looks like this:
 
-``` go linenums="1"
+``` go 
 var u uint
 if i < 0 {
 	u = (^uint(i) << 1) | 1 // complement i, bit 0 is 1
@@ -118,7 +118,7 @@ The representation of types is described below. When a type is defined on a give
 
 To define a type, the encoder chooses an unused, positive type id and sends the pair (-type id, encoded-type) where encoded-type is the gob encoding of a wireType description, constructed from these types:
 
-``` go linenums="1"
+``` go 
 type wireType struct {
 	ArrayT           *ArrayType
 	SliceT           *SliceType
@@ -203,15 +203,15 @@ See "Gobs of data" for a design discussion of the gob wire format: https://blog.
 This package is not designed to be hardened against adversarial inputs, and is outside the scope of https://go.dev/security/policy. In particular, the Decoder does only basic sanity checking on decoded input sizes, and its limits are not configurable. Care should be taken when decoding gob data from untrusted sources, which may consume significant resources.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -248,7 +248,7 @@ This section is empty.
 
 #### func [Register](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=836) 
 
-``` go linenums="1"
+``` go 
 func Register(value any)
 ```
 
@@ -256,7 +256,7 @@ Register records a type, identified by a value for that type, under its internal
 
 #### func [RegisterName](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=807) 
 
-``` go linenums="1"
+``` go 
 func RegisterName(name string, value any)
 ```
 
@@ -266,7 +266,7 @@ RegisterName is like Register but uses the provided name rather than the type's 
 
 ### type [CommonType](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=216) 
 
-``` go linenums="1"
+``` go 
 type CommonType struct {
 	Name string
 	Id   typeId
@@ -277,7 +277,7 @@ CommonType holds elements of all types. It is a historical artifact, kept for bi
 
 ### type [Decoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type Decoder struct {
 	// contains filtered or unexported fields
 }
@@ -289,7 +289,7 @@ The Decoder does only basic sanity checking on decoded input sizes, and its limi
 
 #### func [NewDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=43) 
 
-``` go linenums="1"
+``` go 
 func NewDecoder(r io.Reader) *Decoder
 ```
 
@@ -297,7 +297,7 @@ NewDecoder returns a new decoder that reads from the io.Reader. If r does not al
 
 #### (*Decoder) [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=193) 
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) Decode(e any) error
 ```
 
@@ -305,7 +305,7 @@ Decode reads the next value from the input stream and stores it in the data repr
 
 #### (*Decoder) [DecodeValue](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/decoder.go;l=213) 
 
-``` go linenums="1"
+``` go 
 func (dec *Decoder) DecodeValue(v reflect.Value) error
 ```
 
@@ -313,7 +313,7 @@ DecodeValue reads the next value from the input stream. If v is the zero reflect
 
 ### type [Encoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=17) 
 
-``` go linenums="1"
+``` go 
 type Encoder struct {
 	// contains filtered or unexported fields
 }
@@ -323,7 +323,7 @@ An Encoder manages the transmission of type and data information to the other si
 
 #### func [NewEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func NewEncoder(w io.Writer) *Encoder
 ```
 
@@ -331,7 +331,7 @@ NewEncoder returns a new encoder that will transmit on the io.Writer.
 
 #### (*Encoder) [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=175) 
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) Encode(e any) error
 ```
 
@@ -339,7 +339,7 @@ Encode transmits the data item represented by the empty interface value, guarant
 
 #### (*Encoder) [EncodeValue](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/encoder.go;l=218) 
 
-``` go linenums="1"
+``` go 
 func (enc *Encoder) EncodeValue(value reflect.Value) error
 ```
 
@@ -347,7 +347,7 @@ EncodeValue transmits the data item represented by the reflection value, guarant
 
 ### type [GobDecoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=793) 
 
-``` go linenums="1"
+``` go 
 type GobDecoder interface {
 	// GobDecode overwrites the receiver, which must be a pointer,
 	// with the value represented by the byte slice, which was written
@@ -360,7 +360,7 @@ GobDecoder is the interface describing data that provides its own routine for de
 
 ### type [GobEncoder](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/gob/type.go;l=784) 
 
-``` go linenums="1"
+``` go 
 type GobEncoder interface {
 	// GobEncode returns a byte slice representing the encoding of the
 	// receiver for transmission to a GobDecoder, usually of the same

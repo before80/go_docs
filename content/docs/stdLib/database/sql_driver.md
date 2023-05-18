@@ -33,7 +33,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=55)
 
-``` go linenums="1"
+``` go 
 var Bool boolType
 ```
 
@@ -48,7 +48,7 @@ var Bool boolType
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=208)
 
-``` go linenums="1"
+``` go 
 var DefaultParameterConverter defaultConverter
 ```
 
@@ -58,7 +58,7 @@ var DefaultParameterConverter defaultConverter
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=162)
 
-``` go linenums="1"
+``` go 
 var ErrBadConn = errors.New("driver: bad connection")
 ```
 
@@ -70,7 +70,7 @@ var ErrBadConn = errors.New("driver: bad connection")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=385)
 
-``` go linenums="1"
+``` go 
 var ErrRemoveArgument = errors.New("driver: remove argument from query")
 ```
 
@@ -78,7 +78,7 @@ var ErrRemoveArgument = errors.New("driver: remove argument from query")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=148)
 
-``` go linenums="1"
+``` go 
 var ErrSkip = errors.New("driver: skip fast-path; continue as if unimplemented")
 ```
 
@@ -86,7 +86,7 @@ var ErrSkip = errors.New("driver: skip fast-path; continue as if unimplemented")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=102)
 
-``` go linenums="1"
+``` go 
 var Int32 int32Type
 ```
 
@@ -94,7 +94,7 @@ var Int32 int32Type
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=540)
 
-``` go linenums="1"
+``` go 
 var ResultNoRows noRows
 ```
 
@@ -102,7 +102,7 @@ var ResultNoRows noRows
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=137)
 
-``` go linenums="1"
+``` go 
 var String stringType
 ```
 
@@ -112,7 +112,7 @@ var String stringType
 
 #### func [IsScanValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=191) 
 
-``` go linenums="1"
+``` go 
 func IsScanValue(v any) bool
 ```
 
@@ -120,7 +120,7 @@ func IsScanValue(v any) bool
 
 #### func [IsValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=176) 
 
-``` go linenums="1"
+``` go 
 func IsValue(v any) bool
 ```
 
@@ -130,7 +130,7 @@ func IsValue(v any) bool
 
 ### type [Conn](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=233) 
 
-``` go linenums="1"
+``` go 
 type Conn interface {
 	// Prepare 返回一个准备好的语句，与此连接绑定。
 	Prepare(query string) (Stmt, error)
@@ -156,7 +156,7 @@ type Conn interface {
 
 ### type [ConnBeginTx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=279)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type ConnBeginTx interface {
     // BeginTx 启动并返回一个新的事务。
     // 如果用户取消了上下文，sql包将在丢弃和关闭连接之前调用Tx.Rollback。
@@ -174,7 +174,7 @@ type ConnBeginTx interface {
 
 ### type [ConnPrepareContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=257)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type ConnPrepareContext interface {
     // PrepareContext 返回一个准备好的语句，与此连接绑定。
     // context 是用于准备语句的，它不能在语句本身中存储上下文。
@@ -186,7 +186,7 @@ type ConnPrepareContext interface {
 
 ### type [Connector](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=121)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type Connector interface {
     // Connect 返回到数据库的连接。
     // Connect 可以返回缓存的连接(先前关闭的连接)，但这样做是不必要的；
@@ -213,7 +213,7 @@ type Connector interface {
 
 ### type [Driver](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=84) 
 
-``` go linenums="1"
+``` go 
 type Driver interface {
     // Open 返回到数据库的新连接。
     // 名称是驱动程序特定格式的字符串。
@@ -232,7 +232,7 @@ type Driver interface {
 
 ### type [DriverContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=103)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type DriverContext interface {
 	// OpenConnector must parse the name in the same format that Driver.Open
 	// parses the name parameter.
@@ -245,7 +245,7 @@ type DriverContext interface {
 
 ### type [ExecerContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=198)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type ExecerContext interface {
 	ExecContext(ctx context.Context, query string, args []NamedValue) (Result, error)
 }
@@ -261,7 +261,7 @@ type ExecerContext interface {
 
 ### type [IsolationLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=268)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type IsolationLevel int
 ```
 
@@ -271,7 +271,7 @@ type IsolationLevel int
 
 ### type [NamedValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=64)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type NamedValue struct {
     // 如果 Name 不为空，应该用于参数标识符，而不是位置。
     //
@@ -290,7 +290,7 @@ type NamedValue struct {
 
 ### type [NamedValueChecker](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=402)  <- go1.9
 
-``` go linenums="1"
+``` go 
 type NamedValueChecker interface {
     // CheckNamedValue 在将参数传递给驱动程序之前调用，
     // 并在任何 ColumnConverter 的位置调用。
@@ -309,7 +309,7 @@ type NamedValueChecker interface {
 
 ### type [NotNull](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=164) 
 
-``` go linenums="1"
+``` go 
 type NotNull struct {
 	Converter ValueConverter
 }
@@ -319,13 +319,13 @@ type NotNull struct {
 
 #### (NotNull) [ConvertValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=168) 
 
-``` go linenums="1"
+``` go 
 func (n NotNull) ConvertValue(v any) (Value, error)
 ```
 
 ### type [Null](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=151) 
 
-``` go linenums="1"
+``` go 
 type Null struct {
 	Converter ValueConverter
 }
@@ -335,13 +335,13 @@ type Null struct {
 
 #### (Null) [ConvertValue](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=155) 
 
-``` go linenums="1"
+``` go 
 func (n Null) ConvertValue(v any) (Value, error)
 ```
 
 ### type [Pinger](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=171)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type Pinger interface {
 	Ping(ctx context.Context) error
 }
@@ -355,7 +355,7 @@ type Pinger interface {
 
 ### type [QueryerContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=225)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type QueryerContext interface {
 	QueryContext(ctx context.Context, query string, args []NamedValue) (Rows, error)
 }
@@ -371,7 +371,7 @@ type QueryerContext interface {
 
 ### type [Result](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=316) 
 
-``` go linenums="1"
+``` go 
 type Result interface {
 	// LastInsertId 返回数据库生成的自增 ID，
 	// 比如在插入一个带有主键的表时。
@@ -386,7 +386,7 @@ type Result interface {
 
 ### type [Rows](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=423) 
 
-``` go linenums="1"
+``` go 
 type Rows interface {
 	// Columns 返回列的名称。
     // 结果集中列的数量从切片的长度中推断出来。如果特定列的名称未知，则该项应返回空字符串。
@@ -410,7 +410,7 @@ type Rows interface {
 
 ### type [RowsAffected](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=525) 
 
-``` go linenums="1"
+``` go 
 type RowsAffected int64
 ```
 
@@ -418,19 +418,19 @@ type RowsAffected int64
 
 #### (RowsAffected) [LastInsertId](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=529) 
 
-``` go linenums="1"
+``` go 
 func (RowsAffected) LastInsertId() (int64, error)
 ```
 
 #### (RowsAffected) [RowsAffected](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=533) 
 
-``` go linenums="1"
+``` go 
 func (v RowsAffected) RowsAffected() (int64, error)
 ```
 
 ### type [RowsColumnTypeDatabaseTypeName](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=474)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsColumnTypeDatabaseTypeName interface {
 	Rows
 	ColumnTypeDatabaseTypeName(index int) string
@@ -441,7 +441,7 @@ type RowsColumnTypeDatabaseTypeName interface {
 
 ### type [RowsColumnTypeLength](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=491)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsColumnTypeLength interface {
 	Rows
 	ColumnTypeLength(index int) (length int64, ok bool)
@@ -461,7 +461,7 @@ bytea(30)     (30, true)
 
 ### type [RowsColumnTypeNullable](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=500)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsColumnTypeNullable interface {
 	Rows
 	ColumnTypeNullable(index int) (nullable, ok bool)
@@ -472,7 +472,7 @@ type RowsColumnTypeNullable interface {
 
 ### type [RowsColumnTypePrecisionScale](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=512)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsColumnTypePrecisionScale interface {
 	Rows
 	ColumnTypePrecisionScale(index int) (precision, scale int64, ok bool)
@@ -489,7 +489,7 @@ decimal           (math.MaxInt64, math.MaxInt64, true)
 
 ### type [RowsColumnTypeScanType](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=464)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsColumnTypeScanType interface {
 	Rows
 	ColumnTypeScanType(index int) reflect.Type
@@ -500,7 +500,7 @@ type RowsColumnTypeScanType interface {
 
 ### type [RowsNextResultSet](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=447)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type RowsNextResultSet interface {
 	Rows
 
@@ -520,7 +520,7 @@ type RowsNextResultSet interface {
 
 ### type [SessionResetter](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=297)  <- go1.10
 
-``` go linenums="1"
+``` go 
 type SessionResetter interface {
 	// ResetSession在连接之前执行查询时调用，
     // 如果连接之前已被使用。
@@ -533,7 +533,7 @@ type SessionResetter interface {
 
 ### type [Stmt](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=329) 
 
-``` go linenums="1"
+``` go 
 type Stmt interface {
 	// Close关闭预处理语句。
     //
@@ -570,7 +570,7 @@ type Stmt interface {
 
 ### type [StmtExecContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=364)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type StmtExecContext interface {
 	// ExecContext方法执行不返回行的查询，例如INSERT或UPDATE。
 	// ExecContext方法必须遵守上下文超时并在取消时返回。
@@ -582,7 +582,7 @@ type StmtExecContext interface {
 
 ### type [StmtQueryContext](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=373)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type StmtQueryContext interface {
 	// QueryContext方法执行可能返回行的查询，例如SELECT。
 	// QueryContext方法必须遵守上下文超时并在取消时返回。
@@ -594,7 +594,7 @@ type StmtQueryContext interface {
 
 ### type [Tx](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=518) 
 
-``` go linenums="1"
+``` go 
 type Tx interface {
 	Commit() error
 	Rollback() error
@@ -605,7 +605,7 @@ type Tx interface {
 
 ### type [TxOptions](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=273)  <- go1.8
 
-``` go linenums="1"
+``` go 
 type TxOptions struct {
 	Isolation IsolationLevel
 	ReadOnly  bool
@@ -618,7 +618,7 @@ type TxOptions struct {
 
 ### type [Validator](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=309)  <- go1.15
 
-``` go linenums="1"
+``` go 
 type Validator interface {
 	// IsValid方法在将连接放入连接池之前调用。
     // 如果返回false，则连接将被丢弃。
@@ -632,7 +632,7 @@ type Validator interface {
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=61) 
 
-``` go linenums="1"
+``` go 
 type Value any
 ```
 
@@ -651,7 +651,7 @@ time.Time
 
 ### type [ValueConverter](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=30) 
 
-``` go linenums="1"
+``` go 
 type ValueConverter interface {
 	// ConvertValue方法将一个值转换为driver.Value。
 	ConvertValue(v any) (Value, error)
@@ -668,7 +668,7 @@ ValueConverter接口是提供 ConvertValue 方法的接口。
 
 ### type [Valuer](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=39) 
 
-``` go linenums="1"
+``` go 
 type Valuer interface {
     // Value方法返回一个driver.Value。
     // Value方法不得panic。

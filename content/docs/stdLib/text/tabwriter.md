@@ -18,11 +18,11 @@ The package is using the Elastic Tabstops algorithm described at http://nickgrav
 The text/tabwriter package is frozen and is not accepting new features.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -37,7 +37,7 @@ The text/tabwriter package is frozen and is not accepting new features.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=169)
 
-``` go linenums="1"
+``` go 
 const (
 	// Ignore html tags and treat entities (starting with '&'
 	// and ending in ';') as single characters (width = 1).
@@ -69,7 +69,7 @@ Formatting can be controlled with these flags.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=426)
 
-``` go linenums="1"
+``` go 
 const Escape = '\xff'
 ```
 
@@ -89,7 +89,7 @@ This section is empty.
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=89) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -124,7 +124,7 @@ The Writer must buffer input internally, because proper spacing of one line may 
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=598) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
 ```
 
@@ -132,7 +132,7 @@ NewWriter allocates and initializes a new tabwriter.Writer. The parameters are t
 
 #### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=487) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Flush() error
 ```
 
@@ -140,7 +140,7 @@ Flush should be called after the last call to Write to ensure that any data buff
 
 #### (*Writer) [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=208) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Init(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
 ```
 
@@ -160,12 +160,12 @@ flags		formatting control
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/text/tabwriter/tabwriter.go;l=522) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Write(buf []byte) (n int, err error)
 ```
 

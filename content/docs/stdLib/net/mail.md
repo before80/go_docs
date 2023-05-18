@@ -36,7 +36,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=160)
 
-``` go linenums="1"
+``` go 
 var ErrHeaderNotPresent = errors.New("mail: header not in message")
 ```
 
@@ -44,7 +44,7 @@ var ErrHeaderNotPresent = errors.New("mail: header not in message")
 
 #### func [ParseDate](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=99)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func ParseDate(date string) (time.Time, error)
 ```
 
@@ -54,7 +54,7 @@ ParseDate parses an [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) date str
 
 ### type [Address](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=183) 
 
-``` go linenums="1"
+``` go 
 type Address struct {
 	Name    string // Proper name; may be empty.
 	Address string // user@domain
@@ -65,31 +65,31 @@ Address represents a single mail address. An address such as "Barry Gibbs <bg@ex
 
 #### func [ParseAddress](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=189)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ParseAddress(address string) (*Address, error)
 ```
 
 ParseAddress parses a single [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) address, e.g. "Barry Gibbs <bg@example.com>"
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [ParseAddressList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=194)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ParseAddressList(list string) ([]*Address, error)
 ```
 
 ParseAddressList parses the given string as a list of addresses.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Address) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=219) 
 
-``` go linenums="1"
+``` go 
 func (a *Address) String() string
 ```
 
@@ -97,7 +97,7 @@ String formats the address as a valid [RFC 5322](https://rfc-editor.org/rfc/rfc5
 
 ### type [AddressParser](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=199)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type AddressParser struct {
 	// WordDecoder optionally specifies a decoder for RFC 2047 encoded-words.
 	WordDecoder *mime.WordDecoder
@@ -108,7 +108,7 @@ An AddressParser is an [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) addre
 
 #### (*AddressParser) [Parse](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=206)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (p *AddressParser) Parse(address string) (*Address, error)
 ```
 
@@ -116,7 +116,7 @@ Parse parses a single [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) addres
 
 #### (*AddressParser) [ParseList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=212)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (p *AddressParser) ParseList(list string) ([]*Address, error)
 ```
 
@@ -124,7 +124,7 @@ ParseList parses the given string as a list of comma-separated addresses of the 
 
 ### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=148) 
 
-``` go linenums="1"
+``` go 
 type Header map[string][]string
 ```
 
@@ -132,7 +132,7 @@ A Header represents the key-value pairs in a mail message header.
 
 #### (Header) [AddressList](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=172) 
 
-``` go linenums="1"
+``` go 
 func (h Header) AddressList(key string) ([]*Address, error)
 ```
 
@@ -140,7 +140,7 @@ AddressList parses the named header field as a list of addresses.
 
 #### (Header) [Date](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=163) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Date() (time.Time, error)
 ```
 
@@ -148,7 +148,7 @@ Date parses the Date header field.
 
 #### (Header) [Get](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=156) 
 
-``` go linenums="1"
+``` go 
 func (h Header) Get(key string) string
 ```
 
@@ -156,7 +156,7 @@ Get gets the first value associated with the given key. It is case insensitive; 
 
 ### type [Message](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=45) 
 
-``` go linenums="1"
+``` go 
 type Message struct {
 	Header Header
 	Body   io.Reader
@@ -167,13 +167,13 @@ A Message represents a parsed mail message.
 
 #### func [ReadMessage](https://cs.opensource.google/go/go/+/go1.20.1:src/net/mail/message.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func ReadMessage(r io.Reader) (msg *Message, err error)
 ```
 
 ReadMessage reads a message from r. The headers are parsed, and the body of the message will be available for reading from msg.Body.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 

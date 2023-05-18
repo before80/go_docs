@@ -26,7 +26,7 @@ This section is empty.
 
 #### func [Alignof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=217) 
 
-``` go linenums="1"
+``` go 
 func Alignof(x ArbitraryType) uintptr
 ```
 
@@ -34,7 +34,7 @@ func Alignof(x ArbitraryType) uintptr
 
 #### func [Offsetof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=204) 
 
-``` go linenums="1"
+``` go 
 func Offsetof(x ArbitraryType) uintptr
 ```
 
@@ -42,7 +42,7 @@ func Offsetof(x ArbitraryType) uintptr
 
 #### func [Sizeof](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=196) 
 
-``` go linenums="1"
+``` go 
 func Sizeof(x ArbitraryType) uintptr
 ```
 
@@ -50,7 +50,7 @@ func Sizeof(x ArbitraryType) uintptr
 
 #### func [String](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=262)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func String(ptr *byte, len IntegerType) string
 ```
 
@@ -62,7 +62,7 @@ func String(ptr *byte, len IntegerType) string
 
 #### func [StringData](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=269)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func StringData(str string) *byte
 ```
 
@@ -79,7 +79,7 @@ Arbitrary `adj.任意的，随心所欲的；专横的，武断的`
 
 ### type [ArbitraryType](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type ArbitraryType int
 ```
 
@@ -87,7 +87,7 @@ type ArbitraryType int
 
 #### func [Slice](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=241)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
 ```
 
@@ -103,7 +103,7 @@ func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
 
 #### func [SliceData](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=249)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func SliceData(slice []ArbitraryType) *ArbitraryType
 ```
 
@@ -115,7 +115,7 @@ func SliceData(slice []ArbitraryType) *ArbitraryType
 
 ### type [IntegerType](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=19)  <- go1.17
 
-``` go linenums="1"
+``` go 
 type IntegerType int
 ```
 
@@ -123,7 +123,7 @@ type IntegerType int
 
 ### type [Pointer](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=184) 
 
-``` go linenums="1"
+``` go 
 type Pointer *ArbitraryType
 ```
 
@@ -146,7 +146,7 @@ type Pointer *ArbitraryType
 
 ​	假设 T2 不比 T1 大，并且两者具有相同的内存布局，此转换允许将一种类型的数据重新解释为另一种类型的数据。一个例子是 math.Float64bits 的实现：
 
-``` go linenums="1"
+``` go 
 func Float64bits(f float64) uint64 {
 	return *(*uint64)(unsafe.Pointer(&f))
 }
@@ -166,13 +166,13 @@ func Float64bits(f float64) uint64 {
 
 ​	如果 p 指向分配的对象，则可以通过将其转换为 uintptr、添加偏移量，然后再将其转换回 Pointer 来使 p 在对象中前进。
 
-```go linenums="1"
+```go 
 p = unsafe.Pointer(uintptr(p) + offset)
 ```
 
 ​	此模式最常见的用途是访问结构体的字段或数组的元素：
 
-```go linenums="1"
+```go 
 // 等同于 f := unsafe.Pointer(&s.f)
 f := unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + unsafe.Offsetof(s.f))
 
@@ -188,7 +188,7 @@ Unlike in C, it is not valid to advance a pointer just beyond the end of its ori
 
 ​	与 C 语言不同的是，将指针移动到其原始分配空间的边界之外是无效的：
 
-```go linenums="1"
+```go 
 // 不正确：末端指向分配空间之外。
 var s thing
 end = unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + unsafe.Sizeof(s))
@@ -200,7 +200,7 @@ end = unsafe.Pointer(uintptr(unsafe.Pointer(&b[0])) + uintptr(n))
 
 ​	请注意，两个转换必须出现在同一表达式中，只能在它们之间进行算术运算：
 
-```go linenums="1"
+```go 
 // 不正确：uintptr在转换回Pointer之前不能被存储在变量中。
 u := uintptr(p)
 p = unsafe.Pointer(u + offset)
@@ -208,7 +208,7 @@ p = unsafe.Pointer(u + offset)
 
 ​	请注意，这个指针必须指向已分配的对象，因此它可能不是 nil。
 
-```go linenums="1"
+```go 
 // INVALID: conversion of nil pointer
 // 不合法：转换为零的指针
 u := unsafe.Pointer(nil)
@@ -221,7 +221,7 @@ p := unsafe.Pointer(uintptr(u) + offset)
 
 ​	如果必须将指针参数转换为 uintptr 以便用作参数，那么该转换必须出现在调用表达式本身中：
 
-```go linenums="1"
+```go 
 syscall.Syscall(SYS_READ, uintptr(fd), uintptr(unsafe.Pointer(p)), uintptr(n))
 ```
 
@@ -229,7 +229,7 @@ syscall.Syscall(SYS_READ, uintptr(fd), uintptr(unsafe.Pointer(p)), uintptr(n))
 
 ​	为了让编译器识别这种模式，转换必须出现在参数列表中：
 
-```go linenums="1"
+```go 
 // INVALID: uintptr在系统调用过程中隐式转换回指针前不能被存储在变量中。
 u := uintptr(unsafe.Pointer(p))
 syscall.Syscall(SYS_READ, uintptr(fd), u, uintptr(n))
@@ -255,7 +255,7 @@ p := (*int)(unsafe.Pointer(u))
 
 ​	与之前的情况类似，reflect.SliceHeader和reflect.StringHeader将Data字段声明为uintptr，以防止调用者在未导入"unsafe"包之前将结果更改为任意类型。但是，这意味着SliceHeader和StringHeader仅在解释实际切片或字符串值的内容时才有效。
 
-``` go linenums="1"
+``` go 
 var s string
 hdr := (*reflect.StringHeader)(unsafe.Pointer(&s)) // case 1
 hdr.Data = uintptr(unsafe.Pointer(p))              // case 6 (this case)
@@ -266,7 +266,7 @@ hdr.Len = n
 
 ​	通常情况下，reflect.SliceHeader和reflect.StringHeader应仅作为`*reflect.SliceHeader`和`*reflect.StringHeader`使用，指向实际的切片或字符串，而不是作为普通结构体使用。程序不应声明或分配这些结构体类型的变量。
 
-```go linenums="1"
+```go 
 // INVALID：直接声明的标头不会将Data作为引用保存。
 var hdr reflect.StringHeader
 hdr.Data = uintptr(unsafe.Pointer(p))
@@ -276,7 +276,7 @@ s := *(*string)(unsafe.Pointer(&hdr)) // p可能已经丢失
 
 #### func [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/unsafe/unsafe.go;l=225)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func Add(ptr Pointer, len IntegerType) Pointer
 ```
 

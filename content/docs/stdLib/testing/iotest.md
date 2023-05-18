@@ -19,7 +19,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=74)
 
-``` go linenums="1"
+``` go 
 var ErrTimeout = errors.New("timeout")
 ```
 
@@ -29,7 +29,7 @@ var ErrTimeout = errors.New("timeout")
 
 #### func [DataErrReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func DataErrReader(r io.Reader) io.Reader
 ```
 
@@ -37,14 +37,14 @@ func DataErrReader(r io.Reader) io.Reader
 
 #### func [ErrReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=94)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func ErrReader(err error) io.Reader
 ```
 
 ​	ErrReader函数返回一个 io.Reader，该 Reader 的所有 Read 调用都会返回 0，err。
 
 ##### ErrReader Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -68,7 +68,7 @@ err: "custom error"
 
 #### func [HalfReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=32) 
 
-``` go linenums="1"
+``` go 
 func HalfReader(r io.Reader) io.Reader
 ```
 
@@ -76,7 +76,7 @@ func HalfReader(r io.Reader) io.Reader
 
 #### func [NewReadLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/logger.go;l=52) 
 
-``` go linenums="1"
+``` go 
 func NewReadLogger(prefix string, r io.Reader) io.Reader
 ```
 
@@ -84,7 +84,7 @@ func NewReadLogger(prefix string, r io.Reader) io.Reader
 
 #### func [NewWriteLogger](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/logger.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func NewWriteLogger(prefix string, w io.Writer) io.Writer
 ```
 
@@ -92,7 +92,7 @@ func NewWriteLogger(prefix string, w io.Writer) io.Writer
 
 #### func [OneByteReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=17) 
 
-``` go linenums="1"
+``` go 
 func OneByteReader(r io.Reader) io.Reader
 ```
 
@@ -100,7 +100,7 @@ func OneByteReader(r io.Reader) io.Reader
 
 #### func [TestReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=136)  <- go1.16
 
-``` go linenums="1"
+``` go 
 func TestReader(r io.Reader, content []byte) error
 ```
 
@@ -110,7 +110,7 @@ func TestReader(r io.Reader, content []byte) error
 
 #### func [TimeoutReader](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/reader.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func TimeoutReader(r io.Reader) io.Reader
 ```
 
@@ -118,7 +118,7 @@ func TimeoutReader(r io.Reader) io.Reader
 
 #### func [TruncateWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/iotest/writer.go;l=11) 
 
-``` go linenums="1"
+``` go 
 func TruncateWriter(w io.Writer, n int64) io.Writer
 ```
 

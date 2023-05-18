@@ -72,7 +72,7 @@ q := strconv.QuoteToASCII("Hello, 世界")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=71)
 
-``` go linenums="1"
+``` go 
 const IntSize = intSize
 ```
 
@@ -82,7 +82,7 @@ const IntSize = intSize
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=18)
 
-``` go linenums="1"
+``` go 
 var ErrRange = errors.New("value out of range")
 ```
 
@@ -90,7 +90,7 @@ var ErrRange = errors.New("value out of range")
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=21)
 
-``` go linenums="1"
+``` go 
 var ErrSyntax = errors.New("invalid syntax")
 ```
 
@@ -100,14 +100,14 @@ var ErrSyntax = errors.New("invalid syntax")
 
 #### func [AppendBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func AppendBool(dst []byte, b bool) []byte
 ```
 
 ​	AppendBool函数根据 b 的值将 "true" 或 "false" 追加到 dst 中并返回扩展后的缓冲区。
 
 ##### AppendBool Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -128,14 +128,14 @@ bool:true
 
 #### func [AppendFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ftoa.go;l=53) 
 
-``` go linenums="1"
+``` go 
 func AppendFloat(dst []byte, f float64, fmt byte, prec, bitSize int) []byte
 ```
 
 ​	AppendFloat函数将浮点数 f 的字符串形式(由 FormatFloat 生成)追加到 dst 中并返回扩展后的缓冲区。
 
 ##### AppendFloat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -161,14 +161,14 @@ float64:3.1415926535E+00
 
 #### func [AppendInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=40) 
 
-``` go linenums="1"
+``` go 
 func AppendInt(dst []byte, i int64, base int) []byte
 ```
 
 ​	AppendInt函数将整数 i 的字符串形式(由 FormatInt函数 生成)追加到 dst 中并返回扩展后的缓冲区。
 
 ##### AppendInt Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -194,14 +194,14 @@ int (base 16):-2a
 
 #### func [AppendQuote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=134) 
 
-``` go linenums="1"
+``` go 
 func AppendQuote(dst []byte, s string) []byte
 ```
 
 ​	AppendQuote函数将表示 s 的双引号 Go 字符串文字(由 Quote函数 生成)追加到 dst 中并返回扩展后的缓冲区。
 
 ##### AppendQuote Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -222,14 +222,14 @@ quote:"\"Fran & Freddie's Diner\""
 
 #### func [AppendQuoteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=176) 
 
-``` go linenums="1"
+``` go 
 func AppendQuoteRune(dst []byte, r rune) []byte
 ```
 
 ​	AppendQuoteRune函数将表示符文的单引号 Go 字符文字(由 QuoteRune函数 生成)追加到 dst 中并返回扩展后的缓冲区。
 
 ##### AppendQuoteRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -250,14 +250,14 @@ rune:'☺'
 
 #### func [AppendQuoteRuneToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=192) 
 
-``` go linenums="1"
+``` go 
 func AppendQuoteRuneToASCII(dst []byte, r rune) []byte
 ```
 
 ​	AppendQuoteRuneToASCII函数将表示rune的单引号Go字符文本(由QuoteRuneToASCII生成)附加到dst并返回扩展的缓冲区。
 
 ##### AppendQuoteRuneToASCII Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -278,7 +278,7 @@ rune (ascii):'\u263a'
 
 #### func [AppendQuoteRuneToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=208)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func AppendQuoteRuneToGraphic(dst []byte, r rune) []byte
 ```
 
@@ -286,14 +286,14 @@ func AppendQuoteRuneToGraphic(dst []byte, r rune) []byte
 
 #### func [AppendQuoteToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=147) 
 
-``` go linenums="1"
+``` go 
 func AppendQuoteToASCII(dst []byte, s string) []byte
 ```
 
 ​	AppendQuoteToASCII函数将表示s的双引号Go字符串文本(由QuoteToASCII函数生成)附加到dst并返回扩展的缓冲区。
 
 ##### AppendQuoteToASCII Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -314,7 +314,7 @@ quote (ascii):"\"Fran & Freddie's Diner\""
 
 #### func [AppendQuoteToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=161)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func AppendQuoteToGraphic(dst []byte, s string) []byte
 ```
 
@@ -322,14 +322,14 @@ func AppendQuoteToGraphic(dst []byte, s string) []byte
 
 #### func [AppendUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=50) 
 
-``` go linenums="1"
+``` go 
 func AppendUint(dst []byte, i uint64, base int) []byte
 ```
 
 ​	AppendUint函数将生成的无符号整数i的字符串形式(由FormatUint函数生成)附加到dst并返回扩展的缓冲区。
 
 ##### AppendUint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -355,14 +355,14 @@ uint (base 16):2a
 
 #### func [Atoi](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=247) 
 
-``` go linenums="1"
+``` go 
 func Atoi(s string) (int, error)
 ```
 
 ​	Atoi函数等价于ParseInt(s，10，0)，转换为int类型。
 
 ##### Atoi Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -384,7 +384,7 @@ int, 10
 
 #### func [CanBackquote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=215) 
 
-``` go linenums="1"
+``` go 
 func CanBackquote(s string) bool
 ```
 
@@ -393,7 +393,7 @@ func CanBackquote(s string) bool
 > `CanBackquote`函数会返回一个布尔值，指示是否可以使用Go语言中的反引号来包裹给定的字符串。如果可以使用反引号，则返回`true`，否则返回`false`。
 
 ##### CanBackquote Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -414,14 +414,14 @@ false
 
 #### func [FormatBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=21) 
 
-``` go linenums="1"
+``` go 
 func FormatBool(b bool) string
 ```
 
 ​	FormatBool函数根据 b 的值返回 "true" 或 "false"。
 
 ##### FormatBool Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -442,7 +442,7 @@ string, true
 
 #### func [FormatComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ctoa.go;l=14)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func FormatComplex(c complex128, fmt byte, prec, bitSize int) string
 ```
 
@@ -452,7 +452,7 @@ func FormatComplex(c complex128, fmt byte, prec, bitSize int) string
 
 #### func [FormatFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/ftoa.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 ```
 
@@ -463,7 +463,7 @@ func FormatFloat(f float64, fmt byte, prec, bitSize int) string
 ​	精度 prec 控制由 'e'、'E'、'f'、'g'、'G'、'x' 和 'X' 格式打印的数字的位数(不包括指数)。对于 'e'、'E'、'f'、'x' 和 'X'，它是小数点后的数字位数。对于 'g' 和 'G'，它是最大的有效数字位数(尾随零被删除)。特殊精度 -1 使用最少数量的位数，使 ParseFloat 精确返回 f。
 
 ##### FormatFloat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -489,14 +489,14 @@ string, 3.1415926535E+00
 
 #### func [FormatInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=25) 
 
-``` go linenums="1"
+``` go 
 func FormatInt(i int64, base int) string
 ```
 
 ​	FormatInt函数返回基于给定进制 base 中 i 的字符串表示形式，2 <= base <= 36。结果对于值 >= 10 的数字使用小写字母 'a' 到 'z'。
 
 ##### FormatInt Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -522,14 +522,14 @@ string, -2a
 
 #### func [FormatUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=14) 
 
-``` go linenums="1"
+``` go 
 func FormatUint(i uint64, base int) string
 ```
 
 ​	FormatUint函数返回基于给定进制 base 中 i 的字符串表示形式，2 <= base <= 36。结果对于值 >= 10 的数字使用小写字母 'a' 到 'z'。
 
 ##### FormatUint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -555,14 +555,14 @@ string, 2a
 
 #### func [IsGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=586)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func IsGraphic(r rune) bool
 ```
 
 ​	IsGraphic函数报告 r 是否被 Unicode 定义为图形字符。这些字符包括类别 L、M、N、P、S和Z。
 
 ##### IsGraphic Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -590,14 +590,14 @@ false
 
 #### func [IsPrint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=540) 
 
-``` go linenums="1"
+``` go 
 func IsPrint(r rune) bool
 ```
 
 ​	IsPrint 函数判断 rune 是否可打印，其定义与 unicode.IsPrint 相同：字母、数字、标点符号、符号和 ASCII 空格都是可打印的。
 
 ##### IsPrint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -621,7 +621,7 @@ false
 
 #### func [Itoa](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/itoa.go;l=34) 
 
-``` go linenums="1"
+``` go 
 func Itoa(i int) string
 ```
 
@@ -630,7 +630,7 @@ func Itoa(i int) string
 ​	Itoa函数等同于FormatInt(int64(i), 10)。
 
 ##### Itoa Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -651,14 +651,14 @@ string, 10
 
 #### func [ParseBool](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atob.go;l=10) 
 
-``` go linenums="1"
+``` go 
 func ParseBool(str string) (bool, error)
 ```
 
 ​	ParseBool 函数将字符串 str 解析为 bool 类型的值。它接受 1、t、T、TRUE、true、True、0、f、F、FALSE、false、False，其他任何值都会返回一个错误。
 
 ##### ParseBool Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -680,7 +680,7 @@ bool, true
 
 #### func [ParseComplex](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoc.go;l=42)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func ParseComplex(s string, bitSize int) (complex128, error)
 ```
 
@@ -696,7 +696,7 @@ func ParseComplex(s string, bitSize int) (complex128, error)
 
 #### func [ParseFloat](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atof.go;l=695) 
 
-``` go linenums="1"
+``` go 
 func ParseFloat(s string, bitSize int) (float64, error)
 ```
 
@@ -713,7 +713,7 @@ func ParseFloat(s string, bitSize int) (float64, error)
 ​	ParseFloat函数将字符串"NaN"和(可能带符号的)字符串"Inf"和"Infinity"识别为它们各自的特殊浮点值。它在匹配时忽略大小写。
 
 ##### ParseFloat Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -744,7 +744,7 @@ func main() {
 
 #### func [ParseInt](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=202) 
 
-``` go linenums="1"
+``` go 
 func ParseInt(s string, base int, bitSize int) (i int64, err error)
 ```
 
@@ -759,7 +759,7 @@ func ParseInt(s string, base int, bitSize int) (i int64, err error)
 ​	ParseInt函数返回的错误具有具体类型`*NumError`，并包括err.Num = s。如果s为空或包含无效数字，则err.Err = ErrSyntax，返回值为0；如果s对应的值无法由给定大小的有符号整数表示，则err.Err = ErrRange，返回值为适当的bitSize和符号的最大幅度整数。
 
 ##### ParseInt Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -785,7 +785,7 @@ uint64, 42
 
 #### func [ParseUint](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=78) 
 
-``` go linenums="1"
+``` go 
 func ParseUint(s string, base int, bitSize int) (uint64, error)
 ```
 
@@ -794,7 +794,7 @@ func ParseUint(s string, base int, bitSize int) (uint64, error)
 ​	不允许符号前缀。
 
 ##### ParseUint Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -815,14 +815,14 @@ Output:
 
 #### func [Quote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=128) 
 
-``` go linenums="1"
+``` go 
 func Quote(s string) string
 ```
 
 ​	Quote函数返回表示字符串s的双引号Go字符串文本。返回的字符串使用Go转义序列(\t，\n，\xFF，\u0100)表示控制字符和非可打印字符，如IsPrint定义的。
 
 ##### Quote Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -843,7 +843,7 @@ Output:
 
 #### func [QuoteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func QuoteRune(r rune) string
 ```
 
@@ -860,7 +860,7 @@ func QuoteRune(r rune) string
 > 在 Go 语言中，使用 `\u`+四位十六进制数来表示 BMP 平面中的 Unicode 字符。例如，`\u4e2d`表示汉字"中"的 Unicode 编码 U+4E2D。而使用 `\U`+八位十六进制数来表示 Unicode 字符，这种表示方式可以用来表示 BMP 平面以外的字符，例如 `\U0001F600` 表示一个笑脸表情"😀"，它的 Unicode 编码为 U+1F600，超出了 BMP 平面的编码范围。
 
 ##### QuoteRune Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -880,14 +880,14 @@ Output:
 
 #### func [QuoteRuneToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=186) 
 
-``` go linenums="1"
+``` go 
 func QuoteRuneToASCII(r rune) string
 ```
 
 ​	QuoteRuneToASCII函数返回表示符文的 Go 单引号字符字面量。返回的字符串使用 Go 转义序列 (\t, \n, \xFF, \u0100) 表示非 ASCII 字符和由 IsPrint 定义的不可打印字符。如果 r 不是一个有效的 Unicode 代码点，则将其解释为 Unicode 替换字符 U+FFFD。
 
 ##### QuoteRuneToASCII Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -907,14 +907,14 @@ Output:
 
 #### func [QuoteRuneToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=202)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func QuoteRuneToGraphic(r rune) string
 ```
 
 ​	QuoteRuneToGraphic函数返回表示符文的 Go 单引号字符字面量。如果符文不是一个 Unicode 图形字符，如由 IsGraphic函数定义，返回的字符串将使用 Go 转义序列 (\t, \n, \xFF, \u0100)。如果 r 不是一个有效的 Unicode 代码点，则将其解释为 Unicode 替换字符 U+FFFD。
 
 ##### QuoteRuneToGraphic Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -946,14 +946,14 @@ Output:
 
 #### func [QuoteToASCII](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=141) 
 
-``` go linenums="1"
+``` go 
 func QuoteToASCII(s string) string
 ```
 
 ​	QuoteToASCII函数返回表示字符串 s 的 Go 双引号字符串字面量。返回的字符串使用 Go 转义序列 (\t, \n, \xFF, \u0100) 表示非 ASCII 字符和由 IsPrint函数定义的不可打印字符。
 
 ##### QuoteToASCII Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -974,14 +974,14 @@ Output:
 
 #### func [QuoteToGraphic](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=155)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func QuoteToGraphic(s string) string
 ```
 
 ​	QuoteToGraphic函数返回表示字符串 s 的 Go 双引号字符串字面量。返回的字符串保留 Unicode 图形字符(由 IsGraphic函数定义)，对于非图形字符使用 Go 转义序列 (\t, \n, \xFF, \u0100)。
 
 ##### QuoteToGraphic Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1010,7 +1010,7 @@ Output:
 
 #### func [QuotedPrefix](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=375)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func QuotedPrefix(s string) (string, error)
 ```
 
@@ -1018,7 +1018,7 @@ func QuotedPrefix(s string) (string, error)
 
 #### func [Unquote](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=385) 
 
-``` go linenums="1"
+``` go 
 func Unquote(s string) (string, error)
 ```
 
@@ -1031,7 +1031,7 @@ func Unquote(s string) (string, error)
 > ​	在解析字符串字面值时，Unquote 函数会自动处理转义字符，例如 \t、\n、" 和 ' 等。同时，它还支持 Unicode 转义，例如 \uXXXX 和 \UXXXXXXXX。
 
 ##### Unquote Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1065,7 +1065,7 @@ Output:
 
 #### func [UnquoteChar](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/quote.go;l=262) 
 
-``` go linenums="1"
+``` go 
 func UnquoteChar(s string, quote byte) (value rune, multibyte bool, tail string, err error)
 ```
 
@@ -1079,7 +1079,7 @@ func UnquoteChar(s string, quote byte) (value rune, multibyte bool, tail string,
 ​	第二个参数 quote 指定要解析的文本类型，因此允许哪个转义引号字符。如果设置为单引号，则允许序列 `'`，并禁止未转义的`'`。如果设置为双引号，则允许 `"` 并禁止未转义的`"`。如果设置为零值，则不允许任何转义，且允许两个引号字符未转义出现。
 
 ##### UnquoteChar Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1126,7 +1126,7 @@ H true \u0065\u006c\u006c\u006f\u0020\u0057\u006f\u0072\u006c\u0064
 
 ### type [NumError](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=24) 
 
-``` go linenums="1"
+``` go 
 type NumError struct {
 	Func string // 失败的函数(ParseBool, ParseInt, ParseUint, ParseFloat, ParseComplex)
 	Num  string // 输入的数据
@@ -1137,7 +1137,7 @@ type NumError struct {
 ​	NumError函数记录了转换失败的情况。
 
 ##### Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -1166,12 +1166,12 @@ strconv.ParseFloat: parsing "Not a number": invalid syntax
 
 #### (*NumError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=30) 
 
-``` go linenums="1"
+``` go 
 func (e *NumError) Error() string
 ```
 
 #### (*NumError) [Unwrap](https://cs.opensource.google/go/go/+/go1.20.1:src/strconv/atoi.go;l=34)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (e *NumError) Unwrap() error
 ```

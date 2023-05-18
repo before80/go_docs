@@ -13,7 +13,7 @@ draft = false
 
 ​	testing包提供了对Go程序包进行自动化测试的支持。它旨在与"go test"命令一起使用，该命令自动执行以下形式的任何函数：
 
-``` go linenums="1"
+``` go 
 func TestXxx(*testing.T)
 ```
 
@@ -27,7 +27,7 @@ func TestXxx(*testing.T)
 
 (包内测试)如果测试文件在同一个包中，则可以引用包内未公开的标识符，如下面的示例：
 
-```go linenums="1" hl_lines="1 1"
+```go  hl_lines="1 1"
 package abs
 
 import "testing"
@@ -42,7 +42,7 @@ func TestAbs(t *testing.T) {
 
 (包外测试)如果测试文件在一个单独的"_test"包中，被测试的包必须显式导入，并且只能使用其导出的标识符。这被称为"黑盒"测试
 
-```go linenums="1" hl_lines="1 1"
+```go  hl_lines="1 1"
 package abs_test
 
 import (
@@ -65,7 +65,7 @@ func TestAbs(t *testing.T) {
 
 形如
 
-``` go linenums="1"
+``` go 
 func BenchmarkXxx(*testing.B)
 ```
 
@@ -75,7 +75,7 @@ func BenchmarkXxx(*testing.B)
 
 ​	基准测试函数的示例如下所示：
 
-``` go linenums="1"
+``` go 
 func BenchmarkRandInt(b *testing.B) {
     for i := 0; i < b.N; i++ {
         rand.Int()
@@ -93,7 +93,7 @@ BenchmarkRandInt-8   	68453040	        17.8 ns/op
 
 ​	如果基准测试需要在运行之前进行一些昂贵的设置，则可以重置计时器：
 
-``` go linenums="1" hl_lines="3 3"
+``` go  hl_lines="3 3"
 func BenchmarkBigLen(b *testing.B) {
     big := NewBig()
     b.ResetTimer()
@@ -105,7 +105,7 @@ func BenchmarkBigLen(b *testing.B) {
 
 ​	如果基准测试需要在并行设置中测试性能，则可以使用 `RunParallel` 帮助函数；这样的基准测试旨在与 `go test -cpu` 标志一起使用：
 
-``` go linenums="1" hl_lines="3 3"
+``` go  hl_lines="3 3"
 func BenchmarkTemplateParallel(b *testing.B) {
     templ := template.Must(template.New("test").Parse("Hello, {{.}}!"))
     b.RunParallel(func(pb *testing.PB) {
@@ -128,7 +128,7 @@ func BenchmarkTemplateParallel(b *testing.B) {
 
 ​	该包还可以运行和验证示例代码。示例函数可以包含以"`Output:`"开头的结尾行注释，并在运行测试时与函数的标准输出进行比较。(比较忽略前导和尾随空格。)以下是众多示例中的一个示例：
 
-``` go linenums="1" hl_lines="3 3"
+``` go  hl_lines="3 3"
 func ExampleHello() {
     fmt.Println("hello")
     // Output: hello
@@ -145,7 +145,7 @@ func ExampleSalutations() {
 
 ​	前缀为"`Unordered output:`"的注释与"`Output:`"类似，但匹配任何行顺序：
 
-``` go linenums="1"
+``` go 
 func ExamplePerm() {
     for _, value := range Perm(5) {
         fmt.Println(value)
@@ -162,7 +162,7 @@ func ExamplePerm() {
 
 ​	用于声明包、函数F、类型T和类型T上的方法M的示例的命名规则是：
 
-``` go linenums="1"
+``` go 
 func Example() { ... }
 func ExampleF() { ... }
 func ExampleT() { ... }
@@ -171,7 +171,7 @@ func ExampleT_M() { ... }
 
 ​	可以通过在名称后附加不同的后缀来为包/类型/函数/方法提供多个示例函数。后缀必须以小写字母开头。
 
-``` go linenums="1"
+``` go 
 func Example_suffix() { ... }
 func ExampleF_suffix() { ... }
 func ExampleT_suffix() { ... }
@@ -186,7 +186,7 @@ func ExampleT_M_suffix() { ... }
 
 形如
 
-``` go linenums="1"
+``` go 
 func FuzzXxx(*testing.F)
 ```
 
@@ -194,7 +194,7 @@ func FuzzXxx(*testing.F)
 
 示例：
 
-``` go linenums="1"
+``` go 
 func FuzzHex(f *testing.F) {
   for _, seed := range [][]byte{{}, {0}, {9}, {0xa}, {0xf}, {1, 2, 3, 4}} {
     f.Add(seed)
@@ -226,7 +226,7 @@ func FuzzHex(f *testing.F) {
 
 ​	跳过测试或基准测试可以通过调用`*T`或`*B`的`Skip`方法来实现：
 
-``` go linenums="1"
+``` go 
 func TestTimeConsuming(t *testing.T) {
     if testing.Short() {
         t.Skip("skipping test in short mode.")
@@ -237,7 +237,7 @@ func TestTimeConsuming(t *testing.T) {
 
 ​	`*T`的`Skip`方法可以在模糊目标中使用，如果输入无效，但不应视为失败的输入。例如：
 
-``` go linenums="1"
+``` go 
 func FuzzJSONMarshaling(f *testing.F) {
     f.Fuzz(func(t *testing.T, b []byte) {
         var v interface{}
@@ -255,7 +255,7 @@ func FuzzJSONMarshaling(f *testing.F) {
 
 ​	`*T`和`*B`的`Run`方法允许定义子测试和子基准测试，而无需为每个测试定义单独的函数。这使得可以使用表驱动的基准测试和创建分层测试。它还提供了一种共享通用设置和拆卸代码的方法：
 
-``` go linenums="1"
+``` go 
 func TestFoo(t *testing.T) {
     // <setup code>
     t.Run("A=1", func(t *testing.T) { ... })
@@ -289,7 +289,7 @@ go test -run=FuzzFoo/9ddb952d9814
 
 ​	子测试还可以用于控制并行性。父测试只有在所有子测试完成后才会完成。在以下示例中，所有测试都会并行运行，仅与彼此并行运行，而不考虑其他可能已定义的顶级测试：
 
-``` go linenums="1"
+``` go 
 func TestGroupedParallel(t *testing.T) {
     for _, tc := range tests {
         tc := tc // capture range variable
@@ -303,7 +303,7 @@ func TestGroupedParallel(t *testing.T) {
 
 ​	`Run`不会返回，直到并行子测试完成，从而提供了一种在一组并行测试之后进行清理的方式：
 
-``` go linenums="1"
+``` go 
 func TestTeardownParallel(t *testing.T) {
     // 在并行测试完成之前，此 Run 不会返回。
     t.Run("group", func(t *testing.T) {
@@ -319,7 +319,7 @@ func TestTeardownParallel(t *testing.T) {
 
 ​	有时，测试或基准测试程序需要在执行前后进行额外的设置或拆卸。有时还需要控制哪些代码在主线程上运行。为支持这些和其他情况，如果测试文件包含一个函数：
 
-``` go linenums="1"
+``` go 
 func TestMain(m *testing.M)
 ```
 
@@ -329,7 +329,7 @@ func TestMain(m *testing.M)
 
 ​	TestMain的一个简单实现是：
 
-``` go linenums="1"
+``` go 
 func TestMain(m *testing.M) {
 	// 如果TestMain使用标志，请在此处调用flag.Parse()
 	os.Exit(m.Run())
@@ -350,7 +350,7 @@ This section is empty.
 
 #### func [AllocsPerRun](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/allocs.go;l=20)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func AllocsPerRun(runs int, f func()) (avg float64)
 ```
 
@@ -362,7 +362,7 @@ func AllocsPerRun(runs int, f func()) (avg float64)
 
 #### func [CoverMode](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=648)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func CoverMode() string
 ```
 
@@ -370,7 +370,7 @@ func CoverMode() string
 
 #### func [Coverage](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/cover.go;l=49)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func Coverage() float64
 ```
 
@@ -380,7 +380,7 @@ func Coverage() float64
 
 #### func [Init](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=402)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func Init()
 ```
 
@@ -390,7 +390,7 @@ func Init()
 
 #### func [Main](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1742) 
 
-``` go linenums="1"
+``` go 
 func Main(matchString func(pat, str string) (bool, error), tests []InternalTest, benchmarks []InternalBenchmark, examples []InternalExample)
 ```
 
@@ -398,7 +398,7 @@ func Main(matchString func(pat, str string) (bool, error), tests []InternalTest,
 
 #### func [RegisterCover](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/cover.go;l=68)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func RegisterCover(c Cover)
 ```
 
@@ -406,7 +406,7 @@ func RegisterCover(c Cover)
 
 #### func [RunBenchmarks](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=522) 
 
-``` go linenums="1"
+``` go 
 func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks []InternalBenchmark)
 ```
 
@@ -414,7 +414,7 @@ func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks [
 
 #### func [RunExamples](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/example.go;l=24) 
 
-``` go linenums="1"
+``` go 
 func RunExamples(matchString func(pat, str string) (bool, error), examples []InternalExample) (ok bool)
 ```
 
@@ -422,7 +422,7 @@ func RunExamples(matchString func(pat, str string) (bool, error), examples []Int
 
 #### func [RunTests](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1995) 
 
-``` go linenums="1"
+``` go 
 func RunTests(matchString func(pat, str string) (bool, error), tests []InternalTest) (ok bool)
 ```
 
@@ -430,7 +430,7 @@ func RunTests(matchString func(pat, str string) (bool, error), tests []InternalT
 
 #### func [Short](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=633) 
 
-``` go linenums="1"
+``` go 
 func Short() bool
 ```
 
@@ -438,7 +438,7 @@ func Short() bool
 
 #### func [Verbose](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=656)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func Verbose() bool
 ```
 
@@ -448,7 +448,7 @@ func Verbose() bool
 
 ### type [B](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=94) 
 
-``` go linenums="1"
+``` go 
 type B struct {
 	N int
 	// contains filtered or unexported fields
@@ -463,7 +463,7 @@ type B struct {
 
 #### (*B) [Cleanup](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1129)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (c *B) Cleanup(f func())
 ```
 
@@ -471,7 +471,7 @@ func (c *B) Cleanup(f func())
 
 #### (*B) [Elapsed](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=343)  <- go1.20
 
-``` go linenums="1"
+``` go 
 func (b *B) Elapsed() time.Duration
 ```
 
@@ -479,7 +479,7 @@ func (b *B) Elapsed() time.Duration
 
 #### (*B) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1040) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Error(args ...any)
 ```
 
@@ -487,7 +487,7 @@ func (c *B) Error(args ...any)
 
 #### (*B) [Errorf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1047) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Errorf(format string, args ...any)
 ```
 
@@ -495,7 +495,7 @@ func (c *B) Errorf(format string, args ...any)
 
 #### (*B) [Fail](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=925) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Fail()
 ```
 
@@ -503,7 +503,7 @@ func (c *B) Fail()
 
 #### (*B) [FailNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=954) 
 
-``` go linenums="1"
+``` go 
 func (c *B) FailNow()
 ```
 
@@ -511,7 +511,7 @@ func (c *B) FailNow()
 
 #### (*B) [Failed](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=939) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Failed() bool
 ```
 
@@ -519,7 +519,7 @@ func (c *B) Failed() bool
 
 #### (*B) [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1054) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Fatal(args ...any)
 ```
 
@@ -527,7 +527,7 @@ func (c *B) Fatal(args ...any)
 
 #### (*B) [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1061) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Fatalf(format string, args ...any)
 ```
 
@@ -535,7 +535,7 @@ func (c *B) Fatalf(format string, args ...any)
 
 #### (*B) [Helper](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1108)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *B) Helper()
 ```
 
@@ -543,7 +543,7 @@ func (c *B) Helper()
 
 #### (*B) [Log](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1024) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Log(args ...any)
 ```
 
@@ -551,7 +551,7 @@ func (c *B) Log(args ...any)
 
 #### (*B) [Logf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1034) 
 
-``` go linenums="1"
+``` go 
 func (c *B) Logf(format string, args ...any)
 ```
 
@@ -559,7 +559,7 @@ func (c *B) Logf(format string, args ...any)
 
 #### (*B) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=911)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (c *B) Name() string
 ```
 
@@ -569,7 +569,7 @@ func (c *B) Name() string
 
 #### (*B) [ReportAllocs](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=176)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (b *B) ReportAllocs()
 ```
 
@@ -577,7 +577,7 @@ func (b *B) ReportAllocs()
 
 #### (*B) [ReportMetric](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=360)  <- go1.13
 
-``` go linenums="1"
+``` go 
 func (b *B) ReportMetric(n float64, unit string)
 ```
 
@@ -585,7 +585,7 @@ func (b *B) ReportMetric(n float64, unit string)
 
 ##### ReportMetric Example
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -615,7 +615,7 @@ func main() {
 
 ##### ReportMetric Example (Parallel) 
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -655,7 +655,7 @@ func main() {
 
 #### (*B) [ResetTimer](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=148) 
 
-``` go linenums="1"
+``` go 
 func (b *B) ResetTimer()
 ```
 
@@ -663,7 +663,7 @@ func (b *B) ResetTimer()
 
 #### (*B) [Run](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=642)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (b *B) Run(name string, f func(b *B)) bool
 ```
 
@@ -673,7 +673,7 @@ func (b *B) Run(name string, f func(b *B)) bool
 
 #### (*B) [RunParallel](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=783)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (b *B) RunParallel(body func(*PB))
 ```
 
@@ -686,7 +686,7 @@ func (b *B) RunParallel(body func(*PB))
 
 
 ##### RunParallel Example
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -716,7 +716,7 @@ func main() {
 
 #### (*B) [SetBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=171) 
 
-``` go linenums="1"
+``` go 
 func (b *B) SetBytes(n int64)
 ```
 
@@ -724,7 +724,7 @@ func (b *B) SetBytes(n int64)
 
 #### (*B) [SetParallelism](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=827)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (b *B) SetParallelism(p int)
 ```
 
@@ -732,7 +732,7 @@ func (b *B) SetParallelism(p int)
 
 #### (*B) [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1265)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (c *B) Setenv(key, value string)
 ```
 
@@ -742,7 +742,7 @@ func (c *B) Setenv(key, value string)
 
 #### (*B) [Skip](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1068)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *B) Skip(args ...any)
 ```
 
@@ -750,7 +750,7 @@ func (c *B) Skip(args ...any)
 
 #### (*B) [SkipNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1089)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *B) SkipNow()
 ```
 
@@ -758,7 +758,7 @@ func (c *B) SkipNow()
 
 #### (*B) [Skipf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1075)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *B) Skipf(format string, args ...any)
 ```
 
@@ -766,7 +766,7 @@ func (c *B) Skipf(format string, args ...any)
 
 #### (*B) [Skipped](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1099)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *B) Skipped() bool
 ```
 
@@ -774,7 +774,7 @@ func (c *B) Skipped() bool
 
 #### (*B) [StartTimer](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=122) 
 
-``` go linenums="1"
+``` go 
 func (b *B) StartTimer()
 ```
 
@@ -782,7 +782,7 @@ func (b *B) StartTimer()
 
 #### (*B) [StopTimer](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (b *B) StopTimer()
 ```
 
@@ -790,7 +790,7 @@ func (b *B) StopTimer()
 
 #### (*B) [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1163)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (c *B) TempDir() string
 ```
 
@@ -798,7 +798,7 @@ func (c *B) TempDir() string
 
 ### type [BenchmarkResult](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=371) 
 
-``` go linenums="1"
+``` go 
 type BenchmarkResult struct {
 	N         int           // 迭代次数。
 	T         time.Duration // 所花费的总时间。
@@ -815,7 +815,7 @@ type BenchmarkResult struct {
 
 #### func [Benchmark](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=841) 
 
-``` go linenums="1"
+``` go 
 func Benchmark(f func(b *B)) BenchmarkResult
 ```
 
@@ -827,7 +827,7 @@ func Benchmark(f func(b *B)) BenchmarkResult
 
 #### (BenchmarkResult) [AllocedBytesPerOp](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=418)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r BenchmarkResult) AllocedBytesPerOp() int64
 ```
 
@@ -835,7 +835,7 @@ func (r BenchmarkResult) AllocedBytesPerOp() int64
 
 #### (BenchmarkResult) [AllocsPerOp](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=406)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r BenchmarkResult) AllocsPerOp() int64
 ```
 
@@ -843,7 +843,7 @@ func (r BenchmarkResult) AllocsPerOp() int64
 
 #### (BenchmarkResult) [MemString](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=500)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (r BenchmarkResult) MemString() string
 ```
 
@@ -851,7 +851,7 @@ func (r BenchmarkResult) MemString() string
 
 #### (BenchmarkResult) [NsPerOp](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=383) 
 
-``` go linenums="1"
+``` go 
 func (r BenchmarkResult) NsPerOp() int64
 ```
 
@@ -859,7 +859,7 @@ func (r BenchmarkResult) NsPerOp() int64
 
 #### (BenchmarkResult) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=435) 
 
-``` go linenums="1"
+``` go 
 func (r BenchmarkResult) String() string
 ```
 
@@ -867,7 +867,7 @@ func (r BenchmarkResult) String() string
 
 ### type [Cover](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/cover.go;l=35)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type Cover struct {
 	Mode            string
 	Counters        map[string][]uint32
@@ -880,7 +880,7 @@ type Cover struct {
 
 ### type [CoverBlock](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/cover.go;l=22)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type CoverBlock struct {
 	Line0 uint32 // 块开头所在的行号
 	Col0  uint16 // 块开头所在的列号
@@ -894,7 +894,7 @@ type CoverBlock struct {
 
 ### type [F](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=68)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type F struct {
 	// contains filtered or unexported fields
 }
@@ -910,7 +910,7 @@ type F struct {
 
 #### (*F) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=152)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (f *F) Add(args ...any)
 ```
 
@@ -918,7 +918,7 @@ func (f *F) Add(args ...any)
 
 #### (*F) [Cleanup](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1129)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Cleanup(f func())
 ```
 
@@ -926,7 +926,7 @@ func (c *F) Cleanup(f func())
 
 #### (*F) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1040)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Error(args ...any)
 ```
 
@@ -934,7 +934,7 @@ func (c *F) Error(args ...any)
 
 #### (*F) [Errorf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1047)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Errorf(format string, args ...any)
 ```
 
@@ -942,7 +942,7 @@ func (c *F) Errorf(format string, args ...any)
 
 #### (*F) [Fail](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=128)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (f *F) Fail()
 ```
 
@@ -950,7 +950,7 @@ func (f *F) Fail()
 
 #### (*F) [FailNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=954)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) FailNow()
 ```
 
@@ -958,7 +958,7 @@ func (c *F) FailNow()
 
 #### (*F) [Failed](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=939)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Failed() bool
 ```
 
@@ -966,7 +966,7 @@ func (c *F) Failed() bool
 
 #### (*F) [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1054)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Fatal(args ...any)
 ```
 
@@ -974,7 +974,7 @@ func (c *F) Fatal(args ...any)
 
 #### (*F) [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1061)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Fatalf(format string, args ...any)
 ```
 
@@ -982,7 +982,7 @@ func (c *F) Fatalf(format string, args ...any)
 
 #### (*F) [Fuzz](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=210)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (f *F) Fuzz(ff any)
 ```
 
@@ -1004,7 +1004,7 @@ f.Fuzz(func(t *testing.T, b []byte, i int) { ... })
 
 #### (*F) [Helper](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=102)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (f *F) Helper()
 ```
 
@@ -1012,7 +1012,7 @@ func (f *F) Helper()
 
 #### (*F) [Log](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1024)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Log(args ...any)
 ```
 
@@ -1020,7 +1020,7 @@ func (c *F) Log(args ...any)
 
 #### (*F) [Logf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1034)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Logf(format string, args ...any)
 ```
 
@@ -1028,7 +1028,7 @@ func (c *F) Logf(format string, args ...any)
 
 #### (*F) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=911)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Name() string
 ```
 
@@ -1036,7 +1036,7 @@ func (c *F) Name() string
 
 #### (*F) [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1265)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Setenv(key, value string)
 ```
 
@@ -1044,7 +1044,7 @@ func (c *F) Setenv(key, value string)
 
 #### (*F) [Skip](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1068)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Skip(args ...any)
 ```
 
@@ -1052,7 +1052,7 @@ func (c *F) Skip(args ...any)
 
 #### (*F) [SkipNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1089)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) SkipNow()
 ```
 
@@ -1060,7 +1060,7 @@ func (c *F) SkipNow()
 
 #### (*F) [Skipf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1075)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) Skipf(format string, args ...any)
 ```
 
@@ -1068,7 +1068,7 @@ func (c *F) Skipf(format string, args ...any)
 
 #### (*F) [Skipped](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=139)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (f *F) Skipped() bool
 ```
 
@@ -1076,7 +1076,7 @@ func (f *F) Skipped() bool
 
 #### (*F) [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1163)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (c *F) TempDir() string
 ```
 
@@ -1084,7 +1084,7 @@ func (c *F) TempDir() string
 
 ### type [InternalBenchmark](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=76) 
 
-``` go linenums="1"
+``` go 
 type InternalBenchmark struct {
 	Name string
 	F    func(b *B)
@@ -1095,7 +1095,7 @@ type InternalBenchmark struct {
 
 ### type [InternalExample](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/example.go;l=15) 
 
-``` go linenums="1"
+``` go 
 type InternalExample struct {
 	Name      string
 	F         func()
@@ -1106,7 +1106,7 @@ type InternalExample struct {
 
 ### type [InternalFuzzTarget](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/fuzz.go;l=48)  <- go1.18
 
-``` go linenums="1"
+``` go 
 type InternalFuzzTarget struct {
 	Name string
 	Fn   func(f *F)
@@ -1117,7 +1117,7 @@ type InternalFuzzTarget struct {
 
 ### type [InternalTest](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1426) 
 
-``` go linenums="1"
+``` go 
 type InternalTest struct {
 	Name string
 	F    func(*T)
@@ -1128,7 +1128,7 @@ type InternalTest struct {
 
 ### type [M](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1747)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type M struct {
 	// contains filtered or unexported fields
 }
@@ -1138,7 +1138,7 @@ type M struct {
 
 #### func [MainStart](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1788)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func MainStart(deps testDeps, tests []InternalTest, benchmarks []InternalBenchmark, fuzzTargets []InternalFuzzTarget, examples []InternalExample) *M
 ```
 
@@ -1146,7 +1146,7 @@ func MainStart(deps testDeps, tests []InternalTest, benchmarks []InternalBenchma
 
 #### (*M) [Run](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1803)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (m *M) Run() (code int)
 ```
 
@@ -1154,7 +1154,7 @@ func (m *M) Run() (code int)
 
 ### type [PB](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=747)  <- go1.3
 
-``` go linenums="1"
+``` go 
 type PB struct {
 	// contains filtered or unexported fields
 }
@@ -1164,7 +1164,7 @@ type PB struct {
 
 #### (*PB) [Next](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/benchmark.go;l=755)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (pb *PB) Next() bool
 ```
 
@@ -1172,7 +1172,7 @@ func (pb *PB) Next() bool
 
 ### type [T](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=898) 
 
-``` go linenums="1"
+``` go 
 type T struct {
 	// contains filtered or unexported fields
 }
@@ -1186,7 +1186,7 @@ type T struct {
 
 #### (*T) [Cleanup](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1129)  <- go1.14
 
-``` go linenums="1"
+``` go 
 func (c *T) Cleanup(f func())
 ```
 
@@ -1194,7 +1194,7 @@ func (c *T) Cleanup(f func())
 
 #### (*T) [Deadline](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1645)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (t *T) Deadline() (deadline time.Time, ok bool)
 ```
 
@@ -1204,7 +1204,7 @@ func (t *T) Deadline() (deadline time.Time, ok bool)
 
 #### (*T) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1040) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Error(args ...any)
 ```
 
@@ -1212,7 +1212,7 @@ func (c *T) Error(args ...any)
 
 #### (*T) [Errorf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1047) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Errorf(format string, args ...any)
 ```
 
@@ -1220,7 +1220,7 @@ func (c *T) Errorf(format string, args ...any)
 
 #### (*T) [Fail](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=925) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Fail()
 ```
 
@@ -1228,7 +1228,7 @@ func (c *T) Fail()
 
 #### (*T) [FailNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=954) 
 
-``` go linenums="1"
+``` go 
 func (c *T) FailNow()
 ```
 
@@ -1236,7 +1236,7 @@ func (c *T) FailNow()
 
 #### (*T) [Failed](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=939) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Failed() bool
 ```
 
@@ -1244,7 +1244,7 @@ func (c *T) Failed() bool
 
 #### (*T) [Fatal](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1054) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Fatal(args ...any)
 ```
 
@@ -1252,7 +1252,7 @@ func (c *T) Fatal(args ...any)
 
 #### (*T) [Fatalf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1061) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Fatalf(format string, args ...any)
 ```
 
@@ -1260,7 +1260,7 @@ func (c *T) Fatalf(format string, args ...any)
 
 #### (*T) [Helper](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1108)  <- go1.9
 
-``` go linenums="1"
+``` go 
 func (c *T) Helper()
 ```
 
@@ -1268,7 +1268,7 @@ func (c *T) Helper()
 
 #### (*T) [Log](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1024) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Log(args ...any)
 ```
 
@@ -1276,7 +1276,7 @@ func (c *T) Log(args ...any)
 
 #### (*T) [Logf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1034) 
 
-``` go linenums="1"
+``` go 
 func (c *T) Logf(format string, args ...any)
 ```
 
@@ -1284,7 +1284,7 @@ func (c *T) Logf(format string, args ...any)
 
 #### (*T) [Name](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=911)  <- go1.8
 
-``` go linenums="1"
+``` go 
 func (c *T) Name() string
 ```
 
@@ -1294,7 +1294,7 @@ func (c *T) Name() string
 
 #### (*T) [Parallel](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1354) 
 
-``` go linenums="1"
+``` go 
 func (t *T) Parallel()
 ```
 
@@ -1302,7 +1302,7 @@ func (t *T) Parallel()
 
 #### (*T) [Run](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1590)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (t *T) Run(name string, f func(t *T)) bool
 ```
 
@@ -1312,7 +1312,7 @@ func (t *T) Run(name string, f func(t *T)) bool
 
 #### (*T) [Setenv](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1402)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (t *T) Setenv(key, value string)
 ```
 
@@ -1322,7 +1322,7 @@ func (t *T) Setenv(key, value string)
 
 #### (*T) [Skip](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1068)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *T) Skip(args ...any)
 ```
 
@@ -1330,7 +1330,7 @@ func (c *T) Skip(args ...any)
 
 #### (*T) [SkipNow](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1089)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *T) SkipNow()
 ```
 
@@ -1338,7 +1338,7 @@ func (c *T) SkipNow()
 
 #### (*T) [Skipf](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1075)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *T) Skipf(format string, args ...any)
 ```
 
@@ -1346,7 +1346,7 @@ func (c *T) Skipf(format string, args ...any)
 
 #### (*T) [Skipped](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1099)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (c *T) Skipped() bool
 ```
 
@@ -1354,7 +1354,7 @@ func (c *T) Skipped() bool
 
 #### (*T) [TempDir](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=1163)  <- go1.15
 
-``` go linenums="1"
+``` go 
 func (c *T) TempDir() string
 ```
 
@@ -1362,7 +1362,7 @@ func (c *T) TempDir() string
 
 ### type [TB](https://cs.opensource.google/go/go/+/go1.20.1:src/testing/testing.go;l=860)  <- go1.2
 
-``` go linenums="1"
+``` go 
 type TB interface {
 	Cleanup(func())
 	Error(args ...any)

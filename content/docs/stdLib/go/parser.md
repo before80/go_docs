@@ -33,7 +33,7 @@ This section is empty.
 
 #### func [ParseDir](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func ParseDir(fset *token.FileSet, path string, filter func(fs.FileInfo) bool, mode Mode) (pkgs map[string]*ast.Package, first error)
 ```
 
@@ -45,7 +45,7 @@ If the directory couldn't be read, a nil map and the respective error are return
 
 #### func [ParseExpr](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=236) 
 
-``` go linenums="1"
+``` go 
 func ParseExpr(x string) (ast.Expr, error)
 ```
 
@@ -55,7 +55,7 @@ If syntax errors were found, the result is a partial AST (with ast.Bad* nodes re
 
 #### func [ParseExprFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=189)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func ParseExprFrom(fset *token.FileSet, filename string, src any, mode Mode) (expr ast.Expr, err error)
 ```
 
@@ -65,7 +65,7 @@ If the source couldn't be read, the returned AST is nil and the error indicates 
 
 #### func [ParseFile](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func ParseFile(fset *token.FileSet, filename string, src any, mode Mode) (f *ast.File, err error)
 ```
 
@@ -80,20 +80,20 @@ Position information is recorded in the file set fset, which must not be nil.
 If the source couldn't be read, the returned AST is nil and the error indicates the specific failure. If the source was read but syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ## 类型
 
 ### type [Mode](https://cs.opensource.google/go/go/+/go1.20.1:src/go/parser/interface.go;l=47) 
 
-``` go linenums="1"
+``` go 
 type Mode uint
 ```
 
 A Mode value is a set of flags (or 0). They control the amount of source code parsed and other optional parser functionality.
 
-``` go linenums="1"
+``` go 
 const (
 	PackageClauseOnly    Mode             = 1 << iota // stop parsing after package clause
 	ImportsOnly                                       // stop parsing after import declarations

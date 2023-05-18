@@ -78,7 +78,7 @@ Weblist 视图在 HTML 页面中逐行显示源代码的昂贵部分。在下面
 
 ​	例如，以下示例将在 `/custom_debug_path/profile` 的 `:7777` 上为 pprof.Profile 处理程序提供服务：
 
-```go linenums="1"
+```go 
 package main
 
 import (

@@ -55,7 +55,7 @@ This section is empty.
 
 #### func [AddInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=118) 
 
-``` go linenums="1"
+``` go 
 func AddInt32(addr *int32, delta int32) (new int32)
 ```
 
@@ -63,7 +63,7 @@ AddInt32函数原子地将delta添加到`*addr`，并返回新值。考虑使用
 
 #### func [AddInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=129) 
 
-``` go linenums="1"
+``` go 
 func AddInt64(addr *int64, delta int64) (new int64)
 ```
 
@@ -71,7 +71,7 @@ AddInt64函数原子地将delta添加到`*addr`，并返回新值。如果您的
 
 #### func [AddUint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=124) 
 
-``` go linenums="1"
+``` go 
 func AddUint32(addr *uint32, delta uint32) (new uint32)
 ```
 
@@ -79,7 +79,7 @@ func AddUint32(addr *uint32, delta uint32) (new uint32)
 
 #### func [AddUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=136) 
 
-``` go linenums="1"
+``` go 
 func AddUint64(addr *uint64, delta uint64) (new uint64)
 ```
 
@@ -87,7 +87,7 @@ func AddUint64(addr *uint64, delta uint64) (new uint64)
 
 #### func [AddUintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=140) 
 
-``` go linenums="1"
+``` go 
 func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
 ```
 
@@ -95,7 +95,7 @@ func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
 
 #### func [CompareAndSwapInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=92) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)
 ```
 
@@ -103,7 +103,7 @@ func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)
 
 #### func [CompareAndSwapInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=97) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)
 ```
 
@@ -111,7 +111,7 @@ func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)
 
 #### func [CompareAndSwapPointer](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=114) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)
 ```
 
@@ -119,7 +119,7 @@ func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapp
 
 #### func [CompareAndSwapUint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=101) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)
 ```
 
@@ -127,7 +127,7 @@ func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)
 
 #### func [CompareAndSwapUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=106) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)
 ```
 
@@ -135,7 +135,7 @@ func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)
 
 #### func [CompareAndSwapUintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=110) 
 
-``` go linenums="1"
+``` go 
 func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)
 ```
 
@@ -143,7 +143,7 @@ func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)
 
 #### func [LoadInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=144) 
 
-``` go linenums="1"
+``` go 
 func LoadInt32(addr *int32) (val int32)
 ```
 
@@ -151,7 +151,7 @@ func LoadInt32(addr *int32) (val int32)
 
 #### func [LoadInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=149) 
 
-``` go linenums="1"
+``` go 
 func LoadInt64(addr *int64) (val int64)
 ```
 
@@ -159,7 +159,7 @@ func LoadInt64(addr *int64) (val int64)
 
 #### func [LoadPointer](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=166) 
 
-``` go linenums="1"
+``` go 
 func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)
 ```
 
@@ -167,7 +167,7 @@ func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)
 
 #### func [LoadUint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=153) 
 
-``` go linenums="1"
+``` go 
 func LoadUint32(addr *uint32) (val uint32)
 ```
 
@@ -175,7 +175,7 @@ func LoadUint32(addr *uint32) (val uint32)
 
 #### func [LoadUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=158) 
 
-``` go linenums="1"
+``` go 
 func LoadUint64(addr *uint64) (val uint64)
 ```
 
@@ -183,7 +183,7 @@ func LoadUint64(addr *uint64) (val uint64)
 
 #### func [LoadUintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=162) 
 
-``` go linenums="1"
+``` go 
 func LoadUintptr(addr *uintptr) (val uintptr)
 ```
 
@@ -191,7 +191,7 @@ func LoadUintptr(addr *uintptr) (val uintptr)
 
 #### func [StoreInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=170) 
 
-``` go linenums="1"
+``` go 
 func StoreInt32(addr *int32, val int32)
 ```
 
@@ -199,7 +199,7 @@ func StoreInt32(addr *int32, val int32)
 
 #### func [StoreInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=175) 
 
-``` go linenums="1"
+``` go 
 func StoreInt64(addr *int64, val int64)
 ```
 
@@ -207,7 +207,7 @@ func StoreInt64(addr *int64, val int64)
 
 #### func [StorePointer](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=192) 
 
-``` go linenums="1"
+``` go 
 func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)
 ```
 
@@ -215,7 +215,7 @@ func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)
 
 #### func [StoreUint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=179) 
 
-``` go linenums="1"
+``` go 
 func StoreUint32(addr *uint32, val uint32)
 ```
 
@@ -223,7 +223,7 @@ func StoreUint32(addr *uint32, val uint32)
 
 #### func [StoreUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=184) 
 
-``` go linenums="1"
+``` go 
 func StoreUint64(addr *uint64, val uint64)
 ```
 
@@ -231,7 +231,7 @@ func StoreUint64(addr *uint64, val uint64)
 
 #### func [StoreUintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=188) 
 
-``` go linenums="1"
+``` go 
 func StoreUintptr(addr *uintptr, val uintptr)
 ```
 
@@ -239,7 +239,7 @@ func StoreUintptr(addr *uintptr, val uintptr)
 
 #### func [SwapInt32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=66)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapInt32(addr *int32, new int32) (old int32)
 ```
 
@@ -247,7 +247,7 @@ func SwapInt32(addr *int32, new int32) (old int32)
 
 #### func [SwapInt64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=71)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapInt64(addr *int64, new int64) (old int64)
 ```
 
@@ -255,7 +255,7 @@ func SwapInt64(addr *int64, new int64) (old int64)
 
 #### func [SwapPointer](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=88)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)
 ```
 
@@ -263,7 +263,7 @@ func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)
 
 #### func [SwapUint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=75)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapUint32(addr *uint32, new uint32) (old uint32)
 ```
 
@@ -271,7 +271,7 @@ func SwapUint32(addr *uint32, new uint32) (old uint32)
 
 #### func [SwapUint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=80)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapUint64(addr *uint64, new uint64) (old uint64)
 ```
 
@@ -279,7 +279,7 @@ func SwapUint64(addr *uint64, new uint64) (old uint64)
 
 #### func [SwapUintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/doc.go;l=84)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)
 ```
 
@@ -289,7 +289,7 @@ func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)
 
 ### type [Bool](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=11)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Bool struct {
 	// contains filtered or unexported fields
 }
@@ -299,7 +299,7 @@ type Bool struct {
 
 #### (*Bool) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=26)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Bool) CompareAndSwap(old, new bool) (swapped bool)
 ```
 
@@ -307,7 +307,7 @@ func (x *Bool) CompareAndSwap(old, new bool) (swapped bool)
 
 #### (*Bool) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=17)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Bool) Load() bool
 ```
 
@@ -315,7 +315,7 @@ func (x *Bool) Load() bool
 
 #### (*Bool) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=20)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Bool) Store(val bool)
 ```
 
@@ -323,7 +323,7 @@ func (x *Bool) Store(val bool)
 
 #### (*Bool) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=23)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Bool) Swap(new bool) (old bool)
 ```
 
@@ -331,7 +331,7 @@ func (x *Bool) Swap(new bool) (old bool)
 
 ### type [Int32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=68)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Int32 struct {
 	// contains filtered or unexported fields
 }
@@ -341,7 +341,7 @@ type Int32 struct {
 
 #### (*Int32) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=88)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int32) Add(delta int32) (new int32)
 ```
 
@@ -349,7 +349,7 @@ func (x *Int32) Add(delta int32) (new int32)
 
 #### (*Int32) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=83)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int32) CompareAndSwap(old, new int32) (swapped bool)
 ```
 
@@ -357,7 +357,7 @@ func (x *Int32) CompareAndSwap(old, new int32) (swapped bool)
 
 #### (*Int32) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=74)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int32) Load() int32
 ```
 
@@ -365,7 +365,7 @@ func (x *Int32) Load() int32
 
 #### (*Int32) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=77)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int32) Store(val int32)
 ```
 
@@ -373,7 +373,7 @@ func (x *Int32) Store(val int32)
 
 #### (*Int32) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=80)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int32) Swap(new int32) (old int32)
 ```
 
@@ -381,7 +381,7 @@ func (x *Int32) Swap(new int32) (old int32)
 
 ### type [Int64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=91)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Int64 struct {
 	// contains filtered or unexported fields
 }
@@ -391,7 +391,7 @@ type Int64 struct {
 
 #### (*Int64) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=112)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int64) Add(delta int64) (new int64)
 ```
 
@@ -399,7 +399,7 @@ func (x *Int64) Add(delta int64) (new int64)
 
 #### (*Int64) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=107)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int64) CompareAndSwap(old, new int64) (swapped bool)
 ```
 
@@ -407,7 +407,7 @@ func (x *Int64) CompareAndSwap(old, new int64) (swapped bool)
 
 #### (*Int64) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=98)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int64) Load() int64
 ```
 
@@ -415,7 +415,7 @@ func (x *Int64) Load() int64
 
 #### (*Int64) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=101)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int64) Store(val int64)
 ```
 
@@ -423,7 +423,7 @@ func (x *Int64) Store(val int64)
 
 #### (*Int64) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=104)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Int64) Swap(new int64) (old int64)
 ```
 
@@ -431,7 +431,7 @@ func (x *Int64) Swap(new int64) (old int64)
 
 ### type [Pointer](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=43)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Pointer[T any] struct {
 	// contains filtered or unexported fields
 }
@@ -441,7 +441,7 @@ type Pointer[T any] struct {
 
 #### (*Pointer[T]) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=63)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Pointer[T]) CompareAndSwap(old, new *T) (swapped bool)
 ```
 
@@ -449,7 +449,7 @@ func (x *Pointer[T]) CompareAndSwap(old, new *T) (swapped bool)
 
 #### (*Pointer[T]) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=54)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Pointer[T]) Load() *T
 ```
 
@@ -457,7 +457,7 @@ func (x *Pointer[T]) Load() *T
 
 #### (*Pointer[T]) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=57)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Pointer[T]) Store(val *T)
 ```
 
@@ -465,7 +465,7 @@ func (x *Pointer[T]) Store(val *T)
 
 #### (*Pointer[T]) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=60)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Pointer[T]) Swap(new *T) (old *T)
 ```
 
@@ -473,7 +473,7 @@ func (x *Pointer[T]) Swap(new *T) (old *T)
 
 ### type [Uint32](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=115)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Uint32 struct {
 	// contains filtered or unexported fields
 }
@@ -483,7 +483,7 @@ type Uint32 struct {
 
 #### (*Uint32) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=135)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint32) Add(delta uint32) (new uint32)
 ```
 
@@ -491,7 +491,7 @@ func (x *Uint32) Add(delta uint32) (new uint32)
 
 #### (*Uint32) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=130)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint32) CompareAndSwap(old, new uint32) (swapped bool)
 ```
 
@@ -499,7 +499,7 @@ func (x *Uint32) CompareAndSwap(old, new uint32) (swapped bool)
 
 #### (*Uint32) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=121)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint32) Load() uint32
 ```
 
@@ -507,7 +507,7 @@ func (x *Uint32) Load() uint32
 
 #### (*Uint32) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=124)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint32) Store(val uint32)
 ```
 
@@ -515,7 +515,7 @@ func (x *Uint32) Store(val uint32)
 
 #### (*Uint32) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=127)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint32) Swap(new uint32) (old uint32)
 ```
 
@@ -523,7 +523,7 @@ func (x *Uint32) Swap(new uint32) (old uint32)
 
 ### type [Uint64](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=138)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Uint64 struct {
 	// contains filtered or unexported fields
 }
@@ -533,7 +533,7 @@ type Uint64 struct {
 
 #### (*Uint64) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=159)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint64) Add(delta uint64) (new uint64)
 ```
 
@@ -541,7 +541,7 @@ func (x *Uint64) Add(delta uint64) (new uint64)
 
 #### (*Uint64) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=154)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint64) CompareAndSwap(old, new uint64) (swapped bool)
 ```
 
@@ -549,7 +549,7 @@ func (x *Uint64) CompareAndSwap(old, new uint64) (swapped bool)
 
 #### (*Uint64) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=145)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint64) Load() uint64
 ```
 
@@ -557,7 +557,7 @@ func (x *Uint64) Load() uint64
 
 #### (*Uint64) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=148)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint64) Store(val uint64)
 ```
 
@@ -565,7 +565,7 @@ func (x *Uint64) Store(val uint64)
 
 #### (*Uint64) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=151)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uint64) Swap(new uint64) (old uint64)
 ```
 
@@ -573,7 +573,7 @@ func (x *Uint64) Swap(new uint64) (old uint64)
 
 ### type [Uintptr](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=162)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type Uintptr struct {
 	// contains filtered or unexported fields
 }
@@ -583,7 +583,7 @@ type Uintptr struct {
 
 #### (*Uintptr) [Add](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=182)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uintptr) Add(delta uintptr) (new uintptr)
 ```
 
@@ -591,7 +591,7 @@ func (x *Uintptr) Add(delta uintptr) (new uintptr)
 
 #### (*Uintptr) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=177)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uintptr) CompareAndSwap(old, new uintptr) (swapped bool)
 ```
 
@@ -599,7 +599,7 @@ func (x *Uintptr) CompareAndSwap(old, new uintptr) (swapped bool)
 
 #### (*Uintptr) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=168)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uintptr) Load() uintptr
 ```
 
@@ -607,7 +607,7 @@ func (x *Uintptr) Load() uintptr
 
 #### (*Uintptr) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=171)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uintptr) Store(val uintptr)
 ```
 
@@ -615,7 +615,7 @@ func (x *Uintptr) Store(val uintptr)
 
 #### (*Uintptr) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/type.go;l=174)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (x *Uintptr) Swap(new uintptr) (old uintptr)
 ```
 
@@ -623,7 +623,7 @@ func (x *Uintptr) Swap(new uintptr) (old uintptr)
 
 ### type [Value](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/value.go;l=16)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type Value struct {
 	// contains filtered or unexported fields
 }
@@ -637,7 +637,7 @@ type Value struct {
 
 The following example shows how to use Value for periodic program config updates and propagation of the changes to worker goroutines.
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -684,7 +684,7 @@ func main() {
 
 The following example shows how to maintain a scalable frequently read, but infrequently updated data structure using copy-on-write idiom.
 
-``` go linenums="1"
+``` go 
 package main
 
 import (
@@ -724,7 +724,7 @@ func main() {
 
 #### (*Value) [CompareAndSwap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/value.go;l=135)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (v *Value) CompareAndSwap(old, new any) (swapped bool)
 ```
 
@@ -734,7 +734,7 @@ CompareAndSwap方法为Value执行比较和交换操作。
 
 #### (*Value) [Load](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/value.go;l=28)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (v *Value) Load() (val any)
 ```
 
@@ -742,7 +742,7 @@ func (v *Value) Load() (val any)
 
 #### (*Value) [Store](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/value.go;l=47)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (v *Value) Store(val any)
 ```
 
@@ -750,7 +750,7 @@ func (v *Value) Store(val any)
 
 #### (*Value) [Swap](https://cs.opensource.google/go/go/+/go1.20.1:src/sync/atomic/value.go;l=90)  <- go1.17
 
-``` go linenums="1"
+``` go 
 func (v *Value) Swap(new any) (old any)
 ```
 

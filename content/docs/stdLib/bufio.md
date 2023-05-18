@@ -18,7 +18,7 @@ draft = false
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=75)
 
-``` go linenums="1"
+``` go 
 const (
 	// MaxScanTokenSize 是用于缓冲标记的最大大小，
     // 除非用户使用 Scanner.Buffer 提供显式缓冲区。
@@ -32,7 +32,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=22)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrInvalidUnreadByte = errors.New("bufio: invalid use of UnreadByte")
 	ErrInvalidUnreadRune = errors.New("bufio: invalid use of UnreadRune")
@@ -43,7 +43,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=68)
 
-``` go linenums="1"
+``` go 
 var (
 	ErrTooLong         = errors.New("bufio.Scanner: token too long")
 	ErrNegativeAdvance = errors.New("bufio.Scanner: SplitFunc returns negative advance count")
@@ -56,7 +56,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=124)
 
-``` go linenums="1"
+``` go 
 var ErrFinalToken = errors.New("final token")
 ```
 
@@ -66,7 +66,7 @@ var ErrFinalToken = errors.New("final token")
 
 #### func [ScanBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=289)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 ```
 
@@ -74,7 +74,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 #### func [ScanLines](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=350)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 ```
 
@@ -82,7 +82,7 @@ func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 #### func [ScanRunes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=304)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 ```
 
@@ -90,7 +90,7 @@ func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 #### func [ScanWords](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=395)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 ```
 
@@ -100,7 +100,7 @@ func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ### type [ReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=820) 
 
-``` go linenums="1"
+``` go 
 type ReadWriter struct {
 	*Reader
 	*Writer
@@ -111,7 +111,7 @@ type ReadWriter struct {
 
 #### func [NewReadWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=826) 
 
-``` go linenums="1"
+``` go 
 func NewReadWriter(r *Reader, w *Writer) *ReadWriter
 ```
 
@@ -119,7 +119,7 @@ func NewReadWriter(r *Reader, w *Writer) *ReadWriter
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=32) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -129,7 +129,7 @@ type Reader struct {
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=62) 
 
-``` go linenums="1"
+``` go 
 func NewReader(rd io.Reader) *Reader
 ```
 
@@ -137,7 +137,7 @@ func NewReader(rd io.Reader) *Reader
 
 #### func [NewReaderSize](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=47) 
 
-``` go linenums="1"
+``` go 
 func NewReaderSize(rd io.Reader, size int) *Reader
 ```
 
@@ -145,7 +145,7 @@ func NewReaderSize(rd io.Reader, size int) *Reader
 
 ####  (*Reader) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=331) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Buffered() int
 ```
 
@@ -153,7 +153,7 @@ func (b *Reader) Buffered() int
 
 ####  (*Reader) [Discard](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=169)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Discard(n int) (discarded int, err error)
 ```
 
@@ -161,7 +161,7 @@ func (b *Reader) Discard(n int) (discarded int, err error)
 
 ####  (*Reader) [Peek](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Peek(n int) ([]byte, error)
 ```
 
@@ -169,7 +169,7 @@ func (b *Reader) Peek(n int) ([]byte, error)
 
 ####  (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=208) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Read(p []byte) (n int, err error)
 ```
 
@@ -177,7 +177,7 @@ func (b *Reader) Read(p []byte) (n int, err error)
 
 ####  (*Reader) [ReadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=259) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadByte() (byte, error)
 ```
 
@@ -185,7 +185,7 @@ func (b *Reader) ReadByte() (byte, error)
 
 ####  (*Reader) [ReadBytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=473) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadBytes(delim byte) ([]byte, error)
 ```
 
@@ -193,7 +193,7 @@ func (b *Reader) ReadBytes(delim byte) ([]byte, error)
 
 ####  (*Reader) [ReadLine](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=400) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 ```
 
@@ -205,7 +205,7 @@ func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 
 ####  (*Reader) [ReadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=298) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadRune() (r rune, size int, err error)
 ```
 
@@ -213,7 +213,7 @@ func (b *Reader) ReadRune() (r rune, size int, err error)
 
 ##### ReadRune Example
 
-```go linenums="1"
+```go 
 package bufio_test
 
 import (
@@ -241,7 +241,7 @@ func TestReaderReadRune(t *testing.T) {
 
 ####  (*Reader) [ReadSlice](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=343) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
 ```
 
@@ -249,7 +249,7 @@ func (b *Reader) ReadSlice(delim byte) (line []byte, err error)
 
 ##### ReadSlice Example
 
-```go linenums="1"
+```go 
 package bufio_test
 
 import (
@@ -288,7 +288,7 @@ func TestReaderReadSlice(t *testing.T) {
 
 ####  (*Reader) [ReadString](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=493) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) ReadString(delim byte) (string, error)
 ```
 
@@ -296,7 +296,7 @@ func (b *Reader) ReadString(delim byte) (string, error)
 
 ####  (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=73)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Reset(r io.Reader)
 ```
 
@@ -304,7 +304,7 @@ func (b *Reader) Reset(r io.Reader)
 
 ####  (*Reader) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=67)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Reader) Size() int
 ```
 
@@ -312,7 +312,7 @@ func (b *Reader) Size() int
 
 ####  (*Reader) [UnreadByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=278) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) UnreadByte() error
 ```
 
@@ -322,7 +322,7 @@ func (b *Reader) UnreadByte() error
 
 ##### UnreadByte Example 
 
-```go linenums="1"
+```go 
 func TestReaderUnReadByte(t *testing.T) {
 	input := "Hello, World!"
 	r := bufio.NewReader(strings.NewReader(input))
@@ -352,7 +352,7 @@ func TestReaderUnReadByte(t *testing.T) {
 
 ####  (*Reader) [UnreadRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=320) 
 
-``` go linenums="1"
+``` go 
 func (b *Reader) UnreadRune() error
 ```
 
@@ -360,7 +360,7 @@ func (b *Reader) UnreadRune() error
 
 ####  (*Reader) [WriteTo](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=510)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (b *Reader) WriteTo(w io.Writer) (n int64, err error)
 ```
 
@@ -368,7 +368,7 @@ func (b *Reader) WriteTo(w io.Writer) (n int64, err error)
 
 ### type [Scanner](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=29)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type Scanner struct {
 	r            io.Reader // 客户端提供的读取器。
 	split        SplitFunc // 用于分割标记的函数。
@@ -396,7 +396,7 @@ type Scanner struct {
 
 ​	使用自定义的分割函数(通过封装ScanWords)和Scanner一起验证32位十进制输入。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -440,7 +440,7 @@ Invalid input: strconv.ParseInt: parsing "1234567901234567890": value out of ran
 
 ​	使用自定义的分割函数和Scanner解析逗号分隔的列表，其中包含一个空的最后一个值。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -486,7 +486,7 @@ func main() {
 
 ​	最简单的Scanner用法，将标准输入读取为一组行。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -515,7 +515,7 @@ Use a Scanner to implement a simple word-count utility by scanning the input as 
 
 使用Scanner实现一个简单的单词计数实用程序，通过将输入作为一系列以空格分隔的标记进行扫描。
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -548,7 +548,7 @@ func main() {
 
 #### func [NewScanner](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=87)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func NewScanner(r io.Reader) *Scanner
 ```
 
@@ -556,7 +556,7 @@ func NewScanner(r io.Reader) *Scanner
 
 ####  (*Scanner) [Buffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=267)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Buffer(buf []byte, max int)
 ```
 
@@ -568,7 +568,7 @@ func (s *Scanner) Buffer(buf []byte, max int)
 
 ####  (*Scanner) [Bytes](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=106)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Bytes() []byte
 ```
 
@@ -576,7 +576,7 @@ func (s *Scanner) Bytes() []byte
 
 ##### Bytes Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -602,7 +602,7 @@ true
 
 ####  (*Scanner) [Err](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=96)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Err() error
 ```
 
@@ -610,7 +610,7 @@ func (s *Scanner) Err() error
 
 ####  (*Scanner) [Scan](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=135)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Scan() bool
 ```
 
@@ -618,7 +618,7 @@ func (s *Scanner) Scan() bool
 
 ####  (*Scanner) [Split](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=279)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Split(split SplitFunc)
 ```
 
@@ -628,7 +628,7 @@ func (s *Scanner) Split(split SplitFunc)
 
 ####  (*Scanner) [Text](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=112)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (s *Scanner) Text() string
 ```
 
@@ -636,7 +636,7 @@ func (s *Scanner) Text() string
 
 ### type [SplitFunc](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=65)  <- go1.1
 
-``` go linenums="1"
+``` go 
 type SplitFunc func(data []byte, atEOF bool) (advance int, token []byte, err error)
 ```
 
@@ -650,7 +650,7 @@ type SplitFunc func(data []byte, atEOF bool) (advance int, token []byte, err err
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=572) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -660,7 +660,7 @@ type Writer struct {
 
 ##### Writer Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -682,7 +682,7 @@ Hello, world!
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=600) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -690,7 +690,7 @@ func NewWriter(w io.Writer) *Writer
 
 #### func [NewWriterSize](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=582) 
 
-``` go linenums="1"
+``` go 
 func NewWriterSize(w io.Writer, size int) *Writer
 ```
 
@@ -698,7 +698,7 @@ func NewWriterSize(w io.Writer, size int) *Writer
 
 ####  (*Writer) [Available](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=645) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Available() int
 ```
 
@@ -706,7 +706,7 @@ func (b *Writer) Available() int
 
 ####  (*Writer) [AvailableBuffer](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=651)  <- go1.18
 
-``` go linenums="1"
+``` go 
 func (b *Writer) AvailableBuffer() []byte
 ```
 
@@ -714,7 +714,7 @@ func (b *Writer) AvailableBuffer() []byte
 
 ##### AvailableBuffer Example
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -742,7 +742,7 @@ Output:
 
 ####  (*Writer) [Buffered](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=656) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Buffered() int
 ```
 
@@ -750,7 +750,7 @@ func (b *Writer) Buffered() int
 
 ####  (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=621) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Flush() error
 ```
 
@@ -758,7 +758,7 @@ func (b *Writer) Flush() error
 
 ####  (*Writer) [ReadFrom](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=770)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (b *Writer) ReadFrom(r io.Reader) (n int64, err error)
 ```
 
@@ -766,7 +766,7 @@ func (b *Writer) ReadFrom(r io.Reader) (n int64, err error)
 
 ####  (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=611)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Reset(w io.Writer)
 ```
 
@@ -774,7 +774,7 @@ func (b *Writer) Reset(w io.Writer)
 
 ####  (*Writer) [Size](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=605)  <- go1.10
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Size() int
 ```
 
@@ -782,7 +782,7 @@ func (b *Writer) Size() int
 
 ####  (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=662) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) Write(p []byte) (nn int, err error)
 ```
 
@@ -790,7 +790,7 @@ func (b *Writer) Write(p []byte) (nn int, err error)
 
 ####  (*Writer) [WriteByte](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=687) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) WriteByte(c byte) error
 ```
 
@@ -798,7 +798,7 @@ func (b *Writer) WriteByte(c byte) error
 
 ####  (*Writer) [WriteRune](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=701) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) WriteRune(r rune) (size int, err error)
 ```
 
@@ -806,7 +806,7 @@ func (b *Writer) WriteRune(r rune) (size int, err error)
 
 ####  (*Writer) [WriteString](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/bufio.go;l=733) 
 
-``` go linenums="1"
+``` go 
 func (b *Writer) WriteString(s string) (int, error)
 ```
 

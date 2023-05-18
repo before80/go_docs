@@ -29,7 +29,7 @@ significant-byte first (network) order.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/adler32/adler32.go;l=31)
 
-``` go linenums="1"
+``` go 
 const Size = 4
 ```
 
@@ -43,7 +43,7 @@ This section is empty.
 
 #### func [Checksum](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/adler32/adler32.go;l=135) 
 
-``` go linenums="1"
+``` go 
 func Checksum(data []byte) uint32
 ```
 
@@ -51,7 +51,7 @@ Checksum returns the Adler-32 checksum of data.
 
 #### func [New](https://cs.opensource.google/go/go/+/go1.20.1:src/hash/adler32/adler32.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func New() hash.Hash32
 ```
 

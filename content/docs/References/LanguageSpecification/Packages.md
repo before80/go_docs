@@ -31,7 +31,7 @@ PackageName    = identifier .
 
 `PackageName（包名）`不能是[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier)。
 
-```go linenums="1"
+```go 
 package math
 ```
 
@@ -76,7 +76,7 @@ import _ "lib/math"
 
 下面是一个完整的Go包，它实现了一个并发素数筛选。
 
-```go linenums="1"
+```go 
 package main
 
 import "fmt"

@@ -25,7 +25,7 @@ This package is not designed to be hardened against adversarial inputs, and is o
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=54)
 
-``` go linenums="1"
+``` go 
 const (
 	EI_CLASS      = 4  /* Class of machine. */
 	EI_DATA       = 5  /* Data format. */
@@ -41,7 +41,7 @@ Indexes into the Header.Ident array.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3232)
 
-``` go linenums="1"
+``` go 
 const ARM_MAGIC_TRAMP_NUMBER = 0x5c000003
 ```
 
@@ -49,7 +49,7 @@ Magic number for the elf trampoline, chosen wisely to be an immediate value.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=65)
 
-``` go linenums="1"
+``` go 
 const ELFMAG = "\177ELF"
 ```
 
@@ -57,13 +57,13 @@ Initial magic number for ELF files.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3322)
 
-``` go linenums="1"
+``` go 
 const Sym32Size = 16
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3424)
 
-``` go linenums="1"
+``` go 
 const Sym64Size = 24
 ```
 
@@ -71,7 +71,7 @@ const Sym64Size = 24
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=599)
 
-``` go linenums="1"
+``` go 
 var ErrNoSymbols = errors.New("no symbol section")
 ```
 
@@ -81,43 +81,43 @@ ErrNoSymbols is returned by File.Symbols and File.DynamicSymbols if there is no 
 
 #### func [R_INFO](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3412) 
 
-``` go linenums="1"
+``` go 
 func R_INFO(sym, typ uint32) uint64
 ```
 
 #### func [R_INFO32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3310) 
 
-``` go linenums="1"
+``` go 
 func R_INFO32(sym, typ uint32) uint32
 ```
 
 #### func [R_SYM32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3308) 
 
-``` go linenums="1"
+``` go 
 func R_SYM32(info uint32) uint32
 ```
 
 #### func [R_SYM64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3410) 
 
-``` go linenums="1"
+``` go 
 func R_SYM64(info uint64) uint32
 ```
 
 #### func [R_TYPE32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3309) 
 
-``` go linenums="1"
+``` go 
 func R_TYPE32(info uint32) uint32
 ```
 
 #### func [R_TYPE64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3411) 
 
-``` go linenums="1"
+``` go 
 func R_TYPE64(info uint64) uint32
 ```
 
 #### func [ST_INFO](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3326) 
 
-``` go linenums="1"
+``` go 
 func ST_INFO(bind SymBind, typ SymType) uint8
 ```
 
@@ -125,7 +125,7 @@ func ST_INFO(bind SymBind, typ SymType) uint8
 
 ### type [Chdr32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3285)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type Chdr32 struct {
 	Type      uint32
 	Size      uint32
@@ -137,7 +137,7 @@ ELF32 Compression header.
 
 ### type [Chdr64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3386)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type Chdr64 struct {
 	Type uint32
 
@@ -151,13 +151,13 @@ ELF64 Compression header.
 
 ### type [Class](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=84) 
 
-``` go linenums="1"
+``` go 
 type Class byte
 ```
 
 Class is found in Header.Ident[EI_CLASS] and Header.Class.
 
-``` go linenums="1"
+``` go 
 const (
 	ELFCLASSNONE Class = 0 /* Unknown class. */
 	ELFCLASS32   Class = 1 /* 32-bit architecture. */
@@ -167,25 +167,25 @@ const (
 
 #### (Class) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=99) 
 
-``` go linenums="1"
+``` go 
 func (i Class) GoString() string
 ```
 
 #### (Class) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=98) 
 
-``` go linenums="1"
+``` go 
 func (i Class) String() string
 ```
 
 ### type [CompressionType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=727)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type CompressionType int
 ```
 
 Section compression type.
 
-``` go linenums="1"
+``` go 
 const (
 	COMPRESS_ZLIB   CompressionType = 1          /* ZLIB compression. */
 	COMPRESS_LOOS   CompressionType = 0x60000000 /* First OS-specific. */
@@ -197,25 +197,25 @@ const (
 
 #### (CompressionType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=746)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (i CompressionType) GoString() string
 ```
 
 #### (CompressionType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=745)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (i CompressionType) String() string
 ```
 
 ### type [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=102) 
 
-``` go linenums="1"
+``` go 
 type Data byte
 ```
 
 Data is found in Header.Ident[EI_DATA] and Header.Data.
 
-``` go linenums="1"
+``` go 
 const (
 	ELFDATANONE Data = 0 /* Unknown data format. */
 	ELFDATA2LSB Data = 1 /* 2's complement little-endian. */
@@ -225,19 +225,19 @@ const (
 
 #### (Data) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (i Data) GoString() string
 ```
 
 #### (Data) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=116) 
 
-``` go linenums="1"
+``` go 
 func (i Data) String() string
 ```
 
 ### type [Dyn32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3279) 
 
-``` go linenums="1"
+``` go 
 type Dyn32 struct {
 	Tag int32  /* Entry type. */
 	Val uint32 /* Integer/Address value. */
@@ -248,7 +248,7 @@ ELF32 Dynamic structure. The ".dynamic" section contains an array of them.
 
 ### type [Dyn64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3380) 
 
-``` go linenums="1"
+``` go 
 type Dyn64 struct {
 	Tag int64  /* Entry type. */
 	Val uint64 /* Integer/address value */
@@ -259,13 +259,13 @@ ELF64 Dynamic structure. The ".dynamic" section contains an array of them.
 
 ### type [DynFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1082) 
 
-``` go linenums="1"
+``` go 
 type DynFlag int
 ```
 
 DT_FLAGS values.
 
-``` go linenums="1"
+``` go 
 const (
 	DF_ORIGIN DynFlag = 0x0001 /* Indicates that the object being loaded may
 	   make reference to the
@@ -284,25 +284,25 @@ const (
 
 #### (DynFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1108) 
 
-``` go linenums="1"
+``` go 
 func (i DynFlag) GoString() string
 ```
 
 #### (DynFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1107) 
 
-``` go linenums="1"
+``` go 
 func (i DynFlag) String() string
 ```
 
 ### type [DynTag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=849) 
 
-``` go linenums="1"
+``` go 
 type DynTag int
 ```
 
 Dyn.Tag
 
-``` go linenums="1"
+``` go 
 const (
 	DT_NULL         DynTag = 0  /* Terminating entry. */
 	DT_NEEDED       DynTag = 1  /* String table offset of a needed shared library. */
@@ -453,19 +453,19 @@ const (
 
 #### (DynTag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1079) 
 
-``` go linenums="1"
+``` go 
 func (i DynTag) GoString() string
 ```
 
 #### (DynTag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1078) 
 
-``` go linenums="1"
+``` go 
 func (i DynTag) String() string
 ```
 
 ### type [File](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=62) 
 
-``` go linenums="1"
+``` go 
 type File struct {
 	FileHeader
 	Sections []*Section
@@ -478,7 +478,7 @@ A File represents an open ELF file.
 
 #### func [NewFile](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=257) 
 
-``` go linenums="1"
+``` go 
 func NewFile(r io.ReaderAt) (*File, error)
 ```
 
@@ -486,7 +486,7 @@ NewFile creates a new File for accessing an ELF binary in an underlying reader. 
 
 #### func [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=218) 
 
-``` go linenums="1"
+``` go 
 func Open(name string) (*File, error)
 ```
 
@@ -494,7 +494,7 @@ Open opens the named file using os.Open and prepares it for use as an ELF binary
 
 #### (*File) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=235) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Close() error
 ```
 
@@ -502,13 +502,13 @@ Close closes the File. If the File was created using NewFile directly instead of
 
 #### (*File) [DWARF](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1293) 
 
-``` go linenums="1"
+``` go 
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
 #### (*File) [DynString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1602)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (f *File) DynString(tag DynTag) ([]string, error)
 ```
 
@@ -518,7 +518,7 @@ The tag must be one that takes string values: DT_NEEDED, DT_SONAME, DT_RPATH, or
 
 #### (*File) [DynamicSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1450)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (f *File) DynamicSymbols() ([]Symbol, error)
 ```
 
@@ -530,7 +530,7 @@ For compatibility with Symbols, DynamicSymbols omits the null symbol at index 0.
 
 #### (*File) [ImportedLibraries](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1593) 
 
-``` go linenums="1"
+``` go 
 func (f *File) ImportedLibraries() ([]string, error)
 ```
 
@@ -538,7 +538,7 @@ ImportedLibraries returns the names of all libraries referred to by the binary f
 
 #### (*File) [ImportedSymbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1473) 
 
-``` go linenums="1"
+``` go 
 func (f *File) ImportedSymbols() ([]ImportedSymbol, error)
 ```
 
@@ -546,7 +546,7 @@ ImportedSymbols returns the names of all symbols referred to by the binary f tha
 
 #### (*File) [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=703) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Section(name string) *Section
 ```
 
@@ -554,7 +554,7 @@ Section returns a section with the given name, or nil if no such section exists.
 
 #### (*File) [SectionByType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (f *File) SectionByType(typ SectionType) *Section
 ```
 
@@ -562,7 +562,7 @@ SectionByType returns the first section in f with the given type, or nil if ther
 
 #### (*File) [Symbols](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1436) 
 
-``` go linenums="1"
+``` go 
 func (f *File) Symbols() ([]Symbol, error)
 ```
 
@@ -572,7 +572,7 @@ For compatibility with Go 1.0, Symbols omits the null symbol at index 0. After r
 
 ### type [FileHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=49) 
 
-``` go linenums="1"
+``` go 
 type FileHeader struct {
 	Class      Class
 	Data       Data
@@ -590,7 +590,7 @@ A FileHeader represents an ELF file header.
 
 ### type [FormatError](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=202) 
 
-``` go linenums="1"
+``` go 
 type FormatError struct {
 	// contains filtered or unexported fields
 }
@@ -598,13 +598,13 @@ type FormatError struct {
 
 #### (*FormatError) [Error](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=208) 
 
-``` go linenums="1"
+``` go 
 func (e *FormatError) Error() string
 ```
 
 ### type [Header32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3235) 
 
-``` go linenums="1"
+``` go 
 type Header32 struct {
 	Ident     [EI_NIDENT]byte /* File identification. */
 	Type      uint16          /* File type. */
@@ -627,7 +627,7 @@ ELF32 File header.
 
 ### type [Header64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3336) 
 
-``` go linenums="1"
+``` go 
 type Header64 struct {
 	Ident     [EI_NIDENT]byte /* File identification. */
 	Type      uint16          /* File type. */
@@ -650,7 +650,7 @@ ELF64 file header.
 
 ### type [ImportedSymbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=1463) 
 
-``` go linenums="1"
+``` go 
 type ImportedSymbol struct {
 	Name    string
 	Version string
@@ -660,13 +660,13 @@ type ImportedSymbol struct {
 
 ### type [Machine](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=202) 
 
-``` go linenums="1"
+``` go 
 type Machine uint16
 ```
 
 Machine is found in Header.Machine.
 
-``` go linenums="1"
+``` go 
 const (
 	EM_NONE          Machine = 0   /* Unknown machine. */
 	EM_M32           Machine = 1   /* AT&T WE32100. */
@@ -862,25 +862,25 @@ const (
 
 #### (Machine) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=589) 
 
-``` go linenums="1"
+``` go 
 func (i Machine) GoString() string
 ```
 
 #### (Machine) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=588) 
 
-``` go linenums="1"
+``` go 
 func (i Machine) String() string
 ```
 
 ### type [NType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1111) 
 
-``` go linenums="1"
+``` go 
 type NType int
 ```
 
 NType values; used in core files.
 
-``` go linenums="1"
+``` go 
 const (
 	NT_PRSTATUS NType = 1 /* Process status. */
 	NT_FPREGSET NType = 2 /* Floating point registers. */
@@ -890,25 +890,25 @@ const (
 
 #### (NType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1126) 
 
-``` go linenums="1"
+``` go 
 func (i NType) GoString() string
 ```
 
 #### (NType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1125) 
 
-``` go linenums="1"
+``` go 
 func (i NType) String() string
 ```
 
 ### type [OSABI](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=120) 
 
-``` go linenums="1"
+``` go 
 type OSABI byte
 ```
 
 OSABI is found in Header.Ident[EI_OSABI] and Header.OSABI.
 
-``` go linenums="1"
+``` go 
 const (
 	ELFOSABI_NONE       OSABI = 0   /* UNIX System V ABI */
 	ELFOSABI_HPUX       OSABI = 1   /* HP-UX operating system */
@@ -935,19 +935,19 @@ const (
 
 #### (OSABI) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=169) 
 
-``` go linenums="1"
+``` go 
 func (i OSABI) GoString() string
 ```
 
 #### (OSABI) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=168) 
 
-``` go linenums="1"
+``` go 
 func (i OSABI) String() string
 ```
 
 ### type [Prog](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=169) 
 
-``` go linenums="1"
+``` go 
 type Prog struct {
 	ProgHeader
 
@@ -966,7 +966,7 @@ A Prog represents a single ELF program header in an ELF binary.
 
 #### (*Prog) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=183) 
 
-``` go linenums="1"
+``` go 
 func (p *Prog) Open() io.ReadSeeker
 ```
 
@@ -974,7 +974,7 @@ Open returns a new ReadSeeker reading the ELF program body.
 
 ### type [Prog32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3267) 
 
-``` go linenums="1"
+``` go 
 type Prog32 struct {
 	Type   uint32 /* Entry type. */
 	Off    uint32 /* File offset of contents. */
@@ -991,7 +991,7 @@ ELF32 Program header.
 
 ### type [Prog64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3368) 
 
-``` go linenums="1"
+``` go 
 type Prog64 struct {
 	Type   uint32 /* Entry type. */
 	Flags  uint32 /* Access permission flags. */
@@ -1008,13 +1008,13 @@ ELF64 Program header.
 
 ### type [ProgFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=829) 
 
-``` go linenums="1"
+``` go 
 type ProgFlag uint32
 ```
 
 Prog.Flag
 
-``` go linenums="1"
+``` go 
 const (
 	PF_X        ProgFlag = 0x1        /* Executable. */
 	PF_W        ProgFlag = 0x2        /* Writable. */
@@ -1026,19 +1026,19 @@ const (
 
 #### (ProgFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=846) 
 
-``` go linenums="1"
+``` go 
 func (i ProgFlag) GoString() string
 ```
 
 #### (ProgFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=845) 
 
-``` go linenums="1"
+``` go 
 func (i ProgFlag) String() string
 ```
 
 ### type [ProgHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=157) 
 
-``` go linenums="1"
+``` go 
 type ProgHeader struct {
 	Type   ProgType
 	Flags  ProgFlag
@@ -1055,13 +1055,13 @@ A ProgHeader represents a single ELF program header.
 
 ### type [ProgType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=749) 
 
-``` go linenums="1"
+``` go 
 type ProgType int
 ```
 
 Prog.Type
 
-``` go linenums="1"
+``` go 
 const (
 	PT_NULL    ProgType = 0 /* Unused entry. */
 	PT_LOAD    ProgType = 1 /* Loadable segment. */
@@ -1113,25 +1113,25 @@ const (
 
 #### (ProgType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=826) 
 
-``` go linenums="1"
+``` go 
 func (i ProgType) GoString() string
 ```
 
 #### (ProgType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=825) 
 
-``` go linenums="1"
+``` go 
 func (i ProgType) String() string
 ```
 
 ### type [R_386](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1951) 
 
-``` go linenums="1"
+``` go 
 type R_386 int
 ```
 
 Relocation types for 386.
 
-``` go linenums="1"
+``` go 
 const (
 	R_386_NONE          R_386 = 0  /* No relocation. */
 	R_386_32            R_386 = 1  /* Add symbol value. */
@@ -1180,25 +1180,25 @@ const (
 
 #### (R_386) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2044) 
 
-``` go linenums="1"
+``` go 
 func (i R_386) GoString() string
 ```
 
 #### (R_386) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2043) 
 
-``` go linenums="1"
+``` go 
 func (i R_386) String() string
 ```
 
 ### type [R_390](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2974)  <- go1.7
 
-``` go linenums="1"
+``` go 
 type R_390 int
 ```
 
 Relocation types for s390x processors.
 
-``` go linenums="1"
+``` go 
 const (
 	R_390_NONE        R_390 = 0
 	R_390_8           R_390 = 1
@@ -1266,25 +1266,25 @@ const (
 
 #### (R_390) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3105)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (i R_390) GoString() string
 ```
 
 #### (R_390) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3104)  <- go1.7
 
-``` go linenums="1"
+``` go 
 func (i R_390) String() string
 ```
 
 ### type [R_AARCH64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1311)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type R_AARCH64 int
 ```
 
 Relocation types for AArch64 (aka arm64)
 
-``` go linenums="1"
+``` go 
 const (
 	R_AARCH64_NONE                            R_AARCH64 = 0
 	R_AARCH64_P32_ABS32                       R_AARCH64 = 1
@@ -1421,25 +1421,25 @@ const (
 
 #### (R_AARCH64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1580)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (i R_AARCH64) GoString() string
 ```
 
 #### (R_AARCH64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1579)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (i R_AARCH64) String() string
 ```
 
 ### type [R_ALPHA](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1583) 
 
-``` go linenums="1"
+``` go 
 type R_ALPHA int
 ```
 
 Relocation types for Alpha.
 
-``` go linenums="1"
+``` go 
 const (
 	R_ALPHA_NONE           R_ALPHA = 0  /* No reloc */
 	R_ALPHA_REFLONG        R_ALPHA = 1  /* Direct 32 bit */
@@ -1474,25 +1474,25 @@ const (
 
 #### (R_ALPHA) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1648) 
 
-``` go linenums="1"
+``` go 
 func (i R_ALPHA) GoString() string
 ```
 
 #### (R_ALPHA) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1647) 
 
-``` go linenums="1"
+``` go 
 func (i R_ALPHA) String() string
 ```
 
 ### type [R_ARM](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1651) 
 
-``` go linenums="1"
+``` go 
 type R_ARM int
 ```
 
 Relocation types for ARM.
 
-``` go linenums="1"
+``` go 
 const (
 	R_ARM_NONE               R_ARM = 0 /* No relocation. */
 	R_ARM_PC24               R_ARM = 1
@@ -1643,25 +1643,25 @@ const (
 
 #### (R_ARM) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1948) 
 
-``` go linenums="1"
+``` go 
 func (i R_ARM) GoString() string
 ```
 
 #### (R_ARM) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1947) 
 
-``` go linenums="1"
+``` go 
 func (i R_ARM) String() string
 ```
 
 ### type [R_LARCH](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2156)  <- go1.19
 
-``` go linenums="1"
+``` go 
 type R_LARCH int
 ```
 
 Relocation types for LoongArch.
 
-``` go linenums="1"
+``` go 
 const (
 	R_LARCH_NONE                       R_LARCH = 0
 	R_LARCH_32                         R_LARCH = 1
@@ -1757,25 +1757,25 @@ const (
 
 #### (R_LARCH) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2343)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (i R_LARCH) GoString() string
 ```
 
 #### (R_LARCH) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2342)  <- go1.19
 
-``` go linenums="1"
+``` go 
 func (i R_LARCH) String() string
 ```
 
 ### type [R_MIPS](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2047)  <- go1.6
 
-``` go linenums="1"
+``` go 
 type R_MIPS int
 ```
 
 Relocation types for MIPS.
 
-``` go linenums="1"
+``` go 
 const (
 	R_MIPS_NONE          R_MIPS = 0
 	R_MIPS_16            R_MIPS = 1
@@ -1831,19 +1831,19 @@ const (
 
 #### (R_MIPS) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2153)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (i R_MIPS) GoString() string
 ```
 
 #### (R_MIPS) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2152)  <- go1.6
 
-``` go linenums="1"
+``` go 
 func (i R_MIPS) String() string
 ```
 
 ### type [R_PPC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2351) 
 
-``` go linenums="1"
+``` go 
 type R_PPC int
 ```
 
@@ -1851,7 +1851,7 @@ Relocation types for PowerPC.
 
 Values that are shared by both R_PPC and R_PPC64 are prefixed with R_POWERPC_ in the ELF standard. For the R_PPC type, the relevant shared relocations have been renamed with the prefix R_PPC_. The original name follows the value in a comment.
 
-``` go linenums="1"
+``` go 
 const (
 	R_PPC_NONE            R_PPC = 0  // R_POWERPC_NONE
 	R_PPC_ADDR32          R_PPC = 1  // R_POWERPC_ADDR32
@@ -1935,19 +1935,19 @@ const (
 
 #### (R_PPC) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2514) 
 
-``` go linenums="1"
+``` go 
 func (i R_PPC) GoString() string
 ```
 
 #### (R_PPC) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2513) 
 
-``` go linenums="1"
+``` go 
 func (i R_PPC) String() string
 ```
 
 ### type [R_PPC64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2522)  <- go1.5
 
-``` go linenums="1"
+``` go 
 type R_PPC64 int
 ```
 
@@ -1955,7 +1955,7 @@ Relocation types for 64-bit PowerPC or Power Architecture processors.
 
 Values that are shared by both R_PPC and R_PPC64 are prefixed with R_POWERPC_ in the ELF standard. For the R_PPC64 type, the relevant shared relocations have been renamed with the prefix R_PPC64_. The original name follows the value in a comment.
 
-``` go linenums="1"
+``` go 
 const (
 	R_PPC64_NONE               R_PPC64 = 0  // R_POWERPC_NONE
 	R_PPC64_ADDR32             R_PPC64 = 1  // R_POWERPC_ADDR32
@@ -2122,25 +2122,25 @@ const (
 
 #### (R_PPC64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2851)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i R_PPC64) GoString() string
 ```
 
 #### (R_PPC64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2850)  <- go1.5
 
-``` go linenums="1"
+``` go 
 func (i R_PPC64) String() string
 ```
 
 ### type [R_RISCV](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2854)  <- go1.11
 
-``` go linenums="1"
+``` go 
 type R_RISCV int
 ```
 
 Relocation types for RISC-V processors.
 
-``` go linenums="1"
+``` go 
 const (
 	R_RISCV_NONE          R_RISCV = 0  /* No relocation. */
 	R_RISCV_32            R_RISCV = 1  /* Add 32 bit zero extended symbol value */
@@ -2201,25 +2201,25 @@ const (
 
 #### (R_RISCV) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2971)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (i R_RISCV) GoString() string
 ```
 
 #### (R_RISCV) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=2970)  <- go1.11
 
-``` go linenums="1"
+``` go 
 func (i R_RISCV) String() string
 ```
 
 ### type [R_SPARC](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3108) 
 
-``` go linenums="1"
+``` go 
 type R_SPARC int
 ```
 
 Relocation types for SPARC.
 
-``` go linenums="1"
+``` go 
 const (
 	R_SPARC_NONE     R_SPARC = 0
 	R_SPARC_8        R_SPARC = 1
@@ -2282,25 +2282,25 @@ const (
 
 #### (R_SPARC) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3229) 
 
-``` go linenums="1"
+``` go 
 func (i R_SPARC) GoString() string
 ```
 
 #### (R_SPARC) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3228) 
 
-``` go linenums="1"
+``` go 
 func (i R_SPARC) String() string
 ```
 
 ### type [R_X86_64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1213) 
 
-``` go linenums="1"
+``` go 
 type R_X86_64 int
 ```
 
 Relocation types for x86-64.
 
-``` go linenums="1"
+``` go 
 const (
 	R_X86_64_NONE            R_X86_64 = 0  /* No relocation. */
 	R_X86_64_64              R_X86_64 = 1  /* Add 64 bit symbol value. */
@@ -2350,19 +2350,19 @@ const (
 
 #### (R_X86_64) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1308) 
 
-``` go linenums="1"
+``` go 
 func (i R_X86_64) GoString() string
 ```
 
 #### (R_X86_64) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1307) 
 
-``` go linenums="1"
+``` go 
 func (i R_X86_64) String() string
 ```
 
 ### type [Rel32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3296) 
 
-``` go linenums="1"
+``` go 
 type Rel32 struct {
 	Off  uint32 /* Location to be relocated. */
 	Info uint32 /* Relocation type and symbol index. */
@@ -2373,7 +2373,7 @@ ELF32 Relocations that don't need an addend field.
 
 ### type [Rel64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3398) 
 
-``` go linenums="1"
+``` go 
 type Rel64 struct {
 	Off  uint64 /* Location to be relocated. */
 	Info uint64 /* Relocation type and symbol index. */
@@ -2384,7 +2384,7 @@ ELF64 relocations that don't need an addend field.
 
 ### type [Rela32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3302) 
 
-``` go linenums="1"
+``` go 
 type Rela32 struct {
 	Off    uint32 /* Location to be relocated. */
 	Info   uint32 /* Relocation type and symbol index. */
@@ -2396,7 +2396,7 @@ ELF32 Relocations that need an addend field.
 
 ### type [Rela64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3404) 
 
-``` go linenums="1"
+``` go 
 type Rela64 struct {
 	Off    uint64 /* Location to be relocated. */
 	Info   uint64 /* Relocation type and symbol index. */
@@ -2408,7 +2408,7 @@ ELF64 relocations that need an addend field.
 
 ### type [Section](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=92) 
 
-``` go linenums="1"
+``` go 
 type Section struct {
 	SectionHeader
 
@@ -2431,7 +2431,7 @@ A Section represents a single section in an ELF file.
 
 #### (*Section) [Data](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=117) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Data() ([]byte, error)
 ```
 
@@ -2441,7 +2441,7 @@ For an SHT_NOBITS section, Data always returns a non-nil error.
 
 #### (*Section) [Open](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=136) 
 
-``` go linenums="1"
+``` go 
 func (s *Section) Open() io.ReadSeeker
 ```
 
@@ -2451,7 +2451,7 @@ For an SHT_NOBITS section, all calls to the opened reader will return a non-nil 
 
 ### type [Section32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3253) 
 
-``` go linenums="1"
+``` go 
 type Section32 struct {
 	Name      uint32 /* Section name (index into the section header string table). */
 	Type      uint32 /* Section type. */
@@ -2470,7 +2470,7 @@ ELF32 Section header.
 
 ### type [Section64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3354) 
 
-``` go linenums="1"
+``` go 
 type Section64 struct {
 	Name      uint32 /* Section name (index into the section header string table). */
 	Type      uint32 /* Section type. */
@@ -2489,13 +2489,13 @@ ELF64 Section header.
 
 ### type [SectionFlag](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=691) 
 
-``` go linenums="1"
+``` go 
 type SectionFlag uint32
 ```
 
 Section flags.
 
-``` go linenums="1"
+``` go 
 const (
 	SHF_WRITE            SectionFlag = 0x1        /* Section contains writable data. */
 	SHF_ALLOC            SectionFlag = 0x2        /* Section occupies memory. */
@@ -2515,19 +2515,19 @@ const (
 
 #### (SectionFlag) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=724) 
 
-``` go linenums="1"
+``` go 
 func (i SectionFlag) GoString() string
 ```
 
 #### (SectionFlag) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=723) 
 
-``` go linenums="1"
+``` go 
 func (i SectionFlag) String() string
 ```
 
 ### type [SectionHeader](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=72) 
 
-``` go linenums="1"
+``` go 
 type SectionHeader struct {
 	Name      string
 	Type      SectionType
@@ -2552,13 +2552,13 @@ A SectionHeader represents a single ELF section header.
 
 ### type [SectionIndex](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=592) 
 
-``` go linenums="1"
+``` go 
 type SectionIndex int
 ```
 
 Special section indices.
 
-``` go linenums="1"
+``` go 
 const (
 	SHN_UNDEF     SectionIndex = 0      /* Undefined, missing, irrelevant. */
 	SHN_LORESERVE SectionIndex = 0xff00 /* First of reserved range. */
@@ -2575,25 +2575,25 @@ const (
 
 #### (SectionIndex) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=617) 
 
-``` go linenums="1"
+``` go 
 func (i SectionIndex) GoString() string
 ```
 
 #### (SectionIndex) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=616) 
 
-``` go linenums="1"
+``` go 
 func (i SectionIndex) String() string
 ```
 
 ### type [SectionType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=620) 
 
-``` go linenums="1"
+``` go 
 type SectionType uint32
 ```
 
 Section type.
 
-``` go linenums="1"
+``` go 
 const (
 	SHT_NULL           SectionType = 0          /* inactive */
 	SHT_PROGBITS       SectionType = 1          /* program defined information */
@@ -2630,19 +2630,19 @@ const (
 
 #### (SectionType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=688) 
 
-``` go linenums="1"
+``` go 
 func (i SectionType) GoString() string
 ```
 
 #### (SectionType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=687) 
 
-``` go linenums="1"
+``` go 
 func (i SectionType) String() string
 ```
 
 ### type [Sym32](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3313) 
 
-``` go linenums="1"
+``` go 
 type Sym32 struct {
 	Name  uint32
 	Value uint32
@@ -2657,7 +2657,7 @@ ELF32 Symbol.
 
 ### type [Sym64](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3415) 
 
-``` go linenums="1"
+``` go 
 type Sym64 struct {
 	Name  uint32 /* String table index of name. */
 	Info  uint8  /* Type and binding information. */
@@ -2672,13 +2672,13 @@ ELF64 symbol table entries.
 
 ### type [SymBind](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1129) 
 
-``` go linenums="1"
+``` go 
 type SymBind int
 ```
 
 Symbol Binding - ELFNN_ST_BIND - st_info
 
-``` go linenums="1"
+``` go 
 const (
 	STB_LOCAL  SymBind = 0  /* Local symbol */
 	STB_GLOBAL SymBind = 1  /* Global symbol */
@@ -2692,31 +2692,31 @@ const (
 
 #### func [ST_BIND](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3324) 
 
-``` go linenums="1"
+``` go 
 func ST_BIND(info uint8) SymBind
 ```
 
 #### (SymBind) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1152) 
 
-``` go linenums="1"
+``` go 
 func (i SymBind) GoString() string
 ```
 
 #### (SymBind) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1151) 
 
-``` go linenums="1"
+``` go 
 func (i SymBind) String() string
 ```
 
 ### type [SymType](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1155) 
 
-``` go linenums="1"
+``` go 
 type SymType int
 ```
 
 Symbol type - ELFNN_ST_TYPE - st_info
 
-``` go linenums="1"
+``` go 
 const (
 	STT_NOTYPE  SymType = 0  /* Unspecified type. */
 	STT_OBJECT  SymType = 1  /* Data object. */
@@ -2734,31 +2734,31 @@ const (
 
 #### func [ST_TYPE](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3325) 
 
-``` go linenums="1"
+``` go 
 func ST_TYPE(info uint8) SymType
 ```
 
 #### (SymType) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1186) 
 
-``` go linenums="1"
+``` go 
 func (i SymType) GoString() string
 ```
 
 #### (SymType) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1185) 
 
-``` go linenums="1"
+``` go 
 func (i SymType) String() string
 ```
 
 ### type [SymVis](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1189) 
 
-``` go linenums="1"
+``` go 
 type SymVis int
 ```
 
 Symbol visibility - ELFNN_ST_VISIBILITY - st_other
 
-``` go linenums="1"
+``` go 
 const (
 	STV_DEFAULT   SymVis = 0x0 /* Default visibility (see binding). */
 	STV_INTERNAL  SymVis = 0x1 /* Special meaning in relocatable objects. */
@@ -2769,25 +2769,25 @@ const (
 
 #### func [ST_VISIBILITY](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3329) 
 
-``` go linenums="1"
+``` go 
 func ST_VISIBILITY(other uint8) SymVis
 ```
 
 #### (SymVis) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1206) 
 
-``` go linenums="1"
+``` go 
 func (i SymVis) GoString() string
 ```
 
 #### (SymVis) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=1205) 
 
-``` go linenums="1"
+``` go 
 func (i SymVis) String() string
 ```
 
 ### type [Symbol](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/file.go;l=186) 
 
-``` go linenums="1"
+``` go 
 type Symbol struct {
 	Name        string
 	Info, Other byte
@@ -2805,13 +2805,13 @@ A Symbol represents an entry in an ELF symbol table section.
 
 ### type [Type](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=172) 
 
-``` go linenums="1"
+``` go 
 type Type uint16
 ```
 
 Type is found in Header.Type.
 
-``` go linenums="1"
+``` go 
 const (
 	ET_NONE   Type = 0      /* Unknown type. */
 	ET_REL    Type = 1      /* Relocatable. */
@@ -2827,25 +2827,25 @@ const (
 
 #### (Type) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=199) 
 
-``` go linenums="1"
+``` go 
 func (i Type) GoString() string
 ```
 
 #### (Type) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=198) 
 
-``` go linenums="1"
+``` go 
 func (i Type) String() string
 ```
 
 ### type [Version](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=68) 
 
-``` go linenums="1"
+``` go 
 type Version byte
 ```
 
 Version is found in Header.Ident[EI_VERSION] and Header.Version.
 
-``` go linenums="1"
+``` go 
 const (
 	EV_NONE    Version = 0
 	EV_CURRENT Version = 1
@@ -2854,12 +2854,12 @@ const (
 
 #### (Version) [GoString](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=81) 
 
-``` go linenums="1"
+``` go 
 func (i Version) GoString() string
 ```
 
 #### (Version) [String](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=80) 
 
-``` go linenums="1"
+``` go 
 func (i Version) String() string
 ```

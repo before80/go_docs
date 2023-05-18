@@ -32,7 +32,7 @@ This section is empty.
 
 #### func [Encode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=240) 
 
-``` go linenums="1"
+``` go 
 func Encode(out io.Writer, b *Block) error
 ```
 
@@ -41,12 +41,12 @@ Encode writes the PEM encoding of b to out.
 Encode将b的PEM编码写到out。
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [EncodeToMemory](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=310) 
 
-``` go linenums="1"
+``` go 
 func EncodeToMemory(b *Block) []byte
 ```
 
@@ -62,7 +62,7 @@ If b has invalid headers and cannot be encoded, EncodeToMemory returns nil. If i
 
 ### type [Block](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=29) 
 
-``` go linenums="1"
+``` go 
 type Block struct {
 	Type    string            // The type, taken from the preamble (i.e. "RSA PRIVATE KEY").// 类型，取自序言(即 "RSA PRIVATE KEY")。
 	Headers map[string]string // Optional headers.// 可选的头信息。
@@ -91,7 +91,7 @@ where Headers is a possibly empty sequence of Key: Value lines.
 
 #### func [Decode](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/pem/pem.go;l=89) 
 
-``` go linenums="1"
+``` go 
 func Decode(data []byte) (p *Block, rest []byte)
 ```
 
@@ -99,7 +99,7 @@ Decode will find the next PEM formatted block (certificate, private key etc) in 
 
 Decode将在输入中找到下一个PEM格式的块(证书、私钥等)。它返回该块和输入的剩余部分。如果没有找到PEM数据，p是nil，整个输入将被返回到rest中。
 
-``` go linenums="1"
+``` go 
 package main
 
 import (

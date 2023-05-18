@@ -16,7 +16,7 @@ Package zlib implements reading and writing of zlib format compressed data, as s
 
 The implementation provides filters that uncompress during reading and compress during writing. For example, to write compressed data to a buffer:
 
-``` go linenums="1"
+``` go 
 var b bytes.Buffer
 w := zlib.NewWriter(&b)
 w.Write([]byte("hello, world\n"))
@@ -42,7 +42,7 @@ r.Close()
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=18)
 
-``` go linenums="1"
+``` go 
 const (
 	NoCompression      = flate.NoCompression
 	BestSpeed          = flate.BestSpeed
@@ -58,7 +58,7 @@ These constants are copied from the flate package, so that code that imports "co
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=40)
 
-``` go linenums="1"
+``` go 
 var (
 	// ErrChecksum is returned when reading ZLIB data that has an invalid checksum.
 	ErrChecksum = errors.New("zlib: invalid checksum")
@@ -73,7 +73,7 @@ var (
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=73) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader) (io.ReadCloser, error)
 ```
 
@@ -82,12 +82,12 @@ NewReader creates a new ReadCloser. Reads from the returned ReadCloser read and 
 The ReadCloser returned by NewReader also implements Resetter.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewReaderDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=82) 
 
-``` go linenums="1"
+``` go 
 func NewReaderDict(r io.Reader, dict []byte) (io.ReadCloser, error)
 ```
 
@@ -99,7 +99,7 @@ The ReadCloser returned by NewReaderDict also implements Resetter.
 
 ### type [Resetter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/reader.go;l=60)  <- go1.4
 
-``` go linenums="1"
+``` go 
 type Resetter interface {
 	// Reset discards any buffered data and resets the Resetter as if it was
 	// newly initialized with the given reader.
@@ -111,7 +111,7 @@ Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	// contains filtered or unexported fields
 }
@@ -121,7 +121,7 @@ A Writer takes data written to it and writes the compressed form of that data to
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=44) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -130,12 +130,12 @@ NewWriter creates a new Writer. Writes to the returned Writer are compressed and
 It is the caller's responsibility to call Close on the Writer when done. Writes may be buffered and not flushed until Close.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### func [NewWriterLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=55) 
 
-``` go linenums="1"
+``` go 
 func NewWriterLevel(w io.Writer, level int) (*Writer, error)
 ```
 
@@ -145,7 +145,7 @@ The compression level can be DefaultCompression, NoCompression, HuffmanOnly or a
 
 #### func [NewWriterLevelDict](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=64) 
 
-``` go linenums="1"
+``` go 
 func NewWriterLevelDict(w io.Writer, level int, dict []byte) (*Writer, error)
 ```
 
@@ -155,7 +155,7 @@ The dictionary may be nil. If not, its contents should not be modified until the
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=177) 
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Close() error
 ```
 
@@ -163,7 +163,7 @@ Close closes the Writer, flushing any unwritten data to the underlying io.Writer
 
 #### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=164) 
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Flush() error
 ```
 
@@ -171,7 +171,7 @@ Flush flushes the Writer to its underlying io.Writer.
 
 #### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=78)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Reset(w io.Writer)
 ```
 
@@ -179,7 +179,7 @@ Reset clears the state of the Writer z such that it is equivalent to its initial
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/zlib/writer.go;l=144) 
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Write(p []byte) (n int, err error)
 ```
 

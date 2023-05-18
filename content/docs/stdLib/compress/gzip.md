@@ -15,11 +15,11 @@ https://pkg.go.dev/compress/gzip@go1.20.1
 Package gzip implements reading and writing of gzip format compressed files, as specified in [RFC 1952](https://rfc-editor.org/rfc/rfc1952.html).
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 
@@ -34,7 +34,7 @@ Package gzip implements reading and writing of gzip format compressed files, as 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=18)
 
-``` go linenums="1"
+``` go 
 const (
 	NoCompression      = flate.NoCompression
 	BestSpeed          = flate.BestSpeed
@@ -50,7 +50,7 @@ These constants are copied from the flate package, so that code that imports "co
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=30)
 
-``` go linenums="1"
+``` go 
 var (
 	// ErrChecksum is returned when reading GZIP data that has an invalid checksum.
 	ErrChecksum = errors.New("gzip: invalid checksum")
@@ -67,7 +67,7 @@ This section is empty.
 
 ### type [Header](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=52) 
 
-``` go linenums="1"
+``` go 
 type Header struct {
 	Comment string    // comment
 	Extra   []byte    // "extra data"
@@ -83,7 +83,7 @@ Strings must be UTF-8 encoded and may only contain Unicode code points U+0001 th
 
 ### type [Reader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=74) 
 
-``` go linenums="1"
+``` go 
 type Reader struct {
 	Header // valid after NewReader or Reader.Reset
 	// contains filtered or unexported fields
@@ -98,7 +98,7 @@ Gzip files store a length and checksum of the uncompressed data. The Reader will
 
 #### func [NewReader](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=92) 
 
-``` go linenums="1"
+``` go 
 func NewReader(r io.Reader) (*Reader, error)
 ```
 
@@ -110,7 +110,7 @@ The Reader.Header fields will be valid in the Reader returned.
 
 #### (*Reader) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=290) 
 
-``` go linenums="1"
+``` go 
 func (z *Reader) Close() error
 ```
 
@@ -118,7 +118,7 @@ Close closes the Reader. It does not close the underlying io.Reader. In order fo
 
 #### (*Reader) [Multistream](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=133)  <- go1.4
 
-``` go linenums="1"
+``` go 
 func (z *Reader) Multistream(ok bool)
 ```
 
@@ -129,12 +129,12 @@ If enabled (the default), the Reader expects the input to be a sequence of indiv
 Calling Multistream(false) disables this behavior; disabling the behavior can be useful when reading file formats that distinguish individual gzip data streams or mix gzip data streams with other data streams. In this mode, when the Reader reaches the end of the data stream, Read returns io.EOF. The underlying reader must implement io.ByteReader in order to be left positioned just after the gzip stream. To start the next stream, call z.Reset(r) followed by z.Multistream(false). If there is no next stream, z.Reset(r) will return io.EOF.
 
 ##### Example
-``` go linenums="1"
+``` go 
 ```
 
 #### (*Reader) [Read](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=246) 
 
-``` go linenums="1"
+``` go 
 func (z *Reader) Read(p []byte) (n int, err error)
 ```
 
@@ -142,7 +142,7 @@ Read implements io.Reader, reading uncompressed bytes from its underlying Reader
 
 #### (*Reader) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gunzip.go;l=103)  <- go1.3
 
-``` go linenums="1"
+``` go 
 func (z *Reader) Reset(r io.Reader) error
 ```
 
@@ -150,7 +150,7 @@ Reset discards the Reader z's state and makes it equivalent to the result of its
 
 ### type [Writer](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=28) 
 
-``` go linenums="1"
+``` go 
 type Writer struct {
 	Header // written at first call to Write, Flush, or Close
 	// contains filtered or unexported fields
@@ -161,7 +161,7 @@ A Writer is an io.WriteCloser. Writes to a Writer are compressed and written to 
 
 #### func [NewWriter](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=49) 
 
-``` go linenums="1"
+``` go 
 func NewWriter(w io.Writer) *Writer
 ```
 
@@ -173,7 +173,7 @@ Callers that wish to set the fields in Writer.Header must do so before the first
 
 #### func [NewWriterLevel](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=60) 
 
-``` go linenums="1"
+``` go 
 func NewWriterLevel(w io.Writer, level int) (*Writer, error)
 ```
 
@@ -183,7 +183,7 @@ The compression level can be DefaultCompression, NoCompression, HuffmanOnly or a
 
 #### (*Writer) [Close](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=228) 
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Close() error
 ```
 
@@ -191,7 +191,7 @@ Close closes the Writer by flushing any unwritten data to the underlying io.Writ
 
 #### (*Writer) [Flush](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=208)  <- go1.1
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Flush() error
 ```
 
@@ -203,7 +203,7 @@ In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.
 
 #### (*Writer) [Reset](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=88)  <- go1.2
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Reset(w io.Writer)
 ```
 
@@ -211,7 +211,7 @@ Reset discards the Writer z's state and makes it equivalent to the result of its
 
 #### (*Writer) [Write](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=139) 
 
-``` go linenums="1"
+``` go 
 func (z *Writer) Write(p []byte) (int, error)
 ```
 

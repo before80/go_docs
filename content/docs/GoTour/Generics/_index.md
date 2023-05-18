@@ -64,7 +64,7 @@ func main() {
 
 作为练习，为这个列表的实现添加一些功能。
 
-```go title="main.go" linenums="1"
+```go title="main.go" 
 package main
 
 // List represents a singly-linked list that holds
