@@ -1,12 +1,12 @@
 +++
-title = "Go CNA策略"
+title = "go CNA策略"
 weight = 3
 date = 2023-05-18T16:50:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Go CNA Policy - Go CNA策略
+# Go CNA Policy - go CNA策略
 
 [https://go.dev/security/vuln/cna](https://go.dev/security/vuln/cna)
 

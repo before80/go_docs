@@ -1,12 +1,12 @@
 +++
-title = "Go 1.5 Vendor Experiment"
+title = "go 1.5 Vendor Experiment"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Go 1.5 Vendor Experiment
+# go 1.5 Vendor Experiment
 
 > 原文：[https://go.googlesource.com/proposal/+/master/design/25719-go15vendor.md](https://go.googlesource.com/proposal/+/master/design/25719-go15vendor.md)
 

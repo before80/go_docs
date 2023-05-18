@@ -1,12 +1,12 @@
 +++
-title = "Go 1.3+ Compiler Overhaul"
+title = "go 1.3+ Compiler Overhaul"
 weight = 5
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# **Go 1.3+ Compiler Overhaul**
+# **go 1.3+ Compiler Overhaul**
 
 > 原文：[https://docs.google.com/document/d/1P3BLR31VA8cvLJLfMibSuTdwTuF7WWLux71CYD0eeD8/edit](https://docs.google.com/document/d/1P3BLR31VA8cvLJLfMibSuTdwTuF7WWLux71CYD0eeD8/edit)
 

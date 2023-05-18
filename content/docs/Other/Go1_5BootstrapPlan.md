@@ -1,12 +1,12 @@
 +++
-title = "Go 1.5 Bootstrap计划"
+title = "go 1.5 Bootstrap计划"
 weight = 7
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Go 1.5 Bootstrap Plan - Go 1.5 Bootstrap计划
+# Go 1.5 Bootstrap Plan - go 1.5 Bootstrap计划
 
 > 原文：[https://docs.google.com/document/d/1OaatvGhEAq7VseQ9kkavxKNAfepWy2yhPUBs96FGV28/edit](https://docs.google.com/document/d/1OaatvGhEAq7VseQ9kkavxKNAfepWy2yhPUBs96FGV28/edit)
 
