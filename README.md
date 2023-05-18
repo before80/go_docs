@@ -16,3 +16,4 @@
 ## 关于文档页面
 - 使用hugo主题 —— [Docsy](https://github.com/google/docsy)
 - 页面标题样式，借鉴了 [Typora](https://typora.io/) 主题 - [Neumorphism](https://github.com/Soanguy/Typora-Theme-Neumorphism)
+- 因这些页面之前使用 [MkDocs](https://www.mkdocs.org/) 主题 —— [mkdocs-material](https://github.com/squidfunk/mkdocs-material)，现在手动迁移过来，难免会出现有些页面还残留着mkdocs-material的写法
