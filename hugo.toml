@@ -1,4 +1,4 @@
-baseURL = "http://ngd.cn/"
+baseURL = "https://before80.github.io/go_docs_with_hugo/"
 title = "go文档集"
 
 # 禁用路径小写化
