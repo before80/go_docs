@@ -1,6 +1,6 @@
 +++
 title = "FAQ"
-weight = 2
+weight = 100
 date = 2023-05-18T16:56:23+08:00
 description = ""
 isCJKLanguage = true

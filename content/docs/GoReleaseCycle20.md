@@ -1,6 +1,6 @@
 +++
-title = "Go 发布周期(v20)"
-weight = 2
+title = "go 发布周期(v20)"
+weight = 26
 date = 2023-05-18T17:26:23+08:00
 description = ""
 isCJKLanguage = true

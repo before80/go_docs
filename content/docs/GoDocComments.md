@@ -1,6 +1,6 @@
 +++
-title = "Go 文档注释"
-weight = 2
+title = "go 文档注释"
+weight = 24
 date = 2023-05-18T17:26:23+08:00
 description = ""
 isCJKLanguage = true

@@ -1,13 +1,13 @@
 +++
-title = "Go垃圾收集器指南"
-linkTitle = "Go垃圾收集器指南"
+title = "go 垃圾收集器指南"
+linkTitle = "go 垃圾收集器指南"
 weight = 20
 date = 2023-05-17T15:03:14+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# A Guide to the Go Garbage Collector Go垃圾收集器指南
+# A Guide to the Go Garbage Collector - go 垃圾收集器指南
 
 > 原文：https://go.dev/doc/gc-guide
 

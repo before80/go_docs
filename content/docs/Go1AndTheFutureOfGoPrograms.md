@@ -1,6 +1,6 @@
 +++
-title = "Go 1和Go程序的未来"
-weight = 2
+title = "go 1和Go程序的未来"
+weight = 23
 date = 2023-05-18T17:26:23+08:00
 description = ""
 isCJKLanguage = true

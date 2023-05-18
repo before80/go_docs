@@ -1,5 +1,5 @@
 +++
-title = "开始入门"
+title = "下载并安装go"
 weight = 1
 date = 2023-05-18T16:35:08+08:00
 description = ""

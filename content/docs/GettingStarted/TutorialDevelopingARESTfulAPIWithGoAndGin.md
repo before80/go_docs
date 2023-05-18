@@ -1,5 +1,5 @@
 +++
-title = "教程：用Go和Gin开发一个RESTful API"
+title = "教程：用go和Gin开发一个RESTful API"
 weight = 10
 date = 2023-05-18T16:35:08+08:00
 description = ""

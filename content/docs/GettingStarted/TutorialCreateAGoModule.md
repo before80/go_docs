@@ -1,5 +1,5 @@
 +++
-title = "教程：创建一个Go模块"
+title = "教程：创建一个go模块"
 weight = 7
 date = 2023-05-18T16:35:08+08:00
 description = ""

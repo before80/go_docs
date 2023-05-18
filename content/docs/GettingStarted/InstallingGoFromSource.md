@@ -1,5 +1,5 @@
 +++
-title = "从源码安装Go"
+title = "从源码安装go"
 weight = 3
 date = 2023-05-18T16:35:08+08:00
 description = ""
