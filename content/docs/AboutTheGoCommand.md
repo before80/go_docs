@@ -56,7 +56,7 @@ git clone https://github.com/golang/glog
 
 ## 使用go命令开始入门
 
-​	最后，快速浏览如何使用go命令。如上所述，Unix上的默认`$GOPATH`是`$HOME/go`。我们将在那里存储我们的程序。要使用不同的位置，您可以设置`$GOPATH`；有关详细信息，请参阅[如何编写Go代码]()。
+​	最后，快速浏览如何使用go命令。如上所述，Unix上的默认`$GOPATH`是`$HOME/go`。我们将在那里存储我们的程序。要使用不同的位置，您可以设置`$GOPATH`；有关详细信息，请参阅[如何编写Go代码](../GettingStarted/HowToWriteGoCode)。
 
 ​	首先添加一些源代码。假设我们想要使用`codesearch`项目中的索引库以及左倾红黑树。我们可以使用"`go get`"子命令安装两者：
 
