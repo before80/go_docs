@@ -1,6 +1,6 @@
 +++
 title = "最近的两次 go 讲座"
-weight = 7
+weight = 21
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

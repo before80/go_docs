@@ -1,6 +1,6 @@
 +++
 title = "从0到 go：24小时内在谷歌主页上发布"
-weight = 7
+weight = 3
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

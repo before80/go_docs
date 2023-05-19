@@ -1,6 +1,6 @@
 +++
 title = "在 go 1.13中处理错误"
-weight = 7
+weight = 5
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

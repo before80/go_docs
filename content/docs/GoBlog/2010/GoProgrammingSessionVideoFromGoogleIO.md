@@ -1,6 +1,6 @@
 +++
 title = "Google I/O大会中的 go 编程会话视频"
-weight = 7
+weight = 10
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

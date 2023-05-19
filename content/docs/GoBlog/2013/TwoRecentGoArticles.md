@@ -1,6 +1,6 @@
 +++
 title = "最近的两篇 go 文章"
-weight = 7
+weight = 15
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

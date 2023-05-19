@@ -1,6 +1,6 @@
 +++
 title = "宣布2019年Go开发者调查"
-weight = 7
+weight = 1
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

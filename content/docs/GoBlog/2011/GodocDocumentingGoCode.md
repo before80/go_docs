@@ -1,6 +1,6 @@
 +++
 title = "godoc：文档化 go 代码"
-weight = 7
+weight = 24
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

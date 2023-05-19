@@ -1,6 +1,6 @@
 +++
 title = "go 中的字符串、字节、符文和字符"
-weight = 7
+weight = 6
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

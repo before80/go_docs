@@ -1,6 +1,6 @@
 +++
 title = "go获得了2010年Bossie奖"
-weight = 7
+weight = 6
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

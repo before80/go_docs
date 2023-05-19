@@ -1,6 +1,6 @@
 +++
 title = "Gopher Gala是第一个全球Go黑客马拉松活动"
-weight = 7
+weight = 13
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

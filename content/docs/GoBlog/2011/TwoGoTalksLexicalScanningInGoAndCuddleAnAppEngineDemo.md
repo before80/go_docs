@@ -1,6 +1,6 @@
 +++
 title = "两场 go 讲座： go 中的词汇扫描 和 Cuddle：一个App Engine Demo"
-weight = 7
+weight = 13
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

@@ -1,6 +1,6 @@
 +++
 title = "谷歌2011年I/O大会上的 go：视频"
-weight = 7
+weight = 20
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

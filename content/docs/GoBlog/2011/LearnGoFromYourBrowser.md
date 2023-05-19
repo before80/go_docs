@@ -1,6 +1,6 @@
 +++
 title = "从你的浏览器中学习 go"
-weight = 7
+weight = 9
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

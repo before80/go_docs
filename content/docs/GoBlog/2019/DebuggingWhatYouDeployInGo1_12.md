@@ -1,6 +1,6 @@
 +++
 title = "调试你在go 1.12中部署的内容"
-weight = 7
+weight = 16
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

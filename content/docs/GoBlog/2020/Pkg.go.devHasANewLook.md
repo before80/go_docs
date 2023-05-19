@@ -1,6 +1,6 @@
 +++
-title = "Pkg.go.pkg.go.dev有了新的面貌!"
-weight = 7
+title = "pkg.go.dev有了新的面貌!"
+weight = 9
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

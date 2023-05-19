@@ -1,6 +1,6 @@
 +++
 title = "第一个 go 项目"
-weight = 7
+weight = 8
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

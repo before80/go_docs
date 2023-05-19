@@ -1,6 +1,6 @@
 +++
 title = "关于go 1.15的建议"
-weight = 7
+weight = 16
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true

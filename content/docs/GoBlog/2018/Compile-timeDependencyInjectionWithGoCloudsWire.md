@@ -1,6 +1,6 @@
 +++
 title = "使用 go Cloud的Wire进行编译时依赖注入"
-weight = 7
+weight = 6
 date = 2023-05-18T17:03:08+08:00
 description = ""
 isCJKLanguage = true
