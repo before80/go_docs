@@ -1,19 +1,30 @@
 
-/*::-webkit-scrollbar {   */
-/*    !*滚动条整体样式*!*/
-/*    !* width: 10px; *!*/
-/*    !*高宽分别对应横竖滚动条的尺寸*!*/
-/*    height: 15px !important;*/
-/*}*/
+/* 设置滚动条的样式 */
+/* Webkit浏览器（Chrome、Safari等） */
+::-webkit-scrollbar {
+  width: 6px; /* 滚动条宽度 */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* 滚动条背景颜色 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(48, 99, 142, 0.36); /* 滚动条滑块颜色 */
+  border-radius: 4px; /* 滑块边框圆角 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(48, 99, 142, 0.66); /* 鼠标悬停时滑块颜色 */
+}
 
 .td-max-width-on-larger-screens, .td-card.card, .td-content .td-card.highlight, .td-card-deck.card-deck, .td-content>pre, .td-content>.highlight, .td-content>.lead, .td-content>h1, .td-content>h2, .td-content>ul, .td-content>ol, .td-content>p, .td-content>blockquote, .td-content>dl dd, .td-content .footnotes, .td-content>.alert {
-   max-width: 98%;
+  max-width: 98%;
 }
 
 @media(min-width: 768px) {
   h2[id]:before,h3[id]:before,h4[id]:before,h5[id]:before {
     display: block;
-    content: " ";
     margin-top: 0;
     height: 5rem;
     visibility: visible;
@@ -38,6 +49,7 @@
   text-align: center;
   font-size: 2.25rem;
 }
+
 .td-content h2 {
   position: relative;
   margin: 1rem 1.25rem;
@@ -214,6 +226,7 @@
 .td-content h5::before {
   content: counter(cnt_h2) "-" counter(cnt_h3) "-" counter(cnt_h4) "-" counter(cnt_h5) " ";
 }
+
 .td-content h2::before,
 .td-content h3::before,
 .td-content h4::before,
@@ -266,5 +279,7 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 
 /*临时性修复点击toc，却看不到标题的问题*/
 .td-navbar {
-  background: rgba(48, 99, 142, 0.36);
+  /*background: rgba(48, 99, 142, 0.36);*/
+  background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0% , rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(48, 99, 142, 0.99) 100%);
 }
+
