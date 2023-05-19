@@ -1,3 +1,1 @@
 baseURL = "https://before80.github.io/go_docs_with_hugo/"
-# Enable Algolia DocSearch
-algolia_docsearch = true
