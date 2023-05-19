@@ -1,0 +1,13 @@
+{{ with .Site.Params.algolia_docsearch }}
+<!-- scripts for algolia docsearch -->
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+    docsearch({
+        appId: "2KUJEVITXN",
+        apiKey: "e57a52ae4e167198d45ba0004cb2f318",
+        indexName: "go--with-hugo",
+        container: "#docsearc",
+        debug: false // Set debug to true if you want to inspect the modal
+    });
+</script>
+{{ end }}
