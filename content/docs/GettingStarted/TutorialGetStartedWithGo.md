@@ -61,7 +61,7 @@ c. 为你的代码启用依赖项跟踪。
 
 当你的代码导入其他模块中的包时，可以通过代码自己的模块管理这些依赖项。该模块由一个`go.mod`文件定义，该文件跟踪提供这些包的模块。这个`go.mod`文件与你的代码在一起，包括在你的源代码库里。
 
-要通过创建`go.mod`文件来启用你的代码的依赖项跟踪，请运行[`go mod init`命令](../../References/GoModulesReference#go-mod-init)，并将代码所在的模块名称指定给它。这个名称就是该模块的模块路径。
+要通过创建`go.mod`文件来启用你的代码的依赖项跟踪，请运行[`go mod init`命令](../../References/GoModulesReference/Module-awareCommands/#go-mod-init)，并将代码所在的模块名称指定给它。这个名称就是该模块的模块路径。
 
 在实际开发中，模块路径通常是保存你源代码的库位置。例如，模块路径可能是`github.com/mymodule`。如果你打算发布你的模块供他人使用，模块路径必须是Go工具可以下载你的模块的位置。关于用模块路径命名模块的更多信息，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
@@ -99,7 +99,7 @@ $ go run .
 Hello, World!
 ```
 
-[go run 命令](../../References/CommandDocumentation/go#compile-and-run-go-program)是你用Go完成任务的众多`go`命令之一。使用下面的命令来获得其他命令的列表：
+[go run 命令](../../References/CommandDocumentation/go#编译并运行Go程序)是你用Go完成任务的众多`go`命令之一。使用下面的命令来获得其他命令的列表：
 
 ```shell
 $ go help

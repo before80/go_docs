@@ -2,6 +2,7 @@ title = "go文档集"
 
 # 禁用路径小写化
 disablePathToLower = true
+
 # 启用将相对URL转换为绝对URL
 # canonifyURLs = true
 # 如果为 true，则自动检测内容中的中文/日文/韩文语言。这将使得 .Summary 和 .WordCount 在 CJK 语言中正确工作。
@@ -78,6 +79,7 @@ anchor = "smart"
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+
 [markup.tableOfContents]
 startLevel = 1
 endLevel = 6

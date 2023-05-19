@@ -357,8 +357,8 @@ Generic Sums with Constraint: 46 and 62.97
 
 建议的下一个主题：
 
-- The [Go Tour](https://tour.golang.org/welcome/1)是对Go基础知识的一个很好的逐步介绍。
-- 你会在[Effective Go](https://go.dev/doc/effective_go)和[How to write Go code](https://go.dev/doc/code)中找到有用的Go最佳实践。
+- The [Go Tour](../../GoTour)是对Go基础知识的一个很好的逐步介绍。
+- 你会在[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)和[How to write Go code](../HowToWriteGoCode)中找到有用的Go最佳实践。
   
 
 ## Completed code 完整的代码
