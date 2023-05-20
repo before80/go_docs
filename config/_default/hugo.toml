@@ -10,7 +10,7 @@ hasCJKLanguage = true
 
 # Language settings
 contentDir = "content"
-defaultContentLanguage = "cn"
+defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
