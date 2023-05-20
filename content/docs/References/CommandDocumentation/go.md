@@ -250,7 +250,7 @@ go build [-o output] [build flags] [packages]
 
 ​	另请参阅：go install、go get、go clean。
 
-#### 删除对象文件和缓存文件
+#### go clean -> 删除对象文件和缓存文件
 
 用法：
 
@@ -298,7 +298,7 @@ MAINFILE(.exe)   通过 go build MAINFILE.go 生成的可执行文件
 
 ​	有关指定包的更多信息，请参阅 'go help packages'。
 
-#### 显示包或符号的文档
+#### go doc -> 显示包或符号的文档
 
 用法：
 
@@ -435,7 +435,7 @@ go env [-json] [-u] [-w] [var ...]
 
 ​	有关环境变量的更多信息，请参见"go help environment"。
 
-#### 更新包以使用新API 
+#### go fix -> 更新包以使用新API 
 
 用法：
 
@@ -453,7 +453,7 @@ go fix [-fix list] [packages]
 
 ​	另请参见：go fmt，go vet。
 
-#### Gofmt（重新格式化）包源
+#### go fmt -> Gofmt（重新格式化）包源
 
 用法：
 
@@ -473,7 +473,7 @@ go fmt [-n] [-x] [packages]
 
 ​	另请参见：go fix，go vet。
 
-#### 通过处理源文件生成Go文件
+#### go generate 通过处理源文件生成Go文件
 
 用法：
 
@@ -571,7 +571,7 @@ $DOLLAR
 
 ​	有关指定包的更多信息，请参见"go help packages"。
 
-#### 添加依赖项到当前模块并安装它们 
+#### go get -> 添加依赖项到当前模块并安装它们 
 
 用法：
 
@@ -630,7 +630,7 @@ go install example.com/pkg@latest
 
 ​	另请参见：go build、go install、go clean、go mod。
 
-#### 编译和安装包及其依赖项
+#### go install -> 编译和安装包及其依赖项
 
 用法：
 
@@ -661,7 +661,7 @@ go install [build flags] [packages]
 
 ​	另请参阅：go build、go get、go clean。
 
-#### 列出包或模块
+#### go list -> 列出包或模块
 
 用法：
 
@@ -878,7 +878,7 @@ rsc.io/pdf v0.1.1 (retracted) [v0.1.2]
 
 ​	有关模块的更多信息，请参见 https://golang.org/ref/mod。
 
-#### 模块维护
+#### go mod -> 模块维护
 
 ​	go mod 提供了对模块操作的访问。
 
@@ -905,7 +905,7 @@ why 		解释需要哪些包或模块
 
 使用 "go help mod <command>" 查看有关命令的更多信息。
 
-#### 将模块下载到本地缓存
+#### go mod download -> 将模块下载到本地缓存
 
 用法：
 
@@ -948,7 +948,7 @@ type Module struct {
 
 ​	有关版本查询的更多信息，请参见 https://golang.org/ref/mod#version-queries。
 
-#### 从工具或脚本编辑 go.mod 
+#### go mod edit -> 从工具或脚本编辑 go.mod 
 
 用法：
 
@@ -1028,7 +1028,7 @@ type Retract struct {
 
 ​	有关 'go mod edit' 的更多信息，请参见 https://golang.org/ref/mod#go-mod-edit。
 
-#### 打印模块需求图 
+#### go mod graph -> 打印模块需求图 
 
 用法：
 
@@ -1044,7 +1044,7 @@ go mod graph [-go=version] [-x]
 
 ​	有关 'go mod graph' 的更多信息，请参见 https://golang.org/ref/mod#go-mod-graph。
 
-#### 在当前目录中初始化新模块
+#### go mod init -> 在当前目录中初始化新模块
 
 用法：
 
@@ -1060,7 +1060,7 @@ go mod init [module-path]
 
 ​	有关 'go mod init' 的更多信息，请参见 https://golang.org/ref/mod#go-mod-init。
 
-#### 添加缺失和删除未使用的模块 
+#### go mod tidy -> 添加缺失和删除未使用的模块 
 
 用法：
 
@@ -1082,7 +1082,7 @@ go mod tidy [-e] [-v] [-x] [-go=version] [-compat=version]
 
 ​	有关 'go mod tidy' 的更多信息，请参见 https://golang.org/ref/mod#go-mod-tidy。
 
-#### 创建依赖项的副本以供vendor
+#### go mod vendor -> 创建依赖项的副本以供vendor
 
 用法：
 
@@ -1100,7 +1100,7 @@ go mod vendor [-e] [-v] [-o outdir]
 
 ​	有关 'go mod vendor' 的更多信息，请参见 https://golang.org/ref/mod#go-mod-vendor。
 
-#### 验证依赖项是否具有预期内容
+#### go mod verify -> 验证依赖项是否具有预期内容
 
 用法：
 
@@ -1112,7 +1112,7 @@ go mod verify
 
 ​	有关"go mod verify"的更多信息，请参见 https://golang.org/ref/mod#go-mod-verify。
 
-#### 解释为什么需要包或模块
+#### go mod why -> 解释为什么需要包或模块
 
 用法：
 
@@ -1142,7 +1142,7 @@ $
 
 ​	有关"go mod why"的更多信息，请参见https://golang.org/ref/mod#go-mod-why。
 
-#### 工作区维护
+#### go work -> 工作区维护
 
 ​	work 提供了对工作区进行操作的访问。
 
@@ -1201,7 +1201,7 @@ use         向工作区文件中添加模块
 
 ​	有关命令的更多信息，请使用 "go help work <command>"。
 
-#### 从工具或脚本编辑 go.work
+#### go work edit -> 从工具或脚本编辑 go.work
 
 用法：
 
@@ -1254,7 +1254,7 @@ type Module struct {
 
 ​	有关更多信息，请参见工作区参考：[Go模块参考中的工作区](../../GoModulesReference/Workspaces)。
 
-#### 初始化工作区文件
+#### go work init -> 初始化工作区文件
 
 用法：
 
@@ -1270,7 +1270,7 @@ go work init [moddirs]
 
 ​	有关更多信息，请参见工作区参考：[Go模块参考中的工作区](../../GoModulesReference/Workspaces)。
 
-#### 同步工作区的构建清单到模块 
+#### go work sync -> 同步工作区的构建清单到模块 
 
 用法：
 
@@ -1286,7 +1286,7 @@ go work sync
 
 ​	有关更多信息，请参见工作区参考：[Go模块参考中的工作区](../../GoModulesReference/Workspaces)。
 
-#### 将模块添加到工作区文件
+#### go work use -> 将模块添加到工作区文件
 
 用法：
 
@@ -1302,7 +1302,7 @@ go work use [-r] moddirs
 
 ​	有关更多信息，请参见工作区参考：[Go模块参考中的工作区](../../GoModulesReference/Workspaces)。
 
-#### 编译并运行Go程序 
+#### go run -> 编译并运行Go程序 
 
 用法：
 
@@ -1332,7 +1332,7 @@ go run [build flags] [-exec xprog] package [arguments...]
 
 ​	另请参见：go build。
 
-#### 测试包 
+#### go test -> 测试包 
 
 用法：
 
@@ -1403,7 +1403,7 @@ go test 有两种不同的运行模式：
 
 ​	另请参见：go build、go vet。
 
-#### 运行指定的go工具
+#### go tool -> 运行指定的go工具
 
 用法：
 
@@ -1417,7 +1417,7 @@ go tool [-n] command [args...]
 
 ​	有关每个工具命令的详细信息，请参见"go doc cmd/<command>"。
 
-#### 打印Go版本 
+#### go version -> 打印Go版本 
 
 用法：
 
@@ -1437,7 +1437,7 @@ go version [-m] [-v] [file ...]
 
 ​	另请参见：go doc runtime/debug.BuildInfo。
 
-#### 报告软件包中的可能错误 
+#### go vet -> 报告软件包中的可能错误 
 
 用法：
 
@@ -1462,7 +1462,7 @@ go vet -vettool=$(which shadow)
 
 ​	另请参见：go fmt、go fix。
 
-#### 构建约束条件
+#### //go:build构建约束条件
 
 ​	构建约束条件（也称为构建标记）是决定一个文件是否应该被包含在包中的条件。构建约束条件是由以下行注释给出的：
 
