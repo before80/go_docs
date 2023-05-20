@@ -287,8 +287,23 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
   background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0% , rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(48, 99, 142, 0.99) 100%);
 }
 
-a.activeToc  {
+.toc-list-item.is-active-li>a{
   font-weight: bold;
   color: #cd00ff !important;
 }
 
+.toc-list-item>a:hover {
+  animation: colorChange 1.2s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: rgba(205, 0, 255, 80%);
+  }
+  50% {
+    color: rgba(205, 0, 255, 50%);
+  }
+  100% {
+    color: rgba(205, 0, 255, 80%);
+  }
+}
