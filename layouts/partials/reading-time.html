@@ -1,0 +1,1 @@
+<p class="reading-time"><i class="fa-solid fa-clock" style="color: #ee9900" aria-hidden="true"></i>&nbsp;{{ if gt .ReadingTime 1 }} <span style="font-size: 3rem;color:darkgreen">{{ .ReadingTime }} </span>{{ T "post_reading_time" }} {{ else }} <span style="font-size: 1.2rem;color:darkgreen">{{ T "post_less_than_a_minute_read" }} </span> {{ end }}&nbsp;</p>
