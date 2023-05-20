@@ -31,6 +31,10 @@
   }
 }
 
+.td-content {
+  padding-left: 1rem !important;
+}
+
 .td-content h1,
 .td-content h2,
 .td-content h3,
@@ -281,5 +285,10 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 .td-navbar {
   /*background: rgba(48, 99, 142, 0.36);*/
   background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0% , rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(48, 99, 142, 0.99) 100%);
+}
+
+a.activeToc  {
+  font-weight: bold;
+  color: #cd00ff !important;
 }
 

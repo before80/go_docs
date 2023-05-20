@@ -102,8 +102,36 @@ window.markmap = {
 {{ end -}}
 
 <script src='{{ "js/tabpane-persist.js" | relURL }}'></script>
-{{ partial "hooks/body-end.html" . -}}
 {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
+{{ if .Site.Params.jstoc.enable }}
+<!-- Initialize tocbot -->
+{{ if eq $MyDefLastUrlEle "" }}
+<script src="/js/tocbot.min.js"></script>
+{{ else }}
+<script src="{{- $MyDefLastUrlEle -}}/js/tocbot.min.js"></script>
+{{ end }}
+<script type="text/javascript">
+  window.addEventListener('load', function () {
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.td-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.td-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: '{{ with .Site.Params.jstoc.custom_headings }}{{ . }}{{ else }}h2, h3, h4, h5, h6{{ end }}',
+      // ignore headings that are hidden in DOM
+      ignoreHiddenElements: true,
+      // How many heading levels should not be collapsed.
+      // For example, number 6 will show everything since
+      // there are only 6 heading levels and number 0 will collapse them all.
+      // The sections that are hidden will open
+      // and close as you scroll to headings within them.
+      collapseDepth: 6,
+    });
+  })
+</script>
+{{ end }}
+{{ partial "hooks/body-end.html" . -}}
 {{ if eq $MyDefLastUrlEle "" }}
 <script src="/js/deal-zero-width-space.js"></script>
 {{ else }}

@@ -148,6 +148,10 @@ offlineSearch = false
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
 
+# 启用 tocbot来处理页面滚动定位toc项
+[params.jstoc]
+enable = true
+
 [params.taxonomy]
 # set taxonomyCloud = [] to hide taxonomy clouds
 taxonomyCloud = ["tags", "categories"]
