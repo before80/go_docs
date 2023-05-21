@@ -11,6 +11,8 @@ draft = false
 
 # 基础部分
 
+## 环境搭建
+
 ## 关键字
 
 [语言规范中的关键字]({{< ref  "/docs/References/LanguageSpecification/LexicalElements#keywords-关键字" >}})
@@ -89,6 +91,8 @@ map
 // 通道类型
 chan
 
+// 可比较类型 Go 1.18引入的预声明类型
+comparable
 ```
 
 `comparable` 类型又是什么？
@@ -126,6 +130,69 @@ chan
 
 
 ## 标准库
+
+
+
+## go 命令
+
+
+
+## 日志的处理
+
+
+
+## GORM
+
+
+
+## JSON的处理
+
+
+
+## 授权的处理
+
+
+
+## 跨域的处理
+
+
+
+## Viper的使用
+
+
+
+## Cobra的使用
+
+
+
+## 测试
+
+
+
+### 单元测试
+
+
+
+### 基准测试
+
+
+
+### 模糊测试
+
+
+
+### 示例测试
+
+
+
+## //go:build
+
+
+
+## //go:embed
+
+
+
 
 
 
