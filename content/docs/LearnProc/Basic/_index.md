@@ -93,7 +93,7 @@ chan
 
 `comparable` 类型又是什么？
 
-[官方博客： All your comparable types]({{< ref "/docs/GoBlog/2023/AllYourComparableTypes/">}})
+[官方博客： All your comparable types]({{< ref "/docs/GoBlog/2023/AllYourComparableTypes" >}})
 
 ## 控制结构
 
