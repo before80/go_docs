@@ -47,9 +47,9 @@ bool // 预先声明 true 和 false 两个常量
 
 // 数值型
 // 【数值型】与体系结构无关的数值类型
-int8 int16 int32 int64
-uint8 uint16 uint32 uint64
-float32 float64
+int8      int16      int32   int64
+uint8     uint16     uint32  uint64
+float32   float64
 complex64 complex128
 byte // uint8 的别名
 rune // int32 的别名
@@ -91,7 +91,9 @@ chan
 
 ```
 
+`comparable` 类型又是什么？
 
+[官方博客： All your comparable types]({{< ref "/docs/GoBlog/2023/AllYourComparableTypes/">}})
 
 ## 控制结构
 
