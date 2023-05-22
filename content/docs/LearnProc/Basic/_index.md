@@ -13,11 +13,11 @@ draft = false
 
 ## 环境搭建
 
-## 关键字
+## 【25个】关键字
 
 [语言规范中的关键字]({{< ref  "/docs/References/LanguageSpecification/LexicalElements#keywords-关键字" >}})
 
-按字母表顺序排序如下：
+【25个】按字母表顺序排序如下：
 
 ```go
 break      default      func   interface  select
@@ -27,72 +27,123 @@ const      fallthrough  if     range      type
 continue   for          import return     var
 ```
 
-按类型、用途分类如下：
+按类型、用途分类如下（来自《Go语言核心编程》李文塔/著）：
 
-
-
-## 保留字
+【8个】引导程序整体结构的关键字：
 
 ```go
+package
+import
+const
+var
+func
+defer
+go
+return
+```
 
+【4个】声明复合数据结构的关键字：
+
+```go
+struct
+interface
+map
+chan
+```
+
+【13个】控制程序结构的关键字：
+
+```go
+if      else
+for     range     break    continue
+switch  select    case     fallthrough  default  type
+goto
 ```
 
 
 
-## 数据类型
+## 【40个】预先声明标识符
+
+[语言规范中的预先声明标识符]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
+
+【40个】按类型分类如下：
+
+```go
+// 【20个】类型:
+	any       bool       byte   comparable
+	complex64 complex128 error  float32    float64
+	int       int8       int16  int32      int64    rune    string
+	uint      uint8      uint16 uint32     uint64   uintptr
+
+// 【3个】常量:
+	true false iota
+
+// 【1个】零值:
+	nil
+
+// 【15个】函数:
+	append  cap  close  complex copy     delete  imag     len
+	make    new  panic  print   println  real    recover
+```
+
+> any：interface{} 的别名。
+>
+> comparable ：可比较类型， Go 1.18引入的预声明类型。
+
+
+
+## 【27种】数据类型
 
 [语言规范中的数据类型]({{<ref "/docs/References/LanguageSpecification/Types">}})
 
 ```go
-// 布尔类型
+// 【1种】布尔类型
 bool // 预先声明 true 和 false 两个常量
 
 // 数值型
-// 【数值型】与体系结构无关的数值类型
+// 【14种】【数值型】与体系结构无关的数值类型
 int8      int16      int32   int64
 uint8     uint16     uint32  uint64
 float32   float64
 complex64 complex128
 byte // uint8 的别名
 rune // int32 的别名
-// 【数值型】与体系结构有关的数值类型
+// 【3种】【数值型】与体系结构有关的数值类型
 int // 32 或 64 位bit
 uint // 32 或 64 位bit
 uintptr
 
-// 字符串类型
+// 【1种】字符串类型
 string
 
-// 数组类型
+// 【1种】数组类型
 [number]Type
 
-// 切片类型
+// 【1种】切片类型
 []Type
 
-// 结构体类型
+// 【1种】结构体类型
 struct
 
-// 指针类型
+// 【1种】指针类型
 *Type
 
-// 函数类型
+// 【1种】函数类型
 func (params) result
 
-// 接口类型
+// 【1种】接口类型
 interface
 
-// 字典、映射类型
+// 【1种】字典、映射类型
 //【Python：字典 dict】
 //【PHP：关联数组 array】
 //【Rust：哈希表 HashMap】
 //【Ruby：哈希 Hash】
 map
 
-// 通道类型
+// 【1种】通道类型
 chan
 
-// 可比较类型 Go 1.18引入的预声明类型
-comparable
 ```
 
 `comparable` 类型又是什么？
@@ -101,11 +152,29 @@ comparable
 
 ## 控制结构
 
+```go
 
+```
 
 
 
 ## 函数
+
+
+
+### 【15个】内置函数
+
+[语言规范中的内置函数]({{< ref  "/docs/References/LanguageSpecification/Built-inFunctions" >}})
+
+【15个】按字母表顺序排序如下：
+
+```go
+append   delete   panic    
+cap      imag     print
+close    len      println
+complex  make     real
+copy     new      recover
+```
 
 
 
@@ -190,7 +259,6 @@ comparable
 
 
 ## //go:embed
-
 
 
 
