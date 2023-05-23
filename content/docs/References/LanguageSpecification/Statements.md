@@ -425,7 +425,7 @@ Function calls on the left are evaluated once per iteration. For each iteration,
 
 ```
 Range expression                          1st value          2nd value
-range 表达式                               第一个值           第二
+range 表达式                               第一个值             第二个值
 
 array or slice  a  [n]E, *[n]E, or []E    index    i  int    a[i]       E
 string          s  string type            index    i  int    see below  rune

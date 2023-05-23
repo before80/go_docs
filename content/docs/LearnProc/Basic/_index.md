@@ -92,7 +92,7 @@ goto
 
 
 
-## 【27种】数据类型
+## 【28种】数据类型
 
 [语言规范中的数据类型]({{<ref "/docs/References/LanguageSpecification/Types">}})
 
@@ -134,6 +134,9 @@ func (params) result
 // 【1种】接口类型
 interface
 
+// 【1种】error 接口类型
+error
+
 // 【1种】字典、映射类型
 //【Python：字典 dict】
 //【PHP：关联数组 array】
@@ -146,13 +149,24 @@ chan
 
 ```
 
-`comparable` 类型又是什么？
+`comparable` 类型又是什么？在预先声明标识符中。
 
 [官方博客： All your comparable types]({{< ref "/docs/GoBlog/2023/AllYourComparableTypes" >}})
 
-## 控制结构
+## 【种】控制结构
 
 ```go
+if
+if...else...
+if...else if...else
+
+for ;; {}
+for condition {}
+for {}
+for k,v := range {}
+
+switch...case...default...
+
 
 ```
 
