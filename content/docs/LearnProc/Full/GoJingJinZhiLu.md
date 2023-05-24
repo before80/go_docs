@@ -271,7 +271,7 @@ draft = false
 >
 > ​	虽然fmt.wrapErrors和fmt.wrapError在源码中都有实现Unwrap()方法，但fmt.wrapErrors和fmt.wrapError是不可导出的类型，故不能在自己的代码中使用到Unwrap()方法。
 >
-> ​	虽然我们不能调用到Unwrap()方法，但可以通过errors.Unwrap(err变量)的方式来间接调用到Unwrap() 方法。可惜的是，你会发现只有当err变量是fmt.wrapError类型，errors.Unwrap(err变量)才能间接调用Unwrap()方法的结果；若是err变量是fmt.wrapErrors类型，errors.Unwrap(err变量)输出为nil。具体可参阅[errors.Unwrap]({{< ref "/docs/StdLib/errors/#func-unwrap----go113">}})	。
+> ​	虽然我们不能调用到Unwrap()方法，但可以通过errors.Unwrap(err变量)的方式来间接调用到Unwrap() 方法。可惜的是，你会发现只有当err变量是fmt.wrapError类型，errors.Unwrap(err变量)才能间接调用Unwrap()方法的结果；若是err变量是fmt.wrapErrors类型，errors.Unwrap(err变量)输出为nil。具体可参阅[errors.Unwrap]({{< ref "/docs/StdLib/errors#func-unwrap----go113">}})	。
 >
 > ​	**遗留问题，那fmt.wrapErrors实现的Unwrap() 方法有什么作用？哪里可以用得到？**
 
