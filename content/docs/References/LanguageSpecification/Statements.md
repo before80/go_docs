@@ -231,7 +231,7 @@ if x := f(); x < y {
 SwitchStmt = ExprSwitchStmt | TypeSwitchStmt .
 ```
 
-​	有两种形式：`表达式开关`和`类型开关`。在`表达式开关`中，case 包含与开关表达式的值进行比较的表达式。在`类型开关`中，case 包含类型，这些类型与特别说明的表达式开关的类型进行比较。在`switch语句`中，`switch 表达式`被精确地求值一次。
+​	有两种形式：`表达式开关`和`类型选择`。在`表达式开关`中，case 包含与开关表达式的值进行比较的表达式。在`类型选择`中，case 包含类型，这些类型与特别说明的表达式开关的类型进行比较。在`switch语句`中，`switch 表达式`被精确地求值一次。
 
 #### Expression switches 表达式开关
 
@@ -274,9 +274,9 @@ case x == 4: f3()
 
 实现限制：编译器可能不允许多个case 表达式求值为同一个常量。例如，目前的编译器不允许在case表达式中出现重复的整型常量、浮点常量或字符串常量。
 
-#### Type switches 类型开关
+#### Type switches 类型选择
 
-​	`类型开关`比较的是`类型`而不是值。它与`表达式开关`类似。它由一个特殊的`switch 表达式`标记，该表达式具有[类型断言](../Expressions#type-assertions)的形式，使用关键字`type`而不是实际的类型：
+​	`类型选择`比较的是`类型`而不是值。它与`表达式开关`类似。它由一个特殊的`switch 表达式`标记，该表达式具有[类型断言](../Expressions#type-assertions)的形式，使用关键字`type`而不是实际的类型：
 
 ```go 
 switch x.(type) {
@@ -284,7 +284,7 @@ switch x.(type) {
 }
 ```
 
-​	然后，case 将实际类型`T`与表达式`x`的动态类型相匹配。与类型断言一样，`x`必须是[接口类型](../Types#interface-types)，但不是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，而且case 中列出的每个非接口类型`T`必须实现`x`的类型。在类型开关的case 中，列出的类型都必须是[不同的](../PropertiesOfTypesAndValues#type-identity)。
+​	然后，case 将实际类型`T`与表达式`x`的动态类型相匹配。与类型断言一样，`x`必须是[接口类型](../Types#interface-types)，但不是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，而且case 中列出的每个非接口类型`T`必须实现`x`的类型。在类型选择的case 中，列出的类型都必须是[不同的](../PropertiesOfTypesAndValues#type-identity)。
 
 ```
 TypeSwitchStmt  = "switch" [ SimpleStmt ";" ] TypeSwitchGuard "{" { TypeCaseClause } "}" .
@@ -297,7 +297,7 @@ TypeSwitchCase  = "case" TypeList | "default" .
 
 ​	case 可以使用预先声明的标识符[nil](../DeclarationsAndScope#predeclared-identifiers)来代替类型；当TypeSwitchGuard中的表达式是一个`nil`接口值时，该case被选中。最多只能有一个`nil `case。
 
-​	给定一个`interface{}`类型的表达式`x`，下面的类型开关：
+​	给定一个`interface{}`类型的表达式`x`，下面的类型选择：
 
 ```go 
 switch i := x.(type) {
@@ -364,9 +364,9 @@ var v1 = f[string]("foo")   // v1 == 0
 var v2 = f[byte]([]byte{})  // v2 == 2
 ```
 
-​	类型开关防护（guard ）前可以有一个简单的语句，该语句在防护（guard ）被求值前执行。
+​	类型选择防护（guard ）前可以有一个简单的语句，该语句在防护（guard ）被求值前执行。
 
-​	在类型开关中`不允许使用` "fallthrough "语句。
+​	在类型选择中`不允许使用` "fallthrough "语句。
 
 ### For statements  - for 语句
 

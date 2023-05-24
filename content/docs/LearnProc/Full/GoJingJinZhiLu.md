@@ -118,10 +118,40 @@ draft = false
 #### 什么是一等公民
 #### 函数作为一等公民的特殊运用
 
-### 第22条 使用defer让函数更简洁、更健壮
+### -> 第22条 使用defer让函数更简洁、更健壮
+
+​	defer的作用：
+
+- 在函数、方法中使用defer，可以减轻开发人员的心智负担。比如，处理待释放的资源；
+- 即使函数、方法中发生panic（除了一些运行时致命问题外），defer都可以被执行到。
+- 降低函数、方法中的逻辑复杂度，增加程序可读性，进而提高健壮性。
+
 #### defer的运作机制
+
+- 只有在函数、方法中才可以使用defer；
+
+- defer这一关键字后，也只能接上函数（被称为 deferred函数）、方法（被称为 deferred方法）；
+
+- deferred函数或方法，【在defer关键字所在的函数或方法退出前】按后进先出（LIFO：Last In First Out）顺序调度执行。
+
 #### defer的常见用法
+
+- 释放资源（最常见的用法）；
+- 拦截panic（**配合recover()函数**一起使用），如：$GOROOT/src/bytes/buffer.go ；
+- 修改函数的具名返回值，如：$GOROOT/src/fmt/scan.go；
+- 输出调试信息，如：$GOROOT/src/net/conf.go -> hostLookupOrder；
+- 还原变量的旧值，如：$GOROOT/src/syscall/fs_nacl.go -> init。
+
 #### 关于defer的几个关键问题
+
+（a）须知哪些函数、方法可以作为deferred函数、方法；
+
+- 若deferred函数、方法，是有**返回值的自定义函数、方法**，则在defferred函数、方法被调度执行时该返回值被**自动丢弃**；
+- 虽然对于15个内置函数中，close、copy、delete、panic、print、println、recover可以直接接在defer关键字之后，而append、cap、complex、imag、len、make、new、real不可以。但不妨还是直接在defer关键字之后接上一个匿名函数进行包裹处理，减少心智负担。
+
+（b）须知defer关键字后表达式的求值时机；
+
+（c）须知defer会带来性能损耗。
 
 ### 第23条 理解方法的本质以选择正确的receiver类型
 #### 方法的本质
@@ -164,8 +194,14 @@ draft = false
 #### 使用接口来减低耦合
 
 ## 第六部分 并发编程
-### 第31条 优先考虑并发设计
+### -> 第31条 优先考虑并发设计	
+
+并发（concurrency ）不是并行（parallelism），并发关乎结构，并行关乎执行。—— Rob Pike
+
 #### 并发与并行
+
+
+
 #### Go并发设计实例
 
 ### 第32条 了解goroutine的调度原理
@@ -199,7 +235,7 @@ draft = false
 #### 对共享自定义类型变量的无锁读写
 
 ## 第七部分 错误处理
-### 第37条 了解错误处理的4种策略
+### -> 第37条 了解错误处理的4种策略
 
 ​	从go语言被人所诟病的、似乎有些过时的错误处理机制作为开章语。
 
@@ -227,9 +263,9 @@ draft = false
 
 ​	go中提供了：error.New()和fmt.Errorf()这两个函数来构造错误值。
 
-​	go 1.13之前（不含），error.New()和fmt.Errorf()返回的错误值的类型是errors.errorString这个底层类型。
+​	go 1.13（不含）之前，error.New()和fmt.Errorf()返回的错误值的类型是errors.errorString这个底层类型。
 
-​	但在go 1.13及之后（含），若fmt.Errorf("格式化字符串")的格式化字符串中使用一个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapError这个底层类型；若使用多个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapErrors这个底层类型。
+​	但在go 1.13及之后，若fmt.Errorf("格式化字符串")的格式化字符串中使用一个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapError这个底层类型；若使用多个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapErrors这个底层类型。请参阅[fmt.Errorf()]({{< ref "/docs/StdLib/fmt#func-errorf">}})。
 
 > ​	另外需要注意：
 >
@@ -269,20 +305,66 @@ draft = false
 
 ​	哨兵错误值变量以**ErrXXX**格式命名。对于API的开发者而言，这些哨兵错误值变量，也是API的一部分，需要进行很好的维护。
 
-​	go 1.13及之后的版本，可以使用errors.Is(err, 某一哨兵错误值变量)，来判断错误值。相比于之前使用的`if err == 某一哨兵错误值变量 { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，error.Is()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。
+​	go 1.13及之后的版本，可以使用errors.Is(err, 某一哨兵错误值变量)，来判断错误值。相比于之前使用的`if err == 某一哨兵错误值变量 { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.Is()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.Is()]({{< ref "/docs/StdLib/errors#func-is----go113">}})。**这也是目前推荐的。**
+
+​	go源码：$GOROOT/src/bufio/bufio.go 采用了这种策略。
 
 ​	
 
 #### 错误值类型检视策略
 
+​	以上两种错误处理策略（哨兵错误处理策略、最简错误处理策略）**都不能提供更多的错误上下文**（都只是直接提供了透明错误值，只能从中得到字符串形式的错误描述）。
+
+​	若错误构造方想提供更多的错误上下文，则需要**自定义错误类型**（须实现error接口，一般以**XXXError**形式命名）。如此，错误处理方则需要通过先判断错误类型，再对不同错误类型进行分别处理。
+
+​	错误处理方可以使用go提供的[类型断言]({{< ref "/docs/References/LanguageSpecification/Expressions#type-assertions-类型断言">}})机制、[类型选择]({{< ref "/docs/References/LanguageSpecification/Statements#type-switches-类型选择">}})机制来判断和处理不同错误类型。类似这样的错误处理，作者认为是**错误值类型检视策略**。
+
+​	go源码：$GOROOT/src/encoding/json/decode_test.go 中使用了**类型断言**机制来处理错误。
+
+​	go源码：$GOROOT/src/encoding/json/decode.go 中使用了**类型选择**机制来处理错误。
+
+​	因自定义错误类型，需暴露给错误处理方，故类似哨兵错误值变量，都需要对其进行很好的维护。
+
+​	从go1.13及之后可以使用errors.As(err, &自定义错误类型变量) 函数，进行错误类型判断，以及进一步处理。相比于之前使用的`if e, ok := err.(*MyError); ok { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.As()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.As()]({{< ref "/docs/StdLib/errors#func-as----go113">}})。**这也是目前推荐的。**
+
+​	
+
 
 
 #### 错误行为特性检视策略
 
+​	什么是错误行为特性检视策略？
+
+​	可以认为是在自定义错误类型中，定义了需要实现的方法（一般是表示行为的方法，例如是否超时、是否是临时性错误），**错误构造方**在提供错误值的时候，会对这些实现的方法体中需要用到的一些数据进行设置，如此在当**错误处理方**，在判断到是这种自定义错误类型时，可以调用该错误类型实现的方法，进而获取到一定的数据（一般是布尔类型值），以此达到错误处理的目的。
+
+​	go源码：$GOROOT/src/net/server.go 使用了这种策略。
+
+
+
 ### 第38条 尽量优化反复出现的if err != nil 
+
+​	因go选择使用显式错误结果和显式错误检查。由此带来可能需要在go代码中反复出现类似`if err != nil`的错误检查。
+
+​	以CopyFile函数中过多的`if err != nil` 作为开章。
+
 #### 两种观点
+
+​	观点1：急需改善go错误处理方式，例如引入try。
+
+​	观点2：go的成功很大程度上要归功于显式的错误处理方式，与其花费成本在故障发生时处理故障，不如花费成本在反复出现的代码片段`if err != nil {...}`的优化上。
+
 #### 尽量优化
+
+​	Russ Cox也认为当前go错误处理机制对于go开发人员来说确实有一定的心智负担。
+
+​	对于反复出现的`if err != nil` 还是需要尽可能去优化！
+
 #### 优化思路
+
+​	可以从两个方向来优化：
+
+- 改善代码中的视觉呈现；
+- 降低`if err != nil`重复的次数（即降低函数或方法的复杂度，可采用进一步封装、分层）。
 
 ### 第39条 不要使用panic进行正常的错误处理
 #### Go的panic不是Java的checked exception

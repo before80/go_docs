@@ -192,7 +192,7 @@ f = map[string]interface{}{
 m := f.(map[string]interface{})
 ```
 
-​	然后我们可以使用一个range语句遍历该映射，并使用类型开关将其值访问为其具体类型：
+​	然后我们可以使用一个range语句遍历该映射，并使用类型选择将其值访问为其具体类型：
 
 ```go linenums="1"
 for k, v := range m {
