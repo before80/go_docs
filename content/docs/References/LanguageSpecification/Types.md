@@ -27,7 +27,7 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 ### Boolean types 布尔型
 
-​	布尔型表示由预先声明的常量`true`和`false`表示的一组布尔真值。预先声明的布尔类型是`bool`；它是一个[已定义的类型](../DeclarationsAndScope#type-declarations)。
+​	布尔型表示由预先声明的常量`true`和`false`表示的一组布尔真值。预先声明的布尔类型是`bool`；它是一个[已定义的类型]({{<ref "/docs/References/LanguageSpecification/DeclarationsAndScope#type-definitions-类型定义">}})。
 
 ### Numeric types 数值型
 

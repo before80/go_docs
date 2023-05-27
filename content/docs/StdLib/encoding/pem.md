@@ -9,15 +9,7 @@ draft = false
 
 https://pkg.go.dev/encoding/pem@go1.20.1
 
-
-
-Package pem implements the PEM data encoding, which originated in Privacy Enhanced Mail. The most common use of PEM encoding today is in TLS keys and certificates. See [RFC 1421](https://rfc-editor.org/rfc/rfc1421.html).
-
-包pem实现了PEM数据编码，它起源于隐私增强邮件。目前PEM编码最常见的用途是在TLS密钥和证书中。参见RFC 1421。
-
-
-
-
+​	pem包实现了PEM数据编码，该编码起源于隐私增强邮件（Privacy Enhanced Mail）。如今，PEM编码最常用于TLS密钥和证书。详见[RFC 1421](https://rfc-editor.org/rfc/rfc1421.html)。
 
 
 ## 常量 
@@ -36,12 +28,38 @@ This section is empty.
 func Encode(out io.Writer, b *Block) error
 ```
 
-Encode writes the PEM encoding of b to out.
+​	Encode函数将`b`的PEM编码写入`out`。
 
-Encode将b的PEM编码写到out。
-
-##### Example
+##### Encode Example
 ``` go 
+package main
+
+import (
+	"encoding/pem"
+	"log"
+	"os"
+)
+
+func main() {
+	block := &pem.Block{
+		Type: "MESSAGE",
+		Headers: map[string]string{
+			"Animal": "Gopher",
+		},
+		Bytes: []byte("test"),
+	}
+
+	if err := pem.Encode(os.Stdout, block); err != nil {
+		log.Fatal(err)
+	}
+}
+Output:
+
+-----BEGIN MESSAGE-----
+Animal: Gopher
+
+dGVzdA==
+-----END MESSAGE-----
 ```
 
 #### func EncodeToMemory 
@@ -50,13 +68,9 @@ Encode将b的PEM编码写到out。
 func EncodeToMemory(b *Block) []byte
 ```
 
-EncodeToMemory returns the PEM encoding of b.
+​	EncodeToMemory函数返回`b`的PEM编码。
 
-EncodeToMemory返回b的PEM编码。
-
-If b has invalid headers and cannot be encoded, EncodeToMemory returns nil. If it is important to report details about this error case, use Encode instead.
-
-如果b有无效的头文件并且不能被编码，EncodeToMemory返回nil。如果报告这种错误情况的细节很重要，请使用Encode代替。
+​	如果`b`具有无效的标头且无法被编码，EncodeToMemory函数返回nil。如果报告这种错误情况的细节很重要，请使用Encode代替。
 
 ## 类型
 
@@ -65,18 +79,14 @@ If b has invalid headers and cannot be encoded, EncodeToMemory returns nil. If i
 ``` go 
 type Block struct {
 	Type    string            // The type, taken from the preamble (i.e. "RSA PRIVATE KEY").// 类型，取自序言(即 "RSA PRIVATE KEY")。
-	Headers map[string]string // Optional headers.// 可选的头信息。
-	Bytes   []byte            // The decoded bytes of the contents. Typically a DER encoded ASN.1 structure. // 解码后的内容字节数。通常是一个DER编码的ASN.1结构。
+	Headers map[string]string // 可选的头信息。
+	Bytes   []byte            // The decoded bytes of the contents. Typically a DER encoded ASN.1 structure. // 解码后的内容字节。通常是一个DER编码的ASN.1结构。
 }
 ```
 
-A Block represents a PEM encoded structure.
+​	Block表示一个PEM编码的结构。
 
-一个Block代表一个PEM编码的结构。
-
-The encoded form is:
-
-编码后的形式是：
+​	其编码后的形式是：
 
 ```
 -----BEGIN Type-----
@@ -85,9 +95,7 @@ base64-encoded Bytes
 -----END Type-----
 ```
 
-where Headers is a possibly empty sequence of Key: Value lines.
-
-其中Headers是一个可能是空的Key.Value的序列。值的行。
+​	其中Headers是一个可能是空的Key: Value行序列。
 
 #### func Decode 
 
@@ -95,9 +103,9 @@ where Headers is a possibly empty sequence of Key: Value lines.
 func Decode(data []byte) (p *Block, rest []byte)
 ```
 
-Decode will find the next PEM formatted block (certificate, private key etc) in the input. It returns that block and the remainder of the input. If no PEM data is found, p is nil and the whole of the input is returned in rest.
+​	Decode函数会在输入中查找下一个PEM格式的块（证书、私钥等）。它返回该块以及剩余的输入。如果未找到PEM数据，`p`为nil，并将整个输入返回给`rest`。
 
-Decode将在输入中找到下一个PEM格式的块(证书、私钥等)。它返回该块和输入的剩余部分。如果没有找到PEM数据，p是nil，整个输入将被返回到rest中。
+##### Decode Example
 
 ``` go 
 package main
@@ -139,6 +147,10 @@ and some more`)
 
 	fmt.Printf("Got a %T, with remaining data: %q", pub, rest)
 }
+
+Output:
+
+Got a *rsa.PublicKey, with remaining data: "and some more"
 
 ```
 

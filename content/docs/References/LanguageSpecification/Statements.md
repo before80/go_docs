@@ -5,6 +5,7 @@ weight = 12
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 ## Statements 语句
 
@@ -64,8 +65,13 @@ EmptyStmt = .
 ```
 LabeledStmt = Label ":" Statement .
 Label       = identifier .
+```
+
+```go
 Error: log.Panic("error encountered")
 ```
+
+
 
 ### Expression statements 表达式语句
 

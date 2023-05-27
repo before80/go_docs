@@ -516,7 +516,7 @@ func (p *Point) Scale(factor float64) {
 
 If the receiver base type is a [generic type](https://go.dev/ref/spec#Type_declarations), the receiver specification must declare corresponding type parameters for the method to use. This makes the receiver type parameters available to the method. Syntactically, this type parameter declaration looks like an [instantiation](https://go.dev/ref/spec#Instantiations) of the receiver base type: the type arguments must be identifiers denoting the type parameters being declared, one for each type parameter of the receiver base type. The type parameter names do not need to match their corresponding parameter names in the receiver base type definition, and all non-blank parameter names must be unique in the receiver parameter section and the method signature. The receiver type parameter constraints are implied by the receiver base type definition: corresponding type parameters have corresponding constraints.
 
-​	如果接收器的基本类型是一个[泛型](#type-declarations)，接收器规范必须为要使用的方法声明相应的类型形参。这使得接收器的类型形参对该方法可用。从语法上讲，这个类型形参声明看起来就像接收器基本类型的实例化：类型实参必须是表示被声明的类型参数的标识符，接收器基本类型的每个类型形参各有一个。`类型形参名无需匹配接收器基本类型定义中对应的形参名`，并且所有非空白形参名在接收器形参部分和方法签名中必须是唯一的。接收器类型形参的约束是由接收器基本类型定义所隐含的：相应的类型形参有相应的约束。=> 仍有疑问？？
+​	如果接收器的基本类型是一个[泛型]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#type-declarations-类型声明">}})，接收器规范必须为要使用的方法声明相应的类型形参。这使得接收器的类型形参对该方法可用。从语法上讲，这个类型形参声明看起来就像接收器基本类型的实例化：类型实参必须是表示被声明的类型参数的标识符，接收器基本类型的每个类型形参各有一个。`类型形参名无需匹配接收器基本类型定义中对应的形参名`，并且所有非空白形参名在接收器形参部分和方法签名中必须是唯一的。接收器类型形参的约束是由接收器基本类型定义所隐含的：相应的类型形参有相应的约束。=> 仍有疑问？？
 
 ```go 
 type Pair[A, B any] struct {

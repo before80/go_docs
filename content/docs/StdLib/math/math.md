@@ -9,55 +9,35 @@ draft = false
 
 https://pkg.go.dev/math@go1.20.1
 
+​	math包提供基本常量和数学函数。
 
-
-Package math provides basic constants and mathematical functions.
-
-This package does not guarantee bit-identical results across architectures.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+​	该包不能保证在不同架构下获得完全相同的结果。
 
 ## 常量 
 
-[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/const.go;l=11)
+### 数学常量
+
+#### E
+
+#### Pi
+
+#### Phi
+
+#### Sqrt2
+
+#### SqrtE
+
+#### SqrtPi
+
+#### SqrtPhi
+
+#### Ln2
+
+#### Log2E
+
+#### Ln10
+
+#### Log10E
 
 ``` go 
 const (
@@ -77,9 +57,17 @@ const (
 )
 ```
 
-Mathematical constants.
+数学常量。
 
-[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/const.go;l=30)
+### 浮点数的极限值
+
+#### MaxFloat32
+
+#### SmallestNonzeroFloat32
+
+#### MaxFloat64
+
+#### SmallestNonzeroFloat64
 
 ``` go 
 const (
@@ -91,9 +79,37 @@ const (
 )
 ```
 
-Floating-point limit values. Max is the largest finite value representable by the type. SmallestNonzero is the smallest positive, non-zero value representable by the type.
+​	浮点数的极限值。Max 是该类型能表示的最大有限值。SmallestNonzero 是该类型能表示的最小正非零值。
 
-[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/const.go;l=39)
+### 整数的极限值
+
+#### MaxInt
+
+#### MinInt
+
+#### MaxInt8
+
+#### MinInt8
+
+#### MaxInt16
+
+#### MinInt16
+
+#### MaxInt32
+
+#### MinInt32
+
+#### MaxInt64
+
+#### MinInt64
+
+#### MaxUint8
+
+#### MaxUint16
+
+#### MaxUint32
+
+#### MaxUint64
 
 ``` go 
 const (
@@ -115,7 +131,7 @@ const (
 )
 ```
 
-Integer limit values.
+整数的极限值。
 
 ## 变量
 
@@ -131,7 +147,9 @@ func Abs(x float64) float64
 
 Abs returns the absolute value of x.
 
-Special cases are:
+Abs 返回 x 的绝对值。
+
+特殊情况如下：
 
 ```
 Abs(±Inf) = +Inf
@@ -150,7 +168,7 @@ func Acos(x float64) float64
 
 Acos returns the arccosine, in radians, of x.
 
-Special case is:
+特殊情况如下：
 
 ```
 Acos(x) = NaN if x < -1 or x > 1
@@ -168,7 +186,7 @@ func Acosh(x float64) float64
 
 Acosh returns the inverse hyperbolic cosine of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Acosh(+Inf) = +Inf
@@ -188,7 +206,7 @@ func Asin(x float64) float64
 
 Asin returns the arcsine, in radians, of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Asin(±0) = ±0
@@ -207,7 +225,7 @@ func Asinh(x float64) float64
 
 Asinh returns the inverse hyperbolic sine of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Asinh(±0) = ±0
@@ -227,7 +245,7 @@ func Atan(x float64) float64
 
 Atan returns the arctangent, in radians, of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Atan(±0) = ±0
@@ -280,7 +298,7 @@ func Atanh(x float64) float64
 
 Atanh returns the inverse hyperbolic tangent of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Atanh(1) = +Inf
@@ -302,7 +320,7 @@ func Cbrt(x float64) float64
 
 Cbrt returns the cube root of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Cbrt(±0) = ±0
@@ -322,7 +340,7 @@ func Ceil(x float64) float64
 
 Ceil returns the least integer value greater than or equal to x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Ceil(±0) = ±0
@@ -354,7 +372,7 @@ func Cos(x float64) float64
 
 Cos returns the cosine of the radian argument x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Cos(±Inf) = NaN
@@ -373,7 +391,7 @@ func Cosh(x float64) float64
 
 Cosh returns the hyperbolic cosine of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Cosh(±0) = 1
@@ -393,7 +411,7 @@ func Dim(x, y float64) float64
 
 Dim returns the maximum of x-y or 0.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Dim(+Inf, +Inf) = NaN
@@ -413,7 +431,7 @@ func Erf(x float64) float64
 
 Erf returns the error function of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Erf(+Inf) = 1
@@ -429,7 +447,7 @@ func Erfc(x float64) float64
 
 Erfc returns the complementary error function of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Erfc(+Inf) = 0
@@ -445,7 +463,7 @@ func Erfcinv(x float64) float64
 
 Erfcinv returns the inverse of Erfc(x).
 
-Special cases are:
+特殊情况如下：
 
 ```
 Erfcinv(0) = +Inf
@@ -462,7 +480,7 @@ func Erfinv(x float64) float64
 
 Erfinv returns the inverse error function of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Erfinv(1) = +Inf
@@ -479,7 +497,7 @@ func Exp(x float64) float64
 
 Exp returns e**x, the base-e exponential of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Exp(+Inf) = +Inf
@@ -514,7 +532,7 @@ func Expm1(x float64) float64
 
 Expm1 returns e**x - 1, the base-e exponential of x minus 1. It is more accurate than Exp(x) - 1 when x is near zero.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Expm1(+Inf) = +Inf
@@ -576,7 +594,7 @@ func Floor(x float64) float64
 
 Floor returns the greatest integer value less than or equal to x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Floor(±0) = ±0
@@ -596,7 +614,7 @@ func Frexp(f float64) (frac float64, exp int)
 
 Frexp breaks f into a normalized fraction and an integral power of two. It returns frac and exp satisfying f == frac × 2**exp, with the absolute value of frac in the interval [½, 1).
 
-Special cases are:
+特殊情况如下：
 
 ```
 Frexp(±0) = ±0, 0
@@ -612,7 +630,7 @@ func Gamma(x float64) float64
 
 Gamma returns the Gamma function of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Gamma(+Inf) = +Inf
@@ -631,7 +649,7 @@ func Hypot(p, q float64) float64
 
 Hypot returns Sqrt(p*p + q*q), taking care to avoid unnecessary overflow and underflow.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Hypot(±Inf, q) = +Inf
@@ -648,7 +666,7 @@ func Ilogb(x float64) int
 
 Ilogb returns the binary exponent of x as an integer.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Ilogb(±Inf) = MaxInt32
@@ -688,7 +706,7 @@ func J0(x float64) float64
 
 J0 returns the order-zero Bessel function of the first kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 J0(±Inf) = 0
@@ -704,7 +722,7 @@ func J1(x float64) float64
 
 J1 returns the order-one Bessel function of the first kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 J1(±Inf) = 0
@@ -719,7 +737,7 @@ func Jn(n int, x float64) float64
 
 Jn returns the order-n Bessel function of the first kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Jn(n, ±Inf) = 0
@@ -734,7 +752,7 @@ func Ldexp(frac float64, exp int) float64
 
 Ldexp is the inverse of Frexp. It returns frac × 2**exp.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Ldexp(±0, exp) = ±0
@@ -750,7 +768,7 @@ func Lgamma(x float64) (lgamma float64, sign int)
 
 Lgamma returns the natural logarithm and sign (-1 or +1) of Gamma(x).
 
-Special cases are:
+特殊情况如下：
 
 ```
 Lgamma(+Inf) = +Inf
@@ -768,7 +786,7 @@ func Log(x float64) float64
 
 Log returns the natural logarithm of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Log(+Inf) = +Inf
@@ -801,7 +819,7 @@ func Log1p(x float64) float64
 
 Log1p returns the natural logarithm of 1 plus its argument x. It is more accurate than Log(1 + x) when x is near zero.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Log1p(+Inf) = +Inf
@@ -831,7 +849,7 @@ func Logb(x float64) float64
 
 Logb returns the binary exponent of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Logb(±Inf) = +Inf
@@ -847,7 +865,7 @@ func Max(x, y float64) float64
 
 Max returns the larger of x or y.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Max(x, +Inf) = Max(+Inf, x) = +Inf
@@ -864,7 +882,7 @@ func Min(x, y float64) float64
 
 Min returns the smaller of x or y.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Min(x, -Inf) = Min(-Inf, x) = -Inf
@@ -880,7 +898,7 @@ func Mod(x, y float64) float64
 
 Mod returns the floating-point remainder of x/y. The magnitude of the result is less than y and its sign agrees with that of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Mod(±Inf, y) = NaN
@@ -902,7 +920,7 @@ func Modf(f float64) (int float64, frac float64)
 
 Modf returns integer and fractional floating-point numbers that sum to f. Both values have the same sign as f.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Modf(±Inf) = ±Inf, NaN
@@ -929,7 +947,7 @@ func Nextafter(x, y float64) (r float64)
 
 Nextafter returns the next representable float64 value after x towards y.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Nextafter(x, x)   = x
@@ -945,7 +963,7 @@ func Nextafter32(x, y float32) (r float32)
 
 Nextafter32 returns the next representable float32 value after x towards y.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Nextafter32(x, x)   = x
@@ -998,7 +1016,7 @@ func Pow10(n int) float64
 
 Pow10 returns 10**n, the base-10 exponential of n.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Pow10(n) =    0 for n < -323
@@ -1017,7 +1035,7 @@ func Remainder(x, y float64) float64
 
 Remainder returns the IEEE 754 floating-point remainder of x/y.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Remainder(±Inf, y) = NaN
@@ -1039,7 +1057,7 @@ func Round(x float64) float64
 
 Round returns the nearest integer, rounding half away from zero.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Round(±0) = ±0
@@ -1059,7 +1077,7 @@ func RoundToEven(x float64) float64
 
 RoundToEven returns the nearest integer, rounding ties to even.
 
-Special cases are:
+特殊情况如下：
 
 ```
 RoundToEven(±0) = ±0
@@ -1087,7 +1105,7 @@ func Sin(x float64) float64
 
 Sin returns the sine of the radian argument x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Sin(±0) = ±0
@@ -1107,7 +1125,7 @@ func Sincos(x float64) (sin, cos float64)
 
 Sincos returns Sin(x), Cos(x).
 
-Special cases are:
+特殊情况如下：
 
 ```
 Sincos(±0) = ±0, 1
@@ -1127,7 +1145,7 @@ func Sinh(x float64) float64
 
 Sinh returns the hyperbolic sine of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Sinh(±0) = ±0
@@ -1147,7 +1165,7 @@ func Sqrt(x float64) float64
 
 Sqrt returns the square root of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Sqrt(+Inf) = +Inf
@@ -1168,7 +1186,7 @@ func Tan(x float64) float64
 
 Tan returns the tangent of the radian argument x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Tan(±0) = ±0
@@ -1188,7 +1206,7 @@ func Tanh(x float64) float64
 
 Tanh returns the hyperbolic tangent of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Tanh(±0) = ±0
@@ -1208,7 +1226,7 @@ func Trunc(x float64) float64
 
 Trunc returns the integer value of x.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Trunc(±0) = ±0
@@ -1228,7 +1246,7 @@ func Y0(x float64) float64
 
 Y0 returns the order-zero Bessel function of the second kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Y0(+Inf) = 0
@@ -1245,7 +1263,7 @@ func Y1(x float64) float64
 
 Y1 returns the order-one Bessel function of the second kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Y1(+Inf) = 0
@@ -1262,7 +1280,7 @@ func Yn(n int, x float64) float64
 
 Yn returns the order-n Bessel function of the second kind.
 
-Special cases are:
+特殊情况如下：
 
 ```
 Yn(n, +Inf) = 0

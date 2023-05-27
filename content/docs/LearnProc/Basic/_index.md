@@ -62,14 +62,14 @@ goto
 
 
 
-## 【40个】预先声明标识符
+## 【41个】预先声明标识符
 
 [语言规范中的预先声明标识符]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
 
-【40个】按类型分类如下：
+【41个】按类型分类如下：
 
 ```go
-// 【20个】类型:
+// 【22个】类型:
 	any       bool       byte   comparable
 	complex64 complex128 error  float32    float64
 	int       int8       int16  int32      int64    rune    string
