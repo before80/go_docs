@@ -1000,7 +1000,7 @@ func Scanln(a ...any) (n int, err error)
 func Sprint(a ...any) string
 ```
 
-​	Sprint函数根据操作数的默认格式进行格式化，并返回生成的字符串。当两个操作数都不是字符串时，将它们之间添加空格。
+​	Sprint函数根据操作数的默认格式进行格式化，并返回生成的字符串。当两个操作数都不是字符串时，将在它们之间添加空格。
 
 ##### Sprint Example
 ``` go 
