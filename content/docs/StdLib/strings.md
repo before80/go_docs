@@ -5,6 +5,7 @@ date = 2023-05-17T09:59:21+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # strings
 
@@ -376,15 +377,14 @@ import (
 )
 
 func main() {
-	fmt.Println(strings.HasSuffix("Amigo", "go"))
-	fmt.Println(strings.HasSuffix("Amigo", "O"))
-	fmt.Println(strings.HasSuffix("Amigo", "Ami"))
-	fmt.Println(strings.HasSuffix("Amigo", ""))
+	fmt.Println(strings.HasPrefix("Gopher", "Go"))
+	fmt.Println(strings.HasPrefix("Gopher", "C"))
+	fmt.Println(strings.HasPrefix("Gopher", ""))
 }
+
 Output:
 
 true
-false
 false
 true
 ```
@@ -679,7 +679,7 @@ Output:
 func Map(mapping func(rune) rune, s string) string
 ```
 
-​	Map函数返回一个新的字符串，其中包含根据映射函数修改的 s 中的所有字符。如果 mapping 返回负值，则删除该字符而不替换。
+​	Map函数返回一个新的字符串，其中包含根据映射函数修改的 s 中的所有字符。如果 mapping 返回**负值**，则**删除该字符**而不替换。（例如返回`-1`）
 
 ##### Map Example
 ``` go 

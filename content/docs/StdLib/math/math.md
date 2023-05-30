@@ -147,7 +147,7 @@ func Abs(x float64) float64
 
 Abs returns the absolute value of x.
 
-Abs 返回 x 的绝对值。
+​	Abs 返回 x 的绝对值。
 
 特殊情况如下：
 
@@ -156,8 +156,27 @@ Abs(±Inf) = +Inf
 Abs(NaN) = NaN
 ```
 
-##### Example
+##### Abs Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	x := math.Abs(-2)
+	fmt.Printf("%.1f\n", x)
+
+	y := math.Abs(2)
+	fmt.Printf("%.1f\n", y)
+}
+
+Output:
+
+2.0
+2.0
 ```
 
 #### func Acos 
@@ -168,14 +187,31 @@ func Acos(x float64) float64
 
 Acos returns the arccosine, in radians, of x.
 
+Acos返回x的反余弦值（以弧度为单位）。
+
 特殊情况如下：
 
 ```
 Acos(x) = NaN if x < -1 or x > 1
 ```
 
-##### Example
+##### Acos Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Acos(1))
+}
+
+
+Output:
+
+0.00
 ```
 
 #### func Acosh 
@@ -185,6 +221,8 @@ func Acosh(x float64) float64
 ```
 
 Acosh returns the inverse hyperbolic cosine of x.
+
+Acosh返回x的反双曲余弦值。
 
 特殊情况如下：
 
@@ -196,6 +234,20 @@ Acosh(NaN) = NaN
 
 ##### Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Acosh(1))
+}
+
+Output:
+
+0.00
 ```
 
 #### func Asin 
@@ -206,6 +258,8 @@ func Asin(x float64) float64
 
 Asin returns the arcsine, in radians, of x.
 
+Asin返回x的反正弦值（以弧度为单位）。
+
 特殊情况如下：
 
 ```
@@ -213,8 +267,22 @@ Asin(±0) = ±0
 Asin(x) = NaN if x < -1 or x > 1
 ```
 
-##### Example
+##### Asin Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Asin(0))
+}
+
+Output:
+
+0.00
 ```
 
 #### func Asinh 
@@ -225,6 +293,8 @@ func Asinh(x float64) float64
 
 Asinh returns the inverse hyperbolic sine of x.
 
+Asinh返回x的反双曲正弦值。
+
 特殊情况如下：
 
 ```
@@ -233,8 +303,23 @@ Asinh(±Inf) = ±Inf
 Asinh(NaN) = NaN
 ```
 
-##### Example
+##### Asinh Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Asinh(0))
+}
+
+
+Output:
+
+0.00
 ```
 
 #### func Atan 
@@ -245,6 +330,8 @@ func Atan(x float64) float64
 
 Atan returns the arctangent, in radians, of x.
 
+Atan返回x的反正切值（以弧度为单位）。
+
 特殊情况如下：
 
 ```
@@ -252,8 +339,23 @@ Atan(±0) = ±0
 Atan(±Inf) = ±Pi/2
 ```
 
-##### Example
+##### Atan Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Atan(0))
+}
+
+
+Output:
+
+0.00
 ```
 
 #### func Atan2 
@@ -264,7 +366,11 @@ func Atan2(y, x float64) float64
 
 Atan2 returns the arc tangent of y/x, using the signs of the two to determine the quadrant of the return value.
 
+Atan2返回y/x的反正切值，根据y和x的符号确定返回值所在的象限。
+
 Special cases are (in order):
+
+特殊情况按顺序为：
 
 ```
 Atan2(y, NaN) = NaN
@@ -286,8 +392,22 @@ Atan2(+Inf, x) = +Pi/2
 Atan2(-Inf, x) = -Pi/2
 ```
 
-##### Example
+##### Atan2 Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Atan2(0, 0))
+}
+
+Output:
+
+0.00
 ```
 
 #### func Atanh 
@@ -297,6 +417,8 @@ func Atanh(x float64) float64
 ```
 
 Atanh returns the inverse hyperbolic tangent of x.
+
+Atanh返回x的反双曲切线值。
 
 特殊情况如下：
 
@@ -308,8 +430,22 @@ Atanh(x) = NaN if x < -1 or x > 1
 Atanh(NaN) = NaN
 ```
 
-##### Example
+##### Atanh Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%.2f", math.Atanh(0))
+}
+
+Output:
+
+0.004
 ```
 
 #### func Cbrt 
@@ -319,6 +455,8 @@ func Cbrt(x float64) float64
 ```
 
 Cbrt returns the cube root of x.
+
+Cbrt返回x的立方根。
 
 特殊情况如下：
 
@@ -340,6 +478,8 @@ func Ceil(x float64) float64
 
 Ceil returns the least integer value greater than or equal to x.
 
+Ceil返回大于或等于x的最小整数值。
+
 特殊情况如下：
 
 ```
@@ -360,6 +500,8 @@ func Copysign(f, sign float64) float64
 
 Copysign returns a value with the magnitude of f and the sign of sign.
 
+Copysign返回具有f的绝对值和sign的符号的值。
+
 ##### Example
 ``` go 
 ```
@@ -371,6 +513,8 @@ func Cos(x float64) float64
 ```
 
 Cos returns the cosine of the radian argument x.
+
+Cos返回弧度参数x的余弦值。
 
 特殊情况如下：
 
@@ -390,6 +534,8 @@ func Cosh(x float64) float64
 ```
 
 Cosh returns the hyperbolic cosine of x.
+
+Cosh返回x的双曲余弦值。
 
 特殊情况如下：
 
@@ -411,6 +557,8 @@ func Dim(x, y float64) float64
 
 Dim returns the maximum of x-y or 0.
 
+Dim返回x-y和0之间的最大值。
+
 特殊情况如下：
 
 ```
@@ -431,6 +579,8 @@ func Erf(x float64) float64
 
 Erf returns the error function of x.
 
+Erf返回x的误差函数值。
+
 特殊情况如下：
 
 ```
@@ -447,6 +597,8 @@ func Erfc(x float64) float64
 
 Erfc returns the complementary error function of x.
 
+Erfc返回x的互补误差函数值。
+
 特殊情况如下：
 
 ```
@@ -462,6 +614,8 @@ func Erfcinv(x float64) float64
 ```
 
 Erfcinv returns the inverse of Erfc(x).
+
+Erfcinv返回Erfc(x)的反函数值。
 
 特殊情况如下：
 
@@ -480,6 +634,8 @@ func Erfinv(x float64) float64
 
 Erfinv returns the inverse error function of x.
 
+Erfinv返回x的反误差函数值。
+
 特殊情况如下：
 
 ```
@@ -495,7 +651,9 @@ Erfinv(NaN) = NaN
 func Exp(x float64) float64
 ```
 
-Exp returns e**x, the base-e exponential of x.
+Exp returns `e**x`, the base-e exponential of x.
+
+Exp返回`e**x`，即x的以e为底的指数函数值。
 
 特殊情况如下：
 
@@ -505,6 +663,8 @@ Exp(NaN) = NaN
 ```
 
 Very large values overflow to 0 or +Inf. Very small values underflow to 1.
+
+非常大的值会溢出为0或+Inf。非常小的值会下溢为1。
 
 ##### Example
 ``` go 
@@ -516,9 +676,13 @@ Very large values overflow to 0 or +Inf. Very small values underflow to 1.
 func Exp2(x float64) float64
 ```
 
-Exp2 returns 2**x, the base-2 exponential of x.
+Exp2 returns `2**x`, the base-2 exponential of x.
+
+Exp2返回`2**x`，即x的以2为底的指数函数值。
 
 Special cases are the same as Exp.
+
+特殊情况与Exp相同。
 
 ##### Example
 ``` go 
@@ -532,6 +696,8 @@ func Expm1(x float64) float64
 
 Expm1 returns e**x - 1, the base-e exponential of x minus 1. It is more accurate than Exp(x) - 1 when x is near zero.
 
+Expm1返回`e**x` - 1，即x的以e为底的指数函数值减去1。当x接近零时，Expm1比Exp(x) - 1更准确。
+
 特殊情况如下：
 
 ```
@@ -541,6 +707,8 @@ Expm1(NaN) = NaN
 ```
 
 Very large values overflow to -1 or +Inf.
+
+非常大的值会溢出为-1或+Inf。
 
 ##### Example
 ``` go 
@@ -554,6 +722,8 @@ func FMA(x, y, z float64) float64
 
 FMA returns x * y + z, computed with only one rounding. (That is, FMA returns the fused multiply-add of x, y, and z.)
 
+FMA返回x * y + z，使用仅进行一次舍入的计算。（也就是说，FMA返回x、y和z的融合乘加结果。）
+
 #### func Float32bits 
 
 ``` go 
@@ -561,6 +731,8 @@ func Float32bits(f float32) uint32
 ```
 
 Float32bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position. Float32bits(Float32frombits(x)) == x.
+
+Float32bits返回f的IEEE 754二进制表示，其中包含f的符号位，并且结果与符号位处于相同的位位置。Float32bits(Float32frombits(x)) == x。
 
 #### func Float32frombits 
 
@@ -570,6 +742,8 @@ func Float32frombits(b uint32) float32
 
 Float32frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float32frombits(Float32bits(x)) == x.
 
+Float32frombits返回与IEEE 754二进制表示b对应的浮点数，其中包含b的符号位，并且结果与符号位处于相同的位位置。Float32frombits(Float32bits(x)) == x。
+
 #### func Float64bits 
 
 ``` go 
@@ -577,6 +751,8 @@ func Float64bits(f float64) uint64
 ```
 
 Float64bits returns the IEEE 754 binary representation of f, with the sign bit of f and the result in the same bit position, and Float64bits(Float64frombits(x)) == x.
+
+Float64bits返回f的IEEE 754二进制表示，其中包含f的符号位，并且结果与符号位处于相同的位位置。Float64bits(Float64frombits(x)) == x。
 
 #### func Float64frombits 
 
@@ -586,6 +762,8 @@ func Float64frombits(b uint64) float64
 
 Float64frombits returns the floating-point number corresponding to the IEEE 754 binary representation b, with the sign bit of b and the result in the same bit position. Float64frombits(Float64bits(x)) == x.
 
+Float64frombits返回与IEEE 754二进制表示b对应的浮点数，其中包含b的符号位，并且结果与符号位处于相同的位位置。Float64frombits(Float64bits(x)) == x。
+
 #### func Floor 
 
 ``` go 
@@ -593,6 +771,8 @@ func Floor(x float64) float64
 ```
 
 Floor returns the greatest integer value less than or equal to x.
+
+Floor返回小于等于x的最大整数值。
 
 特殊情况如下：
 
@@ -614,6 +794,8 @@ func Frexp(f float64) (frac float64, exp int)
 
 Frexp breaks f into a normalized fraction and an integral power of two. It returns frac and exp satisfying f == frac × 2**exp, with the absolute value of frac in the interval [½, 1).
 
+Frexp将f拆分为标准化的分数和2的整数次幂。它返回满足f == frac × 2**exp的frac和exp，其中frac的绝对值位于[½, 1)区间内。
+
 特殊情况如下：
 
 ```
@@ -629,6 +811,8 @@ func Gamma(x float64) float64
 ```
 
 Gamma returns the Gamma function of x.
+
+Gamma返回x的Gamma函数值。
 
 特殊情况如下：
 
@@ -649,6 +833,8 @@ func Hypot(p, q float64) float64
 
 Hypot returns Sqrt(p*p + q*q), taking care to avoid unnecessary overflow and underflow.
 
+Hypot返回Sqrt(p*p + q*q)，注意避免不必要的溢出和下溢。
+
 特殊情况如下：
 
 ```
@@ -666,6 +852,8 @@ func Ilogb(x float64) int
 
 Ilogb returns the binary exponent of x as an integer.
 
+Ilogb返回x的二进制指数作为整数。
+
 特殊情况如下：
 
 ```
@@ -682,6 +870,8 @@ func Inf(sign int) float64
 
 Inf returns positive infinity if sign >= 0, negative infinity if sign < 0.
 
+如果sign >= 0，则Inf返回正无穷大；如果sign < 0，则返回负无穷大。
+
 #### func IsInf 
 
 ``` go 
@@ -689,6 +879,8 @@ func IsInf(f float64, sign int) bool
 ```
 
 IsInf reports whether f is an infinity, according to sign. If sign > 0, IsInf reports whether f is positive infinity. If sign < 0, IsInf reports whether f is negative infinity. If sign == 0, IsInf reports whether f is either infinity.
+
+IsInf报告f是否为无穷大，根据sign的值。如果sign > 0，则IsInf报告f是否为正无穷大。如果sign < 0，则IsInf报告f是否为负无穷大。如果sign == 0，则IsInf报告f是否为无穷大。
 
 #### func IsNaN 
 
@@ -698,6 +890,8 @@ func IsNaN(f float64) (is bool)
 
 IsNaN reports whether f is an IEEE 754 "not-a-number" value.
 
+IsNaN报告f是否为IEEE 754的“非数”值。
+
 #### func J0 
 
 ``` go 
@@ -705,6 +899,8 @@ func J0(x float64) float64
 ```
 
 J0 returns the order-zero Bessel function of the first kind.
+
+J0返回第一类零阶贝塞尔函数。
 
 特殊情况如下：
 
@@ -722,6 +918,8 @@ func J1(x float64) float64
 
 J1 returns the order-one Bessel function of the first kind.
 
+J1返回第一类一阶贝塞尔函数。
+
 特殊情况如下：
 
 ```
@@ -736,6 +934,8 @@ func Jn(n int, x float64) float64
 ```
 
 Jn returns the order-n Bessel function of the first kind.
+
+Jn返回第一类n阶贝塞尔函数。
 
 特殊情况如下：
 
@@ -752,6 +952,8 @@ func Ldexp(frac float64, exp int) float64
 
 Ldexp is the inverse of Frexp. It returns frac × 2**exp.
 
+Ldexp是Frexp的反函数。它返回frac × 2**exp。
+
 特殊情况如下：
 
 ```
@@ -767,6 +969,8 @@ func Lgamma(x float64) (lgamma float64, sign int)
 ```
 
 Lgamma returns the natural logarithm and sign (-1 or +1) of Gamma(x).
+
+Lgamma返回Gamma(x)的自然对数和符号（-1或+1）。
 
 特殊情况如下：
 
@@ -785,6 +989,8 @@ func Log(x float64) float64
 ```
 
 Log returns the natural logarithm of x.
+
+Log返回x的自然对数。
 
 特殊情况如下：
 
@@ -807,6 +1013,8 @@ func Log10(x float64) float64
 
 Log10 returns the decimal logarithm of x. The special cases are the same as for Log.
 
+Log10返回x的十进制对数。特殊情况与Log相同。
+
 ##### Example
 ``` go 
 ```
@@ -818,6 +1026,8 @@ func Log1p(x float64) float64
 ```
 
 Log1p returns the natural logarithm of 1 plus its argument x. It is more accurate than Log(1 + x) when x is near zero.
+
+Log1p返回1加上其参数x的自然对数。当x接近零时，它比Log(1 + x)更准确。
 
 特殊情况如下：
 
@@ -837,6 +1047,8 @@ func Log2(x float64) float64
 
 Log2 returns the binary logarithm of x. The special cases are the same as for Log.
 
+Log2返回x的二进制对数。特殊情况与Log相同。
+
 ##### Example
 ``` go 
 ```
@@ -848,6 +1060,8 @@ func Logb(x float64) float64
 ```
 
 Logb returns the binary exponent of x.
+
+Logb返回x的二进制指数。
 
 特殊情况如下：
 
@@ -864,6 +1078,8 @@ func Max(x, y float64) float64
 ```
 
 Max returns the larger of x or y.
+
+Max返回x和y中较大的值。
 
 特殊情况如下：
 
@@ -882,6 +1098,8 @@ func Min(x, y float64) float64
 
 Min returns the smaller of x or y.
 
+Min返回x和y中较小的值。
+
 特殊情况如下：
 
 ```
@@ -897,6 +1115,8 @@ func Mod(x, y float64) float64
 ```
 
 Mod returns the floating-point remainder of x/y. The magnitude of the result is less than y and its sign agrees with that of x.
+
+Mod返回x除以y的浮点余数。结果的绝对值小于y，符号与x相同。
 
 特殊情况如下：
 
@@ -920,6 +1140,8 @@ func Modf(f float64) (int float64, frac float64)
 
 Modf returns integer and fractional floating-point numbers that sum to f. Both values have the same sign as f.
 
+Modf返回和为f的整数部分和小数部分的浮点数。两个值的符号与f相同。
+
 特殊情况如下：
 
 ```
@@ -939,6 +1161,8 @@ func NaN() float64
 
 NaN returns an IEEE 754 "not-a-number" value.
 
+NaN返回一个IEEE 754的“非数”值。
+
 #### func Nextafter 
 
 ``` go 
@@ -946,6 +1170,8 @@ func Nextafter(x, y float64) (r float64)
 ```
 
 Nextafter returns the next representable float64 value after x towards y.
+
+Nextafter返回x朝向y的下一个可表示的float64值。
 
 特殊情况如下：
 
@@ -963,6 +1189,8 @@ func Nextafter32(x, y float32) (r float32)
 
 Nextafter32 returns the next representable float32 value after x towards y.
 
+Nextafter32返回x朝向y的下一个可表示的float32值。
+
 特殊情况如下：
 
 ```
@@ -978,6 +1206,8 @@ func Pow(x, y float64) float64
 ```
 
 Pow returns x**y, the base-x exponential of y.
+
+Pow返回x的y次幂，即x**y。
 
 Special cases are (in order):
 
@@ -1016,6 +1246,8 @@ func Pow10(n int) float64
 
 Pow10 returns 10**n, the base-10 exponential of n.
 
+Pow10返回10的n次幂，即10**n。
+
 特殊情况如下：
 
 ```
@@ -1034,6 +1266,8 @@ func Remainder(x, y float64) float64
 ```
 
 Remainder returns the IEEE 754 floating-point remainder of x/y.
+
+Pow10返回10的n次幂，即10**n。
 
 特殊情况如下：
 
@@ -1057,6 +1291,8 @@ func Round(x float64) float64
 
 Round returns the nearest integer, rounding half away from zero.
 
+Round返回最接近x的整数，向远离零的方向四舍五入。
+
 特殊情况如下：
 
 ```
@@ -1076,6 +1312,8 @@ func RoundToEven(x float64) float64
 ```
 
 RoundToEven returns the nearest integer, rounding ties to even.
+
+RoundToEven返回最接近x的整数，四舍五入时选择偶数。
 
 特殊情况如下：
 
@@ -1097,6 +1335,8 @@ func Signbit(x float64) bool
 
 Signbit reports whether x is negative or negative zero.
 
+Signbit报告x是否为负数或负零。
+
 #### func Sin 
 
 ``` go 
@@ -1104,6 +1344,8 @@ func Sin(x float64) float64
 ```
 
 Sin returns the sine of the radian argument x.
+
+Sin返回弧度参数x的正弦值。
 
 特殊情况如下：
 
@@ -1125,6 +1367,8 @@ func Sincos(x float64) (sin, cos float64)
 
 Sincos returns Sin(x), Cos(x).
 
+Sincos返回Sin(x)和Cos(x)。
+
 特殊情况如下：
 
 ```
@@ -1145,6 +1389,8 @@ func Sinh(x float64) float64
 
 Sinh returns the hyperbolic sine of x.
 
+Sinh返回x的双曲正弦值。
+
 特殊情况如下：
 
 ```
@@ -1164,6 +1410,8 @@ func Sqrt(x float64) float64
 ```
 
 Sqrt returns the square root of x.
+
+Sqrt返回x的平方根。
 
 特殊情况如下：
 
@@ -1186,6 +1434,8 @@ func Tan(x float64) float64
 
 Tan returns the tangent of the radian argument x.
 
+Tan返回弧度参数x的正切值。
+
 特殊情况如下：
 
 ```
@@ -1205,6 +1455,8 @@ func Tanh(x float64) float64
 ```
 
 Tanh returns the hyperbolic tangent of x.
+
+Tanh返回x的双曲正切值。
 
 特殊情况如下：
 
@@ -1226,6 +1478,8 @@ func Trunc(x float64) float64
 
 Trunc returns the integer value of x.
 
+Trunc返回x的整数部分。
+
 特殊情况如下：
 
 ```
@@ -1246,6 +1500,8 @@ func Y0(x float64) float64
 
 Y0 returns the order-zero Bessel function of the second kind.
 
+Y0返回第二类零阶贝塞尔函数。
+
 特殊情况如下：
 
 ```
@@ -1263,6 +1519,8 @@ func Y1(x float64) float64
 
 Y1 returns the order-one Bessel function of the second kind.
 
+Y1返回第二类一阶贝塞尔函数。
+
 特殊情况如下：
 
 ```
@@ -1279,6 +1537,8 @@ func Yn(n int, x float64) float64
 ```
 
 Yn returns the order-n Bessel function of the second kind.
+
+Yn返回第二类n阶贝塞尔函数。
 
 特殊情况如下：
 
