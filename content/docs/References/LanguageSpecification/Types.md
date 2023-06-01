@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Types ](https://go.dev/ref/spec#Types )
 
-​	类型决定了一组值以及特定于这些值的操作和方法。如果类型具有类型名称，则可以用类型名称表示。如果类型是泛型，则后面必须跟[类型参数](../Expressions#instantiations)。还可以使用`类型字面量`指定类型，它由现有类型组成一个类型。
+​	类型决定了一组值以及特定于这些值的操作和方法。如果类型具有类型名称，则可以用类型名称表示。如果类型是泛型，则后面必须跟[类型参数](../Expressions#instantiations-实例化)。还可以使用`类型字面量`指定类型，它由现有类型组成一个类型。
 
 ```
 Type      = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
@@ -21,9 +21,9 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
             SliceType | MapType | ChannelType .
 ```
 
-​	该语言[预先声明](../DeclarationsAndScope#predeclared-identifiers)了某些类型的名称。其他类型是通过[类型声明](../DeclarationsAndScope#type-declarations)或[类型参数列表](../DeclarationsAndScope#type-parameter-declarations)引入的。`复合类型`：数组、结构体、指针、函数、接口、切片、映射和通道类型 —— 可以用类型字面量来构造。
+​	该语言[预先声明](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)了某些类型的名称。其他类型是通过[类型声明](../DeclarationsAndScope#type-declarations-类型声明)或[类型参数列表](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)引入的。`复合类型`：数组、结构体、指针、函数、接口、切片、映射和通道类型 —— 可以用类型字面量来构造。
 
-​	预先声明的类型、[已定义的类型](../DeclarationsAndScope#type-declarations)和类型参数被称为`命名类型`。如果别名声明中给出的类型是命名类型，则别名也表示一个（新的）命名类型。
+​	预先声明的类型、[已定义的类型](../DeclarationsAndScope#type-declarations-类型声明)和类型参数被称为`命名类型`。如果别名声明中给出的类型是命名类型，则别名也表示一个（新的）命名类型。
 
 ### Boolean types 布尔型
 
@@ -66,13 +66,13 @@ int      same size as uint
 uintptr  an unsigned integer large enough to store the uninterpreted bits of a pointer value
 ```
 
-​	为了避免可移植性问题，所有的数值类型都是[已定义的类型](../DeclarationsAndScope#type-declarations)，因此除了 `byte` (`uint8`的别名)和 `rune` (`int32`的别名)之外，它们是截然不同的。 当不同的数值类型在表达式或赋值中混合使用时，需要进行显式转换。例如，int32和int不是相同类型，尽管它们在一个特定的体系结构上可能具有相同的大小。
+​	为了避免可移植性问题，所有的数值类型都是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)，因此除了 `byte` (`uint8`的别名)和 `rune` (`int32`的别名)之外，它们是截然不同的。 当不同的数值类型在表达式或赋值中混合使用时，需要进行显式转换。例如，int32和int不是相同类型，尽管它们在一个特定的体系结构上可能具有相同的大小。
 
 ### String types 字符串型
 
-​	字符串类型表示字符串值的集合。字符串值是字节序列（可能为空）。`字节数`被称为字符串的`长度`，并且永远不会是负数。字符串是不可变的：一旦创建，就不可能改变字符串的内容。预先声明的字符串类型是`string`；它是一种[已定义的类型](../DeclarationsAndScope#type-declarations)。
+​	字符串类型表示字符串值的集合。字符串值是字节序列（可能为空）。`字节数`被称为字符串的`长度`，并且永远不会是负数。字符串是不可变的：一旦创建，就不可能改变字符串的内容。预先声明的字符串类型是`string`；它是一种[已定义的类型](../DeclarationsAndScope#type-declarations-类型定义)。
 
-​	可以使用内置函数 `len` 查找字符串 `s` 的长度。如果字符串是常量，那么长度就是编译时常量。字符串的字节可以通过整数[索引](../Expressions#index-expressions)0到`len(s)-1`来访问。`取这样一个元素的地址是非法的`；如果`s[i]`是字符串的第`i`个字节，那么`&s[i]`是无效的。
+​	可以使用内置函数 `len` 查找字符串 `s` 的长度。如果字符串是常量，那么长度就是编译时常量。字符串的字节可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`来访问。`取这样一个元素的地址是非法的`；如果`s[i]`是字符串的第`i`个字节，那么`&s[i]`是无效的。
 
 ### Array types 数组型
 
