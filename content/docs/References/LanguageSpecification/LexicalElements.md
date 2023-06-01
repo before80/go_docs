@@ -17,11 +17,11 @@ draft = false
 1. 行注释以字符序列`//`开始，并在行尾结束。
 2. 通用注释以字符序列`/*`开始，并以随后的第一个字符序列`*/`结束。
 
-​	注释不能从[rune](#rune-literals)或[string literal](#string-literals)开始，也不能从注释内部开始。一个不包含换行符的通用注释就像一个空格。任何其他的注释就像一个换行符。
+​	注释不能从[rune]({{< ref "/docs/References/LanguageSpecification/LexicalElements#rune-literals-符文字面量">}})或[string literal]({{< ref "/docs/References/LanguageSpecification/LexicalElements#string-literals-字符串字面量">}})开始，也不能从注释内部开始。一个不包含换行符的通用注释就像一个空格。任何其他的注释就像一个换行符。
 
 ### Tokens
 
-​	tokens 构成了Go语言的词汇表。有四个类别：`标识符`、`关键字`、`操作符和标点符号`以及`字面量（literals）`。由空格（U+0020）、水平制表符（U+0009）、回车符（U+000D）和换行符（U+000A）组成的空白空间被忽略，除非它分隔本来会合并成单个标记的标记。此外，换行或文件结束可能会触发插入分号[semicolon](#Semicolons) 。当把输入分解为 tokens 时，下一个 token 是形成有效 token 的最长的字符序列。
+​	tokens 构成了Go语言的词汇表。有四个类别：`标识符`、`关键字`、`操作符和标点符号`以及`字面量（literals）`。由空格（U+0020）、水平制表符（U+0009）、回车符（U+000D）和换行符（U+000A）组成的空白空间被忽略，除非它分隔本来会合并成单个标记的标记。此外，换行或文件结束可能会触发插入分号[semicolon](#semicolons-分号) 。当把输入分解为 tokens 时，下一个 token 是形成有效 token 的最长的字符序列。
 
 ### Semicolons 分号
 
@@ -31,13 +31,13 @@ a. 当输入被分解成 tokens 时，分号会自动插入标记流后，如果
 
 
 
-   - 一个标识符（[identifier](#identifiers)）
+   - 一个标识符（[identifier](#identifiers-标识符)）
 
-   - 一个[整数字面量](#integer-literals)、[浮点数字面量](#floating-point-literals)、[虚数字面量](#imaginary-literals)、[符文字面量](#rune-literals)或[字符串字面量](#string-literals )
+   - 一个[整数字面量]({{< ref "/docs/References/LanguageSpecification/LexicalElements#integer-literals-整数字面量">}})、[浮点数字面量]({{< ref "/docs/References/LanguageSpecification/LexicalElements#floating-point-literals-浮点数字面量">}})、[虚数字面量]({{< ref "/docs/References/LanguageSpecification/LexicalElements#imaginary-literals-虚数字面量">}})、[符文字面量]({{< ref "/docs/References/LanguageSpecification/LexicalElements#rune-literals-符文字面量">}})或[字符串字面量]({{< ref "/docs/References/LanguageSpecification/LexicalElements#string-literals-字符串字面量">}} )
 
-   - `break`、 `continue`、`fallthrough`、 `return`中的任意一个[关键字](#keywords)
+   - `break`、 `continue`、`fallthrough`、 `return`中的任意一个[关键字](#keywords-关键字)
 
-   - `++`、`--`、`)`、`]`、 `}`中的任意一个[操作符或标点符号](#operators-and-punctuation)
+   - `++`、`--`、`)`、`]`、 `}`中的任意一个[操作符或标点符号](#operators-and-punctuation-操作符和标点符号)
 
         
 
@@ -57,7 +57,7 @@ ThisVariableIsExported
 αβ
 ```
 
-一些标识符是预先声明的（[predeclared](../DeclarationsAndScope#predeclared-identifiers)）。
+一些标识符是预先声明的（[predeclared]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符">}})）。
 
 ### Keywords 关键字
 
@@ -73,7 +73,7 @@ continue     for          import       return       var
 
 ### Operators and punctuation 操作符和标点符号
 
-​	以下字符序列代表运算符（[operators](../Expressions#Operators)）（包括赋值运算符（[assignment operators](../Statements#assignment-statements)））和标点符号：
+​	以下字符序列代表运算符（[operators]({{< ref "/docs/References/LanguageSpecification/Expressions#operators-操作符">}})）（包括赋值运算符（[assignment operators]({{< ref "/docs/References/LanguageSpecification/Statements#assignment-statements-赋值语句">}})））和标点符号：
 
 ```
 +    &     +=    &=     &&    ==    !=    (    )
@@ -124,7 +124,7 @@ _42         // an identifier, not an integer literal => 标识符,非整数字�
 
 ### Floating-point literals 浮点数字面量
 
-​	浮点数字面量是[浮点常量](../Constants)的十进制或十六进制表示。
+​	浮点数字面量是[浮点常量]({{< ref "/docs/References/LanguageSpecification/Constants">}})的十进制或十六进制表示。
 
 ​	十进制浮点数字面量由整数部分（integer part）（十进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十进制数字）和指数部分（exponent part ）（`e`或`E`后面有可选的符号和十进制数字）组成。整数部分或小数部分中的一个可以省略；小数点或指数部分中的一个可以省略。指数值 exp 将尾数（mantissa ）（整数和小数部分）按$10^{exp}$ 进行缩放。
 
@@ -187,7 +187,7 @@ hex_exponent      = ( "p" | "P" ) [ "+" | "-" ] decimal_digits .
 
 ### Imaginary literals 虚数字面量
 
-​	虚数字面量表示一个[复数常量](../Constants)的虚数部分。它由一个[整数字面量](#integer-literals)或[浮点数的字面量](#floating-point-literals)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i`。
+​	虚数字面量表示一个[复数常量]({{< ref "/docs/References/LanguageSpecification/Constants">}})的虚数部分。它由一个[整数字面量](#integer-literals-整数字面量)或[浮点数的字面量](#floating-point-literals-浮点数字面量)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i`。
 
 ```
 imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
@@ -212,7 +212,7 @@ imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 
 ### Rune literals 符文字面量
 
-​	符文字面量表示一个[符文常量](../Constants)，一个识别Unicode码点的整数值。一个符文字面量表示为一个或多个字符，用单引号包裹起来，如`'x'`或`'\n'`。在引号内，除了换行符（newline）和未转义的单引号（unescaped single quote），任何字符都可以出现。一个单引号字符代表该字符本身的Unicode值，而以`反斜线`开始的多字符序列则以各种格式编码。
+​	符文字面量表示一个[符文常量]({{< ref "/docs/References/LanguageSpecification/Constants">}})，一个识别Unicode码点的整数值。一个符文字面量表示为一个或多个字符，用单引号包裹起来，如`'x'`或`'\n'`。在引号内，除了换行符（newline）和未转义的单引号（unescaped single quote），任何字符都可以出现。一个单引号字符代表该字符本身的Unicode值，而以`反斜线`开始的多字符序列则以各种格式编码。
 
 ​	最简单的形式代表引号内的单个字符；由于Go源文本是以UTF-8编码的Unicode字符，多个UTF-8编码的字节可能代表一个整数值。例如，字面意义上的`'a'`持有一个字节，代表字面意义上的`a`，Unicode U+0061，数值为`0x61`，而`'ä'`持有两个字节（`0xc3 0xa4`），代表字面意义上的a-dieresis，U+00E4，数值为`0xe4`。
 
@@ -277,7 +277,7 @@ escaped_char     = `\` ( "a" | "b" | "f" | "n" | "r" | "t" | "v" | `\` | "'" | `
 
 ### String literals 字符串字面量
 
-​	字符串字面量表示通过连接字符序列获得的[字符串常量](../Constants)。有两种形式：`原始字符串字面量`和`解释字符串字面量`。
+​	字符串字面量表示通过连接字符序列获得的[字符串常量]({{< ref "/docs/References/LanguageSpecification/Constants">}})。有两种形式：`原始字符串字面量`和`解释字符串字面量`。
 
 ​	原始字符串字面量是`反引号之间`的字符序列，如\`foo\`。在引号内，任何字符都可以出现，除了反引号。原始字符串字面量的值是由引号之间未解释的（隐含的UTF-8编码）字符组成的字符串；特别是，反斜线没有特殊含义，字符串可以包含新行。原始字符串字面量内的回车字符（'\r'）会从原始字符串值中丢弃。
 

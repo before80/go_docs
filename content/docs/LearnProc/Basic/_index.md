@@ -13,6 +13,38 @@ draft = false
 
 ## 环境搭建
 
+
+## 【42个】预先声明标识符
+
+[语言规范中的预先声明标识符]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
+
+【42个】按类型分类如下：
+
+```go
+// 【22个】类型:
+	any       bool       byte   comparable
+	complex64 complex128 error  float32    float64
+	int       int8       int16  int32      int64    rune    string
+	uint      uint8      uint16 uint32     uint64   uintptr
+
+// 【3个】常量:
+	true false iota
+
+// 【1个】零值:
+	nil
+
+// 【1个】空白标识符
+	_
+
+// 【15个】内置函数:
+	append  cap  close  complex copy     delete  imag     len
+	make    new  panic  print   println  real    recover
+```
+
+> any是interface{} 的别名。
+>
+> comparable ：可比较类型， Go 1.18引入的预声明类型。
+
 ## 【25个】关键字
 
 [语言规范中的关键字]({{< ref  "/docs/References/LanguageSpecification/LexicalElements#keywords-关键字" >}})
@@ -62,33 +94,7 @@ goto
 
 
 
-## 【41个】预先声明标识符
 
-[语言规范中的预先声明标识符]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
-
-【41个】按类型分类如下：
-
-```go
-// 【22个】类型:
-	any       bool       byte   comparable
-	complex64 complex128 error  float32    float64
-	int       int8       int16  int32      int64    rune    string
-	uint      uint8      uint16 uint32     uint64   uintptr
-
-// 【3个】常量:
-	true false iota
-
-// 【1个】零值:
-	nil
-
-// 【15个】函数:
-	append  cap  close  complex copy     delete  imag     len
-	make    new  panic  print   println  real    recover
-```
-
-> any：interface{} 的别名。
->
-> comparable ：可比较类型， Go 1.18引入的预声明类型。
 
 
 
