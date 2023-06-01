@@ -17,8 +17,9 @@
     />
     {{ else }}
     {{/* 站点配置中 $MyDefLastUrlEle != "" 的情况 */}}
-    <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}/{{- strings.TrimLeft $MyDefLastUrlEle $rel -}}"
-         alt="{{ .Text }}" data-2str="{{- $curDir -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
+    {{ $rg := strings.TrimLeft $MyDefLastUrlEle $rel }}
+    <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}/{{- $rg -}}"
+         alt="{{ .Text }}" data-2str="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
          {{ with .Title }} title="{{ . }}"{{ end }}
     />
     {{ end }}
