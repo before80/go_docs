@@ -84,7 +84,7 @@ ArrayLength = Expression .
 ElementType = Type .
 ```
 
-​	长度是数组类型的一部分；它必须求值为一个非负[常数](../Constants)，该常数可由 int 类型的值[表示](../PropertiesOfTypesAndValues#representability)。数组`a`的长度可以用内置函数`len`发现。元素可以通过整数[索引](../Expressions#index-expressions)0到`len(a)-1`进行寻址。数组类型总是一维的，但是可以组成多维类型。
+​	长度是数组类型的一部分；它必须求值为一个非负[常数](../Constants)，该常数可由 int 类型的值[表示](../PropertiesOfTypesAndValues#representability)。数组`a`的长度可以用内置函数`len`发现。元素可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(a)-1`进行寻址。数组类型总是一维的，但是可以组成多维类型。
 
 ```go 
 [32]byte
@@ -102,7 +102,7 @@ ElementType = Type .
 SliceType = "[" "]" ElementType .
 ```
 
-​	切片`s`的长度可以通过内置函数`len`发现；与数组不同，它在运行过程中可能会发生变化。元素可以通过整数[索引](../Expressions#index-expressions)0到`len(s)-1`进行寻址。给定元素的切片索引可能小于底层数组中同一元素的索引。
+​	切片`s`的长度可以通过内置函数`len`发现；与数组不同，它在运行过程中可能会发生变化。元素可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`进行寻址。给定元素的切片索引可能小于底层数组中同一元素的索引。
 
 ​	切片一旦被初始化，总是与保存其元素的底层数组相关联。因此，一个切片与它的底层数组和同一数组的其他切片共享存储；相反，不同的数组总是表示不同的存储。
 
@@ -114,7 +114,7 @@ SliceType = "[" "]" ElementType .
 make([]T, length, capacity)
 ```
 
-产生的切片与分配一个数组并对其进行[切片](../Expressions#slice-expressions)是一样的，所以这两个表达式是等同的：
+产生的切片与分配一个数组并对其进行[切片](../Expressions#slice-expressions-切片表达式)是一样的，所以这两个表达式是等同的：
 
 ```go 
 make([]int, 50, 100)
@@ -125,7 +125,7 @@ new([100]int)[0:50]
 
 ### Struct types 结构体型
 
-​		结构体是一个命名元素（称为`字段`）的序列，，每个字段都有一个名称和一个类型。字段名可以显示地指定（IdentifierList）或隐含地指定（EmbeddedField）。在一个结构体中，非[空白](../DeclarationsAndScope#blank-identifier)字段名必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers)的。
+​		结构体是一个命名元素（称为`字段`）的序列，，每个字段都有一个名称和一个类型。字段名可以显示地指定（IdentifierList）或隐含地指定（EmbeddedField）。在一个结构体中，非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段名必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)的。
 
 ```
 StructType    = "struct" "{" { FieldDecl ";" } "}" .
@@ -168,16 +168,16 @@ struct {
 }
 ```
 
-​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations)`f`的合法[选择器](../Expressions#selectors )，那么结构体`x`中的嵌入式字段或方法`f`被称为（自动）提升（的字段或方法）。
+​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations-方法声明)`f`的合法[选择器](../Expressions#selectors-选择器)，那么结构体`x`中的嵌入式字段或方法`f`被称为（自动）提升（的字段或方法）。
 
-​	被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals)中作为字段名使用。
+​	被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals-复合字面量)中作为字段名使用。
 
 ​	给定一个结构体类型`S`和一个[命名类型](../Types)`T`，提升的方法被包含在结构体的方法集中，如下所示：
 
 - 如果`S`包含一个嵌入式字段`T`，那么`S`和`*S`的方法集都包括带有接收器`T`的提升方法，`*S`的方法集也包括带有接收器`*T`的提升方法。
 - 如果`S`包含一个嵌入式字段`*T`，那么`S`和`*S`的方法集都包括带有接收器`T`或`*T`的提升方法。
 
-​	一个字段声明后面可以有一个可选的`字符串字面量标签`，它成为相应字段声明中所有字段的属性。一个空的标签字符串等同于一个不存在标签。标签通过[反射接口](https://pkg.go.dev/reflect#StructTag)可见，并参与结构体的[类型标识](../PropertiesOfTypesAndValues#type-identity)，但在其他情况下被忽略。
+​	一个字段声明后面可以有一个可选的`字符串字面量标签`，它成为相应字段声明中所有字段的属性。一个空的标签字符串等同于一个不存在标签。标签通过[反射接口](https://pkg.go.dev/reflect#StructTag)可见，并参与结构体的[类型标识](../PropertiesOfTypesAndValues#type-identity-类型一致性)，但在其他情况下被忽略。
 
 ```go 
 struct {
@@ -222,7 +222,7 @@ ParameterList  = ParameterDecl { "," ParameterDecl } .
 ParameterDecl  = [ IdentifierList ] [ "..." ] Type .
 ```
 
-​	在参数或结果的列表中，名称（IdentifierList）必须全部存在或全部不存在。如果存在（名称），每个名称代表指定类型的一个项（参数或结果），并且签名中所有非[空白](../PropertiesOfTypesAndValues#blank-identity)的名称必须是唯一的。如果不存在（名称），每个类型代表该类型的一个项。参数和结果列表总是用括号表示，但如果正好仅有一个未命名的结果，则可以写成未括号的类型。
+​	在参数或结果的列表中，名称（IdentifierList）必须全部存在或全部不存在。如果存在（名称），每个名称代表指定类型的一个项（参数或结果），并且签名中所有非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)的名称必须是唯一的。如果不存在（名称），每个类型代表该类型的一个项。参数和结果列表总是用括号表示，但如果正好仅有一个未命名的结果，则可以写成未括号的类型。
 
 ​	在函数签名中的最后一个传入参数可以有一个`类型前缀` `...`。有这样一个参数的函数被称为 variadic （`可变参数函数`），可以用零个或多个参数来调用该函数。
 
@@ -239,7 +239,7 @@ func(n int) func(p *T)
 
 ### Interface types 接口型
 
-​	接口类型定义了一个类型集。接口类型的变量可以存储该接口类型集中的任何类型的值。这样的类型被称为[实现了该接口](#implementing-an-interface)。未初始化的接口类型变量的值是`nil`。
+​	接口类型定义了一个类型集。接口类型的变量可以存储该接口类型集中的任何类型的值。这样的类型被称为[实现了该接口](#implementing-an-interface-实现一个接口)。未初始化的接口类型变量的值是`nil`。
 
 ```
 InterfaceType  = "interface" "{" { InterfaceElem ";" } "}" .
@@ -421,9 +421,9 @@ interface {
 }
 ```
 
-实现限制：联合(有多个术语)不能包含[预先声明的标识符](../DeclarationsAndScope#predeclared-identifiers)`comparable`或指定方法的接口，或嵌入`comparable`或指定方法的接口。
+实现限制：联合(有多个术语)不能包含[预先声明的标识符](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)`comparable`或指定方法的接口，或嵌入`comparable`或指定方法的接口。
 
-​	非[基本接口](#basic-interfaces)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，也不能作为其他非接口类型的组成部分。
+​	非[基本接口](#basic-interfaces-基本接口)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，也不能作为其他非接口类型的组成部分。
 
 ```go 
 var x Float                     // illegal: Float is not a basic interface => 非法: Float 不是一个基本接口
@@ -475,7 +475,7 @@ MapType     = "map" "[" KeyType "]" ElementType .
 KeyType     = Type .
 ```
 
-​	[比较运算符](../Expressions#comparison-operators)`==`和`!=`必须为键类型的操作数完全定义；`因此键类型不能是函数、映射或切片`。如果键类型是接口类型，则必须为动态键值定义这些比较运算符；失败将导致[运行时恐慌（run-time panic）](../Run-timePanics)。
+​	[比较运算符](../Expressions#comparison-operators-比较运算符)`==`和`!=`必须为键类型的操作数完全定义；`因此键类型不能是函数、映射或切片`。如果键类型是接口类型，则必须为动态键值定义这些比较运算符；失败将导致[运行时恐慌（run-time panic）](../Run-timePanics)。
 
 ```go 
 map[string]int
@@ -483,7 +483,7 @@ map[*T]struct{ x, y float64 }
 map[string]interface{}
 ```
 
-​	映射元素的数量被称为它的`长度`。对于一个map `m`来说，它可以用内置函数`len`来发现，并且在运行过程中可能会改变。在运行过程中可以用[赋值](../Statements#assignment-statements)添加元素，用[索引表达式](../Expressions##index-expressions)检索元素；可以用内置函数`delete`删除元素。
+​	映射元素的数量被称为它的`长度`。对于一个map `m`来说，它可以用内置函数`len`来发现，并且在运行过程中可能会改变。在运行过程中可以用[赋值](../Statements#assignment-statements)添加元素，用[索引表达式](../Expressions##index-expressions-索引表达式)检索元素；可以用内置函数`delete`删除元素。
 
 ​	使用内置函数 `make` 创建一个新的空 map 值，它使用 map 类型和一个可选的容量提示作为参数：
 
@@ -496,13 +496,13 @@ make(map[string]int, 100)
 
 ### Channel types 通道型
 
-​	通道为[并发执行函数](../Statements#go-statements)提供了一种机制，通过[发送](../Statements#send-statements)和[接收](../Expressions#receive-operator)指定元素类型的值进行通信。未初始化的通道的值是`nil`。
+​	通道为[并发执行函数](../Statements#go-statements----go-语句)提供了一种机制，通过[发送](../Statements#send-statements-发送语句)和[接收](../Expressions#receive-operator-接收操作符)指定元素类型的值进行通信。未初始化的通道的值是`nil`。
 
 ```
 ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
 ```
 
-​	可选的`<-`操作符指定了通道的方向：发送或接收。如果指定了方向，则该通道是定向的，否则是双向的。通过[赋值](../Statements#assignment-statements)或显式[转换](../Expressions#conversions)，通道可以被限制为仅发送或仅接收。
+​	可选的`<-`操作符指定了通道的方向：发送或接收。如果指定了方向，则该通道是定向的，否则是双向的。通过[赋值](../Statements#assignment-statements-赋值语句)或显式[转换](../Expressions#conversions-转换)，通道可以被限制为仅发送或仅接收。
 
 ```go 
 chan T          // can be used to send and receive values of type T => 可用于发送或接收类型为 T 的值
@@ -534,5 +534,5 @@ make(chan int, 100)
 
 
 
-​	通道可以用内置函数`close`来关闭。[接收操作符](../Expressions#receive-operator)的多值赋值形式可以用来判断数据是否在通道关闭之前发送出去。
-​	任意数量的goroutines都可以通过[发送语句](../Statements#send-statements)、[接收操作](../Expressions#receive-operator)以及对内置函数`cap`和`len`的调用，来操作一个通道。通道是一个先入先出的队列。例如，如果一个goroutine在通道上发送数据，第二个goroutine接收这些数据，那么这些数据将按照发送的顺序被接收。
+​	通道可以用内置函数`close`来关闭。[接收操作符](../Expressions#receive-operator-接收操作符)的多值赋值形式可以用来判断数据是否在通道关闭之前发送出去。
+​	任意数量的goroutines都可以通过[发送语句](../Statements#send-statements-发送语句)、[接收操作](../Expressions#receive-operator-接收操作符)以及对内置函数`cap`和`len`的调用，来操作一个通道。通道是一个先入先出的队列。例如，如果一个goroutine在通道上发送数据，第二个goroutine接收这些数据，那么这些数据将按照发送的顺序被接收。

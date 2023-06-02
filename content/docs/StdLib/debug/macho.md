@@ -9,15 +9,15 @@ draft = false
 
 https://pkg.go.dev/debug/macho@go1.20.1
 
-
-
-
-
 Package macho implements access to Mach-O object files.
 
-#### Security 
+Package macho 实现了对 Mach-O 目标文件的访问。
+
+#### Security  安全性
 
 This package is not designed to be hardened against adversarial inputs, and is outside the scope of https://go.dev/security/policy. In particular, only basic validation is done when parsing object files. As such, care should be taken when parsing untrusted inputs, as parsing malformed files may consume significant resources, or cause panics.
+
+该包不设计为针对对抗性输入进行强化，并且不在 https://go.dev/security/policy 的范围内。特别是，当解析目标文件时只进行基本验证。因此，在解析不受信任的输入时应格外小心，因为解析格式错误的文件可能会消耗大量资源或导致崩溃。
 
 
 
@@ -76,6 +76,8 @@ var ErrNotFat = &FormatError{0, "not a fat Mach-O file", nil}
 
 ErrNotFat is returned from NewFatFile or OpenFat when the file is not a universal binary but may be a thin binary, based on its magic number.
 
+当文件不是通用二进制文件但可能是瘦二进制文件时，NewFatFile 或 OpenFat 方法将返回 ErrNotFat。
+
 ## 函数
 
 This section is empty.
@@ -89,6 +91,8 @@ type Cpu uint32
 ```
 
 A Cpu is a Mach-O cpu type.
+
+Cpu 是 Mach-O 的 CPU 类型。
 
 ``` go 
 const (
@@ -127,6 +131,8 @@ type Dylib struct {
 
 A Dylib represents a Mach-O load dynamic library command.
 
+Dylib 表示 Mach-O 的加载动态库命令。
+
 ### type DylibCmd 
 
 ``` go 
@@ -142,6 +148,8 @@ type DylibCmd struct {
 
 A DylibCmd is a Mach-O load dynamic library command.
 
+DylibCmd 是 Mach-O 的加载动态库命令。
+
 ### type Dysymtab 
 
 ``` go 
@@ -153,6 +161,8 @@ type Dysymtab struct {
 ```
 
 A Dysymtab represents a Mach-O dynamic symbol table command.
+
+Dysymtab 表示 Mach-O 的动态符号表命令。
 
 ### type DysymtabCmd 
 
@@ -183,6 +193,8 @@ type DysymtabCmd struct {
 
 A DysymtabCmd is a Mach-O dynamic symbol table command.
 
+DysymtabCmd 是 Mach-O 的动态符号表命令。
+
 ### type FatArch  <- go1.3
 
 ``` go 
@@ -193,6 +205,8 @@ type FatArch struct {
 ```
 
 A FatArch is a Mach-O File inside a FatFile.
+
+FatArch 是 FatFile 中的 Mach-O 文件。
 
 ### type FatArchHeader  <- go1.3
 
@@ -208,6 +222,8 @@ type FatArchHeader struct {
 
 A FatArchHeader represents a fat header for a specific image architecture.
 
+FatArchHeader 表示特定图像架构的 fat header。
+
 ### type FatFile  <- go1.3
 
 ``` go 
@@ -220,6 +236,8 @@ type FatFile struct {
 
 A FatFile is a Mach-O universal binary that contains at least one architecture.
 
+FatFile 是包含至少一个架构的 Mach-O 通用二进制文件。
+
 #### func NewFatFile  <- go1.3
 
 ``` go 
@@ -228,6 +246,8 @@ func NewFatFile(r io.ReaderAt) (*FatFile, error)
 
 NewFatFile creates a new FatFile for accessing all the Mach-O images in a universal binary. The Mach-O binary is expected to start at position 0 in the ReaderAt.
 
+NewFatFile 创建一个新的 FatFile，用于访问通用二进制文件中的所有 Mach-O 图像。Mach-O 二进制文件应从 ReaderAt 的位置 0 开始。
+
 #### func OpenFat  <- go1.3
 
 ``` go 
@@ -235,6 +255,8 @@ func OpenFat(name string) (*FatFile, error)
 ```
 
 OpenFat opens the named file using os.Open and prepares it for use as a Mach-O universal binary.
+
+OpenFat 使用 os.Open 打开指定的文件，并准备将其用作 Mach-O 通用二进制文件。
 
 #### (*FatFile) Close  <- go1.3
 
@@ -259,6 +281,8 @@ type File struct {
 
 A File represents an open Mach-O file.
 
+File 表示打开的 Mach-O 文件。
+
 #### func NewFile 
 
 ``` go 
@@ -266,6 +290,8 @@ func NewFile(r io.ReaderAt) (*File, error)
 ```
 
 NewFile creates a new File for accessing a Mach-O binary in an underlying reader. The Mach-O binary is expected to start at position 0 in the ReaderAt.
+
+NewFile 创建一个新的 File，用于访问底层 Reader 中的 Mach-O 二进制文件。Mach-O 二进制文件应从 ReaderAt 的位置 0 开始。
 
 #### func Open 
 
@@ -275,6 +301,8 @@ func Open(name string) (*File, error)
 
 Open opens the named file using os.Open and prepares it for use as a Mach-O binary.
 
+Open 使用 os.Open 打开指定的文件，并准备将其用作 Mach-O 二进制文件。
+
 #### (*File) Close 
 
 ``` go 
@@ -282,6 +310,8 @@ func (f *File) Close() error
 ```
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
+
+Close 关闭文件。如果 File 是直接使用 NewFile 创建而不是通过 Open 打开的，则 Close 没有任何效果。
 
 #### (*File) DWARF 
 
@@ -291,6 +321,8 @@ func (f *File) DWARF() (*dwarf.Data, error)
 
 DWARF returns the DWARF debug information for the Mach-O file.
 
+DWARF 返回 Mach-O 文件的 DWARF 调试信息。
+
 #### (*File) ImportedLibraries 
 
 ``` go 
@@ -298,6 +330,8 @@ func (f *File) ImportedLibraries() ([]string, error)
 ```
 
 ImportedLibraries returns the paths of all libraries referred to by the binary f that are expected to be linked with the binary at dynamic link time.
+
+ImportedLibraries 返回二进制文件 f 引用的所有库的路径，这些库在动态链接时预计与二进制文件链接。
 
 #### (*File) ImportedSymbols 
 
@@ -307,6 +341,8 @@ func (f *File) ImportedSymbols() ([]string, error)
 
 ImportedSymbols returns the names of all symbols referred to by the binary f that are expected to be satisfied by other libraries at dynamic load time.
 
+ImportedSymbols 返回二进制文件 f 引用的所有符号的名称，这些符号在动态加载时预计由其他库满足。
+
 #### (*File) Section 
 
 ``` go 
@@ -315,6 +351,8 @@ func (f *File) Section(name string) *Section
 
 Section returns the first section with the given name, or nil if no such section exists.
 
+Section 返回具有给定名称的第一个 section，如果不存在该 section，则返回 nil。
+
 #### (*File) Segment 
 
 ``` go 
@@ -322,6 +360,8 @@ func (f *File) Segment(name string) *Segment
 ```
 
 Segment returns the first Segment with the given name, or nil if no such segment exists.
+
+Segment 返回具有给定名称的第一个 Segment，如果不存在该 segment，则返回 nil。
 
 ### type FileHeader 
 
@@ -339,6 +379,8 @@ type FileHeader struct {
 
 A FileHeader represents a Mach-O file header.
 
+FileHeader 表示 Mach-O 文件头部。
+
 ### type FormatError 
 
 ``` go 
@@ -348,6 +390,8 @@ type FormatError struct {
 ```
 
 FormatError is returned by some operations if the data does not have the correct format for an object file.
+
+FormatError 在某些操作中返回，如果数据不符合对象文件的正确格式。
 
 #### (*FormatError) Error 
 
@@ -365,6 +409,8 @@ type Load interface {
 
 A Load represents any Mach-O load command.
 
+Load 表示任何 Mach-O 加载命令。
+
 ### type LoadBytes 
 
 ``` go 
@@ -372,6 +418,8 @@ type LoadBytes []byte
 ```
 
 A LoadBytes is the uninterpreted bytes of a Mach-O load command.
+
+LoadBytes 是 Mach-O 加载命令的未解释字节。
 
 #### (LoadBytes) Raw 
 
@@ -386,6 +434,8 @@ type LoadCmd uint32
 ```
 
 A LoadCmd is a Mach-O load command.
+
+LoadCmd 是 Mach-O 加载命令。
 
 ``` go 
 const (
@@ -427,6 +477,8 @@ type Nlist32 struct {
 
 An Nlist32 is a Mach-O 32-bit symbol table entry.
 
+Nlist32 是 Mach-O 32 位符号表条目。
+
 ### type Nlist64 
 
 ``` go 
@@ -440,6 +492,8 @@ type Nlist64 struct {
 ```
 
 An Nlist64 is a Mach-O 64-bit symbol table entry.
+
+Nlist64 是 Mach-O 64 位符号表条目。
 
 ### type Regs386 
 
@@ -465,6 +519,8 @@ type Regs386 struct {
 ```
 
 Regs386 is the Mach-O 386 register structure.
+
+Regs386 是 Mach-O 386 寄存器结构。
 
 ### type RegsAMD64 
 
@@ -496,6 +552,8 @@ type RegsAMD64 struct {
 
 RegsAMD64 is the Mach-O AMD64 register structure.
 
+RegsAMD64 是 Mach-O AMD64 寄存器结构。
+
 ### type Reloc  <- go1.10
 
 ``` go 
@@ -505,15 +563,20 @@ type Reloc struct {
 	// when Scattered == false && Extern == true, Value is the symbol number.
 	// when Scattered == false && Extern == false, Value is the section number.
 	// when Scattered == true, Value is the value that this reloc refers to.
+    // 当 Scattered == false && Extern == true 时，Value 是符号编号。
+	// 当 Scattered == false && Extern == false 时，Value 是段编号。
+	// 当 Scattered == true 时，Value 是此重定位引用的值。
 	Type      uint8
 	Len       uint8 // 0=byte, 1=word, 2=long, 3=quad
 	Pcrel     bool
-	Extern    bool // valid if Scattered == false
+	Extern    bool // valid if Scattered == false 仅在 Scattered == false 时有效
 	Scattered bool
 }
 ```
 
 A Reloc represents a Mach-O relocation.
+
+Reloc 表示 Mach-O 的重定位信息。
 
 ### type RelocTypeARM  <- go1.10
 
@@ -643,6 +706,8 @@ type Rpath struct {
 
 A Rpath represents a Mach-O rpath command.
 
+Rpath 表示 Mach-O 的 rpath 命令。
+
 ### type RpathCmd  <- go1.10
 
 ``` go 
@@ -654,6 +719,8 @@ type RpathCmd struct {
 ```
 
 A RpathCmd is a Mach-O rpath command.
+
+RpathCmd 是 Mach-O 的 rpath 命令。
 
 ### type Section 
 
@@ -668,6 +735,11 @@ type Section struct {
 	// If a client wants Read and Seek it must use
 	// Open() to avoid fighting over the seek offset
 	// with other clients.
+    // 嵌入 ReaderAt 以便使用 ReadAt 方法。
+	// 不直接嵌入 SectionReader，
+	// 以避免出现 Read 和 Seek 方法的冲突。
+	// 如果客户端需要 Read 和 Seek 方法，
+	// 必须使用 Open() 方法以避免与其他客户端争用 Seek 偏移量。
 	io.ReaderAt
 	// contains filtered or unexported fields
 }
@@ -681,6 +753,8 @@ func (s *Section) Data() ([]byte, error)
 
 Data reads and returns the contents of the Mach-O section.
 
+Section 表示 Mach-O 的段信息。
+
 #### (*Section) Open 
 
 ``` go 
@@ -688,6 +762,8 @@ func (s *Section) Open() io.ReadSeeker
 ```
 
 Open returns a new ReadSeeker reading the Mach-O section.
+
+Open 返回一个新的 ReadSeeker，用于读取 Mach-O 段。
 
 ### type Section32 
 
@@ -709,6 +785,8 @@ type Section32 struct {
 
 A Section32 is a 32-bit Mach-O section header.
 
+Section32 是一个 32 位 Mach-O 段头。
+
 ### type Section64 
 
 ``` go 
@@ -729,6 +807,8 @@ type Section64 struct {
 ```
 
 A Section64 is a 64-bit Mach-O section header.
+
+Section64 是一个 64 位 Mach-O 段头。
 
 ### type SectionHeader 
 
@@ -759,12 +839,19 @@ type Segment struct {
 	// If a client wants Read and Seek it must use
 	// Open() to avoid fighting over the seek offset
 	// with other clients.
+    // 嵌入 ReaderAt 以便使用 ReadAt 方法。
+	// 不直接嵌入 SectionReader，
+	// 以避免出现 Read 和 Seek 方法的冲突。
+	// 如果客户端需要 Read 和 Seek 方法，
+	// 必须使用 Open() 方法以避免与其他客户端争用 Seek 偏移量。
 	io.ReaderAt
 	// contains filtered or unexported fields
 }
 ```
 
 A Segment represents a Mach-O 32-bit or 64-bit load segment command.
+
+Segment 表示 Mach-O 的 32 位或 64 位加载段命令。
 
 #### (*Segment) Data 
 
@@ -774,6 +861,8 @@ func (s *Segment) Data() ([]byte, error)
 
 Data reads and returns the contents of the segment.
 
+Data 读取并返回段的内容。
+
 #### (*Segment) Open 
 
 ``` go 
@@ -781,6 +870,8 @@ func (s *Segment) Open() io.ReadSeeker
 ```
 
 Open returns a new ReadSeeker reading the segment.
+
+Open 返回一个新的 ReadSeeker，用于读取该段的内容。
 
 ### type Segment32 
 
@@ -802,6 +893,8 @@ type Segment32 struct {
 
 A Segment32 is a 32-bit Mach-O segment load command.
 
+Segment32 是一个 32 位 Mach-O 段加载命令。
+
 ### type Segment64 
 
 ``` go 
@@ -821,6 +914,8 @@ type Segment64 struct {
 ```
 
 A Segment64 is a 64-bit Mach-O segment load command.
+
+Segment64 是一个 64 位 Mach-O 段加载命令。
 
 ### type SegmentHeader 
 
@@ -842,6 +937,8 @@ type SegmentHeader struct {
 
 A SegmentHeader is the header for a Mach-O 32-bit or 64-bit load segment command.
 
+SegmentHeader 是 Mach-O 32 位或 64 位加载段命令的头部。
+
 ### type Symbol 
 
 ``` go 
@@ -856,6 +953,8 @@ type Symbol struct {
 
 A Symbol is a Mach-O 32-bit or 64-bit symbol table entry.
 
+Symbol 是 Mach-O 的 32 位或 64 位符号表条目。
+
 ### type Symtab 
 
 ``` go 
@@ -867,6 +966,8 @@ type Symtab struct {
 ```
 
 A Symtab represents a Mach-O symbol table command.
+
+Symtab 表示 Mach-O 符号表命令。
 
 ### type SymtabCmd 
 
@@ -883,6 +984,8 @@ type SymtabCmd struct {
 
 A SymtabCmd is a Mach-O symbol table command.
 
+SymtabCmd 是一个 Mach-O 符号表命令。
+
 ### type Thread 
 
 ``` go 
@@ -896,6 +999,8 @@ type Thread struct {
 
 A Thread is a Mach-O thread state command.
 
+Thread 是一个 Mach-O 线程状态命令。
+
 ### type Type 
 
 ``` go 
@@ -903,6 +1008,8 @@ type Type uint32
 ```
 
 A Type is the Mach-O file type, e.g. an object file, executable, or dynamic library.
+
+Type 是 Mach-O 文件的类型，例如对象文件、可执行文件或动态库。
 
 ``` go 
 const (

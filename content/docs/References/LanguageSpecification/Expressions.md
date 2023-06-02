@@ -14,7 +14,7 @@ draft = false
 
 ### Operands 操作数
 
-​	操作数表示表达式中的基本值。操作数可以是一个字面量，一个表示[常量](../DeclarationsAndScope#constant-declarations)、[变量](../DeclarationsAndScope#variable-declarations)或函数的（可以是[限定的](#qualified-identifiers)）非[空白](../DeclarationsAndScope#blank-identifier)标识符，或者一对圆括号内的表达式。
+​	操作数表示表达式中的基本值。操作数可以是一个字面量，一个表示[常量](../DeclarationsAndScope#constant-declarations)、[变量](../DeclarationsAndScope#variable-declarations-变量声明)或函数的（可以是[限定的](#qualified-identifiers-限定标识符)）非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)标识符，或者一对圆括号内的表达式。
 
 ```
 Operand     = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
@@ -23,15 +23,15 @@ BasicLit    = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
 OperandName = identifier | QualifiedIdent .
 ```
 
-​	表示泛型函数的操作数名称后面可以跟一个[类型实参](#instantiations)列表；产生的操作数是一个[实例化过的](#instantiations)函数。
+​	表示泛型函数的操作数名称后面可以跟一个[类型实参](#instantiations-实例化)列表；产生的操作数是一个[实例化过的](#instantiations-实例化)函数。
 
-​	[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier)只能在[赋值语句](../Statements#assignment-statements)的左侧作为操作数出现。
+​	[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier-空白标识符)只能在[赋值语句](../Statements#assignment-statements-赋值语句)的左侧作为操作数出现。
 
-实现限制：若操作数的类型是具有空[类型集](../Types#interface-types)的[类型形参](../DeclarationsAndScope#type-parameter-declarations)，则编译器不必报告错误。具有这种类型形参的函数不能被[实例化](#instantiations)；任何尝试都会导致实例化处的错误。
+实现限制：若操作数的类型是具有空[类型集](../Types#interface-types-接口型)的[类型形参](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，则编译器不必报告错误。具有这种类型形参的函数不能被[实例化](#instantiations-实例化)；任何尝试都会导致实例化处的错误。
 
 ### Qualified identifiers 限定标识符
 
-​	限定标识符是以包名作为前缀限定的标识符。包名和标识符都不能是[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier)。
+​	限定标识符是以包名作为前缀限定的标识符。包名和标识符都不能是[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier-空白标识符)。
 
 ```
 QualifiedIdent = PackageName "." identifier .
@@ -483,7 +483,7 @@ a[x]
 
 如果`a`既不是映射也不是类型参数：
 
-- 索引`x`必须是一个无类型的常量，或者其[核心类型](../PropertiesOfTypesAndValues#core-types)必须是[整数类型](../Types#numeric-types)
+- 索引`x`必须是一个无类型的常量，或者其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是[整数类型](../Types#numeric-types)
 - 常量索引必须是非负且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability)
 - 无类型常量索引会被赋予`int`类型。
 - 如果`0 <= x < len(a)`，则索引`x`在范围内，否则就超出了范围。
@@ -528,7 +528,7 @@ For `a` of [string type](https://go.dev/ref/spec#String_types):
 
 否则`a[x]`是非法的。
 
-​	若将类型为`map[K]V`的映射`a`上的索引表达式使用在[赋值语句](../Statements#assignment-statements)或特殊格式的初始化中：
+​	若将类型为`map[K]V`的映射`a`上的索引表达式使用在[赋值语句](../Statements#assignment-statements-赋值语句)或特殊格式的初始化中：
 
 ```go 
 v, ok = a[x]
@@ -552,7 +552,7 @@ var v, ok = a[x]
 a[low : high]
 ```
 
-构造了一个子字符串或切片。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types)必须是字符串、数组、数组指针、切片或者[bytestring](../PropertiesOfTypesAndValues#core-types)。`low`和`high`所在的索引选择了哪些元素显示在操作数`a`的结果中。若结果的索引从0开始，则长度等于`high` 减去 `low`。在对数组`a`进行切片后
+构造了一个子字符串或切片。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是字符串、数组、数组指针、切片或者[bytestring](../PropertiesOfTypesAndValues#core-types)。`low`和`high`所在的索引选择了哪些元素显示在操作数`a`的结果中。若结果的索引从0开始，则长度等于`high` 减去 `low`。在对数组`a`进行切片后
 
 ```go 
 a := [5]int{1, 2, 3, 4, 5}
@@ -604,7 +604,7 @@ s2[1] = 42     // s2[1] == s1[2] == a[5] == 42; they all refer to the same under
 a[low : high : max]
 ```
 
-构造了一个与简单切片表达式`a[low : high]`相同类型的切片，并且具有相同的长度和元素。此外，它通过将结果切片设置为`max 减去 low`的容量。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types)必须是数组，数组指针，或者切片（但不是字符串）。在对数组`a`进行切分后
+构造了一个与简单切片表达式`a[low : high]`相同类型的切片，并且具有相同的长度和元素。此外，它通过将结果切片设置为`max 减去 low`的容量。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是数组，数组指针，或者切片（但不是字符串）。在对数组`a`进行切分后
 
 ```go 
 a := [5]int{1, 2, 3, 4, 5}
@@ -664,7 +664,7 @@ var v, ok interface{} = x.(T) // dynamic types of v and ok are T and bool => v �
 
 ### Calls 调用
 
-给定一个表达式`f`，其[核心类型](../PropertiesOfTypesAndValues#core-types)为[函数类型](../Types#function-types)`F`,
+给定一个表达式`f`，其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[函数类型](../Types#function-types)`F`,
 
 ```go 
 f(a1, a2, … an)
@@ -678,7 +678,7 @@ var pt *Point
 pt.Scale(3.5)     // method call with receiver pt => 带接收器 pt 的方法调用
 ```
 
-​	如果`f`表示一个泛型函数，在它被调用或作为函数值使用之前，必须将其[实例化](#instantiations)。
+​	如果`f`表示一个泛型函数，在它被调用或作为函数值使用之前，必须将其[实例化](#instantiations-实例化)。
 
 ​	在函数调用中，函数值和实参以[通常的顺序](#order-of-evaluation)被求值。在它们被求值之后，调用的参数被按值传递给函数，然后被调用的函数开始执行。当函数返回时，函数的返回参数按值传递给调用者。
 
@@ -894,7 +894,7 @@ min(1.0, 2)    // illegal: default type float64 (for 1.0) doesn't match default 
 
 Constraint type inference infers type arguments by considering type constraints. If a type parameter `P` has a constraint with a [core type](https://go.dev/ref/spec#Core_types) `C`, [unifying](https://go.dev/ref/spec#Type_unification) `P` with `C` may infer additional type arguments, either the type argument for `P`, or if that is already known, possibly the type arguments for type parameters used in `C`.
 
-​	约束类型推断通过考虑类型约束来推断类型实参。如果类型参数`P`有一个[核心类型](../PropertiesOfTypesAndValues#core-types)`C`的约束，将`P`与`C`[联合](#type-unification)起来可能会推断出额外的类型实参，要么是`P`的类型实参，（如果这个是已知，则）要么可能是`C`中使用的类型参数的类型实参。=>仍有疑问？？已知指的是什么，是 类型参数P有一个核心类型C的约束？
+​	约束类型推断通过考虑类型约束来推断类型实参。如果类型参数`P`有一个[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`C`的约束，将`P`与`C`[联合](#type-unification)起来可能会推断出额外的类型实参，要么是`P`的类型实参，（如果这个是已知，则）要么可能是`C`中使用的类型参数的类型实参。=>仍有疑问？？已知指的是什么，是 类型参数P有一个核心类型C的约束？
 
 例如，考虑具有类型参数`List`和`Elem`的类型参数列表：
 
@@ -1053,7 +1053,7 @@ x == y+1 && <-chanInt > 0
 >>   right shift            integer >> integer >= 0
 ```
 
-​	如果操作数类型是[类型参数](#type-parameter-declarations)，那么操作数必须适用于该类型集中的每个类型。操作数被表示为类型参数被[实例化](#instantiations)的类型实参的值，并且操作以该类型实参的精度进行计算。例如，给定一个函数：
+​	如果操作数类型是[类型参数](#type-parameter-declarations)，那么操作数必须适用于该类型集中的每个类型。操作数被表示为类型参数被[实例化](#instantiations-实例化)的类型实参的值，并且操作以该类型实参的精度进行计算。例如，给定一个函数：
 
 ```go 
 func dotProduct[F ~float32|~float64](v1, v2 []F) F {
@@ -1184,7 +1184,7 @@ s += " and good bye"
 - 通道值是可比较的。如果两个通道是由同一个调用[make](../Built-inFunctions#making-slices-maps-and-channels)创建的，或者它们的值都为`nil`，则它们的值是相等的。
 - 接口值是可比较的。如果两个接口值有[一致的](../PropertiesOfTypesAndValues#type-identity)动态类型和相同的动态值，或者两者的值都是`nil`，则它们的值是相等的。
 - 非接口类型 `X` 的值 `x` 和接口类型 `T` 的值 `t` ，在 `X` 类型的值是可比较的并且 `X` [实现](../Types#implementing-an-interface) `T` 时是可比较的。如果 `t` 的动态类型等于 `X`，且 `t` 的动态值等于 `x`，则它们是相等的。
-- 如果结构体值的所有字段都是可比较的，那么结构体值就是可比较的。如果两个结构体值对应的非[空白](../DeclarationsAndScope#blank-identifier)字段相等，那么它们就是相等的。
+- 如果结构体值的所有字段都是可比较的，那么结构体值就是可比较的。如果两个结构体值对应的非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段相等，那么它们就是相等的。
 - 如果数组元素类型的值是可比较的，那么数组值是可比较的。如果两个数组的对应元素是相等的，那么这两个数组值就是相等的。
 
 ​	对两个动态类型相同的接口值进行比较，如果它们的类型值不具有可比性，则会引起[运行时恐慌](../Run-timePanics)。这种行为不仅适用于直接的接口值比较，也适用于比较接口值的数组或带有接口值字段的结构体。
@@ -1235,7 +1235,7 @@ var x *int = nil
 
 ### Receive operator 接收操作符
 
-​	对于[核心类型](../PropertiesOfTypesAndValues#core-types)为[通道](../Types#channel-types)的操作数`ch`，接收操作`<-ch`的值是从通道`ch`中接收的值，通道方向必须允许接收操作，接收操作的类型是通道的元素类型。这个表达式会阻塞，直到有一个可用的值。从一个 `nil`的通道接收时，将永远阻塞。在一个[已经关闭](../Built-inFunctions#close)的通道上的接收操作总是可以立即进行，并在任何先前发送的值被接收后，产生一个该元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。
+​	对于[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[通道](../Types#channel-types)的操作数`ch`，接收操作`<-ch`的值是从通道`ch`中接收的值，通道方向必须允许接收操作，接收操作的类型是通道的元素类型。这个表达式会阻塞，直到有一个可用的值。从一个 `nil`的通道接收时，将永远阻塞。在一个[已经关闭](../Built-inFunctions#close)的通道上的接收操作总是可以立即进行，并在任何先前发送的值被接收后，产生一个该元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。
 
 ```go 
 v1 := <-ch
@@ -1297,7 +1297,7 @@ int(1.2)                 // illegal: 1.2 cannot be represented as an int => 非�
 string(65.0)             // illegal: 65.0 is not an integer constant => 非法的：65.0 不是整数常量
 ```
 
-​	将常量转换为一个类型参数会产生一个该类型的非常量值，该值表示为类型参数[实例化](#instantiations)时所带的类型实参的值。例如，给定一个函数：
+​	将常量转换为一个类型参数会产生一个该类型的非常量值，该值表示为类型参数[实例化](#instantiations-实例化)时所带的类型实参的值。例如，给定一个函数：
 
 ```
 func f[P ~float32|~float64]() {

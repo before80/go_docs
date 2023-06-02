@@ -20,20 +20,6 @@ The varint functions encode and decode single integer values using a variable-le
 This package favors simplicity over efficiency. Clients that require high-performance serialization, especially for large data structures, should look at more advanced solutions such as the encoding/gob package or protocol buffers.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/encoding/binary/varint.go;l=33)
@@ -92,8 +78,32 @@ func PutUvarint(buf []byte, x uint64) int
 
 PutUvarint encodes a uint64 into buf and returns the number of bytes written. If the buffer is too small, PutUvarint will panic.
 
-##### Example
+##### PutUvarint Example
 ``` go 
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	buf := make([]byte, binary.MaxVarintLen64)
+
+	for _, x := range []uint64{1, 2, 127, 128, 255, 256} {
+		n := binary.PutUvarint(buf, x)
+		fmt.Printf("%x\n", buf[:n])
+	}
+}
+
+Output:
+
+01
+02
+7f
+8001
+ff01
+8002
 ```
 
 #### func PutVarint 
@@ -104,8 +114,35 @@ func PutVarint(buf []byte, x int64) int
 
 PutVarint encodes an int64 into buf and returns the number of bytes written. If the buffer is too small, PutVarint will panic.
 
-##### Example
+##### PutVarint Example
 ``` go 
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	buf := make([]byte, binary.MaxVarintLen64)
+
+	for _, x := range []int64{-65, -64, -2, -1, 0, 1, 2, 63, 64} {
+		n := binary.PutVarint(buf, x)
+		fmt.Printf("%x\n", buf[:n])
+	}
+}
+
+Output:
+
+8101
+7f
+03
+01
+00
+02
+04
+7e
+8001
 ```
 
 #### func Read 
@@ -118,12 +155,69 @@ Read reads structured binary data from r into data. Data must be a pointer to a 
 
 The error is EOF only if no bytes were read. If an EOF happens after reading some but not all the bytes, Read returns ErrUnexpectedEOF.
 
-##### Example
+##### Read Example
 ``` go 
+package main
+
+import (
+	"bytes"
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	var pi float64
+	b := []byte{0x18, 0x2d, 0x44, 0x54, 0xfb, 0x21, 0x09, 0x40}
+	buf := bytes.NewReader(b)
+	err := binary.Read(buf, binary.LittleEndian, &pi)
+	if err != nil {
+		fmt.Println("binary.Read failed:", err)
+	}
+	fmt.Print(pi)
+}
+
+Output:
+
+3.141592653589793
 ```
 
-##### Example
+##### Read Example (Multi)
 ``` go 
+package main
+
+import (
+	"bytes"
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	b := []byte{0x18, 0x2d, 0x44, 0x54, 0xfb, 0x21, 0x09, 0x40, 0xff, 0x01, 0x02, 0x03, 0xbe, 0xef}
+	r := bytes.NewReader(b)
+
+	var data struct {
+		PI   float64
+		Uate uint8
+		Mine [3]byte
+		Too  uint16
+	}
+
+	if err := binary.Read(r, binary.LittleEndian, &data); err != nil {
+		fmt.Println("binary.Read failed:", err)
+	}
+
+	fmt.Println(data.PI)
+	fmt.Println(data.Uate)
+	fmt.Printf("% x\n", data.Mine)
+	fmt.Println(data.Too)
+}
+
+Output:
+
+3.141592653589793
+255
+01 02 03
+61374
 ```
 
 #### func ReadUvarint 
@@ -164,8 +258,41 @@ n  < 0: value larger than 64 bits (overflow)
         and -n is the number of bytes read
 ```
 
-##### Example
+##### Uvarint Example
 ``` go 
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	inputs := [][]byte{
+		{0x01},
+		{0x02},
+		{0x7f},
+		{0x80, 0x01},
+		{0xff, 0x01},
+		{0x80, 0x02},
+	}
+	for _, b := range inputs {
+		x, n := binary.Uvarint(b)
+		if n != len(b) {
+			fmt.Println("Uvarint did not consume all of in")
+		}
+		fmt.Println(x)
+	}
+}
+
+Output:
+
+1
+2
+127
+128
+255
+256
 ```
 
 #### func Varint 
@@ -182,8 +309,47 @@ n  < 0: value larger than 64 bits (overflow)
         and -n is the number of bytes read
 ```
 
-##### Example
+##### Varint Example
 ``` go 
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	inputs := [][]byte{
+		{0x81, 0x01},
+		{0x7f},
+		{0x03},
+		{0x01},
+		{0x00},
+		{0x02},
+		{0x04},
+		{0x7e},
+		{0x80, 0x01},
+	}
+	for _, b := range inputs {
+		x, n := binary.Varint(b)
+		if n != len(b) {
+			fmt.Println("Varint did not consume all of in")
+		}
+		fmt.Println(x)
+	}
+}
+
+Output:
+
+-65
+-64
+-2
+-1
+0
+1
+2
+63
+64
 ```
 
 #### func Write 
@@ -194,12 +360,61 @@ func Write(w io.Writer, order ByteOrder, data any) error
 
 Write writes the binary representation of data into w. Data must be a fixed-size value or a slice of fixed-size values, or a pointer to such data. Boolean values encode as one byte: 1 for true, and 0 for false. Bytes written to w are encoded using the specified byte order and read from successive fields of the data. When writing structs, zero values are written for fields with blank (_) field names.
 
-##### Example
+##### Write Example
 ``` go 
+package main
+
+import (
+	"bytes"
+	"encoding/binary"
+	"fmt"
+	"math"
+)
+
+func main() {
+	buf := new(bytes.Buffer)
+	var pi float64 = math.Pi
+	err := binary.Write(buf, binary.LittleEndian, pi)
+	if err != nil {
+		fmt.Println("binary.Write failed:", err)
+	}
+	fmt.Printf("% x", buf.Bytes())
+}
+
+Output:
+
+18 2d 44 54 fb 21 09 40
 ```
 
-##### Example
+##### Write Example (Multi)
 ``` go 
+package main
+
+import (
+	"bytes"
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	buf := new(bytes.Buffer)
+	var data = []any{
+		uint16(61374),
+		int8(-54),
+		uint8(254),
+	}
+	for _, v := range data {
+		err := binary.Write(buf, binary.LittleEndian, v)
+		if err != nil {
+			fmt.Println("binary.Write failed:", err)
+		}
+	}
+	fmt.Printf("%x", buf.Bytes())
+}
+
+Output:
+
+beefcafe
 ```
 
 ## 类型
@@ -233,7 +448,46 @@ type ByteOrder interface {
 
 A ByteOrder specifies how to convert byte slices into 16-, 32-, or 64-bit unsigned integers.
 
-##### Example
+##### ByteOrder Example
 ``` go 
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	b := []byte{0xe8, 0x03, 0xd0, 0x07}
+	x1 := binary.LittleEndian.Uint16(b[0:])
+	x2 := binary.LittleEndian.Uint16(b[2:])
+	fmt.Printf("%#04x %#04x\n", x1, x2)
+}
+
+Output:
+
+0x03e8 0x07d0
+```
+
+##### ByteOrder Example (Put) 
+
+```go
+package main
+
+import (
+	"encoding/binary"
+	"fmt"
+)
+
+func main() {
+	b := make([]byte, 4)
+	binary.LittleEndian.PutUint16(b[0:], 0x03e8)
+	binary.LittleEndian.PutUint16(b[2:], 0x07d0)
+	fmt.Printf("% x\n", b)
+}
+
+Output:
+
+e8 03 d0 07
 ```
 

@@ -10,13 +10,13 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Built-in_functions](https://go.dev/ref/spec#Built-in_functions)
 
-​	内置函数是[预先声明的](../DeclarationsAndScope#predeclared-identifiers)。它们像其他函数一样被调用，但其中一些函数接受一个类型而非表达式作为其第一个实参。
+​	内置函数是[预先声明的](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)。它们像其他函数一样被调用，但其中一些函数接受一个类型而非表达式作为其第一个实参。
 
-​	内置函数没有标准的Go类型，所以它们只能出现在[调用表达式](../Expressions#calls)中；它们不能作为函数值使用。
+​	内置函数没有标准的Go类型，所以它们只能出现在[调用表达式](../Expressions#calls-调用)中；它们不能作为函数值使用。
 
 ### Close 
 
-​	对于一个[核心类型](../PropertiesOfTypesAndValues#core-types)为[通道](../Types#channel-types)的参数`ch`，内置函数`close`记录了通道上将不再有任何值被发送。如果`ch`是一个仅接收的通道，那么（关闭它）是一个错误。发送到或关闭一个已关闭的通道会导致[运行时恐慌](../Run-timePanics)。关闭`nil`通道也会引起[运行时恐慌](../Run-timePanics)。在调用`close`后，并且在任何先前发送的值被接收后，接收操作将返回通道类型的`零值`而不阻塞。多值[接收操作](../Expressions#receive-operator)会返回一个接收值以及通道是否被关闭的指示。
+​	对于一个[核心类型](../PropertiesOfTypesAndValues#core-typess-核心类型)为[通道](../Types#channel-types-通道型)的参数`ch`，内置函数`close`记录了通道上将不再有任何值被发送。如果`ch`是一个仅接收的通道，那么（关闭它）是一个错误。发送到或关闭一个已关闭的通道会导致[运行时恐慌](../Run-timePanics)。关闭`nil`通道也会引起[运行时恐慌](../Run-timePanics)。在调用`close`后，并且在任何先前发送的值被接收后，接收操作将返回通道类型的`零值`而不阻塞。多值[接收操作](../Expressions#receive-operator-接收操作符)会返回一个接收值以及通道是否被关闭的指示。
 
 ### Length and capacity 长度和容量
 
@@ -39,7 +39,7 @@ cap(s)    [n]T, *[n]T      array length (== n)
           type parameter   see below
 ```
 
-​	如果参数类型是一个[类型参数](../DeclarationsAndScope#type-parameter-declarations)`P`，调用`len(e)`（或`cap(e)`）必须对`P`的类型集中的每个类型有效。其结果是（类型对应`P`被[实例化](../Expressions#instantiations)时使用的类型实参的）实参的长度（或容量）。
+​	如果参数类型是一个[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)`P`，调用`len(e)`（或`cap(e)`）必须对`P`的类型集中的每个类型有效。其结果是（类型对应`P`被[实例化](../Expressions#instantiations-实例化)时使用的类型实参的）实参的长度（或容量）。
 
 ​	切片的容量是底层数组中分配到的元素的数量。在任何时候，以下关系都是成立的：
 
@@ -49,7 +49,7 @@ cap(s)    [n]T, *[n]T      array length (== n)
 
 ​	`nil`切片、`nil`映射或`nil`通道的长度是`0`。`nil`切片或`nil`通道的容量是0。
 
-​	如果`s`是一个字符串[常量](../Constants)，那么表达式`len(s)`就是常量。如果`s`的类型是一个数组或指向数组的指针，并且表达式`s`不包含[通道接收](../Expressions#receive-operator)或（非常量）[函数调用](../Expressions#calls)，那么表达式`len(s)`和`cap(s)`是常量；在这种情况下，`s`不被求值。否则，`len`和`cap`的调用不是常量，`s`被求值。
+​	如果`s`是一个字符串[常量](../Constants)，那么表达式`len(s)`就是常量。如果`s`的类型是一个数组或指向数组的指针，并且表达式`s`不包含[通道接收](../Expressions#receive-operator-接收操作符)或（非常量）[函数调用](../Expressions#calls-调用)，那么表达式`len(s)`和`cap(s)`是常量；在这种情况下，`s`不被求值。否则，`len`和`cap`的调用不是常量，`s`被求值。
 
 ```go 
 const (
@@ -64,7 +64,7 @@ var z complex128
 
 ### Allocation 分配
 
-​	内置函数`new`接收一个类型`T`，在运行时为该类型的[变量](../Variables)分配存储空间，并返回一个[指向](../Types#pointer-types)它的`*T`类型的值。该变量被初始化，如[初始值](../ProgramInitializationAndExecution#the-zero-value)一节中所述。
+​	内置函数`new`接收一个类型`T`，在运行时为该类型的[变量](../Variables)分配存储空间，并返回一个[指向](../Types#pointer-types-指针型)它的`*T`类型的值。该变量被初始化，如[初始值](../ProgramInitializationAndExecution#the-zero-value-零值)一节中所述。
 
 ```go 
 new(T)
@@ -81,7 +81,7 @@ new(S)
 
 ### Making slices, maps and channels 制作切片、映射和通道
 
-​	内置函数`make`接收一个类型`T`，后面可以选择一个特定类型的表达式列表。`T`的[核心类型](../PropertiesOfTypesAndValues#core-types)`必须是一个切片、映射或通道`。它返回一个类型为`T`（不是`*T`）的值。内存被初始化，如[初始值](../ProgramInitializationAndExecution#the-zero-value)一节中所述。
+​	内置函数`make`接收一个类型`T`，后面可以选择一个特定类型的表达式列表。`T`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`必须是一个切片、映射或通道`。它返回一个类型为`T`（不是`*T`）的值。内存被初始化，如[初始值](../ProgramInitializationAndExecution#the-zero-value-零值)一节中所述。
 
 ```
 Call             Core type    Result
@@ -96,7 +96,7 @@ make(T)          channel      unbuffered channel of type T
 make(T, n)       channel      buffered channel of type T, buffer size n
 ```
 
-​	每个大小实参`n`和`m`必须是[整型](../Types#numeric-types)，或者是一个只包含整型的类型集，或者是一个无类型的[常量](../Constants)。一个常量大小参数必须是非负数，并且可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability)；如果它是一个无类型的常量，它被赋予`int`类型。如果`n`和`m`都被提供并且是常量，那么`n`必须**不大于**`m`。对于切片和通道，如果`n`在运行时是负数或者大于`m`，就会发生[运行时恐慌](../Run-timePanics)。
+​	每个大小实参`n`和`m`必须是[整型](../Types#numeric-types-数值型)，或者是一个只包含整型的类型集，或者是一个无类型的[常量](../Constants)。一个常量大小参数必须是非负数，并且可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)；如果它是一个无类型的常量，它被赋予`int`类型。如果`n`和`m`都被提供并且是常量，那么`n`必须**不大于**`m`。对于切片和通道，如果`n`在运行时是负数或者大于`m`，就会发生[运行时恐慌](../Run-timePanics)。
 
 ```go 
 s := make([]int, 10, 100)       // slice with len(s) == 10, cap(s) == 100
@@ -115,7 +115,7 @@ m := make(map[string]int, 100)  // map with initial space for approximately 100 
 
 The [variadic](https://go.dev/ref/spec#Function_types) function `append` appends zero or more values `x` to a slice `s` and returns the resulting slice of the same type as `s`. The [core type](https://go.dev/ref/spec#Core_types) of `s` must be a slice of type `[]E`. The values `x` are passed to a parameter of type `...E` and the respective [parameter passing rules](https://go.dev/ref/spec#Passing_arguments_to_..._parameters) apply. As a special case, if the core type of `s` is `[]byte`, `append` also accepts a second argument with core type [`bytestring`](https://go.dev/ref/spec#Core_types) followed by `...`. This form appends the bytes of the byte slice or string.
 
-​	[可变参数](../Types#function-types)函数`append`将**零个或多个值**`x`追加到一个切片`s`，并返回与`s`相同类型的结果切片。值`x`被传递给一个类型为`...E`的参数，各自的[参数传递规则](../Expressions#passing-arguments-to-parameters)适用。**作为一个特例**，如果`s`的[核心类型](../PropertiesOfTypesAndValues#core-types)是`[]byte`，`append`也接受第二个参数，其核心类型是[bytestring](../PropertiesOfTypesAndValues#core-types)，后面是`...` 。这种形式追加了字节切片或字符串的字节。
+​	[可变参数](../Types#function-types-函数型)函数`append`将**零个或多个值**`x`追加到一个切片`s`，并返回与`s`相同类型的结果切片。值`x`被传递给一个类型为`...E`的参数，各自的[参数传递规则](../Expressions#passing-arguments-to--parameters-向参数传递实参)适用。**作为一个特例**，如果`s`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)是`[]byte`，`append`也接受第二个参数，其核心类型是[bytestring](../PropertiesOfTypesAndValues#core-types-核心类型)，后面是`...` 。这种形式追加了字节切片或字符串的字节。
 
 ```go 
 append(s S, x ...E) S  // core type of S is []E
@@ -137,7 +137,7 @@ var b []byte
 b = append(b, "bar"...)            // append string contents      b == []byte{'b', 'a', 'r' }
 ```
 
-​	函数`copy`将切片元素从源`src`复制到目标`dst`，`并返回复制的元素数量`。两个参数的核心类型必须是具有[一致的](../PropertiesOfTypesAndValues#type-identity)元素类型的切片。复制的元素数是`len(src)`和`len(dst)`中的最小值。**作为一种特殊情况**，如果目标的[核心类型](../PropertiesOfTypesAndValues#core-types)是`[]byte`，`copy`也接受一个核心类型为[bytestring](../PropertiesOfTypesAndValues#core-types)的源参数。这种形式将字节切片或字符串中的字节复制到字节切片中。
+​	函数`copy`将切片元素从源`src`复制到目标`dst`，`并返回复制的元素数量`。两个参数的核心类型必须是具有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)元素类型的切片。复制的元素数是`len(src)`和`len(dst)`中的最小值。**作为一种特殊情况**，如果目标的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)是`[]byte`，`copy`也接受一个核心类型为[bytestring](../PropertiesOfTypesAndValues##core-types-核心类型)的源参数。这种形式将字节切片或字符串中的字节复制到字节切片中。
 
 ```go 
 copy(dst, src []T) int
@@ -157,13 +157,13 @@ n3 := copy(b, "Hello, World!")  // n3 == 5, b == []byte("Hello")
 
 ### Deletion of map elements 删除映射元素
 
-​	内置函数`delete`可以从[映射](../Types#map-types)`m`中删除`键值`为`k`的元素，值`k`必须可以[分配](../PropertiesOfTypesAndValues#assignability)给`m`的键类型。
+​	内置函数`delete`可以从[映射](../Types#map-types-映射型)`m`中删除`键值`为`k`的元素，值`k`必须可以[分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`m`的键类型。
 
 ```go 
 delete(m, k)  // remove element m[k] from map m
 ```
 
-​	如果`m`的类型是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，那么该类型集合中的所有类型必须是映射，并且它们必须都有相同的`键类型`。
+​	如果`m`的类型是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，那么该类型集合中的所有类型必须是映射，并且它们必须都有相同的`键类型`。
 
 ​	如果映射`m`是`nil`或者元素`m[k]`不存在，delete就是一个空操作。
 
@@ -177,7 +177,7 @@ real(complexT) floatT
 imag(complexT) floatT
 ```
 
-​	实参的类型和返回值相对应。对于`complex`函数，两个实参必须是相同的[浮点类型](../Types#numeric-types)，返回类型是具有对应浮点成分的[复数类型](../Types#numeric-types)：`float32`类型的实参对应`comple64`复数类型，而`float64`类型的实参对应`comple128`复数类型。如果其中一个实参的值是一个无类型常量，那么它首先会被隐式[转换](../Expressions#conversions)为另一个实参的类型。如果两个参数都求值为无类型常量，那么它们必须是`非复数`，或者它们的虚数部分必须为零，这样函数的返回值就是一个无类型的复数常量。
+​	实参的类型和返回值相对应。对于`complex`函数，两个实参必须是相同的[浮点类型](../Types#numeric-types-数值型)，返回类型是具有对应浮点成分的[复数类型](../Types#numeric-types-数值型)：`float32`类型的实参对应`comple64`复数类型，而`float64`类型的实参对应`comple128`复数类型。如果其中一个实参的值是一个无类型常量，那么它首先会被隐式[转换](../Expressions#conversions-转换)为另一个实参的类型。如果两个参数都求值为无类型常量，那么它们必须是`非复数`，或者它们的虚数部分必须为零，这样函数的返回值就是一个无类型的复数常量。
 
 ​	对于`real`和`imag`，实参必须是复数类型，返回类型是相应的浮点类型：`float32`对应`complex64`，`float64`对应`complex128`。如果实参的值是一个无类型的常量，它必须是一个数字，这样函数的返回值就是一个无类型的浮点常量。
 
@@ -211,7 +211,7 @@ func panic(interface{})
 func recover() interface{}
 ```
 
-​	在执行函数`F`时，对`panic`的显式调用或[运行时恐慌](../Run-timePanics)终止了`F`的执行，然后被`F`延迟的任何函数会照常执行。接下来，任何被`F`的调用者[延迟](../Statements#defer-statements)的函数都会被运行，以此类推，直到被执行中的goroutine中的顶级函数所延迟的任何函数。此时，程序被终止，错误情况被报告，包括`panic`的实参值。这个终止过程被称为`panicking`。
+​	在执行函数`F`时，对`panic`的显式调用或[运行时恐慌](../Run-timePanics)终止了`F`的执行，然后被`F`延迟的任何函数会照常执行。接下来，任何被`F`的调用者[延迟](../Statements#defer-statements-语句-defer)的函数都会被运行，以此类推，直到被执行中的goroutine中的顶级函数所延迟的任何函数。此时，程序被终止，错误情况被报告，包括`panic`的实参值。这个终止过程被称为`panicking`。
 
 ```go 
 panic(42)

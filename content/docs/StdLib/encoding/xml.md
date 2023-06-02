@@ -15,12 +15,172 @@ Package xml implements a simple XML 1.0 parser that understands XML name spaces.
 
 包xml实现了一个简单的XML 1.0解析器，它可以理解XML的名称空间。
 
-##### Example
+##### Example(CustomMarshalXML)
 ``` go 
+package main
+
+import (
+	"encoding/xml"
+	"fmt"
+	"log"
+	"strings"
+)
+
+type Animal int
+
+const (
+	Unknown Animal = iota
+	Gopher
+	Zebra
+)
+
+func (a *Animal) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	var s string
+	if err := d.DecodeElement(&s, &start); err != nil {
+		return err
+	}
+	switch strings.ToLower(s) {
+	default:
+		*a = Unknown
+	case "gopher":
+		*a = Gopher
+	case "zebra":
+		*a = Zebra
+	}
+
+	return nil
+}
+
+func (a Animal) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	var s string
+	switch a {
+	default:
+		s = "unknown"
+	case Gopher:
+		s = "gopher"
+	case Zebra:
+		s = "zebra"
+	}
+	return e.EncodeElement(s, start)
+}
+
+func main() {
+	blob := `
+	<animals>
+		<animal>gopher</animal>
+		<animal>armadillo</animal>
+		<animal>zebra</animal>
+		<animal>unknown</animal>
+		<animal>gopher</animal>
+		<animal>bee</animal>
+		<animal>gopher</animal>
+		<animal>zebra</animal>
+	</animals>`
+	var zoo struct {
+		Animals []Animal `xml:"animal"`
+	}
+	if err := xml.Unmarshal([]byte(blob), &zoo); err != nil {
+		log.Fatal(err)
+	}
+
+	census := make(map[Animal]int)
+	for _, animal := range zoo.Animals {
+		census[animal] += 1
+	}
+
+	fmt.Printf("Zoo Census:\n* Gophers: %d\n* Zebras:  %d\n* Unknown: %d\n",
+		census[Gopher], census[Zebra], census[Unknown])
+
+}
+
+Output:
+
+Zoo Census:
+* Gophers: 3
+* Zebras:  2
+* Unknown: 3
+
 ```
 
-##### Example
+##### Example (TextMarshalXML)
 ``` go 
+package main
+
+import (
+	"encoding/xml"
+	"fmt"
+	"log"
+	"strings"
+)
+
+type Size int
+
+const (
+	Unrecognized Size = iota
+	Small
+	Large
+)
+
+func (s *Size) UnmarshalText(text []byte) error {
+	switch strings.ToLower(string(text)) {
+	default:
+		*s = Unrecognized
+	case "small":
+		*s = Small
+	case "large":
+		*s = Large
+	}
+	return nil
+}
+
+func (s Size) MarshalText() ([]byte, error) {
+	var name string
+	switch s {
+	default:
+		name = "unrecognized"
+	case Small:
+		name = "small"
+	case Large:
+		name = "large"
+	}
+	return []byte(name), nil
+}
+
+func main() {
+	blob := `
+	<sizes>
+		<size>small</size>
+		<size>regular</size>
+		<size>large</size>
+		<size>unrecognized</size>
+		<size>small</size>
+		<size>normal</size>
+		<size>small</size>
+		<size>large</size>
+	</sizes>`
+	var inventory struct {
+		Sizes []Size `xml:"size"`
+	}
+	if err := xml.Unmarshal([]byte(blob), &inventory); err != nil {
+		log.Fatal(err)
+	}
+
+	counts := make(map[Size]int)
+	for _, size := range inventory.Sizes {
+		counts[size] += 1
+	}
+
+	fmt.Printf("Inventory Counts:\n* Small:        %d\n* Large:        %d\n* Unrecognized: %d\n",
+		counts[Small], counts[Large], counts[Unrecognized])
+
+}
+
+Output:
+
+Inventory Counts:
+* Small:        3
+* Large:        2
+* Unrecognized: 3
 ```
 
 
@@ -244,8 +404,76 @@ A missing element or empty attribute value will be unmarshaled as a zero value. 
 
 一个缺失的元素或空属性值将被解封为一个零值。如果字段是一个片断，一个零值将被附加到字段上。否则，字段将被设置为其零值。
 
-##### Example
+##### Unmarshal Example
+
+This example demonstrates unmarshaling an XML excerpt into a value with some preset fields. Note that the Phone field isn't modified and that the XML <Company> element is ignored. Also, the Groups field is assigned considering the element path provided in its tag.
+
 ``` go 
+package main
+
+import (
+	"encoding/xml"
+	"fmt"
+)
+
+func main() {
+	type Email struct {
+		Where string `xml:"where,attr"`
+		Addr  string
+	}
+	type Address struct {
+		City, State string
+	}
+	type Result struct {
+		XMLName xml.Name `xml:"Person"`
+		Name    string   `xml:"FullName"`
+		Phone   string
+		Email   []Email
+		Groups  []string `xml:"Group>Value"`
+		Address
+	}
+	v := Result{Name: "none", Phone: "none"}
+
+	data := `
+		<Person>
+			<FullName>Grace R. Emlin</FullName>
+			<Company>Example Inc.</Company>
+			<Email where="home">
+				<Addr>gre@example.com</Addr>
+			</Email>
+			<Email where='work'>
+				<Addr>gre@work.com</Addr>
+			</Email>
+			<Group>
+				<Value>Friends</Value>
+				<Value>Squash</Value>
+			</Group>
+			<City>Hanga Roa</City>
+			<State>Easter Island</State>
+		</Person>
+	`
+	err := xml.Unmarshal([]byte(data), &v)
+	if err != nil {
+		fmt.Printf("error: %v", err)
+		return
+	}
+	fmt.Printf("XMLName: %#v\n", v.XMLName)
+	fmt.Printf("Name: %q\n", v.Name)
+	fmt.Printf("Phone: %q\n", v.Phone)
+	fmt.Printf("Email: %v\n", v.Email)
+	fmt.Printf("Groups: %v\n", v.Groups)
+	fmt.Printf("Address: %v\n", v.Address)
+}
+
+Output:
+
+XMLName: xml.Name{Space:"", Local:"Person"}
+Name: "Grace R. Emlin"
+Phone: "none"
+Email: [{home gre@example.com} {work gre@work.com}]
+Groups: [Friends Squash]
+Address: {Hanga Roa Easter Island}
+
 ```
 
 ## 类型
@@ -519,6 +747,55 @@ Encoder 将XML数据写入一个输出流。
 
 ##### Example
 ``` go 
+package main
+
+import (
+	"encoding/xml"
+	"fmt"
+	"os"
+)
+
+func main() {
+	type Address struct {
+		City, State string
+	}
+	type Person struct {
+		XMLName   xml.Name `xml:"person"`
+		Id        int      `xml:"id,attr"`
+		FirstName string   `xml:"name>first"`
+		LastName  string   `xml:"name>last"`
+		Age       int      `xml:"age"`
+		Height    float32  `xml:"height,omitempty"`
+		Married   bool
+		Address
+		Comment string `xml:",comment"`
+	}
+
+	v := &Person{Id: 13, FirstName: "John", LastName: "Doe", Age: 42}
+	v.Comment = " Need more details. "
+	v.Address = Address{"Hanga Roa", "Easter Island"}
+
+	enc := xml.NewEncoder(os.Stdout)
+	enc.Indent("  ", "    ")
+	if err := enc.Encode(v); err != nil {
+		fmt.Printf("error: %v\n", err)
+	}
+
+}
+
+Output:
+
+  <person id="13">
+      <name>
+          <first>John</first>
+          <last>Doe</last>
+      </name>
+      <age>42</age>
+      <Married>false</Married>
+      <City>Hanga Roa</City>
+      <State>Easter Island</State>
+      <!-- Need more details. -->
+  </person>
 ```
 
 #### func NewEncoder 

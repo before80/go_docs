@@ -14,7 +14,7 @@ draft = false
 
 ​	[变量声明](../DeclarationsAndScope#variable-declarations-变量声明) 、函数参数和结果、[函数声明](../DeclarationsAndScope#function-declarations-函数声明)或[函数字面量](../Expressions#function-literals-函数字面量)的签名为指定的变量保留存储空间。调用内置函数`new`或获取[复合字面量](../Expressions#composite-literals-复合字面量)的地址会在运行时为变量分配存储空间。这样的匿名变量是通过(可能是隐式的)[指针间接](../Expressions#address-operators-地址运算符)引用的。
 
-​	[数组](../Types#array-types-数组型)、[切片](../Types#slice-types-切片型)和[结构体](../Types/struct-types-结构体型)等类型的结构化变量具有可以被单独[寻址](../Expressions#address-operators-地址运算符)的元素和字段。每个这样的元素都像一个变量。
+​	[数组](../Types#array-types-数组型)、[切片](../Types#slice-types-切片型)和[结构体](../Types#struct-types-结构体型)等类型的结构化变量具有可以被单独[寻址](../Expressions#address-operators-地址运算符)的元素和字段。每个这样的元素都像一个变量。
 
 ​	变量的静态类型（或仅仅是类型）是在其声明中给出的类型、在`new`调用或复合字面量中提供的类型、或是结构化变量的元素的类型。接口类型的变量也有一个独特的动态类型，它是运行时分配给变量的值的（非接口）类型（除非该值是预先声明的标识符`nil`，它没有类型）。在执行过程中，动态类型可能会发生变化，但是存储在接口变量中的值总是可以赋给变量的静态类型。
 

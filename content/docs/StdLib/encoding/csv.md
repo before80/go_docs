@@ -91,14 +91,6 @@ field`, `comma is ,`}
 
 
 
-
-
-
-
-
-
-
-
 ## 常量 
 
 This section is empty.
@@ -230,12 +222,83 @@ The Reader converts all \r\n sequences in its input to plain \n, including in mu
 
 Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
 
-##### Example
+##### Reader Example
 ``` go 
+package main
+
+import (
+	"encoding/csv"
+	"fmt"
+	"io"
+	"log"
+	"strings"
+)
+
+func main() {
+	in := `first_name,last_name,username
+"Rob","Pike",rob
+Ken,Thompson,ken
+"Robert","Griesemer","gri"
+`
+	r := csv.NewReader(strings.NewReader(in))
+
+	for {
+		record, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		fmt.Println(record)
+	}
+}
+
+Output:
+
+[first_name last_name username]
+[Rob Pike rob]
+[Ken Thompson ken]
+[Robert Griesemer gri]
 ```
 
-##### Example
+##### Reader Example(Options)
+
+This example shows how csv.Reader can be configured to handle other types of CSV files.
+
 ``` go 
+package main
+
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"strings"
+)
+
+func main() {
+	in := `first_name;last_name;username
+"Rob";"Pike";rob
+# lines beginning with a # character are ignored
+Ken;Thompson;ken
+"Robert";"Griesemer";"gri"
+`
+	r := csv.NewReader(strings.NewReader(in))
+	r.Comma = ';'
+	r.Comment = '#'
+
+	records, err := r.ReadAll()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Print(records)
+}
+
+Output:
+
+[[first_name last_name username] [Rob Pike rob] [Ken Thompson ken] [Robert Griesemer gri]]
 ```
 
 #### func NewReader 
@@ -292,8 +355,36 @@ ReadAll reads all the remaining records from r. Each record is a slice of fields
 
 ReadAll从r读取所有剩余的记录。一个成功的调用返回err == nil，而不是err == io.EOF。因为ReadAll被定义为读到EOF为止，它不把文件结束作为一个错误来报告。
 
-##### Example
+##### ReadAll Example
 ``` go 
+package main
+
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"strings"
+)
+
+func main() {
+	in := `first_name,last_name,username
+"Rob","Pike",rob
+Ken,Thompson,ken
+"Robert","Griesemer","gri"
+`
+	r := csv.NewReader(strings.NewReader(in))
+
+	records, err := r.ReadAll()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Print(records)
+}
+
+Output:
+
+[[first_name last_name username] [Rob Pike rob] [Ken Thompson ken] [Robert Griesemer gri]]
 ```
 
 ### type Writer 
@@ -326,8 +417,46 @@ The writes of individual records are buffered. After all data has been written, 
 
 单个记录的写入是缓冲的。在所有数据被写入后，客户端应该调用Flush方法以保证所有数据都被转发到底层的io.Writer。任何发生的错误都应该通过调用Error方法来检查。
 
-##### Example
+##### Writer Example
 ``` go 
+package main
+
+import (
+	"encoding/csv"
+	"log"
+	"os"
+)
+
+func main() {
+	records := [][]string{
+		{"first_name", "last_name", "username"},
+		{"Rob", "Pike", "rob"},
+		{"Ken", "Thompson", "ken"},
+		{"Robert", "Griesemer", "gri"},
+	}
+
+	w := csv.NewWriter(os.Stdout)
+
+	for _, record := range records {
+		if err := w.Write(record); err != nil {
+			log.Fatalln("error writing record to csv:", err)
+		}
+	}
+
+	// Write any buffered data to the underlying writer (standard output).
+	w.Flush()
+
+	if err := w.Error(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+Output:
+
+first_name,last_name,username
+Rob,Pike,rob
+Ken,Thompson,ken
+Robert,Griesemer,gri
 ```
 
 #### func NewWriter 

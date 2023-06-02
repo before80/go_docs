@@ -16,16 +16,6 @@ Package hex implements hexadecimal encoding and decoding.
 包hex实现了十六进制的编码和解码。
 
 
-
-
-
-
-
-
-
-
-
-
 ## 常量 
 
 This section is empty.
@@ -58,8 +48,32 @@ Decode expects that src contains only hexadecimal characters and that src has ev
 
 解码期望src只包含十六进制的字符，并且src的长度是偶数。如果输入是畸形的，Decode会返回错误发生前的解码字节数。
 
-##### Example
+##### Decode Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+	"log"
+)
+
+func main() {
+	src := []byte("48656c6c6f20476f7068657221")
+
+	dst := make([]byte, hex.DecodedLen(len(src)))
+	n, err := hex.Decode(dst, src)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%s\n", dst[:n])
+
+}
+
+Output:
+
+Hello Gopher!
 ```
 
 #### func DecodeString 
@@ -76,8 +90,30 @@ DecodeString expects that src contains only hexadecimal characters and that src 
 
 DecodeString期望src只包含十六进制的字符，并且src具有偶数长度。如果输入是畸形的，DecodeString将返回错误之前的解码字节。
 
-##### Example
+##### DecodeString Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+	"log"
+)
+
+func main() {
+	const s = "48656c6c6f20476f7068657221"
+	decoded, err := hex.DecodeString(s)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%s\n", decoded)
+
+}
+
+Output:
+
+Hello Gopher!
 ```
 
 #### func DecodedLen 
@@ -100,8 +136,27 @@ Dump returns a string that contains a hex dump of the given data. The format of 
 
 Dump返回一个包含给定数据的十六进制转储的字符串。十六进制转储的格式与命令行中`hexdump -C`的输出相匹配。
 
-##### Example
+##### Dump Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+)
+
+func main() {
+	content := []byte("Go is an open source programming language.")
+
+	fmt.Printf("%s", hex.Dump(content))
+
+}
+
+Output:
+
+00000000  47 6f 20 69 73 20 61 6e  20 6f 70 65 6e 20 73 6f  |Go is an open so|
+00000010  75 72 63 65 20 70 72 6f  67 72 61 6d 6d 69 6e 67  |urce programming|
+00000020  20 6c 61 6e 67 75 61 67  65 2e                    | language.|
 ```
 
 #### func Dumper 
@@ -114,8 +169,41 @@ Dumper returns a WriteCloser that writes a hex dump of all written data to w. Th
 
 Dumper返回一个WriteCloser，将所有写入的数据的十六进制转储到w。
 
-##### Example
+##### Dumper Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"os"
+)
+
+func main() {
+	lines := []string{
+		"Go is an open source programming language.",
+		"\n",
+		"We encourage all Go users to subscribe to golang-announce.",
+	}
+
+	stdoutDumper := hex.Dumper(os.Stdout)
+
+	defer stdoutDumper.Close()
+
+	for _, line := range lines {
+		stdoutDumper.Write([]byte(line))
+	}
+
+}
+
+Output:
+
+00000000  47 6f 20 69 73 20 61 6e  20 6f 70 65 6e 20 73 6f  |Go is an open so|
+00000010  75 72 63 65 20 70 72 6f  67 72 61 6d 6d 69 6e 67  |urce programming|
+00000020  20 6c 61 6e 67 75 61 67  65 2e 0a 57 65 20 65 6e  | language..We en|
+00000030  63 6f 75 72 61 67 65 20  61 6c 6c 20 47 6f 20 75  |courage all Go u|
+00000040  73 65 72 73 20 74 6f 20  73 75 62 73 63 72 69 62  |sers to subscrib|
+00000050  65 20 74 6f 20 67 6f 6c  61 6e 67 2d 61 6e 6e 6f  |e to golang-anno|
+00000060  75 6e 63 65 2e                                    |unce.|
 ```
 
 #### func Encode 
@@ -128,8 +216,28 @@ Encode encodes src into EncodedLen(len(src)) bytes of dst. As a convenience, it 
 
 Encode将src编码为dst的EncodedLen(len(src))字节。为了方便起见，它返回写入dst的字节数，但这个值总是EncodedLen(len(src))。Encode实现了十六进制的编码。
 
-##### Example
+##### Encode Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+)
+
+func main() {
+	src := []byte("Hello Gopher!")
+
+	dst := make([]byte, hex.EncodedLen(len(src)))
+	hex.Encode(dst, src)
+
+	fmt.Printf("%s\n", dst)
+
+}
+
+Output:
+
+48656c6c6f20476f7068657221
 ```
 
 #### func EncodeToString 
@@ -142,8 +250,26 @@ EncodeToString returns the hexadecimal encoding of src.
 
 EncodeToString返回src的十六进制编码。
 
-##### Example
+##### EncodeToString Example
 ``` go 
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+)
+
+func main() {
+	src := []byte("Hello")
+	encodedStr := hex.EncodeToString(src)
+
+	fmt.Printf("%s\n", encodedStr)
+
+}
+
+Output:
+
+48656c6c6f
 ```
 
 #### func EncodedLen 

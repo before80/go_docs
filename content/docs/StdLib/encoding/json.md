@@ -210,7 +210,7 @@ func Indent(dst *bytes.Buffer, src []byte, prefix, indent string) error
 
 ​	Indent函数将JSON编码的src的缩进形式附加到dst中。JSON对象或数组中的每个元素都在新的缩进行上开始，该行以prefix开头，后跟一个或多个indent的副本，具体取决于缩进嵌套。附加到dst的数据不以prefix或任何缩进开始，以使其更容易嵌入其他格式化的JSON数据中。虽然src开头的前导空格字符(空格、制表符、回车、换行符)会被删除，但src末尾的尾随空格字符会被保留并复制到dst中。例如，如果src没有尾随空格，则dst也没有；如果src以尾随换行符结束，则dst也是如此。
 
-##### Example
+##### Indent Example
 ``` go 
 package main
 
