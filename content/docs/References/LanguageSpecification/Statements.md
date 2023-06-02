@@ -40,11 +40,11 @@ SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | S
 6. 一个 "`switch` "语句，其中：
    - 没有 "`break` "语句引用 "`switch` "语句
    - 有一个默认的分支，并且
-   - 每个分支下的语句列表，包括默认分支，都以一个终止语句结束，或者是一个可能标有 ["fallthrough "的语句](#fallthrough-statements-fallthrough)。
+   - 每个分支下的语句列表，包括默认分支，都以一个终止语句结束，或者是一个可能标有 ["fallthrough "的语句](#fallthrough-statements-fallthrough-语句-fallthrough)。
 7. 一个 "`select`"语句，其中:
    - 没有"`break`"语句引用"`select`"语句，并且
    - 每个分支下的语句列表，包括默认分支（如果存在），都以一个终止语句结束
-8. 标记终止语句的[标签语句](#labeled-statements)。
+8. 标记终止语句的[标签语句](#labeled-statements-标签语句)。
 
 ​	所有其他语句都不是终止性的。
 
@@ -75,7 +75,7 @@ Error: log.Panic("error encountered")
 
 ### Expression statements 表达式语句
 
-​	除了特定的内置函数外，函数和方法[调用](../Expressions#calls)以及[接收操作](../Expressions#receive-operator )可以出现在语句上下文中。这样的语句可以用圆括号括起来。
+​	除了特定的内置函数外，函数和方法[调用](../Expressions#calls-调用)以及[接收操作](../Expressions#receive-operator-接收操作符)可以出现在语句上下文中。这样的语句可以用圆括号括起来。
 
 ```
 ExpressionStmt = Expression .
@@ -98,7 +98,7 @@ len("foo")  // illegal if len is the built-in function
 
 ### Send statements 发送语句
 
-​	发送语句在通道上发送一个值。通道表达式的[核心类型](../PropertiesOfTypesAndValues#core-types)必须是一个[通道](../Types#channel-types)，通道方向必须允许发送操作，而且要发送的值的类型必须是[可以分配](../PropertiesOfTypesAndValues#assignability)给通道的元素类型。
+​	发送语句在通道上发送一个值。通道表达式的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是一个[通道](../Types#channel-types-通道型)，通道方向必须允许发送操作，而且要发送的值的类型必须是[可以分配](../PropertiesOfTypesAndValues#assignability-可分配性)给通道的元素类型。
 
 ```
 SendStmt = Channel "<-" Expression .
@@ -113,13 +113,13 @@ ch <- 3  // send value 3 to channel ch
 
 ### IncDec statements  自增自减语句
 
-​	`++`和`--`语句通过无类型[常量](../Constants)`1`来增加或减少其操作数。与赋值一样，操作数必须是[可寻址的](../Expressions#address-operators)，或者是一个映射索引表达式。
+​	`++`和`--`语句通过无类型[常量](../Constants)`1`来增加或减少其操作数。与赋值一样，操作数必须是[可寻址的](../Expressions#address-operators-地址运算符)，或者是一个映射索引表达式。
 
 ```
 IncDecStmt = Expression ( "++" | "--" ) .
 ```
 
-下面的[赋值语句](#assignment-statements)在语义上是等同的：
+下面的[赋值语句](#assignment-statements-赋值语句)在语义上是等同的：
 
 ```
 IncDec statement    Assignment
@@ -129,7 +129,7 @@ x--                 x -= 1
 
 ### Assignment statements 赋值语句
 
-​	赋值是用一个[表达式](../#Expressions)指定的新值来替换存储在[变量](../Variables)中的当前值。赋值语句可以为单个变量赋值，也可以将多个值赋给匹配数量的变量。
+​	赋值是用一个[表达式](../Expressions)指定的新值来替换存储在[变量](../Variables)中的当前值。赋值语句可以为单个变量赋值，也可以将多个值赋给匹配数量的变量。
 
 ```
 Assignment = ExpressionList assign_op ExpressionList .
@@ -137,7 +137,7 @@ Assignment = ExpressionList assign_op ExpressionList .
 assign_op = [ add_op | mul_op ] "=" .
 ```
 
-​	每个左操作数必须是[可寻址的](../Expressions#address-operators)，或是一个映射索引表达式，或是（仅对`=`赋值）[空白标识符，即`_`](../DeclarationsAndScope#blank-identifier)。操作数可以用圆括号括起来。
+​	每个左操作数必须是[可寻址的](../Expressions#address-operators-地址运算符)，或是一个映射索引表达式，或是（仅对`=`赋值）[空白标识符，即`_`](../DeclarationsAndScope#blank-identifierr-空白标识符)。操作数可以用圆括号括起来。
 
 ```go 
 x = 1
@@ -146,14 +146,14 @@ a[i] = 23
 (k) = <-ch  // same as: k = <-ch
 ```
 
-​	赋值操作`x` op`=` `y`，其中`op`是一个[二元算术运算符](../Expressions#arithmetic-operators)，相当于`x` `=` `x` op `(y)`，但只对`x`进行一次求值。op`=`结构是一个单一的标记。在赋值操作中，左表达式和右表达式列表都必须正好包含一个单值表达式，并且左表达式不能是空白标识符。
+​	赋值操作`x` op`=` `y`，其中`op`是一个[二元算术运算符](../Expressions#arithmetic-operators-算术运算符)，相当于`x` `=` `x` op `(y)`，但只对`x`进行一次求值。op`=`结构是一个单一的标记。在赋值操作中，左表达式和右表达式列表都必须正好包含一个单值表达式，并且左表达式不能是空白标识符。
 
 ```go 
 a[i] <<= 2
 i &^= 1<<n
 ```
 
-​	多元赋值将多值运算的各个元素分配给一个变量列表。有两种形式。在第一种形式中，右操作数是单个多值表达式，如一个函数调用、一个[通道](../Types#channel-types)或[映射](../Types#map-types)操作，或一个[类型断言](../Expressions#type-assertions)。左操作数必须与值的数量相匹配。例如，如果`f`是一个返回两个值的函数，
+​	多元赋值将多值运算的各个元素分配给一个变量列表。有两种形式。在第一种形式中，右操作数是单个多值表达式，如一个函数调用、一个[通道](../Types#channel-types-通道型)或[映射](../Types#map-types-映射型)操作，或一个[类型断言](../Expressions#type-assertions-类型断言)。左操作数必须与值的数量相匹配。例如，如果`f`是一个返回两个值的函数，
 
 ```go 
 x, y = f()
@@ -165,14 +165,14 @@ x, y = f()
 one, two, three = '一', '二', '三'
 ```
 
-[空白标识符，即`_`](../DeclarationsAndScope#blank-identifier)提供了一种在赋值中忽略右值的方法：
+[空白标识符，即`_`](../DeclarationsAndScope#blank-identifierr-空白标识符)提供了一种在赋值中忽略右值的方法：
 
 ```go 
 _ = x       // evaluate x but ignore it => 对 x 求值，但忽略它
 x, _ = f()  // evaluate f() but ignore second result value => 对 f() 求值，但忽略它的第二个结果值
 ```
 
-​	赋值分两个阶段进行。第一阶段，左边的[索引表达式](../Expressions#index-expressions)和[指针间接](../Expressions#address-operators)（包括[选择器](../Expressions#selectors)中的隐式指针间接）的操作数以及右边的表达式都按照[通常的顺序被求值](../Expressions#order-of-evaluation)。第二阶段，赋值是按照从左到右的顺序进行的。
+​	赋值分两个阶段进行。第一阶段，左边的[索引表达式](../Expressions#index-expressions-索引表达式)和[指针间接](../Expressions#address-operators)（包括[选择器](../Expressions#selectors)中的隐式指针间接）的操作数以及右边的表达式都按照[通常的顺序被求值](../Expressions#order-of-evaluation)。第二阶段，赋值是按照从左到右的顺序进行的。
 
 ```go 
 a, b = b, a  // exchange a and b => 交换 a 和 b
@@ -282,7 +282,7 @@ case x == 4: f3()
 
 #### Type switches 类型选择
 
-​	`类型选择`比较的是`类型`而不是值。它与`表达式开关`类似。它由一个特殊的`switch 表达式`标记，该表达式具有[类型断言](../Expressions#type-assertions)的形式，使用关键字`type`而不是实际的类型：
+​	`类型选择`比较的是`类型`而不是值。它与`表达式开关`类似。它由一个特殊的`switch 表达式`标记，该表达式具有[类型断言](../Expressions#type-assertions-类型断言)的形式，使用关键字`type`而不是实际的类型：
 
 ```go 
 switch x.(type) {
@@ -421,7 +421,7 @@ for      { S() }    is the same as    for true     { S() }
 RangeClause = [ ExpressionList "=" | IdentifierList ":=" ] "range" Expression .
 ```
 
-​	在 "`range`"子句中`右边的表达式`称为`范围表达式`，其[核心类型](../PropertiesOfTypesAndValues#core-types)必须是数组、指向数组的指针、切片、字符串、映射或允许[接收操作](../Expressions#receive-operator )的通道。和赋值一样，如果左操作数存在的话，那么它必须是[可寻址的](../Expressions#address-operators)或映射索引表达式；它们（即左操作数）表示`迭代变量`。如果`range 表达式`是一个通道，最多允许一个迭代变量，其他情况下最多可以有两个迭代变量。如果最后一个迭代变量是[空白标识符，即`_`](../DeclarationsAndScope#blank-identifier)，那么range 子句就等同于没有该空白标识符的相同子句。
+​	在 "`range`"子句中`右边的表达式`称为`范围表达式`，其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是数组、指向数组的指针、切片、字符串、映射或允许[接收操作](../Expressions#receive-operator-接收操作符)的通道。和赋值一样，如果左操作数存在的话，那么它必须是[可寻址的](../Expressions#address-operators-地址运算符)或映射索引表达式；它们（即左操作数）表示`迭代变量`。如果`range 表达式`是一个通道，最多允许一个迭代变量，其他情况下最多可以有两个迭代变量。如果最后一个迭代变量是[空白标识符，即`_`](../DeclarationsAndScope#blank-identifierr-空白标识符)，那么range 子句就等同于没有该空白标识符的相同子句。
 
 ​	在开始循环之前，range 表达式`x`被求值一次，**但有一个例外**：如果最多只有一个迭代变量，并且`len(x)`是[常量](../Constants)，那么range 表达式不被求值。
 
@@ -444,7 +444,7 @@ channel         c  chan E, <-chan E       element  e  E
 3. 对映射的迭代顺序没有指定，不保证每次迭代都是一样的。如果在迭代过程中删除了一个尚未到达的映射条目，将不会产生相应的迭代值。如果在迭代过程中创建了一个映射条目，该条目可能在迭代过程中被产生，也可能被跳过。对于每个创建的条目，以及从一个迭代到另一个迭代，选择可能有所不同。如果映射为`nil`，迭代次数为0。
 4. 对于通道，产生的迭代值是通道上连续发送的值，直到通道[关闭](../Built-inFunctions#close)。如果通道为`nil`，则 range 表达式永远阻塞。
 
-​	迭代值被分配给各自的迭代变量，就像在[赋值语句](#assignment-statements)中一样。
+​	迭代值被分配给各自的迭代变量，就像在[赋值语句](#assignment-statements-赋值语句)中一样。
 
 ​	迭代变量可以由 "range "子句使用[短变量声明](../DeclarationsAndScope#short-variable-declarations)的形式（`:=`）来声明。在这种情况下，它们的类型被设置为各自的迭代值的类型，它们的[作用域](../DeclarationsAndScope)是 "for "语句的块；它们在每个迭代中被重复使用。如果迭代变量是在 "for "语句之外声明的，执行后它们的值将是最后一次迭代的值。
 

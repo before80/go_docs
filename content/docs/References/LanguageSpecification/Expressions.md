@@ -37,7 +37,7 @@ OperandName = identifier | QualifiedIdent .
 QualifiedIdent = PackageName "." identifier .
 ```
 
-​	限定标识符可以在不同包中访问一个标识符，但该标识符所在的包必须已经被[导入](../Packages#import-declarations)。该标识符必须[可被导出](../DeclarationsAndScope#exported-identifiers)并在该包的[package block](../Blocks)中声明。
+​	限定标识符可以在不同包中访问一个标识符，但该标识符所在的包必须已经被[导入](../Packages#import-declarations-导入声明)。该标识符必须[可被导出](../DeclarationsAndScope#exported-identifiers-可导出的标识符)并在该包的[package block](../Blocks)中声明。
 
 ```go 
 math.Sin // denotes the Sin function in package math 
@@ -60,11 +60,11 @@ FieldName     = identifier .
 Element       = Expression | LiteralValue .
 ```
 
-​	LiteralType 的[核心类型](../Types#core-types)`T`必须是一个结构体、数组、切片或映射类型（除了当类型是作为TypeName给出时，语法会强制执行这个约束）。元素和键的类型必须[可分配](../PropertiesOfTypesAndValues#assignability)给`T`类型的对应字段、元素和键类型；不需要进行额外的转换。
+​	LiteralType 的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`T`必须是一个结构体、数组、切片或映射类型（除了当类型是作为TypeName给出时，语法会强制执行这个约束）。元素和键的类型必须[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`类型的对应字段、元素和键类型；不需要进行额外的转换。
 
 ​	这里的键被解释为结构体字面量的字段名、数组字面量或切片字面量的索引、映射字面量的键。
 
-​	对于映射字面量，所有的元素必须有一个键。用相同的字段名或常量键值指定多个元素是错误的。对于非常量的映射键，请参见关于[求值顺序](#order-of-evaluation)的章节。
+​	对于映射字面量，所有的元素必须有一个键。用相同的字段名或常量键值指定多个元素是错误的。对于非常量的映射键，请参见关于[求值顺序](#order-of-evaluation-求值顺序)的章节。
 
 ​	对于结构体字面量来说，以下规则适用：
 
@@ -97,16 +97,16 @@ line := Line{origin, Point3D{y: -4, z: 12.3}}
 对于数组字面量和切片字面量，以下规则适用：
 
 - 每个元素都有一个相关的整数索引，标记其在数组中的位置。
-- 带键的元素使用该键作为其索引。键必须是一个可由`int`类型的值[表示的](../PropertiesOfTypesAndValues#representability)非负常数；如果它是有类型的，则它必须是[整数类型](../Types#numeric-types)。
+- 带键的元素使用该键作为其索引。键必须是一个可由`int`类型的值[表示的](../PropertiesOfTypesAndValues#representability-可表示性)非负常数；如果它是有类型的，则它必须是[整数类型](../Types#numeric-types-数值型)。
 - 不带键的元素使用前一个元素的索引加1。如果第一个元素没有键，它的索引是0。
 
-​	对一个复合字面量[取址]()会产生一个指向唯一[变量](../Variables)的指针，该变量用字面量的值初始化。
+​	对一个复合字面量[取址](#address-operators-地址运算符)会产生一个指向唯一[变量](../Variables)的指针，该变量用字面量的值初始化。
 
 ```go 
 var pointer *Point3D = &Point3D{y: 1000}
 ```
 
-请注意，切片或映射类型的[零值](../ProgramInitializationAndExecution#the-zero-value)与同一类型的初始化过但为空的值不同。因此，获取一个空切片或空映射复合字面量的地址与用[new](../Built-inFunctions#allocation)分配一个新的切片或映射值的效果不同。
+请注意，切片或映射类型的[零值](../ProgramInitializationAndExecution#the-zero-value-零值)与同一类型的初始化过但为空的值不同。因此，获取一个空切片或空映射复合字面量的地址与用[new](../Built-inFunctions#allocation-分配)分配一个新的切片或映射值的效果不同。
 
 ```go 
 // p1 points to an initialized, empty slice with value []int{} and length 0 
@@ -157,7 +157,7 @@ type PPoint *Point
 [2]PPoint{{1.5, -3.5}, {}}          // same as [2]PPoint{PPoint(&Point{1.5, -3.5}), PPoint(&Point{})}
 ```
 
-​	当使用LiteralType的TypeName形式的复合字面量`作为操作数`出现在[关键字](../LexicalElements#keywords)和 "`if`"、"`for` "或 "`switch` "等语句块的`左花括号`之间，并且复合字面量没有被括在圆括号、方括号或花括号中时，会出现解析歧义。在这种罕见的情况下，字面量的左花括号被错误地解析为引入语句块的左花括号。为了解决这个问题，复合字面量`必须出现在圆括号`内。
+​	当使用LiteralType的TypeName形式的复合字面量`作为操作数`出现在[关键字](../LexicalElements#keywords-关键字)和 "`if`"、"`for` "或 "`switch` "等语句块的`左花括号`之间，并且复合字面量没有被括在圆括号、方括号或花括号中时，会出现解析歧义。在这种罕见的情况下，字面量的左花括号被错误地解析为引入语句块的左花括号。为了解决这个问题，复合字面量`必须出现在圆括号`内。
 
 ```go 
 if x == (T{a,b,c}[i]) { … }
@@ -186,7 +186,7 @@ noteFrequency := map[string]float32{
 
 ### Function literals 函数字面量
 
-​	函数字面量表示一个匿名[函数](../DeclarationsAndScope#function-declarations)。函数字面量不能声明`类型参数`。
+​	函数字面量表示一个匿名[函数](../DeclarationsAndScope#function-declarations-函数声明)。函数字面量不能声明`类型参数`。
 
 ```go 
 FunctionLit = "func" Signature FunctionBody .
@@ -236,24 +236,24 @@ f.p[i].x()
 
 ### Selectors 选择器
 
-​	对于[主表达式](#primary-expressions)`x`（不是[包名](../Packages#package-clause)）来说，选择器表达式：
+​	对于[主表达式](#primary-expressions-主表达式)`x`（不是[包名](../Packages#package-clause-包子句)）来说，选择器表达式：
 
 ```go 
 x.f
 ```
 
-表示值`x`（有时是`*x`；见下文）的字段或方法`f`。标识符`f`被称为（字段或方法）`选择器`；它不能是[空白标识符](../DeclarationsAndScope#blank-identifier)。选择器表达式的类型是`f`的类型。若`x`是包名，请参见关于[限定标识符](#qualified-identifiers)一节。
+表示值`x`（有时是`*x`；见下文）的字段或方法`f`。标识符`f`被称为（字段或方法）`选择器`；它不能是[空白标识符](../DeclarationsAndScope#blank-identifierr-空白标识符)。选择器表达式的类型是`f`的类型。若`x`是包名，请参见关于[限定标识符](#qualified-identifiers-限定标识符)一节。
 
-​	选择器`f`可以表示类型`T`的`f`字段或`f`方法，也可以指代`T`的[嵌入字段](../Types#struct-types)或嵌入方法`f`。在`T`的一个嵌入字段`A`中声明的字段或方法`f`的深度是`A`中`f`的深度加1。
+​	选择器`f`可以表示类型`T`的`f`字段或`f`方法，也可以指代`T`的[嵌入字段](../Types#struct-types-结构体型)或嵌入方法`f`。在`T`的一个嵌入字段`A`中声明的字段或方法`f`的深度是`A`中`f`的深度加1。
 
 以下规则适用于选择器：
 
-1. 对于类型为`T`或`*T`（`T`不是指针或接口类型）的值`x`，`x.f`表示`T`中存在这样一个最浅深度的字段或方法`f`。如果不是恰好有[仅有一个](../DeclarationsAndScope#uniqueness-of-identifiers)`f`在最浅深度的话，那么选择器表达式是非法的。
-8. 对于接口类型`I`的值`x`，`x.f`表示动态值`x`的名为`f`的实际方法。如果在`I`的[方法集](../PropertiesOfTypesAndValues#method-sets)中没有名为`f`的方法，那么选择器表达式是非法的。
-9. 作为例外，如果`x`的类型是一个[定义的](../DeclarationsAndScope#type-definitions)指针类型，并且`(*x).f`是一个有效的表示一个字段（不是一个方法）的选择器表达式，那么`x.f`是`(*x).f`的简写。
+1. 对于类型为`T`或`*T`（`T`不是指针或接口类型）的值`x`，`x.f`表示`T`中存在这样一个最浅深度的字段或方法`f`。如果不是恰好有[仅有一个](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)`f`在最浅深度的话，那么选择器表达式是非法的。
+8. 对于接口类型`I`的值`x`，`x.f`表示动态值`x`的名为`f`的实际方法。如果在`I`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中没有名为`f`的方法，那么选择器表达式是非法的。
+9. 作为例外，如果`x`的类型是一个[定义的](../DeclarationsAndScope#type-definitions-类型定义)指针类型，并且`(*x).f`是一个有效的表示一个字段（不是一个方法）的选择器表达式，那么`x.f`是`(*x).f`的简写。
 10. 在所有其它情况下，`x.f`是非法的。
 11. 如果`x`是值为`nil`的指针类型，并且`x.f`表示一个结构体字段，那么赋值或计算`x.f`会引起[运行时恐慌](../Run-timePanics)。
-12. 如果`x`是值为`nil`的接口类型，那么[调用](#calls)或[计值](#method-values)`x.f`方法会引起[运行时恐慌](../Run-timePanics)。
+12. 如果`x`是值为`nil`的接口类型，那么[调用](#calls-调用)或[计值](#method-values-方法值)`x.f`方法会引起[运行时恐慌](../Run-timePanics)。
 
 例如，给定声明：
 
@@ -312,7 +312,7 @@ q.M0()       // (*q).M0 is valid but not a field selector => (*q).M0是有效的
 
 ### Method expressions 方法表达式
 
-​	如果`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets)中，那么`T.M`是一个可以作为普通函数来调用的函数，其实参与`M`相同，不过其前缀有一个额外的（作为该方法的接收器的）实参。
+​	如果`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中，那么`T.M`是一个可以作为普通函数来调用的函数，其实参与`M`相同，不过其前缀有一个额外的（作为该方法的接收器的）实参。
 
 ```
 MethodExpr    = ReceiverType "." MethodName .
@@ -385,13 +385,13 @@ The final case, a value-receiver function for a pointer-receiver method, is ille
 
 ​	最后一种情况，将一个带指针接收器的方法`当做`一个带值接收器的函数，是非法的，因为指针接收器的方法不在值类型的方法集中。=>仍有疑问？？
 
-​	从方法中推导出来的函数值是用`函数调用语法`来调用的；接收器被作为调用的第一个实参来提供。也就是说，`f := T.Mv`中的`f`是作为`f(t, 7)`被调用，而不是`t.f(7)`。构造一个绑定接收器的函数，可以使用[函数字面量](#function-literals)或[方法值](#method-values)。
+​	从方法中推导出来的函数值是用`函数调用语法`来调用的；接收器被作为调用的第一个实参来提供。也就是说，`f := T.Mv`中的`f`是作为`f(t, 7)`被调用，而不是`t.f(7)`。构造一个绑定接收器的函数，可以使用[函数字面量](#function-literals-函数字面量)或[方法值](#method-values-方法值)。
 
 ​	从接口类型的方法中推导出来函数值是合法的。这样的函数需要一个该接口类型的显式接收器。
 
 ### Method values 方法值
 
-​	如果表达式`x`有静态类型`T`，并且`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets)中，那么`x.M`被称为一个`方法值`。方法值`x.M`是一个可调用的函数值，其实参与`x.M`的方法调用相同。表达式`x`在方法值的求值过程中被求值和保存；然后保存的副本被用作任何调用中的接收器上，这些调用可能在以后执行。
+​	如果表达式`x`有静态类型`T`，并且`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中，那么`x.M`被称为一个`方法值`。方法值`x.M`是一个可调用的函数值，其实参与`x.M`的方法调用相同。表达式`x`在方法值的求值过程中被求值和保存；然后保存的副本被用作任何调用中的接收器上，这些调用可能在以后执行。
 
 ```go 
 type S struct { *T }
@@ -407,7 +407,7 @@ g := s.M                    // receiver *(s.T) is evaluated and stored in g => �
 
 ​	类型`T`既可以是接口类型，也可以是非接口类型。
 
-​	如同上面对[方法表达式](#method-expressions)的讨论，考虑一个有两个方法的结构体类型`T`，方法一的接收器是`T`类型的`Mv`，方法二的接收器是`*T`类型的`Mp`。
+​	如同上面对[方法表达式](#method-expressions-方法表达式)的讨论，考虑一个有两个方法的结构体类型`T`，方法一的接收器是`T`类型的`Mv`，方法二的接收器是`*T`类型的`Mp`。
 
 ```go 
 type T struct {
@@ -452,9 +452,9 @@ pt.Mp
 func(float32) float32
 ```
 
-​	和[选择器](#selectors)一样，若对以值作为接收器的非接口方法，使用指针来引用，则（Go语言）将自动解除对该指针的引用：`pt.Mv`等同于`(*pt).Mv`。
+​	和[选择器](#selectors-选择器)一样，若对以值作为接收器的非接口方法，使用指针来引用，则（Go语言）将自动解除对该指针的引用：`pt.Mv`等同于`(*pt).Mv`。
 
-​	和[方法调用](#calls)一样，若对以指针作为接收器的非接口方法，使用可寻址的值来引用，则（Go语言）将自动获取该值的地址：`t.Mp`等同于`(&t).Mp`。
+​	和[方法调用](#calls-调用)一样，若对以指针作为接收器的非接口方法，使用可寻址的值来引用，则（Go语言）将自动获取该值的地址：`t.Mp`等同于`(&t).Mp`。
 
 ```go 
 f := t.Mv; f(7)   // like t.Mv(7)
@@ -483,8 +483,8 @@ a[x]
 
 如果`a`既不是映射也不是类型参数：
 
-- 索引`x`必须是一个无类型的常量，或者其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是[整数类型](../Types#numeric-types)
-- 常量索引必须是非负且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability)
+- 索引`x`必须是一个无类型的常量，或者其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是[整数类型](../Types#numeric-types-数值型)
+- 常量索引必须是非负且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)
 - 无类型常量索引会被赋予`int`类型。
 - 如果`0 <= x < len(a)`，则索引`x`在范围内，否则就超出了范围。
 
@@ -494,11 +494,11 @@ a[x]
 - 如果`x`在运行时超出了范围，就会发生[运行时恐慌](../Run-timePanics)
 - `a[x]`是索引为`x`的数组元素，`a[x]`的类型是`A`的元素类型。
 
-对于数组类型[指针](../Types#pointer-types)的`a`：
+对于数组类型[指针](../Types#pointer-types-指针型)的`a`：
 
 - `a[x]` 是 `(*a)[x]`的简写
 
-对于[切片类型](../Types#slice-types)`S`的`a`：
+对于[切片类型](../Types#slice-types-切片型)`S`的`a`：
 
 - 如果`x`在运行时超出了范围，就会发生[运行时恐慌](../Run-timePanics)
 - `a[x]`是索引`x`处的切片元素，`a[x]`的类型是`S`的元素类型。
@@ -512,13 +512,13 @@ For `a` of [string type](https://go.dev/ref/spec#String_types):
 - `a[x]`是索引`x`处的非常量字节值，`a[x]`的类型是`byte`。
 - `a[x]`不能被赋值
 
-对于[映射类型](../Types#map-types)为`M`的`a`：
+对于[映射类型](../Types#map-types-映射型)为`M`的`a`：
 
-- `x`的类型必须可以被[分配](../PropertiesOfTypesAndValues#assignability)给`M`的键类型
+- `x`的类型必须可以被[分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`M`的键类型
 - 如果映射中有键`x`的项，那么`a[x]`就是键`x`的映射元素，`a[x]`的类型就是`M`的元素类型
-- 如果映射为`nil`或者不包含任何项，`a[x]`是`M`的元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。
+- 如果映射为`nil`或者不包含任何项，`a[x]`是`M`的元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value-零值)。
 
-对于[参数类型](../DeclarationsAndScope#type-parameter-declarations)为`P`的`a`：
+对于[参数类型](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)为`P`的`a`：
 
 - 索引表达式`a[x]`必须对`P`的类型集中的所有类型的值有效。
 - `P`的类型集中所有类型的元素类型必须是相同的。在此上下文中，字符串类型的元素类型是`byte`。
@@ -552,7 +552,7 @@ var v, ok = a[x]
 a[low : high]
 ```
 
-构造了一个子字符串或切片。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是字符串、数组、数组指针、切片或者[bytestring](../PropertiesOfTypesAndValues#core-types)。`low`和`high`所在的索引选择了哪些元素显示在操作数`a`的结果中。若结果的索引从0开始，则长度等于`high` 减去 `low`。在对数组`a`进行切片后
+构造了一个子字符串或切片。`a`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)必须是字符串、数组、数组指针、切片或者[bytestring](../PropertiesOfTypesAndValues#core-types-核心类型)。`low`和`high`所在的索引选择了哪些元素显示在操作数`a`的结果中。若结果的索引从0开始，则长度等于`high` 减去 `low`。在对数组`a`进行切片后
 
 ```go 
 a := [5]int{1, 2, 3, 4, 5}
@@ -577,7 +577,7 @@ a[:]   // same as a[0 : len(a)]
 
 ​	如果`a`是一个数组指针，则`a[low:high]`是`(*a)[low:high]`的简写。
 
-​	对于数组或字符串，如果`0 <= low <= high <= len(a)`，则索引在范围内，否则就超出了范围。对于切片，索引的上限是切片的容量`cap(a)`，而不是长度。[常量](../Constants)索引必须是非负的，并且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability)；对于数组或字符串常量，常量索引也必须在范围内。如果两个索引都是常量，它们必须满足`low <= high`。如果索引在运行时超出范围，就会发生[运行时恐慌](../Run-timePanics)。
+​	对于数组或字符串，如果`0 <= low <= high <= len(a)`，则索引在范围内，否则就超出了范围。对于切片，索引的上限是切片的容量`cap(a)`，而不是长度。[常量](../Constants)索引必须是非负的，并且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)；对于数组或字符串常量，常量索引也必须在范围内。如果两个索引都是常量，它们必须满足`low <= high`。如果索引在运行时超出范围，就会发生[运行时恐慌](../Run-timePanics)。
 
 ​	除了[无类型字符串](../Constants)外：
 
@@ -585,7 +585,7 @@ a[:]   // same as a[0 : len(a)]
 
 - 如果被切片的操作数是无类型的字符串，则切片的操作结果是一个`string`类型的非常量值。
 
-- 如果被切片的操作数是（必须[可被寻址](#address-operators)的）数组，则切片的操作结果是一个与数组的元素类型一致的切片。
+- 如果被切片的操作数是（必须[可被寻址](#address-operators-地址运算符-地址运算符)的）数组，则切片的操作结果是一个与数组的元素类型一致的切片。
 
 ​	如果有效切片表达式的切片操作数是`nil`切片，那么切片的操作结果就是一个`nil`切片。否则，如果切片的操作结果是一个切片，则它与操作数共享底层数组。
 
@@ -618,13 +618,13 @@ t[0] == 2
 t[1] == 3
 ```
 
-​	与简单切片表达式一样，如果`a`是一个数组指针，则`a[low:high:max]`是`(*a)[low:high:max]`的简写。如果切片的操作数是一个数组，它必须是[可被寻址的](#address-operators)。
+​	与简单切片表达式一样，如果`a`是一个数组指针，则`a[low:high:max]`是`(*a)[low:high:max]`的简写。如果切片的操作数是一个数组，它必须是[可被寻址的](#address-operators-地址运算符)。
 
-​	如果`0 <= low <= high <= max <= cap(a)`，则索引就在范围内，否则就超出了范围。[常量](../Constants)索引必须是非负数，并且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability)；对于数组，常量索引也必须在范围内。如果多个索引是常量，那么出现的常量必须在相对于彼此的范围内。如果索引在运行时超出了范围，就会发生[运行时恐慌](../Run-timePanics)。
+​	如果`0 <= low <= high <= max <= cap(a)`，则索引就在范围内，否则就超出了范围。[常量](../Constants)索引必须是非负数，并且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)；对于数组，常量索引也必须在范围内。如果多个索引是常量，那么出现的常量必须在相对于彼此的范围内。如果索引在运行时超出了范围，就会发生[运行时恐慌](../Run-timePanics)。
 
 ### Type assertions 类型断言
 
-​	对于[接口类型](../Types#interface-ypes)但非[类型参数](../DeclarationsAndScope#type-parameter-declarations)的表达式`x`和类型`T`的主表达式
+​	对于[接口类型](../Types#interface-ypes-接口型)但非[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)的表达式`x`和类型`T`的主表达式
 
 ```go 
 x.(T)
@@ -632,7 +632,7 @@ x.(T)
 
 断言了`x`不是`nil`，并且`x`中存储的值是`T`类型。标记法`x.(T)`被称为`类型断言`。
 
-​	更确切地说，如果`T`不是接口类型，则`x.(T)`断言`x`的动态类型与`T`的类型[一致](../PropertiesOfTypesAndValues#type-identity)。在这种情况下，`T`必须实现`x`的（接口）类型；否则类型断言是无效的，因为对于`x`来说存储`T`类型的值是不可能的。如果`T`是一个接口类型，则`x.(T)` 断言`x`的动态类型[实现](../Types#implementing-an-interface)了接口`T`。
+​	更确切地说，如果`T`不是接口类型，则`x.(T)`断言`x`的动态类型与`T`的类型[一致](../PropertiesOfTypesAndValues#type-identity-类型一致性)。在这种情况下，`T`必须实现`x`的（接口）类型；否则类型断言是无效的，因为对于`x`来说存储`T`类型的值是不可能的。如果`T`是一个接口类型，则`x.(T)` 断言`x`的动态类型[实现](../Types#implementing-an-interface-实现一个接口)了接口`T`。
 
 If the type assertion holds, the value of the expression is the value stored in `x` and its type is `T`. If the type assertion is false, a [run-time panic](https://go.dev/ref/spec#Run_time_panics) occurs. In other words, even though the dynamic type of `x` is known only at run time, the type of `x.(T)` is known to be `T` in a correct program.
 
@@ -651,7 +651,7 @@ func f(y I) {
 }
 ```
 
-​	在[赋值语句]()或特殊格式的初始化中使用的类型断言
+​	在[赋值语句](../Statements#assignment-statements-赋值语句)或特殊格式的初始化中使用的类型断言
 
 ```go 
 v, ok = x.(T)
@@ -660,17 +660,17 @@ var v, ok = x.(T)
 var v, ok interface{} = x.(T) // dynamic types of v and ok are T and bool => v 的动态类型是 T， ok 的动态类型是 bool
 ```
 
-将产生一个额外的无类型布尔值。如果断言成立，`ok`的值为`true`。否则为`false`，并且`v`的值是`T`类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。在这种情况下`不会`发生[运行时恐慌](../Run-timePanics)。
+将产生一个额外的无类型布尔值。如果断言成立，`ok`的值为`true`。否则为`false`，并且`v`的值是`T`类型的[零值](../ProgramInitializationAndExecution#the-zero-value-零值)。在这种情况下`不会`发生[运行时恐慌](../Run-timePanics)。
 
 ### Calls 调用
 
-给定一个表达式`f`，其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[函数类型](../Types#function-types)`F`,
+给定一个表达式`f`，其[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[函数类型](../Types#function-types-函数型)`F`,
 
 ```go 
 f(a1, a2, … an)
 ```
 
-带实参`a1, a2, ... an`调用了`f`。除了一种特殊情况以外，实参必须是[可分配](../PropertiesOfTypesAndValues#assignability)给`F`的参数类型的单值表达式，并且在函数被调用之前被求值。该表达式的类型是`F`的结果类型。方法调用是类似的，但是方法本身被指定为一个（在该方法的接收器类型的值上的）选择器。
+带实参`a1, a2, ... an`调用了`f`。除了一种特殊情况以外，实参必须是[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`F`的参数类型的单值表达式，并且在函数被调用之前被求值。该表达式的类型是`F`的结果类型。方法调用是类似的，但是方法本身被指定为一个（在该方法的接收器类型的值上的）选择器。
 
 ```go 
 math.Atan2(x, y)  // function call => 函数调用
@@ -680,7 +680,7 @@ pt.Scale(3.5)     // method call with receiver pt => 带接收器 pt 的方法�
 
 ​	如果`f`表示一个泛型函数，在它被调用或作为函数值使用之前，必须将其[实例化](#instantiations-实例化)。
 
-​	在函数调用中，函数值和实参以[通常的顺序](#order-of-evaluation)被求值。在它们被求值之后，调用的参数被按值传递给函数，然后被调用的函数开始执行。当函数返回时，函数的返回参数按值传递给调用者。
+​	在函数调用中，函数值和实参以[通常的顺序](#order-of-evaluation-求值顺序)被求值。在它们被求值之后，调用的参数被按值传递给函数，然后被调用的函数开始执行。当函数返回时，函数的返回参数按值传递给调用者。
 
 ​	调用一个`nil`的函数值会引起[运行时恐慌](../Run-timePanics)。
 
@@ -700,7 +700,7 @@ if Join(Split(value, len(value)/2)) != value {
 }
 ```
 
-​	如果`x`的[方法集](../PropertiesOfTypesAndValues#method-sets)（`x`的类型）包含`m`，并且实参列表可以分配给`m`的参数列表，那么方法调用`x.m()`是有效的。如果`x`是[可寻址的](#address-operators)，并且`&x`的方法集包含`m`，则`x.m()`就是`(&x).m()`的简写：
+​	如果`x`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)（`x`的类型）包含`m`，并且实参列表可以分配给`m`的参数列表，那么方法调用`x.m()`是有效的。如果`x`是[可寻址的](#address-operators-地址运算符)，并且`&x`的方法集包含`m`，则`x.m()`就是`(&x).m()`的简写：
 
 ```go 
 var p Point
@@ -711,7 +711,7 @@ p.Scale(3.5)
 
 ### Passing arguments to `...` parameters 向...参数传递实参
 
-​	如果`f`是带有一个`...T`类型的位置在最后的参数`p`的可变函数，那么在`f`内部，`p`的类型等同于`[]T`类型。如果`f`被调用时没有给`p`的实参，传递给`p`的值是`nil`。否则，传递的值是一个新的`[]T`类型的切片，这个切片带有一个新的底层数组，这个底层数组的连续元素作为实参，并且这些实参都必须[可分配](../PropertiesOfTypesAndValues#assignability)给`T`。因此，切片的长度和容量等于绑定到`p`的实参的数量，并且对每次调用（实参数量）都可能有所不同。
+​	如果`f`是带有一个`...T`类型的位置在最后的参数`p`的可变函数，那么在`f`内部，`p`的类型等同于`[]T`类型。如果`f`被调用时没有给`p`的实参，传递给`p`的值是`nil`。否则，传递的值是一个新的`[]T`类型的切片，这个切片带有一个新的底层数组，这个底层数组的连续元素作为实参，并且这些实参都必须[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`。因此，切片的长度和容量等于绑定到`p`的实参的数量，并且对每次调用（实参数量）都可能有所不同。
 
 给出函数和调用
 
@@ -739,7 +739,7 @@ Greeting("goodbye:", s...)
 ​	`泛型函数`或`泛型`是通过用`类型实参`替换`类型参数`而被实例化的。实例化分两步进行：
 
 1. 在泛型声明中，每个类型参数都被替换为其对应的类型实参。这种替换发生在整个函数或类型声明中，包括类型参数列表本身和该列表中的每个类型。
-2. 替换之后，每个类型实参必须[实现](../Types#interface-types)相应类型参数的[约束](../DeclarationsAndScope#type-parameter-declarations)（若有需要则实例化它）。否则实例化就会失败。
+2. 替换之后，每个类型实参必须[实现](../Types#interface-types-接口型)相应类型参数的[约束](../DeclarationsAndScope#type-constraints-类型约束)（若有需要则实例化它）。否则实例化就会失败。
 
 ​	实例化一个类型会产生一个新的非泛型的[命名类型](../Types)；实例化一个函数会产生一个新的非泛型的函数。
 
@@ -752,7 +752,7 @@ type parameter list    type arguments    after substitution
 [P io.Writer]          string            illegal: string doesn't implement io.Writer
 ```
 
-​	对于泛型函数，可以明确地提供类型实参，也可以靠部分或完整地[推断](#type-inference)出它们。非[调用](#calls)的泛型函数需要一个类型实参列表用于实例化；如果该列表是部分的，那么所有剩余的类型实参必须是可推断的。被调用的泛型函数可以提供一份（可能是部分的）类型实参列表，（如果省略的类型实参可以从普通（非类型）函数参数中推断出来）也可以完全省略。
+​	对于泛型函数，可以明确地提供类型实参，也可以靠部分或完整地[推断](#type-inference)出它们。非[调用](#calls-调用)的泛型函数需要一个类型实参列表用于实例化；如果该列表是部分的，那么所有剩余的类型实参必须是可推断的。被调用的泛型函数可以提供一份（可能是部分的）类型实参列表，（如果省略的类型实参可以从普通（非类型）函数参数中推断出来）也可以完全省略。
 
 ```go 
 func min[T ~int|~float64](x, y T) T { … }
@@ -781,28 +781,28 @@ r := apply(bytes, func(byte) byte { … })  // both type arguments inferred from
 
 ### Type inference 类型推断
 
-​	缺失的函数类型实参可以通过一系列的步骤来推断，如下所述。每个步骤都试图使用已知的信息来推断额外的类型实参。一旦所有的类型实参都是已知的，类型推断就会停止。在类型推断完成后，仍然有必要将所有类型实参替换为类型参数，并验证每个类型实参是否[实现](../Types#interface-types)了相关的约束；推断的类型实参有可能无法实现约束，在这种情况下，实例化就会失败。
+​	缺失的函数类型实参可以通过一系列的步骤来推断，如下所述。每个步骤都试图使用已知的信息来推断额外的类型实参。一旦所有的类型实参都是已知的，类型推断就会停止。在类型推断完成后，仍然有必要将所有类型实参替换为类型参数，并验证每个类型实参是否[实现](../Types#interface-types-接口型)了相关的约束；推断的类型实参有可能无法实现约束，在这种情况下，实例化就会失败。
 
 类型推断是基于：
 
-- [类型参数列表](../DeclarationsAndScope#type-parameter-declarations)
+- [类型参数列表](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)
 - 使用已知类型实参(如果有的话)初始化过的用于替换的映射 `M`
 - （可能是空的）普通函数实参列表（仅在函数调用的情况下）。
 
 然后进行以下步骤：
 
-1. 对所有`有类型`普通函数实参应用[函数实参类型推断](#function-argument-type-inference)
-6. 应用[约束类型推断](#constraint-type-inference)
-7. 使用每个`无类型`函数实参的默认类型，对所有`无类型`普通函数实参应用[函数实参类型推断](#function-argument-type-inference)
-8. 应用[约束类型推断](#constraint-type-inference)
+1. 对所有`有类型`普通函数实参应用[函数实参类型推断](#function-argument-type-inference-函数实参类型推断)
+6. 应用[约束类型推断](#constraint-type-inference-约束类型推断)
+7. 使用每个`无类型`函数实参的默认类型，对所有`无类型`普通函数实参应用[函数实参类型推断](#function-argument-type-inference-函数实参类型推断)
+8. 应用[约束类型推断](#constraint-type-inference-约束类型推断)
 
-​	如果没有普通函数实参或无类型函数实参数，则跳过相应的步骤。如果前一步没有推断出任何新的类型实参，则跳过[约束类型推断](#constraint-type-inference)，但如果有缺失的类型实参，则（这个步骤：即[约束类型推断](#constraint-type-inference)）至少要运行一次。
+​	如果没有普通函数实参或无类型函数实参数，则跳过相应的步骤。如果前一步没有推断出任何新的类型实参，则跳过[约束类型推断](#constraint-type-inference-约束类型推断)，但如果有缺失的类型实参，则（这个步骤：即[约束类型推断](#constraint-type-inference-约束类型推断)）至少要运行一次。
 
 ​	替换映射`M`贯穿所有的步骤，每个步骤都可以向`M`添加条目。一旦`M`为每个类型参数提供了一个类型实参或者推断步骤失败，这个过程就会停止。如果推断步骤失败，或者在最后一步之后`M`仍然缺少类型实参，则类型推断失败。
 
 #### Type unification 类型联合
 
-​	类型推断是基于类型联合的。单一的联合步骤适用于一个[替换映射](#type-inference)和两种类型，其中一个或两个可能是或包含类型参数。替换映射跟踪已知的（显式提供的或已经推断出的）类型实参：该映射包含每个类型参数`P`和相应的已知类型实参`A`的一个条目`P`→`A`。在联合过程中，已知的类型实参在比较类型时取代了它们对应的类型参数。联合过程是寻找使两个类型等同的替换映射条目的过程。
+​	类型推断是基于类型联合的。单一的联合步骤适用于一个[替换映射](#type-inference-类型推断)和两种类型，其中一个或两个可能是或包含类型参数。替换映射跟踪已知的（显式提供的或已经推断出的）类型实参：该映射包含每个类型参数`P`和相应的已知类型实参`A`的一个条目`P`→`A`。在联合过程中，已知的类型实参在比较类型时取代了它们对应的类型参数。联合过程是寻找使两个类型等同的替换映射条目的过程。
 
 ​	对于联合来说，如果两个类型不包含当前类型参数列表中的任何类型参数，或者它们是忽略了通道方向的通道类型，或者它们的底层类型是等同的，那么它们（这两个类型）就是一致的。
 
@@ -832,7 +832,7 @@ struct{}         // a struct is not a slice => 结构体不是切片
 []map[T1]string  // map element types don't match => 映射元素类型不能匹配
 ```
 
-​	作为这个通用规则的一个例外，由于[定义类型](../DeclarationsAndScope#type-definitions)`D`和类型字面量`L`从来都是`不等同`的，联合将`D`的底层类型与`L`进行比较。例如，给定定义类型
+​	作为这个通用规则的一个例外，由于[定义类型](../DeclarationsAndScope#type-definitions-类型定义)`D`和类型字面量`L`从来都是`不等同`的，联合将`D`的底层类型与`L`进行比较。例如，给定定义类型
 
 ```go 
 type Vector []float64
@@ -844,9 +844,9 @@ type Vector []float64
 
 Function argument type inference infers type arguments from function arguments: if a function parameter is declared with a type `T` that uses type parameters, [unifying](https://go.dev/ref/spec#Type_unification) the type of the corresponding function argument with `T` may infer type arguments for the type parameters used by `T`.
 
-​	函数实参类型推断从函数实参中推断出类型实参：如果函数参数声明时带有使用了类型参数的类型`T`，那么将对应函数实参的类型与`T`进行[联合](#type-unification)，可能推断出被`T`所使用的类型参数的类型实参。=>仍有疑问？？
+​	函数实参类型推断从函数实参中推断出类型实参：如果函数参数声明时带有使用了类型参数的类型`T`，那么将对应函数实参的类型与`T`进行[联合](#type-unification-类型联合)，可能推断出被`T`所使用的类型参数的类型实参。=>仍有疑问？？
 
-例如，给定[泛型函数](../DeclarationsAndScope#function-declarations)
+例如，给定[泛型函数](../DeclarationsAndScope#function-declarations-函数声明)
 
 ```go 
 func scale[Number ~int64|~float64|~complex128](v []Number, s Number) []Number
@@ -859,7 +859,7 @@ var vector []float64
 scaledVector := scale(vector, 42)
 ```
 
-`Number`的类型实参，可以通过联合`vector`的类型与对应的参数类型中推断出：`[]float64`和`[]Number`在结构上匹配，且`float64`与`Number`匹配。这就把`Number`→`float64`这个条目添加到[替换映射](#type-inference)中。在第一轮`函数实参类型推断`中，无类型实参，比如这里的第二个函数实参`42`，会被忽略，只有在还有未解决的类型参数时才会考虑。
+`Number`的类型实参，可以通过联合`vector`的类型与对应的参数类型中推断出：`[]float64`和`[]Number`在结构上匹配，且`float64`与`Number`匹配。这就把`Number`→`float64`这个条目添加到[替换映射](#type-inference-类型推断)中。在第一轮`函数实参类型推断`中，无类型实参，比如这里的第二个函数实参`42`，会被忽略，只有在还有未解决的类型参数时才会考虑。
 
 ​	推断发生在两个独立的阶段；每个阶段在一个特定的（参数，实参）对的列表上操作：
 
@@ -894,7 +894,7 @@ min(1.0, 2)    // illegal: default type float64 (for 1.0) doesn't match default 
 
 Constraint type inference infers type arguments by considering type constraints. If a type parameter `P` has a constraint with a [core type](https://go.dev/ref/spec#Core_types) `C`, [unifying](https://go.dev/ref/spec#Type_unification) `P` with `C` may infer additional type arguments, either the type argument for `P`, or if that is already known, possibly the type arguments for type parameters used in `C`.
 
-​	约束类型推断通过考虑类型约束来推断类型实参。如果类型参数`P`有一个[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`C`的约束，将`P`与`C`[联合](#type-unification)起来可能会推断出额外的类型实参，要么是`P`的类型实参，（如果这个是已知，则）要么可能是`C`中使用的类型参数的类型实参。=>仍有疑问？？已知指的是什么，是 类型参数P有一个核心类型C的约束？
+​	约束类型推断通过考虑类型约束来推断类型实参。如果类型参数`P`有一个[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`C`的约束，将`P`与`C`[联合](#type-unification-类型联合)起来可能会推断出额外的类型实参，要么是`P`的类型实参，（如果这个是已知，则）要么可能是`C`中使用的类型参数的类型实参。=>仍有疑问？？已知指的是什么，是 类型参数P有一个核心类型C的约束？
 
 例如，考虑具有类型参数`List`和`Elem`的类型参数列表：
 
@@ -908,11 +908,11 @@ Constraint type inference infers type arguments by considering type constraints.
 type Bytes []byte
 ```
 
-将`Bytes`的底层类型与核心类型联合起来，就意味着将`[]byte`与`[]Elem`联合起来。这一联合成功了，并产生了`Elem`→`byte`的[替换映射](#type-inference)条目。因此，在这个例子中，约束类型推断可以从第一个类型实参推断出第二个类型实参。
+将`Bytes`的底层类型与核心类型联合起来，就意味着将`[]byte`与`[]Elem`联合起来。这一联合成功了，并产生了`Elem`→`byte`的[替换映射](#type-inference-类型推断)条目。因此，在这个例子中，约束类型推断可以从第一个类型实参推断出第二个类型实参。
 
 Using the core type of a constraint may lose some information: In the (unlikely) case that the constraint's type set contains a single [defined type](https://go.dev/ref/spec#Type_definitions) `N`, the corresponding core type is `N`'s underlying type rather than `N` itself. In this case, constraint type inference may succeed but instantiation will fail because the inferred type is not in the type set of the constraint. Thus, constraint type inference uses the *adjusted core type* of a constraint: if the type set contains a single type, use that type; otherwise use the constraint's core type. 
 
-​	使用约束的核心类型可能会丢失一些信息。在（不太可能的）情况下，约束的类型集包含单一的[定义类型](../DeclarationsAndScope#type-definitions)`N`，相应的核心类型是`N`的底层类型而不是`N`本身。在这种情况下，约束的类型推断可能会成功，但实例化会失败，因为推断的类型不在约束的类型集中。因此，约束类型推断使用调整后的约束的核心类型：如果类型集包含一个单一的类型，则使用该类型；否则使用约束的核心类型。=> 仍有疑问？？
+​	使用约束的核心类型可能会丢失一些信息。在（不太可能的）情况下，约束的类型集包含单一的[定义类型](../DeclarationsAndScope#type-definitions-类型定义)`N`，相应的核心类型是`N`的底层类型而不是`N`本身。在这种情况下，约束的类型推断可能会成功，但实例化会失败，因为推断的类型不在约束的类型集中。因此，约束类型推断使用调整后的约束的核心类型：如果类型集包含一个单一的类型，则使用该类型；否则使用约束的核心类型。=> 仍有疑问？？
 
 ​	通常，约束类型推断分两个阶段进行。从一个给定的替换映射`M`开始
 
@@ -967,11 +967,11 @@ mul_op     = "*" | "/" | "%" | "<<" | ">>" | "&" | "&^" .
 unary_op   = "+" | "-" | "!" | "^" | "*" | "&" | "<-" .
 ```
 
-​	比较操作符将在[其他地方](#comparison-operators)讨论。对于其他二元运算符，操作数类型必须是[一致的](../PropertiesOfTypesAndValues#type-identity)，除非操作涉及移位或无类型的[常量](../Constants)。对于只涉及常量的操作，请参见[常量表达式](#constant-expressions )部分。
+​	比较操作符将在[其他地方](#comparison-operators-比较运算符)讨论。对于其他二元运算符，操作数类型必须是[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)，除非操作涉及移位或无类型的[常量](../Constants)。对于只涉及常量的操作，请参见[常量表达式](#constant-expressions-常量表达式)部分。
 
-​	除了移位操作之外，如果一个操作数是`无类型`常量，而另一个操作数不是，那么该常量将被隐式地[转换](#conversions)为另一个操作数的类型。
+​	除了移位操作之外，如果一个操作数是`无类型`常量，而另一个操作数不是，那么该常量将被隐式地[转换](#conversions-转换)为另一个操作数的类型。
 
-​	移位表达式中的`右操作数`必须是[整数类型](../Types#numeric-types)，或者是可以用`uint`类型的值[表示](../PropertiesOfTypesAndValues#representability)的`无类型`常量。如果一个非常量移位表达式的`左操作数`是一个`无类型`常量，那么它首先被隐式地转换为假设移位表达式被其左操作数单独替换时的类型。
+​	移位表达式中的`右操作数`必须是[整数类型](../Types#numeric-types-数值型)，或者是可以用`uint`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)的`无类型`常量。如果一个非常量移位表达式的`左操作数`是一个`无类型`常量，那么它首先被隐式地转换为假设移位表达式被其左操作数单独替换时的类型。
 
 ```go 
 var a [1024]byte
@@ -1035,7 +1035,7 @@ x == y+1 && <-chanInt > 0
 
 ### Arithmetic operators 算术运算符
 
-​	算术运算符适用于数字值，产生的结果`与第一个操作数的类型`相同。四个标准的算术运算符（`+`、`-`、`*`、`/`）适用于[整型](../Types#numeric-types)、[浮点型](../Types#numeric-types)和[复数型](../Types#numeric-types)；`+`也适用于[字符串](../Types#string-types)。位逻辑运算符和移位运算符只适用于整型。
+​	算术运算符适用于数字值，产生的结果`与第一个操作数的类型`相同。四个标准的算术运算符（`+`、`-`、`*`、`/`）适用于[整型](../Types#numeric-types-数值型)、[浮点型](../Types#numeric-types-数值型)和[复数型](../Types#numeric-types-数值型)；`+`也适用于[字符串](../Types#string-types-字符串型)。位逻辑运算符和移位运算符只适用于整型。
 
 ```
 +    sum        （和）            integers, floats, complex values, strings
@@ -1053,7 +1053,7 @@ x == y+1 && <-chanInt > 0
 >>   right shift            integer >> integer >= 0
 ```
 
-​	如果操作数类型是[类型参数](#type-parameter-declarations)，那么操作数必须适用于该类型集中的每个类型。操作数被表示为类型参数被[实例化](#instantiations-实例化)的类型实参的值，并且操作以该类型实参的精度进行计算。例如，给定一个函数：
+​	如果操作数类型是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，那么操作数必须适用于该类型集中的每个类型。操作数被表示为类型参数被[实例化](#instantiations-实例化)的类型实参的值，并且操作以该类型实参的精度进行计算。例如，给定一个函数：
 
 ```go 
 func dotProduct[F ~float32|~float64](v1, v2 []F) F {
@@ -1086,7 +1086,7 @@ with `x / y`被截断到零（"[截断除法](https://en.wikipedia.org/wiki/Modu
 -5    -3       1        -2
 ```
 
-​	这条规则有一个例外：如果）`被除数`（dividend`x`是`x`的`int`类型的最负值，那么商`q = x / -1`就等于`x`（而`r = 0`），这是由于二元补码的[整数溢出](#integer-overflow)：
+​	这条规则有一个例外：如果）`被除数`（dividend`x`是`x`的`int`类型的最负值，那么商`q = x / -1`就等于`x`（而`r = 0`），这是由于二元补码的[整数溢出](#integer-overflow-整数溢出)：
 
 ```
                          x, q
@@ -1117,7 +1117,7 @@ int64    -9223372036854775808
 
 #### Integer overflow 整数溢出
 
-​	对于[无符号整型值](../Types#numeric-types)，`+`、`-`、`*`和`<<`运算是以`2n`为模来计算的，其中`n`是无符号整型的位宽。广义上讲，这些无符号整型操作`在溢出时丢弃高位`，程序可以依靠 "`wrap around`"。
+​	对于[无符号整型值](../Types#numeric-types-数值型)，`+`、`-`、`*`和`<<`运算是以`2n`为模来计算的，其中`n`是无符号整型的位宽。广义上讲，这些无符号整型操作`在溢出时丢弃高位`，程序可以依靠 "`wrap around`"。
 
 ​	对于`有符号整型值`，`+`、`-`、`*`、`/`和`<<`运算`可以合法地溢出`，其产生的值是存在的，并且可以被有符号整型表示法、其操作和操作数明确地定义。溢出不会引起[运行时恐慌](../Run-timePanics)。在假设不发生溢出的情况下，编译器可能不会优化代码。例如，它不会假设`x<x+1`总是真的。
 
@@ -1171,7 +1171,7 @@ s += " and good bye"
 >=    greater or equal
 ```
 
-​	在任何比较中，第一个操作数必须是[可分配](../PropertiesOfTypesAndValues#assignability)给第二个操作数的类型，反之亦然。
+​	在任何比较中，第一个操作数必须是[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给第二个操作数的类型，反之亦然。
 
 ​	相等运算符`==`和`!=`适用于可比较的操作数。排序运算符`<`, `<=`, `>`, 和`>=`适用于被排序的操作数。这些术语和比较结果的定义如下：
 
@@ -1180,10 +1180,10 @@ s += " and good bye"
 - 按照IEEE-754标准的定义，浮点值是可比较的并且是可排序的。
 - 复数值是可比较的。如果`real(u) == real(v)`和`imag(u) == imag(v)`，则这两个复数值`u`和`v`是相等的。
 - 字符串值是可（按字节顺序）比较的并且是可（按字节顺序）排序的。
-- 指针值是可比较的。如果两个指针值指向同一个变量，或者两个指针值都是`nil`，则它们的值是相等的。指向不同的[零尺寸](../SystemConsiderations#size-and-alignment-guarantees)变量的指针值可能相等，也可能不相等。
-- 通道值是可比较的。如果两个通道是由同一个调用[make](../Built-inFunctions#making-slices-maps-and-channels)创建的，或者它们的值都为`nil`，则它们的值是相等的。
-- 接口值是可比较的。如果两个接口值有[一致的](../PropertiesOfTypesAndValues#type-identity)动态类型和相同的动态值，或者两者的值都是`nil`，则它们的值是相等的。
-- 非接口类型 `X` 的值 `x` 和接口类型 `T` 的值 `t` ，在 `X` 类型的值是可比较的并且 `X` [实现](../Types#implementing-an-interface) `T` 时是可比较的。如果 `t` 的动态类型等于 `X`，且 `t` 的动态值等于 `x`，则它们是相等的。
+- 指针值是可比较的。如果两个指针值指向同一个变量，或者两个指针值都是`nil`，则它们的值是相等的。指向不同的[零尺寸](../SystemConsiderations#size-and-alignment-guarantees-大小和对齐保证)变量的指针值可能相等，也可能不相等。
+- 通道值是可比较的。如果两个通道是由同一个调用[make](../Built-inFunctions#making-slices-maps-and-channels-制作切片映射和通道)创建的，或者它们的值都为`nil`，则它们的值是相等的。
+- 接口值是可比较的。如果两个接口值有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)动态类型和相同的动态值，或者两者的值都是`nil`，则它们的值是相等的。
+- 非接口类型 `X` 的值 `x` 和接口类型 `T` 的值 `t` ，在 `X` 类型的值是可比较的并且 `X` [实现](../Types#implementing-an-interface-实现一个接口) `T` 时是可比较的。如果 `t` 的动态类型等于 `X`，且 `t` 的动态值等于 `x`，则它们是相等的。
 - 如果结构体值的所有字段都是可比较的，那么结构体值就是可比较的。如果两个结构体值对应的非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段相等，那么它们就是相等的。
 - 如果数组元素类型的值是可比较的，那么数组值是可比较的。如果两个数组的对应元素是相等的，那么这两个数组值就是相等的。
 
@@ -1207,7 +1207,7 @@ var (
 
 ### Logical operators 逻辑运算符
 
-​	逻辑运算符适用于[布尔](../Types#boolean-types)值，并产生一个与操作数相同类型的结果。右操作数是按条件进行求值的。
+​	逻辑运算符适用于[布尔](../Types#boolean-types-布尔型)值，并产生一个与操作数相同类型的结果。右操作数是按条件进行求值的。
 
 ```
 &&    conditional AND    p && q  is  "if p then q else false"
@@ -1217,7 +1217,7 @@ var (
 
 ### Address operators 地址运算符
 
-​	对于类型为`T`的操作数`x`，寻址操作`&x`产生一个类型为`*T`的指针指向`x`。该操作数`x`必须是可寻址的，也就是说，它要么是一个变量、指针间接（pointer indirection）或`对切片的索引操作（slice indexing operation，是一个名词）`；要么是一个可寻址结构体操作数的字段选择器；要么是一个可寻址数组的数组索引操作。作为可寻址要求的一个例外，`x`也可以是一个（可能是括号内的）[复合字面量](#composite-literals)。如果对`x`的求值会引起[运行时恐慌](../Run-timePanics)，那么对`&x`的求值也会引起[运行时恐慌](../Run-timePanics)。
+​	对于类型为`T`的操作数`x`，寻址操作`&x`产生一个类型为`*T`的指针指向`x`。该操作数`x`必须是可寻址的，也就是说，它要么是一个变量、指针间接（pointer indirection）或`对切片的索引操作（slice indexing operation，是一个名词）`；要么是一个可寻址结构体操作数的字段选择器；要么是一个可寻址数组的数组索引操作。作为可寻址要求的一个例外，`x`也可以是一个（可能是括号内的）[复合字面量](#composite-literals-复合字面量)。如果对`x`的求值会引起[运行时恐慌](../Run-timePanics)，那么对`&x`的求值也会引起[运行时恐慌](../Run-timePanics)。
 
 ​	对于指针类型`*T`的操作数`x`，指针间接`*x`表示`x`所指向的`T`类型的[变量]()，如果`x`是`nil`，试图求值`*x`将导致[运行时恐慌](../Run-timePanics)。
 
@@ -1235,7 +1235,7 @@ var x *int = nil
 
 ### Receive operator 接收操作符
 
-​	对于[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[通道](../Types#channel-types)的操作数`ch`，接收操作`<-ch`的值是从通道`ch`中接收的值，通道方向必须允许接收操作，接收操作的类型是通道的元素类型。这个表达式会阻塞，直到有一个可用的值。从一个 `nil`的通道接收时，将永远阻塞。在一个[已经关闭](../Built-inFunctions#close)的通道上的接收操作总是可以立即进行，并在任何先前发送的值被接收后，产生一个该元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。
+​	对于[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)为[通道](../Types#channel-types-通道型)的操作数`ch`，接收操作`<-ch`的值是从通道`ch`中接收的值，通道方向必须允许接收操作，接收操作的类型是通道的元素类型。这个表达式会阻塞，直到有一个可用的值。从一个 `nil`的通道接收时，将永远阻塞。在一个[已经关闭](../Built-inFunctions#close)的通道上的接收操作总是可以立即进行，并在任何先前发送的值被接收后，产生一个该元素类型的[零值](../ProgramInitializationAndExecution#the-zero-value-零值)。
 
 ```go 
 v1 := <-ch
@@ -1244,7 +1244,7 @@ f(<-ch)
 <-strobe  // wait until clock pulse and discard received value => 等待，直到时钟脉冲并且丢弃接收值
 ```
 
-​	在[赋值语句](../Statements#assignment-statement)或特殊形式的初始化中使用的一个接收表达式
+​	在[赋值语句](../Statements#assignment-statement-赋值语句)或特殊形式的初始化中使用的一个接收表达式
 
 ```go 
 x, ok = <-ch
@@ -1278,9 +1278,9 @@ func()(x)        // function signature func() x
 func() int(x)    // x is converted to func() int (unambiguous)
 ```
 
-​	一个[常量](../Constants)值`x`可以被转换为`T`类型，如果`x`可以用`T`的一个值来[表示](../PropertiesOfTypesAndValues#representability)的话。作为一种特殊情况，可以使用 与 非常量`x`[相同的规则](#conversions-to-and-from-a-string-type)显式地将整数常量`x`转换为[字符串类型](../Types#string-types)。
+​	一个[常量](../Constants)值`x`可以被转换为`T`类型，如果`x`可以用`T`的一个值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)的话。作为一种特殊情况，可以使用 与 非常量`x`[相同的规则](#conversions-to-and-from-a-string-type-与字符串类型的转换)显式地将整数常量`x`转换为[字符串类型](../Types#string-types-字符串型)。
 
-​	将常量转换为非[类型参数](../DeclarationsAndScope#type-parameter-declarations)的类型，会得到一个有类型的常量。
+​	将常量转换为非[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)的类型，会得到一个有类型的常量。
 
 ```go 
 uint(iota)               // iota value of type uint => uint 类型的 iota 值 
@@ -1309,14 +1309,14 @@ func f[P ~float32|~float64]() {
 
 非常量值`x`可以在以下的任何情况下被转换为`T`类型：
 
-- `x`可以被[分配](../PropertiesOfTypesAndValues#assignability)给`T`。
-- 忽略结构体标签（见下文），`x`的类型和`T`不是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，但有[一致的](../PropertiesOfTypesAndValues#type-identity)[底层类型](../Types)。
+- `x`可以被[分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`。
+- 忽略结构体标签（见下文），`x`的类型和`T`不是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，但有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)[底层类型](../Types)。
 - 忽略结构体标签（见下文），`x`的类型和`T`是指针类型，不是[命名类型](../Types)，它们的指针基类型不是类型参数，但有一致的底层类型。
 - `x`的类型和`T`都是整型或浮点型。
 - `x`的类型和`T`都是复数类型。
 - `x`是一个整型、字节型、符文型的切片，`T`是一个字符串类型。
 - `x`是一个字符串类型，`T`是一个字节型、符文型的切片。
-- `x`是一个切片，`T`是一个指向数组的指针，而且切片和数组的类型有[一致的](../PropertiesOfTypesAndValues#type-identity)元素类型。
+- `x`是一个切片，`T`是一个指向数组的指针，而且切片和数组的类型有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)元素类型。
 
 ​	此外，如果`T`或`x`的类型`V`是类型参数，如果满足以下条件之一，`x`也可以被转换为`T`类型：
 
@@ -1324,7 +1324,7 @@ func f[P ~float32|~float64]() {
 - 只有`V`是一个类型参数，并且`V`的类型集中的每个类型的值都可以转换为`T`。
 - 只有`T`是一个类型参数，并且`x`可以转换为`T`的类型集中的每个类型。
 
-​	为了转换的目的，在比较结构体类型的是否一致时，[结构体标签](../Types#struct-types)被忽略：
+​	为了转换的目的，在比较结构体类型的是否一致时，[结构体标签](../Types#struct-types-结构体型)被忽略：
 
 ```go 
 type Person struct {
@@ -1348,15 +1348,15 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
 
 ​	数值类型之间或与字符串类型之间的（非常量）转换有特殊的规则。这些转换可能会改变`x`的表示，并产生运行时间成本。所有其他的转换只改变`x`的类型而不改变其表示。
 
-​	没有语言机制可以在`指针和整型之间进行转换`。[unsafe](https://go.dev/ref/spec#Package_unsafe)包在受限制的情况下实现了这个功能。
+​	没有语言机制可以在`指针和整型之间进行转换`。[unsafe]({{< ref "/docs/StdLib/unsafe">}})包在受限制的情况下实现了这个功能。
 
 #### Conversions between numeric types 数值型之间的转换
 
 对于非常量数值的转换，适用以下规则：
 
-1. 当在整型之间转换时，如果数值是有符号的[整型](../Types#numeric-types)，那么它被符号位扩展到隐式的无限精度；否则它被零扩展。然后，它被截断以适应结果类型的大小。例如，如果`v := uint16(0x10F0)`，那么`uint32(int8(v)) == 0xFFFFFFF0`。该转换总是产生一个有效的值；没有溢出的迹象。
-2. 当把[浮点型](../Types#numeric-types)数值转换为整型时，小数会被丢弃（向零截断）。
-3. 当将一个整型或浮点型数值转换为浮点型，或将一个[复数型](../Types#numeric-types)数值转换为另一个复数类型时，结果值被舍入到目标类型所指定的精度。例如，`float32`类型的变量`x`的值可能会使用超出IEEE-754 32位数的额外精度来存储，但是`float32(x)`表示将`x`的值舍入到`32`位精度的结果。同样地，`x + 0.1`可能使用超过`32`位的精度，但是`float32(x + 0.1)`则不会。
+1. 当在整型之间转换时，如果数值是有符号的[整型](../Types#numeric-types-数值型)，那么它被符号位扩展到隐式的无限精度；否则它被零扩展。然后，它被截断以适应结果类型的大小。例如，如果`v := uint16(0x10F0)`，那么`uint32(int8(v)) == 0xFFFFFFF0`。该转换总是产生一个有效的值；没有溢出的迹象。
+2. 当把[浮点型](../Types#numeric-types-数值型)数值转换为整型时，小数会被丢弃（向零截断）。
+3. 当将一个整型或浮点型数值转换为浮点型，或将一个[复数型](../Types#numeric-types-数值型)数值转换为另一个复数类型时，结果值被舍入到目标类型所指定的精度。例如，`float32`类型的变量`x`的值可能会使用超出IEEE-754 32位数的额外精度来存储，但是`float32(x)`表示将`x`的值舍入到`32`位精度的结果。同样地，`x + 0.1`可能使用超过`32`位的精度，但是`float32(x + 0.1)`则不会。
 
 ​	在所有涉及浮点值或复数值的非常量转换中，如果结果类型不能表示该值，转换仍会成功，但结果值取决于实现。
 
@@ -1429,7 +1429,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
 
 #### Conversions from slice to array pointer 从切片到数组指针的转换
 
-​	将切片转换为数组指针，会得到一个指向切片底层数组的指针。如果切片的[长度](../Built-inFunctions#length-and-capacity)小于数组的长度，就会发生[运行时恐慌](../Run-timePanics)。
+​	将切片转换为数组指针，会得到一个指向切片底层数组的指针。如果切片的[长度](../Built-inFunctions#length-and-capacity-长度和容量)小于数组的长度，就会发生[运行时恐慌](../Run-timePanics)。
 
 ```go 
 s := make([]byte, 2, 4)
@@ -1452,7 +1452,7 @@ u0 := (*[0]byte)(u)      // u0 != nil
 
 ​	无类型的布尔、数值和字符串常量可以作为操作数使用，只要合法地分别使用布尔、数值或字符串类型的操作数。
 
-​	常量[比较](#comparison-operators)总是产生一个无类型的布尔常量。如果常量[移位表达式](#operators)的左操作数是一个无类型的常量，那么结果就是一个整型常量；否则就是一个与左操作数相同类型的常量（左操作数必须是[整型](../Types#numeric-types)）。
+​	常量[比较](#comparison-operators-比较运算符)总是产生一个无类型的布尔常量。如果常量[移位表达式](#operators-操作符)的左操作数是一个无类型的常量，那么结果就是一个整型常量；否则就是一个与左操作数相同类型的常量（左操作数必须是[整型](../Types#numeric-types-数值型)）。
 
 ​	任何其他对无类型常量的操作都会产生一个相同类型的无类型常量，也就是布尔、整数、浮点、复数或字符串常量。如果一个二元运算（除移位外）的无类型操作数是不同种类的，那么结果就是出现在如下列表的操作数类型：整数，符文，浮点，复数。例如，一个无类型的整数常量除以一个无类型的复数常量，得到一个无类型的复数常量。
 
@@ -1496,7 +1496,7 @@ const Four int8 = Huge >> 98  // Four == 4                                (type 
 3.14 / 0.0   // illegal: division by zero
 ```
 
-​	类型常量的值必须总是可以准确地由常量类型的值来[表示](../PropertiesOfTypesAndValues#representability)。下面的常量表达式是非法的：
+​	类型常量的值必须总是可以准确地由常量类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)。下面的常量表达式是非法的：
 
 ```go 
 uint(-1)     // -1 cannot be represented as a uint => -1 不能作为 uint 来表示
@@ -1520,7 +1520,7 @@ int8(^1)   // same as int8(-2) => 相当于 int8(-2)
 
 ### Order of evaluation 求值顺序
 
-​	在包级别上，[初始化依赖关系](../Packages#package-initialization)决定了[变量声明](../DeclarationsAndScope#variable-declarations)中各个初始化表达式的求值顺序。除此之外，在求值表达式、赋值或[返回语句](../Statements#return-statements)的[操作数](#operands)时，所有的函数调用、方法调用和通信操作都是按词法从左到右的顺序求值的。
+​	在包级别上，[初始化依赖关系](../ProgramInitializationAndExecution#package-initialization-包的初始化)决定了[变量声明](../DeclarationsAndScope#variable-declarations-变量声明)中各个初始化表达式的求值顺序。除此之外，在求值表达式、赋值或[返回语句](../Statements#return-statements----return-语句)的[操作数](#operands-操作数)时，所有的函数调用、方法调用和通信操作都是按词法从左到右的顺序求值的。
 
 例如，在（函数局部）赋值中
 
