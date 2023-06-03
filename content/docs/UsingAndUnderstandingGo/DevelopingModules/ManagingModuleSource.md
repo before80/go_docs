@@ -1,12 +1,12 @@
 +++
-title = "管理模块来源"
+title = "管理模块源代码"
 weight = 3
 date = 2023-05-17T15:03:14+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Managing module source - 管理模块来源
+# Managing module source - 管理模块源代码
 
 > 原文：[https://go.dev/doc/modules/managing-source](https://go.dev/doc/modules/managing-source)
 
