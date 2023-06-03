@@ -63,7 +63,7 @@ draft = false
 
 ​	当您开始开发一个模块或一个模块的新版本时，您还没有发布它。在发布模块之前，您将无法使用Go命令将该模块作为依赖项添加。相反，在最初阶段，在编写调用未发布模块中的函数的不同模块的客户端代码时，您需要在本地文件系统上引用该模块的副本。
 
-​	您可以在客户端模块的go.mod文件中使用`replace`指令来从本地引用模块。有关更多信息，请参阅[要求本地目录中的模块代码]({{< ref "/docs/UsingAndUnderstandingGo/ManagingDependencies/#要求本地目录中的模块代码">}})。
+​	您可以在客户端模块的go.mod文件中使用`replace`指令来从本地引用模块。有关更多信息，请参阅[要求本地目录中的模块代码]({{< ref "/docs/UsingAndUnderstandingGo/ManagingDependencies#要求本地目录中的模块代码">}})。
 
 ## 发布预发布版本
 
