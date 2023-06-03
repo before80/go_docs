@@ -188,8 +188,13 @@ noteFrequency := map[string]float32{
 
 ​	函数字面量表示一个匿名[函数](../DeclarationsAndScope#function-declarations-函数声明)。函数字面量不能声明`类型参数`。
 
-```go 
+```
 FunctionLit = "func" Signature FunctionBody .
+```
+
+
+
+```go 
 func(a, b int, z float64) bool { return a*b < int(z) }
 ```
 
@@ -206,7 +211,7 @@ func(ch chan int) { ch <- ACK }(replyChan)
 
 主表达式是一元、二元表达式的操作数。
 
-```go 
+```
 PrimaryExpr =
 	Operand |
 	Conversion |
@@ -223,6 +228,11 @@ Slice          = "[" [ Expression ] ":" [ Expression ] "]" |
                  "[" [ Expression ] ":" Expression ":" Expression "]" .
 TypeAssertion  = "." "(" Type ")" .
 Arguments      = "(" [ ( ExpressionList | Type [ "," ExpressionList ] ) [ "..." ] [ "," ] ] ")" .
+```
+
+
+
+```go 
 x
 2
 (s + ".txt")

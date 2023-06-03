@@ -386,9 +386,14 @@ interface{ ~int | ~[]byte }  // type parameter only: does not implement comparab
 
 ​	变量声明创建一个或多个变量，为它们绑定相应的标识符，并为每个变量设定一个类型和一个初始值。
 
-```go 
+```
 VarDecl     = "var" ( VarSpec | "(" { VarSpec ";" } ")" ) .
 VarSpec     = IdentifierList ( Type [ "=" ExpressionList ] | "=" ExpressionList ) .
+```
+
+
+
+```go 
 var i int
 var U, V, W float64
 var k = 0
@@ -426,6 +431,11 @@ ShortVarDecl = IdentifierList ":=" ExpressionList .
 
 ```
 "var" IdentifierList "=" ExpressionList .
+```
+
+
+
+```
 i, j := 0, 10
 f := func() int { return 7 }
 ch := make(chan int)

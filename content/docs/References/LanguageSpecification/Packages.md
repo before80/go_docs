@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Packages ](https://go.dev/ref/spec#Packages )
 
-​	Go程序是通过链接包来构建的。一个包是由一个或多个源文件构成的，这些文件共同声明了属于该包的常量、类型、变量和函数，并且可以在同一包的所有文件中访问。这些元素可以[导出](../DeclarationsAndScope#exported-identifiers)并在另一个包中使用。
+​	Go程序是通过链接包来构建的。一个包是由一个或多个源文件构成的，这些文件共同声明了属于该包的常量、类型、变量和函数，并且可以在同一包的所有文件中访问。这些元素可以[导出](../DeclarationsAndScope#exported-identifiers-可导出的标识符)并在另一个包中使用。
 
 ### Source file organization 源文件组织
 
@@ -29,7 +29,7 @@ PackageClause  = "package" PackageName .
 PackageName    = identifier .
 ```
 
-`PackageName（包名）`不能是[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier)。
+`PackageName（包名）`不能是[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier-空白标识符)。
 
 ```go 
 package math
@@ -39,7 +39,7 @@ package math
 
 ### Import declarations 导入声明
 
-​	导入声明指出，包含该声明的源文件依赖于导入包的功能（[§程序初始化和执行](../ProgramInitializationAndExecution)），并且能够访问这些被导入的包的[导出](../DeclarationsAndScope#exported-identifiers)标识符。该导入命名了一个用于访问的标识符（PackageName 包名）和一个指定要导入的包的ImportPath（导入路径）。
+​	导入声明指出，包含该声明的源文件依赖于导入包的功能（[§程序初始化和执行](../ProgramInitializationAndExecution)），并且能够访问这些被导入的包的[导出](../DeclarationsAndScope#exported-identifiers-可导出的标识符)标识符。该导入命名了一个用于访问的标识符（PackageName 包名）和一个指定要导入的包的ImportPath（导入路径）。
 
 ```
 ImportDecl       = "import" ( ImportSpec | "(" { ImportSpec ";" } ")" ) .
@@ -47,7 +47,7 @@ ImportSpec       = [ "." | PackageName ] ImportPath .
 ImportPath       = string_lit .
 ```
 
-​	PackageName （包名）用于[限定标识符](../Expressions#qualified-identifiers)，以访问导入源文件中包的导出标识符。它被声明在[文件块](../Blocks)中。如果（导入声明中）PackageName（包名）被省略，则它默认为在导入包的[包子句](#package-clause)中指定的标识符。如果出现一个明确的句号（`.`）而不是名字，那么在该包的[包块](../Blocks)中声明的所有包的导出标识符将在导入源文件的文件块中声明，并且必须在没有限定符的情况下进行访问。
+​	PackageName （包名）用于[限定标识符](../Expressions#qualified-identifiers-限定标识符)，以访问导入源文件中包的导出标识符。它被声明在[文件块](../Blocks)中。如果（导入声明中）PackageName（包名）被省略，则它默认为在导入包的[包子句](#package-clause-包子句)中指定的标识符。如果出现一个明确的句号（`.`）而不是名字，那么在该包的[包块](../Blocks)中声明的所有包的导出标识符将在导入源文件的文件块中声明，并且必须在没有限定符的情况下进行访问。
 
 ​	对ImportPath（导入路径）的解释是依赖于实现的，但它通常是已编译包的完整文件名的子字符串，并且可能是相对于已安装包的存储库的。
 
@@ -66,7 +66,7 @@ import m "lib/math"         m.Sin
 import . "lib/math"         Sin
 ```
 
-​	导入声明声明了导入包和被导入包之间的依赖关系。如果一个包直接或间接地导入自身，或者直接导入一个包而不引用其任何导出的标识符，都是非法的。要导入一个包只为了它的副作用（初始化），可以使用[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier)作为显式的包名：
+​	导入声明声明了导入包和被导入包之间的依赖关系。如果一个包直接或间接地导入自身，或者直接导入一个包而不引用其任何导出的标识符，都是非法的。要导入一个包只为了它的副作用（初始化），可以使用[空白标识符（即`_`）](../DeclarationsAndScope#blank-identifier-空白标识符)作为显式的包名：
 
 ```
 import _ "lib/math"
