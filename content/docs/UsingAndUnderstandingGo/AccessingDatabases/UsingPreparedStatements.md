@@ -14,15 +14,15 @@ draft = false
 
 注意：预处理语句中的参数占位符根据你所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个像`$1`这样的占位符，而不是`?`。
 
-### What is a prepared statement? 什么是预处理语句？
+###  什么是预处理语句？
 
 ​	预处理语句是由`DBMS`解析并保存的SQL，通常包含占位符，但没有实际参数值。之后，可以用一组参数值来执行该语句。
 
-### How you use prepared statements 你如何使用预处理语句
+### 你如何使用预处理语句
 
 ​	当你希望重复执行相同的SQL时，你可以使用一个`sql.Stmt`来提前准备SQL语句，然后根据需要执行它。
 
-​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare](https://pkg.go.dev/database/sql#DB.Prepare)返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。你可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
+​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare]({{< ref "/docs/StdLib/database/sql#db-prepare">}})返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。你可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
 
 ```go  hl_lines="14 14"
 // AlbumByID retrieves the specified album.
@@ -49,9 +49,9 @@ func AlbumByID(id int) (Album, error) {
 }
 ```
 
-### Prepared statement behavior 预处理语句的行为
+### 预处理语句的行为
 
-​	一个准备好的[sql.Stmt](https://pkg.go.dev/database/sql#Stmt)提供了常用的`Exec`、`QueryRow`和`Query`方法来调用其语句。关于使用这些方法的更多信息，请参阅[Querying for data （查询数据）](../QueryingForData) 和 [Executing SQL statements that don’t return data（执行不返回数据的SQL语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
+​	一个准备好的[sql.Stmt]({{< ref "/docs/StdLib/database/sql#type-stmt">}})提供了常用的`Exec`、`QueryRow`和`Query`方法来调用其语句。关于使用这些方法的更多信息，请参阅[Querying for data （查询数据）](../QueryingForData) 和 [Executing SQL statements that don’t return data（执行不返回数据的SQL语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
 
 ​	然而，由于一个`sql.Stmt`已经代表了一个预设的SQL语句，它的`Exec`、`QueryRow`和`Query`方法只接受与占位符对应的SQL参数值，而忽略了SQL文本。
 
@@ -63,7 +63,7 @@ func AlbumByID(id int) (Album, error) {
 
 ​	一定要记住，在代码使用语句完成时，调用`stmt.Close`。这将释放任何可能与之相关的数据库资源（如底层连接）。对于只是一个函数中的局部变量的语句，`defer stmt.Close()`就足够了。
 
-#### Functions for creating a prepared statement 创建预处理语句的函数
+#### 创建预处理语句的函数
 
 | Function 函数                                               | Description 描述                                             |
 | ----------------------------------------------------------- | ------------------------------------------------------------ |
