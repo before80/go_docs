@@ -172,7 +172,7 @@ _ = x       // evaluate x but ignore it => 对 x 求值，但忽略它
 x, _ = f()  // evaluate f() but ignore second result value => 对 f() 求值，但忽略它的第二个结果值
 ```
 
-​	赋值分两个阶段进行。第一阶段，左边的[索引表达式](../Expressions#index-expressions-索引表达式)和[指针间接](../Expressions#address-operators)（包括[选择器](../Expressions#selectors)中的隐式指针间接）的操作数以及右边的表达式都按照[通常的顺序被求值](../Expressions#order-of-evaluation)。第二阶段，赋值是按照从左到右的顺序进行的。
+​	赋值分两个阶段进行。第一阶段，左边的[索引表达式](../Expressions#index-expressions-索引表达式)和[指针间接](../Expressions#address-operators-地址运算符)（包括[选择器](../Expressions#selectors-选择器)中的隐式指针间接）的操作数以及右边的表达式都按照[通常的顺序被求值](../Expressions#order-of-evaluation-求值顺序)。第二阶段，赋值是按照从左到右的顺序进行的。
 
 ```go 
 a, b = b, a  // exchange a and b => 交换 a 和 b
@@ -200,10 +200,10 @@ for i, x[i] = range x {  // set i, x[2] = 0, x[0]
 // after this loop, i == 0 and x == []int{3, 5, 3}
 ```
 
-​	在赋值中，每个值必须[可以赋给](../PropertiesOfTypesAndValues#assignability)它所赋的操作数的类型，但有以下特殊情况：
+​	在赋值中，每个值必须[可以赋给](../PropertiesOfTypesAndValues#assignability-可分配性)它所赋的操作数的类型，但有以下特殊情况：
 
 1. 任何类型的值都可以被分配给`空白标识符`。
-2. 如果无类型的常量被分配给接口类型的变量或空白标识符，那么该常量首先被隐式地[转换](../Expressions#conversions)为其[默认类型](../Constants)。
+2. 如果无类型的常量被分配给接口类型的变量或空白标识符，那么该常量首先被隐式地[转换](../Expressions#conversions-转换)为其[默认类型](../Constants)。
 3. 如果无类型的布尔值被分配给接口类型的变量或空白标识符，它首先被隐式转换为`bool`。
 
 ### If statements - if 语句
@@ -249,13 +249,13 @@ ExprCaseClause = ExprSwitchCase ":" StatementList .
 ExprSwitchCase = "case" ExpressionList | "default" .
 ```
 
-​	如果`switch 表达式`求值为无类型的常量，它首先被隐式地[转换](../Expressions#conversions)为其[默认类型](../Constants)。预先声明的无类型值`nil`不能作为`switch 表达式`使用。`switch 表达式`的类型必须是[可比较的](../Expressions#comparison-operators)。
+​	如果`switch 表达式`求值为无类型的常量，它首先被隐式地[转换](../Expressions#conversions-转换)为其[默认类型](../Constants)。预先声明的无类型值`nil`不能作为`switch 表达式`使用。`switch 表达式`的类型必须是[可比较的](../Expressions#comparison-operators)。
 
-​	如果一个case 表达式是无类型的，它首先被隐式地[转换](../Expressions#conversions)为`switch 表达式`的类型。对于每个（可能转换过的）case 表达式`x`和`switch 表达式`的值`t`，`x == t`必须是一个有效的[比较](../Expressions#comparison-operators)。
+​	如果一个case 表达式是无类型的，它首先被隐式地[转换](../Expressions#conversions-转换)为`switch 表达式`的类型。对于每个（可能转换过的）case 表达式`x`和`switch 表达式`的值`t`，`x == t`必须是一个有效的[比较](../Expressions#comparison-operators-比较运算符)。
 
 ​	换句话说，`switch 表达式`被当作是用来声明和初始化一个没有明确类型的临时变量`t`；每个case表达式`x`都是用`t`的值来测试是否相等。
 
-​	在case或default子句中，最后一个非空语句可以是一个（可能被[标记的](#labeled-statements)）["fallthrough "语句](#fallthrough-statements)，表示控制应该从这个子句的结尾流向下一个子句的第一个语句。否则，控制将流向 "switch "语句的末尾。"fallthrough"语句可以作为`表达式开关`中除最后一个子句之外的所有子句的最后一个语句出现。
+​	在case或default子句中，最后一个非空语句可以是一个（可能被[标记的](#labeled-statements-标签语句)）["fallthrough "语句](#fallthrough-statements-语句-fallthrough)，表示控制应该从这个子句的结尾流向下一个子句的第一个语句。否则，控制将流向 "switch "语句的末尾。"fallthrough"语句可以作为`表达式开关`中除最后一个子句之外的所有子句的最后一个语句出现。
 
 ​	`switch 表达式`前面可以有一个简单的语句，它在表达式被求值之前执行。
 
@@ -290,7 +290,7 @@ switch x.(type) {
 }
 ```
 
-​	然后，case 将实际类型`T`与表达式`x`的动态类型相匹配。与类型断言一样，`x`必须是[接口类型](../Types#interface-types)，但不是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，而且case 中列出的每个非接口类型`T`必须实现`x`的类型。在类型选择的case 中，列出的类型都必须是[不同的](../PropertiesOfTypesAndValues#type-identity)。
+​	然后，case 将实际类型`T`与表达式`x`的动态类型相匹配。与类型断言一样，`x`必须是[接口类型](../Types#interface-types-接口型)，但不是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，而且case 中列出的每个非接口类型`T`必须实现`x`的类型。在类型选择的case 中，列出的类型都必须是[不同的](../PropertiesOfTypesAndValues#type-identity-类型一致性)。
 
 ```
 TypeSwitchStmt  = "switch" [ SimpleStmt ";" ] TypeSwitchGuard "{" { TypeCaseClause } "}" .
@@ -299,9 +299,9 @@ TypeCaseClause  = TypeSwitchCase ":" StatementList .
 TypeSwitchCase  = "case" TypeList | "default" .
 ```
 
-​	TypeSwitchGuard 可能包括一个[短变量声明](../DeclarationsAndScope#short-variable-declarations)。当使用这种形式时，该变量在每个子句的[隐含块](../Blocks)中的TypeSwitchCase的末尾被声明。在子句中，如果case正好列出了一种类型，那么变量就有这种类型；否则，变量就有TypeSwitchGuard中表达式的类型。
+​	TypeSwitchGuard 可能包括一个[短变量声明](../DeclarationsAndScope#short-variable-declarations-短变量声明)。当使用这种形式时，该变量在每个子句的[隐含块](../Blocks)中的TypeSwitchCase的末尾被声明。在子句中，如果case正好列出了一种类型，那么变量就有这种类型；否则，变量就有TypeSwitchGuard中表达式的类型。
 
-​	case 可以使用预先声明的标识符[nil](../DeclarationsAndScope#predeclared-identifiers)来代替类型；当TypeSwitchGuard中的表达式是一个`nil`接口值时，该case被选中。最多只能有一个`nil `case。
+​	case 可以使用预先声明的标识符[nil](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)来代替类型；当TypeSwitchGuard中的表达式是一个`nil`接口值时，该case被选中。最多只能有一个`nil `case。
 
 ​	给定一个`interface{}`类型的表达式`x`，下面的类型选择：
 
@@ -348,7 +348,7 @@ if v == nil {
 }
 ```
 
-​	[类型参数](../DeclarationsAndScope#type-parameter-declarations)或[泛型](../DeclarationsAndScope#type-declarations)可以作为 case 中的一个类型。如果在[实例化](../Expressions#instantiations)时，该类型被发现与开关中的另一个条目重复，则选择第一个匹配的case。
+​	[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)或[泛型](../DeclarationsAndScope#type-declarations-类型声明)可以作为 case 中的一个类型。如果在[实例化](../Expressions#instantiations-实例化)时，该类型被发现与开关中的另一个条目重复，则选择第一个匹配的case。
 
 ```go  hl_lines="7 7"
 func f[P any](x any) int {
@@ -395,7 +395,7 @@ for a < b {
 
 #### For statements with `for` clause 带有for子句的for语句
 
-​	带有for子句的 "for "语句也受其条件的控制，但另外它可以指定一个`init`和一个`post`语句，如一个赋值，一个增量或减量语句。init语句可以是一个[短变量声明](../DeclarationsAndScope#short-variable-declarations)，但post语句则不能。由init语句声明的变量会在每次迭代中重复使用。
+​	带有for子句的 "for "语句也受其条件的控制，但另外它可以指定一个`init`和一个`post`语句，如一个赋值，一个增量或减量语句。init语句可以是一个[短变量声明](../DeclarationsAndScope#short-variable-declarations-短变量声明)，但post语句则不能。由init语句声明的变量会在每次迭代中重复使用。
 
 ```
 ForClause = [ InitStmt ] ";" [ Condition ] ";" [ PostStmt ] .
@@ -406,7 +406,7 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-​	如果（init语句）非空，则它在求值第一个迭代的条件之前被执行一次；post语句在每次执行块之后被执行（而且只有当该块被执行时）。For子句的任何元素都可以是空的，但是（除非只有一个条件）[分号](../LexicalElements#semicolons)是必须的。如果没有条件，则等同于布尔值`true`。=> 仍有疑问？？
+​	如果（init语句）非空，则它在求值第一个迭代的条件之前被执行一次；post语句在每次执行块之后被执行（而且只有当该块被执行时）。For子句的任何元素都可以是空的，但是（除非只有一个条件）[分号](../LexicalElements#semicolons-分号)是必须的。如果没有条件，则等同于布尔值`true`。=> 仍有疑问？？
 
 ```
 for cond { S() }    is the same as    for ; cond ; { S() }
@@ -446,7 +446,7 @@ channel         c  chan E, <-chan E       element  e  E
 
 ​	迭代值被分配给各自的迭代变量，就像在[赋值语句](#assignment-statements-赋值语句)中一样。
 
-​	迭代变量可以由 "range "子句使用[短变量声明](../DeclarationsAndScope#short-variable-declarations)的形式（`:=`）来声明。在这种情况下，它们的类型被设置为各自的迭代值的类型，它们的[作用域](../DeclarationsAndScope)是 "for "语句的块；它们在每个迭代中被重复使用。如果迭代变量是在 "for "语句之外声明的，执行后它们的值将是最后一次迭代的值。
+​	迭代变量可以由 "range "子句使用[短变量声明](../DeclarationsAndScope#short-variable-declarations-短变量声明)的形式（`:=`）来声明。在这种情况下，它们的类型被设置为各自的迭代值的类型，它们的[作用域](../DeclarationsAndScope)是 "for "语句的块；它们在每个迭代中被重复使用。如果迭代变量是在 "for "语句之外声明的，执行后它们的值将是最后一次迭代的值。
 
 ```go 
 var testdata *struct {
@@ -492,9 +492,9 @@ for range ch {}
 GoStmt = "go" Expression .
 ```
 
-​	（go语句中的）表达式`必须是一个函数或方法调用`；其不能用圆括号括起来。对内置函数的调用与[表达式语句](#expression-statements)一样受到限制。
+​	（go语句中的）表达式`必须是一个函数或方法调用`；其不能用圆括号括起来。对内置函数的调用与[表达式语句](#expression-statements-表达式语句)一样受到限制。
 
-​	函数值和参数在调用的goroutine中[像往常一样被求值](../Expressions#order-of-evaluation)，但与普通调用不同的是，程序执行不会等待被调用的函数完成。相反，该函数开始在一个新的goroutine中独立执行。当函数终止时，其goroutine也会终止。如果该函数有任何返回值，当函数完成时，它们会被丢弃。
+​	函数值和参数在调用的goroutine中[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)，但与普通调用不同的是，程序执行不会等待被调用的函数完成。相反，该函数开始在一个新的goroutine中独立执行。当函数终止时，其goroutine也会终止。如果该函数有任何返回值，当函数完成时，它们会被丢弃。
 
 ```go 
 go Server()
@@ -503,7 +503,7 @@ go func(ch chan<- bool) { for { sleep(10); ch <- true }} (c)
 
 ### Select statements - select 语句
 
-​	 "`select` "语句选择一组可能的[发送](#send-statements)或[接收](../Expressions#receive-operator)操作中的一个来进行。它看起来类似于 "[switch](#switch-statements) "语句，但其 case 都是只涉及通信操作。
+​	 "`select` "语句选择一组可能的[发送](#send-statements-发送语句)或[接收](../Expressions#receive-operator-接收操作符)操作中的一个来进行。它看起来类似于 "[switch](#switch-statements----switch-语句) "语句，但其 case 都是只涉及通信操作。
 
 ```
 SelectStmt = "select" "{" { CommClause } "}" .
@@ -513,7 +513,7 @@ RecvStmt   = [ ExpressionList "=" | IdentifierList ":=" ] RecvExpr .
 RecvExpr   = Expression .
 ```
 
-​	一个有 RecvStmt 的 case 可以将 RecvExpr 的结果分配给一个或两个变量，这些变量可以用[短变量声明](../DeclarationsAndScope#short-variable-declarations)来声明。RecvExpr 必须是一个（可能是圆括号内的）接收操作。最多可以有一个default case，它可以出现在 case 列表的任何地方。
+​	一个有 RecvStmt 的 case 可以将 RecvExpr 的结果分配给一个或两个变量，这些变量可以用[短变量声明](../DeclarationsAndScope#short-variable-declarations-短变量声明)来声明。RecvExpr 必须是一个（可能是圆括号内的）接收操作。最多可以有一个default case，它可以出现在 case 列表的任何地方。
 
 ​	 "`select` "语句的执行分几个步骤进行：
 
@@ -560,7 +560,7 @@ select {}  // block forever
 
 ### Return statements  - return 语句
 
-​	函数`F`中的 "`return`"语句终止了`F`的执行，并且可以选择提供一个或多个结果值。在`F`返回给它的调用者之前，任何由`F`[延迟](#defer-statements)的函数都会被执行。
+​	函数`F`中的 "`return`"语句终止了`F`的执行，并且可以选择提供一个或多个结果值。在`F`返回给它的调用者之前，任何由`F`[延迟](#defer-statements-语句-defer)的函数都会被执行。
 
 ```
 ReturnStmt = "return" [ ExpressionList ] .
@@ -611,7 +611,7 @@ func noResult() {
    }
    ```
 
-​	不管它们是如何被声明的，`所有的结果值在进入函数时都被初始化为`其类型的[零值](../ProgramInitializationAndExecution#the-zero-value)。指定结果的 "`return`"语句`在执行任何延迟函数之前`设置结果参数。
+​	不管它们是如何被声明的，`所有的结果值在进入函数时都被初始化为`其类型的[零值](../ProgramInitializationAndExecution#the-zero-value-零值)。指定结果的 "`return`"语句`在执行任何延迟函数之前`设置结果参数。
 
 实现限制：如果在返回的地方有一个与结果参数同名的不同实体（常量、类型或变量）在[作用域](../DeclarationsAndScope)内，编译器可能不允许在 "`return`"语句中出现空表达式列表。
 
@@ -626,7 +626,7 @@ func f(n int) (res int, err error) {
 
 ### Break statements - break 语句
 
-​	 "`break` "语句可以终止同一函数中最里面的 "[for](#for-statements-for)"、"[switch](#switch-statements-switch) "或 "[select](#select-statements-select) "语句的执行。
+​	 "`break` "语句可以终止同一函数中最里面的 "[for](#for-statements-for----for-语句)"、"[switch](#switch-statements-switch----switch-语句) "或 "[select](#select-statements-select---select-语句) "语句的执行。
 
 ```
 BreakStmt = "break" [ Label ] .
@@ -652,7 +652,7 @@ OuterLoop:
 
 ### Continue statements  - continue 语句
 
-​	 "`continue` "语句通过将控制推进到循环块的末端来开始最内层的 ["for "循环](#for-statements-for)的下一次迭代。"`for` "循环必须是在同一个函数中。
+​	 "`continue` "语句通过将控制推进到循环块的末端来开始最内层的 ["for "循环](#for-statements-for----for-语句)的下一次迭代。"`for` "循环必须是在同一个函数中。
 
 ```
 ContinueStmt = "continue" [ Label ] .
@@ -710,7 +710,7 @@ L1:
 
 ### Fallthrough statements 语句 fallthrough
 
-​	在[表达式开关语句](#expression-switches)中，"`fallthrough` "语句将控制转移到下一个`case`子句的第一个语句。它只能作为这种子句中的最后一个非空语句使用。
+​	在[表达式开关语句](#expression-switches-表达式开关)中，"`fallthrough` "语句将控制转移到下一个`case`子句的第一个语句。它只能作为这种子句中的最后一个非空语句使用。
 
 ```
 FallthroughStmt = "fallthrough" .
@@ -718,17 +718,17 @@ FallthroughStmt = "fallthrough" .
 
 ### Defer statements 语句 defer
 
-​	"`defer`"语句调用一个函数，该函数的执行被推迟到外层函数返回的那一刻，或者是因为外层函数执行了 [return 语句](#return-statements-return)，达到了其[函数体](../DeclarationsAndScope#function-declarations)的末端，或者是因为相应的goroutine正在[恐慌](../Built-inFunctions#handling-panics)。
+​	"`defer`"语句调用一个函数，该函数的执行被推迟到外层函数返回的那一刻，或者是因为外层函数执行了 [return 语句](#return-statements-return----return-语句)，达到了其[函数体](../DeclarationsAndScope#function-declarations-函数声明)的末端，或者是因为相应的goroutine正在[恐慌](../Built-inFunctions#handling-panics-处理恐慌)。
 
 ```
 DeferStmt = "defer" Expression .
 ```
 
-这个表达式必须是一个函数或方法的调用；它不能是被圆括号括起来的。对内置函数的调用与[表达式语句](#expression-statements)一样受到限制。
+这个表达式必须是一个函数或方法的调用；它不能是被圆括号括起来的。对内置函数的调用与[表达式语句](#expression-statements-表达式语句)一样受到限制。
 
-​	每次执行 "`defer` "语句时，函数值和调用的参数[像往常一样被求值](../Expressions#order-of-evaluation)并重新保存，但实际的函数不会被调用。相反，`被延迟函数`在外层的函数返回之前立即被调用，`其顺序与它们被延迟的顺序相反`。也就是说，如果外层的函数通过一个明确的 [return 语句](#return-statements-return)返回，`被延迟函数`在任何结果参数被该 `reurn 语句`设置后执行，`但在外层函数返回给其调用者之前`。如果`被延迟函数`值被求值为`nil`，那么在调用该被延迟函数时会出现执行[恐慌]()（而不是当 "`defer` "语句被执行时）。
+​	每次执行 "`defer` "语句时，函数值和调用的参数[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)并重新保存，但实际的函数不会被调用。相反，`被延迟函数`在外层的函数返回之前立即被调用，`其顺序与它们被延迟的顺序相反`。也就是说，如果外层的函数通过一个明确的 [return 语句](#return-statements-return----return-语句)返回，`被延迟函数`在任何结果参数被该 `reurn 语句`设置后执行，`但在外层函数返回给其调用者之前`。如果`被延迟函数`值被求值为`nil`，那么在调用该被延迟函数时会出现执行[恐慌]()（而不是当 "`defer` "语句被执行时）。
 
-​	例如，如果`被延迟函数`是一个[函数字面量](../Expressions#function-literals)，并且外层的函数有在该字面量的作用域内的[命名结果参数](../Types#function-types)，那么该`被延迟函数`可以在这些结果参数被返回之前访问和修改它们。如果`被延迟函数`有任何返回值，这些返回值将在函数完成时被丢弃。(参见[处理恐慌](../Built-inFunctions#handling-panics)一节)。
+​	例如，如果`被延迟函数`是一个[函数字面量](../Expressions#function-literals-函数字面量)，并且外层的函数有在该字面量的作用域内的[命名结果参数](../Types#function-types-函数型)，那么该`被延迟函数`可以在这些结果参数被返回之前访问和修改它们。如果`被延迟函数`有任何返回值，这些返回值将在函数完成时被丢弃。(参见[处理恐慌](../Built-inFunctions#handling-panics-处理恐慌)一节)。
 
 ```go 
 lock(l)
