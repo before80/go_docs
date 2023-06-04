@@ -278,7 +278,8 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 }
 /*修改左侧激活的菜单项的颜色*/
 .td-sidebar-nav a.active {
-  color: #cd00ff !important;
+  /*color: #cd00ff !important;*/
+  color: rgb(0, 71, 255) !important;
 }
 
 /*临时性修复点击toc，却看不到标题的问题*/
@@ -289,7 +290,8 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 
 .toc-list-item.is-active-li>a{
   font-weight: bold;
-  color: #cd00ff !important;
+  /*color: #cd00ff !important;*/
+  color: rgb(0, 71, 255) !important;
 }
 
 .toc-list-item>a:hover {
@@ -298,18 +300,22 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 
 @keyframes colorChange {
   0% {
-    color: rgba(205, 0, 255, 80%);
+    /*color: rgba(205, 0, 255, 80%);*/
+    color: rgba(0, 71, 255, 80%);
   }
   50% {
-    color: rgba(205, 0, 255, 50%);
+    /*color: rgba(205, 0, 255, 50%);*/
+    color: rgba(0, 71, 255, 50%);
   }
   100% {
-    color: rgba(205, 0, 255, 80%);
+    /*color: rgba(205, 0, 255, 80%);*/
+    color: rgba(0, 71, 255, 80%);
   }
 }
 
 p > a {
-  color: #cd00ff !important;
+  /*color: #cd00ff !important;*/
+  color: #0010ff5c !important;
   font-weight: bold;
   font-size: 1.1em !important;
 }
@@ -319,7 +325,8 @@ p > strong, .td-content li > strong{
 }
 
 .td-content li > a {
-  color: #cd00ff !important;
+  /*color: #cd00ff !important;*/
+  color: #0010ff5c !important;
   font-weight: bold;
   font-size: 1.1em !important;
 }
