@@ -12,7 +12,7 @@ draft = false
 
 本主题描述了如何从源代码构建和运行 Go。要使用安装程序进行安装，请参阅[下载和安装](../InstallingGo)。
 
-## Introduction 简介
+## 简介
 
 ​	Go 是一个开源项目，采用 [BSD 风格的许可证](https://go.dev/LICENSE)下发布。本文档介绍了如何检出源代码，在自己的机器上构建并运行它们。
 
@@ -66,7 +66,7 @@ draft = false
 
 - 对于 PowerPC 64 位的 Linux，最小支持的内核版本是 `2.6.37`，这意味着 Go 在这些系统上不支持 CentOS 6。
 
-## Install Go compiler binaries for bootstrap 为引导程序安装 Go 编译器二进制文件
+## 为引导程序安装 Go 编译器二进制文件
 
 ​	Go工具链是用Go编写的。要构建它，你需要安装一个 Go 编译器。执行工具初始构建的脚本会在 `$PATH` 中寻找 "go "命令，所以只要你在系统中安装了 Go 并在 `$PATH` 中配置了 Go，你就可以从源代码上构建 Go。或者如果你愿意，你可以将`$GOROOT_BOOTSTRAP`设置为Go安装的根目录，用来构建新的Go工具链；`$GOROOT_BOOTSTRAP/bin/go`应该是使用的go命令。
 
@@ -79,11 +79,11 @@ draft = false
 
 下面将详细介绍这些方法。
 
-### Bootstrap toolchain from binary release 从二进制版本引导工具链
+### 从二进制版本引导工具链
 
 ​	要使用二进制发布版作为引导工具链，请参阅[下载页面](https://go.dev/dl/)或使用任何其他打包的 Go 发行版。
 
-### Bootstrap toolchain from cross-compiled source 从交叉编译的源代码中引导工具链
+### 从交叉编译的源代码中引导工具链
 
 ​	要从源码交叉编译引导工具链，这在 Go 1.4 没有针对的系统（例如 `linux/ppc64le`）上是必要的，请在不同的系统上安装 Go 并运行 [bootstrap.bash](https://go.dev/src/bootstrap.bash)。
 
@@ -95,7 +95,7 @@ $ GOOS=linux GOARCH=ppc64 ./bootstrap.bash
 
 ​	`bootstrap.bash`为`GOOS/GOARCH`的组合交叉编译一个工具链，将生成的树放在`././go-${GOOS}-${GOARCH}-bootstrap`。该树可以被复制到指定目标类型的机器上，并将其用作`GOROOT_BOOTSTRAP`来引导本地构建。
 
-### Bootstrap toolchain using gccgo 使用gccgo引导工具链
+### 使用gccgo引导工具链
 
 To use gccgo as the bootstrap toolchain, you need to arrange for `$GOROOT_BOOTSTRAP/bin/go` to be the go tool that comes as part of gccgo 5. For example on Ubuntu Vivid:
 
@@ -107,7 +107,7 @@ $ sudo update-alternatives --set go /usr/bin/go-5
 $ GOROOT_BOOTSTRAP=/usr ./make.bash
 ```
 
-### Bootstrap toolchain from C source code 从C 源码引导工具链
+### 从C 源码引导工具链
 
 ​	要从C源代码构建一个引导工具链，可以使用git分支`release-branch.go1.4`或[go1.4-bootstrap-20171003.tar.gz](https://dl.google.com/go/go1.4-bootstrap-20171003.tar.gz)，其中包含Go 1.4的源代码以及保持工具在较新的操作系统上运行的累积补丁。(Go 1.4是最后一个用C语言编写工具链的发行版。)解压Go 1.4源代码后，`cd`到`src`子目录，在环境中设置`CGO_ENABLED=0`，然后运行`make.bash`（或者，在Windows中上运行`make.bat`）。
 
@@ -115,13 +115,13 @@ $ GOROOT_BOOTSTRAP=/usr ./make.bash
 
 > 请注意，Go 1.4并不像后来的Go版本那样可以在所有系统上运行。特别是，`Go 1.4 不支持当前版本的 macOS`。在这样的系统上，必须使用其他方法获得引导工具链。
 
-## Install Git, if needed 如果需要，安装Git
+## 如果需要，安装Git
 
 ​	要执行下一个步骤，你必须安装Git。(在继续进行之前，请检查你是否有`git`命令)。
 
 ​	如果你没有安装好Git，请按照[Git下载](https://git-scm.com/downloads)页面上的说明进行操作。
 
-## (Optional) Install a C compiler (可选）安装一个C语言编译器
+## (可选）安装一个C语言编译器
 
 ​	要构建一个支持 `cgo` 的 Go 安装程序，`即允许 Go 程序导入 C 库`，必须先安装一个 C 编译器，如 `gcc` 或 `clang`。使用系统上的任何标准安装方法进行安装。
 
@@ -129,7 +129,7 @@ To build without `cgo`, set the environment variable `CGO_ENABLED=0` before runn
 
 ​	要在没有 `cgo` 的情况下进行构建，请在运行 `all.bash` 或 `make.bash` 之前设置环境变量 `CGO_ENABLED=0`。
 
-## Fetch the repository 获取存储库
+## 获取存储库
 
 ​	切换到你打算安装 Go 的目录，并确保 `goroot` 目录不存在。然后克隆存储库并查看最新的发布标签（例如`go1.12`）：
 
@@ -148,7 +148,7 @@ $ git checkout <tag>
 	如果你选择同时从源代码编译bootstrap二进制文件（在前面的章节中），此时你仍然需要再次`git clone`（检出最新的`<tag>`），因为你必须保持你的go1.4仓库的独立性。
 
 
-## (Optional) Switch to the master branch (可选）切换到主分支
+## (可选）切换到主分支
 
 ​	如果你打算修改 go 源代码，并[贡献你的修改](https://go.dev/doc/contribute.html)给项目，那么就把你的仓库从 release tag 上移到 master（开发）分支上。否则，跳过这一步。
 
@@ -156,7 +156,7 @@ $ git checkout <tag>
 $ git checkout master
 ```
 
-## Install Go 安装 Go
+## 安装 Go
 
 要构建 Go 发行版，请运行
 
@@ -182,7 +182,7 @@ Installed commands in /home/you/go/bin.
 
 ​	关于控制构建的方法的更多信息，请参见下面关于[环境变量](#optional-environment-variables)的讨论。 `all.bash` (或 `all.bat`) 为 Go 运行重要的测试，这可能比简单地构建 Go 需要花费更多时间。如果您不想运行测试套件，请使用 `make.bash` (或 `make.bat`) 来代替。
 
-## Testing your installation 测试您的安装
+## 测试您的安装
 
 通过构建一个简单的程序来检查Go的安装是否正确。
 
@@ -207,7 +207,7 @@ hello, world
 
 如果你看到 "hello, world "的信息，那么Go已经正确安装。
 
-## Set up your work environment 设置你的工作环境
+## 设置你的工作环境
 
 你就快完成了。你只需要再做一点设置。
 
@@ -215,7 +215,7 @@ hello, world
 
 [How to Write Go Code](../HowToWriteGoCode) 文档提供了使用 Go 工具的`基本设置说明`。
 
-## Install additional tools 安装其他工具
+## 安装其他工具
 
 ​	一些 Go 工具（包括 `gopls`）的源代码保存在 `golang.org/x/tools` 存储库中。要安装其中一个工具（本例中是`gopls`）。
 
@@ -223,13 +223,13 @@ hello, world
 $ go install golang.org/x/tools/gopls@latest
 ```
 
-## Community resources 社区资源
+## 社区资源
 
 ​	在[帮助页面](https://go.dev/help/)上列出的常见社区资源都有活跃的开发者，可以帮助你解决安装或开发工作中的问题。对于那些想了解最新情况的人来说，还有一个邮件列表：[golang-checkins](https://groups.google.com/group/golang-checkins)，它可以收到一条汇总了每次对 Go 仓库签入的消息。
 
 Bug 可以通过[Go问题跟踪器](https://go.dev/issue/new)报告。
 
-## Keeping up with releases 跟进发布
+## 跟进发布
 
 ​	新的版本会在 [golang-announce](https://groups.google.com/group/golang-announce) 邮件列表中公布。每个公告都会提到最新的发布标签，例如`go1.9`。
 
@@ -244,7 +244,7 @@ $ ./all.bash
 
 其中`<tag>`是版本的字符串。
 
-## Optional environment variables 可选的环境变量
+## 可选的环境变量
 
 ​	Go 编译环境可以通过`环境变量`来定制。构建时不需要任何环境变量，但您可能希望设置一些来覆盖默认值。
 

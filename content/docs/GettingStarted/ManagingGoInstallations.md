@@ -17,7 +17,7 @@ draft = false
 - [下载并安装](../InstallingGo) —— 安装和运行的最简单方法。
 - [从源码安装Go](../InstallingGoFromSource) —— 如何检出源码，在自己的机器上构建它们，并运行它们。
 
-## Installing multiple Go versions 安装多个 Go 版本
+## 安装多个 Go 版本
 
 ​	你可以在同一台机器上安装多个 Go 版本。例如，您可能想在多个 Go 版本上测试您的代码。有关可以通过这种方式安装的版本的列表，请参见[下载页面](https://go.dev/dl/)。
 
@@ -45,7 +45,7 @@ $ go1.10.7 env GOROOT
 
 ​	要卸载下载的版本，只需删除其 `GOROOT` 环境变量所指定的目录和 `goX.Y.Z` 二进制文件。
 
-## Uninstalling Go 卸载 Go
+## 卸载 Go
 
 您可以使用本主题中描述的步骤从您的系统中删除 Go。
 

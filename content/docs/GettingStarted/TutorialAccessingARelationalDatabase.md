@@ -30,14 +30,14 @@ draft = false
 
 注意：关于其他教程，请参见 [Tutorials](../Tutorials)。
 
-## Prerequisites 前提条件
+## 先决条件
 
 - 安装[MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)关系型数据库管理系统（DBMS）。
 - 安装 Go。有关安装说明，请参阅[Installing Go](../InstallingGo)。
 - 编辑代码的工具。你拥有的任何文本编辑器都可以工作。
 - 命令终端。在 Linux 和 Mac 上使用任何终端，以及在 Windows 上使用 `PowerShell` 或 `cmd`，Go 都能很好地工作。
 
-## Create a folder for your code 为你的代码创建一个文件夹
+## 为你的代码创建一个文件夹
 
 首先，为你要写的代码创建一个文件夹。
 
@@ -81,7 +81,7 @@ go: creating new go.mod: module example/data-access
 
 接下来，你将创建一个数据库。
 
-## Set up a database 建立一个数据库
+## 建立一个数据库
 
 ​	在这一步，你将创建将要使用的数据库。你将使用DBMS本身的CLI来创建数据库和表，以及添加数据。
 
@@ -167,7 +167,7 @@ go: creating new go.mod: module example/data-access
 
 接下来，您将编写一些 Go 代码进行连接，以便可以查询。
 
-## Find and import a database driver 查找并导入数据库驱动
+## 查找并导入数据库驱动
 
 ​	现在你已经有了一个带有一些数据的数据库，开始编写你的Go代码吧。
 
@@ -196,13 +196,13 @@ import "github.com/go-sql-driver/mysql"
 
 导入驱动程序后，你将开始写代码来访问数据库。
 
-## Get a database handle and connect 获取数据库句柄并连接
+## 获取数据库句柄并连接
 
 现在编写一些Go代码，使用数据库句柄进行数据库访问。
 
 你将使用一个指向 `sql.DB` 结构的指针，它代表对特定数据库的访问。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在`main.go`中，在你刚刚添加的`import`代码下面，粘贴以下Go代码来创建一个数据库句柄。
 
@@ -276,7 +276,7 @@ c. 保存`main.go`。
 
 
 
-#### Run the code 运行代码
+#### 运行代码
 
 a. 开始跟踪MySQL驱动模块作为一个依赖项。
 
@@ -314,13 +314,13 @@ Connected!
 
 你可以连接了! 接下来，你将查询一些数据。
 
-## Query for multiple rows 查询多行（记录）
+## 查询多行（记录）
 
 ​	在本节中，您将使用Go来执行一个旨在返回多行的SQL查询。
 
 ​	对于可能返回多行的SQL语句，您可以使用`database/sql`包中的`Query`方法，然后循环浏览它所返回的行。(你将在稍后的[单行查询](#query-for-a-single-row)一节中学习如何查询单行。)
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在`main.go`中，紧挨着`func main`的上方，粘贴以下`Album`结构的定义。你将用它来保存从查询中返回的行数据。
 
@@ -398,7 +398,7 @@ fmt.Printf("Albums found: %v\n", albums)
 - 调用你添加的 `albumsByArtist` 函数，将其返回值分配给一个新的`albums`变量。
 - 打印结果。
 
-#### Run the code 运行该代码
+#### 运行该代码
 
 从包含`main.go`的目录中的命令行，运行代码。
 
@@ -410,13 +410,13 @@ Albums found: [{1 Blue Train John Coltrane 56.99} {2 Giant Steps John Coltrane 6
 
 接下来，你将查询单行。
 
-## Query for a single row 查询单行（记录）
+## 查询单行（记录）
 
 ​	在本节中，您将使用Go来查询数据库中的单行。
 
 ​	对于最多返回一行的 SQL 语句，你可以使用`QueryRow`，这比使用`Query`循环更简单。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在 `albumsByArtist` 下方，粘贴以下 `albumByID` 函数。
 
@@ -467,7 +467,7 @@ fmt.Printf("Album found: %v\n", alb)
 - 调用你添加的 `albumByID` 函数。
 - 打印返回的album 的ID。
 
-#### Run the code 运行该代码
+#### 运行该代码
 
 从包含main.go的目录中的命令行，运行代码。
 
@@ -480,13 +480,13 @@ Album found: {2 Giant Steps John Coltrane 63.99}
 
 接下来，你将在数据库中添加一个 album 。
 
-## Add data 添加数据
+## 添加数据
 
 ​	在本节中，您将使用Go来执行一个SQL `INSERT`语句，向数据库添加新的行。
 
 ​	你已经看到了如何在返回数据的SQL语句中使用`Query`和`QueryRow`。要执行不返回数据的SQL语句，你可以使用`Exec`。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在 `albumByID` 下面，粘贴以下 `addAlbum` 函数，在数据库中插入一个新`album` ，然后保存 main.go。
 
@@ -538,7 +538,7 @@ fmt.Printf("ID of added album: %v\n", albID)
 
 - 用一个新`album `调用`addAlbum`，将你要添加的`album` 的ID分配给`albID`变量。
 
-#### Run the code 运行该代码
+#### 运行该代码
 
 从包含`main.go`的目录中的命令行，运行代码。
 
@@ -550,7 +550,7 @@ Album found: {2 Giant Steps John Coltrane 63.99}
 ID of added album: 5
 ```
 
-## Conclusion 总结
+## 总结
 
 祝贺您！您刚刚使用 Go 对关系数据库进行了简单的操作。
 
@@ -560,7 +560,7 @@ ID of added album: 5
 - 如果你是Go的新手，你会发现[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)和[How to write Go code](../HowToWriteGoCode)中描述了有用的最佳实践。
 - [Go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的逐步介绍。
 
-## Completed code 完整的代码
+## 完整的代码
 
 本节包含您通过本教程构建的应用程序的代码。
 

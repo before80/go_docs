@@ -16,7 +16,7 @@ draft = false
 
 	请注意，gccgo 不是 `gc` 编译器；请参阅[安装 Go](../InstallingGo) 编译器的说明。
 
-## Releases 发布
+## 版本
 
 ​	安装`gccgo`的最简单方法是安装包含Go支持的`GCC`二进制版本。`GCC` 二进制版本可以从[不同的网站](https://gcc.gnu.org/install/binaries.html)上获得，通常作为 `GNU/Linux` 发行版的一部分。我们希望大多数构建这些二进制文件的人都会加入Go支持。
 
@@ -60,7 +60,7 @@ draft = false
 
 `GCC 11`版本包含对`Go 1.16.3`版本的完整实现。
 
-## Source code 源代码
+## 源代码
 
 ​	如果你不能使用某个发行版，或者喜欢自己构建`gccgo`，可以通过Git访问`gccgo`源代码。`GCC` 网站上有[获取 `GCC` 源代码的说明](https://gcc.gnu.org/git.html)。`gccgo`的源代码已经包括在内。为方便起见，在`GCC`主代码库的`devel/gccgo`分支中提供了Go支持的稳定版本：`git://gcc.gnu.org/git/gcc.git`。这个分支会定期更新稳定的 Go 编译器源代码。
 
@@ -68,7 +68,7 @@ draft = false
 
 	请注意，尽管 `gcc.gnu.org` 是获取 Go 前端源代码的最便捷方式，但它并不是主源的所在。如果您想对 Go 前端编译器进行修改，请参见[对 gccgo 的贡献](https://go.dev/doc/gccgo_contribute.html)。
 
-## Building 构建
+## 构建
 
 ​	构建`gccgo`就像构建`GCC`一样，只是多了一个或两个选项。见[gcc网站上的说明](https://gcc.gnu.org/install/)。当你运行`configure`时，添加选项`--enable-languages=c,c++,go`（以及其他你可能想要构建的语言）。如果你的目标是`32`位`x86`，若你希望所构建的`gccgo`默认支持锁定的比较和交换指令；那么可以通过使用`configure`选项`--with-arch=i586`（或更新的架构，取决于你需要你的程序在哪里运行）来实现。如果你的目标是`64`位`x86`，但有时想使用`-m32`选项，那么可以使用`configure`选项 `--with-arch-32=i586`。
 
@@ -89,11 +89,11 @@ make install
 
 ​	无论你如何安装`gold`，当你配置`gccgo`时，请使用选项`--with-ld=GOLD_BINARY`。
 
-### Prerequisites 先决条件
+### 先决条件
 
 ​	如[gcc网站](https://gcc.gnu.org/install/prerequisites.html)上所述，构建`GCC`需要许多先决条件。在运行gcc `configure`脚本之前，安装所有先决条件是很重要的。先决条件库可以通过`GCC`源代码中的脚本`contrib/download_prerequisites`方便地下载。
 
-### Build commands 构建命令
+### 构建命令
 
 ​	一旦所有的先决条件都安装好了，那么一个典型的构建和安装顺序是这样的（如果你使用上述的`gold linker`，只需使用`--with-ld`选项）：
 
@@ -106,7 +106,7 @@ make
 make install
 ```
 
-## Using gccgo 使用 gccgo
+## 使用 gccgo
 
 ​	`gccgo`编译器的工作方式与其他`gcc`前端一样。从`GCC 5`开始，`gccgo`的安装也包括一个`go`命令的版本，它可以用来编译Go程序，如https://go.dev/cmd/go 中所描述的。
 
@@ -150,7 +150,7 @@ gccgo -o file file.o
 - 使用`-static`选项可以进行完全静态链接（`gc`编译器的默认值）。
 
 
-## Options 选项
+## 选项
 
 ​	`gccgo`编译器支持所有与语言无关的`GCC`选项，特别是`-O`和`-g`选项。
 
@@ -158,7 +158,7 @@ gccgo -o file file.o
 
 ​	`-I`和`-L`选项是编译器的同义词，可以用来设置寻找导入的搜索路径。如果你用`go`命令编译，则不需要这些选项。
 
-## Imports 导入
+## 导入
 
 ​	当你编译一个导出某些内容的文件时，导出信息将直接存储在对象文件中。如果你直接用`gccgo`编译，而不是用go命令，那么当你导入一个包时，你必须告诉`gccgo`如何找到该文件。
 
@@ -185,15 +185,15 @@ gccgo -c main.go                   # Imports mypackage
 gccgo -o main main.o mypackage.o   # Explicitly links with mypackage.o
 ```
 
-## Debugging 调试
+## 调试
 
 ​	如果你在编译时使用`-g`选项，你可以在你的可执行文件上运行`gdb`。调试器对Go的了解是有限的。你可以设置断点、单步执行等。你可以打印变量，但它们会被打印成具有`C/C++`的类型。对于数字类型，这并不重要。Go 字符串和接口将显示为两个元素结构。Go映射和通道始终表示为指向运行时结构的C指针。
 
-## C Interoperability C语言的互操作性
+## C语言的互操作性
 
 ​	在使用 `gccgo` 时，与 C 或使用 `extern "C"` 编译的 C++ 代码的互操作性是有限的。
 
-### Types 类型
+### 类型
 
 ​	基本类型直接映射关系是：Go中的`int32`是C中的`int32_t`，`int64`是`int64_t`，等等。Go中的`int`类型是一个整数，与指针的大小相同，因此对应于C中的`intptr_t`。Go的`byte`相当于C的无符号`char`。Go中的指针就是C中的指针。Go结构与C结构相同，具有相同的字段和类型。
 
@@ -229,7 +229,7 @@ struct { int i; float64 f; } CFunction(int, void*)
 
 ​	C和Go的`内存分配（memory allocation）`是完全不同的，因为Go使用垃圾收集。这方面的确切准则尚未确定，但很可能允许将分配的内存的指针从C语言传递到Go语言。最终释放指针的责任仍由C端承担，当然，如果C端释放了指针，而Go端仍有一个副本，程序就会失败。当把指针从Go传到C时，Go函数必须在某个Go变量中保留一个可见的副本。否则，Go的垃圾收集器可能会在C函数仍在使用该指针时删除它。
 
-### Function names 函数名称
+### 函数名称
 
 ​	Go代码可以使用在`gccgo`中实现的Go扩展来直接调用C函数：函数声明前面可以加上`//extern NAME`。例如，以下是C函数`open`在Go中的声明方式：
 
@@ -257,7 +257,7 @@ i := c_open(&name[0], syscall.O_RDONLY, 0);
 extern int go_function(int) __asm__ ("myprefix.mypackage.Function");
 ```
 
-### Automatic generation of Go declarations from C source code 从C源代码中自动生成Go声明
+### 从C源代码中自动生成Go声明
 
 ​	`GCC`的Go版本支持从C代码中自动生成Go声明。这个功能比较笨拙，大多数用户应该使用带有`-gccgo`选项的`cgo`程序来代替。
 

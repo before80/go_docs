@@ -26,13 +26,13 @@ draft = false
 
 > 注意：如果你愿意，你可以使用 [the Go playground in “Go dev branch” mode](https://go.dev/play/?v=gotip)来代替编辑和运行你的程序。
 
-## Prerequisites 前提条件
+## 前提条件
 
 - 安装 Go 1.18 或更高版本。有关安装说明，请参阅 [Installing Go](../InstallingGo)。
 - 编辑代码的工具。任何文本编辑器都可以使用。
 - 命令终端。在 Linux 和 Mac 上使用任何终端，以及在 Windows 上使用 `PowerShell` 或 `cmd`，Go 都能很好地工作。
 
-## Create a folder for your code 为你的代码创建一个文件夹
+## 为你的代码创建一个文件夹
 
 首先，为你要写的代码创建一个文件夹。
 
@@ -72,13 +72,13 @@ go: creating new go.mod: module example/generics
 
 接下来，你将添加一些简单的代码来处理映射（maps）。
 
-## Add non-generic functions 添加非泛型函数
+## 添加非泛型函数
 
 ​	在这一步中，你将添加两个函数，它们分别将一个映射的值相加并返回总数。
 
 ​	你要声明两个函数而不是一个，因为你要处理两种不同类型的映射：一个是存储`int64`值的，另一个是存储`float64`值的。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 使用你的文本编辑器，在 `generics` 目录中创建一个名为 `main.go` 的文件。你将在这个文件中写下你的Go代码。
 
@@ -162,7 +162,7 @@ import "fmt"
 
 f. 保存`main.go`
 
-#### Run the code 运行代码
+#### 运行代码
 
 在包含`main.go`的目录下的命令行中，运行该代码。
 
@@ -173,7 +173,7 @@ Non-Generic Sums: 46 and 62.97
 
 ​	有了泛型，你可以在这里写一个函数而不是两个。接下来，你将为包含整数或浮点数的映射添加一个泛型函数。
 
-## Add a generic function to handle multiple types 添加一个泛型函数来处理多种类型
+## 添加一个泛型函数来处理多种类型
 
 ​	在这一节中，你将添加一个简单的泛型函数，它可以接收包含整数或浮点值的映射，有效地用一个简单的函数取代你刚才写的两个函数。
 
@@ -189,7 +189,7 @@ Non-Generic Sums: 46 and 62.97
 
 ​	在你要写的代码中，你将使用一个允许整数或浮点数类型的约束条件。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在你之前添加的两个函数下面，粘贴以下泛型函数。
 
@@ -230,7 +230,7 @@ fmt.Printf("Generic Sums: %v and %v\n",
 
 - 打印由函数返回的和。
 
-#### Run the code 运行代码
+#### 运行代码
 
 从包含`main.go`的目录中的命令行，运行代码。
 
@@ -244,7 +244,7 @@ Generic Sums: 46 and 62.97
 
 ​	在调用你写的泛型函数时，你指定了类型参数，告诉编译器使用什么类型来代替函数的类型参数。正如你将在下一节看到的，在许多情况下，你可以`省略这些类型参数`，因为`编译器可以推断出`它们。
 
-## Remove type arguments when calling the generic function 调用泛型函数时删除类型参数
+## 调用泛型函数时移除类型参数
 
 ​	在这一节中，你将添加一个修改版的泛型函数调用，做一个小改动以简化调用代码。你将删除类型参数，在这种情况下不需要这些参数。
 
@@ -254,7 +254,7 @@ Generic Sums: 46 and 62.97
 
 	请注意，这并不总是万能的。例如，如果你需要调用一个没有参数的泛型函数，你需要在函数调用中包含类型参数。
 
-#### Write the code 编写代码
+#### 编写代码
 
 - 在`main.go`中，在你已有的代码下面，粘贴以下代码。
 
@@ -268,7 +268,7 @@ Generic Sums: 46 and 62.97
 
   - 调用泛型用函数，省略类型参数。
 
-#### Run the code 运行该代码
+#### 运行该代码
 
 在包含main.go的目录下的命令行中，运行该代码。
 
@@ -281,7 +281,7 @@ Generic Sums, type parameters inferred: 46 and 62.97
 
 ​	接下来，你将进一步简化这个函数，将整数和浮点数的结合捕捉到一个可以重用的类型约束中，比如从其他代码中。
 
-## Declare a type constraint 声明一个类型约束
+## 声明一个类型约束
 
 ​	在最后一节中，你将把之前定义的约束移到自己的接口中，这样你就可以在多个地方重复使用它。以这种方式声明约束有助于简化代码，例如当一个约束比较复杂时。
 
@@ -289,7 +289,7 @@ Generic Sums, type parameters inferred: 46 and 62.97
 
 ​	约束接口也可以指代特定的类型，正如你将在本节看到的那样。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 就在`main`上面，紧接着`import`语句，粘贴下面的代码来声明一个类型约束。
 
@@ -339,7 +339,7 @@ fmt.Printf("Generic Sums with Constraint: %v and %v\n",
 
   ​	与上一节一样，你在调用通用函数时`省略了类型参数`（方括号中的类型名称）。Go编译器可以从其他参数中推断出类型参数。
 
-#### Run the code 运行代码
+#### 运行代码
 
 在包含`main.go`的目录下的命令行中，运行该代码。
 
@@ -351,17 +351,17 @@ Generic Sums, type parameters inferred: 46 and 62.97
 Generic Sums with Constraint: 46 and 62.97
 ```
 
-## Conclusion 总结
+## 总结
 
 做得很好! 你刚刚向自己介绍了Go中的泛型。
 
 建议的下一个主题：
 
-- The [Go Tour](../../GoTour)是对Go基础知识的一个很好的逐步介绍。
+- The [go Tour](../../GoTour)是对Go基础知识的一个很好的逐步介绍。
 - 你会在[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)和[How to write Go code](../HowToWriteGoCode)中找到有用的Go最佳实践。
   
 
-## Completed code 完整的代码
+## 完整的代码
 
 ​	你可以在[Go playground](https://go.dev/play/p/apNmfVwogK0?v=gotip)上运行这个程序。在 playground 上只需点击运行按钮。
 

@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/code](https://go.dev/doc/code)
 
-## Introduction 简介
+## 简介
 
 ​	本文档演示了在模块中开发一个简单的Go包，并介绍了[go tool](../../References/CommandDocumentation/go)，这是获取、构建和安装Go模块、包和命令的标准方式。
 
@@ -18,7 +18,7 @@ draft = false
 
 	注意：本文档假设您使用的是`Go 1.13`或更高版本，并且没有设置`GO111MODULE`环境变量。如果你要找的是本文档的旧版，即模块之前的版本，它被存档在[这里](../HowToWriteGoCodeWithGOPATH)。
 
-## Code organization 代码组织
+## 代码组织
 
 ​	Go程序被组织成包。包是同一目录下的源文件的集合，这些文件被编译在一起。在一个源文件中定义的函数、类型、变量和常量对同一包内的所有其他源文件都是可见的。
 
@@ -30,7 +30,7 @@ draft = false
 
 ​	导入路径是一个用于导入软件包的字符串。一个包的导入路径是它的模块路径与模块中的子目录相连接。例如，模块`github.com/google/go-cmp`在`cmp/`目录下包含一个包。该包的导入路径是`github.com/google/go-cmp/cmp`。**标准库中的包没有模块路径前缀**。
 
-## Your first program 你的第一个程序
+## 你的第一个程序
 
 ​	要编译和运行一个简单的程序，首先选择一个模块路径（我们将使用 `example/user/hello`），并创建一个声明它的 `go.mod` 文件：
 
@@ -121,7 +121,7 @@ $
 
 `go` 命令通过请求相应的 HTTPS URL 并读取嵌入在 HTML 响应中的元数据来定位包含给定模块路径的代码库（见 `go help importpath`）。许多托管服务已经为包含Go代码库提供了元数据，所以让你的模块供他人使用的最简单方法通常是使其模块路径与代码库的URL相匹配。
 
-### Importing packages from your module 从你的模块中导入软件包
+### 在你的模块中导入包
 
 ​	让我们写一个`morestrings`包并从`hello`程序中使用它。首先，为该包创建一个名为`$HOME/hello/morestrings`的目录，然后在该目录下创建一个名为`reverse.go`的文件，内容如下：
 
@@ -181,7 +181,7 @@ $ hello
 Hello, Go!
 ```
 
-### Importing packages from remote modules 从远程模块导入软件包
+### 从远程模块导入包
 
 ​	导入路径可以描述如何使用`Git`或`Mercurial`等修订控制系统获得软件包的源代码。`go`工具使用这个属性来自动从远程代码库获取包。例如，要在你的程序中使用`github.com/google/go-cmp/cmp`：
 
@@ -230,7 +230,7 @@ $ go clean -modcache
 $
 ```
 
-## Testing 测试
+## 测试
 
 ​	Go有一个由`go test`命令和`testing`包组成的轻量级测试框架。
 
@@ -272,7 +272,7 @@ $
 
 运行`go help test`，更多细节请看[testing package documentation](https://go.dev/pkg/testing/)。
 
-## What's next 下一步是什么
+## 下一步
 
 ​	订阅 [golang-announce](https://groups.google.com/group/golang-announce) 邮件列表，以便在 Go 的新稳定版本发布时获得通知。
 
@@ -282,7 +282,7 @@ $
 
 ​	访问[文档页面]()，了解有关 Go 语言及其库和工具的一系列深度文章。
 
-## Getting help 获得帮助
+## 获得帮助
 
 ​	要获得实时帮助，请向社区管理的 [gophers Slack server](https://gophers.slack.com/messages/general/) （[在此](https://invite.slack.golangbridge.org/)获取邀请）中愿意帮忙的 gophers 咨询。
 

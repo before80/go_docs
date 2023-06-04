@@ -26,13 +26,13 @@ draft = false
 
 注意：关于其他教程，请参见 [Tutorials](../Tutorials)。
 
-## Prerequisites 前提条件
+## 前提条件
 
 - 一些编程经验。这里的代码非常简单，但对函数有所了解是有帮助的。
 - 编辑代码的工具。你拥有的任何文本编辑器都可以工作。大多数文本编辑器都对Go有很好的支持。最受欢迎的是`VSCode`（免费）、`GoLand`（付费）和`Vim`（免费）。
 - 命令终端。在Linux和Mac上使用任何终端，以及在Windows上使用`PowerShell`或`cmd`，Go都能很好地工作。
 
-## Start a module that others can use 启动一个别人可以使用的模块
+## 启动一个别人可以使用的模块
 
 ​	首先创建一个Go模块。在模块中，你集和了一个或多个相关的包，以实现一组离散而有用的功能。例如，你可以创建一个模块，其中的包具有进行财务分析的功能，这样其他编写财务应用程序的人就可以使用你的工作。关于开发模块的更多信息，请参见[开发和发布模块](../../UsingAndUnderstandingGo/DevelopingModules/DevelopingAndPublishingModules)。
 

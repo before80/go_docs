@@ -12,11 +12,11 @@ draft = false
 
 ​	本教程介绍了Go中多模块工作区的基本知识。通过多模块工作区，你可以告诉Go命令你同时在多个模块中编写代码，并在这些模块中轻松构建和运行代码。
 
-​	在本教程中，你将在一个共享的多模块工作空间中创建两个模块，对这些模块进行修改，并在构建中看到这些修改的结果。
+​	在本教程中，你将在一个共享的多模块工作区中创建两个模块，对这些模块进行修改，并在构建中看到这些修改的结果。
 
 注意：关于其他教程，请看[Tutorials](../Tutorials)。
 
-## Prerequisites 前提条件
+## 前提条件
 
 - 安装 `Go 1.18` 或更高版本。
 - 编辑代码的工具。任何文本编辑器都可以使用。
@@ -24,7 +24,7 @@ draft = false
 
 ​	本教程需要`go1.18`或更高版本。请确保你已经使用 [go.dev/dl](https://go.dev/dl) 的链接安装了`Go 1.18`或更高版本。
 
-## Create a module for your code 为你的代码创建一个模块
+## 为你的代码创建一个模块
 
 首先，为你将要写的代码创建一个模块。
 
@@ -93,11 +93,11 @@ $ go run example.com/hello
 olleH
 ```
 
-## Create the workspace 创建工作区
+## 创建工作区
 
-在这一步骤中，我们将创建一个`go.work`文件来指定模块的工作空间。
+在这一步骤中，我们将创建一个`go.work`文件来指定模块的工作区。
 
-#### Initialize the workspace 初始化工作区
+#### 初始化工作区
 
 在`workspace`目录下，运行：
 
@@ -105,7 +105,7 @@ olleH
 $ go work init ./hello
 ```
 
-​	`go work init`命令告诉`go`为包含`./hello`目录中的模块的工作空间创建一个`go.work`文件。
+​	`go work init`命令告诉`go`为包含`./hello`目录中的模块的工作区创建一个`go.work`文件。
 
 `go`命令生成的`go.work`文件看起来像这样：
 
@@ -123,7 +123,7 @@ use ./hello
 
 因此，在`workspace`的任何子目录中，模块都会被激活。
 
-#### Run the program in the workspace directory 在`workspace` 目录下运行程序
+#### 在`workspace` 目录下运行程序
 
 在`workspace`目录下，运行：
 
@@ -138,7 +138,7 @@ The Go command includes all the modules in the workspace as main modules. This a
 
 ​	接下来，我们将在`workspace`中添加一份 `golang.org/x/example` 模块的本地副本。然后我们将在`stringutil`包中添加一个新的函数，我们可以用它代替`Reverse`。
 
-## Download and modify the `golang.org/x/example` module  下载并修改`golang.org/x/example`模块
+## 下载并修改`golang.org/x/example`模块
 
 ​	在这一步骤中，我们将下载一份包含 `golang.org/x/example` 模块的 Git repo 的副本，将其添加到`workspace`，然后为其添加一个新函数，我们将在 `hello` 程序中使用它。
 
@@ -214,7 +214,7 @@ func main() {
 }
 ```
 
-#### Run the code in the workspace 在`workspace` 运行代码
+#### 在`workspace` 运行代码
 
 从 `workspace` 目录中，运行
 
@@ -229,7 +229,7 @@ HELLO
 
 ​	由于这两个模块在同一个`workspace` 中，所以很容易在一个模块中做出改变，并在另一个模块中使用它。
 
-#### Future step 未来的步骤
+#### 未来的步骤
 
 ​	现在，为了正确地发布这些模块，我们需要对 `golang.org/x/example` 模块进行发布，例如在 `v0.1.0`。这通常是通过在模块的版本控制库中标记一个提交来完成的。更多细节请参见[模块发布工作流程文档](../../UsingAndUnderstandingGo/DevelopingModules/ModuleReleaseAndVersioningWorkflow)。发布完成后，我们可以在 `hello/go.mod` 中增加对 `golang.org/x/example` 模块的要求：
 
@@ -240,9 +240,9 @@ go get golang.org/x/example@v0.1.0
 
 这样一来，`go`命令就可以正确解决`workspace`外的模块了。
 
-## Learn more about workspaces 了解更多关于工作空间的信息
+## 了解更多关于工作区的信息
 
-​	除了我们在教程前面看到的`go work init`外，`go`命令还有几个子命令用于处理工作空间：
+​	除了我们在教程前面看到的`go work init`外，`go`命令还有几个子命令用于处理工作区：
 
 - `go work use [-r] [dir]` 在`go.work`文件中为`dir`添加一个`use`指令（如果该`dir`存在的话），如果参数目录不存在，则删除使用目录。`-r`标志会递归地检查`dir`的子目录。
 

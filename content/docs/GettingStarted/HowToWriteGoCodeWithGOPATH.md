@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/gopath_code](https://go.dev/doc/gopath_code)
 
-## Introduction 简介
+## 简介
 
 ​	如果你是Go的新手，请看最近的[How to Write Go Code](../HowToWriteGoCode)。
 
@@ -20,21 +20,21 @@ draft = false
 
 ​	类似的解释可以以[screencast](https://www.youtube.com/watch?v=XCsL89YtqCs)的形式提供。
 
-## Code organization 代码组织
+## 代码组织
 
-### Overview 概述
+### 概述
 
-- Go 程序员通常将所有 Go 代码放在一个工作空间中。
-- 一个工作空间包含许多版本控制代码库（例如由 Git 管理）。
+- Go 程序员通常将所有 Go 代码放在一个工作区中。
+- 一个工作区包含许多版本控制代码库（例如由 Git 管理）。
 - 每个仓库包含一个或多个包。
 - 每个包由单个目录下的一个或多个 Go 源文件组成。
 - 包的目录路径决定了它的导入路径。
 
-请注意，这与其他编程环境不同，在其他编程环境中，每个项目都有一个独立的工作空间，工作空间与版本控制代码库紧密相连。
+请注意，这与其他编程环境不同，在其他编程环境中，每个项目都有一个独立的工作区，工作区与版本控制代码库紧密相连。
 
-### Workspaces 工作空间
+### 工作区
 
-​	工作空间是一个目录层次结构，其根目录下有两个目录：
+​	工作区是一个目录层次结构，其根目录下有两个目录：
 
 - `src` —— 包含 Go 源文件
 - `bin` —— 包含可执行命令
@@ -43,7 +43,7 @@ draft = false
 
 `src`子目录通常包含多个版本控制代码库库（如为Git或Mercurial），跟踪一个或多个源代码包的开发。
 
-为了让你了解工作空间的实际情况，这里有一个例子：
+为了让你了解工作区的实际情况，这里有一个例子：
 
 ```text linenums="1"
 bin/
@@ -68,23 +68,23 @@ src/
     ... (many more repositories and packages omitted) ...
 ```
 
-​	上面的树显示了一个包含两个仓库（`example`和`image`）的工作空间。`example` 仓库包含两个命令（`hello` 和 `outyet`）和一个库（`stringutil`）。`image`代码库包含`bmp`包和[several others](https://pkg.go.dev/golang.org/x/image)几个包。
+​	上面的树显示了一个包含两个仓库（`example`和`image`）的工作区。`example` 仓库包含两个命令（`hello` 和 `outyet`）和一个库（`stringutil`）。`image`代码库包含`bmp`包和[several others](https://pkg.go.dev/golang.org/x/image)几个包。
 
-​	典型的工作空间包含许多源码代码库，其中包含许多包和命令。大多数 Go 程序员将所有 Go 源代码和依赖关系保存在一个工作空间中。
+​	典型的工作区包含许多源码代码库，其中包含许多包和命令。大多数 Go 程序员将所有 Go 源代码和依赖关系保存在一个工作区中。
 
-​	请注意，不应该使用`符号链接`将文件或目录链接到你的工作空间。
+​	请注意，不应该使用`符号链接`将文件或目录链接到你的工作区。
 
 ​	命令和库是由不同种类的源码包构建的。我们将在[后面](#package-names)讨论这种区别。
 
-### The `GOPATH` environment variable  GOPATH环境变量
+### `GOPATH`环境变量
 
-​	`GOPATH`环境变量指定了你的工作空间的位置。它默认为你的主目录内的一个名为`go`的目录，如Unix中的`$HOME/go`，Plan 9中的`$home/go`，以及Windows中的`%USERPROFILE%\go`（通常是`C:\Users\YourName\go`）。
+​	`GOPATH`环境变量指定了你的工作区的位置。它默认为你的主目录内的一个名为`go`的目录，如Unix中的`$HOME/go`，Plan 9中的`$home/go`，以及Windows中的`%USERPROFILE%\go`（通常是`C:\Users\YourName\go`）。
 
 ​	如果你希望在不同的位置工作，你需要把`GOPATH`设置为该目录的路径。(另一种常见的设置是设置 `GOPATH=$HOME`。)注意 `GOPATH` 不能与您的 Go 安装路径相同。
 
 ​	命令 `go env GOPATH` 打印当前有效的 `GOPATH`；如果环境变量未设置，则打印默认位置。
 
-​	为方便起见，将工作空间的 `bin` 子目录添加到你的 `PATH` 中。
+​	为方便起见，将工作区的 `bin` 子目录添加到你的 `PATH` 中。
 
 ```
 $ export PATH=$PATH:$(go env GOPATH)/bin
@@ -98,9 +98,9 @@ $ export GOPATH=$(go env GOPATH)
 
 ​	要了解更多关于`GOPATH`环境变量的信息，请参阅 "`go help gopath`"。
 
-### Import paths 导入路径
+### 导入路径
 
-​	导入路径是一个字符串，它唯一地标识了一个包。包的导入路径与它在工作空间或远程代码库中的位置相对应（解释如下）。
+​	导入路径是一个字符串，它唯一地标识了一个包。包的导入路径与它在工作区或远程代码库中的位置相对应（解释如下）。
 
 ​	来自标准库的包被赋予简短的导入路径，如 "`fmt` "和 "`net/http`"。对于你自己的包，你必须选择一个不太可能与未来添加到标准库或其他外部库相冲突的基本路径。
 
@@ -108,15 +108,15 @@ $ export GOPATH=$(go env GOPATH)
 
 ​	注意，你不需要在构建代码之前将其发布到远程仓库。这只是一个好习惯，把你的代码组织起来，就像你有一天会发布它一样。在实践中，你可以选择任何任意的路径名称，只要它对标准库和更大的Go生态系统来说是唯一的。
 
-​	我们将使用`github.com/user`作为我们的基本路径。在你的工作空间内创建一个目录，用来保存源代码。
+​	我们将使用`github.com/user`作为我们的基本路径。在你的工作区内创建一个目录，用来保存源代码。
 
 ```shell
 $ mkdir -p $GOPATH/src/github.com/user
 ```
 
-### Your first program 你的第一个程序
+### 你的第一个程序
 
-​	要编译和运行一个简单的程序，首先选择一个包的路径（我们将使用`github.com/user/hello`），并在你的工作空间中创建一个相应的包目录：
+​	要编译和运行一个简单的程序，首先选择一个包的路径（我们将使用`github.com/user/hello`），并在你的工作区中创建一个相应的包目录：
 
 ```shell
 $ mkdir $GOPATH/src/github.com/user/hello
@@ -140,7 +140,7 @@ func main() {
 $ go install github.com/user/hello
 ```
 
-​	注意，你可以在你系统的任何地方运行这个命令。`go`工具通过在`GOPATH`指定的工作空间内寻找`github.com/user/hello`包来找到源代码。
+​	注意，你可以在你系统的任何地方运行这个命令。`go`工具通过在`GOPATH`指定的工作区内寻找`github.com/user/hello`包来找到源代码。
 
 ​	如果你在包目录下运行`go install`，你也可以省略包路径：
 
@@ -149,7 +149,7 @@ $ cd $GOPATH/src/github.com/user/hello
 $ go install
 ```
 
-​	该命令构建了`hello`命令，产生了一个可执行的二进制文件。然后，它将该二进制文件安装到工作空间的`bin`目录下，称为`hello`（或者，在Windows下，`hello.exe`）。在我们的例子中，这将是`$GOPATH/bin/hello`，也就是`$HOME/go/bin/hello`。
+​	该命令构建了`hello`命令，产生了一个可执行的二进制文件。然后，它将该二进制文件安装到工作区的`bin`目录下，称为`hello`（或者，在Windows下，`hello.exe`）。在我们的例子中，这将是`$GOPATH/bin/hello`，也就是`$HOME/go/bin/hello`。
 
 ​	`go`工具只有在发生错误时才会打印输出，所以如果这些命令没有产生输出，它们就已经成功执行了。
 
@@ -182,7 +182,7 @@ $ git commit -m "initial commit"
 
 将代码推送到远程仓库是留给读者的一个练习。
 
-### Your first library 你的第一个库
+### 你的第一个库
 
 ​	让我们写一个库并在 `hello` 程序中使用它。
 
@@ -251,7 +251,7 @@ $ hello
 Hello, Go!
 ```
 
-完成上述步骤后，你的工作空间应该是这样的：
+完成上述步骤后，你的工作区应该是这样的：
 
 ```
 bin/
@@ -264,7 +264,7 @@ src/
             reverse.go    # package source
 ```
 
-### Package names 包名
+### 包名
 
 Go源文件中的第一条语句必须是
 
@@ -284,7 +284,7 @@ There is no requirement that package names be unique across all packages linked 
 
 ​	请参阅[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)以了解更多关于Go的命名规则。
 
-## Testing 测试
+## 测试
 
 ​	Go 有一个由 `go test` 命令和`testing`包组成的轻量级测试框架。
 
@@ -330,7 +330,7 @@ ok  	github.com/user/stringutil 0.165s
 
 运行`go help test`，查看[testing package documentation](https://go.dev/pkg/testing/)以了解更多细节。
 
-## Remote packages 远程包
+## 远程包
 
 ​	导入路径可以描述如何使用`Git`或`Mercurial`等修订控制系统获得软件包的源代码。`go`工具使用这个属性来自动从远程代码库获取包。例如，本文档中描述的例子也保存在GitHub `golang.org/x/example`的Git代码库中。如果你在包的导入路径中包含代码库的URL，`go get`将自动获取、构建和安装它：
 
@@ -340,9 +340,9 @@ $ $GOPATH/bin/hello
 Hello, Go examples!
 ```
 
-​	如果指定的包不存在于工作空间，`go get`会把它放在`GOPATH`指定的第一个工作空间中。(如果该包已经存在，`go get`将跳过远程获取，其行为与`go install`相同)。
+​	如果指定的包不存在于工作区，`go get`会把它放在`GOPATH`指定的第一个工作区中。(如果该包已经存在，`go get`将跳过远程获取，其行为与`go install`相同)。
 
-​	在发出上述`go get`命令后，工作空间的目录树现在应该是这样的：
+​	在发出上述`go get`命令后，工作区的目录树现在应该是这样的：
 
 ```
 bin/
@@ -375,7 +375,7 @@ import "golang.org/x/example/stringutil"
 
 ​	关于使用 `go` 工具的远程代码库的更多信息，请参见 `go help importpath`。
 
-## What's next 下一步是什么
+## 下一步
 
 Subscribe to the [golang-announce](https://groups.google.com/group/golang-announce) mailing list to be notified when a new stable version of Go is released.
 
@@ -393,7 +393,7 @@ Visit the [documentation page](https://go.dev/doc/#articles) for a set of in-dep
 
 访问文档页面，了解有关 Go 语言及其库和工具的一系列深度文章。
 
-## Getting help 获得帮助
+## 获得帮助
 
 For real-time help, ask the helpful gophers in `#go-nuts` on the [Libera.Chat](https://libera.chat/) IRC server.
 

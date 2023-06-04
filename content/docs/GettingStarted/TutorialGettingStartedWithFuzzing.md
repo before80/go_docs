@@ -31,14 +31,14 @@ draft = false
 
 	注意：Go模糊测试目前支持[Go模糊测试文档](../../UsingAndUnderstandingGo/Fuzzing#requirements)中列出的内置类型子集，未来将增加对更多内置类型的支持。
 
-## Prerequisites 前提条件
+## 前提条件
 
 - 安装 Go 1.18 或更高版本。关于安装说明，请参阅 [Installing Go](../InstallingGo)。
 - 编辑代码的工具。任何你拥有的文本编辑器都可以使用。
 - 命令终端。在 Linux 和 Mac 上使用任何终端，以及在 Windows 上使用 `PowerShell` 或 `cmd`，Go 都能很好地工作。
 - 支持模糊处理的环境。目前只有在`AMD64`和`ARM64`架构上可以使用覆盖检测技术进行模糊化。
 
-## Create a folder for your code 为你的代码创建一个文件夹
+## 为你的代码创建一个文件夹
 
 首先，为你要写的代码创建一个文件夹。
 
@@ -78,11 +78,11 @@ go: creating new go.mod: module example/fuzz
 
 ​	接下来，你将添加一些简单的代码来反转一个字符串，我们稍后将对其进行模糊处理。
 
-## Add code to test 添加测试代码
+## 添加测试代码
 
 在这一步，你将添加一个函数来反转一个字符串。
 
-### Write the code 编写代码
+### 编写代码
 
 a. 使用你的文本编辑器，在`fuzz`目录下创建一个名为`main.go`的文件。
 
@@ -137,7 +137,7 @@ package main
 import "fmt"
 ```
 
-### Run the code 运行该代码
+### 运行该代码
 
 在包含`main.go`的目录下的命令行中，运行该代码。
 
@@ -152,11 +152,11 @@ reversed again: "The quick brown fox jumped over the lazy dog"
 
 ​	现在代码正在运行，是时候测试它了。
 
-## Add a unit test 添加一个单元测试
+## 添加一个单元测试
 
 在这一步，你将为`Reverse`函数写一个基本的单元测试。
 
-### Write the code 编写代码
+### 编写代码
 
 a. 使用你的文本编辑器，在`fuzz`目录下创建一个名为`reverse_test.go`的文件。
 
@@ -188,7 +188,7 @@ func TestReverse(t *testing.T) {
 
 这个简单的测试将断言列出的输入字符串将被正确反转的字符串。
 
-### Run the code 运行代码
+### 运行代码
 
 使用`go test`运行单元测试
 
@@ -200,7 +200,7 @@ ok      example/fuzz  0.013s
 
 接下来，你将把单元测试改为模糊测试。
 
-## Add a fuzz test 添加一个模糊测试
+## 添加一个模糊测试
 
 ​	`单元测试有其局限性`，即每个输入必须由开发人员添加到测试中。模糊测试的一个好处是，它为你的代码提供输入，并可以识别出你提供的测试用例没有达到的边缘情况。
 
@@ -208,7 +208,7 @@ ok      example/fuzz  0.013s
 
 注意，你可以把单元测试（unit tests）、基准测试（benchmarks）和模糊测试（fuzz tests）放在同一个`*_test.go`文件中，但在这个例子中，你将把单元测试转换为模糊测试。
 
-### Write the code 编写代码
+### 编写代码
 
 在你的文本编辑器中，用以下模糊测试替换 `reverse_test.go` 中的单元测试。
 
@@ -260,7 +260,7 @@ import (
 
 将单元测试转换为模糊测试后，现在是再次运行测试的时候了。
 
-### Run the code 运行代码
+### 运行代码
 
 a. 运行模糊测试而不 fuzzing 它，以确保种子（seed）输入通过。
 
@@ -314,13 +314,13 @@ FAIL    example/fuzz  0.016s
 
 既然我们的测试已经失败了，现在是时候进行调试了。
 
-## Fix the invalid string error 修复无效字符串的错误
+## 修复无效字符串的错误
 
 ​	在这一节中，你将对失败进行调试，并修复这个错误。
 
 ​	在继续之前，请随意花一些时间来思考，并尝试自己修复这个问题。
 
-### Diagnose the error 诊断错误
+### 诊断错误
 
 ​	有几种不同的方法可以调试这个错误。如果你使用`VS Code`作为你的文本编辑器，你可以[设置你的调试器](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)来调查。
 
@@ -336,7 +336,7 @@ ValidString reports whether s consists entirely of valid UTF-8-encoded runes. `V
 
 ​	为了检查为什么输入（在本例中是中文字符 "`泃`"）会导致`Reverse`在反转时产生一个无效的字符串，你可以检查反转字符串中的符文数量。
 
-#### Write the code 编写代码
+#### 编写代码
 
 ​	在你的文本编辑器中，将`FuzzReverse`中的 fuzz 目标替换为以下内容。
 
@@ -356,7 +356,7 @@ f.Fuzz(func(t *testing.T, orig string) {
 
 ​	如果发生错误，或者用`-v`执行测试，这个`t.Logf`行将打印到命令行，这可以帮助你调试这个特殊问题。
 
-#### Run the code 运行代码
+#### 运行代码
 
 使用`go test`运行测试
 
@@ -379,11 +379,11 @@ FAIL    example/fuzz    0.598s
 
 ​	在对这个错误有了更深入的了解后，在`Reverse`函数中纠正这个错误。
 
-### Fix the error 修正错误
+### 修正错误
 
 ​	为了纠正`Reverse`函数，让我们通过符文而不是通过字节来遍历字符串。
 
-#### Write the code 编写代码
+#### 编写代码
 
 ​	在你的文本编辑器中，将现有的`Reverse()`函数替换为以下内容。
 
@@ -399,7 +399,7 @@ func Reverse(s string) string {
 
 ​	关键的区别是`Reverse`现在是对字符串中的每个`rune`（符文）进行迭代，而不是每个`byte`（字节）。
 
-#### Run the code 运行代码
+#### 运行代码
 
 a. 使用`go test`运行测试
 
@@ -434,13 +434,13 @@ FAIL    example/fuzz  0.032s
 
 我们再来调试一下。
 
-## Fix the double reverse error 修复两次反转错误
+## 修复两次反转错误
 
 ​	在这一节中，你将调试两次反转失败，并修复这个错误。
 
 ​	在继续之前，请随意花一些时间来思考这个问题，并尝试自己修复这个问题。
 
-### Diagnose the error 诊断错误
+### 诊断错误
 
 ​	像以前一样，你有几种方法可以调试这个故障。在这种情况下，使用[debugger （调试器）](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)将是一个很好的方法。
 
@@ -448,7 +448,7 @@ FAIL    example/fuzz  0.032s
 
 ​	仔细观察反转的字符串来发现错误。在Go中，[字符串是一个只读的字节切片](https://go.dev/blog/strings)，可以包含`无效UTF-8的字节`。原始字符串是一个字节切片，其中有一个字节`'\x91'`。当输入字符串被设置为`[]rune`时，Go将字节切片编码为UTF-8，并将该字节替换为UTF-8字符�。当我们将替换的UTF-8字符与输入的字节切片进行比较时，它们显然是不相等的。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在你的文本编辑器中，将`Reverse`函数替换为以下内容。
 
@@ -466,7 +466,7 @@ func Reverse(s string) string {
 
 这将帮助我们了解在将字符串转换为符文片时出了什么问题。
 
-#### Run the code 编写代码
+#### 编写代码
 
 ​	这一次，我们只想运行失败的测试，以便检查日志。要做到这一点，我们将使用`go test -run`。
 
@@ -489,11 +489,11 @@ FAIL    example/fuzz    0.145s
 
 ​	知道了输入是无效的 unicode，让我们在`Reverse`函数中修复这个错误。
 
-### Fix the error 修复错误
+### 修复错误
 
 ​	为了解决这个问题，如果`Reverse`的输入不是有效的UTF-8，让我们返回一个错误。
 
-#### Write the code 编写代码
+#### 编写代码
 
 a. 在你的文本编辑器中，将现有的`Reverse`函数替换为以下内容。
 
@@ -566,7 +566,7 @@ func FuzzReverse(f *testing.F) {
 
 ​	你也可以调用`t.Skip()`而不是返回，以停止执行该模糊输入。
 
-#### Run the code 运行代码
+#### 运行代码
 
 a. 使用`go test`运行测试
 
@@ -619,7 +619,7 @@ Fuzzing通过了!
 
 除了`-fuzz`标志外，还有几个新的标志被添加到`go test`中，可以在[文档](../../UsingAndUnderstandingGo/Fuzzing#custom-settings)中查看。
 
-## Conclusion 总结
+## 总结
 
 ​	做得很好! 你刚刚向自己介绍了Go中的fuzzing。
 
@@ -631,7 +631,7 @@ Fuzzing通过了!
 
 ​	请查看 [go.dev/security/fuzz](../../UsingAndUnderstandingGo/Fuzzing) 的文档，以进一步阅读。
 
-## Completed code 完整的代码
+## 完整的代码
 
 === "main.go"
 

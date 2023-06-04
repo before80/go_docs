@@ -33,14 +33,14 @@ draft = false
 
 [![Open in Cloud Shell](TutorialDevelopingARESTfulAPIWithGoAndGin_img/open-btn.png)](https://ide.cloud.google.com/?cloudshell_workspace=~&walkthrough_tutorial_url=https://raw.githubusercontent.com/golang/tour/master/tutorial/web-service-gin.md)
 
-## 前提条件 Prerequisites 
+## 前提条件 
 
 - 安装 `Go 1.16` 或更高版本。关于安装说明，请参见[Installing Go](../InstallingGo)。
 - 编辑代码的工具。您拥有的任何文本编辑器都可以工作。
 - 命令终端。在 Linux 和 Mac 上使用任何终端，以及在 Windows 上使用 PowerShell 或 cmd，Go 都能很好地工作。
 - `curl` 工具。在Linux和Mac上，这个工具应该已经安装。在Windows上，它包含在`Windows 10 Insider build 17063`及以后的版本中。对于早期的Windows版本，你可能需要安装它。更多信息，请参见 [Tar and Curl Come to Windows](https://docs.microsoft.com/en-us/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows)。
 
-## 设计API端点 Design API endpoints 
+## 设计API端点 
 
 ​	你将建立一个API，提供对一个销售黑胶唱片的商店的访问。所以你需要提供端点，客户端可以通过这些端点为用户获取和添加专辑。
 
@@ -59,7 +59,7 @@ draft = false
 
 接下来，你将为代码创建一个文件夹。
 
-## 为你的代码创建一个文件夹 Create a folder for your code 
+## 为你的代码创建一个文件夹
 
 首先，为你要写的代码创建一个项目。
 
@@ -97,13 +97,13 @@ go: creating new go.mod: module example/web-service-gin
 
 接下来，你将设计处理数据的数据结构。
 
-## 创建数据 Create the data 
+## 创建数据 
 
 ​	为了简化本教程，将数据存储在内存中。更典型的 API 将与数据库交互。
 
 ​	请注意，在内存中存储数据意味着每次你停止服务器时，这组专辑就会丢失，然后在你启动它时重新创建。
 
-#### 编写代码 Write the code 
+#### 编写代码
 
 a. 使用你的文本编辑器，在`web-service`目录下创建一个名为`main.go`的文件。你将在这个文件中写下你的Go代码。
 
@@ -142,7 +142,7 @@ var albums = []album{
 
 接下来，你要写代码来实现你的第一个端点。
 
-## 编写返回所有项的处理程序 Write a handler to return all items 
+## 编写返回所有项的处理程序
 
 ​	当客户端使用`GET /albums`发出请求时，你想以JSON格式返回所有的专辑。
 
@@ -153,7 +153,7 @@ var albums = []album{
 
 请注意，这与它们在运行时的执行方式相反，但你首先要添加依赖关系，然后是依赖它们的代码。
 
-#### 编写代码 Write the code 
+#### 编写代码
 
 a. 在上一节添加的结构代码下面，粘贴以下代码以获得专辑列表。
 
@@ -219,7 +219,7 @@ import (
 
 d. 保存`main.go`。
 
-#### 运行代码 Run the code 
+#### 运行代码
 
 a. 开始跟踪Gin模块作为一个依赖项。
 
@@ -273,7 +273,7 @@ $ curl http://localhost:8080/albums
 
 ​	你已经启动了一个API! 在下一节中，你将使用代码创建另一个端点来处理添加项的`POST`请求。
 
-## 编写添加新项的处理程序 Write a handler to add a new item 
+## 编写添加新项的处理程序 
 
 ​	当客户端向`/albums`发出`POST`请求时，你想把请求正文中描述的专辑添加到现有的专辑数据中。
 
@@ -282,7 +282,7 @@ $ curl http://localhost:8080/albums
 - 将新专辑添加到现有列表中的逻辑。
 - 一段将`POST`请求路由到逻辑的代码。
 
-#### 编写代码 Write the code 
+#### 编写代码
 
 a. 添加代码，将专辑数据添加到专辑列表中。
 
@@ -333,7 +333,7 @@ func main() {
 
   ​	通过Gin，你可以将处理程序与HTTP 的 method-and-path 组合联系起来。通过这种方式，你可以根据客户端使用的方法，分别路由 sent 到单个路径的请求。
 
-#### 运行代码 Run the code 
+#### 运行代码
 
 a. 如果服务器在上一节中仍在运行，请停止它。
 
@@ -410,7 +410,7 @@ $ curl http://localhost:8080/albums \
 
 在下一节，你将添加代码来处理一个特定项的`GET`。
 
-## 编写返回特定项的处理程序 Write a handler to return a specific item 
+## 编写返回特定项的处理程序
 
 ​	当客户端发出`GET /albums/[id]`的请求时，你想返回ID与`id`路径参数相符的专辑。
 
@@ -419,7 +419,7 @@ $ curl http://localhost:8080/albums \
 - 添加逻辑来检索请求的专辑。
 - 将路径映射到逻辑中。
 
-#### 编写代码 Write the code 
+#### 编写代码
 
 a. 在上一节中添加的`postAlbums`函数下面，粘贴以下代码以检索特定的专辑。
 
@@ -470,7 +470,7 @@ func main() {
 
 - 将`/albums/:id`路径与`getAlbumByID`函数联系起来。在Gin中，路径中项之前的冒号标志着该项是一个`路径参数 （path parameter.）`。
 
-#### 运行代码 Run the code 
+#### 运行代码
 
 a. 如果服务器在上一节中仍在运行，请停止它。
 
@@ -497,7 +497,7 @@ $ curl http://localhost:8080/albums/2
 }
 ```
 
-## 总结 Conclusion 
+## 总结 
 
 ​	恭喜你！你刚刚用Go和Gin编写了一个简单的RESTful网络服务。您刚刚使用Go和Gin编写了一个简单的RESTful Web服务。
 
@@ -507,7 +507,7 @@ $ curl http://localhost:8080/albums/2
 - [Go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的循序渐进的介绍。
 - 关于Gin的更多信息，请参见[Gin Web Framework package documentation](https://pkg.go.dev/github.com/gin-gonic/gin)或[Gin Web Framework docs](https://gin-gonic.com/docs/)。
 
-## 完整的代码 Completed code 
+## 完整的代码 
 
 本节包含您通过本教程构建的应用程序的代码。
 

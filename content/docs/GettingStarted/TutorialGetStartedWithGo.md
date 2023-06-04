@@ -20,17 +20,17 @@ draft = false
 
 > 注意：关于其他教程，请参见[Tutorials](../Tutorials)。
 
-## Prerequisites 前提条件
+## 前提条件
 
 - 一些编程经验。这里的代码非常简单，但对函数有所了解是有帮助的。
 - 一个编辑代码的工具。你拥有的任何文本编辑器都可以工作。大多数文本编辑器都对Go有很好的支持。最受欢迎的是`VSCode`（免费）、`GoLand`（付费）和`Vim`（免费）。
 - 一个命令终端。在Linux和Mac上使用任何终端，以及在Windows上使用`PowerShell`或`cmd`，Go都能很好地工作。
 
-## Install Go 安装Go
+## 安装Go
 
 只需使用[下载和安装](../InstallingGo)页面的步骤。
 
-## Write some code 编写一些代码
+## 编写一些代码
 
 从Hello, World开始。
 
@@ -105,7 +105,7 @@ Hello, World!
 $ go help
 ```
 
-## Call code in an external package 调用外部包中的代码
+## 调用外部包中的代码
 
 ​	当你需要你的代码做一些可能已经被别人实现的事情时，可以查找包含可以在代码中使用的函数的包。
 
@@ -155,6 +155,6 @@ Don't communicate by sharing memory, share memory by communicating.
 
 当你运行`go mod tidy`这条命令时，它`定位`并`下载`了包含你导入的包的`rsc.io/quote`模块。默认情况下，它下载的是最新版本。
 
-## Write more code 编写更多的代码
+## 编写更多的代码
 
 ​	通过这个快速介绍，你已经安装了Go，并学会了一些基本知识。要用另一个教程写更多的代码，请看[创建Go模块](../TutorialCreateAGoModule)。

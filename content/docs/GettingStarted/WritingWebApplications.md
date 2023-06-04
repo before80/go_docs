@@ -11,7 +11,7 @@ draft = false
 > 原文：[https://go.dev/doc/articles/wiki/](https://go.dev/doc/articles/wiki/)
 >
 
-## Introduction 简介
+## 简介
 
 本教程中涉及的内容：
 
@@ -28,7 +28,7 @@ draft = false
 - 了解基本的Web技术（HTTP、HTML）。
 - 一些UNIX/DOS命令行知识
 
-## Getting Started 开始使用
+## 开始使用
 
 ​	目前，你需要有一台FreeBSD、Linux、macOS或Windows机器来运行Go。我们将用`$`来代表命令提示符。
 
@@ -54,7 +54,7 @@ import (
 
 ​	我们从 Go 标准库中导入 `fmt` 和 `os` 包。以后，随着我们实现更多的功能，我们将在这个`import`声明中添加更多的包。
 
-## Data Structures 数据结构
+## 数据结构
 
 ​	让我们从定义数据结构开始。一个`wiki`由一系列相互关联的页面组成，每个页面都有一个标题和一个主体（页面内容）。在这里，我们将`Page`定义为一个结构，有两个字段代表标题和正文。
 
@@ -179,7 +179,7 @@ func main() {
 }
 ```
 
-## Introducing the `net/http` package (an interlude)   介绍`net/http`包（一个中间件）
+## 介绍`net/http`包（一个中间件）
 
 下面是一个简单的Web服务器的完整工作实例：
 
@@ -333,7 +333,7 @@ $ ./wiki
 
 
 
-## Editing Pages 编辑页面
+## 编辑页面
 
 ​	没有编辑页面的能力，wiki 就不是wiki 。让我们创建两个新的处理程序：一个名为`editHandler`，用于显示 "编辑页面 "表单，另一个名为`saveHandler`，用于保存通过表单输入的数据。
 
@@ -368,7 +368,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	这个函数可以正常工作，但所有这些硬编码的HTML都很难看。当然，有一个更好的方法。
 
-## The `html/template` package 包html/template 
+## `html/template` 包
 
 ​	`html/template` 包是 Go 标准库的一部分。我们可以使用 `html/template` 将 HTML 保存在一个单独的文件中，这样我们就可以在不修改 Go 底层代码的情况下改变我们编辑页面的布局。
 
@@ -562,7 +562,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 
 
-## Handling non-existent pages 处理不存在的页面
+## 处理不存在的页面
 
 What if you visit [`/view/APageThatDoesntExist`](http://localhost:8080/view/APageThatDoesntExist)? You'll see a page containing HTML. This is because it ignores the error return value from `loadPage` and continues to try and fill out the template with no data. Instead, if the requested Page doesn't exist, it should redirect the client to the edit Page so the content may be created:
 
@@ -582,7 +582,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	`http.Redirect`函数在HTTP响应中添加一个HTTP状态代码`http.StatusFound`（302）和一个`Location`响应头。
 
-## Saving Pages 保存页面
+## 保存页面
 
 ​	函数`saveHandler`将处理位于编辑页上的表单的提交。在取消对`main`中相关行的注释后，让我们来实现这个处理程序：
 
@@ -600,7 +600,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	由`FormValue`返回的值是`string`类型的。我们必须将该值转换为`[]byte`，然后才能将其放入`Page`结构中。我们使用`[]byte(body)`来进行转换。
 
-## Error handling 错误处理
+## 错误处理
 
 ​	在我们的程序中，有几个地方的错误被忽略了。这是不好的做法，尤其是当错误发生时，程序会产生意想不到的行为。一个更好的解决方案是处理错误并向用户返回一个错误信息。这样一来，如果真的出了问题，服务器将完全按照我们想要的方式运行，而用户可以得到通知。
 
@@ -640,7 +640,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	在`p.save()`过程中发生的任何错误都会报告给用户。
 
-## Template caching 模板缓存
+## 模板缓存
 
 ​	这段代码中有一个低效的地方：`renderTemplate`在每次渲染页面的时候都会调用`ParseFiles`。更好的方法是在程序初始化时调用一次`ParseFiles`，将所有模板解析成一个`*Template`。然后我们可以使用[ExecuteTemplate](https://go.dev/pkg/html/template/#Template.ExecuteTemplate)方法来渲染一个特定的模板。
 
@@ -667,7 +667,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 注意，模板名称是模板文件的名称，所以我们必须在`tmpl`参数后加上"`.html`"。
 
-## Validation 验证
+## 验证
 
 ​	正如你可能已经观察到的，这个程序有一个严重的安全缺陷：用户可以提供一个任意的路径在服务器上被读/写。为了缓解这个问题，我们可以写一个函数，用`正则表达式`来验证标题。
 
@@ -736,7 +736,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-## Introducing Function Literals and Closures 介绍函数字面量和闭包
+## 介绍函数字面量和闭包
 
 ​	在每个处理程序中捕捉错误条件，会引入大量的重复代码。如果我们能把每个处理程序都包在一个函数中，进行验证和错误检查呢？Go的[函数字面量](../../References/LanguageSpecification/Expressions#function-literals)意义提供了一种强大的抽象功能的方法，可以帮助我们解决这个问题。
 
@@ -820,7 +820,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 ```
 
-## Try it out! 试试吧!
+## 试一试!
 
 最终的代码如下:
 
@@ -958,7 +958,7 @@ $ ./wiki
 
 ​	访问http://localhost:8080/view/ANewPage，你应该看到页面编辑表单。然后你应该能够输入一些文本，点击 "Save"，并被重定向到新创建的页面。
 
-## Other tasks 其他任务
+## 其他任务
 
 这里有一些你可能想自己解决的简单任务：
 
