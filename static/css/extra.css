@@ -344,9 +344,13 @@ p > strong, .td-content li > strong{
 
 .td-content li > a {
   /*color: #cd00ff !important;*/
-  color: #0010ff5c !important;
+  color: #0010ff5c;
   font-weight: bold;
   font-size: 1.1em !important;
+}
+
+.td-content li > a:hover {
+  animation: colorChange2 1.2s infinite;
 }
 
 .center {
