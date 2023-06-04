@@ -130,6 +130,24 @@ window.markmap = {
       collapseDepth: 6,
       // positionFixedClass: 'is-position-fixed',
     });
+
+    let minutes = 0;
+    let seconds = 0;
+
+    let timerElement = document.getElementById('show-timer');
+
+    function updateTimer() {
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+      }
+
+      let formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+      timerElement.textContent = minutes + ':' + formattedSeconds;
+    }
+
+    setInterval(updateTimer, 1000);
   })
 </script>
 {{ end }}
