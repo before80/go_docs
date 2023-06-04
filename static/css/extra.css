@@ -295,10 +295,10 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 }
 
 .toc-list-item>a:hover {
-  animation: colorChange 1.2s infinite;
+  animation: colorChange1 1.2s infinite;
 }
 
-@keyframes colorChange {
+@keyframes colorChange1 {
   0% {
     /*color: rgba(205, 0, 255, 80%);*/
     color: rgba(0, 71, 255, 80%);
@@ -315,10 +315,28 @@ li > code,p > code,h2 > code,h3 > code, h4 > code {
 
 p > a {
   /*color: #cd00ff !important;*/
-  color: #0010ff5c !important;
+  color: rgba(0, 16, 255, 0.36);
   font-weight: bold;
   font-size: 1.1em !important;
 }
+
+p > a:hover {
+  animation: colorChange2 1.2s infinite;
+}
+
+@keyframes colorChange2 {
+  0% {
+    color: rgba(0, 16, 255, 0.36);
+  }
+  50% {
+    color: rgba(0, 16, 255, 0.5);
+  }
+  100% {
+    color: rgba(0, 16, 255, 0.36);
+  }
+}
+
+
 
 p > strong, .td-content li > strong{
   font-size: 1.1em !important;
