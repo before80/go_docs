@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/cancel-operations](https://go.dev/doc/database/cancel-operations)
 
-​	您可以通过使用Go [context.Context]({{< ref "/docs/StdLib/context#type-context">}})来管理正在进行的操作。`Context`是一个标准的Go数据值，可以报告它所表示的整体操作是否已经被取消，是否不再需要。通过在应用程序中的函数调用和服务中传递`context.Context`，这些（函数调用和服务）可以提前停止工作，并在不再需要其处理时返回一个错误。关于`Context`的更多信息，请参阅 [Go并发模式：Context](../../../GoBlog/2014/GoConcurrencyPatternsContext)。
+​	您可以通过使用Go [context.Context]({{< ref "/stdLib/context#type-context">}})来管理正在进行的操作。`Context`是一个标准的Go数据值，可以报告它所表示的整体操作是否已经被取消，是否不再需要。通过在应用程序中的函数调用和服务中传递`context.Context`，这些（函数调用和服务）可以提前停止工作，并在不再需要其处理时返回一个错误。关于`Context`的更多信息，请参阅 [Go并发模式：Context]({{< ref "/goBlog/2014/GoConcurrencyPatternsContext" >}})。
 
 例如，您可能想：
 
@@ -21,9 +21,9 @@ draft = false
 
 ### 在超时后取消数据库操作
 
-​	您可以使用 `Context` 来设置一个超时或最后期限，超时后的操作将被取消。要派生一个带有超时或最后期限的`Context`，请调用[context.WithTimeout]({{< ref "/docs/StdLib/context#func-withtimeout">}})或[context.WithDeadline]({{< ref "/docs/StdLib/context#func-withdeadline">}})。
+​	您可以使用 `Context` 来设置一个超时或最后期限，超时后的操作将被取消。要派生一个带有超时或最后期限的`Context`，请调用[context.WithTimeout]({{< ref "/stdLib/context#func-withtimeout">}})或[context.WithDeadline]({{< ref "/stdLib/context#func-withdeadline">}})。
 
-​	下面的超时例子中的代码派生了一个Context，并将其传递给`sql.DB` [QueryContext]({{< ref "/docs/StdLib/database/sql#db-querycontext----go18">}})方法。
+​	下面的超时例子中的代码派生了一个Context，并将其传递给`sql.DB` [QueryContext]({{< ref "/stdLib/database/sql#db-querycontext----go18">}})方法。
 
 ```go 
 func QueryWithTimeout(ctx context.Context) {

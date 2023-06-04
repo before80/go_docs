@@ -10,9 +10,9 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/open-handle](https://go.dev/doc/database/open-handle)
 
-​	[database/sql]({{< ref "/docs/StdLib/database/sql" >}})包通过减少您需要的管理连接来简化数据库访问。与许多数据访问API不同，使用`database/sql`，您不需要明确地打开一个连接，进行工作，然后关闭连接。相反，您的代码会打开一个代表连接池的数据库句柄，然后用这个句柄执行数据访问操作，仅在需要释放资源（比如那些被检索的行或预处理语句所持有的资源）时才调用`Close`方法。
+​	[database/sql]({{< ref "/stdLib/database/sql" >}})包通过减少您需要的管理连接来简化数据库访问。与许多数据访问API不同，使用`database/sql`，您不需要明确地打开一个连接，进行工作，然后关闭连接。相反，您的代码会打开一个代表连接池的数据库句柄，然后用这个句柄执行数据访问操作，仅在需要释放资源（比如那些被检索的行或预处理语句所持有的资源）时才调用`Close`方法。
 
-​	换句话说，它是由[sql.DB]({{< ref "/docs/StdLib/database/sql#type-db" >}})表示的数据库句柄，代表您的代码来处理连接、打开和关闭连接。当您的代码使用句柄来执行数据库操作时，这些操作对数据库有并发的访问。更多信息请参见[Managing connections （管理连接）](../ManagingConnections)。
+​	换句话说，它是由[sql.DB]({{< ref "/stdLib/database/sql#type-db" >}})表示的数据库句柄，代表您的代码来处理连接、打开和关闭连接。当您的代码使用句柄来执行数据库操作时，这些操作对数据库有并发的访问。更多信息请参见[Managing connections （管理连接）](../ManagingConnections)。
 
 注意：您也可以保留一个数据库连接。更多信息，请参见 [Using dedicated connections （使用专用连接）](../ManagingConnections#使用专用连接)。
 
@@ -58,13 +58,13 @@ import _ "github.com/go-sql-driver/mysql"
 
 ​	`sql.DB`数据库句柄提供了从数据库读取和写入数据库的能力，无论是单独的还是在一个事务中。
 
-​	您可以通过调用`sql.Open`（它接收一个连接字符串）或者`sql.OpenDB`（它接收一个`driver.Connector`）来获得一个数据库句柄。两者都返回一个指向[sql.DB]({{< ref "/docs/StdLib/database/sql#type-db" >}})的指针。
+​	您可以通过调用`sql.Open`（它接收一个连接字符串）或者`sql.OpenDB`（它接收一个`driver.Connector`）来获得一个数据库句柄。两者都返回一个指向[sql.DB]({{< ref "/stdLib/database/sql#type-db" >}})的指针。
 
 注意：请确保您的数据库凭证不在您的Go源代码中。更多信息请参见[Storing database credentials （存储数据库凭证）](#存储数据库凭证) 。
 
 #### 用连接字符串打开
 
-​	当您想使用连接字符串进行连接时，请使用[sql.Open]({{< ref "/docs/StdLib/database/sql#func-open" >}})函数。字符串的格式将根据您使用的驱动程序而有所不同。
+​	当您想使用连接字符串进行连接时，请使用[sql.Open]({{< ref "/stdLib/database/sql#func-open" >}})函数。字符串的格式将根据您使用的驱动程序而有所不同。
 
 下面是一个关于MySQL的例子：
 
@@ -98,7 +98,7 @@ if err != nil {
 
 #### 用一个连接器打开
 
-​	当您想利用连接字符串中没有的特定驱动程序的连接特性时，请使用[sql.OpenDB]({{< ref "/docs/StdLib/database/sql#func-opendb----go110" >}})函数。每个驱动都支持自己的连接属性集，通常提供了定制特定于DBMS的连接请求的方式。
+​	当您想利用连接字符串中没有的特定驱动程序的连接特性时，请使用[sql.OpenDB]({{< ref "/stdLib/database/sql#func-opendb----go110" >}})函数。每个驱动都支持自己的连接属性集，通常提供了定制特定于DBMS的连接请求的方式。
 
 ​	将前面的`sql.Open`例子改成使用`sql.OpenDB`，您可以用下面的代码创建一个句柄：
 
@@ -128,7 +128,7 @@ db = sql.OpenDB(connector)
 
 ### 确认一个连接
 
-​	当您打开一个数据库句柄时，`sql`包可能不会立即自己创建一个新的数据库连接。相反，它可能会在您的代码需要它时创建连接。如果您不会马上使用数据库，并且想确认连接可以被建立，可以调用[Ping]({{< ref "/docs/StdLib/database/sql#db-ping----go11" >}})或[PingContext]({{< ref "/docs/StdLib/database/sql#db-pingcontext----go18" >}})。
+​	当您打开一个数据库句柄时，`sql`包可能不会立即自己创建一个新的数据库连接。相反，它可能会在您的代码需要它时创建连接。如果您不会马上使用数据库，并且想确认连接可以被建立，可以调用[Ping]({{< ref "/stdLib/database/sql#db-ping----go11" >}})或[PingContext]({{< ref "/stdLib/database/sql#db-pingcontext----go18" >}})。
 
 下面的例子中的代码对数据库进行ping，以确认连接。
 
@@ -145,7 +145,7 @@ if err := db.Ping(); err != nil {
 
 ​	避免在您的Go源代码中存储数据库凭证（credentials ），这可能会将您的数据库内容暴露给其他人。相反，要想办法将其存储在代码之外的位置，但对代码是可用的。例如，考虑一个保密应用程序，该应用程序存储凭据并提供一个 API，您的代码可以使用该 API 检索凭据，以便对 DBMS 进行身份验证。
 
-​	一种流行的方法是在程序启动前将秘密存储在环境中，可能是从秘密管理器中加载，然后您的 Go 程序可以使用 [os.Getenv]({{< ref "/docs/StdLib/os/os#func-getenv">}}) 读取这些秘密：
+​	一种流行的方法是在程序启动前将秘密存储在环境中，可能是从秘密管理器中加载，然后您的 Go 程序可以使用 [os.Getenv]({{< ref "/stdLib/os/os#func-getenv">}}) 读取这些秘密：
 
 ```go 
 username := os.Getenv("DB_USER")
@@ -160,7 +160,7 @@ password := os.Getenv("DB_PASS")
 
 ​	通常，您通过推迟对`Close`函数的调用来关闭资源，以便在外层函数退出之前释放资源。
 
-​	在下面的例子中，代码延迟`Close`，以释放由[sql.Rows]({{< ref "/docs/StdLib/database/sql#type-rows">}})持有的资源。
+​	在下面的例子中，代码延迟`Close`，以释放由[sql.Rows]({{< ref "/stdLib/database/sql#type-rows">}})持有的资源。
 
 ```go  hl_lines="5 5"
 rows, err := db.Query("SELECT * FROM album WHERE artist = ?", artist)

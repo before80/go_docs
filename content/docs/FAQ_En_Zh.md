@@ -52,7 +52,7 @@ There are now millions of Go programmers—gophers—around the world, and there
 
 The mascot and logo were designed by [Renée French](https://reneefrench.blogspot.com/), who also designed [Glenda](https://9p.io/plan9/glenda.html), the Plan 9 bunny. A [blog post](https://blog.golang.org/gopher) about the gopher explains how it was derived from one she used for a [WFMU](https://wfmu.org/) T-shirt design some years ago. The logo and mascot are covered by the [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
-​	吉祥物和标志是由[Renée French](https://reneefrench.blogspot.com/)设计的，她还设计了Plan 9的兔子[Glenda](https://9p.io/plan9/glenda.html)。一篇[关于囊地鼠的博客](../GoBlog/2014/TheGoGopher)文章解释了它是如何从她几年前用于[WFMU](https://wfmu.org/)T恤设计的一个囊地鼠衍生出来的。该标志和吉祥物属于[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)许可范围。
+​	吉祥物和标志是由[Renée French](https://reneefrench.blogspot.com/)设计的，她还设计了Plan 9的兔子[Glenda](https://9p.io/plan9/glenda.html)。一篇[关于囊地鼠的博客]({{< ref "/goBlog/2014/TheGoGopher" >}})文章解释了它是如何从她几年前用于[WFMU](https://wfmu.org/)T恤设计的一个囊地鼠衍生出来的。该标志和吉祥物属于[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)许可范围。
 
 The gopher has a [model sheet](https://go.dev/doc/gopher/modelsheet.jpg) illustrating his characteristics and how to represent them correctly. The model sheet was first shown in a [talk](https://www.youtube.com/watch?v=4rw_B4yY69k) by Renée at Gophercon in 2016. He has unique features; he's the *Go gopher*, not just any old gopher.
 
@@ -66,7 +66,7 @@ The language is called Go. The "golang" moniker arose because the web site was o
 
 A side note: Although the [official logo](https://blog.golang.org/go-brand) has two capital letters, the language name is written Go, not GO.
 
-​	题外话：虽然[官方标志](../GoBlog/2018/GosNewBrand)有两个大写字母，但语言的名字是Go，而不是GO。
+​	题外话：虽然[官方标志]({{< ref "/goBlog/2018/GosNewBrand" >}})有两个大写字母，但语言的名字是Go，而不是GO。
 
 ### Why did you create a new language? 您为什么要创造一种新的语言？
 
@@ -250,7 +250,7 @@ Go also has a couple of built-in functions to signal and recover from truly exce
 
 See the [Defer, Panic, and Recover](https://go.dev/doc/articles/defer_panic_recover.html) article for details. Also, the [Errors are values](https://blog.golang.org/errors-are-values) blog post describes one approach to handling errors cleanly in Go by demonstrating that, since errors are just values, the full power of Go can be deployed in error handling.
 
-​	详见[Defer, Panic, and Recover](../GoBlog/2010/DeferPanicAandRecover)一文。另外，[Errors are values](../GoBlog/2015/ErrorsAreValues)的博文描述了一种在 Go 中干净地处理错误的方法，它表明，由于错误只是值，因此可以在错误处理中部署 Go 的全部力量。
+​	详见[Defer, Panic, and Recover]({{< ref "/goBlog/2010/DeferPanicAandRecover" >}})一文。另外，[Errors are values]({{< ref "/goBlog/2015/ErrorsAreValues" >}})的博文描述了一种在 Go 中干净地处理错误的方法，它表明，由于错误只是值，因此可以在错误处理中部署 Go 的全部力量。
 
 ### Why does Go not have assertions? 为什么 Go 没有断言？
 
@@ -549,7 +549,7 @@ It's a good idea for functions that return errors always to use the `error` type
 
 Similar situations to those described here can arise whenever interfaces are used. Just keep in mind that if any concrete value has been stored in the interface, the interface will not be `nil`. For more information, see [The Laws of Reflection](https://go.dev/doc/articles/laws_of_reflection.html).
 
-​	只要使用接口，就会出现与这里描述的类似情况。只要记住，`如果有任何具体的值被存储在接口中，接口就`不会是`nil`。更多信息，请参见[反射的法则](../GoBlog/2021/TheLawsOfReflection)。
+​	只要使用接口，就会出现与这里描述的类似情况。只要记住，`如果有任何具体的值被存储在接口中，接口就`不会是`nil`。更多信息，请参见[反射的法则]({{< ref "/goBlog/2011/TheLawsOfReflection" >}})。
 
 ### Why are there no untagged unions, as in C? 为什么没有像C语言那样的无标记的联合体？
 
@@ -627,7 +627,7 @@ without complaint from the compiler because the ideal number `2` can be converte
 
 A blog post titled [Constants](https://blog.golang.org/constants) explores this topic in more detail.
 
-​	一篇题为 "[Constants](../GoBlog/2014/Constants) "的博文更详细地探讨了这个话题。
+​	一篇题为 "[Constants]({{< ref "/goBlog/2014/Constants" >}}) "的博文更详细地探讨了这个话题。
 
 ### Why are maps built in? 为什么内建映射？
 
@@ -923,7 +923,7 @@ Do not communicate by sharing memory. Instead, share memory by communicating.
 
 See the [Share Memory By Communicating](https://go.dev/doc/codewalk/sharemem/) code walk and its [associated article](https://blog.golang.org/2010/07/share-memory-by-communicating.html) for a detailed discussion of this concept.
 
-​	关于这个概念的详细讨论，请参见 [通过通信共享内存](https://go.dev/doc/codewalk/sharemem/) 的代码练习及其[相关文章](../GoBlog/2010/ShareMemoryByCommunicating)。
+​	关于这个概念的详细讨论，请参见 [通过通信共享内存](https://go.dev/doc/codewalk/sharemem/) 的代码练习及其[相关文章]({{< ref "/goBlog/2010/ShareMemoryByCommunicating" >}})。
 
 Large concurrent programs are likely to borrow from both these toolkits.
 
@@ -941,7 +941,7 @@ Sometimes adding more CPUs can slow a program down. In practical terms, programs
 
 For more detail on this topic see the talk entitled [Concurrency is not Parallelism](https://blog.golang.org/2013/01/concurrency-is-not-parallelism.html).
 
-​	关于这个话题的更多细节，请看题为 [并发性不是并行性](../GoBlog/2013/ConcurrencyIsNotParallelism) 的讲座。
+​	关于这个话题的更多细节，请看题为 [并发性不是并行性]({{< ref "/goBlog/2013/ConcurrencyIsNotParallelism" >}}) 的讲座。
 
 ### How can I control the number of CPUs? 我怎样才能控制CPU的数量？
 
@@ -1094,7 +1094,7 @@ The reason `?:` is absent from Go is that the language's designers had seen the 
 
 Type parameters permit what is known as generic programming, in which functions and data structures are defined in terms of types that are specified later, when those functions and data structures are used. For example, they make it possible to write a function that returns the minimum of two values of any ordered type, without having to write a separate version for each possible type. For a more in-depth explanation with examples see the blog post [Why Generics?](https://go.dev/blog/why-generics).
 
-​	类型参数允许所谓的泛型编程，其中函数和数据结构是以类型来定义的，这些类型在以后使用这些函数和数据结构时被指定。例如，它们使我们有可能编写一个返回任何有序类型的两个值的最小值的函数，而不必为每个可能的类型编写一个单独的版本。关于更深入的解释和例子，请看博文 [Why Generics?](../GoBlog/2019/WhyGenerics)。
+​	类型参数允许所谓的泛型编程，其中函数和数据结构是以类型来定义的，这些类型在以后使用这些函数和数据结构时被指定。例如，它们使我们有可能编写一个返回任何有序类型的两个值的最小值的函数，而不必为每个可能的类型编写一个单独的版本。关于更深入的解释和例子，请看博文 [Why Generics?]({{< ref "/goBlog/2019/WhyGenerics" >}})。
 
 ### How are generics implemented in Go? 泛型是如何在Go中实现的？
 
@@ -1388,7 +1388,7 @@ Still, there is room for improvement. The compilers are good but could be better
 
 In any case, Go can often be very competitive. There has been significant improvement in the performance of many programs as the language and tools have developed. See the blog post about [profiling Go programs](https://blog.golang.org/2011/06/profiling-go-programs.html) for an informative example.
 
-​	在任何情况下，Go通常是非常有竞争力的。随着语言和工具的发展，许多程序的性能都有了明显的改善。请参阅有关 [profiling Go programs](../GoBlog/2011/ProfilingGoPrograms) 的博文，了解一个信息丰富的例子。
+​	在任何情况下，Go通常是非常有竞争力的。随着语言和工具的发展，许多程序的性能都有了明显的改善。请参阅有关 [profiling Go programs]({{< ref "/goBlog/2011/ProfilingGoPrograms" >}}) 的博文，了解一个信息丰富的例子。
 
 ## Changes from C - 与 C 的变化
 
@@ -1440,7 +1440,7 @@ Parsing is also simplified by having a distinct grammar for types that is not ju
 
 See the article about [Go's Declaration Syntax](https://go.dev/doc/articles/gos_declaration_syntax.html) for more details.
 
-​	更多细节请参见[Go's Declaration Syntax](../GoBlog/2010/GosDeclarationSyntax)一文。
+​	更多细节请参见[Go's Declaration Syntax]({{< ref "/goBlog/2010/GosDeclarationSyntax" >}})一文。
 
 ### Why is there no pointer arithmetic? 为什么没有指针算术？
 
@@ -1484,8 +1484,8 @@ This is not to say that the recent work in languages like Rust that bring new id
 
 The current implementation is a mark-and-sweep collector. If the machine is a multiprocessor, the collector runs on a separate CPU core in parallel with the main program. Major work on the collector in recent years has reduced pause times often to the sub-millisecond range, even for large heaps, all but eliminating one of the major objections to garbage collection in networked servers. Work continues to refine the algorithm, reduce overhead and latency further, and to explore new approaches. The 2018 [ISMM keynote](https://blog.golang.org/ismmkeynote) by Rick Hudson of the Go team describes the progress so far and suggests some future approaches.
 
-​	目前的实现是一个标记-清除（mark-and-sweep）收集器。如果机器是多处理器，收集器会在一个单独的CPU核心上与主程序并行运行。近年来关于收集器的主要工作已经将停顿时间减少到了亚毫秒范围，甚至对于大堆也是如此，这几乎消除了网络服务器中垃圾收集的主要障碍之一。完善算法的工作仍在继续，进一步减少开销和延迟，并探索新的方法。Go团队的`Rick Hudson`在2018年[ISMM keynote](../GoBlog/2018/GettingToGoTheJourneyOfGosGarbageCollector)的主题演讲中描述了迄今为止的进展，并提出了一些未来的方法。
+​	目前的实现是一个标记-清除（mark-and-sweep）收集器。如果机器是多处理器，收集器会在一个单独的CPU核心上与主程序并行运行。近年来关于收集器的主要工作已经将停顿时间减少到了亚毫秒范围，甚至对于大堆也是如此，这几乎消除了网络服务器中垃圾收集的主要障碍之一。完善算法的工作仍在继续，进一步减少开销和延迟，并探索新的方法。Go团队的`Rick Hudson`在2018年[ISMM keynote]({{< ref "/goBlog/2018/GettingToGoTheJourneyOfGosGarbageCollector" >}})的主题演讲中描述了迄今为止的进展，并提出了一些未来的方法。
 
 On the topic of performance, keep in mind that Go gives the programmer considerable control over memory layout and allocation, much more than is typical in garbage-collected languages. A careful programmer can reduce the garbage collection overhead dramatically by using the language well; see the article about [profiling Go programs](https://blog.golang.org/2011/06/profiling-go-programs.html) for a worked example, including a demonstration of Go's profiling tools.
 
-​	关于性能的话题，请记住，Go给了程序员对内存布局和分配相当大的控制权，比典型的垃圾收集型语言要多得多。细心的程序员可以通过很好地使用该语言来大幅减少垃圾收集的开销；请参阅为一个工作示例[剖析Go程序](../GoBlog/2011/ProfilingGoPrograms)的文章，其中包括Go的剖析工具的演示。
+​	关于性能的话题，请记住，Go给了程序员对内存布局和分配相当大的控制权，比典型的垃圾收集型语言要多得多。细心的程序员可以通过很好地使用该语言来大幅减少垃圾收集的开销；请参阅为一个工作示例[剖析Go程序]({{< ref "/goBlog/2011/ProfilingGoPrograms" >}})的文章，其中包括Go的剖析工具的演示。

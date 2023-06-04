@@ -233,7 +233,7 @@ func main() {
 
 在这段代码中，您：
 
-- 声明一个类型为[*sql.DB]({{< ref "/docs/StdLib/database/sql#type-db" >}})的`db`变量。这是您的数据库句柄。
+- 声明一个类型为[*sql.DB]({{< ref "/stdLib/database/sql#type-db" >}})的`db`变量。这是您的数据库句柄。
 
   ​	使`db`成为一个全局变量可以简化这个示例。在生产环境中，您会避免使用全局变量，比如把变量传递给需要它的函数，或者把它包装在一个结构中。
 
@@ -241,13 +241,13 @@ func main() {
 
   `Config`结构使得代码比连接字符串更容易阅读。
 
-- 调用 [sql.Open]({{< ref "/docs/StdLib/database/sql#func-open" >}}) 来初始化 `db` 变量，传递 `FormatDSN` 的返回值。
+- 调用 [sql.Open]({{< ref "/stdLib/database/sql#func-open" >}}) 来初始化 `db` 变量，传递 `FormatDSN` 的返回值。
 
 - 检查`sql.Open`是否有错误。如果数据库连接细节格式不正确，它可能会失败。
 
   为了简化代码，您要调用`log.Fatal`来结束执行，并将错误打印到控制台。在生产代码中，您会希望以一种更优雅的方式来处理错误。
 
-- 调用[DB.Ping]({{< ref "/docs/StdLib/database/sql#db-ping----go11" >}})来确认连接到数据库是否有效。在运行时，`sql.Open`可能不会立即连接，这取决于驱动程序。您在这里使用`Ping`来确认`database/sql`包在需要时可以连接。
+- 调用[DB.Ping]({{< ref "/stdLib/database/sql#db-ping----go11" >}})来确认连接到数据库是否有效。在运行时，`sql.Open`可能不会立即连接，这取决于驱动程序。您在这里使用`Ping`来确认`database/sql`包在需要时可以连接。
 
 - 检查`Ping`是否有错误，以防连接失败。
 
@@ -363,7 +363,7 @@ func albumsByArtist(name string) ([]Album, error) {
 
 - 声明一个您定义的专辑类型的`albums`切片。这将保存来自返回行的数据。结构字段名和类型与数据库列名和类型相对应。
 
-- 使用[DB.Query]({{< ref "/docs/StdLib/database/sql#db-query" >}}) 执行一个`SELECT`语句来查询具有指定艺术家名字的专辑。
+- 使用[DB.Query]({{< ref "/stdLib/database/sql#db-query" >}}) 执行一个`SELECT`语句来查询具有指定艺术家名字的专辑。
 
   ​	`Query`的第一个参数是SQL语句。在该参数之后，您可以传递零个或多个任何类型的参数。这些参数为您提供了在SQL语句中指定参数值的地方。通过将SQL语句与参数值分开（而不是用例如`fmt.Sprintf`连接），您可以使`database/sql`包将参数值与SQL文本分开发送，从而消除任何SQL注入的风险。
 
@@ -441,7 +441,7 @@ func albumByID(id int64) (Album, error) {
 
   它返回一个`sql.Row`。为了简化调用代码（您的代码！），`QueryRow`并不返回错误。相反，它安排稍后从`Rows.Scan`返回任何查询错误（如`sql.ErrNoRows`）。
 
-- 使用[Row.Scan]({{< ref "/docs/StdLib/database/sql#row-scan" >}})将列值复制到结构字段。
+- 使用[Row.Scan]({{< ref "/stdLib/database/sql#row-scan" >}})将列值复制到结构字段。
 
 -  检查来自`Scan`的错误。
 
@@ -506,7 +506,7 @@ func addAlbum(alb Album) (int64, error) {
 
 在这段代码中，您：
 
-- 使用[DB.Exec]({{< ref "/docs/StdLib/database/sql#db-exec" >}})来执行一个`INSERT`语句。
+- 使用[DB.Exec]({{< ref "/stdLib/database/sql#db-exec" >}})来执行一个`INSERT`语句。
 
   像`Query`一样，`Exec`接收一个SQL语句，后面是该SQL语句的参数值。
 

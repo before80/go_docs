@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/execute-transactions](https://go.dev/doc/database/execute-transactions)
 
-​	您可以使用表示事务的[sql.Tx]({{< ref "/docs/StdLib/database/sql#type-tx">}})来执行数据库事务。除了表示特定于事务语义的`Commit`和`Rollback`方法之外，`sql.Tx`还有所有用来执行普通数据库操作的方法。要获取`sql.Tx`，可以调用`DB.Begin`或`DB.BeginTx`。
+​	您可以使用表示事务的[sql.Tx]({{< ref "/stdLib/database/sql#type-tx">}})来执行数据库事务。除了表示特定于事务语义的`Commit`和`Rollback`方法之外，`sql.Tx`还有所有用来执行普通数据库操作的方法。要获取`sql.Tx`，可以调用`DB.Begin`或`DB.BeginTx`。
 
 ​	一个[数据库事务](https://en.wikipedia.org/wiki/Database_transaction)将多个操作作为更大目标的一部分进行分组。所有的操作都必须成功，或者都不能成功，在这两种情况下都要保持数据的完整性。通常，一个事务的工作流程包括：
 
@@ -23,31 +23,31 @@ draft = false
 
 - 开始一个事务
 
-  [DB.Begin]({{< ref "/docs/StdLib/database/sql#db-begin">}})或[DB.BeginTx]({{< ref "/docs/StdLib/database/sql#db-begintx----go18">}})开始一个新的数据库事务，返回一个代表它的`sql.Tx`。
+  [DB.Begin]({{< ref "/stdLib/database/sql#db-begin">}})或[DB.BeginTx]({{< ref "/stdLib/database/sql#db-begintx----go18">}})开始一个新的数据库事务，返回一个代表它的`sql.Tx`。
 
 - 执行数据库操作。
 
   使用一个`sql.Tx`，您可以在一系列使用单一连接的操作中查询或更新数据库。为了支持这一点，`Tx`导出了以下方法：
 
-  - [Exec]({{< ref "/docs/StdLib/database/sql#tx-exec">}}) 和 [ExecContext](https://pkg.go.dev/database/sql#Tx.ExecContext  {{< ref "/docs/StdLib/database/sql#tx-execcontext----go18">}}) ，用于通过SQL语句（如`INSERT`、`UPDATE`和`DELETE`）进行数据库更改。
+  - [Exec]({{< ref "/stdLib/database/sql#tx-exec">}}) 和 [ExecContext](https://pkg.go.dev/database/sql#Tx.ExecContext  {{< ref "/stdLib/database/sql#tx-execcontext----go18">}}) ，用于通过SQL语句（如`INSERT`、`UPDATE`和`DELETE`）进行数据库更改。
 
     更多信息请参见[Executing statements that don’t return data（执行不返回数据的语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
 
-  - [Query]({{< ref "/docs/StdLib/database/sql#tx-query">}})，[QueryContext]({{< ref "/docs/StdLib/database/sql#tx-querycontext----go18">}})，[QueryRow]({{< ref "/docs/StdLib/database/sql#tx-queryrow">}}) ，[QueryRowContext]({{< ref "/docs/StdLib/database/sql#tx-queryrowcontext----go18">}}) 用于返回行的操作。
+  - [Query]({{< ref "/stdLib/database/sql#tx-query">}})，[QueryContext]({{< ref "/stdLib/database/sql#tx-querycontext----go18">}})，[QueryRow]({{< ref "/stdLib/database/sql#tx-queryrow">}}) ，[QueryRowContext]({{< ref "/stdLib/database/sql#tx-queryrowcontext----go18">}}) 用于返回行的操作。
 
     更多信息，请参见 [Querying for data （查询数据）](../QueryingForData)。
 
-  - [Prepare]({{< ref "/docs/StdLib/database/sql#tx-prepare">}})，[PrepareContext]({{< ref "/docs/StdLib/database/sql#tx-preparecontext----go18">}})，[Stmt]({{< ref "/docs/StdLib/database/sql#tx-stmt">}})，[StmtContext]({{< ref "/docs/StdLib/database/sql#tx-stmtcontext----go18">}})用于预先定义预处理语句。
+  - [Prepare]({{< ref "/stdLib/database/sql#tx-prepare">}})，[PrepareContext]({{< ref "/stdLib/database/sql#tx-preparecontext----go18">}})，[Stmt]({{< ref "/stdLib/database/sql#tx-stmt">}})，[StmtContext]({{< ref "/stdLib/database/sql#tx-stmtcontext----go18">}})用于预先定义预处理语句。
 
     更多信息，请参见[Using prepared statements （使用预处理语句）](../UsingPreparedStatements)。
 
 - 用以下方法之一结束事务：
 
-  - 使用[Tx.Commit]({{< ref "/docs/StdLib/database/sql#tx-commit">}})提交事务。
+  - 使用[Tx.Commit]({{< ref "/stdLib/database/sql#tx-commit">}})提交事务。
 
     如果`Commit`成功（返回`nil`错误），那么所有的查询结果都被确认为有效，所有执行的更新都作为一个单一的原子变化应用到数据库中。如果`Commit`失败，那么`Tx`上的所有`Query`和`Exec`的结果都应该被视为无效而丢弃。
 
-  - 使用[Tx.Rollback]({{< ref "/docs/StdLib/database/sql#tx-rollback">}})来回滚事务。
+  - 使用[Tx.Rollback]({{< ref "/stdLib/database/sql#tx-rollback">}})来回滚事务。
 
     即使`Tx.Rollback`失败，该事务也不再有效，也不会被提交到数据库。
 

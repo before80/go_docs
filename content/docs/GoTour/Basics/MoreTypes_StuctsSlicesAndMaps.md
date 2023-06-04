@@ -532,7 +532,7 @@ func append(s []T, vs ...T) []T
 
 ​	如果`s`的底层数组太小，无法容纳所有给定的值，那么将分配一个更大的数组。`返回的切片将指向新分配的数组`。
 
-(要了解更多关于切片的信息，请阅读[Slices: usage and internals](../../../GoBlog/2011/GoSlicesUsageAndInternals)文章)。
+(要了解更多关于切片的信息，请阅读[Slices: usage and internals]({{< ref "/goBlog/2011/GoSlicesUsageAndInternals" >}})文章)。
 
 ```go title="main.go" 
 package main

@@ -265,13 +265,13 @@ draft = false
 
 ​	go 1.13（不含）之前，error.New()和fmt.Errorf()返回的错误值的类型是errors.errorString这个底层类型。
 
-​	但在go 1.13及之后，若fmt.Errorf("格式化字符串")的格式化字符串中使用一个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapError这个底层类型；若使用多个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapErrors这个底层类型。请参阅[fmt.Errorf()]({{< ref "/docs/StdLib/fmt#func-errorf">}})。
+​	但在go 1.13及之后，若fmt.Errorf("格式化字符串")的格式化字符串中使用一个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapError这个底层类型；若使用多个`%w`，则fmt.Errorf()返回的错误值的类型是fmt.wrapErrors这个底层类型。请参阅[fmt.Errorf()]({{< ref "/stdLib/fmt#func-errorf">}})。
 
 > ​	另外需要注意：
 >
 > ​	虽然fmt.wrapErrors和fmt.wrapError在源码中都有实现Unwrap()方法，但fmt.wrapErrors和fmt.wrapError是不可导出的类型，故不能在自己的代码中使用到Unwrap()方法。
 >
-> ​	虽然我们不能调用到Unwrap()方法，但可以通过errors.Unwrap(err变量)的方式来间接调用到Unwrap() 方法。可惜的是，您会发现只有当err变量是fmt.wrapError类型，errors.Unwrap(err变量)才能间接调用Unwrap()方法的结果；若是err变量是fmt.wrapErrors类型，errors.Unwrap(err变量)输出为nil。具体可参阅[errors.Unwrap]({{< ref "/docs/StdLib/errors#func-unwrap----go113">}})	。
+> ​	虽然我们不能调用到Unwrap()方法，但可以通过errors.Unwrap(err变量)的方式来间接调用到Unwrap() 方法。可惜的是，您会发现只有当err变量是fmt.wrapError类型，errors.Unwrap(err变量)才能间接调用Unwrap()方法的结果；若是err变量是fmt.wrapErrors类型，errors.Unwrap(err变量)输出为nil。具体可参阅[errors.Unwrap]({{< ref "/stdLib/errors#func-unwrap----go113">}})	。
 >
 > ​	**遗留问题，那fmt.wrapErrors实现的Unwrap() 方法有什么作用？哪里可以用得到？**
 
@@ -305,7 +305,7 @@ draft = false
 
 ​	哨兵错误值变量以**ErrXXX**格式命名。对于API的开发者而言，这些哨兵错误值变量，也是API的一部分，需要进行很好的维护。
 
-​	go 1.13及之后的版本，可以使用errors.Is(err, 某一哨兵错误值变量)，来判断错误值。相比于之前使用的`if err == 某一哨兵错误值变量 { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.Is()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.Is()]({{< ref "/docs/StdLib/errors#func-is----go113">}})。**这也是目前推荐的。**
+​	go 1.13及之后的版本，可以使用errors.Is(err, 某一哨兵错误值变量)，来判断错误值。相比于之前使用的`if err == 某一哨兵错误值变量 { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.Is()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.Is()]({{< ref "/stdLib/errors#func-is----go113">}})。**这也是目前推荐的。**
 
 ​	go源码：$GOROOT/src/bufio/bufio.go 采用了这种策略。
 
@@ -325,7 +325,7 @@ draft = false
 
 ​	因自定义错误类型，需暴露给错误处理方，故类似哨兵错误值变量，都需要对其进行很好的维护。
 
-​	从go1.13及之后可以使用errors.As(err, &自定义错误类型变量) 函数，进行错误类型判断，以及进一步处理。相比于之前使用的`if e, ok := err.(*MyError); ok { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.As()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.As()]({{< ref "/docs/StdLib/errors#func-as----go113">}})。**这也是目前推荐的。**
+​	从go1.13及之后可以使用errors.As(err, &自定义错误类型变量) 函数，进行错误类型判断，以及进一步处理。相比于之前使用的`if e, ok := err.(*MyError); ok { ... }`，若err是`fmt.wrapError` 或 `fmt.wrapErrors`类型，errors.As()方法会在错误链上找到第一个匹配的错误，匹配则返回`true`。请参阅[errors.As()]({{< ref "/stdLib/errors#func-as----go113">}})。**这也是目前推荐的。**
 
 ​	
 

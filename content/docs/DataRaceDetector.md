@@ -276,7 +276,7 @@ func (w *Watchdog) Start() {
 
 ​	即使是这种"innocent(无害)"的数据竞争也可能导致难以调试的问题，这些问题可能是由于内存访问的非原子性、与编译器优化的干扰或访问处理器内存的重新排序问题引起的。
 
-​	这种竞态的典型解决方法是使用通道或互斥锁。为了保持无锁行为，也可以使用[sync/atomic](../StdLib/sync/atomic/)包。
+​	这种竞态的典型解决方法是使用通道或互斥锁。为了保持无锁行为，也可以使用[sync/atomic]({{< ref "/stdLib/sync/atomic" >}})包。
 
 ```go linenums="1"
 type Watchdog struct{ last int64 }

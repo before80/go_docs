@@ -1358,7 +1358,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
 
 ​	数值类型之间或与字符串类型之间的（非常量）转换有特殊的规则。这些转换可能会改变`x`的表示，并产生运行时间成本。所有其他的转换只改变`x`的类型而不改变其表示。
 
-​	没有语言机制可以在`指针和整型之间进行转换`。[unsafe]({{< ref "/docs/StdLib/unsafe">}})包在受限制的情况下实现了这个功能。
+​	没有语言机制可以在`指针和整型之间进行转换`。[unsafe]({{< ref "/stdLib/unsafe">}})包在受限制的情况下实现了这个功能。
 
 #### Conversions between numeric types 数值型之间的转换
 

@@ -89,7 +89,7 @@ go install golang.org/x/website/tour@latest
 
 该playground 使用Go的`最新稳定版本`。
 
-阅读 "[Inside the Go Playground](../../../GoBlog/2013/InsideTheGoPlayground) "以了解更多。
+阅读 "[Inside the Go Playground]({{< ref "/goBlog/2013/InsideTheGoPlayground" >}}) "以了解更多。
 
 ```go 
 package main

@@ -16,7 +16,7 @@ draft = false
 
 ​	`ExecContext`方法的工作原理与`Exec`方法相同，但有一个额外的`context.Context`参数，如 [Canceling in-progress operations （取消正在进行的操作）](../CancelingIn-progressDatabaseOperations) 中所述。
 
-​	下面的例子中的代码使用[DB.Exec]({{< ref "/docs/StdLib/database/sql#db-exec">}})来执行一条语句，将一个新的记录专辑添加到一个`album`表中。
+​	下面的例子中的代码使用[DB.Exec]({{< ref "/stdLib/database/sql#db-exec">}})来执行一条语句，将一个新的记录专辑添加到一个`album`表中。
 
 ```go 
 func AddAlbum(alb Album) (int64, error) {
@@ -35,7 +35,7 @@ func AddAlbum(alb Album) (int64, error) {
 }
 ```
 
-​	`DB.Exec`返回值：一个[sql.Result]({{< ref "/docs/StdLib/database/sql#type-result">}})和一个错误。当错误为`nil`时，您可以使用`Result`来获得最后插入的项目的ID（如在例子中）或检索受操作影响的行数。
+​	`DB.Exec`返回值：一个[sql.Result]({{< ref "/stdLib/database/sql#type-result">}})和一个错误。当错误为`nil`时，您可以使用`Result`来获得最后插入的项目的ID（如在例子中）或检索受操作影响的行数。
 
 > 注意
 >

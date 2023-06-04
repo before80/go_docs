@@ -33,7 +33,7 @@ window.addEventListener('load', function () {
         };
 
         copyButton.onmouseout = () => {
-            copyButton.setAttribute('data-bs-original-title', 'Copy to clipboard');
+            copyButton.setAttribute('data-bs-original-title', '复制');
             tooltip.hide();
         };
 

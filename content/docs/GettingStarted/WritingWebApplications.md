@@ -65,7 +65,7 @@ type Page struct {
 }
 ```
 
-​	类型`[]byte`表示 "一个字节切片"。(有关切片的更多信息，请参见 [Slices: usage and internals](../../GoBlog/2011/GoSlicesUsageAndInternals)。) `Body`元素是`[]byte`而不是`string`，因为这是我们将使用的`io`库所期望的类型，您会在下面看到。
+​	类型`[]byte`表示 "一个字节切片"。(有关切片的更多信息，请参见 [Slices: usage and internals]({{< ref "/goBlog/2011/GoSlicesUsageAndInternals" >}})。) `Body`元素是`[]byte`而不是`string`，因为这是我们将使用的`io`库所期望的类型，您会在下面看到。
 
 ​	`Page`结构描述如何将page数据据存储在内存中。但是持久性存储怎么办呢？我们可以通过在`Page`上创建一个`save`方法来解决这个问题。
 

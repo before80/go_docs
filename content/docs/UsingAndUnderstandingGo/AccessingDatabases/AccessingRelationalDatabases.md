@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/](https://go.dev/doc/database/)
 
-​	使用 Go，您可以将各种数据库和数据访问方法纳入您的应用程序中。本节的主题描述了如何使用标准库的[database/sql]({{< ref "/docs/StdLib/database/sql" >}})包来访问关系型数据库。
+​	使用 Go，您可以将各种数据库和数据访问方法纳入您的应用程序中。本节的主题描述了如何使用标准库的[database/sql]({{< ref "/stdLib/database/sql" >}})包来访问关系型数据库。
 
 ​	关于Go的数据访问的介绍性教程，请看 [Tutorial: Accessing a relational database](../../../GettingStarted/TutorialAccessingARelationalDatabase)。
 

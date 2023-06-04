@@ -22,7 +22,7 @@ Version of June 6, 2022
 
 ​		同时被多个goroutine访问的数据的修改程序必须序列化这样的访问。
 
-​	为了序列化访问，请使用通道操作或其他同步原语，例如sync和[sync/atomic](../../StdLib/sync/atomic)包中的原语。
+​	为了序列化访问，请使用通道操作或其他同步原语，例如sync和[sync/atomic]({{< ref "/stdLib/sync/atomic" >}})包中的原语。
 
 ​	如果您必须阅读本文档的其余部分才能理解程序的行为，那么您正在过于聪明。
 
@@ -291,7 +291,7 @@ func twoprint() {
 
 ### 其他机制
 
-​	sync包提供了额外的同步抽象，包括[条件变量](../../StdLib/sync/index#type-cond)、[无锁映射](../../StdLib/sync/index#type-map)、[分配池](../../StdLib/sync/index#type-pool)和[等待组](../../StdLib/sync/index#type-waitgroup)。每个同步抽象的文档都会说明它所做出的同步保证。
+​	sync包提供了额外的同步抽象，包括[条件变量]({{< ref "/stdLib/sync/sync#type-cond" >}})、[无锁映射]({{< ref "/stdLib/sync/sync#type-map" >}})、[分配池]({{< ref "/stdLib/sync/sync#type-pool" >}})和[等待组]({{< ref "/stdLib/sync/sync#type-waitgroup" >}})。每个同步抽象的文档都会说明它所做出的同步保证。
 
 ​	提供同步抽象的其他包也应该说明它们所做出的保证。
 

@@ -108,7 +108,7 @@ func main() {
 
 ​	请注意，类型是在变量名之后。
 
-​	(更多关于这种声明形式出现的原因，请参见[Go的声明语法](../../../GoBlog/2010/GosDeclarationSyntax)一文）。
+​	(更多关于这种声明形式出现的原因，请参见[Go的声明语法]({{< ref "/goBlog/2010/GosDeclarationSyntax" >}})一文）。
 
 ```go title="main.go" 
 package main

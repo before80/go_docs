@@ -576,6 +576,6 @@ var fetcher = fakeFetcher{
 
 代码漫步 [First Class Functions in Go](https://go.dev/doc/codewalk/functions/)对Go的函数类型给出了一个有趣的观点。
 
-​	[Go博客](../../../GoBlog/2010/DeferPanicAandRecover)有大量内容丰富的Go文章档案。
+​	[Go博客]({{< ref "/goBlog/2010/DeferPanicAandRecover" >}})有大量内容丰富的Go文章档案。
 
 ​	请访问[Go主页](https://go.dev/)了解更多内容。

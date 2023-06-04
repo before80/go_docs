@@ -373,7 +373,7 @@ func main() {
 
 ​	推迟的函数调用被压入一个栈中。当外层函数返回时，被推迟的函数会按照后进先出的顺序调用。
 
-​	要了解更多关于`defer`语句的信息，请阅读[这篇博文](../../../GoBlog/2010/DeferPanicAandRecover)。
+​	要了解更多关于`defer`语句的信息，请阅读[这篇博文]({{< ref "/goBlog/2010/DeferPanicAandRecover" >}})。
 
 ```go title="main.go" 
 package main

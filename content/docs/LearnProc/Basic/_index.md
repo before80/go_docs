@@ -157,7 +157,7 @@ chan
 
 `comparable` 类型又是什么？在预先声明标识符中。
 
-[官方博客： All your comparable types]({{< ref "/docs/GoBlog/2023/AllYourComparableTypes" >}})
+[官方博客： All your comparable types]({{< ref "/goBlog/2023/AllYourComparableTypes" >}})
 
 ## 【种】控制结构
 

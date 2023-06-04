@@ -30,7 +30,7 @@ require example.com/m v4.1.2+incompatible
 
 ​	版本`v4.1.2+incompatible`指的是提供`example.com/m`模块的存储库中的[semantic version tag（语义版本标签）](../Glossary#semantic-version-tag)`v4.1.2`。该模块必须在[repository root path（存储库根目录）](../Glossary#module-path)中（也就是说，存储库根路径也必须是`example.com/m`），并且不能有`go.mod`文件存在。该模块可能有主版本号较低的版本，如`v1.5.2`，`go`命令可能会自动升级这些版本到`v4.1.2+incompatible`（有关升级如何工作的信息，请参见[最小版本选择（MVS）](../MVS)）。
 
-​	在版本`v2.0.0`被标记后迁移到模块的存储库通常应该发布一个新的主版本。在上面的例子中，作者应该创建一个路径为 `example.com/m/v5` 的模块，并发布 `v5.0.0` 版本。作者还应该更新模块中包的导入，使用前缀 `example.com/m/v5` 而不是 `example.com/m`。更详细的例子请参见[Go Modules: v2 and Beyond（Go模块：v2及以后）](../../../GoBlog/2019/GoModulesV2AndBeyond)。
+​	在版本`v2.0.0`被标记后迁移到模块的存储库通常应该发布一个新的主版本。在上面的例子中，作者应该创建一个路径为 `example.com/m/v5` 的模块，并发布 `v5.0.0` 版本。作者还应该更新模块中包的导入，使用前缀 `example.com/m/v5` 而不是 `example.com/m`。更详细的例子请参见[Go Modules: v2 and Beyond（Go模块：v2及以后）]({{< ref "/goBlog/2019/GoModulesV2AndBeyond" >}})。
 
 ​	注意 `+incompatible` 后缀不应该出现在存储库的标签上；像 `v4.1.2+incompatible` 这样的标签会被忽略。这个后缀只出现在 `go` 命令所使用的版本中。关于版本和标签之间的区别，请参见[Mapping versions to commits（将版本映射到提交）](../VersionControlSystems#mapping-versions-to-commits)。
 

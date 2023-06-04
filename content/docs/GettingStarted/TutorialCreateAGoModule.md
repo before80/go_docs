@@ -115,7 +115,7 @@ func Hello(name string) string {
   message = fmt.Sprintf("Hi, %v. Welcome!", name)
   ```
   
-- 使用`fmt`包的[`Sprintf`函数]({{< ref "/docs/StdLib/fmt#func-sprintf">}})来创建一个问候信息。第一个参数是一个格式字符串，`Sprintf`将`name`参数的值替换`%v`格式动词。插入`name`参数的值就完成了问候语的文本。
+- 使用`fmt`包的[`Sprintf`函数]({{< ref "/stdLib/fmt#func-sprintf">}})来创建一个问候信息。第一个参数是一个格式字符串，`Sprintf`将`name`参数的值替换`%v`格式动词。插入`name`参数的值就完成了问候语的文本。
 
 - 将格式化的问候语文本返回给调用方。
 

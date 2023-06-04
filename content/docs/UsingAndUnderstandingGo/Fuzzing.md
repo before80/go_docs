@@ -179,11 +179,11 @@ $ file2fuzz
 （a）教程：
 
 - 试试[Go的模糊测试教程](../../GettingStarted/TutorialGettingStartedWithFuzzing)，深入了解新概念。
-- 如果想了解更简短的Go模糊测试入门教程，请看[博文](../../GoBlog/2021/FuzzingIsBetaReady)。
+- 如果想了解更简短的Go模糊测试入门教程，请看[博文]({{< ref "/goBlog/2021/FuzzingIsBetaReady" >}})。
 
 （b）文档：
 
-- [testing包](../../StdLib/testing/index)文档描述了用于编写模糊测试时使用的 `testing.F` 类型。
+- [testing包]({{< ref "/stdLib/testing/testing" >}})文档描述了用于编写模糊测试时使用的 `testing.F` 类型。
 - [cmd/go 包](../../References/CommandDocumentation/go)文档描述了与模糊测试相关的标志。
 
 （c）技术细节：

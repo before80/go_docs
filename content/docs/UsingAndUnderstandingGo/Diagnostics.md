@@ -29,9 +29,9 @@ draft = false
 
 ## Profiling 分析
 
-​	分析对于识别昂贵或经常调用的代码段非常有用。Go 运行时以[ pprof 可视化工具](https://github.com/google/pprof/blob/master/doc/README.md)所需的格式提供[ 分析数据](../../StdLib/runtime/pprof)。分析数据可以在测试期间通过`go test`或从[ net/http/pprof](../../StdLib/net/http_pprof/) 包中提供的端点收集。用户需要收集分析数据，并使用 pprof 工具来筛选和可视化顶级代码路径.
+​	分析对于识别昂贵或经常调用的代码段非常有用。Go 运行时以[ pprof 可视化工具](https://github.com/google/pprof/blob/master/doc/README.md)所需的格式提供[ 分析数据]({{< ref "/stdLib/runtime/pprof" >}})。分析数据可以在测试期间通过`go test`或从[ net/http/pprof]({{< ref "/stdLib/net/http_pprof" >}}) 包中提供的端点收集。用户需要收集分析数据，并使用 pprof 工具来筛选和可视化顶级代码路径.
 
-​	[runtime/pprof](../../StdLib/runtime/pprof)包提供的预定义配置文件（profiles）：
+​	[runtime/pprof]({{< ref "/stdLib/runtime/pprof" >}})包提供的预定义配置文件（profiles）：
 
 - **cpu**: CPU 配置文件(profile)确定程序在主动消耗 CPU 周期时花费时间的位置（而不是在睡眠或等待 I/O 时）.
 - **heap**: 堆配置文件报告内存分配样本；用于监视当前和历史内存使用情况，并检查内存泄漏.
@@ -52,7 +52,7 @@ draft = false
 
 **可视化分析数据的最佳方法是什么**？
 
-​	Go 工具使用 `go tool pprof`提供profile数据的文本、图形和[callgrind](http://valgrind.org/docs/manual/cl-manual.html)可视化。阅读 [分析 Go 程序](../../GoBlog/2011/ProfilingGoPrograms)以查看其运行情况。
+​	Go 工具使用 `go tool pprof`提供profile数据的文本、图形和[callgrind](http://valgrind.org/docs/manual/cl-manual.html)可视化。阅读 [分析 Go 程序]({{< ref "/goBlog/2011/ProfilingGoPrograms" >}})以查看其运行情况。
 
 ![img](Diagnostics_img/pprof-text.png)
 以文本形式列出最昂贵的调用。
@@ -126,7 +126,7 @@ func main() {
 
 **我应该如何在 Go 库中传播跟踪标头？**
 
-​	您可以在[context.Context](../../StdLib/context#type-context)中传播跟踪标识符和标记。目前业界还没有规范的跟踪键或跟踪头的常见表示形式。每个跟踪提供程序都负责在其 Go 库中提供传播实用程序。
+​	您可以在[context.Context]({{< ref "/stdLib/context#type-context" >}})中传播跟踪标识符和标记。目前业界还没有规范的跟踪键或跟踪头的常见表示形式。每个跟踪提供程序都负责在其 Go 库中提供传播实用程序。
 
 **还有哪些来自标准库或运行时的低级事件可以包含在跟踪中？**
 

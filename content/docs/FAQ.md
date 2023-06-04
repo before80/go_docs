@@ -34,7 +34,7 @@ draft = false
 
 ### What's the origin of the gopher mascot? 囊地鼠吉祥物的起源是什么？
 
-​	吉祥物和标志是由[Renée French](https://reneefrench.blogspot.com/)设计的，她还设计了Plan 9的兔子[Glenda](https://9p.io/plan9/glenda.html)。一篇[关于囊地鼠的博客](../GoBlog/2014/TheGoGopher)文章解释了它是如何从她几年前用于[WFMU](https://wfmu.org/)T恤设计的一个囊地鼠衍生出来的。该标志和吉祥物属于[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)许可范围。
+​	吉祥物和标志是由[Renée French](https://reneefrench.blogspot.com/)设计的，她还设计了Plan 9的兔子[Glenda](https://9p.io/plan9/glenda.html)。一篇[关于囊地鼠的博客]({{< ref "/goBlog/2014/TheGoGopher" >}})文章解释了它是如何从她几年前用于[WFMU](https://wfmu.org/)T恤设计的一个囊地鼠衍生出来的。该标志和吉祥物属于[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)许可范围。
 
 ​	囊地鼠有一个[模型表](https://go.dev/doc/gopher/modelsheet.jpg)，说明他的特点和如何正确地表现它们。该模型表在Renée于2016年在Gophercon的[演讲](https://www.youtube.com/watch?v=4rw_B4yY69k)中首次展示。他有独特的特征；他是Go的囊地鼠，不是普通的囊地鼠。
 
@@ -42,7 +42,7 @@ draft = false
 
 ​	这门语言叫Go。出现 "golang "这个名字是因为网站最初是golang.org。(那时还没有.dev域名。)不过很多人都使用golang这个名字，而且它作为一个标签很方便。例如，该语言的Twitter标签是 "#golang"。但无论如何，该语言的名字只是普通的Go。
 
-​	题外话：虽然[官方标志](../GoBlog/2018/GosNewBrand)有两个大写字母，但语言的名字是Go，而不是GO。
+​	题外话：虽然[官方标志]({{< ref "/goBlog/2018/GosNewBrand" >}})有两个大写字母，但语言的名字是Go，而不是GO。
 
 ### Why did you create a new language? 您为什么要创造一种新的语言？
 
@@ -152,7 +152,7 @@ draft = false
 
 ​	Go也有几个内置的函数，用来发出信号并从真正的特殊情况下恢复。恢复机制仅作为错误发生后函数状态被拆解的一部分来执行，这足以处理灾难，但不需要额外的控制结构，如果使用得好，可以产生干净的错误处理代码。
 
-​	详见[Defer, Panic, and Recover](../GoBlog/2010/DeferPanicAandRecover)一文。另外，[Errors are values](../GoBlog/2015/ErrorsAreValues)的博文描述了一种在 Go 中干净地处理错误的方法，它表明，由于错误只是值，因此可以在错误处理中部署 Go 的全部力量。
+​	详见[Defer, Panic, and Recover]({{< ref "/goBlog/2010/DeferPanicAandRecover" >}})一文。另外，[Errors are values]({{< ref "/goBlog/2015/ErrorsAreValues" >}})的博文描述了一种在 Go 中干净地处理错误的方法，它表明，由于错误只是值，因此可以在错误处理中部署 Go 的全部力量。
 
 ### Why does Go not have assertions? 为什么 Go 没有断言？
 
@@ -359,7 +359,7 @@ func returnsError() error {
 
 ​	对于返回错误的函数来说，最好在其签名中使用`error`类型（就像我们上面做的那样），而不是一个具体的类型，如`*MyError`，以帮助保证错误被正确创建。作为一个例子，[os.Open](https://go.dev/pkg/os/#Open)返回一个`error`，尽管如果不是`nil`，它总是具体类型`*os.PathError`。
 
-​	只要使用接口，就会出现与这里描述的类似情况。只要记住，`如果有任何具体的值被存储在接口中，接口就`不会是`nil`。更多信息，请参见[反射的法则](../GoBlog/2021/TheLawsOfReflection)。
+​	只要使用接口，就会出现与这里描述的类似情况。只要记住，`如果有任何具体的值被存储在接口中，接口就`不会是`nil`。更多信息，请参见[反射的法则]({{< ref "/goBlog/2011/TheLawsOfReflection" >}})。
 
 ### Why are there no untagged unions, as in C? 为什么没有像C语言那样的无标记的联合体？
 
@@ -411,7 +411,7 @@ sqrt2 := math.Sqrt(2)
 
 这样的表达式，而不会被编译器抱怨，因为理想数字`2`可以被安全、准确地转换为`float64`来调用`math.Sqrt`。
 
-​	一篇题为 "[Constants](../GoBlog/2014/Constants) "的博文更详细地探讨了这个话题。
+​	一篇题为 "[Constants]({{< ref "/goBlog/2014/Constants" >}}) "的博文更详细地探讨了这个话题。
 
 ### Why are maps built in? 为什么内建映射？
 
@@ -599,7 +599,7 @@ Do not communicate by sharing memory. Instead, share memory by communicating.
 
 `不要通过共享内存进行通信。相反，通过通信来共享内存。`
 
-​	关于这个概念的详细讨论，请参见 [通过通信共享内存](https://go.dev/doc/codewalk/sharemem/) 的代码练习及其[相关文章](../GoBlog/2010/ShareMemoryByCommunicating)。
+​	关于这个概念的详细讨论，请参见 [通过通信共享内存](https://go.dev/doc/codewalk/sharemem/) 的代码练习及其[相关文章]({{< ref "/goBlog/2010/ShareMemoryByCommunicating" >}})。
 
 ​	大型并发程序可能会借用这两个工具包。
 
@@ -609,7 +609,7 @@ Do not communicate by sharing memory. Instead, share memory by communicating.
 
 ​	有时，增加更多的CPU会使程序变慢。在实际应用中，当使用多个操作系统线程时，那些花在同步或通信上的时间多于进行有用的计算的程序可能会出现性能下降。这是因为在线程之间传递数据需要切换上下文，这需要很大的成本，而这种成本会随着CPU的增加而增加。例如，Go规范中的[素数筛例子](../References/LanguageSpecification/Packages#an-example-package)没有明显的并行性，尽管它启动了许多goroutine；增加线程（CPU）的数量更有可能使它变慢而不是变快。
 
-​	关于这个话题的更多细节，请看题为 [并发性不是并行性](../GoBlog/2013/ConcurrencyIsNotParallelism) 的讲座。
+​	关于这个话题的更多细节，请看题为 [并发性不是并行性]({{< ref "/goBlog/2013/ConcurrencyIsNotParallelism" >}}) 的讲座。
 
 ### How can I control the number of CPUs? 我怎样才能控制CPU的数量？
 
@@ -720,7 +720,7 @@ if expr {
 
 ### Why does Go have type parameters? 为什么 Go 有类型参数？
 
-​	类型参数允许所谓的泛型编程，其中函数和数据结构是以类型来定义的，这些类型在以后使用这些函数和数据结构时被指定。例如，它们使我们有可能编写一个返回任何有序类型的两个值的最小值的函数，而不必为每个可能的类型编写一个单独的版本。关于更深入的解释和例子，请看博文 [Why Generics?](../GoBlog/2019/WhyGenerics)。
+​	类型参数允许所谓的泛型编程，其中函数和数据结构是以类型来定义的，这些类型在以后使用这些函数和数据结构时被指定。例如，它们使我们有可能编写一个返回任何有序类型的两个值的最小值的函数，而不必为每个可能的类型编写一个单独的版本。关于更深入的解释和例子，请看博文 [Why Generics?]({{< ref "/goBlog/2019/WhyGenerics" >}})。
 
 ### How are generics implemented in Go? 泛型是如何在Go中实现的？
 
@@ -906,7 +906,7 @@ func main() {
 
 ​	尽管如此，仍有改进的余地。编译器很好，但可以做得更好，许多库需要进行大量的性能工作，而且垃圾收集器还不够快。(即使它够快，小心避免产生不必要的垃圾也会产生巨大的影响。)
 
-​	在任何情况下，Go通常是非常有竞争力的。随着语言和工具的发展，许多程序的性能都有了明显的改善。请参阅有关 [profiling Go programs](../GoBlog/2011/ProfilingGoPrograms) 的博文，了解一个信息丰富的例子。
+​	在任何情况下，Go通常是非常有竞争力的。随着语言和工具的发展，许多程序的性能都有了明显的改善。请参阅有关 [profiling Go programs]({{< ref "/goBlog/2011/ProfilingGoPrograms" >}}) 的博文，了解一个信息丰富的例子。
 
 ## Changes from C - 与 C 的变化
 
@@ -944,7 +944,7 @@ func main() {
 
 ​	通过为类型制定独特的语法，而不仅仅是表达式语法，解析工作也得到了简化；`func`和`chan`等关键字可以让事情变得清晰。
 
-​	更多细节请参见[Go's Declaration Syntax](../GoBlog/2010/GosDeclarationSyntax)一文。
+​	更多细节请参见[Go's Declaration Syntax]({{< ref "/goBlog/2010/GosDeclarationSyntax" >}})一文。
 
 ### Why is there no pointer arithmetic? 为什么没有指针算术？
 
@@ -972,6 +972,6 @@ Safety. Without pointer arithmetic it's possible to create a language that can n
 
 ​	这并不是说最近在Rust等语言中为管理资源的问题带来新思路的工作是错误的；我们鼓励这项工作，并很高兴看到它的发展情况。但是Go采取了一种更传统的方法，即`通过垃圾收集来解决对象的生命周期问题，而且仅仅只是垃圾收集`。
 
-​	目前的实现是一个标记-清除（mark-and-sweep）收集器。如果机器是多处理器，收集器会在一个单独的CPU核心上与主程序并行运行。近年来关于收集器的主要工作已经将停顿时间减少到了亚毫秒范围，甚至对于大堆也是如此，这几乎消除了网络服务器中垃圾收集的主要障碍之一。完善算法的工作仍在继续，进一步减少开销和延迟，并探索新的方法。Go团队的`Rick Hudson`在2018年[ISMM keynote](../GoBlog/2018/GettingToGoTheJourneyOfGosGarbageCollector)的主题演讲中描述了迄今为止的进展，并提出了一些未来的方法。
+​	目前的实现是一个标记-清除（mark-and-sweep）收集器。如果机器是多处理器，收集器会在一个单独的CPU核心上与主程序并行运行。近年来关于收集器的主要工作已经将停顿时间减少到了亚毫秒范围，甚至对于大堆也是如此，这几乎消除了网络服务器中垃圾收集的主要障碍之一。完善算法的工作仍在继续，进一步减少开销和延迟，并探索新的方法。Go团队的`Rick Hudson`在2018年[ISMM keynote]({{< ref "/goBlog/2018/GettingToGoTheJourneyOfGosGarbageCollector" >}})的主题演讲中描述了迄今为止的进展，并提出了一些未来的方法。
 
-​	关于性能的话题，请记住，Go给了程序员对内存布局和分配相当大的控制权，比典型的垃圾收集型语言要多得多。细心的程序员可以通过很好地使用该语言来大幅减少垃圾收集的开销；请参阅为一个工作示例[剖析Go程序](../GoBlog/2011/ProfilingGoPrograms)的文章，其中包括Go的剖析工具的演示。
+​	关于性能的话题，请记住，Go给了程序员对内存布局和分配相当大的控制权，比典型的垃圾收集型语言要多得多。细心的程序员可以通过很好地使用该语言来大幅减少垃圾收集的开销；请参阅为一个工作示例[剖析Go程序]({{< ref "/goBlog/2011/ProfilingGoPrograms" >}})的文章，其中包括Go的剖析工具的演示。

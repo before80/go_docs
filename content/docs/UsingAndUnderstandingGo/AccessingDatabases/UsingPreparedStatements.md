@@ -22,7 +22,7 @@ draft = false
 
 ​	当您希望重复执行相同的SQL时，您可以使用一个`sql.Stmt`来提前准备SQL语句，然后根据需要执行它。
 
-​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare]({{< ref "/docs/StdLib/database/sql#db-prepare">}})返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。您可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
+​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare]({{< ref "/stdLib/database/sql#db-prepare">}})返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。您可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
 
 ```go  hl_lines="14 14"
 // AlbumByID retrieves the specified album.
@@ -51,7 +51,7 @@ func AlbumByID(id int) (Album, error) {
 
 ### 预处理语句的行为
 
-​	一个准备好的[sql.Stmt]({{< ref "/docs/StdLib/database/sql#type-stmt">}})提供了常用的`Exec`、`QueryRow`和`Query`方法来调用其语句。关于使用这些方法的更多信息，请参阅[Querying for data （查询数据）](../QueryingForData) 和 [Executing SQL statements that don’t return data（执行不返回数据的SQL语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
+​	一个准备好的[sql.Stmt]({{< ref "/stdLib/database/sql#type-stmt">}})提供了常用的`Exec`、`QueryRow`和`Query`方法来调用其语句。关于使用这些方法的更多信息，请参阅[Querying for data （查询数据）](../QueryingForData) 和 [Executing SQL statements that don’t return data（执行不返回数据的SQL语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
 
 ​	然而，由于一个`sql.Stmt`已经代表了一个预设的SQL语句，它的`Exec`、`QueryRow`和`Query`方法只接受与占位符对应的SQL参数值，而忽略了SQL文本。
 

@@ -31,7 +31,7 @@ draft = false
 
 ​	`QueryRowContext`的工作方式与`QueryRow`类似，但有一个`context.Context`实参。更多信息请参见 [Canceling in-progress operations（取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
-​	下面的例子使用一个查询来找出是否有足够的库存来支持购买。如果有足够的库存，该SQL语句返回`true`，如果没有则返回`false`。[Row.Scan]({{< ref "/docs/StdLib/database/sql#rows-scan">}})通过一个指针将布尔型的返回值复制到`enough`变量中。
+​	下面的例子使用一个查询来找出是否有足够的库存来支持购买。如果有足够的库存，该SQL语句返回`true`，如果没有则返回`false`。[Row.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})通过一个指针将布尔型的返回值复制到`enough`变量中。
 
 ```go  hl_lines="5 5"
 func canPurchase(id int, quantity int) (bool, error) {
@@ -52,7 +52,7 @@ func canPurchase(id int, quantity int) (bool, error) {
 
 #### 处理错误
 
-​	`QueryRow`本身不返回错误。相反，`Scan`报告来自组合查询和扫描的任何错误。当查询没有找到记录时，它返回[sql.ErrNoRows]({{< ref "/docs/StdLib/database/sql#变量">}})。
+​	`QueryRow`本身不返回错误。相反，`Scan`报告来自组合查询和扫描的任何错误。当查询没有找到记录时，它返回[sql.ErrNoRows]({{< ref "/stdLib/database/sql#变量">}})。
 
 #### Functions for returning a single row 用于返回单行的函数
 
@@ -65,7 +65,7 @@ func canPurchase(id int, quantity int) (bool, error) {
 
 ### 查询多行
 
-​	您可以使用`Query`或`QueryContext`查询多条记录，它们返回一个代表查询结果的`Rows`。您的代码使用[Rows.Next]({{< ref "/docs/StdLib/database/sql#rows-next">}})对返回的行进行迭代。每次迭代都会调用`Scan`来将列值复制到变量中。
+​	您可以使用`Query`或`QueryContext`查询多条记录，它们返回一个代表查询结果的`Rows`。您的代码使用[Rows.Next]({{< ref "/stdLib/database/sql#rows-next">}})对返回的行进行迭代。每次迭代都会调用`Scan`来将列值复制到变量中。
 
 ​	`QueryContext`的工作方式与`Query`类似，但有一个`context.Context`实参。更多信息请参见 [Canceling in-progress operations （取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
@@ -154,17 +154,17 @@ if s.Valid {
 
 ### 从列中获取数据
 
-​	在循环查询返回的行时，您可以使用`Scan`将行的列值复制到Go值，如[Rows.Scan]({{< ref "/docs/StdLib/database/sql#rows-scan">}})参考中所述。
+​	在循环查询返回的行时，您可以使用`Scan`将行的列值复制到Go值，如[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考中所述。
 
 ​	所有驱动程序都支持一组基本的数据转换，例如将SQL `INT`转换为Go `int`。一些驱动程序扩展了这一转换集；详情请参见各个驱动程序的文档。
 
 ​	正如您所期望的，`Scan`将从列类型转换为类似的Go类型。例如，`Scan`将从SQL `CHAR`、`VARCHAR`和`TEXT`转换为Go `string`。但是，`Scan`也会执行转换为另一种适合列值的Go类型。例如，如果列是一个总是包含数字的`VARCHAR`，您可以指定一个数值Go类型，比如`int`，来接收这个值，`Scan`将使用`strconv.Atoi`对其进行转换。
 
-​	关于`Scan`函数进行转换的更多细节，请参见[Rows.Scan]({{< ref "/docs/StdLib/database/sql#rows-scan">}})参考。
+​	关于`Scan`函数进行转换的更多细节，请参见[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考。
 
 ### 处理多个结果集
 
-​	当您的数据库操作可能返回多个结果集时，您可以通过使用[Rows.NextResultSet]({{< ref "/docs/StdLib/database/sql#rows-nextresultset----go18">}})来检索这些结果。这可能很有用，例如，当您发送分别查询多个表的 SQL 时，为每个表返回一个结果集。
+​	当您的数据库操作可能返回多个结果集时，您可以通过使用[Rows.NextResultSet]({{< ref "/stdLib/database/sql#rows-nextresultset----go18">}})来检索这些结果。这可能很有用，例如，当您发送分别查询多个表的 SQL 时，为每个表返回一个结果集。
 
 ​	`Rows.NextResultSet`准备好下一个结果集，以便调用`Rows.Next`检索下一个结果集的第一条记录。它返回一个布尔值，表明是否存在下一个结果集。
 
