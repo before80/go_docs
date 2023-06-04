@@ -13,7 +13,7 @@ https://go.dev/blog/io2013-chat
 
 6 June 2013
 
-At Google I/O 2013, several members of the Go team hosted a “Fireside chat.” Robert Griesemer, Rob Pike, David Symonds, Andrew Gerrand, Ian Lance Taylor, Sameer Ajmani, Brad Fitzpatrick, and Nigel Tao took questions from the audience and people around the world about various aspects of the Go project.
+At Google I/O 2013, several members of the Go team hosted a "Fireside chat." Robert Griesemer, Rob Pike, David Symonds, Andrew Gerrand, Ian Lance Taylor, Sameer Ajmani, Brad Fitzpatrick, and Nigel Tao took questions from the audience and people around the world about various aspects of the Go project.
 
 在2013年谷歌I/O大会上，Go团队的几位成员主持了一场 "炉边谈话"。Robert Griesemer、Rob Pike、David Symonds、Andrew Gerrand、Ian Lance Taylor、Sameer Ajmani、Brad Fitzpatrick和Nigel Tao接受了来自观众和世界各地的人们关于Go项目各个方面的问题。
 
@@ -37,7 +37,7 @@ Rob：是的。我们一直在考虑如何提高工具以及语言和库的性�
 
 *I have been very pleased to see how quickly Go appears to be gaining traction.* *Can you talk about the reactions you have experienced working with other* *developers inside and outside Google? Are there any major sticking points remaining?*
 
-我非常高兴地看到，Go似乎正在迅速地获得吸引力。你能谈谈你在与谷歌内部和外部的其他开发者合作中所经历的反应吗？是否还有什么主要的症结所在？
+我非常高兴地看到，Go似乎正在迅速地获得吸引力。您能谈谈您在与谷歌内部和外部的其他开发者合作中所经历的反应吗？是否还有什么主要的症结所在？
 
 **Robert:** A lot of developers that seriously tried Go are very happy with it. Many of them report a much smaller, more readable and thus maintainable code base: A 50% code size reduction or more when coming from C++ seems common. Developers that switched to Go from Python are invariably pleased with the performance gain. The typical complaints are about small inconsistencies in the language (some of which we might iron out at some point). What surprises me is that almost nobody complains about the lack of generics.
 
@@ -57,7 +57,7 @@ Go的下一个版本有什么路线图吗？
 
 **Andrew:** We have no feature roadmap as such. The contributors tend to work on what interests them. Active areas of development include the gc and gccgo compilers, the garbage collector and runtime, and many others. We expect the majority of exciting new additions will be in the form of improvements to our tools. You can find design discussions and code reviews on the [golang-dev mailing list](http://groups.google.com/group/golang-dev).
 
-安德鲁：我们没有这样的功能路线图。贡献者们倾向于在他们感兴趣的地方工作。活跃的开发领域包括gc和gccgo编译器，垃圾收集器和运行时间，以及其他许多领域。我们希望大多数令人振奋的新功能将以改进我们的工具的形式出现。你可以在golang-dev邮件列表中找到设计讨论和代码审查。
+安德鲁：我们没有这样的功能路线图。贡献者们倾向于在他们感兴趣的地方工作。活跃的开发领域包括gc和gccgo编译器，垃圾收集器和运行时间，以及其他许多领域。我们希望大多数令人振奋的新功能将以改进我们的工具的形式出现。您可以在golang-dev邮件列表中找到设计讨论和代码审查。
 
 As for the timeline, we do have [concrete plans](https://docs.google.com/document/d/106hMEZj58L9nq9N9p7Zll_WKfo-oyZHFyI6MttuZmBU/edit?usp=sharing): we expect to release Go 1.2 on December 1, 2013.
 
@@ -65,7 +65,7 @@ As for the timeline, we do have [concrete plans](https://docs.google.com/documen
 
 *Where do you guys want to see Go used externally?* *What would you consider a big win for Go adoption outside Google?* *Where do you think Go has the potential to make a significant impact?*
 
-你们想在哪里看到Go的外部应用？您认为在谷歌之外，Go的采用会有什么大的胜利？你认为Go在哪里有可能产生重大影响？
+您们想在哪里看到Go的外部应用？您认为在谷歌之外，Go的采用会有什么大的胜利？您认为Go在哪里有可能产生重大影响？
 
 **Rob:** Where Go is deployed is up to its users, not to us. We’re happy to see it gain traction anywhere it helps. It was designed with server-side software in mind, and is showing promise there, but has also shown strengths in many other areas and the story is really just beginning. There are many surprises to come.
 
@@ -77,7 +77,7 @@ Rob：Go的部署由其用户决定，而不是由我们决定。我们很高兴
 
 *Have you thought any (more) about the potential of dynamically loading* *Go packages or objects and how it could work in Go?* *I think this could enable some really interesting and expressive constructs,* *especially coupled with interfaces.*
 
-你有没有想过（更多）动态加载Go包或对象的潜力，以及它如何在Go中工作？我认为这可以实现一些非常有趣和有表现力的结构，特别是与接口相结合。
+您有没有想过（更多）动态加载Go包或对象的潜力，以及它如何在Go中工作？我认为这可以实现一些非常有趣和有表现力的结构，特别是与接口相结合。
 
 **Rob:** This is an active topic of discussion. We appreciate how powerful the concept can be and hope we can find a way to implement it before too long. There are serious challenges in the design approach to take and the need to make it work portably.
 
@@ -87,7 +87,7 @@ Rob: 这是个活跃的讨论话题。我们很欣赏这个概念的强大，并
 
 不久前，有一个关于将一些最好的数据库/sql驱动收集在一个更集中的地方的讨论。但有些人有强烈的反对意见。明年，数据库/sql及其驱动将走向何方？
 
-**Brad:** While we could create an official subrepo (“go.db”) for database drivers, we fear that would unduly bless certain drivers. At this point we’d still rather see healthy competition between different drivers. The [SQLDrivers wiki page](https://go.dev/wiki/SQLDrivers) lists some good ones.
+**Brad:** While we could create an official subrepo ("go.db") for database drivers, we fear that would unduly bless certain drivers. At this point we’d still rather see healthy competition between different drivers. The [SQLDrivers wiki page](https://go.dev/wiki/SQLDrivers) lists some good ones.
 
 Brad：虽然我们可以为数据库驱动创建一个官方子程序（"go.db"），但我们担心这将不适当地保护某些驱动。在这一点上，我们仍然希望看到不同驱动之间的良性竞争。SQLDrivers维基页面列出了一些好的驱动。
 
@@ -137,7 +137,7 @@ Nobody has stepped forward to do a review of the TLS stack however and I’ve no
 
 *What do you think about* [*GopherCon 2014*](http://www.gophercon.com/)*?* *Does anyone from the team plan to attend?*
 
-你对GopherCon 2014有什么看法？团队中有人打算参加吗？
+您对GopherCon 2014有什么看法？团队中有人打算参加吗？
 
 **Andrew:** It’s very exciting. I’m sure some of us will be there.
 

@@ -50,7 +50,7 @@ For the open source launch in 2009, Renee suggested adapting the WFMU gopher as 
 
 ![img](TheGoGopher_img/gopher.png)
 
-(The gopher has no name, and is called just the “Go gopher”.)
+(The gopher has no name, and is called just the "Go gopher".)
 
 (地鼠没有名字，只被称为 "Go地鼠")。
 
@@ -82,7 +82,7 @@ Go gopher是一个人物；一个独特的创造。不是普通的地鼠，就�
 
 The [gopher images](https://go.dev/doc/gopher/) are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used.
 
-地鼠的图片是以知识共享署名4.0许可的。这意味着你可以使用这些图片，但你必须在任何地方使用它们，并将其归功于它们的创造者（Renee French）。
+地鼠的图片是以知识共享署名4.0许可的。这意味着您可以使用这些图片，但您必须在任何地方使用它们，并将其归功于它们的创造者（Renee French）。
 
 Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations.
 
@@ -96,7 +96,7 @@ They’re cute and we like them, but by the Creative Commons rules the groups sh
 
 The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They may be purchased from the [Google Store](https://www.googlemerchandisestore.com/Google+Redesign/Fun/Go+Gopher+Blue+Squishable.axd?cid=1399), although the supply can be irregular. (These elusive creatures have been spotted in all [kinds](http://www.flickr.com/photos/pinkhamsters/sets/72157627910426064/) [of](https://plus.google.com/107966629974328136037/posts/TcFA9zHzQB8) [places](https://twitter.com/goroutine).)
 
-乙烯基和毛绒地鼠的设计是有版权的；不接受任何替代物！但你如何能得到一个？但是你怎么能得到一个呢？它们的自然栖息地是在Go程序员集中的地方，而且它们在世界各地的数量正在增加。它们可以从谷歌商店购买，尽管供应可能是不定期的。(这些难以捉摸的生物已经在各种地方被发现了）。
+乙烯基和毛绒地鼠的设计是有版权的；不接受任何替代物！但您如何能得到一个？但是您怎么能得到一个呢？它们的自然栖息地是在Go程序员集中的地方，而且它们在世界各地的数量正在增加。它们可以从谷歌商店购买，尽管供应可能是不定期的。(这些难以捉摸的生物已经在各种地方被发现了）。
 
 Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: [GopherCon](http://gophercon.com/) (Denver, April 24-26) and [dotGo](http://dotgo.eu/) (Paris, October 10).
 

@@ -26,7 +26,7 @@ StatHat是一个用于跟踪代码中的统计数据和事件的工具。从HTML
 
 You send your numbers to StatHat; it generates beautiful, fully-embeddable graphs of your data. StatHat will alert you when specified triggers occur, send you daily email reports, and much more. So instead of spending time writing tracking or reporting tools for your application, you can concentrate on the code. While you do the real work, StatHat remains intensely vigilant, like an eagle in its mountaintop nest, or a babysitter on meth.
 
-你向StatHat发送你的数字；它为你的数据生成漂亮的、可完全嵌入的图表。StatHat会在指定的触发器发生时提醒你，向你发送每日电子邮件报告，以及更多。因此，你不必花时间为你的应用程序编写跟踪或报告工具，而是可以集中精力编写代码。当你做真正的工作时，StatHat会保持高度的警惕，就像山顶上的老鹰，或者是吸食冰毒的保姆。
+您向StatHat发送您的数字；它为您的数据生成漂亮的、可完全嵌入的图表。StatHat会在指定的触发器发生时提醒您，向您发送每日电子邮件报告，以及更多。因此，您不必花时间为您的应用程序编写跟踪或报告工具，而是可以集中精力编写代码。当您做真正的工作时，StatHat会保持高度的警惕，就像山顶上的老鹰，或者是吸食冰毒的保姆。
 
 Here’s an example of a StatHat graph of the temperature in NYC, Chicago, and San Francisco:
 
@@ -68,7 +68,7 @@ We evaluated many popular and not-so-popular web technologies and ended up choos
 
 When Go was released in November 2009, I immediately installed it and loved the fast compilation times, goroutines, channels, garbage collection, and all the packages that were available. I was especially pleased with how few lines of code my applications were using. I soon experimented with making a web app called [Langalot](http://langalot.com/) that concurrently searched through five foreign language dictionaries as you typed in a query. It was blazingly fast. I put it online and it’s been running since February, 2010.
 
-当Go在2009年11月发布时，我立即安装了它，并喜欢它的快速编译时间、goroutines、通道、垃圾收集以及所有可用的包。我对我的应用程序所使用的代码行数之少感到特别高兴。我很快就尝试着做了一个叫Langalot的网络应用，当你输入查询时，它可以同时搜索五个外语词典。它的速度快得惊人。我把它放在网上，从2010年2月开始运行。
+当Go在2009年11月发布时，我立即安装了它，并喜欢它的快速编译时间、goroutines、通道、垃圾收集以及所有可用的包。我对我的应用程序所使用的代码行数之少感到特别高兴。我很快就尝试着做了一个叫Langalot的网络应用，当您输入查询时，它可以同时搜索五个外语词典。它的速度快得惊人。我把它放在网上，从2010年2月开始运行。
 
 The following sections detail how Go meets StatHat’s requirements and our experience using Go to solve our problems.
 
@@ -124,7 +124,7 @@ People rely on StatHat for up to the minute analysis of their data and we need t
 
 In a former life, I was the CTO at OkCupid. My experience there using OKWS taught me the importance of async programming, especially when it comes to dynamic web applications. There is no reason you should ever do something like this synchronously: load a user from the database, then find their stats, then find their alerts. These should all be done concurrently, yet surprisingly, many popular frameworks have no async support. Go supports this at the language level without any callback spaghetti. StatHat uses goroutines extensively to run multiple functions concurrently and channels for sharing data between goroutines.
 
-在以前的生活中，我是OkCupid的CTO。我在那里使用OKWS的经验告诉我异步编程的重要性，特别是当涉及到动态网络应用时。你没有理由同步地做这样的事情：从数据库中加载一个用户，然后找到他们的统计信息，然后找到他们的警报。这些都应该是并发进行的，然而令人惊讶的是，许多流行的框架都没有异步支持。Go在语言层面上支持这一点，没有任何回调的花边。StatHat广泛使用goroutines来同时运行多个函数，并在goroutines之间共享数据的通道。
+在以前的生活中，我是OkCupid的CTO。我在那里使用OKWS的经验告诉我异步编程的重要性，特别是当涉及到动态网络应用时。您没有理由同步地做这样的事情：从数据库中加载一个用户，然后找到他们的统计信息，然后找到他们的警报。这些都应该是并发进行的，然而令人惊讶的是，许多流行的框架都没有异步支持。Go在语言层面上支持这一点，没有任何回调的花边。StatHat广泛使用goroutines来同时运行多个函数，并在goroutines之间共享数据的通道。
 
 ## Hosting and Deployment 托管和部署
 

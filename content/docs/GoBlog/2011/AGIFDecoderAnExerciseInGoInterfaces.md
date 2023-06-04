@@ -58,7 +58,7 @@ Simplifying somewhat, a GIF file contains a header defining the pixel depth and 
 
 ## Deblocking the pixel data 解除像素数据的锁定
 
-To decode GIF pixel data in Go, we can use the LZW decompressor from the `compress/lzw` package. It has a NewReader function that returns an object that, as [the documentation](https://go.dev/pkg/compress/lzw/#NewReader) says, “satisfies reads by decompressing the data read from r”:
+To decode GIF pixel data in Go, we can use the LZW decompressor from the `compress/lzw` package. It has a NewReader function that returns an object that, as [the documentation](https://go.dev/pkg/compress/lzw/#NewReader) says, "satisfies reads by decompressing the data read from r":
 
 要在Go中解码GIF像素数据，我们可以使用compress/lzw软件包中的LZW解压器。它有一个NewReader函数，可以返回一个对象，正如文档中所说，"通过解压从r读取的数据来满足读取"。
 

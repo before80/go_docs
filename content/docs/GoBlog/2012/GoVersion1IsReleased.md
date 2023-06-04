@@ -54,4 +54,4 @@ Go 1是Go核心团队和来自开源社区的众多贡献者的重大努力的�
 
 There has never been a better time to be a Go programmer. Everything you need to get started is at [golang.org](https://go.dev/).
 
-现在是成为Go程序员的最佳时机。你所需要的一切都在golang.org上。
+现在是成为Go程序员的最佳时机。您所需要的一切都在golang.org上。

@@ -1,5 +1,5 @@
 +++
-title = "调试你在go 1.12中部署的内容"
+title = "调试您在go 1.12中部署的内容"
 weight = 16
 date = 2023-05-18T17:03:08+08:00
 description = ""
@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Debugging what you deploy in Go 1.12 - 调试你在go 1.12中部署的内容
+# Debugging what you deploy in Go 1.12 - 调试您在go 1.12中部署的内容
 
 https://go.dev/blog/debug-opt
 
@@ -22,7 +22,7 @@ Go 1.11 和 Go 1.12 在允许开发人员调试他们部署到生产中的相同
 
 As the Go compiler has become increasingly aggressive in producing faster binaries, we’ve lost ground in debuggability. In Go 1.10, users needed to disable optimizations entirely in order to have a good debugging experience from interactive tools like Delve. But users shouldn’t have to trade performance for debuggability, especially when running production services. If your problem is occurring in production, you need to debug it in production, and that shouldn’t require deploying unoptimized binaries.
 
-随着 Go 编译器在生成更快的二进制文件方面变得越来越积极，我们在调试性方面已经失去了优势。在Go 1.10中，用户需要完全禁用优化，以便通过Delve等交互式工具获得良好的调试体验。但是用户不应该用性能来换取调试性，尤其是在运行生产服务时。如果你的问题发生在生产中，你需要在生产中进行调试，而这不应该需要部署未经优化的二进制文件。
+随着 Go 编译器在生成更快的二进制文件方面变得越来越积极，我们在调试性方面已经失去了优势。在Go 1.10中，用户需要完全禁用优化，以便通过Delve等交互式工具获得良好的调试体验。但是用户不应该用性能来换取调试性，尤其是在运行生产服务时。如果您的问题发生在生产中，您需要在生产中进行调试，而这不应该需要部署未经优化的二进制文件。
 
 For Go 1.11 and 1.12, we focused on improving the debugging experience on optimized binaries (the default setting of the Go compiler). Improvements include
 
@@ -43,7 +43,7 @@ Delve是一个支持Linux和macOS的x86平台Go的调试器。Delve了解gorouti
 
 Delve normally rebuilds the code it is debugging with `-gcflags "all=-N -l"`, which disables inlining and most optimizations. To debug optimized code with delve, first build the optimized binary, then use `dlv exec your_program` to debug it. Or, if you have a core file from a crash, you can examine it with `dlv core your_program your_core`. With 1.12 and the latest Delve releases, you should be able to examine many variables, even in optimized binaries.
 
-Delve通常用-gcflags "all=-N -l "来重建它所调试的代码，这将禁用内联和大多数优化。要用delve调试优化的代码，首先要建立优化的二进制文件，然后用dlv exec your_program来调试它。或者，如果你有一个崩溃的核心文件，你可以用dlv core your_program your_core检查它。有了1.12和最新的Delve版本，你应该能够检查许多变量，甚至在优化的二进制文件中。
+Delve通常用-gcflags "all=-N -l "来重建它所调试的代码，这将禁用内联和大多数优化。要用delve调试优化的代码，首先要建立优化的二进制文件，然后用dlv exec your_program来调试它。或者，如果您有一个崩溃的核心文件，您可以用dlv core your_program your_core检查它。有了1.12和最新的Delve版本，您应该能够检查许多变量，甚至在优化的二进制文件中。
 
 ## Improved value inspection 改进的值检查
 
@@ -61,11 +61,11 @@ This shows an example of stepping through a simple function in a debugger in 1.1
 
 Flaws like this make it easy to lose track of where you are when stepping through a program and interfere with hitting breakpoints.
 
-像这样的缺陷使你在步进程序时很容易失去方向，并影响到断点的判断。
+像这样的缺陷使您在步进程序时很容易失去方向，并影响到断点的判断。
 
 Go 1.11 and 1.12 record statement boundary information and do a better job of tracking source line numbers through optimizations and inlining. As a result, in Go 1.12, stepping through this code stops on every line and does so in the order you would expect.
 
-Go 1.11和1.12记录了语句边界信息，并通过优化和内联在跟踪源码行数方面做得更好。因此，在Go 1.12中，在这段代码中的每一行都会停止，而且是按照你所期望的顺序进行。
+Go 1.11和1.12记录了语句边界信息，并通过优化和内联在跟踪源码行数方面做得更好。因此，在Go 1.12中，在这段代码中的每一行都会停止，而且是按照您所期望的顺序进行。
 
 ## Function calls 函数调用
 
@@ -98,4 +98,4 @@ We’re focusing on generating correct information for debuggers about variable 
 
 Go 1.11 started compressing debug information to reduce binary sizes. This is natively supported by Delve, but neither LLDB nor GDB support compressed debug info on macOS. If you are using LLDB or GDB, there are two workarounds: build binaries with `-ldflags=-compressdwarf=false`, or use [splitdwarf](https://godoc.org/golang.org/x/tools/cmd/splitdwarf) (`go get golang.org/x/tools/cmd/splitdwarf`) to decompress the debug information in an existing binary.
 
-Go 1.11 开始压缩调试信息以减少二进制文件的大小。Delve原生支持这个功能，但LLDB和GDB在macOS上都不支持压缩的调试信息。如果你使用LLDB或GDB，有两个解决方法：在构建二进制文件时使用-ldflags=-compressdwarf=false，或者使用splitdwarf (go get golang.org/x/tools/cmd/splitdwarf) 来解压现有二进制文件中的调试信息。
+Go 1.11 开始压缩调试信息以减少二进制文件的大小。Delve原生支持这个功能，但LLDB和GDB在macOS上都不支持压缩的调试信息。如果您使用LLDB或GDB，有两个解决方法：在构建二进制文件时使用-ldflags=-compressdwarf=false，或者使用splitdwarf (go get golang.org/x/tools/cmd/splitdwarf) 来解压现有二进制文件中的调试信息。

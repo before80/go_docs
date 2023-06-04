@@ -14,11 +14,11 @@ https://go.dev/blog/survey2017
 Steve Francia
 16 November 2017
 
-## The Go project wants to hear from you (again)! Go项目希望听到你的意见（再次）！你的意见是什么？
+## The Go project wants to hear from you (again)! Go项目希望听到您的意见（再次）！您的意见是什么？
 
 Last year we conducted the first ever [Go user survey](https://blog.golang.org/survey2016-results). Thanks to all of you, it was an overwhelming success with over 3500 responses. The survey provided key insights and helped us better plan and prioritize.
 
-去年我们进行了首次Go用户调查。感谢你们所有人，它取得了压倒性的成功，有3500多份回复。该调查提供了关键的见解，帮助我们更好地计划和确定优先次序。
+去年我们进行了首次Go用户调查。感谢您们所有人，它取得了压倒性的成功，有3500多份回复。该调查提供了关键的见解，帮助我们更好地计划和确定优先次序。
 
 We invite you to participate in the [2017 Go User Survey](https://goo.gl/n9M7SB).
 
@@ -40,7 +40,7 @@ The survey is anonymous and confidential.
 
 **Why:** The Go project leadership depends on your feedback to guide the future of the Go project. Your responses will help to understand what’s going well and what’s not, as well as help us prioritize improvements for the Go language, libraries and tools.
 
-原因：Go项目领导层依靠你的反馈来指导Go项目的未来。您的回答将有助于了解哪些方面进展顺利，哪些方面不尽如人意，并帮助我们确定Go语言、库和工具改进的优先次序。
+原因：Go项目领导层依靠您的反馈来指导Go项目的未来。您的回答将有助于了解哪些方面进展顺利，哪些方面不尽如人意，并帮助我们确定Go语言、库和工具改进的优先次序。
 
 A few weeks after the survey closes, we will publish the anonymous aggregate results to the Go blog. See the [2016 Go user survey results](https://blog.golang.org/survey2016-results) to learn what insights were gained from last year’s survey.
 
@@ -50,4 +50,4 @@ A few weeks after the survey closes, we will publish the anonymous aggregate res
 
 Please help us spread the word by sharing this post on your social network feeds, at meetups, around your office and in other communities.
 
-请帮助我们传播这个消息，在你的社交网络上、聚会上、你的办公室周围和其他社区分享这个帖子。
+请帮助我们传播这个消息，在您的社交网络上、聚会上、您的办公室周围和其他社区分享这个帖子。

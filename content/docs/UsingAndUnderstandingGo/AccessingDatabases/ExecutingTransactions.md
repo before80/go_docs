@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/execute-transactions](https://go.dev/doc/database/execute-transactions)
 
-​	你可以使用表示事务的[sql.Tx]({{< ref "/docs/StdLib/database/sql#type-tx">}})来执行数据库事务。除了表示特定于事务语义的`Commit`和`Rollback`方法之外，`sql.Tx`还有所有用来执行普通数据库操作的方法。要获取`sql.Tx`，可以调用`DB.Begin`或`DB.BeginTx`。
+​	您可以使用表示事务的[sql.Tx]({{< ref "/docs/StdLib/database/sql#type-tx">}})来执行数据库事务。除了表示特定于事务语义的`Commit`和`Rollback`方法之外，`sql.Tx`还有所有用来执行普通数据库操作的方法。要获取`sql.Tx`，可以调用`DB.Begin`或`DB.BeginTx`。
 
 ​	一个[数据库事务](https://en.wikipedia.org/wiki/Database_transaction)将多个操作作为更大目标的一部分进行分组。所有的操作都必须成功，或者都不能成功，在这两种情况下都要保持数据的完整性。通常，一个事务的工作流程包括：
 
@@ -27,7 +27,7 @@ draft = false
 
 - 执行数据库操作。
 
-  使用一个`sql.Tx`，你可以在一系列使用单一连接的操作中查询或更新数据库。为了支持这一点，`Tx`导出了以下方法：
+  使用一个`sql.Tx`，您可以在一系列使用单一连接的操作中查询或更新数据库。为了支持这一点，`Tx`导出了以下方法：
 
   - [Exec]({{< ref "/docs/StdLib/database/sql#tx-exec">}}) 和 [ExecContext](https://pkg.go.dev/database/sql#Tx.ExecContext  {{< ref "/docs/StdLib/database/sql#tx-execcontext----go18">}}) ，用于通过SQL语句（如`INSERT`、`UPDATE`和`DELETE`）进行数据库更改。
 
@@ -55,8 +55,8 @@ draft = false
 
 ​	遵循下面的最佳实践，可以更好地了解事务有时需要的复杂语义和连接管理。
 
-- 使用本节中描述的API来管理事务。**不要直接使用与事务相关的SQL语句**，如`BEGIN`和`COMMIT`——这样做会使你的数据库处于不可预测的状态，尤其是在并发程序中。
-- 当使用事务时，注意**不要直接调用非事务的**`sql.DB`方法，因为这些方法会在事务之外执行，将会给你的代码提供一个不一致的数据库状态，甚至导致**死锁**。
+- 使用本节中描述的API来管理事务。**不要直接使用与事务相关的SQL语句**，如`BEGIN`和`COMMIT`——这样做会使您的数据库处于不可预测的状态，尤其是在并发程序中。
+- 当使用事务时，注意**不要直接调用非事务的**`sql.DB`方法，因为这些方法会在事务之外执行，将会给您的代码提供一个不一致的数据库状态，甚至导致**死锁**。
 
 ### 示例
 

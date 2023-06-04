@@ -14,11 +14,11 @@ https://go.dev/blog/survey2016
 Steve Francia
 13 December 2016
 
-## The Go project wants to hear from you! Go项目想听听你的意见!
+## The Go project wants to hear from you! Go项目想听听您的意见!
 
 The Go project wants to hear from you! Our goal is to create the best language for developing simple, reliable, scalable software. We are asking you to help by participating in a survey and if applicable, a company questionnaire.
 
-Go项目希望听到你的声音 我们的目标是为开发简单、可靠、可扩展的软件创造最佳语言。我们希望您能通过参与调查和（如果适用）公司问卷来提供帮助。
+Go项目希望听到您的声音 我们的目标是为开发简单、可靠、可扩展的软件创造最佳语言。我们希望您能通过参与调查和（如果适用）公司问卷来提供帮助。
 
 ## The Go User Survey Go用户调查
 
@@ -44,7 +44,7 @@ After the survey closes, we will publish the anonymous aggregate results to the 
 
 ## The Go Company Questionnaire - Go公司调查表
 
-**Who:** If you are in a position to share details like “company name”, “if your company is hiring Go developers”, and “reasons your team or company adopted Go” then please help us by taking this questionnaire. We only need one response per company (or department for larger companies).
+**Who:** If you are in a position to share details like "company name", "if your company is hiring Go developers", and "reasons your team or company adopted Go" then please help us by taking this questionnaire. We only need one response per company (or department for larger companies).
 
 谁：如果您能够分享诸如 "公司名称"、"您的公司是否正在招聘Go开发人员 "以及 "您的团队或公司采用Go的原因 "等细节，那么请帮助我们参加这个调查问卷。我们只需要每家公司（大公司的部门）的一个答复。
 
@@ -68,7 +68,7 @@ After the questionnaire closes the Go project leadership will use this informati
 
 Please help us spread the word by sharing this post on your social network feeds, at meetups, around your office and in other communities.
 
-请帮助我们传播这个消息，在你的社交网络上、聚会上、你的办公室周围和其他社区分享这个帖子。
+请帮助我们传播这个消息，在您的社交网络上、聚会上、您的办公室周围和其他社区分享这个帖子。
 
 The survey & questionnaire close by December 22nd so please share today.
 

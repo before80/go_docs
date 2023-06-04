@@ -44,7 +44,7 @@ Our new logo went through an extensive design process. Here are some of the revi
 
 ## New Brand Guide 新的品牌指南
 
-The brand guide establishes the mission, values and voice for the Go project. In general terms, a brand guide is a reference tool for establishing a consistent brand identity. It is sometimes referred to as “brand guidelines” or a “brand book”. It is a single document that serves as a guide and reference to designers, writers, and developers to create consistent, on-brand content.
+The brand guide establishes the mission, values and voice for the Go project. In general terms, a brand guide is a reference tool for establishing a consistent brand identity. It is sometimes referred to as "brand guidelines" or a "brand book". It is a single document that serves as a guide and reference to designers, writers, and developers to create consistent, on-brand content.
 
 品牌指南确定了Go项目的使命、价值和声音。一般来说，品牌指南是建立统一品牌形象的参考工具。它有时被称为 "品牌指南 "或 "品牌书"。它是一个单一的文件，作为设计师、作家和开发人员的指南和参考，以创造一致的、符合品牌的内容。
 
@@ -75,9 +75,9 @@ Instructions to use slides:
 使用幻灯片的说明：
 
 - Open the [Go Slide Masters](https://go.dev/s/presentation-theme) presentation on Google Slides. 在谷歌幻灯片上打开Go Slide Masters演示文稿。
-- File > “Make a Copy” (you may need to log in first) 文件>"制作副本"（你可能需要先登录）。
+- File > "Make a Copy" (you may need to log in first) 文件>"制作副本"（您可能需要先登录）。
 - Create new slides using the layouts provided in the layouts menu. 使用布局菜单中提供的布局创建新幻灯片。
-- Use the included example slides to help guide the styling and creation of your presentation. 使用附带的示例幻灯片来帮助指导你的演示文稿的造型和创作。
+- Use the included example slides to help guide the styling and creation of your presentation. 使用附带的示例幻灯片来帮助指导您的演示文稿的造型和创作。
 
 ### Download 下载
 

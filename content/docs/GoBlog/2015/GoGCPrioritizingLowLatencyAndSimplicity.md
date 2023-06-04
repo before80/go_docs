@@ -20,7 +20,7 @@ Go is building a garbage collector (GC) not only for 2015 but for 2025 and beyon
 
 Go不仅为2015年，而且为2025年及以后建立了一个垃圾收集器（GC）。一个支持今天的软件开发，并在未来十年与新的软件和硬件一起扩展的GC。在这样的未来，没有停止的地方，因为GC的暂停一直阻碍着像Go这样的安全语言的广泛使用。
 
-Go 1.5, the first glimpse of this future, achieves GC latencies well below the 10 millisecond goal we set a year ago. We presented some impressive numbers in [a talk at Gophercon](https://go.dev/talks/2015/go-gc.pdf). The latency improvements have generated a lot of attention; Robin Verlangen’s blog post [*Billions of requests per day meet Go 1.5*](https://medium.com/@robin.verlangen/billions-of-request-per-day-meet-go-1-5-362bfefa0911) validates our direction with end to end results. We also particularly enjoyed [Alan Shreve’s production server graphs](https://twitter.com/inconshreveable/status/620650786662555648) and his “Holy 85% reduction” comment.
+Go 1.5, the first glimpse of this future, achieves GC latencies well below the 10 millisecond goal we set a year ago. We presented some impressive numbers in [a talk at Gophercon](https://go.dev/talks/2015/go-gc.pdf). The latency improvements have generated a lot of attention; Robin Verlangen’s blog post [*Billions of requests per day meet Go 1.5*](https://medium.com/@robin.verlangen/billions-of-request-per-day-meet-go-1-5-362bfefa0911) validates our direction with end to end results. We also particularly enjoyed [Alan Shreve’s production server graphs](https://twitter.com/inconshreveable/status/620650786662555648) and his "Holy 85% reduction" comment.
 
 Go 1.5是这个未来的第一道曙光，它实现了远低于我们一年前设定的10毫秒目标的GC延迟。我们在Gophercon的演讲中展示了一些令人印象深刻的数字。延迟的改善引起了很多人的关注；Robin Verlangen的博文《每天数十亿的请求满足Go 1.5》用端到端的结果验证了我们的方向。我们也特别喜欢Alan Shreve的生产服务器图和他的 "神圣的减少85%"的评论。
 
@@ -30,7 +30,7 @@ Today 16 gigabytes of RAM costs $100 and CPUs come with many cores, each with mu
 
 ## The Embellishment 润色
 
-To create a garbage collector for the next decade, we turned to an algorithm from decades ago. Go’s new garbage collector is a *concurrent*, *tri-color*, *mark-sweep* collector, an idea first proposed by [Dijkstra in 1978](http://dl.acm.org/citation.cfm?id=359655). This is a deliberate divergence from most “enterprise” grade garbage collectors of today, and one that we believe is well suited to the properties of modern hardware and the latency requirements of modern software.
+To create a garbage collector for the next decade, we turned to an algorithm from decades ago. Go’s new garbage collector is a *concurrent*, *tri-color*, *mark-sweep* collector, an idea first proposed by [Dijkstra in 1978](http://dl.acm.org/citation.cfm?id=359655). This is a deliberate divergence from most "enterprise" grade garbage collectors of today, and one that we believe is well suited to the properties of modern hardware and the latency requirements of modern software.
 
 为了创建一个面向未来十年的垃圾收集器，我们转向了几十年前的算法。Go的新垃圾收集器是一个并发的、三色的、标记扫除的收集器，这是Dijkstra在1978年首次提出的想法。这是与当今大多数 "企业 "级垃圾收集器的特意区别，我们认为它很适合现代硬件的特性和现代软件的延迟要求。
 
@@ -52,7 +52,7 @@ Of course the devil is in the details. When do we start a GC cycle? What metrics
 
 At a higher level, one approach to solving performance problems is to add GC knobs, one for each performance issue. The programmer can then turn the knobs in search of appropriate settings for their application. The downside is that after a decade with one or two new knobs each year you end up with the GC Knobs Turner Employment Act. Go is not going down that path. Instead we provide a single knob, called GOGC. This value controls the total size of the heap relative to the size of reachable objects. The default value of 100 means that total heap size is now 100% bigger than (i.e., twice) the size of the reachable objects after the last collection. 200 means total heap size is 200% bigger than (i.e., three times) the size of the reachable objects. If you want to lower the total time spent in GC, increase GOGC. If you want to trade more GC time for less memory, lower GOGC.
 
-在更高的层次上，解决性能问题的一种方法是增加GC旋钮，每个性能问题都有一个。然后，程序员可以转动这些旋钮，为他们的应用寻找合适的设置。缺点是在十年后，每年都有一两个新的旋钮，最后你会发现GC旋钮特纳就业法案。Go不会走这条路。相反，我们提供一个单一的旋钮，称为GOGC。这个值控制堆的总大小，相对于可触及对象的大小。默认值为100，意味着现在的总堆大小比上次收集后的可达对象大小大100%（也就是两倍）。200意味着总堆的大小比可达对象的大小大200%（即三倍）。如果你想降低花在GC上的总时间，增加GOGC。如果你想用更多的GC时间换取更少的内存，就降低GOGC。
+在更高的层次上，解决性能问题的一种方法是增加GC旋钮，每个性能问题都有一个。然后，程序员可以转动这些旋钮，为他们的应用寻找合适的设置。缺点是在十年后，每年都有一两个新的旋钮，最后您会发现GC旋钮特纳就业法案。Go不会走这条路。相反，我们提供一个单一的旋钮，称为GOGC。这个值控制堆的总大小，相对于可触及对象的大小。默认值为100，意味着现在的总堆大小比上次收集后的可达对象大小大100%（也就是两倍）。200意味着总堆的大小比可达对象的大小大200%（即三倍）。如果您想降低花在GC上的总时间，增加GOGC。如果您想用更多的GC时间换取更少的内存，就降低GOGC。
 
 More importantly as RAM doubles with the next generation of hardware, simply doubling GOGC will halve the number of GC cycles. On the other hand since GOGC is based on reachable object size, doubling the load by doubling the reachable objects requires no retuning. The application just scales. Furthermore, unencumbered by ongoing support for dozens of knobs, the runtime team can focus on improving the runtime based on feedback from real customer applications.
 

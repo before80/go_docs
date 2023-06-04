@@ -14,7 +14,7 @@ https://go.dev/blog/godoc
 Andrew Gerrand
 31 March 2011
 
-[***Note, June 2022**: For updated guidelines about documenting Go code, see “[Go Doc Comments](https://go.dev/doc/comment).”*]
+[***Note, June 2022**: For updated guidelines about documenting Go code, see "[Go Doc Comments](https://go.dev/doc/comment)."*]
 
 [注，2022年6月：关于记录Go代码的最新指南，请参见 "Go文档注释"。］
 
@@ -24,15 +24,15 @@ Go项目认真对待文档。文档是使软件可访问和可维护的一个重
 
 To that end, we have developed the [godoc](https://go.dev/cmd/godoc/) documentation tool. This article describes godoc’s approach to documentation, and explains how you can use our conventions and tools to write good documentation for your own projects.
 
-为此，我们开发了godoc文档工具。本文描述了godoc的文档方法，并解释了你如何使用我们的惯例和工具为你自己的项目编写好的文档。
+为此，我们开发了godoc文档工具。本文描述了godoc的文档方法，并解释了您如何使用我们的惯例和工具为您自己的项目编写好的文档。
 
 Godoc parses Go source code - including comments - and produces documentation as HTML or plain text. The end result is documentation tightly coupled with the code it documents. For example, through godoc’s web interface you can navigate from a function’s [documentation](https://go.dev/pkg/strings/#HasPrefix) to its [implementation](https://go.dev/src/strings/strings.go?s=11163:11200#L434) with one click.
 
-Godoc解析Go源代码--包括注释--并以HTML或纯文本形式生成文档。最终的结果是文档与它所记录的代码紧密结合在一起。例如，通过godoc的网络界面，你可以一键从一个函数的文档导航到它的实现。
+Godoc解析Go源代码--包括注释--并以HTML或纯文本形式生成文档。最终的结果是文档与它所记录的代码紧密结合在一起。例如，通过godoc的网络界面，您可以一键从一个函数的文档导航到它的实现。
 
 Godoc is conceptually related to Python’s [Docstring](https://www.python.org/dev/peps/pep-0257/) and Java’s [Javadoc](https://www.oracle.com/java/technologies/javase/javadoc-tool.html) but its design is simpler. The comments read by godoc are not language constructs (as with Docstring) nor must they have their own machine-readable syntax (as with Javadoc). Godoc comments are just good comments, the sort you would want to read even if godoc didn’t exist.
 
-Godoc在概念上与Python的Docstring和Java的Javadoc相关，但其设计更简单。Godoc读取的注释不是语言结构（如Docstring），也不必须有自己的机器可读语法（如Javadoc）。Godoc注释就是好的注释，即使godoc不存在，你也会想读的那种。
+Godoc在概念上与Python的Docstring和Java的Javadoc相关，但其设计更简单。Godoc读取的注释不是语言结构（如Docstring），也不必须有自己的机器可读语法（如Javadoc）。Godoc注释就是好的注释，即使godoc不存在，您也会想读的那种。
 
 The convention is simple: to document a type, variable, constant, function, or even a package, write a regular comment directly preceding its declaration, with no intervening blank line. Godoc will then present that comment as text alongside the item it documents. For example, this is the documentation for the `fmt` package’s [`Fprint`](https://go.dev/pkg/fmt/#Fprint) function:
 
@@ -67,7 +67,7 @@ When writing package comments of any size, keep in mind that their first sentenc
 
 当写任何大小的包注释时，要记住它们的第一句话会出现在godoc的包列表中。
 
-Comments that are not adjacent to a top-level declaration are omitted from godoc’s output, with one notable exception. Top-level comments that begin with the word `"BUG(who)”` are recognized as known bugs, and included in the “Bugs” section of the package documentation. The “who” part should be the user name of someone who could provide more information. For example, this is a known issue from the [bytes package](https://go.dev/pkg/bytes/#pkg-note-BUG):
+Comments that are not adjacent to a top-level declaration are omitted from godoc’s output, with one notable exception. Top-level comments that begin with the word `"BUG(who)"` are recognized as known bugs, and included in the "Bugs" section of the package documentation. The "who" part should be the user name of someone who could provide more information. For example, this is a known issue from the [bytes package](https://go.dev/pkg/bytes/#pkg-note-BUG):
 
 与顶级声明不相邻的注释会从godoc的输出中省略，但有一个明显的例外。以 "BUG(who) "开头的顶层注释被认为是已知的错误，并包括在软件包文档的 "错误 "部分。"who "部分应该是可以提供更多信息的人的用户名。例如，这是byte包中的一个已知问题：
 
@@ -75,7 +75,7 @@ Comments that are not adjacent to a top-level declaration are omitted from godoc
 // BUG(r): The rule Title uses for word boundaries does not handle Unicode punctuation properly.
 ```
 
-Sometimes a struct field, function, type, or even a whole package becomes redundant or unnecessary, but must be kept for compatibility with existing programs. To signal that an identifier should not be used, add a paragraph to its doc comment that begins with “Deprecated:” followed by some information about the deprecation.
+Sometimes a struct field, function, type, or even a whole package becomes redundant or unnecessary, but must be kept for compatibility with existing programs. To signal that an identifier should not be used, add a paragraph to its doc comment that begins with "Deprecated:" followed by some information about the deprecation.
 
 有时一个结构字段、函数、类型、甚至整个包变得多余或不必要，但为了与现有程序兼容，必须保留。为了表明一个标识符不应该被使用，可以在它的文档注释中添加一段话，以 "废弃的："开头，后面是一些关于废弃的信息。
 
@@ -83,13 +83,13 @@ There are a few formatting rules that Godoc uses when converting comments to HTM
 
 Godoc在将注释转换为HTML时使用了一些格式化规则：
 
-- Subsequent lines of text are considered part of the same paragraph; you must leave a blank line to separate paragraphs.后续的几行文字被认为是同一段落的一部分；你必须留一个空行来分隔段落。
+- Subsequent lines of text are considered part of the same paragraph; you must leave a blank line to separate paragraphs.后续的几行文字被认为是同一段落的一部分；您必须留一个空行来分隔段落。
 - Pre-formatted text must be indented relative to the surrounding comment text (see gob’s [doc.go](https://go.dev/src/pkg/encoding/gob/doc.go) for an example).预先格式化的文本必须相对于周围的评论文本缩进（见gob的doc.go的例子）。
 - URLs will be converted to HTML links; no special markup is necessary.URL将被转换为HTML链接；不需要特殊标记。
 
 Note that none of these rules requires you to do anything out of the ordinary.
 
-请注意，这些规则都不要求你做任何出格的事情。
+请注意，这些规则都不要求您做任何出格的事情。
 
 In fact, the best thing about godoc’s minimal approach is how easy it is to use. As a result, a lot of Go code, including all of the standard library, already follows the conventions.
 
@@ -97,4 +97,4 @@ In fact, the best thing about godoc’s minimal approach is how easy it is to us
 
 Your own code can present good documentation just by having comments as described above. Any Go packages installed inside `$GOROOT/src/pkg` and any `GOPATH` work spaces will already be accessible via godoc’s command-line and HTTP interfaces, and you can specify additional paths for indexing via the `-path` flag or just by running `"godoc ."` in the source directory. See the [godoc documentation](https://go.dev/cmd/godoc/) for more details.
 
-你自己的代码只要有上述的注释，就可以呈现出良好的文档。任何安装在$GOROOT/src/pkg内的Go包和任何GOPATH工作空间都已经可以通过godoc的命令行和HTTP接口访问，你可以通过-path标志指定额外的路径进行索引，或者只需在源代码目录下运行 "godoc ."。更多细节见godoc文档。
+您自己的代码只要有上述的注释，就可以呈现出良好的文档。任何安装在$GOROOT/src/pkg内的Go包和任何GOPATH工作空间都已经可以通过godoc的命令行和HTTP接口访问，您可以通过-path标志指定额外的路径进行索引，或者只需在源代码目录下运行 "godoc ."。更多细节见godoc文档。

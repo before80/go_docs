@@ -24,7 +24,7 @@ Gopher Gala是第一次全球范围内的Go黑客马拉松，将于1月23日到2
 
 You can read about the rules of the hackathon [here](http://gophergala.com/rules/), but if you know about [Rails Rumble](http://railsrumble.com/) or [Node Knockout](http://nodeknockout.com/) you already have a pretty good idea of what to expect.
 
-你可以在这里阅读黑客马拉松的规则，但如果你知道Rails Rumble或Node Knockout，你就已经有了一个相当好的想法。
+您可以在这里阅读黑客马拉松的规则，但如果您知道Rails Rumble或Node Knockout，您就已经有了一个相当好的想法。
 
 During this event gophers from all around the globe will form teams to build great applications using Go as the main tool. Afterwards, all the participants will vote for their favorite applications and the 20 highest voted applications will be ranked by a jury of renowned names from the community, including some members of the Go core team. More information on the judging phase can be found [here](http://gophergala.com/judging/).
 
@@ -32,8 +32,8 @@ During this event gophers from all around the globe will form teams to build gre
 
 And in case you needed one more reason to [get involved](https://gophers.typeform.com/to/wondM5) there will be prizes!
 
-如果你还需要一个参与的理由，那就是会有奖品！"。
+如果您还需要一个参与的理由，那就是会有奖品！"。
 
-“What prizes?” you ask. Well, that’s a [secret](http://gophergala.com/prizes/) until January 10th but we’re pretty sure you won’t be disappointed.
+"What prizes?" you ask. Well, that’s a [secret](http://gophergala.com/prizes/) until January 10th but we’re pretty sure you won’t be disappointed.
 
-"你问："什么奖品？好吧，这在1月10日之前是个秘密，但我们确信你不会感到失望。
+"您问："什么奖品？好吧，这在1月10日之前是个秘密，但我们确信您不会感到失望。

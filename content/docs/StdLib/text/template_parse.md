@@ -692,7 +692,7 @@ type StringNode struct {
 
 StringNode holds a string constant. The value has been "unquoted".
 
-StringNode表示一个字符串常量。该值已经被“去引号”。
+StringNode表示一个字符串常量。该值已经被"去引号"。
 
 #### (*StringNode) Copy 
 

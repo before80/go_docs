@@ -26,7 +26,7 @@ Go 1.5将使用由Go编写的工具链（至少是部分）。
 
 Question: how do you build Go if you need Go built already?
 
-问题：如果你需要Go已经构建好了，那么你如何构建Go？
+问题：如果您需要Go已经构建好了，那么您如何构建Go？
 
 Answer: building Go 1.5 will require having Go 1.4 available.
 
@@ -36,7 +36,7 @@ Answer: building Go 1.5 will require having Go 1.4 available.
 
 We have been planning for a year now to eliminate all C programs from the Go source tree. The C compilers (5c, 6c, 8c, 9c) have already been removed. The remaining C programs will be converted to Go: they are the Go compilers ([golang.org/s/go13compiler](https://www.google.com/url?q=https://golang.org/s/go13compiler&sa=D&source=editors&ust=1669904018104772&usg=AOvVaw3K8jVYnoviw9iACYfkHSEw)), the assemblers, the linkers ([golang.org/s/go13linker](https://www.google.com/url?q=https://golang.org/s/go13linker&sa=D&source=editors&ust=1669904018104998&usg=AOvVaw2JHWfrTIVMS9bKCGqOBfvQ)), and cmd/dist. If these programs are written in Go, that introduces a bootstrapping problem when building completely from source code: you need a working Go toolchain in order to build a Go toolchain.
 
-我们已经计划了一年，以消除 Go 源代码树中的所有 C 程序。C语言编译器（5c、6c、8c、9c）已经被删除。剩下的C程序将被转换为Go：它们是Go编译器（golang.org/s/go13compiler）、汇编器、链接器（golang.org/go13linker）以及cmd/dist。如果这些程序是用Go编写的，那么在完全从源代码构建时就会引入一个引导问题：你需要一个可以工作的Go工具链来构建一个Go工具链。
+我们已经计划了一年，以消除 Go 源代码树中的所有 C 程序。C语言编译器（5c、6c、8c、9c）已经被删除。剩下的C程序将被转换为Go：它们是Go编译器（golang.org/s/go13compiler）、汇编器、链接器（golang.org/go13linker）以及cmd/dist。如果这些程序是用Go编写的，那么在完全从源代码构建时就会引入一个引导问题：您需要一个可以工作的Go工具链来构建一个Go工具链。
 
 ## Proposal 提议
 
@@ -94,7 +94,7 @@ Step 3 could make make.bash take longer. As an upper bound on the slowdown, the 
 
 Bootstrapping makes new ports a little more complex. It was possible in the past to check out the Go tree on a new system and run all.bash to build the toolchain (and it would fail, and you’d make some edits, and try again). Now, it will not be possible to run all.bash until that system is fully supported by Go.
 
-Bootstrapping 使得新的 port 更加复杂。过去有可能在一个新的系统上检查 Go 树， 然后运行 all.bash 来构建工具链 (但会失败， 你会做一些编辑， 然后再试一次)。现在，在该系统被Go完全支持之前，是不可能运行all.bash的。
+Bootstrapping 使得新的 port 更加复杂。过去有可能在一个新的系统上检查 Go 树， 然后运行 all.bash 来构建工具链 (但会失败， 您会做一些编辑， 然后再试一次)。现在，在该系统被Go完全支持之前，是不可能运行all.bash的。
 
 For Go 1.x (x ≥ 5), new ports will have to be done by cross-compiling test binaries on a working system, copying the binaries over to the target, and running and debugging them there. This is already well-supported by all.bash via the go_$GOOS_$GOARCH_exec scripts (see ‘go help run’). Once all.bash can be run in that mode, the resulting compilers and libraries can be copied to the target system and used directly.
 
@@ -110,7 +110,7 @@ Today we are still using the Go 1.4 build process above.
 
 今天我们仍然使用上面的Go 1.4构建过程。
 
-The first step in the transition will be to convert cmd/dist itself to Go and change make.bash to use Go 1.4 to build cmd/dist. That replaces “gcc (or clang)” with “Go 1.4” in step 1 of the build and changes nothing else. This will mainly exercise the integration of Go 1.4 into the build.
+The first step in the transition will be to convert cmd/dist itself to Go and change make.bash to use Go 1.4 to build cmd/dist. That replaces "gcc (or clang)" with "Go 1.4" in step 1 of the build and changes nothing else. This will mainly exercise the integration of Go 1.4 into the build.
 
 过渡的第一步将是把 cmd/dist 本身转换为 Go，并修改 make.bash 以使用 Go 1.4 来构建 cmd/dist。这将在构建的第一步中用 "Go 1.4 "取代 "gcc (或clang)"，而不改变其他内容。这将主要锻炼 Go 1.4 在构建中的集成度。
 

@@ -10,9 +10,9 @@ draft = false
 
 > 原文：[https://go.dev/doc/tutorial/](https://go.dev/doc/tutorial/)
 
-如果你对Go的某个部分感到陌生，可以看看下面链接的教程。
+如果您对Go的某个部分感到陌生，可以看看下面链接的教程。
 
-如果你还没有安装Go，请看[下载和安装](../InstallingGo)。
+如果您还没有安装Go，请看[下载和安装](../InstallingGo)。
 
 | Tutorial **教程**                                            | Description **描述**                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -22,5 +22,5 @@ draft = false
 | [Accessing a relational database](../TutorialAccessingArelationalDatabase) | 介绍使用标准库访问数据库的基础知识。                         |
 | [Developing a RESTful API with Go and Gin](../TutorialDevelopingARESTfulAPIWithGoAndGin) | 介绍用`Go`和 `Gin `Web 框架编写`RESTful`Web服务`API`的基本知识。 |
 | [Getting started with generics](../TutorialGettingStartedWithGenerics) | 介绍 Go 中泛型的基础知识。使用泛型，您可以声明和使用函数或类型，这些函数或类型被写成可以与调用代码提供的任何一组类型一起工作。 |
-| [Getting started with fuzzing](../TutorialGettingStartedWithFuzzing) | 介绍 Go 中 `Fuzzing` 的基本知识。`Fuzzing` 可以为你的测试生成输入，可以捕捉你可能遗漏的边缘情况和安全问题。 |
+| [Getting started with fuzzing](../TutorialGettingStartedWithFuzzing) | 介绍 Go 中 `Fuzzing` 的基本知识。`Fuzzing` 可以为您的测试生成输入，可以捕捉您可能遗漏的边缘情况和安全问题。 |
 | [A Tour of Go](../../GoTour/UsingTheTour/welcome)            | Go的交互式介绍：基本语法和数据结构；方法和接口；以及Go的并发原语。 |

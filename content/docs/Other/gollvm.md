@@ -10,13 +10,13 @@ draft = false
 
 > 原文：[https://go.googlesource.com/gollvm/](https://go.googlesource.com/gollvm/)
 
-Gollvm is an LLVM-based Go compiler. It incorporates “gofrontend” (a Go language front end written in C++ and shared with GCCGO), a bridge component (which translates from gofrontend IR to LLVM IR), and a driver that sends the resulting IR through the LLVM back end.
+Gollvm is an LLVM-based Go compiler. It incorporates "gofrontend" (a Go language front end written in C++ and shared with GCCGO), a bridge component (which translates from gofrontend IR to LLVM IR), and a driver that sends the resulting IR through the LLVM back end.
 
 Gollvm是一个基于LLVM的Go编译器。它包含 "gofrontend"（用C++编写的Go语言前端，与GCCGO共享），一个桥接组件（将gofrontend IR翻译成LLVM IR），以及一个通过LLVM后端发送IR结果的驱动。
 
-Gollvm is set up to be a subproject within the LLVM tools directory, similar to how things work for “clang” or “compiler-rt”: you check out a copy of the LLVM source tree, then within the LLVM tree you check out additional git repos.
+Gollvm is set up to be a subproject within the LLVM tools directory, similar to how things work for "clang" or "compiler-rt": you check out a copy of the LLVM source tree, then within the LLVM tree you check out additional git repos.
 
-Gollvm被设置为LLVM工具目录下的一个子项目，类似于 "clang "或 "compiler-rt "的工作方式：你检查出LLVM源代码树的副本，然后在LLVM树中检查出额外的git repos。
+Gollvm被设置为LLVM工具目录下的一个子项目，类似于 "clang "或 "compiler-rt "的工作方式：您检查出LLVM源代码树的副本，然后在LLVM树中检查出额外的git repos。
 
 
 
@@ -58,7 +58,7 @@ To set up a work area for Gollvm, check out a copy of LLVM, the overlay the goll
 
 You'll need to have an up-to-date copy of cmake on your system (3.6 or later vintage) to build Gollvm, as well as a C/C++ compiler (V10.0 or later for Clang, or V6.0 or later of GCC), and a working copy of ‘m4’.
 
-你需要在你的系统上有一个最新的cmake副本（3.6或更高版本）来构建Gollvm，以及一个C/C++编译器（Clang的V10.0或更高版本，或GCC的V6.0或更高版本），和一个'm4'的工作副本。
+您需要在您的系统上有一个最新的cmake副本（3.6或更高版本）来构建Gollvm，以及一个C/C++编译器（Clang的V10.0或更高版本，或GCC的V6.0或更高版本），和一个'm4'的工作副本。
 
 Create a build directory (separate from the source tree) and run ‘cmake’ within the build area to set up for the build. Assuming that ‘workarea’ is the directory created as above:
 
@@ -75,11 +75,11 @@ Create a build directory (separate from the source tree) and run ‘cmake’ wit
 %
 ```
 
-This will build the various tools and libraries needed for Gollvm. To select a specific C/C++ compiler for the build, you can use the “-DCMAKE_C_COMPILER” and “-DCMAKE_CXX_COMPILER” options to select your desired C/C++ compiler when invoking cmake (details [here](https://gitlab.kitware.com/cmake/community/wikis/FAQ#how-do-i-use-a-different-compiler)). Use the “-DLLVM_USE_LINKER=” cmake variable to control which linker is selected to link the Gollvm compiler and tools (where variant is one of “bfd”, “gold”, “lld”, etc).
+This will build the various tools and libraries needed for Gollvm. To select a specific C/C++ compiler for the build, you can use the "-DCMAKE_C_COMPILER" and "-DCMAKE_CXX_COMPILER" options to select your desired C/C++ compiler when invoking cmake (details [here](https://gitlab.kitware.com/cmake/community/wikis/FAQ#how-do-i-use-a-different-compiler)). Use the "-DLLVM_USE_LINKER=" cmake variable to control which linker is selected to link the Gollvm compiler and tools (where variant is one of "bfd", "gold", "lld", etc).
 
-这将构建Gollvm所需的各种工具和库。要选择特定的C/C++编译器进行构建，你可以使用"-DCMAKE_C_COMPILER "和"-DCMAKE_CXX_COMPILER "选项，在调用cmake时选择你想要的C/C++编译器（细节在这里）。使用"-DLLVM_USE_LINKER="cmake变量来控制选择哪个链接器来链接Gollvm编译器和工具（其中变量是 "bfd"、"gold"、"ld "等之一）。
+这将构建Gollvm所需的各种工具和库。要选择特定的C/C++编译器进行构建，您可以使用"-DCMAKE_C_COMPILER "和"-DCMAKE_CXX_COMPILER "选项，在调用cmake时选择您想要的C/C++编译器（细节在这里）。使用"-DLLVM_USE_LINKER="cmake变量来控制选择哪个链接器来链接Gollvm编译器和工具（其中变量是 "bfd"、"gold"、"ld "等之一）。
 
-The Gollvm compiler driver defaults to using the gold linker when linking Go programs. If some other linker is desired, this can be accomplished by passing “-DGOLLVM_DEFAULT_LINKER=” when running cmake. Note that this default can still be overridden on the command line using the “-fuse-ld” option.
+The Gollvm compiler driver defaults to using the gold linker when linking Go programs. If some other linker is desired, this can be accomplished by passing "-DGOLLVM_DEFAULT_LINKER=" when running cmake. Note that this default can still be overridden on the command line using the "-fuse-ld" option.
 
 Gollvm编译器驱动程序默认在链接Go程序时使用gold链接器。如果需要其他链接器，可以在运行cmake时通过"-DGOLLVM_DEFAULT_LINKER="来完成。请注意，这个默认值仍然可以在命令行中使用"-fuse-ld "选项进行覆盖。
 
@@ -89,7 +89,7 @@ Gollvm的cmake规则期望SHELL环境变量的有效值；如果没有设置，�
 
 ## Installing gollvm 安装gollvm
 
-A gollvm installation will contain ‘llvm-goc’ (the compiler driver), the libgo standard Go libraries, and the standard Go tools (“go”, “vet”, “cgo”, etc).
+A gollvm installation will contain ‘llvm-goc’ (the compiler driver), the libgo standard Go libraries, and the standard Go tools ("go", "vet", "cgo", etc).
 
 gollvm的安装将包含'llvm-goc'（编译器驱动程序）、libgo标准Go库和标准Go工具（"go"、"vet"、"cgo "等等）。
 
@@ -159,9 +159,9 @@ Within <workarea>/llvm/tools/gollvm, the following directories are of interest:
 
 ## The llvm-goc program - llvm-goc程序
 
-The executable llvm-goc is the main compiler driver for gollvm; it functions as a compiler (consuming source for a Go package and producing an object file), an assembler, and/or a linker. While it is possible to build and run llvm-goc directly from the command line, in practice there is little point in doing this (better to build using “go build”, which will invoke llvm-goc on your behalf.
+The executable llvm-goc is the main compiler driver for gollvm; it functions as a compiler (consuming source for a Go package and producing an object file), an assembler, and/or a linker. While it is possible to build and run llvm-goc directly from the command line, in practice there is little point in doing this (better to build using "go build", which will invoke llvm-goc on your behalf.
 
-可执行的llvm-goc是gollvm的主要编译器驱动；它的功能是编译器（消耗Go包的源代码并产生一个目标文件）、汇编器和/或链接器。虽然可以直接从命令行中构建和运行llvm-goc，但实际上这样做没有什么意义（最好使用 "go build "来构建，它将代表你调用llvm-goc。
+可执行的llvm-goc是gollvm的主要编译器驱动；它的功能是编译器（消耗Go包的源代码并产生一个目标文件）、汇编器和/或链接器。虽然可以直接从命令行中构建和运行llvm-goc，但实际上这样做没有什么意义（最好使用 "go build "来构建，它将代表您调用llvm-goc。
 
 ```
 // From within <workarea>/build.opt:
@@ -269,7 +269,7 @@ Please send questions about gollvm to the [golang-nuts](https://groups.google.co
 
 ## Where should I file gollvm bugs? 我应该在哪里提交gollvm的bug？
 
-Please file an issue on the golang [issue tracker](https://github.com/golang/go/issues); please be sure to use “gollvm” somewhere in the headline.
+Please file an issue on the golang [issue tracker](https://github.com/golang/go/issues); please be sure to use "gollvm" somewhere in the headline.
 
 请在golang问题追踪器上提交问题；请确保在标题中使用 "gollvm"。
 
@@ -299,7 +299,7 @@ The main Go runtime supports generation of accurate stack maps, which allows the
 
 ## Shared linkage is the default for gollvm. How do I build non-shared? 共享链接是gollvm的默认方式。我如何构建非共享的？
 
-Linking with “-static-libgo” will yield a binary that incorporates a full copy of the Go runtime. Example:
+Linking with "-static-libgo" will yield a binary that incorporates a full copy of the Go runtime. Example:
 
 使用"-static-libgo "链接将产生一个包含Go运行时完整副本的二进制文件。例子：
 
@@ -315,7 +315,7 @@ Note that this will increase binary size.
 
 You can run ‘llvm-goc -help’ to see a full set of supported options. These can be passed to the compiler via ‘-gccgoflags’ option. Example:
 
-你可以运行 "llvm-goc -help "来查看一整套支持的选项。这些可以通过'-gccgoflags'选项传递给编译器。例子：
+您可以运行 "llvm-goc -help "来查看一整套支持的选项。这些可以通过'-gccgoflags'选项传递给编译器。例子：
 
 ```
 % go build -gccgoflags -fno-inline mumble.go
@@ -323,11 +323,11 @@ You can run ‘llvm-goc -help’ to see a full set of supported options. These c
 
 ## How do I see the LLVM IR generated by gollvm? 我怎样才能看到gollvm生成的LLVM IR？
 
-The ‘llvm-goc’ command supports the -emit-llvm flag, however passing this option to a “go build” command is not practical, since the “go build” won't be expecting the compiler to emit LLVM bitcode or assembly.
+The ‘llvm-goc’ command supports the -emit-llvm flag, however passing this option to a "go build" command is not practical, since the "go build" won't be expecting the compiler to emit LLVM bitcode or assembly.
 
 llvm-goc "命令支持-emit-llvm标志，但是把这个选项传递给 "go build "命令并不实际，因为 "go build "不会期望编译器发出LLVM位码或汇编。
 
-A better recipe is to run “go build” with “-x -work” to capture the commands being executed, then rerun the llvm-goc command shown adding “-S -emit-llvm”. The resulting output will be an LLVM IR dump. Example:
+A better recipe is to run "go build" with "-x -work" to capture the commands being executed, then rerun the llvm-goc command shown adding "-S -emit-llvm". The resulting output will be an LLVM IR dump. Example:
 
 一个更好的方法是用"-x -work "来运行 "go build"，以捕获正在执行的命令，然后重新运行llvm-goc命令，并添加"-S -emit-llvm"。结果输出将是一个LLVM IR dump。例子：
 
@@ -351,7 +351,7 @@ WORK=/tmp/go-build887931787
 
 ## What is the relationship between gollvm and gccgo? - gollvm和gccgo之间是什么关系？
 
-Gollvm and gccgo share a common front end (gofrontend) and associated runtime (libgo), however each uses a separate back end. When using “go build”, the Go command currently treats gollvm as an instance of gccgo (hence the need to pass compile flags via “-gccgoflags”). This is expected to be temporary.
+Gollvm and gccgo share a common front end (gofrontend) and associated runtime (libgo), however each uses a separate back end. When using "go build", the Go command currently treats gollvm as an instance of gccgo (hence the need to pass compile flags via "-gccgoflags"). This is expected to be temporary.
 
 Gollvm和gccgo共享一个共同的前端（gofrontend）和相关的运行时（libgo），但各自使用一个单独的后端。当使用 "go build "时，Go命令目前将gollvm视为gccgo的一个实例（因此需要通过"-gccgoflags "传递编译标志）。预计这将是暂时的。
 
@@ -367,8 +367,8 @@ Gollvm does not support the Go race detector; please use the main Go compiler fo
 
 Gollvm不支持Go竞争检测器；请使用主Go编译器来实现这一目的。
 
-## I am seeing “undefined symbol: `__get_cpuid_count`” from my gollvm install  我看到 "未定义的符号：__get_cpuid_count" 从我的gollvm安装中看到
+## I am seeing "undefined symbol: `__get_cpuid_count`" from my gollvm install  我看到 "未定义的符号：__get_cpuid_count" 从我的gollvm安装中看到
 
 The Gollvm build procedure requires an up-to-date C/C++ compiler; there is code in the gollvm runtime (libgo) that refers to functions defined in `<cpuid.h>`, however some older versions of clang (prior to 5.0) don't provide definitions for all the needed functions. If you encounter this problem, rerun `cmake` to configure your build to use a more recent version of Clang (or use GCC), as described above.
 
-Gollvm的构建过程需要一个最新的C/C++编译器；在gollvm运行时（libgo）中有一些代码引用了<cpuid.h>中定义的函数，然而一些旧版本的clang（5.0以前）并没有提供所有需要的函数的定义。如果你遇到这个问题，请重新运行cmake来配置你的构建，以使用较新版本的clang（或使用GCC），如上所述。
+Gollvm的构建过程需要一个最新的C/C++编译器；在gollvm运行时（libgo）中有一些代码引用了<cpuid.h>中定义的函数，然而一些旧版本的clang（5.0以前）并没有提供所有需要的函数的定义。如果您遇到这个问题，请重新运行cmake来配置您的构建，以使用较新版本的clang（或使用GCC），如上所述。

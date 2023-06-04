@@ -1,5 +1,5 @@
 +++
-title = "go fmt 你的代码"
+title = "go fmt 您的代码"
 weight = 18
 date = 2023-05-18T17:03:08+08:00
 description = ""
@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# go fmt your code - go fmt 你的代码
+# go fmt your code - go fmt 您的代码
 
 https://go.dev/blog/gofmt
 
@@ -27,11 +27,11 @@ Gofmt’d code is:
 使用 Gofmt 的代码是：
 
 - easier to **write**: never worry about minor formatting concerns while hacking away, 更加容易编写：不用担心小的格式问题。
-- easier to **read**: when all code looks the same you need not mentally convert others' formatting style into something you can understand. 更容易阅读：当所有的代码看起来都一样时，你不需要在头脑中把别人的格式化风格转换成你能理解的东西。
+- easier to **read**: when all code looks the same you need not mentally convert others' formatting style into something you can understand. 更容易阅读：当所有的代码看起来都一样时，您不需要在头脑中把别人的格式化风格转换成您能理解的东西。
 - easier to **maintain**: mechanical changes to the source don’t cause unrelated changes to the file’s formatting; diffs show only the real changes. 更容易维护：对源代码的机械性修改不会导致对文件格式的不相关修改；差异只显示真正的修改。
 - **uncontroversial**: never have a debate about spacing or brace position ever again! 无争议：再也不会有关于间距或括号位置的争论了!
 
-## Format your code 格式化你的代码
+## Format your code 格式化您的代码
 
 We recently conducted a survey of Go packages in the wild and found that about 70% of them are formatted according to gofmt’s rules. This was more than expected - and thanks to everyone who uses gofmt - but it would be great to close the gap.
 
@@ -39,15 +39,15 @@ We recently conducted a survey of Go packages in the wild and found that about 7
 
 To format your code, you can use the gofmt tool directly:
 
-要格式化你的代码，你可以直接使用gofmt工具：
+要格式化您的代码，您可以直接使用gofmt工具：
 
 ```
 gofmt -w yourcode.go
 ```
 
-Or you can use the “[go fmt](https://go.dev/cmd/go/#hdr-Gofmt__reformat__package_sources)” command:
+Or you can use the "[go fmt](https://go.dev/cmd/go/#hdr-Gofmt__reformat__package_sources)" command:
 
-或者你可以使用 "go fmt "命令：
+或者您可以使用 "go fmt "命令：
 
 ```
 go fmt path/to/your/package
@@ -55,7 +55,7 @@ go fmt path/to/your/package
 
 To help keep your code in the canonical style, the Go repository contains hooks for editors and version control systems that make it easy to run gofmt on your code.
 
-为了帮助你的代码保持规范的风格，Go 仓库包含了编辑器和版本控制系统的钩子，使你可以轻松地在代码上运行 gofmt。
+为了帮助您的代码保持规范的风格，Go 仓库包含了编辑器和版本控制系统的钩子，使您可以轻松地在代码上运行 gofmt。
 
 For Vim users, the [Vim plugin for Go](https://github.com/fatih/vim-go) includes the :Fmt command that runs gofmt on the current buffer.
 
@@ -63,7 +63,7 @@ For Vim users, the [Vim plugin for Go](https://github.com/fatih/vim-go) includes
 
 For emacs users, [go-mode.el](https://github.com/dominikh/go-mode.el) provides a gofmt-before-save hook that can be installed by adding this line to your .emacs file:
 
-对于emacs用户，go-mode.el提供了一个gofmt-before-save钩子，可以通过在你的.emacs文件中添加这一行来安装：
+对于emacs用户，go-mode.el提供了一个gofmt-before-save钩子，可以通过在您的.emacs文件中添加这一行来安装：
 
 ```
 (add-hook 'before-save-hook #'gofmt-before-save)
@@ -75,7 +75,7 @@ For Eclipse or Sublime Text users, the [GoClipse](https://github.com/GoClipse/go
 
 And for Git aficionados, the [misc/git/pre-commit script](https://github.com/golang/go/blob/release-branch.go1.1/misc/git/pre-commit) is a pre-commit hook that prevents incorrectly-formatted Go code from being committed. If you use Mercurial, the [hgstyle plugin](https://bitbucket.org/fhs/hgstyle/overview) provides a gofmt pre-commit hook.
 
-对于Git爱好者来说，misc/git/pre-commit脚本是一个预提交钩子，可以防止格式不正确的Go代码被提交。如果你使用Mercurial，hgstyle插件提供了一个gofmt预提交钩子。
+对于Git爱好者来说，misc/git/pre-commit脚本是一个预提交钩子，可以防止格式不正确的Go代码被提交。如果您使用Mercurial，hgstyle插件提供了一个gofmt预提交钩子。
 
 ## Mechanical source transformation 机械源码转换
 

@@ -78,7 +78,7 @@ This approach is successful and widely used. An early test coverage tool for Go 
 
 It does work, though, and for instance if you are a user of gccgo, the gcov tool can give you test coverage information. However If you’re a user of gc, the more commonly used Go compiler suite, until Go 1.2 you were out of luck.
 
-但它确实有效，例如，如果你是gccgo的用户，gcov工具可以给你测试覆盖率信息。然而，如果你是gc的用户，也就是更常用的Go编译器套件的用户，在Go 1.2之前，你是没有运气的。
+但它确实有效，例如，如果您是gccgo的用户，gcov工具可以给您测试覆盖率信息。然而，如果您是gc的用户，也就是更常用的Go编译器套件的用户，在Go 1.2之前，您是没有运气的。
 
 ## Test coverage for Go Go的测试覆盖率
 
@@ -155,7 +155,7 @@ Notice that the coverage is 42.9%, which isn’t very good. Before we ask how to
 
 请注意，覆盖率是42.9%，这并不是很好。在我们问如何提高这个数字之前，让我们看看这个数字是如何计算出来的。
 
-When test coverage is enabled, `go` `test` runs the “cover” tool, a separate program included with the distribution, to rewrite the source code before compilation. Here’s what the rewritten `Size` function looks like:
+When test coverage is enabled, `go` `test` runs the "cover" tool, a separate program included with the distribution, to rewrite the source code before compilation. Here’s what the rewritten `Size` function looks like:
 
 当测试覆盖率被启用时，go test运行 "cover "工具，这是一个单独的程序，包含在发行版中，在编译前重写源代码。下面是重写后的Size函数的样子：
 
@@ -188,13 +188,13 @@ Each executable section of the program is annotated with an assignment statement
 
 程序的每个可执行部分都有一个赋值语句的注释，当执行时，记录该部分的运行。计数器通过第二个只读数据结构与它所统计的语句的原始源位置联系在一起，这个数据结构也是由cover工具生成的。当测试运行完成后，计数器被收集起来，通过查看被设置的数量来计算出百分比。
 
-Although that annotating assignment might look expensive, it compiles to a single “move” instruction. Its run-time overhead is therefore modest, adding only about 3% when running a typical (more realistic) test. That makes it reasonable to include test coverage as part of the standard development pipeline.
+Although that annotating assignment might look expensive, it compiles to a single "move" instruction. Its run-time overhead is therefore modest, adding only about 3% when running a typical (more realistic) test. That makes it reasonable to include test coverage as part of the standard development pipeline.
 
 尽管这个注释赋值看起来很昂贵，但它只编译成一条 "移动 "指令。因此它的运行时间开销不大，在运行一个典型的（更现实的）测试时，只增加了大约3%。这使得将测试覆盖作为标准开发管道的一部分是合理的。
 
 ## Viewing the results 查看结果
 
-The test coverage for our example was poor. To discover why, we ask `go` `test` to write a “coverage profile” for us, a file that holds the collected statistics so we can study them in more detail. That’s easy to do: use the `-coverprofile` flag to specify a file for the output:
+The test coverage for our example was poor. To discover why, we ask `go` `test` to write a "coverage profile" for us, a file that holds the collected statistics so we can study them in more detail. That’s easy to do: use the `-coverprofile` flag to specify a file for the output:
 
 我们的例子的测试覆盖率很差。为了找出原因，我们要求go test为我们写一个 "覆盖率简介"，这个文件保存了收集到的统计数据，以便我们能更详细地研究它们。这很容易做到：使用 -coverprofile 标志来指定一个输出文件：
 
@@ -297,7 +297,7 @@ Here’s what the `pad` function looks like in that presentation:
 
 Notice how the intensity of the green changes. Brighter-green statements have higher execution counts; less saturated greens represent lower execution counts. You can even hover the mouse over the statements to see the actual counts pop up in a tool tip. At the time of writing, the counts come out like this (we’ve moved the counts from the tool tips to beginning-of-line markers to make them easier to show):
 
-注意绿色的强度如何变化。绿色较亮的语句有较高的执行数；饱和度较低的绿色代表较低的执行数。你甚至可以将鼠标悬停在语句上，在工具提示中看到实际计数。在写这篇文章的时候，计数是这样的（我们已经把计数从工具提示中移到了行首标记上，以使它们更容易显示）：
+注意绿色的强度如何变化。绿色较亮的语句有较高的执行数；饱和度较低的绿色代表较低的执行数。您甚至可以将鼠标悬停在语句上，在工具提示中看到实际计数。在写这篇文章的时候，计数是这样的（我们已经把计数从工具提示中移到了行首标记上，以使它们更容易显示）：
 
 ```go linenums="1"
 2933    if !f.widPresent || f.wid == 0 {
@@ -322,7 +322,7 @@ That’s a lot of information about the execution of the function, information t
 
 You might have noticed that the counts in the previous example were not what you expected on the lines with closing braces. That’s because, as always, test coverage is an inexact science.
 
-你可能已经注意到，在前面的例子中，有闭合大括号的行的计数与你预期的不一样。这是因为，和以往一样，测试覆盖率是一门不精确的科学。
+您可能已经注意到，在前面的例子中，有闭合大括号的行的计数与您预期的不一样。这是因为，和以往一样，测试覆盖率是一门不精确的科学。
 
 What’s going on here is worth explaining, though. We’d like the coverage annotations to be demarcated by branches in the program, the way they are when the binary is instrumented in the traditional method. It’s hard to do that by rewriting the source, though, since the branches don’t appear explicitly in the source.
 
@@ -352,4 +352,4 @@ That’s the story about test coverage in Go 1.2. A new tool with an interesting
 
 Testing is an important part of software development and test coverage a simple way to add discipline to your testing strategy. Go forth, test, and cover.
 
-测试是软件开发的一个重要部分，而测试覆盖率是为你的测试策略增加纪律的一个简单方法。去吧，去测试，去覆盖。
+测试是软件开发的一个重要部分，而测试覆盖率是为您的测试策略增加纪律的一个简单方法。去吧，去测试，去覆盖。

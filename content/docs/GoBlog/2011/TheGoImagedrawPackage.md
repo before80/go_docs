@@ -20,7 +20,7 @@ Nigel Tao
 
 包image/draw只定义了一个操作：通过一个可选的遮罩图像，将源图像绘制到目标图像上。这一个操作出乎意料的通用性，可以优雅而有效地执行许多常见的图像处理任务。
 
-Composition is performed pixel by pixel in the style of the Plan 9 graphics library and the X Render extension. The model is based on the classic “Compositing Digital Images” paper by Porter and Duff, with an additional mask parameter: `dst = (src IN mask) OP dst`. For a fully opaque mask, this reduces to the original Porter-Duff formula: `dst = src OP dst`. In Go, a nil mask image is equivalent to an infinitely sized, fully opaque mask image.
+Composition is performed pixel by pixel in the style of the Plan 9 graphics library and the X Render extension. The model is based on the classic "Compositing Digital Images" paper by Porter and Duff, with an additional mask parameter: `dst = (src IN mask) OP dst`. For a fully opaque mask, this reduces to the original Porter-Duff formula: `dst = src OP dst`. In Go, a nil mask image is equivalent to an infinitely sized, fully opaque mask image.
 
 合成是按照Plan 9图形库和X Render扩展的风格逐像素进行的。该模型基于Porter和Duff的经典论文 "Compositing Digital Images"，并增加了一个遮罩参数：dst = (src IN mask) OP dst。对于一个完全不透明的遮罩，这可以简化为波特-达夫的原始公式：dst = src OP dst。在Go中，无掩码图像相当于一个无限大的、完全不透明的掩码图像。
 
@@ -60,7 +60,7 @@ type Image interface {
 
 ## Filling a Rectangle 填充一个矩形
 
-To fill a rectangle with a solid color, use an `image.Uniform` source. The `ColorImage` type re-interprets a `Color` as a practically infinite-sized `Image` of that color. For those familiar with the design of Plan 9’s draw library, there is no need for an explicit “repeat bit” in Go’s slice-based image types; the concept is subsumed by `Uniform`.
+To fill a rectangle with a solid color, use an `image.Uniform` source. The `ColorImage` type re-interprets a `Color` as a practically infinite-sized `Image` of that color. For those familiar with the design of Plan 9’s draw library, there is no need for an explicit "repeat bit" in Go’s slice-based image types; the concept is subsumed by `Uniform`.
 
 要用纯色填充一个矩形，请使用image.Uniform源。ColorImage类型将一个颜色重新解释为该颜色的一个几乎无限大的图像。对于那些熟悉Plan 9绘图库设计的人来说，在Go的基于片断的图像类型中不需要明确的 "重复位"；这个概念被Uniform所包含。
 

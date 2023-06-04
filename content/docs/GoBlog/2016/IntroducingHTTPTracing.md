@@ -36,7 +36,7 @@ httptrace包提供了一些钩子来收集HTTP往返过程中各种事件的信�
 
 You can enable HTTP tracing by putting an [`*httptrace.ClientTrace`](https://go.dev/pkg/net/http/httptrace/#ClientTrace) containing hook functions into a request’s [`context.Context`](https://go.dev/pkg/context/#Context). Various [`http.RoundTripper`](https://go.dev/pkg/net/http/#RoundTripper) implementations report the internal events by looking for context’s `*httptrace.ClientTrace` and calling the relevant hook functions.
 
-你可以通过把包含钩子函数的*httptrace.ClientTrace放到请求的context.Context中来启用HTTP跟踪。各种http.RoundTripper实现通过寻找context的*httptrace.ClientTrace并调用相关钩子函数来报告内部事件。
+您可以通过把包含钩子函数的*httptrace.ClientTrace放到请求的context.Context中来启用HTTP跟踪。各种http.RoundTripper实现通过寻找context的*httptrace.ClientTrace并调用相关钩子函数来报告内部事件。
 
 The tracing is scoped to the request’s context and users should put a `*httptrace.ClientTrace` to the request context before they start a request.
 
@@ -130,7 +130,7 @@ net/http包中的Transport支持对HTTP/1和HTTP/2请求进行追踪。
 
 If you are an author of a custom `http.RoundTripper` implementation, you can support tracing by checking the request context for an `*httptest.ClientTrace` and invoking the relevant hooks as the events occur.
 
-如果你是自定义http.RoundTripper实现的作者，你可以通过检查请求上下文的*httptest.ClientTrace并在事件发生时调用相关钩子来支持追踪。
+如果您是自定义http.RoundTripper实现的作者，您可以通过检查请求上下文的*httptest.ClientTrace并在事件发生时调用相关钩子来支持追踪。
 
 ## Conclusion 总结
 

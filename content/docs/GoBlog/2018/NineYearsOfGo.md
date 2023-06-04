@@ -30,11 +30,11 @@ In [Stack Overflow’s 2018 Developer Survey](https://insights.stackoverflow.com
 
 在Stack Overflow的2018年开发者调查中，Go在最受喜爱的前5名和最受欢迎的前5名语言中都保留了其令人羡慕的位置。使用Go的人喜欢它，而没有使用Go的人也想使用。
 
-In [ActiveState’s 2018 Developer Survey](https://www.activestate.com/developer-survey-2018-open-source-runtime-pains), Go topped the charts with 36% of users responding they were “Extremely Satisfied” using Go and 61% responding “Very Satisfied” or better.
+In [ActiveState’s 2018 Developer Survey](https://www.activestate.com/developer-survey-2018-open-source-runtime-pains), Go topped the charts with 36% of users responding they were "Extremely Satisfied" using Go and 61% responding "Very Satisfied" or better.
 
 在ActiveState的2018年开发者调查中，Go位居榜首，36%的用户回答他们对Go的使用 "极其满意"，61%的用户回答 "非常满意 "或更好。
 
-[JetBrains’s 2018 Developer Survey](https://www.jetbrains.com/research/devecosystem-2018/) awarded Go the “Most promising language” with 12% of respondents using Go today and 16% intending to use Go in the future.
+[JetBrains’s 2018 Developer Survey](https://www.jetbrains.com/research/devecosystem-2018/) awarded Go the "Most promising language" with 12% of respondents using Go today and 16% intending to use Go in the future.
 
 JetBrains的2018年开发者调查将Go评为 "最有前途的语言"，12%的受访者现在使用Go，16%的人打算在未来使用Go。
 
@@ -101,12 +101,12 @@ The Go project has been increasing in the number of contributions from the commu
 
 ![img](NineYearsOfGo_img/9years-graph.png)
 
-## Thank You 感谢你
+## Thank You 感谢您
 
 On a personal note, from the entire Go team, we want to sincerely thank all of you. We feel privileged to be able to work on the Go project and are grateful to the many gophers around the world who have joined us.
 
-就个人而言，从整个Go团队来说，我们要真诚地感谢你们所有人。我们为能够从事Go项目而感到荣幸，并对世界各地众多加入我们的gophers表示感谢。
+就个人而言，从整个Go团队来说，我们要真诚地感谢您们所有人。我们为能够从事Go项目而感到荣幸，并对世界各地众多加入我们的gophers表示感谢。
 
 We are especially thankful for the thousands of volunteers who help through mentorship, organizing, contributing, and supporting your fellow gophers. You have made Go what it is today.
 
-我们特别感谢数以千计的志愿者，他们通过指导、组织、贡献和支持你们的gophers同伴来帮助我们。是你们让Go有了今天的成就。
+我们特别感谢数以千计的志愿者，他们通过指导、组织、贡献和支持您们的gophers同伴来帮助我们。是您们让Go有了今天的成就。

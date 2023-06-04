@@ -30,7 +30,7 @@ The race detector is based on the C/C++ [ThreadSanitizer runtime library](https:
 
 ## How it works 它是如何工作的
 
-The race detector is integrated with the go tool chain. When the `-race` command-line flag is set, the compiler instruments all memory accesses with code that records when and how the memory was accessed, while the runtime library watches for unsynchronized accesses to shared variables. When such “racy” behavior is detected, a warning is printed. (See [this article](https://github.com/google/sanitizers/wiki/ThreadSanitizerAlgorithm) for the details of the algorithm.)
+The race detector is integrated with the go tool chain. When the `-race` command-line flag is set, the compiler instruments all memory accesses with code that records when and how the memory was accessed, while the runtime library watches for unsynchronized accesses to shared variables. When such "racy" behavior is detected, a warning is printed. (See [this article](https://github.com/google/sanitizers/wiki/ThreadSanitizerAlgorithm) for the details of the algorithm.)
 
 竞赛检测器与Go工具链集成。当设置-race命令行标志时，编译器会用代码记录所有内存访问的时间和方式，而运行时库会观察对共享变量的非同步访问。当检测到这种 "淫秽 "行为时，就会打印出一个警告。(该算法的细节见本文）。
 
@@ -197,7 +197,7 @@ The second example is more subtle.
 
 The `ioutil` package’s [`Discard`](https://go.dev/pkg/io/ioutil/#Discard) object implements [`io.Writer`](https://go.dev/pkg/io/#Writer), but discards all the data written to it. Think of it like `/dev/null`: a place to send data that you need to read but don’t want to store. It is commonly used with [`io.Copy`](https://go.dev/pkg/io/#Copy) to drain a reader, like this:
 
-ioutil包的Discard对象实现了io.Writer，但是丢弃了所有写给它的数据。可以把它想象成/dev/null：一个用来发送你需要读取但不想存储的数据的地方。它通常与io.Copy一起使用，以耗尽一个阅读器，像这样。
+ioutil包的Discard对象实现了io.Writer，但是丢弃了所有写给它的数据。可以把它想象成/dev/null：一个用来发送您需要读取但不想存储的数据的地方。它通常与io.Copy一起使用，以耗尽一个阅读器，像这样。
 
 ```go linenums="1"
 io.Copy(ioutil.Discard, reader)
@@ -227,7 +227,7 @@ We [added a ReadFrom method](https://go.dev/cl/4817041) to Discard’s underlyin
 
 我们给Discard的底层类型添加了一个ReadFrom方法，它有一个内部缓冲区，在所有用户之间共享。我们知道这在理论上是一个竞赛条件，但由于所有对缓冲区的写入都应该被丢弃，我们认为这并不重要。
 
-When the race detector was implemented it immediately [flagged this code](https://go.dev/issue/3970) as racy. Again, we considered that the code might be problematic, but decided that the race condition wasn’t “real”. To avoid the “false positive” in our build we implemented [a non-racy version](https://go.dev/cl/6624059) that is enabled only when the race detector is running.
+When the race detector was implemented it immediately [flagged this code](https://go.dev/issue/3970) as racy. Again, we considered that the code might be problematic, but decided that the race condition wasn’t "real". To avoid the "false positive" in our build we implemented [a non-racy version](https://go.dev/cl/6624059) that is enabled only when the race detector is running.
 
 当竞赛检测器被实施时，它立即将这段代码标记为狂妄。我们再次考虑到这段代码可能有问题，但决定这个竞赛条件不是 "真正的"。为了避免在我们的构建中出现 "假阳性"，我们实现了一个只有在竞赛检测器运行时才会启用的非狂热版本。
 
@@ -315,8 +315,8 @@ The bug was finally [fixed](https://go.dev/cl/7011047) by giving a unique buffer
 
 The race detector is a powerful tool for checking the correctness of concurrent programs. It will not issue false positives, so take its warnings seriously. But it is only as good as your tests; you must make sure they thoroughly exercise the concurrent properties of your code so that the race detector can do its job.
 
-竞赛检测器是检查并发程序正确性的一个强大工具。它不会发出误报，所以要认真对待它的警告。但是，它只和你的测试一样好；你必须确保它们彻底锻炼了你的代码的并发特性，这样，竞赛检测器才能完成它的工作。
+竞赛检测器是检查并发程序正确性的一个强大工具。它不会发出误报，所以要认真对待它的警告。但是，它只和您的测试一样好；您必须确保它们彻底锻炼了您的代码的并发特性，这样，竞赛检测器才能完成它的工作。
 
 What are you waiting for? Run `"go test -race"` on your code today!
 
-你还在等什么呢？今天就在你的代码上运行 "go test -race "吧!
+您还在等什么呢？今天就在您的代码上运行 "go test -race "吧!

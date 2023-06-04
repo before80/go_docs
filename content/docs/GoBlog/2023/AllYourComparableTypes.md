@@ -20,7 +20,7 @@ On February 1 we released our latest Go version, 1.20, which included a few lang
 
 If you’re confused, you’ve come to the right place. Consider the valid map declaration
 
-​	如果你感到困惑，你来对地方了。考虑以下有效的映射声明
+​	如果您感到困惑，您来对地方了。考虑以下有效的映射声明
 
 ```Go
 var lookupTable map[any]string
@@ -76,9 +76,9 @@ Go 1.18 also changed how we view interfaces: while in the past an interface defi
 
 ​	Go 1.18还改变了我们对接口的理解方式：过去，接口定义了一组方法，现在接口定义了一组类型。这种新的视角完全向后兼容：对于接口定义的一组方法，我们可以想象实现这些方法的所有类型的（无限）集合。例如，给定一个`io.Writer`接口，我们可以想象具有适当签名的`Write`方法的所有类型的无限集合。所有这些类型都**实现了**该接口，因为它们都具有所需的`Write`方法。
 
-But the new type set view is more powerful than the old method set one: we can describe a set of types explicitly, not only indirectly through methods. This gives us new ways to control a type set. Starting with Go 1.18, an interface may embed not just other interfaces, but any type, a union of types, or an infinite set of types that share the same [underlying type](https://go.dev/ref/spec#Underlying_types). These types are then included in the [type set computation](https://go.dev/ref/spec#General_interfaces): the union notation `A|B` means “type `A` or type `B`”, and the `~T` notation stands for “all types that have the underlying type `T`”. For instance, the interface
+But the new type set view is more powerful than the old method set one: we can describe a set of types explicitly, not only indirectly through methods. This gives us new ways to control a type set. Starting with Go 1.18, an interface may embed not just other interfaces, but any type, a union of types, or an infinite set of types that share the same [underlying type](https://go.dev/ref/spec#Underlying_types). These types are then included in the [type set computation](https://go.dev/ref/spec#General_interfaces): the union notation `A|B` means "type `A` or type `B`", and the `~T` notation stands for "all types that have the underlying type `T`". For instance, the interface
 
-​	但是，新的类型集合视角比旧的方法集合视角更强大：我们可以明确地描述一组类型，而不仅仅通过方法间接描述。这为我们提供了控制类型集合的新方法。从Go 1.18开始，接口可以嵌入不仅是其他接口，还包括任何类型、类型的并集，或者具有相同[底层类型]({{< ref "/docs/References/LanguageSpecification/PropertiesOfTypesAndValues#underlying-types-底层类型基本类型">}})的无限类型集合。这些类型将包含在[类型集合的计算]({{< ref "/docs/References/LanguageSpecification/Types#general-interfaces-通用接口">}})中：并集符号`A|B`表示“类型`A`或类型`B`”，`~T`符号表示“所有具有底层类型`T`的类型”。例如，接口
+​	但是，新的类型集合视角比旧的方法集合视角更强大：我们可以明确地描述一组类型，而不仅仅通过方法间接描述。这为我们提供了控制类型集合的新方法。从Go 1.18开始，接口可以嵌入不仅是其他接口，还包括任何类型、类型的并集，或者具有相同[底层类型]({{< ref "/docs/References/LanguageSpecification/PropertiesOfTypesAndValues#underlying-types-底层类型基本类型">}})的无限类型集合。这些类型将包含在[类型集合的计算]({{< ref "/docs/References/LanguageSpecification/Types#general-interfaces-通用接口">}})中：并集符号`A|B`表示"类型`A`或类型`B`"，`~T`符号表示"所有具有底层类型`T`的类型"。例如，接口
 
 ```Go
 interface {
@@ -169,9 +169,9 @@ var lookupTable GenericLookupTable[any, string] // ERROR: any does not implement
 
 ​	用户早早地认识到了这个问题，并迅速提出了大量的问题和建议（[#51338](https://go.dev/issue/51338)、[#52474](https://go.dev/issue/52474)、[#52531](https://go.dev/issue/52531)、[#52614](https://go.dev/issue/52614)、 [#52624](https://go.dev/issue/52624)、 [#53734](https://go.dev/issue/53734)等）。显然，这是一个我们需要解决的问题。
 
-The “obvious” solution was simply to include even non-strictly comparable types in the `comparable` type set. But this leads to inconsistencies with the type set model. Consider the following example:
+The "obvious" solution was simply to include even non-strictly comparable types in the `comparable` type set. But this leads to inconsistencies with the type set model. Consider the following example:
 
-​	“显而易见”的解决方案是将非严格可比较类型包含在 `comparable` 类型集合中。但这会导致与类型集合模型的不一致。考虑以下示例：
+​	"显而易见"的解决方案是将非严格可比较类型包含在 `comparable` 类型集合中。但这会导致与类型集合模型的不一致。考虑以下示例：
 
 ```Go linenums="1"
 func f[Q comparable]() { … }
@@ -301,9 +301,9 @@ func isComparable[_ comparable]() {}
 var _ = isComparable[T] // compile-time error if T does not support == 如果 T 不支持 ==，会在编译时出错
 ```
 
-The dummy (blank) variable declaration serves as our “assertion”. But because of the exception in the constraint satisfaction rule, `isComparable[T]` only fails if `T` is not comparable at all; it will succeed if `T` supports `==`. We can work around this problem by using `T` not as a type argument, but as a type constraint:
+The dummy (blank) variable declaration serves as our "assertion". But because of the exception in the constraint satisfaction rule, `isComparable[T]` only fails if `T` is not comparable at all; it will succeed if `T` supports `==`. We can work around this problem by using `T` not as a type argument, but as a type constraint:
 
-​	这个虚拟（空白）变量声明作为我们的“断言”。但是由于约束满足规则中的例外，isComparable[T] 仅在 T 完全不可比较时才失败；如果 T 支持 ==，则会成功。我们可以通过将 T 用作类型约束而不是类型参数来解决这个问题：
+​	这个虚拟（空白）变量声明作为我们的"断言"。但是由于约束满足规则中的例外，isComparable[T] 仅在 T 完全不可比较时才失败；如果 T 支持 ==，则会成功。我们可以通过将 T 用作类型约束而不是类型参数来解决这个问题：
 
 ```Go linenums="1"
 func _[P T]() {

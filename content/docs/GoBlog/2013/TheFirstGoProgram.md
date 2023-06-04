@@ -26,7 +26,7 @@ What follows is the first Go program. It was written by Rob in February 2008, wh
 
 下面的内容是第一个Go程序。它是由Rob在2008年2月写的，当时的团队只有Rob、Robert和Ken。他们有一个可靠的功能列表（在这篇博文中提到）和一个粗略的语言规范。Ken刚刚完成了Go编译器的第一个工作版本（它并不产生原生代码，而是将Go代码音译成C语言，以便快速制作原型），是时候尝试用它编写程序了。
 
-Rob sent mail to the “Go team”:
+Rob sent mail to the "Go team":
 
 Rob给 "Go团队 "发了邮件:
 
@@ -421,7 +421,7 @@ type Slist struct {
 }
 ```
 
-There were no strings, although they were in the spec. To work around this, Rob had to build the input string as an `uint8` array with a clumsy construction. (Arrays were rudimentary and slices hadn’t been designed yet, let alone implemented, although there was the unimplemented concept of an “open array”.)
+There were no strings, although they were in the spec. To work around this, Rob had to build the input string as an `uint8` array with a clumsy construction. (Arrays were rudimentary and slices hadn’t been designed yet, let alone implemented, although there was the unimplemented concept of an "open array".)
 
 没有字符串，尽管在规范里有。为了解决这个问题，Rob不得不将输入的字符串构建为一个结构笨拙的uint8数组。(当时的数组还很初级，切片还没有被设计出来，更不用说实现了，虽然有一个未实现的 "开放数组 "的概念。)
 
@@ -446,7 +446,7 @@ panic "parse";
 
 And there are many other little differences; see if you can identify some others.
 
-还有很多其他的小区别；看看你是否能找出一些其他的区别。
+还有很多其他的小区别；看看您是否能找出一些其他的区别。
 
 Less than two years after this program was written, Go was released as an open source project. Looking back, it is striking how much the language has grown and matured. (The last thing to change between this proto-Go and the Go we know today was the elimination of semicolons.)
 

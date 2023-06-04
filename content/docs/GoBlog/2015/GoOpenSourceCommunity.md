@@ -22,7 +22,7 @@ Russ Cox
 
 Thank you all for traveling to Denver to be here, and thank you to everyone watching on video. If this is your first Gophercon, welcome. If you were here last year, welcome back. Thank you to the organizers for all the work it takes to make a conference like this happen. I am thrilled to be here and to be able to talk to all of you.
 
-感谢大家来到丹佛参加会议，也感谢通过视频观看的所有人。如果这是你第一次参加Gophercon，欢迎。如果你去年来过这里，欢迎回来。感谢组织者为实现这样的会议所做的所有工作。我很高兴来到这里，并能与你们所有人交谈。
+感谢大家来到丹佛参加会议，也感谢通过视频观看的所有人。如果这是您第一次参加Gophercon，欢迎。如果您去年来过这里，欢迎回来。感谢组织者为实现这样的会议所做的所有工作。我很高兴来到这里，并能与您们所有人交谈。
 
 I am the tech lead for the Go project and the Go team at Google. I share that role with Rob Pike. In that role, I spend a lot of time thinking about the overall Go open source project, in particular the way it runs, what it means to be open source, and the interaction between contributors inside and outside Google. Today I want to share with you how I see the Go project as a whole and then based on that explain how I see the Go open source project evolving.
 
@@ -62,13 +62,13 @@ I believe much of Go’s success is explained by the fact that Go is a great fit
 
 我相信Go的成功在很大程度上可以解释为：Go非常适合云计算软件，Go非常适合开源项目，而且，偶然的是，这两样东西在软件行业都越来越受欢迎，越来越重要。
 
-Other people have made similar observations. Here are two. Last year, on RedMonk.com, Donnie Berkholz wrote about “[Go as the emerging language of cloud infrastructure](http://redmonk.com/dberkholz/2014/03/18/go-the-emerging-language-of-cloud-infrastructure/),” observing that “[Go’s] marquee projects … are cloud-centric or otherwise made for dealing with distributed systems or transient environments.”
+Other people have made similar observations. Here are two. Last year, on RedMonk.com, Donnie Berkholz wrote about "[Go as the emerging language of cloud infrastructure](http://redmonk.com/dberkholz/2014/03/18/go-the-emerging-language-of-cloud-infrastructure/)," observing that "[Go’s] marquee projects … are cloud-centric or otherwise made for dealing with distributed systems or transient environments."
 
 其他人也提出了类似的看法。这里有两个。去年，在RedMonk.com上，Donnie Berkholz写到 "Go是新兴的云基础设施语言"，他观察到"[Go的]主要项目......是以云为中心的，或者是为处理分布式系统或瞬时环境而做的。"
 
-This year, on Texlution.com, the author wrote an article titled “[Why Golang is doomed to succeed](https://texlution.com/post/why-go-is-doomed-to-succeed/),” pointing out that this focus on large-scale development was possibly even better suited to open source than to Google itself: “This open source fitness is why I think you are about to see more and more Go around …”
+This year, on Texlution.com, the author wrote an article titled "[Why Golang is doomed to succeed](https://texlution.com/post/why-go-is-doomed-to-succeed/)," pointing out that this focus on large-scale development was possibly even better suited to open source than to Google itself: "This open source fitness is why I think you are about to see more and more Go around …"
 
-今年，在Texlution.com上，作者写了一篇题为 "为什么Golang注定要成功 "的文章，指出这种对大规模开发的关注可能甚至比谷歌本身更适合于开源。"这种开源的健身方式是我认为你即将看到周围越来越多的Go的原因..."
+今年，在Texlution.com上，作者写了一篇题为 "为什么Golang注定要成功 "的文章，指出这种对大规模开发的关注可能甚至比谷歌本身更适合于开源。"这种开源的健身方式是我认为您即将看到周围越来越多的Go的原因..."
 
 ## The Go Balance - Go 的平衡
 
@@ -86,7 +86,7 @@ Most people answer this question by talking about channels and goroutines, and i
 
 I think of that idea as Go’s balance. There are competing concerns in any software design, and there is a very natural tendency to try to solve all the problems you foresee. In Go, we have explicitly tried not to solve everything. Instead, we’ve tried to do just enough that you can build your own custom solutions easily.
 
-我认为这个想法就是Go的平衡。在任何软件设计中都存在着相互竞争的问题，而且有一种非常自然的倾向，就是试图解决你所预见的所有问题。在Go中，我们明确地尝试不解决所有问题。相反，我们试图做得足够多，以便您可以轻松建立自己的定制解决方案。
+我认为这个想法就是Go的平衡。在任何软件设计中都存在着相互竞争的问题，而且有一种非常自然的倾向，就是试图解决您所预见的所有问题。在Go中，我们明确地尝试不解决所有问题。相反，我们试图做得足够多，以便您可以轻松建立自己的定制解决方案。
 
 The way I would summarize Go’s chosen balance is this: **Do Less. Enable More.**
 
@@ -120,7 +120,7 @@ Keeping the language small enables more important goals. Being small makes Go ea
 
 I should point out that this means we say no to a lot of other people’s ideas, but I assure you we’ve said no to even more of our own ideas.
 
-我应该指出，这意味着我们拒绝了很多别人的想法，但我向你保证，我们拒绝了更多自己的想法。
+我应该指出，这意味着我们拒绝了很多别人的想法，但我向您保证，我们拒绝了更多自己的想法。
 
 Next, channels and goroutines. How should we structure and coordinate concurrent and parallel computations? Mutexes and condition variables are very general but so low-level that they’re difficult to use correctly. Parallel execution frameworks like OpenMP are so high-level that they can only be used to solve a narrow range of problems. Channels and goroutines sit between these two extremes. By themselves, they aren’t a solution to much. But they are powerful enough to be easily arranged to enable solutions to many common problems in concurrent software. Doing less—really doing just enough—enables more.
 
@@ -160,15 +160,15 @@ In other languages, it’s common for different teams to use different formattin
 
 Go does not have this problem. We designed the language to make gofmt possible, we worked hard to make gofmt’s formatting acceptable for all Go programs, and we made sure gofmt was there from day one of the original public release. Gofmt imposes such uniformity that automated changes blend into the rest of the file. You can’t tell whether a particular change was made by a person or a computer. We didn’t build explicit refactoring support. Establishing an agreed-upon formatting algorithm was enough of a shared base for independent tools to develop and to interoperate. Gofmt enabled gofix, goimports, eg, and other tools. I believe the work here is only just getting started. Even more can be done.
 
-Go就没有这个问题。我们设计的语言使gofmt成为可能，我们努力使gofmt的格式化为所有Go程序所接受，并且我们确保gofmt从最初公开发布的第一天起就存在。Gofmt强加了这样的统一性，使自动化的修改与文件的其他部分融为一体。你无法分辨某个特定的修改是由人还是由计算机完成的。我们并没有建立明确的重构支持。建立一个约定俗成的格式化算法，就足以成为独立工具开发和互操作的共享基础。Gofmt使gofix、goimports、eg和其他工具成为可能。我相信这里的工作才刚刚开始。甚至可以做得更多。
+Go就没有这个问题。我们设计的语言使gofmt成为可能，我们努力使gofmt的格式化为所有Go程序所接受，并且我们确保gofmt从最初公开发布的第一天起就存在。Gofmt强加了这样的统一性，使自动化的修改与文件的其他部分融为一体。您无法分辨某个特定的修改是由人还是由计算机完成的。我们并没有建立明确的重构支持。建立一个约定俗成的格式化算法，就足以成为独立工具开发和互操作的共享基础。Gofmt使gofix、goimports、eg和其他工具成为可能。我相信这里的工作才刚刚开始。甚至可以做得更多。
 
-Last, building and sharing software. In the run up to Go 1, we built goinstall, which became what we all know as “go get”. That tool defined a standard zero-configuration way to resolve import paths on sites like github.com, and later a way to resolve paths on other sites by making HTTP requests. This agreed-upon resolution algorithm enabled other tools that work in terms of those paths, most notably Gary Burd’s creation of godoc.org. In case you haven’t used it, you go to godoc.org/the-import-path for any valid “go get” import path, and the web site will fetch the code and show you the documentation for it. A nice side effect of this has been that godoc.org serves as a rough master list of the Go packages publicly available. All we did was give import paths a clear meaning. Do less, enable more.
+Last, building and sharing software. In the run up to Go 1, we built goinstall, which became what we all know as "go get". That tool defined a standard zero-configuration way to resolve import paths on sites like github.com, and later a way to resolve paths on other sites by making HTTP requests. This agreed-upon resolution algorithm enabled other tools that work in terms of those paths, most notably Gary Burd’s creation of godoc.org. In case you haven’t used it, you go to godoc.org/the-import-path for any valid "go get" import path, and the web site will fetch the code and show you the documentation for it. A nice side effect of this has been that godoc.org serves as a rough master list of the Go packages publicly available. All we did was give import paths a clear meaning. Do less, enable more.
 
-最后，建设和分享软件。在Go 1之前，我们建立了goinstall，也就是我们都知道的 "go get"。该工具定义了一种标准的零配置方式来解决github.com等网站的导入路径，后来又定义了一种通过HTTP请求来解决其他网站路径的方式。这种约定俗成的解析算法使其他工具能够根据这些路径工作，最值得一提的是Gary Burd创建的godoc.org。如果你没有使用过它，你可以到godoc.org/the-import-path去寻找任何有效的 "go get "导入路径，该网站会获取代码并向你展示它的文档。这样做的一个很好的副作用是，godoc.org可以作为公开的Go软件包的一个粗略的主列表。我们所做的就是给导入路径一个明确的含义。少做一点，多做一点。
+最后，建设和分享软件。在Go 1之前，我们建立了goinstall，也就是我们都知道的 "go get"。该工具定义了一种标准的零配置方式来解决github.com等网站的导入路径，后来又定义了一种通过HTTP请求来解决其他网站路径的方式。这种约定俗成的解析算法使其他工具能够根据这些路径工作，最值得一提的是Gary Burd创建的godoc.org。如果您没有使用过它，您可以到godoc.org/the-import-path去寻找任何有效的 "go get "导入路径，该网站会获取代码并向您展示它的文档。这样做的一个很好的副作用是，godoc.org可以作为公开的Go软件包的一个粗略的主列表。我们所做的就是给导入路径一个明确的含义。少做一点，多做一点。
 
-You’ll notice that many of these tooling examples are about establishing a shared convention. Sometimes people refer to this as Go being “opinionated,” but there’s something deeper going on. Agreeing to the limitations of a shared convention is a way to enable a broad class of tools that interoperate, because they all speak the same base language. This is a very effective way to do less but enable more. Specifically, in many cases we can do the minimum required to establish a shared understanding of a particular concept, like remote imports, or the proper formatting of a source file, and thereby enable the creation of packages and tools that work together because they all agree about those core details.
+You’ll notice that many of these tooling examples are about establishing a shared convention. Sometimes people refer to this as Go being "opinionated," but there’s something deeper going on. Agreeing to the limitations of a shared convention is a way to enable a broad class of tools that interoperate, because they all speak the same base language. This is a very effective way to do less but enable more. Specifically, in many cases we can do the minimum required to establish a shared understanding of a particular concept, like remote imports, or the proper formatting of a source file, and thereby enable the creation of packages and tools that work together because they all agree about those core details.
 
-你会注意到这些工具实例中有许多是关于建立一个共享的惯例。有时人们会把这说成是Go的 "意见"，但其实还有更深层次的东西在里面。同意共同约定的局限性是一种方法，可以使一大类工具相互操作，因为它们都使用相同的基础语言。这是一种非常有效的方式，可以做得更少，但却可以实现更多。具体来说，在许多情况下，我们可以做最低限度的工作来建立对某个特定概念的共同理解，比如远程导入，或者源文件的正确格式，从而使创建的包和工具能够一起工作，因为他们都同意这些核心细节。
+您会注意到这些工具实例中有许多是关于建立一个共享的惯例。有时人们会把这说成是Go的 "意见"，但其实还有更深层次的东西在里面。同意共同约定的局限性是一种方法，可以使一大类工具相互操作，因为它们都使用相同的基础语言。这是一种非常有效的方式，可以做得更少，但却可以实现更多。具体来说，在许多情况下，我们可以做最低限度的工作来建立对某个特定概念的共同理解，比如远程导入，或者源文件的正确格式，从而使创建的包和工具能够一起工作，因为他们都同意这些核心细节。
 
 I’m going to return to that idea later.
 
@@ -198,7 +198,7 @@ A language needs large, broad communities.
 
 A language needs lots of people writing lots of software, so that when you need a particular tool or library, there’s a good chance it has already been written, by someone who knows the topic better than you, and who spent more time than you have to make it great.
 
-一种语言需要大量的人编写大量的软件，这样当你需要一个特定的工具或库时，很有可能它已经被写出来了，而且是由比你更了解这个主题的人写的，他花了比你更多的时间来使它变得伟大。
+一种语言需要大量的人编写大量的软件，这样当您需要一个特定的工具或库时，很有可能它已经被写出来了，而且是由比您更了解这个主题的人写的，他花了比您更多的时间来使它变得伟大。
 
 A language needs lots of people reporting bugs, so that problems are identified and fixed quickly. Because of the much larger user base, the Go compilers are much more robust and spec-compliant than the Plan 9 C compilers they’re loosely based on ever were.
 
@@ -218,7 +218,7 @@ None of this could have happened if Go had stayed within Google. Go would have s
 
 Fundamentally, Go must be open, and Go needs you. Go can’t succeed without all of you, without all the people using Go for all different kinds of projects all over the world.
 
-从根本上说，Go必须是开放的，Go需要你。没有你们，没有全世界所有在不同项目中使用Go的人，Go不可能成功。
+从根本上说，Go必须是开放的，Go需要您。没有您们，没有全世界所有在不同项目中使用Go的人，Go不可能成功。
 
 In turn, the Go team at Google could never be large enough to support the entire Go community. To keep scaling, we need to enable all this ``more'' while doing less. Open source is a huge part of that.
 
@@ -232,7 +232,7 @@ What does open source mean? The minimum requirement is to open the source code, 
 
 But we also opened our development process: since announcing Go, we’ve done all our development in public, on public mailing lists open to all. We accept and review source code contributions from anyone. The process is the same whether you work for Google or not. We maintain our bug tracker in public, we discuss and develop proposals for changes in public, and we work toward releases in public. The public source tree is the authoritative copy. Changes happen there first. They are only brought into Google’s internal source tree later. For Go, being open source means that this is a collective effort that extends beyond Google, open to all.
 
-但是我们也开放了我们的开发过程：自从发布Go以来，我们在公开的邮件列表中进行了所有的开发工作，对所有人开放。我们接受并审查来自任何人的源代码贡献。无论你是否为谷歌工作，这个过程都是一样的。我们公开维护我们的bug跟踪器，我们公开讨论和开发修改建议，我们公开为发布而努力。公共源码树是权威的副本。更改首先发生在那里。它们只是后来才被带入谷歌的内部源代码树。对Go来说，开放源代码意味着这是一个超越Google的集体努力，对所有人开放。
+但是我们也开放了我们的开发过程：自从发布Go以来，我们在公开的邮件列表中进行了所有的开发工作，对所有人开放。我们接受并审查来自任何人的源代码贡献。无论您是否为谷歌工作，这个过程都是一样的。我们公开维护我们的bug跟踪器，我们公开讨论和开发修改建议，我们公开为发布而努力。公共源码树是权威的副本。更改首先发生在那里。它们只是后来才被带入谷歌的内部源代码树。对Go来说，开放源代码意味着这是一个超越Google的集体努力，对所有人开放。
 
 Any open source project starts with a few people, often just one, but with Go it was three: Robert Griesemer, Rob Pike, and Ken Thompson. They had a vision of what they wanted Go to be, what they thought Go could do better than existing languages, and Robert will talk more about that tomorrow morning. I was the next person to join the team, and then Ian Taylor, and then, one by one, we’ve ended up where we are today, with hundreds of contributors.
 
@@ -240,7 +240,7 @@ Any open source project starts with a few people, often just one, but with Go it
 
 Thank You to the many people who have contributed code or ideas or bug reports to the Go project so far. We tried to list everyone we could in our space in the program today. If your name is not there, I apologize, but thank you.
 
-感谢到目前为止为Go项目贡献代码或想法或错误报告的许多人。我们试图在今天的节目中列出所有我们可以列出的人。如果你的名字不在那里，我很抱歉，但是谢谢你。
+感谢到目前为止为Go项目贡献代码或想法或错误报告的许多人。我们试图在今天的节目中列出所有我们可以列出的人。如果您的名字不在那里，我很抱歉，但是谢谢您。
 
 I believe the hundreds of contributors so far are working toward a shared vision of what Go can be. It’s hard to put words to these things, but I did my best to explain one part of the vision earlier: Do Less, Enable More.
 
@@ -260,7 +260,7 @@ Once Go was open sourced, though, our role began to change. The most important t
 
 不过，一旦Go被开源，我们的角色就开始改变了。我们需要做的最重要的事情是传达我们对Go的愿景。这很难，我们还在努力。最初的实施是传达这一愿景的重要方式，我们领导的开发工作也是如此，最终产生了Go 1，以及我们发表的各种博文、文章和讲座。
 
-But as Rob said at Gophercon last year, “the language is done.” Now we need to see how it works, to see how people use it, to see what people build. The focus now is on expanding the kind of work that Go can help with.
+But as Rob said at Gophercon last year, "the language is done." Now we need to see how it works, to see how people use it, to see what people build. The focus now is on expanding the kind of work that Go can help with.
 
 但正如Rob在去年的Gophercon上所说，"语言已经完成了"。现在我们需要看看它是如何工作的，看看人们是如何使用它的，看看人们建立了什么。现在的重点是扩大Go所能帮助的工作种类。
 
@@ -320,7 +320,7 @@ Another example is the introduction over the past few releases of preliminary su
 
 My last example is the go command’s approach to vendoring. I define vendoring as copying source code for external dependencies into your tree to make sure that they don’t disappear or change underfoot.
 
-我的最后一个例子是go命令的销售方法。我把vendoring定义为把外部依赖的源代码复制到你的树上，以确保它们不会在脚下消失或改变。
+我的最后一个例子是go命令的销售方法。我把vendoring定义为把外部依赖的源代码复制到您的树上，以确保它们不会在脚下消失或改变。
 
 Vendoring is not a problem Google suffers, at least not the way the rest of the world does. We copy open source libraries we want to use into our shared source tree, record what version we copied, and only update the copy when there is a need to do so. We have a rule that there can only be one version of a particular library in the source tree, and it’s the job of whoever wants to upgrade that library to make sure it keeps working as expected by the Google code that depends on it. None of this happens often. This is the lazy approach to vendoring.
 
@@ -334,19 +334,19 @@ Because Google has relatively little experience with this vendoring problem, we 
 
 由于谷歌在这个销售问题上的经验相对较少，我们把它留给了谷歌以外的用户来开发解决方案。在过去的五年里，人们建立了一系列的工具。现在使用的主要是Keith Rarick的godep，Owen Ou的nut，以及Dave Cheney的gb-vendor插件。
 
-There are two problems with the current situation. The first is that these tools are not compatible out of the box with the go command’s “go get”. The second is that the tools are not even compatible with each other. Both of these problems fragment the developer community by tool.
+There are two problems with the current situation. The first is that these tools are not compatible out of the box with the go command’s "go get". The second is that the tools are not even compatible with each other. Both of these problems fragment the developer community by tool.
 
 目前的情况有两个问题。第一个问题是，这些工具与go命令的 "go get "不兼容。第二是这些工具甚至不能相互兼容。这两个问题都使开发者社区被工具分割开来。
 
-Last fall, we started a public design discussion to try to build consensus on some basics about how these tools all operate, so that they can work alongside “go get” and each other.
+Last fall, we started a public design discussion to try to build consensus on some basics about how these tools all operate, so that they can work alongside "go get" and each other.
 
 去年秋天，我们开始了一个公开的设计讨论，试图在这些工具如何运作的一些基本问题上建立共识，以便它们能够与 "go get "和彼此一起工作。
 
-Our basic proposal was that all tools agree on the approach of rewriting import paths during vendoring, to fit with “go get”’s model, and also that all tools agree on a file format describing the source and version of the copied code, so that the different vendoring tools can be used together even by a single project. If you use one today, you should still be able to use another tomorrow.
+Our basic proposal was that all tools agree on the approach of rewriting import paths during vendoring, to fit with "go get"’s model, and also that all tools agree on a file format describing the source and version of the copied code, so that the different vendoring tools can be used together even by a single project. If you use one today, you should still be able to use another tomorrow.
 
-我们的基本建议是，所有的工具都同意在销售过程中重写导入路径的方法，以适应 "go get "的模式，并且所有的工具都同意描述复制的代码的来源和版本的文件格式，以便不同的销售工具可以一起使用，即使是在一个项目中。如果你今天使用一个，明天应该仍然能够使用另一个。
+我们的基本建议是，所有的工具都同意在销售过程中重写导入路径的方法，以适应 "go get "的模式，并且所有的工具都同意描述复制的代码的来源和版本的文件格式，以便不同的销售工具可以一起使用，即使是在一个项目中。如果您今天使用一个，明天应该仍然能够使用另一个。
 
-Finding common ground in this way was very much in the spirit of Do Less, Enable More. If we could build consensus about these basic semantic aspects, that would enable “go get” and all these tools to interoperate, and it would enable switching between tools, the same way that agreement about how Go programs are stored in text files enables the Go compiler and all text editors to interoperate. So we sent out our proposal for common ground.
+Finding common ground in this way was very much in the spirit of Do Less, Enable More. If we could build consensus about these basic semantic aspects, that would enable "go get" and all these tools to interoperate, and it would enable switching between tools, the same way that agreement about how Go programs are stored in text files enables the Go compiler and all text editors to interoperate. So we sent out our proposal for common ground.
 
 以这种方式找到共同点，非常符合 "少做多得 "的精神。如果我们能够就这些基本的语义方面达成共识，这将使 "go get "和所有这些工具能够互操作，并且能够在不同的工具之间进行切换，就像就Go程序如何存储在文本文件中达成的协议使Go编译器和所有文本编辑器能够互操作一样。所以我们发出了我们的建议，以寻求共同点。
 
@@ -380,7 +380,7 @@ This is also a good example of our general approach to design. We try not to mak
 
 This general trend toward both code and design coming from the broader Go community is important for Go. You, the broader Go community, know what is working and what is not in the environments where you use Go. We at Google don’t. More and more, we will rely on your expertise, and we will try to help you develop designs and code that extend Go to be useful in more settings and fit well with Go’s original vision. At the same time, we will continue to wait for broad consensus on well-understood solutions.
 
-这种代码和设计都来自于更广泛的Go社区的大趋势对Go来说非常重要。你们，更广泛的 Go 社区，知道在你们使用 Go 的环境中哪些是有效的，哪些是无效的。而我们 Google 则不知道。我们将越来越多地依靠你们的专业知识，我们将努力帮助你们开发设计和代码，使 Go 在更多的环境中发挥作用，并与 Go 的原始愿景相一致。同时，我们将继续等待人们对公认的解决方案达成广泛的共识。
+这种代码和设计都来自于更广泛的Go社区的大趋势对Go来说非常重要。您们，更广泛的 Go 社区，知道在您们使用 Go 的环境中哪些是有效的，哪些是无效的。而我们 Google 则不知道。我们将越来越多地依靠您们的专业知识，我们将努力帮助您们开发设计和代码，使 Go 在更多的环境中发挥作用，并与 Go 的原始愿景相一致。同时，我们将继续等待人们对公认的解决方案达成广泛的共识。
 
 This brings me to my last point.
 
@@ -390,7 +390,7 @@ This brings me to my last point.
 
 I’ve argued that Go must be open, and that Go needs your help.
 
-我已经论证了Go必须是开放的，Go需要你的帮助。
+我已经论证了Go必须是开放的，Go需要您的帮助。
 
 But in fact Go needs everyone’s help. And everyone isn’t here.
 
@@ -422,7 +422,7 @@ But what should it say?
 
 I believe the most important overall statement we can make is that if you want to use or discuss Go, then you are welcome here, in our community. That is the standard I believe we aspire to.
 
-我相信我们可以做出的最重要的总体声明是：如果你想使用或讨论Go，那么我们就欢迎你来这里，来我们的社区。这就是我认为我们所追求的标准。
+我相信我们可以做出的最重要的总体声明是：如果您想使用或讨论Go，那么我们就欢迎您来这里，来我们的社区。这就是我认为我们所追求的标准。
 
 If for no other reason (and, to be clear, there are excellent other reasons), Go needs as large a community as possible. To the extent that behavior limits the size of the community, it holds Go back. And behavior can easily limit the size of the community.
 
@@ -444,9 +444,9 @@ We have no experience writing a Code of Conduct, so we have been reading existin
 
 我们没有编写行为准则的经验，所以我们一直在阅读现有的行为准则，我们可能会采用现有的行为准则，也许会稍加调整。我最喜欢的是Django行为准则，它起源于另一个叫SpeakUp的项目。它的结构是对日常互动的提醒清单的阐述。
 
-“Be friendly and patient. Be welcoming. Be considerate. Be respectful. Be careful in the words that you choose. When we disagree, try to understand why.”
+"Be friendly and patient. Be welcoming. Be considerate. Be respectful. Be careful in the words that you choose. When we disagree, try to understand why."
 
-"要友好和耐心。要热情好客。要考虑周到。要尊重他人。要注意你所选择的词语。当我们有不同意见时，试着理解原因。
+"要友好和耐心。要热情好客。要考虑周到。要尊重他人。要注意您所选择的词语。当我们有不同意见时，试着理解原因。
 
 I believe this captures the tone we want to set, the message we want to send, the environment we want to create for new contributors. I certainly want to be friendly, patient, welcoming, considerate, and respectful. I won’t get it exactly right all the time, and I would welcome a helpful note if I’m not living up to that. I believe most of us feel the same way.
 
@@ -462,15 +462,15 @@ I have no doubts that the Go community can be one of the most friendly, welcomin
 
 Andrew Gerrand has been leading the effort to adopt an appropriate Code of Conduct for the Go community. If you have suggestions, or concerns, or experience with Codes of Conduct, or want to be involved, please find Andrew or me during the conference. If you’ll still be here on Friday, Andrew and I are going to block off some time for Code of Conduct discussions during Hack Day.
 
-Andrew Gerrand一直在领导为Go社区制定适当的行为准则的工作。如果你有建议，或担忧，或对行为准则有经验，或想参与，请在会议期间找到安德鲁或我。如果你周五还在这里，安德鲁和我将在黑客日期间为行为准则的讨论留出一些时间。
+Andrew Gerrand一直在领导为Go社区制定适当的行为准则的工作。如果您有建议，或担忧，或对行为准则有经验，或想参与，请在会议期间找到安德鲁或我。如果您周五还在这里，安德鲁和我将在黑客日期间为行为准则的讨论留出一些时间。
 
 Again, we don’t know where the next great idea will come from. We need all the help we can get. We need a large, diverse Go community.
 
 同样，我们不知道下一个伟大的想法会从哪里来。我们需要所有我们能得到的帮助。我们需要一个庞大的、多样化的Go社区。
 
-## Thank You 感谢你
+## Thank You 感谢您
 
-I consider the many people releasing software for download using “go get,” sharing their insights via blog posts, or helping others on the mailing lists or IRC to be part of this broad open source effort, part of the Go community. Everyone here today is also part of that community.
+I consider the many people releasing software for download using "go get," sharing their insights via blog posts, or helping others on the mailing lists or IRC to be part of this broad open source effort, part of the Go community. Everyone here today is also part of that community.
 
 我认为许多人使用 "go get "发布软件供下载，通过博客文章分享他们的见解，或在邮件列表或IRC上帮助他人，都是这个广泛的开源努力的一部分，是Go社区的一部分。今天在座的各位也是这个社区的一部分。
 
@@ -480,7 +480,7 @@ Thank you in advance to the presenters who over the next few days will take time
 
 Thank you in advance to all of you in the audience for taking the time to be here, to ask questions, and to let us know how Go is working for you. When you go back home, please continue to share what you’ve learned. Even if you don’t use Go for daily work, we’d love to see what’s working for Go adopted in other contexts, just as we’re always looking for good ideas to bring back into Go.
 
-提前感谢在座的各位，感谢你们花时间来到这里，提出问题，并让我们知道Go对你们的作用。当你们回家的时候，请继续分享你们所学到的东西。即使你不在日常工作中使用Go，我们也希望看到Go在其他环境中的应用，就像我们一直在寻找好的想法带回Go中一样。
+提前感谢在座的各位，感谢您们花时间来到这里，提出问题，并让我们知道Go对您们的作用。当您们回家的时候，请继续分享您们所学到的东西。即使您不在日常工作中使用Go，我们也希望看到Go在其他环境中的应用，就像我们一直在寻找好的想法带回Go中一样。
 
 Thank you all again for making the effort to be here and for being part of the Go community.
 

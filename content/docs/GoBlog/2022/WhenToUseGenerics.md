@@ -32,13 +32,13 @@ Go 1.18版本增加了一个重要的新语言特性：对泛型编程的支持�
 
 To be clear, I’ll provide general guidelines, not hard and fast rules. Use your own judgement. But if you aren’t sure, I recommend using the guidelines discussed here.
 
-为了清楚起见，我将提供一般的指导方针，而不是硬性规定。请使用您自己的判断力。但如果你不确定，我建议使用这里讨论的准则。
+为了清楚起见，我将提供一般的指导方针，而不是硬性规定。请使用您自己的判断力。但如果您不确定，我建议使用这里讨论的准则。
 
 ## Write code 编写代码
 
 Let’s start with a general guideline for programming Go: write Go programs by writing code, not by defining types. When it comes to generics, if you start writing your program by defining type parameter constraints, you are probably on the wrong path. Start by writing functions. It’s easy to add type parameters later when it’s clear that they will be useful.
 
-让我们从Go编程的一般准则开始：通过编写代码而不是定义类型来编写Go程序。当涉及到泛型时，如果你从定义类型参数约束开始写程序，你可能就走错了路。从写函数开始。当明确了类型参数的作用后，再添加类型参数就很容易了。
+让我们从Go编程的一般准则开始：通过编写代码而不是定义类型来编写Go程序。当涉及到泛型时，如果您从定义类型参数约束开始写程序，您可能就走错了路。从写函数开始。当明确了类型参数的作用后，再添加类型参数就很容易了。
 
 ## When are type parameters useful? 类型参数什么时候有用？
 
@@ -143,13 +143,13 @@ This is a reasonable use of type parameters because the `Tree` data structure, i
 
 The `Tree` data structure does need to know how to compare values of the element type `T`; it uses a passed-in comparison function for that. You can see this on the fourth line of the `find` method, in the call to `bt.cmp`. Other than that, the type parameter doesn’t matter at all.
 
-Tree数据结构确实需要知道如何比较元素类型T的值；它为此使用一个传入的比较函数。你可以在find方法的第四行看到这一点，在对bt.cmp的调用中。除此以外，类型参数根本不重要。
+Tree数据结构确实需要知道如何比较元素类型T的值；它为此使用一个传入的比较函数。您可以在find方法的第四行看到这一点，在对bt.cmp的调用中。除此以外，类型参数根本不重要。
 
 ### For type parameters, prefer functions to methods 对于类型参数，更倾向于使用函数而不是方法
 
 The `Tree` example illustrates another general guideline: when you need something like a comparison function, prefer a function to a method.
 
-Tree的例子说明了另一条通用准则：当你需要类似于比较函数的东西时，最好使用函数而不是方法。
+Tree的例子说明了另一条通用准则：当您需要类似于比较函数的东西时，最好使用函数而不是方法。
 
 We could have defined the `Tree` type such that the element type is required to have a `Compare` or `Less` method. This would be done by writing a constraint that requires the method, meaning that any type argument used to instantiate the `Tree` type would need to have that method.
 
@@ -224,7 +224,7 @@ Using type parameters for this kind of code is appropriate because the methods l
 
 (I should mention that Go 1.19–not 1.18–will most likely include a generic function to sort a slice using a comparison function, and that generic function will most likely not use `sort.Interface`. See [proposal #47619](https://go.dev/issue/47619). But the general point is still true even if this specific example will most likely not be useful: it’s reasonable to use type parameters when you need to implement methods that look the same for all the relevant types.)
 
-(我应该提到，Go 1.19--而不是1.18--很可能包括一个使用比较函数对切片进行排序的通用函数，而这个通用函数很可能不会使用sort.Interface。参见提议#47619。但是，即使这个具体的例子很可能没有用，一般的观点仍然是正确的：当你需要实现对所有相关类型看起来都一样的方法时，使用类型参数是合理的）。
+(我应该提到，Go 1.19--而不是1.18--很可能包括一个使用比较函数对切片进行排序的通用函数，而这个通用函数很可能不会使用sort.Interface。参见提议#47619。但是，即使这个具体的例子很可能没有用，一般的观点仍然是正确的：当您需要实现对所有相关类型看起来都一样的方法时，使用类型参数是合理的）。
 
 ## When are type parameters not useful? 什么时候类型参数没有用？
 
@@ -240,7 +240,7 @@ As we all know, Go has interface types. Interface types permit a kind of generic
 
 For example, the widely used `io.Reader` interface provides a generic mechanism for reading data from any value that contains information (for example, a file) or that produces information (for example, a random number generator). If all you need to do with a value of some type is call a method on that value, use an interface type, not a type parameter. `io.Reader` is easy to read, efficient, and effective. There is no need to use a type parameter to read data from a value by calling the `Read` method.
 
-例如，广泛使用的io.Reader接口提供了一种通用机制，可以从任何包含信息（例如文件）或产生信息（例如随机数发生器）的值中读取数据。如果你需要对某个类型的值进行处理，只是在该值上调用一个方法，那么就使用一个接口类型，而不是一个类型参数。io.Reader很容易阅读，效率高，效果好。没有必要使用类型参数来通过调用Read方法从一个值中读取数据。
+例如，广泛使用的io.Reader接口提供了一种通用机制，可以从任何包含信息（例如文件）或产生信息（例如随机数发生器）的值中读取数据。如果您需要对某个类型的值进行处理，只是在该值上调用一个方法，那么就使用一个接口类型，而不是一个类型参数。io.Reader很容易阅读，效率高，效果好。没有必要使用类型参数来通过调用Read方法从一个值中读取数据。
 
 For example, it might be tempting to change the first function signature here, which uses just an interface type, into the second version, which uses a type parameter.
 
@@ -274,7 +274,7 @@ For example, the implementation of `Read` from a file is nothing like the implem
 
 Go has [run time reflection](https://pkg.go.dev/reflect). Reflection permits a kind of generic programming, in that it permits you to write code that works with any type.
 
-Go有运行时反射。反射允许一种通用编程，因为它允许你编写适用于任何类型的代码。
+Go有运行时反射。反射允许一种通用编程，因为它允许您编写适用于任何类型的代码。
 
 If some operation has to support even types that don’t have methods (so that interface types don’t help), and if the operation is different for each type (so that type parameters aren’t appropriate), use reflection.
 
@@ -292,8 +292,8 @@ In closing, this discussion of when to use generics can be reduced to one simple
 
 If you find yourself writing the exact same code multiple times, where the only difference between the copies is that the code uses different types, consider whether you can use a type parameter.
 
-如果你发现自己多次编写完全相同的代码，其中唯一的区别是代码使用了不同的类型，请考虑是否可以使用一个类型参数。
+如果您发现自己多次编写完全相同的代码，其中唯一的区别是代码使用了不同的类型，请考虑是否可以使用一个类型参数。
 
 Another way to say this is that you should avoid type parameters until you notice that you are about to write the exact same code multiple times.
 
-另一种说法是，你应该避免使用类型参数，直到你注意到你即将多次编写完全相同的代码。
+另一种说法是，您应该避免使用类型参数，直到您注意到您即将多次编写完全相同的代码。

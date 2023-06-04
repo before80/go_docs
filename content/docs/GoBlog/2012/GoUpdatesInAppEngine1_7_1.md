@@ -40,4 +40,4 @@ Finally, we have filled in some missing functionality: the [xmpp package](https:
 
 You can grab the new SDK from the [App Engine downloads page](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Go) and browse the [updated documentation](https://developers.google.com/appengine/docs/go).
 
-你可以从App Engine的下载页面获取新的SDK，并浏览更新的文档。
+您可以从App Engine的下载页面获取新的SDK，并浏览更新的文档。

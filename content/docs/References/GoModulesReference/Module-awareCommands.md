@@ -128,7 +128,7 @@ $ go get golang.org/x/text@none
 
 After `go get` updates the `go.mod` file, it builds the packages named on the command line. Executables will be installed in the directory named by the `GOBIN` environment variable, which defaults to `$GOPATH/bin` or `$HOME/go/bin` if the `GOPATH` environment variable is not set.
 
-​	在`go get`更新`go.mod`文件后，它将构建命令行上指定的包。可执行文件将被安装在由`GOBIN`环境变量命名的目录中，如果没有设置`GOBIN`环境变量，则默认为`$GOPATH/bin或$HOME/go/bin`。=>仍有疑问？？这里应该是：“如果没有设置`GOBIN`环境变量”。
+​	在`go get`更新`go.mod`文件后，它将构建命令行上指定的包。可执行文件将被安装在由`GOBIN`环境变量命名的目录中，如果没有设置`GOBIN`环境变量，则默认为`$GOPATH/bin或$HOME/go/bin`。=>仍有疑问？？这里应该是："如果没有设置`GOBIN`环境变量"。
 
 
 
@@ -175,7 +175,7 @@ $ go install ./cmd/...
 
 The `go install` command builds and installs the packages named by the paths on the command line. Executables (`main` packages) are installed to the directory named by the `GOBIN` environment variable, which defaults to `$GOPATH/bin` or `$HOME/go/bin` if the `GOPATH` environment variable is not set. Executables in `$GOROOT` are installed in `$GOROOT/bin` or `$GOTOOLDIR` instead of `$GOBIN`. Non-executable packages are built and cached but not installed.
 
-​	`go install`命令建立并安装由命令行上的路径命名的包。可执行文件（`main`包）被安装到由`GOBIN`环境变量命名的目录中，如果没有设置`GOPATH`环境变量，则默认为`$GOPATH/bin`或`$HOME/go/bin`。`$GOROOT`中的可执行程序会被安装到`$GOROOT/bin`或`$GOTOOLDIR`中，而不是`$GOBIN`。非可执行包会被构建和缓存，但不会安装。=>仍有疑问？？这里应该是：“如果没有设置`GOBIN`环境变量”？
+​	`go install`命令建立并安装由命令行上的路径命名的包。可执行文件（`main`包）被安装到由`GOBIN`环境变量命名的目录中，如果没有设置`GOPATH`环境变量，则默认为`$GOPATH/bin`或`$HOME/go/bin`。`$GOROOT`中的可执行程序会被安装到`$GOROOT/bin`或`$GOTOOLDIR`中，而不是`$GOBIN`。非可执行包会被构建和缓存，但不会安装。=>仍有疑问？？这里应该是："如果没有设置`GOBIN`环境变量"？
 
 ​	从Go 1.16开始，如果参数有版本后缀（如`@latest`或`@v1.0.0`），`go install`会以模块感知模式构建包，忽略当前目录或任何父目录中的`go.mod`文件（如果有）。这对于安装可执行文件而不影响主模块的依赖项很有用。
 
@@ -482,7 +482,7 @@ go mod init example.com/m
 - `vendor/manifest` (gvt)
 - `vendor/vendor.json` (govendor)
 
-​	vendoring 工具的配置文件不可能总是以完美的保真度进行翻译。例如，如果同一存储库中的多个包以不同的版本被导入，而存储库只包含一个模块，那么导入的`go.mod`只能要求该模块的一个版本。你可能希望运行 [go list -m all](#go-list-m) 来检查构建列表中的所有版本，并运行 [go mod tidy](#go-mod-tidy) 来添加缺失的需求和移除未使用的需求。
+​	vendoring 工具的配置文件不可能总是以完美的保真度进行翻译。例如，如果同一存储库中的多个包以不同的版本被导入，而存储库只包含一个模块，那么导入的`go.mod`只能要求该模块的一个版本。您可能希望运行 [go list -m all](#go-list-m) 来检查构建列表中的所有版本，并运行 [go mod tidy](#go-mod-tidy) 来添加缺失的需求和移除未使用的需求。
 
 ### go mod tidy
 
@@ -651,7 +651,7 @@ go env -w GOFLAGS=-modcacherw
 
 ### Version queries
 
-​	有一些命令允许你使用版本查询来指定模块的版本，版本查询出现在命令行中模块或包路径后面的`@`字符之后。
+​	有一些命令允许您使用版本查询来指定模块的版本，版本查询出现在命令行中模块或包路径后面的`@`字符之后。
 
 示例：
 

@@ -53,7 +53,7 @@ go get github.com/spf13/viper
 - 从缓冲区中读取配置
 - 设置显式值
 
-​	可以将 Viper 视为你的应用程序所有配置需求的注册表。
+​	可以将 Viper 视为您的应用程序所有配置需求的注册表。
 
 ## 为什么选择 Viper？
 
@@ -571,7 +571,7 @@ This obeys the precedence rules established above; the search for the path will 
 
 For example, given this configuration file, both `datastore.metric.host` and `datastore.metric.port` are already defined (and may be overridden). If in addition `datastore.metric.protocol` was defined in the defaults, Viper would also find it.
 
-However, if `datastore.metric` was overridden (by a flag, an environment variable, the `Set()` method, …) with an immediate value, then all sub-keys of `datastore.metric` become undefined, they are “shadowed” by the higher-priority configuration level.
+However, if `datastore.metric` was overridden (by a flag, an environment variable, the `Set()` method, …) with an immediate value, then all sub-keys of `datastore.metric` become undefined, they are "shadowed" by the higher-priority configuration level.
 
 Viper can access array indices by using numbers in the path. For example:
 
@@ -805,11 +805,11 @@ When working with multiple vipers, it is up to the user to keep track of the dif
 
 ## Q & A
 
-### Why is it called “Viper”?
+### Why is it called "Viper"?
 
 A: Viper is designed to be a [companion](http://en.wikipedia.org/wiki/Viper_(G.I._Joe)) to [Cobra](https://github.com/spf13/cobra). While both can operate completely independently, together they make a powerful pair to handle much of your application foundation needs.
 
-### Why is it called “Cobra”?
+### Why is it called "Cobra"?
 
 Is there a better name for a [commander](http://en.wikipedia.org/wiki/Cobra_Commander)?
 

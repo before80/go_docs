@@ -110,7 +110,7 @@ Deprecated: As of Go 1.16, os.ReadDir is a more efficient and correct choice: it
 
 If you must continue obtaining a list of fs.FileInfo, you still can:
 
-如果你必须继续获得fs.FileInfo的列表，你仍然可以。
+如果您必须继续获得fs.FileInfo的列表，您仍然可以。
 
 ```go 
 entries, err := os.ReadDir(dirname)

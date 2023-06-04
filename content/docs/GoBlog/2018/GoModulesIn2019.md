@@ -74,9 +74,9 @@ Today, `go` `get` relies on connection-level authentication (HTTPS or SSH) to ch
 
 The Go modules design improves code authentication by storing a `go.sum` file in each module; that file lists the cryptographic hash of the expected file tree for each of the module’s dependencies. When using modules, the `go` command uses `go.sum` to verify that dependencies are bit-for-bit identical to the expected versions before using them in a build. But the `go.sum` file only lists hashes for the specific dependencies used by that module. If you are adding a new dependency or updating dependencies with `go` `get` `-u`, there is no corresponding entry in `go.sum` and therefore no direct authentication of the downloaded bits.
 
-Go模块的设计通过在每个模块中存储一个go.sum文件来改善代码验证；该文件列出了该模块每个依赖项的预期文件树的加密哈希值。当使用模块时，go命令使用go.sum来验证依赖项在构建中使用前是否与预期的版本逐位相同。但go.sum文件只列出了该模块所使用的特定依赖关系的哈希值。如果你要添加一个新的依赖，或者用 go get -u 来更新依赖，在 go.sum 中没有相应的条目，因此无法直接验证下载的比特。
+Go模块的设计通过在每个模块中存储一个go.sum文件来改善代码验证；该文件列出了该模块每个依赖项的预期文件树的加密哈希值。当使用模块时，go命令使用go.sum来验证依赖项在构建中使用前是否与预期的版本逐位相同。但go.sum文件只列出了该模块所使用的特定依赖关系的哈希值。如果您要添加一个新的依赖，或者用 go get -u 来更新依赖，在 go.sum 中没有相应的条目，因此无法直接验证下载的比特。
 
-For publicly-available modules, we intend to run a service we call a *notary* that follows the module index log, downloads new modules, and cryptographically signs statements of the form “module M at version V has file tree hash H.” The notary service will publish all these notarized hashes in a queryable, [Certificate Transparency](https://www.certificate-transparency.org/)-style [tamper-proof log](http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf), so that anyone can verify that the notary is behaving correctly. This log will serve as a public, global `go.sum` file that `go` `get` can use to authenticate modules when adding or updating dependencies.
+For publicly-available modules, we intend to run a service we call a *notary* that follows the module index log, downloads new modules, and cryptographically signs statements of the form "module M at version V has file tree hash H." The notary service will publish all these notarized hashes in a queryable, [Certificate Transparency](https://www.certificate-transparency.org/)-style [tamper-proof log](http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf), so that anyone can verify that the notary is behaving correctly. This log will serve as a public, global `go.sum` file that `go` `get` can use to authenticate modules when adding or updating dependencies.
 
 对于公开的模块，我们打算运行一个我们称之为公证的服务，它跟踪模块索引日志，下载新的模块，并对 "模块M在版本V有文件树H "这样的语句进行加密签名。公证服务将把所有这些经过公证的哈希值公布在一个可查询的、透明证书式的防篡改日志中，这样任何人都可以验证公证员的行为是否正确。这个日志将作为一个公共的、全局的go.sum文件，go get可以在添加或更新依赖关系时用来验证模块。
 
@@ -88,7 +88,7 @@ We are aiming to have the `go` command check notarized hashes for publicly-avail
 
 Because the decentralized `go` `get` fetches code from multiple origin servers, fetching code is only as fast and reliable as the slowest, least reliable server. The only defense available before modules was to vendor dependencies into your own repositories. While vendoring will continue to be supported, we’d prefer a solution that works for all modules—not just the ones you’re already using—and that does not require duplicating a dependency into every repository that uses it.
 
-由于分散的go get从多个源服务器获取代码，获取代码的速度和可靠性只能与最慢、最不可靠的服务器一样。在模块之前，唯一可用的防御措施是把依赖关系卖给自己的仓库。虽然我们会继续支持销售，但我们更倾向于一个对所有模块都有效的解决方案，而不仅仅是你已经在使用的模块，而且不需要将一个依赖关系复制到每个使用它的仓库。
+由于分散的go get从多个源服务器获取代码，获取代码的速度和可靠性只能与最慢、最不可靠的服务器一样。在模块之前，唯一可用的防御措施是把依赖关系卖给自己的仓库。虽然我们会继续支持销售，但我们更倾向于一个对所有模块都有效的解决方案，而不仅仅是您已经在使用的模块，而且不需要将一个依赖关系复制到每个使用它的仓库。
 
 The Go module design introduces the idea of a module proxy, which is a server that the `go` command asks for modules, instead of the origin servers. One important kind of proxy is a *module mirror*, which answers requests for modules by fetching them from origin servers and then caching them for use in future requests. A well-run mirror should be fast and reliable even when some origin servers have gone down. We are planning to launch a mirror service for publicly-available modules in 2019. Other projects, like GoCenter and Athens, are planning mirror services too. (We anticipate that companies will have multiple options for running their own internal mirrors as well, but this post is focusing on public mirrors.)
 
@@ -122,4 +122,4 @@ Before, all consumers of Go source code—the `go` command and any sites like go
 
 We’re excited about the future of Go modules in 2019, and we hope you are too. Happy New Year!
 
-我们对2019年Go模块的未来感到兴奋，我们希望你也是如此。新年快乐!
+我们对2019年Go模块的未来感到兴奋，我们希望您也是如此。新年快乐!

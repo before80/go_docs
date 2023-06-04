@@ -127,7 +127,7 @@ The best way to see how to use the `context` package is through a worked example
 
 ## Example: Google Web Search 例子：谷歌网络搜索
 
-Our example is an HTTP server that handles URLs like `/search?q=golang&timeout=1s` by forwarding the query “golang” to the [Google Web Search API](https://developers.google.com/web-search/docs/) and rendering the results. The `timeout` parameter tells the server to cancel the request after that duration elapses.
+Our example is an HTTP server that handles URLs like `/search?q=golang&timeout=1s` by forwarding the query "golang" to the [Google Web Search API](https://developers.google.com/web-search/docs/) and rendering the results. The `timeout` parameter tells the server to cancel the request after that duration elapses.
 
 我们的例子是一个HTTP服务器，通过将查询 "golang "转发给Google Web Search API并呈现结果来处理/search?q=golang&timeout=1s等URL。超时参数告诉服务器在该时间段过后取消请求。
 

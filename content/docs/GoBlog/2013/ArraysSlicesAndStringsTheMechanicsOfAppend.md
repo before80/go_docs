@@ -97,7 +97,7 @@ Given our `buffer` array variable from the previous section, we could create a s
 var slice []byte = buffer[100:150]
 ```
 
-In that snippet we used the full variable declaration to be explicit. The variable `slice` has type `[]byte`, pronounced “slice of bytes”, and is initialized from the array, called `buffer`, by slicing elements 100 (inclusive) through 150 (exclusive). The more idiomatic syntax would drop the type, which is set by the initializing expression:
+In that snippet we used the full variable declaration to be explicit. The variable `slice` has type `[]byte`, pronounced "slice of bytes", and is initialized from the array, called `buffer`, by slicing elements 100 (inclusive) through 150 (exclusive). The more idiomatic syntax would drop the type, which is set by the initializing expression:
 
 在该片段中，我们使用了完整的变量声明，以示明确。变量slice的类型是[]byte，读作 "字节的片断"，并从数组中初始化，称为buffer，通过对元素100（包括）到150（不包括）的片断。更恰当的语法是去掉类型，它是由初始化表达式设置的：
 
@@ -115,7 +115,7 @@ slice := buffer[100:150]
 
 What exactly is this slice variable? It’s not quite the full story, but for now think of a slice as a little data structure with two elements: a length and a pointer to an element of an array. You can think of it as being built like this behind the scenes:
 
-这个slice变量到底是什么？这还不是很全面，但现在可以把slice想象成一个有两个元素的小数据结构：一个长度和一个指向数组元素的指针。你可以认为它在幕后是这样构建的：
+这个slice变量到底是什么？这还不是很全面，但现在可以把slice想象成一个有两个元素的小数据结构：一个长度和一个指向数组元素的指针。您可以认为它在幕后是这样构建的：
 
 ```go linenums="1"
 type sliceHeader struct {
@@ -166,7 +166,7 @@ slice = slice[5:10]
 
 the `sliceHeader` structure for the `slice` variable looks just like it did for the `slice2` variable. You’ll see reslicing used often, for example to truncate a slice. This statement drops the first and last elements of our slice:
 
-slice变量的sliceHeader结构看起来就像slice2变量的结构一样。你会看到经常使用重新切分，例如截断一个片断。这条语句删除了我们片断的第一个和最后一个元素：
+slice变量的sliceHeader结构看起来就像slice2变量的结构一样。您会看到经常使用重新切分，例如截断一个片断。这条语句删除了我们片断的第一个和最后一个元素：
 
 ```go linenums="1"
 slice = slice[1:len(slice)-1]
@@ -176,21 +176,21 @@ slice = slice[1:len(slice)-1]
 
 [练习。写出这个赋值后sliceHeader结构的样子] 。
 
-You’ll often hear experienced Go programmers talk about the “slice header” because that really is what’s stored in a slice variable. For instance, when you call a function that takes a slice as an argument, such as [bytes.IndexRune](https://go.dev/pkg/bytes/#IndexRune), that header is what gets passed to the function. In this call,
+You’ll often hear experienced Go programmers talk about the "slice header" because that really is what’s stored in a slice variable. For instance, when you call a function that takes a slice as an argument, such as [bytes.IndexRune](https://go.dev/pkg/bytes/#IndexRune), that header is what gets passed to the function. In this call,
 
-你会经常听到有经验的Go程序员谈论 "slice header"，因为这确实是存储在slice变量中的东西。例如，当你调用一个以分片为参数的函数时，比如byte.IndexRune，这个头就是传递给该函数的东西。在这个调用中，
+您会经常听到有经验的Go程序员谈论 "slice header"，因为这确实是存储在slice变量中的东西。例如，当您调用一个以分片为参数的函数时，比如byte.IndexRune，这个头就是传递给该函数的东西。在这个调用中，
 
 ```go linenums="1"
 slashPos := bytes.IndexRune(slice, '/')
 ```
 
-the `slice` argument that is passed to the `IndexRune` function is, in fact, a “slice header”.
+the `slice` argument that is passed to the `IndexRune` function is, in fact, a "slice header".
 
 被传递给IndexRune函数的slice参数实际上是一个 "slice头"。
 
 There’s one more data item in the slice header, which we talk about below, but first let’s see what the existence of the slice header means when you program with slices.
 
-切片头中还有一个数据项，我们将在下面讨论，但首先让我们看看当你用切片编程时，切片头的存在意味着什么。
+切片头中还有一个数据项，我们将在下面讨论，但首先让我们看看当您用切片编程时，切片头的存在意味着什么。
 
 ## Passing slices to functions 向函数传递片断
 
@@ -244,7 +244,7 @@ Run
 
 (You can edit and re-execute these runnable snippets if you want to explore.)
 
-(如果你想探索的话，你可以编辑并重新执行这些可运行的片段)。
+(如果您想探索的话，您可以编辑并重新执行这些可运行的片段)。
 
 Even though the slice *header* is passed by value, the header includes a pointer to elements of an array, so both the original slice header and the copy of the header passed to the function describe the same array. Therefore, when the function returns, the modified elements can be seen through the original slice variable.
 
@@ -301,7 +301,7 @@ Run
 
 It seems clumsy in that example, especially dealing with the extra level of indirection (a temporary variable helps), but there is one common case where you see pointers to slices. It is idiomatic to use a pointer receiver for a method that modifies a slice.
 
-在这个例子中，它看起来很笨拙，特别是处理额外的指示层次（一个临时变量有助于），但有一个常见的情况，你看到指向切片的指针。在修改片断的方法中使用指针接收器是一种习惯。
+在这个例子中，它看起来很笨拙，特别是处理额外的指示层次（一个临时变量有助于），但有一个常见的情况，您看到指向切片的指针。在修改片断的方法中使用指针接收器是一种习惯。
 
 Let’s say we wanted to have a method on a slice that truncates it at the final slash. We could write it like this:
 
@@ -328,7 +328,7 @@ Run 运行
 
 If you run this example you’ll see that it works properly, updating the slice in the caller.
 
-如果你运行这个例子，你会看到它工作正常，更新了调用者中的片断。
+如果您运行这个例子，您会看到它工作正常，更新了调用者中的片断。
 
 [Exercise: Change the type of the receiver to be a value rather than a pointer and run it again. Explain what happens.]
 
@@ -448,7 +448,7 @@ slice := sliceHeader{
 
 The `Capacity` field is equal to the length of the underlying array, minus the index in the array of the first element of the slice (zero in this case). If you want to inquire what the capacity is for a slice, use the built-in function `cap`:
 
-容量字段等于底层数组的长度，减去分片第一个元素在数组中的索引（本例中为0）。如果你想查询一个片断的容量是多少，可以使用内置函数cap：
+容量字段等于底层数组的长度，减去分片第一个元素在数组中的索引（本例中为0）。如果您想查询一个片断的容量是多少，可以使用内置函数cap：
 
 ```go linenums="1"
 if cap(slice) == len(slice) {
@@ -460,11 +460,11 @@ if cap(slice) == len(slice) {
 
 What if we want to grow the slice beyond its capacity? You can’t! By definition, the capacity is the limit to growth. But you can achieve an equivalent result by allocating a new array, copying the data over, and modifying the slice to describe the new array.
 
-如果我们想让片断增长到超过其容量怎么办？你不能这样做! 根据定义，容量是增长的极限。但是你可以通过分配一个新的数组，把数据复制过来，然后修改slice来描述新的数组来达到同等的效果。
+如果我们想让片断增长到超过其容量怎么办？您不能这样做! 根据定义，容量是增长的极限。但是您可以通过分配一个新的数组，把数据复制过来，然后修改slice来描述新的数组来达到同等的效果。
 
 Let’s start with allocation. We could use the `new` built-in function to allocate a bigger array and then slice the result, but it is simpler to use the `make` built-in function instead. It allocates a new array and creates a slice header to describe it, all at once. The `make` function takes three arguments: the type of the slice, its initial length, and its capacity, which is the length of the array that `make` allocates to hold the slice data. This call creates a slice of length 10 with room for 5 more (15-10), as you can see by running it:
 
-让我们从分配开始。我们可以使用新的内置函数来分配一个更大的数组，然后对结果进行切片，但是使用内置函数make更简单。它分配了一个新的数组，并创建了一个切片头来描述它，一次完成。make函数需要三个参数：分片的类型，它的初始长度，以及它的容量，也就是make分配的用来存放分片数据的数组的长度。这个调用创建了一个长度为10的分片，并留有容纳5个分片的空间（15-10），你可以通过运行它看到这一点：
+让我们从分配开始。我们可以使用新的内置函数来分配一个更大的数组，然后对结果进行切片，但是使用内置函数make更简单。它分配了一个新的数组，并创建了一个切片头来描述它，一次完成。make函数需要三个参数：分片的类型，它的初始长度，以及它的容量，也就是make分配的用来存放分片数据的数组的长度。这个调用创建了一个长度为10的分片，并留有容纳5个分片的空间（15-10），您可以通过运行它看到这一点：
 
 ```go linenums="1"
     slice := make([]int, 10, 15)
@@ -496,7 +496,7 @@ After running this code the slice has much more room to grow before needing anot
 
 When creating slices, it’s often true that the length and capacity will be same. The `make` built-in has a shorthand for this common case. The length argument defaults to the capacity, so you can leave it out to set them both to the same value. After
 
-在创建分片时，通常情况下，长度和容量是一致的。内置的make软件对这种常见的情况有一个速记法。长度参数的默认值是容量，所以你可以省略它，把它们都设置为相同的值。之后
+在创建分片时，通常情况下，长度和容量是一致的。内置的make软件对这种常见的情况有一个速记法。长度参数的默认值是容量，所以您可以省略它，把它们都设置为相同的值。之后
 
 ```go linenums="1"
 gophers := make([]Gopher, 10)
@@ -565,7 +565,7 @@ Also, although we haven’t used the trick yet, we can leave out the first eleme
 slice[:]
 ```
 
-just means the slice itself, which is useful when slicing an array. This expression is the shortest way to say “a slice describing all the elements of the array”:
+just means the slice itself, which is useful when slicing an array. This expression is the shortest way to say "a slice describing all the elements of the array":
 
 就是指分片本身，这在对数组进行分片时很有用。这个表达式是 "描述数组中所有元素的分片 "的最简短说法：
 
@@ -644,7 +644,7 @@ func Append(slice []int, items ...int) []int
 
 What that says is that `Append` takes one argument, a slice, followed by zero or more `int` arguments. Those arguments are exactly a slice of `int` as far as the implementation of `Append` is concerned, as you can see:
 
-这就是说，Append需要一个参数，一个片断，然后是0个或更多的int参数。就Append的实现而言，这些参数正好是一个int的切片，你可以看到：
+这就是说，Append需要一个参数，一个片断，然后是0个或更多的int参数。就Append的实现而言，这些参数正好是一个int的切片，您可以看到：
 
 ```go linenums="1"
 // Append appends the items to the slice.
@@ -684,7 +684,7 @@ Another new technique in this example is that we initialize the slice by writing
     slice := []int{0, 1, 2, 3, 4}
 ```
 
-The `Append` function is interesting for another reason. Not only can we append elements, we can append a whole second slice by “exploding” the slice into arguments using the `...` notation at the call site:
+The `Append` function is interesting for another reason. Not only can we append elements, we can append a whole second slice by "exploding" the slice into arguments using the `...` notation at the call site:
 
 Append函数之所以有趣，还有一个原因。我们不仅可以追加元素，还可以通过在调用处使用......符号将切片 "爆炸 "成参数来追加整个第二个切片：
 
@@ -751,7 +751,7 @@ Go的一个弱点是，任何通用类型的操作都必须由运行时提供。
 
 Remember, since the slice header is always updated by a call to `append`, you need to save the returned slice after the call. In fact, the compiler won’t let you call append without saving the result.
 
-请记住，由于片头总是通过调用append来更新，你需要在调用后保存返回的片头。事实上，编译器不会让你调用append而不保存结果。
+请记住，由于片头总是通过调用append来更新，您需要在调用后保存返回的片头。事实上，编译器不会让您调用append而不保存结果。
 
 Here are some one-liners intermingled with print statements. Try them, edit them and explore:
 
@@ -788,7 +788,7 @@ It’s worth taking a moment to think about the final one-liner of that example 
 
 值得花点时间详细思考一下这个例子的最后一句话，以理解切片的设计是如何使这个简单的调用能够正确工作的。
 
-There are lots more examples of `append`, `copy`, and other ways to use slices on the community-built [“Slice Tricks” Wiki page](https://go.dev/wiki/SliceTricks).
+There are lots more examples of `append`, `copy`, and other ways to use slices on the community-built ["Slice Tricks" Wiki page](https://go.dev/wiki/SliceTricks).
 
 在社区建立的 "Slice Tricks "Wiki页面上有更多关于append、copy和其他使用slices的例子。
 
@@ -846,7 +846,7 @@ Strings are actually very simple: they are just read-only slices of bytes with a
 
 Because they are read-only, there is no need for a capacity (you can’t grow them), but otherwise for most purposes you can treat them just like read-only slices of bytes.
 
-因为它们是只读的，所以不需要容量（你不能增长它们），但是对于大多数目的来说，你可以把它们当作只读的字节片。
+因为它们是只读的，所以不需要容量（您不能增长它们），但是对于大多数目的来说，您可以把它们当作只读的字节片。
 
 For starters, we can index them to access individual bytes:
 
@@ -886,7 +886,7 @@ slice := []byte(usr)
 
 The array underlying a string is hidden from view; there is no way to access its contents except through the string. That means that when we do either of these conversions, a copy of the array must be made. Go takes care of this, of course, so you don’t have to. After either of these conversions, modifications to the array underlying the byte slice don’t affect the corresponding string.
 
-字符串底层的数组是隐藏的；除了通过字符串，没有办法访问其内容。这意味着当我们进行上述任何一种转换时，必须对数组进行复制。当然，Go会处理这个问题，所以你不必这样做。在这两种转换之后，对字节片下的数组的修改不会影响到相应的字符串。
+字符串底层的数组是隐藏的；除了通过字符串，没有办法访问其内容。这意味着当我们进行上述任何一种转换时，必须对数组进行复制。当然，Go会处理这个问题，所以您不必这样做。在这两种转换之后，对字节片下的数组的修改不会影响到相应的字符串。
 
 An important consequence of this slice-like design for strings is that creating a substring is very efficient. All that needs to happen is the creation of a two-word string header. Since the string is read-only, the original string and the string resulting from the slice operation can share the same array safely.
 
@@ -908,11 +908,11 @@ To understand how slices work, it helps to understand how they are implemented. 
 
 Once you appreciate how they work, slices become not only easy to use, but powerful and expressive, especially with the help of the `copy` and `append` built-in functions.
 
-一旦你理解了它们的工作原理，分片不仅容易使用，而且功能强大，表现力强，特别是在复制和追加内置函数的帮助下。
+一旦您理解了它们的工作原理，分片不仅容易使用，而且功能强大，表现力强，特别是在复制和追加内置函数的帮助下。
 
 ## More reading 更多阅读
 
-There’s lots to find around the intertubes about slices in Go. As mentioned earlier, the [“Slice Tricks” Wiki page](https://go.dev/wiki/SliceTricks) has many examples. The [Go Slices](https://blog.golang.org/go-slices-usage-and-internals) blog post describes the memory layout details with clear diagrams. Russ Cox’s [Go Data Structures](https://research.swtch.com/godata) article includes a discussion of slices along with some of Go’s other internal data structures.
+There’s lots to find around the intertubes about slices in Go. As mentioned earlier, the ["Slice Tricks" Wiki page](https://go.dev/wiki/SliceTricks) has many examples. The [Go Slices](https://blog.golang.org/go-slices-usage-and-internals) blog post describes the memory layout details with clear diagrams. Russ Cox’s [Go Data Structures](https://research.swtch.com/godata) article includes a discussion of slices along with some of Go’s other internal data structures.
 
 在互联网上有很多关于Go中的分片的内容可以找到。如前所述，"切片技巧 "维基页面有许多例子。Go Slices 博文以清晰的图表描述了内存布局的细节。Russ Cox的Go数据结构文章包括对分片的讨论，以及Go的一些其他内部数据结构。
 

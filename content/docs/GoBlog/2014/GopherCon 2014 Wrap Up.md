@@ -14,7 +14,7 @@ https://go.dev/blog/gophercon
 Andrew Gerrand
 28 May 2014
 
-In April this year 700 gophers descended upon Denver to attend [GopherCon](http://www.gophercon.com/), the world’s first large-scale Go conference, organized entirely by the community. The three day event featured 24 talks and one panel discussion in a single track over two days, followed by an informal “hack day” full of code, conversation, and more than 4 hours (!) of lightning talks.
+In April this year 700 gophers descended upon Denver to attend [GopherCon](http://www.gophercon.com/), the world’s first large-scale Go conference, organized entirely by the community. The three day event featured 24 talks and one panel discussion in a single track over two days, followed by an informal "hack day" full of code, conversation, and more than 4 hours (!) of lightning talks.
 
 今年4月，700名地鼠来到丹佛参加GopherCon，这是世界上第一次大规模的Go会议，完全由社区组织。在为期三天的活动中，有24个讲座和一个小组讨论，在两天的时间里，有一个非正式的 "黑客日"，充满了代码、对话和超过4小时（！）的闪电讲座。
 
@@ -28,16 +28,16 @@ Two keynotes framed the conference:
 
 两场主题演讲是会议的框架：
 
-- Rob Pike’s opening talk [“Hello, Gophers!"](https://www.youtube.com/watch?v=VoS7DsT1rdM) ([slides](https://go.dev/talks/2014/hellogophers.slide)) discusses the history of Go by walking through two of the first Go programs. Rob Pike的开幕演讲 "你好，Gophers！" (幻灯片）通过走访两个最早的Go程序讨论了Go的历史。
-- Andrew Gerrand’s closing talk [“Go for gophers”](https://www.youtube.com/watch?v=dKGmK_Z1Zl0) ([slides](https://go.dev/talks/2014/go4gophers.slide)) explains the Go design philosophy through the lens of his personal experience learning the language. Andrew Gerrand的闭幕演讲 "Go for gophers"（幻灯片）通过他学习Go语言的个人经历来解释Go的设计理念。
+- Rob Pike’s opening talk ["Hello, Gophers!"](https://www.youtube.com/watch?v=VoS7DsT1rdM) ([slides](https://go.dev/talks/2014/hellogophers.slide)) discusses the history of Go by walking through two of the first Go programs. Rob Pike的开幕演讲 "您好，Gophers！" (幻灯片）通过走访两个最早的Go程序讨论了Go的历史。
+- Andrew Gerrand’s closing talk ["Go for gophers"](https://www.youtube.com/watch?v=dKGmK_Z1Zl0) ([slides](https://go.dev/talks/2014/go4gophers.slide)) explains the Go design philosophy through the lens of his personal experience learning the language. Andrew Gerrand的闭幕演讲 "Go for gophers"（幻灯片）通过他学习Go语言的个人经历来解释Go的设计理念。
 
-One talk that resonated with members of the Go team was Peter Bourgon’s [“Best practices for Production Environments”](https://www.youtube.com/watch?v=Y1-RLAl7iOI) ([notes](http://peter.bourgon.org/go-in-production/)). From deployment to dependency management, it answers many frequently asked questions about Go use in the real world and is a must-see for anyone serious about building systems in Go.
+One talk that resonated with members of the Go team was Peter Bourgon’s ["Best practices for Production Environments"](https://www.youtube.com/watch?v=Y1-RLAl7iOI) ([notes](http://peter.bourgon.org/go-in-production/)). From deployment to dependency management, it answers many frequently asked questions about Go use in the real world and is a must-see for anyone serious about building systems in Go.
 
 有一个讲座引起了Go团队成员的共鸣，那就是Peter Bourgon的 "生产环境的最佳实践"（笔记）。从部署到依赖性管理，它回答了许多关于Go在现实世界中使用的常见问题，是任何认真用Go构建系统的人的必看之作。
 
 But, really, you should just [watch them all](http://confreaks.com/events/gophercon2014). They’re great.
 
-但实际上，你应该把它们都看完。他们都很棒。
+但实际上，您应该把它们都看完。他们都很棒。
 
 The Go Gopher was everywhere. Each attendee received one of the new pink and purple gophers, which now accompany the original blue one:
 
@@ -61,4 +61,4 @@ We would like to extend our thanks and congratulations to the GopherCon organize
 
 But if you really can’t wait, we’ll see you at [dotGo](http://www.dotgo.eu/) in Paris on the 10th of October!
 
-但是，如果你真的等不及了，我们将在10月10日巴黎的dotGo上见到你!
+但是，如果您真的等不及了，我们将在10月10日巴黎的dotGo上见到您!

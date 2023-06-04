@@ -55,12 +55,12 @@ In the past year, several major vendors have made announcements of new ARM64 har
 
 Since Apple’s announcement of the Mac transitioning to Apple Silicon this summer, Apple and Google have been working together to ensure that Go and the broader Go ecosystem work well on them, both running Go x86 binaries under Rosetta 2 and running native Go ARM64 binaries. Earlier this week, we released the first Go 1.16 beta, which includes native support for Macs using the M1 chip. You can download and try the Go 1.16 beta for M1 Macs and all your other systems on [the Go download page](https://go.dev/dl/#go1.16beta1). (Of course, this is a beta release and, like all betas, it certainly has bugs we don’t know about. If you run into any problems, please report them at [golang.org/issue/new](https://go.dev/issue/new).)
 
-自从今年夏天苹果宣布Mac过渡到Apple Silicon以来，苹果和谷歌一直在合作，以确保Go和更广泛的Go生态系统在其上运行良好，既在Rosetta 2下运行Go x86二进制文件，又运行原生Go ARM64二进制文件。本周早些时候，我们发布了第一个Go 1.16测试版，其中包括对使用M1芯片的Mac的本地支持。你可以在Go下载页面上下载并试用适用于M1 Macs和所有其他系统的Go 1.16测试版。(当然，这是一个测试版，像所有的测试版一样，它肯定有我们不知道的错误）。如果你遇到任何问题，请在golang.org/issue/new上报告）。
+自从今年夏天苹果宣布Mac过渡到Apple Silicon以来，苹果和谷歌一直在合作，以确保Go和更广泛的Go生态系统在其上运行良好，既在Rosetta 2下运行Go x86二进制文件，又运行原生Go ARM64二进制文件。本周早些时候，我们发布了第一个Go 1.16测试版，其中包括对使用M1芯片的Mac的本地支持。您可以在Go下载页面上下载并试用适用于M1 Macs和所有其他系统的Go 1.16测试版。(当然，这是一个测试版，像所有的测试版一样，它肯定有我们不知道的错误）。如果您遇到任何问题，请在golang.org/issue/new上报告）。
 
 It’s always nice to use the same CPU architecture for local development as in production, to remove one variation between the two environments. If you deploy to ARM64 production servers, Go makes it easy to develop on ARM64 Linux and Mac systems too. But of course, it’s still as easy as ever to work on one system and cross-compile for deployment to another, whether you’re working on an x86 system and deploying to ARM, working on Windows and deploying to Linux, or some other combination.
 
-在本地开发中使用与生产中相同的CPU架构总是好的，这样可以消除两种环境之间的一个差异。如果你部署到ARM64的生产服务器上，Go也可以让你在ARM64的Linux和Mac系统上轻松开发。但当然，在一个系统上工作并交叉编译以部署到另一个系统上仍然和以前一样容易，无论你是在x86系统上工作并部署到ARM，在Windows上工作并部署到Linux，还是其他一些组合。
+在本地开发中使用与生产中相同的CPU架构总是好的，这样可以消除两种环境之间的一个差异。如果您部署到ARM64的生产服务器上，Go也可以让您在ARM64的Linux和Mac系统上轻松开发。但当然，在一个系统上工作并交叉编译以部署到另一个系统上仍然和以前一样容易，无论您是在x86系统上工作并部署到ARM，在Windows上工作并部署到Linux，还是其他一些组合。
 
 The next target we’d like to add support for is ARM64 Windows 10 systems. If you have expertise and would like to help, we’re coordinating work on [golang.org/issue/36439](https://github.com/golang/go/issues/36439).
 
-我们希望增加对ARM64 Windows 10系统的支持，这是我们的下一个目标。如果你有专业知识并愿意提供帮助，我们正在golang.org/issue/36439上协调工作。
+我们希望增加对ARM64 Windows 10系统的支持，这是我们的下一个目标。如果您有专业知识并愿意提供帮助，我们正在golang.org/issue/36439上协调工作。

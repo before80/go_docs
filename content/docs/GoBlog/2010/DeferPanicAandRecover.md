@@ -67,7 +67,7 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 
 （a）延迟执行的函数的参数在 defer 语句执行时计算。
 
-在这个例子中，“i”表达式在 Println 调用被延迟时计算。延迟的调用会在函数返回后打印“0”。
+在这个例子中，"i"表达式在 Println 调用被延迟时计算。延迟的调用会在函数返回后打印"0"。
 
 ```go linenums="1"
 func a() {
@@ -80,7 +80,7 @@ func a() {
 
 （b）延迟函数调用在包围函数返回后按照后进先出的顺序执行。 
 
-下面这个函数将输出“3210”：
+下面这个函数将输出"3210"：
 
 ```go linenums="1"
 func b() {

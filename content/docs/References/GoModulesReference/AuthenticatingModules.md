@@ -42,7 +42,7 @@ draft = false
 
 ​	校验和数据库允许所有公开可用的模块版本的全局一致性和可靠性。它使不被信任的代理成为可能，因为它们无法在不被发现的情况下提供错误的代码。它还确保与特定版本相关的bit位不会从一天到另一天发生变化，即使模块的作者后来更改了其存储库中的标签。
 
-​	校验和数据库由Google运营的[sum.golang.org](https://sum.golang.org/)提供服务。它是由[Trillian](https://github.com/google/trillian)支持的`go.sum`行散列的透明日志(或“`Merkle 树`”)。  `Merkle 树`的主要优点是，独立的审计人员可以验证它没有被篡改，因此它比简单的数据库更值得信赖。
+​	校验和数据库由Google运营的[sum.golang.org](https://sum.golang.org/)提供服务。它是由[Trillian](https://github.com/google/trillian)支持的`go.sum`行散列的透明日志(或"`Merkle 树`")。  `Merkle 树`的主要优点是，独立的审计人员可以验证它没有被篡改，因此它比简单的数据库更值得信赖。
 
 ​	`go`命令使用最初在[Proposal: Secure the Public Go Module Ecosystem](https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md#checksum-database)中概述的协议与校验和数据库进行交互。
 

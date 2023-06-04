@@ -18,7 +18,7 @@ A property of universal computation—Turing completeness—is that a computer p
 
 通用计算的一个属性--图灵完备性--是指一个计算机程序可以编写一个计算机程序。这是一个强大的想法，尽管它经常发生，但却没有得到重视。例如，它是编译器定义的一个重要部分。这也是go测试命令的工作方式：它扫描要测试的软件包，写出一个包含为软件包定制的测试线束的Go程序，然后编译并运行它。现代计算机的速度非常快，这个听起来很昂贵的序列可以在几分之一秒内完成。
 
-There are lots of other examples of programs that write programs. [Yacc](https://godoc.org/golang.org/x/tools/cmd/goyacc), for instance, reads in a description of a grammar and writes out a program to parse that grammar. The protocol buffer “compiler” reads an interface description and emits structure definitions, methods, and other support code. Configuration tools of all sorts work like this too, examining metadata or the environment and emitting scaffolding customized to the local state.
+There are lots of other examples of programs that write programs. [Yacc](https://godoc.org/golang.org/x/tools/cmd/goyacc), for instance, reads in a description of a grammar and writes out a program to parse that grammar. The protocol buffer "compiler" reads an interface description and emits structure definitions, methods, and other support code. Configuration tools of all sorts work like this too, examining metadata or the environment and emitting scaffolding customized to the local state.
 
 还有很多其他写程序的例子。例如，Yacc读入一个语法描述，并写出一个程序来解析该语法。协议缓冲区 "编译器 "读取一个接口描述，并发出结构定义、方法和其他支持代码。各种各样的配置工具也是这样工作的，检查元数据或环境，并发出根据本地状态定制的脚手架。
 
@@ -48,7 +48,7 @@ go get golang.org/x/tools/cmd/goyacc
 
 Say you have a Yacc input file called `gopher.y` that defines a grammar for your new language. To produce the Go source file implementing the grammar, you would normally invoke the command like this:
 
-假设你有一个名为gopher.y的Yacc输入文件，为你的新语言定义了一个语法。为了生成实现该语法的Go源代码文件，你通常会调用这样的命令：
+假设您有一个名为gopher.y的Yacc输入文件，为您的新语言定义了一个语法。为了生成实现该语法的Go源代码文件，您通常会调用这样的命令：
 
 ```
 goyacc -o gopher.go -p parser gopher.y
@@ -244,4 +244,4 @@ Please use `go` `generate` creatively. It’s there to encourage experimentation
 
 And even if you don’t, use the new `stringer` tool to write your `String` methods for your integer constants. Let the machine do the work.
 
-即使你不这样做，也请使用新的stringer工具为你的整数常量编写字符串方法。让机器来做这些工作。
+即使您不这样做，也请使用新的stringer工具为您的整数常量编写字符串方法。让机器来做这些工作。

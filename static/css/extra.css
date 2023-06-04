@@ -330,3 +330,15 @@ p > strong, .td-content li > strong{
   margin-right: auto;
   text-align: center;
 }
+
+.tab-content .tab-pane {
+  max-width: 100% !important;
+}
+
+.td-content li > a.nav-link {
+   color: #8c8cb6bd !important;
+}
+
+.td-content li > a.nav-link.active {
+  color: #3a12eabf !important
+}

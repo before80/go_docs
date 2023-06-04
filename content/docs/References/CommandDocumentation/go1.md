@@ -292,7 +292,7 @@ build、clean、get、install、list、run和test等命令都有的构建标志�
 	-modfile flag by trimming the ".mod" extension and appending ".sum".
 	=> 	在模块感知模式下，读取（也可能写入）一个备用的go.mod文件，而不是模块根目录下的文件。
 	一个名为 "go.mod "的文件必须仍然存在，以确定模块根目录，但它不会被访问。
-	当-modfile被指定时，另一个go.Sum文件也被使用：它的路径由-modfile标志通过去掉".mod“扩展名和追加".sum"后缀名。
+	当-modfile被指定时，另一个go.Sum文件也被使用：它的路径由-modfile标志通过去掉".mod"扩展名和追加".sum"后缀名。
 	
 -overlay file
 	read a JSON config file that provides an overlay for build operations.
@@ -1927,7 +1927,7 @@ ok   compress/gzip 0.033s
 
 ​	`go`工具将忽略名为 "`testdata` "的目录，使其可用于保存测试所需的辅助数据。
 
-​	作为构建测试二进制文件的一部分，`go test`在包及其测试源文件上运行`go vet`以识别重大问题。如果`go vet`发现了任何问题，`go test`会报告这些问题，并且不运行测试二进制文件。只有默认的`go vet`检查的高置信度子集被使用。这个子集是：'`atomic`', '`bool`', '`buildtags`', '`errorsas`', '`ifaceassert`', '`nilfunc`', '`printf`', 和 '`stringintconv`'。你可以通过 "`go doc cmd/vet` "查看这些和其他vet测试的文档。要禁用`go vet`的运行，请使用`-vet=off`标志。要运行所有检查，请使用`-vet=all`标志。
+​	作为构建测试二进制文件的一部分，`go test`在包及其测试源文件上运行`go vet`以识别重大问题。如果`go vet`发现了任何问题，`go test`会报告这些问题，并且不运行测试二进制文件。只有默认的`go vet`检查的高置信度子集被使用。这个子集是：'`atomic`', '`bool`', '`buildtags`', '`errorsas`', '`ifaceassert`', '`nilfunc`', '`printf`', 和 '`stringintconv`'。您可以通过 "`go doc cmd/vet` "查看这些和其他vet测试的文档。要禁用`go vet`的运行，请使用`-vet=off`标志。要运行所有检查，请使用`-vet=all`标志。
 
 ​	所有的测试输出和摘要行都被打印到`go`命令的标准输出，即使测试将它们打印到自己的标准错误中。(`go`命令的标准错误保留用于打印构建测试的错误。)。
 
@@ -2258,7 +2258,7 @@ go命令会定期删除最近没有使用过的缓存数据。运行'go clean -c
 
 The build cache correctly accounts for changes to Go source files, compilers, compiler options, and so on: cleaning the cache explicitly should not be necessary in typical use. However, the build cache does not detect changes to C libraries imported with cgo. If you have made changes to the C libraries on your system, you will need to clean the cache explicitly or else use the -a build flag (see 'go help build') to force rebuilding of packages that depend on the updated C libraries.
 
-构建缓存可以正确地说明 Go 源文件、编译器、编译器选项等的变化：在通常的使用中，应该没有必要明确地清理缓存。然而，构建缓存并不能检测到用 cgo 导入的 C 库的变化。如果你对系统中的C库进行了修改，你将需要明确地清理缓存，或者使用-a build标志（见 "go help build"）来强制重建依赖于更新的C库的包。
+构建缓存可以正确地说明 Go 源文件、编译器、编译器选项等的变化：在通常的使用中，应该没有必要明确地清理缓存。然而，构建缓存并不能检测到用 cgo 导入的 C 库的变化。如果您对系统中的C库进行了修改，您将需要明确地清理缓存，或者使用-a build标志（见 "go help build"）来强制重建依赖于更新的C库的包。
 
 The go command also caches successful package test results. See 'go help test' for details. Running 'go clean -testcache' removes all cached test results (but not cached build results).
 
@@ -2591,7 +2591,7 @@ If DIR is a directory listed in the GOPATH, a package with source in DIR/src/foo
 
 The bin directory holds compiled commands. Each command is named for its source directory, but only the final element, not the entire path. That is, the command with source in DIR/src/foo/quux is installed into DIR/bin/quux, not DIR/bin/foo/quux. The "foo/" prefix is stripped so that you can add DIR/bin to your PATH to get at the installed commands. If the GOBIN environment variable is set, commands are installed to the directory it names instead of DIR/bin. GOBIN must be an absolute path.
 
-bin目录存放编译后的命令。每条命令都以其源目录命名，但只是最后的元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/"前缀被去掉了，这样你就可以在PATH中加入DIR/bin来获取已安装的命令。如果设置了GOBIN环境变量，命令会被安装到它命名的目录中，而不是DIR/bin。GOBIN必须是一个绝对路径。
+bin目录存放编译后的命令。每条命令都以其源目录命名，但只是最后的元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/"前缀被去掉了，这样您就可以在PATH中加入DIR/bin来获取已安装的命令。如果设置了GOBIN环境变量，命令会被安装到它命名的目录中，而不是DIR/bin。GOBIN必须是一个绝对路径。
 
 Here's an example directory layout:
 
@@ -2814,11 +2814,11 @@ An import path beginning with ./ or ../ is called a relative path. The toolchain
 
 First, a relative path can be used as a shorthand on the command line. If you are working in the directory containing the code imported as "unicode" and want to run the tests for "unicode/utf8", you can type "go test ./utf8" instead of needing to specify the full path. Similarly, in the reverse situation, "go test .." will test "unicode" from the "unicode/utf8" directory. Relative patterns are also allowed, like "go test ./..." to test all subdirectories. See 'go help packages' for details on the pattern syntax.
 
-首先，相对路径可以作为命令行上的速记方式。如果你在包含作为 "unicode "导入的代码的目录中工作，并想运行 "unicode/utf8 "的测试，你可以输入 "go test ./utf8"，而不需要指定全路径。同样，在相反的情况下，"go test ... "将测试 "unicode/utf8 "目录下的 "unicode"。相对模式也是允许的，比如 "go test ./... "可以测试所有子目录。关于模式语法的细节，请参见 "go help packages"。
+首先，相对路径可以作为命令行上的速记方式。如果您在包含作为 "unicode "导入的代码的目录中工作，并想运行 "unicode/utf8 "的测试，您可以输入 "go test ./utf8"，而不需要指定全路径。同样，在相反的情况下，"go test ... "将测试 "unicode/utf8 "目录下的 "unicode"。相对模式也是允许的，比如 "go test ./... "可以测试所有子目录。关于模式语法的细节，请参见 "go help packages"。
 
 Second, if you are compiling a Go program not in a work space, you can use a relative path in an import statement in that program to refer to nearby code also not in a work space. This makes it easy to experiment with small multipackage programs outside of the usual work spaces, but such programs cannot be installed with "go install" (there is no work space in which to install them), so they are rebuilt from scratch each time they are built. To avoid ambiguity, Go programs cannot use relative import paths within a work space.
 
-其次，如果你正在编译一个不在工作空间的Go程序，你可以在该程序的导入语句中使用相对路径来引用附近也不在工作空间的代码。这使得在通常的工作空间之外试验小型多包程序变得很容易，但这样的程序不能用 "go install "来安装（没有工作空间可以安装它们），所以每次构建它们时都要从头开始重建。为了避免歧义，Go程序不能在工作空间内使用相对导入路径。
+其次，如果您正在编译一个不在工作空间的Go程序，您可以在该程序的导入语句中使用相对路径来引用附近也不在工作空间的代码。这使得在通常的工作空间之外试验小型多包程序变得很容易，但这样的程序不能用 "go install "来安装（没有工作空间可以安装它们），所以每次构建它们时都要从头开始重建。为了避免歧义，Go程序不能在工作空间内使用相对导入路径。
 
 #### Remote import paths 远程导入路径
 
@@ -3116,7 +3116,7 @@ An import path can also name a package to be downloaded from a remote repository
 
 Every package in a program must have a unique import path. By convention, this is arranged by starting each path with a unique prefix that belongs to you. For example, paths used internally at Google all begin with 'google', and paths denoting remote repositories begin with the path to the code, such as 'github.com/user/repo'.
 
-一个程序中的每个包都必须有一个唯一的导入路径。根据惯例，这是以属于你的独特前缀开始每个路径的安排。例如，谷歌内部使用的路径都以 "google "开头，而表示远程存储库的路径则以代码的路径开头，如 "github.com/user/repo"。
+一个程序中的每个包都必须有一个唯一的导入路径。根据惯例，这是以属于您的独特前缀开始每个路径的安排。例如，谷歌内部使用的路径都以 "google "开头，而表示远程存储库的路径则以代码的路径开头，如 "github.com/user/repo"。
 
 Packages in a program need not have unique package names, but there are two reserved package names with special meaning. The name main indicates a command, not a library. Commands are built into binaries and cannot be imported. The name documentation indicates documentation for a non-Go program in the directory. Files in package documentation are ignored by the go command.
 

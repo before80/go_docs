@@ -327,7 +327,7 @@ func main() {
 
 [https://go.dev/tour/moretypes/10](https://go.dev/tour/moretypes/10)
 
-​	在进行切片时，你可以省略上界或下界，而使用它的默认行为。
+​	在进行切片时，您可以省略上界或下界，而使用它的默认行为。
 
 ​	下界的默认值是0，上界的默认值是该切片的长度。
 
@@ -380,7 +380,7 @@ func main() {
 
 ​	切片`s`的长度和容量可以通过表达式`len(s)`和`cap(s)`得到。
 
-​	只要有足够的容量，你可以通过重新切片来扩展一个切片。试着改变示例程序中的切片操作，使其超过其容量，看看会发生什么。
+​	只要有足够的容量，您可以通过重新切片来扩展一个切片。试着改变示例程序中的切片操作，使其超过其容量，看看会发生什么。
 
 ```go title="main.go" 
 package main
@@ -437,7 +437,7 @@ func main() {
 
 [https://go.dev/tour/moretypes/13](https://go.dev/tour/moretypes/13)
 
-​	切片可以用内置的`make`函数来创建；这也是你创建动态数组的方式。
+​	切片可以用内置的`make`函数来创建；这也是您创建动态数组的方式。
 
 ​	`make`函数分配了一个元素为零值数组，并返回一个指向该数组的切片：
 
@@ -599,7 +599,7 @@ for i, _ := range pow
 for _, value := range pow
 ```
 
-若你只需得到索引，则可以忽略第二个变量。
+若您只需得到索引，则可以忽略第二个变量。
 
 ```go 
 for i := range pow
@@ -626,11 +626,11 @@ func main() {
 
 [https://go.dev/tour/moretypes/18](https://go.dev/tour/moretypes/18)
 
-​	实现`Pic`。它应返回一个长度为`dy`的切片，其中每个元素都是一个长度为`dx`的uint8切片。当你运行该程序时，它将显示你的图片，将整数解释为灰度值（好吧，其实是蓝度值）。
+​	实现`Pic`。它应返回一个长度为`dy`的切片，其中每个元素都是一个长度为`dx`的uint8切片。当您运行该程序时，它将显示您的图片，将整数解释为灰度值（好吧，其实是蓝度值）。
 
-​	图片的选择由你决定。有趣的函数包括：`（x+y）/2`、`x*y`和`x^y`。
+​	图片的选择由您决定。有趣的函数包括：`（x+y）/2`、`x*y`和`x^y`。
 
-(你需要使用循环来分配`[][]uint8`里面的每个`[]uint8`。）
+(您需要使用循环来分配`[][]uint8`里面的每个`[]uint8`。）
 
 (请使用`uint8(intValue)`在不同类型之间转换。)
 
@@ -727,7 +727,7 @@ func main() {
 
 [https://go.dev/tour/moretypes/21](https://go.dev/tour/moretypes/21)
 
-如果顶层类型只是一个类型名，你可以从字面量的元素中省略它。
+如果顶层类型只是一个类型名，您可以从字面量的元素中省略它。
 
 ```go title="main.go"  hl_lines="10 11"
 package main
@@ -781,7 +781,7 @@ elem, ok = m[key]
 
 ​	如果`key`不在映射中，那么`elem`是映射元素类型的`零值`。
 
-注意：如果`elem`或`ok`还未被声明，你可以使用短变量声明。
+注意：如果`elem`或`ok`还未被声明，您可以使用短变量声明。
 
 ```go 
 elem, ok := m[key]
@@ -814,9 +814,9 @@ func main() {
 
 [https://go.dev/tour/moretypes/23](https://go.dev/tour/moretypes/23)
 
-​	实现`WordCount`。它应当返回一个映射，其中包含字符串`s`中的每个“单词”。函数`wc.Test`会对函数执行一系列测试用例，并输出成功或失败。
+​	实现`WordCount`。它应当返回一个映射，其中包含字符串`s`中的每个"单词"。函数`wc.Test`会对函数执行一系列测试用例，并输出成功或失败。
 
-​	你会发现[strings.Fields](https://go.dev/pkg/strings/#Fields)很有帮助。
+​	您会发现[strings.Fields](https://go.dev/pkg/strings/#Fields)很有帮助。
 
 ```go title="main.go" 
 package main
@@ -939,10 +939,10 @@ func main() {
 
 ```
 
-##  Congratulations! 祝贺你!
+##  Congratulations! 祝贺您!
 
 [https://go.dev/tour/moretypes/27](https://go.dev/tour/moretypes/27)
 
-你完成了这一课!
+您完成了这一课!
 
-你可以回到`模块`列表中寻找下一步要学习的内容，或者继续学习下一课。
+您可以回到`模块`列表中寻找下一步要学习的内容，或者继续学习下一课。

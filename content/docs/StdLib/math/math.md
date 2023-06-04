@@ -890,7 +890,7 @@ func IsNaN(f float64) (is bool)
 
 IsNaN reports whether f is an IEEE 754 "not-a-number" value.
 
-IsNaN报告f是否为IEEE 754的“非数”值。
+IsNaN报告f是否为IEEE 754的"非数"值。
 
 #### func J0 
 
@@ -1161,7 +1161,7 @@ func NaN() float64
 
 NaN returns an IEEE 754 "not-a-number" value.
 
-NaN返回一个IEEE 754的“非数”值。
+NaN返回一个IEEE 754的"非数"值。
 
 #### func Nextafter 
 

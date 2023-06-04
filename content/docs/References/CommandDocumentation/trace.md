@@ -66,7 +66,7 @@ Supported profile types are:
 
 Then, you can use the pprof tool to analyze the profile:
 
-然后，你可以使用pprof工具来分析配置文件：
+然后，您可以使用pprof工具来分析配置文件：
 
 ```
 go tool pprof TYPE.pprof

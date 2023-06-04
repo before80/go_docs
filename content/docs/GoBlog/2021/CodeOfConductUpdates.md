@@ -16,7 +16,7 @@ Carmen Andoh, Russ Cox, and Steve Francia
 
 Although the details of [our Code of Conduct](https://go.dev/conduct) have been [adjusted](https://go.dev/blog/conduct-2018) over time, [our goals](https://go.dev/blog/open-source#code-of-conduct) have not. We want the Go community to be as inclusive, welcoming, helpful, and respectful as possible. If you want to use or discuss Go, we want you to feel welcome here.
 
-虽然我们的行为准则的细节随着时间的推移有所调整，但我们的目标却没有。我们希望Go社区能够尽可能地包容、欢迎、帮助和尊重他人。如果你想使用或讨论Go，我们希望你在这里感到受欢迎。
+虽然我们的行为准则的细节随着时间的推移有所调整，但我们的目标却没有。我们希望Go社区能够尽可能地包容、欢迎、帮助和尊重他人。如果您想使用或讨论Go，我们希望您在这里感到受欢迎。
 
 The community is large enough that, instead of assuming everyone knows what is expected of them, our Code of Conduct serves as an agreement, setting explicit expectations for our behavior in both online and offline interactions. If we don’t live up to the agreement, people can point that out and we can correct our behavior.
 
@@ -65,11 +65,11 @@ Expulsion is not something to consider lightly. To date, only a small (single di
 
 ## A New Gopher Value 一个新的Gopher值
 
-A recurring theme we have seen in reports of minor problems is people not accepting that their words and actions affect others. In extreme cases, people say things like “but this is the internet.” We aspire to be far more welcoming than the internet overall. To this end, we are adding one more Gopher value to the Code of Conduct: “Be responsible.”
+A recurring theme we have seen in reports of minor problems is people not accepting that their words and actions affect others. In extreme cases, people say things like "but this is the internet." We aspire to be far more welcoming than the internet overall. To this end, we are adding one more Gopher value to the Code of Conduct: "Be responsible."
 
 在关于小问题的报告中，我们看到一个反复出现的主题是人们不接受他们的言行会影响他人。在极端情况下，人们会说 "但这是互联网 "之类的话。我们希望在整体上比互联网更有亲和力。为此，我们在《行为准则》中又增加了一个Gopher价值观。"要负责任"。
 
-The entire “[Gopher Values](https://go.dev/conduct#values)” section of the Code of Conduct now reads:
+The entire "[Gopher Values](https://go.dev/conduct#values)" section of the Code of Conduct now reads:
 
 行为守则的整个 "Gopher价值观 "部分现在写道：
 
@@ -77,7 +77,7 @@ The entire “[Gopher Values](https://go.dev/conduct#values)” section of the C
 - **Be patient.**要有耐心。
   - Remember that people have varying communication styles and that not everyone is using their native language. (Meaning and tone can be lost in translation.)记住，人们有不同的沟通方式，而且不是每个人都在使用他们的母语。(意思和语气可能会在翻译中丢失）。
 - **Be thoughtful. **要深思熟虑。
-  - Productive communication requires effort. Think about how your words will be interpreted.有效的沟通需要努力。想一想你的话会被如何解释。
+  - Productive communication requires effort. Think about how your words will be interpreted.有效的沟通需要努力。想一想您的话会被如何解释。
   - Remember that sometimes it is best to refrain entirely from commenting.记住，有时最好是完全不发表意见。
 - **Be respectful.**要尊重他人。
   - In particular, respect differences of opinion.特别是要尊重不同的意见。
@@ -85,13 +85,13 @@ The entire “[Gopher Values](https://go.dev/conduct#values)” section of the C
   - Interpret the arguments of others in good faith, do not seek to disagree.真诚地解释他人的论点，不要寻求分歧。
   - When we do disagree, try to understand why.当我们确实有不同意见时，试着去了解原因。
 - **Be constructive.**要有建设性。
-  - Avoid derailing: stay on topic; if you want to talk about something else, start a new conversation.避免脱轨：保持话题性；如果你想谈论其他事情，就开始一个新的对话。
+  - Avoid derailing: stay on topic; if you want to talk about something else, start a new conversation.避免脱轨：保持话题性；如果您想谈论其他事情，就开始一个新的对话。
   - Avoid unconstructive criticism: don’t merely decry the current state of affairs; offer—or at least solicit—suggestions as to how things may be improved.避免非建设性的批评：不要只是谴责目前的状况；提供--或者至少征求--关于如何改进事情的建议。
   - Avoid snarking (pithy, unproductive, sniping comments)避免说风凉话（精辟的、无益的、狙击性的评论）
   - Avoid discussing potentially offensive or sensitive issues; this all too often leads to unnecessary conflict.避免讨论潜在的攻击性或敏感问题；这往往导致不必要的冲突。
   - Avoid microaggressions (brief and commonplace verbal, behavioral and environmental indignities that communicate hostile, derogatory or negative slights and insults to a person or group).避免微攻击（简短而常见的语言、行为和环境侮辱，传达对一个人或群体的敌意、贬低或负面的轻视和侮辱）。
 - **Be responsible.要负责任。**
-  - What you say and do matters. Take responsibility for your words and actions, including their consequences, whether intended or otherwise.你说的和做的都很重要。对你的言行负责，包括其后果，不管是有意还是无意。
+  - What you say and do matters. Take responsibility for your words and actions, including their consequences, whether intended or otherwise.您说的和做的都很重要。对您的言行负责，包括其后果，不管是有意还是无意。
 
 The last two years have been very difficult: the world is incredibly uncertain and likely to remain that way for the foreseeable future. People are stressed out and burned out. In times like these, it’s more important than ever to keep the Gopher Values in mind.
 
@@ -101,7 +101,7 @@ As we continue to grow Go, it’s critical to foster and maintain a sense of *co
 
 在我们继续发展Go的过程中，培养和保持一种集体责任感是至关重要的。作为Go社区的成员，我们都必须意识到我们的行动和行为如何影响我们合作的团体和空间。我们必须对自己的行为负责，它的影响，以及它如何鼓励他人走向（或远离）建设性的合作。
 
-It is also our collective responsibility to speak up, to ensure a group dynamic that allows for productive exchange of ideas and opinions. Our Code of Conduct states that we must be “respectful of differing viewpoints and experiences.” When disagreement turns into discord or disrespect, we must speak out. Regardless of our views, we are responsible for our actions and their impact.
+It is also our collective responsibility to speak up, to ensure a group dynamic that allows for productive exchange of ideas and opinions. Our Code of Conduct states that we must be "respectful of differing viewpoints and experiences." When disagreement turns into discord or disrespect, we must speak out. Regardless of our views, we are responsible for our actions and their impact.
 
 我们也有责任说出自己的想法，以确保团体的活力，使想法和意见得到有效的交流。我们的行为准则规定，我们必须 "尊重不同的观点和经验"。当不同意见变成不和谐或不尊重时，我们必须大声说出来。无论我们的观点如何，我们都要对我们的行为及其影响负责。
 
@@ -111,4 +111,4 @@ When we commit to these values, we provide a safe and welcoming environment for 
 
 Thank you to everyone who has joined us in being part of the Go community. We hope you feel welcome, and we will continue to work to include as many people as possible. If you have any questions or concerns, please feel free to reach out to any of us over email: *carmen@golang.org* (Carmen), *rsc@golang.org* (Russ), and *spf@golang.org* (Steve).
 
-感谢每一位加入我们成为Go社区一员的人。我们希望你感到受欢迎，我们将继续努力让尽可能多的人加入。如果你有任何问题或疑虑，请随时通过电子邮件与我们中的任何一个人联系：carmen@golang.org（卡门），rsc@golang.org（拉斯），和spf@golang.org（史蒂夫）。
+感谢每一位加入我们成为Go社区一员的人。我们希望您感到受欢迎，我们将继续努力让尽可能多的人加入。如果您有任何问题或疑虑，请随时通过电子邮件与我们中的任何一个人联系：carmen@golang.org（卡门），rsc@golang.org（拉斯），和spf@golang.org（史蒂夫）。

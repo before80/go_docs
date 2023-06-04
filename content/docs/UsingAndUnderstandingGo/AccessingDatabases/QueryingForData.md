@@ -10,24 +10,24 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/querying](https://go.dev/doc/database/querying)
 
-​	当执行一个返回数据的SQL语句时，使用`database/sql`包中提供的`Query`方法之一。每个方法都会返回一个行（`Row`）或多个行（`Rows`），你可以使用`Scan`方法将其数据复制到变量。你会使用这些方法，例如，执行`SELECT`语句。
+​	当执行一个返回数据的SQL语句时，使用`database/sql`包中提供的`Query`方法之一。每个方法都会返回一个行（`Row`）或多个行（`Rows`），您可以使用`Scan`方法将其数据复制到变量。您会使用这些方法，例如，执行`SELECT`语句。
 
-​	当执行一个不返回数据的语句时，你可以改用`Exec`或`ExecContext`方法。更多信息请参见 [Executing statements that don’t return data（执行不返回数据的语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
+​	当执行一个不返回数据的语句时，您可以改用`Exec`或`ExecContext`方法。更多信息请参见 [Executing statements that don’t return data（执行不返回数据的语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
 
 ​	`database/sql`包提供了两种执行结果查询的方法：
 
 - **查询单行**  —— `QueryRow` 最多只能从数据库中返回一个单行。更多信息请参见 [Querying for a single row （查询单行）](#查询单行)。
-- 查询多行 —— `Query` 将所有匹配的行作为一个`Rows`结构体（你的代码可以循环遍历）返回，。更多信息，请参见 [查询多行](#查询多行)。
+- 查询多行 —— `Query` 将所有匹配的行作为一个`Rows`结构体（您的代码可以循环遍历）返回，。更多信息，请参见 [查询多行](#查询多行)。
 
-​	如果你的代码将重复执行相同的SQL语句，请考虑使用预处理语句。更多信息，请参见 [Using prepared statements （使用预处理语句）](../UsingPreparedStatements) 。
+​	如果您的代码将重复执行相同的SQL语句，请考虑使用预处理语句。更多信息，请参见 [Using prepared statements （使用预处理语句）](../UsingPreparedStatements) 。
 
-!!! warning "注意"
-
-	注意：不要使用字符串格式化函数，如`fmt.Sprintf`来组合一个SQL语句！你可能会引入一个SQL注入的风险。更多信息，请参见避免[SQL注入风险](https://go.dev/doc/database/sql-injection)。
+> 注意
+>
+> ​	不要使用字符串格式化函数，如`fmt.Sprintf`来组合一个SQL语句！您可能会引入一个SQL注入的风险。更多信息，请参见避免[SQL注入风险](https://go.dev/doc/database/sql-injection)。
 
 ### 查询单行
 
-​	`QueryRow`最多只能检索一条数据库记录，例如当你想通过一个唯一的ID来查询数据。如果查询返回多条记录，`Scan`方法会丢弃除第一条以外的所有记录。
+​	`QueryRow`最多只能检索一条数据库记录，例如当您想通过一个唯一的ID来查询数据。如果查询返回多条记录，`Scan`方法会丢弃除第一条以外的所有记录。
 
 ​	`QueryRowContext`的工作方式与`QueryRow`类似，但有一个`context.Context`实参。更多信息请参见 [Canceling in-progress operations（取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
@@ -48,7 +48,7 @@ func canPurchase(id int, quantity int) (bool, error) {
 }
 ```
 
-注意：准备预处理语句中的参数占位符根据你所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
+注意：准备预处理语句中的参数占位符根据您所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
 
 #### 处理错误
 
@@ -65,7 +65,7 @@ func canPurchase(id int, quantity int) (bool, error) {
 
 ### 查询多行
 
-​	你可以使用`Query`或`QueryContext`查询多条记录，它们返回一个代表查询结果的`Rows`。你的代码使用[Rows.Next]({{< ref "/docs/StdLib/database/sql#rows-next">}})对返回的行进行迭代。每次迭代都会调用`Scan`来将列值复制到变量中。
+​	您可以使用`Query`或`QueryContext`查询多条记录，它们返回一个代表查询结果的`Rows`。您的代码使用[Rows.Next]({{< ref "/docs/StdLib/database/sql#rows-next">}})对返回的行进行迭代。每次迭代都会调用`Scan`来将列值复制到变量中。
 
 ​	`QueryContext`的工作方式与`Query`类似，但有一个`context.Context`实参。更多信息请参见 [Canceling in-progress operations （取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
@@ -98,13 +98,13 @@ func albumsByArtist(artist string) ([]Album, error) {
 }
 ```
 
-!!! warning "注意"
+> 注意
+>
+> ​	对[rows.Close](https://pkg.go.dev/database/sql#Rows.Close)的延迟调用。无论函数如何返回，这都会释放rows所持有的任何资源。循环处理所有的行也会隐式地关闭它，但最好使用`defer`来确保无论如何都会关闭`rows`。
 
-	注意对[rows.Close](https://pkg.go.dev/database/sql#Rows.Close)的延迟调用。无论函数如何返回，这都会释放rows所持有的任何资源。循环处理所有的行也会隐式地关闭它，但最好使用`defer`来确保无论如何都会关闭`rows`。
-
-!!! warning "注意"
-
-	注意：预处理语句中的参数占位符根据你所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
+> 注意
+>
+> ​	预处理语句中的参数占位符根据您所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
 
 
 
@@ -125,7 +125,7 @@ Be sure to check for an error from `sql.Rows` after looping over query results. 
 
 ### 处理可为null的列值
 
-​	`database/sql`包提供了几种特殊的类型，当一个列的值可能为`null`时，你可以作为`Scan`函数的实参使用。每种类型都包括一个`Valid`字段，用于报告值是否为非`null`，如果是的话，还包括一个持有该值的字段。
+​	`database/sql`包提供了几种特殊的类型，当一个列的值可能为`null`时，您可以作为`Scan`函数的实参使用。每种类型都包括一个`Valid`字段，用于报告值是否为非`null`，如果是的话，还包括一个持有该值的字段。
 
 ​	下面的例子中的代码查询了一个客户名称。如果名字的值是`null`的，代码会替换另一个值在应用程序中使用。
 
@@ -158,13 +158,13 @@ if s.Valid {
 
 ​	所有驱动程序都支持一组基本的数据转换，例如将SQL `INT`转换为Go `int`。一些驱动程序扩展了这一转换集；详情请参见各个驱动程序的文档。
 
-​	正如你所期望的，`Scan`将从列类型转换为类似的Go类型。例如，`Scan`将从SQL `CHAR`、`VARCHAR`和`TEXT`转换为Go `string`。但是，`Scan`也会执行转换为另一种适合列值的Go类型。例如，如果列是一个总是包含数字的`VARCHAR`，你可以指定一个数值Go类型，比如`int`，来接收这个值，`Scan`将使用`strconv.Atoi`对其进行转换。
+​	正如您所期望的，`Scan`将从列类型转换为类似的Go类型。例如，`Scan`将从SQL `CHAR`、`VARCHAR`和`TEXT`转换为Go `string`。但是，`Scan`也会执行转换为另一种适合列值的Go类型。例如，如果列是一个总是包含数字的`VARCHAR`，您可以指定一个数值Go类型，比如`int`，来接收这个值，`Scan`将使用`strconv.Atoi`对其进行转换。
 
 ​	关于`Scan`函数进行转换的更多细节，请参见[Rows.Scan]({{< ref "/docs/StdLib/database/sql#rows-scan">}})参考。
 
 ### 处理多个结果集
 
-​	当你的数据库操作可能返回多个结果集时，你可以通过使用[Rows.NextResultSet]({{< ref "/docs/StdLib/database/sql#rows-nextresultset----go18">}})来检索这些结果。这可能很有用，例如，当你发送分别查询多个表的 SQL 时，为每个表返回一个结果集。
+​	当您的数据库操作可能返回多个结果集时，您可以通过使用[Rows.NextResultSet]({{< ref "/docs/StdLib/database/sql#rows-nextresultset----go18">}})来检索这些结果。这可能很有用，例如，当您发送分别查询多个表的 SQL 时，为每个表返回一个结果集。
 
 ​	`Rows.NextResultSet`准备好下一个结果集，以便调用`Rows.Next`检索下一个结果集的第一条记录。它返回一个布尔值，表明是否存在下一个结果集。
 

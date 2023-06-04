@@ -26,7 +26,7 @@ My team, the Push Service Team, provides fundamental messaging services for more
 
 我的团队，即推送服务团队，为全公司50多个产品（包括PC和移动）提供基本的信息服务，包括我们开放平台中的数千个应用程序。
 
-Our “love affair” with Go dates back to 2012 when we first attempted to provide push services for one of Qihoo’s products. The initial version was built with nginx + lua + redis, which failed to satisfy our requirement for real-time performance due to excessive load. Under these circumstances, the newly-published Go 1.0.3 release came to our attention. We completed a prototype in a matter of weeks, largely thanks to the goroutine and channel features it provided.
+Our "love affair" with Go dates back to 2012 when we first attempted to provide push services for one of Qihoo’s products. The initial version was built with nginx + lua + redis, which failed to satisfy our requirement for real-time performance due to excessive load. Under these circumstances, the newly-published Go 1.0.3 release came to our attention. We completed a prototype in a matter of weeks, largely thanks to the goroutine and channel features it provided.
 
 我们与Go的 "情缘 "可以追溯到2012年，当时我们首次尝试为奇虎的一款产品提供推送服务。最初的版本是用nginx+lua+redis构建的，由于负载过大，未能满足我们对实时性能的要求。在这种情况下，新发布的Go 1.0.3版本引起了我们的注意。我们在几周内就完成了一个原型，这主要归功于它提供的goroutine和channel功能。
 
@@ -53,12 +53,12 @@ Here are a few tweaks we made and key take-aways:
 
 - Use a Task Pool, a mechanism with a group of long-lived goroutines consuming global task or message queues sent by connection goroutines, to replace short-lived goroutines.使用任务池（Task Pool），这是一种机制，由一组长寿的goroutine消耗全局任务或由连接goroutine发送的消息队列，以取代短寿的goroutine。
 - Monitor and control goroutine numbers in the program. The lack of control can cause unbearable burden on the GC, imposed by surges in goroutines due to uninhibited acceptance of external requests, as RPC invocations sent to inner servers may block goroutines recently created.监控和控制程序中的goroutine数量。缺乏控制会给GC带来难以承受的负担，这是由于无限制地接受外部请求而导致的goroutine的激增，因为发送给内部服务器的RPC调用可能会阻塞最近创建的goroutine。
-- Remember to add [read and write deadlines](https://go.dev/pkg/net/#Conn) to connections when under a mobile network; otherwise, it may lead to goroutine blockage. Apply it properly and with caution when under a LAN network, otherwise your RPC communication efficiency will be hurt.在移动网络下，记得给连接添加读写期限；否则，可能会导致goroutine阻塞。在局域网下，要正确谨慎地应用它，否则你的RPC通信效率会受到影响。
+- Remember to add [read and write deadlines](https://go.dev/pkg/net/#Conn) to connections when under a mobile network; otherwise, it may lead to goroutine blockage. Apply it properly and with caution when under a LAN network, otherwise your RPC communication efficiency will be hurt.在移动网络下，记得给连接添加读写期限；否则，可能会导致goroutine阻塞。在局域网下，要正确谨慎地应用它，否则您的RPC通信效率会受到影响。
 - Use Pipeline (under Full Duplex feature of TCP) to enhance the communication efficiency of RPC framework.使用管道（在TCP的全双工功能下）来提高RPC框架的通信效率。
 
 As a result, we successfully launched three iterations of our architecture, and two iterations of our RPC framework even with limited human resources. This can all attributed to the development convenience of Go. Below you can find the up-to-date system architecture:
 
-因此，即使在人力资源有限的情况下，我们成功地推出了三个迭代的架构，以及两个迭代的RPC框架。这都可以归功于Go的开发便利性。下面你可以看到最新的系统架构：
+因此，即使在人力资源有限的情况下，我们成功地推出了三个迭代的架构，以及两个迭代的RPC框架。这都可以归功于Go的开发便利性。下面您可以看到最新的系统架构：
 
 ![img](Qihoo360AndGo_img/image01.png)
 

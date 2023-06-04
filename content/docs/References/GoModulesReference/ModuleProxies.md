@@ -154,6 +154,4 @@ $ curl https://proxy.golang.org/golang.org/x/mod/@v/v0.2.0.info
 
 ​	根据这个响应，`go`命令通过发送`https://modproxy.example.com/example.com/gopher/@v/v1.0.0.info`、`v1.0.0.mod`和`v1.0.0.zip`的请求来下载该模块。
 
-!!! warining "请注意"
-
-	注意，在`GOPATH`模式下，不能用`go get`下载从代理处直接提供的模块。
+> 注意，在`GOPATH`模式下，不能用`go get`下载从代理处直接提供的模块。

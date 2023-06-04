@@ -517,7 +517,7 @@ func IsTrue(val any) (truth, ok bool)
 
 IsTrue reports whether the value is 'true', in the sense of not the zero of its type, and whether the value has a meaningful truth value. This is the definition of truth used by if and other such actions.
 
-IsTrue 函数报告值是否为“true”，即不是其类型的零值，并且该值具有有意义的真值。这是 if 和其他类似操作使用的真值定义。
+IsTrue 函数报告值是否为"true"，即不是其类型的零值，并且该值具有有意义的真值。这是 if 和其他类似操作使用的真值定义。
 
 #### func JSEscape 
 

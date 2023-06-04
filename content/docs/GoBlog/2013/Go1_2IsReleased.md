@@ -20,7 +20,7 @@ We are pleased to announce the release of Go 1.2, the latest stable version of t
 
 Binary distributions may be downloaded from the [usual place](https://go.dev/doc/install) or if you prefer to [compile from source](https://go.dev/doc/install/source) you should use the `release` or `go1.2` tags.
 
-二进制发行版可以从通常的地方下载，如果你喜欢从源代码编译，你应该使用 release 或 go1.2 标签。
+二进制发行版可以从通常的地方下载，如果您喜欢从源代码编译，您应该使用 release 或 go1.2 标签。
 
 This new release comes nearly seven months after the release of Go 1.1 in May, a much shorter period than the 14 months between 1.1 and 1.0. We anticipate a comparable interval between future major releases.
 
@@ -60,7 +60,7 @@ As part of the release, the [Go Playground](http://play.golang.org/) has been up
 
 To everyone who helped make this release possible, from the many users who submitted bug reports to the 116 (!) contributors who committed more than 1600 changes to the core: Your help is invaluable to the project. Thank you!
 
-对于每一个帮助实现这个版本的人，从提交错误报告的许多用户到对核心部分进行了1600多处修改的116位（！）贡献者：你们的帮助对于这个项目是非常宝贵的。谢谢你们!
+对于每一个帮助实现这个版本的人，从提交错误报告的许多用户到对核心部分进行了1600多处修改的116位（！）贡献者：您们的帮助对于这个项目是非常宝贵的。谢谢您们!
 
 *This blog post is the first of the* [Go Advent Calendar](http://blog.gopheracademy.com/day-01-go-1.2), *a series of daily articles presented by the* [Gopher Academy](http://gopheracademy.com/) *from December 1 to 25.*
 

@@ -84,7 +84,7 @@ This basic algorithm is common to all tracing GCs. Where tracing GCs differ is w
 
 One alternative technique you may be familiar with is to actually *move* the objects to a new part of memory and leave behind a forwarding pointer that is later used to update all the application's pointers. We call a GC that moves objects in this way a **moving** GC; Go has a **non-moving** GC.
 
-你可能熟悉的另一种技术是将对象实际移动到内存的一个新的部分，并留下一个转发指针，这个指针后来被用来更新所有应用程序的指针。我们把以这种方式移动对象的GC称为移动GC；Go有一个非移动GC。
+您可能熟悉的另一种技术是将对象实际移动到内存的一个新的部分，并留下一个转发指针，这个指针后来被用来更新所有应用程序的指针。我们把以这种方式移动对象的GC称为移动GC；Go有一个非移动GC。
 
 ## The GC cycle GC循环
 
@@ -338,7 +338,7 @@ While the memory limit is a powerful tool, and the Go runtime takes steps to mit
 
 虽然内存限制是一个强大的工具，而且Go运行时采取了一些措施来减轻滥用的最坏行为，但深思熟虑地使用它仍然很重要。以下是关于内存限制最有用和最适用的地方，以及它可能造成更多伤害的地方的建议集。
 
-- **Do** take advantage of the memory limit when the execution environment of your Go program is entirely within your control, and the Go program is the only program with access to some set of resources (i.e. some kind of memory reservation, like a container memory limit). 当你的Go程序的执行环境完全在你的控制范围内，并且Go程序是唯一可以访问某些资源集（即某种内存保留，如容器内存限制）的程序时，请利用内存限制。
+- **Do** take advantage of the memory limit when the execution environment of your Go program is entirely within your control, and the Go program is the only program with access to some set of resources (i.e. some kind of memory reservation, like a container memory limit). 当您的Go程序的执行环境完全在您的控制范围内，并且Go程序是唯一可以访问某些资源集（即某种内存保留，如容器内存限制）的程序时，请利用内存限制。
 
   A good example is the deployment of a web service into containers with a fixed amount of available memory.
 
@@ -360,7 +360,7 @@ While the memory limit is a powerful tool, and the Go runtime takes steps to mit
 
   虽然尝试为共同租户程序 "保留 "内存可能很诱人，但除非程序是完全同步的（例如Go程序调用一些子进程并在其被调用者执行时进行阻塞），否则结果将不太可靠，因为不可避免地两个程序都需要更多的内存。当Go程序不需要内存时，让它少用点内存，总体上会产生更可靠的结果。这个建议也适用于过度提交的情况，在一台机器上运行的容器的内存限制之和可能超过机器实际可用的物理内存。
 
-- **Don't** use the memory limit when deploying to an execution environment you don't control, especially when your program's memory use is proportional to its inputs. 当部署到一个你无法控制的执行环境时，不要使用内存限制，特别是当你的程序的内存使用与它的输入成正比时。
+- **Don't** use the memory limit when deploying to an execution environment you don't control, especially when your program's memory use is proportional to its inputs. 当部署到一个您无法控制的执行环境时，不要使用内存限制，特别是当您的程序的内存使用与它的输入成正比时。
 
   A good example is a CLI tool or a desktop application. Baking a memory limit into the program when it's unclear what kind of inputs it might be fed, or how much memory might be available on the system can lead to confusing crashes and poor performance. Plus, an advanced end-user can always set a memory limit if they wish. 
 
@@ -567,7 +567,7 @@ For the purposes of reducing GC costs, `alloc_space` is typically the most usefu
 
 Once candidate heap allocation sites have been identified with the help of [heap profiles](https://go.dev/doc/gc-guide#Heap_profiling), how can they be eliminated? The key is to leverage the Go compiler's escape analysis to have the Go compiler find alternative, and more efficient storage for this memory, for example in the goroutine stack. Luckily, the Go compiler has the ability to describe why it decides to escape a Go value to the heap. With that knowledge, it becomes a matter of reorganizing your source code to change the outcome of the analysis (which is often the hardest part, but outside the scope of this guide).
 
-一旦在堆配置文件的帮助下确定了候选的堆分配点，如何消除它们呢？关键是利用Go编译器的逃逸分析，让Go编译器为这些内存找到其他更有效的存储方式，例如在goroutine栈中。幸运的是，Go编译器有能力描述它为什么决定将Go值转移到堆中。有了这些知识，重新组织你的源代码以改变分析的结果就成了一个问题（这往往是最难的部分，但不在本指南的范围内）。
+一旦在堆配置文件的帮助下确定了候选的堆分配点，如何消除它们呢？关键是利用Go编译器的逃逸分析，让Go编译器为这些内存找到其他更有效的存储方式，例如在goroutine栈中。幸运的是，Go编译器有能力描述它为什么决定将Go值转移到堆中。有了这些知识，重新组织您的源代码以改变分析的结果就成了一个问题（这往往是最难的部分，但不在本指南的范围内）。
 
 As for how to access the information from the Go compiler's escape analysis, the simplest way is through a debug flag supported by the Go compiler that describes all optimizations it applied or did not apply to some package in a text format. This includes whether or not values escape. Try the following command, where `[package]` is some Go package path.
 
@@ -600,7 +600,7 @@ Go GC 对实时内存的人口统计很敏感，因为对象和指针的复杂�
 
 *Note: Applying the optimizations below may reduce the readability of your code by obscuring intent, and may fail to hold up across Go releases. Prefer to apply these optimizations only in the places they matter most. Such places may be identified by using the tools listed in the [section on identifying costs](https://go.dev/doc/gc-guide#Identifying_costs).*
 
-注意：应用下面的优化可能会掩盖你的意图而降低你的代码的可读性，并且可能无法在Go的各个版本中保持不变。最好是只在最重要的地方应用这些优化。这些地方可以通过使用识别成本一节中列出的工具来识别。
+注意：应用下面的优化可能会掩盖您的意图而降低您的代码的可读性，并且可能无法在Go的各个版本中保持不变。最好是只在最重要的地方应用这些优化。这些地方可以通过使用识别成本一节中列出的工具来识别。
 
 - Pointer-free values are segregated from other values. 无指针值与其他值是分开的。
 

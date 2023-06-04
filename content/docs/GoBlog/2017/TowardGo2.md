@@ -20,7 +20,7 @@ Russ Cox
 
 [这是我今天在Gophercon 2017上的演讲稿，请求整个Go社区在我们讨论和规划Go 2时给予帮助。］
 
-On September 25, 2007, after Rob Pike, Robert Griesemer, and Ken Thompson had been discussing a new programming language for a few days, Rob suggested the name “Go.”
+On September 25, 2007, after Rob Pike, Robert Griesemer, and Ken Thompson had been discussing a new programming language for a few days, Rob suggested the name "Go."
 
 2007年9月25日，在Rob Pike、Robert Griesemer和Ken Thompson讨论了几天新的编程语言后，Rob提出了 "Go "这个名称。
 
@@ -58,11 +58,11 @@ After Go 1 was released, we knew that we needed to spend time using Go in the pr
 
 Now we have five years of experience using Go to build large, production-quality systems. We have developed a sense of what works and what does not. Now it is time to begin the next step in Go’s evolution and growth, to plan the future of Go. I’m here today to ask all of you in the Go community, whether you’re in the audience at GopherCon or watching on video or reading the Go blog later today, to work with us as we plan and implement Go 2.
 
-现在，我们已经有了五年的经验，使用 Go 构建大型的、具有生产质量的系统。我们已经对什么是有效的，什么是无效的有了一定的认识。现在是时候开始Go的下一步进化和成长了，规划Go的未来。我今天在这里向Go社区的所有成员发出邀请，无论你们是在GopherCon的观众席上，还是在今天晚些时候通过视频观看或阅读Go博客，在我们计划和实施Go 2时与我们一起工作。
+现在，我们已经有了五年的经验，使用 Go 构建大型的、具有生产质量的系统。我们已经对什么是有效的，什么是无效的有了一定的认识。现在是时候开始Go的下一步进化和成长了，规划Go的未来。我今天在这里向Go社区的所有成员发出邀请，无论您们是在GopherCon的观众席上，还是在今天晚些时候通过视频观看或阅读Go博客，在我们计划和实施Go 2时与我们一起工作。
 
 In the rest of this talk, I’m going to explain our goals for Go 2; our constraints and limitations; the overall process; the importance of writing about our experiences using Go, especially as they relate to problems we might try to solve; the possible kinds of solutions; how we will deliver Go 2; and how all of you can help.
 
-在接下来的演讲中，我将解释我们对 Go 2 的目标；我们的约束和限制；整个过程；写下我们使用 Go 的经验的重要性，特别是当它们与我们可能尝试解决的问题有关时；可能的解决方案种类；我们将如何交付 Go 2；以及你们所有人可以如何提供帮助。
+在接下来的演讲中，我将解释我们对 Go 2 的目标；我们的约束和限制；整个过程；写下我们使用 Go 的经验的重要性，特别是当它们与我们可能尝试解决的问题有关时；可能的解决方案种类；我们将如何交付 Go 2；以及您们所有人可以如何提供帮助。
 
 ## Goals 目标
 
@@ -78,7 +78,7 @@ Our goal for Go 2 is to fix the most significant ways Go fails to scale.
 
 我们在Go 2中的目标是解决Go无法扩展的最重要的问题。
 
-(For more about these goals, see Rob Pike’s 2012 article “[Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)” and my GopherCon 2015 talk “[Go, Open Source, Community](https://blog.golang.org/open-source).”)
+(For more about these goals, see Rob Pike’s 2012 article "[Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)" and my GopherCon 2015 talk "[Go, Open Source, Community](https://blog.golang.org/open-source).")
 
 (关于这些目标的更多信息，请参见Rob Pike在2012年发表的文章 "Go at Google: 语言设计为软件工程服务"，以及我在GopherCon 2015的演讲 "Go、开源、社区"）。
 
@@ -148,7 +148,7 @@ Although I don’t believe we’ve ever talked about this process as a whole, we
 
 虽然我不相信我们曾经把这个过程作为一个整体来谈，但我们已经解释了它的一部分。2012年，当我们发布Go 1并说现在是使用Go并停止改变它的时候，我们正在解释第1步。2015年，当我们引入Go变更提案流程时，我们在解释步骤3、4和5。但是我们从来没有详细解释过第2步，所以我现在想这样做。
 
-(For more about the development of Go 1 and the shift away from language changes, see Rob Pike and Andrew Gerrand’s OSCON 2012 talk “[The Path to Go 1](https://blog.golang.org/the-path-to-go-1).” For more about the proposal process, see Andrew Gerrand’s GopherCon 2015 talk “[How Go was Made](https://www.youtube.com/watch?v=0ht89TxZZnk)” and the [proposal process documentation](https://go.dev/s/proposal).)
+(For more about the development of Go 1 and the shift away from language changes, see Rob Pike and Andrew Gerrand’s OSCON 2012 talk "[The Path to Go 1](https://blog.golang.org/the-path-to-go-1)." For more about the proposal process, see Andrew Gerrand’s GopherCon 2015 talk "[How Go was Made](https://www.youtube.com/watch?v=0ht89TxZZnk)" and the [proposal process documentation](https://go.dev/s/proposal).)
 
 (更多关于Go 1的发展以及从语言变化中的转变，请参见Rob Pike和Andrew Gerrand的OSCON 2012演讲 "通往Go 1之路"。关于提案过程的更多信息，请参见Andrew Gerrand在GopherCon 2015上的演讲 "Go是如何炼成的 "以及提案过程的文档）。
 
@@ -156,9 +156,9 @@ Although I don’t believe we’ve ever talked about this process as a whole, we
 
 ![img](TowardGo2_img/process2.png)
 
-There are two parts to explaining a problem. The first part—the easier part—is stating exactly what the problem is. We developers are decently good at this. After all, every test we write is a statement of a problem to be solved, in language so precise that even a computer can understand it. The second part—the harder part—is describing the significance of the problem well enough that everyone can understand why we should spend time solving it and maintaining a solution. In contrast to stating a problem precisely, we don’t need to describe a problem’s significance very often, and we’re not nearly as good at it. Computers never ask us “why is this test case important? Are you sure this is the problem you need to solve? Is solving this problem the most important thing you can be doing?” Maybe they will someday, but not today.
+There are two parts to explaining a problem. The first part—the easier part—is stating exactly what the problem is. We developers are decently good at this. After all, every test we write is a statement of a problem to be solved, in language so precise that even a computer can understand it. The second part—the harder part—is describing the significance of the problem well enough that everyone can understand why we should spend time solving it and maintaining a solution. In contrast to stating a problem precisely, we don’t need to describe a problem’s significance very often, and we’re not nearly as good at it. Computers never ask us "why is this test case important? Are you sure this is the problem you need to solve? Is solving this problem the most important thing you can be doing?" Maybe they will someday, but not today.
 
-解释一个问题有两个部分。第一部分--比较容易的部分--是准确说明问题是什么。我们开发人员在这方面相当擅长。毕竟，我们写的每一个测试都是对要解决的问题的陈述，语言非常精确，甚至计算机都能理解它。第二部分--更难的部分--是很好地描述问题的重要性，使每个人都能理解为什么我们要花时间去解决它并维护一个解决方案。与准确说明问题相比，我们并不经常需要描述问题的意义，而且我们在这方面也不擅长。计算机从不问我们 "为什么这个测试案例很重要？你确定这是你需要解决的问题吗？解决这个问题是你能做的最重要的事情吗？" 也许有一天他们会问，但不是今天。
+解释一个问题有两个部分。第一部分--比较容易的部分--是准确说明问题是什么。我们开发人员在这方面相当擅长。毕竟，我们写的每一个测试都是对要解决的问题的陈述，语言非常精确，甚至计算机都能理解它。第二部分--更难的部分--是很好地描述问题的重要性，使每个人都能理解为什么我们要花时间去解决它并维护一个解决方案。与准确说明问题相比，我们并不经常需要描述问题的意义，而且我们在这方面也不擅长。计算机从不问我们 "为什么这个测试案例很重要？您确定这是您需要解决的问题吗？解决这个问题是您能做的最重要的事情吗？" 也许有一天他们会问，但不是今天。
 
 Let’s look at an old example from 2011. Here is what I wrote about renaming os.Error to error.Value while we were planning Go 1.
 
@@ -166,13 +166,13 @@ Let’s look at an old example from 2011. Here is what I wrote about renaming os
 
 ![img](TowardGo2_img/error.png)
 
-It begins with a precise, one-line statement of the problem: in very low-level libraries everything imports “os” for os.Error. Then there are five lines, which I’ve underlined here, devoted to describing the significance of the problem: the packages that “os” uses cannot themselves present errors in their APIs, and other packages depend on “os” for reasons having nothing to do with operating system services.
+It begins with a precise, one-line statement of the problem: in very low-level libraries everything imports "os" for os.Error. Then there are five lines, which I’ve underlined here, devoted to describing the significance of the problem: the packages that "os" uses cannot themselves present errors in their APIs, and other packages depend on "os" for reasons having nothing to do with operating system services.
 
 它以一个精确的、单行的问题陈述开始：在非常低级的库中，所有的东西都为os.Error导入 "os"。然后有五行，我在这里划了下线，专门描述了问题的重要性："os "使用的包本身不能在其API中出现错误，而其他包由于与操作系统服务无关的原因而依赖 "os"。
 
 Do these five lines convince *you* that this problem is significant? It depends on how well you can fill in the context I’ve left out: being understood requires anticipating what others need to know. For my audience at the time—the ten other people on the Go team at Google who were reading that document—those fifty words were enough. To present the same problem to the audience at GothamGo last fall—an audience with much more varied backgrounds and areas of expertise—I needed to provide more context, and I used about two hundred words, along with real code examples and a diagram. It is a fact of today’s worldwide Go community that describing the significance of any problem requires adding context, especially illustrated by concrete examples, that you would leave out when talking to coworkers.
 
-这五句话能说服你这个问题的重要性吗？这取决于你能多好地填补我遗漏的上下文：被理解需要预测别人需要知道的东西。对于我当时的听众--谷歌Go团队中正在阅读那份文件的另外十个人来说，这五十个字已经足够了。为了向去年秋天参加GothamGo的听众介绍同样的问题--这个听众的背景和专业领域更加多样化--我需要提供更多的背景，我用了大约两百个字，加上真实的代码例子和一个图表。这是当今世界Go界的一个事实，描述任何问题的意义都需要添加上下文，特别是用具体的例子来说明，而在与同事交谈时，你会忽略这些。
+这五句话能说服您这个问题的重要性吗？这取决于您能多好地填补我遗漏的上下文：被理解需要预测别人需要知道的东西。对于我当时的听众--谷歌Go团队中正在阅读那份文件的另外十个人来说，这五十个字已经足够了。为了向去年秋天参加GothamGo的听众介绍同样的问题--这个听众的背景和专业领域更加多样化--我需要提供更多的背景，我用了大约两百个字，加上真实的代码例子和一个图表。这是当今世界Go界的一个事实，描述任何问题的意义都需要添加上下文，特别是用具体的例子来说明，而在与同事交谈时，您会忽略这些。
 
 Convincing others that a problem is significant is an essential step. When a problem appears insignificant, almost every solution will seem too expensive. But for a significant problem, there are usually many solutions of reasonable cost. When we disagree about whether to adopt a particular solution, we’re often actually disagreeing about the significance of the problem being solved. This is so important that I want to look at two recent examples that show this clearly, at least in hindsight.
 
@@ -184,7 +184,7 @@ My first example is about time. 我的第一个例子是关于时间的。
 
 Suppose you want to time how long an event takes. You write down the start time, run the event, write down the end time, and then subtract the start time from the end time. If the event took ten milliseconds, the subtraction gives a result of ten milliseconds, perhaps plus or minus a small measurement error.
 
-假设你想为一个事件花多长时间计时。你写下开始时间，运行该事件，写下结束时间，然后用结束时间减去开始时间。如果该事件花了10毫秒，减去的结果是10毫秒，也许加上或减去一个小的测量误差。
+假设您想为一个事件花多长时间计时。您写下开始时间，运行该事件，写下结束时间，然后用结束时间减去开始时间。如果该事件花了10毫秒，减去的结果是10毫秒，也许加上或减去一个小的测量误差。
 
 ```
 start := time.Now()       // 3:04:05.000
@@ -214,7 +214,7 @@ Except during the odd clock reset, the monotonic clock is no better than the tim
 
 除了在奇怪的时钟重置期间，单调时钟并不比日间时钟好，而日间时钟的额外好处是可以用来计时，所以为了简单起见，Go 1的时间API只公开了日间时钟。
 
-In October 2015, a [bug report](https://go.dev/issue/12914) noted that Go programs could not time events correctly across clock resets, especially a typical leap second. The suggested fix was also the original issue title: “add a new API to access a monotonic clock source.” I argued that this problem was not significant enough to justify new API. A few months earlier, for the mid-2015 leap second, Akamai, Amazon, and Google had slowed their clocks a tiny amount for the entire day, absorbing the extra second without turning their clocks backward. It seemed like eventual widespread adoption of this “[leap smear](https://developers.google.com/time/smear)” approach would eliminate leap-second clock resets as a problem on production systems. In contrast, adding new API to Go would add new problems: we would have to explain the two kinds of clocks, educate users about when to use each, and convert many lines of existing code, all for an issue that rarely occurred and might plausibly go away on its own.
+In October 2015, a [bug report](https://go.dev/issue/12914) noted that Go programs could not time events correctly across clock resets, especially a typical leap second. The suggested fix was also the original issue title: "add a new API to access a monotonic clock source." I argued that this problem was not significant enough to justify new API. A few months earlier, for the mid-2015 leap second, Akamai, Amazon, and Google had slowed their clocks a tiny amount for the entire day, absorbing the extra second without turning their clocks backward. It seemed like eventual widespread adoption of this "[leap smear](https://developers.google.com/time/smear)" approach would eliminate leap-second clock resets as a problem on production systems. In contrast, adding new API to Go would add new problems: we would have to explain the two kinds of clocks, educate users about when to use each, and convert many lines of existing code, all for an issue that rarely occurred and might plausibly go away on its own.
 
 2015年10月，一份错误报告指出，Go程序无法在时钟重置时正确计时，尤其是典型的闰秒。建议的修复方法也是原来的问题标题。"添加一个新的API来访问单调的时钟源。" 我认为，这个问题并不重要，不足以证明新的API是合理的。几个月前，对于2015年中期的闰秒，Akamai、亚马逊和谷歌已经将他们的时钟整整放慢了一小部分，吸收了额外的一秒，而没有将他们的时钟向后转。看起来，最终广泛采用这种 "跨越式涂抹 "方法将消除生产系统中的闰秒时钟重置问题。相比之下，在Go中添加新的API会增加新的问题：我们必须解释这两种时钟，教育用户何时使用这两种时钟，并转换许多行的现有代码，所有这些都是为了一个很少发生的问题，而且可能会自行消失。
 
@@ -222,7 +222,7 @@ We did what we always do when there’s a problem without a clear solution: we w
 
 当有一个问题没有明确的解决方案时，我们做了我们经常做的事情：我们等待。等待让我们有更多的时间来增加经验和对问题的理解，也有更多的时间来找到一个好的解决方案。在这种情况下，等待增加了我们对问题重要性的理解，值得庆幸的是，Cloudflare公司出现了小规模的故障。他们的Go代码在2016年底的闰秒期间对DNS请求进行计时，大约需要负990毫秒，这导致他们的服务器上同时出现恐慌，在高峰期打破了0.2%的DNS查询。
 
-Cloudflare is exactly the kind of cloud system Go was intended for, and they had a production outage based on Go not being able to time events correctly. Then, and this is the key point, Cloudflare reported their experience in a blog post by John Graham-Cumming titled “[How and why the leap second affected Cloudflare DNS](https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/).” By sharing concrete details of their experience with Go in production, John and Cloudflare helped us understand that the problem of accurate timing across leap second clock resets was too significant to leave unfixed. Two months after that article was published, we had designed and implemented a solution that will [ship in Go 1.9](https://beta.golang.org/doc/go1.9#monotonic-time) (and in fact we did it with [no new API](https://go.dev/design/12914-monotonic)).
+Cloudflare is exactly the kind of cloud system Go was intended for, and they had a production outage based on Go not being able to time events correctly. Then, and this is the key point, Cloudflare reported their experience in a blog post by John Graham-Cumming titled "[How and why the leap second affected Cloudflare DNS](https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/)." By sharing concrete details of their experience with Go in production, John and Cloudflare helped us understand that the problem of accurate timing across leap second clock resets was too significant to leave unfixed. Two months after that article was published, we had designed and implemented a solution that will [ship in Go 1.9](https://beta.golang.org/doc/go1.9#monotonic-time) (and in fact we did it with [no new API](https://go.dev/design/12914-monotonic)).
 
 Cloudflare正是Go所针对的云系统，他们因为Go无法正确计时而出现了生产中断。然后，这是关键的一点，Cloudflare在John Graham-Cumming的一篇博文中报告了他们的经验，题为 "闰秒如何以及为什么影响Cloudflare DNS"。通过分享他们在生产中使用Go的经验的具体细节，约翰和Cloudflare帮助我们了解到，跨越闰秒时钟重置的准确计时问题非常重要，不能不加以解决。这篇文章发表后两个月，我们设计并实施了一个解决方案，将在 Go 1.9 中发布（事实上，我们没有使用新的 API）。
 
@@ -246,7 +246,7 @@ Later in the spring, Robert and Rob wrote [a proposal](https://go.dev/design/163
 
 A minute ago, I explained the problem to you, giving some background about how it can arise and why, but with no concrete examples that might help you evaluate whether the problem might affect you at some point. Last summer’s proposal and the lightning talk gave an abstract example, involving packages C, L, L1, and C1 through Cn, but no concrete examples that developers could relate to. As a result, most of the feedback from the community was based on the idea that aliases only solved a problem for Google, not for everyone else.
 
-一分钟前，我向你解释了这个问题，给出了一些关于它如何产生和为什么产生的背景，但没有具体的例子，可能会帮助你评估这个问题是否会在某个时候影响你。去年夏天的提案和闪电演讲给出了一个抽象的例子，涉及到包C、L、L1和C1到Cn，但没有开发者可以联系到的具体例子。因此，社区的大部分反馈都是基于这样的想法：别名只解决了谷歌的问题，而不是其他人的问题。
+一分钟前，我向您解释了这个问题，给出了一些关于它如何产生和为什么产生的背景，但没有具体的例子，可能会帮助您评估这个问题是否会在某个时候影响您。去年夏天的提案和闪电演讲给出了一个抽象的例子，涉及到包C、L、L1和C1到Cn，但没有开发者可以联系到的具体例子。因此，社区的大部分反馈都是基于这样的想法：别名只解决了谷歌的问题，而不是其他人的问题。
 
 Just as we at Google did not at first understand the significance of handling leap second time resets correctly, we did not effectively convey to the broader Go community the significance of handling gradual code migration and repair during large-scale changes.
 
@@ -280,7 +280,7 @@ I could go on. Every major potential change to Go should be motivated by one or 
 
 These reports are the raw material for the Go 2 proposal process, and we need all of you to write them, to help us understand your experiences with Go. There are half a million of you, working in a broad range of environments, and not that many of us. Write a post on your own blog, or write a [Medium](https://www.medium.com/) post, or write a [Github Gist](https://gist.github.com/) (add a `.md` file extension for Markdown), or write a [Google doc](https://docs.google.com/), or use any other publishing mechanism you like. After you’ve posted, please add the post to our new wiki page, [golang.org/wiki/ExperienceReports](https://go.dev/wiki/ExperienceReports).
 
-这些报告是Go 2提案过程的原材料，我们需要你们所有人来写这些报告，以帮助我们了解你们使用Go的经验。你们有50万人，在广泛的环境中工作，而我们没有那么多的人。在你自己的博客上写一篇文章，或者在Medium上写一篇文章，或者在Github上写一篇Gist（为Markdown添加.md文件扩展名），或者写一篇Google doc，或者使用你喜欢的任何其他发布机制。发布之后，请将帖子添加到我们的新维基页面，即golang.org/wiki/ExperienceReports。
+这些报告是Go 2提案过程的原材料，我们需要您们所有人来写这些报告，以帮助我们了解您们使用Go的经验。您们有50万人，在广泛的环境中工作，而我们没有那么多的人。在您自己的博客上写一篇文章，或者在Medium上写一篇文章，或者在Github上写一篇Gist（为Markdown添加.md文件扩展名），或者写一篇Google doc，或者使用您喜欢的任何其他发布机制。发布之后，请将帖子添加到我们的新维基页面，即golang.org/wiki/ExperienceReports。
 
 ## Solutions 解决方案
 
@@ -290,7 +290,7 @@ Now that we know how we’re going to identify and explain problems that need to
 
 现在我们知道了如何识别和解释需要解决的问题，我想简单地指出，并不是所有的问题都能通过语言的改变得到最好的解决，这很好。
 
-One problem we might want to solve is that computers can often compute additional results during basic arithmetic operations, but Go does not provide direct access to those results. In 2013, Robert proposed that we might extend the idea of two-result (“comma-ok”) expressions to basic arithmetic. For example, if x and y are, say, uint32 values, `lo, hi = x * y` would return not only the usual low 32 bits but also the high 32 bits of the product. This problem didn’t seem particularly significant, so we [recorded the potential solution](https://go.dev/issue/6815) but didn’t implement it. We waited.
+One problem we might want to solve is that computers can often compute additional results during basic arithmetic operations, but Go does not provide direct access to those results. In 2013, Robert proposed that we might extend the idea of two-result ("comma-ok") expressions to basic arithmetic. For example, if x and y are, say, uint32 values, `lo, hi = x * y` would return not only the usual low 32 bits but also the high 32 bits of the product. This problem didn’t seem particularly significant, so we [recorded the potential solution](https://go.dev/issue/6815) but didn’t implement it. We waited.
 
 我们可能想解决的一个问题是，在基本的算术运算过程中，计算机往往可以计算出额外的结果，但Go并没有提供对这些结果的直接访问。在2013年，罗伯特提出，我们可以将双结果（"逗号ok"）表达式的想法扩展到基本算术。例如，如果x和y是，例如，uint32值，lo，hi = x * y将不仅返回通常的低32位，而且还返回乘积的高32位。这个问题似乎并不特别重要，所以我们记录了潜在的解决方案，但并没有实现它。我们等待着。
 
@@ -349,7 +349,7 @@ This is all a bit speculative, and the specific release numbers I just mentioned
 
 ## Help Wanted 寻找帮助
 
-**We need your help. **我们需要你的帮助。
+**We need your help. **我们需要您的帮助。
 
 The conversation for Go 2 starts today, and it’s one that will happen in the open, in public forums like the mailing list and the issue tracker. Please help us at every step along the way.
 
@@ -357,8 +357,8 @@ Go 2的对话从今天开始，它将在邮件列表和问题跟踪器等公共�
 
 Today, what we need most is experience reports. Please tell us how Go is working for you, and more importantly not working for you. Write a blog post, include real examples, concrete detail, and real experience. And link it on our [wiki page](https://go.dev/wiki/ExperienceReports). That’s how we’ll start talking about what we, the Go community, might want to change about Go.
 
-今天，我们最需要的是经验报告。请告诉我们Go是如何为你工作的，更重要的是如何不为你工作。写一篇博文，包括真实的例子、具体的细节和真实的经验。并将其链接到我们的维基页面。这样我们才会开始讨论我们，也就是Go社区，可能想要改变Go的内容。
+今天，我们最需要的是经验报告。请告诉我们Go是如何为您工作的，更重要的是如何不为您工作。写一篇博文，包括真实的例子、具体的细节和真实的经验。并将其链接到我们的维基页面。这样我们才会开始讨论我们，也就是Go社区，可能想要改变Go的内容。
 
 Thank you.
 
-谢谢你。
+谢谢您。

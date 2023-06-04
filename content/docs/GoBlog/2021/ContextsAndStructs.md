@@ -63,7 +63,7 @@ Here, the `(*Worker).Fetch` and `(*Worker).Process` methods both accept a contex
 
 Let’s inspect again the `Worker` example above with the disfavored context-in-struct approach. The problem with it is that when you store the context in a struct, you obscure lifetime to the callers, or worse intermingle two scopes together in unpredictable ways:
 
-让我们再次检查上面的Worker例子，用不受欢迎的context-in-struct方法。它的问题在于，当你将上下文存储在一个结构中时，你会对调用者的一生造成模糊，或者更糟糕的是以不可预测的方式将两个作用域混合在一起：
+让我们再次检查上面的Worker例子，用不受欢迎的context-in-struct方法。它的问题在于，当您将上下文存储在一个结构中时，您会对调用者的一生造成模糊，或者更糟糕的是以不可预测的方式将两个作用域混合在一起：
 
 ```go linenums="1"
 type Worker struct {
@@ -100,7 +100,7 @@ API将需要大量的文档来明确地告诉用户context.Context到底是用�
 
 And, finally, it can be quite dangerous to design a production-grade server whose requests don’t each have a context and thus can’t adequately honor cancellation. Without the ability to set per-call deadlines, [your process could backlog](https://sre.google/sre-book/handling-overload/) and exhaust its resources (like memory)!
 
-而且，最后，设计一个生产级的服务器可能是相当危险的，因为它的请求并不是每个都有一个上下文，因此不能充分地履行取消。如果没有设置每个请求的最后期限的能力，你的进程可能会积压并耗尽它的资源（如内存）！因此，在设计生产级服务器时，要考虑到这一点。
+而且，最后，设计一个生产级的服务器可能是相当危险的，因为它的请求并不是每个都有一个上下文，因此不能充分地履行取消。如果没有设置每个请求的最后期限的能力，您的进程可能会积压并耗尽它的资源（如内存）！因此，在设计生产级服务器时，要考虑到这一点。
 
 ## Exception to the rule: preserving backwards compatibility 规则的例外：保持向后的兼容性
 
@@ -110,7 +110,7 @@ When Go 1.7 — which [introduced context.Context](https://go.dev/doc/go1.7) —
 
 There are two approaches for adding support for `context.Context` in backwards compatible ways: including a context in a struct, as we’ll see in a moment, and duplicating functions, with duplicates accepting `context.Context` and having `Context` as their function name suffix. The duplicate approach should be preferred over the context-in-struct, and is further discussed in [Keeping your modules compatible](https://blog.golang.org/module-compatibility). However, in some cases it’s impractical: for example, if your API exposes a large number of functions, then duplicating them all might be infeasible.
 
-有两种方法可以以向后兼容的方式添加对context.Context的支持：在一个结构中包含一个context，正如我们稍后看到的，以及复制函数，复制的函数接受context.Context并将Context作为其函数名的后缀。复制的方法应该比结构中的上下文更受欢迎，在《保持你的模块兼容》中会进一步讨论。然而，在某些情况下这是不切实际的：例如，如果你的 API 暴露了大量的函数，那么将它们全部重复可能是不可行的。
+有两种方法可以以向后兼容的方式添加对context.Context的支持：在一个结构中包含一个context，正如我们稍后看到的，以及复制函数，复制的函数接受context.Context并将Context作为其函数名的后缀。复制的方法应该比结构中的上下文更受欢迎，在《保持您的模块兼容》中会进一步讨论。然而，在某些情况下这是不切实际的：例如，如果您的 API 暴露了大量的函数，那么将它们全部重复可能是不可行的。
 
 The `net/http` package chose the context-in-struct approach, which provides a useful case study. Let’s look at `net/http`’s `Do`. Prior to the introduction of `context.Context`, `Do` was defined as follows:
 
@@ -161,7 +161,7 @@ func (c *Client) Do(req *Request) (*Response, error)
 
 When retrofitting your API to support context, it may make sense to add a `context.Context` to a struct, as above. However, remember to first consider duplicating your functions, which allows retrofitting `context.Context` in a backwards compatibility without sacrificing utility and comprehension. For example:
 
-当改造你的API以支持上下文时，将context.Context添加到一个结构中可能是有意义的，如上所述。然而，记得首先考虑重复你的函数，这样可以在不牺牲实用性和理解力的情况下，以向后兼容的方式改造context.Context。比如说：
+当改造您的API以支持上下文时，将context.Context添加到一个结构中可能是有意义的，如上所述。然而，记得首先考虑重复您的函数，这样可以在不牺牲实用性和理解力的情况下，以向后兼容的方式改造context.Context。比如说：
 
 ```go linenums="1"
 // Call uses context.Background internally; to specify the context, use

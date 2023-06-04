@@ -54,7 +54,7 @@ The last line of that code snippet would have been more complicated if we worked
 
 如果我们处理的是非alpha-remultiplied的颜色，该代码片断的最后一行会更加复杂，这就是为什么Color使用alpha-remultiplied的值。
 
-The image/color package also defines a number of concrete types that implement the `Color` interface. For example, [`RGBA`](https://go.dev/pkg/image/color/#RGBA) is a struct that represents the classic “8 bits per channel” color.
+The image/color package also defines a number of concrete types that implement the `Color` interface. For example, [`RGBA`](https://go.dev/pkg/image/color/#RGBA) is a struct that represents the classic "8 bits per channel" color.
 
 image/color包还定义了一些实现Color接口的具体类型。例如，RGBA是一个表示经典的 "每通道8比特 "颜色的结构。
 
@@ -153,7 +153,7 @@ Points and Rectangles are passed and returned by value. A function that takes a 
 
 ## Images 图像
 
-An [Image](https://go.dev/pkg/image/#Image) maps every grid square in a `Rectangle` to a `Color` from a `Model`. “The pixel at (x, y)” refers to the color of the grid square defined by the points (x, y), (x+1, y), (x+1, y+1) and (x, y+1).
+An [Image](https://go.dev/pkg/image/#Image) maps every grid square in a `Rectangle` to a `Color` from a `Model`. "The pixel at (x, y)" refers to the color of the grid square defined by the points (x, y), (x+1, y), (x+1, y+1) and (x, y+1).
 
 一个图像将矩形中的每个网格方块映射到模型中的一个颜色。"(x, y)处的像素 "指的是由(x, y)、(x+1, y)、(x+1, y+1)和(x, y+1)这几个点定义的网格方块的颜色。
 
@@ -221,7 +221,7 @@ m.Set(5, 5, color.RGBA{255, 0, 0, 255})
 
 If you’re reading or writing a lot of pixel data, it can be more efficient, but more complicated, to access these struct type’s `Pix` field directly.
 
-如果你要读或写大量的像素数据，直接访问这些结构类型的Pix字段会更有效，但也更复杂。
+如果您要读或写大量的像素数据，直接访问这些结构类型的Pix字段会更有效，但也更复杂。
 
 The slice-based `Image` implementations also provide a `SubImage` method, which returns an `Image` backed by the same array. Modifying the pixels of a sub-image will affect the pixels of the original image, analogous to how modifying the contents of a sub-slice `s[i0:i1]` will affect the contents of the original slice `s`.
 
@@ -244,7 +244,7 @@ For low-level code that works on an image’s `Pix` field, be aware that ranging
 
 The standard package library supports a number of common image formats, such as GIF, JPEG and PNG. If you know the format of a source image file, you can decode from an [`io.Reader`](https://go.dev/pkg/io/#Reader) directly.
 
-标准包库支持许多常见的图像格式，如GIF、JPEG和PNG。如果你知道一个源图像文件的格式，你可以直接从io.Reader解码。
+标准包库支持许多常见的图像格式，如GIF、JPEG和PNG。如果您知道一个源图像文件的格式，您可以直接从io.Reader解码。
 
 ```go linenums="1"
 import (
@@ -263,9 +263,9 @@ func convertJPEGToPNG(w io.Writer, r io.Reader) error {
 }
 ```
 
-If you have image data of unknown format, the [`image.Decode`](https://go.dev/pkg/image/#Decode) function can detect the format. The set of recognized formats is constructed at run time and is not limited to those in the standard package library. An image format package typically registers its format in an init function, and the main package will “underscore import” such a package solely for the side effect of format registration.
+If you have image data of unknown format, the [`image.Decode`](https://go.dev/pkg/image/#Decode) function can detect the format. The set of recognized formats is constructed at run time and is not limited to those in the standard package library. An image format package typically registers its format in an init function, and the main package will "underscore import" such a package solely for the side effect of format registration.
 
-如果你有未知格式的图像数据，image.Decode函数可以检测格式。识别的格式集是在运行时构建的，不限于标准包库中的格式。一个图像格式包通常在一个init函数中注册其格式，主包将 "下划线导入 "这样一个包，完全是为了实现格式注册的附带效果。
+如果您有未知格式的图像数据，image.Decode函数可以检测格式。识别的格式集是在运行时构建的，不限于标准包库中的格式。一个图像格式包通常在一个init函数中注册其格式，主包将 "下划线导入 "这样一个包，完全是为了实现格式注册的附带效果。
 
 ```go linenums="1"
 import (

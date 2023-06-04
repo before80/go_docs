@@ -16,7 +16,7 @@ The Go Team
 
 Today the Go team is thrilled to release Go 1.18, which you can get by visiting the [download page](https://go.dev/dl/).
 
-今天，Go团队很高兴地发布了Go 1.18，你可以通过访问下载页面获得该版本。
+今天，Go团队很高兴地发布了Go 1.18，您可以通过访问下载页面获得该版本。
 
 Go 1.18 is a massive release that includes new features, performance improvements, and our biggest change ever to the language. It isn’t a stretch to say that the design for parts of Go 1.18 started over a decade ago when we first released Go.
 
@@ -26,13 +26,13 @@ Go 1.18是一个巨大的版本，包括新的功能、性能改进，以及我�
 
 In Go 1.18, we’re introducing new support for [generic code using parameterized types](https://go.dev/blog/why-generics). Supporting generics has been Go’s most often requested feature, and we’re proud to deliver the generic support that the majority of users need today. Subsequent releases will provide additional support for some of the more complicated generic use cases. We encourage you to get to know this new feature using our [generics tutorial](https://go.dev/doc/tutorial/generics), and to explore the best ways to use generics to optimize and simplify your code today. The [release notes](https://go.dev/doc/go1.18) have more details about using generics in Go 1.18.
 
-在 Go 1.18 中，我们引入了对使用参数化类型的通用代码的新支持。支持泛型是 Go 最常被要求的功能，我们很自豪能够提供大多数用户目前需要的泛型支持。随后的版本将为一些更复杂的泛型用例提供额外支持。我们鼓励你使用我们的泛型教程来了解这个新功能，并探索使用泛型来优化和简化你的代码的最佳方法。发布说明中有关于在 Go 1.18 中使用泛型的更多细节。
+在 Go 1.18 中，我们引入了对使用参数化类型的通用代码的新支持。支持泛型是 Go 最常被要求的功能，我们很自豪能够提供大多数用户目前需要的泛型支持。随后的版本将为一些更复杂的泛型用例提供额外支持。我们鼓励您使用我们的泛型教程来了解这个新功能，并探索使用泛型来优化和简化您的代码的最佳方法。发布说明中有关于在 Go 1.18 中使用泛型的更多细节。
 
 ## Fuzzing 模糊处理
 
 With Go 1.18, Go is the first major language with fuzzing fully integrated into its standard toolchain. Like generics, fuzzing has been in design for a long time, and we’re delighted to share it with the Go ecosystem with this release. Please check out our [fuzzing tutorial](https://go.dev/doc/tutorial/fuzz) to help you get started with this new feature.
 
-在 Go 1.18 中，Go 是第一个将模糊处理完全集成到其标准工具链中的主要语言。就像泛型一样，模糊处理在设计上已经有很长时间了，我们很高兴能在这个版本中与 Go 生态系统分享它。请查看我们的模糊处理教程，以帮助你开始使用这个新功能。
+在 Go 1.18 中，Go 是第一个将模糊处理完全集成到其标准工具链中的主要语言。就像泛型一样，模糊处理在设计上已经有很长时间了，我们很高兴能在这个版本中与 Go 生态系统分享它。请查看我们的模糊处理教程，以帮助您开始使用这个新功能。
 
 ## Workspaces 工作区
 
@@ -52,7 +52,7 @@ For a more detailed description of everything that’s in 1.18, please consult t
 
 Go 1.18 is a huge milestone for the entire Go community. We want to thank every Go user who filed a bug, sent in a change, wrote a tutorial, or helped in any way to make Go 1.18 a reality. We couldn’t do it without you. Thank you.
 
-Go 1.18是整个Go社区的一个巨大的里程碑。我们要感谢每一位提交错误、发送修改、编写教程或以任何方式帮助Go 1.18成为现实的Go用户。没有你们，我们无法做到这一点。谢谢你们。
+Go 1.18是整个Go社区的一个巨大的里程碑。我们要感谢每一位提交错误、发送修改、编写教程或以任何方式帮助Go 1.18成为现实的Go用户。没有您们，我们无法做到这一点。谢谢您们。
 
 Enjoy Go 1.18!
 

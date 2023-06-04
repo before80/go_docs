@@ -5,6 +5,7 @@ weight = 2
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # go.mod file reference - go.mod文件参考
 
@@ -19,15 +20,15 @@ draft = false
 - 当前模块所需的其他模块的最低版本列表。
 - 指令，可选择用其他模块版本或本地目录`替换 (replace)`所需模块，或`排除 （exclude）`所需模块的特定版本。
 
-​	当你运行`go mod init`命令时，Go会生成一个`go.mod`文件。下面的例子创建了一个`go.mod`文件，将模块的模块路径设置为`example/mymodule`。
+​	当您运行`go mod init`命令时，Go会生成一个`go.mod`文件。下面的例子创建了一个`go.mod`文件，将模块的模块路径设置为`example/mymodule`。
 
 ```
 $ go mod init example/mymodule
 ```
 
-​	使用`go`命令来管理依赖关系。这些命令确保你的`go.mod`文件中描述的需求保持一致，并且`go.mod`文件的内容是有效的。这些命令包括`go get`和`go mod tidy`以及`go mod edit`命令。
+​	使用`go`命令来管理依赖关系。这些命令确保您的`go.mod`文件中描述的需求保持一致，并且`go.mod`文件的内容是有效的。这些命令包括`go get`和`go mod tidy`以及`go mod edit`命令。
 
-​	关于`go`命令的参考，请看[go 命令](../CommandDocumentation/go)。你可以通过输入`go help command-name`从命令行获得帮助，如`go help mod tidy`。
+​	关于`go`命令的参考，请看[go 命令](../CommandDocumentation/go)。您可以通过输入`go help command-name`从命令行获得帮助，如`go help mod tidy`。
 
 **参见**：
 
@@ -88,17 +89,17 @@ module module-path
 
 ### Notes 注意事项
 
-​	模块路径必须唯一标识你的模块。对于大多数模块，路径是一个URL，`go`命令可以在其中找到代码（或重定向到代码）。对于那些不会被直接下载的模块，模块路径可以是一些你能控制的名字，以确保唯一性。前缀`example/`也被保留下来，用于像这样的例子中。
+​	模块路径必须唯一标识您的模块。对于大多数模块，路径是一个URL，`go`命令可以在其中找到代码（或重定向到代码）。对于那些不会被直接下载的模块，模块路径可以是一些您能控制的名字，以确保唯一性。前缀`example/`也被保留下来，用于像这样的例子中。
 
 ​	更多细节，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
 ​	在实践中，模块路径通常是模块源的版本库域和版本库中的模块代码的路径。`go`命令在下载模块版本时依赖这种形式，来代表模块用户解决依赖关系。
 
-​	即使你一开始不打算让你的模块供其他代码使用，使用它的存储库路径也是一种最佳做法，可以帮助你避免在以后发布模块时不得不重命名它。
+​	即使您一开始不打算让您的模块供其他代码使用，使用它的存储库路径也是一种最佳做法，可以帮助您避免在以后发布模块时不得不重命名它。
 
-​	如果一开始你不知道模块的最终存储库位置，可以考虑暂时使用一个安全的替代品，比如你拥有的域名或你控制的名称（如你的公司名称），以及模块名称或源目录的后续路径。更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
+​	如果一开始您不知道模块的最终存储库位置，可以考虑暂时使用一个安全的替代品，比如您拥有的域名或您控制的名称（如您的公司名称），以及模块名称或源目录的后续路径。更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
-​	例如，如果你在`stringtools`目录下开发，你的临时模块路径可能是`<company-name>/stringtools`，如下面的例子，其中`company-name`是你公司的名字：
+​	例如，如果您在`stringtools`目录下开发，您的临时模块路径可能是`<company-name>/stringtools`，如下面的例子，其中`company-name`是您公司的名字：
 
 ```
 go mod init <company-name>/stringtools
@@ -191,9 +192,9 @@ require module-path module-version
 
 ### Notes 注意事项
 
-​	当你运行 `go` 命令时，例如 `go get`，Go 会为包含导入包的每个模块插入 `require` 指令。当一个模块还没有在其存储库中被标记时，Go 会分配一个它在运行命令时生成的伪版本号。
+​	当您运行 `go` 命令时，例如 `go get`，Go 会为包含导入包的每个模块插入 `require` 指令。当一个模块还没有在其存储库中被标记时，Go 会分配一个它在运行命令时生成的伪版本号。
 
-​	你可以通过使用[replace指令](#replace)让 Go 从其存储库以外的地方要求一个模块。
+​	您可以通过使用[replace指令](#replace)让 Go 从其存储库以外的地方要求一个模块。
 
 ​	更多关于版本号的信息，请参见[模块版本号](../../UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNumbering)。
 
@@ -207,7 +208,7 @@ require module-path module-version
 
 - [Upgrading or downgrading a dependency（升级或降级一个依赖项）](../../UsingAndUnderstandingGo/ManagingDependencies#upgrading-or-downgrading-a-dependency)
 
-- [Synchronizing your code’s dependencies（同步你的代码的依赖项）](../../UsingAndUnderstandingGo/ManagingDependencies#synchronizing-your-code-s-dependencies)
+- [Synchronizing your code’s dependencies（同步您的代码的依赖项）](../../UsingAndUnderstandingGo/ManagingDependencies#synchronizing-your-code-s-dependencies)
 
   
 
@@ -254,7 +255,7 @@ replace module-path [module-version] => replacement-path [replacement-version]
 
   ​	当另一个模块路径替换一个模块时，不用更改要替换的模块中包的导入语句。
 
-  ​	关于使用分叉的模块代码副本的更多信息，请参阅[Requiring external module code from your own repository fork（从你自己的存储库分叉中请求外部模块代码）](../../UsingAndUnderstandingGo/ManagingDependencies#requiring-external-module-code-from-your-own-repository-fork)。
+  ​	关于使用分叉的模块代码副本的更多信息，请参阅[Requiring external module code from your own repository fork（从您自己的存储库分叉中请求外部模块代码）](../../UsingAndUnderstandingGo/ManagingDependencies#requiring-external-module-code-from-your-own-repository-fork)。
 
 - 用不同的版本号替换
 
@@ -294,18 +295,16 @@ replace module-path [module-version] => replacement-path [replacement-version]
 
 ### Notes 注意事项
 
-​	当你想让Go使用另一个路径来查找模块的源代码时，可以使用`replace`指令来暂时用另一个值来替换模块的路径值。这样做的效果是将 Go 的模块搜索重定向到替换的位置。你不必更改包的导入路径以使用替换路径。
+​	当您想让Go使用另一个路径来查找模块的源代码时，可以使用`replace`指令来暂时用另一个值来替换模块的路径值。这样做的效果是将 Go 的模块搜索重定向到替换的位置。您不必更改包的导入路径以使用替换路径。
 
 ​	在构建当前模块时，使用`exclude`和`replace`指令来控制构建时的依赖项解析。**这些指令在依赖于当前模块的模块中会被忽略。**
 
 ​	`replace`指令在以下情况下很有用：
 
-- 你正在开发一个新的模块，其代码还没有进入存储库。你想用一个本地版本的客户端进行测试。
-- 你发现了一个依赖项的问题，克隆了这个依赖项的存储库，并且正在使用本地存储库测试一个修复程序。
+- 您正在开发一个新的模块，其代码还没有进入存储库。您想用一个本地版本的客户端进行测试。
+- 您发现了一个依赖项的问题，克隆了这个依赖项的存储库，并且正在使用本地存储库测试一个修复程序。
 
-!!! warning "请注意"
-
-	请注意，单独的`replace`指令并不能将一个模块添加到[module graph（模块图）](../GoModulesReference/Glossary#module-graph)中。在主模块的 `go.mod` 文件或依赖模块的 `go.mod` 文件中，还需要一个指向被替换模块版本的 [require 指令](#require)。如果你没有一个特定的版本要替换，你可以使用一个假版本，就像下面的示例。注意，这将破坏依赖于你的模块的模块，因为`replace`指令仅应用于主模块。
+> ​	请注意，单独的`replace`指令并不能将一个模块添加到[module graph（模块图）](../GoModulesReference/Glossary#module-graph)中。在主模块的 `go.mod` 文件或依赖模块的 `go.mod` 文件中，还需要一个指向被替换模块版本的 [require 指令](#require)。如果您没有一个特定的版本要替换，您可以使用一个假版本，就像下面的示例。注意，这将破坏依赖于您的模块的模块，因为`replace`指令仅应用于主模块。
 
 ```
 require example.com/mod v0.0.0-replace
@@ -315,7 +314,7 @@ replace example.com/mod v0.0.0-replace => ./mod
 
 ​	关于替换所需模块的更多信息，包括使用Go工具进行更改，请参见：
 
-- [Requiring external module code from your own repository fork（从你自己的版本库分叉中请求外部模块代码）](../../UsingAndUnderstandingGo/ManagingDependencies#requiring-external-module-code-from-your-own-repository-fork)
+- [Requiring external module code from your own repository fork（从您自己的版本库分叉中请求外部模块代码）](../../UsingAndUnderstandingGo/ManagingDependencies#requiring-external-module-code-from-your-own-repository-fork)
 - [Requiring module code in a local directory（要求本地目录中的模块代码）](../../UsingAndUnderstandingGo/ManagingDependencies#requiring-module-code-in-a-local-directory)
 
 更多关于版本号的信息，参见[模块版本号](../../UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNumbering)。
@@ -351,11 +350,11 @@ exclude module-path module-version
 
 ### Notes 注意事项
 
-​	使用`exclude`指令可以排除一个间接需要但由于某种原因无法加载的模块的特定版本。例如，你可以用它来排除一个有无效校验和的模块的版本。
+​	使用`exclude`指令可以排除一个间接需要但由于某种原因无法加载的模块的特定版本。例如，您可以用它来排除一个有无效校验和的模块的版本。
 
-​	在构建当前模块（你正在构建的主模块）时，使用`exclude`和`replace`指令来控制构建时的依赖项解析。**这些指令在依赖于当前模块的模块中会被忽略**。
+​	在构建当前模块（您正在构建的主模块）时，使用`exclude`和`replace`指令来控制构建时的依赖项解析。**这些指令在依赖于当前模块的模块中会被忽略**。
 
-​	你可以使用[go mod edit](../GoModulesReference/Module-awareCommands#go-mod-edit)命令来排除一个模块，如下面的示例。
+​	您可以使用[go mod edit](../GoModulesReference/Module-awareCommands#go-mod-edit)命令来排除一个模块，如下面的示例。
 
 ```
 go mod edit -exclude=example.com/theirmodule@v1.3.0
@@ -408,7 +407,7 @@ retract [version-low,version-high] // rationale
 
 ### Notes 注意事项
 
-​	使用`retract`指令来指示你的模块的前一个版本不应该被使用。用户不会通过`go get`、`go mod tidy`或其他命令自动升级到撤回的版本。用户不会在`go list -m -u`中看到撤回的版本是可用的更新。
+​	使用`retract`指令来指示您的模块的前一个版本不应该被使用。用户不会通过`go get`、`go mod tidy`或其他命令自动升级到撤回的版本。用户不会在`go list -m -u`中看到撤回的版本是可用的更新。
 
 ​	撤回的版本应该保持可用，以便已经依赖它们的用户能够构建他们的软件包。即使撤回的版本已经从源码库中删除，它仍然可以在[proxy.golang.org](https://proxy.golang.org/)这样的镜像中使用。当用户在相关模块上运行 `go get` 或 `go list -m -u` 时，他们可能会被通知依赖被撤回的版本。
 
@@ -418,11 +417,11 @@ retract [version-low,version-high] // rationale
 2. 它的最高预发布版本，如果有的话；
 3. 储存库默认分支的尖端（tip）的伪版本。
 
-​	当你添加一个撤回内容时，**你几乎总是需要标记一个新的、更高的版本**，这样命令就会在模块的最新版本中看到它。
+​	当您添加一个撤回内容时，**您几乎总是需要标记一个新的、更高的版本**，这样命令就会在模块的最新版本中看到它。
 
-​	你可以发布一个版本，该版本的唯一目的是发出撤回的信号。在这种情况下，新版本也可能撤回自己。
+​	您可以发布一个版本，该版本的唯一目的是发出撤回的信号。在这种情况下，新版本也可能撤回自己。
 
-​	例如，如果你不小心标记了`v1.0.0`，你可以用以下指令标记`v1.0.1`：
+​	例如，如果您不小心标记了`v1.0.0`，您可以用以下指令标记`v1.0.1`：
 
 ```
 retract v1.0.0 // Published accidentally. 已意外地发布。
@@ -431,4 +430,4 @@ retract v1.0.1 // Contains retraction only. 仅包含撤回。
 
 ​	遗憾的是，一旦版本发布，就无法更改。如果稍后在不同的提交中标记了`v1.0.0`，`go`命令可能会在`go.sum`或[校验数据库](../GoModulesReference/AuthenticatingModules#checksum-database)中检测到一个不匹配的和。
 
-​	模块的撤回版本通常不会出现在 `go list -m -versions` 的输出中，但你可以使用 `-retracted` 来显示它们。更多信息请参见 Go Modules Reference 中的 [go list -m](../GoModulesReference/Module-awareCommands#go-list-m)。
+​	模块的撤回版本通常不会出现在 `go list -m -versions` 的输出中，但您可以使用 `-retracted` 来显示它们。更多信息请参见 Go Modules Reference 中的 [go list -m](../GoModulesReference/Module-awareCommands#go-list-m)。

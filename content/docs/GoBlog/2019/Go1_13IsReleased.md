@@ -16,7 +16,7 @@ Andrew Bonventre
 
 Today the Go team is very happy to announce the release of Go 1.13. You can get it from the [download page](https://go.dev/dl).
 
-今天，Go团队非常高兴地宣布Go 1.13的发布。你可以从下载页面获得它。
+今天，Go团队非常高兴地宣布Go 1.13的发布。您可以从下载页面获得它。
 
 
 
@@ -36,8 +36,8 @@ For the complete list of changes and more information about the improvements abo
 
 We want to thank everyone who contributed to this release by writing code, filing bugs, providing feedback, and/or testing the beta and release candidates. Your contributions and diligence helped to ensure that Go 1.13 is as stable as possible. That said, if you notice any problems, please [file an issue](https://go.dev/issue/new).
 
-我们要感谢所有通过编写代码、提交错误、提供反馈和/或测试测试版和候选版而为这个版本做出贡献的人。你的贡献和勤奋有助于确保Go 1.13尽可能的稳定。也就是说，如果你发现任何问题，请提出问题。
+我们要感谢所有通过编写代码、提交错误、提供反馈和/或测试测试版和候选版而为这个版本做出贡献的人。您的贡献和勤奋有助于确保Go 1.13尽可能的稳定。也就是说，如果您发现任何问题，请提出问题。
 
 We hope you enjoy the new release!
 
-我们希望你喜欢这个新版本
+我们希望您喜欢这个新版本

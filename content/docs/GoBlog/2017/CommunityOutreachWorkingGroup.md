@@ -59,4 +59,4 @@ CWG有一个开放的GitHub repo，我们已经创建了一个完全透明的努
 
 If you’d like to get involved, we encourage you to comment on the issue that interests you or [submit an issue](https://github.com/golang/cwg/issues/new) yourself!
 
-如果你想参与进来，我们鼓励你在你感兴趣的问题上发表评论，或者自己提交一个问题。
+如果您想参与进来，我们鼓励您在您感兴趣的问题上发表评论，或者自己提交一个问题。

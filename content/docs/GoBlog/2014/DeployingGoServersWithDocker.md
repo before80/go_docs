@@ -22,7 +22,7 @@ This week Docker [announced](https://blog.docker.com/2014/09/docker-hub-official
 
 In this article we’ll walk through a recipe for creating a Docker container for a simple Go web application and deploying that container to Google Compute Engine. If you’re not familiar with Docker, you should read [Understanding Docker](https://docs.docker.com/engine/understanding-docker/) before reading on.
 
-在这篇文章中，我们将介绍如何为一个简单的Go网络应用程序创建Docker容器，并将该容器部署到Google Compute Engine。如果你对Docker不熟悉，在继续阅读之前，你应该先阅读《理解Docker》。
+在这篇文章中，我们将介绍如何为一个简单的Go网络应用程序创建Docker容器，并将该容器部署到Google Compute Engine。如果您对Docker不熟悉，在继续阅读之前，您应该先阅读《理解Docker》。
 
 ## The demo app 演示应用程序
 
@@ -30,9 +30,9 @@ For our demonstration we will use the [outyet](https://pkg.go.dev/golang.org/x/e
 
 对于我们的演示，我们将使用Go实例库中的outyet程序，这是一个简单的网络服务器，用于报告Go的下一个版本是否已经发布（旨在为isgo1point4.outyet.org等网站提供支持）。它没有标准库以外的依赖关系，在运行时也不需要额外的数据文件；对于一个网络服务器来说，它是最简单的。
 
-Use “go get” to fetch and install outyet in your [workspace](https://go.dev/doc/code.html#Workspaces):
+Use "go get" to fetch and install outyet in your [workspace](https://go.dev/doc/code.html#Workspaces):
 
-使用 "go get "来获取并安装outyet到你的工作区。
+使用 "go get "来获取并安装outyet到您的工作区。
 
 ```
 $ go get golang.org/x/example/outyet
@@ -117,13 +117,13 @@ The `--rm` flag tells docker to remove the container image when the outyet serve
 
 With the container running, open `http://localhost:6060/` in a web browser and you should see something like this:
 
-容器运行后，在网络浏览器中打开http://localhost:6060/，你应该看到类似这样的东西。
+容器运行后，在网络浏览器中打开http://localhost:6060/，您应该看到类似这样的东西。
 
 ![img](DeployingGoServersWithDocker_img/outyet.png)
 
 (If your docker daemon is running on another machine (or in a virtual machine), you should replace `localhost` with the address of that machine. If you’re using [boot2docker](http://boot2docker.io/) on OS X or Windows you can find that address with `boot2docker ip`.)
 
-(如果你的docker守护程序运行在另一台机器上（或在虚拟机中），你应该用该机器的地址替换localhost。如果你在OS X或Windows上使用boot2docker，你可以用boot2docker ip找到这个地址）。
+(如果您的docker守护程序运行在另一台机器上（或在虚拟机中），您应该用该机器的地址替换localhost。如果您在OS X或Windows上使用boot2docker，您可以用boot2docker ip找到这个地址）。
 
 Now that we’ve verified that the image works, shut down the running container from another terminal window:
 
@@ -149,7 +149,7 @@ To set up an Automated Build, commit the Dockerfile to your repo on [GitHub](htt
 
 When you’re done, you can run your container using the name of the automated build:
 
-当你完成后，你可以使用自动构建的名称来运行你的容器：
+当您完成后，您可以使用自动构建的名称来运行您的容器：
 
 ```shell
 $ docker run goexample/outyet
@@ -157,7 +157,7 @@ $ docker run goexample/outyet
 
 (Replace `goexample/outyet` with the name of the automated build you created.)
 
-(将goexample/outyet替换为你创建的自动化构建的名称）。
+(将goexample/outyet替换为您创建的自动化构建的名称）。
 
 ## Deploy the container to Google Compute Engine 将容器部署到Google Compute Engine
 
@@ -182,7 +182,7 @@ containers:
 
 (Note that we’re publishing the container’s port `8080` as external port `80`, the default port for serving HTTP traffic. And, again, you should replace `goexample/outyet` with the name of your Automated Build.)
 
-(注意，我们将容器的8080端口发布为外部端口80，这是服务HTTP流量的默认端口。还有，你应该用你的自动构建的名称来替换goexample/outyet）。
+(注意，我们将容器的8080端口发布为外部端口80，这是服务HTTP流量的默认端口。还有，您应该用您的自动构建的名称来替换goexample/outyet）。
 
 Use the [gcloud tool](https://cloud.google.com/sdk/#Quick_Start) to create a VM instance running the container:
 
@@ -208,29 +208,29 @@ The `--image` and `--image-project` flags specify the special container-optimize
 
 The `--metadata-from-file` flag supplies your `containers.yaml` file to the VM.
 
---metadata-from-file标志向虚拟机提供你的containers.yaml文件。
+--metadata-from-file标志向虚拟机提供您的containers.yaml文件。
 
 The `--tags` flag tags your VM instance as an HTTP server, adjusting the firewall to expose port 80 on the public network interface.
 
---tags标志将你的虚拟机实例标记为HTTP服务器，调整防火墙以暴露公共网络接口上的80端口。
+--tags标志将您的虚拟机实例标记为HTTP服务器，调整防火墙以暴露公共网络接口上的80端口。
 
 The `--zone` and `--machine-type` flags specify the zone in which to run the VM and the type of machine to run. (To see a list of machine types and the zones, run `gcloud compute machine-types list`.)
 
 --zone 和 --machine-type 标志指定了运行 VM 的区域和运行的机器类型。(要查看机器类型和区域的列表，请运行gcloud compute machine-types list）。
 
-Once this has completed, the gcloud command should print some information about the instance. In the output, locate the `networkInterfaces` section to find the instance’s external IP address. Within a couple of minutes you should be able to access that IP with your web browser and see the “Has Go 1.4 been released yet?” page.
+Once this has completed, the gcloud command should print some information about the instance. In the output, locate the `networkInterfaces` section to find the instance’s external IP address. Within a couple of minutes you should be able to access that IP with your web browser and see the "Has Go 1.4 been released yet?" page.
 
-一旦完成了这些，gcloud 命令应该会打印出关于该实例的一些信息。在输出中，找到 networkInterfaces 部分，找到实例的外部 IP 地址。在几分钟内，你应该能够用你的网络浏览器访问该IP，并看到 "Go 1.4已经发布了吗？"的页面。
+一旦完成了这些，gcloud 命令应该会打印出关于该实例的一些信息。在输出中，找到 networkInterfaces 部分，找到实例的外部 IP 地址。在几分钟内，您应该能够用您的网络浏览器访问该IP，并看到 "Go 1.4已经发布了吗？"的页面。
 
 (To see what’s happening on the new VM instance you can ssh into it with `gcloud compute ssh outyet`. From there, try `sudo docker ps` to see which Docker containers are running.)
 
-(要查看新的虚拟机实例上的情况，你可以用gcloud compute ssh outyet登录它。在那里，试试sudo docker ps，看看哪些Docker容器正在运行）。
+(要查看新的虚拟机实例上的情况，您可以用gcloud compute ssh outyet登录它。在那里，试试sudo docker ps，看看哪些Docker容器正在运行）。
 
 ## Learn more 了解更多
 
 This is just the tip of the iceberg—there’s a lot more you can do with Go, Docker, and Google Compute Engine.
 
-这只是冰山一角--你可以用Go、Docker和Google Compute Engine做的事情还有很多。
+这只是冰山一角--您可以用Go、Docker和Google Compute Engine做的事情还有很多。
 
 To learn more about Docker, see their [extensive documentation](https://docs.docker.com/).
 

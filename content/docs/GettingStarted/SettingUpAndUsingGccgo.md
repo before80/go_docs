@@ -12,9 +12,7 @@ draft = false
 
 ​	本文介绍了如何使用`gccgo`，这是Go语言的编译器。`gccgo`编译器是广泛使用的GNU编译器`GCC`的一个新前端。尽管前端本身采用BSD风格的许可证，但`gccgo`通常作为`GCC`的一部分使用，然后由[GNU通用公共许可证](https://www.gnu.org/licenses/gpl.html)涵盖（该许可证涵盖`gccgo`本身作为`GCC`的一部分；它不包括由`gccgo`生成的代码）。
 
-!!! warning "注意"
-
-	请注意，gccgo 不是 `gc` 编译器；请参阅[安装 Go](../InstallingGo) 编译器的说明。
+> 请注意，gccgo 不是 `gc` 编译器；请参阅[安装 Go](../InstallingGo) 编译器的说明。
 
 ## 版本
 
@@ -62,21 +60,19 @@ draft = false
 
 ## 源代码
 
-​	如果你不能使用某个发行版，或者喜欢自己构建`gccgo`，可以通过Git访问`gccgo`源代码。`GCC` 网站上有[获取 `GCC` 源代码的说明](https://gcc.gnu.org/git.html)。`gccgo`的源代码已经包括在内。为方便起见，在`GCC`主代码库的`devel/gccgo`分支中提供了Go支持的稳定版本：`git://gcc.gnu.org/git/gcc.git`。这个分支会定期更新稳定的 Go 编译器源代码。
+​	如果您不能使用某个发行版，或者喜欢自己构建`gccgo`，可以通过Git访问`gccgo`源代码。`GCC` 网站上有[获取 `GCC` 源代码的说明](https://gcc.gnu.org/git.html)。`gccgo`的源代码已经包括在内。为方便起见，在`GCC`主代码库的`devel/gccgo`分支中提供了Go支持的稳定版本：`git://gcc.gnu.org/git/gcc.git`。这个分支会定期更新稳定的 Go 编译器源代码。
 
-!!! warning "注意"
-
-	请注意，尽管 `gcc.gnu.org` 是获取 Go 前端源代码的最便捷方式，但它并不是主源的所在。如果您想对 Go 前端编译器进行修改，请参见[对 gccgo 的贡献](https://go.dev/doc/gccgo_contribute.html)。
+> 请注意，尽管 `gcc.gnu.org` 是获取 Go 前端源代码的最便捷方式，但它并不是主源的所在。如果您想对 Go 前端编译器进行修改，请参见[对 gccgo 的贡献](https://go.dev/doc/gccgo_contribute.html)。
 
 ## 构建
 
-​	构建`gccgo`就像构建`GCC`一样，只是多了一个或两个选项。见[gcc网站上的说明](https://gcc.gnu.org/install/)。当你运行`configure`时，添加选项`--enable-languages=c,c++,go`（以及其他你可能想要构建的语言）。如果你的目标是`32`位`x86`，若你希望所构建的`gccgo`默认支持锁定的比较和交换指令；那么可以通过使用`configure`选项`--with-arch=i586`（或更新的架构，取决于你需要你的程序在哪里运行）来实现。如果你的目标是`64`位`x86`，但有时想使用`-m32`选项，那么可以使用`configure`选项 `--with-arch-32=i586`。
+​	构建`gccgo`就像构建`GCC`一样，只是多了一个或两个选项。见[gcc网站上的说明](https://gcc.gnu.org/install/)。当您运行`configure`时，添加选项`--enable-languages=c,c++,go`（以及其他您可能想要构建的语言）。如果您的目标是`32`位`x86`，若您希望所构建的`gccgo`默认支持锁定的比较和交换指令；那么可以通过使用`configure`选项`--with-arch=i586`（或更新的架构，取决于您需要您的程序在哪里运行）来实现。如果您的目标是`64`位`x86`，但有时想使用`-m32`选项，那么可以使用`configure`选项 `--with-arch-32=i586`。
 
 ### Gold
 
-​	在x86 GNU/Linux系统上，gccgo编译器能够为`goroutines`使用一个小的不连续堆栈。这允许程序运行更多的`goroutine`，因为每个`goroutine`可以使用一个相对较小的堆栈。做到这一点需要使用2.22或更高版本的`gold linker`。你可以安装`GNU binutils 2.22`或更高版本，或者你可以自己构建`gold`。
+​	在x86 GNU/Linux系统上，gccgo编译器能够为`goroutines`使用一个小的不连续堆栈。这允许程序运行更多的`goroutine`，因为每个`goroutine`可以使用一个相对较小的堆栈。做到这一点需要使用2.22或更高版本的`gold linker`。您可以安装`GNU binutils 2.22`或更高版本，或者您可以自己构建`gold`。
 
-​	要自己构建`gold`，可以在运行`configure`脚本时使用`--enable-gold=default`来构建`GNU binutils`。在构建之前，你必须安装`flex`和`bison`软件包。一个典型的顺序是这样的（你可以把`/opt/gold`替换成任何你有写权限的目录）：
+​	要自己构建`gold`，可以在运行`configure`脚本时使用`--enable-gold=default`来构建`GNU binutils`。在构建之前，您必须安装`flex`和`bison`软件包。一个典型的顺序是这样的（您可以把`/opt/gold`替换成任何您有写权限的目录）：
 
 ```shell
 git clone git://sourceware.org/git/binutils-gdb.git
@@ -87,7 +83,7 @@ make
 make install
 ```
 
-​	无论你如何安装`gold`，当你配置`gccgo`时，请使用选项`--with-ld=GOLD_BINARY`。
+​	无论您如何安装`gold`，当您配置`gccgo`时，请使用选项`--with-ld=GOLD_BINARY`。
 
 ### 先决条件
 
@@ -95,7 +91,7 @@ make install
 
 ### 构建命令
 
-​	一旦所有的先决条件都安装好了，那么一个典型的构建和安装顺序是这样的（如果你使用上述的`gold linker`，只需使用`--with-ld`选项）：
+​	一旦所有的先决条件都安装好了，那么一个典型的构建和安装顺序是这样的（如果您使用上述的`gold linker`，只需使用`--with-ld`选项）：
 
 ```
 git clone --branch devel/gccgo git://gcc.gnu.org/git/gcc.git gccgo
@@ -122,7 +118,7 @@ gccgo -c file.go
 gccgo -o file file.o
 ```
 
-要运行生成的文件，你需要告诉程序在哪里可以找到编译后的Go软件包。有几种方法可以做到这一点：
+要运行生成的文件，您需要告诉程序在哪里可以找到编译后的Go软件包。有几种方法可以做到这一点：
 
 - 设置`LD_LIBRARY_PATH`环境变量：
 
@@ -137,7 +133,7 @@ gccgo -o file file.o
 
   这里的`${prefix}`是构建`gccgo`时使用的`--prefix`选项。对于二进制安装来说，这通常是`/usr`。是否使用`lib`或`lib64`取决于目标。通常，`lib64`适用于`x86_64`系统，`lib`适用于其他系统。想法是找到 `libgo.so` 的所在目录作为其名称。=> 仍有疑问？？
 
-- 在链接时传递一个 `-Wl,-R` 选项（如果适合你的系统，就用 `lib64` 替换 `lib`）：
+- 在链接时传递一个 `-Wl,-R` 选项（如果适合您的系统，就用 `lib64` 替换 `lib`）：
 
   ```
   go build -gccgoflags -Wl,-R,${prefix}/lib/gcc/MACHINE/VERSION
@@ -154,15 +150,15 @@ gccgo -o file file.o
 
 ​	`gccgo`编译器支持所有与语言无关的`GCC`选项，特别是`-O`和`-g`选项。
 
-​	`-fgo-pkgpath=PKGPATH`选项可以用来为正在编译的软件包设置一个唯一的前缀。此选项会被`go`命令自动使用，但如果你直接调用`gccgo`，你可能需要使用它。此选项主要用于包含许多包的大型程序，以允许多个包使用相同的标识符作为包名。`PKGPATH`可以是任何字符串；字符串的一个好选择是用于导入软件包的路径。
+​	`-fgo-pkgpath=PKGPATH`选项可以用来为正在编译的软件包设置一个唯一的前缀。此选项会被`go`命令自动使用，但如果您直接调用`gccgo`，您可能需要使用它。此选项主要用于包含许多包的大型程序，以允许多个包使用相同的标识符作为包名。`PKGPATH`可以是任何字符串；字符串的一个好选择是用于导入软件包的路径。
 
-​	`-I`和`-L`选项是编译器的同义词，可以用来设置寻找导入的搜索路径。如果你用`go`命令编译，则不需要这些选项。
+​	`-I`和`-L`选项是编译器的同义词，可以用来设置寻找导入的搜索路径。如果您用`go`命令编译，则不需要这些选项。
 
 ## 导入
 
-​	当你编译一个导出某些内容的文件时，导出信息将直接存储在对象文件中。如果你直接用`gccgo`编译，而不是用go命令，那么当你导入一个包时，你必须告诉`gccgo`如何找到该文件。
+​	当您编译一个导出某些内容的文件时，导出信息将直接存储在对象文件中。如果您直接用`gccgo`编译，而不是用go命令，那么当您导入一个包时，您必须告诉`gccgo`如何找到该文件。
 
-​	当你用`gccgo`导入`FILE`软件包时，它将在下列文件中寻找导入数据，并使用它找到的第一个文件。
+​	当您用`gccgo`导入`FILE`软件包时，它将在下列文件中寻找导入数据，并使用它找到的第一个文件。
 
 - `FILE.gox`
 - `libFILE.so`
@@ -175,9 +171,9 @@ gccgo -o file file.o
 objcopy -j .go_export FILE.o FILE.gox
 ```
 
-​	`gccgo`编译器会在当前目录下寻找导入文件。在更复杂的情况下，你可以传递`-I`或`-L`选项给`gccgo`。这两个选项都需要设置为搜索的目录。`-L`选项也会传递给链接器。
+​	`gccgo`编译器会在当前目录下寻找导入文件。在更复杂的情况下，您可以传递`-I`或`-L`选项给`gccgo`。这两个选项都需要设置为搜索的目录。`-L`选项也会传递给链接器。
 
-​	`gccgo`编译器目前（2015-06-15）不在对象文件中记录导入包的文件名。你必须安排将导入的数据链接到程序中。同样，在用`go`命令构建时，这也是没有必要的。
+​	`gccgo`编译器目前（2015-06-15）不在对象文件中记录导入包的文件名。您必须安排将导入的数据链接到程序中。同样，在用`go`命令构建时，这也是没有必要的。
 
 ```
 gccgo -c mypackage.go              # Exports mypackage
@@ -187,7 +183,7 @@ gccgo -o main main.o mypackage.o   # Explicitly links with mypackage.o
 
 ## 调试
 
-​	如果你在编译时使用`-g`选项，你可以在你的可执行文件上运行`gdb`。调试器对Go的了解是有限的。你可以设置断点、单步执行等。你可以打印变量，但它们会被打印成具有`C/C++`的类型。对于数字类型，这并不重要。Go 字符串和接口将显示为两个元素结构。Go映射和通道始终表示为指向运行时结构的C指针。
+​	如果您在编译时使用`-g`选项，您可以在您的可执行文件上运行`gdb`。调试器对Go的了解是有限的。您可以设置断点、单步执行等。您可以打印变量，但它们会被打印成具有`C/C++`的类型。对于数字类型，这并不重要。Go 字符串和接口将显示为两个元素结构。Go映射和通道始终表示为指向运行时结构的C指针。
 
 ## C语言的互操作性
 
@@ -206,7 +202,7 @@ struct __go_string {
 };
 ```
 
-​	你不能在`C`和`Go`之间传递数组。然而，Go中指向数组的指针等同于指向元素类型的C语言指针。例如，Go `*[10]int `相当于 C `int*`，前提是 C 指针确实指向 10 个元素。
+​	您不能在`C`和`Go`之间传递数组。然而，Go中指向数组的指针等同于指向元素类型的C语言指针。例如，Go `*[10]int `相当于 C `int*`，前提是 C 指针确实指向 10 个元素。
 
 Go中的切片（在这里）是一个结构。目前的定义是（这可能会改变）：
 
@@ -247,11 +243,11 @@ i := c_open(&name[0], syscall.O_RDONLY, 0);
 
 (这只是一个例子，要在Go中打开一个文件，请使用Go的`os.Open`函数代替）。
 
-!!! warning "注意"
+> 注意
+>
+> ​	如果C函数可以阻塞，例如在调用`read` 时，调用C函数可能会阻塞Go程序。除非您清楚地了解您在做什么，否则所有C和Go之间的调用都应该通过`cgo`或`SWIG`来实现，就像`gc`编译器一样。
 
-	如果C函数可以阻塞，例如在调用`read` 时，调用C函数可能会阻塞Go程序。除非您清楚地了解您在做什么，否则所有C和Go之间的调用都应该通过`cgo`或`SWIG`来实现，就像`gc`编译器一样。
-
-​	从C语言访问的Go函数的名称可能会改变。目前，没有接收器的 Go 函数的名称是 `prefix.package.Functionname`。前缀由编译包时使用的`-fgo-prefix`选项设置；如果没有使用该选项，默认为`go`。要从C语言中调用该函数，你必须使用`GCC`扩展来设置名称。
+​	从C语言访问的Go函数的名称可能会改变。目前，没有接收器的 Go 函数的名称是 `prefix.package.Functionname`。前缀由编译包时使用的`-fgo-prefix`选项设置；如果没有使用该选项，默认为`go`。要从C语言中调用该函数，您必须使用`GCC`扩展来设置名称。
 
 ```
 extern int go_function(int) __asm__ ("myprefix.mypackage.Function");
@@ -261,6 +257,6 @@ extern int go_function(int) __asm__ ("myprefix.mypackage.Function");
 
 ​	`GCC`的Go版本支持从C代码中自动生成Go声明。这个功能比较笨拙，大多数用户应该使用带有`-gccgo`选项的`cgo`程序来代替。
 
-​	像往常一样编译你的C代码，并添加选项`-fdump-go-spec=FILENAME`。这将创建 `FILENAME` 文件作为编译的副作用。这个文件将包含C代码中所声明的类型、变量和函数的Go声明。不能用Go表示的C类型将被记录为Go代码中的注释。生成的文件将没有`package`声明，但可以直接被`gccgo`编译。
+​	像往常一样编译您的C代码，并添加选项`-fdump-go-spec=FILENAME`。这将创建 `FILENAME` 文件作为编译的副作用。这个文件将包含C代码中所声明的类型、变量和函数的Go声明。不能用Go表示的C类型将被记录为Go代码中的注释。生成的文件将没有`package`声明，但可以直接被`gccgo`编译。
 
 ​	这个程序充满了未说明的注意事项和限制，我们不保证它在将来不会改变。与其说它是一个常规程序，不如说它是真正Go代码的起点。

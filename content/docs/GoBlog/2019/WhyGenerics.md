@@ -70,7 +70,7 @@ func ReverseInts(s []int) {
 
 Pretty simple, but even for a simple function like that you’d want to write a few test cases. In fact, when I did, I found a bug. I’m sure many readers have spotted it already.
 
-很简单，但即使是这样一个简单的函数，你也会想写一些测试案例。事实上，当我这样做时，我发现了一个错误。我相信很多读者已经发现了它。
+很简单，但即使是这样一个简单的函数，您也会想写一些测试案例。事实上，当我这样做时，我发现了一个错误。我相信很多读者已经发现了它。
 
 ```go linenums="1"
 func ReverseInts(s []int) {
@@ -106,7 +106,7 @@ func ReverseStrings(s []string) {
 
 If you compare `ReverseInts` and `ReverseStrings`, you’ll see that the two functions are exactly the same, except for the type of the parameter. I don’t think any reader is surprised by that.
 
-如果你比较一下ReverseInts和ReverseStrings，你会发现这两个函数是完全一样的，除了参数的类型不同。我想没有任何读者会对此感到惊讶。
+如果您比较一下ReverseInts和ReverseStrings，您会发现这两个函数是完全一样的，除了参数的类型不同。我想没有任何读者会对此感到惊讶。
 
 What some people new to Go find surprising is that there is no way to write a simple `Reverse` function that works for a slice of any type.
 
@@ -114,11 +114,11 @@ What some people new to Go find surprising is that there is no way to write a si
 
 Most other languages do let you write that kind of function.
 
-大多数其他语言都允许你写这种函数。
+大多数其他语言都允许您写这种函数。
 
 In a dynamically typed language like Python or JavaScript you can simply write the function, without bothering to specify the element type. This doesn’t work in Go because Go is statically typed, and requires you to write down the exact type of the slice and the type of the slice elements.
 
-在像Python或JavaScript这样的动态类型语言中，你可以简单地编写函数，而不必费心去指定元素类型。这在Go中是行不通的，因为Go是静态类型的，它要求你写下分片的确切类型和分片元素的类型。
+在像Python或JavaScript这样的动态类型语言中，您可以简单地编写函数，而不必费心去指定元素类型。这在Go中是行不通的，因为Go是静态类型的，它要求您写下分片的确切类型和分片元素的类型。
 
 Most other statically typed languages, like C++ or Java or Rust or Swift, support generics to address exactly this kind of issue.
 
@@ -132,7 +132,7 @@ So how do people write this kind of code in Go?
 
 In Go you can write a single function that works for different slice types by using an interface type, and defining a method on the slice types you want to pass in. That is how the standard library’s `sort.Sort` function works.
 
-在Go中，你可以通过使用一个接口类型，并在你想传入的片断类型上定义一个方法，来编写一个适用于不同片断类型的单一函数。这就是标准库的sort.Sort函数的工作方式。
+在Go中，您可以通过使用一个接口类型，并在您想传入的片断类型上定义一个方法，来编写一个适用于不同片断类型的单一函数。这就是标准库的sort.Sort函数的工作方式。
 
 In other words, interface types in Go are a form of generic programming. They let us capture the common aspects of different types and express them as methods. We can then write functions that use those interface types, and those functions will work for any type that implements those methods.
 
@@ -140,7 +140,7 @@ In other words, interface types in Go are a form of generic programming. They le
 
 But this approach falls short of what we want. With interfaces you have to write the methods yourself. It’s awkward to have to define a named type with a couple of methods just to reverse a slice. And the methods you write are exactly the same for each slice type, so in a sense we’ve just moved and condensed the duplicate code, we haven’t eliminated it. Although interfaces are a form of generics, they don’t give us everything we want from generics.
 
-但这种方法并没有达到我们的要求。对于接口，你必须自己编写方法。要定义一个带有几个方法的命名类型来反转一个片断，这是很尴尬的。而且你所写的方法对每个片断类型都是完全一样的，所以从某种意义上说，我们只是移动和浓缩了重复的代码，并没有消除它。尽管接口是泛型的一种形式，但它并没有给我们提供我们想要的泛型的一切。
+但这种方法并没有达到我们的要求。对于接口，您必须自己编写方法。要定义一个带有几个方法的命名类型来反转一个片断，这是很尴尬的。而且您所写的方法对每个片断类型都是完全一样的，所以从某种意义上说，我们只是移动和浓缩了重复的代码，并没有消除它。尽管接口是泛型的一种形式，但它并没有给我们提供我们想要的泛型的一切。
 
 A different way of using interfaces for generics, which could get around the need to write the methods yourself, would be to have the language define methods for some kinds of types. That isn’t something the language supports today, but, for example, the language could define that every slice type has an Index method that returns an element. But in order to use that method in practice it would have to return an empty interface type, and then we lose all the benefits of static typing. More subtly, there would be no way to define a generic function that takes two different slices with the same element type, or that takes a map of one element type and returns a slice of the same element type. Go is a statically typed language because that makes it easier to write large programs; we don’t want to lose the benefits of static typing in order to gain the benefits of generics.
 
@@ -152,7 +152,7 @@ Another approach would be to write a generic `Reverse` function using the reflec
 
 Or, you could write a code generator that takes a type and generates a `Reverse` function for slices of that type. There are several code generators out there that do just that. But this adds another step to every package that needs `Reverse`, it complicates the build because all the different copies have to be compiled, and fixing a bug in the master source requires re-generating all the instances, some of which may be in different projects entirely.
 
-或者，你可以写一个代码生成器，接受一个类型并为该类型的片断生成一个反向函数。现在有几个代码生成器就是这样做的。但这给每个需要Reverse的包增加了一个步骤，它使构建变得复杂，因为所有不同的副本都必须被编译，而且修复主源码中的错误需要重新生成所有的实例，其中一些可能完全在不同的项目中。
+或者，您可以写一个代码生成器，接受一个类型并为该类型的片断生成一个反向函数。现在有几个代码生成器就是这样做的。但这给每个需要Reverse的包增加了一个步骤，它使构建变得复杂，因为所有不同的副本都必须被编译，而且修复主源码中的错误需要重新生成所有的实例，其中一些可能完全在不同的项目中。
 
 All these approaches are awkward enough that I think most people who have to reverse a slice in Go just write the function for the specific slice type that they need. Then they’ll need to write test cases for the function, to make sure they didn’t make a simple mistake like the one I made initially. And they’ll need to run those tests routinely.
 
@@ -176,7 +176,7 @@ Even better, since this is an open source world, someone else can write `Reverse
 
 更好的是，由于这是一个开源的世界，别人可以写一次Reverse，而我们可以使用他们的实现。
 
-At this point I should say that “generics” can mean a lot of different things. In this article, what I mean by “generics” is what I just described. In particular, I don’t mean templates as found in the C++ language, which support quite a bit more than what I’ve written here.
+At this point I should say that "generics" can mean a lot of different things. In this article, what I mean by "generics" is what I just described. In particular, I don’t mean templates as found in the C++ language, which support quite a bit more than what I’ve written here.
 
 在这一点上，我应该说，"泛型 "可以有很多不同的含义。在这篇文章中，我所说的 "泛型 "就是我刚才描述的意思。特别是，我不是指C++语言中的模板，它支持的内容比我在这里写的多得多。
 
@@ -341,7 +341,7 @@ func Reverse (type Element) (s []Element) {
 
 You’ll notice that the body of the function is exactly the same. Only the signature has changed.
 
-你会注意到，这个函数的主体是完全一样的。只有签名发生了变化。
+您会注意到，这个函数的主体是完全一样的。只有签名发生了变化。
 
 The element type of the slice has been factored out. It’s now named `Element` and has become what we call a *type parameter*. Instead of being part of the type of the slice parameter, it’s now a separate, additional, type parameter.
 
@@ -349,7 +349,7 @@ The element type of the slice has been factored out. It’s now named `Element` 
 
 To call a function with a type parameter, in the general case you pass a type argument, which is like any other argument except that it’s a type.
 
-要调用一个带有类型参数的函数，在一般情况下，你要传递一个类型参数，它和其他参数一样，只是它是一个类型。
+要调用一个带有类型参数的函数，在一般情况下，您要传递一个类型参数，它和其他参数一样，只是它是一个类型。
 
 ```go linenums="1"
 func ReverseAndPrint(s []int) {
@@ -364,7 +364,7 @@ That is the `(int)` seen after `Reverse` in this example.
 
 Fortunately, in most cases, including this one, the compiler can deduce the type argument from the types of the regular arguments, and you don’t need to mention the type argument at all.
 
-幸运的是，在大多数情况下，包括这个例子，编译器可以从常规参数的类型中推断出类型参数，而你根本不需要提及类型参数。
+幸运的是，在大多数情况下，包括这个例子，编译器可以从常规参数的类型中推断出类型参数，而您根本不需要提及类型参数。
 
 Calling a generic function just looks like calling any other function.
 
@@ -440,7 +440,7 @@ Anybody who remembers [the design we presented at Gophercon 2018](https://github
 
 They let you specify the underlying type of a type parameter, and/or list the methods of a type parameter. They also let you describe the relationship between different type parameters.
 
-它们让你指定一个类型参数的基本类型，和/或列出一个类型参数的方法。它们还可以让你描述不同类型参数之间的关系。
+它们让您指定一个类型参数的基本类型，和/或列出一个类型参数的方法。它们还可以让您描述不同类型参数之间的关系。
 
 ### Contracts with methods 带有方法的契约
 
@@ -478,7 +478,7 @@ The contract simply says that `T` has to implement the `String` method.
 
 You may notice that this contract looks like the `fmt.Stringer` interface, so it’s worth pointing out that the argument of the `ToStrings` function is not a slice of `fmt.Stringer`. It’s a slice of some element type, where the element type implements `fmt.Stringer`. The memory representation of a slice of the element type and a slice of `fmt`.Stringer are normally different, and Go does not support direct conversions between them. So this is worth writing, even though `fmt.Stringer` exists.
 
-你可能注意到这个契约看起来像fmt.Stringer接口，所以值得指出的是，ToStrings函数的参数不是fmt.Stringer的一个片断。它是某个元素类型的片断，其中的元素类型实现了fmt.Stringer。元素类型的片断和fmt.Stringer的片断的内存表示通常是不同的，并且Go不支持它们之间的直接转换。所以这值得一写，即使fmt.Stringer存在。
+您可能注意到这个契约看起来像fmt.Stringer接口，所以值得指出的是，ToStrings函数的参数不是fmt.Stringer的一个片断。它是某个元素类型的片断，其中的元素类型实现了fmt.Stringer。元素类型的片断和fmt.Stringer的片断的内存表示通常是不同的，并且Go不支持它们之间的直接转换。所以这值得一写，即使fmt.Stringer存在。
 
 ### Contracts with multiple types 具有多种类型的契约
 
@@ -549,7 +549,7 @@ contract Ordered(T) {
 
 The `Ordered` contract is just a list of all the ordered types that are defined by the language. This contract accepts any of the listed types, or any named type whose underlying type is one of those types. Basically, any type you can use with the less than operator.
 
-有序合约只是一个由语言定义的所有有序类型的列表。这个契约接受任何列出的类型，或者任何其底层类型是这些类型之一的命名类型。基本上，任何你可以使用小于运算符的类型。
+有序合约只是一个由语言定义的所有有序类型的列表。这个契约接受任何列出的类型，或者任何其底层类型是这些类型之一的命名类型。基本上，任何您可以使用小于运算符的类型。
 
 It turns out that it’s much easier to simply enumerate the types that support the less than operator than it is to invent a new notation that works for all operators. After all, in Go, only built-in types support operators.
 
@@ -652,7 +652,7 @@ func (t *Tree(E)) Insert(v E) bool {
 
 Notice that the type `node` has a type argument `E`. This is what it looks like to write a generic data structure. As you can see, it looks like writing ordinary Go code, except that some type arguments are sprinkled in here and there.
 
-注意，类型节点有一个类型参数E，这就是写一个通用数据结构的样子。正如你所看到的，它看起来就像在写普通的Go代码，只是在这里和那里洒上了一些类型参数。
+注意，类型节点有一个类型参数E，这就是写一个通用数据结构的样子。正如您所看到的，它看起来就像在写普通的Go代码，只是在这里和那里洒上了一些类型参数。
 
 Using the tree is pretty simple.
 
@@ -671,7 +671,7 @@ func InsertAndCheck(v int) {
 
 That’s as it should be. It’s a bit harder to write a generic data structure, because you often have to explicitly write out type arguments for supporting types, but as much as possible using one is no different from using an ordinary non-generic data structure.
 
-这就是它应该有的样子。编写通用数据结构有点困难，因为你经常要明确地写出支持类型的参数，但尽可能地使用通用数据结构与使用普通的非通用数据结构没有区别。
+这就是它应该有的样子。编写通用数据结构有点困难，因为您经常要明确地写出支持类型的参数，但尽可能地使用通用数据结构与使用普通的非通用数据结构没有区别。
 
 ### Next steps 接下来的步骤
 
@@ -693,4 +693,4 @@ I’d like to thank everyone who commented on the earlier design, and everyone w
 
 Our goal is to arrive at a design that makes it possible to write the kinds of generic code I’ve discussed today, without making the language too complex to use or making it not feel like Go anymore. We hope that this design is a step toward that goal, and we expect to continue to adjust it as we learn, from our experiences and yours, what works and what doesn’t. If we do reach that goal, then we’ll have something that we can propose for future versions of Go.
 
-我们的目标是达成一个设计，使我今天所讨论的那种泛型代码的编写成为可能，同时又不会使语言的使用变得过于复杂，或者使它不再有Go的感觉。我们希望这个设计是朝着这个目标迈出的一步，并且我们希望在从我们和你们的经验中了解到哪些是可行的，哪些是不可行的时候继续调整它。如果我们真的达到了这个目标，那么我们就可以为未来的Go版本提出一些建议。
+我们的目标是达成一个设计，使我今天所讨论的那种泛型代码的编写成为可能，同时又不会使语言的使用变得过于复杂，或者使它不再有Go的感觉。我们希望这个设计是朝着这个目标迈出的一步，并且我们希望在从我们和您们的经验中了解到哪些是可行的，哪些是不可行的时候继续调整它。如果我们真的达到了这个目标，那么我们就可以为未来的Go版本提出一些建议。

@@ -22,7 +22,7 @@ Go代码被组织成包。在一个包内，代码可以引用其中定义的任
 
 Good package names make code better. A package’s name provides context for its contents, making it easier for clients to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.
 
-好的包名能使代码变得更好。包的名称为其内容提供了背景，使客户更容易理解包的用途和如何使用它。名字也有助于包的维护者在包的发展过程中确定什么是属于包的，什么是不属于包的。命名良好的包使你更容易找到你需要的代码。
+好的包名能使代码变得更好。包的名称为其内容提供了背景，使客户更容易理解包的用途和如何使用它。名字也有助于包的维护者在包的发展过程中确定什么是属于包的，什么是不属于包的。命名良好的包使您更容易找到您需要的代码。
 
 Effective Go provides [guidelines](https://go.dev/doc/effective_go.html#names) for naming packages, types, functions, and variables. This article expands on that discussion and surveys names found in the standard library. It also discusses bad package names and how to fix them.
 
@@ -111,7 +111,7 @@ Types in different packages can have the same name, because from the client’s 
 
 If you cannot come up with a package name that’s a meaningful prefix for the package’s contents, the package abstraction boundary may be wrong. Write code that uses your package as a client would, and restructure your packages if the result seems poor. This approach will yield packages that are easier for clients to understand and for the package developers to maintain.
 
-如果你不能想出一个对包的内容有意义的前缀的包名，那么包的抽象边界可能是错误的。编写代码，像客户一样使用你的包，如果结果看起来不好，就重组你的包。这种方法将产生对客户来说更容易理解的包，对包的开发者来说更容易维护。
+如果您不能想出一个对包的内容有意义的前缀的包名，那么包的抽象边界可能是错误的。编写代码，像客户一样使用您的包，如果结果看起来不好，就重组您的包。这种方法将产生对客户来说更容易理解的包，对包的开发者来说更容易维护。
 
 ## Package paths 包的路径
 
@@ -152,7 +152,7 @@ Bad package names make code harder to navigate and maintain. Here are some guide
 
 **Break up generic packages.** To fix such packages, look for types and functions with common name elements and pull them into their own package. For example, if you have
 
-分解通用包。为了修复这样的包，寻找具有共同名称元素的类型和函数，并将它们拉到自己的包中。例如，如果你有
+分解通用包。为了修复这样的包，寻找具有共同名称元素的类型和函数，并将它们拉到自己的包中。例如，如果您有
 
 ```go linenums="1"
 package util
@@ -190,7 +190,7 @@ fmt.Println(stringset.Sort(set))
 
 Once you’ve made this change, it’s easier to see how to improve the new package:
 
-一旦你做了这个改变，就更容易看到如何改进新包了：
+一旦您做了这个改变，就更容易看到如何改进新包了：
 
 ```go linenums="1"
 package stringset
@@ -210,11 +210,11 @@ fmt.Println(set.Sort())
 
 The name of the package is a critical piece of its design. Work to eliminate meaningless package names from your projects.
 
-包的名称是其设计的一个关键部分。努力从你的项目中消除无意义的包名。
+包的名称是其设计的一个关键部分。努力从您的项目中消除无意义的包名。
 
 **Don’t use a single package for all your APIs.** Many well-intentioned programmers put all the interfaces exposed by their program into a single package named `api`, `types`, or `interfaces`, thinking it makes it easier to find the entry points to their code base. This is a mistake. Such packages suffer from the same problems as those named `util` or `common`, growing without bound, providing no guidance to users, accumulating dependencies, and colliding with other imports. Break them up, perhaps using directories to separate public packages from implementation.
 
-不要为你所有的API使用一个包。许多用心良苦的程序员把他们的程序所暴露的所有接口放到一个名为api、type或interface的包中，认为这样可以更容易地找到他们代码库的入口。这是个错误。这样的包和那些命名为util或common的包有同样的问题，它们无限制地增长，不给用户提供任何指导，积累依赖关系，并与其他导入物发生冲突。把它们分开，也许可以用目录把公共包和实现分开。
+不要为您所有的API使用一个包。许多用心良苦的程序员把他们的程序所暴露的所有接口放到一个名为api、type或interface的包中，认为这样可以更容易地找到他们代码库的入口。这是个错误。这样的包和那些命名为util或common的包有同样的问题，它们无限制地增长，不给用户提供任何指导，积累依赖关系，并与其他导入物发生冲突。把它们分开，也许可以用目录把公共包和实现分开。
 
 **Avoid unnecessary package name collisions.** While packages in different directories may have the same name, packages that are frequently used together should have distinct names. This reduces confusion and the need for local renaming in client code. For the same reason, avoid using the same name as popular standard packages like `io` or `http`.
 
@@ -224,7 +224,7 @@ The name of the package is a critical piece of its design. Work to eliminate mea
 
 Package names are central to good naming in Go programs. Take the time to choose good package names and organize your code well. This helps clients understand and use your packages and helps maintainers to grow them gracefully.
 
-包名是Go程序中良好命名的核心。花点时间选择好的包名，并好好组织你的代码。这有助于客户理解和使用你的包，并帮助维护者优雅地增长它们。
+包名是Go程序中良好命名的核心。花点时间选择好的包名，并好好组织您的代码。这有助于客户理解和使用您的包，并帮助维护者优雅地增长它们。
 
 ## Further reading 进一步阅读
 

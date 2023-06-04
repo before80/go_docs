@@ -12,8 +12,8 @@ draft = false
 
 ​	下面的说明适用于标准工具链(gc Go编译器和工具)。Gccgo具有原生的gdb支持。
 
-!!! warning "请注意"
-	​请注意，在使用标准工具链构建的Go程序进行调试时，[Delve](https://github.com/go-delve/delve)是比GDB更好的选择。它比GDB更好地理解Go运行时、数据结构和表达式。Delve目前支持Linux、OSX和Windows的amd64平台。有关支持的最新平台列表，请参阅[Delve文档](https://github.com/go-delve/delve/tree/master/Documentation/installation)。
+> ​	​请注意，在使用标准工具链构建的Go程序进行调试时，[Delve](https://github.com/go-delve/delve)是比GDB更好的选择。它比GDB更好地理解Go运行时、数据结构和表达式。Delve目前支持Linux、OSX和Windows的amd64平台。有关支持的最新平台列表，请参阅[Delve文档](https://github.com/go-delve/delve/tree/master/Documentation/installation)。
+>
 
 ​	GDB不太理解Go程序。堆栈管理、线程和运行时包含与GDB预期执行模型有足够不同的方面，即使使用gccgo编译程序，它们也可能混淆调试器并导致不正确的结果。因此，尽管在某些情况下(例如调试Cgo代码或调试运行时本身)GDB可能有用，但对于Go程序，特别是高度并发的程序，它不是一个可靠的调试器。此外，解决这些困难的问题不是Go项目的重点。
 

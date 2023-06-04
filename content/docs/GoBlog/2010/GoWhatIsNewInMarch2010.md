@@ -30,7 +30,7 @@ Andrew Gerrand
 
 ​	说到第三方，自从发布以来，一个充满活力的社区已经在我们的[邮件列表](http://groups.google.com/group/golang-nuts/)和irc频道（freenode上的#go-nuts）中蓬勃发展。我们已经有50多人正式加入了这个项目。他们的贡献从错误修复和文档修正到核心软件包和对其他操作系统的支持（Go现在支持FreeBSD，[Windows移植](http://code.google.com/p/go/wiki/WindowsPort)也正在进行中）。我们认为这些社区贡献是我们迄今为止最大的成功。
 
-​		我们也收到了一些好评。这篇[最近在PC World上发表的文章](http://www.pcworld.idg.com.au/article/337773/google_go_captures_developers_imaginations/)总结了该项目周围的热情。一些博客作者已经开始记录他们在该语言中的经验（例如[这里](http://golang.tumblr.com/)、[这里](http://www.infi.nl/blog/view/id/47)和[这里](http://freecella.blogspot.com/2010/01/gospecify-basic-setup-of-projects.html)）。我们的用户的一般反应非常积极；一位初学者评论说，“[我对此印象非常深刻。Go在简单性和强大性之间走了一条优美的路线。](https://groups.google.com/group/golang-nuts/browse_thread/thread/5fabdd59f8562ed2)”
+​		我们也收到了一些好评。这篇[最近在PC World上发表的文章](http://www.pcworld.idg.com.au/article/337773/google_go_captures_developers_imaginations/)总结了该项目周围的热情。一些博客作者已经开始记录他们在该语言中的经验（例如[这里](http://golang.tumblr.com/)、[这里](http://www.infi.nl/blog/view/id/47)和[这里](http://freecella.blogspot.com/2010/01/gospecify-basic-setup-of-projects.html)）。我们的用户的一般反应非常积极；一位初学者评论说，"[我对此印象非常深刻。Go在简单性和强大性之间走了一条优美的路线。](https://groups.google.com/group/golang-nuts/browse_thread/thread/5fabdd59f8562ed2)"
 
 ​	关于未来的计划：我们已经倾听了众多声音，听取了他们的需求，现在我们的重点是让 Go 准备好在主流应用中使用。我们正在改进垃圾回收器、运行时调度程序、工具和标准库，同时探索新的语言特性。2010 年将是 Go 的一个充满期待的年份，我们期待着与社区合作，使其成为一个成功的年份。
 

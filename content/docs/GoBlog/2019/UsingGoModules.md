@@ -102,7 +102,7 @@ $
 
 Congratulations! You’ve written and tested your first module.
 
-恭喜你！你已经编写并测试了你的第一个模块。你已经编写并测试了你的第一个模块。
+恭喜您！您已经编写并测试了您的第一个模块。您已经编写并测试了您的第一个模块。
 
 The `go mod init` command wrote a `go.mod` file:
 
@@ -158,7 +158,7 @@ ok      example.com/hello   0.023s
 $
 ```
 
-The `go` command resolves imports by using the specific dependency module versions listed in `go.mod`. When it encounters an `import` of a package not provided by any module in `go.mod`, the `go` command automatically looks up the module containing that package and adds it to `go.mod`, using the latest version. (“Latest” is defined as the latest tagged stable (non-[prerelease](https://semver.org/#spec-item-9)) version, or else the latest tagged prerelease version, or else the latest untagged version.) In our example, `go test` resolved the new import `rsc.io/quote` to the module `rsc.io/quote v1.5.2`. It also downloaded two dependencies used by `rsc.io/quote`, namely `rsc.io/sampler` and `golang.org/x/text`. Only direct dependencies are recorded in the `go.mod` file:
+The `go` command resolves imports by using the specific dependency module versions listed in `go.mod`. When it encounters an `import` of a package not provided by any module in `go.mod`, the `go` command automatically looks up the module containing that package and adds it to `go.mod`, using the latest version. ("Latest" is defined as the latest tagged stable (non-[prerelease](https://semver.org/#spec-item-9)) version, or else the latest tagged prerelease version, or else the latest untagged version.) In our example, `go test` resolved the new import `rsc.io/quote` to the module `rsc.io/quote v1.5.2`. It also downloaded two dependencies used by `rsc.io/quote`, namely `rsc.io/sampler` and `golang.org/x/text`. Only direct dependencies are recorded in the `go.mod` file:
 
 go命令通过使用go.mod中列出的特定依赖模块版本来解决导入问题。当它遇到go.mod中任何模块都没有提供的包的导入时，go命令会自动查找包含该包的模块并将其添加到go.mod中，使用最新的版本。("最新 "被定义为最新的有标签的稳定版（非发布版），或者最新的有标签的预发布版，或者最新的无标签版)。在我们的例子中，go test 将新的 import rsc.io/quote 解析为模块 rsc.io/quote v1.5.2。它还下载了rsc.io/quote使用的两个依赖项，即rsc.io/sampler和golang.org/x/text。在go.mod文件中只记录了直接依赖项：
 
@@ -183,9 +183,9 @@ ok      example.com/hello   0.020s
 $
 ```
 
-Note that while the `go` command makes adding a new dependency quick and easy, it is not without cost. Your module now literally *depends* on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. For more considerations, see Russ Cox’s blog post, “[Our Software Dependency Problem](https://research.swtch.com/deps).”
+Note that while the `go` command makes adding a new dependency quick and easy, it is not without cost. Your module now literally *depends* on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. For more considerations, see Russ Cox’s blog post, "[Our Software Dependency Problem](https://research.swtch.com/deps)."
 
-请注意，虽然go命令使添加新的依赖项变得快速而简单，但它不是没有代价的。你的模块现在在关键领域依赖于新的依赖项，如正确性、安全性和适当的许可，仅举几例。关于更多的考虑，请参阅Russ Cox的博文 "我们的软件依赖问题"。
+请注意，虽然go命令使添加新的依赖项变得快速而简单，但它不是没有代价的。您的模块现在在关键领域依赖于新的依赖项，如正确性、安全性和适当的许可，仅举几例。关于更多的考虑，请参阅Russ Cox的博文 "我们的软件依赖问题"。
 
 As we saw above, adding one direct dependency often brings in other indirect dependencies too. The command `go list -m all` lists the current module and all its dependencies:
 
@@ -225,7 +225,7 @@ $
 
 The `go` command uses the `go.sum` file to ensure that future downloads of these modules retrieve the same bits as the first download, to ensure the modules your project depends on do not change unexpectedly, whether for malicious, accidental, or other reasons. Both `go.mod` and `go.sum` should be checked into version control.
 
-go命令使用go.sum文件来确保这些模块的未来下载会检索到与第一次下载相同的比特，以确保你的项目所依赖的模块不会因为恶意的、意外的或其他原因而发生意外变化。go.mod和go.sum都应该被检查进版本控制。
+go命令使用go.sum文件来确保这些模块的未来下载会检索到与第一次下载相同的比特，以确保您的项目所依赖的模块不会因为恶意的、意外的或其他原因而发生意外变化。go.mod和go.sum都应该被检查进版本控制。
 
 ## Upgrading dependencies 升级依赖项
 
@@ -533,8 +533,8 @@ This post introduced these workflows using Go modules:
 
 We encourage you to start using modules in your local development and to add `go.mod` and `go.sum` files to your projects. To provide feedback and help shape the future of dependency management in Go, please send us [bug reports](https://go.dev/issue/new) or [experience reports](https://go.dev/wiki/ExperienceReports).
 
-我们鼓励你在本地开发中开始使用模块，并在你的项目中添加go.mod和go.sum文件。为了提供反馈并帮助塑造Go中依赖性管理的未来，请向我们发送错误报告或经验报告。
+我们鼓励您在本地开发中开始使用模块，并在您的项目中添加go.mod和go.sum文件。为了提供反馈并帮助塑造Go中依赖性管理的未来，请向我们发送错误报告或经验报告。
 
 Thanks for all your feedback and help improving modules.
 
-谢谢你的反馈和对改进模块的帮助。
+谢谢您的反馈和对改进模块的帮助。

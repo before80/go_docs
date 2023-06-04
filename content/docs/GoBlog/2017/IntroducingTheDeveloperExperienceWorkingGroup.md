@@ -38,4 +38,4 @@ The initial members of the working group are: Carmen Andoh, Chris Broadfoot, Fra
 
 We are looking for additional people to help with contributing code, writing documentation, sharing feedback and experiences (user stories), reviewing contributions, and more. If you are interested in any of our current areas of focus, please subscribe to the [golang-devexp](https://groups.google.com/forum/#!forum/golang-devexp) mailing list.
 
-我们正在寻找更多的人帮助贡献代码，编写文档，分享反馈和经验（用户故事），审查贡献，等等。如果你对我们目前关注的任何领域感兴趣，请订阅golang-devexp邮件列表。
+我们正在寻找更多的人帮助贡献代码，编写文档，分享反馈和经验（用户故事），审查贡献，等等。如果您对我们目前关注的任何领域感兴趣，请订阅golang-devexp邮件列表。

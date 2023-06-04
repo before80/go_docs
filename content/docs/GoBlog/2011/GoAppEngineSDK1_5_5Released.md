@@ -16,7 +16,7 @@ Andrew Gerrand
 
 Today we released version 1.5.5 the Go App Engine SDK. You can download it from the [App Engine downloads page](http://code.google.com/appengine/downloads.html).
 
-今天我们发布了1.5.5版本的Go App Engine SDK。你可以从App Engine的下载页面下载它。
+今天我们发布了1.5.5版本的Go App Engine SDK。您可以从App Engine的下载页面下载它。
 
 This release includes changes and improvements to the App Engine APIs and brings the supporting Go tool chain to [release.r60.2](https://go.dev/doc/devel/release.html#r60) (the current stable release). Also included in this release are the [godoc](https://go.dev/cmd/godoc/), [gofmt](https://go.dev/cmd/gofmt/), and [gofix](https://go.dev/cmd/gofix/) tools from the Go tool chain. They can be found in the root directory of the SDK.
 
@@ -28,7 +28,7 @@ Some changes made in this release are backwards-incompatible, so we have increme
 
 The gofix tool that ships with the SDK has been customized with App Engine-specific modules. It can be used to automatically update Go apps to work with the latest appengine packages and the updated Go standard library. To update your apps, run:
 
-与SDK一起提供的gofix工具已经用App Eng的特定模块进行了定制。它可以用来自动更新Go应用程序，使其与最新的appengine软件包和更新的Go标准库一起使用。要更新你的应用程序，请运行：
+与SDK一起提供的gofix工具已经用App Eng的特定模块进行了定制。它可以用来自动更新Go应用程序，使其与最新的appengine软件包和更新的Go标准库一起使用。要更新您的应用程序，请运行：
 
 ```go linenums="1"
 /path/to/sdk/gofix /path/to/your/app
@@ -36,7 +36,7 @@ The gofix tool that ships with the SDK has been customized with App Engine-speci
 
 The SDK now includes the appengine package source code, so you can use the local godoc to read App Engine API documentation:
 
-SDK现在包括appengine包的源代码，所以你可以使用本地godoc来阅读App Engine API文档：
+SDK现在包括appengine包的源代码，所以您可以使用本地godoc来阅读App Engine API文档：
 
 ```go linenums="1"
 /path/to/sdk/godoc appengine/datastore Get

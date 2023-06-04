@@ -797,7 +797,7 @@ type LineEntry struct {
 	// instructions. Columns are numbered beginning at 1. It may
 	// be 0 to indicate the "left edge" of the line.
     // Column 是这些指令在源代码行中的列号。列号从 1 开始编号。
-    // 如果表示行的“左边缘”，则可能为 0。
+    // 如果表示行的"左边缘"，则可能为 0。
 	Column int
 
 	// IsStmt indicates that Address is a recommended breakpoint
@@ -908,7 +908,7 @@ Files 返回行表中此编译单元的文件名表，根据当前位置。文�
 
 Entry 0 is always nil, since file index 0 represents "no file".
 
-条目 0 始终为 nil，因为文件索引 0 表示“无文件”。
+条目 0 始终为 nil，因为文件索引 0 表示"无文件"。
 
 The file name table of a compilation unit is not fixed. Files returns the file table as of the current position in the line table. This may contain more entries than the file table at an earlier position in the line table, though existing entries never change.
 

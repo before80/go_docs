@@ -309,7 +309,7 @@ that would have been produced if {{.}} was a regular string.
 
 https://rawgit.com/mikesamuel/sanitized-jquery-templates/trunk/safetemplate.html#problem_definition defines "safe" as used by this package.
 
-https://rawgit.com/mikesamuel/sanitized-jquery-templates/trunk/safetemplate.html#problem_definition 定义了此包使用的“安全”概念。
+https://rawgit.com/mikesamuel/sanitized-jquery-templates/trunk/safetemplate.html#problem_definition 定义了此包使用的"安全"概念。
 
 This package assumes that template authors are trusted, that Execute's data parameter is not, and seeks to preserve the properties below in the face of untrusted data:
 
@@ -317,15 +317,15 @@ This package assumes that template authors are trusted, that Execute's data para
 
 Structure Preservation Property: "... when a template author writes an HTML tag in a safe templating language, the browser will interpret the corresponding portion of the output as a tag regardless of the values of untrusted data, and similarly for other structures such as attribute boundaries and JS and CSS string boundaries."
 
-结构保留属性：“……当模板作者在安全的模板语言中编写一个 HTML 标签时，无论不可信数据的值如何，浏览器都会将输出的相应部分解释为标签，对于属性边界、JS 和 CSS 字符串边界等其他结构也是如此。”
+结构保留属性："……当模板作者在安全的模板语言中编写一个 HTML 标签时，无论不可信数据的值如何，浏览器都会将输出的相应部分解释为标签，对于属性边界、JS 和 CSS 字符串边界等其他结构也是如此。"
 
 Code Effect Property: "... only code specified by the template author should run as a result of injecting the template output into a page and all code specified by the template author should run as a result of the same."
 
-代码效果属性：“……只有模板作者指定的代码应该在将模板输出注入页面后运行，而且所有由模板作者指定的代码都应作为结果运行。”
+代码效果属性："……只有模板作者指定的代码应该在将模板输出注入页面后运行，而且所有由模板作者指定的代码都应作为结果运行。"
 
 Least Surprise Property: "A developer (or code reviewer) familiar with HTML, CSS, and JavaScript, who knows that contextual autoescaping happens should be able to look at a {{.}} and correctly infer what sanitization happens."
 
-最小惊奇属性：“熟悉 HTML、CSS 和 JavaScript 的开发人员（或代码审查人员）应该能够了解到上下文自动转义的存在，并能正确推断出进行了哪些净化。”
+最小惊奇属性："熟悉 HTML、CSS 和 JavaScript 的开发人员（或代码审查人员）应该能够了解到上下文自动转义的存在，并能正确推断出进行了哪些净化。"
 
 ##### Example
 ``` go 
@@ -401,7 +401,7 @@ func IsTrue(val any) (truth, ok bool)
 
 IsTrue reports whether the value is 'true', in the sense of not the zero of its type, and whether the value has a meaningful truth value. This is the definition of truth used by if and other such actions.
 
-IsTrue报告值是否为“true”，即不为其类型的零值，并且值具有有意义的真值。这是if和其他类似操作使用的真值定义。
+IsTrue报告值是否为"true"，即不为其类型的零值，并且值具有有意义的真值。这是if和其他类似操作使用的真值定义。
 
 #### func JSEscape 
 
@@ -753,7 +753,7 @@ const (
     // 上面的示例可能会产生 var x = 1/-2/i.test(s)...，
     // 其中第一个 '/' 是一个数学除法运算符，或者可能会产生 /-2/i.test(s)，
     // 其中第一个 '/' 开始一个正则表达式字面量。
-    // 检查分支中是否缺少分号，并可能添加括号以明确你想要的解释方式。
+    // 检查分支中是否缺少分号，并可能添加括号以明确您想要的解释方式。
 	ErrSlashAmbig
 
 	// ErrPredefinedEscaper: "predefined escaper ... disallowed in template"

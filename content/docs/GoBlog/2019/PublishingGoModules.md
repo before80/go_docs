@@ -36,7 +36,7 @@ This post discusses how to write and publish modules so other modules can depend
 
 Please note: this post covers development up to and including `v1`. If you are interested in `v2`, please see [Go Modules: v2 and Beyond](https://go.dev/blog/v2-go-modules).
 
-如果你对v2版感兴趣，请看Go Modules: v2 and Beyond。
+如果您对v2版感兴趣，请看Go Modules: v2 and Beyond。
 
 This post uses [Git](https://git-scm.com/) in examples. [Mercurial](https://www.mercurial-scm.org/), [Bazaar](http://wiki.bazaar.canonical.com/), and others are supported as well.
 
@@ -46,7 +46,7 @@ This post uses [Git](https://git-scm.com/) in examples. [Mercurial](https://www.
 
 For this post, you’ll need an existing project to use as an example. So, start with the files from the end of the [Using Go Modules](https://blog.golang.org/using-go-modules) article:
 
-在这篇文章中，你需要一个现有的项目来作为例子。因此，从《使用Go模块》一文末尾的文件开始：
+在这篇文章中，您需要一个现有的项目来作为例子。因此，从《使用Go模块》一文末尾的文件开始：
 
 ```shell linenums="1"
 $ cat go.mod
@@ -103,7 +103,7 @@ $
 
 Next, create a new `git` repository and add an initial commit. If you’re publishing your own project, be sure to include a `LICENSE` file. Change to the directory containing the `go.mod` then create the repo:
 
-接下来，创建一个新的git仓库并添加一个初始提交。如果你要发布自己的项目，一定要包括一个LICENSE文件。改变到包含go.mod的目录，然后创建版本库：
+接下来，创建一个新的git仓库并添加一个初始提交。如果您要发布自己的项目，一定要包括一个LICENSE文件。改变到包含go.mod的目录，然后创建版本库：
 
 ```shell linenums="1"
 $ git init
@@ -122,29 +122,29 @@ A semantic version has the form `vMAJOR.MINOR.PATCH`.
 
 语义版本的形式为vMAJOR.MINOR.PATCH。
 
-- Increment the `MAJOR` version when you make a [backwards incompatible](https://go.dev/doc/go1compat) change to the public API of your module. This should only be done when absolutely necessary.当你对你的模块的公共API进行向后不兼容的修改时，要增加MAJOR版本。只有在绝对必要的时候才应该这样做。
-- Increment the `MINOR` version when you make a backwards compatible change to the API, like changing dependencies or adding a new function, method, struct field, or type.当你对API进行向后兼容的改变时，增加MINOR版本，比如改变依赖关系或添加新的函数、方法、结构域或类型。
-- Increment the `PATCH` version after making minor changes that don’t affect your module’s public API or dependencies, like fixing a bug.在做了不影响你的模块的公共API或依赖关系的小改动后，增加PATCH版本，如修复一个错误。
+- Increment the `MAJOR` version when you make a [backwards incompatible](https://go.dev/doc/go1compat) change to the public API of your module. This should only be done when absolutely necessary.当您对您的模块的公共API进行向后不兼容的修改时，要增加MAJOR版本。只有在绝对必要的时候才应该这样做。
+- Increment the `MINOR` version when you make a backwards compatible change to the API, like changing dependencies or adding a new function, method, struct field, or type.当您对API进行向后兼容的改变时，增加MINOR版本，比如改变依赖关系或添加新的函数、方法、结构域或类型。
+- Increment the `PATCH` version after making minor changes that don’t affect your module’s public API or dependencies, like fixing a bug.在做了不影响您的模块的公共API或依赖关系的小改动后，增加PATCH版本，如修复一个错误。
 
 You can specify pre-release versions by appending a hyphen and dot separated identifiers (for example, `v1.0.1-alpha` or `v2.2.2-beta.2`). Normal releases are preferred by the `go` command over pre-release versions, so users must ask for pre-release versions explicitly (for example, `go get example.com/hello@v1.0.1-alpha`) if your module has any normal releases.
 
-你可以通过附加一个连字符和点分隔的标识符来指定预发布版本（例如，v1.0.1-alpha 或 v2.2.2-beta.2）。普通版本是go命令的首选，而不是预发布版本，所以如果你的模块有任何普通版本，用户必须明确要求预发布版本（例如，go get example.com/hello@v1.0.1-alpha）。
+您可以通过附加一个连字符和点分隔的标识符来指定预发布版本（例如，v1.0.1-alpha 或 v2.2.2-beta.2）。普通版本是go命令的首选，而不是预发布版本，所以如果您的模块有任何普通版本，用户必须明确要求预发布版本（例如，go get example.com/hello@v1.0.1-alpha）。
 
 `v0` major versions and pre-release versions do not guarantee backwards compatibility. They let you refine your API before making stability commitments to your users. However, `v1` major versions and beyond require backwards compatibility within that major version.
 
-v0主要版本和预发布版本并不保证向后兼容。它们让你在向用户做出稳定性承诺之前完善你的API。然而，v1主要版本及以后的版本需要在该主要版本内向后兼容。
+v0主要版本和预发布版本并不保证向后兼容。它们让您在向用户做出稳定性承诺之前完善您的API。然而，v1主要版本及以后的版本需要在该主要版本内向后兼容。
 
 The version referenced in a `go.mod` may be an explicit release tagged in the repository (for example, `v1.5.2`), or it may be a [pseudo-version](https://go.dev/ref/mod#pseudo-versions) based on a specific commit (for example, `v0.0.0-20170915032832-14c0d48ead0c`). Pseudo-versions are a special type of pre-release version. Pseudo-versions are useful when a user needs to depend on a project that has not published any semantic version tags, or develop against a commit that hasn’t been tagged yet, but users should not assume that pseudo-versions provide a stable or well-tested API. Tagging your modules with explicit versions signals to your users that specific versions are fully tested and ready to use.
 
-go.mod中引用的版本可能是版本库中明确标记的版本（例如，v1.5.2），也可能是基于特定提交的伪版本（例如，v0.0.0-20170915032832-14c0d48ead0c）。伪版本是一种特殊类型的预发布版本。当用户需要依赖一个尚未发布任何语义版本标签的项目，或者需要针对一个尚未被标记的提交进行开发时，伪版本是非常有用的，但是用户不应该认为伪版本提供了一个稳定的或者经过良好测试的API。用明确的版本来标记你的模块，向你的用户发出信号，表明特定的版本已经过充分的测试，可以使用。
+go.mod中引用的版本可能是版本库中明确标记的版本（例如，v1.5.2），也可能是基于特定提交的伪版本（例如，v0.0.0-20170915032832-14c0d48ead0c）。伪版本是一种特殊类型的预发布版本。当用户需要依赖一个尚未发布任何语义版本标签的项目，或者需要针对一个尚未被标记的提交进行开发时，伪版本是非常有用的，但是用户不应该认为伪版本提供了一个稳定的或者经过良好测试的API。用明确的版本来标记您的模块，向您的用户发出信号，表明特定的版本已经过充分的测试，可以使用。
 
 Once you start tagging your repo with versions, it’s important to keep tagging new releases as you develop your module. When users request a new version of your module (with `go get -u` or `go get example.com/hello`), the `go` command will choose the greatest semantic release version available, even if that version is several years old and many changes behind the primary branch. Continuing to tag new releases will make your ongoing improvements available to your users.
 
-一旦你开始用版本标记你的仓库，重要的是在你开发模块时不断标记新版本。当用户请求你的模块的新版本时（用go get -u或go get example.com/hello），go命令会选择可用的最大语义发布版本，即使该版本是几年前的，而且在主分支后面有许多变化。继续对新的版本进行标记，将使您正在进行的改进能够为您的用户所用。
+一旦您开始用版本标记您的仓库，重要的是在您开发模块时不断标记新版本。当用户请求您的模块的新版本时（用go get -u或go get example.com/hello），go命令会选择可用的最大语义发布版本，即使该版本是几年前的，而且在主分支后面有许多变化。继续对新的版本进行标记，将使您正在进行的改进能够为您的用户所用。
 
 Do not delete version tags from your repo. If you find a bug or a security issue with a version, release a new version. If people depend on a version that you have deleted, their builds may fail. Similarly, once you release a version, do not change or overwrite it. The [module mirror and checksum database](https://blog.golang.org/module-mirror-launch) store modules, their versions, and signed cryptographic hashes to ensure that the build of a given version remains reproducible over time.
 
-请不要从您的版本库中删除版本标签。如果你发现某个版本有错误或安全问题，就发布一个新的版本。如果人们依赖一个被你删除的版本，他们的构建可能会失败。同样，一旦你发布了一个版本，就不要改变或覆盖它。模块镜像和校验数据库存储模块、它们的版本和签名的加密哈希值，以确保特定版本的构建在一段时间内保持可重复性。
+请不要从您的版本库中删除版本标签。如果您发现某个版本有错误或安全问题，就发布一个新的版本。如果人们依赖一个被您删除的版本，他们的构建可能会失败。同样，一旦您发布了一个版本，就不要改变或覆盖它。模块镜像和校验数据库存储模块、它们的版本和签名的加密哈希值，以确保特定版本的构建在一段时间内保持可重复性。
 
 ## v0: the initial, unstable version v0：最初的、不稳定的版本
 
@@ -174,21 +174,21 @@ $
 
 Now other projects can depend on `v0.1.0` of `example.com/hello`. For your own module, you can run `go list -m example.com/hello@v0.1.0` to confirm the latest version is available (this example module does not exist, so no versions are available). If you don’t see the latest version immediately and you’re using the Go module proxy (the default since Go 1.13), try again in a few minutes to give the proxy time to load the new version.
 
-现在其他项目可以依赖 example.com/hello 的 v0.1.0。对于你自己的模块，你可以运行 go list -m example.com/hello@v0.1.0 来确认最新的版本是否可用（这个例子的模块不存在，所以没有版本可用）。如果你没有立即看到最新的版本，而且你使用的是Go模块代理（从Go 1.13开始默认的），过几分钟再试试，让代理有时间加载新版本。
+现在其他项目可以依赖 example.com/hello 的 v0.1.0。对于您自己的模块，您可以运行 go list -m example.com/hello@v0.1.0 来确认最新的版本是否可用（这个例子的模块不存在，所以没有版本可用）。如果您没有立即看到最新的版本，而且您使用的是Go模块代理（从Go 1.13开始默认的），过几分钟再试试，让代理有时间加载新版本。
 
 If you add to the public API, make a breaking change to a `v0` module, or upgrade the minor or version of one of your dependencies, increment the `MINOR` version for your next release. For example, the next release after `v0.1.0` would be `v0.2.0`.
 
-如果你增加了公共 API，对 v0 模块做了突破性的改变，或者升级了你的一个依赖关系的次要版本，为你的下一个版本增加 MINOR 版本。例如，v0.1.0之后的下一个版本将是v0.2.0。
+如果您增加了公共 API，对 v0 模块做了突破性的改变，或者升级了您的一个依赖关系的次要版本，为您的下一个版本增加 MINOR 版本。例如，v0.1.0之后的下一个版本将是v0.2.0。
 
 If you fix a bug in an existing version, increment the `PATCH` version. For example, the next release after `v0.1.0` would be `v0.1.1`.
 
-如果你修复了一个现有版本中的错误，请增加 PATCH 版本。例如，v0.1.0之后的下一个版本将是v0.1.1。
+如果您修复了一个现有版本中的错误，请增加 PATCH 版本。例如，v0.1.0之后的下一个版本将是v0.1.1。
 
 ## v1: the first stable version - v1：第一个稳定版本
 
 Once you are absolutely sure your module’s API is stable, you can release `v1.0.0`. A `v1` major version communicates to users that no incompatible changes will be made to the module’s API. They can upgrade to new `v1` minor and patch releases, and their code should not break. Function and method signatures will not change, exported types will not be removed, and so on. If there are changes to the API, they will be backwards compatible (for example, adding a new field to a struct) and will be included in a new minor release. If there are bug fixes (for example, a security fix), they will be included in a patch release (or as part of a minor release).
 
-一旦你完全确定你的模块的API是稳定的，你就可以发布v1.0.0。一个v1大版本向用户传达了将不会对模块的API进行不兼容的修改。他们可以升级到新的v1小版本和补丁版本，而且他们的代码应该不会被破坏。函数和方法的签名不会改变，导出的类型不会被删除，等等。如果API有变化，它们将是向后兼容的（例如，为结构体添加新的字段），并将包含在新的次要版本中。如果有错误修复（例如，安全修复），它们将被包含在一个补丁版本中（或作为一个次要版本的一部分）。
+一旦您完全确定您的模块的API是稳定的，您就可以发布v1.0.0。一个v1大版本向用户传达了将不会对模块的API进行不兼容的修改。他们可以升级到新的v1小版本和补丁版本，而且他们的代码应该不会被破坏。函数和方法的签名不会改变，导出的类型不会被删除，等等。如果API有变化，它们将是向后兼容的（例如，为结构体添加新的字段），并将包含在新的次要版本中。如果有错误修复（例如，安全修复），它们将被包含在一个补丁版本中（或作为一个次要版本的一部分）。
 
 Sometimes, maintaining backwards compatibility can lead to awkward APIs. That’s OK. An imperfect API is better than breaking users' existing code.
 
@@ -207,11 +207,11 @@ However, [`Replace`](https://godoc.org/strings#Replace) took a count of how many
 
 Given `Split` and `SplitN`, you would expect functions like `Replace` and `ReplaceN`. But, we couldn’t change the existing `Replace` without breaking callers, which we promised not to do. So, in Go 1.12, we added a new function, [`ReplaceAll`](https://godoc.org/strings#ReplaceAll). The resulting API is a little odd, since `Split` and `Replace` behave differently, but that inconsistency is better than a breaking change.
 
-鉴于Split和SplitN，你会想到Replace和ReplaceN这样的函数。但是，我们不能在不破坏调用者的情况下改变现有的Replace，我们承诺不会这样做。因此，在Go 1.12中，我们添加了一个新的函数，ReplaceAll。由此产生的API有点奇怪，因为Split和Replace的行为是不同的，但这种不一致总比破坏性的改变好。
+鉴于Split和SplitN，您会想到Replace和ReplaceN这样的函数。但是，我们不能在不破坏调用者的情况下改变现有的Replace，我们承诺不会这样做。因此，在Go 1.12中，我们添加了一个新的函数，ReplaceAll。由此产生的API有点奇怪，因为Split和Replace的行为是不同的，但这种不一致总比破坏性的改变好。
 
 Let’s say you’re happy with the API of `example.com/hello` and you want to release `v1` as the first stable version.
 
-假设你对example.com/hello的API很满意，你想发布v1作为第一个稳定版本。
+假设您对example.com/hello的API很满意，您想发布v1作为第一个稳定版本。
 
 Tagging `v1` uses the same process as tagging a `v0` version: run `go mod tidy` and `go test ./...`, tag the version, and push the tag to the origin repository:
 
@@ -244,4 +244,4 @@ To provide feedback and help shape the future of dependency management in Go, pl
 
 Thanks for all your feedback and help improving Go modules.
 
-谢谢你的反馈和对改进Go模块的帮助。
+谢谢您的反馈和对改进Go模块的帮助。

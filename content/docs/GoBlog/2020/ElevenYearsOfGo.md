@@ -22,7 +22,7 @@ In November, we launched [go.dev and pkg.go.dev](https://blog.golang.org/go.dev)
 
 11月，我们在Go的10岁生日后不久推出了go.dev和pkg.go.dev。
 
-In February, the [Go 1.14 release](https://blog.golang.org/go1.14) delivered the first officially “production-ready” implementation of Go modules, along with many performance improvements, including [faster defers](https://go.dev/design/34481-opencoded-defers) and [non-cooperative goroutine preemption](https://go.dev/design/24543/conservative-inner-frame) to reduce scheduling and garbage collection latency.
+In February, the [Go 1.14 release](https://blog.golang.org/go1.14) delivered the first officially "production-ready" implementation of Go modules, along with many performance improvements, including [faster defers](https://go.dev/design/34481-opencoded-defers) and [non-cooperative goroutine preemption](https://go.dev/design/24543/conservative-inner-frame) to reduce scheduling and garbage collection latency.
 
 2月，Go 1.14版本推出了第一个正式的 "生产就绪 "的Go模块实现，以及许多性能改进，包括更快的延迟和非合作的goroutine抢占，以减少调度和垃圾收集延迟。
 
@@ -42,7 +42,7 @@ We continued to improve [gopls](https://www.youtube.com/watch?v=EFJfdWzBHwE), wh
 
 Also in June, thanks to your feedback, we open-sourced [the code behind pkg.go.dev](https://blog.golang.org/pkgsite) as part of the Go project as well.
 
-同样在6月，由于你们的反馈，我们将pkg.go.dev背后的代码也开源为Go项目的一部分。
+同样在6月，由于您们的反馈，我们将pkg.go.dev背后的代码也开源为Go项目的一部分。
 
 Later in June, we [released the latest design draft for generics](https://blog.golang.org/generics-next-step), along with a prototype tool and [generics playground](https://go2goplay.golang.org/).
 
@@ -60,7 +60,7 @@ Last month, we ran our [annual Go user survey](https://blog.golang.org/survey202
 
 上个月，我们进行了年度Go用户调查。一旦我们分析了结果，我们会在博客上公布。
 
-The Go community has adapted to “virtual-first” along with everyone else, and we saw many virtual meetups and over a dozen virtual Go conferences this year. Last week, the Go team hosted [Go day at Google Open Source Live](https://opensourcelive.withgoogle.com/events/go) (videos at the link).
+The Go community has adapted to "virtual-first" along with everyone else, and we saw many virtual meetups and over a dozen virtual Go conferences this year. Last week, the Go team hosted [Go day at Google Open Source Live](https://opensourcelive.withgoogle.com/events/go) (videos at the link).
 
 Go社区已经和大家一起适应了 "虚拟优先"，今年我们看到了许多虚拟聚会和十多个虚拟Go会议。上周，Go团队在Google Open Source Live举办了Go日（视频见链接）。
 
@@ -70,21 +70,21 @@ We’re also incredibly excited about what’s in store for Go’s 12th year. Mo
 
 我们也对Go的第12年的发展感到无比的兴奋。最直接的是，本周Go团队成员将在GopherCon 2020上展示八项活动。请在您的日历上做个记号。
 
-- “Typing [Generic] Go”, a talk by Robert Griesemer, 
+- "Typing [Generic] Go", a talk by Robert Griesemer, 
   [Nov 11, 10:00 AM (US Eastern)](https://www.gophercon.com/agenda/session/233094); [Q&A at 10:30 AM](https://www.gophercon.com/agenda/session/417935).
-- “What to Expect When You’re NOT Expecting”, a live taping of the Go time podcast with a panel of expert debuggers, including Hana Kim,
+- "What to Expect When You’re NOT Expecting", a live taping of the Go time podcast with a panel of expert debuggers, including Hana Kim,
   [Nov 11 12:00 PM](https://www.gophercon.com/agenda/session/2334490).
-- “Evolving the Go Memory Manager’s RAM and CPU Efficiency”, a talk by Michael Knyszek,
+- "Evolving the Go Memory Manager’s RAM and CPU Efficiency", a talk by Michael Knyszek,
   [Nov 11 1:00 PM](https://www.gophercon.com/agenda/session/233086); [Q&A at 1:50 PM](https://www.gophercon.com/agenda/session/417940).
-- “Implementing Faster Defers”, a talk by Dan Scales,
+- "Implementing Faster Defers", a talk by Dan Scales,
   [Nov 11 5:10 PM](https://www.gophercon.com/agenda/session/233397); [Q&A at 5:40 PM](https://www.gophercon.com/agenda/session/417941).
-- “Go Team - Ask Me Anything”, a live Q&A with Julie Qiu, Rebecca Stambler, Russ Cox, Sameer Ajmani, and Van Riper,
+- "Go Team - Ask Me Anything", a live Q&A with Julie Qiu, Rebecca Stambler, Russ Cox, Sameer Ajmani, and Van Riper,
   [Nov 12 3:00 PM](https://www.gophercon.com/agenda/session/420539).
-- “Pardon the Interruption: Loop Preemption in Go 1.14”, a talk by Austin Clements,
+- "Pardon the Interruption: Loop Preemption in Go 1.14", a talk by Austin Clements,
   [Nov 12 4:45 PM](https://www.gophercon.com/agenda/session/233441); [Q&A at 5:15 PM](https://www.gophercon.com/agenda/session/417943).
-- “Working with Errors”, a talk by Jonathan Amsterdam,
+- "Working with Errors", a talk by Jonathan Amsterdam,
   [Nov 13 1:00 PM](https://www.gophercon.com/agenda/session/233432); [Q&A at 1:50 PM](https://www.gophercon.com/agenda/session/417945).
-- “Crossing the Chasm for Go: Two Million Users and Growing”, a talk by Carmen Andoh,
+- "Crossing the Chasm for Go: Two Million Users and Growing", a talk by Carmen Andoh,
   [Nov 13 5:55 PM](https://www.gophercon.com/agenda/session/233426).
 - 11月11日上午10:00（美国东部时间）；上午10:30进行问答。
   "What to Expect When You're NOT Expecting"，Go time播客的现场录制，包括Hana Kim在内的专家调试员参加。
@@ -120,9 +120,9 @@ Over the next year, we will continue to work on developing support for Go module
 
 We will also finally wind down support for GOPATH-based development: any programs using dependencies other than the standard library will need a `go.mod`. (If you haven’t switched to modules yet, see the [GOPATH wiki page](https://go.dev/wiki/GOPATH) for details about this final step in the journey from GOPATH to modules.)
 
-我们也将最终结束对基于GOPATH的开发的支持：任何使用标准库以外的依赖关系的程序都需要一个go.mod。(如果你还没有切换到模块，请参阅GOPATH维基页面，了解从GOPATH到模块的最后一步的细节）。
+我们也将最终结束对基于GOPATH的开发的支持：任何使用标准库以外的依赖关系的程序都需要一个go.mod。(如果您还没有切换到模块，请参阅GOPATH维基页面，了解从GOPATH到模块的最后一步的细节）。
 
-From the start, the [goal for Go modules](https://research.swtch.com/vgo-intro) has been “to add the concept of package versions to the working vocabulary of both Go developers and our tools,” to enable deep support for modules and versions throughout the Go ecosystem. The [Go module mirror, checksum database, and index](https://blog.golang.org/modules2019) were made possible by this ecosystem-wide understanding of what a package version is. Over the next year, we will see rich module support added to more tools and systems. For example, we plan to investigate new tooling to help module authors publish new versions (`go release`) as well as to help module consumers update their code to migrate away from deprecated APIs (a new `go fix`).
+From the start, the [goal for Go modules](https://research.swtch.com/vgo-intro) has been "to add the concept of package versions to the working vocabulary of both Go developers and our tools," to enable deep support for modules and versions throughout the Go ecosystem. The [Go module mirror, checksum database, and index](https://blog.golang.org/modules2019) were made possible by this ecosystem-wide understanding of what a package version is. Over the next year, we will see rich module support added to more tools and systems. For example, we plan to investigate new tooling to help module authors publish new versions (`go release`) as well as to help module consumers update their code to migrate away from deprecated APIs (a new `go fix`).
 
 从一开始，Go模块的目标就是 "在Go开发者和我们的工具的工作词汇中加入软件包版本的概念"，以便在整个Go生态系统中实现对模块和版本的深度支持。Go模块镜像、校验和数据库和索引都是由整个生态系统对软件包版本的理解所促成的。在接下来的一年里，我们将看到更多的工具和系统加入丰富的模块支持。例如，我们计划研究新的工具，以帮助模块作者发布新的版本（go release），以及帮助模块消费者更新他们的代码，以便从废弃的API中迁移出来（一个新的go fix）。
 
@@ -132,11 +132,11 @@ As a larger example, [we created gopls](https://github.com/golang/tools/blob/mas
 
 Another important use of version information is tracking whether any package in a build has a known vulnerability. Over the next year, we plan to develop a database of known vulnerabilities as well as tools to check your programs against that database.
 
-版本信息的另一个重要用途是跟踪构建中的任何软件包是否有已知的漏洞。在接下来的一年里，我们计划开发一个已知漏洞的数据库，以及根据该数据库检查你的程序的工具。
+版本信息的另一个重要用途是跟踪构建中的任何软件包是否有已知的漏洞。在接下来的一年里，我们计划开发一个已知漏洞的数据库，以及根据该数据库检查您的程序的工具。
 
 The Go package discovery site [pkg.go.dev](https://pkg.go.dev/) is another example of a version-aware system enabled by Go modules. We’ve been focused on getting the core functionality and user experience right, including a [redesign launching today](https://blog.golang.org/pkgsite-redesign). Over the next year, we will be unifying godoc.org into pkg.go.dev. We will also be expanding the version timeline for each package, showing important changes in each version, known vulnerabilities, and more, following the overall goal of surfacing what you need to make [informed decisions about adding dependencies](https://research.swtch.com/deps).
 
-Go软件包发现网站pkg.go.dev是另一个由Go模块启用的版本意识系统的例子。我们一直专注于将核心功能和用户体验做好，包括今天推出的重新设计。在接下来的一年里，我们将把godoc.org统一到pkg.go.dev。我们还将扩大每个软件包的版本时间线，显示每个版本的重要变化、已知的漏洞等等，其总体目标是展示你在添加依赖关系时需要做出的知情决定。
+Go软件包发现网站pkg.go.dev是另一个由Go模块启用的版本意识系统的例子。我们一直专注于将核心功能和用户体验做好，包括今天推出的重新设计。在接下来的一年里，我们将把godoc.org统一到pkg.go.dev。我们还将扩大每个软件包的版本时间线，显示每个版本的重要变化、已知的漏洞等等，其总体目标是展示您在添加依赖关系时需要做出的知情决定。
 
 We’re excited to see this journey from GOPATH to Go modules nearing completion and all the excellent dependency-aware tools that Go modules are enabling.
 
@@ -152,4 +152,4 @@ The next feature on everyone’s minds is of course generics. As we mentioned ab
 
 Go is far more than just us on the Go team at Google. We are indebted to the contributors who work with us with the Go releases and tools. Beyond that, Go only succeeds because of all of you who work in and contribute to Go’s thriving ecosystem. It has been a difficult year in the world outside Go. More than ever, we appreciate you taking the time to join us and help make Go such a success. Thank you. We hope you are all staying safe and wish you all the best.
 
-Go不仅仅是我们谷歌的Go团队的事情。我们要感谢那些与我们一起发布Go版本和工具的贡献者们。除此之外，Go的成功还在于所有在Go的繁荣生态系统中工作并为之做出贡献的人们。在Go之外的世界，这是艰难的一年。我们比以往任何时候都更感谢您抽出时间加入我们，帮助Go取得如此的成功。谢谢你们。我们希望你们都能保持安全，并祝你们一切顺利。
+Go不仅仅是我们谷歌的Go团队的事情。我们要感谢那些与我们一起发布Go版本和工具的贡献者们。除此之外，Go的成功还在于所有在Go的繁荣生态系统中工作并为之做出贡献的人们。在Go之外的世界，这是艰难的一年。我们比以往任何时候都更感谢您抽出时间加入我们，帮助Go取得如此的成功。谢谢您们。我们希望您们都能保持安全，并祝您们一切顺利。

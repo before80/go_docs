@@ -22,11 +22,11 @@ An earlier [post](https://blog.golang.org/strings) talked about strings, bytes a
 
 To learn pretty much everything you ever wanted to know about normalization (and then some), [Annex 15 of the Unicode Standard](http://unicode.org/reports/tr15/) is a good read. A more approachable article is the corresponding [Wikipedia page](http://en.wikipedia.org/wiki/Unicode_equivalence). Here we focus on how normalization relates to Go.
 
-要了解你想知道的关于规范化的几乎所有内容（还有一些），Unicode标准的附件15是一个很好的读物。相应的维基百科页面是一篇更容易理解的文章。在这里，我们主要讨论规范化与Go的关系。
+要了解您想知道的关于规范化的几乎所有内容（还有一些），Unicode标准的附件15是一个很好的读物。相应的维基百科页面是一篇更容易理解的文章。在这里，我们主要讨论规范化与Go的关系。
 
 ## What is normalization? 什么是规范化？
 
-There are often several ways to represent the same string. For example, an é (e-acute) can be represented in a string as a single rune ("\u00e9") or an ‘e’ followed by an acute accent (“e\u0301”). According to the Unicode standard, these two are “canonically equivalent” and should be treated as equal.
+There are often several ways to represent the same string. For example, an é (e-acute) can be represented in a string as a single rune ("\u00e9") or an ‘e’ followed by an acute accent ("e\u0301"). According to the Unicode standard, these two are "canonically equivalent" and should be treated as equal.
 
 同一个字符串通常有几种表示方法。例如，一个é（e-acute）在字符串中可以表示为一个单独的符文（""u00e9"）或一个'e'后面跟着一个锐角重音（"e/u0301"）。根据Unicode标准，这两个是 "典型的等价物"，应该被视为相等。
 
@@ -34,7 +34,7 @@ Using a byte-to-byte comparison to determine equality would clearly not give the
 
 对于这两个字符串，使用逐个字节的比较来确定相等，显然不会得到正确的结果。Unicode定义了一组正常形式，如果两个字符串在规范上是等价的，并且被规范化为相同的正常形式，那么它们的字节表示就是相同的。
 
-Unicode also defines a “compatibility equivalence” to equate characters that represent the same characters, but may have a different visual appearance. For example, the superscript digit ‘⁹’ and the regular digit ‘9’ are equivalent in this form.
+Unicode also defines a "compatibility equivalence" to equate characters that represent the same characters, but may have a different visual appearance. For example, the superscript digit ‘⁹’ and the regular digit ‘9’ are equivalent in this form.
 
 Unicode还定义了一个 "兼容性等价"，以等价表示相同的字符，但可能有不同的视觉外观。例如，上标数字"⁹"和普通数字 "9 "在这种形式下是等同的。
 
@@ -69,7 +69,7 @@ Of course, we can also avoid the overhead outright if we know in advance that a 
 
 After all this discussion about avoiding normalization, you might ask why it’s worth worrying about at all. The reason is that there are cases where normalization is required and it is important to understand what those are, and in turn how to do it correctly.
 
-在讨论了这么多关于避免规范化的问题之后，你可能会问为什么值得担心这个问题。原因是有一些情况是需要规范化的，重要的是要了解这些情况是什么，以及如何正确地做到这一点。
+在讨论了这么多关于避免规范化的问题之后，您可能会问为什么值得担心这个问题。原因是有一些情况是需要规范化的，重要的是要了解这些情况是什么，以及如何正确地做到这一点。
 
 Before discussing those, we must first clarify the concept of ‘character’.
 
@@ -77,13 +77,13 @@ Before discussing those, we must first clarify the concept of ‘character’.
 
 ## What is a character? 什么是字符？
 
-As was mentioned in the strings blog post, characters can span multiple runes. For example, an ‘e’ and ‘◌́’ (acute “\u0301”) can combine to form ‘é’ (“e\u0301” in NFD).  Together these two runes are one character. The definition of a character may vary depending on the application. For normalization we will define it as a sequence of runes that starts with a starter, a rune that does not modify or combine backwards with any other rune, followed by possibly empty sequence of non-starters, that is, runes that do (typically accents). The normalization algorithm processes one character at a time.
+As was mentioned in the strings blog post, characters can span multiple runes. For example, an ‘e’ and ‘◌́’ (acute "\u0301") can combine to form ‘é’ ("e\u0301" in NFD).  Together these two runes are one character. The definition of a character may vary depending on the application. For normalization we will define it as a sequence of runes that starts with a starter, a rune that does not modify or combine backwards with any other rune, followed by possibly empty sequence of non-starters, that is, runes that do (typically accents). The normalization algorithm processes one character at a time.
 
 正如串联博文中提到的，字符可以跨越多个符文。例如，"e "和"◌́"（锐利的"\u0301"）可以组合成 "é"（NFD中的 "e\u0301"）。 这两个符文合在一起就是一个字符。一个字符的定义可能因应用而异。对于规范化来说，我们将其定义为一个符文序列，以起始符文开始，即一个不修改或不与任何其他符文反向组合的符文，后面可能是空的非起始符文序列，即有的符文（通常是重音）。归一化算法一次处理一个字符。
 
 Theoretically, there is no bound to the number of runes that can make up a Unicode character. In fact, there are no restrictions on the number of modifiers that can follow a character and a modifier may be repeated, or stacked. Ever seen an ‘e’ with three acutes? Here you go: ‘é́́’. That is a perfectly valid 4-rune character according to the standard.
 
-理论上，组成Unicode字符的符文数量没有限制。事实上，对一个字符后面可以有多少个修饰符没有限制，一个修饰符可以重复，也可以叠加。见过一个有三个尖锐的'e'吗？给你。'é́́'. 根据该标准，这是一个完全有效的4韵母字符。
+理论上，组成Unicode字符的符文数量没有限制。事实上，对一个字符后面可以有多少个修饰符没有限制，一个修饰符可以重复，也可以叠加。见过一个有三个尖锐的'e'吗？给您。'é́́'. 根据该标准，这是一个完全有效的4韵母字符。
 
 As a consequence, even at the lowest level, text needs to be processed in increments of unbounded chunk sizes. This is especially awkward with a streaming approach to text processing, as used by Go’s standard Reader and Writer interfaces, as that model potentially requires any intermediate buffers to have unbounded size as well. Also, a straightforward implementation of normalization will have a O(n²) running time.
 
@@ -97,11 +97,11 @@ There are really no meaningful interpretations for such large sequences of modif
 
 Even if you don’t need to normalize text within your Go code, you might still want to do so when communicating to the outside world. For example, normalizing to NFC might compact your text, making it cheaper to send down a wire. For some languages, like Korean, the savings can be substantial. Also, some external APIs might expect text in a certain normal form. Or you might just want to fit in and output your text as NFC like the rest of the world.
 
-即使您不需要在 Go 代码中对文本进行规范化处理，但在与外部世界交流时，您可能仍然希望这样做。例如，对NFC进行规范化处理可能会压缩你的文本，使其在发送时更便宜。对于某些语言，如韩语，可以节省大量的费用。此外，一些外部API可能希望文本采用某种正常形式。或者你可能只是想适应并像世界上其他地方一样将你的文本输出为NFC。
+即使您不需要在 Go 代码中对文本进行规范化处理，但在与外部世界交流时，您可能仍然希望这样做。例如，对NFC进行规范化处理可能会压缩您的文本，使其在发送时更便宜。对于某些语言，如韩语，可以节省大量的费用。此外，一些外部API可能希望文本采用某种正常形式。或者您可能只是想适应并像世界上其他地方一样将您的文本输出为NFC。
 
 To write your text as NFC, use the [unicode/norm](https://pkg.go.dev/golang.org/x/text/unicode/norm) package to wrap your `io.Writer` of choice:
 
-要把你的文本写成NFC，使用unicode/norm包来包装你选择的io.Writer：
+要把您的文本写成NFC，使用unicode/norm包来包装您选择的io.Writer：
 
 ```go linenums="1"
 wc := norm.NFC.Writer(w)
@@ -111,7 +111,7 @@ defer wc.Close()
 
 If you have a small string and want to do a quick conversion, you can use this simpler form:
 
-如果你有一个小的字符串，想做快速转换，你可以使用这种更简单的形式：
+如果您有一个小的字符串，想做快速转换，您可以使用这种更简单的形式：
 
 ```go linenums="1"
 norm.NFC.Bytes(b)
@@ -119,13 +119,13 @@ norm.NFC.Bytes(b)
 
 Package norm provides various other methods for normalizing text. Pick the one that suits your needs best.
 
-包norm提供了其他各种规范化文本的方法。挑选一个最适合你的需求。
+包norm提供了其他各种规范化文本的方法。挑选一个最适合您的需求。
 
 ## Catching look-alikes 捕捉外观相似的东西
 
-Can you tell the difference between ‘K’ ("\u004B") and ‘K’ (Kelvin sign “\u212A”) or ‘Ω’ ("\u03a9") and ‘Ω’ (Ohm sign “\u2126”)? It is easy to overlook the sometimes minute differences between variants of the same underlying character. It is generally a good idea to disallow such variants in identifiers or anything where deceiving users with such look-alikes can pose a security hazard.
+Can you tell the difference between ‘K’ ("\u004B") and ‘K’ (Kelvin sign "\u212A") or ‘Ω’ ("\u03a9") and ‘Ω’ (Ohm sign "\u2126")? It is easy to overlook the sometimes minute differences between variants of the same underlying character. It is generally a good idea to disallow such variants in identifiers or anything where deceiving users with such look-alikes can pose a security hazard.
 
-你能分辨出'K'（"\u004B"）和'K'（开尔文符号"\u212A"）或'Ω'（"\u03a9"）和'Ω'（欧姆符号"\u2126"）之间的区别吗？我们很容易忽视同一个基本字符的变体之间有时存在的微小差异。一般来说，不允许在标识符或任何用这种外观相似的东西欺骗用户的地方出现这种变体是一个好主意。
+您能分辨出'K'（"\u004B"）和'K'（开尔文符号"\u212A"）或'Ω'（"\u03a9"）和'Ω'（欧姆符号"\u2126"）之间的区别吗？我们很容易忽视同一个基本字符的变体之间有时存在的微小差异。一般来说，不允许在标识符或任何用这种外观相似的东西欺骗用户的地方出现这种变体是一个好主意。
 
 The compatibility normal forms, NFKC and NFKD, will map many visually nearly identical forms to a single value. Note that it will not do so when two symbols look alike, but are really from two different alphabets. For example the Latin ‘o’, Greek ‘ο’, and Cyrillic ‘о’ are still different characters as defined by these forms.
 
@@ -133,9 +133,9 @@ The compatibility normal forms, NFKC and NFKD, will map many visually nearly ide
 
 ## Correct text modifications 正确的文本修改
 
-The norm package might also come to the rescue when one needs to modify text. Consider a case where you want to search and replace the word “cafe” with its plural form “cafes”.  A code snippet could look like this.
+The norm package might also come to the rescue when one needs to modify text. Consider a case where you want to search and replace the word "cafe" with its plural form "cafes".  A code snippet could look like this.
 
-当人们需要修改文本时，规范包也可能会出手相助。考虑一下这样的情况：你想用复数形式 "cafes "来搜索和替换 "cafe "这个词。 一个代码片断可以是这样的。
+当人们需要修改文本时，规范包也可能会出手相助。考虑一下这样的情况：您想用复数形式 "cafes "来搜索和替换 "cafe "这个词。 一个代码片断可以是这样的。
 
 ```go linenums="1"
 s := "We went to eat at multiple cafe"
@@ -147,7 +147,7 @@ if p := strings.Index(s, cafe); p != -1 {
 fmt.Println(s)
 ```
 
-This prints “We went to eat at multiple cafes” as desired and expected. Now consider our text contains the French spelling “café” in NFD form:
+This prints "We went to eat at multiple cafes" as desired and expected. Now consider our text contains the French spelling "café" in NFD form:
 
 这就打印出了 "我们去了多家咖啡馆吃饭"，这是所希望的，也是预期的。现在考虑我们的文本包含NFD形式的法语拼写 "café"：
 
@@ -155,7 +155,7 @@ This prints “We went to eat at multiple cafes” as desired and expected. Now 
 s := "We went to eat at multiple cafe\u0301"
 ```
 
-Using the same code from above, the plural “s” would still be inserted after the ‘e’, but before the acute, resulting in  “We went to eat at multiple cafeś”.  This behavior is undesirable.
+Using the same code from above, the plural "s" would still be inserted after the ‘e’, but before the acute, resulting in  "We went to eat at multiple cafeś".  This behavior is undesirable.
 
 使用上面的相同代码，复数 "s "仍将插入'e'之后，但在急性之前，结果是 "We went to eat at multiple cafeś"。 这种行为是不可取的。
 
@@ -215,7 +215,7 @@ r = transform.NewReader(r, t)
 // read as before ...
 ```
 
-This will, for example, convert any mention of “cafés” in the text to “cafes”, regardless of the normal form in which the original text was encoded.
+This will, for example, convert any mention of "cafés" in the text to "cafes", regardless of the normal form in which the original text was encoded.
 
 例如，这将把文本中提到的任何 "cafés "转换为 "cafes"，而不管原始文本是以何种规范形式编码的。
 
@@ -223,7 +223,7 @@ This will, for example, convert any mention of “cafés” in the text to “ca
 
 As mentioned earlier, some packages precompute normalizations into their tables to minimize the need for normalization at run time. The type `norm.Properties` provides access to the per-rune information needed by these packages, most notably the Canonical Combining Class and decomposition information. Read the [documentation](https://pkg.go.dev/golang.org/x/text/unicode/norm#Properties) for this type if you want to dig deeper.
 
-如前所述，一些包在它们的表中预先计算了规范化，以尽量减少在运行时对规范化的需求。norm.Properties类型提供了对这些包所需要的每个规范化信息的访问，最明显的是Canonical Combining Class和分解信息。如果你想深入研究，请阅读这个类型的文档。
+如前所述，一些包在它们的表中预先计算了规范化，以尽量减少在运行时对规范化的需求。norm.Properties类型提供了对这些包所需要的每个规范化信息的访问，最明显的是Canonical Combining Class和分解信息。如果您想深入研究，请阅读这个类型的文档。
 
 ## Performance 性能
 
@@ -242,7 +242,7 @@ The column with the results for the iterator shows both the measurement with and
 
 As you can see, detecting whether a string is normalized can be quite efficient. A lot of the cost of normalizing in the second row is for the initialization of buffers, the cost of which is amortized when one is processing larger strings. As it turns out, these buffers are rarely needed, so we may change the implementation at some point to speed up the common case for small strings even further.
 
-正如你所看到的，检测一个字符串是否被规范化可以是相当有效的。第二行中规范化的很多成本是用于缓冲区的初始化，当人们处理较大的字符串时，其成本会被摊薄。事实证明，这些缓冲区很少需要，所以我们可能会在某个时候改变实现，以进一步加快小字符串的常见情况。
+正如您所看到的，检测一个字符串是否被规范化可以是相当有效的。第二行中规范化的很多成本是用于缓冲区的初始化，当人们处理较大的字符串时，其成本会被摊薄。事实证明，这些缓冲区很少需要，所以我们可能会在某个时候改变实现，以进一步加快小字符串的常见情况。
 
 ## Conclusion 结论
 

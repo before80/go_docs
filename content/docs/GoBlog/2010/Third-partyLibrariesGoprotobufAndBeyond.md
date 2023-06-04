@@ -18,9 +18,9 @@ Andrew Gerrand
 
 ​	在 3 月 24 日，Rob Pike 宣布了 [goprotobuf](http://code.google.com/p/goprotobuf/)，即 Google 数据交换格式 [Protocol Buffers](http://code.google.com/apis/protocolbuffers/docs/overview.html) 的 Go 语言绑定。与 C++、Java 和 Python 一样，Go 语言提供了官方的 protobuf 实现，这是实现现有系统与使用 Go 语言构建的系统互操作性的重要里程碑。
 
-​	goprotobuf 项目包含两部分：一个“协议编译器插件”，用于生成 Go 源文件，一旦编译，就可以访问和管理协议缓冲区；以及一个 Go 包，用于实现编码（marshaling 编组）、解码（unmarshaling 解组）和访问协议缓冲区的运行时支持。
+​	goprotobuf 项目包含两部分：一个"协议编译器插件"，用于生成 Go 源文件，一旦编译，就可以访问和管理协议缓冲区；以及一个 Go 包，用于实现编码（marshaling 编组）、解码（unmarshaling 解组）和访问协议缓冲区的运行时支持。
 
-​	要使用 goprotobuf，首先需要安装 Go 和 [protobuf](http://code.google.com/p/protobuf/)。然后可以使用 [goinstall](https://go.dev/cmd/goinstall/)安装“proto”包：
+​	要使用 goprotobuf，首先需要安装 Go 和 [protobuf](http://code.google.com/p/protobuf/)。然后可以使用 [goinstall](https://go.dev/cmd/goinstall/)安装"proto"包：
 
 ```shell
 goinstall goprotobuf.googlecode.com/hg/proto

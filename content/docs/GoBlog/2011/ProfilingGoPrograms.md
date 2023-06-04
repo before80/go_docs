@@ -16,7 +16,7 @@ Russ Cox, July 2011; updated by Shenghou Ma, May 2013
 
 At Scala Days 2011, Robert Hundt presented a paper titled [Loop Recognition in C++/Java/Go/Scala.](http://research.google.com/pubs/pub37122.html) The paper implemented a specific loop finding algorithm, such as you might use in a flow analysis pass of a compiler, in C++, Go, Java, Scala, and then used those programs to draw conclusions about typical performance concerns in these languages. The Go program presented in that paper runs quite slowly, making it an excellent opportunity to demonstrate how to use Go’s profiling tools to take a slow program and make it faster.
 
-在2011年Scala日上，Robert Hundt发表了一篇题为《C++/Java/Go/Scala中的循环识别》的论文。该论文在C++、Go、Java、Scala中实现了一种特定的循环查找算法，比如你可能会在编译器的流程分析环节中使用，然后用这些程序对这些语言的典型性能问题得出了结论。在那篇论文中介绍的Go程序运行得相当慢，这使得它成为一个很好的机会来展示如何使用Go的剖析工具来处理一个慢的程序并使其更快。
+在2011年Scala日上，Robert Hundt发表了一篇题为《C++/Java/Go/Scala中的循环识别》的论文。该论文在C++、Go、Java、Scala中实现了一种特定的循环查找算法，比如您可能会在编译器的流程分析环节中使用，然后用这些程序对这些语言的典型性能问题得出了结论。在那篇论文中介绍的Go程序运行得相当慢，这使得它成为一个很好的机会来展示如何使用Go的剖析工具来处理一个慢的程序并使其更快。
 
 *By using Go’s profiling tools to identify and correct specific bottlenecks, we can make the Go loop finding program run an order of magnitude faster and use 6x less memory.* (Update: Due to recent optimizations of `libstdc++` in `gcc`, the memory reduction is now 3.7x.)
 
@@ -160,7 +160,7 @@ In fact the total for `main.FindLoops` and `main.main` should have been 100%, bu
 
 The stack trace samples contain more interesting data about function call relationships than the text listings can show. The `web` command writes a graph of the profile data in SVG format and opens it in a web browser. (There is also a `gv` command that writes PostScript and opens it in Ghostview. For either command, you need [graphviz](http://www.graphviz.org/) installed.)
 
-堆栈跟踪样本包含了比文本列表所能显示的更有趣的函数调用关系数据。web命令以SVG格式写出剖析数据的图表，并在web浏览器中打开它。(还有一个gv命令可以写出PostScript并在Ghostview中打开。对于这两个命令，你都需要安装graphviz）。
+堆栈跟踪样本包含了比文本列表所能显示的更有趣的函数调用关系数据。web命令以SVG格式写出剖析数据的图表，并在web浏览器中打开它。(还有一个gv命令可以写出PostScript并在Ghostview中打开。对于这两个命令，您都需要安装graphviz）。
 
 ```
 (pprof) web
@@ -216,7 +216,7 @@ ROUTINE ====================== main.DFS in /home/rsc/g/benchgraffiti/havlak/havl
 
 The listing shows the source code for the `DFS` function (really, for every function matching the regular expression `DFS`). The first three columns are the number of samples taken while running that line, the number of samples taken while running that line or in code called from that line, and the line number in the file. The related command `disasm` shows a disassembly of the function instead of a source listing; when there are enough samples this can help you see which instructions are expensive. The `weblist` command mixes the two modes: it shows [a source listing in which clicking a line shows the disassembly](https://rawgit.com/rsc/benchgraffiti/master/havlak/havlak1.html).
 
-该清单显示了DFS函数的源代码（实际上是每个与正则表达式DFS匹配的函数的源代码）。前三列是运行该行时的样本数，运行该行时或从该行调用的代码中的样本数，以及文件中的行号。相关的命令disasm显示了函数的反汇编，而不是源列表；当有足够的样本时，这可以帮助你看到哪些指令是昂贵的。weblist命令混合了这两种模式：它显示了一个源列表，点击其中的一行就可以看到反汇编。
+该清单显示了DFS函数的源代码（实际上是每个与正则表达式DFS匹配的函数的源代码）。前三列是运行该行时的样本数，运行该行时或从该行调用的代码中的样本数，以及文件中的行号。相关的命令disasm显示了函数的反汇编，而不是源列表；当有足够的样本时，这可以帮助您看到哪些指令是昂贵的。weblist命令混合了这两种模式：它显示了一个源列表，点击其中的一行就可以看到反汇编。
 
 Since we already know that the time is going into map lookups implemented by the hash runtime functions, we care most about the second column. A large fraction of time is spent in recursive calls to `DFS` (line 247), as would be expected from a recursive traversal. Excluding the recursion, it looks like the time is going into the accesses to the `number` map on lines 242, 246, and 250. For that particular lookup, a map is not the most efficient choice. Just as they would be in a compiler, the basic block structures have unique sequence numbers assigned to them. Instead of using a `map[*BasicBlock]int` we can use a `[]int`, a slice indexed by the block number. There’s no reason to use a map when an array or slice will do.
 
@@ -313,7 +313,7 @@ Total: 82.4 MB
 (pprof)
 ```
 
-The command `go tool pprof` reports that `FindLoops` has allocated approximately 56.3 of the 82.4 MB in use; `CreateNode` accounts for another 17.6 MB. To reduce overhead, the memory profiler only records information for approximately one block per half megabyte allocated (the “1-in-524288 sampling rate”), so these are approximations to the actual counts.
+The command `go tool pprof` reports that `FindLoops` has allocated approximately 56.3 of the 82.4 MB in use; `CreateNode` accounts for another 17.6 MB. To reduce overhead, the memory profiler only records information for approximately one block per half megabyte allocated (the "1-in-524288 sampling rate"), so these are approximations to the actual counts.
 
 命令去工具pprof报告说，FindLoops在使用的82.4MB中分配了大约56.3MB；CreateNode又占了17.6MB。为了减少开销，内存剖析器只记录每半兆字节分配的大约一个块的信息（"1-in-524288采样率"），所以这些是实际计数的近似值。
 
@@ -500,7 +500,7 @@ Every time `FindLoops` is called, it allocates some sizable bookkeeping structur
 
 Having a garbage-collected language doesn’t mean you can ignore memory allocation issues. In this case, a simple solution is to introduce a cache so that each call to `FindLoops` reuses the previous call’s storage when possible. (In fact, in Hundt’s paper, he explains that the Java program needed just this change to get anything like reasonable performance, but he did not make the same change in the other garbage-collected implementations.)
 
-拥有一个垃圾收集器的语言并不意味着你可以忽视内存分配问题。在这种情况下，一个简单的解决方案是引入一个缓存，使每次对FindLoops的调用都尽可能地重用前一次调用的存储。(事实上，在Hundt的论文中，他解释说Java程序只需要这样的改变就可以获得合理的性能，但他在其他垃圾收集的实现中没有做同样的改变)。
+拥有一个垃圾收集器的语言并不意味着您可以忽视内存分配问题。在这种情况下，一个简单的解决方案是引入一个缓存，使每次对FindLoops的调用都尽可能地重用前一次调用的存储。(事实上，在Hundt的论文中，他解释说Java程序只需要这样的改变就可以获得合理的性能，但他在其他垃圾收集的实现中没有做同样的改变)。
 
 We’ll add a global `cache` structure:
 
@@ -570,7 +570,7 @@ $
 
 (参见与havlak4的差异)
 
-There’s more we can do to clean up the program and make it faster, but none of it requires profiling techniques that we haven’t already shown. The work list used in the inner loop can be reused across iterations and across calls to `FindLoops`, and it can be combined with the separate “node pool” generated during that pass. Similarly, the loop graph storage can be reused on each iteration instead of reallocated. In addition to these performance changes, the [final version](https://github.com/rsc/benchgraffiti/blob/master/havlak/havlak6.go) is written using idiomatic Go style, using data structures and methods. The stylistic changes have only a minor effect on the run time: the algorithm and constraints are unchanged.
+There’s more we can do to clean up the program and make it faster, but none of it requires profiling techniques that we haven’t already shown. The work list used in the inner loop can be reused across iterations and across calls to `FindLoops`, and it can be combined with the separate "node pool" generated during that pass. Similarly, the loop graph storage can be reused on each iteration instead of reallocated. In addition to these performance changes, the [final version](https://github.com/rsc/benchgraffiti/blob/master/havlak/havlak6.go) is written using idiomatic Go style, using data structures and methods. The stylistic changes have only a minor effect on the run time: the algorithm and constraints are unchanged.
 
 我们还可以做更多的事情来清理程序，使其更快，但这都不需要我们还没有展示过的剖析技术。在内循环中使用的工作列表可以在不同的迭代和对FindLoops的调用中重复使用，它可以与该过程中产生的单独的 "节点池 "结合起来。同样地，循环图的存储可以在每次迭代中重复使用，而不是重新分配。除了这些性能上的变化外，最终的版本是使用惯用的Go风格编写的，使用数据结构和方法。风格上的变化对运行时间只有很小的影响：算法和约束条件没有变化。
 
@@ -637,7 +637,7 @@ The program sources, Linux x86-64 binaries, and profiles used to write this post
 
 As mentioned above, [`go test`](https://go.dev/cmd/go/#Test_packages) includes these profiling flags already: define a [benchmark function](https://go.dev/pkg/testing/) and you’re all set. There is also a standard HTTP interface to profiling data. In an HTTP server, adding
 
-如上所述，go test已经包括了这些剖析标志：定义一个基准函数，你就可以了。也有一个标准的HTTP接口来获取剖析数据。在一个HTTP服务器中，添加
+如上所述，go test已经包括了这些剖析标志：定义一个基准函数，您就可以了。也有一个标准的HTTP接口来获取剖析数据。在一个HTTP服务器中，添加
 
 ```shell linenums="1"
 import _ "net/http/pprof"
@@ -645,7 +645,7 @@ import _ "net/http/pprof"
 
 will install handlers for a few URLs under `/debug/pprof/`. Then you can run `go tool pprof` with a single argument—the URL to your server’s profiling data and it will download and examine a live profile.
 
-将为/debug/pprof/下的几个URL安装处理程序。然后你可以用一个参数运行go tool pprof--你的服务器的剖析数据的URL，它将下载并检查一个实时剖析。
+将为/debug/pprof/下的几个URL安装处理程序。然后您可以用一个参数运行go tool pprof--您的服务器的剖析数据的URL，它将下载并检查一个实时剖析。
 
 ```shell linenums="1"
 go tool pprof http://localhost:6060/debug/pprof/profile   # 30-second CPU profile

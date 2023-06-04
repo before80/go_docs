@@ -16,7 +16,7 @@ Russ Cox
 
 Today’s [Go security release](https://go.dev/s/go-security-release-jan-2021) fixes an issue involving PATH lookups in untrusted directories that can lead to remote execution during the `go` `get` command. We expect people to have questions about what exactly this means and whether they might have issues in their own programs. This post details the bug, the fixes we have applied, how to decide whether your own programs are vulnerable to similar problems, and what you can do if they are.
 
-​	今天的[Go安全版本](https://go.dev/s/go-security-release-jan-2021)修复了一个涉及不受信任目录中PATH查找的问题，该问题可能导致在`go get`命令中的远程执行。我们预计人们会有疑问，这到底意味着什么，以及他们自己的程序中是否会有问题。这篇文章详细介绍了这个bug、我们应用的修复程序、如何判断你自己的程序是否容易受到类似问题的影响，以及如果有的话你可以做什么。
+​	今天的[Go安全版本](https://go.dev/s/go-security-release-jan-2021)修复了一个涉及不受信任目录中PATH查找的问题，该问题可能导致在`go get`命令中的远程执行。我们预计人们会有疑问，这到底意味着什么，以及他们自己的程序中是否会有问题。这篇文章详细介绍了这个bug、我们应用的修复程序、如何判断您自己的程序是否容易受到类似问题的影响，以及如果有的话您可以做什么。
 
 ## Go command & remote execution - Go命令和远程执行
 
@@ -34,9 +34,9 @@ Today’s bug, however, was entirely our fault, not a bug or obscure feature of 
 
 ## Commands and PATHs and Go 命令和 PATHs 与 Go
 
-All operating systems have a concept of an executable path (`$PATH` on Unix, `%PATH%` on Windows; for simplicity, we’ll just use the term PATH), which is a list of directories. When you type a command into a shell prompt, the shell looks in each of the listed directories, in turn, for an executable with the name you typed. It runs the first one it finds, or it prints a message like “command not found.”
+All operating systems have a concept of an executable path (`$PATH` on Unix, `%PATH%` on Windows; for simplicity, we’ll just use the term PATH), which is a list of directories. When you type a command into a shell prompt, the shell looks in each of the listed directories, in turn, for an executable with the name you typed. It runs the first one it finds, or it prints a message like "command not found."
 
-所有的操作系统都有一个可执行路径的概念（Unix的$PATH，Windows的%PATH%；为了简单起见，我们只使用PATH这个术语），它是一个目录列表。当你在shell提示符下输入一条命令时，shell会依次在列出的每个目录中寻找与你输入的名称相同的可执行文件。它运行它找到的第一个可执行文件，或者打印出一个类似 "未找到命令 "的信息。
+所有的操作系统都有一个可执行路径的概念（Unix的$PATH，Windows的%PATH%；为了简单起见，我们只使用PATH这个术语），它是一个目录列表。当您在shell提示符下输入一条命令时，shell会依次在列出的每个目录中寻找与您输入的名称相同的可执行文件。它运行它找到的第一个可执行文件，或者打印出一个类似 "未找到命令 "的信息。
 
 On Unix, this idea first appeared in Seventh Edition Unix’s Bourne shell (1979). The manual explained:
 
@@ -46,17 +46,17 @@ On Unix, this idea first appeared in Seventh Edition Unix’s Bourne shell (1979
 >
 > shell参数$PATH定义了包含命令的目录的搜索路径。每个备选的目录名都用冒号（:）隔开。默认路径是:/bin:/usr/bin。如果命令名包含一个/，那么搜索路径就不会被使用。否则，路径中的每个目录都会被搜索到可执行文件。
 
-Note the default: the current directory (denoted here by an empty string, but let’s call it “dot”) is listed ahead of `/bin` and `/usr/bin`. MS-DOS and then Windows chose to hard-code that behavior: on those systems, dot is always searched first, automatically, before considering any directories listed in `%PATH%`.
+Note the default: the current directory (denoted here by an empty string, but let’s call it "dot") is listed ahead of `/bin` and `/usr/bin`. MS-DOS and then Windows chose to hard-code that behavior: on those systems, dot is always searched first, automatically, before considering any directories listed in `%PATH%`.
 
 注意默认情况：当前目录（这里用一个空字符串表示，但让我们称它为 "dot"）被列在/bin和/usr/bin之前。MS-DOS和后来的Windows选择了硬编码的行为：在这些系统上，dot总是被自动首先搜索，然后再考虑%PATH%中列出的任何目录。
 
-As Grampp and Morris pointed out in their classic paper “[UNIX Operating System Security](https://people.engr.ncsu.edu/gjin2/Classes/246/Spring2019/Security.pdf)” (1984), placing dot ahead of system directories in the PATH means that if you `cd` into a directory and run `ls`, you might get a malicious copy from that directory instead of the system utility. And if you can trick a system administrator to run `ls` in your home directory while logged in as `root`, then you can run any code you want. Because of this problem and others like it, essentially all modern Unix distributions set a new user’s default PATH to exclude dot. But Windows systems continue to search dot first, no matter what PATH says.
+As Grampp and Morris pointed out in their classic paper "[UNIX Operating System Security](https://people.engr.ncsu.edu/gjin2/Classes/246/Spring2019/Security.pdf)" (1984), placing dot ahead of system directories in the PATH means that if you `cd` into a directory and run `ls`, you might get a malicious copy from that directory instead of the system utility. And if you can trick a system administrator to run `ls` in your home directory while logged in as `root`, then you can run any code you want. Because of this problem and others like it, essentially all modern Unix distributions set a new user’s default PATH to exclude dot. But Windows systems continue to search dot first, no matter what PATH says.
 
-正如Grampp和Morris在他们的经典论文 "UNIX操作系统安全"（1984）中指出的那样，在PATH中把dot放在系统目录之前意味着如果你cd到一个目录并运行ls，你可能会从该目录中得到一个恶意的拷贝而不是系统工具。如果你能欺骗系统管理员在你的主目录中运行ls，同时以root身份登录，那么你就可以运行任何你想要的代码。由于这个问题和其他类似的问题，基本上所有现代Unix发行版都将新用户的默认PATH设置为不包括dot。但Windows系统仍然会先搜索dot，不管PATH怎么说。
+正如Grampp和Morris在他们的经典论文 "UNIX操作系统安全"（1984）中指出的那样，在PATH中把dot放在系统目录之前意味着如果您cd到一个目录并运行ls，您可能会从该目录中得到一个恶意的拷贝而不是系统工具。如果您能欺骗系统管理员在您的主目录中运行ls，同时以root身份登录，那么您就可以运行任何您想要的代码。由于这个问题和其他类似的问题，基本上所有现代Unix发行版都将新用户的默认PATH设置为不包括dot。但Windows系统仍然会先搜索dot，不管PATH怎么说。
 
 For example, when you type the command
 
-例如，当你输入命令
+例如，当您输入命令
 
 ```shell linenums="1"
 go version
@@ -64,7 +64,7 @@ go version
 
 on a typically-configured Unix, the shell runs a `go` executable from a system directory in your PATH. But when you type that command on Windows, `cmd.exe` checks dot first. If `.\go.exe` (or `.\go.bat` or many other choices) exists, `cmd.exe` runs that executable, not one from your PATH.
 
-时，shell会从你的PATH中的一个系统目录中运行一个go可执行文件。但当你在Windows上键入该命令时，cmd.exe首先检查dot。如果.\go.exe（或.\go.bat或许多其他选择）存在，cmd.exe就会运行该可执行文件，而不是从你的PATH中选择。
+时，shell会从您的PATH中的一个系统目录中运行一个go可执行文件。但当您在Windows上键入该命令时，cmd.exe首先检查dot。如果.\go.exe（或.\go.bat或许多其他选择）存在，cmd.exe就会运行该可执行文件，而不是从您的PATH中选择。
 
 For Go, PATH searches are handled by [`exec.LookPath`](https://pkg.go.dev/os/exec#LookPath), called automatically by [`exec.Command`](https://pkg.go.dev/os/exec#Command). And to fit well into the host system, Go’s `exec.LookPath` implements the Unix rules on Unix and the Windows rules on Windows. For example, this command
 
@@ -134,7 +134,7 @@ So an attacker can create a malicious package that uses cgo and includes a `gcc.
 
 Unix systems avoid the problem first because dot is typically not in the PATH and second because module unpacking does not set execute bits on the files it writes. But Unix users who have dot ahead of system directories in their PATH and are using GOPATH mode would be as susceptible as Windows users. (If that describes you, today is a good day to remove dot from your path and to start using Go modules.)
 
-Unix系统避免了这个问题，首先是因为dot通常不在PATH中，其次是因为模块解包不会在它写入的文件上设置执行位。但是，如果Unix用户在他们的PATH中把dot放在系统目录的前面，并且使用GOPATH模式，就会像Windows用户一样容易受到影响。(如果这描述了你，今天是一个从你的路径中删除dot并开始使用Go模块的好日子。)
+Unix系统避免了这个问题，首先是因为dot通常不在PATH中，其次是因为模块解包不会在它写入的文件上设置执行位。但是，如果Unix用户在他们的PATH中把dot放在系统目录的前面，并且使用GOPATH模式，就会像Windows用户一样容易受到影响。(如果这描述了您，今天是一个从您的路径中删除dot并开始使用Go模块的好日子。)
 
 (Thanks to [RyotaK](https://twitter.com/ryotkak) for [reporting this issue](https://go.dev/security) to us.)
 
@@ -160,11 +160,11 @@ We decided both were mistakes, so we applied both fixes. The `go` command now pa
 
 Out of an abundance of caution, we also made a similar fix in commands like `goimports` and `gopls`, as well as the libraries `golang.org/x/tools/go/analysis` and `golang.org/x/tools/go/packages`, which invoke the `go` command as a subprocess. If you run these programs in untrusted directories – for example, if you `git` `checkout` untrusted repositories and `cd` into them and then run programs like these, and you use Windows or use Unix with dot in your PATH – then you should update your copies of these commands too. If the only untrusted directories on your computer are the ones in the module cache managed by `go` `get`, then you only need the new Go release.
 
-出于谨慎考虑，我们也对goimports和gopls等命令以及golang.org/x/tools/go/analysis和golang.org/x/tools/go/packages库进行了类似的修复，这些库将go命令作为一个子进程来调用。如果你在不被信任的目录中运行这些程序 —— 例如，如果你git签出不被信任的仓库并cd进入它们，然后运行像这样的程序，并且你使用Windows或使用Unix，在你的PATH中有dot —— 那么你也应该更新你的这些命令的副本。如果你的电脑上唯一不受信任的目录是由go get管理的模块缓存中的目录，那么你只需要新的Go版本。
+出于谨慎考虑，我们也对goimports和gopls等命令以及golang.org/x/tools/go/analysis和golang.org/x/tools/go/packages库进行了类似的修复，这些库将go命令作为一个子进程来调用。如果您在不被信任的目录中运行这些程序 —— 例如，如果您git签出不被信任的仓库并cd进入它们，然后运行像这样的程序，并且您使用Windows或使用Unix，在您的PATH中有dot —— 那么您也应该更新您的这些命令的副本。如果您的电脑上唯一不受信任的目录是由go get管理的模块缓存中的目录，那么您只需要新的Go版本。
 
 After updating to the new Go release, you can update to the latest `gopls` by using:
 
-更新到新的Go版本后，你可以通过以下方式更新到最新的gopls：
+更新到新的Go版本后，您可以通过以下方式更新到最新的gopls：
 
 ```
 GO111MODULE=on \
@@ -182,7 +182,7 @@ go get golang.org/x/tools/cmd/goimports@v0.1.0
 
 You can update programs that depend on `golang.org/x/tools/go/packages`, even before their authors do, by adding an explicit upgrade of the dependency during `go` `get`:
 
-你可以更新依赖 golang.org/x/tools/go/packages 的程序，甚至比它们的作者更早，方法是在 go get 时加入明确的升级依赖关系：
+您可以更新依赖 golang.org/x/tools/go/packages 的程序，甚至比它们的作者更早，方法是在 go get 时加入明确的升级依赖关系：
 
 ```
 GO111MODULE=on \
@@ -191,21 +191,21 @@ go get example.com/cmd/thecmd golang.org/x/tools@v0.1.0
 
 For programs that use `go/build`, it is sufficient for you to recompile them using the updated Go release.
 
-对于使用go/build的程序，你使用更新的Go版本重新编译它们就可以了。
+对于使用go/build的程序，您使用更新的Go版本重新编译它们就可以了。
 
 Again, you only need to update these other programs if you are a Windows user or a Unix user with dot in the PATH *and* you run these programs in source directories you do not trust that may contain malicious programs.
 
-同样，只有当你是Windows用户或Unix用户，PATH中有dot，并且你在你不信任的可能包含恶意程序的源文件目录中运行这些程序时，你才需要更新这些其他程序。
+同样，只有当您是Windows用户或Unix用户，PATH中有dot，并且您在您不信任的可能包含恶意程序的源文件目录中运行这些程序时，您才需要更新这些其他程序。
 
-## Are your own programs affected? 你自己的程序是否受到影响？
+## Are your own programs affected? 您自己的程序是否受到影响？
 
 If you use `exec.LookPath` or `exec.Command` in your own programs, you only need to be concerned if you (or your users) run your program in a directory with untrusted contents. If so, then a subprocess could be started using an executable from dot instead of from a system directory. (Again, using an executable from dot happens always on Windows and only with uncommon PATH settings on Unix.)
 
-如果你在自己的程序中使用exec.LookPath或exec.Command，只有当你（或你的用户）在一个内容不受信任的目录中运行你的程序时，你才需要关注。如果是这样，那么子进程就可以使用来自dot的可执行文件而不是来自系统目录的可执行文件来启动。(同样，使用dot的可执行文件在Windows上总是发生，而在Unix上只有在不常见的PATH设置下才会发生）。
+如果您在自己的程序中使用exec.LookPath或exec.Command，只有当您（或您的用户）在一个内容不受信任的目录中运行您的程序时，您才需要关注。如果是这样，那么子进程就可以使用来自dot的可执行文件而不是来自系统目录的可执行文件来启动。(同样，使用dot的可执行文件在Windows上总是发生，而在Unix上只有在不常见的PATH设置下才会发生）。
 
 If you are concerned, then we’ve published the more restricted variant of `os/exec` as [`golang.org/x/sys/execabs`](https://pkg.go.dev/golang.org/x/sys/execabs). You can use it in your program by simply replacing
 
-如果你担心，那么我们已经将os/exec的更多限制性变体发布为golang.org/x/sys/execabs。你可以在你的程序中使用它，只需替换掉
+如果您担心，那么我们已经将os/exec的更多限制性变体发布为golang.org/x/sys/execabs。您可以在您的程序中使用它，只需替换掉
 
 ```go linenums="1"
 import "os/exec"

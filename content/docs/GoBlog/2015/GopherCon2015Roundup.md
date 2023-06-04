@@ -30,7 +30,7 @@ The Cowboy Gopher (a toy given to each attendee) watches over the ranch.
 
 Today the organizers have posted the videos online so you can now enjoy the conference from afar:
 
-今天，组织者已经将视频发布到网上，所以你现在可以从远处欣赏到会议：
+今天，组织者已经将视频发布到网上，所以您现在可以从远处欣赏到会议：
 
 [Day 1](http://gophercon.com/schedule/8july/): 第1天。
 
@@ -66,4 +66,4 @@ The [hack day](http://gophercon.com/schedule/10july/) was also a ton of fun, wit
 
 Huge thanks to the event organizers Brian Ketelsen and Eric St. Martin and their production team, the sponsors, the speakers, and the attendees for making this such a fun and action-packed conference. Hope to see you there next year!
 
-非常感谢活动组织者Brian Ketelsen和Eric St. Martin以及他们的制作团队、赞助商、演讲者和参会者，他们使这次会议变得如此有趣和充满行动。希望明年能在那里见到你!
+非常感谢活动组织者Brian Ketelsen和Eric St. Martin以及他们的制作团队、赞助商、演讲者和参会者，他们使这次会议变得如此有趣和充满行动。希望明年能在那里见到您!

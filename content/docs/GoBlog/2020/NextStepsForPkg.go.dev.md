@@ -32,19 +32,19 @@ Throughout this year, we will be adding features to [pkg.go.dev](https://pkg.go.
 
 To minimize confusion about which site to use, later this year we are planning to redirect traffic from [godoc.org](https://godoc.org/) to the corresponding page on [pkg.go.dev](https://pkg.go.dev/). We need your help to ensure that pkg.go.dev addresses all of our users' needs. We encourage everyone to begin using pkg.go.dev today for all of their needs and provide feedback.
 
-为了减少对使用哪个网站的混淆，今年晚些时候，我们计划将来自godoc.org的流量重定向到pkg.go.dev的相应页面。我们需要你的帮助，以确保pkg.go.dev能满足我们所有用户的需求。我们鼓励大家今天开始使用pkg.go.dev来满足他们的所有需求，并提供反馈。
+为了减少对使用哪个网站的混淆，今年晚些时候，我们计划将来自godoc.org的流量重定向到pkg.go.dev的相应页面。我们需要您的帮助，以确保pkg.go.dev能满足我们所有用户的需求。我们鼓励大家今天开始使用pkg.go.dev来满足他们的所有需求，并提供反馈。
 
 Your feedback will inform our transition plan, with the goal of making [pkg.go.dev](https://pkg.go.dev/) our primary source of information and documentation for packages and modules. We’re sure there are things that you want to see on pkg.go.dev, and we want to hear from you about what those features are!
 
-您的反馈将为我们的过渡计划提供信息，目标是使pkg.go.dev成为我们的软件包和模块的主要信息和文档来源。我们确信在pkg.go.dev上有你想看到的东西，我们想听听你的意见，看看这些功能是什么。
+您的反馈将为我们的过渡计划提供信息，目标是使pkg.go.dev成为我们的软件包和模块的主要信息和文档来源。我们确信在pkg.go.dev上有您想看到的东西，我们想听听您的意见，看看这些功能是什么。
 
 You can share your feedback with us on these channels:
 
-你可以在这些渠道与我们分享你的反馈：
+您可以在这些渠道与我们分享您的反馈：
 
 - Post on the [Go issue tracker](https://go.dev/s/discovery-feedback).在 Go 问题跟踪器上发帖。
 - Email [go-discovery-feedback@google.com](mailto:go-discovery-feedback@google.com). 电子邮件 go-discovery-feedback@google.com。
-- Click “Share Feedback” or “Report an Issue” in the go.dev footer.点击go.dev页脚的 "分享反馈 "或 "报告问题"。
+- Click "Share Feedback" or "Report an Issue" in the go.dev footer.点击go.dev页脚的 "分享反馈 "或 "报告问题"。
 
 As part of this transition, we will also be discussing plans for API access to [pkg.go.dev](https://pkg.go.dev/). We will be posting updates on [Go issue 33654](https://go.dev/s/discovery-updates).
 
@@ -60,13 +60,13 @@ Since our launch in November, we’ve received tons of great feedback about [pkg
 
 We monitor the [Go Module Index](https://index.golang.org/index) regularly for new packages to add to [pkg.go.dev](https://pkg.go.dev/). If you don’t see a package on pkg.go.dev, you can add it by fetching the module version from [proxy.golang.org](https://proxy.golang.org/). See [go.dev/about](https://go.dev/about) for instructions.
 
-我们会定期监控 Go 模块索引，以便将新的软件包添加到 pkg.go.dev 中。如果你在 pkg.go.dev 上没有看到某个软件包，你可以通过从 proxy.golang.org 获取模块版本来添加它。请参阅 go.dev/about 以了解说明。
+我们会定期监控 Go 模块索引，以便将新的软件包添加到 pkg.go.dev 中。如果您在 pkg.go.dev 上没有看到某个软件包，您可以通过从 proxy.golang.org 获取模块版本来添加它。请参阅 go.dev/about 以了解说明。
 
 ### My package has license restrictions. What’s wrong with it? 我的软件包有许可证限制。这有什么问题吗？
 
 We understand it can be a frustrating experience to not be able to see the package you want in its entirety on [pkg.go.dev](https://pkg.go.dev/). We appreciate your patience as we improve our license detection algorithm.
 
-我们理解在 pkg.go.dev 上无法看到你想要的软件包的全部内容可能是一种令人沮丧的经历。我们感谢你的耐心，因为我们正在改进我们的许可证检测算法。
+我们理解在 pkg.go.dev 上无法看到您想要的软件包的全部内容可能是一种令人沮丧的经历。我们感谢您的耐心，因为我们正在改进我们的许可证检测算法。
 
 Since our launch in November, we’ve made the following improvements:
 
@@ -78,7 +78,7 @@ Since our launch in November, we’ve made the following improvements:
 
 As always, our license policy is at [pkg.go.dev/license-policy](https://pkg.go.dev/license-policy). If you are having issues, feel free to [file an issue on the Go issue tracker](https://go.dev/s/discovery-feedback), or email [go-discovery-feedback@google.com](mailto:go-discovery-feedback@google.com) so that we can work with you directly!
 
-一如既往，我们的许可证政策在pkg.go.dev/license-policy。如果你有问题，请随时在Go问题跟踪器上提出问题，或发送电子邮件至 go-discovery-feedback@google.com，以便我们可以直接与你合作
+一如既往，我们的许可证政策在pkg.go.dev/license-policy。如果您有问题，请随时在Go问题跟踪器上提出问题，或发送电子邮件至 go-discovery-feedback@google.com，以便我们可以直接与您合作
 
 ### Will pkg.go.dev be open-sourced so I can run it at work for my private code? pkg.go.dev是否会被开源，以便我可以在工作中为我的私人代码运行它？
 
@@ -96,8 +96,8 @@ We think a new server is more likely to be the right answer for use with private
 
 If you want to run such a server, please fill out this [**3-5 minute survey**](https://google.qualtrics.com/jfe/form/SV_6FHmaLveae6d8Bn) to help us better understand your needs. This survey will be available until March 1st, 2020.
 
-如果你想运行这样一个服务器，请填写这个3-5分钟的调查，以帮助我们更好地了解你的需求。这项调查将持续到2020年3月1日。
+如果您想运行这样一个服务器，请填写这个3-5分钟的调查，以帮助我们更好地了解您的需求。这项调查将持续到2020年3月1日。
 
 We’re excited about the future of [pkg.go.dev](https://pkg.go.dev/) in 2020, and we hope you are too! We look forward to hearing your feedback and working with the Go community on this transition.
 
-我们对2020年pkg.go.dev的未来感到兴奋，我们希望你也是如此！我们期待着听到你的反馈。我们期待着听到您的反馈，并与Go社区合作完成这一过渡。
+我们对2020年pkg.go.dev的未来感到兴奋，我们希望您也是如此！我们期待着听到您的反馈。我们期待着听到您的反馈，并与Go社区合作完成这一过渡。

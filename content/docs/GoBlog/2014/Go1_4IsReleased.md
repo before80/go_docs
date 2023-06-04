@@ -22,9 +22,9 @@ The most notable new feature in this release is official support for Android. Us
 
 这个版本中最值得注意的新功能是对Android的官方支持。使用核心中的支持和 golang.org/x/mobile 仓库中的库，现在可以只用 Go 代码编写简单的 Android 应用程序。在这个阶段，支持库仍然是新生的，并且正在大力开发。早期采用者应该期待一个颠簸的旅程，但我们欢迎社区参与。
 
-The language change is a tweak to the syntax of for-range loops. You may now write “for range s {” to loop over each item from s, without having to assign the value, loop index, or map key. See the [release notes](https://go.dev/doc/go1.4#forrange) for details.
+The language change is a tweak to the syntax of for-range loops. You may now write "for range s {" to loop over each item from s, without having to assign the value, loop index, or map key. See the [release notes](https://go.dev/doc/go1.4#forrange) for details.
 
-语言的变化是对for-range循环的语法进行了调整。你现在可以写 "for range s {"来循环s中的每一个项目，而不需要指定值、循环索引或地图键。详情请见发布说明。
+语言的变化是对for-range循环的语法进行了调整。您现在可以写 "for range s {"来循环s中的每一个项目，而不需要指定值、循环索引或地图键。详情请见发布说明。
 
 The go command has a new subcommand, go generate, to automate the running of tools to generate source code before compilation. For example, it can be used to automate the generation of String methods for typed constants using the [new stringer tool](https://godoc.org/golang.org/x/tools/cmd/stringer/). For more information, see the [design document](https://go.dev/s/go1.4-generate).
 
@@ -38,13 +38,13 @@ And, of course, there are many more improvements and bug fixes.
 
 当然，还有更多的改进和错误修复。
 
-In case you missed it, a few weeks ago the sub-repositories were moved to new locations. For example, the go.tools packages are now imported from “golang.org/x/tools”. See the [announcement post](https://groups.google.com/d/msg/golang-announce/eD8dh3T9yyA/HDOEU_ZSmvAJ) for details.
+In case you missed it, a few weeks ago the sub-repositories were moved to new locations. For example, the go.tools packages are now imported from "golang.org/x/tools". See the [announcement post](https://groups.google.com/d/msg/golang-announce/eD8dh3T9yyA/HDOEU_ZSmvAJ) for details.
 
-如果你错过了，几周前，子库被移到了新的位置。例如，go.tools包现在从 "golang.org/x/tools "导入。详情请见公告帖子。
+如果您错过了，几周前，子库被移到了新的位置。例如，go.tools包现在从 "golang.org/x/tools "导入。详情请见公告帖子。
 
 This release also coincides with the project’s move from Mercurial to Git (for source control), Rietveld to Gerrit (for code review), and Google Code to Github (for issue tracking and wiki). The move affects the core Go repository and its sub-repositories. You can find the canonical Git repositories at [go.googlesource.com](https://go.googlesource.com/), and the issue tracker and wiki at the [golang/go GitHub repo](https://github.com/golang/go).
 
-这个版本也与项目从Mercurial转移到Git（用于源代码控制），从Rietveld转移到Gerrit（用于代码审查），以及从Google Code转移到Github（用于问题跟踪和wiki）相吻合。此举影响了核心Go仓库及其子仓库。你可以在go.googlesource.com找到规范的Git仓库，在golang/go GitHub repo找到问题跟踪器和维基。
+这个版本也与项目从Mercurial转移到Git（用于源代码控制），从Rietveld转移到Gerrit（用于代码审查），以及从Google Code转移到Github（用于问题跟踪和wiki）相吻合。此举影响了核心Go仓库及其子仓库。您可以在go.googlesource.com找到规范的Git仓库，在golang/go GitHub repo找到问题跟踪器和维基。
 
 While development has already moved over to the new infrastructure, for the 1.4 release we still recommend that users who [install from source](https://go.dev/doc/install/source) use the Mercurial repositories.
 

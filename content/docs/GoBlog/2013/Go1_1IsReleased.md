@@ -20,9 +20,9 @@ It is our great pleasure to announce the release of Go 1.1.
 
 ![img](Go1_1IsReleased_img/gopherbiplane5.jpg)
 
-In March last year we released Go 1.0, and since then we have released three minor “point releases”. The point releases were made to fix only critical issues, so the Go 1.0.3 you use today is still, in essence, the Go 1.0 we released in March 2012.
+In March last year we released Go 1.0, and since then we have released three minor "point releases". The point releases were made to fix only critical issues, so the Go 1.0.3 you use today is still, in essence, the Go 1.0 we released in March 2012.
 
-去年3月，我们发布了Go 1.0，此后我们又发布了三个小的 "点 "版本。这些点发布只是为了修复关键问题，所以你今天使用的Go 1.0.3本质上仍然是我们在2012年3月发布的Go 1.0。
+去年3月，我们发布了Go 1.0，此后我们又发布了三个小的 "点 "版本。这些点发布只是为了修复关键问题，所以您今天使用的Go 1.0.3本质上仍然是我们在2012年3月发布的Go 1.0。
 
 Go 1.1 includes many improvements over 1.0.
 
@@ -42,7 +42,7 @@ Go1.1中的并发编程更加安全，增加了一个竞赛检测器，用于查
 
 The tools and standard library have been improved and expanded. You can read the full story in the [release notes](https://go.dev/doc/go1.1).
 
-工具和标准库也得到了改进和扩展。你可以在发布说明中阅读完整的故事。
+工具和标准库也得到了改进和扩展。您可以在发布说明中阅读完整的故事。
 
 As per our [compatibility guidelines](https://go.dev/doc/go1compat.html), Go 1.1 remains compatible with Go 1.0 and we recommend all Go users upgrade to the new release.
 

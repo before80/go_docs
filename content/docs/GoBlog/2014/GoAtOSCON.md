@@ -54,11 +54,11 @@ To take advantage of the increased Gopher population in Portland during OSCON, w
 
 At the meetup Francesc Campoy talked about [Go Best Practices](https://go.dev/talks/2013/bestpractices.slide) and [Kelsey Hightower](https://twitter.com/kelseyhightower) gave a great introduction to [Kubernetes](https://github.com/GoogleCloudPlatform/kubernetes), a container management system for clusters written in Go by Google. If you live in Portland, make sure you [join the group](http://meetup.com/pdx-go) and come along to the next meeting.
 
-在见面会上，Francesc Campoy谈到了Go的最佳实践，Kelsey Hightower对Kubernetes做了很好的介绍，这是一个由Google用Go编写的集群容器管理系统。如果你住在波特兰，一定要加入这个小组并参加下一次会议。
+在见面会上，Francesc Campoy谈到了Go的最佳实践，Kelsey Hightower对Kubernetes做了很好的介绍，这是一个由Google用Go编写的集群容器管理系统。如果您住在波特兰，一定要加入这个小组并参加下一次会议。
 
-The “Birds of a Feather” (or, more aptly, “Gophers of a Feather”) was a lot of fun for everyone involved. We hope to see more of you there next year.
+The "Birds of a Feather" (or, more aptly, "Gophers of a Feather") was a lot of fun for everyone involved. We hope to see more of you there next year.
 
-"百鸟朝凤"（或者更贴切地说，"百鸟朝凤"）对每个参与者来说都是非常有趣的。我们希望明年能在那里看到你们更多的人。
+"百鸟朝凤"（或者更贴切地说，"百鸟朝凤"）对每个参与者来说都是非常有趣的。我们希望明年能在那里看到您们更多的人。
 
 ## In conclusion 总而言之
 

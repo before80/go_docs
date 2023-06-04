@@ -42,7 +42,7 @@ With Go 1.19 comes an long-requested feature that requires a little extra work t
 
 随着Go 1.19的到来，一个长期以来被要求的功能出现了，它需要一点额外的工作来使用，但具有很大的潜力：Go运行时间的软内存限制。
 
-For years, the Go GC has had only one tuning parameter: `GOGC`. `GOGC` lets the user adjust [the trade-off between CPU overhead and memory overhead made by the Go GC](https://pkg.go.dev/runtime/debug#SetGCPercent). For years, this “knob” has served the Go community well, capturing a wide variety of use-cases.
+For years, the Go GC has had only one tuning parameter: `GOGC`. `GOGC` lets the user adjust [the trade-off between CPU overhead and memory overhead made by the Go GC](https://pkg.go.dev/runtime/debug#SetGCPercent). For years, this "knob" has served the Go community well, capturing a wide variety of use-cases.
 
 多年来，Go GC 只有一个调整参数。GOGC。GOGC让用户调整Go GC在CPU开销和内存开销之间的权衡。多年来，这个 "旋钮 "为Go社区提供了很好的服务，捕捉到了各种各样的使用情况。
 
@@ -56,7 +56,7 @@ So why add a memory limit knob?
 
 Memory is not as fungible as CPU time. With CPU time, there’s always more of it in the future, if you just wait a bit. But with memory, there’s a limit to what you have.
 
-内存并不像CPU时间那样可以被替换。对于CPU时间，只要你稍加等待，未来总会有更多的时间。但是对于内存来说，你所拥有的东西是有限制的。
+内存并不像CPU时间那样可以被替换。对于CPU时间，只要您稍加等待，未来总会有更多的时间。但是对于内存来说，您所拥有的东西是有限制的。
 
 The memory limit solves two problems.
 
@@ -76,11 +76,11 @@ The memory limit is designed to be easy to adopt and robust. For example, it’s
 
 But while the memory limit is a powerful tool, it must still be used with some care. One big caveat is that it opens up your program to GC thrashing: a state in which a program spends too much time running the GC, resulting in not enough time spent making meaningful progress. For example, a Go program might thrash if the memory limit is set too low for how much memory the program actually needs. GC thrashing is something that was unlikely previously, unless `GOGC` was explicitly tuned heavily in favor of memory use. We chose to favor running out of memory over thrashing, so as a mitigation, the runtime will limit the GC to 50% of total CPU time, even if this means exceeding the memory limit.
 
-但是，尽管内存限制是一个强大的工具，它仍然必须被谨慎地使用。一个很大的问题是，它使你的程序有可能出现GC thrashing：一种状态，即程序花太多时间运行GC，导致没有足够的时间取得有意义的进展。例如，如果内存限制设置得太低，与程序实际需要的内存相比，Go程序可能会发生激动。除非GOGC被明确地调整为有利于内存的使用，否则GC激动是以前不太可能发生的。我们选择了倾向于耗尽内存而不是激动，所以作为一种缓解措施，运行时将把GC限制在总CPU时间的50%，即使这意味着超过内存限制。
+但是，尽管内存限制是一个强大的工具，它仍然必须被谨慎地使用。一个很大的问题是，它使您的程序有可能出现GC thrashing：一种状态，即程序花太多时间运行GC，导致没有足够的时间取得有意义的进展。例如，如果内存限制设置得太低，与程序实际需要的内存相比，Go程序可能会发生激动。除非GOGC被明确地调整为有利于内存的使用，否则GC激动是以前不太可能发生的。我们选择了倾向于耗尽内存而不是激动，所以作为一种缓解措施，运行时将把GC限制在总CPU时间的50%，即使这意味着超过内存限制。
 
 All of this is a lot to consider, so as a part of this work, we released [a shiny new GC guide](https://go.dev/doc/gc-guide), complete with interactive visualizations to help you understand GC costs and how to manipulate them.
 
-所有这些都是需要考虑的，所以作为这项工作的一部分，我们发布了一个闪亮的新的GC指南，其中包括互动的可视化，以帮助你理解GC成本和如何操作它们。
+所有这些都是需要考虑的，所以作为这项工作的一部分，我们发布了一个闪亮的新的GC指南，其中包括互动的可视化，以帮助您理解GC成本和如何操作它们。
 
 ### Conclusion 结论
 
@@ -90,4 +90,4 @@ Try out the memory limit! Use it in production! Read the [GC guide](https://go.d
 
 We’re always looking for feedback on how to improve Go, but it also helps to hear about when it just works for you. [Send us feedback](https://groups.google.com/g/golang-dev)!
 
-我们一直在寻找关于如何改进 Go 的反馈，但也希望能听到关于它对你有用的信息。请给我们发送反馈意见!
+我们一直在寻找关于如何改进 Go 的反馈，但也希望能听到关于它对您有用的信息。请给我们发送反馈意见!

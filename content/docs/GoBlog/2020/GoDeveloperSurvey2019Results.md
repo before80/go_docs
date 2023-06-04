@@ -18,17 +18,17 @@ Todd Kulesza
 
 I want to start with an enormous **thank you** to the thousands of Go developers who participated in this year’s survey. For 2019, we saw 10,975 responses, nearly [twice as many as last year](https://blog.golang.org/survey2018-results)! On behalf of the rest of the team, I cannot adequately stress how much we appreciate you taking the time and effort to tell us about your experiences with Go. Thank you!
 
-首先，我想对参与今年调查的数千名Go开发者表示极大的感谢。在2019年，我们看到了10975份回复，几乎是去年的两倍！我代表团队的其他成员感谢他们。我代表团队的其他成员，无法充分强调我们有多么感谢你们花时间和精力来告诉我们你们使用Go的经验。谢谢你们!
+首先，我想对参与今年调查的数千名Go开发者表示极大的感谢。在2019年，我们看到了10975份回复，几乎是去年的两倍！我代表团队的其他成员感谢他们。我代表团队的其他成员，无法充分强调我们有多么感谢您们花时间和精力来告诉我们您们使用Go的经验。谢谢您们!
 
 ## A note about prior years 关于往年的说明
 
-Sharp-eyed readers may notice that our year-over-year comparisons don’t quite square with numbers we’ve shared in the past. The reason is that from 2016–2018, we calculated percentages for each question using the total number of people who started the survey as the denominator. While that’s nice and consistent, it ignores the fact that not everyone finishes the survey—up to 40% of participants stop before reaching the final page, which meant questions that occurred later in the survey appeared to perform worse solely because they were later. Thus, this year we’ve recalculated all of our results (including the 2016–2018 responses shown in this post) to use the number of people who responded to a given question as the denominator for that question. We’ve included the number of 2019 responses for each chart—in the form of “n=[number of respondents]” on the x-axis or in the chart’s legend—to give readers a better understanding of the weight of evidence underlying each finding.
+Sharp-eyed readers may notice that our year-over-year comparisons don’t quite square with numbers we’ve shared in the past. The reason is that from 2016–2018, we calculated percentages for each question using the total number of people who started the survey as the denominator. While that’s nice and consistent, it ignores the fact that not everyone finishes the survey—up to 40% of participants stop before reaching the final page, which meant questions that occurred later in the survey appeared to perform worse solely because they were later. Thus, this year we’ve recalculated all of our results (including the 2016–2018 responses shown in this post) to use the number of people who responded to a given question as the denominator for that question. We’ve included the number of 2019 responses for each chart—in the form of "n=[number of respondents]" on the x-axis or in the chart’s legend—to give readers a better understanding of the weight of evidence underlying each finding.
 
 眼尖的读者可能会注意到，我们的年度比较与我们过去分享的数字不大一致。原因是，从2016-2018年，我们以开始调查的总人数为分母，计算每个问题的百分比。虽然这很好，也很一致，但它忽略了一个事实，即不是每个人都能完成调查--多达40%的参与者在到达最后一页之前就停止了，这意味着调查中较晚出现的问题似乎表现得更差，仅仅是因为它们较晚。因此，今年我们重新计算了所有的结果（包括本篇文章中显示的2016-2018年的答复），使用对某一问题作出答复的人数作为该问题的分母。我们将2019年每张图表的回复人数以X轴上的 "n=[回复人数]"的形式或在图表的图例中列出，以使读者更好地了解每项发现所依据的证据的权重。
 
-Similarly, we learned that in prior surveys options that appeared earlier in response lists had a disproportionate response rate. To address this, we added an element of randomization into the survey. Some of our multiple-choice questions have lists of choices with no logical ordering, such as “I write the following in Go: [list of types of applications]”. Previously these choices had been alphabetized, but for 2019 they were presented in a random order to each participant. This means year-over-year comparison for certain questions are invalid for 2018 → 2019, but trends from 2016–2018 are not invalidated. You can think of this as setting a more accurate baseline for 2019. We retained alphabetical ordering in cases where respondents are likely to scan for a particular name, such as their preferred editor. We explicitly call out which questions this applies to below.
+Similarly, we learned that in prior surveys options that appeared earlier in response lists had a disproportionate response rate. To address this, we added an element of randomization into the survey. Some of our multiple-choice questions have lists of choices with no logical ordering, such as "I write the following in Go: [list of types of applications]". Previously these choices had been alphabetized, but for 2019 they were presented in a random order to each participant. This means year-over-year comparison for certain questions are invalid for 2018 → 2019, but trends from 2016–2018 are not invalidated. You can think of this as setting a more accurate baseline for 2019. We retained alphabetical ordering in cases where respondents are likely to scan for a particular name, such as their preferred editor. We explicitly call out which questions this applies to below.
 
-同样，我们了解到，在以前的调查中，在回复列表中出现较早的选项有不相称的回复率。为了解决这个问题，我们在调查中加入了随机化的元素。我们的一些多选题有一些没有逻辑顺序的选项清单，例如 "我在Go中写了以下内容：[应用程序类型清单]"。以前这些选择是按字母顺序排列的，但在2019年，它们是以随机顺序呈现给每个参与者。这意味着某些问题的同比比较在2018年→2019年是无效的，但2016-2018年的趋势并没有失效。你可以认为这是为2019年设定一个更准确的基线。在受访者可能会扫描某个特定名字的情况下，我们保留了字母排序，例如他们喜欢的编辑。我们在下面明确指出了这适用于哪些问题。
+同样，我们了解到，在以前的调查中，在回复列表中出现较早的选项有不相称的回复率。为了解决这个问题，我们在调查中加入了随机化的元素。我们的一些多选题有一些没有逻辑顺序的选项清单，例如 "我在Go中写了以下内容：[应用程序类型清单]"。以前这些选择是按字母顺序排列的，但在2019年，它们是以随机顺序呈现给每个参与者。这意味着某些问题的同比比较在2018年→2019年是无效的，但2016-2018年的趋势并没有失效。您可以认为这是为2019年设定一个更准确的基线。在受访者可能会扫描某个特定名字的情况下，我们保留了字母排序，例如他们喜欢的编辑。我们在下面明确指出了这适用于哪些问题。
 
 A third major change was to improve our analysis of questions with open-ended, free-text responses. Last year we used machine learning to roughly—but quickly—categorize these responses. This year two researchers manually analyzed and categorized these responses, allowing for a more granular analysis but preventing valid comparisons with last year’s numbers. Like the randomization discussed above, the purpose of this change is to give us a reliable baseline for 2019 onward.
 
@@ -66,25 +66,25 @@ Looking at Go experience, we see that a majority of respondents (56%) are relati
 
 As you can see in the chart below, in 2018 we saw a spike in these numbers, but that increase disappeared this year. This is one of many signals suggesting that the audience who answered the survey in 2018 was significantly different than in the other three years. In this case they were significantly more likely to be using Go outside of work and a different language while at work, but we see similar outliers across multiple survey questions.
 
-正如你在下图中看到的那样，在2018年，我们看到了这些数字的飙升，但这种增长在今年消失了。这是许多信号之一，表明2018年回答调查的受众与其他三年明显不同。在这种情况下，他们明显更有可能在工作之外使用Go，在工作时使用不同的语言，但我们在多个调查问题中看到类似的离群值。
+正如您在下图中看到的那样，在2018年，我们看到了这些数字的飙升，但这种增长在今年消失了。这是许多信号之一，表明2018年回答调查的受众与其他三年明显不同。在这种情况下，他们明显更有可能在工作之外使用Go，在工作时使用不同的语言，但我们在多个调查问题中看到类似的离群值。
 
 ![img](GoDeveloperSurvey2019Results_img/fig3.svg)
 
 ![img](GoDeveloperSurvey2019Results_img/fig4.svg)
 
-Respondents who have been using Go the longest have different backgrounds than newer Go developers. These Go veterans were more likely to claim expertise in C/C++ and less likely to claim expertise in JavaScript, TypeScript, and PHP. One caveat is that this is self-reported “expertise”; it may be more helpful to think of it instead as “familiarity”. Python appears to be the language (other than Go) familiar to the most respondents, regardless of how long they’ve been working with Go.
+Respondents who have been using Go the longest have different backgrounds than newer Go developers. These Go veterans were more likely to claim expertise in C/C++ and less likely to claim expertise in JavaScript, TypeScript, and PHP. One caveat is that this is self-reported "expertise"; it may be more helpful to think of it instead as "familiarity". Python appears to be the language (other than Go) familiar to the most respondents, regardless of how long they’ve been working with Go.
 
 使用Go时间最长的受访者与较新的Go开发者有着不同的背景。这些Go老手更有可能声称在C/C++方面有专长，而在JavaScript、TypeScript和PHP方面的专长则较少。需要注意的是，这是自我报告的 "专业知识"；将其视为 "熟悉程度 "可能更有帮助。Python似乎是最多受访者熟悉的语言（除Go外），不管他们使用Go多久了。
 
 ![img](GoDeveloperSurvey2019Results_img/fig5.svg)
 
-Last year we asked about which industries respondents work in, finding that a majority reported working in software, internet, or web service companies. This year it appears respondents represent a broader range of industries. However, we also simplified the list of industries to reduce confusion from potentially overlapping categories (e.g., the separate categories for “Software” and “Internet / web services” from 2018 were combined into “Technology” for 2019). Thus, this isn’t strictly an apples-to-apples comparison. For example, it’s possible that one effect of simplifying the category list was to reduce the use of the “Software” category as a catch-all for respondents writing Go software for an industry that wasn’t explicitly listed.
+Last year we asked about which industries respondents work in, finding that a majority reported working in software, internet, or web service companies. This year it appears respondents represent a broader range of industries. However, we also simplified the list of industries to reduce confusion from potentially overlapping categories (e.g., the separate categories for "Software" and "Internet / web services" from 2018 were combined into "Technology" for 2019). Thus, this isn’t strictly an apples-to-apples comparison. For example, it’s possible that one effect of simplifying the category list was to reduce the use of the "Software" category as a catch-all for respondents writing Go software for an industry that wasn’t explicitly listed.
 
 去年，我们询问了受访者所处的行业，发现大多数人在软件、互联网或网络服务公司工作。今年，受访者似乎代表了更广泛的行业。然而，我们也简化了行业列表，以减少可能重叠的类别带来的混乱（例如，2018年的 "软件 "和 "互联网/网络服务 "的单独类别被合并为2019年的 "技术"）。因此，这并不是严格意义上的苹果对苹果的比较。例如，简化类别列表的一个效果可能是减少使用 "软件 "类别，作为为没有明确列出的行业编写Go软件的受访者的集合。
 
 ![img](GoDeveloperSurvey2019Results_img/fig6.svg)
 
-Go is a successful open-source project, but that doesn’t mean the developers working with it are also writing free or open-source software. As in prior years, we found that most respondents are not frequent contributors to Go open-source projects, with 75% saying they do so “infrequently” or “never”. As the Go community expands, we see the proportion of respondents who’ve never contributed to Go open-source projects slowly trending up.
+Go is a successful open-source project, but that doesn’t mean the developers working with it are also writing free or open-source software. As in prior years, we found that most respondents are not frequent contributors to Go open-source projects, with 75% saying they do so "infrequently" or "never". As the Go community expands, we see the proportion of respondents who’ve never contributed to Go open-source projects slowly trending up.
 
 Go是一个成功的开源项目，但这并不意味着使用它的开发者也在编写免费或开源的软件。与往年一样，我们发现大多数受访者并不经常为Go开源项目做贡献，75%的人表示他们 "不经常 "或 "从不 "这样做。随着Go社区的扩大，我们看到从未对Go开源项目做出贡献的受访者的比例在慢慢上升。
 
@@ -122,7 +122,7 @@ Large majorities of respondents agreed that Go is working well for their teams (
 
 绝大多数受访者认为Go对他们的团队来说运行良好（86%），他们更愿意在下一个项目中使用Go（89%）。我们还发现，超过一半的受访者（59%）认为Go对于他们公司的成功至关重要。自2016年以来，所有这些指标都保持稳定。
 
-Normalizing the results changed most of these numbers for prior years. For example, the percentage of respondents who agreed with the statement “Go is working well for my team” was previously in the 50’s and 60’s because of participant drop-off; when we remove participants who never saw the question, we see it’s been fairly stable since 2016.
+Normalizing the results changed most of these numbers for prior years. For example, the percentage of respondents who agreed with the statement "Go is working well for my team" was previously in the 50’s and 60’s because of participant drop-off; when we remove participants who never saw the question, we see it’s been fairly stable since 2016.
 
 对结果进行归一化处理，改变了前几年的大部分数字。例如，同意 "Go在我的团队中运作良好 "这一说法的受访者的百分比以前是在50和60之间，因为参与者退出；当我们删除从未见过这个问题的参与者时，我们看到它自2016年以来一直相当稳定。
 
@@ -134,7 +134,7 @@ Looking at sentiments toward problem solving in the Go ecosystem, we see similar
 
 ![img](GoDeveloperSurvey2019Results_img/fig13.svg)
 
-This year we took a more nuanced look at satisfaction across industries to establish a baseline. Overall, respondents were positive about using Go at work, regardless of industry sector. We do see small variations in dissatisfaction in a few areas, most notably manufacturing, which we plan to investigate with follow-up research. Similarly, we asked about satisfaction with—and the importance of—various aspects of Go development. Pairing these measures together highlighted three topics of particular focus: debugging (including debugging concurrency), using modules, and using cloud services. Each of these topics was rated “very” or “critically” important by a majority of respondents but had significantly lower satisfaction scores compared to other topics.
+This year we took a more nuanced look at satisfaction across industries to establish a baseline. Overall, respondents were positive about using Go at work, regardless of industry sector. We do see small variations in dissatisfaction in a few areas, most notably manufacturing, which we plan to investigate with follow-up research. Similarly, we asked about satisfaction with—and the importance of—various aspects of Go development. Pairing these measures together highlighted three topics of particular focus: debugging (including debugging concurrency), using modules, and using cloud services. Each of these topics was rated "very" or "critically" important by a majority of respondents but had significantly lower satisfaction scores compared to other topics.
 
 今年，我们对各行业的满意度进行了更细致的研究，以建立一个基线。总的来说，受访者对在工作中使用Go持积极态度，无论哪个行业领域。我们确实看到少数领域的不满意度有小的差异，最明显的是制造业，我们计划在后续研究中对此进行调查。同样地，我们询问了对Go发展各方面的满意度和重要性。将这些衡量标准放在一起，突出了三个特别关注的主题：调试（包括调试并发性）、使用模块和使用云服务。这些主题中的每一个都被大多数受访者评为 "非常 "或 "非常 "重要，但与其他主题相比，其满意度明显较低。
 
@@ -142,11 +142,11 @@ This year we took a more nuanced look at satisfaction across industries to estab
 
 ![img](GoDeveloperSurvey2019Results_img/fig15.svg)
 
-Turning to sentiments toward the Go community, we see some differences from prior years. First, there is a dip in the percentage of respondents who agreed with the statement “I feel welcome in the Go community”, from 82% to 75%. Digging deeper revealed that the proportion of respondents who “slightly” or “moderately agreed” decreased, while the proportions who “neither agree nor disagree” and “strongly agree” both increased (up 5 and 7 points, respectively). This polarizing split suggests two or more groups whose experiences in the Go community are diverging, and is thus another area we plan to further investigate.
+Turning to sentiments toward the Go community, we see some differences from prior years. First, there is a dip in the percentage of respondents who agreed with the statement "I feel welcome in the Go community", from 82% to 75%. Digging deeper revealed that the proportion of respondents who "slightly" or "moderately agreed" decreased, while the proportions who "neither agree nor disagree" and "strongly agree" both increased (up 5 and 7 points, respectively). This polarizing split suggests two or more groups whose experiences in the Go community are diverging, and is thus another area we plan to further investigate.
 
 在谈到对Go社区的看法时，我们看到与往年的一些不同。首先，同意 "我觉得自己在Go界很受欢迎 "这一说法的受访者比例从82%下降到75%。深入调查发现，"略微同意 "或 "适度同意 "的受访者比例有所下降，而 "既不同意也不反对 "和 "非常同意 "的比例都有所上升（分别上升5和7个百分点）。这种两极分化表明有两个或更多的群体在Go界的经验出现了分歧，因此是我们计划进一步调查的另一个领域。
 
-The other big differences are a clear upward trend in responses to the statement “I feel welcome to contribute to the Go project” and a large year-over-year increase in the proportion of respondents who feel Go’s project leadership understands their needs.
+The other big differences are a clear upward trend in responses to the statement "I feel welcome to contribute to the Go project" and a large year-over-year increase in the proportion of respondents who feel Go’s project leadership understands their needs.
 
 其他较大的差异是对 "我觉得欢迎为Go项目做贡献 "这一说法的回答有明显的上升趋势，而认为Go项目领导层了解他们的需求的受访者比例也同比大幅上升。
 
@@ -162,9 +162,9 @@ This likely comes as no surprise, but people who responded to the Go Developer S
 
 ![img](GoDeveloperSurvey2019Results_img/fig17.svg)
 
-In 2018 we first asked the “Would you recommend…” [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter) (NPS) question, yielding a score of 61. This year our NPS result is a statistically unchanged 60 (67% “promoters” minus 7% “detractors”).
+In 2018 we first asked the "Would you recommend…" [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter) (NPS) question, yielding a score of 61. This year our NPS result is a statistically unchanged 60 (67% "promoters" minus 7% "detractors").
 
-2018年，我们首先询问了 "你是否会推荐......" Net Promoter Score（NPS）问题，得出的分数是61分。今年，我们的NPS结果是统计学上没有变化的60分（67%的 "促进者 "减去7%的 "反对者"）。
+2018年，我们首先询问了 "您是否会推荐......" Net Promoter Score（NPS）问题，得出的分数是61分。今年，我们的NPS结果是统计学上没有变化的60分（67%的 "促进者 "减去7%的 "反对者"）。
 
 ![img](GoDeveloperSurvey2019Results_img/fig18.svg)
 
@@ -217,7 +217,7 @@ Looking at which types of cloud platforms respondents are using, we see differen
 
 看看受访者正在使用哪些类型的云平台，我们看到主要供应商之间的差异。部署到AWS和Azure的受访者最有可能直接使用虚拟机（分别为65%和51%），而部署到GCP的受访者使用管理型Kubernetes平台（GKE，64%）的可能性几乎是虚拟机（35%）的两倍。我们还发现，部署到AWS的受访者使用受管理的Kubernetes平台（32%）和使用受管理的无服务器平台（AWS Lambda，33%）的可能性相同。GCP（17%）和Azure（7%）使用无服务器平台的受访者比例较低，而自由文本答复表明，主要原因是这些平台对最新Go运行时的支持延迟。
 
-Overall, a majority of respondents were satisfied with using Go on all three major cloud providers. Respondents reported similar satisfaction levels with Go development for AWS (80% satisfied) and GCP (78%). Azure received a lower satisfaction score (57% satisfied), and free-text responses suggest that the main driver was a perception that Go lacks first-class support on this platform (25% of free-text responses). Here, “first-class support” refers to always staying up-to-date with the latest Go release, and ensuring new features are available to Go developers at time of launch. This was the same top pain-point reported by respondents using GCP (14%), and particularly focused on support for the latest Go runtime in serverless deployments. Respondents deploying to AWS, in contrast, were most likely to say the SDK could use improvements, such as being more idiomatic (21%). SDK improvements were also the second most common request for both GCP (9%) and Azure (18%) developers.
+Overall, a majority of respondents were satisfied with using Go on all three major cloud providers. Respondents reported similar satisfaction levels with Go development for AWS (80% satisfied) and GCP (78%). Azure received a lower satisfaction score (57% satisfied), and free-text responses suggest that the main driver was a perception that Go lacks first-class support on this platform (25% of free-text responses). Here, "first-class support" refers to always staying up-to-date with the latest Go release, and ensuring new features are available to Go developers at time of launch. This was the same top pain-point reported by respondents using GCP (14%), and particularly focused on support for the latest Go runtime in serverless deployments. Respondents deploying to AWS, in contrast, were most likely to say the SDK could use improvements, such as being more idiomatic (21%). SDK improvements were also the second most common request for both GCP (9%) and Azure (18%) developers.
 
 总体而言，大多数受访者对在所有三个主要云提供商上使用Go表示满意。受访者对AWS（80%满意）和GCP（78%）的Go开发的满意程度相似。Azure的满意度较低（57%满意），而自由文本回复表明，主要驱动因素是认为Go在这个平台上缺乏一流的支持（25%的自由文本回复）。这里，"一流的支持 "指的是始终保持最新的Go版本，并确保新功能在发布时提供给Go开发者。这也是使用GCP的受访者报告的首要痛点（14%），尤其是在无服务器部署中对最新Go运行时间的支持。相比之下，部署到AWS的受访者最有可能说SDK需要改进，比如说更符合习惯（21%）。SDK的改进也是GCP（9%）和Azure（18%）开发者的第二大要求。
 
@@ -239,7 +239,7 @@ This was one of the questions where we randomized the choice list, so year-over-
 
 ![img](GoDeveloperSurvey2019Results_img/fig27.svg)
 
-The top two adoption blockers (working on an existing non-Go project and working on a team that prefers a different language) don’t have direct technical solutions, but the remaining blockers might. Thus, this year we asked for more details, to better understand how we might help developers increase their use of Go. The charts in the remainder of this section are based on free-text responses which were manually categorized, so they have *very* long tails; categories totalling less than 3% of the total responses have been grouped into the “Other” category for each chart. A single response may mention multiple topics, thus charts do not sum to 100%.
+The top two adoption blockers (working on an existing non-Go project and working on a team that prefers a different language) don’t have direct technical solutions, but the remaining blockers might. Thus, this year we asked for more details, to better understand how we might help developers increase their use of Go. The charts in the remainder of this section are based on free-text responses which were manually categorized, so they have *very* long tails; categories totalling less than 3% of the total responses have been grouped into the "Other" category for each chart. A single response may mention multiple topics, thus charts do not sum to 100%.
 
 前两个采用障碍（在现有的非Go项目中工作和在喜欢不同语言的团队中工作）并没有直接的技术解决方案，但其余的障碍可能会。因此，今年我们要求提供更多的细节，以更好地了解我们如何帮助开发者增加对Go的使用。本节其余部分的图表是基于自由文本的回复，这些回复是人工分类的，所以它们的尾巴非常长；占总回复量不到3%的类别被归入每个图表的 "其他 "类别。一个回答可能提到多个主题，因此图表的总和不是100%。
 
@@ -249,7 +249,7 @@ Among the 25% of respondents who said Go lacks language features they need, 79% 
 
 ![img](GoDeveloperSurvey2019Results_img/fig28.svg)
 
-Respondents who said Go “isn’t an appropriate language” for what they work on had a wide variety of reasons and use-cases. The most common was that they work on some form of front-end development (22%), such as GUIs for web, desktop, or mobile. Another common response was that the respondent said they worked in a domain with an already-dominant language (9%), making it a challenge to use something different. Some respondents also told us which domain they were referring to (or simply mentioned a domain without mentioning another language being more common), which we show via the “I work on [domain]” rows below. An additional top reason cited by respondents was a need for better performance (9%), particularly for real-time computing.
+Respondents who said Go "isn’t an appropriate language" for what they work on had a wide variety of reasons and use-cases. The most common was that they work on some form of front-end development (22%), such as GUIs for web, desktop, or mobile. Another common response was that the respondent said they worked in a domain with an already-dominant language (9%), making it a challenge to use something different. Some respondents also told us which domain they were referring to (or simply mentioned a domain without mentioning another language being more common), which we show via the "I work on [domain]" rows below. An additional top reason cited by respondents was a need for better performance (9%), particularly for real-time computing.
 
 那些说Go "不适合 "他们的工作的受访者有各种各样的原因和使用情况。最常见的是他们从事某种形式的前端开发（22%），例如用于网页、桌面或移动的图形用户界面。另一个常见的回答是，受访者说他们工作的领域有一种已经占主导地位的语言（9%），这使得使用不同的语言成为一种挑战。一些受访者还告诉我们他们指的是哪个领域（或者只是提到一个领域而没有提到另一种语言更常见），我们通过下面的 "我在[领域]工作 "行来显示。受访者提到的另一个首要原因是需要更好的性能（9%），特别是对于实时计算。
 
@@ -299,11 +299,11 @@ Because this survey is in English, there is likely a strong bias toward English 
 
 ![img](GoDeveloperSurvey2019Results_img/fig36.svg)
 
-We found 12% of respondents identify with a traditionally underrepresented group (e.g., ethnicity, gender identity, et al.) and 3% identify as female. (This question should have said “woman” instead of “female”. The mistake has been corrected in our draft survey for 2020, and we apologize for it.) We strongly suspect this 3% is undercounting women in the Go community. For example, we know women software developers in the US respond to the StackOverflow Developer Survey at [about half the rate we’d expect based on US employment figures](https://insights.stackoverflow.com/survey/2019#developer-profile-_-developer-type) (11% vs 20%). Since we don’t know the proportion of responses in the US, we can’t safely extrapolate from these numbers beyond saying the actual proportion is likely higher than 3%. Furthermore, GDPR required us to change how we ask about sensitive information, which includes gender and traditionally underrepresented groups. Unfortunately these changes prevent us from being able to make valid comparisons of these numbers with prior years.
+We found 12% of respondents identify with a traditionally underrepresented group (e.g., ethnicity, gender identity, et al.) and 3% identify as female. (This question should have said "woman" instead of "female". The mistake has been corrected in our draft survey for 2020, and we apologize for it.) We strongly suspect this 3% is undercounting women in the Go community. For example, we know women software developers in the US respond to the StackOverflow Developer Survey at [about half the rate we’d expect based on US employment figures](https://insights.stackoverflow.com/survey/2019#developer-profile-_-developer-type) (11% vs 20%). Since we don’t know the proportion of responses in the US, we can’t safely extrapolate from these numbers beyond saying the actual proportion is likely higher than 3%. Furthermore, GDPR required us to change how we ask about sensitive information, which includes gender and traditionally underrepresented groups. Unfortunately these changes prevent us from being able to make valid comparisons of these numbers with prior years.
 
 我们发现12%的受访者认同传统上代表性不足的群体（如种族、性别认同等），3%的受访者认同为女性。 这个问题应该说是 "女性 "而不是 "女性"。这个错误已经在我们2020年的调查草案中得到纠正，我们对此表示道歉）。我们强烈怀疑这3%的比例是少算了Go界的女性。例如，我们知道美国的女性软件开发者对StackOverflow开发者调查的回应率大约是我们根据美国就业数据所预期的一半（11% vs 20%）。由于我们不知道美国的答复比例，我们不能安全地从这些数字中推断，只能说实际比例可能高于3%。此外，GDPR要求我们改变询问敏感信息的方式，其中包括性别和传统上代表不足的群体。不幸的是，这些变化使我们无法将这些数字与往年进行有效比较。
 
-Respondents who identified with underrepresented groups or preferred not to answer this question showed higher rates of disagreement with the statement “I feel welcome in the Go community” (8% vs. 4%) than those who do not identify with an underrepresented group, highlighting the importance of our continued outreach efforts.
+Respondents who identified with underrepresented groups or preferred not to answer this question showed higher rates of disagreement with the statement "I feel welcome in the Go community" (8% vs. 4%) than those who do not identify with an underrepresented group, highlighting the importance of our continued outreach efforts.
 
 与那些不属于代表不足的群体的受访者相比，那些认同代表不足的群体或不愿意回答这个问题的受访者对 "我觉得自己在Go界很受欢迎 "这一说法的不认同率较高（8%对4%），这凸显了我们继续开展外联工作的重要性。
 
@@ -317,4 +317,4 @@ Respondents who identified with underrepresented groups or preferred not to answ
 
 We hope you’ve enjoyed seeing the results of our 2019 developer survey. Understanding developers’ experiences and challenges helps us plan and prioritize work for 2020. Once again, an enormous thank you to everyone who contributed to this survey—your feedback is helping to steer Go’s direction in the coming year and beyond.
 
-我们希望你喜欢看到我们2019年开发者调查的结果。了解开发者的经验和挑战有助于我们规划2020年的工作并确定优先次序。再次感谢为本次调查做出贡献的所有人--你们的反馈有助于引导Go在未来一年及以后的发展方向。
+我们希望您喜欢看到我们2019年开发者调查的结果。了解开发者的经验和挑战有助于我们规划2020年的工作并确定优先次序。再次感谢为本次调查做出贡献的所有人--您们的反馈有助于引导Go在未来一年及以后的发展方向。

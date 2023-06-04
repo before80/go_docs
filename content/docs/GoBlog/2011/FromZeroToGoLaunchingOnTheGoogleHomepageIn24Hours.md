@@ -20,13 +20,13 @@ Reinaldo Aguiar
 
 本文作者Reinaldo Aguiar是谷歌搜索团队的一名软件工程师。他分享了他开发第一个Go程序并向数百万观众发布的经验--所有这些都是在一天之内完成的!
 
-I was recently given the opportunity to collaborate on a small but highly visible “20% project”: the [Thanksgiving 2011 Google Doodle](http://www.google.com/logos/2011/thanksgiving.html). The doodle features a turkey produced by randomly combining different styles of head, wings, feathers and legs. The user can customize it by clicking on the different parts of the turkey. This interactivity is implemented in the browser by a combination of JavaScript, CSS and of course HTML, creating turkeys on the fly.
+I was recently given the opportunity to collaborate on a small but highly visible "20% project": the [Thanksgiving 2011 Google Doodle](http://www.google.com/logos/2011/thanksgiving.html). The doodle features a turkey produced by randomly combining different styles of head, wings, feathers and legs. The user can customize it by clicking on the different parts of the turkey. This interactivity is implemented in the browser by a combination of JavaScript, CSS and of course HTML, creating turkeys on the fly.
 
 最近，我有机会合作完成一个小而高知名度的 "20%项目"：2011年感恩节的谷歌涂鸦。该涂鸦的特点是通过随机组合不同风格的头部、翅膀、羽毛和腿来制作一只火鸡。用户可以通过点击火鸡的不同部分来定制它。这种互动性是在浏览器中通过JavaScript、CSS当然还有HTML的组合实现的，在飞行中创造火鸡。
 
 ![img](https://go.dev/blog/turkey-doodle/image00.png)
 
-Once the user has created a personalized turkey it can be shared with friends and family by posting to Google+. Clicking a “Share” button (not pictured here) creates in the user’s Google+ stream a post containing a snapshot of the turkey. The snapshot is a single image that matches the turkey the user created.
+Once the user has created a personalized turkey it can be shared with friends and family by posting to Google+. Clicking a "Share" button (not pictured here) creates in the user’s Google+ stream a post containing a snapshot of the turkey. The snapshot is a single image that matches the turkey the user created.
 
 一旦用户创建了一个个性化的火鸡，就可以通过发布到Google+上与朋友和家人分享。点击一个 "分享 "按钮（这里没有图片），就会在用户的Google+流中创建一个包含火鸡快照的帖子。该快照是一张与用户创建的火鸡相匹配的单一图片。
 
@@ -66,7 +66,7 @@ A valid request URL might look like this: `http://google-turkey.appspot.com/thum
 
 一个有效的请求URL可能看起来像这样：http://google-turkey.appspot.com/thumb/20332620][http://google-turkey.appspot.com/thumb/20332620
 
-The alphanumeric string that follows “/thumb/” indicates (in hexadecimal) which choice to draw for each layout element, as illustrated by this image:
+The alphanumeric string that follows "/thumb/" indicates (in hexadecimal) which choice to draw for each layout element, as illustrated by this image:
 
 跟在"/thumb/"后面的字母数字字符串表示（十六进制）为每个布局元素绘制哪种选择，如该图所示。
 
@@ -243,7 +243,7 @@ For brevity, I’ve omitted several helper functions from these code listings. S
 
 This chart - taken directly from the App Engine dashboard - shows average request latency during launch. As you can see, even under load it never exceeds 60 ms, with a median latency of 32 milliseconds. This is wicked fast, considering that our request handler is doing image manipulation and encoding on the fly.
 
-这个图表--直接取自App Engine仪表盘--显示了启动期间的平均请求延迟。正如你所看到的，即使在负载下，它也从未超过60毫秒，延迟中值为32毫秒。考虑到我们的请求处理程序正在进行图像处理和编码，这个速度是非常快的。
+这个图表--直接取自App Engine仪表盘--显示了启动期间的平均请求延迟。正如您所看到的，即使在负载下，它也从未超过60毫秒，延迟中值为32毫秒。考虑到我们的请求处理程序正在进行图像处理和编码，这个速度是非常快的。
 
 ## Conclusions 结论
 

@@ -68,7 +68,7 @@ A side note: Although the [official logo](https://blog.golang.org/go-brand) has 
 
 ​	题外话：虽然[官方标志](../GoBlog/2018/GosNewBrand)有两个大写字母，但语言的名字是Go，而不是GO。
 
-### Why did you create a new language? 你为什么要创造一种新的语言？
+### Why did you create a new language? 您为什么要创造一种新的语言？
 
 Go was born out of frustration with existing languages and environments for the work we were doing at Google. Programming had become too difficult and the choice of languages was partly to blame. One had to choose either efficient compilation, efficient execution, or ease of programming; all three were not available in the same mainstream language. Programmers who could were choosing ease over safety and efficiency by moving to dynamically typed languages such as Python and JavaScript rather than C++ or, to a lesser extent, Java.
 
@@ -146,13 +146,13 @@ If you do need to use C with Go, how to proceed depends on the Go compiler imple
 
 ​	如果您确实需要在Go中使用C语言，如何进行取决于Go编译器的实现。Go 团队支持三种 Go 编译器实现。它们是 `gc`（默认的编译器）、`gccgo`（使用 GCC 后端）以及不太成熟的 `gollvm`（使用 LLVM 基础架构）。
 
-`Gc` uses a different calling convention and linker from C and therefore cannot be called directly from C programs, or vice versa. The [`cgo`](https://go.dev/cmd/cgo/) program provides the mechanism for a “foreign function interface” to allow safe calling of C libraries from Go code. SWIG extends this capability to C++ libraries.
+`Gc` uses a different calling convention and linker from C and therefore cannot be called directly from C programs, or vice versa. The [`cgo`](https://go.dev/cmd/cgo/) program provides the mechanism for a "foreign function interface" to allow safe calling of C libraries from Go code. SWIG extends this capability to C++ libraries.
 
 ​	`Gc`使用与C不同的调用约定和链接器，因此不能直接从C程序中调用，反之亦然。[cgo](https://go.dev/cmd/cgo/)程序提供了一个 "外来函数接口 "的机制，允许从Go代码中安全地调用C库。SWIG将这种能力扩展到C++库。
 
 You can also use `cgo` and SWIG with `Gccgo` and `gollvm`. Since they use a traditional API, it's also possible, with great care, to link code from these compilers directly with GCC/LLVM-compiled C or C++ programs. However, doing so safely requires an understanding of the calling conventions for all languages concerned, as well as concern for stack limits when calling C or C++ from Go.
 
-​	你也可以在`Gccgo`和`gollvm`中使用`cgo`和SWIG。由于它们使用的是传统的API，所以在非常小心的情况下，也可以将这些编译器的代码直接与GCC/LLVM编译的C或C++程序链接。然而，要安全地做到这一点，需要了解所有相关语言的调用惯例，以及从 Go 中调用 C 或 C++ 时对堆栈限制的关注。
+​	您也可以在`Gccgo`和`gollvm`中使用`cgo`和SWIG。由于它们使用的是传统的API，所以在非常小心的情况下，也可以将这些编译器的代码直接与GCC/LLVM编译的C或C++程序链接。然而，要安全地做到这一点，需要了解所有相关语言的调用惯例，以及从 Go 中调用 C 或 C++ 时对堆栈限制的关注。
 
 ### What IDEs does Go support? Go 支持哪些集成开发环境？
 
@@ -162,7 +162,7 @@ The Go project does not include a custom IDE, but the language and libraries hav
 
 The list of well-known IDEs and editors that have good Go support available includes Emacs, Vim, VSCode, Atom, Eclipse, Sublime, IntelliJ (through a custom variant called Goland), and many more. Chances are your favorite environment is a productive one for programming in Go.
 
-​	对Go有良好支持的知名IDE和编辑器包括Emacs、Vim、VSCode、Atom、Eclipse、Sublime、IntelliJ（通过一个名为Goland的自定义变体），以及更多。你最喜欢的环境有可能是用Go编程的有效环境。
+​	对Go有良好支持的知名IDE和编辑器包括Emacs、Vim、VSCode、Atom、Eclipse、Sublime、IntelliJ（通过一个名为Goland的自定义变体），以及更多。您最喜欢的环境有可能是用Go编程的有效环境。
 
 ### Does Go support Google's protocol buffers? Go 是否支持 Google 的协议缓冲区？
 
@@ -174,7 +174,7 @@ A separate open source project provides the necessary compiler plugin and librar
 
 Absolutely. We encourage developers to make Go Language sites in their own languages. However, if you choose to add the Google logo or branding to your site (it does not appear on [golang.org](https://go.dev/)), you will need to abide by the guidelines at [www.google.com/permissions/guidelines.html](https://www.google.com/permissions/guidelines.html)
 
-​	当然可以。我们鼓励开发者用自己的语言制作 Go 语言网站。然而，如果你选择在你的网站上添加谷歌的标志或品牌（它不会出现在golang.org上），你需要遵守www.google.com/permissions/guidelines.html 的准则
+​	当然可以。我们鼓励开发者用自己的语言制作 Go 语言网站。然而，如果您选择在您的网站上添加谷歌的标志或品牌（它不会出现在golang.org上），您需要遵守www.google.com/permissions/guidelines.html 的准则
 
 
 
@@ -186,7 +186,7 @@ Go does have an extensive library, called the *runtime*, that is part of every G
 
 ​	Go确实有一个广泛的库，称为 `runtime`，它是每个Go程序的一部分。`runtime`库实现了垃圾收集、并发、堆栈管理以及 Go 语言的其他关键功能。虽然它是语言的核心，但Go的`runtime`类似于`libc`，即C语言库。
 
-It is important to understand, however, that Go's runtime does not include a virtual machine, such as is provided by the Java runtime. Go programs are compiled ahead of time to native machine code (or JavaScript or WebAssembly, for some variant implementations). Thus, although the term is often used to describe the virtual environment in which a program runs, in Go the word “runtime” is just the name given to the library providing critical language services.
+It is important to understand, however, that Go's runtime does not include a virtual machine, such as is provided by the Java runtime. Go programs are compiled ahead of time to native machine code (or JavaScript or WebAssembly, for some variant implementations). Thus, although the term is often used to describe the virtual environment in which a program runs, in Go the word "runtime" is just the name given to the library providing critical language services.
 
 ​	然而，重要的是要理解Go的`runtime`不包括虚拟机，如Java`runtime`所提供的虚拟机。Go程序被提前编译为本地机器代码（或JavaScript或WebAssembly，用于某些变体实现）。因此，虽然这个词经常被用来描述程序运行的虚拟环境，但在 Go 中，"`runtime` "这个词`只是提供关键语言服务的库的名称`。
 
@@ -212,11 +212,11 @@ For the time being, we have a simple rule that can be expanded later without bre
 
 Every language contains novel features and omits someone's favorite feature. Go was designed with an eye on felicity of programming, speed of compilation, orthogonality of concepts, and the need to support features such as concurrency and garbage collection. Your favorite feature may be missing because it doesn't fit, because it affects compilation speed or clarity of design, or because it would make the fundamental system model too difficult.
 
-​	每种语言都包含新奇的功能，并忽略了某些人最喜欢的功能。Go的设计着眼于编程的便利性、编译的速度、概念的正交性，以及支持并发和垃圾回收等功能的需要。你最喜欢的功能可能因为不合适而缺失，因为它影响了编译速度或设计的清晰度，或者因为它使基本的系统模型过于困难。
+​	每种语言都包含新奇的功能，并忽略了某些人最喜欢的功能。Go的设计着眼于编程的便利性、编译的速度、概念的正交性，以及支持并发和垃圾回收等功能的需要。您最喜欢的功能可能因为不合适而缺失，因为它影响了编译速度或设计的清晰度，或者因为它使基本的系统模型过于困难。
 
 If it bothers you that Go is missing feature X, please forgive us and investigate the features that Go does have. You might find that they compensate in interesting ways for the lack of X.
 
-​	如果Go缺失了X功能让您感到困扰，请原谅我们，转而研究Go确实拥有的功能。你可能会发现它们以有趣的方式弥补了X的缺失。
+​	如果Go缺失了X功能让您感到困扰，请原谅我们，转而研究Go确实拥有的功能。您可能会发现它们以有趣的方式弥补了X的缺失。
 
 ### When did Go get generic types? Go 什么时候有了泛型？
 
@@ -300,7 +300,7 @@ As an aid to correct map use, some implementations of the language contain a spe
 
 ​	作为对正确使用映射的帮助，一些语言的实现包含一个特殊的检查，当映射被并发执行不安全地修改时，会在运行时自动报告。
 
-### Will you accept my language change? 你会接受我的语言修改吗？
+### Will you accept my language change? 您会接受我的语言修改吗？
 
 People often suggest improvements to the language—the [mailing list](https://groups.google.com/group/golang-nuts) contains a rich history of such discussions—but very few of these changes have been accepted.
 
@@ -308,21 +308,21 @@ People often suggest improvements to the language—the [mailing list](https://g
 
 Although Go is an open source project, the language and libraries are protected by a [compatibility promise](https://go.dev/doc/go1compat.html) that prevents changes that break existing programs, at least at the source code level (programs may need to be recompiled occasionally to stay current). If your proposal violates the Go 1 specification we cannot even entertain the idea, regardless of its merit. A future major release of Go may be incompatible with Go 1, but discussions on that topic have only just begun and one thing is certain: there will be very few such incompatibilities introduced in the process. Moreover, the compatibility promise encourages us to provide an automatic path forward for old programs to adapt should that situation arise.
 
-​	虽然 Go 是一个开源项目，但语言和库受到[兼容性承诺](https://go.dev/doc/go1compat.html)的保护，至少在源代码层面上，不会出现破坏现有程序的变化（程序可能需要偶尔重新编译以保持最新）。如果你的建议违反了Go 1的规范，我们甚至不能接受这个想法，不管它的优点是什么。未来的Go的主要版本可能会与Go 1不兼容，但关于这个话题的讨论才刚刚开始，有一点是肯定的：在这个过程中会很少引入这样的不兼容问题。此外，兼容性的承诺鼓励我们为老程序提供一条自动改进的道路，以便在出现这种情况时进行调整。
+​	虽然 Go 是一个开源项目，但语言和库受到[兼容性承诺](https://go.dev/doc/go1compat.html)的保护，至少在源代码层面上，不会出现破坏现有程序的变化（程序可能需要偶尔重新编译以保持最新）。如果您的建议违反了Go 1的规范，我们甚至不能接受这个想法，不管它的优点是什么。未来的Go的主要版本可能会与Go 1不兼容，但关于这个话题的讨论才刚刚开始，有一点是肯定的：在这个过程中会很少引入这样的不兼容问题。此外，兼容性的承诺鼓励我们为老程序提供一条自动改进的道路，以便在出现这种情况时进行调整。
 
 Even if your proposal is compatible with the Go 1 spec, it might not be in the spirit of Go's design goals. The article *[Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)* explains Go's origins and the motivation behind its design.
 
-​	即使你的方案与Go 1规范兼容，它也可能不符合Go的设计目标的精神。文章[Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)一文解释了 Go 的起源及其设计背后的动机。
+​	即使您的方案与Go 1规范兼容，它也可能不符合Go的设计目标的精神。文章[Go at Google: Language Design in the Service of Software Engineering](https://go.dev/talks/2012/splash.article)一文解释了 Go 的起源及其设计背后的动机。
 
 ## Types 类型
 
 ### Is Go an object-oriented language? Go 是一种面向对象的语言吗？
 
-Yes and no. Although Go has types and methods and allows an object-oriented style of programming, there is no type hierarchy. The concept of “interface” in Go provides a different approach that we believe is easy to use and in some ways more general. There are also ways to embed types in other types to provide something analogous—but not identical—to subclassing. Moreover, methods in Go are more general than in C++ or Java: they can be defined for any sort of data, even built-in types such as plain, “unboxed” integers. They are not restricted to structs (classes).
+Yes and no. Although Go has types and methods and allows an object-oriented style of programming, there is no type hierarchy. The concept of "interface" in Go provides a different approach that we believe is easy to use and in some ways more general. There are also ways to embed types in other types to provide something analogous—but not identical—to subclassing. Moreover, methods in Go are more general than in C++ or Java: they can be defined for any sort of data, even built-in types such as plain, "unboxed" integers. They are not restricted to structs (classes).
 
 ​	是，也不是。虽然 Go 有类型和方法，并且允许面向对象的编程风格，但没有类型层次。Go 中的 "interface "概念提供了一种不同的方法，我们认为这种方法易于使用，而且在某些方面更加通用。还有一些方法可以将类型嵌入到其他类型中，以提供类似的东西，但不等同于子类。此外，Go中的方法比C++或Java中的方法更通用：它们可以为任何类型的数据定义，甚至是内置类型，如普通的、"未装箱的 "整数。它们并不局限于结构体（类）。
 
-Also, the lack of a type hierarchy makes “objects” in Go feel much more lightweight than in languages such as C++ or Java.
+Also, the lack of a type hierarchy makes "objects" in Go feel much more lightweight than in languages such as C++ or Java.
 
 ​	另外，由于缺乏类型层次，Go中的 "对象 "比C++或Java等语言更轻巧。
 
@@ -394,7 +394,7 @@ If `T` (or `*T`, accordingly) doesn't implement `I`, the mistake will be caught 
 
 If you wish the users of an interface to explicitly declare that they implement it, you can add a method with a descriptive name to the interface's method set. For example:
 
-​	如果你希望一个接口的用户明确声明他们实现了这个接口，你可以在接口的方法集中添加一个带有描述性名称的方法。比如说：
+​	如果您希望一个接口的用户明确声明他们实现了这个接口，您可以在接口的方法集中添加一个带有描述性名称的方法。比如说：
 
 ```go linenums="1"
 type Fooer interface {
@@ -504,7 +504,7 @@ var sx = ([]T2)(st1) // NOT OK
 
 In Go, types are closely tied to methods, in that every named type has a (possibly empty) method set. The general rule is that you can change the name of the type being converted (and thus possibly change its method set) but you can't change the name (and method set) of elements of a composite type. Go requires you to be explicit about type conversions.
 
-​	`在Go中，类型与方法紧密相连，每个命名的类型都有一个（可能是空的）方法集。`一般的规则是，你可以改变被转换的类型的名称（从而可能改变其方法集），`但你不能改变复合类型的元素的名称（和方法集）`。Go要求你对类型转换进行明确说明。
+​	`在Go中，类型与方法紧密相连，每个命名的类型都有一个（可能是空的）方法集。`一般的规则是，您可以改变被转换的类型的名称（从而可能改变其方法集），`但您不能改变复合类型的元素的名称（和方法集）`。Go要求您对类型转换进行明确说明。
 
 ### Why is my nil error value not equal to nil? 为什么我的nil错误值不等于nil？
 
@@ -599,7 +599,7 @@ because `Value` implements the empty interface. In Go method types must match ex
 
 ### Why does Go not provide implicit numeric conversions? 为什么 Go 不提供隐式数值转换？
 
-The convenience of automatic conversion between numeric types in C is outweighed by the confusion it causes. When is an expression unsigned? How big is the value? Does it overflow? Is the result portable, independent of the machine on which it executes? It also complicates the compiler; “the usual arithmetic conversions” are not easy to implement and inconsistent across architectures. For reasons of portability, we decided to make things clear and straightforward at the cost of some explicit conversions in the code. The definition of constants in Go—arbitrary precision values free of signedness and size annotations—ameliorates matters considerably, though.
+The convenience of automatic conversion between numeric types in C is outweighed by the confusion it causes. When is an expression unsigned? How big is the value? Does it overflow? Is the result portable, independent of the machine on which it executes? It also complicates the compiler; "the usual arithmetic conversions" are not easy to implement and inconsistent across architectures. For reasons of portability, we decided to make things clear and straightforward at the cost of some explicit conversions in the code. The definition of constants in Go—arbitrary precision values free of signedness and size annotations—ameliorates matters considerably, though.
 
 ​	在C语言中，数字类型之间的自动转换所带来的便利被其造成的混乱所抵消。一个表达式什么时候是无符号的？数值有多大？它是否会溢出？结果是否可移植，与执行它的机器无关？这也使编译器变得复杂；"通常的算术转换 "不容易实现，而且在不同的架构上也不一致。出于可移植性的考虑，我们决定以代码中一些明确的转换为代价，使事情变得清晰明了。在Go中对常量的定义——任意精度的值，没有符号和大小注释——大大改善了问题。
 
@@ -685,7 +685,7 @@ The document titled [Go Code Review Comments](https://go.dev/s/comments) is a co
 
 The library sources are in the `src` directory of the repository. If you want to make a significant change, please discuss on the mailing list before embarking.
 
-​	库的源代码在版本库的 `src` 目录中。如果你想做一个重大的改变，请在开始之前在邮件列表中讨论。
+​	库的源代码在版本库的 `src` 目录中。如果您想做一个重大的改变，请在开始之前在邮件列表中讨论。
 
 See the document [Contributing to the Go project](https://go.dev/doc/contribute.html) for more information about how to proceed.
 
@@ -881,7 +881,7 @@ Alternatively, the constant must be given a type with a conversion as in `foo :=
 
 From a correctness standpoint, you don't need to know. Each variable in Go exists as long as there are references to it. The storage location chosen by the implementation is irrelevant to the semantics of the language.
 
-​	从正确性的角度来看，你不需要知道。只要有对它的引用，Go中的每个变量就存在。实现所选择的存储位置与语言的语义无关。
+​	从正确性的角度来看，您不需要知道。只要有对它的引用，Go中的每个变量就存在。实现所选择的存储位置与语言的语义无关。
 
 The storage location does have an effect on writing efficient programs. When possible, the Go compilers will allocate variables that are local to a function in that function's stack frame. However, if the compiler cannot prove that the variable is not referenced after the function returns, then the compiler must allocate the variable on the garbage-collected heap to avoid dangling pointer errors. Also, if a local variable is very large, it might make more sense to store it on the heap rather than the stack.
 
@@ -915,7 +915,7 @@ Low-level synchronization and atomic primitives are available in the [sync](http
 
 For higher-level operations, such as coordination among concurrent servers, higher-level techniques can lead to nicer programs, and Go supports this approach through its goroutines and channels. For instance, you can structure your program so that only one goroutine at a time is ever responsible for a particular piece of data. That approach is summarized by the original [Go proverb](https://www.youtube.com/watch?v=PAAkCSZUG1c),
 
-​	对于更高层次的操作，如并发服务器之间的协调，更高层次的技术可以带来更好的程序，Go通过其goroutines和通道支持这种方法。例如，你可以构造你的程序，使每次只有一个goroutine负责一个特定的数据。这种方法被[Go 谚语](https://www.youtube.com/watch?v=PAAkCSZUG1c)所概括，
+​	对于更高层次的操作，如并发服务器之间的协调，更高层次的技术可以带来更好的程序，Go通过其goroutines和通道支持这种方法。例如，您可以构造您的程序，使每次只有一个goroutine负责一个特定的数据。这种方法被[Go 谚语](https://www.youtube.com/watch?v=PAAkCSZUG1c)所概括，
 
 Do not communicate by sharing memory. Instead, share memory by communicating.
 
@@ -1031,7 +1031,7 @@ func main() {
 
 One might mistakenly expect to see `a, b, c` as the output. What you'll probably see instead is `c, c, c`. This is because each iteration of the loop uses the same instance of the variable `v`, so each closure shares that single variable. When the closure runs, it prints the value of `v` at the time `fmt.Println` is executed, but `v` may have been modified since the goroutine was launched. To help detect this and other problems before they happen, run [`go vet`](https://go.dev/cmd/go/#hdr-Run_go_tool_vet_on_packages).
 
-​	人们可能误以为会看到`a, b, c`作为输出。你可能看到的是 `c, c, c`。这是因为循环的每一次迭代都使用同一个变量`v`的实例，所以每个闭包都共享这个单一的变量。当闭包运行时，它打印的是执行 `fmt.Println` 时的 `v` 值，但 `v` 可能在 goroutine 启动后被修改过。为了帮助在发生这种情况和其他问题之前发现它们，运行[go vet](https://go.dev/cmd/go/#hdr-Run_go_tool_vet_on_packages)。
+​	人们可能误以为会看到`a, b, c`作为输出。您可能看到的是 `c, c, c`。这是因为循环的每一次迭代都使用同一个变量`v`的实例，所以每个闭包都共享这个单一的变量。当闭包运行时，它打印的是执行 `fmt.Println` 时的 `v` 值，但 `v` 可能在 goroutine 启动后被修改过。为了帮助在发生这种情况和其他问题之前发现它们，运行[go vet](https://go.dev/cmd/go/#hdr-Run_go_tool_vet_on_packages)。
 
 To bind the current value of `v` to each closure as it is launched, one must modify the inner loop to create a new variable each iteration. One way is to pass the variable as an argument to the closure:
 
@@ -1212,7 +1212,7 @@ Other than being split into multiple files, the package will compile and test ju
 
 Create a new file ending in `_test.go` in the same directory as your package sources. Inside that file, `import "testing"` and write functions of the form
 
-​	在与你的包源文件相同的目录下，创建一个以`_test.go`结尾的新文件。在该文件中，`import "testing"`并编写以下形式的函数
+​	在与您的包源文件相同的目录下，创建一个以`_test.go`结尾的新文件。在该文件中，`import "testing"`并编写以下形式的函数
 
 ```go linenums="1"
 func TestFoo(t *testing.T) {
@@ -1236,7 +1236,7 @@ Go's standard [`testing`](https://go.dev/pkg/testing/) package makes it easy to 
 
 A related point is that testing frameworks tend to develop into mini-languages of their own, with conditionals and controls and printing mechanisms, but Go already has all those capabilities; why recreate them? We'd rather write tests in Go; it's one fewer language to learn and the approach keeps the tests straightforward and easy to understand.
 
-​	与此相关的一点是，测试框架往往会发展成自己的迷你语言，带有条件、控件和打印机制，但Go已经具备所有这些功能，为什么还要重新创建它们呢？我们宁愿用Go来写测试；这样就少了一种需要学习的语言，而且这种方法可以使测试简单明了，易于理解。
+​	与此相关的一点是，测试框架往往会发展成自己的迷您语言，带有条件、控件和打印机制，但Go已经具备所有这些功能，为什么还要重新创建它们呢？我们宁愿用Go来写测试；这样就少了一种需要学习的语言，而且这种方法可以使测试简单明了，易于理解。
 
 If the amount of extra code required to write good errors seems repetitive and overwhelming, the test might work better if table-driven, iterating over a list of inputs and outputs defined in a data structure (Go has excellent support for data structure literals). The work to write a good test and good error messages will then be amortized over many test cases. The standard Go library is full of illustrative examples, such as in [the formatting tests for the `fmt` package](https://go.dev/src/fmt/fmt_test.go).
 
@@ -1274,7 +1274,7 @@ There are several production compilers for Go, and a number of others in develop
 
 The default compiler, `gc`, is included with the Go distribution as part of the support for the `go` command. `Gc` was originally written in C because of the difficulties of bootstrapping—you'd need a Go compiler to set up a Go environment. But things have advanced and since the Go 1.5 release the compiler has been a Go program. The compiler was converted from C to Go using automatic translation tools, as described in this [design document](https://go.dev/s/go13compiler) and [talk](https://go.dev/talks/2015/gogo.slide#1). Thus the compiler is now "self-hosting", which means we needed to face the bootstrapping problem. The solution is to have a working Go installation already in place, just as one normally has with a working C installation. The story of how to bring up a new Go environment from source is described [here](https://go.dev/s/go15bootstrap) and [here](https://go.dev/doc/install/source).
 
-​	默认的编译器 `gc` 包含在 Go 发行版中，是对 `go` 命令支持的一部分。`Gc`最初是用C语言编写的，因为启动困难——你需要一个Go编译器来建立一个Go环境。但现在事情有了进展，`从Go 1.5版本开始，编译器就是一个Go程序`。编译器是使用自动翻译工具从C语言转换为Go语言的，如这个[设计文档](../Other/Go1_3PlusCompilerOverhaul)和[讲座](https://go.dev/talks/2015/gogo.slide#1)中所述。因此，编译器现在是 "`自举（self-hosting）` "的，这意味着我们需要面对启动（bootstrapping ）的问题。解决的办法是已经有了一个正常工作的Go的安装，就像通常有了一个正常工作的C的安装一样。关于如何从源码建立一个新的Go环境的故事在[这里](../Other/Go1_5BootstrapPlan)和[这里](../GettingStarted/InstallingGoFromSource)有描述。
+​	默认的编译器 `gc` 包含在 Go 发行版中，是对 `go` 命令支持的一部分。`Gc`最初是用C语言编写的，因为启动困难——您需要一个Go编译器来建立一个Go环境。但现在事情有了进展，`从Go 1.5版本开始，编译器就是一个Go程序`。编译器是使用自动翻译工具从C语言转换为Go语言的，如这个[设计文档](../Other/Go1_3PlusCompilerOverhaul)和[讲座](https://go.dev/talks/2015/gogo.slide#1)中所述。因此，编译器现在是 "`自举（self-hosting）` "的，这意味着我们需要面对启动（bootstrapping ）的问题。解决的办法是已经有了一个正常工作的Go的安装，就像通常有了一个正常工作的C的安装一样。关于如何从源码建立一个新的Go环境的故事在[这里](../Other/Go1_5BootstrapPlan)和[这里](../GettingStarted/InstallingGoFromSource)有描述。
 
 `Gc` is written in Go with a recursive descent parser and uses a custom loader, also written in Go but based on the Plan 9 loader, to generate ELF/Mach-O/PE binaries.
 
@@ -1364,11 +1364,11 @@ This is a common occurrence, especially on Windows machines, and is almost alway
 
 If you've just installed the Go distribution and the system reports it is infected, that's certainly a mistake. To be really thorough, you can verify the download by comparing the checksum with those on the [downloads page](https://go.dev/dl/).
 
-​	如果你刚刚安装了Go发行版，而系统报告说它被感染了，这肯定是个错误。为了真正彻底，您可以通过将校验和与[下载页面](https://go.dev/dl/)上的校验和进行比较来验证下载。
+​	如果您刚刚安装了Go发行版，而系统报告说它被感染了，这肯定是个错误。为了真正彻底，您可以通过将校验和与[下载页面](https://go.dev/dl/)上的校验和进行比较来验证下载。
 
 In any case, if you believe the report is in error, please report a bug to the supplier of your virus scanner. Maybe in time virus scanners can learn to understand Go programs.
 
-​	在任何情况下，如果你认为报告是错误的，请向你的病毒扫描器的供应商报告一个错误。也许随着时间的推移，病毒扫描器可以学会理解Go程序。
+​	在任何情况下，如果您认为报告是错误的，请向您的病毒扫描器的供应商报告一个错误。也许随着时间的推移，病毒扫描器可以学会理解Go程序。
 
 ## Performance 性能表现
 
@@ -1380,7 +1380,7 @@ One of Go's design goals is to approach the performance of C for comparable prog
 
 Benchmark games are won by extensive tuning and the Go versions of most of the benchmarks need attention. If you measure comparable C and Go programs ([reverse-complement.go](https://go.googlesource.com/exp/+/master/shootout/reverse-complement.go) is one example), you'll see the two languages are much closer in raw performance than this suite would indicate.
 
-​	基准测试游戏是通过广泛的调整来赢得的，大多数基准测试的Go版本需要注意。如果你测量可比较的C和Go程序（[reverse-complement.go](https://go.googlesource.com/exp/+/master/shootout/reverse-complement.go)就是一个例子），你会发现这两种语言的原始性能比这个套件所显示的要接近得多。
+​	基准测试游戏是通过广泛的调整来赢得的，大多数基准测试的Go版本需要注意。如果您测量可比较的C和Go程序（[reverse-complement.go](https://go.googlesource.com/exp/+/master/shootout/reverse-complement.go)就是一个例子），您会发现这两种语言的原始性能比这个套件所显示的要接近得多。
 
 Still, there is room for improvement. The compilers are good but could be better, many libraries need major performance work, and the garbage collector isn't fast enough yet. (Even if it were, taking care not to generate unnecessary garbage can have a huge effect.)
 
@@ -1402,7 +1402,7 @@ Other than declaration syntax, the differences are not major and stem from two d
 
 They're only backwards if you're used to C. In C, the notion is that a variable is declared like an expression denoting its type, which is a nice idea, but the type and expression grammars don't mix very well and the results can be confusing; consider function pointers. Go mostly separates expression and type syntax and that simplifies things (using prefix `*` for pointers is an exception that proves the rule). In C, the declaration
 
-​	如果你习惯于C语言，它们就是相反的。在C语言中，变量的声明就像表示其类型的表达式一样，这是一个很好的想法，但是类型语法和表达式语法不能很好地混合，其结果可能是混乱的；考虑到函数指针。Go大多将表达式和类型语法分开，这就简化了事情（对指针使用前缀`*`是证明这一规则的一个例外）。在C语言中，声明
+​	如果您习惯于C语言，它们就是相反的。在C语言中，变量的声明就像表示其类型的表达式一样，这是一个很好的想法，但是类型语法和表达式语法不能很好地混合，其结果可能是混乱的；考虑到函数指针。Go大多将表达式和类型语法分开，这就简化了事情（对指针使用前缀`*`是证明这一规则的一个例外）。在C语言中，声明
 
 ```go linenums="1"
     int* a, b;
@@ -1462,7 +1462,7 @@ Go uses brace brackets for statement grouping, a syntax familiar to programmers 
 
 Some have argued that the lexer should do lookahead to permit the brace to live on the next line. We disagree. Since Go code is meant to be formatted automatically by [`gofmt`](https://go.dev/cmd/gofmt/), *some* style must be chosen. That style may differ from what you've used in C or Java, but Go is a different language and `gofmt`'s style is as good as any other. More important—much more important—the advantages of a single, programmatically mandated format for all Go programs greatly outweigh any perceived disadvantages of the particular style. Note too that Go's style means that an interactive implementation of Go can use the standard syntax one line at a time without special rules.
 
-​	有些人认为，lexer 应该进行查找，以允许括号出现在下一行。我们不同意这个观点。由于Go代码是由[gofmt](../References/CommandDocumentation/gofmt)自动格式化的，所以必须选择一些风格。这种风格可能与你在C或Java中使用的不同，但Go是一种不同的语言，`gofmt`的风格与其他语言一样好。更重要的是——要重要得多的是——为所有Go程序提供单一的、程序化的强制格式的优势大大超过了特定风格的任何感知的缺点。还要注意的是，Go的风格意味着Go的交互式实现可以一行一行地使用标准语法，而不需要特别的规则。
+​	有些人认为，lexer 应该进行查找，以允许括号出现在下一行。我们不同意这个观点。由于Go代码是由[gofmt](../References/CommandDocumentation/gofmt)自动格式化的，所以必须选择一些风格。这种风格可能与您在C或Java中使用的不同，但Go是一种不同的语言，`gofmt`的风格与其他语言一样好。更重要的是——要重要得多的是——为所有Go程序提供单一的、程序化的强制格式的优势大大超过了特定风格的任何感知的缺点。还要注意的是，Go的风格意味着Go的交互式实现可以一行一行地使用标准语法，而不需要特别的规则。
 
 ### Why do garbage collection? Won't it be too expensive? 为什么要做垃圾收集？不会代价太大吗？
 

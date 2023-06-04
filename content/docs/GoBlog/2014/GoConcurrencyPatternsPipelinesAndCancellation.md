@@ -671,7 +671,7 @@ The final stage receives all the `results` from `c` then checks the error from `
 
 ## Conclusion 结论
 
-This article has presented techniques for constructing streaming data pipelines in Go. Dealing with failures in such pipelines is tricky, since each stage in the pipeline may block attempting to send values downstream, and the downstream stages may no longer care about the incoming data. We showed how closing a channel can broadcast a “done” signal to all the goroutines started by a pipeline and defined guidelines for constructing pipelines correctly.
+This article has presented techniques for constructing streaming data pipelines in Go. Dealing with failures in such pipelines is tricky, since each stage in the pipeline may block attempting to send values downstream, and the downstream stages may no longer care about the incoming data. We showed how closing a channel can broadcast a "done" signal to all the goroutines started by a pipeline and defined guidelines for constructing pipelines correctly.
 
 本文介绍了在Go中构建流式数据管道的技术。处理这种管道中的故障是很棘手的，因为管道中的每个阶段都可能阻断向下游发送数值的尝试，而且下游阶段可能不再关心传入的数据。我们展示了关闭一个通道如何向管道启动的所有goroutine广播一个 "完成 "信号，并定义了正确构建管道的准则。
 

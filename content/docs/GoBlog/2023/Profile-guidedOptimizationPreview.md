@@ -16,7 +16,7 @@ Michael Pratt
 
 When you build a Go binary, the Go compiler performs optimizations to try to generate the best performing binary it can. For example, constant propagation can evaluate constant expressions at compile time, avoiding runtime evaluation cost. Escape analysis avoids heap allocations for locally-scoped objects, avoiding GC overheads. Inlining copies the body of simple functions into callers, often enabling further optimization in the caller (such as additional constant propagation or better escape analysis).
 
-Go improves optimizations from release to release, but this is not always an easy task. Some optimizations are tunable, but the compiler can’t just “turn it up to 11” on every function because overly aggressive optimizations can actually hurt performance or cause excessive build times. Other optimizations require the compiler to make a judgment call about what the “common” and “uncommon” paths in a function are. The compiler must make a best guess based on static heuristics because it can’t know which cases will be common at run time.
+Go improves optimizations from release to release, but this is not always an easy task. Some optimizations are tunable, but the compiler can’t just "turn it up to 11" on every function because overly aggressive optimizations can actually hurt performance or cause excessive build times. Other optimizations require the compiler to make a judgment call about what the "common" and "uncommon" paths in a function are. The compiler must make a best guess based on static heuristics because it can’t know which cases will be common at run time.
 
 Or can it?
 
@@ -118,7 +118,7 @@ Now that we have a working service, let’s collect a profile and rebuild with P
 
 In `main.go`, we imported [net/http/pprof](https://pkg.go.dev/net/http/pprof) which automatically adds a `/debug/pprof/profile` endpoint to the server for fetching a CPU profile.
 
-Normally you want to collect a profile from your production environment so that the compiler gets a representative view of behavior in production. Since this example doesn’t have a “production” environment, we will create a simple program to generate load while we collect a profile. Copy the source of [this program](https://go.dev/play/p/yYH0kfsZcpL) to `load/main.go` and start the load generator (make sure the server is still running!).
+Normally you want to collect a profile from your production environment so that the compiler gets a representative view of behavior in production. Since this example doesn’t have a "production" environment, we will create a simple program to generate load while we collect a profile. Copy the source of [this program](https://go.dev/play/p/yYH0kfsZcpL) to `load/main.go` and start the load generator (make sure the server is still running!).
 
 ```sh
 $ go run example.com/markdown/load

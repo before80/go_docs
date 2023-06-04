@@ -223,7 +223,7 @@ import (
 )
 
 func TestReaderReadRune(t *testing.T) {
-	s := "你好龘龘面日本\x80語" //\x80 是一个非法的 UTF-8编码(字符)
+	s := "您好龘龘面日本\x80語" //\x80 是一个非法的 UTF-8编码(字符)
 	reader := bufio.NewReader(strings.NewReader(s))
 
 	for {
@@ -258,7 +258,7 @@ import (
 	"testing"
 )
 func TestReaderReadSlice(t *testing.T) {
-	input := "你来到|这个\x80"
+	input := "您来到|这个\x80"
 
 	// 创建bufio.Reader对象
 	reader := bufio.NewReader(strings.NewReader(input))

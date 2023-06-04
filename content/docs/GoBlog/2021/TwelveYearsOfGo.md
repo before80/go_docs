@@ -30,7 +30,7 @@ In August, the [Go 1.17 release](https://go.dev/blog/go1.17) added Windows ARM64
 
 8月，Go 1.17版本增加了对Windows ARM64的支持，使TLS密码套件的决定更加简单和安全，引入了修剪模块图，使模块在大型项目中更加有效，并增加了新的、更易读的构建约束语法。在系统内部，Go 1.17还为x86-64上的Go函数切换到了基于寄存器的调用约定，使受CPU约束的应用程序的性能提高了5-15%。
 
-Over the course of the year, we published [many new tutorials](https://go.dev/doc/tutorial/), a [guide to databases in Go](https://go.dev/doc/database/), a [guide to developing modules](https://go.dev/doc/#developing-modules), and a [Go modules reference](https://go.dev/ref/mod). One highlight is the new tutorial “[Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)”, which is also available in [interactive form using Google Cloud Shell](https://go.dev/s/cloud-shell-web-tutorial).
+Over the course of the year, we published [many new tutorials](https://go.dev/doc/tutorial/), a [guide to databases in Go](https://go.dev/doc/database/), a [guide to developing modules](https://go.dev/doc/#developing-modules), and a [Go modules reference](https://go.dev/ref/mod). One highlight is the new tutorial "[Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)", which is also available in [interactive form using Google Cloud Shell](https://go.dev/s/cloud-shell-web-tutorial).
 
 在这一年里，我们发布了许多新的教程、Go中的数据库指南、开发模块指南和Go模块参考。其中一个亮点是新的教程 "用Go和Gin开发RESTful API"，该教程也可以通过Google Cloud Shell以互动的形式获得。
 
@@ -42,24 +42,24 @@ We also launched the [Go fuzzing beta](https://go.dev/blog/fuzz-beta) and [offic
 
 我们还推出了Go模糊测试版，并正式提议在Go中加入泛型，现在这两项都有望在Go 1.18中实现。
 
-Continuing to adapt to “virtual-first”, the Go team hosted our second annual [Go day at Google Open Source Live](https://opensourcelive.withgoogle.com/events/go-day-2021). You can watch the talks on YouTube:
+Continuing to adapt to "virtual-first", the Go team hosted our second annual [Go day at Google Open Source Live](https://opensourcelive.withgoogle.com/events/go-day-2021). You can watch the talks on YouTube:
 
-为了继续适应 "虚拟优先"，Go团队在Google Open Source Live上举办了我们的第二个年度Go日。你可以在YouTube上观看这些讲座：
+为了继续适应 "虚拟优先"，Go团队在Google Open Source Live上举办了我们的第二个年度Go日。您可以在YouTube上观看这些讲座：
 
-- “[Using Generics in Go](https://www.youtube.com/watch?v=nr8EpUO9jhw)”, by Ian Lance Taylor, introduces generics and how to use them effectively.Ian Lance Taylor的 "在Go中使用泛型"，介绍了泛型以及如何有效地使用它们。
-- “[Modern Enterprise Applications](https://www.youtube.com/watch?v=5fgG1qZaV4w)”, by Steve Francia, shows how Go plays a role in enterprise modernization."现代企业应用"，由Steve Francia主讲，展示了Go如何在企业现代化中发挥作用。
-- “[Building Better Projects with the Go Editor](https://www.youtube.com/watch?v=jMyzsp2E_0U)”, by Suzy Mueller, demonstrates how VS Code Go’s integrated tooling helps you navigate code, debug tests, and more.Suzy Mueller的 "用Go编辑器构建更好的项目"，展示了VS Code Go的集成工具如何帮助你浏览代码、调试测试等。
-- “[From Proof of Concept to Production](https://www.youtube.com/watch?v=e7PtBOsTpXE)”, by Benjamin Cane, a Distinguished Engineer at American Express, explains how American Express came to use Go for its payments and rewards platforms.美国运通公司的杰出工程师Benjamin Cane的 "从概念验证到生产"，解释了美国运通公司如何在其支付和奖励平台中使用Go。
+- "[Using Generics in Go](https://www.youtube.com/watch?v=nr8EpUO9jhw)", by Ian Lance Taylor, introduces generics and how to use them effectively.Ian Lance Taylor的 "在Go中使用泛型"，介绍了泛型以及如何有效地使用它们。
+- "[Modern Enterprise Applications](https://www.youtube.com/watch?v=5fgG1qZaV4w)", by Steve Francia, shows how Go plays a role in enterprise modernization."现代企业应用"，由Steve Francia主讲，展示了Go如何在企业现代化中发挥作用。
+- "[Building Better Projects with the Go Editor](https://www.youtube.com/watch?v=jMyzsp2E_0U)", by Suzy Mueller, demonstrates how VS Code Go’s integrated tooling helps you navigate code, debug tests, and more.Suzy Mueller的 "用Go编辑器构建更好的项目"，展示了VS Code Go的集成工具如何帮助您浏览代码、调试测试等。
+- "[From Proof of Concept to Production](https://www.youtube.com/watch?v=e7PtBOsTpXE)", by Benjamin Cane, a Distinguished Engineer at American Express, explains how American Express came to use Go for its payments and rewards platforms.美国运通公司的杰出工程师Benjamin Cane的 "从概念验证到生产"，解释了美国运通公司如何在其支付和奖励平台中使用Go。
 
 ## Going Forward 向前迈进
 
 We’re incredibly excited about what’s in store for Go’s 13th year. Next month, we will have two talks at [GopherCon 2021](https://www.gophercon.com/), along with [many talented speakers from across the Go community](https://www.gophercon.com/agenda). Register for free and mark your calendars!
 
-我们对Go的第13年的发展感到非常兴奋。下个月，我们将在GopherCon 2021上举办两场讲座，还有许多来自Go社区的天才演讲者。请免费注册，并在你的日历上做个记号。
+我们对Go的第13年的发展感到非常兴奋。下个月，我们将在GopherCon 2021上举办两场讲座，还有许多来自Go社区的天才演讲者。请免费注册，并在您的日历上做个记号。
 
-- “Why and How to Use Go Generics”, by Robert Griesemer and Ian Lance Taylor, who led the design and implementation of this new feature."为什么和如何使用Go泛型"，由Robert Griesemer和Ian Lance Taylor主讲，他们领导了这项新功能的设计和实施。
+- "Why and How to Use Go Generics", by Robert Griesemer and Ian Lance Taylor, who led the design and implementation of this new feature."为什么和如何使用Go泛型"，由Robert Griesemer和Ian Lance Taylor主讲，他们领导了这项新功能的设计和实施。
   [Dec 8, 11:00 AM (US Eastern)](https://www.gophercon.com/agenda/session/593015). 12月8日，上午11:00（美国东部）。
-- “Debugging Go Code Using the Debug Adapter Protocol (DAP)”, by Suzy Mueller, show how to use VS Code Go’s advanced debugging features with Delve."使用调试适配器协议（DAP）调试Go代码"，作者是Suzy Mueller，展示如何使用VS Code Go的高级调试功能与Delve。
+- "Debugging Go Code Using the Debug Adapter Protocol (DAP)", by Suzy Mueller, show how to use VS Code Go’s advanced debugging features with Delve."使用调试适配器协议（DAP）调试Go代码"，作者是Suzy Mueller，展示如何使用VS Code Go的高级调试功能与Delve。
   [Dec 9, 3:20 PM (US Eastern)](https://www.gophercon.com/agenda/session/593029). 12月9日，下午3:20（美国东部时间）。
 
 In February, the Go 1.18 release will expand the new register-based calling convention to non-x86 architectures, bringing dramatic performance improvements with it. It will include the new Go fuzzing support. And it will be the first release to include support for generics.
@@ -82,4 +82,4 @@ Overall, we expect 2022 to be an eventful year for Go, and we will continue to d
 
 Go is far more than just us on the Go team at Google. Thank you for your help making Go a success and joining us on this adventure. We hope you are all staying safe and wish you all the best.
 
-Go不仅仅是我们谷歌的Go团队的事情。感谢你们帮助Go取得了成功，并加入我们的冒险。我们希望你们都能保持安全，并祝你们一切顺利。
+Go不仅仅是我们谷歌的Go团队的事情。感谢您们帮助Go取得了成功，并加入我们的冒险。我们希望您们都能保持安全，并祝您们一切顺利。

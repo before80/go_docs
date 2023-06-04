@@ -14,7 +14,7 @@ https://go.dev/blog/8years
 Steve Francia
 10 November 2017
 
-Today we celebrate 8 years since Go was released as an open source project. During [Go’s 4th anniversary](https://blog.golang.org/4years), Andrew finished the post with “Here’s to four more years!”. Now that we have reached that milestone, I cannot help but reflect on how much the project and ecosystem has grown since then. In our post 4 years ago we included a chart demonstrating Go’s rising popularity on Google Trends with the search term “golang”. Today, we’re including an updated chart. In this relative scale of popularity, what was 100 four years ago is now a mere 17. Go’s popularity has increased exponentially over the last 8 years and continues to grow.
+Today we celebrate 8 years since Go was released as an open source project. During [Go’s 4th anniversary](https://blog.golang.org/4years), Andrew finished the post with "Here’s to four more years!". Now that we have reached that milestone, I cannot help but reflect on how much the project and ecosystem has grown since then. In our post 4 years ago we included a chart demonstrating Go’s rising popularity on Google Trends with the search term "golang". Today, we’re including an updated chart. In this relative scale of popularity, what was 100 four years ago is now a mere 17. Go’s popularity has increased exponentially over the last 8 years and continues to grow.
 
 今天我们庆祝Go作为开源项目发布8周年。在Go四周年的时候，Andrew以 "为再过四年干杯！"来结束帖子。现在我们已经达到了这个里程碑，我不禁要反思这个项目和生态系统从那时起已经成长了多少。在4年前的文章中，我们附上了一张图表，展示了Go在Google Trends上的搜索词 "golang "的流行程度。今天，我们又附上了一张最新的图表。在这个相对的流行程度中，四年前是100，现在只是17。Go的受欢迎程度在过去8年里成倍增长，并且还在继续增长。
 
@@ -52,7 +52,7 @@ In 2014, analyst Donnie Berkholz called Go [the emerging language of cloud infra
 
 It may be hard to imagine that only four years ago the Go community was transitioning from online-only to include in-person community with its first conference. Now the Go community has had over 30 conferences all around the world with hundreds of presentations and tens of thousands of attendees. There are hundreds of Go meetups meeting monthly covering much of the globe. Wherever you live, you are likely to find a Go meetup nearby.
 
-可能很难想象，仅仅在四年前，Go社区还在从仅有的在线社区过渡到包括亲临现场的社区，并召开了第一次会议。现在，Go社区已经在世界各地举行了30多次会议，有数百场演讲和数万名与会者。在全球范围内，每月都有数百个Go聚会。无论你住在哪里，你都有可能在附近找到一个Go聚会。
+可能很难想象，仅仅在四年前，Go社区还在从仅有的在线社区过渡到包括亲临现场的社区，并召开了第一次会议。现在，Go社区已经在世界各地举行了30多次会议，有数百场演讲和数万名与会者。在全球范围内，每月都有数百个Go聚会。无论您住在哪里，您都有可能在附近找到一个Go聚会。
 
 Two different organizations have been established to help with inclusivity in the Go community, Go Bridge and Women Who Go; the latter has grown to over 25 chapters. Both have been instrumental in offering free trainings. In 2017 alone over 50 scholarships to conferences have been given through efforts of Go Bridge and Women Who Go.
 
@@ -72,10 +72,10 @@ Go has become a major force in the world of open source powering some of the mos
 
 Go已经成为开源世界的主要力量，为一些最受欢迎的项目提供动力，并使许多行业的创新成为可能。在awesome-go找到数以千计的其他应用程序和库。这里只是一些最受欢迎的项目：
 
-- [Moby](https://mobyproject.org/) (formerly Docker) is a tool for packaging and running applications in lightweight containers. Its creator Solomon Hykes cited Go’s standard library, concurrency primitives, and ease of deployment as key factors, and said “To put it simply, if Docker had not been written in Go, it would not have been as successful.” Moby（前身为Docker）是一个用于在轻量级容器中打包和运行应用程序的工具。它的创造者Solomon Hykes将Go的标准库、并发基元和易于部署作为关键因素，并说 "简单地说，如果Docker不是用Go编写的，它就不会如此成功。"
+- [Moby](https://mobyproject.org/) (formerly Docker) is a tool for packaging and running applications in lightweight containers. Its creator Solomon Hykes cited Go’s standard library, concurrency primitives, and ease of deployment as key factors, and said "To put it simply, if Docker had not been written in Go, it would not have been as successful." Moby（前身为Docker）是一个用于在轻量级容器中打包和运行应用程序的工具。它的创造者Solomon Hykes将Go的标准库、并发基元和易于部署作为关键因素，并说 "简单地说，如果Docker不是用Go编写的，它就不会如此成功。"
 - [Kubernetes](https://kubernetes.io/) is a system for automating deployment, scaling and management of containerized applications. Initially designed by Google and used in the Google cloud, Kubernetes now is a critical part of every major cloud offering. Kubernetes是一个用于自动化部署、扩展和管理容器化应用程序的系统。最初由谷歌设计并用于谷歌云，现在Kubernetes是每个主要云产品的关键部分。
 - [Hugo](https://gohugo.io/) is now the most popular open-source static website engine. With its amazing speed and flexibility, Hugo makes building websites fun again. According to [w3techs](https://w3techs.com/technologies/overview/content_management/all), Hugo now has nearly 3x the usage of Jekyll, the former leader. 雨果是现在最流行的开源静态网站引擎。凭借其惊人的速度和灵活性，Hugo使构建网站再次成为一种乐趣。根据w3techs的数据，Hugo现在的使用率几乎是以前的领导者Jekyll的3倍。
-- [Prometheus](https://prometheus.io/) is an open source monitoring solution and time series database that powers metrics and alerting designed to be the system you go to during an outage to allow you to quickly diagnose problems. Prometheus是一个开源的监控解决方案和时间序列数据库，为指标和警报提供动力，旨在成为你在故障期间的系统，使你能够快速诊断问题。
+- [Prometheus](https://prometheus.io/) is an open source monitoring solution and time series database that powers metrics and alerting designed to be the system you go to during an outage to allow you to quickly diagnose problems. Prometheus是一个开源的监控解决方案和时间序列数据库，为指标和警报提供动力，旨在成为您在故障期间的系统，使您能够快速诊断问题。
 - [Grafana](https://grafana.com/) is an open source, feature-rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB. Grafana是一个开源的、功能丰富的指标仪表盘和图形编辑器，用于Graphite、Elasticsearch、OpenTSDB、Prometheus和InfluxDB。
 - [Lantern](https://getlantern.org/) delivers fast, reliable and secure access to blocked websites and apps. Lantern提供快速、可靠和安全的访问被封锁的网站和应用程序。
 - [Syncthing](https://syncthing.net/) is an open-source cross platform peer-to-peer continuous file synchronization application Syncthing是一个开源的跨平台点对点连续文件同步应用程序。
@@ -86,7 +86,7 @@ Many of these authors have said that their projects would not exist without Go. 
 
 许多作者都说，没有Go，他们的项目就不会存在。有些项目如Kubernetes和Docker创造了全新的解决方案。其他如Hugo、Syncthing和Fzf在许多解决方案已经存在的地方创造了更精炼的经验。仅仅是这些应用的普及就证明了Go是一种适用于广泛使用情况的理想语言。
 
-## Thank You 谢谢你
+## Thank You 谢谢您
 
 This is the eighth time we have had the pleasure of writing a birthday blog post for Go and we continue to be overwhelmed by and grateful for the enthusiasm and support of the Go community.
 
@@ -98,8 +98,8 @@ Since Go was first open sourced we have had 10 releases of the language, librari
 
 The Go team would like to thank everyone who has contributed to the project, whether you participate by contributing changes, reporting bugs, sharing your expertise in design discussions, writing blog posts or books, running events, attending or speaking at events, helping others learn or improve, open sourcing Go packages you wrote, contributing artwork, introducing Go to someone, or being part of the Go community. Without you, Go would not be as complete, useful, or successful as it is today.
 
-Go团队要感谢每一个为项目做出贡献的人，无论你是通过贡献修改、报告错误、在设计讨论中分享你的专业知识、撰写博文或书籍、举办活动、参加活动或演讲、帮助他人学习或改进、开源你编写的Go包、贡献艺术品、向他人介绍Go，还是成为Go社区的一员。没有你们，Go就不会像今天这样完整、有用或成功。
+Go团队要感谢每一个为项目做出贡献的人，无论您是通过贡献修改、报告错误、在设计讨论中分享您的专业知识、撰写博文或书籍、举办活动、参加活动或演讲、帮助他人学习或改进、开源您编写的Go包、贡献艺术品、向他人介绍Go，还是成为Go社区的一员。没有您们，Go就不会像今天这样完整、有用或成功。
 
 Thank you, and here’s to eight more years!
 
-谢谢你们，祝愿你们再创辉煌
+谢谢您们，祝愿您们再创辉煌

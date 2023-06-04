@@ -20,9 +20,9 @@ The [previous blog post](https://blog.golang.org/slices) explained how slices wo
 
 上一篇博文解释了Go中的分片是如何工作的，用一些例子来说明其实现背后的机制。在此背景下，本篇文章将讨论Go中的字符串。起初，对于一篇博文来说，字符串似乎过于简单，但要很好地使用它们，不仅需要了解它们的工作原理，还需要了解字节、字符和符文之间的区别，Unicode和UTF-8之间的区别，字符串和字符串字面的区别，以及其他更微妙的区别。
 
-One way to approach this topic is to think of it as an answer to the frequently asked question, “When I index a Go string at position *n*, why don’t I get the *nth* character?” As you’ll see, this question leads us to many details about how text works in the modern world.
+One way to approach this topic is to think of it as an answer to the frequently asked question, "When I index a Go string at position *n*, why don’t I get the *nth* character?" As you’ll see, this question leads us to many details about how text works in the modern world.
 
-处理这个问题的一种方法是把它看作是对一个经常被问到的问题的回答："当我在位置n索引一个Go字符串时，为什么我没有得到第n个字符？" 正如你将看到的，这个问题将我们引向许多关于现代世界中文本如何工作的细节。
+处理这个问题的一种方法是把它看作是对一个经常被问到的问题的回答："当我在位置n索引一个Go字符串时，为什么我没有得到第n个字符？" 正如您将看到的，这个问题将我们引向许多关于现代世界中文本如何工作的细节。
 
 An excellent introduction to some of these issues, independent of Go, is Joel Spolsky’s famous blog post, [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)](http://www.joelonsoftware.com/articles/Unicode.html). Many of the points he raises will be echoed here.
 
@@ -36,7 +36,7 @@ Let’s start with some basics.
 
 In Go, a string is in effect a read-only slice of bytes. If you’re at all uncertain about what a slice of bytes is or how it works, please read the [previous blog post](https://blog.golang.org/slices); we’ll assume here that you have.
 
-在Go中，字符串实际上是一个只读的字节片。如果你不知道什么是字节片，或者它是如何工作的，请阅读之前的博文；我们在此假定你已经阅读了。
+在Go中，字符串实际上是一个只读的字节片。如果您不知道什么是字节片，或者它是如何工作的，请阅读之前的博文；我们在此假定您已经阅读了。
 
 It’s important to state right up front that a string holds *arbitrary* bytes. It is not required to hold Unicode text, UTF-8 text, or any other predefined format. As far as the content of a string is concerned, it is exactly equivalent to a slice of bytes.
 
@@ -106,7 +106,7 @@ Compare its output to that above:
 bdb23dbc20e28c98
 ```
 
-A nice trick is to use the “space” flag in that format, putting a space between the `%` and the `x`. Compare the format string used here to the one above,
+A nice trick is to use the "space" flag in that format, putting a space between the `%` and the `x`. Compare the format string used here to the one above,
 
 一个很好的技巧是在该格式中使用 "空格 "标志，在%和x之间放一个空格，将这里使用的格式字符串与上面的比较，
 
@@ -138,11 +138,11 @@ This technique is handy when much of the string is intelligible as text but ther
 "\xbd\xb2=\xbc ⌘"
 ```
 
-If we squint at that, we can see that buried in the noise is one ASCII equals sign, along with a regular space, and at the end appears the well-known Swedish “Place of Interest” symbol. That symbol has Unicode value U+2318, encoded as UTF-8 by the bytes after the space (hex value `20`): `e2` `8c` `98`.
+If we squint at that, we can see that buried in the noise is one ASCII equals sign, along with a regular space, and at the end appears the well-known Swedish "Place of Interest" symbol. That symbol has Unicode value U+2318, encoded as UTF-8 by the bytes after the space (hex value `20`): `e2` `8c` `98`.
 
 如果我们眯着眼睛看，我们可以看到埋藏在噪音中的是一个ASCII等号，以及一个普通的空格，最后出现的是著名的瑞典语 "兴趣点 "符号。该符号的Unicode值为U+2318，通过空格后的字节（十六进制值为20）编码为UTF-8：e2 8c 98。
 
-If we are unfamiliar or confused by strange values in the string, we can use the “plus” flag to the `%q` verb. This flag causes the output to escape not only non-printable sequences, but also any non-ASCII bytes, all while interpreting UTF-8. The result is that it exposes the Unicode values of properly formatted UTF-8 that represents non-ASCII data in the string:
+If we are unfamiliar or confused by strange values in the string, we can use the "plus" flag to the `%q` verb. This flag causes the output to escape not only non-printable sequences, but also any non-ASCII bytes, all while interpreting UTF-8. The result is that it exposes the Unicode values of properly formatted UTF-8 that represents non-ASCII data in the string:
 
 如果我们对字符串中的奇怪数值不熟悉或感到困惑，我们可以使用%q动词的 "加 "标志。这个标志使输出不仅转义非打印序列，而且还转义任何非ASCII字节，同时解释UTF-8。其结果是，它暴露了正确格式化的UTF-8的Unicode值，代表字符串中的非ASCII数据：
 
@@ -164,7 +164,7 @@ These printing techniques are good to know when debugging the contents of string
 
 Here’s the full set of printing options we’ve listed, presented as a complete program you can run (and edit) right in the browser:
 
-下面是我们列出的全部打印选项，以一个完整的程序形式呈现，你可以在浏览器中直接运行（和编辑）：
+下面是我们列出的全部打印选项，以一个完整的程序形式呈现，您可以在浏览器中直接运行（和编辑）：
 
 ```go linenums="1"
 package main
@@ -205,7 +205,7 @@ Run 运行
 
 [Exercise: Loop over the string using the `%q` format on each byte. What does the output tell you?]
 
-[练习。在每个字节上使用%q格式在字符串上循环。输出结果告诉你什么？］
+[练习。在每个字节上使用%q格式在字符串上循环。输出结果告诉您什么？］
 
 ## UTF-8 and string literals - UTF-8和字符串字面意义
 
@@ -213,7 +213,7 @@ As we saw, indexing a string yields its bytes, not its characters: a string is j
 
 正如我们所看到的，对一个字符串进行索引可以得到它的字节，而不是它的字符：一个字符串只是一堆字节。这意味着，当我们在一个字符串中存储一个字符值时，我们存储的是它的字节表示。让我们看一个更有控制力的例子，看看这是如何发生的。
 
-Here’s a simple program that prints a string constant with a single character three different ways, once as a plain string, once as an ASCII-only quoted string, and once as individual bytes in hexadecimal. To avoid any confusion, we create a “raw string”, enclosed by back quotes, so it can contain only literal text. (Regular strings, enclosed by double quotes, can contain escape sequences as we showed above.)
+Here’s a simple program that prints a string constant with a single character three different ways, once as a plain string, once as an ASCII-only quoted string, and once as individual bytes in hexadecimal. To avoid any confusion, we create a "raw string", enclosed by back quotes, so it can contain only literal text. (Regular strings, enclosed by double quotes, can contain escape sequences as we showed above.)
 
 这里有一个简单的程序，它以三种不同的方式打印一个带有单个字符的字符串常数，一次是普通字符串，一次是仅有ASCII引号的字符串，还有一次是十六进制的单个字节。为了避免混淆，我们创建了一个 "原始字符串"，用反引号括起来，所以它只能包含字面文本。(正规的字符串，用双引号括起来，可以包含转义序列，正如我们上面所展示的那样）。
 
@@ -249,13 +249,13 @@ quoted string: "\u2318"
 hex bytes: e2 8c 98
 ```
 
-which reminds us that the Unicode character value U+2318, the “Place of Interest” symbol ⌘, is represented by the bytes `e2` `8c` `98`, and that those bytes are the UTF-8 encoding of the hexadecimal value 2318.
+which reminds us that the Unicode character value U+2318, the "Place of Interest" symbol ⌘, is represented by the bytes `e2` `8c` `98`, and that those bytes are the UTF-8 encoding of the hexadecimal value 2318.
 
 这提醒我们，Unicode字符值U+2318，即 "感兴趣的地方 "符号⌘，由字节e2 8c 98表示，而这些字节是十六进制值2318的UTF-8编码。
 
 It may be obvious or it may be subtle, depending on your familiarity with UTF-8, but it’s worth taking a moment to explain how the UTF-8 representation of the string was created. The simple fact is: it was created when the source code was written.
 
-这可能很明显，也可能很微妙，取决于你对UTF-8的熟悉程度，但值得花点时间解释一下这个字符串的UTF-8表示法是如何创建的。简单的事实是：它是在编写源代码的时候创建的。
+这可能很明显，也可能很微妙，取决于您对UTF-8的熟悉程度，但值得花点时间解释一下这个字符串的UTF-8表示法是如何创建的。简单的事实是：它是在编写源代码的时候创建的。
 
 Source code in Go is *defined* to be UTF-8 text; no other representation is allowed. That implies that when, in the source code, we write the text
 
@@ -283,7 +283,7 @@ To summarize, strings can contain arbitrary bytes, but when constructed from str
 
 ## Code points, characters, and runes 代码点、字符和符文
 
-We’ve been very careful so far in how we use the words “byte” and “character”. That’s partly because strings hold bytes, and partly because the idea of “character” is a little hard to define. The Unicode standard uses the term “code point” to refer to the item represented by a single value. The code point U+2318, with hexadecimal value 2318, represents the symbol ⌘. (For lots more information about that code point, see [its Unicode page](http://unicode.org/cldr/utility/character.jsp?a=2318).)
+We’ve been very careful so far in how we use the words "byte" and "character". That’s partly because strings hold bytes, and partly because the idea of "character" is a little hard to define. The Unicode standard uses the term "code point" to refer to the item represented by a single value. The code point U+2318, with hexadecimal value 2318, represents the symbol ⌘. (For lots more information about that code point, see [its Unicode page](http://unicode.org/cldr/utility/character.jsp?a=2318).)
 
 到目前为止，我们在使用 "字节 "和 "字符 "这两个词时一直非常谨慎。这一方面是因为字符串持有字节，另一方面是因为 "字符 "的概念有点难以定义。Unicode标准使用术语 "码位 "来指代由单一数值代表的项目。代码点U+2318，十六进制值2318，代表符号⌘。(关于该码位的更多信息，请参见Unicode页面）。
 
@@ -291,7 +291,7 @@ To pick a more prosaic example, the Unicode code point U+0061 is the lower case 
 
 举个更普通的例子，Unicode码位U+0061是小写拉丁字母 "A"：a。
 
-But what about the lower case grave-accented letter ‘A’, à? That’s a character, and it’s also a code point (U+00E0), but it has other representations. For example we can use the “combining” grave accent code point, U+0300, and attach it to the lower case letter a, U+0061, to create the same character à. In general, a character may be represented by a number of different sequences of code points, and therefore different sequences of UTF-8 bytes.
+But what about the lower case grave-accented letter ‘A’, à? That’s a character, and it’s also a code point (U+00E0), but it has other representations. For example we can use the "combining" grave accent code point, U+0300, and attach it to the lower case letter a, U+0061, to create the same character à. In general, a character may be represented by a number of different sequences of code points, and therefore different sequences of UTF-8 bytes.
 
 但是，小写的重音字母 "A"，à，又是怎么回事呢？这是一个字符，它也是一个代码点（U+00E0），但它有其他的表示方法。例如，我们可以使用 "组合式 "重音码位，U+0300，并将其附加到小写字母a，U+0061，以创建相同的字符à。
 
@@ -299,13 +299,13 @@ The concept of character in computing is therefore ambiguous, or at least confus
 
 因此，计算中的字符概念是模糊的，或者至少是混乱的，所以我们使用它时要小心。为了使事情变得可靠，有一些规范化的技术可以保证一个给定的字符总是由相同的码位来表示，但是这个主题让我们现在离这个话题太远。稍后的博文将解释Go库如何解决规范化问题。
 
-“Code point” is a bit of a mouthful, so Go introduces a shorter term for the concept: *rune*. The term appears in the libraries and source code, and means exactly the same as “code point”, with one interesting addition.
+"Code point" is a bit of a mouthful, so Go introduces a shorter term for the concept: *rune*. The term appears in the libraries and source code, and means exactly the same as "code point", with one interesting addition.
 
 "代码点 "有点拗口，所以Go为这个概念引入了一个更简短的术语：符文。该术语出现在库和源代码中，其含义与 "代码点 "完全相同，但有一个有趣的补充。
 
 The Go language defines the word `rune` as an alias for the type `int32`, so programs can be clear when an integer value represents a code point. Moreover, what you might think of as a character constant is called a *rune constant* in Go. The type and value of the expression
 
-Go语言将rune这个词定义为int32类型的别名，因此程序可以清楚地知道一个整数值代表一个码位。此外，你可能认为是字符常量的东西在Go中被称为符文常量。表达式的类型和值
+Go语言将rune这个词定义为int32类型的别名，因此程序可以清楚地知道一个整数值代表一个码位。此外，您可能认为是字符常量的东西在Go中被称为符文常量。表达式的类型和值
 
 ```
 '⌘'
@@ -389,10 +389,10 @@ Look at the [documentation](https://go.dev/pkg/unicode/utf8/) for the `unicode/u
 
 ## Conclusion 总结
 
-To answer the question posed at the beginning: Strings are built from bytes so indexing them yields bytes, not characters. A string might not even hold characters. In fact, the definition of “character” is ambiguous and it would be a mistake to try to resolve the ambiguity by defining that strings are made of characters.
+To answer the question posed at the beginning: Strings are built from bytes so indexing them yields bytes, not characters. A string might not even hold characters. In fact, the definition of "character" is ambiguous and it would be a mistake to try to resolve the ambiguity by defining that strings are made of characters.
 
 为了回答开头提出的问题。字符串是由字节构成的，所以对它们进行索引会产生字节，而不是字符。一个字符串甚至可能不包含字符。事实上，"字符 "的定义是模糊的，如果试图通过定义字符串是由字符构成的来解决这种模糊性，那就是一个错误。
 
 There’s much more to say about Unicode, UTF-8, and the world of multilingual text processing, but it can wait for another post. For now, we hope you have a better understanding of how Go strings behave and that, although they may contain arbitrary bytes, UTF-8 is a central part of their design.
 
-关于Unicode、UTF-8和多语言文本处理的世界，还有很多东西要讲，但可以等到下一篇文章。现在，我们希望你能更好地理解Go字符串的行为，虽然它们可能包含任意的字节，但UTF-8是它们设计的核心部分。
+关于Unicode、UTF-8和多语言文本处理的世界，还有很多东西要讲，但可以等到下一篇文章。现在，我们希望您能更好地理解Go字符串的行为，虽然它们可能包含任意的字节，但UTF-8是它们设计的核心部分。

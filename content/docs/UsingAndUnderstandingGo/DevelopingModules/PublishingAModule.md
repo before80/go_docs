@@ -12,7 +12,7 @@ draft = false
 
 When you want to make a module available for other developers, you publish it so that it’s visible to Go tools. Once you’ve published the module, developers importing its packages will be able to resolve a dependency on the module by running commands such as `go get`.
 
-当你想把一个模块提供给其他开发者时，你可以发布它，这样它就能被Go工具看到。一旦你发布了模块，导入其软件包的开发者就可以通过运行go get等命令来解决对该模块的依赖。
+当您想把一个模块提供给其他开发者时，您可以发布它，这样它就能被Go工具看到。一旦您发布了模块，导入其软件包的开发者就可以通过运行go get等命令来解决对该模块的依赖。
 
 > **Note:** Don’t change a tagged version of a module after publishing it. For developers using the module, Go tools authenticate a downloaded module against the first downloaded copy. If the two differ, Go tools will return a security error. Instead of changing the code for a previously published version, publish a new version.注意：不要在发布模块后改变模块的标记版本。对于使用该模块的开发者来说，Go工具会根据第一个下载的副本来验证下载的模块。如果两者不同，Go工具将返回一个安全错误。不要改变之前发布的版本的代码，而是发布一个新的版本。
 
@@ -39,7 +39,7 @@ Use the following steps to publish a module.
 
 3. Run `go test ./...` a final time to make sure everything is working.最后一次运行go test ./...以确保一切正常。
 
-   This runs the unit tests you’ve written to use the Go testing framework.这将运行你编写的单元测试，以使用Go测试框架。
+   This runs the unit tests you’ve written to use the Go testing framework.这将运行您编写的单元测试，以使用Go测试框架。
 
    ```
    $ go test ./...
@@ -61,9 +61,9 @@ Use the following steps to publish a module.
    $ git push origin v0.1.0
    ```
 
-6. Make the module available by running the [`go list` command](https://go.dev/cmd/go/#hdr-List_packages_or_modules) to prompt Go to update its index of modules with information about the module you’re publishing.通过运行 go list 命令使模块可用，以提示 Go 用你要发布的模块的信息更新其模块索引。
+6. Make the module available by running the [`go list` command](https://go.dev/cmd/go/#hdr-List_packages_or_modules) to prompt Go to update its index of modules with information about the module you’re publishing.通过运行 go list 命令使模块可用，以提示 Go 用您要发布的模块的信息更新其模块索引。
 
-   Precede the command with a statement to set the `GOPROXY` environment variable to a Go proxy. This will ensure that your request reaches the proxy.在命令的前面加上一条语句，将GOPROXY环境变量设置为Go代理。这将确保你的请求到达代理。
+   Precede the command with a statement to set the `GOPROXY` environment variable to a Go proxy. This will ensure that your request reaches the proxy.在命令的前面加上一条语句，将GOPROXY环境变量设置为Go代理。这将确保您的请求到达代理。
 
    ```
    $ GOPROXY=proxy.golang.org go list -m example.com/mymodule@v0.1.0
@@ -71,7 +71,7 @@ Use the following steps to publish a module.
 
 Developers interested in your module import a package from it and run the [`go get` command](https://go.dev/doc/modules/publishing) just as they would with any other module. They can run the [`go get` command](https://go.dev/doc/modules/publishing) for latest versions or they can specify a particular version, as in the following example:
 
-对你的模块感兴趣的开发者从你的模块中导入一个包，然后像对待其他模块一样运行 go get 命令。他们可以运行go get命令获取最新的版本，也可以指定一个特定的版本，就像下面的例子：
+对您的模块感兴趣的开发者从您的模块中导入一个包，然后像对待其他模块一样运行 go get 命令。他们可以运行go get命令获取最新的版本，也可以指定一个特定的版本，就像下面的例子：
 
 ```
 $ go get example.com/mymodule@v0.1.0

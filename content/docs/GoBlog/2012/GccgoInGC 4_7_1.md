@@ -36,12 +36,12 @@ Gccgo提供了标准、完整的Go库。Go运行时的许多核心功能在gccgo
 
 Gccgo distributions do not yet include a version of the go command. However, if you install the go command from a standard Go release, it already supports gccgo via the `-compiler` option: go build `-compiler gccgo myprog`. The tools used for calls between Go and C/C++, cgo and SWIG, also support gccgo.
 
-Gccgo发行版还不包括go命令的版本。然而，如果你从标准Go版本中安装go命令，它已经通过-编译器选项支持gccgo了：go build -compiler gccgo myprog。用于Go和C/C++之间调用的工具，cgo和SWIG，也支持gccgo。
+Gccgo发行版还不包括go命令的版本。然而，如果您从标准Go版本中安装go命令，它已经通过-编译器选项支持gccgo了：go build -compiler gccgo myprog。用于Go和C/C++之间调用的工具，cgo和SWIG，也支持gccgo。
 
 We have put the Go frontend under the same BSD license as the rest of the Go tools. You can download the source code for the frontend at the [gofrontend project](https://github.com/golang/gofrontend). Note that when the Go frontend is linked with the GCC backend to make gccgo, GCC’s GPL license takes precedence.
 
-我们已经把Go前端放在与其他Go工具相同的BSD许可下。你可以在 gofrontend 项目中下载该前端的源代码。请注意，当 Go 前端与 GCC 后端连接以形成 gccgo 时，GCC 的 GPL 许可优先。
+我们已经把Go前端放在与其他Go工具相同的BSD许可下。您可以在 gofrontend 项目中下载该前端的源代码。请注意，当 Go 前端与 GCC 后端连接以形成 gccgo 时，GCC 的 GPL 许可优先。
 
 The latest release of GCC, 4.7.1, includes gccgo with support for Go 1. If you need better performance for CPU-bound Go programs, or you need to support processors or operating systems that the gc compiler does not support, gccgo might be the answer.
 
-GCC的最新版本4.7.1包括了支持Go 1的gccgo。 如果你需要为绑定CPU的Go程序提供更好的性能，或者你需要支持gc编译器不支持的处理器或操作系统，gccgo可能就是答案了。
+GCC的最新版本4.7.1包括了支持Go 1的gccgo。 如果您需要为绑定CPU的Go程序提供更好的性能，或者您需要支持gc编译器不支持的处理器或操作系统，gccgo可能就是答案了。

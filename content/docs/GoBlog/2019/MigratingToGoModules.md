@@ -40,9 +40,9 @@ Go的模块系统在Go 1.11中引入，提供了一个内置于go命令的官方
 
 Please note: if your project is already tagged at v2.0.0 or higher, you will need to update your module path when you add a `go.mod` file. We’ll explain how to do that without breaking your users in a future article focused on v2 and beyond.
 
-请注意：如果你的项目已经被标记为v2.0.0或更高版本，你需要在添加go.mod文件时更新你的模块路径。我们会在以后的文章中解释如何在不破坏用户的情况下做到这一点，主要是针对v2及以上版本。
+请注意：如果您的项目已经被标记为v2.0.0或更高版本，您需要在添加go.mod文件时更新您的模块路径。我们会在以后的文章中解释如何在不破坏用户的情况下做到这一点，主要是针对v2及以上版本。
 
-## Migrating to Go modules in your project 在你的项目中迁移到Go模块
+## Migrating to Go modules in your project 在您的项目中迁移到Go模块
 
 A project might be in one of three states when beginning the transition to Go modules:
 
@@ -102,7 +102,7 @@ go mod init会创建一个新的go.mod文件，并自动从Godeps.json、Gopkg.l
 
 This is a good time to pause and run `go build ./...` and `go test ./...` before continuing. Later steps may modify your `go.mod` file, so if you prefer to take an iterative approach, this is the closest your `go.mod` file will be to your pre-modules dependency specification.
 
-这是一个暂停的好时机，在继续之前运行go build ./...和go test ./...。以后的步骤可能会修改你的go.mod文件，所以如果你喜欢采取迭代的方法，这是你的go.mod文件最接近于你的模块前依赖性规范。
+这是一个暂停的好时机，在继续之前运行go build ./...和go test ./...。以后的步骤可能会修改您的go.mod文件，所以如果您喜欢采取迭代的方法，这是您的go.mod文件最接近于您的模块前依赖性规范。
 
 ```shell linenums="1"
 $ go mod tidy
@@ -116,7 +116,7 @@ $
 
 `go mod tidy` finds all the packages transitively imported by packages in your module. It adds new module requirements for packages not provided by any known module, and it removes requirements on modules that don’t provide any imported packages. If a module provides packages that are only imported by projects that haven’t migrated to modules yet, the module requirement will be marked with an `// indirect` comment. It is always good practice to run `go mod tidy` before committing a `go.mod` file to version control.
 
-go mod tidy 找到所有被你的模块中的软件包过渡性导入的软件包。它为任何已知模块没有提供的包添加新的模块需求，并删除没有提供任何导入包的模块的需求。如果一个模块提供的包只被那些还没有迁移到模块的项目所导入，那么这个模块的需求将被标记为//间接注释。在将go.mod文件提交到版本控制之前，运行go mod tidy总是一个好的做法。
+go mod tidy 找到所有被您的模块中的软件包过渡性导入的软件包。它为任何已知模块没有提供的包添加新的模块需求，并删除没有提供任何导入包的模块的需求。如果一个模块提供的包只被那些还没有迁移到模块的项目所导入，那么这个模块的需求将被标记为//间接注释。在将go.mod文件提交到版本控制之前，运行go mod tidy总是一个好的做法。
 
 Let’s finish by making sure the code builds and tests pass:
 
@@ -131,7 +131,7 @@ $
 
 Note that other dependency managers may specify dependencies at the level of individual packages or entire repositories (not modules), and generally do not recognize the requirements specified in the `go.mod` files of dependencies. Consequently, you may not get exactly the same version of every package as before, and there’s some risk of upgrading past breaking changes. Therefore, it’s important to follow the above commands with an audit of the resulting dependencies. To do so, run
 
-请注意，其他的依赖管理器可能会在单个包或整个软件库（而不是模块）的层面上指定依赖关系，并且通常不会识别依赖关系的go.mod文件中指定的要求。因此，你可能不会得到与以前完全相同的每个软件包的版本，而且有一些升级过去破坏变化的风险。因此，在执行上述命令后，对所产生的依赖关系进行审计是很重要的。要做到这一点，请运行
+请注意，其他的依赖管理器可能会在单个包或整个软件库（而不是模块）的层面上指定依赖关系，并且通常不会识别依赖关系的go.mod文件中指定的要求。因此，您可能不会得到与以前完全相同的每个软件包的版本，而且有一些升级过去破坏变化的风险。因此，在执行上述命令后，对所产生的依赖关系进行审计是很重要的。要做到这一点，请运行
 
 ```shell linenums="1"
 $ go list -m all
@@ -143,7 +143,7 @@ $
 
 and compare the resulting versions with your old dependency management file to ensure that the selected versions are appropriate. If you find a version that wasn’t what you wanted, you can find out why using `go mod why -m` and/or `go mod graph`, and upgrade or downgrade to the correct version using `go get`. (If the version you request is older than the version that was previously selected, `go get` will downgrade other dependencies as needed to maintain compatibility.) For example,
 
-并将得到的版本与你的旧的依赖性管理文件进行比较，以确保所选的版本是合适的。如果你发现一个版本不是你想要的，你可以用go mod why -m和/或go mod graph找出原因，然后用go get升级或降级到正确的版本。(如果你要求的版本比之前选择的版本要老，go get会根据需要降级其他依赖关系以保持兼容性）。比如说，
+并将得到的版本与您的旧的依赖性管理文件进行比较，以确保所选的版本是合适的。如果您发现一个版本不是您想要的，您可以用go mod why -m和/或go mod graph找出原因，然后用go get升级或降级到正确的版本。(如果您要求的版本比之前选择的版本要老，go get会根据需要降级其他依赖关系以保持兼容性）。比如说，
 
 ```shell linenums="1"
 $ go mod why -m rsc.io/binaryregexp
@@ -226,7 +226,7 @@ $
 
 `go mod tidy` added module requirements for all the packages transitively imported by packages in your module and built a `go.sum` with checksums for each library at a specific version. Let’s finish by making sure the code still builds and tests still pass:
 
-go mod tidy为所有被你的模块中的包转接导入的包添加了模块需求，并建立了一个go.sum，其中包括每个库的特定版本的校验和。最后，让我们确保代码仍然可以构建，测试仍然可以通过：
+go mod tidy为所有被您的模块中的包转接导入的包添加了模块需求，并建立了一个go.sum，其中包括每个库的特定版本的校验和。最后，让我们确保代码仍然可以构建，测试仍然可以通过：
 
 ```go linenums="1"
 $ go build ./...
@@ -243,7 +243,7 @@ $
 
 Note that when `go mod tidy` adds a requirement, it adds the latest version of the module. If your `GOPATH` included an older version of a dependency that subsequently published a breaking change, you may see errors in `go mod tidy`, `go build`, or `go test`. If this happens, try downgrading to an older version with `go get` (for example, `go get github.com/broken/module@v1.1.0`), or take the time to make your module compatible with the latest version of each dependency.
 
-注意，当go mod tidy添加一个需求时，它添加的是该模块的最新版本。如果你的GOPATH包含了一个旧版本的依赖，而这个依赖后来发布了一个突破性的变化，你可能会在go mod tidy、go build或go test中看到错误。如果发生这种情况，试着用go get降级到旧版本（例如，go get github.com/broken/module@v1.1.0），或者花时间使你的模块与每个依赖的最新版本兼容。
+注意，当go mod tidy添加一个需求时，它添加的是该模块的最新版本。如果您的GOPATH包含了一个旧版本的依赖，而这个依赖后来发布了一个突破性的变化，您可能会在go mod tidy、go build或go test中看到错误。如果发生这种情况，试着用go get降级到旧版本（例如，go get github.com/broken/module@v1.1.0），或者花时间使您的模块与每个依赖的最新版本兼容。
 
 ### Tests in module mode 模块模式下的测试
 
@@ -257,17 +257,17 @@ If a test needs to write files in the package directory, it may fail when the pa
 
 If a test relies on relative paths (`../package-in-another-module`) to locate and read files in another package, it will fail if the package is in another module, which will be located in a versioned subdirectory of the module cache or a path specified in a `replace` directive. If this is the case, you may need to copy the test inputs into your module, or convert the test inputs from raw files to data embedded in `.go` source files.
 
-如果一个测试依靠相对路径（.../package-in-another-module）来定位和读取另一个包中的文件，如果该包在另一个模块中，它将失败，该模块将位于模块缓存的一个版本子目录或替换指令中指定的路径。如果是这种情况，你可能需要将测试输入复制到你的模块中，或者将测试输入从原始文件转换成嵌入.go源文件的数据。
+如果一个测试依靠相对路径（.../package-in-another-module）来定位和读取另一个包中的文件，如果该包在另一个模块中，它将失败，该模块将位于模块缓存的一个版本子目录或替换指令中指定的路径。如果是这种情况，您可能需要将测试输入复制到您的模块中，或者将测试输入从原始文件转换成嵌入.go源文件的数据。
 
 If a test expects `go` commands within the test to run in GOPATH mode, it may fail. If this is the case, you may need to add a `go.mod` file to the source tree to be tested, or set `GO111MODULE=off` explicitly.
 
-如果一个测试期望测试中的go命令在GOPATH模式下运行，它可能会失败。如果是这种情况，你可能需要在要测试的源代码树上添加一个go.mod文件，或者明确设置GO111MODULE=off。
+如果一个测试期望测试中的go命令在GOPATH模式下运行，它可能会失败。如果是这种情况，您可能需要在要测试的源代码树上添加一个go.mod文件，或者明确设置GO111MODULE=off。
 
 ## Publishing a release 发布一个版本
 
 Finally, you should tag and publish a release version for your new module. This is optional if you haven’t released any versions yet, but without an official release, downstream users will depend on specific commits using [pseudo-versions](https://go.dev/cmd/go/#hdr-Pseudo_versions), which may be more difficult to support.
 
-最后，你应该为你的新模块标记并发布一个发布版本。如果你还没有发布任何版本，这是可选的，但如果没有正式的发布版本，下游用户将依赖于使用伪版本的特定提交，这可能更难支持。
+最后，您应该为您的新模块标记并发布一个发布版本。如果您还没有发布任何版本，这是可选的，但如果没有正式的发布版本，下游用户将依赖于使用伪版本的特定提交，这可能更难支持。
 
 ```
 $ git tag v1.2.0
@@ -276,7 +276,7 @@ $ git push origin v1.2.0
 
 Your new `go.mod` file defines a canonical import path for your module and adds new minimum version requirements. If your users are already using the correct import path, and your dependencies haven’t made breaking changes, then adding the `go.mod` file is backwards-compatible — but it’s a significant change, and may expose existing problems. If you have existing version tags, you should increment the [minor version](https://semver.org/#spec-item-7). See [Publishing Go Modules](https://go.dev/blog/publishing-go-modules) to learn how to increment and publish versions.
 
-你的新go.mod文件为你的模块定义了一个规范的导入路径，并增加了新的最低版本要求。如果你的用户已经在使用正确的导入路径，而且你的依赖关系也没有发生破坏性的变化，那么添加go.mod文件是向后兼容的--但这是一个重大变化，可能会暴露现有的问题。如果你有现有的版本标签，你应该增加次要版本。请参阅发布Go模块以了解如何增加和发布版本。
+您的新go.mod文件为您的模块定义了一个规范的导入路径，并增加了新的最低版本要求。如果您的用户已经在使用正确的导入路径，而且您的依赖关系也没有发生破坏性的变化，那么添加go.mod文件是向后兼容的--但这是一个重大变化，可能会暴露现有的问题。如果您有现有的版本标签，您应该增加次要版本。请参阅发布Go模块以了解如何增加和发布版本。
 
 ## Imports and canonical module paths 进口和规范的模块路径
 
@@ -286,7 +286,7 @@ Each module declares its module path in its `go.mod` file. Each `import` stateme
 
 Go 1.4 provided a mechanism for declaring canonical import paths using [`// import` comments](https://go.dev/cmd/go/#hdr-Import_path_checking), but package authors did not always provide them. As a result, code written prior to modules may have used a non-canonical import path for a module without surfacing an error for the mismatch. When using modules, the import path must match the canonical module path, so you may need to update `import` statements: for example, you may need to change `import "github.com/golang/lint"` to `import "golang.org/x/lint"`.
 
-Go 1.4提供了一个使用//导入注释来声明规范导入路径的机制，但包的作者并不总是提供这些注释。因此，在模块之前编写的代码可能使用了一个非标准的模块导入路径，而没有出现不匹配的错误。当使用模块时，导入路径必须与规范的模块路径相匹配，所以你可能需要更新导入语句：例如，你可能需要将导入 "github.com/golang/lint "改为导入 "golang.org/x/lint"。
+Go 1.4提供了一个使用//导入注释来声明规范导入路径的机制，但包的作者并不总是提供这些注释。因此，在模块之前编写的代码可能使用了一个非标准的模块导入路径，而没有出现不匹配的错误。当使用模块时，导入路径必须与规范的模块路径相匹配，所以您可能需要更新导入语句：例如，您可能需要将导入 "github.com/golang/lint "改为导入 "golang.org/x/lint"。
 
 Another scenario in which a module’s canonical path may differ from its repository path occurs for Go modules at major version 2 or higher. A Go module with a major version above 1 must include a major-version suffix in its module path: for example, version `v2.0.0` must have the suffix `/v2`. However, `import` statements may have referred to the packages within the module *without* that suffix. For example, non-module users of `github.com/russross/blackfriday/v2` at `v2.0.1` may have imported it as `github.com/russross/blackfriday` instead, and will need to update the import path to include the `/v2` suffix.
 
@@ -304,4 +304,4 @@ To provide feedback and help shape the future of dependency management in Go, pl
 
 Thanks for all your feedback and help improving modules.
 
-谢谢你的反馈和对改进模块的帮助。
+谢谢您的反馈和对改进模块的帮助。

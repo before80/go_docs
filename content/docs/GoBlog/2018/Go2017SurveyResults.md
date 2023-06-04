@@ -14,7 +14,7 @@ https://go.dev/blog/survey2017-results
 Steve Francia
 26 February 2018
 
-## Thank you 谢谢你
+## Thank you 谢谢您
 
 This post summarizes the result of our 2017 user survey along with commentary and insights. It also draws key comparisons between the results of the 2016 and 2017 survey.
 
@@ -72,27 +72,27 @@ In this section we asked two new questions. Both center around what developers a
 
 在这一部分，我们提出了两个新问题。这两个问题都是围绕着开发者在使用Go的过程中所做的事情，比我们之前的问题更加细化。我们希望这些数据能够为Go项目和生态系统提供洞察力。
 
-Since last year there has been an increase of the percentage of people who identified “Go lacks critical features” as the reason they don’t use Go more and a decreased percentage who identified “Go not being an appropriate fit”. Other than these changes, the list remains consistent with last year.
+Since last year there has been an increase of the percentage of people who identified "Go lacks critical features" as the reason they don’t use Go more and a decreased percentage who identified "Go not being an appropriate fit". Other than these changes, the list remains consistent with last year.
 
 自去年以来，认为 "Go缺乏关键功能 "是他们不更多使用Go的原因的人的比例有所增加，而认为 "Go不适合 "的比例则有所下降。除了这些变化之外，名单与去年保持一致。
 
 ![image-20221118210033563](Go2017SurveyResults_img/image-20221118210033563.png)
 
-*Reading the data*: This question asked how strongly the respondent agreed or disagreed with the statement. The responses for each statement are displayed as sections of a single bar, from “strongly disagree” in deep red on the left end to “strongly agree” in deep blue on the right end. The bars use the same scale as the rest of the graphs, so they can (and do, especially later in the survey) vary in overall length due to lack of responses.
+*Reading the data*: This question asked how strongly the respondent agreed or disagreed with the statement. The responses for each statement are displayed as sections of a single bar, from "strongly disagree" in deep red on the left end to "strongly agree" in deep blue on the right end. The bars use the same scale as the rest of the graphs, so they can (and do, especially later in the survey) vary in overall length due to lack of responses.
 
 阅读数据。这个问题问的是受访者对陈述的同意或不同意程度。对每个陈述的回答都以单条的形式显示，从左端深红色的 "非常不同意 "到右端深蓝色的 "非常同意"。条形图使用与其他图表相同的比例，因此它们可以（而且确实如此，特别是在调查的后期）由于缺乏回应而在整体长度上有所变化。
 
-The ratio after the text compares the number of respondents who agreed (including “somewhat agree” and “strongly agree”) to those who disagreed (including “somewhat disagree” and “strongly disagree”). For example, the ratio of respondents agreeing that they would recommend Go to respondents disagreeing was 19 to 1. The second ratio (within the brackets) is simply a weighted ratio with each somewhat = 1, agree/disagree = 2, and strongly = 4.
+The ratio after the text compares the number of respondents who agreed (including "somewhat agree" and "strongly agree") to those who disagreed (including "somewhat disagree" and "strongly disagree"). For example, the ratio of respondents agreeing that they would recommend Go to respondents disagreeing was 19 to 1. The second ratio (within the brackets) is simply a weighted ratio with each somewhat = 1, agree/disagree = 2, and strongly = 4.
 
 文字后面的比率比较了同意（包括 "有点同意 "和 "非常同意"）的受访者与不同意（包括 "有点不同意 "和 "非常不同意"）的受访者的人数。例如，同意推荐Go的受访者与不同意的受访者的比例是19比1。第二个比例（在括号内）只是一个加权的比例，每个有点=1，同意/不同意=2，强烈=4。
 
 ![image-20221118210047964](Go2017SurveyResults_img/image-20221118210047964.png)
 
-*Reading the data*: This question asked for write-in responses. The bars above show the fraction of surveys mentioning common words or phrases. Only words or phrases that appeared in 20 or more surveys are listed, and meaningless common words or phrases like “the” or “to be” are omitted. The displayed results do overlap: for example, the 402 responses that mentioned “management” do include the 266 listed separately that mentioned “dependency management” and the 79 listed separately that mentioned “package management.”
+*Reading the data*: This question asked for write-in responses. The bars above show the fraction of surveys mentioning common words or phrases. Only words or phrases that appeared in 20 or more surveys are listed, and meaningless common words or phrases like "the" or "to be" are omitted. The displayed results do overlap: for example, the 402 responses that mentioned "management" do include the 266 listed separately that mentioned "dependency management" and the 79 listed separately that mentioned "package management."
 
 阅读数据。这个问题要求写上答案。上面的条形图显示了调查中提到常见词汇或短语的比例。只列出了在20份或更多调查中出现的单词或短语，并省略了 "the "或 "to be "等无意义的常用单词或短语。显示的结果确实有重叠：例如，提到 "管理 "的402份答复确实包括单独列出的提到 "依赖性管理 "的266份和单独列出的提到 "包管理 "的79份。
 
-However, nearly or completely redundant shorter entries are omitted: there are not twenty or more surveys that listed “dependency” without mentioning “dependency management,” so there is no separate entry for “dependency.”
+However, nearly or completely redundant shorter entries are omitted: there are not twenty or more surveys that listed "dependency" without mentioning "dependency management," so there is no separate entry for "dependency."
 
 然而，几乎或完全多余的较短条目被省略了：没有20个或更多的调查列出了 "依赖性 "而没有提到 "依赖性管理"，所以没有 "依赖性 "的单独条目。
 
@@ -114,7 +114,7 @@ VSCode继续其爆炸性增长，现在是Gophers中最受欢迎的编辑器。I
 
 Survey respondents demonstrated significantly higher satisfaction with Go support in their editors over 2016 with the ratio of satisfied to dissatisfied doubling (9:1 → 18:1). Thank you to everyone who worked on Go editor support for all your hard work.
 
-调查对象对他们的编辑器中的Go支持的满意度比2016年明显提高，满意和不满意的比例翻了一番（9:1 → 18:1）。感谢每一位从事Go编辑器支持工作的人，感谢你们的辛勤工作。
+调查对象对他们的编辑器中的Go支持的满意度比2016年明显提高，满意和不满意的比例翻了一番（9:1 → 18:1）。感谢每一位从事Go编辑器支持工作的人，感谢您们的辛勤工作。
 
 Go deployment is roughly evenly split between privately managed servers and hosted cloud servers. For Go applications, Google Cloud services saw significant increase over 2016. For Non-Go applications, AWS Lambda saw the largest increase in use.
 
@@ -184,7 +184,7 @@ The country distribution of responses is largely similar to last year with minor
 
 答复的国家分布与去年基本相似，有轻微的波动。与去年一样，国家的分布与golang.org的访问量相似，尽管一些亚洲国家在调查中的代表性仍然不足。
 
-Perhaps the most significant improvement over 2016 came from the question which asked to what degree do respondents agreed with the statement, “I feel welcome in the Go community”. Last year the agreement to disagreement ratio was 15:1. In 2017 this ratio nearly doubled to 25:1.
+Perhaps the most significant improvement over 2016 came from the question which asked to what degree do respondents agreed with the statement, "I feel welcome in the Go community". Last year the agreement to disagreement ratio was 15:1. In 2017 this ratio nearly doubled to 25:1.
 
 与2016年相比，最显著的改进可能来自于这个问题，它问受访者在多大程度上同意 "我觉得自己在Go社区受到欢迎 "的说法。去年，同意与不同意的比例是15:1。在2017年，这个比例几乎翻了一番，达到25:1。
 
@@ -192,7 +192,7 @@ An important part of a community is making everyone feel welcome, especially peo
 
 社区的一个重要部分是让每个人都感到受欢迎，特别是来自代表性不足的人口群体的人。我们在几个代表性不足的群体中提出了一个关于身份认同的可选问题。我们的答复率比去年增加了4%。每个代表性不足的群体的比例都比2016年有所增加，有些还相当明显。
 
-Like last year, we took the results of the statement “I feel welcome in the Go community” and broke them down by responses to the various underrepresented categories. Like the whole, most of the respondents who identified as underrepresented also felt significantly more welcome in the Go community than in 2016. Respondents who identified as a woman showed the most significant improvement with an increase of over 400% in the ratio of agree:disagree to this statement (3:1 → 13:1). People who identified as ethnically or racially underrepresented had an increase of over 250% (7:1 → 18:1). Like last year, those who identified as not underrepresented still had a much higher percentage of agreement to this statement than those identifying from underrepresented groups.
+Like last year, we took the results of the statement "I feel welcome in the Go community" and broke them down by responses to the various underrepresented categories. Like the whole, most of the respondents who identified as underrepresented also felt significantly more welcome in the Go community than in 2016. Respondents who identified as a woman showed the most significant improvement with an increase of over 400% in the ratio of agree:disagree to this statement (3:1 → 13:1). People who identified as ethnically or racially underrepresented had an increase of over 250% (7:1 → 18:1). Like last year, those who identified as not underrepresented still had a much higher percentage of agreement to this statement than those identifying from underrepresented groups.
 
 和去年一样，我们把 "我觉得自己在Go界很受欢迎 "这一陈述的结果，按照对各种代表性不足的类别的回答进行了细分。与整体一样，大多数认定为代表不足的受访者也觉得自己在Go界明显比2016年更受欢迎。被认定为女性的受访者表现出最明显的改善，对这句话的同意：不同意的比例增加了400%以上（3：1→13：1）。被认定为民族或种族代表不足的人增加了250%以上（7：1 → 18：1）。与去年一样，那些被认定为没有代表权的人对这一声明的同意率仍然比那些被认定为代表权不足的人高得多。
 
@@ -202,7 +202,7 @@ We are encouraged by this progress and hope that the momentum continues.
 
 The final question on the survey was just for fun: what’s your favorite Go keyword? Perhaps unsurprisingly, the most popular response was `go`, followed by `defer`, `func`, `interface`, and `select`, unchanged from last year.
 
-调查的最后一个问题只是为了好玩：你最喜欢的Go关键词是什么？也许不出意料，最受欢迎的回答是go，其次是defer、func、interface和select，与去年相比没有变化。
+调查的最后一个问题只是为了好玩：您最喜欢的Go关键词是什么？也许不出意料，最受欢迎的回答是go，其次是defer、func、interface和select，与去年相比没有变化。
 
 ![image-20221118210407889](Go2017SurveyResults_img/image-20221118210407889.png)
 

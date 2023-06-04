@@ -106,9 +106,9 @@ type QueryError struct {
 }
 ```
 
-Programs can look inside a `*QueryError` value to make decisions based on the underlying error. You’ll sometimes see this referred to as “unwrapping” the error.
+Programs can look inside a `*QueryError` value to make decisions based on the underlying error. You’ll sometimes see this referred to as "unwrapping" the error.
 
-程序可以查看*QueryError值的内部，以根据基础错误做出决定。有时你会看到这被称为 "解包 "错误。
+程序可以查看*QueryError值的内部，以根据基础错误做出决定。有时您会看到这被称为 "解包 "错误。
 
 ```go linenums="1"
 if e, ok := err.(*QueryError); ok && e.Err == ErrPermission {
@@ -126,7 +126,7 @@ The `os.PathError` type in the standard library is another example of one error 
 
 Go 1.13 introduces new features to the `errors` and `fmt` standard library packages to simplify working with errors that contain other errors. The most significant of these is a convention rather than a change: an error which contains another may implement an `Unwrap` method returning the underlying error. If `e1.Unwrap()` returns `e2`, then we say that `e1` *wraps* `e2`, and that you can *unwrap* `e1` to get `e2`.
 
-Go 1.13 为 errors 和 fmt 标准库包引入了新的功能，以简化对包含其他错误的错误的处理。其中最重要的是一个惯例，而不是一个变化：一个包含其他错误的错误可以实现一个返回底层错误的Unwrap方法。如果e1.Unwrap()返回e2，那么我们说e1包裹了e2，并且你可以解开e1来获得e2。
+Go 1.13 为 errors 和 fmt 标准库包引入了新的功能，以简化对包含其他错误的错误的处理。其中最重要的是一个惯例，而不是一个变化：一个包含其他错误的错误可以实现一个返回底层错误的Unwrap方法。如果e1.Unwrap()返回e2，那么我们说e1包裹了e2，并且您可以解开e1来获得e2。
 
 Following this convention, we can give the `QueryError` type above an `Unwrap` method that returns its contained error:
 
@@ -237,7 +237,7 @@ if errors.Is(err, ErrPermission) ...
 
 When adding additional context to an error, either with `fmt.Errorf` or by implementing a custom type, you need to decide whether the new error should wrap the original. There is no single answer to this question; it depends on the context in which the new error is created. Wrap an error to expose it to callers. Do not wrap an error when doing so would expose implementation details.
 
-当给一个错误添加额外的上下文时，无论是用fmt.Errorf还是通过实现一个自定义类型，你需要决定新的错误是否应该包住原来的。这个问题没有唯一的答案；它取决于创建新错误的上下文。包裹一个错误是为了将其暴露给调用者。如果这样做会暴露出实现的细节，就不要包裹错误。
+当给一个错误添加额外的上下文时，无论是用fmt.Errorf还是通过实现一个自定义类型，您需要决定新的错误是否应该包住原来的。这个问题没有唯一的答案；它取决于创建新错误的上下文。包裹一个错误是为了将其暴露给调用者。如果这样做会暴露出实现的细节，就不要包裹错误。
 
 As one example, imagine a `Parse` function which reads a complex data structure from an `io.Reader`. If an error occurs, we wish to report the line and column number at which it occurred. If the error occurs while reading from the `io.Reader`, we will want to wrap that error to allow inspection of the underlying problem. Since the caller provided the `io.Reader` to the function, it makes sense to expose the error produced by it.
 
@@ -245,7 +245,7 @@ As one example, imagine a `Parse` function which reads a complex data structure 
 
 In contrast, a function which makes several calls to a database probably should not return an error which unwraps to the result of one of those calls. If the database used by the function is an implementation detail, then exposing these errors is a violation of abstraction. For example, if the `LookupUser` function of your package `pkg` uses Go’s `database/sql` package, then it may encounter a `sql.ErrNoRows` error. If you return that error with `fmt.Errorf("accessing DB: %v", err)` then a caller cannot look inside to find the `sql.ErrNoRows`. But if the function instead returns `fmt.Errorf("accessing DB: %w", err)`, then a caller could reasonably write
 
-相反，一个对数据库进行多次调用的函数可能不应该返回一个错误，这个错误是对其中一次调用结果的解包。如果函数所使用的数据库是一个实现细节，那么暴露这些错误就违反了抽象原则。例如，如果你的包 pkg 的 LookupUser 函数使用 Go 的数据库/sql 包，那么它可能遇到 sql.ErrNoRows 错误。如果你用fmt.Errorf("accessing DB: %v", err)来返回这个错误，那么调用者就无法在里面找到sql.ErrNoRows。但是如果该函数返回fmt.Errorf("accessing DB: %w", err)，那么调用者可以合理地写道
+相反，一个对数据库进行多次调用的函数可能不应该返回一个错误，这个错误是对其中一次调用结果的解包。如果函数所使用的数据库是一个实现细节，那么暴露这些错误就违反了抽象原则。例如，如果您的包 pkg 的 LookupUser 函数使用 Go 的数据库/sql 包，那么它可能遇到 sql.ErrNoRows 错误。如果您用fmt.Errorf("accessing DB: %v", err)来返回这个错误，那么调用者就无法在里面找到sql.ErrNoRows。但是如果该函数返回fmt.Errorf("accessing DB: %w", err)，那么调用者可以合理地写道
 
 ```go linenums="1"
 err := pkg.LookupUser(...)
@@ -254,11 +254,11 @@ if errors.Is(err, sql.ErrNoRows) …
 
 At that point, the function must always return `sql.ErrNoRows` if you don’t want to break your clients, even if you switch to a different database package. In other words, wrapping an error makes that error part of your API. If you don’t want to commit to supporting that error as part of your API in the future, you shouldn’t wrap the error.
 
-在这一点上，如果你不想破坏你的客户，即使你切换到一个不同的数据库包，该函数必须总是返回sql.ErrNoRows。换句话说，包装一个错误使得这个错误成为你的API的一部分。如果你不想在将来把这个错误作为你的API的一部分来支持，你就不应该包装这个错误。
+在这一点上，如果您不想破坏您的客户，即使您切换到一个不同的数据库包，该函数必须总是返回sql.ErrNoRows。换句话说，包装一个错误使得这个错误成为您的API的一部分。如果您不想在将来把这个错误作为您的API的一部分来支持，您就不应该包装这个错误。
 
 It’s important to remember that whether you wrap or not, the error text will be the same. A *person* trying to understand the error will have the same information either way; the choice to wrap is about whether to give *programs* additional information so they can make more informed decisions, or to withhold that information to preserve an abstraction layer.
 
-重要的是要记住，无论你包不包，错误文本都是一样的。试图理解错误的人无论如何都会有相同的信息；选择包装是为了给程序提供额外的信息，使他们能够做出更明智的决定，还是为了保留一个抽象层而隐瞒这些信息。
+重要的是要记住，无论您包不包，错误文本都是一样的。试图理解错误的人无论如何都会有相同的信息；选择包装是为了给程序提供额外的信息，使他们能够做出更明智的决定，还是为了保留一个抽象层而隐瞒这些信息。
 
 ## Customizing error tests with Is and As methods 用Is和As方法定制错误测试
 
@@ -302,7 +302,7 @@ The simplest specification is to say that operations either succeed or fail, ret
 
 最简单的规范是说，操作要么成功，要么失败，分别返回一个nil或非nil的错误值。在许多情况下，不需要进一步的信息。
 
-If we wish a function to return an identifiable error condition, such as “item not found,” we might return an error wrapping a sentinel.
+If we wish a function to return an identifiable error condition, such as "item not found," we might return an error wrapping a sentinel.
 
 如果我们希望一个函数返回一个可识别的错误条件，如 "未找到项目"，我们可以返回一个包裹着哨兵的错误。
 
@@ -325,9 +325,9 @@ There are other existing patterns for providing errors which can be semantically
 
 还有其他现有的模式，用于提供可由调用者进行语义检查的错误，例如直接返回一个哨兵值、一个特定的类型，或者一个可由谓语函数检查的值。
 
-In all cases, care should be taken not to expose internal details to the user. As we touched on in “Whether to Wrap” above, when you return an error from another package you should convert the error to a form that does not expose the underlying error, unless you are willing to commit to returning that specific error in the future.
+In all cases, care should be taken not to expose internal details to the user. As we touched on in "Whether to Wrap" above, when you return an error from another package you should convert the error to a form that does not expose the underlying error, unless you are willing to commit to returning that specific error in the future.
 
-在所有情况下，都应该注意不要向用户暴露内部细节。正如我们在上面的 "是否包装 "中提到的，当你从另一个包中返回一个错误时，你应该将错误转换为不暴露基本错误的形式，除非你愿意承诺在将来返回那个特定的错误。
+在所有情况下，都应该注意不要向用户暴露内部细节。正如我们在上面的 "是否包装 "中提到的，当您从另一个包中返回一个错误时，您应该将错误转换为不暴露基本错误的形式，除非您愿意承诺在将来返回那个特定的错误。
 
 ```go linenums="1"
 f, err := os.Open(filename)

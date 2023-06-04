@@ -19,7 +19,7 @@ The Go Cloud Development Kit team at Google  谷歌的Go云开发工具包团队
 
 ## Introduction 简介
 
-Last July, we [introduced](https://blog.golang.org/go-cloud) the [Go Cloud Development Kit](https://gocloud.dev/) (previously referred to as simply “Go Cloud”), an open source project building libraries and tools to improve the experience of developing for the cloud with Go. We’ve made a lot of progress since then – thank you to early contributors! We look forward to growing the Go CDK community of users and contributors, and are excited to work closely with early adopters.
+Last July, we [introduced](https://blog.golang.org/go-cloud) the [Go Cloud Development Kit](https://gocloud.dev/) (previously referred to as simply "Go Cloud"), an open source project building libraries and tools to improve the experience of developing for the cloud with Go. We’ve made a lot of progress since then – thank you to early contributors! We look forward to growing the Go CDK community of users and contributors, and are excited to work closely with early adopters.
 
 去年 7 月，我们推出了 Go 云开发工具包（以前简称为 "Go 云"），这是一个构建库和工具的开源项目，旨在改善使用 Go 进行云开发的体验。从那时起，我们已经取得了很大的进展--感谢早期的贡献者们！我们期待着Go CD的发展。我们期待着Go CDK用户和贡献者社区的发展，并很高兴能与早期采用者密切合作。
 
@@ -33,10 +33,10 @@ These portable APIs are a great fit if any of the following are true:
 
 如果以下情况属实，这些可移植的API是非常合适的：
 
-- You develop cloud applications locally. 你在本地开发云应用程序。
-- You have on-premise applications that you want to run in the cloud (permanently, or as part of a migration). 你有希望在云中运行的内部应用程序（永久的，或作为迁移的一部分）。
+- You develop cloud applications locally. 您在本地开发云应用程序。
+- You have on-premise applications that you want to run in the cloud (permanently, or as part of a migration). 您有希望在云中运行的内部应用程序（永久的，或作为迁移的一部分）。
 - You want portability across multiple clouds. 您希望在多个云端有可移植性。
-- You are creating a new Go application that will use cloud services. 你正在创建一个将使用云服务的新Go应用程序。
+- You are creating a new Go application that will use cloud services. 您正在创建一个将使用云服务的新Go应用程序。
 
 Unlike traditional approaches where you would need to write new application code for each cloud provider, with the Go CDK you write your application code once using our portable APIs to access the set of services listed below. Then, you can run your application on any supported cloud with minimal config changes.
 
@@ -61,16 +61,16 @@ We hope you’re as excited about the Go CDK as we are – check out our [godoc]
 
 If you’re digging into Go CDK please share your experiences with us:
 
-如果你正在研究Go CDK，请与我们分享你的经验：
+如果您正在研究Go CDK，请与我们分享您的经验：
 
 - What went well? 哪些方面进展顺利？
 - Were there any pain points using the APIs? 使用API时有什么痛点吗？
-- Are there any features missing in the API you used? 在你使用的API中是否有任何功能缺失？
+- Are there any features missing in the API you used? 在您使用的API中是否有任何功能缺失？
 - Suggestions for documentation improvements. 对文档的改进建议。
 
 To send feedback, you can:
 
-要发送反馈，你可以：
+要发送反馈，您可以：
 
 - Submit issues to our public [GitHub repository](https://github.com/google/go-cloud/issues/new/choose). 向我们的公共GitHub仓库提交问题。
 - Email [go-cdk-feedback@google.com](mailto:go-cdk-feedback@google.com). 发送电子邮件到 go-cdk-feedback@google.com。

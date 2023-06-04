@@ -194,7 +194,7 @@ See also the [MinorReleases](https://go.dev/wiki/MinorReleases) wiki page.
 
 Any exceptions to the freeze must be communicated to and explicitly approved by the Go Release Team before the freeze. If you’d like to request an exception, please file an issue in the issue tracker with "[freeze exception]" as a suffix and include "CC @golang/release" ([example](https://go.dev/issue/42747)). We will address any requests on a case-by-case basis with a strong preference for not permitting changes after the freeze.
 
-任何冻结的例外情况都必须在冻结前与Go发布团队沟通并得到明确的批准。如果你想申请一个例外，请在问题跟踪器中以"[冻结例外]"为后缀提交一个问题，并包括 "CC @golang/release"（示例）。我们将根据具体情况处理任何请求，强烈建议不允许在冻结后进行修改。
+任何冻结的例外情况都必须在冻结前与Go发布团队沟通并得到明确的批准。如果您想申请一个例外，请在问题跟踪器中以"[冻结例外]"为后缀提交一个问题，并包括 "CC @golang/release"（示例）。我们将根据具体情况处理任何请求，强烈建议不允许在冻结后进行修改。
 
 ## History 历史
 

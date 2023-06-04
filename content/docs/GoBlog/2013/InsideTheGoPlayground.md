@@ -26,15 +26,15 @@ In September 2010 we [introduced the Go Playground](https://blog.golang.org/intr
 
 If you’re a Go programmer then you have probably already used the playground by using the [Go Playground](https://go.dev/play/) directly, taking the [Go Tour](https://go.dev/tour/), or running [executable examples](https://go.dev/pkg/strings/#pkg-examples) from the Go documentation.
 
-如果你是一个Go程序员，那么你可能已经通过直接使用Go Playground，参加Go Tour，或运行Go文档中的可执行示例来使用过该游乐场。
+如果您是一个Go程序员，那么您可能已经通过直接使用Go Playground，参加Go Tour，或运行Go文档中的可执行示例来使用过该游乐场。
 
-You may also have used it by clicking one of the “Run” buttons in a slide deck on [go.dev/talks](https://go.dev/talks/) or a post on this very blog (such as the [recent article on Strings](https://blog.golang.org/strings)).
+You may also have used it by clicking one of the "Run" buttons in a slide deck on [go.dev/talks](https://go.dev/talks/) or a post on this very blog (such as the [recent article on Strings](https://blog.golang.org/strings)).
 
-你也可能通过点击go.dev/talks上的幻灯片或本博客上的文章（如最近关于字符串的文章）中的一个 "运行 "按钮来使用它。
+您也可能通过点击go.dev/talks上的幻灯片或本博客上的文章（如最近关于字符串的文章）中的一个 "运行 "按钮来使用它。
 
 In this article we will take a look at how the playground is implemented and integrated with these services. The implementation involves a variant operating system environment and runtime and our description here assumes you have some familiarity with systems programming using Go.
 
-在这篇文章中，我们将看看游乐场是如何实现并与这些服务整合的。这个实现涉及到一个不同的操作系统环境和运行时间，我们在这里的描述假定你对使用Go的系统编程有一定的熟悉程度。
+在这篇文章中，我们将看看游乐场是如何实现并与这些服务整合的。这个实现涉及到一个不同的操作系统环境和运行时间，我们在这里的描述假定您对使用Go的系统编程有一定的熟悉程度。
 
 ## Overview 概述
 
@@ -54,7 +54,7 @@ The back end program itself is trivial, so we won’t discuss its implementation
 
 后端程序本身是微不足道的，所以我们不会在这里讨论其实现。有趣的部分是我们如何在一个安全的环境中安全地执行任意的用户代码，同时仍然提供核心功能，如时间、网络和文件系统。
 
-To isolate user programs from Google’s infrastructure, the back end runs them under [Native Client](https://developers.google.com/native-client/) (or “NaCl”), a technology developed by Google to permit the safe execution of x86 programs inside web browsers. The back end uses a special version of the gc tool chain that generates NaCl executables.
+To isolate user programs from Google’s infrastructure, the back end runs them under [Native Client](https://developers.google.com/native-client/) (or "NaCl"), a technology developed by Google to permit the safe execution of x86 programs inside web browsers. The back end uses a special version of the gc tool chain that generates NaCl executables.
 
 为了将用户程序与谷歌的基础设施隔离开来，后端在Native Client（或称 "NaCl"）下运行这些程序，该技术由谷歌开发，允许在网络浏览器内安全执行x86程序。后端使用一个特殊版本的gc工具链来生成NaCl可执行文件。
 
@@ -134,11 +134,11 @@ How does this work? It is a collaboration between the back end, front end, and c
 
 这是如何工作的？这是一个后端、前端和客户端之间的协作。
 
-We capture the timing of each write to standard output and standard error and provide it to the client. Then the client can “play back” the writes with the correct timing, so that the output appears just as if the program were running locally.
+We capture the timing of each write to standard output and standard error and provide it to the client. Then the client can "play back" the writes with the correct timing, so that the output appears just as if the program were running locally.
 
 我们捕捉每个写入标准输出和标准错误的时间，并将其提供给客户端。然后，客户端可以用正确的时间 "回放 "写入的内容，这样，输出就像程序在本地运行一样。
 
-The playground’s `runtime` package provides a special [`write` function](https://github.com/golang/go/blob/go1.3/src/pkg/runtime/sys_nacl_amd64p32.s#L54) that includes a small “playback header” before each write. The playback header comprises a magic string, the current time, and the length of the write data. A write with a playback header has this structure:
+The playground’s `runtime` package provides a special [`write` function](https://github.com/golang/go/blob/go1.3/src/pkg/runtime/sys_nacl_amd64p32.s#L54) that includes a small "playback header" before each write. The playback header comprises a magic string, the current time, and the length of the write data. A write with a playback header has this structure:
 
 Playground的运行包提供了一个特殊的写入功能，在每次写入前包括一个小的 "回放头"。回放头包括一个神奇的字符串、当前时间和写入数据的长度。一个有回放头的写有这样的结构：
 
@@ -192,7 +192,7 @@ Programs built with the Go’s NaCl tool chain cannot access the local machine�
 
 The following example program writes data to a file, and then copies its contents to standard output. Try running it. (You can edit it, too!)
 
-下面的例子程序将数据写入一个文件，然后将其内容复制到标准输出。试着运行它。(你也可以编辑它！）。
+下面的例子程序将数据写入一个文件，然后将其内容复制到标准输出。试着运行它。(您也可以编辑它！）。
 
 ```go linenums="1"
 func main() {
@@ -325,7 +325,7 @@ This implementation is in the file [`playground.js`](https://github.com/golang/t
 
 The [`playground`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L227) function takes some HTML elements and turns them into an interactive playground widget. You should use this function if you want to put the playground on your own site (see ‘Other clients’ below).
 
-playground函数接收一些HTML元素，并将它们变成一个交互式的游乐场小部件。如果你想把游乐场放在你自己的网站上，你应该使用这个函数（见下面的 "其他客户端"）。
+playground函数接收一些HTML元素，并将它们变成一个交互式的游乐场小部件。如果您想把游乐场放在您自己的网站上，您应该使用这个函数（见下面的 "其他客户端"）。
 
 The [`Transport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L6) interface (not formally defined, this being JavaScript) abstracts the user interface from the means of talking to the web front end. [`HTTPTransport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L43) is an implementation of `Transport` that speaks the HTTP-based protocol described earlier. [`SocketTransport`](https://github.com/golang/tools/blob/f8e922be8efeabd06a510065ca5836b62fa10b9a/godoc/static/playground.js#L115) is another implementation that speaks WebSocket (see ‘Playing offline’ below).
 
@@ -353,7 +353,7 @@ WebSocket后端实现可以在golang.org/x/tools/playground/socket包中找到�
 
 The playground service is used by more than just the official Go project ([Go by Example](https://gobyexample.com/) is one other instance) and we are happy for you to use it on your own site. All we ask is that you [contact us first](mailto:golang-dev@googlegroups.com), use a unique user agent in your requests (so we can identify you), and that your service is of benefit to the Go community.
 
-不仅仅是官方Go项目在使用playground服务（Go by Example是另一个例子），我们很乐意让你在自己的网站上使用它。我们只要求您先与我们联系，在您的请求中使用一个独特的用户代理（以便我们能够识别您），并且您的服务对Go社区有益。
+不仅仅是官方Go项目在使用playground服务（Go by Example是另一个例子），我们很乐意让您在自己的网站上使用它。我们只要求您先与我们联系，在您的请求中使用一个独特的用户代理（以便我们能够识别您），并且您的服务对Go社区有益。
 
 ## Conclusion 结论
 

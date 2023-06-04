@@ -102,7 +102,7 @@ A second way we simplify is by redefining functionality we already have, allowin
 
 For example, `append` was originally defined to read only from slices. When appending to a byte slice, you could append the bytes from another byte slice, but not the bytes from a string. We redefined append to allow appending from a string, without adding anything new to the language.
 
-例如，append最初被定义为只从片断中读取。当追加到一个字节片时，你可以追加另一个字节片的字节，但不能追加一个字符串的字节。我们重新定义了append，允许从一个字符串中追加，而没有给语言添加任何新的内容。
+例如，append最初被定义为只从片断中读取。当追加到一个字节片时，您可以追加另一个字节片的字节，但不能追加一个字符串的字节。我们重新定义了append，允许从一个字符串中追加，而没有给语言添加任何新的内容。
 
 ```go linenums="1"
 var b []byte
@@ -141,7 +141,7 @@ We can also simplify by restricting what is allowed. From day one, Go has restri
 
 Another important restriction is `gofmt` for program formatting. Nothing rejects Go code that isn’t formatted using `gofmt`, but we have established a convention that tools that rewrite Go programs leave them in `gofmt` form. If you keep your programs in `gofmt` form too, then these rewriters don’t make any formatting changes. When you compare before and after, the only diffs you see are real changes. This restriction has simplified program rewriters and led to successful experiments like `goimports`, `gorename`, and many others.
 
-另一个重要的限制是用于程序格式化的gofmt。没有任何东西会拒绝没有使用gofmt格式的Go代码，但我们已经建立了一个惯例，即改写Go程序的工具要将其保留为gofmt形式。如果你把你的程序也保持在gofmt形式，那么这些重写工具就不会做任何格式上的改变。当你比较前后的差异时，你看到的唯一差异是真正的变化。这种限制简化了程序改写器，并导致了goimports、gorename等成功的实验。
+另一个重要的限制是用于程序格式化的gofmt。没有任何东西会拒绝没有使用gofmt格式的Go代码，但我们已经建立了一个惯例，即改写Go程序的工具要将其保留为gofmt形式。如果您把您的程序也保持在gofmt形式，那么这些重写工具就不会做任何格式上的改变。当您比较前后的差异时，您看到的唯一差异是真正的变化。这种限制简化了程序改写器，并导致了goimports、gorename等成功的实验。
 
 ## Go Development Process Go开发过程
 
@@ -157,7 +157,7 @@ We have to ship the result. We have to make it available to use. Of course, usin
 
 We shipped Go to all of you for the first time on November 10, 2009. Then, with your help, we shipped Go 1 together in March 2012. And we’ve shipped twelve Go releases since then. All of these were important milestones, to enable more experimentation, to help us learn more about Go, and of course to make Go available for production use.
 
-2009年11月10日，我们首次将Go运送给你们所有人。然后，在你们的帮助下，我们在2012年3月一起发布了Go 1。从那时起，我们已经发布了12个Go版本。所有这些都是重要的里程碑，使我们能够进行更多的实验，帮助我们了解更多关于Go的知识，当然还有使Go能够用于生产。
+2009年11月10日，我们首次将Go运送给您们所有人。然后，在您们的帮助下，我们在2012年3月一起发布了Go 1。从那时起，我们已经发布了12个Go版本。所有这些都是重要的里程碑，使我们能够进行更多的实验，帮助我们了解更多关于Go的知识，当然还有使Go能够用于生产。
 
 When we shipped Go 1, we explicitly shifted our focus to using Go, to understand this version of the language much better before trying any more simplifications involving language changes. We needed to take time to experiment, to really understand what works and what doesn’t.
 
@@ -329,7 +329,7 @@ When we say errors are values, we mean both that the entire Go language is avail
 
 Here is an example from package net. It turns out that when you attempt a socket connection, most of the time you will get connected or get connection refused, but sometimes you can get a spurious `EADDRNOTAVAIL`, for no good reason. Go shields user programs from this failure mode by retrying. To do this, it has to inspect the error structure to find out whether the `syscall.Errno` deep inside is `EADDRNOTAVAIL`.
 
-下面是一个来自包net的例子。事实证明，当你试图进行套接字连接时，大多数时候你都会被连接上或者被拒绝连接，但有时你会毫无理由地得到一个虚假的EADDRNOTAVAIL。Go通过重试来保护用户程序免受这种失败模式的影响。要做到这一点，它必须检查错误结构，以找出里面的syscall.Errno是否为EADDRNOTAVAIL。
+下面是一个来自包net的例子。事实证明，当您试图进行套接字连接时，大多数时候您都会被连接上或者被拒绝连接，但有时您会毫无理由地得到一个虚假的EADDRNOTAVAIL。Go通过重试来保护用户程序免受这种失败模式的影响。要做到这一点，它必须检查错误结构，以找出里面的syscall.Errno是否为EADDRNOTAVAIL。
 
 Here is the code:
 
@@ -365,7 +365,7 @@ Not mandating one error implementation enabled everyone to experiment with addit
 
 One problem with unconstrained experimentation, though, is that as a client you have to program to the union of all the possible implementations you might encounter. A simplification that seemed worth exploring for Go 2 was to define a standard version of commonly-added functionality, in the form of agreed-upon optional interfaces, so that different implementations could interoperate.
 
-不过，无约束的实验的一个问题是，作为一个客户端，你必须按照你可能遇到的所有可能的实现的联合体来编程。在Go 2中，一个值得探索的简化方法是，以商定的可选接口的形式，定义常用功能的标准版本，以便不同的实现可以相互操作。
+不过，无约束的实验的一个问题是，作为一个客户端，您必须按照您可能遇到的所有可能的实现的联合体来编程。在Go 2中，一个值得探索的简化方法是，以商定的可选接口的形式，定义常用功能的标准版本，以便不同的实现可以相互操作。
 
 **Unwrap** 解除封装
 
@@ -437,7 +437,7 @@ Go 1.13还引入了一个函数 errors.As，它可以解开包装直到找到一
 
 If you want to write code that works with arbitrarily-wrapped errors, `errors.Is` is the wrapper-aware version of an error equality check:
 
-如果你想编写能处理任意包装的错误的代码，errors.Is是错误平等检查的包装器意识版本：
+如果您想编写能处理任意包装的错误的代码，errors.Is是错误平等检查的包装器意识版本：
 
 ```go linenums="1"
 err == target
@@ -487,7 +487,7 @@ If `err2` is returned to a caller, that caller has never had any way to open up 
 
 For the times when you do want to allow unwrapping the result of `fmt.Errorf`, we also added a new printing verb `%w`, which formats like `%v`, requires an error value argument, and makes the resulting error’s `Unwrap` method return that argument. In our example, suppose we replace `%v` with `%w`:
 
-当你想允许解开fmt.Errorf的结果时，我们还增加了一个新的打印动词%w，它的格式和%v一样，需要一个错误值参数，并使产生错误的Unwrap方法返回该参数。在我们的例子中，假设我们用%w替换%v：
+当您想允许解开fmt.Errorf的结果时，我们还增加了一个新的打印动词%w，它的格式和%v一样，需要一个错误值参数，并使产生错误的Unwrap方法返回该参数。在我们的例子中，假设我们用%w替换%v：
 
 ```go linenums="1"
 // errors.Unwrap(err4) == err3
@@ -499,7 +499,7 @@ Now, if `err4` is returned to a caller, the caller can use `Unwrap` to retrieve 
 
 现在，如果err4被返回给调用者，调用者可以使用Unwrap来检索err3。
 
-It is important to note that absolute rules like “always use `%v` (or never implement `Unwrap`)” or “always use `%w` (or always implement `Unwrap`)” are as wrong as absolute rules like “never export struct fields” or “always export struct fields.” Instead, the right decision depends on whether callers should be able to inspect and depend on the additional information that using `%w` or implementing `Unwrap` exposes.
+It is important to note that absolute rules like "always use `%v` (or never implement `Unwrap`)" or "always use `%w` (or always implement `Unwrap`)" are as wrong as absolute rules like "never export struct fields" or "always export struct fields." Instead, the right decision depends on whether callers should be able to inspect and depend on the additional information that using `%w` or implementing `Unwrap` exposes.
 
 需要注意的是，像 "总是使用%v（或从不实现Unwrap）"或 "总是使用%w（或总是实现Unwrap）"这样的绝对规则和 "从不导出结构字段 "或 "总是导出结构字段 "这样的绝对规则一样是错误的。相反，正确的决定取决于调用者是否应该能够检查并依赖使用%w或实现Unwrap所暴露的额外信息。
 
@@ -565,7 +565,7 @@ if err := e.write(e, eof); err != nil {
 
 At a glance, this code is about half error checks. My eyes glaze over when I read it. And we know that code that is tedious to write and tedious to read is easy to misread, making it a good home for hard-to-find bugs. For example, one of these three error checks is not like the others, a fact that is easy to miss on a quick skim. If you were debugging this code, how long would it take to notice that?
 
-一眼望去，这段代码大约有一半是错误检查。当我读它的时候，我的眼睛会发亮。我们知道，写起来繁琐，读起来也繁琐的代码很容易被误读，从而成为难以发现的bug的好地方。例如，这三个错误检查中的一个和其他的不一样，这个事实在快速浏览时很容易错过。如果你在调试这段代码，需要多长时间才能注意到这一点？
+一眼望去，这段代码大约有一半是错误检查。当我读它的时候，我的眼睛会发亮。我们知道，写起来繁琐，读起来也繁琐的代码很容易被误读，从而成为难以发现的bug的好地方。例如，这三个错误检查中的一个和其他的不一样，这个事实在快速浏览时很容易错过。如果您在调试这段代码，需要多长时间才能注意到这一点？
 
 At Gophercon last year we [presented a draft design](https://go.dev/design/go2draft-error-handling) for a new control flow construct marked by the keyword `check`. `Check` consumes the error result from a function call or expression. If the error is non-nil, the `check` returns that error. Otherwise the `check` evaluates to the other results from the call. We can use `check` to simplify the lzw code:
 
@@ -591,7 +591,7 @@ This version of the same code uses `check`, which removes four lines of code and
 
 Maybe most importantly, the design also allowed defining error handler blocks to be run when later checks failed. That would let you write shared context-adding code just once, like in this snippet:
 
-也许最重要的是，该设计还允许定义错误处理程序块，以便在后来的检查失败时运行。这可以让你只写一次共享的上下文添加代码，就像在这个片段中：
+也许最重要的是，该设计还允许定义错误处理程序块，以便在后来的检查失败时运行。这可以让您只写一次共享的上下文添加代码，就像在这个片段中：
 
 ```go linenums="1"
 handle err {
@@ -694,7 +694,7 @@ Overall, I am hopeful that we’re headed in a good direction, toward a design t
 
 总的来说，我希望我们正朝着一个好的方向前进，朝着一个能够简化Go开发的设计前进。即便如此，我们也可能发现这种设计也不可行。我们可能不得不放弃这个实验，并根据我们学到的东西来调整我们的道路。我们会发现的。
 
-At Gophercon 2019, Ian Lance Taylor talked about why we might want to add generics to Go and briefly previewed the latest design draft. For details, see his blog post “[Why Generics?](https://blog.golang.org/why-generics)”
+At Gophercon 2019, Ian Lance Taylor talked about why we might want to add generics to Go and briefly previewed the latest design draft. For details, see his blog post "[Why Generics?](https://blog.golang.org/why-generics)"
 
 在Gophercon 2019上，Ian Lance Taylor谈到了为什么我们可能要在Go中添加泛型，并简要地预览了最新的设计草案。详情请见他的博文 "为什么是泛型？"
 
@@ -704,9 +704,9 @@ The third big topic we identified for Go 2 was dependency management.
 
 我们为Go 2确定的第三个大主题是依赖性管理。
 
-In 2010 we published a tool called `goinstall`, which we called “[an experiment in package installation](https://groups.google.com/forum/#!msg/golang-nuts/8JFwR3ESjjI/cy7qZzN7Lw4J).” It downloaded dependencies and stored them in your Go distribution tree, in GOROOT.
+In 2010 we published a tool called `goinstall`, which we called "[an experiment in package installation](https://groups.google.com/forum/#!msg/golang-nuts/8JFwR3ESjjI/cy7qZzN7Lw4J)." It downloaded dependencies and stored them in your Go distribution tree, in GOROOT.
 
-2010年，我们发布了一个名为goinstall的工具，我们称之为 "软件包安装的实验"。它下载了依赖关系，并将其存储在你的Go分布树中，即GOROOT中。
+2010年，我们发布了一个名为goinstall的工具，我们称之为 "软件包安装的实验"。它下载了依赖关系，并将其存储在您的Go分布树中，即GOROOT中。
 
 As we experimented with `goinstall`, we learned that the Go distribution and the installed packages should be kept separate, so that it was possible to change to a new Go distribution without losing all your Go packages. So in 2011 we introduced `GOPATH`, an environment variable that specified where to look for packages not found in the main Go distribution.
 
@@ -726,7 +726,7 @@ goinstall 实验故意不考虑软件包版本的明确概念。相反，goinsta
 
 Goinstall作为Go 1的一部分变成了go get。当人们问及版本问题时，我们鼓励他们通过创建额外的工具来进行实验，他们也确实这样做了。我们也鼓励软件包作者为他们的用户提供与 Go 1 库相同的向后兼容性。引用 Go FAQ 的话：
 
-“Packages intended for public use should try to maintain backwards compatibility as they evolve.
+"Packages intended for public use should try to maintain backwards compatibility as they evolve.
 
 "供公众使用的软件包应该在其发展过程中尽量保持向后兼容。
 
@@ -734,7 +734,7 @@ If different functionality is required, add a new name instead of changing an ol
 
 如果需要不同的功能，请添加一个新的名字，而不是改变一个旧的名字。
 
-If a complete break is required, create a new package with a new import path.”
+If a complete break is required, create a new package with a new import path."
 
 如果需要完全中断，则创建一个新的包，并有一个新的导入路径"。
 
@@ -750,7 +750,7 @@ For example, the Go source code in the GitHub repository [go-yaml/yaml](https://
 
 例如，GitHub仓库go-yaml/yaml中的Go源代码在v1和v2语义版本标签中有不同的API。gopkg.in服务器用不同的导入路径gopkg.in/yaml.1和gopkg.in/yaml.2提供这些。
 
-The convention of providing backwards compatibility, so that a newer version of a package can be used in place of an older version, is what makes `go get`’s very simple rule—“always download the latest copy”—work well even today.
+The convention of providing backwards compatibility, so that a newer version of a package can be used in place of an older version, is what makes `go get`’s very simple rule—"always download the latest copy"—work well even today.
 
 提供向后兼容性的惯例，使一个软件包的较新版本可以用来替代较旧的版本，是使go get的非常简单的规则--"总是下载最新的副本"--即使在今天也很有效的原因。
 
@@ -758,11 +758,11 @@ The convention of providing backwards compatibility, so that a newer version of 
 
 But in production contexts you need to be more precise about dependency versions, to make builds reproducible.
 
-但在生产环境中，你需要对依赖版本更加精确，以保证构建的可重复性。
+但在生产环境中，您需要对依赖版本更加精确，以保证构建的可重复性。
 
 Many people experimented with what that should look like, building tools that served their needs, including Keith Rarick’s `goven` (2012) and `godep` (2013), Matt Butcher’s `glide` (2014), and Dave Cheney’s `gb` (2015). All of these tools use the model that you copy dependency packages into your own source control repository. The exact mechanisms used to make those packages available for import varied, but they were all more complex than it seemed they should be.
 
-许多人都在试验这应该是什么样子，建立了符合他们需求的工具，包括Keith Rarick的goven（2012）和godep（2013），Matt Butcher的glide（2014），以及Dave Cheney的gb（2015）。所有这些工具都使用这样的模式：你把依赖包复制到你自己的源控制库中。用于使这些包可用于导入的确切机制各不相同，但它们都比看起来应该的要复杂。
+许多人都在试验这应该是什么样子，建立了符合他们需求的工具，包括Keith Rarick的goven（2012）和godep（2013），Matt Butcher的glide（2014），以及Dave Cheney的gb（2015）。所有这些工具都使用这样的模式：您把依赖包复制到您自己的源控制库中。用于使这些包可用于导入的确切机制各不相同，但它们都比看起来应该的要复杂。
 
 After a community-wide discussion, we adopted a proposal by Keith Rarick to add explicit support for referring to copied dependencies without GOPATH tricks. This was simplifying by reshaping: like with `addToList` and `append`, these tools were already implementing the concept, but it was more awkward than it needed to be. Adding explicit support for vendor directories made these uses simpler overall.
 
@@ -804,31 +804,31 @@ But `dep` also introduced a serious problem that took us a while to fully apprec
 
 Here is an example. Suppose you are building your own program, and you need to have a configuration file, so you use version 2 of a popular Go YAML package:
 
-这里有一个例子。假设你正在构建自己的程序，你需要一个配置文件，所以你使用了一个流行的Go YAML包的第二版：
+这里有一个例子。假设您正在构建自己的程序，您需要一个配置文件，所以您使用了一个流行的Go YAML包的第二版：
 
 ![img](ExperimentSimplifyShip_img/yamldeps1.png)
 
 Now suppose your program imports the Kubernetes client. It turns out that Kubernetes uses YAML extensively, and it uses version 1 of the same popular package:
 
-现在假设你的程序导入了Kubernetes的客户端。事实证明，Kubernetes广泛使用YAML，而且它使用的是同一个流行包的第1版。
+现在假设您的程序导入了Kubernetes的客户端。事实证明，Kubernetes广泛使用YAML，而且它使用的是同一个流行包的第1版。
 
 ![img](ExperimentSimplifyShip_img/yamldeps2.png)
 
 Version 1 and version 2 have incompatible APIs, but they also have different import paths, so there is no ambiguity about which is meant by a given import. Kubernetes gets version 1, your config parser gets version 2, and everything works.
 
-版本1和版本2有不兼容的API，但它们也有不同的导入路径，所以对于特定的导入是指哪一个，没有任何歧义。Kubernetes得到的是版本1，你的配置解析器得到的是版本2，一切都在运行。
+版本1和版本2有不兼容的API，但它们也有不同的导入路径，所以对于特定的导入是指哪一个，没有任何歧义。Kubernetes得到的是版本1，您的配置解析器得到的是版本2，一切都在运行。
 
 `Dep` abandoned this model. Version 1 and version 2 of the yaml package would now have the same import path, producing a conflict. Using the same import path for two incompatible versions, combined with package uniqueness, makes it impossible to build this program that you could build before:
 
-Dep放弃了这种模式。版本1和版本2的yaml包现在会有相同的导入路径，产生冲突。对两个不兼容的版本使用相同的导入路径，再加上包的唯一性，使得你不可能构建之前可以构建的这个程序：
+Dep放弃了这种模式。版本1和版本2的yaml包现在会有相同的导入路径，产生冲突。对两个不兼容的版本使用相同的导入路径，再加上包的唯一性，使得您不可能构建之前可以构建的这个程序：
 
 ![img](ExperimentSimplifyShip_img/yamldeps3.png)
 
-It took us a while to understand this problem, because we had been applying the “new API means new import path” convention for so long that we took it for granted. The dep experiment helped us appreciate that convention better, and we gave it a name: the *import compatibility rule*:
+It took us a while to understand this problem, because we had been applying the "new API means new import path" convention for so long that we took it for granted. The dep experiment helped us appreciate that convention better, and we gave it a name: the *import compatibility rule*:
 
 我们花了一段时间来理解这个问题，因为我们长期以来一直在应用 "新的API意味着新的导入路径 "的惯例，以至于我们认为这是理所当然的。dep实验帮助我们更好地理解了这一惯例，我们给它起了个名字：进口兼容性规则：
 
-“If an old package and a new package have the same import path, the new package must be backwards compatible with the old package.”
+"If an old package and a new package have the same import path, the new package must be backwards compatible with the old package."
 
 "如果一个旧包和一个新包有相同的导入路径，新包必须向后兼容旧包。"
 
@@ -854,15 +854,15 @@ With Go modules comes the end of GOPATH as a global name space. Nearly all the h
 
 The fundamental idea of GOPATH is that the GOPATH directory tree is the global source of truth for what versions are being used, and the versions being used don’t change as you move around between directories. But the global GOPATH mode is in direct conflict with the production requirement of per-project reproducible builds, which itself simplifies the Go development and deployment experience in many important ways.
 
-GOPATH的基本思想是，GOPATH目录树是全局性的真理来源，说明正在使用什么版本，而且正在使用的版本不会因为你在不同目录之间移动而改变。但全局GOPATH模式与每个项目可重复构建的生产要求直接冲突，后者本身在许多重要方面简化了Go开发和部署经验。
+GOPATH的基本思想是，GOPATH目录树是全局性的真理来源，说明正在使用什么版本，而且正在使用的版本不会因为您在不同目录之间移动而改变。但全局GOPATH模式与每个项目可重复构建的生产要求直接冲突，后者本身在许多重要方面简化了Go开发和部署经验。
 
 Per-project reproducible builds means that when you are working in a checkout of project A, you get the same set of dependency versions that the other developers of project A get at that commit, as defined by the `go.mod` file. When you switch to working in a checkout of project B, now you get that project’s chosen dependency versions, the same set that the other developers of project B get. But those are likely different from project A. The set of dependency versions changing when you move from project A to project B is necessary to keep your development in sync with that of the other developers on A and on B. There can’t be a single global GOPATH anymore.
 
-每个项目可重复构建意味着当你在项目A的签出中工作时，你得到的依赖版本与项目A的其他开发者在该提交时得到的依赖版本相同，正如go.mod文件所定义的。当你切换到项目B的签出工作时，你会得到该项目选择的依赖版本，与项目B的其他开发者得到的版本相同。当你从项目A转到项目B时，依赖版本集的变化是必要的，以保持你的开发与A和B上的其他开发者的开发同步。
+每个项目可重复构建意味着当您在项目A的签出中工作时，您得到的依赖版本与项目A的其他开发者在该提交时得到的依赖版本相同，正如go.mod文件所定义的。当您切换到项目B的签出工作时，您会得到该项目选择的依赖版本，与项目B的其他开发者得到的版本相同。当您从项目A转到项目B时，依赖版本集的变化是必要的，以保持您的开发与A和B上的其他开发者的开发同步。
 
 Most of the complexity of adopting modules arises directly from the loss of the one global GOPATH. Where is the source code for a package? Before, the answer depended only on your GOPATH environment variable, which most people rarely changed. Now, the answer depends on what project you are working on, which may change often. Everything needs updating for this new convention.
 
-采用模块的大部分复杂性直接来自于失去了一个全局GOPATH。一个包的源代码在哪里？以前，答案只取决于你的GOPATH环境变量，而大多数人很少改变它。现在，答案取决于你正在进行的项目，而这个项目可能经常变化。一切都需要为这个新的惯例进行更新。
+采用模块的大部分复杂性直接来自于失去了一个全局GOPATH。一个包的源代码在哪里？以前，答案只取决于您的GOPATH环境变量，而大多数人很少改变它。现在，答案取决于您正在进行的项目，而这个项目可能经常变化。一切都需要为这个新的惯例进行更新。
 
 Most development tools use the [`go/build`](https://godoc.org/go/build) package to find and load Go source code. We’ve kept that package working, but the API did not anticipate modules, and the workarounds we added to avoid API changes are slower than we’d like. We’ve published a replacement, [`golang.org/x/tools/go/packages`](https://godoc.org/golang.org/x/tools/go/packages). Developer tools should now use that instead. It supports both GOPATH and Go modules, and it is faster and easier to use. In a release or two we may move it into the standard library, but for now [`golang.org/x/tools/go/packages`](https://godoc.org/golang.org/x/tools/go/packages) is stable and ready for use.
 
@@ -906,11 +906,11 @@ We fully recognize that the Go user community built up almost a decade of experi
 
 But again, we think that modules will now work very well for most users, and I encourage you to take a look when Go 1.13 is released.
 
-但是，我们再次认为，现在的模块对大多数用户来说会非常好用，我鼓励你在Go 1.13发布时看看。
+但是，我们再次认为，现在的模块对大多数用户来说会非常好用，我鼓励您在Go 1.13发布时看看。
 
 As one data point, the Kubernetes project has a lot of dependencies, and they have migrated to using Go modules to manage them. You probably can too. And if you can’t, please let us know what’s not working for you or what’s too complex, by [filing a bug report](https://go.dev/issue/new), and we will experiment and simplify.
 
-作为一个数据点，Kubernetes项目有大量的依赖关系，他们已经迁移到使用Go模块来管理它们。你可能也可以。如果你做不到，请通过提交错误报告让我们知道哪些地方不适合你，哪些地方太复杂，我们会进行实验和简化。
+作为一个数据点，Kubernetes项目有大量的依赖关系，他们已经迁移到使用Go模块来管理它们。您可能也可以。如果您做不到，请通过提交错误报告让我们知道哪些地方不适合您，哪些地方太复杂，我们会进行实验和简化。
 
 ## Tools 工具
 
@@ -930,7 +930,7 @@ While we helped update all the Go community’s existing tools to understand Go 
 
 当我们帮助更新所有Go社区的现有工具来理解Go模块时，我们注意到，拥有一大堆开发辅助工具，每一个都只做一个小工作，这对用户来说并不是好事。这些单独的工具组合起来太难了，调用起来太慢了，使用起来也太不同了。
 
-We began an effort to unify the most commonly-required development helpers into a single tool, now called `gopls` (pronounced “go, please”). `Gopls` speaks the [Language Server Protocol, LSP](https://langserver.org/), and works with any integrated development environment or text editor with LSP support, which is essentially everything at this point.
+We began an effort to unify the most commonly-required development helpers into a single tool, now called `gopls` (pronounced "go, please"). `Gopls` speaks the [Language Server Protocol, LSP](https://langserver.org/), and works with any integrated development environment or text editor with LSP support, which is essentially everything at this point.
 
 我们开始努力将最常用的开发辅助工具统一到一个工具中，现在称为gopls（发音为 "go, please"）。Gopls使用语言服务器协议（LSP），可与任何集成开发环境或支持LSP的文本编辑器一起使用，目前这基本上是一切。
 

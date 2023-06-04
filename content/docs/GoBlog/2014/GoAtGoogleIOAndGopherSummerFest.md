@@ -76,7 +76,7 @@ We also organized Q&A sessions and lightning talks by members of the Go communit
 
 This year attendees of Google I/O had a code lab area with self-service computers where they could sit and learn Go. The code labs were also available to anyone through the Google I/O extended brand. You can try it yourself at [io2014codelabs.appspot.com](https://io2014codelabs.appspot.com/).
 
-今年Google I/O的与会者有一个代码实验室区，有自助式电脑，他们可以坐在那里学习Go。通过谷歌I/O的扩展品牌，任何人都可以使用代码实验室。你可以在io2014codelabs.appspot.com上自己尝试。
+今年Google I/O的与会者有一个代码实验室区，有自助式电脑，他们可以坐在那里学习Go。通过谷歌I/O的扩展品牌，任何人都可以使用代码实验室。您可以在io2014codelabs.appspot.com上自己尝试。
 
 ![img](GoAtGoogleIOAndGopherSummerFest_img/collage.jpg)
 

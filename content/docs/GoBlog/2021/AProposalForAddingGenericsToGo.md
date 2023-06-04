@@ -24,11 +24,11 @@ We’ve filed [a Go language change proposal](https://go.dev/issue/43651) to add
 
 Generics can give us powerful building blocks that let us share code and build programs more easily. Generic programming means writing functions and data structures where some types are left to be specified later. For example, you can write a function that operates on a slice of some arbitrary data type, where the actual data type is only specified when the function is called. Or, you can define a data structure that stores values of any type, where the actual type to be stored is specified when you create an instance of the data structure.
 
-泛型可以为我们提供强大的构建模块，让我们可以更容易地分享代码和构建程序。泛型编程意味着编写函数和数据结构，其中一些类型留待以后指定。例如，你可以写一个函数，对某个任意数据类型的片断进行操作，而实际的数据类型只有在调用该函数时才被指定。或者，你可以定义一个存储任何类型的值的数据结构，在创建数据结构的实例时指定要存储的实际类型。
+泛型可以为我们提供强大的构建模块，让我们可以更容易地分享代码和构建程序。泛型编程意味着编写函数和数据结构，其中一些类型留待以后指定。例如，您可以写一个函数，对某个任意数据类型的片断进行操作，而实际的数据类型只有在调用该函数时才被指定。或者，您可以定义一个存储任何类型的值的数据结构，在创建数据结构的实例时指定要存储的实际类型。
 
 Since Go was first released in 2009, support for generics has been one of the most commonly requested language features. You can read more about why generics are useful in [an earlier blog post](https://blog.golang.org/why-generics).
 
-自从Go在2009年首次发布以来，对泛型的支持一直是人们最常要求的语言功能之一。你可以在之前的一篇博文中读到更多关于泛型有用的原因。
+自从Go在2009年首次发布以来，对泛型的支持一直是人们最常要求的语言功能之一。您可以在之前的一篇博文中读到更多关于泛型有用的原因。
 
 Although generics have clear use cases, fitting them cleanly into a language like Go is a difficult task. One of the [first (flawed) attempts to add generics to Go](https://go.dev/design/15292/2010-06-type-functions) dates back all the way to 2010. There have been several others over the last decade.
 
@@ -42,7 +42,7 @@ For the last couple of years we’ve been working on a series of design drafts t
 
 The [language change proposal process](https://go.dev/s/proposal) is how we make changes to the Go language. We have now [started this process](https://go.dev/issue/43651) to add generics to a future version of Go. We invite substantive criticisms and comments, but please try to avoid repeating earlier comments, and please try to [avoid simple plus-one and minus-one comments](https://go.dev/wiki/NoPlusOne). Instead, add thumbs-up/thumbs-down emoji reactions to comments with which you agree or disagree, or to the proposal as a whole.
 
-语言修改建议过程是我们对Go语言进行修改的方式。我们现在已经开始了这个过程，将泛型添加到Go的未来版本中。我们邀请大家提出实质性的批评和意见，但请尽量避免重复先前的意见，也请尽量避免简单的加一和减一的意见。相反，请对你同意或不同意的评论，或对整个提案添加大拇指向上/向下的表情符号反应。
+语言修改建议过程是我们对Go语言进行修改的方式。我们现在已经开始了这个过程，将泛型添加到Go的未来版本中。我们邀请大家提出实质性的批评和意见，但请尽量避免重复先前的意见，也请尽量避免简单的加一和减一的意见。相反，请对您同意或不同意的评论，或对整个提案添加大拇指向上/向下的表情符号反应。
 
 As with all language change proposals, our goal is to drive toward a consensus to either add generics to the language or let the proposal drop. We understand that for a change of this magnitude it will be impossible to make everybody in the Go community happy, but we intend to get to a decision that everybody is willing to accept.
 

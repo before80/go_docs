@@ -36,7 +36,7 @@ all the time, something must be wrong, and the obvious target is Go itself.
 
 一定有什么地方出了问题，而明显的目标就是Go本身。
 
-This is unfortunate, misleading, and easily corrected. Perhaps what is happening is that programmers new to Go ask, “How does one handle errors?”, learn this pattern, and stop there. In other languages, one might use a try-catch block or other such mechanism to handle errors. Therefore, the programmer thinks, when I would have used a try-catch in my old language, I will just type `if` `err` `!=` `nil` in Go. Over time the Go code collects many such snippets, and the result feels clumsy.
+This is unfortunate, misleading, and easily corrected. Perhaps what is happening is that programmers new to Go ask, "How does one handle errors?", learn this pattern, and stop there. In other languages, one might use a try-catch block or other such mechanism to handle errors. Therefore, the programmer thinks, when I would have used a try-catch in my old language, I will just type `if` `err` `!=` `nil` in Go. Over time the Go code collects many such snippets, and the result feels clumsy.
 
 这是不幸的，误导性的，而且很容易被纠正。也许现在的情况是，刚接触Go的程序员会问："如何处理错误？"，学习这种模式，然后停在那里。在其他语言中，人们可能会使用try-catch块或其他类似机制来处理错误。因此，程序员认为，当我在以前的语言中会使用try-catch时，我在Go中只需输入if err != nil。随着时间的推移，Go代码中收集了许多这样的片段，结果感觉很笨拙。
 
@@ -50,7 +50,7 @@ Values can be programmed, and since errors are values, errors can be programmed.
 
 Of course a common statement involving an error value is to test whether it is nil, but there are countless other things one can do with an error value, and application of some of those other things can make your program better, eliminating much of the boilerplate that arises if every error is checked with a rote if statement.
 
-当然，涉及错误值的常见语句是测试它是否为nil，但还有无数其他的事情可以用错误值来做，应用其中一些其他的事情可以使你的程序变得更好，消除了如果每个错误都用死记硬背的if语句来检查而产生的许多模板。
+当然，涉及错误值的常见语句是测试它是否为nil，但还有无数其他的事情可以用错误值来做，应用其中一些其他的事情可以使您的程序变得更好，消除了如果每个错误都用死记硬背的if语句来检查而产生的许多模板。
 
 Here’s a simple example from the `bufio` package’s [`Scanner`](https://go.dev/pkg/bufio/#Scanner) type. Its [`Scan`](https://go.dev/pkg/bufio/#Scanner.Scan) method performs the underlying I/O, which can of course lead to an error. Yet the `Scan` method does not expose an error at all. Instead, it returns a boolean, and a separate method, to be run at the end of the scan, reports whether an error occurred. Client code looks like this:
 
@@ -239,11 +239,11 @@ We’ve looked at just one technique for avoiding repetitive error handling code
 
 Use the language to simplify your error handling.
 
-使用该语言来简化你的错误处理。
+使用该语言来简化您的错误处理。
 
 But remember: Whatever you do, always check your errors!
 
-但请记住。无论你做什么，都要检查你的错误!
+但请记住。无论您做什么，都要检查您的错误!
 
 Finally, for the full story of my interaction with @jxck_, including a little video he recorded, visit [his blog](http://jxck.hatenablog.com/entry/golang-error-handling-lesson-by-rob-pike).
 

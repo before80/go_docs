@@ -191,7 +191,7 @@ Writer假设所有Unicode码点具有相同的宽度；在某些字体中或字�
 
 If DiscardEmptyColumns is set, empty columns that are terminated entirely by vertical (or "soft") tabs are discarded. Columns terminated by horizontal (or "hard") tabs are not affected by this flag.
 
-如果设置了DiscardEmptyColumns，以垂直（或“软”）制表符完全终止的空列将被丢弃。以水平（或“硬”）制表符终止的列不受此标志的影响。
+如果设置了DiscardEmptyColumns，以垂直（或"软"）制表符完全终止的空列将被丢弃。以水平（或"硬"）制表符终止的列不受此标志的影响。
 
 If a Writer is configured to filter HTML, HTML tags and entities are passed through. The widths of tags and entities are assumed to be zero (tags) and one (entities) for formatting purposes.
 

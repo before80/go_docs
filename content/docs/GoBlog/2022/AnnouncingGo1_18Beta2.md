@@ -24,7 +24,7 @@ We released Go 1.18 beta 1 two months ago, and it is now the most downloaded Go 
 
 Your feedback on Beta 1 helped us identify obscure bugs in the new support for generics and ensure a more stable final release. We’ve resolved these issues in today’s release of Go 1.18 Beta 2, and we encourage everyone to try it out. The easiest way to install it alongside your existing Go toolchain is to run:
 
-你对Beta 1的反馈帮助我们发现了新的泛型支持中的一些不明显的错误，并确保最终版本更加稳定。在今天发布的Go 1.18 Beta 2中，我们已经解决了这些问题，我们鼓励大家尝试一下。在你现有的Go工具链旁边安装它的最简单方法是运行：
+您对Beta 1的反馈帮助我们发现了新的泛型支持中的一些不明显的错误，并确保最终版本更加稳定。在今天发布的Go 1.18 Beta 2中，我们已经解决了这些问题，我们鼓励大家尝试一下。在您现有的Go工具链旁边安装它的最简单方法是运行：
 
 ```go linenums="1"
 go install golang.org/dl/go1.18beta2@latest
@@ -33,7 +33,7 @@ go1.18beta2 download
 
 After that, you can run `go1.18beta2` as a drop-in replacement for `go`. For more download options, visit https://go.dev/dl/#go1.18beta2.
 
-之后，你可以运行go1.18beta2作为go的直接替代品。有关更多的下载选项，请访问https://go.dev/dl/#go1.18beta2。
+之后，您可以运行go1.18beta2作为go的直接替代品。有关更多的下载选项，请访问https://go.dev/dl/#go1.18beta2。
 
 Because we are taking the time to issue a second beta, we now expect that the Go 1.18 release candidate will be issued in February, with the final Go 1.18 release in March.
 
@@ -45,4 +45,4 @@ Go语言服务器gopls和VS Code Go扩展现在支持泛型。要安装带有泛
 
 As always, especially for beta releases, if you notice any problems, please [file an issue](https://go.dev/issue/new).
 
-像往常一样，特别是对于测试版，如果你发现任何问题，请提交一个问题。
+像往常一样，特别是对于测试版，如果您发现任何问题，请提交一个问题。

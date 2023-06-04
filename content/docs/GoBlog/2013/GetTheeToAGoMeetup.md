@@ -20,12 +20,12 @@ Last week, David Symonds and I each gave talks at Sydney’s Go meetup, [golang-
 
 It would have been great to see you there but, statistically, you’re not from Sydney. Despair not, however, as there are likely some people in your area who either run a Go meetup or want to start one.
 
-如果能在那里见到你就好了，但根据统计，你不是来自悉尼。不过，不要绝望，因为在你所在的地区，很可能有一些人在举办Go聚会，或者想开办这样的聚会。
+如果能在那里见到您就好了，但根据统计，您不是来自悉尼。不过，不要绝望，因为在您所在的地区，很可能有一些人在举办Go聚会，或者想开办这样的聚会。
 
 The Go wiki lists [Go user groups](https://go.dev/wiki/GoUserGroups) around the world, so if there’s one nearby you should consider going along to the next event.
 
-Go wiki列出了世界各地的Go用户组，所以如果附近有这样的用户组，你应该考虑去参加下一次活动。
+Go wiki列出了世界各地的Go用户组，所以如果附近有这样的用户组，您应该考虑去参加下一次活动。
 
 If not, why not start your own? To gauge interest, ask around in the [Go+ Community](https://plus.google.com/communities/114112804251407510571) and the [golang-nuts mailing list](http://groups.google.com/group/golang-nuts), and take a look at this [list of people](http://golang.meetup.com/all/) waiting for a Go meetup in their area. Once you have a few people interested - and at least one person willing to present something - pick a venue and set a date. If you build it, they will come.
 
-如果没有，为什么不自己开一个呢？为了衡量兴趣，可以在Go+社区和golang-nuts邮件列表中询问，并看看这个等待在他们地区举行Go聚会的人名单。一旦你有几个人感兴趣--而且至少有一个人愿意展示一些东西--就选个地点，定个日期。如果你建立它，他们会来的。
+如果没有，为什么不自己开一个呢？为了衡量兴趣，可以在Go+社区和golang-nuts邮件列表中询问，并看看这个等待在他们地区举行Go聚会的人名单。一旦您有几个人感兴趣--而且至少有一个人愿意展示一些东西--就选个地点，定个日期。如果您建立它，他们会来的。

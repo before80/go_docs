@@ -24,7 +24,7 @@ In August we [released Go 1.5](https://blog.golang.org/go1.5), the most signific
 
 8月，我们发布了Go 1.5，这是自Go 1以来最重要的版本。它具有完全重新设计的垃圾收集器，使该语言更适合于对延迟敏感的应用；它标志着从基于C的编译器工具链过渡到完全用Go编写的工具链；它包括对新架构的移植，对ARM处理器（大多数智能手机的芯片）的更好支持。这些改进使Go更适合于更广泛的任务，我们希望这一趋势将在未来几年持续下去。
 
-Improvements to tools continue to boost developer productivity. We introduced the [execution tracer](https://go.dev/cmd/trace/) and the “[go doc](https://go.dev/cmd/go/#hdr-Show_documentation_for_package_or_symbol)” command, as well as more enhancements to our various [static analysis tools](https://go.dev/talks/2014/static-analysis.slide). We are also working on an [official Go plugin for Sublime Text](https://groups.google.com/forum/#!topic/Golang-nuts/8oCSjAiKXUQ), with better support for other editors in the pipeline.
+Improvements to tools continue to boost developer productivity. We introduced the [execution tracer](https://go.dev/cmd/trace/) and the "[go doc](https://go.dev/cmd/go/#hdr-Show_documentation_for_package_or_symbol)" command, as well as more enhancements to our various [static analysis tools](https://go.dev/talks/2014/static-analysis.slide). We are also working on an [official Go plugin for Sublime Text](https://groups.google.com/forum/#!topic/Golang-nuts/8oCSjAiKXUQ), with better support for other editors in the pipeline.
 
 对工具的改进继续提高开发者的生产力。我们引入了执行跟踪器和 "go doc "命令，以及对我们各种静态分析工具的更多改进。我们还在为Sublime Text开发一个官方的Go插件，并且正在开发对其他编辑器的更好支持。
 
@@ -34,4 +34,4 @@ Early next year we will release more improvements in Go 1.6, including HTTP/2 su
 
 This is the sixth time we have had the pleasure of writing a birthday blog post for Go, and we would not be doing so if not for the wonderful and passionate people in our community. The Go team would like to thank everyone who has contributed code, written an open source library, authored a blog post, helped a new gopher, or just given Go a try. Without you, Go would not be as complete, useful, or successful as it is today. Thank you, and celebrate!
 
-这是我们第六次有幸为Go写生日博文，如果不是我们社区中优秀而热情的人们，我们是不会这样做的。Go团队要感谢每一个贡献过代码、编写过开源库、撰写过博文、帮助过新的打地鼠，或者只是尝试过Go的人。没有你们，Go就不会像今天这样完整、有用或成功。感谢你们，并庆祝吧
+这是我们第六次有幸为Go写生日博文，如果不是我们社区中优秀而热情的人们，我们是不会这样做的。Go团队要感谢每一个贡献过代码、编写过开源库、撰写过博文、帮助过新的打地鼠，或者只是尝试过Go的人。没有您们，Go就不会像今天这样完整、有用或成功。感谢您们，并庆祝吧

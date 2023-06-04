@@ -30,18 +30,18 @@ draft = false
 
 ## 开始使用
 
-​	目前，你需要有一台FreeBSD、Linux、macOS或Windows机器来运行Go。我们将用`$`来代表命令提示符。
+​	目前，您需要有一台FreeBSD、Linux、macOS或Windows机器来运行Go。我们将用`$`来代表命令提示符。
 
 ​	安装Go（见[安装说明](../InstallingGo)）。
 
-​	在你的`GOPATH`中为本教程建立一个新的目录，然后`cd`到它：
+​	在您的`GOPATH`中为本教程建立一个新的目录，然后`cd`到它：
 
 ```shell
 $ mkdir gowiki
 $ cd gowiki
 ```
 
-​	创建一个名为`wiki.go`的文件，用你喜欢的编辑器打开它，并添加以下几行：
+​	创建一个名为`wiki.go`的文件，用您喜欢的编辑器打开它，并添加以下几行：
 
 ```go linenums="1"
 package main
@@ -65,7 +65,7 @@ type Page struct {
 }
 ```
 
-​	类型`[]byte`表示 "一个字节切片"。(有关切片的更多信息，请参见 [Slices: usage and internals](../../GoBlog/2011/GoSlicesUsageAndInternals)。) `Body`元素是`[]byte`而不是`string`，因为这是我们将使用的`io`库所期望的类型，你会在下面看到。
+​	类型`[]byte`表示 "一个字节切片"。(有关切片的更多信息，请参见 [Slices: usage and internals](../../GoBlog/2011/GoSlicesUsageAndInternals)。) `Body`元素是`[]byte`而不是`string`，因为这是我们将使用的`io`库所期望的类型，您会在下面看到。
 
 ​	`Page`结构描述如何将page数据据存储在内存中。但是持久性存储怎么办呢？我们可以通过在`Page`上创建一个`save`方法来解决这个问题。
 
@@ -126,7 +126,7 @@ func main() {
 
 ​	在编译和执行这段代码后，将创建一个名为`TestPage.txt`的文件，其中包含`p1`的内容。然后，该文件将被读入结构体`p2`，并将其`Body`元素打印到屏幕上。
 
-​	你可以这样编译和运行该程序：
+​	您可以这样编译和运行该程序：
 
 ```shell
 $ go build wiki.go
@@ -134,7 +134,7 @@ $ ./wiki
 This is a sample Page.
 ```
 
-(如果你使用的是Windows，你必须输入 "`wiki`"，不带有"`./`"来运行该程序。=> 应该说是在 Windows 的 cmd 的使用，若是在Windows 版的 VS Code 终端或 Powershell 上，则是需要使用 `./wiki`)
+(如果您使用的是Windows，您必须输入 "`wiki`"，不带有"`./`"来运行该程序。=> 应该说是在 Windows 的 cmd 的使用，若是在Windows 版的 VS Code 终端或 Powershell 上，则是需要使用 `./wiki`)
 
 ​	我们到目前为止所写的代码如下：
 
@@ -216,7 +216,7 @@ func main() {
 
 ​	一个`http.Request`是代表客户端HTTP请求的数据结构。`r.URL.Path`是请求URL的路径部分。后面的`[1:]`意味着 "从第1个字符到结尾，创建一个`Path`的子切片"。这就从路径名称中去掉了前面的"`/`"。
 
-如果你运行这个程序并访问这个URL：
+如果您运行这个程序并访问这个URL：
 
 ```
 http://localhost:8080/monkeys
@@ -318,14 +318,14 @@ func main() {
 
 ​	让我们创建一些页面数据（如`test.txt`），编译我们的代码，并尝试为一个`wiki`页面服务。
 
-​	在你的编辑器中打开`test.txt`文件，并在其中保存字符串 "Hello world"（不带引号）。
+​	在您的编辑器中打开`test.txt`文件，并在其中保存字符串 "Hello world"（不带引号）。
 
 ```shell
 $ go build wiki.go
 $ ./wiki
 ```
 
-(如果你使用的是Windows，你必须输入 "`wiki`"，不带有"`./`"来运行该程序。=> 应该说是在 Windows 的 cmd 的使用，若是在Windows 版的 VS Code 终端或 Powershell 上，则是需要使用 `./wiki`)
+(如果您使用的是Windows，您必须输入 "`wiki`"，不带有"`./`"来运行该程序。=> 应该说是在 Windows 的 cmd 的使用，若是在Windows 版的 VS Code 终端或 Powershell 上，则是需要使用 `./wiki`)
 
 ​	在这个Web服务器运行的情况下，访问`http://localhost:8080/view/test`，应该会出现一个名为 "`test` "的页面，其中包含 "Hello world "的字样，如下图。
 
@@ -566,7 +566,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 What if you visit [`/view/APageThatDoesntExist`](http://localhost:8080/view/APageThatDoesntExist)? You'll see a page containing HTML. This is because it ignores the error return value from `loadPage` and continues to try and fill out the template with no data. Instead, if the requested Page doesn't exist, it should redirect the client to the edit Page so the content may be created:
 
-​	如果你访问`/view/APageThatDoesntExist`怎么办？你会看到一个包含HTML的页面。这是因为它忽略了`loadPage`的错误返回值，并继续尝试在没有数据的情况下填充模板。相反，如果请求的页面不存在，它应该把客户端重定向到编辑页面，这样就可以创建内容了：
+​	如果您访问`/view/APageThatDoesntExist`怎么办？您会看到一个包含HTML的页面。这是因为它忽略了`loadPage`的错误返回值，并继续尝试在没有数据的情况下填充模板。相反，如果请求的页面不存在，它应该把客户端重定向到编辑页面，这样就可以创建内容了：
 
 ```go linenums="1"
 func viewHandler(w http.ResponseWriter, r *http.Request) {
@@ -669,7 +669,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 ## 验证
 
-​	正如你可能已经观察到的，这个程序有一个严重的安全缺陷：用户可以提供一个任意的路径在服务器上被读/写。为了缓解这个问题，我们可以写一个函数，用`正则表达式`来验证标题。
+​	正如您可能已经观察到的，这个程序有一个严重的安全缺陷：用户可以提供一个任意的路径在服务器上被读/写。为了缓解这个问题，我们可以写一个函数，用`正则表达式`来验证标题。
 
 ​	首先，将 `"regexp"`添加到`import`列表中。然后我们可以创建一个全局变量来存储我们的验证表达式：
 
@@ -824,130 +824,141 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 
 最终的代码如下:
 
-=== "wiki.go"
+{{< tabpane text=true >}}
+{{< tab header="wiki.go" >}}
 
-    ```go linenums="1" title="wiki.go"
-    // Copyright 2010 The Go Authors. All rights reserved.
-    // Use of this source code is governed by a BSD-style
-    // license that can be found in the LICENSE file.
-    
-    //go:build ignore
-    
-    package main
-    
-    import (
-        "html/template"
-        "log"
-        "net/http"
-        "os"
-        "regexp"
-    )
-    
-    type Page struct {
-        Title string
-        Body  []byte
+```go linenums="1" title="wiki.go"
+// Copyright 2010 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+//go:build ignore
+
+package main
+
+import (
+    "html/template"
+    "log"
+    "net/http"
+    "os"
+    "regexp"
+)
+
+type Page struct {
+    Title string
+    Body  []byte
+}
+
+func (p *Page) save() error {
+    filename := p.Title + ".txt"
+    return os.WriteFile(filename, p.Body, 0600)
+}
+
+func loadPage(title string) (*Page, error) {
+    filename := title + ".txt"
+    body, err := os.ReadFile(filename)
+    if err != nil {
+        return nil, err
     }
-    
-    func (p *Page) save() error {
-        filename := p.Title + ".txt"
-        return os.WriteFile(filename, p.Body, 0600)
+    return &Page{Title: title, Body: body}, nil
+}
+
+func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
+    p, err := loadPage(title)
+    if err != nil {
+        http.Redirect(w, r, "/edit/"+title, http.StatusFound)
+        return
     }
-    
-    func loadPage(title string) (*Page, error) {
-        filename := title + ".txt"
-        body, err := os.ReadFile(filename)
-        if err != nil {
-            return nil, err
-        }
-        return &Page{Title: title, Body: body}, nil
+    renderTemplate(w, "view", p)
+}
+
+func editHandler(w http.ResponseWriter, r *http.Request, title string) {
+    p, err := loadPage(title)
+    if err != nil {
+        p = &Page{Title: title}
     }
-    
-    func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
-        p, err := loadPage(title)
-        if err != nil {
-            http.Redirect(w, r, "/edit/"+title, http.StatusFound)
+    renderTemplate(w, "edit", p)
+}
+
+func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
+    body := r.FormValue("body")
+    p := &Page{Title: title, Body: []byte(body)}
+    err := p.save()
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+    http.Redirect(w, r, "/view/"+title, http.StatusFound)
+}
+
+var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
+
+func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+    err := templates.ExecuteTemplate(w, tmpl+".html", p)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+}
+
+var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
+
+func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        m := validPath.FindStringSubmatch(r.URL.Path)
+        if m == nil {
+            http.NotFound(w, r)
             return
         }
-        renderTemplate(w, "view", p)
+        fn(w, r, m[2])
     }
-    
-    func editHandler(w http.ResponseWriter, r *http.Request, title string) {
-        p, err := loadPage(title)
-        if err != nil {
-            p = &Page{Title: title}
-        }
-        renderTemplate(w, "edit", p)
-    }
-    
-    func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
-        body := r.FormValue("body")
-        p := &Page{Title: title, Body: []byte(body)}
-        err := p.save()
-        if err != nil {
-            http.Error(w, err.Error(), http.StatusInternalServerError)
-            return
-        }
-        http.Redirect(w, r, "/view/"+title, http.StatusFound)
-    }
-    
-    var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
-    
-    func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-        err := templates.ExecuteTemplate(w, tmpl+".html", p)
-        if err != nil {
-            http.Error(w, err.Error(), http.StatusInternalServerError)
-        }
-    }
-    
-    var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
-    
-    func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
-        return func(w http.ResponseWriter, r *http.Request) {
-            m := validPath.FindStringSubmatch(r.URL.Path)
-            if m == nil {
-                http.NotFound(w, r)
-                return
-            }
-            fn(w, r, m[2])
-        }
-    }
-    
-    func main() {
-        http.HandleFunc("/view/", makeHandler(viewHandler))
-        http.HandleFunc("/edit/", makeHandler(editHandler))
-        http.HandleFunc("/save/", makeHandler(saveHandler))
-    
-        log.Fatal(http.ListenAndServe(":8080", nil))
-    }
-    
-    ```
+}
 
-=== "view.html"
+func main() {
+    http.HandleFunc("/view/", makeHandler(viewHandler))
+    http.HandleFunc("/edit/", makeHandler(editHandler))
+    http.HandleFunc("/save/", makeHandler(saveHandler))
 
-    ```html linenums="1"
-    <h1>{{.Title}}</h1>
-    
-    <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
-    
-    <div>{{printf "%s" .Body}}</div>
-    ```
+    log.Fatal(http.ListenAndServe(":8080", nil))
+}
 
-=== "edit.html"
+```
 
-    ```html linenums="1"
-    <h1>Editing {{.Title}}</h1>
-    
-    <form action="/save/{{.Title}}" method="POST">
-    <div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
-    <div><input type="submit" value="Save"></div>
-    </form>
-    ```
+{{< /tab >}}
 
-=== "test.txt"
+{{< tab header="view.html" >}}
 
-    ```text linenums="1"
-    Hello world
-    ```
+```html linenums="1"
+<h1>{{.Title}}</h1>
+
+<p>[<a href="/edit/{{.Title}}">edit</a>]</p>
+
+<div>{{printf "%s" .Body}}</div>
+```
+
+{{< /tab >}}
+
+{{< tab header="edit.html" >}}
+
+```html linenums="1"
+<h1>Editing {{.Title}}</h1>
+
+<form action="/save/{{.Title}}" method="POST">
+<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+<div><input type="submit" value="Save"></div>
+</form>
+```
+
+{{< /tab >}}
+
+{{< tab header="test.txt" >}}
+
+```text linenums="1"
+Hello world
+```
+
+{{< /tab >}}
+
+{{< /tabpane >}}
 
 重新编译代码，并运行该应用程序：
 
@@ -956,14 +967,14 @@ $ go build wiki.go
 $ ./wiki
 ```
 
-​	访问http://localhost:8080/view/ANewPage，你应该看到页面编辑表单。然后你应该能够输入一些文本，点击 "Save"，并被重定向到新创建的页面。
+​	访问http://localhost:8080/view/ANewPage，您应该看到页面编辑表单。然后您应该能够输入一些文本，点击 "Save"，并被重定向到新创建的页面。
 
 ## 其他任务
 
-这里有一些你可能想自己解决的简单任务：
+这里有一些您可能想自己解决的简单任务：
 
 - 在`tmpl/`中存储模板，在`data/`中存储页面数据。
 - 添加一个处理程序，使Web根目录重定向到`/view/FrontPage`。
 - 通过使其成为有效的HTML并添加一些CSS规则来美化页面模板。
-- 通过将`[PageName]`的实例转换为`<a href="/view/PageName">PageName</a>`实现页面间的链接。(提示：你可以使用`regexp.ReplaceAllFunc`来做这件事)
+- 通过将`[PageName]`的实例转换为`<a href="/view/PageName">PageName</a>`实现页面间的链接。(提示：您可以使用`regexp.ReplaceAllFunc`来做这件事)
 

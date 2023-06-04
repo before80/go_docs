@@ -471,7 +471,7 @@ Go 1.1是Go的一个重要版本。请阅读 [Go 1.1 发行说明](https://go.de
 
 go1.1.1（2013-06-13发布）包括对编译器的安全修复以及对编译器和`runtime`的若干错误修复。详情请参见[变更历史](https://github.com/golang/go/commits/go1.1.1)。
 
-go1.1.2（2013-08-13发布）包括对`gc`编译器和`cgo`，以及`bufio`、`runtime`、`syscall`和`time`包的修复。详情请参见[变更历史](https://github.com/golang/go/commits/go1.1.2)。如果你在ARM或386架构的Linux下使用`syscall`包的`Getrlimit`和`Setrlimit`函数，请注意[11803043](https://go.dev/cl/11803043)的变动，它修复了[issue 5949](https://go.dev/issue/5949)。
+go1.1.2（2013-08-13发布）包括对`gc`编译器和`cgo`，以及`bufio`、`runtime`、`syscall`和`time`包的修复。详情请参见[变更历史](https://github.com/golang/go/commits/go1.1.2)。如果您在ARM或386架构的Linux下使用`syscall`包的`Getrlimit`和`Setrlimit`函数，请注意[11803043](https://go.dev/cl/11803043)的变动，它修复了[issue 5949](https://go.dev/issue/5949)。
 
 ## go1 (released 2012-03-28)
 

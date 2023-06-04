@@ -156,7 +156,7 @@ v1.x.x
 module example.com/mymodule/v2 v2.0.0
 ```
 
-A major version update makes this a new module with a separate history from the module’s previous version. If you’re developing modules to publish for others, see “Publishing breaking API changes” in [Module release and versioning workflow](https://go.dev/doc/modules/release-workflow).
+A major version update makes this a new module with a separate history from the module’s previous version. If you’re developing modules to publish for others, see "Publishing breaking API changes" in [Module release and versioning workflow](https://go.dev/doc/modules/release-workflow).
 
 ​	主要版本更新将使其成为一个新的模块，与模块的先前版本有着不同的历史记录。如果您正在开发用于他人使用（原文中使用 publish ，我想应该是要表达工他人使用的意思才对吧！）的模块，请参阅[模块发布和版本控制工作流程](../ModuleReleaseAndVersioningWorkflow)中的"发布破坏性的API变更"。
 

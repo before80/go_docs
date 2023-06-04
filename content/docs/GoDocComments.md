@@ -80,7 +80,7 @@ formatted by piping them through gofmt.
 package main
 ```
 
-​	注释的开头是用[semantic linefeeds](https://rhodesmill.org/brandon/2012/one-sentence-per-line/)写的，每一个新的句子或长的短语都是自己在一行，这可以使差异在代码和注释的发展中更容易阅读。后面的段落恰好不遵循这个惯例，是用手包起来的。只要是最适合你的代码库的就可以了。无论哪种方式，在打印文档注释文本时，`go doc`和`pkgsite`都会重新包装它。例如：
+​	注释的开头是用[semantic linefeeds](https://rhodesmill.org/brandon/2012/one-sentence-per-line/)写的，每一个新的句子或长的短语都是自己在一行，这可以使差异在代码和注释的发展中更容易阅读。后面的段落恰好不遵循这个惯例，是用手包起来的。只要是最适合您的代码库的就可以了。无论哪种方式，在打印文档注释文本时，`go doc`和`pkgsite`都会重新包装它。例如：
 
 ```
 $ go doc gofmt
@@ -481,7 +481,7 @@ A paragraph is a span of unindented non-blank lines. We’ve already seen many e
 
 一个段落是由无缩进的非空行组成的跨度。我们已经看到了许多段落的例子。
 
-A pair of consecutive backticks (` U+0060) is interpreted as a Unicode left quote (“ U+201C), and a pair of consecutive single quotes (' U+0027) is interpreted as a Unicode right quote (” U+201D).
+A pair of consecutive backticks (` U+0060) is interpreted as a Unicode left quote (" U+201C), and a pair of consecutive single quotes (' U+0027) is interpreted as a Unicode right quote (" U+201D).
 
 一对连续的反斜线（` U+0060）被解释为Unicode左引号（" U+201C），而一对连续的单引号（' U+0027）被解释为Unicode右引号（" U+201D）。
 
@@ -543,7 +543,7 @@ Gofmt将早期版本的Go中被视为隐式标题的行数改成使用#标题。
 
 ### Links 链接
 
-A span of unindented non-blank lines defines link targets when every line is of the form “[Text]: URL”. In other text in the same doc comment, “[Text]” represents a link to URL using the given text—in HTML, <a href="URL">Text</a>. For example:
+A span of unindented non-blank lines defines link targets when every line is of the form "[Text]: URL". In other text in the same doc comment, "[Text]" represents a link to URL using the given text—in HTML, <a href="URL">Text</a>. For example:
 
 当每一行都是"[文本].URL "的形式时，一个无缩进的非空白行的跨度定义了链接目标。URL"。在同一文档注释的其他文本中，"[文本]"代表使用给定文本的URL的链接--HTML，<a href="URL">文本</a>。例如。
 
@@ -553,7 +553,7 @@ A span of unindented non-blank lines defines link targets when every line is of 
 // in the documentation for the Marshal and Unmarshal functions.
 //
 // For an introduction to this package, see the article
-// “[JSON and Go].”
+// "[JSON and Go]."
 //
 // [RFC 7159]: https://tools.ietf.org/html/rfc7159
 // [JSON and Go]: https://golang.org/doc/articles/json_and_go.html
@@ -564,7 +564,7 @@ By keeping URLs in a separate section, this format only minimally interrupts the
 
 通过将URL保持在一个单独的部分，这种格式只对实际文本的流程产生最小的干扰。它也大致符合Markdown的快捷参考链接格式，没有可选的标题文本。
 
-If there is no corresponding URL declaration, then (except for doc links, described in the next section) “[Text]” is not a hyperlink, and the square brackets are preserved when displayed. Each doc comment is considered independently: link target definitions in one comment do not affect other comments.
+If there is no corresponding URL declaration, then (except for doc links, described in the next section) "[Text]" is not a hyperlink, and the square brackets are preserved when displayed. Each doc comment is considered independently: link target definitions in one comment do not affect other comments.
 
 如果没有相应的URL声明，那么（除了文档链接，在下一节中描述）"[文本]"就不是一个超链接，并且在显示时保留了方括号。每个文档注释都是独立考虑的：一个注释中的链接目标定义并不影响其他注释。
 
@@ -578,7 +578,7 @@ Plain text that is recognized as a URL is automatically linked in HTML rendering
 
 ### Doc links 文件链接
 
-Doc links are links of the form “[Name1]” or “[Name1.Name2]” to refer to exported identifiers in the current package, or “[pkg]”, “[pkg.Name1]”, or “[pkg.Name1.Name2]” to refer to identifiers in other packages.
+Doc links are links of the form "[Name1]" or "[Name1.Name2]" to refer to exported identifiers in the current package, or "[pkg]", "[pkg.Name1]", or "[pkg.Name1.Name2]" to refer to identifiers in other packages.
 
 文件链接是"[Name1]"或"[Name1.Name2]"形式的链接，指的是当前包中导出的标识符，或者"[pkg]"、"[pkg.Name1]"或"[pkg.Name1.Name2]"指的是其他包中的标识符。
 
@@ -602,15 +602,15 @@ The bracketed text for a symbol link can include an optional leading star, makin
 
 符号链接的括号内的文字可以包括一个可选的前导星，使其易于引用指针类型，如[*bytes.Buffer]。
 
-When referring to other packages, “pkg” can be either a full import path or the assumed package name of an existing import. The assumed package name is either the identifier in a renamed import or else [the name assumed by goimports](https://pkg.go.dev/golang.org/x/tools/internal/imports#ImportPathToAssumedName). (Goimports inserts renamings when that assumption is not correct, so this rule should work for essentially all Go code.) For example, if the current package imports encoding/json, then “[json.Decoder]” can be written in place of “[encoding/json.Decoder]” to link to the docs for encoding/json’s Decoder. If different source files in a package import different packages using the same name, then the shorthand is ambiguous and cannot be used.
+When referring to other packages, "pkg" can be either a full import path or the assumed package name of an existing import. The assumed package name is either the identifier in a renamed import or else [the name assumed by goimports](https://pkg.go.dev/golang.org/x/tools/internal/imports#ImportPathToAssumedName). (Goimports inserts renamings when that assumption is not correct, so this rule should work for essentially all Go code.) For example, if the current package imports encoding/json, then "[json.Decoder]" can be written in place of "[encoding/json.Decoder]" to link to the docs for encoding/json’s Decoder. If different source files in a package import different packages using the same name, then the shorthand is ambiguous and cannot be used.
 
 当引用其他包时，"pkg "可以是完整的导入路径，也可以是现有导入的假定包名。假设的包名要么是重命名的导入中的标识符，要么是 goimports 假设的名称。(当这个假设不正确时，Goimports 会插入重命名，所以这个规则基本上对所有 Go 代码都有效。) 例如，如果当前包导入了 encoding/json，那么可以用 "[json.Decoder]" 来代替 "[encoding/json.Decoder]" 来链接到 encoding/json 的 Decoder 文档。如果一个包中的不同源文件导入了使用相同名称的不同包，那么这个速记就会产生歧义，不能使用。
 
-A “pkg” is only assumed to be a full import path if it starts with a domain name (a path element with a dot) or is one of the packages from the standard library (“[os]”, “[encoding/json]”, and so on). For example, `[os.File]` and `[example.com/sys.File]` are documentation links (the latter will be a broken link), but `[os/sys.File]` is not, because there is no os/sys package in the standard library.
+A "pkg" is only assumed to be a full import path if it starts with a domain name (a path element with a dot) or is one of the packages from the standard library ("[os]", "[encoding/json]", and so on). For example, `[os.File]` and `[example.com/sys.File]` are documentation links (the latter will be a broken link), but `[os/sys.File]` is not, because there is no os/sys package in the standard library.
 
 只有当 "pkg "以域名（带点的路径元素）开头或者是标准库中的一个包（"[os]"，"[encoding/json]"，等等），才会被认为是一个完整的导入路径。例如，[os.File]和[example.com/sys.File]是文档链接（后者将是一个断开的链接），但[os/sys.File]不是，因为标准库中没有os/sys包。
 
-To avoid problems with maps, generics, and array types, doc links must be both preceded and followed by punctuation, spaces, tabs, or the start or end of a line. For example, the text “map[ast.Expr]TypeAndValue” does not contain a doc link.
+To avoid problems with maps, generics, and array types, doc links must be both preceded and followed by punctuation, spaces, tabs, or the start or end of a line. For example, the text "map[ast.Expr]TypeAndValue" does not contain a doc link.
 
 为了避免地图、泛型和数组类型的问题，文档链接必须在前面和后面都有标点符号、空格、制表符、或一行的开始或结束。例如，文本 "map[ast.Expr]TypeAndValue "并不包含文档链接。
 
@@ -677,7 +677,7 @@ package path
 // If the result of this process is an empty string, Clean
 // returns the string ".".
 //
-// See also Rob Pike, “[Lexical File Names in Plan 9].”
+// See also Rob Pike, "[Lexical File Names in Plan 9]."
 //
 // [Lexical File Names in Plan 9]: https://9p.io/sys/doc/lexnames.html
 func Clean(path string) string {
@@ -830,7 +830,7 @@ go run generate_cert.go --rsa-bits 1024 --host 127.0.0.1,::1,example.com \
     --ca --start-date "Jan 1 00:00:00 1970" --duration=1000000h
 ```
 
-And this comment is a two-line paragraph (the second line is “{”), followed by a six-line indented code block and a one-line paragraph (“}”).
+And this comment is a two-line paragraph (the second line is "{"), followed by a six-line indented code block and a one-line paragraph ("}").
 
 而这个注释是一个两行段落（第二行是"{"），后面是一个六行缩进的代码块和一个单行段落（"}"）。
 
@@ -863,7 +863,7 @@ On the wire, the JSON will look something like this: {
 }
 ```
 
-Another common mistake was an unindented Go function definition or block statement, similarly bracketed by “{” and “}”.
+Another common mistake was an unindented Go function definition or block statement, similarly bracketed by "{" and "}".
 
 另一个常见的错误是没有缩进的Go函数定义或块状语句，同样是用"{"和"}"括起来的。
 

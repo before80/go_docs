@@ -28,7 +28,7 @@ The compiler and runtime session started out with a discussion about refactoring
 
 There was also a great deal of discussion around bridging the gap between optimized assembly code and Go. Most crypto code in Go is written in assembly for performance reasons; this makes it hard to debug, maintain, and read. Furthermore, once you’ve ventured into writing assembly, you often can’t call back into Go, limiting code reuse. A rewrite in Go would make maintenance easier. Adding processor intrinsics and better support for 128-bit math would improve Go’s crypto performance. It was proposed that the new `math/bits` package coming in 1.9 could be expanded for this purpose.
 
-围绕弥合优化的汇编代码和Go之间的差距也进行了大量的讨论。由于性能原因，Go中的大多数加密代码都是用汇编编写的；这使得它很难调试、维护和阅读。此外，一旦你涉足编写汇编，你往往不能再调用Go，限制了代码的重复使用。在Go中重写将使维护更容易。增加处理器本征和对128位数学的更好支持将提高Go的加密性能。有人建议将1.9版本中的新数学/比特包扩展到这个目的。
+围绕弥合优化的汇编代码和Go之间的差距也进行了大量的讨论。由于性能原因，Go中的大多数加密代码都是用汇编编写的；这使得它很难调试、维护和阅读。此外，一旦您涉足编写汇编，您往往不能再调用Go，限制了代码的重复使用。在Go中重写将使维护更容易。增加处理器本征和对128位数学的更好支持将提高Go的加密性能。有人建议将1.9版本中的新数学/比特包扩展到这个目的。
 
 Not being all that familiar with the development of the compiler and runtime, this for me was one of the more interesting sessions of the day. I learned a lot about the current state of the world, the problems, and where people want to go from here.
 
@@ -64,11 +64,11 @@ More [experience reports](https://go.dev/wiki/experiencereports) are necessary b
 
 ### Tooling and editors 工具和编辑器
 
-A language server for editors to use was a hot topic in the tooling session, with a number of people advocating for IDE and tool developers to adopt a common “Go Language Server” to index and display information about code and packages. Microsoft’s [Language Server Protocol](https://www.github.com/Microsoft/language-server-protocol) was suggested as a good starting point because of its wide support in editors and IDEs.
+A language server for editors to use was a hot topic in the tooling session, with a number of people advocating for IDE and tool developers to adopt a common "Go Language Server" to index and display information about code and packages. Microsoft’s [Language Server Protocol](https://www.github.com/Microsoft/language-server-protocol) was suggested as a good starting point because of its wide support in editors and IDEs.
 
 供编辑器使用的语言服务器是工具会议上的一个热门话题，许多人主张IDE和工具开发者采用一个通用的 "Go语言服务器 "来索引和显示代码和包的信息。微软的语言服务器协议被建议作为一个很好的起点，因为它在编辑器和IDE中得到了广泛的支持。
 
-Jaana Burcu Dogan also discussed her work on distributed tracing and how information about runtime events could be made easier to acquire and attached to traces. Having a standard “counter” API to report statistics was proposed, but specific experience reports from the community will be required before such an API can be designed.
+Jaana Burcu Dogan also discussed her work on distributed tracing and how information about runtime events could be made easier to acquire and attached to traces. Having a standard "counter" API to report statistics was proposed, but specific experience reports from the community will be required before such an API can be designed.
 
 Jaana Burcu Dogan还讨论了她在分布式跟踪方面的工作，以及如何使运行时事件的信息更容易被获取并附加到跟踪中。她提出了一个标准的 "计数器 "API来报告统计数据，但在设计这样一个API之前，需要社区的具体经验报告。
 
@@ -100,7 +100,7 @@ Outside of the technical discussions, the summit also provided an opportunity fo
 
 As Russ discussed in [Toward Go 2](https://blog.golang.org//toward-go2), communicating effectively requires knowing your audience. Having a broad sample of Go contributors in a room together helped us all to understand the Go audience better and start many productive discussions about the future of Go. Going forward, we hope to do more frequent events like this to facilitate discourse and a sense of community.
 
-正如Russ在Toward Go 2中所讨论的，有效的沟通需要了解你的听众。让广大的Go贡献者在一起，有助于我们更好地了解Go的受众，并就Go的未来展开了许多富有成效的讨论。展望未来，我们希望能更多地举办这样的活动，以促进讨论和社区意识的形成。
+正如Russ在Toward Go 2中所讨论的，有效的沟通需要了解您的听众。让广大的Go贡献者在一起，有助于我们更好地了解Go的受众，并就Go的未来展开了许多富有成效的讨论。展望未来，我们希望能更多地举办这样的活动，以促进讨论和社区意识的形成。
 
 ![img](ContributorsSummit_img/IMG_20170712_145844.jpg)
 

@@ -18,7 +18,7 @@ Alice Merrick
 
 In 2021, we ran the Go Developer Survey from Oct 26th to Nov 16th and had 11,840 responses—the largest turnout so far in the 6 years we’ve been running the survey! Thank you for putting in the time to provide the community with these insights on your experiences using Go.
 
-2021年，我们从10月26日到11月16日进行了Go开发者调查，得到了11840份回复--这是我们进行调查6年以来最大的一次。感谢你们花时间向社区提供关于你们使用Go的经验的这些见解。
+2021年，我们从10月26日到11月16日进行了Go开发者调查，得到了11840份回复--这是我们进行调查6年以来最大的一次。感谢您们花时间向社区提供关于您们使用Go的经验的这些见解。
 
 ## Highlights 亮点
 
@@ -177,9 +177,9 @@ Scatter plot of importance compared to satisfaction showing most areas have high
 
 重要性与满意度的散点图显示，大多数领域的满意度较高，而二进制规模的重要性低于其他领域。
 
-This year we introduced a new question to explore alternative ways to prioritize work on specific areas. “Let’s say you have 10 GopherCoins to spend on improving the following aspects of working with Go. How would you distribute your coins?” Two areas that stood out as receiving significantly more GopherCoins were dependency management (using modules) and diagnosing bugs, areas that we’ll be dedicating resources during 2022.
+This year we introduced a new question to explore alternative ways to prioritize work on specific areas. "Let’s say you have 10 GopherCoins to spend on improving the following aspects of working with Go. How would you distribute your coins?" Two areas that stood out as receiving significantly more GopherCoins were dependency management (using modules) and diagnosing bugs, areas that we’ll be dedicating resources during 2022.
 
-今年，我们引入了一个新的问题，以探索确定特定领域工作优先次序的其他方法。"假设你有10个GopherCoins可以用来改善Go工作的以下方面。你会如何分配你的硬币？" 突出的两个领域是依赖性管理（使用模块）和诊断错误，我们将在2022年投入资源。
+今年，我们引入了一个新的问题，以探索确定特定领域工作优先次序的其他方法。"假设您有10个GopherCoins可以用来改善Go工作的以下方面。您会如何分配您的硬币？" 突出的两个领域是依赖性管理（使用模块）和诊断错误，我们将在2022年投入资源。
 
 ![Overall sum of coins spent on each area for improvement](GoDeveloperSurvey2021Results_img/improvements_sums.svg)
 
@@ -359,11 +359,11 @@ Grouped bar chart showing the top resources respondents use when writing in Go
 
 Thank you for joining us in reviewing the results of our 2021 developer survey! To reiterate, some key takeaways:
 
-感谢你和我们一起回顾2021年开发者调查的结果! 重申一下，一些关键的收获：
+感谢您和我们一起回顾2021年开发者调查的结果! 重申一下，一些关键的收获：
 
 - Most of our year over year metrics remained stable with most changes owing to our change in sample.我们的大部分同比指标保持稳定，大部分变化是由于我们的样本变化。
 - Satisfaction with Go remains high!对Go的满意度仍然很高!
-- Three-quarters of respondents use Go at work and many use Go on a daily basis so helping you get work done is a top priority.四分之三的受访者在工作中使用Go，许多人每天都在使用Go，所以帮助你完成工作是首要任务。
+- Three-quarters of respondents use Go at work and many use Go on a daily basis so helping you get work done is a top priority.四分之三的受访者在工作中使用Go，许多人每天都在使用Go，所以帮助您完成工作是首要任务。
 - We will prioritize improvements to debugging and dependency management workflows.我们将优先考虑对调试和依赖性管理工作流程的改进。
 - We will continue to work towards making Go an inclusive community for all kinds of Gophers.我们将继续努力，使Go成为一个对各类地鼠都有包容性的社区。
 
@@ -371,4 +371,4 @@ Understanding developers’ experiences and challenges helps us measure our prog
 
 
 
-了解开发者的经验和挑战有助于我们衡量我们的进展并指导Go的未来。再次感谢所有为本次调查做出贡献的人--没有你们，我们不可能做到这一点。我们希望明年再见到你!
+了解开发者的经验和挑战有助于我们衡量我们的进展并指导Go的未来。再次感谢所有为本次调查做出贡献的人--没有您们，我们不可能做到这一点。我们希望明年再见到您!

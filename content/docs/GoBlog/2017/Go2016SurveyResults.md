@@ -14,7 +14,7 @@ https://go.dev/blog/survey2016-results
 Steve Francia, for the Go team
 6 March 2017
 
-## Thank you 谢谢你
+## Thank you 谢谢您
 
 This post summarizes the result of our December 2016 user survey along with our commentary and insights. We are grateful to everyone who provided their feedback through the survey to help shape the future of Go.
 
@@ -60,15 +60,15 @@ Some representative common feedback, paraphrased for confidentiality:
 
 一些有代表性的共同反馈，为保密起见作了转述：
 
-> “The documentation is not clear enough for beginners. It needs more examples and often assumes experience with other languages and various computer science topics.”
+> "The documentation is not clear enough for beginners. It needs more examples and often assumes experience with other languages and various computer science topics."
 >
 > "文档对于初学者来说不够清晰。它需要更多的例子，并经常假设有其他语言和各种计算机科学主题的经验。"
 >
-> “I want to use Go at work but struggle to convince my team to even try Go.”
+> "I want to use Go at work but struggle to convince my team to even try Go."
 >
 > "我想在工作中使用Go，但却很难说服我的团队去尝试Go。"
 >
-> “I can’t get management approval to use Go; they don’t see its value and worry about adoption and finding developers.”
+> "I can’t get management approval to use Go; they don’t see its value and worry about adoption and finding developers."
 >
 > "我无法获得管理层对使用Go的批准；他们看不到它的价值，并担心采用和寻找开发人员的问题。"
 
@@ -78,13 +78,13 @@ We appreciate the feedback given to identify these challenges faced by our users
 
 ![image-20221118203010750](Go2016SurveyResults_img/image-20221118203010750.png)
 
-*Reading the data*: This question asked how strongly the respondent agreed or disagreed with the statement. The responses for each statement are displayed as sections of a single bar, from “strongly disagree” in deep red on the left end to “strongly agree” in deep blue on the right end. The bars use the same scale as the rest of the graphs, so they can (and do, especially later in the survey) vary in overall length due to lack of responses. The ratio after the text compares the number of respondents who agreed (including “somewhat agree” and “strongly agree”) to those who disagreed (including “somewhat disagree” and “strongly disagree”). For example, the ratio of respondents agreeing that they would recommend Go to respondents disagreeing was 19 to 1.
+*Reading the data*: This question asked how strongly the respondent agreed or disagreed with the statement. The responses for each statement are displayed as sections of a single bar, from "strongly disagree" in deep red on the left end to "strongly agree" in deep blue on the right end. The bars use the same scale as the rest of the graphs, so they can (and do, especially later in the survey) vary in overall length due to lack of responses. The ratio after the text compares the number of respondents who agreed (including "somewhat agree" and "strongly agree") to those who disagreed (including "somewhat disagree" and "strongly disagree"). For example, the ratio of respondents agreeing that they would recommend Go to respondents disagreeing was 19 to 1.
 
 阅读数据。这个问题问的是受访者对陈述的同意或不同意的程度。每个陈述的回答都显示为一个条形的部分，从左端深红色的 "强烈不同意 "到右端深蓝色的 "强烈同意"。条形图使用与其他图表相同的比例，因此它们可以（而且确实如此，特别是在调查的后期）由于缺乏回应而在整体长度上有所变化。文字后面的比率比较了同意（包括 "有点同意 "和 "非常同意"）的受访者与不同意（包括 "有点不同意 "和 "非常不同意"）的受访者的人数。例如，同意推荐Go的受访者与不同意的受访者的比例是19比1。
 
 ![image-20221118203041175](Go2016SurveyResults_img/image-20221118203041175.png)
 
-*Reading the data*: This question asked for write-in responses. The bars above show the fraction of surveys mentioning common words or phrases. Only words or phrases that appeared in twenty or more surveys are listed, and meaningless common words or phrases like “the” or “to be” are omitted. The displayed results do overlap: for example, the 287 responses that mentioned “standard library” do include the 27 listed separately that mentioned “great standard library.” However, nearly or completely redundant shorter entries are omitted: there are not twenty or more surveys that listed “standard” without mentioning “standard library,” so there is no separate entry for “standard.”
+*Reading the data*: This question asked for write-in responses. The bars above show the fraction of surveys mentioning common words or phrases. Only words or phrases that appeared in twenty or more surveys are listed, and meaningless common words or phrases like "the" or "to be" are omitted. The displayed results do overlap: for example, the 287 responses that mentioned "standard library" do include the 27 listed separately that mentioned "great standard library." However, nearly or completely redundant shorter entries are omitted: there are not twenty or more surveys that listed "standard" without mentioning "standard library," so there is no separate entry for "standard."
 
 阅读数据。这个问题要求写下回答。上面的条形图显示了调查中提到常见词汇或短语的比例。只有出现在20份或更多调查中的单词或短语才被列出，而像 "the "或 "to be "这样无意义的常用单词或短语则被省略。显示的结果确实有重叠：例如，提到 "标准图书馆 "的287份答复确实包括单独列出的提到 "伟大的标准图书馆 "的27份。然而，几乎或完全多余的较短条目被省略了：没有20个或更多的调查列出了 "标准 "而没有提到 "标准图书馆"，所以没有单独的 "标准 "条目。
 
@@ -146,7 +146,7 @@ The primary sources for finding answers to Go questions are the Go web site, Sta
 
 55% 的受访者表示有兴趣以某种方式为 Go 社区和项目做出贡献。不幸的是，相对来说，很少有人同意他们觉得这样做是受欢迎的（3.3:1），甚至更少的人认为这个过程是明确的（1.3:1）。在2017年，我们打算努力改善贡献过程，并继续努力使所有贡献者感到受欢迎。
 
-Respondents agree that they are confident in the leadership of the Go project (9:1), but they agree much less that the project leadership understands their needs (2.6:1), and they agree even less that they feel comfortable approaching project leadership with questions and feedback (2.2:1). In fact, these were the only questions in the survey for which more than half of respondents did not mark “somewhat agree”, “agree”, or “strongly agree” (many were neutral or did not answer).
+Respondents agree that they are confident in the leadership of the Go project (9:1), but they agree much less that the project leadership understands their needs (2.6:1), and they agree even less that they feel comfortable approaching project leadership with questions and feedback (2.2:1). In fact, these were the only questions in the survey for which more than half of respondents did not mark "somewhat agree", "agree", or "strongly agree" (many were neutral or did not answer).
 
 受访者同意他们对Go项目的领导层有信心（9:1），但他们对项目领导层了解他们的需求的认同度要低得多（2.6:1），而他们对有问题和反馈接近项目领导层的感觉更差（2.2:1）。事实上，这些是调查中唯一的问题，超过一半的受访者没有标明 "有点同意"、"同意 "或 "非常同意"（许多人是中立的或没有回答）。
 
@@ -164,13 +164,13 @@ At the end of the survey, we asked some demographic questions. The country distr
 
 在调查的最后，我们问了一些人口统计学问题。答复的国家分布与访问golang.org网站的国家分布基本吻合，但答复中对一些亚洲国家的代表不足。特别是，印度、中国和日本在2016年各占golang.org网站访问量的5%，但只占调查回复的3%、2%和1%。
 
-An important part of a community is making everyone feel welcome, especially people from under-represented demographics. We asked an optional question about identification across a few diversity groups. 37% of respondents left the question blank and 12% of respondents chose “I prefer not to answer”, so we cannot make many broad conclusions from the data. However, one comparison stands out: the 9% who identified as underrepresented agreed with the statement “I feel welcome in the Go community” by a ratio of 7.5:1, compared with 15:1 in the survey as a whole. We aim to make the Go community even more welcoming. We support and are encouraged by the efforts of organizations like GoBridge and Women Who Go.
+An important part of a community is making everyone feel welcome, especially people from under-represented demographics. We asked an optional question about identification across a few diversity groups. 37% of respondents left the question blank and 12% of respondents chose "I prefer not to answer", so we cannot make many broad conclusions from the data. However, one comparison stands out: the 9% who identified as underrepresented agreed with the statement "I feel welcome in the Go community" by a ratio of 7.5:1, compared with 15:1 in the survey as a whole. We aim to make the Go community even more welcoming. We support and are encouraged by the efforts of organizations like GoBridge and Women Who Go.
 
 社区的一个重要部分是让每个人都感到受欢迎，特别是来自代表性不足的人口统计学的人。我们问了一个关于跨越几个多样性群体的身份识别的可选问题。37%的受访者没有回答这个问题，12%的受访者选择了 "我不愿意回答"，所以我们无法从数据中得出很多广泛的结论。然而，有一个对比很突出：9%的人认为自己是代表不足的人，他们同意 "我觉得自己在Go界很受欢迎 "这一说法的比例为7.5:1，而在整个调查中，这一比例为15:1。我们的目标是使Go界更加受欢迎。我们支持像GoBridge和Women Who Go这样的组织的努力，并为此感到鼓舞。
 
 The final question on the survey was just for fun: what’s your favorite Go keyword? Perhaps unsurprisingly, the most popular response was `go`, followed by `defer`, `func`, `interface`, and `select`.
 
-调查的最后一个问题只是为了好玩：你最喜欢的Go关键词是什么？也许不出意料，最受欢迎的回答是go，其次是defer、func、interface和select。
+调查的最后一个问题只是为了好玩：您最喜欢的Go关键词是什么？也许不出意料，最受欢迎的回答是go，其次是defer、func、interface和select。
 
 ![image-20221118203424098](Go2016SurveyResults_img/image-20221118203424098.png)
 

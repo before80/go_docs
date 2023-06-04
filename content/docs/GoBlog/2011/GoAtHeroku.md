@@ -14,7 +14,7 @@ https://go.dev/blog/heroku
 Keith Rarick and Blake Mizerany
 21 April 2011
 
-*This week’s blog post is written by* [*Keith Rarick*](http://xph.us/) *and* [*Blake Mizerany*](http://itsbonus.heroku.com/), *systems engineers at* [Heroku](http://www.heroku.com/). *In their own words, they “eat, drink, and sleep distributed systems.” Here they discuss their experiences using Go.*
+*This week’s blog post is written by* [*Keith Rarick*](http://xph.us/) *and* [*Blake Mizerany*](http://itsbonus.heroku.com/), *systems engineers at* [Heroku](http://www.heroku.com/). *In their own words, they "eat, drink, and sleep distributed systems." Here they discuss their experiences using Go.*
 
 本周的博文是由Heroku的系统工程师Keith Rarick和Blake Mizerany撰写的。用他们自己的话说，他们 "吃喝拉撒睡都是分布式系统"。在这里，他们讨论了他们使用Go的经验。
 

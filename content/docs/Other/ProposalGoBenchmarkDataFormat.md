@@ -84,7 +84,7 @@ A configuration line is a key-value pair of the form
 key: value
 ```
 
-where key begins with a lower case character (as defined by `unicode.IsLower`), contains no space characters (as defined by `unicode.IsSpace`) nor upper case characters (as defined by `unicode.IsUpper`), and one or more ASCII space or tab characters separate “key:” from “value.” Conventionally, multiword keys are written with the words separated by hyphens, as in cpu-speed. There are no restrictions on value, except that it cannot contain a newline character. Value can be omitted entirely, in which case the colon must still be present, but need not be followed by a space.
+where key begins with a lower case character (as defined by `unicode.IsLower`), contains no space characters (as defined by `unicode.IsSpace`) nor upper case characters (as defined by `unicode.IsUpper`), and one or more ASCII space or tab characters separate "key:" from "value." Conventionally, multiword keys are written with the words separated by hyphens, as in cpu-speed. There are no restrictions on value, except that it cannot contain a newline character. Value can be omitted entirely, in which case the colon must still be present, but need not be followed by a space.
 
 The interpretation of a key/value pair is up to tooling, but the key/value pair is considered to describe all benchmark results that follow, until overwritten by a configuration line with the same key.
 
@@ -102,15 +102,15 @@ The first field is the benchmark name, which must begin with `Benchmark` followe
 
 The second field gives the number of iterations run. For most processing this number can be ignored, although it may give some indication of the expected accuracy of the measurements that follow.
 
-The remaining fields report value/unit pairs in which the value is a float64 that can be parsed by `strconv.ParseFloat` and the unit explains the value, as in “64.88 MB/s”. The units reported are typically normalized so that they can be interpreted without considering to the number of iterations. In the example, the CPU cost is reported per-operation and the throughput is reported per-second; neither is a total that depends on the number of iterations.
+The remaining fields report value/unit pairs in which the value is a float64 that can be parsed by `strconv.ParseFloat` and the unit explains the value, as in "64.88 MB/s". The units reported are typically normalized so that they can be interpreted without considering to the number of iterations. In the example, the CPU cost is reported per-operation and the throughput is reported per-second; neither is a total that depends on the number of iterations.
 
 ### Value Units
 
-A value's unit string is expected to specify not only the measurement unit but also, as needed, a description of what is being measured. For example, a benchmark might report its overall execution time as well as cache miss times with three units “ns/op,” “L1-miss-ns/op,”and “L2-miss-ns/op.”
+A value's unit string is expected to specify not only the measurement unit but also, as needed, a description of what is being measured. For example, a benchmark might report its overall execution time as well as cache miss times with three units "ns/op," "L1-miss-ns/op,"and "L2-miss-ns/op."
 
-Tooling can expect that the unit strings are identical for all runs to be compared; for example, a result reporting “ns/op” need not be considered comparable to one reporting “µs/op.”
+Tooling can expect that the unit strings are identical for all runs to be compared; for example, a result reporting "ns/op" need not be considered comparable to one reporting "µs/op."
 
-However, tooling may assume that the measurement unit is the final of the hyphen-separated words in the unit string and may recognize and rescale known measurement units. For example, consistently large “ns/op” or “L1-miss-ns/op” might be rescaled to “ms/op” or “L1-miss-ms/op” for display.
+However, tooling may assume that the measurement unit is the final of the hyphen-separated words in the unit string and may recognize and rescale known measurement units. For example, consistently large "ns/op" or "L1-miss-ns/op" might be rescaled to "ms/op" or "L1-miss-ms/op" for display.
 
 ### Benchmark Name Configuration
 

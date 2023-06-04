@@ -48,7 +48,7 @@ In advance of this switch we spent a long time iterating on the design, feature 
 
 We’ve also dedicated time to smoothing the new user experience. We hope that VS Code Go with `gopls` will be intuitive with clear error messages, but if you have a question or need to adjust some configuration, you’ll be able to find answers in our [updated documentation](https://github.com/golang/vscode-go/blob/master/README.md). We have also recorded [a screencast](https://www.youtube.com/watch?v=1MXIGYrMk80) to help you get started, as well as [animations](https://github.com/golang/vscode-go/blob/master/docs/features.md) to show off some hard-to-find features.
 
-​	我们也花了很多时间来使新的用户体验更加顺畅。我们希望使用`gopls`的VS Code Go能有直观的错误信息，但如果你有问题或需要调整一些配置，你可以在我们[更新的文档](https://github.com/golang/vscode-go/blob/master/README.md)中找到答案。我们还录制了[一个截屏](https://www.youtube.com/watch?v=1MXIGYrMk80)来帮助你入门，还有[动画](https://github.com/golang/vscode-go/blob/master/docs/features.md)来展示一些难以发现的功能。
+​	我们也花了很多时间来使新的用户体验更加顺畅。我们希望使用`gopls`的VS Code Go能有直观的错误信息，但如果您有问题或需要调整一些配置，您可以在我们[更新的文档](https://github.com/golang/vscode-go/blob/master/README.md)中找到答案。我们还录制了[一个截屏](https://www.youtube.com/watch?v=1MXIGYrMk80)来帮助您入门，还有[动画](https://github.com/golang/vscode-go/blob/master/docs/features.md)来展示一些难以发现的功能。
 
 Gopls is the best way of working with Go code, especially with Go modules. With the upcoming arrival of Go 1.16, in which modules are enabled by default, VS Code Go users will have the best possible experience out-of-the-box.
 
@@ -58,29 +58,29 @@ Still, this switch does not mean that `gopls` is complete. We will continue work
 
 ​	不过，这种转换并不意味着`gopls`已经完成。我们将继续致力于错误修复、新功能和总体稳定性。我们的下一个重点领域将是改善[使用多个模块](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)时的用户体验。来自我们广大用户的反馈将有助于我们采取下一步行动。
 
-## So, what should you do? 那么，你应该怎么做？
+## So, what should you do? 那么，您应该怎么做？
 
 If you use VS Code, you don’t need to do anything. When you get the next VS Code Go update, `gopls` will be enabled automatically.
 
-​	如果你使用VS Code，你不需要做任何事情。当你得到下一个VS Code Go更新时，`gopls`将自动启用。
+​	如果您使用VS Code，您不需要做任何事情。当您得到下一个VS Code Go更新时，`gopls`将自动启用。
 
 If you use another editor, you are likely using `gopls` already. If not, see [the `gopls` user guide](https://github.com/golang/tools/blob/master/gopls/README.md) to learn how to enable `gopls` in your preferred editor. The Language Server Protocol ensures that `gopls` will continue to offer the same features to every editor.
 
-​	如果你使用其他编辑器，你可能已经在使用`gopls`了。如果没有，请参阅[gopls 用户指南](https://github.com/golang/tools/blob/master/gopls/README.md)，了解如何在你喜欢的编辑器中启用`gopls`。语言服务器协议确保`gopls`将继续为每个编辑器提供相同的功能。
+​	如果您使用其他编辑器，您可能已经在使用`gopls`了。如果没有，请参阅[gopls 用户指南](https://github.com/golang/tools/blob/master/gopls/README.md)，了解如何在您喜欢的编辑器中启用`gopls`。语言服务器协议确保`gopls`将继续为每个编辑器提供相同的功能。
 
 If `gopls` is not working for you, please see our [detailed troubleshooting guide](https://github.com/golang/vscode-go/blob/master/docs/troubleshooting.md) and file an issue. If you need to, you can always [disable `gopls` in VS Code](https://github.com/golang/vscode-go/blob/master/docs/settings.md#gouselanguageserver).
 
-​	如果`gopls`不能为你工作，请看我们[详细的故障排除指南](https://github.com/golang/vscode-go/blob/master/docs/troubleshooting.md)并提出问题。如果你需要，你可以随时在[VS Code中禁用gopls](https://github.com/golang/vscode-go/blob/master/docs/settings.md#gouselanguageserver)。
+​	如果`gopls`不能为您工作，请看我们[详细的故障排除指南](https://github.com/golang/vscode-go/blob/master/docs/troubleshooting.md)并提出问题。如果您需要，您可以随时在[VS Code中禁用gopls](https://github.com/golang/vscode-go/blob/master/docs/settings.md#gouselanguageserver)。
 
-## Thank you 谢谢你
+## Thank you 谢谢您
 
 To our existing users, thank you for bearing with us as we rewrote our caching layer for the third time. To our new users, we look forward to hearing your experience reports and feedback.
 
-​	对于我们的现有用户，感谢你们在我们第三次重写缓存层时的支持。对于我们的新用户，我们期待着听到你们的体验报告和反馈。
+​	对于我们的现有用户，感谢您们在我们第三次重写缓存层时的支持。对于我们的新用户，我们期待着听到您们的体验报告和反馈。
 
 Finally, no discussion of Go tooling is complete without mentioning the valuable contributions of the Go tools community. Thank you for the lengthy discussions, detailed bug reports, integration tests, and most importantly, thank you for the fantastic contributions. The most exciting `gopls` features come from our passionate open-source contributors, and we are appreciative of your hard work and dedication.
 
-​	最后，如果不提及Go工具社区的宝贵贡献，关于Go工具的讨论就不完整。感谢你们长时间的讨论、详细的错误报告、集成测试，最重要的是，感谢你们的精彩贡献。最激动人心的`gopls`功能来自于我们热情的开源贡献者，我们对你们的辛勤工作和奉献表示感谢。
+​	最后，如果不提及Go工具社区的宝贵贡献，关于Go工具的讨论就不完整。感谢您们长时间的讨论、详细的错误报告、集成测试，最重要的是，感谢您们的精彩贡献。最激动人心的`gopls`功能来自于我们热情的开源贡献者，我们对您们的辛勤工作和奉献表示感谢。
 
 ## Learn more 了解更多
 
@@ -90,4 +90,4 @@ Watch [the screencast](https://www.youtube.com/watch?v=1MXIGYrMk80) for a walk-t
 
 If you’d like to read about `gopls` in more detail, see the [`gopls` README](https://github.com/golang/tools/blob/master/gopls/README.md).
 
-​	如果你想更详细地了解`gopls`，请看[gopls README](https://github.com/golang/tools/blob/master/gopls/README.md)。
+​	如果您想更详细地了解`gopls`，请看[gopls README](https://github.com/golang/tools/blob/master/gopls/README.md)。

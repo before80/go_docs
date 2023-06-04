@@ -16,7 +16,7 @@ Andrew Gerrand
 
 ## Introduction 简介
 
-Godoc [examples](https://go.dev/pkg/testing/#hdr-Examples) are snippets of Go code that are displayed as package documentation and that are verified by running them as tests. They can also be run by a user visiting the godoc web page for the package and clicking the associated “Run” button.
+Godoc [examples](https://go.dev/pkg/testing/#hdr-Examples) are snippets of Go code that are displayed as package documentation and that are verified by running them as tests. They can also be run by a user visiting the godoc web page for the package and clicking the associated "Run" button.
 
 Godoc例子是Go代码的片段，作为包的文档显示，并通过运行它们作为测试来验证。用户也可以通过访问软件包的godoc网页并点击相关的 "运行 "按钮来运行它们。
 
@@ -30,7 +30,7 @@ The standard library includes many such examples (see the [`strings` package](ht
 
 This article explains how to write your own example functions.
 
-这篇文章解释了如何编写你自己的示例函数。
+这篇文章解释了如何编写您自己的示例函数。
 
 ## Examples are tests 实例是测试
 
@@ -87,11 +87,11 @@ ok      golang.org/x/example/stringutil 0.009s
 
 ## Output comments 输出注释
 
-What does it mean that the `ExampleReverse` function “passes”?
+What does it mean that the `ExampleReverse` function "passes"?
 
 在执行例子的过程中，测试框架会捕捉写入标准输出的数据，然后将输出与例子的 "Output: "注释进行比较。如果测试的输出与它的输出注释相符，则测试通过。
 
-As it executes the example, the testing framework captures data written to standard output and then compares the output against the example’s “Output:” comment. The test passes if the test’s output matches its output comment.
+As it executes the example, the testing framework captures data written to standard output and then compares the output against the example’s "Output:" comment. The test passes if the test’s output matches its output comment.
 
 为了看到一个失败的例子，我们可以将输出注释文本改为明显不正确的内容
 
@@ -180,7 +180,7 @@ For instance, to demonstrate the [`sort` package](https://go.dev/pkg/sort/) we s
 
 例如，为了演示排序包，我们应该展示 sort.Interface 的实现。由于方法不能在函数体内部声明，因此除了示例函数之外，示例还必须包括一些上下文。
 
-To achieve this we can use a “whole file example.” A whole file example is a file that ends in `_test.go` and contains exactly one example function, no test or benchmark functions, and at least one other package-level declaration. When displaying such examples godoc will show the entire file.
+To achieve this we can use a "whole file example." A whole file example is a file that ends in `_test.go` and contains exactly one example function, no test or benchmark functions, and at least one other package-level declaration. When displaying such examples godoc will show the entire file.
 
 为了达到这个目的，我们可以使用一个 "整个文件的例子"。整个文件的例子是一个以_test.go结尾的文件，它正好包含一个示例函数，没有测试或基准函数，以及至少一个其他包级声明。当显示这种例子时，godoc会显示整个文件。
 
@@ -239,4 +239,4 @@ A package can contain multiple whole file examples; one example per file. Take a
 
 Godoc examples are a great way to write and maintain code as documentation. They also present editable, working, runnable examples your users can build on. Use them!
 
-Godoc例子是编写和维护代码的一个很好的方法，可以作为文档。它们还提供了可编辑、可工作、可运行的例子，你的用户可以在此基础上进行开发。使用它们吧!
+Godoc例子是编写和维护代码的一个很好的方法，可以作为文档。它们还提供了可编辑、可工作、可运行的例子，您的用户可以在此基础上进行开发。使用它们吧!

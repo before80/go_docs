@@ -24,15 +24,15 @@ Gofix是一个新的工具，它减少了更新现有代码的工作量。它从
 
 Each time we make a significant API change we’ll add code to gofix to take care of the conversion, as much as mechanically possible. When you update to a new Go release and your code no longer builds, just run gofix on your source directory.
 
-每次我们做出重大的API改变时，我们都会在gofix中添加代码，以尽可能机械地处理转换问题。当你更新到一个新的Go版本，你的代码不再构建时，只需在你的源代码目录上运行gofix。
+每次我们做出重大的API改变时，我们都会在gofix中添加代码，以尽可能机械地处理转换问题。当您更新到一个新的Go版本，您的代码不再构建时，只需在您的源代码目录上运行gofix。
 
 You can extend gofix to support changes to your own APIs. The gofix program is a simple driver around plugins called fixes that each handle a particular API change. Right now, writing a new fix requires doing some scanning and rewriting of the go/ast syntax tree, usually in proportion to how complex the API changes are. If you want to explore, the [`netdialFix`](https://go.googlesource.com/go/+/go1/src/cmd/fix/netdial.go), [`osopenFix`](https://go.googlesource.com/go/+/go1/src/cmd/fix/osopen.go), [`httpserverFix`](https://go.googlesource.com/go/+/go1/src/cmd/fix/httpserver.go), and [`reflectFix`](https://go.googlesource.com/go/+/go1/src/cmd/fix/reflect.go) are all illustrative examples, in increasing order of complexity.
 
-你可以扩展gofix以支持你自己的API的变化。gofix程序是一个简单的驱动，围绕着称为fix的插件，每个插件都处理一个特定的API变化。现在，编写一个新的fix需要对go/ast语法树做一些扫描和重写，通常与API变化的复杂程度成正比。如果你想探索，netdialFix、osopenFix、httpserverFix和reflectFix都是说明性的例子，复杂程度依次递增。
+您可以扩展gofix以支持您自己的API的变化。gofix程序是一个简单的驱动，围绕着称为fix的插件，每个插件都处理一个特定的API变化。现在，编写一个新的fix需要对go/ast语法树做一些扫描和重写，通常与API变化的复杂程度成正比。如果您想探索，netdialFix、osopenFix、httpserverFix和reflectFix都是说明性的例子，复杂程度依次递增。
 
 We write Go code too, of course, and our code is just as affected by these API changes as yours. Typically, we write the gofix support at the same time as the API change and then use gofix to rewrite the uses in the main source tree. We use gofix to update other Go code bases and our personal projects. We even use gofix to update Google’s internal source tree when it is time to build against a new Go release.
 
-当然，我们也写Go代码，我们的代码和你的代码一样会受到这些API变化的影响。通常情况下，我们在API变化的同时编写gofix支持，然后用gofix重写主源码树中的用途。我们用gofix来更新其他Go代码库和我们的个人项目。当需要针对新的Go版本进行构建时，我们甚至使用gofix来更新谷歌的内部源代码树。
+当然，我们也写Go代码，我们的代码和您的代码一样会受到这些API变化的影响。通常情况下，我们在API变化的同时编写gofix支持，然后用gofix重写主源码树中的用途。我们用gofix来更新其他Go代码库和我们的个人项目。当需要针对新的Go版本进行构建时，我们甚至使用gofix来更新谷歌的内部源代码树。
 
 As an example, gofix can rewrite code like [this snippet from `fmt/print.go`](http://codereview.appspot.com/4353043/diff/10001/src/pkg/fmt/print.go#newcode657):
 
@@ -84,4 +84,4 @@ Gofix之所以能够实现，是因为Go的标准库支持将Go源文件解析�
 
 Gofix has already made itself indispensable. In particular, the recent reflect changes would have been unpalatable without automated conversion, and the reflect API badly needed to be redone. Gofix gives us the ability to fix mistakes or completely rethink package APIs without worrying about the cost of converting existing code. We hope you find gofix as useful and convenient as we have.
 
-Gofix已经让自己变得不可或缺了。特别是最近的reflect变化，如果没有自动转换，就会变得很难受，而reflect的API也亟需重做。Gofix让我们有能力修复错误或完全重新思考包的API，而不必担心转换现有代码的成本。我们希望你发现gofix和我们一样有用和方便。
+Gofix已经让自己变得不可或缺了。特别是最近的reflect变化，如果没有自动转换，就会变得很难受，而reflect的API也亟需重做。Gofix让我们有能力修复错误或完全重新思考包的API，而不必担心转换现有代码的成本。我们希望您发现gofix和我们一样有用和方便。

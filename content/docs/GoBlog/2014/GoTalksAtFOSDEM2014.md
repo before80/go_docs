@@ -26,7 +26,7 @@ Video recordings of the talks are now available, and a selection of these videos
 
 The complete series of talks is available [as a YouTube playlist](http://www.youtube.com/playlist?list=PLtLJO5JKE5YDKG4WcaNts3IVZqhDmmuBH). (You can also get them directly at the [FOSDEM video archive](http://video.fosdem.org/2014/K4601/Sunday/).)
 
-完整的会谈系列可作为YouTube播放列表。(你也可以在FOSDEM的视频档案中直接获得这些视频）。
+完整的会谈系列可作为YouTube播放列表。(您也可以在FOSDEM的视频档案中直接获得这些视频）。
 
 ## Scaling with Go: YouTube’s Vitess 用Go进行扩展：YouTube的Vitess
 
@@ -50,21 +50,21 @@ The slides for the talk are [available here](https://github.com/youtube/vitess/b
 
 ## Camlistore
 
-[Camlistore](http://camlistore.org/) is designed to be “your personal storage system for life, putting you in control, and designed to last.” It’s open source, under nearly 4 years of active development, and extremely flexible. In this talk, Brad Fitzpatrick and Mathieu Lonjaret explain why they built it, what it does, and talk about its design.
+[Camlistore](http://camlistore.org/) is designed to be "your personal storage system for life, putting you in control, and designed to last." It’s open source, under nearly 4 years of active development, and extremely flexible. In this talk, Brad Fitzpatrick and Mathieu Lonjaret explain why they built it, what it does, and talk about its design.
 
-Camlistore被设计成 "你的个人生活存储系统，让你掌控，并且设计得很持久"。它是开源的，经过近4年的积极开发，而且非常灵活。在这个讲座中，Brad Fitzpatrick和Mathieu Lonjaret解释了他们为什么要建造它，它的作用，并谈到了它的设计。
+Camlistore被设计成 "您的个人生活存储系统，让您掌控，并且设计得很持久"。它是开源的，经过近4年的积极开发，而且非常灵活。在这个讲座中，Brad Fitzpatrick和Mathieu Lonjaret解释了他们为什么要建造它，它的作用，并谈到了它的设计。
 
 <iframe src="https://www.youtube.com/embed/yvjeIZgykiA" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
 
-## Write your own Go compiler 编写你自己的Go编译器
+## Write your own Go compiler 编写您自己的Go编译器
 
 Elliot Stoneham explains the potential for Go as a portable language and reviews the Go tools that make that such an exciting possibility.
 
 Elliot Stoneham解释了Go作为一种可移植语言的潜力，并回顾了使这种可能性变得如此激动人心的Go工具。
 
-He said: “Based on my experiences writing an experimental Go to Haxe translator, I’ll talk about the practical issues of code generation and runtime emulation required. I’ll compare some of my design decisions with those of two other Go compiler/translators that build on the go.tools library. My aim is to encourage you to try one of these new ‘mutant’ Go compilers. I hope some of you will be inspired to contribute to one of them or even to write a new one of your own.”
+He said: "Based on my experiences writing an experimental Go to Haxe translator, I’ll talk about the practical issues of code generation and runtime emulation required. I’ll compare some of my design decisions with those of two other Go compiler/translators that build on the go.tools library. My aim is to encourage you to try one of these new ‘mutant’ Go compilers. I hope some of you will be inspired to contribute to one of them or even to write a new one of your own."
 
-他说："根据我编写实验性Go到Haxe翻译器的经验，我将谈论代码生成和运行时仿真所需的实际问题。我将把我的一些设计决定与其他两个建立在go.tools库上的Go编译器/翻译器进行比较。我的目的是鼓励你尝试这些新的 "变种 "Go编译器中的一个。我希望你们中的一些人会受到启发，为其中一个编译器做出贡献，甚至自己编写一个新的编译器"。
+他说："根据我编写实验性Go到Haxe翻译器的经验，我将谈论代码生成和运行时仿真所需的实际问题。我将把我的一些设计决定与其他两个建立在go.tools库上的Go编译器/翻译器进行比较。我的目的是鼓励您尝试这些新的 "变种 "Go编译器中的一个。我希望您们中的一些人会受到启发，为其中一个编译器做出贡献，甚至自己编写一个新的编译器"。
 
 <iframe src="https://www.youtube.com/embed/Qe8Dq7V3hXY" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
 

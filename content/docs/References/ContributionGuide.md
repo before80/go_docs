@@ -495,9 +495,9 @@ It is perfectly normal for changes to go through several round of reviews, with 
 
 ### Voting conventions
 
-As they near a decision, reviewers will apply a Code-Review “vote” to your change. There are two possible votes:
+As they near a decision, reviewers will apply a Code-Review "vote" to your change. There are two possible votes:
 
-- **+2** The change is approved for being merged. Only Go maintainers (also referred to as “approvers”) can cast a +2 vote.
+- **+2** The change is approved for being merged. Only Go maintainers (also referred to as "approvers") can cast a +2 vote.
 - **+1** The change looks good, but either the reviewer is requesting minor changes before approving it, or they are not a maintainer and cannot approve it, but would like to encourage an approval.
 
 To be submitted, a change must have a Code-Review +2 from a maintainer.

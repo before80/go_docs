@@ -31,7 +31,7 @@ memstats  runtime.Memstats
 
 The package is sometimes only imported for the side effect of registering its HTTP handler and the above variables. To use it this way, link this package into your program:
 
-这个包有时被导入只是为了注册其HTTP处理程序和上述变量的副作用。要以这种方式使用它，请将这个包链接到你的程序中：
+这个包有时被导入只是为了注册其HTTP处理程序和上述变量的副作用。要以这种方式使用它，请将这个包链接到您的程序中：
 
 ```
 import _ "expvar"

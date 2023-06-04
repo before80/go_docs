@@ -42,7 +42,7 @@ See the [slide deck](https://go.dev/talks/2012/simple.slide) (use the left and r
 
 ## Go: code that grows with grace - Go：优雅成长的代码
 
-One of Go’s key design goals is code adaptability; that it should be easy to take a simple design and build upon it in a clean and natural way. In this talk I describe a simple “chat roulette” server that matches pairs of incoming TCP connections, and then use Go’s concurrency mechanisms, interfaces, and standard library to extend it with a web interface and other features. While the function of the program changes dramatically, Go’s flexibility preserves the original design as it grows.
+One of Go’s key design goals is code adaptability; that it should be easy to take a simple design and build upon it in a clean and natural way. In this talk I describe a simple "chat roulette" server that matches pairs of incoming TCP connections, and then use Go’s concurrency mechanisms, interfaces, and standard library to extend it with a web interface and other features. While the function of the program changes dramatically, Go’s flexibility preserves the original design as it grows.
 
 Go的关键设计目标之一是代码的适应性；即应该很容易采用一个简单的设计，并以一种干净自然的方式在此基础上进行构建。在这次演讲中，我描述了一个简单的 "聊天轮盘 "服务器，它可以匹配进入的TCP连接对，然后使用Go的并发机制、接口和标准库，用网络接口和其他功能来扩展它。虽然程序的功能发生了巨大的变化，但Go的灵活性在其发展过程中保留了原有的设计。
 

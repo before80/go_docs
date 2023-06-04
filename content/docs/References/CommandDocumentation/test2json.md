@@ -19,7 +19,7 @@ Usage:
 go tool test2json [-p pkg] [-t] [./pkg.test -test.v [-test.paniconexit0]]
 ```
 
-Test2json runs the given test command and converts its output to JSON; with no command specified, test2json expects test output on standard input. It writes a corresponding stream of JSON events to standard output. There is no unnecessary input or output buffering, so that the JSON stream can be read for “live updates” of test status.
+Test2json runs the given test command and converts its output to JSON; with no command specified, test2json expects test output on standard input. It writes a corresponding stream of JSON events to standard output. There is no unnecessary input or output buffering, so that the JSON stream can be read for "live updates" of test status.
 
 The -p flag sets the package reported in each test event.
 
@@ -88,7 +88,7 @@ When a benchmark runs, it typically produces a single line of output giving timi
     // with no command specified, test2json expects test output on standard input.
     // It writes a corresponding stream of JSON events to standard output.
     // There is no unnecessary input or output buffering, so that
-    // the JSON stream can be read for “live updates” of test status.
+    // the JSON stream can be read for "live updates" of test status.
     //
     // The -p flag sets the package reported in each test event.
     //

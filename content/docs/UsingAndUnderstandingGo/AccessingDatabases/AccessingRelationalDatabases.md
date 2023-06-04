@@ -23,11 +23,11 @@ draft = false
 
 xxxxxxxxxx1 1SELECT * FROM user WHERE id = 1 OR 1=1;mysql
 
-​	你可以在 [SQLDrivers](https://github.com/golang/go/wiki/SQLDrivers)页面找到完整的驱动列表。
+​	您可以在 [SQLDrivers](https://github.com/golang/go/wiki/SQLDrivers)页面找到完整的驱动列表。
 
 ### 执行查询或更改数据库的函数
 
-​	`database/sql`包包含专门为你正在执行的数据库操作设计的函数。例如，虽然你可以使用`Query`或`QueryRow`来执行查询，但`QueryRow`是为只需要一行的情况而设计的，省去了返回只包括一行记录的`sql.Rows`的开销。你可以使用`Exec`函数用SQL语句对数据库进行修改，如`INSERT`, `UPDATE`, 或`DELETE`。
+​	`database/sql`包包含专门为您正在执行的数据库操作设计的函数。例如，虽然您可以使用`Query`或`QueryRow`来执行查询，但`QueryRow`是为只需要一行的情况而设计的，省去了返回只包括一行记录的`sql.Rows`的开销。您可以使用`Exec`函数用SQL语句对数据库进行修改，如`INSERT`, `UPDATE`, 或`DELETE`。
 
 ​	更多内容，请参见以下内容：
 
@@ -42,21 +42,21 @@ xxxxxxxxxx1 1SELECT * FROM user WHERE id = 1 OR 1=1;mysql
 
 ### 查询的取消
 
-​	当你希望能够取消一个数据库操作时，你可以使用`context.Context`，例如，当客户端的连接关闭或操作运行的时间超过期望时。
+​	当您希望能够取消一个数据库操作时，您可以使用`context.Context`，例如，当客户端的连接关闭或操作运行的时间超过期望时。
 
-​	对于任何数据库操作，你可以使用一个`database/sql`包函数，该函数将`Context`作为一个实参。使用`Context`，你可以为操作指定一个超时或最后期限。你还可以使用 `Context` 将取消请求通过应用程序传播到执行 SQL 语句的函数，确保在不再需要资源时释放资源。
+​	对于任何数据库操作，您可以使用一个`database/sql`包函数，该函数将`Context`作为一个实参。使用`Context`，您可以为操作指定一个超时或最后期限。您还可以使用 `Context` 将取消请求通过应用程序传播到执行 SQL 语句的函数，确保在不再需要资源时释放资源。
 
 ​	更多信息请参见[Canceling in-progress operations （取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
 ### 管理连接池
 
-​	当你使用`sql.DB`数据库句柄时，你正在与一个内置的连接池连接，该连接池根据你代码的需要创建和处置连接。通过`sql.DB`的句柄是用Go进行数据库访问的最常见方式。更多信息请参见[Opening a database handle （打开数据库句柄）](../OpeningADatabaseHandle) 。
+​	当您使用`sql.DB`数据库句柄时，您正在与一个内置的连接池连接，该连接池根据您代码的需要创建和处置连接。通过`sql.DB`的句柄是用Go进行数据库访问的最常见方式。更多信息请参见[Opening a database handle （打开数据库句柄）](../OpeningADatabaseHandle) 。
 
-​	`database/sql`包为你管理连接池。然而，对于更高级的需求，可以按照[Setting connection pool properties （设置连接池属性）](../ManagingConnections#设置连接池属性)中的说明设置连接池属性。
+​	`database/sql`包为您管理连接池。然而，对于更高级的需求，可以按照[Setting connection pool properties （设置连接池属性）](../ManagingConnections#设置连接池属性)中的说明设置连接池属性。
 
 ​	对于那些需要单一保留连接的操作，`database/sql`包提供了[sql.Conn](https://pkg.go.dev/database/sql#Conn)。当使用`sql.Tx`的事务是一个糟糕的选择时，`Conn`就特别有用。
 
-​	例如，你的代码可能需要：
+​	例如，您的代码可能需要：
 
 - 通过`DDL`进行模式更改，包括包含其自身事务语义的逻辑。将`sql`包的事务函数与SQL事务语句混合在一起是一种不好的做法，正如在[Executing transactions （执行事务）](../ExecutingTransactions) 中所描述的那样。
 - 执行创建临时表的查询锁定操作。

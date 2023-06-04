@@ -86,7 +86,7 @@ Heschi Kreinick edited this page last week · [20 revisions](https://github.com/
 
 ## 冻结例外 Freeze Exceptions
 
-​	在冻结之前，任何冻结例外都必须与Go Release团队沟通并明确批准。如果您想请求例外，请在问题跟踪器中提交一个带有“[freeze exception]”后缀的问题，并包括“CC @golang/release”（[example](https://go.dev/issue/42747)）。我们将根据情况逐个处理任何请求，并强烈建议在冻结后不允许更改。
+​	在冻结之前，任何冻结例外都必须与Go Release团队沟通并明确批准。如果您想请求例外，请在问题跟踪器中提交一个带有"[freeze exception]"后缀的问题，并包括"CC @golang/release"（[example](https://go.dev/issue/42747)）。我们将根据情况逐个处理任何请求，并强烈建议在冻结后不允许更改。
 
 ## 历史notes
 

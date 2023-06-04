@@ -16,7 +16,7 @@ Andrew Bonventre
 
 Today the Go team is happy to announce the release of Go 1.12. You can get it from the [download page](https://go.dev/dl/).
 
-今天，Go团队很高兴地宣布Go 1.12的发布。你可以从下载页面获得它。
+今天，Go团队很高兴地宣布Go 1.12的发布。您可以从下载页面获得它。
 
 For details about the changes in Go 1.12, see the [**Go 1.12 release notes**](https://go.dev/doc/go1.12).
 
@@ -28,7 +28,7 @@ Some of the highlights include [opt-in support for TLS 1.3](https://go.dev/doc/g
 
 As always, we also want to thank everyone who contributed to this release by writing code, filing bugs, providing feedback, and/or testing the betas and release candidates. Your contributions and diligence helped to ensure that Go 1.12 is as stable as possible. That said, if you do notice any problems, please [file an issue](https://go.dev/issues/new).
 
-一如既往，我们也要感谢每一个通过编写代码、提交错误、提供反馈和/或测试测试版和候选版而为这个版本做出贡献的人。你的贡献和勤奋有助于确保Go 1.12尽可能的稳定。尽管如此，如果您发现任何问题，请提交问题。
+一如既往，我们也要感谢每一个通过编写代码、提交错误、提供反馈和/或测试测试版和候选版而为这个版本做出贡献的人。您的贡献和勤奋有助于确保Go 1.12尽可能的稳定。尽管如此，如果您发现任何问题，请提交问题。
 
 Enjoy the new release!
 

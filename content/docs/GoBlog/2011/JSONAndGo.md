@@ -63,7 +63,7 @@ b == []byte(`{"Name":"Alice","Body":"Hello","Time":1294706395881547000}`)
 - JSON 对象只支持字符串作为键；要编码 Go 的映射类型，它必须采用 map[string]T 的形式（其中 T 是 json 包支持的任何 Go 类型）。
 - 通道、复数和函数类型无法编码。
 - 不支持循环数据结构；它们将导致 Marshal 进入无限循环。
-- 指针将被编码为它们指向的值（或如果指针为 nil，则为“null”）。
+- 指针将被编码为它们指向的值（或如果指针为 nil，则为"null"）。
 
 ​	json 包仅访问结构体类型的公开字段（那些以大写字母开头的字段）。因此，结构体的仅公开字段将存在于 JSON 输出中。
 
@@ -97,11 +97,11 @@ m = Message{
 }
 ```
 
-​	Unmarshal如何确定在哪些字段中存储解码后的数据？对于给定的JSON键“Foo”，Unmarshal将查找目标结构的字段以查找（按优先顺序）：
+​	Unmarshal如何确定在哪些字段中存储解码后的数据？对于给定的JSON键"Foo"，Unmarshal将查找目标结构的字段以查找（按优先顺序）：
 
-- 具有标记“Foo”的导出字段（有关结构标记的更多信息，请参见[Go规范](../../../References/LanguageSpecification/Types#struct-types)）， 
-- 一个名为“Foo”的导出字段，或
-- 名为“FOO”或“FoO”或“Foo”的其他大小写不敏感匹配的导出字段。
+- 具有标记"Foo"的导出字段（有关结构标记的更多信息，请参见[Go规范](../../../References/LanguageSpecification/Types#struct-types)）， 
+- 一个名为"Foo"的导出字段，或
+- 名为"FOO"或"FoO"或"Foo"的其他大小写不敏感匹配的导出字段。
 
 ​	当JSON数据的结构与Go类型不完全匹配时会发生什么？
 
@@ -111,7 +111,7 @@ var m Message
 err := json.Unmarshal(b, &m)
 ```
 
-​	Unmarshal将仅解码可以在目标类型中找到的字段。在这种情况下，只会填充m的Name字段，而忽略Food字段。当你想从一个大的JSON blob中只挑选一些特定字段时，这种行为特别有用。它还意味着目标结构中的任何未导出字段都不会受到Unmarshal的影响。
+​	Unmarshal将仅解码可以在目标类型中找到的字段。在这种情况下，只会填充m的Name字段，而忽略Food字段。当您想从一个大的JSON blob中只挑选一些特定字段时，这种行为特别有用。它还意味着目标结构中的任何未导出字段都不会受到Unmarshal的影响。
 
 ​	但是如果您事先不知道JSON数据的结构呢？
 
@@ -241,7 +241,7 @@ type Foo struct {
 
 ​	如果JSON对象中有Bar字段，则Unmarshal将分配一个新的Bar并填充它。如果没有，则Bar将保留为nil指针。
 
-​	由此产生了一种有用的模式：如果您的应用程序接收几种不同类型的消息，则可以定义一个类似“接收器”的结构体，如下所示：
+​	由此产生了一种有用的模式：如果您的应用程序接收几种不同类型的消息，则可以定义一个类似"接收器"的结构体，如下所示：
 
 ```go linenums="1"
 type IncomingMessage struct {

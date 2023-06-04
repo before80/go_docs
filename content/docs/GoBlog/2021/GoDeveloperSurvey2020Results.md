@@ -14,17 +14,17 @@ https://go.dev/blog/survey2020-results
 Alice Merrick
 9 March 2021
 
-## Thank you for the amazing response! 感谢你们的惊人回应！
+## Thank you for the amazing response! 感谢您们的惊人回应！
 
 In 2020, we had another great turnout with 9,648 responses, about [as many as 2019](https://blog.golang.org/survey2019-results). Thank you for putting in the time to provide the community with these insights on your experiences using Go!
 
-在2020年，我们又有了很大的收获，有9,648份回复，和2019年差不多多。感谢你们花时间为社区提供这些关于你们使用Go的经验的见解
+在2020年，我们又有了很大的收获，有9,648份回复，和2019年差不多多。感谢您们花时间为社区提供这些关于您们使用Go的经验的见解
 
 ## New modular survey design 新的模块化调查设计
 
-You may notice some questions have smaller sample sizes (“n=") than others. That’s because some questions were shown to everyone while others were only shown to a random subset of respondents.
+You may notice some questions have smaller sample sizes ("n=") than others. That’s because some questions were shown to everyone while others were only shown to a random subset of respondents.
 
-你可能注意到有些问题的样本量（"n="）比其他问题小。这是因为有些问题是向所有人展示的，而有些问题只向随机的受访者子集展示。
+您可能注意到有些问题的样本量（"n="）比其他问题小。这是因为有些问题是向所有人展示的，而有些问题只向随机的受访者子集展示。
 
 ## Highlights 亮点
 
@@ -79,7 +79,7 @@ This year we introduced a new question on primary job responsibilities. We found
 
 主要工作职责
 
-As in prior years, we found that most respondents are not frequent contributors to Go open-source projects, with 75% saying they do so “infrequently” or “never”.
+As in prior years, we found that most respondents are not frequent contributors to Go open-source projects, with 75% saying they do so "infrequently" or "never".
 
 与往年一样，我们发现大多数受访者并不经常为Go开源项目做贡献，75%的人表示他们 "不经常 "或 "从不 "这样做。
 
@@ -111,7 +111,7 @@ Editor preferences from 2017 to 2020
 
 2017年至2020年的编辑偏好
 
-This year we asked respondents to prioritize improvements to their editor by how much they would hypothetically spend if they had 100 “GopherCoins” (a fictional currency). Code completion received the highest average number of GopherCoins per respondent. Half of respondents gave the top 4 features (code completion, navigating code, editor performance and refactoring) 10 or more coins.
+This year we asked respondents to prioritize improvements to their editor by how much they would hypothetically spend if they had 100 "GopherCoins" (a fictional currency). Code completion received the highest average number of GopherCoins per respondent. Half of respondents gave the top 4 features (code completion, navigating code, editor performance and refactoring) 10 or more coins.
 
 今年，我们要求受访者按照如果他们有100个 "GopherCoins"（一种虚构的货币），他们假设会花多少钱来优先考虑对编辑器的改进。每个受访者的代码完成度获得了最高的平均GopherCoins数量。一半的受访者给了前4个功能（代码完成、代码导航、编辑器性能和重构）10个或更多硬币。
 
@@ -149,9 +149,9 @@ Bar chart of overall satisfaction on a 5 points scale from very dissatisfied to 
 
 总体满意度柱状图，从非常不满意到非常满意的5分制。
 
-This is the 3rd year we’ve asked the “Would you recommend…” [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter) (NPS) question. This year our NPS result is a 61 (68% “promoters” minus 6% “detractors”), statistically unchanged from 2019 and 2018.
+This is the 3rd year we’ve asked the "Would you recommend…" [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter) (NPS) question. This year our NPS result is a 61 (68% "promoters" minus 6% "detractors"), statistically unchanged from 2019 and 2018.
 
-这是我们第三年询问 "你是否会推荐...... "的问题。Net Promoter Score（NPS）问题。今年我们的NPS结果是61分（68%的 "促进者 "减去6%的 "反对者"），与2019年和2018年相比，统计上没有变化。
+这是我们第三年询问 "您是否会推荐...... "的问题。Net Promoter Score（NPS）问题。今年我们的NPS结果是61分（68%的 "促进者 "减去6%的 "反对者"），与2019年和2018年相比，统计上没有变化。
 
 ![Stacked bar chart of promoters, passives, and detractors](GoDeveloperSurvey2020Results_img/nps.svg)
 
@@ -199,7 +199,7 @@ Bar chart of length of time before feeling productive
 
 感觉有成效之前的时间长度柱状图
 
-Although about the same as last year, the percentage of respondents who agreed with the statement “I feel welcome in the Go community” appears to be trending down over time, or at least not holding to the same upward trends as other areas.
+Although about the same as last year, the percentage of respondents who agreed with the statement "I feel welcome in the Go community" appears to be trending down over time, or at least not holding to the same upward trends as other areas.
 
 尽管与去年差不多，同意 "我在Go界感到受欢迎 "这一说法的受访者比例似乎随着时间的推移呈下降趋势，或者至少没有像其他领域那样保持上升趋势。
 
@@ -386,7 +386,7 @@ The top reasons respondents say they are unable to use Go more remain working on
 
 受访者说他们无法更多使用Go的首要原因仍然是在用另一种语言进行项目工作（54%），在一个喜欢使用另一种语言的团队工作（34%），以及Go本身缺乏关键功能（26%）。
 
-This year we introduced a new option, “I already use Go everywhere I would like to,” so that respondents could opt out of making selections that don’t prevent them from using Go. This significantly lowered the rate of selection of all other options, but did not change their relative ordering. We also introduced an option for “Go lacks critical frameworks”.
+This year we introduced a new option, "I already use Go everywhere I would like to," so that respondents could opt out of making selections that don’t prevent them from using Go. This significantly lowered the rate of selection of all other options, but did not change their relative ordering. We also introduced an option for "Go lacks critical frameworks".
 
 今年我们引入了一个新的选项，"我已经在所有我想使用的地方使用Go"，这样受访者就可以选择不做那些不妨碍他们使用Go的选择。这大大降低了所有其他选项的选择率，但并没有改变它们的相对排序。我们还引入了一个 "Go缺乏关键框架 "的选项。
 
@@ -474,4 +474,4 @@ Go团队重视多样性和包容性，不仅仅是因为这是一件正确的事
 
 Thank you for joining us in reviewing the results of our 2020 developer survey! Understanding developers’ experiences and challenges helps us measure our progress and directs the future of Go. Thanks again to everyone who contributed to this survey—we couldn’t have done it without you. We hope to see you next year!
 
-感谢你和我们一起回顾2020年开发者调查的结果! 了解开发者的经验和挑战有助于我们衡量我们的进展，并指导Go的未来。再次感谢所有为这次调查做出贡献的人--没有你们，我们不可能做到这一点。我们希望明年再见到你!
+感谢您和我们一起回顾2020年开发者调查的结果! 了解开发者的经验和挑战有助于我们衡量我们的进展，并指导Go的未来。再次感谢所有为这次调查做出贡献的人--没有您们，我们不可能做到这一点。我们希望明年再见到您!

@@ -28,7 +28,7 @@ draft = false
 
 ​	为所有模块（公共和私有）提供服务的中央私有代理服务器为管理员提供了最大程度的控制，并且对单个开发人员来说需要的配置最少。
 
-​	要配置`go`命令以使用这样的服务器，请设置以下环境变量，将`https://proxy.corp.example.com`替换为你的代理URL，将`corp.example.com`替换为你的模块前缀。
+​	要配置`go`命令以使用这样的服务器，请设置以下环境变量，将`https://proxy.corp.example.com`替换为您的代理URL，将`corp.example.com`替换为您的模块前缀。
 
 ```
 GOPROXY=https://proxy.corp.example.com
@@ -106,13 +106,13 @@ GOPROXY=https://jrgopher:hunter2@proxy.corp.example.com
 
 `go` 命令可以直接从版本控制储存库中下载模块。如果没有使用私有代理，这对私有模块是必要的。参见[Direct access to private modules（直接访问私有模块）](#direct-access-to-private-modules)的配置。
 
-​	`go` 命令在直接下载模块时运行`git`等版本控制工具。这些工具执行它们自己的身份验证，所以你可能需要在工具特定的配置文件（如`.gitconfig`）中配置凭证。
+​	`go` 命令在直接下载模块时运行`git`等版本控制工具。这些工具执行它们自己的身份验证，所以您可能需要在工具特定的配置文件（如`.gitconfig`）中配置凭证。
 
 ​	为了确保这项工作顺利进行，请确保`go` 命令使用正确的存储库URL，并且版本控制工具不需要交互式输入密码。`go` 命令优先使用 `https://` URL，而不是`ssh://`等其他方案，除非在[查找存储库 URL](../VersionControlSystems#finding-a-repository-for-a-module-path) 时指定了方案。特别是对于 GitHub 存储库，`go` 命令假定为 `https://`。
 
-​	对于大多数服务器，你可以将客户端配置为通过HTTP进行身份验证。例如，GitHub 支持使用 [OAuth 个人访问令牌作为 HTTP 密码](https://docs.github.com/en/free-pro-team@latest/github/extending-github/git-automation-with-oauth-tokens)。你可以将HTTP密码存储在`.netrc`文件中，就像[将凭证传递给私有代理](#passing-credentials-to-private-proxies)时一样。
+​	对于大多数服务器，您可以将客户端配置为通过HTTP进行身份验证。例如，GitHub 支持使用 [OAuth 个人访问令牌作为 HTTP 密码](https://docs.github.com/en/free-pro-team@latest/github/extending-github/git-automation-with-oauth-tokens)。您可以将HTTP密码存储在`.netrc`文件中，就像[将凭证传递给私有代理](#passing-credentials-to-private-proxies)时一样。
 
-​	另外，你也可以将`https://` URL重写成另一种方案。例如，在`.gitconfig`中：
+​	另外，您也可以将`https://` URL重写成另一种方案。例如，在`.gitconfig`中：
 
 ```
 [url "git@github.com:"]

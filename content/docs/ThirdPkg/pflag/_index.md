@@ -88,7 +88,7 @@ fmt.Println("ip has value ", *ip)
 fmt.Println("flagvar has value ", flagvar)
 ```
 
-​	如果你使用 `FlagSet`，并且发现在代码中跟踪所有指针变得困难，那么可以使用一些辅助函数来获取 `Flag`（结构体） 中存储的值如果你有一个名为'flagname'、类型为`int`的`pflag.FlagSet`，你可以使用`GetInt()`来获取int值。但请注意，'flagname'必须存在且为int类型，否则`GetString("flagname")`将失败。
+​	如果您使用 `FlagSet`，并且发现在代码中跟踪所有指针变得困难，那么可以使用一些辅助函数来获取 `Flag`（结构体） 中存储的值如果您有一个名为'flagname'、类型为`int`的`pflag.FlagSet`，您可以使用`GetInt()`来获取int值。但请注意，'flagname'必须存在且为int类型，否则`GetString("flagname")`将失败。
 
 ```
 i, err := flagset.GetInt("flagname")
@@ -96,7 +96,7 @@ i, err := flagset.GetInt("flagname")
 
 ​	在解析后，该标志之后的实参可以作为`flag.Args()`的切片或作为`flag.Arg(i)`单独使用。实参的索引范围是从0到`flag.NArg()-1`。
 
-​	pflag包还定义了一些在 `flag` 包中不存在的新函数，它们为标志提供了一字母缩写。你可以通过在定义标志的任何函数名称后附加 '`P`' 来使用这些函数。
+​	pflag包还定义了一些在 `flag` 包中不存在的新函数，它们为标志提供了一字母缩写。您可以通过在定义标志的任何函数名称后附加 '`P`' 来使用这些函数。
 
 ```
 var ip = flag.IntP("flagname", "f", 1234, "help message")
@@ -175,11 +175,11 @@ Integer flags accept 1234, 0664, 0x1234 and may be negative. Boolean flags (in t
 
 It is possible to set a custom flag name 'normalization function.' It allows flag names to be mutated both when created in the code and when used on the command line to some 'normalized' form. The 'normalized' form is used for comparison. Two examples of using the custom normalization func follow.
 
-可以设置自定义的标志名称“规范化函数”。它允许标志名称在代码中创建时和在命令行上使用时以某种“规范化”的形式进行变换。比较时使用“规范化”的形式。下面是两个使用自定义规范化函数的示例。
+可以设置自定义的标志名称"规范化函数"。它允许标志名称在代码中创建时和在命令行上使用时以某种"规范化"的形式进行变换。比较时使用"规范化"的形式。下面是两个使用自定义规范化函数的示例。
 
 **Example #1**: You want -, _, and . in flags to compare the same. aka --my-flag == --my_flag == --my.flag
 
-**示例＃1**：你希望在标志中比较 -、_ 和 . 时得到相同的结果。也就是说 --my-flag == --my_flag == --my.flag
+**示例＃1**：您希望在标志中比较 -、_ 和 . 时得到相同的结果。也就是说 --my-flag == --my_flag == --my.flag
 
 ```
 func wordSepNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
@@ -196,7 +196,7 @@ myFlagSet.SetNormalizeFunc(wordSepNormalizeFunc)
 
 **Example #2**: You want to alias two flags. aka --old-flag-name == --new-flag-name
 
-**示例＃2**：你希望给两个标志设置别名。也就是说 --old-flag-name == --new-flag-name
+**示例＃2**：您希望给两个标志设置别名。也就是说 --old-flag-name == --new-flag-name
 
 ```
 func aliasNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {

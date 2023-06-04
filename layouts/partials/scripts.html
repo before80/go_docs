@@ -102,7 +102,7 @@ window.markmap = {
     crossorigin="anonymous"></script>
 {{ end -}}
 
-<script src='{{ "js/tabpane-persist.js" | relURL }}'></script>
+
 {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
 {{ if .Site.Params.jstoc.enable }}
 <!-- Initialize tocbot -->
@@ -136,6 +136,8 @@ window.markmap = {
 {{ partial "hooks/body-end.html" . -}}
 {{ if eq $MyDefLastUrlEle "" }}
 <script src="/js/deal-zero-width-space.js"></script>
+<script src='/js/tabpane-persist.js'></script>
 {{ else }}
 <script src="{{- $MyDefLastUrlEle -}}/js/deal-zero-width-space.js"></script>
+<script src="{{- $MyDefLastUrlEle -}}/js/tabpane-persist.js"></script>
 {{ end }}

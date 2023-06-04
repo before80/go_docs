@@ -22,7 +22,7 @@ Despite any process or technical measure, every dependency is unavoidably a trus
 
 尽管有任何流程或技术措施，每一个依赖关系都不可避免地是一种信任关系。然而，Go的工具和设计有助于在各个阶段降低风险。
 
-## All builds are “locked” 所有构建都是 "锁定 "的
+## All builds are "locked" 所有构建都是 "锁定 "的
 
 There is no way for changes in the outside world—such as a new version of a dependency being published—to automatically affect a Go build.
 
@@ -64,7 +64,7 @@ This is a common feature of most lock files. Go goes beyond it with the [Checksu
 
 The sumdb makes it impossible for compromised dependencies or even Google-operated Go infrastructure to target specific dependents with modified (e.g. backdoored) source. You’re guaranteed to be using the exact same code that everyone else who’s using e.g. v1.9.2 of `example.com/modulex` is using and has reviewed.
 
-sumdb使得被破坏的依赖内容，甚至谷歌操作的Go基础设施不可能用修改过的（如反屏蔽）源代码来瞄准特定的依赖内容。保证你使用的代码与其他使用例如example.com/modulex的v1.9.2的人所使用的代码完全一样，并且已经过审查。
+sumdb使得被破坏的依赖内容，甚至谷歌操作的Go基础设施不可能用修改过的（如反屏蔽）源代码来瞄准特定的依赖内容。保证您使用的代码与其他使用例如example.com/modulex的v1.9.2的人所使用的代码完全一样，并且已经过审查。
 
 Finally, my favorite features of the sumdb: it doesn’t require any key management on the part of module authors, and it works seamlessly with the decentralized nature of Go modules.
 
@@ -80,7 +80,7 @@ In Go, there is no such thing as a package repository account. The import path o
 
 在Go中，不存在所谓的包库账户。包的导入路径嵌入了go mod download所需要的信息，以便直接从VCS中获取其模块，其中标签定义了版本。
 
-We do have the [Go Module Mirror](https://go.dev/blog/module-mirror-launch), but that’s only a proxy. Module authors don’t register an account and don’t upload versions to the proxy. The proxy uses the same logic that the `go` tool uses (in fact, the proxy runs `go mod download`) to fetch and cache a version. Since the Checksum Database guarantees that there can be only one source tree for a given module version, everyone using the proxy will see the same result as everyone bypassing it and fetching directly from the VCS. (If the version is not available anymore in the VCS or if its contents changed, fetching directly will lead to an error, while fetching from the proxy might still work, improving availability and protecting the ecosystem from [“left-pad” issues](https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm).)
+We do have the [Go Module Mirror](https://go.dev/blog/module-mirror-launch), but that’s only a proxy. Module authors don’t register an account and don’t upload versions to the proxy. The proxy uses the same logic that the `go` tool uses (in fact, the proxy runs `go mod download`) to fetch and cache a version. Since the Checksum Database guarantees that there can be only one source tree for a given module version, everyone using the proxy will see the same result as everyone bypassing it and fetching directly from the VCS. (If the version is not available anymore in the VCS or if its contents changed, fetching directly will lead to an error, while fetching from the proxy might still work, improving availability and protecting the ecosystem from ["left-pad" issues](https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm).)
 
 我们确实有Go Module Mirror，但那只是一个代理。模块作者不需要注册账户，也不需要向代理上传版本。代理使用与go工具相同的逻辑（事实上，代理运行go模块下载）来获取和缓存一个版本。由于校验数据库保证一个给定的模块版本只能有一个源树，每个使用代理的人都会看到与绕过代理直接从VCS获取的结果相同。(如果该版本在VCS中不再可用，或者其内容发生了变化，直接获取将导致错误，而从代理获取可能仍然有效，提高了可用性并保护生态系统免受 "左键 "问题的影响）。
 
@@ -90,23 +90,23 @@ Running VCS tools on the client exposes a pretty large attack surface. That’s 
 
 ## Building code doesn’t execute it 构建代码并不执行它
 
-It is an explicit security design goal of the Go toolchain that neither fetching nor building code will let that code execute, even if it is untrusted and malicious. This is different from most other ecosystems, many of which have first-class support for running code at package fetch time. These “post-install” hooks have been used in the past as the most convenient way to turn a compromised dependency into compromised developer machines, and to [worm](https://en.wikipedia.org/wiki/Computer_worm) through module authors.
+It is an explicit security design goal of the Go toolchain that neither fetching nor building code will let that code execute, even if it is untrusted and malicious. This is different from most other ecosystems, many of which have first-class support for running code at package fetch time. These "post-install" hooks have been used in the past as the most convenient way to turn a compromised dependency into compromised developer machines, and to [worm](https://en.wikipedia.org/wiki/Computer_worm) through module authors.
 
 Go工具链的一个明确的安全设计目标是，无论是获取还是构建代码，都不会让该代码执行，即使它是不被信任的和恶意的。这与其他大多数生态系统不同，许多生态系统在获取软件包时对运行代码有一流的支持。这些 "安装后 "的钩子在过去被用作最方便的方式，将受影响的依赖关系变成受影响的开发者机器，并通过模块作者进行蠕虫攻击。
 
 To be fair, if you’re fetching some code it’s often to execute it shortly afterwards, either as part of tests on a developer machine or as part of a binary in production, so lacking post-install hooks is only going to slow down attackers. (There is no security boundary within a build: any package that contributes to a build can define an `init` function.) However, it can be a meaningful risk mitigation, since you might be executing a binary or testing a package that only uses a subset of the module’s dependencies. For example, if you build and execute `example.com/cmd/devtoolx` on macOS there is no way for a Windows-only dependency or a dependency of `example.com/cmd/othertool` to compromise your machine.
 
-公平地说，如果你要获取一些代码，往往会在不久之后执行，要么作为开发者机器上的测试的一部分，要么作为生产中的二进制文件的一部分，所以缺乏安装后钩子只会减缓攻击者的速度。(在构建过程中没有安全边界：任何有助于构建的软件包都可以定义一个初始函数）。然而，它可以成为一个有意义的风险缓解措施，因为你可能正在执行一个二进制文件或测试一个包，而这个包只使用模块依赖的一个子集。例如，如果你在macOS上构建并执行example.com/cmd/devtoolx，那么只有Windows的依赖或example.com/cmd/othertool的依赖就不可能危害到你的机器。
+公平地说，如果您要获取一些代码，往往会在不久之后执行，要么作为开发者机器上的测试的一部分，要么作为生产中的二进制文件的一部分，所以缺乏安装后钩子只会减缓攻击者的速度。(在构建过程中没有安全边界：任何有助于构建的软件包都可以定义一个初始函数）。然而，它可以成为一个有意义的风险缓解措施，因为您可能正在执行一个二进制文件或测试一个包，而这个包只使用模块依赖的一个子集。例如，如果您在macOS上构建并执行example.com/cmd/devtoolx，那么只有Windows的依赖或example.com/cmd/othertool的依赖就不可能危害到您的机器。
 
 In Go, modules that don’t contribute code to a specific build have no security impact on it.
 
 在Go中，不为特定构建贡献代码的模块对其没有安全影响。
 
-## “A little copying is better than a little dependency” "一点复制比一点依赖性好"
+## "A little copying is better than a little dependency" "一点复制比一点依赖性好"
 
-The final and maybe most important software supply chain risk mitigation in the Go ecosystem is the least technical one: Go has a culture of rejecting large dependency trees, and of preferring a bit of copying to adding a new dependency. It goes all the way back to one of the Go proverbs: [“a little copying is better than a little dependency”](https://youtube.com/clip/UgkxWCEmMJFW0-TvSMzcMEAHZcpt2FsVXP65). The label “zero dependencies” is proudly worn by high-quality reusable Go modules. If you find yourself in need of a library, you’re likely to find it will not cause you to take on a dependency on dozens of other modules by other authors and owners.
+The final and maybe most important software supply chain risk mitigation in the Go ecosystem is the least technical one: Go has a culture of rejecting large dependency trees, and of preferring a bit of copying to adding a new dependency. It goes all the way back to one of the Go proverbs: ["a little copying is better than a little dependency"](https://youtube.com/clip/UgkxWCEmMJFW0-TvSMzcMEAHZcpt2FsVXP65). The label "zero dependencies" is proudly worn by high-quality reusable Go modules. If you find yourself in need of a library, you’re likely to find it will not cause you to take on a dependency on dozens of other modules by other authors and owners.
 
-在Go生态系统中，最后一个也许也是最重要的软件供应链风险缓解措施是最没有技术含量的一个。Go有一种拒绝大型依赖树的文化，宁可复制一点也不愿意添加新的依赖关系。这可以追溯到Go的一句谚语。"一点复制比一点依赖性好"。"零依赖 "的标签被高质量的可重复使用的Go模块所自豪地佩戴。如果你发现自己需要一个库，你很可能会发现它不会导致你依赖其他作者和所有者的几十个模块。
+在Go生态系统中，最后一个也许也是最重要的软件供应链风险缓解措施是最没有技术含量的一个。Go有一种拒绝大型依赖树的文化，宁可复制一点也不愿意添加新的依赖关系。这可以追溯到Go的一句谚语。"一点复制比一点依赖性好"。"零依赖 "的标签被高质量的可重复使用的Go模块所自豪地佩戴。如果您发现自己需要一个库，您很可能会发现它不会导致您依赖其他作者和所有者的几十个模块。
 
 That’s enabled also by the rich standard library and additional modules (the `golang.org/x/...` ones), which provide commonly used high-level building blocks such as an HTTP stack, a TLS library, JSON encoding, etc.
 

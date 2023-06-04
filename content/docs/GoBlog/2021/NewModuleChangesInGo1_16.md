@@ -16,7 +16,7 @@ Jay Conrod
 
 We hope you’re enjoying Go 1.16! This release has a lot of new features, especially for modules. The [release notes](https://go.dev/doc/go1.16) describe these changes briefly, but let’s explore a few of them in depth.
 
-​	我们希望你喜欢Go 1.16! 这个版本有很多新功能，特别是对模块而言。[发行说明](https://go.dev/doc/go1.16)简要描述了这些变化，但让我们深入探讨一下其中的几个。
+​	我们希望您喜欢Go 1.16! 这个版本有很多新功能，特别是对模块而言。[发行说明](https://go.dev/doc/go1.16)简要描述了这些变化，但让我们深入探讨一下其中的几个。
 
 ## Modules on by default 默认开启模块
 
@@ -26,7 +26,7 @@ The `go` command now builds packages in module-aware mode by default, even when 
 
 It’s still possible to build packages in GOPATH mode by setting the `GO111MODULE` environment variable to `off`. You can also set `GO111MODULE` to `auto` to enable module-aware mode only when a go.mod file is present in the current directory or any parent directory. This was previously the default. Note that you can set `GO111MODULE` and other variables permanently with `go env -w`:
 
-​	通过将`GO111MODULE`环境变量设置为`off`，仍然可以在`GOPATH`模式下构建包。你也可以将`GO111MODULE`设置为`auto`，以便只有在当前目录或任何父目录中存在`go.mod`文件时才启用模块感知模式。这在以前是默认的。注意，你可以用`go env -w`永久地设置`GO111MODULE`和其他变量：
+​	通过将`GO111MODULE`环境变量设置为`off`，仍然可以在`GOPATH`模式下构建包。您也可以将`GO111MODULE`设置为`auto`，以便只有在当前目录或任何父目录中存在`go.mod`文件时才启用模块感知模式。这在以前是默认的。注意，您可以用`go env -w`永久地设置`GO111MODULE`和其他变量：
 
 ```shell
 go env -w GO111MODULE=auto
@@ -34,7 +34,7 @@ go env -w GO111MODULE=auto
 
 We plan to drop support for GOPATH mode in Go 1.17. In other words, Go 1.17 will ignore `GO111MODULE`. If you have projects that do not build in module-aware mode, now is the time to migrate. If there is a problem preventing you from migrating, please consider filing an [issue](https://github.com/golang/go/issues/new) or an [experience report](https://github.com/golang/go/wiki/ExperienceReports).
 
-​	我们计划在Go 1.17中放弃对`GOPATH`模式的支持。换句话说，Go 1.17将忽略`GO111MODULE`。如果你的项目没有在模块感知模式下构建，现在是迁移的时候了。如果有问题阻碍你迁移，请考虑提交[issue](https://github.com/golang/go/issues/new)或[体验报告](https://github.com/golang/go/wiki/ExperienceReports)。
+​	我们计划在Go 1.17中放弃对`GOPATH`模式的支持。换句话说，Go 1.17将忽略`GO111MODULE`。如果您的项目没有在模块感知模式下构建，现在是迁移的时候了。如果有问题阻碍您迁移，请考虑提交[issue](https://github.com/golang/go/issues/new)或[体验报告](https://github.com/golang/go/wiki/ExperienceReports)。
 
 ## No automatic changes to go.mod and go.sum 不自动改变go.mod和go.sum
 
@@ -92,7 +92,7 @@ In order to eliminate ambiguity about which versions are used, there are several
 
 Have you ever accidentally published a module version before it was ready? Or have you discovered a problem right after a version was published that needed to be fixed quickly? Mistakes in published versions are difficult to correct. To keep module builds deterministic, a version cannot be modified after it is published. Even if you delete or change a version tag, [`proxy.golang.org`](https://proxy.golang.org/) and other proxies probably already have the original cached.
 
-​	你是否曾经不小心在模块准备好之前就发布了模块版本？或者你是否在一个版本发布后马上发现了一个问题，需要迅速修复？发布的版本中的错误是很难纠正的。为了保持模块构建的确定性，一个版本在发布后不能被修改。即使你删除或改变了一个版本标签，[proxy.golang.org](https://proxy.golang.org/)和其他代理可能已经有了原始缓存。
+​	您是否曾经不小心在模块准备好之前就发布了模块版本？或者您是否在一个版本发布后马上发现了一个问题，需要迅速修复？发布的版本中的错误是很难纠正的。为了保持模块构建的确定性，一个版本在发布后不能被修改。即使您删除或改变了一个版本标签，[proxy.golang.org](https://proxy.golang.org/)和其他代理可能已经有了原始缓存。
 
 Module authors can now *retract* module versions using the `retract` directive in `go.mod`. A retracted version still exists and can be downloaded (so builds that depend on it won’t break), but the `go` command won’t select it automatically when resolving versions like `@latest`. `go get` and `go list -m -u` will print warnings about existing uses.
 
@@ -163,4 +163,4 @@ See [Controlling version control tools with `GOVCS`](https://go.dev/ref/mod#vcs-
 
 We hope you find these features useful. We’re already hard at work on the next set of module features for Go 1.17, particularly [lazy module loading](https://github.com/golang/go/issues/36460), which should make the module loading process faster and more stable. As always, if you run into new bugs, please let us know on the [issue tracker](https://github.com/golang/go/issues). Happy coding!
 
-​	我们希望你觉得这些功能很有用。我们已经在为Go 1.17的下一组模块功能努力工作了，特别是懒模块加载，它应该使[延迟模块加载](https://github.com/golang/go/issues/36460)过程更快、更稳定。像往常一样，如果你遇到新的错误，请在[issue tracker](https://github.com/golang/go/issues)上告诉我们。编码愉快!
+​	我们希望您觉得这些功能很有用。我们已经在为Go 1.17的下一组模块功能努力工作了，特别是懒模块加载，它应该使[延迟模块加载](https://github.com/golang/go/issues/36460)过程更快、更稳定。像往常一样，如果您遇到新的错误，请在[issue tracker](https://github.com/golang/go/issues)上告诉我们。编码愉快!

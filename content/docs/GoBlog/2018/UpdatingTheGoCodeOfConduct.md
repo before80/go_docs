@@ -18,7 +18,7 @@ In November 2015, we introduced the Go Code of Conduct. It was developed in a co
 
 2015年11月，我们推出了《Go行为准则》。它是由谷歌的Go团队成员和Go社区合作制定的。我很幸运地成为社区成员之一，被邀请参与起草和执行Go行为准则。从那时起，我们在行为准则的局限性方面学到了两个教训，这些局限性限制了我们培养对Go的成功至关重要的安全文化。
 
-The first lesson we learned is that toxic behaviors by project participants in non-project spaces can have a negative impact on the project affecting the security and safety of community members. There were a few reported incidents where actions took place outside of project spaces but the impact was felt inside our community. The specific language in our code of conduct restricted our ability to respond only to actions happening “in the official forums operated by the Go project”. We needed a way to protect our community members wherever they are.
+The first lesson we learned is that toxic behaviors by project participants in non-project spaces can have a negative impact on the project affecting the security and safety of community members. There were a few reported incidents where actions took place outside of project spaces but the impact was felt inside our community. The specific language in our code of conduct restricted our ability to respond only to actions happening "in the official forums operated by the Go project". We needed a way to protect our community members wherever they are.
 
 我们学到的第一个教训是，项目参与者在非项目场所的有毒行为会对项目产生负面影响，影响社区成员的安全和保障。有几起报告的事件是在项目空间之外发生的，但在我们的社区内却感受到了影响。我们的行为准则中的具体语言限制了我们的能力，使我们只能对 "在Go项目运作的官方论坛上 "发生的行为做出反应。我们需要一种方法来保护我们的社区成员，无论他们在哪里。
 
@@ -48,7 +48,7 @@ Our first Project Steward will be [Cassandra Salisbury](https://twitter.com/cass
 
 We are grateful to everyone who served on the original Code of Conduct Working Group. Your efforts were essential in creating an inclusive and safe community.
 
-我们感谢所有在最初的行为准则工作组中工作的人。你们的努力对于创建一个包容和安全的社区至关重要。
+我们感谢所有在最初的行为准则工作组中工作的人。您们的努力对于创建一个包容和安全的社区至关重要。
 
 We believe the code of conduct has contributed to the Go project becoming more welcoming now than it was in 2015, and we should all be proud of that.
 

@@ -52,7 +52,7 @@ Since it is not possible to change the existing definition of the `Message` type
 
 Today, we’re pleased to release that new module. We hope you like it.
 
-今天，我们很高兴发布这个新模块。我们希望你喜欢它。
+今天，我们很高兴发布这个新模块。我们希望您喜欢它。
 
 ## Reflection 反射
 

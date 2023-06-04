@@ -18,13 +18,13 @@ Rob Pike
 
 Go is a statically typed language that does not permit operations that mix numeric types. You can’t add a `float64` to an `int`, or even an `int32` to an `int`. Yet it is legal to write `1e6*time.Second` or `math.Exp(1)` or even `1<<(' '+2.0)`. In Go, constants, unlike variables, behave pretty much like regular numbers. This post explains why that is and what it means.
 
-Go是一种静态类型的语言，不允许混合数字类型的操作。你不能把float64加到int中，甚至不能把int32加到int中。但是写1e6*time.Second或math.Exp(1)甚至1<<(' '+2.0)都是合法的。在Go中，常量与变量不同，它的行为与普通数字差不多。这篇文章解释了为什么会这样，以及它意味着什么。
+Go是一种静态类型的语言，不允许混合数字类型的操作。您不能把float64加到int中，甚至不能把int32加到int中。但是写1e6*time.Second或math.Exp(1)甚至1<<(' '+2.0)都是合法的。在Go中，常量与变量不同，它的行为与普通数字差不多。这篇文章解释了为什么会这样，以及它意味着什么。
 
 ## Background: C 背景：C
 
-In the early days of thinking about Go, we talked about a number of problems caused by the way C and its descendants let you mix and match numeric types. Many mysterious bugs, crashes, and portability problems are caused by expressions that combine integers of different sizes and “signedness”. Although to a seasoned C programmer the result of a calculation like
+In the early days of thinking about Go, we talked about a number of problems caused by the way C and its descendants let you mix and match numeric types. Many mysterious bugs, crashes, and portability problems are caused by expressions that combine integers of different sizes and "signedness". Although to a seasoned C programmer the result of a calculation like
 
-在思考Go的早期，我们谈到了一些由C及其后代让你混合和匹配数字类型的方式引起的问题。许多神秘的错误、崩溃和可移植性问题都是由组合不同大小和 "有符号 "的整数的表达式引起的。尽管对一个经验丰富的C程序员来说，像这样的计算结果是
+在思考Go的早期，我们谈到了一些由C及其后代让您混合和匹配数字类型的方式引起的问题。许多神秘的错误、崩溃和可移植性问题都是由组合不同大小和 "有符号 "的整数的表达式引起的。尽管对一个经验丰富的C程序员来说，像这样的计算结果是
 
 ```c linenums="1"
 unsigned int u = 1e9;
@@ -40,13 +40,13 @@ Nasty bugs lurk here.
 
 这里潜伏着可怕的错误。
 
-C has a set of rules called “the usual arithmetic conversions” and it is an indicator of their subtlety that they have changed over the years (introducing yet more bugs, retroactively).
+C has a set of rules called "the usual arithmetic conversions" and it is an indicator of their subtlety that they have changed over the years (introducing yet more bugs, retroactively).
 
 C语言有一套被称为 "通常的算术转换 "的规则，这些规则多年来一直在变化，这说明了它们的微妙之处（引入了更多的错误，追溯性的）。
 
 When designing Go, we decided to avoid this minefield by mandating that there is *no* mixing of numeric types. If you want to add `i` and `u`, you must be explicit about what you want the result to be. Given
 
-在设计Go的时候，我们决定通过规定数字类型不能混合的方式来避免这个雷区。如果你想把i和u加起来，你必须明确说明你想要的结果是什么。鉴于
+在设计Go的时候，我们决定通过规定数字类型不能混合的方式来避免这个雷区。如果您想把i和u加起来，您必须明确说明您想要的结果是什么。鉴于
 
 ```go linenums="1"
 var u uint
@@ -55,7 +55,7 @@ var i int
 
 you can write either `uint(i)+u` or `i+int(u)`, with both the meaning and type of the addition clearly expressed, but unlike in C you cannot write `i+u`. You can’t even mix `int` and `int32`, even when `int` is a 32-bit type.
 
-你可以写uint(i)+u或i+int(u)，明确表达加法的含义和类型，但与C语言不同，你不能写i+u。你甚至不能混合使用int和int32，即使int是一个32位类型。
+您可以写uint(i)+u或i+int(u)，明确表达加法的含义和类型，但与C语言不同，您不能写i+u。您甚至不能混合使用int和int32，即使int是一个32位类型。
 
 This strictness eliminates a common cause of bugs and other failures. It is a vital property of Go. But it has a cost: it sometimes requires programmers to decorate their code with clumsy numeric conversions to express their meaning clearly.
 
@@ -207,15 +207,15 @@ These untyped string constants are strings, of course, so they can only be used 
 
 As a Go programmer, you have certainly seen many declarations like
 
-作为一个Go程序员，你肯定见过很多类似于以下的声明
+作为一个Go程序员，您肯定见过很多类似于以下的声明
 
 ```go linenums="1"
 str := "Hello, 世界"
 ```
 
-and by now you might be asking, “if the constant is untyped, how does `str` get a type in this variable declaration?” The answer is that an untyped constant has a default type, an implicit type that it transfers to a value if a type is needed where none is provided. For untyped string constants, that default type is obviously `string`, so
+and by now you might be asking, "if the constant is untyped, how does `str` get a type in this variable declaration?" The answer is that an untyped constant has a default type, an implicit type that it transfers to a value if a type is needed where none is provided. For untyped string constants, that default type is obviously `string`, so
 
-的声明，现在你可能会问，"如果常量是未定型的，str在这个变量声明中是如何得到一个类型的？" 答案是，一个没有类型的常量有一个默认的类型，一个隐含的类型，如果在没有提供类型的情况下需要一个类型，它就会转移到一个值。对于未定型的字符串常量，默认类型显然是字符串，所以
+的声明，现在您可能会问，"如果常量是未定型的，str在这个变量声明中是如何得到一个类型的？" 答案是，一个没有类型的常量有一个默认的类型，一个隐含的类型，如果在没有提供类型的情况下需要一个类型，它就会转移到一个值。对于未定型的字符串常量，默认类型显然是字符串，所以
 
 ```go linenums="1"
 str := "Hello, 世界"
@@ -263,7 +263,7 @@ which is to say its arguments (after the format string) are interface values. Wh
 
 You can see the result in this example, which uses the format `%v` to print the value and `%T` to print the type of the value being passed to `fmt.Printf`:
 
-你可以在这个例子中看到结果，它使用格式%v来打印值，%T来打印被传递给fmt.Printf的值的类型：
+您可以在这个例子中看到结果，它使用格式%v来打印值，%T来打印被传递给fmt.Printf的值的类型：
 
 ```go linenums="1"
     fmt.Printf("%T: %v\n", "Hello, 世界", "Hello, 世界")
@@ -328,7 +328,7 @@ Everything we said about untyped string constants can be said for untyped boolea
 
 Run 运行
 
-Run the example and see what happens, then comment out the “Bad” line and run it again. The pattern here follows exactly that of string constants.
+Run the example and see what happens, then comment out the "Bad" line and run it again. The pattern here follows exactly that of string constants.
 
 运行这个例子，看看会发生什么，然后注释掉 "Bad "行，再运行一次。这里的模式完全遵循字符串常数的模式。
 
@@ -387,7 +387,7 @@ Numeric constants live in an arbitrary-precision numeric space; they are just re
 
 Run 运行
 
-The error is, “constant 1.00000e+1000 overflows float64”, which is true. But `Huge` might be useful: we can use it in expressions with other constants and use the value of those expressions if the result can be represented in the range of a `float64`. The statement,
+The error is, "constant 1.00000e+1000 overflows float64", which is true. But `Huge` might be useful: we can use it in expressions with other constants and use the value of those expressions if the result can be represented in the range of a `float64`. The statement,
 
 错误是："常数1.00000e+1000溢出了float64"，这是真的。但是Huge可能是有用的：我们可以在有其他常数的表达式中使用它，如果结果可以在float64的范围内表示，则使用这些表达式的值。的语句。
 
@@ -424,7 +424,7 @@ prints `3.141592653589793`.
 
 打印出3.141592653589793。
 
-Having so many digits available means that calculations like `Pi/2` or other more intricate evaluations can carry more precision until the result is assigned, making calculations involving constants easier to write without losing precision. It also means that there is no occasion in which the floating-point corner cases like infinities, soft underflows, and `NaNs` arise in constant expressions. (Division by a constant zero is a compile-time error, and when everything is a number there’s no such thing as “not a number”.)
+Having so many digits available means that calculations like `Pi/2` or other more intricate evaluations can carry more precision until the result is assigned, making calculations involving constants easier to write without losing precision. It also means that there is no occasion in which the floating-point corner cases like infinities, soft underflows, and `NaNs` arise in constant expressions. (Division by a constant zero is a compile-time error, and when everything is a number there’s no such thing as "not a number".)
 
 有这么多可用的数字意味着像Pi/2这样的计算或其他更复杂的计算可以携带更多的精度，直到结果被分配，使涉及常数的计算更容易编写而不损失精度。这也意味着在常数表达式中不会出现浮点的角落情况，比如无穷大、软下溢和NaN。(除以常数0是一个编译时的错误，而且当所有东西都是数字时，就没有 "不是数字 "这样的东西)。
 
@@ -487,7 +487,7 @@ prints `complex128:` `(2+0i)`. But numerically, `Two` can be stored in a scalar 
 
 Run 运行
 
-The output is `2` `and` `2`. Even though `Two` is a complex constant, it can be assigned to scalar floating-point variables. This ability for a constant to “cross” types like this will prove useful.
+The output is `2` `and` `2`. Even though `Two` is a complex constant, it can be assigned to scalar floating-point variables. This ability for a constant to "cross" types like this will prove useful.
 
 输出结果是2和2。尽管Two是一个复合常数，但它可以被分配给标量浮点变量。这种常数 "跨越 "类型的能力将被证明是有用的。
 
@@ -522,7 +522,7 @@ uintptr
 
 (plus the aliases `byte` for `uint8` and `rune` for `int32`). That’s a lot, but the pattern in the way constants work should be familiar enough by now that you can see how things will play out.
 
-(加上uint8的别名byte和int32的别名rune）。这是一个很大的问题，但是常量工作方式的模式现在应该足够熟悉，你可以看到事情将如何发展。
+(加上uint8的别名byte和int32的别名rune）。这是一个很大的问题，但是常量工作方式的模式现在应该足够熟悉，您可以看到事情将如何发展。
 
 As mentioned above, integers come in a couple of forms and each form has its own default type: `int` for simple constants like `123` or `0xFF` or `-14` and `rune` for quoted characters like ‘a’, ‘世’ or ‘\r’.
 
@@ -571,7 +571,7 @@ Run 运行
 
 If the compiler complains about your use of a constant, it’s likely a real bug like this.
 
-如果编译器抱怨你使用了一个常数，那很可能是像这样的一个真正的错误。
+如果编译器抱怨您使用了一个常数，那很可能是像这样的一个真正的错误。
 
 ## An exercise: The largest unsigned int 一个练习。最大的无符号int
 
@@ -666,7 +666,7 @@ Whatever the number of bits it takes to represent a `uint` in the current execut
 
 If you understand the analysis that got us to this result, you understand all the important points about constants in Go.
 
-如果你理解了让我们得到这个结果的分析，你就理解了Go中关于常数的所有重要观点。
+如果您理解了让我们得到这个结果的分析，您就理解了Go中关于常数的所有重要观点。
 
 ## Numbers 数字
 
@@ -708,7 +708,7 @@ The output from this snippet is: `1 1 1 1 1 (1+0i) 1`.
 
 You can even do nutty stuff like
 
-你甚至可以做一些疯狂的事情，比如
+您甚至可以做一些疯狂的事情，比如
 
 ```go linenums="1"
     var f = 'a' * 1.5
@@ -743,8 +743,8 @@ bigBufferWithHeader := make([]byte, 512+1e6)
 
 and have the results mean what you expect.
 
-并使结果达到你所期望的效果。
+并使结果达到您所期望的效果。
 
 Because in Go, numeric constants work as you expect: like numbers.
 
-因为在Go中，数字常量的工作方式和你期望的一样：像数字一样。
+因为在Go中，数字常量的工作方式和您期望的一样：像数字一样。

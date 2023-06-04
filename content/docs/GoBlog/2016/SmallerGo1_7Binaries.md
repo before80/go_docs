@@ -100,4 +100,4 @@ These changes are all conservative, reducing binary size without increasing buil
 
 To the many contributors who helped make Go 1.7 binaries smaller, thank you!
 
-对于许多帮助Go 1.7二进制文件变小的贡献者，谢谢你们
+对于许多帮助Go 1.7二进制文件变小的贡献者，谢谢您们

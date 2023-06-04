@@ -18,7 +18,7 @@ This page collects common comments made during reviews of Go code, so that a sin
 
 You can view this as a supplement to [Effective Go](https://go.dev/doc/effective_go).
 
-你可以把它看作是Effective Go的一个补充。
+您可以把它看作是Effective Go的一个补充。
 
 Additional comments related to testing can be found at [Go Test Comments](https://github.com/golang/go/wiki/TestComments)
 
@@ -32,7 +32,7 @@ Additional comments related to testing can be found at [Go Test Comments](https:
 
 Run [gofmt](https://pkg.go.dev/cmd/gofmt/) on your code to automatically fix the majority of mechanical style issues. Almost all Go code in the wild uses `gofmt`. The rest of this document addresses non-mechanical style points.
 
-在你的代码上运行gofmt，可以自动修复大部分的机械风格问题。几乎所有的 Go 代码都在使用 gofmt。本文档的其余部分将讨论非机械式风格问题。
+在您的代码上运行gofmt，可以自动修复大部分的机械风格问题。几乎所有的 Go 代码都在使用 gofmt。本文档的其余部分将讨论非机械式风格问题。
 
 An alternative is to use [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports), a superset of `gofmt` which additionally adds (and removes) import lines as necessary.
 
@@ -72,7 +72,7 @@ func F(ctx context.Context, /* other arguments */) {}
 
 A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
 
-一个从来没有特定请求的函数可以使用context.background()，但即使你认为不需要，也要在传递Context方面犯错误。默认情况下是传递一个Context；只有当你有充分的理由说明另一种选择是错误的时候才会直接使用context.background()。
+一个从来没有特定请求的函数可以使用context.background()，但即使您认为不需要，也要在传递Context方面犯错误。默认情况下是传递一个Context；只有当您有充分的理由说明另一种选择是错误的时候才会直接使用context.background()。
 
 Don't add a Context member to a struct type; instead add a ctx parameter to each method on that type that needs to pass it along. The one exception is for methods whose signature must match an interface in the standard library or in a third party library.
 
@@ -84,7 +84,7 @@ Don't create custom Context types or use interfaces other than Context in functi
 
 If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
 
-如果你有应用数据需要传递，把它放在一个参数中，放在接收器中，放在globals中，或者，如果它真的属于那里，放在一个Context值中。
+如果您有应用数据需要传递，把它放在一个参数中，放在接收器中，放在globals中，或者，如果它真的属于那里，放在一个Context值中。
 
 Contexts are immutable, so it's fine to pass the same ctx to multiple calls that share the same deadline, cancellation signal, credentials, parent trace, etc.
 
@@ -94,7 +94,7 @@ Context是不可改变的，所以把相同的ctx传递给共享相同的截止�
 
 To avoid unexpected aliasing, be careful when copying a struct from another package. For example, the bytes.Buffer type contains a `[]byte` slice. If you copy a `Buffer`, the slice in the copy may alias the array in the original, causing subsequent method calls to have surprising effects.
 
-为了避免意外的别名，在从其他包复制结构时要小心。例如，bytes.Buffer类型包含一个[]字节分片。如果你拷贝一个Buffer，拷贝中的片断可能会与原结构中的数组产生别名，导致后续的方法调用产生意外的效果。
+为了避免意外的别名，在从其他包复制结构时要小心。例如，bytes.Buffer类型包含一个[]字节分片。如果您拷贝一个Buffer，拷贝中的片断可能会与原结构中的数组产生别名，导致后续的方法调用产生意外的效果。
 
 In general, do not copy a value of type `T` if its methods are associated with the pointer type, `*T`.
 
@@ -104,7 +104,7 @@ In general, do not copy a value of type `T` if its methods are associated with t
 
 Do not use package `math/rand` to generate keys, even throwaway ones. Unseeded, the generator is completely predictable. Seeded with `time.Nanoseconds()`, there are just a few bits of entropy. Instead, use `crypto/rand`'s Reader, and if you need text, print to hexadecimal or base64:
 
-不要使用软件包math/rand来生成密钥，即使是抛弃式的。不加种子，生成器是完全可预测的。用time.Nanoseconds()作为种子，就只有几个比特的熵了。相反，使用crypto/rand的Reader，如果你需要文本，打印成十六进制或base64：
+不要使用软件包math/rand来生成密钥，即使是抛弃式的。不加种子，生成器是完全可预测的。用time.Nanoseconds()作为种子，就只有几个比特的熵了。相反，使用crypto/rand的Reader，如果您需要文本，打印成十六进制或base64：
 
 ```go linenums="1"
 import (
@@ -192,7 +192,7 @@ Read more about [testable Example() functions](https://go.dev/blog/examples).
 
 When you spawn goroutines, make it clear when - or whether - they exit.
 
-当你生成goroutine时，要明确说明它们何时或是否退出。
+当您生成goroutine时，要明确说明它们何时或是否退出。
 
 Goroutines can leak by blocking on channel sends or receives: the garbage collector will not terminate a goroutine even if the channels it is blocked on are unreachable.
 
@@ -237,7 +237,7 @@ import (
 
 [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports) will do this for you.
 
-goimports 会为你做这个。
+goimports 会为您做这个。
 
 ## Import Blank 导入空白
 
@@ -262,7 +262,7 @@ import (
 
 In this case, the test file cannot be in package foo because it uses bar/testutil, which imports foo. So we use the 'import .' form to let the file pretend to be part of package foo even though it is not. Except for this one case, do not use import . in your programs. It makes the programs much harder to read because it is unclear whether a name like Quux is a top-level identifier in the current package or in an imported package.
 
-在这种情况下，测试文件不可能在包foo中，因为它使用的是bar/testutil，它导入了foo。所以我们使用'import . '的形式，让文件假装是包foo的一部分，尽管它不是。除了这种情况，不要在你的程序中使用import .。它使程序更难阅读，因为不清楚像Quux这样的名字是当前包中的顶级标识符还是导入包中的顶级标识符。
+在这种情况下，测试文件不可能在包foo中，因为它使用的是bar/testutil，它导入了foo。所以我们使用'import . '的形式，让文件假装是包foo的一部分，尽管它不是。除了这种情况，不要在您的程序中使用import .。它使程序更难阅读，因为不清楚像Quux这样的名字是当前包中的顶级标识符还是导入包中的顶级标识符。
 
 ## In-Band Errors 带内错误
 
@@ -447,7 +447,7 @@ Most of the time when people wrap lines "unnaturally" (in the middle of function
 
 In other words, break lines because of the semantics of what you're writing (as a general rule) and not because of the length of the line. If you find that this produces lines that are too long, then change the names or the semantics and you'll probably get a good result.
 
-换句话说，断行是因为你所写的内容的语义（作为一般规则），而不是因为行的长度。如果你发现这样做产生的行太长，那么改变名称或语义，你可能会得到一个好结果。
+换句话说，断行是因为您所写的内容的语义（作为一般规则），而不是因为行的长度。如果您发现这样做产生的行太长，那么改变名称或语义，您可能会得到一个好结果。
 
 This is, actually, exactly the same advice about how long a function should be. There's no rule "never have a function more than N lines long", but there is definitely such a thing as too long of a function, and of too repetitive tiny functions, and the solution is to change where the function boundaries are, not to start counting lines.
 
@@ -503,11 +503,11 @@ func (f *Foo) Location() (lat, long float64, err error)
 
 Naked returns are okay if the function is a handful of lines. Once it's a medium sized function, be explicit with your return values. Corollary: it's not worth it to name result parameters just because it enables you to use naked returns. Clarity of docs is always more important than saving a line or two in your function.
 
-如果函数只有寥寥几行，裸返是可以的。一旦它是一个中等规模的函数，就要明确你的返回值。推论：不值得为结果参数命名，因为这可以让你使用裸返回。文档的清晰性总是比在你的函数中节省一两行更重要。
+如果函数只有寥寥几行，裸返是可以的。一旦它是一个中等规模的函数，就要明确您的返回值。推论：不值得为结果参数命名，因为这可以让您使用裸返回。文档的清晰性总是比在您的函数中节省一两行更重要。
 
 Finally, in some cases you need to name a result parameter in order to change it in a deferred closure. That is always OK.
 
-最后，在某些情况下，你需要命名一个结果参数，以便在一个延迟闭包中改变它。这总是可以的。
+最后，在某些情况下，您需要命名一个结果参数，以便在一个延迟闭包中改变它。这总是可以的。
 
 ## Naked Returns 赤裸裸的返回
 
@@ -546,7 +546,7 @@ package template
 
 For "package main" comments, other styles of comment are fine after the binary name (and it may be capitalized if it comes first), For example, for a `package main` in the directory `seedgen` you could write:
 
-对于 "package main "的注释，其他样式的注释在二进制名称后面也可以（如果它在前面，可以大写），例如，对于目录seedgen中的package main，你可以写：
+对于 "package main "的注释，其他样式的注释在二进制名称后面也可以（如果它在前面，可以大写），例如，对于目录seedgen中的package main，您可以写：
 
 ```
 // Binary seedgen ...
@@ -604,7 +604,7 @@ See https://go.dev/doc/effective_go#commentary for more information about commen
 
 All references to names in your package will be done using the package name, so you can omit that name from the identifiers. For example, if you are in package chubby, you don't need type ChubbyFile, which clients will write as `chubby.ChubbyFile`. Instead, name the type `File`, which clients will write as `chubby.File`. Avoid meaningless package names like util, common, misc, api, types, and interfaces. See https://go.dev/doc/effective_go#package-names and https://go.dev/blog/package-names for more.
 
-在你的包中所有对名字的引用都将使用包名，所以你可以在标识符中省略该名字。例如，如果你在包 chubby 中，你不需要类型 ChubbyFile，客户端会把它写成 chubby.ChubbyFile。取而代之的是，将类型File命名为客户将写成chubby.File。避免使用无意义的包名，如util、common、misc、api、types和interface。参见https://go.dev/doc/effective_go#package-names 和 https://go.dev/blog/package-names 了解更多。
+在您的包中所有对名字的引用都将使用包名，所以您可以在标识符中省略该名字。例如，如果您在包 chubby 中，您不需要类型 ChubbyFile，客户端会把它写成 chubby.ChubbyFile。取而代之的是，将类型File命名为客户将写成chubby.File。避免使用无意义的包名，如util、common、misc、api、types和interface。参见https://go.dev/doc/effective_go#package-names 和 https://go.dev/blog/package-names 了解更多。
 
 ## Pass Values 传递值
 
@@ -616,7 +616,7 @@ Don't pass pointers as function arguments just to save a few bytes. If a functio
 
 The name of a method's receiver should be a reflection of its identity; often a one or two letter abbreviation of its type suffices (such as "c" or "cl" for "Client"). Don't use generic names such as "me", "this" or "self", identifiers typical of object-oriented languages that gives the method a special meaning. In Go, the receiver of a method is just another parameter and therefore, should be named accordingly. The name need not be as descriptive as that of a method argument, as its role is obvious and serves no documentary purpose. It can be very short as it will appear on almost every line of every method of the type; familiarity admits brevity. Be consistent, too: if you call the receiver "c" in one method, don't call it "cl" in another.
 
-一个方法的接收者的名字应该反映它的身份；通常一个或两个字母的类型缩写就足够了（如 "c "或 "cl "代表 "Client"）。不要使用诸如 "me"、"this "或 "self "这样的通用名称，这些是面向对象语言的典型标识，它们赋予了方法以特殊的含义。在Go中，一个方法的接收者只是另一个参数，因此，应该相应地命名。这个名字不需要像方法参数那样具有描述性，因为它的作用是显而易见的，没有任何文件上的作用。它可以很短，因为它几乎会出现在该类型的每一个方法的每一行；熟悉的人都会接受简洁。也要保持一致：如果你在一个方法中称接收器为 "c"，不要在另一个方法中称它为 "cl"。
+一个方法的接收者的名字应该反映它的身份；通常一个或两个字母的类型缩写就足够了（如 "c "或 "cl "代表 "Client"）。不要使用诸如 "me"、"this "或 "self "这样的通用名称，这些是面向对象语言的典型标识，它们赋予了方法以特殊的含义。在Go中，一个方法的接收者只是另一个参数，因此，应该相应地命名。这个名字不需要像方法参数那样具有描述性，因为它的作用是显而易见的，没有任何文件上的作用。它可以很短，因为它几乎会出现在该类型的每一个方法的每一行；熟悉的人都会接受简洁。也要保持一致：如果您在一个方法中称接收器为 "c"，不要在另一个方法中称它为 "cl"。
 
 ## Receiver Type 接收器类型
 
@@ -652,7 +652,7 @@ If callers need more concurrency, they can add it easily by calling the function
 
 Tests should fail with helpful messages saying what was wrong, with what inputs, what was actually got, and what was expected. It may be tempting to write a bunch of assertFoo helpers, but be sure your helpers produce useful error messages. Assume that the person debugging your failing test is not you, and is not your team. A typical Go test fails like:
 
-测试失败时应该有有用的信息，说明什么地方出了问题，用什么输入，实际得到了什么，以及预期得到了什么。写一堆assertFoo辅助工具可能很诱人，但要确保你的辅助工具产生有用的错误信息。假设调试你失败的测试的人不是你，也不是你的团队。一个典型的Go测试失败的情况如下：
+测试失败时应该有有用的信息，说明什么地方出了问题，用什么输入，实际得到了什么，以及预期得到了什么。写一堆assertFoo辅助工具可能很诱人，但要确保您的辅助工具产生有用的错误信息。假设调试您失败的测试的人不是您，也不是您的团队。一个典型的Go测试失败的情况如下：
 
 ```
 if got != tt.want {
@@ -666,7 +666,7 @@ Note that the order here is actual != expected, and the message uses that order 
 
 If that seems like a lot of typing, you may want to write a [table-driven test](https://github.com/golang/go/wiki/TableDrivenTests).
 
-如果这看起来像大量的打字，你可能想写一个表驱动的测试。
+如果这看起来像大量的打字，您可能想写一个表驱动的测试。
 
 Another common technique to disambiguate failing tests when using a test helper with different input is to wrap each caller with a different TestFoo function, so the test fails with that name:
 
@@ -679,7 +679,7 @@ func TestNoValues(t *testing.T)    { testHelper(t, []int{}) }
 
 In any case, the onus is on you to fail with a helpful message to whoever's debugging your code in the future.
 
-在任何情况下，你都有责任为将来调试你的代码的人提供一个有用的信息，使其失败。
+在任何情况下，您都有责任为将来调试您的代码的人提供一个有用的信息，使其失败。
 
 ## Variable Names 变量名
 

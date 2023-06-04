@@ -9,7 +9,7 @@ draft = false
 
 ### Overview 
 
-Compile, typically invoked as “go tool compile,” compiles a single Go package comprising the files named on the command line. It then writes a single object file named for the basename of the first source file with a .o suffix. The object file can then be combined with other objects into a package archive or passed directly to the linker (“go tool link”). If invoked with -pack, the compiler writes an archive directly, bypassing the intermediate object file.
+Compile, typically invoked as "go tool compile," compiles a single Go package comprising the files named on the command line. It then writes a single object file named for the basename of the first source file with a .o suffix. The object file can then be combined with other objects into a package archive or passed directly to the linker ("go tool link"). If invoked with -pack, the compiler writes an archive directly, bypassing the intermediate object file.
 
 The generated files contain type information about the symbols exported by the package and about types used by symbols imported by the package from other packages. It is therefore not necessary when compiling client C of package P to read the files of P's dependencies, only the compiled output of P.
 
@@ -221,7 +221,7 @@ The //go:nosplit directive must be followed by a function declaration. It specif
 //go:linkname localname [importpath.name]
 ```
 
-This special directive does not apply to the Go code that follows it. Instead, the //go:linkname directive instructs the compiler to use “importpath.name” as the object file symbol name for the variable or function declared as “localname” in the source code. If the “importpath.name” argument is omitted, the directive uses the symbol's default object file symbol name and only has the effect of making the symbol accessible to other packages. Because this directive can subvert the type system and package modularity, it is only enabled in files that have imported "unsafe".
+This special directive does not apply to the Go code that follows it. Instead, the //go:linkname directive instructs the compiler to use "importpath.name" as the object file symbol name for the variable or function declared as "localname" in the source code. If the "importpath.name" argument is omitted, the directive uses the symbol's default object file symbol name and only has the effect of making the symbol accessible to other packages. Because this directive can subvert the type system and package modularity, it is only enabled in files that have imported "unsafe".
 
 
 

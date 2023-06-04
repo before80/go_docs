@@ -46,7 +46,7 @@ This article explains how these issues were addressed while building an efficien
 
 If you have wondered about the design decisions behind Go, you may find your questions answered by [the essay](https://go.dev/talks/2012/splash.article). It is recommended reading for both new and experienced Go programmers.
 
-如果你想知道Go背后的设计决策，你可能会发现你的问题在文中得到了解答。它是推荐给新的和有经验的Go程序员阅读的。
+如果您想知道Go背后的设计决策，您可能会发现您的问题在文中得到了解答。它是推荐给新的和有经验的Go程序员阅读的。
 
 ## Go at the Google Developers Academy 谷歌开发者学院的Go
 

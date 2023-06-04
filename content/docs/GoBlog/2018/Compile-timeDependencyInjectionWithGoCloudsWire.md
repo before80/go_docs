@@ -37,7 +37,7 @@ This technique works great at small scale, but larger applications can have a co
 
 Dependency injection tools like Wire aim to simplify the management of initialization code. You describe your services and their dependencies, either as code or as configuration, then Wire processes the resulting graph to figure out ordering and how to pass each service what it needs. Make changes to an application’s dependencies by changing a function signature or adding or removing an initializer, and then let Wire do the tedious work of generating initialization code for the entire dependency graph.
 
-像Wire这样的依赖注入工具，旨在简化初始化代码的管理。你以代码或配置的形式描述你的服务和它们的依赖关系，然后Wire处理产生的图，以找出排序和如何传递给每个服务它所需要的东西。通过改变函数签名或添加或删除初始化器来改变应用程序的依赖关系，然后让Wire完成为整个依赖关系图生成初始化代码的繁琐工作。
+像Wire这样的依赖注入工具，旨在简化初始化代码的管理。您以代码或配置的形式描述您的服务和它们的依赖关系，然后Wire处理产生的图，以找出排序和如何传递给每个服务它所需要的东西。通过改变函数签名或添加或删除初始化器来改变应用程序的依赖关系，然后让Wire完成为整个依赖关系图生成初始化代码的繁琐工作。
 
 ## Why is this part of Go Cloud? 为什么这是Go Cloud的一部分？
 
@@ -59,9 +59,9 @@ We think this approach has several advantages:
 
 我们认为这种方法有几个优点：
 
-- Runtime dependency injection can be hard to follow and debug when the dependency graph gets complex. Using code generation means that the initialization code that’s executed at runtime is regular, idiomatic Go code that’s easy to understand and debug. Nothing is obfuscated by an intervening framework doing “magic”. In particular, problems like forgetting a dependency become compile-time errors, not run-time errors.当依赖关系图变得复杂时，运行时依赖关系注入会很难跟踪和调试。使用代码生成意味着在运行时执行的初始化代码是常规的、习惯性的Go代码，易于理解和调试。没有任何东西会被干预框架的 "魔法 "所迷惑。特别是，像忘记依赖关系这样的问题会成为编译时错误，而不是运行时错误。
+- Runtime dependency injection can be hard to follow and debug when the dependency graph gets complex. Using code generation means that the initialization code that’s executed at runtime is regular, idiomatic Go code that’s easy to understand and debug. Nothing is obfuscated by an intervening framework doing "magic". In particular, problems like forgetting a dependency become compile-time errors, not run-time errors.当依赖关系图变得复杂时，运行时依赖关系注入会很难跟踪和调试。使用代码生成意味着在运行时执行的初始化代码是常规的、习惯性的Go代码，易于理解和调试。没有任何东西会被干预框架的 "魔法 "所迷惑。特别是，像忘记依赖关系这样的问题会成为编译时错误，而不是运行时错误。
 - Unlike [service locators](https://en.wikipedia.org/wiki/Service_locator_pattern), there’s no need to make up arbitrary names or keys to register services. Wire uses Go types to connect components with their dependencies.与服务定位器不同，不需要编造任意的名字或键来注册服务。Wire使用Go类型来连接组件和它们的依赖关系。
-- It’s easier to avoid dependency bloat. Wire’s generated code will only import the dependencies you need, so your binary won’t have unused imports. Runtime dependency injectors can’t identify unused dependencies until runtime.这更容易避免依赖性的膨胀。Wire生成的代码只导入你需要的依赖，所以你的二进制文件不会有未使用的导入。运行时的依赖性注入器在运行时才能识别未使用的依赖性。
+- It’s easier to avoid dependency bloat. Wire’s generated code will only import the dependencies you need, so your binary won’t have unused imports. Runtime dependency injectors can’t identify unused dependencies until runtime.这更容易避免依赖性的膨胀。Wire生成的代码只导入您需要的依赖，所以您的二进制文件不会有未使用的导入。运行时的依赖性注入器在运行时才能识别未使用的依赖性。
 - Wire’s dependency graph is knowable statically, which provides opportunities for tooling and visualization.Wire的依赖图是静态可知的，这为工具化和可视化提供了机会。
 
 ## How does it work? 它是如何工作的？
@@ -70,7 +70,7 @@ Wire has two basic concepts: providers and injectors.
 
 Wire有两个基本概念：提供者和注入者。
 
-*Providers* are ordinary Go functions that “provide” values given their dependencies, which are described simply as parameters to the function. Here’s some sample code that defines three providers:
+*Providers* are ordinary Go functions that "provide" values given their dependencies, which are described simply as parameters to the function. Here’s some sample code that defines three providers:
 
 提供者是普通的Go函数，它 "提供 "给它们的依赖值，这些依赖值被简单描述为函数的参数。下面是一些定义了三个提供者的示例代码：
 
@@ -96,7 +96,7 @@ var UserStoreSet = wire.ProviderSet(NewUserStore, NewDefaultConfig)
 
 *Injectors* are generated functions that call providers in dependency order. You write the injector’s signature, including any needed inputs as arguments, and insert a call to `wire.Build` with the list of providers or provider sets that are needed to construct the end result:
 
-注入器是生成的函数，它按依赖关系的顺序调用提供者。你编写注入器的签名，包括任何需要的输入作为参数，并插入对 wire.Build 的调用，其中包括构建最终结果所需的提供者或提供者集的列表：
+注入器是生成的函数，它按依赖关系的顺序调用提供者。您编写注入器的签名，包括任何需要的输入作为参数，并插入对 wire.Build 的调用，其中包括构建最终结果所需的提供者或提供者集的列表：
 
 ```go linenums="1"
 func initUserStore() (*UserStore, error) {
@@ -158,7 +158,7 @@ Any non-injector declarations are copied into the generated file. There is no de
 
 As you can see, the output is very close to what a developer would write themselves. This was a trivial example with just three components, so writing the initializer by hand wouldn’t be too painful, but Wire saves a lot of manual toil for components and applications with more complex dependency graphs.
 
-正如你所看到的，输出结果非常接近于开发者自己写的东西。这是一个只有三个组件的微不足道的例子，所以用手写初始化器不会太痛苦，但对于具有更复杂依赖关系图的组件和应用程序来说，Wire可以节省大量的手工劳作。
+正如您所看到的，输出结果非常接近于开发者自己写的东西。这是一个只有三个组件的微不足道的例子，所以用手写初始化器不会太痛苦，但对于具有更复杂依赖关系图的组件和应用程序来说，Wire可以节省大量的手工劳作。
 
 ## How can I get involved and learn more? 我怎样才能参与并了解更多？
 
@@ -168,8 +168,8 @@ Wire的README更详细地介绍了如何使用Wire及其更高级的功能。还
 
 We appreciate any input you have about your experience with Wire! [Wire’s](https://github.com/google/wire) development is conducted on GitHub, so you can [file an issue](https://github.com/google/wire/issues/new/choose) to tell us what could be better. For updates and discussion about the project, join [the Go Cloud mailing list](https://groups.google.com/forum/#!forum/go-cloud).
 
-我们感谢你对使用Wire的经验提出的任何意见。Wire的开发是在GitHub上进行的，所以你可以提交一个问题来告诉我们什么地方可以做得更好。关于项目的更新和讨论，请加入Go Cloud邮件列表。
+我们感谢您对使用Wire的经验提出的任何意见。Wire的开发是在GitHub上进行的，所以您可以提交一个问题来告诉我们什么地方可以做得更好。关于项目的更新和讨论，请加入Go Cloud邮件列表。
 
 Thank you for taking the time to learn about Go Cloud’s Wire. We’re excited to work with you to make Go the language of choice for developers building portable cloud applications.
 
-感谢你花时间了解Go Cloud的Wire。我们很高兴能与您合作，使 Go 成为开发人员构建可移植云应用程序的首选语言。
+感谢您花时间了解Go Cloud的Wire。我们很高兴能与您合作，使 Go 成为开发人员构建可移植云应用程序的首选语言。

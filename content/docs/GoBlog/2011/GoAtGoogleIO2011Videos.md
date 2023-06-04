@@ -18,11 +18,11 @@ Andrew Gerrand
 
 The Go team had a great time at Google I/O 2011. It was a pleasure to meet so many programmers who share our enthusiasm for Go, and to share our work of the past few months. For those of you that couldn’t be there in person, you can now watch videos of our two Go presentations on YouTube.
 
-Go团队在Google I/O 2011上度过了一段美好的时光。很高兴能见到这么多与我们一样热衷于Go的程序员，并分享我们过去几个月的工作。对于那些不能亲临现场的人来说，你现在可以在YouTube上观看我们两个Go演讲的视频。
+Go团队在Google I/O 2011上度过了一段美好的时光。很高兴能见到这么多与我们一样热衷于Go的程序员，并分享我们过去几个月的工作。对于那些不能亲临现场的人来说，您现在可以在YouTube上观看我们两个Go演讲的视频。
 
 ## Writing Web Apps in Go 用Go编写网络应用程序
 
-In “[Writing Web Apps in Go](http://www.youtube.com/watch?v=-i0hat7pdpk)” we announce the [Go runtime for Google App Engine](https://blog.golang.org/2011/05/go-and-google-app-engine.html) and walk through the development and deployment of [Moustachio](http://moustach-io.appspot.com/), the first Go App Engine app.
+In "[Writing Web Apps in Go](http://www.youtube.com/watch?v=-i0hat7pdpk)" we announce the [Go runtime for Google App Engine](https://blog.golang.org/2011/05/go-and-google-app-engine.html) and walk through the development and deployment of [Moustachio](http://moustach-io.appspot.com/), the first Go App Engine app.
 
 在 "用Go编写网络应用程序 "中，我们宣布了Google App Engine的Go运行时间，并介绍了Moustachio的开发和部署，这是第一个Go App Engine应用程序。
 
@@ -48,7 +48,7 @@ For those that didn’t get one at the conference, we hope to make him available
 
 ## Real World Go 真实世界的Go
 
-“[Real World Go](http://www.youtube.com/watch?v=7QDVRowyUQA)”, presented at [I/O Bootcamp](http://io-bootcamp.com/), gives a brief introduction to Go and four case studies of its use in solving real problems:
+"[Real World Go](http://www.youtube.com/watch?v=7QDVRowyUQA)", presented at [I/O Bootcamp](http://io-bootcamp.com/), gives a brief introduction to Go and four case studies of its use in solving real problems:
 
 在I/O Bootcamp上发表的 "Real World Go"，简要介绍了Go的情况，并对其在解决实际问题中的应用进行了四个案例分析。
 
@@ -65,4 +65,4 @@ For those that didn’t get one at the conference, we hope to make him available
 
 Thanks to everyone who attended our talks and workshops. We look forward to seeing you again soon!
 
-感谢所有参加我们讲座和研讨会的人。我们期待着很快再次见到你
+感谢所有参加我们讲座和研讨会的人。我们期待着很快再次见到您

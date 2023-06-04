@@ -20,7 +20,7 @@ Reflection in computing is the ability of a program to examine its own structure
 
 计算机中的反思是指程序检查其自身结构的能力，特别是通过类型；这是元编程的一种形式。它也是混乱的一个重要来源。
 
-In this article we attempt to clarify things by explaining how reflection works in Go. Each language’s reflection model is different (and many languages don’t support it at all), but this article is about Go, so for the rest of this article the word “reflection” should be taken to mean “reflection in Go”.
+In this article we attempt to clarify things by explaining how reflection works in Go. Each language’s reflection model is different (and many languages don’t support it at all), but this article is about Go, so for the rest of this article the word "reflection" should be taken to mean "reflection in Go".
 
 在这篇文章中，我们试图通过解释反射在Go中的作用来澄清一些事情。每种语言的反射模型都是不同的（许多语言根本不支持反射），但本文是关于Go的，所以在本文的其余部分，"反射 "一词应该被理解为 "Go中的反射"。
 
@@ -202,7 +202,7 @@ type: float64
 
 You might be wondering where the interface is here, since the program looks like it’s passing the `float64` variable `x`, not an interface value, to `reflect.TypeOf`. But it’s there; as [godoc reports](https://go.dev/pkg/reflect/#TypeOf), the signature of `reflect.TypeOf` includes an empty interface:
 
-你可能想知道这里的接口在哪里，因为这个程序看起来是在向reflect.TypeOf传递float64变量x，而不是一个接口值。但它就在那里；正如 godoc 所报告的，reflect.TypeOf 的签名包括一个空接口：
+您可能想知道这里的接口在哪里，因为这个程序看起来是在向reflect.TypeOf传递float64变量x，而不是一个接口值。但它就在那里；正如 godoc 所报告的，reflect.TypeOf 的签名包括一个空接口：
 
 ```go linenums="1"
 // TypeOf returns the reflection Type of the value in the interface{}.
@@ -258,7 +258,7 @@ There are also methods like `SetInt` and `SetFloat` but to use them we need to u
 
 还有一些方法，如SetInt和SetFloat，但要使用它们，我们需要了解settingability，即下面讨论的反射第三定律的主题。
 
-The reflection library has a couple of properties worth singling out. First, to keep the API simple, the “getter” and “setter” methods of `Value` operate on the largest type that can hold the value: `int64` for all the signed integers, for instance. That is, the `Int` method of `Value` returns an `int64` and the `SetInt` value takes an `int64`; it may be necessary to convert to the actual type involved:
+The reflection library has a couple of properties worth singling out. First, to keep the API simple, the "getter" and "setter" methods of `Value` operate on the largest type that can hold the value: `int64` for all the signed integers, for instance. That is, the `Int` method of `Value` returns an `int64` and the `SetInt` value takes an `int64`; it may be necessary to convert to the actual type involved:
 
 反射库有几个属性值得特别指出。首先，为了保持API的简单性，Value的 "getter "和 "setter "方法操作的是可以容纳该值的最大类型：例如，所有有符号的整数的int64。也就是说，Value的Int方法返回一个int64，SetInt值取一个int64；可能需要转换为实际涉及的类型：
 
@@ -382,7 +382,7 @@ v.SetFloat(7.1) // Error: will panic.
 
 If you run this code, it will panic with the cryptic message
 
-如果你运行这段代码，它就会出现恐慌，并发出神秘的信息
+如果您运行这段代码，它就会出现恐慌，并发出神秘的信息
 
 ```
 panic: reflect.Value.SetFloat using unaddressable value
@@ -594,7 +594,7 @@ Here again are the laws of reflection:
 
 Once you understand these laws reflection in Go becomes much easier to use, although it remains subtle. It’s a powerful tool that should be used with care and avoided unless strictly necessary.
 
-一旦你理解了这些定律，Go中的反射就会变得更容易使用，尽管它仍然很微妙。它是一个强大的工具，应该谨慎使用，除非绝对必要，否则应避免使用。
+一旦您理解了这些定律，Go中的反射就会变得更容易使用，尽管它仍然很微妙。它是一个强大的工具，应该谨慎使用，除非绝对必要，否则应避免使用。
 
 There’s plenty more to reflection that we haven’t covered — sending and receiving on channels, allocating memory, using slices and maps, calling methods and functions — but this post is long enough. We’ll cover some of those topics in a later article.
 

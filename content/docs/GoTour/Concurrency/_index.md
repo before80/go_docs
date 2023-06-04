@@ -55,7 +55,7 @@ func main() {
 
 [https://go.dev/tour/concurrency/2](https://go.dev/tour/concurrency/2)
 
-​	通道是一个类型化的管道，你可以通过通道操作符`<-`来发送和接收值。
+​	通道是一个类型化的管道，您可以通过通道操作符`<-`来发送和接收值。
 
 ```go 
 ch <- v    // Send v to channel ch. => 将 v 发送至通道 ch。
@@ -144,13 +144,9 @@ v, ok := <-ch
 
 ​	循环`for i := range c`从通道中反复接收数值，直到通道关闭。
 
-!!! warning "注意"
+> 注意：只有发送方应当关闭一个通道，而不是接收方。在一个关闭的通道上发送会引起恐慌。
 
-	注意：只有发送方应当关闭一个通道，而不是接收方。在一个关闭的通道上发送会引起恐慌。
-
-!!! warning "另一个注意事项"
-
-	另一个注意事项：通道不像文件，你通常不需要关闭它们。只有当接收方必须被告知没有更多的值时才需要关闭，例如终止一个`range`循环。
+> 另一个注意事项：通道不像文件，您通常不需要关闭它们。只有当接收方必须被告知没有更多的值时才需要关闭，例如终止一个`range`循环。
 
 ```go title="main.go" 
 package main
@@ -435,7 +431,7 @@ func main() {
 
 *Hint*: you can keep a cache of the URLs that have been fetched on a map, but maps alone are not safe for concurrent use!
 
-提示：你可以用一个 map 来缓存已经获取的 URL，但是要注意 map 本身并不是并发安全的！
+提示：您可以用一个 map 来缓存已经获取的 URL，但是要注意 map 本身并不是并发安全的！
 
 ```go title="main.go" 
 package main
@@ -566,13 +562,13 @@ var fetcher = fakeFetcher{
 
 [https://go.dev/tour/concurrency/11](https://go.dev/tour/concurrency/11)
 
-​	你可以从[安装Go](../../../GettingStarted/InstallingGo)开始。
+​	您可以从[安装Go](../../../GettingStarted/InstallingGo)开始。
 
-​	一旦你安装了Go，[Go文档](../../../GoUserManual)是一个继续学习的好地方。它包含参考、教程、视频等等。
+​	一旦您安装了Go，[Go文档](../../../GoUserManual)是一个继续学习的好地方。它包含参考、教程、视频等等。
 
 ​	要学习如何组织和处理Go代码，请阅读[How to Write Go Code](../../../GettingStarted/HowToWriteGoCode)。
 
-​	如果你需要关于标准库的帮助，请看[包参考手册](https://go.dev/pkg/)。对于语言本身的帮助，你可能会惊讶地发现 [Language Spec](../../../References/LanguageSpecification/Introduction) 是相当可读的。
+​	如果您需要关于标准库的帮助，请看[包参考手册](https://go.dev/pkg/)。对于语言本身的帮助，您可能会惊讶地发现 [Language Spec](../../../References/LanguageSpecification/Introduction) 是相当可读的。
 
 ​	要进一步探索 Go 的并发模型，请观看 [Go Concurrency Patterns](https://go.dev/talks/2012/concurrency.slide)和[Advanced Go Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)，并阅读代码漫步中的[Share Memory by Communicating](https://go.dev/doc/codewalk/sharemem/)。
 

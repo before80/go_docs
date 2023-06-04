@@ -16,7 +16,7 @@ Matt Pearring and Alex Rakoczy
 
 Today the Go team is thrilled to release Go 1.17, which you can get by visiting the [download page](https://go.dev/dl/).
 
-今天，Go团队很高兴地发布了Go 1.17，你可以通过访问下载页面获得该版本。
+今天，Go团队很高兴地发布了Go 1.17，您可以通过访问下载页面获得该版本。
 
 This release brings additional improvements to the compiler, namely a [new way of passing function arguments and results](https://go.dev/doc/go1.17#compiler). This change has shown about a 5% performance improvement in Go programs and reduction in binary sizes of around 2% for amd64 platforms. Support for more platforms will come in future releases.
 
@@ -40,8 +40,8 @@ Finally there are quite a few other improvements and bug fixes, including verifi
 
 Thanks to everyone who contributed to this release by writing code, filing bugs, sharing feedback, and testing the beta and release candidates. Your efforts helped to ensure that Go 1.17 is as stable as possible. As always, if you notice any problems, please [file an issue](https://go.dev/issue/new).
 
-感谢所有通过编写代码、提交错误、分享反馈以及测试测试版和候选版而对该版本作出贡献的人。你的努力有助于确保Go 1.17尽可能的稳定。像往常一样，如果你发现任何问题，请提出问题。
+感谢所有通过编写代码、提交错误、分享反馈以及测试测试版和候选版而对该版本作出贡献的人。您的努力有助于确保Go 1.17尽可能的稳定。像往常一样，如果您发现任何问题，请提出问题。
 
 We hope you enjoy the new release!
 
-我们希望你喜欢这个新版本
+我们希望您喜欢这个新版本

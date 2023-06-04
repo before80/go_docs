@@ -22,11 +22,11 @@ Today we are launching the 2021 Go Developer Survey. We’d love to hear from ev
 
 Since 2016, thousands of Gophers around the world have helped the Go project by sharing their thoughts via our annual Go Developer Survey. Your feedback has played an enormous role in driving changes to our language, ecosystem, and community, including the gopls language server, the latest generics proposal, the module mirror, and so much more. And of course, we publicly share [each year’s results](https://go.dev/blog/survey2020-results), so we can all benefit from the community’s insights.
 
-自2016年以来，世界各地数以千计的Gophers通过我们的年度Go开发者调查分享他们的想法来帮助Go项目。你的反馈在推动我们的语言、生态系统和社区的变化方面发挥了巨大作用，包括gopls语言服务器、最新的泛型建议、模块镜像等等。当然，我们公开分享每年的结果，这样我们都可以从社区的洞察力中受益。
+自2016年以来，世界各地数以千计的Gophers通过我们的年度Go开发者调查分享他们的想法来帮助Go项目。您的反馈在推动我们的语言、生态系统和社区的变化方面发挥了巨大作用，包括gopls语言服务器、最新的泛型建议、模块镜像等等。当然，我们公开分享每年的结果，这样我们都可以从社区的洞察力中受益。
 
 This year we’re rotating in some new questions. The specific questions each person will see are randomly selected, so you won’t see every question we ask. This approach allows us to ask about a wide variety of topics while also reducing the survey’s length.
 
-今年，我们将轮流提出一些新的问题。每个人将看到的具体问题是随机选择的，所以你不会看到我们问的每一个问题。这种方法使我们能够问到各种各样的主题，同时也减少了调查的长度。
+今年，我们将轮流提出一些新的问题。每个人将看到的具体问题是随机选择的，所以您不会看到我们问的每一个问题。这种方法使我们能够问到各种各样的主题，同时也减少了调查的长度。
 
 ## Spread the word! 传播信息!
 

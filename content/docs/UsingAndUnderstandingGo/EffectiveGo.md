@@ -6,6 +6,7 @@ date = 2023-05-17T15:03:14+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # Effective Go
 
@@ -13,7 +14,7 @@ draft = false
 
 ## 简介
 
-​	Go是一种新的语言。虽然它借鉴了现有语言的思想，但它具有不寻常的特性，使得有效的Go程序在性质上不同于其亲属编写的程序。将C++或Java程序直接翻译成Go不太可能产生令人满意的结果——Java 程序是用 Java 而不是 Go 编写的。另一方面，从Go的角度来考虑问题可能会产生一个成功的但完全不同的程序。换句话说，要写好Go，了解它的属性和习语（idioms）是很重要的。了解 Go 编程的既定约定也很重要，例如命名、格式化、程序构造等等，这样你写的程序才能让其他 Go 程序员容易理解。
+​	Go是一种新的语言。虽然它借鉴了现有语言的思想，但它具有不寻常的特性，使得有效的Go程序在性质上不同于其亲属编写的程序。将C++或Java程序直接翻译成Go不太可能产生令人满意的结果——Java 程序是用 Java 而不是 Go 编写的。另一方面，从Go的角度来考虑问题可能会产生一个成功的但完全不同的程序。换句话说，要写好Go，了解它的属性和习语（idioms）是很重要的。了解 Go 编程的既定约定也很重要，例如命名、格式化、程序构造等等，这样您写的程序才能让其他 Go 程序员容易理解。
 
 ​	本文档给出了编写清晰、惯用的 Go 代码的技巧。它是对[语言规范](../../References/LanguageSpecification/Introduction)、[Tour of Go](../../GoTour/UsingTheTour/welcome)和[How to Write Go Code](../../GettingStarted/HowToWriteGoCode)的补充，您应该首先阅读这些内容。
 
@@ -21,15 +22,15 @@ draft = false
 
 ### 示例
 
-​	[Go package sources](https://go.dev/src/)不仅是作为核心库，也是作为如何使用该语言的示例。此外，许多包都包含了可以工作的、独立的可执行的示例，你可以直接从 [golang.org](https://golang.org/)网站上运行，比如这个[示例](https://go.dev/pkg/strings/#example_Map)（如果需要，点击 "Example"一词来打开它）。如果你对如何处理一个问题或如何实现某些东西有疑问，库中的文档、代码和示例可以提供答案、想法和背景。
+​	[Go package sources](https://go.dev/src/)不仅是作为核心库，也是作为如何使用该语言的示例。此外，许多包都包含了可以工作的、独立的可执行的示例，您可以直接从 [golang.org](https://golang.org/)网站上运行，比如这个[示例](https://go.dev/pkg/strings/#example_Map)（如果需要，点击 "Example"一词来打开它）。如果您对如何处理一个问题或如何实现某些东西有疑问，库中的文档、代码和示例可以提供答案、想法和背景。
 
 ## 格式化
 
 ​	格式化问题是最有争议但最不重要的问题。人们可以适应不同的格式风格，但最好是不必这样做，如果每个人都遵循相同的风格，就会花费更少的时间来讨论此问题。问题是如何在没有长篇指导手册的情况下实现这个理想。
 
-​	在Go中，我们采取了一种不同寻常的方法，让机器来处理大多数的格式化问题。`gofmt`程序（也可以用`go fmt`，它在包级别而不是源文件级别操作）读取Go程序，并以缩进和垂直对齐的标准风格发出（emit）源代码，保留并在必要时重新格式化注释。如果你想知道如何处理一些新的布局情况，请运行`gofmt`；如果答案似乎不对，请重新排列你的程序（或提交关于`gofmt`的bug），而不是绕过它。
+​	在Go中，我们采取了一种不同寻常的方法，让机器来处理大多数的格式化问题。`gofmt`程序（也可以用`go fmt`，它在包级别而不是源文件级别操作）读取Go程序，并以缩进和垂直对齐的标准风格发出（emit）源代码，保留并在必要时重新格式化注释。如果您想知道如何处理一些新的布局情况，请运行`gofmt`；如果答案似乎不对，请重新排列您的程序（或提交关于`gofmt`的bug），而不是绕过它。
 
-​	举例来说，没有必要花时间排列结构体字段上的注释。`Gofmt`会帮你做到这一点。给出的声明：
+​	举例来说，没有必要花时间排列结构体字段上的注释。`Gofmt`会帮您做到这一点。给出的声明：
 
 ``` go 
 type T struct {
@@ -101,7 +102,7 @@ import "bytes"
 
 ### Getters
 
-​	Go不提供getter和setter的自动支持。自己提供getter和setter没有问题，而且通常是适当的，但在getter的名称中添加`Get`既不符合惯例，也不必要。如果你有一个名为`owner`（小写，未公开）的字段，getter方法应该被称为`Owner`（大写，公开），而不是`GetOwner`。大写名称的使用为导出提供了钩子，以区分字段和方法。如果需要setter函数，它很可能被称为`SetOwner`。在实践中，这两个名称都很好读：
+​	Go不提供getter和setter的自动支持。自己提供getter和setter没有问题，而且通常是适当的，但在getter的名称中添加`Get`既不符合惯例，也不必要。如果您有一个名为`owner`（小写，未公开）的字段，getter方法应该被称为`Owner`（大写，公开），而不是`GetOwner`。大写名称的使用为导出提供了钩子，以区分字段和方法。如果需要setter函数，它很可能被称为`SetOwner`。在实践中，这两个名称都很好读：
 
 ``` go 
 owner := obj.Owner()
@@ -138,7 +139,7 @@ break continue fallthrough return ++ -- ) }
 go func() { for { dst <- <-src } }()
 ```
 
-不需要分号。惯用的 Go 程序只在诸如 for 循环的条件中使用分号，用于分隔初始化器、条件和增减量元素。你若在一行中写多个语句，也需要用分号隔开。
+不需要分号。惯用的 Go 程序只在诸如 for 循环的条件中使用分号，用于分隔初始化器、条件和增减量元素。您若在一行中写多个语句，也需要用分号隔开。
 
 ​	分号插入规则的一个后果是，您不能将控制结构（`if`、`for`、`switch` 或 `select`）的开头括号放在下一行。如果您这样做，会在括号之前插入一个分号，这可能会导致意外的效果。应该这样写：
 
@@ -182,7 +183,7 @@ if err := file.Chmod(0664); err != nil {
 }
 ```
 
-​	在Go库中，你会发现当`if`语句不流入下一条语句时——也就是说，主体以`break`、`continue`、`goto`或`return`结束——不必要的`else`被省略了。
+​	在Go库中，您会发现当`if`语句不流入下一条语句时——也就是说，主体以`break`、`continue`、`goto`或`return`结束——不必要的`else`被省略了。
 
 ``` go 
 f, err := os.Open(name)
@@ -230,11 +231,9 @@ d, err := f.Stat()
 - 本次初始化中的对应值是可分配给`v`的（即需要注意值的类型），并且
 - 本次声明中至少有一个变量被创建（即本次声明的中新声明的）。
 
-​	这个不寻常的属性是纯粹的实用主义，它使得在一个长的`if-else`链中使用一个单一的`err`值很容易。你会看到它经常被使用。
+​	这个不寻常的属性是纯粹的实用主义，它使得在一个长的`if-else`链中使用一个单一的`err`值很容易。您会看到它经常被使用。
 
-!!! warning "值得注意的"
-
-	:material-information:  这里值得注意的是，在Go中，函数参数和返回值的作用域与函数主体相同，尽管它们在词法上出现在包围函数体的花括号之外。
+> ​	这里值得注意的是，在Go中，函数参数和返回值的作用域与函数主体相同，尽管它们在词法上出现在包围函数体的花括号之外。
 
 ### For
 
@@ -260,7 +259,7 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-​	如果你在一个数组、切片、字符串或映射上进行循环，或者从一个通道中读取，一个`range`子句可以管理循环。
+​	如果您在一个数组、切片、字符串或映射上进行循环，或者从一个通道中读取，一个`range`子句可以管理循环。
 
 ``` go 
 for key, value := range oldMap {
@@ -268,7 +267,7 @@ for key, value := range oldMap {
 }
 ```
 
-如果你只需要遍历中的第一个项（键或索引），去掉第二个就行：
+如果您只需要遍历中的第一个项（键或索引），去掉第二个就行：
 
 ``` go 
 for key := range m {
@@ -278,7 +277,7 @@ for key := range m {
 }
 ```
 
-​	如果你只需要遍历中的第二个项（值），使用空白标识符（即`_`），来丢弃第一个项：
+​	如果您只需要遍历中的第二个项（值），使用空白标识符（即`_`），来丢弃第一个项：
 
 ``` go 
 sum := 0
@@ -289,7 +288,7 @@ for _, value := range array {
 
 ​	空白标识符有很多用途，在[后面的章节](#the-blank-identifier)中会介绍。
 
-​	对于字符串，`range`为你做了更多的工作，通过解析`UTF-8`来分解出各个Unicode码点。错误的编码将会占用一个字节并用符文（rune）`U+FFFD`来替换。(名称(带有相关的内建类型)`rune`，是Go对单个Unicode码点的称谓。详见[语言规范](../../References/LanguageSpecification/LexicalElements#rune-literals-rune)）。循环
+​	对于字符串，`range`为您做了更多的工作，通过解析`UTF-8`来分解出各个Unicode码点。错误的编码将会占用一个字节并用符文（rune）`U+FFFD`来替换。(名称(带有相关的内建类型)`rune`，是Go对单个Unicode码点的称谓。详见[语言规范](../../References/LanguageSpecification/LexicalElements#rune-literals-rune)）。循环
 
 ``` go 
 for pos, char := range "日本\x80語" { // \x80 is an illegal UTF-8 encoding => \x80 是一个非法的 UTF-8编码（字符）
@@ -306,7 +305,7 @@ character U+FFFD '�' starts at byte position 6
 character U+8A9E '語' starts at byte position 7
 ```
 
-​	最后，**Go没有逗号运算符**，**`++`和`--`是语句而不是表达式**。因此，如果你想在一个`for`中使用多个变量，你应该采用平行赋值（虽然它会拒绝`++`和`--`）。
+​	最后，**Go没有逗号运算符**，**`++`和`--`是语句而不是表达式**。因此，如果您想在一个`for`中使用多个变量，您应该采用平行赋值（虽然它会拒绝`++`和`--`）。
 
 ``` go 
 // Reverse a => 反转 a
@@ -429,7 +428,7 @@ case *int:
 
 ​	Go的一个不寻常的特点是，函数和方法可以返回多个值。这种形式可以用来改进C语言程序中的一些笨拙的习惯：带内错误返回（例如用 `-1` 表示 `EOF`），以及修改按地址传递的实参。
 
-​	在C语言中，写入操作发生的错误会用一个负数标记，而错误代码被隐藏在一个易失性位置。在Go中，`Write`可以返回一个计数以及一个错误："是的，你写了一些字节，但不是全部，因为你填满了设备"。`os`包中的文件的`Write`方法的签名是：
+​	在C语言中，写入操作发生的错误会用一个负数标记，而错误代码被隐藏在一个易失性位置。在Go中，`Write`可以返回一个计数以及一个错误："是的，您写了一些字节，但不是全部，因为您填满了设备"。`os`包中的文件的`Write`方法的签名是：
 
 ``` go 
 func (file *File) Write(b []byte) (n int, err error)
@@ -451,7 +450,7 @@ func nextInt(b []byte, i int) (int, int) {
 }
 ```
 
-​	你可以用下面这样的（代码）来扫描一个输入切片`b`中的数字：
+​	您可以用下面这样的（代码）来扫描一个输入切片`b`中的数字：
 
 ``` go 
     for i := 0; i < len(b); {
@@ -513,7 +512,7 @@ func Contents(filename string) (string, error) {
 }
 ```
 
-​	推迟对`Close`这样的函数的调用有两个好处。首先，它保证你永远不会忘记关闭文件，如果你以后又为该函数添加了新的返回路径时， 这种情况往往就会发生。其次，它意味着关闭位于打开附近，这比把它放在函数的最后要清楚得多。
+​	推迟对`Close`这样的函数的调用有两个好处。首先，它保证您永远不会忘记关闭文件，如果您以后又为该函数添加了新的返回路径时， 这种情况往往就会发生。其次，它意味着关闭位于打开附近，这比把它放在函数的最后要清楚得多。
 
 ​	被延迟函数的实参（如果函数是方法的话，还包括接收器）在**推迟**执行时就会求值，而不是在**调用**执行时。这样不仅无需担心变量值在函数执行时被改变， 同时还意味着单个已推迟的调用可推迟多个函数的执行。这里有一个简单的例子。
 
@@ -687,10 +686,10 @@ v := make([]int, 100)
 ​	在Go和C中，数组的工作方式有很大的不同：
 
 - 数组是值。将一个数组分配给另一个数组会复制所有的元素。
-- 特别是，如果你把一个数组传递给一个函数，它将接收到一个数组的副本，而不是一个指针。
+- 特别是，如果您把一个数组传递给一个函数，它将接收到一个数组的副本，而不是一个指针。
 - 数组的大小是其类型的一部分。类型`[10]int`和`[20]int`是不同的。
 
-​	数组为值属性可能很有用，但也代价高昂；如果你想获得类似C语言那样的行为和效率，你可以传递一个指向数组的指针。
+​	数组为值属性可能很有用，但也代价高昂；如果您想获得类似C语言那样的行为和效率，您可以传递一个指向数组的指针。
 
 ``` go 
 func Sum(a *[3]float64) (sum float64) {
@@ -712,7 +711,7 @@ x := Sum(&array)  // Note the explicit address-of operator => 注意这里显示
 
 Slices hold references to an underlying array, and if you assign one slice to another, both refer to the same array. If a function takes a slice argument, changes it makes to the elements of the slice will be visible to the caller, analogous to passing a pointer to the underlying array. A `Read` function can therefore accept a slice argument rather than a pointer and a count; the length within the slice sets an upper limit of how much data to read. Here is the signature of the `Read` method of the `File` type in package `os`:
 
-​	切片持有对底层数组的引用，如果你把一个切片赋予另一个切片，两者都会引用同一个数组。如果某个函数接受一个切片参数，那么它对切片中的元素所做的改变对调用者来说是可见的，类似于传递一个指向底层数组的指针。因此，`Read`函数可以接受一个切片实参，而不是一个指针和一个计数；切片中的长度决定了可读取数据的上限。下面是`os`包中文件类型的读取方法的签名：
+​	切片持有对底层数组的引用，如果您把一个切片赋予另一个切片，两者都会引用同一个数组。如果某个函数接受一个切片参数，那么它对切片中的元素所做的改变对调用者来说是可见的，类似于传递一个指向底层数组的指针。因此，`Read`函数可以接受一个切片实参，而不是一个指针和一个计数；切片中的长度决定了可读取数据的上限。下面是`os`包中文件类型的读取方法的签名：
 
 ``` go 
 func (f *File) Read(buf []byte) (n int, err error)
@@ -782,7 +781,7 @@ text := LinesOfText{
 
 Sometimes it's necessary to allocate a 2D slice, a situation that can arise when processing scan lines of pixels, for instance. There are two ways to achieve this. One is to allocate each slice independently; the other is to allocate a single array and point the individual slices into it. Which to use depends on your application. If the slices might grow or shrink, they should be allocated independently to avoid overwriting the next line; if not, it can be more efficient to construct the object with a single allocation. For reference, here are sketches of the two methods. First, a line at a time:
 
-​	有时，有必要分配一个二维切片，例如，在处理像素的扫描行时，这种情况就会发生。有两种方式可以实现这一点。一种是独立地分配每个切片；另一种是分配一个数组，将各个切片指向它。使用哪种方法取决于你的应用。如果切片可能会增长或缩小，则它们应该独立分配，以避免覆盖下一行；如果不会，用单次分配构建对象可能更有效率。以下是这两种方法的大概代码，仅供参考。首先是一次分配一行。
+​	有时，有必要分配一个二维切片，例如，在处理像素的扫描行时，这种情况就会发生。有两种方式可以实现这一点。一种是独立地分配每个切片；另一种是分配一个数组，将各个切片指向它。使用哪种方法取决于您的应用。如果切片可能会增长或缩小，则它们应该独立分配，以避免覆盖下一行；如果不会，用单次分配构建对象可能更有效率。以下是这两种方法的大概代码，仅供参考。首先是一次分配一行。
 
 ``` go 
 // Allocate the top-level slice. => 分配底层切片
@@ -842,7 +841,7 @@ if attended[person] { // will be false if person is not in the map => 若 person
 }
 ```
 
-​	有时你需要区分某项是不存在还是其值为零值。是有一个 "`UTC` "的条目，还是因为它根本就不在映射中，所以是`0`？你可以用一种`多重赋值`的形式进行区分。
+​	有时您需要区分某项是不存在还是其值为零值。是有一个 "`UTC` "的条目，还是因为它根本就不在映射中，所以是`0`？您可以用一种`多重赋值`的形式进行区分。
 
 ``` go  hl_lines="3 3"
 var seconds int
@@ -862,7 +861,7 @@ func offset(tz string) int {
 }
 ```
 
-​	若仅需判断映射中是否存在某项而不关心实际的值，你可以用[空白标识符](#the-blank-identifier)（`_`）来代替该值的一般变量。
+​	若仅需判断映射中是否存在某项而不关心实际的值，您可以用[空白标识符](#the-blank-identifier)（`_`）来代替该值的一般变量。
 
 ``` go 
 _, present := timeZone[tz]
@@ -878,7 +877,7 @@ delete(timeZone, "PDT")  // Now on Standard Time
 
 ​	Go中的格式化打印使用类似于C的`printf`系列的风格，但更丰富，更通用。这些函数存在于`fmt`包中，且函数名首字母均为大写：`fmt.Printf`, `fmt.Fprintf`, `fmt.Sprintf`等等。字符串函数（`Sprintf`等）会返回一个字符串，而非填充给定的缓冲区。
 
-​	你无需提供一个格式字符串。对于`Printf`、`Fprintf`和`Sprintf`中的每一个，都分别有对应另外的函数，例如`Print`和`Println`。这些函数不接受格式字符串，而是为每个实参生成一种默认格式。`Println`版本的函数还在实参之间插入一个空白，并在输出中附加一个换行符，而`Print`版本的函数仅在两边的操作数都不是字符串的情况下添加空白。在这个例子中，每一行都产生相同的输出。
+​	您无需提供一个格式字符串。对于`Printf`、`Fprintf`和`Sprintf`中的每一个，都分别有对应另外的函数，例如`Print`和`Println`。这些函数不接受格式字符串，而是为每个实参生成一种默认格式。`Println`版本的函数还在实参之间插入一个空白，并在输出中附加一个换行符，而`Print`版本的函数仅在两边的操作数都不是字符串的情况下添加空白。在这个例子中，每一行都产生相同的输出。
 
 ``` go 
 fmt.Printf("Hello %d\n", 23)
@@ -902,7 +901,7 @@ fmt.Printf("%d %x; %d %x\n", x, x, int64(x), int64(x))
 18446744073709551615 ffffffffffffffff; -1 -1
 ```
 
-​	如果你只想得到默认的转换，比如整数的十进制，你可以使用通用格式`%v`（代表 "值"）；其结果与 `Print`和`Println`的输出完全相同。此外，这种格式可以打印任何数值，甚至是数组、切片、结构体和映射。下面是上一节中定义的时区映射的打印语句。
+​	如果您只想得到默认的转换，比如整数的十进制，您可以使用通用格式`%v`（代表 "值"）；其结果与 `Print`和`Println`的输出完全相同。此外，这种格式可以打印任何数值，甚至是数组、切片、结构体和映射。下面是上一节中定义的时区映射的打印语句。
 
 ``` go 
 fmt.Printf("%v\n", timeZone)  // or just fmt.Println(timeZone)
@@ -954,7 +953,7 @@ fmt.Printf("%T\n", timeZone)
 map[string]int
 ```
 
-​	如果你想控制自定义类型的默认格式，只需要在该类型上定义一个具有`String() string`签名的方法。对于我们的简单类型`T`，可能看起来像这样。
+​	如果您想控制自定义类型的默认格式，只需要在该类型上定义一个具有`String() string`签名的方法。对于我们的简单类型`T`，可能看起来像这样。
 
 ``` go 
 func (t *T) String() string {
@@ -969,9 +968,9 @@ fmt.Printf("%v\n", t)
 7/-2.35/"abc\tdef"
 ```
 
-(如果你需要像指向 `T` 的指针那样打印类型 `T` 的**值**，那么`String`的接收器必须是值类型的；上面这个例子（中的接收器）使用一个指针，因为这对结构体类型来说更加有效和惯用。更多信息请参见下面关于[指针与值接收器](#pointers-vs-values)的部分）。
+(如果您需要像指向 `T` 的指针那样打印类型 `T` 的**值**，那么`String`的接收器必须是值类型的；上面这个例子（中的接收器）使用一个指针，因为这对结构体类型来说更加有效和惯用。更多信息请参见下面关于[指针与值接收器](#pointers-vs-values)的部分）。
 
-​	我们的`String`方法能够调用`Sprintf`，因为打印例程是完全可重入的，并可以用这种方式进行封装。不过，关于这种方法有一个重要的细节需要知道：**请勿通过调用`Sprintf`的方式来构造`String`方法，这样它会无限递归你的`String`方法**。如果`Sprintf`调用试图将接收器直接打印成字符串，而该字符串又将再次调用该方法，则会发生这种情况。这是一个常见且容易犯的错误，正如本例所示。
+​	我们的`String`方法能够调用`Sprintf`，因为打印例程是完全可重入的，并可以用这种方式进行封装。不过，关于这种方法有一个重要的细节需要知道：**请勿通过调用`Sprintf`的方式来构造`String`方法，这样它会无限递归您的`String`方法**。如果`Sprintf`调用试图将接收器直接打印成字符串，而该字符串又将再次调用该方法，则会发生这种情况。这是一个常见且容易犯的错误，正如本例所示。
 
 ``` go 
 type MyString string
@@ -1034,7 +1033,7 @@ func Min(a ...int) int {
 func append(slice []T, elements ...T) []T
 ```
 
-其中`T`是任何给定类型的占位符。**实际上，你不能在Go中写一个由调用者决定类型`T`的函数**。**这就是为什么`append`是内置的：它需要编译器的支持**。
+其中`T`是任何给定类型的占位符。**实际上，您不能在Go中写一个由调用者决定类型`T`的函数**。**这就是为什么`append`是内置的：它需要编译器的支持**。
 
 ​	`append`所做的是将元素追加到切片的末尾并返回结果。结果需要被返回，原因与我们手写的`Append`一样，即底层数组可能会改变。这个简单的例子
 
@@ -1083,7 +1082,7 @@ const (
 )
 ```
 
-​	由于可将 `String` 之类的方法附加在用户定义的类型上， 因此它就为打印时自动格式化任意值提供了可能性。虽然你会看到它最常被应用于结构体，但这种技术对标量类型也很有用，如`ByteSize`等浮点类型。
+​	由于可将 `String` 之类的方法附加在用户定义的类型上， 因此它就为打印时自动格式化任意值提供了可能性。虽然您会看到它最常被应用于结构体，但这种技术对标量类型也很有用，如`ByteSize`等浮点类型。
 
 ``` go 
 func (b ByteSize) String() string {
@@ -1442,7 +1441,7 @@ func (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 }
 ```
 
-​	当页面被访问时，怎样通知你的程序去更新一些内部状态呢？为 Web 页面绑定个通道吧。
+​	当页面被访问时，怎样通知您的程序去更新一些内部状态呢？为 Web 页面绑定个通道吧。
 
 ``` go 
 // 每次浏览该通道都会发送一个提醒。
@@ -1523,7 +1522,7 @@ if _, err := os.Stat(path); os.IsNotExist(err) {
 
 Occasionally you'll see code that discards the error value in order to ignore the error; this is terrible practice. Always check error returns; they're provided for a reason.
 
-偶尔你会看到为了忽略错误而丢弃错误值的代码；这是很糟糕的做法。一定要检查错误返回；它们的出现是有原因的。
+偶尔您会看到为了忽略错误而丢弃错误值的代码；这是很糟糕的做法。一定要检查错误返回；它们的出现是有原因的。
 
 ``` go 
 // Bad! This code will crash if path does not exist.
@@ -2264,7 +2263,7 @@ if pos == 0 {
 
 Let's finish with a complete Go program, a web server. This one is actually a kind of web re-server. Google provides a service at `chart.apis.google.com` that does automatic formatting of data into charts and graphs. It's hard to use interactively, though, because you need to put the data into the URL as a query. The program here provides a nicer interface to one form of data: given a short piece of text, it calls on the chart server to produce a QR code, a matrix of boxes that encode the text. That image can be grabbed with your cell phone's camera and interpreted as, for instance, a URL, saving you typing the URL into the phone's tiny keyboard.
 
-让我们用一个完整的Go程序来结束，一个网络服务器。这个实际上是一种网络再服务器。Google在chart.apis.google.com上提供了一个服务，可以将数据自动格式化为图表和图形。不过，它很难交互使用，因为你需要把数据作为查询放入URL。这里的程序为一种形式的数据提供了一个更好的接口：给定一个简短的文本，它调用图表服务器来产生一个QR码，一个编码文本的方框矩阵。该图像可以用手机的摄像头抓取，并解释为，例如，一个URL，省得你在手机的小键盘上输入URL。
+让我们用一个完整的Go程序来结束，一个网络服务器。这个实际上是一种网络再服务器。Google在chart.apis.google.com上提供了一个服务，可以将数据自动格式化为图表和图形。不过，它很难交互使用，因为您需要把数据作为查询放入URL。这里的程序为一种形式的数据提供了一个更好的接口：给定一个简短的文本，它调用图表服务器来产生一个QR码，一个编码文本的方框矩阵。该图像可以用手机的摄像头抓取，并解释为，例如，一个URL，省得您在手机的小键盘上输入URL。
 
 Here's the complete program. An explanation follows.
 

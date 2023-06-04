@@ -56,7 +56,7 @@ Go Cloud的目标是为各云提供商最常用的服务开发供应商中立的
 
 At the core of Go Cloud is a collection of generic APIs for portable cloud programming. Let’s look at an example of using blob storage. You can use the generic type [`*blob.Bucket`](https://godoc.org/github.com/google/go-cloud/blob#Bucket) to copy a file from a local disk to a cloud provider. Let’s start by opening an S3 bucket using the included [s3blob package](https://godoc.org/github.com/google/go-cloud/blob/s3blob):
 
-Go Cloud的核心是用于可移植云编程的通用API集合。让我们看一下使用blob存储的例子。你可以使用通用类型*blob.Bucket将一个文件从本地磁盘复制到云提供商。让我们先用附带的s3blob包打开一个S3 bucket：
+Go Cloud的核心是用于可移植云编程的通用API集合。让我们看一下使用blob存储的例子。您可以使用通用类型*blob.Bucket将一个文件从本地磁盘复制到云提供商。让我们先用附带的s3blob包打开一个S3 bucket：
 
 ```go linenums="1"
 // setupBucket opens an AWS bucket.
@@ -123,17 +123,17 @@ func setupBucket(ctx context.Context) (*blob.Bucket, error) {
 
 While different steps are needed to access buckets on different cloud providers, the resulting type used by your application is the same: `*blob.Bucket`. This isolates application code from cloud-specific code. To increase interoperability with existing Go libraries, Go Cloud leverages established interfaces like `io.Writer`, `io.Reader`, and `*sql.DB`.
 
-虽然访问不同云提供商的桶需要不同的步骤，但你的应用程序使用的结果类型是相同的。*blob.Bucket。这就将应用程序代码与云端特定代码隔离开来。为了提高与现有 Go 库的互操作性，Go Cloud 利用了 io.Writer、io.Reader 和 *sql.DB 等既定接口。
+虽然访问不同云提供商的桶需要不同的步骤，但您的应用程序使用的结果类型是相同的。*blob.Bucket。这就将应用程序代码与云端特定代码隔离开来。为了提高与现有 Go 库的互操作性，Go Cloud 利用了 io.Writer、io.Reader 和 *sql.DB 等既定接口。
 
 The setup code needed to access cloud services tends to follow a pattern: higher abstractions are constructed from more basic abstractions. While you could write this code by hand, Go Cloud automates this with **Wire**, a tool that generates cloud-specific setup code for you. The [Wire documentation](https://github.com/google/go-cloud/tree/master/wire) explains how to install and use the tool and the [Guestbook sample](https://github.com/google/go-cloud/tree/master/samples/guestbook) shows Wire in action.
 
-访问云服务所需的设置代码往往遵循一个模式：更高的抽象是由更基本的抽象构建的。虽然你可以手工编写这段代码，但Go Cloud通过Wire实现了自动化，这个工具可以为你生成特定的云设置代码。Wire 文档解释了如何安装和使用该工具，Guestbook 示例展示了 Wire 的运行情况。
+访问云服务所需的设置代码往往遵循一个模式：更高的抽象是由更基本的抽象构建的。虽然您可以手工编写这段代码，但Go Cloud通过Wire实现了自动化，这个工具可以为您生成特定的云设置代码。Wire 文档解释了如何安装和使用该工具，Guestbook 示例展示了 Wire 的运行情况。
 
 ## How can I get involved and learn more? 我怎样才能参与并了解更多？
 
 To get started, we recommend following [the tutorial](https://github.com/google/go-cloud/tree/master/samples/tutorial) and then trying to build an application yourself. If you’re already using AWS or GCP, you can try migrating parts of your existing application to use Go Cloud. If you’re using a different cloud provider or an on-premise service, you can extend Go Cloud to support it by implementing the driver interfaces (like [`driver.Bucket`](https://godoc.org/github.com/google/go-cloud/blob/driver#Bucket)).
 
-要想开始，我们建议按照教程进行，然后尝试自己建立一个应用程序。如果你已经在使用AWS或GCP，你可以尝试将你现有的应用程序的一部分迁移到使用Go Cloud。如果你正在使用不同的云提供商或内部服务，你可以通过实现驱动接口（如driver.Bucket）来扩展Go Cloud以支持它。
+要想开始，我们建议按照教程进行，然后尝试自己建立一个应用程序。如果您已经在使用AWS或GCP，您可以尝试将您现有的应用程序的一部分迁移到使用Go Cloud。如果您正在使用不同的云提供商或内部服务，您可以通过实现驱动接口（如driver.Bucket）来扩展Go Cloud以支持它。
 
 We appreciate any and all input you have about your experience. [Go Cloud’s](https://github.com/google/go-cloud) development is conducted on GitHub. We are looking forward to contributions, including pull requests. [File an issue](https://github.com/google/go-cloud/issues/new) to tell us what could be better or what future APIs the project should support. For updates and discussion about the project, join [the project’s mailing list](https://groups.google.com/forum/#!forum/go-cloud).
 
@@ -145,4 +145,4 @@ The project requires contributors to sign the same Contributor License Agreement
 
 Thank you for taking the time to learn about Go Cloud. We are excited to work with you to make Go the language of choice for developers building portable cloud applications.
 
-感谢你花时间了解 Go 云。我们很高兴能与您合作，使 Go 成为开发人员构建可移植云应用程序的首选语言。
+感谢您花时间了解 Go 云。我们很高兴能与您合作，使 Go 成为开发人员构建可移植云应用程序的首选语言。

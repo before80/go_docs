@@ -14,7 +14,7 @@ https://go.dev/blog/survey2018-results
 Todd Kulesza, Steve Francia
 28 March 2019
 
-## Thank you 谢谢你
+## Thank you 谢谢您
 
 This post summarizes the results of our 2018 user survey and draws comparisons between the results of our prior surveys from [2016](https://blog.golang.org/survey2016-results) and [2017](https://blog.golang.org/survey2017-results).
 
@@ -22,7 +22,7 @@ This post summarizes the results of our 2018 user survey and draws comparisons b
 
 This year we had 5,883 survey respondents from 103 different countries. We are grateful to everyone who provided their feedback through this survey to help shape the future of Go. Thank you!
 
-今年我们有来自103个不同国家的5883名调查对象。我们感谢每一位通过这次调查提供反馈的人，以帮助塑造Go的未来。谢谢你们!
+今年我们有来自103个不同国家的5883名调查对象。我们感谢每一位通过这次调查提供反馈的人，以帮助塑造Go的未来。谢谢您们!
 
 ## Summary of findings 调查结果摘要
 
@@ -94,7 +94,7 @@ Since 2016, the top two uses of Go have been writing API/RPC services and develo
 
 ![img](Go2018SurveyResults_img/fig9.svg)
 
-To better understand the contexts in which developers are using Go, we added a question about Go adoption across different industries. Perhaps unsurprisingly for a relatively new language, over half of survey respondents work in companies in the *Internet/web services* and *Software* categories (i.e., tech companies). The only other industries with >3% responses were *Finance, banking, or insurance* and *Media, advertising, publishing, or entertainment*. (In the chart below, we’ve condensed all of the categories with response rates below 3% into the “Other” category.) We’ll continue tracking Go’s adoption across industries to better understand developer needs outside of technology companies.
+To better understand the contexts in which developers are using Go, we added a question about Go adoption across different industries. Perhaps unsurprisingly for a relatively new language, over half of survey respondents work in companies in the *Internet/web services* and *Software* categories (i.e., tech companies). The only other industries with >3% responses were *Finance, banking, or insurance* and *Media, advertising, publishing, or entertainment*. (In the chart below, we’ve condensed all of the categories with response rates below 3% into the "Other" category.) We’ll continue tracking Go’s adoption across industries to better understand developer needs outside of technology companies.
 
 为了更好地了解开发人员使用Go的背景，我们增加了一个关于Go在不同行业的采用情况的问题。对于一门相对较新的语言来说，超过一半的调查对象在互联网/网络服务和软件类别的公司工作（即科技公司），这也许并不令人惊讶。只有金融、银行或保险业和媒体、广告、出版或娱乐业的答复率超过3%。(在下面的图表中，我们将所有回复率低于3%的类别压缩到 "其他 "类别中）。我们将继续跟踪Go在各行业的应用，以更好地了解技术公司以外的开发者需求。
 
@@ -102,13 +102,13 @@ To better understand the contexts in which developers are using Go, we added a q
 
 ## Attitudes towards Go 对Go的态度
 
-This year we added a question asking “How likely are you to recommend Go to a friend or colleague?” to calculate our [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter). This score attempts to measure how many more “promoters” a product has than “detractors” and ranges from -100 to 100; a positive value suggests most people are likely to recommend using a product, while negative values suggest most people are likely to recommend against using it. Our 2018 score is 61 (68% promoters - 7% detractors) and will serve as a baseline to help us gauge community sentiment towards the Go ecosystem over time.
+This year we added a question asking "How likely are you to recommend Go to a friend or colleague?" to calculate our [Net Promoter Score](https://en.wikipedia.org/wiki/Net_Promoter). This score attempts to measure how many more "promoters" a product has than "detractors" and ranges from -100 to 100; a positive value suggests most people are likely to recommend using a product, while negative values suggest most people are likely to recommend against using it. Our 2018 score is 61 (68% promoters - 7% detractors) and will serve as a baseline to help us gauge community sentiment towards the Go ecosystem over time.
 
 今年我们增加了一个问题，询问 "您向朋友或同事推荐Go的可能性有多大？"来计算我们的净推广者得分。这个分数试图衡量一个产品的 "推广者 "比 "反对者 "多多少，范围从-100到100；正值表明大多数人可能会推荐使用一个产品，而负值表明大多数人可能会建议反对使用它。我们2018年的得分是61分（68%的推广者-7%的反对者），将作为一个基线，帮助我们衡量社区对Go生态系统的情绪。
 
 ![img](Go2018SurveyResults_img/fig11.svg)
 
-In addition to NPS, we asked several questions about developer satisfaction with Go. Overall, survey respondents indicated a high level of satisfaction, consistent with prior years. Large majorities say they are happy with Go (89%), would prefer to use Go for their next project (85%), and feel that it is working well for their team (66%), while a plurality feel that Go is at least somewhat critical to their company’s success (44%). While all of these metrics showed an increase in 2017, they remained mostly stable this year. (The wording of the first question changed in 2018 from “*I would recommend using Go to others*” to “*Overall, I’m happy with Go*”, so those results are not directly comparable.)
+In addition to NPS, we asked several questions about developer satisfaction with Go. Overall, survey respondents indicated a high level of satisfaction, consistent with prior years. Large majorities say they are happy with Go (89%), would prefer to use Go for their next project (85%), and feel that it is working well for their team (66%), while a plurality feel that Go is at least somewhat critical to their company’s success (44%). While all of these metrics showed an increase in 2017, they remained mostly stable this year. (The wording of the first question changed in 2018 from "*I would recommend using Go to others*" to "*Overall, I’m happy with Go*", so those results are not directly comparable.)
 
 除了NPS之外，我们还问了几个关于开发者对Go的满意度的问题。总的来说，调查对象表示满意度很高，与往年一致。大多数人表示他们对Go感到满意（89%），更愿意在他们的下一个项目中使用Go（85%），并认为Go对他们的团队来说很有效（66%），而大多数人认为Go对他们公司的成功至少有些关键（44%）。虽然所有这些指标在2017年都出现了增长，但今年它们大多保持稳定。(第一个问题的措辞在2018年从 "我会向其他人推荐使用Go "改为 "总体而言，我对Go感到满意"，因此这些结果没有直接的可比性。)
 
@@ -118,9 +118,9 @@ Given the strong sentiment towards preferring Go for future development, we want
 
 鉴于对未来开发首选Go的强烈情绪，我们想了解是什么阻碍了开发者这样做。这些问题自去年以来基本没有变化：大约1/2的调查对象在现有的用其他语言编写的项目中工作，而⅓在一个喜欢使用不同语言的团队或项目中工作。缺少语言功能和库是受访者没有更多使用Go的最常见原因。我们还询问了开发人员在使用Go时面临的最大挑战；与我们的大多数调查问题不同，受访者可以在回答这个问题时输入他们希望的任何内容。我们通过机器学习来分析结果，以确定共同的主题，并计算支持每个主题的答复数量。我们确定的前三个主要挑战是：
 
-- Package management (e.g., “Keeping up with vendoring”, “dependency / packet [sic] management / vendoring not unified”)包管理（例如，"跟上销售"，"依赖/包[原文如此]管理/销售不统一")
-- Differences from more familiar programming languages (e.g., “syntax close to C-languages with slightly different semantics makes me look up references somewhat more than I’d like”, “coworkers who come from non-Go backgrounds trying to use Go as a version of their previous language but with channels and Goroutines”)与更熟悉的编程语言的差异（例如，"接近于C语言的语法，但语义略有不同，这让我在某种程度上更多地查阅参考资料"，"来自非Go背景的同事试图将Go作为他们以前语言的一个版本，但有通道和Goroutines"）
-- Lack of generics (e.g., “Lack of generics makes it difficult to persuade people who have not tried Go that they would find it efficient.”, “Hard to build richer abstractions (want generics)")缺少泛型（例如，"缺少泛型使我们很难说服那些没有尝试过Go的人，让他们觉得Go很有效。"，"很难建立更丰富的抽象（想要泛型）"
+- Package management (e.g., "Keeping up with vendoring", "dependency / packet [sic] management / vendoring not unified")包管理（例如，"跟上销售"，"依赖/包[原文如此]管理/销售不统一")
+- Differences from more familiar programming languages (e.g., "syntax close to C-languages with slightly different semantics makes me look up references somewhat more than I’d like", "coworkers who come from non-Go backgrounds trying to use Go as a version of their previous language but with channels and Goroutines")与更熟悉的编程语言的差异（例如，"接近于C语言的语法，但语义略有不同，这让我在某种程度上更多地查阅参考资料"，"来自非Go背景的同事试图将Go作为他们以前语言的一个版本，但有通道和Goroutines"）
+- Lack of generics (e.g., "Lack of generics makes it difficult to persuade people who have not tried Go that they would find it efficient.", "Hard to build richer abstractions (want generics)")缺少泛型（例如，"缺少泛型使我们很难说服那些没有尝试过Go的人，让他们觉得Go很有效。"，"很难建立更丰富的抽象（想要泛型）"
 
 ![img](Go2018SurveyResults_img/fig13.svg)
 
@@ -154,7 +154,7 @@ Last year, VS Code edged out Vim as the most popular Go editor among survey resp
 
 去年，VS Code击败了Vim，成为调查对象中最受欢迎的Go编辑器。今年，它的领先优势明显扩大，成为我们调查对象中超过⅓的首选编辑器（去年为27%）。GoLand也经历了强劲的增长，现在是第二大最受欢迎的编辑器，占22%，与Vim交换了位置（降至17%）。VS Code和GoLand的流行似乎是以Sublime Text和Atom为代价的。Vim被列为首选的人数也有所下降，但它仍然是最受欢迎的第二选择编辑器，占14%。有趣的是，我们发现受访者对他们所选择的编辑器的满意程度没有什么不同。
 
-We also asked respondents what would most improve Go support in their preferred editor. Like the “biggest challenge” question above, participants could write in their own response rather than select from a multiple-choice list. A thematic analysis on the responses revealed that *improved debugging support* (e.g., “Live debugging”, “Integrated debugging”, “Even better debugging”) was the most-common request, followed by *improved code completion* (e.g., “autocomplete performance and quality”, “smarter autocomplete”). Other requests include better integration with Go’s CLI toolchain, better support for modules/packages, and general performance improvements.
+We also asked respondents what would most improve Go support in their preferred editor. Like the "biggest challenge" question above, participants could write in their own response rather than select from a multiple-choice list. A thematic analysis on the responses revealed that *improved debugging support* (e.g., "Live debugging", "Integrated debugging", "Even better debugging") was the most-common request, followed by *improved code completion* (e.g., "autocomplete performance and quality", "smarter autocomplete"). Other requests include better integration with Go’s CLI toolchain, better support for modules/packages, and general performance improvements.
 
 我们还询问了受访者，在他们所选择的编辑器中，什么最能改善Go支持。与上面的 "最大挑战 "问题一样，参与者可以写下自己的回答，而不是从多选列表中选择。对回答的主题分析显示，改善调试支持（如 "实时调试"、"集成调试"、"甚至更好的调试"）是最常见的要求，其次是改善代码完成（如 "自动完成性能和质量"、"更智能的自动完成"）。其他要求包括与Go的CLI工具链更好的集成，对模块/包更好的支持，以及一般的性能改进。
 
@@ -184,7 +184,7 @@ Perhaps correlated with the decrease in on-prem deployments, this year we saw cl
 
 ## Go community Go社区
 
-The top community sources for finding answers to Go questions continue to be Stack Overflow (23% of respondents marked it as their top source), Go web sites (18% for godoc.org, 14% for golang.org), and reading source code (8% for source code generally, 4% for GitHub specifically). The order remains largely consistent with prior years. The primary sources for Go news remain the Go blog, Reddit’s r/golang, Twitter, and Hacker News. These were also the primary distribution methods for this survey, however, so there is likely some bias in this result. In the two charts below, we’ve grouped sources used by less than < 5% of respondents into the “Other” category.
+The top community sources for finding answers to Go questions continue to be Stack Overflow (23% of respondents marked it as their top source), Go web sites (18% for godoc.org, 14% for golang.org), and reading source code (8% for source code generally, 4% for GitHub specifically). The order remains largely consistent with prior years. The primary sources for Go news remain the Go blog, Reddit’s r/golang, Twitter, and Hacker News. These were also the primary distribution methods for this survey, however, so there is likely some bias in this result. In the two charts below, we’ve grouped sources used by less than < 5% of respondents into the "Other" category.
 
 寻找Go问题答案的首要社区来源仍然是Stack Overflow（23%的受访者将其标记为首要来源）、Go网站（18%为godoc.org，14%为golang.org）和阅读源代码（一般为8%的源代码，4%为GitHub）。这个顺序与往年基本一致。Go新闻的主要来源仍然是Go博客、Reddit的r/golang、Twitter和Hacker News。然而，这些也是本次调查的主要传播方式，所以这个结果可能有一些偏差。在下面的两个图表中，我们将少于5%的受访者使用的来源归入 "其他 "类别。
 
@@ -192,7 +192,7 @@ The top community sources for finding answers to Go questions continue to be Sta
 
 ![img](Go2018SurveyResults_img/fig25.svg)
 
-This year, 55% of survey respondents said they have or are interested in contributing to the Go community, slightly down from 59% last year. Because the two most common areas for contribution (the standard library and official Go tools) require interacting with the core Go team, we suspect this decrease may be related to a dip in the percentage of participants who agreed with the statements “I feel comfortable approaching the Go project leadership with questions and feedback” (30% → 25%) and “I am confident in the leadership of Go (54% → 46%).
+This year, 55% of survey respondents said they have or are interested in contributing to the Go community, slightly down from 59% last year. Because the two most common areas for contribution (the standard library and official Go tools) require interacting with the core Go team, we suspect this decrease may be related to a dip in the percentage of participants who agreed with the statements "I feel comfortable approaching the Go project leadership with questions and feedback" (30% → 25%) and "I am confident in the leadership of Go (54% → 46%).
 
 今年，55%的调查对象表示他们已经或有兴趣为Go社区做出贡献，比去年的59%略低。由于两个最常见的贡献领域（标准库和官方Go工具）需要与Go核心团队互动，我们猜测这一比例的下降可能与同意 "我很乐意向Go项目领导层提出问题和反馈"（30% → 25%）和 "我对Go的领导层有信心（54% → 46%）"的参与者的比例下降有关。
 
@@ -206,18 +206,18 @@ An important aspect of community is helping everyone feel welcome, especially pe
 
 ![img](Go2018SurveyResults_img/fig28.svg)
 
-Maintaining a healthy community is extremely important to the Go project, so for the past three years we’ve been measuring the extent to which developers feel welcome in the Go community. This year we saw a drop in the percentage of survey respondents who agree with the statement “I feel welcome in the Go community”, from 66% → 59%.
+Maintaining a healthy community is extremely important to the Go project, so for the past three years we’ve been measuring the extent to which developers feel welcome in the Go community. This year we saw a drop in the percentage of survey respondents who agree with the statement "I feel welcome in the Go community", from 66% → 59%.
 
 保持一个健康的社区对Go项目来说是非常重要的，所以在过去的三年里，我们一直在测量开发者在Go社区中感到受欢迎的程度。今年，我们看到同意 "我觉得自己在Go社区很受欢迎 "这一说法的调查对象的比例从66%下降到59%。
 
-To better understand this decrease, we looked more closely at who reported feeling less welcome. Among traditionally under-represented groups, fewer people reported feeling unwelcome in 2018, suggesting that outreach in that area has been helpful. Instead, we found a linear relationship between the length of time someone has used Go and how welcome they feel: newer Go developers felt significantly less welcome (at 50%) than developers with 1-2 years of experience (62%), who in turn felt less welcome than developers with a few years of experience (73%). This interpretation of the data is supported by responses to the question “What changes would make the Go community more welcoming?”. Respondents' comments can be broadly grouped into four categories:
+To better understand this decrease, we looked more closely at who reported feeling less welcome. Among traditionally under-represented groups, fewer people reported feeling unwelcome in 2018, suggesting that outreach in that area has been helpful. Instead, we found a linear relationship between the length of time someone has used Go and how welcome they feel: newer Go developers felt significantly less welcome (at 50%) than developers with 1-2 years of experience (62%), who in turn felt less welcome than developers with a few years of experience (73%). This interpretation of the data is supported by responses to the question "What changes would make the Go community more welcoming?". Respondents' comments can be broadly grouped into four categories:
 
 为了更好地理解这种下降，我们更仔细地研究了哪些人报告说感觉不太受欢迎。在传统上代表性不足的群体中，2018年报告感觉不受欢迎的人较少，这表明该领域的外联活动是有帮助的。相反，我们发现某人使用Go的时间长短与他们感到的欢迎程度之间存在线性关系：较新的Go开发者感到的欢迎程度（50%）明显低于有1-2年经验的开发者（62%），而后者又比有几年经验的开发者（73%）感到不欢迎。对 "哪些变化会使Go社区更受欢迎？"这一问题的回答支持了对数据的这种解释。答复者的意见可以大致分为四类：
 
-- Reduce a perception of elitism, especially for newcomers to Go (e.g., “less dismissiveness”, “Less defensiveness and hubris”)减少对精英主义的看法，尤其是对Go新人来说（例如，"减少轻视"，"减少防卫和傲慢"）。
-- Increase transparency at the leadership level (e.g., “Future direction and planning discussions”, “Less top down leadership”, “More democratic”)增加领导层的透明度（例如，"未来方向和规划讨论"，"减少自上而下的领导"，"更民主"）。
-- Increase introductory resources (e.g., “A more clear introduction for contributors”, “Fun challenges to learn best practices”)增加介绍性资源（例如，"对贡献者更清晰的介绍"，"学习最佳实践的有趣挑战"）。
-- More events and meetups, with a focus on covering a larger geographic area (e.g., “More meetups & social events”, “Events in more cities”)更多的活动和聚会，重点是覆盖更大的地理区域（例如，"更多的聚会和社交活动"，"在更多的城市举办活动"）。
+- Reduce a perception of elitism, especially for newcomers to Go (e.g., "less dismissiveness", "Less defensiveness and hubris")减少对精英主义的看法，尤其是对Go新人来说（例如，"减少轻视"，"减少防卫和傲慢"）。
+- Increase transparency at the leadership level (e.g., "Future direction and planning discussions", "Less top down leadership", "More democratic")增加领导层的透明度（例如，"未来方向和规划讨论"，"减少自上而下的领导"，"更民主"）。
+- Increase introductory resources (e.g., "A more clear introduction for contributors", "Fun challenges to learn best practices")增加介绍性资源（例如，"对贡献者更清晰的介绍"，"学习最佳实践的有趣挑战"）。
+- More events and meetups, with a focus on covering a larger geographic area (e.g., "More meetups & social events", "Events in more cities")更多的活动和聚会，重点是覆盖更大的地理区域（例如，"更多的聚会和社交活动"，"在更多的城市举办活动"）。
 
 This feedback is very helpful and gives us concrete areas we can focus on to improve the experience of being a Go developer. While it doesn’t represent a large percentage of our user base, we take this feedback very seriously and are working on improving each area.
 
@@ -231,4 +231,4 @@ This feedback is very helpful and gives us concrete areas we can focus on to imp
 
 We hope you’ve enjoyed seeing the results of our 2018 developer survey. These results are impacting our 2019 planning, and in the coming months we’ll share some ideas with you to address specific issues and needs the community has highlighted for us. Once again, thank you to everyone who contributed to this survey!
 
-我们希望你喜欢看到我们2018年开发者调查的结果。这些结果正在影响我们的2019年规划，在未来几个月，我们将与你分享一些想法，以解决社区为我们强调的具体问题和需求。再次感谢为这次调查做出贡献的每一个人!
+我们希望您喜欢看到我们2018年开发者调查的结果。这些结果正在影响我们的2019年规划，在未来几个月，我们将与您分享一些想法，以解决社区为我们强调的具体问题和需求。再次感谢为这次调查做出贡献的每一个人!

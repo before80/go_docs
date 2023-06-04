@@ -26,7 +26,7 @@ After a community discussion started at GopherCon in July 2016 and continuing in
 
 ## The Impact of Compatibility 兼容性的影响
 
-The most important new feature of [Go 1](https://blog.golang.org/preview-of-go-version-1) was not a language feature. It was Go 1’s emphasis on backwards compatibility. Until that point we’d issued stable release snapshots approximately monthly, each with significant incompatible changes. We observed significant acceleration in interest and adoption immediately after the release of Go 1. We believe that the [promise of compatibility](https://go.dev/doc/go1compat.html) made developers feel much more comfortable relying on Go for production use and is a key reason that Go is popular today. Since 2013 the [Go FAQ](https://go.dev/doc/faq#get_version) has encouraged package developers to provide their own users with similar expectations of compatibility. We call this the *import compatibility rule*: “If an old package and a new package have the same import path, the new package must be backwards compatible with the old package.”
+The most important new feature of [Go 1](https://blog.golang.org/preview-of-go-version-1) was not a language feature. It was Go 1’s emphasis on backwards compatibility. Until that point we’d issued stable release snapshots approximately monthly, each with significant incompatible changes. We observed significant acceleration in interest and adoption immediately after the release of Go 1. We believe that the [promise of compatibility](https://go.dev/doc/go1compat.html) made developers feel much more comfortable relying on Go for production use and is a key reason that Go is popular today. Since 2013 the [Go FAQ](https://go.dev/doc/faq#get_version) has encouraged package developers to provide their own users with similar expectations of compatibility. We call this the *import compatibility rule*: "If an old package and a new package have the same import path, the new package must be backwards compatible with the old package."
 
 Go 1 的最重要的新特性不是语言特性。它是 Go 1 对向后兼容性的强调。在这之前，我们大约每个月都会发布稳定版快照，每次都有重大的不兼容变化。我们观察到，在 Go 1 发布后，人们对 Go 1 的兴趣和采用速度明显加快。我们相信，兼容性的承诺使开发人员在生产中更容易依赖 Go，这也是 Go 今天流行的一个重要原因。自2013年以来，Go FAQ鼓励软件包开发者为自己的用户提供类似的兼容性期望。我们称之为导入兼容性规则："如果一个旧包和一个新包有相同的导入路径，新包必须向后兼容旧包"。
 
@@ -50,7 +50,7 @@ It is of course possible to build systems that use semantic versioning without s
 
 当然，在没有语义导入版本管理的情况下，也可以构建使用语义版本管理的系统，但是只有通过放弃部分代码升级或者导入唯一性的方式才行。Cargo通过放弃导入的唯一性而允许部分代码升级：一个给定的导入路径在一个大型构建的不同部分可能具有不同的含义。Dep通过放弃部分代码升级来确保导入的唯一性：所有参与大型构建的软件包都必须找到一个特定依赖的单一约定的版本，这就提高了大型程序无法构建的可能性。Cargo坚持部分代码升级是正确的，这对大规模软件开发至关重要。Dep坚持导入的唯一性也是正确的。Go当前的销售支持的复杂使用可能会违反导入的唯一性。当它们发生时，所产生的问题对于开发者和工具来说都是相当具有挑战性的。在部分代码升级和导入唯一性之间做出决定，需要预测放弃哪一个会更痛苦。语义导入版本管理让我们避免了这种选择，而将两者都保留下来。
 
-I was also surprised to discover how much import compatibility simplifies version selection, which is the problem of deciding which package versions to use for a given build. The constraints of Cargo and Dep make version selection equivalent to [solving Boolean satisfiability](https://research.swtch.com/version-sat), meaning it can be very expensive to determine whether a valid version configuration even exists. And then there may be many valid configurations, with no clear criteria for choosing the “best” one. Relying on import compatibility can instead let Go use a trivial, linear-time algorithm to find the single best configuration, which always exists. This algorithm, which I call [*minimal version selection*](https://research.swtch.com/vgo-mvs), in turn eliminates the need for separate lock and manifest files. It replaces them with a single, short configuration file, edited directly by both developers and tools, that still supports reproducible builds.
+I was also surprised to discover how much import compatibility simplifies version selection, which is the problem of deciding which package versions to use for a given build. The constraints of Cargo and Dep make version selection equivalent to [solving Boolean satisfiability](https://research.swtch.com/version-sat), meaning it can be very expensive to determine whether a valid version configuration even exists. And then there may be many valid configurations, with no clear criteria for choosing the "best" one. Relying on import compatibility can instead let Go use a trivial, linear-time algorithm to find the single best configuration, which always exists. This algorithm, which I call [*minimal version selection*](https://research.swtch.com/vgo-mvs), in turn eliminates the need for separate lock and manifest files. It replaces them with a single, short configuration file, edited directly by both developers and tools, that still supports reproducible builds.
 
 我还惊讶地发现，导入兼容性在多大程度上简化了版本选择，也就是决定在特定构建中使用哪些软件包版本的问题。Cargo和Dep的约束使版本选择等同于解决布尔可满足性问题，这意味着要确定一个有效的版本配置是否存在是非常昂贵的。然后，可能会有许多有效的配置，但没有明确的标准来选择 "最佳 "的配置。依靠导入兼容性可以让Go使用一个微不足道的线性时间算法来找到单一的最佳配置，这个配置总是存在的。这种算法，我称之为最小版本选择，反过来又消除了对单独的锁和清单文件的需求。它用一个简短的配置文件取代了它们，由开发人员和工具直接编辑，仍然支持可重复的构建。
 
@@ -86,7 +86,7 @@ In addition to the core ideas of import compatibility, semantic import versionin
 
 The result of all of this is the [official Go proposal](https://go.dev/design/24301-versioned-go), which I filed last week. Even though it might look like a complete implementation, it’s still just a prototype, one that we will all need to work together to complete. You can download and try the `vgo` prototype from [golang.org/x/vgo](https://golang.org/x/vgo), and you can read the [Tour of Versioned Go](https://research.swtch.com/vgo-tour) to get a sense of what using `vgo` is like.
 
-所有这些的结果就是我上周提交的官方Go提案。尽管它看起来像是一个完整的实现，但它仍然只是一个原型，一个需要我们共同完成的原型。你可以从golang.org/x/vgo下载并试用vgo原型，你也可以阅读《版本化Go之旅》以了解使用vgo的情况。
+所有这些的结果就是我上周提交的官方Go提案。尽管它看起来像是一个完整的实现，但它仍然只是一个原型，一个需要我们共同完成的原型。您可以从golang.org/x/vgo下载并试用vgo原型，您也可以阅读《版本化Go之旅》以了解使用vgo的情况。
 
 ## The Path Forward 前进的道路
 
@@ -96,8 +96,8 @@ The proposal I filed last week is exactly that: an initial proposal. I know ther
 
 For this proposal to succeed, the Go ecosystem as a whole—and in particular today’s major Go projects—will need to adopt the import compatibility rule and semantic import versioning. To make sure that can happen smoothly, we will also be conducting user feedback sessions by video conference with projects that have questions about how to incorporate the new versioning proposal into their code bases or have feedback about their experiences. If you are interested in participating in such a session, please email Steve Francia at spf@golang.org.
 
-为了使这项提议取得成功，整个Go生态系统，特别是今天的主要Go项目，都需要采用导入兼容性规则和语义导入版本控制。为了确保这种情况能够顺利发生，我们还将通过视频会议与那些对如何将新的版本管理建议纳入其代码库有疑问的项目进行用户反馈会议，或者对其经验进行反馈。如果你有兴趣参加这样的会议，请发邮件给Steve Francia，spf@golang.org。
+为了使这项提议取得成功，整个Go生态系统，特别是今天的主要Go项目，都需要采用导入兼容性规则和语义导入版本控制。为了确保这种情况能够顺利发生，我们还将通过视频会议与那些对如何将新的版本管理建议纳入其代码库有疑问的项目进行用户反馈会议，或者对其经验进行反馈。如果您有兴趣参加这样的会议，请发邮件给Steve Francia，spf@golang.org。
 
 We’re looking forward to (finally!) providing the Go community with a single, official answer to the question of how to incorporate package versioning into `go get`. Thanks to everyone who helped us get this far, and to everyone who will help us going forward. We hope that, with your help, we can ship something that Go developers will love.
 
-我们期待着（最终！）为Go社区提供一个单一的、官方的答案，以解决如何将包的版本管理纳入Go get中的问题。感谢每一个帮助我们走到这一步的人，也感谢每一个将帮助我们前进的人。我们希望，在你们的帮助下，我们能够推出Go开发者喜欢的东西。
+我们期待着（最终！）为Go社区提供一个单一的、官方的答案，以解决如何将包的版本管理纳入Go get中的问题。感谢每一个帮助我们走到这一步的人，也感谢每一个将帮助我们前进的人。我们希望，在您们的帮助下，我们能够推出Go开发者喜欢的东西。

@@ -18,7 +18,7 @@ Alice Merrick
 
 Since 2016, thousands of Gophers around the world have helped the Go project by sharing their thoughts via our annual Go Developer Survey. Your feedback has played an enormous role in driving changes to our language, ecosystem, and community, including the gopls language server, the latest generics draft, the module mirror, and so much more. And of course, we publicly share [each year’s results](https://blog.golang.org/survey2019-results), so we can all benefit from the community’s insights.
 
-自2016年以来，世界各地数以千计的Gophers通过我们的年度Go开发者调查分享他们的想法来帮助Go项目。你的反馈在推动我们的语言、生态系统和社区的变化方面发挥了巨大作用，包括gopls语言服务器、最新的泛型草案、模块镜像等等。当然，我们公开分享每年的结果，这样我们都可以从社区的洞察力中受益。
+自2016年以来，世界各地数以千计的Gophers通过我们的年度Go开发者调查分享他们的想法来帮助Go项目。您的反馈在推动我们的语言、生态系统和社区的变化方面发挥了巨大作用，包括gopls语言服务器、最新的泛型草案、模块镜像等等。当然，我们公开分享每年的结果，这样我们都可以从社区的洞察力中受益。
 
 This year we’ve streamlined the survey to shorten the time it takes to complete and improved the survey’s accessibility. The specific questions each person will see are randomly selected, so folks who’ve taken the survey in prior years may not see all of the questions they are used to. Rest assured that they are still there. This approach allows us to ask about a wider variety of topics than in prior years while also reducing the survey’s length.
 
@@ -32,4 +32,4 @@ Today we are launching the 2020 Go Developer Survey. We’d love to hear from ev
 
 We need as many Gophers as possible to participate in this survey to help us better understand our global user base. We’d be grateful if you would spread the word by sharing this post on your social network feeds, around the office, at virtual meet-ups, and in other communities. Thank you!
 
-我们需要尽可能多的Gophers参与这项调查，以帮助我们更好地了解我们的全球用户群。如果您能在您的社交网络上、办公室周围、虚拟聚会和其他社区中分享这个帖子，我们将非常感激。谢谢你！"。
+我们需要尽可能多的Gophers参与这项调查，以帮助我们更好地了解我们的全球用户群。如果您能在您的社交网络上、办公室周围、虚拟聚会和其他社区中分享这个帖子，我们将非常感激。谢谢您！"。

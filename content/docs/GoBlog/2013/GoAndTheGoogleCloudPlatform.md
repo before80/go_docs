@@ -28,7 +28,7 @@ Learn more by watching these talks from Google I/O this year:
 
 *The Go runtime for App Engine is a high performance engine for* *running web applications. It produces fast responses,* *starts instances in a fraction of a second, makes the most use* *of instance hours, and allows your app to do serious processing* *at full machine speed.* *Come along to hear how to fully exploit the power of Go on App* *Engine and make your web applications the best they can be.*
 
-App Engine的Go运行时是运行网络应用的高性能引擎。它能产生快速响应，在几分之一秒内启动实例，最大限度地利用实例时间，并允许你的应用程序以全机器速度进行认真处理。请来听听如何在App Engine上充分利用Go的力量，使你的网络应用成为最好的。
+App Engine的Go运行时是运行网络应用的高性能引擎。它能产生快速响应，在几分之一秒内启动实例，最大限度地利用实例时间，并允许您的应用程序以全机器速度进行认真处理。请来听听如何在App Engine上充分利用Go的力量，使您的网络应用成为最好的。
 
 <iframe src="https://www.youtube.com/embed/fc25ihfXhbg" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
 

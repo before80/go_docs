@@ -62,7 +62,7 @@ We also want to thank the 1.6 million Go users worldwide for giving us interesti
 
 And finally I want to acknowledge Renee French for all these nice Gophers that she has been producing over the years. You will see several of them throughout the talk.
 
-最后我想感谢Renee French，感谢她多年来制作的所有这些漂亮的Gophers。你会在整个讲座中看到其中的几个。
+最后我想感谢Renee French，感谢她多年来制作的所有这些漂亮的Gophers。您会在整个讲座中看到其中的几个。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image38.png)
 
@@ -118,7 +118,7 @@ So there are pluses and minuses.
 
 Go comes with two knobs to control the GC. The first one is GCPercent. Basically this is a knob that adjusts how much CPU you want to use and how much memory you want to use. The default is 100 which means that half the heap is dedicated to live memory and half the heap is dedicated to allocation. You can modify this in either direction.
 
-Go有两个旋钮来控制GC。第一个是GCPercent。基本上，这是一个可以调整你想使用多少CPU和多少内存的旋钮。默认值是100，这意味着一半的堆被用于实时内存，一半的堆被用于分配。你可以在任何一个方向上修改。
+Go有两个旋钮来控制GC。第一个是GCPercent。基本上，这是一个可以调整您想使用多少CPU和多少内存的旋钮。默认值是100，这意味着一半的堆被用于实时内存，一半的堆被用于分配。您可以在任何一个方向上修改。
 
 MaxHeap, which is not yet released but is being used and evaluated internally, lets the programmer set what the maximum heap size should be. Out of memory, OOMs, are tough on Go; temporary spikes in memory usage should be handled by increasing CPU costs, not by aborting. Basically if the GC sees memory pressure it informs the application that it should shed load. Once things are back to normal the GC informs the application that it can go back to its regular load. MaxHeap also provides a lot more flexibility in scheduling. Instead of always being paranoid about how much memory is available the runtime can size the heap up to the MaxHeap.
 
@@ -156,11 +156,11 @@ The math is completely unforgiving on this.
 
 A 99%ile isolated GC latency service level objective (SLO), such as 99% of the time a GC cycle takes < 10ms, just simply doesn’t scale. What matters is latency during an entire session or through the course of using an app many times in a day. Assume a session that browses several web pages ends up making 100 server requests during a session or it makes 20 requests and you have 5 sessions packed up during the day. In that situation only 37% of users will have a consistent sub 10ms experience across the entire session.
 
-一个99%的孤立的GC延迟服务水平目标（SLO），例如99%的GC周期所需时间小于10ms，根本无法扩展。重要的是在整个会话期间或在一天内多次使用一个应用程序的过程中的延迟。假设一个浏览几个网页的会话在一个会话中最终发出了100个服务器请求，或者它发出了20个请求，而你在一天内有5个会话被打包。在这种情况下，只有37%的用户会在整个会话中获得一致的低于10ms的体验。
+一个99%的孤立的GC延迟服务水平目标（SLO），例如99%的GC周期所需时间小于10ms，根本无法扩展。重要的是在整个会话期间或在一天内多次使用一个应用程序的过程中的延迟。假设一个浏览几个网页的会话在一个会话中最终发出了100个服务器请求，或者它发出了20个请求，而您在一天内有5个会话被打包。在这种情况下，只有37%的用户会在整个会话中获得一致的低于10ms的体验。
 
 If you want 99% of those users to have a sub 10ms experience, as we are suggesting, the math says you really need to target 4 9s or the 99.99%ile.
 
-如果你想让99%的用户拥有10毫秒以下的体验，就像我们建议的那样，数学上说你真的需要以4个9或99.99%为目标。
+如果您想让99%的用户拥有10毫秒以下的体验，就像我们建议的那样，数学上说您真的需要以4个9或99.99%为目标。
 
 So it’s 2014 and Jeff Dean had just come out with his paper called ‘The Tail at Scale’ which this digs into this further. It was being widely read around Google since it had serious ramifications for Google going forward and trying to scale at Google scale.
 
@@ -174,7 +174,7 @@ We call this problem the tyranny of the 9s.
 
 So how do you fight the tyranny of the 9s?
 
-那么，你如何与 "9 "的暴政作斗争？
+那么，您如何与 "9 "的暴政作斗争？
 
 A lot of things were being done in 2014.
 
@@ -182,7 +182,7 @@ A lot of things were being done in 2014.
 
 If you want 10 answers ask for several more and take the first 10 and those are the answers you put on your search page. If the request exceeds 50%ile reissue or forward the request to another server. If GC is about to run, refuse new requests or forward the requests to another server until GC is done. And so forth and so on.
 
-如果你想要10个答案，再问几个，取前10个，这些就是你放在搜索页面上的答案。如果请求超过50%ile，则重新发布或将请求转发给另一个服务器。如果GC即将运行，拒绝新的请求或将请求转发到另一台服务器，直到GC完成。诸如此类，不一而足。
+如果您想要10个答案，再问几个，取前10个，这些就是您放在搜索页面上的答案。如果请求超过50%ile，则重新发布或将请求转发给另一个服务器。如果GC即将运行，拒绝新的请求或将请求转发到另一台服务器，直到GC完成。诸如此类，不一而足。
 
 All these are workarounds come from very clever people with very real problems but they didn’t tackle the root problem of GC latency. At Google scale we had to tackle the root problem. Why?
 
@@ -264,13 +264,13 @@ Speed: Non-copy did not concern us, allocation admittedly might be slower but st
 
 We also had this foreign function interface issue. If we didn’t move our objects then we didn’t have to deal with the long tail of bugs you might encounter if you had a moving collector as you attempt to pin objects and put levels of indirection between C and the Go object you are working with.
 
-我们也有这个外来函数接口的问题。如果我们不移动我们的对象，那么我们就不必处理如果你有一个移动的收集器，你可能会遇到的长尾错误，因为你试图钉住对象，并在C和你正在工作的Go对象之间设置层级的指示。
+我们也有这个外来函数接口的问题。如果我们不移动我们的对象，那么我们就不必处理如果您有一个移动的收集器，您可能会遇到的长尾错误，因为您试图钉住对象，并在C和您正在工作的Go对象之间设置层级的指示。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image5.png)
 
 The next design choice was where to put the object’s metadata. We needed to have some information about the objects since we didn’t have headers. Mark bits are kept on the side and used for marking as well as allocation. Each word has 2 bits associated with it to tell you if it was a scalar or a pointer inside that word. It also encoded whether there were more pointers in the object so we could stop scanning objects sooner than later. We also had an extra bit encoding that we could use as an extra mark bit or to do other debugging things. This was really valuable for getting this stuff running and finding bugs.
 
-下一个设计选择是把对象的元数据放在哪里。我们需要有一些关于对象的信息，因为我们没有标头。标记位被保留在侧面，用于标记以及分配。每个字都有2个比特与之相关，以告诉你这个字里面是标量还是指针。它还编码对象中是否有更多的指针，所以我们可以尽早停止扫描对象。我们还有一个额外的编码位，我们可以把它作为一个额外的标记位，或者用来做其他调试工作。这对于让这些东西运行和发现错误来说，真的很有价值。
+下一个设计选择是把对象的元数据放在哪里。我们需要有一些关于对象的信息，因为我们没有标头。标记位被保留在侧面，用于标记以及分配。每个字都有2个比特与之相关，以告诉您这个字里面是标量还是指针。它还编码对象中是否有更多的指针，所以我们可以尽早停止扫描对象。我们还有一个额外的编码位，我们可以把它作为一个额外的标记位，或者用来做其他调试工作。这对于让这些东西运行和发现错误来说，真的很有价值。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image19.png)
 
@@ -302,7 +302,7 @@ It does much more than this but that is the basic approach.
 
 The math is absolutely fascinating, ping me for the design docs. If you are doing a concurrent GC you really owe it to yourself to look at this math and see if it’s the same as your math. If you have any suggestions let us know.
 
-这方面的数学知识绝对令人着迷，请联系我索取设计文档。如果你正在做一个并发的GC，你真的应该看看这个数学，看看它是否和你的数学一样。如果你有什么建议，请告诉我们。
+这方面的数学知识绝对令人着迷，请联系我索取设计文档。如果您正在做一个并发的GC，您真的应该看看这个数学，看看它是否和您的数学一样。如果您有什么建议，请告诉我们。
 
 [*Go 1.5 concurrent garbage collector pacing](https://go.dev/s/go15gcpacing) and [Proposal: Separate soft and hard heap size goal
 
@@ -364,9 +364,9 @@ The next release was in March of 2017. We had the last of our large latency drop
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image45.png)
 
-The August 2017 release saw little improvement. We know what is causing the remaining pauses. The SLO whisper number here is around 100-200 microseconds and we will push towards that. If you see anything over a couple hundred microseconds then we really want to talk to you and figure out whether it fits into the stuff we know about or whether it is something new we haven’t looked into. In any case there seems to be little call for lower latency. It is important to note these latency levels can happen for a wide variety of non-GC reasons and as the saying goes “You don’t have to be faster than the bear, you just have to be faster than the guy next to you.”
+The August 2017 release saw little improvement. We know what is causing the remaining pauses. The SLO whisper number here is around 100-200 microseconds and we will push towards that. If you see anything over a couple hundred microseconds then we really want to talk to you and figure out whether it fits into the stuff we know about or whether it is something new we haven’t looked into. In any case there seems to be little call for lower latency. It is important to note these latency levels can happen for a wide variety of non-GC reasons and as the saying goes "You don’t have to be faster than the bear, you just have to be faster than the guy next to you."
 
-2017年8月的版本几乎没有改善。我们知道是什么导致了剩余的停顿。这里的SLO低语数字大约是100-200微秒，我们将向这个数字推进。如果你看到任何超过几百微秒的东西，那么我们真的想和你谈谈，弄清楚它是否符合我们所知道的东西，或者它是否是我们没有研究过的新东西。在任何情况下，似乎很少有人要求降低延迟。值得注意的是，这些延迟水平可能会因为各种非GC的原因而发生，就像那句话说的 "你不必比熊快，你只需要比你旁边的人快"。
+2017年8月的版本几乎没有改善。我们知道是什么导致了剩余的停顿。这里的SLO低语数字大约是100-200微秒，我们将向这个数字推进。如果您看到任何超过几百微秒的东西，那么我们真的想和您谈谈，弄清楚它是否符合我们所知道的东西，或者它是否是我们没有研究过的新东西。在任何情况下，似乎很少有人要求降低延迟。值得注意的是，这些延迟水平可能会因为各种非GC的原因而发生，就像那句话说的 "您不必比熊快，您只需要比您旁边的人快"。
 
 There was no substantial change in the Feb'18 1.10 release just some clean-up and chasing corner cases.
 
@@ -440,7 +440,7 @@ Finally the Goroutine on the left goes to its death bed, it’s about to die, sa
 
 As you know you can’t take your objects with you when you die. You can’t take your stack either. The stack is actually empty at this time and the objects are unreachable so you can simply reclaim them.
 
-如你所知，你死后不能带走你的对象。你也不能带走你的堆栈。这时的堆栈实际上是空的，物体是不可触及的，所以你可以简单地回收它们。
+如您所知，您死后不能带走您的对象。您也不能带走您的堆栈。这时的堆栈实际上是空的，物体是不可触及的，所以您可以简单地回收它们。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image2.png)
 
@@ -468,7 +468,7 @@ This is an end-to-end RPC benchmark. The mislabeled Y axis goes from 0 to 5 mill
 
 As you can see if you have ROC on and not a lot of sharing, things actually scale quite nicely. If you don’t have ROC on it wasn’t nearly as good.
 
-正如你所看到的，如果你有ROC，并且没有大量的共享，事情的规模实际上是相当不错的。如果你没有开启ROC，那就没有那么好。
+正如您所看到的，如果您有ROC，并且没有大量的共享，事情的规模实际上是相当不错的。如果您没有开启ROC，那就没有那么好。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image35.png)
 
@@ -510,31 +510,31 @@ So could we do this? Yes, but with a generational GC, the write barrier is alway
 
 So how is this going to work in a non-moving situation? Here is the mark / allocation map. Basically you maintain a current pointer. When you are allocating you look for the next zero and when you find that zero you allocate an object in that space.
 
-那么，在非移动情况下，这将如何工作呢？这里是标记/分配图。基本上你保持一个当前的指针。当你分配时，你寻找下一个零，当你找到那个零时，你在那个空间分配一个对象。
+那么，在非移动情况下，这将如何工作呢？这里是标记/分配图。基本上您保持一个当前的指针。当您分配时，您寻找下一个零，当您找到那个零时，您在那个空间分配一个对象。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image51.png)
 
 You then update the current pointer to the next 0.
 
-然后你将当前指针更新到下一个0。
+然后您将当前指针更新到下一个0。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image17.png)
 
 You continue until at some point it is time to do a generation GC. You will notice that if there is a one in the mark/allocation vector then that object was alive at the last GC so it is mature. If it is zero and you reach it then you know it is young.
 
-你一直这样做，直到在某个时间点，是时候做一次生成GC了。你会注意到，如果在标记/分配向量中有一个1，那么这个对象在上一次GC时是活的，所以它是成熟的。如果它是0，而你达到了它，那么你知道它是年轻的。
+您一直这样做，直到在某个时间点，是时候做一次生成GC了。您会注意到，如果在标记/分配向量中有一个1，那么这个对象在上一次GC时是活的，所以它是成熟的。如果它是0，而您达到了它，那么您知道它是年轻的。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image53.png)
 
 So how do you do promoting. If you find something marked with a 1 pointing to something marked with a 0 then you promote the referent simply by setting that zero to a one.
 
-那么，你是如何做推广的。如果你发现标有1的东西指向标有0的东西，那么你就通过将0设为1来提升指代对象。
+那么，您是如何做推广的。如果您发现标有1的东西指向标有0的东西，那么您就通过将0设为1来提升指代对象。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image49.png)
 
 You have to do a transitive walk to make sure all reachable objects are promoted.
 
-你必须做一个递归行走，以确保所有可触及的对象都被提升。
+您必须做一个递归行走，以确保所有可触及的对象都被提升。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image69.png)
 
@@ -546,7 +546,7 @@ When all reachable objects have been promoted the minor GC terminates.
 
 Finally, to finish your generational GC cycle you simply set the current pointer back to the start of the vector and you can continue. All the zeros weren’t reached during that GC cycle so are free and can be reused. As many of you know this is called ‘sticky bits’ and was invented by Hans Boehm and his colleagues.
 
-最后，为了完成你的世代GC循环，你只需将当前指针设置到向量的起始位置，就可以继续了。在这个GC周期中，所有的零都没有到达，所以是自由的，可以被重新使用。正如你们中的许多人所知，这被称为 "粘性位"，是由Hans Boehm和他的同事发明的。
+最后，为了完成您的世代GC循环，您只需将当前指针设置到向量的起始位置，就可以继续了。在这个GC周期中，所有的零都没有到达，所以是自由的，可以被重新使用。正如您们中的许多人所知，这被称为 "粘性位"，是由Hans Boehm和他的同事发明的。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image21.png)
 
@@ -578,7 +578,7 @@ Of course in the case where a pointer to the local object escapes, the object wo
 
 It isn’t that the generational hypothesis isn’t true for Go, it’s just that the young objects live and die young on the stack. The result is that generational collection is much less effective than you might find in other managed runtime languages.
 
-并不是说代际假设对Go来说不成立，只是年轻的对象在堆栈中生老病死。其结果是，代际收集比你在其他管理运行时语言中发现的要少得多。
+并不是说代际假设对Go来说不成立，只是年轻的对象在堆栈中生老病死。其结果是，代际收集比您在其他管理运行时语言中发现的要少得多。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image10.png)
 
@@ -598,7 +598,7 @@ But that’s not the main compelling reason why write barriers in Go have an uph
 
 Let’s look at this graph. It’s just an analytical graph of mark costs. Each line represents a different application that might have a mark cost. Say your mark cost is 20%, which is pretty high but it’s possible. The red line is 10%, which is still high. The lower line is 5% which is about what a write barrier costs these days. So what happens if you double the heap size? That’s the point on the right. The cumulative cost of the mark phase drops considerably since GC cycles are less frequent. The write barrier costs are constant so the cost of increasing the heap size will drive that marking cost underneath the cost of the write barrier.
 
-让我们看一下这个图。这只是一个标记成本的分析图。每条线代表一个可能有标记成本的不同应用。假设你的标记成本是20%，这是很高的，但这是可能的。红线是10%，这仍然很高。下线是5%，这大约是现在的写障成本。那么，如果你把堆的大小增加一倍会怎样呢？这就是右边的那一点。标记阶段的累积成本大幅下降，因为GC周期的频率降低了。写入屏障的成本是恒定的，所以增加堆的大小的成本会使该标记成本低于写入屏障的成本。
+让我们看一下这个图。这只是一个标记成本的分析图。每条线代表一个可能有标记成本的不同应用。假设您的标记成本是20%，这是很高的，但这是可能的。红线是10%，这仍然很高。下线是5%，这大约是现在的写障成本。那么，如果您把堆的大小增加一倍会怎样呢？这就是右边的那一点。标记阶段的累积成本大幅下降，因为GC周期的频率降低了。写入屏障的成本是恒定的，所以增加堆的大小的成本会使该标记成本低于写入屏障的成本。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image39.png)
 
@@ -612,7 +612,7 @@ The real value of generational GC is that, when looking at GC times, the write b
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image23.png)
 
-That’s a lot of failure and with such failure comes food and lunch. I’m doing my usual whining “Gee wouldn’t this be great if it wasn’t for the write barrier.”
+That’s a lot of failure and with such failure comes food and lunch. I’m doing my usual whining "Gee wouldn’t this be great if it wasn’t for the write barrier."
 
 这是一个很大的失败，随着这样的失败而来的是食物和午餐。我正在做我一贯的抱怨："哎呀，如果不是因为写障碍，这不是很好吗。"
 
@@ -628,11 +628,11 @@ Anyway that got us talking, what about something crazy?
 
 What about card marking without a write barrier? It turns out that Austin has these files and he writes into these files all of his crazy ideas that for some reason he doesn’t tell me about. I figure it is some sort of therapeutic thing. I used to do the same thing with Eliot. New ideas are easily smashed and one needs to protect them and make them stronger before you let them out into the world. Well anyway he pulls this idea out.
 
-没有写入障碍的卡片标记怎么样？事实证明，奥斯汀有这些文件，他把他所有的疯狂想法都写进了这些文件，但由于某些原因他没有告诉我。我想这是某种治疗性的东西。我以前对艾略特也是这样做的。新的想法很容易被打碎，人们需要保护它们，在你让它们进入世界之前让它们变得更强大。好吧，无论如何，他把这个想法拉了出来。
+没有写入障碍的卡片标记怎么样？事实证明，奥斯汀有这些文件，他把他所有的疯狂想法都写进了这些文件，但由于某些原因他没有告诉我。我想这是某种治疗性的东西。我以前对艾略特也是这样做的。新的想法很容易被打碎，人们需要保护它们，在您让它们进入世界之前让它们变得更强大。好吧，无论如何，他把这个想法拉了出来。
 
 The idea is that you maintain a hash of mature pointers in each card. If pointers are written into a card, the hash will change and the card will be considered marked. This would trade the cost of write barrier off for cost of hashing.
 
-这个想法是，你在每张卡中保持一个成熟指针的哈希。如果指针被写入卡片，哈希值就会改变，卡片就会被认为有标记。这将用写入障碍的成本换取散列的成本。
+这个想法是，您在每张卡中保持一个成熟指针的哈希。如果指针被写入卡片，哈希值就会改变，卡片就会被认为有标记。这将用写入障碍的成本换取散列的成本。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image31.png)
 
@@ -642,7 +642,7 @@ But more importantly it’s hardware aligned.
 
 Today’s modern architectures have AES (Advanced Encryption Standard) instructions. One of those instructions can do encryption-grade hashing and with encryption-grade hashing we don’t have to worry about collisions if we also follow standard encryption policies. So hashing is not going to cost us much but we have to load up what we are going to hash. Fortunately we are walking through memory sequentially so we get really good memory and cache performance. If you have a DIMM and you hit sequential addresses, then it’s a win because they will be faster than hitting random addresses. The hardware prefetchers will kick in and that will also help. Anyway we have 50 years, 60 years of designing hardware to run Fortran, to run C, and to run the SPECint benchmarks. It’s no surprise that the result is hardware that runs this kind of stuff fast.
 
-今天的现代架构有AES（高级加密标准）指令。其中一个指令可以进行加密级散列，有了加密级散列，如果我们也遵循标准的加密策略，我们就不必担心碰撞问题。因此，散列不会让我们花费很多，但我们必须加载我们要散列的东西。幸运的是，我们是按顺序走过内存，所以我们得到了非常好的内存和缓存性能。如果你有一个DIMM，并且你击中了顺序地址，那么这就是一个胜利，因为它们将比击中随机地址更快。硬件预取器将启动，这也会有所帮助。总之，我们有50年、60年的时间设计硬件来运行Fortran，运行C，以及运行SPECint基准测试。其结果是硬件能够快速运行这种东西，这并不奇怪。
+今天的现代架构有AES（高级加密标准）指令。其中一个指令可以进行加密级散列，有了加密级散列，如果我们也遵循标准的加密策略，我们就不必担心碰撞问题。因此，散列不会让我们花费很多，但我们必须加载我们要散列的东西。幸运的是，我们是按顺序走过内存，所以我们得到了非常好的内存和缓存性能。如果您有一个DIMM，并且您击中了顺序地址，那么这就是一个胜利，因为它们将比击中随机地址更快。硬件预取器将启动，这也会有所帮助。总之，我们有50年、60年的时间设计硬件来运行Fortran，运行C，以及运行SPECint基准测试。其结果是硬件能够快速运行这种东西，这并不奇怪。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image12.png)
 
@@ -666,7 +666,7 @@ What are the memories of the future?
 
 Let’s take a look at this graph. This is your classic Moore’s law graph. You have a log scale on the Y axis showing the number of transistors in a single chip. The X-axis is the years between 1971 and 2016. I will note that these are the years when someone somewhere predicted that Moore’s law was dead.
 
-让我们来看看这个图表。这是你的经典摩尔定律图。你在Y轴上有一个对数刻度，显示单个芯片中晶体管的数量。X轴是1971年至2016年之间的年份。我要指出的是，这些年有人在某个地方预测摩尔定律已经死亡。
+让我们来看看这个图表。这是您的经典摩尔定律图。您在Y轴上有一个对数刻度，显示单个芯片中晶体管的数量。X轴是1971年至2016年之间的年份。我要指出的是，这些年有人在某个地方预测摩尔定律已经死亡。
 
 Dennard scaling had ended frequency improvements ten years or so ago. New processes are taking longer to ramp. So instead of 2 years they are now 4 years or more. So it’s pretty clear that we are entering an era of the slowing of Moore’s law.
 
@@ -706,7 +706,7 @@ Latency, the green line, is doing very poorly, though I will note that latency f
 
 延迟，绿线，做得很差，尽管我要指出，顺序访问的延迟比随机访问的延迟要好。
 
-(Data from “Understanding and Improving the Latency of DRAM-Based Memory Systems Submitted in partial fulfillment of the requirements for the degree of Doctor of Philosophy in Electrical and Computer Engineering Kevin K. Chang M.S., Electrical & Computer Engineering, Carnegie Mellon University B.S., Electrical & Computer Engineering, Carnegie Mellon University Carnegie Mellon University Pittsburgh, PA May, 2017”. See [Kevin K. Chang’s thesis.](http://repository.cmu.edu/cgi/viewcontent.cgi?article%3D1946%26context%3Ddissertations&sa=D&ust=1531164842660000) The original graph in the introduction was not in a form that I could draw a Moore’s law line on it easily so I changed the X-axis to be more uniform.)
+(Data from "Understanding and Improving the Latency of DRAM-Based Memory Systems Submitted in partial fulfillment of the requirements for the degree of Doctor of Philosophy in Electrical and Computer Engineering Kevin K. Chang M.S., Electrical & Computer Engineering, Carnegie Mellon University B.S., Electrical & Computer Engineering, Carnegie Mellon University Carnegie Mellon University Pittsburgh, PA May, 2017". See [Kevin K. Chang’s thesis.](http://repository.cmu.edu/cgi/viewcontent.cgi?article%3D1946%26context%3Ddissertations&sa=D&ust=1531164842660000) The original graph in the introduction was not in a form that I could draw a Moore’s law line on it easily so I changed the X-axis to be more uniform.)
 
 (数据来自 "理解和改进基于DRAM的内存系统的延迟提交，以部分满足电子和计算机工程哲学博士学位的要求Kevin K. Chang卡内基梅隆大学电子和计算机工程硕士，卡内基梅隆大学电子和计算机工程学士卡内基梅隆大学匹兹堡，PA2017年5月"。见Kevin K. Chang的论文。介绍中的原图的形式不便于我在上面画摩尔定律线，所以我把X轴改得更均匀)。
 
@@ -718,7 +718,7 @@ Let’s go to where the rubber meets the road. This is actual DRAM pricing and i
 
 If you look at the red circle, which is basically the time our work to reduce Go’s GC latency has been going on, we see that for the first couple of years prices did well. Lately, not so good, as demand has exceeded supply leading to price increases over the last two years. Of course, transistors haven’t gotten bigger and in some cases chip capacity has increased so this is driven by market forces. RAMBUS and other chip manufacturers say that moving forward we will see our next process shrink in the 2019-2020 time frame.
 
-如果你看一下红圈，这基本上是我们减少Go的GC延迟的工作一直在进行的时间，我们看到前几年的价格表现不错。最近，就不那么好了，因为需求超过了供应，导致过去两年的价格上涨。当然，晶体管并没有变大，在某些情况下，芯片容量也增加了，所以这是由市场力量推动的。RAMBUS和其他芯片制造商说，向前看，我们将在2019-2020年的时间框架内看到我们的下一个工艺缩减。
+如果您看一下红圈，这基本上是我们减少Go的GC延迟的工作一直在进行的时间，我们看到前几年的价格表现不错。最近，就不那么好了，因为需求超过了供应，导致过去两年的价格上涨。当然，晶体管并没有变大，在某些情况下，芯片容量也增加了，所以这是由市场力量推动的。RAMBUS和其他芯片制造商说，向前看，我们将在2019-2020年的时间框架内看到我们的下一个工艺缩减。
 
 I will refrain from speculating on global market forces in the memory industry beyond noting that pricing is cyclic and in the long term supply has a tendency to meet demand.
 
@@ -784,7 +784,7 @@ Finally, and most importantly, we hope to ride Moore’s law’s tendency to fav
 
 So that’s it. Thank you.
 
-就这样吧。谢谢你。
+就这样吧。谢谢您。
 
 ![img](GettingToGoTheJourneyOfGosGarbageCollector_img/image33.png)
 

@@ -14,11 +14,11 @@ https://go.dev/blog/5years
 Andrew Gerrand
 10 November 2014
 
-Five years ago we launched the Go project. It seems like only yesterday that we were preparing the initial public release: our [website](https://web.archive.org/web/20091112094121/http://golang.org/) was a lovely shade of yellow, we were calling Go a “systems language”, and you had to terminate statements with a semicolon and write Makefiles to build your code. We had no idea how Go would be received. Would people share our vision and goals? Would people find Go useful?
+Five years ago we launched the Go project. It seems like only yesterday that we were preparing the initial public release: our [website](https://web.archive.org/web/20091112094121/http://golang.org/) was a lovely shade of yellow, we were calling Go a "systems language", and you had to terminate statements with a semicolon and write Makefiles to build your code. We had no idea how Go would be received. Would people share our vision and goals? Would people find Go useful?
 
-五年前，我们启动了Go项目。我们在准备最初的公开发布时，仿佛就在昨天：我们的网站是可爱的黄色，我们称Go为 "系统语言"，你必须用分号来结束语句，并编写Makefiles来构建你的代码。我们不知道Go会被如何接受。人们会认同我们的愿景和目标吗？人们会觉得Go有用吗？
+五年前，我们启动了Go项目。我们在准备最初的公开发布时，仿佛就在昨天：我们的网站是可爱的黄色，我们称Go为 "系统语言"，您必须用分号来结束语句，并编写Makefiles来构建您的代码。我们不知道Go会被如何接受。人们会认同我们的愿景和目标吗？人们会觉得Go有用吗？
 
-At launch, there was a flurry of attention. Google had produced a new programming language, and everyone was eager to check it out. Some programmers were turned off by Go’s conservative feature set—at first glance they saw “nothing to see here”—but a smaller group saw the beginnings of an ecosystem tailored to their needs as working software engineers. These few would form the kernel of the Go community.
+At launch, there was a flurry of attention. Google had produced a new programming language, and everyone was eager to check it out. Some programmers were turned off by Go’s conservative feature set—at first glance they saw "nothing to see here"—but a smaller group saw the beginnings of an ecosystem tailored to their needs as working software engineers. These few would form the kernel of the Go community.
 
 在发布的时候，大家都很关注。谷歌开发了一种新的编程语言，每个人都急于想知道它的情况。一些程序员被Go的保守的功能集拒之门外--他们第一眼看到的是 "这里没有什么可看的"--但有一小部分人看到了一个为他们工作的软件工程师量身定做的生态系统的开始。这些少数人形成了Go社区的核心。
 
@@ -32,7 +32,7 @@ After the initial release, it took us a while to properly communicate the goals 
 
 在最初的发布之后，我们花了一些时间来正确传达Go背后的目标和设计精神。Rob Pike在他2012年的文章《Go at Google》中雄辩地阐述了这一点。语言设计为软件工程服务，并在他的博文《少即是多》中做了更深入的介绍。Andrew Gerrand的《优雅成长的代码》（幻灯片）和《Go for Gophers》（幻灯片）对Go的设计理念进行了更深入的技术分析。
 
-Over time, the few became many. The turning point for the project was the release of Go 1 in March 2012, which provided a stable language and standard library that developers could trust. By 2014, the project had hundreds of core contributors, the ecosystem had countless [libraries and tools](https://godoc.org/) maintained by thousands of developers, and the greater community had many passionate members (or, as we call them, “gophers”). Today, by our current metrics, the Go community is growing faster than we believed possible.
+Over time, the few became many. The turning point for the project was the release of Go 1 in March 2012, which provided a stable language and standard library that developers could trust. By 2014, the project had hundreds of core contributors, the ecosystem had countless [libraries and tools](https://godoc.org/) maintained by thousands of developers, and the greater community had many passionate members (or, as we call them, "gophers"). Today, by our current metrics, the Go community is growing faster than we believed possible.
 
 随着时间的推移，少数人变成了多数人。项目的转折点是2012年3月发布的Go 1，它提供了一个稳定的语言和标准库，让开发者可以信赖。到2014年，该项目有数百名核心贡献者，生态系统有无数的库和工具，由成千上万的开发者维护，更大的社区有许多热情的成员（或者，我们称之为 "地鼠"）。今天，按照我们目前的衡量标准，Go社区的发展速度比我们认为的要快。
 
@@ -52,7 +52,7 @@ Where can those gophers be found? They are at the many Go events that are poppin
 
 There are also dozens of community-run [Go User Groups](https://go.dev/wiki/GoUserGroups) spread across cities worldwide. If you haven’t visited your local group, consider going along. And if there isn’t a group in your area, maybe you should [start one](https://blog.golang.org/getthee-to-go-meetup)?
 
-还有几十个由社区管理的Go用户组分布在世界各地的城市。如果你还没有访问过你当地的小组，可以考虑一起去看看。如果你所在的地区没有这样的小组，也许你应该建立一个？
+还有几十个由社区管理的Go用户组分布在世界各地的城市。如果您还没有访问过您当地的小组，可以考虑一起去看看。如果您所在的地区没有这样的小组，也许您应该建立一个？
 
 Today, Go has found a home in the cloud. Go arrived as the industry underwent a tectonic shift toward cloud computing, and we were thrilled to see it quickly become an important part of that movement. Its simplicity, efficiency, built-in concurrency primitives, and modern standard library make it a great fit for cloud software development (after all, that’s what it was designed for). Significant open source cloud projects like [Docker](https://www.docker.com/) and [Kubernetes](https://github.com/GoogleCloudPlatform/kubernetes) have been written in Go, and infrastructure companies like Google, CloudFlare, Canonical, Digital Ocean, GitHub, Heroku, and Microsoft are now using Go to do some heavy lifting.
 

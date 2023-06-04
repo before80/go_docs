@@ -12,11 +12,11 @@ draft = false
 
 ## 简介
 
-​	如果你是Go的新手，请看最近的[How to Write Go Code](../HowToWriteGoCode)。
+​	如果您是Go的新手，请看最近的[How to Write Go Code](../HowToWriteGoCode)。
 
 ​	本文演示了一个简单的 Go 包的开发，并介绍了 [go tool](../../References/CommandDocumentation/go)，这是获取、构建和安装 Go 包和命令的标准方法。
 
-​	`go tool`要求你以特定的方式组织你的代码。请仔细阅读本文档。它解释了最简单的方法来启动和运行你的Go安装。
+​	`go tool`要求您以特定的方式组织您的代码。请仔细阅读本文档。它解释了最简单的方法来启动和运行您的Go安装。
 
 ​	类似的解释可以以[screencast](https://www.youtube.com/watch?v=XCsL89YtqCs)的形式提供。
 
@@ -43,7 +43,7 @@ draft = false
 
 `src`子目录通常包含多个版本控制代码库库（如为Git或Mercurial），跟踪一个或多个源代码包的开发。
 
-为了让你了解工作区的实际情况，这里有一个例子：
+为了让您了解工作区的实际情况，这里有一个例子：
 
 ```text linenums="1"
 bin/
@@ -72,25 +72,25 @@ src/
 
 ​	典型的工作区包含许多源码代码库，其中包含许多包和命令。大多数 Go 程序员将所有 Go 源代码和依赖关系保存在一个工作区中。
 
-​	请注意，不应该使用`符号链接`将文件或目录链接到你的工作区。
+​	请注意，不应该使用`符号链接`将文件或目录链接到您的工作区。
 
 ​	命令和库是由不同种类的源码包构建的。我们将在[后面](#package-names)讨论这种区别。
 
 ### `GOPATH`环境变量
 
-​	`GOPATH`环境变量指定了你的工作区的位置。它默认为你的主目录内的一个名为`go`的目录，如Unix中的`$HOME/go`，Plan 9中的`$home/go`，以及Windows中的`%USERPROFILE%\go`（通常是`C:\Users\YourName\go`）。
+​	`GOPATH`环境变量指定了您的工作区的位置。它默认为您的主目录内的一个名为`go`的目录，如Unix中的`$HOME/go`，Plan 9中的`$home/go`，以及Windows中的`%USERPROFILE%\go`（通常是`C:\Users\YourName\go`）。
 
-​	如果你希望在不同的位置工作，你需要把`GOPATH`设置为该目录的路径。(另一种常见的设置是设置 `GOPATH=$HOME`。)注意 `GOPATH` 不能与您的 Go 安装路径相同。
+​	如果您希望在不同的位置工作，您需要把`GOPATH`设置为该目录的路径。(另一种常见的设置是设置 `GOPATH=$HOME`。)注意 `GOPATH` 不能与您的 Go 安装路径相同。
 
 ​	命令 `go env GOPATH` 打印当前有效的 `GOPATH`；如果环境变量未设置，则打印默认位置。
 
-​	为方便起见，将工作区的 `bin` 子目录添加到你的 `PATH` 中。
+​	为方便起见，将工作区的 `bin` 子目录添加到您的 `PATH` 中。
 
 ```
 $ export PATH=$PATH:$(go env GOPATH)/bin
 ```
 
-​	为了简洁起见，本文其余部分的脚本使用`$GOPATH`而不是`$(go env GOPATH)`。如果你没有设置`GOPATH`，要想让脚本按照写好的内容运行，你可以在这些命令中用`$HOME/go`代替，否则就运行：
+​	为了简洁起见，本文其余部分的脚本使用`$GOPATH`而不是`$(go env GOPATH)`。如果您没有设置`GOPATH`，要想让脚本按照写好的内容运行，您可以在这些命令中用`$HOME/go`代替，否则就运行：
 
 ```
 $ export GOPATH=$(go env GOPATH)
@@ -102,21 +102,21 @@ $ export GOPATH=$(go env GOPATH)
 
 ​	导入路径是一个字符串，它唯一地标识了一个包。包的导入路径与它在工作区或远程代码库中的位置相对应（解释如下）。
 
-​	来自标准库的包被赋予简短的导入路径，如 "`fmt` "和 "`net/http`"。对于你自己的包，你必须选择一个不太可能与未来添加到标准库或其他外部库相冲突的基本路径。
+​	来自标准库的包被赋予简短的导入路径，如 "`fmt` "和 "`net/http`"。对于您自己的包，您必须选择一个不太可能与未来添加到标准库或其他外部库相冲突的基本路径。
 
-​	如果你把你的代码保存在某个源码库中，那么你应该使用该源码库的根作为你的基本路径。例如，如果你有一个[GitHub](https://github.com/)账户，地址是`github.com/user`，这应该是你的基本路径。
+​	如果您把您的代码保存在某个源码库中，那么您应该使用该源码库的根作为您的基本路径。例如，如果您有一个[GitHub](https://github.com/)账户，地址是`github.com/user`，这应该是您的基本路径。
 
-​	注意，你不需要在构建代码之前将其发布到远程仓库。这只是一个好习惯，把你的代码组织起来，就像你有一天会发布它一样。在实践中，你可以选择任何任意的路径名称，只要它对标准库和更大的Go生态系统来说是唯一的。
+​	注意，您不需要在构建代码之前将其发布到远程仓库。这只是一个好习惯，把您的代码组织起来，就像您有一天会发布它一样。在实践中，您可以选择任何任意的路径名称，只要它对标准库和更大的Go生态系统来说是唯一的。
 
-​	我们将使用`github.com/user`作为我们的基本路径。在你的工作区内创建一个目录，用来保存源代码。
+​	我们将使用`github.com/user`作为我们的基本路径。在您的工作区内创建一个目录，用来保存源代码。
 
 ```shell
 $ mkdir -p $GOPATH/src/github.com/user
 ```
 
-### 你的第一个程序
+### 您的第一个程序
 
-​	要编译和运行一个简单的程序，首先选择一个包的路径（我们将使用`github.com/user/hello`），并在你的工作区中创建一个相应的包目录：
+​	要编译和运行一个简单的程序，首先选择一个包的路径（我们将使用`github.com/user/hello`），并在您的工作区中创建一个相应的包目录：
 
 ```shell
 $ mkdir $GOPATH/src/github.com/user/hello
@@ -134,15 +134,15 @@ func main() {
 }
 ```
 
-现在你可以用`go`工具构建和安装该程序。
+现在您可以用`go`工具构建和安装该程序。
 
 ```shell
 $ go install github.com/user/hello
 ```
 
-​	注意，你可以在你系统的任何地方运行这个命令。`go`工具通过在`GOPATH`指定的工作区内寻找`github.com/user/hello`包来找到源代码。
+​	注意，您可以在您系统的任何地方运行这个命令。`go`工具通过在`GOPATH`指定的工作区内寻找`github.com/user/hello`包来找到源代码。
 
-​	如果你在包目录下运行`go install`，你也可以省略包路径：
+​	如果您在包目录下运行`go install`，您也可以省略包路径：
 
 ```shell
 $ cd $GOPATH/src/github.com/user/hello
@@ -153,21 +153,21 @@ $ go install
 
 ​	`go`工具只有在发生错误时才会打印输出，所以如果这些命令没有产生输出，它们就已经成功执行了。
 
-​	现在你可以通过在命令行中输入程序的完整路径来运行该程序。
+​	现在您可以通过在命令行中输入程序的完整路径来运行该程序。
 
 ```shell
 $ $GOPATH/bin/hello
 Hello, world.
 ```
 
-​	或者，由于你已经将`$GOPATH/bin`添加到你的`PATH`中，只需输入二进制名称：
+​	或者，由于您已经将`$GOPATH/bin`添加到您的`PATH`中，只需输入二进制名称：
 
 ```shell
 $ hello
 Hello, world.
 ```
 
-​	如果你使用的是源码控制系统，现在是一个很好的时机来初始化一个仓库，添加文件，并提交你的第一个修改。同样，这一步是可选的：你不需要使用源码控制来编写Go代码。
+​	如果您使用的是源码控制系统，现在是一个很好的时机来初始化一个仓库，添加文件，并提交您的第一个修改。同样，这一步是可选的：您不需要使用源码控制来编写Go代码。
 
 ```shell
 $ cd $GOPATH/src/github.com/user/hello
@@ -182,7 +182,7 @@ $ git commit -m "initial commit"
 
 将代码推送到远程仓库是留给读者的一个练习。
 
-### 你的第一个库
+### 您的第一个库
 
 ​	让我们写一个库并在 `hello` 程序中使用它。
 
@@ -214,7 +214,7 @@ func Reverse(s string) string {
 $ go build github.com/user/stringutil
 ```
 
-或者，如果你是在包源码目录下工作，只需：
+或者，如果您是在包源码目录下工作，只需：
 
 ```shell
 $ go build
@@ -222,7 +222,7 @@ $ go build
 
 这不会产生一个输出文件。相反，它把编译好的包保存在本地构建缓存中。
 
-​	在确认`stringutil`包构建完成后，修改你原来的`hello.go`（它在`$GOPATH/src/github.com/user/hello`中）以使用它。
+​	在确认`stringutil`包构建完成后，修改您原来的`hello.go`（它在`$GOPATH/src/github.com/user/hello`中）以使用它。
 
 ```go linenums="1" hl_lines="6 6"
 package main
@@ -244,14 +244,14 @@ func main() {
 $ go install github.com/user/hello
 ```
 
-运行新版本的程序，你应该看到一个新的、反转的信息：
+运行新版本的程序，您应该看到一个新的、反转的信息：
 
 ```shell
 $ hello
 Hello, Go!
 ```
 
-完成上述步骤后，你的工作区应该是这样的：
+完成上述步骤后，您的工作区应该是这样的：
 
 ```
 bin/
@@ -288,7 +288,7 @@ There is no requirement that package names be unique across all packages linked 
 
 ​	Go 有一个由 `go test` 命令和`testing`包组成的轻量级测试框架。
 
-​	你可以通过创建一个名称以`_test.go`结尾的文件来编写测试，该文件包含名为`TestXXX`的函数，其签名为`func（t *testing.T）`。测试框架运行每个这样的函数；如果在该函数调用一个失败的函数，如`t.Error`或`t.Fail`，则认为测试失败。
+​	您可以通过创建一个名称以`_test.go`结尾的文件来编写测试，该文件包含名为`TestXXX`的函数，其签名为`func（t *testing.T）`。测试框架运行每个这样的函数；如果在该函数调用一个失败的函数，如`t.Error`或`t.Fail`，则认为测试失败。
 
 ​	通过创建包含以下Go代码的`$GOPATH/src/github.com/user/stringutil/reverse_test.go`文件，向`stringutil`包添加一个测试。
 
@@ -321,7 +321,7 @@ $ go test github.com/user/stringutil
 ok  	github.com/user/stringutil 0.165s
 ```
 
-像往常一样，如果你从包目录中运行`go`工具，你可以省略包路径：
+像往常一样，如果您从包目录中运行`go`工具，您可以省略包路径：
 
 ```shell
 $ go test
@@ -332,7 +332,7 @@ ok  	github.com/user/stringutil 0.165s
 
 ## 远程包
 
-​	导入路径可以描述如何使用`Git`或`Mercurial`等修订控制系统获得软件包的源代码。`go`工具使用这个属性来自动从远程代码库获取包。例如，本文档中描述的例子也保存在GitHub `golang.org/x/example`的Git代码库中。如果你在包的导入路径中包含代码库的URL，`go get`将自动获取、构建和安装它：
+​	导入路径可以描述如何使用`Git`或`Mercurial`等修订控制系统获得软件包的源代码。`go`工具使用这个属性来自动从远程代码库获取包。例如，本文档中描述的例子也保存在GitHub `golang.org/x/example`的Git代码库中。如果您在包的导入路径中包含代码库的URL，`go get`将自动获取、构建和安装它：
 
 ```shell
 $ go get golang.org/x/example/hello
@@ -371,7 +371,7 @@ The `hello` command hosted at GitHub depends on the `stringutil` package within 
 import "golang.org/x/example/stringutil"
 ```
 
-​	这个约定是让你的 Go 包供别人使用的最简单的方法。[pkg.go.dev](https://pkg.go.dev/) 和 [Go Wiki](https://go.dev/wiki/Projects) 提供了外部 Go 项目的列表。
+​	这个约定是让您的 Go 包供别人使用的最简单的方法。[pkg.go.dev](https://pkg.go.dev/) 和 [Go Wiki](https://go.dev/wiki/Projects) 提供了外部 Go 项目的列表。
 
 ​	关于使用 `go` 工具的远程代码库的更多信息，请参见 `go help importpath`。
 

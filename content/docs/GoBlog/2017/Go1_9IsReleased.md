@@ -16,7 +16,7 @@ Francesc Campoy
 
 Today the Go team is happy to announce the release of Go 1.9. You can get it from the [download page](https://go.dev/dl/). There are many changes to the language, standard library, runtime, and tooling. This post covers the most significant visible ones. Most of the engineering effort put into this release went to improvements of the runtime and tooling, which makes for a less exciting announcement, but nonetheless a great release.
 
-今天Go团队很高兴地宣布Go 1.9的发布。你可以从下载页面获得它。语言、标准库、运行时和工具都有很多变化。这篇文章涵盖了最重要的可见变化。这个版本的大部分工程努力都用于改进运行时和工具，这使得公告不那么激动人心，但仍是一个伟大的版本。
+今天Go团队很高兴地宣布Go 1.9的发布。您可以从下载页面获得它。语言、标准库、运行时和工具都有很多变化。这篇文章涵盖了最重要的可见变化。这个版本的大部分工程努力都用于改进运行时和工具，这使得公告不那么激动人心，但仍是一个伟大的版本。
 
 The most important change to the language is the introduction of type aliases: a feature created to support gradual code repair. A type alias declaration has the form:
 
@@ -36,7 +36,7 @@ The new [math/bits](https://go.dev/pkg/math/bits) package provides bit counting 
 
 The `sync` package has added a new [Map](https://go.dev/pkg/sync#Map) type, safe for concurrent access. You can read more about it from its documentation and learn more about why it was created from this [GopherCon 2017 lightning talk](https://www.youtube.com/watch?v=C1EtfDnsdDs) ([slides](https://github.com/gophercon/2017-talks/blob/master/lightningtalks/BryanCMills-AnOverviewOfSyncMap/An Overview of sync.Map.pdf)). It is not a general replacement for Go’s map type; please see the documentation to learn when it should be used.
 
-Sync包增加了一个新的Map类型，对并发访问是安全的。你可以从它的文档中读到更多关于它的信息，并从这个GopherCon 2017的闪电演讲（幻灯片）中了解更多关于它创建的原因。它不是Go的地图类型的一般替代物；请看文档以了解何时应该使用它。
+Sync包增加了一个新的Map类型，对并发访问是安全的。您可以从它的文档中读到更多关于它的信息，并从这个GopherCon 2017的闪电演讲（幻灯片）中了解更多关于它创建的原因。它不是Go的地图类型的一般替代物；请看文档以了解何时应该使用它。
 
 The `testing` package also has an addition. The new `Helper` method, added to both [testing.T](https://go.dev/pkg/testing#T.Helper) and [testing.B](https://go.dev/pkg/testing#B.Helper), marks the calling function as a test helper function. When the testing package prints file and line information, it shows the location of the call to a helper function instead of a line in the helper function itself.
 

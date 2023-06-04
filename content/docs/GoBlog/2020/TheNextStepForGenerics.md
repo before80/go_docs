@@ -46,7 +46,7 @@ The tool is available on a variant of the Go playground at [https://go2goplay.go
 
 You can also build and use the tool yourself. It is available in a branch of the master Go repo. Follow the [instructions on installing Go from source](https://go.dev/doc/install/source). Where those instructions direct you to check out the latest release tag, instead run `git checkout dev.go2go`. Then build the Go toolchain as directed.
 
-你也可以自己构建和使用这个工具。它在 Go 主版本的一个分支中可用。请遵循从源代码安装 Go 的说明。如果这些说明指示您查看最新的发布标签，请运行 git checkout dev.go2go。然后按照指示构建 Go 工具链。
+您也可以自己构建和使用这个工具。它在 Go 主版本的一个分支中可用。请遵循从源代码安装 Go 的说明。如果这些说明指示您查看最新的发布标签，请运行 git checkout dev.go2go。然后按照指示构建 Go 工具链。
 
 The translation tool is documented in [README.go2go](https://go.googlesource.com/go/+/refs/heads/dev.go2go/README.go2go.md).
 
@@ -62,9 +62,9 @@ First, does generic code make sense? Does it feel like Go? What surprises do peo
 
 首先，泛型代码有意义吗？它感觉像Go吗？人们遇到了什么惊喜？错误信息有用吗？
 
-Second, we know that many people have said that Go needs generics, but we don’t necessarily know exactly what that means. Does this draft design address the problem in a useful way? If there is a problem that makes you think “I could solve this if Go had generics,” can you solve the problem when using this tool?
+Second, we know that many people have said that Go needs generics, but we don’t necessarily know exactly what that means. Does this draft design address the problem in a useful way? If there is a problem that makes you think "I could solve this if Go had generics," can you solve the problem when using this tool?
 
-第二，我们知道很多人都说Go需要泛型，但我们不一定知道这到底是什么意思。这个设计草案是否以一种有用的方式解决了这个问题？如果有一个问题让你觉得 "如果Go有泛型，我就能解决这个问题"，那么在使用这个工具时，你能解决这个问题吗？
+第二，我们知道很多人都说Go需要泛型，但我们不一定知道这到底是什么意思。这个设计草案是否以一种有用的方式解决了这个问题？如果有一个问题让您觉得 "如果Go有泛型，我就能解决这个问题"，那么在使用这个工具时，您能解决这个问题吗？
 
 We will use the feedback we gather from the Go community to decide how to move forward. If the draft design is well received and doesn’t need significant changes, the next step would be a [formal language change proposal](https://go.dev/s/proposal). To set expectations, if everybody is completely happy with the design draft and it does not require any further adjustments, the earliest that generics could be added to Go would be the Go 1.17 release, scheduled for August 2021. In reality, of course, there may be unforeseen problems, so this is an optimistic timeline; we can’t make any definite prediction.
 
@@ -78,7 +78,7 @@ The best way to provide feedback for the language changes will be on the mailing
 
 If you find bugs in the generics type checker or the translation tool, they should be filed in the standard Go issue tracker at [https://golang.org/issue](https://go.dev/issue). Please start the issue title with `cmd/go2go:`. Note that the issue tracker is not the best place to discuss changes to the language, because it does not provide threading and it is not well suited to lengthy conversations.
 
-如果你发现泛型类型检查器或翻译工具中的错误，应将其归档到标准的Go问题跟踪器中，网址是https://golang.org/issue。请以cmd/go2go:作为问题标题的开头。请注意，问题跟踪器并不是讨论语言变化的最佳场所，因为它不提供线程，也不太适合冗长的对话。
+如果您发现泛型类型检查器或翻译工具中的错误，应将其归档到标准的Go问题跟踪器中，网址是https://golang.org/issue。请以cmd/go2go:作为问题标题的开头。请注意，问题跟踪器并不是讨论语言变化的最佳场所，因为它不提供线程，也不太适合冗长的对话。
 
 We look forward to your feedback.
 
@@ -100,4 +100,4 @@ We would also like to thank [the people](https://go.googlesource.com/proposal/+/
 
 And last but definitely not least, we’d like to thank many people on the Go team, many contributors to the Go issue tracker, and everybody else who shared ideas and feedback on earlier design drafts. We read all of it, and we’re grateful. We wouldn’t be here without you.
 
-最后但绝对不是最不重要的，我们要感谢Go团队的许多人，Go问题跟踪器的许多贡献者，以及其他所有对早期设计草案分享想法和反馈的人。我们阅读了所有的反馈，并且非常感激。没有你们，我们就不会有今天。
+最后但绝对不是最不重要的，我们要感谢Go团队的许多人，Go问题跟踪器的许多贡献者，以及其他所有对早期设计草案分享想法和反馈的人。我们阅读了所有的反馈，并且非常感激。没有您们，我们就不会有今天。

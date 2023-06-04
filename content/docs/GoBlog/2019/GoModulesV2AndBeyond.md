@@ -55,7 +55,7 @@ By definition, a new major version of a package is not backwards compatible with
 
 The need for major version suffixes is one of the ways Go modules differs from most other dependency management systems. Suffixes are needed to solve the [diamond dependency problem](https://research.swtch.com/vgo-import#dependency_story). Before Go modules, [gopkg.in](http://gopkg.in/) allowed package maintainers to follow what we now refer to as the import compatibility rule. With gopkg.in, if you depend on a package that imports `gopkg.in/yaml.v1` and another package that imports `gopkg.in/yaml.v2`, there is no conflict because the two `yaml` packages have different import paths — they use a version suffix, as with Go modules. Since gopkg.in shares the same version suffix methodology as Go modules, the Go command accepts the `.v2` in `gopkg.in/yaml.v2` as a valid major version suffix. This is a special case for compatibility with gopkg.in: modules hosted at other domains need a slash suffix like `/v2`.
 
-对主要版本后缀的需求是Go模块与其他大多数依赖管理系统不同的地方之一。需要后缀来解决钻石依赖性问题。在Go模块之前，gopkg.in允许软件包维护者遵循我们现在所说的导入兼容性规则。在gopkg.in中，如果你依赖一个导入gopkg.in/yaml.v1的包，而另一个导入gopkg.in/yaml.v2的包，就不会有冲突，因为这两个yaml包的导入路径不同--它们使用的是版本后缀，与Go模块一样。由于gopkg.in与Go模块共享相同的版本后缀方法，Go命令接受gopkg.in/yaml.v2中的.v2作为一个有效的主要版本后缀。这是与gopkg.in兼容的特殊情况：托管在其他域的模块需要一个斜线后缀，如/v2。
+对主要版本后缀的需求是Go模块与其他大多数依赖管理系统不同的地方之一。需要后缀来解决钻石依赖性问题。在Go模块之前，gopkg.in允许软件包维护者遵循我们现在所说的导入兼容性规则。在gopkg.in中，如果您依赖一个导入gopkg.in/yaml.v1的包，而另一个导入gopkg.in/yaml.v2的包，就不会有冲突，因为这两个yaml包的导入路径不同--它们使用的是版本后缀，与Go模块一样。由于gopkg.in与Go模块共享相同的版本后缀方法，Go命令接受gopkg.in/yaml.v2中的.v2作为一个有效的主要版本后缀。这是与gopkg.in兼容的特殊情况：托管在其他域的模块需要一个斜线后缀，如/v2。
 
 ## Major version strategies 主要版本策略
 
@@ -143,7 +143,7 @@ $
 
 Note that the `v2` version is treated as a separate module from the `v0 / v1` versions: both may coexist in the same build. So, if your `v2+` module has multiple packages, you should update them to use the new `/v2` import path: otherwise, your `v2+` module will depend on your `v0 / v1` module. For example, to update all `github.com/my/project` references to `github.com/my/project/v2`, you can use `find` and `sed`:
 
-注意，v2版本被视为独立于v0/v1版本的模块：两者可以在同一个构建中共存。因此，如果你的v2+模块有多个软件包，你应该更新它们以使用新的/v2导入路径：否则，你的v2+模块将依赖于你的v0 / v1模块。例如，要将所有github.com/my/project的引用更新为github.com/my/project/v2，你可以使用find和sed：
+注意，v2版本被视为独立于v0/v1版本的模块：两者可以在同一个构建中共存。因此，如果您的v2+模块有多个软件包，您应该更新它们以使用新的/v2导入路径：否则，您的v2+模块将依赖于您的v0 / v1模块。例如，要将所有github.com/my/project的引用更新为github.com/my/project/v2，您可以使用find和sed：
 
 ```shell linenums="1"
 $ find . -type f \

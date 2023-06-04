@@ -24,14 +24,14 @@ Katie Hockman and Jay Conrod
 
 ## 开始使用
 
-​	要开始使用，你可以运行以下命令
+​	要开始使用，您可以运行以下命令
 
 ```shell linenums="1"
 $ go install golang.org/dl/gotip@latest
 $ gotip download
 ```
 
-​	这将从主分支构建Go工具链。运行这个命令后，`gotip`可以作为`go`命令的直接替代者。现在你可以运行如下命令
+​	这将从主分支构建Go工具链。运行这个命令后，`gotip`可以作为`go`命令的直接替代者。现在您可以运行如下命令
 
 ```shell linenums="1"
 $ gotip test -fuzz=Fuzz
@@ -74,22 +74,22 @@ func FuzzParseQuery(f *testing.F) {
 }
 ```
 
-​	你可以在pkg.go.dev阅读更多关于fuzzing的内容，包括[Go的fuzzing概述](https://pkg.go.dev/testing@master#hdr-Fuzzing)和[新的testing.F类型的godoc](https://pkg.go.dev/testing@master#F)。
+​	您可以在pkg.go.dev阅读更多关于fuzzing的内容，包括[Go的fuzzing概述](https://pkg.go.dev/testing@master#hdr-Fuzzing)和[新的testing.F类型的godoc](https://pkg.go.dev/testing@master#F)。
 
 ## 期望
 
 ​	这是一项仍处于测试阶段的新功能，因此您应该会遇到一些错误和不完整的功能集。请查看[问题追踪器中标有 "fuzz"](https://github.com/golang/go/issues?q=is%3Aopen+is%3Aissue+label%3Afuzz)的问题，以了解现有错误和缺失功能的最新情况。
 
-​	请注意，fuzzing会消耗大量内存，在运行时可能会影响你的机器性能。 `go test -fuzz`默认为在`$GOMAXPROCS`进程中并行运行fuzzing。你可以通过在`go test`中明确设置`-parallel`标志来降低模糊处理时使用的进程数。如果你想了解更多信息，可以运行 `gotip help testflag` 阅读 `go test` 命令的文档。
+​	请注意，fuzzing会消耗大量内存，在运行时可能会影响您的机器性能。 `go test -fuzz`默认为在`$GOMAXPROCS`进程中并行运行fuzzing。您可以通过在`go test`中明确设置`-parallel`标志来降低模糊处理时使用的进程数。如果您想了解更多信息，可以运行 `gotip help testflag` 阅读 `go test` 命令的文档。
 
-​	还要注意的是，模糊测试引擎在运行时，会将扩大测试范围的数值写入`$GOCACHE/fuzz`的模糊缓存目录中。目前对写入模糊缓存的文件数量或总字节数没有限制，所以它可能会占用大量的存储空间（即几个GB）。你可以通过运行 `gotip clean -fuzzcache` 来清除 fuzz 缓存。
+​	还要注意的是，模糊测试引擎在运行时，会将扩大测试范围的数值写入`$GOCACHE/fuzz`的模糊缓存目录中。目前对写入模糊缓存的文件数量或总字节数没有限制，所以它可能会占用大量的存储空间（即几个GB）。您可以通过运行 `gotip clean -fuzzcache` 来清除 fuzz 缓存。
 
 ## 下一步是什么？
 
 ​	这项功能将在Go 1.18中开始使用。
 
-​	如果你遇到任何问题或有任何关于该功能的想法，请[提交问题](https://github.com/golang/go/issues/new/?&labels=fuzz)。
+​	如果您遇到任何问题或有任何关于该功能的想法，请[提交问题](https://github.com/golang/go/issues/new/?&labels=fuzz)。
 
-​	关于该功能的讨论和一般反馈，你也可以参与Gophers Slack的[#fuzzing频道](https://gophers.slack.com/archives/CH5KV1AKE)。
+​	关于该功能的讨论和一般反馈，您也可以参与Gophers Slack的[#fuzzing频道](https://gophers.slack.com/archives/CH5KV1AKE)。
 
 ​	Happy fuzzing!

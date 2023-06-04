@@ -18,7 +18,7 @@ On Tuesday night Rob Pike and Andrew Gerrand each presented at the [Sydney Googl
 
 周二晚上，Rob Pike和Andrew Gerrand分别在悉尼谷歌技术用户组发表演讲。
 
-Rob’s talk, “[Lexical Scanning in Go](http://www.youtube.com/watch?v=HxaD_trXwRE)”, discusses the design of a particularly interesting and idiomatic piece of Go code, the lexer component of the new [template package.](https://go.dev/pkg/exp/template/)
+Rob’s talk, "[Lexical Scanning in Go](http://www.youtube.com/watch?v=HxaD_trXwRE)", discusses the design of a particularly interesting and idiomatic piece of Go code, the lexer component of the new [template package.](https://go.dev/pkg/exp/template/)
 
 Rob的演讲是 "Go中的词汇扫描"，讨论了Go代码中一个特别有趣和习惯的部分的设计，即新模板包的词汇器组件。
 
@@ -28,7 +28,7 @@ The slides are [available here](http://cuddle.googlecode.com/hg/talk/lex.html). 
 
 幻灯片可以在这里找到。新的模板包在Go版本r59中作为exp/template提供。在未来的版本中，它将取代旧的模板包。
 
-Andrew’s talk, “[Cuddle: an App Engine Demo](http://www.youtube.com/watch?v=HQtLRqqB-Kk)”, describes the construction of a simple real-time chat application that uses App Engine’s [Datastore](http://code.google.com/appengine/docs/go/datastore/overview.html), [Channel](http://code.google.com/appengine/docs/go/channel/overview.html), and [Memcache](http://code.google.com/appengine/docs/go/datastore/memcache.html) APIs. It also includes a question and answer session that covers [Go for App Engine](http://code.google.com/appengine/docs/go/gettingstarted/) and Go more generally.
+Andrew’s talk, "[Cuddle: an App Engine Demo](http://www.youtube.com/watch?v=HQtLRqqB-Kk)", describes the construction of a simple real-time chat application that uses App Engine’s [Datastore](http://code.google.com/appengine/docs/go/datastore/overview.html), [Channel](http://code.google.com/appengine/docs/go/channel/overview.html), and [Memcache](http://code.google.com/appengine/docs/go/datastore/memcache.html) APIs. It also includes a question and answer session that covers [Go for App Engine](http://code.google.com/appengine/docs/go/gettingstarted/) and Go more generally.
 
 Andrew的演讲 "Cuddle: an App Engine Demo "描述了一个简单的实时聊天应用的构建，该应用使用了App Engine的Datastore、Channel和Memcache APIs。它还包括一个问答环节，涉及App Engine的Go和更广泛的Go。
 

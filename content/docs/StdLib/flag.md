@@ -23,7 +23,7 @@ import "flag"
 var nFlag = flag.Int("n", 1234, "help message for flag n")
 ```
 
-​	如果你喜欢，可以使用 Var() 函数将标志绑定到变量。
+​	如果您喜欢，可以使用 Var() 函数将标志绑定到变量。
 
 ```go 
 var flagvar int
@@ -32,7 +32,7 @@ func init() {
 }
 ```
 
-或者，你可以创建满足 Value 接口(使用指针接收器)的自定义标志，并将它们与标志解析耦合：
+或者，您可以创建满足 Value 接口(使用指针接收器)的自定义标志，并将它们与标志解析耦合：
 
 ```
 flag.Var(&flagVal, "name", "help message for flagname")
@@ -74,7 +74,7 @@ fmt.Println("flagvar has value ", flagvar)
 cmd -x *
 ```
 
-其中 `*` 是 Unix shell 通配符，如果存在名为 `0`、`false` 等的文件，其含义将发生变化。你必须使用 -flag=false 形式来关闭布尔标志。
+其中 `*` 是 Unix shell 通配符，如果存在名为 `0`、`false` 等的文件，其含义将发生变化。您必须使用 -flag=false 形式来关闭布尔标志。
 
 ​	标志解析在第一个非标志参数("-"是非标志参数)之前或终止符"--"之后停止。
 

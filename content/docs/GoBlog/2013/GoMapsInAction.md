@@ -247,7 +247,7 @@ n := hits["/doc/"]["au"]
 
 Unfortunately, this approach becomes unwieldy when adding data, as for any given outer key you must check if the inner map exists, and create it if needed:
 
-不幸的是，这种方法在添加数据时变得不方便，因为对于任何给定的外键，你必须检查内部地图是否存在，如果需要的话，还要创建它：
+不幸的是，这种方法在添加数据时变得不方便，因为对于任何给定的外键，您必须检查内部地图是否存在，如果需要的话，还要创建它：
 
 ```go linenums="1"
 func add(m map[string]map[string]int, path, country string) {
@@ -292,7 +292,7 @@ n := hits[Key{"/ref/spec", "ch"}]
 
 [Maps are not safe for concurrent use](https://go.dev/doc/faq#atomic_maps): it’s not defined what happens when you read and write to them simultaneously. If you need to read from and write to a map from concurrently executing goroutines, the accesses must be mediated by some kind of synchronization mechanism. One common way to protect maps is with [sync.RWMutex](https://go.dev/pkg/sync/#RWMutex).
 
-地图对于并发使用是不安全的：它没有定义当你同时读和写它们时会发生什么。如果你需要从同时执行的goroutine中读取和写入一个地图，那么这些访问必须由某种同步机制来调解。一种常见的保护地图的方法是使用sync.RWMutex。
+地图对于并发使用是不安全的：它没有定义当您同时读和写它们时会发生什么。如果您需要从同时执行的goroutine中读取和写入一个地图，那么这些访问必须由某种同步机制来调解。一种常见的保护地图的方法是使用sync.RWMutex。
 
 This statement declares a `counter` variable that is an anonymous struct containing a map and an embedded `sync.RWMutex`.
 
@@ -330,7 +330,7 @@ counter.Unlock()
 
 When iterating over a map with a range loop, the iteration order is not specified and is not guaranteed to be the same from one iteration to the next. If you require a stable iteration order you must maintain a separate data structure that specifies that order. This example uses a separate sorted slice of keys to print a `map[int]string` in key order:
 
-当用一个范围循环在地图上迭代时，迭代顺序没有被指定，也不能保证每次迭代都是一样的。如果你需要一个稳定的迭代顺序，你必须维护一个单独的数据结构来指定这个顺序。这个例子使用一个单独的键的排序片，按照键的顺序打印map[int]字符串：
+当用一个范围循环在地图上迭代时，迭代顺序没有被指定，也不能保证每次迭代都是一样的。如果您需要一个稳定的迭代顺序，您必须维护一个单独的数据结构来指定这个顺序。这个例子使用一个单独的键的排序片，按照键的顺序打印map[int]字符串：
 
 ```go linenums="1"
 import "sort"

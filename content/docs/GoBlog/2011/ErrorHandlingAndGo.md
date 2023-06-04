@@ -18,7 +18,7 @@ Andrew Gerrand
 
 If you have written any Go code you have probably encountered the built-in `error` type. Go code uses `error` values to indicate an abnormal state. For example, the `os.Open` function returns a non-nil `error` value when it fails to open a file.
 
-如果你写过任何Go代码，你可能遇到过内置的错误类型。Go代码使用错误值来表示异常的状态。例如，os.Open 函数在打开一个文件失败时返回一个非零的错误值。
+如果您写过任何Go代码，您可能遇到过内置的错误类型。Go代码使用错误值来表示异常的状态。例如，os.Open 函数在打开一个文件失败时返回一个非零的错误值。
 
 ```go linenums="1"
 func Open(name string) (file *File, err error)
@@ -38,7 +38,7 @@ if err != nil {
 
 You can get a lot done in Go knowing just this about the `error` type, but in this article we’ll take a closer look at `error` and discuss some good practices for error handling in Go.
 
-仅仅知道这些关于错误类型的信息，你就可以在Go中完成很多事情，但在这篇文章中，我们将仔细研究错误，并讨论Go中错误处理的一些良好做法。
+仅仅知道这些关于错误类型的信息，您就可以在Go中完成很多事情，但在这篇文章中，我们将仔细研究错误，并讨论Go中错误处理的一些良好做法。
 
 ## The error type 错误类型
 
@@ -73,7 +73,7 @@ func (e *errorString) Error() string {
 
 You can construct one of these values with the `errors.New` function. It takes a string that it converts to an `errors.errorString` and returns as an `error` value.
 
-你可以用error.New函数构建这些值中的一个。它接受一个字符串，将其转换为error.errorString并作为一个错误值返回。
+您可以用error.New函数构建这些值中的一个。它接受一个字符串，将其转换为error.errorString并作为一个错误值返回。
 
 ```go linenums="1"
 // New returns an error that formats as the given text.
@@ -84,7 +84,7 @@ func New(text string) error {
 
 Here’s how you might use `errors.New`:
 
-下面是你如何使用error.New。
+下面是您如何使用error.New。
 
 ```go linenums="1"
 func Sqrt(f float64) (float64, error) {
@@ -95,7 +95,7 @@ func Sqrt(f float64) (float64, error) {
 }
 ```
 
-A caller passing a negative argument to `Sqrt` receives a non-nil `error` value (whose concrete representation is an `errors.errorString` value). The caller can access the error string (“math: square root of…") by calling the `error`’s `Error` method, or by just printing it:
+A caller passing a negative argument to `Sqrt` receives a non-nil `error` value (whose concrete representation is an `errors.errorString` value). The caller can access the error string ("math: square root of…") by calling the `error`’s `Error` method, or by just printing it:
 
 传递负数参数给Sqrt的调用者会收到一个非零的错误值（其具体表示是error.errorString值）。调用者可以通过调用错误的Error方法访问错误字符串（"math: square root of..."），或者直接打印它。
 
@@ -110,7 +110,7 @@ The [fmt](https://go.dev/pkg/fmt/) package formats an `error` value by calling i
 
 fmt包通过调用其Error()字符串方法来格式化一个错误值。
 
-It is the error implementation’s responsibility to summarize the context. The error returned by `os.Open` formats as “open /etc/passwd: permission denied,” not just “permission denied.” The error returned by our `Sqrt` is missing information about the invalid argument.
+It is the error implementation’s responsibility to summarize the context. The error returned by `os.Open` formats as "open /etc/passwd: permission denied," not just "permission denied." The error returned by our `Sqrt` is missing information about the invalid argument.
 
 总结上下文是错误实现的责任。os.Open返回的错误格式为 "open /etc/passwd: permission denied"，而不只是 "permission denied"。我们的Sqrt返回的错误缺少关于无效参数的信息。
 
@@ -126,7 +126,7 @@ if f < 0 {
 
 In many cases `fmt.Errorf` is good enough, but since `error` is an interface, you can use arbitrary data structures as error values, to allow callers to inspect the details of the error.
 
-在许多情况下，fmt.Errorf已经足够好了，但由于error是一个接口，你可以使用任意的数据结构作为错误值，以允许调用者检查错误的细节。
+在许多情况下，fmt.Errorf已经足够好了，但由于error是一个接口，您可以使用任意的数据结构作为错误值，以允许调用者检查错误的细节。
 
 For instance, our hypothetical callers might want to recover the invalid argument passed to `Sqrt`. We can enable that by defining a new error implementation instead of using `errors.errorString`:
 
@@ -207,7 +207,7 @@ if err != nil {
 
 In Go, error handling is important. The language’s design and conventions encourage you to explicitly check for errors where they occur (as distinct from the convention in other languages of throwing exceptions and sometimes catching them). In some cases this makes Go code verbose, but fortunately there are some techniques you can use to minimize repetitive error handling.
 
-在Go中，错误处理很重要。该语言的设计和惯例鼓励你在错误发生时明确地检查错误（与其他语言中抛出异常和有时捕捉异常的惯例不同）。在某些情况下，这使得Go代码变得冗长，但幸运的是，你可以使用一些技术来减少重复的错误处理。
+在Go中，错误处理很重要。该语言的设计和惯例鼓励您在错误发生时明确地检查错误（与其他语言中抛出异常和有时捕捉异常的惯例不同）。在某些情况下，这使得Go代码变得冗长，但幸运的是，您可以使用一些技术来减少重复的错误处理。
 
 Consider an [App Engine](https://cloud.google.com/appengine/docs/go/) application with an HTTP handler that retrieves a record from the datastore and formats it with a template.
 
@@ -232,9 +232,9 @@ func viewRecord(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-This function handles errors returned by the `datastore.Get` function and `viewTemplate`’s `Execute` method. In both cases, it presents a simple error message to the user with the HTTP status code 500 (“Internal Server Error”). This looks like a manageable amount of code, but add some more HTTP handlers and you quickly end up with many copies of identical error handling code.
+This function handles errors returned by the `datastore.Get` function and `viewTemplate`’s `Execute` method. In both cases, it presents a simple error message to the user with the HTTP status code 500 ("Internal Server Error"). This looks like a manageable amount of code, but add some more HTTP handlers and you quickly end up with many copies of identical error handling code.
 
-这个函数处理由datastore.Get函数和viewTemplate的Execute方法返回的错误。在这两种情况下，它都会向用户呈现一个简单的错误信息，其HTTP状态代码为500（"内部服务器错误"）。这看起来是一个可控的代码量，但如果增加一些HTTP处理程序，你很快就会出现许多相同的错误处理代码的副本。
+这个函数处理由datastore.Get函数和viewTemplate的Execute方法返回的错误。在这两种情况下，它都会向用户呈现一个简单的错误信息，其HTTP状态代码为500（"内部服务器错误"）。这看起来是一个可控的代码量，但如果增加一些HTTP处理程序，您很快就会出现许多相同的错误处理代码的副本。
 
 To reduce the repetition we can define our own HTTP `appHandler` type that includes an `error` return value:
 
@@ -356,10 +356,10 @@ It doesn’t end there; we can further improve the error handling in our applica
 - give the error handler a pretty HTML template, 给错误处理程序一个漂亮的HTML模板。
 - make debugging easier by writing the stack trace to the HTTP response when the user is an administrator, 当用户是管理员时，将堆栈跟踪写到HTTP响应中，使调试更容易。
 - write a constructor function for `appError` that stores the stack trace for easier debugging, 为appError写一个构造函数，存储堆栈跟踪，以方便调试。
-- recover from panics inside the `appHandler`, logging the error to the console as “Critical,” while telling the user “a serious error has occurred.” This is a nice touch to avoid exposing the user to inscrutable error messages caused by programming errors. See the [Defer, Panic, and Recover](https://go.dev/doc/articles/defer_panic_recover.html) article for more details.在appHandler中恢复恐慌，将错误记录到控制台，称为 "关键"，同时告诉用户 "发生了一个严重的错误"。这是一个很好的提示，可以避免用户暴露在由编程错误引起的难以捉摸的错误信息中。更多细节请参见《延缓、恐慌和恢复》一文。
+- recover from panics inside the `appHandler`, logging the error to the console as "Critical," while telling the user "a serious error has occurred." This is a nice touch to avoid exposing the user to inscrutable error messages caused by programming errors. See the [Defer, Panic, and Recover](https://go.dev/doc/articles/defer_panic_recover.html) article for more details.在appHandler中恢复恐慌，将错误记录到控制台，称为 "关键"，同时告诉用户 "发生了一个严重的错误"。这是一个很好的提示，可以避免用户暴露在由编程错误引起的难以捉摸的错误信息中。更多细节请参见《延缓、恐慌和恢复》一文。
 
 ## Conclusion 结论
 
 Proper error handling is an essential requirement of good software. By employing the techniques described in this post you should be able to write more reliable and succinct Go code.
 
-正确的错误处理是优秀软件的一个基本要求。通过采用本篇文章中描述的技术，你应该能够写出更可靠和简洁的Go代码。
+正确的错误处理是优秀软件的一个基本要求。通过采用本篇文章中描述的技术，您应该能够写出更可靠和简洁的Go代码。

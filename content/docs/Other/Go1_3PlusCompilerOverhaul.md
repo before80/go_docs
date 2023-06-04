@@ -22,13 +22,13 @@ The Go compiler today is written in C. It is time to move to Go.
 
 今天的Go编译器是用C语言编写的，现在是时候转向Go了。
 
-[**Update**: This work was completed and presented at GopherCon. See “[Go from C to Go](https://www.google.com/url?q=https://www.youtube.com/watch?v%3DQIE5nV5fDwA&sa=D&source=editors&ust=1669903232902574&usg=AOvVaw10OaW5d1pEZdqpj20LZ1Dr)”.]
+[**Update**: This work was completed and presented at GopherCon. See "[Go from C to Go](https://www.google.com/url?q=https://www.youtube.com/watch?v%3DQIE5nV5fDwA&sa=D&source=editors&ust=1669903232902574&usg=AOvVaw10OaW5d1pEZdqpj20LZ1Dr)".]
 
 [更新：这项工作已经完成，并在GopherCon上发表。参见 "从C到Go"。］
 
 ## Background 背景
 
-The “gc” Go toolchain is derived from the Plan 9 compiler toolchain. The assemblers, C compilers, and linkers are adopted essentially unchanged, and the Go compilers (in cmd/gc, cmd/5g, cmd/6g, and cmd/8g) are new C programs that fit into the toolchain.
+The "gc" Go toolchain is derived from the Plan 9 compiler toolchain. The assemblers, C compilers, and linkers are adopted essentially unchanged, and the Go compilers (in cmd/gc, cmd/5g, cmd/6g, and cmd/8g) are new C programs that fit into the toolchain.
 
 gc "Go工具链是由Plan 9编译器工具链衍生而来。汇编器、C 编译器和链接器基本上没有改变，Go 编译器（在 cmd/gc、cmd/5g、cmd/6g 和 cmd/8g 中）是适合该工具链的新 C 程序。
 
@@ -107,7 +107,7 @@ There are a few alternatives that would be obvious approaches to consider, and s
 
 从头开始编写新的编译器。目前的编译器确实有一个非常重要的特性：它们能正确地编译Go（或者至少对目前几乎所有的用户来说足够正确）。尽管Go很简单，但在编译器进行的优化和其他重写中，有许多微妙的情况，如果丢弃在这些编译器上花费了10来年的努力，那就太愚蠢了。
 
-*Translate the compiler manually*. We have translated other, smaller C and C++ programs to Go manually. The process is tedious and therefore error-prone, and the mistakes can be very subtle and difficult to find. A mechanical translator will instead generate translations with consistent classes of errors, which should be easier to find, and it will not zone out during the tedious parts. The Go compilers are also significantly larger than anything we’ve converted: over 60,000 lines of C. Mechanical help will make the job much easier. As Dick Sites wrote in 1974, “I would rather write programs to help me write programs than write programs.” Translating the compiler mechanically also makes it easier for development on the C originals to proceed unhindered until we are ready for the switch.
+*Translate the compiler manually*. We have translated other, smaller C and C++ programs to Go manually. The process is tedious and therefore error-prone, and the mistakes can be very subtle and difficult to find. A mechanical translator will instead generate translations with consistent classes of errors, which should be easier to find, and it will not zone out during the tedious parts. The Go compilers are also significantly larger than anything we’ve converted: over 60,000 lines of C. Mechanical help will make the job much easier. As Dick Sites wrote in 1974, "I would rather write programs to help me write programs than write programs." Translating the compiler mechanically also makes it easier for development on the C originals to proceed unhindered until we are ready for the switch.
 
 手动翻译编译器。我们已经将其他较小的C和C++程序手动翻译成Go。这个过程很繁琐，因此很容易出错，而且错误可能非常细微，很难发现。机械翻译器反而会产生具有一致错误类别的译文，这应该更容易找到，而且在繁琐的部分也不会出现区隔。Go编译器也比我们转换过的任何东西都大得多：超过60,000行的C语言，机械帮助将使工作更容易。正如Dick Sites在1974年写道："我宁愿写程序来帮助我写程序，而不是写程序"。机械地翻译编译器也使得在C语言原件上的开发更容易不受阻碍地进行，直到我们准备好进行转换。
 
@@ -129,7 +129,7 @@ Carried to completion, this plan still leaves the rest of the Plan 9 toolchain w
 
 包运行时。大部分运行时是用C语言编写的，这与Go编译器用C语言编写的原因相同。然而，运行时比编译器小得多，而且它已经是用Go和C语言混合编写的。主要的部分是调度器，垃圾收集器，哈希图的实现，以及通道的实现。(在这里，Go和C的精细混合是可能的，因为C是用6c而不是gcc编译的）。
 
-*C compilers*. The Plan 9 C compilers are themselves written in C. If we remove all the C from Go package implementations (in particular, package runtime), we can remove these compilers: “go tool 6c” and so on would be no more, and .c files in Go package directory sources would no longer be supported. We would need to announce these plans early, so that external packages written partly in C have time to remove their uses. (Cgo, which uses gcc instead of 6c, would remain as a way to write parts of a package in C.) The Go 1 compatibility document excludes changes to the toolchain; deleting the C compilers is permitted.
+*C compilers*. The Plan 9 C compilers are themselves written in C. If we remove all the C from Go package implementations (in particular, package runtime), we can remove these compilers: "go tool 6c" and so on would be no more, and .c files in Go package directory sources would no longer be supported. We would need to announce these plans early, so that external packages written partly in C have time to remove their uses. (Cgo, which uses gcc instead of 6c, would remain as a way to write parts of a package in C.) The Go 1 compatibility document excludes changes to the toolchain; deleting the C compilers is permitted.
 
 C语言编译器。Plan 9的C语言编译器本身就是用C语言编写的。如果我们从Go包的实现中删除所有的C语言（特别是包的运行时间），我们可以删除这些编译器。"go tool 6c "等将不复存在，Go包目录源中的.c文件将不再被支持。我们需要尽早宣布这些计划，以便部分用C语言编写的外部软件包有时间删除它们的用途。(使用gcc而不是6c的Cgo将继续作为用C语言编写部分软件包的一种方式。) Go 1的兼容性文件不包括对工具链的改变；删除C编译器是允许的。
 

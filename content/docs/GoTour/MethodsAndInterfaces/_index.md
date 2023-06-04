@@ -13,7 +13,7 @@ draft = false
 
 [https://go.dev/tour/methods/1](https://go.dev/tour/methods/1)
 
-​	Go没有类。不过，你可以在类型上定义方法。
+​	Go没有类。不过，您可以在类型上定义方法。
 
 ​	方法是一种带有特殊*接收器*参数的函数。
 
@@ -79,11 +79,11 @@ func main() {
 
 [https://go.dev/tour/methods/3](https://go.dev/tour/methods/3)
 
-​	你也可以在非结构体类型上声明方法。
+​	您也可以在非结构体类型上声明方法。
 
 ​	在这个例子中，我们看到一个数值类型`MyFloat`有一个`Abs`方法。
 
-​	你只能声明一个带有`接收器`的方法，其类型与该方法定义在同一个包中。你不能用一个类型定义在另一个包中的接收器来声明一个方法（其中包括内置类型，如`int`）。（即：接收器的类型定义和方法声明必须在同一包内，不能为内建类型声明方法）
+​	您只能声明一个带有`接收器`的方法，其类型与该方法定义在同一个包中。您不能用一个类型定义在另一个包中的接收器来声明一个方法（其中包括内置类型，如`int`）。（即：接收器的类型定义和方法声明必须在同一包内，不能为内建类型声明方法）
 
 ```go title="main.go" 
 package main
@@ -113,7 +113,7 @@ func main() {
 
 [https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
 
-​	你可以声明带有指针接收器的方法。
+​	您可以声明带有指针接收器的方法。
 
 This means the receiver type has the literal syntax `*T` for some type `T`. (Also, `T` cannot itself be a pointer such as `*int`.)
 
@@ -162,9 +162,9 @@ func main() {
 
 ​	这里我们看到`Abs`和`Scale`方法被改写成了函数。
 
-​	再一次，试着把第16行中的`*`去掉。你能明白为什么行为发生了变化吗？为了编译这个例子，你还需要改变什么？
+​	再一次，试着把第16行中的`*`去掉。您能明白为什么行为发生了变化吗？为了编译这个例子，您还需要改变什么？
 
-(如果你不确定，继续看下一页）。
+(如果您不确定，继续看下一页）。
 
 ```go title="main.go" 
 package main
@@ -199,7 +199,7 @@ func main() {
 
 [https://go.dev/tour/methods/6](https://go.dev/tour/methods/6)
 
-​	对比前面两个程序，你可能会注意到，带有指针参数的函数必须接受一个指针。
+​	对比前面两个程序，您可能会注意到，带有指针参数的函数必须接受一个指针。
 
 ```go 
 var v Vertex
@@ -412,7 +412,7 @@ func (v *Vertex) Abs() float64 {
 
 [https://go.dev/tour/methods/10](https://go.dev/tour/methods/10)
 
-​	类型通过实现其方法来实现一个接口。既无需专门显式声明，也没有“implements”关键字。
+​	类型通过实现其方法来实现一个接口。既无需专门显式声明，也没有"implements"关键字。
 
 ​	`隐式接口`将接口的定义与它的实现解耦，这样接口的实现就可以在任何包中出现，而无需提前准备。
 
@@ -873,9 +873,9 @@ func (e ErrNegativeSqrt) Error() string
 
 方法使其拥有`error`值，这样`ErrNegativeSqrt(-2).Error()`返回 "`cannot Sqrt negative number: -2`"。
 
-注意：在`Error`方法中调用`fmt.Sprint(e)`将`使程序进入死循环`。你可以通过先转换`e`来避免这种情况：`fmt.Sprint(float64(e))`。为什么？
+注意：在`Error`方法中调用`fmt.Sprint(e)`将`使程序进入死循环`。您可以通过先转换`e`来避免这种情况：`fmt.Sprint(float64(e))`。为什么？
 
-​	修改你的`Sqrt`函数，当给定一个负数时返回一个`ErrNegativeSqrt`值。
+​	修改您的`Sqrt`函数，当给定一个负数时返回一个`ErrNegativeSqrt`值。
 
 ```go title="main.go" 
 package main
@@ -1006,7 +1006,7 @@ func main() {
 
 ​	编写一个实现`io.Reader`并从另一个`io.Reader`中读取数据的`rot13Reader`，通过应用[rot13](https://en.wikipedia.org/wiki/ROT13)代换密码对数据流进行修改。
 
-​	`rot13Reader`的类型是为你提供了。通过实现它的`Read`方法使其成为实现`io.Reader`。
+​	`rot13Reader`的类型是为您提供了。通过实现它的`Read`方法使其成为实现`io.Reader`。
 
 ```go title="main.go" 
 package main
@@ -1088,9 +1088,9 @@ func main() {
 
 [https://go.dev/tour/methods/25](https://go.dev/tour/methods/25)
 
-​	还记得你之前写的[图片生成器](#exercise-stringers-stringers)吗？让我们再写一个，但这次它将返回`image.Image`的实现，而不是一个数据切片。
+​	还记得您之前写的[图片生成器](#exercise-stringers-stringers)吗？让我们再写一个，但这次它将返回`image.Image`的实现，而不是一个数据切片。
 
-​	定义你自己的`Image`类型，实现[必要的方法](https://go.dev/pkg/image/#Image)，然后调用`pic.ShowImage`。
+​	定义您自己的`Image`类型，实现[必要的方法](https://go.dev/pkg/image/#Image)，然后调用`pic.ShowImage`。
 
 ​	`Bounds`应当返回一个`image.Rectangle`，例如`image.Rect(0, 0, w, h)`。
 
@@ -1132,10 +1132,10 @@ func main() {
 
 ```
 
-## Congratulations! 祝贺你!
+## Congratulations! 祝贺您!
 
 [https://go.dev/tour/methods/26](https://go.dev/tour/methods/26)
 
-你完成了这一课!
+您完成了这一课!
 
-你可以回到`模块`列表中寻找下一步要学习的内容，或者继续学习下一课。
+您可以回到`模块`列表中寻找下一步要学习的内容，或者继续学习下一课。

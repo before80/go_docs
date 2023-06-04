@@ -168,7 +168,7 @@ Remember that gofix will handle the bulk of the rewrites necessary for these cha
 
 [Gofix](https://go.dev/cmd/gofix/), a new command, is described above.
 
-[Gotest](https://go.dev/cmd/gotest/) is now a Go program instead of a shell script. The new `-test.short` flag in combination with package testing's Short function allows you to write tests that can be run in normal or “short” mode; all.bash runs tests in short mode to reduce installation time. The Makefiles know about the flag: use `make testshort`.
+[Gotest](https://go.dev/cmd/gotest/) is now a Go program instead of a shell script. The new `-test.short` flag in combination with package testing's Short function allows you to write tests that can be run in normal or "short" mode; all.bash runs tests in short mode to reduce installation time. The Makefiles know about the flag: use `make testshort`.
 
 The run-time support now implements CPU and memory profiling. Gotest's new [`-test.cpuprofile` and `-test.memprofile` flags](https://go.dev/cmd/gotest/) make it easy to profile tests. To add profiling to your web server, see the [http/pprof](https://go.dev/pkg/http/pprof/) documentation. For other uses, see the [runtime/pprof](https://go.dev/pkg/runtime/pprof/) documentation.
 

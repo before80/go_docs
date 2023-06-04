@@ -10,19 +10,19 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/prepared-statements](https://go.dev/doc/database/prepared-statements)
 
-​	你可以为重复使用定义一个预处理语句。这可以避免每次代码执行数据库操作时`重新创建语句的开销`，从而帮助代码更快地运行。
+​	您可以为重复使用定义一个预处理语句。这可以避免每次代码执行数据库操作时`重新创建语句的开销`，从而帮助代码更快地运行。
 
-注意：预处理语句中的参数占位符根据你所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个像`$1`这样的占位符，而不是`?`。
+注意：预处理语句中的参数占位符根据您所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个像`$1`这样的占位符，而不是`?`。
 
 ###  什么是预处理语句？
 
 ​	预处理语句是由`DBMS`解析并保存的SQL，通常包含占位符，但没有实际参数值。之后，可以用一组参数值来执行该语句。
 
-### 你如何使用预处理语句
+### 您如何使用预处理语句
 
-​	当你希望重复执行相同的SQL时，你可以使用一个`sql.Stmt`来提前准备SQL语句，然后根据需要执行它。
+​	当您希望重复执行相同的SQL时，您可以使用一个`sql.Stmt`来提前准备SQL语句，然后根据需要执行它。
 
-​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare]({{< ref "/docs/StdLib/database/sql#db-prepare">}})返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。你可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
+​	下面的例子创建了一个预处理语句，从数据库中选择一个特定的相册。[DB.Prepare]({{< ref "/docs/StdLib/database/sql#db-prepare">}})返回一个`sql.Stmt`，代表一个给定的SQL文本的预处理语句。您可以将SQL语句的参数传递给`Stmt.Exec`、`Stmt.QueryRow`或`Stmt.Query`来运行该语句。
 
 ```go  hl_lines="14 14"
 // AlbumByID retrieves the specified album.
@@ -55,7 +55,7 @@ func AlbumByID(id int) (Album, error) {
 
 ​	然而，由于一个`sql.Stmt`已经代表了一个预设的SQL语句，它的`Exec`、`QueryRow`和`Query`方法只接受与占位符对应的SQL参数值，而忽略了SQL文本。
 
-​	你可以用不同的方式定义一个新的`sql.Stmt`，这取决于你将如何使用它。
+​	您可以用不同的方式定义一个新的`sql.Stmt`，这取决于您将如何使用它。
 
 - `DB.Prepare`和`DB.PrepareContext`创建了一个预处理语句，该语句可以在事务外单独执行，就像`DB.Exec`和`DB.Query`一样。
 - `Tx.Prepare`、`Tx.PrepareContext`、`Tx.Stmt`和`Tx.StmtContext`创建一个预处理语句，以便在一个特定的事务中使用。`Prepare`和`PrepareContext`使用SQL文本来定义语句。`Stmt`和`StmtContext`使用`DB.Prepare`或`DB.PrepareContext`的结果。也就是说，它们将一个非事务用的`sql.Stmt`转换为这个事务用的`sql.Stmt`。

@@ -16,13 +16,13 @@ Matt Pearring and Dmitri Shuralyov
 
 Today the Go team is very happy to announce the release of Go 1.16. You can get it from the [download page](https://go.dev/dl/).
 
-今天，Go团队非常高兴地宣布Go 1.16的发布。你可以从下载页面获得它。
+今天，Go团队非常高兴地宣布Go 1.16的发布。您可以从下载页面获得它。
 
-The new [embed package](https://go.dev/doc/go1.16#library-embed) provides access to files embedded at compile time using the new `//go:embed` directive. Now it is easy to bundle supporting data files into your Go programs, making developing with Go even smoother. You can get started using the [embed package documentation](https://pkg.go.dev/embed). Carl Johnson has also written a nice tutorial, “[How to use Go embed](https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/)”.
+The new [embed package](https://go.dev/doc/go1.16#library-embed) provides access to files embedded at compile time using the new `//go:embed` directive. Now it is easy to bundle supporting data files into your Go programs, making developing with Go even smoother. You can get started using the [embed package documentation](https://pkg.go.dev/embed). Carl Johnson has also written a nice tutorial, "[How to use Go embed](https://blog.carlmjohnson.net/post/2021/how-to-use-go-embed/)".
 
-新的嵌入包提供了对使用新的//go:embed指令在编译时嵌入文件的访问。现在可以很容易地将支持性的数据文件捆绑到您的Go程序中，使Go的开发更加顺畅。你可以使用embed包的文档开始学习。卡尔-约翰逊也写了一个很好的教程，"如何使用 Go 嵌入"。
+新的嵌入包提供了对使用新的//go:embed指令在编译时嵌入文件的访问。现在可以很容易地将支持性的数据文件捆绑到您的Go程序中，使Go的开发更加顺畅。您可以使用embed包的文档开始学习。卡尔-约翰逊也写了一个很好的教程，"如何使用 Go 嵌入"。
 
-Go 1.16 also adds [macOS ARM64 support](https://go.dev/doc/go1.16#darwin) (also known as Apple silicon). Since Apple’s announcement of their new arm64 architecture, we have been working closely with them to ensure Go is fully supported; see our blog post “[Go on ARM and Beyond](https://blog.golang.org/ports)” for more.
+Go 1.16 also adds [macOS ARM64 support](https://go.dev/doc/go1.16#darwin) (also known as Apple silicon). Since Apple’s announcement of their new arm64 architecture, we have been working closely with them to ensure Go is fully supported; see our blog post "[Go on ARM and Beyond](https://blog.golang.org/ports)" for more.
 
 Go 1.16还增加了对macOS ARM64的支持（也被称为苹果硅）。自从苹果公司宣布其新的 arm64 架构以来，我们一直在与他们密切合作，以确保 Go 得到全面支持；更多信息请参见我们的博文 "Go on ARM and Beyond"。
 
@@ -40,8 +40,8 @@ We want to thank everyone who contributed to this release by writing code filing
 
 Your contributions and diligence helped to ensure that Go 1.16 is as stable as possible. That said, if you notice any problems, please [file an issue](https://go.dev/issue/new).
 
-你的贡献和勤奋有助于确保Go 1.16尽可能的稳定。也就是说，如果你发现任何问题，请提出问题。
+您的贡献和勤奋有助于确保Go 1.16尽可能的稳定。也就是说，如果您发现任何问题，请提出问题。
 
 We hope you enjoy the new release!
 
-我们希望你喜欢这个新版本
+我们希望您喜欢这个新版本

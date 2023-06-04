@@ -146,7 +146,7 @@ func main() {
 	wg.Add(5)
 	for i := 0; i < 5; i++ {
 		go func() {
-			fmt.Println(i) //  这里的 'i' 和你想要的不一样。
+			fmt.Println(i) //  这里的 'i' 和您想要的不一样。
 			wg.Done()
 		}()
 	}

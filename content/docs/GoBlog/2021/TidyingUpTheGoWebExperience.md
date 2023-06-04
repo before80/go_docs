@@ -24,7 +24,7 @@ The go.dev web site contains useful information for people evaluating Go, but go
 
 Over the next month or two we will be merging the golang.org sites into a single coherent web presence, here on go.dev. You may have already noticed that links to the package reference docs for the standard library on golang.org/pkg now redirect to their [equivalents on pkg.go.dev](https://pkg.go.dev/std), which is a better experience today and will continue to improve. As the next step, the Go blog has moved to go.dev/blog, starting with the post you are reading right now. (Of course, all the old blog posts are here too.)
 
-​	在接下来的一两个月里，我们将把`golang.org`的网站合并成一个统一的网站，在`go.dev`上。你可能已经注意到，`golang.org/pkg`上的标准库参考文档的链接现在会重定向到[pkg.go.dev](https://pkg.go.dev/std)上的相应内容，这在今天是一个更好的体验，并将继续改进。作为下一步，Go博客已经搬到了`go.dev/blog`，从你现在正在阅读的这篇文章开始。(当然，所有的旧博客文章也在这里）。
+​	在接下来的一两个月里，我们将把`golang.org`的网站合并成一个统一的网站，在`go.dev`上。您可能已经注意到，`golang.org/pkg`上的标准库参考文档的链接现在会重定向到[pkg.go.dev](https://pkg.go.dev/std)上的相应内容，这在今天是一个更好的体验，并将继续改进。作为下一步，Go博客已经搬到了`go.dev/blog`，从您现在正在阅读的这篇文章开始。(当然，所有的旧博客文章也在这里）。
 
 As we move the content to its new home on go.dev, rest assured that all existing URLs will redirect to their new homes: no links will be broken.
 
@@ -34,6 +34,6 @@ We are excited to have a single coherent web site where everyone can find what t
 
 ​	我们很高兴能有一个统一的网站，每个人都能在这里找到他们需要了解的关于Go的内容。这是个小细节，但早该如此了。
 
-If you have any ideas or suggestions, or you run into problems, please let us know via the “Report an Issue” link at the bottom of every page. Thanks!
+If you have any ideas or suggestions, or you run into problems, please let us know via the "Report an Issue" link at the bottom of every page. Thanks!
 
-​	如果你有任何想法或建议，或遇到问题，请通过每个页面底部的 "Report an Issue（报告问题）"链接让我们知道。谢谢!
+​	如果您有任何想法或建议，或遇到问题，请通过每个页面底部的 "Report an Issue（报告问题）"链接让我们知道。谢谢!

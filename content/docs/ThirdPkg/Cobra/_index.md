@@ -133,7 +133,7 @@ func main() {
 
 ​	Cobra提供了一个程序，可以创建您的应用程序并添加您想要的任何命令。这是将Cobra集成到您的应用程序中最简单的方法。
 
-​	在[这里](https://github.com/spf13/cobra/blob/master/cobra/README.md)你可以找到更多关于Cobra的信息
+​	在[这里](https://github.com/spf13/cobra/blob/master/cobra/README.md)您可以找到更多关于Cobra的信息
 
 ## 使用Cobra库
 
@@ -226,7 +226,7 @@ func initConfig() {
 
 With the root command you need to have your main function execute it. Execute should be run on the root for clarity, though it can be called on any command.
 
-​	有了 root 命令，你需要在 main 函数执行它。为了清晰起见，应该在 root 上调用 `Execute`，尽管可以在任何命令上调用它。
+​	有了 root 命令，您需要在 main 函数执行它。为了清晰起见，应该在 root 上调用 `Execute`，尽管可以在任何命令上调用它。
 
 ​	在Cobra应用程序中，通常`main.go`文件非常简洁。它只有一个目的，即初始化Cobra。
 

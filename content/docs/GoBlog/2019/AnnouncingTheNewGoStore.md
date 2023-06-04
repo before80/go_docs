@@ -26,11 +26,11 @@ We are excited to launch the new Go official swag and merch store, shipping worl
 
 At the **Go store** you’ll find our beloved gopher plushies and vinyls as well as new merchandise. Visit the store for 20% off with code **Gopher20** through Sunday, July 21st at 11:59 PM PST.
 
-在Go商店，你会发现我们心爱的地鼠玩具和乙烯基，以及新的商品。在北京时间7月21日（星期日）晚上11:59之前，使用代码Gopher20访问商店可享受20%的折扣。
+在Go商店，您会发现我们心爱的地鼠玩具和乙烯基，以及新的商品。在北京时间7月21日（星期日）晚上11:59之前，使用代码Gopher20访问商店可享受20%的折扣。
 
 We plan on adding stock to current items and bringing on new ones to the store. If we are out of stock when you go to place an order, check back again soon. Follow the [Twitter account](https://twitter.com/golang) for updates, we plan on adding new goodies for all our Go fans out there, so keep an eye out!
 
-我们计划在现有商品上增加库存，并为商店带来新的商品。如果你去下订单时，我们已经没有库存了，请尽快再回来看看。关注推特账户的更新，我们计划为所有Go迷增加新的好东西，所以请留意!
+我们计划在现有商品上增加库存，并为商店带来新的商品。如果您去下订单时，我们已经没有库存了，请尽快再回来看看。关注推特账户的更新，我们计划为所有Go迷增加新的好东西，所以请留意!
 
 Happy shopping!
 

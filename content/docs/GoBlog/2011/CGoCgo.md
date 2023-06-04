@@ -41,7 +41,7 @@ func Seed(i int) {
 
 ​	现在让我们从 import 语句开始分析。
 
-​	rand 包引入了 C，但是在 Go 标准库中并没有这个包。这是因为 C 是一个“伪包”，是 cgo 特殊解释的名称，用于表示 C 的命名空间。
+​	rand 包引入了 C，但是在 Go 标准库中并没有这个包。这是因为 C 是一个"伪包"，是 cgo 特殊解释的名称，用于表示 C 的命名空间。
 
 ​	rand 包包含了对 C 包的四个引用：对 C.random 和 C.srandom 的调用，对 C.uint(i) 的转换，以及 import 语句。
 

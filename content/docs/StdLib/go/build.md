@@ -43,7 +43,7 @@ If DIR is a directory listed in the Go path, a package with source in DIR/src/fo
 
 The bin/ directory holds compiled commands. Each command is named for its source directory, but only using the final element, not the entire path. That is, the command with source in DIR/src/foo/quux is installed into DIR/bin/quux, not DIR/bin/foo/quux. The foo/ is stripped so that you can add DIR/bin to your PATH to get at the installed commands.
 
-bin/目录存放已编译的命令。每个命令都以其源目录命名，但只使用最后一个元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/被删除了，这样你就可以在PATH中加入DIR/bin来获取已安装的命令。
+bin/目录存放已编译的命令。每个命令都以其源目录命名，但只使用最后一个元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/被删除了，这样您就可以在PATH中加入DIR/bin来获取已安装的命令。
 
 Here's an example directory layout:
 

@@ -453,7 +453,7 @@ var testdata *struct {
 	a *[7]int
 }
 for i, _ := range testdata.a {
-	// testdata.a is never evaluated; len(testdata.a) is constant => testdata.a 不会被求值； len(testdata.a) 是常量 <= 这里符合前面说的那个“但有一个例外”的情况
+	// testdata.a is never evaluated; len(testdata.a) is constant => testdata.a 不会被求值； len(testdata.a) 是常量 <= 这里符合前面说的那个"但有一个例外"的情况
 	// i ranges from 0 to 6 => i 范围从 0 到 6
 	f(i)
 }

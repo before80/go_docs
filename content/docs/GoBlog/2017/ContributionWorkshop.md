@@ -24,17 +24,17 @@ During the community day at GopherCon, the Go team held two workshops where we w
 
 在GopherCon的社区日期间，Go团队举办了两场研讨会，我们与人们一起工作，帮助他们为Go项目做出第一次贡献。这是Go项目第一次尝试这样的活动。我们有大约140名参与者和大约35名自愿担任导师的人。导师们不仅得到了帮助他人的温暖感觉，而且还得到了一顶非常时尚的Go Mentor卡车帽。我们有来自南北美洲、非洲、欧洲、亚洲和澳大利亚的各种年龄和经验水平的贡献者。这确实是地鼠们在GopherCon上的一次全球努力。
 
-One of our reasons for running the workshop was for it to act as a forcing function to make us improve our contributor experience. In preparation for the workshop, we rewrote our contributor guide, including adding a “troubleshooting” section and built a tool `go-contrib-init`, which automated the process of setting up a development environment to be able to contribute to Go.
+One of our reasons for running the workshop was for it to act as a forcing function to make us improve our contributor experience. In preparation for the workshop, we rewrote our contributor guide, including adding a "troubleshooting" section and built a tool `go-contrib-init`, which automated the process of setting up a development environment to be able to contribute to Go.
 
 我们举办研讨会的原因之一是，它可以作为一种强制功能，使我们改进我们的贡献者经验。为了准备这次研讨会，我们重写了我们的贡献者指南，包括增加了一个 "故障排除 "部分，并建立了一个工具go-contrib-init，它可以自动设置一个开发环境，以便能够对Go做出贡献。
 
-For the workshop itself, we developed a presentation *“Contributing to Go,"* and a dashboard / scoreboard that was presented during the event. The scoreboard was designed to encourage us all to work together towards a common goal of seeing our collective score increase. Participants added 1, 2 or 3 points to the total score when they performed actions like registering an account, making a change list (also known as a CL, similar to a pull request), amending a CL, or submitting a CL.
+For the workshop itself, we developed a presentation *"Contributing to Go,"* and a dashboard / scoreboard that was presented during the event. The scoreboard was designed to encourage us all to work together towards a common goal of seeing our collective score increase. Participants added 1, 2 or 3 points to the total score when they performed actions like registering an account, making a change list (also known as a CL, similar to a pull request), amending a CL, or submitting a CL.
 
 对于研讨会本身，我们开发了一个 "为Go做贡献 "的演示，以及一个在活动中展示的仪表盘/记分牌。计分板的设计是为了鼓励大家一起努力实现一个共同的目标，即看到我们的集体得分增加。参与者在进行注册账户、制定变更列表（也称为CL，类似于拉动请求）、修改CL或提交CL等操作时，都会在总分上增加1、2或3分。
 
 ![img](ContributionWorkshop_img/image17.png)
 
-Brad Fitzpatrick, who stayed home from GopherCon this year, was ready and waiting to review all CLs submitted. He was so quick to review that many people thought he was an automated bot. Internally our team is now calling him “BradBot” mostly because we are in awe and a bit jealous.
+Brad Fitzpatrick, who stayed home from GopherCon this year, was ready and waiting to review all CLs submitted. He was so quick to review that many people thought he was an automated bot. Internally our team is now calling him "BradBot" mostly because we are in awe and a bit jealous.
 
 布拉德-菲茨帕特里克（Brad Fitzpatrick）今年从GopherCon呆在家里，已经准备好并等待审查所有提交的CL。他的审查速度如此之快，以至于许多人认为他是一个自动机器人。在内部，我们的团队现在称他为 "BradBot"，主要是因为我们感到敬畏和有点嫉妒。
 
@@ -83,13 +83,13 @@ Not only were some great improvements made, but most importantly, we narrowed th
 
 ### Future 未来
 
-The event was successful well beyond our expectations. Sameer Ajmani, Go team manager said, “The contributor workshop was incredibly fun and educational–for the Go team. We cringed as users hit the rough edges in our process, and celebrated when they got up on the dashboard. The cheer when the group score hit 1000 was awesome.”
+The event was successful well beyond our expectations. Sameer Ajmani, Go team manager said, "The contributor workshop was incredibly fun and educational–for the Go team. We cringed as users hit the rough edges in our process, and celebrated when they got up on the dashboard. The cheer when the group score hit 1000 was awesome."
 
 这次活动的成功远远超出了我们的预期。Go团队经理Sameer Ajmani说，"贡献者研讨会对于Go团队来说是非常有趣和有教育意义的。当用户在我们的过程中遇到粗糙的边缘时，我们感到害怕，当他们在仪表板上站起来时，我们又感到庆幸。当小组得分达到1000分时，大家的欢呼声很高"。
 
 We are looking into ways to make this workshop easier to run for future events (like meetups and conferences). Our biggest challenge is providing enough mentorship so that users feel supported. If you have any ideas or would like to help with this process please [let me know](mailto:spf@golang.org).
 
-我们正在研究如何使这个研讨会在未来的活动（如聚会和会议）中更容易开展。我们最大的挑战是提供足够的指导，使用户感到得到支持。如果你有任何想法或愿意帮助这个过程，请让我知道。
+我们正在研究如何使这个研讨会在未来的活动（如聚会和会议）中更容易开展。我们最大的挑战是提供足够的指导，使用户感到得到支持。如果您有任何想法或愿意帮助这个过程，请让我知道。
 
 I’ve asked a few participants of the event to share their experiences below:
 
@@ -137,7 +137,7 @@ To make this more exciting than it already is, the Go team set up a game where w
 
 Seeing your name pop up on the board and listening to everyone’s excitement was intoxicating. It also invoked a sense of teamwork that lead to a feeling of inclusion and feeling like you were truly a part of the Go community.
 
-看到自己的名字出现在黑板上，听着大家的兴奋声，令人陶醉。它也唤起了一种团队合作的意识，导致了一种包容的感觉，感觉你真的是Go界的一员。
+看到自己的名字出现在黑板上，听着大家的兴奋声，令人陶醉。它也唤起了一种团队合作的意识，导致了一种包容的感觉，感觉您真的是Go界的一员。
 
 ![img](ContributionWorkshop_img/image11.png)
 
@@ -175,7 +175,7 @@ Given Go’s use of Gerrit, I started by setting up my environment for it. [Jess
 
 The real fun starts when you clone the Go repo. Ironically, you don’t hack on Go under `$GOPATH`, so I put it in my other workspace (which is `~/Develop`).
 
-真正的乐趣是从克隆Go repo开始的。讽刺的是，你不能在$GOPATH下入侵Go，所以我把它放在我的另一个工作区（也就是~/Develop）。
+真正的乐趣是从克隆Go repo开始的。讽刺的是，您不能在$GOPATH下入侵Go，所以我把它放在我的另一个工作区（也就是~/Develop）。
 
 ```
 cd $DEV # That's my source code folder outside of $GOPATH
@@ -192,11 +192,11 @@ go get -u golang.org/x/tools/cmd/go-contrib-init
 
 Now you can run `go-contrib-init` from the `go/` folder we cloned above and see whether or not we’re ready to contribute. But hold on if you’re following along, you’re not ready just yet.
 
-现在你可以从我们上面克隆的go/文件夹中运行go-contrib-init，看看我们是否已经准备好贡献。但是，如果你正在跟随，请稍等，你还没有准备好。
+现在您可以从我们上面克隆的go/文件夹中运行go-contrib-init，看看我们是否已经准备好贡献。但是，如果您正在跟随，请稍等，您还没有准备好。
 
 Next, install `codereview` so you can participate in a Gerrit code review:
 
-接下来，安装codereview，这样你就可以参与Gerrit代码审查了：
+接下来，安装codereview，这样您就可以参与Gerrit代码审查了：
 
 ```
 go get -u golang.org/x/review/git-codereview
@@ -204,15 +204,15 @@ go get -u golang.org/x/review/git-codereview
 
 This package includes `git change` and `git mail` which will replace your normal workflow of `git commit` and `git push` respectively.
 
-这个软件包包括git change和git mail，它们将分别取代你正常的git commit和git push的工作流程。
+这个软件包包括git change和git mail，它们将分别取代您正常的git commit和git push的工作流程。
 
 Okay, installations are out of the way. Now set up your [Gerrit account here](https://go-review.googlesource.com/settings/#Profile), then [sign the CLA](https://go-review.googlesource.com/settings#Agreements) appropriate for you (I signed a personal one for all Google projects, but choose the right option for you. You can see all CLAs you’ve signed at [cla.developers.google.com/clas](https://cla.developers.google.com/clas)).
 
-好了，安装工作已经完成了。现在在这里设置你的Gerrit账户，然后签署适合你的CLA（我为所有谷歌项目签署了一个个人CLA，但选择适合你的选项。你可以在cla.developer.google.com/clas上看到你已经签署的所有CLA）。
+好了，安装工作已经完成了。现在在这里设置您的Gerrit账户，然后签署适合您的CLA（我为所有谷歌项目签署了一个个人CLA，但选择适合您的选项。您可以在cla.developer.google.com/clas上看到您已经签署的所有CLA）。
 
 AND BAM. You’re good (to go)! But where to contribute?
 
-然后砰的一声。你就可以开始工作了! 但在哪里贡献？
+然后砰的一声。您就可以开始工作了! 但在哪里贡献？
 
 ### Contributing 贡献
 
@@ -227,7 +227,7 @@ git clone --depth 1 [[https://go.googlesource.com/scratch][go.googlesource.com/s
 
 First stop is to `cd` in and run `go-contrib-init` to make sure you’re ready to contribute:
 
-第一站是cd进去，运行go-contrib-init，以确保你准备好贡献：
+第一站是cd进去，运行go-contrib-init，以确保您准备好贡献：
 
 ```
 go-contrib-init
@@ -236,11 +236,11 @@ All good. Happy hacking!
 
 From there, I made a folder named after my GitHub account, did a `git add -u` then took `git change` for a spin. It has a hash that keeps track of your work, which is the one line you shouldn’t touch. Other than that, it feels just like `git commit`. Once I got the commit message matching the format of `package: description` (description begins with a lowercase), I used `git mail` to send it over to Gerrit.
 
-在那里，我建立了一个以我的GitHub账户命名的文件夹，做了一个git add -u，然后用git change转了一下。它有一个跟踪你工作的哈希值，这是你不应该碰的一行。除此以外，它感觉就像git commit。一旦我得到了符合package: description格式的提交信息（description以小写字母开头），我就用git mail把它发给了Gerrit。
+在那里，我建立了一个以我的GitHub账户命名的文件夹，做了一个git add -u，然后用git change转了一下。它有一个跟踪您工作的哈希值，这是您不应该碰的一行。除此以外，它感觉就像git commit。一旦我得到了符合package: description格式的提交信息（description以小写字母开头），我就用git mail把它发给了Gerrit。
 
 Two good notes to take at this point: `git change` also works like `git commit --amend`, so if you need to update your patch you can `add` then `change` and it will all link to the same patch. Secondly, you can always review your patch from your [personal Gerrit dashboard](https://go-review.googlesource.com/dashboard/).
 
-在这一点上有两点值得注意：git change也像git commit --amend一样工作，所以如果你需要更新你的补丁，你可以先添加再更改，它都会链接到同一个补丁。其次，你可以随时从你的个人Gerrit仪表盘上查看你的补丁。
+在这一点上有两点值得注意：git change也像git commit --amend一样工作，所以如果您需要更新您的补丁，您可以先添加再更改，它都会链接到同一个补丁。其次，您可以随时从您的个人Gerrit仪表盘上查看您的补丁。
 
 After a few back and forths, I officially had a contribution to Go! And if Jaana is right, it might be the first with emojis ✌️.
 
@@ -252,7 +252,7 @@ After a few back and forths, I officially had a contribution to Go! And if Jaana
 
 ### Contributing, For Real 贡献，真正的贡献
 
-The scratch repo is fun and all, but there’s a ton of ways to get into the depths of Go’s packages and give back. It’s at this point where I cruised around the many packages available to see what was available and interesting to me. And by “cruised around” I mean attempted to find a list of packages, then went to my source code to see what’s around under the `go/src/` folder:
+The scratch repo is fun and all, but there’s a ton of ways to get into the depths of Go’s packages and give back. It’s at this point where I cruised around the many packages available to see what was available and interesting to me. And by "cruised around" I mean attempted to find a list of packages, then went to my source code to see what’s around under the `go/src/` folder:
 
 Scratch repo很有趣，但有很多方法可以进入Go的包的深处，并给予回报。在这一点上，我巡视了许多可用的软件包，看看哪些是可用的，哪些是我感兴趣的。我说的 "巡视 "是指试图找到一个软件包的列表，然后到我的源代码中去看看go/src/文件夹下有什么：
 
@@ -264,7 +264,7 @@ I decided to see what I can do in the `regexp` package, maybe out of love and fe
 
 ![img](ContributionWorkshop_img/image1.png)
 
-I started looking at `go/src/regexp` to try to find where to add examples and I got lost pretty quickly. Lucky for me, [Francesc](https://twitter.com/francesc) was around that day. He walked me through how all examples are actually in-line tests in a `example_test.go` file. They follow the format of test cases followed by “Output” commented out and then the answers to the tests. For example:
+I started looking at `go/src/regexp` to try to find where to add examples and I got lost pretty quickly. Lucky for me, [Francesc](https://twitter.com/francesc) was around that day. He walked me through how all examples are actually in-line tests in a `example_test.go` file. They follow the format of test cases followed by "Output" commented out and then the answers to the tests. For example:
 
 我开始查看go/src/regexp，试图找到可以添加示例的地方，但我很快就迷失了方向。我很幸运，Francesc那天就在身边。他告诉我，所有的例子实际上都是example_test.go文件中的在线测试。他们遵循测试案例的格式，后面是 "输出 "的注释，然后是测试的答案。比如说：
 
@@ -283,17 +283,17 @@ Kind of cool, right?? I followed Francesc’s lead and added a function `Example
 
 有点酷，对吗？我跟随Francesc的步伐，添加了一个函数ExampleQuoteMeta，并添加了一些我认为有帮助的内容。从那里开始，它是一个git变更和git邮件给Gerrit!
 
-I have to say that Steve Francia challenged me to “find something that isn’t an open issue and fix it,” so I included some documentation changes for QuoteMeta in my patch. It’s going to be open for a bit longer given the additional scope, but I think it’s worth it on this one.
+I have to say that Steve Francia challenged me to "find something that isn’t an open issue and fix it," so I included some documentation changes for QuoteMeta in my patch. It’s going to be open for a bit longer given the additional scope, but I think it’s worth it on this one.
 
 我不得不说，Steve Francia挑战我 "找到一些不是开放性问题的东西并修复它"，所以我在我的补丁中包括了QuoteMeta的一些文档修改。考虑到额外的范围，它的开放时间要长一些，但我认为在这个问题上是值得的。
 
 I can hear your question already: how did I verify it worked? Well it wasn’t easy to be honest. Running `go test example_test.go -run QuoteMeta -v` won’t do it since we’re working outside of our $GOPATH. I struggled to figure it out until [Kale Blakenship wrote this awesome post on testing in Go](https://medium.com/@vCabbage/go-testing-standard-library-changes-1e9cbed11339). Bookmark this one for later.
 
-我已经听到你的问题了：我是如何验证它的工作的？说实话，这并不容易。运行go test example_test.go -run QuoteMeta -v是不行的，因为我们是在$GOPATH之外工作。我一直在努力想办法，直到Kale Blakenship写了这篇关于Go测试的精彩文章。请把这篇文章收藏起来，以后再看。
+我已经听到您的问题了：我是如何验证它的工作的？说实话，这并不容易。运行go test example_test.go -run QuoteMeta -v是不行的，因为我们是在$GOPATH之外工作。我一直在努力想办法，直到Kale Blakenship写了这篇关于Go测试的精彩文章。请把这篇文章收藏起来，以后再看。
 
 You can see my completed [contribution here](https://go-review.googlesource.com/c/49130/). What I also hope you see is how simple it is to get into the flow of contributing. If you’re like me, you’ll be good at finding a small typo or missing example in the docs to start to get used to the `git codereview` workflow. After that, you’ll be ready to find an open issue, ideally one [tagged for an upcoming release](https://github.com/golang/go/milestones), and give it a go. No matter what you choose to do, definitely go forth and do it. The Go team proved to me just how much they care about helping us all contribute back. I can’t wait for my next `git mail`.
 
-你可以在这里看到我完成的贡献。我也希望你看到，进入贡献的流程是多么简单。如果你像我一样，你会善于在文档中找到一个小的错别字或遗漏的例子来开始适应git代码审查的工作流程。之后，你会准备好找到一个开放的问题，最好是为即将发布的版本做标记的问题，并给它一个机会。无论你选择做什么，一定要去做。Go团队向我证明了他们是多么关心帮助我们所有人做出回报。我已经迫不及待地想要收到下一封git邮件了。
+您可以在这里看到我完成的贡献。我也希望您看到，进入贡献的流程是多么简单。如果您像我一样，您会善于在文档中找到一个小的错别字或遗漏的例子来开始适应git代码审查的工作流程。之后，您会准备好找到一个开放的问题，最好是为即将发布的版本做标记的问题，并给它一个机会。无论您选择做什么，一定要去做。Go团队向我证明了他们是多么关心帮助我们所有人做出回报。我已经迫不及待地想要收到下一封git邮件了。
 
 ## My Mentorship Experience 我的导师经历
 
@@ -305,17 +305,17 @@ I was looking forward to participating in the Contribution Workshop event as a m
 
 我很期待以导师的身份参加贡献研讨会活动。我对这个活动抱有很高的期望，在活动开始之前就认为这是一个很好的主意。
 
-I made my first contribution to Go on May 10th, 2014. I remember it was about four months from the moment I wanted to contribute, until that day, when I actually sent my first CL. It took that long to build up the courage and fully commit to figuring out the process. I was an experienced software engineer at the time. Despite that, the Go contribution process felt alien—being unlike all other processes I was already familiar with—and therefore seemed intimidating. It was well documented though, so I knew it would be just a matter of finding the time, sitting down, and doing it. The “unknown” factor kept me from giving it a shot.
+I made my first contribution to Go on May 10th, 2014. I remember it was about four months from the moment I wanted to contribute, until that day, when I actually sent my first CL. It took that long to build up the courage and fully commit to figuring out the process. I was an experienced software engineer at the time. Despite that, the Go contribution process felt alien—being unlike all other processes I was already familiar with—and therefore seemed intimidating. It was well documented though, so I knew it would be just a matter of finding the time, sitting down, and doing it. The "unknown" factor kept me from giving it a shot.
 
 我在2014年5月10日对Go做出了第一次贡献。我记得从我想贡献的那一刻起，到那天我真正发出我的第一个CL，大概有四个月。我花了那么长的时间来鼓起勇气，完全投入到摸索这个过程中。当时我是一个经验丰富的软件工程师。尽管如此，Go的贡献过程还是让我感觉很陌生--与我已经熟悉的其他过程不同，因此看起来很可怕。但它有很好的记录，所以我知道这只是一个找时间、坐下来、做的问题。未知 "的因素使我不敢贸然尝试。
 
-After a few months passed, I thought “enough is enough,” and decided to dedicate an entire day of an upcoming weekend to figuring out the process. I set aside all of Saturday for doing one thing: sending my first CL to Go. I opened up [the Contribution Guide](https://go.dev/doc/contribute.html) and started following all the steps, from the very top. Within an hour, I was done. I had sent my first CL. I was both in awe and shock. In awe, because I had finally sent a contribution to Go, and it was accepted! In shock, because, why did I wait so long to finally do this? Following the steps in [the Contribution Guide](https://go.dev/doc/contribute.html) was very easy, and the entire process went completely smoothly. If only someone had told me that I’d be done within an hour and nothing would go wrong, I would’ve done it much sooner!
+After a few months passed, I thought "enough is enough," and decided to dedicate an entire day of an upcoming weekend to figuring out the process. I set aside all of Saturday for doing one thing: sending my first CL to Go. I opened up [the Contribution Guide](https://go.dev/doc/contribute.html) and started following all the steps, from the very top. Within an hour, I was done. I had sent my first CL. I was both in awe and shock. In awe, because I had finally sent a contribution to Go, and it was accepted! In shock, because, why did I wait so long to finally do this? Following the steps in [the Contribution Guide](https://go.dev/doc/contribute.html) was very easy, and the entire process went completely smoothly. If only someone had told me that I’d be done within an hour and nothing would go wrong, I would’ve done it much sooner!
 
 几个月后，我想 "够了，够了"，决定在即将到来的一个周末拿出一整天的时间来弄清楚这个过程。我把整个星期六都留给了做一件事：把我的第一个CL寄给Go。我打开了贡献指南，从最上面开始按照所有的步骤进行。一个小时内，我就完成了。我发送了我的第一个CL。我当时既敬畏又震惊。敬畏，因为我终于向Go发出了贡献，而且还被接受了！震惊，因为我为什么要向Go发出贡献？震惊是因为，我为什么要等这么久才做这件事？按照捐款指南中的步骤操作非常容易，整个过程完全顺利。如果有人告诉我，我在一个小时内就能完成，而且不会出错，我就会更早地完成它！"。
 
 Which brings me to this event and why I thought it was such a good idea. For anyone who ever wanted to contribute to Go, but felt daunted by the unfamiliar and seemingly lengthy process (like I was during those four months), this was their chance! Not only is it easy to commit to figuring it out by attending the event, but also the Go team and helpful volunteer mentors would be there to help you along the way.
 
-这让我想到这个活动，以及为什么我认为这是一个好主意。对于那些曾经想为Go做贡献，但又对陌生和看似漫长的过程感到畏惧的人（就像我在那四个月里一样），这就是他们的机会！他们可以在Go中找到自己的位置。不仅可以通过参加活动轻松地致力于摸索，而且Go团队和乐于助人的志愿者导师们也会在一路上帮助你。
+这让我想到这个活动，以及为什么我认为这是一个好主意。对于那些曾经想为Go做贡献，但又对陌生和看似漫长的过程感到畏惧的人（就像我在那四个月里一样），这就是他们的机会！他们可以在Go中找到自己的位置。不仅可以通过参加活动轻松地致力于摸索，而且Go团队和乐于助人的志愿者导师们也会在一路上帮助您。
 
 Despite the already high expectations I had for the event, my expectations were exceeded. For one, the Go team had prepared really well and invested a lot in making the event that much more enjoyable for everyone. There was a very fun presentation that went over all the contributing steps quickly. There was a dashboard made for the event, where everyone’s successfully completed steps were rewarded with points towards a global score. That made it into a very collaborative and social event! Finally, and most importantly, they were Go team members like Brad Fitzpatrick behind the scenes, helping review CLs promptly! That meant the CLs that were submitted received reviews quickly, with actionable next steps, so everyone could move forward and learn more.
 

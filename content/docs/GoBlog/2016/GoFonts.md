@@ -46,7 +46,7 @@ and monospaced fonts:
 
 If you just want the TTF files, run
 
-如果你只想要TTF文件，请运行
+如果您只想要TTF文件，请运行
 
 ```
 git clone https://go.googlesource.com/image
@@ -66,7 +66,7 @@ github.com/golang/freetype/truetype软件包今天提供了truetype.Parse函数�
 
 We leave it to you to find some of the other unusual properties the fonts have, but for an overview of the fonts' design we asked Chuck Bigelow to provide some background. The remainder of this blog post is his response.
 
-我们让你自己去寻找这些字体的其他不寻常的特性，但为了概述这些字体的设计，我们请Chuck Bigelow提供一些背景。本博文的其余部分是他的回答。
+我们让您自己去寻找这些字体的其他不寻常的特性，但为了概述这些字体的设计，我们请Chuck Bigelow提供一些背景。本博文的其余部分是他的回答。
 
 ## Notes on the fonts, by Chuck Bigelow 关于这些字体的说明，由Chuck Bigelow撰写
 
@@ -84,7 +84,7 @@ Go proportional 字体是无衬线字体，就像几种用于屏幕显示的流�
 
 ### Style 风格
 
-Go sans-serif fonts are “humanist” rather than “grotesque” in style. This is an historical distinction, not an aesthetic judgment. Widely used sans-serif fonts like Helvetica and Arial are called grotesque because an early 19th century sans-serif typeface was named “Grotesque,” and the name became generic.
+Go sans-serif fonts are "humanist" rather than "grotesque" in style. This is an historical distinction, not an aesthetic judgment. Widely used sans-serif fonts like Helvetica and Arial are called grotesque because an early 19th century sans-serif typeface was named "Grotesque," and the name became generic.
 
 Go无衬线字体在风格上是 "人文主义的 "而不是 "怪诞的"。这是一种历史上的区别，而不是一种审美判断。广泛使用的无衬线字体，如Helvetica和Arial，之所以被称为 "怪诞"，是因为19世纪早期的一种无衬线字体被命名为 "怪诞"，而且这个名字已经成为通用名称。
 
@@ -98,7 +98,7 @@ Humanist sans-serifs are derived from Humanist handwriting and early fonts of th
 
 ### Italics 斜体字
 
-Go proportional italics have the same width metrics as the roman fonts. Go italics are oblique versions of the romans, with one noticeable exception: the italic lowercase ‘a’ is redesigned as a cursive single-story form to harmonize with the bowl shapes of the b d g p q set, in which the upright forms also adapt well to slanting, The addition of cursive ‘a’ makes the italics appear more lively than a simply slanted roman. Some typographers believe that slanted roman sans-serif italics are preferable to truly “cursive” sans Italics, in part because of history and design. [3]
+Go proportional italics have the same width metrics as the roman fonts. Go italics are oblique versions of the romans, with one noticeable exception: the italic lowercase ‘a’ is redesigned as a cursive single-story form to harmonize with the bowl shapes of the b d g p q set, in which the upright forms also adapt well to slanting, The addition of cursive ‘a’ makes the italics appear more lively than a simply slanted roman. Some typographers believe that slanted roman sans-serif italics are preferable to truly "cursive" sans Italics, in part because of history and design. [3]
 
 按比例的斜体字具有与罗马字体相同的宽度度量。Go斜体是罗马体的斜体，但有一个明显的例外：斜体的小写字母'a'被重新设计为草书的单层形式，以与b d g p q套装的碗形相协调，其中直立的形式也能很好地适应斜体，草书'a'的加入使斜体比简单的斜体罗马体显得更加生动。一些编排者认为，倾斜的罗马无衬线斜体比真正的 "草书 "无衬线斜体要好，部分原因在于历史和设计。[3]
 
@@ -106,7 +106,7 @@ Go proportional italics have the same width metrics as the roman fonts. Go itali
 
 ### The x-height x-高度
 
-The x-height of a typeface is the height of the lowercase ‘x’ relative to the body size. The x-height of Go fonts is 53.0% of body size, a bit larger than the x-heights of Helvetica (52.3%) or Arial (51.9%), but the difference is usually unnoticeable at normal reading sizes. Typographers believe that larger x-heights contribute to greater legibility in small sizes and on screens. A study of “print size” (particularly x-height) and reading noted that types for reading on screens and for small sizes tend to have large x-heights. [4]
+The x-height of a typeface is the height of the lowercase ‘x’ relative to the body size. The x-height of Go fonts is 53.0% of body size, a bit larger than the x-heights of Helvetica (52.3%) or Arial (51.9%), but the difference is usually unnoticeable at normal reading sizes. Typographers believe that larger x-heights contribute to greater legibility in small sizes and on screens. A study of "print size" (particularly x-height) and reading noted that types for reading on screens and for small sizes tend to have large x-heights. [4]
 
 字体的X高度是指小写字母 "x "相对于字体尺寸的高度。Go字体的X高度为正文尺寸的53.0%，比Helvetica（52.3%）或Arial（51.9%）的X高度大一点，但在正常的阅读尺寸下，这种差别通常不会被注意到。排版师认为，较大的X高度有助于在小尺寸和屏幕上提高可读性。一项关于 "印刷尺寸"（尤其是X-高度）和阅读的研究指出，用于在屏幕上阅读和小尺寸的字体往往具有较大的X-高度。[4]
 
@@ -118,7 +118,7 @@ The recent German DIN 1450 legibility standard recommends several features for f
 
 ### Weights 重量
 
-The Go proportional fonts come in three weights: Normal, Medium, and Bold. The Normal weight is strong enough that it maintains clarity on backlit screens, which often tend to erode letter features and thickness. The Medium weight has stem thickness 1.25 times the Normal, for greater sturdiness on bright screens or for users who prefer a sturdy font. The Bold weight has stem thickness 1.5 times the Normal, bold enough to be distinct from the normal weight. These Go fonts have CSS numerical weights of 400, 500, and 600. Although CSS specifies “Bold” as a 700 weight and 600 as Semibold or Demibold, the Go numerical weights match the actual progression of the ratios of stem thicknesses: Normal:Medium = 400:500; Normal:Bold = 400:600. The Bold weight name matches the use of “Bold” as the usual corresponding bold weight of a normal font. More discussion of the relationship of stem thicknesses, weight names, and CSS numbering is in [6].
+The Go proportional fonts come in three weights: Normal, Medium, and Bold. The Normal weight is strong enough that it maintains clarity on backlit screens, which often tend to erode letter features and thickness. The Medium weight has stem thickness 1.25 times the Normal, for greater sturdiness on bright screens or for users who prefer a sturdy font. The Bold weight has stem thickness 1.5 times the Normal, bold enough to be distinct from the normal weight. These Go fonts have CSS numerical weights of 400, 500, and 600. Although CSS specifies "Bold" as a 700 weight and 600 as Semibold or Demibold, the Go numerical weights match the actual progression of the ratios of stem thicknesses: Normal:Medium = 400:500; Normal:Bold = 400:600. The Bold weight name matches the use of "Bold" as the usual corresponding bold weight of a normal font. More discussion of the relationship of stem thicknesses, weight names, and CSS numbering is in [6].
 
 Go比例字体有三种重量。普通、中等和粗体。普通重量的字体足够强大，可以在背光屏幕上保持清晰，而背光屏幕往往会侵蚀字母的特征和厚度。中等字体的字干厚度是普通字体的1.25倍，在明亮的屏幕上更加坚固，也适合那些喜欢坚固字体的用户。粗体字的字干厚度是普通字的1.5倍，足够粗大，可以与普通字区分开来。这些Go字体的CSS数字权重为400、500和600。虽然CSS规定 "粗体 "为700重量，600为半粗体或去粗体，但Go字体的数字重量与字干厚度比例的实际进展相符。正常：中等=400：500；正常：粗体=400：600。粗体权重名称与 "粗体 "作为普通字体的通常对应的粗体权重的使用相匹配。关于字干粗细、重量名称和CSS编号的关系的更多讨论见[6]。
 
@@ -156,7 +156,7 @@ Go Mono字体的基本字母形状与Go sans-serif字体一样，源自人文主
 
 ### Italics 斜体字
 
-Go Mono Italics are oblique versions of the romans, with the exception that the italic lowercase ‘a’ is redesigned as a cursive single-story form to harmonize with the bowl shapes of the b d g p q. The cursive ‘a’ makes the italics appear more lively than a simply slanted roman. As with many sans-serif fonts, it is believed that slanted roman slab-serifs fonts may be more legible than truly “cursive” italics.
+Go Mono Italics are oblique versions of the romans, with the exception that the italic lowercase ‘a’ is redesigned as a cursive single-story form to harmonize with the bowl shapes of the b d g p q. The cursive ‘a’ makes the italics appear more lively than a simply slanted roman. As with many sans-serif fonts, it is believed that slanted roman slab-serifs fonts may be more legible than truly "cursive" italics.
 
 Go Mono Italics是罗马体的斜体版本，除了斜体的小写字母 "a "被重新设计为草书的单层形式，以与b d g p q的碗形相协调。就像许多无衬线字体一样，人们认为斜的罗马字板状衬线字体可能比真正的 "草书 "斜体更易读。
 
@@ -182,7 +182,7 @@ Go Mono字体有两种重量。普通和粗体。正常重量的字干与Go Norm
 
 ### Metric compatibility with popular monospaced fonts 与流行的单行线字体的度量兼容
 
-Go Mono is metrically compatible with Courier and other monospaced fonts that match the “Pica” typewriter type widths of 10 characters per linear inch at 12 point. At 10 point, Go Mono fonts set 12 characters per inch. The TrueType fonts are scalable, of course, so Go Mono can be set at any size.
+Go Mono is metrically compatible with Courier and other monospaced fonts that match the "Pica" typewriter type widths of 10 characters per linear inch at 12 point. At 10 point, Go Mono fonts set 12 characters per inch. The TrueType fonts are scalable, of course, so Go Mono can be set at any size.
 
 Go Mono 与 Courier 和其他单行本字体在度量上是兼容的，这些字体符合 12 点时每线英寸 10 个字符的 "Pica "打字机字体宽度。在10点时，Go Mono字体设定每英寸12个字符。当然，TrueType字体是可扩展的，所以Go Mono字体可以设置为任何尺寸。
 
@@ -198,7 +198,7 @@ Go Mono字体提供WGL4字符集，通常作为非正式的标准字符集使用
 
 [1] Morris, R. A., Aquilante, K., Yager, D., & Bigelow, C. (2002, May). P-13：在非常小的尺寸下，衬线会减慢RSVP的阅读速度，但在较大的尺寸下并不重要。In SID Symposium Digest of Technical Papers (Vol. 33, No. 1, pp. 244-247). 布莱克韦尔出版有限公司。
 
-[2] Bryan Reimer et al. (2014) “Assessing the impact of typeface design in a text-rich automotive user interface”, Ergonomics, 57:11, 1643-1658. http://www.tandfonline.com/doi/abs/10.1080/00140139.2014.940000
+[2] Bryan Reimer et al. (2014) "Assessing the impact of typeface design in a text-rich automotive user interface", Ergonomics, 57:11, 1643-1658. http://www.tandfonline.com/doi/abs/10.1080/00140139.2014.940000
 
 [2] Bryan Reimer等人（2014）"评估字体设计在文字丰富的汽车用户界面中的影响"，《人体工程学》，57:11，1643-1658。http://www.tandfonline.com/doi/abs/10.1080/00140139.2014.940000
 
@@ -210,11 +210,11 @@ Go Mono字体提供WGL4字符集，通常作为非正式的标准字符集使用
 
 [4] Legge, G. E., & Bigelow, C. A. (2011). 印刷品大小对阅读有影响吗？对视觉科学和排版学研究结果的回顾。视觉杂志，11（5），8-8。http://jov.arvojournals.org/article.aspx?articleid=2191906
 
-[5] Charles Bigelow. “Oh, oh, zero!” TUGboat, Volume 34 (2013), No. 2. https://tug.org/TUGboat/tb34-2/tb107bigelow-zero.pdf https://tug.org/TUGboat/tb34-2/tb107bigelow-wang.pdf
+[5] Charles Bigelow. "Oh, oh, zero!" TUGboat, Volume 34 (2013), No. 2. https://tug.org/TUGboat/tb34-2/tb107bigelow-zero.pdf https://tug.org/TUGboat/tb34-2/tb107bigelow-wang.pdf
 
 [5] Charles Bigelow。"哦，哦，零！" TUGboat，第34卷（2013），第2号。https://tug.org/TUGboat/tb34-2/tb107bigelow-zero.pdf https://tug.org/TUGboat/tb34-2/tb107bigelow-wang.pdf
 
-[6] “Lucida Basic Font Weights” Bigelow & Holmes. http://lucidafonts.com/pages/facts
+[6] "Lucida Basic Font Weights" Bigelow & Holmes. http://lucidafonts.com/pages/facts
 
 [6] "Lucida Basic Font Weights" Bigelow & Holmes. http://lucidafonts.com/pages/facts
 

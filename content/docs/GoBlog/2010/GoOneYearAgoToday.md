@@ -26,7 +26,7 @@ Andrew Gerrand
 
 ​	这些数字反映了一项劳动的成果，这个劳动的成果在项目的代码库中得以体现。编译器已经得到了大幅改进，代码生成更快、更高效，修复了超过一百个已报告的错误，并支持越来越多的操作系统和架构。得益于一群热心的贡献者（其中一位成为了我们的第一位非Google提交者），Windows端口即将完成。ARM端口也取得了巨大进展，最近达到了通过所有测试的里程碑。
 
-​	Go工具集已经扩展和改进。Go文档工具[godoc](https://go.dev/cmd/godoc/)现在支持其他源树的文档（您可以浏览和搜索自己的代码），并提供了一个“[代码漫步](https://go.dev/doc/codewalk/)”界面，用于呈现教程材料（还有许多其他改进）。新的包管理工具[Goinstall](https://go.dev/cmd/goinstall/)允许用户使用单个命令安装和更新外部包。Go格式化程序[Gofmt](https://go.dev/cmd/gofmt/)现在会尽可能地进行语法简化。[Goplay](https://go.dev/misc/goplay/)是一个基于Web的“编译时即时编译”工具，是一种方便的Go实验方式，特别是在您无法访问[Go Playground](https://go.dev/doc/play/)的时候。
+​	Go工具集已经扩展和改进。Go文档工具[godoc](https://go.dev/cmd/godoc/)现在支持其他源树的文档（您可以浏览和搜索自己的代码），并提供了一个"[代码漫步](https://go.dev/doc/codewalk/)"界面，用于呈现教程材料（还有许多其他改进）。新的包管理工具[Goinstall](https://go.dev/cmd/goinstall/)允许用户使用单个命令安装和更新外部包。Go格式化程序[Gofmt](https://go.dev/cmd/gofmt/)现在会尽可能地进行语法简化。[Goplay](https://go.dev/misc/goplay/)是一个基于Web的"编译时即时编译"工具，是一种方便的Go实验方式，特别是在您无法访问[Go Playground](https://go.dev/doc/play/)的时候。
 
 ​	标准库已增加了超过42,000行代码，包括20个新[包](https://go.dev/pkg/)。其中新增的包括[jpeg](https://go.dev/pkg/image/jpeg/)、[jsonrpc](https://go.dev/pkg/rpc/jsonrpc/)、[mime](https://go.dev/pkg/mime/)、[netchan](https://go.dev/pkg/netchan/)和[smtp](https://go.dev/pkg/smtp/)包，以及许多新的[加密](https://go.dev/pkg/crypto/)包。总的来说，随着我们对Go的语法习惯的理解加深，标准库一直在不断地完善和修订。
 

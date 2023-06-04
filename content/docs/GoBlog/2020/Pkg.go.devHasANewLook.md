@@ -62,7 +62,7 @@ See [Go issue 41587](https://go.dev/issue/41587) for details on changes in the d
 
 ## Metadata on main page 主页面上的元数据
 
-The top bar on each page now shows additional metadata, such as each package’s “imports” and “imported by” counts. Banners also show information about the latest minor and major versions of a module. See [Go issue 41588](https://go.dev/issue/41588) for details.
+The top bar on each page now shows additional metadata, such as each package’s "imports" and "imported by" counts. Banners also show information about the latest minor and major versions of a module. See [Go issue 41588](https://go.dev/issue/41588) for details.
 
 现在每个页面的顶栏都会显示额外的元数据，例如每个软件包的 "进口 "和 "进口国 "的数量。横幅也会显示模块的最新次要和主要版本的信息。详见 Go issue 41588。
 
@@ -84,10 +84,10 @@ Last week at [Google Open Source Live](https://opensourcelive.withgoogle.com/eve
 
 ## Feedback 反馈
 
-We’re excited to share this updated design with you. As always, please let us know what you think via the “Share Feedback” and “Report an Issue” links at the bottom of every page of the site.
+We’re excited to share this updated design with you. As always, please let us know what you think via the "Share Feedback" and "Report an Issue" links at the bottom of every page of the site.
 
 我们很高兴能与您分享这一更新的设计。像往常一样，请通过网站每个页面底部的 "分享反馈 "和 "报告问题 "链接让我们了解您的想法。
 
 And if you’re interested in contributing to this project, pkg.go.dev is open source! Check out the [contribution guidelines](https://go.googlesource.com/pkgsite/+/refs/heads/master/CONTRIBUTING.md) to find out more.
 
-如果你有兴趣为这个项目做出贡献，pkg.go.dev是开放源代码的。请查看贡献指南以了解更多信息。
+如果您有兴趣为这个项目做出贡献，pkg.go.dev是开放源代码的。请查看贡献指南以了解更多信息。

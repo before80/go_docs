@@ -14,13 +14,13 @@ https://go.dev/blog/survey2018-company
 Ran Tao, Steve Francia
 4 October 2018
 
-## The Go project wants to hear from you! Go项目想听听你的意见!
+## The Go project wants to hear from you! Go项目想听听您的意见!
 
 We need your help to create the best programming language for developing simple, reliable, and scalable software. To do this, we need to better understand how companies are using Go. Please help by participating in a 7-minute company questionnaire.
 
 我们需要您的帮助，以创建开发简单、可靠和可扩展软件的最佳编程语言。要做到这一点，我们需要更好地了解企业如何使用Go。请通过参与7分钟的公司调查问卷来帮助我们。
 
-**Who:** If you are in a position to share details like “company name,” “if your company is hiring Go developers,” and “reasons your team or company adopted Go” then please help us by taking this company questionnaire. We only need one response per company (or per department for larger companies). If you aren’t the right person, please forward this onto the right person at your company.
+**Who:** If you are in a position to share details like "company name," "if your company is hiring Go developers," and "reasons your team or company adopted Go" then please help us by taking this company questionnaire. We only need one response per company (or per department for larger companies). If you aren’t the right person, please forward this onto the right person at your company.
 
 谁：如果您能够分享诸如 "公司名称"、"您的公司是否正在招聘Go开发人员 "以及 "您的团队或公司采用Go的原因 "等细节，那么请通过参加这个公司调查问卷来帮助我们。我们只需要每家公司（或大公司的每个部门）的一个答复。如果您不是合适的人选，请将此问卷转发给贵公司合适的人选。
 
@@ -38,7 +38,7 @@ The questionnaire is confidential, but not anonymous. For more information, plea
 
 The Go project leadership will use your responses to better understand how companies use Go and in what ways we can improve their experience.
 
-Go项目领导层将利用你的回答来更好地了解公司如何使用Go，以及我们可以通过什么方式来改善他们的体验。
+Go项目领导层将利用您的回答来更好地了解公司如何使用Go，以及我们可以通过什么方式来改善他们的体验。
 
 ## Spread the word!  传播消息!
 
