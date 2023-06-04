@@ -84,7 +84,7 @@ $ mkdir web-service-gin
 $ cd web-service-gin
 ```
 
-c. 创建一个模块，您可以在其中管理依赖关系。
+c. 创建一个模块，您可以在其中管理依赖项。
 
 ​	运行`go mod init`命令，给它一个您的代码将在其中的模块的路径。
 
@@ -93,7 +93,7 @@ $ go mod init example/web-service-gin
 go: creating new go.mod: module example/web-service-gin
 ```
 
-​	该命令创建了一个`go.mod`文件，您添加的依赖项将被列在其中以便追踪。关于用模块路径命名模块的更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
+​	该命令创建了一个`go.mod`文件，您添加的依赖项将被列在其中以便追踪。关于用模块路径命名模块的更多信息，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
 
 接下来，您将设计处理数据的数据结构。
 

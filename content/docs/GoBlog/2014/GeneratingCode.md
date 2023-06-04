@@ -32,7 +32,7 @@ Until now, that is.
 
 The [latest Go release](https://blog.golang.org/go1.4), 1.4, includes a new command that makes it easier to run such tools. It’s called `go` `generate`, and it works by scanning for special comments in Go source code that identify general commands to run. It’s important to understand that `go` `generate` is not part of `go` `build`. It contains no dependency analysis and must be run explicitly before running `go` `build`. It is intended to be used by the author of the Go package, not its clients.
 
-最新的Go版本，1.4，包含了一个新的命令，使得运行这样的工具变得更加容易。它被称为go generate，它通过扫描Go源代码中的特殊注释来识别要运行的一般命令。重要的是要明白，go generate不是go build的一部分。它不包含依赖性分析，必须在运行go build之前明确运行。它的目的是供Go包的作者使用，而不是其客户。
+最新的Go版本，1.4，包含了一个新的命令，使得运行这样的工具变得更加容易。它被称为go generate，它通过扫描Go源代码中的特殊注释来识别要运行的一般命令。重要的是要明白，go generate不是go build的一部分。它不包含依赖项分析，必须在运行go build之前明确运行。它的目的是供Go包的作者使用，而不是其客户。
 
 The `go` `generate` command is easy to use. As a warmup, here’s how to use it to generate a Yacc grammar.
 

@@ -75,7 +75,7 @@ go: creating new go.mod: module example/data-access
 
 ​	该命令创建了一个`go.mod`文件，您添加的依赖项将被列在其中以便追踪。更多信息，请务必参阅[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
-> 注意：在实际开发中，您会根据自己的需要指定一个更具体的模块路径。更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
+> 注意：在实际开发中，您会根据自己的需要指定一个更具体的模块路径。更多信息，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
 
 接下来，您将创建一个数据库。
 
@@ -233,7 +233,7 @@ func main() {
 
 在这段代码中，您：
 
-- 声明一个类型为[*sql.DB](https://pkg.go.dev/database/sql#DB)的`db`变量。这是您的数据库句柄。
+- 声明一个类型为[*sql.DB]({{< ref "/docs/StdLib/database/sql#type-db" >}})的`db`变量。这是您的数据库句柄。
 
   ​	使`db`成为一个全局变量可以简化这个示例。在生产环境中，您会避免使用全局变量，比如把变量传递给需要它的函数，或者把它包装在一个结构中。
 
@@ -241,13 +241,13 @@ func main() {
 
   `Config`结构使得代码比连接字符串更容易阅读。
 
-- 调用 [sql.Open](https://pkg.go.dev/database/sql#Open) 来初始化 `db` 变量，传递 `FormatDSN` 的返回值。
+- 调用 [sql.Open]({{< ref "/docs/StdLib/database/sql#func-open" >}}) 来初始化 `db` 变量，传递 `FormatDSN` 的返回值。
 
 - 检查`sql.Open`是否有错误。如果数据库连接细节格式不正确，它可能会失败。
 
   为了简化代码，您要调用`log.Fatal`来结束执行，并将错误打印到控制台。在生产代码中，您会希望以一种更优雅的方式来处理错误。
 
-- 调用[DB.Ping](https://pkg.go.dev/database/sql#DB.Ping)来确认连接到数据库是否有效。在运行时，`sql.Open`可能不会立即连接，这取决于驱动程序。您在这里使用`Ping`来确认`database/sql`包在需要时可以连接。
+- 调用[DB.Ping]({{< ref "/docs/StdLib/database/sql#db-ping----go11" >}})来确认连接到数据库是否有效。在运行时，`sql.Open`可能不会立即连接，这取决于驱动程序。您在这里使用`Ping`来确认`database/sql`包在需要时可以连接。
 
 - 检查`Ping`是否有错误，以防连接失败。
 
@@ -278,14 +278,14 @@ c. 保存`main.go`。
 
 a. 开始跟踪MySQL驱动模块作为一个依赖项。
 
-​	使用`go get`来添加`github.com/go-sql-driver/mysql`模块作为您自己模块的依赖。使用`点参数`表示 "获取当前目录下代码的依赖性"。
+​	使用`go get`来添加`github.com/go-sql-driver/mysql`模块作为您自己模块的依赖。使用`点参数`表示 "获取当前目录下代码的依赖项"。
 
 ```shell
 $ go get .
 go get: added github.com/go-sql-driver/mysql v1.6.0
 ```
 
-​	Go下载了这个依赖项，因为您在上一步的`import`声明中加入了它。关于依赖性跟踪的更多信息，请参见[添加依赖性](../../UsingAndUnderstandingGo/ManagingDependencies#adding-a-dependency)。
+​	Go下载了这个依赖项，因为您在上一步的`import`声明中加入了它。关于依赖项跟踪的更多信息，请参见[添加依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#添加一个依赖项)。
 
 b. 在命令提示符下，设置 `DBUSER` 和 `DBPASS` 环境变量供 Go 程序使用。
 
@@ -316,7 +316,7 @@ Connected!
 
 ​	在本节中，您将使用Go来执行一个旨在返回多行的SQL查询。
 
-​	对于可能返回多行的SQL语句，您可以使用`database/sql`包中的`Query`方法，然后循环浏览它所返回的行。(您将在稍后的[单行查询](#query-for-a-single-row)一节中学习如何查询单行。)
+​	对于可能返回多行的SQL语句，您可以使用`database/sql`包中的`Query`方法，然后循环浏览它所返回的行。(您将在稍后的[单行查询](#查询单行记录)一节中学习如何查询单行。)
 
 #### 编写代码
 
@@ -363,7 +363,7 @@ func albumsByArtist(name string) ([]Album, error) {
 
 - 声明一个您定义的专辑类型的`albums`切片。这将保存来自返回行的数据。结构字段名和类型与数据库列名和类型相对应。
 
-- 使用[DB.Query](https://pkg.go.dev/database/sql#DB.Query) 执行一个`SELECT`语句来查询具有指定艺术家名字的专辑。
+- 使用[DB.Query]({{< ref "/docs/StdLib/database/sql#db-query" >}}) 执行一个`SELECT`语句来查询具有指定艺术家名字的专辑。
 
   ​	`Query`的第一个参数是SQL语句。在该参数之后，您可以传递零个或多个任何类型的参数。这些参数为您提供了在SQL语句中指定参数值的地方。通过将SQL语句与参数值分开（而不是用例如`fmt.Sprintf`连接），您可以使`database/sql`包将参数值与SQL文本分开发送，从而消除任何SQL注入的风险。
 
@@ -441,7 +441,7 @@ func albumByID(id int64) (Album, error) {
 
   它返回一个`sql.Row`。为了简化调用代码（您的代码！），`QueryRow`并不返回错误。相反，它安排稍后从`Rows.Scan`返回任何查询错误（如`sql.ErrNoRows`）。
 
-- 使用[Row.Scan](https://pkg.go.dev/database/sql#Row.Scan)将列值复制到结构字段。
+- 使用[Row.Scan]({{< ref "/docs/StdLib/database/sql#row-scan" >}})将列值复制到结构字段。
 
 -  检查来自`Scan`的错误。
 
@@ -506,7 +506,7 @@ func addAlbum(alb Album) (int64, error) {
 
 在这段代码中，您：
 
-- 使用[DB.Exec](https://pkg.go.dev/database/sql#DB.Exec)来执行一个`INSERT`语句。
+- 使用[DB.Exec]({{< ref "/docs/StdLib/database/sql#db-exec" >}})来执行一个`INSERT`语句。
 
   像`Query`一样，`Exec`接收一个SQL语句，后面是该SQL语句的参数值。
 
@@ -556,7 +556,7 @@ ID of added album: 5
 
 - 请看一下数据访问（Accessing Databases下的）指南，其中包含更多关于这里涉及到的主题的更多信息。
 - 如果您是Go的新手，您会发现[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)和[How to write Go code](../HowToWriteGoCode)中描述了有用的最佳实践。
-- [Go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的逐步介绍。
+- [go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的逐步介绍。
 
 ## 完整的代码
 

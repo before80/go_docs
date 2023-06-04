@@ -240,7 +240,7 @@ This post walked through the process of tagging a module with semantic versions 
 
 To provide feedback and help shape the future of dependency management in Go, please send us [bug reports](https://go.dev/issue/new) or [experience reports](https://go.dev/wiki/ExperienceReports).
 
-为了提供反馈并帮助塑造Go中依赖性管理的未来，请向我们发送错误报告或经验报告。
+为了提供反馈并帮助塑造Go中依赖项管理的未来，请向我们发送错误报告或经验报告。
 
 Thanks for all your feedback and help improving Go modules.
 

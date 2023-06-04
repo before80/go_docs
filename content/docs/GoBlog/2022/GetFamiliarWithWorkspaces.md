@@ -128,9 +128,9 @@ To create multiple workspaces:
 
 要创建多个工作空间：
 
-1. Create separate directories for different dependency needs.为不同的依赖性需求创建独立的目录。
+1. Create separate directories for different dependency needs.为不同的依赖项需求创建独立的目录。
 2. Run `go work init` in each of your workspace directories.在每个工作空间的目录中运行go work init。
-3. Add the dependencies you want within each directory via `go work use [path-to-dependency]`.通过go work use [path-to-dependency]在每个目录中添加您想要的依赖性。
+3. Add the dependencies you want within each directory via `go work use [path-to-dependency]`.通过go work use [path-to-dependency]在每个目录中添加您想要的依赖项。
 4. Run `go run [path-to-your-module]` in each workspace directory to use the dependencies specified by its `go.work` file.在每个工作区目录中运行go run [path-to-your-module]，以使用其go.work文件所指定的依赖。
 
 To test out different dependencies within the same workspace, open the `go.work` file and add or comment out the desired dependencies.

@@ -32,7 +32,7 @@ Main track:
 - Complex Concurrency Patterns in Go, by [Evan Huus](https://twitter.com/eapache) ([video](https://www.youtube.com/watch?v=2HOO5gIgyMg&list=PLDWZ5uzn69ezRJYeWxYNRMYebvf8DerHd)) Go中的复杂并发模式，作者Evan Huus（视频）
 - Code Analysis [no reading required], by [Francesc Campoy](https://twitter.com/francesc) ([video](https://www.youtube.com/watch?v=oorX84tBMqo&list=PLDWZ5uzn69ezRJYeWxYNRMYebvf8DerHd)) 代码分析[不需要阅读]，作者：Francesc Campoy（视频）
 - Go kit: a toolkit for microservices, by [Peter Bourgon](https://twitter.com/peterbourgon) ([video](https://www.youtube.com/watch?v=aL6sd4d4hxk&list=PLDWZ5uzn69ezRJYeWxYNRMYebvf8DerHd)) Go套件：微服务的工具包, 作者：Peter Bourgon (视频)
-- Dependency Management Conundrum, by [William Kennedy](https://twitter.com/goinggodotnet) ([video](https://www.youtube.com/watch?v=CdhucJShJU8&list=PLDWZ5uzn69ezRJYeWxYNRMYebvf8DerHd)) 依赖性管理难题, 作者：William Kennedy (视频)
+- Dependency Management Conundrum, by [William Kennedy](https://twitter.com/goinggodotnet) ([video](https://www.youtube.com/watch?v=CdhucJShJU8&list=PLDWZ5uzn69ezRJYeWxYNRMYebvf8DerHd)) 依赖项管理难题, 作者：William Kennedy (视频)
 
 Side track:
 

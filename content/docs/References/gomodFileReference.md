@@ -11,7 +11,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/modules/gomod-ref](https://go.dev/doc/modules/gomod-ref)
 
-​	每个 Go 模块都由一个 `go.mod` 文件定义，该文件描述了该模块的属性，包括它对其他模块和 Go 版本的依赖性。
+​	每个 Go 模块都由一个 `go.mod` 文件定义，该文件描述了该模块的属性，包括它对其他模块和 Go 版本的依赖项。
 
 ​	这些属性包括：
 
@@ -26,13 +26,13 @@ draft = false
 $ go mod init example/mymodule
 ```
 
-​	使用`go`命令来管理依赖关系。这些命令确保您的`go.mod`文件中描述的需求保持一致，并且`go.mod`文件的内容是有效的。这些命令包括`go get`和`go mod tidy`以及`go mod edit`命令。
+​	使用`go`命令来管理依赖项。这些命令确保您的`go.mod`文件中描述的需求保持一致，并且`go.mod`文件的内容是有效的。这些命令包括`go get`和`go mod tidy`以及`go mod edit`命令。
 
 ​	关于`go`命令的参考，请看[go 命令](../CommandDocumentation/go)。您可以通过输入`go help command-name`从命令行获得帮助，如`go help mod tidy`。
 
 **参见**：
 
-- Go 工具在您使用它们管理依赖项时对 `go.mod` 文件进行修改。更多信息请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
+- Go 工具在您使用它们管理依赖项时对 `go.mod` 文件进行修改。更多信息请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies)。
 - 有关`go.mod`文件的更多细节和限制，请参见[Go模块参考](../GoModulesReference/Introduction)。
 
 ## Example 示例
@@ -91,13 +91,13 @@ module module-path
 
 ​	模块路径必须唯一标识您的模块。对于大多数模块，路径是一个URL，`go`命令可以在其中找到代码（或重定向到代码）。对于那些不会被直接下载的模块，模块路径可以是一些您能控制的名字，以确保唯一性。前缀`example/`也被保留下来，用于像这样的例子中。
 
-​	更多细节，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
+​	更多细节，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
 ​	在实践中，模块路径通常是模块源的版本库域和版本库中的模块代码的路径。`go`命令在下载模块版本时依赖这种形式，来代表模块用户解决依赖关系。
 
 ​	即使您一开始不打算让您的模块供其他代码使用，使用它的存储库路径也是一种最佳做法，可以帮助您避免在以后发布模块时不得不重命名它。
 
-​	如果一开始您不知道模块的最终存储库位置，可以考虑暂时使用一个安全的替代品，比如您拥有的域名或您控制的名称（如您的公司名称），以及模块名称或源目录的后续路径。更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies)。
+​	如果一开始您不知道模块的最终存储库位置，可以考虑暂时使用一个安全的替代品，比如您拥有的域名或您控制的名称（如您的公司名称），以及模块名称或源目录的后续路径。更多信息，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies)。
 
 ​	例如，如果您在`stringtools`目录下开发，您的临时模块路径可能是`<company-name>/stringtools`，如下面的例子，其中`company-name`是您公司的名字：
 
@@ -198,7 +198,7 @@ require module-path module-version
 
 ​	更多关于版本号的信息，请参见[模块版本号](../../UsingAndUnderstandingGo/DevelopingModules/ModuleVersionNumbering)。
 
-​	关于管理依赖关系的更多信息，请参见下文：
+​	关于管理依赖项的更多信息，请参见下文：
 
 - [Adding a dependency（添加一个依赖关系）](../../UsingAndUnderstandingGo/ManagingDependencies#adding-a-dependency)
 

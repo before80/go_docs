@@ -22,7 +22,7 @@ Some of the highlights include:
 
 其中的一些亮点包括：
 
-- Module support in the `go` command is now ready for production use. We encourage all users to [migrate to `go` modules for dependency management](https://go.dev/doc/go1.14#introduction). go命令中的模块支持现在已经可以用于生产了。我们鼓励所有用户迁移到go模块来进行依赖性管理。
+- Module support in the `go` command is now ready for production use. We encourage all users to [migrate to `go` modules for dependency management](https://go.dev/doc/go1.14#introduction). go命令中的模块支持现在已经可以用于生产了。我们鼓励所有用户迁移到go模块来进行依赖项管理。
 - [Embedding interfaces with overlapping method sets ](https://go.dev/doc/go1.14#language)嵌入具有重叠方法集的接口
 - [Improved defer performance](https://go.dev/doc/go1.14#runtime) 改进了defer的性能
 - [Goroutines are asynchronously preemptible](https://go.dev/doc/go1.14#runtime) Goroutines是可异步抢占的

@@ -50,7 +50,7 @@ Users are overwhelmingly happy with Go: they agree that they would recommend Go 
 
 When asked what they like most about Go, users most commonly mentioned Go’s simplicity, ease of use, concurrency features, and performance. When asked what changes would most improve Go, users most commonly mentioned generics, package versioning, and dependency management. Other popular responses were GUIs, debugging, and error handling.
 
-当被问及他们最喜欢Go的什么时，用户最常提到Go的简单性、易用性、并发功能和性能。当被问及什么变化最能改善Go时，用户最常提到的是泛型、包的版本管理和依赖性管理。其他受欢迎的回答是图形用户界面、调试和错误处理。
+当被问及他们最喜欢Go的什么时，用户最常提到Go的简单性、易用性、并发功能和性能。当被问及什么变化最能改善Go时，用户最常提到的是泛型、包的版本管理和依赖项管理。其他受欢迎的回答是图形用户界面、调试和错误处理。
 
 When asked about the biggest challenges to their own personal use of Go, users mentioned many of the technical changes suggested in the previous question. The most common themes in the non-technical challenges were convincing others to use Go and communicating the value of Go to others, including management. Another common theme was learning Go or helping others learn, including finding documentation like getting-started walkthroughs, tutorials, examples, and best practices.
 

@@ -56,7 +56,7 @@ Another key property necessary to ensure third parties can’t affect builds is 
 
 That’s what the [`go.sum` file](https://go.dev/ref/mod#go-sum-files) is for. It contains a list of cryptographic hashes of each dependency that contributes to the build. Again, an incomplete `go.sum` causes an error, and only `go get` and `go mod tidy` will modify it, so any changes to it will accompany a deliberate dependency change. Other builds are guaranteed to have a full set of checksums.
 
-这就是go.sum文件的作用。它包含了对构建有贡献的每个依赖项的加密哈希值的列表。同样，一个不完整的go.sum会导致一个错误，而且只有go get和go mod tidy会修改它，所以对它的任何修改都会伴随着一个故意的依赖性改变。其他的构建被保证有一套完整的校验和。
+这就是go.sum文件的作用。它包含了对构建有贡献的每个依赖项的加密哈希值的列表。同样，一个不完整的go.sum会导致一个错误，而且只有go get和go mod tidy会修改它，所以对它的任何修改都会伴随着一个故意的依赖项改变。其他的构建被保证有一套完整的校验和。
 
 This is a common feature of most lock files. Go goes beyond it with the [Checksum Database](https://go.dev/ref/mod#checksum-database) (sumdb for short), a global append-only cryptographically-verifiable list of go.sum entries. When `go get` needs to add an entry to the `go.sum` file, it fetches it from the sumdb along with cryptographic proof of the sumdb integrity. This ensures that not only every build of a certain module uses the same dependency contents, but that every module out there uses the same dependency contents!
 
@@ -102,11 +102,11 @@ In Go, modules that don’t contribute code to a specific build have no security
 
 在Go中，不为特定构建贡献代码的模块对其没有安全影响。
 
-## "A little copying is better than a little dependency" "一点复制比一点依赖性好"
+## "A little copying is better than a little dependency" "一点复制比一点依赖项好"
 
 The final and maybe most important software supply chain risk mitigation in the Go ecosystem is the least technical one: Go has a culture of rejecting large dependency trees, and of preferring a bit of copying to adding a new dependency. It goes all the way back to one of the Go proverbs: ["a little copying is better than a little dependency"](https://youtube.com/clip/UgkxWCEmMJFW0-TvSMzcMEAHZcpt2FsVXP65). The label "zero dependencies" is proudly worn by high-quality reusable Go modules. If you find yourself in need of a library, you’re likely to find it will not cause you to take on a dependency on dozens of other modules by other authors and owners.
 
-在Go生态系统中，最后一个也许也是最重要的软件供应链风险缓解措施是最没有技术含量的一个。Go有一种拒绝大型依赖树的文化，宁可复制一点也不愿意添加新的依赖关系。这可以追溯到Go的一句谚语。"一点复制比一点依赖性好"。"零依赖 "的标签被高质量的可重复使用的Go模块所自豪地佩戴。如果您发现自己需要一个库，您很可能会发现它不会导致您依赖其他作者和所有者的几十个模块。
+在Go生态系统中，最后一个也许也是最重要的软件供应链风险缓解措施是最没有技术含量的一个。Go有一种拒绝大型依赖树的文化，宁可复制一点也不愿意添加新的依赖关系。这可以追溯到Go的一句谚语。"一点复制比一点依赖项好"。"零依赖 "的标签被高质量的可重复使用的Go模块所自豪地佩戴。如果您发现自己需要一个库，您很可能会发现它不会导致您依赖其他作者和所有者的几十个模块。
 
 That’s enabled also by the rich standard library and additional modules (the `golang.org/x/...` ones), which provide commonly used high-level building blocks such as an HTTP stack, a TLS library, JSON encoding, etc.
 

@@ -62,7 +62,7 @@ In nearly every question around the usage and perception of Go, Go has demonstra
 
 When asked about the biggest challenges to their own personal use of Go, users clearly conveyed that lack of dependency management and lack of generics were their two biggest issues, consistent with 2016. In 2017 we laid a foundation to be able to address these issues. We improved our proposal and development process with the addition of [Experience Reports](https://go.dev/wiki/ExperienceReports) which is enabling the project to gather and obtain feedback critical to making these significant changes. We also made [significant changes](https://go.dev/doc/go1.10#build) under the hood in how Go obtains, and builds packages. This is foundational work essential to addressing our dependency management needs.
 
-当被问及自己个人使用Go的最大挑战时，用户明确表示，缺乏依赖性管理和缺乏泛型是他们最大的两个问题，与2016年一致。2017年，我们为能够解决这些问题奠定了基础。我们改进了我们的建议和开发流程，增加了经验报告，使项目能够收集和获得对做出这些重大改变至关重要的反馈。我们还对Go的获取和构建包的方式进行了重大改变。这是解决我们依赖性管理需求的基础性工作。
+当被问及自己个人使用Go的最大挑战时，用户明确表示，缺乏依赖项管理和缺乏泛型是他们最大的两个问题，与2016年一致。2017年，我们为能够解决这些问题奠定了基础。我们改进了我们的建议和开发流程，增加了经验报告，使项目能够收集和获得对做出这些重大改变至关重要的反馈。我们还对Go的获取和构建包的方式进行了重大改变。这是解决我们依赖项管理需求的基础性工作。
 
 These two issues will continue to be a major focus of the project through 2018.
 
@@ -90,11 +90,11 @@ The ratio after the text compares the number of respondents who agreed (includin
 
 *Reading the data*: This question asked for write-in responses. The bars above show the fraction of surveys mentioning common words or phrases. Only words or phrases that appeared in 20 or more surveys are listed, and meaningless common words or phrases like "the" or "to be" are omitted. The displayed results do overlap: for example, the 402 responses that mentioned "management" do include the 266 listed separately that mentioned "dependency management" and the 79 listed separately that mentioned "package management."
 
-阅读数据。这个问题要求写上答案。上面的条形图显示了调查中提到常见词汇或短语的比例。只列出了在20份或更多调查中出现的单词或短语，并省略了 "the "或 "to be "等无意义的常用单词或短语。显示的结果确实有重叠：例如，提到 "管理 "的402份答复确实包括单独列出的提到 "依赖性管理 "的266份和单独列出的提到 "包管理 "的79份。
+阅读数据。这个问题要求写上答案。上面的条形图显示了调查中提到常见词汇或短语的比例。只列出了在20份或更多调查中出现的单词或短语，并省略了 "the "或 "to be "等无意义的常用单词或短语。显示的结果确实有重叠：例如，提到 "管理 "的402份答复确实包括单独列出的提到 "依赖项管理 "的266份和单独列出的提到 "包管理 "的79份。
 
 However, nearly or completely redundant shorter entries are omitted: there are not twenty or more surveys that listed "dependency" without mentioning "dependency management," so there is no separate entry for "dependency."
 
-然而，几乎或完全多余的较短条目被省略了：没有20个或更多的调查列出了 "依赖性 "而没有提到 "依赖性管理"，所以没有 "依赖性 "的单独条目。
+然而，几乎或完全多余的较短条目被省略了：没有20个或更多的调查列出了 "依赖项 "而没有提到 "依赖项管理"，所以没有 "依赖项 "的单独条目。
 
 ![image-20221118210104791](Go2017SurveyResults_img/image-20221118210104791.png)
 

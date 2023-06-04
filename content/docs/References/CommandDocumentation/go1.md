@@ -118,7 +118,7 @@ Bug打开默认的浏览器并启动一个新的错误报告。该报告包括�
 
 ![image-20221203090608338](go_img/image-20221203090608338.png)
 
-#### Compile packages and dependencies  编译包和依赖性
+#### Compile packages and dependencies  编译包和依赖项
 
 使用方法：
 
@@ -876,7 +876,7 @@ The -t flag instructs get to consider modules needed to build tests of packages 
 
 The -u flag instructs get to update modules providing dependencies of packages named on the command line to use newer minor or patch releases when available.
 
-u 标志指示 get 更新提供命令行上指定的包的依赖性的模块，以使用较新的次要或补丁版本。
+u 标志指示 get 更新提供命令行上指定的包的依赖项的模块，以使用较新的次要或补丁版本。
 
 The -u=patch flag (not -u patch) also instructs get to update dependencies, but changes the default to select patch releases.
 
@@ -1280,7 +1280,7 @@ edit        edit go.mod from tools or scripts 从工具或脚本编辑go.mod
 graph       print module requirement graph
 init        initialize new module in current directory 在当前目录下初始化新模块
 tidy        add missing and remove unused modules 添加缺失的模块和删除未使用的模块
-vendor      make vendored copy of dependencies 制作依赖性的副本
+vendor      make vendored copy of dependencies 制作依赖项的副本
 verify      verify dependencies have expected content 检验依赖的内容是否符合要求
 why         explain why packages or modules are needed 解释为什么需要包或模块
 ```
@@ -1526,7 +1526,7 @@ The -e flag causes tidy to attempt to proceed despite errors encountered while l
 
 The -go flag causes tidy to update the 'go' directive in the go.mod file to the given version, which may change which module dependencies are retained as explicit requirements in the go.mod file. (Go versions 1.17 and higher retain more requirements in order to support lazy module loading.)
 
--go标志使tidy将go.mod文件中的'go'指令更新为给定的版本，这可能会改变哪些模块的依赖性被保留为go.mod文件中的明确要求。(Go 1.17及更高版本保留了更多的需求，以支持懒惰的模块加载）。
+-go标志使tidy将go.mod文件中的'go'指令更新为给定的版本，这可能会改变哪些模块的依赖项被保留为go.mod文件中的明确要求。(Go 1.17及更高版本保留了更多的需求，以支持懒惰的模块加载）。
 
 The -compat flag preserves any additional checksums needed for the 'go' command from the indicated major Go release to successfully load the module graph, and causes tidy to error out if that version of the 'go' command would load any imported package from a different module version. By default, tidy acts as if the -compat flag were set to the version prior to the one indicated by the 'go' directive in the go.mod file.
 
@@ -1868,7 +1868,7 @@ Run compiles and runs the named main Go package. Typically the package is specif
 
 If the package argument has a version suffix (like @latest or @v1.0.0), "go run" builds the program in module-aware mode, ignoring the go.mod file in the current directory or any parent directory, if there is one. This is useful for running programs without affecting the dependencies of the main module.
 
-如果包参数有一个版本后缀（如@latest或@v1.0.0），"go run "将以模块感知模式构建程序，忽略当前目录或任何父目录中的go.mod文件，如果有的话。这对于运行程序而不影响主模块的依赖性很有用。
+如果包参数有一个版本后缀（如@latest或@v1.0.0），"go run "将以模块感知模式构建程序，忽略当前目录或任何父目录中的go.mod文件，如果有的话。这对于运行程序而不影响主模块的依赖项很有用。
 
 If the package argument doesn't have a version suffix, "go run" may run in module-aware mode or GOPATH mode, depending on the GO111MODULE environment variable and the presence of a go.mod file. See 'go help modules' for details. If module-aware mode is enabled, "go run" runs in the context of the main module.
 
@@ -3020,7 +3020,7 @@ See https://golang.org/s/go14customimport for details.
 
 Modules are how Go manages dependencies.
 
-模块是Go管理依赖关系的方式。
+模块是Go管理依赖项的方式。
 
 A module is a collection of packages that are released, versioned, and distributed together. Modules may be downloaded directly from version control repositories or from module proxy servers.
 

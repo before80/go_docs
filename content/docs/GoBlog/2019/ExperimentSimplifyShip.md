@@ -173,7 +173,7 @@ At Gophercon in 2017, we announced that after five years of experimentation, it 
 
 For Go 2, the concrete topics that we believed were most important to address are error handling, generics, and dependencies. Since then we have realized that another important topic is developer tooling.
 
-对于Go 2，我们认为最需要解决的具体课题是错误处理、泛型和依赖性。从那时起，我们意识到另一个重要的话题是开发人员的工具。
+对于Go 2，我们认为最需要解决的具体课题是错误处理、泛型和依赖项。从那时起，我们意识到另一个重要的话题是开发人员的工具。
 
 The rest of this post discusses how our work in each of these areas follows that path. Along the way, we’ll take one detour, stopping to inspect the technical detail of what will be shipping soon in Go 1.13 for error handling.
 
@@ -698,11 +698,11 @@ At Gophercon 2019, Ian Lance Taylor talked about why we might want to add generi
 
 在Gophercon 2019上，Ian Lance Taylor谈到了为什么我们可能要在Go中添加泛型，并简要地预览了最新的设计草案。详情请见他的博文 "为什么是泛型？"
 
-## Dependencies 依赖性
+## Dependencies 依赖项
 
 The third big topic we identified for Go 2 was dependency management.
 
-我们为Go 2确定的第三个大主题是依赖性管理。
+我们为Go 2确定的第三个大主题是依赖项管理。
 
 In 2010 we published a tool called `goinstall`, which we called "[an experiment in package installation](https://groups.google.com/forum/#!msg/golang-nuts/8JFwR3ESjjI/cy7qZzN7Lw4J)." It downloaded dependencies and stored them in your Go distribution tree, in GOROOT.
 
@@ -782,7 +782,7 @@ There is a parallel here with the `check` and `try` error syntax proposals. In t
 
 When we added vendor directory support, there were many different tools for managing dependencies. We thought that a clear agreement about the format of vendor directories and vendoring metadata would allow the various tools to interoperate, the same way that agreement about how Go programs are stored in text files enables interoperation between the Go compiler, text editors, and tools like `goimports` and `gorename`.
 
-当我们添加供应商目录支持时，有许多不同的工具用于管理依赖关系。我们认为，就供应商目录和供应商元数据的格式达成明确的协议将使各种工具能够相互协作，就像就Go程序如何存储在文本文件中达成协议使Go编译器、文本编辑器以及goimports和gorename等工具之间能够相互协作一样。
+当我们添加供应商目录支持时，有许多不同的工具用于管理依赖项。我们认为，就供应商目录和供应商元数据的格式达成明确的协议将使各种工具能够相互协作，就像就Go程序如何存储在文本文件中达成协议使Go编译器、文本编辑器以及goimports和gorename等工具之间能够相互协作一样。
 
 This turned out to be naively optimistic. The vendoring tools all differed in subtle semantic ways. Interoperation would require changing them all to agree about the semantics, likely breaking their respective users. Convergence did not happen.
 
@@ -792,11 +792,11 @@ This turned out to be naively optimistic. The vendoring tools all differed in su
 
 At Gophercon in 2016, we started an effort to define a single tool to manage dependencies. As part of that effort, we conducted surveys with many different kinds of users to understand what they needed as far as dependency management, and a team started work on a new tool, which became `dep`.
 
-在2016年的Gophercon上，我们开始努力定义一个单一的工具来管理依赖关系。作为这项工作的一部分，我们对许多不同类型的用户进行了调查，以了解他们在依赖性管理方面的需求，一个团队开始着手开发一个新工具，这就是Dep。
+在2016年的Gophercon上，我们开始努力定义一个单一的工具来管理依赖项。作为这项工作的一部分，我们对许多不同类型的用户进行了调查，以了解他们在依赖项管理方面的需求，一个团队开始着手开发一个新工具，这就是Dep。
 
 `Dep` aimed to be able to replace all the existing dependency management tools. The goal was to simplify by reshaping the existing different tools into a single one. It partly accomplished that. `Dep` also restored package uniqueness for its users, by having only one vendor directory at the top of the project tree.
 
-Dep的目标是能够取代所有现有的依赖性管理工具。我们的目标是通过将现有的不同工具重塑为一个单一的工具来进行简化。它部分地实现了这一点。Dep还为其用户恢复了软件包的唯一性，在项目树的顶端只有一个供应商目录。
+Dep的目标是能够取代所有现有的依赖项管理工具。我们的目标是通过将现有的不同工具重塑为一个单一的工具来进行简化。它部分地实现了这一点。Dep还为其用户恢复了软件包的唯一性，在项目树的顶端只有一个供应商目录。
 
 But `dep` also introduced a serious problem that took us a while to fully appreciate. The problem was that `dep` embraced a design choice from `glide`, to support and encourage incompatible changes to a given package without changing the import path.
 
@@ -876,7 +876,7 @@ One of the ways modules simplify Go development is by separating the concept of 
 
 When we talked to Go users about dependencies, almost everyone using Go at their companies asked how to route `go get` package fetches through their own servers, to better control what code can be used. And even open-source developers were concerned about dependencies disappearing or changing unexpectedly, breaking their builds. Before modules, users had attempted complex solutions to these problems, including intercepting the version control commands that the `go` command runs.
 
-当我们与Go用户讨论依赖关系时，几乎所有在公司使用Go的人都问如何通过他们自己的服务器路由去获取包的获取，以更好地控制哪些代码可以被使用。即使是开源开发者也担心依赖性消失或意外改变，破坏他们的构建。在模块之前，用户曾试图用复杂的方法来解决这些问题，包括拦截go命令所运行的版本控制命令。
+当我们与Go用户讨论依赖关系时，几乎所有在公司使用Go的人都问如何通过他们自己的服务器路由去获取包的获取，以更好地控制哪些代码可以被使用。即使是开源开发者也担心依赖项消失或意外改变，破坏他们的构建。在模块之前，用户曾试图用复杂的方法来解决这些问题，包括拦截go命令所运行的版本控制命令。
 
 The Go modules design makes it easy to introduce the idea of a module proxy that can be asked for a specific module version.
 
@@ -916,7 +916,7 @@ As one data point, the Kubernetes project has a lot of dependencies, and they ha
 
 Error handling, generics, and dependency management are going to take a few more years at least, and we’re going to focus on them for now. Error handling is close to done, modules will be next after that, and maybe generics after that.
 
-错误处理、泛型和依赖性管理至少还需要几年的时间，我们现在要把重点放在这些方面。错误处理已经接近完成，接下来是模块，之后可能是泛型。
+错误处理、泛型和依赖项管理至少还需要几年的时间，我们现在要把重点放在这些方面。错误处理已经接近完成，接下来是模块，之后可能是泛型。
 
 But suppose we look a couple years out, to when we are done experimenting and simplifying and have shipped error handling, modules, and generics. Then what? It’s very difficult to predict the future, but I think that once these three have shipped, that may mark the start of a new quiet period for major changes. Our focus at that point will likely shift to simplifying Go development with improved tools.
 

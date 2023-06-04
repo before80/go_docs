@@ -5,6 +5,7 @@ date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # Tutorial: Create a Go module - 教程：创建一个Go模块
 
@@ -101,7 +102,7 @@ func Hello(name string) string {
 
 - 实现一个`Hello`函数来返回问候语。
 
-  ​	这个函数接收一个`name`参数，其类型为字符串。该函数还返回一个字符串。在Go中，一个名字以大写字母开头的函数可以被不在同一个包中的函数调用。这在 Go 中被称为`导出名称`。关于导出名称的更多信息，请参见Go之旅中的[导出名称](../../GoTour/Basics/PackagesVariablesAndFunctions#exported-names)。
+  ​	这个函数接收一个`name`参数，其类型为字符串。该函数还返回一个字符串。在Go中，一个名字以大写字母开头的函数可以被不在同一个包中的函数调用。这在 Go 中被称为`导出名称`。关于导出名称的更多信息，请参见Go之旅中的[导出名称](../../GoTour/Basics/PackagesVariablesAndFunctions#exported-names-导出名)。
 
   ![img](TutorialCreateAGoModule_img/function-syntax.png)
   
@@ -114,7 +115,7 @@ func Hello(name string) string {
   message = fmt.Sprintf("Hi, %v. Welcome!", name)
   ```
   
-- 使用`fmt`包的[`Sprintf`函数](https://pkg.go.dev/fmt/#Sprintf)来创建一个问候信息。第一个参数是一个格式字符串，`Sprintf`将`name`参数的值替换`%v`格式动词。插入`name`参数的值就完成了问候语的文本。
+- 使用`fmt`包的[`Sprintf`函数]({{< ref "/docs/StdLib/fmt#func-sprintf">}})来创建一个问候信息。第一个参数是一个格式字符串，`Sprintf`将`name`参数的值替换`%v`格式动词。插入`name`参数的值就完成了问候语的文本。
 
 - 将格式化的问候语文本返回给调用方。
 

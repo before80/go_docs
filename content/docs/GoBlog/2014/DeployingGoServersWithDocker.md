@@ -70,7 +70,7 @@ This `Dockerfile` specifies how to construct a container that runs `outyet`, sta
 
 The `ADD`, `RUN`, and `ENTRYPOINT` steps are common tasks for any Go project. To simplify this, there is an [`onbuild` variant](https://github.com/docker-library/golang/blob/9ff2ccca569f9525b023080540f1bb55f6b59d7f/1.3.1/onbuild/Dockerfile) of the `golang` image that automatically copies the package source, fetches the application dependencies, builds the program, and configures it to run on startup.
 
-ADD、RUN和ENTRYPOINT这三个步骤是任何Go项目的常见任务。为了简化这个步骤，golang镜像有一个onbuild的变体，可以自动复制包源，获取应用程序的依赖性，构建程序，并配置为启动时运行。
+ADD、RUN和ENTRYPOINT这三个步骤是任何Go项目的常见任务。为了简化这个步骤，golang镜像有一个onbuild的变体，可以自动复制包源，获取应用程序的依赖项，构建程序，并配置为启动时运行。
 
 With the `onbuild` variant, the `Dockerfile` is much simpler:
 

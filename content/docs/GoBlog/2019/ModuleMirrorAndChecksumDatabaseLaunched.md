@@ -36,7 +36,7 @@ The solution is to use a module proxy, which speaks an API that is better suited
 
 A module mirror is a special kind of module proxy that caches metadata and source code in its own storage system, allowing the mirror to continue to serve source code that is no longer available from the original locations. This can speed up downloads and protect you from disappearing dependencies. See [Go Modules in 2019](https://blog.golang.org/modules2019) for more information.
 
-模块镜像是一种特殊的模块代理，它将元数据和源代码缓存在自己的存储系统中，允许镜像继续提供不再从原始位置获得的源代码。这可以加快下载速度，并保护您免受消失的依赖性。更多信息请参见2019年的Go模块。
+模块镜像是一种特殊的模块代理，它将元数据和源代码缓存在自己的存储系统中，允许镜像继续提供不再从原始位置获得的源代码。这可以加快下载速度，并保护您免受消失的依赖项。更多信息请参见2019年的Go模块。
 
 The Go team maintains a module mirror, served at [proxy.golang.org](https://proxy.golang.org/), which the `go` command will use by default for module users as of Go 1.13. If you are running an earlier version of the `go` command, then you can use this service by setting `GOPROXY=https://proxy.golang.org` in your local environment.
 

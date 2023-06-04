@@ -12,7 +12,7 @@ draft = false
 
 ​	工作区是磁盘上模块的集合，在运行[minimal version selection (MVS) （最小版本选择（MVS））](../MVS)时这些模块被用作主模块。
 
-​	工作区可以在 [go.work 文件](#go-work-file)中声明，该文件指定了工作区中每个模块目录的相对路径。当没有`go.work`文件存在时，工作区由包含当前目录的单个模块组成。
+​	工作区可以在 [go.work 文件](#gowork-files)中声明，该文件指定了工作区中每个模块目录的相对路径。当没有`go.work`文件存在时，工作区由包含当前目录的单个模块组成。
 
 ​	大多数处理模块的`go`子命令都是在由当前工作区决定的模块集合上操作的。`go mod init`、`go mod why`、`go mod edit`、`go mod tidy`、`go mod vendor`和`go get`总是在一个主模块上操作。
 

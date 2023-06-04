@@ -16,7 +16,7 @@ Todd Kulesza, for the Go team
 
 For the past six years the Go team has conducted an annual survey of Go developers. The results of this survey have helped the team plan and prioritize large changes to the Go ecosystem, such as dependency management, the gopls language server, and most recently, generics. We want Go to be increasingly usable by and useful to developers, and your feedback has been a critical aspect of making this happen. Thoughtfully responding to these surveys takes time and energy, and we deeply appreciate your efforts to help improve Go.
 
-在过去的六年里，Go团队每年都会对Go开发者进行调查。这项调查的结果帮助团队计划并优先考虑对 Go 生态系统的重大改变，例如依赖性管理、gopls 语言服务器，以及最近的泛型。我们希望 Go 能够越来越多地被开发者使用，并且对他们有用，而您们的反馈是实现这一目标的关键因素。深思熟虑地回应这些调查需要时间和精力，我们非常感谢您为帮助改进 Go 所做的努力。
+在过去的六年里，Go团队每年都会对Go开发者进行调查。这项调查的结果帮助团队计划并优先考虑对 Go 生态系统的重大改变，例如依赖项管理、gopls 语言服务器，以及最近的泛型。我们希望 Go 能够越来越多地被开发者使用，并且对他们有用，而您们的反馈是实现这一目标的关键因素。深思熟虑地回应这些调查需要时间和精力，我们非常感谢您为帮助改进 Go 所做的努力。
 
 Today we’re launching a change in how we conduct our annual survey. Rather than one large survey each November, we plan to launch two smaller surveys at roughly six-month intervals during the year. Our hope is that shorter surveys will take less time and effort to respond to, with the added benefit of providing feedback to the Go team shortly after each new Go release.
 

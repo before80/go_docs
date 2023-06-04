@@ -68,7 +68,7 @@ $ go mod init example/generics
 go: creating new go.mod: module example/generics
 ```
 
-注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请参见[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
+注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请参见[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
 
 接下来，您将添加一些简单的代码来处理映射（maps）。
 

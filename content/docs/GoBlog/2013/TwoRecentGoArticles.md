@@ -37,7 +37,7 @@ Go编程语言是在2007年末被设想为 是为了解决我们在谷歌开发�
 创造的环境。多核处理器所带来的问题。 多核处理器、网络化系统、大规模计算集群和网络 编程模型所带来的问题正在被解决，而不是 而不是正面解决。此外，规模已经改变：今天的 服务器程序由数千万行代码组成。
 由数百甚至数千名程序员共同完成，并且每天都在更新。 更糟糕的是，即使在大型编译集群中，构建时间也延长到了几分钟，甚至几小时。
 
-Go的设计和开发是为了使在这种环境下工作更有成效。除了内置的并发性和垃圾收集等众所周知的方面，Go的设计考虑包括严格的依赖性管理，随着系统的发展，软件架构的适应性，以及跨越组件之间边界的健壮性。
+Go的设计和开发是为了使在这种环境下工作更有成效。除了内置的并发性和垃圾收集等众所周知的方面，Go的设计考虑包括严格的依赖项管理，随着系统的发展，软件架构的适应性，以及跨越组件之间边界的健壮性。
 ```
 
 This article explains how these issues were addressed while building an efficient, compiled programming language that feels lightweight and pleasant. Examples and explanations will be taken from the real-world problems faced at Google.

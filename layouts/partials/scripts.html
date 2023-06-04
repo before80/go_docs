@@ -135,6 +135,8 @@ window.markmap = {
     let seconds = 0;
 
     let timerElement = document.getElementById('show-timer');
+    let aRtEle = document.getElementById('advice-reading-time');
+    let aRtV = aRtEle.textContent.trim();
 
     function updateTimer() {
       seconds++;
@@ -144,7 +146,12 @@ window.markmap = {
       }
 
       let formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
-      timerElement.textContent = minutes + ':' + formattedSeconds;
+
+      if (aRtEle !== null) {
+        timerElement.textContent = minutes + ':' + formattedSeconds + ' <- ' + aRtV;
+      } else {
+        timerElement.textContent = minutes + ':' + formattedSeconds;
+      }
     }
 
     setInterval(updateTimer, 1000);

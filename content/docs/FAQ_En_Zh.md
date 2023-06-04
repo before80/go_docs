@@ -80,7 +80,7 @@ We were not alone in our concerns. After many years with a pretty quiet landscap
 
 Go addressed these issues by attempting to combine the ease of programming of an interpreted, dynamically typed language with the efficiency and safety of a statically typed, compiled language. It also aimed to be modern, with support for networked and multicore computing. Finally, working with Go is intended to be *fast*: it should take at most a few seconds to build a large executable on a single computer. To meet these goals required addressing a number of linguistic issues: an expressive but lightweight type system; concurrency and garbage collection; rigid dependency specification; and so on. These cannot be addressed well by libraries or tools; a new language was called for.
 
-​	Go解决了这些问题，它试图将解释型、动态类型语言的编程便利性与静态类型、编译型语言的效率和安全性相结合。它还旨在成为现代语言，支持网络和多核计算。最后，使用Go的目的是快速：在一台计算机上构建一个大的可执行文件最多只需要几秒钟。为了实现这些目标，需要解决一些语言问题：一个有表现力但轻量级的类型系统；并发性和垃圾收集；严格的依赖性规范等等。这些问题不能由库或工具来解决；需要一种新的语言。
+​	Go解决了这些问题，它试图将解释型、动态类型语言的编程便利性与静态类型、编译型语言的效率和安全性相结合。它还旨在成为现代语言，支持网络和多核计算。最后，使用Go的目的是快速：在一台计算机上构建一个大的可执行文件最多只需要几秒钟。为了实现这些目标，需要解决一些语言问题：一个有表现力但轻量级的类型系统；并发性和垃圾收集；严格的依赖项规范等等。这些问题不能由库或工具来解决；需要一种新的语言。
 
 The article [Go at Google](https://go.dev/talks/2012/splash.article) discusses the background and motivation behind the design of the Go language, as well as providing more detail about many of the answers presented in this FAQ.
 
@@ -746,7 +746,7 @@ See [Tutorial: Create a module](https://go.dev/doc/tutorial/create-module.html) 
 
 See [Developing modules](https://go.dev/doc/#developing-modules) for guides on managing dependencies with modules.
 
-​	请参阅 [Developing modules](../GoUserManual#developing-modules)，了解用模块管理依赖关系的指南。
+​	请参阅 [Developing modules](../GoUserManual#developing-modules)，了解用模块管理依赖项的指南。
 
 Packages within modules should maintain backward compatibility as they evolve, following the [import compatibility rule](https://research.swtch.com/vgo-import):
 

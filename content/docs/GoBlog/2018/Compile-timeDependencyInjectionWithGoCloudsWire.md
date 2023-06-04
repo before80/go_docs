@@ -33,7 +33,7 @@ func NewUserStore(cfg *Config, db *mysql.DB) (*UserStore, error) {...}
 
 This technique works great at small scale, but larger applications can have a complex graph of dependencies, resulting in a big block of initialization code that’s order-dependent but otherwise not very interesting. It’s often hard to break up this code cleanly, especially because some dependencies are used multiple times. Replacing one implementation of a service with another can be painful because it involves modifying the dependency graph by adding a whole new set of dependencies (and their dependencies…), and removing unused old ones. In practice, making changes to initialization code in applications with large dependency graphs is tedious and slow.
 
-这种技术在小范围内非常有效，但更大的应用程序可能会有一个复杂的依赖关系图，导致一大块初始化代码，这些代码的顺序是依赖性的，但其他方面并不有趣。通常很难将这些代码分解得很干净，特别是因为有些依赖关系被多次使用。用一个服务的一个实现替换另一个实现是很痛苦的，因为这涉及到修改依赖关系图，增加一组新的依赖关系（以及它们的依赖关系......），并删除未使用的旧依赖关系。在实践中，在具有大型依赖图的应用程序中对初始化代码进行修改是很乏味和缓慢的。
+这种技术在小范围内非常有效，但更大的应用程序可能会有一个复杂的依赖关系图，导致一大块初始化代码，这些代码的顺序是依赖项的，但其他方面并不有趣。通常很难将这些代码分解得很干净，特别是因为有些依赖关系被多次使用。用一个服务的一个实现替换另一个实现是很痛苦的，因为这涉及到修改依赖关系图，增加一组新的依赖关系（以及它们的依赖关系......），并删除未使用的旧依赖关系。在实践中，在具有大型依赖图的应用程序中对初始化代码进行修改是很乏味和缓慢的。
 
 Dependency injection tools like Wire aim to simplify the management of initialization code. You describe your services and their dependencies, either as code or as configuration, then Wire processes the resulting graph to figure out ordering and how to pass each service what it needs. Make changes to an application’s dependencies by changing a function signature or adding or removing an initializer, and then let Wire do the tedious work of generating initialization code for the entire dependency graph.
 
@@ -61,7 +61,7 @@ We think this approach has several advantages:
 
 - Runtime dependency injection can be hard to follow and debug when the dependency graph gets complex. Using code generation means that the initialization code that’s executed at runtime is regular, idiomatic Go code that’s easy to understand and debug. Nothing is obfuscated by an intervening framework doing "magic". In particular, problems like forgetting a dependency become compile-time errors, not run-time errors.当依赖关系图变得复杂时，运行时依赖关系注入会很难跟踪和调试。使用代码生成意味着在运行时执行的初始化代码是常规的、习惯性的Go代码，易于理解和调试。没有任何东西会被干预框架的 "魔法 "所迷惑。特别是，像忘记依赖关系这样的问题会成为编译时错误，而不是运行时错误。
 - Unlike [service locators](https://en.wikipedia.org/wiki/Service_locator_pattern), there’s no need to make up arbitrary names or keys to register services. Wire uses Go types to connect components with their dependencies.与服务定位器不同，不需要编造任意的名字或键来注册服务。Wire使用Go类型来连接组件和它们的依赖关系。
-- It’s easier to avoid dependency bloat. Wire’s generated code will only import the dependencies you need, so your binary won’t have unused imports. Runtime dependency injectors can’t identify unused dependencies until runtime.这更容易避免依赖性的膨胀。Wire生成的代码只导入您需要的依赖，所以您的二进制文件不会有未使用的导入。运行时的依赖性注入器在运行时才能识别未使用的依赖性。
+- It’s easier to avoid dependency bloat. Wire’s generated code will only import the dependencies you need, so your binary won’t have unused imports. Runtime dependency injectors can’t identify unused dependencies until runtime.这更容易避免依赖项的膨胀。Wire生成的代码只导入您需要的依赖，所以您的二进制文件不会有未使用的导入。运行时的依赖项注入器在运行时才能识别未使用的依赖项。
 - Wire’s dependency graph is knowable statically, which provides opportunities for tooling and visualization.Wire的依赖图是静态可知的，这为工具化和可视化提供了机会。
 
 ## How does it work? 它是如何工作的？
@@ -154,7 +154,7 @@ func initUserStore(info ConnectionInfo) (*UserStore, error) {
 
 Any non-injector declarations are copied into the generated file. There is no dependency on Wire at runtime: all of the written code is just normal Go code.
 
-任何非注入器的声明都被复制到生成的文件中。在运行时没有对Wire的依赖性：所有编写的代码都是正常的Go代码。
+任何非注入器的声明都被复制到生成的文件中。在运行时没有对Wire的依赖项：所有编写的代码都是正常的Go代码。
 
 As you can see, the output is very close to what a developer would write themselves. This was a trivial example with just three components, so writing the initializer by hand wouldn’t be too painful, but Wire saves a lot of manual toil for components and applications with more complex dependency graphs.
 

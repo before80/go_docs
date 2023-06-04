@@ -120,7 +120,7 @@ The `go.mod` file only appears in the root of the module. Packages in subdirecto
 
 go.mod文件只出现在模块的根目录中。子目录中的软件包的导入路径由模块路径加上子目录的路径组成。例如，如果我们创建了一个子目录world，我们就不需要（也不想）在那里运行go mod init。这个包会被自动识别为 example.com/hello 模块的一部分，导入路径为 example.com/hello/world。
 
-## Adding a dependency 添加一个依赖性
+## Adding a dependency 添加一个依赖项
 
 The primary motivation for Go modules was to improve the experience of using (that is, adding a dependency on) code written by other developers.
 
@@ -321,7 +321,7 @@ Note the explicit `@v1.3.1` in the `go get` argument. In general each argument p
 
 注意go get参数中明确的@v1.3.1。一般来说，传递给go get的每个参数都可以有一个明确的版本；默认的是@latest，它解析到前面定义的最新版本。
 
-## Adding a dependency on a new major version 添加对一个新的主版本的依赖性
+## Adding a dependency on a new major version 添加对一个新的主版本的依赖项
 
 Let’s add a new function to our package: `func Proverb` returns a Go concurrency proverb, by calling `quote.Concurrency`, which is provided by the module `rsc.io/quote/v3`. First we update `hello.go` to add the new function:
 
@@ -519,7 +519,7 @@ $
 
 Go modules are the future of dependency management in Go. Module functionality is now available in all supported Go versions (that is, in Go 1.11 and Go 1.12).
 
-Go模块是Go中依赖性管理的未来。模块功能现在可以在所有支持的 Go 版本中使用（也就是在 Go 1.11 和 Go 1.12 中）。
+Go模块是Go中依赖项管理的未来。模块功能现在可以在所有支持的 Go 版本中使用（也就是在 Go 1.11 和 Go 1.12 中）。
 
 This post introduced these workflows using Go modules:
 
@@ -533,7 +533,7 @@ This post introduced these workflows using Go modules:
 
 We encourage you to start using modules in your local development and to add `go.mod` and `go.sum` files to your projects. To provide feedback and help shape the future of dependency management in Go, please send us [bug reports](https://go.dev/issue/new) or [experience reports](https://go.dev/wiki/ExperienceReports).
 
-我们鼓励您在本地开发中开始使用模块，并在您的项目中添加go.mod和go.sum文件。为了提供反馈并帮助塑造Go中依赖性管理的未来，请向我们发送错误报告或经验报告。
+我们鼓励您在本地开发中开始使用模块，并在您的项目中添加go.mod和go.sum文件。为了提供反馈并帮助塑造Go中依赖项管理的未来，请向我们发送错误报告或经验报告。
 
 Thanks for all your feedback and help improving modules.
 

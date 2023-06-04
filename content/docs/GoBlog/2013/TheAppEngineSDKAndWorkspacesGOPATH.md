@@ -169,4 +169,4 @@ To see a more complex hybrid app, take a look at the [present tool](https://godo
 
 We hope these changes will make it easier to work on apps with external dependencies, and to maintain code bases that contain both stand-alone programs and App Engine apps.
 
-我们希望这些变化能够使我们更容易地处理具有外部依赖性的应用程序，并维护包含独立程序和App Engine应用程序的代码库。
+我们希望这些变化能够使我们更容易地处理具有外部依赖项的应用程序，并维护包含独立程序和App Engine应用程序的代码库。

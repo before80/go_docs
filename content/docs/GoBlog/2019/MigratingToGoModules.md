@@ -28,15 +28,15 @@ This post is part 2 in a series.
 
 **Note:** For documentation, see [Managing dependencies](https://go.dev/doc/modules/managing-dependencies) and [Developing and publishing modules](https://go.dev/doc/modules/developing).
 
-注意：关于文档，请参见管理依赖关系和开发与发布模块。
+注意：关于文档，请参见管理依赖项和开发与发布模块。
 
 Go projects use a wide variety of dependency management strategies. [Vendoring](https://go.dev/cmd/go/#hdr-Vendor_Directories) tools such as [dep](https://github.com/golang/dep) and [glide](https://github.com/Masterminds/glide) are popular, but they have wide differences in behavior and don’t always work well together. Some projects store their entire GOPATH directory in a single Git repository. Others simply rely on `go get` and expect fairly recent versions of dependencies to be installed in GOPATH.
 
-Go项目使用了多种多样的依赖性管理策略。诸如dep和glide这样的销售工具很受欢迎，但它们在行为上有很大的差异，而且并不总是能很好地协同工作。有些项目将整个GOPATH目录存储在一个Git仓库中。其他项目则简单地依赖go get，并期望相当新的依赖版本被安装在GOPATH中。
+Go项目使用了多种多样的依赖项管理策略。诸如dep和glide这样的销售工具很受欢迎，但它们在行为上有很大的差异，而且并不总是能很好地协同工作。有些项目将整个GOPATH目录存储在一个Git仓库中。其他项目则简单地依赖go get，并期望相当新的依赖版本被安装在GOPATH中。
 
 Go’s module system, introduced in Go 1.11, provides an official dependency management solution built into the `go` command. This article describes tools and techniques for converting a project to modules.
 
-Go的模块系统在Go 1.11中引入，提供了一个内置于go命令的官方依赖性管理解决方案。本文介绍了将项目转换为模块的工具和技术。
+Go的模块系统在Go 1.11中引入，提供了一个内置于go命令的官方依赖项管理解决方案。本文介绍了将项目转换为模块的工具和技术。
 
 Please note: if your project is already tagged at v2.0.0 or higher, you will need to update your module path when you add a `go.mod` file. We’ll explain how to do that without breaking your users in a future article focused on v2 and beyond.
 
@@ -102,7 +102,7 @@ go mod init会创建一个新的go.mod文件，并自动从Godeps.json、Gopkg.l
 
 This is a good time to pause and run `go build ./...` and `go test ./...` before continuing. Later steps may modify your `go.mod` file, so if you prefer to take an iterative approach, this is the closest your `go.mod` file will be to your pre-modules dependency specification.
 
-这是一个暂停的好时机，在继续之前运行go build ./...和go test ./...。以后的步骤可能会修改您的go.mod文件，所以如果您喜欢采取迭代的方法，这是您的go.mod文件最接近于您的模块前依赖性规范。
+这是一个暂停的好时机，在继续之前运行go build ./...和go test ./...。以后的步骤可能会修改您的go.mod文件，所以如果您喜欢采取迭代的方法，这是您的go.mod文件最接近于您的模块前依赖项规范。
 
 ```shell linenums="1"
 $ go mod tidy
@@ -143,7 +143,7 @@ $
 
 and compare the resulting versions with your old dependency management file to ensure that the selected versions are appropriate. If you find a version that wasn’t what you wanted, you can find out why using `go mod why -m` and/or `go mod graph`, and upgrade or downgrade to the correct version using `go get`. (If the version you request is older than the version that was previously selected, `go get` will downgrade other dependencies as needed to maintain compatibility.) For example,
 
-并将得到的版本与您的旧的依赖性管理文件进行比较，以确保所选的版本是合适的。如果您发现一个版本不是您想要的，您可以用go mod why -m和/或go mod graph找出原因，然后用go get升级或降级到正确的版本。(如果您要求的版本比之前选择的版本要老，go get会根据需要降级其他依赖关系以保持兼容性）。比如说，
+并将得到的版本与您的旧的依赖项管理文件进行比较，以确保所选的版本是合适的。如果您发现一个版本不是您想要的，您可以用go mod why -m和/或go mod graph找出原因，然后用go get升级或降级到正确的版本。(如果您要求的版本比之前选择的版本要老，go get会根据需要降级其他依赖关系以保持兼容性）。比如说，
 
 ```shell linenums="1"
 $ go mod why -m rsc.io/binaryregexp
@@ -154,11 +154,11 @@ $ go get rsc.io/binaryregexp@v0.2.0
 $
 ```
 
-## Without a dependency manager 没有依赖性管理系统
+## Without a dependency manager 没有依赖项管理系统
 
 For a Go project without a dependency management system, start by creating a `go.mod` file:
 
-对于没有依赖性管理系统的Go项目，首先要创建一个go.mod文件：
+对于没有依赖项管理系统的Go项目，首先要创建一个go.mod文件：
 
 ```shell linenums="1"
 $ git clone https://go.googlesource.com/blog
@@ -300,7 +300,7 @@ Converting to Go modules should be a straightforward process for most users. Occ
 
 To provide feedback and help shape the future of dependency management in Go, please send us [bug reports](https://go.dev/issue/new) or [experience reports](https://go.dev/wiki/ExperienceReports).
 
-为了提供反馈并帮助塑造Go中依赖性管理的未来，请向我们发送错误报告或经验报告。
+为了提供反馈并帮助塑造Go中依赖项管理的未来，请向我们发送错误报告或经验报告。
 
 Thanks for all your feedback and help improving modules.
 

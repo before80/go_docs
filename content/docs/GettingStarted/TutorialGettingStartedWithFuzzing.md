@@ -72,7 +72,7 @@ $ go mod init example/fuzz
 go: creating new go.mod: module example/fuzz
 ```
 
-注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请务必参阅[管理依赖关系](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
+注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请务必参阅[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
 
 ​	接下来，您将添加一些简单的代码来反转一个字符串，我们稍后将对其进行模糊处理。
 

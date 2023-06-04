@@ -64,18 +64,21 @@ $ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
 (您可能需要以root身份或通过sudo运行该命令）。
 
    不要将存档解压到现有的`/usr/local/go` 树中。众所周知，这样做会导致Go安装失败。
+
 2. 在`PATH`环境变量中加入`/usr/local/go/bin`。
    您可以通过在 `$HOME/.profile` 或 `/etc/profile`（对于全系统的安装）中添加以下一行来实现。
-   
-   ```bash
-   export PATH=$PATH:/usr/local/go/bin
+
+```bash
+export PATH=$PATH:/usr/local/go/bin
+```
+
   ```
   >  **注意**：对配置文件所做的修改可能要到您下次登录电脑时才会应用。要立即应用这些更改，只需直接运行 shell 命令或使用 `source $HOME/.profile` 等命令从配置文件中执行这些命令。
 3. 通过打开命令提示符并输入以下命令来验证您已经安装了Go:
 ```bash
 $ go version
-```
-4. 确认该命令打印出已安装的Go的版本。
+  ```
+3. 确认该命令打印出已安装的Go的版本。
 
 {{< /tab >}}
 
@@ -99,7 +102,7 @@ $ go version
 
 1. 打开您下载的`MSI`文件，按照提示安装Go。默认情况下，安装程序将把Go安装到`Program Files`或`Program Files (x86)`。您可以根据需要改变位置。安装后，您需要关闭并重新打开任何打开的命令提示符，以便安装程序对环境的改变反映在命令提示符上。
 2. 验证您是否已经安装了Go。
-> 1. 在Windows中，点击 "开始 "菜单。 
+> 1. 在Windows中，点击 "开始"菜单。 
 >
 > 2. 在菜单的搜索框中，输入cmd，然后按回车键。    
 >

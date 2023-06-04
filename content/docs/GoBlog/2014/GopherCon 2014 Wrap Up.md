@@ -33,7 +33,7 @@ Two keynotes framed the conference:
 
 One talk that resonated with members of the Go team was Peter Bourgon’s ["Best practices for Production Environments"](https://www.youtube.com/watch?v=Y1-RLAl7iOI) ([notes](http://peter.bourgon.org/go-in-production/)). From deployment to dependency management, it answers many frequently asked questions about Go use in the real world and is a must-see for anyone serious about building systems in Go.
 
-有一个讲座引起了Go团队成员的共鸣，那就是Peter Bourgon的 "生产环境的最佳实践"（笔记）。从部署到依赖性管理，它回答了许多关于Go在现实世界中使用的常见问题，是任何认真用Go构建系统的人的必看之作。
+有一个讲座引起了Go团队成员的共鸣，那就是Peter Bourgon的 "生产环境的最佳实践"（笔记）。从部署到依赖项管理，它回答了许多关于Go在现实世界中使用的常见问题，是任何认真用Go构建系统的人的必看之作。
 
 But, really, you should just [watch them all](http://confreaks.com/events/gophercon2014). They’re great.
 

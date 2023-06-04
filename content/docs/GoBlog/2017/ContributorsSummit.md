@@ -34,7 +34,7 @@ Not being all that familiar with the development of the compiler and runtime, th
 
 由于对编译器和运行时的开发不是很熟悉，这对我来说是今天的会议中比较有趣的一次。我学到了很多关于世界的现状、问题以及人们想从这里走出去的方向。
 
-### Dependency management 依赖性管理
+### Dependency management 依赖项管理
 
 After a quick update from the [dep](https://github.com/golang/dep) team on the status of the project, the dependency management session gravitated towards how the Go world will work once dep (or something dep-like) becomes the primary means of package management. Work to make Go easier to get started with and make dep easier to use has already started. In Go 1.8, a default value for `GOPATH` was introduced, meaning users will only have to add Go’s bin directory to their `$PATH` before they can get started with dep.
 
@@ -52,7 +52,7 @@ The discussions we had around the future of the Go language are mostly covered i
 
 As a contributor to the standard library and subrepos, this session was particularly interesting to me. What goes in the standard library and subrepos, and how much it can change, is a topic that isn’t well defined. It can be hard on the Go team to maintain a huge number of packages when they may or may not have anyone with specific expertise in the subject matter. To make critical fixes to packages in the standard library, one must wait 6 months for a new version of Go to ship (or a point release has to be shipped in the case of security issues, which drains team resources). Better dependency management may facilitate the migration of some packages out of the standard library and into their own projects with their own release schedules.
 
-作为标准库和子库的贡献者，这次会议对我来说特别有意思。标准库和子库中的内容，以及它能有多大的变化，是一个没有很好定义的话题。Go团队要维护大量的软件包是很困难的，因为他们可能有也可能没有在这个问题上有特殊专长的人。为了对标准库中的包进行关键性的修复，必须等待6个月的时间来发布新的Go版本（或者在出现安全问题的情况下，必须发布一个点版本，这就耗费了团队资源）。更好的依赖性管理可能会促进一些软件包从标准库中迁移出来，进入他们自己的项目，有自己的发布时间表。
+作为标准库和子库的贡献者，这次会议对我来说特别有意思。标准库和子库中的内容，以及它能有多大的变化，是一个没有很好定义的话题。Go团队要维护大量的软件包是很困难的，因为他们可能有也可能没有在这个问题上有特殊专长的人。为了对标准库中的包进行关键性的修复，必须等待6个月的时间来发布新的Go版本（或者在出现安全问题的情况下，必须发布一个点版本，这就耗费了团队资源）。更好的依赖项管理可能会促进一些软件包从标准库中迁移出来，进入他们自己的项目，有自己的发布时间表。
 
 There was also some discussion about things that are difficult to achieve with the interfaces in the standard library. For instance, it would be nice if `io.Reader` accepted a context so that blocking read operations could be canceled.
 

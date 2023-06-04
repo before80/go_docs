@@ -32,7 +32,7 @@ Fortunately, Go’s concurrency primitives made the task much easier. Paxos is d
 
 The standard packages in Go were another big win for Doozer. The Go team is very pragmatic about what goes into them. For instance, a package we quickly found useful was [websocket](https://go.dev/pkg/websocket/). Once we had a working data store, we needed an easy way to introspect it and visualize activity. Using the websocket package, Keith was able to add the web viewer on his train ride home and without requiring external dependencies. This is a real testament to how well Go mixes systems and application programming.
 
-Go中的标准包是Doozer的另一大胜利。Go团队对进入它们的内容非常务实。例如，我们很快就发现websocket是一个有用的包。一旦我们有了一个工作的数据存储，我们就需要一个简单的方法来反省它并将活动可视化。使用websocket包，Keith能够在回家的火车上添加网络查看器，而且不需要外部依赖性。这真正证明了Go将系统和应用编程结合得多么好。
+Go中的标准包是Doozer的另一大胜利。Go团队对进入它们的内容非常务实。例如，我们很快就发现websocket是一个有用的包。一旦我们有了一个工作的数据存储，我们就需要一个简单的方法来反省它并将活动可视化。使用websocket包，Keith能够在回家的火车上添加网络查看器，而且不需要外部依赖项。这真正证明了Go将系统和应用编程结合得多么好。
 
 One of our favorite productivity gains was provided by Go’s source formatter: [gofmt](https://go.dev/cmd/gofmt/). We never argued over where to put a curly-brace, tabs vs. spaces, or if we should align assignments. We simply agreed that the buck stopped at the default output from gofmt.
 
@@ -40,7 +40,7 @@ One of our favorite productivity gains was provided by Go’s source formatter: 
 
 Deploying Doozer was satisfyingly simple. Go builds statically linked binaries which means Doozer has no external dependencies; it’s a single file that can be copied to any machine and immediately launched to join a cluster of running Doozers.
 
-部署Doozer是非常简单的，令人满意。Go构建静态链接的二进制文件，这意味着Doozer没有外部依赖性；它是一个单一的文件，可以被复制到任何一台机器上，并立即启动，加入运行中的Doozer集群。
+部署Doozer是非常简单的，令人满意。Go构建静态链接的二进制文件，这意味着Doozer没有外部依赖项；它是一个单一的文件，可以被复制到任何一台机器上，并立即启动，加入运行中的Doozer集群。
 
 Finally, Go’s maniacal focus on simplicity and orthogonality aligns with our view of software engineering. Like the Go team, we are pragmatic about what features go into Doozer. We sweat the details, preferring to change an existing feature instead of introducing a new one. In this sense, Go is a perfect match for Doozer.
 

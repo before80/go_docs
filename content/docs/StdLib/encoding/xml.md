@@ -1154,4 +1154,4 @@ func (e *UnsupportedTypeError) Error() string
 ## Bugs
 
 - Mapping between XML elements and data structures is inherently flawed: an XML element is an order-dependent collection of anonymous values, while a data structure is an order-independent collection of named values. See package json for a textual representation more suitable to data structures.
-- XML元素和数据结构之间的映射是有内在缺陷的：XML元素是一个匿名值的顺序依赖性集合，而数据结构是一个命名值的顺序无关的集合。请参阅包json，以获得更适合数据结构的文本表示法。
+- XML元素和数据结构之间的映射是有内在缺陷的：XML元素是一个匿名值的顺序依赖项集合，而数据结构是一个命名值的顺序无关的集合。请参阅包json，以获得更适合数据结构的文本表示法。

@@ -20,7 +20,7 @@ App Engine在2011年推出了对Go的实验性支持。在随后的几年里，G
 
 Starting with Go 1.11, Go on App Engine has no limits on application structure, supported packages, `context.Context` values, or HTTP clients. Write your Go application however you prefer, add an `app.yaml` file, and your app is ready to deploy on App Engine. [Specifying Dependencies](https://cloud.google.com/appengine/docs/standard/go111/specifying-dependencies) describes how the new runtime supports [vendoring](https://go.dev/cmd/go/#hdr-Vendor_Directories) and [modules](https://go.dev/doc/go1.11#modules) (experimental) for dependency management.
 
-从Go 1.11开始，App Engine上的Go在应用结构、支持的包、context.Context值或HTTP客户端方面都没有限制。以您喜欢的方式编写您的Go应用程序，添加一个app.yaml文件，您的应用程序就可以在App Engine上部署了。指定依赖性描述了新的运行时如何支持vendoring和模块（实验性）的依赖性管理。
+从Go 1.11开始，App Engine上的Go在应用结构、支持的包、context.Context值或HTTP客户端方面都没有限制。以您喜欢的方式编写您的Go应用程序，添加一个app.yaml文件，您的应用程序就可以在App Engine上部署了。指定依赖项描述了新的运行时如何支持vendoring和模块（实验性）的依赖项管理。
 
 Along with [Cloud Functions support for Go](https://twitter.com/kelseyhightower/status/1035278586754813952) (more on that in a future post), App Engine provides a compelling way to run Go code on Google Cloud Platform (GCP) with no concern for the underlying infrastructure.
 

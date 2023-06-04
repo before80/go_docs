@@ -22,7 +22,7 @@ When we [launched Go for App Engine](https://blog.golang.org/go-and-google-app-e
 
 In January 2013 we announced [better integration](https://blog.golang.org/the-app-engine-sdk-and-workspaces-gopath) between the Go App Engine SDK and the go tool, promoting the use of conventional import paths in App Engine apps and making it possible to use "go get" to fetch app dependencies.
 
-2013年1月，我们宣布了Go应用引擎SDK和go工具之间更好的整合，促进了App Engine应用程序中传统导入路径的使用，并使使用 "go get "来获取应用程序的依赖性成为可能。
+2013年1月，我们宣布了Go应用引擎SDK和go工具之间更好的整合，促进了App Engine应用程序中传统导入路径的使用，并使使用 "go get "来获取应用程序的依赖项成为可能。
 
 With the recent release of App Engine 1.8.8 we are pleased to announce more improvements to the developer experience for Go on App Engine.
 

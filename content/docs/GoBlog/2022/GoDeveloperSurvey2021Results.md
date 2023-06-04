@@ -25,7 +25,7 @@ In 2021, we ran the Go Developer Survey from Oct 26th to Nov 16th and had 11,840
 - Most responses were consistent with prior years. For example, [satisfaction with Go is still very high at 92%](https://go.dev/blog/survey2021-results#satisfaction) and 75% of respondents use Go at work.大多数回复与往年一致。例如，对Go的满意度仍然很高，达到92%，75%的受访者在工作中使用Go。
 - This year we [randomly sampled](https://go.dev/blog/survey2021-results#changes) some participants using the Go VS Code plugin, which resulted in some shifts in who responded to the survey.今年，我们使用 Go VS Code 插件对一些参与者进行了随机抽样，这导致了对调查的回应者出现了一些变化。
 - Missing critical libraries, language features and infrastructure were the most [common barriers to using Go](https://go.dev/blog/survey2021-results#adoption). (note: this survey ran prior to the release of Go 1.18 with generics, the #1 most reported missing feature)缺少关键库、语言功能和基础设施是使用Go的最常见障碍。(注：本次调查是在Go 1.18发布之前进行的，Go 1.18的泛型是报告中最缺失的第一大功能)
-- Respondents want to [prioritize improvements](https://go.dev/blog/survey2021-results#prioritization) to debugging and dependency management.受访者希望优先改善调试和依赖性管理。
+- Respondents want to [prioritize improvements](https://go.dev/blog/survey2021-results#prioritization) to debugging and dependency management.受访者希望优先改善调试和依赖项管理。
 - The [biggest challenges when using modules](https://go.dev/blog/survey2021-results#modules) concerned versioning, using private repos and multi-module workflows. (note: this survey was run prior to Go 1.18 which introduced workspaces addressing many of these concerns).在使用模块时，最大的挑战涉及到版本管理、使用私有仓库和多模块工作流程。(注：这项调查是在Go 1.18之前进行的，Go 1.18引入了工作空间，解决了许多这些问题）。
 - 81% of respondents are [confident in the long term direction of the Go project](https://go.dev/blog/survey2021-results#satisfaction).81%的受访者对Go项目的长期发展方向有信心。
 
@@ -179,7 +179,7 @@ Scatter plot of importance compared to satisfaction showing most areas have high
 
 This year we introduced a new question to explore alternative ways to prioritize work on specific areas. "Let’s say you have 10 GopherCoins to spend on improving the following aspects of working with Go. How would you distribute your coins?" Two areas that stood out as receiving significantly more GopherCoins were dependency management (using modules) and diagnosing bugs, areas that we’ll be dedicating resources during 2022.
 
-今年，我们引入了一个新的问题，以探索确定特定领域工作优先次序的其他方法。"假设您有10个GopherCoins可以用来改善Go工作的以下方面。您会如何分配您的硬币？" 突出的两个领域是依赖性管理（使用模块）和诊断错误，我们将在2022年投入资源。
+今年，我们引入了一个新的问题，以探索确定特定领域工作优先次序的其他方法。"假设您有10个GopherCoins可以用来改善Go工作的以下方面。您会如何分配您的硬币？" 突出的两个领域是依赖项管理（使用模块）和诊断错误，我们将在2022年投入资源。
 
 ![Overall sum of coins spent on each area for improvement](GoDeveloperSurvey2021Results_img/improvements_sums.svg)
 
@@ -364,7 +364,7 @@ Thank you for joining us in reviewing the results of our 2021 developer survey! 
 - Most of our year over year metrics remained stable with most changes owing to our change in sample.我们的大部分同比指标保持稳定，大部分变化是由于我们的样本变化。
 - Satisfaction with Go remains high!对Go的满意度仍然很高!
 - Three-quarters of respondents use Go at work and many use Go on a daily basis so helping you get work done is a top priority.四分之三的受访者在工作中使用Go，许多人每天都在使用Go，所以帮助您完成工作是首要任务。
-- We will prioritize improvements to debugging and dependency management workflows.我们将优先考虑对调试和依赖性管理工作流程的改进。
+- We will prioritize improvements to debugging and dependency management workflows.我们将优先考虑对调试和依赖项管理工作流程的改进。
 - We will continue to work towards making Go an inclusive community for all kinds of Gophers.我们将继续努力，使Go成为一个对各类地鼠都有包容性的社区。
 
 Understanding developers’ experiences and challenges helps us measure our progress and directs the future of Go. Thanks again to everyone who contributed to this survey—we couldn’t have done it without you. We hope to see you next year!
