@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
         const copyButton = document.createElement('button');
         const buttonAttributes = {
             type: 'button',
-            title: 'Copy to clipboard',
+            title: '复制',
             'data-bs-toggle': 'tooltip',
             'data-bs-placement': 'top',
             'data-bs-container': 'body',
@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
 
         copyButton.onclick = () => {
             copyCode(codeSample);
-            copyButton.setAttribute('data-bs-original-title', 'Copied!');
+            copyButton.setAttribute('data-bs-original-title', '已复制');
             tooltip.show();
         };
 
