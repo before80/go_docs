@@ -178,7 +178,7 @@ func getAlbums(c *gin.Context) {
 
   Note that you can replace `Context.IndentedJSON` with a call to [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) to send more compact JSON. In practice, the indented form is much easier to work with when debugging and the size difference is usually small.
   
-  注意，您可以用调用 [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) 来代替 [Context.IndentedJSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) 来发送更紧凑的 JSON。在实践中，缩进的形式在调试时更容易操作，而且大小差异通常很小。
+  注意，您可以用调用 [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-json">}}) 来代替 [Context.IndentedJSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) 来发送更紧凑的 JSON。在实践中，缩进的形式在调试时更容易操作，而且大小差异通常很小。
 
 b. 在`main.go`的顶部附近，就在`albums`切片声明下面，粘贴下面的代码，将处理函数分配给一个端点路径。
 
@@ -195,13 +195,13 @@ func main() {
 
 在这段代码中，您：
 
-- 使用[Default]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})初始化一个Gin路由器。
+- 使用[Default]({{< ref "/thirdPkg/gin/gin#func-default">}})初始化一个Gin路由器。
 
-- 使用[GET]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})函数将`GET` HTTP方法和`/albums`路径与一个处理函数联系起来。
+- 使用[GET]({{< ref "/thirdPkg/gin/gin#context-get">}})函数将`GET` HTTP方法和`/albums`路径与一个处理函数联系起来。
 
   注意，您传递的是`getAlbums`函数的名字。这与传递函数的**结果**不同，您可以通过传递`getAlbums()`来做到这一点（注意括号）。
 
-- 使用[Run]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})函数将路由器连接到`http.Server`上并启动服务器。
+- 使用[Run]({{< ref "/thirdPkg/gin/gin#engine-run">}})函数将路由器连接到`http.Server`上并启动服务器。
 
 c. 在`main.go`的顶部，就在包声明的下面，导入您需要的包来支持您刚刚写的代码。
 
@@ -223,7 +223,7 @@ d. 保存`main.go`。
 
 a. 开始跟踪Gin模块作为一个依赖项。
 
-​	在命令行中，使用[go get](https://go.dev/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them)来添加`github.com/gin-gonic/gin`模块作为您的模块的依赖项。使用`点参数`表示 "获取当前目录下代码的依赖项"。
+​	在命令行中，使用[go get]({{< ref "/cmd/go#go-get---添加依赖项到当前模块并安装它们">}})来添加`github.com/gin-gonic/gin`模块作为您的模块的依赖项。使用`点参数`表示 "获取当前目录下代码的依赖项"。
 
 ```shell
 $ go get .

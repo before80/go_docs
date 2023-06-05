@@ -127,7 +127,7 @@ Note that if the session key is too small then it may be possible for an attacke
 
 RSA is able to encrypt only a very limited amount of data. In order to encrypt reasonable amounts of data a hybrid scheme is commonly used: RSA is used to encrypt a key for a symmetric primitive like AES-GCM.
 
-Before encrypting, data is “padded” by embedding it in a known structure. This is done for a number of reasons, but the most obvious is to ensure that the value is large enough that the exponentiation is larger than the modulus. (Otherwise it could be decrypted with a square-root.)
+Before encrypting, data is "padded” by embedding it in a known structure. This is done for a number of reasons, but the most obvious is to ensure that the value is large enough that the exponentiation is larger than the modulus. (Otherwise it could be decrypted with a square-root.)
 
 In these designs, when using PKCS #1 v1.5, it's vitally important to avoid disclosing whether the received RSA message was well-formed (that is, whether the result of decrypting is a correctly padded message) because this leaks secret information. DecryptPKCS1v15SessionKey is designed for this situation and copies the decrypted, symmetric key (if well-formed) in constant-time over a buffer that contains a random key. Thus, if the RSA result isn't well-formed, the implementation uses a random key in constant time.
 
@@ -143,7 +143,7 @@ if _, err := rand.Read(key); err != nil {
 rsaCiphertext, _ := hex.DecodeString("aabbccddeeff")
 
 if err := rsa.DecryptPKCS1v15SessionKey(nil, rsaPrivateKey, rsaCiphertext, key); err != nil {
-	// Any errors that result will be “public” – meaning that they
+	// Any errors that result will be "public” – meaning that they
 	// can be determined without any secret information. (For
 	// instance, if the length of key is impossible given the RSA
 	// public key.)

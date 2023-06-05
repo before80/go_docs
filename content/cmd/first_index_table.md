@@ -20,16 +20,16 @@ draft = false
 
 ​	点击链接以获得更多的文档、调用方法和使用细节。
 
-| Name             | Synopsis 简述                                                |
-| ---------------- | ------------------------------------------------------------ |
-| [go](./go)       | `go` 程序管理 Go 源代码并运行这里列出的其他命令。有关使用细节，请参见该命令的文档。 |
-| [cgo](./cgo)     | `cgo` 可以创建调用 C 代码的 Go 包。                          |
-| [cover](./cover) | `cover` 是一个用于创建和分析由 "`go test -coverprofile`" 生成的覆盖率配置文件的程序。 |
-| [fix](./fix)     | `fix`找到使用语言和库的旧特性的 Go 程序，并使用新特性重写它们。 |
-| [fmt](./gofmt)   | `fmt` 格式化 Go 包，它也可以作为独立的 [gofmt](./gofmt) 命令使用，具有更多通用选项。 |
-| [godoc](./godoc) | `godoc` 提取并生成 Go 包的文档。                             |
-| [vet](./vet)     | `vet` 检查 Go 源代码并报告可疑的结构，例如实参与格式字符串不一致的 `Printf` 调用。 |
+| Name              | Synopsis 简述                                                  |
+|-------------------|--------------------------------------------------------------|
+| [go](../go)       | `go` 程序管理 Go 源代码并运行这里列出的其他命令。有关使用细节，请参见该命令的文档。               |
+| [cgo](../cgo)     | `cgo` 可以创建调用 C 代码的 Go 包。                                     |
+| [cover](../cover) | `cover` 是一个用于创建和分析由 "`go test -coverprofile`" 生成的覆盖率配置文件的程序。 |
+| [fix](../fix)     | `fix`找到使用语言和库的旧特性的 Go 程序，并使用新特性重写它们。                         |
+| [fmt](../gofmt)   | `fmt` 格式化 Go 包，它也可以作为独立的 [gofmt](../gofmt) 命令使用，具有更多通用选项。    |
+| [godoc](../godoc) | `godoc` 提取并生成 Go 包的文档。                                       |
+| [vet](../vet)     | `vet` 检查 Go 源代码并报告可疑的结构，例如实参与格式字符串不一致的 `Printf` 调用。          |
 
-This is an abridged list. See the [full command reference](https://go.dev/cmd/) for documentation of the compilers and more.
+This is an abridged list. See the [full command reference](../FullCommandReference) for documentation of the compilers and more.
 
 ​	这是一个简略的列表。请参阅完整的命令参考，了解编译器的文档和更多。

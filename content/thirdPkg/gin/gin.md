@@ -1050,7 +1050,7 @@ func (c *Context) Header(key, value string)
 func (c *Context) IndentedJSON(code int, obj any)
 ```
 
-​	IndentedJSON方法将给定的结构体序列化为漂亮的JSON（带缩进和换行符）并写入响应体中。它还将Content-Type设置为“application/json”。
+​	IndentedJSON方法将给定的结构体序列化为漂亮的JSON（带缩进和换行符）并写入响应体中。它还将Content-Type设置为"application/json”。
 
 > 警告：我们建议仅在开发过程中使用此方法，因为打印漂亮的JSON更耗费CPU和带宽。请改用Context.JSON()。
 
@@ -1172,7 +1172,7 @@ func (c *Context) Next()
 >
 > ​	当 `Next` 方法被调用时，它将在调用当前处理程序之前暂停执行，并在调用下一个处理程序后继续执行。如果没有更多的处理程序，则控制流程将回到上一个处理程序，并从那里继续执行。
 >
-> 这种“委托式”的流程控制使得 Gin 的中间件非常灵活，可以很容易地添加、修改或删除处理步骤。下面是一个示例：
+> 这种"委托式”的流程控制使得 Gin 的中间件非常灵活，可以很容易地添加、修改或删除处理步骤。下面是一个示例：
 >
 > ```go linenums="1"
 > func AuthMiddleware() gin.HandlerFunc {
@@ -1583,7 +1583,7 @@ func (c *Context) Status(code int)
 func (c *Context) Stream(step func(w io.Writer) bool) bool
 ```
 
-​	Stream方法发送流式响应，并返回一个布尔值，指示“客户端在流程中是否断开连接”。
+​	Stream方法发送流式响应，并返回一个布尔值，指示"客户端在流程中是否断开连接”。
 
 #### (*Context) String 
 
@@ -1652,7 +1652,7 @@ type Engine struct {
 
     // 如果启用 HandleMethodNotAllowed，且当无法路由当前请求时，
     // 则路由器会检查当前路由是否允许其他方法处理。
-    // 如果是这种情况，则响应请求以“Method Not Allowed”和405HTTP状态码。
+    // 如果是这种情况，则响应请求以"Method Not Allowed”和405HTTP状态码。
     // 如果没有其他方法允许，则请求将委托给 NotFound 处理程序。
 	HandleMethodNotAllowed bool
 
@@ -1664,13 +1664,13 @@ type Engine struct {
 
     // AppEngine 已被弃用。
     // 请使用带有值 gin.PlatformGoogleAppEngine 的 TrustedPlatform 代替。
-    // #726 #755 如果启用，它将信任某些以“X-AppEngine…”开头的标头，
+    // #726 #755 如果启用，它将信任某些以"X-AppEngine…”开头的标头，
     // 以更好地与该 PaaS 集成。
     // #726 和 #755 是该库的 GitHub 仓库中相关 issue 的编号。
     // #726 是关于在 Google App Engine 上使用 gin 的问题，
     // #755 是关于 App Engine Standard 环境中的用户 IP 的问题。
     // 在这段注释中，提到这两个 issue 是因为它们与 AppEngine 字段的弃用相关。
-    // PaaS 是 Platform as a Service 的缩写，即“平台即服务”。
+    // PaaS 是 Platform as a Service 的缩写，即"平台即服务”。
     // PaaS 提供一种平台来运行应用程序，
     // 可以让开发人员更专注于开发应用程序的核心功能，
     // 而不必担心运维的问题，如服务器管理、网络配置、数据库维护等。
