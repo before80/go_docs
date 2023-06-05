@@ -18,7 +18,7 @@ draft = false
 还请参见：
 
 - 如果您刚开始将依赖项作为模块来使用，请参阅[Getting started tutorial （入门教程）](../../GettingStarted/TutorialGetStartedWithGo)，以获得简短的介绍。
-- 使用 `go` 命令来管理依赖项有助于确保您的需求保持一致，以及 go.mod 文件内容的有效性。关于命令的参考，请看[Command go](../../References/CommandDocumentation/go)。您也可以在命令行中输入`go help command-name`来获得帮助，如`go help mod tidy`。
+- 使用 `go` 命令来管理依赖项有助于确保您的需求保持一致，以及 go.mod 文件内容的有效性。关于命令的参考，请看[Command go]({{< ref "/cmd/go">}})。您也可以在命令行中输入`go help command-name`来获得帮助，如`go help mod tidy`。
 - 编辑 `go.mod`文件时使用的用于进行依赖项更改的 Go 命令。关于该文件的内容，请参阅 [go.mod file reference（go.mod文件参考）](../../References/gomodFileReference)。
 - 让您的编辑器或 IDE 了解 Go 模块可以使管理它们的工作更容易。关于支持 Go 的编辑器的更多信息，请参阅 [Editor plugins and IDEs（编辑器插件和 IDE）](../EditorPluginsAndIDEs)。
 - 本主题不介绍如何开发、发布和版本模块供他人使用。有关这方面的更多信息，请参见 [Developing and publishing modules（开发和发布模块）](../DevelopingModules/DevelopingAndPublishingModules)。
@@ -66,7 +66,7 @@ import "rsc.io/quote"
 
 ​	为了跟踪和管理您添加的依赖项，您首先要把您的代码放在自己的模块中。这将在您的源代码树的根目录下创建一个`go.mod`文件。您添加的依赖将被列在该文件中。
 
-​	要将您的代码添加到自己的模块中，使用[go mod init](../../References/CommandDocumentation/go#go-mod-init)命令。例如，从命令行切换到代码的根目录，然后运行下面例子中的命令：
+​	要将您的代码添加到自己的模块中，使用[go mod init]({{< ref "/cmd/go#go-mod-init">}})命令。例如，从命令行切换到代码的根目录，然后运行下面例子中的命令：
 
 ```shell
 $ go mod init example/mymodule
@@ -124,7 +124,7 @@ $ go mod init example/mymodule
 
 ## 添加一个依赖项
 
-​	一旦您导入一个已发布的模块，您就可以使用 [go get](../../References/CommandDocumentation/go#add-dependencies-to-current-module-and-install-them) 命令将该模块作为一个依赖项来管理。
+​	一旦您导入一个已发布的模块，您就可以使用 [go get]({{< ref "/cmd/go#add-dependencies-to-current-module-and-install-them">}}) 命令将该模块作为一个依赖项来管理。
 
 该命令做了以下工作：
 
@@ -160,7 +160,7 @@ $ go mod init example/mymodule
 - 您发现您目前需要的版本不适合您，因此希望获得一个您知道可以依赖的版本。
 - 您想升级或降级一个您已经需要的模块。
 
-下面是使用[go get](../../References/CommandDocumentation/go#add-dependencies-to-current-module-and-install-them)命令的例子：
+下面是使用[go get]({{< ref "/cmd/go#add-dependencies-to-current-module-and-install-them">}})命令的例子：
 
 - 要获得一个特定的版本，请在模块路径后面加上`@`符号和您想要的版本：
 
@@ -251,7 +251,7 @@ require example.com/theirmodule v0.0.0-unpublished
 replace example.com/theirmodule v0.0.0-unpublished => ../theirmodule
 ```
 
-​	当设置`require`/`replace`对时，使用[go mod edit](../../References/CommandDocumentation/go#go-mod-edit)和[go get](../../References/CommandDocumentation/go#add-dependencies-to-current-module-and-install-them)命令来确保文件描述的需求保持一致。
+​	当设置`require`/`replace`对时，使用[go mod edit]({{< ref "/cmd/go#go-mod-edit">}})和[go get]({{< ref "/cmd/go#add-dependencies-to-current-module-and-install-them">}})命令来确保文件描述的需求保持一致。
 
 ```shell
 $ go mod edit -replace=example.com/theirmodule@v0.0.0-unpublished=../theirmodule
@@ -284,7 +284,7 @@ require example.com/theirmodule v1.2.3
 replace example.com/theirmodule v1.2.3 => example.com/myfork/theirmodule v1.2.3-fixed
 ```
 
-​	在设置`require`/`replace`对时，使用Go工具命令来确保文件描述的需求保持一致。使用 [go list](../../References/GoModulesReference/Module-awareCommands#go-list-m) 命令来获取当前模块使用的版本。然后使用 [go mod edit]([go get](../../References/CommandDocumentation/go#go-mod-edit)) 命令将所需模块替换为分叉模块：
+​	在设置`require`/`replace`对时，使用Go工具命令来确保文件描述的需求保持一致。使用 [go list](../../References/GoModulesReference/Module-awareCommands#go-list-m) 命令来获取当前模块使用的版本。然后使用 [go mod edit]([go get]({{< ref "/cmd/go#go-mod-edit">}})) 命令将所需模块替换为分叉模块：
 
 ```shell
 $ go list -m example.com/theirmodule
@@ -320,13 +320,13 @@ $ go mod edit -replace=example.com/theirmodule@v1.2.3=example.com/myfork/theirmo
 
 ​	当您的代码不再使用某个模块的任何包时，您可以停止跟踪该模块作为一个依赖项。
 
-​	要停止跟踪所有未使用的模块，运行[go mod tidy](../../References/CommandDocumentation/go#add-missing-and-remove-unused-modules)命令。这个命令还可能添加（构建模块中的包）所缺失的依赖。
+​	要停止跟踪所有未使用的模块，运行[go mod tidy]({{< ref "/cmd/go#add-missing-and-remove-unused-modules">}})命令。这个命令还可能添加（构建模块中的包）所缺失的依赖。
 
 ```shell
 $ go mod tidy
 ```
 
-​	要移除一个特定的依赖项，使用[go get](../../References/CommandDocumentation/go#add-dependencies-to-current-module-and-install-them)命令，指定模块的模块路径并附加`@none`，如下面的例子：
+​	要移除一个特定的依赖项，使用[go get]({{< ref "/cmd/go#add-dependencies-to-current-module-and-install-them">}})命令，指定模块的模块路径并附加`@none`，如下面的例子：
 
 ```shell
 $ go get example.com/theirmodule@none

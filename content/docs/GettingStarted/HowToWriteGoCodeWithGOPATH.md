@@ -14,7 +14,7 @@ draft = false
 
 ​	如果您是Go的新手，请看最近的[How to Write Go Code](../HowToWriteGoCode)。
 
-​	本文演示了一个简单的 Go 包的开发，并介绍了 [go tool](../../References/CommandDocumentation/go)，这是获取、构建和安装 Go 包和命令的标准方法。
+​	本文演示了一个简单的 Go 包的开发，并介绍了 [go tool]({{< ref "/cmd/go">}})，这是获取、构建和安装 Go 包和命令的标准方法。
 
 ​	`go tool`要求您以特定的方式组织您的代码。请仔细阅读本文档。它解释了最简单的方法来启动和运行您的Go安装。
 

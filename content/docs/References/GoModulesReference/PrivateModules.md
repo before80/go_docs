@@ -20,7 +20,7 @@ draft = false
 - `GONOSUMDB` —— 不应使用公共校验和数据库 [sum.golang.org](https://sum.golang.org/) 进行检查的模块路径前缀的 glob 模式列表。
 - `GOINSECURE` —— 可以通过HTTP和其他不安全协议检索的模块路径前缀的 glob 模式列表。
 
-​	这些变量可以在开发环境中设置（例如，在 `.profile` 文件中），也可以用 [go env -w](../../CommandDocumentation/go#print-go-environment-information) 永久设置。
+​	这些变量可以在开发环境中设置（例如，在 `.profile` 文件中），也可以用 [go env -w]({{< ref "/cmd/go#print-go-environment-information">}}) 永久设置。
 
 ​	本节的其余部分描述了提供访问私有模块代理和版本控制存储库的常见模式。
 

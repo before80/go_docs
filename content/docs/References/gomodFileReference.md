@@ -28,7 +28,7 @@ $ go mod init example/mymodule
 
 ​	使用`go`命令来管理依赖项。这些命令确保您的`go.mod`文件中描述的需求保持一致，并且`go.mod`文件的内容是有效的。这些命令包括`go get`和`go mod tidy`以及`go mod edit`命令。
 
-​	关于`go`命令的参考，请看[go 命令](../CommandDocumentation/go)。您可以通过输入`go help command-name`从命令行获得帮助，如`go help mod tidy`。
+​	关于`go`命令的参考，请看[go 命令]({{< ref "/cmd/go">}})。您可以通过输入`go help command-name`从命令行获得帮助，如`go help mod tidy`。
 
 **参见**：
 

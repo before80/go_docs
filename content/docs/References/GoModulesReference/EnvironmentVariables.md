@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/ref/mod#environment-variables](https://go.dev/ref/mod#environment-variables)
 
-​	`go`命令中的模块行为可以使用下面列出的环境变量进行配置。这个列表只包括与模块相关的环境变量。有关`go`命令识别的所有环境变量的列表，请参阅[go help environment](../../CommandDocumentation/go#environment-variables)。
+​	`go`命令中的模块行为可以使用下面列出的环境变量进行配置。这个列表只包括与模块相关的环境变量。有关`go`命令识别的所有环境变量的列表，请参阅[go help environment]({{< ref "/cmd/go#environment-variables">}})。
 
 ### GO111MODULE
 

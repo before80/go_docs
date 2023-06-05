@@ -99,7 +99,7 @@ $ go run .
 Hello, World!
 ```
 
-[go run 命令](../../References/CommandDocumentation/go#编译并运行Go程序)是您用Go完成任务的众多`go`命令之一。使用下面的命令来获得其他命令的列表：
+[go run 命令]({{< ref "/cmd/go#编译并运行Go程序">}})是您用Go完成任务的众多`go`命令之一。使用下面的命令来获得其他命令的列表：
 
 ```shell
 $ go help

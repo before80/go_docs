@@ -33,7 +33,7 @@ Tyler Bui-Palsulich and Eno Compton
 
 ​	模块是存储在文件树中的Go包的集合，其根部带有`go.mod`文件。`go.mod`文件定义了模块的模块路径(也是用于根目录的导入路径)及其依赖项需求(这些模块是成功构建所需的其他模块)。每个依赖需求都被写成一个模块路径和一个特定的[semantic version（语义版本）](http://semver.org/)。
 
-​	从Go 1.11开始，如果当前目录或任何父目录有`go.mod`时，只要该目录在`$GOPATH/src`之外，就可以用`go`命令使用模块。（在`$GOPATH/src`之内，为了兼容，`go`命令仍然以旧的`GOPATH`模式运行，即使发现有`go.mod`。详情见[go命令文档](../../../References/CommandDocumentation/go)）。从Go 1.13开始，模块模式将成为所有开发的默认模式。
+​	从Go 1.11开始，如果当前目录或任何父目录有`go.mod`时，只要该目录在`$GOPATH/src`之外，就可以用`go`命令使用模块。（在`$GOPATH/src`之内，为了兼容，`go`命令仍然以旧的`GOPATH`模式运行，即使发现有`go.mod`。详情见[go命令文档]({{< ref "/cmd/go">}})）。从Go 1.13开始，模块模式将成为所有开发的默认模式。
 
 ​	本篇文章讲述了使用模块开发Go代码时出现的一系列常见操作：
 

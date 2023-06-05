@@ -161,7 +161,7 @@ GOVCS=*:all
 GOVCS=*:off
 ```
 
-​	[go env -w 命令](../../CommandDocumentation/go#print-go-environment-information)可以用来设置 `GOVCS` 变量，以便今后调用 `go` 命令。
+​	[go env -w 命令]({{< ref "/cmd/go#print-go-environment-information">}})可以用来设置 `GOVCS` 变量，以便今后调用 `go` 命令。
 
 ​	`GOVCS` 是在 Go 1.16 中引入的。早期版本的Go可以对任何模块使用任何已知的版本控制工具。
 

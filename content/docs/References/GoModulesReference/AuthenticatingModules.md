@@ -104,4 +104,4 @@ GOSUMDB="sum.golang.org+<publickey> https://sum.golang.org"
 
 ​	如果 `GOSUMDB` 被设置为`off`，或者在调用 `go get` 时使用了 `-insecure` 标志，则不会查询校验和数据库，并接受所有未识别的模块，代价是放弃了对所有模块的可重复下载的安全保证。一个更好的方法是使用`GOPRIVATE`或`GONOSUMDB`环境变量来绕过特定模块的校验和数据库。详见[Private Modules（私有模块）](../PrivateModules)。
 
-​	`go env -w`命令可用于为将来的`go`命令调用[设置这些变量](../../CommandDocumentation/go#print-go-environment-information)。
+​	`go env -w`命令可用于为将来的`go`命令调用[设置这些变量]({{< ref "/cmd/go#print-go-environment-information">}})。

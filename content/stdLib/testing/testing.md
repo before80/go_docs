@@ -72,7 +72,7 @@ func BenchmarkXxx(*testing.B)
 
 的函数被视为基准测试，并在 "go test" 命令提供其 -bench 标志时执行。基准测试按顺序运行。
 
-​	有关测试标志的说明，，见[Testing flags](../../References/CommandDocumentation/go#testing-flags)。
+​	有关测试标志的说明，，见[Testing flags]({{< ref "/cmd/go#testing-flags">}})。
 
 ​	基准测试函数的示例如下所示：
 

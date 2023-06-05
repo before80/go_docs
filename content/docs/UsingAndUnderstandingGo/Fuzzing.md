@@ -129,7 +129,7 @@ FAIL    foo 0.839s
 $ go test -fuzz={FuzzTestName}
 ```
 
-​	然而，`go`命令在运行模糊测试时确实提供了一些设置。这些设置在 [cmd/go 包](../../References/CommandDocumentation/go)的文档中都有记载。
+​	然而，`go`命令在运行模糊测试时确实提供了一些设置。这些设置在 [cmd/go 包]({{< ref "/cmd/go">}})的文档中都有记载。
 
 ​	在此强调几个：
 
@@ -184,7 +184,7 @@ $ file2fuzz
 （b）文档：
 
 - [testing包]({{< ref "/stdLib/testing/testing" >}})文档描述了用于编写模糊测试时使用的 `testing.F` 类型。
-- [cmd/go 包](../../References/CommandDocumentation/go)文档描述了与模糊测试相关的标志。
+- [cmd/go 包]({{< ref "/cmd/go">}})文档描述了与模糊测试相关的标志。
 
 （c）技术细节：
 

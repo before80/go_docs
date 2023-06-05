@@ -637,11 +637,11 @@ $ go version -m ~/go/bin/goimports
 go clean [-modcache]
 ```
 
-​	`-modcache`标志使[go clean](../../CommandDocumentation/go#remove-object-files-and-cached-files)移除整个[module cache（模块缓存）](../Glossary#module-cache)，包括版本化依赖项的未打包的源代码。
+​	`-modcache`标志使[go clean]({{< ref "/cmd/go#remove-object-files-and-cached-files">}})移除整个[module cache（模块缓存）](../Glossary#module-cache)，包括版本化依赖项的未打包的源代码。
 
 ​	这通常是移除模块缓存的最佳方式。默认情况下，模块缓存中的大多数文件和目录都是只读的，以防止测试和编辑者在通过[authenticated（认证）](../AuthenticatingModules)后无意中改更改文件。不幸的是，这导致像`rm -r`这样的命令失败，因为如果不首先使其父目录可写，就无法移除文件。
 
-​	`-modcacherw`标志（被[go build](../../CommandDocumentation/go#compile-packages-and-dependencies)和其他模块感知命令接受）使模块缓存中的新目录可以被写入。要将`-modcacherw`传递给所有的模块感知命令，请将其加入到`GOFLAGS`变量。`GOFLAGS`可以在环境中设置，也可以用[go env -w](../../CommandDocumentation/go#print-go-environment-information)设置。例如，下面的命令会永久地设置它：
+​	`-modcacherw`标志（被[go build]({{< ref "/cmd/go#compile-packages-and-dependencies">}})和其他模块感知命令接受）使模块缓存中的新目录可以被写入。要将`-modcacherw`传递给所有的模块感知命令，请将其加入到`GOFLAGS`变量。`GOFLAGS`可以在环境中设置，也可以用[go env -w]({{< ref "/cmd/go#print-go-environment-information">}})设置。例如，下面的命令会永久地设置它：
 
 ```
 go env -w GOFLAGS=-modcacherw

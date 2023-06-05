@@ -13,7 +13,7 @@ draft = false
 
 ## 简介
 
-​	本文档演示了在模块中开发一个简单的Go包，并介绍了[go tool](../../References/CommandDocumentation/go)，这是获取、构建和安装Go模块、包和命令的标准方式。
+​	本文档演示了在模块中开发一个简单的Go包，并介绍了[go tool]({{< ref "/cmd/go">}})，这是获取、构建和安装Go模块、包和命令的标准方式。
 
 > 注意：本文档假设您使用的是`Go 1.13`或更高版本，并且没有设置`GO111MODULE`环境变量。如果您要找的是本文档的旧版，即模块之前的版本，它被存档在[这里](../HowToWriteGoCodeWithGOPATH)。
 
@@ -25,7 +25,7 @@ draft = false
 
 ​	请注意，您不需要在构建之前将您的代码发布到一个远程仓库。一个模块可以在本地定义而不属于一个版本库。然而，组织您的代码是一个好习惯，就像您有一天会发布它一样。
 
-​	每个模块的路径不仅作为其包的导入路径前缀，而且还指出`go`命令应该在哪里下载它。例如，为了下载`golang.org/x/tools`模块，go命令会查阅[https://golang.org/x/tools](https://golang.org/x/tools)（[这里](../../References/CommandDocumentation/go#remote-import-paths)有更多描述）所指示的仓库。
+​	每个模块的路径不仅作为其包的导入路径前缀，而且还指出`go`命令应该在哪里下载它。例如，为了下载`golang.org/x/tools`模块，go命令会查阅[https://golang.org/x/tools](https://golang.org/x/tools)（[这里]({{< ref "/cmd/go#remote-import-paths">}})有更多描述）所指示的仓库。
 
 ​	导入路径是一个用于导入软件包的字符串。一个包的导入路径是它的模块路径与模块中的子目录相连接。例如，模块`github.com/google/go-cmp`在`cmp/`目录下包含一个包。该包的导入路径是`github.com/google/go-cmp/cmp`。**标准库中的包没有模块路径前缀**。
 
@@ -68,7 +68,7 @@ $
 
 ​	这个命令构建了`hello`命令，产生了一个可执行的二进制文件。然后，它将该二进制文件安装为`$HOME/go/bin/hello`（或者，在Windows下，`%USERPROFILE%\gobinhello.exe`）。
 
-​	安装目录是由`GOPATH`和`GOBIN`[环境变量](../../References/CommandDocumentation/go#environment-variables)控制的。如果设置了`GOBIN`，二进制文件将被安装到该目录。如果设置了`GOPATH`，二进制文件将被安装到`GOPATH`列表中第一个目录的`bin`子目录中。否则，二进制文件将被安装到默认的 `GOPATH`（`$HOME/go` 或 `%USERPROFILE%\go`）的 `bin` 子目录。
+​	安装目录是由`GOPATH`和`GOBIN`[环境变量]({{< ref "/cmd/go#environment-variables">}})控制的。如果设置了`GOBIN`，二进制文件将被安装到该目录。如果设置了`GOPATH`，二进制文件将被安装到`GOPATH`列表中第一个目录的`bin`子目录中。否则，二进制文件将被安装到默认的 `GOPATH`（`$HOME/go` 或 `%USERPROFILE%\go`）的 `bin` 子目录。
 
 ​	您可以使用`go env`命令为未来的`go`命令可移植地设置环境变量的默认值：
 

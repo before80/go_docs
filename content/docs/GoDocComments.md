@@ -12,7 +12,7 @@ draft = false
 
 ​	"Doc comments"是指出现在顶级package、const、func、type和var声明前的注释，中间没有换行。每个导出的（大写的）名称都应该有一个文档注释。
 
-​	[go/doc](https://go.dev/pkg/go/doc) 和 [go/doc/comment](https://go.dev/pkg/go/doc/comment) 包提供了从 Go 源代码中提取文档的能力，许多工具都利用了这一功能。[go doc](../References/CommandDocumentation/go#show-documentation-for-package-or-symbol) 命令查找并打印出指定包或符号的文档注释。(符号是顶级的 const、func、type 或 var。）Web服务器 [pkg.go.dev](https://pkg.go.dev/) 显示了公共 Go 包的文档（当其许可证允许使用时）。为该网站服务的程序是 [golang.org/x/pkgsite/cmd/pkgsite](https://pkg.go.dev/golang.org/x/pkgsite/cmd/pkgsite)，它也可以在本地运行以查看私有模块的文档，或者在没有互联网连接的情况下。语言服务器[gopls](https://pkg.go.dev/golang.org/x/tools/gopls)在IDE中编辑Go源文件时提供文档。
+​	[go/doc](https://go.dev/pkg/go/doc) 和 [go/doc/comment](https://go.dev/pkg/go/doc/comment) 包提供了从 Go 源代码中提取文档的能力，许多工具都利用了这一功能。[go doc]({{< ref "/cmd/go#show-documentation-for-package-or-symbol">}}) 命令查找并打印出指定包或符号的文档注释。(符号是顶级的 const、func、type 或 var。）Web服务器 [pkg.go.dev](https://pkg.go.dev/) 显示了公共 Go 包的文档（当其许可证允许使用时）。为该网站服务的程序是 [golang.org/x/pkgsite/cmd/pkgsite](https://pkg.go.dev/golang.org/x/pkgsite/cmd/pkgsite)，它也可以在本地运行以查看私有模块的文档，或者在没有互联网连接的情况下。语言服务器[gopls](https://pkg.go.dev/golang.org/x/tools/gopls)在IDE中编辑Go源文件时提供文档。
 
 ​	本页的其余部分记录了如何编写 Go 文档注释。
 
@@ -41,7 +41,7 @@ package path
 
 ## Commands 命令
 
-​	命令的包注释与此类似，但它描述的是程序的行为而不是包中的Go符号。第一句话通常以程序本身的名称开始，大写的原因是它位于句子的开头。例如，这里是[gofmt](../References/CommandDocumentation/gofmt)的包注释的简化版本：
+​	命令的包注释与此类似，但它描述的是程序的行为而不是包中的Go符号。第一句话通常以程序本身的名称开始，大写的原因是它位于句子的开头。例如，这里是[gofmt]({{< ref "/cmd/gofmt">}})的包注释的简化版本：
 
 ```
 /*

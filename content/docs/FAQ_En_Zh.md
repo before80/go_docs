@@ -1462,7 +1462,7 @@ Go uses brace brackets for statement grouping, a syntax familiar to programmers 
 
 Some have argued that the lexer should do lookahead to permit the brace to live on the next line. We disagree. Since Go code is meant to be formatted automatically by [`gofmt`](https://go.dev/cmd/gofmt/), *some* style must be chosen. That style may differ from what you've used in C or Java, but Go is a different language and `gofmt`'s style is as good as any other. More important—much more important—the advantages of a single, programmatically mandated format for all Go programs greatly outweigh any perceived disadvantages of the particular style. Note too that Go's style means that an interactive implementation of Go can use the standard syntax one line at a time without special rules.
 
-​	有些人认为，lexer 应该进行查找，以允许括号出现在下一行。我们不同意这个观点。由于Go代码是由[gofmt](../References/CommandDocumentation/gofmt)自动格式化的，所以必须选择一些风格。这种风格可能与您在C或Java中使用的不同，但Go是一种不同的语言，`gofmt`的风格与其他语言一样好。更重要的是——要重要得多的是——为所有Go程序提供单一的、程序化的强制格式的优势大大超过了特定风格的任何感知的缺点。还要注意的是，Go的风格意味着Go的交互式实现可以一行一行地使用标准语法，而不需要特别的规则。
+​	有些人认为，lexer 应该进行查找，以允许括号出现在下一行。我们不同意这个观点。由于Go代码是由[gofmt]({{< ref "/cmd/gofmt">}})自动格式化的，所以必须选择一些风格。这种风格可能与您在C或Java中使用的不同，但Go是一种不同的语言，`gofmt`的风格与其他语言一样好。更重要的是——要重要得多的是——为所有Go程序提供单一的、程序化的强制格式的优势大大超过了特定风格的任何感知的缺点。还要注意的是，Go的风格意味着Go的交互式实现可以一行一行地使用标准语法，而不需要特别的规则。
 
 ### Why do garbage collection? Won't it be too expensive? 为什么要做垃圾收集？不会代价太大吗？
 
