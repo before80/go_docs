@@ -28,7 +28,7 @@ https://pkg.go.dev/internal/coverage@go1.20.1
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=325)
 
-```
+``` go
 const CounterFilePref = "covcounters"
 ```
 
@@ -36,19 +36,19 @@ CounterFilePref is the file prefix used when emitting coverage data output files
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=327)
 
-```
+``` go
 const CounterFileRegexp = `^%s\.(\S+)\.(\d+)\.(\d+)+$`
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=326)
 
-```
+``` go
 const CounterFileTempl = "%s.%x.%d.%d"
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=277)
 
-```
+``` go
 const CounterFileVersion = 1
 ```
 
@@ -56,25 +56,25 @@ CounterFileVersion stores the most recent counter data file version.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=96)
 
-```
+``` go
 const CovMetaHeaderSize = 16 + 4 + 4 + 4 + 4 + 4 + 4 + 4 // keep in sync with above
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=374)
 
-```
+``` go
 const FirstCtrOffset = 3
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=373)
 
-```
+``` go
 const FuncIdOffset = 2
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=62)
 
-```
+``` go
 const MetaFilePref = "covmeta"
 ```
 
@@ -82,7 +82,7 @@ MetaFilePref is a prefix used when emitting meta-data files; these files are of 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=65)
 
-```
+``` go
 const MetaFileVersion = 1
 ```
 
@@ -90,7 +90,7 @@ MetaFileVersion contains the current (most recent) meta-data file version.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/pkid.go;l=68)
 
-```
+``` go
 const NotHardCoded = -1
 ```
 
@@ -98,13 +98,13 @@ NotHardCoded is a package pseudo-ID indicating that a given package is not part 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=371)
 
-```
+``` go
 const NumCtrsOffset = 0
 ```
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=372)
 
-```
+``` go
 const PkgIdOffset = 1
 ```
 
@@ -130,7 +130,7 @@ CovMetaMagic holds the magic string for a meta-data file.
 
 #### func HardCodedPkgID 
 
-```
+``` go
 func HardCodedPkgID(pkgpath string) int
 ```
 
@@ -138,7 +138,7 @@ HardCodedPkgID returns the hard-coded ID for the specified package path, or -1 i
 
 #### func Round4 
 
-```
+``` go
 func Round4(x int) int
 ```
 
@@ -146,7 +146,7 @@ func Round4(x int) int
 
 ### type CounterFileFooter 
 
-```
+``` go
 type CounterFileFooter struct {
 	Magic [4]byte
 
@@ -159,7 +159,7 @@ CounterFileFooter appears at the tail end of a counter data file, and stores the
 
 ### type CounterFileHeader 
 
-```
+``` go
 type CounterFileHeader struct {
 	Magic     [4]byte
 	Version   uint32
@@ -174,13 +174,13 @@ CounterFileHeader stores files header information for a counter-data file.
 
 ### type CounterFlavor 
 
-```
+``` go
 type CounterFlavor uint8
 ```
 
 CounterFlavor describes how function and counters are stored/represented in the counter section of the file.
 
-```
+``` go
 const (
 	// "Raw" representation: all values (pkg ID, func ID, num counters,
 	// and counters themselves) are stored as uint32's.
@@ -194,13 +194,13 @@ const (
 
 ### type CounterGranularity 
 
-```
+``` go
 type CounterGranularity uint8
 ```
 
 CounterGranularity tracks the granularity of the coverage counters being used in a given coverage-instrumented program.
 
-```
+``` go
 const (
 	CtrGranularityInvalid CounterGranularity = iota
 	CtrGranularityPerBlock
@@ -210,19 +210,19 @@ const (
 
 #### (CounterGranularity) String 
 
-```
+``` go
 func (cm CounterGranularity) String() string
 ```
 
 ### type CounterMode 
 
-```
+``` go
 type CounterMode uint8
 ```
 
 CounterMode tracks the "flavor" of the coverage counters being used in a given coverage-instrumented program.
 
-```
+``` go
 const (
 	CtrModeInvalid  CounterMode = iota
 	CtrModeSet                  // "set" mode
@@ -235,19 +235,19 @@ const (
 
 #### func ParseCounterMode 
 
-```
+``` go
 func ParseCounterMode(mode string) CounterMode
 ```
 
 #### (CounterMode) String 
 
-```
+``` go
 func (cm CounterMode) String() string
 ```
 
 ### type CounterSegmentHeader 
 
-```
+``` go
 type CounterSegmentHeader struct {
 	FcnEntries uint64
 	StrTabLen  uint32
@@ -261,7 +261,7 @@ The "args" section of a segment is used to store annotations describing where th
 
 ### type CoverFixupConfig 
 
-```
+``` go
 type CoverFixupConfig struct {
 	// Name of the variable (created by cmd/cover) containing the
 	// encoded meta-data for the package.
@@ -299,7 +299,7 @@ CoverFixupConfig contains annotations/notes generated by the cmd/cover tool (dur
 
 ### type CoverPkgConfig 
 
-```
+``` go
 type CoverPkgConfig struct {
 	// File into which cmd/cover should emit summary info
 	// when instrumentation is complete.
@@ -330,7 +330,7 @@ CoverPkgConfig is a bundle of information passed from the Go command to the cove
 
 ### type CoverableUnit 
 
-```
+``` go
 type CoverableUnit struct {
 	StLine, StCol uint32
 	EnLine, EnCol uint32
@@ -353,7 +353,7 @@ Note: in the initial version of the coverage revamp, only simple units will be i
 
 ### type FuncDesc 
 
-```
+``` go
 type FuncDesc struct {
 	Funcname string
 	Srcfile  string
@@ -366,7 +366,7 @@ FuncDesc encapsulates the meta-data definitions for a single Go function. This v
 
 ### type MetaFileHeader 
 
-```
+``` go
 type MetaFileHeader struct {
 	Magic        [4]byte
 	Version      uint32
@@ -385,7 +385,7 @@ MetaFileHeader stores file header information for a meta-data file.
 
 ### type MetaSymbolHeader 
 
-```
+``` go
 type MetaSymbolHeader struct {
 	Length     uint32 // size of meta-symbol payload in bytes
 	PkgName    uint32 // string table index

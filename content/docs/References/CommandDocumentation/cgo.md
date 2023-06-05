@@ -120,7 +120,7 @@ var n, err = C.sqrt(1)
 
 Calling C function pointers is currently not supported, however you can declare Go variables which hold C function pointers and pass them back and forth between Go and C. C code may call function pointers received from Go. For example:
 
-```
+``` go
 package main
 
 // typedef int (*intFunc) ();
@@ -149,7 +149,7 @@ In C, a function argument written as a fixed size array actually requires a poin
 
 Calling variadic C functions is not supported. It is possible to circumvent this by using a C function wrapper. For example:
 
-```
+``` go
 package main
 
 // #include <stdio.h>

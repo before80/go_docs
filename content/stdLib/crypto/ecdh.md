@@ -49,7 +49,7 @@ This section is empty.
 
 ### type Curve 
 
-```
+``` go
 type Curve interface {
 	// GenerateKey generates a new PrivateKey from rand.
 	GenerateKey(rand io.Reader) (*PrivateKey, error)
@@ -80,7 +80,7 @@ type Curve interface {
 
 #### func P256 
 
-```
+``` go
 func P256() Curve
 ```
 
@@ -90,7 +90,7 @@ Multiple invocations of this function will return the same value, which can be u
 
 #### func P384 
 
-```
+``` go
 func P384() Curve
 ```
 
@@ -100,7 +100,7 @@ Multiple invocations of this function will return the same value, which can be u
 
 #### func P521 
 
-```
+``` go
 func P521() Curve
 ```
 
@@ -110,7 +110,7 @@ Multiple invocations of this function will return the same value, which can be u
 
 #### func X25519 
 
-```
+``` go
 func X25519() Curve
 ```
 
@@ -120,7 +120,7 @@ Multiple invocations of this function will return the same value, so it can be u
 
 ### type PrivateKey 
 
-```
+``` go
 type PrivateKey struct {
 	// contains filtered or unexported fields
 }
@@ -132,7 +132,7 @@ These keys can be parsed with [crypto/x509.ParsePKCS8PrivateKey](https://pkg.go.
 
 #### (*PrivateKey) Bytes 
 
-```
+``` go
 func (k *PrivateKey) Bytes() []byte
 ```
 
@@ -140,13 +140,13 @@ Bytes returns a copy of the encoding of the private key.
 
 #### (*PrivateKey) Curve 
 
-```
+``` go
 func (k *PrivateKey) Curve() Curve
 ```
 
 #### (*PrivateKey) ECDH 
 
-```
+``` go
 func (k *PrivateKey) ECDH(remote *PublicKey) ([]byte, error)
 ```
 
@@ -158,7 +158,7 @@ For X25519, this performs ECDH as specified in [RFC 7748, Section 6.1](https://r
 
 #### (*PrivateKey) Equal 
 
-```
+``` go
 func (k *PrivateKey) Equal(x crypto.PrivateKey) bool
 ```
 
@@ -170,7 +170,7 @@ This check is performed in constant time as long as the key types and their curv
 
 #### (*PrivateKey) Public 
 
-```
+``` go
 func (k *PrivateKey) Public() crypto.PublicKey
 ```
 
@@ -178,13 +178,13 @@ Public implements the implicit interface of all standard library private keys. S
 
 #### (*PrivateKey) PublicKey 
 
-```
+``` go
 func (k *PrivateKey) PublicKey() *PublicKey
 ```
 
 ### type PublicKey 
 
-```
+``` go
 type PublicKey struct {
 	// contains filtered or unexported fields
 }
@@ -196,7 +196,7 @@ These keys can be parsed with [crypto/x509.ParsePKIXPublicKey](https://pkg.go.de
 
 #### (*PublicKey) Bytes 
 
-```
+``` go
 func (k *PublicKey) Bytes() []byte
 ```
 
@@ -204,13 +204,13 @@ Bytes returns a copy of the encoding of the public key.
 
 #### (*PublicKey) Curve 
 
-```
+``` go
 func (k *PublicKey) Curve() Curve
 ```
 
 #### (*PublicKey) Equal 
 
-```
+``` go
 func (k *PublicKey) Equal(x crypto.PublicKey) bool
 ```
 

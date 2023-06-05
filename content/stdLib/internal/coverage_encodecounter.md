@@ -27,7 +27,7 @@ This section is empty.
 
 ### type CounterVisitor 
 
-```
+``` go
 type CounterVisitor interface {
 	NumFuncs() (int, error)
 	VisitFuncs(f CounterVisitorFn) error
@@ -38,7 +38,7 @@ CounterVisitor describes a helper object used during counter file writing; when 
 
 ### type CounterVisitorFn 
 
-```
+``` go
 type CounterVisitorFn func(pkid uint32, funcid uint32, counters []uint32) error
 ```
 
@@ -46,7 +46,7 @@ CounterVisitorFn describes a callback function invoked when writing coverage cou
 
 ### type CoverageDataWriter 
 
-```
+``` go
 type CoverageDataWriter struct {
 	// contains filtered or unexported fields
 }
@@ -54,13 +54,13 @@ type CoverageDataWriter struct {
 
 #### func NewCoverageDataWriter 
 
-```
+``` go
 func NewCoverageDataWriter(w io.Writer, flav coverage.CounterFlavor) *CoverageDataWriter
 ```
 
 #### (*CoverageDataWriter) AppendSegment 
 
-```
+``` go
 func (cfw *CoverageDataWriter) AppendSegment(args map[string]string, visitor CounterVisitor) error
 ```
 
@@ -68,7 +68,7 @@ AppendSegment appends a new segment to a counter data, with a new args section f
 
 #### (*CoverageDataWriter) Write 
 
-```
+``` go
 func (cfw *CoverageDataWriter) Write(metaFileHash [16]byte, args map[string]string, visitor CounterVisitor) error
 ```
 

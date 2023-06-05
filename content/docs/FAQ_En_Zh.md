@@ -820,7 +820,7 @@ The one exception is that any value, even a pointer to an interface, can be assi
 
 ### Should I define methods on values or pointers? 我应该在值或指针上定义方法？
 
-```
+``` go
 func (s *MyStruct) pointerMethod() { } // method on pointer
 func (s MyStruct)  valueMethod()   { } // method on value
 ```

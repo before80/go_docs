@@ -73,7 +73,7 @@ func (c *Cond) Broadcast()
 
 #### (*Cond) Signal
 
-```
+``` go
 func (c *Cond) Signal()
 ```
 

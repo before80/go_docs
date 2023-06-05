@@ -87,8 +87,28 @@ func (x *Index) Lookup(s []byte, n int) (result []int)
 
 Lookup returns an unsorted list of at most n indices where the byte string s occurs in the indexed data. If n < 0, all occurrences are returned. The result is nil if s is empty, s is not found, or n == 0. Lookup time is O(log(N)*len(s) + len(result)) where N is the size of the indexed data.
 
-##### Example
+##### Lookup Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"index/suffixarray"
+)
+
+func main() {
+	index := suffixarray.New([]byte("banana"))
+	offsets := index.Lookup([]byte("ana"), -1)
+	for _, off := range offsets {
+		fmt.Println(off)
+	}
+
+}
+
+Output:
+
+1
+3
 ```
 
 #### (*Index) Read 

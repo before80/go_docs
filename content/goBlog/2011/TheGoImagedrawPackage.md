@@ -52,7 +52,7 @@ The destination image must be mutable, so the image/draw package defines a [`dra
 
 目的图像必须是可变的，所以image/draw包定义了一个draw.Image接口，它有一个Set方法。
 
-```
+``` go
 type Image interface {
     image.Image
     Set(x, y int, c color.Color)

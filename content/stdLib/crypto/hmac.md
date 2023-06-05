@@ -43,7 +43,7 @@ This section is empty.
 
 #### func Equal  <- go1.1
 
-```
+``` go
 func Equal(mac1, mac2 []byte) bool
 ```
 
@@ -51,7 +51,7 @@ Equal compares two MACs for equality without leaking timing information.
 
 #### func New 
 
-```
+``` go
 func New(h func() hash.Hash, key []byte) hash.Hash
 ```
 

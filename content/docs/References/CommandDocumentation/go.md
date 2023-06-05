@@ -682,7 +682,7 @@ golang.org/x/net/html
 
 ​	`-f` 标志指定了列表的替代格式，使用包模板语法。默认输出相当于 `-f '{{.ImportPath}}'`。传递给模板的结构体是：
 
-```
+``` go
 type Package struct {
     Dir           string   // 包源文件所在的目录
     ImportPath    string   // 包在目录中的导入路径
@@ -758,7 +758,7 @@ type Package struct {
 
 ​	如果有错误信息，则为：
 
-```
+``` go
 type PackageError struct {
     ImportStack   []string // 从命令行命名的包到此包的最短路径
     Pos           string   // 错误的位置（如果存在，则为文件：行：列）
@@ -772,7 +772,7 @@ type PackageError struct {
 
 ​	模板函数"context"返回构建上下文，定义为：
 
-```
+``` go
 type Context struct {
     GOARCH        string   // 目标架构
     GOOS          string   // 目标操作系统
@@ -812,7 +812,7 @@ type Context struct {
 
 ​	当列出模块时，`-f`标志仍然指定应用于Go结构的格式模板，但现在是一个Module结构体：
 
-```
+``` go
 type Module struct {
     Path       string        // 模块路径
     Query      string        // 对应于此版本的版本查询
@@ -923,7 +923,7 @@ go mod download [-x] [-json] [-reuse=old.json] [modules]
 
 ​	使用 -json 标志将导致 download 向标准输出打印一系列 JSON 对象，描述每个已下载的模块（或失败），对应于此 Go 结构体：
 
-```
+``` go
 type Module struct {
     Path     string // 模块路径
     Query    string // 版本查询，对应于此版本
@@ -982,7 +982,7 @@ go mod edit [editing flags] [-fmt|-print|-json] [go.mod]
 
 ​	`-json` 标志以 JSON 格式打印最终的 go.mod 文件，而不是将其写回 go.mod。JSON 输出对应于这些 Go 类型：
 
-```
+``` go
 type Module struct {
 	Path    string
 	Version string
@@ -1229,7 +1229,7 @@ go work edit [editing flags] [go.work]
 
 ​	`-json` 标志以 JSON 格式打印最终的 go.work 文件，而不是将其写回 go.mod。JSON 输出对应于这些 Go 类型：
 
-```
+``` go
 type GoWork struct {
 	Go      string
 	Use     []Use
@@ -2230,7 +2230,7 @@ go 工具将验证 https://example.org/?go-get=1 是否包含相同的 meta 标�
 
 ​	如果一个包语句紧接着（在下一个换行符之前）有一个这两种形式之一的注释，那么它被称为"导入注释"：
 
-```
+``` go
 package math // import "path"
 package math /* import "path" */
 ```
@@ -2582,19 +2582,19 @@ pkg.test math
 
 ​	测试函数以 TestXxx 命名（其中 Xxx 不以小写字母开头），应该有如下签名：
 
-```
+``` go
 func TestXxx(t *testing.T) { ... }
 ```
 
 ​	基准测试函数以 BenchmarkXxx 命名，应该有如下签名：
 
-```
+``` go
 func BenchmarkXxx(b *testing.B) { ... }
 ```
 
 ​	模糊测试以 FuzzXxx 命名，应该有如下签名：
 
-```
+``` go
 func FuzzXxx(f *testing.F) { ... }
 ```
 
@@ -2604,7 +2604,7 @@ func FuzzXxx(f *testing.F) { ... }
 
 ​	下面是一个示例：
 
-```
+``` go
 func ExamplePrintln() {
 	Println("The output of\nthis example.")
 	// Output: The output of
@@ -2614,7 +2614,7 @@ func ExamplePrintln() {
 
 ​	下面是另一个示例，其中输出的顺序被忽略：
 
-```
+``` go
 func ExamplePerm() {
 	for _, value := range Perm(4) {
 		fmt.Println(value)

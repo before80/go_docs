@@ -14,24 +14,6 @@ https://pkg.go.dev/crypto/x509/pkix@go1.20.1
 
 Package pkix contains shared, low level structures used for ASN.1 parsing and serialization of X.509 certificates, CRL and OCSP.
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
 ## 常量 
 
 This section is empty.
@@ -48,7 +30,7 @@ This section is empty.
 
 ### type AlgorithmIdentifier 
 
-```
+``` go
 type AlgorithmIdentifier struct {
 	Algorithm  asn1.ObjectIdentifier
 	Parameters asn1.RawValue `asn1:"optional"`
@@ -59,7 +41,7 @@ AlgorithmIdentifier represents the ASN.1 structure of the same name. See [RFC 52
 
 ### type AttributeTypeAndValue 
 
-```
+``` go
 type AttributeTypeAndValue struct {
 	Type  asn1.ObjectIdentifier
 	Value any
@@ -70,7 +52,7 @@ AttributeTypeAndValue mirrors the ASN.1 structure of the same name in [RFC 5280,
 
 ### type AttributeTypeAndValueSET  <- go1.3
 
-```
+``` go
 type AttributeTypeAndValueSET struct {
 	Type  asn1.ObjectIdentifier
 	Value [][]AttributeTypeAndValue `asn1:"set"`
@@ -79,11 +61,11 @@ type AttributeTypeAndValueSET struct {
 
 AttributeTypeAndValueSET represents a set of ASN.1 sequences of AttributeTypeAndValue sequences from [RFC 2986](https://rfc-editor.org/rfc/rfc2986.html) (PKCS #10).
 
-#### type CertificateList <- DEPRECATED
+### type CertificateList <- DEPRECATED
 
 ### type Extension 
 
-```
+``` go
 type Extension struct {
 	Id       asn1.ObjectIdentifier
 	Critical bool `asn1:"optional"`
@@ -95,7 +77,7 @@ Extension represents the ASN.1 structure of the same name. See [RFC 5280, sectio
 
 ### type Name 
 
-```
+``` go
 type Name struct {
 	Country, Organization, OrganizationalUnit []string
 	Locality, Province                        []string
@@ -119,7 +101,7 @@ Name represents an X.509 distinguished name. This only includes the common eleme
 
 #### (*Name) FillFromRDNSequence 
 
-```
+``` go
 func (n *Name) FillFromRDNSequence(rdns *RDNSequence)
 ```
 
@@ -127,7 +109,7 @@ FillFromRDNSequence populates n from the provided RDNSequence. Multi-entry RDNs 
 
 #### (Name) String  <- go1.10
 
-```
+``` go
 func (n Name) String() string
 ```
 
@@ -135,7 +117,7 @@ String returns the string form of n, roughly following the [RFC 2253](https://rf
 
 #### (Name) ToRDNSequence 
 
-```
+``` go
 func (n Name) ToRDNSequence() (ret RDNSequence)
 ```
 
@@ -153,13 +135,13 @@ Each ExtraNames entry is encoded as an individual RDN.
 
 ### type RDNSequence 
 
-```
+``` go
 type RDNSequence []RelativeDistinguishedNameSET
 ```
 
 #### (RDNSequence) String  <- go1.10
 
-```
+``` go
 func (r RDNSequence) String() string
 ```
 
@@ -167,13 +149,13 @@ String returns a string representation of the sequence r, roughly following the 
 
 ### type RelativeDistinguishedNameSET 
 
-```
+``` go
 type RelativeDistinguishedNameSET []AttributeTypeAndValue
 ```
 
 ### type RevokedCertificate 
 
-```
+``` go
 type RevokedCertificate struct {
 	SerialNumber   *big.Int
 	RevocationTime time.Time

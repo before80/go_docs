@@ -66,7 +66,7 @@ Most functions that use a Context should accept it as their first parameter:
 
 大多数使用 Context 的函数都应该接受它作为其第一个参数：
 
-```
+``` go
 func F(ctx context.Context, /* other arguments */) {}
 ```
 
@@ -251,7 +251,7 @@ The import . form can be useful in tests that, due to circular dependencies, can
 
 import .形式在测试中很有用，由于循环依赖关系，不能成为被测试包的一部分。
 
-```
+``` go
 package foo_test
 
 import (
@@ -399,7 +399,7 @@ Do not define interfaces before they are used: without a realistic example of us
 
 不要在使用之前就定义接口：如果没有一个真实的使用例子，就很难看出一个接口是否有必要，更不用说它应该包含哪些方法。
 
-```
+``` go
 package consumer  // consumer.go
 
 type Thinger interface { Thing() bool }
@@ -426,7 +426,7 @@ Instead return a concrete type and let the consumer mock the producer implementa
 
 取而代之的是返回一个具体的类型，让消费者模拟生产者的实现。
 
-```
+``` go
 package producer
 
 type Thinger struct{ … }
@@ -469,7 +469,7 @@ Consider what it will look like in godoc. Named result parameters like:
 
 考虑一下在godoc中会是什么样子。命名的结果参数如：
 
-```
+``` go
 func (n *Node) Parent1() (node *Node) {}
 func (n *Node) Parent2() (node *Node, err error) {}
 ```
@@ -478,7 +478,7 @@ will be repetitive in godoc; better to use:
 
 在godoc中会有重复，最好使用：
 
-```
+``` go
 func (n *Node) Parent1() *Node {}
 func (n *Node) Parent2() (*Node, error) {}
 ```
@@ -487,7 +487,7 @@ On the other hand, if a function returns two or three parameters of the same typ
 
 另一方面，如果一个函数返回两个或三个相同类型的参数，或者一个结果的含义在上下文中并不明确，那么在某些情况下添加名称可能是有用的。不要为了避免在函数中声明一个var而对结果参数进行命名；这样做是以不必要的API的冗长为代价来换取一个小的实现的简洁性。
 
-```
+``` go
 func (f *Foo) Location() (float64, float64, error)
 ```
 
@@ -515,7 +515,7 @@ A `return` statement without arguments returns the named return values. This is 
 
 一个没有参数的返回语句会返回指定的返回值。这就是所谓的 "裸 "返回。
 
-```
+``` go
 func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
@@ -672,7 +672,7 @@ Another common technique to disambiguate failing tests when using a test helper 
 
 在使用不同输入的测试助手时，另一个常见的技术是用不同的TestFoo函数来包装每个调用者，从而使测试以该名称失败：
 
-```
+``` go
 func TestSingleValue(t *testing.T) { testHelper(t, []int{80}) }
 func TestNoValues(t *testing.T)    { testHelper(t, []int{}) }
 ```

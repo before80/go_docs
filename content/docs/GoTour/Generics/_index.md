@@ -15,7 +15,7 @@ draft = false
 
 ​	可以使用类型参数编写 Go 函数，以便对多种类型进行操作。一个函数的类型参数出现在括号中，在函数的参数之前。
 
-```
+``` go
 func Index[T comparable](s []T, x T) int
 ```
 

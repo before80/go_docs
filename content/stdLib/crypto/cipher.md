@@ -69,7 +69,7 @@ AEAD is a cipher mode providing authenticated encryption with associated data. F
 
 #### func NewGCM  <- go1.2
 
-```
+``` go
 func NewGCM(cipher Block) (AEAD, error)
 ```
 
@@ -172,7 +172,7 @@ Output:
 
 #### func NewGCMWithNonceSize  <- go1.5
 
-```
+``` go
 func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error)
 ```
 
@@ -182,7 +182,7 @@ Only use this function if you require compatibility with an existing cryptosyste
 
 #### func NewGCMWithTagSize  <- go1.11
 
-```
+``` go
 func NewGCMWithTagSize(cipher Block, tagSize int) (AEAD, error)
 ```
 
@@ -194,7 +194,7 @@ Only use this function if you require compatibility with an existing cryptosyste
 
 ### type Block 
 
-```
+``` go
 type Block interface {
 	// BlockSize returns the cipher's block size.
 	BlockSize() int
@@ -213,7 +213,7 @@ A Block represents an implementation of block cipher using a given key. It provi
 
 ### type BlockMode 
 
-```
+``` go
 type BlockMode interface {
 	// BlockSize returns the mode's block size.
 	BlockSize() int
@@ -237,7 +237,7 @@ A BlockMode represents a block cipher running in a block-based mode (CBC, ECB et
 
 #### func NewCBCDecrypter 
 
-```
+``` go
 func NewCBCDecrypter(b Block, iv []byte) BlockMode
 ```
 
@@ -305,7 +305,7 @@ exampleplaintext
 
 #### func NewCBCEncrypter 
 
-```
+``` go
 func NewCBCEncrypter(b Block, iv []byte) BlockMode
 ```
 
@@ -390,47 +390,249 @@ A Stream represents a stream cipher.
 
 #### func NewCFBDecrypter 
 
-```
+``` go
 func NewCFBDecrypter(block Block, iv []byte) Stream
 ```
 
 NewCFBDecrypter returns a Stream which decrypts with cipher feedback mode, using the given Block. The iv must be the same length as the Block's block size.
 
-##### Example
+##### NewCFBDecrypter Example
+
+```go
+package main
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	"encoding/hex"
+	"fmt"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+	ciphertext, _ := hex.DecodeString("7dd015f06bec7f1b8f6559dad89f4131da62261786845100056b353194ad")
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// The IV needs to be unique, but not secure. Therefore it's common to
+	// include it at the beginning of the ciphertext.
+	if len(ciphertext) < aes.BlockSize {
+		panic("ciphertext too short")
+	}
+	iv := ciphertext[:aes.BlockSize]
+	ciphertext = ciphertext[aes.BlockSize:]
+
+	stream := cipher.NewCFBDecrypter(block, iv)
+
+	// XORKeyStream can work in-place if the two arguments are the same.
+	stream.XORKeyStream(ciphertext, ciphertext)
+	fmt.Printf("%s", ciphertext)
+}
+Output:
+
+some plaintext
+```
+
+
 
 #### func NewCFBEncrypter 
 
-```
+``` go
 func NewCFBEncrypter(block Block, iv []byte) Stream
 ```
 
 NewCFBEncrypter returns a Stream which encrypts with cipher feedback mode, using the given Block. The iv must be the same length as the Block's block size.
 
-##### Example
+##### NewCFBEncrypter Example
+
+```go
+package main
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
+	"encoding/hex"
+	"fmt"
+	"io"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+	plaintext := []byte("some plaintext")
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// The IV needs to be unique, but not secure. Therefore it's common to
+	// include it at the beginning of the ciphertext.
+	ciphertext := make([]byte, aes.BlockSize+len(plaintext))
+	iv := ciphertext[:aes.BlockSize]
+	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
+		panic(err)
+	}
+
+	stream := cipher.NewCFBEncrypter(block, iv)
+	stream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)
+
+	// It's important to remember that ciphertexts must be authenticated
+	// (i.e. by using crypto/hmac) as well as being encrypted in order to
+	// be secure.
+	fmt.Printf("%x\n", ciphertext)
+}
+Output:
+```
+
+
 
 #### func NewCTR 
 
-```
+``` go
 func NewCTR(block Block, iv []byte) Stream
 ```
 
 NewCTR returns a Stream which encrypts/decrypts using the given Block in counter mode. The length of iv must be the same as the Block's block size.
 
-##### Example
+##### NewCTR Example
+
+```go
+package main
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
+	"encoding/hex"
+	"fmt"
+	"io"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+	plaintext := []byte("some plaintext")
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// The IV needs to be unique, but not secure. Therefore it's common to
+	// include it at the beginning of the ciphertext.
+	ciphertext := make([]byte, aes.BlockSize+len(plaintext))
+	iv := ciphertext[:aes.BlockSize]
+	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
+		panic(err)
+	}
+
+	stream := cipher.NewCTR(block, iv)
+	stream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)
+
+	// It's important to remember that ciphertexts must be authenticated
+	// (i.e. by using crypto/hmac) as well as being encrypted in order to
+	// be secure.
+
+	// CTR mode is the same for both encryption and decryption, so we can
+	// also decrypt that ciphertext with NewCTR.
+
+	plaintext2 := make([]byte, len(plaintext))
+	stream = cipher.NewCTR(block, iv)
+	stream.XORKeyStream(plaintext2, ciphertext[aes.BlockSize:])
+
+	fmt.Printf("%s\n", plaintext2)
+}
+Output:
+
+some plaintext
+```
+
+
 
 #### func NewOFB 
 
-```
+``` go
 func NewOFB(b Block, iv []byte) Stream
 ```
 
 NewOFB returns a Stream that encrypts or decrypts using the block cipher b in output feedback mode. The initialization vector iv's length must be equal to b's block size.
 
-##### Example
+##### NewOFB Example
+
+```go
+package main
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
+	"encoding/hex"
+	"fmt"
+	"io"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+	plaintext := []byte("some plaintext")
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// The IV needs to be unique, but not secure. Therefore it's common to
+	// include it at the beginning of the ciphertext.
+	ciphertext := make([]byte, aes.BlockSize+len(plaintext))
+	iv := ciphertext[:aes.BlockSize]
+	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
+		panic(err)
+	}
+
+	stream := cipher.NewOFB(block, iv)
+	stream.XORKeyStream(ciphertext[aes.BlockSize:], plaintext)
+
+	// It's important to remember that ciphertexts must be authenticated
+	// (i.e. by using crypto/hmac) as well as being encrypted in order to
+	// be secure.
+
+	// OFB mode is the same for both encryption and decryption, so we can
+	// also decrypt that ciphertext with NewOFB.
+
+	plaintext2 := make([]byte, len(plaintext))
+	stream = cipher.NewOFB(block, iv)
+	stream.XORKeyStream(plaintext2, ciphertext[aes.BlockSize:])
+
+	fmt.Printf("%s\n", plaintext2)
+}
+Output:
+
+some plaintext
+```
+
+
 
 ### type StreamReader 
 
-```
+``` go
 type StreamReader struct {
 	S Stream
 	R io.Reader
@@ -441,15 +643,66 @@ StreamReader wraps a Stream into an io.Reader. It calls XORKeyStream to process 
 
 ##### Example
 
+```go
+package main
+
+import (
+	"bytes"
+	"crypto/aes"
+	"crypto/cipher"
+	"encoding/hex"
+	"io"
+	"os"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+
+	encrypted, _ := hex.DecodeString("cf0495cc6f75dafc23948538e79904a9")
+	bReader := bytes.NewReader(encrypted)
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// If the key is unique for each ciphertext, then it's ok to use a zero
+	// IV.
+	var iv [aes.BlockSize]byte
+	stream := cipher.NewOFB(block, iv[:])
+
+	reader := &cipher.StreamReader{S: stream, R: bReader}
+	// Copy the input to the output stream, decrypting as we go.
+	if _, err := io.Copy(os.Stdout, reader); err != nil {
+		panic(err)
+	}
+
+	// Note that this example is simplistic in that it omits any
+	// authentication of the encrypted data. If you were actually to use
+	// StreamReader in this manner, an attacker could flip arbitrary bits in
+	// the output.
+
+}
+Output:
+
+some secret text
+```
+
+
+
 #### (StreamReader) Read 
 
-```
+``` go
 func (r StreamReader) Read(dst []byte) (n int, err error)
 ```
 
 ### type StreamWriter 
 
-```
+``` go
 type StreamWriter struct {
 	S   Stream
 	W   io.Writer
@@ -461,9 +714,62 @@ StreamWriter wraps a Stream into an io.Writer. It calls XORKeyStream to process 
 
 ##### Example
 
+```go
+package main
+
+import (
+	"bytes"
+	"crypto/aes"
+	"crypto/cipher"
+	"encoding/hex"
+	"fmt"
+	"io"
+)
+
+func main() {
+	// Load your secret key from a safe place and reuse it across multiple
+	// NewCipher calls. (Obviously don't use this example key for anything
+	// real.) If you want to convert a passphrase to a key, use a suitable
+	// package like bcrypt or scrypt.
+	key, _ := hex.DecodeString("6368616e676520746869732070617373")
+
+	bReader := bytes.NewReader([]byte("some secret text"))
+
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
+
+	// If the key is unique for each ciphertext, then it's ok to use a zero
+	// IV.
+	var iv [aes.BlockSize]byte
+	stream := cipher.NewOFB(block, iv[:])
+
+	var out bytes.Buffer
+
+	writer := &cipher.StreamWriter{S: stream, W: &out}
+	// Copy the input to the output buffer, encrypting as we go.
+	if _, err := io.Copy(writer, bReader); err != nil {
+		panic(err)
+	}
+
+	// Note that this example is simplistic in that it omits any
+	// authentication of the encrypted data. If you were actually to use
+	// StreamReader in this manner, an attacker could flip arbitrary bits in
+	// the decrypted result.
+
+	fmt.Printf("%x\n", out.Bytes())
+}
+Output:
+
+cf0495cc6f75dafc23948538e79904a9
+```
+
+
+
 #### (StreamWriter) Close 
 
-```
+``` go
 func (w StreamWriter) Close() error
 ```
 
@@ -471,6 +777,6 @@ Close closes the underlying Writer and returns its Close return value, if the Wr
 
 #### (StreamWriter) Write 
 
-```
+``` go
 func (w StreamWriter) Write(src []byte) (n int, err error)
 ```

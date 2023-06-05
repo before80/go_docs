@@ -23,7 +23,7 @@ This section is empty.
 
 ### type BatchCounterAlloc 
 
-```
+``` go
 type BatchCounterAlloc struct {
 	// contains filtered or unexported fields
 }
@@ -31,6 +31,6 @@ type BatchCounterAlloc struct {
 
 #### (*BatchCounterAlloc) AllocateCounters 
 
-```
+``` go
 func (ca *BatchCounterAlloc) AllocateCounters(n int) []uint32
 ```

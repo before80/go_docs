@@ -25,7 +25,7 @@ This section is empty.
 
 #### func SaturatingAdd 
 
-```
+``` go
 func SaturatingAdd(dst, src uint32) (uint32, bool)
 ```
 
@@ -35,7 +35,7 @@ Saturating add does a saturing addition of 'dst' and 'src', returning added valu
 
 ### type Merger 
 
-```
+``` go
 type Merger struct {
 	// contains filtered or unexported fields
 }
@@ -45,13 +45,13 @@ Merger provides state and methods to help manage the process of merging together
 
 #### (*Merger) Granularity 
 
-```
+``` go
 func (cm *Merger) Granularity() coverage.CounterGranularity
 ```
 
 #### (*Merger) MergeCounters 
 
-```
+``` go
 func (m *Merger) MergeCounters(dst, src []uint32) (error, bool)
 ```
 
@@ -59,19 +59,19 @@ MergeCounters takes the counter values in 'src' and merges them into 'dst' accor
 
 #### (*Merger) Mode 
 
-```
+``` go
 func (cm *Merger) Mode() coverage.CounterMode
 ```
 
 #### (*Merger) ResetModeAndGranularity 
 
-```
+``` go
 func (cm *Merger) ResetModeAndGranularity()
 ```
 
 #### (*Merger) SaturatingAdd 
 
-```
+``` go
 func (m *Merger) SaturatingAdd(dst, src uint32) uint32
 ```
 
@@ -79,7 +79,7 @@ Saturating add does a saturating addition of 'dst' and 'src', returning added va
 
 #### (*Merger) SetModeAndGranularity 
 
-```
+``` go
 func (cm *Merger) SetModeAndGranularity(mdf string, cmode coverage.CounterMode, cgran coverage.CounterGranularity) error
 ```
 

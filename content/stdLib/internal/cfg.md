@@ -14,7 +14,7 @@ Package cfg holds configuration shared by the Go command and internal/testenv. D
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/cfg/cfg.go;l=12)
 
-```
+``` go
 const KnownEnv = `` /* 639-byte string literal not displayed */
 ```
 

@@ -24,8 +24,8 @@ SourceFile       = PackageClause ";" { ImportDecl ";" } { TopLevelDecl ";" } .
 
 每个源文件的开头都有一个包子句，定义了该文件所属的包。
 
-```
-PackageClause  = "package" PackageName .
+``` go
+packageClause  = "package" PackageName .
 PackageName    = identifier .
 ```
 

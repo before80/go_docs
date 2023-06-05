@@ -25,7 +25,7 @@ Note that it does NOT provide access to the build configuration used to build th
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=42)
 
-```
+``` go
 const DefaultGOEXPERIMENT = defaultGOEXPERIMENT
 ```
 
@@ -77,7 +77,7 @@ Note: must agree with runtime.framepointer_enabled.
 
 #### func Check 
 
-```
+``` go
 func Check()
 ```
 
@@ -85,7 +85,7 @@ Check exits the program with a fatal error if Error is non-nil.
 
 #### func GOGOARCH  <- go1.20
 
-```
+``` go
 func GOGOARCH() (name, value string)
 ```
 
@@ -93,7 +93,7 @@ GOGOARCH returns the name and value of the GO$GOARCH setting. For example, if GO
 
 #### func Getgoextlinkenabled 
 
-```
+``` go
 func Getgoextlinkenabled() string
 ```
 
@@ -101,7 +101,7 @@ func Getgoextlinkenabled() string
 
 ### type ExperimentFlags  <- go1.19
 
-```
+``` go
 type ExperimentFlags struct {
 	goexperiment.Flags
 	// contains filtered or unexported fields
@@ -129,7 +129,7 @@ experimentBaseline specifies the experiment flags that are enabled by default in
 
 #### func ParseGOEXPERIMENT 
 
-```
+``` go
 func ParseGOEXPERIMENT(goos, goarch, goexp string) (*ExperimentFlags, error)
 ```
 
@@ -139,7 +139,7 @@ TODO(mdempsky): Move to internal/goexperiment.
 
 #### (*ExperimentFlags) All  <- go1.19
 
-```
+``` go
 func (exp *ExperimentFlags) All() []string
 ```
 
@@ -147,7 +147,7 @@ All returns a list of all experiment settings. Disabled experiments appear in th
 
 #### (*ExperimentFlags) Enabled  <- go1.19
 
-```
+``` go
 func (exp *ExperimentFlags) Enabled() []string
 ```
 
@@ -155,7 +155,7 @@ Enabled returns a list of enabled experiments, as lower-cased experiment names.
 
 #### (*ExperimentFlags) String  <- go1.19
 
-```
+``` go
 func (exp *ExperimentFlags) String() string
 ```
 

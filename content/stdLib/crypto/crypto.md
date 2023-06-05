@@ -10,25 +10,7 @@ draft = false
 
 https://pkg.go.dev/crypto@go1.20.1
 
-
-
 Package crypto collects common cryptographic constants.
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
 
 ## 常量 
 
@@ -42,7 +24,7 @@ This section is empty.
 
 #### func RegisterHash 
 
-```
+``` go
 func RegisterHash(h Hash, f func() hash.Hash)
 ```
 
@@ -52,7 +34,7 @@ RegisterHash registers a function that returns a new instance of the given hash 
 
 ### type Decrypter  <- go1.5
 
-```
+``` go
 type Decrypter interface {
 	// Public returns the public key corresponding to the opaque,
 	// private key.
@@ -69,19 +51,19 @@ Decrypter is an interface for an opaque private key that can be used for asymmet
 
 ### type DecrypterOpts  <- go1.5
 
-```
+``` go
 type DecrypterOpts any
 ```
 
 ### type Hash 
 
-```
+``` go
 type Hash uint
 ```
 
 Hash identifies a cryptographic hash function that is implemented in another package.
 
-```
+``` go
 const (
 	MD4         Hash = 1 + iota // import golang.org/x/crypto/md4
 	MD5                         // import crypto/md5
@@ -108,7 +90,7 @@ const (
 
 #### (Hash) Available 
 
-```
+``` go
 func (h Hash) Available() bool
 ```
 
@@ -116,7 +98,7 @@ Available reports whether the given hash function is linked into the binary.
 
 #### (Hash) HashFunc  <- go1.4
 
-```
+``` go
 func (h Hash) HashFunc() Hash
 ```
 
@@ -124,7 +106,7 @@ HashFunc simply returns the value of h so that Hash implements SignerOpts.
 
 #### (Hash) New 
 
-```
+``` go
 func (h Hash) New() hash.Hash
 ```
 
@@ -132,7 +114,7 @@ New returns a new hash.Hash calculating the given hash function. New panics if t
 
 #### (Hash) Size 
 
-```
+``` go
 func (h Hash) Size() int
 ```
 
@@ -140,13 +122,13 @@ Size returns the length, in bytes, of a digest resulting from the given hash fun
 
 #### (Hash) String  <- go1.15
 
-```
+``` go
 func (h Hash) String() string
 ```
 
 ### type PrivateKey 
 
-```
+``` go
 type PrivateKey any
 ```
 
@@ -165,7 +147,7 @@ as well as purpose-specific interfaces such as Signer and Decrypter, which can b
 
 ### type PublicKey  <- go1.2
 
-```
+``` go
 type PublicKey any
 ```
 
@@ -183,7 +165,7 @@ which can be used for increased type safety within applications.
 
 ### type Signer  <- go1.4
 
-```
+``` go
 type Signer interface {
 	// Public returns the public key corresponding to the opaque,
 	// private key.
@@ -210,7 +192,7 @@ Signer is an interface for an opaque private key that can be used for signing op
 
 ### type SignerOpts  <- go1.4
 
-```
+``` go
 type SignerOpts interface {
 	// HashFunc returns an identifier for the hash function used to produce
 	// the message passed to Signer.Sign, or else zero to indicate that no

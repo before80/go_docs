@@ -48,8 +48,8 @@ TopLevelDecl  = Declaration | FunctionDecl | MethodDecl .
 
 下列标识符是在[universe block](../Blocks)中隐式声明的：
 
-```
-Types:
+``` go
+types:
 	any bool byte comparable
 	complex64 complex128 error float32 float64
 	int int8 int16 int32 int64 rune string
@@ -83,8 +83,8 @@ Functions:
 
 ​	常量声明将一列标识符（常量的名称）与一列[常量表达式](../Expressions#constant-expressions-常量表达式)的值绑定。标识符的数量必须等于表达式的数量，左边的第n个标识符被绑定到右边的第n个表达式的值上。
 
-```
-ConstDecl      = "const" ( ConstSpec | "(" { ConstSpec ";" } ")" ) .
+``` go
+constDecl      = "const" ( ConstSpec | "(" { ConstSpec ";" } ")" ) .
 ConstSpec      = IdentifierList [ [ Type ] "=" ExpressionList ] .
 
 IdentifierList = identifier { "," identifier } .
@@ -168,8 +168,8 @@ const (
 
 ​	类型声明将一个标识符，即类型名称，与一个类型绑定。类型声明有两种形式：`别名声明`和`类型定义`。
 
-```
-TypeDecl = "type" ( TypeSpec | "(" { TypeSpec ";" } ")" ) .
+``` go
+typeDecl = "type" ( TypeSpec | "(" { TypeSpec ";" } ")" ) .
 TypeSpec = AliasDecl | TypeDef .
 ```
 
@@ -194,8 +194,8 @@ type (
 
 ​	类型定义创建了一个新的、不同的类型，其[底层类型](../Types)和操作与给定的类型相同，并将标识符，即类型名称绑定到它。
 
-```
-TypeDef = identifier [ TypeParameters ] Type .
+``` go
+typeDef = identifier [ TypeParameters ] Type .
 ```
 
 ​	这个新的类型被称为`已定义类型`。它与任何其他类型（包括它创建时使用的类型）不同。
@@ -301,8 +301,8 @@ func (l *List[T]) Len() int  { … }
 
 ​	类型参数列表`声明`了一个泛型函数或类型声明的类型参数。类型参数列表看起来和普通的函数参数列表一样，除了类型参数名称必须全部出现，并且列表被括在`方括号`中，而不是`花括号`中。
 
-```
-TypeParameters  = "[" TypeParamList [ "," ] "]" .
+``` go
+typeParameters  = "[" TypeParamList [ "," ] "]" .
 TypeParamList   = TypeParamDecl { "," TypeParamDecl } .
 TypeParamDecl   = IdentifierList TypeConstraint .
 ```
@@ -341,8 +341,8 @@ type T[P *C,] …
 
 ​	类型约束是一个[接口](../Types#interface-types-接口型)，该接口定义了对应的`类型参数`所允许的一组`类型实参`，并控制该类型参数的值所支持的操作。
 
-```
-TypeConstraint = TypeElem .
+``` go
+typeConstraint = TypeElem .
 ```
 
 ​	如果约束是一个形式为`interface{E}`的接口字面量，其中`E`是一个嵌入的类型元素（不是方法），在类型参数列表中，为了方便起见，可以省略参数列表中封闭的`interface{ … }`：
@@ -457,8 +457,8 @@ x, y, x := 1, 2, 3                        // illegal: x repeated on left side of
 
 函数声明将标识符（函数名称）绑定到函数。
 
-```
-FunctionDecl = "func" FunctionName [ TypeParameters ] Signature [ FunctionBody ] .
+``` go
+functionDecl = "func" FunctionName [ TypeParameters ] Signature [ FunctionBody ] .
 FunctionName = identifier .
 FunctionBody = Block .
 ```

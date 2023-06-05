@@ -28,7 +28,7 @@ This section is empty.
 
 ### type Formatter 
 
-```
+``` go
 type Formatter struct {
 	// contains filtered or unexported fields
 }
@@ -36,13 +36,13 @@ type Formatter struct {
 
 #### func NewFormatter 
 
-```
+``` go
 func NewFormatter(cm coverage.CounterMode) *Formatter
 ```
 
 #### (*Formatter) AddUnit 
 
-```
+``` go
 func (fm *Formatter) AddUnit(file string, fname string, isfnlit bool, unit coverage.CoverableUnit, count uint32)
 ```
 
@@ -50,7 +50,7 @@ AddUnit passes info on a single coverable unit (file, funcname, literal flag, ra
 
 #### (*Formatter) EmitFuncs 
 
-```
+``` go
 func (fm *Formatter) EmitFuncs(w io.Writer) error
 ```
 
@@ -58,7 +58,7 @@ EmitFuncs writes out a function-level summary to the writer 'w'. A note on handl
 
 #### (*Formatter) EmitPercent 
 
-```
+``` go
 func (fm *Formatter) EmitPercent(w io.Writer, covpkgs string, noteEmpty bool) error
 ```
 
@@ -66,7 +66,7 @@ EmitPercent writes out a "percentage covered" string to the writer 'w'.
 
 #### (*Formatter) EmitTextual 
 
-```
+``` go
 func (fm *Formatter) EmitTextual(w io.Writer) error
 ```
 
@@ -74,7 +74,7 @@ EmitTextual writes the accumulated coverage data in the legacy cmd/cover text fo
 
 #### (*Formatter) SetPackage 
 
-```
+``` go
 func (fm *Formatter) SetPackage(importpath string)
 ```
 

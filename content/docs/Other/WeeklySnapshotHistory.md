@@ -4352,8 +4352,8 @@ outstanding cgo issues were resolved.
 
 ## 2010-12-15
 
-```
-Package crypto/cipher has been started, to replace crypto/block.
+``` go
+package crypto/cipher has been started, to replace crypto/block.
 As part of the changes, rc4.Cipher's XORKeyStream method signature has changed from
         XORKeyStream(buf []byte)
 to

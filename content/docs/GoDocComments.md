@@ -111,7 +111,7 @@ The flags are:
 
 ​	类型的文档注释应该解释该类型的每个实例代表或提供什么。如果API很简单，文档注释可以非常简短。例如：
 
-```
+``` go
 package zip
 
 // A Reader serves content from a ZIP archive.
@@ -122,7 +122,7 @@ type Reader struct {
 
 ​	默认情况下，程序员应该期望一个类型在同一时间只被一个goroutine使用是安全的。如果类型提供了更强的保证，文档注释中应该说明。例如：
 
-```
+``` go
 package regexp
 
 // Regexp is the representation of a compiled regular expression.
@@ -135,7 +135,7 @@ type Regexp struct {
 
 ​	Go类型也应该致力于使零值有一个有用的意义。如果不是很明显，就应该把这个意义记录下来。例如：
 
-```
+``` go
 package bytes
 
 // A Buffer is a variable-sized buffer of bytes with Read and Write methods.
@@ -147,7 +147,7 @@ type Buffer struct {
 
 ​	对于有导出字段的结构体，文档注释或每个字段的注释应该解释每个导出字段的含义。例如，这个类型的 doc 注释解释了这些字段：
 
-```
+``` go
 package io
 
 // A LimitedReader reads from R but limits the amount of
@@ -162,7 +162,7 @@ type LimitedReader struct {
 
 ​	相比之下，这种类型的文档注释将解释留给了每个字段的注释：
 
-```
+``` go
 package comment
 
 // A Printer is a doc comment printer.
@@ -196,7 +196,7 @@ A func’s doc comment should explain what the function returns or, for function
 
 ​	func 的文档注释应该解释该函数返回什么，或者，对于为副作用而调用的函数，它做了什么。命名的参数或结果可以直接在注释中提及，而不需要任何特殊的语法，如反引号。(这个惯例的后果是，像a这样的名字，可能会被误认为是普通的单词，通常要避免。) 例如：
 
-```
+``` go
 package strconv
 
 // Quote returns a double-quoted Go string literal representing s.
@@ -209,7 +209,7 @@ func Quote(s string) string {
 
 和：
 
-```
+``` go
 package os
 
 // Exit causes the current program to exit with the given status code.
@@ -226,7 +226,7 @@ If a doc comment needs to explain multiple results, naming the results can make 
 
 如果一个文档注释需要解释多个结果，给结果命名可以使文档注释更容易理解，即使这些名字没有在函数的主体中使用。例如
 
-```
+``` go
 package io
 
 // Copy copies from src to dst until either EOF is reached
@@ -283,7 +283,7 @@ On the other hand, as noted in the previous section, using an instance of a type
 
 另一方面，正如上一节所指出的，以任何方式使用一个类型的实例，包括调用一个方法，通常都被假定为一次只能使用一个goroutine。如果对并发使用安全的方法没有记录在类型的文档注释中，它们应该被记录在每个方法的注释中。例如：
 
-```
+``` go
 package sql
 
 // Close returns the connection to the connection pool.
@@ -300,7 +300,7 @@ Note that func and method doc comments focus on what the operation returns or do
 
 请注意，func和方法的文档注释集中在操作返回或做什么，详细说明调用者需要知道什么。特殊情况下的文档可能特别重要。例如：
 
-```
+``` go
 package math
 
 // Sqrt returns the square root of x.
@@ -320,7 +320,7 @@ Doc comments should not explain internal details such as the algorithm used in t
 
 文件注释不应该解释内部细节，如当前实现中使用的算法。这些最好留给函数正文中的注释。当这个细节对调用者特别重要时，给出渐近的时间或空间界限可能是合适的。例如：
 
-```
+``` go
 package sort
 
 // Sort sorts data in ascending order as determined by the Less method.
@@ -341,7 +341,7 @@ Go’s declaration syntax allows grouping of declarations, in which case a singl
 
 Go 的声明语法允许对声明进行分组，在这种情况下，一个文档注释可以介绍一组相关的常量，单个常量仅由简短的行末注释记录。例如：
 
-```
+``` go
 package scanner // import "text/scanner"
 
 // The result of Scan is one of these tokens or a Unicode character.
@@ -359,7 +359,7 @@ Sometimes the group needs no doc comment at all. For example:
 
 有时该组根本不需要文档注释。例如：
 
-```
+``` go
 package unicode // import "unicode"
 
 const (
@@ -374,7 +374,7 @@ On the other hand, ungrouped constants typically warrant a full doc comment star
 
 另一方面，未分组的常数通常需要一个完整的文档注释，以一个完整的句子开始。例如：
 
-```
+``` go
 package unicode
 
 // Version is the Unicode edition from which the tables are derived.
@@ -385,7 +385,7 @@ Typed constants are displayed next to the declaration of their type and as a res
 
 类型化的常量被显示在其类型声明的旁边，因此常常省略常量组的文档注释，而选择类型的文档注释。例如：
 
-```
+``` go
 package syntax
 
 // An Op is a single regular expression operator.
@@ -411,7 +411,7 @@ The conventions for variables are the same as those for constants. For example, 
 
 变量的约定与常量的约定相同。例如，这里有一组分组的变量：
 
-```
+``` go
 package fs
 
 // Generic file system errors.
@@ -430,7 +430,7 @@ And a single variable:
 
 还有一个单一的变量：
 
-```
+``` go
 package unicode
 
 // Scripts is the set of Unicode script tables.
@@ -458,7 +458,7 @@ Directive comments such as `//go:generate` are not considered part of a doc comm
 
 指令性注释，如//go:generate，不被视为文档注释的一部分，在渲染的文档中被省略。Gofmt 将指令性注释移到文档注释的末尾，前面加一个空行。例如：
 
-```
+``` go
 package regexp
 
 // An Op is a single regular expression operator.
@@ -586,7 +586,7 @@ For example:
 
 例如：
 
-```
+``` go
 package bytes
 
 // ReadFrom reads data from r until EOF and appends it to the buffer, growing
@@ -628,7 +628,7 @@ For example:
 
 例如：
 
-```
+``` go
 package url
 
 // PublicSuffixList provides the public suffix of a domain. For example:
@@ -658,7 +658,7 @@ For example:
 
 例如：
 
-```
+``` go
 package path
 
 // Clean returns the shortest path name equivalent to path
@@ -711,7 +711,7 @@ Code blocks often contain Go code. For example:
 
 代码块通常包含Go代码。例如：
 
-```
+``` go
 package sort
 
 // Search uses binary search...
@@ -737,7 +737,7 @@ Of course, code blocks also often contain preformatted text besides code. For ex
 
 当然，除了代码之外，代码块还经常包含预格式化的文本。例如：
 
-```
+``` go
 package path
 
 // Match reports whether name matches the shell pattern.
@@ -780,7 +780,7 @@ For example, this unindented list has always been interpreted by godoc as a thre
 
 例如，这个没有缩进的列表一直被godoc解释为一个三行的段落，后面是一个单行的代码块：
 
-```
+``` go
 package http
 
 // cancelTimerBody is an io.ReadCloser that wraps rc with two features:
@@ -808,7 +808,7 @@ Similarly, the command in this comment is a one-line paragraph followed by a one
 
 类似地，本注释中的命令是一个单行段落，后面是一个单行代码块：
 
-```
+``` go
 package smtp
 
 // localhostCert is a PEM-encoded TLS cert generated from src/crypto/tls:

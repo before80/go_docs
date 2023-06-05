@@ -166,7 +166,7 @@ BenchmarkEncode/text=digits/level=best/size=1e6-8    	       1	 137962041 ns/op	
 
 Using sub-benchmarks has benefits beyond this proposal, namely that it would avoid the current repetitive code:
 
-```
+``` go
 func BenchmarkDecodeDigitsSpeed1e4(b *testing.B)    { benchmarkDecode(b, digits, speed, 1e4) }
 func BenchmarkDecodeDigitsSpeed1e5(b *testing.B)    { benchmarkDecode(b, digits, speed, 1e5) }
 func BenchmarkDecodeDigitsSpeed1e6(b *testing.B)    { benchmarkDecode(b, digits, speed, 1e6) }

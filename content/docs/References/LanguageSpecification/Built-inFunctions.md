@@ -246,8 +246,8 @@ func protect(g func()) {
 
 ​	目前的实现提供了几个在引导（bootstrapping）过程中有用的内置函数。为了完整起见，这些函数被记录下来，但不保证会留在语言中。它们并不返回结果。
 
-```
-Function   Behavior
+``` go
+function   Behavior
 
 print      prints all arguments; formatting of arguments is implementation-specific => 打印所有实参；实参的格式化和实现有关
 println    like print but prints spaces between arguments and a newline at the end => 和 print 类似，但是会在每个实参间打印空格，在结尾打印新行

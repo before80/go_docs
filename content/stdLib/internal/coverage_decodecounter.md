@@ -31,7 +31,7 @@ This section is empty.
 
 ### type CounterDataReader 
 
-```
+``` go
 type CounterDataReader struct {
 	// contains filtered or unexported fields
 }
@@ -39,13 +39,13 @@ type CounterDataReader struct {
 
 #### func NewCounterDataReader 
 
-```
+``` go
 func NewCounterDataReader(fn string, rs io.ReadSeeker) (*CounterDataReader, error)
 ```
 
 #### (*CounterDataReader) BeginNextSegment 
 
-```
+``` go
 func (cdr *CounterDataReader) BeginNextSegment() (bool, error)
 ```
 
@@ -53,7 +53,7 @@ BeginNextSegment sets up the the reader to read the next segment, returning TRUE
 
 #### (*CounterDataReader) Goarch 
 
-```
+``` go
 func (cdr *CounterDataReader) Goarch() string
 ```
 
@@ -61,7 +61,7 @@ Goarch returns the GOARCH setting in effect for the "-cover" binary that produce
 
 #### (*CounterDataReader) Goos 
 
-```
+``` go
 func (cdr *CounterDataReader) Goos() string
 ```
 
@@ -69,7 +69,7 @@ Goos returns the GOOS setting in effect for the "-cover" binary that produced th
 
 #### (*CounterDataReader) NextFunc 
 
-```
+``` go
 func (cdr *CounterDataReader) NextFunc(p *FuncPayload) (bool, error)
 ```
 
@@ -77,7 +77,7 @@ NextFunc reads data for the next function in this current segment into "p", retu
 
 #### (*CounterDataReader) NumFunctionsInSegment 
 
-```
+``` go
 func (cdr *CounterDataReader) NumFunctionsInSegment() uint32
 ```
 
@@ -85,7 +85,7 @@ NumFunctionsInSegment returns the number of live functions in the currently sele
 
 #### (*CounterDataReader) NumSegments 
 
-```
+``` go
 func (cdr *CounterDataReader) NumSegments() uint32
 ```
 
@@ -93,7 +93,7 @@ NumSegments returns the number of execution segments in the file.
 
 #### (*CounterDataReader) OsArgs 
 
-```
+``` go
 func (cdr *CounterDataReader) OsArgs() []string
 ```
 
@@ -101,7 +101,7 @@ OsArgs returns the program arguments (saved from os.Args during the run of the i
 
 ### type FuncPayload 
 
-```
+``` go
 type FuncPayload struct {
 	PkgIdx   uint32
 	FuncIdx  uint32

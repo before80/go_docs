@@ -19,12 +19,6 @@ RC4 is cryptographically broken and should not be used for secure applications.
 
 
 
-
-
-
-
-
-
 ## 常量 
 
 This section is empty.
@@ -41,7 +35,7 @@ This section is empty.
 
 ### type Cipher 
 
-```
+``` go
 type Cipher struct {
 	// contains filtered or unexported fields
 }
@@ -51,7 +45,7 @@ A Cipher is an instance of RC4 using a particular key.
 
 #### func NewCipher 
 
-```
+``` go
 func NewCipher(key []byte) (*Cipher, error)
 ```
 
@@ -61,7 +55,7 @@ NewCipher creates and returns a new Cipher. The key argument should be the RC4 k
 
 #### (*Cipher) XORKeyStream 
 
-```
+``` go
 func (c *Cipher) XORKeyStream(dst, src []byte)
 ```
 
@@ -69,12 +63,12 @@ XORKeyStream sets dst to the result of XORing src with the key stream. Dst and s
 
 ### type KeySizeError 
 
-```
+``` go
 type KeySizeError int
 ```
 
 #### (KeySizeError) Error 
 
-```
+``` go
 func (k KeySizeError) Error() string
 ```

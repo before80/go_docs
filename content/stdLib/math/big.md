@@ -90,16 +90,177 @@ Various methods support conversions between strings and corresponding numeric va
 
 Finally, *Int, *Rat, and *Float satisfy the fmt package's Scanner interface for scanning and (except for *Rat) the Formatter interface for formatted printing.
 
-##### Example
+## Example (EConvergents)
+
+This example demonstrates how to use big.Rat to compute the first 15 terms in the sequence of rational convergents for the constant e (base of natural logarithm).
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+// Use the classic continued fraction for e
+//
+//	e = [1; 0, 1, 1, 2, 1, 1, ... 2n, 1, 1, ...]
+//
+// i.e., for the nth term, use
+//
+//	   1          if   n mod 3 != 1
+//	(n-1)/3 * 2   if   n mod 3 == 1
+func recur(n, lim int64) *big.Rat {
+	term := new(big.Rat)
+	if n%3 != 1 {
+		term.SetInt64(1)
+	} else {
+		term.SetInt64((n - 1) / 3 * 2)
+	}
+
+	if n > lim {
+		return term
+	}
+
+	// Directly initialize frac as the fractional
+	// inverse of the result of recur.
+	frac := new(big.Rat).Inv(recur(n+1, lim))
+
+	return term.Add(term, frac)
+}
+
+// This example demonstrates how to use big.Rat to compute the
+// first 15 terms in the sequence of rational convergents for
+// the constant e (base of natural logarithm).
+func main() {
+	for i := 1; i <= 15; i++ {
+		r := recur(0, int64(i))
+
+		// Print r both as a fraction and as a floating-point number.
+		// Since big.Rat implements fmt.Formatter, we can use %-13s to
+		// get a left-aligned string representation of the fraction.
+		fmt.Printf("%-13s = %s\n", r, r.FloatString(8))
+	}
+
+}
+Output:
+
+2/1           = 2.00000000
+3/1           = 3.00000000
+8/3           = 2.66666667
+11/4          = 2.75000000
+19/7          = 2.71428571
+87/32         = 2.71875000
+106/39        = 2.71794872
+193/71        = 2.71830986
+1264/465      = 2.71827957
+1457/536      = 2.71828358
+2721/1001     = 2.71828172
+23225/8544    = 2.71828184
+25946/9545    = 2.71828182
+49171/18089   = 2.71828183
+517656/190435 = 2.71828183
 ```
 
-##### Example
+## Example (Fibonacci)
+
+This example demonstrates how to use big.Int to compute the smallest Fibonacci number with 100 decimal digits and to test whether it is prime.
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	// Initialize two big ints with the first two numbers in the sequence.
+	a := big.NewInt(0)
+	b := big.NewInt(1)
+
+	// Initialize limit as 10^99, the smallest integer with 100 digits.
+	var limit big.Int
+	limit.Exp(big.NewInt(10), big.NewInt(99), nil)
+
+	// Loop while a is smaller than 1e100.
+	for a.Cmp(&limit) < 0 {
+		// Compute the next Fibonacci number, storing it in a.
+		a.Add(a, b)
+		// Swap a and b so that b is the next number in the sequence.
+		a, b = b, a
+	}
+	fmt.Println(a) // 100-digit Fibonacci number
+
+	// Test a for primality.
+	// (ProbablyPrimes' argument sets the number of Miller-Rabin
+	// rounds to be performed. 20 is a good value.)
+	fmt.Println(a.ProbablyPrime(20))
+
+}
+Output:
+
+1344719667586153181419716641724567886890850696275767987106294472017884974410332069524504824747437757
+false
 ```
 
-##### Example
+## Example (Sqrt2)
+
+This example shows how to use big.Float to compute the square root of 2 with a precision of 200 bits, and how to print the result as a decimal number.
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/big"
+)
+
+func main() {
+	// We'll do computations with 200 bits of precision in the mantissa.
+	const prec = 200
+
+	// Compute the square root of 2 using Newton's Method. We start with
+	// an initial estimate for sqrt(2), and then iterate:
+	//     x_{n+1} = 1/2 * ( x_n + (2.0 / x_n) )
+
+	// Since Newton's Method doubles the number of correct digits at each
+	// iteration, we need at least log_2(prec) steps.
+	steps := int(math.Log2(prec))
+
+	// Initialize values we need for the computation.
+	two := new(big.Float).SetPrec(prec).SetInt64(2)
+	half := new(big.Float).SetPrec(prec).SetFloat64(0.5)
+
+	// Use 1 as the initial estimate.
+	x := new(big.Float).SetPrec(prec).SetInt64(1)
+
+	// We use t as a temporary variable. There's no need to set its precision
+	// since big.Float values with unset (== 0) precision automatically assume
+	// the largest precision of the arguments when used as the result (receiver)
+	// of a big.Float operation.
+	t := new(big.Float)
+
+	// Iterate.
+	for i := 0; i <= steps; i++ {
+		t.Quo(two, x)  // t = 2.0 / x_n
+		t.Add(x, t)    // t = x_n + (2.0 / x_n)
+		x.Mul(half, t) // x_{n+1} = 0.5 * t
+	}
+
+	// We can use the usual fmt.Printf verbs since big.Float implements fmt.Formatter
+	fmt.Printf("sqrt(2) = %.50f\n", x)
+
+	// Print the error between 2 and x*x.
+	t.Mul(x, x) // t = x*x
+	fmt.Printf("error = %e\n", t.Sub(two, t))
+
+}
+Output:
+
+sqrt(2) = 1.41421356237309504880168872420969807856967187537695
+error = 0.000000e+00
 ```
 
 
@@ -226,8 +387,37 @@ The zero (uninitialized) value for a Float is ready to use and represents the nu
 
 Operations always take pointer arguments (*Float) rather than Float values, and each unique Float value requires its own unique *Float pointer. To "copy" a Float value, an existing (or newly allocated) Float must be set to a new value using the Float.Set method; shallow copies of Floats are not supported and may lead to errors.
 
-##### Example
+##### Example (Shift)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	// Implement Float "shift" by modifying the (binary) exponents directly.
+	for s := -5; s <= 5; s++ {
+		x := big.NewFloat(0.5)
+		x.SetMantExp(x, x.MantExp(nil)+s) // shift x by s
+		fmt.Println(x)
+	}
+}
+
+Output:
+
+0.015625
+0.03125
+0.0625
+0.125
+0.25
+0.5
+1
+2
+4
+8
+16
 ```
 
 #### func NewFloat  <- go1.5
@@ -270,8 +460,32 @@ func (z *Float) Add(x, y *Float) *Float
 
 Add sets z to the rounded sum x+y and returns z. If z's precision is 0, it is changed to the larger of x's or y's precision before the operation. Rounding is performed according to z's precision and rounding mode; and z's accuracy reports the result error relative to the exact (not rounded) result. Add panics with ErrNaN if x and y are infinities with opposite signs. The value of z is undefined in that case.
 
-##### Example
+##### Add Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	// Operate on numbers of different precision.
+	var x, y, z big.Float
+	x.SetInt64(1000)          // x is automatically set to 64bit precision
+	y.SetFloat64(2.718281828) // y is automatically set to 53bit precision
+	z.SetPrec(32)
+	z.Add(&x, &y)
+	fmt.Printf("x = %.10g (%s, prec = %d, acc = %s)\n", &x, x.Text('p', 0), x.Prec(), x.Acc())
+	fmt.Printf("y = %.10g (%s, prec = %d, acc = %s)\n", &y, y.Text('p', 0), y.Prec(), y.Acc())
+	fmt.Printf("z = %.10g (%s, prec = %d, acc = %s)\n", &z, z.Text('p', 0), z.Prec(), z.Acc())
+}
+
+Output:
+
+x = 1000 (0x.fap+10, prec = 64, acc = Exact)
+y = 2.718281828 (0x.adf85458248cd8p+2, prec = 53, acc = Exact)
+z = 1002.718282 (0x.faadf854p+10, prec = 32, acc = Below)
 ```
 
 #### (*Float) Append  <- go1.5
@@ -296,8 +510,79 @@ Cmp compares x and y and returns:
 +1 if x >  y
 ```
 
-##### Example
+##### Cmp Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/big"
+)
+
+func main() {
+	inf := math.Inf(1)
+	zero := 0.0
+
+	operands := []float64{-inf, -1.2, -zero, 0, +1.2, +inf}
+
+	fmt.Println("   x     y  cmp")
+	fmt.Println("---------------")
+	for _, x64 := range operands {
+		x := big.NewFloat(x64)
+		for _, y64 := range operands {
+			y := big.NewFloat(y64)
+			fmt.Printf("%4g  %4g  %3d\n", x, y, x.Cmp(y))
+		}
+		fmt.Println()
+	}
+
+}
+Output:
+
+   x     y  cmp
+---------------
+-Inf  -Inf    0
+-Inf  -1.2   -1
+-Inf    -0   -1
+-Inf     0   -1
+-Inf   1.2   -1
+-Inf  +Inf   -1
+
+-1.2  -Inf    1
+-1.2  -1.2    0
+-1.2    -0   -1
+-1.2     0   -1
+-1.2   1.2   -1
+-1.2  +Inf   -1
+
+  -0  -Inf    1
+  -0  -1.2    1
+  -0    -0    0
+  -0     0    0
+  -0   1.2   -1
+  -0  +Inf   -1
+
+   0  -Inf    1
+   0  -1.2    1
+   0    -0    0
+   0     0    0
+   0   1.2   -1
+   0  +Inf   -1
+
+ 1.2  -Inf    1
+ 1.2  -1.2    1
+ 1.2    -0    1
+ 1.2     0    1
+ 1.2   1.2    0
+ 1.2  +Inf   -1
+
++Inf  -Inf    1
++Inf  -1.2    1
++Inf    -0    1
++Inf     0    1
++Inf   1.2    1
++Inf  +Inf    0
 ```
 
 #### (*Float) Copy  <- go1.5
@@ -501,8 +786,30 @@ func (z *Float) Scan(s fmt.ScanState, ch rune) error
 
 Scan is a support routine for fmt.Scanner; it sets z to the value of the scanned number. It accepts formats whose verbs are supported by fmt.Scan for floating point values, which are: 'b' (binary), 'e', 'E', 'f', 'F', 'g' and 'G'. Scan doesn't handle ±Inf.
 
-##### Example
+##### Scan Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"math/big"
+)
+
+func main() {
+	// The Scan function is rarely used directly;
+	// the fmt package recognizes it as an implementation of fmt.Scanner.
+	f := new(big.Float)
+	_, err := fmt.Sscan("1.19282e99", f)
+	if err != nil {
+		log.Println("error scanning value:", err)
+	} else {
+		fmt.Println(f)
+	}
+}
+Output:
+
+1.19282e+99
 ```
 
 #### (*Float) Set  <- go1.5
@@ -599,8 +906,23 @@ func (z *Float) SetString(s string) (*Float, bool)
 
 SetString sets z to the value of s and returns z and a boolean indicating success. s must be a floating-point number of the same format as accepted by Parse, with base argument 0. The entire string (not just a prefix) must be valid for success. If the operation failed, the value of z is undefined but the returned value is nil.
 
-##### Example
+##### SetString Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	f := new(big.Float)
+	f.SetString("3.14159")
+	fmt.Println(f)
+}
+Output:
+
+3.14159
 ```
 
 #### (*Float) SetUint64  <- go1.5
@@ -1170,8 +1492,23 @@ For bases <= 36, lower and upper case letters are considered the same: The lette
 
 For base 0, an underscore character "_" may appear between a base prefix and an adjacent digit, and between successive digits; such underscores do not change the value of the number. Incorrect placement of underscores is reported as an error if there are no other errors. If base != 0, underscores are not recognized and act like any other character that is not a valid digit.
 
-##### Example
+##### SetString Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	i := new(big.Int)
+	i.SetString("644", 8) // octal
+	fmt.Println(i)
+}
+Output:
+
+420
 ```
 
 #### (*Int) SetUint64  <- go1.1
@@ -1438,8 +1775,30 @@ func (z *Rat) Scan(s fmt.ScanState, ch rune) error
 
 Scan is a support routine for fmt.Scanner. It accepts the formats 'e', 'E', 'f', 'F', 'g', 'G', and 'v'. All formats are equivalent.
 
-##### Example
+##### Scan Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"math/big"
+)
+
+func main() {
+	// The Scan function is rarely used directly;
+	// the fmt package recognizes it as an implementation of fmt.Scanner.
+	r := new(big.Rat)
+	_, err := fmt.Sscan("1.5000", r)
+	if err != nil {
+		log.Println("error scanning value:", err)
+	} else {
+		fmt.Println(r)
+	}
+}
+Output:
+
+3/2
 ```
 
 #### (*Rat) Set 
@@ -1498,8 +1857,24 @@ func (z *Rat) SetString(s string) (*Rat, bool)
 
 SetString sets z to the value of s and returns z and a boolean indicating success. s can be given as a (possibly signed) fraction "a/b", or as a floating-point number optionally followed by an exponent. If a fraction is provided, both the dividend and the divisor may be a decimal integer or independently use a prefix of "0b", "0" or "0o", or "0x" (or their upper-case variants) to denote a binary, octal, or hexadecimal integer, respectively. The divisor may not be signed. If a floating-point number is provided, it may be in decimal form or use any of the same prefixes as above but for "0" to denote a non-decimal mantissa. A leading "0" is considered a decimal leading 0; it does not indicate octal representation in this case. An optional base-10 "e" or base-2 "p" (or their upper-case variants) exponent may be provided as well, except for hexadecimal floats which only accept an (optional) "p" exponent (because an "e" or "E" cannot be distinguished from a mantissa digit). If the exponent's absolute value is too large, the operation may fail. The entire string, not just a prefix, must be valid for success. If the operation failed, the value of z is undefined but the returned value is nil.
 
-##### Example
+##### SetString Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	r := new(big.Rat)
+	r.SetString("355/113")
+	fmt.Println(r.FloatString(3))
+}
+
+Output:
+
+3.142
 ```
 
 #### (*Rat) SetUint64  <- go1.13
@@ -1558,6 +1933,44 @@ RoundingMode determines how a Float value is rounded to the desired precision. R
 
 ##### Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/big"
+)
+
+func main() {
+	operands := []float64{2.6, 2.5, 2.1, -2.1, -2.5, -2.6}
+
+	fmt.Print("   x")
+	for mode := big.ToNearestEven; mode <= big.ToPositiveInf; mode++ {
+		fmt.Printf("  %s", mode)
+	}
+	fmt.Println()
+
+	for _, f64 := range operands {
+		fmt.Printf("%4g", f64)
+		for mode := big.ToNearestEven; mode <= big.ToPositiveInf; mode++ {
+			// sample operands above require 2 bits to represent mantissa
+			// set binary precision to 2 to round them to integer values
+			f := new(big.Float).SetPrec(2).SetMode(mode).SetFloat64(f64)
+			fmt.Printf("  %*g", len(mode.String()), f)
+		}
+		fmt.Println()
+	}
+
+}
+
+Output:
+
+   x  ToNearestEven  ToNearestAway  ToZero  AwayFromZero  ToNegativeInf  ToPositiveInf
+ 2.6              3              3       2             3              2              3
+ 2.5              2              3       2             3              2              3
+ 2.1              2              2       2             3              2              3
+-2.1             -2             -2      -2            -3             -3             -2
+-2.5             -2             -3      -2            -3             -3             -2
+-2.6             -3             -3      -2            -3             -3             -2
 ```
 
 ``` go 

@@ -69,7 +69,7 @@ This section is empty.
 
 ### type Demangler 
 
-```
+``` go
 type Demangler func(name []string) (map[string]string, error)
 ```
 
@@ -77,7 +77,7 @@ Demangler maps symbol names to a human-readable form. This may include C++ deman
 
 ### type Function 
 
-```
+``` go
 type Function struct {
 	ID         uint64
 	Name       string
@@ -92,7 +92,7 @@ Function corresponds to Profile.Function
 
 ### type Label 
 
-```
+``` go
 type Label struct {
 	// contains filtered or unexported fields
 }
@@ -102,7 +102,7 @@ Label corresponds to Profile.Label
 
 ### type Line 
 
-```
+``` go
 type Line struct {
 	Function *Function
 	Line     int64
@@ -114,7 +114,7 @@ Line corresponds to Profile.Line
 
 ### type Location 
 
-```
+``` go
 type Location struct {
 	ID       uint64
 	Mapping  *Mapping
@@ -129,7 +129,7 @@ Location corresponds to Profile.Location
 
 ### type Mapping 
 
-```
+``` go
 type Mapping struct {
 	ID              uint64
 	Start           uint64
@@ -149,7 +149,7 @@ Mapping corresponds to Profile.Mapping
 
 ### type Profile 
 
-```
+``` go
 type Profile struct {
 	SampleType        []*ValueType
 	DefaultSampleType string
@@ -174,7 +174,7 @@ Profile is an in-memory representation of profile.proto.
 
 #### func Merge 
 
-```
+``` go
 func Merge(srcs []*Profile) (*Profile, error)
 ```
 
@@ -182,7 +182,7 @@ Merge merges all the profiles in profs into a single Profile. Returns a new prof
 
 #### func Parse 
 
-```
+``` go
 func Parse(r io.Reader) (*Profile, error)
 ```
 
@@ -190,7 +190,7 @@ Parse parses a profile and checks for its validity. The input may be a gzip-comp
 
 #### func ParseTracebacks 
 
-```
+``` go
 func ParseTracebacks(b []byte) (*Profile, error)
 ```
 
@@ -198,7 +198,7 @@ ParseTracebacks parses a set of tracebacks and returns a newly populated profile
 
 #### (*Profile) Aggregate 
 
-```
+``` go
 func (p *Profile) Aggregate(inlineFrame, function, filename, linenumber, address bool) error
 ```
 
@@ -206,7 +206,7 @@ Aggregate merges the locations in the profile into equivalence classes preservin
 
 #### (*Profile) CheckValid 
 
-```
+``` go
 func (p *Profile) CheckValid() error
 ```
 
@@ -217,7 +217,7 @@ CheckValid tests whether the profile is valid. Checks include, but are not limit
 
 #### (*Profile) Compatible 
 
-```
+``` go
 func (p *Profile) Compatible(pb *Profile) error
 ```
 
@@ -225,7 +225,7 @@ Compatible determines if two profiles can be compared/merged. returns nil if the
 
 #### (*Profile) Copy 
 
-```
+``` go
 func (p *Profile) Copy() *Profile
 ```
 
@@ -233,7 +233,7 @@ Copy makes a fully independent copy of a profile.
 
 #### (*Profile) Demangle 
 
-```
+``` go
 func (p *Profile) Demangle(d Demangler) error
 ```
 
@@ -241,7 +241,7 @@ Demangle attempts to demangle and optionally simplify any function names referen
 
 #### (*Profile) Empty 
 
-```
+``` go
 func (p *Profile) Empty() bool
 ```
 
@@ -249,7 +249,7 @@ Empty reports whether the profile contains no samples.
 
 #### (*Profile) FilterSamplesByName 
 
-```
+``` go
 func (p *Profile) FilterSamplesByName(focus, ignore, hide *regexp.Regexp) (fm, im, hm bool)
 ```
 
@@ -257,7 +257,7 @@ FilterSamplesByName filters the samples in a profile and only keeps samples wher
 
 #### (*Profile) FilterSamplesByTag 
 
-```
+``` go
 func (p *Profile) FilterSamplesByTag(focus, ignore TagMatch) (fm, im bool)
 ```
 
@@ -265,7 +265,7 @@ FilterSamplesByTag removes all samples from the profile, except those that match
 
 #### (*Profile) HasFileLines 
 
-```
+``` go
 func (p *Profile) HasFileLines() bool
 ```
 
@@ -273,7 +273,7 @@ HasFileLines determines if all locations in this profile have symbolized file an
 
 #### (*Profile) HasFunctions 
 
-```
+``` go
 func (p *Profile) HasFunctions() bool
 ```
 
@@ -281,7 +281,7 @@ HasFunctions determines if all locations in this profile have symbolized functio
 
 #### (*Profile) Merge 
 
-```
+``` go
 func (p *Profile) Merge(pb *Profile, r float64) error
 ```
 
@@ -289,7 +289,7 @@ Merge adds profile p adjusted by ratio r into profile p. Profiles must be compat
 
 #### (*Profile) Normalize 
 
-```
+``` go
 func (p *Profile) Normalize(pb *Profile) error
 ```
 
@@ -297,7 +297,7 @@ Normalize normalizes the source profile by multiplying each value in profile by 
 
 #### (*Profile) ParseMemoryMap 
 
-```
+``` go
 func (p *Profile) ParseMemoryMap(rd io.Reader) error
 ```
 
@@ -305,7 +305,7 @@ ParseMemoryMap parses a memory map in the format of /proc/self/maps, and overrid
 
 #### (*Profile) Prune 
 
-```
+``` go
 func (p *Profile) Prune(dropRx, keepRx *regexp.Regexp)
 ```
 
@@ -313,7 +313,7 @@ Prune removes all nodes beneath a node matching dropRx, and not matching keepRx.
 
 #### (*Profile) RemoveUninteresting 
 
-```
+``` go
 func (p *Profile) RemoveUninteresting() error
 ```
 
@@ -321,7 +321,7 @@ RemoveUninteresting prunes and elides profiles using built-in tables of unintere
 
 #### (*Profile) Scale 
 
-```
+``` go
 func (p *Profile) Scale(ratio float64)
 ```
 
@@ -329,7 +329,7 @@ Scale multiplies all sample values in a profile by a constant.
 
 #### (*Profile) ScaleN 
 
-```
+``` go
 func (p *Profile) ScaleN(ratios []float64) error
 ```
 
@@ -337,7 +337,7 @@ ScaleN multiplies each sample values in a sample by a different amount.
 
 #### (*Profile) String 
 
-```
+``` go
 func (p *Profile) String() string
 ```
 
@@ -345,7 +345,7 @@ Print dumps a text representation of a profile. Intended mainly for debugging pu
 
 #### (*Profile) Write 
 
-```
+``` go
 func (p *Profile) Write(w io.Writer) error
 ```
 
@@ -353,7 +353,7 @@ Write writes the profile as a gzip-compressed marshaled protobuf.
 
 ### type Sample 
 
-```
+``` go
 type Sample struct {
 	Location []*Location
 	Value    []int64
@@ -368,7 +368,7 @@ Sample corresponds to Profile.Sample
 
 ### type TagMatch 
 
-```
+``` go
 type TagMatch func(key, val string, nval int64) bool
 ```
 
@@ -376,7 +376,7 @@ TagMatch selects tags for filtering
 
 ### type ValueType 
 
-```
+``` go
 type ValueType struct {
 	Type string // cpu, wall, inuse_space, etc
 	Unit string // seconds, nanoseconds, bytes, etc

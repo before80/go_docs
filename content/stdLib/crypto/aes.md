@@ -21,7 +21,7 @@ The AES operations in this package are not implemented using constant-time algor
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=15)
 
-```
+``` go
 const BlockSize = 16
 ```
 
@@ -35,7 +35,7 @@ This section is empty.
 
 #### func NewCipher 
 
-```
+``` go
 func NewCipher(key []byte) (cipher.Block, error)
 ```
 
@@ -45,12 +45,12 @@ NewCipher creates and returns a new cipher.Block. The key argument should be the
 
 ### type KeySizeError 
 
-```
+``` go
 type KeySizeError int
 ```
 
 #### (KeySizeError) Error 
 
-```
+``` go
 func (k KeySizeError) Error() string
 ```

@@ -109,7 +109,7 @@ a. 使用您的文本编辑器，在`web-service`目录下创建一个名为`mai
 
 b. 在`main.go`文件的顶部，粘贴以下包声明。
 
-```
+``` go
 package main
 ```
 

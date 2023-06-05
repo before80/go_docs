@@ -18,7 +18,7 @@ https://pkg.go.dev/internal/abi@go1.20.1
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi_amd64.go;l=7)
 
-```
+``` go
 const (
 
 	// RAX, RBX, RCX, RDI, RSI, R8, R9, R10, R11.
@@ -40,7 +40,7 @@ This section is empty.
 
 #### func FuncPCABI0 
 
-```
+``` go
 func FuncPCABI0(f any) uintptr
 ```
 
@@ -50,7 +50,7 @@ Implemented as a compile intrinsic.
 
 #### func FuncPCABIInternal 
 
-```
+``` go
 func FuncPCABIInternal(f any) uintptr
 ```
 
@@ -62,7 +62,7 @@ Implemented as a compile intrinsic.
 
 ### type IntArgRegBitmap 
 
-```
+``` go
 type IntArgRegBitmap [(IntArgRegs + 7) / 8]uint8
 ```
 
@@ -70,7 +70,7 @@ IntArgRegBitmap is a bitmap large enough to hold one bit per integer argument/re
 
 #### (*IntArgRegBitmap) Get 
 
-```
+``` go
 func (b *IntArgRegBitmap) Get(i int) bool
 ```
 
@@ -80,7 +80,7 @@ nosplit because it's called in extremely sensitive contexts, like on the reflect
 
 #### (*IntArgRegBitmap) Set 
 
-```
+``` go
 func (b *IntArgRegBitmap) Set(i int)
 ```
 
@@ -88,7 +88,7 @@ Set sets the i'th bit of the bitmap to 1.
 
 ### type RegArgs 
 
-```
+``` go
 type RegArgs struct {
 	// Values in these slots should be precisely the bit-by-bit
 	// representation of how they would appear in a register.
@@ -122,13 +122,13 @@ RegArgs also contains additional space to hold pointers when it may not be safe 
 
 #### (*RegArgs) Dump  <- go1.17.6
 
-```
+``` go
 func (r *RegArgs) Dump()
 ```
 
 #### (*RegArgs) IntRegArgAddr  <- go1.18
 
-```
+``` go
 func (r *RegArgs) IntRegArgAddr(reg int, argSize uintptr) unsafe.Pointer
 ```
 

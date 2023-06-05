@@ -15,83 +15,11 @@ https://pkg.go.dev/crypto/tls@go1.20.1
 Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc-editor.org/rfc/rfc5246.html), and TLS 1.3, as specified in [RFC 8446](https://rfc-editor.org/rfc/rfc8446.html).
 
 
-
-
-
-
-
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-
-
-
-
-  
-  
-
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=664)
 
-```
+``` go
 const (
 	// TLS 1.0 - 1.2 cipher suites.
 	TLS_RSA_WITH_RC4_128_SHA                      uint16 = 0x0005
@@ -139,7 +67,7 @@ See https://www.iana.org/assignments/tls-parameters/tls-parameters.xml
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=28)
 
-```
+``` go
 const (
 	VersionTLS10 = 0x0301
 	VersionTLS11 = 0x0302
@@ -160,7 +88,7 @@ This section is empty.
 
 #### func CipherSuiteName  <- go1.14
 
-```
+``` go
 func CipherSuiteName(id uint16) string
 ```
 
@@ -168,7 +96,7 @@ CipherSuiteName returns the standard name for the passed cipher suite ID (e.g. "
 
 #### func Listen 
 
-```
+``` go
 func Listen(network, laddr string, config *Config) (net.Listener, error)
 ```
 
@@ -176,7 +104,7 @@ Listen creates a TLS listener accepting connections on the given network address
 
 #### func NewListener 
 
-```
+``` go
 func NewListener(inner net.Listener, config *Config) net.Listener
 ```
 
@@ -186,7 +114,7 @@ NewListener creates a Listener which accepts connections from an inner Listener 
 
 ### type Certificate 
 
-```
+``` go
 type Certificate struct {
 	Certificate [][]byte
 	// PrivateKey contains the private key corresponding to the public key in
@@ -214,29 +142,141 @@ A Certificate is a chain of one or more certificates, leaf first.
 
 #### func LoadX509KeyPair 
 
-```
+``` go
 func LoadX509KeyPair(certFile, keyFile string) (Certificate, error)
 ```
 
 LoadX509KeyPair reads and parses a public/private key pair from a pair of files. The files must contain PEM encoded data. The certificate file may contain intermediate certificates following the leaf certificate to form a certificate chain. On successful return, Certificate.Leaf will be nil because the parsed form of the certificate is not retained.
 
-##### Example
+##### LoadX509KeyPair Example
+
+```go
+package main
+
+import (
+	"crypto/tls"
+	"log"
+)
+
+func main() {
+	cert, err := tls.LoadX509KeyPair("testdata/example-cert.pem", "testdata/example-key.pem")
+	if err != nil {
+		log.Fatal(err)
+	}
+	cfg := &tls.Config{Certificates: []tls.Certificate{cert}}
+	listener, err := tls.Listen("tcp", ":2000", cfg)
+	if err != nil {
+		log.Fatal(err)
+	}
+	_ = listener
+}
+
+Output:
+```
+
+
 
 #### func X509KeyPair 
 
-```
+``` go
 func X509KeyPair(certPEMBlock, keyPEMBlock []byte) (Certificate, error)
 ```
 
 X509KeyPair parses a public/private key pair from a pair of PEM encoded data. On successful return, Certificate.Leaf will be nil because the parsed form of the certificate is not retained.
 
-##### Example
+##### X509KeyPair Example
 
-##### Example (HttpServer)
+```go
+package main
+
+import (
+	"crypto/tls"
+	"log"
+)
+
+func main() {
+	certPem := []byte(`-----BEGIN CERTIFICATE-----
+MIIBhTCCASugAwIBAgIQIRi6zePL6mKjOipn+dNuaTAKBggqhkjOPQQDAjASMRAw
+DgYDVQQKEwdBY21lIENvMB4XDTE3MTAyMDE5NDMwNloXDTE4MTAyMDE5NDMwNlow
+EjEQMA4GA1UEChMHQWNtZSBDbzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD0d
+7VNhbWvZLWPuj/RtHFjvtJBEwOkhbN/BnnE8rnZR8+sbwnc/KhCk3FhnpHZnQz7B
+5aETbbIgmuvewdjvSBSjYzBhMA4GA1UdDwEB/wQEAwICpDATBgNVHSUEDDAKBggr
+BgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdEQQiMCCCDmxvY2FsaG9zdDo1
+NDUzgg4xMjcuMC4wLjE6NTQ1MzAKBggqhkjOPQQDAgNIADBFAiEA2zpJEPQyz6/l
+Wf86aX6PepsntZv2GYlA5UpabfT2EZICICpJ5h/iI+i341gBmLiAFQOyTDT+/wQc
+6MF9+Yw1Yy0t
+-----END CERTIFICATE-----`)
+	keyPem := []byte(`-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIIrYSSNQFaA2Hwf1duRSxKtLYX5CB04fSeQ6tF1aY/PuoAoGCCqGSM49
+AwEHoUQDQgAEPR3tU2Fta9ktY+6P9G0cWO+0kETA6SFs38GecTyudlHz6xvCdz8q
+EKTcWGekdmdDPsHloRNtsiCa697B2O9IFA==
+-----END EC PRIVATE KEY-----`)
+	cert, err := tls.X509KeyPair(certPem, keyPem)
+	if err != nil {
+		log.Fatal(err)
+	}
+	cfg := &tls.Config{Certificates: []tls.Certificate{cert}}
+	listener, err := tls.Listen("tcp", ":2000", cfg)
+	if err != nil {
+		log.Fatal(err)
+	}
+	_ = listener
+}
+
+```
+
+
+
+##### X509KeyPair Example (HttpServer)
+
+```go
+package main
+
+import (
+	"crypto/tls"
+	"log"
+	"net/http"
+	"time"
+)
+
+func main() {
+	certPem := []byte(`-----BEGIN CERTIFICATE-----
+MIIBhTCCASugAwIBAgIQIRi6zePL6mKjOipn+dNuaTAKBggqhkjOPQQDAjASMRAw
+DgYDVQQKEwdBY21lIENvMB4XDTE3MTAyMDE5NDMwNloXDTE4MTAyMDE5NDMwNlow
+EjEQMA4GA1UEChMHQWNtZSBDbzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABD0d
+7VNhbWvZLWPuj/RtHFjvtJBEwOkhbN/BnnE8rnZR8+sbwnc/KhCk3FhnpHZnQz7B
+5aETbbIgmuvewdjvSBSjYzBhMA4GA1UdDwEB/wQEAwICpDATBgNVHSUEDDAKBggr
+BgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdEQQiMCCCDmxvY2FsaG9zdDo1
+NDUzgg4xMjcuMC4wLjE6NTQ1MzAKBggqhkjOPQQDAgNIADBFAiEA2zpJEPQyz6/l
+Wf86aX6PepsntZv2GYlA5UpabfT2EZICICpJ5h/iI+i341gBmLiAFQOyTDT+/wQc
+6MF9+Yw1Yy0t
+-----END CERTIFICATE-----`)
+	keyPem := []byte(`-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIIrYSSNQFaA2Hwf1duRSxKtLYX5CB04fSeQ6tF1aY/PuoAoGCCqGSM49
+AwEHoUQDQgAEPR3tU2Fta9ktY+6P9G0cWO+0kETA6SFs38GecTyudlHz6xvCdz8q
+EKTcWGekdmdDPsHloRNtsiCa697B2O9IFA==
+-----END EC PRIVATE KEY-----`)
+	cert, err := tls.X509KeyPair(certPem, keyPem)
+	if err != nil {
+		log.Fatal(err)
+	}
+	cfg := &tls.Config{Certificates: []tls.Certificate{cert}}
+	srv := &http.Server{
+		TLSConfig:    cfg,
+		ReadTimeout:  time.Minute,
+		WriteTimeout: time.Minute,
+	}
+	log.Fatal(srv.ListenAndServeTLS("", ""))
+}
+
+Output:
+```
+
+
 
 ### type CertificateRequestInfo  <- go1.8
 
-```
+``` go
 type CertificateRequestInfo struct {
 	// AcceptableCAs contains zero or more, DER-encoded, X.501
 	// Distinguished Names. These are the names of root or intermediate CAs
@@ -252,13 +292,14 @@ type CertificateRequestInfo struct {
 	Version uint16
 	// contains filtered or unexported fields
 }
+
 ```
 
 CertificateRequestInfo contains information from a server's CertificateRequest message, which is used to demand a certificate and proof of control from a client.
 
 #### (*CertificateRequestInfo) Context  <- go1.17
 
-```
+``` go
 func (c *CertificateRequestInfo) Context() context.Context
 ```
 
@@ -266,7 +307,7 @@ Context returns the context of the handshake that is in progress. This context i
 
 #### (*CertificateRequestInfo) SupportsCertificate  <- go1.14
 
-```
+``` go
 func (cri *CertificateRequestInfo) SupportsCertificate(c *Certificate) error
 ```
 
@@ -274,7 +315,7 @@ SupportsCertificate returns nil if the provided certificate is supported by the 
 
 ### type CertificateVerificationError  <- go1.20
 
-```
+``` go
 type CertificateVerificationError struct {
 	// UnverifiedCertificates and its contents should not be modified.
 	UnverifiedCertificates []*x509.Certificate
@@ -286,19 +327,19 @@ CertificateVerificationError is returned when certificate verification fails dur
 
 #### (*CertificateVerificationError) Error  <- go1.20
 
-```
+``` go
 func (e *CertificateVerificationError) Error() string
 ```
 
 #### (*CertificateVerificationError) Unwrap  <- go1.20
 
-```
+``` go
 func (e *CertificateVerificationError) Unwrap() error
 ```
 
 ### type CipherSuite  <- go1.14
 
-```
+``` go
 type CipherSuite struct {
 	ID   uint16
 	Name string
@@ -317,7 +358,7 @@ CipherSuite is a TLS cipher suite. Note that most functions in this package acce
 
 #### func CipherSuites  <- go1.14
 
-```
+``` go
 func CipherSuites() []*CipherSuite
 ```
 
@@ -327,7 +368,7 @@ The list is sorted by ID. Note that the default cipher suites selected by this p
 
 #### func InsecureCipherSuites  <- go1.14
 
-```
+``` go
 func InsecureCipherSuites() []*CipherSuite
 ```
 
@@ -337,13 +378,13 @@ Most applications should not use the cipher suites in this list, and should only
 
 ### type ClientAuthType 
 
-```
+``` go
 type ClientAuthType int
 ```
 
 ClientAuthType declares the policy the server will follow for TLS Client Authentication.
 
-```
+``` go
 const (
 	// NoClientCert indicates that no client certificate should be requested
 	// during the handshake, and if any certificates are sent they will not
@@ -371,13 +412,13 @@ const (
 
 #### (ClientAuthType) String  <- go1.15
 
-```
+``` go
 func (i ClientAuthType) String() string
 ```
 
 ### type ClientHelloInfo  <- go1.4
 
-```
+``` go
 type ClientHelloInfo struct {
 	// CipherSuites lists the CipherSuites supported by the client (e.g.
 	// TLS_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256).
@@ -429,7 +470,7 @@ ClientHelloInfo contains information from a ClientHello message in order to guid
 
 #### (*ClientHelloInfo) Context  <- go1.17
 
-```
+``` go
 func (c *ClientHelloInfo) Context() context.Context
 ```
 
@@ -437,7 +478,7 @@ Context returns the context of the handshake that is in progress. This context i
 
 #### (*ClientHelloInfo) SupportsCertificate  <- go1.14
 
-```
+``` go
 func (chi *ClientHelloInfo) SupportsCertificate(c *Certificate) error
 ```
 
@@ -449,7 +490,7 @@ This function will call x509.ParseCertificate unless c.Leaf is set, which can in
 
 ### type ClientSessionCache  <- go1.3
 
-```
+``` go
 type ClientSessionCache interface {
 	// Get searches for a ClientSessionState associated with the given key.
 	// On return, ok is true if one was found.
@@ -467,7 +508,7 @@ ClientSessionCache is a cache of ClientSessionState objects that can be used by 
 
 #### func NewLRUClientSessionCache  <- go1.3
 
-```
+``` go
 func NewLRUClientSessionCache(capacity int) ClientSessionCache
 ```
 
@@ -475,7 +516,7 @@ NewLRUClientSessionCache returns a ClientSessionCache with the given capacity th
 
 ### type ClientSessionState  <- go1.3
 
-```
+``` go
 type ClientSessionState struct {
 	// contains filtered or unexported fields
 }
@@ -485,7 +526,7 @@ ClientSessionState contains the state needed by clients to resume TLS sessions.
 
 ### type Config 
 
-```
+``` go
 type Config struct {
 	// Rand provides the source of entropy for nonces and RSA blinding.
 	// If Rand is nil, TLS uses the cryptographic random reader in package
@@ -708,13 +749,139 @@ A Config structure is used to configure a TLS client or server. After one has be
 
 ##### Example (KeyLogWriter)
 
+```go
+package main
+
+import (
+	"crypto/tls"
+	"log"
+	"net/http"
+	"net/http/httptest"
+	"os"
+)
+
+// zeroSource is an io.Reader that returns an unlimited number of zero bytes.
+type zeroSource struct{}
+
+func (zeroSource) Read(b []byte) (n int, err error) {
+	for i := range b {
+		b[i] = 0
+	}
+
+	return len(b), nil
+}
+
+func main() {
+	// Debugging TLS applications by decrypting a network traffic capture.
+
+	// WARNING: Use of KeyLogWriter compromises security and should only be
+	// used for debugging.
+
+	// Dummy test HTTP server for the example with insecure random so output is
+	// reproducible.
+	server := httptest.NewUnstartedServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
+	server.TLS = &tls.Config{
+		Rand: zeroSource{}, // for example only; don't do this.
+	}
+	server.StartTLS()
+	defer server.Close()
+
+	// Typically the log would go to an open file:
+	// w, err := os.OpenFile("tls-secrets.txt", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+	w := os.Stdout
+
+	client := &http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				KeyLogWriter: w,
+
+				Rand:               zeroSource{}, // for reproducible output; don't do this.
+				InsecureSkipVerify: true,         // test server certificate is not trusted.
+			},
+		},
+	}
+	resp, err := client.Get(server.URL)
+	if err != nil {
+		log.Fatalf("Failed to get URL: %v", err)
+	}
+	resp.Body.Close()
+
+	// The resulting file can be used with Wireshark to decrypt the TLS
+	// connection by setting (Pre)-Master-Secret log filename in SSL Protocol
+	// preferences.
+}
+
+```
+
+
+
 ##### Example (VerifyConnection)
 
-#### func (*Config)<a class="Documentation-source" href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/common.go;l=1319" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 18px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle); text-decoration: none; opacity: 1;">BuildNameToCertificate</a> DEPRECATED
+```go
+package main
+
+import (
+	"crypto/tls"
+	"crypto/x509"
+)
+
+func main() {
+	// VerifyConnection can be used to replace and customize connection
+	// verification. This example shows a VerifyConnection implementation that
+	// will be approximately equivalent to what crypto/tls does normally to
+	// verify the peer's certificate.
+
+	// Client side configuration.
+	_ = &tls.Config{
+		// Set InsecureSkipVerify to skip the default validation we are
+		// replacing. This will not disable VerifyConnection.
+		InsecureSkipVerify: true,
+		VerifyConnection: func(cs tls.ConnectionState) error {
+			opts := x509.VerifyOptions{
+				DNSName:       cs.ServerName,
+				Intermediates: x509.NewCertPool(),
+			}
+			for _, cert := range cs.PeerCertificates[1:] {
+				opts.Intermediates.AddCert(cert)
+			}
+			_, err := cs.PeerCertificates[0].Verify(opts)
+			return err
+		},
+	}
+
+	// Server side configuration.
+	_ = &tls.Config{
+		// Require client certificates (or VerifyConnection will run anyway and
+		// panic accessing cs.PeerCertificates[0]) but don't verify them with the
+		// default verifier. This will not disable VerifyConnection.
+		ClientAuth: tls.RequireAnyClientCert,
+		VerifyConnection: func(cs tls.ConnectionState) error {
+			opts := x509.VerifyOptions{
+				DNSName:       cs.ServerName,
+				Intermediates: x509.NewCertPool(),
+				KeyUsages:     []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth},
+			}
+			for _, cert := range cs.PeerCertificates[1:] {
+				opts.Intermediates.AddCert(cert)
+			}
+			_, err := cs.PeerCertificates[0].Verify(opts)
+			return err
+		},
+	}
+
+	// Note that when certificates are not handled by the default verifier
+	// ConnectionState.VerifiedChains will be nil.
+}
+Output:
+```
+
+
+
+#### func (*Config) BuildNameToCertificate <- DEPRECATED
 
 #### (*Config) Clone  <- go1.8
 
-```
+``` go
 func (c *Config) Clone() *Config
 ```
 
@@ -722,7 +889,7 @@ Clone returns a shallow clone of c or nil if c is nil. It is safe to clone a Con
 
 #### (*Config) SetSessionTicketKeys  <- go1.5
 
-```
+``` go
 func (c *Config) SetSessionTicketKeys(keys [][32]byte)
 ```
 
@@ -736,7 +903,7 @@ If multiple servers are terminating connections for the same host they should al
 
 ### type Conn 
 
-```
+``` go
 type Conn struct {
 	// contains filtered or unexported fields
 }
@@ -746,7 +913,7 @@ A Conn represents a secured connection. It implements the net.Conn interface.
 
 #### func Client 
 
-```
+``` go
 func Client(conn net.Conn, config *Config) *Conn
 ```
 
@@ -754,17 +921,75 @@ Client returns a new TLS client side connection using conn as the underlying tra
 
 #### func Dial 
 
-```
+``` go
 func Dial(network, addr string, config *Config) (*Conn, error)
 ```
 
 Dial connects to the given network address using net.Dial and then initiates a TLS handshake, returning the resulting TLS connection. Dial interprets a nil configuration as equivalent to the zero configuration; see the documentation of Config for the defaults.
 
-##### Example
+##### Dial Example
+
+```go
+package main
+
+import (
+	"crypto/tls"
+	"crypto/x509"
+)
+
+func main() {
+	// Connecting with a custom root-certificate set.
+
+	const rootPEM = `
+-- GlobalSign Root R2, valid until Dec 15, 2021
+-----BEGIN CERTIFICATE-----
+MIIDujCCAqKgAwIBAgILBAAAAAABD4Ym5g0wDQYJKoZIhvcNAQEFBQAwTDEgMB4G
+A1UECxMXR2xvYmFsU2lnbiBSb290IENBIC0gUjIxEzARBgNVBAoTCkdsb2JhbFNp
+Z24xEzARBgNVBAMTCkdsb2JhbFNpZ24wHhcNMDYxMjE1MDgwMDAwWhcNMjExMjE1
+MDgwMDAwWjBMMSAwHgYDVQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMjETMBEG
+A1UEChMKR2xvYmFsU2lnbjETMBEGA1UEAxMKR2xvYmFsU2lnbjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAKbPJA6+Lm8omUVCxKs+IVSbC9N/hHD6ErPL
+v4dfxn+G07IwXNb9rfF73OX4YJYJkhD10FPe+3t+c4isUoh7SqbKSaZeqKeMWhG8
+eoLrvozps6yWJQeXSpkqBy+0Hne/ig+1AnwblrjFuTosvNYSuetZfeLQBoZfXklq
+tTleiDTsvHgMCJiEbKjNS7SgfQx5TfC4LcshytVsW33hoCmEofnTlEnLJGKRILzd
+C9XZzPnqJworc5HGnRusyMvo4KD0L5CLTfuwNhv2GXqF4G3yYROIXJ/gkwpRl4pa
+zq+r1feqCapgvdzZX99yqWATXgAByUr6P6TqBwMhAo6CygPCm48CAwEAAaOBnDCB
+mTAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUm+IH
+V2ccHsBqBt5ZtJot39wZhi4wNgYDVR0fBC8wLTAroCmgJ4YlaHR0cDovL2NybC5n
+bG9iYWxzaWduLm5ldC9yb290LXIyLmNybDAfBgNVHSMEGDAWgBSb4gdXZxwewGoG
+3lm0mi3f3BmGLjANBgkqhkiG9w0BAQUFAAOCAQEAmYFThxxol4aR7OBKuEQLq4Gs
+J0/WwbgcQ3izDJr86iw8bmEbTUsp9Z8FHSbBuOmDAGJFtqkIk7mpM0sYmsL4h4hO
+291xNBrBVNpGP+DTKqttVCL1OmLNIG+6KYnX3ZHu01yiPqFbQfXf5WRDLenVOavS
+ot+3i9DAgBkcRcAtjOj4LaR0VknFBbVPFd5uRHg5h6h+u/N5GJG79G+dwfCMNYxd
+AfvDbbnvRG15RjF+Cv6pgsH/76tuIMRQyV+dTZsXjAzlAcmgQWpzU/qlULRuJQ/7
+TBj0/VLZjmmx6BEP3ojY+x1J96relc8geMJgEtslQIxq/H5COEBkEveegeGTLg==
+-----END CERTIFICATE-----`
+
+	// First, create the set of root certificates. For this example we only
+	// have one. It's also possible to omit this in order to use the
+	// default root set of the current operating system.
+	roots := x509.NewCertPool()
+	ok := roots.AppendCertsFromPEM([]byte(rootPEM))
+	if !ok {
+		panic("failed to parse root certificate")
+	}
+
+	conn, err := tls.Dial("tcp", "mail.google.com:443", &tls.Config{
+		RootCAs: roots,
+	})
+	if err != nil {
+		panic("failed to connect: " + err.Error())
+	}
+	conn.Close()
+}
+Output:
+```
+
+
 
 #### func DialWithDialer  <- go1.3
 
-```
+``` go
 func DialWithDialer(dialer *net.Dialer, network, addr string, config *Config) (*Conn, error)
 ```
 
@@ -776,7 +1001,7 @@ DialWithDialer uses context.Background internally; to specify the context, use D
 
 #### func Server 
 
-```
+``` go
 func Server(conn net.Conn, config *Config) *Conn
 ```
 
@@ -784,7 +1009,7 @@ Server returns a new TLS server side connection using conn as the underlying tra
 
 #### (*Conn) Close 
 
-```
+``` go
 func (c *Conn) Close() error
 ```
 
@@ -792,7 +1017,7 @@ Close closes the connection.
 
 #### (*Conn) CloseWrite  <- go1.8
 
-```
+``` go
 func (c *Conn) CloseWrite() error
 ```
 
@@ -800,7 +1025,7 @@ CloseWrite shuts down the writing side of the connection. It should only be call
 
 #### (*Conn) ConnectionState 
 
-```
+``` go
 func (c *Conn) ConnectionState() ConnectionState
 ```
 
@@ -808,7 +1033,7 @@ ConnectionState returns basic TLS details about the connection.
 
 #### (*Conn) Handshake 
 
-```
+``` go
 func (c *Conn) Handshake() error
 ```
 
@@ -820,7 +1045,7 @@ For control over canceling or setting a timeout on a handshake, use HandshakeCon
 
 #### (*Conn) HandshakeContext  <- go1.17
 
-```
+``` go
 func (c *Conn) HandshakeContext(ctx context.Context) error
 ```
 
@@ -832,7 +1057,7 @@ Most uses of this package need not call HandshakeContext explicitly: the first R
 
 #### (*Conn) LocalAddr 
 
-```
+``` go
 func (c *Conn) LocalAddr() net.Addr
 ```
 
@@ -840,7 +1065,7 @@ LocalAddr returns the local network address.
 
 #### (*Conn) NetConn  <- go1.18
 
-```
+``` go
 func (c *Conn) NetConn() net.Conn
 ```
 
@@ -848,7 +1073,7 @@ NetConn returns the underlying connection that is wrapped by c. Note that writin
 
 #### (*Conn) OCSPResponse 
 
-```
+``` go
 func (c *Conn) OCSPResponse() []byte
 ```
 
@@ -856,7 +1081,7 @@ OCSPResponse returns the stapled OCSP response from the TLS server, if any. (Onl
 
 #### (*Conn) Read 
 
-```
+``` go
 func (c *Conn) Read(b []byte) (int, error)
 ```
 
@@ -866,7 +1091,7 @@ As Read calls Handshake, in order to prevent indefinite blocking a deadline must
 
 #### (*Conn) RemoteAddr 
 
-```
+``` go
 func (c *Conn) RemoteAddr() net.Addr
 ```
 
@@ -874,7 +1099,7 @@ RemoteAddr returns the remote network address.
 
 #### (*Conn) SetDeadline 
 
-```
+``` go
 func (c *Conn) SetDeadline(t time.Time) error
 ```
 
@@ -882,7 +1107,7 @@ SetDeadline sets the read and write deadlines associated with the connection. A 
 
 #### (*Conn) SetReadDeadline 
 
-```
+``` go
 func (c *Conn) SetReadDeadline(t time.Time) error
 ```
 
@@ -890,7 +1115,7 @@ SetReadDeadline sets the read deadline on the underlying connection. A zero valu
 
 #### (*Conn) SetWriteDeadline 
 
-```
+``` go
 func (c *Conn) SetWriteDeadline(t time.Time) error
 ```
 
@@ -898,7 +1123,7 @@ SetWriteDeadline sets the write deadline on the underlying connection. A zero va
 
 #### (*Conn) VerifyHostname 
 
-```
+``` go
 func (c *Conn) VerifyHostname(host string) error
 ```
 
@@ -906,7 +1131,7 @@ VerifyHostname checks that the peer certificate chain is valid for connecting to
 
 #### (*Conn) Write 
 
-```
+``` go
 func (c *Conn) Write(b []byte) (int, error)
 ```
 
@@ -916,7 +1141,7 @@ As Write calls Handshake, in order to prevent indefinite blocking a deadline mus
 
 ### type ConnectionState 
 
-```
+``` go
 type ConnectionState struct {
 	// Version is the TLS version used by the connection (e.g. VersionTLS12).
 	Version uint16
@@ -990,7 +1215,7 @@ ConnectionState records basic TLS details about the connection.
 
 #### (*ConnectionState) ExportKeyingMaterial  <- go1.11
 
-```
+``` go
 func (cs *ConnectionState) ExportKeyingMaterial(label string, context []byte, length int) ([]byte, error)
 ```
 
@@ -998,7 +1223,7 @@ ExportKeyingMaterial returns length bytes of exported key material in a new slic
 
 ### type CurveID  <- go1.3
 
-```
+``` go
 type CurveID uint16
 ```
 
@@ -1006,7 +1231,7 @@ CurveID is the type of a TLS identifier for an elliptic curve. See https://www.i
 
 In TLS 1.3, this type is called NamedGroup, but at this time this library only supports Elliptic Curve based groups. See [RFC 8446, Section 4.2.7](https://rfc-editor.org/rfc/rfc8446.html#section-4.2.7).
 
-```
+``` go
 const (
 	CurveP256 CurveID = 23
 	CurveP384 CurveID = 24
@@ -1017,13 +1242,13 @@ const (
 
 #### (CurveID) String  <- go1.15
 
-```
+``` go
 func (i CurveID) String() string
 ```
 
 ### type Dialer  <- go1.15
 
-```
+``` go
 type Dialer struct {
 	// NetDialer is the optional dialer to use for the TLS connections'
 	// underlying TCP connections.
@@ -1042,7 +1267,7 @@ Dialer dials TLS connections given a configuration and a Dialer for the underlyi
 
 #### (*Dialer) Dial  <- go1.15
 
-```
+``` go
 func (d *Dialer) Dial(network, addr string) (net.Conn, error)
 ```
 
@@ -1054,7 +1279,7 @@ Dial uses context.Background internally; to specify the context, use DialContext
 
 #### (*Dialer) DialContext  <- go1.15
 
-```
+``` go
 func (d *Dialer) DialContext(ctx context.Context, network, addr string) (net.Conn, error)
 ```
 
@@ -1066,7 +1291,7 @@ The returned Conn, if any, will always be of type *Conn.
 
 ### type RecordHeaderError  <- go1.6
 
-```
+``` go
 type RecordHeaderError struct {
 	// Msg contains a human readable string that describes the error.
 	Msg string
@@ -1085,13 +1310,13 @@ RecordHeaderError is returned when a TLS record header is invalid.
 
 #### (RecordHeaderError) Error  <- go1.6
 
-```
+``` go
 func (e RecordHeaderError) Error() string
 ```
 
 ### type RenegotiationSupport  <- go1.7
 
-```
+``` go
 type RenegotiationSupport int
 ```
 
@@ -1101,7 +1326,7 @@ Even when enabled, the server may not change its identity between handshakes (i.
 
 Renegotiation is not defined in TLS 1.3.
 
-```
+``` go
 const (
 	// RenegotiateNever disables renegotiation.
 	RenegotiateNever RenegotiationSupport = iota
@@ -1118,13 +1343,13 @@ const (
 
 ### type SignatureScheme  <- go1.8
 
-```
+``` go
 type SignatureScheme uint16
 ```
 
 SignatureScheme identifies a signature algorithm supported by TLS. See [RFC 8446, Section 4.2.3](https://rfc-editor.org/rfc/rfc8446.html#section-4.2.3).
 
-```
+``` go
 const (
 	// RSASSA-PKCS1-v1_5 algorithms.
 	PKCS1WithSHA256 SignatureScheme = 0x0401
@@ -1152,7 +1377,7 @@ const (
 
 #### (SignatureScheme) String  <- go1.15
 
-```
+``` go
 func (i SignatureScheme) String() string
 ```
 

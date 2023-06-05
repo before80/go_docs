@@ -14,7 +14,7 @@ draft = false
 
 ​	每个类型`T`都有一个底层类型。如果`T`是预先声明的布尔型、数值型或字符串型之一，或者是一个类型字面量，那么对应的底层类型就是`T`本身。否则，`T`的底层类型是`T`在其声明中所指的类型的底层类型。对于类型参数，则是其[类型约束](../DeclarationsAndScope#type-constraints-类型约束)的底层类型，它总是一个接口。
 
-```
+``` go
 type (
 	A1 = string
 	A2 = A1
@@ -52,7 +52,7 @@ func f[P any](x P) { … }
 
 具有核心类型的接口的示例：
 
-```
+``` go
 type Celsius float32
 type Kelvin  float32
 
@@ -102,7 +102,7 @@ interface{ ~[]byte | myString }           // bytestring
 
 给出声明：
 
-```
+``` go
 type (
 	A0 = []string
 	A1 = A0

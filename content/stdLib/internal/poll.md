@@ -148,7 +148,7 @@ TestHookDidWritev is a hook for testing writev.
 
 #### func CopyFileRange  <- go1.15
 
-```
+``` go
 func CopyFileRange(dst, src *FD, remain int64) (written int64, handled bool, err error)
 ```
 
@@ -156,7 +156,7 @@ CopyFileRange copies at most remain bytes of data from src to dst, using the cop
 
 #### func DupCloseOnExec  <- go1.11
 
-```
+``` go
 func DupCloseOnExec(fd int) (int, string, error)
 ```
 
@@ -164,7 +164,7 @@ DupCloseOnExec dups fd and marks it close-on-exec.
 
 #### func IsPollDescriptor  <- go1.12
 
-```
+``` go
 func IsPollDescriptor(fd uintptr) bool
 ```
 
@@ -172,7 +172,7 @@ IsPollDescriptor reports whether fd is the descriptor being used by the poller. 
 
 #### func SendFile 
 
-```
+``` go
 func SendFile(dstFD *FD, src int, remain int64) (int64, error, bool)
 ```
 
@@ -180,7 +180,7 @@ SendFile wraps the sendfile system call.
 
 #### func Splice  <- go1.11
 
-```
+``` go
 func Splice(dst, src *FD, remain int64) (written int64, handled bool, sc string, err error)
 ```
 
@@ -194,7 +194,7 @@ If err != nil, sc is the system call which caused the error.
 
 ### type DeadlineExceededError  <- go1.15
 
-```
+``` go
 type DeadlineExceededError struct{}
 ```
 
@@ -202,7 +202,7 @@ DeadlineExceededError is returned for an expired deadline.
 
 #### (*DeadlineExceededError) Error  <- go1.15
 
-```
+``` go
 func (e *DeadlineExceededError) Error() string
 ```
 
@@ -210,19 +210,19 @@ Implement the net.Error interface. The string is "i/o timeout" because that is w
 
 #### (*DeadlineExceededError) Temporary  <- go1.15
 
-```
+``` go
 func (e *DeadlineExceededError) Temporary() bool
 ```
 
 #### (*DeadlineExceededError) Timeout  <- go1.15
 
-```
+``` go
 func (e *DeadlineExceededError) Timeout() bool
 ```
 
 ### type FD 
 
-```
+``` go
 type FD struct {
 
 	// System file descriptor. Immutable until Close.
@@ -243,7 +243,7 @@ FD is a file descriptor. The net and os packages use this type as a field of a l
 
 #### (*FD) Accept 
 
-```
+``` go
 func (fd *FD) Accept() (int, syscall.Sockaddr, string, error)
 ```
 
@@ -251,7 +251,7 @@ Accept wraps the accept network call.
 
 #### (*FD) Close 
 
-```
+``` go
 func (fd *FD) Close() error
 ```
 
@@ -259,7 +259,7 @@ Close closes the FD. The underlying file descriptor is closed by the destroy met
 
 #### (*FD) Dup  <- go1.11
 
-```
+``` go
 func (fd *FD) Dup() (int, string, error)
 ```
 
@@ -267,7 +267,7 @@ Dup duplicates the file descriptor.
 
 #### (*FD) Fchdir 
 
-```
+``` go
 func (fd *FD) Fchdir() error
 ```
 
@@ -275,7 +275,7 @@ Fchdir wraps syscall.Fchdir.
 
 #### (*FD) Fchmod 
 
-```
+``` go
 func (fd *FD) Fchmod(mode uint32) error
 ```
 
@@ -283,7 +283,7 @@ Fchmod wraps syscall.Fchmod.
 
 #### (*FD) Fchown 
 
-```
+``` go
 func (fd *FD) Fchown(uid, gid int) error
 ```
 
@@ -291,7 +291,7 @@ Fchown wraps syscall.Fchown.
 
 #### (*FD) Fstat 
 
-```
+``` go
 func (fd *FD) Fstat(s *syscall.Stat_t) error
 ```
 
@@ -299,7 +299,7 @@ Fstat wraps syscall.Fstat
 
 #### (*FD) Fsync 
 
-```
+``` go
 func (fd *FD) Fsync() error
 ```
 
@@ -307,7 +307,7 @@ Fsync wraps syscall.Fsync.
 
 #### (*FD) Ftruncate 
 
-```
+``` go
 func (fd *FD) Ftruncate(size int64) error
 ```
 
@@ -315,7 +315,7 @@ Ftruncate wraps syscall.Ftruncate.
 
 #### (*FD) Init 
 
-```
+``` go
 func (fd *FD) Init(net string, pollable bool) error
 ```
 
@@ -323,7 +323,7 @@ Init initializes the FD. The Sysfd field should already be set. This can be call
 
 #### (*FD) Pread 
 
-```
+``` go
 func (fd *FD) Pread(p []byte, off int64) (int, error)
 ```
 
@@ -331,7 +331,7 @@ Pread wraps the pread system call.
 
 #### (*FD) Pwrite 
 
-```
+``` go
 func (fd *FD) Pwrite(p []byte, off int64) (int, error)
 ```
 
@@ -339,7 +339,7 @@ Pwrite wraps the pwrite system call.
 
 #### (*FD) RawControl 
 
-```
+``` go
 func (fd *FD) RawControl(f func(uintptr)) error
 ```
 
@@ -347,7 +347,7 @@ RawControl invokes the user-defined function f for a non-IO operation.
 
 #### (*FD) RawRead 
 
-```
+``` go
 func (fd *FD) RawRead(f func(uintptr) bool) error
 ```
 
@@ -355,7 +355,7 @@ RawRead invokes the user-defined function f for a read operation.
 
 #### (*FD) RawWrite 
 
-```
+``` go
 func (fd *FD) RawWrite(f func(uintptr) bool) error
 ```
 
@@ -363,7 +363,7 @@ RawWrite invokes the user-defined function f for a write operation.
 
 #### (*FD) Read 
 
-```
+``` go
 func (fd *FD) Read(p []byte) (int, error)
 ```
 
@@ -371,7 +371,7 @@ Read implements io.Reader.
 
 #### (*FD) ReadDirent 
 
-```
+``` go
 func (fd *FD) ReadDirent(buf []byte) (int, error)
 ```
 
@@ -379,7 +379,7 @@ ReadDirent wraps syscall.ReadDirent. We treat this like an ordinary system call 
 
 #### (*FD) ReadFrom 
 
-```
+``` go
 func (fd *FD) ReadFrom(p []byte) (int, syscall.Sockaddr, error)
 ```
 
@@ -387,7 +387,7 @@ ReadFrom wraps the recvfrom network call.
 
 #### (*FD) ReadFromInet4  <- go1.18
 
-```
+``` go
 func (fd *FD) ReadFromInet4(p []byte, from *syscall.SockaddrInet4) (int, error)
 ```
 
@@ -395,7 +395,7 @@ ReadFromInet4 wraps the recvfrom network call for IPv4.
 
 #### (*FD) ReadFromInet6  <- go1.18
 
-```
+``` go
 func (fd *FD) ReadFromInet6(p []byte, from *syscall.SockaddrInet6) (int, error)
 ```
 
@@ -403,7 +403,7 @@ ReadFromInet6 wraps the recvfrom network call for IPv6.
 
 #### (*FD) ReadMsg 
 
-```
+``` go
 func (fd *FD) ReadMsg(p []byte, oob []byte, flags int) (int, int, int, syscall.Sockaddr, error)
 ```
 
@@ -411,7 +411,7 @@ ReadMsg wraps the recvmsg network call.
 
 #### (*FD) ReadMsgInet4  <- go1.18
 
-```
+``` go
 func (fd *FD) ReadMsgInet4(p []byte, oob []byte, flags int, sa4 *syscall.SockaddrInet4) (int, int, int, error)
 ```
 
@@ -419,7 +419,7 @@ ReadMsgInet4 is ReadMsg, but specialized for syscall.SockaddrInet4.
 
 #### (*FD) ReadMsgInet6  <- go1.18
 
-```
+``` go
 func (fd *FD) ReadMsgInet6(p []byte, oob []byte, flags int, sa6 *syscall.SockaddrInet6) (int, int, int, error)
 ```
 
@@ -427,7 +427,7 @@ ReadMsgInet6 is ReadMsg, but specialized for syscall.SockaddrInet6.
 
 #### (*FD) Seek 
 
-```
+``` go
 func (fd *FD) Seek(offset int64, whence int) (int64, error)
 ```
 
@@ -435,7 +435,7 @@ Seek wraps syscall.Seek.
 
 #### (*FD) SetBlocking  <- go1.10
 
-```
+``` go
 func (fd *FD) SetBlocking() error
 ```
 
@@ -443,7 +443,7 @@ SetBlocking puts the file into blocking mode.
 
 #### (*FD) SetDeadline 
 
-```
+``` go
 func (fd *FD) SetDeadline(t time.Time) error
 ```
 
@@ -451,7 +451,7 @@ SetDeadline sets the read and write deadlines associated with fd.
 
 #### (*FD) SetReadDeadline 
 
-```
+``` go
 func (fd *FD) SetReadDeadline(t time.Time) error
 ```
 
@@ -459,7 +459,7 @@ SetReadDeadline sets the read deadline associated with fd.
 
 #### (*FD) SetWriteDeadline 
 
-```
+``` go
 func (fd *FD) SetWriteDeadline(t time.Time) error
 ```
 
@@ -467,7 +467,7 @@ SetWriteDeadline sets the write deadline associated with fd.
 
 #### (*FD) SetsockoptByte 
 
-```
+``` go
 func (fd *FD) SetsockoptByte(level, name int, arg byte) error
 ```
 
@@ -475,7 +475,7 @@ SetsockoptByte wraps the setsockopt network call with a byte argument.
 
 #### (*FD) SetsockoptIPMreq 
 
-```
+``` go
 func (fd *FD) SetsockoptIPMreq(level, name int, mreq *syscall.IPMreq) error
 ```
 
@@ -483,7 +483,7 @@ SetsockoptIPMreq wraps the setsockopt network call with an IPMreq argument.
 
 #### (*FD) SetsockoptIPMreqn 
 
-```
+``` go
 func (fd *FD) SetsockoptIPMreqn(level, name int, mreq *syscall.IPMreqn) error
 ```
 
@@ -491,7 +491,7 @@ SetsockoptIPMreqn wraps the setsockopt network call with an IPMreqn argument.
 
 #### (*FD) SetsockoptIPv6Mreq 
 
-```
+``` go
 func (fd *FD) SetsockoptIPv6Mreq(level, name int, mreq *syscall.IPv6Mreq) error
 ```
 
@@ -499,7 +499,7 @@ SetsockoptIPv6Mreq wraps the setsockopt network call with an IPv6Mreq argument.
 
 #### (*FD) SetsockoptInet4Addr 
 
-```
+``` go
 func (fd *FD) SetsockoptInet4Addr(level, name int, arg [4]byte) error
 ```
 
@@ -507,7 +507,7 @@ SetsockoptInet4Addr wraps the setsockopt network call with an IPv4 address.
 
 #### (*FD) SetsockoptInt 
 
-```
+``` go
 func (fd *FD) SetsockoptInt(level, name, arg int) error
 ```
 
@@ -515,7 +515,7 @@ SetsockoptInt wraps the setsockopt network call with an int argument.
 
 #### (*FD) SetsockoptLinger 
 
-```
+``` go
 func (fd *FD) SetsockoptLinger(level, name int, l *syscall.Linger) error
 ```
 
@@ -523,7 +523,7 @@ SetsockoptLinger wraps the setsockopt network call with a Linger argument.
 
 #### (*FD) Shutdown 
 
-```
+``` go
 func (fd *FD) Shutdown(how int) error
 ```
 
@@ -531,7 +531,7 @@ Shutdown wraps syscall.Shutdown.
 
 #### (*FD) WaitWrite 
 
-```
+``` go
 func (fd *FD) WaitWrite() error
 ```
 
@@ -539,7 +539,7 @@ WaitWrite waits until data can be read from fd.
 
 #### (*FD) Write 
 
-```
+``` go
 func (fd *FD) Write(p []byte) (int, error)
 ```
 
@@ -547,7 +547,7 @@ Write implements io.Writer.
 
 #### (*FD) WriteMsg 
 
-```
+``` go
 func (fd *FD) WriteMsg(p []byte, oob []byte, sa syscall.Sockaddr) (int, int, error)
 ```
 
@@ -555,7 +555,7 @@ WriteMsg wraps the sendmsg network call.
 
 #### (*FD) WriteMsgInet4  <- go1.18
 
-```
+``` go
 func (fd *FD) WriteMsgInet4(p []byte, oob []byte, sa *syscall.SockaddrInet4) (int, int, error)
 ```
 
@@ -563,7 +563,7 @@ WriteMsgInet4 is WriteMsg specialized for syscall.SockaddrInet4.
 
 #### (*FD) WriteMsgInet6  <- go1.18
 
-```
+``` go
 func (fd *FD) WriteMsgInet6(p []byte, oob []byte, sa *syscall.SockaddrInet6) (int, int, error)
 ```
 
@@ -571,7 +571,7 @@ WriteMsgInet6 is WriteMsg specialized for syscall.SockaddrInet6.
 
 #### (*FD) WriteOnce  <- go1.10
 
-```
+``` go
 func (fd *FD) WriteOnce(p []byte) (int, error)
 ```
 
@@ -579,7 +579,7 @@ WriteOnce is for testing only. It makes a single write call.
 
 #### (*FD) WriteTo 
 
-```
+``` go
 func (fd *FD) WriteTo(p []byte, sa syscall.Sockaddr) (int, error)
 ```
 
@@ -587,7 +587,7 @@ WriteTo wraps the sendto network call.
 
 #### (*FD) WriteToInet4  <- go1.18
 
-```
+``` go
 func (fd *FD) WriteToInet4(p []byte, sa *syscall.SockaddrInet4) (int, error)
 ```
 
@@ -595,7 +595,7 @@ WriteToInet4 wraps the sendto network call for IPv4 addresses.
 
 #### (*FD) WriteToInet6  <- go1.18
 
-```
+``` go
 func (fd *FD) WriteToInet6(p []byte, sa *syscall.SockaddrInet6) (int, error)
 ```
 
@@ -603,7 +603,7 @@ WriteToInet6 wraps the sendto network call for IPv6 addresses.
 
 #### (*FD) Writev 
 
-```
+``` go
 func (fd *FD) Writev(v *[][]byte) (int64, error)
 ```
 

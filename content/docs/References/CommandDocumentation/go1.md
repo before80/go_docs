@@ -2995,7 +2995,7 @@ A package statement is said to have an "import comment" if it is immediately fol
 
 如果一个包的语句后面（在下一个换行之前）紧跟着这两种形式的注释，则被称为有一个 "导入注释"：
 
-```
+``` go
 package math // import "path"
 package math /* import "path" */
 ```

@@ -536,7 +536,7 @@ fmt.Fprintf(&w, "hello, world\n") // Compile-time error. => 编译时错误。
 
 ### Should I define methods on values or pointers? 我应该在值或指针上定义方法？
 
-```
+``` go
 func (s *MyStruct) pointerMethod() { } // method on pointer
 func (s MyStruct)  valueMethod()   { } // method on value
 ```

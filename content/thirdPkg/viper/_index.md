@@ -328,7 +328,7 @@ The use of [pflag](https://github.com/spf13/pflag/) in Viper does not preclude t
 
 Example:
 
-```
+``` go
 package main
 
 import (
@@ -357,7 +357,7 @@ Viper provides two Go interfaces to bind other flag systems if you don’t use `
 
 `FlagValue` represents a single flag. This is a very simple example on how to implement this interface:
 
-```
+``` go
 type myFlag struct {}
 func (f myFlag) HasChanged() bool { return false }
 func (f myFlag) Name() string { return "my-flag-name" }
@@ -373,7 +373,7 @@ viper.BindFlagValue("my-flag-name", myFlag{})
 
 `FlagValueSet` represents a group of flags. This is a very simple example on how to implement this interface:
 
-```
+``` go
 type myFlagSet struct {
 	flags []myFlag
 }
@@ -657,7 +657,7 @@ cache1 := NewCache(cache1Config)
 
 Internally, the `NewCache` function can address `max-items` and `item-size` keys directly:
 
-```
+``` go
 func NewCache(v *Viper) *Cache {
 	return &Cache{
 		MaxItems: v.GetInt("max-items"),
@@ -679,7 +679,7 @@ There are two methods to do this:
 
 Example:
 
-```
+``` go
 type config struct {
 	Port int
 	Name string
@@ -872,7 +872,7 @@ SupportedRemoteProviders are universally supported remote providers.
 
 #### func AddConfigPath 
 
-```
+``` go
 func AddConfigPath(in string)
 ```
 
@@ -880,7 +880,7 @@ AddConfigPath adds a path for Viper to search for the config file in. Can be cal
 
 #### func AddRemoteProvider 
 
-```
+``` go
 func AddRemoteProvider(provider, endpoint, path string) error
 ```
 
@@ -888,7 +888,7 @@ AddRemoteProvider adds a remote configuration source. Remote Providers are searc
 
 #### func AddSecureRemoteProvider 
 
-```
+``` go
 func AddSecureRemoteProvider(provider, endpoint, path, secretkeyring string) error
 ```
 
@@ -896,7 +896,7 @@ AddSecureRemoteProvider adds a remote configuration source. Secure Remote Provid
 
 #### func AllKeys 
 
-```
+``` go
 func AllKeys() []string
 ```
 
@@ -904,7 +904,7 @@ AllKeys returns all keys holding a value, regardless of where they are set. Nest
 
 #### func AllSettings 
 
-```
+``` go
 func AllSettings() map[string]interface{}
 ```
 
@@ -912,7 +912,7 @@ AllSettings merges all settings and returns them as a map[string]interface{}.
 
 #### func AllowEmptyEnv  <- v1.3.0
 
-```
+``` go
 func AllowEmptyEnv(allowEmptyEnv bool)
 ```
 
@@ -920,7 +920,7 @@ AllowEmptyEnv tells Viper to consider set, but empty environment variables as va
 
 #### func AutomaticEnv 
 
-```
+``` go
 func AutomaticEnv()
 ```
 
@@ -928,7 +928,7 @@ AutomaticEnv makes Viper check if environment variables match any of the existin
 
 #### func BindEnv 
 
-```
+``` go
 func BindEnv(input ...string) error
 ```
 
@@ -936,7 +936,7 @@ BindEnv binds a Viper key to a ENV variable. ENV variables are case sensitive. I
 
 #### func BindFlagValue 
 
-```
+``` go
 func BindFlagValue(key string, flag FlagValue) error
 ```
 
@@ -944,7 +944,7 @@ BindFlagValue binds a specific key to a FlagValue.
 
 #### func BindFlagValues 
 
-```
+``` go
 func BindFlagValues(flags FlagValueSet) error
 ```
 
@@ -952,7 +952,7 @@ BindFlagValues binds a full FlagValue set to the configuration, using each flag'
 
 #### func BindPFlag 
 
-```
+``` go
 func BindPFlag(key string, flag *pflag.Flag) error
 ```
 
@@ -965,7 +965,7 @@ Viper.BindPFlag("port", serverCmd.Flags().Lookup("port"))
 
 #### func BindPFlags 
 
-```
+``` go
 func BindPFlags(flags *pflag.FlagSet) error
 ```
 
@@ -973,7 +973,7 @@ BindPFlags binds a full flag set to the configuration, using each flag's long na
 
 #### func ConfigFileUsed 
 
-```
+``` go
 func ConfigFileUsed() string
 ```
 
@@ -981,7 +981,7 @@ ConfigFileUsed returns the file used to populate the config registry.
 
 #### func Debug 
 
-```
+``` go
 func Debug()
 ```
 
@@ -989,13 +989,13 @@ Debug prints all configuration registries for debugging purposes.
 
 #### func DebugTo  <- v1.13.0
 
-```
+``` go
 func DebugTo(w io.Writer)
 ```
 
 #### func Get 
 
-```
+``` go
 func Get(key string) interface{}
 ```
 
@@ -1005,7 +1005,7 @@ Get returns an interface. For a specific value use one of the Get____ methods.
 
 #### func GetBool 
 
-```
+``` go
 func GetBool(key string) bool
 ```
 
@@ -1013,7 +1013,7 @@ GetBool returns the value associated with the key as a boolean.
 
 #### func GetDuration 
 
-```
+``` go
 func GetDuration(key string) time.Duration
 ```
 
@@ -1021,7 +1021,7 @@ GetDuration returns the value associated with the key as a duration.
 
 #### func GetFloat64 
 
-```
+``` go
 func GetFloat64(key string) float64
 ```
 
@@ -1029,7 +1029,7 @@ GetFloat64 returns the value associated with the key as a float64.
 
 #### func GetInt 
 
-```
+``` go
 func GetInt(key string) int
 ```
 
@@ -1037,7 +1037,7 @@ GetInt returns the value associated with the key as an integer.
 
 #### func GetInt32  <- v1.1.0
 
-```
+``` go
 func GetInt32(key string) int32
 ```
 
@@ -1045,7 +1045,7 @@ GetInt32 returns the value associated with the key as an integer.
 
 #### func GetInt64 
 
-```
+``` go
 func GetInt64(key string) int64
 ```
 
@@ -1053,7 +1053,7 @@ GetInt64 returns the value associated with the key as an integer.
 
 #### func GetIntSlice  <- v1.5.0
 
-```
+``` go
 func GetIntSlice(key string) []int
 ```
 
@@ -1061,7 +1061,7 @@ GetIntSlice returns the value associated with the key as a slice of int values.
 
 #### func GetSizeInBytes 
 
-```
+``` go
 func GetSizeInBytes(key string) uint
 ```
 
@@ -1069,7 +1069,7 @@ GetSizeInBytes returns the size of the value associated with the given key in by
 
 #### func GetString 
 
-```
+``` go
 func GetString(key string) string
 ```
 
@@ -1077,7 +1077,7 @@ GetString returns the value associated with the key as a string.
 
 #### func GetStringMap 
 
-```
+``` go
 func GetStringMap(key string) map[string]interface{}
 ```
 
@@ -1085,7 +1085,7 @@ GetStringMap returns the value associated with the key as a map of interfaces.
 
 #### func GetStringMapString 
 
-```
+``` go
 func GetStringMapString(key string) map[string]string
 ```
 
@@ -1093,7 +1093,7 @@ GetStringMapString returns the value associated with the key as a map of strings
 
 #### func GetStringMapStringSlice 
 
-```
+``` go
 func GetStringMapStringSlice(key string) map[string][]string
 ```
 
@@ -1101,7 +1101,7 @@ GetStringMapStringSlice returns the value associated with the key as a map to a 
 
 #### func GetStringSlice 
 
-```
+``` go
 func GetStringSlice(key string) []string
 ```
 
@@ -1109,7 +1109,7 @@ GetStringSlice returns the value associated with the key as a slice of strings.
 
 #### func GetTime 
 
-```
+``` go
 func GetTime(key string) time.Time
 ```
 
@@ -1117,7 +1117,7 @@ GetTime returns the value associated with the key as time.
 
 #### func GetUint  <- v1.4.0
 
-```
+``` go
 func GetUint(key string) uint
 ```
 
@@ -1125,7 +1125,7 @@ GetUint returns the value associated with the key as an unsigned integer.
 
 #### func GetUint16  <- v1.13.0
 
-```
+``` go
 func GetUint16(key string) uint16
 ```
 
@@ -1133,7 +1133,7 @@ GetUint16 returns the value associated with the key as an unsigned integer.
 
 #### func GetUint32  <- v1.4.0
 
-```
+``` go
 func GetUint32(key string) uint32
 ```
 
@@ -1141,7 +1141,7 @@ GetUint32 returns the value associated with the key as an unsigned integer.
 
 #### func GetUint64  <- v1.4.0
 
-```
+``` go
 func GetUint64(key string) uint64
 ```
 
@@ -1149,7 +1149,7 @@ GetUint64 returns the value associated with the key as an unsigned integer.
 
 #### func InConfig 
 
-```
+``` go
 func InConfig(key string) bool
 ```
 
@@ -1157,7 +1157,7 @@ InConfig checks to see if the given key (or an alias) is in the config file.
 
 #### func IsSet 
 
-```
+``` go
 func IsSet(key string) bool
 ```
 
@@ -1165,7 +1165,7 @@ IsSet checks to see if the key has been set in any of the data locations. IsSet 
 
 #### func MergeConfig 
 
-```
+``` go
 func MergeConfig(in io.Reader) error
 ```
 
@@ -1173,7 +1173,7 @@ MergeConfig merges a new configuration with an existing config.
 
 #### func MergeConfigMap  <- v1.3.0
 
-```
+``` go
 func MergeConfigMap(cfg map[string]interface{}) error
 ```
 
@@ -1181,7 +1181,7 @@ MergeConfigMap merges the configuration from the map given with an existing conf
 
 #### func MergeInConfig 
 
-```
+``` go
 func MergeInConfig() error
 ```
 
@@ -1189,7 +1189,7 @@ MergeInConfig merges a new configuration with an existing config.
 
 #### func MustBindEnv  <- v1.12.0
 
-```
+``` go
 func MustBindEnv(input ...string)
 ```
 
@@ -1197,7 +1197,7 @@ MustBindEnv wraps BindEnv in a panic. If there is an error binding an environmen
 
 #### func OnConfigChange 
 
-```
+``` go
 func OnConfigChange(run func(in fsnotify.Event))
 ```
 
@@ -1205,7 +1205,7 @@ OnConfigChange sets the event handler that is called when a config file changes.
 
 #### func ReadConfig 
 
-```
+``` go
 func ReadConfig(in io.Reader) error
 ```
 
@@ -1213,7 +1213,7 @@ ReadConfig will read a configuration file, setting existing keys to nil if the k
 
 #### func ReadInConfig 
 
-```
+``` go
 func ReadInConfig() error
 ```
 
@@ -1221,7 +1221,7 @@ ReadInConfig will discover and load the configuration file from disk and key/val
 
 #### func ReadRemoteConfig 
 
-```
+``` go
 func ReadRemoteConfig() error
 ```
 
@@ -1229,7 +1229,7 @@ ReadRemoteConfig attempts to get configuration from a remote source and read it 
 
 #### func RegisterAlias 
 
-```
+``` go
 func RegisterAlias(alias string, key string)
 ```
 
@@ -1237,7 +1237,7 @@ RegisterAlias creates an alias that provides another accessor for the same key. 
 
 #### func Reset 
 
-```
+``` go
 func Reset()
 ```
 
@@ -1245,7 +1245,7 @@ Reset is intended for testing, will reset all to default settings. In the public
 
 #### func SafeWriteConfig  <- v1.0.1
 
-```
+``` go
 func SafeWriteConfig() error
 ```
 
@@ -1253,7 +1253,7 @@ SafeWriteConfig writes current configuration to file only if the file does not e
 
 #### func SafeWriteConfigAs  <- v1.0.1
 
-```
+``` go
 func SafeWriteConfigAs(filename string) error
 ```
 
@@ -1261,7 +1261,7 @@ SafeWriteConfigAs writes current configuration to a given filename if it does no
 
 #### func Set 
 
-```
+``` go
 func Set(key string, value interface{})
 ```
 
@@ -1269,7 +1269,7 @@ Set sets the value for the key in the override register. Set is case-insensitive
 
 #### func SetConfigFile 
 
-```
+``` go
 func SetConfigFile(in string)
 ```
 
@@ -1277,7 +1277,7 @@ SetConfigFile explicitly defines the path, name and extension of the config file
 
 #### func SetConfigName 
 
-```
+``` go
 func SetConfigName(in string)
 ```
 
@@ -1285,7 +1285,7 @@ SetConfigName sets name for the config file. Does not include extension.
 
 #### func SetConfigPermissions  <- v1.4.0
 
-```
+``` go
 func SetConfigPermissions(perm os.FileMode)
 ```
 
@@ -1293,7 +1293,7 @@ SetConfigPermissions sets the permissions for the config file.
 
 #### func SetConfigType 
 
-```
+``` go
 func SetConfigType(in string)
 ```
 
@@ -1301,7 +1301,7 @@ SetConfigType sets the type of the configuration returned by the remote source, 
 
 #### func SetDefault 
 
-```
+``` go
 func SetDefault(key string, value interface{})
 ```
 
@@ -1309,7 +1309,7 @@ SetDefault sets the default value for this key. SetDefault is case-insensitive f
 
 #### func SetEnvKeyReplacer 
 
-```
+``` go
 func SetEnvKeyReplacer(r *strings.Replacer)
 ```
 
@@ -1317,7 +1317,7 @@ SetEnvKeyReplacer sets the strings.Replacer on the viper object Useful for mappi
 
 #### func SetEnvPrefix 
 
-```
+``` go
 func SetEnvPrefix(in string)
 ```
 
@@ -1325,7 +1325,7 @@ SetEnvPrefix defines a prefix that ENVIRONMENT variables will use. E.g. if your 
 
 #### func SetFs 
 
-```
+``` go
 func SetFs(fs afero.Fs)
 ```
 
@@ -1333,7 +1333,7 @@ SetFs sets the filesystem to use to read configuration.
 
 #### func SetTypeByDefaultValue 
 
-```
+``` go
 func SetTypeByDefaultValue(enable bool)
 ```
 
@@ -1353,7 +1353,7 @@ Otherwise the Get function would return:
 
 #### func Unmarshal 
 
-```
+``` go
 func Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
@@ -1361,7 +1361,7 @@ Unmarshal unmarshals the config into a Struct. Make sure that the tags on the fi
 
 #### func UnmarshalExact  <- v1.6.0
 
-```
+``` go
 func UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
@@ -1369,7 +1369,7 @@ UnmarshalExact unmarshals the config into a Struct, erroring if a field is nonex
 
 #### func UnmarshalKey 
 
-```
+``` go
 func UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
@@ -1377,7 +1377,7 @@ UnmarshalKey takes a single key and unmarshals it into a Struct.
 
 #### func WatchConfig 
 
-```
+``` go
 func WatchConfig()
 ```
 
@@ -1385,13 +1385,13 @@ WatchConfig starts watching a config file for changes.
 
 #### func WatchRemoteConfig 
 
-```
+``` go
 func WatchRemoteConfig() error
 ```
 
 #### func WriteConfig  <- v1.0.1
 
-```
+``` go
 func WriteConfig() error
 ```
 
@@ -1399,7 +1399,7 @@ WriteConfig writes the current configuration to a file.
 
 #### func WriteConfigAs  <- v1.0.1
 
-```
+``` go
 func WriteConfigAs(filename string) error
 ```
 
@@ -1409,7 +1409,7 @@ WriteConfigAs writes current configuration to a given filename.
 
 #### type ConfigFileAlreadyExistsError  <- v1.6.0
 
-```
+``` go
 type ConfigFileAlreadyExistsError string
 ```
 
@@ -1417,7 +1417,7 @@ ConfigFileAlreadyExistsError denotes failure to write new configuration file.
 
 #### func (ConfigFileAlreadyExistsError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L124)  <- v1.6.0
 
-```
+``` go
 func (faee ConfigFileAlreadyExistsError) Error() string
 ```
 
@@ -1425,7 +1425,7 @@ Error returns the formatted error when configuration already exists.
 
 #### type ConfigFileNotFoundError 
 
-```
+``` go
 type ConfigFileNotFoundError struct {
 	// contains filtered or unexported fields
 }
@@ -1435,7 +1435,7 @@ ConfigFileNotFoundError denotes failing to find configuration file.
 
 #### func (ConfigFileNotFoundError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L116) 
 
-```
+``` go
 func (fnfe ConfigFileNotFoundError) Error() string
 ```
 
@@ -1443,7 +1443,7 @@ Error returns the formatted configuration error.
 
 #### type ConfigMarshalError  <- v1.0.1
 
-```
+``` go
 type ConfigMarshalError struct {
 	// contains filtered or unexported fields
 }
@@ -1453,7 +1453,7 @@ ConfigMarshalError happens when failing to marshal the configuration.
 
 #### func (ConfigMarshalError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L59)  <- v1.0.1
 
-```
+``` go
 func (e ConfigMarshalError) Error() string
 ```
 
@@ -1461,7 +1461,7 @@ Error returns the formatted configuration error.
 
 #### type ConfigParseError 
 
-```
+``` go
 type ConfigParseError struct {
 	// contains filtered or unexported fields
 }
@@ -1471,7 +1471,7 @@ ConfigParseError denotes failing to parse configuration file.
 
 #### func (ConfigParseError) [Error](https://github.com/spf13/viper/blob/v1.15.0/util.go#L30) 
 
-```
+``` go
 func (pe ConfigParseError) Error() string
 ```
 
@@ -1479,7 +1479,7 @@ Error returns the formatted configuration error.
 
 #### type DecoderConfigOption  <- v1.1.0
 
-```
+``` go
 type DecoderConfigOption func(*mapstructure.DecoderConfig)
 ```
 
@@ -1487,7 +1487,7 @@ A DecoderConfigOption can be passed to viper.Unmarshal to configure mapstructure
 
 #### func DecodeHook  <- v1.1.0
 
-```
+``` go
 func DecodeHook(hook mapstructure.DecodeHookFunc) DecoderConfigOption
 ```
 
@@ -1502,7 +1502,7 @@ DecodeHook returns a DecoderConfigOption which overrides the default DecoderConf
 
 #### type FlagValue 
 
-```
+``` go
 type FlagValue interface {
 	HasChanged() bool
 	Name() string
@@ -1515,7 +1515,7 @@ FlagValue is an interface that users can implement to bind different flags to vi
 
 #### type FlagValueSet 
 
-```
+``` go
 type FlagValueSet interface {
 	VisitAll(fn func(FlagValue))
 }
@@ -1525,7 +1525,7 @@ FlagValueSet is an interface that users can implement to bind a set of flags to 
 
 #### type Logger  <- v1.10.0
 
-```
+``` go
 type Logger interface {
 	// Trace logs a Trace event.
 	//
@@ -1565,7 +1565,7 @@ Logger is a unified interface for various logging use cases and practices, inclu
 
 #### type Option  <- v1.6.0
 
-```
+``` go
 type Option interface {
 	// contains filtered or unexported methods
 }
@@ -1575,7 +1575,7 @@ Option configures Viper using the functional options paradigm popularized by Rob
 
 #### func EnvKeyReplacer  <- v1.6.0
 
-```
+``` go
 func EnvKeyReplacer(r StringReplacer) Option
 ```
 
@@ -1583,7 +1583,7 @@ EnvKeyReplacer sets a replacer used for mapping environment variables to interna
 
 #### func IniLoadOptions  <- v1.8.0
 
-```
+``` go
 func IniLoadOptions(in ini.LoadOptions) Option
 ```
 
@@ -1591,7 +1591,7 @@ IniLoadOptions sets the load options for ini parsing.
 
 #### func KeyDelimiter  <- v1.6.0
 
-```
+``` go
 func KeyDelimiter(d string) Option
 ```
 
@@ -1599,7 +1599,7 @@ KeyDelimiter sets the delimiter used for determining key parts. By default it's 
 
 #### type RemoteConfigError 
 
-```
+``` go
 type RemoteConfigError string
 ```
 
@@ -1607,7 +1607,7 @@ RemoteConfigError denotes encountering an error while trying to pull the configu
 
 #### func (RemoteConfigError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L106) 
 
-```
+``` go
 func (rce RemoteConfigError) Error() string
 ```
 
@@ -1615,7 +1615,7 @@ Error returns the formatted remote provider error
 
 #### type RemoteProvider 
 
-```
+``` go
 type RemoteProvider interface {
 	Provider() string
 	Endpoint() string
@@ -1628,7 +1628,7 @@ RemoteProvider stores the configuration necessary to connect to a remote key/val
 
 #### type RemoteResponse 
 
-```
+``` go
 type RemoteResponse struct {
 	Value []byte
 	Error error
@@ -1637,7 +1637,7 @@ type RemoteResponse struct {
 
 #### type StringReplacer  <- v1.6.0
 
-```
+``` go
 type StringReplacer interface {
 	// Replace returns a copy of s with all replacements performed.
 	Replace(s string) string
@@ -1648,7 +1648,7 @@ StringReplacer applies a set of replacements to a string.
 
 #### type UnsupportedConfigError 
 
-```
+``` go
 type UnsupportedConfigError string
 ```
 
@@ -1656,7 +1656,7 @@ UnsupportedConfigError denotes encountering an unsupported configuration filetyp
 
 #### func (UnsupportedConfigError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L88) 
 
-```
+``` go
 func (str UnsupportedConfigError) Error() string
 ```
 
@@ -1664,7 +1664,7 @@ Error returns the formatted configuration error.
 
 #### type UnsupportedRemoteProviderError 
 
-```
+``` go
 type UnsupportedRemoteProviderError string
 ```
 
@@ -1672,7 +1672,7 @@ UnsupportedRemoteProviderError denotes encountering an unsupported remote provid
 
 #### func (UnsupportedRemoteProviderError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L97) 
 
-```
+``` go
 func (str UnsupportedRemoteProviderError) Error() string
 ```
 
@@ -1680,7 +1680,7 @@ Error returns the formatted remote provider error.
 
 #### type Viper 
 
-```
+``` go
 type Viper struct {
 	// contains filtered or unexported fields
 }
@@ -1719,7 +1719,7 @@ Note: Vipers are not safe for concurrent Get() and Set() operations.
 
 #### func GetViper 
 
-```
+``` go
 func GetViper() *Viper
 ```
 
@@ -1727,7 +1727,7 @@ GetViper gets the global Viper instance.
 
 #### func New 
 
-```
+``` go
 func New() *Viper
 ```
 
@@ -1735,7 +1735,7 @@ New returns an initialized Viper instance.
 
 #### func NewWithOptions  <- v1.6.0
 
-```
+``` go
 func NewWithOptions(opts ...Option) *Viper
 ```
 
@@ -1743,7 +1743,7 @@ NewWithOptions creates a new Viper instance.
 
 #### func Sub 
 
-```
+``` go
 func Sub(key string) *Viper
 ```
 
@@ -1751,247 +1751,247 @@ Sub returns new Viper instance representing a sub tree of this instance. Sub is 
 
 #### (*Viper) AddConfigPath 
 
-```
+``` go
 func (v *Viper) AddConfigPath(in string)
 ```
 
 #### (*Viper) AddRemoteProvider 
 
-```
+``` go
 func (v *Viper) AddRemoteProvider(provider, endpoint, path string) error
 ```
 
 #### (*Viper) AddSecureRemoteProvider 
 
-```
+``` go
 func (v *Viper) AddSecureRemoteProvider(provider, endpoint, path, secretkeyring string) error
 ```
 
 #### (*Viper) AllKeys 
 
-```
+``` go
 func (v *Viper) AllKeys() []string
 ```
 
 #### (*Viper) AllSettings 
 
-```
+``` go
 func (v *Viper) AllSettings() map[string]interface{}
 ```
 
 #### (*Viper) AllowEmptyEnv  <- v1.3.0
 
-```
+``` go
 func (v *Viper) AllowEmptyEnv(allowEmptyEnv bool)
 ```
 
 #### (*Viper) AutomaticEnv 
 
-```
+``` go
 func (v *Viper) AutomaticEnv()
 ```
 
 #### (*Viper) BindEnv 
 
-```
+``` go
 func (v *Viper) BindEnv(input ...string) error
 ```
 
 #### (*Viper) BindFlagValue 
 
-```
+``` go
 func (v *Viper) BindFlagValue(key string, flag FlagValue) error
 ```
 
 #### (*Viper) BindFlagValues 
 
-```
+``` go
 func (v *Viper) BindFlagValues(flags FlagValueSet) (err error)
 ```
 
 #### (*Viper) BindPFlag 
 
-```
+``` go
 func (v *Viper) BindPFlag(key string, flag *pflag.Flag) error
 ```
 
 #### (*Viper) BindPFlags 
 
-```
+``` go
 func (v *Viper) BindPFlags(flags *pflag.FlagSet) error
 ```
 
 #### (*Viper) ConfigFileUsed 
 
-```
+``` go
 func (v *Viper) ConfigFileUsed() string
 ```
 
 #### (*Viper) Debug 
 
-```
+``` go
 func (v *Viper) Debug()
 ```
 
 #### (*Viper) DebugTo  <- v1.13.0
 
-```
+``` go
 func (v *Viper) DebugTo(w io.Writer)
 ```
 
 #### (*Viper) Get 
 
-```
+``` go
 func (v *Viper) Get(key string) interface{}
 ```
 
 #### (*Viper) GetBool 
 
-```
+``` go
 func (v *Viper) GetBool(key string) bool
 ```
 
 #### (*Viper) GetDuration 
 
-```
+``` go
 func (v *Viper) GetDuration(key string) time.Duration
 ```
 
 #### (*Viper) GetFloat64 
 
-```
+``` go
 func (v *Viper) GetFloat64(key string) float64
 ```
 
 #### (*Viper) GetInt 
 
-```
+``` go
 func (v *Viper) GetInt(key string) int
 ```
 
 #### (*Viper) GetInt32  <- v1.1.0
 
-```
+``` go
 func (v *Viper) GetInt32(key string) int32
 ```
 
 #### (*Viper) GetInt64 
 
-```
+``` go
 func (v *Viper) GetInt64(key string) int64
 ```
 
 #### (*Viper) GetIntSlice  <- v1.5.0
 
-```
+``` go
 func (v *Viper) GetIntSlice(key string) []int
 ```
 
 #### (*Viper) GetSizeInBytes 
 
-```
+``` go
 func (v *Viper) GetSizeInBytes(key string) uint
 ```
 
 #### (*Viper) GetString 
 
-```
+``` go
 func (v *Viper) GetString(key string) string
 ```
 
 #### (*Viper) GetStringMap 
 
-```
+``` go
 func (v *Viper) GetStringMap(key string) map[string]interface{}
 ```
 
 #### (*Viper) GetStringMapString 
 
-```
+``` go
 func (v *Viper) GetStringMapString(key string) map[string]string
 ```
 
 #### (*Viper) GetStringMapStringSlice 
 
-```
+``` go
 func (v *Viper) GetStringMapStringSlice(key string) map[string][]string
 ```
 
 #### (*Viper) GetStringSlice 
 
-```
+``` go
 func (v *Viper) GetStringSlice(key string) []string
 ```
 
 #### (*Viper) GetTime 
 
-```
+``` go
 func (v *Viper) GetTime(key string) time.Time
 ```
 
 #### (*Viper) GetUint  <- v1.4.0
 
-```
+``` go
 func (v *Viper) GetUint(key string) uint
 ```
 
 #### (*Viper) GetUint16  <- v1.13.0
 
-```
+``` go
 func (v *Viper) GetUint16(key string) uint16
 ```
 
 #### (*Viper) GetUint32  <- v1.4.0
 
-```
+``` go
 func (v *Viper) GetUint32(key string) uint32
 ```
 
 #### (*Viper) GetUint64  <- v1.4.0
 
-```
+``` go
 func (v *Viper) GetUint64(key string) uint64
 ```
 
 #### (*Viper) InConfig 
 
-```
+``` go
 func (v *Viper) InConfig(key string) bool
 ```
 
 #### (*Viper) IsSet 
 
-```
+``` go
 func (v *Viper) IsSet(key string) bool
 ```
 
 #### (*Viper) MergeConfig 
 
-```
+``` go
 func (v *Viper) MergeConfig(in io.Reader) error
 ```
 
 #### (*Viper) MergeConfigMap  <- v1.3.0
 
-```
+``` go
 func (v *Viper) MergeConfigMap(cfg map[string]interface{}) error
 ```
 
 #### (*Viper) MergeInConfig 
 
-```
+``` go
 func (v *Viper) MergeInConfig() error
 ```
 
 #### (*Viper) MustBindEnv  <- v1.12.0
 
-```
+``` go
 func (v *Viper) MustBindEnv(input ...string)
 ```
 
 #### (*Viper) OnConfigChange 
 
-```
+``` go
 func (v *Viper) OnConfigChange(run func(in fsnotify.Event))
 ```
 
@@ -1999,127 +1999,127 @@ OnConfigChange sets the event handler that is called when a config file changes.
 
 #### (*Viper) ReadConfig 
 
-```
+``` go
 func (v *Viper) ReadConfig(in io.Reader) error
 ```
 
 #### (*Viper) ReadInConfig 
 
-```
+``` go
 func (v *Viper) ReadInConfig() error
 ```
 
 #### (*Viper) ReadRemoteConfig 
 
-```
+``` go
 func (v *Viper) ReadRemoteConfig() error
 ```
 
 #### (*Viper) RegisterAlias 
 
-```
+``` go
 func (v *Viper) RegisterAlias(alias string, key string)
 ```
 
 #### (*Viper) SafeWriteConfig  <- v1.0.1
 
-```
+``` go
 func (v *Viper) SafeWriteConfig() error
 ```
 
 #### (*Viper) SafeWriteConfigAs  <- v1.0.1
 
-```
+``` go
 func (v *Viper) SafeWriteConfigAs(filename string) error
 ```
 
 #### (*Viper) Set 
 
-```
+``` go
 func (v *Viper) Set(key string, value interface{})
 ```
 
 #### (*Viper) SetConfigFile 
 
-```
+``` go
 func (v *Viper) SetConfigFile(in string)
 ```
 
 #### (*Viper) SetConfigName 
 
-```
+``` go
 func (v *Viper) SetConfigName(in string)
 ```
 
 #### (*Viper) SetConfigPermissions  <- v1.4.0
 
-```
+``` go
 func (v *Viper) SetConfigPermissions(perm os.FileMode)
 ```
 
 #### (*Viper) SetConfigType 
 
-```
+``` go
 func (v *Viper) SetConfigType(in string)
 ```
 
 #### (*Viper) SetDefault 
 
-```
+``` go
 func (v *Viper) SetDefault(key string, value interface{})
 ```
 
 #### (*Viper) SetEnvKeyReplacer 
 
-```
+``` go
 func (v *Viper) SetEnvKeyReplacer(r *strings.Replacer)
 ```
 
 #### (*Viper) SetEnvPrefix 
 
-```
+``` go
 func (v *Viper) SetEnvPrefix(in string)
 ```
 
 #### (*Viper) SetFs 
 
-```
+``` go
 func (v *Viper) SetFs(fs afero.Fs)
 ```
 
 #### (*Viper) SetTypeByDefaultValue 
 
-```
+``` go
 func (v *Viper) SetTypeByDefaultValue(enable bool)
 ```
 
 #### (*Viper) Sub 
 
-```
+``` go
 func (v *Viper) Sub(key string) *Viper
 ```
 
 #### (*Viper) Unmarshal 
 
-```
+``` go
 func (v *Viper) Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
 #### (*Viper) UnmarshalExact 
 
-```
+``` go
 func (v *Viper) UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
 #### (*Viper) UnmarshalKey 
 
-```
+``` go
 func (v *Viper) UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
 #### (*Viper) WatchConfig 
 
-```
+``` go
 func (v *Viper) WatchConfig()
 ```
 
@@ -2127,24 +2127,24 @@ WatchConfig starts watching a config file for changes.
 
 #### (*Viper) WatchRemoteConfig 
 
-```
+``` go
 func (v *Viper) WatchRemoteConfig() error
 ```
 
 #### (*Viper) WatchRemoteConfigOnChannel 
 
-```
+``` go
 func (v *Viper) WatchRemoteConfigOnChannel() error
 ```
 
 #### (*Viper) WriteConfig  <- v1.0.1
 
-```
+``` go
 func (v *Viper) WriteConfig() error
 ```
 
 #### (*Viper) WriteConfigAs  <- v1.0.1
 
-```
+``` go
 func (v *Viper) WriteConfigAs(filename string) error
 ```

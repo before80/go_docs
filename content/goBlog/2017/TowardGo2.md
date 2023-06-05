@@ -299,7 +299,7 @@ More recently, we designed for Go 1.9 a [math/bits package](https://beta.golang.
 
 最近，我们为Go 1.9设计了一个math/bits包，其中包含各种位操作函数：
 
-```
+``` go
 package bits // import "math/bits"
 
 func LeadingZeros32(x uint32) int

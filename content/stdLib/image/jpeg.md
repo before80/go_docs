@@ -84,10 +84,7 @@ type Options struct {
 
 Options are the encoding parameters. Quality ranges from 1 to 100 inclusive, higher is better.
 
-##### Example
-``` go 
-```
-
+### type Reader <- DEPRECATED
 ### type UnsupportedError 
 
 ``` go 

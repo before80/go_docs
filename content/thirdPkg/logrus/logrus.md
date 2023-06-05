@@ -103,7 +103,7 @@ The organization's name was changed to lower-case--and this will not be changed 
 
 The simplest way to use Logrus is simply the package-level exported logger:
 
-```
+``` go
 package main
 
 import (
@@ -119,7 +119,7 @@ func main() {
 
 Note that it's completely api-compatible with the stdlib logger, so you can replace your `log` imports everywhere with `log "github.com/sirupsen/logrus"` and you'll now have the flexibility of Logrus. You can customize it all you want:
 
-```
+``` go
 package main
 
 import (
@@ -169,7 +169,7 @@ func main() {
 
 For more advanced usage such as logging to multiple locations from the same application, you can also create an instance of the `logrus` Logger:
 
-```
+``` go
 package main
 
 import (
@@ -355,7 +355,7 @@ Third party logging formatters:
 
 You can define your formatter by implementing the `Formatter` interface, requiring a `Format` method. `Format` takes an `*Entry`. `entry.Data` is a `Fields` type (`map[string]interface{}`) with all your fields as well as the default ones (see Entries section above):
 
-```
+``` go
 type MyJSONFormatter struct {
 }
 
@@ -482,7 +482,7 @@ Package logrus is a structured logger for Go, completely API compatible with the
 
 The simplest way to use Logrus is simply the package-level exported logger:
 
-```
+``` go
 package main
 
 import (
@@ -519,7 +519,7 @@ For a full guide visit https://github.com/sirupsen/logrus
 
 [View Source](https://github.com/sirupsen/logrus/blob/v1.9.3/formatter.go#L6)
 
-```
+``` go
 const (
 	FieldKeyMsg         = "msg"
 	FieldKeyLevel       = "level"
@@ -562,7 +562,7 @@ Defines the key when adding errors using WithError.
 
 #### func AddHook <-0.4.0
 
-```
+``` go
 func AddHook(hook Hook)
 ```
 
@@ -570,7 +570,7 @@ AddHook adds a hook to the standard logger hooks.
 
 #### func Debug 
 
-```
+``` go
 func Debug(args ...interface{})
 ```
 
@@ -578,7 +578,7 @@ Debug logs a message at level Debug on the standard logger.
 
 #### func DebugFn <-1.7.0
 
-```
+``` go
 func DebugFn(fn LogFunction)
 ```
 
@@ -586,7 +586,7 @@ DebugFn logs a message from a func at level Debug on the standard logger.
 
 #### func Debugf <-0.4.1
 
-```
+``` go
 func Debugf(format string, args ...interface{})
 ```
 
@@ -594,7 +594,7 @@ Debugf logs a message at level Debug on the standard logger.
 
 #### func Debugln <-0.4.1
 
-```
+``` go
 func Debugln(args ...interface{})
 ```
 
@@ -602,7 +602,7 @@ Debugln logs a message at level Debug on the standard logger.
 
 #### func DeferExitHandler <-1.4.0
 
-```
+``` go
 func DeferExitHandler(handler func())
 ```
 
@@ -612,7 +612,7 @@ This method is useful when a caller wishes to use logrus to log a fatal message 
 
 #### func Error 
 
-```
+``` go
 func Error(args ...interface{})
 ```
 
@@ -620,7 +620,7 @@ Error logs a message at level Error on the standard logger.
 
 #### func ErrorFn <-1.7.0
 
-```
+``` go
 func ErrorFn(fn LogFunction)
 ```
 
@@ -628,7 +628,7 @@ ErrorFn logs a message from a func at level Error on the standard logger.
 
 #### func Errorf <-0.4.1
 
-```
+``` go
 func Errorf(format string, args ...interface{})
 ```
 
@@ -636,7 +636,7 @@ Errorf logs a message at level Error on the standard logger.
 
 #### func Errorln <-0.4.1
 
-```
+``` go
 func Errorln(args ...interface{})
 ```
 
@@ -644,7 +644,7 @@ Errorln logs a message at level Error on the standard logger.
 
 #### func Exit <-0.11.0
 
-```
+``` go
 func Exit(code int)
 ```
 
@@ -652,7 +652,7 @@ Exit runs all the Logrus atexit handlers and then terminates the program using o
 
 #### func Fatal 
 
-```
+``` go
 func Fatal(args ...interface{})
 ```
 
@@ -660,7 +660,7 @@ Fatal logs a message at level Fatal on the standard logger then the process will
 
 #### func FatalFn <-1.7.0
 
-```
+``` go
 func FatalFn(fn LogFunction)
 ```
 
@@ -668,7 +668,7 @@ FatalFn logs a message from a func at level Fatal on the standard logger then th
 
 #### func Fatalf <-0.4.1
 
-```
+``` go
 func Fatalf(format string, args ...interface{})
 ```
 
@@ -676,7 +676,7 @@ Fatalf logs a message at level Fatal on the standard logger then the process wil
 
 #### func Fatalln <-0.4.1
 
-```
+``` go
 func Fatalln(args ...interface{})
 ```
 
@@ -684,7 +684,7 @@ Fatalln logs a message at level Fatal on the standard logger then the process wi
 
 #### func Info 
 
-```
+``` go
 func Info(args ...interface{})
 ```
 
@@ -692,7 +692,7 @@ Info logs a message at level Info on the standard logger.
 
 #### func InfoFn <-1.7.0
 
-```
+``` go
 func InfoFn(fn LogFunction)
 ```
 
@@ -700,7 +700,7 @@ InfoFn logs a message from a func at level Info on the standard logger.
 
 #### func Infof <-0.4.1
 
-```
+``` go
 func Infof(format string, args ...interface{})
 ```
 
@@ -708,7 +708,7 @@ Infof logs a message at level Info on the standard logger.
 
 #### func Infoln <-0.4.1
 
-```
+``` go
 func Infoln(args ...interface{})
 ```
 
@@ -716,7 +716,7 @@ Infoln logs a message at level Info on the standard logger.
 
 #### func IsLevelEnabled <-1.1.0
 
-```
+``` go
 func IsLevelEnabled(level Level) bool
 ```
 
@@ -724,7 +724,7 @@ IsLevelEnabled checks if the log level of the standard logger is greater than th
 
 #### func Panic 
 
-```
+``` go
 func Panic(args ...interface{})
 ```
 
@@ -732,7 +732,7 @@ Panic logs a message at level Panic on the standard logger.
 
 #### func PanicFn <-1.7.0
 
-```
+``` go
 func PanicFn(fn LogFunction)
 ```
 
@@ -740,7 +740,7 @@ PanicFn logs a message from a func at level Panic on the standard logger.
 
 #### func Panicf <-0.4.1
 
-```
+``` go
 func Panicf(format string, args ...interface{})
 ```
 
@@ -748,7 +748,7 @@ Panicf logs a message at level Panic on the standard logger.
 
 #### func Panicln <-0.4.1
 
-```
+``` go
 func Panicln(args ...interface{})
 ```
 
@@ -756,7 +756,7 @@ Panicln logs a message at level Panic on the standard logger.
 
 #### func Print <-0.4.1
 
-```
+``` go
 func Print(args ...interface{})
 ```
 
@@ -764,7 +764,7 @@ Print logs a message at level Info on the standard logger.
 
 #### func PrintFn <-1.7.0
 
-```
+``` go
 func PrintFn(fn LogFunction)
 ```
 
@@ -772,7 +772,7 @@ PrintFn logs a message from a func at level Info on the standard logger.
 
 #### func Printf <-0.4.1
 
-```
+``` go
 func Printf(format string, args ...interface{})
 ```
 
@@ -780,7 +780,7 @@ Printf logs a message at level Info on the standard logger.
 
 #### func Println <-0.4.1
 
-```
+``` go
 func Println(args ...interface{})
 ```
 
@@ -788,7 +788,7 @@ Println logs a message at level Info on the standard logger.
 
 #### func RegisterExitHandler <-0.11.0
 
-```
+``` go
 func RegisterExitHandler(handler func())
 ```
 
@@ -798,7 +798,7 @@ This method is useful when a caller wishes to use logrus to log a fatal message 
 
 #### func SetBufferPool <-1.7.0
 
-```
+``` go
 func SetBufferPool(bp BufferPool)
 ```
 
@@ -806,7 +806,7 @@ SetBufferPool allows to replace the default logrus buffer pool to better meets t
 
 #### func SetFormatter <-0.4.0
 
-```
+``` go
 func SetFormatter(formatter Formatter)
 ```
 
@@ -814,7 +814,7 @@ SetFormatter sets the standard logger formatter.
 
 #### func SetLevel <-0.4.0
 
-```
+``` go
 func SetLevel(level Level)
 ```
 
@@ -822,7 +822,7 @@ SetLevel sets the standard logger level.
 
 #### func SetOutput <-0.4.0
 
-```
+``` go
 func SetOutput(out io.Writer)
 ```
 
@@ -830,7 +830,7 @@ SetOutput sets the standard logger output.
 
 #### func SetReportCaller <-1.2.0
 
-```
+``` go
 func SetReportCaller(include bool)
 ```
 
@@ -838,7 +838,7 @@ SetReportCaller sets whether the standard logger will include the calling method
 
 #### func Trace <-1.2.0
 
-```
+``` go
 func Trace(args ...interface{})
 ```
 
@@ -846,7 +846,7 @@ Trace logs a message at level Trace on the standard logger.
 
 #### func TraceFn <-1.7.0
 
-```
+``` go
 func TraceFn(fn LogFunction)
 ```
 
@@ -854,7 +854,7 @@ TraceFn logs a message from a func at level Trace on the standard logger.
 
 #### func Tracef <-1.2.0
 
-```
+``` go
 func Tracef(format string, args ...interface{})
 ```
 
@@ -862,7 +862,7 @@ Tracef logs a message at level Trace on the standard logger.
 
 #### func Traceln <-1.2.0
 
-```
+``` go
 func Traceln(args ...interface{})
 ```
 
@@ -870,7 +870,7 @@ Traceln logs a message at level Trace on the standard logger.
 
 #### func Warn 
 
-```
+``` go
 func Warn(args ...interface{})
 ```
 
@@ -878,7 +878,7 @@ Warn logs a message at level Warn on the standard logger.
 
 #### func WarnFn <-1.7.0
 
-```
+``` go
 func WarnFn(fn LogFunction)
 ```
 
@@ -886,7 +886,7 @@ WarnFn logs a message from a func at level Warn on the standard logger.
 
 #### func Warnf <-0.4.1
 
-```
+``` go
 func Warnf(format string, args ...interface{})
 ```
 
@@ -894,7 +894,7 @@ Warnf logs a message at level Warn on the standard logger.
 
 #### func Warning <-0.4.1
 
-```
+``` go
 func Warning(args ...interface{})
 ```
 
@@ -902,7 +902,7 @@ Warning logs a message at level Warn on the standard logger.
 
 #### func WarningFn <-1.7.0
 
-```
+``` go
 func WarningFn(fn LogFunction)
 ```
 
@@ -910,7 +910,7 @@ WarningFn logs a message from a func at level Warn on the standard logger.
 
 #### func Warningf <-0.4.1
 
-```
+``` go
 func Warningf(format string, args ...interface{})
 ```
 
@@ -918,7 +918,7 @@ Warningf logs a message at level Warn on the standard logger.
 
 #### func Warningln <-0.4.1
 
-```
+``` go
 func Warningln(args ...interface{})
 ```
 
@@ -926,7 +926,7 @@ Warningln logs a message at level Warn on the standard logger.
 
 #### func Warnln <-0.4.1
 
-```
+``` go
 func Warnln(args ...interface{})
 ```
 
@@ -936,7 +936,7 @@ Warnln logs a message at level Warn on the standard logger.
 
 #### type BufferPool <-1.7.0
 
-```
+``` go
 type BufferPool interface {
 	Put(*bytes.Buffer)
 	Get() *bytes.Buffer
@@ -945,7 +945,7 @@ type BufferPool interface {
 
 #### type Entry 
 
-```
+``` go
 type Entry struct {
 	Logger *Logger
 
@@ -978,13 +978,13 @@ An entry is the final or intermediate Logrus logging entry. It contains all the 
 
 #### func NewEntry 
 
-```
+``` go
 func NewEntry(logger *Logger) *Entry
 ```
 
 #### func WithContext <-1.4.0
 
-```
+``` go
 func WithContext(ctx context.Context) *Entry
 ```
 
@@ -992,7 +992,7 @@ WithContext creates an entry from the standard logger and adds a context to it.
 
 #### func WithError <-0.8.7
 
-```
+``` go
 func WithError(err error) *Entry
 ```
 
@@ -1000,7 +1000,7 @@ WithError creates an entry from the standard logger and adds an error to it, usi
 
 #### func WithField <-0.4.0
 
-```
+``` go
 func WithField(key string, value interface{}) *Entry
 ```
 
@@ -1010,7 +1010,7 @@ Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic
 
 #### func WithFields <-0.4.0
 
-```
+``` go
 func WithFields(fields Fields) *Entry
 ```
 
@@ -1020,7 +1020,7 @@ Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic
 
 #### func WithTime <-1.0.6
 
-```
+``` go
 func WithTime(t time.Time) *Entry
 ```
 
@@ -1030,7 +1030,7 @@ Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic
 
 #### (*Entry) Bytes <-1.5.0
 
-```
+``` go
 func (entry *Entry) Bytes() ([]byte, error)
 ```
 
@@ -1038,91 +1038,91 @@ Returns the bytes representation of this entry from the formatter.
 
 #### (*Entry) Debug 
 
-```
+``` go
 func (entry *Entry) Debug(args ...interface{})
 ```
 
 #### (*Entry) Debugf 
 
-```
+``` go
 func (entry *Entry) Debugf(format string, args ...interface{})
 ```
 
 #### (*Entry) Debugln 
 
-```
+``` go
 func (entry *Entry) Debugln(args ...interface{})
 ```
 
 #### (*Entry) Dup <-1.7.1
 
-```
+``` go
 func (entry *Entry) Dup() *Entry
 ```
 
 #### (*Entry) Error 
 
-```
+``` go
 func (entry *Entry) Error(args ...interface{})
 ```
 
 #### (*Entry) Errorf 
 
-```
+``` go
 func (entry *Entry) Errorf(format string, args ...interface{})
 ```
 
 #### (*Entry) Errorln 
 
-```
+``` go
 func (entry *Entry) Errorln(args ...interface{})
 ```
 
 #### (*Entry) Fatal 
 
-```
+``` go
 func (entry *Entry) Fatal(args ...interface{})
 ```
 
 #### (*Entry) Fatalf 
 
-```
+``` go
 func (entry *Entry) Fatalf(format string, args ...interface{})
 ```
 
 #### (*Entry) Fatalln 
 
-```
+``` go
 func (entry *Entry) Fatalln(args ...interface{})
 ```
 
 #### func (Entry) [HasCaller](https://github.com/sirupsen/logrus/blob/v1.9.3/entry.go#L215) <-1.2.0
 
-```
+``` go
 func (entry Entry) HasCaller() (has bool)
 ```
 
 #### (*Entry) Info 
 
-```
+``` go
 func (entry *Entry) Info(args ...interface{})
 ```
 
 #### (*Entry) Infof 
 
-```
+``` go
 func (entry *Entry) Infof(format string, args ...interface{})
 ```
 
 #### (*Entry) Infoln 
 
-```
+``` go
 func (entry *Entry) Infoln(args ...interface{})
 ```
 
 #### (*Entry) Log <-1.3.0
 
-```
+``` go
 func (entry *Entry) Log(level Level, args ...interface{})
 ```
 
@@ -1130,55 +1130,55 @@ Log will log a message at the level given as parameter. Warning: using Log at Pa
 
 #### (*Entry) Logf <-1.3.0
 
-```
+``` go
 func (entry *Entry) Logf(level Level, format string, args ...interface{})
 ```
 
 #### (*Entry) Logln <-1.3.0
 
-```
+``` go
 func (entry *Entry) Logln(level Level, args ...interface{})
 ```
 
 #### (*Entry) Panic 
 
-```
+``` go
 func (entry *Entry) Panic(args ...interface{})
 ```
 
 #### (*Entry) Panicf 
 
-```
+``` go
 func (entry *Entry) Panicf(format string, args ...interface{})
 ```
 
 #### (*Entry) Panicln 
 
-```
+``` go
 func (entry *Entry) Panicln(args ...interface{})
 ```
 
 #### (*Entry) Print 
 
-```
+``` go
 func (entry *Entry) Print(args ...interface{})
 ```
 
 #### (*Entry) Printf 
 
-```
+``` go
 func (entry *Entry) Printf(format string, args ...interface{})
 ```
 
 #### (*Entry) Println 
 
-```
+``` go
 func (entry *Entry) Println(args ...interface{})
 ```
 
 #### (*Entry) String 
 
-```
+``` go
 func (entry *Entry) String() (string, error)
 ```
 
@@ -1186,61 +1186,61 @@ Returns the string representation from the reader and ultimately the formatter.
 
 #### (*Entry) Trace <-1.2.0
 
-```
+``` go
 func (entry *Entry) Trace(args ...interface{})
 ```
 
 #### (*Entry) Tracef <-1.2.0
 
-```
+``` go
 func (entry *Entry) Tracef(format string, args ...interface{})
 ```
 
 #### (*Entry) Traceln <-1.2.0
 
-```
+``` go
 func (entry *Entry) Traceln(args ...interface{})
 ```
 
 #### (*Entry) Warn 
 
-```
+``` go
 func (entry *Entry) Warn(args ...interface{})
 ```
 
 #### (*Entry) Warnf 
 
-```
+``` go
 func (entry *Entry) Warnf(format string, args ...interface{})
 ```
 
 #### (*Entry) Warning <-0.6.3
 
-```
+``` go
 func (entry *Entry) Warning(args ...interface{})
 ```
 
 #### (*Entry) Warningf 
 
-```
+``` go
 func (entry *Entry) Warningf(format string, args ...interface{})
 ```
 
 #### (*Entry) Warningln 
 
-```
+``` go
 func (entry *Entry) Warningln(args ...interface{})
 ```
 
 #### (*Entry) Warnln 
 
-```
+``` go
 func (entry *Entry) Warnln(args ...interface{})
 ```
 
 #### (*Entry) WithContext <-1.4.0
 
-```
+``` go
 func (entry *Entry) WithContext(ctx context.Context) *Entry
 ```
 
@@ -1248,7 +1248,7 @@ Add a context to the Entry.
 
 #### (*Entry) WithError <-0.8.7
 
-```
+``` go
 func (entry *Entry) WithError(err error) *Entry
 ```
 
@@ -1256,7 +1256,7 @@ Add an error as single field (using the key defined in ErrorKey) to the Entry.
 
 #### (*Entry) WithField 
 
-```
+``` go
 func (entry *Entry) WithField(key string, value interface{}) *Entry
 ```
 
@@ -1264,7 +1264,7 @@ Add a single field to the Entry.
 
 #### (*Entry) WithFields 
 
-```
+``` go
 func (entry *Entry) WithFields(fields Fields) *Entry
 ```
 
@@ -1272,7 +1272,7 @@ Add a map of fields to the Entry.
 
 #### (*Entry) WithTime <-1.0.6
 
-```
+``` go
 func (entry *Entry) WithTime(t time.Time) *Entry
 ```
 
@@ -1280,7 +1280,7 @@ Overrides the time of the Entry.
 
 #### (*Entry) Writer <-0.11.5
 
-```
+``` go
 func (entry *Entry) Writer() *io.PipeWriter
 ```
 
@@ -1288,7 +1288,7 @@ Writer returns an io.Writer that writes to the logger at the info log level
 
 #### (*Entry) WriterLevel <-0.11.5
 
-```
+``` go
 func (entry *Entry) WriterLevel(level Level) *io.PipeWriter
 ```
 
@@ -1296,7 +1296,7 @@ WriterLevel returns an io.Writer that writes to the logger at the given log leve
 
 #### type Ext1FieldLogger <-1.2.0
 
-```
+``` go
 type Ext1FieldLogger interface {
 	FieldLogger
 	Tracef(format string, args ...interface{})
@@ -1309,7 +1309,7 @@ Ext1FieldLogger (the first extension to FieldLogger) is superfluous, it is here 
 
 #### type FieldLogger <-0.10.0
 
-```
+``` go
 type FieldLogger interface {
 	WithField(key string, value interface{}) *Entry
 	WithFields(fields Fields) *Entry
@@ -1348,7 +1348,7 @@ The FieldLogger interface generalizes the Entry and Logger types
 
 #### type FieldMap <-0.11.1
 
-```
+``` go
 type FieldMap map[fieldKey]string
 ```
 
@@ -1356,7 +1356,7 @@ FieldMap allows customization of the key names for default fields.
 
 #### type Fields 
 
-```
+``` go
 type Fields map[string]interface{}
 ```
 
@@ -1364,7 +1364,7 @@ Fields type, used to pass to `WithFields`.
 
 #### type Formatter 
 
-```
+``` go
 type Formatter interface {
 	Format(*Entry) ([]byte, error)
 }
@@ -1378,7 +1378,7 @@ Any additional fields added with `WithField` or `WithFields` are also in `entry.
 
 #### type Hook 
 
-```
+``` go
 type Hook interface {
 	Levels() []Level
 	Fire(*Entry) error
@@ -1389,7 +1389,7 @@ A hook to be fired when logging on the logging levels returned from `Levels()` o
 
 #### type JSONFormatter 
 
-```
+``` go
 type JSONFormatter struct {
 	// TimestampFormat sets the format used for marshaling timestamps.
 	// The format to use is the same than for time.Format or time.Parse from the standard
@@ -1433,7 +1433,7 @@ JSONFormatter formats logs into parsable json
 
 #### (*JSONFormatter) Format 
 
-```
+``` go
 func (f *JSONFormatter) Format(entry *Entry) ([]byte, error)
 ```
 
@@ -1441,13 +1441,13 @@ Format renders a single log entry
 
 #### type Level 
 
-```
+``` go
 type Level uint32
 ```
 
 Level type
 
-```
+``` go
 const (
 	// PanicLevel level, highest level of severity. Logs and then calls panic with the
 	// message passed to Debug, Info, ...
@@ -1474,7 +1474,7 @@ These are the different logging levels. You can set the logging level to log on 
 
 #### func GetLevel <-0.6.1
 
-```
+``` go
 func GetLevel() Level
 ```
 
@@ -1482,7 +1482,7 @@ GetLevel returns the standard logger level.
 
 #### func ParseLevel <-0.6.0
 
-```
+``` go
 func ParseLevel(lvl string) (Level, error)
 ```
 
@@ -1490,13 +1490,13 @@ ParseLevel takes a string level and returns the Logrus log level constant.
 
 #### func (Level) [MarshalText](https://github.com/sirupsen/logrus/blob/v1.9.3/logrus.go#L59) <-1.3.0
 
-```
+``` go
 func (level Level) MarshalText() ([]byte, error)
 ```
 
 #### func (Level) [String](https://github.com/sirupsen/logrus/blob/v1.9.3/logrus.go#L16) <-0.4.0
 
-```
+``` go
 func (level Level) String() string
 ```
 
@@ -1504,7 +1504,7 @@ Convert the Level to a string. E.g. PanicLevel becomes "panic".
 
 #### (*Level) UnmarshalText <-1.2.0
 
-```
+``` go
 func (level *Level) UnmarshalText(text []byte) error
 ```
 
@@ -1512,7 +1512,7 @@ UnmarshalText implements encoding.TextUnmarshaler.
 
 #### type LevelHooks <-0.8.3
 
-```
+``` go
 type LevelHooks map[Level][]Hook
 ```
 
@@ -1520,7 +1520,7 @@ Internal type for storing the hooks on a logger instance.
 
 #### func (LevelHooks) [Add](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks.go#L18) <-0.8.3
 
-```
+``` go
 func (hooks LevelHooks) Add(hook Hook)
 ```
 
@@ -1528,7 +1528,7 @@ Add a hook to an instance of logger. This is called with `log.Hooks.Add(new(MyHo
 
 #### func (LevelHooks) [Fire](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks.go#L26) <-0.8.3
 
-```
+``` go
 func (hooks LevelHooks) Fire(level Level, entry *Entry) error
 ```
 
@@ -1536,7 +1536,7 @@ Fire all the hooks for the passed level. Used by `entry.log` to fire appropriate
 
 #### type LogFunction <-1.7.0
 
-```
+``` go
 type LogFunction func() []interface{}
 ```
 
@@ -1544,7 +1544,7 @@ LogFunction For big messages, it can be more efficient to pass a function and on
 
 #### type Logger 
 
-```
+``` go
 type Logger struct {
 	// The logs are `io.Copy`'d to this in a mutex. It's common to set this to a
 	// file, or leave it default which is `os.Stderr`. You can also set this to
@@ -1581,7 +1581,7 @@ type Logger struct {
 
 #### func New 
 
-```
+``` go
 func New() *Logger
 ```
 
@@ -1600,13 +1600,13 @@ It's recommended to make this a global instance called `log`.
 
 #### func StandardLogger <-0.6.5
 
-```
+``` go
 func StandardLogger() *Logger
 ```
 
 #### (*Logger) AddHook <-1.0.4
 
-```
+``` go
 func (logger *Logger) AddHook(hook Hook)
 ```
 
@@ -1614,85 +1614,85 @@ AddHook adds a hook to the logger hooks.
 
 #### (*Logger) Debug 
 
-```
+``` go
 func (logger *Logger) Debug(args ...interface{})
 ```
 
 #### (*Logger) DebugFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) DebugFn(fn LogFunction)
 ```
 
 #### (*Logger) Debugf 
 
-```
+``` go
 func (logger *Logger) Debugf(format string, args ...interface{})
 ```
 
 #### (*Logger) Debugln 
 
-```
+``` go
 func (logger *Logger) Debugln(args ...interface{})
 ```
 
 #### (*Logger) Error 
 
-```
+``` go
 func (logger *Logger) Error(args ...interface{})
 ```
 
 #### (*Logger) ErrorFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) ErrorFn(fn LogFunction)
 ```
 
 #### (*Logger) Errorf 
 
-```
+``` go
 func (logger *Logger) Errorf(format string, args ...interface{})
 ```
 
 #### (*Logger) Errorln 
 
-```
+``` go
 func (logger *Logger) Errorln(args ...interface{})
 ```
 
 #### (*Logger) Exit <-1.2.0
 
-```
+``` go
 func (logger *Logger) Exit(code int)
 ```
 
 #### (*Logger) Fatal 
 
-```
+``` go
 func (logger *Logger) Fatal(args ...interface{})
 ```
 
 #### (*Logger) FatalFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) FatalFn(fn LogFunction)
 ```
 
 #### (*Logger) Fatalf 
 
-```
+``` go
 func (logger *Logger) Fatalf(format string, args ...interface{})
 ```
 
 #### (*Logger) Fatalln 
 
-```
+``` go
 func (logger *Logger) Fatalln(args ...interface{})
 ```
 
 #### (*Logger) GetLevel <-1.1.0
 
-```
+``` go
 func (logger *Logger) GetLevel() Level
 ```
 
@@ -1700,31 +1700,31 @@ GetLevel returns the logger level.
 
 #### (*Logger) Info 
 
-```
+``` go
 func (logger *Logger) Info(args ...interface{})
 ```
 
 #### (*Logger) InfoFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) InfoFn(fn LogFunction)
 ```
 
 #### (*Logger) Infof 
 
-```
+``` go
 func (logger *Logger) Infof(format string, args ...interface{})
 ```
 
 #### (*Logger) Infoln 
 
-```
+``` go
 func (logger *Logger) Infoln(args ...interface{})
 ```
 
 #### (*Logger) IsLevelEnabled <-1.1.0
 
-```
+``` go
 func (logger *Logger) IsLevelEnabled(level Level) bool
 ```
 
@@ -1732,7 +1732,7 @@ IsLevelEnabled checks if the log level of the logger is greater than the level p
 
 #### (*Logger) Log <-1.3.0
 
-```
+``` go
 func (logger *Logger) Log(level Level, args ...interface{})
 ```
 
@@ -1740,73 +1740,73 @@ Log will log a message at the level given as parameter. Warning: using Log at Pa
 
 #### (*Logger) LogFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) LogFn(level Level, fn LogFunction)
 ```
 
 #### (*Logger) Logf <-1.3.0
 
-```
+``` go
 func (logger *Logger) Logf(level Level, format string, args ...interface{})
 ```
 
 #### (*Logger) Logln <-1.3.0
 
-```
+``` go
 func (logger *Logger) Logln(level Level, args ...interface{})
 ```
 
 #### (*Logger) Panic 
 
-```
+``` go
 func (logger *Logger) Panic(args ...interface{})
 ```
 
 #### (*Logger) PanicFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) PanicFn(fn LogFunction)
 ```
 
 #### (*Logger) Panicf 
 
-```
+``` go
 func (logger *Logger) Panicf(format string, args ...interface{})
 ```
 
 #### (*Logger) Panicln 
 
-```
+``` go
 func (logger *Logger) Panicln(args ...interface{})
 ```
 
 #### (*Logger) Print 
 
-```
+``` go
 func (logger *Logger) Print(args ...interface{})
 ```
 
 #### (*Logger) PrintFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) PrintFn(fn LogFunction)
 ```
 
 #### (*Logger) Printf 
 
-```
+``` go
 func (logger *Logger) Printf(format string, args ...interface{})
 ```
 
 #### (*Logger) Println 
 
-```
+``` go
 func (logger *Logger) Println(args ...interface{})
 ```
 
 #### (*Logger) ReplaceHooks <-1.1.0
 
-```
+``` go
 func (logger *Logger) ReplaceHooks(hooks LevelHooks) LevelHooks
 ```
 
@@ -1814,7 +1814,7 @@ ReplaceHooks replaces the logger hooks and returns the old ones
 
 #### (*Logger) SetBufferPool <-1.8.2
 
-```
+``` go
 func (logger *Logger) SetBufferPool(pool BufferPool)
 ```
 
@@ -1822,7 +1822,7 @@ SetBufferPool sets the logger buffer pool.
 
 #### (*Logger) SetFormatter <-1.1.0
 
-```
+``` go
 func (logger *Logger) SetFormatter(formatter Formatter)
 ```
 
@@ -1830,7 +1830,7 @@ SetFormatter sets the logger formatter.
 
 #### (*Logger) SetLevel <-1.0.3
 
-```
+``` go
 func (logger *Logger) SetLevel(level Level)
 ```
 
@@ -1838,7 +1838,7 @@ SetLevel sets the logger level.
 
 #### (*Logger) SetNoLock <-0.11.0
 
-```
+``` go
 func (logger *Logger) SetNoLock()
 ```
 
@@ -1846,7 +1846,7 @@ When file is opened with appending mode, it's safe to write concurrently to a fi
 
 #### (*Logger) SetOutput <-1.0.6
 
-```
+``` go
 func (logger *Logger) SetOutput(output io.Writer)
 ```
 
@@ -1854,85 +1854,85 @@ SetOutput sets the logger output.
 
 #### (*Logger) SetReportCaller <-1.2.0
 
-```
+``` go
 func (logger *Logger) SetReportCaller(reportCaller bool)
 ```
 
 #### (*Logger) Trace <-1.2.0
 
-```
+``` go
 func (logger *Logger) Trace(args ...interface{})
 ```
 
 #### (*Logger) TraceFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) TraceFn(fn LogFunction)
 ```
 
 #### (*Logger) Tracef <-1.2.0
 
-```
+``` go
 func (logger *Logger) Tracef(format string, args ...interface{})
 ```
 
 #### (*Logger) Traceln <-1.2.0
 
-```
+``` go
 func (logger *Logger) Traceln(args ...interface{})
 ```
 
 #### (*Logger) Warn 
 
-```
+``` go
 func (logger *Logger) Warn(args ...interface{})
 ```
 
 #### (*Logger) WarnFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) WarnFn(fn LogFunction)
 ```
 
 #### (*Logger) Warnf 
 
-```
+``` go
 func (logger *Logger) Warnf(format string, args ...interface{})
 ```
 
 #### (*Logger) Warning 
 
-```
+``` go
 func (logger *Logger) Warning(args ...interface{})
 ```
 
 #### (*Logger) WarningFn <-1.7.0
 
-```
+``` go
 func (logger *Logger) WarningFn(fn LogFunction)
 ```
 
 #### (*Logger) Warningf 
 
-```
+``` go
 func (logger *Logger) Warningf(format string, args ...interface{})
 ```
 
 #### (*Logger) Warningln 
 
-```
+``` go
 func (logger *Logger) Warningln(args ...interface{})
 ```
 
 #### (*Logger) Warnln 
 
-```
+``` go
 func (logger *Logger) Warnln(args ...interface{})
 ```
 
 #### (*Logger) WithContext <-1.4.0
 
-```
+``` go
 func (logger *Logger) WithContext(ctx context.Context) *Entry
 ```
 
@@ -1940,7 +1940,7 @@ Add a context to the log entry.
 
 #### (*Logger) WithError <-0.9.0
 
-```
+``` go
 func (logger *Logger) WithError(err error) *Entry
 ```
 
@@ -1948,7 +1948,7 @@ Add an error as single field to the log entry. All it does is call `WithError` f
 
 #### (*Logger) WithField 
 
-```
+``` go
 func (logger *Logger) WithField(key string, value interface{}) *Entry
 ```
 
@@ -1956,7 +1956,7 @@ WithField allocates a new entry and adds a field to it. Debug, Print, Info, Warn
 
 #### (*Logger) WithFields 
 
-```
+``` go
 func (logger *Logger) WithFields(fields Fields) *Entry
 ```
 
@@ -1964,7 +1964,7 @@ Adds a struct of fields to the log entry. All it does is call `WithField` for ea
 
 #### (*Logger) WithTime <-1.0.6
 
-```
+``` go
 func (logger *Logger) WithTime(t time.Time) *Entry
 ```
 
@@ -1972,7 +1972,7 @@ Overrides the time of the log entry.
 
 #### (*Logger) Writer <-0.6.5
 
-```
+``` go
 func (logger *Logger) Writer() *io.PipeWriter
 ```
 
@@ -1988,7 +1988,7 @@ Writer at INFO level. See WriterLevel for details.
 ```
 #### (*Logger) WriterLevel <-0.11.0
 
-```
+``` go
 func (logger *Logger) WriterLevel(level Level) *io.PipeWriter
 ```
 
@@ -1996,7 +1996,7 @@ WriterLevel returns an io.Writer that can be used to write arbitrary text to the
 
 #### type MutexWrap <-0.11.0
 
-```
+``` go
 type MutexWrap struct {
 	// contains filtered or unexported fields
 }
@@ -2004,25 +2004,25 @@ type MutexWrap struct {
 
 #### (*MutexWrap) Disable <-0.11.0
 
-```
+``` go
 func (mw *MutexWrap) Disable()
 ```
 
 #### (*MutexWrap) Lock <-0.11.0
 
-```
+``` go
 func (mw *MutexWrap) Lock()
 ```
 
 #### (*MutexWrap) Unlock <-0.11.0
 
-```
+``` go
 func (mw *MutexWrap) Unlock()
 ```
 
 #### type StdLogger 
 
-```
+``` go
 type StdLogger interface {
 	Print(...interface{})
 	Printf(string, ...interface{})
@@ -2042,7 +2042,7 @@ StdLogger is what your logrus-enabled library should take, that way it'll accept
 
 #### type TextFormatter 
 
-```
+``` go
 type TextFormatter struct {
 	// Set to true to bypass checking for a TTY before outputting colors.
 	ForceColors bool
@@ -2115,7 +2115,7 @@ TextFormatter formats logs into text
 
 #### (*TextFormatter) Format 
 
-```
+``` go
 func (f *TextFormatter) Format(entry *Entry) ([]byte, error)
 ```
 

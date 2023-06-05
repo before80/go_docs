@@ -292,8 +292,8 @@ switch x.(type) {
 
 ​	然后，case 将实际类型`T`与表达式`x`的动态类型相匹配。与类型断言一样，`x`必须是[接口类型](../Types#interface-types-接口型)，但不是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，而且case 中列出的每个非接口类型`T`必须实现`x`的类型。在类型选择的case 中，列出的类型都必须是[不同的](../PropertiesOfTypesAndValues#type-identity-类型一致性)。
 
-```
-TypeSwitchStmt  = "switch" [ SimpleStmt ";" ] TypeSwitchGuard "{" { TypeCaseClause } "}" .
+``` go
+typeSwitchStmt  = "switch" [ SimpleStmt ";" ] TypeSwitchGuard "{" { TypeCaseClause } "}" .
 TypeSwitchGuard = [ identifier ":=" ] PrimaryExpr "." "(" "type" ")" .
 TypeCaseClause  = TypeSwitchCase ":" StatementList .
 TypeSwitchCase  = "case" TypeList | "default" .

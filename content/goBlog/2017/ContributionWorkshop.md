@@ -269,7 +269,7 @@ I started looking at `go/src/regexp` to try to find where to add examples and I 
 
 我开始查看go/src/regexp，试图找到可以添加示例的地方，但我很快就迷失了方向。我很幸运，Francesc那天就在身边。他告诉我，所有的例子实际上都是example_test.go文件中的在线测试。他们遵循测试案例的格式，后面是 "输出 "的注释，然后是测试的答案。比如说：
 
-```
+``` go
 func ExampleRegexp_FindString() {
     re := regexp.MustCompile("fo.?")
     fmt.Printf("%q\n", re.FindString("seafood"))

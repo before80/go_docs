@@ -57,7 +57,7 @@ The canonical hello world program goes from 2.3MB to 1.6MB:
 
 典型的hello world程序从2.3MB减少到1.6MB：
 
-```
+``` go
 package main
 
 import "fmt"

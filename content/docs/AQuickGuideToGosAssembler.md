@@ -218,7 +218,7 @@ GLOBL runtime·tlsoffset(SB), NOPTR, $4
 
 ​	字段偏移量的形式为 `*type*_*field*`。结构体大小的形式为 `*type*__size`。例如，考虑以下 Go 定义：
 
-```
+``` go
 type reader struct {
 	buf [bufSize]byte
 	r   int
@@ -247,7 +247,7 @@ type reader struct {
 
 ​	列出每个机器的所有指令和其他细节是不切实际的。要查看给定机器(例如ARM)定义了哪些指令，请查看该体系结构的`obj`支持库的源代码，位于目录`src/cmd/internal/obj/arm`中。在该目录中有一个名为`a.out.go`的文件；它包含一长串以`A`开头的常量，如下所示：
 
-```
+``` go
 const (
 	AAND = obj.ABaseARM + obj.A_ARCHSPECIFIC + iota
 	AEOR

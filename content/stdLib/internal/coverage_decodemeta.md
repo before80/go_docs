@@ -36,7 +36,7 @@ This section is empty.
 
 ### type CoverageMetaDataDecoder 
 
-```
+``` go
 type CoverageMetaDataDecoder struct {
 	// contains filtered or unexported fields
 }
@@ -44,37 +44,37 @@ type CoverageMetaDataDecoder struct {
 
 #### func NewCoverageMetaDataDecoder 
 
-```
+``` go
 func NewCoverageMetaDataDecoder(b []byte, readonly bool) (*CoverageMetaDataDecoder, error)
 ```
 
 #### (*CoverageMetaDataDecoder) ModulePath 
 
-```
+``` go
 func (d *CoverageMetaDataDecoder) ModulePath() string
 ```
 
 #### (*CoverageMetaDataDecoder) NumFuncs 
 
-```
+``` go
 func (d *CoverageMetaDataDecoder) NumFuncs() uint32
 ```
 
 #### (*CoverageMetaDataDecoder) PackageName 
 
-```
+``` go
 func (d *CoverageMetaDataDecoder) PackageName() string
 ```
 
 #### (*CoverageMetaDataDecoder) PackagePath 
 
-```
+``` go
 func (d *CoverageMetaDataDecoder) PackagePath() string
 ```
 
 #### (*CoverageMetaDataDecoder) ReadFunc 
 
-```
+``` go
 func (d *CoverageMetaDataDecoder) ReadFunc(fidx uint32, f *coverage.FuncDesc) error
 ```
 
@@ -82,7 +82,7 @@ ReadFunc reads the coverage meta-data for the function with index 'findex', fill
 
 ### type CoverageMetaFileReader 
 
-```
+``` go
 type CoverageMetaFileReader struct {
 	// contains filtered or unexported fields
 }
@@ -92,7 +92,7 @@ CoverageMetaFileReader provides state and methods for reading a meta-data file f
 
 #### func NewCoverageMetaFileReader 
 
-```
+``` go
 func NewCoverageMetaFileReader(f *os.File, fileView []byte) (*CoverageMetaFileReader, error)
 ```
 
@@ -100,7 +100,7 @@ NewCoverageMetaFileReader returns a new helper object for reading the coverage m
 
 #### (*CoverageMetaFileReader) CounterGranularity 
 
-```
+``` go
 func (r *CoverageMetaFileReader) CounterGranularity() coverage.CounterGranularity
 ```
 
@@ -108,7 +108,7 @@ CounterMode returns the counter granularity (single counter per function, or cou
 
 #### (*CoverageMetaFileReader) CounterMode 
 
-```
+``` go
 func (r *CoverageMetaFileReader) CounterMode() coverage.CounterMode
 ```
 
@@ -116,7 +116,7 @@ CounterMode returns the counter mode (set, count, atomic) used when building for
 
 #### (*CoverageMetaFileReader) FileHash 
 
-```
+``` go
 func (r *CoverageMetaFileReader) FileHash() [16]byte
 ```
 
@@ -124,7 +124,7 @@ FileHash returns the hash computed for all of the package meta-data blobs. Cover
 
 #### (*CoverageMetaFileReader) GetPackageDecoder 
 
-```
+``` go
 func (r *CoverageMetaFileReader) GetPackageDecoder(pkIdx uint32, payloadbuf []byte) (*CoverageMetaDataDecoder, []byte, error)
 ```
 
@@ -132,7 +132,7 @@ GetPackageDecoder requests a decoder object for the package within the meta-data
 
 #### (*CoverageMetaFileReader) GetPackagePayload 
 
-```
+``` go
 func (r *CoverageMetaFileReader) GetPackagePayload(pkIdx uint32, payloadbuf []byte) ([]byte, error)
 ```
 
@@ -140,7 +140,7 @@ GetPackagePayload returns the raw (encoded) meta-data payload for the package wi
 
 #### (*CoverageMetaFileReader) NumPackages 
 
-```
+``` go
 func (r *CoverageMetaFileReader) NumPackages() uint64
 ```
 

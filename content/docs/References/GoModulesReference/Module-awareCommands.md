@@ -219,7 +219,7 @@ $ go list -m -json example.com/m@latest
 
 ​	当列出模块时，`-f`标志仍然指定应用于`Go` 结构体的格式模板，但现在是一个`Module`结构体：
 
-```
+``` go
 type Module struct {
     Path       string        // module path
     Version    string        // module version
@@ -296,7 +296,7 @@ $ go mod download golang.org/x/mod@v0.2.0
 
 ​	`-json`标志使`download`将一连串的JSON对象打印到标准输出，描述每个下载的模块（或失败），对应于这个Go结构体：
 
-```
+``` go
 type Module struct {
     Path     string // module path
     Query    string // version query corresponding to this version
@@ -380,7 +380,7 @@ $ go mod edit -json
 - `-print`标志以文本格式打印最终的`go.mod`，而不是将其写回磁盘。
 - `-json`标志以JSON格式打印最终的`go.mod`，而不是以文本格式写回磁盘。JSON输出对应的是这些Go类型：
 
-```
+``` go
 type Module struct {
     Path    string
     Version string
@@ -736,7 +736,7 @@ go work edit [editing flags] [go.work]
 - `-print`标志以文本格式打印最终的`go.work`，而不是将其写回`go.mod`。
 - `-json`标志以JSON格式打印最终的`go.work`文件，而不是将其写回`go.mod`。JSON输出对应的是这些Go类型：
 
-```
+``` go
 type Module struct {
     Path    string
     Version string

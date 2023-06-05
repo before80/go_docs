@@ -33,7 +33,7 @@ Note that test2json is only intended for converting a single test binary's outpu
 
 The JSON stream is a newline-separated sequence of TestEvent objects corresponding to the Go struct:
 
-```
+``` go
 type TestEvent struct {
 	Time    time.Time // encodes as an RFC3339-format string
 	Action  string

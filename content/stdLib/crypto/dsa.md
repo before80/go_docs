@@ -48,7 +48,7 @@ ErrInvalidPublicKey results when a public key is not usable by this code. FIPS i
 
 #### func GenerateKey 
 
-```
+``` go
 func GenerateKey(priv *PrivateKey, rand io.Reader) error
 ```
 
@@ -56,7 +56,7 @@ GenerateKey generates a public&private key pair. The Parameters of the PrivateKe
 
 #### func GenerateParameters 
 
-```
+``` go
 func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes) error
 ```
 
@@ -64,7 +64,7 @@ GenerateParameters puts a random, valid set of DSA parameters into params. This 
 
 #### func Sign 
 
-```
+``` go
 func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)
 ```
 
@@ -76,7 +76,7 @@ Be aware that calling Sign with an attacker-controlled PrivateKey may require an
 
 #### func Verify 
 
-```
+``` go
 func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool
 ```
 
@@ -88,13 +88,13 @@ Note that FIPS 186-3 section 4.6 specifies that the hash should be truncated to 
 
 ### type ParameterSizes 
 
-```
+``` go
 type ParameterSizes int
 ```
 
 ParameterSizes is an enumeration of the acceptable bit lengths of the primes in a set of DSA parameters. See FIPS 186-3, section 4.2.
 
-```
+``` go
 const (
 	L1024N160 ParameterSizes = iota
 	L2048N224
@@ -105,7 +105,7 @@ const (
 
 ### type Parameters 
 
-```
+``` go
 type Parameters struct {
 	P, Q, G *big.Int
 }
@@ -115,7 +115,7 @@ Parameters represents the domain parameters for a key. These parameters can be s
 
 ### type PrivateKey 
 
-```
+``` go
 type PrivateKey struct {
 	PublicKey
 	X *big.Int
@@ -126,7 +126,7 @@ PrivateKey represents a DSA private key.
 
 ### type PublicKey 
 
-```
+``` go
 type PublicKey struct {
 	Parameters
 	Y *big.Int

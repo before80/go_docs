@@ -188,8 +188,8 @@ noteFrequency := map[string]float32{
 
 ​	函数字面量表示一个匿名[函数](../DeclarationsAndScope#function-declarations-函数声明)。函数字面量不能声明`类型参数`。
 
-```
-FunctionLit = "func" Signature FunctionBody .
+``` go
+functionLit = "func" Signature FunctionBody .
 ```
 
 
@@ -1309,7 +1309,7 @@ string(65.0)             // illegal: 65.0 is not an integer constant => 非法�
 
 ​	将常量转换为一个类型参数会产生一个该类型的非常量值，该值表示为类型参数[实例化](#instantiations-实例化)时所带的类型实参的值。例如，给定一个函数：
 
-```
+``` go
 func f[P ~float32|~float64]() {
 	… P(1.1) …
 }

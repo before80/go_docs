@@ -48,7 +48,7 @@ This section is empty.
 
 #### func GenerateKey 
 
-```
+``` go
 func GenerateKey(curve Curve, rand io.Reader) (priv []byte, x, y *big.Int, err error)
 ```
 
@@ -58,7 +58,7 @@ Note: for ECDH, use the GenerateKey methods of the crypto/ecdh package; for ECDS
 
 #### func Marshal 
 
-```
+``` go
 func Marshal(curve Curve, x, y *big.Int) []byte
 ```
 
@@ -68,7 +68,7 @@ Note: for ECDH, use the crypto/ecdh package. This function returns an encoding e
 
 #### func MarshalCompressed  <- go1.15
 
-```
+``` go
 func MarshalCompressed(curve Curve, x, y *big.Int) []byte
 ```
 
@@ -76,7 +76,7 @@ MarshalCompressed converts a point on the curve into the compressed form specifi
 
 #### func Unmarshal 
 
-```
+``` go
 func Unmarshal(curve Curve, data []byte) (x, y *big.Int)
 ```
 
@@ -86,7 +86,7 @@ Note: for ECDH, use the crypto/ecdh package. This function accepts an encoding e
 
 #### func UnmarshalCompressed  <- go1.15
 
-```
+``` go
 func UnmarshalCompressed(curve Curve, data []byte) (x, y *big.Int)
 ```
 
@@ -96,7 +96,7 @@ UnmarshalCompressed converts a point, serialized by MarshalCompressed, into an x
 
 ### type Curve 
 
-```
+``` go
 type Curve interface {
 	// Params returns the parameters for the curve.
 	Params() *CurveParams
@@ -143,7 +143,7 @@ Note that the conventional point at infinity (0, 0) is not considered on the cur
 
 #### func P224 
 
-```
+``` go
 func P224() Curve
 ```
 
@@ -155,7 +155,7 @@ The cryptographic operations are implemented using constant-time algorithms.
 
 #### func P256 
 
-```
+``` go
 func P256() Curve
 ```
 
@@ -167,7 +167,7 @@ The cryptographic operations are implemented using constant-time algorithms.
 
 #### func P384 
 
-```
+``` go
 func P384() Curve
 ```
 
@@ -179,7 +179,7 @@ The cryptographic operations are implemented using constant-time algorithms.
 
 #### func P521 
 
-```
+``` go
 func P521() Curve
 ```
 
@@ -191,7 +191,7 @@ The cryptographic operations are implemented using constant-time algorithms.
 
 ### type CurveParams 
 
-```
+``` go
 type CurveParams struct {
 	P       *big.Int // the order of the underlying field
 	N       *big.Int // the order of the base point
@@ -208,7 +208,7 @@ Note: Custom curves (those not returned by P224(), P256(), P384(), and P521()) a
 
 #### (*CurveParams) Add 
 
-```
+``` go
 func (curve *CurveParams) Add(x1, y1, x2, y2 *big.Int) (*big.Int, *big.Int)
 ```
 
@@ -218,7 +218,7 @@ Note: the CurveParams methods are not guaranteed to provide any security propert
 
 #### (*CurveParams) Double 
 
-```
+``` go
 func (curve *CurveParams) Double(x1, y1 *big.Int) (*big.Int, *big.Int)
 ```
 
@@ -228,7 +228,7 @@ Note: the CurveParams methods are not guaranteed to provide any security propert
 
 #### (*CurveParams) IsOnCurve 
 
-```
+``` go
 func (curve *CurveParams) IsOnCurve(x, y *big.Int) bool
 ```
 
@@ -238,13 +238,13 @@ Note: the CurveParams methods are not guaranteed to provide any security propert
 
 #### (*CurveParams) Params 
 
-```
+``` go
 func (curve *CurveParams) Params() *CurveParams
 ```
 
 #### (*CurveParams) ScalarBaseMult 
 
-```
+``` go
 func (curve *CurveParams) ScalarBaseMult(k []byte) (*big.Int, *big.Int)
 ```
 
@@ -254,7 +254,7 @@ Note: the CurveParams methods are not guaranteed to provide any security propert
 
 #### (*CurveParams) ScalarMult 
 
-```
+``` go
 func (curve *CurveParams) ScalarMult(Bx, By *big.Int, k []byte) (*big.Int, *big.Int)
 ```
 

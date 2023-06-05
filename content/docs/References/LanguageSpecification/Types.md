@@ -13,8 +13,8 @@ draft = false
 
 ​	类型决定了一组值以及特定于这些值的操作和方法。如果类型具有类型名称，则可以用类型名称表示。如果类型是泛型，则后面必须跟[类型参数](../Expressions#instantiations-实例化)。还可以使用`类型字面量`指定类型，它由现有类型组成一个类型。
 
-```
-Type      = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+``` go
+type      = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
 TypeName  = identifier | QualifiedIdent .
 TypeArgs  = "[" TypeList [ "," ] "]" .
 TypeList  = Type { "," Type } .
@@ -214,8 +214,8 @@ BaseType    = Type .
 
 ​	函数类型表示具有相同参数类型和结果类型的所有函数的集合。一个函数类型的未初始化变量的值是`nil`。
 
-```
-FunctionType   = "func" Signature .
+``` go
+functionType   = "func" Signature .
 Signature      = Parameters [ Result ] .
 Result         = Parameters | Type .
 Parameters     = "(" [ ParameterList [ "," ] ] ")" .

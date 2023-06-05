@@ -182,7 +182,7 @@ It is possible to set a custom flag name 'normalization function.' It allows fla
 
 **示例＃1**：您希望在标志中比较 -、_ 和 . 时得到相同的结果。也就是说 --my-flag == --my_flag == --my.flag
 
-```
+``` go
 func wordSepNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
 	from := []string{"-", "_"}
 	to := "."
@@ -199,7 +199,7 @@ myFlagSet.SetNormalizeFunc(wordSepNormalizeFunc)
 
 **示例＃2**：您希望给两个标志设置别名。也就是说 --old-flag-name == --new-flag-name
 
-```
+``` go
 func aliasNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
 	switch name {
 	case "old-flag-name":
@@ -503,7 +503,7 @@ Usage prints to standard error a usage message documenting all defined command-l
 
 #### func Arg 
 
-```
+``` go
 func Arg(i int) string
 ```
 
@@ -511,7 +511,7 @@ Arg returns the i'th command-line argument. Arg(0) is the first remaining argume
 
 #### func Args 
 
-```
+``` go
 func Args() []string
 ```
 
@@ -519,7 +519,7 @@ Args returns the non-flag command-line arguments.
 
 #### func Bool 
 
-```
+``` go
 func Bool(name string, value bool, usage string) *bool
 ```
 
@@ -527,7 +527,7 @@ Bool defines a bool flag with specified name, default value, and usage string. T
 
 #### func BoolP 
 
-```
+``` go
 func BoolP(name, shorthand string, value bool, usage string) *bool
 ```
 
@@ -535,7 +535,7 @@ BoolP is like Bool, but accepts a shorthand letter that can be used after a sing
 
 #### func BoolSlice 
 
-```
+``` go
 func BoolSlice(name string, value []bool, usage string) *[]bool
 ```
 
@@ -543,7 +543,7 @@ BoolSlice defines a []bool flag with specified name, default value, and usage st
 
 #### func BoolSliceP 
 
-```
+``` go
 func BoolSliceP(name, shorthand string, value []bool, usage string) *[]bool
 ```
 
@@ -551,7 +551,7 @@ BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used af
 
 #### func BoolSliceVar 
 
-```
+``` go
 func BoolSliceVar(p *[]bool, name string, value []bool, usage string)
 ```
 
@@ -559,7 +559,7 @@ BoolSliceVar defines a []bool flag with specified name, default value, and usage
 
 #### func BoolSliceVarP 
 
-```
+``` go
 func BoolSliceVarP(p *[]bool, name, shorthand string, value []bool, usage string)
 ```
 
@@ -567,7 +567,7 @@ BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be u
 
 #### func BoolVar 
 
-```
+``` go
 func BoolVar(p *bool, name string, value bool, usage string)
 ```
 
@@ -575,7 +575,7 @@ BoolVar defines a bool flag with specified name, default value, and usage string
 
 #### func BoolVarP 
 
-```
+``` go
 func BoolVarP(p *bool, name, shorthand string, value bool, usage string)
 ```
 
@@ -583,7 +583,7 @@ BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after 
 
 #### func BytesBase64  <- v1.0.2
 
-```
+``` go
 func BytesBase64(name string, value []byte, usage string) *[]byte
 ```
 
@@ -591,7 +591,7 @@ BytesBase64 defines an []byte flag with specified name, default value, and usage
 
 #### func BytesBase64P  <- v1.0.2
 
-```
+``` go
 func BytesBase64P(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
@@ -599,7 +599,7 @@ BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be use
 
 #### func BytesBase64Var  <- v1.0.2
 
-```
+``` go
 func BytesBase64Var(p *[]byte, name string, value []byte, usage string)
 ```
 
@@ -607,7 +607,7 @@ BytesBase64Var defines an []byte flag with specified name, default value, and us
 
 #### func BytesBase64VarP  <- v1.0.2
 
-```
+``` go
 func BytesBase64VarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
@@ -615,7 +615,7 @@ BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can 
 
 #### func BytesHex  <- v1.0.1
 
-```
+``` go
 func BytesHex(name string, value []byte, usage string) *[]byte
 ```
 
@@ -623,7 +623,7 @@ BytesHex defines an []byte flag with specified name, default value, and usage st
 
 #### func BytesHexP  <- v1.0.1
 
-```
+``` go
 func BytesHexP(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
@@ -631,7 +631,7 @@ BytesHexP is like BytesHex, but accepts a shorthand letter that can be used afte
 
 #### func BytesHexVar  <- v1.0.1
 
-```
+``` go
 func BytesHexVar(p *[]byte, name string, value []byte, usage string)
 ```
 
@@ -639,7 +639,7 @@ BytesHexVar defines an []byte flag with specified name, default value, and usage
 
 #### func BytesHexVarP  <- v1.0.1
 
-```
+``` go
 func BytesHexVarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
@@ -647,7 +647,7 @@ BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be use
 
 #### func Count 
 
-```
+``` go
 func Count(name string, usage string) *int
 ```
 
@@ -655,7 +655,7 @@ Count defines a count flag with specified name, default value, and usage string.
 
 #### func CountP 
 
-```
+``` go
 func CountP(name, shorthand string, usage string) *int
 ```
 
@@ -663,7 +663,7 @@ CountP is like Count only takes a shorthand for the flag name.
 
 #### func CountVar 
 
-```
+``` go
 func CountVar(p *int, name string, usage string)
 ```
 
@@ -671,7 +671,7 @@ CountVar like CountVar only the flag is placed on the CommandLine instead of a g
 
 #### func CountVarP 
 
-```
+``` go
 func CountVarP(p *int, name, shorthand string, usage string)
 ```
 
@@ -679,7 +679,7 @@ CountVarP is like CountVar only take a shorthand for the flag name.
 
 #### func Duration 
 
-```
+``` go
 func Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -687,7 +687,7 @@ Duration defines a time.Duration flag with specified name, default value, and us
 
 #### func DurationP 
 
-```
+``` go
 func DurationP(name, shorthand string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -695,7 +695,7 @@ DurationP is like Duration, but accepts a shorthand letter that can be used afte
 
 #### func DurationSlice  <- v1.0.1
 
-```
+``` go
 func DurationSlice(name string, value []time.Duration, usage string) *[]time.Duration
 ```
 
@@ -703,7 +703,7 @@ DurationSlice defines a []time.Duration flag with specified name, default value,
 
 #### func DurationSliceP  <- v1.0.1
 
-```
+``` go
 func DurationSliceP(name, shorthand string, value []time.Duration, usage string) *[]time.Duration
 ```
 
@@ -711,7 +711,7 @@ DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be
 
 #### func DurationSliceVar  <- v1.0.1
 
-```
+``` go
 func DurationSliceVar(p *[]time.Duration, name string, value []time.Duration, usage string)
 ```
 
@@ -719,7 +719,7 @@ DurationSliceVar defines a duration[] flag with specified name, default value, a
 
 #### func DurationSliceVarP  <- v1.0.1
 
-```
+``` go
 func DurationSliceVarP(p *[]time.Duration, name, shorthand string, value []time.Duration, usage string)
 ```
 
@@ -727,7 +727,7 @@ DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that 
 
 #### func DurationVar 
 
-```
+``` go
 func DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
@@ -735,7 +735,7 @@ DurationVar defines a time.Duration flag with specified name, default value, and
 
 #### func DurationVarP 
 
-```
+``` go
 func DurationVarP(p *time.Duration, name, shorthand string, value time.Duration, usage string)
 ```
 
@@ -743,7 +743,7 @@ DurationVarP is like DurationVar, but accepts a shorthand letter that can be use
 
 #### func Float32 
 
-```
+``` go
 func Float32(name string, value float32, usage string) *float32
 ```
 
@@ -751,7 +751,7 @@ Float32 defines a float32 flag with specified name, default value, and usage str
 
 #### func Float32P 
 
-```
+``` go
 func Float32P(name, shorthand string, value float32, usage string) *float32
 ```
 
@@ -759,7 +759,7 @@ Float32P is like Float32, but accepts a shorthand letter that can be used after 
 
 #### func Float32Slice  <- v1.0.5
 
-```
+``` go
 func Float32Slice(name string, value []float32, usage string) *[]float32
 ```
 
@@ -767,7 +767,7 @@ Float32Slice defines a []float32 flag with specified name, default value, and us
 
 #### func Float32SliceP  <- v1.0.5
 
-```
+``` go
 func Float32SliceP(name, shorthand string, value []float32, usage string) *[]float32
 ```
 
@@ -775,7 +775,7 @@ Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be u
 
 #### func Float32SliceVar  <- v1.0.5
 
-```
+``` go
 func Float32SliceVar(p *[]float32, name string, value []float32, usage string)
 ```
 
@@ -783,7 +783,7 @@ Float32SliceVar defines a float32[] flag with specified name, default value, and
 
 #### func Float32SliceVarP  <- v1.0.5
 
-```
+``` go
 func Float32SliceVarP(p *[]float32, name, shorthand string, value []float32, usage string)
 ```
 
@@ -791,7 +791,7 @@ Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that ca
 
 #### func Float32Var 
 
-```
+``` go
 func Float32Var(p *float32, name string, value float32, usage string)
 ```
 
@@ -799,7 +799,7 @@ Float32Var defines a float32 flag with specified name, default value, and usage 
 
 #### func Float32VarP 
 
-```
+``` go
 func Float32VarP(p *float32, name, shorthand string, value float32, usage string)
 ```
 
@@ -807,7 +807,7 @@ Float32VarP is like Float32Var, but accepts a shorthand letter that can be used 
 
 #### func Float64 
 
-```
+``` go
 func Float64(name string, value float64, usage string) *float64
 ```
 
@@ -815,7 +815,7 @@ Float64 defines a float64 flag with specified name, default value, and usage str
 
 #### func Float64P 
 
-```
+``` go
 func Float64P(name, shorthand string, value float64, usage string) *float64
 ```
 
@@ -823,7 +823,7 @@ Float64P is like Float64, but accepts a shorthand letter that can be used after 
 
 #### func Float64Slice  <- v1.0.5
 
-```
+``` go
 func Float64Slice(name string, value []float64, usage string) *[]float64
 ```
 
@@ -831,7 +831,7 @@ Float64Slice defines a []float64 flag with specified name, default value, and us
 
 #### func Float64SliceP  <- v1.0.5
 
-```
+``` go
 func Float64SliceP(name, shorthand string, value []float64, usage string) *[]float64
 ```
 
@@ -839,7 +839,7 @@ Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be u
 
 #### func Float64SliceVar  <- v1.0.5
 
-```
+``` go
 func Float64SliceVar(p *[]float64, name string, value []float64, usage string)
 ```
 
@@ -847,7 +847,7 @@ Float64SliceVar defines a float64[] flag with specified name, default value, and
 
 #### func Float64SliceVarP  <- v1.0.5
 
-```
+``` go
 func Float64SliceVarP(p *[]float64, name, shorthand string, value []float64, usage string)
 ```
 
@@ -855,7 +855,7 @@ Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that ca
 
 #### func Float64Var 
 
-```
+``` go
 func Float64Var(p *float64, name string, value float64, usage string)
 ```
 
@@ -863,7 +863,7 @@ Float64Var defines a float64 flag with specified name, default value, and usage 
 
 #### func Float64VarP 
 
-```
+``` go
 func Float64VarP(p *float64, name, shorthand string, value float64, usage string)
 ```
 
@@ -871,7 +871,7 @@ Float64VarP is like Float64Var, but accepts a shorthand letter that can be used 
 
 #### func IP 
 
-```
+``` go
 func IP(name string, value net.IP, usage string) *net.IP
 ```
 
@@ -879,7 +879,7 @@ IP defines an net.IP flag with specified name, default value, and usage string. 
 
 #### func IPMask 
 
-```
+``` go
 func IPMask(name string, value net.IPMask, usage string) *net.IPMask
 ```
 
@@ -887,7 +887,7 @@ IPMask defines an net.IPMask flag with specified name, default value, and usage 
 
 #### func IPMaskP 
 
-```
+``` go
 func IPMaskP(name, shorthand string, value net.IPMask, usage string) *net.IPMask
 ```
 
@@ -895,7 +895,7 @@ IPMaskP is like IP, but accepts a shorthand letter that can be used after a sing
 
 #### func IPMaskVar 
 
-```
+``` go
 func IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage string)
 ```
 
@@ -903,7 +903,7 @@ IPMaskVar defines an net.IPMask flag with specified name, default value, and usa
 
 #### func IPMaskVarP 
 
-```
+``` go
 func IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IPMask, usage string)
 ```
 
@@ -911,7 +911,7 @@ IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used af
 
 #### func IPNet 
 
-```
+``` go
 func IPNet(name string, value net.IPNet, usage string) *net.IPNet
 ```
 
@@ -919,7 +919,7 @@ IPNet defines an net.IPNet flag with specified name, default value, and usage st
 
 #### func IPNetP 
 
-```
+``` go
 func IPNetP(name, shorthand string, value net.IPNet, usage string) *net.IPNet
 ```
 
@@ -927,7 +927,7 @@ IPNetP is like IPNet, but accepts a shorthand letter that can be used after a si
 
 #### func IPNetVar 
 
-```
+``` go
 func IPNetVar(p *net.IPNet, name string, value net.IPNet, usage string)
 ```
 
@@ -935,7 +935,7 @@ IPNetVar defines an net.IPNet flag with specified name, default value, and usage
 
 #### func IPNetVarP 
 
-```
+``` go
 func IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNet, usage string)
 ```
 
@@ -943,7 +943,7 @@ IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used afte
 
 #### func IPP 
 
-```
+``` go
 func IPP(name, shorthand string, value net.IP, usage string) *net.IP
 ```
 
@@ -951,7 +951,7 @@ IPP is like IP, but accepts a shorthand letter that can be used after a single d
 
 #### func IPSlice 
 
-```
+``` go
 func IPSlice(name string, value []net.IP, usage string) *[]net.IP
 ```
 
@@ -959,7 +959,7 @@ IPSlice defines a []net.IP flag with specified name, default value, and usage st
 
 #### func IPSliceP 
 
-```
+``` go
 func IPSliceP(name, shorthand string, value []net.IP, usage string) *[]net.IP
 ```
 
@@ -967,7 +967,7 @@ IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after 
 
 #### func IPSliceVar 
 
-```
+``` go
 func IPSliceVar(p *[]net.IP, name string, value []net.IP, usage string)
 ```
 
@@ -975,7 +975,7 @@ IPSliceVar defines a []net.IP flag with specified name, default value, and usage
 
 #### func IPSliceVarP 
 
-```
+``` go
 func IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.IP, usage string)
 ```
 
@@ -983,7 +983,7 @@ IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used 
 
 #### func IPVar 
 
-```
+``` go
 func IPVar(p *net.IP, name string, value net.IP, usage string)
 ```
 
@@ -991,7 +991,7 @@ IPVar defines an net.IP flag with specified name, default value, and usage strin
 
 #### func IPVarP 
 
-```
+``` go
 func IPVarP(p *net.IP, name, shorthand string, value net.IP, usage string)
 ```
 
@@ -999,7 +999,7 @@ IPVarP is like IPVar, but accepts a shorthand letter that can be used after a si
 
 #### func Int 
 
-```
+``` go
 func Int(name string, value int, usage string) *int
 ```
 
@@ -1007,7 +1007,7 @@ Int defines an int flag with specified name, default value, and usage string. Th
 
 #### func Int16  <- v1.0.1
 
-```
+``` go
 func Int16(name string, value int16, usage string) *int16
 ```
 
@@ -1015,7 +1015,7 @@ Int16 defines an int16 flag with specified name, default value, and usage string
 
 #### func Int16P  <- v1.0.1
 
-```
+``` go
 func Int16P(name, shorthand string, value int16, usage string) *int16
 ```
 
@@ -1023,7 +1023,7 @@ Int16P is like Int16, but accepts a shorthand letter that can be used after a si
 
 #### func Int16Var  <- v1.0.1
 
-```
+``` go
 func Int16Var(p *int16, name string, value int16, usage string)
 ```
 
@@ -1031,7 +1031,7 @@ Int16Var defines an int16 flag with specified name, default value, and usage str
 
 #### func Int16VarP  <- v1.0.1
 
-```
+``` go
 func Int16VarP(p *int16, name, shorthand string, value int16, usage string)
 ```
 
@@ -1039,7 +1039,7 @@ Int16VarP is like Int16Var, but accepts a shorthand letter that can be used afte
 
 #### func Int32 
 
-```
+``` go
 func Int32(name string, value int32, usage string) *int32
 ```
 
@@ -1047,7 +1047,7 @@ Int32 defines an int32 flag with specified name, default value, and usage string
 
 #### func Int32P 
 
-```
+``` go
 func Int32P(name, shorthand string, value int32, usage string) *int32
 ```
 
@@ -1055,7 +1055,7 @@ Int32P is like Int32, but accepts a shorthand letter that can be used after a si
 
 #### func Int32Slice  <- v1.0.5
 
-```
+``` go
 func Int32Slice(name string, value []int32, usage string) *[]int32
 ```
 
@@ -1063,7 +1063,7 @@ Int32Slice defines a []int32 flag with specified name, default value, and usage 
 
 #### func Int32SliceP  <- v1.0.5
 
-```
+``` go
 func Int32SliceP(name, shorthand string, value []int32, usage string) *[]int32
 ```
 
@@ -1071,7 +1071,7 @@ Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used 
 
 #### func Int32SliceVar  <- v1.0.5
 
-```
+``` go
 func Int32SliceVar(p *[]int32, name string, value []int32, usage string)
 ```
 
@@ -1079,7 +1079,7 @@ Int32SliceVar defines a int32[] flag with specified name, default value, and usa
 
 #### func Int32SliceVarP  <- v1.0.5
 
-```
+``` go
 func Int32SliceVarP(p *[]int32, name, shorthand string, value []int32, usage string)
 ```
 
@@ -1087,7 +1087,7 @@ Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be
 
 #### func Int32Var 
 
-```
+``` go
 func Int32Var(p *int32, name string, value int32, usage string)
 ```
 
@@ -1095,7 +1095,7 @@ Int32Var defines an int32 flag with specified name, default value, and usage str
 
 #### func Int32VarP 
 
-```
+``` go
 func Int32VarP(p *int32, name, shorthand string, value int32, usage string)
 ```
 
@@ -1103,7 +1103,7 @@ Int32VarP is like Int32Var, but accepts a shorthand letter that can be used afte
 
 #### func Int64 
 
-```
+``` go
 func Int64(name string, value int64, usage string) *int64
 ```
 
@@ -1111,7 +1111,7 @@ Int64 defines an int64 flag with specified name, default value, and usage string
 
 #### func Int64P 
 
-```
+``` go
 func Int64P(name, shorthand string, value int64, usage string) *int64
 ```
 
@@ -1119,7 +1119,7 @@ Int64P is like Int64, but accepts a shorthand letter that can be used after a si
 
 #### func Int64Slice  <- v1.0.5
 
-```
+``` go
 func Int64Slice(name string, value []int64, usage string) *[]int64
 ```
 
@@ -1127,7 +1127,7 @@ Int64Slice defines a []int64 flag with specified name, default value, and usage 
 
 #### func Int64SliceP  <- v1.0.5
 
-```
+``` go
 func Int64SliceP(name, shorthand string, value []int64, usage string) *[]int64
 ```
 
@@ -1135,7 +1135,7 @@ Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used 
 
 #### func Int64SliceVar  <- v1.0.5
 
-```
+``` go
 func Int64SliceVar(p *[]int64, name string, value []int64, usage string)
 ```
 
@@ -1143,7 +1143,7 @@ Int64SliceVar defines a int64[] flag with specified name, default value, and usa
 
 #### func Int64SliceVarP  <- v1.0.5
 
-```
+``` go
 func Int64SliceVarP(p *[]int64, name, shorthand string, value []int64, usage string)
 ```
 
@@ -1151,7 +1151,7 @@ Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be
 
 #### func Int64Var 
 
-```
+``` go
 func Int64Var(p *int64, name string, value int64, usage string)
 ```
 
@@ -1159,7 +1159,7 @@ Int64Var defines an int64 flag with specified name, default value, and usage str
 
 #### func Int64VarP 
 
-```
+``` go
 func Int64VarP(p *int64, name, shorthand string, value int64, usage string)
 ```
 
@@ -1167,7 +1167,7 @@ Int64VarP is like Int64Var, but accepts a shorthand letter that can be used afte
 
 #### func Int8 
 
-```
+``` go
 func Int8(name string, value int8, usage string) *int8
 ```
 
@@ -1175,7 +1175,7 @@ Int8 defines an int8 flag with specified name, default value, and usage string. 
 
 #### func Int8P 
 
-```
+``` go
 func Int8P(name, shorthand string, value int8, usage string) *int8
 ```
 
@@ -1183,7 +1183,7 @@ Int8P is like Int8, but accepts a shorthand letter that can be used after a sing
 
 #### func Int8Var 
 
-```
+``` go
 func Int8Var(p *int8, name string, value int8, usage string)
 ```
 
@@ -1191,7 +1191,7 @@ Int8Var defines an int8 flag with specified name, default value, and usage strin
 
 #### func Int8VarP 
 
-```
+``` go
 func Int8VarP(p *int8, name, shorthand string, value int8, usage string)
 ```
 
@@ -1199,7 +1199,7 @@ Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after 
 
 #### func IntP 
 
-```
+``` go
 func IntP(name, shorthand string, value int, usage string) *int
 ```
 
@@ -1207,7 +1207,7 @@ IntP is like Int, but accepts a shorthand letter that can be used after a single
 
 #### func IntSlice 
 
-```
+``` go
 func IntSlice(name string, value []int, usage string) *[]int
 ```
 
@@ -1215,7 +1215,7 @@ IntSlice defines a []int flag with specified name, default value, and usage stri
 
 #### func IntSliceP 
 
-```
+``` go
 func IntSliceP(name, shorthand string, value []int, usage string) *[]int
 ```
 
@@ -1223,7 +1223,7 @@ IntSliceP is like IntSlice, but accepts a shorthand letter that can be used afte
 
 #### func IntSliceVar 
 
-```
+``` go
 func IntSliceVar(p *[]int, name string, value []int, usage string)
 ```
 
@@ -1231,7 +1231,7 @@ IntSliceVar defines a int[] flag with specified name, default value, and usage s
 
 #### func IntSliceVarP 
 
-```
+``` go
 func IntSliceVarP(p *[]int, name, shorthand string, value []int, usage string)
 ```
 
@@ -1239,7 +1239,7 @@ IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be use
 
 #### func IntVar 
 
-```
+``` go
 func IntVar(p *int, name string, value int, usage string)
 ```
 
@@ -1247,7 +1247,7 @@ IntVar defines an int flag with specified name, default value, and usage string.
 
 #### func IntVarP 
 
-```
+``` go
 func IntVarP(p *int, name, shorthand string, value int, usage string)
 ```
 
@@ -1255,7 +1255,7 @@ IntVarP is like IntVar, but accepts a shorthand letter that can be used after a 
 
 #### func NArg 
 
-```
+``` go
 func NArg() int
 ```
 
@@ -1263,7 +1263,7 @@ NArg is the number of arguments remaining after flags have been processed.
 
 #### func NFlag 
 
-```
+``` go
 func NFlag() int
 ```
 
@@ -1271,7 +1271,7 @@ NFlag returns the number of command-line flags that have been set.
 
 #### func Parse 
 
-```
+``` go
 func Parse()
 ```
 
@@ -1279,7 +1279,7 @@ Parse parses the command-line flags from os.Args[1:]. Must be called after all f
 
 #### func ParseAll 
 
-```
+``` go
 func ParseAll(fn func(flag *Flag, value string) error)
 ```
 
@@ -1287,7 +1287,7 @@ ParseAll parses the command-line flags from os.Args[1:] and called fn for each. 
 
 #### func ParseIPv4Mask 
 
-```
+``` go
 func ParseIPv4Mask(s string) net.IPMask
 ```
 
@@ -1295,7 +1295,7 @@ ParseIPv4Mask written in IP form (e.g. 255.255.255.0). This function should real
 
 #### func Parsed 
 
-```
+``` go
 func Parsed() bool
 ```
 
@@ -1303,7 +1303,7 @@ Parsed returns true if the command-line flags have been parsed.
 
 #### func PrintDefaults 
 
-```
+``` go
 func PrintDefaults()
 ```
 
@@ -1311,7 +1311,7 @@ PrintDefaults prints to standard error the default values of all defined command
 
 #### func Set 
 
-```
+``` go
 func Set(name, value string) error
 ```
 
@@ -1319,7 +1319,7 @@ Set sets the value of the named command-line flag.
 
 #### func SetInterspersed 
 
-```
+``` go
 func SetInterspersed(interspersed bool)
 ```
 
@@ -1327,7 +1327,7 @@ SetInterspersed sets whether to support interspersed option/non-option arguments
 
 #### func String 
 
-```
+``` go
 func String(name string, value string, usage string) *string
 ```
 
@@ -1335,7 +1335,7 @@ String defines a string flag with specified name, default value, and usage strin
 
 #### func StringArray 
 
-```
+``` go
 func StringArray(name string, value []string, usage string) *[]string
 ```
 
@@ -1343,7 +1343,7 @@ StringArray defines a string flag with specified name, default value, and usage 
 
 #### func StringArrayP 
 
-```
+``` go
 func StringArrayP(name, shorthand string, value []string, usage string) *[]string
 ```
 
@@ -1351,7 +1351,7 @@ StringArrayP is like StringArray, but accepts a shorthand letter that can be use
 
 #### func StringArrayVar 
 
-```
+``` go
 func StringArrayVar(p *[]string, name string, value []string, usage string)
 ```
 
@@ -1359,7 +1359,7 @@ StringArrayVar defines a string flag with specified name, default value, and usa
 
 #### func StringArrayVarP 
 
-```
+``` go
 func StringArrayVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
@@ -1367,7 +1367,7 @@ StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can 
 
 #### func StringP 
 
-```
+``` go
 func StringP(name, shorthand string, value string, usage string) *string
 ```
 
@@ -1375,7 +1375,7 @@ StringP is like String, but accepts a shorthand letter that can be used after a 
 
 #### func StringSlice 
 
-```
+``` go
 func StringSlice(name string, value []string, usage string) *[]string
 ```
 
@@ -1393,7 +1393,7 @@ will result in
 
 #### func StringSliceP 
 
-```
+``` go
 func StringSliceP(name, shorthand string, value []string, usage string) *[]string
 ```
 
@@ -1401,7 +1401,7 @@ StringSliceP is like StringSlice, but accepts a shorthand letter that can be use
 
 #### func StringSliceVar 
 
-```
+``` go
 func StringSliceVar(p *[]string, name string, value []string, usage string)
 ```
 
@@ -1419,7 +1419,7 @@ will result in
 
 #### func StringSliceVarP 
 
-```
+``` go
 func StringSliceVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
@@ -1427,7 +1427,7 @@ StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can 
 
 #### func StringToInt  <- v1.0.3
 
-```
+``` go
 func StringToInt(name string, value map[string]int, usage string) *map[string]int
 ```
 
@@ -1435,7 +1435,7 @@ StringToInt defines a string flag with specified name, default value, and usage 
 
 #### func StringToInt64  <- v1.0.5
 
-```
+``` go
 func StringToInt64(name string, value map[string]int64, usage string) *map[string]int64
 ```
 
@@ -1443,7 +1443,7 @@ StringToInt64 defines a string flag with specified name, default value, and usag
 
 #### func StringToInt64P  <- v1.0.5
 
-```
+``` go
 func StringToInt64P(name, shorthand string, value map[string]int64, usage string) *map[string]int64
 ```
 
@@ -1451,7 +1451,7 @@ StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be
 
 #### func StringToInt64Var  <- v1.0.5
 
-```
+``` go
 func StringToInt64Var(p *map[string]int64, name string, value map[string]int64, usage string)
 ```
 
@@ -1459,7 +1459,7 @@ StringToInt64Var defines a string flag with specified name, default value, and u
 
 #### func StringToInt64VarP  <- v1.0.5
 
-```
+``` go
 func StringToInt64VarP(p *map[string]int64, name, shorthand string, value map[string]int64, usage string)
 ```
 
@@ -1467,7 +1467,7 @@ StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that 
 
 #### func StringToIntP  <- v1.0.3
 
-```
+``` go
 func StringToIntP(name, shorthand string, value map[string]int, usage string) *map[string]int
 ```
 
@@ -1475,7 +1475,7 @@ StringToIntP is like StringToInt, but accepts a shorthand letter that can be use
 
 #### func StringToIntVar  <- v1.0.3
 
-```
+``` go
 func StringToIntVar(p *map[string]int, name string, value map[string]int, usage string)
 ```
 
@@ -1483,7 +1483,7 @@ StringToIntVar defines a string flag with specified name, default value, and usa
 
 #### func StringToIntVarP  <- v1.0.3
 
-```
+``` go
 func StringToIntVarP(p *map[string]int, name, shorthand string, value map[string]int, usage string)
 ```
 
@@ -1491,7 +1491,7 @@ StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can 
 
 #### func StringToString  <- v1.0.3
 
-```
+``` go
 func StringToString(name string, value map[string]string, usage string) *map[string]string
 ```
 
@@ -1499,7 +1499,7 @@ StringToString defines a string flag with specified name, default value, and usa
 
 #### func StringToStringP  <- v1.0.3
 
-```
+``` go
 func StringToStringP(name, shorthand string, value map[string]string, usage string) *map[string]string
 ```
 
@@ -1507,7 +1507,7 @@ StringToStringP is like StringToString, but accepts a shorthand letter that can 
 
 #### func StringToStringVar  <- v1.0.3
 
-```
+``` go
 func StringToStringVar(p *map[string]string, name string, value map[string]string, usage string)
 ```
 
@@ -1515,7 +1515,7 @@ StringToStringVar defines a string flag with specified name, default value, and 
 
 #### func StringToStringVarP  <- v1.0.3
 
-```
+``` go
 func StringToStringVarP(p *map[string]string, name, shorthand string, value map[string]string, usage string)
 ```
 
@@ -1523,7 +1523,7 @@ StringToStringVarP is like StringToStringVar, but accepts a shorthand letter tha
 
 #### func StringVar 
 
-```
+``` go
 func StringVar(p *string, name string, value string, usage string)
 ```
 
@@ -1531,7 +1531,7 @@ StringVar defines a string flag with specified name, default value, and usage st
 
 #### func StringVarP 
 
-```
+``` go
 func StringVarP(p *string, name, shorthand string, value string, usage string)
 ```
 
@@ -1539,7 +1539,7 @@ StringVarP is like StringVar, but accepts a shorthand letter that can be used af
 
 #### func Uint 
 
-```
+``` go
 func Uint(name string, value uint, usage string) *uint
 ```
 
@@ -1547,7 +1547,7 @@ Uint defines a uint flag with specified name, default value, and usage string. T
 
 #### func Uint16 
 
-```
+``` go
 func Uint16(name string, value uint16, usage string) *uint16
 ```
 
@@ -1555,7 +1555,7 @@ Uint16 defines a uint flag with specified name, default value, and usage string.
 
 #### func Uint16P 
 
-```
+``` go
 func Uint16P(name, shorthand string, value uint16, usage string) *uint16
 ```
 
@@ -1563,7 +1563,7 @@ Uint16P is like Uint16, but accepts a shorthand letter that can be used after a 
 
 #### func Uint16Var 
 
-```
+``` go
 func Uint16Var(p *uint16, name string, value uint16, usage string)
 ```
 
@@ -1571,7 +1571,7 @@ Uint16Var defines a uint flag with specified name, default value, and usage stri
 
 #### func Uint16VarP 
 
-```
+``` go
 func Uint16VarP(p *uint16, name, shorthand string, value uint16, usage string)
 ```
 
@@ -1579,7 +1579,7 @@ Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used af
 
 #### func Uint32 
 
-```
+``` go
 func Uint32(name string, value uint32, usage string) *uint32
 ```
 
@@ -1587,7 +1587,7 @@ Uint32 defines a uint32 flag with specified name, default value, and usage strin
 
 #### func Uint32P 
 
-```
+``` go
 func Uint32P(name, shorthand string, value uint32, usage string) *uint32
 ```
 
@@ -1595,7 +1595,7 @@ Uint32P is like Uint32, but accepts a shorthand letter that can be used after a 
 
 #### func Uint32Var 
 
-```
+``` go
 func Uint32Var(p *uint32, name string, value uint32, usage string)
 ```
 
@@ -1603,7 +1603,7 @@ Uint32Var defines a uint32 flag with specified name, default value, and usage st
 
 #### func Uint32VarP 
 
-```
+``` go
 func Uint32VarP(p *uint32, name, shorthand string, value uint32, usage string)
 ```
 
@@ -1611,7 +1611,7 @@ Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used af
 
 #### func Uint64 
 
-```
+``` go
 func Uint64(name string, value uint64, usage string) *uint64
 ```
 
@@ -1619,7 +1619,7 @@ Uint64 defines a uint64 flag with specified name, default value, and usage strin
 
 #### func Uint64P 
 
-```
+``` go
 func Uint64P(name, shorthand string, value uint64, usage string) *uint64
 ```
 
@@ -1627,7 +1627,7 @@ Uint64P is like Uint64, but accepts a shorthand letter that can be used after a 
 
 #### func Uint64Var 
 
-```
+``` go
 func Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
@@ -1635,7 +1635,7 @@ Uint64Var defines a uint64 flag with specified name, default value, and usage st
 
 #### func Uint64VarP 
 
-```
+``` go
 func Uint64VarP(p *uint64, name, shorthand string, value uint64, usage string)
 ```
 
@@ -1643,7 +1643,7 @@ Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used af
 
 #### func Uint8 
 
-```
+``` go
 func Uint8(name string, value uint8, usage string) *uint8
 ```
 
@@ -1651,7 +1651,7 @@ Uint8 defines a uint8 flag with specified name, default value, and usage string.
 
 #### func Uint8P 
 
-```
+``` go
 func Uint8P(name, shorthand string, value uint8, usage string) *uint8
 ```
 
@@ -1659,7 +1659,7 @@ Uint8P is like Uint8, but accepts a shorthand letter that can be used after a si
 
 #### func Uint8Var 
 
-```
+``` go
 func Uint8Var(p *uint8, name string, value uint8, usage string)
 ```
 
@@ -1667,7 +1667,7 @@ Uint8Var defines a uint8 flag with specified name, default value, and usage stri
 
 #### func Uint8VarP 
 
-```
+``` go
 func Uint8VarP(p *uint8, name, shorthand string, value uint8, usage string)
 ```
 
@@ -1675,7 +1675,7 @@ Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used afte
 
 #### func UintP 
 
-```
+``` go
 func UintP(name, shorthand string, value uint, usage string) *uint
 ```
 
@@ -1683,7 +1683,7 @@ UintP is like Uint, but accepts a shorthand letter that can be used after a sing
 
 #### func UintSlice 
 
-```
+``` go
 func UintSlice(name string, value []uint, usage string) *[]uint
 ```
 
@@ -1691,7 +1691,7 @@ UintSlice defines a []uint flag with specified name, default value, and usage st
 
 #### func UintSliceP 
 
-```
+``` go
 func UintSliceP(name, shorthand string, value []uint, usage string) *[]uint
 ```
 
@@ -1699,7 +1699,7 @@ UintSliceP is like UintSlice, but accepts a shorthand letter that can be used af
 
 #### func UintSliceVar 
 
-```
+``` go
 func UintSliceVar(p *[]uint, name string, value []uint, usage string)
 ```
 
@@ -1707,7 +1707,7 @@ UintSliceVar defines a uint[] flag with specified name, default value, and usage
 
 #### func UintSliceVarP 
 
-```
+``` go
 func UintSliceVarP(p *[]uint, name, shorthand string, value []uint, usage string)
 ```
 
@@ -1715,7 +1715,7 @@ UintSliceVarP is like the UintSliceVar, but accepts a shorthand letter that can 
 
 #### func UintVar 
 
-```
+``` go
 func UintVar(p *uint, name string, value uint, usage string)
 ```
 
@@ -1723,7 +1723,7 @@ UintVar defines a uint flag with specified name, default value, and usage string
 
 #### func UintVarP 
 
-```
+``` go
 func UintVarP(p *uint, name, shorthand string, value uint, usage string)
 ```
 
@@ -1731,7 +1731,7 @@ UintVarP is like UintVar, but accepts a shorthand letter that can be used after 
 
 #### func UnquoteUsage 
 
-```
+``` go
 func UnquoteUsage(flag *Flag) (name string, usage string)
 ```
 
@@ -1739,7 +1739,7 @@ UnquoteUsage extracts a back-quoted name from the usage string for a flag and re
 
 #### func Var 
 
-```
+``` go
 func Var(value Value, name string, usage string)
 ```
 
@@ -1747,7 +1747,7 @@ Var defines a flag with the specified name and usage string. The type and value 
 
 #### func VarP 
 
-```
+``` go
 func VarP(value Value, name, shorthand, usage string)
 ```
 
@@ -1755,7 +1755,7 @@ VarP is like Var, but accepts a shorthand letter that can be used after a single
 
 #### func Visit 
 
-```
+``` go
 func Visit(fn func(*Flag))
 ```
 
@@ -1763,7 +1763,7 @@ Visit visits the command-line flags in lexicographical order or in primordial or
 
 #### func VisitAll 
 
-```
+``` go
 func VisitAll(fn func(*Flag))
 ```
 
@@ -1773,13 +1773,13 @@ VisitAll visits the command-line flags in lexicographical order or in primordial
 
 #### type ErrorHandling 
 
-```
+``` go
 type ErrorHandling int
 ```
 
 ErrorHandling defines how to handle flag parsing errors.
 
-```
+``` go
 const (
 	// ContinueOnError will return an err from Parse() if an error is found
 	ContinueOnError ErrorHandling = iota
@@ -1792,7 +1792,7 @@ const (
 
 #### type Flag 
 
-```
+``` go
 type Flag struct {
 	Name                string              // name as it appears on command line
 	Shorthand           string              // one-letter abbreviated flag
@@ -1812,7 +1812,7 @@ A Flag represents the state of a flag.
 
 #### func Lookup 
 
-```
+``` go
 func Lookup(name string) *Flag
 ```
 
@@ -1820,7 +1820,7 @@ Lookup returns the Flag structure of the named command-line flag, returning nil 
 
 #### func PFlagFromGoFlag 
 
-```
+``` go
 func PFlagFromGoFlag(goflag *goflag.Flag) *Flag
 ```
 
@@ -1828,7 +1828,7 @@ PFlagFromGoFlag will return a *pflag.Flag given a *flag.Flag If the *flag.Flag.N
 
 #### func ShorthandLookup 
 
-```
+``` go
 func ShorthandLookup(name string) *Flag
 ```
 
@@ -1838,7 +1838,7 @@ ShorthandLookup returns the Flag structure of the short handed flag, returning n
 
 #### type FlagSet 
 
-```
+``` go
 type FlagSet struct {
 	// Usage is the function called when an error occurs while parsing flags.
 	// The field is a function (not a method) that may be changed to point to
@@ -1859,7 +1859,7 @@ A FlagSet represents a set of defined flags.
 
 #### func NewFlagSet 
 
-```
+``` go
 func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 ```
 
@@ -1867,7 +1867,7 @@ NewFlagSet returns a new, empty flag set with the specified name, error handling
 
 #### (*FlagSet) AddFlag 
 
-```
+``` go
 func (f *FlagSet) AddFlag(flag *Flag)
 ```
 
@@ -1875,7 +1875,7 @@ AddFlag will add the flag to the FlagSet
 
 #### (*FlagSet) AddFlagSet 
 
-```
+``` go
 func (f *FlagSet) AddFlagSet(newSet *FlagSet)
 ```
 
@@ -1883,7 +1883,7 @@ AddFlagSet adds one FlagSet to another. If a flag is already present in f the fl
 
 #### (*FlagSet) AddGoFlag 
 
-```
+``` go
 func (f *FlagSet) AddGoFlag(goflag *goflag.Flag)
 ```
 
@@ -1891,7 +1891,7 @@ AddGoFlag will add the given *flag.Flag to the pflag.FlagSet
 
 #### (*FlagSet) AddGoFlagSet 
 
-```
+``` go
 func (f *FlagSet) AddGoFlagSet(newSet *goflag.FlagSet)
 ```
 
@@ -1899,7 +1899,7 @@ AddGoFlagSet will add the given *flag.FlagSet to the pflag.FlagSet
 
 #### (*FlagSet) Arg 
 
-```
+``` go
 func (f *FlagSet) Arg(i int) string
 ```
 
@@ -1907,7 +1907,7 @@ Arg returns the i'th argument. Arg(0) is the first remaining argument after flag
 
 #### (*FlagSet) Args 
 
-```
+``` go
 func (f *FlagSet) Args() []string
 ```
 
@@ -1915,7 +1915,7 @@ Args returns the non-flag arguments.
 
 #### (*FlagSet) ArgsLenAtDash 
 
-```
+``` go
 func (f *FlagSet) ArgsLenAtDash() int
 ```
 
@@ -1923,7 +1923,7 @@ ArgsLenAtDash will return the length of f.Args at the moment when a -- was found
 
 #### (*FlagSet) Bool 
 
-```
+``` go
 func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 ```
 
@@ -1931,7 +1931,7 @@ Bool defines a bool flag with specified name, default value, and usage string. T
 
 #### (*FlagSet) BoolP 
 
-```
+``` go
 func (f *FlagSet) BoolP(name, shorthand string, value bool, usage string) *bool
 ```
 
@@ -1939,7 +1939,7 @@ BoolP is like Bool, but accepts a shorthand letter that can be used after a sing
 
 #### (*FlagSet) BoolSlice 
 
-```
+``` go
 func (f *FlagSet) BoolSlice(name string, value []bool, usage string) *[]bool
 ```
 
@@ -1947,7 +1947,7 @@ BoolSlice defines a []bool flag with specified name, default value, and usage st
 
 #### (*FlagSet) BoolSliceP 
 
-```
+``` go
 func (f *FlagSet) BoolSliceP(name, shorthand string, value []bool, usage string) *[]bool
 ```
 
@@ -1955,7 +1955,7 @@ BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) BoolSliceVar 
 
-```
+``` go
 func (f *FlagSet) BoolSliceVar(p *[]bool, name string, value []bool, usage string)
 ```
 
@@ -1963,7 +1963,7 @@ BoolSliceVar defines a boolSlice flag with specified name, default value, and us
 
 #### (*FlagSet) BoolSliceVarP 
 
-```
+``` go
 func (f *FlagSet) BoolSliceVarP(p *[]bool, name, shorthand string, value []bool, usage string)
 ```
 
@@ -1971,7 +1971,7 @@ BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be u
 
 #### (*FlagSet) BoolVar 
 
-```
+``` go
 func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 ```
 
@@ -1979,7 +1979,7 @@ BoolVar defines a bool flag with specified name, default value, and usage string
 
 #### (*FlagSet) BoolVarP 
 
-```
+``` go
 func (f *FlagSet) BoolVarP(p *bool, name, shorthand string, value bool, usage string)
 ```
 
@@ -1987,7 +1987,7 @@ BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) BytesBase64  <- v1.0.2
 
-```
+``` go
 func (f *FlagSet) BytesBase64(name string, value []byte, usage string) *[]byte
 ```
 
@@ -1995,7 +1995,7 @@ BytesBase64 defines an []byte flag with specified name, default value, and usage
 
 #### (*FlagSet) BytesBase64P  <- v1.0.2
 
-```
+``` go
 func (f *FlagSet) BytesBase64P(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
@@ -2003,7 +2003,7 @@ BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) BytesBase64Var  <- v1.0.2
 
-```
+``` go
 func (f *FlagSet) BytesBase64Var(p *[]byte, name string, value []byte, usage string)
 ```
 
@@ -2011,7 +2011,7 @@ BytesBase64Var defines an []byte flag with specified name, default value, and us
 
 #### (*FlagSet) BytesBase64VarP  <- v1.0.2
 
-```
+``` go
 func (f *FlagSet) BytesBase64VarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
@@ -2019,7 +2019,7 @@ BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can 
 
 #### (*FlagSet) BytesHex  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) BytesHex(name string, value []byte, usage string) *[]byte
 ```
 
@@ -2027,7 +2027,7 @@ BytesHex defines an []byte flag with specified name, default value, and usage st
 
 #### (*FlagSet) BytesHexP  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) BytesHexP(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
@@ -2035,7 +2035,7 @@ BytesHexP is like BytesHex, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) BytesHexVar  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) BytesHexVar(p *[]byte, name string, value []byte, usage string)
 ```
 
@@ -2043,7 +2043,7 @@ BytesHexVar defines an []byte flag with specified name, default value, and usage
 
 #### (*FlagSet) BytesHexVarP  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) BytesHexVarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
@@ -2051,7 +2051,7 @@ BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) Changed 
 
-```
+``` go
 func (f *FlagSet) Changed(name string) bool
 ```
 
@@ -2059,7 +2059,7 @@ Changed returns true if the flag was explicitly set during Parse() and false oth
 
 #### (*FlagSet) Count 
 
-```
+``` go
 func (f *FlagSet) Count(name string, usage string) *int
 ```
 
@@ -2067,7 +2067,7 @@ Count defines a count flag with specified name, default value, and usage string.
 
 #### (*FlagSet) CountP 
 
-```
+``` go
 func (f *FlagSet) CountP(name, shorthand string, usage string) *int
 ```
 
@@ -2075,7 +2075,7 @@ CountP is like Count only takes a shorthand for the flag name.
 
 #### (*FlagSet) CountVar 
 
-```
+``` go
 func (f *FlagSet) CountVar(p *int, name string, usage string)
 ```
 
@@ -2083,7 +2083,7 @@ CountVar defines a count flag with specified name, default value, and usage stri
 
 #### (*FlagSet) CountVarP 
 
-```
+``` go
 func (f *FlagSet) CountVarP(p *int, name, shorthand string, usage string)
 ```
 
@@ -2091,7 +2091,7 @@ CountVarP is like CountVar only take a shorthand for the flag name.
 
 #### (*FlagSet) Duration 
 
-```
+``` go
 func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -2099,7 +2099,7 @@ Duration defines a time.Duration flag with specified name, default value, and us
 
 #### (*FlagSet) DurationP 
 
-```
+``` go
 func (f *FlagSet) DurationP(name, shorthand string, value time.Duration, usage string) *time.Duration
 ```
 
@@ -2107,7 +2107,7 @@ DurationP is like Duration, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) DurationSlice  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) DurationSlice(name string, value []time.Duration, usage string) *[]time.Duration
 ```
 
@@ -2115,7 +2115,7 @@ DurationSlice defines a []time.Duration flag with specified name, default value,
 
 #### (*FlagSet) DurationSliceP  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) DurationSliceP(name, shorthand string, value []time.Duration, usage string) *[]time.Duration
 ```
 
@@ -2123,7 +2123,7 @@ DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be
 
 #### (*FlagSet) DurationSliceVar  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) DurationSliceVar(p *[]time.Duration, name string, value []time.Duration, usage string)
 ```
 
@@ -2131,7 +2131,7 @@ DurationSliceVar defines a durationSlice flag with specified name, default value
 
 #### (*FlagSet) DurationSliceVarP  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) DurationSliceVarP(p *[]time.Duration, name, shorthand string, value []time.Duration, usage string)
 ```
 
@@ -2139,7 +2139,7 @@ DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that 
 
 #### (*FlagSet) DurationVar 
 
-```
+``` go
 func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
@@ -2147,7 +2147,7 @@ DurationVar defines a time.Duration flag with specified name, default value, and
 
 #### (*FlagSet) DurationVarP 
 
-```
+``` go
 func (f *FlagSet) DurationVarP(p *time.Duration, name, shorthand string, value time.Duration, usage string)
 ```
 
@@ -2155,7 +2155,7 @@ DurationVarP is like DurationVar, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) FlagUsages 
 
-```
+``` go
 func (f *FlagSet) FlagUsages() string
 ```
 
@@ -2163,7 +2163,7 @@ FlagUsages returns a string containing the usage information for all flags in th
 
 #### (*FlagSet) FlagUsagesWrapped 
 
-```
+``` go
 func (f *FlagSet) FlagUsagesWrapped(cols int) string
 ```
 
@@ -2171,7 +2171,7 @@ FlagUsagesWrapped returns a string containing the usage information for all flag
 
 #### (*FlagSet) Float32 
 
-```
+``` go
 func (f *FlagSet) Float32(name string, value float32, usage string) *float32
 ```
 
@@ -2179,7 +2179,7 @@ Float32 defines a float32 flag with specified name, default value, and usage str
 
 #### (*FlagSet) Float32P 
 
-```
+``` go
 func (f *FlagSet) Float32P(name, shorthand string, value float32, usage string) *float32
 ```
 
@@ -2187,7 +2187,7 @@ Float32P is like Float32, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) Float32Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float32Slice(name string, value []float32, usage string) *[]float32
 ```
 
@@ -2195,7 +2195,7 @@ Float32Slice defines a []float32 flag with specified name, default value, and us
 
 #### (*FlagSet) Float32SliceP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float32SliceP(name, shorthand string, value []float32, usage string) *[]float32
 ```
 
@@ -2203,7 +2203,7 @@ Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be u
 
 #### (*FlagSet) Float32SliceVar  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float32SliceVar(p *[]float32, name string, value []float32, usage string)
 ```
 
@@ -2211,7 +2211,7 @@ Float32SliceVar defines a float32Slice flag with specified name, default value, 
 
 #### (*FlagSet) Float32SliceVarP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float32SliceVarP(p *[]float32, name, shorthand string, value []float32, usage string)
 ```
 
@@ -2219,7 +2219,7 @@ Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that ca
 
 #### (*FlagSet) Float32Var 
 
-```
+``` go
 func (f *FlagSet) Float32Var(p *float32, name string, value float32, usage string)
 ```
 
@@ -2227,7 +2227,7 @@ Float32Var defines a float32 flag with specified name, default value, and usage 
 
 #### (*FlagSet) Float32VarP 
 
-```
+``` go
 func (f *FlagSet) Float32VarP(p *float32, name, shorthand string, value float32, usage string)
 ```
 
@@ -2235,7 +2235,7 @@ Float32VarP is like Float32Var, but accepts a shorthand letter that can be used 
 
 #### (*FlagSet) Float64 
 
-```
+``` go
 func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 ```
 
@@ -2243,7 +2243,7 @@ Float64 defines a float64 flag with specified name, default value, and usage str
 
 #### (*FlagSet) Float64P 
 
-```
+``` go
 func (f *FlagSet) Float64P(name, shorthand string, value float64, usage string) *float64
 ```
 
@@ -2251,7 +2251,7 @@ Float64P is like Float64, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) Float64Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float64Slice(name string, value []float64, usage string) *[]float64
 ```
 
@@ -2259,7 +2259,7 @@ Float64Slice defines a []float64 flag with specified name, default value, and us
 
 #### (*FlagSet) Float64SliceP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float64SliceP(name, shorthand string, value []float64, usage string) *[]float64
 ```
 
@@ -2267,7 +2267,7 @@ Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be u
 
 #### (*FlagSet) Float64SliceVar  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float64SliceVar(p *[]float64, name string, value []float64, usage string)
 ```
 
@@ -2275,7 +2275,7 @@ Float64SliceVar defines a float64Slice flag with specified name, default value, 
 
 #### (*FlagSet) Float64SliceVarP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Float64SliceVarP(p *[]float64, name, shorthand string, value []float64, usage string)
 ```
 
@@ -2283,7 +2283,7 @@ Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that ca
 
 #### (*FlagSet) Float64Var 
 
-```
+``` go
 func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage string)
 ```
 
@@ -2291,7 +2291,7 @@ Float64Var defines a float64 flag with specified name, default value, and usage 
 
 #### (*FlagSet) Float64VarP 
 
-```
+``` go
 func (f *FlagSet) Float64VarP(p *float64, name, shorthand string, value float64, usage string)
 ```
 
@@ -2299,7 +2299,7 @@ Float64VarP is like Float64Var, but accepts a shorthand letter that can be used 
 
 #### (*FlagSet) GetBool 
 
-```
+``` go
 func (f *FlagSet) GetBool(name string) (bool, error)
 ```
 
@@ -2307,7 +2307,7 @@ GetBool return the bool value of a flag with the given name
 
 #### (*FlagSet) GetBoolSlice 
 
-```
+``` go
 func (f *FlagSet) GetBoolSlice(name string) ([]bool, error)
 ```
 
@@ -2315,7 +2315,7 @@ GetBoolSlice returns the []bool value of a flag with the given name.
 
 #### (*FlagSet) GetBytesBase64  <- v1.0.2
 
-```
+``` go
 func (f *FlagSet) GetBytesBase64(name string) ([]byte, error)
 ```
 
@@ -2323,7 +2323,7 @@ GetBytesBase64 return the []byte value of a flag with the given name
 
 #### (*FlagSet) GetBytesHex  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) GetBytesHex(name string) ([]byte, error)
 ```
 
@@ -2331,7 +2331,7 @@ GetBytesHex return the []byte value of a flag with the given name
 
 #### (*FlagSet) GetCount 
 
-```
+``` go
 func (f *FlagSet) GetCount(name string) (int, error)
 ```
 
@@ -2339,7 +2339,7 @@ GetCount return the int value of a flag with the given name
 
 #### (*FlagSet) GetDuration 
 
-```
+``` go
 func (f *FlagSet) GetDuration(name string) (time.Duration, error)
 ```
 
@@ -2347,7 +2347,7 @@ GetDuration return the duration value of a flag with the given name
 
 #### (*FlagSet) GetDurationSlice  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) GetDurationSlice(name string) ([]time.Duration, error)
 ```
 
@@ -2355,7 +2355,7 @@ GetDurationSlice returns the []time.Duration value of a flag with the given name
 
 #### (*FlagSet) GetFloat32 
 
-```
+``` go
 func (f *FlagSet) GetFloat32(name string) (float32, error)
 ```
 
@@ -2363,7 +2363,7 @@ GetFloat32 return the float32 value of a flag with the given name
 
 #### (*FlagSet) GetFloat32Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) GetFloat32Slice(name string) ([]float32, error)
 ```
 
@@ -2371,7 +2371,7 @@ GetFloat32Slice return the []float32 value of a flag with the given name
 
 #### (*FlagSet) GetFloat64 
 
-```
+``` go
 func (f *FlagSet) GetFloat64(name string) (float64, error)
 ```
 
@@ -2379,7 +2379,7 @@ GetFloat64 return the float64 value of a flag with the given name
 
 #### (*FlagSet) GetFloat64Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) GetFloat64Slice(name string) ([]float64, error)
 ```
 
@@ -2387,7 +2387,7 @@ GetFloat64Slice return the []float64 value of a flag with the given name
 
 #### (*FlagSet) GetIP 
 
-```
+``` go
 func (f *FlagSet) GetIP(name string) (net.IP, error)
 ```
 
@@ -2395,7 +2395,7 @@ GetIP return the net.IP value of a flag with the given name
 
 #### (*FlagSet) GetIPNet 
 
-```
+``` go
 func (f *FlagSet) GetIPNet(name string) (net.IPNet, error)
 ```
 
@@ -2403,7 +2403,7 @@ GetIPNet return the net.IPNet value of a flag with the given name
 
 #### (*FlagSet) GetIPSlice 
 
-```
+``` go
 func (f *FlagSet) GetIPSlice(name string) ([]net.IP, error)
 ```
 
@@ -2411,7 +2411,7 @@ GetIPSlice returns the []net.IP value of a flag with the given name
 
 #### (*FlagSet) GetIPv4Mask 
 
-```
+``` go
 func (f *FlagSet) GetIPv4Mask(name string) (net.IPMask, error)
 ```
 
@@ -2419,7 +2419,7 @@ GetIPv4Mask return the net.IPv4Mask value of a flag with the given name
 
 #### (*FlagSet) GetInt 
 
-```
+``` go
 func (f *FlagSet) GetInt(name string) (int, error)
 ```
 
@@ -2427,7 +2427,7 @@ GetInt return the int value of a flag with the given name
 
 #### (*FlagSet) GetInt16  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) GetInt16(name string) (int16, error)
 ```
 
@@ -2435,7 +2435,7 @@ GetInt16 returns the int16 value of a flag with the given name
 
 #### (*FlagSet) GetInt32 
 
-```
+``` go
 func (f *FlagSet) GetInt32(name string) (int32, error)
 ```
 
@@ -2443,7 +2443,7 @@ GetInt32 return the int32 value of a flag with the given name
 
 #### (*FlagSet) GetInt32Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) GetInt32Slice(name string) ([]int32, error)
 ```
 
@@ -2451,7 +2451,7 @@ GetInt32Slice return the []int32 value of a flag with the given name
 
 #### (*FlagSet) GetInt64 
 
-```
+``` go
 func (f *FlagSet) GetInt64(name string) (int64, error)
 ```
 
@@ -2459,7 +2459,7 @@ GetInt64 return the int64 value of a flag with the given name
 
 #### (*FlagSet) GetInt64Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) GetInt64Slice(name string) ([]int64, error)
 ```
 
@@ -2467,7 +2467,7 @@ GetInt64Slice return the []int64 value of a flag with the given name
 
 #### (*FlagSet) GetInt8 
 
-```
+``` go
 func (f *FlagSet) GetInt8(name string) (int8, error)
 ```
 
@@ -2475,7 +2475,7 @@ GetInt8 return the int8 value of a flag with the given name
 
 #### (*FlagSet) GetIntSlice 
 
-```
+``` go
 func (f *FlagSet) GetIntSlice(name string) ([]int, error)
 ```
 
@@ -2483,7 +2483,7 @@ GetIntSlice return the []int value of a flag with the given name
 
 #### (*FlagSet) GetNormalizeFunc 
 
-```
+``` go
 func (f *FlagSet) GetNormalizeFunc() func(f *FlagSet, name string) NormalizedName
 ```
 
@@ -2491,7 +2491,7 @@ GetNormalizeFunc returns the previously set NormalizeFunc of a function which do
 
 #### (*FlagSet) GetString 
 
-```
+``` go
 func (f *FlagSet) GetString(name string) (string, error)
 ```
 
@@ -2499,7 +2499,7 @@ GetString return the string value of a flag with the given name
 
 #### (*FlagSet) GetStringArray 
 
-```
+``` go
 func (f *FlagSet) GetStringArray(name string) ([]string, error)
 ```
 
@@ -2507,7 +2507,7 @@ GetStringArray return the []string value of a flag with the given name
 
 #### (*FlagSet) GetStringSlice 
 
-```
+``` go
 func (f *FlagSet) GetStringSlice(name string) ([]string, error)
 ```
 
@@ -2515,7 +2515,7 @@ GetStringSlice return the []string value of a flag with the given name
 
 #### (*FlagSet) GetStringToInt  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) GetStringToInt(name string) (map[string]int, error)
 ```
 
@@ -2523,7 +2523,7 @@ GetStringToInt return the map[string]int value of a flag with the given name
 
 #### (*FlagSet) GetStringToInt64  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) GetStringToInt64(name string) (map[string]int64, error)
 ```
 
@@ -2531,7 +2531,7 @@ GetStringToInt64 return the map[string]int64 value of a flag with the given name
 
 #### (*FlagSet) GetStringToString  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) GetStringToString(name string) (map[string]string, error)
 ```
 
@@ -2539,7 +2539,7 @@ GetStringToString return the map[string]string value of a flag with the given na
 
 #### (*FlagSet) GetUint 
 
-```
+``` go
 func (f *FlagSet) GetUint(name string) (uint, error)
 ```
 
@@ -2547,7 +2547,7 @@ GetUint return the uint value of a flag with the given name
 
 #### (*FlagSet) GetUint16 
 
-```
+``` go
 func (f *FlagSet) GetUint16(name string) (uint16, error)
 ```
 
@@ -2555,7 +2555,7 @@ GetUint16 return the uint16 value of a flag with the given name
 
 #### (*FlagSet) GetUint32 
 
-```
+``` go
 func (f *FlagSet) GetUint32(name string) (uint32, error)
 ```
 
@@ -2563,7 +2563,7 @@ GetUint32 return the uint32 value of a flag with the given name
 
 #### (*FlagSet) GetUint64 
 
-```
+``` go
 func (f *FlagSet) GetUint64(name string) (uint64, error)
 ```
 
@@ -2571,7 +2571,7 @@ GetUint64 return the uint64 value of a flag with the given name
 
 #### (*FlagSet) GetUint8 
 
-```
+``` go
 func (f *FlagSet) GetUint8(name string) (uint8, error)
 ```
 
@@ -2579,7 +2579,7 @@ GetUint8 return the uint8 value of a flag with the given name
 
 #### (*FlagSet) GetUintSlice 
 
-```
+``` go
 func (f *FlagSet) GetUintSlice(name string) ([]uint, error)
 ```
 
@@ -2587,7 +2587,7 @@ GetUintSlice returns the []uint value of a flag with the given name.
 
 #### (*FlagSet) HasAvailableFlags 
 
-```
+``` go
 func (f *FlagSet) HasAvailableFlags() bool
 ```
 
@@ -2595,7 +2595,7 @@ HasAvailableFlags returns a bool to indicate if the FlagSet has any flags that a
 
 #### (*FlagSet) HasFlags 
 
-```
+``` go
 func (f *FlagSet) HasFlags() bool
 ```
 
@@ -2603,7 +2603,7 @@ HasFlags returns a bool to indicate if the FlagSet has any flags defined.
 
 #### (*FlagSet) IP 
 
-```
+``` go
 func (f *FlagSet) IP(name string, value net.IP, usage string) *net.IP
 ```
 
@@ -2611,7 +2611,7 @@ IP defines an net.IP flag with specified name, default value, and usage string. 
 
 #### (*FlagSet) IPMask 
 
-```
+``` go
 func (f *FlagSet) IPMask(name string, value net.IPMask, usage string) *net.IPMask
 ```
 
@@ -2619,7 +2619,7 @@ IPMask defines an net.IPMask flag with specified name, default value, and usage 
 
 #### (*FlagSet) IPMaskP 
 
-```
+``` go
 func (f *FlagSet) IPMaskP(name, shorthand string, value net.IPMask, usage string) *net.IPMask
 ```
 
@@ -2627,7 +2627,7 @@ IPMaskP is like IPMask, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) IPMaskVar 
 
-```
+``` go
 func (f *FlagSet) IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage string)
 ```
 
@@ -2635,7 +2635,7 @@ IPMaskVar defines an net.IPMask flag with specified name, default value, and usa
 
 #### (*FlagSet) IPMaskVarP 
 
-```
+``` go
 func (f *FlagSet) IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IPMask, usage string)
 ```
 
@@ -2643,7 +2643,7 @@ IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) IPNet 
 
-```
+``` go
 func (f *FlagSet) IPNet(name string, value net.IPNet, usage string) *net.IPNet
 ```
 
@@ -2651,7 +2651,7 @@ IPNet defines an net.IPNet flag with specified name, default value, and usage st
 
 #### (*FlagSet) IPNetP 
 
-```
+``` go
 func (f *FlagSet) IPNetP(name, shorthand string, value net.IPNet, usage string) *net.IPNet
 ```
 
@@ -2659,7 +2659,7 @@ IPNetP is like IPNet, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) IPNetVar 
 
-```
+``` go
 func (f *FlagSet) IPNetVar(p *net.IPNet, name string, value net.IPNet, usage string)
 ```
 
@@ -2667,7 +2667,7 @@ IPNetVar defines an net.IPNet flag with specified name, default value, and usage
 
 #### (*FlagSet) IPNetVarP 
 
-```
+``` go
 func (f *FlagSet) IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNet, usage string)
 ```
 
@@ -2675,7 +2675,7 @@ IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) IPP 
 
-```
+``` go
 func (f *FlagSet) IPP(name, shorthand string, value net.IP, usage string) *net.IP
 ```
 
@@ -2683,7 +2683,7 @@ IPP is like IP, but accepts a shorthand letter that can be used after a single d
 
 #### (*FlagSet) IPSlice 
 
-```
+``` go
 func (f *FlagSet) IPSlice(name string, value []net.IP, usage string) *[]net.IP
 ```
 
@@ -2691,7 +2691,7 @@ IPSlice defines a []net.IP flag with specified name, default value, and usage st
 
 #### (*FlagSet) IPSliceP 
 
-```
+``` go
 func (f *FlagSet) IPSliceP(name, shorthand string, value []net.IP, usage string) *[]net.IP
 ```
 
@@ -2699,7 +2699,7 @@ IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) IPSliceVar 
 
-```
+``` go
 func (f *FlagSet) IPSliceVar(p *[]net.IP, name string, value []net.IP, usage string)
 ```
 
@@ -2707,7 +2707,7 @@ IPSliceVar defines a ipSlice flag with specified name, default value, and usage 
 
 #### (*FlagSet) IPSliceVarP 
 
-```
+``` go
 func (f *FlagSet) IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.IP, usage string)
 ```
 
@@ -2715,7 +2715,7 @@ IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used 
 
 #### (*FlagSet) IPVar 
 
-```
+``` go
 func (f *FlagSet) IPVar(p *net.IP, name string, value net.IP, usage string)
 ```
 
@@ -2723,7 +2723,7 @@ IPVar defines an net.IP flag with specified name, default value, and usage strin
 
 #### (*FlagSet) IPVarP 
 
-```
+``` go
 func (f *FlagSet) IPVarP(p *net.IP, name, shorthand string, value net.IP, usage string)
 ```
 
@@ -2731,7 +2731,7 @@ IPVarP is like IPVar, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) Init 
 
-```
+``` go
 func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 ```
 
@@ -2739,7 +2739,7 @@ Init sets the name and error handling property for a flag set. By default, the z
 
 #### (*FlagSet) Int 
 
-```
+``` go
 func (f *FlagSet) Int(name string, value int, usage string) *int
 ```
 
@@ -2747,7 +2747,7 @@ Int defines an int flag with specified name, default value, and usage string. Th
 
 #### (*FlagSet) Int16  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) Int16(name string, value int16, usage string) *int16
 ```
 
@@ -2755,7 +2755,7 @@ Int16 defines an int16 flag with specified name, default value, and usage string
 
 #### (*FlagSet) Int16P  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) Int16P(name, shorthand string, value int16, usage string) *int16
 ```
 
@@ -2763,7 +2763,7 @@ Int16P is like Int16, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) Int16Var  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) Int16Var(p *int16, name string, value int16, usage string)
 ```
 
@@ -2771,7 +2771,7 @@ Int16Var defines an int16 flag with specified name, default value, and usage str
 
 #### (*FlagSet) Int16VarP  <- v1.0.1
 
-```
+``` go
 func (f *FlagSet) Int16VarP(p *int16, name, shorthand string, value int16, usage string)
 ```
 
@@ -2779,7 +2779,7 @@ Int16VarP is like Int16Var, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) Int32 
 
-```
+``` go
 func (f *FlagSet) Int32(name string, value int32, usage string) *int32
 ```
 
@@ -2787,7 +2787,7 @@ Int32 defines an int32 flag with specified name, default value, and usage string
 
 #### (*FlagSet) Int32P 
 
-```
+``` go
 func (f *FlagSet) Int32P(name, shorthand string, value int32, usage string) *int32
 ```
 
@@ -2795,7 +2795,7 @@ Int32P is like Int32, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) Int32Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int32Slice(name string, value []int32, usage string) *[]int32
 ```
 
@@ -2803,7 +2803,7 @@ Int32Slice defines a []int32 flag with specified name, default value, and usage 
 
 #### (*FlagSet) Int32SliceP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int32SliceP(name, shorthand string, value []int32, usage string) *[]int32
 ```
 
@@ -2811,7 +2811,7 @@ Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used 
 
 #### (*FlagSet) Int32SliceVar  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int32SliceVar(p *[]int32, name string, value []int32, usage string)
 ```
 
@@ -2819,7 +2819,7 @@ Int32SliceVar defines a int32Slice flag with specified name, default value, and 
 
 #### (*FlagSet) Int32SliceVarP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int32SliceVarP(p *[]int32, name, shorthand string, value []int32, usage string)
 ```
 
@@ -2827,7 +2827,7 @@ Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be
 
 #### (*FlagSet) Int32Var 
 
-```
+``` go
 func (f *FlagSet) Int32Var(p *int32, name string, value int32, usage string)
 ```
 
@@ -2835,7 +2835,7 @@ Int32Var defines an int32 flag with specified name, default value, and usage str
 
 #### (*FlagSet) Int32VarP 
 
-```
+``` go
 func (f *FlagSet) Int32VarP(p *int32, name, shorthand string, value int32, usage string)
 ```
 
@@ -2843,7 +2843,7 @@ Int32VarP is like Int32Var, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) Int64 
 
-```
+``` go
 func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 ```
 
@@ -2851,7 +2851,7 @@ Int64 defines an int64 flag with specified name, default value, and usage string
 
 #### (*FlagSet) Int64P 
 
-```
+``` go
 func (f *FlagSet) Int64P(name, shorthand string, value int64, usage string) *int64
 ```
 
@@ -2859,7 +2859,7 @@ Int64P is like Int64, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) Int64Slice  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int64Slice(name string, value []int64, usage string) *[]int64
 ```
 
@@ -2867,7 +2867,7 @@ Int64Slice defines a []int64 flag with specified name, default value, and usage 
 
 #### (*FlagSet) Int64SliceP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int64SliceP(name, shorthand string, value []int64, usage string) *[]int64
 ```
 
@@ -2875,7 +2875,7 @@ Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used 
 
 #### (*FlagSet) Int64SliceVar  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int64SliceVar(p *[]int64, name string, value []int64, usage string)
 ```
 
@@ -2883,7 +2883,7 @@ Int64SliceVar defines a int64Slice flag with specified name, default value, and 
 
 #### (*FlagSet) Int64SliceVarP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) Int64SliceVarP(p *[]int64, name, shorthand string, value []int64, usage string)
 ```
 
@@ -2891,7 +2891,7 @@ Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be
 
 #### (*FlagSet) Int64Var 
 
-```
+``` go
 func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 ```
 
@@ -2899,7 +2899,7 @@ Int64Var defines an int64 flag with specified name, default value, and usage str
 
 #### (*FlagSet) Int64VarP 
 
-```
+``` go
 func (f *FlagSet) Int64VarP(p *int64, name, shorthand string, value int64, usage string)
 ```
 
@@ -2907,7 +2907,7 @@ Int64VarP is like Int64Var, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) Int8 
 
-```
+``` go
 func (f *FlagSet) Int8(name string, value int8, usage string) *int8
 ```
 
@@ -2915,7 +2915,7 @@ Int8 defines an int8 flag with specified name, default value, and usage string. 
 
 #### (*FlagSet) Int8P 
 
-```
+``` go
 func (f *FlagSet) Int8P(name, shorthand string, value int8, usage string) *int8
 ```
 
@@ -2923,7 +2923,7 @@ Int8P is like Int8, but accepts a shorthand letter that can be used after a sing
 
 #### (*FlagSet) Int8Var 
 
-```
+``` go
 func (f *FlagSet) Int8Var(p *int8, name string, value int8, usage string)
 ```
 
@@ -2931,7 +2931,7 @@ Int8Var defines an int8 flag with specified name, default value, and usage strin
 
 #### (*FlagSet) Int8VarP 
 
-```
+``` go
 func (f *FlagSet) Int8VarP(p *int8, name, shorthand string, value int8, usage string)
 ```
 
@@ -2939,7 +2939,7 @@ Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) IntP 
 
-```
+``` go
 func (f *FlagSet) IntP(name, shorthand string, value int, usage string) *int
 ```
 
@@ -2947,7 +2947,7 @@ IntP is like Int, but accepts a shorthand letter that can be used after a single
 
 #### (*FlagSet) IntSlice 
 
-```
+``` go
 func (f *FlagSet) IntSlice(name string, value []int, usage string) *[]int
 ```
 
@@ -2955,7 +2955,7 @@ IntSlice defines a []int flag with specified name, default value, and usage stri
 
 #### (*FlagSet) IntSliceP 
 
-```
+``` go
 func (f *FlagSet) IntSliceP(name, shorthand string, value []int, usage string) *[]int
 ```
 
@@ -2963,7 +2963,7 @@ IntSliceP is like IntSlice, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) IntSliceVar 
 
-```
+``` go
 func (f *FlagSet) IntSliceVar(p *[]int, name string, value []int, usage string)
 ```
 
@@ -2971,7 +2971,7 @@ IntSliceVar defines a intSlice flag with specified name, default value, and usag
 
 #### (*FlagSet) IntSliceVarP 
 
-```
+``` go
 func (f *FlagSet) IntSliceVarP(p *[]int, name, shorthand string, value []int, usage string)
 ```
 
@@ -2979,7 +2979,7 @@ IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) IntVar 
 
-```
+``` go
 func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 ```
 
@@ -2987,7 +2987,7 @@ IntVar defines an int flag with specified name, default value, and usage string.
 
 #### (*FlagSet) IntVarP 
 
-```
+``` go
 func (f *FlagSet) IntVarP(p *int, name, shorthand string, value int, usage string)
 ```
 
@@ -2995,7 +2995,7 @@ IntVarP is like IntVar, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) Lookup 
 
-```
+``` go
 func (f *FlagSet) Lookup(name string) *Flag
 ```
 
@@ -3003,7 +3003,7 @@ Lookup returns the Flag structure of the named flag, returning nil if none exist
 
 #### (*FlagSet) MarkDeprecated 
 
-```
+``` go
 func (f *FlagSet) MarkDeprecated(name string, usageMessage string) error
 ```
 
@@ -3011,7 +3011,7 @@ MarkDeprecated indicated that a flag is deprecated in your program. It will cont
 
 #### (*FlagSet) MarkHidden 
 
-```
+``` go
 func (f *FlagSet) MarkHidden(name string) error
 ```
 
@@ -3019,7 +3019,7 @@ MarkHidden sets a flag to 'hidden' in your program. It will continue to function
 
 #### (*FlagSet) MarkShorthandDeprecated 
 
-```
+``` go
 func (f *FlagSet) MarkShorthandDeprecated(name string, usageMessage string) error
 ```
 
@@ -3027,7 +3027,7 @@ MarkShorthandDeprecated will mark the shorthand of a flag deprecated in your pro
 
 #### (*FlagSet) NArg 
 
-```
+``` go
 func (f *FlagSet) NArg() int
 ```
 
@@ -3035,7 +3035,7 @@ NArg is the number of arguments remaining after flags have been processed.
 
 #### (*FlagSet) NFlag 
 
-```
+``` go
 func (f *FlagSet) NFlag() int
 ```
 
@@ -3043,7 +3043,7 @@ NFlag returns the number of flags that have been set.
 
 #### (*FlagSet) Parse 
 
-```
+``` go
 func (f *FlagSet) Parse(arguments []string) error
 ```
 
@@ -3051,7 +3051,7 @@ Parse parses flag definitions from the argument list, which should not include t
 
 #### (*FlagSet) ParseAll 
 
-```
+``` go
 func (f *FlagSet) ParseAll(arguments []string, fn func(flag *Flag, value string) error) error
 ```
 
@@ -3059,7 +3059,7 @@ ParseAll parses flag definitions from the argument list, which should not includ
 
 #### (*FlagSet) Parsed 
 
-```
+``` go
 func (f *FlagSet) Parsed() bool
 ```
 
@@ -3067,7 +3067,7 @@ Parsed reports whether f.Parse has been called.
 
 #### (*FlagSet) PrintDefaults 
 
-```
+``` go
 func (f *FlagSet) PrintDefaults()
 ```
 
@@ -3075,7 +3075,7 @@ PrintDefaults prints, to standard error unless configured otherwise, the default
 
 #### (*FlagSet) Set 
 
-```
+``` go
 func (f *FlagSet) Set(name, value string) error
 ```
 
@@ -3083,7 +3083,7 @@ Set sets the value of the named flag.
 
 #### (*FlagSet) SetAnnotation 
 
-```
+``` go
 func (f *FlagSet) SetAnnotation(name, key string, values []string) error
 ```
 
@@ -3091,7 +3091,7 @@ SetAnnotation allows one to set arbitrary annotations on a flag in the FlagSet. 
 
 #### (*FlagSet) SetInterspersed 
 
-```
+``` go
 func (f *FlagSet) SetInterspersed(interspersed bool)
 ```
 
@@ -3099,7 +3099,7 @@ SetInterspersed sets whether to support interspersed option/non-option arguments
 
 #### (*FlagSet) SetNormalizeFunc 
 
-```
+``` go
 func (f *FlagSet) SetNormalizeFunc(n func(f *FlagSet, name string) NormalizedName)
 ```
 
@@ -3107,7 +3107,7 @@ SetNormalizeFunc allows you to add a function which can translate flag names. Fl
 
 #### (*FlagSet) SetOutput 
 
-```
+``` go
 func (f *FlagSet) SetOutput(output io.Writer)
 ```
 
@@ -3115,7 +3115,7 @@ SetOutput sets the destination for usage and error messages. If output is nil, o
 
 #### (*FlagSet) ShorthandLookup 
 
-```
+``` go
 func (f *FlagSet) ShorthandLookup(name string) *Flag
 ```
 
@@ -3125,7 +3125,7 @@ ShorthandLookup returns the Flag structure of the short handed flag, returning n
 
 #### (*FlagSet) String 
 
-```
+``` go
 func (f *FlagSet) String(name string, value string, usage string) *string
 ```
 
@@ -3133,7 +3133,7 @@ String defines a string flag with specified name, default value, and usage strin
 
 #### (*FlagSet) StringArray 
 
-```
+``` go
 func (f *FlagSet) StringArray(name string, value []string, usage string) *[]string
 ```
 
@@ -3141,7 +3141,7 @@ StringArray defines a string flag with specified name, default value, and usage 
 
 #### (*FlagSet) StringArrayP 
 
-```
+``` go
 func (f *FlagSet) StringArrayP(name, shorthand string, value []string, usage string) *[]string
 ```
 
@@ -3149,7 +3149,7 @@ StringArrayP is like StringArray, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) StringArrayVar 
 
-```
+``` go
 func (f *FlagSet) StringArrayVar(p *[]string, name string, value []string, usage string)
 ```
 
@@ -3157,7 +3157,7 @@ StringArrayVar defines a string flag with specified name, default value, and usa
 
 #### (*FlagSet) StringArrayVarP 
 
-```
+``` go
 func (f *FlagSet) StringArrayVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
@@ -3165,7 +3165,7 @@ StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can 
 
 #### (*FlagSet) StringP 
 
-```
+``` go
 func (f *FlagSet) StringP(name, shorthand string, value string, usage string) *string
 ```
 
@@ -3173,7 +3173,7 @@ StringP is like String, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) StringSlice 
 
-```
+``` go
 func (f *FlagSet) StringSlice(name string, value []string, usage string) *[]string
 ```
 
@@ -3191,7 +3191,7 @@ will result in
 
 #### (*FlagSet) StringSliceP 
 
-```
+``` go
 func (f *FlagSet) StringSliceP(name, shorthand string, value []string, usage string) *[]string
 ```
 
@@ -3199,7 +3199,7 @@ StringSliceP is like StringSlice, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) StringSliceVar 
 
-```
+``` go
 func (f *FlagSet) StringSliceVar(p *[]string, name string, value []string, usage string)
 ```
 
@@ -3217,7 +3217,7 @@ will result in
 
 #### (*FlagSet) StringSliceVarP 
 
-```
+``` go
 func (f *FlagSet) StringSliceVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
@@ -3225,7 +3225,7 @@ StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can 
 
 #### (*FlagSet) StringToInt  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToInt(name string, value map[string]int, usage string) *map[string]int
 ```
 
@@ -3233,7 +3233,7 @@ StringToInt defines a string flag with specified name, default value, and usage 
 
 #### (*FlagSet) StringToInt64  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) StringToInt64(name string, value map[string]int64, usage string) *map[string]int64
 ```
 
@@ -3241,7 +3241,7 @@ StringToInt64 defines a string flag with specified name, default value, and usag
 
 #### (*FlagSet) StringToInt64P  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) StringToInt64P(name, shorthand string, value map[string]int64, usage string) *map[string]int64
 ```
 
@@ -3249,7 +3249,7 @@ StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be
 
 #### (*FlagSet) StringToInt64Var  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) StringToInt64Var(p *map[string]int64, name string, value map[string]int64, usage string)
 ```
 
@@ -3257,7 +3257,7 @@ StringToInt64Var defines a string flag with specified name, default value, and u
 
 #### (*FlagSet) StringToInt64VarP  <- v1.0.5
 
-```
+``` go
 func (f *FlagSet) StringToInt64VarP(p *map[string]int64, name, shorthand string, value map[string]int64, usage string)
 ```
 
@@ -3265,7 +3265,7 @@ StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that 
 
 #### (*FlagSet) StringToIntP  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToIntP(name, shorthand string, value map[string]int, usage string) *map[string]int
 ```
 
@@ -3273,7 +3273,7 @@ StringToIntP is like StringToInt, but accepts a shorthand letter that can be use
 
 #### (*FlagSet) StringToIntVar  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToIntVar(p *map[string]int, name string, value map[string]int, usage string)
 ```
 
@@ -3281,7 +3281,7 @@ StringToIntVar defines a string flag with specified name, default value, and usa
 
 #### (*FlagSet) StringToIntVarP  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToIntVarP(p *map[string]int, name, shorthand string, value map[string]int, usage string)
 ```
 
@@ -3289,7 +3289,7 @@ StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can 
 
 #### (*FlagSet) StringToString  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToString(name string, value map[string]string, usage string) *map[string]string
 ```
 
@@ -3297,7 +3297,7 @@ StringToString defines a string flag with specified name, default value, and usa
 
 #### (*FlagSet) StringToStringP  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToStringP(name, shorthand string, value map[string]string, usage string) *map[string]string
 ```
 
@@ -3305,7 +3305,7 @@ StringToStringP is like StringToString, but accepts a shorthand letter that can 
 
 #### (*FlagSet) StringToStringVar  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToStringVar(p *map[string]string, name string, value map[string]string, usage string)
 ```
 
@@ -3313,7 +3313,7 @@ StringToStringVar defines a string flag with specified name, default value, and 
 
 #### (*FlagSet) StringToStringVarP  <- v1.0.3
 
-```
+``` go
 func (f *FlagSet) StringToStringVarP(p *map[string]string, name, shorthand string, value map[string]string, usage string)
 ```
 
@@ -3321,7 +3321,7 @@ StringToStringVarP is like StringToStringVar, but accepts a shorthand letter tha
 
 #### (*FlagSet) StringVar 
 
-```
+``` go
 func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 ```
 
@@ -3329,7 +3329,7 @@ StringVar defines a string flag with specified name, default value, and usage st
 
 #### (*FlagSet) StringVarP 
 
-```
+``` go
 func (f *FlagSet) StringVarP(p *string, name, shorthand string, value string, usage string)
 ```
 
@@ -3337,7 +3337,7 @@ StringVarP is like StringVar, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) Uint 
 
-```
+``` go
 func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 ```
 
@@ -3345,7 +3345,7 @@ Uint defines a uint flag with specified name, default value, and usage string. T
 
 #### (*FlagSet) Uint16 
 
-```
+``` go
 func (f *FlagSet) Uint16(name string, value uint16, usage string) *uint16
 ```
 
@@ -3353,7 +3353,7 @@ Uint16 defines a uint flag with specified name, default value, and usage string.
 
 #### (*FlagSet) Uint16P 
 
-```
+``` go
 func (f *FlagSet) Uint16P(name, shorthand string, value uint16, usage string) *uint16
 ```
 
@@ -3361,7 +3361,7 @@ Uint16P is like Uint16, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) Uint16Var 
 
-```
+``` go
 func (f *FlagSet) Uint16Var(p *uint16, name string, value uint16, usage string)
 ```
 
@@ -3369,7 +3369,7 @@ Uint16Var defines a uint flag with specified name, default value, and usage stri
 
 #### (*FlagSet) Uint16VarP 
 
-```
+``` go
 func (f *FlagSet) Uint16VarP(p *uint16, name, shorthand string, value uint16, usage string)
 ```
 
@@ -3377,7 +3377,7 @@ Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) Uint32 
 
-```
+``` go
 func (f *FlagSet) Uint32(name string, value uint32, usage string) *uint32
 ```
 
@@ -3385,7 +3385,7 @@ Uint32 defines a uint32 flag with specified name, default value, and usage strin
 
 #### (*FlagSet) Uint32P 
 
-```
+``` go
 func (f *FlagSet) Uint32P(name, shorthand string, value uint32, usage string) *uint32
 ```
 
@@ -3393,7 +3393,7 @@ Uint32P is like Uint32, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) Uint32Var 
 
-```
+``` go
 func (f *FlagSet) Uint32Var(p *uint32, name string, value uint32, usage string)
 ```
 
@@ -3401,7 +3401,7 @@ Uint32Var defines a uint32 flag with specified name, default value, and usage st
 
 #### (*FlagSet) Uint32VarP 
 
-```
+``` go
 func (f *FlagSet) Uint32VarP(p *uint32, name, shorthand string, value uint32, usage string)
 ```
 
@@ -3409,7 +3409,7 @@ Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) Uint64 
 
-```
+``` go
 func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 ```
 
@@ -3417,7 +3417,7 @@ Uint64 defines a uint64 flag with specified name, default value, and usage strin
 
 #### (*FlagSet) Uint64P 
 
-```
+``` go
 func (f *FlagSet) Uint64P(name, shorthand string, value uint64, usage string) *uint64
 ```
 
@@ -3425,7 +3425,7 @@ Uint64P is like Uint64, but accepts a shorthand letter that can be used after a 
 
 #### (*FlagSet) Uint64Var 
 
-```
+``` go
 func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
@@ -3433,7 +3433,7 @@ Uint64Var defines a uint64 flag with specified name, default value, and usage st
 
 #### (*FlagSet) Uint64VarP 
 
-```
+``` go
 func (f *FlagSet) Uint64VarP(p *uint64, name, shorthand string, value uint64, usage string)
 ```
 
@@ -3441,7 +3441,7 @@ Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) Uint8 
 
-```
+``` go
 func (f *FlagSet) Uint8(name string, value uint8, usage string) *uint8
 ```
 
@@ -3449,7 +3449,7 @@ Uint8 defines a uint8 flag with specified name, default value, and usage string.
 
 #### (*FlagSet) Uint8P 
 
-```
+``` go
 func (f *FlagSet) Uint8P(name, shorthand string, value uint8, usage string) *uint8
 ```
 
@@ -3457,7 +3457,7 @@ Uint8P is like Uint8, but accepts a shorthand letter that can be used after a si
 
 #### (*FlagSet) Uint8Var 
 
-```
+``` go
 func (f *FlagSet) Uint8Var(p *uint8, name string, value uint8, usage string)
 ```
 
@@ -3465,7 +3465,7 @@ Uint8Var defines a uint8 flag with specified name, default value, and usage stri
 
 #### (*FlagSet) Uint8VarP 
 
-```
+``` go
 func (f *FlagSet) Uint8VarP(p *uint8, name, shorthand string, value uint8, usage string)
 ```
 
@@ -3473,7 +3473,7 @@ Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used afte
 
 #### (*FlagSet) UintP 
 
-```
+``` go
 func (f *FlagSet) UintP(name, shorthand string, value uint, usage string) *uint
 ```
 
@@ -3481,7 +3481,7 @@ UintP is like Uint, but accepts a shorthand letter that can be used after a sing
 
 #### (*FlagSet) UintSlice 
 
-```
+``` go
 func (f *FlagSet) UintSlice(name string, value []uint, usage string) *[]uint
 ```
 
@@ -3489,7 +3489,7 @@ UintSlice defines a []uint flag with specified name, default value, and usage st
 
 #### (*FlagSet) UintSliceP 
 
-```
+``` go
 func (f *FlagSet) UintSliceP(name, shorthand string, value []uint, usage string) *[]uint
 ```
 
@@ -3497,7 +3497,7 @@ UintSliceP is like UintSlice, but accepts a shorthand letter that can be used af
 
 #### (*FlagSet) UintSliceVar 
 
-```
+``` go
 func (f *FlagSet) UintSliceVar(p *[]uint, name string, value []uint, usage string)
 ```
 
@@ -3505,7 +3505,7 @@ UintSliceVar defines a uintSlice flag with specified name, default value, and us
 
 #### (*FlagSet) UintSliceVarP 
 
-```
+``` go
 func (f *FlagSet) UintSliceVarP(p *[]uint, name, shorthand string, value []uint, usage string)
 ```
 
@@ -3513,7 +3513,7 @@ UintSliceVarP is like UintSliceVar, but accepts a shorthand letter that can be u
 
 #### (*FlagSet) UintVar 
 
-```
+``` go
 func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 ```
 
@@ -3521,7 +3521,7 @@ UintVar defines a uint flag with specified name, default value, and usage string
 
 #### (*FlagSet) UintVarP 
 
-```
+``` go
 func (f *FlagSet) UintVarP(p *uint, name, shorthand string, value uint, usage string)
 ```
 
@@ -3529,7 +3529,7 @@ UintVarP is like UintVar, but accepts a shorthand letter that can be used after 
 
 #### (*FlagSet) Var 
 
-```
+``` go
 func (f *FlagSet) Var(value Value, name string, usage string)
 ```
 
@@ -3537,7 +3537,7 @@ Var defines a flag with the specified name and usage string. The type and value 
 
 #### (*FlagSet) VarP 
 
-```
+``` go
 func (f *FlagSet) VarP(value Value, name, shorthand, usage string)
 ```
 
@@ -3545,7 +3545,7 @@ VarP is like Var, but accepts a shorthand letter that can be used after a single
 
 #### (*FlagSet) VarPF 
 
-```
+``` go
 func (f *FlagSet) VarPF(value Value, name, shorthand, usage string) *Flag
 ```
 
@@ -3553,7 +3553,7 @@ VarPF is like VarP, but returns the flag created
 
 #### (*FlagSet) Visit 
 
-```
+``` go
 func (f *FlagSet) Visit(fn func(*Flag))
 ```
 
@@ -3561,7 +3561,7 @@ Visit visits the flags in lexicographical order or in primordial order if f.Sort
 
 #### (*FlagSet) VisitAll 
 
-```
+``` go
 func (f *FlagSet) VisitAll(fn func(*Flag))
 ```
 
@@ -3569,7 +3569,7 @@ VisitAll visits the flags in lexicographical order or in primordial order if f.S
 
 #### type NormalizedName 
 
-```
+``` go
 type NormalizedName string
 ```
 
@@ -3577,7 +3577,7 @@ NormalizedName is a flag name that has been normalized according to rules for th
 
 #### type ParseErrorsWhitelist  <- v1.0.1
 
-```
+``` go
 type ParseErrorsWhitelist struct {
 	// UnknownFlags will ignore unknown flags errors and continue parsing rest of the flags
 	UnknownFlags bool
@@ -3588,7 +3588,7 @@ ParseErrorsWhitelist defines the parsing errors that can be ignored
 
 #### type SliceValue  <- v1.0.5
 
-```
+``` go
 type SliceValue interface {
 	// Append adds the specified value to the end of the flag value list.
 	Append(string) error
@@ -3603,7 +3603,7 @@ SliceValue is a secondary interface to all flags which hold a list of values. Th
 
 #### type Value 
 
-```
+``` go
 type Value interface {
 	String() string
 	Set(string) error

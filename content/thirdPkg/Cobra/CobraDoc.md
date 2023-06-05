@@ -21,7 +21,7 @@ Package cobra is a commander providing a simple interface to create powerful mod
 
 [View Source](https://github.com/spf13/cobra/blob/v1.7.0/bash_completions.go#L29)
 
-```
+``` go
 const (
 	BashCompFilenameExt     = "cobra_annotation_bash_completion_filename_extensions"
 	BashCompCustom          = "cobra_annotation_bash_completion_custom"
@@ -34,7 +34,7 @@ Annotations for Bash completion.
 
 [View Source](https://github.com/spf13/cobra/blob/v1.7.0/completions.go#L26)
 
-```
+``` go
 const (
 	// ShellCompRequestCmd is the name of the hidden command that is used to request
 	// completion results from the program.  It is used by the shell completion scripts.
@@ -47,7 +47,7 @@ const (
 
 [View Source](https://github.com/spf13/cobra/blob/v1.7.0/command.go#L33)
 
-```
+``` go
 const FlagSetByCobraAnnotation = "cobra_annotation_flag_set_by_cobra"
 ```
 
@@ -100,7 +100,7 @@ MousetrapHelpText enables an information splash screen on Windows if the CLI is 
 
 #### func AddTemplateFunc 
 
-```
+``` go
 func AddTemplateFunc(name string, tmplFunc interface{})
 ```
 
@@ -108,7 +108,7 @@ AddTemplateFunc adds a template function that's available to Usage and Help temp
 
 #### func AddTemplateFuncs 
 
-```
+``` go
 func AddTemplateFuncs(tmplFuncs template.FuncMap)
 ```
 
@@ -116,7 +116,7 @@ AddTemplateFuncs adds multiple template functions that are available to Usage an
 
 #### func AppendActiveHelp  <- v1.5.0
 
-```
+``` go
 func AppendActiveHelp(compArray []string, activeHelpStr string) []string
 ```
 
@@ -124,7 +124,7 @@ AppendActiveHelp adds the specified string to the specified array to be used as 
 
 #### func ArbitraryArgs 
 
-```
+``` go
 func ArbitraryArgs(cmd *Command, args []string) error
 ```
 
@@ -132,7 +132,7 @@ ArbitraryArgs never returns an error.
 
 #### func CheckErr  <- v1.1.2
 
-```
+``` go
 func CheckErr(msg interface{})
 ```
 
@@ -140,7 +140,7 @@ CheckErr prints the msg with the prefix 'Error:' and exits with error code 1. If
 
 #### func CompDebug  <- v1.0.0
 
-```
+``` go
 func CompDebug(msg string, printToStdErr bool)
 ```
 
@@ -148,7 +148,7 @@ CompDebug prints the specified string to the same file as where the completion s
 
 #### func CompDebugln  <- v1.0.0
 
-```
+``` go
 func CompDebugln(msg string, printToStdErr bool)
 ```
 
@@ -156,7 +156,7 @@ CompDebugln prints the specified string with a newline at the end to the same fi
 
 #### func CompError  <- v1.0.0
 
-```
+``` go
 func CompError(msg string)
 ```
 
@@ -164,7 +164,7 @@ CompError prints the specified completion message to stderr.
 
 #### func CompErrorln  <- v1.0.0
 
-```
+``` go
 func CompErrorln(msg string)
 ```
 
@@ -172,7 +172,7 @@ CompErrorln prints the specified completion message to stderr with a newline at 
 
 #### func Eq 
 
-```
+``` go
 func Eq(a interface{}, b interface{}) bool
 ```
 
@@ -180,7 +180,7 @@ Eq takes two types and checks whether they are equal. Supported types are int an
 
 #### func FixedCompletions  <- v1.5.0
 
-```
+``` go
 func FixedCompletions(choices []string, directive ShellCompDirective) func(cmd *Command, args []string, toComplete string) ([]string, ShellCompDirective)
 ```
 
@@ -188,7 +188,7 @@ FixedCompletions can be used to create a completion function which always return
 
 #### func GetActiveHelpConfig  <- v1.5.0
 
-```
+``` go
 func GetActiveHelpConfig(cmd *Command) string
 ```
 
@@ -196,7 +196,7 @@ GetActiveHelpConfig returns the value of the ActiveHelp environment variable <PR
 
 #### func Gt 
 
-```
+``` go
 func Gt(a interface{}, b interface{}) bool
 ```
 
@@ -204,7 +204,7 @@ Gt takes two types and checks whether the first type is greater than the second.
 
 #### func MarkFlagCustom 
 
-```
+``` go
 func MarkFlagCustom(flags *pflag.FlagSet, name string, f string) error
 ```
 
@@ -214,7 +214,7 @@ This will only work for bash completion. It is recommended to instead use c.Regi
 
 #### func MarkFlagDirname  <- v0.0.5
 
-```
+``` go
 func MarkFlagDirname(flags *pflag.FlagSet, name string) error
 ```
 
@@ -222,7 +222,7 @@ MarkFlagDirname instructs the various shell completion implementations to limit 
 
 #### func MarkFlagFilename 
 
-```
+``` go
 func MarkFlagFilename(flags *pflag.FlagSet, name string, extensions ...string) error
 ```
 
@@ -230,7 +230,7 @@ MarkFlagFilename instructs the various shell completion implementations to limit
 
 #### func MarkFlagRequired 
 
-```
+``` go
 func MarkFlagRequired(flags *pflag.FlagSet, name string) error
 ```
 
@@ -238,7 +238,7 @@ MarkFlagRequired instructs the various shell completion implementations to prior
 
 #### func NoArgs 
 
-```
+``` go
 func NoArgs(cmd *Command, args []string) error
 ```
 
@@ -246,7 +246,7 @@ NoArgs returns an error if any args are included.
 
 #### func OnFinalize  <- v1.6.0
 
-```
+``` go
 func OnFinalize(y ...func())
 ```
 
@@ -254,7 +254,7 @@ OnFinalize sets the passed functions to be run when each command's Execute metho
 
 #### func OnInitialize 
 
-```
+``` go
 func OnInitialize(y ...func())
 ```
 
@@ -262,7 +262,7 @@ OnInitialize sets the passed functions to be run when each command's Execute met
 
 #### func OnlyValidArgs 
 
-```
+``` go
 func OnlyValidArgs(cmd *Command, args []string) error
 ```
 
@@ -270,7 +270,7 @@ OnlyValidArgs returns an error if there are any positional args that are not in 
 
 #### func WriteStringAndCheck  <- v1.1.2
 
-```
+``` go
 func WriteStringAndCheck(b io.StringWriter, s string)
 ```
 
@@ -280,7 +280,7 @@ WriteStringAndCheck writes a string into a buffer, and checks if the error is no
 
 #### type Command 
 
-```
+``` go
 type Command struct {
 	// Use is the one-line usage message.
 	// Recommended syntax is as follows:
@@ -418,7 +418,7 @@ Command is just that, a command for your application. E.g. 'go run ...' - 'run' 
 
 #### (*Command) AddCommand 
 
-```
+``` go
 func (c *Command) AddCommand(cmds ...*Command)
 ```
 
@@ -426,7 +426,7 @@ AddCommand adds one or more commands to this parent command.
 
 #### (*Command) AddGroup  <- v1.6.0
 
-```
+``` go
 func (c *Command) AddGroup(groups ...*Group)
 ```
 
@@ -434,7 +434,7 @@ AddGroup adds one or more command groups to this parent command.
 
 #### (*Command) AllChildCommandsHaveGroup  <- v1.6.0
 
-```
+``` go
 func (c *Command) AllChildCommandsHaveGroup() bool
 ```
 
@@ -442,7 +442,7 @@ AllChildCommandsHaveGroup returns if all subcommands are assigned to a group
 
 #### (*Command) ArgsLenAtDash 
 
-```
+``` go
 func (c *Command) ArgsLenAtDash() int
 ```
 
@@ -450,7 +450,7 @@ ArgsLenAtDash will return the length of c.Flags().Args at the moment when a -- w
 
 #### (*Command) CalledAs  <- v0.0.2
 
-```
+``` go
 func (c *Command) CalledAs() string
 ```
 
@@ -458,7 +458,7 @@ CalledAs returns the command name or alias that was used to invoke this command 
 
 #### (*Command) CommandPath 
 
-```
+``` go
 func (c *Command) CommandPath() string
 ```
 
@@ -466,7 +466,7 @@ CommandPath returns the full path to this command.
 
 #### (*Command) CommandPathPadding 
 
-```
+``` go
 func (c *Command) CommandPathPadding() int
 ```
 
@@ -474,7 +474,7 @@ CommandPathPadding return padding for the command path.
 
 #### (*Command) Commands 
 
-```
+``` go
 func (c *Command) Commands() []*Command
 ```
 
@@ -482,7 +482,7 @@ Commands returns a sorted slice of child commands.
 
 #### (*Command) ContainsGroup  <- v1.6.0
 
-```
+``` go
 func (c *Command) ContainsGroup(groupID string) bool
 ```
 
@@ -490,7 +490,7 @@ ContainsGroup return if groupID exists in the list of command groups.
 
 #### (*Command) Context  <- v0.0.6
 
-```
+``` go
 func (c *Command) Context() context.Context
 ```
 
@@ -500,7 +500,7 @@ Notice that a call to Execute and ExecuteC will replace a nil context of a comma
 
 #### (*Command) DebugFlags 
 
-```
+``` go
 func (c *Command) DebugFlags()
 ```
 
@@ -508,7 +508,7 @@ DebugFlags used to determine which flags have been assigned to which commands an
 
 #### (*Command) ErrOrStderr  <- v0.0.5
 
-```
+``` go
 func (c *Command) ErrOrStderr() io.Writer
 ```
 
@@ -516,7 +516,7 @@ ErrOrStderr returns output to stderr
 
 #### (*Command) Execute 
 
-```
+``` go
 func (c *Command) Execute() error
 ```
 
@@ -524,7 +524,7 @@ Execute uses the args (os.Args[1:] by default) and run through the command tree 
 
 #### (*Command) ExecuteC 
 
-```
+``` go
 func (c *Command) ExecuteC() (cmd *Command, err error)
 ```
 
@@ -532,7 +532,7 @@ ExecuteC executes the command.
 
 #### (*Command) ExecuteContext  <- v0.0.6
 
-```
+``` go
 func (c *Command) ExecuteContext(ctx context.Context) error
 ```
 
@@ -540,7 +540,7 @@ ExecuteContext is the same as Execute(), but sets the ctx on the command. Retrie
 
 #### (*Command) ExecuteContextC  <- v1.2.0
 
-```
+``` go
 func (c *Command) ExecuteContextC(ctx context.Context) (*Command, error)
 ```
 
@@ -548,7 +548,7 @@ ExecuteContextC is the same as ExecuteC(), but sets the ctx on the command. Retr
 
 #### (*Command) Find 
 
-```
+``` go
 func (c *Command) Find(args []string) (*Command, []string, error)
 ```
 
@@ -556,7 +556,7 @@ Find the target command given the args and command tree Meant to be run on the h
 
 #### (*Command) Flag 
 
-```
+``` go
 func (c *Command) Flag(name string) (flag *flag.Flag)
 ```
 
@@ -564,7 +564,7 @@ Flag climbs up the command tree looking for matching flag.
 
 #### (*Command) FlagErrorFunc 
 
-```
+``` go
 func (c *Command) FlagErrorFunc() (f func(*Command, error) error)
 ```
 
@@ -572,7 +572,7 @@ FlagErrorFunc returns either the function set by SetFlagErrorFunc for this comma
 
 #### (*Command) Flags 
 
-```
+``` go
 func (c *Command) Flags() *flag.FlagSet
 ```
 
@@ -580,7 +580,7 @@ Flags returns the complete FlagSet that applies to this command (local and persi
 
 #### (*Command) GenBashCompletion 
 
-```
+``` go
 func (c *Command) GenBashCompletion(w io.Writer) error
 ```
 
@@ -588,7 +588,7 @@ GenBashCompletion generates bash completion file and writes to the passed writer
 
 #### (*Command) GenBashCompletionFile 
 
-```
+``` go
 func (c *Command) GenBashCompletionFile(filename string) error
 ```
 
@@ -596,7 +596,7 @@ GenBashCompletionFile generates bash completion file.
 
 #### (*Command) GenBashCompletionFileV2  <- v1.2.0
 
-```
+``` go
 func (c *Command) GenBashCompletionFileV2(filename string, includeDesc bool) error
 ```
 
@@ -604,7 +604,7 @@ GenBashCompletionFileV2 generates Bash completion version 2.
 
 #### (*Command) GenBashCompletionV2  <- v1.2.0
 
-```
+``` go
 func (c *Command) GenBashCompletionV2(w io.Writer, includeDesc bool) error
 ```
 
@@ -612,7 +612,7 @@ GenBashCompletionV2 generates Bash completion file version 2 and writes it to th
 
 #### (*Command) GenFishCompletion  <- v1.0.0
 
-```
+``` go
 func (c *Command) GenFishCompletion(w io.Writer, includeDesc bool) error
 ```
 
@@ -620,7 +620,7 @@ GenFishCompletion generates fish completion file and writes to the passed writer
 
 #### (*Command) GenFishCompletionFile  <- v1.0.0
 
-```
+``` go
 func (c *Command) GenFishCompletionFile(filename string, includeDesc bool) error
 ```
 
@@ -628,7 +628,7 @@ GenFishCompletionFile generates fish completion file.
 
 #### (*Command) GenPowerShellCompletion  <- v0.0.5
 
-```
+``` go
 func (c *Command) GenPowerShellCompletion(w io.Writer) error
 ```
 
@@ -636,7 +636,7 @@ GenPowerShellCompletion generates powershell completion file without description
 
 #### (*Command) GenPowerShellCompletionFile  <- v0.0.5
 
-```
+``` go
 func (c *Command) GenPowerShellCompletionFile(filename string) error
 ```
 
@@ -644,7 +644,7 @@ GenPowerShellCompletionFile generates powershell completion file without descrip
 
 #### (*Command) GenPowerShellCompletionFileWithDesc  <- v1.1.2
 
-```
+``` go
 func (c *Command) GenPowerShellCompletionFileWithDesc(filename string) error
 ```
 
@@ -652,7 +652,7 @@ GenPowerShellCompletionFileWithDesc generates powershell completion file with de
 
 #### (*Command) GenPowerShellCompletionWithDesc  <- v1.1.2
 
-```
+``` go
 func (c *Command) GenPowerShellCompletionWithDesc(w io.Writer) error
 ```
 
@@ -660,7 +660,7 @@ GenPowerShellCompletionWithDesc generates powershell completion file with descri
 
 #### (*Command) GenZshCompletion 
 
-```
+``` go
 func (c *Command) GenZshCompletion(w io.Writer) error
 ```
 
@@ -668,7 +668,7 @@ GenZshCompletion generates zsh completion file including descriptions and writes
 
 #### (*Command) GenZshCompletionFile 
 
-```
+``` go
 func (c *Command) GenZshCompletionFile(filename string) error
 ```
 
@@ -676,7 +676,7 @@ GenZshCompletionFile generates zsh completion file including descriptions.
 
 #### (*Command) GenZshCompletionFileNoDesc  <- v1.1.0
 
-```
+``` go
 func (c *Command) GenZshCompletionFileNoDesc(filename string) error
 ```
 
@@ -684,7 +684,7 @@ GenZshCompletionFileNoDesc generates zsh completion file without descriptions.
 
 #### (*Command) GenZshCompletionNoDesc  <- v1.1.0
 
-```
+``` go
 func (c *Command) GenZshCompletionNoDesc(w io.Writer) error
 ```
 
@@ -692,7 +692,7 @@ GenZshCompletionNoDesc generates zsh completion file without descriptions and wr
 
 #### (*Command) GlobalNormalizationFunc 
 
-```
+``` go
 func (c *Command) GlobalNormalizationFunc() func(f *flag.FlagSet, name string) flag.NormalizedName
 ```
 
@@ -700,7 +700,7 @@ GlobalNormalizationFunc returns the global normalization function or nil if it d
 
 #### (*Command) Groups  <- v1.6.0
 
-```
+``` go
 func (c *Command) Groups() []*Group
 ```
 
@@ -708,7 +708,7 @@ Groups returns a slice of child command groups.
 
 #### (*Command) HasAlias 
 
-```
+``` go
 func (c *Command) HasAlias(s string) bool
 ```
 
@@ -716,7 +716,7 @@ HasAlias determines if a given string is an alias of the command.
 
 #### (*Command) HasAvailableFlags 
 
-```
+``` go
 func (c *Command) HasAvailableFlags() bool
 ```
 
@@ -724,7 +724,7 @@ HasAvailableFlags checks if the command contains any flags (local plus persisten
 
 #### (*Command) HasAvailableInheritedFlags 
 
-```
+``` go
 func (c *Command) HasAvailableInheritedFlags() bool
 ```
 
@@ -732,7 +732,7 @@ HasAvailableInheritedFlags checks if the command has flags inherited from its pa
 
 #### (*Command) HasAvailableLocalFlags 
 
-```
+``` go
 func (c *Command) HasAvailableLocalFlags() bool
 ```
 
@@ -740,7 +740,7 @@ HasAvailableLocalFlags checks if the command has flags specifically declared loc
 
 #### (*Command) HasAvailablePersistentFlags 
 
-```
+``` go
 func (c *Command) HasAvailablePersistentFlags() bool
 ```
 
@@ -748,7 +748,7 @@ HasAvailablePersistentFlags checks if the command contains persistent flags whic
 
 #### (*Command) HasAvailableSubCommands 
 
-```
+``` go
 func (c *Command) HasAvailableSubCommands() bool
 ```
 
@@ -756,7 +756,7 @@ HasAvailableSubCommands determines if a command has available sub commands that 
 
 #### (*Command) HasExample 
 
-```
+``` go
 func (c *Command) HasExample() bool
 ```
 
@@ -764,7 +764,7 @@ HasExample determines if the command has example.
 
 #### (*Command) HasFlags 
 
-```
+``` go
 func (c *Command) HasFlags() bool
 ```
 
@@ -772,7 +772,7 @@ HasFlags checks if the command contains any flags (local plus persistent from th
 
 #### (*Command) HasHelpSubCommands 
 
-```
+``` go
 func (c *Command) HasHelpSubCommands() bool
 ```
 
@@ -780,7 +780,7 @@ HasHelpSubCommands determines if a command has any available 'help' sub commands
 
 #### (*Command) HasInheritedFlags 
 
-```
+``` go
 func (c *Command) HasInheritedFlags() bool
 ```
 
@@ -788,7 +788,7 @@ HasInheritedFlags checks if the command has flags inherited from its parent comm
 
 #### (*Command) HasLocalFlags 
 
-```
+``` go
 func (c *Command) HasLocalFlags() bool
 ```
 
@@ -796,7 +796,7 @@ HasLocalFlags checks if the command has flags specifically declared locally.
 
 #### (*Command) HasParent 
 
-```
+``` go
 func (c *Command) HasParent() bool
 ```
 
@@ -804,7 +804,7 @@ HasParent determines if the command is a child command.
 
 #### (*Command) HasPersistentFlags 
 
-```
+``` go
 func (c *Command) HasPersistentFlags() bool
 ```
 
@@ -812,7 +812,7 @@ HasPersistentFlags checks if the command contains persistent flags.
 
 #### (*Command) HasSubCommands 
 
-```
+``` go
 func (c *Command) HasSubCommands() bool
 ```
 
@@ -820,7 +820,7 @@ HasSubCommands determines if the command has children commands.
 
 #### (*Command) Help 
 
-```
+``` go
 func (c *Command) Help() error
 ```
 
@@ -828,7 +828,7 @@ Help puts out the help for the command. Used when a user calls help [command]. C
 
 #### (*Command) HelpFunc 
 
-```
+``` go
 func (c *Command) HelpFunc() func(*Command, []string)
 ```
 
@@ -836,7 +836,7 @@ HelpFunc returns either the function set by SetHelpFunc for this command or a pa
 
 #### (*Command) HelpTemplate 
 
-```
+``` go
 func (c *Command) HelpTemplate() string
 ```
 
@@ -844,7 +844,7 @@ HelpTemplate return help template for the command.
 
 #### (*Command) InOrStdin  <- v0.0.5
 
-```
+``` go
 func (c *Command) InOrStdin() io.Reader
 ```
 
@@ -852,7 +852,7 @@ InOrStdin returns input to stdin
 
 #### (*Command) InheritedFlags 
 
-```
+``` go
 func (c *Command) InheritedFlags() *flag.FlagSet
 ```
 
@@ -860,7 +860,7 @@ InheritedFlags returns all flags which were inherited from parent commands.
 
 #### (*Command) InitDefaultCompletionCmd  <- v1.6.0
 
-```
+``` go
 func (c *Command) InitDefaultCompletionCmd()
 ```
 
@@ -868,7 +868,7 @@ InitDefaultCompletionCmd adds a default 'completion' command to c. This function
 
 #### (*Command) InitDefaultHelpCmd 
 
-```
+``` go
 func (c *Command) InitDefaultHelpCmd()
 ```
 
@@ -876,7 +876,7 @@ InitDefaultHelpCmd adds default help command to c. It is called automatically by
 
 #### (*Command) InitDefaultHelpFlag 
 
-```
+``` go
 func (c *Command) InitDefaultHelpFlag()
 ```
 
@@ -884,7 +884,7 @@ InitDefaultHelpFlag adds default help flag to c. It is called automatically by e
 
 #### (*Command) InitDefaultVersionFlag  <- v0.0.2
 
-```
+``` go
 func (c *Command) InitDefaultVersionFlag()
 ```
 
@@ -892,7 +892,7 @@ InitDefaultVersionFlag adds default version flag to c. It is called automaticall
 
 #### (*Command) IsAdditionalHelpTopicCommand 
 
-```
+``` go
 func (c *Command) IsAdditionalHelpTopicCommand() bool
 ```
 
@@ -900,7 +900,7 @@ IsAdditionalHelpTopicCommand determines if a command is an additional help topic
 
 #### (*Command) IsAvailableCommand 
 
-```
+``` go
 func (c *Command) IsAvailableCommand() bool
 ```
 
@@ -908,7 +908,7 @@ IsAvailableCommand determines if a command is available as a non-help command (t
 
 #### (*Command) LocalFlags 
 
-```
+``` go
 func (c *Command) LocalFlags() *flag.FlagSet
 ```
 
@@ -916,7 +916,7 @@ LocalFlags returns the local FlagSet specifically set in the current command.
 
 #### (*Command) LocalNonPersistentFlags 
 
-```
+``` go
 func (c *Command) LocalNonPersistentFlags() *flag.FlagSet
 ```
 
@@ -924,7 +924,7 @@ LocalNonPersistentFlags are flags specific to this command which will NOT persis
 
 #### (*Command) MarkFlagCustom 
 
-```
+``` go
 func (c *Command) MarkFlagCustom(name string, f string) error
 ```
 
@@ -934,7 +934,7 @@ This will only work for bash completion. It is recommended to instead use c.Regi
 
 #### (*Command) MarkFlagDirname  <- v0.0.5
 
-```
+``` go
 func (c *Command) MarkFlagDirname(name string) error
 ```
 
@@ -942,7 +942,7 @@ MarkFlagDirname instructs the various shell completion implementations to limit 
 
 #### (*Command) MarkFlagFilename 
 
-```
+``` go
 func (c *Command) MarkFlagFilename(name string, extensions ...string) error
 ```
 
@@ -950,7 +950,7 @@ MarkFlagFilename instructs the various shell completion implementations to limit
 
 #### (*Command) MarkFlagRequired 
 
-```
+``` go
 func (c *Command) MarkFlagRequired(name string) error
 ```
 
@@ -958,7 +958,7 @@ MarkFlagRequired instructs the various shell completion implementations to prior
 
 #### (*Command) MarkFlagsMutuallyExclusive  <- v1.5.0
 
-```
+``` go
 func (c *Command) MarkFlagsMutuallyExclusive(flagNames ...string)
 ```
 
@@ -966,7 +966,7 @@ MarkFlagsMutuallyExclusive marks the given flags with annotations so that Cobra 
 
 #### (*Command) MarkFlagsRequiredTogether  <- v1.5.0
 
-```
+``` go
 func (c *Command) MarkFlagsRequiredTogether(flagNames ...string)
 ```
 
@@ -974,7 +974,7 @@ MarkFlagsRequiredTogether marks the given flags with annotations so that Cobra e
 
 #### (*Command) MarkPersistentFlagDirname  <- v0.0.5
 
-```
+``` go
 func (c *Command) MarkPersistentFlagDirname(name string) error
 ```
 
@@ -982,7 +982,7 @@ MarkPersistentFlagDirname instructs the various shell completion implementations
 
 #### (*Command) MarkPersistentFlagFilename 
 
-```
+``` go
 func (c *Command) MarkPersistentFlagFilename(name string, extensions ...string) error
 ```
 
@@ -990,7 +990,7 @@ MarkPersistentFlagFilename instructs the various shell completion implementation
 
 #### (*Command) MarkPersistentFlagRequired 
 
-```
+``` go
 func (c *Command) MarkPersistentFlagRequired(name string) error
 ```
 
@@ -998,7 +998,7 @@ MarkPersistentFlagRequired instructs the various shell completion implementation
 
 #### (*Command) MarkZshCompPositionalArgumentFile  <- v0.0.5
 
-```
+``` go
 func (c *Command) MarkZshCompPositionalArgumentFile(argPosition int, patterns ...string) error
 ```
 
@@ -1008,7 +1008,7 @@ Deprecated
 
 #### (*Command) MarkZshCompPositionalArgumentWords  <- v0.0.5
 
-```
+``` go
 func (c *Command) MarkZshCompPositionalArgumentWords(argPosition int, words ...string) error
 ```
 
@@ -1018,7 +1018,7 @@ Deprecated
 
 #### (*Command) Name 
 
-```
+``` go
 func (c *Command) Name() string
 ```
 
@@ -1026,7 +1026,7 @@ Name returns the command's name: the first word in the use line.
 
 #### (*Command) NameAndAliases 
 
-```
+``` go
 func (c *Command) NameAndAliases() string
 ```
 
@@ -1034,7 +1034,7 @@ NameAndAliases returns a list of the command name and all aliases
 
 #### (*Command) NamePadding 
 
-```
+``` go
 func (c *Command) NamePadding() int
 ```
 
@@ -1042,7 +1042,7 @@ NamePadding returns padding for the name.
 
 #### (*Command) NonInheritedFlags 
 
-```
+``` go
 func (c *Command) NonInheritedFlags() *flag.FlagSet
 ```
 
@@ -1050,7 +1050,7 @@ NonInheritedFlags returns all flags which were not inherited from parent command
 
 #### (*Command) OutOrStderr 
 
-```
+``` go
 func (c *Command) OutOrStderr() io.Writer
 ```
 
@@ -1058,7 +1058,7 @@ OutOrStderr returns output to stderr
 
 #### (*Command) OutOrStdout 
 
-```
+``` go
 func (c *Command) OutOrStdout() io.Writer
 ```
 
@@ -1066,7 +1066,7 @@ OutOrStdout returns output to stdout.
 
 #### (*Command) Parent 
 
-```
+``` go
 func (c *Command) Parent() *Command
 ```
 
@@ -1074,7 +1074,7 @@ Parent returns a commands parent command.
 
 #### (*Command) ParseFlags 
 
-```
+``` go
 func (c *Command) ParseFlags(args []string) error
 ```
 
@@ -1082,7 +1082,7 @@ ParseFlags parses persistent flag tree and local flags.
 
 #### (*Command) PersistentFlags 
 
-```
+``` go
 func (c *Command) PersistentFlags() *flag.FlagSet
 ```
 
@@ -1090,7 +1090,7 @@ PersistentFlags returns the persistent FlagSet specifically set in the current c
 
 #### (*Command) Print 
 
-```
+``` go
 func (c *Command) Print(i ...interface{})
 ```
 
@@ -1098,7 +1098,7 @@ Print is a convenience method to Print to the defined output, fallback to Stderr
 
 #### (*Command) PrintErr  <- v0.0.5
 
-```
+``` go
 func (c *Command) PrintErr(i ...interface{})
 ```
 
@@ -1106,7 +1106,7 @@ PrintErr is a convenience method to Print to the defined Err output, fallback to
 
 #### (*Command) PrintErrf  <- v0.0.5
 
-```
+``` go
 func (c *Command) PrintErrf(format string, i ...interface{})
 ```
 
@@ -1114,7 +1114,7 @@ PrintErrf is a convenience method to Printf to the defined Err output, fallback 
 
 #### (*Command) PrintErrln  <- v0.0.5
 
-```
+``` go
 func (c *Command) PrintErrln(i ...interface{})
 ```
 
@@ -1122,7 +1122,7 @@ PrintErrln is a convenience method to Println to the defined Err output, fallbac
 
 #### (*Command) Printf 
 
-```
+``` go
 func (c *Command) Printf(format string, i ...interface{})
 ```
 
@@ -1130,7 +1130,7 @@ Printf is a convenience method to Printf to the defined output, fallback to Stde
 
 #### (*Command) Println 
 
-```
+``` go
 func (c *Command) Println(i ...interface{})
 ```
 
@@ -1138,7 +1138,7 @@ Println is a convenience method to Println to the defined output, fallback to St
 
 #### (*Command) RegisterFlagCompletionFunc  <- v1.0.0
 
-```
+``` go
 func (c *Command) RegisterFlagCompletionFunc(flagName string, f func(cmd *Command, args []string, toComplete string) ([]string, ShellCompDirective)) error
 ```
 
@@ -1146,7 +1146,7 @@ RegisterFlagCompletionFunc should be called to register a function to provide co
 
 #### (*Command) RemoveCommand 
 
-```
+``` go
 func (c *Command) RemoveCommand(cmds ...*Command)
 ```
 
@@ -1154,7 +1154,7 @@ RemoveCommand removes one or more commands from a parent command.
 
 #### (*Command) ResetCommands 
 
-```
+``` go
 func (c *Command) ResetCommands()
 ```
 
@@ -1162,7 +1162,7 @@ ResetCommands delete parent, subcommand and help command from c.
 
 #### (*Command) ResetFlags 
 
-```
+``` go
 func (c *Command) ResetFlags()
 ```
 
@@ -1170,7 +1170,7 @@ ResetFlags deletes all flags from command.
 
 #### (*Command) Root 
 
-```
+``` go
 func (c *Command) Root() *Command
 ```
 
@@ -1178,7 +1178,7 @@ Root finds root command.
 
 #### (*Command) Runnable 
 
-```
+``` go
 func (c *Command) Runnable() bool
 ```
 
@@ -1186,7 +1186,7 @@ Runnable determines if the command is itself runnable.
 
 #### (*Command) SetArgs 
 
-```
+``` go
 func (c *Command) SetArgs(a []string)
 ```
 
@@ -1194,7 +1194,7 @@ SetArgs sets arguments for the command. It is set to os.Args[1:] by default, if 
 
 #### (*Command) SetCompletionCommandGroupID  <- v1.6.0
 
-```
+``` go
 func (c *Command) SetCompletionCommandGroupID(groupID string)
 ```
 
@@ -1202,7 +1202,7 @@ SetCompletionCommandGroupID sets the group id of the completion command.
 
 #### (*Command) SetContext  <- v1.5.0
 
-```
+``` go
 func (c *Command) SetContext(ctx context.Context)
 ```
 
@@ -1210,7 +1210,7 @@ SetContext sets context for the command. This context will be overwritten by Com
 
 #### (*Command) SetErr  <- v0.0.5
 
-```
+``` go
 func (c *Command) SetErr(newErr io.Writer)
 ```
 
@@ -1218,7 +1218,7 @@ SetErr sets the destination for error messages. If newErr is nil, os.Stderr is u
 
 #### (*Command) SetFlagErrorFunc 
 
-```
+``` go
 func (c *Command) SetFlagErrorFunc(f func(*Command, error) error)
 ```
 
@@ -1226,7 +1226,7 @@ SetFlagErrorFunc sets a function to generate an error when flag parsing fails.
 
 #### (*Command) SetGlobalNormalizationFunc 
 
-```
+``` go
 func (c *Command) SetGlobalNormalizationFunc(n func(f *flag.FlagSet, name string) flag.NormalizedName)
 ```
 
@@ -1234,7 +1234,7 @@ SetGlobalNormalizationFunc sets a normalization function to all flag sets and al
 
 #### (*Command) SetHelpCommand 
 
-```
+``` go
 func (c *Command) SetHelpCommand(cmd *Command)
 ```
 
@@ -1242,7 +1242,7 @@ SetHelpCommand sets help command.
 
 #### (*Command) SetHelpCommandGroupID  <- v1.6.0
 
-```
+``` go
 func (c *Command) SetHelpCommandGroupID(groupID string)
 ```
 
@@ -1250,7 +1250,7 @@ SetHelpCommandGroupID sets the group id of the help command.
 
 #### (*Command) SetHelpFunc 
 
-```
+``` go
 func (c *Command) SetHelpFunc(f func(*Command, []string))
 ```
 
@@ -1258,7 +1258,7 @@ SetHelpFunc sets help function. Can be defined by Application.
 
 #### (*Command) SetHelpTemplate 
 
-```
+``` go
 func (c *Command) SetHelpTemplate(s string)
 ```
 
@@ -1266,7 +1266,7 @@ SetHelpTemplate sets help template to be used. Application can use it to set cus
 
 #### (*Command) SetIn  <- v0.0.5
 
-```
+``` go
 func (c *Command) SetIn(newIn io.Reader)
 ```
 
@@ -1274,7 +1274,7 @@ SetIn sets the source for input data If newIn is nil, os.Stdin is used.
 
 #### (*Command) SetOut  <- v0.0.5
 
-```
+``` go
 func (c *Command) SetOut(newOut io.Writer)
 ```
 
@@ -1282,7 +1282,7 @@ SetOut sets the destination for usage messages. If newOut is nil, os.Stdout is u
 
 #### (*Command) SetOutput 
 
-```
+``` go
 func (c *Command) SetOutput(output io.Writer)
 ```
 
@@ -1290,7 +1290,7 @@ SetOutput sets the destination for usage and error messages. If output is nil, o
 
 #### (*Command) SetUsageFunc 
 
-```
+``` go
 func (c *Command) SetUsageFunc(f func(*Command) error)
 ```
 
@@ -1298,7 +1298,7 @@ SetUsageFunc sets usage function. Usage can be defined by application.
 
 #### (*Command) SetUsageTemplate 
 
-```
+``` go
 func (c *Command) SetUsageTemplate(s string)
 ```
 
@@ -1306,7 +1306,7 @@ SetUsageTemplate sets usage template. Can be defined by Application.
 
 #### (*Command) SetVersionTemplate  <- v0.0.2
 
-```
+``` go
 func (c *Command) SetVersionTemplate(s string)
 ```
 
@@ -1314,7 +1314,7 @@ SetVersionTemplate sets version template to be used. Application can use it to s
 
 #### (*Command) SuggestionsFor 
 
-```
+``` go
 func (c *Command) SuggestionsFor(typedName string) []string
 ```
 
@@ -1322,7 +1322,7 @@ SuggestionsFor provides suggestions for the typedName.
 
 #### (*Command) Traverse 
 
-```
+``` go
 func (c *Command) Traverse(args []string) (*Command, []string, error)
 ```
 
@@ -1330,7 +1330,7 @@ Traverse the command tree to find the command, and parse args for each parent.
 
 #### (*Command) Usage 
 
-```
+``` go
 func (c *Command) Usage() error
 ```
 
@@ -1338,7 +1338,7 @@ Usage puts out the usage for the command. Used when a user provides invalid inpu
 
 #### (*Command) UsageFunc 
 
-```
+``` go
 func (c *Command) UsageFunc() (f func(*Command) error)
 ```
 
@@ -1346,7 +1346,7 @@ UsageFunc returns either the function set by SetUsageFunc for this command or a 
 
 #### (*Command) UsagePadding 
 
-```
+``` go
 func (c *Command) UsagePadding() int
 ```
 
@@ -1354,7 +1354,7 @@ UsagePadding return padding for the usage.
 
 #### (*Command) UsageString 
 
-```
+``` go
 func (c *Command) UsageString() string
 ```
 
@@ -1362,7 +1362,7 @@ UsageString returns usage string.
 
 #### (*Command) UsageTemplate 
 
-```
+``` go
 func (c *Command) UsageTemplate() string
 ```
 
@@ -1370,7 +1370,7 @@ UsageTemplate returns usage template for the command.
 
 #### (*Command) UseLine 
 
-```
+``` go
 func (c *Command) UseLine() string
 ```
 
@@ -1378,13 +1378,13 @@ UseLine puts out the full usage for a given command (including parents).
 
 #### (*Command) ValidateArgs 
 
-```
+``` go
 func (c *Command) ValidateArgs(args []string) error
 ```
 
 #### (*Command) ValidateFlagGroups  <- v1.6.0
 
-```
+``` go
 func (c *Command) ValidateFlagGroups() error
 ```
 
@@ -1392,7 +1392,7 @@ ValidateFlagGroups validates the mutuallyExclusive/requiredAsGroup logic and ret
 
 #### (*Command) ValidateRequiredFlags  <- v1.6.0
 
-```
+``` go
 func (c *Command) ValidateRequiredFlags() error
 ```
 
@@ -1400,7 +1400,7 @@ ValidateRequiredFlags validates all required flags are present and returns an er
 
 #### (*Command) VersionTemplate  <- v0.0.2
 
-```
+``` go
 func (c *Command) VersionTemplate() string
 ```
 
@@ -1408,7 +1408,7 @@ VersionTemplate return version template for the command.
 
 #### (*Command) VisitParents 
 
-```
+``` go
 func (c *Command) VisitParents(fn func(*Command))
 ```
 
@@ -1416,7 +1416,7 @@ VisitParents visits all parents of the command and invokes fn on each parent.
 
 #### type CompletionOptions  <- v1.2.0
 
-```
+``` go
 type CompletionOptions struct {
 	// DisableDefaultCmd prevents Cobra from creating a default 'completion' command
 	DisableDefaultCmd bool
@@ -1435,7 +1435,7 @@ CompletionOptions are the options to control shell completion
 
 #### type FParseErrWhitelist  <- v0.0.3
 
-```
+``` go
 type FParseErrWhitelist flag.ParseErrorsWhitelist
 ```
 
@@ -1443,7 +1443,7 @@ FParseErrWhitelist configures Flag parse errors to be ignored
 
 #### type Group  <- v1.6.0
 
-```
+``` go
 type Group struct {
 	ID    string
 	Title string
@@ -1454,13 +1454,13 @@ Group Structure to manage groups for commands
 
 #### type PositionalArgs 
 
-```
+``` go
 type PositionalArgs func(cmd *Command, args []string) error
 ```
 
 #### func ExactArgs 
 
-```
+``` go
 func ExactArgs(n int) PositionalArgs
 ```
 
@@ -1470,7 +1470,7 @@ ExactArgs returns an error if there are not exactly n args.
 
 #### func MatchAll  <- v1.3.0
 
-```
+``` go
 func MatchAll(pargs ...PositionalArgs) PositionalArgs
 ```
 
@@ -1478,7 +1478,7 @@ MatchAll allows combining several PositionalArgs to work in concert.
 
 #### func MaximumNArgs 
 
-```
+``` go
 func MaximumNArgs(n int) PositionalArgs
 ```
 
@@ -1486,7 +1486,7 @@ MaximumNArgs returns an error if there are more than N args.
 
 #### func MinimumNArgs 
 
-```
+``` go
 func MinimumNArgs(n int) PositionalArgs
 ```
 
@@ -1494,7 +1494,7 @@ MinimumNArgs returns an error if there is not at least N args.
 
 #### func RangeArgs 
 
-```
+``` go
 func RangeArgs(min int, max int) PositionalArgs
 ```
 
@@ -1502,13 +1502,13 @@ RangeArgs returns an error if the number of args is not within the expected rang
 
 #### type ShellCompDirective  <- v1.0.0
 
-```
+``` go
 type ShellCompDirective int
 ```
 
 ShellCompDirective is a bit map representing the different behaviors the shell can be instructed to have once completions have been provided.
 
-```
+``` go
 const (
 	// ShellCompDirectiveError indicates an error occurred and completions should be ignored.
 	ShellCompDirectiveError ShellCompDirective = 1 << iota
@@ -1548,7 +1548,7 @@ const (
 
 #### func NoFileCompletions  <- v1.2.0
 
-```
+``` go
 func NoFileCompletions(cmd *Command, args []string, toComplete string) ([]string, ShellCompDirective)
 ```
 

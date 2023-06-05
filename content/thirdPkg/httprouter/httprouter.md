@@ -322,7 +322,7 @@ Package httprouter is a trie based high performance HTTP request router.
 
 A trivial example is:
 
-```
+``` go
 package main
 
 import (
@@ -437,7 +437,7 @@ ParamsKey is the request context key under which URL params are stored.
 
 #### func CleanPath 
 
-```
+``` go
 func CleanPath(p string) string
 ```
 
@@ -456,7 +456,7 @@ If the result of this process is an empty string, "/" is returned
 
 #### type Handle 
 
-```
+``` go
 type Handle func(http.ResponseWriter, *http.Request, Params)
 ```
 
@@ -464,7 +464,7 @@ Handle is a function that can be registered to a route to handle HTTP requests. 
 
 #### type Param  <- 1.1.0
 
-```
+``` go
 type Param struct {
 	Key   string
 	Value string
@@ -475,7 +475,7 @@ Param is a single URL parameter, consisting of a key and a value.
 
 #### type Params  <- 1.1.0
 
-```
+``` go
 type Params []Param
 ```
 
@@ -483,7 +483,7 @@ Params is a Param-slice, as returned by the router. The slice is ordered, the fi
 
 #### func ParamsFromContext  <- 1.2.0
 
-```
+``` go
 func ParamsFromContext(ctx context.Context) Params
 ```
 
@@ -491,7 +491,7 @@ ParamsFromContext pulls the URL parameters from a request context, or returns ni
 
 #### func (Params) [ByName](https://github.com/julienschmidt/httprouter/blob/v1.3.0/router.go#L103)  <- 1.1.0
 
-```
+``` go
 func (ps Params) ByName(name string) string
 ```
 
@@ -499,7 +499,7 @@ ByName returns the value of the first Param which key matches the given name. If
 
 #### type Router 
 
-```
+``` go
 type Router struct {
 
 	// Enables automatic redirection if the current route can't be matched but a
@@ -563,7 +563,7 @@ Router is a http.Handler which can be used to dispatch requests to different han
 
 #### func New 
 
-```
+``` go
 func New() *Router
 ```
 
@@ -571,7 +571,7 @@ New returns a new initialized Router. Path auto-correction, including trailing s
 
 #### (*Router) DELETE 
 
-```
+``` go
 func (r *Router) DELETE(path string, handle Handle)
 ```
 
@@ -579,7 +579,7 @@ DELETE is a shortcut for router.Handle(http.MethodDelete, path, handle)
 
 #### (*Router) GET 
 
-```
+``` go
 func (r *Router) GET(path string, handle Handle)
 ```
 
@@ -587,7 +587,7 @@ GET is a shortcut for router.Handle(http.MethodGet, path, handle)
 
 #### (*Router) HEAD  <- 1.1.0
 
-```
+``` go
 func (r *Router) HEAD(path string, handle Handle)
 ```
 
@@ -595,7 +595,7 @@ HEAD is a shortcut for router.Handle(http.MethodHead, path, handle)
 
 #### (*Router) Handle 
 
-```
+``` go
 func (r *Router) Handle(method, path string, handle Handle)
 ```
 
@@ -607,7 +607,7 @@ This function is intended for bulk loading and to allow the usage of less freque
 
 #### (*Router) Handler <- 1.1.0
 
-```
+``` go
 func (r *Router) Handler(method, path string, handler http.Handler)
 ```
 
@@ -615,7 +615,7 @@ Handler is an adapter which allows the usage of an http.Handler as a request han
 
 #### (*Router) HandlerFunc 
 
-```
+``` go
 func (r *Router) HandlerFunc(method, path string, handler http.HandlerFunc)
 ```
 
@@ -623,7 +623,7 @@ HandlerFunc is an adapter which allows the usage of an http.HandlerFunc as a req
 
 #### (*Router) Lookup <- 1.1.0
 
-```
+``` go
 func (r *Router) Lookup(method, path string) (Handle, Params, bool)
 ```
 
@@ -631,7 +631,7 @@ Lookup allows the manual lookup of a method + path combo. This is e.g. useful to
 
 #### (*Router) OPTIONS <- 1.1.0
 
-```
+``` go
 func (r *Router) OPTIONS(path string, handle Handle)
 ```
 
@@ -639,7 +639,7 @@ OPTIONS is a shortcut for router.Handle(http.MethodOptions, path, handle)
 
 #### (*Router) PATCH 
 
-```
+``` go
 func (r *Router) PATCH(path string, handle Handle)
 ```
 
@@ -647,7 +647,7 @@ PATCH is a shortcut for router.Handle(http.MethodPatch, path, handle)
 
 #### (*Router) POST 
 
-```
+``` go
 func (r *Router) POST(path string, handle Handle)
 ```
 
@@ -655,7 +655,7 @@ POST is a shortcut for router.Handle(http.MethodPost, path, handle)
 
 #### (*Router) PUT 
 
-```
+``` go
 func (r *Router) PUT(path string, handle Handle)
 ```
 
@@ -663,7 +663,7 @@ PUT is a shortcut for router.Handle(http.MethodPut, path, handle)
 
 #### (*Router) ServeFiles 
 
-```
+``` go
 func (r *Router) ServeFiles(path string, root http.FileSystem)
 ```
 
@@ -675,7 +675,7 @@ router.ServeFiles("/src/*filepath", http.Dir("/var/www"))
 
 #### (*Router) ServeHTTP 
 
-```
+``` go
 func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request)
 ```
 
