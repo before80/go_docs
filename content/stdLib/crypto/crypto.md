@@ -30,7 +30,7 @@ Package crypto collects common cryptographic constants.
 
 
 
-## 常量 ¶
+## 常量 
 
 This section is empty.
 

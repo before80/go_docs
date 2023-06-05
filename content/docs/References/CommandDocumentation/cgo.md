@@ -9,7 +9,7 @@ draft = false
 
 > 原文：https://pkg.go.dev/cmd/cgo@go1.19.3
 
-### Overview [¶(https://pkg.go.dev/cmd/cgo@go1.19.3#pkg-overview)
+### Overview
 
 
 

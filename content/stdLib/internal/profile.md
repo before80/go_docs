@@ -42,7 +42,7 @@ Package profile provides a representation of github.com/google/pprof/proto/profi
 
 
 
-## 常量 ¶
+## 常量 
 
 This section is empty.
 

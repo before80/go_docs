@@ -1834,7 +1834,7 @@ func ShorthandLookup(name string) *Flag
 
 ShorthandLookup returns the Flag structure of the short handed flag, returning nil if none exists.
 
-<details tabindex="-1" id="example-ShorthandLookup" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/github.com/spf13/pflag#example-ShorthandLookup" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 25.875rem; outline: none; resize: none; width: 1213.33px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div><div class="Documentation-exampleButtonsContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0.5rem 0px 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; justify-content: flex-end;"><p class="Documentation-exampleError" role="alert" aria-atomic="true" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px 0.5rem 0px 0px; vertical-align: baseline; max-width: 60rem; color: var(--pink);"></p><button class="Documentation-exampleShareButton" aria-label="Share Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleFormatButton" aria-label="Format Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleRunButton" aria-label="Run Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--turq-dark); color: var(--white);"></button></div></details>
+##### Example
 
 #### type FlagSet 
 
@@ -1865,7 +1865,7 @@ func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 
 NewFlagSet returns a new, empty flag set with the specified name, error handling property and SortFlags set to true.
 
-#### func (*FlagSet) AddFlag 
+#### (*FlagSet) AddFlag 
 
 ```
 func (f *FlagSet) AddFlag(flag *Flag)
@@ -1873,7 +1873,7 @@ func (f *FlagSet) AddFlag(flag *Flag)
 
 AddFlag will add the flag to the FlagSet
 
-#### func (*FlagSet) AddFlagSet 
+#### (*FlagSet) AddFlagSet 
 
 ```
 func (f *FlagSet) AddFlagSet(newSet *FlagSet)
@@ -1881,7 +1881,7 @@ func (f *FlagSet) AddFlagSet(newSet *FlagSet)
 
 AddFlagSet adds one FlagSet to another. If a flag is already present in f the flag from newSet will be ignored.
 
-#### func (*FlagSet) AddGoFlag 
+#### (*FlagSet) AddGoFlag 
 
 ```
 func (f *FlagSet) AddGoFlag(goflag *goflag.Flag)
@@ -1889,7 +1889,7 @@ func (f *FlagSet) AddGoFlag(goflag *goflag.Flag)
 
 AddGoFlag will add the given *flag.Flag to the pflag.FlagSet
 
-#### func (*FlagSet) AddGoFlagSet 
+#### (*FlagSet) AddGoFlagSet 
 
 ```
 func (f *FlagSet) AddGoFlagSet(newSet *goflag.FlagSet)
@@ -1897,7 +1897,7 @@ func (f *FlagSet) AddGoFlagSet(newSet *goflag.FlagSet)
 
 AddGoFlagSet will add the given *flag.FlagSet to the pflag.FlagSet
 
-#### func (*FlagSet) Arg 
+#### (*FlagSet) Arg 
 
 ```
 func (f *FlagSet) Arg(i int) string
@@ -1905,7 +1905,7 @@ func (f *FlagSet) Arg(i int) string
 
 Arg returns the i'th argument. Arg(0) is the first remaining argument after flags have been processed.
 
-#### func (*FlagSet) Args 
+#### (*FlagSet) Args 
 
 ```
 func (f *FlagSet) Args() []string
@@ -1913,7 +1913,7 @@ func (f *FlagSet) Args() []string
 
 Args returns the non-flag arguments.
 
-#### func (*FlagSet) ArgsLenAtDash 
+#### (*FlagSet) ArgsLenAtDash 
 
 ```
 func (f *FlagSet) ArgsLenAtDash() int
@@ -1921,7 +1921,7 @@ func (f *FlagSet) ArgsLenAtDash() int
 
 ArgsLenAtDash will return the length of f.Args at the moment when a -- was found during arg parsing. This allows your program to know which args were before the -- and which came after.
 
-#### func (*FlagSet) Bool 
+#### (*FlagSet) Bool 
 
 ```
 func (f *FlagSet) Bool(name string, value bool, usage string) *bool
@@ -1929,7 +1929,7 @@ func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 
 Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.
 
-#### func (*FlagSet) BoolP 
+#### (*FlagSet) BoolP 
 
 ```
 func (f *FlagSet) BoolP(name, shorthand string, value bool, usage string) *bool
@@ -1937,7 +1937,7 @@ func (f *FlagSet) BoolP(name, shorthand string, value bool, usage string) *bool
 
 BoolP is like Bool, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BoolSlice 
+#### (*FlagSet) BoolSlice 
 
 ```
 func (f *FlagSet) BoolSlice(name string, value []bool, usage string) *[]bool
@@ -1945,7 +1945,7 @@ func (f *FlagSet) BoolSlice(name string, value []bool, usage string) *[]bool
 
 BoolSlice defines a []bool flag with specified name, default value, and usage string. The return value is the address of a []bool variable that stores the value of the flag.
 
-#### func (*FlagSet) BoolSliceP 
+#### (*FlagSet) BoolSliceP 
 
 ```
 func (f *FlagSet) BoolSliceP(name, shorthand string, value []bool, usage string) *[]bool
@@ -1953,7 +1953,7 @@ func (f *FlagSet) BoolSliceP(name, shorthand string, value []bool, usage string)
 
 BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BoolSliceVar 
+#### (*FlagSet) BoolSliceVar 
 
 ```
 func (f *FlagSet) BoolSliceVar(p *[]bool, name string, value []bool, usage string)
@@ -1961,7 +1961,7 @@ func (f *FlagSet) BoolSliceVar(p *[]bool, name string, value []bool, usage strin
 
 BoolSliceVar defines a boolSlice flag with specified name, default value, and usage string. The argument p points to a []bool variable in which to store the value of the flag.
 
-#### func (*FlagSet) BoolSliceVarP 
+#### (*FlagSet) BoolSliceVarP 
 
 ```
 func (f *FlagSet) BoolSliceVarP(p *[]bool, name, shorthand string, value []bool, usage string)
@@ -1969,7 +1969,7 @@ func (f *FlagSet) BoolSliceVarP(p *[]bool, name, shorthand string, value []bool,
 
 BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BoolVar 
+#### (*FlagSet) BoolVar 
 
 ```
 func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
@@ -1977,7 +1977,7 @@ func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 
 BoolVar defines a bool flag with specified name, default value, and usage string. The argument p points to a bool variable in which to store the value of the flag.
 
-#### func (*FlagSet) BoolVarP 
+#### (*FlagSet) BoolVarP 
 
 ```
 func (f *FlagSet) BoolVarP(p *bool, name, shorthand string, value bool, usage string)
@@ -1985,7 +1985,7 @@ func (f *FlagSet) BoolVarP(p *bool, name, shorthand string, value bool, usage st
 
 BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BytesBase64  <- v1.0.2
+#### (*FlagSet) BytesBase64  <- v1.0.2
 
 ```
 func (f *FlagSet) BytesBase64(name string, value []byte, usage string) *[]byte
@@ -1993,7 +1993,7 @@ func (f *FlagSet) BytesBase64(name string, value []byte, usage string) *[]byte
 
 BytesBase64 defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
 
-#### func (*FlagSet) BytesBase64P  <- v1.0.2
+#### (*FlagSet) BytesBase64P  <- v1.0.2
 
 ```
 func (f *FlagSet) BytesBase64P(name, shorthand string, value []byte, usage string) *[]byte
@@ -2001,7 +2001,7 @@ func (f *FlagSet) BytesBase64P(name, shorthand string, value []byte, usage strin
 
 BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BytesBase64Var  <- v1.0.2
+#### (*FlagSet) BytesBase64Var  <- v1.0.2
 
 ```
 func (f *FlagSet) BytesBase64Var(p *[]byte, name string, value []byte, usage string)
@@ -2009,7 +2009,7 @@ func (f *FlagSet) BytesBase64Var(p *[]byte, name string, value []byte, usage str
 
 BytesBase64Var defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
 
-#### func (*FlagSet) BytesBase64VarP  <- v1.0.2
+#### (*FlagSet) BytesBase64VarP  <- v1.0.2
 
 ```
 func (f *FlagSet) BytesBase64VarP(p *[]byte, name, shorthand string, value []byte, usage string)
@@ -2017,7 +2017,7 @@ func (f *FlagSet) BytesBase64VarP(p *[]byte, name, shorthand string, value []byt
 
 BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BytesHex  <- v1.0.1
+#### (*FlagSet) BytesHex  <- v1.0.1
 
 ```
 func (f *FlagSet) BytesHex(name string, value []byte, usage string) *[]byte
@@ -2025,7 +2025,7 @@ func (f *FlagSet) BytesHex(name string, value []byte, usage string) *[]byte
 
 BytesHex defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
 
-#### func (*FlagSet) BytesHexP  <- v1.0.1
+#### (*FlagSet) BytesHexP  <- v1.0.1
 
 ```
 func (f *FlagSet) BytesHexP(name, shorthand string, value []byte, usage string) *[]byte
@@ -2033,7 +2033,7 @@ func (f *FlagSet) BytesHexP(name, shorthand string, value []byte, usage string) 
 
 BytesHexP is like BytesHex, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) BytesHexVar  <- v1.0.1
+#### (*FlagSet) BytesHexVar  <- v1.0.1
 
 ```
 func (f *FlagSet) BytesHexVar(p *[]byte, name string, value []byte, usage string)
@@ -2041,7 +2041,7 @@ func (f *FlagSet) BytesHexVar(p *[]byte, name string, value []byte, usage string
 
 BytesHexVar defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
 
-#### func (*FlagSet) BytesHexVarP  <- v1.0.1
+#### (*FlagSet) BytesHexVarP  <- v1.0.1
 
 ```
 func (f *FlagSet) BytesHexVarP(p *[]byte, name, shorthand string, value []byte, usage string)
@@ -2049,7 +2049,7 @@ func (f *FlagSet) BytesHexVarP(p *[]byte, name, shorthand string, value []byte, 
 
 BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Changed 
+#### (*FlagSet) Changed 
 
 ```
 func (f *FlagSet) Changed(name string) bool
@@ -2057,7 +2057,7 @@ func (f *FlagSet) Changed(name string) bool
 
 Changed returns true if the flag was explicitly set during Parse() and false otherwise
 
-#### func (*FlagSet) Count 
+#### (*FlagSet) Count 
 
 ```
 func (f *FlagSet) Count(name string, usage string) *int
@@ -2065,7 +2065,7 @@ func (f *FlagSet) Count(name string, usage string) *int
 
 Count defines a count flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag. A count flag will add 1 to its value every time it is found on the command line
 
-#### func (*FlagSet) CountP 
+#### (*FlagSet) CountP 
 
 ```
 func (f *FlagSet) CountP(name, shorthand string, usage string) *int
@@ -2073,7 +2073,7 @@ func (f *FlagSet) CountP(name, shorthand string, usage string) *int
 
 CountP is like Count only takes a shorthand for the flag name.
 
-#### func (*FlagSet) CountVar 
+#### (*FlagSet) CountVar 
 
 ```
 func (f *FlagSet) CountVar(p *int, name string, usage string)
@@ -2081,7 +2081,7 @@ func (f *FlagSet) CountVar(p *int, name string, usage string)
 
 CountVar defines a count flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag. A count flag will add 1 to its value every time it is found on the command line
 
-#### func (*FlagSet) CountVarP 
+#### (*FlagSet) CountVarP 
 
 ```
 func (f *FlagSet) CountVarP(p *int, name, shorthand string, usage string)
@@ -2089,7 +2089,7 @@ func (f *FlagSet) CountVarP(p *int, name, shorthand string, usage string)
 
 CountVarP is like CountVar only take a shorthand for the flag name.
 
-#### func (*FlagSet) Duration 
+#### (*FlagSet) Duration 
 
 ```
 func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time.Duration
@@ -2097,7 +2097,7 @@ func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time
 
 Duration defines a time.Duration flag with specified name, default value, and usage string. The return value is the address of a time.Duration variable that stores the value of the flag.
 
-#### func (*FlagSet) DurationP 
+#### (*FlagSet) DurationP 
 
 ```
 func (f *FlagSet) DurationP(name, shorthand string, value time.Duration, usage string) *time.Duration
@@ -2105,7 +2105,7 @@ func (f *FlagSet) DurationP(name, shorthand string, value time.Duration, usage s
 
 DurationP is like Duration, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) DurationSlice  <- v1.0.1
+#### (*FlagSet) DurationSlice  <- v1.0.1
 
 ```
 func (f *FlagSet) DurationSlice(name string, value []time.Duration, usage string) *[]time.Duration
@@ -2113,7 +2113,7 @@ func (f *FlagSet) DurationSlice(name string, value []time.Duration, usage string
 
 DurationSlice defines a []time.Duration flag with specified name, default value, and usage string. The return value is the address of a []time.Duration variable that stores the value of the flag.
 
-#### func (*FlagSet) DurationSliceP  <- v1.0.1
+#### (*FlagSet) DurationSliceP  <- v1.0.1
 
 ```
 func (f *FlagSet) DurationSliceP(name, shorthand string, value []time.Duration, usage string) *[]time.Duration
@@ -2121,7 +2121,7 @@ func (f *FlagSet) DurationSliceP(name, shorthand string, value []time.Duration, 
 
 DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) DurationSliceVar  <- v1.0.1
+#### (*FlagSet) DurationSliceVar  <- v1.0.1
 
 ```
 func (f *FlagSet) DurationSliceVar(p *[]time.Duration, name string, value []time.Duration, usage string)
@@ -2129,7 +2129,7 @@ func (f *FlagSet) DurationSliceVar(p *[]time.Duration, name string, value []time
 
 DurationSliceVar defines a durationSlice flag with specified name, default value, and usage string. The argument p points to a []time.Duration variable in which to store the value of the flag.
 
-#### func (*FlagSet) DurationSliceVarP  <- v1.0.1
+#### (*FlagSet) DurationSliceVarP  <- v1.0.1
 
 ```
 func (f *FlagSet) DurationSliceVarP(p *[]time.Duration, name, shorthand string, value []time.Duration, usage string)
@@ -2137,7 +2137,7 @@ func (f *FlagSet) DurationSliceVarP(p *[]time.Duration, name, shorthand string, 
 
 DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) DurationVar 
+#### (*FlagSet) DurationVar 
 
 ```
 func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration, usage string)
@@ -2145,7 +2145,7 @@ func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration
 
 DurationVar defines a time.Duration flag with specified name, default value, and usage string. The argument p points to a time.Duration variable in which to store the value of the flag.
 
-#### func (*FlagSet) DurationVarP 
+#### (*FlagSet) DurationVarP 
 
 ```
 func (f *FlagSet) DurationVarP(p *time.Duration, name, shorthand string, value time.Duration, usage string)
@@ -2153,7 +2153,7 @@ func (f *FlagSet) DurationVarP(p *time.Duration, name, shorthand string, value t
 
 DurationVarP is like DurationVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) FlagUsages 
+#### (*FlagSet) FlagUsages 
 
 ```
 func (f *FlagSet) FlagUsages() string
@@ -2161,7 +2161,7 @@ func (f *FlagSet) FlagUsages() string
 
 FlagUsages returns a string containing the usage information for all flags in the FlagSet
 
-#### func (*FlagSet) FlagUsagesWrapped 
+#### (*FlagSet) FlagUsagesWrapped 
 
 ```
 func (f *FlagSet) FlagUsagesWrapped(cols int) string
@@ -2169,7 +2169,7 @@ func (f *FlagSet) FlagUsagesWrapped(cols int) string
 
 FlagUsagesWrapped returns a string containing the usage information for all flags in the FlagSet. Wrapped to `cols` columns (0 for no wrapping)
 
-#### func (*FlagSet) Float32 
+#### (*FlagSet) Float32 
 
 ```
 func (f *FlagSet) Float32(name string, value float32, usage string) *float32
@@ -2177,7 +2177,7 @@ func (f *FlagSet) Float32(name string, value float32, usage string) *float32
 
 Float32 defines a float32 flag with specified name, default value, and usage string. The return value is the address of a float32 variable that stores the value of the flag.
 
-#### func (*FlagSet) Float32P 
+#### (*FlagSet) Float32P 
 
 ```
 func (f *FlagSet) Float32P(name, shorthand string, value float32, usage string) *float32
@@ -2185,7 +2185,7 @@ func (f *FlagSet) Float32P(name, shorthand string, value float32, usage string) 
 
 Float32P is like Float32, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float32Slice  <- v1.0.5
+#### (*FlagSet) Float32Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) Float32Slice(name string, value []float32, usage string) *[]float32
@@ -2193,7 +2193,7 @@ func (f *FlagSet) Float32Slice(name string, value []float32, usage string) *[]fl
 
 Float32Slice defines a []float32 flag with specified name, default value, and usage string. The return value is the address of a []float32 variable that stores the value of the flag.
 
-#### func (*FlagSet) Float32SliceP  <- v1.0.5
+#### (*FlagSet) Float32SliceP  <- v1.0.5
 
 ```
 func (f *FlagSet) Float32SliceP(name, shorthand string, value []float32, usage string) *[]float32
@@ -2201,7 +2201,7 @@ func (f *FlagSet) Float32SliceP(name, shorthand string, value []float32, usage s
 
 Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float32SliceVar  <- v1.0.5
+#### (*FlagSet) Float32SliceVar  <- v1.0.5
 
 ```
 func (f *FlagSet) Float32SliceVar(p *[]float32, name string, value []float32, usage string)
@@ -2209,7 +2209,7 @@ func (f *FlagSet) Float32SliceVar(p *[]float32, name string, value []float32, us
 
 Float32SliceVar defines a float32Slice flag with specified name, default value, and usage string. The argument p points to a []float32 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Float32SliceVarP  <- v1.0.5
+#### (*FlagSet) Float32SliceVarP  <- v1.0.5
 
 ```
 func (f *FlagSet) Float32SliceVarP(p *[]float32, name, shorthand string, value []float32, usage string)
@@ -2217,7 +2217,7 @@ func (f *FlagSet) Float32SliceVarP(p *[]float32, name, shorthand string, value [
 
 Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float32Var 
+#### (*FlagSet) Float32Var 
 
 ```
 func (f *FlagSet) Float32Var(p *float32, name string, value float32, usage string)
@@ -2225,7 +2225,7 @@ func (f *FlagSet) Float32Var(p *float32, name string, value float32, usage strin
 
 Float32Var defines a float32 flag with specified name, default value, and usage string. The argument p points to a float32 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Float32VarP 
+#### (*FlagSet) Float32VarP 
 
 ```
 func (f *FlagSet) Float32VarP(p *float32, name, shorthand string, value float32, usage string)
@@ -2233,7 +2233,7 @@ func (f *FlagSet) Float32VarP(p *float32, name, shorthand string, value float32,
 
 Float32VarP is like Float32Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float64 
+#### (*FlagSet) Float64 
 
 ```
 func (f *FlagSet) Float64(name string, value float64, usage string) *float64
@@ -2241,7 +2241,7 @@ func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 
 Float64 defines a float64 flag with specified name, default value, and usage string. The return value is the address of a float64 variable that stores the value of the flag.
 
-#### func (*FlagSet) Float64P 
+#### (*FlagSet) Float64P 
 
 ```
 func (f *FlagSet) Float64P(name, shorthand string, value float64, usage string) *float64
@@ -2249,7 +2249,7 @@ func (f *FlagSet) Float64P(name, shorthand string, value float64, usage string) 
 
 Float64P is like Float64, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float64Slice  <- v1.0.5
+#### (*FlagSet) Float64Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) Float64Slice(name string, value []float64, usage string) *[]float64
@@ -2257,7 +2257,7 @@ func (f *FlagSet) Float64Slice(name string, value []float64, usage string) *[]fl
 
 Float64Slice defines a []float64 flag with specified name, default value, and usage string. The return value is the address of a []float64 variable that stores the value of the flag.
 
-#### func (*FlagSet) Float64SliceP  <- v1.0.5
+#### (*FlagSet) Float64SliceP  <- v1.0.5
 
 ```
 func (f *FlagSet) Float64SliceP(name, shorthand string, value []float64, usage string) *[]float64
@@ -2265,7 +2265,7 @@ func (f *FlagSet) Float64SliceP(name, shorthand string, value []float64, usage s
 
 Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float64SliceVar  <- v1.0.5
+#### (*FlagSet) Float64SliceVar  <- v1.0.5
 
 ```
 func (f *FlagSet) Float64SliceVar(p *[]float64, name string, value []float64, usage string)
@@ -2273,7 +2273,7 @@ func (f *FlagSet) Float64SliceVar(p *[]float64, name string, value []float64, us
 
 Float64SliceVar defines a float64Slice flag with specified name, default value, and usage string. The argument p points to a []float64 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Float64SliceVarP  <- v1.0.5
+#### (*FlagSet) Float64SliceVarP  <- v1.0.5
 
 ```
 func (f *FlagSet) Float64SliceVarP(p *[]float64, name, shorthand string, value []float64, usage string)
@@ -2281,7 +2281,7 @@ func (f *FlagSet) Float64SliceVarP(p *[]float64, name, shorthand string, value [
 
 Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Float64Var 
+#### (*FlagSet) Float64Var 
 
 ```
 func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage string)
@@ -2289,7 +2289,7 @@ func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage strin
 
 Float64Var defines a float64 flag with specified name, default value, and usage string. The argument p points to a float64 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Float64VarP 
+#### (*FlagSet) Float64VarP 
 
 ```
 func (f *FlagSet) Float64VarP(p *float64, name, shorthand string, value float64, usage string)
@@ -2297,7 +2297,7 @@ func (f *FlagSet) Float64VarP(p *float64, name, shorthand string, value float64,
 
 Float64VarP is like Float64Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) GetBool 
+#### (*FlagSet) GetBool 
 
 ```
 func (f *FlagSet) GetBool(name string) (bool, error)
@@ -2305,7 +2305,7 @@ func (f *FlagSet) GetBool(name string) (bool, error)
 
 GetBool return the bool value of a flag with the given name
 
-#### func (*FlagSet) GetBoolSlice 
+#### (*FlagSet) GetBoolSlice 
 
 ```
 func (f *FlagSet) GetBoolSlice(name string) ([]bool, error)
@@ -2313,7 +2313,7 @@ func (f *FlagSet) GetBoolSlice(name string) ([]bool, error)
 
 GetBoolSlice returns the []bool value of a flag with the given name.
 
-#### func (*FlagSet) GetBytesBase64  <- v1.0.2
+#### (*FlagSet) GetBytesBase64  <- v1.0.2
 
 ```
 func (f *FlagSet) GetBytesBase64(name string) ([]byte, error)
@@ -2321,7 +2321,7 @@ func (f *FlagSet) GetBytesBase64(name string) ([]byte, error)
 
 GetBytesBase64 return the []byte value of a flag with the given name
 
-#### func (*FlagSet) GetBytesHex  <- v1.0.1
+#### (*FlagSet) GetBytesHex  <- v1.0.1
 
 ```
 func (f *FlagSet) GetBytesHex(name string) ([]byte, error)
@@ -2329,7 +2329,7 @@ func (f *FlagSet) GetBytesHex(name string) ([]byte, error)
 
 GetBytesHex return the []byte value of a flag with the given name
 
-#### func (*FlagSet) GetCount 
+#### (*FlagSet) GetCount 
 
 ```
 func (f *FlagSet) GetCount(name string) (int, error)
@@ -2337,7 +2337,7 @@ func (f *FlagSet) GetCount(name string) (int, error)
 
 GetCount return the int value of a flag with the given name
 
-#### func (*FlagSet) GetDuration 
+#### (*FlagSet) GetDuration 
 
 ```
 func (f *FlagSet) GetDuration(name string) (time.Duration, error)
@@ -2345,7 +2345,7 @@ func (f *FlagSet) GetDuration(name string) (time.Duration, error)
 
 GetDuration return the duration value of a flag with the given name
 
-#### func (*FlagSet) GetDurationSlice  <- v1.0.1
+#### (*FlagSet) GetDurationSlice  <- v1.0.1
 
 ```
 func (f *FlagSet) GetDurationSlice(name string) ([]time.Duration, error)
@@ -2353,7 +2353,7 @@ func (f *FlagSet) GetDurationSlice(name string) ([]time.Duration, error)
 
 GetDurationSlice returns the []time.Duration value of a flag with the given name
 
-#### func (*FlagSet) GetFloat32 
+#### (*FlagSet) GetFloat32 
 
 ```
 func (f *FlagSet) GetFloat32(name string) (float32, error)
@@ -2361,7 +2361,7 @@ func (f *FlagSet) GetFloat32(name string) (float32, error)
 
 GetFloat32 return the float32 value of a flag with the given name
 
-#### func (*FlagSet) GetFloat32Slice  <- v1.0.5
+#### (*FlagSet) GetFloat32Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) GetFloat32Slice(name string) ([]float32, error)
@@ -2369,7 +2369,7 @@ func (f *FlagSet) GetFloat32Slice(name string) ([]float32, error)
 
 GetFloat32Slice return the []float32 value of a flag with the given name
 
-#### func (*FlagSet) GetFloat64 
+#### (*FlagSet) GetFloat64 
 
 ```
 func (f *FlagSet) GetFloat64(name string) (float64, error)
@@ -2377,7 +2377,7 @@ func (f *FlagSet) GetFloat64(name string) (float64, error)
 
 GetFloat64 return the float64 value of a flag with the given name
 
-#### func (*FlagSet) GetFloat64Slice  <- v1.0.5
+#### (*FlagSet) GetFloat64Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) GetFloat64Slice(name string) ([]float64, error)
@@ -2385,7 +2385,7 @@ func (f *FlagSet) GetFloat64Slice(name string) ([]float64, error)
 
 GetFloat64Slice return the []float64 value of a flag with the given name
 
-#### func (*FlagSet) GetIP 
+#### (*FlagSet) GetIP 
 
 ```
 func (f *FlagSet) GetIP(name string) (net.IP, error)
@@ -2393,7 +2393,7 @@ func (f *FlagSet) GetIP(name string) (net.IP, error)
 
 GetIP return the net.IP value of a flag with the given name
 
-#### func (*FlagSet) GetIPNet 
+#### (*FlagSet) GetIPNet 
 
 ```
 func (f *FlagSet) GetIPNet(name string) (net.IPNet, error)
@@ -2401,7 +2401,7 @@ func (f *FlagSet) GetIPNet(name string) (net.IPNet, error)
 
 GetIPNet return the net.IPNet value of a flag with the given name
 
-#### func (*FlagSet) GetIPSlice 
+#### (*FlagSet) GetIPSlice 
 
 ```
 func (f *FlagSet) GetIPSlice(name string) ([]net.IP, error)
@@ -2409,7 +2409,7 @@ func (f *FlagSet) GetIPSlice(name string) ([]net.IP, error)
 
 GetIPSlice returns the []net.IP value of a flag with the given name
 
-#### func (*FlagSet) GetIPv4Mask 
+#### (*FlagSet) GetIPv4Mask 
 
 ```
 func (f *FlagSet) GetIPv4Mask(name string) (net.IPMask, error)
@@ -2417,7 +2417,7 @@ func (f *FlagSet) GetIPv4Mask(name string) (net.IPMask, error)
 
 GetIPv4Mask return the net.IPv4Mask value of a flag with the given name
 
-#### func (*FlagSet) GetInt 
+#### (*FlagSet) GetInt 
 
 ```
 func (f *FlagSet) GetInt(name string) (int, error)
@@ -2425,7 +2425,7 @@ func (f *FlagSet) GetInt(name string) (int, error)
 
 GetInt return the int value of a flag with the given name
 
-#### func (*FlagSet) GetInt16  <- v1.0.1
+#### (*FlagSet) GetInt16  <- v1.0.1
 
 ```
 func (f *FlagSet) GetInt16(name string) (int16, error)
@@ -2433,7 +2433,7 @@ func (f *FlagSet) GetInt16(name string) (int16, error)
 
 GetInt16 returns the int16 value of a flag with the given name
 
-#### func (*FlagSet) GetInt32 
+#### (*FlagSet) GetInt32 
 
 ```
 func (f *FlagSet) GetInt32(name string) (int32, error)
@@ -2441,7 +2441,7 @@ func (f *FlagSet) GetInt32(name string) (int32, error)
 
 GetInt32 return the int32 value of a flag with the given name
 
-#### func (*FlagSet) GetInt32Slice  <- v1.0.5
+#### (*FlagSet) GetInt32Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) GetInt32Slice(name string) ([]int32, error)
@@ -2449,7 +2449,7 @@ func (f *FlagSet) GetInt32Slice(name string) ([]int32, error)
 
 GetInt32Slice return the []int32 value of a flag with the given name
 
-#### func (*FlagSet) GetInt64 
+#### (*FlagSet) GetInt64 
 
 ```
 func (f *FlagSet) GetInt64(name string) (int64, error)
@@ -2457,7 +2457,7 @@ func (f *FlagSet) GetInt64(name string) (int64, error)
 
 GetInt64 return the int64 value of a flag with the given name
 
-#### func (*FlagSet) GetInt64Slice  <- v1.0.5
+#### (*FlagSet) GetInt64Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) GetInt64Slice(name string) ([]int64, error)
@@ -2465,7 +2465,7 @@ func (f *FlagSet) GetInt64Slice(name string) ([]int64, error)
 
 GetInt64Slice return the []int64 value of a flag with the given name
 
-#### func (*FlagSet) GetInt8 
+#### (*FlagSet) GetInt8 
 
 ```
 func (f *FlagSet) GetInt8(name string) (int8, error)
@@ -2473,7 +2473,7 @@ func (f *FlagSet) GetInt8(name string) (int8, error)
 
 GetInt8 return the int8 value of a flag with the given name
 
-#### func (*FlagSet) GetIntSlice 
+#### (*FlagSet) GetIntSlice 
 
 ```
 func (f *FlagSet) GetIntSlice(name string) ([]int, error)
@@ -2481,7 +2481,7 @@ func (f *FlagSet) GetIntSlice(name string) ([]int, error)
 
 GetIntSlice return the []int value of a flag with the given name
 
-#### func (*FlagSet) GetNormalizeFunc 
+#### (*FlagSet) GetNormalizeFunc 
 
 ```
 func (f *FlagSet) GetNormalizeFunc() func(f *FlagSet, name string) NormalizedName
@@ -2489,7 +2489,7 @@ func (f *FlagSet) GetNormalizeFunc() func(f *FlagSet, name string) NormalizedNam
 
 GetNormalizeFunc returns the previously set NormalizeFunc of a function which does no translation, if not set previously.
 
-#### func (*FlagSet) GetString 
+#### (*FlagSet) GetString 
 
 ```
 func (f *FlagSet) GetString(name string) (string, error)
@@ -2497,7 +2497,7 @@ func (f *FlagSet) GetString(name string) (string, error)
 
 GetString return the string value of a flag with the given name
 
-#### func (*FlagSet) GetStringArray 
+#### (*FlagSet) GetStringArray 
 
 ```
 func (f *FlagSet) GetStringArray(name string) ([]string, error)
@@ -2505,7 +2505,7 @@ func (f *FlagSet) GetStringArray(name string) ([]string, error)
 
 GetStringArray return the []string value of a flag with the given name
 
-#### func (*FlagSet) GetStringSlice 
+#### (*FlagSet) GetStringSlice 
 
 ```
 func (f *FlagSet) GetStringSlice(name string) ([]string, error)
@@ -2513,7 +2513,7 @@ func (f *FlagSet) GetStringSlice(name string) ([]string, error)
 
 GetStringSlice return the []string value of a flag with the given name
 
-#### func (*FlagSet) GetStringToInt  <- v1.0.3
+#### (*FlagSet) GetStringToInt  <- v1.0.3
 
 ```
 func (f *FlagSet) GetStringToInt(name string) (map[string]int, error)
@@ -2521,7 +2521,7 @@ func (f *FlagSet) GetStringToInt(name string) (map[string]int, error)
 
 GetStringToInt return the map[string]int value of a flag with the given name
 
-#### func (*FlagSet) GetStringToInt64  <- v1.0.5
+#### (*FlagSet) GetStringToInt64  <- v1.0.5
 
 ```
 func (f *FlagSet) GetStringToInt64(name string) (map[string]int64, error)
@@ -2529,7 +2529,7 @@ func (f *FlagSet) GetStringToInt64(name string) (map[string]int64, error)
 
 GetStringToInt64 return the map[string]int64 value of a flag with the given name
 
-#### func (*FlagSet) GetStringToString  <- v1.0.3
+#### (*FlagSet) GetStringToString  <- v1.0.3
 
 ```
 func (f *FlagSet) GetStringToString(name string) (map[string]string, error)
@@ -2537,7 +2537,7 @@ func (f *FlagSet) GetStringToString(name string) (map[string]string, error)
 
 GetStringToString return the map[string]string value of a flag with the given name
 
-#### func (*FlagSet) GetUint 
+#### (*FlagSet) GetUint 
 
 ```
 func (f *FlagSet) GetUint(name string) (uint, error)
@@ -2545,7 +2545,7 @@ func (f *FlagSet) GetUint(name string) (uint, error)
 
 GetUint return the uint value of a flag with the given name
 
-#### func (*FlagSet) GetUint16 
+#### (*FlagSet) GetUint16 
 
 ```
 func (f *FlagSet) GetUint16(name string) (uint16, error)
@@ -2553,7 +2553,7 @@ func (f *FlagSet) GetUint16(name string) (uint16, error)
 
 GetUint16 return the uint16 value of a flag with the given name
 
-#### func (*FlagSet) GetUint32 
+#### (*FlagSet) GetUint32 
 
 ```
 func (f *FlagSet) GetUint32(name string) (uint32, error)
@@ -2561,7 +2561,7 @@ func (f *FlagSet) GetUint32(name string) (uint32, error)
 
 GetUint32 return the uint32 value of a flag with the given name
 
-#### func (*FlagSet) GetUint64 
+#### (*FlagSet) GetUint64 
 
 ```
 func (f *FlagSet) GetUint64(name string) (uint64, error)
@@ -2569,7 +2569,7 @@ func (f *FlagSet) GetUint64(name string) (uint64, error)
 
 GetUint64 return the uint64 value of a flag with the given name
 
-#### func (*FlagSet) GetUint8 
+#### (*FlagSet) GetUint8 
 
 ```
 func (f *FlagSet) GetUint8(name string) (uint8, error)
@@ -2577,7 +2577,7 @@ func (f *FlagSet) GetUint8(name string) (uint8, error)
 
 GetUint8 return the uint8 value of a flag with the given name
 
-#### func (*FlagSet) GetUintSlice 
+#### (*FlagSet) GetUintSlice 
 
 ```
 func (f *FlagSet) GetUintSlice(name string) ([]uint, error)
@@ -2585,7 +2585,7 @@ func (f *FlagSet) GetUintSlice(name string) ([]uint, error)
 
 GetUintSlice returns the []uint value of a flag with the given name.
 
-#### func (*FlagSet) HasAvailableFlags 
+#### (*FlagSet) HasAvailableFlags 
 
 ```
 func (f *FlagSet) HasAvailableFlags() bool
@@ -2593,7 +2593,7 @@ func (f *FlagSet) HasAvailableFlags() bool
 
 HasAvailableFlags returns a bool to indicate if the FlagSet has any flags that are not hidden.
 
-#### func (*FlagSet) HasFlags 
+#### (*FlagSet) HasFlags 
 
 ```
 func (f *FlagSet) HasFlags() bool
@@ -2601,7 +2601,7 @@ func (f *FlagSet) HasFlags() bool
 
 HasFlags returns a bool to indicate if the FlagSet has any flags defined.
 
-#### func (*FlagSet) IP 
+#### (*FlagSet) IP 
 
 ```
 func (f *FlagSet) IP(name string, value net.IP, usage string) *net.IP
@@ -2609,7 +2609,7 @@ func (f *FlagSet) IP(name string, value net.IP, usage string) *net.IP
 
 IP defines an net.IP flag with specified name, default value, and usage string. The return value is the address of an net.IP variable that stores the value of the flag.
 
-#### func (*FlagSet) IPMask 
+#### (*FlagSet) IPMask 
 
 ```
 func (f *FlagSet) IPMask(name string, value net.IPMask, usage string) *net.IPMask
@@ -2617,7 +2617,7 @@ func (f *FlagSet) IPMask(name string, value net.IPMask, usage string) *net.IPMas
 
 IPMask defines an net.IPMask flag with specified name, default value, and usage string. The return value is the address of an net.IPMask variable that stores the value of the flag.
 
-#### func (*FlagSet) IPMaskP 
+#### (*FlagSet) IPMaskP 
 
 ```
 func (f *FlagSet) IPMaskP(name, shorthand string, value net.IPMask, usage string) *net.IPMask
@@ -2625,7 +2625,7 @@ func (f *FlagSet) IPMaskP(name, shorthand string, value net.IPMask, usage string
 
 IPMaskP is like IPMask, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPMaskVar 
+#### (*FlagSet) IPMaskVar 
 
 ```
 func (f *FlagSet) IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage string)
@@ -2633,7 +2633,7 @@ func (f *FlagSet) IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage 
 
 IPMaskVar defines an net.IPMask flag with specified name, default value, and usage string. The argument p points to an net.IPMask variable in which to store the value of the flag.
 
-#### func (*FlagSet) IPMaskVarP 
+#### (*FlagSet) IPMaskVarP 
 
 ```
 func (f *FlagSet) IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IPMask, usage string)
@@ -2641,7 +2641,7 @@ func (f *FlagSet) IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IP
 
 IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPNet 
+#### (*FlagSet) IPNet 
 
 ```
 func (f *FlagSet) IPNet(name string, value net.IPNet, usage string) *net.IPNet
@@ -2649,7 +2649,7 @@ func (f *FlagSet) IPNet(name string, value net.IPNet, usage string) *net.IPNet
 
 IPNet defines an net.IPNet flag with specified name, default value, and usage string. The return value is the address of an net.IPNet variable that stores the value of the flag.
 
-#### func (*FlagSet) IPNetP 
+#### (*FlagSet) IPNetP 
 
 ```
 func (f *FlagSet) IPNetP(name, shorthand string, value net.IPNet, usage string) *net.IPNet
@@ -2657,7 +2657,7 @@ func (f *FlagSet) IPNetP(name, shorthand string, value net.IPNet, usage string) 
 
 IPNetP is like IPNet, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPNetVar 
+#### (*FlagSet) IPNetVar 
 
 ```
 func (f *FlagSet) IPNetVar(p *net.IPNet, name string, value net.IPNet, usage string)
@@ -2665,7 +2665,7 @@ func (f *FlagSet) IPNetVar(p *net.IPNet, name string, value net.IPNet, usage str
 
 IPNetVar defines an net.IPNet flag with specified name, default value, and usage string. The argument p points to an net.IPNet variable in which to store the value of the flag.
 
-#### func (*FlagSet) IPNetVarP 
+#### (*FlagSet) IPNetVarP 
 
 ```
 func (f *FlagSet) IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNet, usage string)
@@ -2673,7 +2673,7 @@ func (f *FlagSet) IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNe
 
 IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPP 
+#### (*FlagSet) IPP 
 
 ```
 func (f *FlagSet) IPP(name, shorthand string, value net.IP, usage string) *net.IP
@@ -2681,7 +2681,7 @@ func (f *FlagSet) IPP(name, shorthand string, value net.IP, usage string) *net.I
 
 IPP is like IP, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPSlice 
+#### (*FlagSet) IPSlice 
 
 ```
 func (f *FlagSet) IPSlice(name string, value []net.IP, usage string) *[]net.IP
@@ -2689,7 +2689,7 @@ func (f *FlagSet) IPSlice(name string, value []net.IP, usage string) *[]net.IP
 
 IPSlice defines a []net.IP flag with specified name, default value, and usage string. The return value is the address of a []net.IP variable that stores the value of that flag.
 
-#### func (*FlagSet) IPSliceP 
+#### (*FlagSet) IPSliceP 
 
 ```
 func (f *FlagSet) IPSliceP(name, shorthand string, value []net.IP, usage string) *[]net.IP
@@ -2697,7 +2697,7 @@ func (f *FlagSet) IPSliceP(name, shorthand string, value []net.IP, usage string)
 
 IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPSliceVar 
+#### (*FlagSet) IPSliceVar 
 
 ```
 func (f *FlagSet) IPSliceVar(p *[]net.IP, name string, value []net.IP, usage string)
@@ -2705,7 +2705,7 @@ func (f *FlagSet) IPSliceVar(p *[]net.IP, name string, value []net.IP, usage str
 
 IPSliceVar defines a ipSlice flag with specified name, default value, and usage string. The argument p points to a []net.IP variable in which to store the value of the flag.
 
-#### func (*FlagSet) IPSliceVarP 
+#### (*FlagSet) IPSliceVarP 
 
 ```
 func (f *FlagSet) IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.IP, usage string)
@@ -2713,7 +2713,7 @@ func (f *FlagSet) IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.I
 
 IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IPVar 
+#### (*FlagSet) IPVar 
 
 ```
 func (f *FlagSet) IPVar(p *net.IP, name string, value net.IP, usage string)
@@ -2721,7 +2721,7 @@ func (f *FlagSet) IPVar(p *net.IP, name string, value net.IP, usage string)
 
 IPVar defines an net.IP flag with specified name, default value, and usage string. The argument p points to an net.IP variable in which to store the value of the flag.
 
-#### func (*FlagSet) IPVarP 
+#### (*FlagSet) IPVarP 
 
 ```
 func (f *FlagSet) IPVarP(p *net.IP, name, shorthand string, value net.IP, usage string)
@@ -2729,7 +2729,7 @@ func (f *FlagSet) IPVarP(p *net.IP, name, shorthand string, value net.IP, usage 
 
 IPVarP is like IPVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Init 
+#### (*FlagSet) Init 
 
 ```
 func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
@@ -2737,7 +2737,7 @@ func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 
 Init sets the name and error handling property for a flag set. By default, the zero FlagSet uses an empty name and the ContinueOnError error handling policy.
 
-#### func (*FlagSet) Int 
+#### (*FlagSet) Int 
 
 ```
 func (f *FlagSet) Int(name string, value int, usage string) *int
@@ -2745,7 +2745,7 @@ func (f *FlagSet) Int(name string, value int, usage string) *int
 
 Int defines an int flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag.
 
-#### func (*FlagSet) Int16  <- v1.0.1
+#### (*FlagSet) Int16  <- v1.0.1
 
 ```
 func (f *FlagSet) Int16(name string, value int16, usage string) *int16
@@ -2753,7 +2753,7 @@ func (f *FlagSet) Int16(name string, value int16, usage string) *int16
 
 Int16 defines an int16 flag with specified name, default value, and usage string. The return value is the address of an int16 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int16P  <- v1.0.1
+#### (*FlagSet) Int16P  <- v1.0.1
 
 ```
 func (f *FlagSet) Int16P(name, shorthand string, value int16, usage string) *int16
@@ -2761,7 +2761,7 @@ func (f *FlagSet) Int16P(name, shorthand string, value int16, usage string) *int
 
 Int16P is like Int16, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int16Var  <- v1.0.1
+#### (*FlagSet) Int16Var  <- v1.0.1
 
 ```
 func (f *FlagSet) Int16Var(p *int16, name string, value int16, usage string)
@@ -2769,7 +2769,7 @@ func (f *FlagSet) Int16Var(p *int16, name string, value int16, usage string)
 
 Int16Var defines an int16 flag with specified name, default value, and usage string. The argument p points to an int16 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int16VarP  <- v1.0.1
+#### (*FlagSet) Int16VarP  <- v1.0.1
 
 ```
 func (f *FlagSet) Int16VarP(p *int16, name, shorthand string, value int16, usage string)
@@ -2777,7 +2777,7 @@ func (f *FlagSet) Int16VarP(p *int16, name, shorthand string, value int16, usage
 
 Int16VarP is like Int16Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int32 
+#### (*FlagSet) Int32 
 
 ```
 func (f *FlagSet) Int32(name string, value int32, usage string) *int32
@@ -2785,7 +2785,7 @@ func (f *FlagSet) Int32(name string, value int32, usage string) *int32
 
 Int32 defines an int32 flag with specified name, default value, and usage string. The return value is the address of an int32 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int32P 
+#### (*FlagSet) Int32P 
 
 ```
 func (f *FlagSet) Int32P(name, shorthand string, value int32, usage string) *int32
@@ -2793,7 +2793,7 @@ func (f *FlagSet) Int32P(name, shorthand string, value int32, usage string) *int
 
 Int32P is like Int32, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int32Slice  <- v1.0.5
+#### (*FlagSet) Int32Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) Int32Slice(name string, value []int32, usage string) *[]int32
@@ -2801,7 +2801,7 @@ func (f *FlagSet) Int32Slice(name string, value []int32, usage string) *[]int32
 
 Int32Slice defines a []int32 flag with specified name, default value, and usage string. The return value is the address of a []int32 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int32SliceP  <- v1.0.5
+#### (*FlagSet) Int32SliceP  <- v1.0.5
 
 ```
 func (f *FlagSet) Int32SliceP(name, shorthand string, value []int32, usage string) *[]int32
@@ -2809,7 +2809,7 @@ func (f *FlagSet) Int32SliceP(name, shorthand string, value []int32, usage strin
 
 Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int32SliceVar  <- v1.0.5
+#### (*FlagSet) Int32SliceVar  <- v1.0.5
 
 ```
 func (f *FlagSet) Int32SliceVar(p *[]int32, name string, value []int32, usage string)
@@ -2817,7 +2817,7 @@ func (f *FlagSet) Int32SliceVar(p *[]int32, name string, value []int32, usage st
 
 Int32SliceVar defines a int32Slice flag with specified name, default value, and usage string. The argument p points to a []int32 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int32SliceVarP  <- v1.0.5
+#### (*FlagSet) Int32SliceVarP  <- v1.0.5
 
 ```
 func (f *FlagSet) Int32SliceVarP(p *[]int32, name, shorthand string, value []int32, usage string)
@@ -2825,7 +2825,7 @@ func (f *FlagSet) Int32SliceVarP(p *[]int32, name, shorthand string, value []int
 
 Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int32Var 
+#### (*FlagSet) Int32Var 
 
 ```
 func (f *FlagSet) Int32Var(p *int32, name string, value int32, usage string)
@@ -2833,7 +2833,7 @@ func (f *FlagSet) Int32Var(p *int32, name string, value int32, usage string)
 
 Int32Var defines an int32 flag with specified name, default value, and usage string. The argument p points to an int32 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int32VarP 
+#### (*FlagSet) Int32VarP 
 
 ```
 func (f *FlagSet) Int32VarP(p *int32, name, shorthand string, value int32, usage string)
@@ -2841,7 +2841,7 @@ func (f *FlagSet) Int32VarP(p *int32, name, shorthand string, value int32, usage
 
 Int32VarP is like Int32Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int64 
+#### (*FlagSet) Int64 
 
 ```
 func (f *FlagSet) Int64(name string, value int64, usage string) *int64
@@ -2849,7 +2849,7 @@ func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 
 Int64 defines an int64 flag with specified name, default value, and usage string. The return value is the address of an int64 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int64P 
+#### (*FlagSet) Int64P 
 
 ```
 func (f *FlagSet) Int64P(name, shorthand string, value int64, usage string) *int64
@@ -2857,7 +2857,7 @@ func (f *FlagSet) Int64P(name, shorthand string, value int64, usage string) *int
 
 Int64P is like Int64, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int64Slice  <- v1.0.5
+#### (*FlagSet) Int64Slice  <- v1.0.5
 
 ```
 func (f *FlagSet) Int64Slice(name string, value []int64, usage string) *[]int64
@@ -2865,7 +2865,7 @@ func (f *FlagSet) Int64Slice(name string, value []int64, usage string) *[]int64
 
 Int64Slice defines a []int64 flag with specified name, default value, and usage string. The return value is the address of a []int64 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int64SliceP  <- v1.0.5
+#### (*FlagSet) Int64SliceP  <- v1.0.5
 
 ```
 func (f *FlagSet) Int64SliceP(name, shorthand string, value []int64, usage string) *[]int64
@@ -2873,7 +2873,7 @@ func (f *FlagSet) Int64SliceP(name, shorthand string, value []int64, usage strin
 
 Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int64SliceVar  <- v1.0.5
+#### (*FlagSet) Int64SliceVar  <- v1.0.5
 
 ```
 func (f *FlagSet) Int64SliceVar(p *[]int64, name string, value []int64, usage string)
@@ -2881,7 +2881,7 @@ func (f *FlagSet) Int64SliceVar(p *[]int64, name string, value []int64, usage st
 
 Int64SliceVar defines a int64Slice flag with specified name, default value, and usage string. The argument p points to a []int64 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int64SliceVarP  <- v1.0.5
+#### (*FlagSet) Int64SliceVarP  <- v1.0.5
 
 ```
 func (f *FlagSet) Int64SliceVarP(p *[]int64, name, shorthand string, value []int64, usage string)
@@ -2889,7 +2889,7 @@ func (f *FlagSet) Int64SliceVarP(p *[]int64, name, shorthand string, value []int
 
 Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int64Var 
+#### (*FlagSet) Int64Var 
 
 ```
 func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
@@ -2897,7 +2897,7 @@ func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 
 Int64Var defines an int64 flag with specified name, default value, and usage string. The argument p points to an int64 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int64VarP 
+#### (*FlagSet) Int64VarP 
 
 ```
 func (f *FlagSet) Int64VarP(p *int64, name, shorthand string, value int64, usage string)
@@ -2905,7 +2905,7 @@ func (f *FlagSet) Int64VarP(p *int64, name, shorthand string, value int64, usage
 
 Int64VarP is like Int64Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int8 
+#### (*FlagSet) Int8 
 
 ```
 func (f *FlagSet) Int8(name string, value int8, usage string) *int8
@@ -2913,7 +2913,7 @@ func (f *FlagSet) Int8(name string, value int8, usage string) *int8
 
 Int8 defines an int8 flag with specified name, default value, and usage string. The return value is the address of an int8 variable that stores the value of the flag.
 
-#### func (*FlagSet) Int8P 
+#### (*FlagSet) Int8P 
 
 ```
 func (f *FlagSet) Int8P(name, shorthand string, value int8, usage string) *int8
@@ -2921,7 +2921,7 @@ func (f *FlagSet) Int8P(name, shorthand string, value int8, usage string) *int8
 
 Int8P is like Int8, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Int8Var 
+#### (*FlagSet) Int8Var 
 
 ```
 func (f *FlagSet) Int8Var(p *int8, name string, value int8, usage string)
@@ -2929,7 +2929,7 @@ func (f *FlagSet) Int8Var(p *int8, name string, value int8, usage string)
 
 Int8Var defines an int8 flag with specified name, default value, and usage string. The argument p points to an int8 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Int8VarP 
+#### (*FlagSet) Int8VarP 
 
 ```
 func (f *FlagSet) Int8VarP(p *int8, name, shorthand string, value int8, usage string)
@@ -2937,7 +2937,7 @@ func (f *FlagSet) Int8VarP(p *int8, name, shorthand string, value int8, usage st
 
 Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IntP 
+#### (*FlagSet) IntP 
 
 ```
 func (f *FlagSet) IntP(name, shorthand string, value int, usage string) *int
@@ -2945,7 +2945,7 @@ func (f *FlagSet) IntP(name, shorthand string, value int, usage string) *int
 
 IntP is like Int, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IntSlice 
+#### (*FlagSet) IntSlice 
 
 ```
 func (f *FlagSet) IntSlice(name string, value []int, usage string) *[]int
@@ -2953,7 +2953,7 @@ func (f *FlagSet) IntSlice(name string, value []int, usage string) *[]int
 
 IntSlice defines a []int flag with specified name, default value, and usage string. The return value is the address of a []int variable that stores the value of the flag.
 
-#### func (*FlagSet) IntSliceP 
+#### (*FlagSet) IntSliceP 
 
 ```
 func (f *FlagSet) IntSliceP(name, shorthand string, value []int, usage string) *[]int
@@ -2961,7 +2961,7 @@ func (f *FlagSet) IntSliceP(name, shorthand string, value []int, usage string) *
 
 IntSliceP is like IntSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IntSliceVar 
+#### (*FlagSet) IntSliceVar 
 
 ```
 func (f *FlagSet) IntSliceVar(p *[]int, name string, value []int, usage string)
@@ -2969,7 +2969,7 @@ func (f *FlagSet) IntSliceVar(p *[]int, name string, value []int, usage string)
 
 IntSliceVar defines a intSlice flag with specified name, default value, and usage string. The argument p points to a []int variable in which to store the value of the flag.
 
-#### func (*FlagSet) IntSliceVarP 
+#### (*FlagSet) IntSliceVarP 
 
 ```
 func (f *FlagSet) IntSliceVarP(p *[]int, name, shorthand string, value []int, usage string)
@@ -2977,7 +2977,7 @@ func (f *FlagSet) IntSliceVarP(p *[]int, name, shorthand string, value []int, us
 
 IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) IntVar 
+#### (*FlagSet) IntVar 
 
 ```
 func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
@@ -2985,7 +2985,7 @@ func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 
 IntVar defines an int flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag.
 
-#### func (*FlagSet) IntVarP 
+#### (*FlagSet) IntVarP 
 
 ```
 func (f *FlagSet) IntVarP(p *int, name, shorthand string, value int, usage string)
@@ -2993,7 +2993,7 @@ func (f *FlagSet) IntVarP(p *int, name, shorthand string, value int, usage strin
 
 IntVarP is like IntVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Lookup 
+#### (*FlagSet) Lookup 
 
 ```
 func (f *FlagSet) Lookup(name string) *Flag
@@ -3001,7 +3001,7 @@ func (f *FlagSet) Lookup(name string) *Flag
 
 Lookup returns the Flag structure of the named flag, returning nil if none exists.
 
-#### func (*FlagSet) MarkDeprecated 
+#### (*FlagSet) MarkDeprecated 
 
 ```
 func (f *FlagSet) MarkDeprecated(name string, usageMessage string) error
@@ -3009,7 +3009,7 @@ func (f *FlagSet) MarkDeprecated(name string, usageMessage string) error
 
 MarkDeprecated indicated that a flag is deprecated in your program. It will continue to function but will not show up in help or usage messages. Using this flag will also print the given usageMessage.
 
-#### func (*FlagSet) MarkHidden 
+#### (*FlagSet) MarkHidden 
 
 ```
 func (f *FlagSet) MarkHidden(name string) error
@@ -3017,7 +3017,7 @@ func (f *FlagSet) MarkHidden(name string) error
 
 MarkHidden sets a flag to 'hidden' in your program. It will continue to function but will not show up in help or usage messages.
 
-#### func (*FlagSet) MarkShorthandDeprecated 
+#### (*FlagSet) MarkShorthandDeprecated 
 
 ```
 func (f *FlagSet) MarkShorthandDeprecated(name string, usageMessage string) error
@@ -3025,7 +3025,7 @@ func (f *FlagSet) MarkShorthandDeprecated(name string, usageMessage string) erro
 
 MarkShorthandDeprecated will mark the shorthand of a flag deprecated in your program. It will continue to function but will not show up in help or usage messages. Using this flag will also print the given usageMessage.
 
-#### func (*FlagSet) NArg 
+#### (*FlagSet) NArg 
 
 ```
 func (f *FlagSet) NArg() int
@@ -3033,7 +3033,7 @@ func (f *FlagSet) NArg() int
 
 NArg is the number of arguments remaining after flags have been processed.
 
-#### func (*FlagSet) NFlag 
+#### (*FlagSet) NFlag 
 
 ```
 func (f *FlagSet) NFlag() int
@@ -3041,7 +3041,7 @@ func (f *FlagSet) NFlag() int
 
 NFlag returns the number of flags that have been set.
 
-#### func (*FlagSet) Parse 
+#### (*FlagSet) Parse 
 
 ```
 func (f *FlagSet) Parse(arguments []string) error
@@ -3049,7 +3049,7 @@ func (f *FlagSet) Parse(arguments []string) error
 
 Parse parses flag definitions from the argument list, which should not include the command name. Must be called after all flags in the FlagSet are defined and before flags are accessed by the program. The return value will be ErrHelp if -help was set but not defined.
 
-#### func (*FlagSet) ParseAll 
+#### (*FlagSet) ParseAll 
 
 ```
 func (f *FlagSet) ParseAll(arguments []string, fn func(flag *Flag, value string) error) error
@@ -3057,7 +3057,7 @@ func (f *FlagSet) ParseAll(arguments []string, fn func(flag *Flag, value string)
 
 ParseAll parses flag definitions from the argument list, which should not include the command name. The arguments for fn are flag and value. Must be called after all flags in the FlagSet are defined and before flags are accessed by the program. The return value will be ErrHelp if -help was set but not defined.
 
-#### func (*FlagSet) Parsed 
+#### (*FlagSet) Parsed 
 
 ```
 func (f *FlagSet) Parsed() bool
@@ -3065,7 +3065,7 @@ func (f *FlagSet) Parsed() bool
 
 Parsed reports whether f.Parse has been called.
 
-#### func (*FlagSet) PrintDefaults 
+#### (*FlagSet) PrintDefaults 
 
 ```
 func (f *FlagSet) PrintDefaults()
@@ -3073,7 +3073,7 @@ func (f *FlagSet) PrintDefaults()
 
 PrintDefaults prints, to standard error unless configured otherwise, the default values of all defined flags in the set.
 
-#### func (*FlagSet) Set 
+#### (*FlagSet) Set 
 
 ```
 func (f *FlagSet) Set(name, value string) error
@@ -3081,7 +3081,7 @@ func (f *FlagSet) Set(name, value string) error
 
 Set sets the value of the named flag.
 
-#### func (*FlagSet) SetAnnotation 
+#### (*FlagSet) SetAnnotation 
 
 ```
 func (f *FlagSet) SetAnnotation(name, key string, values []string) error
@@ -3089,7 +3089,7 @@ func (f *FlagSet) SetAnnotation(name, key string, values []string) error
 
 SetAnnotation allows one to set arbitrary annotations on a flag in the FlagSet. This is sometimes used by spf13/cobra programs which want to generate additional bash completion information.
 
-#### func (*FlagSet) SetInterspersed 
+#### (*FlagSet) SetInterspersed 
 
 ```
 func (f *FlagSet) SetInterspersed(interspersed bool)
@@ -3097,7 +3097,7 @@ func (f *FlagSet) SetInterspersed(interspersed bool)
 
 SetInterspersed sets whether to support interspersed option/non-option arguments.
 
-#### func (*FlagSet) SetNormalizeFunc 
+#### (*FlagSet) SetNormalizeFunc 
 
 ```
 func (f *FlagSet) SetNormalizeFunc(n func(f *FlagSet, name string) NormalizedName)
@@ -3105,7 +3105,7 @@ func (f *FlagSet) SetNormalizeFunc(n func(f *FlagSet, name string) NormalizedNam
 
 SetNormalizeFunc allows you to add a function which can translate flag names. Flags added to the FlagSet will be translated and then when anything tries to look up the flag that will also be translated. So it would be possible to create a flag named "getURL" and have it translated to "geturl". A user could then pass "--getUrl" which may also be translated to "geturl" and everything will work.
 
-#### func (*FlagSet) SetOutput 
+#### (*FlagSet) SetOutput 
 
 ```
 func (f *FlagSet) SetOutput(output io.Writer)
@@ -3113,7 +3113,7 @@ func (f *FlagSet) SetOutput(output io.Writer)
 
 SetOutput sets the destination for usage and error messages. If output is nil, os.Stderr is used.
 
-#### func (*FlagSet) ShorthandLookup 
+#### (*FlagSet) ShorthandLookup 
 
 ```
 func (f *FlagSet) ShorthandLookup(name string) *Flag
@@ -3121,9 +3121,9 @@ func (f *FlagSet) ShorthandLookup(name string) *Flag
 
 ShorthandLookup returns the Flag structure of the short handed flag, returning nil if none exists. It panics, if len(name) > 1.
 
-<details tabindex="-1" id="example-FlagSet.ShorthandLookup" class="Documentation-exampleDetails js-exampleContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 1rem 0px 0px; padding: 0px; vertical-align: baseline; display: block;"><summary class="Documentation-exampleDetailsHeader" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px 0px 2rem; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); cursor: pointer; outline: none; text-decoration: none;">Example<span>&nbsp;</span><a href="https://pkg.go.dev/github.com/spf13/pflag#example-FlagSet.ShorthandLookup" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-brand-primary); text-decoration: none; opacity: 0;">¶</a></summary><div class="Documentation-exampleDetailsBody" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0px; padding: 0px; vertical-align: baseline;"><textarea class="Documentation-exampleCode code" spellcheck="false" style="box-sizing: border-box; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: 0.875rem; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; background-color: var(--color-background-accented); border: var(--border); border-top-left-radius: ; border-top-right-radius: ; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: var(--color-text); overflow-x: auto; padding: 0.625rem; tab-size: 4; white-space: pre; height: 27.125rem; outline: none; resize: none; width: 1213.33px; margin: 0px;"></textarea><pre style="box-sizing: border-box; border: var(--border); font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5em; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, monospace; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 0.875rem; margin: -0.25rem 0px 1rem; padding: 0.625rem; vertical-align: baseline; background-color: var(--color-background-accented); border-radius: 0px 0px 0.3rem 0.3rem; color: var(--color-text); overflow-x: auto; tab-size: 4; white-space: pre-wrap; word-break: break-all; overflow-wrap: break-word;"><span class="Documentation-exampleOutputLabel" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 14px; margin: 0px; padding: 0px; vertical-align: baseline; color: var(--color-text-subtle);"></span><span class="Documentation-exampleOutput" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 14px; margin: 0px 0px 0.5rem; padding: 0px; vertical-align: baseline; border-top-left-radius: 0px; border-top-right-radius: 0px;"></span></pre></div><div class="Documentation-exampleButtonsContainer" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 16px; margin: 0.5rem 0px 0px; padding: 0px; vertical-align: baseline; align-items: center; display: flex; justify-content: flex-end;"><p class="Documentation-exampleError" role="alert" aria-atomic="true" style="box-sizing: border-box; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 1.5rem; font-family: inherit; font-optical-sizing: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 1rem; margin: 1rem 0px; padding: 0px 0.5rem 0px 0px; vertical-align: baseline; max-width: 60rem; color: var(--pink);"></p><button class="Documentation-exampleShareButton" aria-label="Share Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleFormatButton" aria-label="Format Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--white); color: var(--turq-dark);"></button><button class="Documentation-exampleRunButton" aria-label="Run Code" style="box-sizing: border-box; border: .0625rem solid var(--turq-dark); font: inherit; margin: 0px 0px 0px 0.5rem; padding: 0px 1rem; vertical-align: baseline; border-radius: 0.25rem; cursor: pointer; height: 2rem; background-color: var(--turq-dark); color: var(--white);"></button></div></details>
+##### Example
 
-#### func (*FlagSet) String 
+#### (*FlagSet) String 
 
 ```
 func (f *FlagSet) String(name string, value string, usage string) *string
@@ -3131,7 +3131,7 @@ func (f *FlagSet) String(name string, value string, usage string) *string
 
 String defines a string flag with specified name, default value, and usage string. The return value is the address of a string variable that stores the value of the flag.
 
-#### func (*FlagSet) StringArray 
+#### (*FlagSet) StringArray 
 
 ```
 func (f *FlagSet) StringArray(name string, value []string, usage string) *[]string
@@ -3139,7 +3139,7 @@ func (f *FlagSet) StringArray(name string, value []string, usage string) *[]stri
 
 StringArray defines a string flag with specified name, default value, and usage string. The return value is the address of a []string variable that stores the value of the flag. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
 
-#### func (*FlagSet) StringArrayP 
+#### (*FlagSet) StringArrayP 
 
 ```
 func (f *FlagSet) StringArrayP(name, shorthand string, value []string, usage string) *[]string
@@ -3147,7 +3147,7 @@ func (f *FlagSet) StringArrayP(name, shorthand string, value []string, usage str
 
 StringArrayP is like StringArray, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringArrayVar 
+#### (*FlagSet) StringArrayVar 
 
 ```
 func (f *FlagSet) StringArrayVar(p *[]string, name string, value []string, usage string)
@@ -3155,7 +3155,7 @@ func (f *FlagSet) StringArrayVar(p *[]string, name string, value []string, usage
 
 StringArrayVar defines a string flag with specified name, default value, and usage string. The argument p points to a []string variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
 
-#### func (*FlagSet) StringArrayVarP 
+#### (*FlagSet) StringArrayVarP 
 
 ```
 func (f *FlagSet) StringArrayVarP(p *[]string, name, shorthand string, value []string, usage string)
@@ -3163,7 +3163,7 @@ func (f *FlagSet) StringArrayVarP(p *[]string, name, shorthand string, value []s
 
 StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringP 
+#### (*FlagSet) StringP 
 
 ```
 func (f *FlagSet) StringP(name, shorthand string, value string, usage string) *string
@@ -3171,7 +3171,7 @@ func (f *FlagSet) StringP(name, shorthand string, value string, usage string) *s
 
 StringP is like String, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringSlice 
+#### (*FlagSet) StringSlice 
 
 ```
 func (f *FlagSet) StringSlice(name string, value []string, usage string) *[]string
@@ -3189,7 +3189,7 @@ will result in
 []string{"v1", "v2", "v3"}
 ```
 
-#### func (*FlagSet) StringSliceP 
+#### (*FlagSet) StringSliceP 
 
 ```
 func (f *FlagSet) StringSliceP(name, shorthand string, value []string, usage string) *[]string
@@ -3197,7 +3197,7 @@ func (f *FlagSet) StringSliceP(name, shorthand string, value []string, usage str
 
 StringSliceP is like StringSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringSliceVar 
+#### (*FlagSet) StringSliceVar 
 
 ```
 func (f *FlagSet) StringSliceVar(p *[]string, name string, value []string, usage string)
@@ -3215,7 +3215,7 @@ will result in
 []string{"v1", "v2", "v3"}
 ```
 
-#### func (*FlagSet) StringSliceVarP 
+#### (*FlagSet) StringSliceVarP 
 
 ```
 func (f *FlagSet) StringSliceVarP(p *[]string, name, shorthand string, value []string, usage string)
@@ -3223,7 +3223,7 @@ func (f *FlagSet) StringSliceVarP(p *[]string, name, shorthand string, value []s
 
 StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToInt  <- v1.0.3
+#### (*FlagSet) StringToInt  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToInt(name string, value map[string]int, usage string) *map[string]int
@@ -3231,7 +3231,7 @@ func (f *FlagSet) StringToInt(name string, value map[string]int, usage string) *
 
 StringToInt defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int variable that stores the value of the flag. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToInt64  <- v1.0.5
+#### (*FlagSet) StringToInt64  <- v1.0.5
 
 ```
 func (f *FlagSet) StringToInt64(name string, value map[string]int64, usage string) *map[string]int64
@@ -3239,7 +3239,7 @@ func (f *FlagSet) StringToInt64(name string, value map[string]int64, usage strin
 
 StringToInt64 defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int64 variable that stores the value of the flag. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToInt64P  <- v1.0.5
+#### (*FlagSet) StringToInt64P  <- v1.0.5
 
 ```
 func (f *FlagSet) StringToInt64P(name, shorthand string, value map[string]int64, usage string) *map[string]int64
@@ -3247,7 +3247,7 @@ func (f *FlagSet) StringToInt64P(name, shorthand string, value map[string]int64,
 
 StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToInt64Var  <- v1.0.5
+#### (*FlagSet) StringToInt64Var  <- v1.0.5
 
 ```
 func (f *FlagSet) StringToInt64Var(p *map[string]int64, name string, value map[string]int64, usage string)
@@ -3255,7 +3255,7 @@ func (f *FlagSet) StringToInt64Var(p *map[string]int64, name string, value map[s
 
 StringToInt64Var defines a string flag with specified name, default value, and usage string. The argument p point64s to a map[string]int64 variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToInt64VarP  <- v1.0.5
+#### (*FlagSet) StringToInt64VarP  <- v1.0.5
 
 ```
 func (f *FlagSet) StringToInt64VarP(p *map[string]int64, name, shorthand string, value map[string]int64, usage string)
@@ -3263,7 +3263,7 @@ func (f *FlagSet) StringToInt64VarP(p *map[string]int64, name, shorthand string,
 
 StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToIntP  <- v1.0.3
+#### (*FlagSet) StringToIntP  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToIntP(name, shorthand string, value map[string]int, usage string) *map[string]int
@@ -3271,7 +3271,7 @@ func (f *FlagSet) StringToIntP(name, shorthand string, value map[string]int, usa
 
 StringToIntP is like StringToInt, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToIntVar  <- v1.0.3
+#### (*FlagSet) StringToIntVar  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToIntVar(p *map[string]int, name string, value map[string]int, usage string)
@@ -3279,7 +3279,7 @@ func (f *FlagSet) StringToIntVar(p *map[string]int, name string, value map[strin
 
 StringToIntVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]int variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToIntVarP  <- v1.0.3
+#### (*FlagSet) StringToIntVarP  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToIntVarP(p *map[string]int, name, shorthand string, value map[string]int, usage string)
@@ -3287,7 +3287,7 @@ func (f *FlagSet) StringToIntVarP(p *map[string]int, name, shorthand string, val
 
 StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToString  <- v1.0.3
+#### (*FlagSet) StringToString  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToString(name string, value map[string]string, usage string) *map[string]string
@@ -3295,7 +3295,7 @@ func (f *FlagSet) StringToString(name string, value map[string]string, usage str
 
 StringToString defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]string variable that stores the value of the flag. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToStringP  <- v1.0.3
+#### (*FlagSet) StringToStringP  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToStringP(name, shorthand string, value map[string]string, usage string) *map[string]string
@@ -3303,7 +3303,7 @@ func (f *FlagSet) StringToStringP(name, shorthand string, value map[string]strin
 
 StringToStringP is like StringToString, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringToStringVar  <- v1.0.3
+#### (*FlagSet) StringToStringVar  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToStringVar(p *map[string]string, name string, value map[string]string, usage string)
@@ -3311,7 +3311,7 @@ func (f *FlagSet) StringToStringVar(p *map[string]string, name string, value map
 
 StringToStringVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]string variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
 
-#### func (*FlagSet) StringToStringVarP  <- v1.0.3
+#### (*FlagSet) StringToStringVarP  <- v1.0.3
 
 ```
 func (f *FlagSet) StringToStringVarP(p *map[string]string, name, shorthand string, value map[string]string, usage string)
@@ -3319,7 +3319,7 @@ func (f *FlagSet) StringToStringVarP(p *map[string]string, name, shorthand strin
 
 StringToStringVarP is like StringToStringVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) StringVar 
+#### (*FlagSet) StringVar 
 
 ```
 func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
@@ -3327,7 +3327,7 @@ func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 
 StringVar defines a string flag with specified name, default value, and usage string. The argument p points to a string variable in which to store the value of the flag.
 
-#### func (*FlagSet) StringVarP 
+#### (*FlagSet) StringVarP 
 
 ```
 func (f *FlagSet) StringVarP(p *string, name, shorthand string, value string, usage string)
@@ -3335,7 +3335,7 @@ func (f *FlagSet) StringVarP(p *string, name, shorthand string, value string, us
 
 StringVarP is like StringVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint 
+#### (*FlagSet) Uint 
 
 ```
 func (f *FlagSet) Uint(name string, value uint, usage string) *uint
@@ -3343,7 +3343,7 @@ func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 
 Uint defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
 
-#### func (*FlagSet) Uint16 
+#### (*FlagSet) Uint16 
 
 ```
 func (f *FlagSet) Uint16(name string, value uint16, usage string) *uint16
@@ -3351,7 +3351,7 @@ func (f *FlagSet) Uint16(name string, value uint16, usage string) *uint16
 
 Uint16 defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
 
-#### func (*FlagSet) Uint16P 
+#### (*FlagSet) Uint16P 
 
 ```
 func (f *FlagSet) Uint16P(name, shorthand string, value uint16, usage string) *uint16
@@ -3359,7 +3359,7 @@ func (f *FlagSet) Uint16P(name, shorthand string, value uint16, usage string) *u
 
 Uint16P is like Uint16, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint16Var 
+#### (*FlagSet) Uint16Var 
 
 ```
 func (f *FlagSet) Uint16Var(p *uint16, name string, value uint16, usage string)
@@ -3367,7 +3367,7 @@ func (f *FlagSet) Uint16Var(p *uint16, name string, value uint16, usage string)
 
 Uint16Var defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
 
-#### func (*FlagSet) Uint16VarP 
+#### (*FlagSet) Uint16VarP 
 
 ```
 func (f *FlagSet) Uint16VarP(p *uint16, name, shorthand string, value uint16, usage string)
@@ -3375,7 +3375,7 @@ func (f *FlagSet) Uint16VarP(p *uint16, name, shorthand string, value uint16, us
 
 Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint32 
+#### (*FlagSet) Uint32 
 
 ```
 func (f *FlagSet) Uint32(name string, value uint32, usage string) *uint32
@@ -3383,7 +3383,7 @@ func (f *FlagSet) Uint32(name string, value uint32, usage string) *uint32
 
 Uint32 defines a uint32 flag with specified name, default value, and usage string. The return value is the address of a uint32 variable that stores the value of the flag.
 
-#### func (*FlagSet) Uint32P 
+#### (*FlagSet) Uint32P 
 
 ```
 func (f *FlagSet) Uint32P(name, shorthand string, value uint32, usage string) *uint32
@@ -3391,7 +3391,7 @@ func (f *FlagSet) Uint32P(name, shorthand string, value uint32, usage string) *u
 
 Uint32P is like Uint32, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint32Var 
+#### (*FlagSet) Uint32Var 
 
 ```
 func (f *FlagSet) Uint32Var(p *uint32, name string, value uint32, usage string)
@@ -3399,7 +3399,7 @@ func (f *FlagSet) Uint32Var(p *uint32, name string, value uint32, usage string)
 
 Uint32Var defines a uint32 flag with specified name, default value, and usage string. The argument p points to a uint32 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Uint32VarP 
+#### (*FlagSet) Uint32VarP 
 
 ```
 func (f *FlagSet) Uint32VarP(p *uint32, name, shorthand string, value uint32, usage string)
@@ -3407,7 +3407,7 @@ func (f *FlagSet) Uint32VarP(p *uint32, name, shorthand string, value uint32, us
 
 Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint64 
+#### (*FlagSet) Uint64 
 
 ```
 func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
@@ -3415,7 +3415,7 @@ func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 
 Uint64 defines a uint64 flag with specified name, default value, and usage string. The return value is the address of a uint64 variable that stores the value of the flag.
 
-#### func (*FlagSet) Uint64P 
+#### (*FlagSet) Uint64P 
 
 ```
 func (f *FlagSet) Uint64P(name, shorthand string, value uint64, usage string) *uint64
@@ -3423,7 +3423,7 @@ func (f *FlagSet) Uint64P(name, shorthand string, value uint64, usage string) *u
 
 Uint64P is like Uint64, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint64Var 
+#### (*FlagSet) Uint64Var 
 
 ```
 func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
@@ -3431,7 +3431,7 @@ func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 
 Uint64Var defines a uint64 flag with specified name, default value, and usage string. The argument p points to a uint64 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Uint64VarP 
+#### (*FlagSet) Uint64VarP 
 
 ```
 func (f *FlagSet) Uint64VarP(p *uint64, name, shorthand string, value uint64, usage string)
@@ -3439,7 +3439,7 @@ func (f *FlagSet) Uint64VarP(p *uint64, name, shorthand string, value uint64, us
 
 Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint8 
+#### (*FlagSet) Uint8 
 
 ```
 func (f *FlagSet) Uint8(name string, value uint8, usage string) *uint8
@@ -3447,7 +3447,7 @@ func (f *FlagSet) Uint8(name string, value uint8, usage string) *uint8
 
 Uint8 defines a uint8 flag with specified name, default value, and usage string. The return value is the address of a uint8 variable that stores the value of the flag.
 
-#### func (*FlagSet) Uint8P 
+#### (*FlagSet) Uint8P 
 
 ```
 func (f *FlagSet) Uint8P(name, shorthand string, value uint8, usage string) *uint8
@@ -3455,7 +3455,7 @@ func (f *FlagSet) Uint8P(name, shorthand string, value uint8, usage string) *uin
 
 Uint8P is like Uint8, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Uint8Var 
+#### (*FlagSet) Uint8Var 
 
 ```
 func (f *FlagSet) Uint8Var(p *uint8, name string, value uint8, usage string)
@@ -3463,7 +3463,7 @@ func (f *FlagSet) Uint8Var(p *uint8, name string, value uint8, usage string)
 
 Uint8Var defines a uint8 flag with specified name, default value, and usage string. The argument p points to a uint8 variable in which to store the value of the flag.
 
-#### func (*FlagSet) Uint8VarP 
+#### (*FlagSet) Uint8VarP 
 
 ```
 func (f *FlagSet) Uint8VarP(p *uint8, name, shorthand string, value uint8, usage string)
@@ -3471,7 +3471,7 @@ func (f *FlagSet) Uint8VarP(p *uint8, name, shorthand string, value uint8, usage
 
 Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) UintP 
+#### (*FlagSet) UintP 
 
 ```
 func (f *FlagSet) UintP(name, shorthand string, value uint, usage string) *uint
@@ -3479,7 +3479,7 @@ func (f *FlagSet) UintP(name, shorthand string, value uint, usage string) *uint
 
 UintP is like Uint, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) UintSlice 
+#### (*FlagSet) UintSlice 
 
 ```
 func (f *FlagSet) UintSlice(name string, value []uint, usage string) *[]uint
@@ -3487,7 +3487,7 @@ func (f *FlagSet) UintSlice(name string, value []uint, usage string) *[]uint
 
 UintSlice defines a []uint flag with specified name, default value, and usage string. The return value is the address of a []uint variable that stores the value of the flag.
 
-#### func (*FlagSet) UintSliceP 
+#### (*FlagSet) UintSliceP 
 
 ```
 func (f *FlagSet) UintSliceP(name, shorthand string, value []uint, usage string) *[]uint
@@ -3495,7 +3495,7 @@ func (f *FlagSet) UintSliceP(name, shorthand string, value []uint, usage string)
 
 UintSliceP is like UintSlice, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) UintSliceVar 
+#### (*FlagSet) UintSliceVar 
 
 ```
 func (f *FlagSet) UintSliceVar(p *[]uint, name string, value []uint, usage string)
@@ -3503,7 +3503,7 @@ func (f *FlagSet) UintSliceVar(p *[]uint, name string, value []uint, usage strin
 
 UintSliceVar defines a uintSlice flag with specified name, default value, and usage string. The argument p points to a []uint variable in which to store the value of the flag.
 
-#### func (*FlagSet) UintSliceVarP 
+#### (*FlagSet) UintSliceVarP 
 
 ```
 func (f *FlagSet) UintSliceVarP(p *[]uint, name, shorthand string, value []uint, usage string)
@@ -3511,7 +3511,7 @@ func (f *FlagSet) UintSliceVarP(p *[]uint, name, shorthand string, value []uint,
 
 UintSliceVarP is like UintSliceVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) UintVar 
+#### (*FlagSet) UintVar 
 
 ```
 func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
@@ -3519,7 +3519,7 @@ func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 
 UintVar defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
 
-#### func (*FlagSet) UintVarP 
+#### (*FlagSet) UintVarP 
 
 ```
 func (f *FlagSet) UintVarP(p *uint, name, shorthand string, value uint, usage string)
@@ -3527,7 +3527,7 @@ func (f *FlagSet) UintVarP(p *uint, name, shorthand string, value uint, usage st
 
 UintVarP is like UintVar, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) Var 
+#### (*FlagSet) Var 
 
 ```
 func (f *FlagSet) Var(value Value, name string, usage string)
@@ -3535,7 +3535,7 @@ func (f *FlagSet) Var(value Value, name string, usage string)
 
 Var defines a flag with the specified name and usage string. The type and value of the flag are represented by the first argument, of type Value, which typically holds a user-defined implementation of Value. For instance, the caller could create a flag that turns a comma-separated string into a slice of strings by giving the slice the methods of Value; in particular, Set would decompose the comma-separated string into the slice.
 
-#### func (*FlagSet) VarP 
+#### (*FlagSet) VarP 
 
 ```
 func (f *FlagSet) VarP(value Value, name, shorthand, usage string)
@@ -3543,7 +3543,7 @@ func (f *FlagSet) VarP(value Value, name, shorthand, usage string)
 
 VarP is like Var, but accepts a shorthand letter that can be used after a single dash.
 
-#### func (*FlagSet) VarPF 
+#### (*FlagSet) VarPF 
 
 ```
 func (f *FlagSet) VarPF(value Value, name, shorthand, usage string) *Flag
@@ -3551,7 +3551,7 @@ func (f *FlagSet) VarPF(value Value, name, shorthand, usage string) *Flag
 
 VarPF is like VarP, but returns the flag created
 
-#### func (*FlagSet) Visit 
+#### (*FlagSet) Visit 
 
 ```
 func (f *FlagSet) Visit(fn func(*Flag))
@@ -3559,7 +3559,7 @@ func (f *FlagSet) Visit(fn func(*Flag))
 
 Visit visits the flags in lexicographical order or in primordial order if f.SortFlags is false, calling fn for each. It visits only those flags that have been set.
 
-#### func (*FlagSet) VisitAll 
+#### (*FlagSet) VisitAll 
 
 ```
 func (f *FlagSet) VisitAll(fn func(*Flag))

@@ -22,7 +22,7 @@ https://pkg.go.dev/internal/bytealg@go1.20.1
 
 
 
-## 常量 ¶
+## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/bytealg/index_amd64.go;l=9)
 

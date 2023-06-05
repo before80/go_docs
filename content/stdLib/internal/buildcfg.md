@@ -21,7 +21,7 @@ Note that it does NOT provide access to the build configuration used to build th
   
   
 
-## 常量 ¶
+## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=42)
 

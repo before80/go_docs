@@ -24,7 +24,7 @@ https://pkg.go.dev/internal/coverage@go1.20.1
 
 
 
-## 常量 ¶
+## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=325)
 

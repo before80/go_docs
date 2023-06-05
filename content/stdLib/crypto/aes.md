@@ -17,13 +17,7 @@ Package aes implements AES encryption (formerly Rijndael), as defined in U.S. Fe
 The AES operations in this package are not implemented using constant-time algorithms. An exception is when running on systems with enabled hardware support for AES that makes these operations constant-time. Examples include amd64 systems using AES-NI extensions and s390x systems using Message-Security-Assist extensions. On such systems, when the result of NewCipher is passed to cipher.NewGCM, the GHASH operation used by GCM is also constant-time.
 
 
-
-
-
-
-
-
-## 常量 ¶
+## 常量
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/aes/cipher.go;l=15)
 

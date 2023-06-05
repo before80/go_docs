@@ -1749,247 +1749,247 @@ func Sub(key string) *Viper
 
 Sub returns new Viper instance representing a sub tree of this instance. Sub is case-insensitive for a key.
 
-#### func (*Viper) AddConfigPath 
+#### (*Viper) AddConfigPath 
 
 ```
 func (v *Viper) AddConfigPath(in string)
 ```
 
-#### func (*Viper) AddRemoteProvider 
+#### (*Viper) AddRemoteProvider 
 
 ```
 func (v *Viper) AddRemoteProvider(provider, endpoint, path string) error
 ```
 
-#### func (*Viper) AddSecureRemoteProvider 
+#### (*Viper) AddSecureRemoteProvider 
 
 ```
 func (v *Viper) AddSecureRemoteProvider(provider, endpoint, path, secretkeyring string) error
 ```
 
-#### func (*Viper) AllKeys 
+#### (*Viper) AllKeys 
 
 ```
 func (v *Viper) AllKeys() []string
 ```
 
-#### func (*Viper) AllSettings 
+#### (*Viper) AllSettings 
 
 ```
 func (v *Viper) AllSettings() map[string]interface{}
 ```
 
-#### func (*Viper) AllowEmptyEnv  <- v1.3.0
+#### (*Viper) AllowEmptyEnv  <- v1.3.0
 
 ```
 func (v *Viper) AllowEmptyEnv(allowEmptyEnv bool)
 ```
 
-#### func (*Viper) AutomaticEnv 
+#### (*Viper) AutomaticEnv 
 
 ```
 func (v *Viper) AutomaticEnv()
 ```
 
-#### func (*Viper) BindEnv 
+#### (*Viper) BindEnv 
 
 ```
 func (v *Viper) BindEnv(input ...string) error
 ```
 
-#### func (*Viper) BindFlagValue 
+#### (*Viper) BindFlagValue 
 
 ```
 func (v *Viper) BindFlagValue(key string, flag FlagValue) error
 ```
 
-#### func (*Viper) BindFlagValues 
+#### (*Viper) BindFlagValues 
 
 ```
 func (v *Viper) BindFlagValues(flags FlagValueSet) (err error)
 ```
 
-#### func (*Viper) BindPFlag 
+#### (*Viper) BindPFlag 
 
 ```
 func (v *Viper) BindPFlag(key string, flag *pflag.Flag) error
 ```
 
-#### func (*Viper) BindPFlags 
+#### (*Viper) BindPFlags 
 
 ```
 func (v *Viper) BindPFlags(flags *pflag.FlagSet) error
 ```
 
-#### func (*Viper) ConfigFileUsed 
+#### (*Viper) ConfigFileUsed 
 
 ```
 func (v *Viper) ConfigFileUsed() string
 ```
 
-#### func (*Viper) Debug 
+#### (*Viper) Debug 
 
 ```
 func (v *Viper) Debug()
 ```
 
-#### func (*Viper) DebugTo  <- v1.13.0
+#### (*Viper) DebugTo  <- v1.13.0
 
 ```
 func (v *Viper) DebugTo(w io.Writer)
 ```
 
-#### func (*Viper) Get 
+#### (*Viper) Get 
 
 ```
 func (v *Viper) Get(key string) interface{}
 ```
 
-#### func (*Viper) GetBool 
+#### (*Viper) GetBool 
 
 ```
 func (v *Viper) GetBool(key string) bool
 ```
 
-#### func (*Viper) GetDuration 
+#### (*Viper) GetDuration 
 
 ```
 func (v *Viper) GetDuration(key string) time.Duration
 ```
 
-#### func (*Viper) GetFloat64 
+#### (*Viper) GetFloat64 
 
 ```
 func (v *Viper) GetFloat64(key string) float64
 ```
 
-#### func (*Viper) GetInt 
+#### (*Viper) GetInt 
 
 ```
 func (v *Viper) GetInt(key string) int
 ```
 
-#### func (*Viper) GetInt32  <- v1.1.0
+#### (*Viper) GetInt32  <- v1.1.0
 
 ```
 func (v *Viper) GetInt32(key string) int32
 ```
 
-#### func (*Viper) GetInt64 
+#### (*Viper) GetInt64 
 
 ```
 func (v *Viper) GetInt64(key string) int64
 ```
 
-#### func (*Viper) GetIntSlice  <- v1.5.0
+#### (*Viper) GetIntSlice  <- v1.5.0
 
 ```
 func (v *Viper) GetIntSlice(key string) []int
 ```
 
-#### func (*Viper) GetSizeInBytes 
+#### (*Viper) GetSizeInBytes 
 
 ```
 func (v *Viper) GetSizeInBytes(key string) uint
 ```
 
-#### func (*Viper) GetString 
+#### (*Viper) GetString 
 
 ```
 func (v *Viper) GetString(key string) string
 ```
 
-#### func (*Viper) GetStringMap 
+#### (*Viper) GetStringMap 
 
 ```
 func (v *Viper) GetStringMap(key string) map[string]interface{}
 ```
 
-#### func (*Viper) GetStringMapString 
+#### (*Viper) GetStringMapString 
 
 ```
 func (v *Viper) GetStringMapString(key string) map[string]string
 ```
 
-#### func (*Viper) GetStringMapStringSlice 
+#### (*Viper) GetStringMapStringSlice 
 
 ```
 func (v *Viper) GetStringMapStringSlice(key string) map[string][]string
 ```
 
-#### func (*Viper) GetStringSlice 
+#### (*Viper) GetStringSlice 
 
 ```
 func (v *Viper) GetStringSlice(key string) []string
 ```
 
-#### func (*Viper) GetTime 
+#### (*Viper) GetTime 
 
 ```
 func (v *Viper) GetTime(key string) time.Time
 ```
 
-#### func (*Viper) GetUint  <- v1.4.0
+#### (*Viper) GetUint  <- v1.4.0
 
 ```
 func (v *Viper) GetUint(key string) uint
 ```
 
-#### func (*Viper) GetUint16  <- v1.13.0
+#### (*Viper) GetUint16  <- v1.13.0
 
 ```
 func (v *Viper) GetUint16(key string) uint16
 ```
 
-#### func (*Viper) GetUint32  <- v1.4.0
+#### (*Viper) GetUint32  <- v1.4.0
 
 ```
 func (v *Viper) GetUint32(key string) uint32
 ```
 
-#### func (*Viper) GetUint64  <- v1.4.0
+#### (*Viper) GetUint64  <- v1.4.0
 
 ```
 func (v *Viper) GetUint64(key string) uint64
 ```
 
-#### func (*Viper) InConfig 
+#### (*Viper) InConfig 
 
 ```
 func (v *Viper) InConfig(key string) bool
 ```
 
-#### func (*Viper) IsSet 
+#### (*Viper) IsSet 
 
 ```
 func (v *Viper) IsSet(key string) bool
 ```
 
-#### func (*Viper) MergeConfig 
+#### (*Viper) MergeConfig 
 
 ```
 func (v *Viper) MergeConfig(in io.Reader) error
 ```
 
-#### func (*Viper) MergeConfigMap  <- v1.3.0
+#### (*Viper) MergeConfigMap  <- v1.3.0
 
 ```
 func (v *Viper) MergeConfigMap(cfg map[string]interface{}) error
 ```
 
-#### func (*Viper) MergeInConfig 
+#### (*Viper) MergeInConfig 
 
 ```
 func (v *Viper) MergeInConfig() error
 ```
 
-#### func (*Viper) MustBindEnv  <- v1.12.0
+#### (*Viper) MustBindEnv  <- v1.12.0
 
 ```
 func (v *Viper) MustBindEnv(input ...string)
 ```
 
-#### func (*Viper) OnConfigChange 
+#### (*Viper) OnConfigChange 
 
 ```
 func (v *Viper) OnConfigChange(run func(in fsnotify.Event))
@@ -1997,127 +1997,127 @@ func (v *Viper) OnConfigChange(run func(in fsnotify.Event))
 
 OnConfigChange sets the event handler that is called when a config file changes.
 
-#### func (*Viper) ReadConfig 
+#### (*Viper) ReadConfig 
 
 ```
 func (v *Viper) ReadConfig(in io.Reader) error
 ```
 
-#### func (*Viper) ReadInConfig 
+#### (*Viper) ReadInConfig 
 
 ```
 func (v *Viper) ReadInConfig() error
 ```
 
-#### func (*Viper) ReadRemoteConfig 
+#### (*Viper) ReadRemoteConfig 
 
 ```
 func (v *Viper) ReadRemoteConfig() error
 ```
 
-#### func (*Viper) RegisterAlias 
+#### (*Viper) RegisterAlias 
 
 ```
 func (v *Viper) RegisterAlias(alias string, key string)
 ```
 
-#### func (*Viper) SafeWriteConfig  <- v1.0.1
+#### (*Viper) SafeWriteConfig  <- v1.0.1
 
 ```
 func (v *Viper) SafeWriteConfig() error
 ```
 
-#### func (*Viper) SafeWriteConfigAs  <- v1.0.1
+#### (*Viper) SafeWriteConfigAs  <- v1.0.1
 
 ```
 func (v *Viper) SafeWriteConfigAs(filename string) error
 ```
 
-#### func (*Viper) Set 
+#### (*Viper) Set 
 
 ```
 func (v *Viper) Set(key string, value interface{})
 ```
 
-#### func (*Viper) SetConfigFile 
+#### (*Viper) SetConfigFile 
 
 ```
 func (v *Viper) SetConfigFile(in string)
 ```
 
-#### func (*Viper) SetConfigName 
+#### (*Viper) SetConfigName 
 
 ```
 func (v *Viper) SetConfigName(in string)
 ```
 
-#### func (*Viper) SetConfigPermissions  <- v1.4.0
+#### (*Viper) SetConfigPermissions  <- v1.4.0
 
 ```
 func (v *Viper) SetConfigPermissions(perm os.FileMode)
 ```
 
-#### func (*Viper) SetConfigType 
+#### (*Viper) SetConfigType 
 
 ```
 func (v *Viper) SetConfigType(in string)
 ```
 
-#### func (*Viper) SetDefault 
+#### (*Viper) SetDefault 
 
 ```
 func (v *Viper) SetDefault(key string, value interface{})
 ```
 
-#### func (*Viper) SetEnvKeyReplacer 
+#### (*Viper) SetEnvKeyReplacer 
 
 ```
 func (v *Viper) SetEnvKeyReplacer(r *strings.Replacer)
 ```
 
-#### func (*Viper) SetEnvPrefix 
+#### (*Viper) SetEnvPrefix 
 
 ```
 func (v *Viper) SetEnvPrefix(in string)
 ```
 
-#### func (*Viper) SetFs 
+#### (*Viper) SetFs 
 
 ```
 func (v *Viper) SetFs(fs afero.Fs)
 ```
 
-#### func (*Viper) SetTypeByDefaultValue 
+#### (*Viper) SetTypeByDefaultValue 
 
 ```
 func (v *Viper) SetTypeByDefaultValue(enable bool)
 ```
 
-#### func (*Viper) Sub 
+#### (*Viper) Sub 
 
 ```
 func (v *Viper) Sub(key string) *Viper
 ```
 
-#### func (*Viper) Unmarshal 
+#### (*Viper) Unmarshal 
 
 ```
 func (v *Viper) Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### func (*Viper) UnmarshalExact 
+#### (*Viper) UnmarshalExact 
 
 ```
 func (v *Viper) UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### func (*Viper) UnmarshalKey 
+#### (*Viper) UnmarshalKey 
 
 ```
 func (v *Viper) UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### func (*Viper) WatchConfig 
+#### (*Viper) WatchConfig 
 
 ```
 func (v *Viper) WatchConfig()
@@ -2125,25 +2125,25 @@ func (v *Viper) WatchConfig()
 
 WatchConfig starts watching a config file for changes.
 
-#### func (*Viper) WatchRemoteConfig 
+#### (*Viper) WatchRemoteConfig 
 
 ```
 func (v *Viper) WatchRemoteConfig() error
 ```
 
-#### func (*Viper) WatchRemoteConfigOnChannel 
+#### (*Viper) WatchRemoteConfigOnChannel 
 
 ```
 func (v *Viper) WatchRemoteConfigOnChannel() error
 ```
 
-#### func (*Viper) WriteConfig  <- v1.0.1
+#### (*Viper) WriteConfig  <- v1.0.1
 
 ```
 func (v *Viper) WriteConfig() error
 ```
 
-#### func (*Viper) WriteConfigAs  <- v1.0.1
+#### (*Viper) WriteConfigAs  <- v1.0.1
 
 ```
 func (v *Viper) WriteConfigAs(filename string) error

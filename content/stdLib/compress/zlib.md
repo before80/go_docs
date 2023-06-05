@@ -82,8 +82,33 @@ NewReader creates a new ReadCloser. Reads from the returned ReadCloser read and 
 
 The ReadCloser returned by NewReader also implements Resetter.
 
-##### Example
+##### NewReader Example
 ``` go 
+package main
+
+import (
+	"bytes"
+	"compress/zlib"
+	"io"
+	"os"
+)
+
+func main() {
+	buff := []byte{120, 156, 202, 72, 205, 201, 201, 215, 81, 40, 207,
+		47, 202, 73, 225, 2, 4, 0, 0, 255, 255, 33, 231, 4, 147}
+	b := bytes.NewReader(buff)
+
+	r, err := zlib.NewReader(b)
+	if err != nil {
+		panic(err)
+	}
+	io.Copy(os.Stdout, r)
+
+	r.Close()
+}
+Output:
+
+hello, world
 ```
 
 #### func NewReaderDict 
@@ -130,8 +155,27 @@ NewWriter creates a new Writer. Writes to the returned Writer are compressed and
 
 It is the caller's responsibility to call Close on the Writer when done. Writes may be buffered and not flushed until Close.
 
-##### Example
+##### NewWriter Example
 ``` go 
+package main
+
+import (
+	"bytes"
+	"compress/zlib"
+	"fmt"
+)
+
+func main() {
+	var b bytes.Buffer
+
+	w := zlib.NewWriter(&b)
+	w.Write([]byte("hello, world\n"))
+	w.Close()
+	fmt.Println(b.Bytes())
+}
+Output:
+
+[120 156 202 72 205 201 201 215 81 40 207 47 202 73 225 2 4 0 0 255 255 33 231 4 147]
 ```
 
 #### func NewWriterLevel 

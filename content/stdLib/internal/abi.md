@@ -14,7 +14,7 @@ https://pkg.go.dev/internal/abi@go1.20.1
 
   
 
-## 常量 ¶
+## 常量 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/abi/abi_amd64.go;l=7)
 

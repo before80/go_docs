@@ -31,7 +31,7 @@ func ValidMAC(message, messageMAC, key []byte) bool {
 
 
 
-## 常量 ¶
+## 常量 
 
 This section is empty.
 
