@@ -18,7 +18,7 @@ draft = false
 
 ### Go Security Policy  Go 安全政策
 
-​	[Go Security Policy](./GoSecurityPolicy)解释了如何向 Go 团队报告 Go 标准库和子库的安全问题。
+​	[Go Security Policy](../GoSecurityPolicy)解释了如何向 Go 团队报告 Go 标准库和子库的安全问题。
 
 ### Go Security Releases Go 安全发布
 

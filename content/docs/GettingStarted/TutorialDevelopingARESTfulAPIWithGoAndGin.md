@@ -168,17 +168,17 @@ func getAlbums(c *gin.Context) {
 
 在这段代码中，您：
 
-- 编写一个`getAlbums`函数，它需要一个[gin.Context](https://pkg.go.dev/github.com/gin-gonic/gin#Context) 参数。注意，您可以给这个函数起任何名字 ——Gin和Go都不要求特定的函数名称格式。
+- 编写一个`getAlbums`函数，它需要一个[gin.Context]({{< ref "/thirdPkg/gin/gin#type-context">}}) 参数。注意，您可以给这个函数起任何名字 ——Gin和Go都不要求特定的函数名称格式。
 
-  ​	[gin.Context](https://pkg.go.dev/github.com/gin-gonic/gin#Context)是`Gin`中最重要的部分。它携带请求的细节，验证和序列化JSON，等等。(尽管名字相似，但这与Go的内置[context](https://go.dev/pkg/context/)包不同）。
+  ​	[gin.Context]({{< ref "/thirdPkg/gin/gin#type-context">}})是`Gin`中最重要的部分。它携带请求的细节，验证和序列化JSON，等等。(尽管名字相似，但这与Go的内置[context]({{< ref "/stdLib/context">}})包不同）。
 
--  调用 [Context.IndentedJSON](https://pkg.go.dev/github.com/gin-gonic/gin#Context.IndentedJSON)来将结构体序列化为JSON，并将其添加到响应中。
+-  调用 [Context.IndentedJSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})来将结构体序列化为JSON，并将其添加到响应中。
 
-  ​	该函数的第一个参数是您想发送给客户端的HTTP状态代码。在这里，您要传递 `net/http` 包中的 [StatusOK](https://pkg.go.dev/net/http#StatusOK)常量，以指示 `200 OK`。
+  ​	该函数的第一个参数是您想发送给客户端的HTTP状态代码。在这里，您要传递 `net/http` 包中的 [StatusOK]({{< ref "/stdLib/net/http#常量">}})常量，以指示 `200 OK`。
 
-  Note that you can replace `Context.IndentedJSON` with a call to [Context.JSON](https://pkg.go.dev/github.com/gin-gonic/gin#Context.JSON) to send more compact JSON. In practice, the indented form is much easier to work with when debugging and the size difference is usually small.
+  Note that you can replace `Context.IndentedJSON` with a call to [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) to send more compact JSON. In practice, the indented form is much easier to work with when debugging and the size difference is usually small.
   
-  注意，您可以用调用 [Context.JSON](https://pkg.go.dev/github.com/gin-gonic/gin#Context.JSON) 来代替 [Context.IndentedJSON](https://pkg.go.dev/github.com/gin-gonic/gin#Context.IndentedJSON) 来发送更紧凑的 JSON。在实践中，缩进的形式在调试时更容易操作，而且大小差异通常很小。
+  注意，您可以用调用 [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) 来代替 [Context.IndentedJSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) 来发送更紧凑的 JSON。在实践中，缩进的形式在调试时更容易操作，而且大小差异通常很小。
 
 b. 在`main.go`的顶部附近，就在`albums`切片声明下面，粘贴下面的代码，将处理函数分配给一个端点路径。
 
@@ -195,13 +195,13 @@ func main() {
 
 在这段代码中，您：
 
-- 使用[Default](https://pkg.go.dev/github.com/gin-gonic/gin#Default)初始化一个Gin路由器。
+- 使用[Default]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})初始化一个Gin路由器。
 
-- 使用[GET](https://pkg.go.dev/github.com/gin-gonic/gin#RouterGroup.GET)函数将`GET` HTTP方法和`/albums`路径与一个处理函数联系起来。
+- 使用[GET]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})函数将`GET` HTTP方法和`/albums`路径与一个处理函数联系起来。
 
   注意，您传递的是`getAlbums`函数的名字。这与传递函数的**结果**不同，您可以通过传递`getAlbums()`来做到这一点（注意括号）。
 
-- 使用[Run](https://pkg.go.dev/github.com/gin-gonic/gin#Engine.Run)函数将路由器连接到`http.Server`上并启动服务器。
+- 使用[Run]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})函数将路由器连接到`http.Server`上并启动服务器。
 
 c. 在`main.go`的顶部，就在包声明的下面，导入您需要的包来支持您刚刚写的代码。
 
@@ -307,7 +307,7 @@ func postAlbums(c *gin.Context) {
 
 在这段代码中，您：
 
-- 使用[Context.BindJSON](https://pkg.go.dev/github.com/gin-gonic/gin#Context.BindJSON)将请求主体绑定到`newAlbum`。
+- 使用[Context.BindJSON]({{< ref "/thirdPkg/gin/gin#context-bindjson">}})将请求主体绑定到`newAlbum`。
 
 - 将从JSON中初始化的`album`结构追加到`album`切片中。
 
@@ -445,13 +445,13 @@ func getAlbumByID(c *gin.Context) {
 
 在这段代码中，您：
 
-- 使用[Context.Param](https://pkg.go.dev/github.com/gin-gonic/gin#Context.Param)从URL中检索出`id`路径参数。当您把这个处理程序映射到一个路径时，您会在路径中加入一个参数的占位符。
+- 使用[Context.Param]({{< ref "/thirdPkg/gin/gin#context-param">}})从URL中检索出`id`路径参数。当您把这个处理程序映射到一个路径时，您会在路径中加入一个参数的占位符。
 
 - 循环遍历切片中的`album`结构，寻找一个`ID`字段值与`id`参数值相匹配的结构。如果找到了，您就将该`album`结构序列化为JSON，并以`200 OK`的HTTP状态码作为响应返回。
 
   如上所述，现实世界的服务可能会使用数据库查询来执行这一查找。
 
-- 如果没有找到专辑，就用[http.StatusNotFound](https://pkg.go.dev/net/http#StatusNotFound)返回一个HTTP `404` 错误。
+- 如果没有找到专辑，就用[http.StatusNotFound]({{< ref "/stdLib/net/http#常量">}})返回一个HTTP `404` 错误。
 
 b. 最后，更改您的`main`函数，使其包括对`router.GET`的新调用，现在的路径是`/albums/:id`，如以下例子所示。
 

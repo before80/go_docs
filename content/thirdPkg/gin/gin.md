@@ -467,7 +467,7 @@ func CreateTestContextOnly(w http.ResponseWriter, r *Engine) (c *Context)
 
 ​	CreateTestContextOnly函数在engine的基础上返回一个新的用于测试目的上下文。
 
-#### (*Context) [Abort](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L188) 
+#### (*Context) Abort 
 
 ``` go linenums="1"
 func (c *Context) Abort()
@@ -479,7 +479,7 @@ func (c *Context) Abort()
 
 	在这里，"pending handlers" 指的是还没有被调用的后续处理函数。例如，如果你在 Gin 框架中使用了多个中间件，每个中间件都有一个处理函数。那么，这些中间件中尚未执行的处理函数就是 "pending handlers"。在调用 Abort 后，这些 "pending handlers" 将不再被调用。
 
-#### (*Context) [AbortWithError](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L211) 
+#### (*Context) AbortWithError 
 
 ``` go linenums="1"
 func (c *Context) AbortWithError(code int, err error) *Error
@@ -487,7 +487,7 @@ func (c *Context) AbortWithError(code int, err error) *Error
 
 ​	AbortWithError方法在内部调用`AbortWithStatus()`和`Error()`方法。这个方法会中止处理链，写入状态代码，并将指定的错误推送到`c.Errors`中。更多细节见Context.Error()。
 
-#### (*Context) [AbortWithStatus](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L194) 
+#### (*Context) AbortWithStatus 
 
 ``` go linenums="1"
 func (c *Context) AbortWithStatus(code int)
@@ -495,7 +495,7 @@ func (c *Context) AbortWithStatus(code int)
 
 ​	AbortWithStatus方法调用`Abort()`并写入写入指定状态码的响应头。例如，认证请求失败时可以使用：context.AbortWithStatus(401)。
 
-#### (*Context) [AbortWithStatusJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L203) 
+#### (*Context) AbortWithStatusJSON 
 
 ``` go linenums="1"
 func (c *Context) AbortWithStatusJSON(code int, jsonObj any)
@@ -503,7 +503,7 @@ func (c *Context) AbortWithStatusJSON(code int, jsonObj any)
 
 ​	AbortWithStatusJSON方法在内部先调用`Abort()`方法接着调用`JSON()`方法。这个方法中止了请求处理链，写入了指定的 HTTP 状态码并返回一个 JSON 格式的响应体。此外，它还将 Content-Type 响应头设置为 "application/json"。
 
-#### (*Context) [AddParam](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L402) 
+#### (*Context) AddParam 
 
 ``` go linenums="1"
 func (c *Context) AddParam(key, value string)
@@ -515,7 +515,7 @@ func (c *Context) AddParam(key, value string)
 
 	"e2e" 是 "end-to-end" 的缩写，指的是端到端测试。这种测试方式是从用户的角度出发，测试整个软件系统是否能够正确地工作。它涉及到系统的各个组成部分，包括用户界面、服务器端、数据库、网络等等。在软件开发的过程中，端到端测试可以帮助保证整个系统的功能和性能符合预期。
 
-#### (*Context) [AsciiJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L976) 
+#### (*Context) AsciiJSON 
 
 ``` go linenums="1"
 func (c *Context) AsciiJSON(code int, obj any)
@@ -523,7 +523,7 @@ func (c *Context) AsciiJSON(code int, obj any)
 
 ​	AsciiJSON方法将给定的结构体序列化为JSON，并将unicode转为ASCII字符串，放入响应主体。同时，它还将 Content-Type 响应头设置为 "application/json"。
 
-#### (*Context) [Bind](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L629) 
+#### (*Context) Bind 
 
 ``` go linenums="1"
 func (c *Context) Bind(obj any) error
@@ -538,7 +538,7 @@ func (c *Context) Bind(obj any) error
 
 ​	如果Content-Type == "application/json"，它将请求的主体解析为JSON格式，使用JSON或XML作为JSON方法的输入。它将json的有效载荷解码为作为指针指定的结构体。如果输入无效，它会写入一个400错误并在响应中设置Content-Type为"text/plain"。
 
-#### (*Context) [BindHeader](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L660) 
+#### (*Context) BindHeader 
 
 ``` go linenums="1"
 func (c *Context) BindHeader(obj any) error
@@ -546,7 +546,7 @@ func (c *Context) BindHeader(obj any) error
 
 ​	BindHeader方法是c.MustBindWith(obj, binding.Header)的快捷方式。
 
-#### (*Context) [BindJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L635) 
+#### (*Context) BindJSON 
 
 ``` go linenums="1"
 func (c *Context) BindJSON(obj any) error
@@ -554,7 +554,7 @@ func (c *Context) BindJSON(obj any) error
 
 ​	BindJSON方法是c.MustBindWith(obj, binding.JSON)的快捷方式。
 
-#### (*Context) [BindQuery](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L645) 
+#### (*Context) BindQuery 
 
 ``` go linenums="1"
 func (c *Context) BindQuery(obj any) error
@@ -562,7 +562,7 @@ func (c *Context) BindQuery(obj any) error
 
 ​	BindQuery方法是c.MustBindWith(obj, binding.Query)的快捷方式。
 
-#### (*Context) [BindTOML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L655) 
+#### (*Context) BindTOML 
 
 ``` go linenums="1"
 func (c *Context) BindTOML(obj interface{}) error
@@ -570,7 +570,7 @@ func (c *Context) BindTOML(obj interface{}) error
 
 ​	BindTOML方法是c.MustBindWith(obj, binding.TOML)的快捷方式。
 
-#### (*Context) [BindUri](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L666) 
+#### (*Context) BindUri 
 
 ``` go linenums="1"
 func (c *Context) BindUri(obj any) error
@@ -578,7 +578,7 @@ func (c *Context) BindUri(obj any) error
 
 ​	BindUri方法使用binding.Uri来绑定传递的结构体指针。如果发生任何错误，它将以HTTP 400中止请求。
 
-#### (*Context) [BindWith](https://github.com/gin-gonic/gin/blob/v1.9.0/deprecated.go#L15) 
+#### (*Context) BindWith 
 
 ``` go linenums="1"
 func (c *Context) BindWith(obj any, b binding.Binding) error
@@ -586,7 +586,7 @@ func (c *Context) BindWith(obj any, b binding.Binding) error
 
 ​	BindWith方法使用指定的binding engine绑定传递的结构体指针。参见binding 包。
 
-#### (*Context) [BindXML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L640) 
+#### (*Context) BindXML 
 
 ``` go linenums="1"
 func (c *Context) BindXML(obj any) error
@@ -594,7 +594,7 @@ func (c *Context) BindXML(obj any) error
 
 ​	BindXML方法是c.MustBindWith(obj, binding.BindXML)的快捷方式。
 
-#### (*Context) [BindYAML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L650) 
+#### (*Context) BindYAML 
 
 ``` go linenums="1"
 func (c *Context) BindYAML(obj any) error
@@ -602,7 +602,7 @@ func (c *Context) BindYAML(obj any) error
 
 ​	BindYAML方法是c.MustBindWith(obj, binding.YAML)的快捷方式。
 
-#### (*Context) [ClientIP](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L771) 
+#### (*Context) ClientIP 
 
 ``` go linenums="1"
 func (c *Context) ClientIP() string
@@ -610,7 +610,7 @@ func (c *Context) ClientIP() string
 
 ​	ClientIP 方法实现了一个尽力而为的算法来返回真实的客户端 IP。它在内部调用 c.RemoteIP() 来检查远程 IP 是否是可信的代理。如果是，它就会尝试解析 Engine.RemoteIPHeaders 中定义的标头（默认为 [X-Forwarded-For，X-Real-Ip]）。如果标头在语法上无效或远程 IP 不对应于可信代理，则返回来自 Request.RemoteAddr 的远程 IP。
 
-#### (*Context) [ContentType](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L818) 
+#### (*Context) ContentType 
 
 ``` go linenums="1"
 func (c *Context) ContentType() string
@@ -618,7 +618,7 @@ func (c *Context) ContentType() string
 
 ​	ContentType方法返回请求的Content-Type标头。
 
-#### (*Context) [Cookie](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L907) 
+#### (*Context) Cookie 
 
 ``` go linenums="1"
 func (c *Context) Cookie(name string) (string, error)
@@ -626,7 +626,7 @@ func (c *Context) Cookie(name string) (string, error)
 
 ​	Cookie方法返回请求中指定名称的cookie值，如果未找到则返回ErrNoCookie。返回的cookie未经过转义。如果多个cookie与指定名称匹配，则只返回一个cookie。
 
-#### (*Context) [Copy](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L112) 
+#### (*Context) Copy 
 
 ``` go linenums="1"
 func (c *Context) Copy() *Context
@@ -634,7 +634,7 @@ func (c *Context) Copy() *Context
 
 ​	Copy方法返回当前上下文的一个副本，可以安全地在请求范围之外使用。当上下文需要被传递给一个goroutine时，**必须使用**这个方法。
 
-#### (*Context) [Data](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1022) 
+#### (*Context) Data 
 
 ``` go linenums="1"
 func (c *Context) Data(code int, contentType string, data []byte)
@@ -642,7 +642,7 @@ func (c *Context) Data(code int, contentType string, data []byte)
 
 ​	Data 方法将一些数据写入响应体，并更新 HTTP 状态码。
 
-#### (*Context) [DataFromReader](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1030) 
+#### (*Context) DataFromReader 
 
 ``` go linenums="1"
 func (c *Context) DataFromReader(code int, contentLength int64, contentType string, reader io.Reader, extraHeaders map[string]string)
@@ -650,7 +650,7 @@ func (c *Context) DataFromReader(code int, contentLength int64, contentType stri
 
 ​	DataFromReader方法将指定的读取器写入响应体流，并更新 HTTP 状态码。
 
-#### (*Context) [Deadline](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1178) 
+#### (*Context) Deadline 
 
 ``` go linenums="1"
 func (c *Context) Deadline() (deadline time.Time, ok bool)
@@ -658,7 +658,7 @@ func (c *Context) Deadline() (deadline time.Time, ok bool)
 
 ​	当c.Request没有Context时，Deadline方法返回没有最后期限（ok==false）。
 
-#### (*Context) [DefaultPostForm](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L499) 
+#### (*Context) DefaultPostForm 
 
 ``` go linenums="1"
 func (c *Context) DefaultPostForm(key, defaultValue string) string
@@ -671,7 +671,7 @@ func (c *Context) DefaultPostForm(key, defaultValue string) string
     "POST urlencoded form" 是指在 HTTP 请求体中使用 `application/x-www-form-urlencoded` 格式提交的表单数据，通常是通过表单提交、AJAX 等方式将数据提交给服务器。该格式会将数据用 `key1=value1&key2=value2` 的方式进行编码。
     "multipart form" 是指在 HTTP 请求体中使用 `multipart/form-data` 格式提交的表单数据，通常用于上传文件等场景。该格式会将数据分成多个部分，每部分包含一个头部和一个实体。每个实体可以是文本、二进制数据或者文件，多个实体之间用一个特殊的边界分隔符进行分隔。
 
-#### (*Context) [DefaultQuery](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L428) 
+#### (*Context) DefaultQuery 
 
 ``` go linenums="1"
 func (c *Context) DefaultQuery(key, defaultValue string) string
@@ -686,7 +686,7 @@ c.DefaultQuery("id", "none") == "none"
 c.DefaultQuery("lastname", "none") == ""
 ```
 
-#### (*Context) [Done](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1186) 
+#### (*Context) Done 
 
 ``` go linenums="1"
 func (c *Context) Done() <-chan struct{}
@@ -694,7 +694,7 @@ func (c *Context) Done() <-chan struct{}
 
 ​	Done方法在 c.Request 没有 Context 的时候会返回 nil值的通道（它是一个无限等待的通道）。
 
-#### (*Context) [Err](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1194) 
+#### (*Context) Err 
 
 ``` go linenums="1"
 func (c *Context) Err() error
@@ -702,7 +702,7 @@ func (c *Context) Err() error
 
 ​	Err方法在 c.Request 没有 Context 的时候会返回 nil。
 
-#### (*Context) [Error](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L225) 
+#### (*Context) Error 
 
 ``` go linenums="1"
 func (c *Context) Error(err error) *Error
@@ -710,7 +710,7 @@ func (c *Context) Error(err error) *Error
 
 ​	Error方法将一个错误附加到当前上下文。该错误被推送到错误列表中。在处理请求过程中，为每个发生的错误调用Error方法是个好主意。可以用一个中间件来收集所有的错误，并把它们一起推送到数据库中，打印日志，或者将其附加在 HTTP 响应中。如果err为nil，Error方法会引发panic。
 
-#### (*Context) [File](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1040) 
+#### (*Context) File 
 
 ``` go linenums="1"
 func (c *Context) File(filepath string)
@@ -718,7 +718,7 @@ func (c *Context) File(filepath string)
 
 ​	File方法以高效的方式将指定文件写入响应体流中。
 
-#### (*Context) [FileAttachment](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1057) 
+#### (*Context) FileAttachment 
 
 ``` go linenums="1"
 func (c *Context) FileAttachment(filepath, filename string)
@@ -726,7 +726,7 @@ func (c *Context) FileAttachment(filepath, filename string)
 
 ​	FileAttachment方法将指定的文件以高效的方式写入响应主体中。在客户端，通常会使用给定的文件名（filename参数指定的）下载该文件。
 
-#### (*Context) [FileFromFS](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1045) 
+#### (*Context) FileFromFS 
 
 ``` go linenums="1"
 func (c *Context) FileFromFS(filepath string, fs http.FileSystem)
@@ -734,7 +734,7 @@ func (c *Context) FileFromFS(filepath string, fs http.FileSystem)
 
 ​	FileFromFS方法从 http.FileSystem 中读取指定的文件并以高效的方式写入响应体流中。
 
-#### (*Context) [FormFile](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L578) 
+#### (*Context) FormFile 
 
 ``` go linenums="1"
 func (c *Context) FormFile(name string) (*multipart.FileHeader, error)
@@ -742,7 +742,7 @@ func (c *Context) FormFile(name string) (*multipart.FileHeader, error)
 
 ​	FormFile方法返回给定表单键的第一个文件。
 
-#### (*Context) [FullPath](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L160) 
+#### (*Context) FullPath 
 
 ``` go linenums="1"
 func (c *Context) FullPath() string
@@ -756,7 +756,7 @@ router.GET("/user/:id", func(c *gin.Context) {
 })
 ```
 
-#### (*Context) [Get](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L261) 
+#### (*Context) Get 
 
 ``` go linenums="1"
 func (c *Context) Get(key string) (value any, exists bool)
@@ -764,7 +764,7 @@ func (c *Context) Get(key string) (value any, exists bool)
 
 ​	Get方法返回指定键的值，该值存在则返回（value，true）。如果该值不存在，则返回（nil, false）。
 
-#### (*Context) [GetBool](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L285) 
+#### (*Context) GetBool 
 
 ``` go linenums="1"
 func (c *Context) GetBool(key string) (b bool)
@@ -776,7 +776,7 @@ func (c *Context) GetBool(key string) (b bool)
 
 	需要注意的是，如果请求中指定 key 的值不是bool类型，或者该 key 不存在，该方法会返回bool类型的零值。
 
-#### (*Context) [GetDuration](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L341) 
+#### (*Context) GetDuration 
 
 ``` go linenums="1"
 func (c *Context) GetDuration(key string) (d time.Duration)
@@ -788,7 +788,7 @@ func (c *Context) GetDuration(key string) (d time.Duration)
 	需要注意的是，如果请求中指定 key 的值不是time.Duration类型，或者该 key 不存在，该方法会返回time.Duration类型的零值。
 
 
-#### (*Context) [GetFloat64](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L325) 
+#### (*Context) GetFloat64 
 
 ``` go linenums="1"
 func (c *Context) GetFloat64(key string) (f64 float64)
@@ -800,7 +800,7 @@ func (c *Context) GetFloat64(key string) (f64 float64)
 
 	需要注意的是，如果请求中指定 key 的值不是float64类型，或者该 key 不存在，该方法会返回float64类型的零值。
 
-#### (*Context) [GetHeader](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L870) 
+#### (*Context) GetHeader 
 
 ``` go linenums="1"
 func (c *Context) GetHeader(key string) string
@@ -808,7 +808,7 @@ func (c *Context) GetHeader(key string) string
 
 ​	GetHeader方法从请求头信息中获取指定key对应的值。
 
-#### (*Context) [GetInt](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L293) 
+#### (*Context) GetInt 
 
 ``` go linenums="1"
 func (c *Context) GetInt(key string) (i int)
@@ -820,7 +820,7 @@ func (c *Context) GetInt(key string) (i int)
 
 	需要注意的是，如果请求中指定 key 的值不是int类型，或者该 key 不存在，该方法会返回int类型的零值。
 
-#### (*Context) [GetInt64](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L301) 
+#### (*Context) GetInt64 
 
 ``` go linenums="1"
 func (c *Context) GetInt64(key string) (i64 int64)
@@ -832,7 +832,7 @@ func (c *Context) GetInt64(key string) (i64 int64)
 
 	需要注意的是，如果请求中指定 key 的值不是int64类型，或者该 key 不存在，该方法会返回int64类型的零值。
 
-#### (*Context) [GetPostForm](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L514) 
+#### (*Context) GetPostForm 
 
 ``` go linenums="1"
 func (c *Context) GetPostForm(key string) (string, bool)
@@ -853,7 +853,7 @@ email=  -->  ("", true) := GetPostForm("email") // set email to ""
 
 
 
-#### (*Context) [GetPostFormArray](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L543) 
+#### (*Context) GetPostFormArray 
 
 ``` go linenums="1"
 func (c *Context) GetPostFormArray(key string) (values []string, ok bool)
@@ -861,7 +861,7 @@ func (c *Context) GetPostFormArray(key string) (values []string, ok bool)
 
 ​	GetPostFormArray方法根据给定的表单键返回一个字符串切片以及一个布尔值，该布尔值表示给定键是否至少存在一个值。
 
-#### (*Context) [GetPostFormMap](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L557) 
+#### (*Context) GetPostFormMap 
 
 ``` go linenums="1"
 func (c *Context) GetPostFormMap(key string) (map[string]string, bool)
@@ -869,7 +869,7 @@ func (c *Context) GetPostFormMap(key string) (map[string]string, bool)
 
 ​	GetPostFormMap方法根据给定的表单键返回一个映射以及一个布尔值，该布尔值表示给定键是否存在至少一个值。
 
-#### (*Context) [GetQuery](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L444) 
+#### (*Context) GetQuery 
 
 ``` go linenums="1"
 func (c *Context) GetQuery(key string) (string, bool)
@@ -884,7 +884,7 @@ GET /?name=Manu&lastname=
 ("", true) == c.GetQuery("lastname")
 ```
 
-#### (*Context) [GetQueryArray](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L470) 
+#### (*Context) GetQueryArray 
 
 ``` go linenums="1"
 func (c *Context) GetQueryArray(key string) (values []string, ok bool)
@@ -892,7 +892,7 @@ func (c *Context) GetQueryArray(key string) (values []string, ok bool)
 
 ​	GetQueryArray方法根据给定的查询键返回一个字符串切片以及一个布尔值，该布尔值表示给定键是否至少存在一个值。
 
-#### (*Context) [GetQueryMap](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L484) 
+#### (*Context) GetQueryMap 
 
 ``` go linenums="1"
 func (c *Context) GetQueryMap(key string) (map[string]string, bool)
@@ -900,7 +900,7 @@ func (c *Context) GetQueryMap(key string) (map[string]string, bool)
 
 ​	GetQueryMap方法根据给定的查询键返回一个映射以及一个布尔值，该布尔值表示给定键是否存在至少一个值。
 
-#### (*Context) [GetRawData](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L875) 
+#### (*Context) GetRawData 
 
 ``` go linenums="1"
 func (c *Context) GetRawData() ([]byte, error)
@@ -908,7 +908,7 @@ func (c *Context) GetRawData() ([]byte, error)
 
 ​	GetRawData方法获取请求体中的原始数据，返回的是字节切片。
 
-#### (*Context) [GetString](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L277) 
+#### (*Context) GetString 
 
 ``` go linenums="1"
 func (c *Context) GetString(key string) (s string)
@@ -920,7 +920,7 @@ func (c *Context) GetString(key string) (s string)
 
 	需要注意的是，如果请求中指定 key 的值不是string类型，或者该 key 不存在，该方法会返回string类型的零值。
 
-#### (*Context) [GetStringMap](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L357) 
+#### (*Context) GetStringMap 
 
 ``` go linenums="1"
 func (c *Context) GetStringMap(key string) (sm map[string]any)
@@ -932,7 +932,7 @@ func (c *Context) GetStringMap(key string) (sm map[string]any)
 
 	需要注意的是，如果请求中指定 key 的值不是map[string]any类型，或者该 key 不存在，该方法会返回map[string]any类型的零值。
 
-#### (*Context) [GetStringMapString](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L365) 
+#### (*Context) GetStringMapString 
 
 ``` go linenums="1"
 func (c *Context) GetStringMapString(key string) (sms map[string]string)
@@ -944,7 +944,7 @@ func (c *Context) GetStringMapString(key string) (sms map[string]string)
 
 	需要注意的是，如果请求中指定 key 的值不是map[string]string类型，或者该 key 不存在，该方法会返回map[string]string类型的零值。
 
-#### (*Context) [GetStringMapStringSlice](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L373) 
+#### (*Context) GetStringMapStringSlice 
 
 ``` go linenums="1"
 func (c *Context) GetStringMapStringSlice(key string) (smss map[string][]string)
@@ -956,7 +956,7 @@ func (c *Context) GetStringMapStringSlice(key string) (smss map[string][]string)
 
 	需要注意的是，如果请求中指定 key 的值不是map[string][]string类型，或者该 key 不存在，该方法会返回map[string][]string类型的零值。
 
-#### (*Context) [GetStringSlice](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L349) 
+#### (*Context) GetStringSlice 
 
 ``` go linenums="1"
 func (c *Context) GetStringSlice(key string) (ss []string)
@@ -968,7 +968,7 @@ func (c *Context) GetStringSlice(key string) (ss []string)
 
 	需要注意的是，如果请求中指定 key 的值不是[]string类型，或者该 key 不存在，该方法会返回[]string类型的零值。
 
-#### (*Context) [GetTime](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L333) 
+#### (*Context) GetTime 
 
 ``` go linenums="1"
 func (c *Context) GetTime(key string) (t time.Time)
@@ -980,7 +980,7 @@ func (c *Context) GetTime(key string) (t time.Time)
 
 	需要注意的是，如果请求中指定 key 的值不是time.Time类型，或者该 key 不存在，该方法会返回time.Time类型的零值。
 
-#### (*Context) [GetUint](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L309) 
+#### (*Context) GetUint 
 
 ``` go linenums="1"
 func (c *Context) GetUint(key string) (ui uint)
@@ -992,7 +992,7 @@ func (c *Context) GetUint(key string) (ui uint)
 
 	需要注意的是，如果请求中指定 key 的值不是uint类型，或者该 key 不存在，该方法会返回uint类型的零值。
 
-#### (*Context) [GetUint64](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L317) 
+#### (*Context) GetUint64 
 
 ``` go linenums="1"
 func (c *Context) GetUint64(key string) (ui64 uint64)
@@ -1004,7 +1004,7 @@ func (c *Context) GetUint64(key string) (ui64 uint64)
 
 	需要注意的是，如果请求中指定 key 的值不是uint64类型，或者该 key 不存在，该方法会返回uint64类型的零值。
 
-#### (*Context) [HTML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L936) 
+#### (*Context) HTML 
 
 ``` go linenums="1"
 func (c *Context) HTML(code int, name string, obj any)
@@ -1012,7 +1012,7 @@ func (c *Context) HTML(code int, name string, obj any)
 
 ​	HTML方法根据指定的模板文件名渲染 HTTP 模板。它还更新HTTP状态码并将Content-Type设置为"text/html"。参见[http://golang.org/doc/articles/wiki/](http://golang.org/doc/articles/wiki/)。
 
-#### (*Context) [Handler](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L150) 
+#### (*Context) Handler 
 
 ``` go linenums="1"
 func (c *Context) Handler() HandlerFunc
@@ -1020,7 +1020,7 @@ func (c *Context) Handler() HandlerFunc
 
 ​	Handler方法返回主处理程序。
 
-#### (*Context) [HandlerName](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L135) 
+#### (*Context) HandlerName 
 
 ``` go linenums="1"
 func (c *Context) HandlerName() string
@@ -1028,7 +1028,7 @@ func (c *Context) HandlerName() string
 
 ​	HandlerName方法返回主处理程序的名称。例如，如果处理程序是 "handleGetUsers()"，这个方法将返回 "main.handleGetUsers"。
 
-#### (*Context) [HandlerNames](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L141) 
+#### (*Context) HandlerNames 
 
 ``` go linenums="1"
 func (c *Context) HandlerNames() []string
@@ -1036,7 +1036,7 @@ func (c *Context) HandlerNames() []string
 
 ​	HandlerNames方法按照HandlerName()方法的语义，以降序返回该上下文的所有注册处理程序的列表。
 
-#### (*Context) [Header](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L861) 
+#### (*Context) Header 
 
 ``` go linenums="1"
 func (c *Context) Header(key, value string)
@@ -1044,7 +1044,7 @@ func (c *Context) Header(key, value string)
 
 ​	Header方法是c.Writer.Header().Set(key, value)的一个智能快捷方式。它在响应中写了一个头信息。如果 value == ""，该方法将删除用key指定的头信息，相当于调用了`c.Writer.Header().Del(key)`。
 
-#### (*Context) [IndentedJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L945) 
+#### (*Context) IndentedJSON 
 
 ``` go linenums="1"
 func (c *Context) IndentedJSON(code int, obj any)
@@ -1054,7 +1054,7 @@ func (c *Context) IndentedJSON(code int, obj any)
 
 > 警告：我们建议仅在开发过程中使用此方法，因为打印漂亮的JSON更耗费CPU和带宽。请改用Context.JSON()。
 
-#### (*Context) [IsAborted](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L180) 
+#### (*Context) IsAborted 
 
 ``` go linenums="1"
 func (c *Context) IsAborted() bool
@@ -1062,7 +1062,7 @@ func (c *Context) IsAborted() bool
 
 ​	如果当前的上下文被中止了，IsAborted方法返回true。
 
-#### (*Context) [IsWebsocket](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L824) 
+#### (*Context) IsWebsocket 
 
 ``` go linenums="1"
 func (c *Context) IsWebsocket() bool
@@ -1070,7 +1070,7 @@ func (c *Context) IsWebsocket() bool
 
 ​	如果请求头指示客户端正在启动websocket握手，则IsWebsocket方法返回true。
 
-#### (*Context) [JSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L970) 
+#### (*Context) JSON 
 
 ``` go linenums="1"
 func (c *Context) JSON(code int, obj any)
@@ -1078,7 +1078,7 @@ func (c *Context) JSON(code int, obj any)
 
 ​	JSON方法将给定的结构体序列化为JSON，写入响应体。它还将Content-Type设置为"application/json"。
 
-#### (*Context) [JSONP](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L959) 
+#### (*Context) JSONP 
 
 ``` go linenums="1"
 func (c *Context) JSONP(code int, obj any)
@@ -1116,7 +1116,7 @@ func (c *Context) JSONP(code int, obj any)
 >
 > 当浏览器执行到 `<script type="text/javascript" src="http://otherSite.com/jsonp?callback=sayHello"></script>`,就会执行 `http://otherSite.com/jsonp?callback=sayHello`请求，从而从otherSite.com网站中获取到数据，最终又调用到本站点HTML中的sayHello函数。
 
-#### (*Context) [MultipartForm](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L593) 
+#### (*Context) MultipartForm 
 
 ``` go linenums="1"
 func (c *Context) MultipartForm() (*multipart.Form, error)
@@ -1124,7 +1124,7 @@ func (c *Context) MultipartForm() (*multipart.Form, error)
 
 ​	MultipartForm方法获取经过解析的multipart form，包括文件上传。
 
-#### (*Context) [MustBindWith](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L677) 
+#### (*Context) MustBindWith 
 
 ``` go linenums="1"
 func (c *Context) MustBindWith(obj any, b binding.Binding) error
@@ -1132,7 +1132,7 @@ func (c *Context) MustBindWith(obj any, b binding.Binding) error
 
 ​	MustBindWith方法用指定的绑定引擎来绑定传递的结构指针。如果发生任何错误，它将以HTTP 400中止请求。参见binding包。
 
-#### (*Context) [MustGet](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L269) 
+#### (*Context) MustGet 
 
 ``` go linenums="1"
 func (c *Context) MustGet(key string) any
@@ -1142,7 +1142,7 @@ func (c *Context) MustGet(key string) any
 
 > 一般来说，建议在使用 MustGet 方法之前，先使用该 Context 的 Value 方法获取指定 key 对应的值，并对返回值进行类型断言，以确保程序不会抛出异常。
 
-#### (*Context) [Negotiate](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1110) 
+#### (*Context) Negotiate 
 
 ``` go linenums="1"
 func (c *Context) Negotiate(code int, config Negotiate)
@@ -1150,7 +1150,7 @@ func (c *Context) Negotiate(code int, config Negotiate)
 
 ​	Negotiate方法根据可接受的Accept格式调用不同的Render。
 
-#### (*Context) [NegotiateFormat](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1138) 
+#### (*Context) NegotiateFormat 
 
 ``` go linenums="1"
 func (c *Context) NegotiateFormat(offered ...string) string
@@ -1160,7 +1160,7 @@ func (c *Context) NegotiateFormat(offered ...string) string
 
 > `Context.NegotiateFormat()` 方法是用来协商响应数据格式的。它会根据客户端支持的数据格式（`Accept` 请求头）来确定服务器返回的数据格式。在 GIN 框架中，`NegotiateFormat()` 方法会根据客户端请求头的 `Accept` 字段内容来决定采用何种响应数据格式，比如 JSON 或者 XML 等。在调用此方法前，需要先注册相应的渲染函数，例如 JSON 渲染函数和 XML 渲染函数等。如果客户端支持多种数据格式，那么 `NegotiateFormat()` 方法将选择客户端优先级最高的数据格式返回。
 
-#### (*Context) [Next](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L171) 
+#### (*Context) Next 
 
 ``` go linenums="1"
 func (c *Context) Next()
@@ -1209,7 +1209,7 @@ func (c *Context) Next()
 >
 > ​	请注意，我们在路由中使用 `r.Use(AuthMiddleware())` 将 `AuthMiddleware` 中间件注册为路由级别的中间件。这意味着该中间件将在路由处理程序之前执行。当 `AuthMiddleware` 中间件调用 `Next` 方法时，控制流程将继续到 `MyHandler` 处理程序。如果 `AuthMiddleware` 中间件调用 `AbortWithStatus` 方法，则控制流程将不会到达 `MyHandler` 处理程序。
 
-#### (*Context) [Param](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L393) 
+#### (*Context) Param 
 
 ``` go linenums="1"
 func (c *Context) Param(key string) string
@@ -1232,7 +1232,7 @@ router.GET("/user/:id", func(c *gin.Context) {
     `Context.Get(key string)` 方法用于获取请求参数中的值，无论是 `GET` 请求中的查询参数还是 `POST` 请求中的表单参数。
     因此，这两个方法的作用对象不同，一个用于获取路由参数，一个用于获取请求参数。
 
-#### (*Context) [PostForm](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L491) 
+#### (*Context) PostForm 
 
 ``` go linenums="1"
 func (c *Context) PostForm(key string) (value string)
@@ -1242,7 +1242,7 @@ func (c *Context) PostForm(key string) (value string)
 
 > urlencoded form 和 multipart form 的说明，请参照：[DefaultPostForm方法](#context-defaultpostform)
 
-#### (*Context) [PostFormArray](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L523) 
+#### (*Context) PostFormArray 
 
 ``` go linenums="1"
 func (c *Context) PostFormArray(key string) (values []string)
@@ -1276,7 +1276,7 @@ func (c *Context) PostFormArray(key string) (values []string)
 >
 > 这里，`PostFormArray("fruit")` 方法返回一个长度为 3 的字符串切片，包含请求中的所有水果。
 
-#### (*Context) [PostFormMap](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L550) 
+#### (*Context) PostFormMap 
 
 ``` go linenums="1"
 func (c *Context) PostFormMap(key string) (dicts map[string]string)
@@ -1286,7 +1286,7 @@ func (c *Context) PostFormMap(key string) (dicts map[string]string)
 
 > `Context.PostFormMap()` 方法用于获取表单中指定 key 对应的值并以 map 的形式返回，其中 map 中的 key 为表单中指定的 key，value 为相应的 value 值。
 
-#### (*Context) [ProtoBuf](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1003) 
+#### (*Context) ProtoBuf 
 
 ``` go linenums="1"
 func (c *Context) ProtoBuf(code int, obj any)
@@ -1296,7 +1296,7 @@ func (c *Context) ProtoBuf(code int, obj any)
 
 > ProtoBuf 是 Protocol Buffers 的缩写，是 Google 开发的一种轻便高效的结构化数据序列化方法，主要用于数据存储、通信协议等领域。ProtoBuf 通过将结构化的数据序列化为二进制数据，从而实现了高效地数据传输和存储。在 Gin 框架中，ProtoBuf 用于将结构体序列化为 ProtoBuf 格式，然后发送到客户端。这样可以实现更高效的数据传输，同时也提供了一种跨语言的数据交换格式。
 
-#### (*Context) [PureJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L982) 
+#### (*Context) PureJSON 
 
 ``` go linenums="1"
 func (c *Context) PureJSON(code int, obj any)
@@ -1310,7 +1310,7 @@ func (c *Context) PureJSON(code int, obj any)
 >
 > 因此，如果需要在 JSON 数据中包含特殊字符，可以使用 `PureJSON()` 方法。如果不需要，则可以使用 `JSON()` 方法，它会在大多数情况下更加安全。
 
-#### (*Context) [Query](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L415) 
+#### (*Context) Query 
 
 ``` go linenums="1"
 func (c *Context) Query(key string) (value string)
@@ -1326,7 +1326,7 @@ GET /path?id=1234&name=Manu&value=
 	   c.Query("wtf") == ""
 ```
 
-#### (*Context) [QueryArray](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L453) 
+#### (*Context) QueryArray 
 
 ``` go linenums="1"
 func (c *Context) QueryArray(key string) (values []string)
@@ -1345,7 +1345,7 @@ func (c *Context) QueryArray(key string) (values []string)
 >
 > 获取的colors的值为：["red","green","blue"]
 
-#### (*Context) [QueryMap](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L477) 
+#### (*Context) QueryMap 
 
 ``` go linenums="1"
 func (c *Context) QueryMap(key string) (dicts map[string]string)
@@ -1364,7 +1364,7 @@ func (c *Context) QueryMap(key string) (dicts map[string]string)
 >
 > 获取的name的值为：map[string]string{"zw":"30","lx":"66"}
 
-#### (*Context) [Redirect](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1013) 
+#### (*Context) Redirect 
 
 ``` go linenums="1"
 func (c *Context) Redirect(code int, location string)
@@ -1374,7 +1374,7 @@ func (c *Context) Redirect(code int, location string)
 
 > 在 `Context.Redirect()` 方法中，第一个参数是重定向的状态码，例如可以使用 `http.StatusMovedPermanently`，表示永久性重定向；第二个参数是重定向的 URL。
 
-#### (*Context) [RemoteIP](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L809) 
+#### (*Context) RemoteIP 
 
 ``` go linenums="1"
 func (c *Context) RemoteIP() string
@@ -1382,7 +1382,7 @@ func (c *Context) RemoteIP() string
 
 ​	RemoteIP方法从 Request.RemoteAddr 解析 IP，将其标准化并返回 IP（不包括端口）。
 
-#### (*Context) [Render](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L917) 
+#### (*Context) Render 
 
 ``` go linenums="1"
 func (c *Context) Render(code int, r render.Render)
@@ -1390,7 +1390,7 @@ func (c *Context) Render(code int, r render.Render)
 
 ​	Render方法写入响应头并调用 render.Render方法渲染数据。
 
-#### (*Context) [SSEvent](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1067) 
+#### (*Context) SSEvent 
 
 ``` go linenums="1"
 func (c *Context) SSEvent(name string, message any)
@@ -1398,7 +1398,7 @@ func (c *Context) SSEvent(name string, message any)
 
 ​	SSEvent方法将服务器发送事件写入响应体流中。
 
-#### (*Context) [SaveUploadedFile](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L599) 
+#### (*Context) SaveUploadedFile 
 
 ``` go linenums="1"
 func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
@@ -1406,7 +1406,7 @@ func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
 
 ​	SaveUploadedFile方法将表单文件上传到指定的dst。
 
-#### (*Context) [SecureJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L952) 
+#### (*Context) SecureJSON 
 
 ``` go linenums="1"
 func (c *Context) SecureJSON(code int, obj any)
@@ -1416,7 +1416,7 @@ func (c *Context) SecureJSON(code int, obj any)
 
 > 可以通过 Engine.SecureJsonPrefix() 方法，设置防劫持前缀以替换默认的"while(1),"。
 
-#### (*Context) [Set](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L249) 
+#### (*Context) Set 
 
 ``` go linenums="1"
 func (c *Context) Set(key string, value any)
@@ -1424,7 +1424,7 @@ func (c *Context) Set(key string, value any)
 
 ​	Set方法是用来存储一个新的键/值对，专门用于这个上下文。如果之前未使用 c.Keys，则还会惰性初始化。
 
-#### (*Context) [SetAccepted](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1169) 
+#### (*Context) SetAccepted 
 
 ``` go linenums="1"
 func (c *Context) SetAccepted(formats ...string)
@@ -1432,7 +1432,7 @@ func (c *Context) SetAccepted(formats ...string)
 
 ​	SetAccepted方法设置Accept标头数据。
 
-#### (*Context) [SetCookie](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L887) 
+#### (*Context) SetCookie 
 
 ``` go linenums="1"
 func (c *Context) SetCookie(name, value string, maxAge int, path, domain string, secure, httpOnly bool)
@@ -1440,7 +1440,7 @@ func (c *Context) SetCookie(name, value string, maxAge int, path, domain string,
 
 ​	SetCookie方法向 ResponseWriter【一种接口，在下文定义[ResponseWriter接口](#type-responsewriter)】 的标头添加 Set-Cookie 标头。所提供的 cookie 必须具有有效的 Name。无效的 cookie 可能会被静默丢弃。
 
-#### (*Context) [SetSameSite](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L880) 
+#### (*Context) SetSameSite 
 
 ``` go linenums="1"
 func (c *Context) SetSameSite(samesite http.SameSite) {
@@ -1480,7 +1480,7 @@ SetSameSite with cookie
 >
 > 上述代码中，我们使用 http.Cookie 结构体创建了一个名为 "test" 的 Cookie，设置了其值为 "123"，SameSite 属性为 "Lax"，secure 属性为 true，表示只能在 HTTPS 连接中发送。然后，我们通过 http.SetCookie() 方法将该 Cookie 添加到响应头中，并在响应体中返回 "Cookie set!" 字符串。
 
-#### (*Context) [ShouldBind](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L694) 
+#### (*Context) ShouldBind 
 
 ``` go linenums="1"
 func (c *Context) ShouldBind(obj any) error
@@ -1495,7 +1495,7 @@ func (c *Context) ShouldBind(obj any) error
 
 ​	如果 Content-Type == "application/json"，它将请求的主体解析为 JSON，使用 JSON 或 XML 作为 JSON方法输入。将 JSON 负载解码为指定为指针的结构体。类似于 c.Bind()，但是如果输入无效，此方法不会将响应状态码设置为 400 或中止。
 
-#### (*Context) [ShouldBindBodyWith](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L749) 
+#### (*Context) ShouldBindBodyWith 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindBodyWith(obj any, bb binding.BindingBody) (err error)
@@ -1505,7 +1505,7 @@ func (c *Context) ShouldBindBodyWith(obj any, bb binding.BindingBody) (err error
 
 > 注意：此方法在绑定之前读取请求主体。因此，如果只需要调用一次，应使用 ShouldBindWith方法获得更好的性能。
 
-#### (*Context) [ShouldBindHeader](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L725) 
+#### (*Context) ShouldBindHeader 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindHeader(obj any) error
@@ -1513,7 +1513,7 @@ func (c *Context) ShouldBindHeader(obj any) error
 
 ​	ShouldBindHeader方法是 c.ShouldBindWith(obj, binding.Header) 的快捷方式。
 
-#### (*Context) [ShouldBindJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L700) 
+#### (*Context) ShouldBindJSON 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindJSON(obj any) error
@@ -1521,7 +1521,7 @@ func (c *Context) ShouldBindJSON(obj any) error
 
 ​	ShouldBindJSON方法是 c.ShouldBindWith(obj, binding.JSON) 的快捷方式。
 
-#### (*Context) [ShouldBindQuery](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L710) 
+#### (*Context) ShouldBindQuery 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindQuery(obj any) error
@@ -1529,7 +1529,7 @@ func (c *Context) ShouldBindQuery(obj any) error
 
 ​	ShouldBindQuery方法是 c.ShouldBindWith(obj, binding.Query) 的快捷方式。
 
-#### (*Context) [ShouldBindTOML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L720) 
+#### (*Context) ShouldBindTOML 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindTOML(obj interface{}) error
@@ -1537,7 +1537,7 @@ func (c *Context) ShouldBindTOML(obj interface{}) error
 
 ​	ShouldBindTOML方法是 c.ShouldBindWith(obj, binding.TOML) 的快捷方式。
 
-#### (*Context) [ShouldBindUri](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L730) 
+#### (*Context) ShouldBindUri 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindUri(obj any) error
@@ -1545,7 +1545,7 @@ func (c *Context) ShouldBindUri(obj any) error
 
 ​	ShouldBindUri方法使用指定的binding引擎绑定传递的结构体指针。
 
-#### (*Context) [ShouldBindWith](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L740) 
+#### (*Context) ShouldBindWith 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindWith(obj any, b binding.Binding) error
@@ -1553,7 +1553,7 @@ func (c *Context) ShouldBindWith(obj any, b binding.Binding) error
 
 ​	ShouldBindWith方法使用指定的binding引擎绑定传递的结构体指针。请参阅binding包。
 
-#### (*Context) [ShouldBindXML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L705) 
+#### (*Context) ShouldBindXML 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindXML(obj any) error
@@ -1561,7 +1561,7 @@ func (c *Context) ShouldBindXML(obj any) error
 
 ​	ShouldBindXML方法是 c.ShouldBindWith(obj, binding.XML) 的快捷方式。
 
-#### (*Context) [ShouldBindYAML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L715) 
+#### (*Context) ShouldBindYAML 
 
 ``` go linenums="1"
 func (c *Context) ShouldBindYAML(obj any) error
@@ -1569,7 +1569,7 @@ func (c *Context) ShouldBindYAML(obj any) error
 
 ​	ShouldBindYAML方法是 c.ShouldBindWith(obj, binding.YAML) 的快捷方式。
 
-#### (*Context) [Status](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L854) 
+#### (*Context) Status 
 
 ``` go linenums="1"
 func (c *Context) Status(code int)
@@ -1577,7 +1577,7 @@ func (c *Context) Status(code int)
 
 ​	Status方法设置HTTP响应状态码。
 
-#### (*Context) [Stream](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1076) 
+#### (*Context) Stream 
 
 ``` go linenums="1"
 func (c *Context) Stream(step func(w io.Writer) bool) bool
@@ -1585,7 +1585,7 @@ func (c *Context) Stream(step func(w io.Writer) bool) bool
 
 ​	Stream方法发送流式响应，并返回一个布尔值，指示“客户端在流程中是否断开连接”。
 
-#### (*Context) [String](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1008) 
+#### (*Context) String 
 
 ``` go linenums="1"
 func (c *Context) String(code int, format string, values ...any)
@@ -1593,7 +1593,7 @@ func (c *Context) String(code int, format string, values ...any)
 
 ​	String方法将给定的字符串写入响应体中。
 
-#### (*Context) [TOML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L998) 
+#### (*Context) TOML 
 
 ``` go linenums="1"
 func (c *Context) TOML(code int, obj interface{})
@@ -1601,7 +1601,7 @@ func (c *Context) TOML(code int, obj interface{})
 
 ​	TOML方法将给定的结构体序列化为 TOML，并将其写入响应正文中。
 
-#### (*Context) [Value](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L1204) 
+#### (*Context) Value 
 
 ``` go linenums="1"
 func (c *Context) Value(key any) any
@@ -1609,7 +1609,7 @@ func (c *Context) Value(key any) any
 
 ​	Value方法返回与该上下文关联的键 key 的值，如果没有与该 key 关联的值，则返回nil。用相同的key连续调用Value方法将返回相同的结果。
 
-#### (*Context) [XML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L988) 
+#### (*Context) XML 
 
 ``` go linenums="1"
 func (c *Context) XML(code int, obj any)
@@ -1617,7 +1617,7 @@ func (c *Context) XML(code int, obj any)
 
 ​	XML方法将给定的结构体序列化为 XML，并将 Content-Type 设置为 "application/xml"。
 
-#### (*Context) [YAML](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L993) 
+#### (*Context) YAML 
 
 ``` go linenums="1"
 func (c *Context) YAML(code int, obj any)
@@ -1749,7 +1749,7 @@ func New() *Engine
 
 
 
-#### (*Engine) [Delims](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L239) 
+#### (*Engine) Delims 
 
 ``` go linenums="1"
 func (engine *Engine) Delims(left, right string) *Engine
@@ -1757,7 +1757,7 @@ func (engine *Engine) Delims(left, right string) *Engine
 
 ​	Delims方法设置模板的左右定界符并返回一个 Engine 实例。
 
-#### (*Engine) [HandleContext](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L584) 
+#### (*Engine) HandleContext 
 
 ``` go linenums="1"
 func (engine *Engine) HandleContext(c *Context)
@@ -1765,13 +1765,13 @@ func (engine *Engine) HandleContext(c *Context)
 
 ​	HandleContext方法重新进入已被重写的上下文。可以通过将 c.Request.URL.Path 设置为新目标来实现。免责声明：您可以通过循环处理此问题，请明智使用。
 
-#### (*Engine) [Handler](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L223) 
+#### (*Engine) Handler 
 
 ``` go linenums="1"
 func (engine *Engine) Handler() http.Handler
 ```
 
-#### (*Engine) [LoadHTMLFiles](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L268) 
+#### (*Engine) LoadHTMLFiles 
 
 ``` go linenums="1"
 func (engine *Engine) LoadHTMLFiles(files ...string)
@@ -1779,7 +1779,7 @@ func (engine *Engine) LoadHTMLFiles(files ...string)
 
 ​	LoadHTMLFiles方法加载一组 HTML 文件并将结果与 HTML 渲染器关联。
 
-#### (*Engine) [LoadHTMLGlob](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L252) 
+#### (*Engine) LoadHTMLGlob 
 
 ``` go linenums="1"
 func (engine *Engine) LoadHTMLGlob(pattern string)
@@ -1787,7 +1787,7 @@ func (engine *Engine) LoadHTMLGlob(pattern string)
 
 ​	LoadHTMLGlob方法加载由 glob 模式识别的 HTML 文件并将结果与 HTML 渲染器关联。
 
-#### (*Engine) [NoMethod](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L299) 
+#### (*Engine) NoMethod 
 
 ``` go linenums="1"
 func (engine *Engine) NoMethod(handlers ...HandlerFunc)
@@ -1795,7 +1795,7 @@ func (engine *Engine) NoMethod(handlers ...HandlerFunc)
 
 NoMethod 设置当 Engine.HandleMethodNotAllowed 为 true 时的处理程序。
 
-#### (*Engine) [NoRoute](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L293) 
+#### (*Engine) NoRoute 
 
 ``` go linenums="1"
 func (engine *Engine) NoRoute(handlers ...HandlerFunc)
@@ -1834,7 +1834,7 @@ func (engine *Engine) NoRoute(handlers ...HandlerFunc)
 >
 > 在上面的示例代码中，`NoRoute()` 方法设置了一个处理函数，该函数返回 404 Not Found 的 JSON 格式数据。当用户访问未定义的路由时，Gin 框架会调用该处理函数，返回 404 状态码和相应的 JSON 数据。而当用户访问 `/hello` 路由时，则会调用该路由的处理函数，返回 Hello Gin! 的 JSON 数据。
 
-#### (*Engine) [Routes](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L349) 
+#### (*Engine) Routes 
 
 ``` go linenums="1"
 func (engine *Engine) Routes() (routes RoutesInfo)
@@ -1842,7 +1842,7 @@ func (engine *Engine) Routes() (routes RoutesInfo)
 
 ​	Routes方法返回已注册路由的切片，包括一些有用的信息，如 HTTP 方法、路径和处理程序名称。
 
-#### (*Engine) [Run](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L376) 
+#### (*Engine) Run 
 
 ``` go linenums="1"
 func (engine *Engine) Run(addr ...string) (err error)
@@ -1850,7 +1850,7 @@ func (engine *Engine) Run(addr ...string) (err error)
 
 ​	Run方法将路由器附加到 http.Server 上并开始侦听和服务 HTTP 请求。这是 http.ListenAndServe(addr, router) 的快捷方式。注意：除非出现错误，否则此方法将无限期地阻塞调用 goroutine。
 
-#### (*Engine) [RunFd](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L535) 
+#### (*Engine) RunFd 
 
 ``` go linenums="1"
 func (engine *Engine) RunFd(fd int) (err error)
@@ -1858,7 +1858,7 @@ func (engine *Engine) RunFd(fd int) (err error)
 
 ​	RunFd方法将路由器附加到 http.Server 上并开始通过指定的文件描述符侦听和服务 HTTP 请求。注意：除非出现错误，否则此方法将无限期地阻塞调用 goroutine。
 
-#### (*Engine) [RunListener](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L556) 
+#### (*Engine) RunListener 
 
 ``` go linenums="1"
 func (engine *Engine) RunListener(listener net.Listener) (err error)
@@ -1866,7 +1866,7 @@ func (engine *Engine) RunListener(listener net.Listener) (err error)
 
 ​	RunListener方法将路由器附加到 http.Server 上并开始通过指定的 net.Listener 侦听和服务 HTTP 请求。
 
-#### (*Engine) [RunTLS](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L496) 
+#### (*Engine) RunTLS 
 
 ``` go linenums="1"
 func (engine *Engine) RunTLS(addr, certFile, keyFile string) (err error)
@@ -1874,7 +1874,7 @@ func (engine *Engine) RunTLS(addr, certFile, keyFile string) (err error)
 
 ​	RunTLS方法将路由器附加到 http.Server 上并开始侦听和服务 HTTPS（安全）请求。这是 http.ListenAndServeTLS(addr, certFile, keyFile, router) 的快捷方式。注意：除非出现错误，否则此方法将无限期地阻塞调用 goroutine。
 
-#### (*Engine) [RunUnix](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L512) 
+#### (*Engine) RunUnix 
 
 ``` go linenums="1"
 func (engine *Engine) RunUnix(file string) (err error)
@@ -1882,7 +1882,7 @@ func (engine *Engine) RunUnix(file string) (err error)
 
 ​	RunUnix方法将路由器附加到 http.Server 上并开始通过指定的 Unix 套接字（即文件）侦听和服务 HTTP 请求。注意：除非出现错误，否则此方法将无限期地阻塞调用 goroutine。
 
-#### (*Engine) [SecureJsonPrefix](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L245) 
+#### (*Engine) SecureJsonPrefix 
 
 ``` go linenums="1"
 func (engine *Engine) SecureJsonPrefix(prefix string) *Engine
@@ -1890,7 +1890,7 @@ func (engine *Engine) SecureJsonPrefix(prefix string) *Engine
 
 ​	SecureJsonPrefix方法设置在 Context.SecureJSON()方法中使用的 secureJSONPrefix。
 
-#### (*Engine) [ServeHTTP](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L570) 
+#### (*Engine) ServeHTTP 
 
 ``` go linenums="1"
 func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request)
@@ -1931,7 +1931,7 @@ ServeHTTP方法符合 http.Handler 接口。
 >
 > ​	当请求到达服务器时，HTTP Server 会调用 `r.ServeHTTP()` 方法，该方法会将请求交给 `gin` 引擎实例 `r` 进行处理，`r` 会根据请求的 URL 和 HTTP 方法选择合适的路由进行处理，并将请求交给对应的中间件和处理函数来处理。在本例中，当用户访问根路由时，`r` 会将请求交给我们定义的处理函数，处理函数会返回一个包含 `Hello, World!` 字符串的响应。最后，`http.ListenAndServe()` 方法会将响应发送给客户端。
 
-#### (*Engine) [SetFuncMap](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L288) 
+#### (*Engine) SetFuncMap 
 
 ``` go linenums="1"
 func (engine *Engine) SetFuncMap(funcMap template.FuncMap)
@@ -1939,7 +1939,7 @@ func (engine *Engine) SetFuncMap(funcMap template.FuncMap)
 
 ​	SetFuncMap方法设置用于 template.FuncMap 的 FuncMap。
 
-#### (*Engine) [SetHTMLTemplate](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L279) 
+#### (*Engine) SetHTMLTemplate 
 
 ``` go linenums="1"
 func (engine *Engine) SetHTMLTemplate(templ *template.Template)
@@ -1947,7 +1947,7 @@ func (engine *Engine) SetHTMLTemplate(templ *template.Template)
 
 ​	SetHTMLTemplate方法将模板与 HTML 渲染器关联。
 
-#### (*Engine) [SetTrustedProxies](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L427) 
+#### (*Engine) SetTrustedProxies 
 
 ``` go linenums="1"
 func (engine *Engine) SetTrustedProxies(trustedProxies []string) error
@@ -1955,7 +1955,7 @@ func (engine *Engine) SetTrustedProxies(trustedProxies []string) error
 
 ​	SetTrustedProxies方法设置一个网络来源列表（IPv4 地址、IPv4 CIDR、IPv6 地址或 IPv6 CIDR），当 `(*gin.Engine).ForwardedByClientIP` 为 `true` 时，用于信任包含备用客户端 IP 的请求标头。`TrustedProxies` 功能默认已启用，并且默认情况下还信任所有代理。如果要禁用此功能，请使用 Engine.SetTrustedProxies(nil)，然后 Context.ClientIP() 将直接返回远程地址。
 
-#### (*Engine) [Use](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L307) 
+#### (*Engine) Use 
 
 ``` go linenums="1"
 func (engine *Engine) Use(middleware ...HandlerFunc) IRoutes
@@ -1975,7 +1975,7 @@ type Error struct {
 
 ​	Error 表示一个错误的规范。 
 
-#### (Error) [Error](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L84) 
+#### (Error) Error 
 
 ``` go linenums="1"
 func (msg Error) Error() string
@@ -1983,7 +1983,7 @@ func (msg Error) Error() string
 
 ​	Error方法实现了error 接口。
 
-#### (*Error) [IsType](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L89) 
+#### (*Error) IsType 
 
 ``` go linenums="1"
 func (msg *Error) IsType(flags ErrorType) bool
@@ -1991,7 +1991,7 @@ func (msg *Error) IsType(flags ErrorType) bool
 
 ​	IsType方法判断一个错误。
 
-#### (*Error) [JSON](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L57) 
+#### (*Error) JSON 
 
 ``` go linenums="1"
 func (msg *Error) JSON() any
@@ -1999,7 +1999,7 @@ func (msg *Error) JSON() any
 
 ​	JSON方法创建一个正确格式的JSON。
 
-#### (*Error) [MarshalJSON](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L79) 
+#### (*Error) MarshalJSON 
 
 ``` go linenums="1"
 func (msg *Error) MarshalJSON() ([]byte, error)
@@ -2007,7 +2007,7 @@ func (msg *Error) MarshalJSON() ([]byte, error)
 
 ​	MarshalJSON方法实现了json.Marshaller接口。
 
-#### (*Error) [SetMeta](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L51) 
+#### (*Error) SetMeta 
 
 ``` go linenums="1"
 func (msg *Error) SetMeta(data any) *Error
@@ -2015,7 +2015,7 @@ func (msg *Error) SetMeta(data any) *Error
 
 ​	SetMeta方法设置错误的元数据。
 
-#### (*Error) [SetType](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L45) 
+#### (*Error) SetType 
 
 ``` go linenums="1"
 func (msg *Error) SetType(flags ErrorType) *Error
@@ -2023,7 +2023,7 @@ func (msg *Error) SetType(flags ErrorType) *Error
 
 ​	SetType方法设置错误的类型。
 
-#### (*Error) [Unwrap](https://github.com/gin-gonic/gin/blob/v1.9.0/errors.go#L94) 
+#### (*Error) Unwrap 
 
 ``` go linenums="1"
 func (msg *Error) Unwrap() error
@@ -2064,7 +2064,7 @@ type H map[string]any
 
 ​	H 是 map[string]interface{}类型的简称（别名）。 
 
-#### (H) [MarshalXML](https://github.com/gin-gonic/gin/blob/v1.9.0/utils.go#L57) 
+#### (H) MarshalXML 
 
 ``` go linenums="1"
 func (h H) MarshalXML(e *xml.Encoder, start xml.StartElement) error
@@ -2208,7 +2208,7 @@ type HandlersChain []HandlerFunc
 
 ​	HandlersChain类型定义了一个HandlerFunc切片。
 
-#### (HandlersChain) [Last](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L54) 
+#### (HandlersChain) Last 
 
 ``` go linenums="1"
 func (c HandlersChain) Last() HandlerFunc
@@ -2292,7 +2292,7 @@ type LogFormatterParams struct {
 
 ​	LogFormatterParams是任何格式化程序在记录日志时将要使用的结构体。 
 
-#### (*LogFormatterParams) [IsOutputColor](https://github.com/gin-gonic/gin/blob/v1.9.0/logger.go#L127) 
+#### (*LogFormatterParams) IsOutputColor 
 
 ``` go linenums="1"
 func (p *LogFormatterParams) IsOutputColor() bool
@@ -2300,7 +2300,7 @@ func (p *LogFormatterParams) IsOutputColor() bool
 
 ​	IsOutputColor方法表示是否可以在日志中输出颜色。
 
-#### (*LogFormatterParams) [MethodColor](https://github.com/gin-gonic/gin/blob/v1.9.0/logger.go#L98) 
+#### (*LogFormatterParams) MethodColor 
 
 ``` go linenums="1"
 func (p *LogFormatterParams) MethodColor() string
@@ -2308,7 +2308,7 @@ func (p *LogFormatterParams) MethodColor() string
 
 ​	MethodColor方法是用于在终端中适当记录HTTP方法的ANSI颜色。。
 
-#### (*LogFormatterParams) [ResetColor](https://github.com/gin-gonic/gin/blob/v1.9.0/logger.go#L122) 
+#### (*LogFormatterParams) ResetColor 
 
 ``` go linenums="1"
 func (p *LogFormatterParams) ResetColor() string
@@ -2316,7 +2316,7 @@ func (p *LogFormatterParams) ResetColor() string
 
 ​	ResetColor方法重置所有转义属性。
 
-#### (*LogFormatterParams) [StatusCodeColor](https://github.com/gin-gonic/gin/blob/v1.9.0/logger.go#L82) 
+#### (*LogFormatterParams) StatusCodeColor 
 
 ``` go linenums="1"
 func (p *LogFormatterParams) StatusCodeColor() string
@@ -2379,7 +2379,7 @@ type Params []Param
 
 ​	Params 是一个 Param 切片，由路由器返回。该切片是有序的，第一个 URL 参数也是第一个切片值。因此，可以通过索引安全地读取值。
 
-#### (Params) [ByName](https://github.com/gin-gonic/gin/blob/v1.9.0/tree.go#L47) 
+#### (Params) ByName 
 
 ``` go linenums="1"
 func (ps Params) ByName(name string) (va string)
@@ -2387,7 +2387,7 @@ func (ps Params) ByName(name string) (va string)
 
 ​	ByName方法返回与给定名称匹配的第一个Param的值。如果找不到匹配的Param，则返回空字符串。
 
-#### (Params) [Get](https://github.com/gin-gonic/gin/blob/v1.9.0/tree.go#L36) 
+#### (Params) Get 
 
 ``` go linenums="1"
 func (ps Params) Get(name string) (string, bool)
@@ -2459,7 +2459,7 @@ type RouterGroup struct {
 
 ​		RouterGroup结构体用于内部配置路由器，每个 RouterGroup 关联一个前缀和一组处理函数（中间件）。
 
-#### (*RouterGroup) [Any](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L147) 
+#### (*RouterGroup) Any 
 
 ``` go linenums="1"
 func (group *RouterGroup) Any(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2467,7 +2467,7 @@ func (group *RouterGroup) Any(relativePath string, handlers ...HandlerFunc) IRou
 
 ​	Any方法注册一个匹配所有HTTP方法的路由。GET、POST、PUT、PATCH、HEAD、OPTIONS、DELETE、CONNECT、TRACE。
 
-#### (*RouterGroup) [BasePath](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L82) 
+#### (*RouterGroup) BasePath 
 
 ``` go linenums="1"
 func (group *RouterGroup) BasePath() string
@@ -2475,7 +2475,7 @@ func (group *RouterGroup) BasePath() string
 
 ​	BasePath方法返回路由组的基础路径。例如，如果v:=router.Group("/rest/n/v1/api")，v.BasePath()将返回"/rest/n/v1/api"。
 
-#### (*RouterGroup) [DELETE](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L121) 
+#### (*RouterGroup) DELETE 
 
 ``` go linenums="1"
 func (group *RouterGroup) DELETE(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2483,7 +2483,7 @@ func (group *RouterGroup) DELETE(relativePath string, handlers ...HandlerFunc) I
 
 ​	DELETE方法是router.Handle("DELETE", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [GET](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L116) 
+#### (*RouterGroup) GET 
 
 ``` go linenums="1"
 func (group *RouterGroup) GET(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2491,7 +2491,7 @@ func (group *RouterGroup) GET(relativePath string, handlers ...HandlerFunc) IRou
 
 ​	GET方法是router.Handle("GET", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [Group](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L72) 
+#### (*RouterGroup) Group 
 
 ``` go linenums="1"
 func (group *RouterGroup) Group(relativePath string, handlers ...HandlerFunc) *RouterGroup
@@ -2499,7 +2499,7 @@ func (group *RouterGroup) Group(relativePath string, handlers ...HandlerFunc) *R
 
 ​	Group方法创建一个新的路由组。您应该添加所有具有常见中间件或相同路径前缀的路由。例如，所有使用公共授权中间件的路由都可以被分组。
 
-#### (*RouterGroup) [HEAD](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L141) 
+#### (*RouterGroup) HEAD 
 
 ``` go linenums="1"
 func (group *RouterGroup) HEAD(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2507,7 +2507,7 @@ func (group *RouterGroup) HEAD(relativePath string, handlers ...HandlerFunc) IRo
 
 ​	HEAD方法是router.Handle("HEAD", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [Handle](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L103) 
+#### (*RouterGroup) Handle 
 
 ``` go linenums="1"
 func (group *RouterGroup) Handle(httpMethod, relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2519,7 +2519,7 @@ func (group *RouterGroup) Handle(httpMethod, relativePath string, handlers ...Ha
 
 ​	此方法用于批量加载和允许使用不太频繁使用的、非标准化的或自定义方法（例如，用于与代理的内部通信）。
 
-#### (*RouterGroup) [Match](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L156) 
+#### (*RouterGroup) Match 
 
 ``` go linenums="1"
 func (group *RouterGroup) Match(methods []string, relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2527,7 +2527,7 @@ func (group *RouterGroup) Match(methods []string, relativePath string, handlers 
 
 ​	Match方法方法注册一个匹配指定method的路由。
 
-#### (*RouterGroup) [OPTIONS](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L136) 
+#### (*RouterGroup) OPTIONS 
 
 ``` go linenums="1"
 func (group *RouterGroup) OPTIONS(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2535,7 +2535,7 @@ func (group *RouterGroup) OPTIONS(relativePath string, handlers ...HandlerFunc) 
 
 ​	OPTIONS方法是router.Handle("OPTIONS", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [PATCH](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L126) 
+#### (*RouterGroup) PATCH 
 
 ``` go linenums="1"
 func (group *RouterGroup) PATCH(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2543,7 +2543,7 @@ func (group *RouterGroup) PATCH(relativePath string, handlers ...HandlerFunc) IR
 
 ​	PATCH方法是router.Handle("PATCH", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [POST](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L111) 
+#### (*RouterGroup) POST 
 
 ``` go linenums="1"
 func (group *RouterGroup) POST(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2551,7 +2551,7 @@ func (group *RouterGroup) POST(relativePath string, handlers ...HandlerFunc) IRo
 
 ​	POST方法是router.Handle("POST", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [PUT](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L131) 
+#### (*RouterGroup) PUT 
 
 ``` go linenums="1"
 func (group *RouterGroup) PUT(relativePath string, handlers ...HandlerFunc) IRoutes
@@ -2559,7 +2559,7 @@ func (group *RouterGroup) PUT(relativePath string, handlers ...HandlerFunc) IRou
 
 ​	PUT方法是router.Handle("PUT", path, handlers)的快捷方式。
 
-#### (*RouterGroup) [Static](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L197) 
+#### (*RouterGroup) Static 
 
 ``` go linenums="1"
 func (group *RouterGroup) Static(relativePath, root string) IRoutes
@@ -2571,7 +2571,7 @@ func (group *RouterGroup) Static(relativePath, root string) IRoutes
 router.Static("/static", "/var/www")
 ```
 
-#### (*RouterGroup) [StaticFS](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L203) 
+#### (*RouterGroup) StaticFS 
 
 ``` go linenums="1"
 func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) IRoutes
@@ -2579,7 +2579,7 @@ func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) IRou
 
 ​	StaticFS方法的用法与Static()相同，但可以使用自定义的http.FileSystem。Gin默认使用gin.Dir()。
 
-#### (*RouterGroup) [StaticFile](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L166) 
+#### (*RouterGroup) StaticFile 
 
 ``` go linenums="1"
 func (group *RouterGroup) StaticFile(relativePath, filepath string) IRoutes
@@ -2587,7 +2587,7 @@ func (group *RouterGroup) StaticFile(relativePath, filepath string) IRoutes
 
 ​	StaticFile方法会注册一个路由，以便于用于服务本地文件系统中的单个文件。例如：`router.StaticFile("favicon.ico", "./resources/favicon.ico")`。
 
-#### (*RouterGroup) [StaticFileFS](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L175) 
+#### (*RouterGroup) StaticFileFS 
 
 ``` go linenums="1"
 func (group *RouterGroup) StaticFileFS(relativePath, filepath string, fs http.FileSystem) IRoutes
@@ -2595,7 +2595,7 @@ func (group *RouterGroup) StaticFileFS(relativePath, filepath string, fs http.Fi
 
 ​	StaticFileFS方法的用法与StaticFile方法相同，但可以使用自定义的http.FileSystem。例如：`router.StaticFileFS("favicon.ico", "./resources/favicon.ico", Dir{".", false})`。 Gin默认使用`gin.Dir()`。
 
-#### (*RouterGroup) [Use](https://github.com/gin-gonic/gin/blob/v1.9.0/routergroup.go#L65) 
+#### (*RouterGroup) Use 
 
 ``` go linenums="1"
 func (group *RouterGroup) Use(middleware ...HandlerFunc) IRoutes
