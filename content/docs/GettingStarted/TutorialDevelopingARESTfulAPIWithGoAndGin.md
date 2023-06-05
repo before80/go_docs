@@ -10,7 +10,7 @@ draft = false
 
 > 原文：[https://go.dev/doc/tutorial/web-service-gin](https://go.dev/doc/tutorial/web-service-gin)
 
-​	本教程介绍了用Go和[Gin Web 框架](https://gin-gonic.com/docs/)（Gin）编写RESTful Web服务API的基础知识。
+​	本教程介绍了用Go和[Gin Web 框架]({{< ref "/thirdPkg/gin/gin">}})（Gin）编写RESTful Web服务API的基础知识。
 
 ​	如果您对Go及其工具有基本的了解，您会从本教程中得到最大的收获。如果这是您第一次接触Go，请参阅[Tutorial: Get started with Go](../TutorialGetStartedWithGo)的快速介绍。
 
@@ -151,7 +151,7 @@ var albums = []album{
 - 准备一个响应的逻辑
 - 将请求路径映射到逻辑代码
 
-请注意，这与它们在运行时的执行方式相反，但您首先要添加依赖关系，然后是依赖它们的代码。
+请注意，这与它们在运行时的执行方式相反，但您首先要添加依赖项，然后是依赖它们的代码。
 
 #### 编写代码
 
@@ -346,11 +346,7 @@ $ go run .
 c. 在另一个命令行窗口中，使用`curl`向正在运行的网络服务发出请求。
 
 ```shell
-$ curl http://localhost:8080/albums \
-    --include \
-    --header "Content-Type: application/json" \
-    --request "POST" \
-    --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
+$ curl http://localhost:8080/albums --include --header "Content-Type: application/json" --request "POST" --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
 ```
 
 该命令应该为添加的专辑显示 响应头和 JSON。
@@ -372,9 +368,7 @@ Content-Length: 116
 d. 和上一节一样，使用`curl`检索完整的专辑列表，您可以用它来确认新专辑是否被添加。
 
 ```shell
-$ curl http://localhost:8080/albums \
-    --header "Content-Type: application/json" \
-    --request "GET"
+$ curl http://localhost:8080/albums --header "Content-Type: application/json" --request "GET"
 ```
 
 该命令应该显示专辑列表：
@@ -503,9 +497,9 @@ $ curl http://localhost:8080/albums/2
 
 建议的下一个主题：
 
-- 如果您是Go的新手，您会在[Effective Go](https://go.dev/doc/effective_go)和[How to write Go code](https://go.dev/doc/code)中找到有用的最佳实践。
-- [Go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的循序渐进的介绍。
-- 关于Gin的更多信息，请参见[Gin Web Framework package documentation](https://pkg.go.dev/github.com/gin-gonic/gin)或[Gin Web Framework docs](https://gin-gonic.com/docs/)。
+- 如果您是Go的新手，您会在[Effective Go]({{< ref "/docs/UsingAndUnderstandingGo/EffectiveGo">}})和[如何编写 go 代码](../HowToWriteGoCode)中找到有用的最佳实践。
+- [go Tour]({{< ref "/docs/GoTour">}})是对Go基础知识的一个很好的循序渐进的介绍。
+- 关于Gin的更多信息，请参见[Gin Web Framework package documentation]({{ ref "/thirdPkg/gin/gin"}})或[Gin Web Framework docs](https://gin-gonic.com/docs/)。
 
 ## 完整的代码 
 

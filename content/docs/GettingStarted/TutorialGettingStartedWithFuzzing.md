@@ -18,16 +18,16 @@ draft = false
 
 您将通过以下几个部分取得进展：
 
-1. [为您的代码创建一个文件夹](#create-a-folder-for-your-code)。
-3. [添加要测试的代码](#add-code-to-test)。
-4. [添加一个单元测试](#add-a-unit-test)。
-5. [添加一个模糊测试](#add-a-fuzz-test)。
-6. [修复两个bug](#fix-the-invalid-string-error)。
-7. [探索其他资源](#conclusion)。
+1. [为您的代码创建一个文件夹](#为您的代码创建一个文件夹)。
+3. [添加测试代码](#添加测试代码)。
+4. [添加一个单元测试](#添加一个单元测试)。
+5. [添加一个模糊测试](#添加一个模糊测试)。
+6. [修复两个bug](#修复无效字符串的错误)。
+7. [探索其他资源](#总结)。
 
 注意：关于其他教程，请参见 [Tutorials](../Tutorials)。
 
-> 注意：Go模糊测试目前支持[Go模糊测试文档](../../UsingAndUnderstandingGo/Fuzzing#requirements)中列出的内置类型子集，未来将增加对更多内置类型的支持。
+> 注意：Go模糊测试目前支持[Go模糊测试文档](../../UsingAndUnderstandingGo/Fuzzing#要求)中列出的内置类型子集，未来将增加对更多内置类型的支持。
 
 ## 前提条件
 
@@ -72,7 +72,7 @@ $ go mod init example/fuzz
 go: creating new go.mod: module example/fuzz
 ```
 
-注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请务必参阅[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#naming-a-module)。
+注意：对于生产代码，您可以根据自己的需要指定一个更具体的模块路径。更多信息，请务必参阅[管理依赖项](../../UsingAndUnderstandingGo/ManagingDependencies#命名一个模块)。
 
 ​	接下来，您将添加一些简单的代码来反转一个字符串，我们稍后将对其进行模糊处理。
 
@@ -324,7 +324,7 @@ FAIL    example/fuzz  0.016s
 
 ​	在本教程中，我们将把有用的调试信息记录到您的终端。
 
-首先，考虑[utf8.ValidString](https://pkg.go.dev/unicode/utf8)的文档。
+首先，考虑[utf8.ValidString]({{< ref "/stdLib/unicode/utf8#func-validstring">}})的文档。
 
 ```
 ValidString reports whether s consists entirely of valid UTF-8-encoded runes. `ValidString`报告s是否完全由有效的utf -8编码的符文组成。
@@ -371,7 +371,7 @@ FAIL    example/fuzz    0.598s
 
 ​	整个种子语料库使用的字符串中，每个字符都是一个字节。但是，像 "`泃` "这样的字符可能需要几个字节。因此，逐个字节地反转字符串将使`多字节的字符`失效。
 
-> 注意：如果您对Go如何处理字符串感到好奇，请阅读博文《[Strings, bytes, runes and characters in Go](https://go.dev/blog/strings)》以加深理解。
+> 注意：如果您对Go如何处理字符串感到好奇，请阅读博文《[Strings, bytes, runes and characters in Go]({{< ref "/goBlog/2013/StringsBytesRunesAndCharactersInGo">}})》以加深理解。
 
 ​	在对这个错误有了更深入的了解后，在`Reverse`函数中纠正这个错误。
 
@@ -442,7 +442,7 @@ FAIL    example/fuzz  0.032s
 
 ​	在本教程中，我们将在`Reverse`函数中记录有用的调试信息。
 
-​	仔细观察反转的字符串来发现错误。在Go中，[字符串是一个只读的字节切片](https://go.dev/blog/strings)，可以包含`无效UTF-8的字节`。原始字符串是一个字节切片，其中有一个字节`'\x91'`。当输入字符串被设置为`[]rune`时，Go将字节切片编码为UTF-8，并将该字节替换为UTF-8字符�。当我们将替换的UTF-8字符与输入的字节切片进行比较时，它们显然是不相等的。
+​	仔细观察反转的字符串来发现错误。在Go中，[字符串是一个只读的字节切片]({{< ref "/goBlog/2013/StringsBytesRunesAndCharactersInGo">}})，可以包含`无效UTF-8的字节`。原始字符串是一个字节切片，其中有一个字节`'\x91'`。当输入字符串被设置为`[]rune`时，Go将字节切片编码为UTF-8，并将该字节替换为UTF-8字符�。当我们将替换的UTF-8字符与输入的字节切片进行比较时，它们显然是不相等的。
 
 #### 编写代码
 
@@ -613,7 +613,7 @@ ok      example/fuzz  31.025s
 
 Fuzzing通过了!
 
-除了`-fuzz`标志外，还有几个新的标志被添加到`go test`中，可以在[文档](../../UsingAndUnderstandingGo/Fuzzing#custom-settings)中查看。
+除了`-fuzz`标志外，还有几个新的标志被添加到`go test`中，可以在[文档](../../UsingAndUnderstandingGo/Fuzzing#自定义设置-custom-settings)中查看。
 
 ## 总结
 
