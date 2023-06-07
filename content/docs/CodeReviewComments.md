@@ -14,7 +14,7 @@ Ian Lance Taylor edited this page 12 days ago · [101 revisions](https://github.
 
 This page collects common comments made during reviews of Go code, so that a single detailed explanation can be referred to by shorthands. This is a laundry list of common mistakes, not a comprehensive style guide.
 
-本页收集了审查围棋代码时的常见评论，以便通过速记法来参考单一的详细解释。这是一份常见错误的清单，而不是一份全面的风格指南。
+​	本页收集了审查Go代码时的常见评论，以便通过速记法来参考单一的详细解释。这是一份常见错误的清单，而不是一份全面的风格指南。
 
 You can view this as a supplement to [Effective Go](https://go.dev/doc/effective_go).
 
@@ -22,7 +22,7 @@ You can view this as a supplement to [Effective Go](https://go.dev/doc/effective
 
 Additional comments related to testing can be found at [Go Test Comments](https://github.com/golang/go/wiki/TestComments)
 
-与测试有关的其他评论可以在围棋测试评论中找到。
+与测试有关的其他评论可以在Go测试评论中找到。
 
 **Please [discuss changes](https://go.dev/issue/new?title=wiki%3A+CodeReviewComments+change&body=&labels=Documentation) before editing this page**, even *minor* ones. Many people have opinions and this is not the place for edit wars.https://github.com/golang/go/wiki/CodeReviewComments#variable-names)
 
