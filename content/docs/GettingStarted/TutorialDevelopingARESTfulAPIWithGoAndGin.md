@@ -174,7 +174,7 @@ func getAlbums(c *gin.Context) {
 
 -  调用 [Context.IndentedJSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}})来将结构体序列化为JSON，并将其添加到响应中。
 
-  ​	该函数的第一个参数是您想发送给客户端的HTTP状态代码。在这里，您要传递 `net/http` 包中的 [StatusOK]({{< ref "/stdLib/net/http#常量">}})常量，以指示 `200 OK`。
+  ​	该函数的第一个参数是您想发送给客户端的HTTP状态码。在这里，您要传递 `net/http` 包中的 [StatusOK]({{< ref "/stdLib/net/http#常量">}})常量，以指示 `200 OK`。
 
   Note that you can replace `Context.IndentedJSON` with a call to [Context.JSON]({{< ref "/thirdPkg/gin/gin#context-indentedjson">}}) to send more compact JSON. In practice, the indented form is much easier to work with when debugging and the size difference is usually small.
   
@@ -311,7 +311,7 @@ func postAlbums(c *gin.Context) {
 
 - 将从JSON中初始化的`album`结构追加到`album`切片中。
 
-- 在响应中添加一个`201`状态代码，以及表示您添加的专辑的JSON。
+- 在响应中添加一个`201`状态码，以及表示您添加的专辑的JSON。
 
   
 

@@ -235,7 +235,7 @@ func viewRecord(w http.ResponseWriter, r *http.Request) {
 
 This function handles errors returned by the `datastore.Get` function and `viewTemplate`’s `Execute` method. In both cases, it presents a simple error message to the user with the HTTP status code 500 ("Internal Server Error"). This looks like a manageable amount of code, but add some more HTTP handlers and you quickly end up with many copies of identical error handling code.
 
-这个函数处理由datastore.Get函数和viewTemplate的Execute方法返回的错误。在这两种情况下，它都会向用户呈现一个简单的错误信息，其HTTP状态代码为500（"内部服务器错误"）。这看起来是一个可控的代码量，但如果增加一些HTTP处理程序，您很快就会出现许多相同的错误处理代码的副本。
+这个函数处理由datastore.Get函数和viewTemplate的Execute方法返回的错误。在这两种情况下，它都会向用户呈现一个简单的错误信息，其HTTP状态码为500（"内部服务器错误"）。这看起来是一个可控的代码量，但如果增加一些HTTP处理程序，您很快就会出现许多相同的错误处理代码的副本。
 
 To reduce the repetition we can define our own HTTP `appHandler` type that includes an `error` return value:
 
@@ -289,7 +289,7 @@ func init() {
 
 With this basic error handling infrastructure in place, we can make it more user friendly. Rather than just displaying the error string, it would be better to give the user a simple error message with an appropriate HTTP status code, while logging the full error to the App Engine developer console for debugging purposes.
 
-有了这个基本的错误处理基础设施，我们就可以让它变得更加友好。与其只显示错误字符串，不如给用户一个简单的错误信息，并附上适当的HTTP状态代码，同时将完整的错误记录到App Engine开发者控制台，以便进行调试。
+有了这个基本的错误处理基础设施，我们就可以让它变得更加友好。与其只显示错误字符串，不如给用户一个简单的错误信息，并附上适当的HTTP状态码，同时将完整的错误记录到App Engine开发者控制台，以便进行调试。
 
 To do this we create an `appError` struct containing an `error` and some other fields:
 
@@ -315,7 +315,7 @@ type appHandler func(http.ResponseWriter, *http.Request) *appError
 
 And make `appHandler`’s `ServeHTTP` method display the `appError`’s `Message` to the user with the correct HTTP status `Code` and log the full `Error` to the developer console:
 
-并使appHandler的ServeHTTP方法以正确的HTTP状态代码向用户显示appError的信息，并将完整的Error记录到开发者控制台。
+并使appHandler的ServeHTTP方法以正确的HTTP状态码向用户显示appError的信息，并将完整的Error记录到开发者控制台。
 
 ```go linenums="1"
 func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {

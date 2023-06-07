@@ -203,7 +203,7 @@ const (
 )
 ```
 
-​	HTTP状态代码在IANA注册。请参见：[https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+​	HTTP状态码在IANA注册。请参见：[https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=857)
 
@@ -828,7 +828,7 @@ func (c *Client) Do(req *Request) (*Response, error)
 
 ​	Do 发送 HTTP 请求并返回 HTTP 响应，遵循客户端配置的策略(例如重定向、cookie、身份验证)。
 
-​	如果由客户端策略(例如 CheckRedirect)或无法进行 HTTP 通信(例如网络连接问题)导致错误，则返回错误。非 2xx 状态代码不会导致错误。
+​	如果由客户端策略(例如 CheckRedirect)或无法进行 HTTP 通信(例如网络连接问题)导致错误，则返回错误。非 2xx 状态码不会导致错误。
 
 ​	如果返回的错误是 nil，那么 Response 将包含一个非 nil 的 Body，用户应该在读取完后关闭它。如果 Body 没有读取到 EOF 并且关闭，Client 的底层 RoundTripper(通常是 Transport)可能无法重用持久的 TCP 连接，用于后续的 "keep-alive" 请求。
 
@@ -2432,7 +2432,7 @@ type RoundTripper interface {
 	// RoundTrip执行单个HTTP事务，为提供的Request返回一个Response。
 	//
 	// RoundTrip不应该试图解释响应。
-    // 特别是，无论响应的HTTP状态代码如何，
+    // 特别是，无论响应的HTTP状态码如何，
     // RoundTrip必须返回err == nil。
 	// 非nil err 应该保留给无法获取响应的情况。
     // 同样，RoundTrip不应尝试处理高级协议细节，
@@ -3004,7 +3004,7 @@ type Transport struct {
 
 ​	Transport 在 HTTP URL 上使用 HTTP/1.1，在 HTTPS URL 上使用 HTTP/1.1 或 HTTP/2，具体取决于服务器是否支持 HTTP/2，以及 Transport 的配置方式。DefaultTransport 支持 HTTP/2。要在传输中显式启用 HTTP/2，请使用 golang.org/x/net/http2 并调用 ConfigureTransport。有关 HTTP/2 的更多信息，请参见软件包文档。
 
-​	状态代码为 1xx 的响应要么被自动处理(100 expect-continue)，要么被忽略。唯一的例外是 HTTP 状态码 101(切换协议)，它被视为终端状态并由 RoundTrip 返回。要查看被忽略的 1xx 响应，请使用 httptrace 跟踪包的 ClientTrace.Got1xxResponse。
+​	状态码为 1xx 的响应要么被自动处理(100 expect-continue)，要么被忽略。唯一的例外是 HTTP 状态码 101(切换协议)，它被视为终端状态并由 RoundTrip 返回。要查看被忽略的 1xx 响应，请使用 httptrace 跟踪包的 ClientTrace.Got1xxResponse。
 
 ​	仅当请求是幂等的并且没有主体或其 Request.GetBody 已定义时，Transport 才在遇到网络错误时重试请求。如果 HTTP 请求具有 HTTP 方法 GET、HEAD、OPTIONS 或 TRACE，或者它们的 Header 映射包含 "Idempotency-Key" 或 "X-Idempotency-Key" 条目，则被视为幂等的。如果幂等键值为零长度切片，则将该请求视为幂等，但不会将头部发送到网络。
 

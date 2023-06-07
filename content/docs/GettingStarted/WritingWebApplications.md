@@ -580,7 +580,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-​	`http.Redirect`函数在HTTP响应中添加一个HTTP状态代码`http.StatusFound`（302）和一个`Location`响应头。
+​	`http.Redirect`函数在HTTP响应中添加一个HTTP状态码`http.StatusFound`（302）和一个`Location`响应头。
 
 ## 保存页面
 

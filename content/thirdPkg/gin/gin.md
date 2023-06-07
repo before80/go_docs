@@ -485,7 +485,7 @@ func (c *Context) Abort()
 func (c *Context) AbortWithError(code int, err error) *Error
 ```
 
-​	AbortWithError方法在内部调用`AbortWithStatus()`和`Error()`方法。这个方法会中止处理链，写入状态代码，并将指定的错误推送到`c.Errors`中。更多细节见Context.Error()。
+​	AbortWithError方法在内部调用`AbortWithStatus()`和`Error()`方法。这个方法会中止处理链，写入状态码，并将指定的错误推送到`c.Errors`中。更多细节见Context.Error()。
 
 #### (*Context) AbortWithStatus 
 

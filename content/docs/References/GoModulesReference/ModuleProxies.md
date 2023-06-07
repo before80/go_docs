@@ -14,7 +14,7 @@ draft = false
 
 ​	模块代理是一个HTTP服务器，可以响应下面指定路径的`GET`请求。这些请求没有查询参数，也不需要特定的头，因此即使是一个从固定文件系统（包括`file://` URL）提供服务的网站也可以成为一个模块代理。
 
-​	成功的HTTP响应必须有状态代码200 (OK)。遵循重定向(3xx)。状态码为4xx和5xx的响应被视为错误。错误码 404 (Not Found) 和410 (Gone)表示请求的模块或版本在代理上不可用，但可能在其他地方找到。错误响应的内容类型应该是`text/plain`，`charset`是`utf-8`或`us-ascii`。
+​	成功的HTTP响应必须有状态码200 (OK)。遵循重定向(3xx)。状态码为4xx和5xx的响应被视为错误。错误码 404 (Not Found) 和410 (Gone)表示请求的模块或版本在代理上不可用，但可能在其他地方找到。错误响应的内容类型应该是`text/plain`，`charset`是`utf-8`或`us-ascii`。
 
 ​	`go`命令可以配置为使用`GOPROXY`环境变量联系代理或源码管理服务器，该环境变量接受一个代理URL列表。列表中可以包括关键词`direct`或`off`（详见[Environment variables（环境变量）]()）。列表中的元素可以用逗号（`,`）或管道符（`|`）分隔，这决定了错误回退行为。当URL后跟一个逗号时，`go`命令只有在出现404 (Not Found)或410 (Gone) 响应后才会回退到后面的源。当URL后跟一个管道符时，`go`命令在任何错误（包括超时等非HTTP错误）发生后都会回退到后面的源。这种错误处理行为让代理充当未知模块的守门员。例如，对于不在批准列表上的模块，代理可以响应403 (Forbidden)错误（请参见 [Private proxy serving private modules（为私有模块提供服务的私有代理）](../PrivateModules#private-proxy-serving-private-modules)）。
 
