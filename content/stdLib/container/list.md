@@ -11,19 +11,12 @@ draft = false
 
 https://pkg.go.dev/container/list@go1.20.1
 
+​	list包实现了一个双链表（a doubly linked list.）。
 
-
-Package list implements a doubly linked list.
-
-包list实现了一个双链表。
-
-To iterate over a list (where l is a *List):
-
-要在一个列表上进行迭代(其中l是一个*List)：
+​	迭代一个列表(其中`l`是一个`*List`)：
 
 ```
 for e := l.Front(); e != nil; e = e.Next() {
-	// do something with e.Value
 	//对e.Value做一些处理
 }
 ```
@@ -38,14 +31,14 @@ import (
 )
 
 func main() {
-	// Create a new list and put some numbers in it.
+    // 创建一个新列表并在其中放入一些数字
 	l := list.New()
 	e4 := l.PushBack(4)
 	e1 := l.PushFront(1)
 	l.InsertBefore(3, e4)
 	l.InsertAfter(2, e1)
 
-	// Iterate through list and print its contents.
+    // 迭代列表并打印其内容
 	for e := l.Front(); e != nil; e = e.Next() {
 		fmt.Println(e.Value)
 	}
@@ -85,9 +78,7 @@ type Element struct {
 }
 ```
 
-Element is an element of a linked list.
-
-Element是链接列表的一个元素。
+​	Element结构体是链表的一个元素。
 
 #### (*Element) Next 
 
@@ -95,9 +86,7 @@ Element是链接列表的一个元素。
 func (e *Element) Next() *Element
 ```
 
-Next returns the next list element or nil.
-
-Next 返回下一个列表元素或nil。
+​	Next方法返回下一个列表元素或nil。
 
 #### (*Element) Prev 
 
@@ -105,9 +94,7 @@ Next 返回下一个列表元素或nil。
 func (e *Element) Prev() *Element
 ```
 
-Prev returns the previous list element or nil.
-
-Prev返回前一个列表元素或nil。
+​	Prev方法返回前一个列表元素或nil。
 
 ### type List 
 
@@ -117,9 +104,7 @@ type List struct {
 }
 ```
 
-List represents a doubly linked list. The zero value for List is an empty list ready to use.
-
-List表示一个双链表。List的零值是一个准备使用的空列表。
+​	List结构体表示一个双链表。List的零值是一个准备使用的空列表。
 
 #### func New 
 
@@ -127,9 +112,7 @@ List表示一个双链表。List的零值是一个准备使用的空列表。
 func New() *List
 ```
 
-New returns an initialized list.
-
-New返回一个初始化的列表。
+​	New函数返回一个初始化的列表。
 
 #### (*List) Back 
 
@@ -137,9 +120,7 @@ New返回一个初始化的列表。
 func (l *List) Back() *Element
 ```
 
-Back returns the last element of list l or nil if the list is empty.
-
-Back返回列表l的最后一个元素，如果列表为空，则返回nil。
+​	Back方法返回列表`l`的最后一个元素，如果列表为空，则返回nil。
 
 #### (*List) Front 
 
@@ -147,9 +128,7 @@ Back返回列表l的最后一个元素，如果列表为空，则返回nil。
 func (l *List) Front() *Element
 ```
 
-Front returns the first element of list l or nil if the list is empty.
-
-Front返回列表l的第一个元素，如果列表为空则返回nil。
+​	Front方法返回列表`l`的第一个元素，如果列表为空则返回nil。
 
 #### (*List) Init 
 
@@ -157,9 +136,7 @@ Front返回列表l的第一个元素，如果列表为空则返回nil。
 func (l *List) Init() *List
 ```
 
-Init initializes or clears list l.
-
-Init 初始化或清除列表l。
+​	Init方法初始化或清除列表`l`。
 
 #### (*List) InsertAfter 
 
@@ -167,9 +144,7 @@ Init 初始化或清除列表l。
 func (l *List) InsertAfter(v any, mark *Element) *Element
 ```
 
-InsertAfter inserts a new element e with value v immediately after mark and returns e. If mark is not an element of l, the list is not modified. The mark must not be nil.
-
-InsertAfter在mark之后插入一个新的元素e，其值为v，并返回e。如果mark不是l的一个元素，列表不会被修改。mark不能是nil。
+​	InsertAfter方法在`mark`之后插入一个新的元素e，其值为v，并返回e。如果`mark`不是`l`的一个元素，该列表不会被修改。`mark`不能是nil。
 
 #### (*List) InsertBefore 
 
@@ -177,9 +152,7 @@ InsertAfter在mark之后插入一个新的元素e，其值为v，并返回e。�
 func (l *List) InsertBefore(v any, mark *Element) *Element
 ```
 
-InsertBefore inserts a new element e with value v immediately before mark and returns e. If mark is not an element of l, the list is not modified. The mark must not be nil.
-
-InsertBefore在mark之前插入一个新的元素e，其值为v，并返回e，如果mark不是l的一个元素，列表就不会被修改。mark不能是nil。
+​	InsertBefore方法在`mark`之前插入一个新的元素e，其值为v，并返回e，如果`mark`不是`l`的一个元素，该列表就不会被修改。`mark`不能是nil。
 
 #### (*List) Len 
 
@@ -187,9 +160,7 @@ InsertBefore在mark之前插入一个新的元素e，其值为v，并返回e，�
 func (l *List) Len() int
 ```
 
-Len returns the number of elements of list l. The complexity is O(1).
-
-Len返回列表l的元素数，其复杂度为O(1)。
+​	Len方法返回列表`l`的元素数，其复杂度为O(1)。
 
 #### (*List) MoveAfter  <- go1.2
 
@@ -197,9 +168,7 @@ Len返回列表l的元素数，其复杂度为O(1)。
 func (l *List) MoveAfter(e, mark *Element)
 ```
 
-MoveAfter moves element e to its new position after mark. If e or mark is not an element of l, or e == mark, the list is not modified. The element and mark must not be nil.
-
-MoveAfter将元素e移动到mark之后的新位置。如果e或mark不是l的一个元素，或者e == mark，列表不会被修改。元素和mark不能是nil。
+​	MoveAfter方法将元素`e`移动到`mark`之后的新位置。如果`e`或`mark`不是`l`的一个元素，或者`e == mark`，该列表不会被修改。`e`和`mark`元素不能是nil。
 
 #### (*List) MoveBefore  <- go1.2
 
@@ -207,9 +176,7 @@ MoveAfter将元素e移动到mark之后的新位置。如果e或mark不是l的一
 func (l *List) MoveBefore(e, mark *Element)
 ```
 
-MoveBefore moves element e to its new position before mark. If e or mark is not an element of l, or e == mark, the list is not modified. The element and mark must not be nil.
-
-MoveBefore将元素e移动到mark之前的新位置。如果e或mark不是l的一个元素，或者e == mark，列表不会被修改。元素和mark不能是nil。
+​	MoveBefore方法将元素`e`移动到`mark`之前的新位置。如果`e`或`mark`不是`l`的一个元素，或者`e == mark`，该列表不会被修改。`e`和`mark`元素不能是nil。
 
 #### (*List) MoveToBack 
 
@@ -217,9 +184,7 @@ MoveBefore将元素e移动到mark之前的新位置。如果e或mark不是l的�
 func (l *List) MoveToBack(e *Element)
 ```
 
-MoveToBack moves element e to the back of list l. If e is not an element of l, the list is not modified. The element must not be nil.
-
-MoveToBack把元素e移到列表l的后面。如果e不是l的一个元素，列表不会被修改。该元素不能是nil。
+​	MoveToBack方法把元素`e`移到列表`l`的后面。如果`e`不是`l`的一个元素，该列表不会被修改。该元素不能是nil。
 
 #### (*List) MoveToFront 
 
@@ -227,9 +192,7 @@ MoveToBack把元素e移到列表l的后面。如果e不是l的一个元素，列
 func (l *List) MoveToFront(e *Element)
 ```
 
-MoveToFront moves element e to the front of list l. If e is not an element of l, the list is not modified. The element must not be nil.
-
-MoveToFront把元素e移到列表l的前面，如果e不是l的元素，列表不被修改。该元素不能是nil。
+​	MoveToFront方法把元素`e`移到列表`l`的前面，如果`e`不是`l`的元素，该列表不会被修改。该元素不能是nil。
 
 #### (*List) PushBack 
 
@@ -237,9 +200,7 @@ MoveToFront把元素e移到列表l的前面，如果e不是l的元素，列表�
 func (l *List) PushBack(v any) *Element
 ```
 
-PushBack inserts a new element e with value v at the back of list l and returns e.
-
-PushBack在列表l的后面插入一个新元素e，其值为v，并返回e。
+​	PushBack方法在列表`l`的后面插入一个新元素e，其值为v，并返回e。
 
 #### (*List) PushBackList 
 
@@ -247,9 +208,7 @@ PushBack在列表l的后面插入一个新元素e，其值为v，并返回e。
 func (l *List) PushBackList(other *List)
 ```
 
-PushBackList inserts a copy of another list at the back of list l. The lists l and other may be the same. They must not be nil.
-
-PushBackList在列表l的后面插入一个另一个列表的副本。它们不能是nil。
+​	PushBackList方法在列表`l`的后面插入一个另一个列表的副本。它们不能是nil。
 
 #### (*List) PushFront 
 
@@ -257,9 +216,7 @@ PushBackList在列表l的后面插入一个另一个列表的副本。它们不�
 func (l *List) PushFront(v any) *Element
 ```
 
-PushFront inserts a new element e with value v at the front of list l and returns e.
-
-PushFront在列表l的前面插入一个值为v的新元素e，并返回e。
+​	PushFront方法在列表`l`的前面插入一个值为v的新元素e，并返回e。
 
 #### (*List) PushFrontList 
 
@@ -267,9 +224,7 @@ PushFront在列表l的前面插入一个值为v的新元素e，并返回e。
 func (l *List) PushFrontList(other *List)
 ```
 
-PushFrontList inserts a copy of another list at the front of list l. The lists l and other may be the same. They must not be nil.
-
-PushFrontList在列表l的前面插入一个另一个列表的副本。它们不能是nil。
+​	PushFrontList方法在列表`l`的前面插入一个另一个列表的副本。它们不能是nil。
 
 #### (*List) Remove 
 
@@ -277,6 +232,4 @@ PushFrontList在列表l的前面插入一个另一个列表的副本。它们不
 func (l *List) Remove(e *Element) any
 ```
 
-Remove removes e from l if e is an element of list l. It returns the element value e.Value. The element must not be nil.
-
-如果e是列表l的一个元素，Remove将e从l中移除，并返回元素值e.Value。该元素不能是nil。
+​	如果`e`是列表`l`的一个元素，Remove方法将`e`从`l`中移除，并返回元素值`e.Value`。该元素不能是nil。

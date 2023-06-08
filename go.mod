@@ -1,4 +1,4 @@
-module github.com/before80/go_docs_with_hugo
+module github.com/before80/go_docs
 
 go 1.20
 

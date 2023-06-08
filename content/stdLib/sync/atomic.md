@@ -16,7 +16,7 @@ https://pkg.go.dev/sync/atomic@go1.20.1
 
 ​	SwapT函数实现的交换操作是以下操作的原子等效操作：
 
-```
+```go
 old = *addr
 *addr = new
 return old
@@ -24,7 +24,7 @@ return old
 
 ​	CompareAndSwapT函数实现的比较和交换操作是以下操作的原子等效操作：
 
-```
+```go
 if *addr == old {
 	*addr = new
 	return true
@@ -34,7 +34,7 @@ return false
 
 ​	AddT函数实现的添加操作是以下操作的原子等效操作：
 
-```
+```go
 *addr += delta
 return *addr
 ```
