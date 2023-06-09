@@ -301,6 +301,15 @@ li > code, p > code, h2 > code, h3 > code, h4 > code {
     background-color: transparent !important;
 }
 
+.td-content table code {
+    color: darkorange !important;
+    background-color: transparent !important;
+}
+
+.td-content th, .td-content td {
+    font-size: 1.4rem;
+}
+
 /*修改左侧激活的菜单项的颜色*/
 .td-sidebar-nav a.active {
     /*color: #cd00ff !important;*/
