@@ -301,7 +301,7 @@ li > code, p > code, h2 > code, h3 > code, h4 > code {
     background-color: transparent !important;
 }
 
-.td-content table code {
+.td-content table code:not(:empty):not(:has(*)) {
     color: darkorange !important;
     background-color: transparent !important;
 }
@@ -418,5 +418,5 @@ p > strong, .td-content li > strong {
 }
 
 .td-content pre > code {
-    font-size: 1.4em;
+    font-size: 1.1em;
 }
