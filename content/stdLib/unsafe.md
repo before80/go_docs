@@ -39,7 +39,7 @@ func Alignof(x ArbitraryType) uintptr
 func Offsetof(x ArbitraryType) uintptr
 ```
 
-​	Offsetof函数返回由x表示的字段在结构体内的偏移量，x必须是structValue.field的形式。换句话说，它返回结构体开始和字段开始之间的字节数。如果参数x的类型不具有可变大小，则Offsetof函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见[Sizeof](https://pkg.go.dev/unsafe@go1.20.1#Sizeof)函数的描述。)
+​	Offsetof函数返回由x表示的字段在结构体内的偏移量，x必须是structValue.field的形式。换句话说，它返回结构体开始和字段开始之间的字节数。如果参数x的类型不具有可变大小，则Offsetof函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见[Sizeof](#func-sizeof)函数的描述。)
 
 #### func Sizeof 
 
@@ -190,11 +190,11 @@ Unlike in C, it is not valid to advance a pointer just beyond the end of its ori
 ​	与 C 语言不同的是，将指针移动到其原始分配空间的边界之外是无效的：
 
 ```go 
-// 不正确：末端指向分配空间之外。
+// 不正确：end 指向分配空间之外。
 var s thing
 end = unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + unsafe.Sizeof(s))
 
-// 不正确：末端在分配的空间之外。
+// 不正确：end 在分配的空间之外。
 b := make([]byte, n)
 end = unsafe.Pointer(uintptr(unsafe.Pointer(&b[0])) + uintptr(n))
 ```
@@ -240,13 +240,13 @@ syscall.Syscall(SYS_READ, uintptr(fd), u, uintptr(n))
 
 ​	reflect包名为 Pointer 和 UnsafeAddr 的 Value 方法返回类型为 uintptr，而不是 unsafe.Pointer，以防止调用者在未导入 "unsafe" 的情况下将结果更改为任意类型。但是，这意味着结果是脆弱的，并且必须在调用后立即将其转换为 Pointer，即在同一表达式中：
 
-```
+```go
 p := (*int)(unsafe.Pointer(reflect.ValueOf(new(int)).Pointer()))
 ```
 
 ​	与以上情况类似，存储转换之前的结果是无效的：
 
-```
+```go
 // INVALID: uintptr在转换回Pointer之前不能被存储在变量中。
 u := reflect.ValueOf(new(int)).Pointer()
 p := (*int)(unsafe.Pointer(u))
