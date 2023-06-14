@@ -46,7 +46,7 @@ anchor = "smart"
 
 # Language configuration
 
-[languages]
+#[languages]
 # [languages.cn]
 # title = "demo1"
 # description = "A demo example site"
@@ -247,7 +247,8 @@ desc = "Discuss development issues around the project"
 
 # Comment out if you don't want the "print entire section" link enabled.
 [outputs]
-section = ["HTML", "print", "RSS"]
+#section = ["HTML", "print", "RSS"]
+section = ["HTML", "RSS"]
 
 # hugo module configuration
 

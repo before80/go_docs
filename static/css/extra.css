@@ -420,3 +420,8 @@ p > strong, .td-content li > strong {
 .td-content pre > code {
     font-size: 1.1em;
 }
+
+/* 针对docsy 0.7.0 导航栏没有居右的修复*/
+.td-navbar-nav-scroll.ml-md-auto {
+    margin-left: auto!important;
+}

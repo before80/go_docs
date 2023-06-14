@@ -17,11 +17,11 @@ Robert Griesemer
 
 On February 1 we released our latest Go version, 1.20, which included a few language changes. Here we’ll discuss one of those changes: the predeclared `comparable` type constraint is now satisfied by all [comparable types](https://go.dev/ref/spec#Comparison_operators). Surprisingly, before Go 1.20, some comparable types did not satisfy `comparable`!
 
-​	在2023年2月1日，我们发布了最新的Go版本1.20，其中包含了一些语言变更。在这里，我们将讨论其中的一个变更：预定义的可比较类型约束现在适用于所有可比较的类型。令人惊讶的是，在Go 1.20之前，一些可比较的类型并不满足可比较的要求！
+​	在2023年2月1日，我们发布了最新的Go版本1.20，其中包含了一些语言变更。在这里，我们将讨论其中的一个变更：预定义的`comparable`类型约束现在适用于所有[可比较类型]({{< ref "/docs/References/LanguageSpecification/Expressions#comparison-operators-比较运算符">}})。令人惊讶的是，在Go 1.20之前，一些可比较类型并不满足`comparable`类型约束！
 
 If you’re confused, you’ve come to the right place. Consider the valid map declaration
 
-​	如果您感到困惑，您来对地方了。考虑以下有效的映射声明
+​	如果您感到困惑，您来对地方了。考虑下面这个合法的map声明：
 
 ```Go
 var lookupTable map[any]string
@@ -29,7 +29,7 @@ var lookupTable map[any]string
 
 where the map’s key type is `any` (which is a [comparable type](https://go.dev/ref/spec#Comparison_operators)). This works perfectly fine in Go. On the other hand, before Go 1.20, the seemingly equivalent generic map type
 
-其中该映射的键类型为`any`（[可比较类型]({{< ref "/docs/References/LanguageSpecification/Expressions#comparison-operators-比较运算符" >}})）。这在Go中运行得很好。另一方面，在Go 1.20之前，看似等价的泛型映射类型
+​	其中map的键类型是`any`（它是一个[可比较类型](https://go.dev/ref/spec#Comparison_operators)）。这在Go中完全正常工作。然而，在Go 1.20之前，看似相同的泛型map类型：
 
 ```Go
 type genericLookupTable[K comparable, V any] map[K]V
@@ -37,7 +37,7 @@ type genericLookupTable[K comparable, V any] map[K]V
 
 could be used just like a regular map type, but produced a compile-time error when `any` was used as the key type:
 
-可以像普通映射类型一样使用，但在将`any`作为键类型时会产生编译时错误：
+​	可以像普通map类型一样使用，但在将`any`作为键类型时会产生编译时错误：
 
 ```Go
 var lookupTable genericLookupTable[any, string] // ERROR: any does not implement comparable (Go 1.18 and Go 1.19)
@@ -45,23 +45,23 @@ var lookupTable genericLookupTable[any, string] // ERROR: any does not implement
 
 Starting with Go 1.20 this code will compile just fine.
 
-从Go 1.20开始，这段代码将编译通过。
+​	从Go 1.20开始，这段代码将编译通过。
 
 The pre-Go 1.20 behavior of `comparable` was particularly annoying because it prevented us from writing the kind of generic libraries we were hoping to write with generics in the first place. The proposed [`maps.Clone`](https://go.dev/issue/57436) function
 
-`comparable`在Go 1.20之前的行为特别令人烦恼，因为它阻止我们编写我们最初希望使用泛型编写的通用库。提议中的[maps.Clone](https://go.dev/issue/57436)函数
+​	`comparable`在Go 1.20之前的行为特别令人烦恼，因为它阻止我们编写我们最初希望使用泛型编写的通用库。提议中的[maps.Clone](https://go.dev/issue/57436)函数
 
-```Go
+```go
 func Clone[M ~map[K]V, K comparable, V any](m M) M { … }
 ```
 
 can be written but could not be used for a map such as `lookupTable` for the same reason our `genericLookupTable` could not be used with `any` as key type.
 
-可以编写，但不能用于像`lookupTable`这样的映射，原因与我们的`genericLookupTable`不能用`any`作为键类型一样。
+​	可以编写出来，但不能用于像`lookupTable`这样的map，原因与我们的`genericLookupTable`不能用`any`作为键类型一样。
 
 In this blog post, we hope to shine some light on the language mechanics behind all this. In order to do so, we start with a bit of background information.
 
-​	在本博客文章中，我们希望为这一切背后的语言机制提供一些解释。为了做到这一点，我们从一些背景信息开始。
+​	在这篇博文中，我们希望能够对所有这些背后的语言机制进行解释。为了做到这一点，我们首先介绍一些背景信息。
 
 ## Type parameters and constraints 类型参数和约束 
 
@@ -114,7 +114,7 @@ func min[P ~int64 | ~float64](x, y P) P { … }
 
 With the new type set view we also need a new way to explain what it means to [*implement*](https://go.dev/ref/spec#Implementing_an_interface) an interface. We say that a (non-interface) type `T` implements an interface `I` if `T` is an element of the interface’s type set. If `T` is an interface itself, it describes a type set. Every single type in that set must also be in the type set of `I`, otherwise `T` would contain types that do not implement `I`. Thus, if `T` is an interface, it implements interface `I` if the type set of `T` is a subset of the type set of `I`.
 
-使用新的类型集合视角，我们还需要一种新的方式来解释实现接口的含义。我们说，如果一个（非接口）类型`T`是接口`I`的类型集合的元素，那么`T`就实现了接口`I`。如果`T`本身是一个接口，它描述了一个类型集合。该集合中的每个类型都必须也属于`I`的类型集合，否则`T`将包含未实现`I`的类型。因此，如果`T`是一个接口，当`T`的类型集合是`I`的类型集合的子集时，它就实现了接口`I`。
+​	使用新的类型集合视角，我们还需要一种新的方式来解释实现接口的含义。我们说，如果一个（非接口）类型`T`是接口`I`的类型集合的元素，那么`T`就实现了接口`I`。如果`T`本身是一个接口，它描述了一个类型集合。该集合中的每个类型都必须也属于`I`的类型集合，否则`T`将包含未实现`I`的类型。因此，如果`T`是一个接口，当`T`的类型集合是`I`的类型集合的子集时，它就实现了接口`I`。
 
 Now we have all the ingredients in place to understand constraint satisfaction. As we have seen earlier, a type constraint describes the set of acceptable argument types for a type parameter. A type argument satisfies the corresponding type parameter constraint if the type argument is in the set described by the constraint interface. This is another way of saying that the type argument implements the constraint. In Go 1.18 and Go 1.19, constraint satisfaction meant constraint implementation. As we’ll see in a bit, in Go 1.20 constraint satisfaction is not quite constraint implementation anymore.
 
@@ -261,7 +261,7 @@ We gophers take pride in the fact that language-specific behavior can be explain
 
 So where’s the catch? There’s an obvious (if mild) drawback, and a less obvious (and more severe) one. Obviously, we now have a more complex rule for constraint satisfaction which is arguably less elegant than what we had before. This is unlikely to affect our day-to-day work in any significant way.
 
-那么问题在哪里呢？有一个明显的（尽管轻微）缺点，还有一个不太明显的（但更严重）缺点。显然，我们现在对约束满足有了一个更复杂的规则，可以说不如之前的那个优雅。这不太可能对我们的日常工作产生重大影响。
+​	那么问题在哪里呢？有一个明显的（尽管轻微）缺点，还有一个不太明显的（但更严重）缺点。显然，我们现在对约束满足有了一个更复杂的规则，可以说不如之前的那个优雅。这不太可能对我们的日常工作产生重大影响。
 
 But we do pay a price for the exception: in Go 1.20, generic functions that rely on `comparable` are not statically type-safe anymore. The `==` and `!=` operations may panic if applied to operands of `comparable` type parameters, even though the declaration says that they are strictly comparable. A single non-comparable value may sneak its way through multiple generic functions or types by way of a single non-strictly comparable type argument and cause a panic. In Go 1.20 we can now declare
 

@@ -16,7 +16,41 @@ draft = false
 
 ​	[数组](../Types#array-types-数组型)、[切片](../Types#slice-types-切片型)和[结构体](../Types#struct-types-结构体型)等类型的结构化变量具有可以被单独[寻址](../Expressions#address-operators-地址运算符)的元素和字段。每个这样的元素都像一个变量。
 
-​	变量的静态类型（或仅仅是类型）是在其声明中给出的类型、在`new`调用或复合字面量中提供的类型、或是结构化变量的元素的类型。接口类型的变量也有一个独特的动态类型，它是运行时分配给变量的值的（非接口）类型（除非该值是预先声明的标识符`nil`，它没有类型）。在执行过程中，动态类型可能会发生变化，但是存储在接口变量中的值总是可以赋给变量的静态类型。
+> 个人注释
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type St struct {
+> 	Name string
+> 	Age  int
+> }
+> 
+> func main() {
+> 	var arr = [...]int{1, 2, 3}	
+> 	fmt.Println(&arr[0]) // 0xc000010120
+> 	fmt.Println(&arr[1]) //0xc000010128
+> 	fmt.Println(&arr[2]) //0xc000010130
+>     
+>     var sli = []int{1, 2, 3}
+> 	fmt.Println(&sli[0]) //0xc000010138
+> 	fmt.Println(&sli[1]) //0xc000010140
+> 	fmt.Println(&sli[2]) //0xc000010148
+> 
+> 	var st1 = St{"zlongx", 32}
+> 	fmt.Println(&st1.Name) //0xc000008078
+> 	fmt.Println(&st1.Age)  //0xc000008088
+> }
+> 
+> ```
+>
+> 
+
+​	变量的静态类型（或简称为类型）是在其声明中指定的类型、在`new`调用或复合字面量中提供的类型、或是结构化变量的元素的类型。接口类型的变量还具有独特的动态类型，它是在运行时分配给变量的值的（非接口）类型（除非该值是预先声明的标识符`nil`，它没有类型）。在执行过程中，动态类型可能会发生变化，但是存储在接口变量中的值始终可以赋给变量的静态类型。
+
+
 
 ```go 
 var x interface{}  // x is nil and has static type interface{}  => x 为 nil，具有静态类型 interface{}
