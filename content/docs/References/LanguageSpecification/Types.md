@@ -11,7 +11,7 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Types ](https://go.dev/ref/spec#Types )
 
-​	类型决定了一组值以及特定于这些值的操作和方法。如果类型具有类型名称，则可以用类型名称表示。如果类型是泛型，则后面必须跟[类型参数](../Expressions#instantiations-实例化)。还可以使用`类型字面量`指定类型，它由现有类型组成一个类型。
+​	类型确定了一组值，以及针对这些值的特定操作和方法。如果一个类型有类型名称，可以通过类型名称来表示该类型，如果该类型是泛型的，则必须在类型名称后面跟上[类型参数](../Expressions#instantiations-实例化)。还可以使用`类型字面量`来指定类型，该类型由现有类型组成
 
 ``` go
 type      = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
@@ -24,7 +24,79 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 > 个人注释
 >
+> 怎么理解“如果该类型是泛型的，则必须在类型名称后面跟上[类型参数](../Expressions#instantiations-实例化)。”，请看如下示例：
+>
+> > 此示例来自[Go Tour的泛型]({{< ref "/docs/GoTour/Generics">}})
+>
+> ```go
+> package main
 > 
+> import "fmt"
+> 
+> // Index 返回x在s中的索引，若没有找到x，则返回-1
+> func Index[T comparable](s []T, x T) int {
+> 	for i, v := range s {
+> 		// v和x都是类型T，该类型具有可比较约束，因此我们可以在这里使用 ==。
+> 		if v == x {
+> 			return i
+> 		}
+> 	}
+> 	return -1
+> }
+> 
+> func main() {
+> 	// 向Index传入整型切片
+> 	si := []int{10, 20, 15, -10}
+> 	fmt.Println(Index(si, 15)) // 2
+> 
+> 	// 向Index传入字符串切片
+> 	ss := []string{"foo", "bar", "baz"}
+> 	fmt.Println(Index(ss, "hello")) // -1
+> }
+> 
+> ```
+>
+> ​	该示例中，Index 函数中的s和x参数即为类型参数，T类型即为泛型。
+>
+> 类型字面量是什么？有哪些类型字面量？
+>
+> ​	请看ChatGPT是如何回答的：
+>
+> > 在Go语言中，类型字面量是用于直接表示和描述类型的语法结构。它可以用来明确指定变量的类型或创建新的类型。
+> >
+> > 以下是Go语言中常见的类型字面量：
+> >
+> > 1. 基本类型字面量：
+> >    - `int`：整数类型
+> >    - `int8`：8位整数类型
+> >    - `int16`：16位整数类型
+> >    - `int32`：32位整数类型
+> >    - `int64`：64位整数类型
+> >    - `uint`：无符号整数类型
+> >    - `uint8`：8位无符号整数类型
+> >    - `uint16`：16位无符号整数类型
+> >    - `uint32`：32位无符号整数类型
+> >    - `uint64`：64位无符号整数类型
+> >    - `uintptr`：指针整数类型
+> >    - `float32`：32位浮点数类型
+> >    - `float64`：64位浮点数类型
+> >    - `complex64`：64位复数类型
+> >    - `complex128`：128位复数类型
+> >    - `bool`：布尔类型
+> >    - `byte`：字节类型（等同于`uint8`）
+> >    - `rune`：Unicode字符类型（等同于`int32`）
+> >    - `string`：字符串类型
+> > 2. 复合类型字面量：
+> >    - 数组类型字面量：`[n]T`，其中 `n` 是数组的长度，`T` 是数组元素的类型。例如：`[5]int` 表示包含5个整数元素的数组类型。
+> >    - 结构体类型字面量：`struct{}`，用于定义结构体类型。结构体类型由多个字段组成，每个字段都有自己的类型和名称。例如：`struct{ name string; age int }` 定义了一个包含 `name` 和 `age` 字段的匿名结构体类型。
+> >    - 指针类型字面量：`*T`，其中 `T` 是指针指向的类型。例如：`*int` 表示整数类型的指针。
+> >    - 函数类型字面量：`func(args) returnType`，用于定义函数类型。例如：`func(int) bool` 表示接受一个整数参数并返回布尔值的函数类型。
+> >    - 接口类型字面量：`interface{}`，用于定义接口类型。接口类型定义了一组方法的集合，一个类型只要实现了接口中定义的所有方法，就被视为实现了该接口。
+> >    - 切片类型字面量：`[]T`，其中 `T` 是切片元素的类型。例如：`[]int` 表示整数类型的切片。
+> >    - 映射类型字面量：`map[T]U`，其中 `T` 是键的类型，`U` 是值的类型。例如：`map[string]int` 表示字符串到整数的映射类型。
+> >    - 通道类型字面量：`chan T`，其中 `T` 是通道元素的类型。例如：`chan int` 表示整数类型的通道。
+> >
+> > 这些是Go语言中常见的类型字面量示例。通过组合和嵌套这些类型字面量，可以创建更复杂的类型。需要注意的是，还有一些其他的类型字面量，如函数字面量和接口字面量，用于直接定义匿名函数和匿名接口。
 
 ​	该语言[预先声明](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)了某些类型的名称。其他类型是通过[类型声明](../DeclarationsAndScope#type-declarations-类型声明)或[类型参数列表](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)引入的。`复合类型`：数组、结构体、指针、函数、接口、切片、映射和通道类型 —— 可以用类型字面量来构造。
 
@@ -61,23 +133,42 @@ rune        alias for int32
 
 ​	The value of an *n*-bit integer is *n* bits wide and represented using [two's complement arithmetic](https://en.wikipedia.org/wiki/Two's_complement). =>仍有疑问？？
 
-​	一个n位整数的值是n位宽，并用[二进制补码运算法（two's complement arithmetic）](https://en.wikipedia.org/wiki/Two's_complement)表示。
+​	一个n bit整数的值是n bit宽，并用[二进制补码运算法（two's complement arithmetic）](https://en.wikipedia.org/wiki/Two's_complement)表示。
 
-​	还有一组预先声明的整数类型，它们具有特定于实现的大小：
+​	还有一组预先声明的整数类型，其具体实现的大小因实现而异：
 
 ```go 
-uint     either 32 or 64 bits
-int      same size as uint
-uintptr  an unsigned integer large enough to store the uninterpreted bits of a pointer value
+uint     要么32位要么64位
+int      与uint大小相同
+uintptr  an unsigned integer large enough to store the uninterpreted bits of a pointer value => 一个足够大的无符号整数，用于存储指针值的未解释位
 ```
 
-​	为了避免可移植性问题，所有的数值类型都是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)，因此除了 `byte` (`uint8`的别名)和 `rune` (`int32`的别名)之外，它们是截然不同的。 当不同的数值类型在表达式或赋值中混合使用时，需要进行显式转换。例如，int32和int不是相同类型，尽管它们在一个特定的体系结构上可能具有相同的大小。
+​	为了避免可移植性问题，所有的数值类型都是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)，因此除了 `byte` (它是`uint8`的别名)和 `rune` (它是`int32`的别名)之外，它们是截然不同的。 当不同的数值类型在表达式或赋值中混合使用时，需要进行显式转换。例如，int32和int不是相同类型，尽管它们在一个特定的体系结构上可能具有相同的大小。
 
 ### String types 字符串型
 
-​	字符串类型表示字符串值的集合。字符串值是字节序列（可能为空）。`字节数`被称为字符串的`长度`，并且永远不会是负数。字符串是不可变的：一旦创建，就不可能改变字符串的内容。预先声明的字符串类型是`string`；它是一种[已定义的类型](../DeclarationsAndScope#type-declarations-类型定义)。
+​	字符串类型表示字符串值的集合。字符串值是（可能为空的）字节序列。`字节数`被称为字符串的`长度`，并且永远不会是负数。字符串是不可变的：一旦创建，就无法改变字符串的内容。预先声明的字符串类型是`string`；它是一种[已定义的类型](../DeclarationsAndScope#type-declarations-类型定义)。
 
 ​	可以使用内置函数 `len` 查找字符串 `s` 的长度。如果字符串是常量，那么长度就是编译时常量。字符串的字节可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`来访问。`取这样一个元素的地址是非法的`；如果`s[i]`是字符串的第`i`个字节，那么`&s[i]`是无效的。
+
+> 个人注释
+>
+> ​	什么是“`&s[i]`是无效的”？=>  `invalid operation`
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	s := "abcd"
+> 	fmt.Println(&s[0]) // invalid operation: cannot take address of s[0] (value of type byte)
+> 	fmt.Println(&s[1]) // invalid operation: cannot take address of s[1] (value of type byte)
+> }
+> 
+> ```
+>
+> 
 
 ### Array types 数组型
 
@@ -99,6 +190,80 @@ ElementType = Type .
 [2][2][2]float64  // same as [2]([2]([2]float64))
 ```
 
+> 个人注释
+>
+> ​	解释下“`[2][2][2]float64`  // same as `[2]([2]([2]float64))`”？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	arr1 := [2][2][2]float64{
+> 		{
+> 			{1, 2},
+> 			{1, 2},
+> 		},
+> 		{
+> 			{1, 2},
+> 			{1, 2},
+> 		},
+> 	}
+> 	arr2 := [2]([2]([2]float64)){
+> 		{
+> 			{1, 2},
+> 			{1, 2},
+> 		},
+> 		{
+> 			{1, 2},
+> 			{1, 2},
+> 		},
+> 	}
+> 
+> 	fmt.Printf("arr1=%v\n", arr1) // arr1=[[[1 2] [1 2]] [[1 2] [1 2]]]
+> 	fmt.Printf("arr2=%v\n", arr2) // arr2=[[[1 2] [1 2]] [[1 2] [1 2]]]
+> }
+> 
+> ```
+>
+> 
+>
+> ​	数组的长度是在常量吗？是否可以在声明常量时作为常量的值？=> 是常量，可以作为常量的值！
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> var arr = [3]int{1, 2, 3}
+> 
+> const LEN = len(arr)
+> 
+> func main() {
+> 	fmt.Println(LEN) // 3
+> }
+> 
+> ```
+>
+> ​	是否可以对数组中的元素进行取地址操作？=> 可以
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	var arr = [3]int{1, 2, 3}
+> 	fmt.Println(&arr[0]) // 0xc000010120
+> 	fmt.Println(&arr[1]) // 0xc000010128
+> 	fmt.Println(&arr[2]) // 0xc000010130
+> }
+> 
+> ```
+>
+> 
+
 ### Slice types 切片型
 
 ​	切片是底层数组的连续段的描述符，并提供对该数组中编号的元素序列的访问。切片类型表示其元素类型的所有数组切片的集合。`元素的数量`被称为切片的`长度`，并且永远不会是负数。一个未初始化的切片的值是`nil`。
@@ -109,9 +274,156 @@ SliceType = "[" "]" ElementType .
 
 ​	切片`s`的长度可以通过内置函数`len`发现；与数组不同，它在运行过程中可能会发生变化。元素可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`进行寻址。给定元素的切片索引可能小于底层数组中同一元素的索引。
 
+> 个人注释
+>
+> ​	切片的长度是常量吗？是否可以在声明常量时作为常量的值？=> 不是常量，不可以作为常量的值！
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> var sli = []int{1, 2, 3}
+> 
+> const LEN = len(sli) // len(sli) (value of type int) is not constant
+> 
+> func main() {
+> 	fmt.Println(LEN)
+> }
+> 
+> ```
+>
+> ​	解释下“给定元素的切片索引可能小于底层数组中同一元素的索引。”？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	arr := []int{0, 1, 2, 3, 4, 5}
+> 
+> 	sli := arr[2:]
+> 
+> 	fmt.Printf("arr=%v\n", arr)                                 // arr=[0 1 2 3 4 5]
+> 	fmt.Printf("sli=%v\n", sli)                                 // sli=[2 3 4 5]
+> 	fmt.Printf("len(arr)=%d,cap(arr)=%d\n", len(arr), cap(arr)) // len(arr)=6,cap(arr)=6
+> 	fmt.Printf("len(sli)=%d,cap(sli)=%d\n", len(sli), cap(sli)) // len(sli)=4,cap(sli)=4
+> 
+> 	for i, v := range arr {
+> 		if v == 2 {
+> 			fmt.Printf("2在arr中的索引是%d\n", i) // 2
+> 		}
+> 	}
+> 
+> 	for i, v := range sli {
+> 		if v == 2 {
+> 			fmt.Printf("2在sli中的索引是%d\n", i) // 0
+> 		}
+> 	}
+> 
+> }
+> 
+> ```
+>
+> 
+
 ​	切片一旦被初始化，总是与保存其元素的底层数组相关联。因此，一个切片与它的底层数组和同一数组的其他切片共享存储；相反，不同的数组总是表示不同的存储。
 
+> 个人注释
+>
+> ​	解释下“一个切片与它的底层数组和同一数组的其他切片共享存储”？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	arr := []int{0, 1, 2, 3, 4, 5}
+> 
+> 	sli1 := arr[1:]
+> 	sli2 := arr[2:]
+> 
+> 	fmt.Printf("arr=%v\n", arr)   // arr=[0 1 2 3 4 5]
+> 	fmt.Printf("sli1=%v\n", sli1) // sli1=[1 2 3 4 5]
+> 	fmt.Printf("sli2=%v\n", sli2) // sli2=[2 3 4 5]
+> 
+> 	sli1[1] = 22
+> 	fmt.Printf("arr=%v\n", arr)   // arr=[0 1 22 3 4 5]
+> 	fmt.Printf("sli1=%v\n", sli1) // sli1=[1 22 3 4 5]
+> 	fmt.Printf("sli2=%v\n", sli2) // sli2=[22 3 4 5]
+> 
+> 	sli2[1] = 33
+> 	fmt.Printf("arr=%v\n", arr)   // arr=[0 1 22 33 4 5]
+> 	fmt.Printf("sli1=%v\n", sli1) // sli1=[1 22 33 4 5]
+> 	fmt.Printf("sli2=%v\n", sli2) // sli2=[22 33 4 5]
+> }
+> 
+> ```
+>
+> 
+
 ​	切片的底层数组可以超过切片的末端。容量是对这一范围的衡量：它是切片的长度和切片之外的数组长度之和；可以通过从原始切片切割一个新的切片来创建一个达到这个容量的切片。使用内置函数 `cap(a)`可以发现切片 `a` 的容量。
+
+> 个人注释
+>
+> ​	解释下“容量是对这一范围的衡量：它是切片的长度和切片之外的数组长度之和”中的“切片之外的数组长度”是什么意思？以及“可以通过从原始切片切割一个新的切片来创建一个达到这个容量的切片”？
+>
+> => 可以想象成向右方向还不是（切片中的数组元素的）长度。
+>
+> => 只有从最左边的切割原始切片， 产生的切片的容量才和原始切片的容量一致！
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	arr := []int{0, 1, 2, 3, 4, 5, 6, 7}
+> 
+> 	sli1 := arr[1:4]
+> 	sli2 := arr[1:5]
+> 	sli3 := arr[1:6]
+> 
+> 	fmt.Printf("arr=%v,len(arr)=%d,cap(arr)=%d\n", arr, len(arr), cap(arr))       // arr=[0 1 2 3 4 5 6 7],len(arr)=8,cap(arr)=8
+> 	fmt.Printf("sli1=%v,len(sli1)=%d,cap(sli1)=%d\n", sli1, len(sli1), cap(sli1)) // sli1=[1 2 3],len(sli1)=3,cap(sli1)=7
+> 	fmt.Printf("sli2=%v,len(sli2)=%d,cap(sli2)=%d\n", sli2, len(sli2), cap(sli2)) // sli2=[1 2 3 4],len(sli2)=4,cap(sli2)=7
+> 	fmt.Printf("sli3=%v,len(sli3)=%d,cap(sli3)=%d\n", sli3, len(sli3), cap(sli3)) // sli3=[1 2 3 4 5],len(sli3)=5,cap(sli3)=7
+> 
+> 	sli10 := sli1[0:1]
+> 	sli20 := sli2[0:1]
+> 	sli30 := sli3[0:1]
+> 	fmt.Printf("sli10=%v,len(sli10)=%d,cap(sli10)=%d\n", sli10, len(sli10), cap(sli10)) // sli10=[1],len(sli10)=1,cap(sli10)=7
+> 	fmt.Printf("sli20=%v,len(sli20)=%d,cap(sli20)=%d\n", sli20, len(sli20), cap(sli20)) // sli20=[1],len(sli20)=1,cap(sli20)=7
+> 	fmt.Printf("sli30=%v,len(sli30)=%d,cap(sli30)=%d\n", sli30, len(sli30), cap(sli30)) // sli30=[1],len(sli30)=1,cap(sli30)=7
+> 
+> 	sli11 := sli1[1:2]
+> 	sli21 := sli2[1:2]
+> 	sli31 := sli3[1:2]
+> 	fmt.Printf("sli11=%v,len(sli11)=%d,cap(sli11)=%d\n", sli11, len(sli11), cap(sli11)) // sli11=[2],len(sli11)=1,cap(sli11)=6
+> 	fmt.Printf("sli21=%v,len(sli21)=%d,cap(sli21)=%d\n", sli21, len(sli21), cap(sli21)) // sli21=[2],len(sli21)=1,cap(sli21)=6
+> 	fmt.Printf("sli31=%v,len(sli31)=%d,cap(sli31)=%d\n", sli31, len(sli31), cap(sli31)) // sli31=[2],len(sli31)=1,cap(sli31)=6
+> 	// 从 sli10、sli11、sli20、sli21、sli30、sli31等可以看出，
+> 	// 只有从最左边的切割原始切片，
+> 	// 产生的切片的容量才和原始切片的容量一致！
+> 
+> 	sli4 := arr[2:4]
+> 	sli5 := arr[2:5]
+> 	sli6 := arr[2:6]
+> 
+> 	fmt.Printf("arr=%v,len(arr)=%d,cap(arr)=%d\n", arr, len(arr), cap(arr))       // arr=[0 1 2 3 4 5 6 7],len(arr)=8,cap(arr)=8
+> 	fmt.Printf("sli4=%v,len(sli4)=%d,cap(sli4)=%d\n", sli4, len(sli4), cap(sli4)) // sli4=[2 3],len(sli4)=2,cap(sli4)=6
+> 	fmt.Printf("sli5=%v,len(sli5)=%d,cap(sli5)=%d\n", sli5, len(sli5), cap(sli5)) // sli5=[2 3 4],len(sli5)=3,cap(sli5)=6
+> 	fmt.Printf("sli6=%v,len(sli6)=%d,cap(sli6)=%d\n", sli6, len(sli6), cap(sli6)) // sli6=[2 3 4 5],len(sli6)=4,cap(sli6)=6
+> 
+> }
+> 
+> ```
+>
+> 
+
+
 
 ​	可以使用内置函数`make`来创建一个给定元素类型`T`的新的、初始化的切片值，该函数接受一个切片类型和指定长度和可选容量的参数。用`make`创建的切片总是分配一个新的、隐藏的数组，返回的切片值指向该数组。也就是说，执行
 
@@ -126,21 +438,155 @@ make([]int, 50, 100)
 new([100]int)[0:50]
 ```
 
+> 个人注释
+>
+> ​	make和new函数返回的分别是什么类型？是相同的吗？
+>
+> => 类型不同！
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	sli1 := make([]int, 6, 6)
+> 
+> 	sli2 := new([]int)
+> 
+> 	fmt.Printf("make返回的类型是%T\n", sli1) // make返回的类型是[]int
+> 	fmt.Printf("new返回的类型是%T\n", sli2)  // new返回的类型是*[]int
+> 
+> 	// arr1 := make([6]int, 6) // invalid argument: cannot make [6]int; type must be slice, map, or channel
+> 	arr2 := new([6]int)
+> 	fmt.Printf("new返回的类型是%T\n", arr2) // new返回的类型是*[6]int
+> }
+> 
+> ```
+>
+> ​	那为什么说 make([]int, 50, 100)和new([100]int)[0:50] 等同？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	sli1 := make([]int, 50, 100)
+> 
+> 	sli2 := new([100]int)[0:50]
+> 
+> 	fmt.Printf("sli1的类型是%T\n", sli1) // sli1的类型是[]int
+> 	fmt.Printf("sli2的类型是%T\n", sli2) // sli2的类型是[]int
+> 
+> }
+> 
+> ```
+>
+> ​	奇怪了，难道是Go的做了什么特殊处理？TODO
+
 ​	和数组一样，切片总是一维的，但可以通过组合来构造更高维的对象。对于数组的数组，内部数组在结构上总是相同的长度；但是对于切片的切片（或切片的数组），内部长度可以动态变化。此外，`内部切片必须被单独初始化`。
+
+> 个人注释
+>
+> ​	以下例子，应该可以解释“`内部切片必须被单独初始化`”：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	sli1 := make([][]int, 2, 2)
+> 	// sli1的类型是[][]int,sli1=[[] []],len(sli1)=2,cap(sli1)=2
+> 	fmt.Printf("sli1的类型是%T,sli1=%+v,len(sli1)=%d,cap(sli1)=%d\n", sli1, sli1, len(sli1), cap(sli1))
+> 	//sli1[0][0] = 11 // panic: runtime error: index out of range [0] with length 0
+> 	sli1[1] = []int{1, 2}
+> 	// sli1的类型是[][]int,sli1=[[] [1 2]],len(sli1)=2,cap(sli1)=2
+> 	fmt.Printf("sli1的类型是%T,sli1=%+v,len(sli1)=%d,cap(sli1)=%d\n", sli1, sli1, len(sli1), cap(sli1))
+> 	sli1[1][0] = 11
+> 	// sli1的类型是[][]int,sli1=[[] [11 2]],len(sli1)=2,cap(sli1)=2
+> 	fmt.Printf("sli1的类型是%T,sli1=%+v,len(sli1)=%d,cap(sli1)=%d\n", sli1, sli1, len(sli1), cap(sli1))
+> 
+> 	sli2 := *new([][]int)
+> 	// sli2的类型是[][]int,sli2=[],len(sli2)=0,cap(sli2)=0
+> 	fmt.Printf("sli2的类型是%T,sli2=%+v,len(sli2)=%d,cap(sli2)=%d\n", sli2, sli2, len(sli2), cap(sli2))
+> 
+> 	//sli2[0][0] = 11 // panic: runtime error: index out of range [0] with length 0
+> 	//sli2[0] = []int{1, 2}     // panic: runtime error: index out of range [0] with length 0                                                                      //
+> 	//sli2[1] = []int{1, 2, 3}     // panic: runtime error: index out of range [1] with length 0                                                                   //
+> 
+> 	var sli3 [][]int
+> 	//sli3的类型是[][]int,sli3=[],len(sli3)=0,cap(sli3)=0
+> 	fmt.Printf("sli3的类型是%T,sli3=%+v,len(sli3)=%d,cap(sli3)=%d\n", sli3, sli3, len(sli3), cap(sli3))
+> 
+> 	//sli3[0][0] = 11 // panic: runtime error: index out of range [0] with length 0
+> 	//sli3[1] = []int{1, 2, 3} // panic: runtime error: index out of range [1] with length 0
+> 
+> 	sli4 := make([][2]int, 2, 2)
+> 	// sli4的类型是[][2]int,sli4=[[0 0] [0 0]],len(sli4)=2,cap(sli4)=2
+> 	fmt.Printf("sli4的类型是%T,sli4=%+v,len(sli4)=%d,cap(sli4)=%d\n", sli4, sli4, len(sli4), cap(sli4))
+> 	sli4[0][0] = 11
+> 	// sli4的类型是[][2]int,sli4=[[11 0] [0 0]],len(sli4)=2,cap(sli4)=2
+> 	fmt.Printf("sli4的类型是%T,sli4=%+v,len(sli4)=%d,cap(sli4)=%d\n", sli4, sli4, len(sli4), cap(sli4))
+> 	//sli4[0] = [3]int{1, 2, 3} // cannot use [3]int{…} (value of type [3]int) as [2]int value in assignment
+> 	sli4[0] = [2]int{111, 222}
+> 	// sli4的类型是[][2]int,sli4=[[111 222] [0 0]],len(sli4)=2,cap(sli4)=2
+> 	fmt.Printf("sli4的类型是%T,sli4=%+v,len(sli4)=%d,cap(sli4)=%d\n", sli4, sli4, len(sli4), cap(sli4))
+> 
+> 	sli5 := *new([][2]int)
+> 	// sli5的类型是[][2]int,sli5=[],len(sli5)=0,cap(sli5)=0
+> 	fmt.Printf("sli5的类型是%T,sli5=%+v,len(sli5)=%d,cap(sli5)=%d\n", sli5, sli5, len(sli5), cap(sli5))
+> 
+> 	//sli5[0][0] = 11 // panic: runtime error: index out of range [0] with length 0                                                                          // panic: runtime error: index out of range [0] with length 0
+> 	//sli5[0] = [2]int{1, 2} // panic: runtime error: index out of range [0] with length 0
+> 
+> 	sli6 := [][2]int{{1, 2}, {2, 3}}
+> 	// sli6的类型是[][2]int,sli6=[[1 2] [2 3]],len(sli6)=2,cap(sli6)=2
+> 	fmt.Printf("sli6的类型是%T,sli6=%+v,len(sli6)=%d,cap(sli6)=%d\n", sli6, sli6, len(sli6), cap(sli6))
+> 
+> 	sli6[1] = [2]int{22, 33}
+> 	// sli6的类型是[][2]int,sli6=[[1 2] [22 33]],len(sli6)=2,cap(sli6)=2
+> 	fmt.Printf("sli6的类型是%T,sli6=%+v,len(sli6)=%d,cap(sli6)=%d\n", sli6, sli6, len(sli6), cap(sli6))
+> 
+> 	sli6[1] = [...]int{222, 333}
+> 	// sli6的类型是[][2]int,sli6=[[1 2] [222 333]],len(sli6)=2,cap(sli6)=2
+> 	fmt.Printf("sli6的类型是%T,sli6=%+v,len(sli6)=%d,cap(sli6)=%d\n", sli6, sli6, len(sli6), cap(sli6))
+> 
+> 	sli7 := [][]int{{1}, {2, 3}, {4, 5, 6}}
+> 	// sli7的类型是[][]int,sli7=[[1] [2 3] [4 5 6]],len(sli7)=3,cap(sli7)=3
+> 	fmt.Printf("sli7的类型是%T,sli7=%+v,len(sli7)=%d,cap(sli7)=%d\n", sli7, sli7, len(sli7), cap(sli7))
+> 	sli7[0] = []int{1, 11, 111}
+> 	// sli7的类型是[][]int,sli7=[[1 11 111] [2 3] [4 5 6]],len(sli7)=3,cap(sli7)=3
+> 	fmt.Printf("sli7的类型是%T,sli7=%+v,len(sli7)=%d,cap(sli7)=%d\n", sli7, sli7, len(sli7), cap(sli7))
+> 	sli7[0][2] = 1111
+> 	// sli7的类型是[][]int,sli7=[[1 11 1111] [2 3] [4 5 6]],len(sli7)=3,cap(sli7)=3
+> 	fmt.Printf("sli7的类型是%T,sli7=%+v,len(sli7)=%d,cap(sli7)=%d\n", sli7, sli7, len(sli7), cap(sli7))
+> 	sli7[0][3] = 11111 // panic: runtime error: index out of range [3] with length 3
+> 
+> }
+> 
+> ```
+>
+> 
 
 ### Struct types 结构体型
 
-​		结构体是一个命名元素（称为`字段`）的序列，，每个字段都有一个名称和一个类型。字段名可以显示地指定（IdentifierList）或隐含地指定（EmbeddedField）。在一个结构体中，非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段名必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)的。
+​	结构体是一系列具有名称和类型的命名元素，称为`字段`。字段名可以显式指定（IdentifierList）或隐式指定（EmbeddedField）。在结构体内部，非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段名必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)的。
 
 ```
 StructType    = "struct" "{" { FieldDecl ";" } "}" .
 FieldDecl     = (IdentifierList Type | EmbeddedField) [ Tag ] .
 EmbeddedField = [ "*" ] TypeName [ TypeArgs ] .
 Tag           = string_lit .
-// An empty struct.
+```
+
+
+```go
+// 一个空结构体
 struct {}
 
-// A struct with 6 fields.
+// 一个带有6个字段的结构体
 struct {
 	x, y int
 	u float32
@@ -150,7 +596,7 @@ struct {
 }
 ```
 
-​	一个声明了类型但没有明确字段名的字段被称为`嵌入式字段`。嵌入字段必须被指定为一个类型名`T`或一个指向非接口类型名`*T`的指针，而且`T`本身不能是一个指针类型。未限定类型名作为字段名。
+​	使用类型但没有显式字段名声明的字段被称为`嵌入字段`。嵌入字段必须被指定为一个类型名`T`或一个指向非接口类型名`*T`的指针，而且`T`本身不能是一个指针类型。未限定类型名作为字段名。
 
 ```go 
 // A struct with four embedded fields of types T1, *T2, P.T3 and *P.T4
@@ -163,7 +609,93 @@ struct {
 }
 ```
 
-下面的声明是非法的，`因为字段名在一个结构体类型中必须是唯一的`。
+> 个人注释
+>
+> ​	什么是“未限定类型名作为字段名”？结构体变量可以使用for range取出各个字段的值吗？
+
+{{< tabpane text=true >}}
+
+{{< tab header="main.go" >}}
+
+```go
+package main
+
+import (
+	"example.com/101/dftype"
+	"fmt"
+)
+
+type MySt1 struct {
+	dftype.T1
+	dftype.T2
+	x, y int
+}
+
+func main() {
+	st1 := MySt1{1, 2, 3, 4}
+	fmt.Printf("st1的类型是%T,st=%+v\n", st1, st1)
+	fmt.Printf("T1字段的值%v\n", st1.T1) //T1字段的值1
+	fmt.Printf("T2字段的值%v\n", st1.T2) //T2字段的值2
+	fmt.Printf("x字段的值%v\n", st1.x)   //x字段的值3
+	fmt.Printf("y字段的值%v\n", st1.y)   //y字段的值4
+
+	// implicit assignment to unexported field x in struct literal of type dftype.MySt1
+	// implicit assignment to unexported field y in struct literal of type dftype.MySt1
+	// st2 := dftype.MySt1{1, 2, 3, 4}
+	// fmt.Printf("st2的类型是%T,st2=%+v\n", st2, st2)
+	st2 := dftype.MySt1{T1: 1, T2: 2}
+	fmt.Printf("st2的类型是%T,st2=%+v\n", st2, st2) //st2的类型是dftype.MySt1,st2={T1:1 T2:2 x:0 y:0}
+	fmt.Printf("T1字段的值%v\n", st2.T1)            //T1字段的值1
+	fmt.Printf("T2字段的值%v\n", st2.T2)            //T2字段的值2
+
+	st3 := dftype.MySt2{1, 2, 3, 4}
+	fmt.Printf("st3的类型是%T,st3=%+v\n", st3, st3) // st3的类型是dftype.MySt2,st3={T1:1 T2:2 X:3 Y:4}
+	fmt.Printf("T1字段的值%v\n", st3.T1)            //T1字段的值1
+	fmt.Printf("T2字段的值%v\n", st3.T2)            //T2字段的值2
+	fmt.Printf("X字段的值%v\n", st3.X)              //X字段的值3
+	fmt.Printf("Y字段的值%v\n", st3.Y)              //Y字段的值4
+
+	// cannot range over st3 (variable of type dftype.MySt2)
+	//for i, v := range st3 {
+	//	fmt.Println(i, ":", v, "\n")
+	//}
+}
+
+```
+
+{{< /tab >}}
+
+{{< tab header="dftype.go" >}}
+
+```go
+package dftype
+
+type T1 int
+type T2 int8
+
+type MySt1 struct {
+	T1
+	T2
+	x, y int
+}
+
+type MySt2 struct {
+	T1
+	T2
+	X, Y int
+}
+
+```
+
+{{< /tab >}}
+
+{{< /tabpane >}}	
+
+> 个人注释
+>
+> ​	相信以上示例，已经给出了答案：未限定类型名作为字段名，即是将类型名直接作为字段名；结构体变量不能用于 for range语句中。
+
+​	下面的声明是非法的，`因为字段名在一个结构体类型中必须是唯一的`。
 
 ```go 
 struct {
@@ -173,7 +705,7 @@ struct {
 }
 ```
 
-​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations-方法声明)`f`的合法[选择器](../Expressions#selectors-选择器)，那么结构体`x`中的嵌入式字段或方法`f`被称为（自动）提升（的字段或方法）。
+​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations-方法声明)`f`的合法[选择器](../Expressions#selectors-选择器)，那么结构体`x`中的嵌入字段或方法`f`被称为（自动）提升（的字段或方法）。
 
 ​	被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals-复合字面量)中作为字段名使用。
 

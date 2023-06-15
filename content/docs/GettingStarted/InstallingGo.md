@@ -72,13 +72,14 @@ $ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 ```
 
-  ```
-  >  **注意**：对配置文件所做的修改可能要到您下次登录电脑时才会应用。要立即应用这些更改，只需直接运行 shell 命令或使用 `source $HOME/.profile` 等命令从配置文件中执行这些命令。
+>  **注意**：对配置文件所做的修改可能要到您下次登录电脑时才会应用。要立即应用这些更改，只需直接运行 shell 命令或使用 `source $HOME/.profile` 等命令从配置文件中执行这些命令。
+>
+
 3. 通过打开命令提示符并输入以下命令来验证您已经安装了Go:
 ```bash
 $ go version
-  ```
-3. 确认该命令打印出已安装的Go的版本。
+```
+4. 确认该命令打印出已安装的Go的版本。
 
 {{< /tab >}}
 
