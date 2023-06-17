@@ -611,7 +611,7 @@ struct {
 
 > 个人注释
 >
-> ​	什么是“未限定类型名作为字段名”？结构体变量可以使用for range取出各个字段的值吗？
+> ​	什么是“未限定类型名作为字段名”？结构体变量可以使用for range中多为被迭代对象吗？
 
 {{< tabpane text=true >}}
 
@@ -693,7 +693,7 @@ type MySt2 struct {
 
 > 个人注释
 >
-> ​	相信以上示例，已经给出了答案：未限定类型名作为字段名，即是将类型名直接作为字段名；结构体变量不能用于 for range语句中。
+> ​	相信以上示例，已经给出了答案：未限定类型名作为字段名，即是将类型名直接作为字段名；结构体变量不能用于 for range语句中作为被迭代对象。
 
 ​	下面的声明是非法的，`因为字段名在一个结构体类型中必须是唯一的`。
 
@@ -705,14 +705,250 @@ struct {
 }
 ```
 
+> ​	个人注释
+>
+> ​	若嵌入字段是非接口类型名`*T`的指针，那结构体变量使用%v、%+v或%#v打印时，字段名是什么？输出是怎样的？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type T1 int
+> type T2 int8
+> 
+> type MySt1 struct {
+> 	*T1
+> 	T2
+> }
+> 
+> func main() {
+> 	t := T1(1)
+> 	st := MySt1{&t, 2}
+> 	fmt.Printf("st=%v\n", st)  // st={0xc00001a0a8 2}
+> 	fmt.Printf("st=%+v\n", st) // st={T1:0xc00001a0a8 T2:2}
+> 	fmt.Printf("st=%#v\n", st) // st=main.MySt1{T1:(*main.T1)(0xc00001a0a8), T2:2}
+> }
+> 
+> ```
+>
+> 
+
 ​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations-方法声明)`f`的合法[选择器](../Expressions#selectors-选择器)，那么结构体`x`中的嵌入字段或方法`f`被称为（自动）提升（的字段或方法）。
+
+> 个人注释
+>
+> ​	请给出提升的字段或方法的示例。
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type MySt1 struct {
+> 	Size int
+> }
+> 
+> // 报错：field and method with the same name Size
+> //func (mySt1 MySt1) Size() int {
+> //	return mySt1.Size
+> //}
+> 
+> func (mySt1 MySt1) Size1() int {
+> 	return mySt1.Size
+> }
+> 
+> type MySt2 struct {
+> 	MySt1
+> 	Name string
+> 	Age  int
+> }
+> 
+> func main() {
+> 	st := MySt2{MySt1: MySt1{Size: 20}, Name: "zlongx", Age: 32}
+> 	fmt.Printf("st=%v\n", st)  // st={{20} zlongx 32}
+> 	fmt.Printf("st=%+v\n", st) // st={MySt1:{Size:20} Name:zlongx Age:32}
+> 	fmt.Printf("st=%#v\n", st) // st=main.MySt2{MySt1:main.MySt1{Size:20}, Name:"zlongx", Age:32}
+> 
+> 	// 被提升的字段 Size
+> 	fmt.Printf("Size=%d\n", st.Size) // Size=20
+> 
+> 	// 被提升的方法 Size1()
+> 	fmt.Printf("Size=%d\n", st.Size1()) // Size=20
+> }
+> 
+> ```
+>
+> 
 
 ​	被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals-复合字面量)中作为字段名使用。
 
-​	给定一个结构体类型`S`和一个[命名类型](../Types)`T`，提升的方法被包含在结构体的方法集中，如下所示：
+> 个人注释
+>
+> ​	解释下“被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals-复合字面量)中作为字段名使用。”？
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type MySt1 struct {
+> 	Size int
+> }
+> 
+> // 报错：field and method with the same name Size
+> //func (mySt1 MySt1) Size() int {
+> //	return mySt1.Size
+> //}
+> 
+> func (mySt1 MySt1) Size1() int {
+> 	return mySt1.Size
+> }
+> 
+> type MySt2 struct {
+> 	MySt1
+> 	Name string
+> 	Age  int
+> }
+> 
+> func main() {
+> 	// 报错：unknown field Size in struct literal of type MySt2
+> 	// st := MySt2{Size: 20, Name: "zlongx", Age: 32}
+> 	st1 := MySt2{MySt1: MySt1{Size: 20}, Name: "zlongx", Age: 32}
+> 	fmt.Printf("st1=%#v\n", st1) // st1=main.MySt2{MySt1:main.MySt1{Size:20}, Name:"zlongx", Age:32}
+> 	st2 := MySt2{MySt1{Size: 20}, "zlongx", 32}
+> 	fmt.Printf("st2=%#v\n", st2) // st2=main.MySt2{MySt1:main.MySt1{Size:20}, Name:"zlongx", Age:32}
+> 
+> }
+> ```
+>
+> ​	在创建结构体 `MySt2` 的实例时，我们可以使用复合字面量来初始化普通字段 `Name`和`Age`，但无法直接使用复合字面量来初始化提升字段 `Size`。我们需要通过指定嵌入字段 `MySt1` 的普通字段 `Size` 来初始化它。
+>
+> ​	即Size这个字段不能直接在结构体字面量的最外围花括号中直接使用。
 
-- 如果`S`包含一个嵌入式字段`T`，那么`S`和`*S`的方法集都包括带有接收器`T`的提升方法，`*S`的方法集也包括带有接收器`*T`的提升方法。
-- 如果`S`包含一个嵌入式字段`*T`，那么`S`和`*S`的方法集都包括带有接收器`T`或`*T`的提升方法。
+​	给定一个结构体类型`S`和一个[命名类型](../Types)`T`，提升的方法按以下方式包含在结构体的方法集中：
+
+(aa）如果`S`包含一个嵌入式字段`T`，那么`S`和`*S`的方法集都包括带有接收器`T`的提升方法，`*S`的方法集也包括带有接收器`*T`的提升方法。
+
+(bb) 如果`S`包含一个嵌入式字段`*T`，那么`S`和`*S`的方法集都包括带有接收器`T`或`*T`的提升方法。
+
+> ​	个人注释
+>
+> ​	如下示例中的 a、b、d 可以解释(aa)这一点。
+>
+> 但示例中的c，又该如何解释呢？这应该是go语言编译器的特殊处理或者称为go语法糖！TODO 待找出出处！以及给出编译后汇编代码？
+>
+> ​	如下示例中的 e、f、g、h 可以解释(bb)这一点。
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> 	"reflect"
+> )
+> 
+> func DumpMethodSet(i interface{}) {
+> 	v := reflect.TypeOf(i)
+> 	elemTyp := v.Elem()
+> 
+> 	n := elemTyp.NumMethod()
+> 	if n == 0 {
+> 		fmt.Printf("%s's method set is empty!\n", elemTyp)
+> 	}
+> 
+> 	fmt.Printf("%s's method set:\n", elemTyp)
+> 	for j := 0; j < n; j++ {
+> 		fmt.Println("-", elemTyp.Method(j).Name)
+> 	}
+> 	fmt.Println()
+> }
+> 
+> type T1 struct {
+> }
+> 
+> func (t T1) Method1A() {
+> 	fmt.Println("Method1A called")
+> }
+> 
+> func (t *T1) Method1B() {
+> 	fmt.Println("Method1B called")
+> }
+> 
+> type T2 struct {
+> }
+> 
+> func (t T2) Method2A() {
+> 	fmt.Println("Method2A called")
+> }
+> 
+> func (t *T2) Method2B() {
+> 	fmt.Println("Method2B called")
+> }
+> 
+> type S struct {
+> 	T1
+> 	*T2
+> }
+> 
+> func main() {
+> 	s := S{T1: T1{}, T2: &T2{}}
+> 
+> 	//a. 可以直接调用 接收器为T1 的提升方法 Method1A
+> 	s.Method1A() // Method1A called
+> 	//b. 可以通过指针调用 接收器为T1 的提升方法 Method1A
+> 	(&s).Method1A() // Method1A called
+> 
+> 	//c. 可以直接调用 接收器为*T1 的提升方法 Method1B
+> 	s.Method1B() // Method1B called
+> 	//d. 可以通过指针调用 接收器为*T1 的提升方法 Method1B
+> 	(&s).Method1B() // Method1B called
+> 
+> 	//e. 可以直接调用 接收器为T2 的提升方法 Method2A
+> 	s.Method2A() // Method2A called
+> 	//f. 可以通过指针调用 接收器为T2 的提升方法 Method2A
+> 	(&s).Method2A() // Method2A called
+> 
+> 	//g. 可以直接调用 接收器为*T2 的提升方法 Method2B
+> 	s.Method2B() // Method2B called
+> 	//h. 可以通过指针调用 接收器为*T2 的提升方法 Method2B
+> 	(&s).Method2B() // Method2B called
+> 
+> 	var t = s
+> 	var pt = &s
+> 	//main.S's method set:
+> 	//- Method1A
+> 	//- Method2A
+> 	//- Method2B
+> 	DumpMethodSet(&t)
+> 	//*main.S's method set:
+> 	//- Method1A
+> 	//- Method1B
+> 	//- Method2A
+> 	//- Method2B
+> 	DumpMethodSet(&pt)
+> 	fmt.Printf("%T\n", pt)  // *main.S
+> 	fmt.Printf("%T\n", &pt) // **main.S
+> 
+> 
+> 	var tt S
+> 	var ppt *S
+> 	//main.S's method set:
+> 	//- Method1A
+> 	//- Method2A
+> 	//- Method2B
+> 	DumpMethodSet(&tt)
+> 	//*main.S's method set:
+> 	//- Method1A
+> 	//- Method1B
+> 	//- Method2A
+> 	//- Method2B
+> 	DumpMethodSet(&ppt)
+> }
+> 
+> ```
+>
+> 
 
 ​	一个字段声明后面可以有一个可选的`字符串字面量标签`，它成为相应字段声明中所有字段的属性。一个空的标签字符串等同于一个不存在标签。标签通过[反射接口](https://pkg.go.dev/reflect#StructTag)可见，并参与结构体的[类型标识](../PropertiesOfTypesAndValues#type-identity-类型一致性)，但在其他情况下被忽略。
 
@@ -734,6 +970,16 @@ struct {
 	serverIP6 uint64 `protobuf:"2"`
 }
 ```
+
+> 个人注释
+>
+> ​	请给出怎么通过反射接口给出标签的示例？
+>
+> ```go
+> 
+> ```
+>
+> 
 
 ### Pointer types 指针型
 
