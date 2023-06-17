@@ -1034,11 +1034,11 @@ TypeTerm       = Type | UnderlyingType .
 UnderlyingType = "~" Type .
 ```
 
-​	接口类型由接口元素列表指定。接口元素是一个方法或一个类型元素，其中类型元素是一个或多个类型术语的联合。类型术语可以是一个单一类型，也可以是一个单一的底层类型。
+​	接口类型由接口元素列表指定。接口元素是一个方法或一个类型元素，其中类型元素是一个或多个类型项的联合。类型项可以是一个单一类型，也可以是一个单一的底层类型。
 
 #### Basic interfaces 基本接口
 
-​	在其最基本的形式中，接口指定了一个（可能是空的）方法列表。由这样一个接口定义的类型集是实现所有这些方法的类型集，而相应的方法集则完全由这个接口指定的方法组成。那些类型集可以`完全由一个方法列表`来定义的接口被称为`基本接口`。
+​	在其最基本的形式中，接口指定了一个（可能是空的）方法列表。由这样一个接口定义的类型集是实现了所有这些方法的类型集，而相应的方法集则完全由这个接口指定的方法组成。那些类型集可以`完全由一个方法列表`来定义的接口被称为`基本接口`。
 
 ```go 
 // A simple File interface.
@@ -1095,7 +1095,7 @@ func (p T) Unlock() { … }
 
 他们就实现了`Locker`接口和`File`接口。
 
-#### Embedded interfaces 嵌入式接口
+#### Embedded interfaces 嵌入接口
 
 ​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E`。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
 
@@ -1128,18 +1128,18 @@ type ReadCloser interface {
 
 #### General interfaces 通用接口
 
-​	在最通用的形式下，接口元素也可以是一个任意类型的术语`T`，或者是一个指定底层类型`T`的`~T`形式的术语，或者是术语`t1|t2|...|tn`的联合。与方法规范一起，这些元素能够精确地定义一个接口的类型集，如下所示：
+​	在最通用的形式下，接口元素也可以是一个任意类型项`T`，或者是一个指定底层类型`T`的`~T`形式的项，或者是一系列项`t1|t2|...|tn`的联合。结合方法规范，这些元素能够精确地定义一个接口的类型集，如下所示：
 
 - 空接口的类型集是`所有非接口类型的集合`。
 - 非空接口的类型集是其接口元素的类型集的交集。
-- 方法规范的类型集是其方法集包括该方法的`所有非接口类型的集合`。
-- 非接口类型术语的类型集是仅由该类型组成的集合。
-- 形式为`~T`的术语的类型集是其底层类型为`T`的所有类型的集合。
-- 术语`t1|t2|...|tn`的联合体类型集是各术语类型集的联合。
+- 方法规范的类型集是包含该方法的`所有非接口类型的集合`。
+- 非接口类型项的类型集是仅由该类型组成的集合。
+- 形式为`~T`的项的类型集是底层类型为`T`的所有类型的集合。
+- 一系列项`t1|t2|...|tn`的类型集是这些项的类型集的并集。
 
-​	量化 "`所有非接口类型的集合` "不仅指手头程序中声明的所有（非接口）类型，还指所有可能程序中的所有可能类型，因此是无限的。类似地，给定实现某个特定方法的`所有非接口类型的集合`，这些类型的方法集的`交集`将正好包含该方法，即使手头的程序中的所有类型总是将该方法与另一个方法配对。
+​	量化 "`所有非接口类型的集合` "不仅指当前程序中声明的所有（非接口）类型，还指所有可能程序中的所有可能类型，因此是无限的。类似地，给定实现某个特定方法的`所有非接口类型的集合`，这些类型的方法集的`交集`将正好包含该方法，即使当前程序中的所有类型总是将该方法与另一个方法配对。
 
-通过构造，`一个接口的类型集永远不会包含一个接口类型`。
+​	根据定义，`一个接口的类型集永远不会包含一个接口类型`。
 
 ```go 
 // An interface representing only the type int.
@@ -1169,7 +1169,7 @@ interface {
 }
 ```
 
-​	在形式为`~T`的术语中，`T`的底层类型必须是它自己，而且`T`不能是一个接口。
+​	在形式为`~T`的项中，`T`的底层类型必须是它自己，而且`T`不能是一个接口。
 
 ```go 
 type MyInt int
@@ -1181,19 +1181,19 @@ interface {
 }
 ```
 
-联合元素表示类型集的联合：
+联合元素表示类型集的并集：
 
 ```go 
 // The Float interface represents all floating-point types
 // (including any named types whose underlying types are
 // either float32 or float64).
-// Float接口表示所有的浮点类型（包括底层类型为float32或float64的任何命名类型）。
+// Float接口表示所有的浮点类型（包括底层类型为float32或float64的命名类型）。
 type Float interface {
 	~float32 | ~float64
 }
 ```
 
-​	形式为`T`或`~T`的术语中的类型`T`不能是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，所有非接口术语的类型集必须是成对不相交的（类型集的成对交集必须为空）。给定一个类型参数P：
+​	形式为`T`或`~T`的项中的类型`T`不能是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，所有非接口项的类型集必须是成对不相交的（类型集的成对交集必须为空）。给定一个类型参数P：
 
 ```go 
 interface {
@@ -1204,9 +1204,9 @@ interface {
 }
 ```
 
-实现限制：联合(有多个术语)不能包含[预先声明的标识符](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)`comparable`或指定方法的接口，或嵌入`comparable`或指定方法的接口。
+实现限制：一个联合(有多个项)不能包含[预先声明的标识符中的](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)`comparable`或指定了方法的接口，或嵌入`comparable`或指定了方法的接口。
 
-​	非[基本接口](#basic-interfaces-基本接口)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，也不能作为其他非接口类型的组成部分。
+​	非[基本接口](#basic-interfaces-基本接口)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，**也不能作为其他非接口类型的组成部分**。
 
 ```go 
 var x Float                     // illegal: Float is not a basic interface => 非法: Float 不是一个基本接口
@@ -1244,10 +1244,67 @@ type Bad3 interface {
 
 如果类型`T`实现了接口`I`，则
 
-- `T`不是接口，并且是`I`类型集的元素；或者
-- `T`是接口，并且`T`的类型集是`I`的类型集的子集。
+​	(a)`T`不是接口，并且是`I`类型集的元素；或者
+
+​	(b) `T`是接口，并且`T`的类型集是`I`的类型集的子集。
 
 如果`T`实现了一个接口，那么`T`类型的值就实现了该接口。
+
+> 个人注释
+>
+> ​	针对(b)给出示例说明下：
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> )
+> 
+> type Reader interface {
+> 	Read()
+> }
+> 
+> type Writer interface {
+> 	Write(data string)
+> }
+> 
+> type ReadWriter interface {
+> 	Read()
+> 	Write(data string)
+> }
+> 
+> type Document struct{}
+> 
+> func (d Document) Read() {
+> 	fmt.Println("Reading document")
+> }
+> 
+> func (d Document) Write(data string) {
+> 	fmt.Println("Writing \"" + data + "\" to document")
+> }
+> 
+> func main() {
+> 	var r Reader
+> 	var w Writer
+> 	var rw ReadWriter
+> 	doc := Document{}
+> 	doc.Read()         // Reading document
+> 	doc.Write("hello") //Writing "hello" to document
+> 
+> 	r = doc
+> 	w = doc
+> 	rw = doc
+> 
+> 	r.Read()         // Reading document
+> 	w.Write("world") // Writing "world" to document
+> 	rw.Read()        // Reading document
+> 	rw.Write("hi")   // Writing "hi" to document
+> }
+> 
+> ```
+>
+> 
 
 ### Map types 映射型
 
@@ -1259,6 +1316,60 @@ KeyType     = Type .
 ```
 
 ​	[比较运算符](../Expressions#comparison-operators-比较运算符)`==`和`!=`必须为键类型的操作数完全定义；`因此键类型不能是函数、映射或切片`。如果键类型是接口类型，则必须为动态键值定义这些比较运算符；失败将导致[运行时恐慌（run-time panic）](../Run-timePanics)。
+
+> 个人注释
+>
+> ​	map的键可以是数组吗？=> 可以
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	var m0 map[[3]int]string
+> 	fmt.Printf("m0=%v\n", m0)  // m0=map[]
+> 	fmt.Printf("m0=%+v\n", m0) // m0=map[]
+> 	fmt.Printf("m0=%#v\n", m0) // m0=map[[3]int]string(nil)
+> 	//m0[[...]int{0, 1, 2}] = "A0" //报错： panic: assignment to entry in nil map
+> 	//m0[[...]int{2, 3, 4}] = "B0" //报错： panic: assignment to entry in nil map
+> 
+> 	m1 := map[[3]int]string{}
+> 	fmt.Printf("m1=%v\n", m1)  // m1=map[]
+> 	fmt.Printf("m1=%+v\n", m1) // m1=map[]
+> 	fmt.Printf("m1=%#v\n", m1) // m1=map[[3]int]string{}
+> 
+> 	m1[[...]int{0, 1, 2}] = "A1"
+> 	m1[[...]int{2, 3, 4}] = "B1"
+> 	fmt.Printf("m1=%v\n", m1)  // m1=map[[0 1 2]:A1 [2 3 4]:B1]
+> 	fmt.Printf("m1=%+v\n", m1) // m1=map[[0 1 2]:A1 [2 3 4]:B1]
+> 	fmt.Printf("m1=%#v\n", m1) // m1=map[[3]int]string{[3]int{0, 1, 2}:"A1", [3]int{2, 3, 4}:"B1"}
+> 
+> 	m2 := map[[3]int]string{[...]int{0, 1, 2}: "A2", [...]int{2, 3, 4}: "B2"}
+> 	fmt.Printf("m2=%v\n", m2)  // m2=map[[0 1 2]:A2 [2 3 4]:B2]
+> 	fmt.Printf("m2=%+v\n", m2) // m2=map[[0 1 2]:A2 [2 3 4]:B2]
+> 	fmt.Printf("m2=%#v\n", m2) // m2=map[[3]int]string{[3]int{0, 1, 2}:"A2", [3]int{2, 3, 4}:"B2"}
+> 
+> 	m3 := make(map[[3]int]string)
+> 	fmt.Printf("m3=%v\n", m3)  // m3=map[]
+> 	fmt.Printf("m3=%+v\n", m3) // m3=map[]
+> 	fmt.Printf("m3=%#v\n", m3) // m3=map[[3]int]string{}
+> 	m3[[...]int{0, 1, 2}] = "A3"
+> 	m3[[...]int{2, 3, 4}] = "B3"
+> 	fmt.Printf("m3=%v\n", m3)  // m3=map[[0 1 2]:A3 [2 3 4]:B3]
+> 	fmt.Printf("m3=%+v\n", m3) // m3=map[[0 1 2]:A3 [2 3 4]:B3]
+> 	fmt.Printf("m3=%#v\n", m3) // m3=map[[3]int]string{[3]int{0, 1, 2}:"A3", [3]int{2, 3, 4}:"B3"}
+> 
+> 	m4 := *new(map[[3]int]string)
+> 	fmt.Printf("m4=%v\n", m4)  // m4=map[]
+> 	fmt.Printf("m4=%+v\n", m4) // m4=map[]
+> 	fmt.Printf("m4=%#v\n", m4) // m4=map[[3]int]string(nil)
+> 	//m4[[...]int{0, 1, 2}] = "A3" //报错 panic: assignment to entry in nil map
+> }
+> 
+> ```
+>
+> 
 
 ```go 
 map[string]int
@@ -1319,4 +1430,15 @@ make(chan int, 100)
 
 
 ​	通道可以用内置函数`close`来关闭。[接收操作符](../Expressions#receive-operator-接收操作符)的多值赋值形式可以用来判断数据是否在通道关闭之前发送出去。
+
+> ​	个人注释
+>
+> ​	什么是“[接收操作符](../Expressions#receive-operator-接收操作符)的多值赋值”？
+>
+> ```go
+> value, ok := <-ch
+> ```
+>
+> ​	
+
 ​	任意数量的goroutines都可以通过[发送语句](../Statements#send-statements-发送语句)、[接收操作](../Expressions#receive-operator-接收操作符)以及对内置函数`cap`和`len`的调用，来操作一个通道。通道是一个先入先出的队列。例如，如果一个goroutine在通道上发送数据，第二个goroutine接收这些数据，那么这些数据将按照发送的顺序被接收。
