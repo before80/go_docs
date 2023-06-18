@@ -358,62 +358,44 @@ func Scale[S ~[]E, E constraints.Integer](s S, c E) S {
 
 We’ve introduced a new type parameter `S` that is the type of the slice argument. We’ve constrained it such that the underlying type is `S` rather than `[]E`, and the result type is now `S`. Since `E` is constrained to be an integer, the effect is the same as before: the first argument has to be a slice of some integer type. The only change to the body of the function is that now we pass `S`, rather than `[]E`, when we call `make`.
 
-我们引入了一个新的类型参数S，它是分片参数的类型。我们对它进行了约束，使其底层类型是S而不是[]E，结果类型现在是S。由于E被约束为一个整数，其效果与之前一样：第一个参数必须是某个整数类型的切片。该函数主体的唯一变化是，现在我们在调用make时传递S，而不是[]E。
-
 ​	我们引入了一个新的类型参数 `S`，它是切片实参的类型。我们对它进行了约束，使其底层类型为 `S` 而不是 `[]E`【2023年6月18日17:36:47 个人注释：我想这里的底层类型应该是`[]E`而不是 `S`吧】，并且结果类型现在是 `S`。由于 `E` 受限于整型，效果与之前相同：第一个实参必须是某种整型的切片。该函数体唯一的变化是在调用 `make` 时现在传递的是 `S` 而不是 `[]E`。
 
 The new function acts the same as before if we call it with a plain slice, but if we call it with the type `Point` we now get back a value of type `Point`. That is what we want. With this version of `Scale` the earlier `ScaleAndPrint` function will compile and run as we expect.
 
-如果我们用一个普通的片断来调用它，新函数的作用和以前一样，但是如果我们用Point类型来调用它，我们现在得到一个Point类型的值。这就是我们想要的。有了这个版本的Scale，早先的ScaleAndPrint函数将如我们所期望的那样编译和运行。
-
-​	新的函数在使用普通切片调用时与之前的函数行为相同，但如果我们使用类型 `Point` 调用它，现在会得到一个类型为 `Point` 的值。这正是我们想要的。有了这个版本的 `Scale`，之前的 `ScaleAndPrint` 函数将会按预期编译和运行。
+​	新的函数在使用普通切片调用时与之前的函数行为相同，但如果我们使用类型 `Point` 来调用它，现在会得到一个类型为 `Point` 的值。这正是我们想要的。有了这个版本的 `Scale`，之前的 `ScaleAndPrint` 函数将会按预期编译和运行。
 
 But it’s fair to ask: why is it OK to write the call to `Scale` without passing explicit type arguments? That is, why can we write `Scale(p, 2)`, with no type arguments, rather than having to write `Scale[Point, int32](p, 2)`? Our new `Scale` function has two type parameters, `S` and `E`. In a call to `Scale` not passing any type arguments, function argument type inference, described above, lets the compiler infer that the type argument for `S` is `Point`. But the function also has a type parameter `E` which is the type of the multiplication factor `c`. The corresponding function argument is `2`, and because `2` is an *untyped* constant, function argument type inference cannot infer the correct type for `E` (at best it might infer the default type for `2` which is `int` and which would be incorrect). Instead, the process by which the compiler infers that the type argument for `E` is the element type of the slice is called *constraint type inference*.
 
-但我们可以问：为什么写Scale的调用时不传递明确的类型参数就可以了？也就是说，为什么我们可以写Scale(p, 2)，没有类型参数，而不是必须写Scale[Point, int32](p, 2)？我们的新Scale函数有两个类型参数，S和E。在不传递任何类型参数的Scale调用中，上面描述的函数参数类型推理让编译器推断出S的类型参数是Point。但该函数还有一个类型参数E，它是乘法因子c的类型。相应的函数参数是2，由于2是一个未定型的常数，函数参数类型推理不能推断出E的正确类型（最多可能推断出2的默认类型是int，这将是错误的）。相反，编译器推断E的类型参数是切片的元素类型的过程被称为约束类型推理。
-
-​	但是可以问：为什么在调用 `Scale` 时可以不传递显式的类型参数？也就是说，为什么我们可以写成 `Scale(p, 2)`，而不需要写成 `Scale[Point, int32](p, 2)`？我们的新 `Scale` 函数有两个类型参数，`S` 和 `E`。在没有传递任何类型参数的 `Scale` 调用中，前面描述的函数参数类型推断使得编译器可以推断出 `S` 的类型参数是 `Point`。但是函数还有一个类型参数 `E`，它是乘法因子 `c` 的类型。相应的函数参数是 `2`，由于 `2` 是一个*无类型*常量，函数参数类型推断无法推断出正确的 `E` 类型（最好情况下可能推断出 `2` 的默认类型 `int`，但这是不正确的）。相反，编译器推断出 `E` 的类型参数是切片的元素类型的过程被称为*约束类型推断*。
+​	但是我们可以问：为什么在调用 `Scale` 时可以不传递显式的类型实参？也就是说，为什么我们可以写成 `Scale(p, 2)`，而不需要写成 `Scale[Point, int32](p, 2)`？我们的新 `Scale` 函数有两个类型参数，`S` 和 `E`。在没有传递任何类型实参的 `Scale` 调用中，上面描述的函数实参类型推断使得编译器可以推断出 `S` 的类型实参是 `Point`。但是函数还有一个类型参数 `E`，它是乘法因子 `c` 的类型。相应的函数实参是 `2`，由于 `2` 是一个*无类型*常量，函数实参类型推断无法推断出 `E` 的正确类型（最多可能推断出 `2` 的默认类型 `int`，但这是不正确的）。相反，编译器推断出 `E` 的类型实参是切片的元素类型的过程被称为*约束类型推断*。
 
 Constraint type inference deduces type arguments from type parameter constraints. It is used when one type parameter has a constraint defined in terms of another type parameter. When the type argument of one of those type parameters is known, the constraint is used to infer the type argument of the other.
 
-约束类型推理是从类型参数约束中推断出类型参数。当一个类型参数有一个定义在另一个类型参数上的约束时，它就被使用。当这些类型参数中的一个的类型参数是已知的，该约束被用来推断另一个的类型参数。
-
-​	约束类型推断通过类型参数的约束来推导类型参数的类型。它用于当一个类型参数的约束是基于另一个类型参数定义时。当其中一个类型参数的类型参数已知时，约束就被用来推断另一个类型参数的类型。
+​	约束类型推断从类型参数的约束中推导出类型参数的类型。当一个类型参数的约束以另一个类型参数的形式定义时，就会使用约束类型推断。当其中一个类型参数的类型实参已知时，约束类型推断会用于推断另一个类型实参的类型。
 
 The usual case where this applies is when one constraint uses the form `~`*`type`* for some type, where that type is written using other type parameters. We see this in the `Scale` example. `S` is `~[]E`, which is `~` followed by a type `[]E` written in terms of another type parameter. If we know the type argument for `S` we can infer the type argument for `E`. `S` is a slice type, and `E` is the element type of that slice.
 
-通常适用的情况是，当一个约束对某个类型使用~type的形式，而这个类型是用其他类型参数写的。我们在Scale的例子中看到了这一点。S是~[]E，它是~后面的类型[]E用另一个类型参数来写。如果我们知道S的类型参数，我们就可以推断出E的类型参数。S是一个片断类型，而E是该片断的元素类型。
-
-​	通常情况下，这适用于当一个约束使用 `~`*`type`* 的形式来表示某种类型，而该类型是使用其他类型参数来表示的情况。我们在 `Scale` 的示例中看到了这一点。`S` 是 `~[]E`，它是 `~` 后跟一个用另一个类型参数表示的类型 `[]E`。如果我们知道 `S` 的类型参数，我们可以推断出 `E` 的类型参数。`S` 是一个切片类型，而 `E` 是该切片的元素类型。
+​	通常情况下，这种情况适用于约束使用 `~` `type`  的形式表示某种类型，而该类型是使用其他类型参数编写的情况。我们可以在 `Scale` 的示例中看到这一点。`S` 是 `~[]E`，它由 `~` 后跟一个使用其他类型参数编写的类型 `[]E` 组成。如果我们知道 `S` 的类型实参，就可以推断出 `E` 的类型实参（的类型）。`S` 是一个切片类型，而 `E` 是该切片的元素类型。
 
 This was just an introduction to constraint type inference. For full details see the [proposal document](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md) or the [language spec](https://go.dev/ref/spec).
 
-这只是对约束类型推理的一个介绍。完整的细节见提案文件或语言规范。
-
-​	这只是对约束类型推断的简单介绍。有关详细信息，请参阅[提案文档](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)或[语言规范](https://go.dev/ref/spec)。
+​	这只是对约束类型推断的简单介绍。有关详细信息，请参阅[提案文档](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)或[语言规范]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#type-parameter-declarations-类型参数声明">}})。
 
 ### 实践中的类型推断 Type inference in practice 
 
 The exact details of how type inference works are complicated, but using it is not: type inference either succeeds or fails. If it succeeds, type arguments can be omitted, and calling generic functions looks no different than calling ordinary functions. If type inference fails, the compiler will give an error message, and in those cases we can just provide the necessary type arguments.
 
-类型推理如何工作的确切细节很复杂，但使用它并不复杂：类型推理要么成功，要么失败。如果它成功了，类型参数可以被省略，而且调用泛型函数看起来与调用普通函数没有什么不同。如果类型推理失败，编译器会给出一个错误信息，在这些情况下，我们可以直接提供必要的类型参数。
-
-​	类型推断的具体细节很复杂，但使用它并不复杂：类型推断要么成功，要么失败。如果成功，可以省略类型参数，调用泛型函数与调用普通函数没有区别。如果类型推断失败，编译器会给出错误消息，在这些情况下，我们只需要提供必要的类型参数即可。
+​	类型推断的具体细节很复杂，但使用它并不复杂：类型推断要么成功，要么失败。如果成功，可以省略类型实参，调用泛型函数与调用普通函数没有区别。如果类型推断失败，编译器会给出错误消息，在这些情况下，我们只需要提供必要的类型实参即可。
 
 In adding type inference to the language we’ve tried to strike a balance between inference power and complexity. We want to ensure that when the compiler infers types, those types are never surprising. We’ve tried to be careful to err on the side of failing to infer a type rather than on the side of inferring the wrong type. We probably have not gotten it entirely right, and we may continue to refine it in future releases. The effect will be that more programs can be written without explicit type arguments. Programs that don’t need type arguments today won’t need them tomorrow either.
 
-在向语言添加类型推理时，我们试图在推理能力和复杂性之间取得平衡。我们想确保当编译器推断出类型时，这些类型永远不会令人惊讶。我们试图小心翼翼地站在未能推断出类型的一边，而不是站在推断出错误类型的一边。我们可能没有完全做到这一点，而且我们可能会在未来的版本中继续完善它。其效果是，更多的程序可以在没有显式类型参数的情况下编写。今天不需要类型参数的程序，明天也不会需要。
-
-​	在向语言中添加类型推断时，我们试图在推断能力和复杂性之间取得平衡。我们希望确保当编译器推断类型时，这些类型永远不会令人惊讶。我们试图小心谨慎地偏向于无法推断类型而不是推断错误的类型。我们可能没有完全做到，而且我们可能会在以后的版本中继续完善它。其效果将使更多的程序能够在不需要显式类型参数的情况下编写。今天不需要类型参数的程序明天也不需要。
+​	在向该语言中添加类型推断时，我们试图在推断能力和复杂性之间取得平衡。我们希望确保当编译器推断类型时，这些类型永远不会令人惊讶。我们试图小心谨慎地偏向于无法推断类型而不是推断错误的类型。我们可能没有完全做到，而且我们可能会在以后的版本中继续完善它。其效果将使更多的程序能够在不需要显式类型实参的情况下编写。今天不需要类型实参的程序明天也不需要。
 
 ## 总结 Conclusion 
 
 Generics are a big new language feature in 1.18. These new language changes required a large amount of new code that has not had significant testing in production settings. That will only happen as more people write and use generic code. We believe that this feature is well implemented and high quality. However, unlike most aspects of Go, we can’t back up that belief with real world experience. Therefore, while we encourage the use of generics where it makes sense, please use appropriate caution when deploying generic code in production.
 
-泛型是1.18版本中一个很大的新语言特性。这些新的语言变化需要大量的新代码，这些代码还没有在生产环境中进行过大量的测试。这只会随着越来越多的人编写和使用泛型代码而发生。我们相信这个功能实现得很好，质量很高。然而，与Go的大多数方面不同，我们无法用现实世界的经验来支持这一信念。因此，虽然我们鼓励在有意义的地方使用泛型，但在生产中部署泛型代码时，请使用适当的谨慎措施。
-
-​	泛型是 1.18 版中一个重要的新语言特性。这些新的语言变化需要大量的新代码，尚未在生产环境中进行过重大测试。这只有在更多人编写和使用泛型代码时才会发生。我们相信这个特性已经得到了很好的实现和高质量。然而，与 Go 的大多数方面不同的是，我们无法凭借真实的实际经验来支持这种信念。因此，虽然我们鼓励在合适的情况下使用泛型，但在生产中部署泛型代码时请适当谨慎。
+​	泛型是 1.18 版中一个重要的新语言特性。这些新的语言变更需要大量的新代码，尚未在生产环境中进行过重大测试。这只有在更多人编写和使用泛型代码时才会发生。我们相信这个特性已经得到了很好的实现和高质量。然而，与 Go 的大多数方面不同的是，我们无法凭借真实的实际经验来支持这种信念。因此，虽然我们鼓励在合适的情况下使用泛型，但在生产中部署泛型代码时请适当谨慎。
 
 That caution aside, we’re excited to have generics available, and we hope that they will make Go programmers more productive.
 
-除此以外，我们很高兴能提供泛型，并希望它们能使 Go 程序员的工作效率更高。
+​	除此以外，我们很高兴能提供泛型，并希望它们能使 Go 程序员的工作效率更高。
