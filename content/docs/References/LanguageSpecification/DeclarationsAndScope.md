@@ -42,7 +42,7 @@ TopLevelDecl  = Declaration | FunctionDecl | MethodDecl .
 
 ### Blank identifier 空白标识符
 
-​	空白标识符由下划线字符`_`表示。它是一个`匿名的占位符`，而不是普通的（非空白）标识符，在声明中具有特殊的意义，可以作为[操作数](../Expresssions#operands-操作数)，也可以在[赋值语句](../Statements#assignment-statements-赋值语句)中。
+​	空白标识符由下划线字符`_`表示。它是一个`匿名的占位符`，而不是普通的（非空白）标识符，在声明中具有特殊的意义，可以作为[操作数](../Expressions#operands-操作数)，也可以在[赋值语句](../Statements#assignment-statements-赋值语句)中。
 
 ### Predeclared identifiers  预先声明的标识符
 
@@ -123,7 +123,7 @@ const (
 )
 ```
 
-### Iota
+### iota
 
 ​	在[常量声明](#constant-declarations-常量声明)中，预先声明的标识符`iota`表示连续的无类型整数[常量](../Constants)。它的值是该常量声明中各个 ConstSpec 的索引，从零开始。它可以被用来构造一组相关的常量：
 
@@ -175,13 +175,13 @@ TypeSpec = AliasDecl | TypeDef .
 
 #### Alias declarations 别名声明
 
-别名声明将一个标识符绑定到给定的类型上。
+​	别名声明将一个标识符绑定到给定的类型上。
 
 ```
 AliasDecl = identifier "=" Type .
 ```
 
-在标识符的[作用域](#declarations-and-scope-声明和作用域)内，它作为该类型的别名。
+​	在标识符的[作用域](#declarations-and-scope-声明和作用域)内，它作为该类型的别名。
 
 ```go 
 type (
@@ -189,6 +189,32 @@ type (
 	Polar    = polar    // Polar and polar denote identical types => Polar 和 polar 表示一致的类型
 )
 ```
+
+> 个人注释
+>
+> ​	在函数调用时，可以传入类型别名的实参吗？=> 可以
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type A = int
+> 
+> func IncOne(i int) int {
+> 	return i + 1
+> }
+> 
+> func main() {
+> 	var a A = 1
+> 	fmt.Println(IncOne(a)) // 2
+> 
+> 	fmt.Println(a + 2) // 3
+> }
+> 
+> ```
+>
+> 
 
 #### Type definitions 类型定义
 
@@ -249,7 +275,7 @@ type PrintableMutex struct {
 type MyBlock Block
 ```
 
-类型定义可用于定义不同的布尔型、数值型或字符串型，并为它们绑定方法：
+​	类型定义可用于定义不同的布尔型、数值型或字符串型，并为它们绑定方法：
 
 ```go 
 type TimeZone int
@@ -275,9 +301,7 @@ type List[T any] struct {
 }
 ```
 
-In a type definition the given type cannot be a type parameter.
-
-在一个类型定义中，给定的类型不能是一个`类型参数`。
+​	在一个类型定义中，给定的类型不能是一个`类型参数`。
 
 ```go 
 type T[P any] P    // illegal: P is a type parameter 
@@ -289,7 +313,7 @@ func f[T any]() {
 }
 ```
 
-​	泛型也可以有与之相关的[方法](#method-declarations-方法声明)。在这种情况下，方法接收器必须声明与`泛型定义`中存在的相同数量的类型参数。=>仍有疑问？？
+​	泛型也可以有与之相关的[方法](#method-declarations-方法声明)。在这种情况下，方法接收器必须声明与`泛型定义`中存在的相同数量的类型参数。
 
 ```go 
 // The method Len returns the number of elements in the linked list l. 
@@ -309,7 +333,7 @@ TypeParamDecl   = IdentifierList TypeConstraint .
 
 ​	列表中所有非空白的名字必须是唯一的。每个名字都声明了一个类型参数，这是一个新的且不同的[命名类型](../Types)，作为声明中一个（到目前为止）未知类型的占位符。类型参数在泛型函数或类型[实例化](../Expressions#instantiations-实例化)时被替换为`类型实参（type argument）`。
 
-```
+```go
 [P any]
 [S interface{ ~[]byte|string }]
 [S ~[]E, E any]

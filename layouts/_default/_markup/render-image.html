@@ -1,4 +1,3 @@
-
 {{- $src := .Destination | safeURL -}}
 {{ if strings.HasPrefix $src "http" }}
     <img src="{{ $src }}"
@@ -11,19 +10,30 @@
     {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
     {{ if eq $MyDefLastUrlEle "" }}
     {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
-    <img src="/{{- $curDir -}}{{- $rel -}}"
-         alt="{{ .Text }}" data-1str="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
-         {{ with .Title }} title="{{ . }}"{{ end }}
-    />
+        {{ if eq $curDir "." }}
+        <img src="..{{- $rel -}}"
+             alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
+             {{ with .Title }} title="{{ . }}"{{ end }}
+        />
+        {{ else }}
+        <img src="/{{- $curDir -}}{{- $rel -}}"
+             alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
+             {{ with .Title }} title="{{ . }}"{{ end }}
+        />
+        {{ end }}
     {{ else }}
-    {{/* 站点配置中 $MyDefLastUrlEle != "" 的情况 */}}
-    {{ $rg := strings.TrimPrefix $MyDefLastUrlEle $rel }}
-    <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}{{- $rg -}}"
-         alt="{{ .Text }}" data-2str="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
-         {{ with .Title }} title="{{ . }}"{{ end }}
-    />
+        {{/* 站点配置中 $MyDefLastUrlEle != "" 的情况 */}}
+        {{ $rg := strings.TrimPrefix $MyDefLastUrlEle $rel }}
+        {{ if eq $curDir "." }}
+            <img src="..{{- $rg -}}"
+                 alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
+                 {{ with .Title }} title="{{ . }}"{{ end }}
+            />
+        {{ else }}
+            <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}{{- $rg -}}"
+                 alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
+                 {{ with .Title }} title="{{ . }}"{{ end }}
+            />
+        {{ end }}
     {{ end }}
 {{ end }}
-
-
-

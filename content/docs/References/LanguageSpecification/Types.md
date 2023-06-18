@@ -102,6 +102,12 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 ​	预先声明的类型、[已定义的类型](../DeclarationsAndScope#type-declarations-类型声明)和类型参数被称为`命名类型`。如果别名声明中给出的类型是命名类型，则别名也表示一个（新的）命名类型。
 
+> 个人注释
+>
+> ​	在《Go语言精进之路》第24条 第226页，有这么一句话：
+>
+> 已有的类型（比如上面的I、T）被称为underlying类型，而新类型被称为defined类型。新定义的defined类型与原underlying类型是完全不同的类型，那么它们的方法集合上又会有什么关系呢？它们通过
+
 ### Boolean types 布尔型
 
 ​	布尔型表示由预先声明的常量`true`和`false`表示的一组布尔真值。预先声明的布尔类型是`bool`；它是一个[已定义的类型]({{<ref "/docs/References/LanguageSpecification/DeclarationsAndScope#type-definitions-类型定义">}})。
@@ -1369,7 +1375,7 @@ KeyType     = Type .
 > 
 > ```
 >
-> 
+> ​	若map的键是接口类型，怎么为该动态键值定义比较运算符？TODO
 
 ```go 
 map[string]int

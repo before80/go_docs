@@ -41,16 +41,16 @@ func f[P any](x P) { … }
 1. 存在一个单一的类型`U`，它是`T`的[类型集](../Types#interface-types-接口型)中所有类型的[底层类型](#underlying-types-底层类型基本类型)；或者
 2. `T`的类型集只包含具有相同元素类型`E`的[通道类型](../Types#channel-types-通道型)，并且所有定向通道具有相同的方向。
 
-其他接口都没有核心类型。
+​	其他接口都没有核心类型。
 
-接口的核心类型取决于满足的条件：
+​	根据满足的条件，接口的核心类型可以是：
 
 1. 类型`U`；或者
 2. 如果`T`只包含双向通道，则为类型`chan E`；或者为 `chan<- E`或`<-chan E`类型，这取决于现存定向信道的方向。
 
-根据定义，核心类型绝不是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)、[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)或[接口类型](../Types#interface-types-接口型)。
+​	根据定义，核心类型绝不是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)、[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)或[接口类型](../Types#interface-types-接口型)。
 
-具有核心类型的接口的示例：
+​	具有核心类型的接口的示例：
 
 ``` go
 type Celsius float32
@@ -63,30 +63,30 @@ interface{ ~chan int|~chan<- int }        // chan<- int
 interface{ ~[]*data; String() string }    // []*data
 ```
 
-没有核心类型的接口的示例：
+​	没有核心类型的接口的示例：
 
-```
+```go
 interface{}                               // no single underlying type
 interface{ Celsius|float64 }              // no single underlying type
 interface{ chan int | chan<- string }     // channels have different element types
 interface{ <-chan int | chan<- int }      // directional channels have different directions
 ```
 
-​	一些操作（[切片表达式](../Expressions#slice-expressions-切片表达式)、[追加和复制](../Built-inFunctions#appending-to-and-copying-slices-追加和复制切片)）依赖于稍微宽松的核心类型形式，这些核心类型接受字节切片和字符串。具体来说，如果正好有两种类型，`[]byte`和`string`，它们是接口`T`的类型集中所有类型的底层类型，那么`T`的核心类型就被称为`bytestring`。
+​	一些操作（[切片表达式](../Expressions#slice-expressions-切片表达式)、[追加和复制](../Built-inFunctions#appending-to-and-copying-slices-追加和复制切片)）依赖于稍微宽松的核心类型形式，该形式接受字节切片和字符串。具体来说，如果正好有两种类型：`[]byte`和`string`，它们是接口`T`的类型集中所有类型的底层类型，那么`T`的核心类型就被称为`bytestring`。
 
-具有`bytestring`核心类型的接口的例子：
+​	具有`bytestring`核心类型的接口的例子：
 
-```
+```go
 interface{ int }                          // int (same as ordinary core type) => int （与普通核心类型相同）
 interface{ []byte | string }              // bytestring
 interface{ ~[]byte | myString }           // bytestring
 ```
 
-注意`bytestring`不是一个真正的类型；它不能用来声明变量(是由其他类型组成的)。它的存在只是为了描述一些从字节序列中读取的操作的行为，这些字节序列可能是字节切片或字符串。
+​	注意`bytestring`不是一个真正的类型；它不能用来声明变量(或组合其他类型)。它的存在只是为了描述一些从字节序列中读取的操作的行为，这些字节序列可能是字节切片或字符串。
 
 ### Type identity 类型一致性
 
-两种类型要么相同，要么不同。
+​	两种类型要么一致，要么不同。
 
 ​	[命名类型](../Types)总是与任何其他类型不同。否则，如果两个类型的[底层类型](../PropertiesOfTypesAndValues#underlying-types-底层类型基本类型)字面量在结构上是一致的，那么这两个类型就是相同的；也就是说，它们有相同的字面量结构，相应的组成部分拥有一致的类型。详细来说：
 
@@ -126,7 +126,7 @@ type (
 
 这些类型是一致的：
 
-```
+```go
 A0, A1, and []string
 A2 and struct{ a, b int }
 A3 and int
@@ -168,7 +168,7 @@ func(x int, y float64) *[]string, func(int, float64) (result *[]string), and A5
 
 ​	如果`T`是类型参数，并且`x`可以由`T`的类型集中的每个类型的值来表示，那么`x`就可以由`T`类型的值来表示。
 
-```
+```go
 x                   T           x is representable by a value of T because
 
 'a'                 byte        97 is in the set of byte values
@@ -196,7 +196,7 @@ x                   T           x is not representable by a value of T because
 
 ### Method sets 方法集
 
-​	类型的方法集确定了该类型的[操作数](../Expressions#operands-操作数)可以[调用](../Expressions#calls-调用)的方法。每个类型都有一个与之相关的（可能是空的）方法集。
+​	类型的方法集确定了可以在该类型的[操作数](../Expressions#operands-操作数)上[调用](../Expressions#calls-调用)的方法。每个类型都与一个（可能为空）方法集相关联：
 
 - [定义类型](../DeclarationsAndScope#type-definitions-类型定义)`T`的方法集包括所有用接收器类型`T`声明的[方法](../DeclarationsAndScope#method-declarations-方法声明)。
 - 指向[定义类型](../DeclarationsAndScope#type-definitions-类型定义)`T`的指针（`T`既不是指针也不是接口）的方法集是与接收器`*T`或`T`一起声明的所有方法的集合。
