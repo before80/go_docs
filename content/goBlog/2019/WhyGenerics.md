@@ -57,7 +57,7 @@ Let’s say it’s a slice of int.
 
 比方说，这是一个int的片断。
 
-```go linenums="1"
+```go
 func ReverseInts(s []int) {
     first := 0
     last := len(s)
@@ -73,7 +73,7 @@ Pretty simple, but even for a simple function like that you’d want to write a 
 
 很简单，但即使是这样一个简单的函数，您也会想写一些测试案例。事实上，当我这样做时，我发现了一个错误。我相信很多读者已经发现了它。
 
-```go linenums="1"
+```go
 func ReverseInts(s []int) {
     first := 0
     last := len(s) - 1
@@ -93,7 +93,7 @@ Now let’s reverse a slice of string.
 
 现在我们来反转字符串的一个片断。
 
-```go linenums="1"
+```go
 func ReverseStrings(s []string) {
     first := 0
     last := len(s) - 1
@@ -328,7 +328,7 @@ Here is the generic Reverse function in this design.
 
 下面是这个设计中的通用反向函数。
 
-```go linenums="1"
+```go
 func Reverse (type Element) (s []Element) {
     first := 0
     last := len(s) - 1
@@ -352,7 +352,7 @@ To call a function with a type parameter, in the general case you pass a type ar
 
 要调用一个带有类型参数的函数，在一般情况下，您要传递一个类型参数，它和其他参数一样，只是它是一个类型。
 
-```go linenums="1"
+```go
 func ReverseAndPrint(s []int) {
     Reverse(int)(s)
     fmt.Println(s)
@@ -371,7 +371,7 @@ Calling a generic function just looks like calling any other function.
 
 调用一个通用函数看起来就像调用其他函数一样。
 
-```go linenums="1"
+```go
 func ReverseAndPrint(s []int) {
     Reverse(s)
     fmt.Println(s)
@@ -398,7 +398,7 @@ Let’s take a quick look at a different function.
 
 让我们快速看看一个不同的函数。
 
-```go linenums="1"
+```go
 func IndexByte (type T Sequence) (s T, b byte) int {
     for i := 0; i < len(s); i++ {
         if s[i] == b {
@@ -425,7 +425,7 @@ This is how the Sequence contract is defined for this example.
 
 这就是本例中Sequence契约的定义方式。
 
-```go linenums="1"
+```go
 contract Sequence(T) {
     T string, []byte
 }
@@ -449,7 +449,7 @@ Here is another simple example, of a function that uses the String method to ret
 
 下面是另一个简单的例子，一个使用String方法来返回s中所有元素的字符串表示的[]字符串的函数。
 
-```go linenums="1"
+```go
 func ToStrings (type E Stringer) (s []E) []string {
     r := make([]string, len(s))
     for i, v := range s {
@@ -467,7 +467,7 @@ This function requires that the element type implement the `String` method. The 
 
 这个函数要求元素类型实现String方法。Stringer合约确保了这一点。
 
-```go linenums="1"
+```go
 contract Stringer(T) {
     T String() string
 }
@@ -487,7 +487,7 @@ Here is an example of a contract with multiple type parameters.
 
 下面是一个具有多种类型参数的契约的例子。
 
-```go linenums="1"
+```go
 type Graph (type Node, Edge G) struct { ... }
 
 contract G(Node, Edge) {
@@ -526,7 +526,7 @@ While `Min` is pretty trivial to write yourself, any useful generics implementat
 
 虽然Min函数自己写起来很简单，但任何有用的泛型实现都应该让我们把它添加到标准库中。这就是我们的设计，看起来像这样。
 
-```go linenums="1"
+```go
 func Min (type T Ordered) (a, b T) T {
     if a < b {
         return a
@@ -539,7 +539,7 @@ The `Ordered` contract says that the type T has to be an ordered type, which mea
 
 Ordered合约规定，类型T必须是一个有序类型，这意味着它支持小于、大于等运算符。
 
-```go linenums="1"
+```go
 contract Ordered(T) {
     T int, int8, int16, int32, int64,
         uint, uint8, uint16, uint32, uint64, uintptr,
@@ -564,7 +564,7 @@ In practice this contract would probably go into the standard library, and so re
 
 在实践中，这个契约可能会被放入标准库中，所以真正的Min函数（可能也会在标准库的某个地方）会是这样的。这里我们只是参考了定义在合约包中的Ordered合约。
 
-```go linenums="1"
+```go
 func Min (type T contracts.Ordered) (a, b T) T {
     if a < b {
         return a
@@ -579,7 +579,7 @@ Finally, let’s look at a simple generic data structure, a binary tree. In this
 
 最后，我们来看看一个简单的通用数据结构，即二叉树。在这个例子中，树有一个比较函数，所以对元素的类型没有要求。
 
-```go linenums="1"
+```go
 type Tree (type E) struct {
     root    *node(E)
     compare func(E, E) int
@@ -595,7 +595,7 @@ Here is how to create a new binary tree. The comparison function is passed to th
 
 这里是如何创建一个新的二叉树。比较函数被传递给New函数。
 
-```go linenums="1"
+```go
 func New (type E) (cmp func(E, E) int) *Tree(E) {
     return &Tree(E){compare: cmp}
 }
@@ -605,7 +605,7 @@ An unexported method returns a pointer either to the slot holding v, or to the l
 
 一个未被导出的方法会返回一个指针，这个指针可以指向容纳v的槽，也可以指向树中它应该去的位置。
 
-```go linenums="1"
+```go
 func (t *Tree(E)) find(v E) **node(E) {
     pn := &t.root
     for *pn != nil {
@@ -630,7 +630,7 @@ This is the code for testing whether the tree contains a value.
 
 这是测试树是否包含一个值的代码。
 
-```go linenums="1"
+```go
 func (t *Tree(E)) Contains(v E) bool {
     return *t.find(e) != nil
 }
@@ -640,7 +640,7 @@ This is the code for inserting a new value.
 
 这是插入一个新值的代码。
 
-```go linenums="1"
+```go
 func (t *Tree(E)) Insert(v E) bool {
     pn := t.find(v)
     if *pn != nil {
@@ -659,7 +659,7 @@ Using the tree is pretty simple.
 
 使用树是非常简单的。
 
-```go linenums="1"
+```go
 var intTree = tree.New(func(a, b int) int { return a - b })
 
 func InsertAndCheck(v int) {

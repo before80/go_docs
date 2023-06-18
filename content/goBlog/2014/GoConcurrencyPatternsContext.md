@@ -31,7 +31,7 @@ The core of the `context` package is the `Context` type:
 
 Context包的核心是Context类型：
 
-```go linenums="1"
+```go
 // A Context carries a deadline, cancellation signal, and request-scoped values
 // across API boundaries. Its methods are safe for simultaneous use by multiple
 // goroutines.
@@ -86,7 +86,7 @@ context包提供了从现有的Context值派生新Context的函数。这些值�
 
 Background是任何Context树的根；它从不被取消：
 
-```go linenums="1"
+```go
 // Background returns an empty Context. It is never canceled, has no deadline,
 // and has no values. Background is typically used in main, init, and tests,
 // and as the top-level Context for incoming requests.
@@ -97,7 +97,7 @@ func Background() Context
 
 WithCancel和WithTimeout返回派生的Context值，这些值可以比父Context更早被取消。与传入请求相关的Context通常在请求处理程序返回时被取消。WithCancel对于使用多个副本时取消多余的请求也很有用。WithTimeout对于设置对后端服务器的请求的最后期限很有用：
 
-```go linenums="1"
+```go
 // WithCancel returns a copy of parent whose Done channel is closed as soon as
 // parent.Done is closed or cancel is called.
 func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
@@ -117,7 +117,7 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 
 WithValue提供了一种将请求范围的值与一个上下文联系起来的方法：
 
-```go linenums="1"
+```go
 // WithValue returns a copy of parent whose Value method returns val for key.
 func WithValue(parent Context, key interface{}, val interface{}) Context
 ```
@@ -146,7 +146,7 @@ The [server](https://go.dev/blog/context/server/server.go) program handles reque
 
 服务器程序处理像 /search?q=golang 这样的请求，提供 golang 的前几个 Google 搜索结果。它注册了 handleSearch 来处理 /search 端点。该处理程序创建了一个名为 ctx 的初始 Context，并安排它在处理程序返回时被取消。如果请求包括超时的 URL 参数，当超时过后，Context 会自动取消。
 
-```go linenums="1"
+```go
 func handleSearch(w http.ResponseWriter, req *http.Request) {
     // ctx is the Context for this handler. Calling cancel closes the
     // ctx.Done channel, which is the cancellation signal for requests
@@ -170,7 +170,7 @@ The handler extracts the query from the request and extracts the client’s IP a
 
 处理程序从请求中提取查询，并通过调用 userip 包来提取客户端的 IP 地址。后台请求需要客户端的 IP 地址，所以 handleSearch 将其附加到 ctx 上：
 
-```go linenums="1"
+```go
     // Check the search query.
     query := req.FormValue("q")
     if query == "" {
@@ -191,7 +191,7 @@ The handler calls `google.Search` with `ctx` and the `query`:
 
 处理程序用ctx和查询调用google.Search：
 
-```go linenums="1"
+```go
     // Run the Google search and print the results.
     start := time.Now()
     results, err := google.Search(ctx, query)
@@ -202,7 +202,7 @@ If the search succeeds, the handler renders the results:
 
 如果搜索成功，处理程序将渲染结果：
 
-```go linenums="1"
+```go
     if err := resultsTemplate.Execute(w, struct {
         Results          google.Results
         Timeout, Elapsed time.Duration
@@ -226,7 +226,7 @@ To avoid key collisions, `userip` defines an unexported type `key` and uses a va
 
 为了避免键的碰撞，userip定义了一个未导出的键类型，并使用该类型的值作为上下文键：
 
-```go linenums="1"
+```go
 // The key type is unexported to prevent collisions with context keys defined in
 // other packages.
 type key int
@@ -241,7 +241,7 @@ const userIPKey key = 0
 
 FromRequest从一个http.Request中提取一个userIP值：
 
-```go linenums="1"
+```go
 func FromRequest(req *http.Request) (net.IP, error) {
     ip, _, err := net.SplitHostPort(req.RemoteAddr)
     if err != nil {
@@ -253,7 +253,7 @@ func FromRequest(req *http.Request) (net.IP, error) {
 
 NewContext返回一个携带所提供的userip值的新Context：
 
-```go linenums="1"
+```go
 func NewContext(ctx context.Context, userIP net.IP) context.Context {
     return context.WithValue(ctx, userIPKey, userIP)
 }
@@ -263,7 +263,7 @@ func NewContext(ctx context.Context, userIP net.IP) context.Context {
 
 FromContext从一个Context中提取一个userIP：
 
-```go linenums="1"
+```go
 func FromContext(ctx context.Context) (net.IP, bool) {
     // ctx.Value returns nil if ctx has no value for the key;
     // the net.IP type assertion returns ok=false for nil.
@@ -282,7 +282,7 @@ The Google Web Search API request includes the search query and the user IP as q
 
 谷歌网络搜索API请求包括搜索查询和用户IP作为查询参数：
 
-```go linenums="1"
+```go
 func Search(ctx context.Context, query string) (Results, error) {
     // Prepare the Google Search API request.
     req, err := http.NewRequest("GET", "https://ajax.googleapis.com/ajax/services/search/web?v=1.0", nil)
@@ -305,7 +305,7 @@ func Search(ctx context.Context, query string) (Results, error) {
 
 搜索使用一个辅助函数httpDo来发出HTTP请求，如果ctx.Done在处理请求或响应时被关闭，则取消该请求。搜索将一个闭包传递给httpDo处理HTTP响应：
 
-```go linenums="1"
+```go
     var results Results
     err = httpDo(ctx, req, func(resp *http.Response, err error) error {
         if err != nil {
@@ -340,7 +340,7 @@ The `httpDo` function runs the HTTP request and processes its response in a new 
 
 httpDo函数在一个新的goroutine中运行HTTP请求并处理其响应。如果ctx.Done在goroutine退出前被关闭，它将取消请求：
 
-```go linenums="1"
+```go
 func httpDo(ctx context.Context, req *http.Request, f func(*http.Response, error) error) error {
     // Run the HTTP request in a goroutine and pass the response to f.
     c := make(chan error, 1)

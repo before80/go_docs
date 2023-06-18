@@ -104,7 +104,7 @@ To write your text as NFC, use the [unicode/norm](https://pkg.go.dev/golang.org/
 
 要把您的文本写成NFC，使用unicode/norm包来包装您选择的io.Writer：
 
-```go linenums="1"
+```go
 wc := norm.NFC.Writer(w)
 defer wc.Close()
 // write as before...
@@ -114,7 +114,7 @@ If you have a small string and want to do a quick conversion, you can use this s
 
 如果您有一个小的字符串，想做快速转换，您可以使用这种更简单的形式：
 
-```go linenums="1"
+```go
 norm.NFC.Bytes(b)
 ```
 
@@ -138,7 +138,7 @@ The norm package might also come to the rescue when one needs to modify text. Co
 
 当人们需要修改文本时，规范包也可能会出手相助。考虑一下这样的情况：您想用复数形式 "cafes "来搜索和替换 "cafe "这个词。 一个代码片断可以是这样的。
 
-```go linenums="1"
+```go
 s := "We went to eat at multiple cafe"
 cafe := "cafe"
 if p := strings.Index(s, cafe); p != -1 {
@@ -152,7 +152,7 @@ This prints "We went to eat at multiple cafes" as desired and expected. Now cons
 
 这就打印出了 "我们去了多家咖啡馆吃饭"，这是所希望的，也是预期的。现在考虑我们的文本包含NFD形式的法语拼写 "café"：
 
-```go linenums="1"
+```go
 s := "We went to eat at multiple cafe\u0301"
 ```
 
@@ -164,7 +164,7 @@ The problem is that the code does not respect the boundaries between multi-rune 
 
 问题在于，代码没有尊重多符文字符之间的界限，在字符中间插入了一个符文。 使用规范包，我们可以把这段代码改写成如下：
 
-```go linenums="1"
+```go
 s := "We went to eat at multiple cafe\u0301"
 cafe := "cafe"
 if p := strings.Index(s, cafe); p != -1 {
@@ -193,7 +193,7 @@ As mentioned earlier, most text is in NFC form, where base characters and modifi
 
 如前所述，大多数文本都是NFC形式的，其中基本字符和修饰符尽可能合并成一个符文。 为了分析字符，将符文分解成最小的组成部分后，往往更容易处理。这就是NFD形式的用武之地。例如，下面这段代码创建了一个Transform.Transformer，将文本分解成最小的部分，删除所有重音，然后将文本重新组成NFC：
 
-```go linenums="1"
+```go
 import (
     "unicode"
 
@@ -211,7 +211,7 @@ The resulting `Transformer` can be used to remove accents from an `io.Reader` of
 
 产生的Transformer可以用来从选择的io.Reader中移除重音，如下所示：
 
-```go linenums="1"
+```go
 r = transform.NewReader(r, t)
 // read as before ...
 ```

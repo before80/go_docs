@@ -63,7 +63,7 @@ To decode GIF pixel data in Go, we can use the LZW decompressor from the `compre
 
 要在Go中解码GIF像素数据，我们可以使用compress/lzw软件包中的LZW解压器。它有一个NewReader函数，可以返回一个对象，正如文档中所说，"通过解压从r读取的数据来满足读取"。
 
-```go linenums="1"
+```go
 func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser
 ```
 
@@ -79,7 +79,7 @@ Here’s the data structure for a `blockReader`.
 
 下面是一个blockReader的数据结构。
 
-```go linenums="1"
+```go
 type blockReader struct {
    r     reader    // Input source; implements io.Reader and io.ByteReader.
    slice []byte    // Buffer of unread data.
@@ -91,7 +91,7 @@ The reader, `r`, will be the source of the image data, perhaps a file or HTTP co
 
 读取器，r，将是图像数据的来源，也许是一个文件或HTTP连接。slice和tmp字段将被用来管理解锁。下面是读取方法的全部内容。这是在Go中使用分片和数组的一个好例子。
 
-```go linenums="1"
+```go
 1  func (b *blockReader) Read(p []byte) (int, os.Error) {
 2      if len(p) == 0 {
 3          return 0, nil
@@ -143,7 +143,7 @@ Given the `blockReader` type, we can unblock the image data stream just by wrapp
 
 考虑到blockReader类型，我们可以通过包装输入的阅读器（比如一个文件）来解锁图像数据流，就像这样。
 
-```go linenums="1"
+```go
 deblockingReader := &blockReader{r: imageFile}
 ```
 
@@ -157,7 +157,7 @@ With `blockReader` implemented and the LZW compressor available from the library
 
 有了blockReader和LZW压缩器，我们就有了解码图像数据流所需的所有部分。我们用这个直接来自代码的雷鸣般的声音把它们连接起来。
 
-```go linenums="1"
+```go
 lzwr := lzw.NewReader(&blockReader{r: d.r}, lzw.LSB, int(litWidth))
 if _, err = io.ReadFull(lzwr, m.Pix); err != nil {
    break

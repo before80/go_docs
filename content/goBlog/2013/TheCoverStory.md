@@ -91,7 +91,7 @@ Here’s an example. Say we have a simple, one-file package like this:
 
 这里有一个例子。假设我们有一个简单的、只有一个文件的包，像这样：
 
-```go linenums="1"
+```go
 package size
 
 func Size(a int) string {
@@ -115,7 +115,7 @@ and this test:
 
 和这个测试：
 
-```go linenums="1"
+```go
 package size
 
 import "testing"
@@ -160,7 +160,7 @@ When test coverage is enabled, `go` `test` runs the "cover" tool, a separate pro
 
 当测试覆盖率被启用时，go test运行 "cover "工具，这是一个单独的程序，包含在发行版中，在编译前重写源代码。下面是重写后的Size函数的样子：
 
-```go linenums="1"
+```go
 func Size(a int) string {
     GoCover.Count[0] = 1
     switch {
@@ -300,7 +300,7 @@ Notice how the intensity of the green changes. Brighter-green statements have hi
 
 注意绿色的强度如何变化。绿色较亮的语句有较高的执行数；饱和度较低的绿色代表较低的执行数。您甚至可以将鼠标悬停在语句上，在工具提示中看到实际计数。在写这篇文章的时候，计数是这样的（我们已经把计数从工具提示中移到了行首标记上，以使它们更容易显示）：
 
-```go linenums="1"
+```go
 2933    if !f.widPresent || f.wid == 0 {
 2985        f.buf.Write(b)
 2985        return
@@ -333,7 +333,7 @@ What the coverage annotation does is instrument blocks, which are typically boun
 
 覆盖率注解所做的是对块进行检测，这些块通常由大括号来限定。一般来说，要做到这一点是非常困难的。所用算法的一个后果是，闭合的大括号看起来像是属于它所关闭的块，而打开的大括号看起来像是属于该块之外。一个更有趣的结果是，在一个表达式中，如
 
-```go linenums="1"
+```go
 f() && g()
 ```
 

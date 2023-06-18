@@ -27,7 +27,7 @@ Andrew Gerrand
 
 ​	数组类型定义指定了长度和元素类型。例如，类型[4]int表示四个整数的数组。数组的大小是固定的；其长度是其类型的一部分（[4]int和[5]int是不同的不兼容类型）。可以按照通常的方式对数组进行索引，因此表达式s[n]访问从零开始的第n个元素。
 
-```go linenums="1"
+```go
 var a [4]int
 a[0] = 1
 i := a[0]
@@ -36,7 +36,7 @@ i := a[0]
 
 ​	数组不需要显式初始化；数组的零值是一个已准备好使用的数组，其元素本身被清零：
 
-```go linenums="1"
+```go
 // a[2] == 0, int类型的零值
 ```
 
@@ -48,13 +48,13 @@ i := a[0]
 
 ​	可以像这样指定数组字面量：
 
-```go linenums="1"
+```go
 b := [2]string{"Penn", "Teller"}
 ```
 
 或者，您可以让编译器为您计算数组元素：
 
-```go linenums="1"
+```go
 b := [...]string{"Penn", "Teller"}
 ```
 
@@ -68,19 +68,19 @@ b := [...]string{"Penn", "Teller"}
 
 ​	切片字面量声明的方式与字面量声明的方式相同，只需省略元素计数：
 
-```go linenums="1"
+```go
 letters := []string{"a", "b", "c", "d"}
 ```
 
 ​	可以使用内置函数`make`创建切片，其签名为
 
-```go linenums="1"
+```go
 func make([]T, len, cap) []T
 ```
 
 ​	其中T代表要创建的切片的元素类型。make函数需要一个类型、一个长度和一个可选容量。调用make函数会分配一个数组并返回一个引用该数组的切片。
 
-```go linenums="1"
+```go
 var s []byte
 s = make([]byte, 5, 5)
 // s == []byte{0, 0, 0, 0, 0}
@@ -88,13 +88,13 @@ s = make([]byte, 5, 5)
 
 ​	当省略容量参数时，它默认为指定的长度。下面是同样代码的更简洁版本：
 
-```go linenums="1"
+```go
 s := make([]byte, 5)
 ```
 
 ​	可以使用内置的`len`和`cap`函数检查切片的长度和容量。
 
-```go linenums="1"
+```go
 len(s) == 5
 cap(s) == 5
 ```
@@ -105,14 +105,14 @@ cap(s) == 5
 
 ​	切片也可以通过"切片"现有的切片或数组来形成。切片是通过用两个由冒号分隔的索引指定的半开范围来完成的。例如，表达式b[1:4]创建了一个包括b的元素1到3的切片（结果切片的索引将是0到2）。
 
-```go linenums="1"
+```go
 b := []byte{'g', 'o', 'l', 'a', 'n', 'g'}
 // b[1:4] == []byte{'o', 'l', 'a'}, 共享b的存储空间
 ```
 
 ​	切片表达式的起始和结束索引是可选的；它们分别默认为零和切片的长度：
 
-```go linenums="1"
+```go
 // b[:2] == []byte{'g', 'o'}
 // b[2:] == []byte{'l', 'a', 'n', 'g'}
 // b[:] == b
@@ -120,7 +120,7 @@ b := []byte{'g', 'o', 'l', 'a', 'n', 'g'}
 
 这也是使用数组创建切片的语法：
 
-```go linenums="1"
+```go
 x := [3]string{"Лайка", "Белка", "Стрелка"}
 s := x[:] // 引用x的存储空间的切片
 ```
@@ -139,7 +139,7 @@ s := x[:] // 引用x的存储空间的切片
 
 ​	当我们对 s 进行切片时，请观察切片数据结构的变化及其与底层数组的关系：
 
-```go linenums="1"
+```go
 s = s[2:4]
 ```
 
@@ -147,7 +147,7 @@ s = s[2:4]
 
 ​	切片不会复制切片的数据。它创建一个指向原始数组的新切片值。这使得切片操作像操作数组索引一样高效。因此，修改重新切片的元素（而不是切片本身）将修改原始切片的元素：
 
-```go linenums="1"
+```go
 d := []byte{'r', 'o', 'a', 'd'}
 e := d[2:]
 // e == []byte{'a', 'd'}
@@ -158,7 +158,7 @@ e[1] = 'm'
 
 ​	我们之前对 s 进行了一个比容量更短的长度的切片。我们可以通过再次切片将 s 增长到其容量：
 
-```go linenums="1"
+```go
 s = s[:cap(s)]
 ```
 
@@ -170,7 +170,7 @@ s = s[:cap(s)]
 
 ​	要增加切片的容量，必须创建一个新的更大的切片，并将原始切片的内容复制到其中。这种技术是其他语言中的动态数组实现在幕后的工作方式。下一个示例通过创建一个新切片 t，将 s 的内容复制到 t 中，然后将切片值 t 赋给 s，将 s 的容量加倍：
 
-```go linenums="1"
+```go
 t := make([]byte, len(s), (cap(s)+1)*2) // +1 in case cap(s) == 0
 for i := range s {
         t[i] = s[i]
@@ -180,7 +180,7 @@ s = t
 
 ​	通过内置的 copy 函数，可以简化此常见操作的循环部分。正如名称所示，copy 将数据从源切片复制到目标切片。它返回复制的元素数。
 
-```go linenums="1"
+```go
 func copy(dst, src []T) int
 ```
 
@@ -188,7 +188,7 @@ func copy(dst, src []T) int
 
 ​	使用 copy，我们可以简化上面的代码段：
 
-```go linenums="1"
+```go
 t := make([]byte, len(s), (cap(s)+1)*2)
 copy(t, s)
 s = t
@@ -196,7 +196,7 @@ s = t
 
 ​	一个常见的操作是将数据追加到一个切片的末尾。这个函数会将字节元素追加到一个字节切片中，如果需要的话增长切片，并返回更新后的切片值：
 
-```go linenums="1"
+```go
 func AppendByte(slice []byte, data ...byte) []byte {
     m := len(slice)
     n := m + len(data)
@@ -214,7 +214,7 @@ func AppendByte(slice []byte, data ...byte) []byte {
 
 可以像这样使用 AppendByte：
 
-```go linenums="1"
+```go
 p := []byte{2, 3, 5}
 p = AppendByte(p, 7, 11, 13)
 // p == []byte{2, 3, 5, 7, 11, 13}
@@ -224,13 +224,13 @@ p = AppendByte(p, 7, 11, 13)
 
 ​	但是大多数程序不需要完全控制，因此 Go 提供了一个内置的 append 函数，适用于大多数情况；它的签名如下：
 
-```go linenums="1"
+```go
 func append(s []T, x ...T) []T
 ```
 
 ​	append 函数将元素 x 追加到切片 s 的末尾，并在需要更大的容量时增长切片。
 
-```go linenums="1"
+```go
 a := make([]int, 1)
 // a == []int{0}
 a = append(a, 1, 2, 3)
@@ -239,7 +239,7 @@ a = append(a, 1, 2, 3)
 
 ​	要将一个切片附加到另一个切片，请使用 ... 将第二个参数扩展为参数列表。
 
-```go linenums="1"
+```go
 a := []string{"John", "Paul"}
 b := []string{"George", "Ringo", "Pete"}
 a = append(a, b...) // 相当于 "append(a, b[0], b[1], b[2])"
@@ -248,7 +248,7 @@ a = append(a, b...) // 相当于 "append(a, b[0], b[1], b[2])"
 
 ​	由于切片的零值（nil）就像零长度的切片，因此您可以声明一个切片变量，然后在循环中将其附加：
 
-```go linenums="1"
+```go
 // Filter 返回一个仅包含满足 fn() 的 s 元素的新切片。
 func Filter(s []int, fn func(int) bool) []int {
     var p []int // == nil
@@ -267,7 +267,7 @@ func Filter(s []int, fn func(int) bool) []int {
 
 ​	例如，FindDigits函数将一个文件加载到内存中，并搜索其中连续的数字，将它们作为一个新的切片返回。
 
-```go linenums="1"
+```go
 var digitRegexp = regexp.MustCompile("[0-9]+")
 
 func FindDigits(filename string) []byte {
@@ -280,7 +280,7 @@ func FindDigits(filename string) []byte {
 
 ​	为了解决这个问题，在返回之前，我们可以将感兴趣的数据复制到一个新的切片中：
 
-```go linenums="1"
+```go
 func CopyDigits(filename string) []byte {
     b, _ := ioutil.ReadFile(filename)
     b = digitRegexp.Find(b)

@@ -41,7 +41,7 @@ For example, if the server knows that `app.js` will be required to render the pa
 
 例如，如果服务器知道需要app.js来渲染页面，处理程序可以在http.Pusher可用的情况下启动推送：
 
-```go linenums="1"
+```go
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if pusher, ok := w.(http.Pusher); ok {
             // Push is supported.
@@ -57,7 +57,7 @@ The Push call creates a synthetic request for `/app.js`, synthesizes that reques
 
 Push调用为/app.js创建一个合成请求，将该请求合成为一个PUSH_PROMISE框架，然后将该合成请求转发给服务器的请求处理程序，后者将生成推送的响应。推送的第二个参数指定了在PUSH_PROMISE中包含的额外头信息。例如，如果对/app.js的响应在Accept-Encoding上有变化，那么PUSH_PROMISE应该包括一个Accept-Encoding值：
 
-```go linenums="1"
+```go
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if pusher, ok := w.(http.Pusher); ok {
             // Push is supported.

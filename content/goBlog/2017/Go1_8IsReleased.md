@@ -39,7 +39,7 @@ It’s now much simpler to sort slices using the newly added [`Slice`](https://g
 
 现在使用排序包中新增加的 Slice 函数对切片进行排序要简单得多。例如，通过名称字段对结构的切片进行排序：
 
-```go linenums="1"
+```go
 sort.Slice(s, func(i, j int) bool { return s[i].Name < s[j].Name })
 ```
 

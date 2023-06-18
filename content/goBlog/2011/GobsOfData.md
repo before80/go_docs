@@ -59,14 +59,14 @@ Rob Pike
 
 ​	灵活性也发生在解码结构体时，只有发送端发送的那些字段才会存储在接收端。例如给出值：
 
-```go linenums="1"
+```go
 type T struct{ X, Y, Z int } // 只有导出字段被编码和解码。
 var t = T{X: 7, Y: 0, Z: 8}
 ```
 
 `t` 的编码只发送 7 和 8，因为 `Y` 的值为零，所以它甚至不需要发送。接收器可以解码到这个结构体：
 
-```go linenums="1"
+```go
 type U struct{ X, Y *int8 } // 注意：指向 int8 的指针。
 var u U
 ```
@@ -89,7 +89,7 @@ var u U
 
 ​	这些类型编号使得可以描述递归类型并发送这些类型的值。因此，gob可以编码诸如树之类的类型：
 
-```go linenums="1"
+```go
 type Node struct {
     Value       int
     Left, Right *Node
@@ -112,7 +112,7 @@ type Node struct {
 
 ​	底层有很多东西在运作，但结果是一种高效、易于使用的编码系统，用于传输数据。这是一个完整的示例，显示了不同的编码和解码类型。请注意，发送和接收值非常容易；您只需要向 gob 包提供值和变量，它会处理所有工作。
 
-```go linenums="1"
+```go
 package main
 
 import (

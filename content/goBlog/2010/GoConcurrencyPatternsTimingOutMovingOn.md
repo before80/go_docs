@@ -19,7 +19,7 @@ Andrew Gerrand
 
 ​	并发编程有其自己的习语。一个很好的例子就是超时。虽然Go的通道不支持超时，但实现它们很容易。假设我们想要从通道ch中接收数据，但是最多只想等待一秒钟以获取该值。我们首先要创建一个信号通道并启动一个协程，在发送到该通道之前使其休眠：
 
-```go linenums="1"
+```go
 timeout := make(chan bool, 1)
 go func() {
     time.Sleep(1 * time.Second)
@@ -29,7 +29,7 @@ go func() {
 
 ​	然后我们可以使用`select`语句从ch或timeout中接收数据。如果一秒钟后ch上没有数据，将选择timeout，放弃从ch中读取。
 
-```go linenums="1"
+```go
 select {
 case <-ch:
     // 从ch中读取到数据
@@ -46,7 +46,7 @@ case <-timeout:
 
 ​	函数Query接受一个数据库连接的切片和一个查询字符串。它并行查询每个数据库，并返回它收到的第一个响应：
 
-```go linenums="1"
+```go
 func Query(conns []Conn, query string) Result {
     ch := make(chan Result)
     for _, conn := range conns {

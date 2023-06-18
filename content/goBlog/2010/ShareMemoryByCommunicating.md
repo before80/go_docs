@@ -27,7 +27,7 @@ Go的并发原语--goroutines和channel--提供了一种优雅而独特的结构
 
 ​	考虑一个轮询URL列表的程序。在传统的线程环境中，可能会像这样构造它的数据：
 
-```go linenums="1"
+```go
 type Resource struct {
     url        string
     polling    bool
@@ -42,7 +42,7 @@ type Resources struct {
 
 然后Poller函数（许多这样的函数将在单独的线程中运行）可能是这样的：
 
-```go linenums="1"
+```go
 func Poller(res *Resources) {
     for {
         // 获取最近未被轮询的资源，并将其标记为正在轮询
@@ -79,7 +79,7 @@ func Poller(res *Resources) {
 
 ​	现在我们来看一下使用Go风格实现相同功能的代码。在这个例子中，Poller是一个函数，它从一个输入通道接收要轮询的Resources，并在它们完成时将它们发送到一个输出通道。
 
-```go linenums="1"
+```go
 type Resource string
 
 func Poller(in, out chan *Resource) {

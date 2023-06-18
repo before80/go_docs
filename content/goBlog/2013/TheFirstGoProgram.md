@@ -52,7 +52,7 @@ some ugly hackery to get around the lack of strings.
 
 (程序输出中的`icounter`行是已执行语句的数量，为调试而打印)。
 
-```go linenums="1"
+```go
 // +build OMIT
 
 package main
@@ -393,7 +393,7 @@ A `func` was a `function`, and its signature specified return values *before* ar
 
 func是一个函数，它的签名在参数之前指定了返回值，用<-分隔它们，我们现在用它作为通道发送/接收操作符。例如，WhiteSpace函数接收整数c并返回一个布尔值。
 
-```go linenums="1"
+```go
 function WhiteSpace(bool <- c int)
 ```
 
@@ -405,7 +405,7 @@ Methods were distinct from functions and had their own keyword.
 
 方法与函数不同，有自己的关键字。
 
-```go linenums="1"
+```go
 method (this *Slist) Car(*Slist <-) {
     return this.list.car;
 }
@@ -415,7 +415,7 @@ And methods were pre-declared in the struct definition, although that changed so
 
 方法是在结构定义中预先声明的，尽管这很快就改变了。
 
-```go linenums="1"
+```go
 type Slist struct {
     ...
     Car method(*Slist <-);

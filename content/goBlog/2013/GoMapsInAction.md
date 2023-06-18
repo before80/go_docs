@@ -27,7 +27,7 @@ A Go map type looks like this:
 
 Go的映射类型看起来像这样：
 
-```go linenums="1"
+```go
 map[KeyType]ValueType
 ```
 
@@ -39,7 +39,7 @@ This variable `m` is a map of string keys to int values:
 
 这个变量m是一个字符串键到int值的映射：
 
-```go linenums="1"
+```go
 var m map[string]int
 ```
 
@@ -47,7 +47,7 @@ Map types are reference types, like pointers or slices, and so the value of `m` 
 
 地图类型是引用类型，就像指针或片断一样，所以上面m的值是nil；它没有指向一个初始化的地图。一个nil地图在读取时表现得像一个空地图，但试图向一个nil地图写入会引起运行时的恐慌；不要这样做。要初始化一个地图，请使用内置的make函数。
 
-```go linenums="1"
+```go
 m = make(map[string]int)
 ```
 
@@ -61,7 +61,7 @@ Go provides a familiar syntax for working with maps. This statement sets the key
 
 Go提供了一种熟悉的语法来处理地图。此语句将键 "route "设置为值66：
 
-```go linenums="1"
+```go
 m["route"] = 66
 ```
 
@@ -69,7 +69,7 @@ This statement retrieves the value stored under the key `"route"` and assigns it
 
 这条语句检索存储在键 "route "下的值，并将其分配给一个新的变量i：
 
-```go linenums="1"
+```go
 i := m["route"]
 ```
 
@@ -77,7 +77,7 @@ If the requested key doesn’t exist, we get the value type’s *zero value*. In
 
 如果请求的键不存在，我们会得到值类型的零值。在这个例子中，值类型是int，所以零值是0：
 
-```go linenums="1"
+```go
 j := m["root"]
 // j == 0
 ```
@@ -86,7 +86,7 @@ The built in `len` function returns on the number of items in a map:
 
 内置的len函数会返回地图中的项数：
 
-```go linenums="1"
+```go
 n := len(m)
 ```
 
@@ -94,7 +94,7 @@ The built in `delete` function removes an entry from the map:
 
 内置的delete函数可以从地图中删除一个条目：
 
-```go linenums="1"
+```go
 delete(m, "route")
 ```
 
@@ -104,7 +104,7 @@ The `delete` function doesn’t return anything, and will do nothing if the spec
 
 A two-value assignment tests for the existence of a key:
 
-```go linenums="1"
+```go
 i, ok := m["route"]
 ```
 
@@ -116,7 +116,7 @@ To test for a key without retrieving the value, use an underscore in place of th
 
 要测试一个键而不检索其值，可以用下划线代替第一个值：
 
-```go linenums="1"
+```go
 _, ok := m["route"]
 ```
 
@@ -124,7 +124,7 @@ To iterate over the contents of a map, use the `range` keyword:
 
 要遍历一个地图的内容，请使用`range`关键字：
 
-```go linenums="1"
+```go
 for key, value := range m {
     fmt.Println("Key:", key, "Value:", value)
 }
@@ -134,7 +134,7 @@ To initialize a map with some data, use a map literal:
 
 要用一些数据来初始化一个地图，请使用一个地图字面：
 
-```go linenums="1"
+```go
 commits := map[string]int{
     "rsc": 3711,
     "r":   2138,
@@ -147,7 +147,7 @@ The same syntax may be used to initialize an empty map, which is functionally id
 
 同样的语法可以用来初始化一个空的地图，这在功能上与使用make函数相同：
 
-```go linenums="1"
+```go
 m = map[string]int{}
 ```
 
@@ -161,7 +161,7 @@ For instance, a map of boolean values can be used as a set-like data structure (
 
 例如，一个布尔值的地图可以被用作一个类似于集合的数据结构（记得布尔类型的零值是false）。这个例子遍历了一个Nodes的链接列表，并打印了它们的值。它使用一个Node指针地图来检测列表中的循环。
 
-```go linenums="1"
+```go
     type Node struct {
         Next  *Node
         Value interface{}
@@ -187,7 +187,7 @@ Another instance of helpful zero values is a map of slices. Appending to a nil s
 
 另一个有用的零值的例子是一个分片的地图。向一个无值的片子追加只是分配一个新的片子，所以向一个片子的地图追加一个值是一个单行代码；不需要检查键是否存在。在下面的例子中，片断people被填充了Person的值。每个人都有一个名字和一个 "喜欢 "的片断。这个例子创建了一个地图，将每个 "喜欢 "与喜欢它的人的片断联系起来。
 
-```go linenums="1"
+```go
     type Person struct {
         Name  string
         Likes []string
@@ -206,7 +206,7 @@ To print a list of people who like cheese:
 
 要打印一个喜欢奶酪的人的列表：
 
-```go linenums="1"
+```go
     for _, p := range likes["cheese"] {
         fmt.Println(p.Name, "likes cheese.")
     }
@@ -216,7 +216,7 @@ To print the number of people who like bacon:
 
 要打印喜欢培根的人的数量：
 
-```go linenums="1"
+```go
     fmt.Println(len(likes["bacon"]), "people like bacon.")
 ```
 
@@ -234,7 +234,7 @@ It’s obvious that strings, ints, and other basic types should be available as 
 
 很明显，字符串、ints和其他基本类型应该可以作为地图键，但也许意想不到的是结构键。结构可以用来按多个维度对数据进行键控。例如，这个地图可以用来按国家统计网页点击率：
 
-```go linenums="1"
+```go
 hits := make(map[string]map[string]int)
 ```
 
@@ -242,7 +242,7 @@ This is map of string to (map of `string` to `int`). Each key of the outer map i
 
 这是将字符串映射为（map of string to int）。外层地图的每个键是一个网页的路径，有自己的内部地图。每个内层地图的键是一个两个字母的国家代码。这个表达式检索了一个澳大利亚人加载文档页面的次数。
 
-```go linenums="1"
+```go
 n := hits["/doc/"]["au"]
 ```
 
@@ -250,7 +250,7 @@ Unfortunately, this approach becomes unwieldy when adding data, as for any given
 
 不幸的是，这种方法在添加数据时变得不方便，因为对于任何给定的外键，您必须检查内部地图是否存在，如果需要的话，还要创建它：
 
-```go linenums="1"
+```go
 func add(m map[string]map[string]int, path, country string) {
     mm, ok := m[path]
     if !ok {
@@ -266,7 +266,7 @@ On the other hand, a design that uses a single map with a struct key does away w
 
 另一方面，一个使用单一地图与结构键的设计可以消除所有这些复杂性：
 
-```go linenums="1"
+```go
 type Key struct {
     Path, Country string
 }
@@ -277,7 +277,7 @@ When a Vietnamese person visits the home page, incrementing (and possibly creati
 
 当一个越南人访问主页时，递增（以及可能创建）适当的计数器是一个单行代码：
 
-```go linenums="1"
+```go
 hits[Key{"/", "vn"}]++
 ```
 
@@ -285,7 +285,7 @@ And it’s similarly straightforward to see how many Swiss people have read the 
 
 同样，也可以直接查看有多少瑞士人阅读过本规范：
 
-```go linenums="1"
+```go
 n := hits[Key{"/ref/spec", "ch"}]
 ```
 
@@ -299,7 +299,7 @@ This statement declares a `counter` variable that is an anonymous struct contain
 
 这个语句声明了一个计数器变量，它是一个匿名结构，包含一个地图和一个嵌入式的sync.RWMutex。
 
-```go linenums="1"
+```go
 var counter = struct{
     sync.RWMutex
     m map[string]int
@@ -310,7 +310,7 @@ To read from the counter, take the read lock:
 
 要从计数器中读出数据，需要取得读锁：
 
-```go linenums="1"
+```go
 counter.RLock()
 n := counter.m["some_key"]
 counter.RUnlock()
@@ -321,7 +321,7 @@ To write to the counter, take the write lock:
 
 要对计数器进行写操作，需要取得写锁：
 
-```go linenums="1"
+```go
 counter.Lock()
 counter.m["some_key"]++
 counter.Unlock()
@@ -333,7 +333,7 @@ When iterating over a map with a range loop, the iteration order is not specifie
 
 当用一个范围循环在地图上迭代时，迭代顺序没有被指定，也不能保证每次迭代都是一样的。如果您需要一个稳定的迭代顺序，您必须维护一个单独的数据结构来指定这个顺序。这个例子使用一个单独的键的排序片，按照键的顺序打印map[int]字符串：
 
-```go linenums="1"
+```go
 import "sort"
 
 var m map[int]string

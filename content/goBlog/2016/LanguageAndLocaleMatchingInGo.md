@@ -123,7 +123,7 @@ Here is a sample program, explained below, matching a user’s language preferen
 
 下面是一个示例程序，解释如下，将用户的语言偏好与应用程序的支持语言相匹配：
 
-```go linenums="1"
+```go
 // +build OMIT
 
 package main
@@ -200,7 +200,7 @@ Consider the following Matcher and lists of supported languages:
 
 考虑一下下面的匹配器和支持的语言列表：
 
-```go linenums="1"
+```go
 var supported = []language.Tag{
     language.AmericanEnglish,    // en-US: first language is fallback
     language.German,             // de
@@ -268,7 +268,7 @@ For example:
 
 比如说：
 
-```go linenums="1"
+```go
     var supported = []language.Tag{
         language.English,            // en
         language.French,             // fr

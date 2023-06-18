@@ -27,7 +27,7 @@ Your feedback on Beta 1 helped us identify obscure bugs in the new support for g
 
 您对Beta 1的反馈帮助我们发现了新的泛型支持中的一些不明显的错误，并确保最终版本更加稳定。在今天发布的Go 1.18 Beta 2中，我们已经解决了这些问题，我们鼓励大家尝试一下。在您现有的Go工具链旁边安装它的最简单方法是运行：
 
-```go linenums="1"
+```go
 go install golang.org/dl/go1.18beta2@latest
 go1.18beta2 download
 ```

@@ -23,7 +23,7 @@ Andrew Gerrand
 
 ​	例如，我们来看一个打开两个文件并将一个文件的内容复制到另一个文件的函数：
 
-```go linenums="1"
+```go
 func CopyFile(dstName, srcName string) (written int64, err error) {
     src, err := os.Open(srcName)
     if err != nil {
@@ -44,7 +44,7 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 
 ​	这个函数是可行的，但是有一个 bug。如果调用 os.Create 失败，函数将在没有关闭源文件的情况下返回。可以很容易地通过在第二个 return 语句前放置 src.Close 的调用来解决这个问题，但如果函数更加复杂，问题可能就不那么容易被注意和解决了。通过引入 defer 语句，我们可以确保文件始终被关闭：
 
-```go linenums="1"
+```go
 func CopyFile(dstName, srcName string) (written int64, err error) {
     src, err := os.Open(srcName)
     if err != nil {
@@ -70,7 +70,7 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 
 在这个例子中，"i"表达式在 Println 调用被延迟时计算。延迟的调用会在函数返回后打印"0"。
 
-```go linenums="1"
+```go
 func a() {
     i := 0
     defer fmt.Println(i)
@@ -83,7 +83,7 @@ func a() {
 
 下面这个函数将输出"3210"：
 
-```go linenums="1"
+```go
 func b() {
     for i := 0; i < 4; i++ {
         defer fmt.Print(i)
@@ -95,7 +95,7 @@ func b() {
 
 ​	在下面这个例子中，一个延迟函数在包围函数返回后将返回值 i 加 1。因此，这个函数返回 2：
 
-```go linenums="1"
+```go
 func c() (i int) {
     defer func() { i++ }()
     return 1
@@ -110,7 +110,7 @@ func c() (i int) {
 
 ​	下面是一个演示 panic 和 defer 机制的示例程序：
 
-```go linenums="1"
+```go
 package main
 
 import "fmt"
@@ -186,14 +186,14 @@ panic PC=0x2a9cd8
 
 ​	除了之前给出的 file.Close 示例之外，defer 的其他用途包括释放互斥锁：
 
-```go linenums="1"
+```go
 mu.Lock()
 defer mu.Unlock()
 ```
 
 打印一个页脚。
 
-```go linenums="1"
+```go
 printHeader()
 defer printFooter()
 ```

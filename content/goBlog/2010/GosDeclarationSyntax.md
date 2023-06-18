@@ -136,7 +136,7 @@ a [3]int
 
 ​	现在考虑函数。让我们把 Go 中的 main 函数声明转写出来，尽管 Go 中的真实 main 函数不带参数：
 
-```go linenums="1"
+```go
 func main(argc int, argv []string) int
 ```
 
@@ -146,19 +146,19 @@ func main(argc int, argv []string) int
 
 ​	去掉参数名称，它仍然很清晰 - 它们总是在第一位，因此没有混淆。
 
-```go linenums="1"
+```go
 func main(int, []string) int
 ```
 
 ​	这种从左到右的风格的一个优点是，在类型变得更加复杂时，它的工作效果很好。这里是一个函数变量的声明（类似于 C 中的函数指针）：
 
-```go linenums="1"
+```go
 f func(func(int,int) int, int) int
 ```
 
 或者如果 f 返回一个函数：
 
-```go linenums="1"
+```go
 f func(func(int,int) int, int) func(int, int) int
 ```
 
@@ -166,7 +166,7 @@ f func(func(int,int) int, int) func(int, int) int
 
 ​	类型和表达式语法之间的区别使得在 Go 中编写和调用闭包变得容易：
 
-```go linenums="1"
+```go
 sum := func(a, b int) int { return a+b } (3, 4)
 ```
 
@@ -174,41 +174,41 @@ sum := func(a, b int) int { return a+b } (3, 4)
 
 ​	指针是证明这个规则的例外。请注意，在数组和切片中，Go 的类型语法将括号放在类型的左侧，但表达式语法将括号放在表达式的右侧：
 
-```go linenums="1"
+```go
 var a []int
 x = a[1]
 ```
 
 ​	为了熟悉起见，Go 的指针使用了来自 C 的 `*` 符号，但我们无法将指针类型的括号做出类似的颠倒。因此指针的工作方式如下：
 
-```go linenums="1"
+```go
 var p *int
 x = *p
 ```
 
 我们无法写成
 
-```go linenums="1"
+```go
 var p *int
 x = p*
 ```
 
 ​	因为后缀的 `*` 会与乘法混淆。我们本可以使用 Pascal 中的 `^`，例如：
 
-```go linenums="1"
+```go
 var p ^int
 x = p^
 ```
 
 也许我们应该这样做（并选择另一个操作符作为`xor`异或），因为类型和表达式上的前缀星号在许多方面都会使事情变得复杂。例如，虽然可以编写
 
-```go linenums="1"
+```go
 []int("hi")
 ```
 
 作为转换，但如果类型以 `*` 开头，则必须将其括在括号中：
 
-```go linenums="1"
+```go
 (*int)(nil)
 ```
 

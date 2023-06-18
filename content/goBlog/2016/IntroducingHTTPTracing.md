@@ -43,7 +43,7 @@ The tracing is scoped to the request’s context and users should put a `*httptr
 
 追踪的范围是请求的上下文，用户应该在开始请求之前把*httptrace.ClientTrace放到请求的上下文中。
 
-```go linenums="1"
+```go
     req, _ := http.NewRequest("GET", "http://example.com", nil)
     trace := &httptrace.ClientTrace{
         DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
@@ -69,7 +69,7 @@ The tracing mechanism is designed to trace the events in the lifecycle of a sing
 
 追踪机制被设计为追踪单个http.Transport.RoundTrip生命周期内的事件。然而，一个客户端可能会进行多次往返以完成一个HTTP请求。例如，在URL重定向的情况下，注册的钩子将被多次调用，因为客户端跟随HTTP重定向，提出多个请求。用户负责在http.Client级别识别此类事件。下面的程序通过使用一个http.RoundTripper包装器来识别当前请求。
 
-```go linenums="1"
+```go
 // +build OMIT
 
 package main

@@ -39,7 +39,7 @@ As an example, gofix can rewrite code like [this snippet from `fmt/print.go`](ht
 
 举个例子，gofix可以重写像fmt/print.go中的这段代码：
 
-```go linenums="1"
+```go
 switch f := value.(type) {
 case *reflect.BoolValue:
     p.fmtBool(f.Get(), verb, field)
@@ -59,7 +59,7 @@ to adapt it to the new reflect API:
 
 以使其适应新的reflect API：
 
-```go linenums="1"
+```go
 switch f := value; f.Kind() {
 case reflect.Bool:
     p.fmtBool(f.Bool(), verb, field)

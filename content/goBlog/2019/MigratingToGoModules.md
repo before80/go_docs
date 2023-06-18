@@ -229,7 +229,7 @@ $
 
 go mod tidy为所有被您的模块中的包转接导入的包添加了模块需求，并建立了一个go.sum，其中包括每个库的特定版本的校验和。最后，让我们确保代码仍然可以构建，测试仍然可以通过：
 
-```go linenums="1"
+```go
 $ go build ./...
 $ go test ./...
 ok      golang.org/x/blog   0.335s

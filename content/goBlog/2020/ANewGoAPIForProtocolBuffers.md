@@ -92,7 +92,7 @@ Next, we will write a Go function which accepts an arbitrary message value and r
 
 接下来，我们将编写一个Go函数，接受一个任意的消息值，并删除所有的敏感字段。
 
-```go linenums="1"
+```go
 // Redact clears every sensitive field in pb.
 func Redact(pb proto.Message) {
    // ...
@@ -103,7 +103,7 @@ This function accepts a [`proto.Message`](https://pkg.go.dev/google.golang.org/p
 
 这个函数接受一个proto.Message，一个由所有生成的消息类型实现的接口类型。这个类型是protoreflect包中定义的一个的别名：
 
-```go linenums="1"
+```go
 type ProtoMessage interface{
     ProtoReflect() Message
 }
@@ -121,7 +121,7 @@ The [`protoreflect.Message.Range`](https://pkg.go.dev/google.golang.org/protobuf
 
 protoreflect.Message.Range方法为消息中每个填充的字段调用一个函数。
 
-```go linenums="1"
+```go
 m := pb.ProtoReflect()
 m.Range(func(fd protoreflect.FieldDescriptor, v protoreflect.Value) bool {
     // ...
@@ -149,7 +149,7 @@ We can then check the options to see the value of our extension boolean:
 
 然后我们可以检查选项，看看我们的扩展布尔值：
 
-```go linenums="1"
+```go
 if proto.GetExtension(opts, policypb.E_NonSensitive).(bool) {
     return true // don't redact non-sensitive fields
 }
@@ -167,7 +167,7 @@ Once we have identified a field that needs redaction, clearing it is simple:
 
 一旦我们确定了一个需要编辑的字段，清除它就很简单了：
 
-```go linenums="1"
+```go
 m.Clear(fd)
 ```
 
@@ -175,7 +175,7 @@ Putting all the above together, our complete redaction function is:
 
 将上述所有内容放在一起，我们完整的编辑功能是：
 
-```go linenums="1"
+```go
 // Redact clears every sensitive field in pb.
 func Redact(pb proto.Message) {
     m := pb.ProtoReflect()

@@ -27,13 +27,13 @@ Andrew Gerrand
 
 ​	要编码 JSON 数据，我们使用 Marshal 函数。
 
-```go linenums="1"
+```go
 func Marshal(v interface{}) ([]byte, error)
 ```
 
 ​	假设我们有 Go 数据结构体 Message，
 
-```go linenums="1"
+```go
 type Message struct {
     Name string
     Body string
@@ -49,13 +49,13 @@ m := Message{"Alice", "Hello", 1294706395881547000}
 
 ​	我们可以使用 json.Marshal 将 m 编码为 JSON 格式：
 
-```go linenums="1"
+```go
 b, err := json.Marshal(m)
 ```
 
 ​	如果一切顺利，err 将为 nil，b 将包含以下 JSON 数据的 []byte：
 
-```go linenums="1"
+```go
 b == []byte(`{"Name":"Alice","Body":"Hello","Time":1294706395881547000}`)
 ```
 
@@ -72,25 +72,25 @@ b == []byte(`{"Name":"Alice","Body":"Hello","Time":1294706395881547000}`)
 
 ​	要解码JSON数据，我们使用Unmarshal函数。
 
-```go linenums="1"
+```go
 func Unmarshal(data []byte, v interface{}) error
 ```
 
 ​	我们必须先创建一个地方来存储解码后的数据
 
-```go linenums="1"
+```go
 var m Message
 ```
 
 ​	并调用json.Unmarshal，将一个[]byte的JSON数据和指向m的指针传递给它
 
-```go linenums="1"
+```go
 err := json.Unmarshal(b, &m)
 ```
 
 ​	如果b包含适合m的有效JSON，则在调用后err将为nil，并且数据将像通过赋值一样存储在结构体m中：
 
-```go linenums="1"
+```go
 m = Message{
     Name: "Alice",
     Body: "Hello",
@@ -106,7 +106,7 @@ m = Message{
 
 ​	当JSON数据的结构与Go类型不完全匹配时会发生什么？
 
-```go linenums="1"
+```go
 b := []byte(`{"Name":"Bob","Food":"Pickle"}`)
 var m Message
 err := json.Unmarshal(b, &m)
@@ -122,7 +122,7 @@ err := json.Unmarshal(b, &m)
 
 ​	空接口用作通用容器类型：
 
-```go linenums="1"
+```go
 var i interface{}
 i = "a string"
 i = 2011
@@ -131,14 +131,14 @@ i = 2.777
 
 ​	类型断言访问底层具体类型：
 
-```go linenums="1"
+```go
 r := i.(float64)
 fmt.Println("the circle's area", math.Pi*r*r)
 ```
 
 ​	或者，如果底层类型未知，则类型切换确定类型：
 
-```go linenums="1"
+```go
 switch v := i.(type) {
 case int:
     fmt.Println("twice i is", v*2)
@@ -163,20 +163,20 @@ default:
 
 ​	考虑以下存储在变量b中的JSON数据：
 
-```go linenums="1"
+```go
 b := []byte(`{"Name":"Wednesday","Age":6,"Parents":["Gomez","Morticia"]}`)
 ```
 
 ​	在不知道数据结构的情况下，我们可以使用`Unmarshal`将其解码为一个`interface{}`值：
 
-```go linenums="1"
+```go
 var f interface{}
 err := json.Unmarshal(b, &f)
 ```
 
 ​	此时f中的Go值将是一个映射，其键为字符串，其值本身存储为空接口值：
 
-```go linenums="1"
+```go
 f = map[string]interface{}{
     "Name": "Wednesday",
     "Age":  6,
@@ -189,13 +189,13 @@ f = map[string]interface{}{
 
 ​	我们可以使用类型断言来访问f的底层map[string]interface{}中的数据：
 
-```go linenums="1"
+```go
 m := f.(map[string]interface{})
 ```
 
 ​	然后我们可以使用一个range语句遍历该映射，并使用类型选择将其值访问为其具体类型：
 
-```go linenums="1"
+```go
 for k, v := range m {
     switch vv := v.(type) {
     case string:
@@ -219,7 +219,7 @@ for k, v := range m {
 
 ​	让我们定义一个Go类型来包含前面示例的数据：
 
-```go linenums="1"
+```go
 type FamilyMember struct {
     Name    string
     Age     int
@@ -234,7 +234,7 @@ err := json.Unmarshal(b, &m)
 
 ​	考虑将其反序列化为以下数据结构：
 
-```go linenums="1"
+```go
 type Foo struct {
     Bar *Bar
 }
@@ -244,7 +244,7 @@ type Foo struct {
 
 ​	由此产生了一种有用的模式：如果您的应用程序接收几种不同类型的消息，则可以定义一个类似"接收器"的结构体，如下所示：
 
-```go linenums="1"
+```go
 type IncomingMessage struct {
     Cmd *Command
     Msg *Message
@@ -257,14 +257,14 @@ type IncomingMessage struct {
 
 ​	json包提供Decoder和Encoder类型来支持读取和写入JSON数据流的常见操作。NewDecoder和NewEncoder函数包装了[io.Reader](https://go.dev/pkg/io/#Reader)和[io.Writer](https://go.dev/pkg/io/#Writer)接口类型。
 
-```go linenums="1"
+```go
 func NewDecoder(r io.Reader) *Decoder
 func NewEncoder(w io.Writer) *Encoder
 ```
 
 ​	这是一个示例程序，从标准输入读取一系列JSON对象，从每个对象中删除所有字段但Name字段，然后将对象写入标准输出：
 
-```go linenums="1"
+```go
 package main
 
 import (

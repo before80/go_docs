@@ -87,7 +87,7 @@ In the package scope we declare some data structures to describe the elements of
 
 在包的范围内，我们声明了一些数据结构来描述火鸡的元素、相应图像的位置，以及它们在背景图像上应该画在哪里。
 
-```go linenums="1"
+```go
 var (
     // dirs maps each layout element to its location on disk.
     dirs = map[string]string{
@@ -128,7 +128,7 @@ Loading the images from disk on each request would be wasteful repetition, so we
 
 在每个请求中从磁盘加载图像将是浪费的重复，所以我们在收到第一个请求时将所有106张图像（13*8个元素+1个背景+1个默认）加载到全局变量中。
 
-```go linenums="1"
+```go
 var (
     // elements maps each layout element to its images.
     elements = make(map[string][]*image.RGBA)
@@ -178,7 +178,7 @@ Here’s the code for the request handler with explanatory comments:
 
 下面是请求处理程序的代码，并附有解释说明：
 
-```go linenums="1"
+```go
 func handler(w http.ResponseWriter, r *http.Request) {
     // Defer a function to recover from any panics.
     // When recovering from a panic, log the error condition to

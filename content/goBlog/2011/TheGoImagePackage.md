@@ -27,7 +27,7 @@ image和image/color包定义了许多类型：color.Color和color.Model描述了
 
 颜色是一个接口，它定义了任何类型的最小方法集，可以被认为是一种颜色：一个可以被转换为红、绿、蓝和阿尔法值的颜色。这种转换可能是有损的，比如从CMYK或YCbCr颜色空间转换。
 
-```go linenums="1"
+```go
 type Color interface {
     // RGBA returns the alpha-premultiplied red, green, blue and alpha values
     // for the color. Each value ranges within [0, 0xFFFF], but is represented
@@ -41,7 +41,7 @@ There are three important subtleties about the return values. First, the red, gr
 
 关于返回值有三个重要的微妙之处。首先，红色、绿色和蓝色是α-预乘的：一个完全饱和的红色，同时也是25%的透明，RGBA返回75%的r。100%的红色由RGBA表示，返回的r是65535，而不是255，这样从CMYK或YCbCr转换就不会有损失。第三，返回的类型是uint32，尽管最大值是65535，以保证将两个值相乘不会溢出。在根据第三种颜色的阿尔法掩码混合两种颜色时，会发生这样的乘法，这是波特和达夫的经典代数风格：
 
-```go linenums="1"
+```go
 dstr, dstg, dstb, dsta := dst.RGBA()
 srcr, srcg, srcb, srca := src.RGBA()
 _, _, _, m := mask.RGBA()
@@ -59,7 +59,7 @@ The image/color package also defines a number of concrete types that implement t
 
 image/color包还定义了一些实现Color接口的具体类型。例如，RGBA是一个表示经典的 "每通道8比特 "颜色的结构。
 
-```go linenums="1"
+```go
 type RGBA struct {
     R, G, B, A uint8
 }
@@ -73,7 +73,7 @@ A [`Model`](https://go.dev/pkg/image/color/#Model) is simply something that can 
 
 一个模型只是能够将颜色转换为其他颜色的东西，可能是有损的。例如，GrayModel可以将任何颜色转换为不饱和的灰色。一个调色板可以将任何颜色转换为有限的调色板中的一种。
 
-```go linenums="1"
+```go
 type Model interface {
     Convert(c Color) Color
 }
@@ -87,7 +87,7 @@ A [`Point`](https://go.dev/pkg/image/#Point) is an (x, y) co-ordinate on the int
 
 一个点是整数网格上的一个（x，y）坐标，轴线向右和向下递增。它既不是一个像素，也不是一个网格方块。一个点没有内在的宽度、高度或颜色，但下面的可视化使用了一个彩色的小方块。
 
-```go linenums="1"
+```go
 type Point struct {
     X, Y int
 }
@@ -103,7 +103,7 @@ A [`Rectangle`](https://go.dev/pkg/image/#Rectangle) is an axis-aligned rectangl
 
 矩形是整数网格上的一个轴对齐的矩形，由其左上角和右下角的Point定义。矩形也没有固有的颜色，但是下面的可视化图示用一条细的彩色线条勾勒出矩形，并叫出它们的最小和最大点数。
 
-```go linenums="1"
+```go
 type Rectangle struct {
     Min, Max Point
 }
@@ -119,7 +119,7 @@ A `Rectangle` is inclusive at the top-left and exclusive at the bottom-right. Fo
 
 ![img](TheGoImagePackage_img/image-package-02.png)
 
-```go linenums="1"
+```go
 r := image.Rect(2, 1, 5, 5)
 // Dx and Dy return a rectangle's width and height.
 fmt.Println(r.Dx(), r.Dy(), image.Pt(0, 0).In(r)) // prints 3 4 false
@@ -131,7 +131,7 @@ Adding a `Point` to a `Rectangle` translates the `Rectangle`. Points and Rectang
 
 ![img](TheGoImagePackage_img/image-package-03.png)
 
-```go linenums="1"
+```go
 r := image.Rect(2, 1, 5, 5).Add(image.Pt(-4, -2))
 fmt.Println(r.Dx(), r.Dy(), image.Pt(0, 0).In(r)) // prints 3 4 true
 ```
@@ -142,7 +142,7 @@ Intersecting two Rectangles yields another Rectangle, which may be empty.
 
 ![img](TheGoImagePackage_img/image-package-04.png)
 
-```go linenums="1"
+```go
 r := image.Rect(0, 0, 4, 3).Intersect(image.Rect(2, 2, 5, 5))
 // Size returns a rectangle's width and height, as a Point.
 fmt.Printf("%#v\n", r.Size()) // prints image.Point{X:2, Y:1}
@@ -158,7 +158,7 @@ An [Image](https://go.dev/pkg/image/#Image) maps every grid square in a `Rectang
 
 一个图像将矩形中的每个网格方块映射到模型中的一个颜色。"(x, y)处的像素 "指的是由(x, y)、(x+1, y)、(x+1, y+1)和(x, y+1)这几个点定义的网格方块的颜色。
 
-```go linenums="1"
+```go
 type Image interface {
     // ColorModel returns the Image's color model.
     ColorModel() color.Model
@@ -176,7 +176,7 @@ A common mistake is assuming that an `Image`’s bounds start at (0, 0). For exa
 
 一个常见的错误是假设一个图像的边界从（0，0）开始。例如，一个GIF动画包含一连串的图像，第一个图像之后的每个图像通常只保存变化区域的像素数据，而这个区域不一定从（0，0）开始。迭代一个图像m的像素的正确方法看起来像：
 
-```go linenums="1"
+```go
 b := m.Bounds()
 for y := b.Min.Y; y < b.Max.Y; y++ {
  for x := b.Min.X; x < b.Max.X; x++ {
@@ -189,7 +189,7 @@ for y := b.Min.Y; y < b.Max.Y; y++ {
 
 图像的实现不一定要基于内存中的像素数据片断。例如，Uniform是一个具有巨大边界和统一颜色的图像，其内存中的表示方法仅仅是该颜色。
 
-```go linenums="1"
+```go
 type Uniform struct {
     C color.Color
 }
@@ -199,7 +199,7 @@ Typically, though, programs will want an image based on a slice. Struct types li
 
 不过，通常情况下，程序会想要一个基于切片的图像。像RGBA和Gray这样的结构类型（其他软件包称其为image.RGBA和image.Gray）持有像素数据的片断，并实现了Image接口。
 
-```go linenums="1"
+```go
 type RGBA struct {
     // Pix holds the image's pixels, in R, G, B, A order. The pixel at
     // (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].
@@ -215,7 +215,7 @@ These types also provide a `Set(x, y int, c color.Color)` method that allows mod
 
 这些类型还提供了一个Set(x, y int, c color.Color)方法，可以一次修改图像的一个像素。
 
-```go linenums="1"
+```go
 m := image.NewRGBA(image.Rect(0, 0, 640, 480))
 m.Set(5, 5, color.RGBA{255, 0, 0, 255})
 ```
@@ -230,7 +230,7 @@ The slice-based `Image` implementations also provide a `SubImage` method, which 
 
 ![img](TheGoImagePackage_img/image-package-05.png)
 
-```go linenums="1"
+```go
 m0 := image.NewRGBA(image.Rect(0, 0, 8, 5))
 m1 := m0.SubImage(image.Rect(1, 2, 5, 5)).(*image.RGBA)
 fmt.Println(m0.Bounds().Dx(), m1.Bounds().Dx()) // prints 8, 4
@@ -247,7 +247,7 @@ The standard package library supports a number of common image formats, such as 
 
 标准包库支持许多常见的图像格式，如GIF、JPEG和PNG。如果您知道一个源图像文件的格式，您可以直接从io.Reader解码。
 
-```go linenums="1"
+```go
 import (
  "image/jpeg"
  "image/png"
@@ -268,7 +268,7 @@ If you have image data of unknown format, the [`image.Decode`](https://go.dev/pk
 
 如果您有未知格式的图像数据，image.Decode函数可以检测格式。识别的格式集是在运行时构建的，不限于标准包库中的格式。一个图像格式包通常在一个init函数中注册其格式，主包将 "下划线导入 "这样一个包，完全是为了实现格式注册的附带效果。
 
-```go linenums="1"
+```go
 import (
  "image"
  "image/png"

@@ -21,7 +21,7 @@ Andrew Gerrand
 
 ​	我们首先定义了一对接口来描述现有数据格式的功能，一个用于客户端，一个用于服务器端（如下所示）。
 
-```go linenums="1"
+```go
 type ServerCodec interface {
  ReadRequestHeader(*Request) error
  ReadRequestBody(interface{}) error
@@ -32,14 +32,14 @@ type ServerCodec interface {
 
 ​	在服务器端，我们随后更改了两个内部函数的签名，以接受`ServerCodec`接口而不是我们现有的`gob.Encoder`。下面是其中之一：
 
-```go linenums="1"
+```go
 func sendResponse(sending *sync.Mutex, req *Request,
  reply interface{}, enc *gob.Encoder, errmsg string)
 ```
 
 变成
 
-```go linenums="1"
+```go
 func sendResponse(sending *sync.Mutex, req *Request,
   reply interface{}, enc ServerCodec, errmsg string)
 ```

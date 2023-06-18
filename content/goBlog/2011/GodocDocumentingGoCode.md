@@ -39,7 +39,7 @@ The convention is simple: to document a type, variable, constant, function, or e
 
 惯例很简单：要记录一个类型、变量、常量、函数甚至包，在其声明前直接写一个普通的注释，中间不要有空行。然后，Godoc会将该注释作为文本呈现在它所记录的项目旁边。例如，这是fmt包的Fprint函数的文档：
 
-```go linenums="1"
+```go
 // Fprint formats using the default formats for its operands and writes to w.
 // Spaces are added between operands when neither is a string.
 // It returns the number of bytes written and any write error encountered.
@@ -54,7 +54,7 @@ Comments on package declarations should provide general package documentation. T
 
 包声明的注释应该提供一般的包文档。这些注释可以很短，就像排序包的简短描述：
 
-```go linenums="1"
+```go
 // Package sort provides primitives for sorting slices and user-defined
 // collections.
 package sort

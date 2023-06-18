@@ -49,7 +49,7 @@ The first stage, `gen`, is a function that converts a list of integers to a chan
 
 第一阶段，gen，是一个将一个整数列表转换为一个通道的函数，该通道将列表中的整数发射出来。gen函数启动一个goroutine，在通道上发送整数，当所有的值都发送完后关闭通道：
 
-```go linenums="1"
+```go
 func gen(nums ...int) <-chan int {
     out := make(chan int)
     go func() {
@@ -66,7 +66,7 @@ The second stage, `sq`, receives integers from a channel and returns a channel t
 
 第二阶段，sq，从一个通道接收整数，并返回一个通道，发射每个接收的整数的平方。在入站通道关闭后，这个阶段将所有的值发送到下游，它将关闭出站通道：
 
-```go linenums="1"
+```go
 func sq(in <-chan int) <-chan int {
     out := make(chan int)
     go func() {
@@ -83,7 +83,7 @@ The `main` function sets up the pipeline and runs the final stage: it receives v
 
 main函数设置了管道并运行了最后阶段：它从第二阶段接收数值并打印每一个数值，直到通道关闭：
 
-```go linenums="1"
+```go
 func main() {
     // Set up the pipeline.
     c := gen(2, 3)
@@ -99,7 +99,7 @@ Since `sq` has the same type for its inbound and outbound channels, we can compo
 
 由于sq的入站和出站通道具有相同的类型，我们可以对它进行任意次数的组合。我们也可以把main改写成一个范围循环，就像其他阶段一样：
 
-```go linenums="1"
+```go
 func main() {
     // Set up the pipeline and consume the output.
     for n := range sq(sq(gen(2, 3))) {
@@ -122,7 +122,7 @@ We can change our pipeline to run two instances of `sq`, each reading from the s
 
 我们可以改变我们的管道来运行两个sq的实例，每个实例从同一个输入通道读取数据。我们引入一个新的函数，merge，来扇入结果：
 
-```go linenums="1"
+```go
 func main() {
     in := gen(2, 3)
 
@@ -145,7 +145,7 @@ Sends on a closed channel panic, so it’s important to ensure all sends are don
 
 在一个关闭的通道上的发送会恐慌，所以在调用close之前确保所有的发送都完成是很重要的。sync.WaitGroup类型提供了一种简单的方法来安排这种同步：
 
-```go linenums="1"
+```go
 func merge(cs ...<-chan int) <-chan int {
     var wg sync.WaitGroup
     out := make(chan int)
@@ -194,7 +194,7 @@ In our example pipeline, if a stage fails to consume all the inbound values, the
 
 在我们的例子管道中，如果一个阶段不能消耗所有的入站值，试图发送这些值的goroutines将无限期地阻塞：
 
-```go linenums="1"
+```go
     // Consume the first value from the output.
     out := merge(c1, c2)
     fmt.Println(<-out) // 4 or 9
@@ -212,7 +212,7 @@ We need to arrange for the upstream stages of our pipeline to exit even when the
 
 我们需要安排管道的上游阶段退出，即使下游阶段未能接收所有的入站值。做到这一点的一个方法是将出站通道改为有一个缓冲区。缓冲区可以容纳固定数量的值；如果缓冲区有空间，发送操作立即完成：
 
-```go linenums="1"
+```go
 c := make(chan int, 2) // buffer size 2
 c <- 1  // succeeds immediately
 c <- 2  // succeeds immediately
@@ -223,7 +223,7 @@ When the number of values to be sent is known at channel creation time, a buffer
 
 当要发送的值的数量在通道创建时就已经知道，缓冲区可以简化代码。例如，我们可以重写gen，将整数列表复制到一个缓冲通道中，避免创建一个新的goroutine：
 
-```go linenums="1"
+```go
 func gen(nums ...int) <-chan int {
     out := make(chan int, len(nums))
     for _, n := range nums {
@@ -238,7 +238,7 @@ Returning to the blocked goroutines in our pipeline, we might consider adding a 
 
 回到我们的管道中被阻塞的goroutines，我们可能会考虑给merge返回的出站通道添加一个缓冲区：
 
-```go linenums="1"
+```go
 func merge(cs ...<-chan int) <-chan int {
     var wg sync.WaitGroup
     out := make(chan int, 1) // enough space for the unread inputs
@@ -259,7 +259,7 @@ When `main` decides to exit without receiving all the values from `out`, it must
 
 当main决定在没有收到所有来自out的值的情况下退出时，它必须告诉上游阶段的goroutines放弃它们试图发送的值。它通过在一个叫做done的通道上发送数值来实现这一目的。它发送两个值，因为可能有两个阻塞的发送者：
 
-```go linenums="1"
+```go
 func main() {
     in := gen(2, 3)
 
@@ -282,7 +282,7 @@ The sending goroutines replace their send operation with a `select` statement th
 
 发送goroutines用一个select语句来代替他们的发送操作，该语句要么在out上的发送发生时，要么在他们从doed上收到一个值时进行。done的值类型是空结构，因为它的值并不重要：它是表明应该放弃发送的接收事件。输出的goroutines继续在他们的入站通道c上循环，所以上游阶段不会被阻断。 我们稍后会讨论如何让这个循环提前返回。
 
-```go linenums="1"
+```go
 func merge(done <-chan struct{}, cs ...<-chan int) <-chan int {
     var wg sync.WaitGroup
     out := make(chan int)
@@ -314,7 +314,7 @@ This means that `main` can unblock all the senders simply by closing the `done` 
 
 这意味着main可以通过关闭已完成的通道来解除对所有发送者的封锁。这种关闭实际上是对发送者的一种广播信号。我们将每个管道函数扩展为接受doed作为参数，并通过defer语句安排关闭，这样，所有来自main的返回路径都会向管道阶段发出退出信号。
 
-```go linenums="1"
+```go
 func main() {
     // Set up a done channel that's shared by the whole pipeline,
     // and close that channel when this pipeline exits, as a signal
@@ -340,7 +340,7 @@ Each of our pipeline stages is now free to return as soon as `done` is closed. T
 
 我们的每个管道阶段现在都可以自由地返回，只要doed被关闭。merge中的输出例程可以在不耗尽其入站通道的情况下返回，因为它知道上游的发送者sq会在done关闭时停止尝试发送。output通过defer语句确保wg.Done在所有返回路径上被调用：
 
-```go linenums="1"
+```go
 func merge(done <-chan struct{}, cs ...<-chan int) <-chan int {
     var wg sync.WaitGroup
     out := make(chan int)
@@ -365,7 +365,7 @@ Similarly, `sq` can return as soon as `done` is closed. `sq` ensures its `out` c
 
 sq通过defer语句确保它的输出通道在所有的返回路径上都是关闭的，同样地，sq可以在doed关闭后立即返回：
 
-```go linenums="1"
+```go
 func sq(done <-chan struct{}, in <-chan int) <-chan int {
     out := make(chan int)
     go func() {
@@ -425,7 +425,7 @@ The main function of our program invokes a helper function `MD5All`, which retur
 
 我们程序的主函数调用了一个辅助函数MD5All，它返回一个从路径名到摘要值的映射，然后对结果进行排序和打印：
 
-```go linenums="1"
+```go
 func main() {
     // Calculate the MD5 sum of all files under the specified directory,
     // then print the results sorted by path name.
@@ -449,7 +449,7 @@ The `MD5All` function is the focus of our discussion. In [serial.go](https://go.
 
 MD5All函数是我们讨论的重点。在serial.go中，该实现没有使用并发，只是在行走树的过程中对每个文件进行读取和计算。
 
-```go linenums="1"
+```go
 // MD5All reads all the files in the file tree rooted at root and returns a map
 // from file path to the MD5 sum of the file's contents.  If the directory walk
 // fails or any read operation fails, MD5All returns an error.
@@ -482,7 +482,7 @@ In [parallel.go](https://go.dev/blog/pipelines/parallel.go), we split `MD5All` i
 
 在parallel.go中，我们将MD5All分成了一个两阶段的流水线。第一阶段，sumFiles，行走树，在一个新的goroutine中消化每个文件，并将结果发送到一个具有价值类型result的通道上：
 
-```go linenums="1"
+```go
 type result struct {
     path string
     sum  [md5.Size]byte
@@ -494,7 +494,7 @@ type result struct {
 
 sumFiles返回两个通道：一个是结果，另一个是由filepath.Walk返回的错误。walk函数启动一个新的goroutine来处理每个常规文件，然后检查doed。如果doed是关闭的，那么walk就会立即停止：
 
-```go linenums="1"
+```go
 func sumFiles(done <-chan struct{}, root string) (<-chan result, <-chan error) {
     // For each regular file, start a goroutine that sums the file and sends
     // the result on c.  Send the result of the walk on errc.
@@ -543,7 +543,7 @@ func sumFiles(done <-chan struct{}, root string) (<-chan result, <-chan error) {
 
 MD5All从c中接收摘要值。MD5All在错误时提前返回，通过defer完成关闭：
 
-```go linenums="1"
+```go
 func MD5All(root string) (map[string][md5.Size]byte, error) {
     // MD5All closes the done channel when it returns; it may do so before
     // receiving all the values from c and errc.
@@ -580,7 +580,7 @@ The first stage, `walkFiles`, emits the paths of regular files in the tree:
 
 第一阶段，walkFiles，发出树中常规文件的路径：
 
-```go linenums="1"
+```go
 func walkFiles(done <-chan struct{}, root string) (<-chan string, <-chan error) {
     paths := make(chan string)
     errc := make(chan error, 1)
@@ -611,7 +611,7 @@ The middle stage starts a fixed number of `digester` goroutines that receive fil
 
 中间阶段启动固定数量的消化器goroutines，从paths接收文件名并在通道c上发送结果：
 
-```go linenums="1"
+```go
 func digester(done <-chan struct{}, paths <-chan string, c chan<- result) {
     for path := range paths {
         data, err := ioutil.ReadFile(path)
@@ -628,7 +628,7 @@ Unlike our previous examples, `digester` does not close its output channel, as m
 
 与我们之前的例子不同，消化器并没有关闭它的输出通道，因为多个goroutines在一个共享通道上发送。相反，MD5All中的代码安排在所有消化器完成后关闭该通道：
 
-```go linenums="1"
+```go
     // Start a fixed number of goroutines to read and digest files.
     c := make(chan result)
     var wg sync.WaitGroup
@@ -654,7 +654,7 @@ The final stage receives all the `results` from `c` then checks the error from `
 
 最后阶段从c接收所有的结果，然后从errc检查错误。这个检查不能再早了，因为在这之前，walkFiles可能会阻止向下游发送值：
 
-```go linenums="1"
+```go
     m := make(map[string][md5.Size]byte)
     for r := range c {
         if r.err != nil {

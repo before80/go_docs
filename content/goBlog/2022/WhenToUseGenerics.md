@@ -57,7 +57,7 @@ For example, here is a function that returns a slice of all the keys in a map of
 
 例如，这里有一个函数，它返回一个任何类型的地图中所有键的一个片断：
 
-```go linenums="1"
+```go
 // MapKeys returns a slice of all the keys in m.
 // The keys are not returned in any particular order.
 func MapKeys[Key comparable, Val any](m map[Key]Val) []Key {
@@ -91,7 +91,7 @@ For example, here is part of what a binary tree data structure might look like u
 
 例如，下面是使用类型参数的二叉树数据结构的部分内容：
 
-```go linenums="1"
+```go
 // Tree is a binary tree.
 type Tree[T any] struct {
     cmp  func(T, T) int
@@ -182,7 +182,7 @@ Here is an example of a generic type `SliceFn` that implements `sort.Interface` 
 
 下面是一个通用类型 SliceFn 的例子，它为任何片断类型实现了 sort.Interface：
 
-```go linenums="1"
+```go
 // SliceFn implements sort.Interface for a slice of T.
 type SliceFn[T any] struct {
     s    []T
@@ -208,7 +208,7 @@ Here is how to use `SliceFn` to sort any slice using a comparison function:
 
 下面是如何使用SliceFn来对任何切片进行比较函数的排序：
 
-```go linenums="1"
+```go
 // SortFn sorts s in place using a comparison function.
 func SortFn[T any](s []T, less func(T, T) bool) {
     sort.Sort(SliceFn[T]{s, less})
@@ -247,7 +247,7 @@ For example, it might be tempting to change the first function signature here, w
 
 例如，把这里的第一个函数签名（只使用接口类型）改成第二个版本（使用类型参数），可能会很有吸引力。
 
-```go linenums="1"
+```go
 func ReadSome(r io.Reader) ([]byte, error)
 
 func ReadSome[T io.Reader](r T) ([]byte, error)

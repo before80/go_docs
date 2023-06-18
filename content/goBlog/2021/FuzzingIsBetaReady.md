@@ -44,7 +44,7 @@ $ gotip test -fuzz=Fuzz
 
 ​	以下是一个测试[net/url](https://pkg.go.dev/net/url#ParseQuery)包行为的模糊测试的示例。
 
-```go linenums="1"
+```go
 //go:build go1.18
 // +build go1.18
 

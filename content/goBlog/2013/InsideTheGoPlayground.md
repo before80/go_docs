@@ -113,7 +113,7 @@ The following program prints the current time each second and then exits after t
 
 下面的程序每秒钟打印一次当前时间，然后在三秒钟后退出。试着运行它。
 
-```go linenums="1"
+```go
 func main() {
     stop := time.After(3 * time.Second)
     tick := time.NewTicker(1 * time.Second)
@@ -195,7 +195,7 @@ The following example program writes data to a file, and then copies its content
 
 下面的例子程序将数据写入一个文件，然后将其内容复制到标准输出。试着运行它。(您也可以编辑它！）。
 
-```go linenums="1"
+```go
 func main() {
     const filename = "/tmp/file.txt"
 
@@ -231,7 +231,7 @@ The file system itself is represented by the [`fsys` struct](https://github.com/
 
 文件系统本身由fsys结构表示，它的一个全局实例（名为fs）在初始化时被创建。各种与文件有关的函数在fs上操作，而不是进行实际的系统调用。例如，下面是syscall.Open函数：
 
-```go linenums="1"
+```go
 func Open(path string, openmode int, perm uint32) (fd int, err error) {
     fs.mu.Lock()
     defer fs.mu.Unlock()
@@ -261,7 +261,7 @@ For an executable example, run the following program. It listens on a TCP port, 
 
 对于一个可执行的例子，运行下面的程序。它在一个TCP端口上监听，等待一个传入的连接，将该连接的数据复制到标准输出，然后退出。在另一个goroutine中，它建立一个连接到监听端口，向连接写入一个字符串，并关闭它。
 
-```go linenums="1"
+```go
 func main() {
     l, err := net.Listen("tcp", "127.0.0.1:4000")
     if err != nil {

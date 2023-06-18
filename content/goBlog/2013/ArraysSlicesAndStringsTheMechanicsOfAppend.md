@@ -52,7 +52,7 @@ The declaration
 
 声明
 
-```go linenums="1"
+```go
 var buffer [256]byte
 ```
 
@@ -94,7 +94,7 @@ Given our `buffer` array variable from the previous section, we could create a s
 
 考虑到上一节中我们的缓冲区数组变量，我们可以通过对数组的切片来创建一个描述元素100到150（准确的说是100到149，包括在内）的切片。
 
-```go linenums="1"
+```go
 var slice []byte = buffer[100:150]
 ```
 
@@ -102,7 +102,7 @@ In that snippet we used the full variable declaration to be explicit. The variab
 
 在该片段中，我们使用了完整的变量声明，以示明确。变量slice的类型是[]byte，读作 "字节的片断"，并从数组中初始化，称为buffer，通过对元素100（包括）到150（不包括）的片断。更恰当的语法是去掉类型，它是由初始化表达式设置的：
 
-```go linenums="1"
+```go
 var slice = buffer[100:150]
 ```
 
@@ -110,7 +110,7 @@ Inside a function we could use the short declaration form,
 
 在一个函数中，我们可以使用简短的声明形式。
 
-```go linenums="1"
+```go
 slice := buffer[100:150]
 ```
 
@@ -118,7 +118,7 @@ What exactly is this slice variable? It’s not quite the full story, but for no
 
 这个slice变量到底是什么？这还不是很全面，但现在可以把slice想象成一个有两个元素的小数据结构：一个长度和一个指向数组元素的指针。您可以认为它在幕后是这样构建的：
 
-```go linenums="1"
+```go
 type sliceHeader struct {
     Length        int
     ZerothElement *byte
@@ -138,7 +138,7 @@ So far we’ve used a slice operation on an array, but we can also slice a slice
 
 到目前为止，我们已经在数组上使用了切片操作，但是我们也可以对一个切片进行切片操作，像这样：
 
-```go linenums="1"
+```go
 slice2 := slice[5:10]
 ```
 
@@ -146,7 +146,7 @@ Just as before, this operation creates a new slice, in this case with elements 5
 
 就像以前一样，这个操作创建了一个新的切片，在这种情况下，原始切片的元素5到9（包括），也就是原始数组的元素105到109。slice2变量的底层sliceHeader结构看起来像这样：
 
-```go linenums="1"
+```go
 slice2 := sliceHeader{
     Length:        5,
     ZerothElement: &buffer[105],
@@ -169,7 +169,7 @@ the `sliceHeader` structure for the `slice` variable looks just like it did for 
 
 slice变量的sliceHeader结构看起来就像slice2变量的结构一样。您会看到经常使用重新切分，例如截断一个片断。这条语句删除了我们片断的第一个和最后一个元素：
 
-```go linenums="1"
+```go
 slice = slice[1:len(slice)-1]
 ```
 
@@ -181,7 +181,7 @@ You’ll often hear experienced Go programmers talk about the "slice header" bec
 
 您会经常听到有经验的Go程序员谈论 "slice header"，因为这确实是存储在slice变量中的东西。例如，当您调用一个以分片为参数的函数时，比如byte.IndexRune，这个头就是传递给该函数的东西。在这个调用中，
 
-```go linenums="1"
+```go
 slashPos := bytes.IndexRune(slice, '/')
 ```
 
@@ -211,7 +211,7 @@ Consider this simple function:
 
 考虑一下这个简单的函数：
 
-```go linenums="1"
+```go
 func AddOneToEachElement(slice []byte) {
     for i := range slice {
         slice[i]++
@@ -227,7 +227,7 @@ Try it:
 
 试试吧：
 
-```go linenums="1"
+```go
 func main() {
     slice := buffer[10:20]
     for i := 0; i < len(slice); i++ {
@@ -255,7 +255,7 @@ The argument to the function really is a copy, as this example shows:
 
 如本例所示，该函数的参数实际上是一个副本：
 
-```go linenums="1"
+```go
 func SubtractOneFromLength(slice []byte) []byte {
     slice = slice[0 : len(slice)-1]
     return slice
@@ -283,7 +283,7 @@ Another way to have a function modify the slice header is to pass a pointer to i
 
 另一种让函数修改切片头的方法是传递一个指向它的指针。下面是我们以前的例子的一个变体，它是这样做的：
 
-```go linenums="1"
+```go
 func PtrSubtractOneFromLength(slicePtr *[]byte) {
     slice := *slicePtr
     *slicePtr = slice[0 : len(slice)-1]
@@ -308,7 +308,7 @@ Let’s say we wanted to have a method on a slice that truncates it at the final
 
 假设我们想在一个切片上有一个方法，在最后的斜线处将其截断。我们可以这样写：
 
-```go linenums="1"
+```go
 type path []byte
 
 func (p *path) TruncateAtFinalSlash() {
@@ -339,7 +339,7 @@ On the other hand, if we wanted to write a method for `path` that upper-cases th
 
 另一方面，如果我们想为path写一个方法，将路径中的ASCII字母大写（狭义上忽略了非英文名字），这个方法可以是一个值，因为值接收器仍然会指向同一个底层数组。
 
-```go linenums="1"
+```go
 type path []byte
 
 func (p path) ToUpper() {
@@ -379,7 +379,7 @@ Look at the following function that extends its argument slice of `ints` by one 
 
 看看下面这个函数，它将其参数slice的ints扩展了一个元素：
 
-```go linenums="1"
+```go
 func Extend(slice []int, element int) []int {
     n := len(slice)
     slice = slice[0 : n+1]
@@ -392,7 +392,7 @@ func Extend(slice []int, element int) []int {
 
 (为什么需要返回修改后的slice？) 现在运行它。
 
-```go linenums="1"
+```go
 func main() {
     var iBuffer [10]int
     slice := iBuffer[0:0]
@@ -415,7 +415,7 @@ It’s time to talk about the third component of the slice header: its *capacity
 
 现在是时候谈谈分片头的第三个组成部分了：它的容量。除了数组指针和长度，切片头还存储了它的容量：
 
-```go linenums="1"
+```go
 type sliceHeader struct {
     Length        int
     Capacity      int
@@ -431,7 +431,7 @@ After our example slice is created by
 
 在我们的例子中，分片是通过以下方式创建的
 
-```go linenums="1"
+```go
 slice := iBuffer[0:0]
 ```
 
@@ -439,7 +439,7 @@ its header looks like this:
 
 它的头看起来像这样：
 
-```go linenums="1"
+```go
 slice := sliceHeader{
     Length:        0,
     Capacity:      10,
@@ -451,7 +451,7 @@ The `Capacity` field is equal to the length of the underlying array, minus the i
 
 容量字段等于底层数组的长度，减去分片第一个元素在数组中的索引（本例中为0）。如果您想查询一个片断的容量是多少，可以使用内置函数cap：
 
-```go linenums="1"
+```go
 if cap(slice) == len(slice) {
     fmt.Println("slice is full!")
 }
@@ -467,7 +467,7 @@ Let’s start with allocation. We could use the `new` built-in function to alloc
 
 让我们从分配开始。我们可以使用新的内置函数来分配一个更大的数组，然后对结果进行切片，但是使用内置函数make更简单。它分配了一个新的数组，并创建了一个切片头来描述它，一次完成。make函数需要三个参数：分片的类型，它的初始长度，以及它的容量，也就是make分配的用来存放分片数据的数组的长度。这个调用创建了一个长度为10的分片，并留有容纳5个分片的空间（15-10），您可以通过运行它看到这一点：
 
-```go linenums="1"
+```go
     slice := make([]int, 10, 15)
     fmt.Printf("len: %d, cap: %d\n", len(slice), cap(slice))
 ```
@@ -478,7 +478,7 @@ This snippet doubles the capacity of our `int` slice but keeps its length the sa
 
 运行这段代码后，在需要再次重新分配之前，片子有了更大的增长空间：
 
-```go linenums="1"
+```go
     slice := make([]int, 10, 15)
     fmt.Printf("len: %d, cap: %d\n", len(slice), cap(slice))
     newSlice := make([]int, len(slice), 2*cap(slice))
@@ -499,7 +499,7 @@ When creating slices, it’s often true that the length and capacity will be sam
 
 在创建分片时，通常情况下，长度和容量是一致的。内置的make软件对这种常见的情况有一个速记法。长度参数的默认值是容量，所以您可以省略它，把它们都设置为相同的值。之后
 
-```go linenums="1"
+```go
 gophers := make([]Gopher, 10)
 ```
 
@@ -511,7 +511,7 @@ When we doubled the capacity of our slice in the previous section, we wrote a lo
 
 当我们在上一节中把分片的容量增加一倍时，我们写了一个循环，把旧的数据复制到新的分片中。Go有一个内置的函数，copy，使之更容易。它的参数是两个片断，它把数据从右边的参数复制到左边的参数。下面是我们使用copy重写的例子：
 
-```go linenums="1"
+```go
     newSlice := make([]int, len(slice), 2*cap(slice))
     copy(newSlice, slice)
 ```
@@ -526,7 +526,7 @@ The `copy` function also gets things right when source and destination overlap, 
 
 当源片和目的片重叠时，copy函数也能做出正确的判断，这意味着它可以被用来在一个片中移动项目。下面是如何使用copy将一个值插入到一个片断的中间。
 
-```go linenums="1"
+```go
 // Insert inserts the value into the slice at the specified index,
 // which must be in range.
 // The slice must have room for the new element.
@@ -546,7 +546,7 @@ There are a couple of things to notice in this function. First, of course, it mu
 
 在这个函数中，有几件事情需要注意。首先，当然，它必须返回更新的slice，因为它的长度已经改变。第二，它使用了一种方便的速记方法。表达式是
 
-```go linenums="1"
+```go
 slice[i:]
 ```
 
@@ -554,7 +554,7 @@ means exactly the same as
 
 的意思与
 
-```go linenums="1"
+```go
 slice[i:len(slice)]
 ```
 
@@ -562,7 +562,7 @@ Also, although we haven’t used the trick yet, we can leave out the first eleme
 
 另外，虽然我们还没有使用这个技巧，但我们也可以省去slice表达式的第一个元素；它默认为零。因此
 
-```go linenums="1"
+```go
 slice[:]
 ```
 
@@ -570,7 +570,7 @@ just means the slice itself, which is useful when slicing an array. This express
 
 就是指分片本身，这在对数组进行分片时很有用。这个表达式是 "描述数组中所有元素的分片 "的最简短说法：
 
-```go linenums="1"
+```go
 array[:]
 ```
 
@@ -578,7 +578,7 @@ Now that’s out of the way, let’s run our `Insert` function.
 
 现在，我们来运行我们的插入函数。
 
-```go linenums="1"
+```go
     slice := make([]int, 10, 20) // Note capacity > length: room to add element.
     for i := range slice {
         slice[i] = i
@@ -596,7 +596,7 @@ A few sections back, we wrote an `Extend` function that extends a slice by one e
 
 在前几节，我们写了一个Extend函数，可以将一个slice扩展一个元素。但这是个错误，因为如果片断的容量太小，函数就会崩溃。(我们的Insert例子也有同样的问题。)现在我们已经有了解决这个问题的方法，所以让我们为整数片写一个强大的Extend实现。
 
-```go linenums="1"
+```go
 func Extend(slice []int, element int) []int {
     n := len(slice)
     if n == cap(slice) {
@@ -616,7 +616,7 @@ In this case it’s especially important to return the slice, since when it real
 
 在这种情况下，返回slice是特别重要的，因为当它重新分配时，产生的slice描述了一个完全不同的数组。这里有一个小片段来演示当slice填满时发生了什么：
 
-```go linenums="1"
+```go
     slice := make([]int, 0, 5)
     for i := 0; i < 10; i++ {
         slice = Extend(slice, i)
@@ -639,7 +639,7 @@ Let’s call the function `Append`. For the first version, we can just call `Ext
 
 让我们把这个函数称为Append。对于第一个版本，我们可以直接重复调用Extend，这样变量函数的机制就清楚了。Append的签名是这样的：
 
-```go linenums="1"
+```go
 func Append(slice []int, items ...int) []int
 ```
 
@@ -647,7 +647,7 @@ What that says is that `Append` takes one argument, a slice, followed by zero or
 
 这就是说，Append需要一个参数，一个片断，然后是0个或更多的int参数。就Append的实现而言，这些参数正好是一个int的切片，您可以看到：
 
-```go linenums="1"
+```go
 // Append appends the items to the slice.
 // First version: just loop calling Extend.
 func Append(slice []int, items ...int) []int {
@@ -666,7 +666,7 @@ Try it:
 
 试试吧：
 
-```go linenums="1"
+```go
     slice := []int{0, 1, 2, 3, 4}
     fmt.Println(slice)
     slice = Append(slice, 5, 6, 7, 8)
@@ -681,7 +681,7 @@ Another new technique in this example is that we initialize the slice by writing
 
 这个例子中的另一个新技术是，我们通过写一个复合字面来初始化slice，它由slice的类型和它在大括号中的元素组成：
 
-```go linenums="1"
+```go
     slice := []int{0, 1, 2, 3, 4}
 ```
 
@@ -689,7 +689,7 @@ The `Append` function is interesting for another reason. Not only can we append 
 
 Append函数之所以有趣，还有一个原因。我们不仅可以追加元素，还可以通过在调用处使用......符号将切片 "爆炸 "成参数来追加整个第二个切片：
 
-```go linenums="1"
+```go
     slice1 := []int{0, 1, 2, 3, 4}
     slice2 := []int{55, 66, 77}
     fmt.Println(slice1)
@@ -703,7 +703,7 @@ Of course, we can make `Append` more efficient by allocating no more than once, 
 
 当然，我们可以在Extend的内部基础上，通过不超过一次的分配，使Append更有效率：
 
-```go linenums="1"
+```go
 // Append appends the elements to the slice.
 // Efficient version.
 func Append(slice []int, elements ...int) []int {
@@ -730,7 +730,7 @@ Try it; the behavior is the same as before:
 
 试试吧，行为和之前一样：
 
-```go linenums="1"
+```go
     slice1 := []int{0, 1, 2, 3, 4}
     slice2 := []int{55, 66, 77}
     fmt.Println(slice1)
@@ -758,7 +758,7 @@ Here are some one-liners intermingled with print statements. Try them, edit them
 
 这里有一些夹杂着打印语句的单行代码。试试它们，编辑它们，并进行探索：
 
-```go linenums="1"
+```go
     // Create a couple of starter slices.
     slice := []int{1, 2, 3}
     slice2 := []int{55, 66, 77}
@@ -799,7 +799,7 @@ As an aside, with our newfound knowledge we can see what the representation of a
 
 作为一个旁观者，利用我们新发现的知识，我们可以看到nil片的表示方法是什么。自然，它是切片头的零值：
 
-```go linenums="1"
+```go
 sliceHeader{
     Length:        0,
     Capacity:      0,
@@ -809,7 +809,7 @@ sliceHeader{
 
 or just 或只是
 
-```go linenums="1"
+```go
 sliceHeader{}
 ```
 
@@ -817,7 +817,7 @@ The key detail is that the element pointer is `nil` too. The slice created by
 
 关键的细节是，元素指针也是nil。通过以下方式创建的片断
 
-```go linenums="1"
+```go
 array[0:0]
 ```
 
@@ -853,7 +853,7 @@ For starters, we can index them to access individual bytes:
 
 对于初学者来说，我们可以通过索引来访问单个字节：
 
-```go linenums="1"
+```go
 slash := "/usr/ken"[0] // yields the byte value '/'.
 ```
 
@@ -861,7 +861,7 @@ We can slice a string to grab a substring:
 
 我们可以对一个字符串进行切分以获取一个子串：
 
-```go linenums="1"
+```go
 usr := "/usr/ken"[0:4] // yields the string "/usr"
 ```
 
@@ -873,7 +873,7 @@ We can also take a normal slice of bytes and create a string from it with the si
 
 我们也可以用一个普通的字节切片，通过简单的转换从它那里创建一个字符串。
 
-```go linenums="1"
+```go
 str := string(slice)
 ```
 
@@ -881,7 +881,7 @@ and go in the reverse direction as well:
 
 并以相反的方向进行：
 
-```go linenums="1"
+```go
 slice := []byte(usr)
 ```
 

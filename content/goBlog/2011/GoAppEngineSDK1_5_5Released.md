@@ -31,7 +31,7 @@ The gofix tool that ships with the SDK has been customized with App Engine-speci
 
 与SDK一起提供的gofix工具已经用App Eng的特定模块进行了定制。它可以用来自动更新Go应用程序，使其与最新的appengine软件包和更新的Go标准库一起使用。要更新您的应用程序，请运行：
 
-```go linenums="1"
+```go
 /path/to/sdk/gofix /path/to/your/app
 ```
 
@@ -39,7 +39,7 @@ The SDK now includes the appengine package source code, so you can use the local
 
 SDK现在包括appengine包的源代码，所以您可以使用本地godoc来阅读App Engine API文档：
 
-```go linenums="1"
+```go
 /path/to/sdk/godoc appengine/datastore Get
 ```
 

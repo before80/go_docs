@@ -56,7 +56,7 @@ To try out the race detector for yourself, copy this example program into `racy.
 
 要想自己尝试一下竞赛检测器，请将此示例程序复制到racy.go中：
 
-```go linenums="1"
+```go
 package main
 
 import "fmt"
@@ -94,7 +94,7 @@ The first example is a simplified version of an actual bug found by the race det
 
 第一个例子是竞赛检测器发现的一个实际错误的简化版本。它使用一个定时器，在0到1秒之间的随机时间后打印一条信息。它重复这样做了五秒钟。它使用time.AfterFunc为第一条消息创建一个Timer，然后使用Reset方法来安排下一条消息，每次都重新使用Timer。
 
-```go linenums="1"
+```go
 10  func main() {
 11      start := time.Now()
 12      var t *time.Timer
@@ -163,7 +163,7 @@ To fix the race condition we change the code to read and write the variable `t` 
 
 为了解决这个竞赛条件，我们改变了代码，只从主goroutine中读写变量t：
 
-```go linenums="1"
+```go
 10  func main() {
 11      start := time.Now()
 12      reset := make(chan bool)
@@ -200,7 +200,7 @@ The `ioutil` package’s [`Discard`](https://go.dev/pkg/io/ioutil/#Discard) obje
 
 ioutil包的Discard对象实现了io.Writer，但是丢弃了所有写给它的数据。可以把它想象成/dev/null：一个用来发送您需要读取但不想存储的数据的地方。它通常与io.Copy一起使用，以耗尽一个阅读器，像这样。
 
-```go linenums="1"
+```go
 io.Copy(ioutil.Discard, reader)
 ```
 
@@ -212,7 +212,7 @@ The fix was simple. If the given `Writer` implements a `ReadFrom` method, a `Cop
 
 修复方法很简单。如果给定的Writer实现了ReadFrom方法，像这样的Copy调用：
 
-```go linenums="1"
+```go
 io.Copy(writer, reader)
 ```
 
@@ -220,7 +220,7 @@ is delegated to this potentially more efficient call:
 
 被委托给这个潜在的更有效的调用：
 
-```go linenums="1"
+```go
 writer.ReadFrom(reader)
 ```
 
@@ -240,7 +240,7 @@ Here is the known-racy code in `io/ioutil`, where `Discard` is a `devNull` that 
 
 下面是io/ioutil中已知的错误代码，其中Discard是一个devNull，在所有用户之间共享一个缓冲区。
 
-```go linenums="1"
+```go
 var blackHole [4096]byte // shared buffer
 
 func (devNull) ReadFrom(r io.Reader) (n int64, err error) {
@@ -262,7 +262,7 @@ Brad’s program includes a `trackDigestReader` type, which wraps an `io.Reader`
 
 Brad的程序包括一个trackDigestReader类型，它包装了一个io.Reader，并记录了它所读取的哈希摘要。
 
-```go linenums="1"
+```go
 type trackDigestReader struct {
     r io.Reader
     h hash.Hash
@@ -279,7 +279,7 @@ For example, it could be used to compute the SHA-1 hash of a file while reading 
 
 例如，它可以用来在读取文件时计算文件的SHA-1哈希值：
 
-```go linenums="1"
+```go
 tdr := trackDigestReader{r: file, h: sha1.New()}
 io.Copy(writer, tdr)
 fmt.Printf("File hash: %x", tdr.h.Sum(nil))
@@ -289,7 +289,7 @@ In some cases there would be nowhere to write the data—but still a need to has
 
 在某些情况下，没有地方可以写入数据，但仍然需要对文件进行哈希处理，因此将使用Discard：
 
-```go linenums="1"
+```go
 io.Copy(ioutil.Discard, tdr)
 ```
 
@@ -297,7 +297,7 @@ But in this case the `blackHole` buffer isn’t just a black hole; it is a legit
 
 但在这种情况下，blackHole缓冲区不仅仅是一个黑洞；它是一个合法的地方，在从源io.Reader读取数据和将其写入hash.Hash之间存储数据。在多个goroutines同时对文件进行哈希运算的情况下，每个人都共享同一个blackHole缓冲区，竞赛条件表现为在读取和哈希运算之间损坏数据。没有发生错误或恐慌，但哈希值是错误的。糟糕的是!
 
-```go linenums="1"
+```go
 func (t trackDigestReader) Read(p []byte) (n int, err error) {
     // the buffer p is blackHole
     n, err = t.r.Read(p)

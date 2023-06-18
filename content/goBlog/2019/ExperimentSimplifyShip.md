@@ -49,7 +49,7 @@ Every Go program we write serves as an experiment to test Go itself. In the earl
 
 我们编写的每一个Go程序都是测试Go本身的实验。在 Go 的早期，我们很快就了解到，像这样的 addToList 函数的代码很常见：
 
-```go linenums="1"
+```go
 func addToList(list []int, x int) []int {
     n := len(list)
     if n+1 > cap(list) {
@@ -105,7 +105,7 @@ For example, `append` was originally defined to read only from slices. When appe
 
 例如，append最初被定义为只从片断中读取。当追加到一个字节片时，您可以追加另一个字节片的字节，但不能追加一个字符串的字节。我们重新定义了append，允许从一个字符串中追加，而没有给语言添加任何新的内容。
 
-```go linenums="1"
+```go
 var b []byte
 var more []byte
 b = append(b, more...) // ok
@@ -125,7 +125,7 @@ An example of this is when we removed the boolean forms of non-blocking channel 
 
 这方面的一个例子是，我们从语言中删除了非阻塞通道操作的布尔形式：
 
-```go linenums="1"
+```go
 ok := c <- x  // before Go 1, was non-blocking send
 x, ok := <-c  // before Go 1, was non-blocking receive
 ```
@@ -200,7 +200,7 @@ Error values had to start somewhere. Here is the `Read` function from the first 
 
 错误值必须从某处开始。下面是os包第一个版本中的Read函数：
 
-```go linenums="1"
+```go
 export func Read(fd int64, b *[]byte) (ret int64, errno int64) {
     r, e := syscall.read(fd, &b[0], int64(len(b)));
     return r, e
@@ -215,7 +215,7 @@ This code was checked in on September 10, 2008 at 12:14pm. Like everything back 
 
 这段代码是在2008年9月10日中午12点14分签入的。像当时的一切一样，这是一个实验，代码变化很快。2小时5分钟后，API发生了变化：
 
-```go linenums="1"
+```go
 export type Error struct { s string }
 
 func (e *Error) Print() { … } // to standard error!
@@ -253,7 +253,7 @@ Here’s an example. On Unix, an attempt to dial a network connection ends up us
 
 这里有一个例子。在Unix中，试图拨号网络连接的行为最终会使用connect系统调用。该系统调用返回一个syscall.Errno，它是一个命名的整数类型，代表系统调用的错误号，并实现了错误接口：
 
-```go linenums="1"
+```go
 package syscall
 
 type Errno int64
@@ -273,7 +273,7 @@ Moving up a level, in package `os`, any system call failure is reported using a 
 
 再往上走一级，在包os中，任何系统调用失败都会使用一个更大的错误结构来报告，该结构除了记录错误外，还记录了尝试的操作。这些结构有很多。这个，SyscallError，描述了一个调用特定系统调用的错误，没有记录其他信息：
 
-```go linenums="1"
+```go
 package os
 
 type SyscallError struct {
@@ -290,7 +290,7 @@ Moving up another level, in package `net`, any network failure is reported using
 
 再往上走，在包net中，任何网络故障都会使用一个更大的错误结构来报告，该结构记录了周围网络操作的细节，如拨号或监听，以及涉及的网络和地址：
 
-```go linenums="1"
+```go
 package net
 
 type OpError struct {
@@ -308,7 +308,7 @@ Putting these together, the errors returned by operations like `net.Dial` can fo
 
 把这些放在一起，由net.Dial这样的操作返回的错误可以格式化为字符串，但它们也是结构化的Go数据值。在这种情况下，错误是net.OpError，它将上下文添加到os.SyscallError，它将上下文添加到syscall.Errno：
 
-```go linenums="1"
+```go
 c, err := net.Dial("tcp", "localhost:50001")
 
 // "dial tcp [::1]:50001: connect: connection refused"
@@ -336,7 +336,7 @@ Here is the code:
 
 下面是代码：
 
-```go linenums="1"
+```go
 func spuriousENOTAVAIL(err error) bool {
     if op, ok := err.(*OpError); ok {
         err = op.Err
@@ -378,7 +378,7 @@ For Go 1.13, we have introduced a convention that an error implementation adding
 
 对于Go 1.13，我们引入了一个惯例，即为内部错误添加可移除上下文的错误实现应该实现一个Unwrap方法，返回内部错误，解除上下文。如果没有合适的内部错误暴露给调用者，要么错误就不应该有Unwrap方法，要么Unwrap方法应该返回nil。
 
-```go linenums="1"
+```go
 // Go 1.13 optional method for error implementations.
 
 interface {
@@ -392,7 +392,7 @@ The way to call this optional method is to invoke the helper function `errors.Un
 
 调用这个可选方法的方法是调用辅助函数 errors.Unwrap，它可以处理错误本身为nil或根本没有Unwrap方法等情况。
 
-```go linenums="1"
+```go
 package errors
 
 // Unwrap returns the result of calling
@@ -406,7 +406,7 @@ We can use the `Unwrap` method to write a simpler, more general version of `spur
 
 我们可以使用Unwrap方法来写一个更简单、更通用的spuriousENOTAVAIL版本。一般的版本不需要寻找特定的错误封装器实现，比如net.OpError或os.SyscallError，而是可以循环，调用Unwrap来移除上下文，直到达到EADDRNOTAVAIL或者没有错误为止：
 
-```go linenums="1"
+```go
 func spuriousENOTAVAIL(err error) bool {
     for err != nil {
         if err == syscall.EADDRNOTAVAIL {
@@ -422,7 +422,7 @@ This loop is so common, though, that Go 1.13 defines a second function, `errors.
 
 这个循环非常常见，因此Go 1.13定义了第二个函数 errors.Is，它可以重复解包一个错误，寻找一个特定的目标。因此，我们可以用对 errors.Is 的一次调用来代替整个循环：
 
-```go linenums="1"
+```go
 func spuriousENOTAVAIL(err error) bool {
     return errors.Is(err, syscall.EADDRNOTAVAIL)
 }
@@ -440,7 +440,7 @@ If you want to write code that works with arbitrarily-wrapped errors, `errors.Is
 
 如果您想编写能处理任意包装的错误的代码，errors.Is是错误平等检查的包装器意识版本：
 
-```go linenums="1"
+```go
 err == target
 
     →
@@ -452,7 +452,7 @@ And `errors.As` is the wrapper-aware version of an error type assertion:
 
 而error.As是错误类型断言的包装器感知版本：
 
-```go linenums="1"
+```go
 target, ok := err.(*Type)
 if ok {
     ...
@@ -476,7 +476,7 @@ Until now, `fmt.Errorf` has not exposed an underlying error formatted with `%v` 
 
 到目前为止，fmt.Errorf还没有将一个以%v为格式的底层错误暴露给调用者检查。也就是说，fmt.Errorf的结果不可能被解包。考虑一下这个例子：
 
-```go linenums="1"
+```go
 // errors.Unwrap(err2) == nil
 // err1 is not available (same as earlier Go versions)
 err2 := fmt.Errorf("connect: %v", err1)
@@ -490,7 +490,7 @@ For the times when you do want to allow unwrapping the result of `fmt.Errorf`, w
 
 当您想允许解开fmt.Errorf的结果时，我们还增加了一个新的打印动词%w，它的格式和%v一样，需要一个错误值参数，并使产生错误的Unwrap方法返回该参数。在我们的例子中，假设我们用%w替换%v：
 
-```go linenums="1"
+```go
 // errors.Unwrap(err4) == err3
 // (%w is new in Go 1.13)
 err4 := fmt.Errorf("connect: %w", err3)
@@ -514,7 +514,7 @@ Along with the design draft for Unwrap, we also published a [design draft for an
 
 与Unwrap的设计草案一起，我们还发布了一个可选方法的设计草案，用于更丰富的错误打印，包括堆栈框架信息和对本地化、翻译错误的支持。
 
-```go linenums="1"
+```go
 // Optional method for error implementations
 type Formatter interface {
     Format(p Printer) (next error)
@@ -546,7 +546,7 @@ Here is some code from [`compress/lzw/writer.go`](https://go.googlesource.com/go
 
 下面是标准库中compress/lzw/writer.go的一些代码：
 
-```go linenums="1"
+```go
 // Write the savedCode if valid.
 if e.savedCode != invalidCode {
     if err := e.write(e, e.savedCode); err != nil {
@@ -572,7 +572,7 @@ At Gophercon last year we [presented a draft design](https://go.dev/design/go2dr
 
 在去年的Gophercon会议上，我们提出了一个新的控制流结构的设计草案，以关键字check为标志。检查会消耗来自函数调用或表达式的错误结果。如果错误是非空的，检查会返回该错误。否则，检查会对调用的其他结果进行评估。我们可以使用check来简化lzw代码：
 
-```go linenums="1"
+```go
 // Write the savedCode if valid.
 if e.savedCode != invalidCode {
     check e.write(e, e.savedCode)
@@ -594,7 +594,7 @@ Maybe most importantly, the design also allowed defining error handler blocks to
 
 也许最重要的是，该设计还允许定义错误处理程序块，以便在后来的检查失败时运行。这可以让您只写一次共享的上下文添加代码，就像在这个片段中：
 
-```go linenums="1"
+```go
 handle err {
     err = fmt.Errorf("closing writer: %w", err)
 }
@@ -628,7 +628,7 @@ Now the same code would look like this:
 
 现在，同样的代码看起来是这样的：
 
-```go linenums="1"
+```go
 defer errd.Wrapf(&err, "closing writer")
 
 // Write the savedCode if valid.
@@ -666,7 +666,7 @@ The second big topic we identified for Go 2 was some kind of way to write code w
 
 我们为Go 2确定的第二个大主题是用某种方式来编写带有类型参数的代码。这样就可以编写通用数据结构，也可以编写通用函数，与任何类型的片断、任何类型的通道或任何类型的地图一起工作。例如，这里有一个通用的通道过滤器：
 
-```go linenums="1"
+```go
 // Filter copies values from c to the returned channel,
 // passing along only those values satisfying f.
 func Filter(type value)(f func(value) bool, c <-chan value) <-chan value {

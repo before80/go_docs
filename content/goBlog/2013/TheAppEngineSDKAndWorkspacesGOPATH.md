@@ -41,7 +41,7 @@ When writing your App Engine app, import the oauth package just as you would in 
 
 在编写App Engine应用程序时，就像在普通Go程序中那样导入oauth包：
 
-```go linenums="1"
+```go
 import "golang.org/x/oauth2"
 ```
 
@@ -95,7 +95,7 @@ Let’s take a simple Go web server and turn it into a hybrid app. This is main.
 
 让我们拿一个简单的Go网络服务器，把它变成一个混合应用程序。这就是main.go：
 
-```go linenums="1"
+```go
 package main
 
 import (
@@ -121,7 +121,7 @@ The App Engine infrastructure provides its own main function that runs its equiv
 
 App Engine基础设施提供了它自己的main函数，运行它相当于ListenAndServe。为了将main.go转换为App Engine应用程序，放弃对ListenAndServe的调用，并在init函数（运行在main之前）中注册处理程序。这就是app.go：
 
-```go linenums="1"
+```go
 package main
 
 import (
@@ -150,7 +150,7 @@ main.go runs the web server. It includes the "!appengine" build constraint, as i
 
 main.go运行网络服务器。它包括"!appengine "构建约束，因为只有在构建独立的二进制文件时才必须包括它。
 
-```go linenums="1"
+```go
 // +build !appengine
 
 package main

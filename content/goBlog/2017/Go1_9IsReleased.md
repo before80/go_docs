@@ -23,7 +23,7 @@ The most important change to the language is the introduction of type aliases: a
 
 该语言最重要的变化是引入了类型别名：这是一个为支持逐步修复代码而创建的功能。一个类型别名声明的形式是：
 
-```go linenums="1"
+```go
 type T1 = T2
 ```
 
@@ -47,7 +47,7 @@ For example, consider this test:
 
 例如，考虑这个测试：
 
-```go linenums="1"
+```go
 package p
 
 import "testing"
@@ -70,7 +70,7 @@ The `time` package now transparently tracks monotonic time in each `Time` value,
 
 时间包现在可以透明地跟踪每个时间值中的单调时间，使计算两个时间值之间的持续时间在挂钟调整的情况下成为安全操作。例如，这段代码现在可以计算出正确的经过时间，即使在闰秒时钟重置的情况下：
 
-```go linenums="1"
+```go
 start := time.Now()
 f()
 elapsed := time.Since(start)

@@ -59,7 +59,7 @@ At the core of Go Cloud is a collection of generic APIs for portable cloud progr
 
 Go Cloud的核心是用于可移植云编程的通用API集合。让我们看一下使用blob存储的例子。您可以使用通用类型*blob.Bucket将一个文件从本地磁盘复制到云提供商。让我们先用附带的s3blob包打开一个S3 bucket：
 
-```go linenums="1"
+```go
 // setupBucket opens an AWS bucket.
 func setupBucket(ctx context.Context) (*blob.Bucket, error) {
     // Obtain AWS credentials.
@@ -78,7 +78,7 @@ Once a program has a `*blob.Bucket`, it can create a `*blob.Writer`, which imple
 
 一旦程序有了*blob.Bucket，它就可以创建一个*blob.Writer，它实现了io.Writer。在这里，程序可以使用*blob.Writer向Bucket写入数据，并检查Close是否报告错误。
 
-```go linenums="1"
+```go
 ctx := context.Background()
 b, err := setupBucket(ctx)
 if err != nil {
@@ -105,7 +105,7 @@ Notice how the logic of using the bucket does not refer to AWS S3. Go Cloud make
 
 请注意，使用桶的逻辑并没有提到AWS S3。Go Cloud使得更换云存储只是改变用于打开*blob.Bucket的函数的问题。应用程序可以通过使用gcsblob.OpenBucket构建一个*blob.Bucket来代替使用谷歌云存储，而无需改变复制文件的代码：
 
-```go linenums="1"
+```go
 // setupBucket opens a GCS bucket.
 func setupBucket(ctx context.Context) (*blob.Bucket, error) {
     // Open GCS bucket.

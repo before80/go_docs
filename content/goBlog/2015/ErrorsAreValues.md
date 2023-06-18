@@ -19,7 +19,7 @@ A common point of discussion among Go programmers, especially those new to the l
 
 ​	Go程序员，尤其是那些刚接触该语言的程序员，经常讨论的一个问题是如何处理错误。对话往往变成了对下面序列的多次出现而哀叹连连。
 
-```go linenums="1"
+```go
 if err != nil {
     return err
 }
@@ -29,7 +29,7 @@ shows up. We recently scanned all the open source projects we could find and dis
 
 ​	我们最近扫描了所有我们能找到的开源项目，发现此片段只在每页出现一到两次，比一些人认为的要少。尽管如此，如果人们仍然认为必须一直输入
 
-```go linenums="1"
+```go
 if err != nil
 ```
 
@@ -57,7 +57,7 @@ Here’s a simple example from the `bufio` package’s [`Scanner`](https://go.de
 
 下面是一个来自`bufio`包的[Scanner](https://go.dev/pkg/bufio/#Scanner)类型的简单例子。它的[Scan](https://go.dev/pkg/bufio/#Scanner.Scan)方法执行了底层的I/O，这当然会导致错误的发生。然而，扫描方法根本就没有暴露出错误。相反，它返回一个布尔值，并在扫描结束时运行一个单独的方法，报告是否发生错误。客户端代码看起来像这样：
 
-```go linenums="1"
+```go
 scanner := bufio.NewScanner(input)
 for scanner.Scan() {
     token := scanner.Text()
@@ -72,7 +72,7 @@ Sure, there is a nil check for an error, but it appears and executes only once. 
 
 当然，有一个错误的nil检查，但它只出现和执行一次。扫描方法可以被定义为
 
-```go linenums="1"
+```go
 func (s *Scanner) Scan() (token []byte, error)
 ```
 
@@ -80,7 +80,7 @@ and then the example user code might be (depending on how the token is retrieved
 
 然后，用户代码的例子可能是（取决于如何检索令牌）。
 
-```go linenums="1"
+```go
 scanner := bufio.NewScanner(input)
 for {
     token, err := scanner.Scan()
@@ -99,7 +99,7 @@ Under the covers what’s happening, of course, is that as soon as `Scan` encoun
 
 当然，掩盖起来的是，一旦Scan遇到I/O错误，它就会记录下来并返回false。一个单独的方法，Err，在客户询问时报告错误值。尽管这很微不足道，但这与把
 
-```go linenums="1"
+```go
 if err != nil
 ```
 
@@ -115,7 +115,7 @@ The topic of repetitive error-checking code arose when I attended the autumn 201
 
 当我参加东京的2014年秋季GoCon时，出现了重复检查错误代码的话题。一位热心的地鼠，在Twitter上的名字是@jxck_，回应了人们熟悉的关于错误检查的哀叹。他有一些代码，从原理上看是这样的：
 
-```go linenums="1"
+```go
 _, err = fd.Write(p0[a:b])
 if err != nil {
     return err
@@ -135,7 +135,7 @@ It is very repetitive. In the real code, which was longer, there is more going o
 
 这是很重复的。在真正的代码中，这段代码比较长，有更多的事情要做，所以不容易只是用一个辅助函数来重构这段代码，但是在这种理想化的形式中，在错误变量上关闭一个函数字面会有帮助：
 
-```go linenums="1"
+```go
 var err error
 write := func(buf []byte) {
     if err != nil {
@@ -164,7 +164,7 @@ I defined an object called an `errWriter`, something like this:
 
 我定义了一个叫做errWriter的对象，大概是这样的：
 
-```go linenums="1"
+```go
 type errWriter struct {
     w   io.Writer
     err error
@@ -175,7 +175,7 @@ and gave it one method, `write.` It doesn’t need to have the standard `Write` 
 
 并给了它一个方法，写。它不需要有标准的Write签名，它的小写部分是为了突出这种区别。Write方法调用底层Writer的Write方法，并记录第一个错误供将来参考：
 
-```go linenums="1"
+```go
 func (ew *errWriter) write(buf []byte) {
     if ew.err != nil {
         return
@@ -192,7 +192,7 @@ Given the `errWriter` type and its `write` method, the code above can be refacto
 
 鉴于errWriter类型和它的写法，上面的代码可以被重构：
 
-```go linenums="1"
+```go
 ew := &errWriter{w: fd}
 ew.write(p0[a:b])
 ew.write(p1[c:d])
@@ -219,7 +219,7 @@ In fact, this pattern appears often in the standard library. The [`archive/zip`]
 
 事实上，这种模式经常出现在标准库中。archive/zip和net/http包都使用了它。对这次讨论来说，bufio包的Writer实际上是errWriter思想的一个实现。尽管bufio.Writer.Write返回一个错误，但这主要是为了尊重io.Writer接口。bufio.Writer的Write方法的行为就像我们上面的errWriter.write方法，Flush报告错误，所以我们的例子可以这样写：
 
-```go linenums="1"
+```go
 b := bufio.NewWriter(fd)
 b.Write(p0[a:b])
 b.Write(p1[c:d])

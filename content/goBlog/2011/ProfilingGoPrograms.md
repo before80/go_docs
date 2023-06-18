@@ -84,7 +84,7 @@ To start tuning the Go program, we have to enable profiling. If the code used th
 
 为了开始调整Go程序，我们必须启用剖析功能。如果代码使用了Go测试包的基准测试支持，我们可以使用gotest的标准-cpuprofile和-memprofile标志。在像这样的独立程序中，我们必须导入 runtime/pprof 并添加几行代码：
 
-```go linenums="1"
+```go
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
 
 func main() {
@@ -265,7 +265,7 @@ The entry `main.DFS` no longer appears in the profile, and the rest of the progr
 
 main.DFS条目不再出现在配置文件中，程序的其他运行时间也下降了。现在，程序的大部分时间都花在分配内存和垃圾回收上（runtime.mallocgc，既分配内存又运行定期的垃圾回收，占了54.2%的时间）。为了找出垃圾收集器运行的原因，我们必须找出是什么在分配内存。一种方法是在程序中加入内存剖析。我们将安排，如果提供了-memprofile标志，程序会在循环查找的一次迭代后停止，写一个内存剖析，然后退出。
 
-```go linenums="1"
+```go
 var memprofile = flag.String("memprofile", "", "write memory profile to this file")
 ...
 
@@ -285,7 +285,7 @@ We invoke the program with `-memprofile` flag to write a profile:
 
 我们调用带有-memprofile标志的程序来写一个配置文件：
 
-```go linenums="1"
+```go
 $ make havlak3.mprof
 go build havlak3.go
 ./havlak3 -memprofile=havlak3.mprof
@@ -390,7 +390,7 @@ Instead of using a map, we can use a simple slice to list the elements. In all b
 
 我们可以用一个简单的片断来列出元素，而不是使用一个地图。除了一种情况，在所有使用地图的情况下，算法都不可能插入一个重复的元素。在剩下的一种情况下，我们可以写一个append内置函数的简单变体。
 
-```go linenums="1"
+```go
 func appendUnique(a []int, x int) []int {
     for _, y := range a {
         if x == y {
@@ -507,7 +507,7 @@ We’ll add a global `cache` structure:
 
 我们将添加一个全局缓存结构：
 
-```go linenums="1"
+```go
 var cache struct {
     size int
     nonBackPreds [][]int
@@ -524,7 +524,7 @@ and then have `FindLoops` consult it as a replacement for allocation:
 
 然后让FindLoops咨询它作为分配的替代：
 
-```go linenums="1"
+```go
 if cache.size < size {
     cache.size = size
     cache.nonBackPreds = make([][]int, size)

@@ -77,7 +77,7 @@ If you are using Go 1.12 or earlier, you can manually check a `go.sum` file agai
 
 如果您使用的是Go 1.12或更早的版本，您可以用gosumcheck手动检查go.sum文件和校验数据库：
 
-```go linenums="1"
+```go
 $ go get golang.org/x/mod/gosumcheck
 $ gosumcheck /path/to/go.sum
 ```

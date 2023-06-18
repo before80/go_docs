@@ -39,7 +39,7 @@ Go is statically typed. Every variable has a static type, that is, exactly one t
 
 Go是静态类型的。每个变量都有一个静态类型，也就是说，在编译时有一个已知的固定类型：int, float32, *MyType, []byte，等等。如果我们声明
 
-```go linenums="1"
+```go
 type MyInt int
 
 var i int
@@ -54,7 +54,7 @@ One important category of type is interface types, which represent fixed sets of
 
 类型的一个重要类别是接口类型，它代表了固定的方法集。(在讨论反射时，我们可以忽略接口定义作为多态代码中的约束的使用）。一个接口变量可以存储任何具体（非接口）的值，只要该值实现了接口的方法。一对著名的例子是io.Reader和io.Writer，它们是io包中的Reader和Writer类型：
 
-```go linenums="1"
+```go
 // Reader is the interface that wraps the basic Read method.
 type Reader interface {
     Read(p []byte) (n int, err error)
@@ -70,7 +70,7 @@ Any type that implements a `Read` (or `Write`) method with this signature is sai
 
 任何用这个签名实现读（或写）方法的类型都被称为实现了io.Reader（或io.Writer）。在本讨论中，这意味着一个io.Reader类型的变量可以持有任何类型具有Read方法的值：
 
-```go linenums="1"
+```go
 var r io.Reader
 r = os.Stdin
 r = bufio.NewReader(r)
@@ -86,7 +86,7 @@ An extremely important example of an interface type is the empty interface:
 
 接口类型的一个极其重要的例子是空接口：
 
-```go linenums="1"
+```go
 interface{}
 ```
 
@@ -94,7 +94,7 @@ or its equivalent alias,
 
 或其等效别名，
 
-```go linenums="1"
+```go
 any
 ```
 
@@ -120,7 +120,7 @@ A variable of interface type stores a pair: the concrete value assigned to the v
 
 一个接口类型的变量存储了一对：分配给该变量的具体数值，以及该数值的类型描述符。更准确地说，值是实现接口的底层具体数据项，而类型则描述了该数据项的完整类型。例如，在
 
-```go linenums="1"
+```go
 var r io.Reader
 tty, err := os.OpenFile("/dev/tty", os.O_RDWR, 0)
 if err != nil {
@@ -133,7 +133,7 @@ r = tty
 
 r包含，示意性的，（值，类型）对，（tty，*os.File）。请注意，*os.File类型实现了除Read之外的其他方法；尽管接口值只提供了对Read方法的访问，但里面的值却携带了关于该值的所有类型信息。这就是为什么我们可以做这样的事情：
 
-```go linenums="1"
+```go
 var w io.Writer
 w = r.(io.Writer)
 ```
@@ -146,7 +146,7 @@ Continuing, we can do this:
 
 继续下去，我们可以这样做：
 
-```go linenums="1"
+```go
 var empty interface{}
 empty = w
 ```
@@ -179,7 +179,7 @@ Let’s start with `TypeOf`:
 
 让我们从 TypeOf 开始：
 
-```go linenums="1"
+```go
 package main
 
 import (
@@ -197,7 +197,7 @@ This program prints
 
 这个程序打印出
 
-```go linenums="1"
+```go
 type: float64
 ```
 
@@ -205,7 +205,7 @@ You might be wondering where the interface is here, since the program looks like
 
 您可能想知道这里的接口在哪里，因为这个程序看起来是在向reflect.TypeOf传递float64变量x，而不是一个接口值。但它就在那里；正如 godoc 所报告的，reflect.TypeOf 的签名包括一个空接口：
 
-```go linenums="1"
+```go
 // TypeOf returns the reflection Type of the value in the interface{}.
 func TypeOf(i interface{}) Type
 ```
@@ -218,7 +218,7 @@ The `reflect.ValueOf` function, of course, recovers the value (from here on we�
 
 当然，reflect.ValueOf函数会恢复值（从这里开始，我们将省略这些模板，只关注可执行代码）：
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 fmt.Println("value:", reflect.ValueOf(x).String())
 ```
@@ -239,7 +239,7 @@ Both `reflect.Type` and `reflect.Value` have lots of methods to let us examine a
 
 reflect.Type 和 reflect.Value 都有很多方法让我们检查和操作它们。一个重要的例子是，Value 有一个 Type 方法来返回 reflect.Value 的 Type。另一个例子是Type和Value都有一个Kind方法，该方法返回一个常数，表明存储的是什么类型的项目。Uint, Float64, Slice, 等等。另外，Value上的方法有Int和Float这样的名字，让我们可以抓取里面存储的值（如int64和float64）。
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 v := reflect.ValueOf(x)
 fmt.Println("type:", v.Type())
@@ -249,7 +249,7 @@ fmt.Println("value:", v.Float())
 
 prints 打印
 
-```go linenums="1"
+```go
 type: float64
 kind is float64: true
 value: 3.4
@@ -263,7 +263,7 @@ The reflection library has a couple of properties worth singling out. First, to 
 
 反射库有几个属性值得特别指出。首先，为了保持API的简单性，Value的 "getter "和 "setter "方法操作的是可以容纳该值的最大类型：例如，所有有符号的整数的int64。也就是说，Value的Int方法返回一个int64，SetInt值取一个int64；可能需要转换为实际涉及的类型：
 
-```go linenums="1"
+```go
 var x uint8 = 'x'
 v := reflect.ValueOf(x)
 fmt.Println("type:", v.Type())                            // uint8.
@@ -275,7 +275,7 @@ The second property is that the `Kind` of a reflection object describes the unde
 
 第二个属性是，反射对象的Kind描述的是底层类型，而不是静态类型。如果一个反射对象包含一个用户定义的整数类型的值，如
 
-```go linenums="1"
+```go
 type MyInt int
 var x MyInt = 7
 v := reflect.ValueOf(x)
@@ -297,7 +297,7 @@ Given a `reflect.Value` we can recover an interface value using the `Interface` 
 
 给定一个reflect.Value，我们可以使用Interface方法恢复一个接口值；实际上，该方法将类型和值信息打包回一个接口表示，并返回结果：
 
-```go linenums="1"
+```go
 // Interface returns v's value as an interface{}.
 func (v Value) Interface() interface{}
 ```
@@ -306,7 +306,7 @@ As a consequence we can say
 
 因此，我们可以说
 
-```go linenums="1"
+```go
 y := v.Interface().(float64) // y will have type float64.
 fmt.Println(y)
 ```
@@ -319,7 +319,7 @@ We can do even better, though. The arguments to `fmt.Println`, `fmt.Printf` and 
 
 不过，我们可以做得更好。fmt.Println、fmt.Printf 等的参数都是作为空的接口值传递的，然后由 fmt 包内部解包，就像我们在前面的例子中做的那样。因此，正确打印reflect.Value的内容只需要将接口方法的结果传递给格式化的打印例程：
 
-```go linenums="1"
+```go
 fmt.Println(v.Interface())
 ```
 
@@ -327,7 +327,7 @@ fmt.Println(v.Interface())
 
 (自从这篇文章第一次写完后，fmt包做了一个修改，这样它就会像这样自动解包一个reflect.Value，所以我们可以直接说
 
-```go linenums="1"
+```go
 fmt.Println(v)
 ```
 
@@ -339,7 +339,7 @@ Since our value is a `float64`, we can even use a floating-point format if we wa
 
 由于我们的值是 float64，如果我们想的话，甚至可以使用浮点格式：
 
-```go linenums="1"
+```go
 fmt.Printf("value is %7.1e\n", v.Interface())
 ```
 
@@ -375,7 +375,7 @@ Here is some code that does not work, but is worth studying.
 
 下面是一些不起作用的代码，但值得研究。
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 v := reflect.ValueOf(x)
 v.SetFloat(7.1) // Error: will panic.
@@ -397,7 +397,7 @@ The `CanSet` method of `Value` reports the settability of a `Value`; in our case
 
 Value的CanSet方法报告一个Value的可设置性；在我们的例子中。
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 v := reflect.ValueOf(x)
 fmt.Println("settability of v:", v.CanSet())
@@ -419,7 +419,7 @@ Settability is a bit like addressability, but stricter. It’s the property that
 
 可设置性有点像可寻址性，但更严格。它是一个反射对象可以修改用于创建反射对象的实际存储的属性。可设置性是由反射对象是否持有原始项目决定的。当我们说
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 v := reflect.ValueOf(x)
 ```
@@ -428,7 +428,7 @@ we pass a copy of `x` to `reflect.ValueOf`, so the interface value created as th
 
 我们把 x 的副本传递给 reflect.ValueOf，所以作为 reflect.ValueOf 的参数创建的接口值是 x 的副本，而不是 x 本身。因此，如果语句
 
-```go linenums="1"
+```go
 v.SetFloat(7.1)
 ```
 
@@ -440,7 +440,7 @@ If this seems bizarre, it’s not. It’s actually a familiar situation in unusu
 
 如果这看起来很怪异，其实不然。它实际上是一个熟悉的情况，穿着不寻常的衣服。想想把x传给一个函数：
 
-```go linenums="1"
+```go
 f(x)
 ```
 
@@ -448,7 +448,7 @@ We would not expect `f` to be able to modify `x` because we passed a copy of `x`
 
 我们不会期望f能够修改x，因为我们传递的是x的值的拷贝，而不是x本身。如果我们想让f直接修改x，我们必须把x的地址（也就是一个指向x的指针）传给我们的函数：
 
-```go linenums="1"
+```go
 f(&x)
 ```
 
@@ -456,7 +456,7 @@ This is straightforward and familiar, and reflection works the same way. If we w
 
 这是直接的和熟悉的，反射的工作方式也是如此。如果我们想通过反射来修改x，我们必须给反射库一个指向我们想修改的值的指针。
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 p := reflect.ValueOf(&x) // Note: take the address of x.
 fmt.Println("type of p:", p.Type())
@@ -467,7 +467,7 @@ Let’s do that. First we initialize `x` as usual and then create a reflection v
 
 让我们来做这件事。首先我们像往常一样初始化x，然后创建一个指向它的反射值，叫做p。
 
-```go linenums="1"
+```go
 var x float64 = 3.4
 p := reflect.ValueOf(&x) // Note: take the address of x.
 fmt.Println("type of p:", p.Type())
@@ -478,7 +478,7 @@ The output so far is
 
 到目前为止的输出是
 
-```go linenums="1"
+```go
 type of p: *float64
 settability of p: false
 ```
@@ -487,7 +487,7 @@ The reflection object `p` isn’t settable, but it’s not `p` we want to set, i
 
 反射对象p是不可设置的，但我们想设置的不是p，而是（实际上）*p。为了得到p所指向的东西，我们调用Value的Elem方法，它通过指针进行间接操作，并将结果保存在一个叫做v的反射Value中：
 
-```go linenums="1"
+```go
 v := p.Elem()
 fmt.Println("settability of v:", v.CanSet())
 ```
@@ -504,7 +504,7 @@ and since it represents `x`, we are finally able to use `v.SetFloat` to modify t
 
 并且由于它代表x，我们最终能够使用v.SetFloat来修改x的值：
 
-```go linenums="1"
+```go
 v.SetFloat(7.1)
 fmt.Println(v.Interface())
 fmt.Println(x)
@@ -533,7 +533,7 @@ Here’s a simple example that analyzes a struct value, `t`. We create the refle
 
 下面是一个分析结构值t的简单例子。我们用结构的地址创建反射对象，因为我们以后会想修改它。然后我们将typeOfT设置为它的类型，并使用直接的方法调用遍历字段（详见包reflect）。请注意，我们从结构类型中提取字段的名称，但字段本身是普通的 reflect.Value 对象。
 
-```go linenums="1"
+```go
 type T struct {
     A int
     B string

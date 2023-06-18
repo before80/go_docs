@@ -27,7 +27,7 @@ Before digging into the details, let’s first discuss a common way of writing t
 
 在深入研究细节之前，我们首先讨论一下Go中编写测试的一种常见方式。一系列相关的检查可以通过循环测试案例的片断来实现：
 
-```go linenums="1"
+```go
 func TestTime(t *testing.T) {
     testCases := []struct {
         gmt  string
@@ -65,7 +65,7 @@ A common workaround was to define separate top-level benchmarks that each call a
 
 一个常见的解决方法是定义单独的顶层基准，每个基准都以不同的参数调用一个共同的函数。例如，在1.7之前，strconv包的AppendFloat的基准看起来是这样的：
 
-```go linenums="1"
+```go
 func benchmarkAppendFloat(b *testing.B, f float64, fmt byte, prec, bitSize int) {
     dst := make([]byte, 30)
     b.ResetTimer() // Overkill here, but for illustrative purposes.
@@ -86,7 +86,7 @@ Using the `Run` method available in Go 1.7, the same set of benchmarks is now ex
 
 使用Go 1.7中的Run方法，同样的一组基准现在被表达为一个单一的顶层基准：
 
-```go linenums="1"
+```go
 func BenchmarkAppendFloat(b *testing.B) {
     benchmarks := []struct{
         name    string
@@ -127,7 +127,7 @@ Go 1.7 also introduces a `Run` method for creating subtests. This test is a rewr
 
 Go 1.7还引入了创建子测试的运行方法。这个测试是我们先前使用子测试的例子的重写版本：
 
-```go linenums="1"
+```go
 func TestTime(t *testing.T) {
     testCases := []struct {
         gmt  string
@@ -260,7 +260,7 @@ Subtests and sub-benchmarks can be used to manage common setup and tear-down cod
 
 子测试和子基准可以用来管理常见的设置和拆解代码：
 
-```go linenums="1"
+```go
 func TestFoo(t *testing.T) {
     // <setup code>
     t.Run("A=1", func(t *testing.T) { ... })
@@ -302,7 +302,7 @@ The above semantics allows for running a group of tests in parallel with each ot
 
 上述语义允许并行运行一组测试，但不能与其他并行测试并行：
 
-```go linenums="1"
+```go
 func TestGroupedParallel(t *testing.T) {
     for _, tc := range testCases {
         tc := tc // capture range variable
@@ -331,7 +331,7 @@ In the previous example we used the semantics to wait on a group of parallel tes
 
 在前面的例子中，我们使用语义来等待一组并行测试的完成，然后再开始其他测试。同样的技术可以用来清理一组共享资源的并行测试：
 
-```go linenums="1"
+```go
 func TestTeardownParallel(t *testing.T) {
     // <setup code>
     // This Run will not return until its parallel subtests complete.

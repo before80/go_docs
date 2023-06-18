@@ -40,7 +40,7 @@ $ go get gitlab.com/golang-commonmark/markdown@bf3e522c626a
 
 In `main.go`:
 
-```Go linenums="1"
+```go
 package main
 
 import (

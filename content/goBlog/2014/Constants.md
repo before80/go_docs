@@ -49,7 +49,7 @@ When designing Go, we decided to avoid this minefield by mandating that there is
 
 在设计Go的时候，我们决定通过规定数字类型不能混合的方式来避免这个雷区。如果您想把i和u加起来，您必须明确说明您想要的结果是什么。鉴于
 
-```go linenums="1"
+```go
 var u uint
 var i int
 ```
@@ -114,7 +114,7 @@ This is an *untyped string constant*, which is to say it is a constant textual v
 
 这是一个未定型的字符串常量，也就是说，它是一个还没有固定类型的文本常量。是的，它是一个字符串，但它不是一个字符串类型的Go值。它仍然是一个未定型的字符串常量，即使被赋予了一个名字：
 
-```go linenums="1"
+```go
 const hello = "Hello, 世界"
 ```
 
@@ -130,7 +130,7 @@ So what, then, is a *typed* string constant? It’s one that’s been given a ty
 
 那么，什么是类型化的字符串常量呢？它是一个被赋予了类型的常量，就像这样：
 
-```go linenums="1"
+```go
 const typedHello string = "Hello, 世界"
 ```
 
@@ -138,7 +138,7 @@ Notice that the declaration of `typedHello` has an explicit `string` type before
 
 注意typedHello的声明在等号前有一个明确的字符串类型。这意味着typedHello的Go类型是字符串，并且不能被分配给不同类型的Go变量。也就是说，这段代码是有效的：
 
-```go linenums="1"
+```go
     var s string
     s = typedHello
     fmt.Println(s)
@@ -150,7 +150,7 @@ but this does not:
 
 但这样就不行了：
 
-```go linenums="1"
+```go
     type MyString string
     var m MyString
     m = typedHello // Type error
@@ -163,7 +163,7 @@ The variable `m` has type `MyString` and cannot be assigned a value of a differe
 
 变量m的类型是MyString，不能被分配一个不同类型的值。它只能被分配为MyString类型的值，像这样：
 
-```go linenums="1"
+```go
     const myStringHello MyString = "Hello, 世界"
     m = myStringHello // OK
     fmt.Println(m)
@@ -175,7 +175,7 @@ or by forcing the issue with a conversion, like this:
 
 或者通过转换来强制解决这个问题，比如这样：
 
-```go linenums="1"
+```go
     m = MyString(typedHello)
     fmt.Println(m)
 ```
@@ -186,13 +186,13 @@ Returning to our *untyped* string constant, it has the helpful property that, si
 
 回到我们的无类型字符串常量，它有一个有用的特性，即由于它没有类型，将其分配给一个有类型的变量不会导致类型错误。也就是说，我们可以写
 
-```go linenums="1"
+```go
 m = "Hello, 世界"
 ```
 
 or 或
 
-```go linenums="1"
+```go
 m = hello
 ```
 
@@ -210,7 +210,7 @@ As a Go programmer, you have certainly seen many declarations like
 
 作为一个Go程序员，您肯定见过很多类似于以下的声明
 
-```go linenums="1"
+```go
 str := "Hello, 世界"
 ```
 
@@ -218,13 +218,13 @@ and by now you might be asking, "if the constant is untyped, how does `str` get 
 
 的声明，现在您可能会问，"如果常量是未定型的，str在这个变量声明中是如何得到一个类型的？" 答案是，一个没有类型的常量有一个默认的类型，一个隐含的类型，如果在没有提供类型的情况下需要一个类型，它就会转移到一个值。对于未定型的字符串常量，默认类型显然是字符串，所以
 
-```go linenums="1"
+```go
 str := "Hello, 世界"
 ```
 
 or 或
 
-```go linenums="1"
+```go
 var str = "Hello, 世界"
 ```
 
@@ -232,7 +232,7 @@ means exactly the same as
 
 的意思与下列情况完全相同
 
-```go linenums="1"
+```go
 var str string = "Hello, 世界"
 ```
 
@@ -244,7 +244,7 @@ In such a declaration, a variable is declared with a type and initial value. Som
 
 在这样的声明中，一个变量被声明为具有类型和初始值。然而，有时当我们使用一个常量时，值的目的地并不那么明确。例如，考虑这个语句：
 
-```go linenums="1"
+```go
     fmt.Printf("%s", "Hello, 世界")
 ```
 
@@ -254,7 +254,7 @@ The signature of `fmt.Printf` is
 
 fmt.Printf的签名是
 
-```go linenums="1"
+```go
 func Printf(format string, a ...interface{}) (n int, err error)
 ```
 
@@ -266,7 +266,7 @@ You can see the result in this example, which uses the format `%v` to print the 
 
 您可以在这个例子中看到结果，它使用格式%v来打印值，%T来打印被传递给fmt.Printf的值的类型：
 
-```go linenums="1"
+```go
     fmt.Printf("%T: %v\n", "Hello, 世界", "Hello, 世界")
     fmt.Printf("%T: %v\n", hello, hello)
 ```
@@ -277,7 +277,7 @@ If the constant has a type, that goes into the interface, as this example shows:
 
 如果常量有一个类型，就会进入接口，如本例所示：
 
-```go linenums="1"
+```go
     fmt.Printf("%T: %v\n", myStringHello, myStringHello)
 ```
 
@@ -297,7 +297,7 @@ The default type of an untyped constant is determined by its syntax. For string 
 
 非类型常量的默认类型由其语法决定。对于字符串常量，唯一可能的隐式类型是字符串。对于数字常量来说，隐含类型有更多种类。整数常量默认为int，浮点常量为float64，符码常量为符码（int32的别名），虚数常量为complex128。下面是我们重复使用的典型打印语句，以显示默认类型的作用：
 
-```go linenums="1"
+```go
     fmt.Printf("%T %v\n", 0, 0)
     fmt.Printf("%T %v\n", 0.0, 0.0)
     fmt.Printf("%T %v\n", 'x', 'x')
@@ -316,7 +316,7 @@ Everything we said about untyped string constants can be said for untyped boolea
 
 我们所说的关于非类型化字符串常量的一切都可以用于非类型化布尔常量。值true和false是未定型的布尔常量，可以分配给任何布尔变量，但是一旦给定了一个类型，布尔变量就不能混合。
 
-```go linenums="1"
+```go
     type MyBool bool
     const True = true
     const TypedTrue bool = true
@@ -339,7 +339,7 @@ Floating-point constants are just like boolean constants in most respects. Our s
 
 浮点常量在大多数方面与布尔常量一样。我们的标准例子在翻译时也是如此：
 
-```go linenums="1"
+```go
     type MyFloat64 float64
     const Zero = 0.0
     const TypedZero float64 = 0.0
@@ -356,7 +356,7 @@ One wrinkle is that there are *two* floating-point types in Go: `float32` and `f
 
 一个问题是，Go中有两种浮点类型：float32和float64。浮点常量的默认类型是float64，尽管一个没有类型的浮点常量可以很好地分配给float32值：
 
-```go linenums="1"
+```go
     var f32 float32
     f32 = 0.0
     f32 = Zero      // OK: Zero is untyped
@@ -374,7 +374,7 @@ Numeric constants live in an arbitrary-precision numeric space; they are just re
 
 数字常数生活在一个任意精度的数字空间中，它们只是普通的数字。但是当它们被分配到一个变量时，其值必须能够适应目的地。我们可以声明一个具有非常大数值的常量：
 
-```go linenums="1"
+```go
     const Huge = 1e1000
 ```
 
@@ -382,7 +382,7 @@ Numeric constants live in an arbitrary-precision numeric space; they are just re
 
 -这毕竟只是一个数字，但我们不能分配它，甚至不能打印它。这条语句甚至不会被编译。
 
-```go linenums="1"
+```go
     fmt.Println(Huge)
 ```
 
@@ -392,7 +392,7 @@ The error is, "constant 1.00000e+1000 overflows float64", which is true. But `Hu
 
 错误是："常数1.00000e+1000溢出了float64"，这是真的。但是Huge可能是有用的：我们可以在有其他常数的表达式中使用它，如果结果可以在float64的范围内表示，则使用这些表达式的值。的语句。
 
-```go linenums="1"
+```go
     fmt.Println(Huge / 1e999)
 ```
 
@@ -406,7 +406,7 @@ In a related way, floating-point constants may have very high precision, so that
 
 与此相关的是，浮点常量可以有很高的精度，这样涉及到它们的算术就更精确了。math包中定义的常数比float64中的数字多很多。下面是math.Pi的定义：
 
-```go linenums="1"
+```go
 Pi  = 3.14159265358979323846264338327950288419716939937510582097494459
 ```
 
@@ -414,7 +414,7 @@ When that value is assigned to a variable, some of the precision will be lost; t
 
 当这个值被赋值给一个变量时，一些精度将被丢失；赋值将创建最接近高精度值的float64（或float32）值。这个片段
 
-```go linenums="1"
+```go
     pi := math.Pi
     fmt.Println(pi)
 ```
@@ -435,7 +435,7 @@ Complex constants behave a lot like floating-point constants. Here’s a version
 
 复数常数的行为很像浮点常数。下面是我们现在熟悉的复数的版本：
 
-```go linenums="1"
+```go
     type MyComplex128 complex128
     const I = (0.0 + 1.0i)
     const TypedI complex128 = (0.0 + 1.0i)
@@ -460,7 +460,7 @@ Let’s play a trick. We know that in Go, a numeric constant is just a number. W
 
 我们来玩个花样。我们知道，在Go中，数字常数只是一个数字。如果这个数字是一个没有虚部的复数，也就是一个实数呢？这里有一个。
 
-```go linenums="1"
+```go
     const Two = 2.0 + 0i
 ```
 
@@ -468,7 +468,7 @@ That’s an untyped complex constant. Even though it has no imaginary part, the 
 
 这是一个没有类型的复数常数。尽管它没有虚部，但表达式的语法将其定义为默认的复数128类型。因此，如果我们用它来声明一个变量，默认类型将是complex128。这段话
 
-```go linenums="1"
+```go
     s := Two
     fmt.Printf("%T: %v\n", s, s)
 ```
@@ -479,7 +479,7 @@ prints `complex128:` `(2+0i)`. But numerically, `Two` can be stored in a scalar 
 
 打印复数128：（2+0i）。但从数值上看，Two可以存储在一个标量浮点数中，即float64或float32，而不会有任何信息损失。因此，我们可以在初始化或赋值时将二赋给浮点64，而不会出现问题：
 
-```go linenums="1"
+```go
     var f float64
     var g float64 = Two
     f = Two
@@ -498,7 +498,7 @@ At last we come to integers. They have more moving parts—[many sizes, signed o
 
 最后，我们来看看整数。它们有更多的活动部件--许多尺寸，有符号或无符号，等等，但它们遵循同样的规则。最后，这里是我们熟悉的例子，这次只使用int：
 
-```go linenums="1"
+```go
     type MyInt int
     const Three = 3
     const TypedThree int = 3
@@ -533,7 +533,7 @@ No constant form has as its default type an unsigned integer type. However, the 
 
 没有常数形式的默认类型是无符号整数类型。然而，无类型常量的灵活性意味着我们可以使用简单的常量来初始化无符号整数变量，只要我们清楚地知道其类型。这就好比我们可以用一个虚部为零的复数来初始化float64。这里有几种不同的方法来初始化一个uint；所有的方法都是等价的，但是所有的方法都必须明确地提到类型，这样结果才是无符号的。
 
-```go linenums="1"
+```go
 var u uint = 17
 var u = uint(17)
 u := uint(17)
@@ -543,7 +543,7 @@ Similarly to the range issue mentioned in the section on floating-point values, 
 
 与浮点值部分提到的范围问题类似，不是所有的整数值都能适合所有的整数类型。可能会出现两个问题：数值可能太大，或者是一个负值被分配到一个无符号的整数类型。例如，int8的范围是-128到127，所以这个范围之外的常量永远不能分配给int8类型的变量：
 
-```go linenums="1"
+```go
     var i8 int8 = 128 // Error: too large.
 ```
 
@@ -553,7 +553,7 @@ Similarly, `uint8`, also known as `byte`, has range 0 through 255, so a large or
 
 同样，uint8，也被称为byte，其范围是0到255，所以一个大的或负的常数不能被分配给uint8：
 
-```go linenums="1"
+```go
     var u8 uint8 = -1 // Error: negative value.
 ```
 
@@ -563,7 +563,7 @@ This type-checking can catch mistakes like this one:
 
 这种类型检查可以抓住像这样的错误：
 
-```go linenums="1"
+```go
     type Char byte
     var c Char = '世' // Error: '世' has value 0x4e16, too large.
 ```
@@ -580,7 +580,7 @@ Here is an informative little exercise. How do we express a constant representin
 
 这里有一个内容丰富的小练习。我们如何表达一个代表适合于uint的最大值的常数？如果我们谈论的是uint32而不是uint，我们可以这样写
 
-```go linenums="1"
+```go
 const MaxUint32 = 1<<32 - 1
 ```
 
@@ -592,7 +592,7 @@ Fans of [two’s-complement arithmetic](http://en.wikipedia.org/wiki/Two's_compl
 
 Go的整数被定义为使用的二元互补算术的爱好者知道，-1的表示方法是将其所有位设置为1，因此-1的位模式在内部与最大的无符号整数相同。因此，我们可能认为我们可以写
 
-```go linenums="1"
+```go
     const MaxUint uint = -1 // Error: negative value
 ```
 
@@ -612,7 +612,7 @@ Even though at run-time a value of -1 can be converted to an unsigned integer, t
 
 尽管在运行时，-1的值可以转换为无符号的整数，但常数转换的规则禁止在编译时进行这种强制操作。也就是说，这样做是可行的。
 
-```go linenums="1"
+```go
     var u uint
     var v = -1
     u = uint(v)
@@ -624,7 +624,7 @@ but only because `v` is a variable; if we made `v` a constant, even an untyped c
 
 但只是因为v是一个变量；如果我们把v变成一个常数，甚至是一个未定型的常数，我们就会回到禁区：
 
-```go linenums="1"
+```go
     var u uint
     const v = -1
     u = uint(v) // Error: negative value
@@ -636,7 +636,7 @@ We return to our previous approach, but instead of `-1` we try `^0`, the bitwise
 
 我们回到之前的方法，但是我们尝试用^0来代替-1，即任意数量的零位的比特化否定。但这也失败了，原因类似：在数值空间中，^0代表无限多的1，所以如果我们把它分配给任何固定大小的整数，就会失去信息：
 
-```go linenums="1"
+```go
     const MaxUint uint = ^0 // Error: overflow
 ```
 
@@ -654,7 +654,7 @@ Therefore we don’t flip the bits of the untyped constant `0`, we flip the bits
 
 因此我们不翻转非类型常数0的位，而是翻转类型常数uint(0)的位。那么，这里就是我们的常数。
 
-```go linenums="1"
+```go
     const MaxUint = ^uint(0)
     fmt.Printf("%x\n", MaxUint)
 ```
@@ -689,7 +689,7 @@ Therefore, although they have different implicit default types, written as untyp
 
 因此，尽管它们有不同的隐含默认类型，但写成非类型常量，它们可以被分配给任何数字类型的变量：
 
-```go linenums="1"
+```go
     var f float32 = 1
     var i int = 1.000
     var u uint32 = 1e3 - 99.0*10.0 - 9
@@ -711,7 +711,7 @@ You can even do nutty stuff like
 
 您甚至可以做一些疯狂的事情，比如
 
-```go linenums="1"
+```go
     var f = 'a' * 1.5
     fmt.Println(f)
 ```
@@ -726,19 +726,19 @@ But the real point of these rules is flexibility. That flexibility means that, d
 
 但这些规则的真正意义在于灵活性。这种灵活性意味着，尽管在Go中，在同一个表达式中混合使用浮点变量和整数变量，甚至是int和int32变量都是不合法的，但写成以下情况是可以的
 
-```go linenums="1"
+```go
 sqrt2 := math.Sqrt(2)
 ```
 
 or 或
 
-```go linenums="1"
+```go
 const millisecond = time.Second/1e3
 ```
 
 or 或
 
-```go linenums="1"
+```go
 bigBufferWithHeader := make([]byte, 512+1e6)
 ```
 

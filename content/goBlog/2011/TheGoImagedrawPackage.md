@@ -65,7 +65,7 @@ To fill a rectangle with a solid color, use an `image.Uniform` source. The `Colo
 
 要用纯色填充一个矩形，请使用image.Uniform源。ColorImage类型将一个颜色重新解释为该颜色的一个几乎无限大的图像。对于那些熟悉Plan 9绘图库设计的人来说，在Go的基于片断的图像类型中不需要明确的 "重复位"；这个概念被Uniform所包含。
 
-```go linenums="1"
+```go
 // image.ZP is the zero point -- the origin.
 draw.Draw(dst, r, &image.Uniform{c}, image.ZP, draw.Src)
 ```
@@ -74,7 +74,7 @@ To initialize a new image to all-blue:
 
 将一个新图像初始化为全蓝色：
 
-```go linenums="1"
+```go
 m := image.NewRGBA(image.Rect(0, 0, 640, 480))
 blue := color.RGBA{0, 0, 255, 255}
 draw.Draw(m, m.Bounds(), &image.Uniform{blue}, image.ZP, draw.Src)
@@ -84,7 +84,7 @@ To reset an image to transparent (or black, if the destination image’s color m
 
 要将图像重置为透明（或黑色，如果目标图像的颜色模型不能表示透明），请使用image.Transparent，它是image.Uniform的：
 
-```go linenums="1"
+```go
 draw.Draw(m, m.Bounds(), image.Transparent, image.ZP, draw.Src)
 ```
 
@@ -96,7 +96,7 @@ To copy from a rectangle `sr` in the source image to a rectangle starting at a p
 
 要从源图像中的矩形sr复制到目标图像中以点dp为起点的矩形，请将源矩形转换成目标图像的坐标空间：
 
-```go linenums="1"
+```go
 r := image.Rectangle{dp, dp.Add(sr.Size())}
 draw.Draw(dst, r, src, sr.Min, draw.Src)
 ```
@@ -105,7 +105,7 @@ Alternatively:
 
 或者说：
 
-```go linenums="1"
+```go
 r := sr.Sub(sr.Min).Add(dp)
 draw.Draw(dst, r, src, sr.Min, draw.Src)
 ```
@@ -122,7 +122,7 @@ Scrolling an image is just copying an image to itself, with different destinatio
 
 滚动图像只是将一个图像复制到自己身上，目标和源矩形不同。重叠的目标和源图像是完全有效的，就像Go的内置复制函数可以处理重叠的目标和源切片一样。要将一个图像m滚动20个像素：
 
-```go linenums="1"
+```go
 b := m.Bounds()
 p := image.Pt(0, 20)
 // Note that even though the second argument is b,
@@ -139,7 +139,7 @@ The result of decoding an image format might not be an `image.RGBA`: decoding a 
 
 解码一个图像格式的结果可能不是image.RGBA：解码GIF的结果是image.Paletted，解码JPEG的结果是ycbcr.YCbCr，而解码PNG的结果取决于图像数据。要将任何图像转换为`image.RGBA`：
 
-```go linenums="1"
+```go
 b := src.Bounds()
 m := image.NewRGBA(image.Rect(0, 0, b.Dx(), b.Dy()))
 draw.Draw(m, m.Bounds(), src, b.Min, draw.Src)
@@ -153,7 +153,7 @@ To draw an image through a circular mask with center `p` and radius `r`:
 
 通过一个中心为p、半径为r的圆形遮罩来绘制图像：
 
-```go linenums="1"
+```go
 type circle struct {
     p image.Point
     r int
@@ -186,7 +186,7 @@ To draw a font glyph in blue starting from a point `p`, draw with an `image.Colo
 
 为了从一个点p开始绘制一个蓝色的字体字形，用image.ColorImage源和image.Alpha蒙版进行绘制。为了简单起见，我们不进行任何亚像素定位或渲染，也不对字体在基线上的高度进行校正。
 
-```go linenums="1"
+```go
 src := &image.Uniform{color.RGBA{0, 0, 255, 255}}
 mask := theGlyphImageForAFont()
 mr := theBoundsFor(glyphIndex)

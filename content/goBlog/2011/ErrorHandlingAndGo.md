@@ -21,7 +21,7 @@ If you have written any Go code you have probably encountered the built-in `erro
 
 如果您写过任何Go代码，您可能遇到过内置的错误类型。Go代码使用错误值来表示异常的状态。例如，os.Open 函数在打开一个文件失败时返回一个非零的错误值。
 
-```go linenums="1"
+```go
 func Open(name string) (file *File, err error)
 ```
 
@@ -29,7 +29,7 @@ The following code uses `os.Open` to open a file. If an error occurs it calls `l
 
 下面的代码使用os.Open来打开一个文件。如果发生错误，它会调用log.Fatal来打印错误信息并停止。
 
-```go linenums="1"
+```go
 f, err := os.Open("filename.ext")
 if err != nil {
     log.Fatal(err)
@@ -47,7 +47,7 @@ The `error` type is an interface type. An `error` variable represents any value 
 
 错误类型是一种接口类型。一个错误变量代表任何可以用字符串描述自己的值。下面是接口的声明。
 
-```go linenums="1"
+```go
 type error interface {
     Error() string
 }
@@ -61,7 +61,7 @@ The most commonly-used `error` implementation is the [errors](https://go.dev/pkg
 
 最常用的错误实现是错误包的未导出的errorString类型。
 
-```go linenums="1"
+```go
 // errorString is a trivial implementation of error.
 type errorString struct {
     s string
@@ -76,7 +76,7 @@ You can construct one of these values with the `errors.New` function. It takes a
 
 您可以用error.New函数构建这些值中的一个。它接受一个字符串，将其转换为error.errorString并作为一个错误值返回。
 
-```go linenums="1"
+```go
 // New returns an error that formats as the given text.
 func New(text string) error {
     return &errorString{text}
@@ -87,7 +87,7 @@ Here’s how you might use `errors.New`:
 
 下面是您如何使用error.New。
 
-```go linenums="1"
+```go
 func Sqrt(f float64) (float64, error) {
     if f < 0 {
         return 0, errors.New("math: square root of negative number")
@@ -100,7 +100,7 @@ A caller passing a negative argument to `Sqrt` receives a non-nil `error` value 
 
 传递负数参数给Sqrt的调用者会收到一个非零的错误值（其具体表示是error.errorString值）。调用者可以通过调用错误的Error方法访问错误字符串（"math: square root of..."），或者直接打印它。
 
-```go linenums="1"
+```go
 f, err := Sqrt(-1)
 if err != nil {
     fmt.Println(err)
@@ -119,7 +119,7 @@ To add that information, a useful function is the `fmt` package’s `Errorf`. It
 
 为了增加这些信息，一个有用的函数是fmt包的Errorf。它根据Printf的规则格式化一个字符串，并将其作为error.New创建的错误返回。
 
-```go linenums="1"
+```go
 if f < 0 {
     return 0, fmt.Errorf("math: square root of negative number %g", f)
 }
@@ -133,7 +133,7 @@ For instance, our hypothetical callers might want to recover the invalid argumen
 
 例如，我们假设的调用者可能想恢复传递给Sqrt的无效参数。我们可以通过定义一个新的错误实现而不是使用error.errorString来实现。
 
-```go linenums="1"
+```go
 type NegativeSqrtError float64
 
 func (f NegativeSqrtError) Error() string {
@@ -149,7 +149,7 @@ As another example, the [json](https://go.dev/pkg/encoding/json/) package specif
 
 作为另一个例子，json包指定了一个SyntaxError类型，当json.Decode函数在解析JSON blob时遇到语法错误时返回。
 
-```go linenums="1"
+```go
 type SyntaxError struct {
     msg    string // description of error
     Offset int64  // error occurred after reading Offset bytes
@@ -162,7 +162,7 @@ The `Offset` field isn’t even shown in the default formatting of the error, bu
 
 Offset字段甚至没有显示在错误的默认格式中，但是调用者可以用它来给错误信息添加文件和行的信息。
 
-```go linenums="1"
+```go
 if err := dec.Decode(&val); err != nil {
     if serr, ok := err.(*json.SyntaxError); ok {
         line, col := findLine(f, serr.Offset)
@@ -180,7 +180,7 @@ The `error` interface requires only a `Error` method; specific error implementat
 
 错误接口只需要一个Error方法；特定的错误实现可能有额外的方法。例如，net包按照通常的惯例返回error类型的错误，但是一些错误实现有net.Error接口定义的额外方法。
 
-```go linenums="1"
+```go
 package net
 
 type Error interface {
@@ -194,7 +194,7 @@ Client code can test for a `net.Error` with a type assertion and then distinguis
 
 客户端代码可以用一个类型断言来测试net.Error，然后将暂时性的网络错误与永久性的错误区分开。例如，一个网络爬虫可能会在遇到临时错误时睡眠并重试，否则就放弃。
 
-```go linenums="1"
+```go
 if nerr, ok := err.(net.Error); ok && nerr.Temporary() {
     time.Sleep(1e9)
     continue
@@ -214,7 +214,7 @@ Consider an [App Engine](https://cloud.google.com/appengine/docs/go/) applicatio
 
 考虑一个带有HTTP处理程序的App Engine应用程序，该处理程序从数据存储中获取一条记录，并以模板格式化。
 
-```go linenums="1"
+```go
 func init() {
     http.HandleFunc("/view", viewRecord)
 }
@@ -241,7 +241,7 @@ To reduce the repetition we can define our own HTTP `appHandler` type that inclu
 
 为了减少重复，我们可以定义我们自己的HTTP appHandler类型，包括一个错误返回值。
 
-```go linenums="1"
+```go
 type appHandler func(http.ResponseWriter, *http.Request) error
 ```
 
@@ -249,7 +249,7 @@ Then we can change our `viewRecord` function to return errors:
 
 然后我们可以改变我们的viewRecord函数来返回错误。
 
-```go linenums="1"
+```go
 func viewRecord(w http.ResponseWriter, r *http.Request) error {
     c := appengine.NewContext(r)
     key := datastore.NewKey(c, "Record", r.FormValue("id"), 0, nil)
@@ -265,7 +265,7 @@ This is simpler than the original version, but the [http](https://go.dev/pkg/net
 
 这比原来的版本要简单，但http包不理解返回错误的函数。为了解决这个问题，我们可以在appHandler上实现http.Handler接口的ServeHTTP方法。
 
-```go linenums="1"
+```go
 func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     if err := fn(w, r); err != nil {
         http.Error(w, err.Error(), 500)
@@ -281,7 +281,7 @@ Now when registering `viewRecord` with the http package we use the `Handle` func
 
 现在当用http包注册viewRecord时，我们使用Handle函数（而不是HandleFunc），因为appHandler是一个http.Handler（而不是http.HandlerFunc）。
 
-```go linenums="1"
+```go
 func init() {
     http.Handle("/view", appHandler(viewRecord))
 }
@@ -293,7 +293,7 @@ With this basic error handling infrastructure in place, we can make it more user
 
 To do this we create an `appError` struct containing an `error` and some other fields:
 
-```go linenums="1"
+```go
 type appError struct {
     Error   error
     Message string
@@ -305,7 +305,7 @@ Next we modify the appHandler type to return `*appError` values:
 
 接下来我们修改appHandler类型以返回*appError值。
 
-```go linenums="1"
+```go
 type appHandler func(http.ResponseWriter, *http.Request) *appError
 ```
 
@@ -317,7 +317,7 @@ And make `appHandler`’s `ServeHTTP` method display the `appError`’s `Message
 
 并使appHandler的ServeHTTP方法以正确的HTTP状态码向用户显示appError的信息，并将完整的Error记录到开发者控制台。
 
-```go linenums="1"
+```go
 func (fn appHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     if e := fn(w, r); e != nil { // e is *appError, not os.Error.
         c := appengine.NewContext(r)
@@ -331,7 +331,7 @@ Finally, we update `viewRecord` to the new function signature and have it return
 
 最后，我们将viewRecord更新为新的函数签名，让它在遇到错误时返回更多的上下文。
 
-```go linenums="1"
+```go
 func viewRecord(w http.ResponseWriter, r *http.Request) *appError {
     c := appengine.NewContext(r)
     key := datastore.NewKey(c, "Record", r.FormValue("id"), 0, nil)

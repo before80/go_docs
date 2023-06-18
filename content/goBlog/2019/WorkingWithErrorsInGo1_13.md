@@ -21,7 +21,7 @@ Go’s treatment of [errors as values](https://blog.golang.org/errors-are-values
 
 在过去的十年中，Go将错误作为数值处理，这让我们受益匪浅。尽管标准库对错误的支持微乎其微--只有 errors.New 和 fmt.Errorf 函数，它们产生的错误只包含一个消息--内置的错误接口允许 Go 程序员添加任何他们想要的信息。它所需要的只是一个实现了Error方法的类型：
 
-```go linenums="1"
+```go
 type QueryError struct {
     Query string
     Err   error
@@ -50,7 +50,7 @@ Go errors are values. Programs make decisions based on those values in a few way
 
 Go的错误是数值。程序以几种方式根据这些值进行决策。最常见的是将错误与nil进行比较，看是否操作失败。
 
-```go linenums="1"
+```go
 if err != nil {
     // something went wrong
 }
@@ -60,7 +60,7 @@ Sometimes we compare an error to a known *sentinel* value, to see if a specific 
 
 有时，我们将一个错误与一个已知的哨兵值进行比较，以查看是否发生了特定的错误。
 
-```go linenums="1"
+```go
 var ErrNotFound = errors.New("not found")
 
 if err == ErrNotFound {
@@ -72,7 +72,7 @@ An error value may be of any type which satisfies the language-defined `error` i
 
 一个错误值可以是任何满足语言定义的错误接口的类型。程序可以使用类型断言或类型转换，将错误值视为一个更具体的类型。
 
-```go linenums="1"
+```go
 type NotFoundError struct {
     Name string
 }
@@ -90,7 +90,7 @@ Frequently a function passes an error up the call stack while adding information
 
 经常有一个函数在调用堆栈上传递一个错误，同时向其添加信息，比如错误发生时的简要描述。一个简单的方法是构造一个新的错误，包括前一个错误的文本：
 
-```go linenums="1"
+```go
 if err != nil {
     return fmt.Errorf("decompress %v: %v", name, err)
 }
@@ -100,7 +100,7 @@ Creating a new error with `fmt.Errorf` discards everything from the original err
 
 用fmt.Errorf创建一个新的错误，除了文本外，抛弃了原始错误的所有内容。正如我们在上面看到的QueryError，我们有时可能想定义一个新的错误类型，包含基本的错误，保留它以便于代码检查。这里又是QueryError：
 
-```go linenums="1"
+```go
 type QueryError struct {
     Query string
     Err   error
@@ -111,7 +111,7 @@ Programs can look inside a `*QueryError` value to make decisions based on the un
 
 程序可以查看*QueryError值的内部，以根据基础错误做出决定。有时您会看到这被称为 "解包 "错误。
 
-```go linenums="1"
+```go
 if e, ok := err.(*QueryError); ok && e.Err == ErrPermission {
     // query failed because of a permission problem
 }
@@ -133,7 +133,7 @@ Following this convention, we can give the `QueryError` type above an `Unwrap` m
 
 按照这个惯例，我们可以给上面的QueryError类型一个Unwrap方法，返回其包含的错误：
 
-```go linenums="1"
+```go
 func (e *QueryError) Unwrap() error { return e.Err }
 ```
 
@@ -151,7 +151,7 @@ The `errors.Is` function compares an error to a value.
 
 errors.Is函数将一个错误与一个值进行比较。
 
-```go linenums="1"
+```go
 // Similar to:
 //   if err == ErrNotFound { … }
 if errors.Is(err, ErrNotFound) {
@@ -163,7 +163,7 @@ The `As` function tests whether an error is a specific type.
 
 As函数测试一个错误是否是一个特定的类型。
 
-```go linenums="1"
+```go
 // Similar to:
 //   if e, ok := err.(*QueryError); ok { … }
 var e *QueryError
@@ -177,7 +177,7 @@ In the simplest case, the `errors.Is` function behaves like a comparison to a se
 
 在最简单的情况下，errors.Is函数的行为就像与一个哨兵错误的比较，而errors.As函数的行为就像一个类型断言。然而，当对包裹的错误进行操作时，这些函数会考虑一个链中的所有错误。让我们再看一下上面的例子，解开QueryError的包装，检查底层错误：
 
-```go linenums="1"
+```go
 if e, ok := err.(*QueryError); ok && e.Err == ErrPermission {
     // query failed because of a permission problem
 }
@@ -187,7 +187,7 @@ Using the `errors.Is` function, we can write this as:
 
 使用errors.Is函数，我们可以这样写：
 
-```go linenums="1"
+```go
 if errors.Is(err, ErrPermission) {
     // err, or some error that it wraps, is a permission problem
 }
@@ -207,7 +207,7 @@ As mentioned earlier, it is common to use the `fmt.Errorf` function to add addit
 
 如前所述，使用fmt.Errorf函数为错误添加额外信息是很常见的。
 
-```go linenums="1"
+```go
 if err != nil {
     return fmt.Errorf("decompress %v: %v", name, err)
 }
@@ -217,7 +217,7 @@ In Go 1.13, the `fmt.Errorf` function supports a new `%w` verb. When this verb i
 
 在Go 1.13中，fmt.Errorf函数支持一个新的%w动词。当这个动词出现时，由fmt.Errorf返回的错误将有一个Unwrap方法返回%w的参数，这个参数必须是一个错误。在所有其他方面，%w与%v是相同的。
 
-```go linenums="1"
+```go
 if err != nil {
     // Return an error which unwraps to err.
     return fmt.Errorf("decompress %v: %w", name, err)
@@ -228,7 +228,7 @@ Wrapping an error with `%w` makes it available to `errors.Is` and `errors.As`:
 
 用%w包装一个错误，使其可用于 errors.Is 和 errors.As：
 
-```go linenums="1"
+```go
 err := fmt.Errorf("access denied: %w", ErrPermission)
 ...
 if errors.Is(err, ErrPermission) ...
@@ -248,7 +248,7 @@ In contrast, a function which makes several calls to a database probably should 
 
 相反，一个对数据库进行多次调用的函数可能不应该返回一个错误，这个错误是对其中一次调用结果的解包。如果函数所使用的数据库是一个实现细节，那么暴露这些错误就违反了抽象原则。例如，如果您的包 pkg 的 LookupUser 函数使用 Go 的数据库/sql 包，那么它可能遇到 sql.ErrNoRows 错误。如果您用fmt.Errorf("accessing DB: %v", err)来返回这个错误，那么调用者就无法在里面找到sql.ErrNoRows。但是如果该函数返回fmt.Errorf("accessing DB: %w", err)，那么调用者可以合理地写道
 
-```go linenums="1"
+```go
 err := pkg.LookupUser(...)
 if errors.Is(err, sql.ErrNoRows) …
 ```
@@ -271,7 +271,7 @@ As an example, consider this error inspired by the [Upspin error package](https:
 
 作为一个例子，考虑这个由Upspin错误包启发的错误，它将一个错误与一个模板进行比较，只考虑模板中的非零字段：
 
-```go linenums="1"
+```go
 type Error struct {
     Path string
     User string
@@ -307,7 +307,7 @@ If we wish a function to return an identifiable error condition, such as "item n
 
 如果我们希望一个函数返回一个可识别的错误条件，如 "未找到项目"，我们可以返回一个包裹着哨兵的错误。
 
-```go linenums="1"
+```go
 var ErrNotFound = errors.New("not found")
 
 // FetchItem returns the named item.
@@ -330,7 +330,7 @@ In all cases, care should be taken not to expose internal details to the user. A
 
 在所有情况下，都应该注意不要向用户暴露内部细节。正如我们在上面的 "是否包装 "中提到的，当您从另一个包中返回一个错误时，您应该将错误转换为不暴露基本错误的形式，除非您愿意承诺在将来返回那个特定的错误。
 
-```go linenums="1"
+```go
 f, err := os.Open(filename)
 if err != nil {
     // The *os.PathError returned by os.Open is an internal detail.
@@ -345,7 +345,7 @@ If a function is defined as returning an error wrapping some sentinel or type, d
 
 如果一个函数被定义为返回包裹某种哨兵或类型的错误，不要直接返回底层错误。
 
-```go linenums="1"
+```go
 var ErrPermission = errors.New("permission denied")
 
 // DoSomething returns an error wrapping ErrPermission if the user

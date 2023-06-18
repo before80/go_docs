@@ -37,7 +37,7 @@ To understand the advice to not store context in structs, let’s consider the p
 
 为了理解不要将上下文存储在结构中的建议，让我们考虑首选上下文作为参数的方法：
 
-```go linenums="1"
+```go
 // Worker fetches and adds works to a remote work orchestration server.
 type Worker struct { /* … */ }
 
@@ -66,7 +66,7 @@ Let’s inspect again the `Worker` example above with the disfavored context-in-
 
 让我们再次检查上面的Worker例子，用不受欢迎的context-in-struct方法。它的问题在于，当您将上下文存储在一个结构中时，您会对调用者的一生造成模糊，或者更糟糕的是以不可预测的方式将两个作用域混合在一起：
 
-```go linenums="1"
+```go
 type Worker struct {
   ctx context.Context
 }
@@ -117,7 +117,7 @@ The `net/http` package chose the context-in-struct approach, which provides a us
 
 net/http 包选择了 context-in-struct 的方法，它提供了一个有用的案例研究。让我们来看看 net/http 的 Do。在引入 context.Context 之前，Do 的定义如下：
 
-```go linenums="1"
+```go
 // Do sends an HTTP request and returns an HTTP response [...]
 func (c *Client) Do(req *Request) (*Response, error)
 ```
@@ -126,7 +126,7 @@ After Go 1.7, `Do` might have looked like the following, if not for the fact tha
 
 在Go 1.7之后，如果不是因为Do会破坏向后的兼容性，它可能看起来像下面这样：
 
-```go linenums="1"
+```go
 // Do sends an HTTP request and returns an HTTP response [...]
 func (c *Client) Do(ctx context.Context, req *Request) (*Response, error)
 ```
@@ -135,7 +135,7 @@ But, preserving the backwards compatibility and adhering to the [Go 1 promise of
 
 但是，保持向后的兼容性和遵守Go 1的兼容性承诺对标准库来说是至关重要的。因此，维护者选择在http.Request结构上添加context.Context，以允许支持context.Context而不破坏向后的兼容性：
 
-```go linenums="1"
+```go
 // A Request represents an HTTP request received by a server or to be sent by a client.
 // ...
 type Request struct {
@@ -164,7 +164,7 @@ When retrofitting your API to support context, it may make sense to add a `conte
 
 当改造您的API以支持上下文时，将context.Context添加到一个结构中可能是有意义的，如上所述。然而，记得首先考虑重复您的函数，这样可以在不牺牲实用性和理解力的情况下，以向后兼容的方式改造context.Context。比如说：
 
-```go linenums="1"
+```go
 // Call uses context.Background internally; to specify the context, use
 // CallContext.
 func (c *Client) Call() error {

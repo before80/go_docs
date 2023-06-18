@@ -23,7 +23,7 @@ Andrew Gerrand
 
 ​	让我们通过一个例子来了解一下。下面是一个 Go 包，它提供了两个函数 Random 和 Seed，分别调用了 C 语言的 random 和 srandom 函数。
 
-```go linenums="1"
+```go
 package rand
 
 /*
@@ -48,7 +48,7 @@ func Seed(i int) {
 
 ​	Random 函数调用标准的 C 库的 random 函数，并返回其结果。在 C 语言中，random 函数返回类型为 long，cgo 将其表示为类型 C.long。在被这个包以外的 Go 代码使用前，需要将它转换成 Go 类型。这里使用了普通的 Go 类型转换：
 
-```go linenums="1"
+```go
 func Random() int {
     return int(C.random())
 }
@@ -56,7 +56,7 @@ func Random() int {
 
 ​	下面是另一种等价的函数，它使用了一个临时变量，更明确地展示了类型转换：
 
-```go linenums="1"
+```go
 func Random() int {
     var r C.long = C.random()
     return int(r)
@@ -65,7 +65,7 @@ func Random() int {
 
 ​	Seed 函数相当于在转换方面做了相反的事情。它接受一个常规的 Go int 类型，将其转换成 C 语言中的 unsigned int 类型，并将其传递给 srandom 函数。
 
-```go linenums="1"
+```go
 func Seed(i int) {
     C.srandom(C.uint(i))
 }
@@ -77,7 +77,7 @@ func Seed(i int) {
 
 ​	这个例子中唯一没有解释的细节是 import 语句上方的注释。
 
-```go linenums="1"
+```go
 /*
 #include <stdlib.h>
 */
@@ -98,7 +98,7 @@ import "C"
 
 ​	下面的示例实现了一个打印函数，使用C标准库中的fputs函数将字符串写入标准输出：
 
-```go linenums="1"
+```go
 package print
 
 // #include <stdio.h>
@@ -117,7 +117,7 @@ func Print(s string) {
 
 ​	C.CString调用返回一个指向char数组开头的指针，因此在函数退出之前，我们将其转换为unsafe.Pointer，并使用C.free释放内存分配。在cgo程序中，通常的用法是在分配后立即推迟释放（尤其是当后续的代码比单个函数调用更复杂时），如Print的以下重写：
 
-```go linenums="1"
+```go
 func Print(s string) {
     cs := C.CString(s)
     defer C.free(unsafe.Pointer(cs))

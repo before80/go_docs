@@ -50,7 +50,7 @@ Tyler Bui-Palsulich and Eno Compton
 
 ​	在`$GOPATH/src`之外的某个地方创建一个新的空目录，`cd`进入该目录，然后创建一个新的源代码文件：`hello.go`：
 
-```go linenums="1"
+```go
 package hello
 
 func Hello() string {
@@ -60,7 +60,7 @@ func Hello() string {
 
 ​	我们也来写一个测试，放在`hello_test.go`中：
 
-```go linenums="1"
+```go
 package hello
 
 import "testing"
@@ -131,7 +131,7 @@ Let’s update our `hello.go` to import `rsc.io/quote` and use it to implement `
 
 让我们更新我们的hello.go，导入rsc.io/quote并使用它来实现Hello：
 
-```go linenums="1"
+```go
 package hello
 
 import "rsc.io/quote"
@@ -328,7 +328,7 @@ Let’s add a new function to our package: `func Proverb` returns a Go concurren
 
 让我们为我们的包添加一个新的函数：func Proverb通过调用rsc.io/quote/v3模块提供的quote.Concurrency，返回一个Go并发谚语。首先我们更新hello.go，添加新的函数：
 
-```go linenums="1"
+```go
 package hello
 
 import (
@@ -349,7 +349,7 @@ Then we add a test to `hello_test.go`:
 
 然后我们在hello_test.go中添加一个测试：
 
-```go linenums="1"
+```go
 func TestProverb(t *testing.T) {
     want := "Concurrency is not parallelism."
     if got := Proverb(); got != want {
@@ -415,7 +415,7 @@ We can update our use of `quote.Hello()` in `hello.go` to use `quoteV3.HelloV3()
 
 我们可以在hello.go中更新对quote.Hello()的使用，使用quoteV3.HelloV3()：
 
-```go linenums="1"
+```go
 package hello
 
 import quoteV3 "rsc.io/quote/v3"
@@ -433,7 +433,7 @@ And then at this point, there’s no need for the renamed import anymore, so we 
 
 然后在这一点上，已经不需要重命名的导入了，所以我们可以撤销这个：
 
-```go linenums="1"
+```go
 package hello
 
 import "rsc.io/quote/v3"

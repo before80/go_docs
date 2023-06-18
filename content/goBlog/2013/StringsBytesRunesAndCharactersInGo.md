@@ -47,7 +47,7 @@ Here is a string literal (more about those soon) that uses the `\xNN` notation t
 
 下面是一个字符串字头（很快会有更多的介绍），它使用了\xNN符号来定义一个字符串常量，持有一些奇特的字节值。(当然，字节的范围是从十六进制的00到FF，包括在内）。
 
-```go linenums="1"
+```go
     const sample = "\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98"
 ```
 
@@ -57,7 +57,7 @@ Because some of the bytes in our sample string are not valid ASCII, not even val
 
 由于我们的样本字符串中的一些字节不是有效的ASCII码，甚至不是有效的UTF-8码，直接打印字符串将产生丑陋的输出。简单的打印语句
 
-```go linenums="1"
+```go
     fmt.Println(sample)
 ```
 
@@ -65,7 +65,7 @@ produces this mess (whose exact appearance varies with the environment):
 
 就会产生这种混乱的结果（其具体外观随环境变化而变化）:
 
-```go linenums="1"
+```go
 ��=� ⌘
 ```
 
@@ -73,7 +73,7 @@ To find out what that string really holds, we need to take it apart and examine 
 
 为了弄清这个字符串的真正含义，我们需要把它拆开来检查一下各个部分。有几种方法可以做到这一点。最明显的是在其内容上进行循环，并逐个拉出字节，如这个for循环：
 
-```go linenums="1"
+```go
     for i := 0; i < len(sample); i++ {
         fmt.Printf("%x ", sample[i])
     }
@@ -95,7 +95,7 @@ A shorter way to generate presentable output for a messy string is to use the `%
 
 为一个混乱的字符串生成可展示的输出的一个更短的方法是使用fmt.Printf的%x（十六进制）格式动词。它只是将字符串的连续字节以十六进制数字的形式跳出，每个字节两个。
 
-```go linenums="1"
+```go
     fmt.Printf("%x\n", sample)
 ```
 
@@ -111,7 +111,7 @@ A nice trick is to use the "space" flag in that format, putting a space between 
 
 一个很好的技巧是在该格式中使用 "空格 "标志，在%和x之间放一个空格，将这里使用的格式字符串与上面的比较，
 
-```go linenums="1"
+```go
     fmt.Printf("% x\n", sample)
 ```
 
@@ -127,7 +127,7 @@ There’s more. The `%q` (quoted) verb will escape any non-printable byte sequen
 
 还有更多。%q（引号）动词将转义字符串中任何不可打印的字节序列，因此输出是明确的。
 
-```go linenums="1"
+```go
     fmt.Printf("%q\n", sample)
 ```
 
@@ -147,7 +147,7 @@ If we are unfamiliar or confused by strange values in the string, we can use the
 
 如果我们对字符串中的奇怪数值不熟悉或感到困惑，我们可以使用%q动词的 "加 "标志。这个标志使输出不仅转义非打印序列，而且还转义任何非ASCII字节，同时解释UTF-8。其结果是，它暴露了正确格式化的UTF-8的Unicode值，代表字符串中的非ASCII数据：
 
-```go linenums="1"
+```go
     fmt.Printf("%+q\n", sample)
 ```
 
@@ -167,7 +167,7 @@ Here’s the full set of printing options we’ve listed, presented as a complet
 
 下面是我们列出的全部打印选项，以一个完整的程序形式呈现，您可以在浏览器中直接运行（和编辑）：
 
-```go linenums="1"
+```go
 package main
 
 import "fmt"
@@ -218,7 +218,7 @@ Here’s a simple program that prints a string constant with a single character 
 
 这里有一个简单的程序，它以三种不同的方式打印一个带有单个字符的字符串常数，一次是普通字符串，一次是仅有ASCII引号的字符串，还有一次是十六进制的单个字节。为了避免混淆，我们创建了一个 "原始字符串"，用反引号括起来，所以它只能包含字面文本。(正规的字符串，用双引号括起来，可以包含转义序列，正如我们上面所展示的那样）。
 
-```go linenums="1"
+```go
 func main() {
     const placeOfInterest = `⌘`
 
@@ -336,7 +336,7 @@ We’ve seen what happens with a regular `for` loop. A `for` `range` loop, by co
 
 我们已经看到了普通for循环的情况。相比之下，for range 循环在每次迭代时都会解码一个UTF-8编码的符文。循环的每一次，循环的索引是当前符文的起始位置，以字节为单位，代码点是其值。下面是一个使用另一种方便的Printf格式的例子，%#U，它显示了代码点的Unicode值和它的打印表示：
 
-```go linenums="1"
+```go
     const nihongo = "日本語"
     for index, runeValue := range nihongo {
         fmt.Printf("%#U starts at byte position %d\n", runeValue, index)
@@ -369,7 +369,7 @@ The most important such package is [`unicode/utf8`](https://go.dev/pkg/unicode/u
 
 最重要的包是unicode/utf8，它包含了验证、反汇编和重新汇编UTF-8字符串的辅助程序。下面是一个等同于上面for range例子的程序，但使用该包中的DecodeRuneInString函数来完成这项工作。该函数的返回值是符文和它的宽度，以UTF-8编码的字节为单位。
 
-```go linenums="1"
+```go
     const nihongo = "日本語"
     for i, w := 0, 0; i < len(nihongo); i += w {
         runeValue, width := utf8.DecodeRuneInString(nihongo[i:])

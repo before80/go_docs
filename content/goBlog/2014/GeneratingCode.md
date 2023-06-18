@@ -106,7 +106,7 @@ Here’s an example from the documentation for [`stringer`](https://godoc.org/go
 
 下面是stringer文档中的一个例子。想象一下，我们有一些代码，其中包含一组定义不同类型药片的整数常量：
 
-```go linenums="1"
+```go
 package painkiller
 
 type Pill int
@@ -124,7 +124,7 @@ For debugging, we’d like these constants to pretty-print themselves, which mea
 
 为了调试，我们希望这些常量能漂亮地打印出自己，这意味着我们要有一个带签名的方法，
 
-```go linenums="1"
+```go
 func (p Pill) String() string
 ```
 
@@ -132,7 +132,7 @@ It’s easy to write one by hand, perhaps like this:
 
 用手写一个方法是很容易的，也许像这样：
 
-```go linenums="1"
+```go
 func (p Pill) String() string {
     switch p {
     case Placebo:
@@ -210,7 +210,7 @@ The approach used by the methods printed by `stringer` varies according to the p
 
 stringer打印的方法所使用的方法根据常量集的属性而不同。例如，如果常数是稀疏的，它可能会使用一个映射。下面是一个基于代表2的幂的常数集的微不足道的例子：
 
-```go linenums="1"
+```go
 const _Power_name = "p0p1p2p3p4p5..."
 
 var _Power_map = map[Power]string{

@@ -174,7 +174,7 @@ The "obvious" solution was simply to include even non-strictly comparable types 
 
 ​	"显而易见"的解决方案是将非严格可比较类型包含在 `comparable` 类型集合中。但这会导致与类型集合模型的不一致。考虑以下示例：
 
-```Go linenums="1"
+```go
 func f[Q comparable]() { … }
 
 func g[P any]() {
@@ -231,7 +231,7 @@ Let’s revisit our previous example:
 
 ​	让我们重新看一下之前的例子：
 
-```Go linenums="1"
+```go
 func f[Q comparable]() { … }
 
 func g[P any]() {
@@ -287,7 +287,7 @@ We want to assert that `T` is strictly comparable. It’s tempting to write some
 
 ​	我们想要断言 T 是严格可比较的。可能会尝试写出类似以下的代码：
 
-```Go linenums="1"
+```go
 // isComparable may be instantiated with any type that supports ==
 // including types that are not strictly comparable because of the
 // exception for constraint satisfaction.
@@ -306,7 +306,7 @@ The dummy (blank) variable declaration serves as our "assertion". But because of
 
 ​	这个虚拟（空白）变量声明作为我们的"断言"。但是由于约束满足规则中的例外，isComparable[T] 仅在 T 完全不可比较时才失败；如果 T 支持 ==，则会成功。我们可以通过将 T 用作类型约束而不是类型参数来解决这个问题：
 
-```Go linenums="1"
+```go
 func _[P T]() {
     _ = isComparable[P] // P supports == only if T is strictly comparable 如果 T 是严格可比较的，那么 P 支持 ==
 }

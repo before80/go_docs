@@ -80,7 +80,7 @@ A package name and its contents' names are coupled, since client code uses them 
 
 简化函数名称。当包pkg中的一个函数返回一个类型为pkg.Pkg（或*pkg.Pkg）的值时，函数名通常可以省略类型名而不会引起混淆：
 
-```go linenums="1"
+```go
 start := time.Now()                                  // start is a time.Time
 t, err := time.Parse(time.Kitchen, "6:06PM")         // t is a time.Time
 ctx = context.WithTimeout(ctx, 10*time.Millisecond)  // ctx is a context.Context
@@ -91,7 +91,7 @@ A function named `New` in package `pkg` returns a value of type `pkg.Pkg`. This 
 
 包 pkg 中一个名为 New 的函数返回一个 pkg.Pkg 类型的值。这是使用该类型的客户端代码的一个标准入口点：
 
-```go linenums="1"
+```go
  q := list.New()  // q is a *list.List
 ```
 
@@ -99,7 +99,7 @@ When a function returns a value of type `pkg.T`, where `T` is not `Pkg`, the fun
 
 当一个函数返回一个pkg.T类型的值时，其中T不是Pkg，函数名可能包括T，以使客户端代码更容易理解。一个常见的情况是一个包有多个类似New的函数：
 
-```go linenums="1"
+```go
 d, err := time.ParseDuration("10s")  // d is a time.Duration
 elapsed := time.Since(start)         // elapsed is a time.Duration
 ticker := time.NewTicker(d)          // ticker is a *time.Ticker
@@ -120,7 +120,7 @@ A Go package has both a name and a path. The package name is specified in the pa
 
 Go软件包有一个名称和一个路径。包的名称是在其源文件的包声明中指定的；客户代码将其作为包的导出名称的前缀。客户端代码在导入包时使用包的路径。根据惯例，包路径的最后一个元素是包名：
 
-```go linenums="1"
+```go
 import (
     "context"                // package context
     "fmt"                    // package fmt
@@ -155,7 +155,7 @@ Bad package names make code harder to navigate and maintain. Here are some guide
 
 分解通用包。为了修复这样的包，寻找具有共同名称元素的类型和函数，并将它们拉到自己的包中。例如，如果您有
 
-```go linenums="1"
+```go
 package util
 func NewStringSet(...string) map[string]bool {...}
 func SortStringSet(map[string]bool) []string {...}
@@ -165,7 +165,7 @@ then client code looks like
 
 那么客户端代码看起来像
 
-```go linenums="1"
+```go
 set := util.NewStringSet("c", "a", "b")
 fmt.Println(util.SortStringSet(set))
 ```
@@ -174,7 +174,7 @@ Pull these functions out of `util` into a new package, choosing a name that fits
 
 把这些函数从util中拉出来放到一个新的包中，选择一个符合内容的名字：
 
-```go linenums="1"
+```go
 package stringset
 func New(...string) map[string]bool {...}
 func Sort(map[string]bool) []string {...}
@@ -184,7 +184,7 @@ then the client code becomes
 
 那么客户端的代码就变成了
 
-```go linenums="1"
+```go
 set := stringset.New("c", "a", "b")
 fmt.Println(stringset.Sort(set))
 ```
@@ -193,7 +193,7 @@ Once you’ve made this change, it’s easier to see how to improve the new pack
 
 一旦您做了这个改变，就更容易看到如何改进新包了：
 
-```go linenums="1"
+```go
 package stringset
 type Set map[string]bool
 func New(...string) Set {...}
@@ -204,7 +204,7 @@ which yields even simpler client code:
 
 这产生了更简单的客户端代码：
 
-```go linenums="1"
+```go
 set := stringset.New("c", "a", "b")
 fmt.Println(set.Sort())
 ```

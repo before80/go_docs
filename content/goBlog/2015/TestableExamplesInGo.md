@@ -47,7 +47,7 @@ The [`stringutil` package](https://pkg.go.dev/golang.org/x/example/stringutil/) 
 
 stringutil包是Go实例库的一部分。下面是一个演示其反向函数的例子：
 
-```go linenums="1"
+```go
 package stringutil_test
 
 import (
@@ -98,7 +98,7 @@ As it executes the example, the testing framework captures data written to stand
 
 To see a failing example we can change the output comment text to something obviously incorrect
 
-```go linenums="1"
+```go
 func ExampleReverse() {
     fmt.Println(stringutil.Reverse("hello"))
     // Output: golly
@@ -123,7 +123,7 @@ If we remove the output comment entirely
 
 如果我们完全删除输出注释
 
-```go linenums="1"
+```go
 func ExampleReverse() {
     fmt.Println(stringutil.Reverse("hello"))
 }
@@ -151,7 +151,7 @@ Godoc uses a naming convention to associate an example function with a package-l
 
 Godoc使用了一个命名惯例，将一个示例函数与一个包级标识符联系起来。
 
-```go linenums="1"
+```go
 func ExampleFoo()     // documents the Foo function or type
 func ExampleBar_Qux() // documents the Qux method of type Bar
 func Example()        // documents the package as a whole
@@ -165,7 +165,7 @@ Multiple examples can be provided for a given identifier by using a suffix begin
 
 通过使用以下划线为首的后缀和一个小写字母，可以为一个给定的标识符提供多个例子。每个例子都记录了Reverse函数。
 
-```go linenums="1"
+```go
 func ExampleReverse()
 func ExampleReverse_second()
 func ExampleReverse_third()
@@ -189,7 +189,7 @@ Here is a whole file example from the `sort` package:
 
 下面是一个来自sort包的整个文件的例子：
 
-```go linenums="1"
+```go
 package sort_test
 
 import (

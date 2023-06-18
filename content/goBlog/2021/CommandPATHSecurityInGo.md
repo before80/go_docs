@@ -89,7 +89,7 @@ When `go` `get` downloads and builds a package that contains `import` `"C"`, it 
 
 当go get下载并构建一个包含import "C "的包时，它会运行一个名为cgo的程序来准备相关C代码的Go等价物。go命令在包含软件包源代码的目录中运行cgo。一旦cgo生成了它的Go输出文件，go命令本身就会在生成的Go文件上调用Go编译器和主机C编译器（gcc或clang）来构建软件包中包含的任何C源代码。所有这些都运作良好。但是go命令在哪里找到主机C编译器呢？当然是在PATH中寻找。幸运的是，当它在软件包源目录下运行C编译器时，它从调用go命令的原始目录中进行PATH查找：
 
-```go linenums="1"
+```go
 cmd := exec.Command("gcc", "file.c")
 cmd.Dir = "badpkg"
 cmd.Run()
@@ -103,7 +103,7 @@ The `go` command uses similar code to invoke `cgo`, and in that case there’s n
 
 go命令使用类似的代码来调用cgo，在这种情况下，甚至没有路径查询，因为cgo总是来自GOROOT：
 
-```go linenums="1"
+```go
 cmd := exec.Command(GOROOT+"/pkg/tool/"+GOOS_GOARCH+"/cgo", "file.go")
 cmd.Dir = "badpkg"
 cmd.Run()
@@ -117,7 +117,7 @@ But it turns out that cgo itself also invokes the host C compiler, on some tempo
 
 但事实证明，cgo本身也调用了宿主的C语言编译器，在它创建的一些临时文件上，也就是说它自己执行了这些代码：
 
-```go linenums="1"
+```go
 // running in cgo in badpkg dir
 cmd := exec.Command("gcc", "tmpfile.c")
 cmd.Run()
@@ -208,7 +208,7 @@ If you are concerned, then we’ve published the more restricted variant of `os/
 
 如果您担心，那么我们已经将os/exec的更多限制性变体发布为golang.org/x/sys/execabs。您可以在您的程序中使用它，只需替换掉
 
-```go linenums="1"
+```go
 import "os/exec"
 ```
 
@@ -216,7 +216,7 @@ with
 
 替换为
 
-```go linenums="1"
+```go
 import exec "golang.org/x/sys/execabs"
 ```
 

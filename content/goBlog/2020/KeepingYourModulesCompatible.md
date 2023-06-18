@@ -53,7 +53,7 @@ When adding new arguments with sensible defaults, it’s tempting to add them as
 
 当添加具有合理默认值的新参数时，把它们作为一个变量参数来添加是很诱人的。为了扩展函数
 
-```go linenums="1"
+```go
 func Run(name string)
 ```
 
@@ -61,7 +61,7 @@ with an additional `size` argument which defaults to zero, one might propose
 
 添加一个默认为零的额外的大小参数，我们可以提议
 
-```go linenums="1"
+```go
 func Run(name string, size ...int)
 ```
 
@@ -69,7 +69,7 @@ on the grounds that all existing call sites will continue to work. While that is
 
 的建议，理由是所有现有的调用站点将继续工作。虽然这是真的，但Run的其他用法可能会被破坏，比如这个：
 
-```go linenums="1"
+```go
 package mypkg
 var runner func(string) = yourpkg.Run
 ```
@@ -90,7 +90,7 @@ Instead, new functions were added. For example, the `database/sql` package’s `
 
 相反，新的函数被添加。例如，数据库/sql包的Query方法的签名是（现在仍然是）
 
-```go linenums="1"
+```go
 func (db *DB) Query(query string, args ...interface{}) (*Rows, error)
 ```
 
@@ -98,7 +98,7 @@ When the `context` package was created, the Go team added a new method to `datab
 
 在创建上下文包时，Go团队为数据库/sql添加了一个新方法：
 
-```go linenums="1"
+```go
 func (db *DB) QueryContext(ctx context.Context, query string, args ...interface{}) (*Rows, error)
 ```
 
@@ -106,7 +106,7 @@ To avoid copying code, the old method calls the new one:
 
 为了避免复制代码，旧方法调用新方法：
 
-```go linenums="1"
+```go
 func (db *DB) Query(query string, args ...interface{}) (*Rows, error) {
     return db.QueryContext(context.Background(), query, args...)
 }
@@ -120,7 +120,7 @@ If you anticipate that a function may need more arguments in the future, you can
 
 如果您预计一个函数在未来可能需要更多的参数，您可以通过将可选参数作为函数签名的一部分来提前计划。最简单的方法是添加一个结构参数，就像 crypto/tls.Dial 函数那样：
 
-```go linenums="1"
+```go
 func Dial(network, addr string, config *Config) (*Conn, error)
 ```
 
@@ -132,7 +132,7 @@ Sometimes the techniques of adding a new function and adding options can be comb
 
 有时，添加新函数和添加选项的技术可以通过使选项结构成为方法接收器而结合起来。考虑一下net包监听网络地址的能力的演变。在 Go 1.11 之前，net 包只提供了一个 Listen 函数，其签名为
 
-```go linenums="1"
+```go
 func Listen(network, address string) (Listener, error)
 ```
 
@@ -140,7 +140,7 @@ For Go 1.11, two features were added to `net` listening: passing a context, and 
 
 在Go 1.11中，net监听增加了两个功能：传递一个上下文，以及允许调用者提供一个 "控制函数 "来在创建后但在绑定前调整原始连接。其结果可能是一个新的函数，需要一个上下文、网络、地址和控制函数。相反，包的作者添加了一个ListenConfig结构，因为他们预计有一天会需要更多的选项。他们没有定义一个名称繁琐的新顶层函数，而是给ListenConfig添加了一个Listen方法：
 
-```go linenums="1"
+```go
 type ListenConfig struct {
     Control func(network, address string, c syscall.RawConn) error
 }
@@ -156,7 +156,7 @@ Option types fulfill the same role as struct options in function arguments: they
 
 选项类型实现了与函数参数中的结构选项相同的作用：它们是一种可扩展的方式来传递改变行为的配置。决定选择哪种类型在很大程度上是一个风格问题。考虑一下gRPC的DialOption选项类型的这个简单用法：
 
-```go linenums="1"
+```go
 grpc.Dial("some-target",
   grpc.WithAuthority("some-authority"),
   grpc.WithMaxDelay(time.Second),
@@ -167,7 +167,7 @@ This could also have been implemented as a struct option:
 
 这也可以作为一个结构选项来实现：
 
-```go linenums="1"
+```go
 notgrpc.Dial("some-target", &notgrpc.Options{
   Authority: "some-authority",
   MaxDelay:  time.Second,
@@ -205,7 +205,7 @@ So, they decided to keep `tar.NewReader` signature unchanged, but type check for
 
 所以，他们决定保持tar.NewReader签名不变，但在tar.Reader方法中对io.Seeker进行类型检查（并支持）：
 
-```go linenums="1"
+```go
 package tar
 
 type Reader struct {
@@ -244,7 +244,7 @@ Tip: if you do need to use an interface but don’t intend for users to implemen
 
 提示：如果您确实需要使用一个接口，但不打算让用户实现它，您可以添加一个未导出的方法。这可以防止在您的包之外定义的类型在没有嵌入的情况下满足您的接口，使您可以在以后添加方法而不破坏用户的实现。例如，请看 testing.TB 的 private() 函数。
 
-```go linenums="1"
+```go
 // TB is the interface common to T and B.
 type TB interface {
     Error(args ...interface{})
@@ -294,7 +294,7 @@ To prevent comparison in the first place, make sure the struct has a non-compara
 
 为了从一开始就防止比较，确保该结构有一个不可比较的字段。它可能已经有了--没有切片、地图或函数类型可供比较，但如果没有，可以像这样添加一个：
 
-```go linenums="1"
+```go
 type Point struct {
         _ [0]func()
         X int
@@ -306,7 +306,7 @@ The `func()` type is not comparable, and the zero-length array takes up no space
 
 func()类型没有可比性，零长度的数组不占用空间。我们可以定义一个类型来阐明我们的意图：
 
-```go linenums="1"
+```go
 type doNotCompare [0]func()
 
 type Point struct {

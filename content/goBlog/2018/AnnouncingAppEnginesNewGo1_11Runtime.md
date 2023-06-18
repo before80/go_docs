@@ -35,7 +35,7 @@ First, you create the application in your `GOPATH`:
 
 首先，您在您的GOPATH中创建应用程序：
 
-```go linenums="1"
+```go
 // This server can run on App Engine.
 package main
 
