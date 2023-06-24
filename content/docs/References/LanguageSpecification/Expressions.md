@@ -5,6 +5,7 @@ weight = 11
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 ## Expressions 表达式
 
@@ -48,7 +49,7 @@ math.Sin // denotes the Sin function in package math
 
 ​	复合字面量每次被求值时都会构造新的复合值。`它们由字面量的类型和一个由花括号组成的元素列表组成`。每个元素可以选择在前面加上一个相应的键。
 
-```
+```go
 CompositeLit  = LiteralType LiteralValue .
 LiteralType   = StructType | ArrayType | "[" "..." "]" ElementType |
                 SliceType | MapType | TypeName [ TypeArgs ] .
@@ -60,7 +61,7 @@ FieldName     = identifier .
 Element       = Expression | LiteralValue .
 ```
 
-​	LiteralType 的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`T`必须是一个结构体、数组、切片或映射类型（除了当类型是作为TypeName给出时，语法会强制执行这个约束）。元素和键的类型必须[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`类型的对应字段、元素和键类型；不需要进行额外的转换。
+​	LiteralType 的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)`T`必须是一个结构体、数组、切片或映射类型（语法会强制执行这个约束，除非当类型是作为TypeName给出时）。元素和键的类型必须[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`类型的对应字段、元素和键类型；不需要进行额外的转换。
 
 ​	这里的键被解释为结构体字面量的字段名、数组字面量或切片字面量的索引、映射字面量的键。
 
@@ -192,8 +193,6 @@ noteFrequency := map[string]float32{
 functionLit = "func" Signature FunctionBody .
 ```
 
-
-
 ```go 
 func(a, b int, z float64) bool { return a*b < int(z) }
 ```
@@ -209,9 +208,9 @@ func(ch chan int) { ch <- ACK }(replyChan)
 
 ### Primary expressions 主表达式
 
-主表达式是一元、二元表达式的操作数。
+​	主表达式是一元、二元表达式的操作数。
 
-```
+```go
 PrimaryExpr =
 	Operand |
 	Conversion |
@@ -229,8 +228,6 @@ Slice          = "[" [ Expression ] ":" [ Expression ] "]" |
 TypeAssertion  = "." "(" Type ")" .
 Arguments      = "(" [ ( ExpressionList | Type [ "," ExpressionList ] ) [ "..." ] [ "," ] ] ")" .
 ```
-
-
 
 ```go 
 x
@@ -256,14 +253,158 @@ x.f
 
 ​	选择器`f`可以表示类型`T`的`f`字段或`f`方法，也可以指代`T`的[嵌入字段](../Types#struct-types-结构体型)或嵌入方法`f`。在`T`的一个嵌入字段`A`中声明的字段或方法`f`的深度是`A`中`f`的深度加1。
 
-以下规则适用于选择器：
+​	以下规则适用于选择器：
 
 1. 对于类型为`T`或`*T`（`T`不是指针或接口类型）的值`x`，`x.f`表示`T`中存在这样一个最浅深度的字段或方法`f`。如果不是恰好有[仅有一个](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)`f`在最浅深度的话，那么选择器表达式是非法的。
-8. 对于接口类型`I`的值`x`，`x.f`表示动态值`x`的名为`f`的实际方法。如果在`I`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中没有名为`f`的方法，那么选择器表达式是非法的。
-9. 作为例外，如果`x`的类型是一个[定义的](../DeclarationsAndScope#type-definitions-类型定义)指针类型，并且`(*x).f`是一个有效的表示一个字段（不是一个方法）的选择器表达式，那么`x.f`是`(*x).f`的简写。
-10. 在所有其它情况下，`x.f`是非法的。
-11. 如果`x`是值为`nil`的指针类型，并且`x.f`表示一个结构体字段，那么赋值或计算`x.f`会引起[运行时恐慌](../Run-timePanics)。
-12. 如果`x`是值为`nil`的接口类型，那么[调用](#calls-调用)或[计值](#method-values-方法值)`x.f`方法会引起[运行时恐慌](../Run-timePanics)。
+
+   > 个人注释
+   >
+   > ​	这里额的[仅有一个](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)是说在最浅深度！
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > type A struct {
+   > 	Name string
+   > }
+   > 
+   > type B struct {
+   > 	A
+   > 	Name string
+   > }
+   > 
+   > func main() {
+   > 	st := B{A: A{Name: "a"}, Name: "b"}
+   > 	fmt.Printf("%+v\n", st)     // {A:{Name:a} Name:b}
+   > 	fmt.Printf("%#v\n", st)     // main.B{A:main.A{Name:"a"}, Name:"b"}
+   > 	fmt.Printf("%v\n", st.Name) // b
+   > }
+   > 
+   > ```
+   >
+   > 
+
+2. 对于接口类型`I`的值`x`，`x.f`表示动态值`x`的名为`f`的实际方法。如果在`I`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中没有名为`f`的方法，那么选择器表达式是非法的。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > type Adder interface {
+   > 	Add(int, int) int
+   > }
+   > 
+   > type Op struct {
+   > }
+   > 
+   > func (o Op) Add(a int, b int) (total int) {
+   > 	return a + b
+   > }
+   > 
+   > func main() {
+   > 	var i Adder
+   > 	a := Op{}
+   > 	fmt.Printf("%+v\n", i) //<nil>
+   > 	fmt.Printf("%#v\n", a) //main.Op{}
+   > 	i = a
+   > 	fmt.Printf("%v\n", i.Add(1, 2)) // 3
+   > }
+   > 
+   > ```
+   >
+   > 
+
+3. 作为例外，如果`x`的类型是一个[已定义的](../DeclarationsAndScope#type-definitions-类型定义)指针类型，并且`(*x).f`是一个有效的表示一个字段（不是一个方法）的选择器表达式，那么`x.f`是`(*x).f`的简写。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > type Op struct {
+   > }
+   > 
+   > func (o Op) Add(a int, b int) (total int) {
+   > 	return a + b
+   > }
+   > 
+   > func main() {
+   > 	a := Op{}
+   > 	b := &Op{}
+   > 	fmt.Printf("%#v\n", a) //main.Op{}
+   > 	fmt.Printf("%#v\n", b) //&main.Op{}
+   > 
+   > 	fmt.Printf("%v\n", a.Add(1, 2))    // 3
+   > 	fmt.Printf("%v\n", b.Add(1, 2))    // 3
+   > 	fmt.Printf("%v\n", (*b).Add(1, 2)) // 3
+   > }
+   > 
+   > ```
+   >
+   > 
+
+4. 在所有其它情况下，`x.f`是非法的。
+
+5. 如果`x`是值为`nil`的指针类型，并且`x.f`表示一个结构体字段，那么赋值或计算`x.f`会引起[运行时恐慌](../Run-timePanics)。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > type Person struct {
+   > 	Name string
+   > 	Age  int
+   > }
+   > 
+   > func main() {
+   > 	var a Person
+   > 	var b *Person
+   > 	fmt.Printf("%#v\n", a) //main.Person{Name:"", Age:0}
+   > 	fmt.Printf("%#v\n", b) //(*main.Person)(nil)
+   > 
+   > 	fmt.Printf("Name=\"%v\"\n", a.Name) //Name=""
+   > 	a.Name = "a"
+   > 	fmt.Printf("Name=\"%v\"\n", a.Name) //Name="a"
+   > 	//b.Name = "b" // runtime error: invalid memory address or nil pointer dereference
+   > 	//fmt.Printf("Name=\"%v\"\n", b.Name) //panic: runtime error: invalid memory address or nil pointer dereference
+   > }
+   > 
+   > ```
+   >
+   > 
+
+6. 如果`x`是值为`nil`的接口类型，那么[调用](#calls-调用)或[计值](#method-values-方法值)`x.f`方法会引起[运行时恐慌](../Run-timePanics)。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > type Adder interface {
+   > 	Add(int, int) int
+   > }
+   > 
+   > func main() {
+   > 	var i Adder
+   > 	fmt.Printf("%#v\n", i)          //<nil>
+   > 	fmt.Printf("%v\n", i.Add(1, 2)) //panic: runtime error: invalid memory address or nil pointer dereference
+   > }
+   > 
+   > ```
+   >
+   > 
 
 例如，给定声明：
 
@@ -320,16 +461,133 @@ t.M2()       // (&t).M2()           M2 expects *T2 receiver, see section on Call
 q.M0()       // (*q).M0 is valid but not a field selector => (*q).M0是有效的，但不是字段选择器
 ```
 
+> 个人注释
+>
+> ​	以上示例的完整代码如下：
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> 	"reflect"
+> )
+> 
+> type T0 struct {
+> 	x int
+> }
+> 
+> func (*T0) M0() string {
+> 	return "in M0 func"
+> }
+> 
+> type T1 struct {
+> 	y int
+> }
+> 
+> func (T1) M1() string {
+> 	return "in M1 func"
+> }
+> 
+> type T2 struct {
+> 	z int
+> 	T1
+> 	*T0
+> }
+> 
+> func (*T2) M2() string {
+> 	return "in M2 func"
+> }
+> 
+> type Q *T2
+> 
+> func DumpMethodSet(i interface{}) {
+> 	v := reflect.TypeOf(i)
+> 	elemTyp := v.Elem()
+> 
+> 	n := elemTyp.NumMethod()
+> 	if n == 0 {
+> 		fmt.Printf("%s's method set is empty!\n", elemTyp)
+> 	}
+> 
+> 	fmt.Printf("%s's method set:\n", elemTyp)
+> 	for j := 0; j < n; j++ {
+> 		fmt.Println("-", elemTyp.Method(j).Name)
+> 	}
+> 	fmt.Println()
+> }
+> 
+> func main() {
+> 	var t T2 = T2{T0: &T0{}}
+> 	var p *T2 = &T2{T0: &T0{}}
+> 	var q Q = p
+> 
+> 	fmt.Printf("t=%+v\n", t) // t={z:0 T1:{y:0} T0:0xc00001a0a8}
+> 	fmt.Printf("p=%+v\n", p) // p=&{z:0 T1:{y:0} T0:0xc00001a0c0}
+> 	fmt.Printf("q=%+v\n", q) // q=&{z:0 T1:{y:0} T0:0xc00001a0c0}
+> 	//main.T2's method set:
+> 	//- M0
+> 	//- M1
+> 	DumpMethodSet(&t)
+> 
+> 	//*main.T2's method set:
+> 	//- M0
+> 	//- M1
+> 	//- M2
+> 	DumpMethodSet(&p)
+> 
+> 	//main.Q's method set is empty!
+> 	//main.Q's method set:
+> 	DumpMethodSet(&q)
+> 
+> 	//main.T2's method set:
+> 	//- M0
+> 	//- M1
+> 	DumpMethodSet(&(*q))
+> 
+> 	fmt.Printf("t.z=%v\n", t.z) // t.z=0
+> 	fmt.Printf("t.y=%v\n", t.y) // t.y=0
+> 	fmt.Printf("t.x=%v\n", t.x) // t.x=0
+> 
+> 	fmt.Printf("p.z=%v\n", p.z) // p.z=0
+> 	fmt.Printf("p.y=%v\n", p.y) // p.y=0
+> 	fmt.Printf("p.x=%v\n", p.x) // p.x=0
+> 
+> 	fmt.Printf("q.z=%v\n", q.z) // q.z=0
+> 	fmt.Printf("q.y=%v\n", q.y) // q.y=0
+> 	fmt.Printf("q.x=%v\n", q.x) // q.x=0
+> 
+> 	fmt.Printf("t.M0()=%v\n", t.M0()) // t.M0()=in M0 func
+> 	fmt.Printf("t.M1()=%v\n", t.M1()) // t.M1()=in M1 func
+> 	fmt.Printf("t.M2()=%v\n", t.M2()) // t.M2()=in M2 func
+> 
+> 	fmt.Printf("p.M0()=%v\n", p.M0()) // p.M0()=in M0 func
+> 	fmt.Printf("p.M1()=%v\n", p.M1()) // p.M1()=in M1 func
+> 	fmt.Printf("p.M2()=%v\n", p.M2()) // p.M2()=in M2 func
+> 
+> 	//fmt.Printf("q.M0()=%v\n", q.M0()) // q.M0 undefined (type Q has no field or method M0)
+> 	//fmt.Printf("q.M1()=%v\n", q.M1()) // q.M1 undefined (type Q has no field or method M1)
+> 	//fmt.Printf("q.M2()=%v\n", q.M2()) // q.M2 undefined (type Q has no field or method M2)
+> 
+> 	fmt.Printf("(*q).M0()=%v\n", (*q).M0()) // (*q).M0()=in M0 func
+> 	fmt.Printf("(*q).M1()=%v\n", (*q).M1()) // (*q).M1()=in M1 func
+> 	fmt.Printf("(*q).M2()=%v\n", (*q).M2()) // (*q).M2()=in M2 func
+> }
+> 
+> ```
+>
+> 
+
 ### Method expressions 方法表达式
 
 ​	如果`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中，那么`T.M`是一个可以作为普通函数来调用的函数，其实参与`M`相同，不过其前缀有一个额外的（作为该方法的接收器的）实参。
 
-```
+```go
 MethodExpr    = ReceiverType "." MethodName .
 ReceiverType  = Type .
 ```
 
-​	考虑有两个方法的结构体类型`T`，方法一的接收器是`T`类型的`Mv`，方法二的接收器是`*T`类型的`Mp`。
+​	考虑一个结构体类型`T`，它有两个方法：`Mv`，其接收器类型为`T`，和`Mp`，其接收器类型为`*T`。
 
 ```go 
 type T struct {
@@ -341,19 +599,19 @@ func (tp *T) Mp(f float32) float32 { return 1 }  // pointer receiver => 指针�
 var t T
 ```
 
-表达式
+​	表达式：
 
 ```go 
 T.Mv
 ```
 
-产生一个与`Mv`等价的函数，但是它的第一个形参是一个明确的接收器；它的签名是：
+生成一个与`Mv`等价的函数，但是它的第一个实参是一个显式的接收器；它具有以下签名：
 
 ```go 
 func(tv T, a int) int
 ```
 
-​	该函数可以在带有一个明确接收器的情况下正常调用，因此如下这五种调用是等同的：
+​	该函数可以在带有一个显式接收器的情况下正常调用，因此如下这五种调用是等同的：
 
 ```go 
 t.Mv(7)
@@ -369,19 +627,19 @@ f2 := (T).Mv; f2(t, 7)
 (*T).Mp
 ```
 
-产生一个代表`Mp`的函数值，它的签名是：
+生成一个代表`Mp`的函数值，它的签名是：
 
 ```go 
 func(tp *T, f float32) float32
 ```
 
-​	对于一个`带值接收器`的方法，可以`推导出`一个带有明确指针接收器的函数，所以
+​	对于一个`带值接收器`的方法，可以`推导出`一个带有显式指针接收器的函数，因此
 
 ```go 
 (*T).Mv
 ```
 
-产生了一个代表`Mv`的函数值，它的签名是：
+生成了一个代表`Mv`的函数值，它的签名是：
 
 ```go 
 func(tv *T, a int) int
@@ -395,9 +653,58 @@ The final case, a value-receiver function for a pointer-receiver method, is ille
 
 ​	最后一种情况，将一个带指针接收器的方法`当做`一个带值接收器的函数，是非法的，因为指针接收器的方法不在值类型的方法集中。=>仍有疑问？？
 
-​	从方法中推导出来的函数值是用`函数调用语法`来调用的；接收器被作为调用的第一个实参来提供。也就是说，`f := T.Mv`中的`f`是作为`f(t, 7)`被调用，而不是`t.f(7)`。构造一个绑定接收器的函数，可以使用[函数字面量](#function-literals-函数字面量)或[方法值](#method-values-方法值)。
+​	从方法中推导出来的函数值是用`函数调用语法`来调用的；接收器被作为调用的第一个实参来提供。也就是说，`f := T.Mv`中的`f`是作为`f(t, 7)`被调用，而不是`t.f(7)`。要构造一个绑定接收器的函数，可以使用[函数字面量](#function-literals-函数字面量)或[方法值](#method-values-方法值)。
 
 ​	从接口类型的方法中推导出来函数值是合法的。这样的函数需要一个该接口类型的显式接收器。
+
+> 个人注释
+>
+> ​	以上示例的完整代码如下：TODO
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type T struct {
+> 	a int
+> }
+> 
+> func (tv T) Mv(a int) int {
+> 	return a + tv.a
+> }
+> 
+> func (tp *T) Mp(f float32) float32 {
+> 	return f + float32(tp.a)
+> }
+> 
+> func funcMv(tv T, a int) int {
+> 	return tv.a + a
+> }
+> 
+> func funcMp(tp *T, a float32) float32 {
+> 	return float32(tp.a) + a
+> }
+> 
+> func main() {
+> 	var t T
+> 
+> 	fmt.Printf("t.Mv(7)=%v\n", t.Mv(7))           // t.Mv(7)=7
+> 	fmt.Printf("T.Mv(t, 7)=%v\n", T.Mv(t, 7))     // T.Mv(t, 7)=7
+> 	fmt.Printf("(T).Mv(t, 7)=%v\n", (T).Mv(t, 7)) // (T).Mv(t, 7)=7
+> 
+> 	f1 := T.Mv
+> 	fmt.Printf("f1(t, 7)=%v\n", f1(t, 7))         // f1(t, 7)=8
+> 	fmt.Printf("funcMv(t, 7)=%v\n", funcMv(t, 7)) // funcMv(t, 7)=7
+> 
+> 	f2 := (T).Mv
+> 	fmt.Printf("f2(t, 7)=%v\n", f2(t, 7)) // f2(t, 7)=7
+> 
+> }
+> 
+> ```
+>
+> 
 
 ### Method values 方法值
 
@@ -431,13 +738,13 @@ var pt *T
 func makeT() T
 ```
 
-表达式
+​	表达式
 
 ```go 
 t.Mv
 ```
 
-产生一个类型如下的函数值：
+生成一个类型如下的函数值：
 
 ```go 
 func(int) int
@@ -456,7 +763,7 @@ f := t.Mv; f(7)
 pt.Mp
 ```
 
-产生一个类型如下的函数值：
+生成一个类型如下的函数值：
 
 ```go 
 func(float32) float32
@@ -467,12 +774,22 @@ func(float32) float32
 ​	和[方法调用](#calls-调用)一样，若对以指针作为接收器的非接口方法，使用可寻址的值来引用，则（Go语言）将自动获取该值的地址：`t.Mp`等同于`(&t).Mp`。
 
 ```go 
-f := t.Mv; f(7)   // like t.Mv(7)
-f := pt.Mp; f(7)  // like pt.Mp(7)
-f := pt.Mv; f(7)  // like (*pt).Mv(7)
-f := t.Mp; f(7)   // like (&t).Mp(7)
-f := makeT().Mp   // invalid: result of makeT() is not addressable => 无效的：makeT() 的结果是 不可寻址的
+f := t.Mv; f(7)   // like t.Mv(7)
+f = pt.Mp; f(7)  // like pt.Mp(7)
+f = pt.Mv; f(7)  // like (*pt).Mv(7)
+f = t.Mp; f(7)   // like (&t).Mp(7)
+f = makeT().Mp   // invalid: result of makeT() is not addressable => 无效的：makeT() 的结果是 不可寻址的	
 ```
+
+> ​	个人注释
+>
+> ​	以上示例的完整代码如下：
+>
+> ```go
+> 
+> ```
+>
+> 
 
 ​	尽管上面的例子使用了非接口类型，但从接口类型的值中创建一个方法值也是合法的。
 
@@ -480,6 +797,34 @@ f := makeT().Mp   // invalid: result of makeT() is not addressable => 无效的�
 var i interface { M(int) } = myVal
 f := i.M; f(7)  // like i.M(7)
 ```
+
+> 个人注释
+>
+> ​	以上示例的完整代码如下：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type MyVal struct{}
+> 
+> func (m MyVal) M(a int) int {
+> 	return a
+> }
+> 
+> func main() {
+> 	myVal := MyVal{}
+> 	var i interface{ M(int) int } = myVal
+> 
+> 	f := i.M
+> 	fmt.Printf("%v\n", f(7))   // 7
+> 	fmt.Printf("%v\n", i.M(7)) // 7
+> }
+> 
+> ```
+>
+> 
 
 ### Index expressions 索引表达式
 
