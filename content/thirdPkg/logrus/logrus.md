@@ -18,37 +18,21 @@ draft = false
 
 # ![img](logrus_img/hTeVwmJ.png)
 
-Logrus is a structured logger for Go (golang), completely API compatible with the standard library logger.
+​	Logrus是Go语言的结构化日志记录器（logger），完全与标准库日志记录器兼容的API。
 
-​	Logrus是Go语言的结构化日志记录器，与标准库的日志记录器完全兼容。
-
-**Logrus is in maintenance-mode.** We will not be introducing new features. It's simply too hard to do in a way that won't break many people's projects, which is the last thing you want from your Logging library (again...).
-
-​	**Logrus处于维护模式。**我们不会引入新功能。以一种不会破坏许多人项目的方式进行操作实在太困难了，这是您对日志记录库所不希望看到的最后一件事（再次强调）。
-
-This does not mean Logrus is dead. Logrus will continue to be maintained for security, (backwards compatible) bug fixes, and performance (where we are limited by the interface).
+​	**Logrus处于维护模式（maintenance-mode）。** 我们不会引入新功能。以一种不会破坏许多人项目的方式进行操作实在太困难了，这是您对日志记录库所不希望看到的最后一件事（再次强调）。
 
 ​	这并不意味着Logrus已经停止开发。Logrus将继续维护安全性、（向后兼容的）错误修复和性能（在接口受限的情况下）。
 
-I believe Logrus' biggest contribution is to have played a part in today's widespread use of structured logging in Golang. There doesn't seem to be a reason to do a major, breaking iteration into Logrus V2, since the fantastic Go community has built those independently. Many fantastic alternatives have sprung up. Logrus would look like those, had it been re-designed with what we know about structured logging in Go today. Check out, for example, [Zerolog](https://github.com/rs/zerolog), [Zap](https://github.com/uber-go/zap), and [Apex](https://github.com/apex/log).
-
 ​	我认为Logrus最大的贡献是在当今的Golang中广泛使用结构化日志记录中发挥了一定的作用。没有理由对Logrus进行重大的、破坏性的迭代进入Logrus V2，因为伟大的Go社区已经独立构建了这些功能。涌现出了许多出色的替代品。如果Logrus在今天重新设计，结构化日志记录的知识已被应用，那么它将看起来像这些替代品。例如，[Zerolog](https://github.com/rs/zerolog)，[Zap](https://github.com/uber-go/zap)和[Apex](https://github.com/apex/log)。
 
-**Seeing weird case-sensitive problems?** It's in the past been possible to import Logrus as both upper- and lower-case. Due to the Go package environment, this caused issues in the community and we needed a standard. Some environments experienced problems with the upper-case variant, so the lower-case was decided. Everything using `logrus` will need to use the lower-case: `github.com/sirupsen/logrus`. Any package that isn't, should be changed.
-
-​	**遇到奇怪的大小写问题？**在过去，可以将Logrus作为大写或小写方式导入。由于Go包环境的原因，这在社区中引起了问题，我们需要一个标准。某些环境对大写变体出现了问题，因此决定使用小写。所有使用`logrus`的内容都需要使用小写：`github.com/sirupsen/logrus`。如果有任何未更改的包，应该进行更改。
-
-To fix Glide, see [these comments](https://github.com/sirupsen/logrus/issues/553#issuecomment-306591437). For an in-depth explanation of the casing issue, see [this comment](https://github.com/sirupsen/logrus/issues/570#issuecomment-313933276).
+​	**遇到奇怪的大小写问题？**在过去，可以将Logrus作为大写或小写方式导入。由于Go包环境的原因，这在社区中引起了问题，我们需要一个标准。一些环境使用大写变体时遇到了问题，因此决定使用小写形式。使用`logrus`的所有内容都需要使用小写形式：`github.com/sirupsen/logrus`。任何未使用小写形式的软件包都应该进行更改。
 
 ​	要修复Glide，请参见[这些评论](https://github.com/sirupsen/logrus/issues/553#issuecomment-306591437)。有关大小写问题的深入解释，请参见[此评论](https://github.com/sirupsen/logrus/issues/570#issuecomment-313933276)。
-
-Nicely color-coded in development (when a TTY is attached, otherwise just plain text):
 
 ​	在开发中以美观的颜色编码（当连接到TTY时，否则仅为普通文本）：
 
 ![Colored](logrus_img/PY7qMwd.png)
-
-With `log.SetFormatter(&log.JSONFormatter{})`, for easy parsing by logstash or Splunk:
 
 ​	使用`log.SetFormatter(&log.JSONFormatter{})`，方便由logstash或Splunk解析：
 
@@ -69,8 +53,6 @@ ocean","size":10,"time":"2014-03-10 19:57:38.562264131 -0400 EDT"}
 "time":"2014-03-10 19:57:38.562543128 -0400 EDT"}
 ```
 
-With the default `log.SetFormatter(&log.TextFormatter{})` when a TTY is not attached, the output is compatible with the [logfmt](http://godoc.org/github.com/kr/logfmt) format:
-
 ​	当未连接到TTY时，使用默认的`log.SetFormatter(&log.TextFormatter{})`，输出与[logfmt](http://godoc.org/github.com/kr/logfmt)格式兼容：
 
 ```
@@ -82,8 +64,6 @@ time="2015-03-26T01:27:38-04:00" level=panic msg="It's over 9000!" animal=orca s
 time="2015-03-26T01:27:38-04:00" level=fatal msg="The ice breaks!" err=&{0x2082280c0 map[animal:orca size:9009] 2015-03-26 01:27:38.441574009 -0400 EDT panic It's over 9000!} number=100 omg=true
 ```
 
-To ensure this behaviour even if a TTY is attached, set your formatter as follows:
-
 ​	即使连接了TTY，要确保这种行为，可以设置以下格式化器：
 
 ```go
@@ -93,9 +73,7 @@ To ensure this behaviour even if a TTY is attached, set your formatter as follow
 	})
 ```
 
-## 记录方法名称 Logging Method Name 
-
-If you wish to add the calling method as a field, instruct the logger via:
+## 记录方法名称
 
 ​	如果希望将调用的方法添加为字段，请通过以下方式通知记录器：
 
@@ -103,11 +81,9 @@ If you wish to add the calling method as a field, instruct the logger via:
 log.SetReportCaller(true)
 ```
 
-This adds the caller as 'method' like so:
+​	这将把调用者添加作为'method'，如下所示：
 
-​	这将添加调用者作为'method'，如下所示：
-
-```
+```json
 {"animal":"penguin","level":"fatal","method":"github.com/sirupsen/arcticcreatures.migrate","msg":"a penguin swims by",
 "time":"2014-03-10 19:57:38.562543129 -0400 EDT"}
 time="2015-03-26T01:27:38-04:00" level=fatal method=github.com/sirupsen/arcticcreatures.migrate msg="a penguin swims by" animal=penguin
@@ -115,21 +91,17 @@ time="2015-03-26T01:27:38-04:00" level=fatal method=github.com/sirupsen/arcticcr
 
 Note that this does add measurable overhead - the cost will depend on the version of Go, but is between 20 and 40% in recent tests with 1.6 and 1.7. You can validate this in your environment via benchmarks:
 
-请注意，这会增加可测量的开销-成本将取决于Go的版本，在最近的测试中，1.6和1.7的开销在20%到40%之间。您可以通过基准测试在您的环境中验证这一点：
+请注意，这确实会增加可测量的开销 —— 成本将取决于Go的版本，在最近的测试中，1.6和1.7的开销在20%到40%之间。您可以通过基准测试在您的环境中验证这一点：
 
 ```sh
 go test -bench=.*CallerTracing
 ```
 
-## 大小写敏感性 Case-sensitivity
-
-The organization's name was changed to lower-case--and this will not be changed back. If you are getting import conflicts due to case sensitivity, please use the lower-case import: `github.com/sirupsen/logrus`.
+## 大小写敏感性
 
 ​	该组织的名称已更改为小写，并且不会更改回来。如果由于大小写敏感性而出现导入冲突，请使用小写导入：`github.com/sirupsen/logrus`。
 
 ## 示例
-
-The simplest way to use Logrus is simply the package-level exported logger:
 
 ​	使用Logrus的最简单方法只是使用包级别导出的记录器：
 
@@ -160,18 +132,14 @@ import (
 )
 
 func init() {
-  // Log as JSON instead of the default ASCII formatter.
   // 将日志格式化为 JSON 而不是默认的 ASCII 格式
   log.SetFormatter(&log.JSONFormatter{})
 
-  // Output to stdout instead of the default stderr
-  // Can be any io.Writer, see below for File example
   // 将日志输出到标准输出而不是默认的标准错误
   // 可以是任何实现了 io.Writer 接口的类型，下面是写入文件的示例
   log.SetOutput(os.Stdout)
 
-  // Only log the warning severity or above.    
-  // 仅记录警告级别及以上的日志
+  // 仅记录警告（warning）级别及以上的日志
   log.SetLevel(log.WarnLevel)
 }
 
@@ -191,10 +159,8 @@ func main() {
     "number": 100,
   }).Fatal("The ice breaks!")
 
-  // A common pattern is to re-use fields between logging statements by re-using
-  // the logrus.Entry returned from WithFields()
-  // 通常情况下，通过重用 logrus.Entry 语句之间的字段，
-  // 可以在日志记录语句之间重用字段。
+  // 在日志语句之间重复使用字段是一种常见的模式，
+  //可以通过重复使用从WithFields()返回的logrus.Entry来实现。
   contextLogger := log.WithFields(log.Fields{
     "common": "this is a common field",
     "other": "I also should be logged always",
@@ -204,8 +170,6 @@ func main() {
   contextLogger.Info("Me too")
 }
 ```
-
-For more advanced usage such as logging to multiple locations from the same application, you can also create an instance of the `logrus` Logger:
 
 ​	对于更高级的用法，例如从同一应用程序向多个位置记录日志，还可以创建`logrus`记录器的实例：
 
@@ -217,17 +181,14 @@ import (
   "github.com/sirupsen/logrus"
 )
 
-// Create a new instance of the logger. You can have any number of instances.
 // 创建记录器的新实例。您可以有任意数量的实例。
 var log = logrus.New()
 
 func main() {
-  // The API for setting attributes is a little different than the package level
-  // exported logger. See Godoc.
+
   // 设置属性的 API 与包级别的导出记录器有所不同。请参阅 Godoc。
   log.Out = os.Stdout
 
-  // You could set this to any `io.Writer` such as a file
   // 您可以将其设置为任何 io.Writer，例如文件
   // file, err := os.OpenFile("logrus.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
   // if err == nil {
@@ -243,11 +204,9 @@ func main() {
 }
 ```
 
-## 字段 Fields
+## 字段
 
-Logrus encourages careful, structured logging through logging fields instead of long, unparseable error messages. For example, instead of: `log.Fatalf("Failed to send event %s to topic %s with key %d")`, you should log the much more discoverable:
-
-​	Logrus鼓励通过记录字段而不是长而难以解析的错误消息来进行仔细的结构化日志记录。例如，不要使用 `log.Fatalf("Failed to send event %s to topic %s with key %d")`，而应该记录更容易发现的消息：
+​	Logrus鼓励通过记录字段而不是冗长、无法解析的错误消息来进行谨慎的结构化日志记录。例如，不要使用`log.Fatalf("Failed to send event %s to topic %s with key %d")`，而应该使用更易于查找的方式进行日志记录：
 
 ```go
 log.WithFields(log.Fields{
@@ -257,48 +216,38 @@ log.WithFields(log.Fields{
 }).Fatal("Failed to send event")
 ```
 
-We've found this API forces you to think about logging in a way that produces much more useful logging messages. We've been in countless situations where just a single added field to a log statement that was already there would've saved us hours. The `WithFields` call is optional.
+​	我们发现这个API迫使你以一种产生更有用的日志消息的方式来思考日志记录。我们曾经遇到过许多情况，只需在已有的日志语句中添加一个字段就能节省数小时的时间。`WithFields`调用是可选的。
 
-​	我们发现这种 API 强制您以产生更有用的日志消息的方式思考日志记录。我们在无数情况下都遇到过这样的情况，只需向已有的日志语句添加一个字段就可以节省数小时的时间。`WithFields` 调用是可选的。
+​	通常情况下，对于Logrus，使用`printf`系列函数中的任何一个都应该被视为你应该添加一个字段的提示，然而你仍然可以在Logrus中使用`printf`系列函数。
 
-In general, with Logrus using any of the `printf`-family functions should be seen as a hint you should add a field, however, you can still use the `printf`-family functions with Logrus.
+## 默认字段
 
-​	通常情况下，使用 Logrus 的 `printf` 系列函数之一应被视为一种提示，您应该添加一个字段，但是您仍然可以在 Logrus 中使用 `printf` 系列函数。
-
-## 默认字段 Default Fields
-
-Often it's helpful to have fields *always* attached to log statements in an application or parts of one. For example, you may want to always log the `request_id` and `user_ip` in the context of a request. Instead of writing `log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})` on every line, you can create a `logrus.Entry` to pass around instead:
-
-​	通常情况下，在应用程序或其部分中始终附加字段到日志语句中是有帮助的。例如，您可能希望始终在请求的上下文中记录 `request_id` 和 `user_ip`。而不是在每一行中写入 `log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})`，您可以创建一个 `logrus.Entry` 对象并传递它：
+​	在应用程序或其部分中，将字段*始终*附加到日志语句中通常是很有帮助的。例如，在请求的上下文中，您可能希望始终记录`request_id`和`user_ip`。而不是在每一行写入`log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})`，您可以创建一个`logrus.Entry`对象来传递：
 
 ```go
 requestLogger := log.WithFields(log.Fields{"request_id": request_id, "user_ip": user_ip})
-requestLogger.Info("something happened on that request") # will log request_id and user_ip
+
+requestLogger.Info("something happened on that request") // will log request_id and user_ip
+
 requestLogger.Warn("something not great happened")
 ```
 
-## 钩子 Hooks
+## 钩子
 
-You can add hooks for logging levels. For example to send errors to an exception tracking service on `Error`, `Fatal` and `Panic`, info to StatsD or log to multiple places simultaneously, e.g. syslog.
+​	您可以为日志级别添加钩子。例如，在发生 `Error`、`Fatal` 和 `Panic` 级别的错误时将错误发送到异常跟踪服务，将信息发送到 StatsD，或同时记录到多个位置（如 syslog）。
 
-​	您可以为日志级别添加钩子。例如，在 `Error`、`Fatal` 和 `Panic` 时将错误发送到异常跟踪服务，将信息发送到 StatsD，或同时记录到多个位置（如 syslog）。
-
-Logrus comes with [built-in hooks](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks). Add those, or your custom hook, in `init`:
-
-​	Logrus 自带了[内置钩子](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks)。在 `init` 中添加这些内置钩子或自定义的钩子：
+​	Logrus已经内置了一些[钩子](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks)，您可以在`init`函数中添加这些内置钩子或自定义的钩子：
 
 ```go
 import (
   log "github.com/sirupsen/logrus"
-  "gopkg.in/gemnasium/logrus-airbrake-hook.v2" // the package is named "airbrake"
+  "gopkg.in/gemnasium/logrus-airbrake-hook.v2" // 该包被命名为airbrake
   logrus_syslog "github.com/sirupsen/logrus/hooks/syslog"
   "log/syslog"
 )
 
 func init() {
 
-  // Use the Airbrake hook to report errors that have Error severity or above to
-  // an exception tracker. You can create custom hooks, see the Hooks section.
   // 使用Airbrake钩子将具有错误严重性或更高的错误报告到异常跟踪器。
   // 您可以创建自定义钩子，请参阅钩子部分。
   log.AddHook(airbrake.NewHook(123, "xyz", "production"))
@@ -312,17 +261,11 @@ func init() {
 }
 ```
 
-Note: Syslog hook also support connecting to local syslog (Ex. "/dev/log" or "/var/run/syslog" or "/var/run/log"). For the detail, please check the [syslog hook README](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks/syslog/README.md).
+注意：Syslog钩子还支持连接到本地syslog（例如"/dev/log"或"/var/run/syslog"或"/var/run/log"）。详情请查看[syslog钩子的README]({{< ref "/thirdPkg/logrus/hook/syslog">}})。
 
-注意：Syslog钩子还支持连接到本地syslog（例如"/dev/log"或"/var/run/syslog"或"/var/run/log"）。详情请查看[syslog钩子自述文件](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks/syslog/README.md)。
+​	当前已知的服务钩子列表可在此[Wiki页面]({{< ref "/thirdPkg/logrus/wiki/hooks">}})中找到。
 
-A list of currently known service hooks can be found in this wiki [page](https://github.com/sirupsen/logrus/wiki/Hooks)
-
-​	当前已知的服务钩子列表可在此[Wiki页面](https://github.com/sirupsen/logrus/wiki/Hooks)中找到。
-
-## 日志级别 Level logging
-
-Logrus has seven logging levels: Trace, Debug, Info, Warning, Error, Fatal and Panic.
+## 日志级别
 
 ​	Logrus有七个日志级别：Trace、Debug、Info、Warning、Error、Fatal和Panic。
 
@@ -332,54 +275,38 @@ log.Debug("Useful debugging information.")
 log.Info("Something noteworthy happened!")
 log.Warn("You should probably take a look at this.")
 log.Error("Something failed but I'm not quitting.")
-// Calls os.Exit(1) after logging
+
 // 在记录日志后调用os.Exit(1)
 log.Fatal("Bye.")
-// Calls panic() after logging
+
 // 在记录日志后调用panic()
 log.Panic("I'm bailing.")
 ```
 
-You can set the logging level on a `Logger`, then it will only log entries with that severity or anything above it:
-
-​	您可以在`Logger`上设置日志级别，然后它只会记录具有该严重性或更高严重性的条目：
+​	您可以在`Logger`上设置日志级别，然后它只会记录具有该严重性或更高严重性的条目（entries）：
 
 ```go
-// Will log anything that is info or above (warn, error, fatal, panic). Default.
 // 仅记录 info 级别或以上的日志（warn、error、fatal、panic）。默认级别。
 log.SetLevel(log.InfoLevel)
 ```
 
-It may be useful to set `log.Level = logrus.DebugLevel` in a debug or verbose environment if your application has that.
+​	如果您的应用程序处于调试或详细模式下，设置`log.Level = logrus.DebugLevel`可能会很有用。
 
-​	如果您的应用程序具有调试或详细环境，将`log.Level = logrus.DebugLevel`设置为日志级别可能很有用。
+注意：如果您希望在全局日志记录（`log.SetLevel(...)`）和syslog日志记录中使用不同的日志级别，请查阅[syslog钩子的README]({{< ref "/thirdPkg/logrus/hook/syslog">}})。
 
-Note: If you want different log levels for global (`log.SetLevel(...)`) and syslog logging, please check the [syslog hook README](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks/syslog/README.md).
+## 条目（Entries）
 
-注意：如果您希望全局（`log.SetLevel（...）`）和syslog日志记录具有不同的日志级别，请查看[syslog钩子自述文件](https://github.com/sirupsen/logrus/blob/v1.9.3/hooks/syslog/README.md)。
+​	除了使用`WithField`或`WithFields`添加的字段之外，还会自动添加一些字段到所有的日志事件中：
 
-## 条目 Entries
-
-Besides the fields added with `WithField` or `WithFields` some fields are automatically added to all logging events:
-
-​	除了使用`WithField`或`WithFields`添加的字段之外，一些字段会自动添加到所有日志事件中： 
-
-1. `time`. The timestamp when the entry was created.
-2. `msg`. The logging message passed to `{Info,Warn,Error,Fatal,Panic}` after the `AddFields` call. E.g. `Failed to send event.`
-3. `level`. The logging level. E.g. `info`.
-4. `time`。创建条目的时间戳。
-5. `msg`。在`AddFields`调用后传递给`{Info、Warn、Error、Fatal、Panic}`的日志消息。例如，`Failed to send event.`
+1. `time`。创建条目（entry ）的时间戳。
+5. `msg`。在`AddFields`调用后，传递给`{Info、Warn、Error、Fatal、Panic}`的日志消息。例如，`Failed to send event.`
 6. `level`。日志级别。例如，`info`。
 
-## 环境 Environments
-
-Logrus has no notion of environment.
+## 环境
 
 ​	Logrus没有环境的概念。
 
-If you wish for hooks and formatters to only be used in specific environments, you should handle that yourself. For example, if your application has a global variable `Environment`, which is a string representation of the environment you could do:
-
-​	如果您希望钩子和格式化程序仅在特定环境中使用，您应该自行处理。例如，如果您的应用程序有一个全局变量`Environment`，它是环境的字符串表示，您可以执行以下操作：
+​	如果您希望钩子和格式化程序仅在特定环境中使用，您应该自行处理。例如，如果您的应用程序有一个全局变量`Environment`，它是环境的字符串表示，您可以这样做：
 
 ```go
 import (
@@ -387,72 +314,44 @@ import (
 )
 
 func init() {
-  // do something here to set environment depending on an environment variable
-  // or command-line flag
   // 在此处执行一些操作，根据环境变量或命令行标志设置环境
   if Environment == "production" {
     log.SetFormatter(&log.JSONFormatter{})
   } else {
-    // The TextFormatter is default, you don't actually have to do this.
     // TextFormatter是默认值，您实际上不必执行此操作。
     log.SetFormatter(&log.TextFormatter{})
   }
 }
 ```
 
-This configuration is how `logrus` was intended to be used, but JSON in production is mostly only useful if you do log aggregation with tools like Splunk or Logstash.
-
-​	这种配置是`logrus`的预期使用方式，但是在生产环境中，使用JSON通常只有在使用Splunk或Logstash等工具进行日志聚合时才有用。
+​	这种配置是`logrus`的预期使用方式，但是在生产环境中，JSON格式通常只有在使用Splunk或Logstash等工具进行日志聚合时才有用。
 
 ## 格式化 Formatters
 
-The built-in logging formatters are:
-
 ​	内置的日志格式化程序包括：
 
-- `logrus.TextFormatter`. Logs the event in colors if stdout is a tty, otherwise without colors.
-  
 - `logrus.TextFormatter`。如果标准输出是TTY，则以彩色方式记录事件，否则不使用颜色。
-  - *Note:* to force colored output when there is no TTY, set the `ForceColors` field to `true`. To force no colored output even if there is a TTY set the `DisableColors` field to `true`. For Windows, see [github.com/mattn/go-colorable](https://github.com/mattn/go-colorable).
   - 注意：如果要在没有TTY的情况下强制使用彩色输出，请将`ForceColors`字段设置为`true`。如果要在有TTY的情况下强制不使用彩色输出，请将`DisableColors`字段设置为`true`。有关Windows，请参阅[github.com/mattn/go-colorable](https://github.com/mattn/go-colorable)。
-  - When colors are enabled, levels are truncated to 4 characters by default. To disable truncation set the `DisableLevelTruncation` field to `true`.
   - 在启用颜色时，默认情况下将级别截断为4个字符。要禁用截断，请将`DisableLevelTruncation`字段设置为`true`。
-  - When outputting to a TTY, it's often helpful to visually scan down a column where all the levels are the same width. Setting the `PadLevelText` field to `true` enables this behavior, by adding padding to the level text.
-  - 在输出到TTY时，通常有助于在具有相同宽度的所有级别的列中进行视觉扫描。将`PadLevelText`字段设置为`true`将启用此行为，通过为级别文本添加填充来实现。
-  - All options are listed in the [generated docs](https://godoc.org/github.com/sirupsen/logrus#TextFormatter).
-  - 所有选项都列在[生成的文档](https://godoc.org/github.com/sirupsen/logrus#TextFormatter)中。
-  
-- `logrus.JSONFormatter`. Logs fields as JSON.
+  - 当输出到TTY时，通常可以通过在一列中对齐相同宽度的日志级别来方便地进行视觉扫描。将`PadLevelText`字段设置为`true`可以启用此行为，通过为级别文本添加填充来实现对齐效果。
+  - 所有选项都列在[本（生成的）文档](#type-textformatter)中。
   
 - `logrus.JSONFormatter`。将字段记录为JSON。
-  - All options are listed in the [generated docs](https://godoc.org/github.com/sirupsen/logrus#JSONFormatter).
-  - 所有选项都列在[生成的文档](https://godoc.org/github.com/sirupsen/logrus#JSONFormatter)中。
-
-
-Third party logging formatters:
+  - 所有选项都列在[本（生成的）文档](#type-jsonformatter)中。
+  
 
 ​	第三方日志格式化程序： 
 
-- [`FluentdFormatter`](https://github.com/joonix/log). Formats entries that can be parsed by Kubernetes and Google Container Engine.
-- [`GELF`](https://github.com/fabienm/go-logrus-formatters). Formats entries so they comply to Graylog's [GELF 1.1 specification](http://docs.graylog.org/en/2.4/pages/gelf.html).
-- [`logstash`](https://github.com/bshuster-repo/logrus-logstash-hook). Logs fields as [Logstash](http://logstash.net/) Events.
-- [`prefixed`](https://github.com/x-cray/logrus-prefixed-formatter). Displays log entry source along with alternative layout.
-- [`zalgo`](https://github.com/aybabtme/logzalgo). Invoking the Power of Zalgo.
-- [`nested-logrus-formatter`](https://github.com/antonfisher/nested-logrus-formatter). Converts logrus fields to a nested structure.
-- [`powerful-logrus-formatter`](https://github.com/zput/zxcTool). get fileName, log's line number and the latest function's name when print log; Sava log to files.
-- [`caption-json-formatter`](https://github.com/nolleh/caption_json_formatter). logrus's message json formatter with human-readable caption added.
-- [`FluentdFormatter`](https://github.com/joonix/log)。格式化可由Kubernetes和Google Container Engine解析的条目。
-- [`GELF`](https://github.com/fabienm/go-logrus-formatters)。将条目格式化为符合Graylog的[GELF 1.1规范](http://docs.graylog.org/en/2.4/pages/gelf.html)。
-- [`logstash`](https://github.com/bshuster-repo/logrus-logstash-hook)。将字段记录为[Logstash](http://logstash.net/)事件。
-- [`prefixed`](https://github.com/x-cray/logrus-prefixed-formatter)。显示日志条目来源以及替代布局。
-- [`zalgo`](https://github.com/aybabtme/logzalgo)。调用Zalgo的力量。
-- [`nested-logrus-formatter`](https://github.com/antonfisher/nested-logrus-formatter)。将logrus字段转换为嵌套结构。
-- [`powerful-logrus-formatter`](https://github.com/zput/zxcTool)。在打印日志时获取文件名、日志行号和最新函数名；将日志保存到文件中。
-- [`caption-json-formatter`](https://github.com/nolleh/caption_json_formatter)。logrus的消息JSON格式化程序，添加可读的标题。
+- [FluentdFormatter](https://github.com/joonix/log)。将日志格式化为可以被 Kubernetes 和 Google Container Engine 解析的条目。
+- [GELF](https://github.com/fabienm/go-logrus-formatters)。将日志格式化为符合 Graylog 的 [GELF 1.1 规范](http://docs.graylog.org/en/2.4/pages/gelf.html)的条目。
+- [logstash](https://github.com/bshuster-repo/logrus-logstash-hook)。将字段日志作为 [Logstash](http://logstash.net/) 事件。
+- [prefixed](https://github.com/x-cray/logrus-prefixed-formatter)。显示日志条目的源以及替代布局。
+- [zalgo](https://github.com/aybabtme/logzalgo)。调用Zalgo的力量。
+- [nested-logrus-formatter](https://github.com/antonfisher/nested-logrus-formatter)。将logrus字段转换为嵌套结构。
+- [powerful-logrus-formatter](https://github.com/zput/zxcTool)。在打印日志时获取文件名、日志行号和最新函数名；将日志保存到文件中。
+- [caption-json-formatter](https://github.com/nolleh/caption_json_formatter)。llogrus 的带有易读标题的消息 JSON 格式化器。
 
-You can define your formatter by implementing the `Formatter` interface, requiring a `Format` method. `Format` takes an `*Entry`. `entry.Data` is a `Fields` type (`map[string]interface{}`) with all your fields as well as the default ones (see Entries section above):
-
-您可以通过实现`Formatter`接口来定义自己的格式化程序，该接口要求实现一个`Format`方法。`Format`方法接收一个`*Entry`参数，其中`entry.Data`是一个`Fields`类型（`map[string]interface{}`），包含所有字段以及默认字段（参见上面的"Entries"部分）：
+​	您可以通过实现`Formatter`接口来定义自己的格式化程序，该接口要求实现一个`Format`方法。`Format`方法接收一个`*Entry`参数，其中`entry.Data`是一个`Fields`类型（`map[string]interface{}`），包含所有字段以及默认字段（参见上面的"条目（Entries）"部分）：
 
 ``` go
 type MyJSONFormatter struct {
@@ -461,10 +360,7 @@ type MyJSONFormatter struct {
 log.SetFormatter(new(MyJSONFormatter))
 
 func (f *MyJSONFormatter) Format(entry *Entry) ([]byte, error) {
-  // Note this doesn't include Time, Level and Message which are available on
-  // the Entry. Consult `godoc` on information about those fields or read the
-  // source of the official loggers.
-  // 注意，这里没有包括时间、级别和消息，这些可以从Entry上获取。
+  // 注意，这里没有包括Time、Level和Message，这些可以从Entry上获取。
   // 有关这些字段的信息，请查阅`godoc`，或者阅读官方日志记录器的源代码。
   serialized, err := json.Marshal(entry.Data)
     if err != nil {
@@ -474,9 +370,7 @@ func (f *MyJSONFormatter) Format(entry *Entry) ([]byte, error) {
 }
 ```
 
-## 将日志记录器作为`io.Writer` Logger as an `io.Writer`
-
-Logrus can be transformed into an `io.Writer`. That writer is the end of an `io.Pipe` and it is your responsibility to close it.
+## 将日志记录器作为`io.Writer` 
 
 ​	Logrus可以转换为`io.Writer`。该写入器是`io.Pipe`的末端，您有责任关闭它。
 
@@ -485,56 +379,44 @@ w := logger.Writer()
 defer w.Close()
 
 srv := http.Server{
-    // create a stdlib log.Logger that writes to
-    // logrus.Logger.
-    // 创建一个写入logrus.Logger的stdlib log.Logger。
+    // 创建一个写入到logrus.Logger的标准库log.Logger。
     ErrorLog: log.New(w, "", 0),
 }
 ```
 
-Each line written to that writer will be printed the usual way, using formatters and hooks. The level for those entries is `info`.
+​	写入该写入器的每一行都将按照通常的方式打印，使用格式化程序和钩子。这些条目的级别为`info`。
 
-写入该写入器的每一行都将按照通常的方式打印，使用格式化程序和钩子。这些条目的级别为`info`。
-
-This means that we can override the standard library logger easily:
-
-​	这意味着我们可以轻松地覆盖标准库的记录器：
+​	这意味着我们可以轻松地覆盖标准库的日志记录器：
 
 ```go
 logger := logrus.New()
 logger.Formatter = &logrus.JSONFormatter{}
 
-// Use logrus for standard log output
-// Note that `log` here references stdlib's log
-// Not logrus imported under the name `log`.
+// 使用 logrus 进行标准日志输出
+// 注意这里的 log 是指标准库的 log
+// 而不是使用别名 log 导入的 logrus。
 log.SetOutput(logger.Writer())
 ```
 
 ## 日志轮换 Rotation
 
-Log rotation is not provided with Logrus. Log rotation should be done by an external program (like `logrotate(8)`) that can compress and delete old log entries. It should not be a feature of the application-level logger.
+​	Logrus 不提供日志轮转功能。日志轮转应该由外部程序（如 `logrotate(8)`）来完成，它可以压缩和删除旧的日志条目。这不应该是应用程序级别的日志记录器的功能。
 
-​	Logrus不提供日志轮换功能。日志轮换应由外部程序（例如`logrotate(8)`）执行，该程序可以压缩和删除旧的日志条目。这不应该是应用程序级日志记录器的功能。
-
-## 工具 Tools
+## 工具
 
 | 工具                                                         | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Logrus Mate](https://github.com/gogap/logrus_mate)          | Logrus Mate是用于管理Logrus的工具，您可以通过配置文件初始化记录器的级别、钩子和格式化程序，在不同的环境中使用不同的配置生成记录器。 |
 | [Logrus Viper Helper](https://github.com/heirko/go-contrib/tree/master/logrusHelper) | Logrus Viper Helper是围绕Logrus的辅助工具，结合了spf13/Viper以加载配置文件，并简化Logrus的配置使用[Logrus Mate](https://github.com/gogap/logrus_mate)的一些行为。[示例](https://github.com/heirko/iris-contrib/raw/master/middleware/logrus-logger/example) |
 
-## 测试 Testing
+## 测试
 
-Logrus has a built in facility for asserting the presence of log messages. This is implemented through the `test` hook and provides:
+​	Logrus 内置了一种用于断言日志消息存在的机制。它通过 `test` 钩子实现，提供以下功能： 
 
-​	Logrus具有用于断言日志消息存在的内置工具。通过`test`钩子实现，提供以下功能： 
+- 用于现有日志记录器的装饰器（`test.NewLocal` 和 `test.NewGlobal`），它们基本上只是添加了 `test` 钩子。
+- 用于测试的日志记录器（`test.NewNullLogger`），它仅记录日志消息（而不输出任何内容）：
 
-- decorators for existing logger (`test.NewLocal` and `test.NewGlobal`) which basically just adds the `test` hook
-- a test logger (`test.NewNullLogger`) that just records log messages (and does not output any):
-- 对现有记录器的装饰器（`test.NewLocal`和`test.NewGlobal`），基本上只是添加了`test`钩子。
-- 一个测试记录器（`test.NewNullLogger`），只记录日志消息（不输出任何内容）：
-
-```
+```go
 import(
   "github.com/sirupsen/logrus"
   "github.com/sirupsen/logrus/hooks/test"
@@ -557,47 +439,33 @@ func TestSomething(t*testing.T){
 
 ## 致命错误处理程序 Fatal handlers
 
-Logrus can register one or more functions that will be called when any `fatal` level message is logged. The registered handlers will be executed before logrus performs an `os.Exit(1)`. This behavior may be helpful if callers need to gracefully shutdown. Unlike a `panic("Something went wrong...")` call which can be intercepted with a deferred `recover` a call to `os.Exit(1)` can not be intercepted.
-
-​	Logrus可以注册一个或多个函数，当记录任何`fatal`级别的消息时，这些函数将被调用。在logrus执行`os.Exit(1)`之前，注册的处理程序将被执行。如果调用者需要优雅地关闭程序，这种行为可能会很有帮助。与可以使用延迟的`recover`截取的`panic("Something went wrong...")`调用不同，无法截取调用`os.Exit(1)`。
+​	Logrus 可以注册一个或多个函数，当记录任何 `fatal` 级别的消息时，这些函数将被调用。注册的处理程序将在 logrus 执行 `os.Exit(1)` 之前执行。如果调用方需要优雅地关闭程序，这种行为可能会很有帮助。与可以使用延迟的 `recover` 拦截的 `panic("Something went wrong...")` 调用不同，调用 `os.Exit(1)` 是无法被拦截的。
 
 ```
 ...
 handler := func() {
-  // gracefully shutdown something...
   // 优雅地关闭某些内容...
 }
 logrus.RegisterExitHandler(handler)
 ...
 ```
 
-## 线程安全 Thread safety
+## 线程安全
 
-By default, Logger is protected by a mutex for concurrent writes. The mutex is held when calling hooks and writing logs. If you are sure such locking is not needed, you can call logger.SetNoLock() to disable the locking.
-
-​	默认情况下，Logger通过互斥锁保护以支持并发写入。在调用钩子和写入日志时，将保持该互斥锁。如果您确信不需要此锁定，请调用`logger.SetNoLock()`以禁用锁定。
-
-Situation when locking is not needed includes:
+​	默认情况下，Logger 使用互斥锁进行并发写入的保护。在调用 hooks 和写入日志时会持有该互斥锁。如果你确定不需要此类锁定，可以调用 `logger.SetNoLock()` 来禁用锁定。
 
 ​	不需要锁定的情况包括：
 
-- You have no hooks registered, or hooks calling is already thread-safe.
-
 - 您没有注册任何钩子，或者已经对调用钩子进行了线程安全处理。
-
-- Writing to logger.Out is already thread-safe, for example:
 
 - 向logger.Out写入已经是线程安全的，例如：
 
-  1. logger.Out is protected by locks.
+  1. logger.Out受到锁的保护。
 
-  2. logger.Out受锁保护。
+  2. logger.Out是使用`O_APPEND`标志打开的os.File处理程序，并且每次写入大小小于4k。（这允许多线程/多进程写入）
 
-  3. logger.Out is an os.File handler opened with `O_APPEND` flag, and every write is smaller than 4k. (This allows multi-thread/multi-process writing)
-  
-  4. logger.Out是使用`O_APPEND`标志打开的os.File处理程序，并且每次写入都小于4k。（这样可以进行多线程/多进程写入）
-  
      (请参考 [http://www.notthewizard.com/2014/06/17/are-files-appends-really-atomic/](http://www.notthewizard.com/2014/06/17/are-files-appends-really-atomic/))
+
 
 
 
@@ -607,11 +475,7 @@ Situation when locking is not needed includes:
 
 ### 概述 
 
-Package logrus is a structured logger for Go, completely API compatible with the standard library logger.
-
-​	logrus 包是用于 Go 的结构化日志记录器，与标准库的日志记录器完全兼容。
-
-The simplest way to use Logrus is simply the package-level exported logger:
+​	Logrus包是Go语言的结构化日志记录器（logger），完全与标准库日志记录器兼容的API。
 
 ​	使用 Logrus 最简单的方法就是直接使用包级别的导出日志记录器：
 
@@ -631,17 +495,13 @@ func main() {
 }
 ```
 
-Output:
-
 输出结果：
 
-```
+```sh
 time="2015-09-07T08:48:33Z" level=info msg="A walrus appears" animal=walrus number=1 size=10
 ```
 
-For a full guide visit https://github.com/sirupsen/logrus
-
-​	要获取完整的指南，请访问 https://github.com/sirupsen/logrus。
+​	要获取完整的指南，请访问 [https://github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)。
 
 ##### Example (Basic)
 
@@ -785,9 +645,7 @@ const (
 )
 ```
 
-Default key names for the default fields
-
-​	默认字段的默认键名
+​	默认字段的默认键名。
 
 ### 变量
 
