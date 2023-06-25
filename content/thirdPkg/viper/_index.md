@@ -9,6 +9,16 @@ draft = false
 
 # viper
 
+> 原文：[https://pkg.go.dev/github.com/spf13/viper](https://pkg.go.dev/github.com/spf13/viper)
+>
+> 版本：v1.16.0
+>
+> 发布日期：2023.5.30
+>
+> github网址：[https://github.com/spf13/viper](https://github.com/spf13/viper)
+
+
+
 > ### Viper v2 反馈
 >
 > ​	Viper 正朝着 v2 的方向发展，我们非常愿意听到您对于 v2 的期望。请在此处分享您的想法：[https://forms.gle/R6faU74qPRPAzchZ9](https://forms.gle/R6faU74qPRPAzchZ9)
@@ -79,135 +89,105 @@ go get github.com/spf13/viper
 
 **重要提示：** Viper 的配置键不区分大小写。关于是否可选地进行区分大小写，目前正在进行讨论。
 
-## Putting Values into Viper 向 Viper 中添加值
+## 向 Viper 中添加值
 
 ### 设置默认值
 
-A good configuration system will support default values. A default value is not required for a key, but it’s useful in the event that a key hasn't been set via config file, environment variable, remote configuration or flag.
-
-一个良好的配置系统将支持默认值。对于一个键来说，默认值不是必需的，但在没有通过配置文件、环境变量、远程配置或命令行标志设置键时非常有用。
+​	一个良好的配置系统将支持默认值。对于一个键来说，默认值不是必需的，但在没有通过配置文件、环境变量、远程配置或命令行标志设置键时非常有用。
 
 示例：
 
-```
+```go
 viper.SetDefault("ContentDir", "content")
 viper.SetDefault("LayoutDir", "layouts")
 viper.SetDefault("Taxonomies", map[string]string{"tag": "tags", "category": "categories"})
 ```
 
-### Reading Config Files 读取配置文件
+### 读取配置文件
 
-Viper requires minimal configuration so it knows where to look for config files. Viper supports JSON, TOML, YAML, HCL, INI, envfile and Java Properties files. Viper can search multiple paths, but currently a single Viper instance only supports a single configuration file. Viper does not default to any configuration search paths leaving defaults decision to an application.
+​	Viper需要进行最小配置，以便知道在哪里查找配置文件。Viper 支持 JSON、TOML、YAML、HCL、INI、envfile 和 Java Properties 文件。Viper 可以搜索多个路径，但是当前每个 Viper 实例只支持一个配置文件。Viper 不会默认设置任何配置文件搜索路径，而是将默认的决策留给应用程序。
 
-Viper 需要最小的配置来知道在哪里查找配置文件。Viper 支持 JSON、TOML、YAML、HCL、INI、envfile 和 Java Properties 文件。Viper 可以搜索多个路径，但是当前每个 Viper 实例只支持一个配置文件。Viper 不会默认设置任何配置文件搜索路径，而是将默认的决策留给应用程序。
+​	以下是如何使用 Viper 搜索并读取配置文件的示例。具体路径都不是必需的，但至少应提供一个期望找到配置文件的路径。
 
-Here is an example of how to use Viper to search for and read a configuration file. None of the specific paths are required, but at least one path should be provided where a configuration file is expected.
-
-以下是如何使用 Viper 搜索并读取配置文件的示例。没有特定的路径是必需的，但至少应提供一个期望找到配置文件的路径。
-
-```
-viper.SetConfigName("config") // name of config file (without extension) 配置文件的名称（无扩展名）
-viper.SetConfigType("yaml") // REQUIRED if the config file does not have the extension in the name 如果配置文件名称中不包含扩展名，则必需
-viper.AddConfigPath("/etc/appname/")   // path to look for the config file in 配置文件的搜索路径
-viper.AddConfigPath("$HOME/.appname")  // call multiple times to add many search paths 可多次调用以添加多个搜索路径
-viper.AddConfigPath(".")               // optionally look for config in the working directory 可选地在工作目录中查找配置文件
-err := viper.ReadInConfig() // Find and read the config file  查找并读取配置文件
-if err != nil { // Handle errors reading the config file 处理读取配置文件时的错误
+```go
+viper.SetConfigName("config") //配置文件的名称（无扩展名）
+viper.SetConfigType("yaml") // 如果配置文件名称中不包含扩展名，则必需(REQUIRED)
+viper.AddConfigPath("/etc/appname/") //配置文件的搜索路径
+viper.AddConfigPath("$HOME/.appname") //可多次调用以添加多个搜索路径
+viper.AddConfigPath(".") // 可选地在工作目录中查找配置文件
+err := viper.ReadInConfig() // 查找并读取配置文件
+if err != nil { // 处理读取配置文件时的错误
 	panic(fmt.Errorf("fatal error config file: %w", err))
 }
 ```
 
-You can handle the specific case where no config file is found like this:
-
 ​	您可以像这样处理未找到配置文件的特殊情况：
 
-```
+```go
 if err := viper.ReadInConfig(); err != nil {
 	if _, ok := err.(viper.ConfigFileNotFoundError); ok {
-		// Config file not found; ignore error if desired 未找到配置文件；如果需要，可以忽略错误
+		// 未找到配置文件；如果需要，可以忽略错误
 	} else {
-		// Config file was found but another error was produced 找到配置文件，但产生了其他错误
+		// 找到配置文件，但产生了其他错误
 	}
 }
 
-// Config file found and successfully parsed
+// 找到配置文件并且已成功解析
 ```
 
-*NOTE [since 1.6]:* You can also have a file without an extension and specify the format programmaticaly. For those configuration files that lie in the home of the user without any extension like `.bashrc`
-
-*注意 [自版本 1.6 起]：* 您还可以拥有没有扩展名的文件，并以编程方式指定格式。对于那些位于用户主目录下且没有任何扩展名的配置文件，例如 `.bashrc`。
+> *注意 [自版本 1.6 起]：* 您还可以拥有没有扩展名的文件，并以编程方式指定格式。对于那些位于用户主目录下且没有任何扩展名的配置文件，例如 `.bashrc`。
 
 
 
-### Writing Config Files 写入配置文件
+### 写入配置文件
 
-Reading from config files is useful, but at times you want to store all modifications made at run time. For that, a bunch of commands are available, each with its own purpose:
+​	从配置文件中读取很有用，但有时您希望存储运行时所做的所有修改。为此，有一系列可用的命令，每个命令都有其特定的目的：
 
-从配置文件中读取很有用，但有时您希望存储运行时所做的所有修改。为此，有一系列可用的命令，每个命令都有自己的用途：
+- WriteConfig： 将当前的 Viper 配置写入预定义的路径（如果存在）。如果没有预定义的路径，则报错。如果配置文件已存在，则**会**覆盖当前的配置文件。
+- SafeWriteConfig：将当前的 Viper 配置写入预定义的路径。如果没有预定义的路径，则报错。如果配置文件已存在，则**不会**覆盖当前的配置文件。
+- WriteConfigAs：将当前的 Viper 配置写入指定的文件路径。如果给定的文件已存在，则**会**覆盖该文件。
+- SafeWriteConfigAs：将当前的 Viper 配置写入指定的文件路径。如果给定的文件已存在，则**不会**覆盖该文件。
 
-- WriteConfig - writes the current viper configuration to the predefined path, if exists. Errors if no predefined path. Will overwrite the current config file, if it exists.
-- SafeWriteConfig - writes the current viper configuration to the predefined path. Errors if no predefined path. Will not overwrite the current config file, if it exists.
-- WriteConfigAs - writes the current viper configuration to the given filepath. Will overwrite the given file, if it exists.
-- SafeWriteConfigAs - writes the current viper configuration to the given filepath. Will not overwrite the given file, if it exists.
-- WriteConfig - 将当前的 Viper 配置写入预定义的路径（如果存在）。如果没有预定义的路径，则报错。如果配置文件已存在，则会覆盖当前的配置文件。
-- SafeWriteConfig - 将当前的 Viper 配置写入预定义的路径。如果没有预定义的路径，则报错。如果配置文件已存在，则不会覆盖当前的配置文件。
-- WriteConfigAs - 将当前的 Viper 配置写入指定的文件路径。如果给定的文件已存在，则会覆盖该文件。
-- SafeWriteConfigAs - 将当前的 Viper 配置写入指定的文件路径。如果给定的文件已存在，则不会覆盖该文件。
+​	根据经验，标记为 safe 的所有操作都不会覆盖任何文件，只会在文件不存在时创建，而默认行为是创建或截断（truncate）文件。
 
-As a rule of the thumb, everything marked with safe won't overwrite any file, but just create if not existent, whilst the default behavior is to create or truncate.
+​	以下是一个小的示例部分：
 
-根据经验，标记为 safe 的所有操作都不会覆盖任何文件，只会在文件不存在时创建，而默认行为是创建或截断文件。
-
-以下是一个小示例：
-
-A small examples section:
-
-```
-viper.WriteConfig() // writes current config to predefined path set by 'viper.AddConfigPath()' and 'viper.SetConfigName' 将当前配置写入由 'viper.AddConfigPath()' 和 'viper.SetConfigName' 设置的预定义路径
+```go
+viper.WriteConfig() // 将当前配置写入由 'viper.AddConfigPath()' 和 'viper.SetConfigName' 设置的预定义路径
 viper.SafeWriteConfig()
 viper.SafeWriteConfig()
 viper.WriteConfigAs("/path/to/my/.config")
-viper.SafeWriteConfigAs("/path/to/my/.config") // will error since it has already been written 会报错，因为已经写入过
+viper.SafeWriteConfigAs("/path/to/my/.config") // 会报错，因为已经写入过
 viper.SafeWriteConfigAs("/path/to/my/.other_config")
 ```
 
-### Watching and re-reading config files 监听和重新读取配置文件
+### 监听和重新读取配置文件 
 
-Viper supports the ability to have your application live read a config file while running.
+​	Viper支持在应用程序运行时实时读取配置文件的能力。
 
-Viper 支持在运行时实时读取配置文件的能力。
+​	不再需要重新启动服务器以使配置生效，使用Viper的应用程序可以在运行过程中读取配置文件的更新，而无需中断。
 
-Gone are the days of needing to restart a server to have a config take effect, viper powered applications can read an update to a config file while running and not miss a beat.
+​	只需告诉 Viper 实例执行 `WatchConfig()`。可选地，您还可以为 Viper 提供一个在每次更改发生时运行的函数。
 
+> ​	**确保在调用 `WatchConfig()` 之前添加所有的配置路径。**
+>
 
-
-不再需要重新启动服务器以使配置生效，Viper 驱动的应用程序可以在运行时读取配置文件的更新而不会出现中断。
-
-Simply tell the viper instance to watchConfig. Optionally you can provide a function for Viper to run each time a change occurs.
-
-只需告诉 Viper 实例执行 `WatchConfig()`。可选地，您还可以为 Viper 提供一个在每次更改发生时运行的函数。
-
-**Make sure you add all of the configPaths prior to calling `WatchConfig()`**
-
-**确保在调用 `WatchConfig()` 之前添加所有的配置路径。**
-
-```
+```go
 viper.OnConfigChange(func(e fsnotify.Event) {
 	fmt.Println("Config file changed:", e.Name)
 })
+
 viper.WatchConfig()
 ```
 
-### Reading Config from io.Reader 从 io.Reader 读取配置
+### 从 io.Reader 读取配置 
 
-Viper predefines many configuration sources such as files, environment variables, flags, and remote K/V store, but you are not bound to them. You can also implement your own required configuration source and feed it to viper.
+​	Viper 预定义了许多配置源，如文件、环境变量、标志和远程键值存储，但您并不受限于此。您还可以实现自己所需的配置源，并将其提供给 Viper。
 
-Viper 预定义了许多配置源，如文件、环境变量、标志和远程键值存储，但您并不受限于此。您还可以实现自己所需的配置源，并将其提供给 Viper。
+```go
+viper.SetConfigType("yaml") // 或 viper.SetConfigType("YAML")
 
-```
-viper.SetConfigType("yaml") // or viper.SetConfigType("YAML") 或 viper.SetConfigType("YAML")
-
-// any approach to require this configuration into your program. 任何方法将此配置需求输入到您的程序中。
+// 通过任何方式将此配置内容引入你的程序中。
 var yamlExample = []byte(`
 Hacker: true
 name: steve
@@ -225,41 +205,35 @@ beard: true
 
 viper.ReadConfig(bytes.NewBuffer(yamlExample))
 
-viper.Get("name") // this would be "steve"  这将返回 "steve"
+viper.Get("name") // 这将返回 "steve"
 ```
 
-### Setting Overrides 设置覆盖值
+### 设置覆盖值
 
-These could be from a command line flag, or from your own application logic.
+​	这些可以来自命令行标志，或者来自您自己的应用程序逻辑。
 
-这些可以来自命令行标志，或者来自您自己的应用程序逻辑。
-
-```
+```go
 viper.Set("Verbose", true)
 viper.Set("LogFile", LogFile)
 ```
 
-### Registering and Using Aliases 注册和使用别名
+### 注册和使用别名
 
-Aliases permit a single value to be referenced by multiple keys
+​	别名允许多个键引用同一个值。
 
-别名允许多个键引用同一个值。
-
-```
+```go
 viper.RegisterAlias("loud", "Verbose")
 
-viper.Set("verbose", true) // same result as next line 与下一行代码的结果相同
-viper.Set("loud", true)   // same result as prior line 与上一行代码的结果相同
+viper.Set("verbose", true) // 与下一行代码的结果相同
+viper.Set("loud", true)   // 与上一行代码的结果相同
 
-viper.GetBool("loud") // true 返回 true
-viper.GetBool("verbose") // true 返回 true
+viper.GetBool("loud") // 返回 true
+viper.GetBool("verbose") // 返回 true
 ```
 
-### Working with Environment Variables 使用环境变量
+### 使用环境变量
 
-Viper has full support for environment variables. This enables 12 factor applications out of the box. There are five methods that exist to aid working with ENV:
-
-Viper 对环境变量提供了全面支持。这使得可以直接使用12因子应用程序。有五个方法可用于处理环境变量：
+​	Viper完全支持环境变量。这使得12因子应用程序能够立即使用。有五个方法可用于处理环境变量：
 
 - `AutomaticEnv()`
 - `BindEnv(string...) : error`
@@ -267,68 +241,66 @@ Viper 对环境变量提供了全面支持。这使得可以直接使用12因子
 - `SetEnvKeyReplacer(string...) *strings.Replacer`
 - `AllowEmptyEnv(bool)`
 
-*When working with ENV variables, it’s important to recognize that Viper treats ENV variables as case sensitive.*
+> ​	在处理环境变量时，重要的是要认识到Viper将环境变量视为区分大小写。
 
-*在处理环境变量时，需要注意 Viper 将其视为区分大小写的。*
+​	Viper提供了一种机制来确保ENV变量的唯一性。通过使用`SetEnvPrefix`，您可以告诉Viper在读取环境变量时使用前缀。`BindEnv`和`AutomaticEnv`都将使用此前缀。
 
-Viper provides a mechanism to try to ensure that ENV variables are unique. By using `SetEnvPrefix`, you can tell Viper to use a prefix while reading from the environment variables. Both `BindEnv` and `AutomaticEnv` will use this prefix.
+​	`BindEnv`接受一个或多个参数。第一个参数是键名，其余参数是要绑定到此键的环境变量的名称。如果提供了多个参数，它们将按指定的顺序优先。环境变量的名称区分大小写。如果未提供ENV变量名，则Viper将自动假设ENV变量与以下格式匹配：前缀 + "_" +键名（全部大写）。当您显式提供ENV变量名（第二个参数）时，它**不会**自动添加前缀。例如，如果第二个参数是"id"，Viper将查找ENV变量 "ID"。
 
-`BindEnv` takes one or more parameters. The first parameter is the key name, the rest are the name of the environment variables to bind to this key. If more than one are provided, they will take precedence in the specified order. The name of the environment variable is case sensitive. If the ENV variable name is not provided, then Viper will automatically assume that the ENV variable matches the following format: prefix + "_" + the key name in ALL CAPS. When you explicitly provide the ENV variable name (the second parameter), it **does not** automatically add the prefix. For example if the second parameter is "id", Viper will look for the ENV variable "ID".
+​	在处理环境变量时，需要注意的一点是每次访问时都会读取其值。在调用`BindEnv`时，Viper不会固定该值。
 
-One important thing to recognize when working with ENV variables is that the value will be read each time it is accessed. Viper does not fix the value when the `BindEnv` is called.
+​	`AutomaticEnv`是一个强大的辅助功能，特别是与`SetEnvPrefix`结合使用时。当（`AutomaticEnv`）被调用时，每次进行`viper.Get`请求时，Viper都会检查是否存在相应的环境变量。它将应用以下规则：如果设置了`EnvPrefix`，它将检查是否存在一个与键名相匹配的以大写形式和前缀（如果设置）作为前缀的环境变量名称。
 
-`AutomaticEnv` is a powerful helper especially when combined with `SetEnvPrefix`. When called, Viper will check for an environment variable any time a `viper.Get` request is made. It will apply the following rules. It will check for an environment variable with a name matching the key uppercased and prefixed with the `EnvPrefix` if set.
+​	`SetEnvKeyReplacer`允许您使用`strings.Replacer`对象来在一定程度上重写Env键。这在您希望在`Get()`调用中使用`-`或其他字符，但希望您的环境变量使用`_`作为分隔符时非常有用。在`viper_test.go`中可以找到使用它的示例。
 
-`SetEnvKeyReplacer` allows you to use a `strings.Replacer` object to rewrite Env keys to an extent. This is useful if you want to use `-` or something in your `Get()` calls, but want your environmental variables to use `_` delimiters. An example of using it can be found in `viper_test.go`.
+​	或者，您可以使用带有`NewWithOptions`工厂函数的`EnvKeyReplacer`。与`SetEnvKeyReplacer`不同，它接受`StringReplacer`接口，允许您编写自定义字符串替换逻辑。
 
-Alternatively, you can use `EnvKeyReplacer` with `NewWithOptions` factory function. Unlike `SetEnvKeyReplacer`, it accepts a `StringReplacer` interface allowing you to write custom string replacing logic.
+​	默认情况下，空环境变量被视为未设置，并将回退到下一个配置源。要将空环境变量视为已设置，请使用`AllowEmptyEnv`方法。
 
-By default empty environment variables are considered unset and will fall back to the next configuration source. To treat empty environment variables as set, use the `AllowEmptyEnv` method.
+#### 环境变量示例
 
-#### Env example
-
-```
-SetEnvPrefix("spf") // will be uppercased automatically
+```go
+SetEnvPrefix("spf") // 将自动转为大写
 BindEnv("id")
 
-os.Setenv("SPF_ID", "13") // typically done outside of the app
+os.Setenv("SPF_ID", "13") // 通常在应用程序外部进行
 
 id := Get("id") // 13
 ```
 
-### Working with Flags
+### 使用标志（Flags）
 
-Viper has the ability to bind to flags. Specifically, Viper supports `Pflags` as used in the [Cobra](https://github.com/spf13/cobra) library.
+​	Viper具有与标志（flags）绑定的功能。具体而言，Viper支持[Cobra]({{< ref "/thirdPkg/Cobra">}})库中使用的`Pflags`。
 
-Like `BindEnv`, the value is not set when the binding method is called, but when it is accessed. This means you can bind as early as you want, even in an `init()` function.
+​	与`BindEnv`类似，当调用绑定方法时，并不会立即设置值，而是在访问时才设置。这意味着您可以在任何时候进行绑定，甚至在`init()`函数中进行绑定。
 
-For individual flags, the `BindPFlag()` method provides this functionality.
+​	对于单个标志，`BindPFlag()`方法提供了此功能。
 
-Example:
+示例：
 
-```
+```go
 serverCmd.Flags().Int("port", 1138, "Port to run Application server on")
 viper.BindPFlag("port", serverCmd.Flags().Lookup("port"))
 ```
 
-You can also bind an existing set of pflags (pflag.FlagSet):
+​	您还可以绑定一组现有的pflags（pflag.FlagSet）：
 
-Example:
+示例：
 
-```
+```go
 pflag.Int("flagname", 1234, "help message for flagname")
 
 pflag.Parse()
 viper.BindPFlags(pflag.CommandLine)
 
-i := viper.GetInt("flagname") // retrieve values from viper instead of pflag
+i := viper.GetInt("flagname") // 从viper中检索值，而不是从pflag中
 ```
 
-The use of [pflag](https://github.com/spf13/pflag/) in Viper does not preclude the use of other packages that use the [flag](https://golang.org/pkg/flag/) package from the standard library. The pflag package can handle the flags defined for the flag package by importing these flags. This is accomplished by a calling a convenience function provided by the pflag package called AddGoFlagSet().
+​	在Viper中使用[pflag](https://github.com/spf13/pflag/)并不妨碍使用标准库中的[flag](https://golang.org/pkg/flag/)包。pflag包可以通过导入这些标志来处理使用flag包定义的标志。为了实现这一点，pflag包提供了一个方便的函数`AddGoFlagSet()`。
 
-Example:
+示例：
 
-``` go
+```go
 package main
 
 import (
@@ -338,40 +310,52 @@ import (
 
 func main() {
 
-	// using standard library "flag" package
+	// 使用标准库中的 "flag" 包
 	flag.Int("flagname", 1234, "help message for flagname")
 
 	pflag.CommandLine.AddGoFlagSet(flag.CommandLine)
 	pflag.Parse()
 	viper.BindPFlags(pflag.CommandLine)
 
-	i := viper.GetInt("flagname") // retrieve value from viper
+	i := viper.GetInt("flagname") // 从viper中检索值
 
 	// ...
 }
 ```
 
-#### Flag interfaces
+#### Flag 接口
 
-Viper provides two Go interfaces to bind other flag systems if you don’t use `Pflags`.
+​	Viper提供了两个Go接口，用于绑定其他标志系统（如果您不使用`Pflags`）。
 
-`FlagValue` represents a single flag. This is a very simple example on how to implement this interface:
+​	`FlagValue`表示一个单独的标志。以下是一个实现该接口的简单示例：
 
 ``` go
 type myFlag struct {}
-func (f myFlag) HasChanged() bool { return false }
-func (f myFlag) Name() string { return "my-flag-name" }
-func (f myFlag) ValueString() string { return "my-flag-value" }
-func (f myFlag) ValueType() string { return "string" }
+
+func (f myFlag) HasChanged() bool { 
+    return false 
+}
+
+func (f myFlag) Name() string { 
+    return "my-flag-name" 
+}
+
+func (f myFlag) ValueString() string { 
+    return "my-flag-value" 
+}
+
+func (f myFlag) ValueType() string { 
+    return "string" 
+}
 ```
 
-Once your flag implements this interface, you can simply tell Viper to bind it:
+​	一旦您的标志实现了该接口，您可以简单地告诉Viper绑定它：
 
-```
+```go
 viper.BindFlagValue("my-flag-name", myFlag{})
 ```
 
-`FlagValueSet` represents a group of flags. This is a very simple example on how to implement this interface:
+​	`FlagValueSet`表示一组标志。以下是一个实现该接口的简单示例：
 
 ``` go
 type myFlagSet struct {
@@ -385,59 +369,60 @@ func (f myFlagSet) VisitAll(fn func(FlagValue)) {
 }
 ```
 
-Once your flag set implements this interface, you can simply tell Viper to bind it:
+​	一旦您的标志集实现了该接口，您可以简单地告诉Viper绑定它：
 
-```
+```go
 fSet := myFlagSet{
 	flags: []myFlag{myFlag{}, myFlag{}},
 }
+
 viper.BindFlagValues("my-flags", fSet)
 ```
 
-### Remote Key/Value Store Support
+### 远程键/值存储支持
 
-To enable remote support in Viper, do a blank import of the `viper/remote` package:
+​	要在Viper中启用远程支持，请使用 `viper/remote` 包进行空白导入：
 
 ```
 import _ "github.com/spf13/viper/remote"
 ```
 
-Viper will read a config string (as JSON, TOML, YAML, HCL or envfile) retrieved from a path in a Key/Value store such as etcd or Consul. These values take precedence over default values, but are overridden by configuration values retrieved from disk, flags, or environment variables.
+​	Viper将从键/值存储（如etcd或Consul）中检索到的路径中读取配置字符串（as JSON、TOML、YAML、HCL或envfile格式）。这些值优先于默认值，但会被从磁盘、命令行标志或环境变量中检索到的配置值所覆盖。
 
-Viper uses [crypt](https://github.com/bketelsen/crypt) to retrieve configuration from the K/V store, which means that you can store your configuration values encrypted and have them automatically decrypted if you have the correct gpg keyring. Encryption is optional.
+​	Viper 使用 [crypt](https://github.com/bketelsen/crypt) 从键/值存储中检索配置，这意味着您可以将配置值加密存储，并在具有正确的 gpg  密钥环时自动解密它们。加密是可选的。
 
-You can use remote configuration in conjunction with local configuration, or independently of it.
+​	您可以将远程配置与本地配置一起使用，也可以独立使用。
 
-`crypt` has a command-line helper that you can use to put configurations in your K/V store. `crypt` defaults to etcd on http://127.0.0.1:4001.
+​	`crypt`有一个命令行助手，可以用来将配置放入键/值存储中。`crypt`默认使用位于http://127.0.0.1:4001的etcd。
 
-```
+```sh
 $ go get github.com/bketelsen/crypt/bin/crypt
 $ crypt set -plaintext /config/hugo.json /Users/hugo/settings/config.json
 ```
 
-Confirm that your value was set:
+​	确认您的值是否已设置：
 
-```
+```sh
 $ crypt get -plaintext /config/hugo.json
 ```
 
-See the `crypt` documentation for examples of how to set encrypted values, or how to use Consul.
+​	有关如何设置加密值或使用Consul的示例，请参阅[crypt](https://bketelsen.github.io/crypt/)文档。
 
-### Remote Key/Value Store Example - Unencrypted
+### 远程键/值存储示例 - 未加密
 
 #### etcd
 
-```
+```go
 viper.AddRemoteProvider("etcd", "http://127.0.0.1:4001","/config/hugo.json")
-viper.SetConfigType("json") // because there is no file extension in a stream of bytes, supported extensions are "json", "toml", "yaml", "yml", "properties", "props", "prop", "env", "dotenv"
+viper.SetConfigType("json") // 因为在字节流中没有文件扩展名，支持的扩展名有 "json"、"toml"、"yaml"、"yml"、"properties"、"props"、"prop"、"env"、"dotenv"
 err := viper.ReadRemoteConfig()
 ```
 
 #### etcd3
 
-```
+```go
 viper.AddRemoteProvider("etcd3", "http://127.0.0.1:4001","/config/hugo.json")
-viper.SetConfigType("json") // because there is no file extension in a stream of bytes, supported extensions are "json", "toml", "yaml", "yml", "properties", "props", "prop", "env", "dotenv"
+viper.SetConfigType("json") // 因为在字节流中没有文件扩展名，支持的扩展名有 "json"、"toml"、"yaml"、"yml"、"properties"、"props"、"prop"、"env"、"dotenv"
 err := viper.ReadRemoteConfig()
 ```
 
@@ -445,13 +430,21 @@ err := viper.ReadRemoteConfig()
 
 You need to set a key to Consul key/value storage with JSON value containing your desired config. For example, create a Consul key/value store key `MY_CONSUL_KEY` with value:
 
-```
+​	您需要将一个包含所需配置的JSON值的键设置到Consul键/值存储中。例如，使用值创建Consul键/值存储键`MY_CONSUL_KEY`：
+
+​	您需要在Consul键值存储中设置一个键，其对应的JSON值包含所需的配置。例如，创建一个Consul键值存储键`MY_CONSUL_KEY`，其值为：
+
+```json
 {
     "port": 8080,
     "hostname": "myhostname.com"
 }
+```
+
+```go
 viper.AddRemoteProvider("consul", "localhost:8500", "MY_CONSUL_KEY")
-viper.SetConfigType("json") // Need to explicitly set this to json
+
+viper.SetConfigType("json") // 需要显式设置为json
 err := viper.ReadRemoteConfig()
 
 fmt.Println(viper.Get("port")) // 8080
@@ -460,59 +453,62 @@ fmt.Println(viper.Get("hostname")) // myhostname.com
 
 #### Firestore
 
-```
+```go
 viper.AddRemoteProvider("firestore", "google-cloud-project-id", "collection/document")
-viper.SetConfigType("json") // Config's format: "json", "toml", "yaml", "yml"
+
+viper.SetConfigType("json") // 配置的格式: "json"、"toml"、"yaml"、"yml"
+
 err := viper.ReadRemoteConfig()
 ```
 
-Of course, you're allowed to use `SecureRemoteProvider` also
+​	当然，您也可以使用`SecureRemoteProvider`。
 
-### Remote Key/Value Store Example - Encrypted
+### 远程键/值存储示例 - 加密
 
-```
+```go
 viper.AddSecureRemoteProvider("etcd","http://127.0.0.1:4001","/config/hugo.json","/etc/secrets/mykeyring.gpg")
-viper.SetConfigType("json") // because there is no file extension in a stream of bytes,  supported extensions are "json", "toml", "yaml", "yml", "properties", "props", "prop", "env", "dotenv"
+
+viper.SetConfigType("json") // 因为在字节流中没有文件扩展名，支持的扩展名有 "json"、"toml"、"yaml"、"yml"、"properties"、"props"、"prop"、"env"、"dotenv"
+
 err := viper.ReadRemoteConfig()
 ```
 
-### Watching Changes in etcd - Unencrypted
+### 监听etcd中的更改 - 未加密
 
-```
-// alternatively, you can create a new viper instance.
+```go
+// 或者，您可以创建一个新的viper实例。
 var runtime_viper = viper.New()
 
 runtime_viper.AddRemoteProvider("etcd", "http://127.0.0.1:4001", "/config/hugo.yml")
-runtime_viper.SetConfigType("yaml") // because there is no file extension in a stream of bytes, supported extensions are "json", "toml", "yaml", "yml", "properties", "props", "prop", "env", "dotenv"
+runtime_viper.SetConfigType("yaml") // 因为在字节流中没有文件扩展名，支持的扩展名有 "json"、"toml"、"yaml"、"yml"、"properties"、"props"、"prop"、"env"、"dotenv"
 
-// read from remote config the first time.
+// 第一次从远程配置中读取。
 err := runtime_viper.ReadRemoteConfig()
 
-// unmarshal config
+// 反序列化配置
 runtime_viper.Unmarshal(&runtime_conf)
 
-// open a goroutine to watch remote changes forever
+// 打开一个goroutine无限期地监听远程更改
 go func(){
 	for {
-		time.Sleep(time.Second * 5) // delay after each request
+		time.Sleep(time.Second * 5) // 每个请求之后的延迟
 
-		// currently, only tested with etcd support
+		// 目前仅已测试etcd支持
 		err := runtime_viper.WatchRemoteConfig()
 		if err != nil {
 			log.Errorf("unable to read remote config: %v", err)
 			continue
 		}
 
-		// unmarshal new config into our runtime config struct. you can also use channel
-		// to implement a signal to notify the system of the changes
+         // 反序列化新配置到我们的运行时配置结构。您还可以使用通道实现一个信号，以通知系统发生了更改
 		runtime_viper.Unmarshal(&runtime_conf)
 	}
 }()
 ```
 
-## Getting Values From Viper
+## 从Viper获取值
 
-In Viper, there are a few ways to get a value depending on the value’s type. The following functions and methods exist:
+​	在Viper中，根据值的类型，有几种获取值的方法和函数可用： 
 
 - `Get(key string) : interface{}`
 - `GetBool(key string) : bool`
@@ -528,22 +524,22 @@ In Viper, there are a few ways to get a value depending on the value’s type. T
 - `IsSet(key string) : bool`
 - `AllSettings() : map[string]interface{}`
 
-One important thing to recognize is that each Get function will return a zero value if it’s not found. To check if a given key exists, the `IsSet()` method has been provided.
+​	需要注意的一点是，如果找不到给定的键，每个Get函数都会返回一个零值。要检查给定键是否存在，可以使用`IsSet()`方法。
 
-Example:
+示例：
 
-```
-viper.GetString("logfile") // case-insensitive Setting & Getting
+```go
+viper.GetString("logfile") // 不区分大小写的设置和获取
 if viper.GetBool("verbose") {
 	fmt.Println("verbose enabled")
 }
 ```
 
-### Accessing nested keys
+### 访问嵌套键
 
-The accessor methods also accept formatted paths to deeply nested keys. For example, if the following JSON file is loaded:
+​	accessor（访问器）方法还接受格式化路径来获取深层嵌套的键。例如，如果加载了以下 JSON 文件：
 
-```
+```json
 {
     "host": {
         "address": "localhost",
@@ -562,21 +558,21 @@ The accessor methods also accept formatted paths to deeply nested keys. For exam
 }
 ```
 
-Viper can access a nested field by passing a `.` delimited path of keys:
+​	Viper可以通过传递一个由`.`分隔的键路径来访问嵌套字段：
 
+```go
+GetString("datastore.metric.host") // 返回 "127.0.0.1"
 ```
-GetString("datastore.metric.host") // (returns "127.0.0.1")
-```
 
-This obeys the precedence rules established above; the search for the path will cascade through the remaining configuration registries until found.
+​	这遵循了上述建立的优先级规则；在剩余的配置注册表中，路径的搜索将会逐级进行，直到找到为止。
 
-For example, given this configuration file, both `datastore.metric.host` and `datastore.metric.port` are already defined (and may be overridden). If in addition `datastore.metric.protocol` was defined in the defaults, Viper would also find it.
+​	例如，给定这个配置文件，`datastore.metric.host`和`datastore.metric.port`已经定义（并且可能被覆盖）。如果另外还在默认配置中定义了`datastore.metric.protocol`，Viper也会找到它。
 
-However, if `datastore.metric` was overridden (by a flag, an environment variable, the `Set()` method, …) with an immediate value, then all sub-keys of `datastore.metric` become undefined, they are "shadowed" by the higher-priority configuration level.
+​	然而，如果`datastore.metric`被立即值（immediate value）（通过标志、环境变量、`Set()`方法等）覆盖，那么`datastore.metric`的所有子键都变为未定义，它们被高优先级的配置级别"遮蔽（shadowed）"。
 
-Viper can access array indices by using numbers in the path. For example:
+​	Viper可以通过在路径中使用数字来访问数组索引。例如：
 
-```
+```json
 {
     "host": {
         "address": "localhost",
@@ -596,15 +592,19 @@ Viper can access array indices by using numbers in the path. For example:
         }
     }
 }
-
-GetInt("host.ports.1") // returns 6029
 ```
 
-Lastly, if there exists a key that matches the delimited key path, its value will be returned instead. E.g.
-
+```go
+GetInt("host.ports.1") // 返回 6029
 ```
+
+​	最后，如果存在与分隔键路径匹配的键，则返回该键的值。例如：
+
+```json
 {
-    "datastore.metric.host": "0.0.0.0",
+    "datastore.metric.host": "0.0.0.0", // <----
+    
+    
     "host": {
         "address": "localhost",
         "port": 5799
@@ -620,17 +620,21 @@ Lastly, if there exists a key that matches the delimited key path, its value wil
         }
     }
 }
-
-GetString("datastore.metric.host") // returns "0.0.0.0"
 ```
 
-### Extracting a sub-tree
-
-When developing reusable modules, it's often useful to extract a subset of the configuration and pass it to a module. This way the module can be instantiated more than once, with different configurations.
-
-For example, an application might use multiple different cache stores for different purposes:
-
+```go
+GetString("datastore.metric.host") // 返回 "0.0.0.0"
 ```
+
+
+
+### 提取子树（sub-tree）
+
+​	在开发可重用模块时，将配置的子集提取出来并传递给一个模块通常很有用。这样，可以实例化多个模块，并为每个模块使用不同的配置。
+
+​	例如，一个应用程序可能针对不同的用途使用多个不同的缓存存储：
+
+```yaml
 cache:
   cache1:
     max-items: 100
@@ -640,22 +644,22 @@ cache:
     item-size: 80
 ```
 
-We could pass the cache name to a module (eg. `NewCache("cache1")`), but it would require weird concatenation for accessing config keys and would be less separated from the global config.
+​	我们可以将缓存名称传递给一个模块（例如`NewCache("cache1")`），但这将需要奇怪的拼接来访问配置键，并且与全局配置的分离性较差。
 
-So instead of doing that let's pass a Viper instance to the constructor that represents a subset of the configuration:
+​	因此，我们不这样做，而是将表示配置子集的Viper实例传递给构造函数：
 
-```
+```go
 cache1Config := viper.Sub("cache.cache1")
-if cache1Config == nil { // Sub returns nil if the key cannot be found
+if cache1Config == nil { // 如果找不到键，则 Sub 方法将返回 nil。
 	panic("cache configuration not found")
 }
 
 cache1 := NewCache(cache1Config)
 ```
 
-**Note:** Always check the return value of `Sub`. It returns `nil` if a key cannot be found.
+> **注意：**始终检查`Sub`的返回值。如果找不到键，它将返回`nil`。
 
-Internally, the `NewCache` function can address `max-items` and `item-size` keys directly:
+​	在内部，`NewCache`函数可以直接访问`max-items`和`item-size`键。
 
 ``` go
 func NewCache(v *Viper) *Cache {
@@ -666,18 +670,18 @@ func NewCache(v *Viper) *Cache {
 }
 ```
 
-The resulting code is easy to test, since it's decoupled from the main config structure, and easier to reuse (for the same reason).
+​	由于与主配置结构解耦，生成的代码易于测试，并且（由于同样的原因）更易于重用。
 
-### Unmarshaling
+### 反序列化
 
-You also have the option of Unmarshaling all or a specific value to a struct, map, etc.
+​	您还可以选择将全部或特定值反序列化为结构体、映射等。
 
-There are two methods to do this:
+​	有两种方法可以实现这一点：
 
 - `Unmarshal(rawVal interface{}) : error`
 - `UnmarshalKey(key string, rawVal interface{}) : error`
 
-Example:
+示例：
 
 ``` go
 type config struct {
@@ -694,9 +698,9 @@ if err != nil {
 }
 ```
 
-If you want to unmarshal configuration where the keys themselves contain dot (the default key delimiter), you have to change the delimiter:
+​	如果要对包含点符号（默认键分隔符）的键进行配置反序列化，您需要更改分隔符：
 
-```
+```go
 v := viper.NewWithOptions(viper.KeyDelimiter("::"))
 
 v.SetDefault("chart::values", map[string]interface{}{
@@ -719,11 +723,11 @@ var C config
 v.Unmarshal(&C)
 ```
 
-Viper also supports unmarshaling into embedded structs:
+​	Viper还支持将值反序列化到嵌套结构体中：
 
-```
+```go
 /*
-Example config:
+示例配置：
 
 module:
     enabled: true
@@ -737,7 +741,7 @@ type config struct {
 	}
 }
 
-// moduleConfig could be in a module specific package
+// moduleConfig 可以在特定于模块的包中
 type moduleConfig struct {
 	Token string
 }
@@ -750,21 +754,21 @@ if err != nil {
 }
 ```
 
-Viper uses [github.com/mitchellh/mapstructure](https://github.com/mitchellh/mapstructure) under the hood for unmarshaling values which uses `mapstructure` tags by default.
+​	Viper在内部使用[github.com/mitchellh/mapstructure](https://github.com/mitchellh/mapstructure)进行值的反序列化，它默认使用`mapstructure`标签。
 
-### Decoding custom formats
+### 解码自定义格式
 
-A frequently requested feature for Viper is adding more value formats and decoders. For example, parsing character (dot, comma, semicolon, etc) separated strings into slices.
+​	Viper经常被要求添加更多的值格式和解码器。例如，将以字符（点号、逗号、分号等）分隔的字符串解析为切片。
 
-This is already available in Viper using mapstructure decode hooks.
+​	在Viper中，可以使用`mapstructure`解码钩子来实现这一点。
 
-Read more about the details in [this blog post](https://sagikazarmark.hu/blog/decoding-custom-formats-with-viper/).
+​	详细信息请参阅[此博客文章](https://sagikazarmark.hu/blog/decoding-custom-formats-with-viper/)。
 
-### Marshalling to string
+### 序列化为字符串
 
-You may need to marshal all the settings held in viper into a string rather than write them to a file. You can use your favorite format's marshaller with the config returned by `AllSettings()`.
+​	您可能需要将Viper中保存的所有设置序列化为字符串，而不是将它们写入文件。您可以使用您喜欢的格式的编组器（marshaller）带上`AllSettings()`返回的配置。
 
-```
+```go
 import (
 	yaml "gopkg.in/yaml.v2"
 	// ...
@@ -780,19 +784,19 @@ func yamlStringSettings() string {
 }
 ```
 
-## Viper or Vipers?
+## Viper还是Vipers？
 
-Viper comes ready to use out of the box. There is no configuration or initialization needed to begin using Viper. Since most applications will want to use a single central repository for their configuration, the viper package provides this. It is similar to a singleton.
+​	Viper可以直接使用，无需任何配置或初始化即可开始使用。由于大多数应用程序希望使用单个中央存储库来管理其配置，因此viper包提供了这样的功能。它类似于单例模式（singleton）。
 
-In all of the examples above, they demonstrate using viper in its singleton style approach.
+​	在上面的所有示例中，它们演示了如何以单例模式的方式使用viper。
 
-### Working with multiple vipers
+#### 使用多个viper
 
-You can also create many different vipers for use in your application. Each will have its own unique set of configurations and values. Each can read from a different config file, key value store, etc. All of the functions that viper package supports are mirrored as methods on a viper.
+​	您还可以创建多个不同的viper实例，以供应用程序使用。每个viper实例都有自己独特的配置和数值集合。每个实例可以从不同的配置文件、键值存储等读取配置。viper包支持的所有函数也作为viper实例的方法进行了镜像。
 
-Example:
+示例：
 
-```
+```go
 x := viper.New()
 y := viper.New()
 
@@ -802,49 +806,51 @@ y.SetDefault("ContentDir", "foobar")
 //...
 ```
 
-When working with multiple vipers, it is up to the user to keep track of the different vipers.
+​	在使用多个viper实例时，用户需要自行跟踪管理这些不同的viper实例。
 
 ## Q & A
 
-### Why is it called "Viper"?
+### 为什么它被称为"Viper"？
 
-A: Viper is designed to be a [companion](http://en.wikipedia.org/wiki/Viper_(G.I._Joe)) to [Cobra](https://github.com/spf13/cobra). While both can operate completely independently, together they make a powerful pair to handle much of your application foundation needs.
+A: Viper被设计为[Cobra]({{< ref "/thirdPkg/Cobra">}})的[companion（伴侣）](http://en.wikipedia.org/wiki/Viper_(G.I._Joe))。虽然它们可以完全独立运作，但是它们一起组合起来可以强大地满足你的应用程序基础需求。
 
-### Why is it called "Cobra"?
+### 为什么它被称为"Cobra"？
 
-Is there a better name for a [commander](http://en.wikipedia.org/wiki/Cobra_Commander)?
+​	还有比一个[commander](http://en.wikipedia.org/wiki/Cobra_Commander)更好的名字吗？
 
-### Does Viper support case sensitive keys?
+### Viper支持区分大小写的键吗？
 
 **tl;dr:** No.
 
-Viper merges configuration from various sources, many of which are either case insensitive or uses different casing than the rest of the sources (eg. env vars). In order to provide the best experience when using multiple sources, the decision has been made to make all keys case insensitive.
+**简短回答：** 不支持。
 
-There has been several attempts to implement case sensitivity, but unfortunately it's not that trivial. We might take a stab at implementing it in [Viper v2](https://github.com/spf13/viper/issues/772), but despite the initial noise, it does not seem to be requested that much.
+​	Viper从多个源中合并配置，其中许多源要么不区分大小写，要么使用与其他源（例如环境变量）不同的大小写。为了在使用多个源时提供最佳体验，决定将所有键都设置为不区分大小写。
 
-You can vote for case sensitivity by filling out this feedback form: https://forms.gle/R6faU74qPRPAzchZ9
+​	已经有几次尝试实现区分大小写的功能，但不幸的是，它并不那么简单。我们可能会在[Viper v2](https://github.com/spf13/viper/issues/772)中尝试实现它，但尽管最初有些声音，但似乎并没有那么多人提出这个要求。
 
-### Is it safe to concurrently read and write to a viper?
+​	您可以通过填写这个反馈表格来表达对区分大小写功能的需求：[https://forms.gle/R6faU74qPRPAzchZ9](https://forms.gle/R6faU74qPRPAzchZ9)
 
-No, you will need to synchronize access to the viper yourself (for example by using the `sync` package). Concurrent reads and writes can cause a panic.
+### 并发读写Viper是否安全？
 
-## Troubleshooting
+​	不安全，您需要自己同步对Viper的访问（例如使用`sync`包）。并发的读写操作可能会导致恐慌（panic）。
 
-See [TROUBLESHOOTING.md](https://github.com/spf13/viper/blob/v1.15.0/TROUBLESHOOTING.md).
+## 故障排除
 
-Collapse ▴
+​	请参阅 [TROUBLESHOOTING.md](https://github.com/spf13/viper/blob/v1.16.0/TROUBLESHOOTING.md)。
 
-## Documentation 
 
-[Rendered for](https://go.dev/about#build-context)                   linux/amd64                   windows/amd64                   darwin/amd64                   js/wasm                
 
-### Constants 
+## 文档
+
+[Rendered for](https://go.dev/about#build-context)  linux/amd64             
+
+### 常量
 
 This section is empty.
 
-### Variables 
+### 变量
 
-[View Source](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L81)
+[View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L80)
 
 ```
 var RemoteConfig remoteConfigFactory
@@ -852,7 +858,7 @@ var RemoteConfig remoteConfigFactory
 
 RemoteConfig is optional, see the remote package
 
-[View Source](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L419)
+[View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L420)
 
 ```
 var SupportedExts = []string{"json", "toml", "yaml", "yml", "properties", "props", "prop", "hcl", "tfvars", "dotenv", "env", "ini"}
@@ -860,7 +866,7 @@ var SupportedExts = []string{"json", "toml", "yaml", "yml", "properties", "props
 
 SupportedExts are universally supported extensions.
 
-[View Source](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L422)
+[View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L423)
 
 ```
 var SupportedRemoteProviders = []string{"etcd", "etcd3", "consul", "firestore"}
@@ -868,7 +874,7 @@ var SupportedRemoteProviders = []string{"etcd", "etcd3", "consul", "firestore"}
 
 SupportedRemoteProviders are universally supported remote providers.
 
-### Functions 
+### 函数
 
 #### func AddConfigPath 
 
@@ -910,7 +916,7 @@ func AllSettings() map[string]interface{}
 
 AllSettings merges all settings and returns them as a map[string]interface{}.
 
-#### func AllowEmptyEnv  <- v1.3.0
+#### func AllowEmptyEnv <- 1.3.0
 
 ``` go
 func AllowEmptyEnv(allowEmptyEnv bool)
@@ -987,7 +993,7 @@ func Debug()
 
 Debug prints all configuration registries for debugging purposes.
 
-#### func DebugTo  <- v1.13.0
+#### func DebugTo <- 1.13.0
 
 ``` go
 func DebugTo(w io.Writer)
@@ -1035,7 +1041,7 @@ func GetInt(key string) int
 
 GetInt returns the value associated with the key as an integer.
 
-#### func GetInt32  <- v1.1.0
+#### func GetInt32 <- 1.1.0
 
 ``` go
 func GetInt32(key string) int32
@@ -1051,7 +1057,7 @@ func GetInt64(key string) int64
 
 GetInt64 returns the value associated with the key as an integer.
 
-#### func GetIntSlice  <- v1.5.0
+#### func GetIntSlice <- 1.5.0
 
 ``` go
 func GetIntSlice(key string) []int
@@ -1115,7 +1121,7 @@ func GetTime(key string) time.Time
 
 GetTime returns the value associated with the key as time.
 
-#### func GetUint  <- v1.4.0
+#### func GetUint <- 1.4.0
 
 ``` go
 func GetUint(key string) uint
@@ -1123,7 +1129,7 @@ func GetUint(key string) uint
 
 GetUint returns the value associated with the key as an unsigned integer.
 
-#### func GetUint16  <- v1.13.0
+#### func GetUint16 <- 1.13.0
 
 ``` go
 func GetUint16(key string) uint16
@@ -1131,7 +1137,7 @@ func GetUint16(key string) uint16
 
 GetUint16 returns the value associated with the key as an unsigned integer.
 
-#### func GetUint32  <- v1.4.0
+#### func GetUint32 <- 1.4.0
 
 ``` go
 func GetUint32(key string) uint32
@@ -1139,7 +1145,7 @@ func GetUint32(key string) uint32
 
 GetUint32 returns the value associated with the key as an unsigned integer.
 
-#### func GetUint64  <- v1.4.0
+#### func GetUint64 <- 1.4.0
 
 ``` go
 func GetUint64(key string) uint64
@@ -1171,7 +1177,7 @@ func MergeConfig(in io.Reader) error
 
 MergeConfig merges a new configuration with an existing config.
 
-#### func MergeConfigMap  <- v1.3.0
+#### func MergeConfigMap <- 1.3.0
 
 ``` go
 func MergeConfigMap(cfg map[string]interface{}) error
@@ -1187,7 +1193,7 @@ func MergeInConfig() error
 
 MergeInConfig merges a new configuration with an existing config.
 
-#### func MustBindEnv  <- v1.12.0
+#### func MustBindEnv <- 1.12.0
 
 ``` go
 func MustBindEnv(input ...string)
@@ -1243,7 +1249,7 @@ func Reset()
 
 Reset is intended for testing, will reset all to default settings. In the public interface for the viper package so applications can use it in their testing as well.
 
-#### func SafeWriteConfig  <- v1.0.1
+#### func SafeWriteConfig <- 1.0.1
 
 ``` go
 func SafeWriteConfig() error
@@ -1251,7 +1257,7 @@ func SafeWriteConfig() error
 
 SafeWriteConfig writes current configuration to file only if the file does not exist.
 
-#### func SafeWriteConfigAs  <- v1.0.1
+#### func SafeWriteConfigAs <- 1.0.1
 
 ``` go
 func SafeWriteConfigAs(filename string) error
@@ -1283,7 +1289,7 @@ func SetConfigName(in string)
 
 SetConfigName sets name for the config file. Does not include extension.
 
-#### func SetConfigPermissions  <- v1.4.0
+#### func SetConfigPermissions <- 1.4.0
 
 ``` go
 func SetConfigPermissions(perm os.FileMode)
@@ -1359,7 +1365,7 @@ func Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
 
 Unmarshal unmarshals the config into a Struct. Make sure that the tags on the fields of the structure are properly set.
 
-#### func UnmarshalExact  <- v1.6.0
+#### func UnmarshalExact <- 1.6.0
 
 ``` go
 func UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
@@ -1389,7 +1395,7 @@ WatchConfig starts watching a config file for changes.
 func WatchRemoteConfig() error
 ```
 
-#### func WriteConfig  <- v1.0.1
+#### func WriteConfig <- 1.0.1
 
 ``` go
 func WriteConfig() error
@@ -1397,7 +1403,7 @@ func WriteConfig() error
 
 WriteConfig writes the current configuration to a file.
 
-#### func WriteConfigAs  <- v1.0.1
+#### func WriteConfigAs <- 1.0.1
 
 ``` go
 func WriteConfigAs(filename string) error
@@ -1407,7 +1413,7 @@ WriteConfigAs writes current configuration to a given filename.
 
 ### Types 
 
-#### type ConfigFileAlreadyExistsError  <- v1.6.0
+#### type ConfigFileAlreadyExistsError <- 1.6.0
 
 ``` go
 type ConfigFileAlreadyExistsError string
@@ -1415,7 +1421,7 @@ type ConfigFileAlreadyExistsError string
 
 ConfigFileAlreadyExistsError denotes failure to write new configuration file.
 
-#### func (ConfigFileAlreadyExistsError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L124)  <- v1.6.0
+#### (ConfigFileAlreadyExistsError) Error <- 1.6.0
 
 ``` go
 func (faee ConfigFileAlreadyExistsError) Error() string
@@ -1433,7 +1439,7 @@ type ConfigFileNotFoundError struct {
 
 ConfigFileNotFoundError denotes failing to find configuration file.
 
-#### func (ConfigFileNotFoundError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L116) 
+#### (ConfigFileNotFoundError) Error 
 
 ``` go
 func (fnfe ConfigFileNotFoundError) Error() string
@@ -1441,7 +1447,7 @@ func (fnfe ConfigFileNotFoundError) Error() string
 
 Error returns the formatted configuration error.
 
-#### type ConfigMarshalError  <- v1.0.1
+#### type ConfigMarshalError <- 1.0.1
 
 ``` go
 type ConfigMarshalError struct {
@@ -1451,7 +1457,7 @@ type ConfigMarshalError struct {
 
 ConfigMarshalError happens when failing to marshal the configuration.
 
-#### func (ConfigMarshalError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L59)  <- v1.0.1
+#### (ConfigMarshalError) Error <- 1.0.1
 
 ``` go
 func (e ConfigMarshalError) Error() string
@@ -1469,7 +1475,7 @@ type ConfigParseError struct {
 
 ConfigParseError denotes failing to parse configuration file.
 
-#### func (ConfigParseError) [Error](https://github.com/spf13/viper/blob/v1.15.0/util.go#L30) 
+#### (ConfigParseError) Error 
 
 ``` go
 func (pe ConfigParseError) Error() string
@@ -1477,7 +1483,15 @@ func (pe ConfigParseError) Error() string
 
 Error returns the formatted configuration error.
 
-#### type DecoderConfigOption  <- v1.1.0
+#### (ConfigParseError) Unwrap <- 1.16.0
+
+``` go
+func (pe ConfigParseError) Unwrap() error
+```
+
+Unwrap returns the wrapped error.
+
+#### type DecoderConfigOption <- 1.1.0
 
 ``` go
 type DecoderConfigOption func(*mapstructure.DecoderConfig)
@@ -1485,7 +1499,7 @@ type DecoderConfigOption func(*mapstructure.DecoderConfig)
 
 A DecoderConfigOption can be passed to viper.Unmarshal to configure mapstructure.DecoderConfig options
 
-#### func DecodeHook  <- v1.1.0
+#### func DecodeHook <- 1.1.0
 
 ``` go
 func DecodeHook(hook mapstructure.DecodeHookFunc) DecoderConfigOption
@@ -1523,7 +1537,7 @@ type FlagValueSet interface {
 
 FlagValueSet is an interface that users can implement to bind a set of flags to viper.
 
-#### type Logger  <- v1.10.0
+#### type Logger <- 1.10.0
 
 ``` go
 type Logger interface {
@@ -1563,7 +1577,7 @@ Logger is a unified interface for various logging use cases and practices, inclu
 - leveled logging
 - structured logging
 
-#### type Option  <- v1.6.0
+#### type Option <- 1.6.0
 
 ``` go
 type Option interface {
@@ -1573,7 +1587,7 @@ type Option interface {
 
 Option configures Viper using the functional options paradigm popularized by Rob Pike and Dave Cheney. If you're unfamiliar with this style, see https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html and https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis.
 
-#### func EnvKeyReplacer  <- v1.6.0
+#### func EnvKeyReplacer <- 1.6.0
 
 ``` go
 func EnvKeyReplacer(r StringReplacer) Option
@@ -1581,7 +1595,7 @@ func EnvKeyReplacer(r StringReplacer) Option
 
 EnvKeyReplacer sets a replacer used for mapping environment variables to internal keys.
 
-#### func IniLoadOptions  <- v1.8.0
+#### func IniLoadOptions <- 1.8.0
 
 ``` go
 func IniLoadOptions(in ini.LoadOptions) Option
@@ -1589,7 +1603,7 @@ func IniLoadOptions(in ini.LoadOptions) Option
 
 IniLoadOptions sets the load options for ini parsing.
 
-#### func KeyDelimiter  <- v1.6.0
+#### func KeyDelimiter <- 1.6.0
 
 ``` go
 func KeyDelimiter(d string) Option
@@ -1605,7 +1619,7 @@ type RemoteConfigError string
 
 RemoteConfigError denotes encountering an error while trying to pull the configuration from the remote provider.
 
-#### func (RemoteConfigError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L106) 
+#### (RemoteConfigError) Error 
 
 ``` go
 func (rce RemoteConfigError) Error() string
@@ -1635,7 +1649,7 @@ type RemoteResponse struct {
 }
 ```
 
-#### type StringReplacer  <- v1.6.0
+#### type StringReplacer <- 1.6.0
 
 ``` go
 type StringReplacer interface {
@@ -1654,7 +1668,7 @@ type UnsupportedConfigError string
 
 UnsupportedConfigError denotes encountering an unsupported configuration filetype.
 
-#### func (UnsupportedConfigError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L88) 
+#### (UnsupportedConfigError) Error 
 
 ``` go
 func (str UnsupportedConfigError) Error() string
@@ -1670,7 +1684,7 @@ type UnsupportedRemoteProviderError string
 
 UnsupportedRemoteProviderError denotes encountering an unsupported remote provider. Currently only etcd and Consul are supported.
 
-#### func (UnsupportedRemoteProviderError) [Error](https://github.com/spf13/viper/blob/v1.15.0/viper.go#L97) 
+#### (UnsupportedRemoteProviderError) Error 
 
 ``` go
 func (str UnsupportedRemoteProviderError) Error() string
@@ -1733,7 +1747,7 @@ func New() *Viper
 
 New returns an initialized Viper instance.
 
-#### func NewWithOptions  <- v1.6.0
+#### func NewWithOptions <- 1.6.0
 
 ``` go
 func NewWithOptions(opts ...Option) *Viper
@@ -1779,7 +1793,7 @@ func (v *Viper) AllKeys() []string
 func (v *Viper) AllSettings() map[string]interface{}
 ```
 
-#### (*Viper) AllowEmptyEnv  <- v1.3.0
+#### (*Viper) AllowEmptyEnv <- 1.3.0
 
 ``` go
 func (v *Viper) AllowEmptyEnv(allowEmptyEnv bool)
@@ -1833,7 +1847,7 @@ func (v *Viper) ConfigFileUsed() string
 func (v *Viper) Debug()
 ```
 
-#### (*Viper) DebugTo  <- v1.13.0
+#### (*Viper) DebugTo <- 1.13.0
 
 ``` go
 func (v *Viper) DebugTo(w io.Writer)
@@ -1869,7 +1883,7 @@ func (v *Viper) GetFloat64(key string) float64
 func (v *Viper) GetInt(key string) int
 ```
 
-#### (*Viper) GetInt32  <- v1.1.0
+#### (*Viper) GetInt32 <- 1.1.0
 
 ``` go
 func (v *Viper) GetInt32(key string) int32
@@ -1881,7 +1895,7 @@ func (v *Viper) GetInt32(key string) int32
 func (v *Viper) GetInt64(key string) int64
 ```
 
-#### (*Viper) GetIntSlice  <- v1.5.0
+#### (*Viper) GetIntSlice <- 1.5.0
 
 ``` go
 func (v *Viper) GetIntSlice(key string) []int
@@ -1929,25 +1943,25 @@ func (v *Viper) GetStringSlice(key string) []string
 func (v *Viper) GetTime(key string) time.Time
 ```
 
-#### (*Viper) GetUint  <- v1.4.0
+#### (*Viper) GetUint <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint(key string) uint
 ```
 
-#### (*Viper) GetUint16  <- v1.13.0
+#### (*Viper) GetUint16 <- 1.13.0
 
 ``` go
 func (v *Viper) GetUint16(key string) uint16
 ```
 
-#### (*Viper) GetUint32  <- v1.4.0
+#### (*Viper) GetUint32 <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint32(key string) uint32
 ```
 
-#### (*Viper) GetUint64  <- v1.4.0
+#### (*Viper) GetUint64 <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint64(key string) uint64
@@ -1971,7 +1985,7 @@ func (v *Viper) IsSet(key string) bool
 func (v *Viper) MergeConfig(in io.Reader) error
 ```
 
-#### (*Viper) MergeConfigMap  <- v1.3.0
+#### (*Viper) MergeConfigMap <- 1.3.0
 
 ``` go
 func (v *Viper) MergeConfigMap(cfg map[string]interface{}) error
@@ -1983,7 +1997,7 @@ func (v *Viper) MergeConfigMap(cfg map[string]interface{}) error
 func (v *Viper) MergeInConfig() error
 ```
 
-#### (*Viper) MustBindEnv  <- v1.12.0
+#### (*Viper) MustBindEnv <- 1.12.0
 
 ``` go
 func (v *Viper) MustBindEnv(input ...string)
@@ -2021,13 +2035,13 @@ func (v *Viper) ReadRemoteConfig() error
 func (v *Viper) RegisterAlias(alias string, key string)
 ```
 
-#### (*Viper) SafeWriteConfig  <- v1.0.1
+#### (*Viper) SafeWriteConfig <- 1.0.1
 
 ``` go
 func (v *Viper) SafeWriteConfig() error
 ```
 
-#### (*Viper) SafeWriteConfigAs  <- v1.0.1
+#### (*Viper) SafeWriteConfigAs <- 1.0.1
 
 ``` go
 func (v *Viper) SafeWriteConfigAs(filename string) error
@@ -2051,7 +2065,7 @@ func (v *Viper) SetConfigFile(in string)
 func (v *Viper) SetConfigName(in string)
 ```
 
-#### (*Viper) SetConfigPermissions  <- v1.4.0
+#### (*Viper) SetConfigPermissions <- 1.4.0
 
 ``` go
 func (v *Viper) SetConfigPermissions(perm os.FileMode)
@@ -2137,13 +2151,13 @@ func (v *Viper) WatchRemoteConfig() error
 func (v *Viper) WatchRemoteConfigOnChannel() error
 ```
 
-#### (*Viper) WriteConfig  <- v1.0.1
+#### (*Viper) WriteConfig <- 1.0.1
 
 ``` go
 func (v *Viper) WriteConfig() error
 ```
 
-#### (*Viper) WriteConfigAs  <- v1.0.1
+#### (*Viper) WriteConfigAs <- 1.0.1
 
 ``` go
 func (v *Viper) WriteConfigAs(filename string) error

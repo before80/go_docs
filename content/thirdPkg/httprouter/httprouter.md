@@ -489,7 +489,7 @@ func ParamsFromContext(ctx context.Context) Params
 
 ParamsFromContext pulls the URL parameters from a request context, or returns nil if none are present.
 
-#### func (Params) [ByName](https://github.com/julienschmidt/httprouter/blob/v1.3.0/router.go#L103)  <- 1.1.0
+#### (Params) ByName  <- 1.1.0
 
 ``` go
 func (ps Params) ByName(name string) string
