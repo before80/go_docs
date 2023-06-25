@@ -11,93 +11,94 @@ draft = false
 
 https://github.com/sirupsen/logrus/wiki/Hooks
 
-Owefsad edited this page on Feb 1 · [35 revisions](https://github.com/sirupsen/logrus/wiki/Hooks/_history)
+Owefsad 在 2 月 1 日编辑了此页面·[35 次修订](https://github.com/sirupsen/logrus/wiki/Hooks/_history)
 
 
 
-This page describes the list of known hooks services. The list is provided as is. They are not scrutinized nor reviewed by logrus developers.
+​	本页面列出了已知的钩子服务列表。这些列表按原样提供，未经 logrus 开发人员的审核或审查。
 
-| Hook                                                         | Description                                                  |
+| Hook                                                         | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Airbrake "legacy"](https://github.com/gemnasium/logrus-airbrake-legacy-hook) | Send errors to an exception tracking service compatible with the Airbrake API V2. Uses [`airbrake-go`](https://github.com/tobi/airbrake-go) behind the scenes. |
-| [Airbrake](https://github.com/gemnasium/logrus-airbrake-hook) | Send errors to the Airbrake API V3. Uses the official [`gobrake`](https://github.com/airbrake/gobrake) behind the scenes. |
-| [Amazon Kinesis](https://github.com/evalphobia/logrus_kinesis) | Hook for logging to [Amazon Kinesis](https://aws.amazon.com/kinesis/) |
-| [Amazon SNS](https://github.com/stvvan/logrus-sns)           | Hook for logging to [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) |
-| [Amazon EventBridge](https://github.com/teddy-schmitz/eventbridge_logrus) | Hook for logging to [Amazon EventBridge](https://aws.amazon.com/eventbridge/) |
-| [Amqp-Hook](https://github.com/vladoatanasov/logrus_amqp)    | Hook for logging to Amqp broker (Like RabbitMQ)              |
-| [Anexia CloudLog](https://github.com/anexia-it/go-logrus-cloudlog) | Hook for logging to Anexia CloudLog                          |
-| [Application Insights](https://github.com/jjcollinge/logrus-appinsights) | Hook for logging to [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) |
-| [AzureTableHook](https://github.com/kpfaulkner/azuretablehook/) | Hook for logging to Azure Table Storage                      |
-| [Bugsnag](https://github.com/Shopify/logrus-bugsnag/blob/master/bugsnag.go) | Send errors to the Bugsnag exception tracking service.       |
-| [ClickHouse](https://github.com/oxgrouby/logrus-clickhouse-hook) | Send logs to [ClickHouse](https://clickhouse.yandex/)        |
-| [Datadog Log](https://github.com/bin3377/logrus-datadog-hook) | Hook for logging to [Datadog](https://www.datadoghq.com/) over HTTP endpoint |
-| [Discord Bot Hook](https://github.com/outdead/discordbotrus) | Hook for logging to [Discord](https://discordapp.com/) using Discord app |
-| [Discordrus](https://github.com/kz/discordrus)               | Hook for logging to [Discord](https://discordapp.com/)       |
-| [Elastic APM](https://godoc.org/go.elastic.co/apm/module/apmlogrus#Hook) | Hook for logging errors to [Elastic APM](https://www.elastic.co/solutions/apm) |
-| [ElasticSearch](https://github.com/sohlich/elogrus)          | Hook for logging to ElasticSearch                            |
-| [ElasticSearch (with the official client)](https://github.com/go-extras/elogrus) | Hook for logging to ElasticSearch                            |
-| [Firehose](https://github.com/beaubrewer/logrus_firehose)    | Hook for logging to [Amazon Firehose](https://aws.amazon.com/kinesis/firehose/) |
-| [Fluentd](https://github.com/evalphobia/logrus_fluent)       | Hook for logging to fluentd                                  |
-| [Go-Slack](https://github.com/multiplay/go-slack)            | Hook for logging to [Slack](https://slack.com/)              |
-| [Graylog](https://github.com/gemnasium/logrus-graylog-hook)  | Hook for logging to [Graylog](http://graylog2.org/)          |
-| [Hiprus](https://github.com/nubo/hiprus)                     | Send errors to a channel in hipchat.                         |
-| [Honeybadger](https://github.com/agonzalezro/logrus_honeybadger) | Hook for sending exceptions to Honeybadger                   |
-| [InfluxDB](https://github.com/Abramovic/logrus_influxdb)     | Hook for logging to influxdb                                 |
-| [Influxus](http://github.com/vlad-doru/influxus)             | Hook for concurrently logging to [InfluxDB](http://influxdata.com/) |
-| [Journalhook](https://github.com/wercker/journalhook)        | Hook for logging to `systemd-journald`                       |
-| [KafkaLogrus](https://github.com/tracer0tong/kafkalogrus)    | Hook for logging to Kafka                                    |
-| [Kafka REST Proxy](https://github.com/Nordstrom/logrus-kafka-rest-proxy) | Hook for logging to [Kafka REST Proxy](https://docs.confluent.io/current/kafka-rest/docs) |
-| [LFShook](https://github.com/rifflock/lfshook)               | Hook for logging to the local filesystem                     |
-| [Logbeat](https://github.com/macandmia/logbeat)              | Hook for logging to [Opbeat](https://opbeat.com/)            |
-| [Logentries](https://github.com/jcftang/logentriesrus)       | Hook for logging to [Logentries](https://logentries.com/)    |
-| [Logentrus](https://github.com/puddingfactory/logentrus)     | Hook for logging to [Logentries](https://logentries.com/)    |
-| [Logmatic.io](https://github.com/logmatic/logmatic-go)       | Hook for logging to [Logmatic.io](http://logmatic.io/)       |
-| [Logrus Boltdb Hook](https://github.com/trK54Ylmz/logrus-boltdb-hook) | Hook for logging to boltdb                                   |
-| [Logrus Bolt Hook](https://github.com/kennykarnama/logrus-bolt-hook) | Hook for logging to boltdb                                   |
-| [Logrusly](https://github.com/sebest/logrusly)               | Send logs to [Loggly](https://www.loggly.com/)               |
-| [Logstash](https://github.com/bshuster-repo/logrus-logstash-hook) | Hook for logging to [Logstash](https://www.elastic.co/products/logstash) |
-| [Loki](https://github.com/YuKitsune/lokirus)                 | Hook for logging to [Loki](https://grafana.com/oss/loki/)    |
-| [Lumberjackrus](https://github.com/orandin/lumberjackrus)    | Hook for logging to the local filesystem (with logrotate and a file per log level) |
-| [Mail](https://github.com/zbindenren/logrus_mail)            | Hook for sending exceptions via mail                         |
-| [Mattermost](https://github.com/shuLhan/mattermost-integration/tree/master/hooks/logrus) | Hook for logging to [Mattermost](https://mattermost.com/)    |
-| [Mongodb](https://github.com/weekface/mgorus)                | Hook for logging to mongodb                                  |
-| [MongoDB](https://github.com/LyricTian/logrus-mongo-hook)    | An asynchronous MongoDB Hook                                 |
-| [MongoDB](https://github.com/geronimo794/go-mongolog)        | Hook for logging to MongoDB with [MongoDB Go driver](https://www.mongodb.com/docs/drivers/go/current/) |
-| [MySQL](https://github.com/LyricTian/logrus-mysql-hook)      | An asynchronous MySQL Hook                                   |
-| [NATS-Hook](https://github.com/rybit/nats_logrus_hook)       | Hook for logging to [NATS](https://nats.io/)                 |
-| [New Relic](https://github.com/abrunner94/rusrelic)          | Hook for logging to [New Relic](https://newrelic.com/)       |
-| [NXLog](https://github.com/hybridtheory/logrus-nxlog-hook)   | Hook for logging to [NXLog](https://nxlog.co/)               |
-| [Octokit](https://github.com/dorajistyle/logrus-octokit-hook) | Hook for logging to github via octokit                       |
-| [OpsGenie](https://github.com/JackFazackerley/logrus-opsgenie-hook) | Hook for OpsGenie.                                           |
-| [Papertrail](https://github.com/polds/logrus-papertrail-hook) | Send errors to the [Papertrail](https://papertrailapp.com/) hosted logging service via UDP. |
-| [PostgreSQL](https://github.com/gemnasium/logrus-postgresql-hook) | Send logs to [PostgreSQL](http://postgresql.org/)            |
-| [Promrus](https://github.com/weaveworks/promrus)             | Expose number of log messages as [Prometheus](https://prometheus.io/) metrics |
-| [Pushover](https://github.com/toorop/logrus_pushover)        | Send error via [Pushover](https://pushover.net/)             |
-| [Raygun](https://github.com/squirkle/logrus-raygun-hook)     | Hook for logging to [Raygun.io](http://raygun.io/)           |
-| [Redactrus](https://github.com/whuang8/redactrus)            | Redact sensitive information from your logs                  |
-| [Redis-Hook](https://github.com/rogierlommers/logrus-redis-hook) | Hook for logging to a ELK stack (through Redis)              |
-| [Rollrus](https://github.com/heroku/rollrus)                 | Hook for sending errors to rollbar                           |
-| [Rocketrus](https://github.com/miraclesu/rocketrus)          | Hook for RocketChat.                                         |
-| [Scribe](https://github.com/sagar8192/logrus-scribe-hook)    | Hook for logging to [Scribe](https://github.com/facebookarchive/scribe) |
-| [Sentrus](https://github.com/orandin/sentrus)                | Send errors to [Sentry](https://sentry.io/) (using the latest Sentry SDK: `sentry-go`) |
-| [Sentry](https://github.com/evalphobia/logrus_sentry)        | Send errors to the Sentry error logging and aggregation service. |
-| [Seq](https://github.com/nullseed/logruseq)                  | Hook for logging to [Seq](https://getseq.net/)               |
-| [Slackrus](https://github.com/johntdyer/slackrus)            | Hook for Slack chat.                                         |
-| [Splunk](https://github.com/Franco-Poveda/logrus-splunk-hook) | Hook for sending events to [Splunk](https://www.splunk.com/) |
-| [Stackdriver](https://github.com/knq/sdhook)                 | Hook for logging to [Google Stackdriver](https://cloud.google.com/logging/) |
-| [Sumologrus](https://github.com/mmarinm/sumologrus)          | Hook for logging to [SumoLogic](https://www.sumologic.com/)  |
-| [Sumorus](https://github.com/doublefree/sumorus)             | Hook for logging to [SumoLogic](https://www.sumologic.com/)  |
-| [Syslog](https://github.com/sirupsen/logrus/blob/master/hooks/syslog/syslog.go) | Send errors to remote syslog server. Uses standard library `log/syslog` behind the scenes. |
-| [Syslog TLS](https://github.com/shinji62/logrus-syslog-ng)   | Send errors to remote syslog server with TLS support.        |
-| [SQS-Hook](https://github.com/tsarpaul/logrus_sqs)           | Hook for logging to [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) |
-| [Telegram](https://github.com/rossmcdonald/telegram_hook)    | Hook for logging errors to [Telegram](https://telegram.org/) |
-| [Telegram](https://github.com/krasun/logrus2telegram)        | Hook for sending logs to [Telegram](https://telegram.org/)   |
-| [Tencent Cloud CLS](https://github.com/chuangbo/logruscls)   | Hook for [Tencent Cloud CLS](https://intl.cloud.tencent.com/document/product/614) ([zh-CN](https://cloud.tencent.com/document/product/614)) |
-| [TraceView](https://github.com/evalphobia/logrus_appneta)    | Hook for logging to [AppNeta TraceView](https://www.appneta.com/products/traceview/) |
-| [Typetalk](https://github.com/dragon3/logrus-typetalk-hook)  | Hook for logging to [Typetalk](https://www.typetalk.in/)     |
-| [Vkrus](https://github.com/SevereCloud/vkrus)                | Hook for logging to [VK](https://vk.com/)                    |
-| [Windows Event Log](https://github.com/freman/eventloghook)  | Hook for Windows Event Log                                   |
-| [Yandex Cloud Logging](https://github.com/DavyJohnes/logrus-yc-hoook) | Hook for logging to [Yandex Cloud Logging](https://cloud.yandex.ru/docs/logging/) |
-| [DingTalk](https://github.com/exexute/logrus-webhook#send-log-to-dingtalk-robot) | Hook for logging to [DingTalk Rebot](https://open.dingtalk.com/document/group/call-robot-api-operations) |
-| [FeiShu](https://github.com/exexute/logrus-webhook#send-log-to-feishu-webhook) | Hook for logging to [FeiShu Rebot](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v3/bot-overview) |
-| [Aliyun SLS](https://github.com/exexute/logrus-webhook#send-log-to-aliyun-sls) | Hook for logging to [Aliyun SLS](https://help.aliyun.com/document_detail/48869.html) |
+| [Airbrake "legacy"](https://github.com/gemnasium/logrus-airbrake-legacy-hook) | 将错误发送到与Airbrake API V2兼容的异常追踪服务。在幕后使用[`airbrake-go`](https://github.com/tobi/airbrake-go)。 |
+| [Airbrake](https://github.com/gemnasium/logrus-airbrake-hook) | 将错误发送到Airbrake API V3。在幕后使用官方的[`gobrake`](https://github.com/airbrake/gobrake)。 |
+| [Amazon Kinesis](https://github.com/evalphobia/logrus_kinesis) | 用于将日志记录到[Amazon Kinesis](https://aws.amazon.com/kinesis/)的钩子 |
+| [Amazon SNS](https://github.com/stvvan/logrus-sns)           | 用于将日志记录到[Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/)的钩子 |
+| [Amazon EventBridge](https://github.com/teddy-schmitz/eventbridge_logrus) | 用于将日志记录到[Amazon EventBridge](https://aws.amazon.com/eventbridge/)的Hook |
+| [Amqp-Hook](https://github.com/vladoatanasov/logrus_amqp)    | 用于将日志记录到Amqp代理（如RabbitMQ）的Hook                 |
+| [Anexia CloudLog](https://github.com/anexia-it/go-logrus-cloudlog) | 用于将日志记录到Anexia CloudLog的钩子                        |
+| [Application Insights](https://github.com/jjcollinge/logrus-appinsights) | 用于将日志记录到[Application Insights](https://azure.microsoft.com/en-us/services/application-insights/)的钩子 |
+| [AzureTableHook](https://github.com/kpfaulkner/azuretablehook/) | 用于将日志记录到Azure Table Storage的钩子                    |
+| [Bugsnag](https://github.com/Shopify/logrus-bugsnag/blob/master/bugsnag.go) | 将错误发送到Bugsnag异常追踪服务的钩子                        |
+| [ClickHouse](https://github.com/oxgrouby/logrus-clickhouse-hook) | 将日志发送到[ClickHouse](https://clickhouse.yandex/)的钩子   |
+| [Datadog Log](https://github.com/bin3377/logrus-datadog-hook) | 用于通过HTTP端点将日志记录到[Datadog](https://www.datadoghq.com/)的钩子 |
+| [Discord Bot Hook](https://github.com/outdead/discordbotrus) | 用于通过Discord应用将日志记录到[Discord](https://discordapp.com/)的钩子 |
+| [Discordrus](https://github.com/kz/discordrus)               | 用于将日志记录到[Discord](https://discordapp.com/)的钩子     |
+| [Elastic APM](https://godoc.org/go.elastic.co/apm/module/apmlogrus#Hook) | 用于将错误日志记录到[Elastic APM](https://www.elastic.co/solutions/apm)的钩子 |
+| [ElasticSearch（使用官方客户端）](https://github.com/go-extras/elogrus) | 用于将日志记录到ElasticSearch的钩子                          |
+| [Firehose](https://github.com/beaubrewer/logrus_firehose)    | 用于将日志记录到[Amazon Firehose](https://aws.amazon.com/kinesis/firehose/)的钩子 |
+| [Fluentd](https://github.com/evalphobia/logrus_fluent)       | 用于将日志记录到fluentd的钩子                                |
+| [Go-Slack](https://github.com/multiplay/go-slack)            | 用于将日志记录到[Slack](https://slack.com/)的钩子            |
+| [Graylog](https://github.com/gemnasium/logrus-graylog-hook)  | 用于将日志记录到[Graylog](http://graylog2.org/)的钩子        |
+| [Hiprus](https://github.com/nubo/hiprus)                     | 将错误发送到Hipchat频道的钩子                                |
+| [Honeybadger](https://github.com/agonzalezro/logrus_honeybadger) | 用于将异常发送到Honeybadger的钩子                            |
+| [InfluxDB](https://github.com/Abramovic/logrus_influxdb)     | 用于将日志记录到influxdb的钩子                               |
+| [Influxus](http://github.com/vlad-doru/influxus)             | 用于同时将日志记录到[InfluxDB](http://influxdata.com/)的钩子 |
+| [Journalhook](https://github.com/wercker/journalhook)        | 用于将日志记录到`systemd-journald`的钩子                     |
+| [KafkaLogrus](https://github.com/tracer0tong/kafkalogrus)    | 用于将日志记录到Kafka的钩子                                  |
+| [Kafka REST Proxy](https://github.com/Nordstrom/logrus-kafka-rest-proxy) | 用于将日志记录到[Kafka REST Proxy](https://docs.confluent.io/current/kafka-rest/docs)的钩子 |
+| [LFShook](https://github.com/rifflock/lfshook)               | 用于将日志记录到本地文件系统的钩子                           |
+| [Logbeat](https://github.com/macandmia/logbeat)              | 用于将日志记录到[Opbeat](https://opbeat.com/)的钩子          |
+| [Logentries](https://github.com/jcftang/logentriesrus)       | 用于将日志记录到[Logentries](https://logentries.com/)的钩子  |
+| [Logentrus](https://github.com/puddingfactory/logentrus)     | 用于将日志记录到[Logentries](https://logentries.com/)的钩子  |
+| [Logmatic.io](https://github.com/logmatic/logmatic-go)       | 用于将日志记录到 [Logmatic.io](http://logmatic.io/) 的钩子   |
+| [Logrus Boltdb Hook](https://github.com/trK54Ylmz/logrus-boltdb-hook) | 用于将日志记录到 boltdb 的钩子                               |
+| [Logrus Bolt Hook](https://github.com/kennykarnama/logrus-bolt-hook) | 用于将日志记录到 boltdb 的钩子                               |
+| [Logrusly](https://github.com/sebest/logrusly)               | 将日志发送到 [Loggly](https://www.loggly.com/) 的钩子        |
+| [Logstash](https://github.com/bshuster-repo/logrus-logstash-hook) | 用于将日志记录到 [Logstash](https://www.elastic.co/products/logstash) 的钩子 |
+| [Loki](https://github.com/YuKitsune/lokirus)                 | 用于将日志记录到 [Loki](https://grafana.com/oss/loki/) 的钩子 |
+| [Lumberjackrus](https://github.com/orandin/lumberjackrus)    | 用于将日志记录到本地文件系统（具有日志轮转和每个日志级别一个文件）的钩子 |
+| [Mail](https://github.com/zbindenren/logrus_mail)            | 用于通过电子邮件发送异常的钩子                               |
+| [Mattermost](https://github.com/shuLhan/mattermost-integration/tree/master/hooks/logrus) | 用于将日志记录到 [Mattermost](https://mattermost.com/) 的钩子 |
+| [Mongodb](https://github.com/weekface/mgorus)                | 用于将日志记录到 mongodb 的钩子                              |
+| [MongoDB](https://github.com/LyricTian/logrus-mongo-hook)    | 异步 MongoDB 钩子                                            |
+| [MongoDB](https://github.com/geronimo794/go-mongolog)        | 用于使用 [MongoDB Go driver](https://www.mongodb.com/docs/drivers/go/current/) 将日志记录到 MongoDB 的钩子 |
+| [MySQL](https://github.com/LyricTian/logrus-mysql-hook)      | 异步 MySQL 钩子                                              |
+| [NATS-Hook](https://github.com/rybit/nats_logrus_hook)       | 用于将日志记录到 [NATS](https://nats.io/) 的钩子             |
+| [New Relic](https://github.com/abrunner94/rusrelic)          | 用于将日志记录到 [New Relic](https://newrelic.com/) 的钩子   |
+| [NXLog](https://github.com/hybridtheory/logrus-nxlog-hook)   | 用于将日志记录到 [NXLog](https://nxlog.co/) 的钩子           |
+| [Octokit](https://github.com/dorajistyle/logrus-octokit-hook) | 用于通过 octokit 将日志记录到 GitHub 的钩子                  |
+| [OpsGenie](https://github.com/JackFazackerley/logrus-opsgenie-hook) | OpsGenie 的钩子                                              |
+| [Papertrail](https://github.com/polds/logrus-papertrail-hook) | 通过 UDP 将错误日志发送到托管日志服务 [Papertrail](https://papertrailapp.com/) |
+| [PostgreSQL](https://github.com/gemnasium/logrus-postgresql-hook) | 将日志发送到 [PostgreSQL](http://postgresql.org/)            |
+| [Promrus](https://github.com/weaveworks/promrus)             | 将日志消息数作为 [Prometheus](https://prometheus.io/) 指标暴露出来的钩子 |
+| [Pushover](https://github.com/toorop/logrus_pushover)        | 通过 [Pushover](https://pushover.net/) 发送错误的钩子        |
+| [Raygun](https://github.com/squirkle/logrus-raygun-hook)     | 用于将日志记录到 [Raygun.io](http://raygun.io/) 的钩子       |
+| [Redactrus](https://github.com/whuang8/redactrus)            | 从日志中删除敏感信息的钩子                                   |
+| [Redis-Hook](https://github.com/rogierlommers/logrus-redis-hook) | 用于将日志记录到 ELK 堆栈（通过 Redis）的钩子                |
+| [Rollrus](https://github.com/heroku/rollrus)                 | 将错误发送到 Rollbar 的钩子                                  |
+| [Rocketrus](https://github.com/miraclesu/rocketrus)          | RocketChat 的钩子                                            |
+| [Scribe](https://github.com/sagar8192/logrus-scribe-hook)    | 用于将日志记录到 [Scribe](https://github.com/facebookarchive/scribe) 的钩子 |
+| [Sentrus](https://github.com/orandin/sentrus)                | 将错误发送到 [Sentry](https://sentry.io/)（使用最新的 Sentry SDK：`sentry-go`）的钩子 |
+| [Sentry](https://github.com/evalphobia/logrus_sentry)        | 将错误发送到 Sentry 错误日志和聚合服务的钩子                 |
+| [Seq](https://github.com/nullseed/logruseq)                  | 用于将日志记录到 [Seq](https://getseq.net/) 的钩子           |
+| [Slackrus](https://github.com/johntdyer/slackrus)            | Slack 聊天的钩子                                             |
+| [Splunk](https://github.com/Franco-Poveda/logrus-splunk-hook) | 将事件发送到 [Splunk](https://www.splunk.com/) 的钩子        |
+| [Stackdriver](https://github.com/knq/sdhook)                 | 用于将日志记录到 [Google Stackdriver](https://cloud.google.com/logging/) 的钩子 |
+| [Sumologrus](https://github.com/mmarinm/sumologrus)          | 用于将日志记录到 [SumoLogic](https://www.sumologic.com/) 的钩子 |
+| [Sumorus](https://github.com/doublefree/sumorus)             | 用于将日志记录到 [SumoLogic](https://www.sumologic.com/) 的钩子 |
+| [Syslog](https://github.com/sirupsen/logrus/blob/master/hooks/syslog/syslog.go) | 将错误发送到远程 syslog 服务器的钩子。在幕后使用标准库 `log/syslog`。 |
+| [Syslog TLS](https://github.com/shinji62/logrus-syslog-ng)   | 带有 TLS 支持将错误发送到远程 syslog 服务器的钩子            |
+| [SQS-Hook](https://github.com/tsarpaul/logrus_sqs)           | 用于将日志记录到 [Amazon Simple Queue Service (SQS)](https://aws.amazon.com/sqs/) 的钩子 |
+| [Telegram](https://github.com/rossmcdonald/telegram_hook)    | 将错误日志记录到 [Telegram](https://telegram.org/) 的钩子    |
+| [Telegram](https://github.com/krasun/logrus2telegram)        | 将日志发送到 [Telegram](https://telegram.org/) 的钩子        |
+| [Tencent Cloud CLS](https://github.com/chuangbo/logruscls)   | 用于将日志记录到 [腾讯云 CLS](https://intl.cloud.tencent.com/document/product/614) 的钩子 |
+| [TraceView](https://github.com/evalphobia/logrus_appneta)    | 用于将日志记录到 [AppNeta TraceView](https://www.appneta.com/products/traceview/) 的钩子 |
+| [Typetalk](https://github.com/dragon3/logrus-typetalk-hook)  | 用于将日志记录到 [Typetalk](https://www.typetalk.in/) 的钩子 |
+| [Vkrus](https://github.com/SevereCloud/vkrus)                | 用于将日志记录到 [VK](https://vk.com/) 的钩子                |
+| [Windows Event Log](https://github.com/freman/eventloghook)  | Windows 事件日志的钩子                                       |
+| [Yandex Cloud Logging](https://github.com/DavyJohnes/logrus-yc-hoook) | 用于将日志记录到 [Yandex Cloud Logging](https://cloud.yandex.ru/docs/logging/) 的钩子 |
+| [DingTalk](https://github.com/exexute/logrus-webhook#send-log-to-dingtalk-robot) | 用于将日志记录到 [钉钉机器人](https://open.dingtalk.com/document/group/call-robot-api-operations) 的钩子 |
+| [FeiShu](https://github.com/exexute/logrus-webhook#send-log-to-feishu-webhook) | 用于将日志记录到 [飞书机器人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v3/bot-overview) 的钩子 |
+| [Aliyun SLS](https://github.com/exexute/logrus-webhook#send-log-to-aliyun-sls) | 用于将日志记录到 [阿里云 SLS](https://help.aliyun.com/document_detail/48869.html) 的钩子 |
+
+

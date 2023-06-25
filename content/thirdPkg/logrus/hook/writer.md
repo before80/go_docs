@@ -1,23 +1,24 @@
 +++
-title = "writer"
+title = "Logrus 的 Writer 钩子"
 date = 2023-06-25T09:29:23+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Writer Hooks for Logrus
+# Writer Hooks for Logrus - Logrus 的 Writer 钩子
 
 https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer
 
-Send logs of given levels to any object with `io.Writer` interface.
+​	将指定级别的日志发送到任何实现了 `io.Writer` 接口的对象。
 
-## Usage
+## 用法
 
-If you want for example send high level logs to `Stderr` and logs of normal execution to `Stdout`, you could do it like this:
+​	如果你想将高级别的日志发送到 `Stderr`，将正常执行的日志发送到 `Stdout`，可以按照以下方式实现：
 
-```
+```go
 package main
 
 import (
@@ -29,9 +30,9 @@ import (
 )
 
 func main() {
-	log.SetOutput(ioutil.Discard) // Send all logs to nowhere by default
+	log.SetOutput(ioutil.Discard) // 默认将所有日志发送到 nowhere
 
-	log.AddHook(&writer.Hook{ // Send logs with level higher than warning to stderr
+	log.AddHook(&writer.Hook{ // 将级别高于 warning 的日志发送到 stderr
 		Writer: os.Stderr,
 		LogLevels: []log.Level{
 			log.PanicLevel,
@@ -40,7 +41,8 @@ func main() {
 			log.WarnLevel,
 		},
 	})
-	log.AddHook(&writer.Hook{ // Send info and debug logs to stdout
+    
+	log.AddHook(&writer.Hook{ // 将 info 和 debug 级别的日志发送到 stdout
 		Writer: os.Stdout,
 		LogLevels: []log.Level{
 			log.InfoLevel,

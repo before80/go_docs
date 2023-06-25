@@ -665,7 +665,7 @@ var AllLevels = []Level{
 
 A constant exposing all logging levels
 
-​	一个常量，暴露所有的日志级别
+​	一个常量（应该是一个变量吧），暴露所有的日志级别
 
 [View Source](https://github.com/sirupsen/logrus/blob/v1.9.3/entry.go#L38)
 
@@ -685,8 +685,6 @@ Defines the key when adding errors using WithError.
 func AddHook(hook Hook)
 ```
 
-AddHook adds a hook to the standard logger hooks.
-
 ​	AddHook 函数向标准日志记录器的钩子列表中添加一个钩子。
 
 #### func Debug 
@@ -694,8 +692,6 @@ AddHook adds a hook to the standard logger hooks.
 ``` go
 func Debug(args ...interface{})
 ```
-
-Debug logs a message at level Debug on the standard logger.
 
 ​	Debug 函数在标准日志记录器上以 Debug 级别记录一条消息。
 
@@ -705,8 +701,6 @@ Debug logs a message at level Debug on the standard logger.
 func DebugFn(fn LogFunction)
 ```
 
-DebugFn logs a message from a func at level Debug on the standard logger.
-
 ​	DebugFn 函数在标准日志记录器上以 Debug 级别从函数中记录一条消息。
 
 #### func Debugf <-0.4.1
@@ -714,8 +708,6 @@ DebugFn logs a message from a func at level Debug on the standard logger.
 ``` go
 func Debugf(format string, args ...interface{})
 ```
-
-Debugf logs a message at level Debug on the standard logger.
 
 ​	Debugf 函数在标准日志记录器上以 Debug 级别记录一条格式化消息。
 
@@ -725,8 +717,6 @@ Debugf logs a message at level Debug on the standard logger.
 func Debugln(args ...interface{})
 ```
 
-Debugln logs a message at level Debug on the standard logger.
-
 ​	Debugln 函数在标准日志记录器上以 Debug 级别记录一条消息。
 
 #### func DeferExitHandler <-1.4.0
@@ -735,11 +725,7 @@ Debugln logs a message at level Debug on the standard logger.
 func DeferExitHandler(handler func())
 ```
 
-DeferExitHandler prepends a Logrus Exit handler to the list of handlers, call logrus.Exit to invoke all handlers. The handlers will also be invoked when any Fatal log entry is made.
-
-​	DeferExitHandler 函数在处理程序列表的前面添加一个 Logrus 退出处理程序，调用 logrus.Exit 来调用所有处理程序。当发生任何致命日志条目时，也将调用这些处理程序。
-
-This method is useful when a caller wishes to use logrus to log a fatal message but also needs to gracefully shutdown. An example usecase could be closing database connections, or sending a alert that the application is closing.
+​	DeferExitHandler 函数在处理程序列表的前面添加一个 Logrus Exit 处理程序，调用 logrus.Exit 来调用所有处理程序。当发生任何致命日志条目时，也将调用这些处理程序。
 
 ​	当调用者希望使用 logrus 记录致命消息，但同时需要优雅地关闭时，此方法非常有用。例如，关闭数据库连接或发送应用程序关闭的警报。
 
@@ -749,8 +735,6 @@ This method is useful when a caller wishes to use logrus to log a fatal message 
 func Error(args ...interface{})
 ```
 
-Error logs a message at level Error on the standard logger.
-
 ​	Error 函数在标准日志记录器上以 Error 级别记录一条消息。
 
 #### func ErrorFn <-1.7.0
@@ -758,8 +742,6 @@ Error logs a message at level Error on the standard logger.
 ``` go
 func ErrorFn(fn LogFunction)
 ```
-
-ErrorFn logs a message from a func at level Error on the standard logger.
 
 ​	ErrorFn 函数在标准日志记录器上以 Error 级别从函数中记录一条消息。
 
@@ -769,8 +751,6 @@ ErrorFn logs a message from a func at level Error on the standard logger.
 func Errorf(format string, args ...interface{})
 ```
 
-Errorf logs a message at level Error on the standard logger.
-
 ​	Errorf 函数在标准日志记录器上以 Error 级别记录一条格式化消息。
 
 #### func Errorln <-0.4.1
@@ -778,8 +758,6 @@ Errorf logs a message at level Error on the standard logger.
 ``` go
 func Errorln(args ...interface{})
 ```
-
-Errorln logs a message at level Error on the standard logger.
 
 ​	Errorln 函数在标准日志记录器上以 Error 级别记录一条消息。
 
@@ -789,8 +767,6 @@ Errorln logs a message at level Error on the standard logger.
 func Exit(code int)
 ```
 
-Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
-
 ​	Exit 函数运行所有 Logrus 的退出处理程序，然后使用 os.Exit(code) 终止程序。
 
 #### func Fatal 
@@ -798,8 +774,6 @@ Exit runs all the Logrus atexit handlers and then terminates the program using o
 ``` go
 func Fatal(args ...interface{})
 ```
-
-Fatal logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
 
 ​	Fatal 函数在标准日志记录器上以 Fatal 级别记录一条消息，然后进程将以状态 1 退出。
 
@@ -809,8 +783,6 @@ Fatal logs a message at level Fatal on the standard logger then the process will
 func FatalFn(fn LogFunction)
 ```
 
-FatalFn logs a message from a func at level Fatal on the standard logger then the process will exit with status set to 1.
-
 ​	FatalFn 函数在标准日志记录器上以 Fatal 级别从函数中记录一条消息，然后进程将以状态 1 退出。
 
 #### func Fatalf <-0.4.1
@@ -818,8 +790,6 @@ FatalFn logs a message from a func at level Fatal on the standard logger then th
 ``` go
 func Fatalf(format string, args ...interface{})
 ```
-
-Fatalf logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
 
 ​	Fatalf 函数在标准日志记录器上以 Fatal 级别记录一条格式化消息，然后进程将以状态 1 退出。
 
@@ -829,8 +799,6 @@ Fatalf logs a message at level Fatal on the standard logger then the process wil
 func Fatalln(args ...interface{})
 ```
 
-Fatalln logs a message at level Fatal on the standard logger then the process will exit with status set to 1.
-
 ​	Fatalln 函数在标准日志记录器上以 Fatal 级别记录一条消息，然后进程将以状态 1 退出。
 
 #### func Info 
@@ -838,8 +806,6 @@ Fatalln logs a message at level Fatal on the standard logger then the process wi
 ``` go
 func Info(args ...interface{})
 ```
-
-Info logs a message at level Info on the standard logger.
 
 ​	Info 函数在标准日志记录器上以 Info 级别记录一条消息。
 
@@ -849,8 +815,6 @@ Info logs a message at level Info on the standard logger.
 func InfoFn(fn LogFunction)
 ```
 
-InfoFn logs a message from a func at level Info on the standard logger.
-
 ​	InfoFn 函数在标准日志记录器上以 Info 级别从函数中记录一条消息。
 
 #### func Infof <-0.4.1
@@ -858,8 +822,6 @@ InfoFn logs a message from a func at level Info on the standard logger.
 ``` go
 func Infof(format string, args ...interface{})
 ```
-
-Infof logs a message at level Info on the standard logger.
 
 ​	Infof 函数在标准日志记录器上以 Info 级别记录一条格式化消息。
 
@@ -869,8 +831,6 @@ Infof logs a message at level Info on the standard logger.
 func Infoln(args ...interface{})
 ```
 
-Infoln logs a message at level Info on the standard logger.
-
 ​	Infoln 函数在标准日志记录器上以 Info 级别记录一条消息。
 
 #### func IsLevelEnabled <-1.1.0
@@ -878,8 +838,6 @@ Infoln logs a message at level Info on the standard logger.
 ``` go
 func IsLevelEnabled(level Level) bool
 ```
-
-IsLevelEnabled checks if the log level of the standard logger is greater than the level param
 
 ​	IsLevelEnabled 函数检查标准日志记录器的日志级别是否大于 level 参数。
 
@@ -889,8 +847,6 @@ IsLevelEnabled checks if the log level of the standard logger is greater than th
 func Panic(args ...interface{})
 ```
 
-Panic logs a message at level Panic on the standard logger.
-
 ​	Panic 函数在标准日志记录器上以 Panic 级别记录一条消息。
 
 #### func PanicFn <-1.7.0
@@ -898,8 +854,6 @@ Panic logs a message at level Panic on the standard logger.
 ``` go
 func PanicFn(fn LogFunction)
 ```
-
-PanicFn logs a message from a func at level Panic on the standard logger.
 
 ​	PanicFn函数在标准日志记录器上以 Panic 级别从函数中记录一条消息。
 
@@ -909,8 +863,6 @@ PanicFn logs a message from a func at level Panic on the standard logger.
 func Panicf(format string, args ...interface{})
 ```
 
-Panicf logs a message at level Panic on the standard logger.
-
 ​	Panicf 函数在标准日志记录器上以 Panic 级别记录一条格式化消息。
 
 #### func Panicln <-0.4.1
@@ -918,8 +870,6 @@ Panicf logs a message at level Panic on the standard logger.
 ``` go
 func Panicln(args ...interface{})
 ```
-
-Panicln logs a message at level Panic on the standard logger.
 
 ​	Panicln 函数在标准日志记录器上以 Panic 级别记录一条消息。
 
@@ -929,8 +879,6 @@ Panicln logs a message at level Panic on the standard logger.
 func Print(args ...interface{})
 ```
 
-Print logs a message at level Info on the standard logger.
-
 ​	Print 函数在标准日志记录器上以 Info 级别记录一条消息。
 
 #### func PrintFn <-1.7.0
@@ -938,8 +886,6 @@ Print logs a message at level Info on the standard logger.
 ``` go
 func PrintFn(fn LogFunction)
 ```
-
-PrintFn logs a message from a func at level Info on the standard logger.
 
 ​	PrintFn 函数在标准日志记录器上以 Info 级别从函数中记录一条消息。
 
@@ -949,8 +895,6 @@ PrintFn logs a message from a func at level Info on the standard logger.
 func Printf(format string, args ...interface{})
 ```
 
-Printf logs a message at level Info on the standard logger.
-
 ​	Printf 函数在标准日志记录器上以 Info 级别记录一条格式化消息。
 
 #### func Println <-0.4.1
@@ -958,8 +902,6 @@ Printf logs a message at level Info on the standard logger.
 ``` go
 func Println(args ...interface{})
 ```
-
-Println logs a message at level Info on the standard logger.
 
 ​	Println 函数在标准日志记录器上以 Info 级别记录一条消息。
 
@@ -969,11 +911,7 @@ Println logs a message at level Info on the standard logger.
 func RegisterExitHandler(handler func())
 ```
 
-RegisterExitHandler appends a Logrus Exit handler to the list of handlers, call logrus.Exit to invoke all handlers. The handlers will also be invoked when any Fatal log entry is made.
-
-​	RegisterExitHandler 函数将一个 Logrus 退出处理程序附加到处理程序列表中，调用 logrus.Exit 来调用所有处理程序。当发生任何致命日志条目时，也将调用这些处理程序。
-
-This method is useful when a caller wishes to use logrus to log a fatal message but also needs to gracefully shutdown. An example usecase could be closing database connections, or sending a alert that the application is closing.
+​	RegisterExitHandler 函数将一个 Logrus Exit 处理程序附加到处理程序列表中，调用 logrus.Exit 来调用所有处理程序。当发生任何Fatal 日志条目时，也将调用这些处理程序。
 
 ​	当调用者希望使用 logrus 记录致命消息，但同时需要优雅地关闭时，此方法非常有用。例如，关闭数据库连接或发送应用程序关闭的警报。
 
@@ -983,8 +921,6 @@ This method is useful when a caller wishes to use logrus to log a fatal message 
 func SetBufferPool(bp BufferPool)
 ```
 
-SetBufferPool allows to replace the default logrus buffer pool to better meets the specific needs of an application.
-
 ​	SetBufferPool 函数允许替换默认的 logrus 缓冲池，以更好地满足应用程序的特定需求。
 
 #### func SetFormatter <-0.4.0
@@ -992,8 +928,6 @@ SetBufferPool allows to replace the default logrus buffer pool to better meets t
 ``` go
 func SetFormatter(formatter Formatter)
 ```
-
-SetFormatter sets the standard logger formatter.
 
 ​	SetFormatter 函数设置标准日志记录器的格式化程序。
 
@@ -1003,8 +937,6 @@ SetFormatter sets the standard logger formatter.
 func SetLevel(level Level)
 ```
 
-SetLevel sets the standard logger level.
-
 ​	SetLevel 函数设置标准日志记录器的日志级别。
 
 #### func SetOutput <-0.4.0
@@ -1012,8 +944,6 @@ SetLevel sets the standard logger level.
 ``` go
 func SetOutput(out io.Writer)
 ```
-
-SetOutput sets the standard logger output.
 
 ​	SetOutput 函数设置标准日志记录器的输出。
 
@@ -1023,8 +953,6 @@ SetOutput sets the standard logger output.
 func SetReportCaller(include bool)
 ```
 
-SetReportCaller sets whether the standard logger will include the calling method as a field.
-
 ​	SetReportCaller 函数设置标准日志记录器是否将调用方法作为字段包含在内。
 
 #### func Trace <-1.2.0
@@ -1032,8 +960,6 @@ SetReportCaller sets whether the standard logger will include the calling method
 ``` go
 func Trace(args ...interface{})
 ```
-
-Trace logs a message at level Trace on the standard logger.
 
 ​	Trace 函数在标准日志记录器上以 Trace 级别记录一条消息。
 
@@ -1043,8 +969,6 @@ Trace logs a message at level Trace on the standard logger.
 func TraceFn(fn LogFunction)
 ```
 
-TraceFn logs a message from a func at level Trace on the standard logger.
-
 ​	TraceFn函数在标准记录器上以Trace级别记录来自函数的消息。
 
 #### func Tracef <-1.2.0
@@ -1052,8 +976,6 @@ TraceFn logs a message from a func at level Trace on the standard logger.
 ``` go
 func Tracef(format string, args ...interface{})
 ```
-
-Tracef logs a message at level Trace on the standard logger.
 
 ​	Tracef函数在标准记录器上以Trace级别记录消息。
 
@@ -1063,8 +985,6 @@ Tracef logs a message at level Trace on the standard logger.
 func Traceln(args ...interface{})
 ```
 
-Traceln logs a message at level Trace on the standard logger.
-
 ​	Traceln函数在标准记录器上以Trace级别记录消息。
 
 #### func Warn 
@@ -1072,8 +992,6 @@ Traceln logs a message at level Trace on the standard logger.
 ``` go
 func Warn(args ...interface{})
 ```
-
-Warn logs a message at level Warn on the standard logger.
 
 ​	Warn函数在标准记录器上以Warn级别记录消息。
 
@@ -1083,8 +1001,6 @@ Warn logs a message at level Warn on the standard logger.
 func WarnFn(fn LogFunction)
 ```
 
-WarnFn logs a message from a func at level Warn on the standard logger.
-
 ​	WarnFn函数在标准记录器上以Warn级别记录来自函数的消息。
 
 #### func Warnf <-0.4.1
@@ -1092,8 +1008,6 @@ WarnFn logs a message from a func at level Warn on the standard logger.
 ``` go
 func Warnf(format string, args ...interface{})
 ```
-
-Warnf logs a message at level Warn on the standard logger.
 
 ​	Warnf函数在标准记录器上以Warn级别记录消息。
 
@@ -1103,8 +1017,6 @@ Warnf logs a message at level Warn on the standard logger.
 func Warning(args ...interface{})
 ```
 
-Warning logs a message at level Warn on the standard logger.
-
 ​	Warning函数在标准记录器上以Warn级别记录消息。
 
 #### func WarningFn <-1.7.0
@@ -1112,8 +1024,6 @@ Warning logs a message at level Warn on the standard logger.
 ``` go
 func WarningFn(fn LogFunction)
 ```
-
-WarningFn logs a message from a func at level Warn on the standard logger.
 
 ​	WarningFn函数在标准记录器上以Warn级别记录来自函数的消息。
 
@@ -1123,8 +1033,6 @@ WarningFn logs a message from a func at level Warn on the standard logger.
 func Warningf(format string, args ...interface{})
 ```
 
-Warningf logs a message at level Warn on the standard logger.
-
 ​	Warningf函数在标准记录器上以Warn级别记录消息。
 
 #### func Warningln <-0.4.1
@@ -1132,8 +1040,6 @@ Warningf logs a message at level Warn on the standard logger.
 ``` go
 func Warningln(args ...interface{})
 ```
-
-Warningln logs a message at level Warn on the standard logger.
 
 ​	Warningln函数在标准记录器上以Warn级别记录消息。
 
@@ -1143,11 +1049,9 @@ Warningln logs a message at level Warn on the standard logger.
 func Warnln(args ...interface{})
 ```
 
-Warnln logs a message at level Warn on the standard logger.
-
 ​	Warnln函数在标准记录器上以Warn级别记录消息。
 
-### Types 
+### 类型 
 
 #### type BufferPool <-1.7.0
 
@@ -1163,26 +1067,20 @@ type BufferPool interface {
 ``` go
 type Entry struct {
 	Logger *Logger
-
-	// Contains all the fields set by the user.    
+	  
     // 包含用户设置的所有字段。
 	Data Fields
-
-	// Time at which the log entry was created    
+	  
     // 日志条目创建的时间
 	Time time.Time
-
-	// Level the log entry was logged at: Trace, Debug, Info, Warn, Error, Fatal or Panic
-	// This field will be set on entry firing and the value will be equal to the one in Logger struct field.    
+  
     // 日志条目记录的级别：Trace、Debug、Info、Warn、Error、Fatal或Panic
 	// 此字段将在触发条目时设置，并且其值将等于Logger结构字段中的值。
 	Level Level
 
-	// Calling method, with package name    
     // 调用方法，包括包名
 	Caller *runtime.Frame
 
-	// Message passed to Trace, Debug, Info, Warn, Error, Fatal or Panic
     // 传递给Trace、Debug、Info、Warn、Error、Fatal或Panic的消息
 	Message string
 
@@ -1190,16 +1088,13 @@ type Entry struct {
     // 当调用entry.log()时，可以将Buffer设置为entry
 	Buffer *bytes.Buffer
 
-	// Contains the context set by the user. Useful for hook processing etc.
     // 包含用户设置的上下文。对于钩子处理等非常有用。
 	Context context.Context
 	// contains filtered or unexported fields
 }
 ```
 
-An entry is the final or intermediate Logrus logging entry. It contains all the fields passed with WithField{,s}. It's finally logged when Trace, Debug, Info, Warn, Error, Fatal or Panic is called on it. These objects can be reused and passed around as much as you wish to avoid field duplication.
-
-​	Entry结构体是最终或中间的Logrus日志条目。它包含通过WithField{,s}传递的所有字段。当在其上调用Trace、Debug、Info、Warn、Error、Fatal或Panic时，它最终被记录。这些对象可以重复使用并传递，以避免字段重复。
+​	Entry结构体是最终或中间的Logrus日志条目。它包含通过`WithField{,s}`传递的所有字段。当在其上调用Trace、Debug、Info、Warn、Error、Fatal或Panic时，它最终被记录。这些对象可以重复使用并传递，以避免字段重复。
 
 #### func NewEntry 
 
@@ -1213,8 +1108,6 @@ func NewEntry(logger *Logger) *Entry
 func WithContext(ctx context.Context) *Entry
 ```
 
-WithContext creates an entry from the standard logger and adds a context to it.
-
 ​	WithContext函数从标准记录器创建一个条目，并向其添加上下文。
 
 #### func WithError <-0.8.7
@@ -1223,9 +1116,7 @@ WithContext creates an entry from the standard logger and adds a context to it.
 func WithError(err error) *Entry
 ```
 
-WithError creates an entry from the standard logger and adds an error to it, using the value defined in ErrorKey as key.
-
-​	WithError函数从标准记录器创建一个条目，并向其添加错误，使用ErrorKey中定义的键名。
+​	WithError函数从标准记录器创建一个条目，并向其添加错误，使用ErrorKey变量中定义的键名。
 
 #### func WithField <-0.4.0
 
@@ -1233,13 +1124,10 @@ WithError creates an entry from the standard logger and adds an error to it, usi
 func WithField(key string, value interface{}) *Entry
 ```
 
-WithField creates an entry from the standard logger and adds a field to it. If you want multiple fields, use `WithFields`.
-
 ​	WithField函数从标准记录器创建一个条目，并向其添加一个字段。如果要添加多个字段，请使用`WithFields`。
 
-Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic on the Entry it returns.
-
-请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+> ​	请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+>
 
 #### func WithFields <-0.4.0
 
@@ -1247,13 +1135,10 @@ Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic
 func WithFields(fields Fields) *Entry
 ```
 
-WithFields creates an entry from the standard logger and adds multiple fields to it. This is simply a helper for `WithField`, invoking it once for each field.
+​	WithFields函数从标准记录器创建一个条目，并向其添加多个字段。这只是 `WithField` 的一个辅助函数，为每个字段调用它一次。
 
-​	WithFields函数从标准记录器创建一个条目，并向其添加多个字段。这只是`WithField`的辅助函数，为每个字段调用它一次。
-
-Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic on the Entry it returns.
-
-请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+> 请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+>
 
 #### func WithTime <-1.0.6
 
@@ -1261,13 +1146,10 @@ Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic
 func WithTime(t time.Time) *Entry
 ```
 
-WithTime creates an entry from the standard logger and overrides the time of logs generated with it.
+​	WithTime函数从标准记录器创建一个条目，并使用它生成的时间覆盖日志的时间。
 
-​	WithTime函数从标准记录器创建一个条目，并覆盖使用它生成的日志的时间。
-
-Note that it doesn't log until you call Debug, Print, Info, Warn, Fatal or Panic on the Entry it returns.
-
-请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+> ​	请注意，直到调用返回的条目上的Debug、Print、Info、Warn、Fatal或Panic时，它才会记录日志。
+>
 
 #### (*Entry) Bytes <-1.5.0
 
@@ -1369,9 +1251,11 @@ func (entry *Entry) Infoln(args ...interface{})
 func (entry *Entry) Log(level Level, args ...interface{})
 ```
 
-Log will log a message at the level given as parameter. Warning: using Log at Panic or Fatal level will not respectively Panic nor Exit. For this behaviour Entry.Panic or Entry.Fatal should be used instead.
+​	Log方法会以给定的级别记录一条消息。
 
-​	Log方法会以给定的级别记录一条消息。警告：在Panic或Fatal级别使用Log不会触发Panic或退出。应使用Entry.Panic或Entry.Fatal代替。
+> 警告
+>
+> ​	在Panic或Fatal级别使用Log不会触发Panic或Exit。应使用Entry.Panic或Entry.Fatal来代替。
 
 #### (*Entry) Logf <-1.3.0
 
@@ -1426,8 +1310,6 @@ func (entry *Entry) Println(args ...interface{})
 ``` go
 func (entry *Entry) String() (string, error)
 ```
-
-Returns the string representation from the reader and ultimately the formatter.
 
 ​	返回从读取器（reader）和最终格式化器（formatter）获取的字符串表示形式。
 
@@ -1491,8 +1373,6 @@ func (entry *Entry) Warnln(args ...interface{})
 func (entry *Entry) WithContext(ctx context.Context) *Entry
 ```
 
-Add a context to the Entry.
-
 ​	向Entry添加一个上下文（context）。
 
 #### (*Entry) WithError <-0.8.7
@@ -1501,17 +1381,13 @@ Add a context to the Entry.
 func (entry *Entry) WithError(err error) *Entry
 ```
 
-Add an error as single field (using the key defined in ErrorKey) to the Entry.
-
-​	将错误作为单个字段（使用ErrorKey中定义的键）添加到Entry。
+​	将错误作为单个字段（使用ErrorKey变量中定义的键）添加到Entry。
 
 #### (*Entry) WithField 
 
 ``` go
 func (entry *Entry) WithField(key string, value interface{}) *Entry
 ```
-
-Add a single field to the Entry.
 
 ​	向Entry添加一个字段。
 
@@ -1523,7 +1399,7 @@ func (entry *Entry) WithFields(fields Fields) *Entry
 
 Add a map of fields to the Entry.
 
-​	向Entry添加一组字段。
+​	向Entry添加一些字段的映射。
 
 #### (*Entry) WithTime <-1.0.6
 
@@ -1533,7 +1409,7 @@ func (entry *Entry) WithTime(t time.Time) *Entry
 
 Overrides the time of the Entry.
 
-​		覆盖Entry的时间。
+​		覆盖Entry中的时间。
 
 #### (*Entry) Writer <-0.11.5
 
@@ -1541,9 +1417,7 @@ Overrides the time of the Entry.
 func (entry *Entry) Writer() *io.PipeWriter
 ```
 
-Writer returns an io.Writer that writes to the logger at the info log level
-
-​	Writer方法返回一个io.Writer，将日志写入info级别的记录器。
+​	Writer方法返回一个io.Writer，将日志写入info日志级别的日志记录器。
 
 #### (*Entry) WriterLevel <-0.11.5
 
@@ -1551,9 +1425,7 @@ Writer returns an io.Writer that writes to the logger at the info log level
 func (entry *Entry) WriterLevel(level Level) *io.PipeWriter
 ```
 
-WriterLevel returns an io.Writer that writes to the logger at the given log level
-
-​	WriterLevel方法返回一个io.Writer，将日志写入指定的日志级别的记录器。
+​	WriterLevel方法返回一个io.Writer，将日志写入指定的日志级别的日志记录器。
 
 #### type Ext1FieldLogger <-1.2.0
 
@@ -1565,8 +1437,6 @@ type Ext1FieldLogger interface {
 	Traceln(args ...interface{})
 }
 ```
-
-Ext1FieldLogger (the first extension to FieldLogger) is superfluous, it is here for consistancy. Do not use. Use Logger or Entry instead.
 
 ​	Ext1FieldLogger接口（FieldLogger的第一个扩展）是多余的，它存在只是为了一致性。不要使用它，请改用Logger或Entry。
 
@@ -1607,17 +1477,13 @@ type FieldLogger interface {
 }
 ```
 
-The FieldLogger interface generalizes the Entry and Logger types
-
-​	FieldLogger接口泛化了Entry和Logger类型。
+​	FieldLogger接口泛化了（generalizes ）Entry和Logger类型。
 
 #### type FieldMap <-0.11.1
 
 ``` go
 type FieldMap map[fieldKey]string
 ```
-
-FieldMap allows customization of the key names for default fields.
 
 ​	FieldMap类型允许自定义默认字段的键名称。
 
@@ -1643,15 +1509,10 @@ The Formatter interface is used to implement a custom Formatter. It takes an `En
 
 ​	Formatter接口用于实现自定义格式化器。它接受一个`Entry`，暴露所有字段，包括默认字段： 
 
-* `entry.Data["msg"]`. The message passed from Info, Warn, Error .. 
-
-* `entry.Data["time"]`. The timestamp. 
-* `entry.Data["level"]. The level the entry was logged at.
 * `entry.Data["msg"]`：从Info、Warn、Error等传递的消息。
+
 * `entry.Data["time"]`：时间戳。
 * `entry.Data["level"]`：记录的级别。
-
-Any additional fields added with `WithField` or `WithFields` are also in `entry.Data`. Format is expected to return an array of bytes which are then logged to `logger.Out`.
 
 ​	使用`WithField`或`WithFields`添加的任何附加字段也在`entry.Data`中。Format函数应返回一个字节数组，然后将其记录到`logger.Out`。
 
