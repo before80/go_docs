@@ -473,7 +473,7 @@ logrus.RegisterExitHandler(handler)
 
 [Rendered for](https://go.dev/about#build-context) linux/amd64                                 
 
-### 概述 
+## 概述 
 
 ​	Logrus包是Go语言的结构化日志记录器（logger），完全与标准库日志记录器兼容的API。
 
@@ -503,7 +503,7 @@ time="2015-09-07T08:48:33Z" level=info msg="A walrus appears" animal=walrus numb
 
 ​	要获取完整的指南，请访问 [https://github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)。
 
-##### Example (Basic)
+### Example (Basic)
 
 ``` go
 package main
@@ -585,7 +585,7 @@ level=debug msg="Temperature changes" temperature=-4
 level=panic msg="It's over 9000!" animal=orca size=9009
 level=error msg="The ice breaks!" err_animal=orca err_level=panic err_message="It's over 9000!" err_size=9009 number=100 omg=true
 ```
-##### Example (Hook)
+### Example (Hook)
 
 ``` go
 package main
@@ -1053,7 +1053,7 @@ func Warnln(args ...interface{})
 
 ### 类型 
 
-#### type BufferPool <-1.7.0
+### type BufferPool <-1.7.0
 
 ``` go
 type BufferPool interface {
@@ -1062,7 +1062,7 @@ type BufferPool interface {
 }
 ```
 
-#### type Entry 
+### type Entry 
 
 ``` go
 type Entry struct {
@@ -1427,7 +1427,7 @@ func (entry *Entry) WriterLevel(level Level) *io.PipeWriter
 
 ​	WriterLevel方法返回一个io.Writer，将日志写入指定的日志级别的日志记录器。
 
-#### type Ext1FieldLogger <-1.2.0
+### type Ext1FieldLogger <-1.2.0
 
 ``` go
 type Ext1FieldLogger interface {
@@ -1440,7 +1440,7 @@ type Ext1FieldLogger interface {
 
 ​	Ext1FieldLogger接口（FieldLogger的第一个扩展）是多余的，它存在只是为了一致性。不要使用它，请改用Logger或Entry。
 
-#### type FieldLogger <-0.10.0
+### type FieldLogger <-0.10.0
 
 ``` go
 type FieldLogger interface {
@@ -1479,7 +1479,7 @@ type FieldLogger interface {
 
 ​	FieldLogger接口泛化了（generalizes ）Entry和Logger类型。
 
-#### type FieldMap <-0.11.1
+### type FieldMap <-0.11.1
 
 ``` go
 type FieldMap map[fieldKey]string
@@ -1487,7 +1487,7 @@ type FieldMap map[fieldKey]string
 
 ​	FieldMap类型允许自定义默认字段的键名称。
 
-#### type Fields 
+### type Fields 
 
 ``` go
 type Fields map[string]interface{}
@@ -1497,7 +1497,7 @@ Fields type, used to pass to `WithFields`.
 
 ​	Fields类型，用于传递给`WithFields`。
 
-#### type Formatter 
+### type Formatter 
 
 ``` go
 type Formatter interface {
@@ -1516,7 +1516,7 @@ The Formatter interface is used to implement a custom Formatter. It takes an `En
 
 ​	使用`WithField`或`WithFields`添加的任何附加字段也在`entry.Data`中。Format函数应返回一个字节数组，然后将其记录到`logger.Out`。
 
-#### type Hook 
+### type Hook 
 
 ``` go
 type Hook interface {
@@ -1529,7 +1529,7 @@ A hook to be fired when logging on the logging levels returned from `Levels()` o
 
 ​	在与接口的实现一起返回`Levels()`中的日志级别时，触发的钩子。注意，这不会在goroutine或带有工作者的通道中触发，如果您的调用是非阻塞的并且不希望阻止`Levels()`返回的日志级别的日志调用，则应自行处理此功能。
 
-#### type JSONFormatter 
+### type JSONFormatter 
 
 ``` go
 type JSONFormatter struct {
@@ -1596,7 +1596,7 @@ Format renders a single log entry
 
 ​	Format方法格式化单个日志条目。
 
-#### type Level 
+### type Level 
 
 ``` go
 type Level uint32
@@ -1685,7 +1685,7 @@ UnmarshalText implements encoding.TextUnmarshaler.
 
 ​	UnmarshalText方法实现encoding.TextUnmarshaler。
 
-#### type LevelHooks <-0.8.3
+### type LevelHooks <-0.8.3
 
 ``` go
 type LevelHooks map[Level][]Hook
@@ -1715,7 +1715,7 @@ Fire all the hooks for the passed level. Used by `entry.log` to fire appropriate
 
 ​	触发传递级别的所有钩子。`entry.log`使用此函数为日志条目触发适当的钩子。
 
-#### type LogFunction <-1.7.0
+### type LogFunction <-1.7.0
 
 ``` go
 type LogFunction func() []interface{}
@@ -1725,7 +1725,7 @@ LogFunction For big messages, it can be more efficient to pass a function and on
 
 ​	LogFunction类型用于处理大型消息，可以更高效地传递函数并仅在日志级别实际启用时调用它，而不是生成日志消息，然后检查级别是否已启用。
 
-#### type Logger 
+### type Logger 
 
 ``` go
 type Logger struct {
@@ -2305,7 +2305,7 @@ func (mw *MutexWrap) Lock()
 func (mw *MutexWrap) Unlock()
 ```
 
-#### type StdLogger 
+### type StdLogger 
 
 ``` go
 type StdLogger interface {
@@ -2327,7 +2327,7 @@ StdLogger is what your logrus-enabled library should take, that way it'll accept
 
 ​	StdLogger接口是您的支持logrus的库应采用的方式，这样它将接受标准库记录器和logrus记录器。很遗憾，没有标准的接口，这是我们能够做到的最接近的方式。
 
-#### type TextFormatter 
+### type TextFormatter 
 
 ``` go
 type TextFormatter struct {

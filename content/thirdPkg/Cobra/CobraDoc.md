@@ -11,13 +11,17 @@ draft = false
 
 # Cobra 在pkg.go.dev上的文档
 
-### Overview 
+> 原文：[https://pkg.go.dev/github.com/spf13/cobra](https://pkg.go.dev/github.com/spf13/cobra)
+
+
+
+## Overview 
 
 Package cobra is a commander providing a simple interface to create powerful modern CLI interfaces. In addition to providing an interface, Cobra simultaneously provides a controller to organize your application code.
 
 
 
-### Constants 
+## Constants 
 
 [View Source](https://github.com/spf13/cobra/blob/v1.7.0/bash_completions.go#L29)
 
@@ -51,7 +55,7 @@ const (
 const FlagSetByCobraAnnotation = "cobra_annotation_flag_set_by_cobra"
 ```
 
-### Variables 
+## Variables 
 
 [View Source](https://github.com/spf13/cobra/blob/v1.7.0/cobra.go#L61)
 
@@ -96,7 +100,7 @@ You need to open cmd.exe and run it from there.
 
 MousetrapHelpText enables an information splash screen on Windows if the CLI is started from explorer.exe. To disable the mousetrap, just set this variable to blank string (""). Works only on Microsoft Windows.
 
-### Functions 
+## Functions 
 
 #### func AddTemplateFunc 
 
@@ -276,9 +280,9 @@ func WriteStringAndCheck(b io.StringWriter, s string)
 
 WriteStringAndCheck writes a string into a buffer, and checks if the error is not nil.
 
-### Types 
+## Types 
 
-#### type Command 
+### type Command 
 
 ``` go
 type Command struct {
@@ -1433,7 +1437,7 @@ type CompletionOptions struct {
 
 CompletionOptions are the options to control shell completion
 
-#### type FParseErrWhitelist  <- v0.0.3
+### type FParseErrWhitelist  <- v0.0.3
 
 ``` go
 type FParseErrWhitelist flag.ParseErrorsWhitelist
@@ -1441,7 +1445,7 @@ type FParseErrWhitelist flag.ParseErrorsWhitelist
 
 FParseErrWhitelist configures Flag parse errors to be ignored
 
-#### type Group  <- v1.6.0
+### type Group  <- v1.6.0
 
 ``` go
 type Group struct {
@@ -1452,7 +1456,7 @@ type Group struct {
 
 Group Structure to manage groups for commands
 
-#### type PositionalArgs 
+### type PositionalArgs 
 
 ``` go
 type PositionalArgs func(cmd *Command, args []string) error
