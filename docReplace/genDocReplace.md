@@ -115,6 +115,14 @@ package
 ```
 const
 
+或
+```
+var
+
+或
+```
+const
+
 // 分别在```后加上go
 
 

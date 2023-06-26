@@ -45,7 +45,7 @@ draft = false
 
 ## 安装
 
-```
+```sh
 go get github.com/spf13/viper
 ```
 
@@ -852,27 +852,27 @@ This section is empty.
 
 [View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L80)
 
-```
+```go
 var RemoteConfig remoteConfigFactory
 ```
 
-RemoteConfig is optional, see the remote package
+​	RemoteConfig变量是可选的，参见remote包
 
 [View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L420)
 
-```
+```go
 var SupportedExts = []string{"json", "toml", "yaml", "yml", "properties", "props", "prop", "hcl", "tfvars", "dotenv", "env", "ini"}
 ```
 
-SupportedExts are universally supported extensions.
+​	SupportedExts变量是通用支持的文件扩展名。
 
 [View Source](https://github.com/spf13/viper/blob/v1.16.0/viper.go#L423)
 
-```
+```go
 var SupportedRemoteProviders = []string{"etcd", "etcd3", "consul", "firestore"}
 ```
 
-SupportedRemoteProviders are universally supported remote providers.
+​	SupportedRemoteProviders变量是通用支持的远程提供者（remote providers）。
 
 ### 函数
 
@@ -882,7 +882,7 @@ SupportedRemoteProviders are universally supported remote providers.
 func AddConfigPath(in string)
 ```
 
-AddConfigPath adds a path for Viper to search for the config file in. Can be called multiple times to define multiple search paths.
+​	AddConfigPath函数添加要在其中搜索配置文件的路径。可以多次调用以定义多个搜索路径。
 
 #### func AddRemoteProvider 
 
@@ -890,7 +890,15 @@ AddConfigPath adds a path for Viper to search for the config file in. Can be cal
 func AddRemoteProvider(provider, endpoint, path string) error
 ```
 
-AddRemoteProvider adds a remote configuration source. Remote Providers are searched in the order they are added. provider is a string value: "etcd", "etcd3", "consul" or "firestore" are currently supported. endpoint is the url. etcd requires [http://ip:port](http://ip:port/) consul requires ip:port path is the path in the k/v store to retrieve configuration To retrieve a config file called myapp.json from /configs/myapp.json you should set path to /configs and set config name (SetConfigName()) to "myapp"
+​	AddRemoteProvider函数添加远程配置源。远程提供者按添加顺序进行搜索。
+
+- provider是一个字符串值："etcd"、"etcd3"、"consul"或"firestore"目前受支持。
+
+- endpoint是URL。etcd需要`http://ip:port` 。consul需要`ip:port` 。
+
+- path是在k/v存储中检索配置的路径。
+
+​	要从`/configs/myapp.json`检索名为`myapp.json`的配置文件，应将`path`设置为`/configs`，并设置配置名（`SetConfigName()`）为"`myapp`"。
 
 #### func AddSecureRemoteProvider 
 
@@ -898,7 +906,19 @@ AddRemoteProvider adds a remote configuration source. Remote Providers are searc
 func AddSecureRemoteProvider(provider, endpoint, path, secretkeyring string) error
 ```
 
-AddSecureRemoteProvider adds a remote configuration source. Secure Remote Providers are searched in the order they are added. provider is a string value: "etcd", "etcd3", "consul" or "firestore" are currently supported. endpoint is the url. etcd requires [http://ip:port](http://ip:port/) consul requires ip:port secretkeyring is the filepath to your openpgp secret keyring. e.g. /etc/secrets/myring.gpg path is the path in the k/v store to retrieve configuration To retrieve a config file called myapp.json from /configs/myapp.json you should set path to /configs and set config name (SetConfigName()) to "myapp" Secure Remote Providers are implemented with github.com/bketelsen/crypt
+​	AddSecureRemoteProvider函数添加远程安全配置源（remote configuration source.）。安全远程提供者（Secure Remote Providers）按添加顺序进行搜索。
+
+- provider是一个字符串值："etcd"、"etcd3"、"consul"或"firestore"目前受支持。
+
+- endpoint是URL。etcd需要`http://ip:port`， consul需要`ip:port` 
+
+- secretkeyring是您的openpgp密钥环的文件路径。例如，`/etc/secrets/myring.gpg` 
+
+- path是在k/v存储中检索配置的路径。
+
+  
+
+​	要从`/configs/myapp.json`检索名为`myapp.json`的配置文件，应将路径设置为`/configs`，并设置配置名（`SetConfigName()`）为"`myapp`"。Secure Remote Providers 是使用`github.com/bketelsen/crypt`实现的。
 
 #### func AllKeys 
 
@@ -906,7 +926,7 @@ AddSecureRemoteProvider adds a remote configuration source. Secure Remote Provid
 func AllKeys() []string
 ```
 
-AllKeys returns all keys holding a value, regardless of where they are set. Nested keys are returned with a v.keyDelim separator
+​	AllKeys函数返回所有具有值的键，无论它们在何处设置。嵌套的键使用`v.keyDelim`分隔符返回。
 
 #### func AllSettings 
 
@@ -914,7 +934,7 @@ AllKeys returns all keys holding a value, regardless of where they are set. Nest
 func AllSettings() map[string]interface{}
 ```
 
-AllSettings merges all settings and returns them as a map[string]interface{}.
+​	AllSettings函数合并所有设置并将它们作为一个`map[string]interface{}`返回。
 
 #### func AllowEmptyEnv <- 1.3.0
 
@@ -924,6 +944,8 @@ func AllowEmptyEnv(allowEmptyEnv bool)
 
 AllowEmptyEnv tells Viper to consider set, but empty environment variables as valid values instead of falling back. For backward compatibility reasons this is false by default.
 
+​	AllowEmptyEnv函数告诉Viper将设置但为空的环境变量视为有效值，而不是返回默认值。出于向后兼容性的原因，默认值为false。（falling back 该怎么翻译？？）
+
 #### func AutomaticEnv 
 
 ``` go
@@ -931,6 +953,8 @@ func AutomaticEnv()
 ```
 
 AutomaticEnv makes Viper check if environment variables match any of the existing keys (config, default or flags). If matching env vars are found, they are loaded into Viper.
+
+​	AutomaticEnv函数使Viper检查环境变量是否与任何现有键（配置、默认或标志）匹配。如果找到匹配的环境变量，则将它们加载到Viper中。
 
 #### func BindEnv 
 
@@ -940,13 +964,15 @@ func BindEnv(input ...string) error
 
 BindEnv binds a Viper key to a ENV variable. ENV variables are case sensitive. If only a key is provided, it will use the env key matching the key, uppercased. If more arguments are provided, they will represent the env variable names that should bind to this key and will be taken in the specified order. EnvPrefix will be used when set when env name is not provided.
 
+​	BindEnv函数将 Viper 键绑定到环境变量。环境变量对大小写敏感。如果只提供键名，则它将使用与键名匹配且大写的环境变量键。如果提供更多参数，它们将表示应绑定到该键的环境变量名称，并按指定顺序进行处理。如果设置了 EnvPrefix，当未提供环境变量名称时将使用该前缀。
+
 #### func BindFlagValue 
 
 ``` go
 func BindFlagValue(key string, flag FlagValue) error
 ```
 
-BindFlagValue binds a specific key to a FlagValue.
+​	BindFlagValue函数将特定的key 绑定到FlagValue。
 
 #### func BindFlagValues 
 
@@ -956,6 +982,8 @@ func BindFlagValues(flags FlagValueSet) error
 
 BindFlagValues binds a full FlagValue set to the configuration, using each flag's long name as the config key.
 
+​	BindFlagValues函数将完整的FlagValue集合绑定到配置，使用每个标志的长名称作为配置键。
+
 #### func BindPFlag 
 
 ``` go
@@ -964,7 +992,9 @@ func BindPFlag(key string, flag *pflag.Flag) error
 
 BindPFlag binds a specific key to a pflag (as used by cobra). Example (where serverCmd is a Cobra instance):
 
-```
+​	BindPFlag函数将特定的键绑定到pflag（由cobra使用）。示例（其中`serverCmd`是Cobra实例）：
+
+```go
 serverCmd.Flags().Int("port", 1138, "Port to run Application server on")
 Viper.BindPFlag("port", serverCmd.Flags().Lookup("port"))
 ```
@@ -977,6 +1007,8 @@ func BindPFlags(flags *pflag.FlagSet) error
 
 BindPFlags binds a full flag set to the configuration, using each flag's long name as the config key.
 
+​	BindPFlags函数将完整的标志集合绑定到配置，使用每个标志的长名称作为配置键。
+
 #### func ConfigFileUsed 
 
 ``` go
@@ -985,13 +1017,15 @@ func ConfigFileUsed() string
 
 ConfigFileUsed returns the file used to populate the config registry.
 
+​	ConfigFileUsed函数返回用于填充配置注册表的文件。
+
 #### func Debug 
 
 ``` go
 func Debug()
 ```
 
-Debug prints all configuration registries for debugging purposes.
+​	Debug函数打印所有配置注册表以进行调试目的。
 
 #### func DebugTo <- 1.13.0
 
@@ -1005,9 +1039,9 @@ func DebugTo(w io.Writer)
 func Get(key string) interface{}
 ```
 
-Get can retrieve any value given the key to use. Get is case-insensitive for a key. Get has the behavior of returning the value associated with the first place from where it is set. Viper will check in the following order: override, flag, env, config file, key/value store, default
+​	Get函数可以通过使用键来检索任何值。对于键，Get不区分大小写。Get的行为是返回与它设置的第一个位置关联的值。Viper将按照以下顺序进行检查：覆盖（override）、标志（flag）、环境变量（env）、配置文件（config ）、键/值存储（key/value store）、默认值（default）。
 
-Get returns an interface. For a specific value use one of the Get____ methods.
+​	Get函数返回一个interface{}类型的值。要获取特定的值，请使用`Get____`方法之一。
 
 #### func GetBool 
 
@@ -1015,7 +1049,9 @@ Get returns an interface. For a specific value use one of the Get____ methods.
 func GetBool(key string) bool
 ```
 
-GetBool returns the value associated with the key as a boolean.
+​	GetBool 函数将与键关联的值转换为`bool`后返回。
+
+
 
 #### func GetDuration 
 
@@ -1023,7 +1059,7 @@ GetBool returns the value associated with the key as a boolean.
 func GetDuration(key string) time.Duration
 ```
 
-GetDuration returns the value associated with the key as a duration.
+​	GetDuration函数将与键关联的值转换为time.Duration后返回。
 
 #### func GetFloat64 
 
@@ -1031,7 +1067,7 @@ GetDuration returns the value associated with the key as a duration.
 func GetFloat64(key string) float64
 ```
 
-GetFloat64 returns the value associated with the key as a float64.
+​	GetFloat64函数将与键关联的值转换为float64后返回。
 
 #### func GetInt 
 
@@ -1039,7 +1075,7 @@ GetFloat64 returns the value associated with the key as a float64.
 func GetInt(key string) int
 ```
 
-GetInt returns the value associated with the key as an integer.
+​	GetInt函数将与键关联的值转换为int后返回。
 
 #### func GetInt32 <- 1.1.0
 
@@ -1047,7 +1083,7 @@ GetInt returns the value associated with the key as an integer.
 func GetInt32(key string) int32
 ```
 
-GetInt32 returns the value associated with the key as an integer.
+​	GetInt32函数将与键关联的值转换为int32后返回。
 
 #### func GetInt64 
 
@@ -1055,7 +1091,7 @@ GetInt32 returns the value associated with the key as an integer.
 func GetInt64(key string) int64
 ```
 
-GetInt64 returns the value associated with the key as an integer.
+​	GetInt64函数将与键关联的值转换为int64后返回。
 
 #### func GetIntSlice <- 1.5.0
 
@@ -1063,7 +1099,7 @@ GetInt64 returns the value associated with the key as an integer.
 func GetIntSlice(key string) []int
 ```
 
-GetIntSlice returns the value associated with the key as a slice of int values.
+​	GetIntSlice函数将与键关联的值转换为`[]int`后返回。
 
 #### func GetSizeInBytes 
 
@@ -1071,7 +1107,7 @@ GetIntSlice returns the value associated with the key as a slice of int values.
 func GetSizeInBytes(key string) uint
 ```
 
-GetSizeInBytes returns the size of the value associated with the given key in bytes.
+​	GetSizeInBytes函数将与键关联的值转换为`uint`后返回。
 
 #### func GetString 
 
@@ -1079,7 +1115,7 @@ GetSizeInBytes returns the size of the value associated with the given key in by
 func GetString(key string) string
 ```
 
-GetString returns the value associated with the key as a string.
+​	GetString函数将与键关联的值转换为`string`后返回。
 
 #### func GetStringMap 
 
@@ -1087,7 +1123,7 @@ GetString returns the value associated with the key as a string.
 func GetStringMap(key string) map[string]interface{}
 ```
 
-GetStringMap returns the value associated with the key as a map of interfaces.
+​	GetStringMap函数将与键关联的值转换为`map[string]interface{}`后返回。
 
 #### func GetStringMapString 
 
@@ -1095,7 +1131,7 @@ GetStringMap returns the value associated with the key as a map of interfaces.
 func GetStringMapString(key string) map[string]string
 ```
 
-GetStringMapString returns the value associated with the key as a map of strings.
+​	GetStringMapString函数将与键关联的值转换为`map[string]string`后返回。
 
 #### func GetStringMapStringSlice 
 
@@ -1103,7 +1139,7 @@ GetStringMapString returns the value associated with the key as a map of strings
 func GetStringMapStringSlice(key string) map[string][]string
 ```
 
-GetStringMapStringSlice returns the value associated with the key as a map to a slice of strings.
+​	GetStringMapStringSlice函数将与键关联的值转换为`map[string][]string`后返回。
 
 #### func GetStringSlice 
 
@@ -1111,7 +1147,7 @@ GetStringMapStringSlice returns the value associated with the key as a map to a 
 func GetStringSlice(key string) []string
 ```
 
-GetStringSlice returns the value associated with the key as a slice of strings.
+​	GetStringSlice函数将与键关联的值转换为`[]string`后返回。
 
 #### func GetTime 
 
@@ -1119,7 +1155,7 @@ GetStringSlice returns the value associated with the key as a slice of strings.
 func GetTime(key string) time.Time
 ```
 
-GetTime returns the value associated with the key as time.
+​	GetTime函数将与键关联的值转换为`time.Time`后返回。
 
 #### func GetUint <- 1.4.0
 
@@ -1127,7 +1163,7 @@ GetTime returns the value associated with the key as time.
 func GetUint(key string) uint
 ```
 
-GetUint returns the value associated with the key as an unsigned integer.
+​	GetUint函数将与键关联的值转换为`uint`后返回。
 
 #### func GetUint16 <- 1.13.0
 
@@ -1135,7 +1171,7 @@ GetUint returns the value associated with the key as an unsigned integer.
 func GetUint16(key string) uint16
 ```
 
-GetUint16 returns the value associated with the key as an unsigned integer.
+​	GetUint16函数将与键关联的值转换为`uint16`后返回。
 
 #### func GetUint32 <- 1.4.0
 
@@ -1143,7 +1179,7 @@ GetUint16 returns the value associated with the key as an unsigned integer.
 func GetUint32(key string) uint32
 ```
 
-GetUint32 returns the value associated with the key as an unsigned integer.
+​	GetUint32函数将与键关联的值转换为`uint32`后返回。
 
 #### func GetUint64 <- 1.4.0
 
@@ -1151,7 +1187,7 @@ GetUint32 returns the value associated with the key as an unsigned integer.
 func GetUint64(key string) uint64
 ```
 
-GetUint64 returns the value associated with the key as an unsigned integer.
+​	GetUint64函数将与键关联的值转换为`uint64`后返回。
 
 #### func InConfig 
 
@@ -1159,7 +1195,7 @@ GetUint64 returns the value associated with the key as an unsigned integer.
 func InConfig(key string) bool
 ```
 
-InConfig checks to see if the given key (or an alias) is in the config file.
+​	InConfig函数检查给定的键（或别名）是否在配置文件中。
 
 #### func IsSet 
 
@@ -1167,7 +1203,7 @@ InConfig checks to see if the given key (or an alias) is in the config file.
 func IsSet(key string) bool
 ```
 
-IsSet checks to see if the key has been set in any of the data locations. IsSet is case-insensitive for a key.
+​	IsSet 检查键是否在任何数据位置被设置。对于键而言，IsSet函数不区分大小写。
 
 #### func MergeConfig 
 
@@ -1175,7 +1211,7 @@ IsSet checks to see if the key has been set in any of the data locations. IsSet 
 func MergeConfig(in io.Reader) error
 ```
 
-MergeConfig merges a new configuration with an existing config.
+​	MergeConfig函数将新配置与现有配置合并。
 
 #### func MergeConfigMap <- 1.3.0
 
@@ -1183,7 +1219,7 @@ MergeConfig merges a new configuration with an existing config.
 func MergeConfigMap(cfg map[string]interface{}) error
 ```
 
-MergeConfigMap merges the configuration from the map given with an existing config. Note that the map given may be modified.
+​	MergeConfigMap函数将给定的映射中的配置与现有配置合并。**请注意，给定的映射可能会被修改。**
 
 #### func MergeInConfig 
 
@@ -1191,15 +1227,29 @@ MergeConfigMap merges the configuration from the map given with an existing conf
 func MergeInConfig() error
 ```
 
-MergeInConfig merges a new configuration with an existing config.
+​	MergeInConfig 函数将新的配置与现有配置合并。
 
 #### func MustBindEnv <- 1.12.0
 
 ``` go
-func MustBindEnv(input ...string)
+func MustBindEnv(input ...string) { 
+    v.MustBindEnv(input...) 
+}
+
+var v *Viper
+
+func init() {
+	v = New()
+}
+
+func (v *Viper) MustBindEnv(input ...string) {
+	if err := v.BindEnv(input...); err != nil {
+		panic(fmt.Sprintf("error while binding environment variable: %v", err))
+	}
+}
 ```
 
-MustBindEnv wraps BindEnv in a panic. If there is an error binding an environment variable, MustBindEnv will panic.
+​	MustBindEnv 函数将 BindEnv 方法包装在 panic 中（如上函数的定义所示）。如果绑定环境变量时出现错误，MustBindEnv函数将引发 panic。
 
 #### func OnConfigChange 
 
@@ -1207,7 +1257,7 @@ MustBindEnv wraps BindEnv in a panic. If there is an error binding an environmen
 func OnConfigChange(run func(in fsnotify.Event))
 ```
 
-OnConfigChange sets the event handler that is called when a config file changes.
+​	OnConfigChange 函数设置（在配置文件发生更改时调用的）事件处理程序。
 
 #### func ReadConfig 
 
@@ -1215,15 +1265,47 @@ OnConfigChange sets the event handler that is called when a config file changes.
 func ReadConfig(in io.Reader) error
 ```
 
-ReadConfig will read a configuration file, setting existing keys to nil if the key does not exist in the file.
+​	ReadConfig 函数会读取一个配置文件，并将不存在于该文件中的键设置为 nil。
 
 #### func ReadInConfig 
 
 ``` go
-func ReadInConfig() error
+func ReadInConfig() error { 
+    return v.ReadInConfig() 
+}
+
+func (v *Viper) ReadInConfig() error {
+	v.logger.Info("attempting to read in config file")
+	filename, err := v.getConfigFile()
+	if err != nil {
+		return err
+	}
+
+	if !stringInSlice(v.getConfigType(), SupportedExts) {
+		return UnsupportedConfigError(v.getConfigType())
+	}
+
+	v.logger.Debug("reading file", "file", filename)
+	file, err := afero.ReadFile(v.fs, filename)
+	if err != nil {
+		return err
+	}
+
+	config := make(map[string]interface{})
+
+	err = v.unmarshalReader(bytes.NewReader(file), config)
+	if err != nil {
+		return err
+	}
+
+	v.config = config
+	return nil
+}
 ```
 
 ReadInConfig will discover and load the configuration file from disk and key/value stores, searching in one of the defined paths.
+
+​	ReadInConfig 函数会从磁盘和键值存储中查找和加载（在已定义的路径中搜索）配置文件。
 
 #### func ReadRemoteConfig 
 
@@ -1233,13 +1315,15 @@ func ReadRemoteConfig() error
 
 ReadRemoteConfig attempts to get configuration from a remote source and read it in the remote configuration registry.
 
+​	ReadRemoteConfig 函数试图从远程源获取配置并在远程配置注册表中读取。
+
 #### func RegisterAlias 
 
 ``` go
 func RegisterAlias(alias string, key string)
 ```
 
-RegisterAlias creates an alias that provides another accessor for the same key. This enables one to change a name without breaking the application.
+​	RegisterAlias 函数创建一个别名，为同一个键提供另一个访问器。这允许更改名称而不会破坏应用程序。
 
 #### func Reset 
 
@@ -1247,7 +1331,7 @@ RegisterAlias creates an alias that provides another accessor for the same key. 
 func Reset()
 ```
 
-Reset is intended for testing, will reset all to default settings. In the public interface for the viper package so applications can use it in their testing as well.
+​	Reset 函数用于测试，将所有设置重置为默认设置。它在 viper 包的公共接口中，因此应用程序也可以在测试中使用它。
 
 #### func SafeWriteConfig <- 1.0.1
 
@@ -1255,7 +1339,7 @@ Reset is intended for testing, will reset all to default settings. In the public
 func SafeWriteConfig() error
 ```
 
-SafeWriteConfig writes current configuration to file only if the file does not exist.
+​	SafeWriteConfig 函数仅在文件不存在时将当前配置写入文件。
 
 #### func SafeWriteConfigAs <- 1.0.1
 
@@ -1263,7 +1347,7 @@ SafeWriteConfig writes current configuration to file only if the file does not e
 func SafeWriteConfigAs(filename string) error
 ```
 
-SafeWriteConfigAs writes current configuration to a given filename if it does not exist.
+​	SafeWriteConfigAs 函数将当前配置写入给定的文件名（如果该文件不存在）。
 
 #### func Set 
 
@@ -1271,147 +1355,404 @@ SafeWriteConfigAs writes current configuration to a given filename if it does no
 func Set(key string, value interface{})
 ```
 
-Set sets the value for the key in the override register. Set is case-insensitive for a key. Will be used instead of values obtained via flags, config file, ENV, default, or key/value store.
+​	Set 函数在覆盖注册表中设置键的值。Set函数对于键不区分大小写。将用于替代通过标志、配置文件、环境变量、默认值或键值存储获取的值。
+
+​	Set 函数在**覆盖注册（override register）**中**设置**键的值。对于键，Set 函数不区分大小写。它将替代通过标志、配置文件、环境变量、默认值或键值存储获取的值。
 
 #### func SetConfigFile 
 
 ``` go
-func SetConfigFile(in string)
+func SetConfigFile(in string) { 
+    v.SetConfigFile(in) 
+}
+
+func (v *Viper) SetConfigFile(in string) {
+	if in != "" {
+		v.configFile = in
+	}
+}
 ```
 
 SetConfigFile explicitly defines the path, name and extension of the config file. Viper will use this and not check any of the config paths.
 
+​	SetConfigFile 函数显式定义配置文件的路径、名称和扩展名。Viper 将使用此配置，并且不会检查任何配置路径。
+
 #### func SetConfigName 
 
 ``` go
-func SetConfigName(in string)
+func SetConfigName(in string) { 
+    v.SetConfigName(in) 
+}
+
+func (v *Viper) SetConfigName(in string) {
+	if in != "" {
+		v.configName = in
+		v.configFile = ""
+	}
+}
 ```
 
-SetConfigName sets name for the config file. Does not include extension.
+​	SetConfigName 函数设置配置文件的名称。不包括扩展名。
 
 #### func SetConfigPermissions <- 1.4.0
 
 ``` go
-func SetConfigPermissions(perm os.FileMode)
+func SetConfigPermissions(perm os.FileMode) {
+    v.SetConfigPermissions(perm) 
+}
+
+func (v *Viper) SetConfigPermissions(perm os.FileMode) {
+	v.configPermissions = perm.Perm()
+}
 ```
 
-SetConfigPermissions sets the permissions for the config file.
+​	SetConfigPermissions 函数设置配置文件的权限。
 
 #### func SetConfigType 
 
 ``` go
-func SetConfigType(in string)
+func SetConfigType(in string) { 
+    v.SetConfigType(in) 
+}
+
+func (v *Viper) SetConfigType(in string) {
+	if in != "" {
+		v.configType = in
+	}
+}
 ```
 
-SetConfigType sets the type of the configuration returned by the remote source, e.g. "json".
+​	SetConfigType 函数设置从远程源返回的配置的类型，例如 "`json`"。
 
 #### func SetDefault 
 
 ``` go
-func SetDefault(key string, value interface{})
+func SetDefault(key string, value interface{}) { 
+    v.SetDefault(key, value) 
+}
+
+func (v *Viper) SetDefault(key string, value interface{}) {
+    // 如果传入了别名，则设置适当的默认值。
+	key = v.realKey(strings.ToLower(key))
+	value = toCaseInsensitiveValue(value)
+
+	path := strings.Split(key, v.keyDelim)
+	lastKey := strings.ToLower(path[len(path)-1])
+	deepestMap := deepSearch(v.defaults, path[0:len(path)-1])
+
+    // 设置最内层的值
+	deepestMap[lastKey] = value
+}
 ```
 
-SetDefault sets the default value for this key. SetDefault is case-insensitive for a key. Default only used when no value is provided by the user via flag, config or ENV.
+​	SetDefault函数为此键设置默认值。对于键来说，SetDefault函数是不区分大小写的。仅当用户未通过标志（flag）、配置（config）或环境变量（ENV）提供值时才使用默认值。
 
 #### func SetEnvKeyReplacer 
 
 ``` go
-func SetEnvKeyReplacer(r *strings.Replacer)
+func SetEnvKeyReplacer(r *strings.Replacer) {
+    v.SetEnvKeyReplacer(r) 
+}
+
+func (v *Viper) SetEnvKeyReplacer(r *strings.Replacer) {
+	v.envKeyReplacer = r
+}
 ```
 
-SetEnvKeyReplacer sets the strings.Replacer on the viper object Useful for mapping an environmental variable to a key that does not match it.
+​	SetEnvKeyReplacer函数在viper对象上设置strings.Replacer。这对于将环境变量映射到与其不匹配的键非常有用。
 
 #### func SetEnvPrefix 
 
 ``` go
-func SetEnvPrefix(in string)
+func SetEnvPrefix(in string) { 
+    v.SetEnvPrefix(in) 
+}
+
+func (v *Viper) SetEnvPrefix(in string) {
+	if in != "" {
+		v.envPrefix = in
+	}
+}
 ```
 
-SetEnvPrefix defines a prefix that ENVIRONMENT variables will use. E.g. if your prefix is "spf", the env registry will look for env variables that start with "SPF_".
+​	SetEnvPrefix 函数定义环境变量将使用的前缀。例如，如果前缀为 "spf"，则环境变量注册表将查找以 "SPF_" 开头的环境变量。
 
 #### func SetFs 
 
 ``` go
-func SetFs(fs afero.Fs)
+func SetFs(fs afero.Fs) { 
+    v.SetFs(fs) 
+}
+
+func (v *Viper) SetFs(fs afero.Fs) {
+	v.fs = fs
+}
 ```
 
-SetFs sets the filesystem to use to read configuration.
+​	SetFs函数设置要用于读取配置的文件系统。
 
 #### func SetTypeByDefaultValue 
 
 ``` go
-func SetTypeByDefaultValue(enable bool)
+func SetTypeByDefaultValue(enable bool) { 
+    v.SetTypeByDefaultValue(enable) 
+}
+
+func (v *Viper) SetTypeByDefaultValue(enable bool) {
+	v.typeByDefValue = enable
+}
 ```
 
 SetTypeByDefaultValue enables or disables the inference of a key value's type when the Get function is used based upon a key's default value as opposed to the value returned based on the normal fetch logic.
 
-For example, if a key has a default value of []string{} and the same key is set via an environment variable to "a b c", a call to the Get function would return a string slice for the key if the key's type is inferred by the default value and the Get function would return:
+​	SetTypeByDefaultValue 函数用于在使用 Get 函数时基于键的默认值来推断键值类型，而不是基于常规获取逻辑返回的值。该函数可以启用或禁用此行为。
 
-```
+​	例如，如果一个键的默认值为 `[]string{}`，并且通过环境变量将相同的键设置为 `"a b c"`，当使用 Get 函数调用该键时，如果键的类型是通过默认值推断的，则会返回一个字符串切片。因此，Get 函数将返回：
+
+```go
 []string {"a", "b", "c"}
 ```
 
-Otherwise the Get function would return:
+​	否则，Get 函数将返回：
 
-```
+```go
 "a b c"
 ```
 
 #### func Unmarshal 
 
 ``` go
-func Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
+func Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error {
+	return v.Unmarshal(rawVal, opts...)
+}
+
+func (v *Viper) Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error {
+	return decode(v.AllSettings(), defaultDecoderConfig(rawVal, opts...))
+}
 ```
 
-Unmarshal unmarshals the config into a Struct. Make sure that the tags on the fields of the structure are properly set.
+​	Unmarshal 函数将配置反序列化为一个结构体。请确保该结构体字段上的标签设置正确。
 
 #### func UnmarshalExact <- 1.6.0
 
 ``` go
-func UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
+func UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error {
+	return v.UnmarshalExact(rawVal, opts...)
+}
+
+func (v *Viper) UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error {
+	config := defaultDecoderConfig(rawVal, opts...)
+	config.ErrorUnused = true
+
+	return decode(v.AllSettings(), config)
+}
 ```
 
 UnmarshalExact unmarshals the config into a Struct, erroring if a field is nonexistent in the destination struct.
 
+​	UnmarshalExact 函数将配置反序列化为一个结构体，如果字段不存在于目标结构体中，则会产生错误。
+
 #### func UnmarshalKey 
 
 ``` go
-func UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error
+func UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error {
+	return v.UnmarshalKey(key, rawVal, opts...)
+}
+
+func (v *Viper) UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error {
+	return decode(v.Get(key), defaultDecoderConfig(rawVal, opts...))
+}
 ```
 
 UnmarshalKey takes a single key and unmarshals it into a Struct.
 
+​	UnmarshalKey 函数接受一个键，并将其反序列化为一个结构体。
+
 #### func WatchConfig 
 
 ``` go
-func WatchConfig()
+func WatchConfig() {
+    v.WatchConfig() 
+}
+
+// WatchConfig starts watching a config file for changes.
+// WatchConfig 开始监视配置文件的变化。
+func (v *Viper) WatchConfig() {
+	initWG := sync.WaitGroup{}
+	initWG.Add(1)
+	go func() {
+		watcher, err := newWatcher()
+		if err != nil {
+			v.logger.Error(fmt.Sprintf("failed to create watcher: %s", err))
+			os.Exit(1)
+		}
+		defer watcher.Close()
+        
+        // 我们必须监视整个目录，以便跨平台捕捉重命名/原子保存
+		filename, err := v.getConfigFile()
+		if err != nil {
+			v.logger.Error(fmt.Sprintf("get config file: %s", err))
+			initWG.Done()
+			return
+		}
+
+		configFile := filepath.Clean(filename)
+		configDir, _ := filepath.Split(configFile)
+		realConfigFile, _ := filepath.EvalSymlinks(filename)
+
+		eventsWG := sync.WaitGroup{}
+		eventsWG.Add(1)
+		go func() {
+			for {
+				select {
+				case event, ok := <-watcher.Events:
+					if !ok { // 'Events' 通道已关闭
+						eventsWG.Done()
+						return
+					}
+					currentConfigFile, _ := filepath.EvalSymlinks(filename)
+
+                    // 我们只关心以下情况的配置文件：
+					// 1 - 配置文件被修改或创建
+					// 2 - 配置文件的真实路径发生变化（例如：k8s ConfigMap 替换）
+					if (filepath.Clean(event.Name) == configFile &&
+						(event.Has(fsnotify.Write) || event.Has(fsnotify.Create))) ||
+						(currentConfigFile != "" && currentConfigFile != realConfigFile) {
+						realConfigFile = currentConfigFile
+						err := v.ReadInConfig()
+						if err != nil {
+							v.logger.Error(fmt.Sprintf("read config file: %s", err))
+						}
+						if v.onConfigChange != nil {
+							v.onConfigChange(event)
+						}
+					} else if filepath.Clean(event.Name) == configFile && event.Has(fsnotify.Remove) {
+						eventsWG.Done()
+						return
+					}
+
+				case err, ok := <-watcher.Errors:
+					if ok { // 'Errors' 通道未关闭
+						v.logger.Error(fmt.Sprintf("watcher error: %s", err))
+					}
+					eventsWG.Done()
+					return
+				}
+			}
+		}()
+		watcher.Add(configDir)
+		initWG.Done()   // 此 go 协程中的监视初始化完成，所以父协程可以继续执行...
+		eventsWG.Wait() // 现在，等待此 go 协程中的事件循环结束...
+	}()
+	initWG.Wait() // 确保上述 go 协程完全结束后再返回
+}
 ```
 
 WatchConfig starts watching a config file for changes.
 
+​	WatchConfig 函数开始监视配置文件的更改。
+
 #### func WatchRemoteConfig 
 
 ``` go
-func WatchRemoteConfig() error
+func WatchRemoteConfig() error {
+    return v.WatchRemoteConfig() 
+}
+func (v *Viper) WatchRemoteConfig() error {
+	return v.watchKeyValueConfig()
+}
+
+// 检索第一个找到的远程配置。
+func (v *Viper) watchKeyValueConfig() error {
+	if len(v.remoteProviders) == 0 {
+		return RemoteConfigError("No Remote Providers")
+	}
+
+	for _, rp := range v.remoteProviders {
+		val, err := v.watchRemoteConfig(rp)
+		if err != nil {
+			v.logger.Error(fmt.Errorf("watch remote config: %w", err).Error())
+
+			continue
+		}
+		v.kvstore = val
+		return nil
+	}
+	return RemoteConfigError("No Files Found")
+}
 ```
 
 #### func WriteConfig <- 1.0.1
 
 ``` go
-func WriteConfig() error
+func WriteConfig() error { 
+    return v.WriteConfig() 
+}
+
+func (v *Viper) WriteConfig() error {
+	filename, err := v.getConfigFile()
+	if err != nil {
+		return err
+	}
+	return v.writeConfig(filename, true)
+}
 ```
 
-WriteConfig writes the current configuration to a file.
+​	WriteConfig 函数将当前配置写入一个文件。
 
 #### func WriteConfigAs <- 1.0.1
 
 ``` go
-func WriteConfigAs(filename string) error
+func WriteConfigAs(filename string) error { 
+    return v.WriteConfigAs(filename) 
+}
+
+func (v *Viper) WriteConfigAs(filename string) error {
+	return v.writeConfig(filename, true)
+}
+
+func (v *Viper) writeConfig(filename string, force bool) error {
+	v.logger.Info("attempting to write configuration to file")
+
+	var configType string
+
+	ext := filepath.Ext(filename)
+	if ext != "" && ext != filepath.Base(filename) {
+		configType = ext[1:]
+	} else {
+		configType = v.configType
+	}
+	if configType == "" {
+		return fmt.Errorf("config type could not be determined for %s", filename)
+	}
+
+	if !stringInSlice(configType, SupportedExts) {
+		return UnsupportedConfigError(configType)
+	}
+	if v.config == nil {
+		v.config = make(map[string]interface{})
+	}
+	flags := os.O_CREATE | os.O_TRUNC | os.O_WRONLY
+	if !force {
+		flags |= os.O_EXCL
+	}
+	f, err := v.fs.OpenFile(filename, flags, v.configPermissions)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	if err := v.marshalWriter(f, configType); err != nil {
+		return err
+	}
+
+	return f.Sync()
+}
 ```
 
-WriteConfigAs writes current configuration to a given filename.
+​	WriteConfigAs函数将当前配置写入一个给定的文件名中。
 
-### Types 
+### 类型
 
 #### type ConfigFileAlreadyExistsError <- 1.6.0
 
@@ -1421,6 +1762,8 @@ type ConfigFileAlreadyExistsError string
 
 ConfigFileAlreadyExistsError denotes failure to write new configuration file.
 
+​	ConfigFileAlreadyExistsErro类型r表示写入新配置文件失败。
+
 #### (ConfigFileAlreadyExistsError) Error <- 1.6.0
 
 ``` go
@@ -1428,6 +1771,8 @@ func (faee ConfigFileAlreadyExistsError) Error() string
 ```
 
 Error returns the formatted error when configuration already exists.
+
+​	Error方法返回已存在配置时的格式化错误信息。
 
 #### type ConfigFileNotFoundError 
 
@@ -1439,6 +1784,8 @@ type ConfigFileNotFoundError struct {
 
 ConfigFileNotFoundError denotes failing to find configuration file.
 
+​	ConfigFileNotFoundError结构体表示找不到配置文件。
+
 #### (ConfigFileNotFoundError) Error 
 
 ``` go
@@ -1446,6 +1793,8 @@ func (fnfe ConfigFileNotFoundError) Error() string
 ```
 
 Error returns the formatted configuration error.
+
+​	Error方法返回格式化的配置错误信息。
 
 #### type ConfigMarshalError <- 1.0.1
 
@@ -1457,6 +1806,8 @@ type ConfigMarshalError struct {
 
 ConfigMarshalError happens when failing to marshal the configuration.
 
+​	ConfigMarshalError结构体表示无法编组配置时发生错误。
+
 #### (ConfigMarshalError) Error <- 1.0.1
 
 ``` go
@@ -1464,6 +1815,8 @@ func (e ConfigMarshalError) Error() string
 ```
 
 Error returns the formatted configuration error.
+
+​	Error方法返回格式化的配置错误信息。
 
 #### type ConfigParseError 
 
@@ -1475,6 +1828,8 @@ type ConfigParseError struct {
 
 ConfigParseError denotes failing to parse configuration file.
 
+​	ConfigParseError结构体表示解析配置文件失败。
+
 #### (ConfigParseError) Error 
 
 ``` go
@@ -1482,6 +1837,8 @@ func (pe ConfigParseError) Error() string
 ```
 
 Error returns the formatted configuration error.
+
+​	Error方法返回格式化的配置错误信息。
 
 #### (ConfigParseError) Unwrap <- 1.16.0
 
@@ -1491,6 +1848,8 @@ func (pe ConfigParseError) Unwrap() error
 
 Unwrap returns the wrapped error.
 
+​	Unwrap方法返回包装的错误。
+
 #### type DecoderConfigOption <- 1.1.0
 
 ``` go
@@ -1498,6 +1857,8 @@ type DecoderConfigOption func(*mapstructure.DecoderConfig)
 ```
 
 A DecoderConfigOption can be passed to viper.Unmarshal to configure mapstructure.DecoderConfig options
+
+​	DecoderConfigOption类型可以传递给viper.Unmarshal，以配置mapstructure.DecoderConfig选项。
 
 #### func DecodeHook <- 1.1.0
 
@@ -1507,7 +1868,9 @@ func DecodeHook(hook mapstructure.DecodeHookFunc) DecoderConfigOption
 
 DecodeHook returns a DecoderConfigOption which overrides the default DecoderConfig.DecodeHook value, the default is:
 
-```
+​	DecodeHook函数返回一个DecoderConfigOption，它会覆盖默认的DecoderConfig.DecodeHook值，默认值为：
+
+```go
  mapstructure.ComposeDecodeHookFunc(
 		mapstructure.StringToTimeDurationHookFunc(),
 		mapstructure.StringToSliceHookFunc(","),
@@ -1527,6 +1890,8 @@ type FlagValue interface {
 
 FlagValue is an interface that users can implement to bind different flags to viper.
 
+​	FlagValue是一个接口，用户可以实现它来绑定不同的标志到viper。
+
 #### type FlagValueSet 
 
 ``` go
@@ -1537,6 +1902,8 @@ type FlagValueSet interface {
 
 FlagValueSet is an interface that users can implement to bind a set of flags to viper.
 
+​	FlagValueSet是一个接口，用户可以实现它来将一组标志绑定到viper。
+
 #### type Logger <- 1.10.0
 
 ``` go
@@ -1545,22 +1912,36 @@ type Logger interface {
 	//
 	// Even more fine-grained information than Debug events.
 	// Loggers not supporting this level should fall back to Debug.
+    // Trace记录Trace事件。
+	//
+	// 比Debug事件提供更细粒度的信息。
+	// 不支持此级别的日志记录器应该回退到Debug。
 	Trace(msg string, keyvals ...interface{})
 
 	// Debug logs a Debug event.
 	//
 	// A verbose series of information events.
 	// They are useful when debugging the system.
+    // Debug记录Debug事件。
+	//
+	// 一系列详细信息事件。
+	// 在调试系统时很有用。
 	Debug(msg string, keyvals ...interface{})
 
 	// Info logs an Info event.
 	//
 	// General information about what's happening inside the system.
+    // Info记录Info事件。
+	//
+	// 关于系统内部发生的一般信息。
 	Info(msg string, keyvals ...interface{})
 
 	// Warn logs a Warn(ing) event.
 	//
 	// Non-critical events that should be looked at.
+    // Warn记录Warn(ing)事件。
+	//
+	// 应该查看的非关键事件。
 	Warn(msg string, keyvals ...interface{})
 
 	// Error logs an Error event.
@@ -1568,14 +1949,23 @@ type Logger interface {
 	// Critical events that require immediate attention.
 	// Loggers commonly provide Fatal and Panic levels above Error level,
 	// but exiting and panicing is out of scope for a logging library.
+    // Error记录Error事件。
+	//
+	// 需要立即注意的关键事件。
+	// 日志记录器通常在Error级别以上提供Fatal和Panic级别，
+	// 但退出和恐慌超出了日志记录库的范围。
 	Error(msg string, keyvals ...interface{})
 }
 ```
 
 Logger is a unified interface for various logging use cases and practices, including:
 
+​	Logger接口是各种日志记录用例和实践的统一接口，包括： 
+
 - leveled logging
 - structured logging
+- 分级日志记录
+- 结构化日志记录
 
 #### type Option <- 1.6.0
 
@@ -1587,6 +1977,8 @@ type Option interface {
 
 Option configures Viper using the functional options paradigm popularized by Rob Pike and Dave Cheney. If you're unfamiliar with this style, see https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html and https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis.
 
+​	Option接口使用Rob Pike和Dave Cheney提倡的功能选项范式配置Viper。如果您对此风格不熟悉，请参阅[https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html](https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html)和[https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)。
+
 #### func EnvKeyReplacer <- 1.6.0
 
 ``` go
@@ -1594,6 +1986,8 @@ func EnvKeyReplacer(r StringReplacer) Option
 ```
 
 EnvKeyReplacer sets a replacer used for mapping environment variables to internal keys.
+
+​	EnvKeyReplacer函数设置用于将环境变量映射到内部键的替换器。
 
 #### func IniLoadOptions <- 1.8.0
 
@@ -1603,6 +1997,8 @@ func IniLoadOptions(in ini.LoadOptions) Option
 
 IniLoadOptions sets the load options for ini parsing.
 
+​	IniLoadOptions函数设置ini解析的加载选项。
+
 #### func KeyDelimiter <- 1.6.0
 
 ``` go
@@ -1610,6 +2006,8 @@ func KeyDelimiter(d string) Option
 ```
 
 KeyDelimiter sets the delimiter used for determining key parts. By default it's value is ".".
+
+​	KeyDelimiter函数设置用于确定键部分的分隔符。默认值为"."。
 
 #### type RemoteConfigError 
 
@@ -1619,6 +2017,8 @@ type RemoteConfigError string
 
 RemoteConfigError denotes encountering an error while trying to pull the configuration from the remote provider.
 
+​	RemoteConfigError类型表示在尝试从远程提供者获取配置时遇到错误。
+
 #### (RemoteConfigError) Error 
 
 ``` go
@@ -1626,6 +2026,8 @@ func (rce RemoteConfigError) Error() string
 ```
 
 Error returns the formatted remote provider error
+
+​	Error方法返回格式化的远程提供者错误。
 
 #### type RemoteProvider 
 
@@ -1639,6 +2041,8 @@ type RemoteProvider interface {
 ```
 
 RemoteProvider stores the configuration necessary to connect to a remote key/value store. Optional secretKeyring to unencrypt encrypted values can be provided.
+
+​	RemoteProvider接口存储连接到远程键/值存储所需的配置。可以提供用于解密加密值的可选secretKeyring。
 
 #### type RemoteResponse 
 
@@ -1654,11 +2058,14 @@ type RemoteResponse struct {
 ``` go
 type StringReplacer interface {
 	// Replace returns a copy of s with all replacements performed.
+    // Replace 返回执行所有替换操作后的 s 的副本。
 	Replace(s string) string
 }
 ```
 
 StringReplacer applies a set of replacements to a string.
+
+​	StringReplacer 接口对字符串应用一组替换。
 
 #### type UnsupportedConfigError 
 
@@ -1668,6 +2075,8 @@ type UnsupportedConfigError string
 
 UnsupportedConfigError denotes encountering an unsupported configuration filetype.
 
+​	UnsupportedConfigError 类型表示遇到不支持的配置文件类型。
+
 #### (UnsupportedConfigError) Error 
 
 ``` go
@@ -1675,6 +2084,8 @@ func (str UnsupportedConfigError) Error() string
 ```
 
 Error returns the formatted configuration error.
+
+​	Error 方法返回格式化的配置错误。
 
 #### type UnsupportedRemoteProviderError 
 
@@ -1684,6 +2095,8 @@ type UnsupportedRemoteProviderError string
 
 UnsupportedRemoteProviderError denotes encountering an unsupported remote provider. Currently only etcd and Consul are supported.
 
+​	UnsupportedRemoteProviderError 类型表示遇到不支持的远程提供程序。目前只支持 etcd 和 Consul。
+
 #### (UnsupportedRemoteProviderError) Error 
 
 ``` go
@@ -1692,19 +2105,67 @@ func (str UnsupportedRemoteProviderError) Error() string
 
 Error returns the formatted remote provider error.
 
+​	Error 方法返回格式化的远程提供程序错误。
+
 #### type Viper 
 
 ``` go
-type Viper struct {
-	// contains filtered or unexported fields
+type Viper struct {    
+    // 分隔符，用于一次性访问嵌套值的键列表
+	keyDelim string
+    
+    // 用于查找配置文件的路径集合
+	configPaths []string
+
+    // 用于读取配置的文件系统
+	fs afero.Fs
+
+    // 用于搜索配置的远程提供者集合
+	remoteProviders []*defaultRemoteProvider
+
+    // 在路径中查找的文件的名称
+	configName        string
+	configFile        string
+	configType        string
+	configPermissions os.FileMode
+	envPrefix         string
+
+    // ini 解析的特定命令
+	iniLoadOptions ini.LoadOptions
+
+	automaticEnvApplied bool
+	envKeyReplacer      StringReplacer
+	allowEmptyEnv       bool
+
+	parents        []string
+	config         map[string]interface{}
+	override       map[string]interface{}
+	defaults       map[string]interface{}
+	kvstore        map[string]interface{}
+	pflags         map[string]FlagValue
+	env            map[string][]string
+	aliases        map[string]string
+	typeByDefValue bool
+
+	onConfigChange func(fsnotify.Event)
+
+	logger Logger
+
+    // TODO: 应该使用互斥锁（mutex）进行保护
+	encoderRegistry *encoding.EncoderRegistry
+	decoderRegistry *encoding.DecoderRegistry
 }
 ```
 
 Viper is a prioritized configuration registry. It maintains a set of configuration sources, fetches values to populate those, and provides them according to the source's priority. The priority of the sources is the following: 1. overrides 2. flags 3. env. variables 4. config file 5. key/value store 6. defaults
 
+​	Viper结构体是一个优先级配置注册表。它维护一组配置源，获取值以填充这些源，并根据源的优先级提供值。源的优先级如下：1. 覆盖 2. 标志 3. 环境变量 4. 配置文件 5. 键/值存储 6. 默认值
+
 For example, if values from the following sources were loaded:
 
-```
+​	例如，如果从以下源加载了值：
+
+```json
 Defaults : {
 	"secret": "",
 	"user": "default",
@@ -1721,7 +2182,9 @@ Env : {
 
 The resulting config will have the following values:
 
-```
+​	结果配置将具有以下值：
+
+```json
 {
 	"secret": "somesecretkey",
 	"user": "root",
@@ -1731,6 +2194,8 @@ The resulting config will have the following values:
 
 Note: Vipers are not safe for concurrent Get() and Set() operations.
 
+​	注意：Viper 不支持并发的 Get() 和 Set() 操作。
+
 #### func GetViper 
 
 ``` go
@@ -1738,6 +2203,8 @@ func GetViper() *Viper
 ```
 
 GetViper gets the global Viper instance.
+
+​	GetViper函数 获取全局 Viper 实例。
 
 #### func New 
 
@@ -1747,6 +2214,8 @@ func New() *Viper
 
 New returns an initialized Viper instance.
 
+​	New 函数返回一个初始化的 Viper 实例。
+
 #### func NewWithOptions <- 1.6.0
 
 ``` go
@@ -1755,6 +2224,8 @@ func NewWithOptions(opts ...Option) *Viper
 
 NewWithOptions creates a new Viper instance.
 
+​	NewWithOptions函数 创建一个新的 Viper 实例。
+
 #### func Sub 
 
 ``` go
@@ -1762,6 +2233,8 @@ func Sub(key string) *Viper
 ```
 
 Sub returns new Viper instance representing a sub tree of this instance. Sub is case-insensitive for a key.
+
+​	Sub 函数返回表示此实例子树的新 Viper 实例。对于 key，Sub 不区分大小写。
 
 #### (*Viper) AddConfigPath 
 
@@ -2011,6 +2484,8 @@ func (v *Viper) OnConfigChange(run func(in fsnotify.Event))
 
 OnConfigChange sets the event handler that is called when a config file changes.
 
+​	OnConfigChange 方法设置在配置文件更改时调用的事件处理程序。
+
 #### (*Viper) ReadConfig 
 
 ``` go
@@ -2138,6 +2613,8 @@ func (v *Viper) WatchConfig()
 ```
 
 WatchConfig starts watching a config file for changes.
+
+​	WatchConfig 方法开始监视配置文件的更改。
 
 #### (*Viper) WatchRemoteConfig 
 
