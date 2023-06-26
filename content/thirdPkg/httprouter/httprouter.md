@@ -12,6 +12,12 @@ draft = false
 # HttpRouter
 
 > 原文：[https://pkg.go.dev/github.com/julienschmidt/httprouter](https://pkg.go.dev/github.com/julienschmidt/httprouter)
+>
+> 版本：v1.3.0
+>
+> 发布日期：2019.9.29
+>
+> github网址：[https://github.com/julienschmidt/httprouter](https://github.com/julienschmidt/httprouter)
 
 ​	HttpRouter 是一个轻量级高性能的 Go 语言 HTTP 请求路由器（也称为多路复用器*multiplexer*或简称 *mux*）。
 

@@ -13,11 +13,15 @@ draft = false
 
 > 原文：[https://pkg.go.dev/github.com/spf13/pflag](https://pkg.go.dev/github.com/spf13/pflag)
 >
-> github：[https://github.com/spf13/pflag](https://github.com/spf13/pflag)
+> 版本：v1.0.5
+>
+> 发布日期：2019.9.18
+>
+> github网址：[https://github.com/spf13/pflag](https://github.com/spf13/pflag)
 
 ## 描述
 
-​	pflag是Go语言的`flag`包的一个替代品，实现了POSIX/GNU风格的`--flags`。
+​	pflag是go语言的`flag`包的一个替代品，实现了POSIX/GNU风格的`--flags`。
 
 ​	pflag兼容[GNU对命令行选项的POSIX建议的扩展](http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html)。更详细的描述请参见下面的"命令行标志语法"部分。
 

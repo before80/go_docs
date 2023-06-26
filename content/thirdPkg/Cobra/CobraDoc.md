@@ -12,6 +12,12 @@ draft = false
 # Cobra 在pkg.go.dev上的文档
 
 > 原文：[https://pkg.go.dev/github.com/spf13/cobra](https://pkg.go.dev/github.com/spf13/cobra)
+>
+> 版本：v1.7.0
+>
+> 发布日期：2023.3.22
+>
+> github网址：[https://github.com/spf13/cobra](https://github.com/spf13/cobra)
 
 
 

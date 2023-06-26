@@ -313,6 +313,7 @@ x.f
    > 	fmt.Printf("%#v\n", a) //main.Op{}
    > 	i = a
    > 	fmt.Printf("%v\n", i.Add(1, 2)) // 3
+   > 	//fmt.Printf("%v\n", i.Sub(1, 2)) // i.Sub undefined (type Adder has no field or method Sub)
    > }
    > 
    > ```
@@ -328,24 +329,27 @@ x.f
    > 
    > import "fmt"
    > 
-   > type Op struct {
-   > }
-   > 
-   > func (o Op) Add(a int, b int) (total int) {
-   > 	return a + b
+   > type Person struct {
+   > 	Name *string
+   > 	Age  int
    > }
    > 
    > func main() {
-   > 	a := Op{}
-   > 	b := &Op{}
-   > 	fmt.Printf("%#v\n", a) //main.Op{}
-   > 	fmt.Printf("%#v\n", b) //&main.Op{}
+   > 	name1 := "zlongx1"
+   > 	name2 := "zlongx2"
+   > 	v := Person{Name: &name1, Age: 31}
+   > 	p := &Person{Name: &name2, Age: 32}
    > 
-   > 	fmt.Printf("%v\n", a.Add(1, 2))    // 3
-   > 	fmt.Printf("%v\n", b.Add(1, 2))    // 3
-   > 	fmt.Printf("%v\n", (*b).Add(1, 2)) // 3
+   > 	fmt.Printf("%#v\n", v)         // main.Person{Name:(*string)(0xc00004e270)}
+   > 	fmt.Printf("%#v\n", p)         // &main.Person{Name:(*string)(0xc00004e280)}
+   > 	fmt.Printf("%#v\n", *p)        // main.Person{Name:(*string)(0xc00004e280)}
+   > 	fmt.Printf("%#v\n", v.Name)    // (*string)(0xc00004e270)
+   > 	fmt.Printf("%#v\n", p.Name)    // (*string)(0xc00004e280)
+   > 	fmt.Printf("%#v\n", (*p).Name) // (*string)(0xc00004e280)
+   > 	fmt.Printf("%#v\n", v.Age)     // 31
+   > 	fmt.Printf("%#v\n", p.Age)     // 32
+   > 	fmt.Printf("%#v\n", (*p).Age)  // 32
    > }
-   > 
    > ```
    >
    > 
@@ -593,8 +597,8 @@ ReceiverType  = Type .
 type T struct {
 	a int
 }
-func (tv  T) Mv(a int) int         { return 0 }  // value receiver => 值类型的 接收器
-func (tp *T) Mp(f float32) float32 { return 1 }  // pointer receiver => 指针类型的 接收器
+func (tv  T) Mv(a int) int         { return 0 }  // 值类型的接收器
+func (tp *T) Mp(f float32) float32 { return 1 }  // 指针类型的接收器
 
 var t T
 ```
@@ -647,11 +651,11 @@ func(tv *T, a int) int
 
 Such a function indirects through the receiver to create a value to pass as the receiver to the underlying method; the method does not overwrite the value whose address is passed in the function call.
 
-​	这样的函数通过接收器`间接地`创建了一个值，作为接收器传递给底层方法；该方法不会覆盖（其地址在函数调用中被传递的）那个值。=>仍有疑问？？
+​	这样的函数通过接收器`间接地`创建了一个值，作为接收器传递给底层方法；该方法不会覆盖（其地址在函数调用中被传递的）那个值。=>该怎么翻译？？
 
-The final case, a value-receiver function for a pointer-receiver method, is illegal because pointer-receiver methods are not in the method set of the value type.
+​	这样的一个函数间接地通过其接收器创建了（用来作为接收器传递给其底层方法的）一个值；该（底层）方法不会覆盖这个值（因这个值的地址在这个函数调用才会被传递）
 
-​	最后一种情况，将一个带指针接收器的方法`当做`一个带值接收器的函数，是非法的，因为指针接收器的方法不在值类型的方法集中。=>仍有疑问？？
+​	最后一种情况，将一个带指针接收器的方法`当做`一个带值接收器的函数，是非法的，因为指针接收器的方法不在值类型的方法集中。
 
 ​	从方法中推导出来的函数值是用`函数调用语法`来调用的；接收器被作为调用的第一个实参来提供。也就是说，`f := T.Mv`中的`f`是作为`f(t, 7)`被调用，而不是`t.f(7)`。要构造一个绑定接收器的函数，可以使用[函数字面量](#function-literals-函数字面量)或[方法值](#method-values-方法值)。
 
@@ -678,7 +682,11 @@ The final case, a value-receiver function for a pointer-receiver method, is ille
 > 	return f + float32(tp.a)
 > }
 > 
-> func funcMv(tv T, a int) int {
+> func funcMv1(tv T, a int) int {
+> 	return tv.a + a
+> }
+> 
+> func funcMv2(tv *T, a int) int {
 > 	return tv.a + a
 > }
 > 
@@ -687,19 +695,51 @@ The final case, a value-receiver function for a pointer-receiver method, is ille
 > }
 > 
 > func main() {
-> 	var t T
+> 	var tv T = T{}
+> 	var tp *T = &T{}
 > 
-> 	fmt.Printf("t.Mv(7)=%v\n", t.Mv(7))           // t.Mv(7)=7
-> 	fmt.Printf("T.Mv(t, 7)=%v\n", T.Mv(t, 7))     // T.Mv(t, 7)=7
-> 	fmt.Printf("(T).Mv(t, 7)=%v\n", (T).Mv(t, 7)) // (T).Mv(t, 7)=7
+> 	tv.a = 1
+> 	fmt.Printf("tv.Mv(7)=%v\n", tv.Mv(7))               // tv.Mv(7)=8
+> 	fmt.Printf("T.Mv(tv, 7)=%v\n", T.Mv(tv, 7))         // T.Mv(tv, 7)=8
+> 	fmt.Printf("(T).Mv(tv, 7)=%v\n", (T).Mv(tv, 7))     // (T).Mv(tv, 7)=8
+> 	fmt.Printf("(*T).Mv(&tv, 7)=%v\n", (*T).Mv(&tv, 7)) // (*T).Mv(&tv, 7)=8
+> 	fmt.Printf("tv.Mp(7)=%v\n", tv.Mp(7))               // tv.Mp(7)=8
 > 
+> 	fmt.Println("-- a=1 ---------------------------------")
+> 
+> 	tv.a = 2
 > 	f1 := T.Mv
-> 	fmt.Printf("f1(t, 7)=%v\n", f1(t, 7))         // f1(t, 7)=8
-> 	fmt.Printf("funcMv(t, 7)=%v\n", funcMv(t, 7)) // funcMv(t, 7)=7
+> 	fmt.Printf("f1(tv, 7)=%v\n", f1(tv, 7))           // f1(tv, 7)=9
+> 	fmt.Printf("funcMv1(tv, 7)=%v\n", funcMv1(tv, 7)) // funcMv1(tv, 7)=9
 > 
-> 	f2 := (T).Mv
-> 	fmt.Printf("f2(t, 7)=%v\n", f2(t, 7)) // f2(t, 7)=7
+> 	fmt.Println("-- a=2 ---------------------------------")
 > 
+> 	tv.a = 3
+> 	f2 := (*T).Mv
+> 	fmt.Printf("f2(&tv, 7)=%v\n", f2(&tv, 7))           // f2(&tv, 7)=10
+> 	fmt.Printf("funcMv2(&tv, 7)=%v\n", funcMv2(&tv, 7)) // funcMv2(&tv, 7)=10
+> 
+> 	fmt.Println("-- a=3 ---------------------------------")
+> 
+> 	tv.a = 4
+> 	tp.a = 4
+> 	fmt.Printf("tp.Mv(7)=%v\n", tp.Mv(7))               // tp.Mv(7)=11
+> 	fmt.Printf("tp.Mp(7)=%v\n", tp.Mp(7))               // tp.Mp(7)=11
+> 	fmt.Printf("(*T).Mp(tp, 7)=%v\n", (*T).Mp(tp, 7))   // (*T).Mp(tp, 7)=11
+> 	fmt.Printf("(*T).Mv(tp, 7)=%v\n", (*T).Mv(tp, 7))   // (*T).Mv(tp, 7)=11
+> 	fmt.Printf("(*T).Mv(&tv, 7)=%v\n", (*T).Mv(&tv, 7)) // (*T).Mv(&tv, 7)=11
+> 
+> 	fmt.Println("-- a=4 ---------------------------------")
+> 
+> 	tv.a = 5
+> 	tp.a = 5
+> 	f3 := (*T).Mp
+> 	fmt.Printf("f3(&tv, 7)=%v\n", f3(&tv, 7))         // f3(&tv, 7)=12
+> 	fmt.Printf("f3(tp, 7)=%v\n", f3(tp, 7))           // f3(tp, 7)=12
+> 	fmt.Printf("funcMp(&tv, 7)=%v\n", funcMp(&tv, 7)) // funcMp(&tv, 7)=12
+> 	fmt.Printf("funcMp(tp, 7)=%v\n", funcMp(tp, 7))   // funcMp(tp, 7)=12
+> 
+> 	fmt.Println("-- a=5 ---------------------------------")
 > }
 > 
 > ```
@@ -708,7 +748,7 @@ The final case, a value-receiver function for a pointer-receiver method, is ille
 
 ### Method values 方法值
 
-​	如果表达式`x`有静态类型`T`，并且`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中，那么`x.M`被称为一个`方法值`。方法值`x.M`是一个可调用的函数值，其实参与`x.M`的方法调用相同。表达式`x`在方法值的求值过程中被求值和保存；然后保存的副本被用作任何调用中的接收器上，这些调用可能在以后执行。
+​	如果表达式`x`有静态类型`T`，并且`M`在类型`T`的[方法集](../PropertiesOfTypesAndValues#method-sets-方法集)中，那么`x.M`被称为一个`方法值`。方法值`x.M`是一个可调用的函数值，其实参与`x.M`的方法调用相同。表达式`x`在方法值的求值过程中被求值 、 保存；然后保存的副本被用作任何调用中的接收器上，这些调用可能在以后执行。
 
 ```go 
 type S struct { *T }
@@ -717,21 +757,21 @@ func (t T) M() { print(t) }
 
 t := new(T)
 s := S{T: t}
-f := t.M                    // receiver *t is evaluated and stored in f => 接收器 *t 被求值，并被保存在 f 中
-g := s.M                    // receiver *(s.T) is evaluated and stored in g => 接收器 *(s.T) 被求值，并被保存在 g 中
-*t = 42                     // does not affect stored receivers in f and g => 不会影响 保存在 f 和 g 中的接收器
+f := t.M                    // 接收器 *t 被求值，并被保存在 f 中
+g := s.M                    // 接收器 *(s.T) 被求值，并被保存在 g 中
+*t = 42                     // 不会影响 保存在 f 和 g 中的接收器
 ```
 
 ​	类型`T`既可以是接口类型，也可以是非接口类型。
 
-​	如同上面对[方法表达式](#method-expressions-方法表达式)的讨论，考虑一个有两个方法的结构体类型`T`，方法一的接收器是`T`类型的`Mv`，方法二的接收器是`*T`类型的`Mp`。
+​	如同上面对[方法表达式](#method-expressions-方法表达式)的讨论，考虑一个结构体类型`T`，它有两个方法：`Mv`，其接收器类型为`T`，和`Mp`，其接收器类型为`*T`。
 
 ```go 
 type T struct {
 	a int
 }
-func (tv  T) Mv(a int) int         { return 0 }  // value receiver => 值接收器
-func (tp *T) Mp(f float32) float32 { return 1 }  // pointer receiver => 指针接收器
+func (tv  T) Mv(a int) int         { return 0 }  // 值接收器
+func (tp *T) Mp(f float32) float32 { return 1 }  // 指针接收器
 
 var t T
 var pt *T
@@ -744,26 +784,26 @@ func makeT() T
 t.Mv
 ```
 
-生成一个类型如下的函数值：
+​	生成一个类型如下的函数值：
 
 ```go 
 func(int) int
 ```
 
-这两种调用是等价的：
+​	这两种调用是等价的：
 
 ```go 
 t.Mv(7)
 f := t.Mv; f(7)
 ```
 
-同样地，表达式
+​	同样地，表达式
 
 ```go 
 pt.Mp
 ```
 
-生成一个类型如下的函数值：
+​	生成一个类型如下的函数值：
 
 ```go 
 func(float32) float32
@@ -778,7 +818,7 @@ f := t.Mv; f(7)   // like t.Mv(7)
 f = pt.Mp; f(7)  // like pt.Mp(7)
 f = pt.Mv; f(7)  // like (*pt).Mv(7)
 f = t.Mp; f(7)   // like (&t).Mp(7)
-f = makeT().Mp   // invalid: result of makeT() is not addressable => 无效的：makeT() 的结果是 不可寻址的	
+f = makeT().Mp   // 无效的：makeT() 的结果是 不可寻址的	
 ```
 
 > ​	个人注释

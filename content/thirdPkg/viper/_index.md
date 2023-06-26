@@ -1762,7 +1762,7 @@ type ConfigFileAlreadyExistsError string
 
 ​	ConfigFileAlreadyExistsError类型表示写入新配置文件失败。
 
-#### (ConfigFileAlreadyExistsError) Error <- 1.6.0
+##### (ConfigFileAlreadyExistsError) Error <- 1.6.0
 
 ``` go
 func (faee ConfigFileAlreadyExistsError) Error() string {
@@ -1784,7 +1784,7 @@ type ConfigFileNotFoundError struct {
 
 ​	ConfigFileNotFoundError结构体表示无法找到配置文件。
 
-#### (ConfigFileNotFoundError) Error 
+##### (ConfigFileNotFoundError) Error 
 
 ``` go
 func (fnfe ConfigFileNotFoundError) Error() string {
@@ -1804,7 +1804,7 @@ type ConfigMarshalError struct {
 
 ​	ConfigMarshalError结构体表示无法将配置进行系列化（Marshal）时发生错误。
 
-#### (ConfigMarshalError) Error <- 1.0.1
+##### (ConfigMarshalError) Error <- 1.0.1
 
 ``` go
 func (e ConfigMarshalError) Error() string {
@@ -1824,7 +1824,7 @@ type ConfigParseError struct {
 
 ​	ConfigParseError结构体表示解析配置文件失败。
 
-#### (ConfigParseError) Error 
+##### (ConfigParseError) Error 
 
 ``` go
 func (pe ConfigParseError) Error() string {
@@ -1834,7 +1834,7 @@ func (pe ConfigParseError) Error() string {
 
 ​	Error方法返回格式化的配置错误信息。
 
-#### (ConfigParseError) Unwrap <- 1.16.0
+##### (ConfigParseError) Unwrap <- 1.16.0
 
 ``` go
 func (pe ConfigParseError) Unwrap() error {
@@ -1852,7 +1852,7 @@ type DecoderConfigOption func(*mapstructure.DecoderConfig)
 
 ​	可以将DecoderConfigOption传递给viper.Unmarshal，以配置mapstructure.DecoderConfig选项。
 
-#### func DecodeHook <- 1.1.0
+##### func DecodeHook <- 1.1.0
 
 ``` go
 func DecodeHook(hook mapstructure.DecodeHookFunc) DecoderConfigOption
@@ -1940,7 +1940,7 @@ type Option interface {
 
 ​	Option接口使用Rob Pike和Dave Cheney提倡的功能选项范式（functional options paradigm）配置Viper。如果您对此风格不熟悉，请参阅[https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html](https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html)和[https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)。
 
-#### func EnvKeyReplacer <- 1.6.0
+##### func EnvKeyReplacer <- 1.6.0
 
 ``` go
 func EnvKeyReplacer(r StringReplacer) Option {
@@ -1956,7 +1956,7 @@ EnvKeyReplacer sets a replacer used for mapping environment variables to interna
 
 ​	EnvKeyReplacer函数设置用于将环境变量映射到内部键的替换器。
 
-#### func IniLoadOptions <- 1.8.0
+##### func IniLoadOptions <- 1.8.0
 
 ``` go
 func IniLoadOptions(in ini.LoadOptions) Option
@@ -1964,7 +1964,7 @@ func IniLoadOptions(in ini.LoadOptions) Option
 
 ​	IniLoadOptions函数设置ini解析的加载选项。
 
-#### func KeyDelimiter <- 1.6.0
+##### func KeyDelimiter <- 1.6.0
 
 ``` go
 func KeyDelimiter(d string) Option
@@ -1984,7 +1984,7 @@ RemoteConfigError denotes encountering an error while trying to pull the configu
 
 ​	RemoteConfigError类型表示在尝试从远程提供者获取配置时遇到错误。
 
-#### (RemoteConfigError) Error 
+##### (RemoteConfigError) Error 
 
 ``` go
 func (rce RemoteConfigError) Error() string
@@ -2033,7 +2033,7 @@ type UnsupportedConfigError string
 
 ​	UnsupportedConfigError 类型表示遇到不支持的配置文件类型。
 
-#### (UnsupportedConfigError) Error 
+##### (UnsupportedConfigError) Error 
 
 ``` go
 func (str UnsupportedConfigError) Error() string {
@@ -2051,7 +2051,7 @@ type UnsupportedRemoteProviderError string
 
 ​	UnsupportedRemoteProviderError 类型表示遇到不支持的远程提供者。目前只支持 etcd 和 Consul。
 
-#### (UnsupportedRemoteProviderError) Error 
+##### (UnsupportedRemoteProviderError) Error 
 
 ``` go
 func (str UnsupportedRemoteProviderError) Error() string
@@ -2149,7 +2149,7 @@ Env : {
 
 ​	注意：Vipers（对象）在并发的Get()和Set()操作中不是线程安全的。
 
-#### func GetViper 
+##### func GetViper 
 
 ``` go
 func GetViper() *Viper
@@ -2157,7 +2157,7 @@ func GetViper() *Viper
 
 ​	GetViper函数获取全局 Viper 实例。
 
-#### func New 
+##### func New 
 
 ``` go
 func New() *Viper
@@ -2165,7 +2165,7 @@ func New() *Viper
 
 ​	New 函数返回一个初始化后的 Viper 实例。
 
-#### func NewWithOptions <- 1.6.0
+##### func NewWithOptions <- 1.6.0
 
 ``` go
 func NewWithOptions(opts ...Option) *Viper
@@ -2173,7 +2173,7 @@ func NewWithOptions(opts ...Option) *Viper
 
 ​	NewWithOptions函数创建一个新的 Viper 实例。
 
-#### func Sub 
+##### func Sub 
 
 ``` go
 func Sub(key string) *Viper
@@ -2183,247 +2183,247 @@ Sub returns new Viper instance representing a sub tree of this instance. Sub is 
 
 ​	Sub 函数返回一个表示当前实例子树的新Viper实例。Sub函数对于键是不区分大小写的。
 
-#### (*Viper) AddConfigPath 
+##### (*Viper) AddConfigPath 
 
 ``` go
 func (v *Viper) AddConfigPath(in string)
 ```
 
-#### (*Viper) AddRemoteProvider 
+##### (*Viper) AddRemoteProvider 
 
 ``` go
 func (v *Viper) AddRemoteProvider(provider, endpoint, path string) error
 ```
 
-#### (*Viper) AddSecureRemoteProvider 
+##### (*Viper) AddSecureRemoteProvider 
 
 ``` go
 func (v *Viper) AddSecureRemoteProvider(provider, endpoint, path, secretkeyring string) error
 ```
 
-#### (*Viper) AllKeys 
+##### (*Viper) AllKeys 
 
 ``` go
 func (v *Viper) AllKeys() []string
 ```
 
-#### (*Viper) AllSettings 
+##### (*Viper) AllSettings 
 
 ``` go
 func (v *Viper) AllSettings() map[string]interface{}
 ```
 
-#### (*Viper) AllowEmptyEnv <- 1.3.0
+##### (*Viper) AllowEmptyEnv <- 1.3.0
 
 ``` go
 func (v *Viper) AllowEmptyEnv(allowEmptyEnv bool)
 ```
 
-#### (*Viper) AutomaticEnv 
+##### (*Viper) AutomaticEnv 
 
 ``` go
 func (v *Viper) AutomaticEnv()
 ```
 
-#### (*Viper) BindEnv 
+##### (*Viper) BindEnv 
 
 ``` go
 func (v *Viper) BindEnv(input ...string) error
 ```
 
-#### (*Viper) BindFlagValue 
+##### (*Viper) BindFlagValue 
 
 ``` go
 func (v *Viper) BindFlagValue(key string, flag FlagValue) error
 ```
 
-#### (*Viper) BindFlagValues 
+##### (*Viper) BindFlagValues 
 
 ``` go
 func (v *Viper) BindFlagValues(flags FlagValueSet) (err error)
 ```
 
-#### (*Viper) BindPFlag 
+##### (*Viper) BindPFlag 
 
 ``` go
 func (v *Viper) BindPFlag(key string, flag *pflag.Flag) error
 ```
 
-#### (*Viper) BindPFlags 
+##### (*Viper) BindPFlags 
 
 ``` go
 func (v *Viper) BindPFlags(flags *pflag.FlagSet) error
 ```
 
-#### (*Viper) ConfigFileUsed 
+##### (*Viper) ConfigFileUsed 
 
 ``` go
 func (v *Viper) ConfigFileUsed() string
 ```
 
-#### (*Viper) Debug 
+##### (*Viper) Debug 
 
 ``` go
 func (v *Viper) Debug()
 ```
 
-#### (*Viper) DebugTo <- 1.13.0
+##### (*Viper) DebugTo <- 1.13.0
 
 ``` go
 func (v *Viper) DebugTo(w io.Writer)
 ```
 
-#### (*Viper) Get 
+##### (*Viper) Get 
 
 ``` go
 func (v *Viper) Get(key string) interface{}
 ```
 
-#### (*Viper) GetBool 
+##### (*Viper) GetBool 
 
 ``` go
 func (v *Viper) GetBool(key string) bool
 ```
 
-#### (*Viper) GetDuration 
+##### (*Viper) GetDuration 
 
 ``` go
 func (v *Viper) GetDuration(key string) time.Duration
 ```
 
-#### (*Viper) GetFloat64 
+##### (*Viper) GetFloat64 
 
 ``` go
 func (v *Viper) GetFloat64(key string) float64
 ```
 
-#### (*Viper) GetInt 
+##### (*Viper) GetInt 
 
 ``` go
 func (v *Viper) GetInt(key string) int
 ```
 
-#### (*Viper) GetInt32 <- 1.1.0
+##### (*Viper) GetInt32 <- 1.1.0
 
 ``` go
 func (v *Viper) GetInt32(key string) int32
 ```
 
-#### (*Viper) GetInt64 
+##### (*Viper) GetInt64 
 
 ``` go
 func (v *Viper) GetInt64(key string) int64
 ```
 
-#### (*Viper) GetIntSlice <- 1.5.0
+##### (*Viper) GetIntSlice <- 1.5.0
 
 ``` go
 func (v *Viper) GetIntSlice(key string) []int
 ```
 
-#### (*Viper) GetSizeInBytes 
+##### (*Viper) GetSizeInBytes 
 
 ``` go
 func (v *Viper) GetSizeInBytes(key string) uint
 ```
 
-#### (*Viper) GetString 
+##### (*Viper) GetString 
 
 ``` go
 func (v *Viper) GetString(key string) string
 ```
 
-#### (*Viper) GetStringMap 
+##### (*Viper) GetStringMap 
 
 ``` go
 func (v *Viper) GetStringMap(key string) map[string]interface{}
 ```
 
-#### (*Viper) GetStringMapString 
+##### (*Viper) GetStringMapString 
 
 ``` go
 func (v *Viper) GetStringMapString(key string) map[string]string
 ```
 
-#### (*Viper) GetStringMapStringSlice 
+##### (*Viper) GetStringMapStringSlice 
 
 ``` go
 func (v *Viper) GetStringMapStringSlice(key string) map[string][]string
 ```
 
-#### (*Viper) GetStringSlice 
+##### (*Viper) GetStringSlice 
 
 ``` go
 func (v *Viper) GetStringSlice(key string) []string
 ```
 
-#### (*Viper) GetTime 
+##### (*Viper) GetTime 
 
 ``` go
 func (v *Viper) GetTime(key string) time.Time
 ```
 
-#### (*Viper) GetUint <- 1.4.0
+##### (*Viper) GetUint <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint(key string) uint
 ```
 
-#### (*Viper) GetUint16 <- 1.13.0
+##### (*Viper) GetUint16 <- 1.13.0
 
 ``` go
 func (v *Viper) GetUint16(key string) uint16
 ```
 
-#### (*Viper) GetUint32 <- 1.4.0
+##### (*Viper) GetUint32 <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint32(key string) uint32
 ```
 
-#### (*Viper) GetUint64 <- 1.4.0
+##### (*Viper) GetUint64 <- 1.4.0
 
 ``` go
 func (v *Viper) GetUint64(key string) uint64
 ```
 
-#### (*Viper) InConfig 
+##### (*Viper) InConfig 
 
 ``` go
 func (v *Viper) InConfig(key string) bool
 ```
 
-#### (*Viper) IsSet 
+##### (*Viper) IsSet 
 
 ``` go
 func (v *Viper) IsSet(key string) bool
 ```
 
-#### (*Viper) MergeConfig 
+##### (*Viper) MergeConfig 
 
 ``` go
 func (v *Viper) MergeConfig(in io.Reader) error
 ```
 
-#### (*Viper) MergeConfigMap <- 1.3.0
+##### (*Viper) MergeConfigMap <- 1.3.0
 
 ``` go
 func (v *Viper) MergeConfigMap(cfg map[string]interface{}) error
 ```
 
-#### (*Viper) MergeInConfig 
+##### (*Viper) MergeInConfig 
 
 ``` go
 func (v *Viper) MergeInConfig() error
 ```
 
-#### (*Viper) MustBindEnv <- 1.12.0
+##### (*Viper) MustBindEnv <- 1.12.0
 
 ``` go
 func (v *Viper) MustBindEnv(input ...string)
 ```
 
-#### (*Viper) OnConfigChange 
+##### (*Viper) OnConfigChange 
 
 ``` go
 func (v *Viper) OnConfigChange(run func(in fsnotify.Event))
@@ -2433,127 +2433,127 @@ OnConfigChange sets the event handler that is called when a config file changes.
 
 ​	OnConfigChange 方法设置在配置文件更改时调用的事件处理程序。
 
-#### (*Viper) ReadConfig 
+##### (*Viper) ReadConfig 
 
 ``` go
 func (v *Viper) ReadConfig(in io.Reader) error
 ```
 
-#### (*Viper) ReadInConfig 
+##### (*Viper) ReadInConfig 
 
 ``` go
 func (v *Viper) ReadInConfig() error
 ```
 
-#### (*Viper) ReadRemoteConfig 
+##### (*Viper) ReadRemoteConfig 
 
 ``` go
 func (v *Viper) ReadRemoteConfig() error
 ```
 
-#### (*Viper) RegisterAlias 
+##### (*Viper) RegisterAlias 
 
 ``` go
 func (v *Viper) RegisterAlias(alias string, key string)
 ```
 
-#### (*Viper) SafeWriteConfig <- 1.0.1
+##### (*Viper) SafeWriteConfig <- 1.0.1
 
 ``` go
 func (v *Viper) SafeWriteConfig() error
 ```
 
-#### (*Viper) SafeWriteConfigAs <- 1.0.1
+##### (*Viper) SafeWriteConfigAs <- 1.0.1
 
 ``` go
 func (v *Viper) SafeWriteConfigAs(filename string) error
 ```
 
-#### (*Viper) Set 
+##### (*Viper) Set 
 
 ``` go
 func (v *Viper) Set(key string, value interface{})
 ```
 
-#### (*Viper) SetConfigFile 
+##### (*Viper) SetConfigFile 
 
 ``` go
 func (v *Viper) SetConfigFile(in string)
 ```
 
-#### (*Viper) SetConfigName 
+##### (*Viper) SetConfigName 
 
 ``` go
 func (v *Viper) SetConfigName(in string)
 ```
 
-#### (*Viper) SetConfigPermissions <- 1.4.0
+##### (*Viper) SetConfigPermissions <- 1.4.0
 
 ``` go
 func (v *Viper) SetConfigPermissions(perm os.FileMode)
 ```
 
-#### (*Viper) SetConfigType 
+##### (*Viper) SetConfigType 
 
 ``` go
 func (v *Viper) SetConfigType(in string)
 ```
 
-#### (*Viper) SetDefault 
+##### (*Viper) SetDefault 
 
 ``` go
 func (v *Viper) SetDefault(key string, value interface{})
 ```
 
-#### (*Viper) SetEnvKeyReplacer 
+##### (*Viper) SetEnvKeyReplacer 
 
 ``` go
 func (v *Viper) SetEnvKeyReplacer(r *strings.Replacer)
 ```
 
-#### (*Viper) SetEnvPrefix 
+##### (*Viper) SetEnvPrefix 
 
 ``` go
 func (v *Viper) SetEnvPrefix(in string)
 ```
 
-#### (*Viper) SetFs 
+##### (*Viper) SetFs 
 
 ``` go
 func (v *Viper) SetFs(fs afero.Fs)
 ```
 
-#### (*Viper) SetTypeByDefaultValue 
+##### (*Viper) SetTypeByDefaultValue 
 
 ``` go
 func (v *Viper) SetTypeByDefaultValue(enable bool)
 ```
 
-#### (*Viper) Sub 
+##### (*Viper) Sub 
 
 ``` go
 func (v *Viper) Sub(key string) *Viper
 ```
 
-#### (*Viper) Unmarshal 
+##### (*Viper) Unmarshal 
 
 ``` go
 func (v *Viper) Unmarshal(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### (*Viper) UnmarshalExact 
+##### (*Viper) UnmarshalExact 
 
 ``` go
 func (v *Viper) UnmarshalExact(rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### (*Viper) UnmarshalKey 
+##### (*Viper) UnmarshalKey 
 
 ``` go
 func (v *Viper) UnmarshalKey(key string, rawVal interface{}, opts ...DecoderConfigOption) error
 ```
 
-#### (*Viper) WatchConfig 
+##### (*Viper) WatchConfig 
 
 ``` go
 func (v *Viper) WatchConfig()
@@ -2563,25 +2563,25 @@ WatchConfig starts watching a config file for changes.
 
 ​	WatchConfig 方法开始监视配置文件的更改。
 
-#### (*Viper) WatchRemoteConfig 
+##### (*Viper) WatchRemoteConfig 
 
 ``` go
 func (v *Viper) WatchRemoteConfig() error
 ```
 
-#### (*Viper) WatchRemoteConfigOnChannel 
+##### (*Viper) WatchRemoteConfigOnChannel 
 
 ``` go
 func (v *Viper) WatchRemoteConfigOnChannel() error
 ```
 
-#### (*Viper) WriteConfig <- 1.0.1
+##### (*Viper) WriteConfig <- 1.0.1
 
 ``` go
 func (v *Viper) WriteConfig() error
 ```
 
-#### (*Viper) WriteConfigAs <- 1.0.1
+##### (*Viper) WriteConfigAs <- 1.0.1
 
 ``` go
 func (v *Viper) WriteConfigAs(filename string) error
