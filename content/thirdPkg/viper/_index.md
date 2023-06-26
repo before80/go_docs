@@ -1760,39 +1760,37 @@ func (v *Viper) writeConfig(filename string, force bool) error {
 type ConfigFileAlreadyExistsError string
 ```
 
-ConfigFileAlreadyExistsError denotes failure to write new configuration file.
-
-​	ConfigFileAlreadyExistsErro类型r表示写入新配置文件失败。
+​	ConfigFileAlreadyExistsError类型表示写入新配置文件失败。
 
 #### (ConfigFileAlreadyExistsError) Error <- 1.6.0
 
 ``` go
-func (faee ConfigFileAlreadyExistsError) Error() string
+func (faee ConfigFileAlreadyExistsError) Error() string {
+	return fmt.Sprintf("Config File %q Already Exists", string(faee))
+}
 ```
 
 Error returns the formatted error when configuration already exists.
 
-​	Error方法返回已存在配置时的格式化错误信息。
+​	Error方法返回配置已存在时的格式化错误信息。（？？不是配置文件已存在的错误？？）
 
 #### type ConfigFileNotFoundError 
 
 ``` go
 type ConfigFileNotFoundError struct {
-	// contains filtered or unexported fields
+	name, locations string
 }
 ```
 
-ConfigFileNotFoundError denotes failing to find configuration file.
-
-​	ConfigFileNotFoundError结构体表示找不到配置文件。
+​	ConfigFileNotFoundError结构体表示无法找到配置文件。
 
 #### (ConfigFileNotFoundError) Error 
 
 ``` go
-func (fnfe ConfigFileNotFoundError) Error() string
+func (fnfe ConfigFileNotFoundError) Error() string {
+	return fmt.Sprintf("Config File %q Not Found in %q", fnfe.name, fnfe.locations)
+}
 ```
-
-Error returns the formatted configuration error.
 
 ​	Error方法返回格式化的配置错误信息。
 
@@ -1800,21 +1798,19 @@ Error returns the formatted configuration error.
 
 ``` go
 type ConfigMarshalError struct {
-	// contains filtered or unexported fields
+	err error
 }
 ```
 
-ConfigMarshalError happens when failing to marshal the configuration.
-
-​	ConfigMarshalError结构体表示无法编组配置时发生错误。
+​	ConfigMarshalError结构体表示无法将配置进行系列化（Marshal）时发生错误。
 
 #### (ConfigMarshalError) Error <- 1.0.1
 
 ``` go
-func (e ConfigMarshalError) Error() string
+func (e ConfigMarshalError) Error() string {
+	return fmt.Sprintf("While marshaling config: %s", e.err.Error())
+}
 ```
-
-Error returns the formatted configuration error.
 
 ​	Error方法返回格式化的配置错误信息。
 
@@ -1822,31 +1818,29 @@ Error returns the formatted configuration error.
 
 ``` go
 type ConfigParseError struct {
-	// contains filtered or unexported fields
+	err error
 }
 ```
-
-ConfigParseError denotes failing to parse configuration file.
 
 ​	ConfigParseError结构体表示解析配置文件失败。
 
 #### (ConfigParseError) Error 
 
 ``` go
-func (pe ConfigParseError) Error() string
+func (pe ConfigParseError) Error() string {
+	return fmt.Sprintf("While parsing config: %s", pe.err.Error())
+}
 ```
-
-Error returns the formatted configuration error.
 
 ​	Error方法返回格式化的配置错误信息。
 
 #### (ConfigParseError) Unwrap <- 1.16.0
 
 ``` go
-func (pe ConfigParseError) Unwrap() error
+func (pe ConfigParseError) Unwrap() error {
+	return pe.err
+}
 ```
-
-Unwrap returns the wrapped error.
 
 ​	Unwrap方法返回包装的错误。
 
@@ -1856,9 +1850,7 @@ Unwrap returns the wrapped error.
 type DecoderConfigOption func(*mapstructure.DecoderConfig)
 ```
 
-A DecoderConfigOption can be passed to viper.Unmarshal to configure mapstructure.DecoderConfig options
-
-​	DecoderConfigOption类型可以传递给viper.Unmarshal，以配置mapstructure.DecoderConfig选项。
+​	可以将DecoderConfigOption传递给viper.Unmarshal，以配置mapstructure.DecoderConfig选项。
 
 #### func DecodeHook <- 1.1.0
 
@@ -1866,9 +1858,7 @@ A DecoderConfigOption can be passed to viper.Unmarshal to configure mapstructure
 func DecodeHook(hook mapstructure.DecodeHookFunc) DecoderConfigOption
 ```
 
-DecodeHook returns a DecoderConfigOption which overrides the default DecoderConfig.DecodeHook value, the default is:
-
-​	DecodeHook函数返回一个DecoderConfigOption，它会覆盖默认的DecoderConfig.DecodeHook值，默认值为：
+​	DecodeHook函数返回一个DecoderConfigOption，用于覆盖默认的DecoderConfig.DecodeHook值，其默认值为：
 
 ```go
  mapstructure.ComposeDecodeHookFunc(
@@ -1888,9 +1878,7 @@ type FlagValue interface {
 }
 ```
 
-FlagValue is an interface that users can implement to bind different flags to viper.
-
-​	FlagValue是一个接口，用户可以实现它来绑定不同的标志到viper。
+​	FlagValue是一个接口，用户可以实现该接口来将不同的标志（flag）绑定到viper上。
 
 #### type FlagValueSet 
 
@@ -1900,70 +1888,45 @@ type FlagValueSet interface {
 }
 ```
 
-FlagValueSet is an interface that users can implement to bind a set of flags to viper.
-
-​	FlagValueSet是一个接口，用户可以实现它来将一组标志绑定到viper。
+​	FlagValueSet是一个接口，用户可以实现该接口来将一组标志（flag）绑定到viper上。
 
 #### type Logger <- 1.10.0
 
 ``` go
 type Logger interface {
-	// Trace logs a Trace event.
-	//
-	// Even more fine-grained information than Debug events.
-	// Loggers not supporting this level should fall back to Debug.
-    // Trace记录Trace事件。
+    // Trace方法记录Trace事件。
 	//
 	// 比Debug事件提供更细粒度的信息。
 	// 不支持此级别的日志记录器应该回退到Debug。
 	Trace(msg string, keyvals ...interface{})
-
-	// Debug logs a Debug event.
-	//
-	// A verbose series of information events.
-	// They are useful when debugging the system.
-    // Debug记录Debug事件。
+	
+    // Debug方法记录Debug事件。
 	//
 	// 一系列详细信息事件。
 	// 在调试系统时很有用。
 	Debug(msg string, keyvals ...interface{})
-
-	// Info logs an Info event.
-	//
-	// General information about what's happening inside the system.
-    // Info记录Info事件。
+	
+    // Info方法记录Info事件。
 	//
 	// 关于系统内部发生的一般信息。
 	Info(msg string, keyvals ...interface{})
 
-	// Warn logs a Warn(ing) event.
+    // Warn方法记录Warn(ing)事件。
 	//
-	// Non-critical events that should be looked at.
-    // Warn记录Warn(ing)事件。
-	//
-	// 应该查看的非关键事件。
+    // 应该查看的非致命（non-critical）事件。
 	Warn(msg string, keyvals ...interface{})
 
-	// Error logs an Error event.
+    // Error方法记录Error事件。
 	//
-	// Critical events that require immediate attention.
-	// Loggers commonly provide Fatal and Panic levels above Error level,
-	// but exiting and panicing is out of scope for a logging library.
-    // Error记录Error事件。
-	//
-	// 需要立即注意的关键事件。
+    // 需要立即注意的致命事件（critical events）。
 	// 日志记录器通常在Error级别以上提供Fatal和Panic级别，
 	// 但退出和恐慌超出了日志记录库的范围。
 	Error(msg string, keyvals ...interface{})
 }
 ```
 
-Logger is a unified interface for various logging use cases and practices, including:
-
 ​	Logger接口是各种日志记录用例和实践的统一接口，包括： 
 
-- leveled logging
-- structured logging
 - 分级日志记录
 - 结构化日志记录
 
@@ -1971,18 +1934,22 @@ Logger is a unified interface for various logging use cases and practices, inclu
 
 ``` go
 type Option interface {
-	// contains filtered or unexported methods
+	apply(v *Viper)
 }
 ```
 
-Option configures Viper using the functional options paradigm popularized by Rob Pike and Dave Cheney. If you're unfamiliar with this style, see https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html and https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis.
-
-​	Option接口使用Rob Pike和Dave Cheney提倡的功能选项范式配置Viper。如果您对此风格不熟悉，请参阅[https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html](https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html)和[https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)。
+​	Option接口使用Rob Pike和Dave Cheney提倡的功能选项范式（functional options paradigm）配置Viper。如果您对此风格不熟悉，请参阅[https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html](https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html)和[https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis)。
 
 #### func EnvKeyReplacer <- 1.6.0
 
 ``` go
-func EnvKeyReplacer(r StringReplacer) Option
+func EnvKeyReplacer(r StringReplacer) Option {
+	return optionFunc(func(v *Viper) {
+		v.envKeyReplacer = r
+	})
+}
+
+type optionFunc func(v *Viper)
 ```
 
 EnvKeyReplacer sets a replacer used for mapping environment variables to internal keys.
@@ -1994,8 +1961,6 @@ EnvKeyReplacer sets a replacer used for mapping environment variables to interna
 ``` go
 func IniLoadOptions(in ini.LoadOptions) Option
 ```
-
-IniLoadOptions sets the load options for ini parsing.
 
 ​	IniLoadOptions函数设置ini解析的加载选项。
 
@@ -2025,8 +1990,6 @@ RemoteConfigError denotes encountering an error while trying to pull the configu
 func (rce RemoteConfigError) Error() string
 ```
 
-Error returns the formatted remote provider error
-
 ​	Error方法返回格式化的远程提供者错误。
 
 #### type RemoteProvider 
@@ -2040,9 +2003,7 @@ type RemoteProvider interface {
 }
 ```
 
-RemoteProvider stores the configuration necessary to connect to a remote key/value store. Optional secretKeyring to unencrypt encrypted values can be provided.
-
-​	RemoteProvider接口存储连接到远程键/值存储所需的配置。可以提供用于解密加密值的可选secretKeyring。
+​	RemoteProvider接口存储连接到远程键/值存储所需的配置。可提供secretKeyring以解密加密的值。
 
 #### type RemoteResponse 
 
@@ -2057,13 +2018,10 @@ type RemoteResponse struct {
 
 ``` go
 type StringReplacer interface {
-	// Replace returns a copy of s with all replacements performed.
-    // Replace 返回执行所有替换操作后的 s 的副本。
+	// Replace 返回执行所有替换操作后的 s 的副本。
 	Replace(s string) string
 }
 ```
-
-StringReplacer applies a set of replacements to a string.
 
 ​	StringReplacer 接口对字符串应用一组替换。
 
@@ -2073,17 +2031,15 @@ StringReplacer applies a set of replacements to a string.
 type UnsupportedConfigError string
 ```
 
-UnsupportedConfigError denotes encountering an unsupported configuration filetype.
-
 ​	UnsupportedConfigError 类型表示遇到不支持的配置文件类型。
 
 #### (UnsupportedConfigError) Error 
 
 ``` go
-func (str UnsupportedConfigError) Error() string
+func (str UnsupportedConfigError) Error() string {
+	return fmt.Sprintf("Unsupported Config Type %q", string(str))
+}
 ```
-
-Error returns the formatted configuration error.
 
 ​	Error 方法返回格式化的配置错误。
 
@@ -2093,9 +2049,7 @@ Error returns the formatted configuration error.
 type UnsupportedRemoteProviderError string
 ```
 
-UnsupportedRemoteProviderError denotes encountering an unsupported remote provider. Currently only etcd and Consul are supported.
-
-​	UnsupportedRemoteProviderError 类型表示遇到不支持的远程提供程序。目前只支持 etcd 和 Consul。
+​	UnsupportedRemoteProviderError 类型表示遇到不支持的远程提供者。目前只支持 etcd 和 Consul。
 
 #### (UnsupportedRemoteProviderError) Error 
 
@@ -2103,9 +2057,7 @@ UnsupportedRemoteProviderError denotes encountering an unsupported remote provid
 func (str UnsupportedRemoteProviderError) Error() string
 ```
 
-Error returns the formatted remote provider error.
-
-​	Error 方法返回格式化的远程提供程序错误。
+​	Error 方法返回格式化的远程提供者错误。
 
 #### type Viper 
 
@@ -2159,9 +2111,14 @@ type Viper struct {
 
 Viper is a prioritized configuration registry. It maintains a set of configuration sources, fetches values to populate those, and provides them according to the source's priority. The priority of the sources is the following: 1. overrides 2. flags 3. env. variables 4. config file 5. key/value store 6. defaults
 
-​	Viper结构体是一个优先级配置注册表。它维护一组配置源，获取值以填充这些源，并根据源的优先级提供值。源的优先级如下：1. 覆盖 2. 标志 3. 环境变量 4. 配置文件 5. 键/值存储 6. 默认值
+​	Viper结构体是一个优先级配置注册表。它维护一组配置源，获取值以填充这些源，并根据源的优先级提供值。源的优先级如下：
 
-For example, if values from the following sources were loaded:
+1. 覆盖 
+2. 标志
+3. 境变量 ‘
+4. 配置文件 
+5. 键/值存储 
+6. 默认值
 
 ​	例如，如果从以下源加载了值：
 
@@ -2180,8 +2137,6 @@ Env : {
 }
 ```
 
-The resulting config will have the following values:
-
 ​	结果配置将具有以下值：
 
 ```json
@@ -2192,9 +2147,7 @@ The resulting config will have the following values:
 }
 ```
 
-Note: Vipers are not safe for concurrent Get() and Set() operations.
-
-​	注意：Viper 不支持并发的 Get() 和 Set() 操作。
+​	注意：Vipers（对象）在并发的Get()和Set()操作中不是线程安全的。
 
 #### func GetViper 
 
@@ -2202,9 +2155,7 @@ Note: Vipers are not safe for concurrent Get() and Set() operations.
 func GetViper() *Viper
 ```
 
-GetViper gets the global Viper instance.
-
-​	GetViper函数 获取全局 Viper 实例。
+​	GetViper函数获取全局 Viper 实例。
 
 #### func New 
 
@@ -2212,9 +2163,7 @@ GetViper gets the global Viper instance.
 func New() *Viper
 ```
 
-New returns an initialized Viper instance.
-
-​	New 函数返回一个初始化的 Viper 实例。
+​	New 函数返回一个初始化后的 Viper 实例。
 
 #### func NewWithOptions <- 1.6.0
 
@@ -2222,9 +2171,7 @@ New returns an initialized Viper instance.
 func NewWithOptions(opts ...Option) *Viper
 ```
 
-NewWithOptions creates a new Viper instance.
-
-​	NewWithOptions函数 创建一个新的 Viper 实例。
+​	NewWithOptions函数创建一个新的 Viper 实例。
 
 #### func Sub 
 
@@ -2234,7 +2181,7 @@ func Sub(key string) *Viper
 
 Sub returns new Viper instance representing a sub tree of this instance. Sub is case-insensitive for a key.
 
-​	Sub 函数返回表示此实例子树的新 Viper 实例。对于 key，Sub 不区分大小写。
+​	Sub 函数返回一个表示当前实例子树的新Viper实例。Sub函数对于键是不区分大小写的。
 
 #### (*Viper) AddConfigPath 
 
