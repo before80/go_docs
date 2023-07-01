@@ -41,13 +41,13 @@ Andrew Gerrand
 
 ​	语言本身也在增长和成熟。在过去的一年中，我们收到了许多功能请求。但Go是一种小型语言，我们努力确保任何新功能在简单性和实用性之间取得了正确的平衡。自启动以来，我们已经进行了许多语言更改，其中许多是由社区反馈驱动的。
 
-- 在几乎所有情况下，分号现在是可选的。[规范](../../../References/LanguageSpecification/LexicalElements#Semicolons)
-- 新的内置函数`copy`和`append`使得片段管理更加高效和简单。[规范](../../../References/LanguageSpecification/Built-inFunctions#appending-and-copying-slices)   
-- 在制作子切片时可以省略上下界。这意味着`s[:]`是`s[0:len(s)]`的简写。[规范](../../../References/LanguageSpecification/types#slice-types) 
-- 新的内置函数recover作为一个错误处理机制，补充了panic和defer。[博客](../DeferPanicAandRecover)，[规范](../../../References/LanguageSpecification/Built-inFunctions#handling-panics) 
-- 新的复数类型（`complex`、`complex64`和`complex128`）简化了某些数学操作。[规范](../../../References/LanguageSpecification/Built-inFunctions#manipulating-complex-numbers)，[规范](../../../References/LanguageSpecification/LexicalElements#imaginary-literals)  
-- 复合字面语法允许省略冗余的类型信息（例如，在指定二维数组时）。[发布.2010-10-27](https://go.dev/doc/devel/release.html#2010-10-27)，[规范](../../../References/LanguageSpecification/Expressions#composite-literals)  
-- 现在规定了一种变量函数参数（`...T`）及其传播（`v...`）的通用语法。[规范](../../../References/LanguageSpecification/types#function-types)，[规范](../../../References/LanguageSpecification/Expressions#passing-arguments-to-parameters)，[发布.2010-09-29](https://go.dev/doc/devel/release.html#2010-09-29) 
+- 在几乎所有情况下，分号现在是可选的。[规范]({{< ref "/langSpec/LexicalElements#Semicolons">}})
+- 新的内置函数`copy`和`append`使得片段管理更加高效和简单。[规范]({{< ref "/langSpec/Built-inFunctions#appending-and-copying-slices">}})   
+- 在制作子切片时可以省略上下界。这意味着`s[:]`是`s[0:len(s)]`的简写。[规范]({{< ref "/langSpec/types#slice-types">}}) 
+- 新的内置函数recover作为一个错误处理机制，补充了panic和defer。[博客](../DeferPanicAandRecover)，[规范]({{< ref "/langSpec/Built-inFunctions#handling-panics">}}) 
+- 新的复数类型（`complex`、`complex64`和`complex128`）简化了某些数学操作。[规范]({{< ref "/langSpec/Built-inFunctions#manipulating-complex-numbers">}})，[规范]({{< ref "/langSpec/LexicalElements#imaginary-literals">}})  
+- 复合字面语法允许省略冗余的类型信息（例如，在指定二维数组时）。[发布.2010-10-27](https://go.dev/doc/devel/release.html#2010-10-27)，[规范]({{< ref "/langSpec/Expressions#composite-literals">}})  
+- 现在规定了一种变量函数参数（`...T`）及其传播（`v...`）的通用语法。[规范]({{< ref "/langSpec/types#function-types">}})，[规范]({{< ref "/langSpec/Expressions#passing-arguments-to-parameters">}})，[发布.2010-09-29](https://go.dev/doc/devel/release.html#2010-09-29) 
 
 ​	Go肯定已经准备好进行生产使用，但仍有改进的余地。我们未来的重点是在高性能系统的背景下使Go程序更快、更高效。这意味着改进垃圾收集器、优化生成的代码和改进核心库。我们还在探索一些进一步的类型系统添加，以使通用编程更加容易。一年中发生了很多事情；这既令人激动，又令人满意。我们希望这一年会比去年更加丰硕。
 

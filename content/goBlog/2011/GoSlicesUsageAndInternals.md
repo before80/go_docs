@@ -294,5 +294,5 @@ func CopyDigits(filename string) []byte {
 
 ## 进一步阅读
 
-​	[Effective Go](../../../UsingAndUnderstandingGo/EffectiveGo)对[切片](../../../UsingAndUnderstandingGo/EffectiveGo#slices)和[数组](../../../UsingAndUnderstandingGo/EffectiveGo#arrays)进行了深入的介绍，Go语言规范定义了[切片](../../../References/LanguageSpecification/Types#slice-types)及其[相关的辅助函数](../../../References/LanguageSpecification/Built-inFunctions#making-slices-maps-and-channels)。
+​	[Effective Go](../../../UsingAndUnderstandingGo/EffectiveGo)对[切片](../../../UsingAndUnderstandingGo/EffectiveGo#slices)和[数组](../../../UsingAndUnderstandingGo/EffectiveGo#arrays)进行了深入的介绍，Go语言规范定义了[切片]({{< ref "/langSpec/Types#slice-types">}})及其[相关的辅助函数]({{< ref "/langSpec/Built-inFunctions#making-slices-maps-and-channels">}})。
 

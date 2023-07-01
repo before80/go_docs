@@ -34,7 +34,7 @@ draft = false
 ### 内置函数的结果值
 ```
 
-​	注意：常量的值是编译时就计算好的！参阅[常量表达式]({{< ref "/docs/References/LanguageSpecification/Expressions#constant-expressions-常量表达式">}})。
+​	注意：常量的值是编译时就计算好的！参阅[常量表达式]({{< ref "/langSpec/Expressions#constant-expressions-常量表达式">}})。
 
 
 

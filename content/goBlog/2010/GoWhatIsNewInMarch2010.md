@@ -23,7 +23,7 @@ Andrew Gerrand
 
 ​	Google的核心团队继续开发语言、编译器、包、工具和文档。编译器现在产生的代码在某些情况下比发布时快2倍到一个数量级。我们已经制作了一些选定的[基准测试（Benchmarks）](http://godashboard.appspot.com/benchmarks)的图表，并且[构建状态 （Build Status）](http://godashboard.appspot.com/)页面跟踪了提交到存储库的每个更改集的可靠性。
 
-​	我们进行了语法更改，使语言更加简洁、规则化和灵活。语言中的分号[几乎完全被删除](http://groups.google.com/group/golang-nuts/t/5ee32b588d10f2e9)。[…T语法](../../../References/LanguageSpecification/Types#function-types)使得处理任意数量的带类型的函数参数更加简单。`x[lo:]`的语法现在是`x[lo:len(x)]`的缩写。Go现在本地支持复数。请参阅[发布说明](https://go.dev/doc/devel/release.html)以了解更多信息。
+​	我们进行了语法更改，使语言更加简洁、规则化和灵活。语言中的分号[几乎完全被删除](http://groups.google.com/group/golang-nuts/t/5ee32b588d10f2e9)。[…T语法]({{< ref "/langSpec/Types#function-types">}})使得处理任意数量的带类型的函数参数更加简单。`x[lo:]`的语法现在是`x[lo:len(x)]`的缩写。Go现在本地支持复数。请参阅[发布说明](https://go.dev/doc/devel/release.html)以了解更多信息。
 
 ​	[Godoc](https://go.dev/cmd/godoc/)现在为第三方库提供更好的支持，还发布了一个新工具[goinstall](https://go.dev/cmd/goinstall)，使其易于安装。此外，我们已经开始研究一个包跟踪系统，以便更容易地找到所需内容。您可以在[Packages页面](http://godashboard.appspot.com/package)上查看其起始页。
 

@@ -26,7 +26,7 @@ This blog post is based on our talk at GopherCon 2021:
 
 The Go 1.18 release adds support for generics. Generics are the biggest change we’ve made to Go since the first open source release. In this article we’ll introduce the new language features. We won’t try to cover all the details, but we will hit all the important points. For a more detailed and much longer description, including many examples, see the [proposal document](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md). For a more precise description of the language changes, see the [updated language spec](https://go.dev/ref/spec). (Note that the actual 1.18 implementation imposes some restrictions on what the proposal document permits; the spec should be accurate. Future releases may lift some of the restrictions.)
 
-​	Go 1.18版本增加了对泛型的支持。泛型是Go自第一个开源版本以来所做的最大改变。在这篇文章中，我们将介绍新的语言特性。我们不会试图涵盖所有的细节，但我们会抓住所有重要的点。关于更详细和更长的描述，包括许多例子，请看[提案文件](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)。关于语言变化的更精确描述，请看更新的[语言规范]({{< ref "/docs/References/LanguageSpecification">}})。(请注意，实际的1.18实现对提案文件所允许的内容施加了一些限制；该规范应该是准确的。未来的版本可能会取消一些限制）。
+​	Go 1.18版本增加了对泛型的支持。泛型是Go自第一个开源版本以来所做的最大改变。在这篇文章中，我们将介绍新的语言特性。我们不会试图涵盖所有的细节，但我们会抓住所有重要的点。关于更详细和更长的描述，包括许多例子，请看[提案文件](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)。关于语言变化的更精确描述，请看更新的[语言规范]({{< ref "/langSpec">}})。(请注意，实际的1.18实现对提案文件所允许的内容施加了一些限制；该规范应该是准确的。未来的版本可能会取消一些限制）。
 
 Generics are a way of writing code that is independent of the specific types being used. Functions and types may now be written to use any of a set of types.
 
@@ -87,7 +87,7 @@ x := GMin[int](2, 3)
 
 Providing the type argument to `GMin`, in this case `int`, is called *instantiation*. Instantiation happens in two steps. First, the compiler substitutes all type arguments for their respective type parameters throughout the generic function or type. Second, the compiler verifies that each type argument satisfies the respective constraint. We’ll get to what that means shortly, but if that second step fails, instantiation fails and the program is invalid.
 
-​	在这种情况下，为`GMin`提供类型参数，即`int`，被称为[实例化]({{< ref "/docs/References/LanguageSpecification/Expressions#instantiations-实例化">}})。实例化分为两个步骤。首先，编译器在泛型函数或类型中用其各自的类型参数替换所有类型实参。其次，编译器验证每个类型实参是否满足相应的约束。我们很快就会介绍这是什么意思，但如果第二步失败，实例化失败，程序就是无效的。
+​	在这种情况下，为`GMin`提供类型参数，即`int`，被称为[实例化]({{< ref "/langSpec/Expressions#instantiations-实例化">}})。实例化分为两个步骤。首先，编译器在泛型函数或类型中用其各自的类型参数替换所有类型实参。其次，编译器验证每个类型实参是否满足相应的约束。我们很快就会介绍这是什么意思，但如果第二步失败，实例化失败，程序就是无效的。
 
 After successful instantiation we have a non-generic function that can be called just like any other function. For example, in code like
 
@@ -378,7 +378,7 @@ The usual case where this applies is when one constraint uses the form `~`*`type
 
 This was just an introduction to constraint type inference. For full details see the [proposal document](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md) or the [language spec](https://go.dev/ref/spec).
 
-​	这只是对约束类型推断的简单介绍。有关详细信息，请参阅[提案文档](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)或[语言规范]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#type-parameter-declarations-类型参数声明">}})。
+​	这只是对约束类型推断的简单介绍。有关详细信息，请参阅[提案文档](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)或[语言规范]({{< ref "/langSpec/DeclarationsAndScope#type-parameter-declarations-类型参数声明">}})。
 
 ### 实践中的类型推断 Type inference in practice 
 

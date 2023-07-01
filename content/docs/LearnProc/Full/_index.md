@@ -23,7 +23,7 @@ draft = false
 
 
 ## 基础
-### [语言规范]({{< ref "/docs/References/LanguageSpecification" >}})
+### [语言规范]({{< ref "/langSpec" >}})
 - 标识符
 	- h
 		- hh

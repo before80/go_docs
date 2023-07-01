@@ -4,6 +4,7 @@ date = 2023-05-17T09:59:21+08:00
 weight = 5
 description = ""
 isCJKLanguage = true
+type = "docs"
 draft = false
 +++
 ## Constants 常量
@@ -277,7 +278,7 @@ draft = false
 > 
 > ```
 >
-> 我们知道算数运算符左右两个操作数的类型必须一致，才能进行运算（可参见 [数值型]({{< ref "/docs/References/LanguageSpecification/Types#numeric-types-数值型">}})的最后一段话：当不同的数值类型在表达式或赋值中混合使用时，需要进行显示转换。）。
+> 我们知道算数运算符左右两个操作数的类型必须一致，才能进行运算（可参见 [数值型]({{< ref "/langSpec/Types#numeric-types-数值型">}})的最后一段话：当不同的数值类型在表达式或赋值中混合使用时，需要进行显示转换。）。
 >
 > 以上示例a + A、b + B 、d + D中，+ 运算符两边的类型分明是不一致的（特别是d + D），但却可以进行运算，可见就是隐式赋予了无类型常量（**该常量声明时没有给出明确类型，采用了默认类型**）以类型，这应该是编译时就处理好的吧。TODO 待找出出处。
 

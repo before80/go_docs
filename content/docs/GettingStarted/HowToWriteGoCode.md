@@ -139,7 +139,7 @@ func ReverseRunes(s string) string {
 }
 ```
 
-​	因为我们的`ReverseRunes`函数以大写字母开头，所以它是[可导出](../../References/LanguageSpecification/DeclarationsAndScope#exported-identifiers)的，可以在其他包中通过导入`morestrings`包来使用该函数。
+​	因为我们的`ReverseRunes`函数以大写字母开头，所以它是[可导出]({{< ref "/langSpec/DeclarationsAndScope#exported-identifiers">}})的，可以在其他包中通过导入`morestrings`包来使用该函数。
 
 让我们用`go build`来测试一下这个包的编译情况：
 

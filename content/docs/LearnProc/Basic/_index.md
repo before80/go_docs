@@ -16,7 +16,7 @@ draft = false
 
 ## 【42个】预先声明标识符
 
-[语言规范中的预先声明标识符]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
+[语言规范中的预先声明标识符]({{< ref "/langSpec/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}})
 
 【42个】按类型分类如下：
 
@@ -47,7 +47,7 @@ draft = false
 
 ## 【25个】关键字
 
-[语言规范中的关键字]({{< ref  "/docs/References/LanguageSpecification/LexicalElements#keywords-关键字" >}})
+[语言规范中的关键字]({{< ref  "/langSpec/LexicalElements#keywords-关键字" >}})
 
 【25个】按字母表顺序排序如下：
 
@@ -100,7 +100,7 @@ goto
 
 ## 【28种】数据类型
 
-[语言规范中的数据类型]({{<ref "/docs/References/LanguageSpecification/Types">}})
+[语言规范中的数据类型]({{<ref "/langSpec/Types">}})
 
 ```go
 // 【1种】布尔类型
@@ -184,7 +184,7 @@ switch...case...default...
 
 ### 【15个】内置函数
 
-[语言规范中的内置函数]({{< ref  "/docs/References/LanguageSpecification/Built-inFunctions" >}})
+[语言规范中的内置函数]({{< ref  "/langSpec/Built-inFunctions" >}})
 
 【15个】按字母表顺序排序如下：
 

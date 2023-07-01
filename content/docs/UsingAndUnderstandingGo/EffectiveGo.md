@@ -16,7 +16,7 @@ draft = false
 
 ​	Go是一种新的语言。虽然它借鉴了现有语言的思想，但它具有不寻常的特性，使得有效的Go程序在性质上不同于其亲属编写的程序。将C++或Java程序直接翻译成Go不太可能产生令人满意的结果——Java 程序是用 Java 而不是 Go 编写的。另一方面，从Go的角度来考虑问题可能会产生一个成功的但完全不同的程序。换句话说，要写好Go，了解它的属性和习语（idioms）是很重要的。了解 Go 编程的既定约定也很重要，例如命名、格式化、程序构造等等，这样您写的程序才能让其他 Go 程序员容易理解。
 
-​	本文档给出了编写清晰、惯用的 Go 代码的技巧。它是对[语言规范](../../References/LanguageSpecification/Introduction)、[Tour of Go](../../GoTour/UsingTheTour/welcome)和[How to Write Go Code](../../GettingStarted/HowToWriteGoCode)的补充，您应该首先阅读这些内容。
+​	本文档给出了编写清晰、惯用的 Go 代码的技巧。它是对[语言规范]({{< ref "/langSpec/Introduction">}})、[Tour of Go](../../GoTour/UsingTheTour/welcome)和[How to Write Go Code](../../GettingStarted/HowToWriteGoCode)的补充，您应该首先阅读这些内容。
 
 ​	`2022年1月添加的注释`：**本文档是为2009年发布的Go编写的，此后没有进行过重大更新**。虽然它是了解如何使用语言本身的好指南，但由于语言的稳定性，它**几乎没有提到库**，也**没有提到Go生态系统自编写以来的重大变化**，如构建系统、测试、模块和多态性。**目前还没有计划对其进行更新**，因为已经发生了太多的事情，而且有一大批不断增加的文档、博客和书籍对现代Go的使用做了很好的描述。**Effective Go仍然是有用的，但读者应该明白它远不是一个完整的指南**。请参阅[issue 28782](https://github.com/golang/go/issues/28782)，了解相关情况。
 
@@ -288,7 +288,7 @@ for _, value := range array {
 
 ​	空白标识符有很多用途，在[后面的章节](#the-blank-identifier)中会介绍。
 
-​	对于字符串，`range`为您做了更多的工作，通过解析`UTF-8`来分解出各个Unicode码点。错误的编码将会占用一个字节并用符文（rune）`U+FFFD`来替换。(名称(带有相关的内建类型)`rune`，是Go对单个Unicode码点的称谓。详见[语言规范](../../References/LanguageSpecification/LexicalElements#rune-literals-rune)）。循环
+​	对于字符串，`range`为您做了更多的工作，通过解析`UTF-8`来分解出各个Unicode码点。错误的编码将会占用一个字节并用符文（rune）`U+FFFD`来替换。(名称(带有相关的内建类型)`rune`，是Go对单个Unicode码点的称谓。详见[语言规范]({{< ref "/langSpec/LexicalElements#rune-literals-rune">}})）。循环
 
 ``` go 
 for pos, char := range "日本\x80語" { // \x80 is an illegal UTF-8 encoding => \x80 是一个非法的 UTF-8编码（字符）

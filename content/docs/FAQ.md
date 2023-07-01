@@ -136,7 +136,7 @@ draft = false
 
 ### When did Go get generic types? Go 什么时候有了泛型？
 
-​	Go 1.18版本在语言中加入了类型参数。这允许一种多态或泛型编程的形式。详情请参见[语言规范](../References/LanguageSpecification/DeclarationsAndScope#type-definitions )和[提案](https://go.dev/design/43651-type-parameters)。
+​	Go 1.18版本在语言中加入了类型参数。这允许一种多态或泛型编程的形式。详情请参见[语言规范]({{< ref "/langSpec/DeclarationsAndScope#type-definitions">}})和[提案](https://go.dev/design/43651-type-parameters)。
 
 ### Why was Go initially released without generic types? 为什么 Go 最初发布时没有泛型？
 
@@ -607,7 +607,7 @@ Do not communicate by sharing memory. Instead, share memory by communicating.
 
 ​	一个程序是否在更多的CPU下运行得更快，取决于它所解决的问题。Go语言提供了并发原语，如goroutines和channel，但只有当底层问题本质上是并行的时候，并发才能实现并行化。本质上是顺序的问题不能通过添加更多的CPU来加速，而那些可以被分解成可以并行执行的片段的问题则可以加速，有时甚至可以大大加速。
 
-​	有时，增加更多的CPU会使程序变慢。在实际应用中，当使用多个操作系统线程时，那些花在同步或通信上的时间多于进行有用的计算的程序可能会出现性能下降。这是因为在线程之间传递数据需要切换上下文，这需要很大的成本，而这种成本会随着CPU的增加而增加。例如，Go规范中的[素数筛例子](../References/LanguageSpecification/Packages#an-example-package)没有明显的并行性，尽管它启动了许多goroutine；增加线程（CPU）的数量更有可能使它变慢而不是变快。
+​	有时，增加更多的CPU会使程序变慢。在实际应用中，当使用多个操作系统线程时，那些花在同步或通信上的时间多于进行有用的计算的程序可能会出现性能下降。这是因为在线程之间传递数据需要切换上下文，这需要很大的成本，而这种成本会随着CPU的增加而增加。例如，Go规范中的[素数筛例子]({{< ref "/langSpec/Packages#an-example-package">}})没有明显的并行性，尽管它启动了许多goroutine；增加线程（CPU）的数量更有可能使它变慢而不是变快。
 
 ​	关于这个话题的更多细节，请看题为 [并发性不是并行性]({{< ref "/goBlog/2013/ConcurrencyIsNotParallelism" >}}) 的讲座。
 
@@ -635,7 +635,7 @@ Do not communicate by sharing memory. Instead, share memory by communicating.
 
 ### Why do T and *T have different method sets? 为什么T和`*T`有不同的方法集？
 
-​	正如[Go规范](../References/LanguageSpecification/Types)所说，一个类型`T`的方法集包括所有接收者类型为`T`的方法，而相应的指针类型`*T`的方法集包括所有接收者为`*T`或`T`的方法，这意味着`*T`的方法集包括`T`的方法集，但不是相反。
+​	正如[Go规范]({{< ref "/langSpec/Types">}})所说，一个类型`T`的方法集包括所有接收者类型为`T`的方法，而相应的指针类型`*T`的方法集包括所有接收者为`*T`或`T`的方法，这意味着`*T`的方法集包括`T`的方法集，但不是相反。
 
 ​	这种区别的产生是因为如果一个接口值包含一个指针`*T`，方法调用可以通过取消引用指针来获得一个值，但是如果一个接口值包含一个值`T`，方法调用就没有安全的方法来获得一个指针。(这样做将允许一个方法修改接口内的值的内容，这是语言规范所不允许的）。
 

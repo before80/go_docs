@@ -17,7 +17,7 @@ Robert Griesemer
 
 On February 1 we released our latest Go version, 1.20, which included a few language changes. Here we’ll discuss one of those changes: the predeclared `comparable` type constraint is now satisfied by all [comparable types](https://go.dev/ref/spec#Comparison_operators). Surprisingly, before Go 1.20, some comparable types did not satisfy `comparable`!
 
-​	在2023年2月1日，我们发布了最新的Go版本1.20，其中包含了一些语言变更。在这里，我们将讨论其中的一个变更：预定义的`comparable`类型约束现在适用于所有[可比较类型]({{< ref "/docs/References/LanguageSpecification/Expressions#comparison-operators-比较运算符">}})。令人惊讶的是，在Go 1.20之前，一些可比较类型并不满足`comparable`类型约束！
+​	在2023年2月1日，我们发布了最新的Go版本1.20，其中包含了一些语言变更。在这里，我们将讨论其中的一个变更：预定义的`comparable`类型约束现在适用于所有[可比较类型]({{< ref "/langSpec/Expressions#comparison-operators-比较运算符">}})。令人惊讶的是，在Go 1.20之前，一些可比较类型并不满足`comparable`类型约束！
 
 If you’re confused, you’ve come to the right place. Consider the valid map declaration
 
@@ -79,7 +79,7 @@ Go 1.18 also changed how we view interfaces: while in the past an interface defi
 
 But the new type set view is more powerful than the old method set one: we can describe a set of types explicitly, not only indirectly through methods. This gives us new ways to control a type set. Starting with Go 1.18, an interface may embed not just other interfaces, but any type, a union of types, or an infinite set of types that share the same [underlying type](https://go.dev/ref/spec#Underlying_types). These types are then included in the [type set computation](https://go.dev/ref/spec#General_interfaces): the union notation `A|B` means "type `A` or type `B`", and the `~T` notation stands for "all types that have the underlying type `T`". For instance, the interface
 
-​	但是，新的类型集合视角比旧的方法集合视角更强大：我们可以明确地描述一组类型，而不仅仅通过方法间接描述。这为我们提供了控制类型集合的新方法。从Go 1.18开始，接口可以嵌入不仅是其他接口，还包括任何类型、类型的并集，或者具有相同[底层类型]({{< ref "/docs/References/LanguageSpecification/PropertiesOfTypesAndValues#underlying-types-底层类型基本类型">}})的无限类型集合。这些类型将包含在[类型集合的计算]({{< ref "/docs/References/LanguageSpecification/Types#general-interfaces-通用接口">}})中：并集符号`A|B`表示"类型`A`或类型`B`"，`~T`符号表示"所有具有底层类型`T`的类型"。例如，接口
+​	但是，新的类型集合视角比旧的方法集合视角更强大：我们可以明确地描述一组类型，而不仅仅通过方法间接描述。这为我们提供了控制类型集合的新方法。从Go 1.18开始，接口可以嵌入不仅是其他接口，还包括任何类型、类型的并集，或者具有相同[底层类型]({{< ref "/langSpec/PropertiesOfTypesAndValues#underlying-types-底层类型基本类型">}})的无限类型集合。这些类型将包含在[类型集合的计算]({{< ref "/langSpec/Types#general-interfaces-通用接口">}})中：并集符号`A|B`表示"类型`A`或类型`B`"，`~T`符号表示"所有具有底层类型`T`的类型"。例如，接口
 
 ```Go
 interface {
@@ -106,7 +106,7 @@ which accepts any `int64` or `float64` argument. (Of course, a more realistic im
 
 As an aside, because enumerating explicit types without methods is common, a little bit of [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar) allows us to [omit the enclosing `interface{}`](https://go.dev/ref/spec#General_interfaces), leading to the compact and more idiomatic
 
-​	顺便提一下，由于枚举没有方法的显式类型是常见的，一些[语法糖](https://en.wikipedia.org/wiki/Syntactic_sugar)允许我们[省略包围的`interface{}`]({{< ref "/docs/References/LanguageSpecification/Types#general-interfaces-通用接口">}})，从而导致更紧凑和更符合惯例的写法
+​	顺便提一下，由于枚举没有方法的显式类型是常见的，一些[语法糖](https://en.wikipedia.org/wiki/Syntactic_sugar)允许我们[省略包围的`interface{}`]({{< ref "/langSpec/Types#general-interfaces-通用接口">}})，从而导致更紧凑和更符合惯例的写法
 
 ```Go
 func min[P ~int64 | ~float64](x, y P) P { … }
@@ -134,15 +134,15 @@ For instance, given the `min` example, in the function body any operation that i
 
 In contrast to other unary and binary operations, `==` is defined on not just a limited set of [predeclared types](https://go.dev/ref/spec#Types), but on an infinite variety of types, including arrays, structs, and interfaces. It is impossible to enumerate all these types in a constraint. We need a different mechanism to express that a type parameter must support `==` (and `!=`, of course) if we care about more than predeclared types.
 
-​	与其他一元和二元操作不同，`==` 不仅定义在一组有限的[预定义类型]({{< ref "/docs/References/LanguageSpecification/Types">}})上，还定义在各种类型上，包括数组、结构体和接口。在约束中列举所有这些类型是不可能的。如果我们关心的不仅仅是预定义类型，我们需要一种不同的机制来表示类型参数必须支持 `==`（当然也包括 `!=`）。
+​	与其他一元和二元操作不同，`==` 不仅定义在一组有限的[预定义类型]({{< ref "/langSpec/Types">}})上，还定义在各种类型上，包括数组、结构体和接口。在约束中列举所有这些类型是不可能的。如果我们关心的不仅仅是预定义类型，我们需要一种不同的机制来表示类型参数必须支持 `==`（当然也包括 `!=`）。
 
 We solve this problem through the predeclared type [`comparable`](https://go.dev/ref/spec#Predeclared_identifiers), introduced with Go 1.18. `comparable` is an interface type whose type set is the infinite set of comparable types, and that may be used as a constraint whenever we require a type argument to support `==`.
 
-​	我们通过引入Go 1.18中的预定义类型 [comparable]({{< ref "/docs/References/LanguageSpecification/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}}) 来解决这个问题。`comparable` 是一个接口类型，其类型集合是可比较类型的无限集合，并且可以在我们需要一个类型实参支持 `==` 的情况下用作约束。
+​	我们通过引入Go 1.18中的预定义类型 [comparable]({{< ref "/langSpec/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符" >}}) 来解决这个问题。`comparable` 是一个接口类型，其类型集合是可比较类型的无限集合，并且可以在我们需要一个类型实参支持 `==` 的情况下用作约束。
 
 Yet, the set of types comprised by `comparable` is not the same as the set of all [comparable types](https://go.dev/ref/spec#Comparison_operators) defined by the Go spec. [By construction](https://go.dev/ref/spec#Interface_types), a type set specified by an interface (including `comparable`) does not contain the interface itself (or any other interface). Thus, an interface such as `any` is not included in `comparable`, even though all interfaces support `==`. What gives?
 
-​	然而，`comparable` 包含的类型集合与Go规范中定义的所有[可比较类型]({{< ref "/docs/References/LanguageSpecification/Expressions#comparison-operators-比较运算符" >}})的集合并不相同。[通过构造]({{< ref "/docs/References/LanguageSpecification/Types#interface-types-接口型" >}})，由接口（包括 `comparable`）指定的类型集合不包含接口本身（或任何其他接口）。因此，即使所有接口都支持 `==`，接口类型（如 `any`）也不包含在 `comparable` 中。这是为什么呢？
+​	然而，`comparable` 包含的类型集合与Go规范中定义的所有[可比较类型]({{< ref "/langSpec/Expressions#comparison-operators-比较运算符" >}})的集合并不相同。[通过构造]({{< ref "/langSpec/Types#interface-types-接口型" >}})，由接口（包括 `comparable`）指定的类型集合不包含接口本身（或任何其他接口）。因此，即使所有接口都支持 `==`，接口类型（如 `any`）也不包含在 `comparable` 中。这是为什么呢？
 
 Comparison of interfaces (and of composite types containing them) may panic at run time: this happens when the dynamic type, the type of the actual value stored in the interface variable, is not comparable. Consider our original `lookupTable` example: it accepts arbitrary values as keys. But if we try to enter a value with a key that does not support `==`, say a slice value, we get a run-time panic:
 

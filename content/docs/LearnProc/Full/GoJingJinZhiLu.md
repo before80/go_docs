@@ -317,7 +317,7 @@ draft = false
 
 ​	若错误构造方想提供更多的错误上下文，则需要**自定义错误类型**（须实现error接口，一般以**XXXError**形式命名）。如此，错误处理方则需要通过先判断错误类型，再对不同错误类型进行分别处理。
 
-​	错误处理方可以使用go提供的[类型断言]({{< ref "/docs/References/LanguageSpecification/Expressions#type-assertions-类型断言">}})机制、[类型选择]({{< ref "/docs/References/LanguageSpecification/Statements#type-switches-类型选择">}})机制来判断和处理不同错误类型。类似这样的错误处理，作者认为是**错误值类型检视策略**。
+​	错误处理方可以使用go提供的[类型断言]({{< ref "/langSpec/Expressions#type-assertions-类型断言">}})机制、[类型选择]({{< ref "/langSpec/Statements#type-switches-类型选择">}})机制来判断和处理不同错误类型。类似这样的错误处理，作者认为是**错误值类型检视策略**。
 
 ​	go源码：$GOROOT/src/encoding/json/decode_test.go 中使用了**类型断言**机制来处理错误。
 

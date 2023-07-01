@@ -222,7 +222,7 @@ If it bothers you that Go is missing feature X, please forgive us and investigat
 
 The Go 1.18 release added type parameters to the language. This permits a form of polymorphic or generic programming. See the [language spec](https://go.dev/ref/spec) and the [proposal](https://go.dev/design/43651-type-parameters) for details.
 
-Go 1.18版本在语言中加入了类型参数。这允许一种多态或泛型编程的形式。详情请参见[语言规范](../References/LanguageSpecification/DeclarationsAndScope#type-definitions )和[提案](https://go.dev/design/43651-type-parameters)。
+Go 1.18版本在语言中加入了类型参数。这允许一种多态或泛型编程的形式。详情请参见[语言规范]({{< ref "/langSpec/DeclarationsAndScope#type-definitions ">}})和[提案](https://go.dev/design/43651-type-parameters)。
 
 ### Why was Go initially released without generic types? 为什么 Go 最初发布时没有泛型？
 
@@ -937,7 +937,7 @@ Whether a program runs faster with more CPUs depends on the problem it is solvin
 
 Sometimes adding more CPUs can slow a program down. In practical terms, programs that spend more time synchronizing or communicating than doing useful computation may experience performance degradation when using multiple OS threads. This is because passing data between threads involves switching contexts, which has significant cost, and that cost can increase with more CPUs. For instance, the [prime sieve example](https://go.dev/ref/spec#An_example_package) from the Go specification has no significant parallelism although it launches many goroutines; increasing the number of threads (CPUs) is more likely to slow it down than to speed it up.
 
-​	有时，增加更多的CPU会使程序变慢。在实际应用中，当使用多个操作系统线程时，那些花在同步或通信上的时间多于进行有用的计算的程序可能会出现性能下降。这是因为在线程之间传递数据需要切换上下文，这需要很大的成本，而这种成本会随着CPU的增加而增加。例如，Go规范中的[素数筛例子](../References/LanguageSpecification/Packages#an-example-package)没有明显的并行性，尽管它启动了许多goroutine；增加线程（CPU）的数量更有可能使它变慢而不是变快。
+​	有时，增加更多的CPU会使程序变慢。在实际应用中，当使用多个操作系统线程时，那些花在同步或通信上的时间多于进行有用的计算的程序可能会出现性能下降。这是因为在线程之间传递数据需要切换上下文，这需要很大的成本，而这种成本会随着CPU的增加而增加。例如，Go规范中的[素数筛例子]({{< ref "/langSpec/Packages#an-example-package">}})没有明显的并行性，尽管它启动了许多goroutine；增加线程（CPU）的数量更有可能使它变慢而不是变快。
 
 For more detail on this topic see the talk entitled [Concurrency is not Parallelism](https://blog.golang.org/2013/01/concurrency-is-not-parallelism.html).
 
@@ -985,7 +985,7 @@ For those cases where a particular goroutine is truly special, the language prov
 
 As the [Go specification](https://go.dev/ref/spec#Types) says, the method set of a type `T` consists of all methods with receiver type `T`, while that of the corresponding pointer type `*T` consists of all methods with receiver `*T` or `T`. That means the method set of `*T` includes that of `T`, but not the reverse.
 
-​	正如[Go规范](../References/LanguageSpecification/Types)所说，一个类型`T`的方法集包括所有接收者类型为`T`的方法，而相应的指针类型`*T`的方法集包括所有接收者为`*T`或`T`的方法，这意味着`*T`的方法集包括`T`的方法集，但不是相反。
+​	正如[Go规范]({{< ref "/langSpec/Types">}})所说，一个类型`T`的方法集包括所有接收者类型为`T`的方法，而相应的指针类型`*T`的方法集包括所有接收者为`*T`或`T`的方法，这意味着`*T`的方法集包括`T`的方法集，但不是相反。
 
 This distinction arises because if an interface value contains a pointer `*T`, a method call can obtain a value by dereferencing the pointer, but if an interface value contains a value `T`, there is no safe way for a method call to obtain a pointer. (Doing so would allow a method to modify the contents of the value inside the interface, which is not permitted by the language specification.)
 

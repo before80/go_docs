@@ -4,6 +4,7 @@ date = 2023-05-17T09:59:21+08:00
 weight = 2
 description = ""
 isCJKLanguage = true
+type = "docs"
 draft = false
 +++
 ## Notation 标记法

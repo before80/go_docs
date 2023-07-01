@@ -111,7 +111,7 @@ func loadPage(title string) (*Page, error) {
 }
 ```
 
-​	这个函数的调用者现在可以检查第二个参数；如果它是`nil`，那么它已经成功加载了一个页面。如果不是，将是一个`error`，可以由调用者处理（详情见[语言规范（language specification）](../../References/LanguageSpecification/Errors)）。
+​	这个函数的调用者现在可以检查第二个参数；如果它是`nil`，那么它已经成功加载了一个页面。如果不是，将是一个`error`，可以由调用者处理（详情见[语言规范（language specification）]({{< ref "/langSpec/Errors">}})）。
 
 ​	此时，我们有一个简单的数据结构，以及保存到文件和从文件加载的能力。让我们写一个`main`函数来测试我们所写的东西。
 
@@ -738,7 +738,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 ## 介绍函数字面量和闭包
 
-​	在每个处理程序中捕捉错误条件，会引入大量的重复代码。如果我们能把每个处理程序都包在一个函数中，进行验证和错误检查呢？Go的[函数字面量](../../References/LanguageSpecification/Expressions#function-literals)意义提供了一种强大的抽象功能的方法，可以帮助我们解决这个问题。
+​	在每个处理程序中捕捉错误条件，会引入大量的重复代码。如果我们能把每个处理程序都包在一个函数中，进行验证和错误检查呢？Go的[函数字面量]({{< ref "/langSpec/Expressions#function-literals">}})意义提供了一种强大的抽象功能的方法，可以帮助我们解决这个问题。
 
 首先，我们重写每个处理程序的函数定义，接收一个标题字符串：
 

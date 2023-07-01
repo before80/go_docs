@@ -80,7 +80,7 @@ Slice: 当重新分片时，切片可以达到的最大长度；如果 v 为 nil
 Channel: 通道缓冲区的容量，以元素为单位；如果 v 为 nil，则 cap(v) 为零。
 ```
 
-​	对于某些参数，例如简单的数组表达式，结果可以是常量。有关详细信息，请参见 Go 语言规范的 ["长度和容量" 部分](../../References/LanguageSpecification/Built-inFunctions#length-and-capacity)。
+​	对于某些参数，例如简单的数组表达式，结果可以是常量。有关详细信息，请参见 Go 语言规范的 ["长度和容量" 部分]({{< ref "/langSpec/Built-inFunctions#length-and-capacity">}})。
 
 #### func close 
 
@@ -144,7 +144,7 @@ String: v 中的字节数。
 Channel: 通道缓冲区中排队的元素数(未读)；如果 v 为 nil，则 len(v) 为零。
 ```
 
-​	对于某些参数，如字符串字面量或简单数组表达式，结果可以是常量。请参见 Go 语言规范的["长度和容量" 一节](../../References/LanguageSpecification/Built-inFunctions#length-and-capacity)以获取详细信息。
+​	对于某些参数，如字符串字面量或简单数组表达式，结果可以是常量。请参见 Go 语言规范的["长度和容量" 一节]({{< ref "/langSpec/Built-inFunctions#length-and-capacity">}})以获取详细信息。
 
 #### func make 
 

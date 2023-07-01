@@ -568,7 +568,7 @@ var fetcher = fakeFetcher{
 
 ​	要学习如何组织和处理Go代码，请阅读[How to Write Go Code](../../../GettingStarted/HowToWriteGoCode)。
 
-​	如果您需要关于标准库的帮助，请看[包参考手册](https://go.dev/pkg/)。对于语言本身的帮助，您可能会惊讶地发现 [Language Spec](../../../References/LanguageSpecification/Introduction) 是相当可读的。
+​	如果您需要关于标准库的帮助，请看[包参考手册](https://go.dev/pkg/)。对于语言本身的帮助，您可能会惊讶地发现 [Language Spec]({{< ref "/langSpec/Introduction">}}) 是相当可读的。
 
 ​	要进一步探索 Go 的并发模型，请观看 [Go Concurrency Patterns](https://go.dev/talks/2012/concurrency.slide)和[Advanced Go Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)，并阅读代码漫步中的[Share Memory by Communicating](https://go.dev/doc/codewalk/sharemem/)。
 

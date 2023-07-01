@@ -100,7 +100,7 @@ m = Message{
 
 ​	Unmarshal如何确定在哪些字段中存储解码后的数据？对于给定的JSON键"Foo"，Unmarshal将查找目标结构的字段以查找（按优先顺序）：
 
-- 具有标记"Foo"的导出字段（有关结构标记的更多信息，请参见[Go规范](../../../References/LanguageSpecification/Types#struct-types)）， 
+- 具有标记"Foo"的导出字段（有关结构标记的更多信息，请参见[Go规范]({{< ref "/langSpec/Types#struct-types">}})）， 
 - 一个名为"Foo"的导出字段，或
 - 名为"FOO"或"FoO"或"Foo"的其他大小写不敏感匹配的导出字段。
 
