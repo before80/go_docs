@@ -939,6 +939,69 @@ var v, ok = a[x]
 
 ​	切片表达式从一个字符串、数组、数组指针或切片中构造一个子串或切片。有两种变体：一种是指定低位和高位边界的简单形式，另一种是同时也指定容量的完整形式。
 
+> 个人注释
+>
+> ```c
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	str1 := "abcdefghijklmn"
+> 	s1 := str1[0:3]
+> 	//s2 := str[0:3:4] // invalid operation: 3-index slice of string
+> 	fmt.Printf("%T,str1=%v\n", str1, str1) // string,str1=abcdefghijklmn
+> 	fmt.Printf("%T,s1=%v\n", s1, s1)       // string,s1=abc
+> 
+> 	arr1 := [...]int{0, 1, 2, 3, 4, 5}
+> 	s20 := arr1[0:3]
+> 	s21 := arr1[0:3:5]
+> 	fmt.Printf("%T,arr1=%v,len=%d,cap=%d\n", arr1, arr1, len(arr1), cap(arr1)) // [6]int,arr1=[0 1 2 3 4 5],len=6,cap=6
+> 	fmt.Printf("%T,s20=%v,len=%d,cap=%d\n", s20, s20, len(s20), cap(s20))      // []int,s20=[0 1 2],len=3,cap=6
+> 	fmt.Printf("%T,s21=%v,len=%d,cap=%d\n", s21, s21, len(s21), cap(s21))      // []int,s21=[0 1 2],len=3,cap=5
+> 
+> 	sli := []int{0, 1, 2, 3, 4, 5}
+> 	s30 := sli[0:3]
+> 	s31 := sli[0:3:5]
+> 	fmt.Printf("%T,sli=%v,len=%d,cap=%d\n", sli, sli, len(sli), cap(sli)) // []int,sli=[0 1 2 3 4 5],len=6,cap=6
+> 	fmt.Printf("%T,s30=%v,len=%d,cap=%d\n", s30, s30, len(s30), cap(s30)) // []int,s30=[0 1 2],len=3,cap=6
+> 	fmt.Printf("%T,s31=%v,len=%d,cap=%d\n", s31, s31, len(s31), cap(s31)) // []int,s31=[0 1 2],len=3,cap=6
+> 
+> 	arr2 := &[...]int{0, 1, 2, 3, 4, 5}
+> 	s40 := arr2[0:3]
+> 	s41 := arr2[0:3:5]
+> 	s40_1 := (*arr2)[0:3]
+> 	s41_1 := (*arr2)[0:3:5]
+> 	fmt.Printf("%T,arr2=%v,len=%d,cap=%d\n", arr2, arr2, len(arr2), cap(arr2))      // *[6]int,arr2=&[0 1 2 3 4 5],len=6,cap=6
+> 	fmt.Printf("%T,s40=%v,len=%d,cap=%d\n", s40, s40, len(s40), cap(s40))           // []int,s40=[0 1 2],len=3,cap=6
+> 	fmt.Printf("%T,s41=%v,len=%d,cap=%d\n", s41, s41, len(s41), cap(s41))           // []int,s41=[0 1 2],len=3,cap=5
+> 	fmt.Printf("%T,s40_1=%v,len=%d,cap=%d\n", s40_1, s40_1, len(s40_1), cap(s40_1)) // []int,s40_1=[0 1 2],len=3,cap=6
+> 	fmt.Printf("%T,s41_1=%v,len=%d,cap=%d\n", s41_1, s41_1, len(s41_1), cap(s41_1)) // []int,s41_0=[0 1 2],len=3,cap=5
+> 
+> 	str2 := "我爱我的祖国"
+> 	s2 := str2[0:3]
+> 	s3 := str2[0:4]
+> 	s4 := str2[0:5]
+> 	//s5 := str2[0:3:4]                      // invalid operation: 3-index slice of string
+> 	fmt.Printf("%T,str2=%v\n", str2, str2) // string,str2=我爱我的祖国
+> 	fmt.Printf("%T,s2=%v\n", s2, s2)       // string,s2=我
+> 	fmt.Printf("%T,s3=%v\n", s3, s3)       // string,s3=我�
+> 	fmt.Printf("%T,s4=%v\n", s4, s4)       // string,s4=我��
+> 
+> 	s50 := "I love you!"[0:6]
+> 	fmt.Printf("%T,s50=%v\n", s50, s50) // string,s50=I love
+> 
+> 	var nilSli []int
+> 	s60 := nilSli[0:]
+> 	fmt.Printf("%T,nilSli=%v,len=%d,cap=%d,%t\n", nilSli, nilSli, len(nilSli), cap(nilSli), nilSli == nil) // []int,nilSli=[],len=0,cap=0,true
+> 	fmt.Printf("%T,s60=%v,len=%d,cap=%d,%t\n", s60, s60, len(s60), cap(s60), s60 == nil)                   // []int,s60=[],len=0,cap=0,true
+> 
+> }
+> 
+> ```
+>
+> 
+
 #### Simple slice expressions 简单切片表达式
 
 主表达式
@@ -986,9 +1049,9 @@ a[:]   // same as a[0 : len(a)]
 
 ```go 
 var a [10]int
-s1 := a[3:7]   // underlying array of s1 is array a; &s1[2] == &a[5] => s1 的底层数组是数组 a；&s1[2] == &a[5]
-s2 := s1[1:4]  // underlying array of s2 is underlying array of s1 which is array a; &s2[1] == &a[5] => s2 的底层数组是 s1 的底层数组 a； &s2[1] == &a[5]
-s2[1] = 42     // s2[1] == s1[2] == a[5] == 42; they all refer to the same underlying array element => s2[1] == s1[2] == a[5] == 42；它们都指向相同的底层数组元素
+s1 := a[3:7]   // s1 的底层数组是数组 a；&s1[2] == &a[5]
+s2 := s1[1:4]  // s2 的底层数组是 s1 的底层数组 a； &s2[1] == &a[5]
+s2[1] = 42     // s2[1] == s1[2] == a[5] == 42；它们都指向相同的底层数组元素
 ```
 
 #### Full slice expressions 完整的切片表达式
