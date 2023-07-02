@@ -1727,7 +1727,7 @@ int64    -9223372036854775808
 
 ​	移位运算符通过右操作数指定的`移位计数`对左操作数进行移位，`移位计数`必须为非负数。如果`移位计数`在运行时为负数，就会发生[运行时恐慌](../Run-timePanics)。如果`左操作数`是`有符号整数`，移位操作符实现`算术移位`；如果是`无符号整数`，则实现`逻辑移位`。`移位计数`没有上限。`移位计数`为`n`的移位行为就像左操作数被`1`移了`n`次。因此，`x<<1`与`x*2`相同，`x>>1`与`x/2`相同（但向右移位被截断到负无穷大）。
 
-对于整数操作数，一元运算符`+`、`-`和`^`的定义如下：
+​	对于整数操作数，一元运算符`+`、`-`和`^`的定义如下：
 
 ```go
 +x                          is 0 + x
@@ -1748,13 +1748,13 @@ int64    -9223372036854775808
 
 An implementation may combine multiple floating-point operations into a single fused operation, possibly across statements, and produce a result that differs from the value obtained by executing and rounding the instructions individually. An explicit [floating-point type](https://go.dev/ref/spec#Numeric_types) [conversion](https://go.dev/ref/spec#Conversions) rounds to the precision of the target type, preventing fusion that would discard that rounding.
 
-​	某些实现可能会将多个浮点运算合并为一个单一的融合运算，可能会跨越语句，产生的结果与单独执行和舍入指令得到的值不同。明确的[浮点类型转换](#conversions)是按照目标类型的精度进行舍入的，这样就可以避免融合时放弃舍入的做法。=> 仍有疑问？？
+​	某些实现可能会将多个浮点运算合并为一个单一的融合运算，可能会跨越语句，产生的结果与单独执行和舍入指令得到的值不同。显式的[浮点类型转换](#conversions)是按照目标类型的精度进行舍入的，这样就可以避免融合时放弃舍入的做法。=> 仍有疑问？？
 
 ​	例如，一些体系架构提供了一个 "`fused multiply and add`"（`FMA`）指令，其在计算`x*y+z`时，不对中间结果`x*y`进行舍入。这些例子显示了Go的实现何时可以使用该指令：
 
 ```go 
 // FMA allowed for computing r, because x*y is not explicitly rounded: 
-// => FMA 允许被用来计算 r, 因为 x*y 不会被明确地进行舍入：
+// => FMA 允许被用来计算 r, 因为 x*y 不会被显式地进行舍入：
 r  = x*y + z
 r  = z;   r += x*y
 t  = x*y; r = t + z
@@ -1772,7 +1772,7 @@ t  = float64(x*y); r = t + z
 
 ​	字符串可以使用`+`运算符或`+=`赋值运算符进行连接：
 
-```
+```go
 s := "hi" + string(c)
 s += " and good bye"
 ```
@@ -1781,7 +1781,7 @@ s += " and good bye"
 
 ### Comparison operators 比较运算符
 
-​	比较运算符比较两个操作数，并产生一个无类型布尔值。
+​	**比较运算符**比较两个操作数，并产生一个无类型布尔值。
 
 ```
 ==    equal
@@ -1794,35 +1794,39 @@ s += " and good bye"
 
 ​	在任何比较中，第一个操作数必须是[可分配](../PropertiesOfTypesAndValues#assignability-可分配性)给第二个操作数的类型，反之亦然。
 
-​	相等运算符`==`和`!=`适用于可比较的操作数。排序运算符`<`, `<=`, `>`, 和`>=`适用于被排序的操作数。这些术语和比较结果的定义如下：
+​	**相等运算符**`==`和`!=`适用于可比较的操作数。**排序运算符**`<`, `<=`, `>`, 和`>=`适用于被排序的操作数。这些术语和比较结果的定义如下：
 
 - 布尔值是可比较的。如果两个布尔值都是`true`或者都是`false`，那么它们是相等的。
 - 按照通常的方式，整数值是可比较的并且是可排序的。
-- 按照IEEE-754标准的定义，浮点值是可比较的并且是可排序的。
+- 按照**IEEE-754标准**的定义，浮点值是可比较的并且是可排序的。
 - 复数值是可比较的。如果`real(u) == real(v)`和`imag(u) == imag(v)`，则这两个复数值`u`和`v`是相等的。
-- 字符串值是可（按字节顺序）比较的并且是可（按字节顺序）排序的。
+- 字符串类型值是可比较和有序的。两个字符串值按字节顺序进行比较。
 - 指针值是可比较的。如果两个指针值指向同一个变量，或者两个指针值都是`nil`，则它们的值是相等的。指向不同的[零尺寸](../SystemConsiderations#size-and-alignment-guarantees-大小和对齐保证)变量的指针值可能相等，也可能不相等。
-- 通道值是可比较的。如果两个通道是由同一个调用[make](../Built-inFunctions#making-slices-maps-and-channels-制作切片映射和通道)创建的，或者它们的值都为`nil`，则它们的值是相等的。
+- 通道值是可比较的。如果两个通道值是由相同的 [make](../Built-inFunctions#making-slices-maps-and-channels-制作切片映射和通道)调用创建的，或者它们的值都为`nil`，则它们的值是相等的。
 - 接口值是可比较的。如果两个接口值有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)动态类型和相同的动态值，或者两者的值都是`nil`，则它们的值是相等的。
 - 非接口类型 `X` 的值 `x` 和接口类型 `T` 的值 `t` ，在 `X` 类型的值是可比较的并且 `X` [实现](../Types#implementing-an-interface-实现一个接口) `T` 时是可比较的。如果 `t` 的动态类型等于 `X`，且 `t` 的动态值等于 `x`，则它们是相等的。
-- 如果结构体值的所有字段都是可比较的，那么结构体值就是可比较的。如果两个结构体值对应的非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段相等，那么它们就是相等的。
-- 如果数组元素类型的值是可比较的，那么数组值是可比较的。如果两个数组的对应元素是相等的，那么这两个数组值就是相等的。
+- 如果结构体类型的所有字段类型都是可比较的，那么结构体类型的值是可比较的。如果两个结构体对应的非空白字段值相等，那么这两个结构体值相等。字段按源代码顺序进行比较，并在两个字段值不同时停止比较（或已比较完所有字段）。
+- 如果它们的数组元素类型是可比较的，那么数组类型的值是可比较的。如果它们对应的元素值相等，两个数组值相等。元素按升序索引进行比较，并在两个元素值不同时停止比较（或已比较完所有元素）。
+- Type parameters are comparable if they are strictly comparable (see below).
+- 如果类型参数是严格可比较的（见下文），则类型参数的值是可比较的。 
 
-​	对两个动态类型相同的接口值进行比较，如果它们的类型值不具有可比性，则会引起[运行时恐慌](../Run-timePanics)。这种行为不仅适用于直接的接口值比较，也适用于比较接口值的数组或带有接口值字段的结构体。
+​	A comparison of two interface values with identical dynamic types causes a [run-time panic](https://go.dev/ref/spec#Run_time_panics) if that type is not comparable. This behavior applies not only to direct interface value comparisons but also when comparing arrays of interface values or structs with interface-valued fields.
+
+​	对两个动态类型相同的接口值进行比较，如果它们的类型值不具有可比性，则会引起[运行时恐慌](../Run-timePanics)。这种行为不仅适用于直接的接口值比较，也适用于比较接口值的数组或带有接口类型字段的结构体。
 
 ​	`切片值、映射值和函数值是不可比较的`。然而，作为一种特殊情况，切片值、映射值或函数值可以与预先声明的标识符`nil`比较。指针值、通道值和接口值与`nil`的比较也是允许的，并遵循上述的通用规则。
 
 ```go 
-const c = 3 < 4            // c is the untyped boolean constant true => c 是无类型的布尔常量 true
+const c = 3 < 4 // c 是无类型的布尔常量 true
 
 type MyBool bool
 var x, y int
 var (
-	// The result of a comparison is an untyped boolean. => 比较的结果为一个无类型的布尔值。
-	// The usual assignment rules apply. => 使用通用赋值规则。
-	b3        = x == y // b3 has type bool => b3 拥有 bool 类型
-	b4 bool   = x == y // b4 has type bool => b4 拥有 bool 类型
-	b5 MyBool = x == y // b5 has type MyBool => b5 拥有 MyBool 类型
+	// 比较的结果为一个无类型的布尔值。
+	// 使用通用赋值规则。
+	b3        = x == y // b3 拥有 bool 类型
+	b4 bool   = x == y // b4 拥有 bool 类型
+	b5 MyBool = x == y // b5 拥有 MyBool 类型
 )
 ```
 
@@ -1830,7 +1834,7 @@ var (
 
 ​	逻辑运算符适用于[布尔](../Types#boolean-types-布尔型)值，并产生一个与操作数相同类型的结果。右操作数是按条件进行求值的。
 
-```
+```go
 &&    conditional AND    p && q  is  "if p then q else false"
 ||    conditional OR     p || q  is  "if p then true else q"
 !     NOT                !p      is  "not p"
@@ -1838,9 +1842,9 @@ var (
 
 ### Address operators 地址运算符
 
-​	对于类型为`T`的操作数`x`，寻址操作`&x`产生一个类型为`*T`的指针指向`x`。该操作数`x`必须是可寻址的，也就是说，它要么是一个变量、指针间接（pointer indirection）或`对切片的索引操作（slice indexing operation，是一个名词）`；要么是一个可寻址结构体操作数的字段选择器；要么是一个可寻址数组的数组索引操作。作为可寻址要求的一个例外，`x`也可以是一个（可能是括号内的）[复合字面量](#composite-literals-复合字面量)。如果对`x`的求值会引起[运行时恐慌](../Run-timePanics)，那么对`&x`的求值也会引起[运行时恐慌](../Run-timePanics)。
+​	对于类型为`T`的操作数`x`，寻址操作`&x`生成一个类型为`*T`的指针指向`x`。该操作数`x`必须是可寻址的，也就是说，它要么是一个变量、指针间接引用（pointer indirection）或`对切片的索引操作（slice indexing operation，是一个名词）`；要么是一个可寻址结构体操作数的字段选择器；要么是一个可寻址数组的数组索引操作。作为可寻址要求的一个例外，`x`也可以是一个（可能带括号的）[复合字面量](#composite-literals-复合字面量)。如果对`x`的求值会引起[运行时恐慌](../Run-timePanics)，那么对`&x`的求值也会引起[运行时恐慌](../Run-timePanics)。
 
-​	对于指针类型`*T`的操作数`x`，指针间接`*x`表示`x`所指向的`T`类型的[变量]()，如果`x`是`nil`，试图求值`*x`将导致[运行时恐慌](../Run-timePanics)。
+​	对于指针类型`*T`的操作数`x`，指针间接引用`*x`表示指向`x`的类型`T`的[变量]()，如果`x`是`nil`，试图求值`*x`将导致[运行时恐慌](../Run-timePanics)。
 
 ```go 
 &x
@@ -1850,8 +1854,8 @@ var (
 *pf(x)
 
 var x *int = nil
-*x   // causes a run-time panic => 导致一个 运行时恐慌
-&*x  // causes a run-time panic => 导致一个 运行时恐慌
+*x   // 导致一个 run-time panic
+&*x  // 导致一个 run-time panic
 ```
 
 ### Receive operator 接收操作符
@@ -1862,7 +1866,7 @@ var x *int = nil
 v1 := <-ch
 v2 = <-ch
 f(<-ch)
-<-strobe  // wait until clock pulse and discard received value => 等待，直到时钟脉冲并且丢弃接收值
+<-strobe  // 等待，直到时钟脉冲并且丢弃接收值
 ```
 
 ​	在[赋值语句](../Statements#assignment-statement-赋值语句)或特殊形式的初始化中使用的一个接收表达式
@@ -1874,13 +1878,13 @@ var x, ok = <-ch
 var x, ok T = <-ch
 ```
 
-将产生一个额外的无类型布尔值结果，报告通信是否成功。如果收到的值是由一个成功的发送操作传递给通道的，那么`ok`的值为`true`，如果是一个因为通道关闭且空而产生的零值，则为`false`。
+将产生一个额外的无类型布尔值结果，报告通信是否成功。如果收到的值是由一个成功的发送操作传递给通道的，那么`ok`的值为`true`，如果通道已关闭且为空，生成的值为零值，则 `ok` 的值为 `false`。
 
 ### Conversions 转换
 
 ​	转换将表达式的[类型](../Types)改变为转换所指定的类型。转换可以出现在源文件中的字面量上，也可以隐含在由表达式所在的上下文。
 
-​	显式转换是`T(x)`形式的表达式，其中`T`是一个类型，`x`是可以被转换为`T`类型的表达式。
+​	式转换是形如 `T(x)` 的表达式，其中`T`是一个类型，`x`是可以被转换为`T`类型的表达式。
 
 ```
 Conversion = Type "(" Expression [ "," ] ")" .
@@ -1889,36 +1893,36 @@ Conversion = Type "(" Expression [ "," ] ")" .
 ​	如果类型以运算符`*`或`<-`开头，或者如果类型以关键字`func`开头，并且没有结果列表，那么在必要时必须用`圆括号`括起来，以避免产生歧义：
 
 ```go 
-*Point(p)        // same as *(Point(p))
-(*Point)(p)      // p is converted to *Point
-<-chan int(c)    // same as <-(chan int(c))
-(<-chan int)(c)  // c is converted to <-chan int
-func()(x)        // function signature func() x
-(func())(x)      // x is converted to func()
-(func() int)(x)  // x is converted to func() int
-func() int(x)    // x is converted to func() int (unambiguous)
+*Point(p)        // 等同于 *(Point(p))
+(*Point)(p)      // p 被转换为 *Point
+<-chan int(c)    // 等同于 <-(chan int(c))
+(<-chan int)(c)  // c 被转换为 <-chan int
+func()(x)        // 函数签名 func() x
+(func())(x)      // x 被转换为 func()
+(func() int)(x)  // x 被转换为 func() int
+func() int(x)    // x 被转换为 func() int   （无歧义 unambiguous）
 ```
 
 ​	一个[常量](../Constants)值`x`可以被转换为`T`类型，如果`x`可以用`T`的一个值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)的话。作为一种特殊情况，可以使用 与 非常量`x`[相同的规则](#conversions-to-and-from-a-string-type-与字符串类型的转换)显式地将整数常量`x`转换为[字符串类型](../Types#string-types-字符串型)。
 
-​	将常量转换为非[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)的类型，会得到一个有类型的常量。
+​	将常量转换为非[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)的类型，会生成一个有类型的常量。
 
 ```go 
-uint(iota)               // iota value of type uint => uint 类型的 iota 值 
-float32(2.718281828)     // 2.718281828 of type float32 => float32 类型的 2.718281828
-complex128(1)            // 1.0 + 0.0i of type complex128 =>  complex128 类型的 1.0 + 0.0i
+uint(iota)               // uint 类型的 iota 值 
+float32(2.718281828)     // float32 类型的 2.718281828
+complex128(1)            // complex128 类型的 1.0 + 0.0i
 float32(0.49999999)      // 0.5 of type float32 =>  float32 类型的 0.5 
-float64(-1e-1000)        // 0.0 of type float64 =>  float64 类型的0.0 
-string('x')              // "x" of type string =>  string 类型的 "x" 
-string(0x266c)           // "♬" of type string => string 类型的 "♬"
-myString("foo" + "bar")  // "foobar" of type myString => myString 类型的 "foobar"
-string([]byte{'a'})      // not a constant: []byte{'a'} is not a constant => 不是常量：[]byte{'a'} 不是常量
-(*int)(nil)              // not a constant: nil is not a constant, *int is not a boolean, numeric, or string type => 不是常量：nil 不是常量，*int 不是布尔、数值、字符串类型
-int(1.2)                 // illegal: 1.2 cannot be represented as an int => 非法的：1.2 不能被 int 表示
-string(65.0)             // illegal: 65.0 is not an integer constant => 非法的：65.0 不是整数常量
+float64(-1e-1000)        // float64 类型的0.0 
+string('x')              // string 类型的 "x" 
+string(0x266c)           // string 类型的 "♬"
+myString("foo" + "bar")  // myString 类型的 "foobar"
+string([]byte{'a'})      // not a constant: []byte{'a'} is not a constant
+(*int)(nil) // not a constant: nil is not a constant, *int is not a boolean, numeric, or string type
+int(1.2)   	  // 非法的：1.2 不能被 int 表示
+string(65.0)  // 非法的：65.0 不是整数常量
 ```
 
-​	将常量转换为一个类型参数会产生一个该类型的非常量值，该值表示为类型参数[实例化](#instantiations-实例化)时所带的类型实参的值。例如，给定一个函数：
+​	将常量转换为一个类型参数会生成一个该类型的非常量值（non-constant value），该值表示为类型参数[实例化](#instantiations-实例化)时所带的类型实参的值。例如，给定一个（泛型）函数：
 
 ``` go
 func f[P ~float32|~float64]() {
@@ -1926,13 +1930,13 @@ func f[P ~float32|~float64]() {
 }
 ```
 
-转换`P(1.1)`的结果是一个`P`类型的非常量值，而值`1.1`被表示为`float32`或`float64`，这取决于`f`的类型参数。因此，如果`f`被实例化为`float32`类型，那么表达式`P(1.1)+1.2`的数值会用与非常量`float32`加法相同的精度进行计算。
+转换`P(1.1)`的结果是一个`P`类型的非常量值（non-constant value），而值`1.1`被表示为`float32`或`float64`，这取决于`f`的类型参数。因此，如果`f`被实例化为`float32`类型，那么表达式`P(1.1)+1.2`的数值会用与非常量`float32`加法相同的精度进行计算。
 
-非常量值`x`可以在以下的任何情况下被转换为`T`类型：
+​	在以下情况下，非常量值 `x` 可以转换为类型 `T`：
 
 - `x`可以被[分配](../PropertiesOfTypesAndValues#assignability-可分配性)给`T`。
 - 忽略结构体标签（见下文），`x`的类型和`T`不是[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，但有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)[底层类型](../Types)。
-- 忽略结构体标签（见下文），`x`的类型和`T`是指针类型，不是[命名类型](../Types)，它们的指针基类型不是类型参数，但有一致的底层类型。
+- 忽略结构体标签（见下文），`x`的类型和`T`都是指针类型，且它们不是[命名类型](../Types)，它们的指针基类型不是类型参数，但有一致的底层类型。
 - `x`的类型和`T`都是整型或浮点型。
 - `x`的类型和`T`都是复数类型。
 - `x`是一个整型、字节型、符文型的切片，`T`是一个字符串类型。
@@ -1964,26 +1968,83 @@ var data *struct {
 	} `json:"address"`
 }
 
-var person = (*Person)(data)  // ignoring tags, the underlying types are identical => 忽略标签，底层类型是一致的
+var person = (*Person)(data)  // 忽略标签，这些的底层类型是一致的
 ```
 
-​	数值类型之间或与字符串类型之间的（非常量）转换有特殊的规则。这些转换可能会改变`x`的表示，并产生运行时间成本。所有其他的转换只改变`x`的类型而不改变其表示。
+​	数值类型之间或与字符串类型之间的（非常量）转换有特殊的规则。这些转换可能会改变`x`的表示，并产生运行时开销。而所有其他的转换只改变`x`的类型而不改变其表示。
 
-​	没有语言机制可以在`指针和整型之间进行转换`。[unsafe]({{< ref "/stdLib/unsafe">}})包在受限制的情况下实现了这个功能。
+​	在指针和整数之间没有语言机制可以直接进行转换。[unsafe]({{< ref "/stdLib/unsafe">}})包在受限制的情况下实现了这个功能。
 
 #### Conversions between numeric types 数值型之间的转换
 
-对于非常量数值的转换，适用以下规则：
+对于非常量数值的转换，有以下特定规则：
 
-1. 当在整型之间转换时，如果数值是有符号的[整型](../Types#numeric-types-数值型)，那么它被符号位扩展到隐式的无限精度；否则它被零扩展。然后，它被截断以适应结果类型的大小。例如，如果`v := uint16(0x10F0)`，那么`uint32(int8(v)) == 0xFFFFFFF0`。该转换总是产生一个有效的值；没有溢出的迹象。
+1. 当在整型之间转换时，如果数值是有符号的[整型](../Types#numeric-types-数值型)，则进行符号扩展以达到隐式的无限精度；否则它被零扩展。然后，它被截断以适应结果类型的大小。例如，如果`v := uint16(0x10F0)`，那么`uint32(int8(v)) == 0xFFFFFFF0`。该转换总是产生一个有效的值；没有溢出的迹象。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > func main() {
+   > 	v := uint16(0x10F0)
+   > 	fmt.Printf("%#X\n", v)               // 0X10F0
+   > 	fmt.Printf("%#X\n", int8(v))         // -0X10
+   > 	fmt.Printf("%#X\n", uint32(int8(v))) // 0XFFFFFFF0
+   > }
+   > ```
+
+   
+
 2. 当把[浮点型](../Types#numeric-types-数值型)数值转换为整型时，小数会被丢弃（向零截断）。
+
+   > 个人注释
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > func main() {
+   > 	v := 1.23
+   > 	fmt.Printf("%v\n", v)       // 1.23
+   > 	fmt.Printf("%v\n", int8(v)) // 1
+   > }
+   > 
+   > ```
+   >
+   > 
+
 3. 当将一个整型或浮点型数值转换为浮点型，或将一个[复数型](../Types#numeric-types-数值型)数值转换为另一个复数类型时，结果值被舍入到目标类型所指定的精度。例如，`float32`类型的变量`x`的值可能会使用超出IEEE-754 32位数的额外精度来存储，但是`float32(x)`表示将`x`的值舍入到`32`位精度的结果。同样地，`x + 0.1`可能使用超过`32`位的精度，但是`float32(x + 0.1)`则不会。
+
+   > 个人注释
+   >
+   > ​	请给出如何将一个复数型数值转换为另一个复数类型的示例：
+   >
+   > ```go
+   > package main
+   > 
+   > import "fmt"
+   > 
+   > func main() {
+   > 	c1 := complex(1.2, 3.0)
+   > 	c2 := complex(float32(real(c1)), float32(imag(c1)))
+   > 	fmt.Printf("%T,%v\n", c1, c1) // complex128,(1.2+3i)
+   > 	fmt.Printf("%T,%v\n", c2, c2) // complex64,(1.2+3i)
+   > }
+   > 
+   > ```
+   > ​	如何使用`math.big`来解决浮点数计算问题？TODO
+
+   
 
 ​	在所有涉及浮点值或复数值的非常量转换中，如果结果类型不能表示该值，转换仍会成功，但结果值取决于实现。
 
 #### Conversions to and from a string type 与字符串类型的转换
 
-1. 将有符号或无符号的整型值转换为字符串类型，会产生一个包含该整型值的UTF-8表示的字符串。在有效的Unicode码点范围之外的值会被转换为`"\uFFFD"`。 
+1. 将`有符号`或`无符号`的整型值转换为字符串类型，会产生一个包含该整型值的**UTF-8**表示的字符串。在有效的Unicode码点范围之外的值会被转换为`"\uFFFD"`。 
 
    ```go 
    string('a')       // "a"
@@ -1994,7 +2055,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
    myString(0x65e5)  // "\u65e5" == "日" == "\xe6\x97\xa5"
    ```
    
-2. 将字节切片转换为字符串类型，可以得到一个字符串，其连续的字节是该切片的元素。
+2. 将`字节切片`转换为`字符串类型`，可以得到一个字符串，其中连续的字节是该切片的元素。
 
    ```go 
    string([]byte{'h', 'e', 'l', 'l', '\xc3', '\xb8'})   // "hellø"
@@ -2009,7 +2070,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
    myString([]myByte{'\xf0', '\x9f', '\x8c', '\x8d'})   // "🌍"
    ```
    
-3. 将符文切片转换为字符串类型，可以得到一个字符串，即转换为字符串的各个符文值的连接。
+3. 将`符文切片`转换为`字符串类型`，可以得到一个字符串，即转换为字符串的各个符文值的连接。
 
    ```go 
    string([]rune{0x767d, 0x9d6c, 0x7fd4})   // "\u767d\u9d6c\u7fd4" == "白鵬翔"
@@ -2024,7 +2085,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
    myString([]myRune{0x1f30e})              // "\U0001f30e" == "🌎"
    ```
    
-4. 将字符串类型的值转换为字节类型的切片，得到一个切片，其连续的元素是字符串的字节。
+4. 将`字符串类型`的值转换为`字节类型的切片`，得到一个切片，其连续的元素是字符串的字节。
 
    ```go 
    []byte("hellø")             // []byte{'h', 'e', 'l', 'l', '\xc3', '\xb8'}
@@ -2036,7 +2097,7 @@ var person = (*Person)(data)  // ignoring tags, the underlying types are identic
    []myByte(myString("🌏"))    // []myByte{'\xf0', '\x9f', '\x8c', '\x8f'}
    ```
    
-5. 将字符串类型的值转换为符文类型的切片，会得到一个包含该字符串的各个Unicode码点的切片。
+5. 将`字符串类型`的值转换为`符文类型`的切片，会得到一个包含该字符串的各个Unicode码点的切片。
 
    ```go 
    []rune(myString("白鵬翔"))   // []rune{0x767d, 0x9d6c, 0x7fd4}
@@ -2067,15 +2128,87 @@ u := make([]byte, 0)
 u0 := (*[0]byte)(u)      // u0 != nil
 ```
 
+> 个人注释
+>
+> ​	给出以上示例的完整示例：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	s := make([]byte, 2, 4)
+> 	s0 := (*[0]byte)(s)            // s0 != nil
+> 	fmt.Printf("%T,%#v\n", s0, s0) // *[0]uint8,&[0]uint8{}
+> 	s1 := (*[1]byte)(s[1:])        // &s1[0] == &s[1]
+> 	fmt.Printf("%T,%#v\n", s1, s1) // *[1]uint8,&[1]uint8{0x0}
+> 	s2 := (*[2]byte)(s)            // &s2[0] == &s[0]
+> 	fmt.Printf("%T,%#v\n", s2, s2) // *[2]uint8,&[2]uint8{0x0, 0x0}
+> 	// panic: runtime error: cannot convert slice with length 2 to array or pointer to array with length 4
+> 	//s4 := (*[4]byte)(s)            // panics: len([4]byte) > len(s)
+> 	//fmt.Printf("%T,%#v\n", s4, s4) //
+> 
+> 	var t []string
+> 	t0 := (*[0]string)(t)          // t0 == nil
+> 	fmt.Printf("%T,%#v\n", t0, t0) // *[0]string,(*[0]string)(nil)
+> 	// panic: runtime error: cannot convert slice with length 0 to array or pointer to array with length 1
+> 	//t1 := (*[1]string)(t)          // panics: len([1]string) > len(t)
+> 	//fmt.Printf("%T,%#v\n", t1, t1) //
+> 
+> 	u := make([]byte, 0)
+> 	u0 := (*[0]byte)(u)            // u0 != nil
+> 	fmt.Printf("%T,%#v\n", u0, u0) //*[0]uint8,&[0]uint8{}
+> }
+> 
+> ```
+
+> 个人注释
+>
+> ​	以上可以将切片转为数组指针，那么是否可以将切片转换为数组？=》 可以
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	s := make([]byte, 2, 4)
+> 	s0 := ([0]byte)(s)             // s0 != nil
+> 	fmt.Printf("%T,%#v\n", s0, s0) // [0]uint8,[0]uint8{}
+> 	s1 := ([1]byte)(s[1:])         // &s1[0] == &s[1]
+> 	fmt.Printf("%T,%#v\n", s1, s1) // [1]uint8,[1]uint8{0x0}
+> 	s2 := ([2]byte)(s)             // &s2[0] == &s[0]
+> 	fmt.Printf("%T,%#v\n", s2, s2) // [2]uint8,[2]uint8{0x0, 0x0}
+> 	// panic: runtime error: cannot convert slice with length 2 to array or pointer to array with length 4
+> 	//s4 := ([4]byte)(s)             // panics: len([4]byte) > len(s)
+> 	//fmt.Printf("%T,%#v\n", s4, s4) //
+> 
+> 	var t []string
+> 	t0 := ([0]string)(t)           // t0 == nil
+> 	fmt.Printf("%T,%#v\n", t0, t0) // [0]string,[0]string{}
+> 	// panic: runtime error: cannot convert slice with length 0 to array or pointer to array with length 1
+> 	t1 := ([1]string)(t)           // panics: len([1]string) > len(t)
+> 	fmt.Printf("%T,%#v\n", t1, t1) //
+> 
+> 	u := make([]byte, 0)
+> 	u0 := ([0]byte)(u)             // u0 != nil
+> 	fmt.Printf("%T,%#v\n", u0, u0) //[0]uint8,[0]uint8{}
+> }
+> 
+> ```
+>
+> 
+
 ### Constant expressions 常量表达式
 
 ​	常量表达式可以只包含[常量](../Constants)操作数，并在编译时进行求值。
 
-​	无类型的布尔、数值和字符串常量可以作为操作数使用，只要合法地分别使用布尔、数值或字符串类型的操作数。
+​	无类型的布尔、数值和字符串常量可以在需要布尔、数值或字符串类型操作数的地方使用。
 
 ​	常量[比较](#comparison-operators-比较运算符)总是产生一个无类型的布尔常量。如果常量[移位表达式](#operators-操作符)的左操作数是一个无类型的常量，那么结果就是一个整型常量；否则就是一个与左操作数相同类型的常量（左操作数必须是[整型](../Types#numeric-types-数值型)）。
 
-​	任何其他对无类型常量的操作都会产生一个相同类型的无类型常量，也就是布尔、整数、浮点、复数或字符串常量。如果一个二元运算（除移位外）的无类型操作数是不同种类的，那么结果就是出现在如下列表的操作数类型：整数，符文，浮点，复数。例如，一个无类型的整数常量除以一个无类型的复数常量，得到一个无类型的复数常量。
+​	对无类型常量的任何其他操作都会得到一个相同类型的无类型常量，也就是布尔、整数、浮点、复数或字符串常量。如果一个二元运算（除移位外）的无类型操作数是不同种类的，那么结果就是出现在如下列表的操作数类型：整数，符文，浮点，复数。例如，一个无类型的整数常量除以一个无类型的复数常量，得到一个无类型的复数常量。
 
 ```go 
 const a = 2 + 3.0          // a == 5.0   (untyped floating-point constant)
@@ -2100,18 +2233,18 @@ const Φ = iota*1i - 1/1i   //            (untyped complex constant)
 ​	将内置函数 `complex` 应用于无类型的整数、符文或浮点常量，可以得到一个无类型的复数常量。
 
 ```go 
-const ic = complex(0, c)   // ic == 3.75i  (untyped complex constant)
-const iΘ = complex(0, Θ)   // iΘ == 1i     (type complex128)
+const ic = complex(0, c)   // ic == 3.75i  (untyped complex constant) 类型是complex128
+const iΘ = complex(0, Θ)   // iΘ == 1i     (untyped complex constant) 类型是complex128
 ```
 
 ​	`常量表达式总是被精确地求值`；中间值和常量本身可能需要比语言中任何预先声明的类型`所支持的精度大得多`。以下是合法的声明：
 
 ```go 
 const Huge = 1 << 100         // Huge == 1267650600228229401496703205376  (untyped integer constant)
-const Four int8 = Huge >> 98  // Four == 4                                (type int8)
+const Four int8 = Huge >> 98  // Four == 4 (type int8)
 ```
 
-常量除法或取余操作的`除数一定不能为零`。
+​	常量除法或取余操作的`除数一定不能为零`。
 
 ```go 
 3.14 / 0.0   // illegal: division by zero
@@ -2120,30 +2253,30 @@ const Four int8 = Huge >> 98  // Four == 4                                (type 
 ​	类型常量的值必须总是可以准确地由常量类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)。下面的常量表达式是非法的：
 
 ```go 
-uint(-1)     // -1 cannot be represented as a uint => -1 不能作为 uint 来表示
-int(3.14)    // 3.14 cannot be represented as an int => 3.14 不能作为 int 来表示
-int64(Huge)  // 1267650600228229401496703205376 cannot be represented as an int64 => 1267650600228229401496703205376 不能作为 int64 来表示
-Four * 300   // operand 300 cannot be represented as an int8 (type of Four) => 操作数 300 不能作为 int8（Four的类型） 来表示
-Four * 100   // product 400 cannot be represented as an int8 (type of Four) => 乘积 400 不能作为 int8（Four的类型） 来表示
+uint(-1)     // -1 不能作为 uint 来表示
+int(3.14)    // 3.14 不能作为 int 来表示
+int64(Huge)  // 1267650600228229401496703205376 不能作为 int64 来表示
+Four * 300   // 操作数 300 不能作为 int8（Four的类型） 来表示
+Four * 100   // 乘积 400 不能作为 int8（Four的类型） 来表示
 ```
 
 ​	一元按位补运算符`^`使用的掩码符合非常量的规则：对于无符号常量来说是所有(掩码)位都是`1`，对于有符号和无类型的常量来说是`-1`。=> 仍有疑问？？
 
 ```go 
-^1         // untyped integer constant, equal to -2 => 无类型的整数常量，等于 -2
-uint8(^1)  // illegal: same as uint8(-2), -2 cannot be represented as a uint8 => 非法的: 相当于 uint8(-2)， -2 不能被 uint8 所表示
-^uint8(1)  // typed uint8 constant, same as 0xFF ^ uint8(1) = uint8(0xFE) => 无类型的 uint8 常量， 相当于 0xFF ^ uint8(1) = uint8(0xFE)
-int8(^1)   // same as int8(-2) => 相当于 int8(-2)
-^int8(1)   // same as -1 ^ int8(1) = -2 => 相当于 -1 ^ int8(1) = -2
+^1         // 无类型的整数常量，等于 -2
+uint8(^1)  // 非法的: 相当于 uint8(-2)， -2 不能被 uint8 所表示
+^uint8(1)  // 无类型的 uint8 常量， 相当于 0xFF ^ uint8(1) = uint8(0xFE)
+int8(^1)   // 相当于 int8(-2)
+^int8(1)   // 相当于 -1 ^ int8(1) = -2
 ```
 
 实现限制：编译器在计算无类型浮点或复数常量表达式时可能会使用舍入，请参见[常量](../Constants)部分的实现限制。这种舍入可能会导致浮点常量表达式在整数上下文中无效，即使它在使用无限精度计算时是整数，反之亦然。
 
 ### Order of evaluation 求值顺序
 
-​	在包级别上，[初始化依赖关系](../ProgramInitializationAndExecution#package-initialization-包的初始化)决定了[变量声明](../DeclarationsAndScope#variable-declarations-变量声明)中各个初始化表达式的求值顺序。除此之外，在求值表达式、赋值或[返回语句](../Statements#return-statements----return-语句)的[操作数](#operands-操作数)时，所有的函数调用、方法调用和通信操作都是按词法从左到右的顺序求值的。
+​	在包级别上，[初始化依赖项](../ProgramInitializationAndExecution#package-initialization-包的初始化)决定了[变量声明](../DeclarationsAndScope#variable-declarations-变量声明)中各个初始化表达式的求值顺序。除此之外，在求值表达式、赋值或[返回语句](../Statements#return-statements----return-语句)的[操作数](#operands-操作数)时，所有的函数调用、方法调用和通信操作都是按词法从左到右的顺序求值的。
 
-例如，在（函数局部）赋值中
+​	例如，在（函数内部）赋值语句中
 
 ```go 
 y[f()], ok = g(h(), i()+x[j()], <-c), k()
@@ -2154,12 +2287,12 @@ y[f()], ok = g(h(), i()+x[j()], <-c), k()
 ```go 
 a := 1
 f := func() int { a++; return a }
-x := []int{a, f()}            // x may be [1, 2] or [2, 2]: evaluation order between a and f() is not specified => x 可以是 [1, 2] 或是 [2, 2]： a 和 f() 的求值顺序没有被指定
-m := map[int]int{a: 1, a: 2}  // m may be {2: 1} or {2: 2}: evaluation order between the two map assignments is not specified => m 可以是 {2: 1} 或是 {2: 2}： 两个映射赋值的求值顺序没有被指定
-n := map[int]int{a: f()}      // n may be {2: 3} or {3: 3}: evaluation order between the key and the value is not specified => n 可以是 {2: 3} 或是 {3: 3}： 键和值的求值顺序没有被指定
+x := []int{a, f()} // x 可以是 [1, 2] 或是 [2, 2]： a 和 f() 的求值顺序没有被指定
+m := map[int]int{a: 1, a: 2} // m 可以是 {2: 1} 或是 {2: 2}： 两个映射赋值的求值顺序没有被指定
+n := map[int]int{a: f()} // n 可以是 {2: 3} 或是 {3: 3}： 键和值的求值顺序没有被指定
 ```
 
-​	在包级别上，对于独立的初始化表达式来说，初始化依赖关系会覆盖其从左到右的求值规则，但不覆盖每个表达式中的操作数：
+​	在包级别上，对于独立的初始化表达式来说，初始化依赖项会覆盖其从左到右的求值规则，但不覆盖每个表达式中的操作数：
 
 ```go 
 var a, b, c = f() + v(), g(), sqr(u()) + v()
@@ -2172,6 +2305,6 @@ func sqr(x int) int { return x*x }
 // => 函数 u 和 v 独立于其它所有的变量和函数
 ```
 
-函数调用按照`u()`、`sqr()`、`v()`、`f()`、`v()`、`g()`的顺序发生。
+​	函数调用按照`u()`、`sqr()`、`v()`、`f()`、`v()`、`g()`的顺序发生。
 
 ​	单个表达式中的浮点运算是按照运算符的结合性来求值的。显式的括号会通过覆盖默认的结合性来影响求值。在表达式`x + (y + z)`中，加法`y + z`会在加`x`之前进行。
