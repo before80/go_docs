@@ -1098,6 +1098,127 @@ t[1] == 3
 
 ​	如果`0 <= low <= high <= max <= cap(a)`，则索引就在范围内，否则就超出了范围。[常量](../Constants)索引必须是非负数，并且可以用`int`类型的值来[表示](../PropertiesOfTypesAndValues#representability-可表示性)；对于数组，常量索引也必须在范围内。如果多个索引是常量，那么出现的常量必须在相对于彼此的范围内。如果索引在运行时超出了范围，就会发生[运行时恐慌](../Run-timePanics)。
 
+> 个人注释
+>
+> ​	完整的切片表达式又称：扩展的切片表达式，是在go1.2引入的，为的是限制新生成的切片的容量。
+>
+> ​	`限制新生成的切片容量有什么好处？`给出示例说明下：
+>
+> ​	（1）从数组中生成新的切片：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	a1 := [6]int{0, 1, 2, 3, 4, 5}
+> 	a2 := [6]int{0, 1, 2, 3, 4, 5}
+> 
+> 	s1 := a1[0:3]
+> 	s2 := a2[0:3:3]
+> 	fmt.Printf("a1=%#v\n", a1)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("a2=%#v\n", a2)
+> 	fmt.Printf("s2=%#v\n", s2)
+> 
+> 	fmt.Println("- apppend 22--------------------------------")
+> 	s1 = append(s1, 22)
+> 	s2 = append(s2, 22)
+> 	fmt.Printf("a1=%#v\n", a1)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("a2=%#v\n", a2)
+> 	fmt.Printf("s2=%#v\n", s2)
+> 
+> 	fmt.Println("- apppend 33--------------------------------")
+> 	s1 = append(s1, 33)
+> 	s2 = append(s2, 33)
+> 	fmt.Printf("a1=%#v\n", a1)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("a2=%#v\n", a2)
+> 	fmt.Printf("s2=%#v\n", s2)
+> }
+> 
+> Output:
+> 
+> a1=[6]int{0, 1, 2, 3, 4, 5}
+> s1=[]int{0, 1, 2}
+> a2=[6]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2}
+> - apppend 22--------------------------------
+> a1=[6]int{0, 1, 2, 22, 4, 5}
+> s1=[]int{0, 1, 2, 22}
+> a2=[6]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2, 22}
+> - apppend 33--------------------------------
+> a1=[6]int{0, 1, 2, 22, 33, 5}
+> s1=[]int{0, 1, 2, 22, 33}
+> a2=[6]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2, 22, 33}
+> 
+> ```
+>
+> ​	可以看到，s2在使用`arr2[0:3:3]`后，对切片s2进行的两次`append`操作，都没有对原数组中的元素造成影响！
+>
+> ​	（2）从切片中生成新的切片：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	sa := []int{0, 1, 2, 3, 4, 5}
+> 	sb := []int{0, 1, 2, 3, 4, 5}
+> 
+> 	s1 := sa[0:3]
+> 	s2 := sb[0:3:3]
+> 	fmt.Printf("sa=%#v\n", sa)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("sb=%#v\n", sb)
+> 	fmt.Printf("s2=%#v\n", s2)
+> 
+> 	fmt.Println("- apppend 22--------------------------------")
+> 	s1 = append(s1, 22)
+> 	s2 = append(s2, 22)
+> 	fmt.Printf("sa=%#v\n", sa)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("sb=%#v\n", sb)
+> 	fmt.Printf("s2=%#v\n", s2)
+> 
+> 	fmt.Println("- apppend 33--------------------------------")
+> 	s1 = append(s1, 33)
+> 	s2 = append(s2, 33)
+> 	fmt.Printf("sa=%#v\n", sa)
+> 	fmt.Printf("s1=%#v\n", s1)
+> 	fmt.Printf("sb=%#v\n", sb)
+> 	fmt.Printf("s2=%#v\n", s2)
+> }
+> 
+> Output:
+> 
+> sa=[]int{0, 1, 2, 3, 4, 5}
+> s1=[]int{0, 1, 2}
+> sb=[]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2}
+> - apppend 22--------------------------------
+> sa=[]int{0, 1, 2, 22, 4, 5}
+> s1=[]int{0, 1, 2, 22}
+> sb=[]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2, 22}
+> - apppend 33--------------------------------
+> sa=[]int{0, 1, 2, 22, 33, 5}
+> s1=[]int{0, 1, 2, 22, 33}
+> sb=[]int{0, 1, 2, 3, 4, 5}
+> s2=[]int{0, 1, 2, 22, 33}
+> ```
+>
+> ​	也可以看到，s2在使用`sb[0:3:3]`后，对切片s2进行的两次`append`操作，都没有对原切片中的元素造成影响！
+>
+> ​	这么说，只要切片的容量改变（无论是否是使用简单切片表达式，还是完整的切片表达式），就与原数组或原切片没有了联系。
+>
+> 
+
 ### Type assertions 类型断言
 
 ​	对于[接口类型](../Types#interface-ypes-接口型)但非[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)的表达式`x`和类型`T`的主表达式
@@ -1154,7 +1275,7 @@ x.(T)
 > 	v, ok = i5.(T1)
 > 	fmt.Printf("%T,%#v,%t\n", i5, v, ok) // main.St1,main.St1{},true
 > 
-> 	// i 不是接口的情况
+> 	// T 不是接口的情况
 > 
 > 	//i20 := MyInt(10)
 > 	//v, ok = i20.(int) // invalid operation: i20 (variable of type MyInt) is not an interface
@@ -1376,7 +1497,7 @@ type parameter list    type arguments    after substitution
 [P io.Writer]          string            非法的: string 没有实现 io.Writer
 ```
 
-​	对于`泛型函数`，可以明确地提供**类型实参**，也可以靠部分或完整地[推断](#type-inference)出它们。非[调用](#calls-调用)的泛型函数需要一个**类型实参列表**用于实例化；如果该列表是部分的，那么所有剩余的**类型实参**必须是可推断的。被调用的泛型函数可以提供一份（可能是部分的）**类型实参列表**，（如果省略的**类型实参**可以从普通（非类型）函数实参中推断出来）也可以完全省略。
+​	对于`泛型函数`，可以显式地提供**类型实参**，也可以靠部分或完整地[推断](#type-inference)出它们。非[调用](#calls-调用)的泛型函数需要一个**类型实参列表**用于实例化；如果该列表是部分的，那么所有剩余的**类型实参**必须是可推断的。被调用的泛型函数可以提供一份（可能是部分的）**类型实参列表**，（如果省略的**类型实参**可以从普通（非类型）函数实参中推断出来）也可以完全省略。
 
 ```go 
 func min[T ~int|~float64](x, y T) T { … }
