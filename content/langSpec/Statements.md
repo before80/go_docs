@@ -997,7 +997,7 @@ GoStmt = "go" Expression .
 >
 > ​	可见并不是不能使用 `go + 内置函数` 或 `go + 表达式语句`，而是使用的内置函数或表达式语句有限制，即有些内置函数、表达式语句不能使用，有些内置函数或表达式语句可以使用！
 
-​	函数值和参数在调用的goroutine中[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)，但与普通调用不同的是，程序执行不会等待被调用的函数完成。相反，该函数开始在一个新的goroutine中独立执行。当函数终止时，其goroutine也会终止。如果该函数有任何返回值，当函数完成时，它们会被丢弃。
+​	函数值和参数在调用的goroutine中[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)，但与普通调用不同的是，程序执行不会等待被调用的函数完成。相反，该函数开始在一个新的goroutine中独立执行。当该函数终止时，其goroutine也会终止。如果该函数有任何返回值，当函数完成时，它们会被丢弃。
 
 ```go 
 go Server()
@@ -1079,7 +1079,7 @@ func noResult() {
 
 有三种方法可以从一个有结果类型的函数中返回值：
 
-1. 可以在 "`return`"语句中明确列出一个或多个返回值。每个表达式必须是单值的，并且可以分配给函数的结果类型的相应元素。
+1. 可以在 "`return`"语句中显式地列出一个或多个返回值。每个表达式必须是单值的，并且可以分配给函数的结果类型的相应元素。
 
    ```go 
    func simpleF() int {
@@ -1091,7 +1091,7 @@ func noResult() {
    }
    ```
    
-2. "`return`"语句中的表达式列表可能是对一个多值函数的单一调用。其效果就像从该函数返回的每个值都被分配到一个临时变量中，其类型为相应的值，随后的 "`return`"语句列出了这些变量，此时，前一种情况的规则适用。
+2. "`return`"语句中的表达式列表可能是对一个多值函数的单一调用。其效果就像从该函数返回的每个值都被分配到一个临时变量中，其类型与相应的值类型相同，随后的 "`return`"语句列出了这些变量，此时，前一种情况的规则适用。
 
    ```go 
    func complexF2() (re float64, im float64) {
@@ -1099,7 +1099,7 @@ func noResult() {
    }
    ```
    
-3. 如果函数的结果类型为其结果参数指定了名称，表达式列表可能是空的。结果参数作为普通的局部变量，函数可以根据需要给它们赋值。`return`语句会返回这些变量的值。
+3. 如果函数的结果类型为其结果参数指定了名称，该表达式列表可能是空的。结果参数作为普通的局部变量，函数可以根据需要给它们赋值。`return`语句会返回这些变量的值。
 
    ```go 
    func complexF3() (re float64, im float64) {
@@ -1121,11 +1121,33 @@ func noResult() {
 ```go 
 func f(n int) (res int, err error) {
 	if _, err := f(n-1); err != nil {
-		return  // invalid return statement: err is shadowed => 无效的返回语句： err 被遮蔽了
+		return  // 无效的返回语句： err 被遮蔽了
 	}
 	return
 }
 ```
+
+> 个人注释
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func f(n int) (res int, err error) {
+> 	if _, err := f(n - 1); err != nil { // 报错： inner declaration of var err error
+> 		return // 无效的返回语句： err 被遮蔽了 // 报错： result parameter err not in scope at return
+> 	} //
+> 	return
+> }
+> 
+> func main() {
+> 	fmt.Println(f(1))
+> }
+> 
+> ```
+>
+> 
 
 ### Break statements - break 语句
 
@@ -1219,6 +1241,222 @@ L1:
 FallthroughStmt = "fallthrough" .
 ```
 
+> 个人注释
+>
+> ​	`fallthrough`语句难道就不能在类型选择语句中使用吗？=> 是的，不能！
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> func main() {
+> 	var i interface{}
+> 
+> 	i = 1
+> 	switch i.(type) {
+> 	case int:
+> 		fmt.Println("is int")
+> 		fallthrough  // 报错： cannot fallthrough in type switch
+> 	case uint:
+> 		fmt.Println("is uint")
+> 	default:
+> 		fmt.Println("don't know the type")
+> 	}
+> }
+> 
+> ```
+>
+> ​	给出`fallthrough`的示例，如下所示：
+>
+> ​	可见default语句所处位置对于switch中的`fallthrough`语句还是有影响的！
+
+{{< tabpane text=true >}}
+
+{{< tab header="default在最前面的情况" >}}
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func GetRandInt() int {
+	return rand.Intn(7)
+}
+func GetRank() {
+	switch i := GetRandInt(); {
+	default:
+		fmt.Printf("------ i=%d -- over----------\n", i)
+	case i == 6:
+		fmt.Println("i is 6")
+		fallthrough
+	case i < 6:
+		if i < 6 {
+			fmt.Println("less 6")
+		}
+		fallthrough
+	case i < 5:
+		if i < 5 {
+			fmt.Println("less 5")
+		}
+		fallthrough
+	case i < 4:
+		if i < 4 {
+			fmt.Println("less 4")
+		}
+		fallthrough
+	case i < 3:
+		if i < 3 {
+			fmt.Println("less 3")
+		}
+		fallthrough
+	case i < 2:
+		if i < 2 {
+			fmt.Println("less 2")
+		}
+		fallthrough
+	case i < 1:
+		if i < 1 {
+			fmt.Println("less 1")
+		}
+		//fallthrough //报错： cannot fallthrough final case in switch
+	}
+}
+
+func main() {
+	x := 0
+	for x <= 5 {
+		x++
+		GetRank()
+	}
+}
+Output:
+less 6
+less 5
+less 4
+less 3
+less 2
+less 6
+less 6
+less 5
+less 4
+less 3
+less 2
+less 6
+less 5
+less 4
+less 6
+i is 6
+
+```
+
+{{< /tab >}}
+
+{{< tab header="default在最后面的情况" >}}
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func GetRandInt() int {
+	return rand.Intn(7)
+}
+
+func GetRank() {
+	switch i := GetRandInt(); {
+	case i == 6:
+		fmt.Println("i is 6")
+		fallthrough
+	case i < 6:
+		if i < 6 {
+			fmt.Println("less 6")
+		}
+		fallthrough
+	case i < 5:
+		if i < 5 {
+			fmt.Println("less 5")
+		}
+		fallthrough
+	case i < 4:
+		if i < 4 {
+			fmt.Println("less 4")
+		}
+		fallthrough
+	case i < 3:
+		if i < 3 {
+			fmt.Println("less 3")
+		}
+		fallthrough
+	case i < 2:
+		if i < 2 {
+			fmt.Println("less 2")
+		}
+		fallthrough
+	case i < 1:
+		if i < 1 {
+			fmt.Println("less 1")
+		}
+		fallthrough
+	default:
+		fmt.Printf("------ i=%d -- over----------\n", i)
+	}
+}
+
+func main() {
+	x := 0
+	for x <= 5 {
+		x++
+		GetRank()
+	}
+}
+
+Output:
+less 6
+less 5
+less 4
+------ i=3 -- over----------
+less 6
+less 5
+less 4
+less 3
+less 2
+less 1
+------ i=0 -- over----------
+less 6
+less 5
+less 4
+less 3
+less 2
+less 1
+------ i=0 -- over----------
+i is 6
+------ i=6 -- over----------
+less 6
+less 5
+less 4
+less 3
+less 2
+less 1
+------ i=0 -- over----------
+less 6
+less 5
+less 4
+less 3
+less 2
+------ i=1 -- over----------
+```
+
+{{< /tab >}}
+
+{{< /tabpane >}}
+
 ### Defer statements 语句 defer
 
 ​	"`defer`"语句调用一个函数，该函数的执行被推迟到外层函数返回的那一刻，或者是因为外层函数执行了 [return 语句](#return-statements-return----return-语句)，达到了其[函数体](../DeclarationsAndScope#function-declarations-函数声明)的末端，或者是因为相应的goroutine正在[恐慌](../Built-inFunctions#handling-panics-处理恐慌)。
@@ -1229,24 +1467,81 @@ DeferStmt = "defer" Expression .
 
 这个表达式必须是一个函数或方法的调用；它不能是被圆括号括起来的。对内置函数的调用与[表达式语句](#expression-statements-表达式语句)一样受到限制。
 
-​	每次执行 "`defer`"语句时，函数值和调用的参数[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)并重新保存，但实际的函数不会被调用。相反，`被延迟函数`在外层的函数返回之前立即被调用，`其顺序与它们被延迟的顺序相反`。也就是说，如果外层的函数通过一个明确的 [return 语句](#return-statements-return----return-语句)返回，`被延迟函数`在任何结果参数被该 `reurn 语句`设置后执行，`但在外层函数返回给其调用者之前`。如果`被延迟函数`值被求值为`nil`，那么在调用该被延迟函数时会出现执行[恐慌]()（而不是当 "`defer`"语句被执行时）。
+> 个人注释
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> )
+> 
+> func f(x int) {
+> 	fmt.Printf("x=%d\n", x)
+> }
+> func main() {
+> 	defer (func() { fmt.Println("over") }()) // 报错：expression in defer must not be parenthesized
+> }
+> 
+> ```
+
+​	每次执行 "`defer`"语句时，函数值和调用的参数[像往常一样被求值](../Expressions#order-of-evaluation-求值顺序)并重新保存，但实际的函数不会被调用。相反，`被延迟函数`在外层的函数返回之前立即被调用，`其顺序与它们被延迟的顺序相反`。也就是说，如果外层的函数通过一个显式的 [return 语句](#return-statements-return----return-语句)返回，`被延迟函数`在任何结果参数被该 `reurn 语句`设置后执行，`但在外层函数返回给其调用者之前`。如果`被延迟函数`值被求值为`nil`，那么在调用该被延迟函数时会出现执行[恐慌]()（而不是当 "`defer`"语句被执行时）。
+
+> 个人注释
+>
+> ​	解释下“如果`被延迟函数`值被求值为`nil`，那么在调用该被延迟函数时会出现执行[恐慌]()（而不是当 "`defer`"语句被执行时）”：
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> 	"math/rand"
+> )
+> 
+> func f1(i any) {
+> 	fmt.Printf("i=%v\n", i)
+> }
+> 
+> func f2() any {
+> 	i := rand.Intn(101)
+> 	if i >= 60 {
+> 		return i
+> 	} else {
+> 		return nil
+> 	}
+> }
+> 
+> func main() {
+> 	defer f1(f2()) // 可以执行
+> 
+> 	var fn func()                        // 声明一个空函数变量
+> 	fmt.Printf("%T,%v\n", fn, fn == nil) // func(),true
+> 	
+> 	//defer fn() // 报错：panic: runtime error: invalid memory address or nil pointer dereference
+> 
+> 	fmt.Println("main over") // main over
+> }
+> 
+> ```
+>
+> 
 
 ​	例如，如果`被延迟函数`是一个[函数字面量](../Expressions#function-literals-函数字面量)，并且外层的函数有在该字面量的作用域内的[命名结果参数](../Types#function-types-函数型)，那么该`被延迟函数`可以在这些结果参数被返回之前访问和修改它们。如果`被延迟函数`有任何返回值，这些返回值将在函数完成时被丢弃。(参见[处理恐慌](../Built-inFunctions#handling-panics-处理恐慌)一节)。
 
 ```go 
 lock(l)
-defer unlock(l)  // unlocking happens before surrounding function returns => unlock 发生在外层函数返回之前
+defer unlock(l)  // unlock 发生在外层函数返回之前
 
-// prints 3 2 1 0 before surrounding function returns
-// => 在外层函数返回之前，打印 3 2 1 0
+// 在外层函数返回之前，打印 3 2 1 0
 for i := 0; i <= 3; i++ {
 	defer fmt.Print(i)
 }
 
-// f returns 42
+// f 返回 42
 func f() (result int) {
 	defer func() {
-		// result is accessed after it was set to 6 by the return statement => 结果会在它被 return 语句设为 6 之后再被访问
+		// result 会在它被 return 语句设为 6 之后再被访问
 		result *= 7
 	}()
 	return 6
