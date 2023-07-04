@@ -12,7 +12,7 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Types ](https://go.dev/ref/spec#Types )
 
-​	类型确定了一组值，以及针对这些值的特定操作和方法。如果一个类型有类型名称，可以通过类型名称来表示该类型，如果该类型是泛型的，则必须在类型名称后面跟上[类型参数](../Expressions#instantiations-实例化)。还可以使用`类型字面量`来指定类型，该类型由现有类型组成
+​	类型确定了一组值，以及针对这些值的特定操作和方法。如果一个类型有类型名称，可以通过类型名称来表示该类型，如果该类型是泛型的，则必须在类型名称后面跟上[类型实参](../Expressions#instantiations-实例化)。还可以使用`类型字面量`来指定类型，该类型由现有类型组成
 
 ``` go
 type      = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
@@ -25,7 +25,7 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 > 个人注释
 >
-> 怎么理解“如果该类型是泛型的，则必须在类型名称后面跟上[类型参数](../Expressions#instantiations-实例化)。”，请看如下示例：
+> ​	怎么理解“如果该类型是泛型的，则必须在类型名称后面跟上[类型实参](../Expressions#instantiations-实例化)。”，请看如下示例：
 >
 > > 此示例来自[Go Tour的泛型]({{< ref "/docs/GoTour/Generics">}})
 >
@@ -59,7 +59,29 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 >
 > ​	该示例中，Index 函数中的s和x参数即为类型参数，T类型即为泛型。
 >
-> 类型字面量是什么？有哪些类型字面量？
+> ​	搞错了！上面是泛型函数！
+>
+> ​	以下给出泛型：
+>
+> ```go
+> package main
+> 
+> import "fmt"
+> 
+> type List[T any] struct {
+> 	next  *List[T]
+> 	value T
+> }
+> 
+> func main() {
+> 	l := List[int]{}
+> 	fmt.Printf("%T,%#v", l, l) // main.List[int],main.List[int]{next:(*main.List[int])(nil), value:0}
+> }
+> ```
+>
+> 
+>
+> ​	类型字面量是什么？有哪些类型字面量？
 >
 > ​	请看ChatGPT是如何回答的：
 >
@@ -618,7 +640,7 @@ struct {
 
 > 个人注释
 >
-> ​	什么是“未限定类型名作为字段名”？结构体变量可以使用for range中多为被迭代对象吗？
+> ​	什么是“未限定类型名作为字段名”？结构体变量可以在for range中作为被迭代的对象吗？
 
 {{< tabpane text=true >}}
 
@@ -646,8 +668,8 @@ func main() {
 	fmt.Printf("x字段的值%v\n", st1.x)   //x字段的值3
 	fmt.Printf("y字段的值%v\n", st1.y)   //y字段的值4
 
-	// implicit assignment to unexported field x in struct literal of type dftype.MySt1
-	// implicit assignment to unexported field y in struct literal of type dftype.MySt1
+	//报错： implicit assignment to unexported field x in struct literal of type dftype.MySt1
+	//报错： implicit assignment to unexported field y in struct literal of type dftype.MySt1
 	// st2 := dftype.MySt1{1, 2, 3, 4}
 	// fmt.Printf("st2的类型是%T,st2=%+v\n", st2, st2)
 	st2 := dftype.MySt1{T1: 1, T2: 2}
@@ -662,7 +684,7 @@ func main() {
 	fmt.Printf("X字段的值%v\n", st3.X)              //X字段的值3
 	fmt.Printf("Y字段的值%v\n", st3.Y)              //Y字段的值4
 
-	// cannot range over st3 (variable of type dftype.MySt2)
+	//报错： cannot range over st3 (variable of type dftype.MySt2)
 	//for i, v := range st3 {
 	//	fmt.Println(i, ":", v, "\n")
 	//}

@@ -336,6 +336,28 @@ if x := f(); x < y {
 }
 ```
 
+> 个人注释
+>
+> ​	简单的语句之后需要跟一个求值为bool类型的条件，否则报错：
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> 	"math/rand"
+> )
+> 
+> func main() {
+> 	if y := rand.Intn(6); y { // 报错：non-boolean condition in if statement
+> 		fmt.Printf("%T,%v", y, y)
+> 	}
+> }
+> 
+> ```
+>
+> 
+
 ### Switch statements  - switch 语句
 
 ​	"`switch`"语句提供多路执行。表达式或类型与 "switch"内部的 "case"进行比较，以确定执行哪个分支。
@@ -344,7 +366,7 @@ if x := f(); x < y {
 SwitchStmt = ExprSwitchStmt | TypeSwitchStmt .
 ```
 
-​	有两种形式：`表达式选择`和`类型选择`。在`表达式选择`中，case 包含与开关表达式的值进行比较的表达式。在`类型选择`中，case 包含类型，这些类型与特别说明的 `switch 表达式`的类型进行比较。在`switch语句`中，`switch 表达式`被精确地求值一次。
+​	有两种形式：`表达式选择`和`类型选择`。在`表达式选择`中，case 包含与switch表达式的值进行比较的表达式。在`类型选择`中，case 包含类型，这些类型与特别说明的 `switch 表达式`的类型进行比较。在`switch语句`中，`switch 表达式`被精确地求值一次。
 
 #### Expression switches 表达式选择
 
@@ -360,7 +382,7 @@ ExprSwitchCase = "case" ExpressionList | "default" .
 
 > 个人注释
 >
-> ​	switch中存在nil的情况：
+> ​	在表达式选择中存在nil的情况：
 >
 > ```go
 > package main
