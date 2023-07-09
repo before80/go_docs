@@ -568,7 +568,7 @@ type Type interface {
 
 	// Field返回结构体类型的第i个字段。
 	// 如果类型的种类不是Struct，则会引发panic。
-	// 如果i不在[0，NumField()]范围内，则会引发panic。
+	// 如果i不在[0，NumField())范围内，则会引发panic。
 	Field(i int) StructField
 
 	// FieldByIndex返回相应于索引序列的嵌套字段。

@@ -13,7 +13,7 @@ https://pkg.go.dev/encoding/json@go1.20.1
 
 ​	json包实现了[RFC 7159](https://rfc-editor.org/rfc/rfc7159.html)中定义的JSON编解码。JSON和Go值之间的映射在Marshal和Unmarshal函数的文档中有描述。
 
-​	有关此包的介绍，请参见[JSON和Go](https://golang.org/doc/articles/json_and_go.html)。
+​	有关此包的介绍，请参见[JSON和Go]({{< ref "/goBlog/2011/JSONAndGo">}})。
 
 ##### Example (CustomMarshalJSON)
 ``` go 
