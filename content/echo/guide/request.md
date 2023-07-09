@@ -92,7 +92,7 @@ curl http://localhost:1323/users/Joe
 
 ### Binding Data
 
-Also binding of request data to native Go structs and variables is supported. See [Binding Data]({{< ref "guide/binding.md">}})
+Also binding of request data to native Go structs and variables is supported. See [Binding Data]({{< ref "/echo/guide/binding">}})
 
 ## Validate Data
 

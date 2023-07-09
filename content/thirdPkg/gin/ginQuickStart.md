@@ -1963,7 +1963,7 @@ func ListHandler(s *Service) func(ctx *gin.Context) {
 
 ### http2 server push
 
-​	http.Pusher 只支持 **go1.8+**。请参阅 [golang 博客]({{< ref "/goBlog/2017/HTTP2ServerPus">}}) 获取详细信息。
+​	http.Pusher 只支持 **go1.8+**。请参阅 [golang 博客]({{< ref "/goBlog/2017/HTTP2ServerPush" >}}) 获取详细信息。
 
 ```go
 package main
