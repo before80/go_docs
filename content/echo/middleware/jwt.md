@@ -1,5 +1,6 @@
 +++
 title = "jwt"
+weight = 100
 date = 2023-07-09T21:55:16+08:00
 type = "docs"
 description = ""
@@ -9,15 +10,21 @@ draft = false
 
 # JWT
 
-JWT provides a JSON Web Token (JWT) authentication middleware. Echo JWT middleware is located at https://github.com/labstack/echo-jwt
+https://echo.labstack.com/docs/middleware/jwt
 
-Basic middleware behavior:
 
-- For valid token, it sets the user in context and calls next handler.
-- For invalid token, it sends "401 - Unauthorized" response.
-- For missing or invalid `Authorization` header, it sends "400 - Bad Request".
 
-## Dependencies
+​	JWT提供了JSON Web Token（JWT）身份验证中间件。Echo JWT中间件位于[https://github.com/labstack/echo-jwt](https://github.com/labstack/echo-jwt)
+
+
+
+​	基本的中间件行为如下：
+
+- 对于有效的令牌，它在上下文中设置用户并调用下一个处理程序。
+- 对于无效的令牌，它发送"401 - Unauthorized"响应。
+- 对于缺失或无效的`Authorization`头，它发送 "400 - Bad Request"。
+
+## 依赖
 
 ```go
 import "github.com/labstack/echo-jwt/v4"
@@ -51,100 +58,101 @@ e.Use(echojwt.WithConfig(echojwt.Config{
 
 ```go
 type Config struct {
-    // Skipper defines a function to skip middleware.
+    // Skipper定义一个用于跳过中间件的函数。
     Skipper middleware.Skipper
 
-    // BeforeFunc defines a function which is executed just before the middleware.
+    // BeforeFunc定义一个在中间件之前执行的函数。
     BeforeFunc middleware.BeforeFunc
 
-    // SuccessHandler defines a function which is executed for a valid token.
+    // SuccessHandler定义一个在令牌有效时执行的函数。
     SuccessHandler func(c echo.Context)
 
-    // ErrorHandler defines a function which is executed when all lookups have been done and none of them passed Validator
-    // function. ErrorHandler is executed with last missing (ErrExtractionValueMissing) or an invalid key.
-    // It may be used to define a custom JWT error.
+    // ErrorHandler定义当所有查找都完成并且没有一个通过验证器函数时执行的函数。
+    // ErrorHandler在执行时会传入最后一个缺失的（ErrExtractionValueMissing）或一个无效的键。
+    // 它可用于定义自定义的JWT错误。
     //
-    // Note: when error handler swallows the error (returns nil) middleware continues handler chain execution towards handler.
-    // This is useful in cases when portion of your site/api is publicly accessible and has extra features for authorized users
-    // In that case you can use ErrorHandler to set default public JWT token value to request and continue with handler chain.
+    // 注意：当错误处理程序忽略错误（返回`nil`）时，
+    // 中间件会继续执行处理程序链以继续处理。
+    // 这在您的站点/ API的某些部分可公开访问并且为授权用户提供额外功能的情况下非常有用。
+    // 在这种情况下，
+    // 您可以使用ErrorHandler将默认的公共JWT令牌值设置到请求中并继续处理程序链。
     ErrorHandler func(c echo.Context, err error) error
 
-    // ContinueOnIgnoredError allows the next middleware/handler to be called when ErrorHandler decides to
-    // ignore the error (by returning `nil`).
-    // This is useful when parts of your site/api allow public access and some authorized routes provide extra functionality.
-    // In that case you can use ErrorHandler to set a default public JWT token value in the request context
-    // and continue. Some logic down the remaining execution chain needs to check that (public) token value then.
+    // ContinueOnIgnoredError允许在ErrorHandler决定忽略错误时
+    // （通过返回`nil`）调用下一个中间件/处理程序。
+    // 这在您的站点/ API的某些部分允许公共访问并且某些授权路由提供额外功能的情况下非常有用。
+    // 在这种情况下，
+    // 您可以使用ErrorHandler在请求上下文中设置默认的公共JWT令牌值并继续执行。
+    // 然后，剩余的执行链中的一些逻辑需要检查（公共）令牌值。
     ContinueOnIgnoredError bool
 
-    // Context key to store user information from the token into context.
-    // Optional. Default value "user".
+    // ContextKey用于将令牌中的用户信息存储到上下文中。
+    // 可选。默认值为"user"。
     ContextKey string
 
-    // Signing key to validate token.
-    // This is one of the three options to provide a token validation key.
-    // The order of precedence is a user-defined KeyFunc, SigningKeys and SigningKey.
-    // Required if neither user-defined KeyFunc nor SigningKeys is provided.
+    // SigningKey用于验证令牌的签名密钥。
+    // 这是提供令牌验证密钥的三个选项之一。
+    // 优先级顺序为：用户定义的KeyFunc、SigningKeys和SigningKey。
+    // 如果未提供用户定义的KeyFunc和SigningKeys，则为必需。
     SigningKey interface{}
 
-    // Map of signing keys to validate token with kid field usage.
-    // This is one of the three options to provide a token validation key.
-    // The order of precedence is a user-defined KeyFunc, SigningKeys and SigningKey.
-    // Required if neither user-defined KeyFunc nor SigningKey is provided.
+    // SigningKeys是一组用于根据kid字段使用的验证令牌的签名密钥。
+    // 这是提供令牌验证密钥的三个选项之一。
+    // 优先级顺序为：用户定义的KeyFunc、SigningKeys和SigningKey。
+    // 如果未提供用户定义的KeyFunc和SigningKey，则为必需。
     SigningKeys map[string]interface{}
 
-    // Signing method used to check the token's signing algorithm.
-    // Optional. Default value HS256.
+    // SigningMethod用于检查令牌的签名算法。
+    // 可选。默认值为HS256。
     SigningMethod string
 
-    // KeyFunc defines a user-defined function that supplies the public key for a token validation.
-    // The function shall take care of verifying the signing algorithm and selecting the proper key.
-    // A user-defined KeyFunc can be useful if tokens are issued by an external party.
-    // Used by default ParseTokenFunc implementation.
+    // KeyFunc定义一个用户定义的函数，用于提供令牌验证的公钥。
+    // 该函数应负责验证签名算法并选择正确的密钥。
+    // 如果令牌由外部方发行，则用户定义的KeyFunc可能很有用。
+    // 默认情况下使用ParseTokenFunc的实现。
     //
-    // When a user-defined KeyFunc is provided, SigningKey, SigningKeys, and SigningMethod are ignored.
-    // This is one of the three options to provide a token validation key.
-    // The order of precedence is a user-defined KeyFunc, SigningKeys and SigningKey.
-    // Required if neither SigningKeys nor SigningKey is provided.
-    // Not used if custom ParseTokenFunc is set.
-    // Default to an internal implementation verifying the signing algorithm and selecting the proper key.
-    KeyFunc jwt.Keyfunc
-
-    // TokenLookup is a string in the form of "<source>:<name>" or "<source>:<name>,<source>:<name>" that is used
-    // to extract token from the request.
-    // Optional. Default value "header:Authorization".
-    // Possible values:
-    // - "header:<name>" or "header:<name>:<cut-prefix>"
-    //          `<cut-prefix>` is argument value to cut/trim prefix of the extracted value. This is useful if header
-    //          value has static prefix like `Authorization: <auth-scheme> <authorisation-parameters>` where part that we
-    //          want to cut is `<auth-scheme> ` note the space at the end.
-    //          In case of JWT tokens `Authorization: Bearer <token>` prefix we cut is `Bearer `.
-    // If prefix is left empty the whole value is returned.
+    // 当提供了用户定义的KeyFunc时，SigningKey、SigningKeys和SigningMethod将被忽略。
+    // 这是提供令牌验证密钥的三个选项之一。
+    // 优先级顺序为：用户定义的KeyFunc、SigningKeys和SigningKey。
+    // 如果未提供SigningKeys和SigningKey，则为必需。
+    // 如果设置了自定义的ParseTokenFunc，则不使用KeyFunc。
+    // 默认情况下，KeyFunc采用内部实现，用于验证签名算法并选择适当的密钥。
+    KeyFunc jwt.Keyfunc 
+    
+    // TokenLookup 是一个字符串，格式为 "<source>:<name>" 或 "<source>:<name>,<source>:<name>"，用于从请求中提取令牌。
+	// 可选。默认值为 "header:Authorization"。
+	// 可能的值：
+	// - "header:<name>" 或 "header:<name>:<cut-prefix>"
+	//          `<cut-prefix>` 是要剪切/修整提取值前缀的参数值。
+	//          如果标头值具有固定前缀，例如 `Authorization: <auth-scheme> <authorisation-parameters>`，
+    //          我们要剪切的部分是 `<auth-scheme> `，请注意末尾的空格。
+	//          对于 JWT 令牌的情况，我们要剪切的前缀是 `Bearer `。
+	//          如果前缀留空，则返回整个值。
     // - "query:<name>"
     // - "param:<name>"
     // - "cookie:<name>"
     // - "form:<name>"
-    // Multiple sources example:
+    // 多个来源的示例：
     // - "header:Authorization:Bearer ,cookie:myowncookie"
     TokenLookup string
 
-    // TokenLookupFuncs defines a list of user-defined functions that extract JWT token from the given context.
-    // This is one of the two options to provide a token extractor.
-    // The order of precedence is user-defined TokenLookupFuncs, and TokenLookup.
-    // You can also provide both if you want.
+    // TokenLookupFuncs 定义了一组用户定义的函数，用于从给定的上下文中提取 JWT 令牌。
+    // 这是提供令牌提取器的两个选项之一。
+	// 优先级顺序为用户定义的 TokenLookupFuncs 和 TokenLookup。
+	// 如果需要，您也可以同时提供两者。
     TokenLookupFuncs []middleware.ValuesExtractor
-
-    // ParseTokenFunc defines a user-defined function that parses token from given auth. Returns an error when token
-    // parsing fails or parsed token is invalid.
-    // Defaults to implementation using `github.com/golang-jwt/jwt` as JWT implementation library
+    
+    // ParseTokenFunc 定义了一个用户定义的函数，该函数从给定的 auth 中解析令牌。
+    // 在令牌解析失败或解析的令牌无效时返回错误。
+	// 默认情况下，使用 `github.com/golang-jwt/jwt` 作为 JWT 实现库。
     ParseTokenFunc func(c echo.Context, auth string) (interface{}, error)
 
-    // Claims are extendable claims data defining token content. Used by default ParseTokenFunc implementation.
-    // Not used if custom ParseTokenFunc is set.
-    // Optional. Defaults to function returning jwt.MapClaims
+    // Claims 是定义令牌内容的可扩展声明数据。被默认的 ParseTokenFunc 实现使用。
+	// 如果设置了自定义的 ParseTokenFunc，则不使用 Claims。
+	// 可选。默认为返回 jwt.MapClaims 的函数。
     NewClaimsFunc func(c echo.Context) jwt.Claims
 }
 ```
 
 
 
-## [Example](https://echo.labstack.com/docs/cookbook/jwt)

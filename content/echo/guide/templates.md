@@ -1,23 +1,25 @@
 +++
-title = "templates"
+title = "模板"
+weight = 130
 date = 2023-07-09T21:52:14+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Templates
+# Templates - 模板
 
 https://echo.labstack.com/docs/templates
 
-## Rendering
+## 渲染
 
-`Context#Render(code int, name string, data interface{}) error` renders a template with data and sends a text/html response with status code. Templates can be registered by setting `Echo.Renderer`, allowing us to use any template engine.
+​	`Context#Render(code int, name string, data interface{}) error` 使用数据渲染模板，并发送一个带有指定状态码的 text/html 响应。我们可以通过设置 `Echo.Renderer` 来注册模板引擎，以便使用任何模板引擎。
 
-Example below shows how to use Go `html/template`:
+​	下面的示例演示了如何使用 Go 的 `html/template`：
 
-1. Implement `echo.Renderer` interface
+1. 实现 `echo.Renderer` 接口
 
    ```go
    type Template struct {
@@ -31,7 +33,7 @@ Example below shows how to use Go `html/template`:
 
    
 
-2. Pre-compile templates
+2. 预编译模板
 
    `public/views/hello.html`
 
@@ -49,7 +51,7 @@ Example below shows how to use Go `html/template`:
 
    
 
-3. Register templates
+3. 注册模板
 
    ```go
    e := echo.New()
@@ -59,7 +61,7 @@ Example below shows how to use Go `html/template`:
 
    
 
-4. Render a template inside your handler
+4. 在处理程序中渲染模板
 
    ```go
    func Hello(c echo.Context) error {
@@ -69,13 +71,13 @@ Example below shows how to use Go `html/template`:
 
    
 
-## Advanced - Calling Echo from templates
+## 高级 —— 在模板中调用 Echo
 
-In certain situations it might be useful to generate URIs from the templates. In order to do so, you need to call `Echo#Reverse` from the templates itself. Golang's `html/template` package is not the best suited for this job, but this can be done in two ways: by providing a common method on all objects passed to templates or by passing `map[string]interface{}` and augmenting this object in the custom renderer. Given the flexibility of the latter approach, here is a sample program:
+​	在某些情况下，从模板中生成URI可能非常有用。为了做到这一点，你需要在模板本身中调用`Echo#Reverse`。Golang的`html/template`包并不是最适合这个任务的，但可以通过两种方式来实现：为传递给模板的所有对象提供一个公共方法，或者通过传递`map[string]interface{}`并在自定义渲染器中增强此对象。鉴于后一种方法的灵活性，以下是一个示例程序：
 
 template.html
 
-```
+```html
 <html>
     <body>
         <h1>Hello {{index . "name"}}</h1>
@@ -91,7 +93,6 @@ template.html
 server.go
 
 ```go
-
 package main
 
 import (
@@ -102,15 +103,15 @@ import (
     "github.com/labstack/echo/v4"
 )
 
-// TemplateRenderer is a custom html/template renderer for Echo framework
+// TemplateRenderer 是用于 Echo 框架的自定义 html/template 渲染器
 type TemplateRenderer struct {
     templates *template.Template
 }
 
-// Render renders a template document
+// Render 渲染模板文档
 func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 
-    // Add global methods if data is a map
+    // 如果数据是一个 map，添加全局方法
     if viewContext, isMap := data.(map[string]interface{}); isMap {
         viewContext["reverse"] = c.Echo().Reverse
     }
@@ -125,7 +126,7 @@ func main() {
   }
   e.Renderer = renderer
 
-  // Named route "foobar"
+  // 命名路由为 "foobar"
   e.GET("/something", func(c echo.Context) error {
       return c.Render(http.StatusOK, "template.html", map[string]interface{}{
           "name": "Dolly!",
@@ -135,3 +136,6 @@ func main() {
   e.Logger.Fatal(e.Start(":8000"))
 }
 ```
+
+
+

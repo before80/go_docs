@@ -1,24 +1,26 @@
 +++
-title = "request"
+title = "请求"
+weight = 90
 date = 2023-07-09T21:51:20+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Request
+# Request - 请求
 
 https://echo.labstack.com/docs/request
 
-## Retrieve Data
+## 检索数据 - Retrieve Data
 
-### Form Data
+### 表单数据
 
-Form data can be retrieved by name using `Context#FormValue(name string)`.
+​	可以通过名称使用 `Context#FormValue(name string)` 来检索表单数据：
 
 ```go
-// Handler
+// 处理函数
 func(c echo.Context) error {
   name := c.FormValue("name")
   return c.String(http.StatusOK, name)
@@ -33,7 +35,7 @@ curl -X POST http://localhost:1323 -d 'name=Joe'
 
 
 
-To bind a custom data type, you can implement `Echo#BindUnmarshaler` interface.
+​	要绑定自定义数据类型（的话），可以（通过）实现 `Echo#BindUnmarshaler` 接口（来实现）。
 
 ```go
 type Timestamp time.Time
@@ -47,12 +49,12 @@ func (t *Timestamp) UnmarshalParam(src string) error {
 
 
 
-### Query Parameters
+### 查询参数
 
-Query parameters can be retrieved by name using `Context#QueryParam(name string)`.
+​	可以通过名称使用 `Context#QueryParam(name string)` 来检索查询参数：
 
 ```go
-// Handler
+// 处理函数
 func(c echo.Context) error {
   name := c.QueryParam("name")
   return c.String(http.StatusOK, name)
@@ -69,11 +71,11 @@ curl \
 
 
 
-Similar to form data, custom data type can be bind using `Context#QueryParam(name string)`.
+​	与表单数据类似，可以使用 `Context#QueryParam(name string)` 绑定自定义数据类型。
 
-### Path Parameters
+### 路径参数
 
-Registered path parameters can be retrieved by name using `Context#Param(name string) string`.
+​	注册的路径参数可以通过名称使用 `Context#Param(name string) string` 来检索：
 
 ```go
 e.GET("/users/:name", func(c echo.Context) error {
@@ -90,15 +92,15 @@ curl http://localhost:1323/users/Joe
 
 
 
-### Binding Data
+### 绑定数据
 
-Also binding of request data to native Go structs and variables is supported. See [Binding Data]({{< ref "/echo/guide/binding">}})
+​		还支持将请求数据绑定到原生的 Go 结构体和变量中。请参阅 [绑定数据]({{< ref "/echo/guide/binding">}})。
 
-## Validate Data
+## 验证数据
 
-Echo doesn't have built-in data validation capabilities, however, you can register a custom validator using `Echo#Validator` and leverage third-party [libraries](https://github.com/avelino/awesome-go#validation).
+​	Echo 没有内置的数据验证功能，但是您可以使用 `Echo#Validator` 注册自定义验证器，并利用第三方的 [库](https://github.com/avelino/awesome-go#validation)。
 
-Example below uses https://github.com/go-playground/validator framework for validation:
+​	下面的示例使用了 [https://github.com/go-playground/validator](https://github.com/go-playground/validator) 框架进行验证：
 
 ```go
 package main
@@ -124,7 +126,7 @@ type (
 
 func (cv *CustomValidator) Validate(i interface{}) error {
   if err := cv.validator.Struct(i); err != nil {
-    // Optionally, you could return the error to give each route more control over the status code
+    // 可选地，您可以返回错误以使每个路由对状态码有更多的控制
     return echo.NewHTTPError(http.StatusBadRequest, err.Error())
   }
   return nil

@@ -1,27 +1,29 @@
 +++
-title = "customization"
+title = "自定义"
+weight = 20
 date = 2023-07-09T21:49:53+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Customization
+# Customization - 自定义
 
 https://echo.labstack.com/docs/customization
 
-## Debug
+## 调试模式
 
-`Echo#Debug` can be used to enable / disable debug mode. Debug mode sets the log level to `DEBUG`.
+​	`Echo#Debug` 可以用于启用/禁用调试模式。调试模式将日志级别设置为 `DEBUG`。
 
-## Logging
+## 日志记录
 
-The default format for logging is JSON, which can be changed by modifying the header.
+​	日志记录的默认格式是 JSON，可以通过修改header进行更改。
 
-### Log Header
+### 日志 Header
 
-`Echo#Logger.SetHeader(string)` can be used to set the header for the logger. Default value:
+​	`Echo#Logger.SetHeader(string)` 可以用于设置日志记录器的header。默认值为：
 
 ```js
 {"time":"${time_rfc3339_nano}","level":"${level}","prefix":"${prefix}","file":"${short_file}","line":"${line}"}
@@ -29,7 +31,7 @@ The default format for logging is JSON, which can be changed by modifying the he
 
 
 
-*Example*
+*示例*
 
 ```go
 import "github.com/labstack/gommon/log"
@@ -49,7 +51,7 @@ if l, ok := e.Logger.(*log.Logger); ok {
 
 
 
-#### Available Tags
+#### 可用标签
 
 - `time_rfc3339`
 - `time_rfc3339_nano`
@@ -59,17 +61,15 @@ if l, ok := e.Logger.(*log.Logger); ok {
 - `short_file`
 - `line`
 
-### Log Output
+### 日志输出
 
-```
-Echo#Logger.SetOutput(io.Writer)` can be used to set the output destination for the logger. Default value is `os.Stdout
-```
+​	`Echo#Logger.SetOutput(io.Writer)` 可以用于设置日志记录器的输出目标。默认值为 `os.Stdout`。
 
-To completely disable logs use `Echo#Logger.SetOutput(io.Discard)` or `Echo#Logger.SetLevel(log.OFF)`
+​	要完全禁用日志，请使用 `Echo#Logger.SetOutput(io.Discard)` 或 `Echo#Logger.SetLevel(log.OFF)`。
 
-### Log Level
+### 日志级别
 
-`Echo#Logger.SetLevel(log.Lvl)` can be used to set the log level for the logger. Default value is `ERROR`. Possible values:
+​	`Echo#Logger.SetLevel(log.Lvl)` 可以用于设置日志记录器的日志级别。默认值为 `ERROR`。可能的取值有： 
 
 - `DEBUG`
 - `INFO`
@@ -77,19 +77,19 @@ To completely disable logs use `Echo#Logger.SetOutput(io.Discard)` or `Echo#Logg
 - `ERROR`
 - `OFF`
 
-### Custom Logger
+### 自定义日志记录器
 
-Logging is implemented using `echo.Logger` interface which allows you to register a custom logger using `Echo#Logger`.
+​	日志记录使用 `echo.Logger` 接口实现，允许您使用 `Echo#Logger` 注册自定义日志记录器。
 
 ## Startup Banner
 
-`Echo#HideBanner` can be used to hide the startup banner.
+​	`Echo#HideBanner` 可用于隐藏startup banner。
 
-## Custom Listener
+## 自定义监听器
 
-`Echo#*Listener` can be used to run a custom listener.
+​	`Echo#*Listener` 可用于运行自定义监听器。
 
-*Example*
+*示例*
 
 ```go
 l, err := net.Listen("tcp", ":1323")
@@ -102,44 +102,44 @@ e.Logger.Fatal(e.Start(""))
 
 
 
-## Disable HTTP/2
+## 禁用HTTP/2
 
-`Echo#DisableHTTP2` can be used disable HTTP/2 protocol.
+​	`Echo#DisableHTTP2` 可用于禁用 HTTP/2 协议。
 
-## Read Timeout
+## 读超时
 
-`Echo#*Server#ReadTimeout` can be used to set the maximum duration before timing out read of the request.
+​	`Echo#*Server#ReadTimeout` 可用于设置请求读取超时的最大持续时间。
 
-## Write Timeout
+## 写超时
 
-`Echo#*Server#WriteTimeout` can be used to set the maximum duration before timing out write of the response.
+​	`Echo#*Server#WriteTimeout` 可用于设置响应写入超时的最大持续时间。
 
-## Validator
+## 验证器
 
-`Echo#Validator` can be used to register a validator for performing data validation on request payload.
+​	`Echo#Validator` 可用于注册用于对请求有效载荷执行数据验证的验证器。
 
-[Learn more](https://echo.labstack.com/docs/request#validate-data)
+[了解更多](https://echo.labstack.com/docs/request#validate-data)
 
-## Custom Binder
+## 自定义绑定器
 
-`Echo#Binder` can be used to register a custom binder for binding request payload.
+​	`Echo#Binder` 可用于注册自定义绑定器，用于绑定请求有效载荷。
 
-[Learn more](https://echo.labstack.com/docs/request#custom-binder)
+[了解更多](https://echo.labstack.com/docs/request#custom-binder)
 
-## Custom JSON Serializer
+## 自定义 JSON 序列化器
 
-`Echo#JSONSerializer` can be used to register a custom JSON serializer.
+​	`Echo#JSONSerializer` 可用于注册自定义 JSON 序列化器。
 
-Have a look at `DefaultJSONSerializer` on [json.go](https://github.com/labstack/echo/blob/master/json.go).
+​	请查看 [json.go](https://github.com/labstack/echo/blob/master/json.go) 上的 `DefaultJSONSerializer`。
 
-## Renderer
+## 渲染器
 
-`Echo#Renderer` can be used to register a renderer for template rendering.
+​	`Echo#Renderer` 可用于注册模板渲染器。
 
-[Learn more](https://echo.labstack.com/docs/templates)
+[了解更多](https://echo.labstack.com/docs/templates)
 
-## HTTP Error Handler
+## HTTP 错误处理器
 
-`Echo#HTTPErrorHandler` can be used to register a custom http error handler.
+​	`Echo#HTTPErrorHandler` 可用于注册自定义的 HTTP 错误处理器。
 
-[Learn more](https://echo.labstack.com/docs/error-handling)
+[了解更多](https://echo.labstack.com/docs/error-handling)

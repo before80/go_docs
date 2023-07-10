@@ -1,40 +1,43 @@
 +++
-title = "Introduction"
+title = "介绍"
 date = 2023-07-09T21:48:49+08:00
 type = "docs"
+weight = 10
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Introduction
+# Introduction - 介绍
 
-https://echo.labstack.com/docs
+> 原文：[https://echo.labstack.com/docs](https://echo.labstack.com/docs)
+>
 
-## ![LabStack](data:image/png;base64,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) Echo Project
+## Echo 项目
 
-The Echo project is a powerful and versatile web framework for building scalable and high-performance web applications in the Go programming language. It follows the principles of simplicity, flexibility, and performance to provide developers with an efficient toolkit for building robust web applications.
+​	Echo 项目是一个功能强大且多用途（versatile ）的 Web 框架，用于使用 Go 编程语言构建可伸缩（scalable ）且高性能的（high-performance） Web 应用程序。它遵循简单（simplicity）、灵活（flexibility）和高性能的原则，为开发人员提供了一个高效的工具包，用于构建健壮的（robust） Web 应用程序。
 
-## Key Features
+## 主要特点
 
-- **Fast and Lightweight**: Echo is designed for speed and efficiency, ensuring minimal overhead and high performance for handling HTTP requests and responses.
-- **Routing**: The framework offers a flexible and intuitive routing system that allows developers to define routes with parameters, query strings, and custom handlers.
-- **Middleware Support**: Echo provides extensive middleware support, enabling developers to easily implement cross-cutting concerns such as logging, authentication, error handling, and more.
-- **Context-based Request Handling**: With its context-based request handling, Echo offers easy access to request-specific data and parameters, simplifying the development of web applications.
-- **Powerful Template Rendering**: Echo includes a powerful template rendering engine that supports various template languages, allowing developers to generate dynamic HTML content effortlessly.
-- **Validation and Binding**: The framework provides robust validation and data binding capabilities, making it straightforward to validate incoming request data and bind it to Go structs.
-- **Extensibility**: Echo is highly extensible, with support for custom middleware, template engines, and other components, enabling developers to tailor the framework to their specific needs.
-- **Community and Ecosystem**: The Echo project benefits from a vibrant and active community that contributes libraries, plugins, and extensions, fostering an ecosystem of reusable components.
+- **快速且轻量级**：Echo 专为速度（speed）和效率（efficiency）而设计，确保处理 HTTP 请求和响应时的开销最小化，提供高性能。
+- **路由**：该框架提供灵活（flexible）且直观的（intuitive）路由系统，允许开发人员定义带有参数、查询字符串和自定义处理程序的路由。
+- **中间件支持**：Echo 提供广泛的中间件支持，使开发人员可以轻松实现诸如日志记录（logging）、身份验证（authentication）、错误处理（error handling）等横切关注点。
+- **基于上下文的请求处理**：通过基于上下文（context-based）的请求处理，Echo 提供了对特定请求（request-specific）数据和参数的轻松访问，简化了 Web 应用程序的开发。
+- **强大的模板渲染**：Echo 包含一个功能强大的模板渲染引擎，支持各种模板语言，使开发人员能够轻松生成动态的 HTML 内容。
+- **验证和绑定**：该框架提供了强大的验证和数据绑定功能，使验证传入的请求数据并将其绑定到 Go 结构变得简单直观。
+- **可扩展性**：Echo 高度可扩展（extensible），支持自定义中间件、模板引擎和其他组件，使开发人员能够根据自己的需求定制（tailor）框架。
+- **社区和生态系统**：Echo 项目得益于一个充满活力和积极参与的社区，为可重用（reusable）组件的生态系统提供了库、插件和扩展。
 
-## Resources and Documentation
+## 资源和文档
 
-To learn more about the Echo project, you can refer to the following resources:
+​	要了解更多关于 Echo 项目的信息，您可以参考以下资源： 
 
-- Official Website: [https://echo.labstack.com](https://echo.labstack.com/)
-- GitHub Repository: https://github.com/labstack/echo
-- Documentation: [https://echo.labstack.com/docs](https://echo.labstack.com/guide)
-- Community Forum: https://github.com/labstack/echo/discussions
+- 官方网站：[https://echo.labstack.com](https://echo.labstack.com/)
+- GitHub 仓库：[https://github.com/labstack/echo](https://github.com/labstack/echo)
+- 文档：[https://echo.labstack.com/docs](https://echo.labstack.com/docs)
+- 社区论坛：[https://github.com/labstack/echo/discussions](https://github.com/labstack/echo/discussions)
 
-The Echo project offers an array of features that empower developers to build robust web applications. Its fast and lightweight nature ensures optimal performance, while the flexible routing system and middleware support streamline development processes. Developers can leverage the context-based request handling, powerful template rendering, and validation capabilities to create dynamic and secure web applications. Additionally, the extensibility of Echo allows developers to customize and enhance the framework to suit their specific needs.
+​	Echo 项目提供了一系列功能，使开发人员能够构建健壮的 Web 应用程序。它的快速和轻量级特性确保了最佳的性能，而灵活的路由系统和中间件支持简化了开发过程。开发人员可以利用基于上下文的请求处理、强大的模板渲染和验证功能来创建动态和安全的 Web 应用程序。此外，Echo 的可扩展性使开发人员能够根据自己的需求自定义和增强框架。
 
-Join the vibrant community of Echo developers, explore the vast ecosystem of plugins and extensions, and unleash the power of Echo for your web development needs.
+​	加入充满活力的 Echo 开发人员社区，探索丰富的插件和扩展生态系统，释放 Echo 在您的 Web 开发需求中的力量。

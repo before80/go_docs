@@ -1,38 +1,40 @@
 +++
-title = "casbin-auth"
+title = "Casbin Auth"
+weight = 40
 date = 2023-07-09T21:54:16+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # Casbin Auth
 
 https://echo.labstack.com/docs/middleware/casbin-auth
 
-NOTE
+> 注意
+>
+> ​	这是 Echo 社区的贡献。
 
-Echo community contribution
+​	[Casbin](https://github.com/casbin/casbin) 是一个功能强大且高效的 Go 开源访问控制库。它支持基于各种模型的授权策略。目前，Casbin 支持的访问控制模型有： 
 
-[Casbin](https://github.com/casbin/casbin) is a powerful and efficient open-source access control library for Go. It provides support for enforcing authorization based on various models. So far, the access control models supported by Casbin are:
-
-- ACL (Access Control List)
-- ACL with superuser
-- ACL without users: especially useful for systems that don't have authentication or user log-ins.
-- ACL without resources: some scenarios may target for a type of resources instead of an individual resource by using permissions like write-article, read-log. It doesn't control the access to a specific article or log.
-- RBAC (Role-Based Access Control)
-- RBAC with resource roles: both users and resources can have roles (or groups) at the same time.
-- RBAC with domains/tenants: users can have different role sets for different domains/tenants.
-- ABAC (Attribute-Based Access Control)
+- ACL（访问控制列表 Access Control List）
+- 带超级用户的 ACL （ACL with superuser）
+- 无用户的 ACL：适用于没有身份验证或用户登录的系统。
+- 无资源的 ACL：某些场景可能针对的是一类资源，而不是个别资源，可以使用像写文章、读取日志之类的权限。它不控制对特定文章或日志的访问。
+- RBAC（基于角色的访问控制 Role-Based Access Control）
+- 带资源角色的 RBAC：用户和资源可以同时拥有角色（或组）。
+- 带域/租户（domains/tenants）的 RBAC：用户可以为不同的域/租户设置不同的角色集合。
+- ABAC（基于属性的访问控制 Attribute-Based Access Control）
 - RESTful
-- Deny-override: both allow and deny authorizations are supported, deny overrides the allow.
+- Deny-override：支持允许（allow）和拒绝（deny）两种授权方式，拒绝会覆盖允许。
 
-INFO
+> 信息
+>
+> ​	目前仅支持 HTTP 基本身份验证。
 
-Currently, only HTTP basic authentication is supported.
-
-## Dependencies
+## 依赖
 
 ```go
 import (
@@ -53,7 +55,7 @@ e.Use(casbin_mw.Middleware(enforcer))
 
 
 
-For syntax, see: [Syntax for Models](https://casbin.org/docs/en/syntax-for-models).
+​	有关语法，请参阅：[模型语法](https://casbin.org/docs/en/syntax-for-models)。
 
 ## Custom Configuration
 
@@ -74,13 +76,13 @@ e.Use(casbin_mw.MiddlewareWithConfig(casbin_mw.Config{
 ## Configuration
 
 ```go
-// Config defines the config for CasbinAuth middleware.
+// Config 定义了 CasbinAuth 中间件的配置。
 Config struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义一个用于跳过中间件的函数。
   Skipper middleware.Skipper
 
-  // Enforcer CasbinAuth main rule.
-  // Required.
+  // Enforcer 是 CasbinAuth 的主要规则。
+  // 必填项。
   Enforcer *casbin.Enforcer
 }
 ```
@@ -90,8 +92,11 @@ Config struct {
 ### Default Configuration
 
 ```go
-// DefaultConfig is the default CasbinAuth middleware config.
+// DefaultConfig 是 CasbinAuth 中间件的默认配置。
 DefaultConfig = Config{
   Skipper: middleware.DefaultSkipper,
 }
 ```
+
+
+

@@ -1,21 +1,23 @@
 +++
-title = "decompress"
+title = "解压缩"
+weight = 70
 date = 2023-07-09T21:54:44+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Decompress
+# Decompress - 解压缩
 
 https://echo.labstack.com/docs/middleware/decompress
 
-Decompress middleware decompresses HTTP request if Content-Encoding header is set to gzip.
+​	解压缩中间件会在Content-Encoding标头设置为gzip时对HTTP请求进行解压缩。
 
-NOTE
-
-The body will be decompressed in memory and consume it for the lifetime of the request (and garbage collection).
+> 注意
+>
+> ​	请求体将在内存中被解压缩，并在请求的整个生命周期中占用内存空间（包括垃圾回收）。
 
 ## Usage
 
@@ -42,7 +44,7 @@ e.Use(middleware.DecompressWithConfig(middleware.DecompressConfig{
 
 ```go
 DecompressConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper定义一个用于跳过中间件的函数。
   Skipper Skipper
 }
 ```

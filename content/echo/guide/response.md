@@ -1,21 +1,23 @@
 +++
-title = "response"
+title = "响应"
+weight = 100
 date = 2023-07-09T21:51:30+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Response
+# Response - 响应
 
 https://echo.labstack.com/docs/response
 
-## Send String
+## 发送字符串
 
-`Context#String(code int, s string)` can be used to send plain text response with status code.
+​	可以使用 `Context#String(code int, s string)` 发送带有状态码的纯文本响应。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -25,11 +27,11 @@ func(c echo.Context) error {
 
 
 
-## Send HTML (Reference to templates)
+## 发送HTML（参考模板）
 
-`Context#HTML(code int, html string)` can be used to send simple HTML response with status code. If you are looking to send dynamically generate HTML see [templates](https://echo.labstack.com/docs/templates).
+​	可以使用 `Context#HTML(code int, html string)` 发送带有状态码的简单HTML响应。如果您想要发送动态生成的HTML，请参阅[模板](https://echo.labstack.com/docs/templates)。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -39,19 +41,19 @@ func(c echo.Context) error {
 
 
 
-### Send HTML Blob
+### 发送HTML Blob
 
-`Context#HTMLBlob(code int, b []byte)` can be used to send HTML blob with status code. You may find it handy using with a template engine which outputs `[]byte`.
+​	可以使用 `Context#HTMLBlob(code int, b []byte)` 发送带有状态码的HTML blob。在使用输出 `[]byte` 的模板引擎时，这可能会非常方便。
 
-## Render Template
+## 渲染模板
 
-[Learn more](https://echo.labstack.com/docs/templates)
+[了解更多](https://echo.labstack.com/docs/templates)
 
-## Send JSON
+## 发送JSON
 
-`Context#JSON(code int, i interface{})` can be used to encode a provided Go type into JSON and send it as response with status code.
+​	可以使用 `Context#JSON(code int, i interface{})` 将提供的Go类型编码为JSON，并以带有状态码的响应发送它。
 
-*Example*
+*示例*
 
 ```go
 // User
@@ -74,9 +76,9 @@ func(c echo.Context) error {
 
 ### Stream JSON
 
-`Context#JSON()` internally uses `json.Marshal` which may not be efficient to large JSON, in that case you can directly stream JSON.
+​	`Context#JSON()` 内部使用 `json.Marshal`，对于大型JSON可能效率不高，此时可以直接流式传输（directly stream）JSON。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -92,11 +94,11 @@ func(c echo.Context) error {
 
 
 
-### JSON Pretty
+### JSON 美化
 
-`Context#JSONPretty(code int, i interface{}, indent string)` can be used to a send a JSON response which is pretty printed based on indent, which could be spaces or tabs.
+​	`Context#JSONPretty(code int, i interface{}, indent string)` 可以用于发送基于缩进进行漂亮打印的JSON响应，缩进可以是空格或制表符。
 
-Example below sends a pretty print JSON indented with spaces:
+​	下面的示例发送了一个使用空格缩进的漂亮打印JSON：
 
 ```go
 func(c echo.Context) error {
@@ -119,11 +121,11 @@ func(c echo.Context) error {
 
 
 
-TIP
+> 提示
+>
+> ​	您还可以使用`Context#JSON()`在请求URL查询字符串中附加`pretty`以输出漂亮打印的JSON（使用空格缩进）。
 
-You can also use `Context#JSON()` to output a pretty printed JSON (indented with spaces) by appending `pretty` in the request URL query string.
-
-*Example*
+*示例*
 
 ```sh
 curl http://localhost:1323/users/1?pretty
@@ -133,9 +135,9 @@ curl http://localhost:1323/users/1?pretty
 
 ### JSON Blob
 
-`Context#JSONBlob(code int, b []byte)` can be used to send pre-encoded JSON blob directly from external source, for example, database.
+​	`Context#JSONBlob(code int, b []byte)` 可以用于直接从外部源（例如数据库）发送预编码的（pre-encoded）JSON blob。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -146,17 +148,17 @@ func(c echo.Context) error {
 
 
 
-## Send JSONP
+## 发送JSONP
 
-`Context#JSONP(code int, callback string, i interface{})` can be used to encode a provided Go type into JSON and send it as JSONP payload constructed using a callback, with status code.
+​	`Context#JSONP(code int, callback string, i interface{})` 可以将提供的Go类型编码为JSON，并使用回调作为JSONP有效负载发送，带有状态码。
 
-[*Example*](https://echo.labstack.com/docs/cookbook/jsonp)
+[示例](https://echo.labstack.com/docs/cookbook/jsonp)
 
-## Send XML
+## 发送XML
 
-`Context#XML(code int, i interface{})` can be used to encode a provided Go type into XML and send it as response with status code.
+​	`Context#XML(code int, i interface{})` 可以将提供的Go类型编码为XML，并以带有状态码的响应发送它。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -172,9 +174,9 @@ func(c echo.Context) error {
 
 ### Stream XML
 
-`Context#XML` internally uses `xml.Marshal` which may not be efficient to large XML, in that case you can directly stream XML.
+​	`Context#XML` 内部使用 `xml.Marshal`，对于大型XML可能效率不高，此时可以直接流式（directly stream）传输XML。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -192,9 +194,9 @@ func(c echo.Context) error {
 
 ### XML Pretty
 
-`Context#XMLPretty(code int, i interface{}, indent string)` can be used to a send an XML response which is pretty printed based on indent, which could be spaces or tabs.
+​	`Context#XMLPretty(code int, i interface{}, indent string)` 可以用于发送基于缩进进行漂亮打印的XML响应，缩进可以是空格或制表符。
 
-Example below sends a pretty print XML indented with spaces:
+​	下面的示例发送了一个使用空格缩进的漂亮打印XML：
 
 ```go
 func(c echo.Context) error {
@@ -218,11 +220,11 @@ func(c echo.Context) error {
 
 
 
-TIP
+> 提示
+>
+> ​	您还可以使用`Context#XML()`在请求URL查询字符串中附加`pretty`以输出漂亮打印的XML（使用空格缩进）。
 
-You can also use `Context#XML()` to output a pretty printed XML (indented with spaces) by appending `pretty` in the request URL query string.
-
-*Example*
+*示例*
 
 ```sh
 curl http://localhost:1323/users/1?pretty
@@ -232,24 +234,24 @@ curl http://localhost:1323/users/1?pretty
 
 ### XML Blob
 
-`Context#XMLBlob(code int, b []byte)` can be used to send pre-encoded XML blob directly from external source, for example, database.
+​	`Context#XMLBlob(code int, b []byte)` 可以用于直接从外部源（例如数据库）发送预编码的（pre-encoded）XML blob。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
-  encodedXML := []byte{} // Encoded XML from external source
+  encodedXML := []byte{} //  从外部源编码的XML
   return c.XMLBlob(http.StatusOK, encodedXML)
 }
 ```
 
 
 
-## Send File
+## 发送文件
 
-`Context#File(file string)` can be used to send the content of file as response. It automatically sets the correct content type and handles caching gracefully.
+​	`Context#File(file string)` 可以用于将文件内容作为响应发送。它会**自动设置正确的内容类型**并优雅地处理缓存。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -259,11 +261,11 @@ func(c echo.Context) error {
 
 
 
-## Send Attachment
+## 发送附件
 
-`Context#Attachment(file, name string)` is similar to `File()` except that it is used to send file as attachment with provided name.
+​	`Context#Attachment(file, name string)` 类似于 `File()`，但用于将文件作为附件发送，并提供名称。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -273,11 +275,11 @@ func(c echo.Context) error {
 
 
 
-## Send Inline
+## 发送 Inline
 
-`Context#Inline(file, name string)` is similar to `File()` except that it is used to send file as inline with provided name.
+​	`Context#Inline(file, name string)` 类似于 `File()`，但用于将文件作为内联（inline）发送，并提供名称。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -289,9 +291,9 @@ func(c echo.Context) error {
 
 ## Send Blob
 
-`Context#Blob(code int, contentType string, b []byte)` can be used to send an arbitrary data response with provided content type and status code.
+​	`Context#Blob(code int, contentType string, b []byte)` 可以用于使用提供的内容类型和状态码发送任意数据响应。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) (err error) {
@@ -305,9 +307,9 @@ func(c echo.Context) (err error) {
 
 ## Send Stream
 
-`Context#Stream(code int, contentType string, r io.Reader)` can be used to send an arbitrary data stream response with provided content type, `io.Reader` and status code.
+​	`Context#Stream(code int, contentType string, r io.Reader)` 可以用于使用提供的内容类型、`io.Reader` 和状态码发送任意（arbitrary）数据流响应。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -323,9 +325,9 @@ func(c echo.Context) error {
 
 ## Send No Content
 
-`Context#NoContent(code int)` can be used to send empty body with status code.
+​	`Context#NoContent(code int)` 可以用于发送空的响应体，并带有状态码。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -335,11 +337,11 @@ func(c echo.Context) error {
 
 
 
-## Redirect Request
+## 重定向请求
 
-`Context#Redirect(code int, url string)` can be used to redirect the request to a provided URL with status code.
+​	`Context#Redirect(code int, url string)` 可以用于将请求重定向到提供的URL，并带有状态码。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -349,17 +351,17 @@ func(c echo.Context) error {
 
 
 
-## Hooks
+## 钩子函数
 
-### Before Response
+### 在响应之前
 
-`Context#Response#Before(func())` can be used to register a function which is called just before the response is written.
+​	`Context#Response#Before(func())` 可以用于注册在响应被写入之前调用的函数。
 
-### After Response
+### 在响应之后
 
-`Context#Response#After(func())` can be used to register a function which is called just after the response is written. If the "Content-Length" is unknown, none of the after function is executed.
+​	`Context#Response#After(func())` 可以用于注册在响应被写入之后调用的函数。如果 "Content-Length" 未知，则不执行任何后续函数。
 
-*Example*
+*示例*
 
 ```go
 func(c echo.Context) error {
@@ -375,6 +377,6 @@ func(c echo.Context) error {
 
 
 
-> TIP
+> 提示
 >
-> It is possible to register multiple Before and After functions.
+> ​	可以注册多个 Before 和 After 函数。

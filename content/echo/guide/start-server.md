@@ -1,17 +1,19 @@
 +++
-title = "start-server"
+title = "启动服务器"
+weight = 70
 date = 2023-07-09T21:50:57+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Start Server
+# Start Server - 启动服务器
 
 https://echo.labstack.com/docs/start-server
 
-Echo provides following convenience methods to start the server:
+​	Echo 提供以下方便的方法来启动服务器： 
 
 - `Echo.Start(address string)`
 - `Echo.StartTLS(address string, certFile, keyFile interface{})`
@@ -19,14 +21,14 @@ Echo provides following convenience methods to start the server:
 - `Echo.StartH2CServer(address string, h2s *http2.Server)`
 - `Echo.StartServer(s *http.Server)`
 
-## HTTP Server
+## HTTP 服务器
 
-`Echo.Start` is convenience method that starts http server with Echo serving requests.
+​	`Echo.Start` 是一个方便的方法，它使用 Echo 来启动 HTTP 服务器以处理请求。
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   if err := e.Start(":8080"); err != http.ErrServerClosed {
     log.Fatal(err)
@@ -36,12 +38,12 @@ func main() {
 
 
 
-Following is equivalent to `Echo.Start` previous example
+​	下面的示例与前面的 `Echo.Start` 等效：
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   s := http.Server{
     Addr:        ":8080",
@@ -56,14 +58,14 @@ func main() {
 
 
 
-## HTTPS Server
+## HTTPS 服务器
 
-`Echo.StartTLS` is convenience method that starts HTTPS server with Echo serving requests on given address and uses `server.crt` and `server.key` as TLS certificate pair.
+​	`Echo.StartTLS` 是一个方便的方法，它使用 Echo 来启动 HTTPS 服务器，并使用 `server.crt` 和 `server.key` 作为 TLS 证书对。
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   if err := e.StartTLS(":8443", "server.crt", "server.key"); err != http.ErrServerClosed {
     log.Fatal(err)
@@ -73,12 +75,12 @@ func main() {
 
 
 
-Following is equivalent to `Echo.StartTLS` previous example
+​	下面的示例与前面的 `Echo.StartTLS` 等效：
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   s := http.Server{
     Addr:    ":8443",
@@ -96,18 +98,18 @@ func main() {
 
 
 
-## Auto TLS Server with Let’s Encrypt
+## 使用 Let's Encrypt 的自动 TLS 服务器
 
-See [Auto TLS Recipe](https://echo.labstack.com/docs/cookbook/auto-tls#server)
+​	请参阅 [Auto TLS Recipe](https://echo.labstack.com/docs/cookbook/auto-tls#server)。
 
-## HTTP/2 Cleartext Server (HTTP2 over HTTP)
+## 明文 HTTP/2 服务器 (HTTP2 over HTTP)
 
-`Echo.StartH2CServer` is convenience method that starts a custom HTTP/2 cleartext server on given address
+​	`Echo.StartH2CServer` 是一个方便的方法，它在给定的地址上启动一个自定义的明文（cleartext ） HTTP/2 服务器。
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   s := &http2.Server{
     MaxConcurrentStreams: 250,
@@ -122,12 +124,12 @@ func main() {
 
 
 
-Following is equivalent to `Echo.StartH2CServer` previous example
+​	下面的示例与前面的 `Echo.StartH2CServer` 等效：
 
 ```go
 func main() {
   e := echo.New()
-  // add middleware and routes
+  // 添加中间件和路由
   // ...
   h2s := &http2.Server{
     MaxConcurrentStreams: 250,
@@ -143,3 +145,6 @@ func main() {
   }
 }
 ```
+
+
+

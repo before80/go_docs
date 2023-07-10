@@ -1,17 +1,19 @@
 +++
-title = "gzip"
+title = "Gzip"
+weight = 80
 date = 2023-07-09T21:54:52+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # Gzip
 
 https://echo.labstack.com/docs/middleware/gzip
 
-Gzip middleware compresses HTTP response using gzip compression scheme.
+​	Gzip中间件使用gzip压缩方案对HTTP响应进行压缩。
 
 ## Usage
 
@@ -32,9 +34,9 @@ e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 
 
 
-TIP
-
-A middleware skipper can be passed to avoid gzip to certain URL(s).
+> 提示
+>
+> ​	可以传递一个中间件跳过器（skipper）来避免对特定URL进行gzip压缩。
 
 #### Example
 
@@ -42,7 +44,7 @@ A middleware skipper can be passed to avoid gzip to certain URL(s).
 e := echo.New()
 e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
   Skipper: func(c echo.Context) bool {
-    return strings.Contains(c.Path(), "metrics") // Change "metrics" for your own path
+    return strings.Contains(c.Path(), "metrics") // 将 "metrics" 更改为您自己的路径
   },
 }))
 ```
@@ -53,11 +55,11 @@ e.Use(middleware.GzipWithConfig(middleware.GzipConfig{
 
 ```go
 GzipConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义一个用于跳过中间件的函数。
   Skipper Skipper
 
-  // Gzip compression level.
-  // Optional. Default value -1.
+  // Gzip 压缩级别。
+  // 可选。默认值为-1。
   Level int `json:"level"`
 }
 ```

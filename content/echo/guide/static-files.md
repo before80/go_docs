@@ -1,27 +1,29 @@
 +++
-title = "static-files"
+title = "静态文件"
+weight = 120
 date = 2023-07-09T21:51:46+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Static Files
+# Static Files - 静态文件
 
 https://echo.labstack.com/docs/static-files
 
-Images, JavaScript, CSS, PDF, Fonts and so on...
+​	图片、JavaScript、CSS、PDF、字体等等...
 
-## Using Static Middleware
+## 使用静态中间件
 
-[See](https://echo.labstack.com/docs/middleware/static)
+[参见](https://echo.labstack.com/docs/middleware/static)。
 
-## Using Echo#Static()
+## 使用 Echo#Static()
 
-`Echo#Static(prefix, root string)` registers a new route with path prefix to serve static files from the provided root directory.
+​	`Echo#Static(prefix, root string)` 注册一个新的路由，以路径前缀来提供静态文件，这些文件存放在指定的根目录下。
 
-*Usage 1*
+*用法 1*
 
 ```go
 e := echo.New()
@@ -30,9 +32,9 @@ e.Static("/static", "assets")
 
 
 
-Example above will serve any file from the assets directory for path `/static/*`. For example, a request to `/static/js/main.js` will fetch and serve `assets/js/main.js` file.
+​	上述示例将为路径 `/static/*` 下的任何文件提供来自 assets 目录的文件。例如，对 `/static/js/main.js` 的请求将获取并提供 `assets/js/main.js` 文件。
 
-*Usage 2*
+*用法 2*
 
 ```go
 e := echo.New()
@@ -41,15 +43,15 @@ e.Static("/", "assets")
 
 
 
-Example above will serve any file from the assets directory for path `/*`. For example, a request to `/js/main.js` will fetch and serve `assets/js/main.js` file.
+​	上述示例将为路径 `/*` 下的任何文件提供来自 assets 目录的文件。例如，对 `/js/main.js` 的请求将获取并提供 `assets/js/main.js` 文件。
 
-## Using Echo#File()
+## 使用 Echo#File()
 
-`Echo#File(path, file string)` registers a new route with path to serve a static file.
+​	`Echo#File(path, file string)` 注册一个新的路由，以提供指定的静态文件。
 
-*Usage 1*
+*用法1*
 
-Serving an index page from `public/index.html`
+​	从 `public/index.html` 提供一个索引页面：
 
 ```go
 e.File("/", "public/index.html")
@@ -57,9 +59,9 @@ e.File("/", "public/index.html")
 
 
 
-*Usage 2*
+*用法 2*
 
-Serving a favicon from `images/favicon.ico`
+​	从 `images/favicon.ico` 提供一个网站图标
 
 ```go
 e.File("/favicon.ico", "images/favicon.ico")

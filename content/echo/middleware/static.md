@@ -1,5 +1,6 @@
 +++
 title = "static"
+weight = 230
 date = 2023-07-09T21:58:17+08:00
 type = "docs"
 description = ""

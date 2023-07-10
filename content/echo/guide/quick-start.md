@@ -1,21 +1,23 @@
 +++
-title = "quick-start"
+title = "快速入门"
+weight = 10
 date = 2023-07-09T21:49:33+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Quick Start
+# Quick Start - 快速入门
 
 https://echo.labstack.com/docs/quick-start
 
-## Installation
+## 安装
 
-### Requirements
+### 要求
 
-To install Echo [Go](https://go.dev/doc/install) 1.13 or higher is required. Go 1.12 has limited support and some middlewares will not be available. Make sure your project folder is outside your $GOPATH.
+​	安装 Echo 需要 Go 1.13 或更高版本。Go 1.12 的有限支持，某些中间件可能不可用。请确保您的项目文件夹位于 `$GOPATH` 之外。
 
 ```sh
 $ mkdir myapp && cd myapp
@@ -23,9 +25,7 @@ $ go mod init myapp
 $ go get github.com/labstack/echo/v4
 ```
 
-
-
-If you are working with Go v1.14 or earlier use:
+​	如果您正在使用 Go v1.14 或更早的版本，请使用以下命令：
 
 ```sh
 $ GO111MODULE=on go get github.com/labstack/echo/v4
@@ -35,7 +35,7 @@ $ GO111MODULE=on go get github.com/labstack/echo/v4
 
 ## Hello, World!
 
-Create `server.go`
+​	创建 `server.go` 文件
 
 ```go
 package main
@@ -55,19 +55,15 @@ func main() {
 }
 ```
 
-
-
-Start server
+​	启动服务器
 
 ```sh
 $ go run server.go
 ```
 
+​	在浏览器中打开 [http://localhost:1323](http://localhost:1323/)，您将在页面上看到 Hello, World!。
 
-
-Browse to [http://localhost:1323](http://localhost:1323/) and you should see Hello, World! on the page.
-
-## Routing
+## 路由
 
 ```go
 e.POST("/users", saveUser)
@@ -78,43 +74,38 @@ e.DELETE("/users/:id", deleteUser)
 
 
 
-## Path Parameters
+## 路径参数
 
 ```go
 // e.GET("/users/:id", getUser)
 func getUser(c echo.Context) error {
-    // User ID from path `users/:id`
+    // 从路径 `users/:id` 获取用户 ID
     id := c.Param("id")
     return c.String(http.StatusOK, id)
 }
 ```
 
+​	在浏览器中打开 [http://localhost:1323/users/joe](http://localhost:1323/users/joe)，您将在页面上看到 'joe'。
 
+## 查询参数
 
-Browse to http://localhost:1323/users/joe and you should see 'joe' on the page.
+`/show?team=x-men&member=wolverine`
 
-## Query Parameters
-
-```
-/show?team=x-men&member=wolverine
+```go
 //e.GET("/show", show)
 func show(c echo.Context) error {
-    // Get team and member from the query string
+    // 从查询字符串中获取team和member信息
     team := c.QueryParam("team")
     member := c.QueryParam("member")
     return c.String(http.StatusOK, "team:" + team + ", member:" + member)
 }
 ```
 
+​	在浏览器中打开 [http://localhost:1323/show?team=x-men&member=wolverine](http://localhost:1323/show?team=x-men&member=wolverine)，您将在页面上看到 'team:x-men, member:wolverine'。
 
+## 表单application/x-www-form-urlencoded
 
-Browse to http://localhost:1323/show?team=x-men&member=wolverine and you should see 'team:x-men, member:wolverine' on the page.
-
-## Form application/x-www-form-urlencoded
-
-```
-POST` `/save
-```
+`POST` `/save`
 
 | name  | value                                       |
 | ----- | ------------------------------------------- |
@@ -124,16 +115,14 @@ POST` `/save
 ```go
 // e.POST("/save", save)
 func save(c echo.Context) error {
-    // Get name and email
+    // 获取 name 和 email
     name := c.FormValue("name")
     email := c.FormValue("email")
     return c.String(http.StatusOK, "name:" + name + ", email:" + email)
 }
 ```
 
-
-
-Run the following command:
+​	运行以下命令：
 
 ```sh
 $ curl -d "name=Joe Smith" -d "email=joe@labstack.com" http://localhost:1323/save
@@ -142,11 +131,9 @@ $ curl -d "name=Joe Smith" -d "email=joe@labstack.com" http://localhost:1323/sav
 
 
 
-## Form multipart/form-data
+## 表单multipart/form-data
 
-```
-POST` `/save
-```
+`POST` `/save`
 
 | name   | value     |
 | ------ | --------- |
@@ -155,29 +142,29 @@ POST` `/save
 
 ```go
 func save(c echo.Context) error {
-    // Get name
+    // 获取 name
     name := c.FormValue("name")
-    // Get avatar
+    // 获取 avatar
     avatar, err := c.FormFile("avatar")
     if err != nil {
         return err
     }
  
-    // Source
+    // 源文件
     src, err := avatar.Open()
     if err != nil {
         return err
     }
     defer src.Close()
  
-    // Destination
+    // 目标文件
     dst, err := os.Create(avatar.Filename)
     if err != nil {
         return err
     }
     defer dst.Close()
  
-    // Copy
+    // 复制文件
     if _, err = io.Copy(dst, src); err != nil {
         return err
     }
@@ -186,18 +173,14 @@ func save(c echo.Context) error {
 }
 ```
 
-
-
-Run the following command.
+​	运行以下命令：
 
 ```sh
 $ curl -F "name=Joe Smith" -F "avatar=@/path/to/your/avatar.png" http://localhost:1323/save
 // => <b>Thank you! Joe Smith</b>
 ```
 
-
-
-For checking uploaded image, run the following command.
+​	为了查看已上传的图片，请运行以下命令：
 
 ```sh
 cd <project directory>
@@ -207,10 +190,10 @@ ls avatar.png
 
 
 
-## Handling Request
+## 处理请求
 
-- Bind `json`, `xml`, `form` or `query` payload into Go struct based on `Content-Type` request header.
-- Render response as `json` or `xml` with status code.
+- 将 `json`、`xml`、`form` 或 `query` 载荷绑定到基于 `Content-Type` 请求头的 Go 结构体中。
+- 以带有状态码的 `json` 或 `xml` 形式渲染响应。
 
 ```go
 type User struct {
@@ -224,35 +207,33 @@ e.POST("/users", func(c echo.Context) error {
         return err
     }
     return c.JSON(http.StatusCreated, u)
-    // or
+    // 或者
     // return c.XML(http.StatusCreated, u)
 })
 ```
 
 
 
-## Static Content
+## 静态内容
 
-Serve any file from static directory for path `/static/*`.
+​	为路径 `/static/*` 从静态目录中提供任何文件：
 
 ```go
 e.Static("/static", "static")
 ```
 
+[了解更多](https://echo.labstack.com/docs/static-files)
 
+## 模板渲染
 
-[Learn More](https://echo.labstack.com/docs/static-files)
-
-## [Template Rendering](https://echo.labstack.com/docs/templates)
-
-## Middleware
+## 中间件
 
 ```go
-// Root level middleware
+// 根级别（Root level）中间件
 e.Use(middleware.Logger())
 e.Use(middleware.Recover())
 
-// Group level middleware
+// 分组级别（Group level）中间件
 g := e.Group("/admin")
 g.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool, error) {
   if username == "joe" && password == "secret" {
@@ -261,7 +242,7 @@ g.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool
   return false, nil
 }))
 
-// Route level middleware
+// 路由级别（Route level）中间件
 track := func(next echo.HandlerFunc) echo.HandlerFunc {
     return func(c echo.Context) error {
         println("request to /users")
@@ -272,3 +253,6 @@ e.GET("/users", func(c echo.Context) error {
     return c.String(http.StatusOK, "/users")
 }, track)
 ```
+
+
+

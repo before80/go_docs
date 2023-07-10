@@ -1,45 +1,44 @@
 +++
-title = "testing"
+title = "测试"
+weight = 140
 date = 2023-07-09T21:52:21+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Testing
+# Testing - 测试
 
 https://echo.labstack.com/docs/testing
 
-## Testing Handler
+## 测试处理程序
 
-```
-GET` `/users/:id
-```
+`GET` `/users/:id`
 
 Handler below retrieves user by id from the database. If user is not found it returns `404` error with a message.
 
+​	下面的处理程序从数据库中根据用户ID检索用户。如果找不到用户，则返回`404`错误和一条消息。
+
 ### CreateUser
 
-```
-POST` `/users
-```
+`POST` `/users`
 
-- Accepts JSON payload
-- On success `201 - Created`
-- On error `500 - Internal Server Error`
+- 接受JSON负载
+- 成功时返回`201 - Created`
+- 错误时返回`500 - Internal Server Error`
 
 ### GetUser
 
-```
-GET` `/users/:email
-```
+`GET` `/users/:email`
 
-- On success `200 - OK`
-- On error `404 - Not Found` if user is not found otherwise `500 - Internal Server Error`
+- 成功时返回`200 - OK`
+- 错误时，如果找不到用户，则返回`404 - Not Found`，否则返回`500 - Internal Server Error`
 
-```
 handler.go
+
+```go
 package handler
 
 import (
@@ -76,10 +75,9 @@ func (h *handler) getUser(c echo.Context) error {
 }
 ```
 
-
-
-```
 handler_test.go
+
+```go
 package handler
 
 import (
@@ -136,7 +134,7 @@ func TestGetUser(t *testing.T) {
 
 
 
-### Using Form Payload
+### 使用 Form Payload
 
 ```go
 // import "net/url"
@@ -149,7 +147,7 @@ req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationForm)
 
 
 
-### Setting Path Params
+### 设置 Path Params
 
 ```go
 c.SetParamNames("id", "email")
@@ -158,7 +156,7 @@ c.SetParamValues("1", "jon@labstack.com")
 
 
 
-### Setting Query Params
+### 设置 Query Params
 
 ```go
 // import "net/url"
@@ -169,8 +167,8 @@ req := httptest.NewRequest(http.MethodGet, "/?"+q.Encode(), nil)
 
 
 
-## Testing Middleware
+## 测试 Middleware
 
-*TBD*
+*TBD（*待定*）*
 
-For now you can look into built-in middleware [test cases](https://github.com/labstack/echo/tree/master/middleware).
+​	目前，您可以查看内置（built-in）中间件的[测试用例](https://github.com/labstack/echo/tree/master/middleware)。

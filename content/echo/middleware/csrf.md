@@ -1,17 +1,19 @@
 +++
-title = "csrf"
+title = "CSRF"
+weight = 60
 date = 2023-07-09T21:54:32+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# CSRF
+# CSRF - 跨站请求伪造
 
 https://echo.labstack.com/docs/middleware/csrf
 
-Cross-site request forgery, also known as one-click attack or session riding and abbreviated as CSRF (sometimes pronounced sea-surf) or XSRF, is a type of malicious exploit of a website where unauthorized commands are transmitted from a user that the website trusts.
+​	跨站请求伪造（Cross-site request forgery），也称为一次点击攻击（one-click attack）、会话劫持（session riding），缩写为 CSRF（有时发音为 sea-surf）或 XSRF，是一种对网站的恶意利用（malicious exploit）方式，通过该方式，未经授权的命令可以从被网站信任的用户那里传输。
 
 ## Usage
 
@@ -34,9 +36,9 @@ e.Use(middleware.CSRFWithConfig(middleware.CSRFConfig{
 
 
 
-Example above uses `X-XSRF-TOKEN` request header to extract CSRF token.
+​	以上示例使用 `X-XSRF-TOKEN` 请求头来提取 CSRF 令牌。
 
-*Example Configuration that reads token from Cookie*
+​	*从 Cookie 中读取令牌的示例配置*
 
 ```go
 middleware.CSRFWithConfig(middleware.CSRFConfig{
@@ -51,31 +53,31 @@ middleware.CSRFWithConfig(middleware.CSRFConfig{
 
 
 
-## Accessing CSRF Token
+## 访问 CSRF 令牌
 
-### Server-side
+### 服务端
 
-CSRF token can be accessed from `Echo#Context` using `ContextKey` and passed to the client via template.
+​	可以通过 `Echo#Context` 使用 `ContextKey` 来访问 CSRF 令牌，并通过模板传递给客户端。
 
-### Client-side
+### 客户端
 
-CSRF token can be accessed from CSRF cookie.
+​	可以通过 CSRF cookie 来访问 CSRF 令牌。
 
 ## Configuration
 
 ```go
 CSRFConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义一个用于跳过中间件的函数。
   Skipper Skipper
 
-  // TokenLength is the length of the generated token.
+  // TokenLength 是生成的令牌的长度。
   TokenLength uint8 `json:"token_length"`
-  // Optional. Default value 32.
+  // 可选。默认值 32
 
-  // TokenLookup is a string in the form of "<source>:<key>" that is used
-  // to extract token from the request.
-  // Optional. Default value "header:X-CSRF-Token".
-  // Possible values:
+  // TokenLookup 是一个字符串，格式为 "<source>:<key>"，
+  // 用于从请求中提取令牌。
+  // 可选。默认值 "header:X-CSRF-Token"。
+  // 可能的取值：
   // - "header:<name>"
   // - "form:<name>"
   // - "query:<name>"
@@ -84,30 +86,32 @@ CSRFConfig struct {
 
   // Context key to store generated CSRF token into context.
   // Optional. Default value "csrf".
+  // 用于将生成的 CSRF 令牌存储到context中的Context键。
+  // 可选。默认值 "csrf"。 
   ContextKey string `json:"context_key"`
 
-  // Name of the CSRF cookie. This cookie will store CSRF token.
-  // Optional. Default value "_csrf".
+  // CSRF cookie 的名称。该 cookie 用于存储 CSRF 令牌。
+  // 可选。默认值 "_csrf"。
   CookieName string `json:"cookie_name"`
 
-  // Domain of the CSRF cookie.
-  // Optional. Default value none.
+  // CSRF Cookie 的域。
+  // 可选。默认值 none。
   CookieDomain string `json:"cookie_domain"`
 
-  // Path of the CSRF cookie.
-  // Optional. Default value none.
+  // CSRF cookie 的路径。
+  // 可选。默认值 none。
   CookiePath string `json:"cookie_path"`
 
-  // Max age (in seconds) of the CSRF cookie.
-  // Optional. Default value 86400 (24hr).
+  // CSRF cookie 的最大有效期（以秒为单位）。
+  // 可选。默认值 86400（24小时）。
   CookieMaxAge int `json:"cookie_max_age"`
 
-  // Indicates if CSRF cookie is secure.
-  // Optional. Default value false.
+  // 指示 CSRF cookie 是否为安全的。
+  // 可选。默认值 false。
   CookieSecure bool `json:"cookie_secure"`
 
-  // Indicates if CSRF cookie is HTTP only.
-  // Optional. Default value false.
+  // 指示 CSRF cookie 是否为 HTTP Only。
+  // 可选。默认值 false。
   CookieHTTPOnly bool `json:"cookie_http_only"`
 }
 ```
