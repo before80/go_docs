@@ -1,22 +1,23 @@
 +++
-title = "method-override"
+title = "方法重写"
 weight = 130
 date = 2023-07-09T21:56:03+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
-# Method Override
+# Method Override - 方法重写
 
 https://echo.labstack.com/docs/middleware/method-override
 
-Method override middleware checks for the overridden method from the request and uses it instead of the original method.
+​	Method Override 中间件检查请求中是否存在覆盖的方法，并使用覆盖的方法替代原始方法。
 
-INFO
-
-For security reasons, only `POST` method can be overridden.
+> 信息
+>
+> ​	出于安全原因，只有 `POST` 方法可以被覆盖。
 
 ## Usage
 
@@ -43,11 +44,11 @@ e.Pre(middleware.MethodOverrideWithConfig(middleware.MethodOverrideConfig{
 
 ```go
 MethodOverrideConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义了一个用于跳过中间件的函数。
   Skipper Skipper
 
-  // Getter is a function that gets overridden method from the request.
-  // Optional. Default values MethodFromHeader(echo.HeaderXHTTPMethodOverride).
+  // Getter 是一个从请求中获取覆盖方法的函数。
+  // 可选。默认值为 MethodFromHeader(echo.HeaderXHTTPMethodOverride)。
   Getter MethodOverrideGetter
 }
 ```

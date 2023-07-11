@@ -1,22 +1,23 @@
 +++
-title = "key-auth"
+title = "Key Auth"
 weight = 110
 date = 2023-07-09T21:55:25+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # Key Auth
 
 https://echo.labstack.com/docs/middleware/key-auth
 
-Key auth middleware provides a key based authentication.
+​	Key Auth 中间件提供基于密钥的身份验证。 
 
-- For valid key it calls the next handler.
-- For invalid key, it sends "401 - Unauthorized" response.
-- For missing key, it sends "400 - Bad Request" response.
+- 对于有效的密钥，调用下一个处理程序。
+- 对于无效的密钥，发送 "401 - Unauthorized" 响应。
+- 对于缺失的密钥，发送 "400 - Bad Request" 响应。
 
 ## Usage
 
@@ -48,29 +49,28 @@ e.Use(middleware.KeyAuthWithConfig(middleware.KeyAuthConfig{
 
 ```go
 KeyAuthConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义了一个用于跳过中间件的函数。
   Skipper Skipper
 
-  // KeyLookup is a string in the form of "<source>:<name>" that is used
-  // to extract key from the request.
-  // Optional. Default value "header:Authorization".
-  // Possible values:
+  // KeyLookup 是一个字符串，格式为 "<source>:<name>"，用于从请求中提取密钥。
+  // 可选。默认值为 "header:Authorization"。
+  // 可能的值：
   // - "header:<name>"
   // - "query:<name>"
   // - "cookie:<name>"
   // - "form:<name>"
   KeyLookup string `yaml:"key_lookup"`
 
-  // AuthScheme to be used in the Authorization header.
-  // Optional. Default value "Bearer".
+  // AuthScheme 用于 Authorization 标头中的身份验证方案。
+  // 可选。默认值为 "Bearer"。
   AuthScheme string
 
-  // Validator is a function to validate key.
-  // Required.
+  // Validator 是一个验证密钥的函数。
+  // 必需。 
   Validator KeyAuthValidator
 
-  // ErrorHandler defines a function which is executed for an invalid key.
-  // It may be used to define a custom error.
+  // ErrorHandler 定义了一个在密钥无效时执行的函数。
+  // 可用于定义自定义错误。
   ErrorHandler KeyAuthErrorHandler
 }
 ```

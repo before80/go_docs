@@ -1,25 +1,26 @@
 +++
-title = "logger"
+title = "Logger"
 weight = 120
 date = 2023-07-09T21:55:43+08:00
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # Logger
 
 https://echo.labstack.com/docs/middleware/logger
 
-Logger middleware logs the information about each HTTP request.
+​	Logger 中间件用于记录每个 HTTP 请求的信息。
 
-Echo has 2 different logger middlewares:
+​	Echo 提供了两种不同的日志记录中间件：
 
-- Older string template based logger [`Logger`](https://github.com/labstack/echo/blob/master/middleware/logger.go) - easy to start with but has limited capabilities
-- Newer customizable function based logger [`RequestLogger`](https://github.com/labstack/echo/blob/master/middleware/request_logger.go) - allows developer fully to customize what is logged and how it is logged. Suitable for usage with 3rd party logger libraries.
+- 较旧的基于字符串模板的日志记录器 [`Logger`](https://github.com/labstack/echo/blob/master/middleware/logger.go) —— 简单易用但功能有限
+- 较新的可自定义的基于函数的日志记录器 [`RequestLogger`](https://github.com/labstack/echo/blob/master/middleware/request_logger.go) —— 允许开发人员完全自定义日志记录内容和方式，适用于与第三方日志记录库一起使用。
 
-## String Template
+## 字符串模板
 
 ## Usage
 
@@ -29,7 +30,7 @@ e.Use(middleware.Logger())
 
 
 
-*Sample output*
+*示例输出*
 
 ```js
 {"time":"2017-01-12T08:58:07.372015644-08:00","remote_ip":"::1","host":"localhost:1323","method":"GET","uri":"/","status":200,"error":"","latency":14743,"latency_human":"14.743µs","bytes_in":0,"bytes_out":2}
@@ -37,7 +38,7 @@ e.Use(middleware.Logger())
 
 
 
-## Custom Configuration
+## 自定义配置
 
 ### Usage
 
@@ -49,9 +50,9 @@ e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 
 
 
-Example above uses a `Format` which logs request method and request URI.
+​	上述示例使用了 `Format`，记录请求方法和请求 URI。
 
-*Sample output*
+*示例输出*
 
 ```sh
 method=GET, uri=/, status=200
@@ -62,12 +63,12 @@ method=GET, uri=/, status=200
 ## Configuration
 
 ```go
-// LoggerConfig defines the config for Logger middleware.
+// LoggerConfig 定义了 Logger 中间件的配置。
 LoggerConfig struct {
-  // Skipper defines a function to skip middleware.
+  // Skipper 定义了一个用于跳过中间件的函数。
   Skipper Skipper
 
-  // Tags to construct the logger format.
+  // Tags 用于构造日志记录格式。
   //
   // - time_unix
   // - time_unix_milli
@@ -95,16 +96,16 @@ LoggerConfig struct {
   // - query:<NAME>
   // - form:<NAME>
   //
-  // Example "${remote_ip} ${status}"
+  // 示例 "${remote_ip} ${status}"
   //
-  // Optional. Default value DefaultLoggerConfig.Format.
+  // 可选。默认值为 DefaultLoggerConfig.Format。
   Format string `yaml:"format"`
 
-  // Optional. Default value DefaultLoggerConfig.CustomTimeFormat.
+  // 可选。默认值为 DefaultLoggerConfig.CustomTimeFormat。
   CustomTimeFormat string `yaml:"custom_time_format"`
 
-  // Output is a writer where logs in JSON format are written.
-  // Optional. Default value os.Stdout.
+  // Output 是一个以 JSON 格式写入日志的writer。
+  // 可选。默认值为 os.Stdout。
   Output io.Writer
 }
 ```
@@ -126,15 +127,15 @@ DefaultLoggerConfig = LoggerConfig{
 
 
 
-## Customizable Function
+## 可自定义的函数
 
-RequestLogger middleware allows developer fully to customize what is logged and how it is logged and is more suitable for usage with 3rd party (structured logging) libraries.
+​	RequestLogger 中间件允许开发人员完全自定义日志记录内容和方式，更适合与第三方（结构化日志记录）库一起使用。
 
-See [`RequestLoggerConfig`](https://github.com/labstack/echo/blob/master/middleware/request_logger.go) structure fields for values that logger knows to extract.
+​	请参阅 [RequestLoggerConfig](https://github.com/labstack/echo/blob/master/middleware/request_logger.go) 结构体的字段，了解日志记录器可提取的值。
 
-### Examples
+### 示例
 
-Example for naive `fmt.Printf`
+​	使用原生的 `fmt.Printf` 的示例：
 
 ```go
 e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
@@ -153,7 +154,7 @@ e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
 
 
 
-Example for Zerolog (https://github.com/rs/zerolog)
+​	使用 Zerolog (https://github.com/rs/zerolog) 的示例：
 
 ```go
 logger := zerolog.New(os.Stdout)
@@ -173,7 +174,7 @@ e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
 
 
 
-Example for Zap (https://github.com/uber-go/zap)
+​	使用 Zap (https://github.com/uber-go/zap) 的示例：
 
 ```go
 logger, _ := zap.NewProduction()
@@ -193,7 +194,7 @@ e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
 
 
 
-Example for Logrus (https://github.com/sirupsen/logrus)
+​	使用 Logrus (https://github.com/sirupsen/logrus) 的示例：
 
 ```go
 log := logrus.New()
