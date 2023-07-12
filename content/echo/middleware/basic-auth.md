@@ -13,14 +13,10 @@ draft = false
 
 https://echo.labstack.com/docs/middleware/basic-auth
 
-Basic auth middleware provides an HTTP basic authentication.
+​	基本认证中间件提供了HTTP基本认证。 
 
-基本认证中间件提供了HTTP基本认证。 
-
-- For valid credentials it calls the next handler.
-- For missing or invalid credentials, it sends "401 - Unauthorized" response.
 - 对于有效的凭证，它调用下一个处理程序。
-- 对于缺失或无效的凭证，它发送"401 - 未经授权"的响应。
+- 对于缺失或无效的凭证，它发送"401 - Unauthorized"的响应。
 
 ## 使用方法
 
