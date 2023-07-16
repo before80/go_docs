@@ -18,8 +18,6 @@ This is cookbook for:
 - JWT authentication using HS256 algorithm.
 - JWT is retrieved from `Authorization` request header.
 
-## xxxxxxxxxx36 1<!DOCTYPE html>2<html>3​4<head>5    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />6    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">7    <title>JSONP</title>8    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>9    <script type="text/javascript">10        var host_prefix = 'http://localhost:1323';11        $(document).ready(function() {12            // JSONP version - add 'callback=?' to the URL - fetch the JSONP response to the request13            $("#jsonp-button").click(function(e) {14                e.preventDefault();15                // The only difference on the client end is the addition of 'callback=?' to the URL16                var url = host_prefix + '/jsonp?callback=?';17                $.getJSON(url, function(jsonp) {18                    console.log(jsonp);19                    $("#jsonp-response").html(JSON.stringify(jsonp, null, 2));20                });21            });22        });23    </script>24​25</head>26​27<body>28    <div class="container" style="margin-top: 50px;">29        <input type="button" class="btn btn-primary btn-lg" id="jsonp-button" value="Get JSONP response">30        <p>31            <pre id="jsonp-response"></pre>32        </p>33    </div>34</body>35​36</html>html
-
 ### Using custom claims
 
 cookbook/jwt/custom-claims/server.go
