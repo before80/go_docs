@@ -1,5 +1,5 @@
 +++
-title = "load-balancing"
+title = "负载均衡"
 date = 2023-07-09T22:03:52+08:00
 type = "docs"
 description = ""
@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Load Balancing
+# Load Balancing - 负载均衡
 
 https://echo.labstack.com/docs/cookbook/load-balancing
 
