@@ -5,6 +5,7 @@ date = 2023-05-18T16:56:23+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # Frequently Asked Questions (FAQ)
 
@@ -226,7 +227,7 @@ draft = false
 
 ​	Go类型通过实现一个接口的方法来满足该接口，仅此而已。这个属性允许定义和使用接口，而不需要修改现有的代码。它实现了一种结构化的类型，促进了关注点的分离，提高了代码的重复使用，并使之更容易建立在代码发展过程中出现的模式上。接口的语义是Go的灵活、轻量级感觉的主要原因之一。
 
-​	更多细节请参见关于[类型继承的问题](#why-is-there-no-type-inheritance)。
+​	更多细节请参见关于[类型继承的问题](#why-is-there-no-type-inheritance-为什么没有类型继承)。
 
 ### How can I guarantee my type satisfies an interface? 如何保证我的类型满足接口的要求？
 
