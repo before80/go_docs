@@ -6,6 +6,7 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # map
@@ -153,6 +154,8 @@ fatal error: concurrent map read and map write
 ## 对原生map的并发读写，有什么改进的方法？
 
 -> 改用sync.Map。一方面在并发读写时不会触发panic，另一方面在读多写少的场景下性能优于原生map。
+
+​	但，sync.Map 因实现采用两个原生的map来实现读写分离，会使用更多的内存对象，对于GC会产生更多压力，因此在内存紧缺或GC性能要求很高的系统应尽量避免使用sync.Map。
 
 ```go
 
@@ -323,3 +326,6 @@ func main() {
 
 ```
 
+
+
+怎么获取
