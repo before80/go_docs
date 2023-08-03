@@ -247,6 +247,9 @@ func main() {
 
 	// 查询
 	d, ok := m.Load(0)
+	//var dd int
+	//dd = d // 编译报错：cannot use d (variable of type any) as int value in assignment: need type assertion
+	//fmt.Println(dd)
 	fmt.Printf("%v,%T,%t\n", d, d, ok) // 0,int,true
 	d, ok = m.Load(1)
 	fmt.Printf("%v,%T,%t\n", d, d, ok) // 1,string,true
