@@ -372,7 +372,7 @@ type Context interface {
 func Background() Context
 ```
 
-​	Background函数返回一个非nil、空的Context。它永远不会被取消，没有值，也没有截止时间。它通常由main函数、初始化和测试以及作为传入请求的顶级Context使用。
+​	Background函数返回一个非nil、空的Context。它永远不会被取消，没有值，也没有截止时间。它通常用在main函数、初始化和测试以及作为传入请求的顶级Context使用。
 
 #### func TODO 
 
@@ -392,7 +392,7 @@ func WithValue(parent Context, key, val any) Context
 
 ​	仅将context Values用于跨进程和API传递的请求范围数据，而不是将可选参数传递给函数。
 
-​	所提供的key 必须是可比较的，不应该是字符串或任何其他内置类型，以避免不同包之间的冲突。使用WithValue的用户应该为它们自己的key 定义类型。为了避免在分配给接口{}时分配内存，context键通常具有具体类型struct{}。或者，导出的上下文key 变量的静态类型应该是指针或接口。
+​	所提供的key 必须是可比较的，不应该是字符串或任何其他内置类型，以避免不同包之间的冲突。使用WithValue的用户应该为它们自己的key 定义类型。为了避免在分配给interface{}时分配内存，context键通常具有具体类型struct{}。或者，导出的上下文key 变量的静态类型应该是指针或接口。
 
 ##### WithValue Example
 ``` go 

@@ -197,6 +197,8 @@ panic assignment to entry in nil map
 
 ## 使用sync.Map的示例
 
+### 示例1
+
 ```go
 package main
 
@@ -329,6 +331,40 @@ func main() {
 
 ```
 
+### 示例2
 
+​	在函数间通过指针的方式传递sync.Map
 
-怎么获取
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func WriteMap(m *sync.Map) {
+	m.Store(1, 1)
+	m.Store(2, 2)
+}
+
+func ReadMap(m *sync.Map) {
+	m.Range(func(k, v any) bool {
+		kd, ok1 := k.(int)
+		vd, ok2 := v.(int)
+		if ok1 && ok2 {
+			fmt.Println(kd, "->", vd)
+		}
+		return true
+	})
+}
+
+func main() {
+	var m sync.Map
+	WriteMap(&m)
+	ReadMap(&m)
+}
+
+```
+
+怎么获取?

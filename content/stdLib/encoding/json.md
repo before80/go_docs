@@ -756,7 +756,7 @@ json.Delim: }
 func (dec *Decoder) UseNumber()
 ```
 
-​	UseNumber方法会导致解码器将数字解组为Number类型的接口{}，而不是解组为float64。
+​	UseNumber方法会导致解码器将数字解组为Number类型的interface{}，而不是解组为float64。
 
 ### type Delim  <- go1.5
 
