@@ -625,8 +625,8 @@ func (x *Uintptr) Swap(new uintptr) (old uintptr)
 ### type Value  <- go1.4
 
 ``` go 
-type Value struct {
-	// contains filtered or unexported fields
+type Value struct {    
+	v any
 }
 ```
 
@@ -637,6 +637,8 @@ type Value struct {
 ##### Example (Config)
 
 The following example shows how to use Value for periodic program config updates and propagation of the changes to worker goroutines.
+
+​	以下示例展示了如何使用 `Value` 来进行定期程序配置更新，并将更改传播到工作 goroutines。
 
 ``` go 
 package main
@@ -655,12 +657,14 @@ func requests() chan int {
 }
 
 func main() {
-	var config atomic.Value // holds current server configuration
-	// Create initial config value and store into config.
+	var config atomic.Value // holds current server configuration 保存当前服务器配置
+	// Create initial config value and store into config. 创建初始配置值并存储到 config 中。
 	config.Store(loadConfig())
 	go func() {
 		// Reload config every 10 seconds
 		// and update config value with the new version.
+        // 每隔 10 秒重新加载配置
+		// 并使用新版本更新配置值。
 		for {
 			time.Sleep(10 * time.Second)
 			config.Store(loadConfig())
@@ -668,11 +672,14 @@ func main() {
 	}()
 	// Create worker goroutines that handle incoming requests
 	// using the latest config value.
+    // 创建处理传入请求的工作 goroutine
+	// 使用最新的配置值。
 	for i := 0; i < 10; i++ {
 		go func() {
 			for r := range requests() {
 				c := config.Load()
 				// Handle request r using config c.
+                // 使用配置 c 处理请求 r。
 				_, _ = r, c
 			}
 		}()
@@ -684,6 +691,8 @@ func main() {
 ##### Example (ReadMostly) 
 
 The following example shows how to maintain a scalable frequently read, but infrequently updated data structure using copy-on-write idiom.
+
+​	以下示例展示了如何使用写时复制（copy-on-write）惯用语法来维护一个可扩展的频繁读取但不经常更新的数据结构。
 
 ``` go 
 package main
@@ -697,26 +706,30 @@ func main() {
 	type Map map[string]string
 	var m atomic.Value
 	m.Store(make(Map))
-	var mu sync.Mutex // used only by writers
+	var mu sync.Mutex // used only by writers 仅由写入者使用
 	// read function can be used to read the data without further synchronization
+    // read 函数用于在无需进一步同步的情况下读取数据
 	read := func(key string) (val string) {
 		m1 := m.Load().(Map)
 		return m1[key]
 	}
 	// insert function can be used to update the data without further synchronization
+    // insert 函数用于在无需进一步同步的情况下更新数据
 	insert := func(key, val string) {
-		mu.Lock() // synchronize with other potential writers
+		mu.Lock() // synchronize with other potential writers 与其他潜在写入者同步
 		defer mu.Unlock()
-		m1 := m.Load().(Map) // load current value of the data structure
-		m2 := make(Map)      // create a new value
+		m1 := m.Load().(Map) // load current value of the data structure 加载当前数据结构的值
+		m2 := make(Map)      // create a new value 创建新值
 		for k, v := range m1 {
-			m2[k] = v // copy all data from the current object to the new one
+			m2[k] = v // copy all data from the current object to the new one 从当前对象复制所有数据到新对象
 		}
-		m2[key] = val // do the update that we need
-		m.Store(m2)   // atomically replace the current object with the new one
+		m2[key] = val // do the update that we need  执行我们需要的更新
+		m.Store(m2)   // atomically replace the current object with the new one 原子地将当前对象替换为新对象
 		// At this point all new readers start working with the new version.
 		// The old version will be garbage collected once the existing readers
 		// (if any) are done with it.
+        // 此时，所有新读取者开始使用新版本。
+		// 旧版本将在现有读取者（如果有）完成后进行垃圾回收。
 	}
 	_, _ = read, insert
 }
@@ -729,7 +742,7 @@ func main() {
 func (v *Value) CompareAndSwap(old, new any) (swapped bool)
 ```
 
-CompareAndSwap方法为Value执行比较和交换操作。
+​	CompareAndSwap方法为Value执行比较和交换操作。
 
 ​	所有对给定Value的CompareAndSwap调用必须使用相同具体类型的值。类型不一致的CompareAndSwap会导致panic，CompareAndSwap(old, nil)也是如此。
 
