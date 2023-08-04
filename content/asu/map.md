@@ -11,6 +11,10 @@ draft = false
 
 # map
 
+> 注意
+>
+> ​	map是不可比较的类型。
+
 ## 对原生map进行并发写会触发panic
 
 ```go
