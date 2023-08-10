@@ -10,3 +10,10 @@ draft = false
     weight = -3
 
 +++
+
+> Note
+>
+> ​	本章节部分文件的内容摘自 [gobyexample.com](https://gobyexample.com).
+>
+> ​	本节所有文件都使用  [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/)。
+
