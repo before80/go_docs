@@ -1,6 +1,7 @@
 +++
 title = "array"
 date = 2023-08-07T13:32:07+08:00
+weight = 8
 type = "docs"
 description = ""
 isCJKLanguage = true

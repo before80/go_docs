@@ -1,6 +1,7 @@
 +++
 title = "Strings and Runes"
 date = 2023-08-07T13:34:38+08:00
+weight = 17
 type = "docs"
 description = ""
 isCJKLanguage = true

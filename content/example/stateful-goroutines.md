@@ -1,6 +1,7 @@
 +++
 title = "Stateful Goroutines"
 date = 2023-08-07T13:49:05+08:00
+weight = 35
 type = "docs"
 description = ""
 isCJKLanguage = true

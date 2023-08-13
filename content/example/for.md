@@ -1,6 +1,7 @@
 +++
 title = "for"
 date = 2023-08-07T13:31:41+08:00
+weight = 5
 type = "docs"
 description = ""
 isCJKLanguage = true

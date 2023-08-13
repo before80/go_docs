@@ -1,6 +1,7 @@
 +++
 title = "constants"
 date = 2023-08-07T13:31:30+08:00
+weight = 4
 type = "docs"
 description = ""
 isCJKLanguage = true

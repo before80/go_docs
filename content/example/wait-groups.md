@@ -1,6 +1,7 @@
 +++
 title = "waitGroup"
 date = 2023-08-07T13:40:25+08:00
+weight = 31
 type = "docs"
 description = ""
 isCJKLanguage = true

@@ -1,6 +1,7 @@
 +++
 title = "function"
 date = 2023-08-07T13:32:45+08:00
+weight = 12
 type = "docs"
 description = ""
 isCJKLanguage = true

@@ -1,6 +1,7 @@
 +++
 title = "Variadic Function"
 date = 2023-08-07T13:33:44+08:00
+weight = 13
 type = "docs"
 description = ""
 isCJKLanguage = true

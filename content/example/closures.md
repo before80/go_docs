@@ -1,6 +1,7 @@
 +++
 title = "closure"
 date = 2023-08-07T13:33:53+08:00
+weight = 14
 type = "docs"
 description = ""
 isCJKLanguage = true

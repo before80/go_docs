@@ -1,6 +1,7 @@
 +++
 title = "generic"
 date = 2023-08-07T13:36:02+08:00
+weight = 22
 type = "docs"
 description = ""
 isCJKLanguage = true

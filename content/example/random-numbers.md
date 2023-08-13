@@ -1,6 +1,7 @@
 +++
 title = "random number"
 date = 2023-08-07T13:51:50+08:00
+weight = 49
 type = "docs"
 description = ""
 isCJKLanguage = true

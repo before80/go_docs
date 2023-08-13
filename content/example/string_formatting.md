@@ -1,6 +1,7 @@
 +++
 title = "string formatting"
 date = 2023-08-10T12:31:45+08:00
+weight = 41
 type = "docs"
 description = ""
 isCJKLanguage = true

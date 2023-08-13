@@ -1,6 +1,7 @@
 +++
 title = "atomic counter"
 date = 2023-08-07T13:41:08+08:00
+weight = 33
 type = "docs"
 description = ""
 isCJKLanguage = true

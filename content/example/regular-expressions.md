@@ -1,6 +1,7 @@
 +++
 title = "Regular Expressions"
 date = 2023-08-07T13:50:46+08:00
+weight = 43
 type = "docs"
 description = ""
 isCJKLanguage = true

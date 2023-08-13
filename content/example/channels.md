@@ -1,6 +1,7 @@
 +++
 title = "channel"
 date = 2023-08-07T13:36:37+08:00
+weight = 25
 type = "docs"
 description = ""
 isCJKLanguage = true

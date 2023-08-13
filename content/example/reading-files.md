@@ -1,6 +1,7 @@
 +++
 title = "reading-files"
 date = 2023-08-07T13:53:25+08:00
+weight = 54
 type = "docs"
 description = ""
 isCJKLanguage = true

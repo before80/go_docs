@@ -1,6 +1,7 @@
 +++
 title = "Environment Variables"
 date = 2023-08-07T13:57:13+08:00
+weight = 65
 type = "docs"
 description = ""
 isCJKLanguage = true

@@ -1,6 +1,7 @@
 +++
 title = "Hello World"
 date = 2023-08-07T13:31:05+08:00
+weight = 2
 type = "docs"
 description = ""
 isCJKLanguage = true

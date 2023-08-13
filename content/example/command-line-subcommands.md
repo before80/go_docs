@@ -1,6 +1,7 @@
 +++
 title = "Command-Line Subcommands"
 date = 2023-08-07T13:56:50+08:00
+weight = 64
 type = "docs"
 description = ""
 isCJKLanguage = true

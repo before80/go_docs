@@ -1,6 +1,7 @@
 +++
 title = "struct"
 date = 2023-08-07T13:35:18+08:00
+weight = 18
 type = "docs"
 description = ""
 isCJKLanguage = true
