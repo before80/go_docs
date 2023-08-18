@@ -48,9 +48,29 @@ draft = false
 
 ​	使用Cobra非常简单。首先，使用`go get`安装最新版本的库。此命令将安装`cobra`生成器的可执行文件以及库及其依赖项：
 
-```
+```bash
 go get -u github.com/spf13/cobra/cobra
 ```
+
+> 个人注释
+>
+> ​	以上命令，因官方文档好久没有更新、代码仓库已经发生变更、go版本变更等，该命令已经不能使用。
+>
+> ​	因如今的go版本都已经发布到go1.20，故这里假设大家的go版本都是大于等于go1.16。若使用以下命令：
+>
+> ```bash
+> go install github.com/spf13/cobra-cli@latest
+> ```
+>
+> 将安装cobra-cli二进制安装程序到GOPATH下的bin目录中，之后就可以在命令行中使用`cobra-cli`命令。
+>
+> ​	若使用以下命令：
+>
+> ```bash
+> go get -u github.com/spf13/cobra
+> ```
+>
+> 将把cobra相关代码下载下来，放在GOPATH下的pkg目录下，以及将cobra相关信息放入当前项目中的go.mod文件中。
 
 然后，在您的应用程序中导入Cobra：
 
@@ -74,13 +94,13 @@ import "github.com/spf13/cobra"
 
 ​	在下面的例子中，'server'是一个命令，'port'是一个标志：
 
-```
+```bash
 hugo server --port=1313
 ```
 
-​	在这个命令中，我们告诉Git（使用--bare，即裸仓库的形式，没有工作目录的方式，克隆之后只有一个以.git结尾的文件夹）克隆给定的url。
+​	在这个命令中，我们告诉Git（使用`--bare`，即裸仓库的形式，没有工作目录的方式，克隆之后只有一个以.git结尾的文件夹）克隆给定的url。
 
-```
+```bash
 git clone URL --bare
 ```
 
@@ -135,6 +155,10 @@ func main() {
 ​	Cobra提供了一个程序，可以创建您的应用程序并添加您想要的任何命令。这是将Cobra集成到您的应用程序中最简单的方法。
 
 ​	在[这里](https://github.com/spf13/cobra/blob/master/cobra/README.md)您可以找到更多关于Cobra的信息
+
+> 个人注释
+>
+> ​	这里的链接已经打不开。原因是仓库地址已经发生变更。当前cobra生成器的仓库地址是：https://github.com/spf13/cobra-cli
 
 ## 使用Cobra库
 
@@ -625,7 +649,7 @@ Inside subCmd PersistentPostRun with args: [arg1 arg2]
 
 ​	当出现"unknown command" 错误时，Cobra将自动提供建议。这使得Cobra在发生拼写错误时的行为类似于`git`命令。例如：
 
-```
+```bash
 $ hugo srever
 Error: unknown command "srever" for "hugo"
 
@@ -651,7 +675,7 @@ command.SuggestionsMinimumDistance = 1
 
 ​	您还可以使用 `SuggestFor` 属性显式设置一个给定命令的建议的名称。这样可以对于在字符串距离上不接近但在命令集合中有意义的字符串进行建议，而且您不希望为它们设置别名。示例：
 
-```
+```bash
 $ kubectl remove
 Error: unknown command "remove" for "kubectl"
 
@@ -671,7 +695,7 @@ Run 'kubectl help' for usage.
 
 ## 生成bash自动补全
 
-​	Cobra可以生成bash自动补全文件。如果您为命令添加更多信息，这些自动补全功能将变得非常强大和灵活。详细了解请阅读[Bash Completions](https://cobra.dev/bash_completions.md)。
+​	Cobra可以生成bash自动补全文件。如果您为命令添加更多信息，这些自动补全功能将变得非常强大和灵活。详细了解请阅读[Bash Completions](https://cobra.dev/completions)。
 
 ## 许可证
 
