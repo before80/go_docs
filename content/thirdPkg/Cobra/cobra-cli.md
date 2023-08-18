@@ -28,13 +28,13 @@ go install github.com/spf13/cobra-cli@latest
 
 ​	目前 Cobra 生成器只支持两个操作：
 
-### cobra-cli init
+## 操作1：cobra-cli init
 
 ​	`cobra-cli init [app]` 命令将为你创建初始的应用程序代码。这是一个非常强大的应用程序，它会为你的程序填充正确的结构，以便你可以立即享受 Cobra 的所有优势。它还可以将你指定的许可证应用于你的应用程序。
 
 ​	随着 Go 模块的引入，Cobra 生成器已经简化，以利用模块的优势。Cobra 生成器在 Go 模块内部工作。
 
-#### 初始化模块
+### 初始化模块
 
 ​	**如果你已经有一个模块，请跳过此步骤。**
 
@@ -77,7 +77,7 @@ go run main.go
 
 ​	`cobra-cli init` 也可以从子目录中运行，就像 [cobra 生成器本身的组织方式](https://github.com/spf13/cobra-cli) 一样。如果你想将应用程序代码与库代码分开，这是非常有用的。
 
-#### 可选标志：
+### 可选标志：
 
 ​	你可以使用 `--author` 标志提供作者名称。例如：`cobra-cli init --author "Steve Francia spf@spf13.com"`
 
@@ -87,7 +87,7 @@ go run main.go
 
 ​	Viper 是 Cobra 的伴侣，旨在轻松处理环境变量和配置文件，并将它们与应用程序标志无缝连接。
 
-### 向项目添加命令
+## 操作2：向项目添加命令
 
 ​	一旦初始化了 Cobra 应用程序，你可以继续使用 Cobra 生成器向你的应用程序添加其他命令。执行此操作的命令是 `cobra-cli add`。
 
@@ -133,7 +133,7 @@ cobra-cli add create -p 'configCmd'
 
 ​	玩得开心！
 
-### 配置 Cobra 生成器
+## 配置 Cobra 生成器
 
 ​	如果你提供一个简单的配置文件，Cobra 生成器将更容易使用，这将帮助你在 flags 中消除重复提供大量信息的问题。
 
