@@ -608,7 +608,7 @@ type FlagSet struct {
 func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 ```
 
-​	NewFlagSet方法返回一个新的、空的FlagSet，其中包含指定的名称和错误处理属性。如果名称不为空，它将在默认用法消息和错误消息中打印。
+​	NewFlagSet函数返回一个新的、空的FlagSet，其中包含指定的名称和错误处理属性。如果名称不为空，它将在默认用法消息和错误消息中打印。
 
 #### (*FlagSet) Arg 
 
