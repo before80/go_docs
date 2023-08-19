@@ -45,23 +45,23 @@ go test github.com/spf13/pflag
 
 ## 用法
 
-​	pflag是Go原生`flag`包的一个替代品。如果您将pflag导入为"flag"，则所有的代码都应该继续正常工作，无需进行任何更改。
+​	`pflag`是Go原生`flag`包的一个替代品。如果您将pflag导入为"flag"，则所有的代码都应该继续正常工作，无需进行任何更改。
 
 ```go
 import flag "github.com/spf13/pflag"
 ```
 
-​	有一个例外情况：如果您直接实例化Flag结构体，还需要设置一个额外的字段"Shorthand"。大多数代码不会直接实例化这个结构体，而是使用诸如String()、BoolVar()和Var()等函数，因此不受影响。
+​	这里有一个例外情况：如果你直接实例化 Flag 结构体，你需要设置一个额外的字段 "Shorthand"。大多数代码从不直接实例化这个结构体，而是使用 String()、BoolVar() 和 Var() 等函数，因此不受影响。
 
 ​	使用flag.String()、Bool()、Int()等函数来定义标志。
 
-​	以下是一个声明整数标志的示例，标志名为`-flagname`，存储在指针`ip`中，类型为`*int`。
+​	以下是一个声明整数标志的示例，标志名为`-flagname`，存储在指针`ip`中，类型为`*int`：
 
 ```go
 var ip *int = flag.Int("flagname", 1234, "help message for flagname")
 ```
 
-​	如果需要，您可以使用Var()函数将标志绑定到一个变量上。
+​	如果需要，您可以使用Var()函数将标志绑定到一个变量上：
 
 ```go
 var flagvar int
@@ -93,7 +93,7 @@ fmt.Println("ip has value ", *ip)
 fmt.Println("flagvar has value ", flagvar)
 ```
 
-​	如果您使用 `FlagSet`，并且发现在代码中跟踪所有指针变得困难，那么可以使用一些辅助函数来获取 `Flag`（结构体） 中存储的值如果您有一个名为'flagname'、类型为`int`的`pflag.FlagSet`，您可以使用`GetInt()`来获取int值。但请注意，'flagname'必须存在且为int类型，否则`GetString("flagname")`将失败。
+​	如果您使用 `FlagSet`，并且发现在代码中跟踪所有指针变得困难，那么可以使用一些辅助函数来获取 `Flag`（结构体） 中存储的值。如果您有一个名为'flagname'、类型为`int`的`pflag.FlagSet`，您可以使用`GetInt()`来获取int值。但请注意，'flagname'必须存在且为int类型，否则`GetString("flagname")`将失败。
 
 ```go
 i, err := flagset.GetInt("flagname")
@@ -101,7 +101,7 @@ i, err := flagset.GetInt("flagname")
 
 ​	在解析后，该标志之后的实参可以作为`flag.Args()`的切片或作为`flag.Arg(i)`单独使用。实参的索引范围是从0到`flag.NArg()-1`。
 
-​	pflag包还定义了一些在 `flag` 包中不存在的新函数，它们为标志提供了一字母缩写。您可以通过在定义标志的任何函数名称后附加 '`P`' 来使用这些函数。
+​	pflag包还定义了一些在 `flag` 包中不存在的新函数，这些函数为标志提供了一字母缩写。您可以通过在定义标志的任何函数名称后附加 '`P`' 来使用这些函数。
 
 ```go
 var ip = flag.IntP("flagname", "f", 1234, "help message")
@@ -112,13 +112,11 @@ func init() {
 flag.VarP(&flagVal, "varname", "v", "help message")
 ```
 
-​	缩写字母可以在命令行上使用单破折号。布尔型缩写标志可以与其他缩写标志结合使用。
+​	速记字母可以在命令行上使用单个短划线。布尔型缩写标志可以与其他缩写标志结合使用。
 
 ​	默认的命令行标志集由顶层函数控制。FlagSet类型允许定义独立的标志集，例如在命令行接口中实现子命令。FlagSet的方法类似于顶层函数用于命令行标志集的方法。
 
-## Setting no option default values for flags 为标志设置无选项默认值
-
-After you create a flag it is possible to set the pflag.NoOptDefVal for the given flag. Doing this changes the meaning of the flag slightly. If a flag has a NoOptDefVal and the flag is set on the command line without an option the flag will be set to the NoOptDefVal. For example given:
+## 为标志设置无选项默认值
 
 ​	在创建标志后，可以为给定的标志设置pflag.NoOptDefVal。这样做会略微改变标志的含义。如果一个标志具有NoOptDefVal，并且在命令行上设置该标志而没有选项，那么该标志将被设置为NoOptDefVal。例如：
 
@@ -127,19 +125,17 @@ var ip = flag.IntP("flagname", "f", 1234, "help message")
 flag.Lookup("flagname").NoOptDefVal = "4321"
 ```
 
-Would result in something like
+​	会产生类似以下的结果：
 
-​	会产生类似以下的结果
+| Parsed Arguments  | 结果值  |
+| ----------------- | ------- |
+| `--flagname=1357` | ip=1357 |
+| `--flagname`      | ip=4321 |
+| [nothing]         | ip=1234 |
 
-| Parsed Arguments | Resulting Value |
-| ---------------- | --------------- |
-| --flagname=1357  | ip=1357         |
-| --flagname       | ip=4321         |
-| [nothing]        | ip=1234         |
+## 命令行标志语法
 
-## Command line flag syntax 命令行标志语法
-
-```
+```bash
 --flag    // boolean flags, or flags with no option default values
 --flag x  // only on flags without a default value
 --flag=x
@@ -147,44 +143,36 @@ Would result in something like
 
 Unlike the flag package, a single dash before an option means something different than a double dash. Single dashes signify a series of shorthand letters for flags. All but the last shorthand letter must be boolean flags or a flag with a default value
 
-​	与flag包不同，选项之前的单破折号和双破折号有不同的含义。单破折号表示一系列标志的缩写字母。除了最后一个缩写字母可以是布尔型标志或具有默认值的标志外，其他都必须是布尔型标志。
+​	与`flag`包不同，选项之前的单个短划线和双破折号有不同的含义。单个短划线表示一系列标志的速记字母。除最后一个速记字母外，其它都必须是布尔标志或具有默认值的标志
 
 ```
-// boolean or flags where the 'no option default value' is set
+// 布尔标志或带有 'no option default value' 的标志
 -f
 -f=true
 -abc
 but
 -b true is INVALID
 
-// non-boolean and flags without a 'no option default value'
+// 非布尔和没有 'no option default value' 的标志
 -n 1234
 -n=1234
 -n1234
 
-// mixed
+// 混合使用
 -abcs "hello"
 -absd="hello"
 -abcs1234
 ```
 
-Flag parsing stops after the terminator "--". Unlike the flag package, flags can be interspersed with arguments anywhere on the command line before this terminator.
+​	在终止符 "`--`" 之后，标志解析会停止。与flag包不同，在这个终止符之前，标志可以与参数混合在命令行的任何位置。
 
-​	在" `--` "之后，标志解析将停止。与flag包不同，在这个终止符之前，标志可以与参数混合在命令行的任何位置。
+​	整型标志接受1234、0664、0x1234等，并且可以为负数。布尔型标志（长格式）接受1、0、t、f、true、false、TRUE、FALSE、True、False。持续时间标志接受任何对于time.ParseDuration有效的输入。
 
-Integer flags accept 1234, 0664, 0x1234 and may be negative. Boolean flags (in their long form) accept 1, 0, t, f, true, false, TRUE, FALSE, True, False. Duration flags accept any input valid for time.ParseDuration.
-
-​	整数型标志接受1234、0664、0x1234等，并且可以为负数。布尔型标志（长格式）接受1、0、t、f、true、false、TRUE、FALSE、True、False。持续时间标志接受任何对于time.ParseDuration有效的输入。
-
-## Mutating or "Normalizing" Flag names 修改或"规范化"标志名称
-
-It is possible to set a custom flag name 'normalization function.' It allows flag names to be mutated both when created in the code and when used on the command line to some 'normalized' form. The 'normalized' form is used for comparison. Two examples of using the custom normalization func follow.
+## 修改或"规范化"标志名称
 
 ​	可以设置自定义的标志名称"规范化函数"。它允许标志名称在代码中创建时和在命令行上使用时以某种"规范化"的形式进行变换。比较时使用"规范化"的形式。下面是两个使用自定义规范化函数的示例。
 
-**Example #1**: You want -, _, and . in flags to compare the same. aka --my-flag == --my_flag == --my.flag
-
-**示例＃1**：您希望在标志中比较 `-`、`_` 和 `.` 时得到相同的结果。也就是说 `--my-flag == --my_flag == --my.flag`
+**示例＃1**：您希望在标志中比较 `-`、`_` 和 `.` 时得到相同的结果。也就是说 `--my-flag == --my_flag == --my.flag`：
 
 ``` go
 func wordSepNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
@@ -199,9 +187,7 @@ func wordSepNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
 myFlagSet.SetNormalizeFunc(wordSepNormalizeFunc)
 ```
 
-**Example #2**: You want to alias two flags. aka --old-flag-name == --new-flag-name
-
-**示例＃2**：您希望给两个标志设置别名。也就是说 `--old-flag-name == --new-flag-name`
+**示例＃2**：您希望给两个标志设置别名。也就是说 `--old-flag-name == --new-flag-name`：
 
 ``` go
 func aliasNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
@@ -216,62 +202,44 @@ func aliasNormalizeFunc(f *pflag.FlagSet, name string) pflag.NormalizedName {
 myFlagSet.SetNormalizeFunc(aliasNormalizeFunc)
 ```
 
-## Deprecating a flag or its shorthand 弃用标志或其缩写
+## 弃用标志或其缩写
 
-It is possible to deprecate a flag, or just its shorthand. Deprecating a flag/shorthand hides it from help text and prints a usage message when the deprecated flag/shorthand is used.
+​	可以弃用一个标志，或仅弃用它的缩写。弃用标志/缩写将在帮助文本中隐藏，并在使用被弃用的标志/缩写时显示使用消息。
 
-`可以弃用一个标志，或仅弃用它的缩写。弃用标志/缩写将在帮助文本中隐藏，并在使用被弃用的标志/缩写时显示使用消息。
-
-**Example #1**: You want to deprecate a flag named "badflag" as well as inform the users what flag they should use instead.
-
-**示例＃1**：您希望弃用一个名为"badflag"的标志，并告知用户应该使用哪个标志代替它。
+**示例＃1**：您希望弃用一个名为"badflag"的标志，并告知用户应该使用哪个标志代替它：
 
 ```go
-// deprecate a flag by specifying its name and a usage message
+// 通过指定其名称和使用消息来废弃一个标志
 flags.MarkDeprecated("badflag", "please use --good-flag instead")
 ```
 
-This hides "badflag" from help text, and prints `Flag --badflag has been deprecated, please use --good-flag instead` when "badflag" is used.
+​	这将在帮助文本中隐藏"badflag"，并在使用"badflag"时打印`Flag --badflag has been deprecated, please use --good-flag instead`。
 
-​	这将在帮助文本中隐藏"badflag"，并在使用"badflag"时打印`Flag --badflag已被弃用，请使用--good-flag代替`。
-
-**Example #2**: You want to keep a flag name "noshorthandflag" but deprecate its shortname "n".
-
-**示例＃2**：您希望保留一个名为"noshorthandflag"的标志，但弃用其缩写"n"。
+**示例＃2**：您希望保留一个名为"noshorthandflag"的标志，但弃用其缩写"n"：
 
 ```go
-// deprecate a flag shorthand by specifying its flag name and a usage message
+// 通过指定其标志名称和使用消息来废弃一个标志缩写
 flags.MarkShorthandDeprecated("noshorthandflag", "please use --noshorthandflag only")
 ```
 
-This hides the shortname "n" from help text, and prints `Flag shorthand -n has been deprecated, please use --noshorthandflag only` when the shorthand "n" is used.
-
-​	这将在帮助文本中隐藏缩写"n"，并在使用缩写"n"时打印`Flag shorthand -n已被弃用，请只使用--noshorthandflag`。
-
-Note that usage message is essential here, and it should not be empty.
+​	这将在帮助文本中隐藏缩写"n"，并在使用缩写"n"时打印`Flag shorthand -n has been deprecated, please use --noshorthandflag only`。
 
 ​	请注意，这里的用法消息是必要的，不应为空。
 
-## Hidden flags 隐藏标志
+## 隐藏标志
 
-It is possible to mark a flag as hidden, meaning it will still function as normal, however will not show up in usage/help text.
+​	可以将一个标志标记为隐藏，这意味着它仍然会正常工作，但不会显示在用法/帮助文本中。
 
-​	可以将一个标志标记为隐藏，这意味着它仍然会正常工作，但不会显示在使用/帮助文本中。
-
-**Example**: You have a flag named "secretFlag" that you need for internal use only and don't want it showing up in help text, or for its usage text to be available.
-
-**示例**：您有一个名为"secretFlag"的标志，仅供内部使用，不希望它显示在帮助文本中或可用于使用文本。
+**示例**：您有一个名为"secretFlag"的标志，仅供内部使用，不希望它显示在帮助文本中或可用于用法文本：
 
 ```go
-// hide a flag by specifying its name
+// 通过指定其名称来隐藏标志
 flags.MarkHidden("secretFlag")
 ```
 
-## Disable sorting of flags 禁用标志的排序
+## 禁用标志的排序
 
-`pflag` allows you to disable sorting of flags for help and usage message.
-
-​	`pflag`允许您禁用帮助和使用消息的标志排序。
+​	`pflag`允许您禁用帮助和用法消息的标志排序。
 
 示例：
 
@@ -283,7 +251,7 @@ flags.SortFlags = false
 flags.PrintDefaults()
 ```
 
-**输出**:
+输出:
 
 ```
   -v, --verbose           verbose output
@@ -291,15 +259,11 @@ flags.PrintDefaults()
       --usefulflag int    sometimes it's very useful (default 777)
 ```
 
-## Supporting Go flags when using pflag 在使用pflag时支持Go标志
+## 在使用pflag时支持Go（标准库中的flag定义的）标志
 
-In order to support flags defined using Go's `flag` package, they must be added to the `pflag` flagset. This is usually necessary to support flags defined by third-party dependencies (e.g. `golang/glog`).
+​	为了支持使用Go的`flag`包定义的标志，它们必须被添加到`pflag`的标志集中。这通常是为了支持由第三方依赖（例如`golang/glog`）定义的标志。
 
-​	为了支持使用Go的`flag`包定义的标志，它们必须添加到`pflag`的标志集中。这通常是为了支持由第三方依赖（例如`golang/glog`）定义的标志。
-
-**Example**: You want to add the Go flags to the `CommandLine` flagset
-
-**示例**：您希望将Go标志添加到`CommandLine`的标志集中
+**示例**：您希望将Go标志添加到`CommandLine`的标志集中：
 
 ```go
 import (
@@ -317,164 +281,21 @@ func main() {
 
 ## 更多信息
 
-You can see the full reference documentation of the pflag package [at godoc.org](http://godoc.org/github.com/spf13/pflag), or through go's standard documentation system by running `godoc -http=:6060` and browsing to http://localhost:6060/pkg/github.com/spf13/pflag after installation.
-
-​	您可以在[godoc.org](http://godoc.org/github.com/spf13/pflag)上查看pflag包的完整参考文档，或者在安装后通过运行`godoc -http=:6060`并浏览http://localhost:6060/pkg/github.com/spf13/pflag来使用Go的标准文档系统。
+​	您可以在[godoc.org](http://godoc.org/github.com/spf13/pflag)上查看pflag包的完整参考文档，或者在安装后通过运行`godoc -http=:6060`并浏览http://localhost:6060/pkg/github.com/spf13/pflag来使用 go 的标准文档系统。
 
 
 
 ## 文档概述
 
-Package pflag is a drop-in replacement for Go's flag package, implementing POSIX/GNU-style --flags.
+​	pflag包是Go标准库flag包的一个替代品，实现了POSIX/GNU风格的`--flags`。
 
-​	pflag包是Go标准库flag包的一个替代品，实现了POSIX/GNU风格的--flags。
+​	pflag 与 GNU 对命令行选项的 POSIX 建议的扩展兼容。请参阅 [http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html](http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html)。
 
-
-
-pflag is compatible with the GNU extensions to the POSIX recommendations for command-line options. See http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html
-
-​	pflag与GNU对POSIX命令行选项的推荐扩展兼容。请参阅http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html
-
-用法：
-
-pflag is a drop-in replacement of Go's native flag package. If you import pflag under the name "flag" then all code should continue to function with no changes.
-
-​	pflag是Go原生flag包的一个替代品。如果您使用名称"flag"导入pflag，则所有代码应该继续正常工作，无需更改。
-
-```go
-import flag "github.com/spf13/pflag"
-```
-
-There is one exception to this: if you directly instantiate the Flag struct there is one more field "Shorthand" that you will need to set. Most code never instantiates this struct directly, and instead uses functions such as String(), BoolVar(), and Var(), and is therefore unaffected.
-
-​	但有一个例外：如果直接实例化Flag结构体，则需要设置一个额外的字段"Shorthand"。大多数代码不会直接实例化此结构体，而是使用诸如String()、BoolVar()和Var()等函数，因此不受影响。
-
-Define flags using flag.String(), Bool(), Int(), etc.
-
-​	使用flag.String()、Bool()、Int()等来定义标志。
-
-This declares an integer flag, -flagname, stored in the pointer ip, with type *int.
-
-​	这将声明一个整数标志-flagname，存储在指针ip中，类型为`*int`。
-
-```go
-var ip = flag.Int("flagname", 1234, "help message for flagname")
-```
-
-If you like, you can bind the flag to a variable using the Var() functions.
-
-​	如果愿意，可以使用Var()函数将标志绑定到变量。
-
-```go
-var flagvar int
-func init() {
-	flag.IntVar(&flagvar, "flagname", 1234, "help message for flagname")
-}
-```
-
-Or you can create custom flags that satisfy the Value interface (with pointer receivers) and couple them to flag parsing by
-
-​	或者，您可以创建满足Value接口（具有指针接收者）的自定义标志，并将它们与标志解析耦合
-
-```go
-flag.Var(&flagVal, "name", "help message for flagname")
-```
-
-For such flags, the default value is just the initial value of the variable.
-
-​	对于这些标志，默认值只是变量的初始值。
-
-After all flags are defined, call
-
-​	在定义所有标志后，调用
-
-```go
-flag.Parse()
-```
-
-to parse the command line into the defined flags.
-
-将命令行解析为已定义的标志。
-
-Flags may then be used directly. If you're using the flags themselves, they are all pointers; if you bind to variables, they're values.
-
-​	然后可以直接使用标志。如果使用标志本身，它们都是指针；如果绑定到变量，则是值。
-
-```go
-fmt.Println("ip has value ", *ip)
-fmt.Println("flagvar has value ", flagvar)
-```
-
-After parsing, the arguments after the flag are available as the slice flag.Args() or individually as flag.Arg(i). The arguments are indexed from 0 through flag.NArg()-1.
-
-​	解析后，标志后面的参数可以作为切片flag.Args()或单独作为flag.Arg(i)使用。参数从0到flag.NArg()-1进行索引。
-
-The pflag package also defines some new functions that are not in flag, that give one-letter shorthands for flags. You can use these by appending 'P' to the name of any function that defines a flag.
-
-​	pflag包还定义了一些在flag中不存在的新函数，为标志提供了一字母的缩写形式。您可以通过将定义标志的任何函数的名称附加'P'来使用这些函数。
-
-```go
-var ip = flag.IntP("flagname", "f", 1234, "help message")
-var flagvar bool
-func init() {
-	flag.BoolVarP(&flagvar, "boolname", "b", true, "help message")
-}
-flag.VarP(&flagval, "varname", "v", "help message")
-```
-
-Shorthand letters can be used with single dashes on the command line. Boolean shorthand flags can be combined with other shorthand flags.
-
-​	单个短横线加上字母可以在命令行中使用。布尔型短标志可以与其他短标志组合使用。
-
-Command line flag syntax:
-
-​	命令行标志语法：
-
-```
---flag    // boolean flags only
---flag=x
-```
-
-Unlike the flag package, a single dash before an option means something different than a double dash. Single dashes signify a series of shorthand letters for flags. All but the last shorthand letter must be boolean flags.
-
-​	与flag包不同，选项之前的单个短横线与双短横线有不同的含义。单个短横线表示一系列用于标志的简写字母。除了最后一个简写字母，其他字母必须是布尔型标志。
-
-```
-// boolean flags
--f
--abc
-// non-boolean flags
--n 1234
--Ifile
-// mixed
--abcs "hello"
--abcn1234
-```
-
-Flag parsing stops after the terminator "--". Unlike the flag package, flags can be interspersed with arguments anywhere on the command line before this terminator.
-
-在终止符"`--`"之后，标志解析停止。与flag包不同，标志可以与参数交错出现在终止符之前的命令行中的任何位置。
-
-Integer flags accept 1234, 0664, 0x1234 and may be negative. Boolean flags (in their long form) accept 1, 0, t, f, true, false, TRUE, FALSE, True, False. Duration flags accept any input valid for time.ParseDuration.
-
-​	整数标志接受1234、0664、0x1234等值，可以为负数。布尔型标志（以其长形式表示）接受1、0、t、f、true、false、TRUE、FALSE、True、False。持续时间标志接受任何time.ParseDuration可接受的输入。
-
-The default set of command-line flags is controlled by top-level functions. The FlagSet type allows one to define independent sets of flags, such as to implement subcommands in a command-line interface. The methods of FlagSet are analogous to the top-level functions for the command-line flag set.
-
-​	默认的命令行标志集由顶级函数控制。FlagSet类型允许定义独立的标志集，例如在命令行界面中实现子命令。FlagSet的方法与用于命令行标志集的顶级函数类似。
-
-
-
-#### Examples 
-
-- [FlagSet.ShorthandLookup](https://pkg.go.dev/github.com/spf13/pflag#example-FlagSet.ShorthandLookup)
-- [ShorthandLookup](https://pkg.go.dev/github.com/spf13/pflag#example-ShorthandLookup)
-
-### Constants 
+### 常量
 
 This section is empty.
 
-### Variables 
+### 变量
 
 [View Source](https://github.com/spf13/pflag/blob/v1.0.5/flag.go#L1212)
 
@@ -482,7 +303,7 @@ This section is empty.
 var CommandLine = NewFlagSet(os.Args[0], ExitOnError)
 ```
 
-CommandLine is the default set of command-line flags, parsed from os.Args.
+​	CommandLine 变量是默认的命令行标志集，从 os.Args 解析而来。
 
 [View Source](https://github.com/spf13/pflag/blob/v1.0.5/flag.go#L113)
 
@@ -491,6 +312,8 @@ var ErrHelp = errors.New("pflag: help requested")
 ```
 
 ErrHelp is the error returned if the flag -help is invoked but no such flag is defined.
+
+​	ErrHelp 变量是在调用标志 `-help` 但没有定义此类标志时返回的错误。
 
 [View Source](https://github.com/spf13/pflag/blob/v1.0.5/flag.go#L773)
 
@@ -501,9 +324,9 @@ var Usage = func() {
 }
 ```
 
-Usage prints to standard error a usage message documenting all defined command-line flags. The function is a variable that may be changed to point to a custom function. By default it prints a simple header and calls PrintDefaults; for details about the format of the output and how to control it, see the documentation for PrintDefaults.
+​	Usage 变量将一个用于文档化所有定义的命令行标志的用法消息打印到标准错误。该函数是一个变量，可以更改为指向自定义函数。默认情况下，它会打印一个简单的标题并调用 PrintDefaults；关于输出格式及如何控制它的详细信息，请参阅 PrintDefaults 的文档。
 
-### Functions 
+### 函数
 
 #### func Arg 
 
@@ -511,7 +334,7 @@ Usage prints to standard error a usage message documenting all defined command-l
 func Arg(i int) string
 ```
 
-Arg returns the i'th command-line argument. Arg(0) is the first remaining argument after flags have been processed.
+​	Arg 函数返回第 i 个命令行实参。Arg(0) 是在处理标志后剩余的第一个实参。
 
 #### func Args 
 
@@ -519,7 +342,7 @@ Arg returns the i'th command-line argument. Arg(0) is the first remaining argume
 func Args() []string
 ```
 
-Args returns the non-flag command-line arguments.
+​	Args 函数返回非标志的命令行实参。
 
 #### func Bool 
 
@@ -527,7 +350,7 @@ Args returns the non-flag command-line arguments.
 func Bool(name string, value bool, usage string) *bool
 ```
 
-Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.
+​	Bool 函数定义一个具有指定名称、默认值和用法说明的 bool 标志。返回值是存储标志值的 bool 变量的地址。
 
 #### func BoolP 
 
@@ -535,7 +358,7 @@ Bool defines a bool flag with specified name, default value, and usage string. T
 func BoolP(name, shorthand string, value bool, usage string) *bool
 ```
 
-BoolP is like Bool, but accepts a shorthand letter that can be used after a single dash.
+​	BoolP 函数类似于 Bool函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BoolSlice 
 
@@ -543,7 +366,7 @@ BoolP is like Bool, but accepts a shorthand letter that can be used after a sing
 func BoolSlice(name string, value []bool, usage string) *[]bool
 ```
 
-BoolSlice defines a []bool flag with specified name, default value, and usage string. The return value is the address of a []bool variable that stores the value of the flag.
+​	BoolSlice 函数定义一个具有指定名称、默认值和用法说明的 `[]bool` 标志。返回值是存储标志值的 `[]bool` 变量的地址。
 
 #### func BoolSliceP 
 
@@ -551,7 +374,7 @@ BoolSlice defines a []bool flag with specified name, default value, and usage st
 func BoolSliceP(name, shorthand string, value []bool, usage string) *[]bool
 ```
 
-BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used after a single dash.
+​	BoolSliceP 函数类似于 BoolSlice函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BoolSliceVar 
 
@@ -559,7 +382,7 @@ BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used af
 func BoolSliceVar(p *[]bool, name string, value []bool, usage string)
 ```
 
-BoolSliceVar defines a []bool flag with specified name, default value, and usage string. The argument p points to a []bool variable in which to store the value of the flag.
+​	BoolSliceVar 函数定义一个具有指定名称、默认值和用法说明的 `[]bool` 标志。参数 p 指向一个 `[]bool` 变量，用于存储标志值。
 
 #### func BoolSliceVarP 
 
@@ -567,7 +390,7 @@ BoolSliceVar defines a []bool flag with specified name, default value, and usage
 func BoolSliceVarP(p *[]bool, name, shorthand string, value []bool, usage string)
 ```
 
-BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	BoolSliceVarP 函数类似于 BoolSliceVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BoolVar 
 
@@ -575,7 +398,7 @@ BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be u
 func BoolVar(p *bool, name string, value bool, usage string)
 ```
 
-BoolVar defines a bool flag with specified name, default value, and usage string. The argument p points to a bool variable in which to store the value of the flag.
+​	BoolVar 函数定义一个具有指定名称、默认值和用法说明的 bool 标志。参数 p 指向一个 bool 变量，用于存储标志值。
 
 #### func BoolVarP 
 
@@ -583,7 +406,7 @@ BoolVar defines a bool flag with specified name, default value, and usage string
 func BoolVarP(p *bool, name, shorthand string, value bool, usage string)
 ```
 
-BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after a single dash.
+​	BoolVarP 函数类似于 BoolVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BytesBase64  <- v1.0.2
 
@@ -591,7 +414,7 @@ BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after 
 func BytesBase64(name string, value []byte, usage string) *[]byte
 ```
 
-BytesBase64 defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
+​	BytesBase64 函数定义一个具有指定名称、默认值和用法说明的 `[]byte` 标志。返回值是存储标志值的 `[]byte` 变量的地址。
 
 #### func BytesBase64P  <- v1.0.2
 
@@ -599,7 +422,7 @@ BytesBase64 defines an []byte flag with specified name, default value, and usage
 func BytesBase64P(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
-BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be used after a single dash.
+​	BytesBase64P 函数类似于 BytesBase64函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BytesBase64Var  <- v1.0.2
 
@@ -607,7 +430,7 @@ BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be use
 func BytesBase64Var(p *[]byte, name string, value []byte, usage string)
 ```
 
-BytesBase64Var defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
+​	BytesBase64Var 函数定义一个具有指定名称、默认值和用法说明的 `[]byte` 标志。参数 p 指向一个 `[]byte` 变量，用于存储标志值。
 
 #### func BytesBase64VarP  <- v1.0.2
 
@@ -615,7 +438,7 @@ BytesBase64Var defines an []byte flag with specified name, default value, and us
 func BytesBase64VarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
-BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can be used after a single dash.
+​	BytesBase64VarP 函数类似于 BytesBase64Var函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BytesHex  <- v1.0.1
 
@@ -623,7 +446,7 @@ BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can 
 func BytesHex(name string, value []byte, usage string) *[]byte
 ```
 
-BytesHex defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
+​	BytesHex 函数定义一个具有指定名称、默认值和用法说明的 `[]byte` 标志。返回值是存储标志值的 []byte 变量的地址。
 
 #### func BytesHexP  <- v1.0.1
 
@@ -631,7 +454,7 @@ BytesHex defines an []byte flag with specified name, default value, and usage st
 func BytesHexP(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
-BytesHexP is like BytesHex, but accepts a shorthand letter that can be used after a single dash.
+​	BytesHexP 函数类似于 BytesHex函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func BytesHexVar  <- v1.0.1
 
@@ -639,7 +462,7 @@ BytesHexP is like BytesHex, but accepts a shorthand letter that can be used afte
 func BytesHexVar(p *[]byte, name string, value []byte, usage string)
 ```
 
-BytesHexVar defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
+​	BytesHexVar 函数定义一个具有指定名称、默认值和用法说明的 `[]byte` 标志。参数 p 指向一个 []byte 变量，用于存储标志值。
 
 #### func BytesHexVarP  <- v1.0.1
 
@@ -647,7 +470,7 @@ BytesHexVar defines an []byte flag with specified name, default value, and usage
 func BytesHexVarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
-BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be used after a single dash.
+​	BytesHexVarP 函数类似于 BytesHexVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Count 
 
@@ -655,7 +478,7 @@ BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be use
 func Count(name string, usage string) *int
 ```
 
-Count defines a count flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag. A count flag will add 1 to its value evey time it is found on the command line
+​	Count 函数定义一个具有指定名称、默认值和用法说明的计数标志。返回值是存储标志值的 int 变量的地址。计数标志每次在命令行上找到时都会将其值加 1。
 
 #### func CountP 
 
@@ -663,7 +486,7 @@ Count defines a count flag with specified name, default value, and usage string.
 func CountP(name, shorthand string, usage string) *int
 ```
 
-CountP is like Count only takes a shorthand for the flag name.
+​	CountP 函数类似于 Count函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func CountVar 
 
@@ -671,7 +494,7 @@ CountP is like Count only takes a shorthand for the flag name.
 func CountVar(p *int, name string, usage string)
 ```
 
-CountVar like CountVar only the flag is placed on the CommandLine instead of a given flag set
+​	CountVar 函数类似于 Count函数，但将标志放在 CommandLine 上，而不是在给定的标志集中。
 
 #### func CountVarP 
 
@@ -679,7 +502,7 @@ CountVar like CountVar only the flag is placed on the CommandLine instead of a g
 func CountVarP(p *int, name, shorthand string, usage string)
 ```
 
-CountVarP is like CountVar only take a shorthand for the flag name.
+​	CountVarP 函数类似于 CountVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Duration 
 
@@ -687,7 +510,7 @@ CountVarP is like CountVar only take a shorthand for the flag name.
 func Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
-Duration defines a time.Duration flag with specified name, default value, and usage string. The return value is the address of a time.Duration variable that stores the value of the flag.
+​	Duration 函数定义一个具有指定名称、默认值和用法说明的 time.Duration 标志。返回值是存储标志值的 time.Duration 变量的地址。
 
 #### func DurationP 
 
@@ -695,7 +518,7 @@ Duration defines a time.Duration flag with specified name, default value, and us
 func DurationP(name, shorthand string, value time.Duration, usage string) *time.Duration
 ```
 
-DurationP is like Duration, but accepts a shorthand letter that can be used after a single dash.
+​	DurationP 函数类似于 Duration函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func DurationSlice  <- v1.0.1
 
@@ -703,7 +526,7 @@ DurationP is like Duration, but accepts a shorthand letter that can be used afte
 func DurationSlice(name string, value []time.Duration, usage string) *[]time.Duration
 ```
 
-DurationSlice defines a []time.Duration flag with specified name, default value, and usage string. The return value is the address of a []time.Duration variable that stores the value of the flag.
+​	DurationSlice 函数定义一个具有指定名称、默认值和用法说明的 []time.Duration 标志。返回值是存储标志值的 []time.Duration 变量的地址。
 
 #### func DurationSliceP  <- v1.0.1
 
@@ -711,7 +534,7 @@ DurationSlice defines a []time.Duration flag with specified name, default value,
 func DurationSliceP(name, shorthand string, value []time.Duration, usage string) *[]time.Duration
 ```
 
-DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be used after a single dash.
+​	DurationSliceP 函数类似于 DurationSlice函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func DurationSliceVar  <- v1.0.1
 
@@ -719,7 +542,7 @@ DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be
 func DurationSliceVar(p *[]time.Duration, name string, value []time.Duration, usage string)
 ```
 
-DurationSliceVar defines a duration[] flag with specified name, default value, and usage string. The argument p points to a duration[] variable in which to store the value of the flag.
+​	DurationSliceVar 函数定义一个具有指定名称、默认值和用法说明的 `[]time.Duration` 标志。参数 p 指向一个 `[]time.Duration` 变量，用于存储标志值。
 
 #### func DurationSliceVarP  <- v1.0.1
 
@@ -727,7 +550,7 @@ DurationSliceVar defines a duration[] flag with specified name, default value, a
 func DurationSliceVarP(p *[]time.Duration, name, shorthand string, value []time.Duration, usage string)
 ```
 
-DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	DurationSliceVarP 函数类似于 DurationSliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func DurationVar 
 
@@ -735,7 +558,7 @@ DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that 
 func DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
-DurationVar defines a time.Duration flag with specified name, default value, and usage string. The argument p points to a time.Duration variable in which to store the value of the flag.
+​	DurationVar 函数定义一个具有指定名称、默认值和用法说明的 time.Duration 标志。参数 p 指向一个 time.Duration 变量，用于存储标志值。
 
 #### func DurationVarP 
 
@@ -743,7 +566,7 @@ DurationVar defines a time.Duration flag with specified name, default value, and
 func DurationVarP(p *time.Duration, name, shorthand string, value time.Duration, usage string)
 ```
 
-DurationVarP is like DurationVar, but accepts a shorthand letter that can be used after a single dash.
+​	DurationVarP 函数类似于 DurationVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float32 
 
@@ -751,7 +574,7 @@ DurationVarP is like DurationVar, but accepts a shorthand letter that can be use
 func Float32(name string, value float32, usage string) *float32
 ```
 
-Float32 defines a float32 flag with specified name, default value, and usage string. The return value is the address of a float32 variable that stores the value of the flag.
+​	Float32 函数定义一个具有指定名称、默认值和用法说明的 float32 标志。返回值是存储标志值的 float32 变量的地址。
 
 #### func Float32P 
 
@@ -759,7 +582,7 @@ Float32 defines a float32 flag with specified name, default value, and usage str
 func Float32P(name, shorthand string, value float32, usage string) *float32
 ```
 
-Float32P is like Float32, but accepts a shorthand letter that can be used after a single dash.
+​	Float32P 函数类似于 Float32函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float32Slice  <- v1.0.5
 
@@ -767,7 +590,7 @@ Float32P is like Float32, but accepts a shorthand letter that can be used after 
 func Float32Slice(name string, value []float32, usage string) *[]float32
 ```
 
-Float32Slice defines a []float32 flag with specified name, default value, and usage string. The return value is the address of a []float32 variable that stores the value of the flag.
+​	Float32Slice 函数定义一个具有指定名称、默认值和用法说明的 `[]float32` 标志。返回值是存储标志值的 `[]float32` 变量的地址。
 
 #### func Float32SliceP  <- v1.0.5
 
@@ -775,7 +598,7 @@ Float32Slice defines a []float32 flag with specified name, default value, and us
 func Float32SliceP(name, shorthand string, value []float32, usage string) *[]float32
 ```
 
-Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Float32SliceP 函数类似于 Float32Slice函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float32SliceVar  <- v1.0.5
 
@@ -783,7 +606,7 @@ Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be u
 func Float32SliceVar(p *[]float32, name string, value []float32, usage string)
 ```
 
-Float32SliceVar defines a float32[] flag with specified name, default value, and usage string. The argument p points to a float32[] variable in which to store the value of the flag.
+​	Float32SliceVar 函数定义一个具有指定名称、默认值和用法说明的 `[]float32` 标志。参数 p 指向一个 `[]float32` 变量，用于存储标志值。
 
 #### func Float32SliceVarP  <- v1.0.5
 
@@ -791,7 +614,7 @@ Float32SliceVar defines a float32[] flag with specified name, default value, and
 func Float32SliceVarP(p *[]float32, name, shorthand string, value []float32, usage string)
 ```
 
-Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Float32SliceVarP 函数类似于 Float32SliceVar函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float32Var 
 
@@ -799,7 +622,7 @@ Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that ca
 func Float32Var(p *float32, name string, value float32, usage string)
 ```
 
-Float32Var defines a float32 flag with specified name, default value, and usage string. The argument p points to a float32 variable in which to store the value of the flag.
+​	Float32Var 函数定义一个具有指定名称、默认值和用法说明的 float32 标志。参数 p 指向一个 float32 变量，用于存储标志值。
 
 #### func Float32VarP 
 
@@ -807,7 +630,7 @@ Float32Var defines a float32 flag with specified name, default value, and usage 
 func Float32VarP(p *float32, name, shorthand string, value float32, usage string)
 ```
 
-Float32VarP is like Float32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Float32VarP 函数类似于 Float32Var函数，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float64 
 
@@ -815,7 +638,7 @@ Float32VarP is like Float32Var, but accepts a shorthand letter that can be used 
 func Float64(name string, value float64, usage string) *float64
 ```
 
-Float64 defines a float64 flag with specified name, default value, and usage string. The return value is the address of a float64 variable that stores the value of the flag.
+​	Float64 函数定义一个具有指定名称、默认值和用法说明的 float64 标志。返回值是存储标志值的 float64 变量的地址。
 
 #### func Float64P 
 
@@ -823,7 +646,7 @@ Float64 defines a float64 flag with specified name, default value, and usage str
 func Float64P(name, shorthand string, value float64, usage string) *float64
 ```
 
-Float64P is like Float64, but accepts a shorthand letter that can be used after a single dash.
+​	Float64P 类似于 Float64，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float64Slice  <- v1.0.5
 
@@ -831,7 +654,7 @@ Float64P is like Float64, but accepts a shorthand letter that can be used after 
 func Float64Slice(name string, value []float64, usage string) *[]float64
 ```
 
-Float64Slice defines a []float64 flag with specified name, default value, and usage string. The return value is the address of a []float64 variable that stores the value of the flag.
+​	Float64Slice 定义一个具有指定名称、默认值和用法说明的 `[]float64` 标志。返回值是存储标志值的 `[]float64` 变量的地址。
 
 #### func Float64SliceP  <- v1.0.5
 
@@ -839,7 +662,7 @@ Float64Slice defines a []float64 flag with specified name, default value, and us
 func Float64SliceP(name, shorthand string, value []float64, usage string) *[]float64
 ```
 
-Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Float64SliceP 类似于 Float64Slice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float64SliceVar  <- v1.0.5
 
@@ -847,7 +670,7 @@ Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be u
 func Float64SliceVar(p *[]float64, name string, value []float64, usage string)
 ```
 
-Float64SliceVar defines a float64[] flag with specified name, default value, and usage string. The argument p points to a float64[] variable in which to store the value of the flag.
+​	Float64SliceVar 定义一个具有指定名称、默认值和用法说明的 []float64 标志。参数 p 指向一个 []float64 变量，用于存储标志值。
 
 #### func Float64SliceVarP  <- v1.0.5
 
@@ -855,7 +678,7 @@ Float64SliceVar defines a float64[] flag with specified name, default value, and
 func Float64SliceVarP(p *[]float64, name, shorthand string, value []float64, usage string)
 ```
 
-Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Float64SliceVarP 类似于 Float64SliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Float64Var 
 
@@ -863,7 +686,7 @@ Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that ca
 func Float64Var(p *float64, name string, value float64, usage string)
 ```
 
-Float64Var defines a float64 flag with specified name, default value, and usage string. The argument p points to a float64 variable in which to store the value of the flag.
+​	Float64Var 定义一个具有指定名称、默认值和用法说明的 float64 标志。参数 p 指向一个 float64 变量，用于存储标志值。
 
 #### func Float64VarP 
 
@@ -871,7 +694,7 @@ Float64Var defines a float64 flag with specified name, default value, and usage 
 func Float64VarP(p *float64, name, shorthand string, value float64, usage string)
 ```
 
-Float64VarP is like Float64Var, but accepts a shorthand letter that can be used after a single dash.
+​	Float64VarP 类似于 Float64Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IP 
 
@@ -879,7 +702,7 @@ Float64VarP is like Float64Var, but accepts a shorthand letter that can be used 
 func IP(name string, value net.IP, usage string) *net.IP
 ```
 
-IP defines an net.IP flag with specified name, default value, and usage string. The return value is the address of an net.IP variable that stores the value of the flag.
+​	IP 定义一个具有指定名称、默认值和用法说明的 net.IP 标志。返回值是存储标志值的 net.IP 变量的地址。
 
 #### func IPMask 
 
@@ -887,7 +710,7 @@ IP defines an net.IP flag with specified name, default value, and usage string. 
 func IPMask(name string, value net.IPMask, usage string) *net.IPMask
 ```
 
-IPMask defines an net.IPMask flag with specified name, default value, and usage string. The return value is the address of an net.IPMask variable that stores the value of the flag.
+​	IPMask 定义一个具有指定名称、默认值和用法说明的 net.IPMask 标志。返回值是存储标志值的 net.IPMask 变量的地址。
 
 #### func IPMaskP 
 
@@ -895,7 +718,7 @@ IPMask defines an net.IPMask flag with specified name, default value, and usage 
 func IPMaskP(name, shorthand string, value net.IPMask, usage string) *net.IPMask
 ```
 
-IPMaskP is like IP, but accepts a shorthand letter that can be used after a single dash.
+​	IPMaskP 类似于 IP，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPMaskVar 
 
@@ -903,7 +726,7 @@ IPMaskP is like IP, but accepts a shorthand letter that can be used after a sing
 func IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage string)
 ```
 
-IPMaskVar defines an net.IPMask flag with specified name, default value, and usage string. The argument p points to an net.IPMask variable in which to store the value of the flag.
+​	IPMaskVar 定义一个具有指定名称、默认值和用法说明的 net.IPMask 标志。参数 p 指向一个 net.IPMask 变量，用于存储标志值。
 
 #### func IPMaskVarP 
 
@@ -911,7 +734,7 @@ IPMaskVar defines an net.IPMask flag with specified name, default value, and usa
 func IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IPMask, usage string)
 ```
 
-IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPMaskVarP 类似于 IPMaskVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPNet 
 
@@ -919,7 +742,7 @@ IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used af
 func IPNet(name string, value net.IPNet, usage string) *net.IPNet
 ```
 
-IPNet defines an net.IPNet flag with specified name, default value, and usage string. The return value is the address of an net.IPNet variable that stores the value of the flag.
+​	IPNet 定义一个具有指定名称、默认值和用法说明的 net.IPNet 标志。返回值是存储标志值的 net.IPNet 变量的地址。
 
 #### func IPNetP 
 
@@ -927,7 +750,7 @@ IPNet defines an net.IPNet flag with specified name, default value, and usage st
 func IPNetP(name, shorthand string, value net.IPNet, usage string) *net.IPNet
 ```
 
-IPNetP is like IPNet, but accepts a shorthand letter that can be used after a single dash.
+​	IPNetP 类似于 IPNet，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPNetVar 
 
@@ -935,7 +758,7 @@ IPNetP is like IPNet, but accepts a shorthand letter that can be used after a si
 func IPNetVar(p *net.IPNet, name string, value net.IPNet, usage string)
 ```
 
-IPNetVar defines an net.IPNet flag with specified name, default value, and usage string. The argument p points to an net.IPNet variable in which to store the value of the flag.
+​	IPNetVar 定义一个具有指定名称、默认值和用法说明的 net.IPNet 标志。参数 p 指向一个 net.IPNet 变量，用于存储标志值。
 
 #### func IPNetVarP 
 
@@ -943,7 +766,7 @@ IPNetVar defines an net.IPNet flag with specified name, default value, and usage
 func IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNet, usage string)
 ```
 
-IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPNetVarP 类似于 IPNetVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPP 
 
@@ -951,7 +774,7 @@ IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used afte
 func IPP(name, shorthand string, value net.IP, usage string) *net.IP
 ```
 
-IPP is like IP, but accepts a shorthand letter that can be used after a single dash.
+​	IPP 类似于 IP，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPSlice 
 
@@ -959,7 +782,7 @@ IPP is like IP, but accepts a shorthand letter that can be used after a single d
 func IPSlice(name string, value []net.IP, usage string) *[]net.IP
 ```
 
-IPSlice defines a []net.IP flag with specified name, default value, and usage string. The return value is the address of a []net.IP variable that stores the value of the flag.
+​	IPSlice 定义一个具有指定名称、默认值和用法说明的 `[]net.IP` 标志。返回值是存储标志值的 `[]net.IP` 变量的地址。
 
 #### func IPSliceP 
 
@@ -967,7 +790,7 @@ IPSlice defines a []net.IP flag with specified name, default value, and usage st
 func IPSliceP(name, shorthand string, value []net.IP, usage string) *[]net.IP
 ```
 
-IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after a single dash.
+​	IPSliceP 类似于 IPSlice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPSliceVar 
 
@@ -975,7 +798,7 @@ IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after 
 func IPSliceVar(p *[]net.IP, name string, value []net.IP, usage string)
 ```
 
-IPSliceVar defines a []net.IP flag with specified name, default value, and usage string. The argument p points to a []net.IP variable in which to store the value of the flag.
+​	IPSliceVar 定义一个具有指定名称、默认值和用法说明的 `[]net.IP` 标志。参数 p 指向一个 `[]net.IP` 变量，用于存储标志值。
 
 #### func IPSliceVarP 
 
@@ -983,7 +806,7 @@ IPSliceVar defines a []net.IP flag with specified name, default value, and usage
 func IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.IP, usage string)
 ```
 
-IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPSliceVarP 类似于 IPSliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IPVar 
 
@@ -991,7 +814,7 @@ IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used 
 func IPVar(p *net.IP, name string, value net.IP, usage string)
 ```
 
-IPVar defines an net.IP flag with specified name, default value, and usage string. The argument p points to an net.IP variable in which to store the value of the flag.
+​	IPVar 定义一个具有指定名称、默认值和用法说明的 net.IP 标志。参数 p 指向一个 net.IP 变量，用于存储标志值。
 
 #### func IPVarP 
 
@@ -999,7 +822,7 @@ IPVar defines an net.IP flag with specified name, default value, and usage strin
 func IPVarP(p *net.IP, name, shorthand string, value net.IP, usage string)
 ```
 
-IPVarP is like IPVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPVarP 类似于 IPVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int 
 
@@ -1007,7 +830,7 @@ IPVarP is like IPVar, but accepts a shorthand letter that can be used after a si
 func Int(name string, value int, usage string) *int
 ```
 
-Int defines an int flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag.
+​	Int 定义一个具有指定名称、默认值和用法说明的 int 标志。返回值是存储标志值的 int 变量的地址。
 
 #### func Int16  <- v1.0.1
 
@@ -1015,7 +838,7 @@ Int defines an int flag with specified name, default value, and usage string. Th
 func Int16(name string, value int16, usage string) *int16
 ```
 
-Int16 defines an int16 flag with specified name, default value, and usage string. The return value is the address of an int16 variable that stores the value of the flag.
+​	Int16 定义一个具有指定名称、默认值和用法说明的 int16 标志。返回值是存储标志值的 int16 变量的地址。
 
 #### func Int16P  <- v1.0.1
 
@@ -1023,7 +846,7 @@ Int16 defines an int16 flag with specified name, default value, and usage string
 func Int16P(name, shorthand string, value int16, usage string) *int16
 ```
 
-Int16P is like Int16, but accepts a shorthand letter that can be used after a single dash.
+​	Int16P 类似于 Int16，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int16Var  <- v1.0.1
 
@@ -1031,7 +854,7 @@ Int16P is like Int16, but accepts a shorthand letter that can be used after a si
 func Int16Var(p *int16, name string, value int16, usage string)
 ```
 
-Int16Var defines an int16 flag with specified name, default value, and usage string. The argument p points to an int16 variable in which to store the value of the flag.
+​	Int16Var 定义一个具有指定名称、默认值和用法说明的 int16 标志。参数 p 指向一个 int16 变量，用于存储标志值。
 
 #### func Int16VarP  <- v1.0.1
 
@@ -1039,7 +862,7 @@ Int16Var defines an int16 flag with specified name, default value, and usage str
 func Int16VarP(p *int16, name, shorthand string, value int16, usage string)
 ```
 
-Int16VarP is like Int16Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int16VarP 类似于 Int16Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int32 
 
@@ -1047,7 +870,7 @@ Int16VarP is like Int16Var, but accepts a shorthand letter that can be used afte
 func Int32(name string, value int32, usage string) *int32
 ```
 
-Int32 defines an int32 flag with specified name, default value, and usage string. The return value is the address of an int32 variable that stores the value of the flag.
+​	Int32 定义一个具有指定名称、默认值和用法说明的 int32 标志。返回值是存储标志值的 int32 变量的地址。
 
 #### func Int32P 
 
@@ -1055,7 +878,7 @@ Int32 defines an int32 flag with specified name, default value, and usage string
 func Int32P(name, shorthand string, value int32, usage string) *int32
 ```
 
-Int32P is like Int32, but accepts a shorthand letter that can be used after a single dash.
+​	Int32P 类似于 Int32，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int32Slice  <- v1.0.5
 
@@ -1063,7 +886,7 @@ Int32P is like Int32, but accepts a shorthand letter that can be used after a si
 func Int32Slice(name string, value []int32, usage string) *[]int32
 ```
 
-Int32Slice defines a []int32 flag with specified name, default value, and usage string. The return value is the address of a []int32 variable that stores the value of the flag.
+​	Int32Slice 定义一个具有指定名称、默认值和用法说明的 `[]int32` 标志。返回值是存储标志值的 `[]int32` 变量的地址。
 
 #### func Int32SliceP  <- v1.0.5
 
@@ -1071,7 +894,7 @@ Int32Slice defines a []int32 flag with specified name, default value, and usage 
 func Int32SliceP(name, shorthand string, value []int32, usage string) *[]int32
 ```
 
-Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Int32SliceP 类似于 Int32Slice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int32SliceVar  <- v1.0.5
 
@@ -1079,7 +902,7 @@ Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used 
 func Int32SliceVar(p *[]int32, name string, value []int32, usage string)
 ```
 
-Int32SliceVar defines a int32[] flag with specified name, default value, and usage string. The argument p points to a int32[] variable in which to store the value of the flag.
+​	Int32SliceVar 定义一个具有指定名称、默认值和用法说明的 `[]int32` 标志。参数 p 指向一个 `[]int32` 变量，用于存储标志值。
 
 #### func Int32SliceVarP  <- v1.0.5
 
@@ -1087,7 +910,7 @@ Int32SliceVar defines a int32[] flag with specified name, default value, and usa
 func Int32SliceVarP(p *[]int32, name, shorthand string, value []int32, usage string)
 ```
 
-Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Int32SliceVarP 类似于 Int32SliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int32Var 
 
@@ -1095,7 +918,7 @@ Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be
 func Int32Var(p *int32, name string, value int32, usage string)
 ```
 
-Int32Var defines an int32 flag with specified name, default value, and usage string. The argument p points to an int32 variable in which to store the value of the flag.
+​	Int32Var 定义一个具有指定名称、默认值和用法说明的 int32 标志。参数 p 指向一个 int32 变量，用于存储标志值。
 
 #### func Int32VarP 
 
@@ -1103,7 +926,7 @@ Int32Var defines an int32 flag with specified name, default value, and usage str
 func Int32VarP(p *int32, name, shorthand string, value int32, usage string)
 ```
 
-Int32VarP is like Int32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int32VarP 类似于 Int32Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int64 
 
@@ -1111,7 +934,7 @@ Int32VarP is like Int32Var, but accepts a shorthand letter that can be used afte
 func Int64(name string, value int64, usage string) *int64
 ```
 
-Int64 defines an int64 flag with specified name, default value, and usage string. The return value is the address of an int64 variable that stores the value of the flag.
+​	Int64 定义一个具有指定名称、默认值和用法说明的 int64 标志。返回值是存储标志值的 int64 变量的地址。
 
 #### func Int64P 
 
@@ -1119,7 +942,7 @@ Int64 defines an int64 flag with specified name, default value, and usage string
 func Int64P(name, shorthand string, value int64, usage string) *int64
 ```
 
-Int64P is like Int64, but accepts a shorthand letter that can be used after a single dash.
+​	Int64P 类似于 Int64，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int64Slice  <- v1.0.5
 
@@ -1127,7 +950,7 @@ Int64P is like Int64, but accepts a shorthand letter that can be used after a si
 func Int64Slice(name string, value []int64, usage string) *[]int64
 ```
 
-Int64Slice defines a []int64 flag with specified name, default value, and usage string. The return value is the address of a []int64 variable that stores the value of the flag.
+​	Int64Slice 定义一个具有指定名称、默认值和用法说明的 `[]int64` 标志。返回值是存储标志值的 `[]int64` 变量的地址。
 
 #### func Int64SliceP  <- v1.0.5
 
@@ -1135,7 +958,7 @@ Int64Slice defines a []int64 flag with specified name, default value, and usage 
 func Int64SliceP(name, shorthand string, value []int64, usage string) *[]int64
 ```
 
-Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Int64SliceP 类似于 Int64Slice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int64SliceVar  <- v1.0.5
 
@@ -1145,13 +968,15 @@ func Int64SliceVar(p *[]int64, name string, value []int64, usage string)
 
 Int64SliceVar defines a int64[] flag with specified name, default value, and usage string. The argument p points to a int64[] variable in which to store the value of the flag.
 
+​	Int64SliceVar 定义一个具有指定名称、默认值和用法说明的 `[]int64` 标志。参数 p 指向一个 `[]int64` 变量，用于存储标志值。
+
 #### func Int64SliceVarP  <- v1.0.5
 
 ``` go
 func Int64SliceVarP(p *[]int64, name, shorthand string, value []int64, usage string)
 ```
 
-Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Int64SliceVarP 类似于 Int64SliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Int64Var 
 
@@ -1161,6 +986,8 @@ func Int64Var(p *int64, name string, value int64, usage string)
 
 Int64Var defines an int64 flag with specified name, default value, and usage string. The argument p points to an int64 variable in which to store the value of the flag.
 
+​	Int64VarP 类似于 Int64Var，但接受一个速记字母，该字母可以在单个短划线后使用。
+
 #### func Int64VarP 
 
 ``` go
@@ -1168,6 +995,8 @@ func Int64VarP(p *int64, name, shorthand string, value int64, usage string)
 ```
 
 Int64VarP is like Int64Var, but accepts a shorthand letter that can be used after a single dash.
+
+​	Int8 定义一个具有指定名称、默认值和用法说明的 int8 标志。返回值是存储标志值的 int8 变量的地址。
 
 #### func Int8 
 
@@ -1177,6 +1006,8 @@ func Int8(name string, value int8, usage string) *int8
 
 Int8 defines an int8 flag with specified name, default value, and usage string. The return value is the address of an int8 variable that stores the value of the flag.
 
+​	Int8P 类似于 Int8，但接受一个速记字母，该字母可以在单个短划线后使用。
+
 #### func Int8P 
 
 ``` go
@@ -1184,6 +1015,8 @@ func Int8P(name, shorthand string, value int8, usage string) *int8
 ```
 
 Int8P is like Int8, but accepts a shorthand letter that can be used after a single dash.
+
+​	Int8Var 定义一个具有指定名称、默认值和用法说明的 int8 标志。参数 p 指向一个 int8 变量，用于存储标志值。
 
 #### func Int8Var 
 
@@ -1193,6 +1026,8 @@ func Int8Var(p *int8, name string, value int8, usage string)
 
 Int8Var defines an int8 flag with specified name, default value, and usage string. The argument p points to an int8 variable in which to store the value of the flag.
 
+​	Int8VarP 类似于 Int8Var，但接受一个速记字母，该字母可以在单个短划线后使用。
+
 #### func Int8VarP 
 
 ``` go
@@ -1200,6 +1035,8 @@ func Int8VarP(p *int8, name, shorthand string, value int8, usage string)
 ```
 
 Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after a single dash.
+
+​	Int8VarP 类似于 Int8Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IntP 
 
@@ -1209,6 +1046,8 @@ func IntP(name, shorthand string, value int, usage string) *int
 
 IntP is like Int, but accepts a shorthand letter that can be used after a single dash.
 
+​	IntP 类似于 Int，但接受一个速记字母，该字母可以在单个短划线后使用。
+
 #### func IntSlice 
 
 ``` go
@@ -1217,13 +1056,15 @@ func IntSlice(name string, value []int, usage string) *[]int
 
 IntSlice defines a []int flag with specified name, default value, and usage string. The return value is the address of a []int variable that stores the value of the flag.
 
+​	IntSlice 定义一个具有指定名称、默认值和用法说明的 `[]int` 标志。返回值是存储标志值的 `[]int` 变量的地址。
+
 #### func IntSliceP 
 
 ``` go
 func IntSliceP(name, shorthand string, value []int, usage string) *[]int
 ```
 
-IntSliceP is like IntSlice, but accepts a shorthand letter that can be used after a single dash.
+​	IntSliceP 类似于 IntSlice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IntSliceVar 
 
@@ -1231,7 +1072,7 @@ IntSliceP is like IntSlice, but accepts a shorthand letter that can be used afte
 func IntSliceVar(p *[]int, name string, value []int, usage string)
 ```
 
-IntSliceVar defines a int[] flag with specified name, default value, and usage string. The argument p points to a int[] variable in which to store the value of the flag.
+​	IntSliceVar 定义一个具有指定名称、默认值和用法说明的 `[]int` 标志。参数 p 指向一个 `[]int` 变量，用于存储标志值。
 
 #### func IntSliceVarP 
 
@@ -1239,7 +1080,7 @@ IntSliceVar defines a int[] flag with specified name, default value, and usage s
 func IntSliceVarP(p *[]int, name, shorthand string, value []int, usage string)
 ```
 
-IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	IntSliceVarP 类似于 IntSliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func IntVar 
 
@@ -1247,7 +1088,7 @@ IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be use
 func IntVar(p *int, name string, value int, usage string)
 ```
 
-IntVar defines an int flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag.
+​	IntVar 定义一个具有指定名称、默认值和用法说明的 int 标志。参数 p 指向一个 int 变量，用于存储标志值。
 
 #### func IntVarP 
 
@@ -1255,7 +1096,7 @@ IntVar defines an int flag with specified name, default value, and usage string.
 func IntVarP(p *int, name, shorthand string, value int, usage string)
 ```
 
-IntVarP is like IntVar, but accepts a shorthand letter that can be used after a single dash.
+​	IntVarP 类似于 IntVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func NArg 
 
@@ -1263,15 +1104,13 @@ IntVarP is like IntVar, but accepts a shorthand letter that can be used after a 
 func NArg() int
 ```
 
-NArg is the number of arguments remaining after flags have been processed.
-
-#### func NFlag 
+​	NArg 返回在处理标志之后剩余的参数数目。unc NFlag 
 
 ``` go
 func NFlag() int
 ```
 
-NFlag returns the number of command-line flags that have been set.
+​	NFlag 返回已设置的命令行标志数目。
 
 #### func Parse 
 
@@ -1279,7 +1118,7 @@ NFlag returns the number of command-line flags that have been set.
 func Parse()
 ```
 
-Parse parses the command-line flags from os.Args[1:]. Must be called after all flags are defined and before flags are accessed by the program.
+​	Parse 解析来自 os.Args[1:] 的命令行标志。必须在定义所有标志之后，程序访问标志之前调用。
 
 #### func ParseAll 
 
@@ -1287,7 +1126,7 @@ Parse parses the command-line flags from os.Args[1:]. Must be called after all f
 func ParseAll(fn func(flag *Flag, value string) error)
 ```
 
-ParseAll parses the command-line flags from os.Args[1:] and called fn for each. The arguments for fn are flag and value. Must be called after all flags are defined and before flags are accessed by the program.
+​	ParseAll 解析来自 os.Args[1:] 的命令行标志，并为每个标志调用 fn。fn 的参数为 flag 和 value。必须在定义所有标志之后，程序访问标志之前调用。
 
 #### func ParseIPv4Mask 
 
@@ -1295,7 +1134,7 @@ ParseAll parses the command-line flags from os.Args[1:] and called fn for each. 
 func ParseIPv4Mask(s string) net.IPMask
 ```
 
-ParseIPv4Mask written in IP form (e.g. 255.255.255.0). This function should really belong to the net package.
+​	ParseIPv4Mask 将以 IP 形式（例如 255.255.255.0）编写的字符串解析为 net.IPMask。这个函数应该实际上属于 net 包。
 
 #### func Parsed 
 
@@ -1303,7 +1142,7 @@ ParseIPv4Mask written in IP form (e.g. 255.255.255.0). This function should real
 func Parsed() bool
 ```
 
-Parsed returns true if the command-line flags have been parsed.
+​	Parsed 如果已解析命令行标志，则返回 true。
 
 #### func PrintDefaults 
 
@@ -1311,7 +1150,7 @@ Parsed returns true if the command-line flags have been parsed.
 func PrintDefaults()
 ```
 
-PrintDefaults prints to standard error the default values of all defined command-line flags.
+​	PrintDefaults 打印到标准错误流中所有已定义命令行标志的默认值。
 
 #### func Set 
 
@@ -1319,7 +1158,7 @@ PrintDefaults prints to standard error the default values of all defined command
 func Set(name, value string) error
 ```
 
-Set sets the value of the named command-line flag.
+​	Set 函数用于设置指定名称的命令行标志的值。
 
 #### func SetInterspersed 
 
@@ -1327,7 +1166,7 @@ Set sets the value of the named command-line flag.
 func SetInterspersed(interspersed bool)
 ```
 
-SetInterspersed sets whether to support interspersed option/non-option arguments.
+​	SetInterspersed 函数用于设置是否支持交错的选项和非选项实参。
 
 #### func String 
 
@@ -1335,7 +1174,7 @@ SetInterspersed sets whether to support interspersed option/non-option arguments
 func String(name string, value string, usage string) *string
 ```
 
-String defines a string flag with specified name, default value, and usage string. The return value is the address of a string variable that stores the value of the flag.
+​	String 函数定义一个具有指定名称、默认值和用法说明的字符串标志。返回值是存储标志值的字符串变量的地址。
 
 #### func StringArray 
 
@@ -1343,7 +1182,7 @@ String defines a string flag with specified name, default value, and usage strin
 func StringArray(name string, value []string, usage string) *[]string
 ```
 
-StringArray defines a string flag with specified name, default value, and usage string. The return value is the address of a []string variable that stores the value of the flag. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
+​	StringArray 函数定义一个具有指定名称、默认值和用法说明的字符串数组标志。返回值是存储标志值的 []string 变量的地址。每个参数的值不会尝试用逗号分隔。对于这种情况，请使用 StringSlice函数。
 
 #### func StringArrayP 
 
@@ -1351,7 +1190,7 @@ StringArray defines a string flag with specified name, default value, and usage 
 func StringArrayP(name, shorthand string, value []string, usage string) *[]string
 ```
 
-StringArrayP is like StringArray, but accepts a shorthand letter that can be used after a single dash.
+​	StringArrayP 函数与 StringArray 函数类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringArrayVar 
 
@@ -1359,7 +1198,7 @@ StringArrayP is like StringArray, but accepts a shorthand letter that can be use
 func StringArrayVar(p *[]string, name string, value []string, usage string)
 ```
 
-StringArrayVar defines a string flag with specified name, default value, and usage string. The argument p points to a []string variable in which to store the value of the flag. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
+​	StringArrayVar 函数定义一个具有指定名称、默认值和用法说明的字符串数组标志。参数 p 指向一个 []string 变量，用于存储标志值。每个参数的值不会尝试用逗号分隔。对于这种情况，请使用 StringSlice。
 
 #### func StringArrayVarP 
 
@@ -1367,7 +1206,7 @@ StringArrayVar defines a string flag with specified name, default value, and usa
 func StringArrayVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
-StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringArrayVarP 与 StringArrayVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringP 
 
@@ -1375,7 +1214,7 @@ StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can 
 func StringP(name, shorthand string, value string, usage string) *string
 ```
 
-StringP is like String, but accepts a shorthand letter that can be used after a single dash.
+​	StringP 函数与 String 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringSlice 
 
@@ -1383,13 +1222,13 @@ StringP is like String, but accepts a shorthand letter that can be used after a 
 func StringSlice(name string, value []string, usage string) *[]string
 ```
 
-StringSlice defines a string flag with specified name, default value, and usage string. The return value is the address of a []string variable that stores the value of the flag. Compared to StringArray flags, StringSlice flags take comma-separated value as arguments and split them accordingly. For example:
+​	StringSlice 函数定义一个具有指定名称、默认值和用法说明的字符串切片标志。返回值是存储标志值的 []string 变量的地址。与 StringArray 标志不同，StringSlice 标志将以逗号分隔的值作为参数，并相应地进行拆分。例如：
 
 ```
 --ss="v1,v2" --ss="v3"
 ```
 
-will result in
+将导致
 
 ```
 []string{"v1", "v2", "v3"}
@@ -1401,7 +1240,7 @@ will result in
 func StringSliceP(name, shorthand string, value []string, usage string) *[]string
 ```
 
-StringSliceP is like StringSlice, but accepts a shorthand letter that can be used after a single dash.
+​	StringSliceP 与 StringSlice 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringSliceVar 
 
@@ -1409,13 +1248,13 @@ StringSliceP is like StringSlice, but accepts a shorthand letter that can be use
 func StringSliceVar(p *[]string, name string, value []string, usage string)
 ```
 
-StringSliceVar defines a string flag with specified name, default value, and usage string. The argument p points to a []string variable in which to store the value of the flag. Compared to StringArray flags, StringSlice flags take comma-separated value as arguments and split them accordingly. For example:
+StringSliceVar 函数定义一个具有指定名称、默认值和用法说明的字符串切片标志。参数 p 指向一个 []string 变量，用于存储标志值。与 StringArray 标志不同，StringSlice 标志将以逗号分隔的值作为参数，并相应地进行拆分。例如：
 
 ```
 --ss="v1,v2" --ss="v3"
 ```
 
-will result in
+将导致
 
 ```
 []string{"v1", "v2", "v3"}
@@ -1427,7 +1266,7 @@ will result in
 func StringSliceVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
-StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringSliceVarP 函数与 StringSliceVar 函数类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToInt  <- v1.0.3
 
@@ -1435,7 +1274,7 @@ StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can 
 func StringToInt(name string, value map[string]int, usage string) *map[string]int
 ```
 
-StringToInt defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToInt 函数定义一个具有指定名称、默认值和用法说明的 map[string]int 标志。返回值是存储标志值的 map[string]int 变量的地址。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToInt64  <- v1.0.5
 
@@ -1443,7 +1282,7 @@ StringToInt defines a string flag with specified name, default value, and usage 
 func StringToInt64(name string, value map[string]int64, usage string) *map[string]int64
 ```
 
-StringToInt64 defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int64 variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToInt64 函数定义一个具有指定名称、默认值和用法说明的 map[string]int64 标志。返回值是存储标志值的 map[string]int64 变量的地址。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToInt64P  <- v1.0.5
 
@@ -1451,7 +1290,7 @@ StringToInt64 defines a string flag with specified name, default value, and usag
 func StringToInt64P(name, shorthand string, value map[string]int64, usage string) *map[string]int64
 ```
 
-StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be used after a single dash.
+​	StringToInt64P 与 StringToInt64 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToInt64Var  <- v1.0.5
 
@@ -1459,7 +1298,7 @@ StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be
 func StringToInt64Var(p *map[string]int64, name string, value map[string]int64, usage string)
 ```
 
-StringToInt64Var defines a string flag with specified name, default value, and usage string. The argument p point64s to a map[string]int64 variable in which to store the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToInt64Var 函数定义一个具有指定名称、默认值和用法说明的 map[string]int64 标志。参数 p 指向一个 map[string]int64 变量，用于存储标志值。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToInt64VarP  <- v1.0.5
 
@@ -1467,7 +1306,7 @@ StringToInt64Var defines a string flag with specified name, default value, and u
 func StringToInt64VarP(p *map[string]int64, name, shorthand string, value map[string]int64, usage string)
 ```
 
-StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that can be used after a single dash.
+​	StringToInt64VarP 与 StringToInt64Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToIntP  <- v1.0.3
 
@@ -1475,7 +1314,7 @@ StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that 
 func StringToIntP(name, shorthand string, value map[string]int, usage string) *map[string]int
 ```
 
-StringToIntP is like StringToInt, but accepts a shorthand letter that can be used after a single dash.
+​	StringToIntP 与 StringToInt 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToIntVar  <- v1.0.3
 
@@ -1483,7 +1322,7 @@ StringToIntP is like StringToInt, but accepts a shorthand letter that can be use
 func StringToIntVar(p *map[string]int, name string, value map[string]int, usage string)
 ```
 
-StringToIntVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]int variable in which to store the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToIntVar 函数定义一个具有指定名称、默认值和用法说明的 map[string]int 标志。参数 p 指向一个 map[string]int 变量，用于存储标志值。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToIntVarP  <- v1.0.3
 
@@ -1491,7 +1330,7 @@ StringToIntVar defines a string flag with specified name, default value, and usa
 func StringToIntVarP(p *map[string]int, name, shorthand string, value map[string]int, usage string)
 ```
 
-StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringToIntVarP 与 StringToIntVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToString  <- v1.0.3
 
@@ -1499,7 +1338,7 @@ StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can 
 func StringToString(name string, value map[string]string, usage string) *map[string]string
 ```
 
-StringToString defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]string variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToString 函数定义一个具有指定名称、默认值和用法说明的 map[string]string 标志。返回值是存储标志值的 map[string]string 变量的地址。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToStringP  <- v1.0.3
 
@@ -1507,7 +1346,7 @@ StringToString defines a string flag with specified name, default value, and usa
 func StringToStringP(name, shorthand string, value map[string]string, usage string) *map[string]string
 ```
 
-StringToStringP is like StringToString, but accepts a shorthand letter that can be used after a single dash.
+​	StringToStringP 与 StringToString 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringToStringVar  <- v1.0.3
 
@@ -1515,7 +1354,7 @@ StringToStringP is like StringToString, but accepts a shorthand letter that can 
 func StringToStringVar(p *map[string]string, name string, value map[string]string, usage string)
 ```
 
-StringToStringVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]string variable in which to store the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToStringVar 函数定义一个具有指定名称、默认值和用法说明的 map[string]string 标志。参数 p 指向一个 map[string]string 变量，用于存储标志值。每个参数的值不会尝试用逗号分隔。
 
 #### func StringToStringVarP  <- v1.0.3
 
@@ -1523,7 +1362,7 @@ StringToStringVar defines a string flag with specified name, default value, and 
 func StringToStringVarP(p *map[string]string, name, shorthand string, value map[string]string, usage string)
 ```
 
-StringToStringVarP is like StringToStringVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringToStringVarP 与 StringToStringVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func StringVar 
 
@@ -1531,7 +1370,7 @@ StringToStringVarP is like StringToStringVar, but accepts a shorthand letter tha
 func StringVar(p *string, name string, value string, usage string)
 ```
 
-StringVar defines a string flag with specified name, default value, and usage string. The argument p points to a string variable in which to store the value of the flag.
+​	StringVar 函数定义一个具有指定名称、默认值和用法说明的字符串标志。参数 p 指向一个字符串变量，用于存储标志值。
 
 #### func StringVarP 
 
@@ -1539,7 +1378,7 @@ StringVar defines a string flag with specified name, default value, and usage st
 func StringVarP(p *string, name, shorthand string, value string, usage string)
 ```
 
-StringVarP is like StringVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringVarP 函数与 StringVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint 
 
@@ -1547,7 +1386,7 @@ StringVarP is like StringVar, but accepts a shorthand letter that can be used af
 func Uint(name string, value uint, usage string) *uint
 ```
 
-Uint defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
+​	Uint 函数定义一个具有指定名称、默认值和用法说明的无符号整数标志。返回值是存储标志值的无符号整数变量的地址。
 
 #### func Uint16 
 
@@ -1555,7 +1394,7 @@ Uint defines a uint flag with specified name, default value, and usage string. T
 func Uint16(name string, value uint16, usage string) *uint16
 ```
 
-Uint16 defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
+​	Uint16 函数定义一个具有指定名称、默认值和用法说明的 uint16 标志。返回值是存储标志值的 uint16 变量的地址。
 
 #### func Uint16P 
 
@@ -1563,7 +1402,7 @@ Uint16 defines a uint flag with specified name, default value, and usage string.
 func Uint16P(name, shorthand string, value uint16, usage string) *uint16
 ```
 
-Uint16P is like Uint16, but accepts a shorthand letter that can be used after a single dash.
+​	Uint16P 函数与 Uint16 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint16Var 
 
@@ -1571,7 +1410,7 @@ Uint16P is like Uint16, but accepts a shorthand letter that can be used after a 
 func Uint16Var(p *uint16, name string, value uint16, usage string)
 ```
 
-Uint16Var defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
+​	Uint16Var 函数定义一个具有指定名称、默认值和用法说明的 uint16 标志。参数 p 指向一个 uint16 变量，用于存储标志值。
 
 #### func Uint16VarP 
 
@@ -1579,7 +1418,7 @@ Uint16Var defines a uint flag with specified name, default value, and usage stri
 func Uint16VarP(p *uint16, name, shorthand string, value uint16, usage string)
 ```
 
-Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint16VarP 函数与 Uint16Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint32 
 
@@ -1587,7 +1426,7 @@ Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used af
 func Uint32(name string, value uint32, usage string) *uint32
 ```
 
-Uint32 defines a uint32 flag with specified name, default value, and usage string. The return value is the address of a uint32 variable that stores the value of the flag.
+​	Uint32 函数定义一个具有指定名称、默认值和用法说明的 uint32 标志。返回值是存储标志值的 uint32 变量的地址。
 
 #### func Uint32P 
 
@@ -1595,7 +1434,7 @@ Uint32 defines a uint32 flag with specified name, default value, and usage strin
 func Uint32P(name, shorthand string, value uint32, usage string) *uint32
 ```
 
-Uint32P is like Uint32, but accepts a shorthand letter that can be used after a single dash.
+​	Uint32P 函数与 Uint32 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint32Var 
 
@@ -1603,7 +1442,7 @@ Uint32P is like Uint32, but accepts a shorthand letter that can be used after a 
 func Uint32Var(p *uint32, name string, value uint32, usage string)
 ```
 
-Uint32Var defines a uint32 flag with specified name, default value, and usage string. The argument p points to a uint32 variable in which to store the value of the flag.
+​	Uint32Var 函数定义一个具有指定名称、默认值和用法说明的 uint32 标志。参数 p 指向一个 uint32 变量，用于存储标志值。
 
 #### func Uint32VarP 
 
@@ -1611,7 +1450,7 @@ Uint32Var defines a uint32 flag with specified name, default value, and usage st
 func Uint32VarP(p *uint32, name, shorthand string, value uint32, usage string)
 ```
 
-Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint32VarP 函数与 Uint32Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint64 
 
@@ -1619,7 +1458,7 @@ Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used af
 func Uint64(name string, value uint64, usage string) *uint64
 ```
 
-Uint64 defines a uint64 flag with specified name, default value, and usage string. The return value is the address of a uint64 variable that stores the value of the flag.
+​	Uint64 函数定义一个具有指定名称、默认值和用法说明的 uint64 标志。返回值是存储标志值的 uint64 变量的地址。
 
 #### func Uint64P 
 
@@ -1627,7 +1466,7 @@ Uint64 defines a uint64 flag with specified name, default value, and usage strin
 func Uint64P(name, shorthand string, value uint64, usage string) *uint64
 ```
 
-Uint64P is like Uint64, but accepts a shorthand letter that can be used after a single dash.
+​	Uint64P 函数与 Uint64 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint64Var 
 
@@ -1635,7 +1474,7 @@ Uint64P is like Uint64, but accepts a shorthand letter that can be used after a 
 func Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
-Uint64Var defines a uint64 flag with specified name, default value, and usage string. The argument p points to a uint64 variable in which to store the value of the flag.
+​	Uint64Var 函数定义一个具有指定名称、默认值和用法说明的 uint64 标志。参数 p 指向一个 uint64 变量，用于存储标志值。
 
 #### func Uint64VarP 
 
@@ -1643,7 +1482,7 @@ Uint64Var defines a uint64 flag with specified name, default value, and usage st
 func Uint64VarP(p *uint64, name, shorthand string, value uint64, usage string)
 ```
 
-Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint64VarP 函数与 Uint64Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint8 
 
@@ -1651,7 +1490,7 @@ Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used af
 func Uint8(name string, value uint8, usage string) *uint8
 ```
 
-Uint8 defines a uint8 flag with specified name, default value, and usage string. The return value is the address of a uint8 variable that stores the value of the flag.
+​	Uint8 函数定义一个具有指定名称、默认值和用法说明的 uint8 标志。返回值是存储标志值的 uint8 变量的地址。
 
 #### func Uint8P 
 
@@ -1659,7 +1498,7 @@ Uint8 defines a uint8 flag with specified name, default value, and usage string.
 func Uint8P(name, shorthand string, value uint8, usage string) *uint8
 ```
 
-Uint8P is like Uint8, but accepts a shorthand letter that can be used after a single dash.
+​	Uint8P 函数与 Uint8 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func Uint8Var 
 
@@ -1667,7 +1506,7 @@ Uint8P is like Uint8, but accepts a shorthand letter that can be used after a si
 func Uint8Var(p *uint8, name string, value uint8, usage string)
 ```
 
-Uint8Var defines a uint8 flag with specified name, default value, and usage string. The argument p points to a uint8 variable in which to store the value of the flag.
+​	Uint8Var 函数定义一个具有指定名称、默认值和用法说明的 uint8 标志。参数 p 指向一个 uint8 变量，用于存储标志值。
 
 #### func Uint8VarP 
 
@@ -1675,7 +1514,7 @@ Uint8Var defines a uint8 flag with specified name, default value, and usage stri
 func Uint8VarP(p *uint8, name, shorthand string, value uint8, usage string)
 ```
 
-Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint8VarP 函数与 Uint8Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func UintP 
 
@@ -1683,7 +1522,7 @@ Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used afte
 func UintP(name, shorthand string, value uint, usage string) *uint
 ```
 
-UintP is like Uint, but accepts a shorthand letter that can be used after a single dash.
+​	UintP 函数与 Uint 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func UintSlice 
 
@@ -1691,7 +1530,7 @@ UintP is like Uint, but accepts a shorthand letter that can be used after a sing
 func UintSlice(name string, value []uint, usage string) *[]uint
 ```
 
-UintSlice defines a []uint flag with specified name, default value, and usage string. The return value is the address of a []uint variable that stores the value of the flag.
+​	UintSlice 函数定义一个具有指定名称、默认值和用法说明的 `[]uint` 标志。返回值是存储标志值的 `[]uint` 变量的地址。
 
 #### func UintSliceP 
 
@@ -1699,7 +1538,7 @@ UintSlice defines a []uint flag with specified name, default value, and usage st
 func UintSliceP(name, shorthand string, value []uint, usage string) *[]uint
 ```
 
-UintSliceP is like UintSlice, but accepts a shorthand letter that can be used after a single dash.
+​	UintSliceP 函数与 UintSlice 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func UintSliceVar 
 
@@ -1707,7 +1546,7 @@ UintSliceP is like UintSlice, but accepts a shorthand letter that can be used af
 func UintSliceVar(p *[]uint, name string, value []uint, usage string)
 ```
 
-UintSliceVar defines a uint[] flag with specified name, default value, and usage string. The argument p points to a uint[] variable in which to store the value of the flag.
+​	UintSliceVar 函数定义一个具有指定名称、默认值和用法说明的 `[]uint` 标志。参数 p 指向一个 `[]uint` 变量，用于存储标志值。
 
 #### func UintSliceVarP 
 
@@ -1715,7 +1554,7 @@ UintSliceVar defines a uint[] flag with specified name, default value, and usage
 func UintSliceVarP(p *[]uint, name, shorthand string, value []uint, usage string)
 ```
 
-UintSliceVarP is like the UintSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	UintSliceVarP 函数与 UintSliceVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func UintVar 
 
@@ -1723,7 +1562,7 @@ UintSliceVarP is like the UintSliceVar, but accepts a shorthand letter that can 
 func UintVar(p *uint, name string, value uint, usage string)
 ```
 
-UintVar defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
+​	UintVar 函数定义一个具有指定名称、默认值和用法说明的无符号整数标志。参数 p 指向一个无符号整数变量，用于存储标志值。
 
 #### func UintVarP 
 
@@ -1731,7 +1570,7 @@ UintVar defines a uint flag with specified name, default value, and usage string
 func UintVarP(p *uint, name, shorthand string, value uint, usage string)
 ```
 
-UintVarP is like UintVar, but accepts a shorthand letter that can be used after a single dash.
+​	UintVarP 函数与 UintVar 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 #### func UnquoteUsage 
 
@@ -1739,7 +1578,7 @@ UintVarP is like UintVar, but accepts a shorthand letter that can be used after 
 func UnquoteUsage(flag *Flag) (name string, usage string)
 ```
 
-UnquoteUsage extracts a back-quoted name from the usage string for a flag and returns it and the un-quoted usage. Given "a `name` to show" it returns ("name", "a name to show"). If there are no back quotes, the name is an educated guess of the type of the flag's value, or the empty string if the flag is boolean.
+​	UnquoteUsage 函数从标志的用法说明字符串中提取用反引号括起的名称，并返回名称和未引用的用法说明。对于给定的 "a `name` to show"，它返回 ("name", "a name to show")。如果没有反引号，则名称是标志值类型的有教育意义的猜测，如果标志是布尔值，则为空字符串。
 
 #### func Var 
 
@@ -1747,7 +1586,7 @@ UnquoteUsage extracts a back-quoted name from the usage string for a flag and re
 func Var(value Value, name string, usage string)
 ```
 
-Var defines a flag with the specified name and usage string. The type and value of the flag are represented by the first argument, of type Value, which typically holds a user-defined implementation of Value. For instance, the caller could create a flag that turns a comma-separated string into a slice of strings by giving the slice the methods of Value; in particular, Set would decompose the comma-separated string into the slice.
+​	Var 函数通过第一个参数的 Value 类型来定义具有指定名称和用法说明的标志。Value 类型通常包含用户定义的 Value 实现，通过该实现可以将逗号分隔的字符串转换为切片。例如，调用者可以创建一个标志，通过给切片赋予 Value 方法，将逗号分隔的字符串转换为切片。
 
 #### func VarP 
 
@@ -1757,13 +1596,15 @@ func VarP(value Value, name, shorthand, usage string)
 
 VarP is like Var, but accepts a shorthand letter that can be used after a single dash.
 
+​	VarP 函数与 Var 类似，但接受一个速记字母，该字母可以在单个短划线后使用。
+
 #### func Visit 
 
 ``` go
 func Visit(fn func(*Flag))
 ```
 
-Visit visits the command-line flags in lexicographical order or in primordial order if f.SortFlags is false, calling fn for each. It visits only those flags that have been set.
+​	Visit 函数按照词法顺序或原始顺序（如果 f.SortFlags 为 false）访问命令行标志，对每个标志调用提供的函数 fn。它仅访问已设置的标志。
 
 #### func VisitAll 
 
@@ -1771,9 +1612,9 @@ Visit visits the command-line flags in lexicographical order or in primordial or
 func VisitAll(fn func(*Flag))
 ```
 
-VisitAll visits the command-line flags in lexicographical order or in primordial order if f.SortFlags is false, calling fn for each. It visits all flags, even those not set.
+​	VisitAll 函数按照词法顺序或原始顺序（如果 f.SortFlags 为 false）访问命令行标志，对每个标志调用提供的函数 fn。它访问所有标志，包括未设置的标志。
 
-### Types 
+### 类型 
 
 #### type ErrorHandling 
 
@@ -1781,15 +1622,15 @@ VisitAll visits the command-line flags in lexicographical order or in primordial
 type ErrorHandling int
 ```
 
-ErrorHandling defines how to handle flag parsing errors.
+​	ErrorHandling 定义了如何处理标志解析错误。
 
 ``` go
 const (
-	// ContinueOnError will return an err from Parse() if an error is found
+     // ContinueOnError 在发现错误时从 Parse() 返回一个 err
 	ContinueOnError ErrorHandling = iota
-	// ExitOnError will call os.Exit(2) if an error is found when parsing
+    // ExitOnError 在发现错误时调用 os.Exit(2)
 	ExitOnError
-	// PanicOnError will panic() if an error is found when parsing flags
+    // PanicOnError 在发现错误时调用 panic()
 	PanicOnError
 )
 ```
@@ -1798,21 +1639,21 @@ const (
 
 ``` go
 type Flag struct {
-	Name                string              // name as it appears on command line
-	Shorthand           string              // one-letter abbreviated flag
-	Usage               string              // help message
-	Value               Value               // value as set
-	DefValue            string              // default value (as text); for usage message
-	Changed             bool                // If the user set the value (or if left to default)
-	NoOptDefVal         string              // default value (as text); if the flag is on the command line without any options
-	Deprecated          string              // If this flag is deprecated, this string is the new or now thing to use
-	Hidden              bool                // used by cobra.Command to allow flags to be hidden from help/usage text
-	ShorthandDeprecated string              // If the shorthand of this flag is deprecated, this string is the new or now thing to use
-	Annotations         map[string][]string // used by cobra.Command bash autocomple code
+	Name                string              // name as it appears on command line 在命令行上显示的名称
+	Shorthand           string              // one-letter abbreviated flag 一个字母的缩写标志
+	Usage               string              // help message 帮助消息
+	Value               Value               // value as set 设置的值
+	DefValue            string              // default value (as text); for usage message 默认值（作为文本）；用于用法消息
+	Changed             bool                // If the user set the value (or if left to default) 如果用户设置了值（或使用默认值），则为 true
+	NoOptDefVal         string              // default value (as text); if the flag is on the command line without any options 默认值（作为文本）；如果标志在命令行上没有任何选项，但出现在命令行上
+	Deprecated          string              // If this flag is deprecated, this string is the new or now thing to use 如果此标志已被弃用，则该字符串是新的或现在使用的内容
+	Hidden              bool                // used by cobra.Command to allow flags to be hidden from help/usage text 由 cobra.Command 使用，允许将标志从帮助/用法文本中隐藏
+	ShorthandDeprecated string              // If the shorthand of this flag is deprecated, this string is the new or now thing to use 如果此标志的缩写已被弃用，则该字符串是新的或现在使用的内容
+	Annotations         map[string][]string // used by cobra.Command bash autocomple code 由 cobra.Command bash autocomple 代码使用
 }
 ```
 
-A Flag represents the state of a flag.
+Flag 表示标志的状态。
 
 ##### func Lookup 
 
@@ -1820,7 +1661,7 @@ A Flag represents the state of a flag.
 func Lookup(name string) *Flag
 ```
 
-Lookup returns the Flag structure of the named command-line flag, returning nil if none exists.
+​	Lookup 返回指定命令行标志的 Flag 结构，如果不存在则返回 nil。
 
 ##### func PFlagFromGoFlag 
 
@@ -1828,7 +1669,7 @@ Lookup returns the Flag structure of the named command-line flag, returning nil 
 func PFlagFromGoFlag(goflag *goflag.Flag) *Flag
 ```
 
-PFlagFromGoFlag will return a *pflag.Flag given a *flag.Flag If the *flag.Flag.Name was a single character (ex: `v`) it will be accessiblei with both `-v` and `--v` in flags. If the golang flag was more than a single character (ex: `verbose`) it will only be accessible via `--verbose`
+​	PFlagFromGoFlag 将给定的 *flag.Flag 转换为 *pflag.Flag。如果 *flag.Flag.Name 是一个单个字符（例如 `v`），则可以在标志中使用 `-v` 和 `--v`。如果 golang 标志不止一个字符（例如 `verbose`），则只能通过 `--verbose` 使用。
 
 ##### func ShorthandLookup 
 
@@ -1836,30 +1677,53 @@ PFlagFromGoFlag will return a *pflag.Flag given a *flag.Flag If the *flag.Flag.N
 func ShorthandLookup(name string) *Flag
 ```
 
-ShorthandLookup returns the Flag structure of the short handed flag, returning nil if none exists.
+​	ShorthandLookup 返回指定缩写标志的 Flag 结构，如果不存在则返回 nil。
 
-###### Example
+###### ShorthandLookup Example
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/spf13/pflag"
+)
+
+func main() {
+	name := "verbose"
+	short := name[:1]
+
+	pflag.BoolP(name, short, false, "verbose output")
+
+	// len(short) must be == 1
+	flag := pflag.ShorthandLookup(short)
+
+	fmt.Println(flag.Name)
+}
+
+```
+
+
 
 ##### type FlagSet 
 
 ``` go
 type FlagSet struct {
-	// Usage is the function called when an error occurs while parsing flags.
-	// The field is a function (not a method) that may be changed to point to
-	// a custom error handler.
+    // 在解析标志时发生错误时调用的函数。
+    // 该字段是一个函数（不是方法），可以更改以指向自定义的错误处理程序。
 	Usage func()
 
-	// SortFlags is used to indicate, if user wants to have sorted flags in
-	// help/usage messages.
+    // 用于指示用户是否希望在帮助/用法消息中对标志进行排序。
 	SortFlags bool
 
-	// ParseErrorsWhitelist is used to configure a whitelist of errors
+    // 用于配置错误白名单的 ParseErrorsWhitelist。
 	ParseErrorsWhitelist ParseErrorsWhitelist
-	// contains filtered or unexported fields
+	// 包含过滤或未导出的字段
 }
 ```
 
-A FlagSet represents a set of defined flags.
+​	FlagSet 表示一组定义的标志。
 
 ##### func NewFlagSet 
 
@@ -1867,7 +1731,7 @@ A FlagSet represents a set of defined flags.
 func NewFlagSet(name string, errorHandling ErrorHandling) *FlagSet
 ```
 
-NewFlagSet returns a new, empty flag set with the specified name, error handling property and SortFlags set to true.
+​	NewFlagSet 函数返回一个新的、空的带有指定名称和错误处理属性的 FlagSet，SortFlags 设置为 true。
 
 ##### (*FlagSet) AddFlag 
 
@@ -1875,7 +1739,7 @@ NewFlagSet returns a new, empty flag set with the specified name, error handling
 func (f *FlagSet) AddFlag(flag *Flag)
 ```
 
-AddFlag will add the flag to the FlagSet
+​	AddFlag 方法将标志添加到 FlagSet。
 
 ##### (*FlagSet) AddFlagSet 
 
@@ -1883,7 +1747,7 @@ AddFlag will add the flag to the FlagSet
 func (f *FlagSet) AddFlagSet(newSet *FlagSet)
 ```
 
-AddFlagSet adds one FlagSet to another. If a flag is already present in f the flag from newSet will be ignored.
+​	AddFlagSet 将一个 FlagSet 添加到另一个 FlagSet。如果标志已经存在于 f 中，则忽略来自 newSet 的标志。
 
 ##### (*FlagSet) AddGoFlag 
 
@@ -1891,7 +1755,7 @@ AddFlagSet adds one FlagSet to another. If a flag is already present in f the fl
 func (f *FlagSet) AddGoFlag(goflag *goflag.Flag)
 ```
 
-AddGoFlag will add the given *flag.Flag to the pflag.FlagSet
+​	AddGoFlag 将给定的 *flag.Flag 添加到 pflag.FlagSet。
 
 ##### (*FlagSet) AddGoFlagSet 
 
@@ -1899,7 +1763,7 @@ AddGoFlag will add the given *flag.Flag to the pflag.FlagSet
 func (f *FlagSet) AddGoFlagSet(newSet *goflag.FlagSet)
 ```
 
-AddGoFlagSet will add the given *flag.FlagSet to the pflag.FlagSet
+​	AddGoFlagSet 将给定的 *flag.FlagSet 添加到 pflag.FlagSet。
 
 ##### (*FlagSet) Arg 
 
@@ -1907,7 +1771,7 @@ AddGoFlagSet will add the given *flag.FlagSet to the pflag.FlagSet
 func (f *FlagSet) Arg(i int) string
 ```
 
-Arg returns the i'th argument. Arg(0) is the first remaining argument after flags have been processed.
+​	Arg 返回第 i 个参数。Arg(0) 是在处理标志后剩下的第一个参数。
 
 ##### (*FlagSet) Args 
 
@@ -1915,7 +1779,7 @@ Arg returns the i'th argument. Arg(0) is the first remaining argument after flag
 func (f *FlagSet) Args() []string
 ```
 
-Args returns the non-flag arguments.
+​	Args 返回非标志参数。
 
 ##### (*FlagSet) ArgsLenAtDash 
 
@@ -1923,7 +1787,7 @@ Args returns the non-flag arguments.
 func (f *FlagSet) ArgsLenAtDash() int
 ```
 
-ArgsLenAtDash will return the length of f.Args at the moment when a -- was found during arg parsing. This allows your program to know which args were before the -- and which came after.
+​	ArgsLenAtDash 返回在参数解析过程中找到 `--` 时 f.Args 的长度。这允许程序知道哪些参数在 `--` 之前，哪些参数在 `--` 之后。
 
 ##### (*FlagSet) Bool 
 
@@ -1931,7 +1795,7 @@ ArgsLenAtDash will return the length of f.Args at the moment when a -- was found
 func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 ```
 
-Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.
+​	Bool 定义具有指定名称、默认值和用法说明的布尔标志。返回值是存储标志值的 bool 变量的地址。
 
 ##### (*FlagSet) BoolP 
 
@@ -1939,7 +1803,7 @@ Bool defines a bool flag with specified name, default value, and usage string. T
 func (f *FlagSet) BoolP(name, shorthand string, value bool, usage string) *bool
 ```
 
-BoolP is like Bool, but accepts a shorthand letter that can be used after a single dash.
+​	BoolP 类似于 Bool，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BoolSlice 
 
@@ -1947,7 +1811,7 @@ BoolP is like Bool, but accepts a shorthand letter that can be used after a sing
 func (f *FlagSet) BoolSlice(name string, value []bool, usage string) *[]bool
 ```
 
-BoolSlice defines a []bool flag with specified name, default value, and usage string. The return value is the address of a []bool variable that stores the value of the flag.
+​	BoolSlice 定义具有指定名称、默认值和用法说明的 []bool 标志。返回值是存储标志值的 []bool 变量的地址。
 
 ##### (*FlagSet) BoolSliceP 
 
@@ -1955,7 +1819,7 @@ BoolSlice defines a []bool flag with specified name, default value, and usage st
 func (f *FlagSet) BoolSliceP(name, shorthand string, value []bool, usage string) *[]bool
 ```
 
-BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used after a single dash.
+​	BoolSliceP 类似于 BoolSlice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BoolSliceVar 
 
@@ -1963,7 +1827,7 @@ BoolSliceP is like BoolSlice, but accepts a shorthand letter that can be used af
 func (f *FlagSet) BoolSliceVar(p *[]bool, name string, value []bool, usage string)
 ```
 
-BoolSliceVar defines a boolSlice flag with specified name, default value, and usage string. The argument p points to a []bool variable in which to store the value of the flag.
+​	BoolSliceVar 定义具有指定名称、默认值和用法说明的 boolSlice 标志。参数 p 指向一个 []bool 变量，用于存储标志值。
 
 ##### (*FlagSet) BoolSliceVarP 
 
@@ -1971,7 +1835,7 @@ BoolSliceVar defines a boolSlice flag with specified name, default value, and us
 func (f *FlagSet) BoolSliceVarP(p *[]bool, name, shorthand string, value []bool, usage string)
 ```
 
-BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	BoolSliceVarP 类似于 BoolSliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BoolVar 
 
@@ -1979,7 +1843,7 @@ BoolSliceVarP is like BoolSliceVar, but accepts a shorthand letter that can be u
 func (f *FlagSet) BoolVar(p *bool, name string, value bool, usage string)
 ```
 
-BoolVar defines a bool flag with specified name, default value, and usage string. The argument p points to a bool variable in which to store the value of the flag.
+​	BoolVar 定义具有指定名称、默认值和用法说明的 bool 标志。参数 p 指向一个 bool 变量，用于存储标志值。
 
 ##### (*FlagSet) BoolVarP 
 
@@ -1987,7 +1851,7 @@ BoolVar defines a bool flag with specified name, default value, and usage string
 func (f *FlagSet) BoolVarP(p *bool, name, shorthand string, value bool, usage string)
 ```
 
-BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after a single dash.
+​	BoolVarP 类似于 BoolVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BytesBase64  <- v1.0.2
 
@@ -1995,7 +1859,7 @@ BoolVarP is like BoolVar, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) BytesBase64(name string, value []byte, usage string) *[]byte
 ```
 
-BytesBase64 defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
+​	BytesBase64 定义具有指定名称、默认值和用法说明的 []byte 标志。返回值是存储标志值的 []byte 变量的地址。
 
 ##### (*FlagSet) BytesBase64P  <- v1.0.2
 
@@ -2003,7 +1867,7 @@ BytesBase64 defines an []byte flag with specified name, default value, and usage
 func (f *FlagSet) BytesBase64P(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
-BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be used after a single dash.
+​	BytesBase64P 类似于 BytesBase64，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BytesBase64Var  <- v1.0.2
 
@@ -2011,7 +1875,7 @@ BytesBase64P is like BytesBase64, but accepts a shorthand letter that can be use
 func (f *FlagSet) BytesBase64Var(p *[]byte, name string, value []byte, usage string)
 ```
 
-BytesBase64Var defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
+​	BytesBase64Var 定义具有指定名称、默认值和用法说明的 []byte 标志。参数 p 指向一个 []byte 变量，用于存储标志值。
 
 ##### (*FlagSet) BytesBase64VarP  <- v1.0.2
 
@@ -2019,7 +1883,7 @@ BytesBase64Var defines an []byte flag with specified name, default value, and us
 func (f *FlagSet) BytesBase64VarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
-BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can be used after a single dash.
+​	BytesBase64VarP 类似于 BytesBase64Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) BytesHex  <- v1.0.1
 
@@ -2027,7 +1891,7 @@ BytesBase64VarP is like BytesBase64Var, but accepts a shorthand letter that can 
 func (f *FlagSet) BytesHex(name string, value []byte, usage string) *[]byte
 ```
 
-BytesHex defines an []byte flag with specified name, default value, and usage string. The return value is the address of an []byte variable that stores the value of the flag.
+​	BytesHex 定义具有指定名称、默认值和用法说明的 []byte 标志。返回值是存储标志值的 []byte 变量的地址。
 
 ##### (*FlagSet) BytesHexP  <- v1.0.1
 
@@ -2035,7 +1899,9 @@ BytesHex defines an []byte flag with specified name, default value, and usage st
 func (f *FlagSet) BytesHexP(name, shorthand string, value []byte, usage string) *[]byte
 ```
 
-BytesHexP is like BytesHex, but accepts a shorthand letter that can be used after a single dash.
+​	BytesHexP 类似于 BytesHex，但接受一个速记字母，该字母可以在单个短划线后使用。
+
+
 
 ##### (*FlagSet) BytesHexVar  <- v1.0.1
 
@@ -2043,7 +1909,7 @@ BytesHexP is like BytesHex, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) BytesHexVar(p *[]byte, name string, value []byte, usage string)
 ```
 
-BytesHexVar defines an []byte flag with specified name, default value, and usage string. The argument p points to an []byte variable in which to store the value of the flag.
+​	BytesHexVar 定义具有指定名称、默认值和用法说明的 []byte 标志。参数 p 指向一个 []byte 变量，用于存储标志值。
 
 ##### (*FlagSet) BytesHexVarP  <- v1.0.1
 
@@ -2051,7 +1917,7 @@ BytesHexVar defines an []byte flag with specified name, default value, and usage
 func (f *FlagSet) BytesHexVarP(p *[]byte, name, shorthand string, value []byte, usage string)
 ```
 
-BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be used after a single dash.
+​	BytesHexVarP 类似于 BytesHexVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Changed 
 
@@ -2059,7 +1925,7 @@ BytesHexVarP is like BytesHexVar, but accepts a shorthand letter that can be use
 func (f *FlagSet) Changed(name string) bool
 ```
 
-Changed returns true if the flag was explicitly set during Parse() and false otherwise
+​	Changed 返回 true，如果标志在 Parse() 期间被显式设置，否则返回 false。
 
 ##### (*FlagSet) Count 
 
@@ -2067,7 +1933,7 @@ Changed returns true if the flag was explicitly set during Parse() and false oth
 func (f *FlagSet) Count(name string, usage string) *int
 ```
 
-Count defines a count flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag. A count flag will add 1 to its value every time it is found on the command line
+​	Count 定义具有指定名称、默认值和用法说明的计数标志。返回值是存储标志值的 int 变量的地址。计数标志会在每次在命令行上找到它时将其值加 1。
 
 ##### (*FlagSet) CountP 
 
@@ -2075,7 +1941,7 @@ Count defines a count flag with specified name, default value, and usage string.
 func (f *FlagSet) CountP(name, shorthand string, usage string) *int
 ```
 
-CountP is like Count only takes a shorthand for the flag name.
+​	CountP 类似于 Count，只接受缩写标志名称。
 
 ##### (*FlagSet) CountVar 
 
@@ -2083,7 +1949,7 @@ CountP is like Count only takes a shorthand for the flag name.
 func (f *FlagSet) CountVar(p *int, name string, usage string)
 ```
 
-CountVar defines a count flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag. A count flag will add 1 to its value every time it is found on the command line
+​	CountVar 定义具有指定名称、默认值和用法说明的计数标志。参数 p 指向一个 int 变量，用于存储标志值。计数标志会在每次在命令行上找到它时将其值加 1。
 
 ##### (*FlagSet) CountVarP 
 
@@ -2091,7 +1957,7 @@ CountVar defines a count flag with specified name, default value, and usage stri
 func (f *FlagSet) CountVarP(p *int, name, shorthand string, usage string)
 ```
 
-CountVarP is like CountVar only take a shorthand for the flag name.
+​	CountVarP 类似于 CountVar，只接受缩写标志名称。
 
 ##### (*FlagSet) Duration 
 
@@ -2099,7 +1965,7 @@ CountVarP is like CountVar only take a shorthand for the flag name.
 func (f *FlagSet) Duration(name string, value time.Duration, usage string) *time.Duration
 ```
 
-Duration defines a time.Duration flag with specified name, default value, and usage string. The return value is the address of a time.Duration variable that stores the value of the flag.
+​	Duration 定义具有指定名称、默认值和用法说明的 time.Duration 标志。返回值是存储标志值的 time.Duration 变量的地址。
 
 ##### (*FlagSet) DurationP 
 
@@ -2107,7 +1973,7 @@ Duration defines a time.Duration flag with specified name, default value, and us
 func (f *FlagSet) DurationP(name, shorthand string, value time.Duration, usage string) *time.Duration
 ```
 
-DurationP is like Duration, but accepts a shorthand letter that can be used after a single dash.
+​	DurationP 类似于 Duration，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) DurationSlice  <- v1.0.1
 
@@ -2115,7 +1981,7 @@ DurationP is like Duration, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) DurationSlice(name string, value []time.Duration, usage string) *[]time.Duration
 ```
 
-DurationSlice defines a []time.Duration flag with specified name, default value, and usage string. The return value is the address of a []time.Duration variable that stores the value of the flag.
+​	DurationSlice 定义具有指定名称、默认值和用法说明的 []time.Duration 标志。返回值是存储标志值的 []time.Duration 变量的地址。
 
 ##### (*FlagSet) DurationSliceP  <- v1.0.1
 
@@ -2123,7 +1989,7 @@ DurationSlice defines a []time.Duration flag with specified name, default value,
 func (f *FlagSet) DurationSliceP(name, shorthand string, value []time.Duration, usage string) *[]time.Duration
 ```
 
-DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be used after a single dash.
+​	DurationSliceP 类似于 DurationSlice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) DurationSliceVar  <- v1.0.1
 
@@ -2131,7 +1997,7 @@ DurationSliceP is like DurationSlice, but accepts a shorthand letter that can be
 func (f *FlagSet) DurationSliceVar(p *[]time.Duration, name string, value []time.Duration, usage string)
 ```
 
-DurationSliceVar defines a durationSlice flag with specified name, default value, and usage string. The argument p points to a []time.Duration variable in which to store the value of the flag.
+​	DurationSliceVar 定义具有指定名称、默认值和用法说明的 durationSlice 标志。参数 p 指向一个 []time.Duration 变量，用于存储标志值。
 
 ##### (*FlagSet) DurationSliceVarP  <- v1.0.1
 
@@ -2139,7 +2005,7 @@ DurationSliceVar defines a durationSlice flag with specified name, default value
 func (f *FlagSet) DurationSliceVarP(p *[]time.Duration, name, shorthand string, value []time.Duration, usage string)
 ```
 
-DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	DurationSliceVarP 类似于 DurationSliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) DurationVar 
 
@@ -2147,7 +2013,7 @@ DurationSliceVarP is like DurationSliceVar, but accepts a shorthand letter that 
 func (f *FlagSet) DurationVar(p *time.Duration, name string, value time.Duration, usage string)
 ```
 
-DurationVar defines a time.Duration flag with specified name, default value, and usage string. The argument p points to a time.Duration variable in which to store the value of the flag.
+​	DurationVar 定义具有指定名称、默认值和用法说明的 time.Duration 标志。参数 p 指向一个 time.Duration 变量，用于存储标志值。
 
 ##### (*FlagSet) DurationVarP 
 
@@ -2155,7 +2021,7 @@ DurationVar defines a time.Duration flag with specified name, default value, and
 func (f *FlagSet) DurationVarP(p *time.Duration, name, shorthand string, value time.Duration, usage string)
 ```
 
-DurationVarP is like DurationVar, but accepts a shorthand letter that can be used after a single dash.
+​	DurationVarP 类似于 DurationVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) FlagUsages 
 
@@ -2163,7 +2029,7 @@ DurationVarP is like DurationVar, but accepts a shorthand letter that can be use
 func (f *FlagSet) FlagUsages() string
 ```
 
-FlagUsages returns a string containing the usage information for all flags in the FlagSet
+​	FlagUsages 返回一个包含 FlagSet 中所有标志的用法信息的字符串。
 
 ##### (*FlagSet) FlagUsagesWrapped 
 
@@ -2171,7 +2037,7 @@ FlagUsages returns a string containing the usage information for all flags in th
 func (f *FlagSet) FlagUsagesWrapped(cols int) string
 ```
 
-FlagUsagesWrapped returns a string containing the usage information for all flags in the FlagSet. Wrapped to `cols` columns (0 for no wrapping)
+​	FlagUsagesWrapped 返回一个包含 FlagSet 中所有标志的用法信息的字符串。用 cols 列进行换行（0 表示不换行）。
 
 ##### (*FlagSet) Float32 
 
@@ -2179,7 +2045,7 @@ FlagUsagesWrapped returns a string containing the usage information for all flag
 func (f *FlagSet) Float32(name string, value float32, usage string) *float32
 ```
 
-Float32 defines a float32 flag with specified name, default value, and usage string. The return value is the address of a float32 variable that stores the value of the flag.
+​	Float32 定义具有指定名称、默认值和用法说明的 float32 标志。返回值是存储标志值的 float32 变量的地址。
 
 ##### (*FlagSet) Float32P 
 
@@ -2187,7 +2053,7 @@ Float32 defines a float32 flag with specified name, default value, and usage str
 func (f *FlagSet) Float32P(name, shorthand string, value float32, usage string) *float32
 ```
 
-Float32P is like Float32, but accepts a shorthand letter that can be used after a single dash.
+​	Float32P 类似于 Float32，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float32Slice  <- v1.0.5
 
@@ -2195,7 +2061,7 @@ Float32P is like Float32, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) Float32Slice(name string, value []float32, usage string) *[]float32
 ```
 
-Float32Slice defines a []float32 flag with specified name, default value, and usage string. The return value is the address of a []float32 variable that stores the value of the flag.
+​	Float32Slice 定义具有指定名称、默认值和用法说明的 []float32 标志。返回值是存储标志值的 []float32 变量的地址。
 
 ##### (*FlagSet) Float32SliceP  <- v1.0.5
 
@@ -2203,7 +2069,7 @@ Float32Slice defines a []float32 flag with specified name, default value, and us
 func (f *FlagSet) Float32SliceP(name, shorthand string, value []float32, usage string) *[]float32
 ```
 
-Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Float32SliceP 类似于 Float32Slice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float32SliceVar  <- v1.0.5
 
@@ -2211,7 +2077,7 @@ Float32SliceP is like Float32Slice, but accepts a shorthand letter that can be u
 func (f *FlagSet) Float32SliceVar(p *[]float32, name string, value []float32, usage string)
 ```
 
-Float32SliceVar defines a float32Slice flag with specified name, default value, and usage string. The argument p points to a []float32 variable in which to store the value of the flag.
+​	Float32SliceVar 定义具有指定名称、默认值和用法说明的 float32Slice 标志。参数 p 指向一个 []float32 变量，用于存储标志值。
 
 ##### (*FlagSet) Float32SliceVarP  <- v1.0.5
 
@@ -2219,7 +2085,7 @@ Float32SliceVar defines a float32Slice flag with specified name, default value, 
 func (f *FlagSet) Float32SliceVarP(p *[]float32, name, shorthand string, value []float32, usage string)
 ```
 
-Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Float32SliceVarP 类似于 Float32SliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float32Var 
 
@@ -2227,7 +2093,7 @@ Float32SliceVarP is like Float32SliceVar, but accepts a shorthand letter that ca
 func (f *FlagSet) Float32Var(p *float32, name string, value float32, usage string)
 ```
 
-Float32Var defines a float32 flag with specified name, default value, and usage string. The argument p points to a float32 variable in which to store the value of the flag.
+​	Float32Var 定义具有指定名称、默认值和用法说明的 float32 标志。参数 p 指向一个 float32 变量，用于存储标志值。
 
 ##### (*FlagSet) Float32VarP 
 
@@ -2235,7 +2101,7 @@ Float32Var defines a float32 flag with specified name, default value, and usage 
 func (f *FlagSet) Float32VarP(p *float32, name, shorthand string, value float32, usage string)
 ```
 
-Float32VarP is like Float32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Float32VarP 类似于 Float32Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float64 
 
@@ -2243,7 +2109,7 @@ Float32VarP is like Float32Var, but accepts a shorthand letter that can be used 
 func (f *FlagSet) Float64(name string, value float64, usage string) *float64
 ```
 
-Float64 defines a float64 flag with specified name, default value, and usage string. The return value is the address of a float64 variable that stores the value of the flag.
+​	Float64 定义具有指定名称、默认值和用法说明的 float64 标志。返回值是存储标志值的 float64 变量的地址。
 
 ##### (*FlagSet) Float64P 
 
@@ -2251,7 +2117,7 @@ Float64 defines a float64 flag with specified name, default value, and usage str
 func (f *FlagSet) Float64P(name, shorthand string, value float64, usage string) *float64
 ```
 
-Float64P is like Float64, but accepts a shorthand letter that can be used after a single dash.
+​	Float64P 类似于 Float64，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float64Slice  <- v1.0.5
 
@@ -2259,7 +2125,7 @@ Float64P is like Float64, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) Float64Slice(name string, value []float64, usage string) *[]float64
 ```
 
-Float64Slice defines a []float64 flag with specified name, default value, and usage string. The return value is the address of a []float64 variable that stores the value of the flag.
+​	Float64Slice 定义具有指定名称、默认值和用法说明的 []float64 标志。返回值是存储标志值的 []float64 变量的地址。
 
 ##### (*FlagSet) Float64SliceP  <- v1.0.5
 
@@ -2267,7 +2133,7 @@ Float64Slice defines a []float64 flag with specified name, default value, and us
 func (f *FlagSet) Float64SliceP(name, shorthand string, value []float64, usage string) *[]float64
 ```
 
-Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Float64SliceP 类似于 Float64Slice，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float64SliceVar  <- v1.0.5
 
@@ -2275,7 +2141,7 @@ Float64SliceP is like Float64Slice, but accepts a shorthand letter that can be u
 func (f *FlagSet) Float64SliceVar(p *[]float64, name string, value []float64, usage string)
 ```
 
-Float64SliceVar defines a float64Slice flag with specified name, default value, and usage string. The argument p points to a []float64 variable in which to store the value of the flag.
+​	Float64SliceVar 定义具有指定名称、默认值和用法说明的 float64Slice 标志。参数 p 指向一个 []float64 变量，用于存储标志值。
 
 ##### (*FlagSet) Float64SliceVarP  <- v1.0.5
 
@@ -2283,7 +2149,7 @@ Float64SliceVar defines a float64Slice flag with specified name, default value, 
 func (f *FlagSet) Float64SliceVarP(p *[]float64, name, shorthand string, value []float64, usage string)
 ```
 
-Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Float64SliceVarP 类似于 Float64SliceVar，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) Float64Var 
 
@@ -2291,7 +2157,7 @@ Float64SliceVarP is like Float64SliceVar, but accepts a shorthand letter that ca
 func (f *FlagSet) Float64Var(p *float64, name string, value float64, usage string)
 ```
 
-Float64Var defines a float64 flag with specified name, default value, and usage string. The argument p points to a float64 variable in which to store the value of the flag.
+​	Float64Var 定义具有指定名称、默认值和用法说明的 float64 标志。参数 p 指向一个 float64 变量，用于存储标志值。
 
 ##### (*FlagSet) Float64VarP 
 
@@ -2299,7 +2165,7 @@ Float64Var defines a float64 flag with specified name, default value, and usage 
 func (f *FlagSet) Float64VarP(p *float64, name, shorthand string, value float64, usage string)
 ```
 
-Float64VarP is like Float64Var, but accepts a shorthand letter that can be used after a single dash.
+​	Float64VarP 类似于 Float64Var，但接受一个速记字母，该字母可以在单个短划线后使用。
 
 ##### (*FlagSet) GetBool 
 
@@ -2307,7 +2173,7 @@ Float64VarP is like Float64Var, but accepts a shorthand letter that can be used 
 func (f *FlagSet) GetBool(name string) (bool, error)
 ```
 
-GetBool return the bool value of a flag with the given name
+​	GetBool 返回具有指定名称的 bool 标志的值。
 
 ##### (*FlagSet) GetBoolSlice 
 
@@ -2315,7 +2181,7 @@ GetBool return the bool value of a flag with the given name
 func (f *FlagSet) GetBoolSlice(name string) ([]bool, error)
 ```
 
-GetBoolSlice returns the []bool value of a flag with the given name.
+​	GetBoolSlice 返回具有指定名称的 []bool 标志的值。
 
 ##### (*FlagSet) GetBytesBase64  <- v1.0.2
 
@@ -2323,7 +2189,7 @@ GetBoolSlice returns the []bool value of a flag with the given name.
 func (f *FlagSet) GetBytesBase64(name string) ([]byte, error)
 ```
 
-GetBytesBase64 return the []byte value of a flag with the given name
+​	GetBytesBase64 返回具有给定名称的标志的 []byte 值。
 
 ##### (*FlagSet) GetBytesHex  <- v1.0.1
 
@@ -2331,7 +2197,7 @@ GetBytesBase64 return the []byte value of a flag with the given name
 func (f *FlagSet) GetBytesHex(name string) ([]byte, error)
 ```
 
-GetBytesHex return the []byte value of a flag with the given name
+​	GetBytesHex 返回具有给定名称的标志的 []byte 值。
 
 ##### (*FlagSet) GetCount 
 
@@ -2339,7 +2205,7 @@ GetBytesHex return the []byte value of a flag with the given name
 func (f *FlagSet) GetCount(name string) (int, error)
 ```
 
-GetCount return the int value of a flag with the given name
+​	GetCount 返回具有给定名称的标志的 int 值。
 
 ##### (*FlagSet) GetDuration 
 
@@ -2347,7 +2213,7 @@ GetCount return the int value of a flag with the given name
 func (f *FlagSet) GetDuration(name string) (time.Duration, error)
 ```
 
-GetDuration return the duration value of a flag with the given name
+​	GetDuration 返回具有给定名称的标志的 time.Duration 值。
 
 ##### (*FlagSet) GetDurationSlice  <- v1.0.1
 
@@ -2355,7 +2221,7 @@ GetDuration return the duration value of a flag with the given name
 func (f *FlagSet) GetDurationSlice(name string) ([]time.Duration, error)
 ```
 
-GetDurationSlice returns the []time.Duration value of a flag with the given name
+​	GetDurationSlice 返回具有给定名称的标志的 []time.Duration 值。
 
 ##### (*FlagSet) GetFloat32 
 
@@ -2363,7 +2229,7 @@ GetDurationSlice returns the []time.Duration value of a flag with the given name
 func (f *FlagSet) GetFloat32(name string) (float32, error)
 ```
 
-GetFloat32 return the float32 value of a flag with the given name
+​	GetFloat32 返回具有给定名称的标志的 float32 值。
 
 ##### (*FlagSet) GetFloat32Slice  <- v1.0.5
 
@@ -2371,7 +2237,7 @@ GetFloat32 return the float32 value of a flag with the given name
 func (f *FlagSet) GetFloat32Slice(name string) ([]float32, error)
 ```
 
-GetFloat32Slice return the []float32 value of a flag with the given name
+​	GetFloat32Slice 返回具有给定名称的标志的 []float32 值。
 
 ##### (*FlagSet) GetFloat64 
 
@@ -2379,7 +2245,7 @@ GetFloat32Slice return the []float32 value of a flag with the given name
 func (f *FlagSet) GetFloat64(name string) (float64, error)
 ```
 
-GetFloat64 return the float64 value of a flag with the given name
+​	GetFloat64 返回具有给定名称的标志的 float64 值。
 
 ##### (*FlagSet) GetFloat64Slice  <- v1.0.5
 
@@ -2387,7 +2253,7 @@ GetFloat64 return the float64 value of a flag with the given name
 func (f *FlagSet) GetFloat64Slice(name string) ([]float64, error)
 ```
 
-GetFloat64Slice return the []float64 value of a flag with the given name
+​	GetFloat64Slice 返回具有给定名称的标志的 []float64 值。
 
 ##### (*FlagSet) GetIP 
 
@@ -2395,7 +2261,7 @@ GetFloat64Slice return the []float64 value of a flag with the given name
 func (f *FlagSet) GetIP(name string) (net.IP, error)
 ```
 
-GetIP return the net.IP value of a flag with the given name
+​	GetIP 返回具有给定名称的标志的 net.IP 值。
 
 ##### (*FlagSet) GetIPNet 
 
@@ -2403,7 +2269,7 @@ GetIP return the net.IP value of a flag with the given name
 func (f *FlagSet) GetIPNet(name string) (net.IPNet, error)
 ```
 
-GetIPNet return the net.IPNet value of a flag with the given name
+​	GetIPNet 返回具有给定名称的标志的 net.IPNet 值。
 
 ##### (*FlagSet) GetIPSlice 
 
@@ -2411,7 +2277,7 @@ GetIPNet return the net.IPNet value of a flag with the given name
 func (f *FlagSet) GetIPSlice(name string) ([]net.IP, error)
 ```
 
-GetIPSlice returns the []net.IP value of a flag with the given name
+​	GetIPSlice 返回具有给定名称的标志的 []net.IP 值。
 
 ##### (*FlagSet) GetIPv4Mask 
 
@@ -2419,7 +2285,7 @@ GetIPSlice returns the []net.IP value of a flag with the given name
 func (f *FlagSet) GetIPv4Mask(name string) (net.IPMask, error)
 ```
 
-GetIPv4Mask return the net.IPv4Mask value of a flag with the given name
+​	GetIPv4Mask 返回具有给定名称的标志的 net.IPv4Mask 值。
 
 ##### (*FlagSet) GetInt 
 
@@ -2427,7 +2293,7 @@ GetIPv4Mask return the net.IPv4Mask value of a flag with the given name
 func (f *FlagSet) GetInt(name string) (int, error)
 ```
 
-GetInt return the int value of a flag with the given name
+​	GetInt 返回具有给定名称的标志的 int 值。
 
 ##### (*FlagSet) GetInt16  <- v1.0.1
 
@@ -2435,7 +2301,7 @@ GetInt return the int value of a flag with the given name
 func (f *FlagSet) GetInt16(name string) (int16, error)
 ```
 
-GetInt16 returns the int16 value of a flag with the given name
+​	GetInt16 返回具有给定名称的标志的 int16 值。
 
 ##### (*FlagSet) GetInt32 
 
@@ -2443,7 +2309,7 @@ GetInt16 returns the int16 value of a flag with the given name
 func (f *FlagSet) GetInt32(name string) (int32, error)
 ```
 
-GetInt32 return the int32 value of a flag with the given name
+​	GetInt32 返回具有给定名称的标志的 int32 值。
 
 ##### (*FlagSet) GetInt32Slice  <- v1.0.5
 
@@ -2451,7 +2317,7 @@ GetInt32 return the int32 value of a flag with the given name
 func (f *FlagSet) GetInt32Slice(name string) ([]int32, error)
 ```
 
-GetInt32Slice return the []int32 value of a flag with the given name
+​	GetInt32Slice 返回具有给定名称的标志的 []int32 值。
 
 ##### (*FlagSet) GetInt64 
 
@@ -2459,7 +2325,7 @@ GetInt32Slice return the []int32 value of a flag with the given name
 func (f *FlagSet) GetInt64(name string) (int64, error)
 ```
 
-GetInt64 return the int64 value of a flag with the given name
+​	GetInt64 返回具有给定名称的标志的 int64 值。
 
 ##### (*FlagSet) GetInt64Slice  <- v1.0.5
 
@@ -2467,7 +2333,7 @@ GetInt64 return the int64 value of a flag with the given name
 func (f *FlagSet) GetInt64Slice(name string) ([]int64, error)
 ```
 
-GetInt64Slice return the []int64 value of a flag with the given name
+​	GetInt64Slice 返回具有给定名称的标志的 []int64 值。
 
 ##### (*FlagSet) GetInt8 
 
@@ -2475,7 +2341,7 @@ GetInt64Slice return the []int64 value of a flag with the given name
 func (f *FlagSet) GetInt8(name string) (int8, error)
 ```
 
-GetInt8 return the int8 value of a flag with the given name
+​	GetInt8 返回具有给定名称的标志的 int8 值。
 
 ##### (*FlagSet) GetIntSlice 
 
@@ -2483,7 +2349,7 @@ GetInt8 return the int8 value of a flag with the given name
 func (f *FlagSet) GetIntSlice(name string) ([]int, error)
 ```
 
-GetIntSlice return the []int value of a flag with the given name
+​	GetIntSlice 返回具有给定名称的标志的 []int 值。
 
 ##### (*FlagSet) GetNormalizeFunc 
 
@@ -2491,7 +2357,7 @@ GetIntSlice return the []int value of a flag with the given name
 func (f *FlagSet) GetNormalizeFunc() func(f *FlagSet, name string) NormalizedName
 ```
 
-GetNormalizeFunc returns the previously set NormalizeFunc of a function which does no translation, if not set previously.
+​	GetNormalizeFunc 返回先前设置的 NormalizeFunc 函数，该函数不进行翻译，如果以前未设置。
 
 ##### (*FlagSet) GetString 
 
@@ -2499,7 +2365,7 @@ GetNormalizeFunc returns the previously set NormalizeFunc of a function which do
 func (f *FlagSet) GetString(name string) (string, error)
 ```
 
-GetString return the string value of a flag with the given name
+​	GetString 返回具有给定名称的标志的 string 值。
 
 ##### (*FlagSet) GetStringArray 
 
@@ -2507,7 +2373,7 @@ GetString return the string value of a flag with the given name
 func (f *FlagSet) GetStringArray(name string) ([]string, error)
 ```
 
-GetStringArray return the []string value of a flag with the given name
+​	GetStringArray 返回具有给定名称的标志的 []string 值。
 
 ##### (*FlagSet) GetStringSlice 
 
@@ -2515,7 +2381,7 @@ GetStringArray return the []string value of a flag with the given name
 func (f *FlagSet) GetStringSlice(name string) ([]string, error)
 ```
 
-GetStringSlice return the []string value of a flag with the given name
+​	GetStringSlice 返回具有给定名称的标志的 []string 值。
 
 ##### (*FlagSet) GetStringToInt  <- v1.0.3
 
@@ -2523,7 +2389,7 @@ GetStringSlice return the []string value of a flag with the given name
 func (f *FlagSet) GetStringToInt(name string) (map[string]int, error)
 ```
 
-GetStringToInt return the map[string]int value of a flag with the given name
+​	GetStringToInt 返回具有给定名称的标志的 map[string]int 值。
 
 ##### (*FlagSet) GetStringToInt64  <- v1.0.5
 
@@ -2531,7 +2397,7 @@ GetStringToInt return the map[string]int value of a flag with the given name
 func (f *FlagSet) GetStringToInt64(name string) (map[string]int64, error)
 ```
 
-GetStringToInt64 return the map[string]int64 value of a flag with the given name
+​	GetStringToInt64 返回具有给定名称的标志的 map[string]int64 值。
 
 ##### (*FlagSet) GetStringToString  <- v1.0.3
 
@@ -2539,7 +2405,7 @@ GetStringToInt64 return the map[string]int64 value of a flag with the given name
 func (f *FlagSet) GetStringToString(name string) (map[string]string, error)
 ```
 
-GetStringToString return the map[string]string value of a flag with the given name
+​	GetStringToString 返回具有给定名称的标志的 map[string]string 值。
 
 ##### (*FlagSet) GetUint 
 
@@ -2547,7 +2413,7 @@ GetStringToString return the map[string]string value of a flag with the given na
 func (f *FlagSet) GetUint(name string) (uint, error)
 ```
 
-GetUint return the uint value of a flag with the given name
+​	GetUint 返回给定名称的标志的 uint 值。
 
 ##### (*FlagSet) GetUint16 
 
@@ -2555,7 +2421,7 @@ GetUint return the uint value of a flag with the given name
 func (f *FlagSet) GetUint16(name string) (uint16, error)
 ```
 
-GetUint16 return the uint16 value of a flag with the given name
+​	GetUint16 返回给定名称的标志的 uint16 值。
 
 ##### (*FlagSet) GetUint32 
 
@@ -2563,7 +2429,7 @@ GetUint16 return the uint16 value of a flag with the given name
 func (f *FlagSet) GetUint32(name string) (uint32, error)
 ```
 
-GetUint32 return the uint32 value of a flag with the given name
+​	GetUint32 返回给定名称的标志的 uint32 值。
 
 ##### (*FlagSet) GetUint64 
 
@@ -2571,7 +2437,7 @@ GetUint32 return the uint32 value of a flag with the given name
 func (f *FlagSet) GetUint64(name string) (uint64, error)
 ```
 
-GetUint64 return the uint64 value of a flag with the given name
+​	GetUint64 返回给定名称的标志的 uint64 值。
 
 ##### (*FlagSet) GetUint8 
 
@@ -2579,7 +2445,7 @@ GetUint64 return the uint64 value of a flag with the given name
 func (f *FlagSet) GetUint8(name string) (uint8, error)
 ```
 
-GetUint8 return the uint8 value of a flag with the given name
+​	GetUint8 返回给定名称的标志的 uint8 值。
 
 ##### (*FlagSet) GetUintSlice 
 
@@ -2587,7 +2453,7 @@ GetUint8 return the uint8 value of a flag with the given name
 func (f *FlagSet) GetUintSlice(name string) ([]uint, error)
 ```
 
-GetUintSlice returns the []uint value of a flag with the given name.
+​	GetUintSlice 返回给定名称的标志的 []uint 值。
 
 ##### (*FlagSet) HasAvailableFlags 
 
@@ -2595,7 +2461,7 @@ GetUintSlice returns the []uint value of a flag with the given name.
 func (f *FlagSet) HasAvailableFlags() bool
 ```
 
-HasAvailableFlags returns a bool to indicate if the FlagSet has any flags that are not hidden.
+​	HasAvailableFlags 返回一个布尔值，指示 FlagSet 是否有任何未隐藏的标志。
 
 ##### (*FlagSet) HasFlags 
 
@@ -2603,7 +2469,7 @@ HasAvailableFlags returns a bool to indicate if the FlagSet has any flags that a
 func (f *FlagSet) HasFlags() bool
 ```
 
-HasFlags returns a bool to indicate if the FlagSet has any flags defined.
+​	HasFlags 返回一个布尔值，指示 FlagSet 是否有任何已定义的标志。
 
 ##### (*FlagSet) IP 
 
@@ -2611,7 +2477,7 @@ HasFlags returns a bool to indicate if the FlagSet has any flags defined.
 func (f *FlagSet) IP(name string, value net.IP, usage string) *net.IP
 ```
 
-IP defines an net.IP flag with specified name, default value, and usage string. The return value is the address of an net.IP variable that stores the value of the flag.
+​	IP 使用指定的名称、默认值和用法字符串来定义 net.IP 标志。返回值是一个 net.IP 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) IPMask 
 
@@ -2619,7 +2485,7 @@ IP defines an net.IP flag with specified name, default value, and usage string. 
 func (f *FlagSet) IPMask(name string, value net.IPMask, usage string) *net.IPMask
 ```
 
-IPMask defines an net.IPMask flag with specified name, default value, and usage string. The return value is the address of an net.IPMask variable that stores the value of the flag.
+​	IPMask 使用指定的名称、默认值和用法字符串来定义 net.IPMask 标志。返回值是一个 net.IPMask 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) IPMaskP 
 
@@ -2627,7 +2493,7 @@ IPMask defines an net.IPMask flag with specified name, default value, and usage 
 func (f *FlagSet) IPMaskP(name, shorthand string, value net.IPMask, usage string) *net.IPMask
 ```
 
-IPMaskP is like IPMask, but accepts a shorthand letter that can be used after a single dash.
+​	IPMaskP 类似于 IPMask，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPMaskVar 
 
@@ -2635,7 +2501,7 @@ IPMaskP is like IPMask, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) IPMaskVar(p *net.IPMask, name string, value net.IPMask, usage string)
 ```
 
-IPMaskVar defines an net.IPMask flag with specified name, default value, and usage string. The argument p points to an net.IPMask variable in which to store the value of the flag.
+​	IPMaskVar 使用指定的名称、默认值和用法字符串来定义 net.IPMask 标志。参数 p 指向一个 net.IPMask 变量，用于存储标志的值。
 
 ##### (*FlagSet) IPMaskVarP 
 
@@ -2643,7 +2509,7 @@ IPMaskVar defines an net.IPMask flag with specified name, default value, and usa
 func (f *FlagSet) IPMaskVarP(p *net.IPMask, name, shorthand string, value net.IPMask, usage string)
 ```
 
-IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPMaskVarP 类似于 IPMaskVar，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPNet 
 
@@ -2651,7 +2517,7 @@ IPMaskVarP is like IPMaskVar, but accepts a shorthand letter that can be used af
 func (f *FlagSet) IPNet(name string, value net.IPNet, usage string) *net.IPNet
 ```
 
-IPNet defines an net.IPNet flag with specified name, default value, and usage string. The return value is the address of an net.IPNet variable that stores the value of the flag.
+​	IPNet 使用指定的名称、默认值和用法字符串来定义 net.IPNet 标志。返回值是一个 net.IPNet 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) IPNetP 
 
@@ -2659,7 +2525,7 @@ IPNet defines an net.IPNet flag with specified name, default value, and usage st
 func (f *FlagSet) IPNetP(name, shorthand string, value net.IPNet, usage string) *net.IPNet
 ```
 
-IPNetP is like IPNet, but accepts a shorthand letter that can be used after a single dash.
+​	IPNetP 类似于 IPNet，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPNetVar 
 
@@ -2667,7 +2533,7 @@ IPNetP is like IPNet, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) IPNetVar(p *net.IPNet, name string, value net.IPNet, usage string)
 ```
 
-IPNetVar defines an net.IPNet flag with specified name, default value, and usage string. The argument p points to an net.IPNet variable in which to store the value of the flag.
+​	IPNetVar 使用指定的名称、默认值和用法字符串来定义 net.IPNet 标志。参数 p 指向一个 net.IPNet 变量，用于存储标志的值。
 
 ##### (*FlagSet) IPNetVarP 
 
@@ -2675,7 +2541,7 @@ IPNetVar defines an net.IPNet flag with specified name, default value, and usage
 func (f *FlagSet) IPNetVarP(p *net.IPNet, name, shorthand string, value net.IPNet, usage string)
 ```
 
-IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPNetVarP 类似于 IPNetVar，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPP 
 
@@ -2683,7 +2549,7 @@ IPNetVarP is like IPNetVar, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) IPP(name, shorthand string, value net.IP, usage string) *net.IP
 ```
 
-IPP is like IP, but accepts a shorthand letter that can be used after a single dash.
+​	IPP 类似于 IP，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPSlice 
 
@@ -2691,7 +2557,7 @@ IPP is like IP, but accepts a shorthand letter that can be used after a single d
 func (f *FlagSet) IPSlice(name string, value []net.IP, usage string) *[]net.IP
 ```
 
-IPSlice defines a []net.IP flag with specified name, default value, and usage string. The return value is the address of a []net.IP variable that stores the value of that flag.
+​	IPSlice 使用指定的名称、默认值和用法字符串来定义 []net.IP 标志。返回值是一个 []net.IP 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) IPSliceP 
 
@@ -2699,7 +2565,7 @@ IPSlice defines a []net.IP flag with specified name, default value, and usage st
 func (f *FlagSet) IPSliceP(name, shorthand string, value []net.IP, usage string) *[]net.IP
 ```
 
-IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after a single dash.
+​	IPSliceP 类似于 IPSlice，但接受一个快捷字母，可以在单个短划线后使用。
 
 ##### (*FlagSet) IPSliceVar 
 
@@ -2707,7 +2573,7 @@ IPSliceP is like IPSlice, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) IPSliceVar(p *[]net.IP, name string, value []net.IP, usage string)
 ```
 
-IPSliceVar defines a ipSlice flag with specified name, default value, and usage string. The argument p points to a []net.IP variable in which to store the value of the flag.
+​	IPSliceVar 定义了一个名为 ipSlice 的标志，指定了默认值和用法说明。参数 p 指向一个 []net.IP 变量，用于存储标志的值。
 
 ##### (*FlagSet) IPSliceVarP 
 
@@ -2715,7 +2581,7 @@ IPSliceVar defines a ipSlice flag with specified name, default value, and usage 
 func (f *FlagSet) IPSliceVarP(p *[]net.IP, name, shorthand string, value []net.IP, usage string)
 ```
 
-IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPSliceVarP 类似于 IPSliceVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) IPVar 
 
@@ -2723,7 +2589,7 @@ IPSliceVarP is like IPSliceVar, but accepts a shorthand letter that can be used 
 func (f *FlagSet) IPVar(p *net.IP, name string, value net.IP, usage string)
 ```
 
-IPVar defines an net.IP flag with specified name, default value, and usage string. The argument p points to an net.IP variable in which to store the value of the flag.
+​	IPVar 定义了一个带有指定名称、默认值和用法说明的 net.IP 标志。参数 p 指向一个 net.IP 变量，用于存储标志的值。
 
 ##### (*FlagSet) IPVarP 
 
@@ -2731,7 +2597,7 @@ IPVar defines an net.IP flag with specified name, default value, and usage strin
 func (f *FlagSet) IPVarP(p *net.IP, name, shorthand string, value net.IP, usage string)
 ```
 
-IPVarP is like IPVar, but accepts a shorthand letter that can be used after a single dash.
+​	IPVarP 类似于 IPVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Init 
 
@@ -2739,7 +2605,7 @@ IPVarP is like IPVar, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) Init(name string, errorHandling ErrorHandling)
 ```
 
-Init sets the name and error handling property for a flag set. By default, the zero FlagSet uses an empty name and the ContinueOnError error handling policy.
+​	Init 为标志集设置名称和错误处理属性。默认情况下，零值的 FlagSet 使用空名称和 ContinueOnError 错误处理策略。
 
 ##### (*FlagSet) Int 
 
@@ -2747,7 +2613,7 @@ Init sets the name and error handling property for a flag set. By default, the z
 func (f *FlagSet) Int(name string, value int, usage string) *int
 ```
 
-Int defines an int flag with specified name, default value, and usage string. The return value is the address of an int variable that stores the value of the flag.
+​	Int 定义了一个带有指定名称、默认值和用法说明的 int 标志。返回值是一个 int 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int16  <- v1.0.1
 
@@ -2755,7 +2621,7 @@ Int defines an int flag with specified name, default value, and usage string. Th
 func (f *FlagSet) Int16(name string, value int16, usage string) *int16
 ```
 
-Int16 defines an int16 flag with specified name, default value, and usage string. The return value is the address of an int16 variable that stores the value of the flag.
+​	Int16 定义了一个带有指定名称、默认值和用法说明的 int16 标志。返回值是一个 int16 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int16P  <- v1.0.1
 
@@ -2763,7 +2629,7 @@ Int16 defines an int16 flag with specified name, default value, and usage string
 func (f *FlagSet) Int16P(name, shorthand string, value int16, usage string) *int16
 ```
 
-Int16P is like Int16, but accepts a shorthand letter that can be used after a single dash.
+​	Int16P 类似于 Int16，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int16Var  <- v1.0.1
 
@@ -2771,7 +2637,7 @@ Int16P is like Int16, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) Int16Var(p *int16, name string, value int16, usage string)
 ```
 
-Int16Var defines an int16 flag with specified name, default value, and usage string. The argument p points to an int16 variable in which to store the value of the flag.
+​	Int16Var 定义了一个带有指定名称、默认值和用法说明的 int16 标志。参数 p 指向一个 int16 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int16VarP  <- v1.0.1
 
@@ -2779,7 +2645,7 @@ Int16Var defines an int16 flag with specified name, default value, and usage str
 func (f *FlagSet) Int16VarP(p *int16, name, shorthand string, value int16, usage string)
 ```
 
-Int16VarP is like Int16Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int16VarP 类似于 Int16Var，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int32 
 
@@ -2787,7 +2653,7 @@ Int16VarP is like Int16Var, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) Int32(name string, value int32, usage string) *int32
 ```
 
-Int32 defines an int32 flag with specified name, default value, and usage string. The return value is the address of an int32 variable that stores the value of the flag.
+​	Int32 定义了一个带有指定名称、默认值和用法说明的 int32 标志。返回值是一个 int32 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int32P 
 
@@ -2795,7 +2661,7 @@ Int32 defines an int32 flag with specified name, default value, and usage string
 func (f *FlagSet) Int32P(name, shorthand string, value int32, usage string) *int32
 ```
 
-Int32P is like Int32, but accepts a shorthand letter that can be used after a single dash.
+​	Int32P 类似于 Int32，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int32Slice  <- v1.0.5
 
@@ -2803,7 +2669,7 @@ Int32P is like Int32, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) Int32Slice(name string, value []int32, usage string) *[]int32
 ```
 
-Int32Slice defines a []int32 flag with specified name, default value, and usage string. The return value is the address of a []int32 variable that stores the value of the flag.
+​	Int32Slice 定义了一个带有指定名称、默认值和用法说明的 []int32 标志。返回值是一个 []int32 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int32SliceP  <- v1.0.5
 
@@ -2811,7 +2677,7 @@ Int32Slice defines a []int32 flag with specified name, default value, and usage 
 func (f *FlagSet) Int32SliceP(name, shorthand string, value []int32, usage string) *[]int32
 ```
 
-Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Int32SliceP 类似于 Int32Slice，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int32SliceVar  <- v1.0.5
 
@@ -2819,7 +2685,7 @@ Int32SliceP is like Int32Slice, but accepts a shorthand letter that can be used 
 func (f *FlagSet) Int32SliceVar(p *[]int32, name string, value []int32, usage string)
 ```
 
-Int32SliceVar defines a int32Slice flag with specified name, default value, and usage string. The argument p points to a []int32 variable in which to store the value of the flag.
+​	Int32SliceVar 定义了一个带有指定名称、默认值和用法说明的 int32Slice 标志。参数 p 指向一个 []int32 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int32SliceVarP  <- v1.0.5
 
@@ -2827,7 +2693,7 @@ Int32SliceVar defines a int32Slice flag with specified name, default value, and 
 func (f *FlagSet) Int32SliceVarP(p *[]int32, name, shorthand string, value []int32, usage string)
 ```
 
-Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Int32SliceVarP 类似于 Int32SliceVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int32Var 
 
@@ -2835,7 +2701,7 @@ Int32SliceVarP is like Int32SliceVar, but accepts a shorthand letter that can be
 func (f *FlagSet) Int32Var(p *int32, name string, value int32, usage string)
 ```
 
-Int32Var defines an int32 flag with specified name, default value, and usage string. The argument p points to an int32 variable in which to store the value of the flag.
+​	Int32Var 定义了一个带有指定名称、默认值和用法说明的 int32 标志。参数 p 指向一个 int32 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int32VarP 
 
@@ -2843,7 +2709,7 @@ Int32Var defines an int32 flag with specified name, default value, and usage str
 func (f *FlagSet) Int32VarP(p *int32, name, shorthand string, value int32, usage string)
 ```
 
-Int32VarP is like Int32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int32VarP 类似于 Int32Var，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int64 
 
@@ -2851,7 +2717,7 @@ Int32VarP is like Int32Var, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) Int64(name string, value int64, usage string) *int64
 ```
 
-Int64 defines an int64 flag with specified name, default value, and usage string. The return value is the address of an int64 variable that stores the value of the flag.
+​	Int64 定义了一个带有指定名称、默认值和用法说明的 int64 标志。返回值是一个 int64 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int64P 
 
@@ -2859,7 +2725,7 @@ Int64 defines an int64 flag with specified name, default value, and usage string
 func (f *FlagSet) Int64P(name, shorthand string, value int64, usage string) *int64
 ```
 
-Int64P is like Int64, but accepts a shorthand letter that can be used after a single dash.
+​	Int64P 类似于 Int64，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int64Slice  <- v1.0.5
 
@@ -2867,7 +2733,7 @@ Int64P is like Int64, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) Int64Slice(name string, value []int64, usage string) *[]int64
 ```
 
-Int64Slice defines a []int64 flag with specified name, default value, and usage string. The return value is the address of a []int64 variable that stores the value of the flag.
+​	Int64Slice 定义了一个带有指定名称、默认值和用法说明的 []int64 标志。返回值是一个 []int64 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int64SliceP  <- v1.0.5
 
@@ -2875,7 +2741,7 @@ Int64Slice defines a []int64 flag with specified name, default value, and usage 
 func (f *FlagSet) Int64SliceP(name, shorthand string, value []int64, usage string) *[]int64
 ```
 
-Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used after a single dash.
+​	Int64SliceP 类似于 Int64Slice，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int64SliceVar  <- v1.0.5
 
@@ -2883,7 +2749,7 @@ Int64SliceP is like Int64Slice, but accepts a shorthand letter that can be used 
 func (f *FlagSet) Int64SliceVar(p *[]int64, name string, value []int64, usage string)
 ```
 
-Int64SliceVar defines a int64Slice flag with specified name, default value, and usage string. The argument p points to a []int64 variable in which to store the value of the flag.
+​	Int64SliceVar 定义了一个带有指定名称、默认值和用法说明的 int64Slice 标志。参数 p 指向一个 []int64 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int64SliceVarP  <- v1.0.5
 
@@ -2891,7 +2757,7 @@ Int64SliceVar defines a int64Slice flag with specified name, default value, and 
 func (f *FlagSet) Int64SliceVarP(p *[]int64, name, shorthand string, value []int64, usage string)
 ```
 
-Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	Int64SliceVarP 类似于 Int64SliceVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int64Var 
 
@@ -2899,7 +2765,7 @@ Int64SliceVarP is like Int64SliceVar, but accepts a shorthand letter that can be
 func (f *FlagSet) Int64Var(p *int64, name string, value int64, usage string)
 ```
 
-Int64Var defines an int64 flag with specified name, default value, and usage string. The argument p points to an int64 variable in which to store the value of the flag.
+​	Int64Var 定义了一个带有指定名称、默认值和用法说明的 int64 标志。参数 p 指向一个 int64 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int64VarP 
 
@@ -2907,7 +2773,7 @@ Int64Var defines an int64 flag with specified name, default value, and usage str
 func (f *FlagSet) Int64VarP(p *int64, name, shorthand string, value int64, usage string)
 ```
 
-Int64VarP is like Int64Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int64VarP 类似于 Int64Var，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int8 
 
@@ -2915,7 +2781,7 @@ Int64VarP is like Int64Var, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) Int8(name string, value int8, usage string) *int8
 ```
 
-Int8 defines an int8 flag with specified name, default value, and usage string. The return value is the address of an int8 variable that stores the value of the flag.
+​	Int8 定义了一个带有指定名称、默认值和用法说明的 int8 标志。返回值是一个 int8 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Int8P 
 
@@ -2923,7 +2789,7 @@ Int8 defines an int8 flag with specified name, default value, and usage string. 
 func (f *FlagSet) Int8P(name, shorthand string, value int8, usage string) *int8
 ```
 
-Int8P is like Int8, but accepts a shorthand letter that can be used after a single dash.
+​	Int8P 类似于 Int8，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Int8Var 
 
@@ -2931,7 +2797,7 @@ Int8P is like Int8, but accepts a shorthand letter that can be used after a sing
 func (f *FlagSet) Int8Var(p *int8, name string, value int8, usage string)
 ```
 
-Int8Var defines an int8 flag with specified name, default value, and usage string. The argument p points to an int8 variable in which to store the value of the flag.
+​	Int8Var 定义了一个带有指定名称、默认值和用法说明的 int8 标志。参数 p 指向一个 int8 变量，用于存储标志的值。
 
 ##### (*FlagSet) Int8VarP 
 
@@ -2939,7 +2805,7 @@ Int8Var defines an int8 flag with specified name, default value, and usage strin
 func (f *FlagSet) Int8VarP(p *int8, name, shorthand string, value int8, usage string)
 ```
 
-Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after a single dash.
+​	Int8VarP 类似于 Int8Var，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) IntP 
 
@@ -2947,7 +2813,7 @@ Int8VarP is like Int8Var, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) IntP(name, shorthand string, value int, usage string) *int
 ```
 
-IntP is like Int, but accepts a shorthand letter that can be used after a single dash.
+​	IntP 类似于 Int，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) IntSlice 
 
@@ -2955,7 +2821,7 @@ IntP is like Int, but accepts a shorthand letter that can be used after a single
 func (f *FlagSet) IntSlice(name string, value []int, usage string) *[]int
 ```
 
-IntSlice defines a []int flag with specified name, default value, and usage string. The return value is the address of a []int variable that stores the value of the flag.
+​	IntSlice 定义了一个带有指定名称、默认值和用法说明的 []int 标志。返回值是一个 []int 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) IntSliceP 
 
@@ -2963,7 +2829,7 @@ IntSlice defines a []int flag with specified name, default value, and usage stri
 func (f *FlagSet) IntSliceP(name, shorthand string, value []int, usage string) *[]int
 ```
 
-IntSliceP is like IntSlice, but accepts a shorthand letter that can be used after a single dash.
+​	IntSliceP 类似于 IntSlice，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) IntSliceVar 
 
@@ -2971,7 +2837,7 @@ IntSliceP is like IntSlice, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) IntSliceVar(p *[]int, name string, value []int, usage string)
 ```
 
-IntSliceVar defines a intSlice flag with specified name, default value, and usage string. The argument p points to a []int variable in which to store the value of the flag.
+​	IntSliceVar 定义了一个带有指定名称、默认值和用法说明的 intSlice 标志。参数 p 指向一个 []int 变量，用于存储标志的值。
 
 ##### (*FlagSet) IntSliceVarP 
 
@@ -2979,7 +2845,7 @@ IntSliceVar defines a intSlice flag with specified name, default value, and usag
 func (f *FlagSet) IntSliceVarP(p *[]int, name, shorthand string, value []int, usage string)
 ```
 
-IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	IntSliceVarP 类似于 IntSliceVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) IntVar 
 
@@ -2987,7 +2853,7 @@ IntSliceVarP is like IntSliceVar, but accepts a shorthand letter that can be use
 func (f *FlagSet) IntVar(p *int, name string, value int, usage string)
 ```
 
-IntVar defines an int flag with specified name, default value, and usage string. The argument p points to an int variable in which to store the value of the flag.
+​	IntVar 定义了一个带有指定名称、默认值和用法说明的 int 标志。参数 p 指向一个 int 变量，用于存储标志的值。
 
 ##### (*FlagSet) IntVarP 
 
@@ -2995,7 +2861,7 @@ IntVar defines an int flag with specified name, default value, and usage string.
 func (f *FlagSet) IntVarP(p *int, name, shorthand string, value int, usage string)
 ```
 
-IntVarP is like IntVar, but accepts a shorthand letter that can be used after a single dash.
+​	IntVarP 类似于 IntVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) Lookup 
 
@@ -3003,7 +2869,7 @@ IntVarP is like IntVar, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) Lookup(name string) *Flag
 ```
 
-Lookup returns the Flag structure of the named flag, returning nil if none exists.
+​	Lookup 根据名称返回标志的 Flag 结构，如果不存在则返回 nil。
 
 ##### (*FlagSet) MarkDeprecated 
 
@@ -3011,7 +2877,7 @@ Lookup returns the Flag structure of the named flag, returning nil if none exist
 func (f *FlagSet) MarkDeprecated(name string, usageMessage string) error
 ```
 
-MarkDeprecated indicated that a flag is deprecated in your program. It will continue to function but will not show up in help or usage messages. Using this flag will also print the given usageMessage.
+​	MarkDeprecated 表示程序中的一个标志已被弃用。它将继续工作，但不会显示在帮助或用法消息中。使用此标志还将打印给定的 usageMessage。
 
 ##### (*FlagSet) MarkHidden 
 
@@ -3019,7 +2885,7 @@ MarkDeprecated indicated that a flag is deprecated in your program. It will cont
 func (f *FlagSet) MarkHidden(name string) error
 ```
 
-MarkHidden sets a flag to 'hidden' in your program. It will continue to function but will not show up in help or usage messages.
+​	MarkHidden 将标志标记为“隐藏”状态。它将继续工作，但不会显示在帮助或用法消息中。
 
 ##### (*FlagSet) MarkShorthandDeprecated 
 
@@ -3027,7 +2893,7 @@ MarkHidden sets a flag to 'hidden' in your program. It will continue to function
 func (f *FlagSet) MarkShorthandDeprecated(name string, usageMessage string) error
 ```
 
-MarkShorthandDeprecated will mark the shorthand of a flag deprecated in your program. It will continue to function but will not show up in help or usage messages. Using this flag will also print the given usageMessage.
+​	MarkShorthandDeprecated 将标志的缩写标记为在程序中已弃用。它将继续工作，但不会显示在帮助或用法消息中。使用此标志还将打印给定的 usageMessage。
 
 ##### (*FlagSet) NArg 
 
@@ -3035,7 +2901,7 @@ MarkShorthandDeprecated will mark the shorthand of a flag deprecated in your pro
 func (f *FlagSet) NArg() int
 ```
 
-NArg is the number of arguments remaining after flags have been processed.
+​	NArg 返回处理完标志后剩余的参数数量。
 
 ##### (*FlagSet) NFlag 
 
@@ -3043,7 +2909,7 @@ NArg is the number of arguments remaining after flags have been processed.
 func (f *FlagSet) NFlag() int
 ```
 
-NFlag returns the number of flags that have been set.
+​	NFlag 返回已设置的标志数量。
 
 ##### (*FlagSet) Parse 
 
@@ -3051,7 +2917,7 @@ NFlag returns the number of flags that have been set.
 func (f *FlagSet) Parse(arguments []string) error
 ```
 
-Parse parses flag definitions from the argument list, which should not include the command name. Must be called after all flags in the FlagSet are defined and before flags are accessed by the program. The return value will be ErrHelp if -help was set but not defined.
+​	Parse 从参数列表解析标志定义，参数列表不应包括命令名称。必须在 FlagSet 中的所有标志定义之后、程序访问标志之前调用。如果设置了 -help 但未定义，返回值将是 ErrHelp。
 
 ##### (*FlagSet) ParseAll 
 
@@ -3059,7 +2925,7 @@ Parse parses flag definitions from the argument list, which should not include t
 func (f *FlagSet) ParseAll(arguments []string, fn func(flag *Flag, value string) error) error
 ```
 
-ParseAll parses flag definitions from the argument list, which should not include the command name. The arguments for fn are flag and value. Must be called after all flags in the FlagSet are defined and before flags are accessed by the program. The return value will be ErrHelp if -help was set but not defined.
+​	ParseAll 从参数列表解析标志定义，参数列表不应包括命令名称。fn 的参数是 flag 和 value。必须在 FlagSet 中的所有标志定义之后、程序访问标志之前调用。如果设置了 -help 但未定义，返回值将是 ErrHelp。
 
 ##### (*FlagSet) Parsed 
 
@@ -3067,7 +2933,7 @@ ParseAll parses flag definitions from the argument list, which should not includ
 func (f *FlagSet) Parsed() bool
 ```
 
-Parsed reports whether f.Parse has been called.
+​	Parsed 报告是否已调用 f.Parse。
 
 ##### (*FlagSet) PrintDefaults 
 
@@ -3075,7 +2941,7 @@ Parsed reports whether f.Parse has been called.
 func (f *FlagSet) PrintDefaults()
 ```
 
-PrintDefaults prints, to standard error unless configured otherwise, the default values of all defined flags in the set.
+​	PrintDefaults 打印所有已定义标志的默认值到标准错误（除非另有配置）。
 
 ##### (*FlagSet) Set 
 
@@ -3083,7 +2949,7 @@ PrintDefaults prints, to standard error unless configured otherwise, the default
 func (f *FlagSet) Set(name, value string) error
 ```
 
-Set sets the value of the named flag.
+​	Set 设置指定标志的值。
 
 ##### (*FlagSet) SetAnnotation 
 
@@ -3091,7 +2957,7 @@ Set sets the value of the named flag.
 func (f *FlagSet) SetAnnotation(name, key string, values []string) error
 ```
 
-SetAnnotation allows one to set arbitrary annotations on a flag in the FlagSet. This is sometimes used by spf13/cobra programs which want to generate additional bash completion information.
+​	SetAnnotation 允许在 FlagSet 上设置任意注释。这有时由 spf13/cobra 程序使用，它们希望生成额外的 bash 完成信息。
 
 ##### (*FlagSet) SetInterspersed 
 
@@ -3099,7 +2965,7 @@ SetAnnotation allows one to set arbitrary annotations on a flag in the FlagSet. 
 func (f *FlagSet) SetInterspersed(interspersed bool)
 ```
 
-SetInterspersed sets whether to support interspersed option/non-option arguments.
+​	SetInterspersed 设置是否支持交错的选项/非选项参数。
 
 ##### (*FlagSet) SetNormalizeFunc 
 
@@ -3107,7 +2973,7 @@ SetInterspersed sets whether to support interspersed option/non-option arguments
 func (f *FlagSet) SetNormalizeFunc(n func(f *FlagSet, name string) NormalizedName)
 ```
 
-SetNormalizeFunc allows you to add a function which can translate flag names. Flags added to the FlagSet will be translated and then when anything tries to look up the flag that will also be translated. So it would be possible to create a flag named "getURL" and have it translated to "geturl". A user could then pass "--getUrl" which may also be translated to "geturl" and everything will work.
+​	SetNormalizeFunc 允许您添加一个函数，用于转换标志名称。添加到 FlagSet 中的标志将被翻译，当任何东西尝试查找该标志时，也会被翻译。因此，可以创建名为 "getURL" 的标志，并将其翻译为 "geturl"。然后用户可以传递 "`--getUrl`"，这也可能被翻译为 "geturl"，一切都能正常工作。
 
 ##### (*FlagSet) SetOutput 
 
@@ -3115,7 +2981,7 @@ SetNormalizeFunc allows you to add a function which can translate flag names. Fl
 func (f *FlagSet) SetOutput(output io.Writer)
 ```
 
-SetOutput sets the destination for usage and error messages. If output is nil, os.Stderr is used.
+​	SetOutput 设置用于帮助和错误消息的目标。如果 output 为 nil，则使用 os.Stderr。
 
 ##### (*FlagSet) ShorthandLookup 
 
@@ -3123,9 +2989,35 @@ SetOutput sets the destination for usage and error messages. If output is nil, o
 func (f *FlagSet) ShorthandLookup(name string) *Flag
 ```
 
-ShorthandLookup returns the Flag structure of the short handed flag, returning nil if none exists. It panics, if len(name) > 1.
+​	ShorthandLookup 返回缩写标志的 Flag 结构，如果不存在则返回 nil。如果 name 的长度大于 1，则会引发 panic。
 
-###### Example
+###### ShorthandLookup  Example
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/spf13/pflag"
+)
+
+func main() {
+	name := "verbose"
+	short := name[:1]
+
+	fs := pflag.NewFlagSet("Example", pflag.ContinueOnError)
+	fs.BoolP(name, short, false, "verbose output")
+
+	// len(short) must be == 1
+	flag := fs.ShorthandLookup(short)
+
+	fmt.Println(flag.Name)
+}
+
+```
+
+
 
 ##### (*FlagSet) String 
 
@@ -3133,7 +3025,7 @@ ShorthandLookup returns the Flag structure of the short handed flag, returning n
 func (f *FlagSet) String(name string, value string, usage string) *string
 ```
 
-String defines a string flag with specified name, default value, and usage string. The return value is the address of a string variable that stores the value of the flag.
+​	String 定义了一个带有指定名称、默认值和用法说明的字符串标志。返回值是一个字符串变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) StringArray 
 
@@ -3141,7 +3033,7 @@ String defines a string flag with specified name, default value, and usage strin
 func (f *FlagSet) StringArray(name string, value []string, usage string) *[]string
 ```
 
-StringArray defines a string flag with specified name, default value, and usage string. The return value is the address of a []string variable that stores the value of the flag. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
+​	StringArray 定义了一个带有指定名称、默认值和用法说明的字符串标志。返回值是一个 []string 变量的地址，用于存储标志的值。每个参数的值不会尝试用逗号分隔。对于这种情况，请使用 StringSlice。
 
 ##### (*FlagSet) StringArrayP 
 
@@ -3149,7 +3041,7 @@ StringArray defines a string flag with specified name, default value, and usage 
 func (f *FlagSet) StringArrayP(name, shorthand string, value []string, usage string) *[]string
 ```
 
-StringArrayP is like StringArray, but accepts a shorthand letter that can be used after a single dash.
+​	StringArrayP 类似于 StringArray，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringArrayVar 
 
@@ -3157,7 +3049,7 @@ StringArrayP is like StringArray, but accepts a shorthand letter that can be use
 func (f *FlagSet) StringArrayVar(p *[]string, name string, value []string, usage string)
 ```
 
-StringArrayVar defines a string flag with specified name, default value, and usage string. The argument p points to a []string variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma. Use a StringSlice for that.
+​	StringArrayVar 定义了一个带有指定名称、默认值和用法说明的字符串标志。参数 p 指向一个 []string 变量，用于存储多个标志的值。每个参数的值不会尝试用逗号分隔。对于这种情况，请使用 StringSlice。
 
 ##### (*FlagSet) StringArrayVarP 
 
@@ -3165,7 +3057,7 @@ StringArrayVar defines a string flag with specified name, default value, and usa
 func (f *FlagSet) StringArrayVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
-StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringArrayVarP 类似于 StringArrayVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringP 
 
@@ -3173,7 +3065,7 @@ StringArrayVarP is like StringArrayVar, but accepts a shorthand letter that can 
 func (f *FlagSet) StringP(name, shorthand string, value string, usage string) *string
 ```
 
-StringP is like String, but accepts a shorthand letter that can be used after a single dash.
+​	StringP 类似于 String，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringSlice 
 
@@ -3181,13 +3073,13 @@ StringP is like String, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) StringSlice(name string, value []string, usage string) *[]string
 ```
 
-StringSlice defines a string flag with specified name, default value, and usage string. The return value is the address of a []string variable that stores the value of the flag. Compared to StringArray flags, StringSlice flags take comma-separated value as arguments and split them accordingly. For example:
+​	StringSlice 定义了一个带有指定名称、默认值和用法说明的字符串标志。返回值是一个 []string 变量的地址，用于存储标志的值。与 StringArray 标志相比，StringSlice 标志将以逗号分隔的值作为参数，并相应地进行拆分。例如：
 
 ```
 --ss="v1,v2" --ss="v3"
 ```
 
-will result in
+将导致：
 
 ```
 []string{"v1", "v2", "v3"}
@@ -3199,7 +3091,7 @@ will result in
 func (f *FlagSet) StringSliceP(name, shorthand string, value []string, usage string) *[]string
 ```
 
-StringSliceP is like StringSlice, but accepts a shorthand letter that can be used after a single dash.
+​	StringSliceP 类似于 StringSlice，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringSliceVar 
 
@@ -3207,13 +3099,13 @@ StringSliceP is like StringSlice, but accepts a shorthand letter that can be use
 func (f *FlagSet) StringSliceVar(p *[]string, name string, value []string, usage string)
 ```
 
-StringSliceVar defines a string flag with specified name, default value, and usage string. The argument p points to a []string variable in which to store the value of the flag. Compared to StringArray flags, StringSlice flags take comma-separated value as arguments and split them accordingly. For example:
+​	StringSliceVar 定义了一个带有指定名称、默认值和用法说明的字符串标志。参数 p 指向一个 []string 变量，用于存储标志的值。与 StringArray 标志相比，StringSlice 标志将以逗号分隔的值作为参数，并相应地进行拆分。例如：
 
 ```
 --ss="v1,v2" --ss="v3"
 ```
 
-will result in
+将导致：
 
 ```
 []string{"v1", "v2", "v3"}
@@ -3225,7 +3117,7 @@ will result in
 func (f *FlagSet) StringSliceVarP(p *[]string, name, shorthand string, value []string, usage string)
 ```
 
-StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringSliceVarP 类似于 StringSliceVar，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringToInt  <- v1.0.3
 
@@ -3233,7 +3125,7 @@ StringSliceVarP is like StringSliceVar, but accepts a shorthand letter that can 
 func (f *FlagSet) StringToInt(name string, value map[string]int, usage string) *map[string]int
 ```
 
-StringToInt defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToInt 定义了一个带有指定名称、默认值和用法说明的字符串标志。返回值是一个 map[string]int 变量的地址，用于存储标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToInt64  <- v1.0.5
 
@@ -3241,7 +3133,7 @@ StringToInt defines a string flag with specified name, default value, and usage 
 func (f *FlagSet) StringToInt64(name string, value map[string]int64, usage string) *map[string]int64
 ```
 
-StringToInt64 defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]int64 variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToInt64 定义了一个带有指定名称、默认值和用法说明的字符串标志。返回值是一个 map[string]int64 变量的地址，用于存储标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToInt64P  <- v1.0.5
 
@@ -3249,7 +3141,7 @@ StringToInt64 defines a string flag with specified name, default value, and usag
 func (f *FlagSet) StringToInt64P(name, shorthand string, value map[string]int64, usage string) *map[string]int64
 ```
 
-StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be used after a single dash.
+​	StringToInt64P 类似于 StringToInt64，但允许在单个短划线后使用速记字母。
 
 ##### (*FlagSet) StringToInt64Var  <- v1.0.5
 
@@ -3257,7 +3149,7 @@ StringToInt64P is like StringToInt64, but accepts a shorthand letter that can be
 func (f *FlagSet) StringToInt64Var(p *map[string]int64, name string, value map[string]int64, usage string)
 ```
 
-StringToInt64Var defines a string flag with specified name, default value, and usage string. The argument p point64s to a map[string]int64 variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
+​	StringToInt64Var 定义了一个具有指定名称、默认值和用法字符串的字符串标志。参数 p 指向一个 map[string]int64 变量，用于存储多个标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToInt64VarP  <- v1.0.5
 
@@ -3265,7 +3157,7 @@ StringToInt64Var defines a string flag with specified name, default value, and u
 func (f *FlagSet) StringToInt64VarP(p *map[string]int64, name, shorthand string, value map[string]int64, usage string)
 ```
 
-StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that can be used after a single dash.
+​	StringToInt64VarP 类似于 StringToInt64Var，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) StringToIntP  <- v1.0.3
 
@@ -3273,7 +3165,7 @@ StringToInt64VarP is like StringToInt64Var, but accepts a shorthand letter that 
 func (f *FlagSet) StringToIntP(name, shorthand string, value map[string]int, usage string) *map[string]int
 ```
 
-StringToIntP is like StringToInt, but accepts a shorthand letter that can be used after a single dash.
+​	StringToIntP 类似于 StringToInt，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) StringToIntVar  <- v1.0.3
 
@@ -3281,7 +3173,7 @@ StringToIntP is like StringToInt, but accepts a shorthand letter that can be use
 func (f *FlagSet) StringToIntVar(p *map[string]int, name string, value map[string]int, usage string)
 ```
 
-StringToIntVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]int variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
+​	StringToIntVar 定义了一个具有指定名称、默认值和用法字符串的字符串标志。参数 p 指向一个 map[string]int 变量，用于存储多个标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToIntVarP  <- v1.0.3
 
@@ -3289,7 +3181,7 @@ StringToIntVar defines a string flag with specified name, default value, and usa
 func (f *FlagSet) StringToIntVarP(p *map[string]int, name, shorthand string, value map[string]int, usage string)
 ```
 
-StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringToIntVarP 类似于 StringToIntVar，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) StringToString  <- v1.0.3
 
@@ -3297,7 +3189,7 @@ StringToIntVarP is like StringToIntVar, but accepts a shorthand letter that can 
 func (f *FlagSet) StringToString(name string, value map[string]string, usage string) *map[string]string
 ```
 
-StringToString defines a string flag with specified name, default value, and usage string. The return value is the address of a map[string]string variable that stores the value of the flag. The value of each argument will not try to be separated by comma
+​	StringToString 定义了一个具有指定名称、默认值和用法字符串的字符串标志。返回值是一个 map[string]string 变量的地址，该变量用于存储标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToStringP  <- v1.0.3
 
@@ -3305,7 +3197,7 @@ StringToString defines a string flag with specified name, default value, and usa
 func (f *FlagSet) StringToStringP(name, shorthand string, value map[string]string, usage string) *map[string]string
 ```
 
-StringToStringP is like StringToString, but accepts a shorthand letter that can be used after a single dash.
+​	StringToStringP 类似于 StringToString，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) StringToStringVar  <- v1.0.3
 
@@ -3313,7 +3205,7 @@ StringToStringP is like StringToString, but accepts a shorthand letter that can 
 func (f *FlagSet) StringToStringVar(p *map[string]string, name string, value map[string]string, usage string)
 ```
 
-StringToStringVar defines a string flag with specified name, default value, and usage string. The argument p points to a map[string]string variable in which to store the values of the multiple flags. The value of each argument will not try to be separated by comma
+​	StringToStringVar 定义了一个具有指定名称、默认值和用法字符串的字符串标志。参数 p 指向一个 map[string]string 变量，用于存储多个标志的值。每个参数的值不会尝试用逗号分隔。
 
 ##### (*FlagSet) StringToStringVarP  <- v1.0.3
 
@@ -3321,7 +3213,7 @@ StringToStringVar defines a string flag with specified name, default value, and 
 func (f *FlagSet) StringToStringVarP(p *map[string]string, name, shorthand string, value map[string]string, usage string)
 ```
 
-StringToStringVarP is like StringToStringVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringToStringVarP 类似于 StringToStringVar，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) StringVar 
 
@@ -3329,7 +3221,7 @@ StringToStringVarP is like StringToStringVar, but accepts a shorthand letter tha
 func (f *FlagSet) StringVar(p *string, name string, value string, usage string)
 ```
 
-StringVar defines a string flag with specified name, default value, and usage string. The argument p points to a string variable in which to store the value of the flag.
+​	StringVar 定义了一个具有指定名称、默认值和用法字符串的字符串标志。参数 p 指向一个字符串变量，用于存储标志的值。
 
 ##### (*FlagSet) StringVarP 
 
@@ -3337,7 +3229,7 @@ StringVar defines a string flag with specified name, default value, and usage st
 func (f *FlagSet) StringVarP(p *string, name, shorthand string, value string, usage string)
 ```
 
-StringVarP is like StringVar, but accepts a shorthand letter that can be used after a single dash.
+​	StringVarP 类似于 StringVar，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint 
 
@@ -3345,7 +3237,7 @@ StringVarP is like StringVar, but accepts a shorthand letter that can be used af
 func (f *FlagSet) Uint(name string, value uint, usage string) *uint
 ```
 
-Uint defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
+​	Uint 定义了一个具有指定名称、默认值和用法字符串的 uint 标志。返回值是一个指向 uint 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Uint16 
 
@@ -3353,7 +3245,7 @@ Uint defines a uint flag with specified name, default value, and usage string. T
 func (f *FlagSet) Uint16(name string, value uint16, usage string) *uint16
 ```
 
-Uint16 defines a uint flag with specified name, default value, and usage string. The return value is the address of a uint variable that stores the value of the flag.
+​	Uint16 定义了一个具有指定名称、默认值和用法字符串的 uint16 标志。返回值是一个指向 uint16 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Uint16P 
 
@@ -3361,7 +3253,7 @@ Uint16 defines a uint flag with specified name, default value, and usage string.
 func (f *FlagSet) Uint16P(name, shorthand string, value uint16, usage string) *uint16
 ```
 
-Uint16P is like Uint16, but accepts a shorthand letter that can be used after a single dash.
+​	Uint16P 类似于 Uint16，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint16Var 
 
@@ -3369,7 +3261,7 @@ Uint16P is like Uint16, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) Uint16Var(p *uint16, name string, value uint16, usage string)
 ```
 
-Uint16Var defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
+​	Uint16Var 定义了一个具有指定名称、默认值和用法字符串的 uint16 标志。参数 p 指向一个 uint16 变量，用于存储标志的值。
 
 ##### (*FlagSet) Uint16VarP 
 
@@ -3377,7 +3269,7 @@ Uint16Var defines a uint flag with specified name, default value, and usage stri
 func (f *FlagSet) Uint16VarP(p *uint16, name, shorthand string, value uint16, usage string)
 ```
 
-Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint16VarP 类似于 Uint16Var，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint32 
 
@@ -3385,7 +3277,7 @@ Uint16VarP is like Uint16Var, but accepts a shorthand letter that can be used af
 func (f *FlagSet) Uint32(name string, value uint32, usage string) *uint32
 ```
 
-Uint32 defines a uint32 flag with specified name, default value, and usage string. The return value is the address of a uint32 variable that stores the value of the flag.
+​	Uint32 定义了一个具有指定名称、默认值和用法字符串的 uint32 标志。返回值是一个指向 uint32 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Uint32P 
 
@@ -3393,7 +3285,7 @@ Uint32 defines a uint32 flag with specified name, default value, and usage strin
 func (f *FlagSet) Uint32P(name, shorthand string, value uint32, usage string) *uint32
 ```
 
-Uint32P is like Uint32, but accepts a shorthand letter that can be used after a single dash.
+​	Uint32P 类似于 Uint32，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint32Var 
 
@@ -3401,7 +3293,7 @@ Uint32P is like Uint32, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) Uint32Var(p *uint32, name string, value uint32, usage string)
 ```
 
-Uint32Var defines a uint32 flag with specified name, default value, and usage string. The argument p points to a uint32 variable in which to store the value of the flag.
+​	Uint32Var 定义了一个具有指定名称、默认值和用法字符串的 uint32 标志。参数 p 指向一个 uint32 变量，用于存储标志的值。
 
 ##### (*FlagSet) Uint32VarP 
 
@@ -3409,7 +3301,7 @@ Uint32Var defines a uint32 flag with specified name, default value, and usage st
 func (f *FlagSet) Uint32VarP(p *uint32, name, shorthand string, value uint32, usage string)
 ```
 
-Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint32VarP 类似于 Uint32Var，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint64 
 
@@ -3417,7 +3309,7 @@ Uint32VarP is like Uint32Var, but accepts a shorthand letter that can be used af
 func (f *FlagSet) Uint64(name string, value uint64, usage string) *uint64
 ```
 
-Uint64 defines a uint64 flag with specified name, default value, and usage string. The return value is the address of a uint64 variable that stores the value of the flag.
+​	Uint64 方法定义了一个具有指定名称、默认值和用法字符串的 uint64 标志。返回值是一个指向 uint64 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Uint64P 
 
@@ -3425,7 +3317,7 @@ Uint64 defines a uint64 flag with specified name, default value, and usage strin
 func (f *FlagSet) Uint64P(name, shorthand string, value uint64, usage string) *uint64
 ```
 
-Uint64P is like Uint64, but accepts a shorthand letter that can be used after a single dash.
+​	Uint64P 方法类似于 Uint64方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint64Var 
 
@@ -3433,7 +3325,7 @@ Uint64P is like Uint64, but accepts a shorthand letter that can be used after a 
 func (f *FlagSet) Uint64Var(p *uint64, name string, value uint64, usage string)
 ```
 
-Uint64Var defines a uint64 flag with specified name, default value, and usage string. The argument p points to a uint64 variable in which to store the value of the flag.
+​	Uint64Var 方法定义了一个具有指定名称、默认值和用法字符串的 uint64 标志。参数 p 指向一个 uint64 变量，用于存储标志的值。
 
 ##### (*FlagSet) Uint64VarP 
 
@@ -3441,7 +3333,7 @@ Uint64Var defines a uint64 flag with specified name, default value, and usage st
 func (f *FlagSet) Uint64VarP(p *uint64, name, shorthand string, value uint64, usage string)
 ```
 
-Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint64VarP 方法类似于 Uint64Var方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint8 
 
@@ -3449,7 +3341,7 @@ Uint64VarP is like Uint64Var, but accepts a shorthand letter that can be used af
 func (f *FlagSet) Uint8(name string, value uint8, usage string) *uint8
 ```
 
-Uint8 defines a uint8 flag with specified name, default value, and usage string. The return value is the address of a uint8 variable that stores the value of the flag.
+​	Uint8 方法定义了一个具有指定名称、默认值和用法字符串的 uint8 标志。返回值是一个指向 uint8 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) Uint8P 
 
@@ -3457,7 +3349,7 @@ Uint8 defines a uint8 flag with specified name, default value, and usage string.
 func (f *FlagSet) Uint8P(name, shorthand string, value uint8, usage string) *uint8
 ```
 
-Uint8P is like Uint8, but accepts a shorthand letter that can be used after a single dash.
+​	Uint8P 方法类似于 Uint8方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Uint8Var 
 
@@ -3465,7 +3357,7 @@ Uint8P is like Uint8, but accepts a shorthand letter that can be used after a si
 func (f *FlagSet) Uint8Var(p *uint8, name string, value uint8, usage string)
 ```
 
-Uint8Var defines a uint8 flag with specified name, default value, and usage string. The argument p points to a uint8 variable in which to store the value of the flag.
+​	Uint8Var 方法定义了一个具有指定名称、默认值和用法字符串的 uint8 标志。参数 p 指向一个 uint8 变量，用于存储标志的值。
 
 ##### (*FlagSet) Uint8VarP 
 
@@ -3473,7 +3365,7 @@ Uint8Var defines a uint8 flag with specified name, default value, and usage stri
 func (f *FlagSet) Uint8VarP(p *uint8, name, shorthand string, value uint8, usage string)
 ```
 
-Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used after a single dash.
+​	Uint8VarP 方法类似于 Uint8Var方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) UintP 
 
@@ -3481,7 +3373,7 @@ Uint8VarP is like Uint8Var, but accepts a shorthand letter that can be used afte
 func (f *FlagSet) UintP(name, shorthand string, value uint, usage string) *uint
 ```
 
-UintP is like Uint, but accepts a shorthand letter that can be used after a single dash.
+​	UintP 方法类似于 Uint方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) UintSlice 
 
@@ -3489,7 +3381,7 @@ UintP is like Uint, but accepts a shorthand letter that can be used after a sing
 func (f *FlagSet) UintSlice(name string, value []uint, usage string) *[]uint
 ```
 
-UintSlice defines a []uint flag with specified name, default value, and usage string. The return value is the address of a []uint variable that stores the value of the flag.
+​	UintSlice 方法定义了一个具有指定名称、默认值和用法字符串的 []uint 标志。返回值是一个指向 []uint 变量的地址，用于存储标志的值。
 
 ##### (*FlagSet) UintSliceP 
 
@@ -3497,7 +3389,7 @@ UintSlice defines a []uint flag with specified name, default value, and usage st
 func (f *FlagSet) UintSliceP(name, shorthand string, value []uint, usage string) *[]uint
 ```
 
-UintSliceP is like UintSlice, but accepts a shorthand letter that can be used after a single dash.
+​	UintSliceP 方法类似于 UintSlice方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) UintSliceVar 
 
@@ -3505,7 +3397,7 @@ UintSliceP is like UintSlice, but accepts a shorthand letter that can be used af
 func (f *FlagSet) UintSliceVar(p *[]uint, name string, value []uint, usage string)
 ```
 
-UintSliceVar defines a uintSlice flag with specified name, default value, and usage string. The argument p points to a []uint variable in which to store the value of the flag.
+​	UintSliceVar 方法定义了一个具有指定名称、默认值和用法字符串的 []uint 标志。参数 p 指向一个 []uint 变量，用于存储标志的值。
 
 ##### (*FlagSet) UintSliceVarP 
 
@@ -3513,7 +3405,7 @@ UintSliceVar defines a uintSlice flag with specified name, default value, and us
 func (f *FlagSet) UintSliceVarP(p *[]uint, name, shorthand string, value []uint, usage string)
 ```
 
-UintSliceVarP is like UintSliceVar, but accepts a shorthand letter that can be used after a single dash.
+​	UintSliceVarP 方法类似于 UintSliceVar方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) UintVar 
 
@@ -3521,7 +3413,7 @@ UintSliceVarP is like UintSliceVar, but accepts a shorthand letter that can be u
 func (f *FlagSet) UintVar(p *uint, name string, value uint, usage string)
 ```
 
-UintVar defines a uint flag with specified name, default value, and usage string. The argument p points to a uint variable in which to store the value of the flag.
+​	UintVar 方法定义了一个具有指定名称、默认值和用法字符串的 uint 标志。参数 p 指向一个 uint 变量，用于存储标志的值。
 
 ##### (*FlagSet) UintVarP 
 
@@ -3529,7 +3421,7 @@ UintVar defines a uint flag with specified name, default value, and usage string
 func (f *FlagSet) UintVarP(p *uint, name, shorthand string, value uint, usage string)
 ```
 
-UintVarP is like UintVar, but accepts a shorthand letter that can be used after a single dash.
+​	UintVarP 方法类似于 UintVar方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) Var 
 
@@ -3537,7 +3429,7 @@ UintVarP is like UintVar, but accepts a shorthand letter that can be used after 
 func (f *FlagSet) Var(value Value, name string, usage string)
 ```
 
-Var defines a flag with the specified name and usage string. The type and value of the flag are represented by the first argument, of type Value, which typically holds a user-defined implementation of Value. For instance, the caller could create a flag that turns a comma-separated string into a slice of strings by giving the slice the methods of Value; in particular, Set would decompose the comma-separated string into the slice.
+​	Var 方法定义了一个具有指定名称和用法字符串的标志。标志的类型和值由第一个参数表示，类型为 Value，通常包含用户定义的 Value 实现。例如，调用者可以创建一个标志，通过为切片分配方法，将逗号分隔的字符串转换为字符串切片；特别是，Set 方法会将逗号分隔的字符串分解为切片。
 
 ##### (*FlagSet) VarP 
 
@@ -3545,7 +3437,7 @@ Var defines a flag with the specified name and usage string. The type and value 
 func (f *FlagSet) VarP(value Value, name, shorthand, usage string)
 ```
 
-VarP is like Var, but accepts a shorthand letter that can be used after a single dash.
+​	VarP 方法类似于 Var方法，但接受一个可以在单个短划线后使用的速记字母。
 
 ##### (*FlagSet) VarPF 
 
@@ -3553,7 +3445,7 @@ VarP is like Var, but accepts a shorthand letter that can be used after a single
 func (f *FlagSet) VarPF(value Value, name, shorthand, usage string) *Flag
 ```
 
-VarPF is like VarP, but returns the flag created
+​	VarPF 方法类似于 VarP方法，但返回创建的标志。
 
 ##### (*FlagSet) Visit 
 
@@ -3561,7 +3453,7 @@ VarPF is like VarP, but returns the flag created
 func (f *FlagSet) Visit(fn func(*Flag))
 ```
 
-Visit visits the flags in lexicographical order or in primordial order if f.SortFlags is false, calling fn for each. It visits only those flags that have been set.
+​	Visit 方法以词典顺序或原始顺序（如果 f.SortFlags 为 false）访问标志，对每个标志调用 fn。它仅访问已设置的标志。
 
 ##### (*FlagSet) VisitAll 
 
@@ -3569,7 +3461,7 @@ Visit visits the flags in lexicographical order or in primordial order if f.Sort
 func (f *FlagSet) VisitAll(fn func(*Flag))
 ```
 
-VisitAll visits the flags in lexicographical order or in primordial order if f.SortFlags is false, calling fn for each. It visits all flags, even those not set.
+​	VisitAll 方法以词典顺序或原始顺序（如果 f.SortFlags 为 false）访问标志，对每个标志调用 fn。它访问所有标志，包括未设置的标志。
 
 #### type NormalizedName 
 
@@ -3577,33 +3469,33 @@ VisitAll visits the flags in lexicographical order or in primordial order if f.S
 type NormalizedName string
 ```
 
-NormalizedName is a flag name that has been normalized according to rules for the FlagSet (e.g. making '-' and '_' equivalent).
+​	NormalizedName 是根据 FlagSet 规则进行标准化的标志名称（例如，使 '`-`' 和 '`_`' 等效）。
 
 #### type ParseErrorsWhitelist  <- v1.0.1
 
 ``` go
 type ParseErrorsWhitelist struct {
-	// UnknownFlags will ignore unknown flags errors and continue parsing rest of the flags
+    // UnknownFlags 将忽略未知标志的错误并继续解析其余标志
 	UnknownFlags bool
 }
 ```
 
-ParseErrorsWhitelist defines the parsing errors that can be ignored
+​	ParseErrorsWhitelist 结构体定义了可以忽略的解析错误。
 
 #### type SliceValue  <- v1.0.5
 
 ``` go
 type SliceValue interface {
-	// Append adds the specified value to the end of the flag value list.
+    // Append 将指定的值添加到标志值列表的末尾。
 	Append(string) error
-	// Replace will fully overwrite any data currently in the flag value list.
+    // Replace 将完全覆盖当前在标志值列表中的任何数据。
 	Replace([]string) error
-	// GetSlice returns the flag value list as an array of strings.
+    // GetSlice 返回标志值列表作为字符串数组。
 	GetSlice() []string
 }
 ```
 
-SliceValue is a secondary interface to all flags which hold a list of values. This allows full control over the value of list flags, and avoids complicated marshalling and unmarshalling to csv.
+​	SliceValue 是所有持有值列表的标志的辅助接口。这允许对列表标志的值进行完全控制，并避免了复杂的 csv 编组和解组。
 
 #### type Value 
 
@@ -3615,4 +3507,4 @@ type Value interface {
 }
 ```
 
-Value is the interface to the dynamic value stored in a flag. (The default value is represented as a string.)
+​	Value 是存储在标志中的动态值的接口（默认值表示为字符串）。
