@@ -222,7 +222,7 @@ e.POST("/users", func(c echo.Context) error {
 e.Static("/static", "static")
 ```
 
-[了解更多](https://echo.labstack.com/docs/static-files)
+[了解更多]({{< ref "/echo/guide/static-files">}})
 
 ## 模板渲染
 

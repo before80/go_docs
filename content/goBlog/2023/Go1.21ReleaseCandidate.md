@@ -1,6 +1,7 @@
 +++
 title = "go1.21 候选版本"
 date = 2023-07-12T20:42:31+08:00
+weight = 94
 type = "docs"
 description = ""
 isCJKLanguage = true

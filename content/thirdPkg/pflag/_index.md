@@ -1706,7 +1706,7 @@ func main() {
 
 
 
-##### type FlagSet 
+#### type FlagSet 
 
 ``` go
 type FlagSet struct {
