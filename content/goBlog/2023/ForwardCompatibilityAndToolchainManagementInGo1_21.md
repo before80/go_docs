@@ -20,9 +20,9 @@ Russ Cox 2023年8月14日
 
 
 
-Beyond Go 1.21’s [expanded commitment to backward compatibility]({{< ref "/goBlog/2023/BackwardCompatibilityGo1_21AndGo2">}}), Go 1.21 also introduces better forward compatibility for Go code, meaning that Go 1.21 and later will take better care not to miscompile code that requires an even newer version of Go. Specifically, the `go` line in `go.mod` now specifies a minimum required Go toolchain version, while in previous releases it was a mostly unenforced suggestion.
+Beyond Go 1.21’s [expanded commitment to backward compatibility](../BackwardCompatibilityGo1_21AndGo2), Go 1.21 also introduces better forward compatibility for Go code, meaning that Go 1.21 and later will take better care not to miscompile code that requires an even newer version of Go. Specifically, the `go` line in `go.mod` now specifies a minimum required Go toolchain version, while in previous releases it was a mostly unenforced suggestion.
 
-​	除了Go 1.21对[向后兼容性的扩展承诺]({{< ref "/goBlog/2023/BackwardCompatibilityGo1_21AndGo2">}})之外，Go 1.21还引入了更好的Go代码向后兼容性，这意味着Go 1.21及更高版本将更好地避免对需要更新版本的Go的代码进行错误编译。具体而言，`go.mod`文件中的`go`行现在指定了所需的最低Go工具链版本，而在以前的版本中，这只是一个大致没有强制执行的建议。
+​	除了Go 1.21对[向后兼容性的扩展承诺](../BackwardCompatibilityGo1_21AndGo2)之外，Go 1.21还引入了更好的Go代码向后兼容性，这意味着Go 1.21及更高版本将更好地避免对需要更新版本的Go的代码进行错误编译。具体而言，`go.mod`文件中的`go`行现在指定了所需的最低Go工具链版本，而在以前的版本中，这只是一个大致没有强制执行的建议。
 
 To make it easier to keep up with these requirements, Go 1.21 also introduces toolchain management, so that different modules can use different Go toolchains just as they can use different versions of a required module. After installing Go 1.21, you’ll never have to manually download and install a Go toolchain again. The `go` command can do it for you.
 
