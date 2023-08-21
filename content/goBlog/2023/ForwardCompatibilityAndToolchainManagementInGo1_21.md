@@ -20,9 +20,9 @@ Russ Cox 2023年8月14日
 
 
 
-Beyond Go 1.21’s [expanded commitment to backward compatibility](https://go.dev/blog/compat), Go 1.21 also introduces better forward compatibility for Go code, meaning that Go 1.21 and later will take better care not to miscompile code that requires an even newer version of Go. Specifically, the `go` line in `go.mod` now specifies a minimum required Go toolchain version, while in previous releases it was a mostly unenforced suggestion.
+Beyond Go 1.21’s [expanded commitment to backward compatibility]({{< ref "/goBlog/2023/BackwardCompatibilityGo1_21AndGo2">}}), Go 1.21 also introduces better forward compatibility for Go code, meaning that Go 1.21 and later will take better care not to miscompile code that requires an even newer version of Go. Specifically, the `go` line in `go.mod` now specifies a minimum required Go toolchain version, while in previous releases it was a mostly unenforced suggestion.
 
-​	除了Go 1.21对[向后兼容性的扩展承诺](https://go.dev/blog/compat)之外，Go 1.21还引入了更好的Go代码向后兼容性，这意味着Go 1.21及更高版本将更好地避免对需要更新版本的Go的代码进行错误编译。具体而言，`go.mod`文件中的`go`行现在指定了所需的最低Go工具链版本，而在以前的版本中，这只是一个大致没有强制执行的建议。
+​	除了Go 1.21对[向后兼容性的扩展承诺]({{< ref "/goBlog/2023/BackwardCompatibilityGo1_21AndGo2">}})之外，Go 1.21还引入了更好的Go代码向后兼容性，这意味着Go 1.21及更高版本将更好地避免对需要更新版本的Go的代码进行错误编译。具体而言，`go.mod`文件中的`go`行现在指定了所需的最低Go工具链版本，而在以前的版本中，这只是一个大致没有强制执行的建议。
 
 To make it easier to keep up with these requirements, Go 1.21 also introduces toolchain management, so that different modules can use different Go toolchains just as they can use different versions of a required module. After installing Go 1.21, you’ll never have to manually download and install a Go toolchain again. The `go` command can do it for you.
 
@@ -80,9 +80,9 @@ When you need a new version of a Go module, the `go` command downloads it for yo
 
 ​	当您需要新版本的Go模块时，`go`命令会为您下载它。从Go 1.21开始，当您需要更新的Go工具链时，`go`命令也会为您下载它。这个功能类似于Node的`nvm`或Rust的`rustup`，但内置到核心的`go`命令中，而不是作为一个独立的工具。
 
-If you are running Go 1.21.0 and you run a `go` command, say, `go build`, in a module with a `go.mod` that says `go 1.21.1`, the Go 1.21.0 `go` command will notice that you need Go 1.21.1, download it, and re-invoke that version’s `go` command to finish the build. When the `go` command downloads and runs these other toolchains, it doesn’t install them in your PATH or overwrite the current installation. Instead, it downloads them as Go modules, inheriting all the [security and privacy benefits of modules](https://go.dev/blog/module-mirror-launch), and then it runs them from the module cache.
+If you are running Go 1.21.0 and you run a `go` command, say, `go build`, in a module with a `go.mod` that says `go 1.21.1`, the Go 1.21.0 `go` command will notice that you need Go 1.21.1, download it, and re-invoke that version’s `go` command to finish the build. When the `go` command downloads and runs these other toolchains, it doesn’t install them in your PATH or overwrite the current installation. Instead, it downloads them as Go modules, inheriting all the [security and privacy benefits of modules]({{< ref "/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched">}}), and then it runs them from the module cache.
 
-​	如果您运行的是Go 1.21.0，并且在一个`go.mod`文件中运行`go`命令，例如`go build`，该文件中写着`go 1.21.1`，则Go 1.21.0 `go`命令将注意到您需要Go 1.21.1，下载它，并重新调用该版本的`go`命令以完成构建。当`go`命令下载并运行这些其他工具链时，它不会将它们安装在您的PATH中，也不会覆盖当前的安装。相反，它会将它们作为Go模块进行下载，继承所有[模块的安全性和隐私优势](https://go.dev/blog/module-mirror-launch)，然后从模块缓存中运行它们。
+​	如果您运行的是Go 1.21.0，并且在一个`go.mod`文件中运行`go`命令，例如`go build`，该文件中写着`go 1.21.1`，则Go 1.21.0 `go`命令将注意到您需要Go 1.21.1，下载它，并重新调用该版本的`go`命令以完成构建。当`go`命令下载并运行这些其他工具链时，它不会将它们安装在您的PATH中，也不会覆盖当前的安装。相反，它会将它们作为Go模块进行下载，继承所有[模块的安全性和隐私优势]({{< ref "/goBlog/2019/ModuleMirrorAndChecksumDatabaseLaunched">}})，然后从模块缓存中运行它们。
 
 There is also a new `toolchain` line in `go.mod` that specifies the minimum Go toolchain to use when working in a particular module. In contrast to the `go` line, `toolchain` does not impose a requirement on other modules. For example, a `go.mod` might say:
 
@@ -142,6 +142,6 @@ You’ll never have to manually download and install a Go toolchain again. The `
 
 ​	您将不再需要手动下载和安装Go工具链。`go`命令会为您处理这一切。
 
-See “[Go Toolchains](https://go.dev/doc/toolchain)” for more details.
+See “[Go Toolchains]({{< ref "/docs/GoToolchains">}})” for more details.
 
-有关更多详细信息，请参阅“[Go工具链](https://go.dev/doc/toolchain)”。
+有关更多详细信息，请参阅“[Go工具链]({{< ref "/docs/GoToolchains">}})”。
