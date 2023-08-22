@@ -17,7 +17,7 @@ https://pkg.go.dev/github.com/labstack/echo/v4
 
 > version: v4.11.1
 >
-> published: 2023.6.16
+> published: 2023.7.16
 
 ## 支持的 Go 版本
 
