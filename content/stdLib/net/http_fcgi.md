@@ -10,8 +10,6 @@ draft = false
 
 https://pkg.go.dev/net/http/fcgi@go1.20.1
 
-
-
 ​	fcgi 包实现了 FastCGI 协议。
 
 ​	请参阅 https://fast-cgi.github.io/ 以获取原始文档的非官方镜像。
