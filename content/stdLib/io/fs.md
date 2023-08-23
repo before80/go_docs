@@ -62,15 +62,179 @@ func Glob(fsys FS, pattern string) (matches []string, err error)
 
 ​	如果fs实现了GlobFS，则Glob函数调用fs.Glob。否则，Glob函数使用ReadDir遍历目录树并查找模式匹配项。
 
+##### Glob My Example
+
+![image-20230823204039795](fs_img/image-20230823204039795.png)
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	// 使用 Glob 进行文件路径匹配，返回匹配的文件路径列表
+	matches1, err := fs.Glob(os.DirFS("."), "*.txt")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println("Matched files1:")
+	for _, match := range matches1 {
+		fmt.Println(match)
+	}
+
+	matches2, err := fs.Glob(os.DirFS("./subdir"), "*.txt")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println("Matched files2:")
+	for _, match := range matches2 {
+		fmt.Println(match)
+	}
+
+}
+
+// Output:
+//Matched files1:
+//hello.txt
+//world.txt
+//Matched files2:
+//hi.txt
+//nice.txt
+
+```
+
+
+
 #### func ReadFile 
 
 ``` go 
-func ReadFile(fsys FS, name string) ([]byte, error)
+func ReadFile(fsys FS, name string) ([]byte, error) {
+	if fsys, ok := fsys.(ReadFileFS); ok {
+		return fsys.ReadFile(name)
+	}
+
+	file, err := fsys.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var size int
+	if info, err := file.Stat(); err == nil {
+		size64 := info.Size()
+		if int64(int(size64)) == size64 {
+			size = int(size64)
+		}
+	}
+
+	data := make([]byte, 0, size+1)
+	for {
+		if len(data) >= cap(data) {
+			d := append(data[:cap(data)], 0)
+			data = d[:len(data)]
+		}
+		n, err := file.Read(data[len(data):cap(data)])
+		data = data[:len(data)+n]
+		if err != nil {
+			if err == io.EOF {
+				err = nil
+			}
+			return data, err
+		}
+	}
+}
 ```
 
-​	ReadFile函数从文件系统fs中读取指定的文件并返回其内容。成功调用返回nil错误，而不是io.EOF。(因为ReadFile读取整个文件，因此不会将最终的EOF视为要报告的错误。)
+​	ReadFile 函数从文件系统fs中读取指定的文件并返回其内容。成功调用返回nil错误，而不是io.EOF。(因为ReadFile读取整个文件，因此不会将最终的EOF视为要报告的错误。)
 
 ​	如果fs实现了ReadFileFS，则ReadFile调用fs.ReadFile。否则，ReadFile调用fs.Open并在返回的文件上使用Read和Close。
+
+##### ReadFile My Example
+
+![image-20230823204943901](fs_img/image-20230823204943901.png)
+
+```go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+type MyReadFileFS struct{}
+
+func (m *MyReadFileFS) ReadFile(name string) ([]byte, error) {
+	// 检查文件是否存在
+	if _, err := os.Stat(name); err != nil {
+		return nil, err
+	}
+
+	// 打开文件
+	file, err := os.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	// 关闭文件
+	defer file.Close()
+
+	// 创建一个带缓冲的读取器
+	reader := bufio.NewReader(file)
+
+	var data = make([]byte, 4096)
+	_, err = reader.Read(data)
+	data = append([]byte("这是该方法的自定义内容，之后才是文件中的内容！"), data...)
+	return data, nil
+}
+
+func (m *MyReadFileFS) Open(name string) (file fs.File, err error) {
+	// 检查文件是否存在
+	if _, err := os.Stat(name); err != nil {
+		return nil, err
+	}
+
+	// 打开文件
+	file, err = os.Open(name)
+	if err != nil {
+		return nil, err
+	}
+
+	// 返回文件读取器
+	return file, nil
+}
+
+func main() {
+	content1, err := fs.ReadFile(os.DirFS("."), "hello.txt")
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println("Matched file content is:", string(content1))
+
+	content2, err := fs.ReadFile(&MyReadFileFS{}, "hello.txt")
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println("Matched file content is:", string(content2))
+}
+
+// Output:
+//Matched file content is: Hello! Nice to meet you! (notice: All in one line and no newline)
+//Matched file content is: 这是该方法的自定义内容，之后才是文件中的内容！Hello! Nice to meet you! (notice: All in one line and no newline)
+```
 
 #### func ValidPath 
 
@@ -82,7 +246,7 @@ ValidPath reports whether the given path name is valid for use in a call to Open
 
 ValidPath 报告给定的路径名称是否可以在调用 Open 时使用。
 
-ValidPath 返回给定路径名在调用 Open 时是否有效。
+ValidPath 函数返回给定路径名在调用 Open 时是否有效。
 
 Path names passed to open are UTF-8-encoded, unrooted, slash-separated sequences of path elements, like "x/y/z". Path names must not contain an element that is "." or ".." or the empty string, except for the special case that the root directory is named ".". Paths must not start or end with a slash: "/x" and "x/" are invalid.
 
@@ -95,6 +259,12 @@ Note that paths are slash-separated on all systems, even Windows. Paths containi
 请注意，在所有的系统上，甚至是Windows，路径都是以斜线分隔的。含有反斜杠和冒号等其他字符的路径可以被接受为有效，但这些字符决不能被FS实现解释为路径元素分隔符。
 
 请注意，路径在所有系统上都是以斜杠分隔的，即使在 Windows 上也是如此。包含反斜杠和冒号等其他字符的路径被接受为有效，但这些字符绝不能被 FS 实现解释为路径元素分隔符。
+
+##### My Example
+
+```go
+
+```
 
 #### func WalkDir 
 
@@ -125,6 +295,12 @@ WalkDir does not follow symbolic links found in directories, but if root itself 
 WalkDir不跟踪在目录中发现的符号链接，但是如果root本身是一个符号链接，它的目标将被步行。
 
 WalkDir 不会遵循目录中发现的符号链接，但如果 root 本身是符号链接，则会遍历其目标。
+
+##### My Example
+
+```go
+
+```
 
 ##### WalkDir Example
 
@@ -202,6 +378,12 @@ FileInfoToDirEntry 返回一个 DirEntry，它从 info 中返回信息。如果i
 
 FileInfoToDirEntry 返回一个从 info 中获取信息的 DirEntry。如果 info 为 nil，则 FileInfoToDirEntry 返回 nil。
 
+##### My Example
+
+```go
+
+```
+
 #### func ReadDir 
 
 ``` go 
@@ -217,6 +399,12 @@ If fs implements ReadDirFS, ReadDir calls fs.ReadDir. Otherwise ReadDir calls fs
 如果fs实现了ReadDirFS，ReadDir调用fs.ReadDir。否则ReadDir调用fs.Open并对返回的文件使用ReadDir和Close。
 
 如果 fs 实现了 ReadDirFS，则 ReadDir 调用 fs.ReadDir。否则，ReadDir 调用 fs.Open 并使用返回的文件上的 ReadDir 和 Close。
+
+##### My Example
+
+```go
+
+```
 
 ### type FS 
 
@@ -276,6 +464,12 @@ Note that Sub(os.DirFS("/"), "prefix") is equivalent to os.DirFS("/prefix") and 
 
 请注意，Sub(os.DirFS("/"), "prefix") 等同于 os.DirFS("/prefix")，并且它们都不能保证避免超出"/prefix"范围的操作系统访问，因为 os.DirFS 的实现不检查指向其他目录的"/prefix"内部符号链接。也就是说，os.DirFS 不是 chroot 样式安全机制的通用替代品，Sub 也不改变这个事实。
 
+##### My Example
+
+```go
+
+```
+
 ### type File 
 
 ``` go 
@@ -328,6 +522,12 @@ If fs implements StatFS, Stat calls fs.Stat. Otherwise, Stat opens the file to s
 如果fs实现了StatFS，Stat调用fs.Stat。否则，Stat打开文件以进行统计。
 
 如果fs实现了StatFS，则Stat调用fs.Stat。否则，Stat打开文件以获取其状态。
+
+##### My Example
+
+```go
+
+```
 
 ### type FileMode 
 
@@ -386,6 +586,12 @@ IsDir报告m是否描述了一个目录。也就是说，它测试ModeDir位是�
 
 IsDir 报告 m 是否描述一个目录。也就是说，它测试 ModeDir 位是否在 m 中被设置。
 
+##### My Example
+
+```go
+
+```
+
 #### (FileMode) IsRegular 
 
 ``` go 
@@ -397,6 +603,12 @@ IsRegular reports whether m describes a regular file. That is, it tests that no 
 IsRegular报告m是否描述了一个常规文件。也就是说，它测试没有模式类型位被设置。
 
 IsRegular 报告 m 是否描述一个普通文件。也就是说，它测试是否没有设置任何模式类型位。
+
+##### My Example
+
+```go
+
+```
 
 #### (FileMode) Perm 
 
@@ -410,10 +622,22 @@ Perm返回m中的Unix权限位(m & ModePerm)。
 
 Perm 返回 m 中的 Unix 权限位(m＆ModePerm)。
 
+##### My Example
+
+```go
+
+```
+
 #### (FileMode) String 
 
 ``` go 
 func (m FileMode) String() string
+```
+
+##### My Example
+
+```go
+
 ```
 
 #### (FileMode) Type 
@@ -427,6 +651,12 @@ Type returns type bits in m (m & ModeType).
 Type 返回m中的类型位(m & ModeType)。
 
 Type 返回 m 中的类型位(m＆ModeType)。
+
+##### My Example
+
+```go
+
+```
 
 ### type GlobFS 
 
@@ -445,6 +675,12 @@ A GlobFS is a file system with a Glob method.
 GlobFS是一个具有Glob方法的文件系统。
 
 GlobFS 是具有 Glob 方法的文件系统。
+
+##### My Example
+
+```go
+
+```
 
 ### type PathError 
 
@@ -468,6 +704,12 @@ PathError 记录了一个错误以及导致该错误的操作和文件路径。
 func (e *PathError) Error() string
 ```
 
+##### My Example
+
+```go
+
+```
+
 #### (*PathError) Timeout 
 
 ``` go 
@@ -486,6 +728,12 @@ Timeout报告此错误是否表示超时。
 func (e *PathError) Unwrap() error
 ```
 
+##### My Example
+
+```go
+
+```
+
 ### type ReadDirFS 
 
 ``` go 
@@ -502,6 +750,12 @@ ReadDirFS is the interface implemented by a file system that provides an optimiz
 ReadDirFS是由文件系统实现的接口，它提供了ReadDir的优化实现。
 
 ReadDirFS是由提供了ReadDir的文件系统所实现的接口。
+
+##### My Example
+
+```go
+
+```
 
 ### type ReadDirFile 
 
@@ -534,6 +788,12 @@ ReadDirFile是一个目录文件，其条目可以用ReadDir方法读取。每�
 
 ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。每个目录文件都应实现此接口。(任何文件都可以实现此接口，但如果这样做，对于非目录，ReadDir应返回一个错误。)
 
+##### My Example
+
+```go
+
+```
+
 ### type ReadFileFS 
 
 ``` go 
@@ -556,6 +816,12 @@ ReadFileFS是由文件系统实现的接口，它提供了ReadFile的优化实�
 
 ReadFileFS是一个文件系统，它提供了ReadFile的优化实现。
 
+##### My Example
+
+```go
+
+```
+
 ### type StatFS 
 
 ``` go 
@@ -573,6 +839,12 @@ A StatFS is a file system with a Stat method.
 一个StatFS是一个具有Stat方法的文件系统。
 
 ​	StatFS是一个具有Stat方法的文件系统。
+
+##### My Example
+
+```go
+
+```
 
 ### type SubFS 
 
@@ -656,3 +928,11 @@ WalkDirFunc与filepath.WalkFunc的不同之处在于：
 - The second argument has type fs.DirEntry instead of fs.FileInfo. 第二个参数的类型是fs.DirEntry而不是fs.FileInfo。 第二个参数的类型为fs.DirEntry，而不是fs.FileInfo。 
 - The function is called before reading a directory, to allow SkipDir or SkipAll to bypass the directory read entirely or skip all remaining files and directories respectively.该函数在读取目录之前被调用，以允许SkipDir或SkipAll完全绕过目录读取或分别跳过所有剩余的文件和目录。 函数在读取目录之前调用，以允许SkipDir或SkipAll完全跳过目录读取或跳过所有剩余的文件和目录。 
 - If a directory read fails, the function is called a second time for that directory to report the error.如果目录读取失败，该函数将被第二次调用，以报告该目录的错误。如果目录读取失败，则会为该目录再次调用该函数以报告错误。
+
+
+
+##### My Example
+
+```go
+
+```

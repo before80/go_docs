@@ -823,7 +823,7 @@ func New() (e *Echo)
 func (e *Echo) AcquireContext() Context
 ```
 
-​	AcquireContext 方法从池中获取一个空的 `Context` 实例。您必须通过调用 `ReleaseContext()` 返回上下文。
+​	AcquireContext 方法从池中获取一个空的 `Context` 实例。您必须通过调用 `ReleaseContext()` 方法返回上下文。
 
 ##### (*Echo) Add 
 
@@ -1848,7 +1848,7 @@ func (b *ValueBinder) BindErrors() []error
 
 ​	BindErrors 方法返回所有绑定错误，并在进一步调用时重置/清空绑定器错误。
 
-##### Example
+###### BindErrors  Example
 
 ``` go
 // 示例路由函数，将查询参数绑定到不同的目标，并一次性返回所有绑定错误
@@ -1934,7 +1934,7 @@ func (b *ValueBinder) CustomFunc(sourceParam string, customFunc func(values []st
 
 ​	CustomFunc 方法使用自定义的函数将参数值绑定到目标。只有在存在参数值时，才会调用 Func。
 
-##### Example
+###### CustomFunc Example
 
 ``` go
 // 示例路由函数，使用自定义函数闭包绑定查询参数
