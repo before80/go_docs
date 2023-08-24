@@ -87,7 +87,7 @@ ordered = false
 [markup.highlight]
 # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
 # style = "onedark"
-style = "autumn"
+style = "manni"
 linenos = true
 #noClasses = true
 #lineNumbersInTable = true

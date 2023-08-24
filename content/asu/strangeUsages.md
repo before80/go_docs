@@ -101,3 +101,11 @@ draft = false
 
 
 ## 2006-01-02T15:04:05 有什么用？
+
+
+
+
+
+## fstest 中的 var _ fs.FS = MapFS(nil) 有什么用？
+
+## fstest 中的 var _ fs.File = (*openMapFile)(nil) 有什么用？

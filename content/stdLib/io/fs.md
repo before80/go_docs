@@ -242,63 +242,289 @@ func main() {
 func ValidPath(name string) bool
 ```
 
-ValidPath reports whether the given path name is valid for use in a call to Open.
+​	ValidPath 函数报告给定的路径名在调用 Open 时是否有效。
 
-ValidPath 报告给定的路径名称是否可以在调用 Open 时使用。
-
-ValidPath 函数返回给定路径名在调用 Open 时是否有效。
-
-Path names passed to open are UTF-8-encoded, unrooted, slash-separated sequences of path elements, like "x/y/z". Path names must not contain an element that is "." or ".." or the empty string, except for the special case that the root directory is named ".". Paths must not start or end with a slash: "/x" and "x/" are invalid.
-
-传递给open的路径名是UTF-8编码的、无根的、斜线分隔的路径元素序列，如 "x/y/z"。路径名不能包含". "或". "或空字符串的元素，除了根目录被命名为". "的特殊情况。路径不能以斜线开始或结束："/x "和 "x/"是无效的。
-
-传递给 Open 的路径名是以 UTF-8 编码的、未根化的、斜杠分隔的路径元素序列，例如 "x/y/z"。路径名不得包含 "." 或 ".." 或空字符串，但根目录的特殊情况是命名为 "."。路径不能以斜杠开头或结尾，即 "/x" 和 "x/" 是无效的。
+​	传递给 Open 的路径名是以 UTF-8 编码的、无根的、斜杠分隔的路径元素序列，例如 "`x/y/z`"。路径名不得包含 "`.`" 或 "`..`" 或空字符串，但根目录的特殊情况是命名为 "`.`"。路径不能以斜杠开头或结尾，即 "`/x`" 和 "`x/`" 是无效的。
 
 Note that paths are slash-separated on all systems, even Windows. Paths containing other characters such as backslash and colon are accepted as valid, but those characters must never be interpreted by an FS implementation as path element separators.
 
-请注意，在所有的系统上，甚至是Windows，路径都是以斜线分隔的。含有反斜杠和冒号等其他字符的路径可以被接受为有效，但这些字符决不能被FS实现解释为路径元素分隔符。
+​	请注意，路径在所有系统上都是以斜杠分隔的，即使在 Windows 上也是如此。包含反斜杠和冒号等其他字符的路径被接受为有效，但这些字符绝不能被 FS 实现解释为路径元素分隔符。
 
-请注意，路径在所有系统上都是以斜杠分隔的，即使在 Windows 上也是如此。包含反斜杠和冒号等其他字符的路径被接受为有效，但这些字符绝不能被 FS 实现解释为路径元素分隔符。
-
-##### My Example
+##### ValidPath My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io/fs"
+)
+
+func main() {
+	// 待验证的路径
+	paths := []string{
+		`tmp/\example.txt`,
+		`tmp/:example.txt`,
+		`tmp/example.txt`,
+		`/tmp/example.txt`,
+		`./tmp/example.txt`,
+		`../tmp/example.txt`,
+		`../tmp/example.txt`,
+		`../tmp/example.txt`,
+		`tmp/\subdir`,
+		`tmp/:subdir`,
+		`tmp/subdir`,
+		`/tmp/subdir`,
+		`./tmp/subdir/`,
+		`../tmp/subdir/`,
+		`tmp/\subdir/example.txt`,
+		`tmp/:subdir/example.txt`,
+		`tmp/subdir/example.txt`,
+		`/tmp/subdir/example.txt`,
+		`./tmp/subdir/example.txt`,
+		`../tmp/subdir/example.txt`,
+	}
+
+	var validPaths []string
+	var invalidPaths []string
+
+	for _, path := range paths {
+		// 使用 ValidPath 函数检查路径是否有效
+		if fs.ValidPath(path) {
+			validPaths = append(validPaths, path)
+		} else {
+			invalidPaths = append(invalidPaths, path)
+		}
+	}
+
+	fmt.Println("有效路径有：")
+	for _, path := range validPaths {
+		fmt.Println(path)
+	}
+
+	fmt.Println("无效路径有：")
+	for _, path := range invalidPaths {
+		fmt.Println(path)
+	}
+}
+
+//Output:
+//有效路径有：
+//tmp/\example.txt
+//tmp/:example.txt
+//tmp/example.txt
+//tmp/\subdir
+//tmp/:subdir
+//tmp/subdir
+//tmp/\subdir/example.txt
+//tmp/:subdir/example.txt
+//tmp/subdir/example.txt
+//无效路径有：
+///tmp/example.txt
+//./tmp/example.txt
+//../tmp/example.txt
+//../tmp/example.txt
+//../tmp/example.txt
+///tmp/subdir
+//./tmp/subdir/
+//../tmp/subdir/
+///tmp/subdir/example.txt
+//./tmp/subdir/example.txt
+//../tmp/subdir/example.txt
 ```
 
 #### func WalkDir 
 
 ``` go 
-func WalkDir(fsys FS, root string, fn WalkDirFunc) error
+func WalkDir(fsys FS, root string, fn WalkDirFunc) error {
+	info, err := Stat(fsys, root)
+	if err != nil {
+		err = fn(root, nil, err)
+	} else {
+		err = walkDir(fsys, root, &statDirEntry{info}, fn)
+	}
+	if err == SkipDir || err == SkipAll {
+		return nil
+	}
+	return err
+}
 ```
 
-WalkDir walks the file tree rooted at root, calling fn for each file or directory in the tree, including root.
+​	WalkDir 函数遍历以 `root` 为根的文件树，在树中的每个文件或目录(包括 `root`)上调用 fn。
 
-WalkDir行走以根为根的文件树，为树中的每个文件或目录调用fn，包括根。
+​	`fn` 过滤了遍历文件和目录时出现的所有错误：详见 [fs.WalkDirFunc](#type-walkdirfunc) 文档。
 
-WalkDir 遍历以 root 为根的文件树，在树中的每个文件或目录(包括 root)上调用 fn。
+​	文件以字典序遍历，这使输出是确定性的，但需要在继续遍历该目录之前将整个目录读入内存。
 
-All errors that arise visiting files and directories are filtered by fn: see the fs.WalkDirFunc documentation for details.
+​	WalkDir 函数不会跟踪目录中发现的符号链接，但如果 `root` 本身是符号链接，则会遍历其目标。
 
-所有访问文件和目录出现的错误都由fn过滤：详情请参见fs.WalkDirFunc文档。
+##### WalkDir My Example
 
-fn 过滤了遍历文件和目录时出现的所有错误：详见 fs.WalkDirFunc 文档。
-
-The files are walked in lexical order, which makes the output deterministic but requires WalkDir to read an entire directory into memory before proceeding to walk that directory.
-
-文件是按词法顺序走的，这使得输出是确定的，但要求WalkDir在继续走该目录之前将整个目录读入内存。
-
-文件以字典序遍历，这使输出是确定性的，但需要在继续遍历该目录之前将整个目录读入内存。
-
-WalkDir does not follow symbolic links found in directories, but if root itself is a symbolic link, its target will be walked.
-
-WalkDir不跟踪在目录中发现的符号链接，但是如果root本身是一个符号链接，它的目标将被步行。
-
-WalkDir 不会遵循目录中发现的符号链接，但如果 root 本身是符号链接，则会遍历其目标。
-
-##### My Example
+![image-20230824144819156](fs_img/image-20230824144819156.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	// 定义一个目录
+	dir := "dir"
+
+	fmt.Println("----------------------------1-------------------------------")
+	num := 0
+	// 使用 WalkDir 函数遍历目录
+	if err := fs.WalkDir(os.DirFS(dir), ".", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println(num, "-----------------------")
+		fmt.Printf("path=%v,", path)
+		num++
+
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			fmt.Println("目录：", path)
+		} else {
+			fmt.Println("文件：", path)
+		}
+
+		return nil
+	}); err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("----------------------------2-------------------------------")
+	num = 0
+	// 使用 WalkDir 函数遍历目录
+	if err := fs.WalkDir(os.DirFS(dir), "subdir1", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println(num, "-----------------------")
+		fmt.Printf("path=%v,", path)
+		num++
+
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			fmt.Println("目录：", path)
+			if path == "subdir1/subsubdir1" {
+				fmt.Println("不遍历subdir1/subsubdir1目录")
+				return fs.SkipDir
+			}
+		} else {
+			fmt.Println("文件：", path)
+		}
+
+		return nil
+	}); err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("----------------------------3-------------------------------")
+	num = 0
+	// 使用 WalkDir 函数遍历目录
+	if err := fs.WalkDir(os.DirFS(dir), "subdir1/subsubdir1", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println(num, "-----------------------")
+		fmt.Printf("path=%v,", path)
+		num++
+
+		if err != nil {
+			return err
+		}
+
+		if d.IsDir() {
+			fmt.Println("目录：", path)
+		} else {
+			fmt.Println("文件：", path)
+		}
+
+		fmt.Println("d.Name()=", d.Name())
+		fmt.Println("d.IsDir()=", d.IsDir())
+		info, err := d.Info()
+		fmt.Printf("d.Info()=%#v,err=%v\n", info, err)
+		fmt.Println("d.Type()=", d.Type())
+
+		return nil
+	}); err != nil {
+		fmt.Println(err)
+	}
+}
+
+// Output:
+//----------------------------1-------------------------------
+//0 -----------------------
+//path=.,目录： .
+//1 -----------------------
+//path=0.html,文件： 0.html
+//2 -----------------------
+//path=0.txt,文件： 0.txt
+//3 -----------------------
+//path=subdir1,目录： subdir1
+//4 -----------------------
+//path=subdir1/1.txt,文件： subdir1/1.txt
+//5 -----------------------
+//path=subdir1/2.txt,文件： subdir1/2.txt
+//6 -----------------------
+//path=subdir1/3.html,文件： subdir1/3.html
+//7 -----------------------
+//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//8 -----------------------
+//path=subdir1/subsubdir1/1_1.txt,文件： subdir1/subsubdir1/1_1.txt
+//9 -----------------------
+//path=subdir1/subsubdir1/1_2.html,文件： subdir1/subsubdir1/1_2.html
+//10 -----------------------
+//path=subdir2,目录： subdir2
+//11 -----------------------
+//path=subdir2/4.txt,文件： subdir2/4.txt
+//12 -----------------------
+//path=subdir2/5.txt,文件： subdir2/5.txt
+//13 -----------------------
+//path=subdir2/6.html,文件： subdir2/6.html
+//----------------------------2-------------------------------
+//0 -----------------------
+//path=subdir1,目录： subdir1
+//1 -----------------------
+//path=subdir1/1.txt,文件： subdir1/1.txt
+//2 -----------------------
+//path=subdir1/2.txt,文件： subdir1/2.txt
+//3 -----------------------
+//path=subdir1/3.html,文件： subdir1/3.html
+//4 -----------------------
+//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//不遍历subdir1/subsubdir1目录
+//----------------------------3-------------------------------
+//0 -----------------------
+//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//d.Name()= subsubdir1
+//d.IsDir()= true
+//d.Info()=&os.fileStat{name:"subsubdir1", FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0x762b2545, HighDateTime:0x1d9d654}, LastA
+//ccessTime:syscall.Filetime{LowDateTime:0xaae957f3, HighDateTime:0x1d9d656}, LastWriteTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x
+//1d9d654}, FileSizeHigh:0x0, FileSizeLow:0x0, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"F:\\Devs\\MyCodes\\go_std_ex
+//amples\\io\\fs\\f_WalkDir\\dir\\subdir1\\subsubdir1", vol:0x0, idxhi:0x0, idxlo:0x0},err=<nil>
+//d.Type()= d---------
+//1 -----------------------
+//path=subdir1/subsubdir1/1_1.txt,文件： subdir1/subsubdir1/1_1.txt
+//d.Name()= 1_1.txt
+//d.IsDir()= false
+//d.Info()=&os.fileStat{name:"1_1.txt", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9d654}, LastAcce
+//ssTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9d654}, LastWriteTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9
+//d654}, FileSizeHigh:0x0, FileSizeLow:0x0, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x2000
+//0, idxlo:0x9e94b},err=<nil>
+//d.Type()= ----------
+//2 -----------------------
+//path=subdir1/subsubdir1/1_2.html,文件： subdir1/subsubdir1/1_2.html
+//d.Name()= 1_2.html
+//d.IsDir()= false
+//d.Info()=&os.fileStat{name:"1_2.html", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x86659587, HighDateTime:0x1d9d654}, LastAcc
+//essTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x1d9d654}, LastWriteTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x1d
+//9d654}, FileSizeHigh:0x0, FileSizeLow:0x84, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x50
+//000, idxlo:0x9d4f6},err=<nil>
+//d.Type()= ----------
 
 ```
 
@@ -360,11 +586,7 @@ type DirEntry interface {
 }
 ```
 
-A DirEntry is an entry read from a directory (using the ReadDir function or a ReadDirFile's ReadDir method).
-
-DirEntry 是一个从目录中读取的条目(使用 ReadDir 函数或 ReadDirFile 的 ReadDir 方法)。
-
-DirEntry 是从目录中读取的一个条目(使用 ReadDir 函数或 ReadDirFile 的 ReadDir 方法)。
+​	DirEntry 是从目录中读取的一个条目(使用 ReadDir 函数或 ReadDirFile 的 ReadDir 方法)。
 
 #### func FileInfoToDirEntry  <- go1.17
 
@@ -372,15 +594,85 @@ DirEntry 是从目录中读取的一个条目(使用 ReadDir 函数或 ReadDirFi
 func FileInfoToDirEntry(info FileInfo) DirEntry
 ```
 
-FileInfoToDirEntry returns a DirEntry that returns information from info. If info is nil, FileInfoToDirEntry returns nil.
+​	FileInfoToDirEntry 函数返回一个从 `info` 中获取信息的 DirEntry。如果 info 为 nil，则 FileInfoToDirEntry 返回 nil。
 
-FileInfoToDirEntry 返回一个 DirEntry，它从 info 中返回信息。如果info是nil，FileInfoToDirEntry返回nil。
+##### FileInfoToDirEntry My Example
 
-FileInfoToDirEntry 返回一个从 info 中获取信息的 DirEntry。如果 info 为 nil，则 FileInfoToDirEntry 返回 nil。
-
-##### My Example
+![image-20230824170411420](fs_img/image-20230824170411420.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	// 获取文件信息
+	fileInfo1, err := os.Stat("dir")
+	if err != nil {
+		fmt.Println("无法获取文件信息:", err)
+		return
+	}
+
+	// 将文件信息转换为目录条目
+	dirEntry := fs.FileInfoToDirEntry(fileInfo1)
+
+	// 打印目录条目的名称和类型
+	fmt.Println("名称:", dirEntry.Name())
+	fmt.Println("类型:", dirEntry.Type())
+	fmt.Println("是目录？", dirEntry.IsDir())
+	info, err := dirEntry.Info()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("dirEntry.Info()=%#v\n", info)
+
+	// 获取文件信息
+	fileInfo2, err := os.Stat("dir/hello.txt")
+	if err != nil {
+		fmt.Println("无法获取文件信息:", err)
+		return
+	}
+
+	// 将文件信息转换为目录条目
+	dirEntry = fs.FileInfoToDirEntry(fileInfo2)
+
+	// 打印目录条目的名称和类型
+	fmt.Println("名称:", dirEntry.Name())
+	fmt.Println("类型:", dirEntry.Type())
+	fmt.Println("是目录？", dirEntry.IsDir())
+	info, err = dirEntry.Info()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("dirEntry.Info()=%#v\n", info)
+}
+// Output:
+//名称: hello.txt
+//类型: ----------
+//PS F:\Devs\MyCodes\go_std_examples\io\fs\f_FileInfoToDirEntry> go run .\FileInfoToDirEntry.go
+//# command-line-arguments
+//.\FileInfoToDirEntry.go:32:2: fileInfo2 declared and not used
+//PS F:\Devs\MyCodes\go_std_examples\io\fs\f_FileInfoToDirEntry> go run .\FileInfoToDirEntry.go
+//名称: dir
+//类型: d---------
+//是目录？ true
+//dirEntry.Info()=&os.fileStat{name:"dir", FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0xa023380f, HighDateTime:0x1d9d667}, LastAccessTime:sys
+//call.Filetime{LowDateTime:0x612f7da5, HighDateTime:0x1d9d668}, LastWriteTime:syscall.Filetime{LowDateTime:0xd4831f40, HighDateTime:0x1d9d667}, FileSizeHigh:0x0
+//, FileSizeLow:0x0, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"F:\\Devs\\MyCodes\\go_std_examples\\io\\fs\\f_FileInfoToDirEntry\\d
+//ir", vol:0x0, idxhi:0x0, idxlo:0x0}
+//名称: hello.txt
+//类型: ----------
+//是目录？ false
+//dirEntry.Info()=&os.fileStat{name:"hello.txt", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xa6109178, HighDateTime:0x1d9d667}, LastAccessTi
+//me:syscall.Filetime{LowDateTime:0x612f7da5, HighDateTime:0x1d9d668}, LastWriteTime:syscall.Filetime{LowDateTime:0xd4831f40, HighDateTime:0x1d9d667}, FileSizeHi
+//gh:0x0, FileSizeLow:0x6, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"F:\\Devs\\MyCodes\\go_std_examples\\io\\fs\\f_FileInfoToDirEn
+//try\\dir\\hello.txt", vol:0x0, idxhi:0x0, idxlo:0x0}
 
 ```
 
@@ -390,19 +682,97 @@ FileInfoToDirEntry 返回一个从 info 中获取信息的 DirEntry。如果 inf
 func ReadDir(fsys FS, name string) ([]DirEntry, error)
 ```
 
-ReadDir reads the named directory and returns a list of directory entries sorted by filename.
+​	ReadDir函数读取命名的目录并返回一个按文件名排序的目录条目列表。
 
-ReadDir读取命名的目录并返回一个按文件名排序的目录条目列表。
+​	如果 fs 实现了 ReadDirFS，则 ReadDir 调用 fs.ReadDir。否则，ReadDir调用fs.Open并对返回的文件使用ReadDir和Close。
 
-If fs implements ReadDirFS, ReadDir calls fs.ReadDir. Otherwise ReadDir calls fs.Open and uses ReadDir and Close on the returned file.
+##### ReadDir My Example
 
-如果fs实现了ReadDirFS，ReadDir调用fs.ReadDir。否则ReadDir调用fs.Open并对返回的文件使用ReadDir和Close。
+注意：ReadDir 函数并不会读取，命名的目录下的子目录中的文件！
 
-如果 fs 实现了 ReadDirFS，则 ReadDir 调用 fs.ReadDir。否则，ReadDir 调用 fs.Open 并使用返回的文件上的 ReadDir 和 Close。
-
-##### My Example
+![image-20230824171453802](fs_img/image-20230824171453802.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	dirEntrys, err := fs.ReadDir(os.DirFS("dir"), ".")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	for i, dirEntry := range dirEntrys {
+		fmt.Println(i, "--------------------------")
+		fmt.Println("名称:", dirEntry.Name())
+		fmt.Println("类型:", dirEntry.Type())
+		fmt.Println("是目录？", dirEntry.IsDir())
+		info, err := dirEntry.Info()
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		fmt.Printf("dirEntry.Info()=%#v\n", info)
+		fmt.Println("info.Name()=", info.Name())
+		fmt.Println("info.Size()=", info.Size())
+		fmt.Println("info.Mode()=", info.Mode())
+		fmt.Println("info.ModTime()=", info.ModTime())
+		fmt.Println("info.IsDir()=", info.IsDir())
+		fmt.Printf("info.Sys()=%#v\n", info.Sys())
+	}
+}
+
+// Output:
+//0 --------------------------
+//名称: 1.txt
+//类型: ----------
+//是目录？ false
+//dirEntry.Info()=&os.fileStat{name:"1.txt", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xfc0f5a33, HighDateTime:0x1d9d668}, LastAccessTime:syscall.Filetime{LowDat
+//eTime:0xac576b6c, HighDateTime:0x1d9d669}, LastWriteTime:syscall.Filetime{LowDateTime:0xac576b6c, HighDateTime:0x1d9d669}, FileSizeHigh:0x0, FileSizeLow:0x8, ReparseTag:0x0, filetyp
+//e:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x20000, idxlo:0x9e959}
+//info.Name()= 1.txt
+//info.Size()= 8
+//info.Mode()= -rw-rw-rw-
+//info.ModTime()= 2023-08-24 17:02:13.5460716 +0800 CST
+//info.IsDir()= false
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xfc0f5a33, HighDateTime:0x1d9d668}, LastAccessTime:syscall.Filetime{LowDat
+//eTime:0xac576b6c, HighDateTime:0x1d9d669}, LastWriteTime:syscall.Filetime{LowDateTime:0xac576b6c, HighDateTime:0x1d9d669}, FileSizeHigh:0x0, FileSizeLow:0x8}
+//1 --------------------------
+//名称: 2.txt
+//类型: ----------
+//是目录？ false
+//dirEntry.Info()=&os.fileStat{name:"2.txt", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xcc72153, HighDateTime:0x1d9d669}, LastAccessTime:syscall.Filetime{LowDate
+//Time:0xac4b7e88, HighDateTime:0x1d9d669}, LastWriteTime:syscall.Filetime{LowDateTime:0xac4b7e88, HighDateTime:0x1d9d669}, FileSizeHigh:0x0, FileSizeLow:0x8, ReparseTag:0x0, filetype
+//:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x50000, idxlo:0x9e956}
+//info.Name()= 2.txt
+//info.Size()= 8
+//info.Mode()= -rw-rw-rw-
+//info.ModTime()= 2023-08-24 17:02:13.4679176 +0800 CST
+//info.IsDir()= false
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xcc72153, HighDateTime:0x1d9d669}, LastAccessTime:syscall.Filetime{LowDate
+//Time:0xac4b7e88, HighDateTime:0x1d9d669}, LastWriteTime:syscall.Filetime{LowDateTime:0xac4b7e88, HighDateTime:0x1d9d669}, FileSizeHigh:0x0, FileSizeLow:0x8}
+//2 --------------------------
+//名称: subdir
+//类型: d---------
+//是目录？ true
+//dirEntry.Info()=&os.fileStat{name:"subdir", FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0x49b7a14a, HighDateTime:0x1d9d66a}, LastAccessTime:syscall.Filetime{LowDa
+//teTime:0x54958ccd, HighDateTime:0x1d9d66a}, LastWriteTime:syscall.Filetime{LowDateTime:0x541df8f8, HighDateTime:0x1d9d66a}, FileSizeHigh:0x0, FileSizeLow:0x0, ReparseTag:0x0, filety
+//pe:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x50000, idxlo:0x9e95e}
+//info.Name()= subdir
+//info.Size()= 0
+//info.Mode()= drwxrwxrwx
+//info.ModTime()= 2023-08-24 17:06:55.0268152 +0800 CST
+//info.IsDir()= true
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0x49b7a14a, HighDateTime:0x1d9d66a}, LastAccessTime:syscall.Filetime{LowDat
+//eTime:0x54958ccd, HighDateTime:0x1d9d66a}, LastWriteTime:syscall.Filetime{LowDateTime:0x541df8f8, HighDateTime:0x1d9d66a}, FileSizeHigh:0x0, FileSizeLow:0x0}
 
 ```
 
@@ -410,15 +780,6 @@ If fs implements ReadDirFS, ReadDir calls fs.ReadDir. Otherwise ReadDir calls fs
 
 ``` go 
 type FS interface {
-	// Open opens the named file.
-	//
-	// When Open returns an error, it should be of type *PathError
-	// with the Op field set to "open", the Path field set to name,
-	// and the Err field describing the problem.
-	//
-	// Open should reject attempts to open names that do not satisfy
-	// ValidPath(name), returning a *PathError with Err set to
-	// ErrInvalid or ErrNotExist.
     // Open打开命名的文件。
 	//
 	// 当Open返回一个错误时，它应该是*PathError类型，Op字段设置为 "open"，Path字段设置为name，Err字段描述了问题所在。
@@ -428,17 +789,9 @@ type FS interface {
 }
 ```
 
-An FS provides access to a hierarchical file system.
+​	FS 提供对一个分层文件系统的访问。
 
-一个FS提供了对一个分层文件系统的访问。
-
-FS 提供对分层文件系统的访问。
-
-The FS interface is the minimum implementation required of the file system. A file system may implement additional interfaces, such as ReadFileFS, to provide additional or optimized functionality.
-
-FS接口是文件系统所需的最小实现。一个文件系统可以实现额外的接口，如ReadFileFS，以提供额外的或优化的功能。
-
-FS 接口是文件系统所需的最小实现。文件系统可能会实现其他接口(如 ReadFileFS)以提供附加或优化的功能。
+​	FS 接口是文件系统所需的最小实现。一个文件系统可能会实现其他接口(如 ReadFileFS)以提供附加或优化的功能。
 
 #### func Sub 
 
@@ -446,27 +799,136 @@ FS 接口是文件系统所需的最小实现。文件系统可能会实现其�
 func Sub(fsys FS, dir string) (FS, error)
 ```
 
-Sub returns an FS corresponding to the subtree rooted at fsys's dir.
+​	Sub 函数返回一个对应于以 `fsys` 的 `dir` 为根的子树的 FS。
 
-Sub返回一个对应于以fsys的dir为根的子树的FS。
+​	如果 dir 为"`.`"，则 Sub 返回未更改的 fsys。否则，如果 fs 实现了 SubFS，则 Sub 返回 fsys.Sub(dir)。否则，Sub 返回一个新的 FS 实现 sub，该实现实际上将 sub.Open(name) 实现为 fsys.Open(path.Join(dir, name))。该实现还适当地翻译了对 ReadDir、ReadFile 和 Glob 的调用。
 
-Sub 返回一个对应于以 fsys 的 dir 为根的子树的 FS。
+​	请注意，Sub(os.DirFS("/"), "prefix") 等同于 os.DirFS("/prefix")，并且它们都不能保证避免操作系统对"/prefix "之外的访问，因为os.DirFS的实现并不检查"/prefix "内指向其他目录的符号链接。也就是说，os.DirFS 并不是 chroot 式安全机制的通用替代品，Sub 并不能改变这个事实。
 
-If dir is ".", Sub returns fsys unchanged. Otherwise, if fs implements SubFS, Sub returns fsys.Sub(dir). Otherwise, Sub returns a new FS implementation sub that, in effect, implements sub.Open(name) as fsys.Open(path.Join(dir, name)). The implementation also translates calls to ReadDir, ReadFile, and Glob appropriately.
+##### Sub My Example
 
-如果dir是"."，Sub返回fsys而不改变。否则，如果fs实现了SubFS，Sub返回fsys.Sub(dir)。否则，Sub返回一个新的FS实现sub，实际上，它将sub.Open(name)实现为fsys.Open(path.Join(dir, name))。该实现还适当地翻译了对 ReadDir、ReadFile 和 Glob 的调用。
-
-如果 dir 为"."，则 Sub 返回未更改的 fsys。否则，如果 fs 实现了 SubFS，则 Sub 返回 fsys.Sub(dir)。否则，Sub 返回一个新的 FS 实现 sub，该实现实际上将 sub.Open(name) 实现为 fsys.Open(path.Join(dir, name))。该实现还适当地翻译对 ReadDir、ReadFile 和 Glob 的调用。
-
-Note that Sub(os.DirFS("/"), "prefix") is equivalent to os.DirFS("/prefix") and that neither of them guarantees to avoid operating system accesses outside "/prefix", because the implementation of os.DirFS does not check for symbolic links inside "/prefix" that point to other directories. That is, os.DirFS is not a general substitute for a chroot-style security mechanism, and Sub does not change that fact.
-
-注意Sub(os.DirFS("/"), "prefix")等同于os.DirFS("/prefix")，它们都不能保证避免操作系统对"/prefix "之外的访问，因为os.DirFS的实现并不检查"/prefix "内指向其他目录的符号链接。也就是说，os.DirFS并不是chroot式安全机制的一般替代品，Sub并不能改变这一事实。
-
-请注意，Sub(os.DirFS("/"), "prefix") 等同于 os.DirFS("/prefix")，并且它们都不能保证避免超出"/prefix"范围的操作系统访问，因为 os.DirFS 的实现不检查指向其他目录的"/prefix"内部符号链接。也就是说，os.DirFS 不是 chroot 样式安全机制的通用替代品，Sub 也不改变这个事实。
-
-##### My Example
+![image-20230824175308249](fs_img/image-20230824175308249.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	fmt.Println("----------------------------------------------")
+	fsys1, err := fs.Sub(os.DirFS("dir"), "subdir")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Printf("%T\n", fsys1)
+
+	file, err := fsys1.Open("1.txt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer file.Close()
+
+	fileData := make([]byte, 4096)
+	n, err := file.Read(fileData)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Printf("共有%d个字节的内容,内容是：%s\n", n, string(fileData))
+
+	fileInfo, err := file.Stat()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("fileInfo.Name()=", fileInfo.Name())
+	fmt.Println("fileInfo.Size()=", fileInfo.Size())
+	fmt.Println("fileInfo.Mode()=", fileInfo.Mode())
+	fmt.Println("fileInfo.ModTime()=", fileInfo.ModTime())
+	fmt.Println("fileInfo.IsDir()=", fileInfo.IsDir())
+	fmt.Printf("fileInfo.Sys()=%#v\n", fileInfo.Sys())
+
+	fmt.Println("----------------------------------------------")
+	fsys2, err := fs.Sub(os.DirFS("."), "dir")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Printf("%T\n", fsys2)
+
+	fmt.Println("----------------------------------------------")
+	fsys3, err := fs.Sub(os.DirFS("."), "dir/subdir")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Printf("%T\n", fsys3)
+
+	file, err = fsys3.Open("1.txt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer file.Close()
+
+	fileData = make([]byte, 4096)
+	n, err = file.Read(fileData)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Printf("共有%d个字节的内容,内容是：%s\n", n, string(fileData))
+
+	fileInfo, err = file.Stat()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println("fileInfo.Name()=", fileInfo.Name())
+	fmt.Println("fileInfo.Size()=", fileInfo.Size())
+	fmt.Println("fileInfo.Mode()=", fileInfo.Mode())
+	fmt.Println("fileInfo.ModTime()=", fileInfo.ModTime())
+	fmt.Println("fileInfo.IsDir()=", fileInfo.IsDir())
+	fmt.Printf("fileInfo.Sys()=%#v\n", fileInfo.Sys())
+}
+
+// Output:
+//----------------------------------------------
+//*fs.subFS
+//共有8个字节的内容,内容是：content1
+//fileInfo.Name()= 1.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-24 17:23:58.9674647 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xfde7ea1, HighDateTime:0x1d9d66c}, LastAccessTime:syscall.Filetime{Low
+//DateTime:0x7fcc99df, HighDateTime:0x1d9d670}, LastWriteTime:syscall.Filetime{LowDateTime:0xb66eea97, HighDateTime:0x1d9d66c}, FileSizeHigh:0x0, FileSizeLow:0x8}
+//----------------------------------------------
+//*fs.subFS
+//----------------------------------------------
+//*fs.subFS
+//共有8个字节的内容,内容是：content1
+//fileInfo.Name()= 1.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-24 17:23:58.9674647 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0xfde7ea1, HighDateTime:0x1d9d66c}, LastAccessTime:syscall.Filetime{Low
+//DateTime:0x7fcfd9df, HighDateTime:0x1d9d670}, LastWriteTime:syscall.Filetime{LowDateTime:0xb66eea97, HighDateTime:0x1d9d66c}, FileSizeHigh:0x0, FileSizeLow:0x8}
 
 ```
 
@@ -480,11 +942,7 @@ type File interface {
 }
 ```
 
-A File provides access to a single file. The File interface is the minimum implementation required of the file. Directory files should also implement ReadDirFile. A file may implement io.ReaderAt or io.Seeker as optimizations.
-
-一个文件提供对单个文件的访问。File接口是文件所需的最小实现。目录文件也应该实现ReadDirFile。一个文件可以实现io.ReaderAt或io.Seeker作为优化。
-
-File接口提供对单个文件的访问。File接口是文件所需的最小实现。目录文件还应该实现ReadDirFile。文件可以实现io.ReaderAt或io.Seeker作为优化。
+​	File接口提供对单个文件的访问。File接口是文件所需的最小实现。目录文件还应该实现ReadDirFile。文件可以实现io.ReaderAt或io.Seeker作为优化。
 
 ### type FileInfo 
 
@@ -499,11 +957,7 @@ type FileInfo interface {
 }
 ```
 
-A FileInfo describes a file and is returned by Stat.
-
-FileInfo描述了一个文件，并由Stat返回。
-
-FileInfo接口描述文件并由Stat返回。
+​	FileInfo描述了一个文件，并由Stat函数返回。
 
 #### func Stat 
 
@@ -511,21 +965,76 @@ FileInfo接口描述文件并由Stat返回。
 func Stat(fsys FS, name string) (FileInfo, error)
 ```
 
-Stat returns a FileInfo describing the named file from the file system.
+​	Stat函数从文件系统返回描述命名文件的FileInfo。
 
-Stat返回一个描述文件系统中的命名文件的FileInfo。
+​	如果fs实现了StatFS，则Stat函数调用fs.Stat。否则，Stat打开文件以获取其状态。
 
-Stat从文件系统返回描述命名文件的FileInfo。
+##### Stat My Example
 
-If fs implements StatFS, Stat calls fs.Stat. Otherwise, Stat opens the file to stat it.
-
-如果fs实现了StatFS，Stat调用fs.Stat。否则，Stat打开文件以进行统计。
-
-如果fs实现了StatFS，则Stat调用fs.Stat。否则，Stat打开文件以获取其状态。
-
-##### My Example
+![image-20230824180701916](fs_img/image-20230824180701916.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	fmt.Println("1 ----------------------------------")
+	fileInfo, err := fs.Stat(os.DirFS("dir"), "1.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("2 ----------------------------------")
+	fileInfo, err = fs.Stat(os.DirFS("dir/subdir1"), "1.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("fileInfo.Name()=", fileInfo.Name())
+	fmt.Println("fileInfo.Size()=", fileInfo.Size())
+	fmt.Println("fileInfo.Mode()=", fileInfo.Mode())
+	fmt.Println("fileInfo.ModTime()=", fileInfo.ModTime())
+	fmt.Println("fileInfo.IsDir()=", fileInfo.IsDir())
+	fmt.Printf("fileInfo.Sys()=%#v\n", fileInfo.Sys())
+
+	fmt.Println("3 ----------------------------------")
+	fileInfo, err = fs.Stat(os.DirFS("dir/subdir2"), "2.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println("fileInfo.Name()=", fileInfo.Name())
+	fmt.Println("fileInfo.Size()=", fileInfo.Size())
+	fmt.Println("fileInfo.Mode()=", fileInfo.Mode())
+	fmt.Println("fileInfo.ModTime()=", fileInfo.ModTime())
+	fmt.Println("fileInfo.IsDir()=", fileInfo.IsDir())
+	fmt.Printf("fileInfo.Sys()=%#v\n", fileInfo.Sys())
+}
+
+// Output:
+//1 ----------------------------------
+//CreateFile 1.txt: The system cannot find the file specified.
+//2 ----------------------------------
+//fileInfo.Name()= 1.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-24 17:57:10.8000609 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x52d85ed0, HighDateTime:0x1d9d671}, LastAccessTime:syscall.Filetime{Lo
+//wDateTime:0x9596a893, HighDateTime:0x1d9d672}, LastWriteTime:syscall.Filetime{LowDateTime:0x59a87361, HighDateTime:0x1d9d671}, FileSizeHigh:0x0, FileSizeLow:0x8}
+//3 ----------------------------------
+//fileInfo.Name()= 2.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-24 18:04:51.5907555 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x59a9fdde, HighDateTime:0x1d9d671}, LastAccessTime:syscall.Filetime{Lo
+//wDateTime:0x9596a893, HighDateTime:0x1d9d672}, LastWriteTime:syscall.Filetime{LowDateTime:0x6c4f87e3, HighDateTime:0x1d9d672}, FileSizeHigh:0x0, FileSizeLow:0x8}
 
 ```
 
@@ -535,11 +1044,7 @@ If fs implements StatFS, Stat calls fs.Stat. Otherwise, Stat opens the file to s
 type FileMode uint32
 ```
 
-A FileMode represents a file's mode and permission bits. The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is ModeDir for directories.
-
-一个FileMode代表一个文件的模式和权限位。这些位在所有系统上都有相同的定义，因此关于文件的信息可以从一个系统移植到另一个系统。不是所有的位都适用于所有的系统。唯一需要的位是目录的ModeDir。
-
-FileMode表示文件的模式和权限位。这些位在所有系统上具有相同的定义，以便可以在不同系统之间可移植地移动文件信息。并非所有位都适用于所有系统。唯一必需的位是ModeDir，适用于目录。
+​	FileMode表示一个文件的模式和权限位。这些位在所有系统上具有相同的定义，以便可以在不同系统之间可移植地移动文件信息。并非所有位都适用于所有系统。唯一需要的位是目录的ModeDir。
 
 ``` go 
 const (
@@ -568,11 +1073,7 @@ const (
 )
 ```
 
-The defined file mode bits are the most significant bits of the FileMode. The nine least-significant bits are the standard Unix rwxrwxrwx permissions. The values of these bits should be considered part of the public API and may be used in wire protocols or disk representations: they must not be changed, although new bits might be added.
-
-定义的文件模式位是FileMode中最重要的位。九个最不重要的位是标准的Unix rwxrwxrwx权限。这些位的值应该被认为是公共API的一部分，可以在线程协议或磁盘表示法中使用：它们不能被改变，尽管可能会添加新的位。
-
-定义的文件模式位是 FileMode 的最高位。最低的九位是标准 Unix rwxrwxrwx 权限位。这些位的值应该被视为公共 API 的一部分，可以在传输协议或磁盘表示中使用：它们不得更改，但可以添加新的位。
+​	定义的文件模式位是 FileMode 的最高位。最低的九位是标准 Unix rwxrwxrwx 权限位。这些位的值应该被视为公共 API 的一部分，可以在传输协议或磁盘表示中使用：它们不得被更改，但可以添加新的位。
 
 #### (FileMode) IsDir 
 
@@ -580,15 +1081,57 @@ The defined file mode bits are the most significant bits of the FileMode. The ni
 func (m FileMode) IsDir() bool
 ```
 
-IsDir reports whether m describes a directory. That is, it tests for the ModeDir bit being set in m.
+​	IsDir 方法报告 `m` 是否描述一个目录。也就是说，它测试 ModeDir 位是否在 `m` 中被设置。
 
-IsDir报告m是否描述了一个目录。也就是说，它测试ModeDir位是否被设置在m中。
+##### IsDir My Example
 
-IsDir 报告 m 是否描述一个目录。也就是说，它测试 ModeDir 位是否在 m 中被设置。
-
-##### My Example
+![image-20230824190949850](fs_img/image-20230824190949850.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	// 获取文件信息
+	fileInfo, err := os.Stat("dir")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+
+	// 检查文件是否为目录
+	if fileInfo.Mode().IsDir() {
+		fmt.Println(fileInfo.Name(), "是一个目录")
+	} else {
+		fmt.Println(fileInfo.Name(), "不是一个目录")
+	}
+
+	fileInfo, err = os.Stat("dir/1.txt")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+
+	// 检查文件是否为目录
+	if fileInfo.Mode().IsDir() {
+		fmt.Println(fileInfo.Name(), "是一个目录")
+	} else {
+		fmt.Println(fileInfo.Name(), "不是一个目录")
+	}
+}
+
+// Output:
+//fileInfo.Mode()'s type is fs.FileMode
+//dir 是一个目录
+//fileInfo.Mode()'s type is fs.FileMode
+//1.txt 不是一个目录
 
 ```
 
@@ -598,16 +1141,43 @@ IsDir 报告 m 是否描述一个目录。也就是说，它测试 ModeDir 位�
 func (m FileMode) IsRegular() bool
 ```
 
-IsRegular reports whether m describes a regular file. That is, it tests that no mode type bits are set.
+​	IsRegular 方法报告 `m` 是否描述一个普通文件。也就是说，它测试是否没有设置任何模式类型位。
 
-IsRegular报告m是否描述了一个常规文件。也就是说，它测试没有模式类型位被设置。
-
-IsRegular 报告 m 是否描述一个普通文件。也就是说，它测试是否没有设置任何模式类型位。
-
-##### My Example
+##### IsRegular My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	// 获取文件信息
+	fileInfo, err := os.Stat("dir")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Println(fileInfo.Name(), "是一个普通文件？", fileInfo.Mode().IsRegular())
+
+	fileInfo, err = os.Stat("dir/1.txt")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Println(fileInfo.Name(), "是一个普通文件？", fileInfo.Mode().IsRegular())
+}
+
+// Output:
+//fileInfo.Mode()'s type is fs.FileMode
+//dir 是一个普通文件？ false
+//fileInfo.Mode()'s type is fs.FileMode
+//1.txt 是一个普通文件？ true
 ```
 
 #### (FileMode) Perm 
@@ -616,16 +1186,51 @@ IsRegular 报告 m 是否描述一个普通文件。也就是说，它测试是�
 func (m FileMode) Perm() FileMode
 ```
 
-Perm returns the Unix permission bits in m (m & ModePerm).
+​	Perm 方法返回 `m` 中的 Unix 权限位(m＆ModePerm)。
 
-Perm返回m中的Unix权限位(m & ModePerm)。
-
-Perm 返回 m 中的 Unix 权限位(m＆ModePerm)。
-
-##### My Example
+##### Perm My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	// 获取文件信息
+	fileInfo, err := os.Stat("dir")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Println(fileInfo.Name(), " Perm()=", fileInfo.Mode().Perm())
+	fmt.Println(fileInfo.Name(), " String()=", fileInfo.Mode().String())
+	fmt.Println(fileInfo.Name(), " Perm().String()=", fileInfo.Mode().Perm().String())
+
+	fileInfo, err = os.Stat("dir/1.txt")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Println(fileInfo.Name(), " Perm()=", fileInfo.Mode().Perm())
+	fmt.Println(fileInfo.Name(), " String()=", fileInfo.Mode().String())
+	fmt.Println(fileInfo.Name(), " Perm().String()=", fileInfo.Mode().Perm().String())
+}
+
+// Output:
+//fileInfo.Mode()'s type is fs.FileMode
+//dir  Perm()= -rwxrwxrwx
+//dir  String()= drwxrwxrwx
+//dir  Perm().String()= -rwxrwxrwx
+//fileInfo.Mode()'s type is fs.FileMode
+//1.txt  Perm()= -rw-rw-rw-
+//1.txt  String()= -rw-rw-rw-
+//1.txt  Perm().String()= -rw-rw-rw-
 ```
 
 #### (FileMode) String 
@@ -634,11 +1239,9 @@ Perm 返回 m 中的 Unix 权限位(m＆ModePerm)。
 func (m FileMode) String() string
 ```
 
-##### My Example
+##### String My Example
 
-```go
-
-```
+参见 [Perm](#filemode-perm)。
 
 #### (FileMode) Type 
 
@@ -646,15 +1249,54 @@ func (m FileMode) String() string
 func (m FileMode) Type() FileMode
 ```
 
-Type returns type bits in m (m & ModeType).
+​	Type 方法返回 `m` 中的类型位(m＆ModeType)。
 
-Type 返回m中的类型位(m & ModeType)。
+##### Type My Example
 
-Type 返回 m 中的类型位(m＆ModeType)。
-
-##### My Example
+![image-20230824192734887](fs_img/image-20230824192734887.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	// 获取文件信息
+	fileInfo, err := os.Stat("dir")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Printf("fileInfo.Mode().Type()'s type is %T\n", fileInfo.Mode().Type())
+	fmt.Println(fileInfo.Name(), " Type()=", fileInfo.Mode().Type())
+	fmt.Println(fileInfo.Name(), " Type().String()=", fileInfo.Mode().Type().String())
+
+	fileInfo, err = os.Stat("dir/1.txt")
+	if err != nil {
+		log.Fatalf("无法获取文件信息: %v", err)
+	}
+
+	fmt.Printf("fileInfo.Mode()'s type is %T\n", fileInfo.Mode())
+	fmt.Printf("fileInfo.Mode().Type()'s type is %T\n", fileInfo.Mode().Type())
+	fmt.Println(fileInfo.Name(), " Type()=", fileInfo.Mode().Type())
+	fmt.Println(fileInfo.Name(), " Type().String()=", fileInfo.Mode().Type().String())
+}
+
+// Output:
+//fileInfo.Mode()'s type is fs.FileMode
+//fileInfo.Mode().Type()'s type is fs.FileMode
+//dir  Type()= d---------
+//dir  Type().String()= d---------
+//fileInfo.Mode()'s type is fs.FileMode       
+//fileInfo.Mode().Type()'s type is fs.FileMode
+//1.txt  Type()= ----------
+//1.txt  Type().String()= ----------
+
 
 ```
 
@@ -665,21 +1307,101 @@ type GlobFS interface {
 	FS
 
     // Glob 返回与 pattern 匹配的所有文件的名称，
-    // 提供了顶级 Glob 函数的实现。
+    // 提供了顶层 Glob 函数的实现。
 	Glob(pattern string) ([]string, error)
 }
 ```
 
-A GlobFS is a file system with a Glob method.
+​	GlobFS 是具有 Glob 方法的文件系统。
 
-GlobFS是一个具有Glob方法的文件系统。
-
-GlobFS 是具有 Glob 方法的文件系统。
-
-##### My Example
+##### GlobFS My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io/fs"
+	"os"
+	"regexp"
+	"strings"
+)
+
+type MyFs struct {
+	Ifs fs.FS
+}
+
+func (m MyFs) Open(name string) (fs.File, error) {
+	return m.Ifs.Open(name)
+}
+
+func (m MyFs) Glob(pattern string) ([]string, error) {
+	var filenames []string
+	if strings.HasPrefix(pattern, ".") {
+		pattern = strings.Replace(pattern, `.`, `\.`, -1)
+		pattern = strings.TrimLeft(pattern, `\`)
+	} else {
+		pattern = strings.Replace(pattern, `.`, `\.`, -1)
+	}
+
+	if strings.HasPrefix(pattern, "*") {
+		pattern = "." + pattern
+	}
+
+	//fmt.Println("pattern=", pattern)
+
+	re, err := regexp.Compile(pattern)
+	if err != nil {
+		return nil, fmt.Errorf("pattern is invalid: %w", err)
+	}
+	if err := fs.WalkDir(m.Ifs, ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if re.MatchString(d.Name()) {
+			filenames = append(filenames, d.Name())
+		}
+
+		return nil
+	}); err != nil {
+		return nil, err
+	}
+
+	return filenames, nil
+}
+
+func main() {
+	myFs := MyFs{os.DirFS("dir")}
+	file, err := myFs.Open("1.txt")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer file.Close()
+
+	fileData := make([]byte, 4096)
+	file.Read(fileData)
+	fmt.Println("文件中的内容是：", string(fileData))
+
+	matches, err := myFs.Glob(`*.txt`)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("匹配到的文件有:")
+	for _, match := range matches {
+		fmt.Println(match)
+	}
+}
+
+// Output:
+//文件中的内容是： content1
+//匹配到的文件有:
+//1.txt
+//2.txt
 ```
 
 ### type PathError 
@@ -692,40 +1414,62 @@ type PathError struct {
 }
 ```
 
-PathError records an error and the operation and file path that caused it.
-
-PathError记录了一个错误以及导致该错误的操作和文件路径。
-
-PathError 记录了一个错误以及导致该错误的操作和文件路径。
+​	PathError 记录了一个错误以及导致该错误的操作和文件路径。
 
 #### (*PathError) Error 
 
 ``` go 
-func (e *PathError) Error() string
+func (e *PathError) Error() string { return e.Op + " " + e.Path + ": " + e.Err.Error() }
+
 ```
 
-##### My Example
+##### Error My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	// 尝试打开不存在的文件
+	_, err := os.Open("nonexistent.txt")
+	var pathErr error
+	if err != nil {
+		// 创建一个 PathError 错误
+		pathErr = &fs.PathError{
+			Op:   "open",
+			Path: "nonexistent.txt",
+			Err:  err,
+		}
+		// 打印错误信息
+		fmt.Println("发生错误:", pathErr)
+		fmt.Println("发生错误:", pathErr.Error())
+	}
+}
+// Output:
+//发生错误: open nonexistent.txt: open nonexistent.txt: The system cannot find the file specified.
+//发生错误: open nonexistent.txt: open nonexistent.txt: The system cannot find the file specified.
 ```
 
 #### (*PathError) Timeout 
 
 ``` go 
-func (e *PathError) Timeout() bool
+func (e *PathError) Timeout() bool {
+	t, ok := e.Err.(interface{ Timeout() bool })
+	return ok && t.Timeout()
+}
 ```
 
-Timeout reports whether this error represents a timeout.
-
-Timeout 报告这个错误是否代表超时。
-
-Timeout报告此错误是否表示超时。
+​	Timeout方法报告此错误是否表示超时。
 
 #### (*PathError) Unwrap 
 
 ``` go 
-func (e *PathError) Unwrap() error
+func (e *PathError) Unwrap() error { return e.Err }
 ```
 
 ##### My Example
@@ -782,11 +1526,7 @@ type ReadDirFile interface {
 }
 ```
 
-A ReadDirFile is a directory file whose entries can be read with the ReadDir method. Every directory file should implement this interface. (It is permissible for any file to implement this interface, but if so ReadDir should return an error for non-directories.)
-
-ReadDirFile是一个目录文件，其条目可以用ReadDir方法读取。每个目录文件都应该实现这个接口。(任何文件都可以实现这个接口，但如果这样的话，ReadDir应该对非目录文件返回一个错误。)
-
-ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。每个目录文件都应实现此接口。(任何文件都可以实现此接口，但如果这样做，对于非目录，ReadDir应返回一个错误。)
+​	ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。每个目录文件都应实现此接口。(任何文件都可以实现此接口，但如果这样做，对于非目录，ReadDir应返回一个错误。)
 
 ##### My Example
 
@@ -810,11 +1550,7 @@ type ReadFileFS interface {
 }
 ```
 
-ReadFileFS is the interface implemented by a file system that provides an optimized implementation of ReadFile.
-
-ReadFileFS是由文件系统实现的接口，它提供了ReadFile的优化实现。
-
-ReadFileFS是一个文件系统，它提供了ReadFile的优化实现。
+​	`ReadFileFS` 是一个由文件系统实现的接口，该接口提供了 `ReadFile` 的优化实现。
 
 ##### My Example
 
@@ -833,10 +1569,6 @@ type StatFS interface {
 	Stat(name string) (FileInfo, error)
 }
 ```
-
-A StatFS is a file system with a Stat method.
-
-一个StatFS是一个具有Stat方法的文件系统。
 
 ​	StatFS是一个具有Stat方法的文件系统。
 
@@ -857,11 +1589,7 @@ type SubFS interface {
 }
 ```
 
-A SubFS is a file system with a Sub method.
-
-一个SubFS是一个具有Sub方法的文件系统。
-
-SubFS是一个具有Sub方法的文件系统。
+​	SubFS是一个具有Sub方法的文件系统。
 
 ### type WalkDirFunc 
 
@@ -869,65 +1597,27 @@ SubFS是一个具有Sub方法的文件系统。
 type WalkDirFunc func(path string, d DirEntry, err error) error
 ```
 
-WalkDirFunc is the type of the function called by WalkDir to visit each file or directory.
+​	WalkDirFunc 是WalkDir函数用来访问每个文件或目录的函数类型。
 
-WalkDirFunc是由WalkDir调用的访问每个文件或目录的函数的类型。
+​	`path` 实参包含WalkDir函数的实参作为前缀。也就是说，如果使用根实参"dir"调用WalkDir函数，并在该目录中找到名为"a"的文件，则遍历函数将使用实参"dir/a"进行调用。
 
-WalkDirFunc是WalkDir用来访问每个文件或目录的函数类型。
+​	`d`实参是具有 fs.DirEntry 的命名路径。
 
-The path argument contains the argument to WalkDir as a prefix. That is, if WalkDir is called with root argument "dir" and finds a file named "a" in that directory, the walk function will be called with argument "dir/a".
+​	该函数返回的错误结果控制WalkDir函数的继续。如果函数返回特殊值`SkipDir`，则WalkDir函数跳过当前目录（如果 `d.IsDir()`为true，则为`path`，否则为`path`的父目录）。如果函数返回特殊值`SkipAll`，则WalkDir函数跳过所有剩余文件和目录。否则，如果该函数返回非nil错误，则WalkDir函数完全停止并返回该错误。
 
-path参数包含作为前缀的WalkDir的参数。也就是说，如果用根参数 "dir "调用WalkDir，并在该目录中找到一个名为 "a "的文件，将用参数 "dir/a "调用Walk函数。
+​	`err`参数报告与`path`相关的错误，表示WalkDir函数不会遍历该目录。该函数可以决定如何处理该错误；如前所述，返回错误将导致WalkDir函数停止遍历整个树。
 
-path参数包含WalkDir的参数作为前缀。也就是说，如果使用根参数"dir"调用WalkDir，并在该目录中找到名为"a"的文件，则遍历函数将使用参数"dir/a"进行调用。
+​	WalkDir函数在两种情况下使用非nil `err`实参调用函数。
 
-The d argument is the fs.DirEntry for the named path.
+​	第一，如果根目录上的初始fs.Stat失败，WalkDir函数调用该函数时，`path`设置为`root`，`d`设置为nil，`err`设置为fs.Stat的错误。
 
-d参数是命名路径的fs.DirEntry。
+​	第二，如果一个目录的ReadDir方法失败，WalkDir函数调用该函数，`path`设置为该目录的路径，`d`设置为描述该目录的fs.DirEntry，`err`设置为ReadDir的错误。 在这第二种情况下，该函数被调用两次，`path`为该目录：第一次调用是在试图读取目录之前，`err`设置为nil，给该函数一个机会返回`SkipDir`或`SkipAll`，并完全避免ReadDir。第二次调用是在ReadDir失败之后，并报告ReadDir的错误(如果ReadDir成功，则没有第二次调用)。
 
-d参数是具有fs.DirEntry的命名路径。
+​	WalkDirFunc与filepath.WalkFunc的不同之处在于：
 
-The error result returned by the function controls how WalkDir continues. If the function returns the special value SkipDir, WalkDir skips the current directory (path if d.IsDir() is true, otherwise path's parent directory). If the function returns the special value SkipAll, WalkDir skips all remaining files and directories. Otherwise, if the function returns a non-nil error, WalkDir stops entirely and returns that error.
-
-该函数返回的错误结果控制WalkDir如何继续。如果函数返回特殊值SkipDir，WalkDir将跳过当前目录(如果d.IsDir()为真，则为path，否则为path的父目录)。如果函数返回特殊值SkipAll，WalkDir将跳过所有剩余的文件和目录。否则，如果函数返回一个非零的错误，WalkDir完全停止并返回该错误。
-
-函数返回的错误结果控制WalkDir的继续。如果函数返回特殊值SkipDir，则WalkDir跳过当前目录(如果d.IsDir()为true，则为路径，否则为路径的父目录)。如果函数返回特殊值SkipAll，则WalkDir跳过所有剩余文件和目录。否则，如果函数返回非nil错误，则WalkDir完全停止并返回该错误。
-
-The err argument reports an error related to path, signaling that WalkDir will not walk into that directory. The function can decide how to handle that error; as described earlier, returning the error will cause WalkDir to stop walking the entire tree.
-
-err参数报告一个与路径有关的错误，表示WalkDir不会进入该目录。该函数可以决定如何处理该错误；如前所述，返回该错误将导致WalkDir停止行走整个树。
-
-err参数报告与路径相关的错误，表示WalkDir不会遍历该目录。函数可以决定如何处理该错误；如前所述，返回错误将导致WalkDir停止遍历整个树。
-
-WalkDir calls the function with a non-nil err argument in two cases.
-
-在两种情况下，WalkDir用一个非零的err参数调用该函数。
-
-WalkDir在两种情况下使用非nil err参数调用函数。
-
-First, if the initial fs.Stat on the root directory fails, WalkDir calls the function with path set to root, d set to nil, and err set to the error from fs.Stat.
-
-首先，如果根目录上的初始fs.Stat失败，WalkDir调用该函数时，路径设置为root，d设置为nil，err设置为fs.Stat的错误。
-
-首先，如果根目录的fs.Stat失败，则WalkDir使用path设置为根，d设置为nil，并使用从fs.Stat返回的错误设置err调用函数。
-
-Second, if a directory's ReadDir method fails, WalkDir calls the function with path set to the directory's path, d set to an fs.DirEntry describing the directory, and err set to the error from ReadDir. In this second case, the function is called twice with the path of the directory: the first call is before the directory read is attempted and has err set to nil, giving the function a chance to return SkipDir or SkipAll and avoid the ReadDir entirely. The second call is after a failed ReadDir and reports the error from ReadDir. (If ReadDir succeeds, there is no second call.)
-
-第二，如果一个目录的ReadDir方法失败，WalkDir调用该函数，path设置为该目录的路径，d设置为描述该目录的fs.DirEntry，err设置为ReadDir的错误。 在这第二种情况下，该函数被调用两次，路径为该目录：第一次调用是在试图读取目录之前，err设置为nil，给该函数一个机会返回SkipDir或SkipAll，完全避免ReadDir。第二次调用是在ReadDir失败之后，并报告ReadDir的错误(如果ReadDir成功，则没有第二次调用)。
-
-其次，如果目录的ReadDir方法失败，则WalkDir使用path设置为目录的路径，d设置为描述目录的fs.DirEntry，并使用从ReadDir返回的错误设置err调用函数。在第二种情况下，该函数使用目录的路径两次进行调用：第一次调用在尝试读取目录之前进行，并将err设置为nil，给函数一次机会返回SkipDir或SkipAll，并完全避免ReadDir。第二次调用是在ReadDir失败之后，报告ReadDir的错误。(如果ReadDir成功，则没有第二次调用。)
-
-The differences between WalkDirFunc compared to filepath.WalkFunc are:
-
-与filepath.WalkFunc相比，WalkDirFunc的不同之处在于。
-
-WalkDirFunc相对于filepath.WalkFunc的区别是：
-
-WalkDirFunc与filepath.WalkFunc的不同之处在于：
-
-- The second argument has type fs.DirEntry instead of fs.FileInfo. 第二个参数的类型是fs.DirEntry而不是fs.FileInfo。 第二个参数的类型为fs.DirEntry，而不是fs.FileInfo。 
-- The function is called before reading a directory, to allow SkipDir or SkipAll to bypass the directory read entirely or skip all remaining files and directories respectively.该函数在读取目录之前被调用，以允许SkipDir或SkipAll完全绕过目录读取或分别跳过所有剩余的文件和目录。 函数在读取目录之前调用，以允许SkipDir或SkipAll完全跳过目录读取或跳过所有剩余的文件和目录。 
-- If a directory read fails, the function is called a second time for that directory to report the error.如果目录读取失败，该函数将被第二次调用，以报告该目录的错误。如果目录读取失败，则会为该目录再次调用该函数以报告错误。
+- 第二个实参的类型为fs.DirEntry，而不是fs.FileInfo。 
+- 该函数在读取目录之前被调用，以允许`SkipDir`或`SkipAll`完全跳过目录读取或跳过所有剩余的文件和目录。 
+- 如果目录读取失败，该函数将被第二次被调用，以报告该目录的错误。
 
 
 
