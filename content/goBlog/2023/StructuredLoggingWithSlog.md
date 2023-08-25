@@ -1,6 +1,6 @@
 +++
 title = "使用 slog 进行结构化日志记录"
-weitght = 85
+weight = 85
 date = 2023-08-25T21:19:14+08:00
 type = "docs"
 description = ""
