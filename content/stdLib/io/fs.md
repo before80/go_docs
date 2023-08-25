@@ -690,6 +690,8 @@ func ReadDir(fsys FS, name string) ([]DirEntry, error)
 
 注意：ReadDir 函数并不会读取，命名的目录下的子目录中的文件！
 
+另请参见[ReadDirFS My Example](#type-readdirfs)
+
 ![image-20230824171453802](fs_img/image-20230824171453802.png)
 
 ```go
@@ -796,7 +798,18 @@ type FS interface {
 #### func Sub 
 
 ``` go 
-func Sub(fsys FS, dir string) (FS, error)
+func Sub(fsys FS, dir string) (FS, error) {
+	if !ValidPath(dir) {
+		return nil, &PathError{Op: "sub", Path: dir, Err: errors.New("invalid name")}
+	}
+	if dir == "." {
+		return fsys, nil
+	}
+	if fsys, ok := fsys.(SubFS); ok {
+		return fsys.Sub(dir)
+	}
+	return &subFS{fsys, dir}, nil
+}
 ```
 
 ​	Sub 函数返回一个对应于以 `fsys` 的 `dir` 为根的子树的 FS。
@@ -1466,16 +1479,147 @@ func (e *PathError) Timeout() bool {
 
 ​	Timeout方法报告此错误是否表示超时。
 
+##### Timeout My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	// Create a timeout error manually
+	pathErr := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrDeadlineExceeded,
+	}
+
+	if pathErr.Timeout() {
+		fmt.Println("Timeout occurred")
+	} else {
+		fmt.Println("No timeout occurred")
+	}
+
+	// Simulate a non-timeout error
+	pathErr2 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrNotExist,
+	}
+
+	if pathErr2.Timeout() {
+		fmt.Println("Timeout occurred")
+	} else {
+		fmt.Println("No timeout occurred")
+	}
+}
+
+// Output:
+//Timeout occurred
+//No timeout occurred
+
+```
+
+
+
 #### (*PathError) Unwrap 
 
 ``` go 
 func (e *PathError) Unwrap() error { return e.Err }
 ```
 
-##### My Example
+##### Unwrap My Example
 
 ```go
+package main
 
+import (
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+func main() {
+	pathErr1 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrInvalid,
+	}
+	fmt.Println("os.ErrInvalid after Unwrap ->", pathErr1.Unwrap())
+
+	pathErr2 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrPermission,
+	}
+	fmt.Println("os.ErrPermission after Unwrap ->", pathErr2.Unwrap())
+
+	pathErr3 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrExist,
+	}
+	fmt.Println("os.ErrExist after Unwrap ->", pathErr3.Unwrap())
+
+	pathErr4 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrNotExist,
+	}
+	fmt.Println("os.ErrNotExist after Unwrap ->", pathErr4.Unwrap())
+
+	pathErr5 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrClosed,
+	}
+	fmt.Println("os.ErrClosed after Unwrap ->", pathErr5.Unwrap())
+
+	pathErr6 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrNoDeadline,
+	}
+	fmt.Println("os.ErrNoDeadline after Unwrap ->", pathErr6.Unwrap())
+
+	pathErr7 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  os.ErrDeadlineExceeded,
+	}
+	fmt.Println("os.ErrDeadlineExceeded after Unwrap ->", pathErr7.Unwrap())
+
+	pathErr8 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  fmt.Errorf("found error: %w", errors.New("未知错误")),
+	}
+	fmt.Println("fmt.Errorf after Unwrap ->", pathErr8.Unwrap())
+
+	pathErr9 := &fs.PathError{
+		Op:   "open",
+		Path: "myfile.txt",
+		Err:  fmt.Errorf("found error1: %w, found error2:: %w", errors.New("未知错误1"), errors.New("未知错误2")),
+	}
+	fmt.Println("fmt.Errorf after Unwrap ->", pathErr9.Unwrap())
+}
+
+// Output:
+//os.ErrInvalid after Unwrap -> invalid argument
+//os.ErrPermission after Unwrap -> permission denied
+//os.ErrExist after Unwrap -> file already exists
+//os.ErrNotExist after Unwrap -> file does not exist
+//os.ErrClosed after Unwrap -> file already closed
+//os.ErrNoDeadline after Unwrap -> file type does not support deadline
+//os.ErrDeadlineExceeded after Unwrap -> i/o timeout
+//os.ErrDeadlineExceeded after Unwrap -> i/o timeout
+//fmt.Errorf after Unwrap -> found error: 未知错误
+//fmt.Errorf after Unwrap -> found error1: 未知错误1, found error2:: 未知错误2
 ```
 
 ### type ReadDirFS 
@@ -1489,16 +1633,65 @@ type ReadDirFS interface {
 }
 ```
 
-ReadDirFS is the interface implemented by a file system that provides an optimized implementation of ReadDir.
+​	ReadDirFS是由文件系统实现的接口，它提供了ReadDir方法的优化实现。
 
-ReadDirFS是由文件系统实现的接口，它提供了ReadDir的优化实现。
-
-ReadDirFS是由提供了ReadDir的文件系统所实现的接口。
-
-##### My Example
+##### ReadDirFS My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io/fs"
+	"log"
+	"os"
+)
+
+type myFS struct {
+	fs.FS
+}
+
+func (mfs myFS) ReadDir(name string) ([]fs.DirEntry, error) {
+	fmt.Printf("Reading directory: %s\n", name)
+	return fs.ReadDir(mfs.FS, name)
+}
+
+func main() {
+	mfs := myFS{os.DirFS("dir")}
+
+	fmt.Printf("mfs=%#v\n", mfs) // mfs=main.myFS{FS:"."}
+
+	dirEntries, err := fs.ReadDir(mfs, ".")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 说是dirEntry，实际也包含 file
+	for _, dirEntry := range dirEntries {
+		fmt.Println(dirEntry.Name())
+	}
+
+	fmt.Println("-----------------------------")
+	dirEntries, err = fs.ReadDir(mfs, "subdir1")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 说是dirEntry，实际也包含 file
+	for _, dirEntry := range dirEntries {
+		fmt.Println(dirEntry.Name())
+	}
+
+}
+// Output:
+//mfs=main.myFS{FS:"dir"}
+//Reading directory: .
+//0.txt
+//subdir1
+//subdir2
+//-----------------------------
+//Reading directory: subdir1
+//1.txt
 ```
 
 ### type ReadDirFile 
@@ -1528,9 +1721,108 @@ type ReadDirFile interface {
 
 ​	ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。每个目录文件都应实现此接口。(任何文件都可以实现此接口，但如果这样做，对于非目录，ReadDir应返回一个错误。)
 
-##### My Example
+##### ReadDirFile My Example
+
+![image-20230825082407827](fs_img/image-20230825082407827.png)
 
 ```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+type customReadDirFile struct {
+	file *os.File
+}
+
+func (f *customReadDirFile) ReadDir(n int) ([]fs.DirEntry, error) {
+	fmt.Println("using custom ReadDir...")
+	return f.file.ReadDir(n)
+}
+
+func (f *customReadDirFile) Stat() (fs.FileInfo, error) {
+	return f.file.Stat()
+}
+
+func (f *customReadDirFile) Read(data []byte) (int, error) {
+	return f.file.Read(data)
+}
+
+func (f *customReadDirFile) Close() error {
+	return f.file.Close()
+}
+
+func main() {
+	file, err := os.Open("dir")
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+
+	customRdf := &customReadDirFile{file: file}
+
+	var fsrdf fs.ReadDirFile
+	fsrdf = customRdf
+	_, ok := fsrdf.(fs.ReadDirFile)
+	fmt.Println("customReadDirFile类型是否实现了fs.ReadDirFile？", ok)
+
+	fmt.Println("1 ------------------------------------")
+	entries, err := customRdf.ReadDir(-1)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+
+	fmt.Println("读取到的列表：")
+	for _, entry := range entries {
+		fmt.Println(entry.Name())
+	}
+
+	fmt.Println("2 ------------------------------------")
+	entries, err = customRdf.ReadDir(-1)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("读取到的列表：")
+	for _, entry := range entries {
+		fmt.Println(entry.Name())
+	}
+
+	fmt.Println("3 ------------------------------------")
+	entries, err = customRdf.ReadDir(1)
+
+	fmt.Println("若想每次调用 ReadDir 都有值，则需要重新打开对应目录。例如这里的 dir目录！")
+
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+
+	fmt.Println("读取到的列表：")
+	for _, entry := range entries {
+		fmt.Println(entry.Name())
+	}
+}
+// Output:
+//customReadDirFile类型是否实现了fs.ReadDirFile？ true
+//1 ------------------------------------
+//using custom ReadDir...
+//读取到的列表：
+//0.txt
+//subdir1
+//subdir2
+//2 ------------------------------------
+//using custom ReadDir...
+//读取到的列表：
+//3 ------------------------------------
+//using custom ReadDir...
+//若想每次调用 ReadDir 都有值，则需要重新打开对应目录。例如这里的 dir目录！
+//发生错误： EOF
 
 ```
 
@@ -1552,10 +1844,79 @@ type ReadFileFS interface {
 
 ​	`ReadFileFS` 是一个由文件系统实现的接口，该接口提供了 `ReadFile` 的优化实现。
 
-##### My Example
+##### ReadFileFS My Example
+
+![image-20230825085347673](fs_img/image-20230825085347673.png)
 
 ```go
+package main
 
+import (
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+type myFS struct {
+	ifs fs.FS
+}
+
+func (mfs myFS) Open(name string) (fs.File, error) {
+	return mfs.ifs.Open(name)
+}
+
+func (mfs myFS) ReadFile(name string) ([]byte, error) {
+	f, err := mfs.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	buf := make([]byte, 4096)
+	n, err := f.Read(buf)
+	if err != nil {
+		return nil, err
+	}
+
+	if n == 0 {
+		return nil, errors.New("没法发现数据")
+	}
+
+	return buf, nil
+}
+
+func main() {
+	mfs := myFS{os.DirFS("dir")}
+
+	data, err := mfs.ReadFile("0.txt")
+	if err != nil {
+		fmt.Println("发生错误:", err)
+	}
+	fmt.Println("内容是：", string(data))
+	fmt.Println("----------------------------")
+
+	data, err = mfs.ReadFile("1.txt")
+	if err != nil {
+		fmt.Println("发生错误:", err)
+	}
+
+	fmt.Println("内容是：", string(data))
+	fmt.Println("----------------------------")
+
+	data, err = mfs.ReadFile("subdir1/1.txt")
+	if err != nil {
+		fmt.Println("发生错误:", err)
+	}
+	fmt.Println("内容是：", string(data))
+}
+// Output:
+//内容是： content0
+//----------------------------
+//发生错误: open 1.txt: The system cannot find the file specified.
+//内容是：
+//----------------------------
+//内容是： content1
 ```
 
 ### type StatFS 
@@ -1572,10 +1933,88 @@ type StatFS interface {
 
 ​	StatFS是一个具有Stat方法的文件系统。
 
-##### My Example
+##### StatFS My Example
+
+![image-20230825111439914](fs_img/image-20230825111439914.png)
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io/fs"
+	"os"
+)
+
+type myFS struct {
+	ifs fs.FS
+}
+
+func (mfs myFS) Open(name string) (fs.File, error) {
+	return mfs.ifs.Open(name)
+}
+
+func (mfs myFS) Stat(name string) (fs.FileInfo, error) {
+	f, err := mfs.Open(name)
+	if err != nil {
+		return nil, &fs.PathError{
+			Op:   "open",
+			Path: name,
+			Err:  err,
+		}
+	}
+	fmt.Printf("f type is %T\n", f)
+	defer f.Close()
+
+	return f.Stat()
+}
+
+func main() {
+	mfs := myFS{os.DirFS("dir")}
+
+	filepaths := []string{
+		"1.txt",
+		"2.txt",
+		"subdir1/1.txt",
+		"subdir2/2.txt",
+	}
+	for _, filePath := range filepaths {
+		fmt.Println(filePath, "--------------------")
+		fileInfo, err := mfs.Stat(filePath)
+		if err != nil {
+			fmt.Printf("发生错误：%v 错误类型：%T\n", err, err)
+		} else {
+			fmt.Println("fileInfo.Name()=", fileInfo.Name())
+			fmt.Println("fileInfo.Size()=", fileInfo.Size())
+			fmt.Println("fileInfo.Mode()=", fileInfo.Mode())
+			fmt.Println("fileInfo.ModTime()=", fileInfo.ModTime())
+			fmt.Println("fileInfo.IsDir()=", fileInfo.IsDir())
+			fmt.Println("fileInfo.Sys()=", fileInfo.Sys())
+		}
+	}
+}
+
+// Output:
+//1.txt --------------------
+//发生错误：open 1.txt: open 1.txt: The system cannot find the file specified. 错误类型：*fs.PathError
+//2.txt --------------------
+//发生错误：open 2.txt: open 2.txt: The system cannot find the file specified. 错误类型：*fs.PathError
+//subdir1/1.txt --------------------
+//f type is *os.File
+//fileInfo.Name()= 1.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-25 07:37:41.4141539 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()= &{32 {3490293550 31053553} {2115665260 31053564} {4184080995 31053539} 0 8}
+//subdir2/2.txt --------------------
+//f type is *os.File
+//fileInfo.Name()= 2.txt
+//fileInfo.Size()= 8
+//fileInfo.Mode()= -rw-rw-rw-
+//fileInfo.ModTime()= 2023-08-25 07:38:27.7631737 +0800 CST
+//fileInfo.IsDir()= false
+//fileInfo.Sys()= &{32 {3490293550 31053553} {2115665260 31053564} {352603897 31053540} 0 8}
 ```
 
 ### type SubFS 
@@ -1590,6 +2029,98 @@ type SubFS interface {
 ```
 
 ​	SubFS是一个具有Sub方法的文件系统。
+
+
+
+#### SubFS My Example
+
+![image-20230825111414158](fs_img/image-20230825111414158.png)
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/fs"
+	"os"
+	"path"
+)
+
+type myFS struct {
+	// 嵌入一个*os.FS字段
+	ifs  fs.FS
+	Root string
+}
+
+func NewMyFS(dir string) myFS {
+	return myFS{ifs: os.DirFS(dir), Root: dir}
+}
+
+func (mfs myFS) Open(name string) (fs.File, error) {
+	return mfs.ifs.Open(name)
+}
+
+func (mfs myFS) Sub(dir string) (fs.FS, error) {
+	return NewMyFS(path.Join(mfs.Root, dir)), nil
+}
+
+func main() {
+	mfs := NewMyFS("dir")
+	subMfs, err := mfs.Sub("subdir1")
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+
+	fs.WalkDir(subMfs, ".", func(path string, d fs.DirEntry, err error) error {
+		fmt.Println("path=", path, "------------------------")
+		fmt.Println("d.Name()=", d.Name())
+		fmt.Println("d.IsDir()=", d.IsDir())
+		info, _ := d.Info()
+		fmt.Println("info.Name()=", info.Name())
+		fmt.Println("info.Size()=", info.Size())
+		fmt.Println("info.Mode()=", info.Mode())
+		fmt.Println("info.ModTime()=", info.ModTime())
+		fmt.Println("info.IsDir()=", info.IsDir())
+		fmt.Printf("info.Sys()=%#v\n", info.Sys())
+		return nil
+	})
+}
+
+// Output:
+//path= . ------------------------
+//d.Name()= .
+//d.IsDir()= true
+//info.Name()= .
+//info.Size()= 0
+//info.Mode()= drwxrwxrwx
+//info.ModTime()= 2023-08-25 11:05:52.7061956 +0800 CST
+//info.IsDir()= true
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0x63d1b05, HighDateTime:0x1d9d6ff}, LastAccessTime:syscall.
+//path= 2.txt ------------------------
+//d.Name()= 2.txt
+//d.IsDir()= false
+//info.Name()= 2.txt
+//info.Size()= 8
+//info.Mode()= -rw-rw-rw-
+//info.ModTime()= 2023-08-25 11:05:52.7046265 +0800 CST
+//info.IsDir()= false
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x39bed17a, HighDateTime:0x1d9d700}, LastAccessTime:syscall
+//.Filetime{LowDateTime:0xec7ac79, HighDateTime:0x1d9d701}, LastWriteTime:syscall.Filetime{LowDateTime:0xec7ac79, HighDateTime:0x1d9d701}, FileSizeHigh:0x0, FileSizeLo
+//w:0x8}
+//path= 3.html ------------------------
+//d.Name()= 3.html
+//d.IsDir()= false
+//info.Name()= 3.html
+//info.Size()= 132
+//info.Mode()= -rw-rw-rw-
+//info.ModTime()= 2023-08-25 11:05:52.6546262 +0800 CST
+//info.IsDir()= false
+//info.Sys()=&syscall.Win32FileAttributeData{FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x44a0928e, HighDateTime:0x1d9d700}, LastAccessTime:syscall
+//.Filetime{LowDateTime:0xec00b56, HighDateTime:0x1d9d701}, LastWriteTime:syscall.Filetime{LowDateTime:0xec00b56, HighDateTime:0x1d9d701}, FileSizeHigh:0x0, FileSizeLo
+//w:0x84}
+```
+
+
 
 ### type WalkDirFunc 
 
@@ -1621,8 +2152,6 @@ type WalkDirFunc func(path string, d DirEntry, err error) error
 
 
 
-##### My Example
+##### WalkDirFunc My Example
 
-```go
-
-```
+参见 [func WalkDir](#func-walkdir)

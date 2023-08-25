@@ -105,6 +105,280 @@ Output:
 some io.Reader stream to be read
 ```
 
+##### Copy My Example 1
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
+
+func main() {
+	// 创建一个字符串Reader
+	reader := strings.NewReader("Hello World")
+
+	// 创建一个文件Writer
+	file, err := os.OpenFile("data.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer file.Close()
+
+	// 将偏移量设置到结尾，同时也会把 whence 设置到结尾
+	//_, _ = io.ReadAll(file)
+	// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+	file.Seek(0, 2)
+	//file.Seek(0, 0)
+	var writer io.Writer
+	writer = file
+
+	// 调用 Copy 将reader的数据复制到writer
+	written, err := io.Copy(writer, reader)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Printf("Copied %d bytes\n", written)
+
+	// 确认文件已复制
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Printf("%s\n", data)
+}
+
+// Output:
+// Copied 11 bytes
+//Hello WorldHello WorldHello WorldHello WorldHello World
+
+```
+
+
+
+##### Copy My Example 2
+
+
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
+type MyReader1 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader1) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+func (mr *MyReader1) WriteTo(w io.Writer) (n int64, err error) {
+	fmt.Println("调用了MyReader1的WriteTo方法")
+
+	data := make([]byte, mr.R.Size())
+	//fmt.Println(mr.Read(data))
+	//fmt.Println("data=", string(data))
+	//fmt.Println(reflect.TypeOf(w).String())
+
+	iw1, ok1 := w.(*MyWriter1)
+	iw2, ok2 := w.(*MyWriter2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("w's is neither  *MyWriter1 nor *MyWriter2, current w's type is %T", w))
+	}
+
+	if ok1 {
+		iiw, ok := iw1.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	if ok2 {
+		iiw, ok := iw2.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	return 0, nil
+}
+
+type MyReader2 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader2) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+type MyWriter1 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter1) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func (mw *MyWriter1) ReadFrom(r io.Reader) (n int64, err error) {
+	fmt.Println("调用了MyWriter1的ReadFrom方法")
+
+	ir1, ok1 := r.(*MyReader1)
+	ir2, ok2 := r.(*MyReader2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("r's is neither  *MyReader1 nor *MyReader2, current r's type is %T", r))
+	}
+
+	if ok1 {
+		data := make([]byte, ir1.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+
+	if ok2 {
+		data := make([]byte, ir2.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+	return 0, nil
+}
+
+type MyWriter2 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter2) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func main() {
+	fmt.Println("情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口 ")
+	file1, err := os.OpenFile("data1.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file1.Close()
+	fmt.Println("起始文件字节数：", FileSize(file1))
+
+	_, err = io.Copy(&MyWriter1{W: file1}, &MyReader1{R: strings.NewReader("Hello World!")})
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file1))
+
+	fmt.Println("情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口 ")
+	file2, err := os.OpenFile("data2.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file2.Close()
+	fmt.Println("起始文件字节数：", FileSize(file2))
+
+	_, err = io.Copy(&MyWriter2{W: file2}, &MyReader1{R: strings.NewReader("Hello World!")})
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file2))
+
+	fmt.Println("情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口 ")
+	file3, err := os.OpenFile("data3.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file3.Close()
+	fmt.Println("起始文件字节数：", FileSize(file3))
+
+	_, err = io.Copy(&MyWriter1{W: file3}, &MyReader2{R: strings.NewReader("Hello World!")})
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file3))
+
+	fmt.Println("情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口 ")
+	file4, err := os.OpenFile("data4.txt", os.O_RDWR|os.O_CREATE, 0755)
+
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file4.Close()
+	fmt.Println("起始文件字节数：", FileSize(file4))
+
+	_, err = io.Copy(&MyWriter2{W: file4}, &MyReader2{R: strings.NewReader("Hello World!")})
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file4))
+}
+
+func FileSize(file *os.File) int {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return len(data)
+}
+// Output:
+//情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyReader1的WriteTo方法
+//Copy操作后文件字节数： 12
+//情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyReader1的WriteTo方法
+//Copy操作后文件字节数： 12
+//情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyWriter1的ReadFrom方法
+//Copy操作后文件字节数： 12
+//情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//Copy操作后文件字节数： 12 
+```
+
+
+
 #### func CopyBuffer  <- go1.5
 
 ``` go 
@@ -149,6 +423,220 @@ first reader
 second reader
 ```
 
+##### CopyBuffer My Example 
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
+type MyReader1 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader1) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+func (mr *MyReader1) WriteTo(w io.Writer) (n int64, err error) {
+	fmt.Println("调用了MyReader1的WriteTo方法")
+
+	data := make([]byte, mr.R.Size())
+	//fmt.Println(mr.Read(data))
+	//fmt.Println("data=", string(data))
+	//fmt.Println(reflect.TypeOf(w).String())
+
+	iw1, ok1 := w.(*MyWriter1)
+	iw2, ok2 := w.(*MyWriter2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("w's is neither  *MyWriter1 nor *MyWriter2, current w's type is %T", w))
+	}
+
+	if ok1 {
+		iiw, ok := iw1.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	if ok2 {
+		iiw, ok := iw2.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	return 0, nil
+}
+
+type MyReader2 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader2) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+type MyWriter1 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter1) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func (mw *MyWriter1) ReadFrom(r io.Reader) (n int64, err error) {
+	fmt.Println("调用了MyWriter1的ReadFrom方法")
+
+	ir1, ok1 := r.(*MyReader1)
+	ir2, ok2 := r.(*MyReader2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("r's is neither  *MyReader1 nor *MyReader2, current r's type is %T", r))
+	}
+
+	if ok1 {
+		data := make([]byte, ir1.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+
+	if ok2 {
+		data := make([]byte, ir2.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+	return 0, nil
+}
+
+type MyWriter2 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter2) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func main() {
+	fmt.Println("情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口 ")
+	file1, err := os.OpenFile("data1.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file1.Close()
+	fmt.Println("起始文件字节数：", FileSize(file1))
+
+	_, err = io.CopyBuffer(&MyWriter1{W: file1}, &MyReader1{R: strings.NewReader("Hello World!")}, make([]byte, 8))
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file1))
+
+	fmt.Println("情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口 ")
+	file2, err := os.OpenFile("data2.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file2.Close()
+	fmt.Println("起始文件字节数：", FileSize(file2))
+
+	_, err = io.CopyBuffer(&MyWriter2{W: file2}, &MyReader1{R: strings.NewReader("Hello World!")}, make([]byte, 8))
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file2))
+
+	fmt.Println("情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口 ")
+	file3, err := os.OpenFile("data3.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file3.Close()
+	fmt.Println("起始文件字节数：", FileSize(file3))
+
+	_, err = io.CopyBuffer(&MyWriter1{W: file3}, &MyReader2{R: strings.NewReader("Hello World!")}, make([]byte, 8))
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file3))
+
+	fmt.Println("情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口 ")
+	file4, err := os.OpenFile("data4.txt", os.O_RDWR|os.O_CREATE, 0755)
+
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file4.Close()
+	fmt.Println("起始文件字节数：", FileSize(file4))
+
+	_, err = io.CopyBuffer(&MyWriter2{W: file4}, &MyReader2{R: strings.NewReader("Hello World!")}, make([]byte, 8))
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file4))
+}
+
+func FileSize(file *os.File) int {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return len(data)
+}
+
+// Output:
+//情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyReader1的WriteTo方法
+//Copy操作后文件字节数： 12
+//情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyReader1的WriteTo方法
+//Copy操作后文件字节数： 12
+//情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyWriter1的ReadFrom方法
+//Copy操作后文件字节数： 12
+//情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//Copy操作后文件字节数： 12
+```
+
+
+
 #### func CopyN 
 
 ``` go 
@@ -184,17 +672,230 @@ Output:
 some
 ```
 
+##### CopyN My Example
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
+type MyReader1 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader1) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+func (mr *MyReader1) WriteTo(w io.Writer) (n int64, err error) {
+	fmt.Println("调用了MyReader1的WriteTo方法")
+
+	data := make([]byte, mr.R.Size())
+	//fmt.Println(mr.Read(data))
+	//fmt.Println("data=", string(data))
+	//fmt.Println(reflect.TypeOf(w).String())
+
+	iw1, ok1 := w.(*MyWriter1)
+	iw2, ok2 := w.(*MyWriter2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("w's is neither  *MyWriter1 nor *MyWriter2, current w's type is %T", w))
+	}
+
+	if ok1 {
+		iiw, ok := iw1.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	if ok2 {
+		iiw, ok := iw2.W.(*os.File)
+		if !ok {
+			return 0, errors.New(fmt.Sprintf("w.W's type is not *os.File, current type is %T", iw2.W))
+		}
+
+		// whence: 0 表示相对于文件起始处，1 表示相对于当前偏移量，2 表示相对于结尾
+		iiw.Seek(0, 2)
+
+		m, err := iiw.Write(data)
+		//fmt.Println("m=", m)
+		return int64(m), err
+	}
+
+	return 0, nil
+}
+
+type MyReader2 struct {
+	R *strings.Reader
+}
+
+func (mr *MyReader2) Read(p []byte) (n int, err error) {
+	n, err = mr.R.Read(p)
+	return
+}
+
+type MyWriter1 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter1) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func (mw *MyWriter1) ReadFrom(r io.Reader) (n int64, err error) {
+	fmt.Println("调用了MyWriter1的ReadFrom方法")
+
+	ir1, ok1 := r.(*MyReader1)
+	ir2, ok2 := r.(*MyReader2)
+
+	if !ok1 && !ok2 {
+		return 0, errors.New(fmt.Sprintf("r's is neither  *MyReader1 nor *MyReader2, current r's type is %T", r))
+	}
+
+	if ok1 {
+		data := make([]byte, ir1.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+
+	if ok2 {
+		data := make([]byte, ir2.R.Size())
+		r.Read(data)
+		m, err := mw.W.Write(data)
+		return int64(m), err
+	}
+	return 0, nil
+}
+
+type MyWriter2 struct {
+	W io.Writer
+}
+
+func (mw *MyWriter2) Write(p []byte) (n int, err error) {
+	n, err = mw.W.Write(p)
+	return
+}
+
+func main() {
+	fmt.Println("情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口 ")
+	file1, err := os.OpenFile("data1.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file1.Close()
+	fmt.Println("起始文件字节数：", FileSize(file1))
+
+	_, err = io.CopyN(&MyWriter1{W: file1}, &MyReader1{R: strings.NewReader("Hello World!")}, 5)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file1))
+
+	fmt.Println("情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口 ")
+	file2, err := os.OpenFile("data2.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file2.Close()
+	fmt.Println("起始文件字节数：", FileSize(file2))
+
+	_, err = io.CopyN(&MyWriter2{W: file2}, &MyReader1{R: strings.NewReader("Hello World!")}, 5)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file2))
+
+	fmt.Println("情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口 ")
+	file3, err := os.OpenFile("data3.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file3.Close()
+	fmt.Println("起始文件字节数：", FileSize(file3))
+
+	_, err = io.CopyN(&MyWriter1{W: file3}, &MyReader2{R: strings.NewReader("Hello World!")}, 5)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file3))
+
+	fmt.Println("情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口 ")
+	file4, err := os.OpenFile("data4.txt", os.O_RDWR|os.O_CREATE, 0755)
+
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file4.Close()
+	fmt.Println("起始文件字节数：", FileSize(file4))
+
+	_, err = io.CopyN(&MyWriter2{W: file4}, &MyReader2{R: strings.NewReader("Hello World!")}, 5)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+	}
+	fmt.Println("Copy操作后文件字节数：", FileSize(file4))
+}
+
+func FileSize(file *os.File) int {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return len(data)
+}
+
+// Output:
+//情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyWriter1的ReadFrom方法
+//发生错误： r's is neither  *MyReader1 nor *MyReader2, current r's type is *io.LimitedReader
+//Copy操作后文件字节数： 0
+//情况2：Copy 中的 src 实现了`WriterTo`接口 但 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//Copy操作后文件字节数： 5
+//情况3：Copy 中的 src 没有实现`WriterTo`接口 但 dst 实现了`ReaderFrom`接口
+//起始文件字节数： 0
+//调用了MyWriter1的ReadFrom方法
+//发生错误： r's is neither  *MyReader1 nor *MyReader2, current r's type is *io.LimitedReader
+//Copy操作后文件字节数： 0
+//情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口
+//起始文件字节数： 0
+//Copy操作后文件字节数： 5
+```
+
 #### func Pipe 
 
 ``` go 
 func Pipe() (*PipeReader, *PipeWriter)
 ```
 
-​	Pipe创建一个同步的内存管道。它可用于连接期望io.Reader的代码与期望io.Writer的代码。
+​	Pipe 函数创建一个同步的内存管道。它可以用来连接期望io.Reader的代码和期望io.Writer的代码。   
 
-​	在管道上的读取和写入是一对一匹配的，除非需要多个读取来消耗单个写入。也就是说，每次对PipeWriter的写入都会阻塞，直到它满足了来自PipeReader的一个或多个读取，这些读取完全消耗了已写入的数据。数据直接从写入到相应的读取(或读取)中复制；没有内部缓冲。
+​	除非多个Read被需要来消费一个Write，否则Pipe上的读和写是一一对应的。也就是说，每次向PipeWriter写入都会阻塞，直到一个或多个从PipeReader完全消费写入数据的Read满足写入。数据是直接从Write复制到相应的Read(或Reads)；没有内部缓冲。   
 
-​	在并行调用Read和Write或与Close一起调用是安全的。并行调用Read和并行调用Write也是安全的：各个调用将依次进行。
+​	同时调用Read和Write或者与Close是安全的。对Read的并行调用和对Write的并行调用也是安全的：各个调用将依次进行。
 
 #####    Pipe Example 
 
@@ -224,6 +925,68 @@ func main() {
 Output:
 
 some io.Reader stream to be read
+```
+
+##### Pipe My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"math/rand"
+	"strconv"
+	"sync"
+	"time"
+)
+
+func main() {
+	var wg sync.WaitGroup
+
+	// 创建一个管道
+	r, w := io.Pipe()
+	defer w.Close()
+	defer r.Close()
+
+	for i := 1; i < 10; i++ {
+		wg.Add(1)
+		go func(j int) {
+			defer wg.Done()
+			time.Sleep(time.Duration(rand.Intn(2000)) * time.Millisecond)
+			str := "write " + strconv.Itoa(j) + ": Hello world"
+			w.Write([]byte(str))
+		}(i)
+	}
+
+	for i := 1; i < 10; i++ {
+		wg.Add(1)
+		go func(j int) {
+			defer wg.Done()
+			buf := make([]byte, 512)
+			n, err := r.Read(buf)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+
+			fmt.Println("read " + strconv.Itoa(j) + " -> " + string(buf[:n]))
+		}(i)
+	}
+
+	// 等待goroutine结束
+	wg.Wait()
+}
+// Output:
+//read 3 -> write 9: Hello world
+//read 2 -> write 1: Hello world
+//read 6 -> write 3: Hello world
+//read 7 -> write 8: Hello world
+//read 4 -> write 7: Hello world
+//read 8 -> write 4: Hello world
+//read 5 -> write 2: Hello world
+//read 1 -> write 5: Hello world
+//read 9 -> write 6: Hello world
 ```
 
 #### func ReadAll  <- go1.16
@@ -262,13 +1025,41 @@ Output:
 Go is a general-purpose language designed with systems programming in mind.
 ```
 
+##### ReadAll My Example
+
+![image-20230825200859284](io_img/image-20230825200859284.png)
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+func main() {
+	file, err := os.Open("data.txt")
+
+	b, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("%s", b)
+}
+// Output:
+//All content in one line and no newline!
+```
+
 #### func ReadAtLeast 
 
 ``` go 
 func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
 ```
 
-​	ReadAtLeast函数从r中读取到buf，直到它读取至少min个字节。它返回已复制的字节数和错误(如果读取的字节数少于min个)。如果没有读取任何字节，则错误为EOF。如果在读取少于min个字节后出现EOF，则ReadAtLeast返回ErrUnexpectedEOF。如果min大于buf的长度，则ReadAtLeast返回ErrShortBuffer。返回时，当且仅当err == nil时，n >= min。如果r在读取至少min个字节后返回错误，则将删除该错误。
+​	ReadAtLeast函数从`r`中读取到`buf`，直到它读取至少`min`个字节。它返回已复制的字节数和错误(如果读取的字节数少于`min`个)。如果没有读取任何字节，则错误为EOF。如果在读取少于min个字节后出现EOF，则ReadAtLeast返回ErrUnexpectedEOF。如果min大于buf的长度，则ReadAtLeast返回ErrShortBuffer。返回时，当且仅当err == nil时，n >= min。如果r在读取至少min个字节后返回错误，则将删除该错误。
 
 #####    ReadAtLeast Example 
 
@@ -311,13 +1102,110 @@ error: short buffer
 error: unexpected EOF
 ```
 
+##### ReadAtLeast My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"strings"
+)
+
+func MyRead(r io.Reader, bufSize, min int) {
+	buf := make([]byte, bufSize)
+	ir, ok := r.(*strings.Reader)
+	if !ok {
+		log.Fatal("类型错误")
+	}
+	bytesSize := ir.Size()
+	// 每次都是从头开始
+	ir.Seek(0, 0)
+	n, err := io.ReadAtLeast(r, buf, min)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Printf("total bytes is %d,buf=%d,min=%d,n=%d,read content is:%s\n", bytesSize, bufSize, min, n, string(buf))
+	fmt.Println("-----------------------------------------")
+}
+
+func main() {
+	r := strings.NewReader("Do you code with go?\n") // 21个字符
+	MyRead(r, 30, 30)
+	MyRead(r, 30, 21)
+	MyRead(r, 30, 20)
+	MyRead(r, 30, 19)
+
+	MyRead(r, 21, 30)
+	MyRead(r, 21, 21)
+	MyRead(r, 21, 19)
+
+	MyRead(r, 20, 30)
+	MyRead(r, 20, 21)
+	MyRead(r, 20, 20)
+	MyRead(r, 20, 19)
+
+	MyRead(r, 19, 30)
+	MyRead(r, 19, 21)
+	MyRead(r, 19, 20)
+	MyRead(r, 19, 19)
+}
+
+// Output:
+//error: unexpected EOF
+//total bytes is 21,buf=30,min=30,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=30,min=21,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=30,min=20,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=30,min=19,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=21,min=30,n=0,read content is:
+//-----------------------------------------
+//total bytes is 21,buf=21,min=21,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=21,min=19,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=20,min=30,n=0,read content is:
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=20,min=21,n=0,read content is:
+//-----------------------------------------
+//total bytes is 21,buf=20,min=20,n=20,read content is:Do you code with go?
+//-----------------------------------------
+//total bytes is 21,buf=20,min=19,n=20,read content is:Do you code with go?
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=19,min=30,n=0,read content is:
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=19,min=21,n=0,read content is:
+//-----------------------------------------
+//error: short buffer
+//total bytes is 21,buf=19,min=20,n=0,read content is:
+//-----------------------------------------
+//total bytes is 21,buf=19,min=19,n=19,read content is:Do you code with go
+//-----------------------------------------
+```
+
 #### func ReadFull 
 
 ``` go 
 func ReadFull(r Reader, buf []byte) (n int, err error)
 ```
 
-​	ReadFull函数从r中精确地读取len(buf)个字节到buf中。它返回已复制的字节数和错误(如果读取的字节数少于len(buf)个)。如果没有读取任何字节，则错误为EOF。如果在读取一些但不是所有字节后出现EOF，则ReadFull函数返回ErrUnexpectedEOF。返回时，当且仅当err == nil时，n == len(buf)。如果r在读取至少len(buf)个字节后返回错误，则将删除该错误。
+​	ReadFull函数从`r`中精确地读取len(buf)个字节到`buf`中。它返回已复制的字节数和错误(如果读取的字节数少于len(buf)个)。如果没有读取任何字节，则错误为EOF。如果在读取一些但不是所有字节后出现EOF，则ReadFull函数返回ErrUnexpectedEOF。返回时，当且仅当err == nil时，n == len(buf)。如果`r`在读取至少len(buf)个字节后返回错误，则将删除该错误。
 
 #####    ReadFull Example 
 
@@ -353,13 +1241,66 @@ some
 error: unexpected EOF
 ```
 
+##### ReadFull My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"strings"
+)
+
+func MyRead(r io.Reader, bufSize int) {
+	buf := make([]byte, bufSize)
+	ir, ok := r.(*strings.Reader)
+	if !ok {
+		log.Fatal("类型错误")
+	}
+	bytesSize := ir.Size()
+	// 每次都是从头开始
+	ir.Seek(0, 0)
+
+	n, err := io.ReadFull(r, buf)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Printf("total bytes is %d,buf=%d,n=%d,read content is:%s\n", bytesSize, bufSize, n, string(buf))
+	fmt.Println("-----------------------------------------")
+}
+
+func main() {
+	r := strings.NewReader("Do you code with go?\n") // 21个字符
+
+	MyRead(r, 30)
+	MyRead(r, 21)
+	MyRead(r, 20)
+	MyRead(r, 19)
+}
+
+// Output:
+//error: unexpected EOF
+//total bytes is 21,buf=30,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=21,n=21,read content is:Do you code with go?
+//
+//-----------------------------------------
+//total bytes is 21,buf=20,n=20,read content is:Do you code with go?
+//-----------------------------------------
+//total bytes is 21,buf=19,n=19,read content is:Do you code with go
+//-----------------------------------------
+```
+
 #### func WriteString 
 
 ``` go 
 func WriteString(w Writer, s string) (n int, err error)
 ```
 
-​	WriteString函数将字符串s的内容写入接受字节片的w中。如果w实现了StringWriter，则直接调用其WriteString方法。否则，将调用w.Write一次。
+​	WriteString函数将字符串`s`的内容写入接受字节切片的`w`中。如果`w`实现了StringWriter，则直接调用其WriteString方法。否则，将调用w.Write一次。
 
 #####    WriteString Example 
 
@@ -381,6 +1322,61 @@ func main() {
 Output:
 
 Hello World
+```
+
+##### WriteString My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+type MyWriter struct {
+	W io.Writer
+}
+
+func (mw *MyWriter) Write(p []byte) (n int, err error) {
+	return mw.W.Write([]byte(p))
+}
+
+func (mw *MyWriter) WriteString(s string) (n int, err error) {
+	fmt.Println("调用了MyWriter的WriteString方法")
+	return mw.W.Write([]byte(s))
+}
+
+func main() {
+	file, err := os.OpenFile("data.txt", os.O_RDWR|os.O_CREATE, 755)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	fmt.Println("起始文件字节数：", FileSize(file))
+
+	io.WriteString(file, "Hello World!")
+	fmt.Println("第一次io.WriteString操作后文件字节数：", FileSize(file))
+
+	io.WriteString(&MyWriter{file}, "Hello World!")
+	fmt.Println("第二次io.WriteString操作后文件字节数：", FileSize(file))
+}
+
+func FileSize(file *os.File) int {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return len(data)
+}
+// Output:
+//起始文件字节数： 0
+//第一次io.WriteString操作后文件字节数： 12
+//调用了MyWriter的WriteString方法
+//第二次io.WriteString操作后文件字节数： 24
 ```
 
 ## 类型
