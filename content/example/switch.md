@@ -41,27 +41,23 @@ func main() {
 	switch i {
 	case 0:
 		fmt.Println("i is 0.")
-	case 1:
-		fmt.Println("i is 1.")
-	case 2:
-		fmt.Println("i is 2.")
+	case 1, 2:
+		fmt.Println("i is 1 or 2.")
 	default:
 		fmt.Println("i is unknown.")
 	}
 
-	// 有变量, 且是新定义局部变量
+	// 有变量, 且有新定义局部变量
 	switch j := rand.Intn(3); j {
 	case 0:
 		fmt.Println("j is 0.")
-	case 1:
-		fmt.Println("j is 1.")
-	case 2:
-		fmt.Println("j is 2.")
+	case 1, 2:
+		fmt.Println("j is 1 or 2.")
 	default:
 		fmt.Println("j is unknown.")
 	}
 
-	// 有变量, 且是新定义局部变量
+	// 有变量, 且有新定义局部变量
 	switch score := rand.Intn(101); { // 相当于 switch score := rand.Intn(101); true {
 	case score < 60:
 		fmt.Println("E")
@@ -91,6 +87,5 @@ func main() {
 		fmt.Println("x's type is unknown.")
 	}
 }
-
 ```
 
