@@ -13,6 +13,8 @@ draft = false
 > 原文：https://gobyexample.com/time
 
 ```go
+// Note:
+// This code is from https://gobyexample.com.
 package main
 
 import (
@@ -24,20 +26,20 @@ func main() {
 	p := fmt.Println
 
 	now := time.Now()
-	p(now)
+	p(now) // 2023-08-26 10:13:42.8992275 +0800 CST m=+0.006364701
 
 	secondsEastOfUTC := int((8 * time.Hour).Seconds())
 	beijing := time.FixedZone("Beijing Time", secondsEastOfUTC)
 
 	then := time.Date(
 		2023, 8, 10, 15, 23, 58, 651387237, beijing)
-	p(then) // 2023-08-10 15:57:00.0450508 +0800 CST m=+0.005236201
+	p(then) // 2023-08-10 15:23:58.651387237 +0800 Beijing Time
 
-	p(then.Year())       // 2023-08-10 15:23:58.651387237 +0000 UTC
-	p(then.Month())      // 2023
-	p(then.Day())        // August
-	p(then.Hour())       // 10
-	p(then.Minute())     // 15
+	p(then.Year())       // 2023
+	p(then.Month())      // August
+	p(then.Day())        // 10
+	p(then.Hour())       // 15
+	p(then.Minute())     // 23
 	p(then.Second())     // 58
 	p(then.Nanosecond()) // 651387237
 	p(then.Location())   // Beijing Time
@@ -49,16 +51,15 @@ func main() {
 	p(then.Equal(now))  // false
 
 	diff := now.Sub(then)
-	p(diff) // 39m13.224600463s
+	p(diff) // 378h49m44.247840263s
 
 	p(diff.Hours())       // 0.6536735001286111
-	p(diff.Minutes())     // 39.220410007716666
-	p(diff.Seconds())     // 2353.224600463
-	p(diff.Nanoseconds()) // 2353224600463
+	p(diff.Minutes())     // 378.8289577334064
+	p(diff.Seconds())     // 22729.7374640043
+	p(diff.Nanoseconds()) // 1.363784247840263e+06
 
-	p(then.Add(diff)) // 2023-08-10 16:03:11.8759877 +0800 Beijing Time
-	p(then.Add(-diff)) // 2023-08-10 14:44:45.426786774 +0800 Beijing Time
+	p(then.Add(diff))  // 2023-08-26 10:13:42.8992275 +0800 Beijing Time
+	p(then.Add(-diff)) // 2023-07-25 20:34:14.403546974 +0800 Beijing Time
 }
-
 ```
 

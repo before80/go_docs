@@ -28,7 +28,7 @@ The standard library has had a logging package, `log`, since Go’s initial rele
 
 With many structured logging packages to choose from, large programs will often end up including more than one through their dependencies. The main program might have to configure each of these logging packages so that the log output is consistent: it all goes to the same place, in the same format. By including structured logging in the standard library, we can provide a common framework that all the other structured logging packages can share.
 
-​	由于有许多结构化日志包可供选择，大型程序通常会通过它们的依赖关系包含不止一个包。主程序可能需要配置每个这些日志包，以使日志输出保持一致：所有日志都输出到相同的位置，使用相同的格式。通过将结构化日志记录包含在标准库中，我们可以提供一个共同的框架，所有其他结构化日志记录包都可以共享。
+​	由于有许多结构化日志包可供选择，大型程序通常会通过它们的依赖项包含不止一个包。主程序可能需要配置每个这些日志包，以使日志输出保持一致：所有日志都输出到相同的位置，使用相同的格式。通过将结构化日志记录包含在标准库中，我们可以提供一个共同的框架，所有其他结构化日志记录包都可以共享。
 
 ## 对 `slog` 的介绍 A tour of `slog`
 

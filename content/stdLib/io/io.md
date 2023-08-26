@@ -68,7 +68,7 @@ var ErrUnexpectedEOF = errors.New("unexpected EOF")
 
 ## 函数
 
-#### func Copy 
+### func Copy 
 
 ``` go 
 func Copy(dst Writer, src Reader) (written int64, err error)
@@ -80,7 +80,7 @@ func Copy(dst Writer, src Reader) (written int64, err error)
 
 ​	如果src实现了`WriterTo`接口，则通过调用src.WriteTo(dst)来实现复制。否则，如果dst实现了`ReaderFrom`接口，则通过调用dst.ReadFrom(src)来实现复制。【如果src和dst都实现了所说的，以哪个为准？】
 
-#####    Copy Example 
+####    Copy Example 
 
 ``` go 
 package main
@@ -105,7 +105,7 @@ Output:
 some io.Reader stream to be read
 ```
 
-##### Copy My Example 1
+#### Copy My Example 1
 
 ```go
 package main
@@ -164,7 +164,7 @@ func main() {
 
 
 
-##### Copy My Example 2
+#### Copy My Example 2
 
 
 
@@ -379,7 +379,7 @@ func FileSize(file *os.File) int {
 
 
 
-#### func CopyBuffer  <- go1.5
+### func CopyBuffer  <- go1.5
 
 ``` go 
 func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
@@ -389,7 +389,7 @@ func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
 
 ​	如果src实现了WriterTo或dst实现了ReaderFrom，则不会使用buf执行复制。
 
-#####    CopyBuffer Example 
+####    CopyBuffer Example 
 
 ```go 
 package main
@@ -423,7 +423,7 @@ first reader
 second reader
 ```
 
-##### CopyBuffer My Example 
+#### CopyBuffer My Example 
 
 ```go
 package main
@@ -637,7 +637,7 @@ func FileSize(file *os.File) int {
 
 
 
-#### func CopyN 
+### func CopyN 
 
 ``` go 
 func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
@@ -647,7 +647,7 @@ func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
 
 ​	如果dst实现了ReaderFrom接口，则使用它来实现复制。
 
-#####    CopyN Example 
+####    CopyN Example 
 
 ```go 
 package main
@@ -672,7 +672,7 @@ Output:
 some
 ```
 
-##### CopyN My Example
+#### CopyN My Example
 
 ```go
 package main
@@ -885,7 +885,7 @@ func FileSize(file *os.File) int {
 //Copy操作后文件字节数： 5
 ```
 
-#### func Pipe 
+### func Pipe 
 
 ``` go 
 func Pipe() (*PipeReader, *PipeWriter)
@@ -897,7 +897,7 @@ func Pipe() (*PipeReader, *PipeWriter)
 
 ​	同时调用Read和Write或者与Close是安全的。对Read的并行调用和对Write的并行调用也是安全的：各个调用将依次进行。
 
-#####    Pipe Example 
+####    Pipe Example 
 
 ``` go 
 package main
@@ -927,7 +927,7 @@ Output:
 some io.Reader stream to be read
 ```
 
-##### Pipe My Example
+#### Pipe My Example
 
 ```go
 package main
@@ -989,7 +989,7 @@ func main() {
 //read 9 -> write 6: Hello world
 ```
 
-#### func ReadAll  <- go1.16
+### func ReadAll  <- go1.16
 
 ``` go 
 func ReadAll(r Reader) ([]byte, error)
@@ -997,7 +997,7 @@ func ReadAll(r Reader) ([]byte, error)
 
 ​	ReadAll函数从r读取直到出现错误或EOF，并返回它读取的数据。成功调用返回err == nil，而不是err == EOF。因为ReadAll函数定义为从src读取直到EOF，所以它不会将从Read中读取的EOF视为错误报告。
 
-#####    ReadAll Example 
+####    ReadAll Example 
 
 ``` go 
 package main
@@ -1025,7 +1025,7 @@ Output:
 Go is a general-purpose language designed with systems programming in mind.
 ```
 
-##### ReadAll My Example
+#### ReadAll My Example
 
 ![image-20230825200859284](io_img/image-20230825200859284.png)
 
@@ -1053,7 +1053,7 @@ func main() {
 //All content in one line and no newline!
 ```
 
-#### func ReadAtLeast 
+### func ReadAtLeast 
 
 ``` go 
 func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
@@ -1061,7 +1061,7 @@ func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
 
 ​	ReadAtLeast函数从`r`中读取到`buf`，直到它读取至少`min`个字节。它返回已复制的字节数和错误(如果读取的字节数少于`min`个)。如果没有读取任何字节，则错误为EOF。如果在读取少于min个字节后出现EOF，则ReadAtLeast返回ErrUnexpectedEOF。如果min大于buf的长度，则ReadAtLeast返回ErrShortBuffer。返回时，当且仅当err == nil时，n >= min。如果r在读取至少min个字节后返回错误，则将删除该错误。
 
-#####    ReadAtLeast Example 
+####    ReadAtLeast Example 
 
 ``` go 
 package main
@@ -1102,7 +1102,7 @@ error: short buffer
 error: unexpected EOF
 ```
 
-##### ReadAtLeast My Example
+#### ReadAtLeast My Example
 
 ```go
 package main
@@ -1199,7 +1199,7 @@ func main() {
 //-----------------------------------------
 ```
 
-#### func ReadFull 
+### func ReadFull 
 
 ``` go 
 func ReadFull(r Reader, buf []byte) (n int, err error)
@@ -1207,7 +1207,7 @@ func ReadFull(r Reader, buf []byte) (n int, err error)
 
 ​	ReadFull函数从`r`中精确地读取len(buf)个字节到`buf`中。它返回已复制的字节数和错误(如果读取的字节数少于len(buf)个)。如果没有读取任何字节，则错误为EOF。如果在读取一些但不是所有字节后出现EOF，则ReadFull函数返回ErrUnexpectedEOF。返回时，当且仅当err == nil时，n == len(buf)。如果`r`在读取至少len(buf)个字节后返回错误，则将删除该错误。
 
-#####    ReadFull Example 
+####    ReadFull Example 
 
 ``` go 
 package main
@@ -1241,7 +1241,7 @@ some
 error: unexpected EOF
 ```
 
-##### ReadFull My Example
+#### ReadFull My Example
 
 ```go
 package main
@@ -1294,7 +1294,7 @@ func main() {
 //-----------------------------------------
 ```
 
-#### func WriteString 
+### func WriteString 
 
 ``` go 
 func WriteString(w Writer, s string) (n int, err error)
@@ -1302,7 +1302,7 @@ func WriteString(w Writer, s string) (n int, err error)
 
 ​	WriteString函数将字符串`s`的内容写入接受字节切片的`w`中。如果`w`实现了StringWriter，则直接调用其WriteString方法。否则，将调用w.Write一次。
 
-#####    WriteString Example 
+####    WriteString Example 
 
 ``` go 
 package main
@@ -1324,7 +1324,7 @@ Output:
 Hello World
 ```
 
-##### WriteString My Example
+#### WriteString My Example
 
 ```go
 package main
@@ -1394,6 +1394,74 @@ type ByteReader interface {
 ​	ReadByte读取并返回输入中的下一个字节或遇到的任何错误。如果ReadByte返回错误，则没有输入字节被消耗，返回的字节值未定义。
 
 ​	ReadByte提供了逐字节处理的有效接口。如果Reader未实现ByteReader，则可以使用bufio.NewReader进行封装以添加此方法。
+
+#### ByteReader My Example
+
+```go
+package main
+
+import (
+	"bufio"
+	"bytes"
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+func main() {
+	var br io.ByteReader
+	buf1 := bytes.NewBuffer(make([]byte, 0, 8))
+	buf1.WriteString("Hello World! 你好中国！")
+
+	br = buf1
+	byt, err := br.ReadByte()
+	data := make([]byte, 0)
+	for err == nil {
+		fmt.Printf("%s", string(byt))
+		data = append(data, byt)
+		byt, err = br.ReadByte()
+	}
+
+	if err != nil {
+		fmt.Println()
+		fmt.Println("发生错误", err)
+	}
+	fmt.Println(string(data))
+
+	file, err := os.OpenFile("data.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	br = bufio.NewReader(file)
+
+	byt, err = br.ReadByte()
+
+	data = make([]byte, 0)
+	for err == nil {
+		fmt.Printf("%s", string(byt))
+		data = append(data, byt)
+		byt, err = br.ReadByte()
+	}
+
+	if err != nil {
+		fmt.Println()
+		fmt.Println("发生错误", err)
+	}
+	fmt.Println(string(data))
+}
+
+// Output:
+//H½ello World! ä½ å¥½ä¸­åï¼ 
+//发生错误 EOF
+//Hello World! 你好中国！
+//Nice to meet you!
+//发生错误 EOF
+//Nice to meet you!
+```
+
+
 
 ### type ByteScanner 
 

@@ -66,7 +66,7 @@ func main() {
 	fmt.Printf("%#v,%T,len=%d,cap=%d\n", s20, s20, len(s20), cap(s20))
 	fmt.Printf("%#v,%T,len=%d,cap=%d\n", s21, s21, len(s21), cap(s21))
 
-	// 从数组中获取切片
+	// 从切片中获取切片
 	sl := []int{1, 2, 3, 4, 5, 6}
 
 	s22 := sl[:]
