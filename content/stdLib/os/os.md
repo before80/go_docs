@@ -16,7 +16,7 @@ https://pkg.go.dev/os@go1.20.1
 
 ​	这里是一个简单的例子，打开一个文件并读取其中一部分。
 
-```
+```go
 file, err := os.Open("file.go") // 用于读取。
 if err != nil {
 	log.Fatal(err)
@@ -25,13 +25,13 @@ if err != nil {
 
 如果打开失败，错误字符串将是不言自明的，例如
 
-```
+```bash
 open file.go: no such file or directory
 ```
 
 然后可以将文件的数据读入到一个字节片中。Read 和 Write 的字节计数从参数切片的长度中获取。
 
-```
+```go
 data := make([]byte, 100)
 count, err := file.Read(data)
 if err != nil {

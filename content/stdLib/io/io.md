@@ -78,7 +78,7 @@ func Copy(dst Writer, src Reader) (written int64, err error)
 
 ​	成功的Copy返回err==nil，而不是err==EOF。因为Copy定义为从src读取直到EOF，所以它不会将从Read返回的EOF视为要报告的错误。
 
-​	如果src实现了`WriterTo`接口，则通过调用src.WriteTo(dst)来实现复制。否则，如果dst实现了`ReaderFrom`接口，则通过调用dst.ReadFrom(src)来实现复制。【如果src和dst都实现了所说的，以哪个为准？】
+​	如果src实现了`WriterTo`接口，则通过调用src.WriteTo(dst)来实现复制。否则，如果dst实现了`ReaderFrom`接口，则通过调用dst.ReadFrom(src)来实现复制。【如果src和dst都实现了所说的，以哪个为准？-> src 】
 
 ####    Copy Example 
 
@@ -193,6 +193,7 @@ func (mr *MyReader1) WriteTo(w io.Writer) (n int64, err error) {
 	fmt.Println("调用了MyReader1的WriteTo方法")
 
 	data := make([]byte, mr.R.Size())
+	mr.R.Read(data)
 	//fmt.Println(mr.Read(data))
 	//fmt.Println("data=", string(data))
 	//fmt.Println(reflect.TypeOf(w).String())
@@ -359,6 +360,7 @@ func FileSize(file *os.File) int {
 	}
 	return len(data)
 }
+
 // Output:
 //情况1：Copy 中的 src 实现了`WriterTo`接口 且 dst 实现了`ReaderFrom`接口
 //起始文件字节数： 0
@@ -374,7 +376,7 @@ func FileSize(file *os.File) int {
 //Copy操作后文件字节数： 12
 //情况4：Copy 中的 src 没有实现`WriterTo`接口 且 dst 没有实现`ReaderFrom`接口
 //起始文件字节数： 0
-//Copy操作后文件字节数： 12 
+//Copy操作后文件字节数： 12
 ```
 
 
@@ -1856,40 +1858,64 @@ package main
 import (
 	"fmt"
 	"io"
-	"log"
-	"os"
-	"sync"
+	"strconv"
+	"time"
 )
 
 func main() {
-	var wg sync.WaitGroup
 	r, w := io.Pipe()
 
 	fmt.Printf("r's type is %T\n", r)
 	fmt.Printf("w's type is %T\n", w)
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		defer w.Close()
-		fmt.Fprint(w, "Do you love go language?\n")
-	}()
+	langs := []string{"go", "HTML", "Javascript"}
+	for i, lang := range langs {
+		go func(x int, l string) {
+			time.Sleep(time.Duration(x) * time.Second)
+			fmt.Println(x, "writing to w--------------------------")
+			n, err := fmt.Fprint(w, "Do you love "+l+"?\n")
+			if err != nil {
+				fmt.Println("w", x, "发生错误：", err)
+				return
+			}
+			fmt.Println("w", x, "had wrote ", n, " bytes")
+		}(i, lang)
+	}
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		defer r.Close()
-		if _, err := io.Copy(os.Stdout, r); err != nil {
-			log.Fatal(err)
-		}
-	}()
-	wg.Wait()
+	j := 0
+	for j < len(langs) {
+		go func(x int) {
+			time.Sleep(time.Duration(x) * time.Second)
+			data := make([]byte, 4096)
+			n, err := r.Read(data)
+			if err != nil {
+				fmt.Println("r", x, " 发生错误：", err)
+				return
+			}
+			fmt.Printf("r %d had read data:%q, bytes:%d\n", x, string(data[:n]), n)
+			r.Close()
+			fmt.Println("r " + strconv.Itoa(x) + " I had closed this r")
+		}(j)
+
+		j++
+	}
+
+	time.Sleep(6 * time.Second)
 }
 
 // Output:
 //r's type is *io.PipeReader
 //w's type is *io.PipeWriter
-//Do you love go language?
+//0 writing to w--------------------------
+//r 0 had read data:"Do you love go?\n", bytes:16
+//r 0 I had closed this r
+//w 0 had wrote  16  bytes
+//1 writing to w--------------------------
+//r 1  发生错误： io: read/write on closed pipe
+//w 1 发生错误： io: read/write on closed pipe
+//r 2  发生错误： io: read/write on closed pipe
+//2 writing to w--------------------------
+//w 2 发生错误： io: read/write on closed pipe
 ```
 
 #### (*PipeReader) CloseWithError 
@@ -2012,7 +2038,7 @@ func main() {
 				return
 			}
 			fmt.Printf("r %d had read data:%q, bytes:%d\n", x, string(data[:n]), n)
-			r.CloseWithError(errors.New(strconv.Itoa(x) + " I had closed this r"))
+			r.CloseWithError(errors.New("r " + strconv.Itoa(x) + " I had closed this r"))
 		}(j)
 
 		j++
@@ -2023,15 +2049,15 @@ func main() {
 
 // Output:
 //r's type is *io.PipeReader
-//w's type is *io.PipeWriter
+//w's type is *io.PipeWriter                     
 //0 writing to w--------------------------
 //w 0 had wrote  16  bytes
 //r 0 had read data:"Do you love go?\n", bytes:16
 //1 writing to w--------------------------
-//w 1 发生错误： 0 I had closed this r
+//w 1 发生错误： r 0 I had closed this r
 //r 1  发生错误： io: read/write on closed pipe
 //2 writing to w--------------------------
-//w 2 发生错误： 0 I had closed this r
+//w 2 发生错误： r 0 I had closed this r
 //r 2  发生错误： io: read/write on closed pipe
 ```
 
@@ -2054,10 +2080,72 @@ func (w *PipeWriter) Close() error
 
 ​	Close关闭写入器；随后从读取器读取数据将不会返回字节和EOF。
 
-#### My Example
+#### Close My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"strconv"
+	"time"
+)
+
+func main() {
+	r, w := io.Pipe()
+
+	fmt.Printf("r's type is %T\n", r)
+	fmt.Printf("w's type is %T\n", w)
+
+	langs := []string{"go", "HTML", "Javascript"}
+	for i, lang := range langs {
+		go func(x int, l string) {
+			time.Sleep(time.Duration(x) * time.Second)
+			fmt.Println(x, "writing to w--------------------------")
+			n, err := fmt.Fprint(w, "Do you love "+l+"?\n")
+			if err != nil {
+				fmt.Println("w", x, "发生错误：", err)
+				return
+			}
+			fmt.Println("w", x, "had wrote ", n, " bytes")
+			w.Close()
+			fmt.Println(strconv.Itoa(x) + " I had closed this w")
+		}(i, lang)
+	}
+
+	j := 0
+	for j < len(langs) {
+		go func(x int) {
+			time.Sleep(time.Duration(x) * time.Second)
+			data := make([]byte, 4096)
+			n, err := r.Read(data)
+			if err != nil {
+				fmt.Println("r", x, " 发生错误：", err)
+				return
+			}
+			fmt.Printf("r %d had read data:%q, bytes:%d\n", x, string(data[:n]), n)
+		}(j)
+
+		j++
+	}
+
+	time.Sleep(6 * time.Second)
+}
+
+// Output:
+//r's type is *io.PipeReader
+//w's type is *io.PipeWriter
+//0 writing to w--------------------------
+//w 0 had wrote  16  bytes
+//0 I had closed this w
+//r 0 had read data:"Do you love go?\n", bytes:16
+//1 writing to w--------------------------
+//r 1  发生错误： EOF
+//w 1 发生错误： io: read/write on closed pipe
+//r 2  发生错误： EOF
+//2 writing to w--------------------------
+//w 2 发生错误： io: read/write on closed pipe
 ```
 
 #### (*PipeWriter) CloseWithError 
@@ -2070,10 +2158,71 @@ func (w *PipeWriter) CloseWithError(err error) error
 
 ​	如果存在先前的错误，CloseWithError不会覆盖它并始终返回nil。
 
-#### My Example
+#### CloseWithError My Example
 
 ```go
+package main
 
+import (
+	"errors"
+	"fmt"
+	"io"
+	"strconv"
+	"time"
+)
+
+func main() {
+	r, w := io.Pipe()
+
+	fmt.Printf("r's type is %T\n", r)
+	fmt.Printf("w's type is %T\n", w)
+
+	langs := []string{"go", "HTML", "Javascript"}
+	for i, lang := range langs {
+		go func(x int, l string) {
+			time.Sleep(time.Duration(x) * time.Second)
+			fmt.Println(x, "writing to w--------------------------")
+			n, err := fmt.Fprint(w, "Do you love "+l+"?\n")
+			if err != nil {
+				fmt.Println("w", x, "发生错误：", err)
+				return
+			}
+			fmt.Println("w", x, "had wrote ", n, " bytes")
+			w.CloseWithError(errors.New("w " + strconv.Itoa(x) + " I had closed this w"))
+		}(i, lang)
+	}
+
+	j := 0
+	for j < len(langs) {
+		go func(x int) {
+			time.Sleep(time.Duration(x) * time.Second)
+			data := make([]byte, 4096)
+			n, err := r.Read(data)
+			if err != nil {
+				fmt.Println("r", x, " 发生错误：", err)
+				return
+			}
+			fmt.Printf("r %d had read data:%q, bytes:%d\n", x, string(data[:n]), n)
+		}(j)
+
+		j++
+	}
+
+	time.Sleep(6 * time.Second)
+}
+
+// Output:
+//r's type is *io.PipeReader
+//w's type is *io.PipeWriter                     
+//0 writing to w--------------------------
+//r 0 had read data:"Do you love go?\n", bytes:16
+//w 0 had wrote  16  bytes
+//1 writing to w--------------------------
+//w 1 发生错误： io: read/write on closed pipe
+//r 1  发生错误： w 0 I had closed this w
+//2 writing to w--------------------------
+//w 2 发生错误： io: read/write on closed pipe
+//r 2  发生错误： w 0 I had closed this w
 ```
 
 #### (*PipeWriter) Write 
@@ -2084,10 +2233,71 @@ func (w *PipeWriter) Write(data []byte) (n int, err error)
 
 ​	Write方法实现标准的Write接口：它将数据写入管道，阻塞直到一个或多个读取器消耗了所有数据或读取端关闭。如果读取端以错误关闭，则将该err返回；否则err为ErrClosedPipe。
 
-#### My Example
+#### Write My Example
 
 ```go
+package main
 
+import (
+	"errors"
+	"fmt"
+	"io"
+	"strconv"
+	"time"
+)
+
+func main() {
+	r, w := io.Pipe()
+
+	fmt.Printf("r's type is %T\n", r)
+	fmt.Printf("w's type is %T\n", w)
+
+	langs := []string{"go", "HTML", "Javascript"}
+	for i, lang := range langs {
+		go func(x int, l string) {
+			time.Sleep(time.Duration(x) * time.Second)
+			fmt.Println(x, "writing to w--------------------------")
+			n, err := w.Write([]byte("Do you love " + l + "?\n"))
+			if err != nil {
+				fmt.Println("w", x, "发生错误：", err)
+				return
+			}
+			fmt.Println("w", x, "had wrote ", n, " bytes")
+			w.CloseWithError(errors.New("w " + strconv.Itoa(x) + " I had closed this w"))
+		}(i, lang)
+	}
+
+	j := 0
+	for j < len(langs) {
+		go func(x int) {
+			time.Sleep(time.Duration(x) * time.Second)
+			data := make([]byte, 4096)
+			n, err := r.Read(data)
+			if err != nil {
+				fmt.Println("r", x, " 发生错误：", err)
+				return
+			}
+			fmt.Printf("r %d had read data:%q, bytes:%d\n", x, string(data[:n]), n)
+		}(j)
+
+		j++
+	}
+
+	time.Sleep(6 * time.Second)
+}
+
+// Output:
+//r's type is *io.PipeReader
+//w's type is *io.PipeWriter                     
+//0 writing to w--------------------------
+//r 0 had read data:"Do you love go?\n", bytes:16
+//w 0 had wrote  16  bytes
+//1 writing to w--------------------------
+//r 1  发生错误： w 0 I had closed this w
+//w 1 发生错误： io: read/write on closed pipe
+//2 writing to w--------------------------
+//w 2 发生错误： io: read/write on closed pipe
+//r 2  发生错误： w 0 I had closed this w
 ```
 
 ### type ReadCloser 
@@ -2107,12 +2317,73 @@ type ReadCloser interface {
 func NopCloser(r Reader) ReadCloser
 ```
 
+​	NopCloser returns a ReadCloser with a no-op Close method wrapping the provided Reader r. If r implements WriterTo, the returned ReadCloser will implement WriterTo by forwarding calls to r.
+
 ​	NopCloser函数返回一个带有no-op Close方法的ReadCloser，封装提供的Reader r。如果r实现了WriterTo，则返回的ReadCloser将通过转发调用来实现WriterTo方法。
 
-#### My Example
+#### NopCloser My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
+type MyReader struct {
+	R *strings.Reader
+}
+
+func (r *MyReader) Read(p []byte) (n int, err error) {
+	return r.R.Read(p)
+}
+
+func (r *MyReader) WriteTo(w io.Writer) (n int64, err error) {
+	fmt.Println("调用了MyReader的WriteTo方法")
+
+	data := make([]byte, r.R.Size())
+	r.R.Read(data)
+	m, err := w.Write(data)
+	if err != nil {
+		return int64(m), err
+	}
+	return int64(m), nil
+}
+
+func main() {
+	file, err := os.OpenFile("data.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("发生错误：", err)
+		return
+	}
+	defer file.Close()
+	fmt.Println("起始文件字节数：", FileSize(file))
+
+	written, err := io.Copy(file, io.NopCloser(&MyReader{R: strings.NewReader("Hello World!")}))
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("已写入字节数：", written)
+	fmt.Println("Copy操作后文件字节数：", FileSize(file))
+}
+
+func FileSize(file *os.File) int {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return len(data)
+}
+// Output:
+//起始文件字节数： 0
+//调用了MyReader的WriteTo方法
+//已写入字节数： 12
+//Copy操作后文件字节数： 12
 ```
 
 ### type ReadSeekCloser  <- go1.16
@@ -2127,10 +2398,78 @@ type ReadSeekCloser interface {
 
 ​	ReadSeekCloser接口组合了基本的Read、Seek和Close方法。
 
-#### My Example
+#### ReadSeekCloser My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+func main() {
+	var rsc io.ReadSeekCloser
+
+	file, err := os.Open("data.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	//defer file.Close()
+
+	fileContent, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("data.txt's content:%q\n", fileContent)
+	file.Seek(0, 0)
+
+	rsc = file
+
+	fmt.Printf("rsc's type is %T\n", rsc)
+
+	data1 := make([]byte, 5)
+
+	n, err := rsc.Read(data1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Read 1 content:%q\n", string(data1[:n]))
+	rsc.Seek(0, 0)
+	fmt.Println("After Seek(0, 0) operation...")
+	rsc.Seek(2, 0)
+	fmt.Println("After Seek(2, 0) operation...")
+	data2 := make([]byte, 5)
+	n, err = rsc.Read(data2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Read 2 content:%q\n", string(data2[:n]))
+
+	rsc.Close()
+	fmt.Println("After rsc.Close() operation...")
+	data3 := make([]byte, 5)
+
+	n, err = rsc.Read(data3)
+	if err != nil {
+		fmt.Println("发现错误：", err)
+		return
+	}
+	fmt.Printf("Read 2 content:%q\n", string(data3[:n]))
+}
+
+// Output:
+//data.txt's content:"Hello World!"
+//rsc's type is *os.File
+//Read 1 content:"Hello"
+//After Seek(0, 0) operation...
+//After Seek(2, 0) operation...
+//Read 2 content:"llo W"
+//After rsc.Close() operation...
+//发现错误： read data.txt: file already closed
 ```
 
 ### type ReadSeeker 
@@ -2144,10 +2483,65 @@ type ReadSeeker interface {
 
 ​	ReadSeeker接口组合了基本的Read、Seek方法。
 
-#### My Example
+#### ReadSeeker My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+func main() {
+	var rs io.ReadSeeker
+
+	file, err := os.Open("data.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	fileContent, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("data.txt's content:%q\n", fileContent)
+	file.Seek(0, 0)
+
+	rs = file
+
+	fmt.Printf("rs's type is %T\n", rs)
+
+	data1 := make([]byte, 5)
+
+	n, err := rs.Read(data1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Read 1 content:%q\n", string(data1[:n]))
+	rs.Seek(0, 0)
+	fmt.Println("After Seek(0, 0) operation...")
+	rs.Seek(2, 0)
+	fmt.Println("After Seek(2, 0) operation...")
+	data2 := make([]byte, 5)
+	n, err = rs.Read(data2)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Read 2 content:%q\n", string(data2[:n]))
+}
+
+// Output:
+//data.txt's content:"Hello World!"
+//rs's type is *os.File        
+//Read 1 content:"Hello"
+//After Seek(0, 0) operation...
+//After Seek(2, 0) operation...
+//Read 2 content:"llo W"  
 ```
 
 ### type ReadWriteCloser 
@@ -2162,10 +2556,85 @@ type ReadWriteCloser interface {
 
 ​	ReadWriteCloser接口组合了基本的Read、Write和Close方法。
 
-#### My Example
+#### ReadWriteCloser My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+)
+
+func main() {
+	var rwc io.ReadWriteCloser
+
+	file, err := os.OpenFile("data.txt", os.O_RDWR, 0755)
+	if err != nil {
+		log.Fatal("发生错误：", err)
+	}
+	defer file.Close()
+
+	fileContent, err := io.ReadAll(file)
+	if err != nil {
+		log.Fatal("发生错误：", err)
+	}
+
+	fmt.Printf("data.txt's content:%q\n", fileContent)
+	file.Seek(0, 0)
+
+	rwc = file
+
+	fmt.Printf("rwc's type is %T\n", rwc)
+
+	data1 := make([]byte, 5)
+
+	n, err := rwc.Read(data1)
+	if err != nil {
+		log.Fatal("发生错误：", err)
+	}
+	fmt.Printf("Read content:%q\n", string(data1[:n]))
+
+	file.Seek(0, 2)
+	fmt.Println("在Write操作时，若需要追加，则先进行Seek(0,2)操作，否则可能会覆盖已有内容")
+	n, err = rwc.Write([]byte("你好中国！"))
+	if err != nil {
+		log.Fatal("发生错误：", err)
+	}
+	fmt.Printf("Wrote %d bytes to file\n", n)
+
+	file.Seek(0, 0)
+	fmt.Println("记得在读取全部内容时，先进行Seek(0,0)操作")
+	fileContent, err = io.ReadAll(file)
+	if err != nil {
+		log.Fatal("发生错误：", err)
+	}
+	fmt.Printf("Now data.txt's content:%q\n", fileContent)
+
+	rwc.Close()
+	fmt.Println("After rwc.Close() operation...")
+	data3 := make([]byte, 5)
+
+	n, err = rwc.Read(data3)
+	if err != nil {
+		fmt.Println("发现错误：", err)
+		return
+	}
+	fmt.Printf("Read 2 content:%q\n", string(data3[:n]))
+}
+
+// Output:
+//data.txt's content:"Hello World!"
+//rwc's type is *os.File
+//Read content:"Hello"
+//在Write操作时，若需要追加，则先进行Seek(0,2)操作，否则可能会覆盖已有内容
+//Wrote 15 bytes to file
+//记得在读取全部内容时，先进行Seek(0,0)操作
+//Now data.txt's content:"Hello World!你好中国！"
+//After rwc.Close() operation...
+//发现错误： read data.txt: file already closed
 ```
 
 ### type ReadWriteSeeker 
@@ -2174,17 +2643,9 @@ type ReadWriteCloser interface {
 type ReadWriteSeeker interface {
 	Reader
 	Writer
-	Seeker
-}
 ```
 
 ​	ReadWriteSeeker接口组合了基本的Read、Write和Seek方法。
-
-#### My Example
-
-```go
-
-```
 
 ### type ReadWriter 
 
@@ -2196,12 +2657,6 @@ type ReadWriter interface {
 ```
 
 ​	ReadWriter接口组合了基本的Read和Write方法。
-
-#### My Example
-
-```go
-
-```
 
 ### type Reader 
 
@@ -2341,10 +2796,58 @@ Output:
 some io.Reader stream to be read
 ```
 
-#### My Example
+#### TeeReader My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
+
+func main() {
+	reader := strings.NewReader("Hello, World!")
+
+	file1, err := os.OpenFile("output1.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("创建文件时发生错误1：", err)
+		return
+	}
+	fmt.Println("注意：这里已经关闭file1")
+	file1.Close()
+
+	teeReader := io.TeeReader(reader, file1)
+
+	file2, err := os.OpenFile("output2.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		fmt.Println("创建文件时发生错误2：", err)
+		return
+	}
+	defer file2.Close()
+
+	// 读取数据并将其写入文件
+	_, err = io.Copy(file2, teeReader)
+	if err != nil {
+		fmt.Println("复制数据时发生错误:", err)
+		return
+	}
+	fmt.Println("数据复制完成！")
+
+	file2.Seek(0, 0)
+	fileData, err := io.ReadAll(file1)
+	if err != nil {
+		fmt.Println("读取文件内容发生错误：", err)
+	}
+
+	fmt.Printf("当前output2.txt中的内容：%q\n", string(fileData))
+}
+
+// Output:
+//注意：这里已经关闭file1
+//复制数据时发生错误: write output1.txt: file already closed
 ```
 
 ### type ReaderAt 
@@ -2371,10 +2874,73 @@ type ReaderAt interface {
 
 ​	实现不得保留 p。
 
-#### My Example
+#### ReaderAt My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"strings"
+)
+
+func main() {
+	var ra io.ReaderAt
+
+	ra = strings.NewReader("Hello")
+
+	data1 := make([]byte, 3)
+	n, err := ra.ReadAt(data1, 2)
+	if err != nil {
+		if n != 0 {
+			fmt.Printf("发生错误：%v，但读取到内容：%q\n", err, string(data1[:n]))
+		} else {
+			fmt.Println("发生错误：", err)
+		}
+		return
+	}
+	fmt.Printf("读取 %d 字节，内容是：%q\n", n, string(data1))
+
+	n, err = ra.ReadAt(data1, 2)
+	if err != nil {
+		if n != 0 {
+			fmt.Printf("发生错误：%v，但读取到内容：%q\n", err, string(data1[:n]))
+		} else {
+			fmt.Println("发生错误：", err)
+		}
+		return
+	}
+	fmt.Printf("读取 %d 字节，内容是：%q\n", n, string(data1))
+
+	n, err = ra.ReadAt(data1, 1)
+	if err != nil {
+		if n != 0 {
+			fmt.Printf("发生错误：%v，但读取到内容：%q\n", err, string(data1[:n]))
+		} else {
+			fmt.Println("发生错误：", err)
+		}
+		return
+	}
+	fmt.Printf("读取 %d 字节，内容是：%q\n", n, string(data1))
+
+	n, err = ra.ReadAt(data1, 3)
+	if err != nil {
+		if n != 0 {
+			fmt.Printf("发生错误：%v，但读取到内容：%q\n", err, string(data1[:n]))
+		} else {
+			fmt.Println("发生错误：", err)
+		}
+		return
+	}
+	fmt.Printf("读取 %d 字节，内容是：%q\n", n, string(data1))
+}
+
+// Output:
+//读取 3 字节，内容是："llo"
+//读取 3 字节，内容是："llo"
+//读取 3 字节，内容是："ell"
+//发生错误：EOF，但读取到内容："lo"
 ```
 
 ### type ReaderFrom 
@@ -2391,11 +2957,9 @@ type ReaderFrom interface {
 
 ​	如果可用，Copy函数将使用 ReaderFrom方法。
 
-#### My Example
+#### ReaderFrom My Example
 
-```go
-
-```
+​	参见[Copy My Example 2](#copy-my-example-2)
 
 ### type RuneReader 
 
@@ -2409,12 +2973,6 @@ type RuneReader interface {
 
 ​	ReadRune方法读取一个单一的编码的 Unicode 字符并返回该字符以及其所占用的字节数。如果没有字符可用，则 err 将被设置。
 
-#### My Example
-
-```go
-
-```
-
 ### type RuneScanner 
 
 ``` go 
@@ -2427,12 +2985,6 @@ type RuneScanner interface {
 ​	RuneScanner 是在基本 ReadRune 方法上添加了 UnreadRune 方法的接口。
 
 ​	UnreadRune方法会导致下一次调用 ReadRune方法返回上次读取的最后一个字符。如果上次操作不是成功的 ReadRune方法调用，则 UnreadRune方法可能会返回错误、未读取最后一个字符(或最后一个未读取字符之前的字符)，或者(在支持 Seeker 接口的实现中)定位到当前偏移量之前的字符的开头。
-
-#### My Example
-
-```go
-
-```
 
 ### type SectionReader 
 
@@ -2469,12 +3021,6 @@ func main() {
 Output:
 
 io.Reader stream
-```
-
-#### My Example
-
-```go
-
 ```
 
 #### func NewSectionReader 
@@ -2520,8 +3066,6 @@ Output:
 io.Reader
 ```
 
-
-
 #### (*SectionReader) ReadAt 
 
 ``` go 
@@ -2555,12 +3099,6 @@ func main() {
 Output:
 
 stream
-```
-
-#### My Example
-
-```go
-
 ```
 
 #### (*SectionReader) Seek 
@@ -2599,12 +3137,6 @@ Output:
 stream
 ```
 
-#### My Example
-
-```go
-
-```
-
 #### (*SectionReader) Size 
 
 ``` go 
@@ -2636,12 +3168,6 @@ Output:
 17
 ```
 
-#### My Example
-
-```go
-
-```
-
 ### type Seeker 
 
 ``` go 
@@ -2656,12 +3182,6 @@ type Seeker interface {
 
 ​	寻找到文件开头之前的偏移量是一个错误。寻找任何正偏移量可能是允许的，但是如果新的偏移量超过底层对象的大小，则随后的 I/O 操作的行为取决于实现。
 
-#### My Example
-
-```go
-
-```
-
 ### type StringWriter  <- go1.12
 
 ``` go 
@@ -2671,12 +3191,6 @@ type StringWriter interface {
 ```
 
 ​	StringWriter 是封装 WriteString 方法的接口。
-
-#### My Example
-
-```go
-
-```
 
 ### type WriteCloser 
 
@@ -2689,12 +3203,6 @@ type WriteCloser interface {
 
 ​	WriteCloser 是组合基本的 Write 和 Close 方法的接口。
 
-#### My Example
-
-```go
-
-```
-
 ### type WriteSeeker 
 
 ``` go 
@@ -2705,12 +3213,6 @@ type WriteSeeker interface {
 ```
 
 ​	WriteSeeker 是组合基本的 Write 和 Seek 方法的接口。
-
-#### My Example
-
-```go
-
-```
 
 ### type Writer 
 
@@ -2774,10 +3276,63 @@ some io.Reader stream to be read
 some io.Reader stream to be read
 ```
 
-#### My Example
+#### MultiWriter My Example
 
 ```go
+package main
 
+import (
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strings"
+)
+
+func main() {
+	r := strings.NewReader("Hello World\n")
+
+	file1, err := os.OpenFile("data1.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file1.Close()
+	filedata, n, _ := FileContentAndSize(file1)
+	fmt.Printf("当前data1.txt中：%q，共 %d 字节\n", filedata, n)
+
+	file2, err := os.OpenFile("data2.txt", os.O_RDWR|os.O_CREATE, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file2.Close()
+	filedata, n, _ = FileContentAndSize(file2)
+	fmt.Printf("当前data2.txt中：%q，共 %d 字节\n", filedata, n)
+
+	w := io.MultiWriter(file1, file2)
+
+	if _, err := io.Copy(w, r); err != nil {
+		log.Fatal(err)
+	}
+
+	filedata, n, _ = FileContentAndSize(file1)
+	fmt.Printf("当前data2.txt中：%q，共 %d 字节\n", filedata, n)
+	filedata, n, _ = FileContentAndSize(file2)
+	fmt.Printf("当前data2.txt中：%q，共 %d 字节\n", filedata, n)
+}
+
+func FileContentAndSize(file *os.File) (string, int, error) {
+	file.Seek(0, 0)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		return "", 0, err
+	}
+	return string(data), len(data), nil
+}
+// Output:
+//当前data1.txt中：""，共 0 字节
+//当前data2.txt中：""，共 0 字节
+//当前data2.txt中："Hello World\n"，共 12 字节
+//当前data2.txt中："Hello World\n"，共 12 字节
 ```
 
 ### type WriterAt 
@@ -2798,12 +3353,6 @@ type WriterAt interface {
 
 ​	实现不得保留p。
 
-#### My Example
-
-```go
-
-```
-
 ### type WriterTo 
 
 ``` go 
@@ -2818,8 +3367,7 @@ type WriterTo interface {
 
 ​	如果可用，Copy函数将使用WriterTo方法。
 
-#### My Example
+#### WriterTo My Example
 
-```go
+​	参见[Copy My Example 2](#copy-my-example-2)
 
-```
