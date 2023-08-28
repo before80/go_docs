@@ -108,7 +108,6 @@ func main() {
 //Matched files2:
 //hi.txt
 //nice.txt
-
 ```
 
 
@@ -388,9 +387,9 @@ func main() {
 		}
 
 		if d.IsDir() {
-			fmt.Println("目录：", path)
+			fmt.Println(path, "是一个目录")
 		} else {
-			fmt.Println("文件：", path)
+			fmt.Println(path, "是一个文件")
 		}
 
 		return nil
@@ -411,13 +410,13 @@ func main() {
 		}
 
 		if d.IsDir() {
-			fmt.Println("目录：", path)
+			fmt.Println(path, "是一个目录")
 			if path == "subdir1/subsubdir1" {
 				fmt.Println("不遍历subdir1/subsubdir1目录")
 				return fs.SkipDir
 			}
 		} else {
-			fmt.Println("文件：", path)
+			fmt.Println(path, "是一个文件")
 		}
 
 		return nil
@@ -438,9 +437,9 @@ func main() {
 		}
 
 		if d.IsDir() {
-			fmt.Println("目录：", path)
+			fmt.Println(path, "是一个目录")
 		} else {
-			fmt.Println("文件：", path)
+			fmt.Println(path, "是一个文件")
 		}
 
 		fmt.Println("d.Name()=", d.Name())
@@ -458,74 +457,67 @@ func main() {
 // Output:
 //----------------------------1-------------------------------
 //0 -----------------------
-//path=.,目录： .
+//path=.,. 是一个目录
 //1 -----------------------
-//path=0.html,文件： 0.html
+//path=0.html,0.html 是一个文件
 //2 -----------------------
-//path=0.txt,文件： 0.txt
+//path=0.txt,0.txt 是一个文件
 //3 -----------------------
-//path=subdir1,目录： subdir1
+//path=subdir1,subdir1 是一个目录
 //4 -----------------------
-//path=subdir1/1.txt,文件： subdir1/1.txt
+//path=subdir1/1.txt,subdir1/1.txt 是一个文件
 //5 -----------------------
-//path=subdir1/2.txt,文件： subdir1/2.txt
+//path=subdir1/2.txt,subdir1/2.txt 是一个文件
 //6 -----------------------
-//path=subdir1/3.html,文件： subdir1/3.html
+//path=subdir1/3.html,subdir1/3.html 是一个文件
 //7 -----------------------
-//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//path=subdir1/subsubdir1,subdir1/subsubdir1 是一个目录
 //8 -----------------------
-//path=subdir1/subsubdir1/1_1.txt,文件： subdir1/subsubdir1/1_1.txt
+//path=subdir1/subsubdir1/1_1.txt,subdir1/subsubdir1/1_1.txt 是一个文件
 //9 -----------------------
-//path=subdir1/subsubdir1/1_2.html,文件： subdir1/subsubdir1/1_2.html
+//path=subdir1/subsubdir1/1_2.html,subdir1/subsubdir1/1_2.html 是一个文件
 //10 -----------------------
-//path=subdir2,目录： subdir2
+//path=subdir2,subdir2 是一个目录
 //11 -----------------------
-//path=subdir2/4.txt,文件： subdir2/4.txt
+//path=subdir2/4.txt,subdir2/4.txt 是一个文件
 //12 -----------------------
-//path=subdir2/5.txt,文件： subdir2/5.txt
+//path=subdir2/5.txt,subdir2/5.txt 是一个文件
 //13 -----------------------
-//path=subdir2/6.html,文件： subdir2/6.html
+//path=subdir2/6.html,subdir2/6.html 是一个文件
 //----------------------------2-------------------------------
 //0 -----------------------
-//path=subdir1,目录： subdir1
+//path=subdir1,subdir1 是一个目录
 //1 -----------------------
-//path=subdir1/1.txt,文件： subdir1/1.txt
+//path=subdir1/1.txt,subdir1/1.txt 是一个文件
 //2 -----------------------
-//path=subdir1/2.txt,文件： subdir1/2.txt
+//path=subdir1/2.txt,subdir1/2.txt 是一个文件
 //3 -----------------------
-//path=subdir1/3.html,文件： subdir1/3.html
+//path=subdir1/3.html,subdir1/3.html 是一个文件
 //4 -----------------------
-//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//path=subdir1/subsubdir1,subdir1/subsubdir1 是一个目录
 //不遍历subdir1/subsubdir1目录
 //----------------------------3-------------------------------
 //0 -----------------------
-//path=subdir1/subsubdir1,目录： subdir1/subsubdir1
+//path=subdir1/subsubdir1,subdir1/subsubdir1 是一个目录
 //d.Name()= subsubdir1
 //d.IsDir()= true
-//d.Info()=&os.fileStat{name:"subsubdir1", FileAttributes:0x10, CreationTime:syscall.Filetime{LowDateTime:0x762b2545, HighDateTime:0x1d9d654}, LastA
-//ccessTime:syscall.Filetime{LowDateTime:0xaae957f3, HighDateTime:0x1d9d656}, LastWriteTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x
-//1d9d654}, FileSizeHigh:0x0, FileSizeLow:0x0, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"F:\\Devs\\MyCodes\\go_std_ex
-//amples\\io\\fs\\f_WalkDir\\dir\\subdir1\\subsubdir1", vol:0x0, idxhi:0x0, idxlo:0x0},err=<nil>
+//d.Info()=&os.fileStat{name:"subsubdir1", size:4096, mode:0x800001fd, modTime:time.Time{wall:0x2b836688, ext:63828778161, loc:(*time.Location)(0x544ec0)}, sys:syscall.Stat_t{Dev:0x820, Ino:0x2d74, Nlink:0x2, Mode:0x41fd, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:4096, Blksize:409
+//6, Blocks:8, Atim:syscall.Timespec{Sec:1693181479, Nsec:10036347}, Mtim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, Ctim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, X__unused:[3]int64{0, 0, 0}}},err=<nil>
 //d.Type()= d---------
 //1 -----------------------
-//path=subdir1/subsubdir1/1_1.txt,文件： subdir1/subsubdir1/1_1.txt
+//path=subdir1/subsubdir1/1_1.txt,subdir1/subsubdir1/1_1.txt 是一个文件
 //d.Name()= 1_1.txt
 //d.IsDir()= false
-//d.Info()=&os.fileStat{name:"1_1.txt", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9d654}, LastAcce
-//ssTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9d654}, LastWriteTime:syscall.Filetime{LowDateTime:0x7e72eb5c, HighDateTime:0x1d9
-//d654}, FileSizeHigh:0x0, FileSizeLow:0x0, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x2000
-//0, idxlo:0x9e94b},err=<nil>
+//d.Info()=&os.fileStat{name:"1_1.txt", size:0, mode:0x1b4, modTime:time.Time{wall:0x2b836688, ext:63828778161, loc:(*time.Location)(0x544ec0)}, sys:syscall.Stat_t{Dev:0x820, Ino:0x2d75, Nlink:0x1, Mode:0x81b4, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:0, Blksize:4096, Blocks:0, A
+//tim:syscall.Timespec{Sec:1693182481, Nsec:600036816}, Mtim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, Ctim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, X__unused:[3]int64{0, 0, 0}}},err=<nil>
 //d.Type()= ----------
 //2 -----------------------
-//path=subdir1/subsubdir1/1_2.html,文件： subdir1/subsubdir1/1_2.html
+//path=subdir1/subsubdir1/1_2.html,subdir1/subsubdir1/1_2.html 是一个文件
 //d.Name()= 1_2.html
 //d.IsDir()= false
-//d.Info()=&os.fileStat{name:"1_2.html", FileAttributes:0x20, CreationTime:syscall.Filetime{LowDateTime:0x86659587, HighDateTime:0x1d9d654}, LastAcc
-//essTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x1d9d654}, LastWriteTime:syscall.Filetime{LowDateTime:0xe8ac05de, HighDateTime:0x1d
-//9d654}, FileSizeHigh:0x0, FileSizeLow:0x84, ReparseTag:0x0, filetype:0x0, Mutex:sync.Mutex{state:0, sema:0x0}, path:"", vol:0x2c188df6, idxhi:0x50
-//000, idxlo:0x9d4f6},err=<nil>
+//d.Info()=&os.fileStat{name:"1_2.html", size:123, mode:0x1b4, modTime:time.Time{wall:0x2b836688, ext:63828778161, loc:(*time.Location)(0x544ec0)}, sys:syscall.Stat_t{Dev:0x820, Ino:0x2d76, Nlink:0x1, Mode:0x81b4, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:123, Blksize:4096, Blocks
+//:8, Atim:syscall.Timespec{Sec:1693181480, Nsec:430036484}, Mtim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, Ctim:syscall.Timespec{Sec:1693181361, Nsec:730031752}, X__unused:[3]int64{0, 0, 0}}},err=<nil>
 //d.Type()= ----------
-
 ```
 
 ##### WalkDir Example
@@ -1972,6 +1964,13 @@ func (mfs myFS) Stat(name string) (fs.FileInfo, error) {
 func main() {
 	mfs := myFS{os.DirFS("dir")}
 
+	var i fs.StatFS
+	i = mfs
+	imfs, ok := i.(myFS)
+	if ok {
+		fmt.Println("myFs实现了fs.StatFS")
+	}
+
 	filepaths := []string{
 		"1.txt",
 		"2.txt",
@@ -1980,7 +1979,7 @@ func main() {
 	}
 	for _, filePath := range filepaths {
 		fmt.Println(filePath, "--------------------")
-		fileInfo, err := mfs.Stat(filePath)
+		fileInfo, err := imfs.Stat(filePath)
 		if err != nil {
 			fmt.Printf("发生错误：%v 错误类型：%T\n", err, err)
 		} else {
@@ -1995,26 +1994,27 @@ func main() {
 }
 
 // Output:
+//myFs实现了fs.StatFS
 //1.txt --------------------
-//发生错误：open 1.txt: open 1.txt: The system cannot find the file specified. 错误类型：*fs.PathError
+//发生错误：open 1.txt: open 1.txt: no such file or directory 错误类型：*fs.PathError
 //2.txt --------------------
-//发生错误：open 2.txt: open 2.txt: The system cannot find the file specified. 错误类型：*fs.PathError
+//发生错误：open 2.txt: open 2.txt: no such file or directory 错误类型：*fs.PathError
 //subdir1/1.txt --------------------
 //f type is *os.File
 //fileInfo.Name()= 1.txt
 //fileInfo.Size()= 8
-//fileInfo.Mode()= -rw-rw-rw-
-//fileInfo.ModTime()= 2023-08-25 07:37:41.4141539 +0800 CST
+//fileInfo.Mode()= -rw-rw-r--
+//fileInfo.ModTime()= 2023-08-28 08:09:21.730031752 +0800 CST
 //fileInfo.IsDir()= false
-//fileInfo.Sys()= &{32 {3490293550 31053553} {2115665260 31053564} {4184080995 31053539} 0 8}
+//fileInfo.Sys()= &{2080 11702 1 33204 1000 1000 0 0 8 4096 8 {1693181480 390036480} {1693181361 730031752} {1693181361 730031752} [0 0 0]}
 //subdir2/2.txt --------------------
 //f type is *os.File
 //fileInfo.Name()= 2.txt
 //fileInfo.Size()= 8
-//fileInfo.Mode()= -rw-rw-rw-
-//fileInfo.ModTime()= 2023-08-25 07:38:27.7631737 +0800 CST
+//fileInfo.Mode()= -rw-rw-r--
+//fileInfo.ModTime()= 2023-08-28 08:09:21.730031752 +0800 CST
 //fileInfo.IsDir()= false
-//fileInfo.Sys()= &{32 {3490293550 31053553} {2115665260 31053564} {352603897 31053540} 0 8}
+//fileInfo.Sys()= &{2080 11704 1 33204 1000 1000 0 0 8 4096 8 {1693181480 390036480} {1693181361 730031752} {1693181361 730031752} [0 0 0]}
 ```
 
 ### type SubFS 

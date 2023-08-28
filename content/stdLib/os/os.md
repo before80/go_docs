@@ -10,7 +10,7 @@ draft = false
 
 https://pkg.go.dev/os@go1.20.1
 
-​	os包提供了一个独立于平台的操作系统功能接口。设计类 Unix，但错误处理类 Go；失败的调用会返回类型为 error 而不是错误号的值。通常，在错误中还有更多的信息。例如，如果一个以文件名为参数的调用失败了，比如 Open 或 Stat，错误消息将在打印时包括失败的文件名，并且类型为 `*PathError`，可以拆开以获取更多信息。
+​	os 包提供了一个独立于平台的操作系统功能接口。设计类似于 Unix，尽管错误处理类似于 Go；失败的调用会返回类型为 error 而不是错误号的值。通常，在错误中还有更多的信息。例如，如果一个以文件名为参数的调用失败了，比如 Open 或 Stat，错误消息将在打印时包括失败的文件名，并且类型为 `*PathError`，可以拆开以获取更多信息。
 
 ​	os 接口旨在在所有操作系统中保持统一。一般不可用的功能会出现在特定于系统的 syscall 包中。
 
@@ -29,7 +29,7 @@ if err != nil {
 open file.go: no such file or directory
 ```
 
-然后可以将文件的数据读入到一个字节片中。Read 和 Write 的字节计数从参数切片的长度中获取。
+然后可以将文件的数据读入到一个字节切片中。Read 和 Write 的字节计数从参数切片的长度中获取。
 
 ```go
 data := make([]byte, 100)
@@ -184,7 +184,46 @@ var ErrProcessDone = errors.New("os: process already finished")
 func Chdir(dir string) error
 ```
 
-​	Chdir函数将当前工作目录更改为指定的目录。如果出错，将返回 `*PathError` 类型的错误。
+​	Chdir函数将当前工作目录切换为指定的目录。如果出错，将返回 `*PathError` 类型的错误。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 获取当前工作目录
+	currentDir, err := os.Getwd()
+	if err != nil {
+		fmt.Println("获取当前工作目录失败：", err)
+		return
+	}
+	fmt.Println("当前工作目录：", currentDir)
+
+	// 切换到指定目录
+	err = os.Chdir("dir/subdir")
+	if err != nil {
+		fmt.Println("切换目录失败：", err)
+		return
+	}
+
+	// 再次获取当前工作目录
+	currentDir, err = os.Getwd()
+	if err != nil {
+		fmt.Println("获取当前工作目录失败：", err)
+		return
+	}
+	fmt.Println("切换后的工作目录：", currentDir)
+}
+// Output:
+//当前工作目录： F:\Devs\MyCodes\go_std_examples\os\os_self\f_Chdir
+//切换后的工作目录： F:\Devs\MyCodes\go_std_examples\os\os_self\f_Chdir\dir\subdir
+```
+
+
 
 #### func Chmod 
 
@@ -222,6 +261,54 @@ func main() {
 
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 打开文件
+	file, err := os.OpenFile("data.txt", os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		fmt.Println("打开文件失败：", err)
+		return
+	}
+	defer file.Close()
+
+	// 获取文件的当前权限
+	fileInfo, err := file.Stat()
+	if err != nil {
+		fmt.Println("获取文件信息失败：", err)
+		return
+	}
+	fmt.Println("当前文件权限：", fileInfo.Mode().String())
+
+	// 修改文件权限
+	err = os.Chmod("data.txt", 0755)
+	if err != nil {
+		fmt.Println("修改文件权限失败：", err)
+		return
+	}
+	fmt.Println("文件权限修改成功！")
+
+	// 再次获取文件的权限
+	fileInfo, err = file.Stat()
+	if err != nil {
+		fmt.Println("获取文件信息失败：", err)
+		return
+	}
+	fmt.Println("修改后的文件权限：", fileInfo.Mode().String())
+}
+
+// Output:
+//当前文件权限： -rw-r--r--
+//文件权限修改成功！
+//修改后的文件权限： -rwxr-xr-x
+```
+
 
 
 #### func Chown 
@@ -233,6 +320,70 @@ func Chown(name string, uid, gid int) error
 ​	Chown函数更改指定文件的数值 UID 和 GID。如果该文件是符号链接，则更改链接目标的 UID 和 GID。UID 或 GID 的值为 -1 表示不更改该值。如果出错，将返回 *PathError 类型的错误。
 
 ​	在 Windows 或 Plan 9 上，Chown 始终返回 syscall.EWINDOWS 或 EPLAN9 错误，包装在 *PathError 中。
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"syscall"
+)
+
+func main() {
+	// 使用 root 用户进行创建：
+	// root 用户的ID 是 0，用户的组ID 是 0
+	// lx 用户的ID 是 1000，用户的组ID 是 1000 和 1001
+	filePath := "data.txt"
+	file, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println("创建文件失败：", err)
+		return
+	}
+	PrintFileInfo(filePath)
+	file.Close()
+
+	// 指定新的所有者和组
+	uid := 1001 // 这是我新增的test_01用户的ID
+	gid := 1001 // 这是我新增的test_01用户的组ID
+
+	// 使用os.Chown更改文件的所有者和组
+	if err = os.Chown(filePath, uid, gid); err != nil {
+		fmt.Println("无法更改文件所有者和组:", err)
+		return
+	}
+	fmt.Println("文件：" + filePath + "的所有者和组已成功更改")
+	PrintFileInfo(filePath)
+}
+
+func PrintFileInfo(filepath string) {
+	// 获取文件信息
+	fileInfo, err := os.Stat(filepath)
+	if err != nil {
+		fmt.Println("无法获取文件信息:", err)
+		return
+	}
+
+	// 获取文件的用户ID和用户组ID
+	stat, ok := fileInfo.Sys().(*syscall.Stat_t)
+	if !ok {
+		log.Fatal("类型错误")
+	}
+
+	uid := stat.Uid
+	gid := stat.Gid
+	fmt.Printf("文件：%s，当前的所属用户ID：%d，所属用户组ID：%d\n", filepath, uid, gid)
+}
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Chown$ go build Chown.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Chown$ sudo ./Chown
+//文件：data.txt，当前的所属用户ID：0，所属用户组ID：0
+//文件：data.txt的所有者和组已成功更改
+//文件：data.txt，当前的所属用户ID：1001，所属用户组ID：1001
+```
+
+
 
 #### func Chtimes 
 
@@ -266,6 +417,65 @@ func main() {
 // 2009/11/10 23:00:00 chtimes some-filename: no such file or directory
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"syscall"
+	"time"
+)
+
+func main() {
+	filePath := "data.txt"
+	file, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println("创建文件失败：", err)
+		return
+	}
+	PrintFileInfo(filePath)
+	file.Close()
+
+	mtime := time.Date(2006, 2, 1, 3, 4, 5, 0, time.Local)
+	atime := time.Date(2007, 3, 2, 4, 5, 6, 0, time.Local)
+	if err := os.Chtimes(filePath, atime, mtime); err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("使用Chtimes()之后...")
+	PrintFileInfo(filePath)
+}
+
+func PrintFileInfo(filepath string) {
+	// 获取文件信息
+	fileInfo, err := os.Stat(filepath)
+	if err != nil {
+		fmt.Println("无法获取文件信息:", err)
+		return
+	}
+
+	// 获取文件的用户ID和用户组ID
+	stat, ok := fileInfo.Sys().(*syscall.Stat_t)
+	if !ok {
+		log.Fatal("类型错误")
+	}
+	//fmt.Printf("%#v\n", stat)
+	fmt.Printf("文件：%s，当前的修改时间：%s，访问时间：%s\n", filepath, TransformTimeFormat(stat.Mtim), TransformTimeFormat(stat.Atim))
+}
+
+func TransformTimeFormat(ts syscall.Timespec) string {
+	t := time.Unix(ts.Sec, ts.Nsec)
+	// 格式化时间为所需的字符串格式
+	return t.Format("2006-01-02 15:04:05")
+}
+
+// Output:
+//文件：data.txt，当前的修改时间：2023-08-28 11:28:52，访问时间：2023-08-28 11:28:52
+//使用Chtimes()之后...
+//文件：data.txt，当前的修改时间：2006-02-01 03:04:05，访问时间：2007-03-02 04:05:06
+```
+
 
 
 #### func Clearenv 
@@ -276,19 +486,144 @@ func Clearenv()
 
 ​	Clearenv函数删除所有环境变量。
 
+> 个人注释
+>
+> Clearenv 函数只会清除当前进程的环境变量，不会影响系统中的其他进程的环境变量。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 设置环境变量
+	os.Setenv("FOO", "bar")
+	os.Setenv("BAR", "baz")
+
+	// 打印环境变量
+	fmt.Println("环境变量：", os.Environ())
+
+	// 清除环境变量
+	os.Clearenv()
+
+	// 再次打印环境变量
+	fmt.Println("环境变量：", os.Environ())
+}
+// 以下是连续执行两次的结果：
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Clearenv$ go run Clearenv.go
+//环境变量： [SHELL=/bin/bash WSL2_GUI_APPS_ENABLED=1 WSL_DISTRO_NAME=Ubuntu-22.04 ...还有很多... GOPATH=/mnt/f/GoPath:/home/lx/go _=/usr/local/go/bin/go FOO=bar BAR=baz]
+//环境变量： []
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Clearenv$ go run Clearenv.go
+//环境变量： [SHELL=/bin/bash WSL2_GUI_APPS_ENABLED=1 WSL_DISTRO_NAME=Ubuntu-22.04 ...还有很多... GOPATH=/mnt/f/GoPath:/home/lx/go _=/usr/local/go/bin/go FOO=bar BAR=baz]
+//环境变量： []
+```
+
+
+
 #### func DirFS  <- go1.16
 
 ``` go 
 func DirFS(dir string) fs.FS
 ```
 
-​	DirFS函数返回以目录 dir 为根的文件树的文件系统(即 fs.FS)。
+​	DirFS 函数返回以目录 dir 为根的文件树的文件系统(即 fs.FS)。
 
 ​	请注意，DirFS("/prefix") 只保证它对操作系统所做的 Open 调用将以 "/prefix" 开始：DirFS("/prefix").Open("file") 与 os.Open("/prefix/file") 相同。因此，如果 `/prefix/file` 是指向 `/prefix` 以外的符号链接，则使用 DirFS 不会比使用 os.Open 更停止访问。此外，对于相对路径，DirFS 返回的 fs.FS 的根目录，即 DirFS("prefix")，将受后续 Chdir 调用的影响。因此，当目录树包含任意内容时，DirFS 不是 chroot 类型的安全机制的通用替代品。
 
 ​	目录 dir 不得为 ""。
 
-​	该结果实现 fs.StatFS。
+​	该结果实现了 fs.StatFS。
+
+![image-20230828121722548](os_img/image-20230828121722548.png)
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"io/fs"
+	"log"
+	"os"
+)
+
+func main() {
+	fs0 := os.DirFS("dir")
+	file0, err := fs0.Open("0.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file0.Close()
+	fileData, err := io.ReadAll(file0)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("文件内容：", string(fileData))
+
+	dirEntrys, err := fs.ReadDir(os.DirFS("dir"), ".")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	for i, dirEntry := range dirEntrys {
+		fmt.Println(i, "--------------------------")
+		fmt.Println("名称:", dirEntry.Name())
+		fmt.Println("类型:", dirEntry.Type())
+		fmt.Println("是目录？", dirEntry.IsDir())
+		info, err := dirEntry.Info()
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		fmt.Printf("dirEntry.Info()=%#v\n", info)
+
+		fmt.Println("info.Name()=", info.Name())
+		fmt.Println("info.Size()=", info.Size())
+		fmt.Println("info.Mode()=", info.Mode())
+		fmt.Println("info.ModTime()=", info.ModTime())
+		fmt.Println("info.IsDir()=", info.IsDir())
+		fmt.Printf("info.Sys()=%#v\n", info.Sys())
+	}
+}
+// Output:
+//文件内容： content0
+//0 --------------------------
+//名称: 0.txt
+//类型: ----------
+//是目录？ false
+//dirEntry.Info()=&os.fileStat{name:"0.txt", size:8, mode:0x1a4, modTime:time.Time{wall:0x2b8366b8, ext:63828778161, loc:(*time.Location)(0x547f00)}, sys:syscall.Stat_t{Dev:0x820, Ino:0xb068, Nlink:0x1, Mode:0x81a4, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:8, Blksize:4096, Blocks
+//:8, Atim:syscall.Timespec{Sec:1693194959, Nsec:290014206}, Mtim:syscall.Timespec{Sec:1693181361, Nsec:730031800}, Ctim:syscall.Timespec{Sec:1693194959, Nsec:220014206}, X__unused:[3]int64{0, 0, 0}}}
+//info.Name()= 0.txt
+//info.Size()= 8
+//info.Mode()= -rw-r--r--
+//info.ModTime()= 2023-08-28 08:09:21.7300318 +0800 CST
+//info.IsDir()= false
+//info.Sys()=&syscall.Stat_t{Dev:0x820, Ino:0xb068, Nlink:0x1, Mode:0x81a4, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:8, Blksize:4096, Blocks:8, Atim:syscall.Timespec{Sec:1693194959, Nsec:290014206}, Mtim:syscall.Timespec{Sec:1693181361, Nsec:730031800}, Ctim:syscall.Timespec{Sec:
+//1693194959, Nsec:220014206}, X__unused:[3]int64{0, 0, 0}}
+//1 --------------------------
+//名称: subdir1
+//类型: d---------
+//是目录？ true
+//dirEntry.Info()=&os.fileStat{name:"subdir1", size:4096, mode:0x800001ed, modTime:time.Time{wall:0xe4e537e, ext:63828791759, loc:(*time.Location)(0x547f00)}, sys:syscall.Stat_t{Dev:0x820, Ino:0xb06c, Nlink:0x2, Mode:0x41ed, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:4096, Blksize:
+//4096, Blocks:8, Atim:syscall.Timespec{Sec:1693194959, Nsec:250014206}, Mtim:syscall.Timespec{Sec:1693194959, Nsec:240014206}, Ctim:syscall.Timespec{Sec:1693194959, Nsec:240014206}, X__unused:[3]int64{0, 0, 0}}}
+//info.Name()= subdir1
+//info.Size()= 4096
+//info.Size()= 4096
+//info.Mode()= drwxr-xr-x
+//info.ModTime()= 2023-08-28 11:55:59.260014206 +0800 CST
+//info.IsDir()= true
+//info.Sys()=&syscall.Stat_t{Dev:0x820, Ino:0xb071, Nlink:0x2, Mode:0x41ed, Uid:0x3e8, Gid:0x3e8, X__pad0:0, Rdev:0x0, Size:4096, Blksize:4096, Blocks:8, Atim:syscall.Timespec{Sec:1693194959, Nsec:910014210}, Mtim:syscall.Timespec{Sec:1693194959, Nsec:260014206}, Ctim:syscall.Timespec{S
+//ec:1693194959, Nsec:260014206}, X__unused:[3]int64{0, 0, 0}}
+```
+
+​	参见[WalkDir My Example]({{< ref "/stdLib/io/fs#walkdir-my-example">}})
 
 #### func Environ 
 
@@ -297,6 +632,49 @@ func Environ() []string
 ```
 
 ​	Environ函数返回表示环境变量的字符串副本，格式为"key=value"。
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"regexp"
+)
+
+func main() {
+	// 设置环境变量
+	os.Setenv("TEST1", "bar")
+	os.Setenv("TEST2", "baz")
+
+	re, err := regexp.Compile(`^TEST\d{1}`)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("匹配 `^TEST\\d{1}` 模式的环境变量有：")
+	matchNum := 0
+	noMatchNum := 0
+	for _, env := range os.Environ() {
+		if re.MatchString(env) {
+			fmt.Println(env)
+			matchNum++
+		} else {
+			noMatchNum++
+		}
+	}
+	fmt.Printf("匹配的环境变量个数：%d，不匹配的环境变量个数：%d\n", matchNum, noMatchNum)
+}
+
+// Output:
+//匹配 `^TEST\d{1}` 模式的环境变量有：
+//TEST1=bar
+//TEST2=baz
+//匹配的环境变量个数：2，不匹配的环境变量个数：29
+```
+
+​	参见[func Clearenv](#func-clearenv) 
 
 #### func Executable  <- go1.8
 
@@ -310,15 +688,121 @@ func Executable() (string, error)
 
 ​	主要用例是查找相对于可执行文件的资源。
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 获取可执行文件的路径
+	path, err := os.Executable()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// 打印可执行文件的路径
+	fmt.Println("可执行文件路径：", path)
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Executable$ go run Executable.go
+//可执行文件路径： /tmp/go-build4226880423/b001/exe/Executable
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Executable$ go build Executable.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Executable$ sudo ./Executable
+//[sudo] password for lx:
+//可执行文件路径： /home/lx/goprojects/go_std_examples/os/os_self/f_Executable/Executable
+```
+
+
+
 #### func Exit 
 
 ``` go 
 func Exit(code int)
 ```
 
-​	Exit函数使当前程序以给定的状态码退出。传统上，代码零表示成功，非零表示错误。程序立即终止；延迟函数不会运行。
+​	Exit函数使当前程序以给定的状态码退出。传统上，代码零表示成功，非零表示错误。程序立即终止；延迟函数不会被运行。
 
 ​	为了可移植性，状态码应在[0，125]范围内。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func Exit0() {
+	defer func() {
+		fmt.Println("可能你认为os.Exit(0)之后会执行 defer，但你想错了！被defer的函数也是没有执行的机会，不信你试试！")
+	}()
+	os.Exit(0)
+	fmt.Println("这句话肯定打印不出来，不信你试试！")
+}
+
+func main() {
+	Exit0()
+}
+
+// Output:
+// 没有任何输出
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func Exit1() {
+	defer func() {
+		fmt.Println("可能你认为os.Exit(1)之后会执行 defer，但你想错了！被defer的函数也是没有执行的机会，不信你试试！")
+	}()
+	os.Exit(1)
+	fmt.Println("这句话肯定打印不出来，不信你试试！")
+}
+
+func main() {
+	Exit1()
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Exit1$ go run Exit.go
+//exit status 1
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func Exit2() {
+	defer func() {
+		fmt.Println("可能你认为os.Exit(2)之后会执行 defer，但你想错了！被defer的函数也是没有执行的机会，不信你试试！")
+	}()
+	os.Exit(2)
+	fmt.Println("这句话肯定打印不出来，不信你试试！")
+}
+func main() {
+	Exit2()
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Exit2$ go run Exit.go
+//exit status 2
+```
+
+
 
 #### func Expand 
 
@@ -357,6 +841,29 @@ Good morning, Gopher!
 
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	fmt.Println(os.Expand("Good ${DAY}, $NAME!", func(placeholderName string) string {
+		switch placeholderName {
+		case "DAY":
+			return "morning"
+		case "NAME":
+			return "Gopher"
+		}
+		return ""
+	}))
+}
+// Output:
+//Good morning, Gopher!
+```
+
 
 
 #### func ExpandEnv 
@@ -388,6 +895,26 @@ Output:
 gopher lives in /usr/gopher.
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	os.Setenv("NAME", "gopher")
+	os.Setenv("BURROW", "/usr/gopher")
+	os.Setenv("LANGUAGE", "go")
+
+	fmt.Println(os.ExpandEnv("$NAME lives in ${BURROW}.`${language}` is empty!"))
+}
+
+// Output:
+//gopher lives in /usr/gopher.`` is empty!
+```
+
 
 
 #### func Getegid 
@@ -398,7 +925,53 @@ func Getegid() int
 
 ​	Getegid函数返回调用方的有效组ID。
 
+> 个人注释
+>
+> ​	`Getegid`中的第二个`e`是`effective`的意思。
+
 ​	在Windows上，它返回-1。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的有效组ID：", os.Getegid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ whoami
+//lx
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ go run Getegid.go
+//当前进程（或调用者）的有效组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ go build Getegid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo su - root
+//[sudo] password for lx:
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getegid/
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go run Getegid.go
+//当前进程（或调用者）的有效组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go build Getegid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# sudo su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getegid/
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo ./Getegid
+//[sudo] password for lx:
+//当前进程（或调用者）的有效组ID： 0
+```
+
+
 
 #### func Getenv 
 
@@ -406,7 +979,7 @@ func Getegid() int
 func Getenv(key string) string
 ```
 
-​	Getenv函数检索由键指定的环境变量的值。它返回值，如果变量不存在，则为空。要区分空值和未设置的值，请使用LookupEnv。
+​	Getenv函数检索由键指定的环境变量的值。它返回值，如果变量不存在，则为空。要区分空值和未设置的值，请使用 LookupEnv。
 
 ``` go 
 package main
@@ -428,6 +1001,24 @@ Output:
 gopher lives in /usr/gopher.
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	os.Setenv("NAME", "gopher")
+	os.Setenv("BURROW", "/usr/gopher")
+
+	fmt.Printf("%s lives in %s.`%s` is empty.\n", os.Getenv("NAME"), os.Getenv("BURROW"), os.Getenv("MISSING_KEY"))
+}
+// Output:
+//gopher lives in /usr/gopher.`` is empty.
+```
+
 
 
 #### func Geteuid 
@@ -436,9 +1027,57 @@ gopher lives in /usr/gopher.
 func Geteuid() int
 ```
 
-​	Geteuid函数返回调用方的数字有效用户 ID。
+​	Geteuid函数返回调用方的有效用户 ID。
+
+> 个人注释
+>
+> ​	`Geteuid`中的第二个`e`是`effective`的意思。
 
 ​	在Windows上，它返回-1。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的有效用户ID：", os.Geteuid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ whoami
+//lx
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ go run Geteuid.go
+//当前进程（或调用者）的有效用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ go build Geteuid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
+//当前进程（或调用者）的有效用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
+//[sudo] password for lx:
+//当前进程（或调用者）的有效用户ID： 0
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid/
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go run Geteuid.go
+//当前进程（或调用者）的有效用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go build Geteuid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# sudo su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Geteuid/
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
+//当前进程（或调用者）的有效用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
+//[sudo] password for lx:
+//当前进程（或调用者）的有效用户ID： 0
+```
+
+
 
 #### func Getgid 
 
@@ -446,9 +1085,57 @@ func Geteuid() int
 func Getgid() int
 ```
 
-​	Getgid函数返回调用方的数字组 ID。
+​	Getgid函数返回调用方的组 ID。
+
+> 个人注释
+>
+> ​	问了下ChatGPT，说是Getegid函数获取的是有效组ID，而Getgid函数获取的是实际组ID。还是不明白！待后续处理！
 
 ​	在Windows上，它返回-1。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的组ID：", os.Getgid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ whoami
+//lx
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ go run Getgid.go
+//当前进程（或调用者）的组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ go build Getgid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ ./Getgid
+//当前进程（或调用者）的组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo ./Getgid
+//[sudo] password for lx:
+//当前进程（或调用者）的组ID： 0
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getgid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# ./Getgid
+//当前进程（或调用者）的组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# go run Getgid.go
+//当前进程（或调用者）的组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# go build Getgid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# ./Getgid
+//当前进程（或调用者）的组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# sudo su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getgid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ ./Getgid
+//当前进程（或调用者）的组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo ./Getgid
+//[sudo] password for lx:
+//当前进程（或调用者）的组ID： 0
+```
+
+
 
 #### func Getgroups 
 
@@ -456,9 +1143,84 @@ func Getgid() int
 func Getgroups() ([]int, error)
 ```
 
-​	Getgroups函数返回调用方所属的组的数字 ID 列表。
+​	Getgroups函数返回调用方所属的组的 ID 列表。
 
 ​	在Windows上，它返回syscall.EWINDOWS。有关可能的替代方案，请参见os/user包。
+
+Linux:
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	// 当前用户是 lx
+	gids, err := os.Getgroups()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("当前进程（或调用者）的组ID列表：%#v\n", gids)
+}
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ go run Getgroups.go
+//当前进程（或调用者）的组ID列表：[]int{4, 20, 24, 25, 27, 29, 30, 44, 46, 116, 1000, 1001}
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ whoami
+//lx
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ go build Getgroups.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ ./Getgroups
+//当前进程（或调用者）的组ID列表：[]int{4, 20, 24, 25, 27, 29, 30, 44, 46, 116, 1000, 1001}
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ sudo ./Getgroups
+//[sudo] password for lx:
+//当前进程（或调用者）的组ID列表：[]int{0}
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups# ./Getgroups
+//当前进程（或调用者）的组ID列表：[]int{0}
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups# go run Getgroups.go
+//当前进程（或调用者）的组ID列表：[]int{0}
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups# go build Getgroups.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups# ./Getgroups
+//当前进程（或调用者）的组ID列表：[]int{0}
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgroups# sudo su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getgroups
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ ./Getgroups
+//当前进程（或调用者）的组ID列表：[]int{4, 20, 24, 25, 27, 29, 30, 44, 46, 116, 1000, 1001}
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgroups$ sudo ./Getgroups
+//[sudo] password for lx:
+//当前进程（或调用者）的组ID列表：[]int{0}
+```
+
+Windows 10:
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {	
+	gids, err := os.Getgroups()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("当前进程（或调用者）的组ID列表：%#v\n", gids)
+}
+
+// Output:
+//PS F:\Devs\MyCodes\go_std_examples\os\os_self\f_Getgroups> go run .\Getgroups.go
+//2023/08/28 17:01:21 getgroups: not supported by windows
+//exit status 1
+```
+
+
 
 #### func Getpagesize 
 
@@ -468,6 +1230,23 @@ func Getpagesize() int
 
 ​	Getpagesize函数返回底层系统的内存页面大小。
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	fmt.Println(os.Getpagesize()) // 4096
+}
+// Output:
+// 4096
+```
+
+
+
 #### func Getpid 
 
 ``` go 
@@ -475,6 +1254,25 @@ func Getpid() int
 ```
 
 ​	Getpid函数返回调用方的进程 ID。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	fmt.Println(os.Getpid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getpid$ go run Getpid.go
+//1202651
+```
+
+
 
 #### func Getppid 
 
@@ -484,15 +1282,77 @@ func Getppid() int
 
 ​	Getppid函数返回调用方的父进程 ID。
 
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	fmt.Println(os.Getppid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getppid$ go run Getppid.go
+//1203113
+```
+
+
+
 #### func Getuid 
 
 ``` go 
 func Getuid() int
 ```
 
-​	Getuid函数返回调用方的数字用户 ID。
+​	Getuid函数返回调用方的用户 ID。
 
 ​	在Windows上，它返回-1。
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的用户ID：", os.Getuid())
+}
+
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ whoami
+//lx
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ go run Getuid.go
+//当前进程（或调用者）的用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ go build Getuid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ ./Getuid
+//当前进程（或调用者）的用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo ./Getuid
+//[sudo] password for lx:
+//当前进程（或调用者）的用户ID： 0
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# ./Getuid
+//当前进程（或调用者）的用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# go run Getuid.go
+//当前进程（或调用者）的用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# ./Getuid
+//当前进程（或调用者）的用户ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# sudo su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ ./Getuid
+//当前进程（或调用者）的用户ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo ./Getuid
+//[sudo] password for lx:
+//当前进程（或调用者）的用户ID： 0
+```
+
+
 
 #### func Getwd 
 
@@ -502,6 +1362,43 @@ func Getwd() (dir string, err error)
 
 ​	Getwd函数返回对应于当前目录的根路径名。如果可以通过多个路径到达当前目录(由于符号链接)，Getwd可能返回其中任何一个。
 
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	i := 0
+	for i < 1000 {
+		i++
+		dir, err := os.Getwd()
+		if err != nil {
+			log.Fatal(err)
+		}
+		if dir != "/home/lx/goprojects/go_std_examples/os/os_self/f_Getwd" {
+			fmt.Println(dir)
+		}
+	}
+}
+
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getwd$ cd ../for_test/
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd1
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd2
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd3
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd4
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd5
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ ln -s /home/lx/goprojects/go_std_examples/os/os_self/f_Getwd dir_f_Getwd6
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/for_test$ cd ../f_Getwd/
+
+// 也没有像 “如果可以通过多个路径到达当前目录(由于符号链接)，Getwd可能返回其中任何一个。” 这句话所属的。
+```
+
+
+
 #### func Hostname 
 
 ``` go 
@@ -509,6 +1406,29 @@ func Hostname() (name string, err error)
 ```
 
 ​	Hostname函数返回内核报告的主机名。
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	name, err := os.Hostname()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("主机名是：", name)
+}
+// Output:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Hostname$ go run Hostname.go
+//主机名是： DESKTOP-2OAUARV
+```
+
+
 
 #### func IsExist 
 
