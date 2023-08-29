@@ -928,6 +928,8 @@ func Getegid() int
 > 个人注释
 >
 > ​	`Getegid`中的第二个`e`是`effective`的意思。
+>
+> ​	参见[func Getgid ](#func-getgid )。
 
 ​	在Windows上，它返回-1。
 
@@ -942,33 +944,55 @@ import (
 func main() {
 	// 当前用户是 lx
 	fmt.Println("当前进程（或调用者）的有效组ID：", os.Getegid())
+	fmt.Println("当前进程（或调用者）的组ID：", os.Getgid())
+	//fmt.Println("over")
 }
 
 // Output:
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ whoami
-//lx
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ go run Getegid.go
-//当前进程（或调用者）的有效组ID： 1000
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ go build Getegid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ls -l Getegid
+//-rwxr-xr-x 1 lx lx 1802350 Aug 29 08:37 Getegid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo chmod g+s Getegid
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
 //当前进程（或调用者）的有效组ID： 1000
+//当前进程（或调用者）的组ID： 1000
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
+//当前进程（或调用者）的组ID： 0
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo su - root
-//[sudo] password for lx:
-//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getegid/
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getegid
 //root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
-//当前进程（或调用者）的有效组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go run Getegid.go
-//当前进程（或调用者）的有效组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go build Getegid.go
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
-//当前进程（或调用者）的有效组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# sudo su - lx
-//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getegid/
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
 //当前进程（或调用者）的有效组ID： 1000
+//当前进程（或调用者）的组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-sr-x 1 lx lx 1802350 Aug 29 08:37 Getegid
+
+// ---------------------------- 这里使用了 root 用户重新编辑了 Getegid.go --------------------------
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go build Getegid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-xr-x 1 root root 1802462 Aug 29 08:39 Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# chmod g+s Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-sr-x 1 root root 1802462 Aug 29 08:39 Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getegid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 1000
+//over
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo ./Getegid
 //[sudo] password for lx:
 //当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 0
+//over
 ```
 
 
@@ -1046,35 +1070,53 @@ import (
 func main() {
 	// 当前用户是 lx
 	fmt.Println("当前进程（或调用者）的有效用户ID：", os.Geteuid())
+	fmt.Println("当前进程（或调用者）的用户ID：", os.Getuid())
+	//fmt.Println("over")
 }
 
 // Output:
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ whoami
-//lx
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ go run Geteuid.go
-//当前进程（或调用者）的有效用户ID： 1000
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ go build Geteuid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ls -l Geteuid
+//-rwxr-xr-x 1 lx lx 1802342 Aug 29 08:52 Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo chmod u+s Geteuid
+//[sudo] password for lx:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo chmod u+s Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ls -l Geteuid
+//-rwsr-xr-x 1 lx lx 1802342 Aug 29 08:52 Geteuid
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
 //当前进程（或调用者）的有效用户ID： 1000
+//当前进程（或调用者）的用户ID： 1000
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
-//[sudo] password for lx:
-//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的有效用户ID： 1000
+//当前进程（或调用者）的用户ID： 0
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo su - root
-//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid/
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid
 //root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
-//当前进程（或调用者）的有效用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go run Geteuid.go
-//当前进程（或调用者）的有效用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go build Geteuid.go
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
-//当前进程（或调用者）的有效用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# sudo su - lx
-//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Geteuid/
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
 //当前进程（或调用者）的有效用户ID： 1000
+//当前进程（或调用者）的用户ID： 0
+
+// ---------------------------- 这里使用了 root 用户重新编辑了 Geteuid.go --------------------------
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go build Geteuid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ls -l Geteuid
+//-rwxr-xr-x 1 root root 1802462 Aug 29 08:55 Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# chmod u+s Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ls -l Geteuid
+//-rwsr-xr-x 1 root root 1802462 Aug 29 08:55 Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 1000
+//over
 //lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
 //[sudo] password for lx:
 //当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 0
+//over
 ```
 
 
@@ -1090,6 +1132,21 @@ func Getgid() int
 > 个人注释
 >
 > ​	问了下ChatGPT，说是Getegid函数获取的是有效组ID，而Getgid函数获取的是实际组ID。还是不明白！待后续处理！
+>
+> ​	看了下Linux 的用户和访问权限，其中提到了SetUID 和 SetGID，以及粘滞位。我猜想，应该是和这些有关的！
+>
+> > 在 Linux 中，SetUID（设置用户 ID）和 SetGID（设置组 ID）是特殊的权限位，用于控制可执行文件的执行权限。   	1. SetUID 权限（Set User ID）：    
+> >
+> > - SetUID 权限允许一个可执行文件在执行时临时获得该文件所有者的权限。    - 这意味着，无论谁执行该文件，都将以文件所有者的身份执行，而不是以执行者自己的身份。    
+> > - SetUID 权限通常用于需要特定权限或特定身份执行的程序。    
+> > - 例如，passwd 程序用于更改用户密码。它需要访问 /etc/shadow 文件，该文件的权限通常只允许 root 用户访问。但是，passwd 程序具有 SetUID 权限，因此当普通用户执行 passwd 时，它可以以 root 用户的身份访问 /etc/shadow 文件并修改密码。   
+> >   2. SetGID 权限（Set Group ID）：    
+> > - SetGID 权限允许一个可执行文件在执行时临时获得该文件所属组的权限。    
+> > - 这意味着，无论谁执行该文件，都将以文件所属组的身份执行，而不是以执行者自己的身份。    
+> > - SetGID 权限通常用于需要特定组权限或特定组身份执行的程序。    
+> > - 例如，一个共享文件夹的可执行文件具有 SetGID 权限，使得所有执行者都以共享文件夹所属组的身份执行。这样，无论是哪个用户执行该文件，都可以获得共享文件夹所属组的权限，从而访问共享文件夹。
+>
+> ​	好吧，开始验证下！
 
 ​	在Windows上，它返回-1。
 
@@ -1103,36 +1160,56 @@ import (
 
 func main() {
 	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的有效组ID：", os.Getegid())
 	fmt.Println("当前进程（或调用者）的组ID：", os.Getgid())
+	//fmt.Println("over")
 }
 
 // Output:
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ whoami
-//lx
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ go run Getgid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ go build Getegid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ls -l Getegid
+//-rwxr-xr-x 1 lx lx 1802350 Aug 29 08:37 Getegid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo chmod g+s Getegid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
 //当前进程（或调用者）的组ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ go build Getgid.go
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ ./Getgid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
+//当前进程（或调用者）的组ID： 0
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 1000
+//当前进程（或调用者）的组ID： 0
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-sr-x 1 lx lx 1802350 Aug 29 08:37 Getegid
+
+// ---------------------------- 这里使用了 root 用户重新编辑了 Getegid.go --------------------------
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# go build Getegid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-xr-x 1 root root 1802462 Aug 29 08:39 Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# chmod g+s Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ls -l Getegid
+//-rwxr-sr-x 1 root root 1802462 Aug 29 08:39 Getegid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# ./Getegid
+//当前进程（或调用者）的有效组ID： 0
+//当前进程（或调用者）的组ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getegid# su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getegid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ ./Getegid
+//当前进程（或调用者）的有效组ID： 0
 //当前进程（或调用者）的组ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo ./Getgid
+//over
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getegid$ sudo ./Getegid
 //[sudo] password for lx:
+//当前进程（或调用者）的有效组ID： 0
 //当前进程（或调用者）的组ID： 0
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo su - root
-//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getgid
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# ./Getgid
-//当前进程（或调用者）的组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# go run Getgid.go
-//当前进程（或调用者）的组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# go build Getgid.go
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# ./Getgid
-//当前进程（或调用者）的组ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getgid# sudo su - lx
-//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getgid
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ ./Getgid
-//当前进程（或调用者）的组ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getgid$ sudo ./Getgid
-//[sudo] password for lx:
-//当前进程（或调用者）的组ID： 0
+//over
 ```
 
 
@@ -1321,35 +1398,54 @@ import (
 
 func main() {
 	// 当前用户是 lx
+	fmt.Println("当前进程（或调用者）的有效用户ID：", os.Geteuid())
 	fmt.Println("当前进程（或调用者）的用户ID：", os.Getuid())
+	//fmt.Println("over")
 }
 
 // Output:
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ whoami
-//lx
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ go run Getuid.go
-//当前进程（或调用者）的用户ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ go build Getuid.go
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ ./Getuid
-//当前进程（或调用者）的用户ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo ./Getuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ go build Geteuid.go
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ls -l Geteuid
+//-rwxr-xr-x 1 lx lx 1802342 Aug 29 08:52 Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo chmod u+s Geteuid
 //[sudo] password for lx:
-//当前进程（或调用者）的用户ID： 0
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo su - root
-//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Getuid
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# ./Getuid
-//当前进程（或调用者）的用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# go run Getuid.go
-//当前进程（或调用者）的用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# ./Getuid
-//当前进程（或调用者）的用户ID： 0
-//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Getuid# sudo su - lx
-//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Getuid
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ ./Getuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo chmod u+s Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ls -l Geteuid
+//-rwsr-xr-x 1 lx lx 1802342 Aug 29 08:52 Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
+//当前进程（或调用者）的有效用户ID： 1000
 //当前进程（或调用者）的用户ID： 1000
-//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Getuid$ sudo ./Getuid
-//[sudo] password for lx:
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
+//当前进程（或调用者）的有效用户ID： 1000
 //当前进程（或调用者）的用户ID： 0
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo su - root
+//root@DESKTOP-2OAUARV:~# cd /home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
+//当前进程（或调用者）的有效用户ID： 1000
+//当前进程（或调用者）的用户ID： 0
+
+// ---------------------------- 这里使用了 root 用户重新编辑了 Geteuid.go --------------------------
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# go build Geteuid.go
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ls -l Geteuid
+//-rwxr-xr-x 1 root root 1802462 Aug 29 08:55 Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# chmod u+s Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ls -l Geteuid
+//-rwsr-xr-x 1 root root 1802462 Aug 29 08:55 Geteuid
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 0
+//over
+//root@DESKTOP-2OAUARV:/home/lx/goprojects/go_std_examples/os/os_self/f_Geteuid# su - lx
+//lx@DESKTOP-2OAUARV:~$ cd goprojects/go_std_examples/os/os_self/f_Geteuid
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ ./Geteuid
+//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 1000
+//over
+//lx@DESKTOP-2OAUARV:~/goprojects/go_std_examples/os/os_self/f_Geteuid$ sudo ./Geteuid
+//[sudo] password for lx:
+//当前进程（或调用者）的有效用户ID： 0
+//当前进程（或调用者）的用户ID： 0
+//over
 ```
 
 
