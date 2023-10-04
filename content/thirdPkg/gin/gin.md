@@ -6,6 +6,7 @@ weight = 1
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 # Gin Web Framework
@@ -50,7 +51,7 @@ import "github.com/gin-gonic/gin"
 $ go get -u github.com/gin-gonic/gin
 ```
 
-!!! warning "注意"
+ 注意
 	从go1.17版本开始，已经弃用这种安装方式，详见：[Go1.17发布说明](../../../ReleaseNotes/Go1_17ReleaseNotes#go-get)。这种方式只能在存在 `go.mod`文件的情况下，更改`go.mod`中的依赖项。
 
 
@@ -60,7 +61,7 @@ $ go get -u github.com/gin-gonic/gin
 
 ​	首先你需要导入Gin包来使用Gin，一个最简单的例子就是下面这个`example.go`。
 
-```go linenums="1"
+```go
 package main
 
 import (
@@ -116,11 +117,11 @@ $ go run example.go
 
 一个精心策划的关于Gin框架的列表。
 
-- [教程：用Go和Gin开发一个RESTful API](../../../GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin)
+- [教程：用Go和Gin开发一个RESTful API]({{< ref "/docs/GettingStarted/TutorialDevelopingARESTfulAPIWithGoAndGin">}})
 
 ### 基准测试
 
-​	Gin使用自定义版本的[HttpRouter](https://github.com/julienschmidt/httprouter)，请看[所有的基准测试细节](https://github.com/gin-gonic/gin/blob/v1.9.0/BENCHMARKS.md)。
+​	Gin使用自定义版本的[HttpRouter]({{< ref "/thirdPkg/httprouter">}})，请看[所有的基准测试细节](https://github.com/gin-gonic/gin/blob/v1.9.0/BENCHMARKS.md)。
 
 | Benchmark name                 | (1)       | (2)             | (3)          | (4)             |
 | ------------------------------ | --------- | --------------- | ------------ | --------------- |
@@ -202,7 +203,7 @@ $ go run example.go
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L28)
 
-``` go linenums="1"
+``` go
 const (
 	MIMEJSON              = binding.MIMEJSON
 	MIMEHTML              = binding.MIMEHTML
@@ -216,11 +217,11 @@ const (
 )
 ```
 
-这是最常见的数据格式的Content-Type MIME类型。
+​	这是最常见的数据格式的Content-Type MIME类型。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/gin.go#L73)
 
-``` go linenums="1"
+``` go
 const (
     // PlatformGoogleAppEngine 当运行在 Google App Engine 时，使用 X-Appengine-Remote-Addr 来确定客户端的 IP。
 	PlatformGoogleAppEngine = "X-Appengine-Remote-Addr"
@@ -229,11 +230,11 @@ const (
 )
 ```
 
-可信平台（Trusted platforms 通常指一些被认为是安全可靠的互联网服务或软件平台）
+​	可信平台（Trusted platforms 通常指一些被认为是安全可靠的互联网服务或软件平台）
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/mode.go#L18)
 
-``` go linenums="1"
+``` go
 const (
 	// DebugMode 表示 gin 运行在 debug 模式下。    
 	DebugMode = "debug"
@@ -246,51 +247,51 @@ const (
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/auth.go#L17)
 
-``` go linenums="1"
+``` go
 const AuthUserKey = "user"
 ```
 
-AuthUserKey 是基本身份验证（basic auth）中用于存储用户凭证的 cookie 名称。
+​	AuthUserKey 是基本身份验证（basic auth）中用于存储用户凭证的 cookie 名称。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/utils.go#L19)
 
-``` go linenums="1"
+``` go
 const BindKey = "_gin-gonic/gin/bindkey"
 ```
 
-BindKey 表示默认的绑定键。
+​	BindKey 表示默认的绑定键。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L41)
 
-``` go linenums="1"
+``` go
 const BodyBytesKey = "_gin-gonic/gin/bodybyteskey"
 ```
 
-BodyBytesKey 表示默认的请求体字节键。
+​	BodyBytesKey 表示默认的请求体字节键。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/context.go#L44)
 
-``` go linenums="1"
+``` go
 const ContextKey = "_gin-gonic/gin/contextkey"
 ```
 
-ContextKey 是一个 Context 返回给自身的键。
+​	ContextKey 是一个 Context 返回给自身的键。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/mode.go#L16)
 
-``` go linenums="1"
+``` go
 const EnvGinMode = "GIN_MODE"
 ```
 
-EnvGinMode 表示 gin 模式的环境名称。
+​	EnvGinMode 表示 gin 模式的环境名称。
 
 [View Source](https://github.com/gin-gonic/gin/blob/v1.9.0/version.go#L8)
 
-``` go linenums="1"
+``` go
 const Version = "v1.9.0"
 ```
 
-Version 是当前 gin 框架的版本号。
+​	Version 是当前 gin 框架的版本号。
 
 ## 变量
 
@@ -327,7 +328,7 @@ gin.DefaultWriter = colorable.NewColorableStdout()
 
 #### func CreateTestContext 
 
-``` go linenums="1"
+``` go
 func CreateTestContext(w http.ResponseWriter) (c *Context, r *Engine)
 ```
 
@@ -335,7 +336,7 @@ func CreateTestContext(w http.ResponseWriter) (c *Context, r *Engine)
 
 #### func Dir 
 
-``` go linenums="1"
+``` go
 func Dir(root string, listDirectory bool) http.FileSystem
 ```
 
@@ -343,7 +344,7 @@ func Dir(root string, listDirectory bool) http.FileSystem
 
 #### func DisableBindValidation 
 
-``` go linenums="1"
+``` go
 func DisableBindValidation()
 ```
 
@@ -351,7 +352,7 @@ func DisableBindValidation()
 
 #### func DisableConsoleColor 
 
-``` go linenums="1"
+``` go
 func DisableConsoleColor()
 ```
 
@@ -359,7 +360,7 @@ func DisableConsoleColor()
 
 #### func EnableJsonDecoderDisallowUnknownFields 
 
-``` go linenums="1"
+``` go
 func EnableJsonDecoderDisallowUnknownFields()
 ```
 
@@ -367,7 +368,7 @@ func EnableJsonDecoderDisallowUnknownFields()
 
 #### func EnableJsonDecoderUseNumber 
 
-``` go linenums="1"
+``` go
 func EnableJsonDecoderUseNumber()
 ```
 
@@ -375,7 +376,7 @@ func EnableJsonDecoderUseNumber()
 
 #### func ForceConsoleColor 
 
-``` go linenums="1"
+``` go
 func ForceConsoleColor()
 ```
 
@@ -383,7 +384,7 @@ func ForceConsoleColor()
 
 #### func IsDebugging 
 
-``` go linenums="1"
+``` go
 func IsDebugging() bool
 ```
 
@@ -391,7 +392,7 @@ func IsDebugging() bool
 
 #### func Mode 
 
-``` go linenums="1"
+``` go
 func Mode() string
 ```
 
@@ -399,7 +400,7 @@ func Mode() string
 
 #### func SetMode 
 
-``` go linenums="1"
+``` go
 func SetMode(value string)
 ```
 
@@ -409,7 +410,7 @@ func SetMode(value string)
 
 ### type Accounts 
 
-``` go linenums="1"
+``` go
 type Accounts map[string]string
 ```
 
@@ -417,7 +418,7 @@ type Accounts map[string]string
 
 ### type Context 
 
-``` go linenums="1"
+``` go
 type Context struct {    
     writermem responseWriter
 	Request   *http.Request
@@ -461,7 +462,7 @@ type Context struct {
 
 #### func CreateTestContextOnly 
 
-``` go linenums="1"
+``` go
 func CreateTestContextOnly(w http.ResponseWriter, r *Engine) (c *Context)
 ```
 
@@ -469,19 +470,19 @@ func CreateTestContextOnly(w http.ResponseWriter, r *Engine) (c *Context)
 
 #### (*Context) Abort 
 
-``` go linenums="1"
+``` go
 func (c *Context) Abort()
 ```
 
 ​	Abort方法可以阻止pending handlers（即：尚未执行的处理程序）被调用。注意，这不会停止当前的处理程序。假设你有一个（验证当前请求是否被授权的）授权中间件。如果授权失败（例如：密码不匹配），可以调用 Abort 来确保不会调用此请求的剩余处理程序。
 
-!!! waring "注释"
-
-	在这里，"pending handlers" 指的是还没有被调用的后续处理函数。例如，如果你在 Gin 框架中使用了多个中间件，每个中间件都有一个处理函数。那么，这些中间件中尚未执行的处理函数就是 "pending handlers"。在调用 Abort 后，这些 "pending handlers" 将不再被调用。
+> 注释
+>
+> 在这里，"pending handlers" 指的是还没有被调用的后续处理函数。例如，如果你在 Gin 框架中使用了多个中间件，每个中间件都有一个处理函数。那么，这些中间件中尚未执行的处理函数就是 "pending handlers"。在调用 Abort 后，这些 "pending handlers" 将不再被调用。
 
 #### (*Context) AbortWithError 
 
-``` go linenums="1"
+``` go
 func (c *Context) AbortWithError(code int, err error) *Error
 ```
 
@@ -489,7 +490,7 @@ func (c *Context) AbortWithError(code int, err error) *Error
 
 #### (*Context) AbortWithStatus 
 
-``` go linenums="1"
+``` go
 func (c *Context) AbortWithStatus(code int)
 ```
 
@@ -497,7 +498,7 @@ func (c *Context) AbortWithStatus(code int)
 
 #### (*Context) AbortWithStatusJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) AbortWithStatusJSON(code int, jsonObj any)
 ```
 
@@ -505,19 +506,19 @@ func (c *Context) AbortWithStatusJSON(code int, jsonObj any)
 
 #### (*Context) AddParam 
 
-``` go linenums="1"
+``` go
 func (c *Context) AddParam(key, value string)
 ```
 
 ​	AddParam方法是用于在 e2e 测试中向上下文添加参数，以便替换路径参数键的值。例如，对于路由 "/user/:id"，调用 AddParam("id", 1) 的结果是 "/user/1"。
 
-!!! waring "注释"
-
-	"e2e" 是 "end-to-end" 的缩写，指的是端到端测试。这种测试方式是从用户的角度出发，测试整个软件系统是否能够正确地工作。它涉及到系统的各个组成部分，包括用户界面、服务器端、数据库、网络等等。在软件开发的过程中，端到端测试可以帮助保证整个系统的功能和性能符合预期。
+> 注释
+>
+> "e2e" 是 "end-to-end" 的缩写，指的是端到端测试。这种测试方式是从用户的角度出发，测试整个软件系统是否能够正确地工作。它涉及到系统的各个组成部分，包括用户界面、服务器端、数据库、网络等等。在软件开发的过程中，端到端测试可以帮助保证整个系统的功能和性能符合预期。
 
 #### (*Context) AsciiJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) AsciiJSON(code int, obj any)
 ```
 
@@ -525,7 +526,7 @@ func (c *Context) AsciiJSON(code int, obj any)
 
 #### (*Context) Bind 
 
-``` go linenums="1"
+``` go
 func (c *Context) Bind(obj any) error
 ```
 
@@ -540,7 +541,7 @@ func (c *Context) Bind(obj any) error
 
 #### (*Context) BindHeader 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindHeader(obj any) error
 ```
 
@@ -548,7 +549,7 @@ func (c *Context) BindHeader(obj any) error
 
 #### (*Context) BindJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindJSON(obj any) error
 ```
 
@@ -556,7 +557,7 @@ func (c *Context) BindJSON(obj any) error
 
 #### (*Context) BindQuery 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindQuery(obj any) error
 ```
 
@@ -564,7 +565,7 @@ func (c *Context) BindQuery(obj any) error
 
 #### (*Context) BindTOML 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindTOML(obj interface{}) error
 ```
 
@@ -572,7 +573,7 @@ func (c *Context) BindTOML(obj interface{}) error
 
 #### (*Context) BindUri 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindUri(obj any) error
 ```
 
@@ -580,7 +581,7 @@ func (c *Context) BindUri(obj any) error
 
 #### (*Context) BindWith 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindWith(obj any, b binding.Binding) error
 ```
 
@@ -588,7 +589,7 @@ func (c *Context) BindWith(obj any, b binding.Binding) error
 
 #### (*Context) BindXML 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindXML(obj any) error
 ```
 
@@ -596,7 +597,7 @@ func (c *Context) BindXML(obj any) error
 
 #### (*Context) BindYAML 
 
-``` go linenums="1"
+``` go
 func (c *Context) BindYAML(obj any) error
 ```
 
@@ -604,7 +605,7 @@ func (c *Context) BindYAML(obj any) error
 
 #### (*Context) ClientIP 
 
-``` go linenums="1"
+``` go
 func (c *Context) ClientIP() string
 ```
 
@@ -612,7 +613,7 @@ func (c *Context) ClientIP() string
 
 #### (*Context) ContentType 
 
-``` go linenums="1"
+``` go
 func (c *Context) ContentType() string
 ```
 
@@ -620,7 +621,7 @@ func (c *Context) ContentType() string
 
 #### (*Context) Cookie 
 
-``` go linenums="1"
+``` go
 func (c *Context) Cookie(name string) (string, error)
 ```
 
@@ -628,7 +629,7 @@ func (c *Context) Cookie(name string) (string, error)
 
 #### (*Context) Copy 
 
-``` go linenums="1"
+``` go
 func (c *Context) Copy() *Context
 ```
 
@@ -636,7 +637,7 @@ func (c *Context) Copy() *Context
 
 #### (*Context) Data 
 
-``` go linenums="1"
+``` go
 func (c *Context) Data(code int, contentType string, data []byte)
 ```
 
@@ -644,7 +645,7 @@ func (c *Context) Data(code int, contentType string, data []byte)
 
 #### (*Context) DataFromReader 
 
-``` go linenums="1"
+``` go
 func (c *Context) DataFromReader(code int, contentLength int64, contentType string, reader io.Reader, extraHeaders map[string]string)
 ```
 
@@ -652,7 +653,7 @@ func (c *Context) DataFromReader(code int, contentLength int64, contentType stri
 
 #### (*Context) Deadline 
 
-``` go linenums="1"
+``` go
 func (c *Context) Deadline() (deadline time.Time, ok bool)
 ```
 
@@ -660,20 +661,20 @@ func (c *Context) Deadline() (deadline time.Time, ok bool)
 
 #### (*Context) DefaultPostForm 
 
-``` go linenums="1"
+``` go
 func (c *Context) DefaultPostForm(key, defaultValue string) string
 ```
 
 ​	DefaultPostForm方法在POST urlencoded form或multipart form存在的情况下返回指定的key，否则它返回指定的defaultValue字符串。有关更多信息，请参见：PostForm()和GetPostForm()方法。
 
-!!! warning "注释"
-
-    "POST urlencoded form" 是指在 HTTP 请求体中使用 `application/x-www-form-urlencoded` 格式提交的表单数据，通常是通过表单提交、AJAX 等方式将数据提交给服务器。该格式会将数据用 `key1=value1&key2=value2` 的方式进行编码。
-    "multipart form" 是指在 HTTP 请求体中使用 `multipart/form-data` 格式提交的表单数据，通常用于上传文件等场景。该格式会将数据分成多个部分，每部分包含一个头部和一个实体。每个实体可以是文本、二进制数据或者文件，多个实体之间用一个特殊的边界分隔符进行分隔。
+> 注释
+>
+> ​	"POST urlencoded form" 是指在 HTTP 请求体中使用 `application/x-www-form-urlencoded` 格式提交的表单数据，通常是通过表单提交、AJAX 等方式将数据提交给服务器。该格式会将数据用 `key1=value1&key2=value2` 的方式进行编码。
+> ​	"multipart form" 是指在 HTTP 请求体中使用 `multipart/form-data` 格式提交的表单数据，通常用于上传文件等场景。该格式会将数据分成多个部分，每部分包含一个头部和一个实体。每个实体可以是文本、二进制数据或者文件，多个实体之间用一个特殊的边界分隔符进行分隔。
 
 #### (*Context) DefaultQuery 
 
-``` go linenums="1"
+``` go
 func (c *Context) DefaultQuery(key, defaultValue string) string
 ```
 
@@ -688,7 +689,7 @@ c.DefaultQuery("lastname", "none") == ""
 
 #### (*Context) Done 
 
-``` go linenums="1"
+``` go
 func (c *Context) Done() <-chan struct{}
 ```
 
@@ -696,7 +697,7 @@ func (c *Context) Done() <-chan struct{}
 
 #### (*Context) Err 
 
-``` go linenums="1"
+``` go
 func (c *Context) Err() error
 ```
 
@@ -704,7 +705,7 @@ func (c *Context) Err() error
 
 #### (*Context) Error 
 
-``` go linenums="1"
+``` go
 func (c *Context) Error(err error) *Error
 ```
 
@@ -712,7 +713,7 @@ func (c *Context) Error(err error) *Error
 
 #### (*Context) File 
 
-``` go linenums="1"
+``` go
 func (c *Context) File(filepath string)
 ```
 
@@ -720,7 +721,7 @@ func (c *Context) File(filepath string)
 
 #### (*Context) FileAttachment 
 
-``` go linenums="1"
+``` go
 func (c *Context) FileAttachment(filepath, filename string)
 ```
 
@@ -728,7 +729,7 @@ func (c *Context) FileAttachment(filepath, filename string)
 
 #### (*Context) FileFromFS 
 
-``` go linenums="1"
+``` go
 func (c *Context) FileFromFS(filepath string, fs http.FileSystem)
 ```
 
@@ -736,7 +737,7 @@ func (c *Context) FileFromFS(filepath string, fs http.FileSystem)
 
 #### (*Context) FormFile 
 
-``` go linenums="1"
+``` go
 func (c *Context) FormFile(name string) (*multipart.FileHeader, error)
 ```
 
@@ -744,7 +745,7 @@ func (c *Context) FormFile(name string) (*multipart.FileHeader, error)
 
 #### (*Context) FullPath 
 
-``` go linenums="1"
+``` go
 func (c *Context) FullPath() string
 ```
 
@@ -758,7 +759,7 @@ router.GET("/user/:id", func(c *gin.Context) {
 
 #### (*Context) Get 
 
-``` go linenums="1"
+``` go
 func (c *Context) Get(key string) (value any, exists bool)
 ```
 
@@ -766,43 +767,44 @@ func (c *Context) Get(key string) (value any, exists bool)
 
 #### (*Context) GetBool 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetBool(key string) (b bool)
 ```
 
 ​	GetBool方法从请求参数中获取指定的 key 对应的值，并将该值解析为bool类型后返回。如果该key不存在，则会返回 `false`。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是bool类型，或者该 key 不存在，该方法会返回bool类型的零值。
+> 注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是bool类型，或者该 key 不存在，该方法会返回bool类型的零值。
 
 #### (*Context) GetDuration 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetDuration(key string) (d time.Duration)
 ```
 
 ​	GetDuration方法从请求参数中获取指定的key对应的值，并将该值解析为 `time.Duration` 类型后返回。
-!!! warning "注意"
 
-	需要注意的是，如果请求中指定 key 的值不是time.Duration类型，或者该 key 不存在，该方法会返回time.Duration类型的零值。
+> 注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是time.Duration类型，或者该 key 不存在，该方法会返回time.Duration类型的零值。
 
 
 #### (*Context) GetFloat64 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetFloat64(key string) (f64 float64)
 ```
 
 ​	GetFloat64方法从请求参数中获取指定key对应的float64类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是float64类型，或者该 key 不存在，该方法会返回float64类型的零值。
+> 注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是float64类型，或者该 key 不存在，该方法会返回float64类型的零值。
 
 #### (*Context) GetHeader 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetHeader(key string) string
 ```
 
@@ -810,31 +812,31 @@ func (c *Context) GetHeader(key string) string
 
 #### (*Context) GetInt 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetInt(key string) (i int)
 ```
 
 ​	GetInt方法从请求参数中获取指定key对应的 int 类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是int类型，或者该 key 不存在，该方法会返回int类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是int类型，或者该 key 不存在，该方法会返回int类型的零值。
 
 #### (*Context) GetInt64 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetInt64(key string) (i64 int64)
 ```
 
 ​	GetInt64方法从请求参数中获取指定key对应的 int64 类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是int64类型，或者该 key 不存在，该方法会返回int64类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是int64类型，或者该 key 不存在，该方法会返回int64类型的零值。
 
 #### (*Context) GetPostForm 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetPostForm(key string) (string, bool)
 ```
 
@@ -846,16 +848,16 @@ email=  -->  ("", true) := GetPostForm("email") // set email to ""
       -->  ("", false) := GetPostForm("email") // do nothing with email
 ```
 
-!!! warning "注释"
-
-    "POST urlencoded form" 是指在 HTTP 请求体中使用 `application/x-www-form-urlencoded` 格式提交的表单数据，通常是通过表单提交、AJAX 等方式将数据提交给服务器。该格式会将数据用 `key1=value1&key2=value2` 的方式进行编码。
-    "multipart form" 是指在 HTTP 请求体中使用 `multipart/form-data` 格式提交的表单数据，通常用于上传文件等场景。该格式会将数据分成多个部分，每部分包含一个头部和一个实体。每个实体可以是文本、二进制数据或者文件，多个实体之间用一个特殊的边界分隔符进行分隔。
+>  "注释"
+>
+> ​	"POST urlencoded form" 是指在 HTTP 请求体中使用 `application/x-www-form-urlencoded` 格式提交的表单数据，通常是通过表单提交、AJAX 等方式将数据提交给服务器。该格式会将数据用 `key1=value1&key2=value2` 的方式进行编码。
+> ​	"multipart form" 是指在 HTTP 请求体中使用 `multipart/form-data` 格式提交的表单数据，通常用于上传文件等场景。该格式会将数据分成多个部分，每部分包含一个头部和一个实体。每个实体可以是文本、二进制数据或者文件，多个实体之间用一个特殊的边界分隔符进行分隔。
 
 
 
 #### (*Context) GetPostFormArray 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetPostFormArray(key string) (values []string, ok bool)
 ```
 
@@ -863,7 +865,7 @@ func (c *Context) GetPostFormArray(key string) (values []string, ok bool)
 
 #### (*Context) GetPostFormMap 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetPostFormMap(key string) (map[string]string, bool)
 ```
 
@@ -871,7 +873,7 @@ func (c *Context) GetPostFormMap(key string) (map[string]string, bool)
 
 #### (*Context) GetQuery 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetQuery(key string) (string, bool)
 ```
 
@@ -886,7 +888,7 @@ GET /?name=Manu&lastname=
 
 #### (*Context) GetQueryArray 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetQueryArray(key string) (values []string, ok bool)
 ```
 
@@ -894,7 +896,7 @@ func (c *Context) GetQueryArray(key string) (values []string, ok bool)
 
 #### (*Context) GetQueryMap 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetQueryMap(key string) (map[string]string, bool)
 ```
 
@@ -902,7 +904,7 @@ func (c *Context) GetQueryMap(key string) (map[string]string, bool)
 
 #### (*Context) GetRawData 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetRawData() ([]byte, error)
 ```
 
@@ -910,103 +912,103 @@ func (c *Context) GetRawData() ([]byte, error)
 
 #### (*Context) GetString 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetString(key string) (s string)
 ```
 
 ​	GetString方法从请求参数中获取指定key对应的string类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是string类型，或者该 key 不存在，该方法会返回string类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是string类型，或者该 key 不存在，该方法会返回string类型的零值。
 
 #### (*Context) GetStringMap 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetStringMap(key string) (sm map[string]any)
 ```
 
 ​	GetStringMap方法从请求参数中获取指定key对应的`map[string]any`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是map[string]any类型，或者该 key 不存在，该方法会返回map[string]any类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是map[string]any类型，或者该 key 不存在，该方法会返回map[string]any类型的零值。
 
 #### (*Context) GetStringMapString 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetStringMapString(key string) (sms map[string]string)
 ```
 
 ​	GetStringMapString方法从请求参数中获取指定key对应的`map[string]string`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是map[string]string类型，或者该 key 不存在，该方法会返回map[string]string类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是map[string]string类型，或者该 key 不存在，该方法会返回map[string]string类型的零值。
 
 #### (*Context) GetStringMapStringSlice 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetStringMapStringSlice(key string) (smss map[string][]string)
 ```
 
 ​	GetStringMapStringSlice方法从请求参数中获取指定key对应的`map[string][]string`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是map[string][]string类型，或者该 key 不存在，该方法会返回map[string][]string类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是map[string][]string类型，或者该 key 不存在，该方法会返回map[string][]string类型的零值。
 
 #### (*Context) GetStringSlice 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetStringSlice(key string) (ss []string)
 ```
 
 ​	GetStringSlice方法从请求参数中获取指定key对应的`[]string`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是[]string类型，或者该 key 不存在，该方法会返回[]string类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是[]string类型，或者该 key 不存在，该方法会返回[]string类型的零值。
 
 #### (*Context) GetTime 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetTime(key string) (t time.Time)
 ```
 
 ​	GetTime 方法从请求参数中获取指定key对应的`time.Time`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是time.Time类型，或者该 key 不存在，该方法会返回time.Time类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是time.Time类型，或者该 key 不存在，该方法会返回time.Time类型的零值。
 
 #### (*Context) GetUint 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetUint(key string) (ui uint)
 ```
 
 ​	GetUint方法从请求参数中获取指定key对应的`uint`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是uint类型，或者该 key 不存在，该方法会返回uint类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是uint类型，或者该 key 不存在，该方法会返回uint类型的零值。
 
 #### (*Context) GetUint64 
 
-``` go linenums="1"
+``` go
 func (c *Context) GetUint64(key string) (ui64 uint64)
 ```
 
 ​	GetUint64方法从请求参数中获取指定key对应的`uint64`类型的值。
 
-!!! warning "注意"
-
-	需要注意的是，如果请求中指定 key 的值不是uint64类型，或者该 key 不存在，该方法会返回uint64类型的零值。
+>  注意
+>
+> ​	需要注意的是，如果请求中指定 key 的值不是uint64类型，或者该 key 不存在，该方法会返回uint64类型的零值。
 
 #### (*Context) HTML 
 
-``` go linenums="1"
+``` go
 func (c *Context) HTML(code int, name string, obj any)
 ```
 
@@ -1014,7 +1016,7 @@ func (c *Context) HTML(code int, name string, obj any)
 
 #### (*Context) Handler 
 
-``` go linenums="1"
+``` go
 func (c *Context) Handler() HandlerFunc
 ```
 
@@ -1022,7 +1024,7 @@ func (c *Context) Handler() HandlerFunc
 
 #### (*Context) HandlerName 
 
-``` go linenums="1"
+``` go
 func (c *Context) HandlerName() string
 ```
 
@@ -1030,7 +1032,7 @@ func (c *Context) HandlerName() string
 
 #### (*Context) HandlerNames 
 
-``` go linenums="1"
+``` go
 func (c *Context) HandlerNames() []string
 ```
 
@@ -1038,7 +1040,7 @@ func (c *Context) HandlerNames() []string
 
 #### (*Context) Header 
 
-``` go linenums="1"
+``` go
 func (c *Context) Header(key, value string)
 ```
 
@@ -1046,7 +1048,7 @@ func (c *Context) Header(key, value string)
 
 #### (*Context) IndentedJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) IndentedJSON(code int, obj any)
 ```
 
@@ -1056,7 +1058,7 @@ func (c *Context) IndentedJSON(code int, obj any)
 
 #### (*Context) IsAborted 
 
-``` go linenums="1"
+``` go
 func (c *Context) IsAborted() bool
 ```
 
@@ -1064,7 +1066,7 @@ func (c *Context) IsAborted() bool
 
 #### (*Context) IsWebsocket 
 
-``` go linenums="1"
+``` go
 func (c *Context) IsWebsocket() bool
 ```
 
@@ -1072,7 +1074,7 @@ func (c *Context) IsWebsocket() bool
 
 #### (*Context) JSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) JSON(code int, obj any)
 ```
 
@@ -1080,7 +1082,7 @@ func (c *Context) JSON(code int, obj any)
 
 #### (*Context) JSONP 
 
-``` go linenums="1"
+``` go
 func (c *Context) JSONP(code int, obj any)
 ```
 
@@ -1092,7 +1094,7 @@ func (c *Context) JSONP(code int, obj any)
 >
 > otherSite.com中使用gin的JSONP实现：
 >
-> ```go linenums="1"
+> ```go
 > func main() {
 > 	r := gin.Default()
 > 	r.GET("/jsonp", func(c *gin.Context) {
@@ -1118,7 +1120,7 @@ func (c *Context) JSONP(code int, obj any)
 
 #### (*Context) MultipartForm 
 
-``` go linenums="1"
+``` go
 func (c *Context) MultipartForm() (*multipart.Form, error)
 ```
 
@@ -1126,7 +1128,7 @@ func (c *Context) MultipartForm() (*multipart.Form, error)
 
 #### (*Context) MustBindWith 
 
-``` go linenums="1"
+``` go
 func (c *Context) MustBindWith(obj any, b binding.Binding) error
 ```
 
@@ -1134,7 +1136,7 @@ func (c *Context) MustBindWith(obj any, b binding.Binding) error
 
 #### (*Context) MustGet 
 
-``` go linenums="1"
+``` go
 func (c *Context) MustGet(key string) any
 ```
 
@@ -1144,7 +1146,7 @@ func (c *Context) MustGet(key string) any
 
 #### (*Context) Negotiate 
 
-``` go linenums="1"
+``` go
 func (c *Context) Negotiate(code int, config Negotiate)
 ```
 
@@ -1152,7 +1154,7 @@ func (c *Context) Negotiate(code int, config Negotiate)
 
 #### (*Context) NegotiateFormat 
 
-``` go linenums="1"
+``` go
 func (c *Context) NegotiateFormat(offered ...string) string
 ```
 
@@ -1162,7 +1164,7 @@ func (c *Context) NegotiateFormat(offered ...string) string
 
 #### (*Context) Next 
 
-``` go linenums="1"
+``` go
 func (c *Context) Next()
 ```
 
@@ -1174,7 +1176,7 @@ func (c *Context) Next()
 >
 > 这种"委托式”的流程控制使得 Gin 的中间件非常灵活，可以很容易地添加、修改或删除处理步骤。下面是一个示例：
 >
-> ```go linenums="1"
+> ```go
 > func AuthMiddleware() gin.HandlerFunc {
 >   return func(c *gin.Context) {
 >     // Perform authentication
@@ -1211,7 +1213,7 @@ func (c *Context) Next()
 
 #### (*Context) Param 
 
-``` go linenums="1"
+``` go
 func (c *Context) Param(key string) string
 ```
 
@@ -1226,15 +1228,15 @@ router.GET("/user/:id", func(c *gin.Context) {
 })
 ```
 
-!!! warning "注意"
-
-    `Context.Param(key string)` 方法用于获取路由参数中的值，例如在路由模式为 `/users/:id` 时，使用该方法可以获取请求中的 `id` 值。
-    `Context.Get(key string)` 方法用于获取请求参数中的值，无论是 `GET` 请求中的查询参数还是 `POST` 请求中的表单参数。
-    因此，这两个方法的作用对象不同，一个用于获取路由参数，一个用于获取请求参数。
+>  注意
+>
+> `Context.Param(key string)` 方法用于获取路由参数中的值，例如在路由模式为 `/users/:id` 时，使用该方法可以获取请求中的 `id` 值。
+> 	`Context.Get(key string)` 方法用于获取请求参数中的值，无论是 `GET` 请求中的查询参数还是 `POST` 请求中的表单参数。
+> 	因此，这两个方法的作用对象不同，一个用于获取路由参数，一个用于获取请求参数。
 
 #### (*Context) PostForm 
 
-``` go linenums="1"
+``` go
 func (c *Context) PostForm(key string) (value string)
 ```
 
@@ -1244,7 +1246,7 @@ func (c *Context) PostForm(key string) (value string)
 
 #### (*Context) PostFormArray 
 
-``` go linenums="1"
+``` go
 func (c *Context) PostFormArray(key string) (values []string)
 ```
 
@@ -1258,7 +1260,7 @@ func (c *Context) PostFormArray(key string) (values []string)
 >
 > 那么在处理这个请求的处理器函数中，我们可以这样使用 `PostFormArray` 方法：
 >
-> ```go linenums="1"
+> ```go
 > func handleFruit(c *gin.Context) {
 >     fruits := c.PostFormArray("fruit")
 >     fmt.Printf("Length of the fruits slice: %d\n", len(fruits))
@@ -1278,7 +1280,7 @@ func (c *Context) PostFormArray(key string) (values []string)
 
 #### (*Context) PostFormMap 
 
-``` go linenums="1"
+``` go
 func (c *Context) PostFormMap(key string) (dicts map[string]string)
 ```
 
@@ -1288,7 +1290,7 @@ func (c *Context) PostFormMap(key string) (dicts map[string]string)
 
 #### (*Context) ProtoBuf 
 
-``` go linenums="1"
+``` go
 func (c *Context) ProtoBuf(code int, obj any)
 ```
 
@@ -1298,21 +1300,21 @@ func (c *Context) ProtoBuf(code int, obj any)
 
 #### (*Context) PureJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) PureJSON(code int, obj any)
 ```
 
 ​	PureJSON方法将给定的结构体序列化为 JSON，并将其写入响应体中。与 JSON方法不同，PureJSON方法不会用其Unicode 实体替换特殊的 HTML 字符。
 
-> `JSON()` 方法是将结构体转换为 JSON 格式，并使用 `gin` 的默认字符编码设置响应头的 `Content-Type` 为 `application/json`。此外，`JSON()` 方法还会将特殊的 HTML 字符（如 `<`, `>`, `&`）替换为它们的 Unicode 实体，以避免浏览器将其解释为 HTML 标签或其他特殊字符。
+> ​	`JSON()` 方法是将结构体转换为 JSON 格式，并使用 `gin` 的默认字符编码设置响应头的 `Content-Type` 为 `application/json`。此外，`JSON()` 方法还会将特殊的 HTML 字符（如 `<`, `>`, `&`）替换为它们的 Unicode 实体，以避免浏览器将其解释为 HTML 标签或其他特殊字符。
 >
-> `PureJSON()` 方法则不会将特殊的 HTML 字符替换为 Unicode 实体。这意味着如果返回的 JSON 数据中包含特殊字符，则客户端将看到这些字符，而不是它们的实体。`PureJSON()` 方法仅仅将结构体转换为 JSON 格式并返回给客户端，并不会设置响应头的 `Content-Type`，需要在自己的代码中设置。
+> ​	`PureJSON()` 方法则不会将特殊的 HTML 字符替换为 Unicode 实体。这意味着如果返回的 JSON 数据中包含特殊字符，则客户端将看到这些字符，而不是它们的实体。`PureJSON()` 方法仅仅将结构体转换为 JSON 格式并返回给客户端，并不会设置响应头的 `Content-Type`，需要在自己的代码中设置。
 >
-> 因此，如果需要在 JSON 数据中包含特殊字符，可以使用 `PureJSON()` 方法。如果不需要，则可以使用 `JSON()` 方法，它会在大多数情况下更加安全。
+> ​	因此，如果需要在 JSON 数据中包含特殊字符，可以使用 `PureJSON()` 方法。如果不需要，则可以使用 `JSON()` 方法，它会在大多数情况下更加安全。
 
 #### (*Context) Query 
 
-``` go linenums="1"
+``` go
 func (c *Context) Query(key string) (value string)
 ```
 
@@ -1328,7 +1330,7 @@ GET /path?id=1234&name=Manu&value=
 
 #### (*Context) QueryArray 
 
-``` go linenums="1"
+``` go
 func (c *Context) QueryArray(key string) (values []string)
 ```
 
@@ -1338,7 +1340,7 @@ func (c *Context) QueryArray(key string) (values []string)
 >
 > 通过以下代码：
 >
-> ```go linenums="1"
+> ```go
 > colors := c.QueryArray("color")
 > fmt.Printf("%#v",colors)
 > ```
@@ -1347,7 +1349,7 @@ func (c *Context) QueryArray(key string) (values []string)
 
 #### (*Context) QueryMap 
 
-``` go linenums="1"
+``` go
 func (c *Context) QueryMap(key string) (dicts map[string]string)
 ```
 
@@ -1357,7 +1359,7 @@ func (c *Context) QueryMap(key string) (dicts map[string]string)
 >
 > 通过以下代码：
 >
-> ```go linenums="1"
+> ```go
 > s := c.QueryArray("name")
 > fmt.Printf("%#v",s)
 > ```
@@ -1366,7 +1368,7 @@ func (c *Context) QueryMap(key string) (dicts map[string]string)
 
 #### (*Context) Redirect 
 
-``` go linenums="1"
+``` go
 func (c *Context) Redirect(code int, location string)
 ```
 
@@ -1376,7 +1378,7 @@ func (c *Context) Redirect(code int, location string)
 
 #### (*Context) RemoteIP 
 
-``` go linenums="1"
+``` go
 func (c *Context) RemoteIP() string
 ```
 
@@ -1384,7 +1386,7 @@ func (c *Context) RemoteIP() string
 
 #### (*Context) Render 
 
-``` go linenums="1"
+``` go
 func (c *Context) Render(code int, r render.Render)
 ```
 
@@ -1392,7 +1394,7 @@ func (c *Context) Render(code int, r render.Render)
 
 #### (*Context) SSEvent 
 
-``` go linenums="1"
+``` go
 func (c *Context) SSEvent(name string, message any)
 ```
 
@@ -1400,7 +1402,7 @@ func (c *Context) SSEvent(name string, message any)
 
 #### (*Context) SaveUploadedFile 
 
-``` go linenums="1"
+``` go
 func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
 ```
 
@@ -1408,7 +1410,7 @@ func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
 
 #### (*Context) SecureJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) SecureJSON(code int, obj any)
 ```
 
@@ -1418,7 +1420,7 @@ func (c *Context) SecureJSON(code int, obj any)
 
 #### (*Context) Set 
 
-``` go linenums="1"
+``` go
 func (c *Context) Set(key string, value any)
 ```
 
@@ -1426,7 +1428,7 @@ func (c *Context) Set(key string, value any)
 
 #### (*Context) SetAccepted 
 
-``` go linenums="1"
+``` go
 func (c *Context) SetAccepted(formats ...string)
 ```
 
@@ -1434,7 +1436,7 @@ func (c *Context) SetAccepted(formats ...string)
 
 #### (*Context) SetCookie 
 
-``` go linenums="1"
+``` go
 func (c *Context) SetCookie(name, value string, maxAge int, path, domain string, secure, httpOnly bool)
 ```
 
@@ -1442,7 +1444,7 @@ func (c *Context) SetCookie(name, value string, maxAge int, path, domain string,
 
 #### (*Context) SetSameSite 
 
-``` go linenums="1"
+``` go
 func (c *Context) SetSameSite(samesite http.SameSite) {
 	c.sameSite = samesite
 }
@@ -1464,7 +1466,7 @@ SetSameSite with cookie
 >
 > 以下是一个示例：
 >
-> ```go linenums="1"
+> ```go
 > func handler(c *gin.Context) {
 >     cookie := http.Cookie{
 >         Name:     "test",
@@ -1482,7 +1484,7 @@ SetSameSite with cookie
 
 #### (*Context) ShouldBind 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBind(obj any) error
 ```
 
@@ -1497,7 +1499,7 @@ func (c *Context) ShouldBind(obj any) error
 
 #### (*Context) ShouldBindBodyWith 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindBodyWith(obj any, bb binding.BindingBody) (err error)
 ```
 
@@ -1507,7 +1509,7 @@ func (c *Context) ShouldBindBodyWith(obj any, bb binding.BindingBody) (err error
 
 #### (*Context) ShouldBindHeader 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindHeader(obj any) error
 ```
 
@@ -1515,7 +1517,7 @@ func (c *Context) ShouldBindHeader(obj any) error
 
 #### (*Context) ShouldBindJSON 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindJSON(obj any) error
 ```
 
@@ -1523,7 +1525,7 @@ func (c *Context) ShouldBindJSON(obj any) error
 
 #### (*Context) ShouldBindQuery 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindQuery(obj any) error
 ```
 
@@ -1531,7 +1533,7 @@ func (c *Context) ShouldBindQuery(obj any) error
 
 #### (*Context) ShouldBindTOML 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindTOML(obj interface{}) error
 ```
 
@@ -1539,7 +1541,7 @@ func (c *Context) ShouldBindTOML(obj interface{}) error
 
 #### (*Context) ShouldBindUri 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindUri(obj any) error
 ```
 
@@ -1547,7 +1549,7 @@ func (c *Context) ShouldBindUri(obj any) error
 
 #### (*Context) ShouldBindWith 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindWith(obj any, b binding.Binding) error
 ```
 
@@ -1555,7 +1557,7 @@ func (c *Context) ShouldBindWith(obj any, b binding.Binding) error
 
 #### (*Context) ShouldBindXML 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindXML(obj any) error
 ```
 
@@ -1563,7 +1565,7 @@ func (c *Context) ShouldBindXML(obj any) error
 
 #### (*Context) ShouldBindYAML 
 
-``` go linenums="1"
+``` go
 func (c *Context) ShouldBindYAML(obj any) error
 ```
 
@@ -1571,7 +1573,7 @@ func (c *Context) ShouldBindYAML(obj any) error
 
 #### (*Context) Status 
 
-``` go linenums="1"
+``` go
 func (c *Context) Status(code int)
 ```
 
@@ -1579,7 +1581,7 @@ func (c *Context) Status(code int)
 
 #### (*Context) Stream 
 
-``` go linenums="1"
+``` go
 func (c *Context) Stream(step func(w io.Writer) bool) bool
 ```
 
@@ -1587,7 +1589,7 @@ func (c *Context) Stream(step func(w io.Writer) bool) bool
 
 #### (*Context) String 
 
-``` go linenums="1"
+``` go
 func (c *Context) String(code int, format string, values ...any)
 ```
 
@@ -1595,7 +1597,7 @@ func (c *Context) String(code int, format string, values ...any)
 
 #### (*Context) TOML 
 
-``` go linenums="1"
+``` go
 func (c *Context) TOML(code int, obj interface{})
 ```
 
@@ -1603,7 +1605,7 @@ func (c *Context) TOML(code int, obj interface{})
 
 #### (*Context) Value 
 
-``` go linenums="1"
+``` go
 func (c *Context) Value(key any) any
 ```
 
@@ -1611,7 +1613,7 @@ func (c *Context) Value(key any) any
 
 #### (*Context) XML 
 
-``` go linenums="1"
+``` go
 func (c *Context) XML(code int, obj any)
 ```
 
@@ -1619,7 +1621,7 @@ func (c *Context) XML(code int, obj any)
 
 #### (*Context) YAML 
 
-``` go linenums="1"
+``` go
 func (c *Context) YAML(code int, obj any)
 ```
 
@@ -1627,7 +1629,7 @@ func (c *Context) YAML(code int, obj any)
 
 ### type Engine 
 
-``` go linenums="1"
+``` go
 type Engine struct {
 	RouterGroup
     
@@ -1723,7 +1725,7 @@ type Engine struct {
 
 #### func Default 
 
-``` go linenums="1"
+``` go
 func Default() *Engine
 ```
 
@@ -1731,7 +1733,7 @@ func Default() *Engine
 
 #### func New 
 
-``` go linenums="1"
+``` go
 func New() *Engine
 ```
 
@@ -1751,7 +1753,7 @@ func New() *Engine
 
 #### (*Engine) Delims 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) Delims(left, right string) *Engine
 ```
 
@@ -1759,7 +1761,7 @@ func (engine *Engine) Delims(left, right string) *Engine
 
 #### (*Engine) HandleContext 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) HandleContext(c *Context)
 ```
 
@@ -1767,13 +1769,13 @@ func (engine *Engine) HandleContext(c *Context)
 
 #### (*Engine) Handler 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) Handler() http.Handler
 ```
 
 #### (*Engine) LoadHTMLFiles 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) LoadHTMLFiles(files ...string)
 ```
 
@@ -1781,7 +1783,7 @@ func (engine *Engine) LoadHTMLFiles(files ...string)
 
 #### (*Engine) LoadHTMLGlob 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) LoadHTMLGlob(pattern string)
 ```
 
@@ -1789,7 +1791,7 @@ func (engine *Engine) LoadHTMLGlob(pattern string)
 
 #### (*Engine) NoMethod 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) NoMethod(handlers ...HandlerFunc)
 ```
 
@@ -1797,7 +1799,7 @@ NoMethod 设置当 Engine.HandleMethodNotAllowed 为 true 时的处理程序。
 
 #### (*Engine) NoRoute 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) NoRoute(handlers ...HandlerFunc)
 ```
 
@@ -1807,7 +1809,7 @@ func (engine *Engine) NoRoute(handlers ...HandlerFunc)
 >
 > 示例代码如下：
 >
-> ```go linenums="1"
+> ```go
 > package main
 > 
 > import (
@@ -1836,7 +1838,7 @@ func (engine *Engine) NoRoute(handlers ...HandlerFunc)
 
 #### (*Engine) Routes 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) Routes() (routes RoutesInfo)
 ```
 
@@ -1844,7 +1846,7 @@ func (engine *Engine) Routes() (routes RoutesInfo)
 
 #### (*Engine) Run 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) Run(addr ...string) (err error)
 ```
 
@@ -1852,7 +1854,7 @@ func (engine *Engine) Run(addr ...string) (err error)
 
 #### (*Engine) RunFd 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) RunFd(fd int) (err error)
 ```
 
@@ -1860,7 +1862,7 @@ func (engine *Engine) RunFd(fd int) (err error)
 
 #### (*Engine) RunListener 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) RunListener(listener net.Listener) (err error)
 ```
 
@@ -1868,7 +1870,7 @@ func (engine *Engine) RunListener(listener net.Listener) (err error)
 
 #### (*Engine) RunTLS 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) RunTLS(addr, certFile, keyFile string) (err error)
 ```
 
@@ -1876,7 +1878,7 @@ func (engine *Engine) RunTLS(addr, certFile, keyFile string) (err error)
 
 #### (*Engine) RunUnix 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) RunUnix(file string) (err error)
 ```
 
@@ -1884,7 +1886,7 @@ func (engine *Engine) RunUnix(file string) (err error)
 
 #### (*Engine) SecureJsonPrefix 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) SecureJsonPrefix(prefix string) *Engine
 ```
 
@@ -1892,7 +1894,7 @@ func (engine *Engine) SecureJsonPrefix(prefix string) *Engine
 
 #### (*Engine) ServeHTTP 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request)
 ```
 
@@ -1904,7 +1906,7 @@ ServeHTTP方法符合 http.Handler 接口。
 >
 > 下面是一个简单的示例：
 >
-> ```go linenums="1"
+> ```go
 > package main
 > 
 > import (
@@ -1933,7 +1935,7 @@ ServeHTTP方法符合 http.Handler 接口。
 
 #### (*Engine) SetFuncMap 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) SetFuncMap(funcMap template.FuncMap)
 ```
 
@@ -1941,7 +1943,7 @@ func (engine *Engine) SetFuncMap(funcMap template.FuncMap)
 
 #### (*Engine) SetHTMLTemplate 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) SetHTMLTemplate(templ *template.Template)
 ```
 
@@ -1949,7 +1951,7 @@ func (engine *Engine) SetHTMLTemplate(templ *template.Template)
 
 #### (*Engine) SetTrustedProxies 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) SetTrustedProxies(trustedProxies []string) error
 ```
 
@@ -1957,7 +1959,7 @@ func (engine *Engine) SetTrustedProxies(trustedProxies []string) error
 
 #### (*Engine) Use 
 
-``` go linenums="1"
+``` go
 func (engine *Engine) Use(middleware ...HandlerFunc) IRoutes
 ```
 
@@ -1965,7 +1967,7 @@ func (engine *Engine) Use(middleware ...HandlerFunc) IRoutes
 
 ### type Error 
 
-``` go linenums="1"
+``` go
 type Error struct {
 	Err  error
 	Type ErrorType
@@ -1977,7 +1979,7 @@ type Error struct {
 
 #### (Error) Error 
 
-``` go linenums="1"
+``` go
 func (msg Error) Error() string
 ```
 
@@ -1985,7 +1987,7 @@ func (msg Error) Error() string
 
 #### (*Error) IsType 
 
-``` go linenums="1"
+``` go
 func (msg *Error) IsType(flags ErrorType) bool
 ```
 
@@ -1993,7 +1995,7 @@ func (msg *Error) IsType(flags ErrorType) bool
 
 #### (*Error) JSON 
 
-``` go linenums="1"
+``` go
 func (msg *Error) JSON() any
 ```
 
@@ -2001,7 +2003,7 @@ func (msg *Error) JSON() any
 
 #### (*Error) MarshalJSON 
 
-``` go linenums="1"
+``` go
 func (msg *Error) MarshalJSON() ([]byte, error)
 ```
 
@@ -2009,7 +2011,7 @@ func (msg *Error) MarshalJSON() ([]byte, error)
 
 #### (*Error) SetMeta 
 
-``` go linenums="1"
+``` go
 func (msg *Error) SetMeta(data any) *Error
 ```
 
@@ -2017,7 +2019,7 @@ func (msg *Error) SetMeta(data any) *Error
 
 #### (*Error) SetType 
 
-``` go linenums="1"
+``` go
 func (msg *Error) SetType(flags ErrorType) *Error
 ```
 
@@ -2025,7 +2027,7 @@ func (msg *Error) SetType(flags ErrorType) *Error
 
 #### (*Error) Unwrap 
 
-``` go linenums="1"
+``` go
 func (msg *Error) Unwrap() error
 ```
 
@@ -2033,13 +2035,13 @@ func (msg *Error) Unwrap() error
 
 ### type ErrorType 
 
-``` go linenums="1"
+``` go
 type ErrorType uint64
 ```
 
 ​	ErrorType类型是一个无符号的64位错误代码，在gin规范中定义。
 
-``` go linenums="1"
+``` go
 const (
 	// ErrorTypeBind 表示当 Context.Bind() 失败时使用的错误类型。
 	ErrorTypeBind ErrorType = 1 << 63
@@ -2058,7 +2060,7 @@ const (
 
 ### type H 
 
-``` go linenums="1"
+``` go
 type H map[string]any
 ```
 
@@ -2066,7 +2068,7 @@ type H map[string]any
 
 #### (H) MarshalXML 
 
-``` go linenums="1"
+``` go
 func (h H) MarshalXML(e *xml.Encoder, start xml.StartElement) error
 ```
 
@@ -2074,7 +2076,7 @@ func (h H) MarshalXML(e *xml.Encoder, start xml.StartElement) error
 
 ### type HandlerFunc 
 
-``` go linenums="1"
+``` go
 type HandlerFunc func(*Context)
 ```
 
@@ -2082,7 +2084,7 @@ type HandlerFunc func(*Context)
 
 #### func BasicAuth 
 
-``` go linenums="1"
+``` go
 func BasicAuth(accounts Accounts) HandlerFunc
 ```
 
@@ -2090,7 +2092,7 @@ func BasicAuth(accounts Accounts) HandlerFunc
 
 #### func BasicAuthForRealm 
 
-``` go linenums="1"
+``` go
 func BasicAuthForRealm(accounts Accounts, realm string) HandlerFunc
 ```
 
@@ -2098,7 +2100,7 @@ func BasicAuthForRealm(accounts Accounts, realm string) HandlerFunc
 
 #### func Bind 
 
-``` go linenums="1"
+``` go
 func Bind(val any) HandlerFunc
 ```
 
@@ -2106,7 +2108,7 @@ func Bind(val any) HandlerFunc
 
 #### func CustomRecovery 
 
-``` go linenums="1"
+``` go
 func CustomRecovery(handle RecoveryFunc) HandlerFunc
 ```
 
@@ -2114,7 +2116,7 @@ func CustomRecovery(handle RecoveryFunc) HandlerFunc
 
 #### func CustomRecoveryWithWriter 
 
-``` go linenums="1"
+``` go
 func CustomRecoveryWithWriter(out io.Writer, handle RecoveryFunc) HandlerFunc
 ```
 
@@ -2122,7 +2124,7 @@ func CustomRecoveryWithWriter(out io.Writer, handle RecoveryFunc) HandlerFunc
 
 #### func ErrorLogger 
 
-``` go linenums="1"
+``` go
 func ErrorLogger() HandlerFunc
 ```
 
@@ -2130,7 +2132,7 @@ func ErrorLogger() HandlerFunc
 
 #### func ErrorLoggerT 
 
-``` go linenums="1"
+``` go
 func ErrorLoggerT(typ ErrorType) HandlerFunc
 ```
 
@@ -2138,7 +2140,7 @@ func ErrorLoggerT(typ ErrorType) HandlerFunc
 
 #### func Logger 
 
-``` go linenums="1"
+``` go
 func Logger() HandlerFunc
 ```
 
@@ -2146,7 +2148,7 @@ func Logger() HandlerFunc
 
 #### func LoggerWithConfig 
 
-``` go linenums="1"
+``` go
 func LoggerWithConfig(conf LoggerConfig) HandlerFunc
 ```
 
@@ -2154,7 +2156,7 @@ func LoggerWithConfig(conf LoggerConfig) HandlerFunc
 
 #### func LoggerWithFormatter 
 
-``` go linenums="1"
+``` go
 func LoggerWithFormatter(f LogFormatter) HandlerFunc
 ```
 
@@ -2162,7 +2164,7 @@ func LoggerWithFormatter(f LogFormatter) HandlerFunc
 
 #### func LoggerWithWriter 
 
-``` go linenums="1"
+``` go
 func LoggerWithWriter(out io.Writer, notlogged ...string) HandlerFunc
 ```
 
@@ -2170,7 +2172,7 @@ func LoggerWithWriter(out io.Writer, notlogged ...string) HandlerFunc
 
 #### func Recovery 
 
-``` go linenums="1"
+``` go
 func Recovery() HandlerFunc
 ```
 
@@ -2178,7 +2180,7 @@ func Recovery() HandlerFunc
 
 #### func RecoveryWithWriter 
 
-``` go linenums="1"
+``` go
 func RecoveryWithWriter(out io.Writer, recovery ...RecoveryFunc) HandlerFunc
 ```
 
@@ -2186,7 +2188,7 @@ func RecoveryWithWriter(out io.Writer, recovery ...RecoveryFunc) HandlerFunc
 
 #### func WrapF 
 
-``` go linenums="1"
+``` go
 func WrapF(f http.HandlerFunc) HandlerFunc
 ```
 
@@ -2194,7 +2196,7 @@ func WrapF(f http.HandlerFunc) HandlerFunc
 
 #### func WrapH 
 
-``` go linenums="1"
+``` go
 func WrapH(h http.Handler) HandlerFunc
 ```
 
@@ -2202,7 +2204,7 @@ func WrapH(h http.Handler) HandlerFunc
 
 ### type HandlersChain 
 
-``` go linenums="1"
+``` go
 type HandlersChain []HandlerFunc
 ```
 
@@ -2210,7 +2212,7 @@ type HandlersChain []HandlerFunc
 
 #### (HandlersChain) Last 
 
-``` go linenums="1"
+``` go
 func (c HandlersChain) Last() HandlerFunc
 ```
 
@@ -2218,7 +2220,7 @@ func (c HandlersChain) Last() HandlerFunc
 
 ### type IRouter 
 
-``` go linenums="1"
+``` go
 type IRouter interface {
 	IRoutes
 	Group(string, ...HandlerFunc) *RouterGroup
@@ -2229,7 +2231,7 @@ type IRouter interface {
 
 ### type IRoutes 
 
-``` go linenums="1"
+``` go
 type IRoutes interface {
 	Use(...HandlerFunc) IRoutes
 
@@ -2255,7 +2257,7 @@ type IRoutes interface {
 
 ### type LogFormatter 
 
-``` go linenums="1"
+``` go
 type LogFormatter func(params LogFormatterParams) string
 ```
 
@@ -2263,7 +2265,7 @@ type LogFormatter func(params LogFormatterParams) string
 
 ### type LogFormatterParams 
 
-``` go linenums="1"
+``` go
 type LogFormatterParams struct {
 	Request *http.Request
 
@@ -2294,7 +2296,7 @@ type LogFormatterParams struct {
 
 #### (*LogFormatterParams) IsOutputColor 
 
-``` go linenums="1"
+``` go
 func (p *LogFormatterParams) IsOutputColor() bool
 ```
 
@@ -2302,7 +2304,7 @@ func (p *LogFormatterParams) IsOutputColor() bool
 
 #### (*LogFormatterParams) MethodColor 
 
-``` go linenums="1"
+``` go
 func (p *LogFormatterParams) MethodColor() string
 ```
 
@@ -2310,7 +2312,7 @@ func (p *LogFormatterParams) MethodColor() string
 
 #### (*LogFormatterParams) ResetColor 
 
-``` go linenums="1"
+``` go
 func (p *LogFormatterParams) ResetColor() string
 ```
 
@@ -2318,7 +2320,7 @@ func (p *LogFormatterParams) ResetColor() string
 
 #### (*LogFormatterParams) StatusCodeColor 
 
-``` go linenums="1"
+``` go
 func (p *LogFormatterParams) StatusCodeColor() string
 ```
 
@@ -2326,7 +2328,7 @@ func (p *LogFormatterParams) StatusCodeColor() string
 
 ### type LoggerConfig 
 
-``` go linenums="1"
+``` go
 type LoggerConfig struct {
    // 可选项。默认值为gin.defaultLogFormatter。
 	Formatter LogFormatter
@@ -2345,7 +2347,7 @@ type LoggerConfig struct {
 
 ### type Negotiate 
 
-``` go linenums="1"
+``` go
 type Negotiate struct {
 	Offered  []string
 	HTMLName string
@@ -2362,7 +2364,7 @@ type Negotiate struct {
 
 ### type Param 
 
-``` go linenums="1"
+``` go
 type Param struct {
 	Key   string
 	Value string
@@ -2373,7 +2375,7 @@ type Param struct {
 
 ### type Params 
 
-``` go linenums="1"
+``` go
 type Params []Param
 ```
 
@@ -2381,7 +2383,7 @@ type Params []Param
 
 #### (Params) ByName 
 
-``` go linenums="1"
+``` go
 func (ps Params) ByName(name string) (va string)
 ```
 
@@ -2389,7 +2391,7 @@ func (ps Params) ByName(name string) (va string)
 
 #### (Params) Get 
 
-``` go linenums="1"
+``` go
 func (ps Params) Get(name string) (string, bool)
 ```
 
@@ -2397,7 +2399,7 @@ func (ps Params) Get(name string) (string, bool)
 
 ### type RecoveryFunc 
 
-``` go linenums="1"
+``` go
 type RecoveryFunc func(c *Context, err any)
 ```
 
@@ -2405,7 +2407,7 @@ type RecoveryFunc func(c *Context, err any)
 
 ### type ResponseWriter 
 
-``` go linenums="1"
+``` go
 type ResponseWriter interface {
 	http.ResponseWriter
 	http.Hijacker
@@ -2437,7 +2439,7 @@ ResponseWriter ...
 
 ### type RouteInfo 
 
-``` go linenums="1"
+``` go
 type RouteInfo struct {
 	Method      string
 	Path        string
@@ -2450,7 +2452,7 @@ type RouteInfo struct {
 
 ### type RouterGroup 
 
-``` go linenums="1"
+``` go
 type RouterGroup struct {
 	Handlers HandlersChain
 	// contains filtered or unexported fields
@@ -2461,7 +2463,7 @@ type RouterGroup struct {
 
 #### (*RouterGroup) Any 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Any(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2469,7 +2471,7 @@ func (group *RouterGroup) Any(relativePath string, handlers ...HandlerFunc) IRou
 
 #### (*RouterGroup) BasePath 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) BasePath() string
 ```
 
@@ -2477,7 +2479,7 @@ func (group *RouterGroup) BasePath() string
 
 #### (*RouterGroup) DELETE 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) DELETE(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2485,7 +2487,7 @@ func (group *RouterGroup) DELETE(relativePath string, handlers ...HandlerFunc) I
 
 #### (*RouterGroup) GET 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) GET(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2493,7 +2495,7 @@ func (group *RouterGroup) GET(relativePath string, handlers ...HandlerFunc) IRou
 
 #### (*RouterGroup) Group 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Group(relativePath string, handlers ...HandlerFunc) *RouterGroup
 ```
 
@@ -2501,7 +2503,7 @@ func (group *RouterGroup) Group(relativePath string, handlers ...HandlerFunc) *R
 
 #### (*RouterGroup) HEAD 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) HEAD(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2509,7 +2511,7 @@ func (group *RouterGroup) HEAD(relativePath string, handlers ...HandlerFunc) IRo
 
 #### (*RouterGroup) Handle 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Handle(httpMethod, relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2521,7 +2523,7 @@ func (group *RouterGroup) Handle(httpMethod, relativePath string, handlers ...Ha
 
 #### (*RouterGroup) Match 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Match(methods []string, relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2529,7 +2531,7 @@ func (group *RouterGroup) Match(methods []string, relativePath string, handlers 
 
 #### (*RouterGroup) OPTIONS 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) OPTIONS(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2537,7 +2539,7 @@ func (group *RouterGroup) OPTIONS(relativePath string, handlers ...HandlerFunc) 
 
 #### (*RouterGroup) PATCH 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) PATCH(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2545,7 +2547,7 @@ func (group *RouterGroup) PATCH(relativePath string, handlers ...HandlerFunc) IR
 
 #### (*RouterGroup) POST 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) POST(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2553,7 +2555,7 @@ func (group *RouterGroup) POST(relativePath string, handlers ...HandlerFunc) IRo
 
 #### (*RouterGroup) PUT 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) PUT(relativePath string, handlers ...HandlerFunc) IRoutes
 ```
 
@@ -2561,7 +2563,7 @@ func (group *RouterGroup) PUT(relativePath string, handlers ...HandlerFunc) IRou
 
 #### (*RouterGroup) Static 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Static(relativePath, root string) IRoutes
 ```
 
@@ -2573,7 +2575,7 @@ router.Static("/static", "/var/www")
 
 #### (*RouterGroup) StaticFS 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) IRoutes
 ```
 
@@ -2581,7 +2583,7 @@ func (group *RouterGroup) StaticFS(relativePath string, fs http.FileSystem) IRou
 
 #### (*RouterGroup) StaticFile 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) StaticFile(relativePath, filepath string) IRoutes
 ```
 
@@ -2589,7 +2591,7 @@ func (group *RouterGroup) StaticFile(relativePath, filepath string) IRoutes
 
 #### (*RouterGroup) StaticFileFS 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) StaticFileFS(relativePath, filepath string, fs http.FileSystem) IRoutes
 ```
 
@@ -2597,7 +2599,7 @@ func (group *RouterGroup) StaticFileFS(relativePath, filepath string, fs http.Fi
 
 #### (*RouterGroup) Use 
 
-``` go linenums="1"
+``` go
 func (group *RouterGroup) Use(middleware ...HandlerFunc) IRoutes
 ```
 
@@ -2605,7 +2607,7 @@ func (group *RouterGroup) Use(middleware ...HandlerFunc) IRoutes
 
 ### type RoutesInfo 
 
-``` go linenums="1"
+``` go
 type RoutesInfo []RouteInfo
 ```
 
