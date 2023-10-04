@@ -10,7 +10,8 @@ draft = false
 
 # All your comparable types - 所有可比较的类型
 
-[https://go.dev/blog/comparable](https://go.dev/blog/comparable)
+> 原文：[https://go.dev/blog/comparable](https://go.dev/blog/comparable)
+>
 
 Robert Griesemer
 17 February 2023

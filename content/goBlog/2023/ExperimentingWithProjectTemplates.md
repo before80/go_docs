@@ -11,7 +11,8 @@ draft = false
 
 # Experimenting with project templates - 尝试项目模板
 
-https://go.dev/blog/gonew
+> 原文：[https://go.dev/blog/gonew](https://go.dev/blog/gonew)
+>
 
 Cameron Balahan
 31 July 2023

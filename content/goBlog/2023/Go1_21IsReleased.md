@@ -11,7 +11,8 @@ draft = false
 
 # Go 1.21 is released! - Go 1.21 发布了！
 
-https://go.dev/blog/go1.21
+> 原文：[https://go.dev/blog/go1.21](https://go.dev/blog/go1.21)
+>
 
 Eli Bendersky, on behalf of the Go team
 8 August 2023

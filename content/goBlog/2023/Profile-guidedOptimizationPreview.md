@@ -11,7 +11,8 @@ draft = false
 
 # Profile-guided optimization preview - 性能分析引导优化预览
 
-[https://go.dev/blog/pgo-preview](https://go.dev/blog/pgo-preview)
+> 原文：[https://go.dev/blog/pgo-preview](https://go.dev/blog/pgo-preview)
+>
 
 Michael Pratt
 8 February 2023

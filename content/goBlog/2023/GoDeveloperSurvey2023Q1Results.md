@@ -11,7 +11,8 @@ draft = false
 
 # Go Developer Survey 2023 Q1 Results - Go开发者调查2023年第一季度结果
 
-https://go.dev/blog/survey2023-q1-results
+> 原文：[https://go.dev/blog/survey2023-q1-results](https://go.dev/blog/survey2023-q1-results)
+>
 
 
 

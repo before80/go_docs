@@ -11,7 +11,8 @@ draft = false
 
 # Go 1.21 Release Candidate - go1.21 候选版本
 
-https://go.dev/blog/go1.21rc
+> 原文：[https://go.dev/blog/go1.21rc](https://go.dev/blog/go1.21rc)
+>
 
 Eli Bendersky, on behalf of the Go team 代表 Go 团队
 21 June 2023

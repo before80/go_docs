@@ -11,7 +11,8 @@ draft = false
 
 # Backward Compatibility, Go 1.21, and Go 2 - 向后兼容性、Go 1.21和Go 2
 
-https://go.dev/blog/compat
+> 原文：[https://go.dev/blog/compat](https://go.dev/blog/compat)
+>
 
 Russ Cox
 14 August 2023

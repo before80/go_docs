@@ -11,7 +11,8 @@ draft = false
 
 # Structured Logging with slog - 使用 slog 进行结构化日志记录
 
-https://go.dev/blog/slog
+> 原文：[https://go.dev/blog/slog](https://go.dev/blog/slog)
+>
 
 Jonathan Amsterdam
 22 August 2023

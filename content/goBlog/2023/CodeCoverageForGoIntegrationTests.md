@@ -10,7 +10,8 @@ draft = false
 
 # Code coverage for Go integration tests - Go集成测试的代码覆盖率
 
-[https://go.dev/blog/integration-test-coverage](https://go.dev/blog/integration-test-coverage)
+> 原文：[https://go.dev/blog/integration-test-coverage](https://go.dev/blog/integration-test-coverage)
+>
 
 Than McIntosh
 8 March 2023

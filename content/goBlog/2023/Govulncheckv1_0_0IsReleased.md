@@ -11,7 +11,8 @@ draft = false
 
 # Govulncheck v1.0.0 is released! - Govulncheck v1.0.0 发布！
 
-https://go.dev/blog/govulncheck
+> 原文：[https://go.dev/blog/govulncheck](https://go.dev/blog/govulncheck)
+>
 
 Julie Qiu, for the Go security team
 13 July 2023

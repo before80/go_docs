@@ -11,7 +11,8 @@ draft = false
 
 # Forward Compatibility and Toolchain Management in Go 1.21 - Go 1.21中的向后兼容性和工具链管理
 
-https://go.dev/blog/toolchain
+> 原文：[https://go.dev/blog/toolchain](https://go.dev/blog/toolchain)
+>
 
 Russ Cox
 14 August 2023

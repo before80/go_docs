@@ -11,7 +11,8 @@ draft = false
 
 # Go 1.20 is released! - go 1.20 发布了！
 
-[https://go.dev/blog/go1.20](https://go.dev/blog/go1.20)
+> 原文：[https://go.dev/blog/go1.20](https://go.dev/blog/go1.20)https://go.dev/blog/go1.20
+>
 
 Robert Griesemer, on behalf of the Go team  - 代表 Go 团队
 1 February 2023
