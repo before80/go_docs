@@ -11,8 +11,33 @@ draft = false
 
 +++
 
+## learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code
+
+[https://learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code](https://learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code)
+
+​	Configure Visual Studio Code for Go development。
+
 ## www.golangprograms.com
 
 [https://www.golangprograms.com](https://www.golangprograms.com)
 
 ​	包含go语言各种语法、数据结构、算法等。
+
+## programiz.com/golang
+
+https://www.programiz.com/golang
+
+​	包含go语言各种语法。
+
+## wikitechy.com/tutorials/golang
+
+https://www.wikitechy.com/tutorials/golang/
+
+​	包含go语言各种语法。
+
+## reddit.com/r/golang
+
+[https://www.reddit.com/r/golang/](https://www.reddit.com/r/golang/)
+
+​	Ask questions and post articles about the Go programming language and related tools, events etc.
+
