@@ -163,7 +163,9 @@ window.markmap = {
 {{ if eq $MyDefLastUrlEle "" }}
 <script src="/js/deal-zero-width-space.js"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script src='/js/jquery-3.6.3.min.js'></script>
 {{ else }}
+<script src="{{- $MyDefLastUrlEle -}}/js/jquery-3.6.3.min.js"></script>
 <script src="{{- $MyDefLastUrlEle -}}/js/deal-zero-width-space.js"></script>
 <script src="{{- $MyDefLastUrlEle -}}/js/tabpane-persist.js"></script>
 {{ end }}
