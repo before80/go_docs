@@ -177,7 +177,7 @@ This section is empty.
 func After(d Duration) <-chan Time
 ```
 
-​	After函数等待持续时间过去，然后在返回的通道上发送当前时间。它等效于 NewTimer(d).C。底层定时器直到定时器触发才被垃圾回收器回收。如果效率是一个问题，应该使用 NewTimer，并在不再需要定时器时调用 Timer.Stop。
+​	After函数等待指定的时间间隔过去后，将当前时间发送到返回的通道上。它等效于`NewTimer(d).C`。底层的计时器直到计时器触发后才会被垃圾回收器回收。如果效率是一个问题，应该使用`NewTimer`，并在不再需要计时器时调用Timer.Stop。
 
 ##### After Example
 ``` go 
@@ -193,13 +193,20 @@ var c chan int
 func handle(int) {}
 
 func main() {
+	fmt.Println("before:", time.Now())
 	select {
 	case m := <-c:
 		handle(m)
-	case <-time.After(10 * time.Second):
-		fmt.Println("timed out")
+	case t, ok := <-time.After(2 * time.Second):
+		if ok {
+			fmt.Println("timed out:", t)
+		}
 	}
 }
+
+// Output:
+//before: 2023-10-22 20:02:07.1865854 +0800 CST m=+0.006234601
+//timed out: 2023-10-22 20:02:09.2169465 +0800 CST m=+2.036595701
 
 ```
 
@@ -231,7 +238,7 @@ func main() {
 func Tick(d Duration) <-chan Time
 ```
 
-​	Tick 函数是 NewTicker 的方便封装，只提供访问时间 channel。虽然 Tick 对于没有关闭 Ticker 需求的客户端非常有用，但请注意，如果没有关闭 Ticker，底层 Ticker 将无法被垃圾回收；它会"泄漏"。与 NewTicker 不同，如果 d <= 0，Tick 将返回 nil。
+​	Tick是对NewTicker的方便封装，仅提供对滴答通道的访问。尽管Tick对于不需要关闭Ticker的客户端很有用，但请注意，如果没有关闭它的方法，底层的Ticker将无法被垃圾回收器回收；它会"泄漏"。与NewTicker不同，如果d <= 0，Tick将返回`nil`。
 
 ##### Tick Example
 ``` go 
@@ -253,6 +260,41 @@ func main() {
 
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func statusUpdate() string { return "" }
+
+func main() {
+	c1 := time.Tick(0)
+	fmt.Printf("c1=%v\n", c1)
+	time.Sleep(2 * time.Second)
+	fmt.Println("slept 2 seconds")
+	fmt.Printf("c1=%v\n", c1)
+	c2 := time.Tick(-1)
+	fmt.Printf("c2=%v\n", c2)
+	time.Sleep(2 * time.Second)
+	fmt.Println("slept 2 seconds")
+	fmt.Printf("c2=%v\n", c2)
+}
+
+// Output:
+//c1=<nil>
+//slept 2 seconds
+//c1=<nil>
+//c2=<nil>
+//slept 2 seconds
+//c2=<nil>
+
+```
+
+
+
 ## 类型
 
 ### type Duration 
@@ -261,7 +303,7 @@ func main() {
 type Duration int64
 ```
 
-​	Duration类型表示两个时间点之间经过的时间，以 int64 纳秒计数的方式表示。该表示方式将最大可表示的持续时间限制在大约 290 年左右。
+​	Duration类型表示两个时间点之间经过的时间，以 int64 纳秒计数的方式表示。该表示方式将最大可表示的持续时间限制在大约 `290` 年左右。
 
 ##### Example
 ``` go 
@@ -847,7 +889,7 @@ func (e *ParseError) Error() string
 ``` go 
 type Ticker struct {
 	C <-chan Time // The channel on which the ticks are delivered.
-	// contains filtered or unexported fields
+	r runtimeTimer
 }
 ```
 
@@ -859,7 +901,7 @@ type Ticker struct {
 func NewTicker(d Duration) *Ticker
 ```
 
-​	NewTicker函数返回一个新的 Ticker，它包含一个通道，每个 tick 都会在通道上发送当前时间。tick 的周期由 duration 参数指定。ticker 会调整时间间隔或者丢弃 ticks 来弥补慢的接收器。duration d 必须大于零；否则，NewTicker 会 panic。停止 ticker 以释放相关资源。
+​	NewTicker函数返回一个包含通道的新的Ticker。每个tick后，通道将发送当前时间。ticks的周期由duration参数指定。为了弥补接收者的速度慢，ticker将调整时间间隔或者丢弃一些ticks。时间间隔`d`必须大于零；否则，NewTicker将引发panic。**停止ticker以释放相关资源**。
 
 ##### NewTicker Example
 ``` go 
@@ -889,6 +931,19 @@ func main() {
 	}
 }
 
+// Output:
+//Current time:  2023-10-22 18:55:09.7151 +0800 CST m=+1.017119601
+//Current time:  2023-10-22 18:55:10.710931 +0800 CST m=+2.012950601
+//Current time:  2023-10-22 18:55:11.7104022 +0800 CST m=+3.012421801
+//Current time:  2023-10-22 18:55:12.7095846 +0800 CST m=+4.011604201
+//Current time:  2023-10-22 18:55:13.7084657 +0800 CST m=+5.010485301
+//Current time:  2023-10-22 18:55:14.7109187 +0800 CST m=+6.012938301
+//Current time:  2023-10-22 18:55:15.7088807 +0800 CST m=+7.010900301
+//Current time:  2023-10-22 18:55:16.7066232 +0800 CST m=+8.008642801
+//Current time:  2023-10-22 18:55:17.7201499 +0800 CST m=+9.022169501
+//Current time:  2023-10-22 18:55:18.7178336 +0800 CST m=+10.019853201
+//Done!
+
 ```
 
 #### (*Ticker) Reset  <- go1.15
@@ -897,7 +952,53 @@ func main() {
 func (t *Ticker) Reset(d Duration)
 ```
 
-​	Reset方法停止一个 Ticker 并将其周期重置为指定的 duration。下一个 tick 将在新周期过去后到达。duration d 必须大于零；否则，Reset 会 panic。
+​	Reset方法停止一个 Ticker 并将其周期重置为指定的时间间隔。下一个 tick 将在新周期过去后到达。时间间隔`d` 必须大于零；否则，Reset 方法会 panic。
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	ticker := time.NewTicker(time.Second)
+	defer ticker.Stop()
+	done := make(chan bool)
+	go func() {
+		time.Sleep(10 * time.Second)
+		done <- true
+	}()
+
+	i := 3
+	for {
+		select {
+		case <-done:
+			fmt.Println("Done!")
+			return
+		case t := <-ticker.C:
+			i--
+			fmt.Println("Current time: ", t)
+			if i == 0 {
+				ticker.Reset(2 * time.Second)
+				fmt.Println("--------After Reset------")
+			}
+		}
+	}
+}
+// Output:
+//Current time:  2023-10-22 19:01:52.641886 +0800 CST m=+1.017594201
+//Current time:  2023-10-22 19:01:53.640631 +0800 CST m=+2.016339201
+//Current time:  2023-10-22 19:01:54.6396148 +0800 CST m=+3.015323001
+//--------After Reset------
+//Current time:  2023-10-22 19:01:56.6480269 +0800 CST m=+5.023735101
+//Current time:  2023-10-22 19:01:58.6463226 +0800 CST m=+7.022030801
+//Current time:  2023-10-22 19:02:00.6546651 +0800 CST m=+9.030373301
+//Done!
+```
+
+
 
 #### (*Ticker) Stop 
 
@@ -2098,7 +2199,7 @@ func (t Time) ZoneBounds() (start, end Time)
 ``` go 
 type Timer struct {
 	C <-chan Time
-	// contains filtered or unexported fields
+	r runtimeTimer
 }
 ```
 
@@ -2112,6 +2213,31 @@ func AfterFunc(d Duration, f func()) *Timer
 
 ​	AfterFunc函数等待持续时间过去，然后在其自己的goroutine中调用f。它返回一个Timer，可以使用它的Stop方法取消调用。
 
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("before:", time.Now())
+	time.AfterFunc(5*time.Second, func() {
+		fmt.Println("It's been 5 seconds and Now time is \n", time.Now())
+	})
+	time.Sleep(10 * time.Second)
+}
+
+// Output:
+//before: 2023-10-22 08:15:47.1432426 +0800 CST m=+0.005348101
+//It's been 5 seconds and Now time is
+//2023-10-22 08:15:52.1694514 +0800 CST m=+5.031556901
+
+```
+
+
+
 #### func NewTimer 
 
 ``` go 
@@ -2120,30 +2246,135 @@ func NewTimer(d Duration) *Timer
 
 ​	NewTimer函数创建一个新的Timer，它将在至少持续时间d之后在其通道上发送当前时间。
 
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("before:", time.Now())
+	timer := time.NewTimer(5 * time.Second)
+	fmt.Println("after:", <-timer.C)
+}
+
+// Output:
+//before: 2023-10-22 08:04:39.0256614 +0800 CST m=+0.005701401
+//after: 2023-10-22 08:04:44.0665367 +0800 CST m=+5.046576701
+```
+
+
+
 #### (*Timer) Reset  <- go1.1
 
 ``` go 
 func (t *Timer) Reset(d Duration) bool
 ```
 
-​	Reset方法将计时器更改为在持续时间d之后到期。如果计时器已激活，则返回true，如果计时器已过期或已停止，则返回false。
+​	Reset方法将计时器更改为在持续时间`d`后到期。如果计时器处于活动状态，则返回`true`，如果计时器已过期或已停止，则返回`false`。 
 
-​	对于使用NewTimer创建的Timer，应仅在已耗尽通道的已停止或已过期计时器上调用Reset。
+​	**对于使用NewTimer创建的计时器，Reset只应在已停止或已过期且通道已排空的情况下调用**。 
 
-​	如果程序已从t.C接收到值，则已知计时器已过期并且已耗尽通道，因此可以直接使用t.Reset。但是，如果程序尚未从t.C接收值，则必须停止计时器并显式耗尽通道：
+> 个人注释
+>
+> ​	Reset只应在（已停止）或（已过期且通道已排空）的情况下调用。
+>
+> ​	怎么判断计时器已停止？
+>
+> ​	调用Stop方法返回true，可以说明计时器已停止。
 
-```
+​	如果程序已经从t.C接收到值，则已知该计时器已过期并且通道已排空，因此可以直接使用t.Reset。**但是，如果程序尚未从t.C接收到值（即未排空），则必须停止该计时器**，并且如果Stop报告该计时器在停止之前已过期，则必须显式排空通道。
+
+```go
 if !t.Stop() {
 	<-t.C
 }
 t.Reset(d)
 ```
 
-​	这不应与从Timer通道中同时接收其他值并发执行。
+​	这不应与来自该计时器通道的其他接收同时进行。 
 
-​	注意，使用Reset的返回值正确是不可能的，因为在耗尽通道和新计时器到期之间存在竞争条件。如上所述，应仅在已停止或已过期的通道上调用Reset，以保持与现有程序的兼容性。
+​	请注意，正确使用Reset的返回值是不可能的，因为在清空通道和新计时器到期之间存在竞态条件。**应如上所述始终在已停止或已到期的通道上调用Reset，以保持与现有程序的兼容性**。返回值存在是为了保持与现有程序的兼容性。 
 
-​	对于使用AfterFunc(d，f)创建的Timer，Reset或重新调度f将运行，此时Reset返回true，或安排f再次运行，此时它将返回false。当Reset返回false时，Reset既不等待之前的f完成，也不保证随后运行f的goroutine不与之前的goroutine并发运行。如果调用程序需要知道f的前一次执行是否完成，它必须显式与f进行协调。
+​	对于使用`AfterFunc(d, f)`创建的计时器，Reset方法要么重新安排f的运行时间，此时Reset方法返回`true`，要么安排`f`再次运行，此时Reset方法返回`false`。当Reset方法返回`false`时，Reset方法既不等待之前的`f`完成再返回，也不能保证后续运行`f`的goroutine不与之前的同时运行。如果调用方需要知道之前的`f`执行是否完成，它必须与`f`进行显式的协调。
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Printf("--------------------\n timer1 \n --------------------\n")
+	fmt.Println("before:", time.Now())
+	timer1 := time.AfterFunc(5*time.Second, func() {
+		fmt.Println("timer1 has been 5+ seconds and Now time is \n", time.Now())
+	})
+	time.Sleep(2 * time.Second)
+	fmt.Println("had sleep 2 second:", time.Now())
+
+	// 应始终在已停止或到期的通道上调用Reset，以保持与现有程序的兼容性
+	if !timer1.Stop() {
+		<-timer1.C
+	}
+
+	fmt.Println("reset:", time.Now())
+	fmt.Printf("Reset timer1 return %t\n", timer1.Reset(5*time.Second))
+	time.Sleep(10 * time.Second)
+
+	fmt.Printf("--------------------\n timer2 \n --------------------\n")
+	fmt.Println("before:", time.Now())
+	timer2 := time.NewTimer(5 * time.Second)
+	time.Sleep(2 * time.Second)
+	fmt.Println("had sleep 2 second:", time.Now())
+	if !timer2.Stop() {
+		fmt.Println("执行Stop方法ing...")
+		<-timer2.C
+		fmt.Println("已执行了Stop方法")
+	}
+	fmt.Printf("Reset timer2 return %t\n", timer2.Reset(5*time.Second))
+
+	for {
+		select {
+		case _, ok := <-timer2.C:
+			if ok {
+				fmt.Println("timer2 has been 5+ seconds and Now time is \n", time.Now())
+				goto END
+			}
+		default:
+		}
+	}
+
+END:
+	fmt.Println("END")
+}
+// 请编译后在执行，直接使用go run 可能结果会不同！！！
+// Output:
+//--------------------
+//timer1
+//--------------------
+//before: 2023-10-22 18:21:18.6134724 +0800 CST m=+0.006476501
+//had sleep 2 second: 2023-10-22 18:21:20.6517914 +0800 CST m=+2.044795501
+//reset: 2023-10-22 18:21:20.6520226 +0800 CST m=+2.045026701
+//Reset timer1 return false
+//timer1 has been 5+ seconds and Now time is
+//2023-10-22 18:21:25.6589852 +0800 CST m=+7.051989301
+//--------------------
+//timer2
+//--------------------
+//before: 2023-10-22 18:21:30.6569628 +0800 CST m=+12.049966901
+//had sleep 2 second: 2023-10-22 18:21:32.6692213 +0800 CST m=+14.062225401
+//Reset timer2 return false
+//timer2 has been 5+ seconds and Now time is
+//2023-10-22 18:21:37.6838445 +0800 CST m=+19.076848601
+//END
+```
+
+
 
 #### (*Timer) Stop 
 
@@ -2151,19 +2382,19 @@ t.Reset(d)
 func (t *Timer) Stop() bool
 ```
 
-​	Stop方法停止Timer的执行。如果调用成功则返回true，否则返回false，如果Timer已经被停止或已经过期，也会返回false。Stop不会关闭channel，以防止channel的读取错误地成功。
+​	Stop方法用于阻止计时器触发。如果该调用成功停止了计时器，则返回`true`；如果计时器已过期或已停止，则返回`false`。Stop方法不会关闭通道，以防止从通道中成功读取不正确的数据。
 
-​	为了确保在调用Stop后channel是空的，需要检查返回值并清空channel。例如，假设程序还没有从t.C中接收到值：
+​	为了确保在调用Stop方法后通道为空，需要检查返回值并排空通道。例如，假设程序尚未从`t.C`接收到数据：
 
-```
+```go
 if !t.Stop() {
 	<-t.C
 }
 ```
 
-​	这不能与Timer的channel的其他接收操作或其他调用Timer的Stop方法并发进行。
+​	这不能与从该计时器的通道或其他对该计时器的Stop方法的调用并发执行。
 
-​	对于使用AfterFunc(d, f)创建的Timer，如果t.Stop返回false，则计时器已经过期，并且已经在自己的goroutine中启动了函数f。在返回之前，Stop不会等待f完成。如果调用方需要知道f是否完成，它必须显式与f进行协调。
+​	对于使用`AfterFunc(d, f)`创建的计时器，如果t.Stop返回`false`，则计时器已过期，并且函数f已经在其自己的goroutine中启动；Stop方法在返回之前不会等待`f`完成。如果调用者需要知道`f`是否完成，它必须与`f`显式协调。
 
 ### type Weekday 
 
@@ -2192,3 +2423,29 @@ func (d Weekday) String() string
 ```
 
 ​	String方法返回一周中指定的星期几的英文名称("Sunday"、"Monday"，等等)。
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	for i := 0; i < 7; i++ {
+		wd := time.Weekday(i)
+		fmt.Printf("%s\n", wd.String())
+	}
+}
+
+// Output:
+//Sunday
+//Monday
+//Tuesday
+//Wednesday
+//Thursday
+//Friday
+//Saturday 
+```
+
