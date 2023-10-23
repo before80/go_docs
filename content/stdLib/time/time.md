@@ -10,40 +10,40 @@ draft = false
 
 https://pkg.go.dev/time@go1.20.1
 
-​	包time提供了测量和显示时间的功能。
+​	time包提供了测量和显示时间的功能。
 
-​	日历计算总是假定格里高利日历，没有闰秒。
+​	日历计算总是假定[格里高利日历](https://zh.wikipedia.org/wiki/%E5%85%AC%E5%8E%86)，没有[闰秒](https://zh.wikipedia.org/wiki/%E9%97%B0%E7%A7%92)。
 
-#### 单调时钟 Monotonic Clocks 
+#### 单调钟 Monotonic Clocks 
 
-​	操作系统提供了"墙上时钟"(wall clock)和"单调时钟"(monotonic clock)两种时钟。前者会受到时钟同步的影响，后者则不会。一般规则是，墙上时钟用于显示时间，单调时钟用于测量时间。为了不分割API，在本包中，time.Now返回的Time包含墙上时钟读数和单调时钟读数；后续的显示时间操作使用墙上时钟读数，但后续的测量时间操作，如比较和减法，则使用单调时钟读数。
+​	操作系统提供了“挂钟(wall clock)”和“单调钟(monotonic clock)”两种时钟，前者会受到时间同步的影响，后者则不会。一般规则是挂钟用于显示时间，而单调钟用于计时。为了不分割API，在这个包中，`time.Now`返回的时间包含了挂钟读数和单调钟读数；后续的时间显示操作使用挂钟读数，而后续的时间计算操作，特别是比较和减法操作，使用单调钟读数。
 
-​	例如，下面的代码总是计算出一个大约为20毫秒的正时间间隔，即使在计时操作期间墙上时钟被更改也是如此：
+​	例如，即使在计时操作中挂钟被更改，以下代码始终计算出大约20毫秒的正计时：
 
-```
+```go
 start := time.Now()
 ... operation that takes 20 milliseconds ...
 t := time.Now()
 elapsed := t.Sub(start)
 ```
 
-​	其他用法，例如time.Since(start)，time.Until(deadline)和time.Now().Before(deadline)，也同样不受墙上时钟复位的影响。
+​	其他的习语，比如`time.Since(start)`，`time.Until(deadline)`，和`time.Now().Before(deadline)`，同样能够很好地应对挂钟重置的情况。
 
-​	本节其余部分提供了操作如何使用单调时钟的精确细节，但了解这些细节并非使用本包的必要条件。
+​	本节的其余部分详细介绍了操作如何使用单调钟，但理解这些细节并不是使用该包的必要条件。
 
-​	time.Now返回的Time包含单调时钟读数。如果Time t具有单调时钟读数，则t.Add将同一时长添加到墙上时钟读数和单调时钟读数，以计算结果。因为t.AddDate(y, m, d)，t.Round(d)和t.Truncate(d)都是墙上时间计算，它们总是从结果中剥离任何单调时钟读数。因为t.In，t.Local和t.UTC用于影响墙上时间的解释，它们也从结果中剥离任何单调时钟读数。除去单调时钟读数的标准方式是使用t = t.Round(0)。
+​	`time.Now`返回的Time包含一个单调钟读数。如果Time `t`具有单调钟读数，则`t.Add`会将相同的持续时间添加到挂钟和单调钟读数中，以计算结果。因为`t.AddDate(y, m, d)`，`t.Round(d)`，和`t.Truncate(d)`都是针对挂钟时间的计算，它们总是从结果中剥离任何单调钟读数。因为`t.In`，`t.Local`，和`t.UTC`用于影响挂钟时间解释的效果，它们也会从结果中剥离任何单调钟读数。剥离单调钟读数的规范方法是使用`t = t.Round(0)`。
 
-​	如果时间t和u都包含单调时钟读数，则操作t.After(u)，t.Before(u)，t.Equal(u)，t.Compare(u)和t.Sub(u)仅使用单调时钟读数进行，忽略壁钟读数。如果t或u中有一个不包含单调时钟读数，则这些操作会回退到使用壁钟读数。
+​	如果Times `t`和u都包含单调钟读数，则操作`t.After(u)`，`t.Before(u)`，`t.Equal(u)`，`t.Compare(u)`，和`t.Sub(u)`仅使用单调钟读数进行计算，忽略挂钟读数。如果`t`或`u`中没有单调钟读数，则这些操作将回退到使用挂钟读数。
 
-​	在某些系统上，如果计算机进入睡眠状态，则单调时钟将停止。在这样的系统上，t.Sub(u)可能不准确地反映t和u之间经过的实际时间。
+​	在某些系统上，如果计算机进入睡眠状态，单调钟会停止。在这种情况下，`t.Sub(u)`可能无法准确反映`t`和`u`之间经过的实际时间。
 
-​	因为单调时钟读数在当前进程之外没有意义，所以由t.GobEncode，t.MarshalBinary，t.MarshalJSON和t.MarshalText生成的序列化形式省略单调时钟读数，而t.Format不提供格式。类似地，构造函数time.Date，time.Parse，time.ParseInLocation和time.Unix以及非结构化器t.GobDecode，t.UnmarshalBinary，t.UnmarshalJSON和t.UnmarshalText始终创建没有单调时钟读数的时间。
+​	由于单调钟读数在当前进程之外没有意义，因此`t.GobEncode`、`t.MarshalBinary`、`t.MarshalJSON`和`t.MarshalText`生成的序列化形式都省略了单调钟读数，而`t.Format`则不提供任何格式。同样，构造函数`time.Date`、`time.Parse`、`time.ParseInLocation`和`time.Unix`，以及解码器`t.GobDecode`、`t.UnmarshalBinary`、`t.UnmarshalJSON`和`t.UnmarshalText`始终创建没有单调钟读数的时间。
 
-​	单调时钟读数仅存在于时间值中。它不是Duration值或由t.Unix和其它函数返回的Unix时间的一部分。
+​	**单调钟读数仅存在于Time值中**。它不是Duration值或`t.Unix`和相关函数返回的Unix时间的一部分。
 
-​	请注意，Go ==运算符不仅比较时间瞬间，还比较Location和单调时钟读数。有关时间值的相等性测试的讨论，请参阅Time类型的文档。
+​	请注意，Go的`==`运算符不仅比较时间瞬间，还比较Location (时区)和单调钟读数。有关Time值的相等性测试的讨论，请参阅Time类型的文档。
 
-​	为了调试，如果存在单调时钟读数，则t.String的结果将包括它。如果t！= u由于不同的单调时钟读数，则在打印t.String()和u.String()时将看到该差异。
+​	为了调试，如果存在单调钟读数，则`t.String`的结果会包含该读数。如果`t != u`，因为具有不同的单调钟读数，那么在打印`t.String()`和`u.String()`时将可见这种差异。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=101)
 
@@ -72,13 +72,13 @@ const (
 )
 ```
 
-​	这些是预定义的布局，可用于 Time.Format 和 time.Parse。这些布局使用的参考时间戳是：
+​	这些是用于`Time.Format`和`time.Parse`的预定义布局。这些布局中使用的参考时间是特定的时间戳：
 
 ```
 01/02 03:04:05PM '06 -0700
 ```
 
-(2006 年 1 月 2 日 15:04:05，时区比 GMT 西七个小时)。该值被记录为常量 Layout，如下所示。作为 Unix 时间，这是 1136239445。由于 MST 是 GMT-0700，Unix date 命令将该引用打印为：
+（2006年1月2日，15:04:05，位于GMT西七小时的时区）。该值被记录为名为Layout的常量，如下所示。作为Unix时间，这是1136239445。由于MST是GMT-0700，Unix date命令将打印出该参考值：
 
 ```
 Mon Jan 2 15:04:05 MST 2006
@@ -96,6 +96,20 @@ Mon Jan 2 15:04:05 MST 2006
 
 ​	以下是布局字符串的组件摘要。每个元素都以示例形式显示了参考时间的一个元素的格式。仅识别这些值。布局字符串中未被识别为参考时间的文本在 Format 中被回显，并期望在 Parse 的输入中以原样出现。
 
+
+
+​	这是一个令人遗憾的历史错误，日期使用了美国的习惯，在日期之前放置数字月份。
+
+​	`Time.Format`的示例详细演示了布局字符串的工作原理，是一个很好的参考。
+
+​	请注意，**RFC822、RFC850和RFC1123格式仅适用于本地时间**。将它们应用于UTC时间将使用"UTC"作为时区缩写，严格来说，这些RFC要求在这种情况下使用"GMT"。一般应该使用RFC1123Z而不是RFC1123，以满足一些服务器对该格式的要求，并且对于新协议应该优先选择RFC3339。RFC3339、RFC822、RFC822Z、RFC1123和RFC1123Z适用于格式化；当与`time.Parse`一起使用时，它们不接受RFC允许的所有时间格式，但可以接受未正式定义的时间格式。RFC3339Nano格式从秒字段中去除尾随的零，因此一旦格式化可能无法正确排序。
+
+​	大多数程序可以使用定义的常量之一作为传递给`Format`或`Parse`的布局。除非您正在创建自定义布局字符串，否则可以忽略此注释的其余部分。
+
+​	为了定义自己的格式，请按照您的方式编写参考时间的格式；参考ANSIC、StampMicro或Kitchen等常量的值以获取示例。该模型旨在演示参考时间的样式，以便`Format`和`Parse`方法可以将相同的转换应用于一般时间值。
+
+​	以下是布局字符串的组成部分的摘要。每个元素都通过示例显示了参考时间的格式化方式。只有这些值会被识别。布局字符串中未被识别为参考时间部分的文本在`Format`期间会被原样回显，并且期望在`Parse`的输入中原样出现。
+
 ```
 Year: "2006" "06"
 Month: "Jan" "January" "01" "1"
@@ -108,7 +122,7 @@ Second: "5" "05"
 AM/PM mark: "PM"
 ```
 
-数字时区偏移的格式如下：
+​	数字时区偏移的格式如下：
 
 ```
 "-0700"     ±hhmm
@@ -120,6 +134,8 @@ AM/PM mark: "PM"
 
 ​	用 Z 替换格式中的符号会触发 ISO 8601 的行为，打印 Z 代替 UTC 时区的偏移。因此：
 
+​	用Z替换格式中的符号会触发ISO 8601的行为，将Z打印为UTC时区的偏移量。因此：
+
 ```
 "Z0700"      Z or ±hhmm
 "Z07:00"     Z or ±hh:mm
@@ -128,13 +144,13 @@ AM/PM mark: "PM"
 "Z07:00:00"  Z or ±hh:mm:ss
 ```
 
-​	在格式字符串中，"_2" 和"__2"的下划线表示可以由数字替换的空格，以适应固定宽度的 Unix 时间格式。前导零表示补零的值。
+​	在格式字符串中，"`_2`" 和 "`__2`"中的下划线表示空格，如果后面的数字有多个数字，则可以替换为空格，以与固定宽度的Unix时间格式兼容。前导零表示零填充值。
 
-​	格式 __2 和 002 是填充三位字符的日期，有空格填充和零填充的格式；没有未填充的日期格式。
+​	格式 `__2` 和 `002` 是以空格填充和以零填充的三位数年份的格式；没有未填充的年份格式。
 
-​	逗号或小数点后跟一个或多个零表示小数秒，以给定的小数位数打印。逗号或小数点后跟一个或多个九表示小数秒，以给定的小数位数打印，删除尾随的零。例如，"15:04:05,000" 或"15:04:05.000" 格式或解析为毫秒精度。
+​	逗号或小数点后面跟着一个或多个零表示小数秒，打印到指定的小数位数。逗号或小数点后面跟着一个或多个九表示小数秒，打印到指定的小数位数，并去掉尾随的零。例如，"15:04:05,000" 或"15:04:05.000"格式可以用毫秒精度进行打印或解析。
 
-​	一些有效的布局对于 time.Parse 来说是无效的时间值，这是由于空格填充等格式以及 Z 用于区域信息。
+​	一些有效的布局对于 `time.Parse` 来说是无效的时间值，原因是格式中使用了 `_` 进行空格填充和 Z 进行时区信息的表示。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/time/time.go;l=631)
 
@@ -149,18 +165,18 @@ const (
 )
 ```
 
-​	常见的时间段。没有 Day 或更长的单位的定义，以避免在夏令时转换中造成混淆。
+​	常见的时间段。为了避免在夏令时区转换中产生混淆，没有对Day （天）或更长时间单位进行定义。
 
-​	要计算 Duration 中的单位数，请使用除法：
+​	要计算Duration （持续时间）中的单位数量，请进行除法运算：
 
-```
+```go
 second := time.Second
 fmt.Print(int64(second/time.Millisecond)) // prints 1000
 ```
 
 ​	要将整数单位转换为 Duration，请使用乘法：
 
-```
+```go
 seconds := 10
 fmt.Print(time.Duration(seconds)*time.Second) // prints 10s
 ```
@@ -621,6 +637,34 @@ Output:
 300ms
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	seconds := 10
+	fmt.Println(time.Duration(seconds) * time.Second)            // 10s
+	fmt.Println((time.Duration(seconds) * time.Second).String()) // 10s
+
+	seconds = -10
+	fmt.Println(time.Duration(seconds) * time.Second)            // -10s
+	fmt.Println((time.Duration(seconds) * time.Second).String()) // -10s
+}
+
+// Output:
+//10s
+//10s
+//-10s
+//-10s
+
+```
+
+
+
 #### (Duration) Truncate  <- go1.9
 
 ``` go 
@@ -1030,9 +1074,9 @@ type Time struct {
 
 ​	一个保存了 GobEncode，MarshalBinary，MarshalJSON 和 MarshalText 方法的 Time 值的表示形式存储了 Time.Location 的偏移量，但没有存储位置名称，因此它们会丢失关于夏令时的信息。
 
-​	除了必须的"墙上时钟"读数之外，一个 Time 可能还包含当前进程单调时钟的可选读数，以提供比较或减法的额外精度。有关详细信息，请参见包文档中的"单调时钟"部分。
+​	除了必须的"挂钟"读数之外，一个 Time 可能还包含当前进程单调钟的可选读数，以提供比较或减法的额外精度。有关详细信息，请参见包文档中的"单调钟"部分。
 
-​	请注意，Go 的 == 操作符不仅比较时间瞬间，还比较 Location 和单调时钟读数。因此，在未保证所有值都已设置相同的 Location 之前，不应将 Time 值用作映射或数据库键，可以通过使用 UTC 或 Local 方法来实现，同时剥离单调时钟读数，设置 t = t.Round(0)。通常，优先使用 t.Equal(u) 而不是 t == u，因为 t.Equal 使用可用的最准确的比较，并正确处理仅有一个参数具有单调时钟读数的情况。
+​	请注意，Go 的 == 操作符不仅比较时间瞬间，还比较 Location 和单调钟读数。因此，在未保证所有值都已设置相同的 Location 之前，不应将 Time 值用作映射或数据库键，可以通过使用 UTC 或 Local 方法来实现，同时剥离单调钟读数，设置 t = t.Round(0)。通常，优先使用 t.Equal(u) 而不是 t == u，因为 t.Equal 使用可用的最准确的比较，并正确处理仅有一个参数具有单调钟读数的情况。
 
 #### func Date 
 
@@ -1590,20 +1634,23 @@ import (
 
 func main() {
 	// Parse a time value from a string in the standard Unix format.
+    // 从标准Unix格式的字符串中解析时间值。
 	t, err := time.Parse(time.UnixDate, "Wed Feb 25 11:06:39 PST 2015")
-	if err != nil { // Always check errors even if they should not happen.
+	if err != nil { // Always check errors even if they should not happen. 始终检查错误，即使它们不应该发生。
 		panic(err)
 	}
 
 	tz, err := time.LoadLocation("Asia/Shanghai")
-	if err != nil { // Always check errors even if they should not happen.
+	if err != nil { // Always check errors even if they should not happen. 始终检查错误，即使它们不应该发生。
 		panic(err)
 	}
 
 	// time.Time's Stringer method is useful without any format.
+    // time.Time的Stringer方法在没有任何格式的情况下非常有用。
 	fmt.Println("default format:", t)
 
 	// Predefined constants in the package implement common layouts.
+    // 该包中的预定义常量实现了常见的布局。
 	fmt.Println("Unix format:", t.Format(time.UnixDate))
 
 	// The time zone attached to the time value affects its output.
@@ -1889,7 +1936,7 @@ func (t Time) Nanosecond() int
 func (t Time) Round(d Duration) Time
 ```
 
-​	Round方法返回将t四舍五入到离d的最近倍数后的结果(自零时间开始)。半数值的舍入行为为向上舍入。如果d<=0，则Round返回除单调时钟读数以外其他方面都没有改变的t。
+​	Round方法返回将t四舍五入到离d的最近倍数后的结果(自零时间开始)。半数值的舍入行为为向上舍入。如果d<=0，则Round返回除单调钟读数以外其他方面都没有改变的t。
 
 ​	Round方法以自零时间以来的绝对持续时间为基础操作时间；它不以时间的表现形式为基础。因此，Round(Hour)可能会返回具有非零分钟的时间，这取决于时间的Location。
 
@@ -1951,7 +1998,7 @@ String returns the time formatted using the format string
 "2006-01-02 15:04:05.999999999 -0700 MST"
 ```
 
-​	String方法返回使用格式字符串 "2006-01-02 15:04:05.999999999 -0700 MST" 格式化的时间。如果时间具有单调时钟读数，则返回的字符串包括最终字段 "`m=±<value>`"，其中 value 是单调时钟读数，格式化为十进制秒数。
+​	String方法返回使用格式字符串 "2006-01-02 15:04:05.999999999 -0700 MST" 格式化的时间。如果时间具有单调钟读数，则返回的字符串包括最终字段 "`m=±<value>`"，其中 value 是单调钟读数，格式化为十进制秒数。
 
 ​	返回的字符串仅用于调试；对于稳定的序列化表示，使用 t.MarshalText、t.MarshalBinary 或带有显式格式字符串的 t.Format。
 
@@ -2017,7 +2064,7 @@ difference = 12h0m0s
 func (t Time) Truncate(d Duration) Time
 ```
 
-​	Truncate方法返回将 t 向下舍入为 d 的倍数的结果(自零时起)。如果 d <= 0，则 Truncate 返回 t 去除任何单调时钟读数但其他不变。
+​	Truncate方法返回将 t 向下舍入为 d 的倍数的结果(自零时起)。如果 d <= 0，则 Truncate 返回 t 去除任何单调钟读数但其他不变。
 
 ​	Truncate方法在绝对时间自零时以来的持续时间上操作；它不会操作时间的表现形式。因此，Truncate(Hour) 可能会返回带有非零分钟的时间，具体取决于时间的位置。
 
