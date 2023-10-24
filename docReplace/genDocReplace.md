@@ -125,9 +125,6 @@ var
 ```
 const
 
-或
-```
-package
 
 // 分别在```后加上go
 

@@ -12,7 +12,7 @@ https://pkg.go.dev/database/sql@go1.20.1
 
 ​	sql包提供了一个围绕SQL(或类SQL)数据库的通用接口。
 
-​	sql包必须与数据库驱动程序一起使用。参见[https://golang.org/s/sqldrivers](https://golang.org/s/sqldrivers)，获取驱动程序的列表。
+​	sql包必须与数据库驱动程序一起使用。请参阅[https://golang.org/s/sqldrivers](https://golang.org/s/sqldrivers)，获取驱动程序的列表。
 
 ​	不支持上下文取消的驱动程序将等到查询完成后才会返回。
 
@@ -48,7 +48,7 @@ func main() {
 	}
 	var err error
 
-   // 打开一个驱动程序通常不会尝试连接到数据库。
+   // 打开驱动程序通常不会尝试连接到数据库。
 	pool, err = sql.Open("driver-name", *dsn)
 	if err != nil {
        // 这将不是一个连接错误，而是一个DSN解析错误或其他初始化错误。
@@ -76,7 +76,7 @@ func main() {
 	Query(ctx, *id)
 }
 
-// Ping数据库，以验证用户提供的DSN是否有效，服务器是否可以访问。如果Ping失败，则以错误退出程序。
+// 向数据库发送ping请求，以验证用户提供的DSN是否有效并且服务器可访问。如果ping失败，则以错误的方式退出程序。
 func Ping(ctx context.Context) {
 	ctx, cancel := context.WithTimeout(ctx, 1*time.Second)
 	defer cancel()
@@ -86,8 +86,7 @@ func Ping(ctx context.Context) {
 	}
 }
 
-// 在数据库中查询所要求的信息并打印出结果。
-// 如果查询失败，则以错误退出程序。
+// 查询数据库以获取所请求的信息并打印结果。 如果查询失败，则以错误退出程序。
 func Query(ctx context.Context, id int64) {
 	ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 	defer cancel()
@@ -119,11 +118,10 @@ import (
 )
 
 func main() {
-	// 打开驱动程序通常不会尝试连接数据库。这将不是连接错误，而是DSN解析错误或其他初始化错误。
+	// 打开驱动程序通常不会尝试连接到数据库。
 	db, err := sql.Open("driver-name", "database=test1")
 	if err != nil {
-		// 打开驱动程序通常不会尝试连接数据库。
-        这不会是连接错误，而是DSN解析错误或其他初始化错误。
+		// 这将不是连接错误，而是DSN解析错误或其他初始化错误。
 		log.Fatal(err)
 	}
 	db.SetConnMaxLifetime(0)
@@ -157,7 +155,7 @@ func (s *Service) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		return
 	case "/quick-action":
-		// 这是一个短查询语句。使用请求上下文作为上下文超时的基础。
+		// 这是一个简短的SELECT语句。将请求上下文作为上下文超时的基础。
 		ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
 		defer cancel()
 
@@ -188,9 +186,9 @@ where
 		io.WriteString(w, name)
 		return
 	case "/long-action":
-		// 这是一个长查询语句。使用请求上下文作为上下文超时的基础，
-        // 但给它一些时间来完成。如果客户端在查询完成之前取消了操作，
-        // 则该查询也将被取消。
+		// 这是一个很长的SELECT语句。
+        // 将请求上下文作为上下文超时的基础，但要给它一些时间来完成。
+        // 如果客户在查询完成之前取消了，查询也将被取消。
 		ctx, cancel := context.WithTimeout(r.Context(), 60*time.Second)
 		defer cancel()
 
@@ -209,8 +207,9 @@ where
 			}
 			names = append(names, name)
 		}
-		// 检查行"Close"时是否有错误。
-        // 如果在单个批处理中执行了多个语句并且写入了行，那么这可能更重要。
+ 
+        // 如果多个语句在一个批次中执行，并且行被写入和读取，这可能更为重要。
+        // 如果在单个批处理中执行了多个语句并且已经写入和读取了行，则这可能更加重要。
 		if closeErr := rows.Close(); closeErr != nil {
 			http.Error(w, closeErr.Error(), http.StatusInternalServerError)
 			return
@@ -222,7 +221,7 @@ where
 			return
 		}
 
-		// 检查行迭代过程中是否有错误。
+		// 在行迭代过程中检查错误。
 		if err = rows.Err(); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -230,9 +229,10 @@ where
 
 		json.NewEncoder(w).Encode(names)
 		return
-	case "/async-action":
-		// 这个操作有副作用，我们希望即使客户端在HTTP请求过程中部分取消了，
-        // 它也能够保留。为此，我们不使用http请求上下文作为超时的基础。
+	case "/async-action":		
+        // 这个操作有副作用，我们希望保留这些副作用，
+        // 即使客户端在HTTP请求进行中取消了。
+        // 为此，我们不使用HTTP请求上下文作为超时的基础。
 		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		defer cancel()
 
@@ -270,7 +270,7 @@ This section is empty.
 var ErrConnDone = errors.New("sql: connection is already closed")
 ```
 
-​	ErrConnDone 被任何在已经返回到连接池的连接上执行的操作返回。
+​	ErrConnDone 是对已经被返回到连接池的连接上执行的操作返回的错误。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=441)
 
@@ -278,7 +278,7 @@ var ErrConnDone = errors.New("sql: connection is already closed")
 var ErrNoRows = errors.New("sql: no rows in result set")
 ```
 
-​	ErrNoRows 在 Scan 时由 QueryRow 不返回行时返回。在这种情况下，QueryRow 返回一个占位符 *Row 值，直到扫描时才会出现此错误。
+​	当QueryRow不返回行时，Scan返回ErrNoRows。在这种情况下，QueryRow返回一个占位符`*Row`值，直到Scan才会出现此错误。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/sql.go;l=2185)
 
@@ -286,7 +286,7 @@ var ErrNoRows = errors.New("sql: no rows in result set")
 var ErrTxDone = errors.New("sql: transaction has already been committed or rolled back")
 ```
 
-​	ErrTxDone 被任何在已经提交或回滚的事务上执行的操作返回。
+​	ErrTxDone 是对已经被提交或回滚的事务上执行的操作返回的错误。
 
 ## 函数
 
@@ -296,7 +296,7 @@ var ErrTxDone = errors.New("sql: transaction has already been committed or rolle
 func Drivers() []string
 ```
 
-​	Drivers函数返回已注册驱动程序名称的排序列表。
+​	Drivers 函数返回已注册驱动程序名称的排序列表。
 
 #### func Register 
 
@@ -305,6 +305,8 @@ func Register(name string, driver driver.Driver)
 ```
 
 ​	Register函数使用提供的名称使数据库驱动程序可用。如果使用相同的名称两次调用Register或者驱动程序为nil，则会引发panic。
+
+​	Register 函数通过提供的名称使数据库驱动程序可用。 如果以相同的名称调用 Register 两次或者如果 driver 为 nil，则会使程序 panic。
 
 ## 类型
 
@@ -325,7 +327,7 @@ type ColumnType struct {
 func (ci *ColumnType) DatabaseTypeName() string
 ```
 
-​	DatabaseTypeName方法返回列类型的数据库系统名称。如果返回空字符串，则不支持驱动程序类型名称。请查阅您的驱动程序文档以获取驱动程序数据类型列表。不包括长度说明符。常见类型名称包括"VARCHAR"，"TEXT"，"NVARCHAR"，"DECIMAL"，"BOOL"，"INT"和"BIGINT"。
+​	DatabaseTypeName 方法返回列类型的数据库系统名称。 如果返回空字符串，则表示驱动程序类型名称不受支持。 请查阅您的驱动程序文档以获取驱动程序数据类型的列表。 长度说明符未包括在内。 常见类型名称包括 "VARCHAR"，"TEXT"，"NVARCHAR"，"DECIMAL"，"BOOL"，"INT" 和 "BIGINT"。
 
 #### (*ColumnType) DecimalSize  <- go1.8
 
@@ -335,13 +337,17 @@ func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 
 ​	DecimalSize方法返回十进制类型的比例和精度。如果不适用或不受支持，则为假。
 
+​	DecimalSize 方法返回小数点位置和精度。 如果不适用或不受支持，ok 为 false。
+
 #### (*ColumnType) Length  <- go1.8
 
 ``` go 
 func (ci *ColumnType) Length() (length int64, ok bool)
 ```
 
-​	Length方法返回变量长度列类型(如文本和二进制字段类型)的列类型长度。如果类型长度不受限制，则值将是math.MaxInt64(任何数据库限制仍将适用)。如果列类型不是可变长度，例如int，或者驱动程序不支持，则为false。
+​	Length 方法返回可变长度列类型的长度，例如文本和二进制字段类型。 如果类型长度不受限制，则`length`为 math.MaxInt64（任何数据库限制仍然适用）。 如果列类型不是可变长度，例如 int，或者如果不受驱动程序支持，`ok` 为 false。
+
+重新生成
 
 #### (*ColumnType) Name  <- go1.8
 
