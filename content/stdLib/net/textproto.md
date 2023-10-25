@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# textproto
-
 https://pkg.go.dev/net/textproto@go1.20.1
 
 

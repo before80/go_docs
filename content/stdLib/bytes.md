@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# bytes
-
 https://pkg.go.dev/bytes@go1.20.1
 
 ​	bytes包实现了操作字节切片的功能。它类似于strings包的功能。

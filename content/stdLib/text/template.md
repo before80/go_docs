@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# template
-
 https://pkg.go.dev/text/template@go1.20.1
 
 ​	template 包实现了基于数据驱动的模板，用于生成文本输出。

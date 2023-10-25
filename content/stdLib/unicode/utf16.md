@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# utf16
-
 https://pkg.go.dev/unicode/utf16@go1.20.1
 
 ​	utf16包实现了UTF-16序列的编码和解码。

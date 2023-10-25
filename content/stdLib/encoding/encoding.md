@@ -7,8 +7,6 @@ isCJKLanguage = true
 draft = false
 
 +++
-# encoding
-
 https://pkg.go.dev/encoding@go1.20.1
 
 

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# binary
-
 https://pkg.go.dev/encoding/binary@go1.20.1
 
 

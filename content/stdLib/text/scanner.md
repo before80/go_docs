@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# scanner
-
 https://pkg.go.dev/text/scanner@go1.20.1
 
 

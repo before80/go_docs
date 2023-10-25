@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# ring
-
 https://pkg.go.dev/container/ring@go1.20.1
 
 ​	ring 包实现了对循环列表（circular lists）的操作。

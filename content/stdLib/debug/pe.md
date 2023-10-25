@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# pe
-
 https://pkg.go.dev/debug/pe@go1.20.1
 
 Package pe implements access to PE (Microsoft Windows Portable Executable) files.

@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# errors
-
 https://pkg.go.dev/errors@go1.20.1
 
 ​	 errors 包实现了操作错误的函数。

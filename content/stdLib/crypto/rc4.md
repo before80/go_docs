@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# rc4
-
 https://pkg.go.dev/crypto/rc4@go1.20.1
 
 

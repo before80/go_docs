@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# tabwriter
-
 https://pkg.go.dev/text/tabwriter@go1.20.1
 
 

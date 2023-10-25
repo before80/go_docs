@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# rpc
-
 https://pkg.go.dev/net/rpc@go1.20.1
 
 

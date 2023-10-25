@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# math
-
 https://pkg.go.dev/math@go1.20.1
 
 ​	math包提供基本常量和数学函数。

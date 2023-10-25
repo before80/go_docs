@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# http
-
 https://pkg.go.dev/net/http@go1.20.1
 
 ​	http包提供了 HTTP 客户端和服务端的实现。

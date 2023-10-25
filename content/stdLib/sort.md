@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# sort
-
 https://pkg.go.dev/sort@go1.20.1
 
 ​	sort包提供了对切片和用户定义集合进行排序的基本功能。

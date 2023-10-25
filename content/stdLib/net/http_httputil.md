@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# httputil
-
 https://pkg.go.dev/net/http/httputil@go1.20.1
 
 ​	httputil 包提供了 HTTP 的实用函数，补充了 net/http 包中更常见的函数。

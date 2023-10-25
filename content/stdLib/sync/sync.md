@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# sync
-
 https://pkg.go.dev/sync@go1.20.1
 
 ​	 sync包提供了基本的同步原语，如互斥锁。除了 Once 和 WaitGroup 类型外，大多数都是用于低级库例程的。更高级别的同步最好通过通道和通信实现。

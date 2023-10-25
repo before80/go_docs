@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# crc32
-
 https://pkg.go.dev/hash/crc32@go1.20.1
 
 

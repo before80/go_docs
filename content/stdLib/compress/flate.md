@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# flate
-
 https://pkg.go.dev/compress/flate@go1.20.1
 
 

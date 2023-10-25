@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# iotest
-
 https://pkg.go.dev/testing/iotest@go1.20.1
 
 包 iotest 实现了一些用于测试的 Reader 和 Writer。

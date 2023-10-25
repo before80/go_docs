@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# jsonrpc
-
 https://pkg.go.dev/net/rpc/jsonrpc@go1.20.1
 
 

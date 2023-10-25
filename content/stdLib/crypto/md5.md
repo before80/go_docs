@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# md5
-
 https://pkg.go.dev/crypto/md5@go1.20.1
 
 

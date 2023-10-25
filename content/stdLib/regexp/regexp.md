@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# regexp
-
 https://pkg.go.dev/regexp@go1.20.1
 
 ​	regexp包实现了正则表达式搜索。

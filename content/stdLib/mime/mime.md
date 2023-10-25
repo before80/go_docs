@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# mime
-
 https://pkg.go.dev/mime@go1.20.1
 
 

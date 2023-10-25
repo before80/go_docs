@@ -8,8 +8,6 @@ isCJKLanguage = true
 draft = false
 
 +++
-# strings
-
 https://pkg.go.dev/strings@go1.20.1
 
 ​	strings包实现了一些简单的函数来操作 UTF-8 编码的字符串。

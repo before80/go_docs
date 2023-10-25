@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# net
-
 https://pkg.go.dev/net@go1.20.1
 
 ​	net包提供了一个可移植的网络 I/O 接口，包括 TCP/IP、UDP、域名解析和 Unix 域套接字。

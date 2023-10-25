@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# syntax
-
 https://pkg.go.dev/regexp/syntax@go1.20.1
 
 ​	包语法将正则表达式解析为解析树，并将解析树编译为程序。大多数正则表达式的客户端将使用 regexp 包的工具(例如 Compile 和 Match)而不是此包。

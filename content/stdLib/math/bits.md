@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# bits
-
 https://pkg.go.dev/math/bits@go1.20.1
 
 

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# cmplx
-
 https://pkg.go.dev/math/cmplx@go1.20.1
 
 

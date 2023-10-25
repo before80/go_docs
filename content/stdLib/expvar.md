@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# expvar
-
 https://pkg.go.dev/expvar@go1.20.1
 
 

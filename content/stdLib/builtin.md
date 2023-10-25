@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# builtin
-
 https://pkg.go.dev/builtin@go1.20.1
 
 ​	builtin包提供了 Go 的预声明标识符的文档。`这里所记录的条目实际上并不在 builtin 包中`，但它们在这里的描述使得 godoc 能够展示语言特殊标识符的文档。

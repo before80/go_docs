@@ -78,7 +78,7 @@ Make sure [Git is installed](https://git-scm.com/downloads) on your machine and 
 
 *Go MySQL Driver* is an implementation of Go's `database/sql/driver` interface. You only need to import the driver and can use the full [`database/sql`](https://golang.org/pkg/database/sql/) API then.
 
-​	*Go MySQL Driver* 是Go的`database/sql/driver`接口的实现。你只需要导入驱动，然后就可以使用完整的[`database/sql`]({{< ref "/stdLib/database/sql">}}) API了。
+​	*Go MySQL Driver* 是Go的`database/sql/driver`接口的实现。你只需要导入驱动，然后就可以使用完整的[database/sql]({{< ref "/stdLib/database/sql">}}) API了。
 
 Use `mysql` as `driverName` and a valid [DSN](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-dsn-data-source-name) as `dataSourceName`:
 
@@ -166,7 +166,7 @@ This has the same effect as an empty DSN string:
 
 Alternatively, [Config.FormatDSN](https://godoc.org/github.com/go-sql-driver/mysql#Config.FormatDSN) can be used to create a DSN string by filling a struct.
 
-​	另外，可以通过填充结构体使用 [Config.FormatDSN](https://godoc.org/github.com/go-sql-driver/mysql#Config.FormatDSN) 来创建DSN字符串。
+​	另外，可以通过填充结构体使用 [Config.FormatDSN](#config-formatdsn---130) 来创建DSN字符串。
 
 ##### Password
 
@@ -178,13 +178,13 @@ Passwords can consist of any character. Escaping is **not** necessary.
 
 See [net.Dial](https://golang.org/pkg/net/#Dial) for more information which networks are available. In general you should use an Unix domain socket if available and TCP otherwise for best performance.
 
-​	有关可用网络的更多信息，请参见 [net.Dial](https://golang.org/pkg/net/#Dial)。一般来说，如果可用，您应该使用Unix域套接字以达到最佳性能。否则，可以使用TCP。
+​	有关可用网络的更多信息，请参见 [net.Dial]({{< ref "/stdLib/net/net#func-dial">}})。一般来说，如果可用，您应该使用Unix域套接字以达到最佳性能。否则，可以使用TCP。
 
 ##### Address
 
 For TCP and UDP networks, addresses have the form `host[:port]`. If `port` is omitted, the default port will be used. If `host` is a literal IPv6 address, it must be enclosed in square brackets. The functions [net.JoinHostPort](https://golang.org/pkg/net/#JoinHostPort) and [net.SplitHostPort](https://golang.org/pkg/net/#SplitHostPort) manipulate addresses in this form.
 
-​	对于TCP和UDP网络，地址的格式为 `host[:port]`。如果省略了 `port`，则默认端口将被使用。如果 `host` 是字面IPv6地址，则必须将其括在方括号中。可以使用 [net.JoinHostPort](https://golang.org/pkg/net/#JoinHostPort) 和 [net.SplitHostPort](https://golang.org/pkg/net/#SplitHostPort) 函数来操作这种形式的地址。
+​	对于TCP和UDP网络，地址的格式为 `host[:port]`。如果省略了 `port`，则默认端口将被使用。如果 `host` 是字面IPv6地址，则必须将其括在方括号中。可以使用 [net.JoinHostPort]({{< ref "/stdLib/net/net#func-joinhostport">}}) 和 [net.SplitHostPort]({{< ref "/stdLib/net/net#func-splithostport">}}) 函数来操作这种形式的地址。
 
 For Unix domain sockets the address is the absolute path to the MySQL-Server-socket, e.g. `/var/run/mysqld/mysqld.sock` or `/tmp/mysql.sock`.
 
@@ -222,7 +222,7 @@ Default:        false
 
 `allowCleartextPasswords=true` allows using the [cleartext client side plugin](https://dev.mysql.com/doc/en/cleartext-pluggable-authentication.html) if required by an account, such as one defined with the [PAM authentication plugin](http://dev.mysql.com/doc/en/pam-authentication-plugin.html). Sending passwords in clear text may be a security problem in some configurations. To avoid problems if there is any possibility that the password would be intercepted, clients should connect to MySQL Server using a method that protects the password. Possibilities include [TLS / SSL](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-tls), IPsec, or a private network.
 
-​	`allowCleartextPasswords=true`允许在需要时使用[明文客户端插件](https://dev.mysql.com/doc/en/cleartext-pluggable-authentication.html)，例如通过[PAM身份验证插件](http://dev.mysql.com/doc/en/pam-authentication-plugin.html)定义的账户。以明文形式发送密码可能会在某些配置中引发安全问题。为避免可能被截获密码的问题，客户端应使用保护密码的方法连接到MySQL服务器。可能的保护方法包括[TLS / SSL](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-tls)、IPsec或专用网络。
+​	`allowCleartextPasswords=true`允许在需要时使用[明文客户端插件](https://dev.mysql.com/doc/en/cleartext-pluggable-authentication.html)，例如通过[PAM身份验证插件](http://dev.mysql.com/doc/en/pam-authentication-plugin.html)定义的账户。以明文形式发送密码可能会在某些配置中引发安全问题。为避免可能被截获密码的问题，客户端应使用保护密码的方法连接到MySQL服务器。可能的保护方法包括[TLS / SSL](#tls)、IPsec或专用网络。
 
 ###### allowFallbackToPlaintext
 
@@ -358,7 +358,7 @@ If `interpolateParams` is true, placeholders (`?`) in calls to `db.Query()` and 
 
 *This can not be used together with the multibyte encodings BIG5, CP932, GB2312, GBK or SJIS. These are rejected as they may [introduce a SQL injection vulnerability](http://stackoverflow.com/a/12118602/3430118)!*
 
-​	*此选项不能与多字节编码BIG5、CP932、GB2312、GBK或SJIS一起使用。这些编码可能会引入SQL注入漏洞，因此被拒绝使用！*
+​	*此选项不能与多字节编码BIG5、CP932、GB2312、GBK或SJIS一起使用。这些编码可能会[引入SQL注入漏洞](http://stackoverflow.com/a/12118602/3430118)，因此被拒绝使用！*
 
 ###### loc
 
@@ -370,15 +370,15 @@ Default:        UTC
 
 Sets the location for time.Time values (when using `parseTime=true`). *"Local"* sets the system's location. See [time.LoadLocation](https://golang.org/pkg/time/#LoadLocation) for details.
 
-​	当使用`parseTime=true`时，设置时间.Time值的时区。"Local"设置了系统的时区。有关详细信息，请参阅[time.LoadLocation](https://golang.org/pkg/time/#LoadLocation)。
+​	当使用`parseTime=true`时，设置时间.Time值的时区。"Local"设置了系统的时区。有关详细信息，请参阅[time.LoadLocation]({{< ref "/stdLib/time/time#func-loadlocation">}})。
 
 Note that this sets the location for time.Time values but does not change MySQL's [time_zone setting](https://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html). For that see the [time_zone system variable](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-system-variables), which can also be set as a DSN parameter.
 
-​	请注意，这仅设置时间.Time值的时区，并不会更改MySQL的[time_zone设置](https://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html)。有关该设置，请参见[time_zone系统变量](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-system-variables)，它也可以作为DSN参数进行设置。
+​	请注意，这仅设置时间.Time值的时区，并不会更改MySQL的[time_zone设置](https://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html)。有关该设置，请参见[time_zone系统变量](#系统变量-system-variables)，它也可以作为DSN参数进行设置。
 
 Please keep in mind, that param values must be [url.QueryEscape](https://golang.org/pkg/net/url/#QueryEscape)'ed. Alternatively you can manually replace the `/` with `%2F`. For example `US/Pacific` would be `loc=US%2FPacific`.
 
-​	请注意，参数值必须进行[url.QueryEscape](https://golang.org/pkg/net/url/#QueryEscape)转义。或者，您也可以手动将`/`替换为`%2F`。例如，`US/Pacific`将是`loc=US%2FPacific`。
+​	请注意，参数值必须进行[url.QueryEscape]({{< ref "/stdLib/net/url#func-queryescape">}})转义。或者，您也可以手动将`/`替换为`%2F`。例如，`US/Pacific`将是`loc=US%2FPacific`。
 
 ###### maxAllowedPacket
 
@@ -515,7 +515,7 @@ Any other parameters are interpreted as system variables:
 - The values for string variables must be quoted with `'`.
 - 字符串变量的值必须用 `'` 引用。
 - The values must also be [url.QueryEscape](http://golang.org/pkg/net/url/#QueryEscape)'ed! (which implies values of string variables must be wrapped with `%27`).
-- 值还必须进行 [url.QueryEscape](http://golang.org/pkg/net/url/#QueryEscape)（这暗示着字符串变量的值必须用 `%27` 包裹）。
+- 值还必须进行 [url.QueryEscape](< ref "/stdLib/net/url#func-queryescape">)（这暗示着字符串变量的值必须用 `%27` 包裹）。
 
 ###### 例子 Examples
 
@@ -597,13 +597,13 @@ user:password@/
 
 The connection pool is managed by Go's database/sql package. For details on how to configure the size of the pool and how long connections stay in the pool see `*DB.SetMaxOpenConns`, `*DB.SetMaxIdleConns`, and `*DB.SetConnMaxLifetime` in the [database/sql documentation](https://golang.org/pkg/database/sql/). The read, write, and dial timeouts for each individual connection are configured with the DSN parameters [`readTimeout`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-readtimeout), [`writeTimeout`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-writetimeout), and [`timeout`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-timeout), respectively.
 
-​	连接池由Go的database/sql包管理。要配置连接池的大小以及连接在池中保持活动的时间，请参阅[database/sql文档中的`*DB.SetMaxOpenConns`](https://golang.org/pkg/database/sql/)，`*DB.SetMaxIdleConns`和`*DB.SetConnMaxLifetime`。每个连接的读、写和拨号超时时间可以通过DSN参数`readTimeout`，`writeTimeout`和`timeout`分别配置。
+​	连接池由Go的database/sql包管理。要配置连接池的大小以及连接在池中保持活动的时间，请参阅[database/sql文档]({{< ref "/stdLib/database/sql">}})中的`*DB.SetMaxOpenConns`，`*DB.SetMaxIdleConns`和`*DB.SetConnMaxLifetime`。每个连接的读、写和拨号超时时间可以通过DSN参数`readTimeout`，`writeTimeout`和`timeout`分别配置。
 
 #### `ColumnType` Support
 
-This driver supports the [`ColumnType` interface](https://golang.org/pkg/database/sql/#ColumnType) introduced in Go 1.8, with the exception of [`ColumnType.Length()`](https://golang.org/pkg/database/sql/#ColumnType.Length), which is currently not supported. All Unsigned database type names will be returned `UNSIGNED `with `INT`, `TINYINT`, `SMALLINT`, `BIGINT`.
+This driver supports the [`ColumnType` interface](https://golang.org/pkg/database/sql/#ColumnType) introduced in Go 1.8, with the exception of [`ColumnType.Length()`](https://golang.org/pkg/database/sql/#ColumnType.Length), which is currently not supported. All Unsigned database type names will be returned `UNSIGNED `with `INT`, `TINYINT`, `SMALLINT`, `BIGINT`.	
 
-​	该驱动程序支持Go 1.8中引入的`ColumnType`接口，但不支持`ColumnType.Length()`方法，该方法目前不受支持。所有无符号的数据库类型名称将以`UNSIGNED `的形式返回，包括`INT`，`TINYINT`，`SMALLINT`，`BIGINT`。
+​	该驱动程序支持在Go 1.8中引入的[ColumnType接口]({{< ref "/stdLib/database/sql#type-columntype----go18">}})，但不支持[ColumnType.Length()](< ref "/stdLib/database/sql#columntype-length----go18">)。所有无符号数据库类型名称将返回带有`INT` 、 `TINYINT` 、 `SMALLINT`和`BIGINT`的`UNSIGNED` 。
 
 #### `context.Context` Support
 
@@ -641,7 +641,7 @@ The default internal output type of MySQL `DATE` and `DATETIME` values is `[]byt
 
 However, many want to scan MySQL `DATE` and `DATETIME` values into `time.Time` variables, which is the logical equivalent in Go to `DATE` and `DATETIME` in MySQL. You can do that by changing the internal output type from `[]byte` to `time.Time` with the DSN parameter `parseTime=true`. You can set the default [`time.Time` location](https://golang.org/pkg/time/#Location) with the `loc` DSN parameter.
 
-​	但是，许多人都希望将MySQL的`DATE`和`DATETIME`值扫描到`time.Time`变量中，因为这在Go中是MySQL的`DATE`和`DATETIME`的逻辑等价物。你可以通过使用DSN参数`parseTime=true`将内部输出类型从`[]byte`更改为`time.Time`来实现这一点。你可以使用`loc` DSN参数设置默认的[ `time.Time` 位置](https://golang.org/pkg/time/#Location)。
+​	但是，许多人都希望将MySQL的`DATE`和`DATETIME`值扫描到`time.Time`变量中，因为这在Go中是MySQL的`DATE`和`DATETIME`的逻辑等价物。你可以通过使用DSN参数`parseTime=true`将内部输出类型从`[]byte`更改为`time.Time`来实现这一点。你可以使用`loc` DSN参数设置默认的[ `time.Time` 位置]({{< ref "/stdLib/time/time#type-location">}})。
 
 **Caution:** As of Go 1.1, this makes `time.Time` the only variable type you can scan `DATE` and `DATETIME` values into. This breaks for example [`sql.RawBytes` support](https://github.com/go-sql-driver/mysql/wiki/Examples#rawbytes).
 
@@ -655,15 +655,15 @@ Since version 1.5 Go-MySQL-Driver automatically uses the collation `utf8mb4_gene
 
 Other collations / charsets can be set using the [`collation`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-collation) DSN parameter.
 
-​	可以使用[ `collation`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-collation) DSN参数设置其他collation / charset。
+​	可以使用[ collation](#collation) DSN参数设置其他 collation / charset。
 
 Version 1.0 of the driver recommended adding `&charset=utf8` (alias for `SET NAMES utf8`) to the DSN to enable proper UTF-8 support. This is not necessary anymore. The [`collation`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-collation) parameter should be preferred to set another collation / charset than the default.
 
-​	驱动程序版本1.0曾建议在DSN中添加`&charset=utf8`（别名`SET NAMES utf8`）以启用正确的UTF-8支持。这不再是必需的。[ `collation`](https://pkg.go.dev/github.com/go-sql-driver/mysql#readme-collation)参数应该优先于设置除默认之外的其他collation / charset。
+​	驱动程序版本1.0曾建议在DSN中添加`&charset=utf8`（别名`SET NAMES utf8`）以启用正确的UTF-8支持。这不再是必需的。[ collation](#collation)参数应该优先于设置除默认之外的其他 collation / charset。
 
 See http://dev.mysql.com/doc/refman/8.0/en/charset-unicode.html for more details on MySQL's Unicode support.
 
-​	有关MySQL的Unicode支持的更多详细信息，请参见：http://dev.mysql.com/doc/refman/8.0/en/charset-unicode.html。
+​	有关MySQL的Unicode支持的更多详细信息，请参见：[http://dev.mysql.com/doc/refman/8.0/en/charset-unicode.html](http://dev.mysql.com/doc/refman/8.0/en/charset-unicode.html)。
 
 ### Testing / Development
 
@@ -749,18 +749,18 @@ This section is empty.
 
 ``` go
 var (
-	ErrInvalidConn       = errors.New("invalid connection")
-	ErrMalformPkt        = errors.New("malformed packet")
-	ErrNoTLS             = errors.New("TLS requested but server does not support TLS")
-	ErrCleartextPassword = errors.New("this user requires clear text authentication. If you still want to use it, please add 'allowCleartextPasswords=1' to your DSN")
-	ErrNativePassword    = errors.New("this user requires mysql native password authentication.")
-	ErrOldPassword       = errors.New("this user requires old password authentication. If you still want to use it, please add 'allowOldPasswords=1' to your DSN. See also https://github.com/go-sql-driver/mysql/wiki/old_passwords")
-	ErrUnknownPlugin     = errors.New("this authentication plugin is not supported")
-	ErrOldProtocol       = errors.New("MySQL server does not support required protocol 41+")
-	ErrPktSync           = errors.New("commands out of sync. You can't run this command now")
-	ErrPktSyncMul        = errors.New("commands out of sync. Did you run multiple statements at once?")
-	ErrPktTooLarge       = errors.New("packet for query is too large. Try adjusting the `Config.MaxAllowedPacket`")
-	ErrBusyBuffer        = errors.New("busy buffer")
+	ErrInvalidConn       = errors.New("invalid connection") // 无效连接
+	ErrMalformPkt        = errors.New("malformed packet") // 格式错误的数据包
+	ErrNoTLS             = errors.New("TLS requested but server does not support TLS") // 服务器不支持TLS，但已请求TLS。
+	ErrCleartextPassword = errors.New("this user requires clear text authentication. If you still want to use it, please add 'allowCleartextPasswords=1' to your DSN") // 这个用户需要明文身份验证。如果你仍然想使用它，请在你的DSN中添加'allowCleartextPasswords=1'。
+	ErrNativePassword    = errors.New("this user requires mysql native password authentication.") // 这个用户需要使用mysql原生密码进行身份验证。
+	ErrOldPassword       = errors.New("this user requires old password authentication. If you still want to use it, please add 'allowOldPasswords=1' to your DSN. See also https://github.com/go-sql-driver/mysql/wiki/old_passwords")// 这个用户需要旧密码验证。如果您仍然想使用它，请在您的DSN中添加'allowOldPasswords=1'。另请参阅https://github.com/go-sql-driver/mysql/wiki/old_passwords。
+	ErrUnknownPlugin     = errors.New("this authentication plugin is not supported") // 这个身份验证插件不受支持。
+	ErrOldProtocol       = errors.New("MySQL server does not support required protocol 41+") // MySQL服务器不支持所需的协议41+。
+	ErrPktSync           = errors.New("commands out of sync. You can't run this command now") // 命令不同步。你现在不能运行这个命令。
+	ErrPktSyncMul        = errors.New("commands out of sync. Did you run multiple statements at once?") // 命令不同步。你是不是一次运行了多个语句？
+	ErrPktTooLarge       = errors.New("packet for query is too large. Try adjusting the `Config.MaxAllowedPacket`") // 查询数据包太大。请尝试调整 `Config.MaxAllowedPacket`
+	ErrBusyBuffer        = errors.New("busy buffer") // 繁忙的缓冲区
 )
 ```
 
@@ -808,7 +808,7 @@ func DeregisterTLSConfig(key string)
 
 DeregisterTLSConfig removes the tls.Config associated with key.
 
-​	DeregisterTLSConfig 函数删除与键关联的 tls.Config。
+​	DeregisterTLSConfig 函数删除与 key关联的 tls.Config。
 
 #### func NewConnector <- 1.5.0
 
@@ -854,7 +854,7 @@ RegisterLocalFile adds the given file to the file allowlist, so that it can be u
 
 ​	RegisterLocalFile 函数将给定文件添加到允许的文件列表中，以便可以通过 "LOAD DATA LOCAL INFILE <filepath>" 使用它。或者，您可以使用 DSN 参数 'allowAllFiles=true' 来允许使用所有本地文件。
 
-```
+```go
 filePath := "/home/gopher/data.csv"
 mysql.RegisterLocalFile(filePath)
 err := db.Exec("LOAD DATA LOCAL INFILE '" + filePath + "' INTO TABLE foo")
@@ -872,7 +872,7 @@ RegisterReaderHandler registers a handler function which is used to receive a io
 
 ​	RegisterReaderHandler 函数注册一个处理函数，该函数返回一个 io.Reader，该 Reader 可以被 "LOAD DATA LOCAL INFILE Reader::<name>" 使用。如果处理函数返回一个 io.ReadCloser，则在请求完成时调用 Close()。
 
-```
+```go
 mysql.RegisterReaderHandler("data", func() io.Reader {
 	var csvReader io.Reader // Some Reader that returns CSV data
 	... // Open Reader here
@@ -897,7 +897,7 @@ Note: The provided rsa.PublicKey instance is exclusively owned by the driver aft
 
 注意：提供的 rsa.PublicKey 实例在注册后由驱动程序独家拥有，并且不允许进行修改。
 
-```
+```go
 data, err := ioutil.ReadFile("mykey.pem")
 if err != nil {
 	log.Fatal(err)
@@ -978,8 +978,8 @@ type Config struct {
 	Addr             string            // 网络地址（需要网络类型） Network address (requires Net)
 	DBName           string            // 数据库名 Database name
 	Params           map[string]string // 连接参数 Connection parameters
-	Collation        string            // 连接排序规则 Connection collation
-	Loc              *time.Location    // 时间值的地点 Location for time.Time values
+	Collation        string            // 连接校对规则 Connection collation
+	Loc              *time.Location    // time.Time值的地点 Location for time.Time values
 	MaxAllowedPacket int               // 允许的最大数据包大小 Max packet size allowed
 	ServerPubKey     string            // 服务器公钥名称 Server public key name
 
@@ -1007,7 +1007,7 @@ type Config struct {
 
 Config is a configuration parsed from a DSN string. If a new Config is created instead of being parsed from a DSN string, the NewConfig function should be used, which sets default values.
 
-​	Config是从DSN字符串解析出的配置。如果要从DSN字符串创建一个新的Config，而不是进行解析，应使用NewConfig函数，该函数将设置默认值。
+​	Config结构体是从DSN字符串解析出的配置。如果要从DSN字符串创建一个新的Config，而不是进行解析，应使用NewConfig函数，该函数将设置默认值。
 
 ##### func NewConfig <- 1.4.0
 
@@ -1147,6 +1147,8 @@ type NullTime sql.NullTime
 
 ​	[This NullTime implementation is not driver-specific](https://pkg.go.dev/github.com/go-sql-driver/mysql#hdr-This_NullTime_implementation_is_not_driver_specific)
 
+​	[这个 NullTime 实现不是特定于驱动程序的]()
+
 NullTime represents a time.Time that may be NULL. NullTime implements the Scanner interface so it can be used as a scan destination:
 
 ​	NullTime 代表一个可能是 NULL 的 `time.Time` 类型。NullTime 实现了 `Scanner` 接口，因此它可以被用作一个扫描目标：
@@ -1162,13 +1164,11 @@ if nt.Valid {
 }
 ```
 
-> This NullTime implementation is not driver-specific
->
-> **注意**：这个 `NullTime` 实现不是特定于驱动程序的。
+###### This NullTime implementation is not driver-specific 这个 `NullTime` 实现不是特定于驱动程序的。
 
 Deprecated: NullTime doesn't honor the loc DSN parameter. NullTime.Scan interprets a time as UTC, not the loc DSN parameter. Use sql.NullTime instead.
 
-​	**已弃用**：`NullTime` 不尊重 `loc` DSN 参数。`NullTime.Scan` 将时间解释为 UTC，而不是 `loc` DSN 参数。请改用 `sql.NullTime`。
+​	**已弃用**：`NullTime` 不遵守 `loc` DSN 参数。`NullTime.Scan` 将时间解释为 UTC，而不是 `loc` DSN 参数。请改用 `sql.NullTime`。
 
 ##### func (*NullTime) Scan
 

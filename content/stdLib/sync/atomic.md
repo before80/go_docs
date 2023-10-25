@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# atomic
-
 https://pkg.go.dev/sync/atomic@go1.20.1
 
 ​	atomic包提供了低级别的原子内存原语，用于实现同步算法。

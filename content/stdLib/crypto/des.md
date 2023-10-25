@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# des
-
 https://pkg.go.dev/crypto/des@go1.20.1
 
 

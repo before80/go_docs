@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# syslog
-
 https://pkg.go.dev/log/syslog@go1.20.1
 
 ​	syslog包提供了一个简单的接口来访问系统日志服务。它可以使用 UNIX 域套接字、UDP 或 TCP 发送消息到 syslog 守护进程。

@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# heap
-
 https://pkg.go.dev/container/heap@go1.20.1
 
 

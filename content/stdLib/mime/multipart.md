@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# multipart
-
 https://pkg.go.dev/mime/multipart@go1.20.1
 
 

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# path
-
 https://pkg.go.dev/path@go1.20.1
 
 ​	path包实现了用于操作斜杠分隔路径的实用程序函数。

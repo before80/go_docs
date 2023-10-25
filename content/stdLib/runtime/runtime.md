@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# runtime
-
 https://pkg.go.dev/runtime@go1.20.1
 
 ​	runtime包包含与Go运行时系统交互的操作，例如控制goroutine的函数。它还包括reflect包使用的低级类型信息；有关可编程接口的运行时类型系统，请参见reflect的文档。

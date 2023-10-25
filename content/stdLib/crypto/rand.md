@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# rand
-
 https://pkg.go.dev/crypto/rand@go1.20.1
 
 

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# pkix
-
 https://pkg.go.dev/crypto/x509/pkix@go1.20.1
 
 

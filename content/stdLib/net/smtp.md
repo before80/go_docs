@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# smtp
-
 https://pkg.go.dev/net/smtp@go1.20.1
 
 

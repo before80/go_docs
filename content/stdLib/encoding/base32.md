@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# base32
-
 https://pkg.go.dev/encoding/base32@go1.20.1
 
 

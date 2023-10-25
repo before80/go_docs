@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# filepath
-
 https://pkg.go.dev/path/filepath@go1.20.1
 
 ​	filepath 包实现了操作文件名路径的实用程序，以与目标操作系统定义的文件路径兼容的方式。

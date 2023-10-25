@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# base64
-
 https://pkg.go.dev/encoding/base64@go1.20.1
 
 ​	base64包实现了[RFC 4648](https://rfc-editor.org/rfc/rfc4648.html)中规定的base64编码。

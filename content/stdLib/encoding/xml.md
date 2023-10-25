@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# xml
-
 https://pkg.go.dev/encoding/xml@go1.20.1
 
 

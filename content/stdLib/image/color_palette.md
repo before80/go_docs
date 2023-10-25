@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# palette
-
 https://pkg.go.dev/image/color/palette@go1.20.1
 
 

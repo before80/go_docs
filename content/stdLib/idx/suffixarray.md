@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# suffixarray
-
 https://pkg.go.dev/index/suffixarray@go1.20.1
 
 

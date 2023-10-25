@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# bzip2
-
 https://pkg.go.dev/compress/bzip2@go1.20.1
 
 

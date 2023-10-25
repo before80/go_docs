@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# fcgi
-
 https://pkg.go.dev/net/http/fcgi@go1.20.1
 
 ​	fcgi 包实现了 FastCGI 协议。

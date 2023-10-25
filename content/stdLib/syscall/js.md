@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# js
-
 
 
 https://pkg.go.dev/syscall/js@go1.20.1

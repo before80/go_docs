@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# pprof
-
 https://pkg.go.dev/runtime/pprof@go1.20.1
 
 

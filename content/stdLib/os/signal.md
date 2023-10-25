@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# signal
-
 https://pkg.go.dev/os/signal@go1.20.1
 
 ​	signal包实现对进入的信号的访问。

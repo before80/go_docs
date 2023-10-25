@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# time
-
 https://pkg.go.dev/time@go1.20.1
 
 ​	time包提供了测量和显示时间的功能。

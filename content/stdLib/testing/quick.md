@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# quick
-
 https://pkg.go.dev/testing/quick@go1.20.1
 
 quick包实现了一些实用的函数，以帮助黑盒测试。

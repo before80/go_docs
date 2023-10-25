@@ -8,8 +8,6 @@ isCJKLanguage = true
 draft = false
 +++
 
-# utf8
-
 https://pkg.go.dev/unicode/utf8@go1.20.1
 
 ​	utf8包实现了支持使用 UTF-8 编码的文本的函数和常量。它包括了在符文和 UTF-8 字节序列之间进行转换的函数。参见 https://en.wikipedia.org/wiki/UTF-8。

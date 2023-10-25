@@ -8,8 +8,6 @@ isCJKLanguage = true
 draft = false
 +++
 
-# bufio
-
 https://pkg.go.dev/bufio@go1.20.1
 
 ​	bufio包实现了带缓冲的 I/O 操作。它包装了一个 io.Reader 或 io.Writer 对象，创建另一个实现相同接口的对象(Reader 或 Writer)，但提供了缓冲和一些文本 I/O 的辅助。

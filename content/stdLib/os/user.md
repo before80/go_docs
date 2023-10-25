@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# user
-
 https://pkg.go.dev/os/user@go1.20.1
 
 ​	user包允许按名称或 ID 查找用户帐户。

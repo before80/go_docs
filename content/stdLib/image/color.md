@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# color
-
 https://pkg.go.dev/image/color@go1.20.1
 
 

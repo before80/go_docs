@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# big
-
 https://pkg.go.dev/math/big@go1.20.1
 
 

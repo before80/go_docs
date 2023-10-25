@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# cgo
-
 https://pkg.go.dev/runtime/cgo@go1.20.1
 
 

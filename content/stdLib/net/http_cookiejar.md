@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# cookiejar
-
 https://pkg.go.dev/net/http/cookiejar@go1.20.1
 
  cookiejar 包实现了一个内存中符合 [RFC 6265](https://rfc-editor.org/rfc/rfc6265.html) 标准的 http.CookieJar。

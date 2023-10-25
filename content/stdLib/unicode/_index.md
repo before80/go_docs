@@ -8,8 +8,6 @@ isCJKLanguage = true
 draft = false
 +++
 
-# unicode
-
 https://pkg.go.dev/unicode@go1.20.1
 
 ​	unicode包提供了测试Unicode码点某些属性的数据和函数。

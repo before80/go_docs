@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# buildinfo
-
 https://pkg.go.dev/debug/buildinfo@go1.20.1
 
 Package buildinfo provides access to information embedded in a Go binary about how it was built. This includes the Go toolchain version, and the set of modules used (for binaries built in module mode).

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# exec
-
 https://pkg.go.dev/os/exec@go1.20.1
 
 ​	exec包可以运行外部命令。它包装了 os.StartProcess，以便更轻松地重新映射 stdin 和 stdout，连接管道的 I/O，以及做其他调整。

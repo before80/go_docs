@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# fs
-
 https://pkg.go.dev/io/fs@go1.20.1
 
 ​	fs包定义了与文件系统交互的基本接口。文件系统可以由操作系统提供，也可以由其他包提供。

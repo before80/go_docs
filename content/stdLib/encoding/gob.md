@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# gob
-
 https://pkg.go.dev/encoding/gob@go1.20.1
 
 

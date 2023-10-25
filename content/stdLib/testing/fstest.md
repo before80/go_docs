@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# fstest
-
 https://pkg.go.dev/testing/fstest@go1.20.1
 
 fstest包实现了用于测试文件系统实现和用户的支持。

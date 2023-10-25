@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# image
-
 https://pkg.go.dev/image@go1.20.1
 
 

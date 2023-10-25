@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# html
-
 https://pkg.go.dev/html@go1.20.1
 
 

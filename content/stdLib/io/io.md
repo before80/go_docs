@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# io
-
 https://pkg.go.dev/io@go1.20.1
 
 ​	io包提供了基本的I/O原语接口。它的主要任务是将这些原语的现有实现(例如os包中的实现)封装到共享的公共接口中，以抽象功能，以及一些其他相关的原语。

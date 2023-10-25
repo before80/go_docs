@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# adler32
-
 https://pkg.go.dev/hash/adler32@go1.20.1
 
 

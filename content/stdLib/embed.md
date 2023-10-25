@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# embed
-
 https://pkg.go.dev/embed@go1.20.1
 
 ​	embed包提供了访问嵌入在运行的 Go 程序中的文件的功能。

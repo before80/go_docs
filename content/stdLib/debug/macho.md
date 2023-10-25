@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# macho
-
 https://pkg.go.dev/debug/macho@go1.20.1
 
 Package macho implements access to Mach-O object files.

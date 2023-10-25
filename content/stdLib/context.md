@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# context
-
 https://pkg.go.dev/context@go1.20.1
 
 ​	context包context 定义了 Context 类型，它在 API 边界和进程之间传递截止时间、取消信号和其他请求作用域值。

@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# gif
-
 https://pkg.go.dev/image/gif@go1.20.1
 
 

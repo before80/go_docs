@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# hex
-
 https://pkg.go.dev/encoding/hex@go1.20.1
 
 

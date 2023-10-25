@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# elf
-
 https://pkg.go.dev/debug/elf@go1.20.1
 
 

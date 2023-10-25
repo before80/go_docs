@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# parse
-
 https://pkg.go.dev/text/template/parse@go1.20.1
 
 

@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# list
-
 https://pkg.go.dev/container/list@go1.20.1
 
 ​	list包实现了一个双链表（a doubly linked list.）。

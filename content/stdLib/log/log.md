@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# log
-
 https://pkg.go.dev/log@go1.20.1
 
 ​	log包实现了一个简单的日志包。它定义了一个类型Logger，该类型具有格式化输出的方法。它还有一个预定义的"标准"Logger，可以通过Print[f|ln]、Fatal[f|ln]和Panic[f|ln]帮助函数访问，这比手动创建Logger更容易。该记录器(logger )将写入标准错误，并打印每个记录消息的日期和时间。每条日志消息都在单独的一行上输出：如果要打印的消息没有以换行符结尾，该记录器(logger )将添加一个换行符。Fatal函数在写入日志消息后调用os.Exit(1)。Panic函数在写入日志消息后调用panic。

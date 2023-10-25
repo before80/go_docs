@@ -7,8 +7,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# unsafe
-
 https://pkg.go.dev/unsafe@go1.20.1
 
 ​	unsafe包包含了绕过Go程序类型安全的操作。

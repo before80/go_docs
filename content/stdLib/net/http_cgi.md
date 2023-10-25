@@ -7,8 +7,6 @@ isCJKLanguage = true
 draft = false
 
 +++
-# cgi
-
 https://pkg.go.dev/net/http/cgi@go1.20.1
 
 Package cgi implements CGI (Common Gateway Interface) as specified in [RFC 3875](https://rfc-editor.org/rfc/rfc3875.html).

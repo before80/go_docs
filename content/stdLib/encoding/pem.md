@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# pem
-
 https://pkg.go.dev/encoding/pem@go1.20.1
 
 ​	pem包实现了PEM数据编码，该编码起源于隐私增强邮件（Privacy Enhanced Mail）。如今，PEM编码最常用于TLS密钥和证书。详见[RFC 1421](https://rfc-editor.org/rfc/rfc1421.html)。

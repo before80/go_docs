@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# os
-
 https://pkg.go.dev/os@go1.20.1
 
 ​	os 包提供了一个独立于平台的操作系统功能接口。设计类似于 Unix，尽管错误处理类似于 Go；失败的调用会返回类型为 error 而不是错误号的值。通常，在错误中还有更多的信息。例如，如果一个以文件名为参数的调用失败了，比如 Open 或 Stat，错误消息将在打印时包括失败的文件名，并且类型为 `*PathError`，可以拆开以获取更多信息。

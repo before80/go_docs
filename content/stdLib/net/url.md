@@ -6,43 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# url
-
 https://pkg.go.dev/net/url@go1.20.1
 
 
 
 Package url parses URLs and implements query escaping.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

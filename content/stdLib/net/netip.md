@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# netip
-
 https://pkg.go.dev/net/netip@go1.20.1
 
 

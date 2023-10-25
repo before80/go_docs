@@ -6,8 +6,6 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# sql
-
 https://pkg.go.dev/database/sql@go1.20.1
 
 ​	sql包提供了一个围绕SQL(或类SQL)数据库的通用接口。
@@ -304,9 +302,7 @@ func Drivers() []string
 func Register(name string, driver driver.Driver)
 ```
 
-​	Register函数使用提供的名称使数据库驱动程序可用。如果使用相同的名称两次调用Register或者驱动程序为nil，则会引发panic。
-
-​	Register 函数通过提供的名称使数据库驱动程序可用。 如果以相同的名称调用 Register 两次或者如果 driver 为 nil，则会使程序 panic。
+​	Register 函数通过提供的name使数据库驱动程序可用。 如果以相同的name调用 Register 两次或者如果 driver 为 nil，则会使程序 panic。
 
 ## 类型
 
@@ -314,8 +310,18 @@ func Register(name string, driver driver.Driver)
 
 ``` go 
 type ColumnType struct {
-	// contains filtered or unexported fields
-	// 包含已过滤或未导出的字段
+	name string
+
+	hasNullable       bool
+	hasLength         bool
+	hasPrecisionScale bool
+
+	nullable     bool
+	length       int64
+	databaseType string
+	precision    int64
+	scale        int64
+	scanType     reflect.Type
 }
 ```
 
@@ -335,9 +341,15 @@ func (ci *ColumnType) DatabaseTypeName() string
 func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 ```
 
-​	DecimalSize方法返回十进制类型的比例和精度。如果不适用或不受支持，则为假。
+​	DecimalSize 方法返回decimal类型的精度和小数位数。 如果不适用或不受支持，ok 为 false。
 
-​	DecimalSize 方法返回小数点位置和精度。 如果不适用或不受支持，ok 为 false。
+> 个人注释
+>
+> ​	在数据存储中，precision 和 scale 通常用于表示数值型数据，具体如下：
+>
+> ​	precision 表示数值的总长度，包括小数点前的所有数字和小数点后的所有数字。例如，对于一个数值 123.456，precision 将会是 9，因为总共有九个数字。
+>
+> ​	scale 表示小数点所占的位数。在上述例子中，scale 将会是 3，因为小数点后有三个数字。如果小数点后的位数超过 scale，那么超出的部分会被四舍五入。例如，如果 scale 是 2，那么 123.456 会被四舍五入为 123.46。
 
 #### (*ColumnType) Length  <- go1.8
 
@@ -345,9 +357,7 @@ func (ci *ColumnType) DecimalSize() (precision, scale int64, ok bool)
 func (ci *ColumnType) Length() (length int64, ok bool)
 ```
 
-​	Length 方法返回可变长度列类型的长度，例如文本和二进制字段类型。 如果类型长度不受限制，则`length`为 math.MaxInt64（任何数据库限制仍然适用）。 如果列类型不是可变长度，例如 int，或者如果不受驱动程序支持，`ok` 为 false。
-
-重新生成
+​	Length 方法返回可变长度列类型的长度，例如文本和二进制字段类型。 如果类型长度无限，则`length`值为 `math.MaxInt64`（任何数据库限制仍然适用）。 如果列类型不是可变长度，例如 int，或者如果驱动程序不支持，`ok` 为 `false`。
 
 #### (*ColumnType) Name  <- go1.8
 
@@ -363,7 +373,7 @@ func (ci *ColumnType) Name() string
 func (ci *ColumnType) Nullable() (nullable, ok bool)
 ```
 
-​	Nullable方法报告列是否可以为null。如果驱动程序不支持此属性，则ok将为false。
+​	Nullable方法报告列是否可以为null。如果驱动程序不支持此属性，则`ok`将为`false`。
 
 #### (*ColumnType) ScanType  <- go1.8
 
@@ -371,22 +381,40 @@ func (ci *ColumnType) Nullable() (nullable, ok bool)
 func (ci *ColumnType) ScanType() reflect.Type
 ```
 
-​	ScanType方法返回适合使用Rows.Scan进行扫描的Go类型。如果驱动程序不支持此属性，则ScanType将返回空接口的类型。
+​	ScanType方法返回适合使用`Rows.Scan`进行扫描的Go类型。如果驱动程序不支持此属性，则ScanType方法将返回空接口的类型。
 
 ### type Conn  <- go1.9
 
 ```go 
 type Conn struct {
-	// contains filtered or unexported fields
-	// 包含已过滤或未导出的字段
+	db *DB
+
+	// closemu prevents the connection from closing while there
+	// is an active query. It is held for read during queries
+	// and exclusively during close.
+    //  closemu 防止在有活动查询时关闭连接。它在查询期间被保留用于读取，而在关闭期间独占。
+	closemu sync.RWMutex
+
+	// dc is owned until close, at which point
+	// it's returned to the connection pool.
+    // dc 在关闭之前一直被占用，直到关闭时才返回到连接池中。
+	dc *driverConn
+
+	// done transitions from 0 to 1 exactly once, on close.
+	// Once done, all operations fail with ErrConnDone.
+	// Use atomic operations on value when checking value.
+    // done 在关闭时从 0 变为 1，且仅变一次。
+    // 一旦 done 为 1，所有操作都会失败并返回错误码 ErrConnDone。
+    // 在检查值时，请使用原子操作来处理该值。
+	done int32
 }
 ```
 
-​	Conn结构体表示一个单独的数据库连接，而不是数据库连接池。除非有特定需要一个连续的单个数据库连接，否则请优先使用 DB 来运行查询。
+​	Conn 结构体表示单个数据库连接，而不是数据库连接池。除非有持续单个数据库连接的特定需求，否则建议从 DB 运行查询。
 
-​	在调用 Close方法以将连接返回到数据库池之前，Conn 必须调用 Close方法，可能与正在运行的查询同时进行。
+​	Conn 必须调用 Close 来将连接返回到数据库池，并且可以与正在运行的查询并发执行。
 
-​	调用 Close方法后，连接上的所有操作都将失败，并返回 ErrConnDone。
+​	在调用 Close 之后，对连接上的所有操作都将失败，并返回 ErrConnDone。
 
 #### (*Conn) BeginTx  <- go1.9
 
@@ -396,9 +424,9 @@ func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 
 ​	BeginTx方法开始一个事务。
 
-​	提供的上下文会一直使用到事务提交或回滚。如果上下文被取消，sql 包将回滚事务。如果传递给 BeginTx 的上下文被取消，Tx.Commit 将返回一个错误。
+​	提供的 context 将一直使用到事务提交或回滚。如果 context 被取消，sql 包将回滚事务。如果向 BeginTx 提供的 context 被取消，Tx.Commit 将返回一个错误。
 
-​	提供的 TxOptions 是可选的，如果应使用默认值，则可以为 nil。如果使用了非默认的隔离级别，并且该驱动程序不支持，将返回一个错误。
+​	提供的 TxOptions 是可选的，如果应使用默认值，则可以为 nil。如果使用了驱动程序不支持的非默认隔离级别，将返回一个错误。
 
 #### (*Conn) Close  <- go1.9
 
@@ -406,7 +434,7 @@ func (c *Conn) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
 func (c *Conn) Close() error
 ```
 
-​	Close方法将连接返回到连接池。Close方法后的所有操作都将返回 ErrConnDone。Close 方法可以与其他操作并发调用，它将阻塞，直到所有其他操作完成。在调用 Close 前，先取消任何使用的上下文，然后直接调用它可能会很有用。
+​	Close 方法将连接返回到连接池。所有在 Close 之后的操作都将返回 ErrConnDone。Close 方法可以安全地与其他操作并发调用，并且将阻塞，直到所有其他操作完成。在取消任何使用的 context 之后直接调用 close 可能会有用。
 
 #### (*Conn) ExecContext  <- go1.9
 
@@ -414,7 +442,7 @@ func (c *Conn) Close() error
 func (c *Conn) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
 ```
 
-​	ExecContext方法执行一条查询，而不返回任何行。args 用于查询中的任何占位符参数。
+​	ExecContext 方法执行不返回任何行的查询。args 是查询中任何占位符参数的实参。
 
 ##### ExecContext Example
 
@@ -435,11 +463,12 @@ var (
 func main() {
 	// A *DB is a pool of connections. Call Conn to reserve a connection for
 	// exclusive use.
+    // 一个 *DB 是一个连接池。调用 Conn 可预留一个连接以供专用。
 	conn, err := db.Conn(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer conn.Close() // Return the connection to the pool.
+	defer conn.Close() // 将连接返回到连接池。
 	id := 41
 	result, err := conn.ExecContext(ctx, `UPDATE balances SET balance = balance + 10 WHERE user_id = ?;`, id)
 	if err != nil {
@@ -462,7 +491,7 @@ func main() {
 func (c *Conn) PingContext(ctx context.Context) error
 ```
 
-​	PingContext方法验证与数据库的连接是否仍然存活。
+​	PingContext 方法用于验证与数据库的连接是否仍然有效。
 
 #### (*Conn) PrepareContext  <- go1.9
 
@@ -470,9 +499,9 @@ func (c *Conn) PingContext(ctx context.Context) error
 func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
-​	PrepareContext方法为以后的查询或执行创建一个准备好的语句。可以从返回的语句中并发运行多个查询或执行。调用者在不再需要语句时必须调用语句的 Close 方法。
+​	PrepareContext 方法用于创建一个预处理的语句以供后续查询或执行。可以从返回的语句中并发执行多个查询或执行。当不再需要该语句时，调用方必须调用该语句的 Close 方法。
 
-​	提供的上下文用于准备语句，而不是执行语句的上下文。
+​	提供的 context 用于预处理语句，而不是用于语句的执行。
 
 #### (*Conn) QueryContext  <- go1.9
 
@@ -480,7 +509,7 @@ func (c *Conn) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
 ```
 
-​	QueryContext方法执行一个返回行的查询，通常是SELECT。args参数用于查询中的任何占位符参数。
+​	QueryContext方法执行一个返回行的查询，通常是SELECT。args 是查询中的任何占位符实参。
 
 #### (*Conn) QueryRowContext  <- go1.9
 
@@ -488,7 +517,7 @@ func (c *Conn) QueryContext(ctx context.Context, query string, args ...any) (*Ro
 func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
-​	QueryRowContext方法执行一个预期返回最多一行的查询。QueryRowContext总是返回一个非nil值。错误会被推迟到调用Row的Scan方法时返回。如果查询没有选择任何行，则`* Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan扫描第一个选择的行并丢弃其余的行。
+​	QueryRowContext 方法执行一个预期最多返回一行的查询。QueryRowContext 方法总是返回一个非nil值。错误会延迟到 Row 的 Scan 方法被调用时才返回。如果查询没有选择任何行，`*Row `的 Scan 将返回 ErrNoRows。否则，`*Row` 的 Scan 会扫描第一个选定的行并丢弃其余的行。
 
 #### (*Conn) Raw  <- go1.13
 
@@ -496,49 +525,119 @@ func (c *Conn) QueryRowContext(ctx context.Context, query string, args ...any) *
 func (c *Conn) Raw(f func(driverConn any) error) (err error)
 ```
 
-​	Raw方法执行f，暴露底层驱动程序连接。driverConn不能在f之外使用。
+​	Raw 方法用于执行 `f`，并在此期间暴露底层的驱动程序连接 driverConn。driverConn 不能在 `f` 之外使用。
 
-​	一旦f返回且err不是driver.ErrBadConn，Conn将继续可用，直到调用Conn.Close为止。
+​	一旦 `f` 返回并且 `err` 不为 driver.ErrBadConn，则在调用 Conn.Close 之前，Conn 将继续可用。
 
 ### type DB 
 
 ``` go 
 type DB struct {
-	// contains filtered or unexported fields
+	// Total time waited for new connections.
+    // 等待新连接的总时间。
+	waitDuration atomic.Int64
+
+	connector driver.Connector
+	// numClosed is an atomic counter which represents a total number of
+	// closed connections. Stmt.openStmt checks it before cleaning closed
+	// connections in Stmt.css.
+    // numClosed 是一个原子计数器，表示已关闭连接的总数。
+    // Stmt.openStmt 在清理 Stmt.css 中的已关闭连接之前检查它。
+	numClosed atomic.Uint64
+
+	mu           sync.Mutex    // 保护以下字段 protects following fields
+	freeConn     []*driverConn // 按 returnedAt 从旧到新排序的空闲连接 free connections ordered by returnedAt oldest to newest
+	connRequests map[uint64]chan connRequest
+	nextRequest  uint64 // 在connRequests中使用的下一个键。 Next key to use in connRequests.
+	numOpen      int    // 打开和待处理的打开连接的数量 number of opened and pending open connections
+	// Used to signal the need for new connections
+    // 用于表示需要新连接的信号
+	// a goroutine running connectionOpener() reads on this chan and
+    // 运行connectionOpener()的goroutine读取此通道，
+	// maybeOpenNewConnections sends on the chan (one send per needed connection)
+    // 并且maybeOpenNewConnections在通道上发送（每个需要的连接发送一次）
+	// It is closed during db.Close(). The close tells the connectionOpener
+	// goroutine to exit.
+    // 它在db.Close()期间关闭。该Close告诉connectionOpener goroutine退出。
+	openerCh          chan struct{}
+	closed            bool
+	dep               map[finalCloser]depSet
+	lastPut           map[*driverConn]string // 最后一个连接的栈跟踪；仅用于调试 stacktrace of last conn's put; debug only
+	maxIdleCount      int                    // 零表示defaultMaxIdleConns；负数表示0 zero means defaultMaxIdleConns; negative means 0
+	maxOpen           int                    // 小于等于 0表示无限制 <= 0 means unlimited
+	maxLifetime       time.Duration          // 连接可以重新使用的最大时间量 maximum amount of time a connection may be reused
+	maxIdleTime       time.Duration          // 连接在被关闭之前可以空闲的最大时间量 maximum amount of time a connection may be idle before being closed
+	cleanerCh         chan struct{}
+	waitCount         int64 // 等待的总连接数。 Total number of connections waited for.
+	maxIdleClosed     int64 // 由于空闲计数而关闭的总连接数。Total number of connections closed due to idle count.
+	maxIdleTimeClosed int64 // 由于空闲时间而关闭的总连接数。 Total number of connections closed due to idle time.
+	maxLifetimeClosed int64 // 由于最大连接生命周期限制而关闭的总连接数。 Total number of connections closed due to max connection lifetime limit.
+
+	stop func() //  stop取消连接打开器。stop cancels the connection opener.
 }
 ```
 
-​	DB结构体是表示零个或多个底层连接池的数据库句柄。它可以被多个goroutine并发使用。
+​	DB 结构体是代表零个或多个底层连接的数据库句柄。它可以在多个goroutine之间安全地使用。
 
-​	sql包会自动创建和释放连接；它还维护一个空闲连接的自由池。如果数据库有每个连接状态的概念，则可以在事务(Tx)或连接(Conn)中可靠地观察到此状态。一旦调用DB.Begin，返回的Tx将绑定到单个连接。一旦在事务上调用Commit或Rollback，该事务的连接就会返回到DB的空闲连接池中。池的大小可以使用SetMaxIdleConns进行控制。
+​	sql 包自动创建和释放连接；它还维护一个空闲连接的自由池。如果数据库具有针对每个连接的状态概念，则可以在事务（Tx）或连接（Conn）中可靠地观察此状态。一旦调用 DB.Begin，返回的 Tx 将绑定到单个连接。一旦对事务调用 Commit 或 Rollback，该事务的连接将返回 DB 的空闲连接池（ idle connection pool）。可以通过 SetMaxIdleConns方法控制池的大小。
 
 #### func Open 
 
 ``` go 
-func Open(driverName, dataSourceName string) (*DB, error)
+func Open(driverName, dataSourceName string) (*DB, error) {
+	driversMu.RLock()
+	driveri, ok := drivers[driverName]
+	driversMu.RUnlock()
+	if !ok {
+		return nil, fmt.Errorf("sql: unknown driver %q (forgotten import?)", driverName)
+	}
+
+	if driverCtx, ok := driveri.(driver.DriverContext); ok {
+		connector, err := driverCtx.OpenConnector(dataSourceName)
+		if err != nil {
+			return nil, err
+		}
+		return OpenDB(connector), nil
+	}
+
+	return OpenDB(dsnConnector{dsn: dataSourceName, driver: driveri}), nil
+}
 ```
 
-​	Open函数通过其数据库驱动程序名称和驱动程序特定的数据源名称打开一个数据库，通常至少包含数据库名称和连接信息。
+​	Open 函数打开由其数据库驱动程序名称（`driverName`）和特定于驱动程序的数据源名称（`dataSourceName`）指定的数据库，通常至少包括数据库名称和连接信息。
 
-​	大多数用户将通过返回`*DB`的特定于驱动程序的连接助手函数打开数据库。Go标准库中不包含任何数据库驱动程序。请参阅https://golang.org/s/sqldrivers以获取第三方驱动程序的列表。
+​	大多数用户将通过返回 `*DB` 的特定于驱动程序的连接助手函数打开数据库。Go 标准库中没有包含任何数据库驱动程序。请参阅 [https://golang.org/s/sqldrivers](https://golang.org/s/sqldrivers) 以获取第三方驱动程序列表。
 
-​	Open函数可能只验证其参数而不创建到数据库的连接。要验证数据源名称是否有效，请调用Ping。
+​	Open 函数可能仅验证其实参而不创建与数据库的连接。要验证数据源名称（`driverName`）是否有效，请调用 `Ping`方法。
 
-​	返回的DB可安全地由多个goroutine并发使用，并维护其自己的空闲连接池。因此，应该只调用一次Open函数。很少需要关闭DB。
+​	返回的 DB 对于多个 goroutine 的并发使用是安全的，并维护自己的空闲连接池。因此，Open 函数应该只被调用一次。**很少需要关闭 DB**。
 
 #### func OpenDB  <- go1.10
 
 ``` go 
-func OpenDB(c driver.Connector) *DB
+func OpenDB(c driver.Connector) *DB {
+	ctx, cancel := context.WithCancel(context.Background())
+	db := &DB{
+		connector:    c,
+		openerCh:     make(chan struct{}, connectionRequestQueueSize),
+		lastPut:      make(map[*driverConn]string),
+		connRequests: make(map[uint64]chan connRequest),
+		stop:         cancel,
+	}
+
+	go db.connectionOpener(ctx)
+
+	return db
+}
 ```
 
-​	OpenDB函数使用Connector打开数据库，允许驱动程序绕过基于字符串的数据源名称。
+​	OpenDB 函数使用 Connector 打开数据库，允许驱动程序绕过基于字符串的数据源名称（`driverName`）。
 
-​	大多数用户将通过特定于驱动程序的连接助手函数打开数据库，该函数返回*DB。Go标准库中不包含任何数据库驱动程序。有关第三方驱动程序的列表，请参见https://golang.org/s/sqldrivers。
+​	大多数用户将通过返回 `*DB` 的特定于驱动程序的连接辅助函数打开数据库。Go 标准库中没有包含任何数据库驱动程序。请参阅 [https://golang.org/s/sqldrivers](https://golang.org/s/sqldrivers) 以获取第三方驱动程序列表。
 
-​	OpenDB函数可能只是验证其参数而没有创建到数据库的连接。要验证数据源名称是否有效，请调用Ping。
+​	OpenDB 函数可能仅验证其实参而不创建与数据库的连接。要验证数据源名称（`driverName`）是否有效，请调用 `Ping`方法。
 
-​	返回的DB安全地支持多个goroutine的并发使用，并维护其自己的空闲连接池。因此，OpenDB函数应该只调用一次。很少需要关闭DB。
+​	返回的 DB 对于多个 goroutine 的并发使用是安全的，并维护自己的空闲连接池。因此，OpenDB 函数应该只被调用一次。**很少需要关闭 DB**。
 
 #### (*DB) Begin 
 
@@ -546,21 +645,31 @@ func OpenDB(c driver.Connector) *DB
 func (db *DB) Begin() (*Tx, error)
 ```
 
-​	Begin方法开始一个事务。默认的隔离级别取决于驱动程序。
+​	Begin 方法开始一个事务。默认的隔离级别取决于驱动程序。
 
-​	Begin方法在内部使用context.Background；要指定上下文，请使用BeginTx方法。
+​	Begin 方法内部使用 context.Background；要指定上下文，请使用 BeginTx 方法。
 
 #### (*DB) BeginTx  <- go1.8
 
 ``` go 
-func (db *DB) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error)
+func (db *DB) BeginTx(ctx context.Context, opts *TxOptions) (*Tx, error) {
+	var tx *Tx
+	var err error
+
+	err = db.retry(func(strategy connReuseStrategy) error {
+		tx, err = db.begin(ctx, opts, strategy)
+		return err
+	})
+
+	return tx, err
+}
 ```
 
-​	BeginTx方法开始一个事务。
+​	BeginTx 方法开始一个事务。
 
-​	提供的上下文用于直到事务提交或回滚。如果上下文被取消，则sql包将回滚事务。如果提供给BeginTx方法的上下文被取消，Tx.Commit将返回错误。
+​	提供的上下文将一直使用到事务提交或回滚为止。如果上下文被取消，sql 包将回滚事务。如果提供给 BeginTx 的上下文被取消，Tx.Commit 将返回错误。
 
-​	提供的TxOptions是可选的，如果应使用默认值，则可以为nil。如果使用驱动程序不支持的非默认隔离级别，则会返回错误。
+​	提供的 TxOptions 是可选的，如果应使用默认值，可以为nil。如果使用了驱动程序不支持的非默认隔离级别，将返回错误。
 
 ##### BeginTx Example
 
@@ -602,9 +711,9 @@ func main() {
 func (db *DB) Close() error
 ```
 
-​	Close方法关闭数据库并防止启动新查询。然后，Close方法等待在服务器上已经开始处理的所有查询完成。
+​	Close 方法关闭数据库并阻止新查询启动。然后等待所有已在服务器上开始处理的查询完成。
 
-​	很少需要关闭DB，因为DB句柄应该是长期存在的并在许多goroutine之间共享。
+​	很少需要关闭DB，因为 DB 句柄旨在长期存在并在许多 goroutines 之间共享。
 
 #### (*DB) Conn  <- go1.9
 
@@ -612,9 +721,9 @@ func (db *DB) Close() error
 func (db *DB) Conn(ctx context.Context) (*Conn, error)
 ```
 
-​	Conn方法通过打开一个新连接或从连接池中返回一个现有连接来返回单个连接。 Conn 将阻塞直到返回连接或取消 ctx。在同一 Conn 上运行的查询将在同一个数据库会话中运行。
+​	Conn 方法通过打开一个新连接或从连接池中返回一个现有连接来返回单个连接。Conn 将阻塞，直到返回连接或 ctx 被取消。在同一 Conn 上运行的查询将在相同的数据库会话中运行。
 
-​	每个 Conn方法必须通过调用 Conn.Close 返回到数据库池中。
+​	每个 Conn 方法必须在使用后通过调用 Conn.Close 返回到数据库池中。
 
 #### (*DB) Driver 
 
@@ -622,7 +731,7 @@ func (db *DB) Conn(ctx context.Context) (*Conn, error)
 func (db *DB) Driver() driver.Driver
 ```
 
-​	Driver方法返回数据库的底层驱动程序。
+​	Driver 方法返回数据库的底层驱动程序。
 
 #### (*DB) Exec 
 
@@ -630,9 +739,9 @@ func (db *DB) Driver() driver.Driver
 func (db *DB) Exec(query string, args ...any) (Result, error)
 ```
 
-​	Exec方法执行一个查询，而不返回任何行。 args 是查询中任何占位符参数的参数。
+​	Exec 方法执行一个不返回任何行的查询。args 是查询中的任何占位符参数的实参。
 
-​	Exec方法内部使用 context.Background。要指定上下文，请使用 ExecContext方法。
+​	Exec 方法内部使用 context.Background；要指定上下文，请使用 `ExecContext`方法。
 
 #### (*DB) ExecContext  <- go1.8
 
@@ -640,7 +749,7 @@ func (db *DB) Exec(query string, args ...any) (Result, error)
 func (db *DB) ExecContext(ctx context.Context, query string, args ...any) (Result, error)
 ```
 
-​	ExecContext方法执行一个查询，而不返回任何行。 args 是查询中任何占位符参数的参数。
+​	ExecContext 方法执行一个不返回任何行的查询。args 是查询中的任何占位符参数的实参。
 
 ##### ExecContext Example
 
@@ -678,12 +787,14 @@ func main() {
 #### (*DB) Ping  <- go1.1
 
 ``` go 
-func (db *DB) Ping() error
+func (db *DB) Ping() error {
+	return db.PingContext(context.Background())
+}
 ```
 
-​	Ping方法验证与数据库的连接仍然存在，必要时建立连接。
+​	Ping 方法验证与数据库的连接是否仍然有效，如果需要，则建立连接。
 
-​	Ping方法内部使用 context.Background。要指定上下文，请使用 PingContext方法。
+​	Ping 方法内部使用 context.Background；要指定上下文，请使用 `PingContext`方法。
 
 #### (*DB) PingContext  <- go1.8
 
@@ -691,7 +802,7 @@ func (db *DB) Ping() error
 func (db *DB) PingContext(ctx context.Context) error
 ```
 
-​	PingContext方法验证与数据库的连接仍然存在，必要时建立连接。
+​	PingContext 方法验证与数据库的连接是否仍然有效，如果需要，则建立连接。
 
 ##### PingContext Example
 
@@ -711,11 +822,11 @@ var (
 )
 
 func main() {
-	// Ping和PingContext可用于确定是否仍然可以与数据库服务器通信。
+	// Ping方法和PingContext方法可以用于确定是否仍然可以与数据库服务器进行通信。
 	//
-	// 在命令行应用程序中使用Ping可以建立进一步查询是可能的；DSN是有效的。
+	// 在命令行应用程序中使用Ping可以建立进一步查询是可能的；所提供的DSN是有效的。
 	//
-	// 在长时间运行的服务中，Ping可以是健康检查系统的一部分。
+	// 在长期运行的服务中使用Ping时，它可以是健康检查系统的一部分。
 	ctx, cancel := context.WithTimeout(ctx, 1*time.Second)
 	defer cancel()
 
@@ -734,9 +845,9 @@ func main() {
 func (db *DB) Prepare(query string) (*Stmt, error)
 ```
 
-​	Prepare方法创建一个准备好的语句，以便以后进行查询或执行操作。可以从返回的语句中并发运行多个查询或执行。调用者在语句不再需要时必须调用语句的 Close 方法。
+​	Prepare 方法创建一个预处理语句，用于后续的查询或执行。可以从返回的语句中并发运行多个查询或执行。当不再需要该语句时，调用者必须调用语句的 Close 方法。
 
-​	Prepare方法内部使用 context.Background。要指定上下文，请使用 PrepareContext方法。
+​	Prepare 方法内部使用 context.Background；要指定上下文，请使用 `PrepareContext`方法。
 
 ##### Prepare Example
 
@@ -766,7 +877,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer stmt.Close() // Prepared statements take up server resources and should be closed after use.
+	defer stmt.Close() // Prepared statements take up server resources and should be closed after use. 预处理语句会占用服务器资源，因此应该在使用后关闭。
 
 	for id, project := range projects {
 		if _, err := stmt.Exec(id+1, project.mascot, project.release, "open source"); err != nil {
@@ -783,9 +894,9 @@ func main() {
 func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
-​	PrepareContext方法创建一个准备好的语句，以便以后进行查询或执行操作。可以从返回的语句中并发运行多个查询或执行。调用者在语句不再需要时必须调用语句的 Close 方法。
+​	PrepareContext 方法创建一个预处理语句，用于后续的查询或执行。可以从返回的语句中并发运行多个查询或执行。当不再需要该语句时，调用者必须调用语句的 Close 方法。
 
-​	提供的上下文用于语句的准备，而不是语句的执行。
+​	提供的上下文用于预处理语句，而不是用于执行语句。
 
 #### (*DB) Query 
 
@@ -793,9 +904,9 @@ func (db *DB) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 func (db *DB) Query(query string, args ...any) (*Rows, error)
 ```
 
-​	Query方法执行返回行的查询，通常是 SELECT。args 是查询中的任何占位符参数。
+​	Query 方法执行一个返回行的查询，通常是 SELECT。args 是查询中的任何占位符参数的实参。
 
-​	Query方法内部使用 context.Background。要指定上下文，请使用 QueryContext方法。
+​	Query 方法内部使用 context.Background；要指定上下文，请使用 `QueryContext`方法。
 
 ##### Query Example
 
@@ -880,7 +991,7 @@ from
 func (db *DB) QueryContext(ctx context.Context, query string, args ...any) (*Rows, error)
 ```
 
-​	QueryContext方法执行返回行的查询，通常是 SELECT。args 是查询中的任何占位符参数。
+​	QueryContext 方法执行一个返回行的查询，通常是 SELECT。args 是查询中的任何占位符参数的实参。
 
 ##### QueryContext Example
 
@@ -914,6 +1025,8 @@ func main() {
 		if err := rows.Scan(&name); err != nil {
 			// Check for a scan error.
 			// Query rows will be closed with defer.
+            // 检查扫描错误。 
+            // 查询行将在延迟关闭。
 			log.Fatal(err)
 		}
 		names = append(names, name)
@@ -921,12 +1034,15 @@ func main() {
 	// If the database is being written to ensure to check for Close
 	// errors that may be returned from the driver. The query may
 	// encounter an auto-commit error and be forced to rollback changes.
+    // 如果数据库正在写入，请确保检查驱动程序可能返回的Close错误。
+    // 查询可能会遇到自动提交错误并被迫回滚更改。
 	rerr := rows.Close()
 	if rerr != nil {
 		log.Fatal(rerr)
 	}
 
 	// Rows.Err will report the last error encountered by Rows.Scan.
+    // Rows.Err将报告Rows.Scan遇到的最后一项错误。
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
@@ -941,9 +1057,9 @@ func main() {
 func (db *DB) QueryRow(query string, args ...any) *Row
 ```
 
-​	QueryRow方法执行一个预期返回最多一行的查询。QueryRow方法总是返回一个非空值。错误将被延迟直到调用 Row 的 Scan 方法。如果查询未选择任何行，则 `*Row` 的 Scan 将返回 ErrNoRows。否则，`*Row` 的 Scan 扫描第一行并丢弃其余行。
+​	QueryRow方法执行一个预期最多返回一行的查询。QueryRow方法总是返回非nil值。错误会延迟到Row的`Scan`方法被调用时才报告。如果查询没有选择任何行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan扫描第一个选定的行并丢弃其余行。
 
-​	QueryRow方法内部使用 context.Background。要指定上下文，请使用 QueryRowContext方法。
+​	QueryRow方法内部使用context.Background；要指定上下文，请使用`QueryRowContext`方法。
 
 #### (*DB) QueryRowContext  <- go1.8
 
@@ -951,7 +1067,7 @@ func (db *DB) QueryRow(query string, args ...any) *Row
 func (db *DB) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
-​	QueryRowContext方法执行一个预期返回最多一行的查询。QueryRowContext 总是返回一个非空值。错误将被延迟直到调用 Row 的 Scan 方法。如果查询未选择任何行，则 `*Row` 的 Scan 将返回 ErrNoRows。否则，`*Row` 的 Scan 扫描第一行并丢弃其余行。
+​	QueryRowContext方法执行一个预期最多返回一行的查询。QueryRowContext方法总是返回非nil值。错误会延迟到Row的`Scan`方法被调用时才报告。如果查询没有选择任何行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan扫描第一个选定的行并丢弃其余行。	
 
 ##### QueryRowContext Example
 
@@ -998,6 +1114,16 @@ func (db *DB) SetConnMaxIdleTime(d time.Duration)
 ​	过期的连接可能会在重新使用之前被懒惰地关闭。
 
 ​	如果d <= 0，则连接不会因连接的空闲时间而关闭。
+
+
+
+​	SetMaxIdleConns方法设置空闲连接池中的最大连接数。
+
+​	如果MaxOpenConns大于0但小于新的MaxIdleConns，则新的MaxIdleConns将减少以匹配MaxOpenConns限制。
+
+​	如果n <= 0，则不保留空闲连接。
+
+​	默认的最大空闲连接数为2。这可能会在未来的版本中更改。
 
 #### (*DB) SetConnMaxLifetime  <- go1.6
 
@@ -2088,5 +2214,5 @@ type TxOptions struct {
 }
 ```
 
-​	TxOptions保存在DB.BeginTx中使用的事务选项。
+​	TxOptions保存在DB.BeginTx方法中使用的事务选项。
 
