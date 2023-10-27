@@ -241,9 +241,7 @@ type DriverContext interface {
 }
 ```
 
-​	如果 Driver 实现了 DriverContext 接口，那么 sql.DB 将调用 OpenConnector 来获取 Connector，并调用该 Connector 的 Connect 方法来获取每个所需的连接，而不是为每个连接调用 Driver 的 Open 方法。这个两步的过程允许驱动程序只解析一次名称，并且提供对每个 Conn 的上下文访问。
-
-​	如果一个驱动程序实现了 DriverContext接口，则 sql.DB 将调用 OpenConnector 来获取 Connector，然后调用该 Connector 的 Connect 方法来获取每个所需的连接，而不是为每个连接调用Driver的 Open 方法。这种两步序列允许驱动程序只解析name一次，并且还提供对每个Conn上下文的访问。
+​	如果一个 Driver 实现了 DriverContext 接口，则 sql.DB 将调用 OpenConnector 方法来获取 Connector，然后调用该 Connector 的 Connect 方法来获取每个所需的连接，而不是为每个连接调用Driver的 Open 方法。这种两步序列允许驱动程序只解析name一次，并且还提供对每个Conn上下文的访问。
 
 ### type Execer <- DEPRECATED
 
@@ -267,7 +265,7 @@ Exec may return ErrSkip.
 
 Deprecated: Drivers should implement ExecerContext instead.
 
-​	已弃用：驱动程序应改为实现ExecerContext。
+​	已弃用：驱动程序应改为实现ExecerContext接口。
 
 
 
@@ -283,9 +281,9 @@ type ExecerContext interface {
 
 ​	如果 Conn 没有实现 ExecerContext，则 sql 包的 DB.Exec 将回退到 Execer；如果 Conn 也没有实现 Execer，则 DB.Exec 将首先准备查询，执行语句，然后关闭语句。
 
-​	ExecContext 可以返回 ErrSkip。
+​	ExecContext 方法可以返回 ErrSkip。
 
-​	ExecContext 必须遵守上下文超时，并在上下文取消时返回。
+​	ExecContext 方法必须遵守上下文超时，并在上下文取消时返回。
 
 ### type IsolationLevel  <- go1.8
 
@@ -359,7 +357,7 @@ type Null struct {
 }
 ```
 
-​	Null结构体是一种类型，通过允许nil值但否则委托给另一个ValueConverter来实现ValueConverter。
+​	Null 结构体是一个实现了 ValueConverter 接口的类型，它允许 nil 值，但除此之外会委托给另一个 ValueConverter。
 
 #### (Null) ConvertValue 
 
@@ -375,11 +373,11 @@ type Pinger interface {
 }
 ```
 
-​	Pinger是Conn可能实现的一个可选接口。
+​	Pinger 是一个可选的接口，可以由 Conn（这里是泛指的意思下Conn） 结构体实现。
 
-​	如果Conn未实现Pinger，则sql包的DB.Ping和DB.PingContext将检查是否至少有一个Conn可用。
+​	如果一个 Conn（这里是泛指的意思下Conn） 没有实现 Pinger接口，那么 sql 包中的 DB.Ping 和 DB.PingContext 将检查是否至少有一个可用的 Conn。
 
-​	如果Conn.Ping返回ErrBadConn，则DB.Ping和DB.PingContext将从池中删除Conn。
+​	如果 sql.Conn.Ping 方法返回 ErrBadConn，则sql.DB.Ping 方法和 sql.DB.PingContext 方法将从池中移除该 Conn。
 
 ### type QueryerContext  <- go1.8
 
@@ -389,13 +387,13 @@ type QueryerContext interface {
 }
 ```
 
-​	QueryerContext是Conn可能实现的一个可选接口。
+​	QueryerContext是一个可选的接口，可以由Conn（这里是泛指的意思下Conn）实现。
 
-​	如果Conn未实现QueryerContext，则sql包的DB.Query将回退到Queryer；如果Conn也未实现Queryer，则DB.Query将首先准备查询，执行语句，然后关闭语句。
+​	如果Conn（这里是泛指的意思下Conn）未实现QueryerContext方法，则sql包的DB.Query方法将回退到Queryer；如果Conn（这里是泛指的意思下Conn）也未实现Queryer，则DB.Query方法将首先准备一个查询，执行语句，然后关闭语句。
 
-​	QueryContext可能会返回ErrSkip。
+​	QueryContext方法可能会返回ErrSkip。
 
-​	QueryContext必须遵守上下文超时并在取消上下文时返回。
+​	QueryContext方法必须遵守上下文超时并在取消上下文时返回。
 
 ### type Result 
 
@@ -465,7 +463,7 @@ type RowsColumnTypeDatabaseTypeName interface {
 }
 ```
 
-​	RowsColumnTypeDatabaseTypeName接口可以被 Rows 实现。它应该返回数据库系统类型名称，但不包括长度信息。类型名称应大写。以下是各种类型的返回示例："VARCHAR"、"NVARCHAR"、"VARCHAR2"、"CHAR"、"TEXT"、"DECIMAL"、"SMALLINT"、"INT"、"BIGINT"、"BOOL"、"[]BIGINT"、"JSONB"、"XML"、"TIMESTAMP"。
+​	RowsColumnTypeDatabaseTypeName接口可以被Rows（这里是泛指的意思下Rows）实现。它应该返回数据库系统类型名称，但不包括长度信息。**类型名称应大写**。以下是各种类型的返回示例："VARCHAR"、"NVARCHAR"、"VARCHAR2"、"CHAR"、"TEXT"、"DECIMAL"、"SMALLINT"、"INT"、"BIGINT"、"BOOL"、"[]BIGINT"、"JSONB"、"XML"、"TIMESTAMP"。
 
 ### type RowsColumnTypeLength  <- go1.8
 
@@ -476,7 +474,7 @@ type RowsColumnTypeLength interface {
 }
 ```
 
-​	RowsColumnTypeLength接口可以被 Rows 实现。如果列是变长类型，则它应返回列类型的长度。如果列不是变长类型，则应该返回 false。如果长度除系统限制外不受限制，则应返回 math.MaxInt64。以下是各种类型的返回示例：
+​	RowsColumnTypeLength接口可以被Rows（这里是泛指的意思下Rows）实现。如果列是变长类型，则它应返回列类型的长度。如果列不是变长类型，则应该返回 `false`。如果长度除系统限制外不受限制，则应返回 math.MaxInt64。以下是各种类型的返回值示例：
 
 ```
 TEXT          (math.MaxInt64, true)
@@ -496,7 +494,7 @@ type RowsColumnTypeNullable interface {
 }
 ```
 
-​	RowsColumnTypeNullable接口是由Rows实现的可选接口。如果已知该列可以为null，则可为空值应为true；如果已知该列不可为空，则为空值为false。如果列的可空性未知，则ok应为false。
+​	RowsColumnTypeNullable 接口可以由Rows（这里是泛指的意思下Rows）实现。如果已知某列为可能为null，则该可空值的值为 `true`；如果已知该列不可能为null，则该可空值的值为 `false`。如果该列的可空值属性未知，则 `ok` 应为 `false`。
 
 ### type RowsColumnTypePrecisionScale  <- go1.8
 
@@ -507,7 +505,7 @@ type RowsColumnTypePrecisionScale interface {
 }
 ```
 
-​	RowsColumnTypePrecisionScale接口是由Rows实现的可选接口。它应返回十进制类型的精度和刻度。如果不适用，则应将ok设置为false。以下是各种类型的返回值示例：
+​	RowsColumnTypePrecisionScale 接口可以由Rows（这里是泛指的意思下Rows）实现。它应返回十进制类型的精度和小数位数。如果不适用，则应将`ok`设置为`false`。以下是各种类型的返回值示例：
 
 ```
 decimal(38, 4)    (38, 4, true)
@@ -524,7 +522,7 @@ type RowsColumnTypeScanType interface {
 }
 ```
 
-​	RowsColumnTypeScanType接口是由Rows实现的可选接口。它应返回可以用于扫描类型的值类型。例如，对于数据库列类型"bigint"，这应返回"reflect.TypeOf(int64(0))"。
+​	RowsColumnTypeScanType 接口可以由Rows（这里是泛指的意思下Rows） 实现。它应返回可以用于扫描类型的值类型。例如，对于数据库列类型"bigint"，这应返回"`reflect.TypeOf(int64(0))`"。
 
 ### type RowsNextResultSet  <- go1.8
 
@@ -544,20 +542,19 @@ type RowsNextResultSet interface {
 }
 ```
 
-​	RowsNextResultSet接口通过提供一种信号方式来扩展Rows接口，以使驱动程序前进到下一个结果集。
+​	RowsNextResultSet 接口通过提供一种方式来向驱动程序发出信号，使其前进到下一个结果集，从而扩展了 Rows 接口。
 
 ### type SessionResetter  <- go1.10
 
 ``` go 
 type SessionResetter interface {
-	// ResetSession在连接之前执行查询时调用，
-    // 如果连接之前已被使用。
-    // 如果驱动程序返回ErrBadConn，则连接将被丢弃。
+	// 如果在连接被使用过之前，ResetSession 会在连接上执行查询之前被调用。
+    // 如果驱动程序返回 ErrBadConn，连接将被丢弃。
 	ResetSession(ctx context.Context) error
 }
 ```
 
-​	SessionResetter接口可以由Conn实现，以允许驱动程序重置与连接相关的会话状态并发出坏连接信号。
+​	SessionResetter 可以由 Conn （这里是泛指的意思下Conn ）实现，以允许驱动程序重置与连接关联的会话状态并发出不良连接信号。
 
 ### type Stmt 
 
@@ -594,7 +591,7 @@ type Stmt interface {
 }
 ```
 
-​	Stmt接口是预处理语句。它绑定到Conn，不能被多个goroutine同时使用。
+​	Stmt接口是预处理语句。它绑定到一个Conn （这里是泛指的意思下Conn ），并且不能同时被多个goroutine使用。
 
 ### type StmtExecContext  <- go1.8
 
@@ -606,7 +603,7 @@ type StmtExecContext interface {
 }
 ```
 
-​	StmtExecContext接口通过提供带有上下文的Exec来增强Stmt接口。
+​	StmtExecContext接口通过提供带有上下文的Exec方法来增强Stmt接口。
 
 ### type StmtQueryContext  <- go1.8
 
@@ -618,7 +615,7 @@ type StmtQueryContext interface {
 }
 ```
 
-​	StmtQueryContext接口通过提供带有上下文的Query来增强Stmt接口。
+​	StmtQueryContext接口通过提供带有上下文的Query方法来增强Stmt接口。
 
 ### type Tx 
 
@@ -654,9 +651,9 @@ type Validator interface {
 }
 ```
 
-​	Validator接口可以被 Conn 实现，以允许驱动程序表明连接是否有效或是否应丢弃。
+​	Validator接口可以被 （这里是泛指的意思下Conn ）实现，允许驱动程序发出信号，指示连接是否有效或是否应该被丢弃。
 
-​	如果实现了 Validator，则驱动程序可能会从查询中返回基础错误，即使连接应该由连接池丢弃。
+​	如果实现了 Validator，即使连接应该被丢弃，驱动程序也可以返回查询的基本错误。
 
 ### type Value 
 
@@ -664,7 +661,7 @@ type Validator interface {
 type Value any
 ```
 
-​	Value类型是驱动程序必须能够处理的值。它可以是 nil、由数据库驱动程序的 NamedValueChecker 接口处理的类型，或是以下类型的实例
+​	Value类型是驱动程序必须能够处理的值。它可以是nil，也可以是数据库驱动程序的NamedValueChecker接口处理的类型，或者是这些类型之一的实例：
 
 ```
 int64
@@ -675,7 +672,7 @@ string
 time.Time
 ```
 
-​	如果驱动程序支持游标，则返回的 Value 还可以在此包中实现 Rows 接口。例如，当用户选择类似于"select cursor(select * from my_table) from dual"这样的光标时。如果从选择中的 Rows 被关闭，则光标 Rows 也将被关闭。
+​	如果驱动程序支持游标，则返回的 Value 还可以在此包中实现 Rows 接口。例如，当用户选择游标时，如 "`select cursor(select * from my_table) from dual`"，就会使用到这种情况。如果 select 中的 Rows （这里是泛指的意思下Rows ）关闭了，游标 Rows （这里是泛指的意思下Rows ）也会被关闭。
 
 ### type ValueConverter 
 
@@ -686,13 +683,13 @@ type ValueConverter interface {
 }
 ```
 
-ValueConverter接口是提供 ConvertValue 方法的接口。
+​	ValueConverter接口是提供 ConvertValue 方法的接口。
 
-驱动程序包提供了 ValueConverter 的各种实现，以提供驱动程序之间的一致的转换实现。ValueConverter 有以下几个用途：
+​	驱动程序包提供了 ValueConverter 的各种实现，以提供驱动程序之间的一致的转换实现。ValueConverter 有以下几个用途：
 
 - 将 sql 包提供的 Value 类型转换为数据库表的特定列类型，并确保其适合，例如确保特定 int64 适合于表的 uint16 列。
-- 将从数据库中给出的值转换为驱动程序 Value 类型之一。
-- 由 sql 包，在扫描中将驱动程序的 Value 类型转换为用户的类型。
+- 将数据库中给定的值转换为驱动程序的一种 Value 类型。
+-  由 sql 包使用，将驱动程序的 Value 类型转换为用户的类型进行扫描。
 
 ### type Valuer 
 

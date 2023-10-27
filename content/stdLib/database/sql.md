@@ -1109,21 +1109,11 @@ func main() {
 func (db *DB) SetConnMaxIdleTime(d time.Duration)
 ```
 
-​	SetConnMaxIdleTime方法设置连接的最大空闲时间。
+​	SetConnMaxIdleTime 方法设置一个连接的最大空闲时间。
 
-​	过期的连接可能会在重新使用之前被懒惰地关闭。
+​	过期的连接在重用之前可能会被延迟关闭。
 
-​	如果d <= 0，则连接不会因连接的空闲时间而关闭。
-
-
-
-​	SetMaxIdleConns方法设置空闲连接池中的最大连接数。
-
-​	如果MaxOpenConns大于0但小于新的MaxIdleConns，则新的MaxIdleConns将减少以匹配MaxOpenConns限制。
-
-​	如果n <= 0，则不保留空闲连接。
-
-​	默认的最大空闲连接数为2。这可能会在未来的版本中更改。
+​	如果 d 小于等于 0，则不会因为连接的空闲时间而关闭连接。
 
 #### (*DB) SetConnMaxLifetime  <- go1.6
 
@@ -1131,11 +1121,11 @@ func (db *DB) SetConnMaxIdleTime(d time.Duration)
 func (db *DB) SetConnMaxLifetime(d time.Duration)
 ```
 
-​	SetConnMaxLifetime方法设置连接可以被重用的最长时间。
+​	SetConnMaxLifetime 方法设置一个连接的最大生命周期。
 
-​	到期的连接可能会在重用之前被懒惰地关闭。
+​	过期的连接在重用之前可能会被延迟关闭。
 
-​	如果d <= 0，则不会因连接的年龄而关闭连接。
+​	如果 d 小于等于 0，则不会因为连接的寿命而关闭连接。
 
 #### (*DB) SetMaxIdleConns  <- go1.1
 
@@ -1143,13 +1133,13 @@ func (db *DB) SetConnMaxLifetime(d time.Duration)
 func (db *DB) SetMaxIdleConns(n int)
 ```
 
-​	SetMaxIdleConns方法设置空闲连接池中的最大连接数。
+​	SetMaxIdleConns 方法设置空闲连接池中的最大连接数。
 
-​	如果MaxOpenConns大于0但小于新的MaxIdleConns，则新的MaxIdleConns将被减少以匹配MaxOpenConns限制。
+​	如果 MaxOpenConns 大于 0 但小于新的 MaxIdleConns，则新的 MaxIdleConns 将被减少以匹配 MaxOpenConns 的限制。
 
-​	如果n <= 0，则不会保留空闲连接。
+​	如果 n 小于等于 0，则不会保留空闲连接。
 
-​	默认的最大空闲连接数当前为2。这可能会在将来的版本中更改。
+​	目前的默认最大空闲连接数为 2。这在未来的版本中可能会改变。
 
 #### (*DB) SetMaxOpenConns  <- go1.2
 
@@ -1157,11 +1147,11 @@ func (db *DB) SetMaxIdleConns(n int)
 func (db *DB) SetMaxOpenConns(n int)
 ```
 
-​	SetMaxOpenConns方法设置打开到数据库的最大连接数。
+​	SetMaxOpenConns 方法设置数据库的最大打开连接数。
 
-​	如果MaxIdleConns大于0且新的MaxOpenConns小于MaxIdleConns，则MaxIdleConns将被减少以匹配新的MaxOpenConns限制。
+​	**如果 MaxIdleConns 大于 0 且新的 MaxOpenConns 小于 MaxIdleConns，则 MaxIdleConns 将被减少以匹配新的 MaxOpenConns 限制。**
 
-​	如果n <= 0，则没有打开连接的数量限制。默认值为0(无限制)。
+​	如果 n 小于等于 0，则没有对打开连接数的限制。默认情况下是 0（无限制）。
 
 #### (*DB) Stats  <- go1.5
 
@@ -1169,29 +1159,29 @@ func (db *DB) SetMaxOpenConns(n int)
 func (db *DB) Stats() DBStats
 ```
 
-​	Stats方法返回数据库统计信息。
+​	Stats 方法返回数据库统计信息。
 
 ### type DBStats  <- go1.5
 
 ```go 
 type DBStats struct {
-	MaxOpenConnections int //打开到数据库的最大连接数。
+	MaxOpenConnections int // 数据库的最大打开连接数。
 
 	// 池状态
-	OpenConnections int // 在使用和空闲中建立的连接数。
+	OpenConnections int // 当前既在使用中又处于空闲状态的连接数。
 	InUse           int // 当前正在使用的连接数。
-	Idle            int // 空闲连接数。
+	Idle            int // 当前处于空闲状态的连接数。
 
 	// 计数器
-	WaitCount         int64         // 等待新连接的总数。
-	WaitDuration      time.Duration // 阻止等待新连接的总时间。
-	MaxIdleClosed     int64 // 由于SetMaxIdleConns而关闭的连接总数。
-	MaxIdleTimeClosed int64 // 由于SetConnMaxIdleTime而关闭的连接总数。
-	MaxLifetimeClosed int64 // 由于SetConnMaxLifetime而关闭的连接总数。
+	WaitCount         int64         // 等待连接的总数。
+	WaitDuration      time.Duration // 等待新连接的总时间。
+	MaxIdleClosed     int64 // 由于 SetMaxIdleConns 而关闭的连接总数。
+	MaxIdleTimeClosed int64 // 由于 SetConnMaxIdleTime 而关闭的连接总数。
+	MaxLifetimeClosed int64 // 由于 SetConnMaxLifetime 而关闭的连接总数。
 }
 ```
 
-​	DBStats包含数据库统计信息。
+​	DBStats 包含数据库的统计信息。
 
 ### type IsolationLevel  <- go1.8
 
@@ -1199,7 +1189,7 @@ type DBStats struct {
 type IsolationLevel int
 ```
 
-​	IsolationLevel是在TxOptions中使用的事务隔离级别。
+​	IsolationLevel 是用于 TxOptions 的事务隔离级别。
 
 ```go 
 const (
@@ -1214,9 +1204,9 @@ const (
 )
 ```
 
-​	各种隔离级别，驱动程序可以在BeginTx中支持。如果驱动程序不支持给定的隔离级别，则可能返回错误。
+​	各种隔离级别，驱动程序可以在 BeginTx 中支持这些级别。如果驱动程序不支持给定的隔离级别，则可能会返回错误。
 
-​	参见https://en.wikipedia.org/wiki/Isolation_(database_systems)#Isolation_levels。
+​	参见[https://en.wikipedia.org/wiki/Isolation_(database_systems)#Isolation_levels](https://en.wikipedia.org/wiki/Isolation_(database_systems)#Isolation_levels)。
 
 #### (IsolationLevel) String  <- go1.11
 
@@ -1245,9 +1235,9 @@ type NamedArg struct {
 }
 ```
 
-​	NamedArg 是一个命名参数。NamedArg 值可以作为参数传递给 Query 或 Exec 并绑定到 SQL 语句中相应的命名参数。
+​	NamedArg 是一个命名实参。NamedArg 值可以用作 Query 或 Exec 的实参，并与 SQL 语句中的相应命名参数绑定。
 
-​	为了更简洁地创建 NamedArg 值，请参考 Named 函数。
+​	要更简洁地创建 NamedArg 值，请参见 Named 函数。
 
 #### func Named  <- go1.8
 
@@ -1255,9 +1245,7 @@ type NamedArg struct {
 func Named(name string, value any) NamedArg
 ```
 
-​	Named 函数提供了一种更简洁的方式来创建 NamedArg 值。
-
-Example usage:
+​	Named 函数提供了一种更简洁的方法来创建 NamedArg 值。
 
 使用示例：
 
@@ -1281,7 +1269,7 @@ type NullBool struct {
 }
 ```
 
-​	NullBool结构体表示可能为空的 bool 值。NullBool 实现了 Scanner 接口，因此它可以用作扫描目标，类似于 NullString。
+​	NullBool 结构体表示一个可能为空的布尔值。NullBool 结构体实现了 Scanner 接口，因此它可以作为一个扫描目标使用，类似于 NullString结构体。
 
 #### (*NullBool) Scan 
 
@@ -1297,7 +1285,7 @@ func (n *NullBool) Scan(value any) error
 func (n NullBool) Value() (driver.Value, error)
 ```
 
-​	Value方法实现了 driver Valuer 接口。
+​	Value方法实现了 driver.Valuer 接口。
 
 ### type NullByte  <- go1.17
 
@@ -1308,7 +1296,7 @@ type NullByte struct {
 }
 ```
 
-​	NullByte结构体表示一个可能为空的 byte。NullByte 实现了 Scanner 接口，因此它可以像 NullString 一样用作扫描目标。
+​	NullByte结构体表示一个可能为空的 byte。NullByte 结构体实现了 Scanner 接口，因此它可以像 NullString结构体 一样用作扫描目标。
 
 #### (*NullByte) Scan  <- go1.17
 
@@ -1324,7 +1312,7 @@ func (n *NullByte) Scan(value any) error
 func (n NullByte) Value() (driver.Value, error)
 ```
 
-​	Value方法实现了 driver Valuer 接口。
+​	Value方法实现了 driver.Valuer 接口。
 
 ### type NullFloat64 
 
@@ -1335,7 +1323,7 @@ type NullFloat64 struct {
 }
 ```
 
-​	NullFloat64结构体表示一个可能为空的 float64。NullFloat64 实现了 Scanner 接口，因此它可以像 NullString 一样用作扫描目标。
+​	NullFloat64 结构体表示一个可能为空的 float64 类型。NullFloat64 结构体实现了 Scanner 接口，因此它可以作为扫描目标使用，类似于 NullString结构体。
 
 #### (*NullFloat64) Scan 
 
@@ -1351,18 +1339,18 @@ func (n *NullFloat64) Scan(value any) error
 func (n NullFloat64) Value() (driver.Value, error)
 ```
 
-​	Value方法实现了 driver Valuer 接口。
+​	Value方法实现了 driver.Valuer 接口。
 
 ### type NullInt16  <- go1.17
 
 ```go 
 type NullInt16 struct {
 	Int16 int16
-	Valid bool // 如果Int16不是NULL，Valid为true
+	Valid bool // 如果Int16不是NULL，则Valid为true
 }
 ```
 
-​	NullInt16结构体表示可能为null的int16。NullInt16实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
+​	NullInt16 结构体表示一个可能为空的 int16 类型。NullInt16 结构体实现了 Scanner 接口，因此它可以作为扫描目标使用，类似于 NullString结构体。
 
 #### (*NullInt16) Scan  <- go1.17
 
@@ -1378,18 +1366,18 @@ func (n *NullInt16) Scan(value any) error
 func (n NullInt16) Value() (driver.Value, error)
 ```
 
-​	Value方法实现driver Valuer接口。
+​	Value方法实现driver.Valuer接口。
 
 ### type NullInt32  <- go1.13
 
 ```go 
 type NullInt32 struct {
 	Int32 int32
-	Valid bool //如果Int32不是NULL，Valid为true
+	Valid bool //如果 Int32 不为 NULL，则 Valid 为 true
 }
 ```
 
-​	NullInt32结构体表示可能为null的int32。NullInt32实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
+​	NullInt32 结构体表示一个可能是 null 的 int32 类型。NullInt32 结构体实现了 Scanner 接口，因此可以将其用作扫描目标，类似于 NullString结构体。
 
 #### (*NullInt32) Scan  <- go1.13
 
@@ -1405,18 +1393,18 @@ func (n *NullInt32) Scan(value any) error
 func (n NullInt32) Value() (driver.Value, error)
 ```
 
-​	Value方法实现driver Valuer接口。
+​	Value方法实现driver.Valuer接口。
 
 ### type NullInt64 
 
 ``` go 
 type NullInt64 struct {
 	Int64 int64
-	Valid bool // 如果Int64不是NULL，Valid为true
+	Valid bool // 如果Int64不是NULL，则Valid为true
 }
 ```
 
-​	NullInt64结构体表示可能为null的int64。NullInt64实现Scanner接口，因此它可以用作扫描目标，类似于NullString。
+​	NullInt64 结构体表示一个可能是 null 的 int64 类型。NullInt64 结构体实现了 Scanner 接口，因此可以将其用作扫描目标，类似于 NullString结构体。
 
 #### (*NullInt64) Scan 
 
@@ -1519,9 +1507,7 @@ type Out struct {
 }
 ```
 
-​	Out结构体可用于从存储过程中检索 OUTPUT 值参数。
-
-​	并非所有驱动程序和数据库都支持 OUTPUT 值参数。
+​	Out 结构体可用于从存储过程中检索 OUTPUT 值参数。并非所有驱动程序和数据库都支持 OUTPUT 值参数。
 
 使用示例：
 
@@ -1542,13 +1528,13 @@ type RawBytes []byte
 
 ```go 
 type Result interface {
-	// LastInsertId 返回数据库在响应命令时生成的整数。
-	// 通常这将来自插入新行时的"自增"列。
-    // 不是所有数据库都支持此功能，并且此类语句的语法各不相同。
+	// LastInsertId 返回数据库响应命令生成的整数。
+    // 通常，这将是插入新行时来自“自动递增”列的值。
+    // 并非所有数据库都支持此功能，此类语句的语法各不相同。
 	LastInsertId() (int64, error)
 
-	// RowsAffected 返回受更新、插入或删除影响的行数。
-    // 并非所有数据库或数据库驱动程序都支持此功能。
+    // RowsAffected 返回更新、插入或删除影响的行数。
+    // 并非每个数据库或数据库驱动程序都支持此功能。
 	RowsAffected() (int64, error)
 }
 ```
@@ -1571,7 +1557,7 @@ type Row struct {
 func (r *Row) Err() error
 ```
 
-​	Err方法提供了一种方法，使封装的包在不调用 Scan方法的情况下检查查询错误。如果在运行查询时遇到错误，Err 返回错误(如果有)。如果此错误不是 nil，则还将从 Scan 返回此错误。
+​	Err 方法提供了一种用于封装包的检查查询错误的方法，而无需调用 Scan。Err 返回在运行查询时遇到的错误（如果有）。如果此错误不为 nil，则此错误也将从 Scan 返回。
 
 #### (*Row) Scan 
 
@@ -1579,7 +1565,7 @@ func (r *Row) Err() error
 func (r *Row) Scan(dest ...any) error
 ```
 
-​	Scan方法将匹配的行中的列复制到 dest 指向的值中。有关详细信息，请参见 Rows.Scan 的文档。如果有多行与查询匹配，则 Scan方法使用第一行并且忽略其余的行。如果没有行与查询匹配，则 Scan方法返回 ErrNoRows。
+​	Scan 方法将匹配行的列复制到 dest 指向的值。请参阅 Rows.Scan 的文档以了解详细信息。如果查询匹配多个行，Scan 将使用第一行并丢弃其余行。如果没有行匹配查询，Scan 方法将返回 ErrNoRows。
 
 ### type Rows 
 
@@ -1590,7 +1576,7 @@ type Rows struct {
 }
 ```
 
-​	Rowsjgt是查询的结果。它的游标在结果集的第一行之前。使用 Next方法来从一行移到另一行。
+​	Rows 结构体是查询的结果。其游标（cursor ）位于结果集的第一行之前。使用 Next 方法可以从一行移到下一行。
 
 ##### Rows Example
 
@@ -1626,6 +1612,7 @@ func main() {
 		names = append(names, name)
 	}
 	// Check for errors from iterating over rows.
+    // 检查迭代行时的错误。
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
@@ -1640,7 +1627,7 @@ func main() {
 func (rs *Rows) Close() error
 ```
 
-​	Close方法方法关闭 Rows，防止进一步枚举。如果调用 Next 并且返回 false，并且没有其他结果集，则 Rows 将自动关闭，并且检查 Err 的结果就足够了。Close方法是幂等的，不会影响 Err 的结果。
+​	Close方法用于关闭Rows，以防止进一步枚举。如果Next方法被调用并返回`false`，且没有其他结果集，Rows将自动关闭，只需检查Err方法的结果即可。Close方法是幂等的，不会影响Err方法的结果。
 
 #### (*Rows) ColumnTypes  <- go1.8
 
@@ -1648,7 +1635,7 @@ func (rs *Rows) Close() error
 func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
 ```
 
-​	ColumnTypes方法返回列信息，例如列类型、长度和可空性。某些信息可能不适用于某些驱动程序。
+​	ColumnTypes方法返回列信息，例如列类型、长度和可空性。某些信息可能无法从某些驱动程序中获取。
 
 #### (*Rows) Columns 
 
@@ -1656,7 +1643,7 @@ func (rs *Rows) ColumnTypes() ([]*ColumnType, error)
 func (rs *Rows) Columns() ([]string, error)
 ```
 
-​	Columns方法返回列名。如果行已关闭，则 Columns方法返回错误。
+​	Columns方法返回列名。如果Rows已关闭，则Columns方法将返回错误。
 
 #### (*Rows) Err 
 
@@ -1664,7 +1651,7 @@ func (rs *Rows) Columns() ([]string, error)
 func (rs *Rows) Err() error
 ```
 
-​	Err方法返回迭代过程中遇到的错误(如果有)。Err方法可以在显式或隐式 Close 后调用。
+​	Err方法返回在迭代过程中遇到的错误（如果有）。Err方法可以在显式或隐式调用Close方法之后调用。
 
 #### (*Rows) Next 
 
@@ -1672,9 +1659,9 @@ func (rs *Rows) Err() error
 func (rs *Rows) Next() bool
 ```
 
-​	Next方法准备下一个结果行以供 Scan 方法读取。它返回 true 表示成功，false 表示没有下一个结果行或准备它时发生错误。应该使用 Err 来区分这两种情况。
+​	Next方法准备下一个结果行以供Scan方法读取。成功时返回`true`，如果没有下一个结果行或准备过程中出现错误时返回`false`。应该使用Err方法以区分这两种情况。
 
-​	每次调用 Scan方法，即使是第一次调用，也必须先调用 Next方法。
+​	**每次调用Scan方法（即使是第一次）之前都必须先调用Next方法**。
 
 #### (*Rows) NextResultSet  <- go1.8
 
@@ -1682,9 +1669,9 @@ func (rs *Rows) Next() bool
 func (rs *Rows) NextResultSet() bool
 ```
 
-​	NextResultSet方法准备下一个结果集以供读取。它返回 true 表示还有其他结果集，或者 false 表示没有其他结果集，或者无法提前到其结果集。应该使用 Err 方法来区分这两种情况。
+​	NextResultSet方法准备下一个结果集以供读取。它会报告是否还有更多的结果集，如果没有更多的结果集或者在前进时出现错误，则报告`false`。应该通过Err方法来区分这两种情况。
 
-​	在调用 NextResultSet方法后，应始终在扫描之前调用 Next 方法。如果还有其他结果集，则它们可能没有结果集中的行。
+​	调用NextResultSet方法之后，在扫描之前应始终调用Next方法。如果还有其他结果集，则它们可能没有结果集中的行。
 
 #### (*Rows) Scan 
 
@@ -1692,11 +1679,11 @@ func (rs *Rows) NextResultSet() bool
 func (rs *Rows) Scan(dest ...any) error
 ```
 
-​	Scan方法将当前行的列复制到 dest 指向的值中。dest 中的值数量必须与 Rows 中的列数相同。
+​	Scan方法将当前行的列复制到`dest`指向的值中。`dest`中的值的数量必须与Rows中的列数相同。
 
-​	Scan方法将从数据库中读取的列转换为 sql 包提供的以下常见 Go 类型和特殊类型：
+​	Scan方法将从数据库中读取的列转换为以下常见的Go类型和sql包提供的特殊类型：
 
-```
+```go
 *string
 *[]byte
 *int, *int8, *int16, *int32, *int64
@@ -1707,25 +1694,30 @@ func (rs *Rows) Scan(dest ...any) error
 *RawBytes
 *Rows (cursor value)
 any type implementing Scanner (see Scanner docs)
+实现了Scanner的任何类型（请参阅Scanner文档）
 ```
 
-​	实现 Scanner 接口的任何类型(请参见 Scanner 文档) 在最简单的情况下，如果源列的值类型是整数、布尔或字符串类型 T，而 dest 的类型是 *T，则 Scan 只需通过指针分配值。
+​	在最简单的情况下，如果源列的值类型为整数、布尔或字符串类型T，并且dest的类型为`*T`，则Scan方法只需通过指针分配值。
 
-​	Scan 还可以在字符串和数字类型之间进行转换，只要不会丢失信息即可。虽然 Scan 将从数值数据库列中读取的所有数字字符串化为 *string，但会检查是否存在数字类型的扫描溢出。例如，值为 300 的 float64 或值为 "300" 的字符串可以扫描到 uint16，但不能扫描到 uint8，尽管 float64(255) 或 "255" 可以扫描到 uint8。有一个例外，即某些 float64 数字扫描为字符串时可能会丢失信息。通常，将浮点列扫描到 *float64 中。
+​	只要不会丢失信息，Scan方法还会在字符串和数字类型之间进行转换。虽然Scan方法会将扫描的数字字符串化，并将其转换为`*string`，但扫描到数字类型的值都会检查溢出。例如，值为300的float64或字符串"300"可以扫描到uint16，但不能扫描到uint8，尽管`float64(255)`或"255"可以扫描到uint8。但有一个例外是，某些float64数字转换为字符串可能会在字符串化时丢失信息。通常情况下，将浮点数列扫描到`*float64`。
 
-​	如果 dest 参数的类型为 *[]byte，则 Scan 会在该参数中保存相应数据的副本。该副本由调用方拥有，可以进行修改并无限期保留。可以通过使用类型 *RawBytes 的参数来避免复制；请参阅 RawBytes 的文档以了解其使用限制。
+​	如果`dest`实参的类型为`*[]byte`，则Scan方法将保存该实参中相应的数据的副本。该副本由调用者拥有，可以修改并无限期保持。可以通过使用类型为`*RawBytes`的实参来避免复制；有关RawBytes使用的限制，请参阅其文档。
 
-​	如果一个参数的类型是 *interface{}，Scan 会复制由底层驱动程序提供的值，而不进行转换。从类型 []byte 到 *interface{} 扫描时，会复制切片并且调用方拥有结果。
+​	如果参数的类型为`*interface{}`，则Scan方法将复制底层驱动程序提供的值而不进行转换。当从类型为`[]byte`的源值扫描到`*interface{}`时，会创建该切片的副本，并且调用者拥有结果。
 
-​	类型 time.Time 的源值可以扫描到类型 *time.Time、*interface{}、*string 或 *[]byte 的值中。转换为后两者时，使用 time.RFC3339Nano。
 
-​	布尔类型的源值可以扫描到类型 *bool、*interface{}、*string、*[]byte 或 *RawBytes 中。
 
-​	对于扫描到 *bool，源可以是 true、false、1、0 或可由 strconv.ParseBool 解析的字符串输入。
+​	类型为 time.Time 的源值可以扫描成类型为 `*time.Time`、`*interface{}`、`*string` 或 `*[]byte` 的值。当转换为后两者时，将使用 time.RFC3339Nano。
+
+​	类型为 bool 的源值可以扫描成类型为 `*bool`、`*interface{}`、`*string`、`*[]byte` 或 `*RawBytes`。
+
+​	对于扫描到 `*bool`，源可以是 true、false、1、0 或可由 `strconv.ParseBool` 解析的字符串输入。
 
 ​	Scan 还可以将查询返回的游标(例如 "select cursor(select * from my_table) from dual")转换为 *Rows 值，该值本身可以进行扫描。如果父选择查询关闭了任何游标 *Rows，则父选择查询将关闭它。
 
-​	如果实现 Scanner 接口的第一个参数返回错误，则该错误将包装在返回的错误中。
+​	Scan 还可以将查询返回的游标转换为可以自己扫描的 `*Rows` 值，例如 "`select cursor(select * from my_table) from dual`"。父查询将关闭任何游标 `*Rows`，如果父 `*Rows` 被关闭。
+
+​	如果实现 Scanner 接口的第一个参数中的任何一个返回错误，该错误将被封装在返回的错误中。
 
 ### type Scanner 
 
@@ -1743,7 +1735,7 @@ type Scanner interface {
 	// time.Time
 	// nil - 对于NULL值
 	//
-	// 如果不能存储值而不丢失信息，则应返回错误。
+	// 如果无法存储值而不丢失信息，则应返回错误。
 	//
 	// 诸如[]byte之类的引用类型仅在下一次调用Scan之前有效，不应保留。
 	// 它们的底层内存由驱动程序拥有。
@@ -1752,7 +1744,7 @@ type Scanner interface {
 }
 ```
 
-​	Scanner是由Scan使用的接口。
+​	Scanner接口是由Scan使用的接口。
 
 ### type Stmt 
 
@@ -1762,9 +1754,9 @@ type Stmt struct {
 }
 ```
 
-​	Stmt结构体是一个预处理语句。Stmt对于多个goroutine并发使用是安全的。
+​	Stmt结构体是一个预处理语句。Stmt 可由多个 goroutine 安全地并发使用。
 
-​	如果在Tx或Conn上准备了Stmt，则将永远绑定到单个底层连接。 如果Tx或Conn关闭，则Stmt将变得无法使用，所有操作都将返回错误。 如果在DB上准备了Stmt，则在DB的生命周期内将保持可用。当Stmt需要在新的底层连接上执行时， 它将自动在新连接上准备自己。
+​	如果 Stmt 在 Tx 或 Conn 上准备，则它将永远绑定到单个底层连接。如果 Tx 或 Conn 关闭，Stmt 将变得不可用，并且所有操作都将返回错误。如果 Stmt 在 DB 上准备，它将保持可用于 DB 的整个生命周期。当 Stmt 需要在新底层连接上执行时，它将自动在新连接上准备自己。
 
 ##### Stmt Example
 
@@ -1783,14 +1775,14 @@ var (
 )
 
 func main() {
-	// In normal use, create one Stmt when your process starts.
+	// 在正常使用中，当你的程序启动时创建一个Stmt。
 	stmt, err := db.PrepareContext(ctx, "SELECT username FROM users WHERE id = ?")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer stmt.Close()
 
-	// Then reuse it each time you need to issue the query.
+	// 然后每次需要发出查询时都可以重用它。
 	id := 43
 	var username string
 	err = stmt.QueryRowContext(ctx, id).Scan(&username)
@@ -1820,9 +1812,9 @@ func (s *Stmt) Close() error
 func (s *Stmt) Exec(args ...any) (Result, error)
 ```
 
-​	Exec方法使用给定的参数执行预处理语句，并返回概括语句效果的Result。
+​	Exec 方法使用给定的参数执行预处理语句，并返回总结该语句效果的结果。
 
-​	Exec方法在内部使用context.Background。要指定上下文，请使用ExecContext方法。
+​	Exec 方法在内部使用 context.Background；要指定上下文，请使用 `ExecContext`方法。
 
 #### (*Stmt) ExecContext  <- go1.8
 
@@ -1830,7 +1822,7 @@ func (s *Stmt) Exec(args ...any) (Result, error)
 func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
 ```
 
-​	ExecContext方法使用给定的参数执行预处理语句，并返回概括语句效果的Result。
+​	ExecContext 方法使用给定的实参执行预处理语句，并返回总结该语句效果的结果。
 
 #### (*Stmt) Query 
 
@@ -1838,9 +1830,9 @@ func (s *Stmt) ExecContext(ctx context.Context, args ...any) (Result, error)
 func (s *Stmt) Query(args ...any) (*Rows, error)
 ```
 
-​	Query方法使用给定的参数执行预处理查询语句，并将查询结果作为`*Rows`返回。
+​	Query 方法使用给定的实参执行预处理查询语句，并返回一个 `*Rows` 类型的查询结果。
 
-​	Query方法在内部使用context.Background。要指定上下文，请使用QueryContext方法。
+​	Query 方法在内部使用 context.Background；要指定上下文，请使用 `QueryContext`方法。
 
 #### (*Stmt) QueryContext  <- go1.8
 
@@ -1848,7 +1840,7 @@ func (s *Stmt) Query(args ...any) (*Rows, error)
 func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
 ```
 
-​	QueryContext方法使用给定的参数执行预处理查询语句，并将查询结果作为`*Rows`返回。
+​	QueryContext 方法使用给定的实参执行预处理查询语句，并返回一个 `*Rows` 类型的查询结果。
 
 #### (*Stmt) QueryRow 
 
@@ -1856,7 +1848,7 @@ func (s *Stmt) QueryContext(ctx context.Context, args ...any) (*Rows, error)
 func (s *Stmt) QueryRow(args ...any) *Row
 ```
 
-​	QueryRow方法使用给定的参数执行预处理的查询语句。如果在执行语句期间出现错误，则通过对返回的`*Row调`用Scan返回该错误，该`*Row`始终非零。如果查询未选择任何行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan将扫描第一个选定的行并丢弃其余行。
+​	QueryRow方法使用给定的参数执行预处理的查询语句。如果在执行语句期间出现错误，则通过对返回的`*Row`调用Scan方法返回该错误，该`*Row`始终非nil。如果查询未选择任何行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan方法将扫描第一个选定的行并丢弃其余行。
 
 使用示例：
 
@@ -1865,7 +1857,7 @@ var name string
 err := nameByUseridStmt.QueryRow(id).Scan(&name)
 ```
 
-​	QueryRow方法在内部使用context.Background；要指定上下文，请使用QueryRowContext方法。
+​	QueryRow方法在内部使用context.Background；要指定上下文，请使用`QueryRowContext`方法。
 
 #### (*Stmt) QueryRowContext  <- go1.8
 
@@ -1873,7 +1865,7 @@ err := nameByUseridStmt.QueryRow(id).Scan(&name)
 func (s *Stmt) QueryRowContext(ctx context.Context, args ...any) *Row
 ```
 
-​	QueryRowContext方法使用给定的参数执行预处理的查询语句。如果在执行语句期间出现错误，则通过对返回的`*Row`调用Scan返回该错误，该`*Row`始终非零。如果查询未选择任何行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan将扫描第一个选定的行并丢弃其余行。
+​	QueryRowContext方法使用给定的实参执行预处理查询语句，并返回一个`*Row`。如果执行语句时发生错误，该错误将由返回的`*Row`上的Scan方法调用返回，该`*Row`始终非nil。如果查询未选择任何行，则`*Row`的Scan方法将返回ErrNoRows。否则，`*Row`的Scan方法将扫描第一行选中的行并丢弃其余行。
 
 ##### QueryRowContext Example
 
@@ -1893,6 +1885,7 @@ var (
 
 func main() {
 	// In normal use, create one Stmt when your process starts.
+    // 在正常使用中，当你的程序启动时创建一个Stmt。
 	stmt, err := db.PrepareContext(ctx, "SELECT username FROM users WHERE id = ?")
 	if err != nil {
 		log.Fatal(err)
@@ -1900,6 +1893,7 @@ func main() {
 	defer stmt.Close()
 
 	// Then reuse it each time you need to issue the query.
+    // 然后在每次需要发布查询时重复使用它。
 	id := 43
 	var username string
 	err = stmt.QueryRowContext(ctx, id).Scan(&username)
@@ -1926,11 +1920,11 @@ type Tx struct {
 
 ​	Tx结构体是数据库事务中的一个过程。
 
-​	事务必须以Commit方法或Rollback方法的调用结束。
+​	事务必须以调用 Commit 方法或 Rollback 方法结束。
 
-​	在调用Commit方法或Rollback方法之后，所有事务上的操作都会失败并返回ErrTxDone。
+​	在调用 Commit 或 Rollback 后，事务上的所有操作都将失败，并返回 ErrTxDone。
 
-​	通过调用事务的Prepare方法或Stmt方法方法准备的语句将在调用Commit方法或Rollback方法时关闭。
+​	通过调用事务的Prepare方法或Stmt方法准备的语句将在调用Commit方法或Rollback方法时关闭。
 
 #### (*Tx) Commit 
 
@@ -1948,7 +1942,7 @@ func (tx *Tx) Exec(query string, args ...any) (Result, error)
 
 ​	Exec方法执行不返回行的查询。例如：INSERT和UPDATE。
 
-​	Exec方法在内部使用context.Background；要指定上下文，请使用ExecContext方法。
+​	Exec方法在内部使用context.Background；要指定上下文，请使用`ExecContext`方法。
 
 #### (*Tx) ExecContext  <- go1.8
 
@@ -2000,13 +1994,13 @@ func main() {
 func (tx *Tx) Prepare(query string) (*Stmt, error)
 ```
 
-​	Prepare方法创建一个准备好的语句以在事务中使用。
+​	Prepare方法为事务内使用创建预处理语句。
 
-​	返回的语句在事务中运行，并将在事务提交或回滚时关闭。
+​	返回的语句在事务内操作，当事务被提交或回滚时会被关闭。
 
-​	要在此事务上使用现有的准备好的语句，请参见Tx.Stmt。
+​	要在事务上使用现有的预处理语句，请参阅Tx.Stmt。
 
-​	Prepare方法在内部使用context.Background; 要指定上下文，请使用PrepareContext。
+​	Prepare方法在内部使用context.Background；要指定上下文，请使用`PrepareContext`方法。
 
 ##### Prepare Example
 
@@ -2062,11 +2056,11 @@ func main() {
 func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 ```
 
-​	PrepareContext方法创建一个准备好的语句以在事务中使用。
+​	PrepareContext方法为事务内使用创建预处理语句。
 
-​	返回的语句在事务中运行，并将在事务提交或回滚时关闭。
+​	返回的语句在事务内操作，当事务被提交或回滚时会被关闭。
 
-​	要在此事务上使用现有的准备好的语句，请参见Tx.Stmt。
+​	要在事务上使用现有的预处理语句，请参阅Tx.Stmt。
 
 ​	提供的上下文将用于准备上下文，而不是用于执行返回的语句。返回的语句将在事务上下文中运行。
 
@@ -2076,9 +2070,9 @@ func (tx *Tx) PrepareContext(ctx context.Context, query string) (*Stmt, error)
 func (tx *Tx) Query(query string, args ...any) (*Rows, error)
 ```
 
-​	Query方法执行返回行的查询，通常是 SELECT。
+​	Query方法执行返回行的查询，通常是SELECT。
 
-​	Query方法在内部使用context.Background；要指定上下文，请使用QueryContext方法。
+​	Query方法在内部使用context.Background；要指定上下文，请使用`QueryContext`方法。
 
 #### (*Tx) QueryContext  <- go1.8
 
@@ -2094,9 +2088,9 @@ func (tx *Tx) QueryContext(ctx context.Context, query string, args ...any) (*Row
 func (tx *Tx) QueryRow(query string, args ...any) *Row
 ```
 
-​	QueryRow方法执行预期最多返回一行的查询。QueryRow方法总是返回一个非空值。错误被延迟到调用 Row 的 Scan 方法时才会返回。如果查询未选择行，则 *Row 的 Scan 将返回 ErrNoRows。否则，*Row 的 Scan 扫描第一个选择的行并丢弃其余的行。
+​	QueryRow方法执行预期最多返回一行结果的查询。QueryRow方法始终返回非nil值。错误延迟到Row的Scan方法被调用时才返回。如果查询未选择行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan将扫描第一行选中的行并丢弃其余行。
 
-​	QueryRow方法在内部使用context.Background；要指定上下文，请使用QueryRowContext。
+​	QueryRow在内部使用context.Background；要指定上下文，请使用QueryRowContext方法。
 
 #### (*Tx) QueryRowContext  <- go1.8
 
@@ -2104,7 +2098,7 @@ func (tx *Tx) QueryRow(query string, args ...any) *Row
 func (tx *Tx) QueryRowContext(ctx context.Context, query string, args ...any) *Row
 ```
 
-​	QueryRowContext方法执行预期最多返回一行的查询。QueryRowContext方法总是返回一个非空值。错误被延迟到调用 Row 的 Scan 方法时才会返回。如果查询未选择行，则 `*Row` 的 Scan 将返回 ErrNoRows。否则，`*Row` 的 Scan 扫描第一个选择的行并丢弃其余的行。
+​	QueryRowContext方法执行预期最多返回一行结果的查询。QueryRowContext方法始终返回非nil值。错误延迟到Row的Scan方法被调用时才返回。如果查询未选择行，则`*Row`的Scan将返回ErrNoRows。否则，`*Row`的Scan方法将扫描第一行选中的行并丢弃其余行。
 
 #### (*Tx) Rollback 
 
@@ -2165,7 +2159,7 @@ func main() {
 func (tx *Tx) Stmt(stmt *Stmt) *Stmt
 ```
 
-​	Stmt方法从现有语句返回一个事务特定的准备好的语句。
+​	Stmt从一个现有的语句中返回一个特定于事务的预处理语句。
 
 示例：
 
@@ -2179,7 +2173,7 @@ res, err := tx.Stmt(updateMoney).Exec(123.45, 98293203)
 
 ​	返回的语句在事务中运行，并在事务提交或回滚后关闭。
 
-​	Stmt在内部使用context.Background；要指定上下文，请使用StmtContext。
+​	Stmt方法在内部使用context.Background；要指定上下文，请使用`StmtContext`方法。
 
 #### (*Tx) StmtContext  <- go1.8
 
@@ -2187,9 +2181,9 @@ res, err := tx.Stmt(updateMoney).Exec(123.45, 98293203)
 func (tx *Tx) StmtContext(ctx context.Context, stmt *Stmt) *Stmt
 ```
 
-​	StmtContext方法从现有语句返回一个事务特定的准备语句。
+​	StmtContext方法从一个现有的语句中返回一个特定于事务的预处理语句。
 
-Example:
+示例：
 
 ```go 
 updateMoney, err := db.Prepare("UPDATE balance SET money=money+? WHERE id=?")
@@ -2214,5 +2208,5 @@ type TxOptions struct {
 }
 ```
 
-​	TxOptions保存在DB.BeginTx方法中使用的事务选项。
+TxOptions保存了在DB.BeginTx中使用的事务选项。
 
