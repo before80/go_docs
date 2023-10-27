@@ -277,9 +277,9 @@ type ExecerContext interface {
 }
 ```
 
-​	ExecerContext 是一个可选接口，可以由 Conn 实现。
+​	ExecerContext 是一个可选接口，可以由 Conn （这里是泛指的意思下Conn）实现。
 
-​	如果 Conn 没有实现 ExecerContext，则 sql 包的 DB.Exec 将回退到 Execer；如果 Conn 也没有实现 Execer，则 DB.Exec 将首先准备查询，执行语句，然后关闭语句。
+​	如果 Conn （这里是泛指的意思下Conn）没有实现 ExecerContext，则 sql 包的 DB.Exec 将回退到 Execer；如果 Conn （这里是泛指的意思下Conn）也没有实现 Execer，则 DB.Exec 将首先准备查询，执行语句，然后关闭语句。
 
 ​	ExecContext 方法可以返回 ErrSkip。
 
@@ -373,7 +373,7 @@ type Pinger interface {
 }
 ```
 
-​	Pinger 是一个可选的接口，可以由 Conn（这里是泛指的意思下Conn） 结构体实现。
+​	Pinger 是一个可选的接口，可以由 Conn（这里是泛指的意思下Conn） 实现。
 
 ​	如果一个 Conn（这里是泛指的意思下Conn） 没有实现 Pinger接口，那么 sql 包中的 DB.Ping 和 DB.PingContext 将检查是否至少有一个可用的 Conn。
 
