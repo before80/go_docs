@@ -253,11 +253,11 @@ type Execer interface {
 
 Execer is an optional interface that may be implemented by a Conn.
 
-​	Execer是一个可选的接口，可以由Conn实现。
+​	Execer是一个可选的接口，可以由Conn（这里是泛指的意思下Conn）实现。
 
 If a Conn implements neither ExecerContext nor Execer, the sql package's DB.Exec will first prepare a query, execute the statement, and then close the statement.
 
-​	如果一个Conn既没有实现ExecerContext也没有实现Execer，则sql包的DB.Exec将首先准备一个查询，执行语句，然后关闭语句。
+​	如果一个Conn（这里是泛指的意思下Conn）既没有实现ExecerContext也没有实现Execer，则sql包的DB.Exec将首先准备一个查询，执行语句，然后关闭语句。
 
 Exec may return ErrSkip.
 

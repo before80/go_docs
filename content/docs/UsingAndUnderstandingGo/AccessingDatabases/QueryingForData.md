@@ -10,30 +10,28 @@ draft = false
 
 > 原文：[https://go.dev/doc/database/querying](https://go.dev/doc/database/querying)
 
-​	当执行一个返回数据的SQL语句时，使用`database/sql`包中提供的`Query`方法之一。每个方法都会返回一个行（`Row`）或多个行（`Rows`），您可以使用`Scan`方法将其数据复制到变量。您会使用这些方法，例如，执行`SELECT`语句。
+​	当执行返回数据的SQL语句时，使用`database/sql`包中提供的`Query`方法之一。这些方法中的每个都返回一个或多个`Row`，你可以使用`Scan`方法将这些数据复制到变量中。例如，你将使用这些方法来执行`SELECT`语句。
 
-​	当执行一个不返回数据的语句时，您可以改用`Exec`或`ExecContext`方法。更多信息请参见 [Executing statements that don’t return data（执行不返回数据的语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
+​	当执行不返回数据的语句时，可以使用`Exec`或`ExecContext`方法代替。更多信息，请参阅[Executing statements that don’t return data（执行不返回数据的语句）](../ExecutingSQLStatementsThatDoNotReturnData)。
 
-​	`database/sql`包提供了两种执行结果查询的方法：
+​	`database/sql`包提供了两种执行查询以获取结果的方法。
 
-- **查询单行**  —— `QueryRow` 最多只能从数据库中返回一个单行。更多信息请参见 [Querying for a single row （查询单行）](#查询单行)。
-- 查询多行 —— `Query` 将所有匹配的行作为一个`Rows`结构体（您的代码可以循环遍历）返回，。更多信息，请参见 [查询多行](#查询多行)。
+- **查询单行**  —— `QueryRow`最多从数据库返回一个`Row`。更多信息，请参阅[Querying for a single row （查询单行）](#查询单行)。
+- 查询多行 —— `Query`将所有匹配的行作为`Rows`结构体返回，你的代码可以循环遍历它。更多信息，请参阅[查询多行](#查询多行)。
 
-​	如果您的代码将重复执行相同的SQL语句，请考虑使用预处理语句。更多信息，请参见 [Using prepared statements （使用预处理语句）](../UsingPreparedStatements) 。
+​	如果你的代码将重复执行相同的SQL语句，请考虑使用预处理语句。更多信息，请参阅[Using prepared statements （使用预处理语句）](../UsingPreparedStatements)。
 
-> 注意
->
-> ​	不要使用字符串格式化函数，如`fmt.Sprintf`来组合一个SQL语句！您可能会引入一个SQL注入的风险。更多信息，请参见避免[SQL注入风险](https://go.dev/doc/database/sql-injection)。
+> 注意：不要使用字符串格式化函数（如fmt.Sprintf）来组装SQL语句！你可能会引入SQL注入风险。更多信息，请参阅[避免SQL注入风险](https://go.dev/doc/database/sql-injection)。
 
 ### 查询单行
 
-​	`QueryRow`最多只能检索一条数据库记录，例如当您想通过一个唯一的ID来查询数据。如果查询返回多条记录，`Scan`方法会丢弃除第一条以外的所有记录。
+​	`QueryRow`检索最多一个数据库行，例如当你想通过唯一ID查找数据时。如果查询返回多个行，Scan方法将丢弃除第一个之外的所有行。
 
-​	`QueryRowContext`的工作方式与`QueryRow`类似，但有一个`context.Context`实参。更多信息请参见 [Canceling in-progress operations（取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
+​	`QueryRowContext`的工作方式与`QueryRow`相同，但有一个`context.Context`参数。更多信息，请参阅[Canceling in-progress operations（取消正在进行的操作）](../CancelingIn-progressDatabaseOperations)。
 
-​	下面的例子使用一个查询来找出是否有足够的库存来支持购买。如果有足够的库存，该SQL语句返回`true`，如果没有则返回`false`。[Row.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})通过一个指针将布尔型的返回值复制到`enough`变量中。
+​	以下示例使用查询来确定是否有足够的库存来支持购买。如果有足够的库存，该SQL语句返回`true`，如果没有则返回`false`。[Row.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})通过指针将布尔返回值复制到`enough`变量中。
 
-```go  hl_lines="5 5"
+```go
 func canPurchase(id int, quantity int) (bool, error) {
     var enough bool
     // Query for a value based on a single row.
@@ -48,20 +46,20 @@ func canPurchase(id int, quantity int) (bool, error) {
 }
 ```
 
-注意：准备预处理语句中的参数占位符根据您所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
+> 注意：预处理语句中的参数占位符根据你使用的`DBMS`和驱动程序而异。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要像`$1`这样的占位符，而不是`?`。
 
 #### 处理错误
 
-​	`QueryRow`本身不返回错误。相反，`Scan`报告来自组合查询和扫描的任何错误。当查询没有找到记录时，它返回[sql.ErrNoRows]({{< ref "/stdLib/database/sql#变量">}})。
+​	`QueryRow`本身不返回错误。相反，`Scan`报告组合查找和扫描的任何错误。当查询找不到任何行时，它返回[sql.ErrNoRows]({{< ref "/stdLib/database/sql#变量">}})。  
 
 #### Functions for returning a single row 用于返回单行的函数
 
-| Function 函数                          | Description **描述**                                         |
-| -------------------------------------- | ------------------------------------------------------------ |
-| `DB.QueryRow` `DB.QueryRowContext`     | 单独运行一个单行查询。                                       |
-| `Tx.QueryRow` `Tx.QueryRowContext`     | 在较大的事务中运行一个单行查询。更多信息，请参阅[Executing transactions （执行事务）](../ExecutingTransactions) 。 |
-| `Stmt.QueryRow` `Stmt.QueryRowContext` | 使用预处理语句运行一个单行查询。更多信息，请参见 [Using prepared statements（使用预处理语句）](../UsingPreparedStatements)。 |
-| `Conn.QueryRowContext`                 | 用于保留连接。更多信息，请参见[Managing connections（ 管理连接）](../ManagingConnections)。 |
+| Function 函数                                                | Description **描述**                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [DB.QueryRow]({{< ref "/stdLib/database/sql#db-queryrow">}}) [DB.QueryRowContext]({{< ref "/stdLib/database/sql#db-queryrowcontext----go18">}}) | 单独运行一个单行查询。                                       |
+| [Tx.QueryRow]({{< ref "/stdLib/database/sql#tx-queryrow">}}) [Tx.QueryRowContext]({{< ref "/stdLib/database/sql#tx-queryrowcontext----go18">}}) | 在较大的事务中运行一个单行查询。更多信息，请参阅[Executing transactions （执行事务）](../ExecutingTransactions) 。 |
+| [Stmt.QueryRow]({{< ref "/stdLib/database/sql#stmt-queryrow">}}) [Stmt.QueryRowContext]({{< ref "/stdLib/database/sql#stmt-querycontext----go18">}}) | 使用预处理语句运行一个单行查询。更多信息，请参见 [Using prepared statements（使用预处理语句）](../UsingPreparedStatements)。 |
+| [Conn.QueryRowContext]({{< ref "/stdLib/database/sql#conn-queryrowcontext----go19">}}) | 用于保留连接。更多信息，请参见[Managing connections（ 管理连接）](../ManagingConnections)。 |
 
 ### 查询多行
 
@@ -100,34 +98,33 @@ func albumsByArtist(artist string) ([]Album, error) {
 
 > 注意
 >
-> ​	对[rows.Close](https://pkg.go.dev/database/sql#Rows.Close)的延迟调用。无论函数如何返回，这都会释放rows所持有的任何资源。循环处理所有的行也会隐式地关闭它，但最好使用`defer`来确保无论如何都会关闭`rows`。
+> 注意：延迟调用的[rows.Close](https://pkg.go.dev/database/sql#Rows.Close)。无论函数如何返回，这都会释放rows持有的任何资源。通过遍历所有行也会隐式地关闭它，但最好使用`defer`来确保无论发生什么情况，`rows`都会被关闭。
 
-> 注意
+> 注意：预处理语句中的参数占位符根据你使用的DBMS和驱动程序而异。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
 >
-> ​	预处理语句中的参数占位符根据您所使用的`DBMS`和驱动而不同。例如，`Postgres`的[pq driver](https://pkg.go.dev/github.com/lib/pq)需要一个类似于`$1`的占位符，而不是`?`。
 
 
 
 #### 处理错误
 
-Be sure to check for an error from `sql.Rows` after looping over query results. If the query failed, this is how your code finds out.
+Be sure to check for an error from `sql.Rows` after looping over query results. If the query failed, this is how your code finds out.	
 
-​	在循环查询结果后，一定要从`sql.Rows`中检查是否有错误。如果查询失败了，代码就是这样查找的。
+​	在循环查询结果后，一定要检查`sql.Rows`的错误。如果查询失败，这就是你的代码如何发现的方式。
 
 #### 返回多行记录的函数
 
 | Function 函数                    | Description 描述                                             |
 | -------------------------------- | ------------------------------------------------------------ |
-| `DB.Query` `DB.QueryContext`     | 单独运行一个查询。                                           |
-| `Tx.Query` `Tx.QueryContext`     | 在较大的事务中运行一个查询。更多信息，请参阅[Executing transactions （执行事务）](../ExecutingTransactions) 。 |
-| `Stmt.Query` `Stmt.QueryContext` | 使用预处理语句运行一个查询。更多信息，请参见[Using prepared statements（使用预处理语句）](../UsingPreparedStatements)。 |
-| `Conn.QueryContext`              | 用于保留连接。更多信息，请参见[Managing connections（ 管理连接）](../ManagingConnections)。 |
+| [DB.Query]({{< ref "/stdLib/database/sql#db-query">}}) [DB.QueryContext]({{< ref "/stdLib/database/sql#db-querycontext----go18">}}) | 单独运行一个查询。                                           |
+| [Tx.Query]({{< ref "/stdLib/database/sql#tx-query">}}) [Tx.QueryContext]({{< ref "/stdLib/database/sql#tx-querycontext----go18">}}) | 在较大的事务中运行一个查询。更多信息，请参阅[Executing transactions （执行事务）](../ExecutingTransactions) 。 |
+| [Stmt.Query]({{< ref "stdLib/database/sql#stmt-query">}}) [Stmt.QueryContext]({{< ref "/stdLib/database/sql#stmt-querycontext----go18">}}) | 使用预处理语句运行一个查询。更多信息，请参见[Using prepared statements（使用预处理语句）](../UsingPreparedStatements)。 |
+| [Conn.QueryContext]({{< ref "/stdLib/database/sql#conn-querycontext----go19">}}) | 用于保留连接。更多信息，请参见[Managing connections（ 管理连接）](../ManagingConnections)。 |
 
 ### 处理可为null的列值
 
-​	`database/sql`包提供了几种特殊的类型，当一个列的值可能为`null`时，您可以作为`Scan`函数的实参使用。每种类型都包括一个`Valid`字段，用于报告值是否为非`null`，如果是的话，还包括一个持有该值的字段。
+​	`database/sql`包提供了几种特殊类型，你可以在`Scan`方法中使用它们作为参数，当列的值可能为`null`时。每个类型都包含一个`Valid`字段，报告值是否非`null`，以及一个字段（如果值为空），则持有该值。
 
-​	下面的例子中的代码查询了一个客户名称。如果名字的值是`null`的，代码会替换另一个值在应用程序中使用。
+​	以下示例中的代码查询客户名称。如果名称值为`null`，则代码将另一个值替换为应用程序中使用的值。
 
 ```go 
 var s sql.NullString
@@ -143,34 +140,34 @@ if s.Valid {
 }
 ```
 
-在`sql`包参考资料中可以看到更多关于每种类型的信息：
+​	在`sql`包参考中可以查看每种类型的更多信息：
 
-- [`NullBool`](https://pkg.go.dev/database/sql#NullBool)
-- [`NullFloat64`](https://pkg.go.dev/database/sql#NullFloat64)
-- [`NullInt32`](https://pkg.go.dev/database/sql#NullInt32)
-- [`NullInt64`](https://pkg.go.dev/database/sql#NullInt64)
-- [`NullString`](https://pkg.go.dev/database/sql#NullString)
-- [`NullTime`](https://pkg.go.dev/database/sql#NullTime)
+- [NullBool]({{< ref "/stdLib/database/sql#type-nullbool">}})
+- [NullFloat64]({{< ref "/stdLib/database/sql#type-nullfloat64">}})
+- [NullInt32]({{< ref "/stdLib/database/sql#type-nullint32----go113">}})
+- [NullInt64]({{< ref "/stdLib/database/sql#type-nullint64">}})
+- [NullString]({{< ref "/stdLib/database/sql#type-nullstring">}})
+- [NullTime]({{< ref "/stdLib/database/sql#type-nulltime----go113">}})
 
 ### 从列中获取数据
 
-​	在循环查询返回的行时，您可以使用`Scan`将行的列值复制到Go值，如[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考中所述。
+​	当遍历查询返回的行时，你可以使用`Scan`将一行的列值复制到Go值中，如[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考中所述。
 
-​	所有驱动程序都支持一组基本的数据转换，例如将SQL `INT`转换为Go `int`。一些驱动程序扩展了这一转换集；详情请参见各个驱动程序的文档。
+​	所有驱动程序都支持一组基本的数据转换，例如将SQL `INT`转换为Go `int`。一些驱动程序扩展了这组转换；有关详细信息，请参阅每个驱动程序的文档。
 
-​	正如您所期望的，`Scan`将从列类型转换为类似的Go类型。例如，`Scan`将从SQL `CHAR`、`VARCHAR`和`TEXT`转换为Go `string`。但是，`Scan`也会执行转换为另一种适合列值的Go类型。例如，如果列是一个总是包含数字的`VARCHAR`，您可以指定一个数值Go类型，比如`int`，来接收这个值，`Scan`将使用`strconv.Atoi`对其进行转换。
+​	正如你可能期望的那样，`Scan`将从与Go类型相似的列类型进行转换。例如，`Scan`将从SQL `CHAR`、`VARCHAR`和`TEXT`转换为Go `string`。然而，`Scan`还将执行到另一个适合列值的Go类型的转换。例如，如果列始终包含一个数字的`VARCHAR`，你可以指定一个数值型的Go类型（如`int`）来接收该值，然后`Scan`将使用`strconv.Atoi`为你进行转换。
 
-​	关于`Scan`函数进行转换的更多细节，请参见[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考。
+​	有关`Scan`方法进行的转换的更多详细信息，请参阅[Rows.Scan]({{< ref "/stdLib/database/sql#rows-scan">}})参考。
 
 ### 处理多个结果集
 
-​	当您的数据库操作可能返回多个结果集时，您可以通过使用[Rows.NextResultSet]({{< ref "/stdLib/database/sql#rows-nextresultset----go18">}})来检索这些结果。这可能很有用，例如，当您发送分别查询多个表的 SQL 时，为每个表返回一个结果集。
+​	当你的数据库操作可能返回多个结果集时，你可以使用[Rows.NextResultSet]({{< ref "/stdLib/database/sql#rows-nextresultset----go18">}})来检索它们。例如，当你分别查询多个表并返回每个表的结果集时，这可能会很有用。
 
-​	`Rows.NextResultSet`准备好下一个结果集，以便调用`Rows.Next`检索下一个结果集的第一条记录。它返回一个布尔值，表明是否存在下一个结果集。
+​	`Rows.NextResultSet`准备下一个结果集，以便对`Rows.Next`的调用可以从下一个集中检索第一行。它返回一个布尔值，表示是否确实存在下一个结果集。
 
-​	下面的例子中的代码使用`DB.Query`来执行两个SQL语句。第一个结果集来自过程中的第一个查询，检索`album`表中的所有记录。下一个结果集是来自于第二个查询，从`song`表中检索记录。
+​	以下示例中的代码使用`DB.Query`执行两个SQL语句。第一个结果集来自存储过程的第一个查询，检索了`album`表中的所有行。下一个结果集来自第二个查询，从`song`表中检索行。
 
-```go  hl_lines="13 13"
+```go
 rows, err := db.Query("SELECT * from album; SELECT * from song;")
 if err != nil {
     log.Fatal(err)
