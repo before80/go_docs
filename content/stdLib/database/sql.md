@@ -8,6 +8,12 @@ draft = false
 +++
 https://pkg.go.dev/database/sql@go1.20.1
 
+## 关系图
+
+![sql_objects](sql_img/sql_objects.png)
+
+
+
 ​	sql包提供了一个围绕SQL(或类SQL)数据库的通用接口。
 
 ​	sql包必须与数据库驱动程序一起使用。请参阅[https://golang.org/s/sqldrivers](https://golang.org/s/sqldrivers)，获取驱动程序的列表。
@@ -288,7 +294,7 @@ var ErrTxDone = errors.New("sql: transaction has already been committed or rolle
 
 ## 函数
 
-#### func Drivers  <- go1.4
+### func Drivers  <- go1.4
 
 ``` go 
 func Drivers() []string
@@ -296,7 +302,7 @@ func Drivers() []string
 
 ​	Drivers 函数返回已注册驱动程序名称的排序列表。
 
-#### func Register 
+### func Register 
 
 ``` go 
 func Register(name string, driver driver.Driver)
