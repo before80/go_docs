@@ -1,6 +1,7 @@
 +++
-title = "Overview"
+title = "概述"
 date = 2023-10-28T14:24:01+08:00
+weight = 2
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -43,7 +44,7 @@ The fantastic ORM library for Golang aims to be developer friendly.
 
 ## 安装 Install
 
-```
+``` go
 go get -u gorm.io/gorm
 go get -u gorm.io/driver/sqlite
 ```

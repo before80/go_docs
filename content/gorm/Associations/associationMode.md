@@ -1,6 +1,7 @@
 +++
 title = "Association Mode"
 date = 2023-10-28T14:28:42+08:00
+weight = 5
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ draft = false
 
 GORM will auto-save associations and its reference using [Upsert](https://gorm.io/docs/create.html#upsert) when creating/updating a record.
 
-```
+``` go
 user := User{
   Name:            "jinzhu",
   BillingAddress:  Address{Address1: "Billing Address - Address 1"},
@@ -43,7 +44,7 @@ db.Save(&user)
 
 If you want to update associations’s data, you should use the `FullSaveAssociations` mode:
 
-```
+``` go
 db.Session(&gorm.Session{FullSaveAssociations: true}).Updates(&user)
 // ...
 // INSERT INTO "addresses" (address1) VALUES ("Billing Address - Address 1"), ("Shipping Address - Address 1") ON DUPLICATE KEY SET address1=VALUES(address1);
@@ -56,7 +57,7 @@ db.Session(&gorm.Session{FullSaveAssociations: true}).Updates(&user)
 
 To skip the auto save when creating/updating, you can use `Select` or `Omit`, for example:
 
-```
+``` go
 user := User{
   Name:            "jinzhu",
   BillingAddress:  Address{Address1: "Billing Address - Address 1"},
@@ -84,19 +85,19 @@ db.Omit(clause.Associations).Create(&user)
 > **NOTE:**
 > For many2many associations, GORM will upsert the associations before creating the join table references, if you want to skip the upserting of associations, you could skip it like:
 >
-> ```
+> ``` go
 > db.Omit("Languages.*").Create(&user)
-> ```
+> ``` go
 >
 > The following code will skip the creation of the association and its references
 >
-> ```
+> ``` go
 > db.Omit("Languages").Create(&user)
 > ```
 
 ## Select/Omit Association fields
 
-```
+``` go
 user := User{
   Name:            "jinzhu",
   BillingAddress:  Address{Address1: "Billing Address - Address 1", Address2: "addr2"},
@@ -114,7 +115,7 @@ db.Omit("BillingAddress.Address2", "BillingAddress.CreatedAt").Create(&user)
 
 Association Mode contains some commonly used helper methods to handle relationships
 
-```
+``` go
 // Start Association Mode
 var user User
 db.Model(&user).Association("Languages")
@@ -128,13 +129,13 @@ db.Model(&user).Association("Languages").Error
 
 Find matched associations
 
-```
+``` go
 db.Model(&user).Association("Languages").Find(&languages)
 ```
 
 Find associations with conditions
 
-```
+``` go
 codes := []string{"zh-CN", "en-US", "ja-JP"}
 db.Model(&user).Where("code IN ?", codes).Association("Languages").Find(&languages)
 
@@ -145,7 +146,7 @@ db.Model(&user).Where("code IN ?", codes).Order("code desc").Association("Langua
 
 Append new associations for `many to many`, `has many`, replace current association for `has one`, `belongs to`
 
-```
+``` go
 db.Model(&user).Association("Languages").Append([]Language{languageZH, languageEN})
 
 db.Model(&user).Association("Languages").Append(&Language{Name: "DE"})
@@ -157,7 +158,7 @@ db.Model(&user).Association("CreditCard").Append(&CreditCard{Number: "4111111111
 
 Replace current associations with new ones
 
-```
+``` go
 db.Model(&user).Association("Languages").Replace([]Language{languageZH, languageEN})
 
 db.Model(&user).Association("Languages").Replace(Language{Name: "DE"}, languageEN)
@@ -167,7 +168,7 @@ db.Model(&user).Association("Languages").Replace(Language{Name: "DE"}, languageE
 
 Remove the relationship between source & arguments if exists, only delete the reference, won’t delete those objects from DB.
 
-```
+``` go
 db.Model(&user).Association("Languages").Delete([]Language{languageZH, languageEN})
 db.Model(&user).Association("Languages").Delete(languageZH, languageEN)
 ```
@@ -176,7 +177,7 @@ db.Model(&user).Association("Languages").Delete(languageZH, languageEN)
 
 Remove all reference between source & association, won’t delete those associations
 
-```
+``` go
 db.Model(&user).Association("Languages").Clear()
 ```
 
@@ -184,7 +185,7 @@ db.Model(&user).Association("Languages").Clear()
 
 Return the count of current associations
 
-```
+``` go
 db.Model(&user).Association("Languages").Count()
 
 // Count with conditions
@@ -196,7 +197,7 @@ db.Model(&user).Where("code IN ?", codes).Association("Languages").Count()
 
 Association Mode supports batch data, e.g:
 
-```
+``` go
 // Find all roles for all users
 db.Model(&users).Association("Role").Find(&roles)
 
@@ -223,7 +224,7 @@ You can delete those objects with `Unscoped` (it has nothing to do with `ManyToM
 
 How to delete is decided by `gorm.DB`.
 
-```
+``` go
 // Soft delete
 // UPDATE `languages` SET `deleted_at`= ...
 db.Model(&user).Association("Languages").Unscoped().Clear()
@@ -237,7 +238,7 @@ db.Unscoped().Model(&item).Association("Languages").Unscoped().Clear()
 
 You are allowed to delete selected has one/has many/many2many relations with `Select` when deleting records, for example:
 
-```
+``` go
 // delete user's account when deleting user
 db.Select("Account").Delete(&user)
 
@@ -254,7 +255,7 @@ db.Select("Account").Delete(&users)
 > **NOTE:**
 > Associations will only be deleted if the deleting records’s primary key is not zero, GORM will use those primary keys as conditions to delete selected associations
 >
-> ```
+> ``` go
 > // DOESN'T WORK
 > db.Select("Account").Where("name = ?", "jinzhu").Delete(&User{})
 > // will delete all user with name `jinzhu`, but those user's account won't be deleted

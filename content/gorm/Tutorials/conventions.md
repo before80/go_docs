@@ -1,6 +1,7 @@
 +++
 title = "Conventions"
 date = 2023-10-28T14:32:37+08:00
+weight = 13
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ draft = false
 
 GORM uses the field with the name `ID` as the table’s primary key by default.
 
-```
+``` go
 type User struct {
   ID   string // field named `ID` will be used as a primary field by default
   Name string
@@ -23,7 +24,7 @@ type User struct {
 
 You can set other fields as primary key with tag `primaryKey`
 
-```
+``` go
 // Set field `UUID` as primary field
 type Animal struct {
   ID     int64
@@ -43,7 +44,7 @@ GORM pluralizes struct name to `snake_cases` as table name, for struct `User`, i
 
 You can change the default table name by implementing the `Tabler` interface, for example:
 
-```
+``` go
 type Tabler interface {
   TableName() string
 }
@@ -56,7 +57,7 @@ func (User) TableName() string {
 
 > **NOTE** `TableName` doesn’t allow dynamic name, its result will be cached for future, to use dynamic name, you can use `Scopes`, for example:
 
-```
+``` go
 func UserTable(user User) func (tx *gorm.DB) *gorm.DB {
   return func (tx *gorm.DB) *gorm.DB {
     if user.Admin {
@@ -74,7 +75,7 @@ db.Scopes(UserTable(user)).Create(&user)
 
 Temporarily specify table name with `Table` method, for example:
 
-```
+``` go
 // Create table `deleted_users` with struct User's fields
 db.Table("deleted_users").AutoMigrate(&User{})
 
@@ -97,7 +98,7 @@ GORM allows users change the default naming conventions by overriding the defaul
 
 Column db name uses the field’s name’s `snake_case` by convention.
 
-```
+``` go
 type User struct {
   ID        uint      // column name is `id`
   Name      string    // column name is `name`
@@ -108,7 +109,7 @@ type User struct {
 
 You can override the column name with tag `column` or use [`NamingStrategy`](https://gorm.io/docs/conventions.html#naming_strategy)
 
-```
+``` go
 type Animal struct {
   AnimalID int64     `gorm:"column:beast_id"`         // set name to `beast_id`
   Birthday time.Time `gorm:"column:day_of_the_beast"` // set name to `day_of_the_beast`
@@ -122,7 +123,7 @@ type Animal struct {
 
 For models having `CreatedAt` field, the field will be set to the current time when the record is first created if its value is zero
 
-```
+``` go
 db.Create(&user) // set `CreatedAt` to current time
 
 user2 := User{Name: "jinzhu", CreatedAt: time.Now()}
@@ -134,7 +135,7 @@ db.Model(&user).Update("CreatedAt", time.Now())
 
 You can disable the timestamp tracking by setting `autoCreateTime` tag to `false`, for example:
 
-```
+``` go
 type User struct {
   CreatedAt time.Time `gorm:"autoCreateTime:false"`
 }
@@ -144,7 +145,7 @@ type User struct {
 
 For models having `UpdatedAt` field, the field will be set to the current time when the record is updated or created if its value is zero
 
-```
+``` go
 db.Save(&user) // set `UpdatedAt` to current time
 
 db.Model(&user).Update("name", "jinzhu") // will set `UpdatedAt` to current time
@@ -160,7 +161,7 @@ db.Save(&user3) // user3's `UpdatedAt` will change to current time when updating
 
 You can disable the timestamp tracking by setting `autoUpdateTime` tag to `false`, for example:
 
-```
+``` go
 type User struct {
   UpdatedAt time.Time `gorm:"autoUpdateTime:false"`
 }

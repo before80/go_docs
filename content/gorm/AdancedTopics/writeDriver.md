@@ -1,6 +1,7 @@
 +++
 title = "Write Driver"
 date = 2023-10-28T14:37:09+08:00
+weight = 13
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -18,7 +19,7 @@ Some databases may be compatible with the `mysql` or `postgres` dialect, in whic
 
 For others, you can create a new driver, it needs to implement [the dialect interface](https://pkg.go.dev/gorm.io/gorm?tab=doc#Dialector).
 
-```
+``` go
 type Dialector interface {
   Name() string
   Initialize(*DB) error

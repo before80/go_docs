@@ -1,6 +1,7 @@
 +++
 title = "Migration"
 date = 2023-10-28T14:30:56+08:00
+weight = 8
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ Automatically migrate your schema, to keep your schema up to date.
 
 > **NOTE:** AutoMigrate will create tables, missing foreign keys, constraints, columns and indexes. It will change existing column’s type if its size, precision, nullable changed. It **WON’T** delete unused columns to protect your data.
 
-```
+``` go
 db.AutoMigrate(&User{})
 
 db.AutoMigrate(&User{}, &Product{}, &Order{})
@@ -27,7 +28,7 @@ db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&User{})
 
 > **NOTE** AutoMigrate creates database foreign key constraints automatically, you can disable this feature during initialization, for example:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   DisableForeignKeyConstraintWhenMigrating: true,
 })
@@ -41,7 +42,7 @@ SQLite doesn’t support `ALTER COLUMN`, `DROP COLUMN`, GORM will create a new t
 
 MySQL doesn’t support rename column, index for some versions, GORM will perform different SQL based on the MySQL version you are using
 
-```
+``` go
 type Migrator interface {
   // AutoMigrate
   AutoMigrate(dst ...interface{}) error
@@ -87,13 +88,13 @@ type Migrator interface {
 
 Returns current using database name
 
-```
+``` go
 db.Migrator().CurrentDatabase()
 ```
 
 ### Tables
 
-```
+``` go
 // Create table for `User`
 db.Migrator().CreateTable(&User{})
 
@@ -115,7 +116,7 @@ db.Migrator().RenameTable("users", "user_infos")
 
 ### Columns
 
-```
+``` go
 type User struct {
   Name string
 }
@@ -167,7 +168,7 @@ Create views by `ViewOption`. About `ViewOption`:
 
 > **NOTE** SQLite currently does not support `Replace` in `ViewOption`
 
-```
+``` go
 query := db.Model(&User{}).Where("age > ?", 20)
 
 // Create View
@@ -189,7 +190,7 @@ db.Migrator().DropView("users_pets")
 
 ### Constraints
 
-```
+``` go
 type UserIndex struct {
   Name  string `gorm:"check:name_checker,name <> 'jinzhu'"`
 }
@@ -206,7 +207,7 @@ db.Migrator().HasConstraint(&User{}, "name_checker")
 
 Create foreign keys for relations
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCards []CreditCard
@@ -234,7 +235,7 @@ db.Migrator().DropConstraint(&User{}, "fk_users_credit_cards")
 
 ### Indexes
 
-```
+``` go
 type User struct {
   gorm.Model
   Name string `gorm:"size:255;index:idx_name,unique"`
@@ -276,7 +277,7 @@ Once this happens, the responsibility for planning migration scripts and making 
 
 Atlas can automatically plan database schema migrations for developers using the official [GORM Provider](https://github.com/ariga/atlas-provider-gorm). After configuring the provider you can automatically plan migrations by running:
 
-```
+``` go
 atlas migrate diff --env gorm
 ```
 
@@ -286,7 +287,7 @@ To learn how to use Atlas with GORM, check out the [official documentation](http
 
 To use GORM with other Go-based migration tools, GORM provides a generic DB interface that might be helpful for you.
 
-```
+``` go
 // returns `*sql.DB`
 db.DB()
 ```

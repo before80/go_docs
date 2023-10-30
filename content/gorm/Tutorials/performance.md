@@ -1,6 +1,7 @@
 +++
 title = "Performance"
 date = 2023-10-28T14:31:43+08:00
+weight = 10
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ GORM optimizes many things to improve the performance, the default performance s
 
 GORM performs write (create/update/delete) operations inside a transaction to ensure data consistency, which is bad for performance, you can disable it during initialization
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   SkipDefaultTransaction: true,
 })
@@ -26,7 +27,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 Creates a prepared statement when executing any SQL and caches them to speed up future calls
 
-```
+``` go
 // Globally mode
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   PrepareStmt: true,
@@ -45,7 +46,7 @@ tx.Model(&user).Update("Age", 18)
 
 Prepared Statement works with RAW SQL also, for example:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   PrepareStmt: true,
 })
@@ -59,13 +60,13 @@ You can also use GORM API to prepare SQL with [DryRun Mode](https://gorm.io/docs
 
 By default GORM select all fields when querying, you can use `Select` to specify fields you want
 
-```
+``` go
 db.Select("Name", "Age").Find(&Users{})
 ```
 
 Or define a smaller API struct to use the [smart select fields feature](https://gorm.io/docs/advanced_query.html)
 
-```
+``` go
 type User struct {
   ID     uint
   Name   string
@@ -92,7 +93,7 @@ Query and process records with iteration or in batches
 
 [Index](https://gorm.io/docs/indexes.html) is used to speed up data search and SQL query performance. `Index Hints` gives the optimizer information about how to choose indexes during query processing, which gives the flexibility to choose a more efficient execution plan than the optimizer
 
-```
+``` go
 import "gorm.io/hints"
 
 db.Clauses(hints.UseIndex("idx_user_name")).Find(&User{})

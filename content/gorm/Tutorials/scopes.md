@@ -1,6 +1,7 @@
 +++
 title = "Scopes"
 date = 2023-10-28T14:32:25+08:00
+weight = 12
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ Scopes allow you to re-use commonly used logic, the shared logic needs to be def
 
 Scope examples for querying
 
-```
+``` go
 func AmountGreaterThan1000(db *gorm.DB) *gorm.DB {
   return db.Where("amount > ?", 1000)
 }
@@ -47,7 +48,7 @@ db.Scopes(AmountGreaterThan1000, OrderStatus([]string{"paid", "shipped"})).Find(
 
 ### Pagination
 
-```
+``` go
 func Paginate(r *http.Request) func(db *gorm.DB) *gorm.DB {
   return func (db *gorm.DB) *gorm.DB {
     q := r.URL.Query()
@@ -77,7 +78,7 @@ db.Scopes(Paginate(r)).Find(&articles)
 
 Use `Scopes` to dynamically set the query Table
 
-```
+``` go
 func TableOfYear(user *User, year int) func(db *gorm.DB) *gorm.DB {
   return func(db *gorm.DB) *gorm.DB {
     tableName := user.TableName() + strconv.Itoa(year)
@@ -110,7 +111,7 @@ DB.Scopes(TableOfOrg(user, "org2")).Find(&users)
 
 Scope examples for updating/deleting
 
-```
+``` go
 func CurOrganization(r *http.Request) func(db *gorm.DB) *gorm.DB {
   return func (db *gorm.DB) *gorm.DB {
     org := r.Query("org")

@@ -1,6 +1,7 @@
 +++
 title = "Belongs To"
 date = 2023-10-28T14:27:48+08:00
+weight = 2
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ A `belongs to` association sets up a one-to-one connection with another model, s
 
 For example, if your application includes users and companies, and each user can be assigned to exactly one company, the following types represent that relationship. Notice here that, on the `User` object, there is both a `CompanyID` as well as a `Company`. By default, the `CompanyID` is implicitly used to create a foreign key relationship between the `User` and `Company` tables, and thus must be included in the `User` struct in order to fill the `Company` inner struct.
 
-```
+``` go
 // `User` belongs to `Company`, `CompanyID` is the foreign key
 type User struct {
   gorm.Model
@@ -41,7 +42,7 @@ For the above example, to define the `User` model that belongs to `Company`, the
 
 GORM provides a way to customize the foreign key, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Name         string
@@ -64,7 +65,7 @@ When you assign a user to a company, GORM will save the company’s `ID` into th
 
 You are able to change it with tag `references`, e.g:
 
-```
+``` go
 type User struct {
   gorm.Model
   Name      string
@@ -81,7 +82,7 @@ type Company struct {
 
 > **NOTE** GORM usually guess the relationship as `has one` if override foreign key name already exists in owner’s type, we need to specify `references` in the `belongs to` relationship.
 
-```
+``` go
 type User struct {
   gorm.Model
   Name      string
@@ -108,7 +109,7 @@ GORM allows eager loading belongs to associations with `Preload` or `Joins`, ref
 
 You can setup `OnUpdate`, `OnDelete` constraints with tag `constraint`, it will be created when migrating with GORM, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Name      string

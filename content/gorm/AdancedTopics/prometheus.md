@@ -1,6 +1,7 @@
 +++
 title = "Prometheus"
 date = 2023-10-28T14:35:08+08:00
+weight = 5
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ https://github.com/go-gorm/prometheus
 
 ## Usage
 
-```
+``` go
 import (
   "gorm.io/gorm"
   "gorm.io/driver/sqlite"
@@ -43,7 +44,7 @@ db.Use(prometheus.New(prometheus.Config{
 
 You can define your metrics and collect them with GORM Prometheus plugin, which needs to implements `MetricsCollector` interface
 
-```
+``` go
 type MetricsCollector interface {
   Metrics(*Prometheus) []prometheus.Collector
 }
@@ -53,7 +54,7 @@ type MetricsCollector interface {
 
 GORM provides an example for how to collect MySQL Status as metrics, check it out [prometheus.MySQL](https://github.com/go-gorm/prometheus/blob/master/mysql.go)
 
-```
+``` go
 &prometheus.MySQL{
   Prefix: "gorm_status_",
   // Metrics name prefix, default is `gorm_status_`

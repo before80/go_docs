@@ -1,6 +1,7 @@
 +++
 title = "Many To Many"
 date = 2023-10-28T14:28:27+08:00
+weight = 4
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ Many to Many add a join table between two models.
 
 For example, if your application includes users and languages, and a user can speak many languages, and many users can speak a specified language.
 
-```
+``` go
 // User has and belongs to many languages, `user_languages` is the join table
 type User struct {
   gorm.Model
@@ -35,7 +36,7 @@ When using GORM `AutoMigrate` to create a table for `User`, GORM will create the
 
 ### Declare
 
-```
+``` go
 // User has and belongs to many languages, use `user_languages` as join table
 type User struct {
   gorm.Model
@@ -51,7 +52,7 @@ type Language struct {
 
 ### Retrieve
 
-```
+``` go
 // Retrieve user list with eager loading languages
 func GetAllUsers(db *gorm.DB) ([]User, error) {
   var users []User
@@ -71,7 +72,7 @@ func GetAllLanguages(db *gorm.DB) ([]Language, error) {
 
 For a `many2many` relationship, the join table owns the foreign key which references two models, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Languages []Language `gorm:"many2many:user_languages;"`
@@ -89,7 +90,7 @@ type Language struct {
 
 To override them, you can use tag `foreignKey`, `references`, `joinForeignKey`, `joinReferences`, not necessary to use them together, you can just use one of them to override some foreign keys/references
 
-```
+``` go
 type User struct {
   gorm.Model
   Profiles []Profile `gorm:"many2many:user_profiles;foreignKey:Refer;joinForeignKey:UserReferID;References:UserRefer;joinReferences:ProfileRefer"`
@@ -114,7 +115,7 @@ type Profile struct {
 
 Self-referencing many2many relationship
 
-```
+``` go
 type User struct {
   gorm.Model
   Friends []*User `gorm:"many2many:user_friends"`
@@ -140,7 +141,7 @@ Please checkout [Association Mode](https://gorm.io/docs/associations.html#Associ
 > **NOTE:**
 > Customized join table’s foreign keys required to be composited primary keys or composited unique index
 
-```
+``` go
 type Person struct {
   ID        int
   Name      string
@@ -172,7 +173,7 @@ err := db.SetupJoinTable(&Person{}, "Addresses", &PersonAddress{})
 
 You can setup `OnUpdate`, `OnDelete` constraints with tag `constraint`, it will be created when migrating with GORM, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Languages []Language `gorm:"many2many:user_speaks;"`
@@ -194,7 +195,7 @@ If you are using [Composite Primary Keys](https://gorm.io/docs/composite_primary
 
 You are allowed to override the default foreign keys, to specify multiple foreign keys, just separate those keys’ name by commas, for example:
 
-```
+``` go
 type Tag struct {
   ID     uint   `gorm:"primaryKey"`
   Locale string `gorm:"primaryKey"`

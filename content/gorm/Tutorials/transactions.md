@@ -1,6 +1,7 @@
 +++
 title = "Transactions"
 date = 2023-10-28T14:30:45+08:00
+weight = 7
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ draft = false
 
 GORM perform write (create/update/delete) operations run inside a transaction to ensure data consistency, you can disable it during initialization if it is not required, you will gain about 30%+ performance improvement after that
 
-```
+``` go
 // Globally disable
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   SkipDefaultTransaction: true,
@@ -31,7 +32,7 @@ tx.Model(&user).Update("Age", 18)
 
 To perform a set of operations within a transaction, the general flow is as below.
 
-```
+``` go
 db.Transaction(func(tx *gorm.DB) error {
   // do some database operations in the transaction (use 'tx' from this point, not 'db')
   if err := tx.Create(&Animal{Name: "Giraffe"}).Error; err != nil {
@@ -52,7 +53,7 @@ db.Transaction(func(tx *gorm.DB) error {
 
 GORM supports nested transactions, you can rollback a subset of operations performed within the scope of a larger transaction, for example:
 
-```
+``` go
 db.Transaction(func(tx *gorm.DB) error {
   tx.Create(&user1)
 
@@ -76,7 +77,7 @@ db.Transaction(func(tx *gorm.DB) error {
 
 Gorm supports calling transaction control functions (commit / rollback) directly, for example:
 
-```
+``` go
 // begin a transaction
 tx := db.Begin()
 
@@ -94,7 +95,7 @@ tx.Commit()
 
 ### A Specific Example
 
-```
+``` go
 func CreateAnimals(db *gorm.DB) error {
   // Note the use of tx as the database handle once you are within a transaction
   tx := db.Begin()
@@ -126,7 +127,7 @@ func CreateAnimals(db *gorm.DB) error {
 
 GORM provides `SavePoint`, `RollbackTo` to save points and roll back to a savepoint, for example:
 
-```
+``` go
 tx := db.Begin()
 tx.Create(&user1)
 

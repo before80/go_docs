@@ -1,6 +1,7 @@
 +++
 title = "Security"
 date = 2023-10-28T14:36:30+08:00
+weight = 10
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -18,7 +19,7 @@ GORM uses the `database/sql`‘s argument placeholders to construct the SQL stat
 
 User’s input should be only used as an argument, for example:
 
-```
+``` go
 userInput := "jinzhu;drop table users;"
 
 // safe, will be escaped
@@ -30,7 +31,7 @@ db.Where(fmt.Sprintf("name = %v", userInput)).First(&user)
 
 ## Inline Condition
 
-```
+``` go
 // will be escaped
 db.First(&user, "name = ?", userInput)
 
@@ -40,7 +41,7 @@ db.First(&user, fmt.Sprintf("name = %v", userInput))
 
 When retrieving objects with number primary key by user’s input, you should check the type of variable.
 
-```
+``` go
 userInputID := "1=1;drop table users;"
 // safe, return error
 id,err := strconv.Atoi(userInputID)
@@ -58,7 +59,7 @@ db.First(&user, userInputID)
 
 To support some features, some inputs are not escaped, be careful when using user’s input with those methods
 
-```
+``` go
 db.Select("name; drop table users;").First(&user)
 db.Distinct("name; drop table users;").First(&user)
 

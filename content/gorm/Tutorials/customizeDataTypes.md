@@ -1,6 +1,7 @@
 +++
 title = "Customize Data Types"
 date = 2023-10-28T14:32:12+08:00
+weight = 11
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -22,7 +23,7 @@ The customized data type has to implement the [Scanner](https://pkg.go.dev/datab
 
 For example:
 
-```
+``` go
 type JSON json.RawMessage
 
 // Scan scan value into Jsonb, implements sql.Scanner interface
@@ -49,7 +50,7 @@ func (j JSON) Value() (driver.Value, error) {
 
 There are many third party packages implement the `Scanner`/`Valuer` interface, which can be used with GORM together, for example:
 
-```
+``` go
 import (
   "github.com/google/uuid"
   "github.com/lib/pq"
@@ -66,7 +67,7 @@ type Post struct {
 
 GORM will read column’s database type from [tag](https://gorm.io/docs/models.html#tags) `type`, if not found, will check if the struct implemented interface `GormDBDataTypeInterface` or `GormDataTypeInterface` and will use its result as data type
 
-```
+``` go
 type GormDataTypeInterface interface {
   GormDataType() string
 }
@@ -78,7 +79,7 @@ type GormDBDataTypeInterface interface {
 
 The result of `GormDataType` will be used as the general data type and can be obtained from `schema.Field`‘s field `DataType`, which might be helpful when [writing plugins](https://gorm.io/docs/write_plugins.html) or [hooks](https://gorm.io/docs/hooks.html) for example:
 
-```
+``` go
 func (JSON) GormDataType() string {
   return "json"
 }
@@ -97,7 +98,7 @@ func (user User) BeforeCreate(tx *gorm.DB) {
 
 `GormDBDataType` usually returns the right data type for current driver when migrating, for example:
 
-```
+``` go
 func (JSON) GormDBDataType(db *gorm.DB, field *schema.Field) string {
   // use field.Tag, field.TagSettings gets field's tags
   // checkout https://github.com/go-gorm/gorm/blob/master/schema/field.go for all options
@@ -115,7 +116,7 @@ func (JSON) GormDBDataType(db *gorm.DB, field *schema.Field) string {
 
 If the struct hasn’t implemented the `GormDBDataTypeInterface` or `GormDataTypeInterface` interface, GORM will guess its data type from the struct’s first field, for example, will use `string` for `NullString`
 
-```
+``` go
 type NullString struct {
   String string // use the first field's data type
   Valid  bool
@@ -130,7 +131,7 @@ type User struct {
 
 GORM provides a `GormValuerInterface` interface, which can allow to create/update from SQL Expr or value based on context, for example:
 
-```
+``` go
 // GORM Valuer interface
 type GormValuerInterface interface {
   GormValue(ctx context.Context, db *gorm.DB) clause.Expr
@@ -139,7 +140,7 @@ type GormValuerInterface interface {
 
 #### Create/Update from SQL Expr
 
-```
+``` go
 type Location struct {
   X, Y int
 }
@@ -185,7 +186,7 @@ You can also create/update with SQL Expr from map, checkout [Create From SQL Exp
 
 If you want to create or update a value depends on current context, you can also implements the `GormValuerInterface` interface, for example:
 
-```
+``` go
 type EncryptedString struct {
   Value string
 }
@@ -205,7 +206,7 @@ func (es EncryptedString) GormValue(ctx context.Context, db *gorm.DB) (expr clau
 
 If you want to build some query helpers, you can make a struct that implements the `clause.Expression` interface:
 
-```
+``` go
 type Expression interface {
   Build(builder Builder)
 }
@@ -213,7 +214,7 @@ type Expression interface {
 
 Checkout [JSON](https://github.com/go-gorm/datatypes/blob/master/json.go) and [SQL Builder](https://gorm.io/docs/sql_builder.html#clauses) for details, the following is an example of usage:
 
-```
+``` go
 // Generates SQL with clause Expression
 db.Find(&user, datatypes.JSONQuery("attributes").HasKey("role"))
 db.Find(&user, datatypes.JSONQuery("attributes").HasKey("orgs", "orga"))

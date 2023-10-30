@@ -1,6 +1,7 @@
 +++
 title = "Method Chaining"
 date = 2023-10-28T14:30:07+08:00
+weight = 4
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -12,7 +13,7 @@ draft = false
 
 GORM allows method chaining, so you can write code like this:
 
-```
+``` go
 db.Where("name = ?", "jinzhu").Where("age = ?", 18).First(&user)
 ```
 
@@ -20,7 +21,7 @@ There are three kinds of methods in GORM: `Chain Method`, `Finisher Method`, `Ne
 
 After a `Chain method`, `Finisher Method`, GORM returns an initialized `*gorm.DB` instance, which is NOT safe to reuse anymore, or new generated SQL might be polluted by the previous conditions, for example:
 
-```
+``` go
 queryDB := DB.Where("name = ?", "jinzhu")
 
 queryDB.Where("age > ?", 10).First(&user)
@@ -32,7 +33,7 @@ queryDB.Where("age > ?", 20).First(&user2)
 
 In order to reuse a initialized `*gorm.DB` instance, you can use a `New Session Method` to create a shareable `*gorm.DB`, e.g:
 
-```
+``` go
 queryDB := DB.Where("name = ?", "jinzhu").Session(&gorm.Session{})
 
 queryDB.Where("age > ?", 10).First(&user)
@@ -68,7 +69,7 @@ Let’s explain it with examples:
 
 Example 1:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 // db is a new initialized `*gorm.DB`, which is safe to reuse
 
@@ -91,7 +92,7 @@ db.Find(&users)
 
 (Bad) Example 2:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 // db is a new initialized *gorm.DB, which is safe to reuse
 
@@ -113,7 +114,7 @@ tx.Where("age = ?", 28).Find(&users)
 
 Example 3:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 // db is a new initialized *gorm.DB, which is safe to reuse
 

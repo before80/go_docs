@@ -1,6 +1,7 @@
 +++
 title = "Preloading (Eager Loading)"
 date = 2023-10-28T14:29:04+08:00
+weight = 6
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ draft = false
 
 GORM allows eager loading relations in other SQL with `Preload`, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Username string
@@ -43,7 +44,7 @@ db.Preload("Orders").Preload("Profile").Preload("Role").Find(&users)
 
 `Preload` loads the association data in a separate query, `Join Preload` will loads association data using left join, for example:
 
-```
+``` go
 db.Joins("Company").Joins("Manager").Joins("Account").First(&user, 1)
 db.Joins("Company").Joins("Manager").Joins("Account").First(&user, "users.name = ?", "jinzhu")
 db.Joins("Company").Joins("Manager").Joins("Account").Find(&users, "users.id IN ?", []int{1,2,3,4,5})
@@ -51,14 +52,14 @@ db.Joins("Company").Joins("Manager").Joins("Account").Find(&users, "users.id IN 
 
 Join with conditions
 
-```
+``` go
 db.Joins("Company", DB.Where(&Company{Alive: true})).Find(&users)
 // SELECT `users`.`id`,`users`.`name`,`users`.`age`,`Company`.`id` AS `Company__id`,`Company`.`name` AS `Company__name` FROM `users` LEFT JOIN `companies` AS `Company` ON `users`.`company_id` = `Company`.`id` AND `Company`.`alive` = true;
 ```
 
 Join nested model
 
-```
+``` go
 db.Joins("Manager").Joins("Manager.Company").Find(&users)
 // SELECT "users"."id","users"."created_at","users"."updated_at","users"."deleted_at","users"."name","users"."age","users"."birthday","users"."company_id","users"."manager_id","users"."active","Manager"."id" AS "Manager__id","Manager"."created_at" AS "Manager__created_at","Manager"."updated_at" AS "Manager__updated_at","Manager"."deleted_at" AS "Manager__deleted_at","Manager"."name" AS "Manager__name","Manager"."age" AS "Manager__age","Manager"."birthday" AS "Manager__birthday","Manager"."company_id" AS "Manager__company_id","Manager"."manager_id" AS "Manager__manager_id","Manager"."active" AS "Manager__active","Manager__Company"."id" AS "Manager__Company__id","Manager__Company"."name" AS "Manager__Company__name" FROM "users" LEFT JOIN "users" "Manager" ON "users"."manager_id" = "Manager"."id" AND "Manager"."deleted_at" IS NULL LEFT JOIN "companies" "Manager__Company" ON "Manager"."company_id" = "Manager__Company"."id" WHERE "users"."deleted_at" IS NULL
 ```
@@ -69,7 +70,7 @@ db.Joins("Manager").Joins("Manager.Company").Find(&users)
 
 `clause.Associations` can work with `Preload` similar like `Select` when creating/updating, you can use it to `Preload` all associations, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   Name       string
@@ -84,7 +85,7 @@ db.Preload(clause.Associations).Find(&users)
 
 `clause.Associations` won’t preload nested associations, but you can use it with [Nested Preloading](https://gorm.io/docs/preload.html#nested_preloading) together, e.g:
 
-```
+``` go
 db.Preload("Orders.OrderItems.Product").Preload(clause.Associations).Find(&users)
 ```
 
@@ -92,7 +93,7 @@ db.Preload("Orders.OrderItems.Product").Preload(clause.Associations).Find(&users
 
 GORM allows Preload associations with conditions, it works similar to [Inline Conditions](https://gorm.io/docs/query.html#inline_conditions)
 
-```
+``` go
 // Preload Orders with conditions
 db.Preload("Orders", "state NOT IN (?)", "cancelled").Find(&users)
 // SELECT * FROM users;
@@ -107,7 +108,7 @@ db.Where("state = ?", "active").Preload("Orders", "state NOT IN (?)", "cancelled
 
 You are able to custom preloading SQL by passing in `func(db *gorm.DB) *gorm.DB`, for example:
 
-```
+``` go
 db.Preload("Orders", func(db *gorm.DB) *gorm.DB {
   return db.Order("orders.amount DESC")
 }).Find(&users)
@@ -119,7 +120,7 @@ db.Preload("Orders", func(db *gorm.DB) *gorm.DB {
 
 GORM supports nested preloading, for example:
 
-```
+``` go
 db.Preload("Orders.OrderItems.Product").Preload("CreditCard").Find(&users)
 
 // Customize Preload conditions for `Orders`
@@ -134,7 +135,7 @@ same struct. The syntax for Embedded Preloading is similar to Nested Preloading,
 
 For example:
 
-```
+``` go
 type Address struct {
   CountryID int
   Country   Country
@@ -164,7 +165,7 @@ db.Preload(clause.Associations)
 
 We can omit embedded part when there is no ambiguity.
 
-```
+``` go
 type Address struct {
   CountryID int
   Country   Country

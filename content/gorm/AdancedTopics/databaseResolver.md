@@ -1,6 +1,7 @@
 +++
 title = "DBResolver"
 date = 2023-10-28T14:34:34+08:00
+weight = 2
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -24,7 +25,7 @@ https://github.com/go-gorm/dbresolver
 
 ## Usage
 
-```
+``` go
 import (
   "gorm.io/gorm"
   "gorm.io/plugin/dbresolver"
@@ -57,7 +58,7 @@ DBResolver will automatically switch connection based on the working table/struc
 
 For RAW SQL, DBResolver will extract the table name from the SQL to match the resolver, and will use `sources` unless the SQL begins with `SELECT` (excepts `SELECT... FOR UPDATE`), for example:
 
-```
+``` go
 // `User` Resolver Examples
 db.Table("users").Rows() // replicas `db5`
 db.Model(&User{}).Find(&AdvancedUser{}) // replicas `db5`
@@ -85,7 +86,7 @@ For `Raw` callback, statements are considered read-only and will use `replicas` 
 
 ## Manual connection switching
 
-```
+``` go
 // Use Write Mode: read user from sources `db1`
 db.Clauses(dbresolver.Write).First(&user)
 
@@ -102,7 +103,7 @@ When using transaction, DBResolver will keep using the transaction and won’t s
 
 But you can specifies which DB to use before starting a transaction, for example:
 
-```
+``` go
 // Start transaction based on default replicas db
 tx := DB.Clauses(dbresolver.Read).Begin()
 
@@ -117,7 +118,7 @@ tx := DB.Clauses(dbresolver.Use("secondary"), dbresolver.Write).Begin()
 
 GORM supports load balancing sources/replicas based on policy, the policy should be a struct implements following interface:
 
-```
+``` go
 type Policy interface {
   Resolve([]gorm.ConnPool) gorm.ConnPool
 }
@@ -127,7 +128,7 @@ Currently only the `RandomPolicy` implemented and it is the default option if no
 
 ## Connection Pool
 
-```
+``` go
 db.Use(
   dbresolver.Register(dbresolver.Config{ /* xxx */ }).
   SetConnMaxIdleTime(time.Hour).

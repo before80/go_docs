@@ -1,6 +1,7 @@
 +++
 title = "Serializer"
 date = 2023-10-28T14:34:57+08:00
+weight = 4
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ Serializer is an extensible interface that allows to customize how to serialize 
 
 GORM provides some default serializers: `json`, `gob`, `unixtime`, here is a quick example of how to use it.
 
-```
+``` go
 type User struct {
   Name        []byte                 `gorm:"serializer:json"`
   Roles       Roles                  `gorm:"serializer:json"`
@@ -70,7 +71,7 @@ DB.Where(User{Name: []byte("jinzhu")}).Take(&result)
 
 A Serializer needs to implement how to serialize and deserialize data, so it requires to implement the the following interface
 
-```
+``` go
 import "gorm.io/gorm/schema"
 
 type SerializerInterface interface {
@@ -85,7 +86,7 @@ type SerializerValuerInterface interface {
 
 For example, the default `JSONSerializer` is implemented like:
 
-```
+``` go
 // JSONSerializer json serializer
 type JSONSerializer struct {
 }
@@ -120,13 +121,13 @@ func (JSONSerializer) Value(ctx context.Context, field *Field, dst reflect.Value
 
 And registered with the following code:
 
-```
+``` go
 schema.RegisterSerializer("json", JSONSerializer{})
 ```
 
 After registering a serializer, you can use it with the `serializer` tag, for example:
 
-```
+``` go
 type User struct {
   Name []byte `gorm:"serializer:json"`
 }
@@ -136,7 +137,7 @@ type User struct {
 
 You can use a registered serializer with tags, you are also allowed to create a customized struct that implements the above `SerializerInterface` and use it as a field type directly, for example:
 
-```
+``` go
 type EncryptedString string
 
 // ctx: contains request-scoped values

@@ -1,6 +1,7 @@
 +++
-title = "Hooks"
+title = "钩子"
 date = 2023-10-28T14:30:28+08:00
+weight = 6
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -8,35 +9,41 @@ draft = false
 
 +++
 
-## Object Life Cycle
+## 对象生命周期 Object Life Cycle
 
 Hooks are functions that are called before or after creation/querying/updating/deletion.
 
+​	Hooks是在创建/查询/更新/删除之前或之后调用的函数。
+
 If you have defined specified methods for a model, it will be called automatically when creating, updating, querying, deleting, and if any callback returns an error, GORM will stop future operations and rollback current transaction.
+
+​	如果你为模型定义了指定的方法，它将在创建、更新、查询、删除时自动调用，如果任何回调返回错误，GORM将停止未来的操作并回滚当前事务。
 
 The type of hook methods should be `func(*gorm.DB) error`
 
+​	Hook方法的类型应为`func(*gorm.DB) error`
+
 ## Hooks
 
-### Creating an object
+### 创建对象 Creating an object
 
-Available hooks for creating
+可用的创建钩子 Available hooks for creating
 
-```
-// begin transaction
+``` go
+// 开始事务 begin transaction
 BeforeSave
 BeforeCreate
-// save before associations
-// insert into database
-// save after associations
+// 保存关联之前 save before associations
+// 插入数据库 insert into database
+// 保存关联之后 save after associations
 AfterCreate
 AfterSave
-// commit or rollback transaction
+// 提交或回滚事务 commit or rollback transaction
 ```
 
-Code Example:
+代码示例：Code Example:
 
-```
+``` go
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
   u.UUID = uuid.New()
 
@@ -55,8 +62,10 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 ```
 
 > **NOTE** Save/Delete operations in GORM are running in transactions by default, so changes made in that transaction are not visible until it is committed, if you return any error in your hooks, the change will be rollbacked
+>
+> **注意** GORM中的保存/删除操作默认以事务方式运行，因此在该事务中所做的更改在提交之前是不可见的，如果您的钩子中返回任何错误，更改将被回滚
 
-```
+``` go
 func (u *User) AfterCreate(tx *gorm.DB) (err error) {
   if !u.IsValid() {
     return errors.New("rollback invalid user")
@@ -65,11 +74,13 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 }
 ```
 
-### Updating an object
+### 更新对象 Updating an object
 
 Available hooks for updating
 
-```
+​	可用的更新钩子
+
+``` go
 // begin transaction
 BeforeSave
 BeforeUpdate
@@ -83,7 +94,9 @@ AfterSave
 
 Code Example:
 
-```
+​	代码示例：
+
+``` go
 func (u *User) BeforeUpdate(tx *gorm.DB) (err error) {
   if u.readonly() {
     err = errors.New("read only user")
@@ -100,22 +113,26 @@ func (u *User) AfterUpdate(tx *gorm.DB) (err error) {
 }
 ```
 
-### Deleting an object
+### 删除对象 Deleting an object
 
 Available hooks for deleting
 
-```
-// begin transaction
+​	可用的删除钩子
+
+``` go
+// 开始事务 begin transaction
 BeforeDelete
-// delete from database
+// 从数据库中删除 delete from database
 AfterDelete
-// commit or rollback transaction
+// 提交或回滚事务 commit or rollback transaction
 ```
 
 Code Example:
 
-```
-// Updating data in same transaction
+​	代码示例：
+
+``` go
+// 在同一个事务中更新数据 Updating data in same transaction
 func (u *User) AfterDelete(tx *gorm.DB) (err error) {
   if u.Confirmed {
     tx.Model(&Address{}).Where("user_id = ?", u.ID).Update("invalid", false)
@@ -124,19 +141,21 @@ func (u *User) AfterDelete(tx *gorm.DB) (err error) {
 }
 ```
 
-### Querying an object
+### 查询对象 Querying an object
 
 Available hooks for querying
 
-```
-// load data from database
-// Preloading (eager loading)
+​	可用的查询钩子
+
+``` go
+// 从数据库加载数据 load data from database
+// 预加载（预取） Preloading (eager loading)
 AfterFind
 ```
 
-Code Example:
+代码示例： Code Example:
 
-```
+``` go
 func (u *User) AfterFind(tx *gorm.DB) (err error) {
   if u.MemberShip == "" {
     u.MemberShip = "user"
@@ -145,16 +164,16 @@ func (u *User) AfterFind(tx *gorm.DB) (err error) {
 }
 ```
 
-## Modify current operation
+## 修改当前操作 Modify current operation
 
-```
+``` go
 func (u *User) BeforeCreate(tx *gorm.DB) error {
-  // Modify current operation through tx.Statement, e.g:
+  // 通过tx.Statement修改当前操作，例如： Modify current operation through tx.Statement, e.g:
   tx.Statement.Select("Name", "Age")
   tx.Statement.AddClause(clause.OnConflict{DoNothing: true})
 
-  // tx is new session mode with the `NewDB` option
-  // operations based on it will run inside same transaction but without any current conditions
+  // tx是带有NewDB选项的新会话模式 tx is new session mode with the `NewDB` option
+  // 基于它的操作将在相同的事务内运行，但没有任何当前条件 operations based on it will run inside same transaction but without any current conditions
   var role Role
   err := tx.First(&role, "name = ?", user.Role).Error
   // SELECT * FROM roles WHERE name = "admin"

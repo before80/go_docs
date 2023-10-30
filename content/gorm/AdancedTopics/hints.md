@@ -1,6 +1,7 @@
 +++
 title = "Hints"
 date = 2023-10-28T14:35:35+08:00
+weight = 6
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ https://github.com/go-gorm/hints
 
 ## Optimizer Hints
 
-```
+``` go
 import "gorm.io/hints"
 
 db.Clauses(hints.New("hint")).Find(&User{})
@@ -25,7 +26,7 @@ db.Clauses(hints.New("hint")).Find(&User{})
 
 ## Index Hints
 
-```
+``` go
 import "gorm.io/hints"
 
 db.Clauses(hints.UseIndex("idx_user_name")).Find(&User{})
@@ -43,7 +44,7 @@ db.Clauses(
 
 ## Comment Hints
 
-```
+``` go
 import "gorm.io/hints"
 
 db.Clauses(hints.Comment("select", "master")).Find(&User{})

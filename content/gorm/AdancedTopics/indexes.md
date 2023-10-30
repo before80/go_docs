@@ -1,6 +1,7 @@
 +++
 title = "Database Indexes"
 date = 2023-10-28T14:35:45+08:00
+weight = 7
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -18,7 +19,7 @@ GORM accepts lots of index settings, like `class`, `type`, `where`, `comment`, `
 
 Check the following example for how to use it
 
-```
+``` go
 type User struct {
   Name  string `gorm:"index"`
   Name2 string `gorm:"index:idx_name,unique"`
@@ -43,7 +44,7 @@ type User struct {
 
 tag `uniqueIndex` works similar like `index`, it equals to `index:,unique`
 
-```
+``` go
 type User struct {
   Name1 string `gorm:"uniqueIndex"`
   Name2 string `gorm:"uniqueIndex:idx_name,sort:desc"`
@@ -54,7 +55,7 @@ type User struct {
 
 Use same index name for two fields will creates composite indexes, for example:
 
-```
+``` go
 // create composite index `idx_member` with columns `name`, `number`
 type User struct {
   Name   string `gorm:"index:idx_member"`
@@ -68,7 +69,7 @@ The column order of a composite index has an impact on its performance so it mus
 
 You can specify the order with the `priority` option, the default priority value is `10`, if priority value is the same, the order will be based on model structâ€™s field index
 
-```
+``` go
 type User struct {
   Name   string `gorm:"index:idx_member"`
   Number string `gorm:"index:idx_member"`
@@ -94,7 +95,7 @@ If you are creating shared composite indexes with an embedding struct, you canâ€
 
 In this case, you can use index tag `composite`, it means the id of the composite index. All fields which have the same composite id of the struct are put together to the same index, just like the original rule. But the improvement is it lets the most derived/embedding struct generates the name of index by NamingStrategy. For example:
 
-```
+``` go
 type Foo struct {
   IndexA int `gorm:"index:,unique,composite:myname"`
   IndexB int `gorm:"index:,unique,composite:myname"`
@@ -103,7 +104,7 @@ type Foo struct {
 
 If the table Foo is created, the name of composite index will be `idx_foo_myname`.
 
-```
+``` go
 type Bar0 struct {
   Foo
 }
@@ -121,7 +122,7 @@ Respectively, the name of composite index is `idx_bar0_myname` and `idx_bar1_myn
 
 A field accepts multiple `index`, `uniqueIndex` tags that will create multiple indexes on a field
 
-```
+``` go
 type UserIndex struct {
   OID          int64  `gorm:"index:idx_id;index:idx_oid,unique"`
   MemberNumber string `gorm:"index:idx_id"`

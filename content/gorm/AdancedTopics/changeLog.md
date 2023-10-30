@@ -1,6 +1,7 @@
 +++
 title = "Change Log"
 date = 2023-10-28T14:37:23+08:00
+weight = 14
 type = "docs"
 description = ""
 isCJKLanguage = true

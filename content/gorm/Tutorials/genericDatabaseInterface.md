@@ -1,6 +1,7 @@
 +++
 title = "Generic database interface sql.DB"
 date = 2023-10-28T14:31:29+08:00
+weight = 9
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -12,7 +13,7 @@ draft = false
 
 GORM provides the method `DB` which returns a generic database interface [*sql.DB](https://pkg.go.dev/database/sql#DB) from the current `*gorm.DB`
 
-```
+``` go
 // Get generic database object sql.DB to use its functions
 sqlDB, err := db.DB()
 
@@ -30,7 +31,7 @@ sqlDB.Stats()
 
 ## Connection Pool
 
-```
+``` go
 // Get generic database object sql.DB to use its functions
 sqlDB, err := db.DB()
 

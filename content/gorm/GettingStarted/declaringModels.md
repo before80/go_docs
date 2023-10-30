@@ -1,6 +1,7 @@
 +++
-title = "Declaring Models"
+title = "声明模型"
 date = 2023-10-28T14:24:20+08:00
+weight = 3
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -12,7 +13,7 @@ draft = false
 
 Models are normal structs with basic Go types, pointers/alias of them or custom types implementing [Scanner](https://pkg.go.dev/database/sql/?tab=doc#Scanner) and [Valuer](https://pkg.go.dev/database/sql/driver#Valuer) interfaces
 
-​	模型是具有基本Go类型的普通结构体，或者是它们的指针/别名，或者是实现了[Scanner](https://pkg.go.dev/database/sql/?tab=doc#Scanner)和[Valuer](https://pkg.go.dev/database/sql/driver#Valuer)接口的自定义类型。
+​	模型是具有基本Go类型的普通结构体，或者是它们的指针/别名，或者是实现了[Scanner]({{< ref "/stdLib/database/sql#type-scanner">}})和[Valuer]({{< ref "/stdLib/database/sql_driver#type-valuer">}})接口的自定义类型。
 
 For Example:
 
@@ -36,11 +37,11 @@ type User struct {
 
 GORM prefers convention over configuration. By default, GORM uses `ID` as primary key, pluralizes struct name to `snake_cases` as table name, `snake_case` as column name, and uses `CreatedAt`, `UpdatedAt` to track creating/updating time
 
-​	GORM更喜欢约定而不是配置。默认情况下，GORM使用`ID`作为主键，将结构体名称转换为`snake_cases`作为表名，`snake_case`作为列名，并使用`CreatedAt`、`UpdatedAt`来跟踪创建/更新时间。
+​	GORM 倾向于约定优于配置。默认情况下，GORM使用`ID`作为主键，将结构体名称转换为`snake_cases`作为表名，`snake_case`作为列名，并使用`CreatedAt`、`UpdatedAt`来追踪创建/更新时间。
 
 If you follow the conventions adopted by GORM, you’ll need to write very little configuration/code. If convention doesn’t match your requirements, [GORM allows you to configure them](https://gorm.io/docs/conventions.html)
 
-​	如果您遵循GORM采用的约定，您只需要编写很少的配置/代码。如果约定不符合您的要求，[GORM允许您进行配置](https://gorm.io/docs/conventions.html)。
+​	如果您遵循GORM采用的约定，您只需要编写很少的配置/代码。如果约定不符合您的要求，[GORM允许您进行配置]({{< ref "/gorm/Tutorials/conventions">}})。
 
 ## gorm.Model
 
@@ -48,8 +49,8 @@ GORM defined a `gorm.Model` struct, which includes fields `ID`, `CreatedAt`, `Up
 
 ​	GORM定义了一个`gorm.Model`结构体，其中包含字段`ID`、`CreatedAt`、`UpdatedAt`、`DeletedAt`。
 
-```
-// gorm.Model definition
+``` go
+// gorm.Model 的定义 gorm.Model definition
 type Model struct {
   ID        uint           `gorm:"primaryKey"`
   CreatedAt time.Time
@@ -60,11 +61,11 @@ type Model struct {
 
 You can embed it into your struct to include those fields, refer [Embedded Struct](https://gorm.io/docs/models.html#embedded_struct)
 
-​	您可以将其嵌入到您的结构体中以包含这些字段，请参阅[嵌入式结构体](https://gorm.io/docs/models.html#embedded_struct)。
+​	您可以将其嵌入到您的结构体中以包含这些字段，请参阅[嵌入式结构体](#嵌入式结构体-embedded-struct)。
 
 ## 高级功能 Advanced
 
-### 字段级权限 Field-Level Permission
+### 字段级权限控制 Field-Level Permission
 
 Exported fields have all permissions when doing CRUD with GORM, and GORM allows you to change the field-level permission with tag, so you can make a field to be read-only, write-only, create-only, update-only or ignored
 
@@ -74,26 +75,26 @@ Exported fields have all permissions when doing CRUD with GORM, and GORM allows 
 >
 > **注意**：在使用GORM Migrator创建表时，被忽略的字段将不会被创建。
 
-```
+```go
 type User struct {
-  Name string `gorm:"<-:create"` // allow read and create
-  Name string `gorm:"<-:update"` // allow read and update
-  Name string `gorm:"<-"`        // allow read and write (create and update)
-  Name string `gorm:"<-:false"`  // allow read, disable write permission
-  Name string `gorm:"->"`        // readonly (disable write permission unless it configured)
-  Name string `gorm:"->;<-:create"` // allow read and create
-  Name string `gorm:"->:false;<-:create"` // createonly (disabled read from db)
-  Name string `gorm:"-"`            // ignore this field when write and read with struct
-  Name string `gorm:"-:all"`        // ignore this field when write, read and migrate with struct
-  Name string `gorm:"-:migration"`  // ignore this field when migrate with struct
+  Name string `gorm:"<-:create"` // 允许读和创建 allow read and create
+  Name string `gorm:"<-:update"` // 允许读和更新 allow read and update
+  Name string `gorm:"<-"`        // 允许读和写（创建和更新） allow read and write (create and update)
+  Name string `gorm:"<-:false"`  // 允许读，禁止写 allow read, disable write permission
+  Name string `gorm:"->"`        // 只读（除非有自定义配置，否则禁止写） readonly (disable write permission unless it configured)
+  Name string `gorm:"->;<-:create"` // 允许读和写 allow read and create
+  Name string `gorm:"->:false;<-:create"` // 仅创建（禁止从 db 读） createonly (disabled read from db)
+  Name string `gorm:"-"`            // 通过 struct 读写会忽略该字段 ignore this field when write and read with struct
+  Name string `gorm:"-:all"`        // 通过 struct 读写、迁移会忽略该字段 ignore this field when write, read and migrate with struct
+  Name string `gorm:"-:migration"`  // 通过 struct 迁移会忽略该字段 ignore this field when migrate with struct
 }
 ```
 
-### 创建/更新时间跟踪 Creating/Updating Time/Unix (Milli/Nano) Seconds Tracking
+### 创建/更新时间追踪 Time/Unix (Milli/Nano) 秒 Creating/Updating Time/Unix (Milli/Nano) Seconds Tracking
 
-GORM use `CreatedAt`, `UpdatedAt` to track creating/updating time by convention, and GORM will set the [current time](https://gorm.io/docs/gorm_config.html#now_func) when creating/updating if the fields are defined
+GORM use `CreatedAt`, `UpdatedAt` to track creating/updating time by convention, and GORM will set the [current time]({{< ref "/gorm/AdancedTopics/gormConfig#nowfunc">}}) when creating/updating if the fields are defined
 
-​	GORM使用`CreatedAt`和`UpdatedAt`按照约定来跟踪创建/更新时间，如果这些字段被定义了，GORM会在创建/更新时设置当前时间。
+​	GORM使用`CreatedAt`和`UpdatedAt`按照约定来追踪创建/更新时间，如果这些字段被定义了，GORM会在创建/更新时设置当前时间。
 
 To use fields with a different name, you can configure those fields with tag `autoCreateTime`, `autoUpdateTime`
 
@@ -103,13 +104,13 @@ If you prefer to save UNIX (milli/nano) seconds instead of time, you can simply 
 
 ​	如果你更喜欢保存UNIX（毫秒/纳秒）而不是时间，你可以直接将字段的数据类型从`time.Time`更改为`int`。
 
-```
+```go
 type User struct {
-  CreatedAt time.Time // Set to current time if it is zero on creating
-  UpdatedAt int       // Set to current unix seconds on updating or if it is zero on creating
-  Updated   int64 `gorm:"autoUpdateTime:nano"` // Use unix nano seconds as updating time
-  Updated   int64 `gorm:"autoUpdateTime:milli"`// Use unix milli seconds as updating time
-  Created   int64 `gorm:"autoCreateTime"`      // Use unix seconds as creating time
+  CreatedAt time.Time // 在创建时，如果该字段值为零值，则使用当前时间填充 Set to current time if it is zero on creating
+  UpdatedAt int       // 在创建时该字段值为零值或者在更新时，使用当前时间戳秒数填充 Set to current unix seconds on updating or if it is zero on creating
+  Updated   int64 `gorm:"autoUpdateTime:nano"` // 使用时间戳纳秒数填充更新时间 Use unix nano seconds as updating time
+  Updated   int64 `gorm:"autoUpdateTime:milli"`// 使用时间戳毫秒数填充更新时间 Use unix milli seconds as updating time
+  Created   int64 `gorm:"autoCreateTime"`      // 使用时间戳秒数填充创建时间 Use unix seconds as creating time
 }
 ```
 
@@ -119,12 +120,12 @@ For anonymous fields, GORM will include its fields into its parent struct, for e
 
 ​	对于匿名字段，GORM会将其字段包含到其父结构体中，例如：
 
-```
+``` go
 type User struct {
   gorm.Model
   Name string
 }
-// equals
+// 等效于 equals
 type User struct {
   ID        uint           `gorm:"primaryKey"`
   CreatedAt time.Time
@@ -138,7 +139,7 @@ For a normal struct field, you can embed it with the tag `embedded`, for example
 
 ​	对于普通结构体字段，你可以通过使用`embedded`标签将其嵌入，例如：
 
-```
+```go
 type Author struct {
   Name  string
   Email string
@@ -149,7 +150,7 @@ type Blog struct {
   Author  Author `gorm:"embedded"`
   Upvotes int32
 }
-// equals
+// 等效于 equals
 type Blog struct {
   ID    int64
   Name  string
@@ -162,13 +163,13 @@ And you can use tag `embeddedPrefix` to add prefix to embedded fields’ db name
 
 ​	你还可以使用`embeddedPrefix`标签为嵌入式字段的数据库名称添加前缀，例如：
 
-```
+```go
 type Blog struct {
   ID      int
   Author  Author `gorm:"embedded;embeddedPrefix:author_"`
   Upvotes int32
 }
-// equals
+// 等效于 equals
 type Blog struct {
   ID          int64
   AuthorName  string
@@ -203,11 +204,11 @@ Tags are case insensitive, however `camelCase` is preferred.
 | autoIncrementIncrement | 自动递增步长，控制连续列值之间的间隔<br />auto increment step, controls the interval between successive column values |
 | embedded               | 嵌入字段<br />embed the field                                |
 | embeddedPrefix         | 嵌入式字段的名称前缀<br />column name prefix for embedded fields |
-| autoCreateTime         | 创建时跟踪当前时间，对于`int`字段，它将跟踪unix秒，使用值`nano`/`milli`来跟踪unix nano/milli秒，例如：`autoCreateTime:nano`<br />track current time when creating, for `int` fields, it will track unix seconds, use value `nano`/`milli` to track unix nano/milli seconds, e.g: `autoCreateTime:nano` |
-| autoUpdateTime         | 创建/更新时跟踪当前时间，对于`int`字段，它将跟踪unix秒，使用值`nano`/`milli`来跟踪unix nano/milli秒，例如：`autoUpdateTime:milli`<br />track current time when creating/updating, for `int` fields, it will track unix seconds, use value `nano`/`milli` to track unix nano/milli seconds, e.g: `autoUpdateTime:milli` |
-| index                  | 使用选项创建索引，为多个字段创建复合索引，参考[Indexes](https://gorm.io/docs/indexes.html)以获取详细信息<br />create index with options, use same name for multiple fields creates composite indexes, refer [Indexes](https://gorm.io/docs/indexes.html) for details |
+| autoCreateTime         | 创建时追踪当前时间，对于`int`字段，它将追踪unix秒，使用值`nano`/`milli`来追踪unix nano/milli秒，例如：`autoCreateTime:nano`<br />track current time when creating, for `int` fields, it will track unix seconds, use value `nano`/`milli` to track unix nano/milli seconds, e.g: `autoCreateTime:nano` |
+| autoUpdateTime         | 创建/更新时追踪当前时间，对于`int`字段，它将追踪unix秒，使用值`nano`/`milli`来追踪unix nano/milli秒，例如：`autoUpdateTime:milli`<br />track current time when creating/updating, for `int` fields, it will track unix seconds, use value `nano`/`milli` to track unix nano/milli seconds, e.g: `autoUpdateTime:milli` |
+| index                  | 使用选项创建索引，为多个字段创建复合索引，参考[Indexes]({{< ref "/gorm/AdancedTopics/indexes">}})以获取详细信息<br />create index with options, use same name for multiple fields creates composite indexes, refer [Indexes](https://gorm.io/docs/indexes.html) for details |
 | uniqueIndex            | 与`index`相同，但创建唯一索引<br />same as `index`, but create uniqued index |
-| check                  | 创建检查约束，例如：`check:age > 13`，参考[Constraints](https://gorm.io/docs/constraints.html)<br />creates check constraint, eg: `check:age > 13`, refer [Constraints](https://gorm.io/docs/constraints.html) |
+| check                  | 创建检查约束，例如：`check:age > 13`，参考[Constraints]({{< ref "/gorm/AdancedTopics/constraints">}})<br />creates check constraint, eg: `check:age > 13`, refer [Constraints](https://gorm.io/docs/constraints.html) |
 | <-                     | 设置字段的写权限，`<-:create`仅创建字段，`<-:update`仅更新字段，`<-:false`无写权限，`<-`创建和更新权限<br />set field’s write permission, `<-:create` create-only field, `<-:update` update-only field, `<-:false` no write permission, `<-` create and update permission |
 | ->                     | 设置字段的读权限，`->:false`无读权限<br />set field’s read permission, `->:false` no read permission |
 | -                      | 忽略此字段，`-`无读/写权限，`-:migration`无迁移权限，`-:all`无读/写/迁移权限<br />ignore this field, `-` no read/write permission, `-:migration` no migrate permission, `-:all` no read/write/migrate permission |
@@ -217,4 +218,4 @@ Tags are case insensitive, however `camelCase` is preferred.
 
 GORM allows configure foreign keys, constraints, many2many table through tags for Associations, check out the [Associations section](https://gorm.io/docs/associations.html#tags) for details
 
-​	GORM允许通过关联标签配置外键、约束和多对多表。有关详细信息，请参阅[关联部分](https://gorm.io/docs/associations.html#tags)。
+​	GORM允许通过关联标签配置外键、约束和多对多表。有关详细信息，请参阅[关联部分]({{< ref "/gorm/Associations">}})。

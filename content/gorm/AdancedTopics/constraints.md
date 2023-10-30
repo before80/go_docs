@@ -1,6 +1,7 @@
 +++
 title = "Constraints"
 date = 2023-10-28T14:35:55+08:00
+weight = 8
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -16,7 +17,7 @@ GORM allows create database constraints with tag, constraints will be created wh
 
 Create CHECK constraints with tag `check`
 
-```
+``` go
 type UserIndex struct {
   Name  string `gorm:"check:name_checker,name <> 'jinzhu'"`
   Name2 string `gorm:"check:name <> 'jinzhu'"`
@@ -32,7 +33,7 @@ Checkout [Database Indexes](https://gorm.io/docs/indexes.html)
 
 GORM will creates foreign keys constraints for associations, you can disable this feature during initialization:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   DisableForeignKeyConstraintWhenMigrating: true,
 })
@@ -40,7 +41,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 GORM allows you setup FOREIGN KEY constraints’s `OnDelete`, `OnUpdate` option with tag `constraint`, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   CompanyID  int

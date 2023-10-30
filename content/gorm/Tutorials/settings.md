@@ -1,6 +1,7 @@
 +++
 title = "Settings"
 date = 2023-10-28T14:32:46+08:00
+weight = 14
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -14,7 +15,7 @@ GORM provides `Set`, `Get`, `InstanceSet`, `InstanceGet` methods allow users pas
 
 GORM uses this for some features, like pass creating table options when migrating table.
 
-```
+``` go
 // Add table suffix when creating tables
 db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&User{})
 ```
@@ -23,7 +24,7 @@ db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&User{})
 
 Use `Set` / `Get` pass settings to hooks methods, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCard CreditCard
@@ -55,7 +56,7 @@ db.Set("my_value", myValue).Create(&User{})
 
 Use `InstanceSet` / `InstanceGet` pass settings to current `*Statement`‘s hooks methods, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCard CreditCard

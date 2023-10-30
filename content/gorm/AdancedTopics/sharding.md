@@ -1,6 +1,7 @@
 +++
 title = "Sharding"
 date = 2023-10-28T14:34:44+08:00
+weight = 3
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -25,7 +26,7 @@ https://github.com/go-gorm/sharding
 
 Config the sharding middleware, register the tables which you want to shard. See [Godoc](https://pkg.go.dev/github.com/go-gorm/sharding) for config details.
 
-```
+``` go
 import (
   "fmt"
 
@@ -51,7 +52,7 @@ db.Use(sharding.Register(sharding.Config{
 
 Use the db session as usual. Just note that the query should have the `Sharding Key` when operate sharding tables.
 
-```
+``` go
 // Gorm create example, this will insert to orders_02
 db.Create(&Order{UserID: 2})
 // sql: INSERT INTO orders_2 ...

@@ -1,6 +1,7 @@
 +++
 title = "Has One"
 date = 2023-10-28T14:28:02+08:00
+weight = 3
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -18,7 +19,7 @@ For example, if your application includes users and credit cards, and each user 
 
 ### Declare
 
-```
+``` go
 // User has one CreditCard, UserID is the foreign key
 type User struct {
   gorm.Model
@@ -34,7 +35,7 @@ type CreditCard struct {
 
 ### Retrieve
 
-```
+``` go
 // Retrieve user list with eager loading credit card
 func GetAll(db *gorm.DB) ([]User, error) {
   var users []User
@@ -53,7 +54,7 @@ When you give a credit card to the user, it will save the User’s `ID` into its
 
 If you want to use another field to save the relationship, you can change it with tag `foreignKey`, e.g:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCard CreditCard `gorm:"foreignKey:UserName"`
@@ -73,7 +74,7 @@ By default, the owned entity will save the `has one` model’s primary key into 
 
 You are able to change it with tag `references`, e.g:
 
-```
+``` go
 type User struct {
   gorm.Model
   Name       string     `gorm:"index"`
@@ -91,7 +92,7 @@ type CreditCard struct {
 
 GORM supports polymorphism association for `has one` and `has many`, it will save owned entity’s table name into polymorphic type’s field, primary key into the polymorphic field
 
-```
+``` go
 type Cat struct {
   ID    int
   Name  string
@@ -118,7 +119,7 @@ db.Create(&Dog{Name: "dog1", Toy: Toy{Name: "toy1"}})
 
 You can change the polymorphic type value with tag `polymorphicValue`, for example:
 
-```
+``` go
 type Dog struct {
   ID   int
   Name string
@@ -147,7 +148,7 @@ GORM allows eager loading `has one` associations with `Preload` or `Joins`, refe
 
 ## Self-Referential Has One
 
-```
+``` go
 type User struct {
   gorm.Model
   Name      string
@@ -160,7 +161,7 @@ type User struct {
 
 You can setup `OnUpdate`, `OnDelete` constraints with tag `constraint`, it will be created when migrating with GORM, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCard CreditCard `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`

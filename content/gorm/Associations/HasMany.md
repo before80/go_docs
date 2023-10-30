@@ -1,6 +1,7 @@
 +++
 title = "Has Many"
 date = 2023-10-28T14:28:11+08:00
+weight = 4
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -18,7 +19,7 @@ For example, if your application includes users and credit card, and each user c
 
 ### Declare
 
-```
+``` go
 // User has many CreditCards, UserID is the foreign key
 type User struct {
   gorm.Model
@@ -34,7 +35,7 @@ type CreditCard struct {
 
 ### Retrieve
 
-```
+``` go
 // Retrieve user list with eager loading credit cards
 func GetAll(db *gorm.DB) ([]User, error) {
     var users []User
@@ -51,7 +52,7 @@ For example, to define a model that belongs to `User`, the foreign key should be
 
 To use another field as foreign key, you can customize it with a `foreignKey` tag, e.g:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCards []CreditCard `gorm:"foreignKey:UserRefer"`
@@ -72,7 +73,7 @@ When you assign credit cards to a user, GORM will save the user’s `ID` into cr
 
 You are able to change it with tag `references`, e.g:
 
-```
+``` go
 type User struct {
   gorm.Model
   MemberNumber string
@@ -90,7 +91,7 @@ type CreditCard struct {
 
 GORM supports polymorphism association for `has one` and `has many`, it will save owned entity’s table name into polymorphic type’s field, primary key value into the polymorphic field
 
-```
+``` go
 type Dog struct {
   ID   int
   Name string
@@ -111,7 +112,7 @@ db.Create(&Dog{Name: "dog1", Toys: []Toy{{Name: "toy1"}, {Name: "toy2"}}})
 
 You can change the polymorphic type value with tag `polymorphicValue`, for example:
 
-```
+``` go
 type Dog struct {
   ID   int
   Name string
@@ -140,7 +141,7 @@ GORM allows eager loading has many associations with `Preload`, refer [Preloadin
 
 ## Self-Referential Has Many
 
-```
+``` go
 type User struct {
   gorm.Model
   Name      string
@@ -153,7 +154,7 @@ type User struct {
 
 You can setup `OnUpdate`, `OnDelete` constraints with tag `constraint`, it will be created when migrating with GORM, for example:
 
-```
+``` go
 type User struct {
   gorm.Model
   CreditCards []CreditCard `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`

@@ -1,6 +1,7 @@
 +++
 title = "GORM Config"
 date = 2023-10-28T14:36:45+08:00
+weight = 11
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -12,7 +13,7 @@ draft = false
 
 GORM provides Config can be used during initialization
 
-```
+``` go
 type Config struct {
   SkipDefaultTransaction   bool
   NamingStrategy           schema.Namer
@@ -31,7 +32,7 @@ type Config struct {
 
 GORM perform write (create/update/delete) operations run inside a transaction to ensure data consistency, you can disable it during initialization if it is not required
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   SkipDefaultTransaction: true,
 })
@@ -41,7 +42,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 GORM allows users to change the naming conventions by overriding the default `NamingStrategy` which need to implements interface `Namer`
 
-```
+``` go
 type Namer interface {
   TableName(table string) string
   SchemaName(table string) string
@@ -55,7 +56,7 @@ type Namer interface {
 
 The default `NamingStrategy` also provides few options, like:
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   NamingStrategy: schema.NamingStrategy{
     TablePrefix: "t_",   // table name prefix, table for `User` would be `t_users`
@@ -74,7 +75,7 @@ Allow to change GORM’s default logger by overriding this option, refer [Logger
 
 Change the function to be used when creating a new timestamp
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   NowFunc: func() time.Time {
     return time.Now().Local()
@@ -86,7 +87,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 Generate `SQL` without executing, can be used to prepare or test generated SQL, refer [Session](https://gorm.io/docs/session.html) for details
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   DryRun: false,
 })
@@ -96,7 +97,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 `PreparedStmt` creates a prepared statement when executing any SQL and caches them to speed up future calls, refer [Session](https://gorm.io/docs/session.html) for details
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   PrepareStmt: false,
 })
@@ -114,7 +115,7 @@ Enable global update/delete, refer [Session](https://gorm.io/docs/session.html) 
 
 GORM automatically ping database after initialized to check database availability, disable it by setting it to `true`
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   DisableAutomaticPing: true,
 })
@@ -124,7 +125,7 @@ db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
 
 GORM creates database foreign key constraints automatically when `AutoMigrate` or `CreateTable`, disable this by setting it to `true`, refer [Migration](https://gorm.io/docs/migration.html) for details
 
-```
+``` go
 db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{
   DisableForeignKeyConstraintWhenMigrating: true,
 })

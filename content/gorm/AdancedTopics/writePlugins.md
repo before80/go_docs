@@ -1,6 +1,7 @@
 +++
 title = "Write Plugins"
 date = 2023-10-28T14:36:59+08:00
+weight = 12
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -19,7 +20,7 @@ Callbacks are registered into the global `*gorm.DB`, not the session-level, if y
 
 Register a callback into callbacks
 
-```
+``` go
 func cropImage(db *gorm.DB) {
   if db.Statement.Schema != nil {
     // crop image fields and upload them to CDN, dummy code
@@ -74,7 +75,7 @@ db.Callback().Create().Register("crop_image", cropImage)
 
 Delete a callback from callbacks
 
-```
+``` go
 db.Callback().Create().Remove("gorm:create")
 // delete callback `gorm:create` from Create callbacks
 ```
@@ -83,7 +84,7 @@ db.Callback().Create().Remove("gorm:create")
 
 Replace a callback having the same name with the new one
 
-```
+``` go
 db.Callback().Create().Replace("gorm:create", newCreateFunction)
 // replace callback `gorm:create` with new function `newCreateFunction` for Create process
 ```
@@ -92,7 +93,7 @@ db.Callback().Create().Replace("gorm:create", newCreateFunction)
 
 Register callbacks with orders
 
-```
+``` go
 // before gorm:create
 db.Callback().Create().Before("gorm:create").Register("update_created_at", updateCreated)
 
@@ -126,7 +127,7 @@ GORM has defined [some callbacks](https://github.com/go-gorm/gorm/blob/master/ca
 
 GORM provides a `Use` method to register plugins, the plugin needs to implement the `Plugin` interface
 
-```
+``` go
 type Plugin interface {
   Name() string
   Initialize(*gorm.DB) error
@@ -135,7 +136,7 @@ type Plugin interface {
 
 The `Initialize` method will be invoked when registering the plugin into GORM first time, and GORM will save the registered plugins, access them like:
 
-```
+``` go
 db.Config.Plugins[pluginName]
 ```
 

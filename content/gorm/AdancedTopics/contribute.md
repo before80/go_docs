@@ -1,6 +1,7 @@
 +++
 title = "Contribute to GORM"
 date = 2023-10-28T14:37:39+08:00
+weight = 16
 type = "docs"
 description = ""
 isCJKLanguage = true

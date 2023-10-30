@@ -1,6 +1,7 @@
 +++
 title = "GORM Community"
 date = 2023-10-28T15:44:06+08:00
+weight = 15
 type = "docs"
 description = ""
 isCJKLanguage = true
