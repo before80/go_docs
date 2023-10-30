@@ -1,5 +1,5 @@
 +++
-title = "Hints"
+title = "提示"
 date = 2023-10-28T14:35:35+08:00
 weight = 6
 type = "docs"
@@ -13,9 +13,11 @@ draft = false
 
 GORM provides optimizer/index/comment hints support
 
-https://github.com/go-gorm/hints
+​	GORM提供了优化器/索引/注释提示支持。
 
-## Optimizer Hints
+[https://github.com/go-gorm/hints](https://github.com/go-gorm/hints)
+
+## 优化器提示 Optimizer Hints
 
 ``` go
 import "gorm.io/hints"
@@ -24,7 +26,7 @@ db.Clauses(hints.New("hint")).Find(&User{})
 // SELECT * /*+ hint */ FROM `users`
 ```
 
-## Index Hints
+## 索引提示 Index Hints
 
 ``` go
 import "gorm.io/hints"
@@ -42,7 +44,7 @@ db.Clauses(
 // SELECT * FROM `users` FORCE INDEX FOR ORDER BY (`idx_user_name`,`idx_user_id`) IGNORE INDEX FOR GROUP BY (`idx_user_name`)"
 ```
 
-## Comment Hints
+## 注释提示 Comment Hints
 
 ``` go
 import "gorm.io/hints"
@@ -59,3 +61,4 @@ db.Clauses(hints.CommentAfter("select", "node2")).Create(&user)
 db.Clauses(hints.CommentAfter("where", "hint")).Find(&User{}, "id = ?", 1)
 // SELECT * FROM `users` WHERE id = ? /* hint */
 ```
+

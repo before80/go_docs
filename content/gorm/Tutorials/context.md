@@ -13,6 +13,8 @@ draft = false
 
 GORM provides Context support, you can use it with method `WithContext`
 
+​	GORM提供了Context支持，你可以使用`WithContext`方法来使用它。
+
 ## 单次会话模式 Single Session Mode
 
 Single session mode usually used when you want to perform a single operation
@@ -105,10 +107,10 @@ r.Get("/user", func(w http.ResponseWriter, r *http.Request) {
 
 > **NOTE** Setting `Context` with `WithContext` is goroutine-safe, refer [Session](https://gorm.io/docs/session.html) for details
 >
-> **注意** 使用`WithContext`设置`Context`是线程安全的，请参阅[Session](https://gorm.io/docs/session.html)以获取详细信息
+> **注意** 使用`WithContext`设置`Context`是线程安全的，请参阅[Session](../session)以获取详细信息
 
 ## 日志记录器 Logger
 
 Logger accepts `Context` too, you can use it for log tracking, refer [Logger](https://gorm.io/docs/logger.html) for details
 
-​	日志记录器也接受`Context`，您可以使用它进行日志跟踪，请参阅[Logger](https://gorm.io/docs/logger.html)以获取详细信息
+​	日志记录器也接受`Context`，您可以使用它进行日志跟踪，请参阅[Logger](../logger)以获取详细信息

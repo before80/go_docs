@@ -1,5 +1,5 @@
 +++
-title = "Contribute to GORM"
+title = "向GORM贡献"
 date = 2023-10-28T14:37:39+08:00
 weight = 16
 type = "docs"

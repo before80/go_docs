@@ -1,24 +1,31 @@
 +++
-title = "Write Plugins"
+title = "编写插件"
 date = 2023-10-28T14:36:59+08:00
 weight = 12
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 
 [https://gorm.io/docs/write_plugins.html](https://gorm.io/docs/write_plugins.html)
 
-## Callbacks
+## 回调 Callbacks
 
 GORM itself is powered by `Callbacks`, it has callbacks for `Create`, `Query`, `Update`, `Delete`, `Row`, `Raw`, you could fully customize GORM with them as you want
 
+​	GORM 本身由 `Callbacks` 提供支持，它具有用于 `Create`、`Query`、`Update`、`Delete`、`Row`、`Raw` 的回调，您可以根据需要完全自定义 GORM。
+
 Callbacks are registered into the global `*gorm.DB`, not the session-level, if you require `*gorm.DB` with different callbacks, you need to initialize another `*gorm.DB`
 
-### Register Callback
+​	回调被注册到全局的 `*gorm.DB` 中，而不是会话级别。如果您需要具有不同回调的 `*gorm.DB`，则需要初始化另一个 `*gorm.DB`。
+
+### 注册回调 Register Callback
 
 Register a callback into callbacks
+
+​	将回调注册到回调中
 
 ``` go
 func cropImage(db *gorm.DB) {
@@ -71,27 +78,33 @@ db.Callback().Create().Register("crop_image", cropImage)
 // register a callback for Create process
 ```
 
-### Delete Callback
+### 删除回调 Delete Callback
 
 Delete a callback from callbacks
+
+​	从回调中删除回调
 
 ``` go
 db.Callback().Create().Remove("gorm:create")
 // delete callback `gorm:create` from Create callbacks
 ```
 
-### Replace Callback
+### 替换回调 Replace Callback
 
 Replace a callback having the same name with the new one
+
+​	用新函数替换具有相同名称的回调
 
 ``` go
 db.Callback().Create().Replace("gorm:create", newCreateFunction)
 // replace callback `gorm:create` with new function `newCreateFunction` for Create process
 ```
 
-### Register Callback with orders
+### 按顺序注册回调 Register Callback with orders
 
 Register callbacks with orders
+
+​	按顺序注册回调
 
 ``` go
 // before gorm:create
@@ -119,13 +132,17 @@ db.Callback().Create().Before("*").Register("update_created_at", updateCreated)
 db.Callback().Create().After("*").Register("update_created_at", updateCreated)
 ```
 
-### Defined Callbacks
+### 定义的回调 Defined Callbacks
 
 GORM has defined [some callbacks](https://github.com/go-gorm/gorm/blob/master/callbacks/callbacks.go) to power current GORM features, check them out before starting your plugins
 
-## Plugin
+​	GORM 有一些预定义的回调来增强当前 GORM 功能，在开始插件之前请先查看它们。
+
+## 插件 Plugin
 
 GORM provides a `Use` method to register plugins, the plugin needs to implement the `Plugin` interface
+
+​	GORM 提供了一个 `Use` 方法来注册插件，插件需要实现 `Plugin` 接口。
 
 ``` go
 type Plugin interface {
@@ -136,8 +153,12 @@ type Plugin interface {
 
 The `Initialize` method will be invoked when registering the plugin into GORM first time, and GORM will save the registered plugins, access them like:
 
+​	`Initialize` 方法将在将插件注册到 GORM 时首次调用，GORM 将保存已注册的插件，如下所示：
+
 ``` go
 db.Config.Plugins[pluginName]
 ```
 
 Checkout [Prometheus](https://gorm.io/docs/prometheus.html) as example
+
+​	以 [Prometheus](https://gorm.io/docs/prometheus.html)为例

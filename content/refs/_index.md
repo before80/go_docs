@@ -11,9 +11,19 @@ draft = false
 
 +++
 
+## shockerli/go-awesome: Go 语言优秀资源整理，为项目落地加速🏃
+
+[https://github.com/shockerli/go-awesome](https://github.com/shockerli/go-awesome)
+
+
+
+## A curated list of awesome Go frameworks, libraries and software - Awesome Go / Golang (awesome-go.com)
+
+[https://awesome-go.com/](https://awesome-go.com/)
+
 ## github.com/golang-standards/project-layout/blob/master/README_zh.md
 
-https://github.com/golang-standards/project-layout/blob/master/README_zh.md
+[https://github.com/golang-standards/project-layout/blob/master/README_zh.md](https://github.com/golang-standards/project-layout/blob/master/README_zh.md)
 
 ​	Go 应用程序项目的基本布局。
 
@@ -31,25 +41,25 @@ https://github.com/golang-standards/project-layout/blob/master/README_zh.md
 
 ## programiz.com/golang
 
-https://www.programiz.com/golang
+[https://www.programiz.com/golang](https://www.programiz.com/golang)
 
 ​	包含go语言各种语法。
 
 ## wikitechy.com/tutorials/golang
 
-https://www.wikitechy.com/tutorials/golang/
+[https://www.wikitechy.com/tutorials/golang/](https://www.wikitechy.com/tutorials/golang/)
 
 ​	包含go语言各种语法。
 
 ## geeksforgeeks.org/golang
 
-https://www.geeksforgeeks.org/golang/
+[https://www.geeksforgeeks.org/golang/](https://www.geeksforgeeks.org/golang/)
 
 ​	包含go语言各种语法。
 
 ## freecodecamp.org/news/learn-golang-handbook
 
-https://www.freecodecamp.org/news/learn-golang-handbook/
+[https://www.freecodecamp.org/news/learn-golang-handbook/](https://www.freecodecamp.org/news/learn-golang-handbook/)
 
 ​	包含go语言各种语法。
 
@@ -69,7 +79,7 @@ https://www.freecodecamp.org/news/learn-golang-handbook/
 
 ## github.com/OWASP/Go-SCP/blob/master/dist/go-webapp-scp.pdf
 
-https://github.com/OWASP/Go-SCP/blob/master/dist/go-webapp-scp.pdf
+[https://github.com/OWASP/Go-SCP/blob/master/dist/go-webapp-scp.pdf](https://github.com/OWASP/Go-SCP/blob/master/dist/go-webapp-scp.pdf)
 
 ​	The Go Language Guide Web Application Secure Coding Practices.
 
@@ -77,7 +87,7 @@ https://github.com/OWASP/Go-SCP/blob/master/dist/go-webapp-scp.pdf
 
 ## wiki.archlinuxcn.org/wiki/Go
 
-https://wiki.archlinuxcn.org/wiki/Go
+[https://wiki.archlinuxcn.org/wiki/Go](https://wiki.archlinuxcn.org/wiki/Go)
 
 ​	go语言的安装、提示和技巧、故障排除等。
 
@@ -85,25 +95,25 @@ https://wiki.archlinuxcn.org/wiki/Go
 
 ## go101.org/article/101.html
 
-https://go101.org/article/101.html
+[https://go101.org/article/101.html](https://go101.org/article/101.html)
 
 ​	go语言的类型系统、代码熟悉、特殊主题、并发编程等。
 
 ## go101.org/details-and-tips/101.html
 
-https://go101.org/details-and-tips/101.html
+[https://go101.org/details-and-tips/101.html](https://go101.org/details-and-tips/101.html)
 
 ​	go语言的一些细节和技巧。
 
 ## go101.org/generics/101.html
 
-https://go101.org/generics/101.html
+[https://go101.org/generics/101.html](https://go101.org/generics/101.html)
 
 ​	go语言的泛型。
 
 ## go101.org/quizzes/101.html
 
-https://go101.org/quizzes/101.html
+[https://go101.org/quizzes/101.html](https://go101.org/quizzes/101.html)
 
 ​	go语法的小测验。
 

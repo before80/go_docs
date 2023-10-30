@@ -1,5 +1,5 @@
 +++
-title = "Scopes"
+title = "范围 Scopes"
 date = 2023-10-28T14:32:25+08:00
 weight = 12
 type = "docs"
@@ -13,9 +13,13 @@ draft = false
 
 Scopes allow you to re-use commonly used logic, the shared logic needs to be defined as type `func(*gorm.DB) *gorm.DB`
 
-## Query
+​	范围允许你重用常用逻辑，共享逻辑需要定义为类型 `func(*gorm.DB) *gorm.DB`
+
+## 查询 Query
 
 Scope examples for querying
+
+​	范围示例用于查询
 
 ``` go
 func AmountGreaterThan1000(db *gorm.DB) *gorm.DB {
@@ -37,16 +41,16 @@ func OrderStatus(status []string) func (db *gorm.DB) *gorm.DB {
 }
 
 db.Scopes(AmountGreaterThan1000, PaidWithCreditCard).Find(&orders)
-// Find all credit card orders and amount greater than 1000
+// 查找所有信用卡订单且金额大于1000 Find all credit card orders and amount greater than 1000
 
 db.Scopes(AmountGreaterThan1000, PaidWithCod).Find(&orders)
-// Find all COD orders and amount greater than 1000
+// 查找所有COD订单且金额大于1000 Find all COD orders and amount greater than 1000
 
 db.Scopes(AmountGreaterThan1000, OrderStatus([]string{"paid", "shipped"})).Find(&orders)
-// Find all paid, shipped orders that amount greater than 1000
+// 查找所有已支付、已发货的订单且金额大于1000 Find all paid, shipped orders that amount greater than 1000
 ```
 
-### Pagination
+### 分页 Pagination
 
 ``` go
 func Paginate(r *http.Request) func(db *gorm.DB) *gorm.DB {
@@ -74,9 +78,11 @@ db.Scopes(Paginate(r)).Find(&users)
 db.Scopes(Paginate(r)).Find(&articles)
 ```
 
-## Dynamically Table
+## 动态表名 Dynamically Table
 
 Use `Scopes` to dynamically set the query Table
+
+​	使用 `Scopes` 动态设置查询表名
 
 ``` go
 func TableOfYear(user *User, year int) func(db *gorm.DB) *gorm.DB {
@@ -92,7 +98,7 @@ DB.Scopes(TableOfYear(user, 2019)).Find(&users)
 DB.Scopes(TableOfYear(user, 2020)).Find(&users)
 // SELECT * FROM users_2020;
 
-// Table form different database
+// 来自不同数据库的表 Table form different database
 func TableOfOrg(user *User, dbName string) func(db *gorm.DB) *gorm.DB {
   return func(db *gorm.DB) *gorm.DB {
     tableName := dbName + "." + user.TableName()
@@ -107,9 +113,11 @@ DB.Scopes(TableOfOrg(user, "org2")).Find(&users)
 // SELECT * FROM org2.users;
 ```
 
-## Updates
+## 更新 Updates
 
 Scope examples for updating/deleting
+
+​	更新/删除的范围示例
 
 ``` go
 func CurOrganization(r *http.Request) func(db *gorm.DB) *gorm.DB {

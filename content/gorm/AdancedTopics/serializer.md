@@ -13,7 +13,11 @@ draft = false
 
 Serializer is an extensible interface that allows to customize how to serialize and deserialize data with databasae.
 
+​	序列化器是一个可扩展的接口，允许自定义如何将数据与数据库进行序列化和反序列化。
+
 GORM provides some default serializers: `json`, `gob`, `unixtime`, here is a quick example of how to use it.
+
+​	GORM提供了一些默认的序列化器：`json`、`gob`、`unixtime`，这里是一个如何使用它的快速示例。
 
 ``` go
 type User struct {
@@ -21,7 +25,7 @@ type User struct {
   Roles       Roles                  `gorm:"serializer:json"`
   Contracts   map[string]interface{} `gorm:"serializer:json"`
   JobInfo     Job                    `gorm:"type:bytes;serializer:gob"`
-  CreatedTime int64                  `gorm:"serializer:unixtime;type:time"` // store int as datetime into database
+  CreatedTime int64                  `gorm:"serializer:unixtime;type:time"` // 将int存储为datetime到数据库中 store int as datetime into database
 }
 
 type Roles []string
@@ -67,9 +71,11 @@ DB.Where(User{Name: []byte("jinzhu")}).Take(&result)
 // SELECT * FROM `users` WHERE `users`.`name` = "\"amluemh1\"
 ```
 
-## Register Serializer
+## 注册序列化器 Register Serializer
 
 A Serializer needs to implement how to serialize and deserialize data, so it requires to implement the the following interface
+
+​	一个序列化器需要实现如何序列化和反序列化数据，因此它需要实现以下接口：
 
 ``` go
 import "gorm.io/gorm/schema"
@@ -86,12 +92,14 @@ type SerializerValuerInterface interface {
 
 For example, the default `JSONSerializer` is implemented like:
 
+​	例如，默认的`JSONSerializer`是像这样实现的：
+
 ``` go
 // JSONSerializer json serializer
 type JSONSerializer struct {
 }
 
-// Scan implements serializer interface
+// Scan实现序列化器接口 Scan implements serializer interface
 func (JSONSerializer) Scan(ctx context.Context, field *Field, dst reflect.Value, dbValue interface{}) (err error) {
   fieldValue := reflect.New(field.FieldType)
 
@@ -113,7 +121,7 @@ func (JSONSerializer) Scan(ctx context.Context, field *Field, dst reflect.Value,
   return
 }
 
-// Value implements serializer interface
+// Scan implements serializer interface
 func (JSONSerializer) Value(ctx context.Context, field *Field, dst reflect.Value, fieldValue interface{}) (interface{}, error) {
   return json.Marshal(fieldValue)
 }
@@ -121,11 +129,15 @@ func (JSONSerializer) Value(ctx context.Context, field *Field, dst reflect.Value
 
 And registered with the following code:
 
+​	并使用以下代码注册：
+
 ``` go
 schema.RegisterSerializer("json", JSONSerializer{})
 ```
 
 After registering a serializer, you can use it with the `serializer` tag, for example:
+
+​	在注册序列化器后，您可以使用带有`serializer`标签的标签，例如：
 
 ``` go
 type User struct {
@@ -133,17 +145,19 @@ type User struct {
 }
 ```
 
-## Customized Serializer Type
+## 自定义序列化器类型 Customized Serializer Type
 
 You can use a registered serializer with tags, you are also allowed to create a customized struct that implements the above `SerializerInterface` and use it as a field type directly, for example:
+
+​	您可以使用已注册的序列化器与标签一起使用，您还可以直接创建一个实现了上述`SerializerInterface`的结构体并将其用作字段类型，例如：
 
 ``` go
 type EncryptedString string
 
-// ctx: contains request-scoped values
-// field: the field using the serializer, contains GORM settings, struct tags
-// dst: current model value, `user` in the below example
-// dbValue: current field's value in database
+// ctx: 包含请求范围的值 ctx: contains request-scoped values
+// field: 使用序列化器的字段，包含GORM设置和结构体标签 field: the field using the serializer, contains GORM settings, struct tags
+// dst: 当前模型的值，下面的示例中的user dst: current model value, `user` in the below example
+// dbValue: 数据库中当前字段的值 dbValue: current field's value in database
 func (es *EncryptedString) Scan(ctx context.Context, field *schema.Field, dst reflect.Value, dbValue interface{}) (err error) {
   switch value := dbValue.(type) {
   case []byte:
@@ -156,10 +170,10 @@ func (es *EncryptedString) Scan(ctx context.Context, field *schema.Field, dst re
   return nil
 }
 
-// ctx: contains request-scoped values
-// field: the field using the serializer, contains GORM settings, struct tags
-// dst: current model value, `user` in the below example
-// fieldValue: current field's value of the dst
+// ctx: 包含请求范围的值 ctx: contains request-scoped values
+// field: 使用序列化器的字段，包含GORM设置和结构体标签 field: the field using the serializer, contains GORM settings, struct tags
+// dst: 当前模型的值，下面的示例中的user dst: current model value, `user` in the below example
+// fieldValue: dst的当前字段值 fieldValue: current field's value of the dst
 func (es EncryptedString) Value(ctx context.Context, field *schema.Field, dst reflect.Value, fieldValue interface{}) (interface{}, error) {
   return "hello" + string(es), nil
 }

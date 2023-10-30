@@ -13,7 +13,7 @@ draft = false
 
 GORM officially supports the databases MySQL, PostgreSQL, SQLite, SQL Server, and TiDB
 
-​	GORM官方支持的数据库有MySQL、PostgreSQL、SQLite、SQL Server和TiDB。
+​	GORM官方支持的数据库有`MySQL`、`PostgreSQL`、`SQLite`、`SQL Server`和`TiDB`。
 
 ## MySQL
 

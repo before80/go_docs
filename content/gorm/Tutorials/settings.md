@@ -1,5 +1,5 @@
 +++
-title = "Settings"
+title = "设置"
 date = 2023-10-28T14:32:46+08:00
 weight = 14
 type = "docs"
@@ -13,16 +13,22 @@ draft = false
 
 GORM provides `Set`, `Get`, `InstanceSet`, `InstanceGet` methods allow users pass values to [hooks](https://gorm.io/docs/hooks.html) or other methods
 
+​	GORM提供了`Set`、`Get`、`InstanceSet`和`InstanceGet`方法，允许用户向[钩子](../hooks)（hooks）或其他方法传递值。
+
 GORM uses this for some features, like pass creating table options when migrating table.
 
+​	GORM在迁移表时使用这些功能，例如传递创建表选项。
+
 ``` go
-// Add table suffix when creating tables
+// 在创建表时添加表后缀 Add table suffix when creating tables
 db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&User{})
 ```
 
 ## Set / Get
 
 Use `Set` / `Get` pass settings to hooks methods, for example:
+
+​	使用`Set` / `Get`将设置传递给钩子方法，例如：
 
 ``` go
 type User struct {
@@ -56,6 +62,8 @@ db.Set("my_value", myValue).Create(&User{})
 
 Use `InstanceSet` / `InstanceGet` pass settings to current `*Statement`‘s hooks methods, for example:
 
+​	使用`InstanceSet` / `InstanceGet`将设置传递给当前`*Statement`的钩子方法，例如：
+
 ``` go
 type User struct {
   gorm.Model
@@ -74,7 +82,7 @@ type CreditCard struct {
   // ...
 }
 
-// When creating associations, GORM creates a new `*Statement`, so can't read other instance's settings
+// 当创建关联时，GORM会创建一个新`*Statement`，因此无法读取其他实例的设置 When creating associations, GORM creates a new `*Statement`, so can't read other instance's settings
 func (card *CreditCard) BeforeCreate(tx *gorm.DB) error {
   myValue, ok := tx.InstanceGet("my_value")
   // ok => false
