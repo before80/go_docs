@@ -33,7 +33,7 @@ var ErrTooLarge = errors.New("bytes.Buffer: too large")
 
 ## 函数 
 
-#### func Clone  <- go1.20
+### func Clone  <- go1.20
 
 ``` go 
 func Clone(b []byte) []byte
@@ -41,7 +41,7 @@ func Clone(b []byte) []byte
 
 ​	Clone函数返回b[:len(b)]的副本。其结果可能有额外的未使用的容量。	Clone(nil)返回nil。
 
-#### func Compare 
+### func Compare 
 
 ``` go 
 func Compare(a, b []byte) int
@@ -49,7 +49,7 @@ func Compare(a, b []byte) int
 
 ​	Compare函数返回一个整数，按字典顺序比较两个字节切片。如果a == b，结果是0，如果a < b，结果是-1，如果a > b，结果是+1。nil参数等效于空切片。
 
-##### Compare Example
+#### Compare Example
 ``` go 
 package main
 
@@ -84,7 +84,7 @@ func main() {
 
 ```
 
-##### Compare Example (Search)
+#### Compare Example (Search)
 ``` go 
 package main
 
@@ -108,7 +108,7 @@ func main() {
 
 ```
 
-#### func Contains 
+### func Contains 
 
 ``` go 
 func Contains(b, subslice []byte) bool
@@ -116,7 +116,7 @@ func Contains(b, subslice []byte) bool
 
 ​	Contains函数报告子字节切片subslice是否在字节切片b中。
 
-##### Contains Example
+#### Contains Example
 ``` go 
 package main
 
@@ -139,7 +139,7 @@ true
 true
 ```
 
-#### func ContainsAny  <- go1.7
+### func ContainsAny  <- go1.7
 
 ``` go 
 func ContainsAny(b []byte, chars string) bool
@@ -147,7 +147,7 @@ func ContainsAny(b []byte, chars string) bool
 
 ​	ContainsAny函数报告chars中是否存在任何一个使用UTF-8编码的码点在字节切片b中。
 
-##### ContainsAny Example
+#### ContainsAny Example
 ``` go 
 package main
 
@@ -170,7 +170,7 @@ false
 false
 ```
 
-#### func ContainsRune  <- go1.7
+### func ContainsRune  <- go1.7
 
 ``` go 
 func ContainsRune(b []byte, r rune) bool
@@ -178,7 +178,7 @@ func ContainsRune(b []byte, r rune) bool
 
 ​	ContainsRune函数报告符文`r`是否包含在UTF-8编码的字节切片b中。
 
-##### ContainsRune Example
+#### ContainsRune Example
 ``` go 
 package main
 
@@ -203,7 +203,7 @@ true
 false
 ```
 
-#### func Count 
+### func Count 
 
 ``` go 
 func Count(s, sep []byte) int
@@ -211,7 +211,7 @@ func Count(s, sep []byte) int
 
 ​	Count函数计算s中sep的非重叠实例数。如果 sep 是一个空切片，则 Count 返回 s 中 UTF-8 编码的码点数加 1。
 
-##### Count Example
+#### Count Example
 ``` go 
 package main
 
@@ -230,7 +230,7 @@ Output:
 5
 ```
 
-#### func Cut  <- go1.18
+### func Cut  <- go1.18
 
 ``` go 
 func Cut(s, sep []byte) (before, after []byte, found bool)
@@ -240,7 +240,7 @@ func Cut(s, sep []byte) (before, after []byte, found bool)
 
 ​	Cut函数返回原始切片s的切片，而不是副本。
 
-##### Cut Example
+#### Cut Example
 ``` go 
 package main
 
@@ -267,7 +267,7 @@ Cut("Gopher", "er") = "Goph", "", true
 Cut("Gopher", "Badger") = "Gopher", "", false
 ```
 
-#### func CutPrefix  <- go1.20
+### func CutPrefix  <- go1.20
 
 ``` go 
 func CutPrefix(s, prefix []byte) (after []byte, found bool)
@@ -277,7 +277,7 @@ func CutPrefix(s, prefix []byte) (after []byte, found bool)
 
 ​	CutPrefix函数返回原始切片s的切片，而不是副本。
 
-##### CutPrefix Example
+#### CutPrefix Example
 
 ```go 
 s := []byte("foo bar foo bar foo")
@@ -288,7 +288,7 @@ after, found := bytes.CutPrefix(s, prefix)
 
 
 
-#### func CutSuffix  <- go1.20
+### func CutSuffix  <- go1.20
 
 ``` go 
 func CutSuffix(s, suffix []byte) (before []byte, found bool)
@@ -300,7 +300,7 @@ func CutSuffix(s, suffix []byte) (before []byte, found bool)
 
 ​	CutSuffix函数返回原始切片s的切片，而不是副本。
 
-##### CutSuffix Example
+#### CutSuffix Example
 
 ```go 
 s := []byte("foo bar foo bar foo")
@@ -311,7 +311,7 @@ before, found := bytes.CutSuffix(s, suffix)
 
 
 
-#### func Equal 
+### func Equal 
 
 ``` go 
 func Equal(a, b []byte) bool
@@ -319,7 +319,7 @@ func Equal(a, b []byte) bool
 
 ​	Equal 函数报告 a 和 b 是否具有相同的长度并包含相同的字节。nil 参数等价于空切片。
 
-##### Equal Example
+#### Equal Example
 ``` go 
 package main
 
@@ -338,7 +338,7 @@ true
 false
 ```
 
-#### func EqualFold 
+### func EqualFold 
 
 ``` go 
 func EqualFold(s, t []byte) bool
@@ -346,7 +346,7 @@ func EqualFold(s, t []byte) bool
 
 ​	EqualFold 函数报告将 s 和 t(解释为 UTF-8 字符串)在简单的 Unicode 大小写折叠下是否相等，这是一种更通用的不区分大小写的形式。
 
-##### EqualFold Example
+#### EqualFold Example
 ``` go 
 package main
 
@@ -363,7 +363,7 @@ Output:
 true
 ```
 
-#### func Fields 
+### func Fields 
 
 ``` go 
 func Fields(s []byte) [][]byte
@@ -371,7 +371,7 @@ func Fields(s []byte) [][]byte
 
 ​	Fields函数将s解释为UTF-8编码的码点序列，并根据unicode.IsSpace定义的一个或多个连续的空白字符实例分隔切片s，返回s的子切片的切片，如果s仅包含空白，则返回一个空切片。
 
-##### Fields Example
+#### Fields Example
 ``` go 
 package main
 
@@ -391,7 +391,7 @@ Fields are: ["foo" "bar" "baz"]
 Fields are: [][]uint8{[]uint8{0x66, 0x6f, 0x6f}, []uint8{0x62, 0x61, 0x72}, []uint8{0x62, 0x61, 0x7a}}
 ```
 
-#### func FieldsFunc 
+### func FieldsFunc 
 
 ``` go 
 func FieldsFunc(s []byte, f func(rune) bool) [][]byte
@@ -403,7 +403,7 @@ func FieldsFunc(s []byte, f func(rune) bool) [][]byte
 
 > 需要注意的是，bytes.FieldsFunc函数对于调用f(c)的顺序没有保证，这是因为FieldsFunc函数是并行调用f(c)的，以便更快地处理输入。
 
-##### FieldsFunc Example
+#### FieldsFunc Example
 ``` go 
 package main
 
@@ -437,7 +437,7 @@ Fields are: ["foo1" "bar2" "baz3"]
 ["a " " c"]
 ```
 
-#### func HasPrefix 
+### func HasPrefix 
 
 ``` go 
 func HasPrefix(s, prefix []byte) bool
@@ -445,7 +445,7 @@ func HasPrefix(s, prefix []byte) bool
 
 ​	HasPrefix测试字节切片 s 是否以前缀 prefix 开头。
 
-##### HasPrefix Example
+#### HasPrefix Example
 ``` go 
 package main
 
@@ -466,7 +466,7 @@ false
 true
 ```
 
-#### func HasSuffix 
+### func HasSuffix 
 
 ``` go 
 func HasSuffix(s, suffix []byte) bool
@@ -474,7 +474,7 @@ func HasSuffix(s, suffix []byte) bool
 
 ​	HasSuffix函数测试字节切片s是否以后缀 suffix 结尾。
 
-##### HasSuffix Example
+#### HasSuffix Example
 ``` go 
 package main
 
@@ -497,7 +497,7 @@ false
 true
 ```
 
-#### func Index 
+### func Index 
 
 ``` go 
 func Index(s, sep []byte) int
@@ -505,7 +505,7 @@ func Index(s, sep []byte) int
 
 ​	Index函数返回sep在s中第一次出现的索引，如果sep不在s中，则返回-1。
 
-##### Index Example
+#### Index Example
 ``` go 
 package main
 
@@ -524,7 +524,7 @@ Output:
 -1
 ```
 
-#### func IndexAny 
+### func IndexAny 
 
 ``` go 
 func IndexAny(s []byte, chars string) int
@@ -532,7 +532,7 @@ func IndexAny(s []byte, chars string) int
 
 ​	IndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回chars中任何一个Unicode码点在s中第一次出现的字节索引。如果chars为空或在s中没有公共的码点，则返回-1。
 
-##### IndexAny Example
+#### IndexAny Example
 ``` go 
 package main
 
@@ -551,7 +551,7 @@ Output:
 -1
 ```
 
-#### func IndexByte 
+### func IndexByte 
 
 ``` go 
 func IndexByte(b []byte, c byte) int
@@ -559,7 +559,7 @@ func IndexByte(b []byte, c byte) int
 
 ​	IndexByte函数返回c在b中第一次出现的索引，如果c不在b中，则返回-1。
 
-##### IndexByte Example
+#### IndexByte Example
 ``` go 
 package main
 
@@ -578,7 +578,7 @@ Output:
 -1
 ```
 
-#### func IndexFunc 
+### func IndexFunc 
 
 ``` go 
 func IndexFunc(s []byte, f func(r rune) bool) int
@@ -586,7 +586,7 @@ func IndexFunc(s []byte, f func(r rune) bool) int
 
 ​	IndexFunc函数将s解释为UTF-8编码的码点序列。它返回s中第一个满足f(c)的Unicode码点的字节索引，如果没有则返回-1。
 
-##### IndexFunc Example
+#### IndexFunc Example
 ``` go 
 package main
 
@@ -609,7 +609,7 @@ Output:
 -1
 ```
 
-#### func IndexRune 
+### func IndexRune 
 
 ``` go 
 func IndexRune(s []byte, r rune) int
@@ -617,7 +617,7 @@ func IndexRune(s []byte, r rune) int
 
 ​	IndexRune函数将s解释为UTF-8编码的码点序列。它返回给定符文在s中第一次出现的字节索引。如果rune不存在于s中，则返回-1。如果r是utf8.RuneError，则返回任何无效UTF-8字节序列的第一个实例。
 
-##### IndexRune Example
+#### IndexRune Example
 ``` go 
 package main
 
@@ -636,7 +636,7 @@ Output:
 -1
 ```
 
-#### func Join 
+### func Join 
 
 ``` go 
 func Join(s [][]byte, sep []byte) []byte
@@ -648,7 +648,7 @@ Join函数将s的元素连接起来，创建一个新的字节切片。分隔符
 
 ​	Join函数将s中的元素连接起来以创建一个新的字节切片。分隔符sep放置在结果切片中的元素之间。
 
-##### Join Example
+#### Join Example
 ``` go 
 package main
 
@@ -666,7 +666,7 @@ Output:
 foo, bar, baz
 ```
 
-#### func LastIndex 
+### func LastIndex 
 
 ``` go 
 func LastIndex(s, sep []byte) int
@@ -674,7 +674,7 @@ func LastIndex(s, sep []byte) int
 
 ​	LastIndex函数返回sep在s中最后一次出现的索引，如果sep不在s中，则返回-1。
 
-##### LastIndex Example
+#### LastIndex Example
 ``` go 
 package main
 
@@ -695,7 +695,7 @@ Output:
 -1
 ```
 
-#### func LastIndexAny 
+### func LastIndexAny 
 
 ``` go 
 func LastIndexAny(s []byte, chars string) int
@@ -703,7 +703,7 @@ func LastIndexAny(s []byte, chars string) int
 
 ​	LastIndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回s中任何一个Unicode代码点(chars中的)的最后一次出现的字节索引。如果chars为空或没有共同码点，则返回-1。
 
-##### LastIndexAny Example
+#### LastIndexAny Example
 ``` go 
 package main
 
@@ -724,7 +724,7 @@ Output:
 -1
 ```
 
-#### func LastIndexByte  <- go1.5
+### func LastIndexByte  <- go1.5
 
 ``` go 
 func LastIndexByte(s []byte, c byte) int
@@ -732,7 +732,7 @@ func LastIndexByte(s []byte, c byte) int
 
 ​	LastIndexByte函数返回c在s中最后一次出现的实例索引，如果c不在s中，则返回-1。
 
-##### LastIndexByte Example
+#### LastIndexByte Example
 ``` go 
 package main
 
@@ -753,7 +753,7 @@ Output:
 -1
 ```
 
-#### func LastIndexFunc 
+### func LastIndexFunc 
 
 ``` go 
 func LastIndexFunc(s []byte, f func(r rune) bool) int
@@ -761,7 +761,7 @@ func LastIndexFunc(s []byte, f func(r rune) bool) int
 
 ​	LastIndexFunc将s解释为UTF-8编码的码点序列。它返回s中最后一个满足f(c)的Unicode码点(rune)的字节索引，如果没有符合条件的，则返回-1。
 
-##### LastIndexFunc Example
+#### LastIndexFunc Example
 ``` go 
 package main
 
@@ -783,7 +783,7 @@ Output:
 -1
 ```
 
-#### func Map 
+### func Map 
 
 ``` go 
 func Map(mapping func(r rune) rune, s []byte) []byte
@@ -791,7 +791,7 @@ func Map(mapping func(r rune) rune, s []byte) []byte
 
 ​	Map函数返回一个字节切片s的副本，其中所有字符根据映射函数进行修改。如果映射函数返回负值，则从字节切片中删除该字符而不作替换。s和输出中的字符被解释为UTF-8编码的码点。
 
-##### Map Example
+#### Map Example
 
 ```go 
 package main
@@ -819,7 +819,7 @@ Hell0, W0rld!
 
 
 
-#### func Repeat 
+### func Repeat 
 
 ``` go 
 func Repeat(b []byte, count int) []byte
@@ -829,7 +829,7 @@ func Repeat(b []byte, count int) []byte
 
 ​	如果count为负数或者(len(b) * count)的结果溢出，它就会发生panic。
 
-##### Repeat Example
+#### Repeat Example
 ``` go 
 package main
 
@@ -846,7 +846,7 @@ Output:
 banana
 ```
 
-#### func Replace 
+### func Replace 
 
 ``` go 
 func Replace(s, old, new []byte, n int) []byte
@@ -856,7 +856,7 @@ Replace returns a copy of the slice s with the first n non-overlapping instances
 
 Replace函数返回一个片断s的副本，用new替换old的前n个不重叠的实例。如果old是空的，它在片断的开头和每个UTF-8序列之后进行匹配，对于一个k-rune片断，最多产生k+1个替换。如果n<0，则对替换的数量没有限制。
 
-##### Replace Example
+#### Replace Example
 ``` go 
 package main
 
@@ -875,7 +875,7 @@ oinky oinky oink
 moo moo moo
 ```
 
-#### func ReplaceAll  <- go1.12
+### func ReplaceAll  <- go1.12
 
 ``` go 
 func ReplaceAll(s, old, new []byte) []byte
@@ -883,7 +883,7 @@ func ReplaceAll(s, old, new []byte) []byte
 
 ​	ReplaceAll函数返回将 s 中所有非重叠的 old 替换为 new 后得到的新 byte 切片。如果 old 是空的，则匹配从切片开头和每个 UTF-8 序列之后开始，最多得到 k+1 次替换，其中 k 是切片中的 Unicode 码点数。
 
-##### ReplaceAll Example
+#### ReplaceAll Example
 ``` go 
 package main
 
@@ -902,7 +902,7 @@ moo moo moo
 -123-L-123-O-123-V-123-E-123-
 ```
 
-#### func Runes 
+### func Runes 
 
 ``` go 
 func Runes(s []byte) []rune
@@ -910,7 +910,7 @@ func Runes(s []byte) []rune
 
 ​	Runes函数将 s 解释为一系列 UTF-8 编码的码点。它返回一个等价于 s 的码点切片(Unicode 码点)。
 
-##### Runes Example
+#### Runes Example
 ``` go 
 package main
 
@@ -941,7 +941,7 @@ U+0065 'e'
 U+0072 'r'
 ```
 
-#### func Split 
+### func Split 
 
 ``` go 
 func Split(s, sep []byte) [][]byte
@@ -951,7 +951,7 @@ func Split(s, sep []byte) [][]byte
 
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
-##### Split Example
+#### Split Example
 ``` go 
 package main
 
@@ -974,7 +974,7 @@ Output:
 [""]
 ```
 
-#### func SplitAfter 
+### func SplitAfter 
 
 ``` go 
 func SplitAfter(s, sep []byte) [][]byte
@@ -982,7 +982,7 @@ func SplitAfter(s, sep []byte) [][]byte
 
 ​	SplitAfter函数将 s 切分成在每个 sep 实例之后的所有子切片，并返回这些子切片的切片。如果 sep 是空的，则 SplitAfter 在每个 UTF-8 序列之后分隔。它等同于SplitAfterN，计数为-1。
 
-##### SplitAfter Example
+#### SplitAfter Example
 ``` go 
 package main
 
@@ -999,7 +999,7 @@ Output:
 ["a," "b," "c"]
 ```
 
-#### func SplitAfterN 
+### func SplitAfterN 
 
 ``` go 
 func SplitAfterN(s, sep []byte, n int) [][]byte
@@ -1015,7 +1015,7 @@ n > 0：最多 n 个子切片；最后一个子切片将是未拆分的剩余部
 
  n < 0：所有子切片
 
-##### SplitAfterN Example
+#### SplitAfterN Example
 
 ``` go 
 package main
@@ -1033,7 +1033,7 @@ Output:
 ["a," "b,c"]
 ```
 
-#### func SplitN 
+### func SplitN 
 
 ``` go 
 func SplitN(s, sep []byte, n int) [][]byte
@@ -1051,7 +1051,7 @@ n < 0：所有子切片
 
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
-##### SplitN Example
+#### SplitN Example
 ``` go 
 package main
 
@@ -1073,7 +1073,7 @@ Output:
 
 
 
-#### func ToLower 
+### func ToLower 
 
 ``` go 
 func ToLower(s []byte) []byte
@@ -1081,7 +1081,7 @@ func ToLower(s []byte) []byte
 
 ​	ToLower函数返回一个将 s 中所有 Unicode 字母都转为其小写形式的新字节切片。
 
-##### ToLower Example
+#### ToLower Example
 ``` go 
 package main
 
@@ -1098,7 +1098,7 @@ Output:
 gopher
 ```
 
-#### func ToLowerSpecial 
+### func ToLowerSpecial 
 
 ``` go 
 func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1106,7 +1106,7 @@ func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte
 
 ​	ToLowerSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其小写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
-##### ToLowerSpecial Example
+#### ToLowerSpecial Example
 ``` go 
 package main
 
@@ -1128,7 +1128,7 @@ Original : AHOJ VÝVOJÁRİ GOLANG
 ToLower : ahoj vývojári golang
 ```
 
-#### func ToTitle 
+### func ToTitle 
 
 ``` go 
 func ToTitle(s []byte) []byte
@@ -1136,7 +1136,7 @@ func ToTitle(s []byte) []byte
 
 ​	ToTitle函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片。
 
-##### ToTitle Example
+#### ToTitle Example
 ``` go 
 package main
 
@@ -1155,7 +1155,7 @@ LOUD NOISES
 ХЛЕБ
 ```
 
-#### func ToTitleSpecial 
+### func ToTitleSpecial 
 
 ``` go 
 func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1163,7 +1163,7 @@ func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte
 
 ​	ToTitleSpecia函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片，其规则按照特定的 casing 规则进行。
 
-##### ToTitleSpecial Example
+#### ToTitleSpecial Example
 ``` go 
 package main
 
@@ -1185,7 +1185,7 @@ Original : ahoj vývojári golang
 ToTitle : AHOJ VÝVOJÁRİ GOLANG
 ```
 
-#### func ToUpper 
+### func ToUpper 
 
 ``` go 
 func ToUpper(s []byte) []byte
@@ -1201,7 +1201,7 @@ func ToUpper(s []byte) []byte
 >
 > ​	因此，`bytes.ToTitle` 方法在进行字符大小写转换时比`bytes.ToUpper` 更加智能和准确。但是，由于其对 Unicode 的完全支持，可能会导致一些性能问题，特别是在处理非常大的字符串时。
 
-##### ToUpper Example
+#### ToUpper Example
 ``` go 
 package main
 
@@ -1218,7 +1218,7 @@ Output:
 GOPHER
 ```
 
-#### func ToUpperSpecial 
+### func ToUpperSpecial 
 
 ``` go 
 func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte
@@ -1226,7 +1226,7 @@ func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte
 
 ​		ToUpperSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其大写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
-##### ToUpperSpecial Example
+#### ToUpperSpecial Example
 ``` go 
 package main
 
@@ -1248,7 +1248,7 @@ Original : ahoj vývojári golang
 ToUpper : AHOJ VÝVOJÁRİ GOLANG
 ```
 
-#### func ToValidUTF8  <- go1.13
+### func ToValidUTF8  <- go1.13
 
 ``` go 
 func ToValidUTF8(s, replacement []byte) []byte
@@ -1256,7 +1256,7 @@ func ToValidUTF8(s, replacement []byte) []byte
 
 ​	ToValidUTF8 函数将 s 视为 UTF-8 编码的字节并返回一份副本，其中每个表示无效 UTF-8 的字节序列被替换为 replacement 中的字节，replacement 可以为空。
 
-#### func Trim 
+### func Trim 
 
 ``` go 
 func Trim(s []byte, cutset string) []byte
@@ -1264,7 +1264,7 @@ func Trim(s []byte, cutset string) []byte
 
 ​	Trim函数返回一个将 s 去掉开头和结尾的包含在 cutset 中的所有 UTF-8 编码的码点后的新字节切片。
 
-##### Trim Example
+#### Trim Example
 ``` go 
 package main
 
@@ -1281,7 +1281,7 @@ Output:
 ["Achtung! Achtung"]
 ```
 
-#### func TrimFunc 
+### func TrimFunc 
 
 ``` go 
 func TrimFunc(s []byte, f func(r rune) bool) []byte
@@ -1289,7 +1289,7 @@ func TrimFunc(s []byte, f func(r rune) bool) []byte
 
 ​	TrimFunc函数返回一个将 s 去掉开头和结尾的所有满足 f(c) 的 UTF-8 编码的码点后的新字节切片。
 
-##### TrimFunc Example
+#### TrimFunc Example
 ``` go 
 package main
 
@@ -1313,7 +1313,7 @@ go-gopher
 go-gopher!
 ```
 
-#### func TrimLeft 
+### func TrimLeft 
 
 ``` go 
 func TrimLeft(s []byte, cutset string) []byte
@@ -1321,7 +1321,7 @@ func TrimLeft(s []byte, cutset string) []byte
 
 ​	TrimLeft函数返回一个去除了s中前部包含在cutset中的Unicode编码字符的子字节切片。
 
-##### TrimLeft Example
+#### TrimLeft Example
 ``` go 
 package main
 
@@ -1338,7 +1338,7 @@ Output:
 gopher8257
 ```
 
-#### func TrimLeftFunc 
+### func TrimLeftFunc 
 
 ``` go 
 func TrimLeftFunc(s []byte, f func(r rune) bool) []byte
@@ -1346,7 +1346,7 @@ func TrimLeftFunc(s []byte, f func(r rune) bool) []byte
 
 ​	TrimLeftFunc函数返回一个去除了s中前部符合函数f(c) 的Unicode编码字符的子字节切片。
 
-##### TrimLeftFunc Example
+#### TrimLeftFunc Example
 ``` go 
 package main
 
@@ -1368,7 +1368,7 @@ go-gopher!
 go-gopher!567
 ```
 
-#### func TrimPrefix  <- go1.1
+### func TrimPrefix  <- go1.1
 
 ``` go 
 func TrimPrefix(s, prefix []byte) []byte
@@ -1376,7 +1376,7 @@ func TrimPrefix(s, prefix []byte) []byte
 
 ​	TrimPrefix函数返回一个去除了s中前缀prefix的字节切片。如果s不是以prefix开头，则返回s本身。
 
-##### TrimPrefix Example
+#### TrimPrefix Example
 ``` go 
 package main
 
@@ -1396,7 +1396,7 @@ Output:
 Hello, world!
 ```
 
-#### func TrimRight 
+### func TrimRight 
 
 ``` go 
 func TrimRight(s []byte, cutset string) []byte
@@ -1404,7 +1404,7 @@ func TrimRight(s []byte, cutset string) []byte
 
 ​	TrimRight函数返回一个去除了s中尾部包含在cutset中的Unicode编码字符的子字节切片。
 
-##### TrimRight Example
+#### TrimRight Example
 ``` go 
 package main
 
@@ -1421,7 +1421,7 @@ Output:
 453gopher
 ```
 
-#### func TrimRightFunc 
+### func TrimRightFunc 
 
 ``` go 
 func TrimRightFunc(s []byte, f func(r rune) bool) []byte
@@ -1429,7 +1429,7 @@ func TrimRightFunc(s []byte, f func(r rune) bool) []byte
 
 ​	TrimRightFunc 函数返回一个 s 的子切片，该子切片去除了满足 f(c) 的所有后缀 UTF-8 编码的码点。
 
-##### TrimRightFunc Example
+#### TrimRightFunc Example
 ``` go 
 package main
 
@@ -1451,7 +1451,7 @@ go-gopher
 1234go-gopher!
 ```
 
-#### func TrimSpace 
+### func TrimSpace 
 
 ``` go 
 func TrimSpace(s []byte) []byte
@@ -1459,7 +1459,7 @@ func TrimSpace(s []byte) []byte
 
 ​	TrimSpace 函数返回 s 的子切片，该子切片去除了所有的前导和尾随 Unicode 定义的空格。
 
-##### TrimSpace Example
+#### TrimSpace Example
 ``` go 
 package main
 
@@ -1476,7 +1476,7 @@ Output:
 a lone gopher
 ```
 
-#### func TrimSuffix  <- go1.1
+### func TrimSuffix  <- go1.1
 
 ``` go 
 func TrimSuffix(s, suffix []byte) []byte
@@ -1484,7 +1484,7 @@ func TrimSuffix(s, suffix []byte) []byte
 
 ​	TrimSuffix 函数返回不包含指定后缀的字节切片 s。如果 s 不以后缀结尾，则返回未更改的 s。
 
-##### TrimSuffix Example
+#### TrimSuffix Example
 ``` go 
 package main
 
@@ -1525,7 +1525,7 @@ type Buffer struct {
 
 > Reader实现了io.Reader、io.ReaderAt、io.WriterTo、io.Seeker、io.ByteScanner和io.RuneScanner接口，通过从一个字节切片中读取数据。与Buffer不同，Reader是只读的并支持寻址。Reader的零值类似于一个空切片的Reader。
 
-##### Buffer Example
+#### Buffer Example
 ``` go 
 package main
 
@@ -1546,7 +1546,7 @@ Output:
 Hello world!
 ```
 
-##### Buffer Example(Reader)
+#### Buffer Example(Reader)
 ``` go 
 package main
 

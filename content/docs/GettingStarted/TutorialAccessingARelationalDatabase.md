@@ -12,7 +12,7 @@ draft = false
 
 ​	本教程介绍了用Go和其标准库中的`database/sql`包访问关系数据库的基本知识。
 
-​	如果您对Go及其工具有基本的了解，那么您将从本教程中获益匪浅。如果这是您第一次接触Go，请参阅[Tutorial: Get started with Go](../TutorialGetStartedWithGo) 的快速介绍。
+​	如果您对Go及其工具有基本的了解，那么您将从本教程中获益匪浅。如果这是您第一次接触Go，请参阅[教程：开始使用go Tutorial: Get started with Go](../TutorialGetStartedWithGo) 的快速介绍。
 
 ​	您将使用的`database/sql`包包含用于连接数据库、执行事务、取消正在进行的操作等的类型和函数。关于使用该包的更多细节，请参阅[访问数据库](../../UsingAndUnderstandingGo/AccessingDatabases/AccessingRelationalDatabases)。
 
@@ -28,7 +28,7 @@ draft = false
 6. 查询单行（记录）。
 7. 添加数据。
 
-注意：关于其他教程，请参见 [Tutorials](../Tutorials)。
+注意：关于其他教程，请参见 [教程 Tutorials](../Tutorials)。
 
 ## 先决条件
 
@@ -173,7 +173,7 @@ go: creating new go.mod: module example/data-access
 
 a. 在您的浏览器中，访问[SQLDrivers](https://github.com/golang/go/wiki/SQLDrivers) wiki 页面，以确定您可以使用的驱动程序。
 
-​	使用该页面上的列表来确定您要使用的驱动程序。在本教程中访问MySQL时，您将使用[Go-MySQL-Driver](https://github.com/go-sql-driver/mysql/)。
+​	使用该页面上的列表来确定您要使用的驱动程序。在本教程中访问MySQL时，您将使用[Go-MySQL-Driver]({{< ref "/thirdPkg/go_sql_driver_mysql">}})。
 
 b. 注意驱动程序的包名 —— 这里是`github.com/go-sql-driver/mysql`。
 
@@ -215,6 +215,7 @@ func main() {
         Net:    "tcp",
         Addr:   "127.0.0.1:3306",
         DBName: "recordings",
+        AllowNativePasswords: true,// 目前我在 go1.21.2 版本中测试，发现需要加上这一配置为true
     }
     // Get a database handle.
     var err error
@@ -237,7 +238,7 @@ func main() {
 
   ​	使`db`成为一个全局变量可以简化这个示例。在生产环境中，您会避免使用全局变量，比如把变量传递给需要它的函数，或者把它包装在一个结构中。
 
-- 使用MySQL驱动的[Config](https://pkg.go.dev/github.com/go-sql-driver/mysql#Config) —— 以及该类型的[FormatDSN](https://pkg.go.dev/github.com/go-sql-driver/mysql#Config.FormatDSN) —— 来收集连接属性并将其格式化为连接字符串的`DSN`。
+- 使用MySQL驱动的[Config]({{< ref "/thirdPkg/go_sql_driver_mysql#type-config---130">}}) —— 以及该类型的[FormatDSN]({{< ref "/thirdPkg/go_sql_driver_mysql#config-formatdsn---130">}}) —— 来收集连接属性并将其格式化为连接字符串的`DSN`。
 
   `Config`结构使得代码比连接字符串更容易阅读。
 
@@ -556,7 +557,7 @@ ID of added album: 5
 
 - 请看一下数据访问（Accessing Databases下的）指南，其中包含更多关于这里涉及到的主题的更多信息。
 - 如果您是Go的新手，您会发现[Effective Go](../../UsingAndUnderstandingGo/EffectiveGo)和[How to write Go code](../HowToWriteGoCode)中描述了有用的最佳实践。
-- [go Tour](https://go.dev/tour/)是对Go基础知识的一个很好的逐步介绍。
+- [go Tour]({{< ref "/docs/GoTour">}})是对Go基础知识的一个很好的逐步介绍。
 
 ## 完整的代码
 
