@@ -49,7 +49,7 @@ More intricate examples appear below.
 
 ​	下面是更复杂的示例。
 
-#### 文本和空格 Text and spaces
+## 文本和空格 Text and spaces
 
 By default, all text between actions is copied verbatim when the template is executed. For example, the string " items are made of " in the example above appears on standard output when the program is run.
 
@@ -79,7 +79,7 @@ For this trimming, the definition of white space characters is the same as in Go
 
 ​	对于这种修剪操作，空格字符的定义与 Go 语言相同：空格、水平制表符、回车和换行符。
 
-#### 操作 Actions
+## 操作 Actions
 
 Here is the list of actions. "Arguments" and "pipelines" are evaluations of data, defined in detail in the corresponding sections that follow.
 
@@ -186,7 +186,7 @@ Here is the list of actions. "Arguments" and "pipelines" are evaluations of data
 	如果管道的值为空，dot 不受影响并执行 T0；否则，dot 设置为管道的值，然后执行 T1。
 ```
 
-#### 实参 Arguments
+## 实参 Arguments
 
 An argument is a simple value, denoted by one of the following.
 
@@ -215,7 +215,7 @@ Arguments may evaluate to any type; if they are pointers the implementation auto
 
 ​	实参可以评估为任何类型；如果它们是指针，实现会在需要时自动对基本类型进行间接引用。如果一个评估结果是函数值，例如结构体的函数值字段，该函数不会自动调用，但它可以用作`if`操作等的真值。要调用它，请使用下文中定义的`call`函数。
 
-#### 管道 Pipelines 
+## 管道 Pipelines 
 
 A pipeline is a possibly chained sequence of "commands". A command is a simple value (argument) or a function or method call, possibly with multiple arguments:
 
@@ -251,7 +251,7 @@ The output of a command will be either one value or two values, the second of wh
 
 ​	命令的输出将是一个值或两个值，其中第二个值的类型为 error。如果第二个值存在且求值为非空，则执行终止，并将错误返回给 `Execute` 的调用者。
 
-### 变量
+## 变量
 
 A pipeline inside an action may initialize a variable to capture the result. The initialization has syntax
 
@@ -333,7 +333,7 @@ Here are some example one-line templates demonstrating pipelines and variables. 
 	相同，但使用管道。
 ```
 
-### 函数
+## 函数
 
 During execution functions are found in two function maps: first in the template, then in the global function map. By default, no functions are defined in the template but the Funcs method can be used to add them.
 
@@ -473,7 +473,7 @@ The comparison functions work on any values whose type Go defines as comparable.
 
 ​	比较函数适用于 Go 定义为可比较的任何值。对于基本类型（例如整数），规则被放宽：大小和精确类型被忽略，因此任何整数值（有符号或无符号）可以与任何其他整数值进行比较。（比较的是算术值，而不是位模式，因此所有负整数都小于所有无符号整数。）但是，通常情况下，不能将 int 与 float32 等进行比较。
 
-#### 关联模板 Associated templates  
+### 关联模板 Associated templates  
 
 Each template is named by a string specified when it is created. Also, each template is associated with zero or more other templates that it may invoke by name; such associations are transitive and form a name space of templates.
 
@@ -483,7 +483,7 @@ A template may use a template invocation to instantiate another associated templ
 
 ​	模板可以使用模板调用来实例化另一个关联的模板；请参考上面的"template"操作的解释。名称必须是包含调用的模板所关联的模板的名称。
 
-#### 嵌套模板定义 Nested template definitions 
+### 嵌套模板定义 Nested template definitions 
 
 When parsing a template, another template may be defined and associated with the template being parsed. Template definitions must appear at the top level of the template, much like global variables in a Go program.
 
@@ -495,7 +495,7 @@ The syntax of such definitions is to surround each template declaration with a "
 
 The define action names the template being created by providing a string constant. Here is a simple example:
 
-​	通过提供一个字符串常量，define操作命名了正在创建的模板。以下是一个简单的示例：
+​	通过提供一个字符串常量，`define`操作命名了正在创建的模板。以下是一个简单的示例：
 
 ```
 {{define "T1"}}ONE{{end}}
@@ -506,7 +506,7 @@ The define action names the template being created by providing a string constan
 
 This defines two templates, T1 and T2, and a third T3 that invokes the other two when it is executed. Finally it invokes T3. If executed this template will produce the text
 
-​	这定义了两个模板，T1 和 T2，以及一个在执行时调用其他两个模板的 T3。最后，它调用了 T3。如果执行这个模板，将会产生以下文本：
+​	这段代码定义了两个模板T1和T2，以及第三个模板T3，当T3被执行时，它会调用T1和T2。最后，代码调用了T3。如果执行这个模板，将会产生以下文本：
 
 ```
 ONE TWO
@@ -522,7 +522,7 @@ Parse may be called multiple times to assemble the various associated templates;
 
 A template may be executed directly or through ExecuteTemplate, which executes an associated template identified by name. To invoke our example above, we might write,
 
-​	模板可以直接执行，也可以通过`ExecuteTemplate`执行，后者执行由名称标识的关联模板。要调用上面的示例，我们可以编写如下：
+​	一个模板可以直接执行，也可以通过`ExecuteTemplate`执行由名称标识的相关模板。要调用我们上面的示例，我们可以这样写：
 
 ```go
 err := tmpl.Execute(os.Stdout, "no data needed")
@@ -533,7 +533,7 @@ if err != nil {
 
 or to invoke a particular template explicitly by name,
 
-或者通过名称显式地调用特定的模板：
+或者通过名称显式调用特定的模板：
 
 ```go
 err := tmpl.ExecuteTemplate(os.Stdout, "T2", "no data needed")
@@ -563,7 +563,7 @@ func HTMLEscape(w io.Writer, b []byte)
 
 HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
 
-​	HTMLEscape 函数将纯文本数据 `b` 的 HTML 转义写入 `w`。
+​	`HTMLEscape`函数向`w`写入`b`的纯文本数据的等效转义HTML。
 
 ### func HTMLEscapeString 
 
@@ -573,7 +573,7 @@ func HTMLEscapeString(s string) string
 
 HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
 
-​	HTMLEscapeString 函数返回纯文本数据 `s` 的转义 HTML。
+​	`HTMLEscapeString`函数返回`s`的纯文本数据的等效转义HTML。
 
 ### func HTMLEscaper 
 
@@ -583,7 +583,7 @@ func HTMLEscaper(args ...any) string
 
 HTMLEscaper returns the escaped HTML equivalent of the textual representation of its arguments.
 
-​	HTMLEscaper 函数返回其实参文本表示的转义 HTML。
+​	`HTMLEscaper`函数返回其实参的文本表示形式的等效转义HTML。
 
 ### func IsTrue  <- go1.6
 
@@ -593,7 +593,7 @@ func IsTrue(val any) (truth, ok bool)
 
 IsTrue reports whether the value is 'true', in the sense of not the zero of its type, and whether the value has a meaningful truth value. This is the definition of truth used by if and other such actions.
 
-​	IsTrue 函数报告值（val）是否为'true'，即不是其类型的零值，以及该值是否具有有意义的真值。这是 `if` 和其他类似操作使用的真值的定义。
+​	`IsTrue`函数报告值（val）是否为'true'，即不是其类型的零值，以及该值是否具有有意义的真值。 这是`if`和其他此类操作中使用的真值定义。
 
 ### func JSEscape 
 
@@ -603,7 +603,7 @@ func JSEscape(w io.Writer, b []byte)
 
 JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
 
-​	JSEscape函数向`w`写入普通文本数据`b`的转义JavaScript等效项。
+​	`JSEscape`函数向`w`写入`b`的纯文本数据的等效转义JavaScript。
 
 ### func JSEscapeString 
 
@@ -613,7 +613,7 @@ func JSEscapeString(s string) string
 
 JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
 
-​	JSEscapeString 返回普通文本数据`s`的转义JavaScript等效项。
+​	`JSEscapeString`函数返回`s`的纯文本数据的等效转义JavaScript。
 
 ### func JSEscaper 
 
@@ -623,7 +623,7 @@ func JSEscaper(args ...any) string
 
 JSEscaper returns the escaped JavaScript equivalent of the textual representation of its arguments.
 
-​	JSEscaper返回其实参文本表示的转义JavaScript等效项。
+​	`JSEscaper`函数返回其实参的文本表示形式的等效转义JavaScript。
 
 ### func URLQueryEscaper 
 
@@ -633,7 +633,7 @@ func URLQueryEscaper(args ...any) string
 
 URLQueryEscaper returns the escaped value of the textual representation of its arguments in a form suitable for embedding in a URL query.
 
-​	URLQueryEscaper返回其实参文本表示的转义值，适合嵌入到URL查询中的形式。
+​	`URLQueryEscaper`函数返回其实参的文本表示形式的转义值，适合于嵌入URL查询中。
 
 ## 类型
 
@@ -648,7 +648,7 @@ type ExecError struct {
 
 ExecError is the custom error type returned when Execute has an error evaluating its template. (If a write error occurs, the actual error is returned; it will not be of type ExecError.)
 
-​	ExecError 是在执行模板时发生错误时返回的自定义错误类型。（如果发生写入错误，则返回实际错误；它不会是 ExecError 类型。）
+​	`ExecError` 是在执行模板时发生错误时返回的自定义错误类型。（如果发生写入错误，则返回实际错误；它不会是 ExecError 类型。）
 
 #### (ExecError) Error  <- go1.6
 
@@ -670,7 +670,7 @@ type FuncMap map[string]any
 
 FuncMap is the type of the map defining the mapping from names to functions. Each function must have either a single return value, or two return values of which the second has type error. In that case, if the second (error) return value evaluates to non-nil during execution, execution terminates and `Execute` returns that error.
 
-​	FuncMap 是定义从名称到函数的映射的映射类型。每个函数必须具有单个返回值或两个返回值，其中第二个返回值的类型为 error。在执行过程中，如果第二个（error）返回值求值为非 nil，则执行终止，并且 `Execute` 返回该错误。
+​	`FuncMap` 是定义从名称到函数的映射的映射类型。每个函数必须具有单个返回值或两个返回值，其中第二个返回值的类型为 error。在这种情况下，如果第二个（error）返回值在执行期间求值为非 nil，则执行终止，并且 `Execute` 返回该错误。
 
 Errors returned by Execute wrap the underlying error; call errors.As to uncover them.
 
@@ -678,7 +678,7 @@ Errors returned by Execute wrap the underlying error; call errors.As to uncover 
 
 When template execution invokes a function with an argument list, that list must be assignable to the function's parameter types. Functions meant to apply to arguments of arbitrary type can use parameters of type interface{} or of type reflect.Value. Similarly, functions meant to return a result of arbitrary type can return interface{} or reflect.Value.
 
-​	当模板执行调用带有实参列表的函数时，该列表必须可赋值给函数的参数类型。用于适用于任意类型参数的函数可以使用类型 `interface{}` 或 `reflect.Value` 的参数。类似地，用于返回任意类型结果的函数可以返回 `interface{}` 或 `reflect.Value`。
+​	当模板执行调用具有参数列表的函数时，该列表必须可分配给函数的参数类型。 意在应用于任意类型参数的函数可以使用类型为`interface{}`或`reflect.Value`的参数。 同样，意在返回任意类型结果的函数可以返回`interface{}`或`reflect.Value`。
 
 ### type Template 
 
@@ -691,7 +691,7 @@ type Template struct {
 
 Template is the representation of a parsed template. The *parse.Tree field is exported only for use by html/template and should be treated as unexported by all other clients.
 
-​	Template 是解析模板的表示形式。`*parse.Tree` 字段只对 `html/template` 使用者公开，对于其他所有客户端，应将其视为未公开。
+​	Template 是已解析模板的表示形式。`*parse.Tree` 字段只对 `html/template` 使用者公开，其他所有客户端应将其视为未导出的字段。
 
 #### Template Example
 ``` go 
@@ -730,7 +730,7 @@ Josie
 		{"Cousin Rodney", "", false},
 	}
 
-	// Create a new template and parse the letter into it.
+	// Prepare some data to insert into the template.
 	t := template.Must(template.New("letter").Parse(letter))
 
 	// Execute the template for each recipient.
@@ -743,35 +743,35 @@ Josie
 
 }
 
-Output:
+//Output:
+//
+//Dear Aunt Mildred,
+//
+//It was a pleasure to see you at the wedding.
+//Thank you for the lovely bone china tea set.
+//
+//Best wishes,
+//Josie
+//
+//Dear Uncle John,
+//
+//It is a shame you couldn't make it to the wedding.
+//Thank you for the lovely moleskin pants.
 
-Dear Aunt Mildred,
-
-It was a pleasure to see you at the wedding.
-Thank you for the lovely bone china tea set.
-
-Best wishes,
-Josie
-
-Dear Uncle John,
-
-It is a shame you couldn't make it to the wedding.
-Thank you for the lovely moleskin pants.
-
-Best wishes,
-Josie
-
-Dear Cousin Rodney,
-
-It is a shame you couldn't make it to the wedding.
-
-Best wishes,
-Josie
+//Best wishes,
+//Josie
+//
+//Dear Cousin Rodney,
+//
+//It is a shame you couldn't make it to the wedding.
+//
+//Best wishes,
+//Josie
 ```
 
 #### Template Example (Block)
 ``` go 
-package main
+//package main
 
 import (
 	"log"
@@ -805,20 +805,22 @@ func main() {
 	}
 }
 
-Output:
-
-Names:
-- Gamora
-- Groot
-- Nebula
-- Rocket
-- Star-Lord
-Names: Gamora, Groot, Nebula, Rocket, Star-Lord
+//Output:
+//
+//Names:
+//- Gamora
+//- Groot
+//- Nebula
+//- Rocket
+//- Star-Lord
+//Names: Gamora, Groot, Nebula, Rocket, Star-Lord
 ```
 
 #### Template Example (Func)
 
 This example demonstrates a custom function to process template text. It installs the strings.Title function and uses it to Make Title Text Look Good In Our Template's Output.
+
+​	这个示例演示了处理模板文本的自定义函数。它安装了 `strings.Title` 函数并使用它来使标题文本在我们的模板输出中看起来好看。
 
 ``` go 
 package main
@@ -832,13 +834,17 @@ import (
 
 func main() {
 	// First we create a FuncMap with which to register the function.
+    // 首先，我们创建一个FuncMap以注册函数。
 	funcMap := template.FuncMap{
 		// The name "title" is what the function will be called in the template text.
+        // “title”是模板文本中函数的名称。
 		"title": strings.Title,
 	}
 
 	// A simple template definition to test our function.
+    // 一个用于测试函数的简单模板定义
 	// We print the input text several ways:
+    //  我们用几种方式打印输入文本：
 	// - the original
 	// - title-cased
 	// - title-cased and then printed with %q
@@ -851,12 +857,14 @@ Output 2: {{printf "%q" . | title}}
 `
 
 	// Create a template, add the function map, and parse the text.
+    // 创建一个模板，添加函数映射，解析文本。
 	tmpl, err := template.New("titleTest").Funcs(funcMap).Parse(templateText)
 	if err != nil {
 		log.Fatalf("parsing: %s", err)
 	}
 
 	// Run the template to verify the output.
+    // 运行模板以验证输出。
 	err = tmpl.Execute(os.Stdout, "the go programming language")
 	if err != nil {
 		log.Fatalf("execution: %s", err)
@@ -864,17 +872,19 @@ Output 2: {{printf "%q" . | title}}
 
 }
 
-Output:
-
-Input: "the go programming language"
-Output 0: The Go Programming Language
-Output 1: "The Go Programming Language"
-Output 2: "The Go Programming Language"
+//Output:
+//
+//Input: "the go programming language"
+//Output 0: The Go Programming Language
+//Output 1: "The Go Programming Language"
+//Output 2: "The Go Programming Language"
 ```
 
 #### Template Example(Glob)
 
 Here we demonstrate loading a set of templates from a directory.
+
+​	在这里，我们演示如何从目录中加载一组模板。
 
 ``` go 
 package main
@@ -888,6 +898,7 @@ import (
 )
 
 // templateFile defines the contents of a template to be stored in a file, for testing.
+// templateFile 定义了存储在文件中的模板内容，用于测试。
 type templateFile struct {
 	name     string
 	contents string
@@ -916,23 +927,34 @@ func main() {
 	// Here we create a temporary directory and populate it with our sample
 	// template definition files; usually the template files would already
 	// exist in some location known to the program.
+    // 在这里，我们创建一个临时目录，
+    // 并向其中添加示例模板定义文件；
+    // 通常，模板文件已经存在于程序已知的某个位置。
 	dir := createTestDir([]templateFile{
 		// T0.tmpl is a plain template file that just invokes T1.
+        // T0.tmpl 是一个简单的模板文件，它只是调用 T1。
 		{"T0.tmpl", `T0 invokes T1: ({{template "T1"}})`},
 		// T1.tmpl defines a template, T1 that invokes T2.
+        // T1.tmpl 定义了一个模板 T1，这个模板会调用 T2。
 		{"T1.tmpl", `{{define "T1"}}T1 invokes T2: ({{template "T2"}}){{end}}`},
 		// T2.tmpl defines a template T2.
+        // T2.tmpl 定义了模板 T2。
 		{"T2.tmpl", `{{define "T2"}}This is T2{{end}}`},
 	})
 	// Clean up after the test; another quirk of running as an example.
+    // 在测试之后进行清理；这是作为示例运行的另一个特点。
 	defer os.RemoveAll(dir)
 
 	// pattern is the glob pattern used to find all the template files.
+    // pattern 是用于找到所有模板文件的Glob模式。
 	pattern := filepath.Join(dir, "*.tmpl")
 
 	// Here starts the example proper.
 	// T0.tmpl is the first name matched, so it becomes the starting template,
 	// the value returned by ParseGlob.
+    // 以下是示例的开始部分：
+    // T0.tmpl 是第一个匹配到的文件名，
+    // 因此它成为起始模板，这是由 ParseGlob 返回的值。
 	tmpl := template.Must(template.ParseGlob(pattern))
 
 	err := tmpl.Execute(os.Stdout, nil)
@@ -941,9 +963,9 @@ func main() {
 	}
 }
 
-Output:
-
-T0 invokes T1: (T1 invokes T2: (This is T2))
+//Output:
+//
+//T0 invokes T1: (T1 invokes T2: (This is T2))
 ```
 
 #### Template Example (Helpers) 
@@ -1027,10 +1049,10 @@ func main() {
 	}
 }
 
-Output:
-
-Driver 1 calls T1: (T1 invokes T2: (This is T2))
-Driver 2 calls T2: (This is T2)
+//Output:
+//
+//Driver 1 calls T1: (T1 invokes T2: (This is T2))
+//Driver 2 calls T2: (This is T2)
 ```
 
 #### Template Example (Share)
@@ -1132,10 +1154,10 @@ func main() {
 
 }
 
-Output:
-
-T0 (second version) invokes T1: (T1 invokes T2: (T2, version B))
-T0 (first version) invokes T1: (T1 invokes T2: (T2, version A))
+//Output:
+//
+//T0 (second version) invokes T1: (T1 invokes T2: (T2, version B))
+//T0 (first version) invokes T1: (T1 invokes T2: (T2, version A))
 ```
 
 #### func Must 
@@ -1146,7 +1168,7 @@ func Must(t *Template, err error) *Template
 
 Must is a helper that wraps a call to a function returning (*Template, error) and panics if the error is non-nil. It is intended for use in variable initializations such as
 
-​	Must 是一个辅助函数，用于包装返回 (*Template, error) 的函数调用，如果错误非 nil，则引发 panic。它适用于变量初始化，例如：
+​	`Must` 是一个辅助函数，它包装了对返回(*Template, error)的函数的调用，如果错误不为 nil，它会引发 panic。它旨在用于变量初始化等，例如：
 
 ``` go 
 var t = template.Must(template.New("name").Parse("text"))
@@ -1160,7 +1182,7 @@ func New(name string) *Template
 
 New allocates a new, undefined template with the given name.
 
-​	New 分配一个具有给定名称的新的未定义模板。
+​	`New`函数分配一个具有给定名称的新的未定义模板。
 
 #### func ParseFS  <- go1.16
 
@@ -1170,7 +1192,7 @@ func ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 
 ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys instead of the host operating system's file system. It accepts a list of glob patterns. (Note that most file names serve as glob patterns matching only themselves.)
 
-​	ParseFS 类似于 ParseFiles 或 ParseGlob，但是从文件系统 fsys 而不是主机操作系统的文件系统中读取。它接受一个 glob 模式的列表。（注意，大多数文件名本身都作为仅匹配自身的 glob 模式。）
+​	`ParseFS`函数类似于`ParseFiles`函数或`ParseGlob`函数，但是它从文件系统`fsys`读取而不是从宿主操作系统的文件系统读取。它接受一个glob模式的列表。(注意，大多数文件名作为glob模式只匹配它们自己。)
 
 #### func ParseFiles 
 
@@ -1180,11 +1202,11 @@ func ParseFiles(filenames ...string) (*Template, error)
 
 ParseFiles creates a new Template and parses the template definitions from the named files. The returned template's name will have the base name and parsed contents of the first file. There must be at least one file. If an error occurs, parsing stops and the returned `*Template` is nil.
 
-​	ParseFiles 创建一个新的 Template，并从指定的文件中解析模板定义。返回的模板的名称将使用第一个文件的基本名称和解析内容。至少必须有一个文件。如果发生错误，解析将停止，返回的 `*Template` 为 nil。
+​	`ParseFiles`函数创建一个新的Template并从指定文件中解析模板定义。返回的模板名称将具有第一个文件的基本名称和解析内容。必须至少有一个文件。如果发生错误，解析将停止并且返回的`*Template`为nil。
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results. For instance, `ParseFiles("a/foo", "b/foo")` stores "b/foo" as the template named "foo", while "a/foo" is unavailable.
 
-​	当解析具有相同名称但位于不同目录中的多个文件时，结果将是最后一个被提及的文件。例如，`ParseFiles("a/foo", "b/foo")` 将使用名称为 "foo" 的模板存储 "b/foo"，而 "a/foo" 将无法使用。
+​	在解析不同目录中具有相同名称的多个文件时，最后提到的文件将是结果文件。例如，`ParseFiles("a/foo", "b/foo")`将"b/foo"存储为名为"foo"的模板，而"a/foo"将无法使用。
 
 #### func ParseGlob 
 
@@ -1194,11 +1216,11 @@ func ParseGlob(pattern string) (*Template, error)
 
 ParseGlob creates a new Template and parses the template definitions from the files identified by the pattern. The files are matched according to the semantics of filepath.Match, and the pattern must match at least one file. The returned template will have the (base) name and (parsed) contents of the first file matched by the pattern. ParseGlob is equivalent to calling ParseFiles with the list of files matched by the pattern.
 
-​	ParseGlob 创建一个新的 Template，并从与模式匹配的文件中解析模板定义。文件的匹配根据 filepath.Match 的语义进行，模式必须至少匹配一个文件。返回的模板将使用与模式匹配的第一个文件的（基本）名称和（解析的）内容。ParseGlob 等效于使用模式匹配的文件列表调用 ParseFiles。
+​	`ParseGlob`函数创建一个新的Template并从由模式标识的文件中解析模板定义。文件根据`filepath.Match`的语义进行匹配，并且模式必须匹配至少一个文件。返回的模板将具有由模式匹配的第一个文件的基本名称和解析内容。`ParseGlob`函数等同于使用由模式匹配的文件列表调用`ParseFiles`函数。
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-​	当解析具有相同名称但位于不同目录中的多个文件时，结果将是最后一个被提及的文件。
+​	在解析不同目录中具有相同名称的多个文件时，最后提到的文件将是结果文件。
 
 #### (*Template) AddParseTree 
 
@@ -1208,7 +1230,7 @@ func (t *Template) AddParseTree(name string, tree *parse.Tree) (*Template, error
 
 AddParseTree associates the argument parse tree with the template t, giving it the specified name. If the template has not been defined, this tree becomes its definition. If it has been defined and already has that name, the existing definition is replaced; otherwise a new template is created, defined, and returned.
 
-​	AddParseTree 将传入的解析树与模板 t 关联，并指定名称。如果模板尚未定义，则该解析树成为其定义。如果已经定义并且具有相同的名称，则替换现有的定义；否则，创建、定义并返回一个新的模板。
+​	`AddParseTree` 方法将实参解析树（`tree`）与模板 `t` 相关联，并为其指定名称。 如果模板未定义，则此树（`tree`）成为其定义。 如果已定义并且已经具有该名称，则现有定义将被替换； 否则将创建一个新的模板，定义并返回它。
 
 #### (*Template) Clone 
 
@@ -1218,7 +1240,7 @@ func (t *Template) Clone() (*Template, error)
 
 Clone returns a duplicate of the template, including all associated templates. The actual representation is not copied, but the name space of associated templates is, so further calls to Parse in the copy will add templates to the copy but not to the original. Clone can be used to prepare common templates and use them with variant definitions for other templates by adding the variants after the clone is made.
 
-​	Clone 返回模板的副本，包括所有关联的模板。实际的表示形式不会被复制，但关联模板的名称空间会被复制，因此在副本中对 Parse 的进一步调用将向副本添加模板，而不是添加到原始模板。可以使用 Clone 来准备常用模板，并使用变体定义的其他模板，通过在克隆完成后添加变体。
+​	`Clone` 方法返回模板的副本，包括所有关联的模板。 实际的表示形式不会被复制，但关联模板的名称空间会被复制，因此在副本中进一步调用 `Parse` 方法将向副本添加模板而不是原始模板。 `Clone` 方法可用于准备常见的模板，并在克隆后添加变体定义以将其用于其他具有变体定义的模板。
 
 #### (*Template) DefinedTemplates  <- go1.5
 
@@ -1228,7 +1250,7 @@ func (t *Template) DefinedTemplates() string
 
 DefinedTemplates returns a string listing the defined templates, prefixed by the string "; defined templates are: ". If there are none, it returns the empty string. For generating an error message here and in html/template.
 
-​	DefinedTemplates 返回一个以字符串 "; defined templates are: " 为前缀的已定义模板列表。如果没有模板，则返回空字符串。用于在此处和 html/template 中生成错误消息。
+​	`DefinedTemplates` 方法返回一个字符串，列出已定义的模板，以 "; defined templates are: " 为前缀。 如果没有，则返回空字符串。 用于生成错误消息和 html/template 中的错误消息。
 
 #### (*Template) Delims 
 
@@ -1238,7 +1260,7 @@ func (t *Template) Delims(left, right string) *Template
 
 Delims sets the action delimiters to the specified strings, to be used in subsequent calls to Parse, ParseFiles, or ParseGlob. Nested template definitions will inherit the settings. An empty delimiter stands for the corresponding default: {{ or }}. The return value is the template, so calls can be chained.
 
-​	Delims 将动作定界符设置为指定的字符串，以在后续对 Parse、ParseFiles 或 ParseGlob 的调用中使用。嵌套模板定义将继承这些设置。空定界符表示对应的默认值：{{ 或 }}。返回值是模板本身，因此可以链式调用。
+​	`Delims` 方法将操作定界符设置为指定的字符串，以在后续调用 `Parse`、`ParseFiles` 或 `ParseGlob` 中使用。 嵌套的模板定义将继承这些设置。 空定界符代表相应的默认值：{{ 或 }}。 返回值是模板本身，因此可以链式调用。
 
 #### (*Template) Execute 
 
@@ -1248,11 +1270,11 @@ func (t *Template) Execute(wr io.Writer, data any) error
 
 Execute applies a parsed template to the specified data object, and writes the output to wr. If an error occurs executing the template or writing its output, execution stops, but partial results may already have been written to the output writer. A template may be executed safely in parallel, although if parallel executions share a Writer the output may be interleaved.
 
-​	Execute 将解析的模板应用于指定的数据对象，并将输出写入 wr。如果在执行模板或写入输出时发生错误，执行将停止，但部分结果可能已经写入输出写入器。模板可以在并行安全地执行，但如果并行执行共享一个 Writer，则输出可能会交错。
+​	`Execute` 方法将已解析的模板应用于指定的数据对象，并将输出写入 `wr`。 如果执行模板或写入其输出时发生错误，则执行停止，但部分结果可能已经写入输出写入器。 模板可以安全地并行执行，但如果并行执行共享一个 Writer，则输出可能会交错。
 
 If data is a reflect.Value, the template applies to the concrete value that the reflect.Value holds, as in fmt.Print.
 
-​	如果 data 是 reflect.Value，则模板应用于 reflect.Value 持有的具体值，就像 fmt.Print 一样。
+​	如果 `data` 是 `reflect.Value`，则模板适用于 `reflect.Value` 持有的具体值，就像 `fmt.Print` 一样。
 
 #### (*Template) ExecuteTemplate 
 
@@ -1262,7 +1284,7 @@ func (t *Template) ExecuteTemplate(wr io.Writer, name string, data any) error
 
 ExecuteTemplate applies the template associated with t that has the given name to the specified data object and writes the output to wr. If an error occurs executing the template or writing its output, execution stops, but partial results may already have been written to the output writer. A template may be executed safely in parallel, although if parallel executions share a Writer the output may be interleaved.
 
-​	ExecuteTemplate 将与 t 关联且具有给定名称的模板应用于指定的数据对象，并将输出写入 wr。如果在执行模板或写入输出时发生错误，执行将停止，但部分结果可能已经写入输出写入器。模板可以在并行安全地执行，但如果并行执行共享一个 Writer，则输出可能会交错。
+​	`ExecuteTemplate` 方法将与 `t` 关联且具有给定名称的模板应用于指定的数据对象，并将输出写入 `wr`。如果在执行模板或写入输出时发生错误，则执行将停止，但部分结果可能已经写入输出写入器。可以安全地并行执行模板，但如果并行执行共享一个 Writer，则输出可能会交错。
 
 #### (*Template) Funcs 
 
@@ -1272,7 +1294,7 @@ func (t *Template) Funcs(funcMap FuncMap) *Template
 
 Funcs adds the elements of the argument map to the template's function map. It must be called before the template is parsed. It panics if a value in the map is not a function with appropriate return type or if the name cannot be used syntactically as a function in a template. It is legal to overwrite elements of the map. The return value is the template, so calls can be chained.
 
-​	Funcs 将参数映射的元素添加到模板的函数映射中。必须在解析模板之前调用。如果映射中的值不是具有适当返回类型的函数，或者名称在模板中不能作为函数使用，则会引发 panic。可以覆盖映射的元素。返回值是模板本身，因此可以链式调用。
+​	`Funcs` 方法将实参映射中的元素添加到模板的函数映射中。 它必须在模板解析之前被调用。 如果映射中的值不是具有适当返回类型的函数，或者如果名称不能在语法上用作模板中的函数，它会引发panic。 覆盖映射中的元素是合法的。 返回值是模板本身，因此可以链式调用。
 
 #### (*Template) Lookup 
 
@@ -1282,7 +1304,7 @@ func (t *Template) Lookup(name string) *Template
 
 Lookup returns the template with the given name that is associated with t. It returns nil if there is no such template or the template has no definition.
 
-​	Lookup 返回与 t 关联且具有给定名称的模板。如果没有这样的模板或模板没有定义，则返回 nil。
+​	`Lookup` 方法返回与 `t` 关联且具有给定名称的模板。如果没有这样的模板或模板没有定义，则返回 nil。
 
 #### (*Template) Name 
 
@@ -1292,7 +1314,7 @@ func (t *Template) Name() string
 
 Name returns the name of the template.
 
-​	Name 返回模板的名称。
+​	`Name` 方法返回模板的名称。
 
 #### (*Template) New 
 
@@ -1302,11 +1324,11 @@ func (t *Template) New(name string) *Template
 
 New allocates a new, undefined template associated with the given one and with the same delimiters. The association, which is transitive, allows one template to invoke another with a {{template}} action.
 
-​	New 分配一个新的未定义模板，并与给定模板关联，并具有相同的分隔符。关联关系是传递的，允许一个模板使用 {{template}} 操作调用另一个模板。
+​	`New` 方法分配一个新的未定义模板，并与给定模板关联，并具有相同的定界符。这种关联是传递性的，允许一个模板使用 `{{template}}` 操作调用另一个模板。
 
 Because associated templates share underlying data, template construction cannot be done safely in parallel. Once the templates are constructed, they can be executed in parallel.
 
-​	由于关联模板共享底层数据，模板构建不能并行安全地进行。一旦模板构建完成，它们可以并行执行。
+​	由于相关联的模板共享底层数据，因此无法安全地在并行中构建模板。 一旦构建了模板，它们就可以并行执行。
 
 #### (*Template) Option  <- go1.5
 
@@ -1316,13 +1338,13 @@ func (t *Template) Option(opt ...string) *Template
 
 Option sets options for the template. Options are described by strings, either a simple string or "key=value". There can be at most one equals sign in an option string. If the option string is unrecognized or otherwise invalid, Option panics.
 
-​	Option 为模板设置选项。选项由字符串描述，可以是简单字符串或 "key=value" 形式。选项字符串中最多只能有一个等号。如果选项字符串未被识别或无效，则 Option 会引发 panic。
+​	`Option` 方法为模板设置选项。选项由字符串描述，可以是简单字符串或"key=value" 。选项字符串中最多只能有一个等号。如果选项字符串无法识别或无效，`Option` 方法会引发panic。
 
 Known options:
 
 已知选项：
 
-missingkey: Control the behavior during execution if a map is indexed with a key that is not present in the map.
+​	missingkey: Control the behavior during execution if a map is indexed with a key that is not present in the map.
 
 ​	missingkey: 控制在执行过程中，如果使用在映射中不存在的键对映射进行索引的行为。
 
@@ -1331,10 +1353,14 @@ missingkey: Control the behavior during execution if a map is indexed with a key
 	The default behavior: Do nothing and continue execution.
 	If printed, the result of the index operation is the string
 	"<no value>".
+	默认行为：不执行任何操作并继续执行。
+	如果打印，索引操作的结果是字符串 "<no value>"。
 "missingkey=zero"
 	The operation returns the zero value for the map type's element.
+	该操作返回 map 类型元素的零值。
 "missingkey=error"
 	Execution stops immediately with an error.
+	立即因错误而停止执行。
 ```
 
 #### (*Template) Parse 
@@ -1345,11 +1371,11 @@ func (t *Template) Parse(text string) (*Template, error)
 
 Parse parses text as a template body for t. Named template definitions ({{define ...}} or {{block ...}} statements) in text define additional templates associated with t and are removed from the definition of t itself.
 
-​	Parse 将 text 解析为模板的主体，并关联定义的命名模板（{{define ...}} 或 {{block ...}} 语句），这些模板与 t 关联，并从 t 自身的定义中移除。
+​	`Parse` 方法将`text` 解析为 `t` 的模板主体。`text` 中的命名模板定义（`{{define ...}}` 或 `{{block ...}}` 语句）定义与 `t` 相关联的其他模板，并从 `t` 本身的定义中删除。
 
 Templates can be redefined in successive calls to Parse. A template definition with a body containing only white space and comments is considered empty and will not replace an existing template's body. This allows using Parse to add new named template definitions without overwriting the main template body.
 
-​	可以在连续的 Parse 调用中重新定义模板。如果模板定义的主体只包含空白和注释，则被视为空，并且不会替换现有模板的主体。这允许使用 Parse 添加新的命名模板定义，而不覆盖主模板的主体。
+​	可以连续调用 `Parse` 方法来重新定义模板。如果模板定义的主体只包含空白和注释，则认为它是空的，并且不会替换现有模板的主体。这允许使用 `Parse` 方法添加新的命名模板定义，而不会覆盖主模板主体。
 
 #### (*Template) ParseFS  <- go1.16
 
@@ -1359,7 +1385,7 @@ func (t *Template) ParseFS(fsys fs.FS, patterns ...string) (*Template, error)
 
 ParseFS is like ParseFiles or ParseGlob but reads from the file system fsys instead of the host operating system's file system. It accepts a list of glob patterns. (Note that most file names serve as glob patterns matching only themselves.)
 
-​	ParseFS 类似于 ParseFiles 或 ParseGlob，但从文件系统 fsys 而不是主机操作系统的文件系统中读取。它接受一系列的通配符模式。（注意，大多数文件名本身作为只匹配自身的通配符模式。）
+​	`ParseFS` 方法类似于 `ParseFiles` 方法或 `ParseGlob`方法，但它从文件系统 `fsys` 读取而不是主机操作系统的文件系统。它接受一个 glob 模式列表。（请注意，大多数文件名仅作为匹配自己的 glob 模式。）
 
 #### (*Template) ParseFiles 
 
@@ -1369,11 +1395,11 @@ func (t *Template) ParseFiles(filenames ...string) (*Template, error)
 
 ParseFiles parses the named files and associates the resulting templates with t. If an error occurs, parsing stops and the returned template is nil; otherwise it is t. There must be at least one file. Since the templates created by ParseFiles are named by the base names of the argument files, t should usually have the name of one of the (base) names of the files. If it does not, depending on t's contents before calling ParseFiles, t.Execute may fail. In that case use t.ExecuteTemplate to execute a valid template.
 
-​	ParseFiles 解析指定的文件，并将生成的模板与 t 关联。如果发生错误，解析会停止，并且返回的模板为 nil；否则为 t。至少要有一个文件。由于 ParseFiles 创建的模板以参数文件的基本名称命名，因此 t 通常应该具有其中一个（基本）文件名的名称。如果没有，则根据调用 ParseFiles 前 t 的内容，t.Execute 可能会失败。在这种情况下，请使用 t.ExecuteTemplate 来执行有效的模板。
+​	`ParseFiles`方法解析指定的文件，并将生成的模板与t关联。如果发生错误，解析将停止，并返回的模板将为nil；否则它是`t`。必须至少有一个文件。由于由`ParseFiles`方法创建的模板是由实参文件的基本名称命名的，因此`t`通常应该有文件的一个（基本）名称。如果没有，取决于在调用`ParseFiles`方法之前`t`的内容，`t.Execute`可能会失败。在这种情况下，请使用`t.ExecuteTemplate`来执行有效的模板。
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-​	当在不同目录中解析具有相同名称的多个文件时，最后一个被提及的文件将成为结果。
+​	在解析具有相同名称的不同目录中的多个文件时，最后提到的文件将是结果文件。
 
 #### (*Template) ParseGlob 
 
@@ -1383,11 +1409,11 @@ func (t *Template) ParseGlob(pattern string) (*Template, error)
 
 ParseGlob parses the template definitions in the files identified by the pattern and associates the resulting templates with t. The files are matched according to the semantics of filepath.Match, and the pattern must match at least one file. ParseGlob is equivalent to calling t.ParseFiles with the list of files matched by the pattern.
 
-​	ParseGlob 解析与模式匹配的文件中的模板定义，并将生成的模板与 t 关联。文件的匹配遵循 filepath.Match 的语义，模式必须匹配至少一个文件。ParseGlob 等效于使用模式匹配的文件列表调用 t.ParseFiles。
+​	`ParseGlob` 方法解析由模式标识的文件中定义的模板，并将结果模板与 `t` 相关联。根据 `filepath.Match` 的语义匹配文件，模式必须至少匹配一个文件。`ParseGlob` 方法等同于使用模式匹配的文件列表调用 `t.ParseFiles`方法。
 
 When parsing multiple files with the same name in different directories, the last one mentioned will be the one that results.
 
-​	当在不同目录中解析具有相同名称的多个文件时，最后一个被提及的文件将成为结果。
+​	在解析具有相同名称的不同目录中的多个文件时，最后提到的文件将是结果文件
 
 #### (*Template) Templates 
 
@@ -1397,4 +1423,4 @@ func (t *Template) Templates() []*Template
 
 Templates returns a slice of defined templates associated with t.
 
-​	Templates 返回与 t 关联的已定义模板的切片。
+​	`Templates`方法 返回与 `t` 关联的已定义模板的切片。
