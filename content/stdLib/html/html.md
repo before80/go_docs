@@ -27,7 +27,7 @@ This section is empty.
 
 ## 函数
 
-#### func EscapeString 
+### func EscapeString 
 
 ``` go 
 func EscapeString(s string) string
@@ -35,9 +35,9 @@ func EscapeString(s string) string
 
 EscapeString escapes special characters like "<" to become "&lt;". It escapes only five such characters: <, >, &, ' and ". UnescapeString(EscapeString(s)) == s always holds, but the converse isn't always true.
 
-EscapeString用于转义HTML文本中的特殊字符，例如将"<"转义为"<"。它只转义五个特殊字符： <, >, &, ' 和 "。UnescapeString(EscapeString(s)) == s 总是成立，但反过来不一定成立。
+​	EscapeString用于转义HTML文本中的特殊字符，例如将"<"转义为"<"。它只转义五个特殊字符： <, >, &, ' 和 "。UnescapeString(EscapeString(s)) == s 总是成立，但反过来不一定成立。
 
-##### EscapeString Example
+#### EscapeString Example
 ``` go 
 package main
 
@@ -56,7 +56,7 @@ Output:
 &#34;Fran &amp; Freddie&#39;s Diner&#34; &lt;tasty@example.com&gt;
 ```
 
-#### func UnescapeString 
+### func UnescapeString 
 
 ``` go 
 func UnescapeString(s string) string
@@ -64,9 +64,9 @@ func UnescapeString(s string) string
 
 UnescapeString unescapes entities like "&lt;" to become "<". It unescapes a larger range of entities than EscapeString escapes. For example, "&aacute;" unescapes to "á", as does "&#225;" and "&#xE1;". UnescapeString(EscapeString(s)) == s always holds, but the converse isn't always true.
 
-UnescapeString用于反转义实体，例如将"<"反转义为"<"。它比EscapeString转义更多的实体。例如，"á"反转义为"á"，"á"和"á"也是如此。UnescapeString(EscapeString(s)) == s 总是成立，但反过来不一定成立。
+​	UnescapeString用于反转义实体，例如将"<"反转义为"<"。它比EscapeString转义更多的实体。例如，"á"反转义为"á"，"á"和"á"也是如此。UnescapeString(EscapeString(s)) == s 总是成立，但反过来不一定成立。
 
-##### UnescapeString Example
+#### UnescapeString Example
 ``` go 
 package main
 

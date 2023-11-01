@@ -12,33 +12,188 @@ https://pkg.go.dev/text/scanner@go1.20.1
 
 Package scanner provides a scanner and tokenizer for UTF-8-encoded text. It takes an io.Reader providing the source, which then can be tokenized through repeated calls to the Scan function. For compatibility with existing tools, the NUL character is not allowed. If the first character in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
 
-Package scanner提供了用于UTF-8编码文本的扫描器和标记器。它接受一个提供源代码的io.Reader，然后可以通过重复调用Scan函数来对其进行标记化。为了与现有工具兼容，不允许出现NUL字符。如果源代码中的第一个字符是UTF-8编码的字节顺序标记（BOM），它将被丢弃。
+​	scanner包提供了用于UTF-8编码文本的扫描器和标记器。它接受一个提供源代码的io.Reader，然后可以通过重复调用Scan函数来对其进行标记化。为了与现有工具兼容，不允许出现NUL字符。如果源代码中的第一个字符是UTF-8编码的字节顺序标记（BOM），它将被丢弃。
 
 By default, a Scanner skips white space and Go comments and recognizes all literals as defined by the Go language specification. It may be customized to recognize only a subset of those literals and to recognize different identifier and white space characters.
 
-默认情况下，Scanner会跳过空白字符和Go注释，并识别符合Go语言规范定义的所有字面量。它可以定制为仅识别这些字面量的子集，并识别不同的标识符和空白字符。
+​	默认情况下，Scanner会跳过空白字符和Go注释，并识别符合Go语言规范定义的所有字面量。它可以定制为仅识别这些字面量的子集，并识别不同的标识符和空白字符。
 
-##### Example
+## Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"strings"
+	"text/scanner"
+)
+
+func main() {
+	const src = `
+// This is scanned code.
+if a > 10 {
+	someParsable = text
+}`
+
+	var s scanner.Scanner
+	s.Init(strings.NewReader(src))
+	s.Filename = "example"
+	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
+		fmt.Printf("%s: %s\n", s.Position, s.TokenText())
+	}
+
+}
+//Output:
+
+//example:3:1: if
+//example:3:4: a
+//example:3:6: >
+//example:3:8: 10
+//example:3:11: {
+//example:4:2: someParsable
+//example:4:15: =
+//example:4:17: text
+//example:5:1: }
 ```
 
-##### Example
+## Example(IsIdentRune)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"strings"
+	"text/scanner"
+	"unicode"
+)
+
+func main() {
+	const src = "%var1 var2%"
+
+	var s scanner.Scanner
+	s.Init(strings.NewReader(src))
+	s.Filename = "default"
+
+	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
+		fmt.Printf("%s: %s\n", s.Position, s.TokenText())
+	}
+
+	fmt.Println()
+	s.Init(strings.NewReader(src))
+	s.Filename = "percent"
+
+	// treat leading '%' as part of an identifier
+	s.IsIdentRune = func(ch rune, i int) bool {
+		return ch == '%' && i == 0 || unicode.IsLetter(ch) || unicode.IsDigit(ch) && i > 0
+	}
+
+	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
+		fmt.Printf("%s: %s\n", s.Position, s.TokenText())
+	}
+
+}
+//Output:
+
+//default:1:1: %
+//default:1:2: var1
+//default:1:7: var2
+//default:1:11: %
+
+//percent:1:1: %var1
+//percent:1:7: var2
+//percent:1:11: %
 ```
 
-##### Example
+## Example(Mode)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"strings"
+	"text/scanner"
+)
+
+func main() {
+	const src = `
+    // Comment begins at column 5.
+
+This line should not be included in the output.
+
+/*
+This multiline comment
+should be extracted in
+its entirety.
+*/
+`
+
+	var s scanner.Scanner
+	s.Init(strings.NewReader(src))
+	s.Filename = "comments"
+	s.Mode ^= scanner.SkipComments // don't skip comments
+
+	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
+		txt := s.TokenText()
+		if strings.HasPrefix(txt, "//") || strings.HasPrefix(txt, "/*") {
+			fmt.Printf("%s: %s\n", s.Position, txt)
+		}
+	}
+
+}
+//Output:
+
+//comments:2:5: // Comment begins at column 5.
+//comments:6:1: /*
+//This multiline comment
+//should be extracted in
+//its entirety.
+//*/
 ```
 
-##### Example
+## Example (Whitespace)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"strings"
+	"text/scanner"
+)
+
+func main() {
+	// tab-separated values
+	const src = `aa	ab	ac	ad
+ba	bb	bc	bd
+ca	cb	cc	cd
+da	db	dc	dd`
+
+	var (
+		col, row int
+		s        scanner.Scanner
+		tsv      [4][4]string // large enough for example above
+	)
+	s.Init(strings.NewReader(src))
+	s.Whitespace ^= 1<<'\t' | 1<<'\n' // don't skip tabs and new lines
+
+	for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan() {
+		switch tok {
+		case '\n':
+			row++
+			col = 0
+		case '\t':
+			col++
+		default:
+			tsv[row][col] = s.TokenText()
+		}
+	}
+
+	fmt.Print(tsv)
+
+}
+//Output:
+
+//[[aa ab ac ad] [ba bb bc bd] [ca cb cc cd] [da db dc dd]]
 ```
-
-
-
-
-
-
 
 
 
@@ -112,7 +267,7 @@ This section is empty.
 
 ## 函数
 
-#### func TokenString 
+### func TokenString 
 
 ``` go 
 func TokenString(tok rune) string

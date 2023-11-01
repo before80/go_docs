@@ -12,7 +12,7 @@ https://pkg.go.dev/text/template/parse@go1.20.1
 
 Package parse builds parse trees for templates as defined by text/template and html/template. Clients should use those packages to construct templates rather than this one, which provides shared internal data structures not intended for general use.
 
-包parse根据text/template和html/template定义的模板构建解析树。客户端应使用这些包来构建模板，而不是使用本包，本包提供了一些共享的内部数据结构，不适用于一般用途。
+​	parse包根据text/template和html/template定义的模板构建解析树。客户端应使用这些包来构建模板，而不是使用本包，本包提供了一些共享的内部数据结构，不适用于一般用途。
 
 ## 常量 
 
@@ -24,7 +24,7 @@ This section is empty.
 
 ## 函数
 
-#### func IsEmptyTree 
+### func IsEmptyTree 
 
 ``` go 
 func IsEmptyTree(n Node) bool
@@ -32,9 +32,9 @@ func IsEmptyTree(n Node) bool
 
 IsEmptyTree reports whether this tree (node) is empty of everything but space or comments.
 
-IsEmptyTree报告此树（节点）是否除了空格或注释之外没有任何内容。
+​	IsEmptyTree报告此树（节点）是否除了空格或注释之外没有任何内容。
 
-#### func Parse 
+### func Parse 
 
 ``` go 
 func Parse(name, text, leftDelim, rightDelim string, funcs ...map[string]any) (map[string]*Tree, error)
@@ -42,7 +42,7 @@ func Parse(name, text, leftDelim, rightDelim string, funcs ...map[string]any) (m
 
 Parse returns a map from template name to parse.Tree, created by parsing the templates described in the argument string. The top-level template will be given the specified name. If an error is encountered, parsing stops and an empty map is returned with the error.
 
-Parse根据参数字符串中描述的模板解析信息，返回一个从模板名称到parse.Tree的映射。顶级模板将被赋予指定的名称。如果遇到错误，解析停止并返回一个空映射和错误。
+​	Parse根据参数字符串中描述的模板解析信息，返回一个从模板名称到parse.Tree的映射。顶级模板将被赋予指定的名称。如果遇到错误，解析停止并返回一个空映射和错误。
 
 ## 类型
 
@@ -61,7 +61,7 @@ type ActionNode struct {
 
 ActionNode holds an action (something bounded by delimiters). Control actions have their own nodes; ActionNode represents simple ones such as field evaluations and parenthesized pipelines.
 
-ActionNode保存一个动作（由分隔符界定的内容）。控制动作有自己的节点；ActionNode表示简单的动作，例如字段求值和带括号的管道。
+​	ActionNode保存一个动作（由分隔符界定的内容）。控制动作有自己的节点；ActionNode表示简单的动作，例如字段求值和带括号的管道。
 
 #### (*ActionNode) Copy 
 
@@ -89,7 +89,7 @@ type BoolNode struct {
 
 BoolNode holds a boolean constant.
 
-BoolNode保存一个布尔常量。
+​	BoolNode保存一个布尔常量。
 
 #### (*BoolNode) Copy 
 
@@ -120,7 +120,7 @@ type BranchNode struct {
 
 BranchNode is the common representation of if, range, and with.
 
-BranchNode是if、range和with的通用表示。
+​	BranchNode是if、range和with的通用表示。
 
 #### (*BranchNode) Copy  <- go1.4
 
@@ -147,7 +147,7 @@ type BreakNode struct {
 
 BreakNode represents a {{break}} action.
 
-BreakNode表示{{break}}动作。
+​	BreakNode表示{{break}}动作。
 
 #### (*BreakNode) Copy  <- go1.18
 
@@ -176,7 +176,7 @@ type ChainNode struct {
 
 ChainNode holds a term followed by a chain of field accesses (identifier starting with '.'). The names may be chained ('.x.y'). The periods are dropped from each ident.
 
-ChainNode保存一个术语，后面是一系列的字段访问（以'.'开头的标识符）。名称可以链接（'.x.y'）。每个标识符中的句点都被去除。
+​	ChainNode保存一个术语，后面是一系列的字段访问（以'.'开头的标识符）。名称可以链接（'.x.y'）。每个标识符中的句点都被去除。
 
 #### (*ChainNode) Add  <- go1.1
 
@@ -186,7 +186,7 @@ func (c *ChainNode) Add(field string)
 
 Add adds the named field (which should start with a period) to the end of the chain.
 
-Add将指定的字段（应以句点开头）添加到链的末尾。
+​	Add方法将指定的字段（应以句点开头）添加到链的末尾。
 
 #### (*ChainNode) Copy  <- go1.1
 
@@ -214,7 +214,7 @@ type CommandNode struct {
 
 CommandNode holds a command (a pipeline inside an evaluating action).
 
-CommandNode保存一个命令（在评估动作中的管道内部）。
+​	CommandNode保存一个命令（在评估动作中的管道内部）。
 
 #### (*CommandNode) Copy 
 
@@ -242,7 +242,7 @@ type CommentNode struct {
 
 CommentNode holds a comment.
 
-CommentNode保存一个注释。
+​	CommentNode保存一个注释。
 
 #### (*CommentNode) Copy  <- go1.16
 
@@ -267,9 +267,9 @@ type ContinueNode struct {
 }
 ```
 
-ContinueNode represents a {{continue}} action.
+ContinueNode represents a `{{continue}}` action.
 
-ContinueNode表示`{{continue}}`动作。
+​	ContinueNode表示`{{continue}}`动作。
 
 #### (*ContinueNode) Copy  <- go1.18
 
@@ -295,7 +295,7 @@ type DotNode struct {
 
 DotNode holds the special identifier '.'.
 
-DotNode保存特殊标识符'.'。
+​	DotNode保存特殊标识符'.'。
 
 #### (*DotNode) Copy 
 
@@ -329,7 +329,7 @@ type FieldNode struct {
 
 FieldNode holds a field (identifier starting with '.'). The names may be chained ('.x.y'). The period is dropped from each ident.
 
-FieldNode保存一个字段（以'.'开头的标识符）。名称可以链接（'.x.y'）。每个标识符中的句点都被去除。
+​	FieldNode保存一个字段（以'.'开头的标识符）。名称可以链接（'.x.y'）。每个标识符中的句点都被去除。
 
 #### (*FieldNode) Copy 
 
@@ -357,7 +357,7 @@ type IdentifierNode struct {
 
 IdentifierNode holds an identifier.
 
-IdentifierNode保存一个标识符。
+​	IdentifierNode保存一个标识符。
 
 #### func NewIdentifier 
 
@@ -367,7 +367,7 @@ func NewIdentifier(ident string) *IdentifierNode
 
 NewIdentifier returns a new IdentifierNode with the given identifier name.
 
-NewIdentifier使用给定的标识符名称返回一个新的IdentifierNode。
+​	NewIdentifier使用给定的标识符名称返回一个新的IdentifierNode。
 
 #### (*IdentifierNode) Copy 
 
@@ -383,7 +383,7 @@ func (i *IdentifierNode) SetPos(pos Pos) *IdentifierNode
 
 SetPos sets the position. NewIdentifier is a public method so we can't modify its signature. Chained for convenience. TODO: fix one day?
 
-SetPos设置位置。NewIdentifier是一个公共方法，所以我们不能修改它的签名。为了方便链式调用。待修复：TODO。
+​	SetPos设置位置。NewIdentifier是一个公共方法，所以我们不能修改它的签名。为了方便链式调用。待修复：TODO。
 
 #### (*IdentifierNode) SetTree  <- go1.4
 
@@ -393,7 +393,7 @@ func (i *IdentifierNode) SetTree(t *Tree) *IdentifierNode
 
 SetTree sets the parent tree for the node. NewIdentifier is a public method so we can't modify its signature. Chained for convenience. TODO: fix one day?
 
-SetTree设置节点的父树。NewIdentifier是一个公共方法，所以我们不能修改它的签名。为了方便链式调用。待修复：TODO。
+​	SetTree设置节点的父树。NewIdentifier是一个公共方法，所以我们不能修改它的签名。为了方便链式调用。待修复：TODO。
 
 #### (*IdentifierNode) String 
 
@@ -411,7 +411,7 @@ type IfNode struct {
 
 IfNode represents an {{if}} action and its commands.
 
-IfNode表示{{if}}动作及其命令。
+​	IfNode表示{{if}}动作及其命令。
 
 #### (*IfNode) Copy 
 
@@ -433,7 +433,7 @@ type ListNode struct {
 
 ListNode holds a sequence of nodes.
 
-ListNode保存一系列节点。
+​	ListNode保存一系列节点。
 
 #### (*ListNode) Copy 
 
@@ -461,7 +461,7 @@ type Mode uint
 
 A mode value is a set of flags (or 0). Modes control parser behavior.
 
-模式值是一组标志（或0）。模式控制解析器的行为。
+​	模式值是一组标志（或0）。模式控制解析器的行为。
 
 ``` go 
 const (
@@ -482,7 +482,7 @@ type NilNode struct {
 
 NilNode holds the special identifier 'nil' representing an untyped nil constant.
 
-NilNode保存特殊标识符'nil'，表示未类型化的nil常量。
+​	NilNode保存特殊标识符'nil'，表示未类型化的nil常量。
 
 #### (*NilNode) Copy  <- go1.1
 
@@ -520,7 +520,7 @@ type Node interface {
 
 A Node is an element in the parse tree. The interface is trivial. The interface contains an unexported method so that only types local to this package can satisfy it.
 
-Node是解析树中的一个元素。该接口是平凡的。该接口包含一个未导出的方法，因此只有本包中的类型才能满足它。
+​	Node是解析树中的一个元素。该接口是平凡的。该接口包含一个未导出的方法，因此只有本包中的类型才能满足它。
 
 ### type NodeType 
 
@@ -530,7 +530,7 @@ type NodeType int
 
 NodeType identifies the type of a parse tree node.
 
-NodeType标识解析树节点的类型。
+​	NodeType标识解析树节点的类型。
 
 ``` go 
 const (
@@ -567,7 +567,7 @@ func (t NodeType) Type() NodeType
 
 Type returns itself and provides an easy default implementation for embedding in a Node. Embedded in all non-trivial Nodes.
 
-Type返回自身，并为嵌入在所有非平凡节点中提供了简单的默认实现。
+​	Type方法返回自身，并为嵌入在所有非平凡节点中提供了简单的默认实现。
 
 ### type NumberNode 
 
@@ -591,7 +591,7 @@ type NumberNode struct {
 
 NumberNode holds a number: signed or unsigned integer, float, or complex. The value is parsed and stored under all the types that can represent the value. This simulates in a small amount of code the behavior of Go's ideal constants.
 
-NumberNode表示一个数字：有符号或无符号整数、浮点数或复数。该值被解析并存储在可以表示该值的所有类型下。这在很少的代码中模拟了Go理想常量的行为。
+​	NumberNode表示一个数字：有符号或无符号整数、浮点数或复数。该值被解析并存储在可以表示该值的所有类型下。这在很少的代码中模拟了Go理想常量的行为。
 
 #### (*NumberNode) Copy 
 
@@ -622,7 +622,7 @@ type PipeNode struct {
 
 PipeNode holds a pipeline with optional declaration
 
-PipeNode表示具有可选声明的管道。
+​	PipeNode表示具有可选声明的管道。
 
 #### (*PipeNode) Copy 
 
@@ -650,7 +650,7 @@ type Pos int
 
 Pos represents a byte position in the original input text from which this template was parsed.
 
-Pos表示从中解析此模板的原始输入文本中的字节位置。
+​	Pos表示从中解析此模板的原始输入文本中的字节位置。
 
 #### (Pos) Position  <- go1.1
 
@@ -668,7 +668,7 @@ type RangeNode struct {
 
 RangeNode represents a {{range}} action and its commands.
 
-RangeNode表示一个{{range}}操作及其命令。
+​	RangeNode表示一个{{range}}操作及其命令。
 
 #### (*RangeNode) Copy 
 
@@ -691,7 +691,7 @@ type StringNode struct {
 
 StringNode holds a string constant. The value has been "unquoted".
 
-StringNode表示一个字符串常量。该值已经被"去引号"。
+​	StringNode表示一个字符串常量。该值已经被"去引号"。
 
 #### (*StringNode) Copy 
 
@@ -721,7 +721,7 @@ type TemplateNode struct {
 
 TemplateNode represents a {{template}} action.
 
-TemplateNode表示一个{{template}}操作。
+​	TemplateNode表示一个{{template}}操作。
 
 #### (*TemplateNode) Copy 
 
@@ -749,7 +749,7 @@ type TextNode struct {
 
 TextNode holds plain text.
 
-TextNode保存纯文本。
+​	TextNode保存纯文本。
 
 #### (*TextNode) Copy 
 
@@ -777,7 +777,7 @@ type Tree struct {
 
 Tree is the representation of a single parsed template.
 
-Tree是单个解析模板的表示。
+​	Tree是单个解析模板的表示。
 
 #### func New 
 
@@ -787,7 +787,7 @@ func New(name string, funcs ...map[string]any) *Tree
 
 New allocates a new parse tree with the given name.
 
-New分配一个带有给定名称的新解析树。
+​	New函数分配一个带有给定名称的新解析树。
 
 #### (*Tree) Copy  <- go1.2
 
@@ -797,7 +797,7 @@ func (t *Tree) Copy() *Tree
 
 Copy returns a copy of the Tree. Any parsing state is discarded.
 
-Copy返回树的副本。丢弃任何解析状态。
+​	Copy方法返回树的副本。丢弃任何解析状态。
 
 #### (*Tree) ErrorContext  <- go1.1
 
@@ -807,7 +807,7 @@ func (t *Tree) ErrorContext(n Node) (location, context string)
 
 ErrorContext returns a textual representation of the location of the node in the input text. The receiver is only used when the node does not have a pointer to the tree inside, which can occur in old code.
 
-ErrorContext返回节点在输入文本中的位置的文本表示。仅当节点没有内部指向树的指针时，接收者才会被使用，这可能发生在旧代码中。
+​	ErrorContext方法返回节点在输入文本中的位置的文本表示。仅当节点没有内部指向树的指针时，接收者才会被使用，这可能发生在旧代码中。
 
 #### (*Tree) Parse 
 
@@ -817,7 +817,7 @@ func (t *Tree) Parse(text, leftDelim, rightDelim string, treeSet map[string]*Tre
 
 Parse parses the template definition string to construct a representation of the template for execution. If either action delimiter string is empty, the default ("{{" or "}}") is used. Embedded template definitions are added to the treeSet map.
 
-Parse解析模板定义字符串以构建模板的表示形式以供执行。如果任一操作分隔符字符串为空，则使用默认值（"{{"或"}}"）。嵌入的模板定义将添加到treeSet映射中。
+​	Parse方法解析模板定义字符串以构建模板的表示形式以供执行。如果任一操作分隔符字符串为空，则使用默认值（"{{"或"}}"）。嵌入的模板定义将添加到treeSet映射中。
 
 ### type VariableNode 
 
@@ -833,7 +833,7 @@ type VariableNode struct {
 
 VariableNode holds a list of variable names, possibly with chained field accesses. The dollar sign is part of the (first) name.
 
-VariableNode保存变量名的列表，可能包含链式字段访问。美元符号是（第一个）名称的一部分。
+​	VariableNode保存变量名的列表，可能包含链式字段访问。美元符号是（第一个）名称的一部分。
 
 #### (*VariableNode) Copy 
 
@@ -855,9 +855,9 @@ type WithNode struct {
 }
 ```
 
-WithNode represents a {{with}} action and its commands.
+WithNode represents a `{{with}}` action and its commands.
 
-WithNode表示{{with}}操作及其命令。
+​	WithNode表示`{{with}}`操作及其命令。
 
 #### (*WithNode) Copy 
 
