@@ -11,11 +11,11 @@ draft = false
 
 https://pkg.go.dev/reflect@go1.20.1
 
-​	reflect包实现了运行时反射，允许程序操作任意类型的对象。典型用法是将静态类型为interface{}的值传递给TypeOf函数提取其动态类型信息，TypeOf函数返回一个Type。
+​	reflect包实现了运行时反射，允许程序操作任意类型的对象。典型用法是将静态类型为`interface{}`的值传递给`TypeOf`函数提取其动态类型信息，`TypeOf`函数返回一个`Type`。
 
-​	调用ValueOf函数返回一个Value类型的值，表示运行时数据。Zero函数接受一个Type参数，并返回表示该类型零值的Value。
+​	调用`ValueOf`函数返回一个`Value`类型的值，表示运行时数据。`Zero`函数接受一个`Type`参数，并返回表示该类型零值的Value。
 
-​	请参阅《反射的法则》(The Laws of Reflection)了解Go语言中的反射介绍：https://golang.org/doc/articles/laws_of_reflection.html
+​	请参阅《反射的法则》(The Laws of Reflection)了解Go语言中的反射介绍：[https://go.dev/blog/laws-of-reflection](https://go.dev/blog/laws-of-reflection)或[反射的法则]({{< ref "/goBlog/2011/TheLawsOfReflection">}})。
 
 
 ## 常量 

@@ -57,7 +57,7 @@ By default, all text between actions is copied verbatim when the template is exe
 
 However, to aid in formatting template source code, if an action's left delimiter (by default "{{") is followed immediately by a minus sign and white space, all trailing white space is trimmed from the immediately preceding text. Similarly, if the right delimiter ("}}") is preceded by white space and a minus sign, all leading white space is trimmed from the immediately following text. In these trim markers, the white space must be present: "{{- 3}}" is like "{{3}}" but trims the immediately preceding text, while "{{-3}}" parses as an action containing the number -3.
 
-​	然而，为了帮助格式化模板源代码，如果一个操作的`左定界符`（默认为 "{{"）紧跟着一个减号和空格，那么紧随其后的所有尾随空格都会被从前面的文本中去除。类似地，如果`右定界符`（"}}"）之前有空格和减号，那么紧随其后的所有前导空格都会被从后面的文本中去除。在这些修剪标记中，空格必须存在："{{- 3}}" 类似于 "{{3}}"，但会去除紧随其前面的文本的空格，而 "{{-3}}" 解析为包含数字 -3 的操作。
+​	然而，为了帮助格式化模板源代码，如果一个操作的`左定界符`（默认为 "{{"）紧跟着一个减号和空格，那么紧随其后的所有尾随空白都会被从前面的文本中去除。类似地，如果`右定界符`（"}}"）之前有空白和减号，那么紧随其后的所有前导空白都会被从后面的文本中去除。在这些修剪标记中，空白必须存在："{{- 3}}" 类似于 "{{3}}"，但会去除紧随其前面的文本的空白，而 "{{-3}}" 解析为包含数字 -3 的操作。
 
 For instance, when executing the template whose source is
 
@@ -77,7 +77,7 @@ the generated output would be
 
 For this trimming, the definition of white space characters is the same as in Go: space, horizontal tab, carriage return, and newline.
 
-​	对于这种修剪操作，空格字符的定义与 Go 语言相同：空格、水平制表符、回车和换行符。
+​	对于这种修剪操作，空白字符的定义与 Go 语言相同：空格、水平制表符、回车和换行符。
 
 ## 操作 Actions
 
@@ -203,23 +203,23 @@ An argument is a simple value, denoted by one of the following.
 - The name of a field of the data, which must be a struct, preceded by a period, such as `.Field` The result is the value of the field. Field invocations may be chained: `.Field1.Field2` . Fields can also be evaluated on variables, including chaining: `$x.Field1.Field2`
 - 数据的字段名，必须是一个结构体，以句点（.）开头，例如 `.Field`。结果是字段的值。字段调用可以链式调用：`.Field1.Field2` 。字段还可以在变量上进行求值，包括链式调用：`$x.Field1.Field2`
 - The name of a key of the data, which must be a map, preceded by a period, such as .Key The result is the map element value indexed by the key. Key invocations may be chained and combined with fields to any depth: `.Field1.Key1.Field2.Key2` Although the key must be an alphanumeric identifier, unlike with field names they do not need to start with an upper case letter. Keys can also be evaluated on variables, including chaining: `$x.key1.key2`
-- 数据的键名，必须是一个映射，以句点（.）开头，例如 .Key。结果是由键索引的映射元素的值。键调用可以链式调用，并与字段组合到任意深度：`.Field1.Key1.Field2.Key2` 尽管键必须是字母数字标识符，但与字段名不同，它们不需要以大写字母开头。键还可以在变量上进行求值，包括链式调用：`$x.key1.key2`
+- 数据的键名，必须是一个映射，以句点（.）开头，例如 .Key。结果是由键索引的映射元素的值。键调用可以链式调用，并与字段组合到任意深度：`.Field1.Key1.Field2.Key2` 尽管键必须是字母数字标识符，**但与字段名不同，它们不需要以大写字母开头**。键还可以在变量上进行求值，包括链式调用：`$x.key1.key2`
 - The name of a niladic method of the data, preceded by a period, such as .Method The result is the value of invoking the method with dot as the receiver, `dot.Method()`. Such a method must have one return value (of any type) or two return values, the second of which is an error. If it has two and the returned error is non-nil, execution terminates and an error is returned to the caller as the value of Execute. Method invocations may be chained and combined with fields and keys to any depth: `.Field1.Key1.Method1.Field2.Key2.Method2` Methods can also be evaluated on variables, including chaining: `$x.Method1.Field`
-- 数据的零参数方法名称，以句点（.）开头，例如 `.Method`。结果是使用 dot 作为接收器调用方法的值，`dot.Method()`。这样的方法必须具有一个返回值（任意类型）或两个返回值，第二个返回值是一个错误。如果有两个返回值且返回的错误非空，则执行终止，并将错误作为 Execute 的返回值返回给调用者。方法调用可以链式调用，并与字段和键组合到任意深度：`.Field1.Key1.Method1.Field2.Key2.Method2` 方法还可以在变量上进行求值，包括链式调用：`$x.Method1.Field`
+- 数据的零参数方法名称，以句点（.）开头，例如 `.Method`。结果是使用 dot 作为接收器调用方法的值，`dot.Method()`。这样的方法必须具有一个返回值（任意类型）或两个返回值，第二个返回值是一个error。如果有两个返回值且返回的error非nil，则执行终止，并将error作为 Execute 的返回值返回给调用者。方法调用可以链式调用，并与字段和键组合到任意深度：`.Field1.Key1.Method1.Field2.Key2.Method2` 方法还可以在变量上进行求值，包括链式调用：`$x.Method1.Field`
 - The name of a niladic function, such as `fun` The result is the value of invoking the function, `fun()`. The return types and values behave as in methods. Functions and function names are described below.
-- 无参数函数的名称，例如 `fun`。结果是调用函数的值，`fun()`。返回类型和值的行为与方法相同。函数和函数名将在下面进行描述。
+- 零参数函数的名称，例如 `fun`。结果是调用函数的值，`fun()`。返回类型和值的行为与方法相同。函数和函数名将在下面进行描述。
 - A parenthesized instance of one the above, for grouping. The result may be accessed by a field or map key invocation. `print (.F1 arg1) (.F2 arg2) (.StructValuedMethod "arg").Field`
 - 上述内容的括号实例，用于分组。结果可以通过字段或映射键调用进行访问。例如 `print (.F1 arg1) (.F2 arg2) (.StructValuedMethod "arg").Field`
 
 Arguments may evaluate to any type; if they are pointers the implementation automatically indirects to the base type when required. If an evaluation yields a function value, such as a function-valued field of a struct, the function is not invoked automatically, but it can be used as a truth value for an `if` action and the like. To invoke it, use the `call` function, defined below.
 
-​	实参可以评估为任何类型；如果它们是指针，实现会在需要时自动对基本类型进行间接引用。如果一个评估结果是函数值，例如结构体的函数值字段，该函数不会自动调用，但它可以用作`if`操作等的真值。要调用它，请使用下文中定义的`call`函数。
+​	实参可以求值为任何类型；如果它们是指针，实现会在需要时自动对其基本类型进行间接引用。如果一个求值结果是函数值，例如结构体的函数值字段，该函数不会自动调用，但它可以用作`if`操作等的真值。要调用它，请使用下文中定义的`call`函数。
 
 ## 管道 Pipelines 
 
 A pipeline is a possibly chained sequence of "commands". A command is a simple value (argument) or a function or method call, possibly with multiple arguments:
 
-​	管道是一个可能被链式组合的"命令"序列。命令可以是一个简单的值（实参）或一个函数或方法调用，可能带有多个实参：
+​	管道是一个可以被链式组合的"命令"序列。命令可以是一个简单的值（实参）或一个函数或方法调用，可以带有多个实参：
 
 ```
 Argument
@@ -249,7 +249,7 @@ A pipeline may be "chained" by separating a sequence of commands with pipeline c
 
 The output of a command will be either one value or two values, the second of which has type error. If that second value is present and evaluates to non-nil, execution terminates and the error is returned to the caller of `Execute`.
 
-​	命令的输出将是一个值或两个值，其中第二个值的类型为 error。如果第二个值存在且求值为非空，则执行终止，并将错误返回给 `Execute` 的调用者。
+​	命令的输出将是一个值或两个值，其中第二个值的类型为 error。如果第二个值存在且求值为非nil，则执行终止，并将error返回给 `Execute` 的调用者。
 
 ## 变量
 
@@ -337,7 +337,7 @@ Here are some example one-line templates demonstrating pipelines and variables. 
 
 During execution functions are found in two function maps: first in the template, then in the global function map. By default, no functions are defined in the template but the Funcs method can be used to add them.
 
-​	在执行过程中，函数可以在两个函数映射中找到：首先在模板中，然后在全局函数映射中。默认情况下，模板中未定义任何函数，但可以使用 Funcs 方法来添加函数。
+​	在执行过程中，函数可以在两个函数映射中找到：首先在模板中，然后在全局函数映射中。默认情况下，模板中未定义任何函数，但可以使用 `Funcs` 方法来添加函数。
 
 Predefined global functions are named as follows.
 

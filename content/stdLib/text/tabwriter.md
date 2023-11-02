@@ -16,13 +16,13 @@ Package tabwriter implements a write filter (tabwriter.Writer) that translates t
 
 The package is using the Elastic Tabstops algorithm described at http://nickgravgaard.com/elastictabstops/index.html.
 
-​	该包使用了在http://nickgravgaard.com/elastictabstops/index.html上描述的弹性制表符算法。
+​	该包使用了在[http://nickgravgaard.com/elastictabstops/index.html](http://nickgravgaard.com/elastictabstops/index.html)上描述的弹性制表符算法。
 
 The text/tabwriter package is frozen and is not accepting new features.
 
 ​	text/tabwriter包已经冻结，不再接受新功能。
 
-## Example (Elastic)
+## Example (Elastic 灵活的)
 ``` go 
 package main
 
