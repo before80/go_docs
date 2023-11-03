@@ -11,6 +11,12 @@ draft = false
 
 +++
 
+## fcant在语雀的笔记
+
+[https://www.yuque.com/fcant/go/wp0pz6](https://www.yuque.com/fcant/go/wp0pz6)
+
+​	go基础语言，go第三方库，开发笔记，日志，测试，web开发，爬虫等介绍，特别是开发笔记，分场景进行了总结，存在借鉴参考的价值。
+
 ## shockerli/go-awesome: Go 语言优秀资源整理，为项目落地加速🏃
 
 [https://github.com/shockerli/go-awesome](https://github.com/shockerli/go-awesome)

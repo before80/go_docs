@@ -7,15 +7,13 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# reflect
-
-https://pkg.go.dev/reflect@go1.20.1
+[https://pkg.go.dev/reflect@go1.20.1](https://pkg.go.dev/reflect@go1.20.1)
 
 ​	reflect包实现了运行时反射，允许程序操作任意类型的对象。典型用法是将静态类型为`interface{}`的值传递给`TypeOf`函数提取其动态类型信息，`TypeOf`函数返回一个`Type`。
 
 ​	调用`ValueOf`函数返回一个`Value`类型的值，表示运行时数据。`Zero`函数接受一个`Type`参数，并返回表示该类型零值的Value。
 
-​	请参阅《反射的法则》(The Laws of Reflection)了解Go语言中的反射介绍：[https://go.dev/blog/laws-of-reflection](https://go.dev/blog/laws-of-reflection)或[反射的法则]({{< ref "/goBlog/2011/TheLawsOfReflection">}})。
+​	请参阅《[反射的法则]({{< ref "/goBlog/2011/TheLawsOfReflection">}})》(The Laws of Reflection)了解Go语言中的反射介绍。
 
 
 ## 常量 
@@ -34,45 +32,71 @@ This section is empty.
 
 ## 函数
 
-#### func Copy 
+### func Copy 
 
 ``` go 
 func Copy(dst, src Value) int
 ```
 
-​	Copy函数将src的内容复制到dst，直到dst被填满或src用尽为止。它返回已复制的元素数。Dst和src都必须是Slice或Array类型，并且dst和src必须具有相同的元素类型。
+Copy copies the contents of src into dst until either dst has been filled or src has been exhausted. It returns the number of elements copied. Dst and src each must have kind Slice or Array, and dst and src must have the same element type.
 
-​	作为特例，如果dst的元素类型为Uint8，则src可以具有String种类。
+​	Copy 函数将 src 的内容复制到 dst，直到 dst 已满或 src 已耗尽。它返回已复制的元素数量。dst 和 src 必须都是 Slice 或 Array 类型，而且它们的元素类型必须相同。
 
-#### func DeepEqual 
+As a special case, src can have kind String if the element type of dst is kind Uint8.
+
+​	作为特殊情况，如果 dst 的元素类型是 Uint8，则 src 可以是 String 类型。	
+
+### func DeepEqual 
 
 ``` go 
 func DeepEqual(x, y any) bool
 ```
 
-​	DeepEqual函数报告 x 和 y 是否"深度相等"，定义如下。如果以下情况之一适用，则具有相同类型的两个值是深度相等的。具有不同类型的值永远不会深度相等。
+DeepEqual reports whether x and y are “deeply equal,” defined as follows. Two values of identical type are deeply equal if one of the following cases applies. Values of distinct types are never deeply equal.
 
-​	当它们对应的元素是深度相等的时，数组值是深度相等的。
+​	DeepEqual 函数报告 x 和 y 是否“深度相等”，定义如下。两个具有相同类型的值在以下情况下被认为是深度相等。不同类型的值永远不会深度相等。
 
-​	当它们对应的字段(包括导出的和未导出的字段)是深度相等的时，结构体值是深度相等的。
+Array values are deeply equal when their corresponding elements are deeply equal.
 
-​	当它们都为 nil 时，函数值是深度相等的；否则它们不是深度相等的。
+​	当其对应元素是深度相等时，Array 值是深度相等的。
 
-​	当它们保存深度相等的具体值时，接口值是深度相等的。
+Struct values are deeply equal if their corresponding fields, both exported and unexported, are deeply equal.
 
-​	当以下条件全部为 true 时，Map 值是深度相等的：它们都为 nil 或都不为 nil，它们具有相同的长度，并且它们是同一个 map 对象或它们的相应键(使用 Go 相等性匹配)映射到深度相等的值。
+​	如果其对应字段（包括导出字段和未导出字段）是深度相等的，那么 Struct 值就是深度相等的。
 
-​	当它们使用 Go 的 == 运算符相等时，或者它们指向深度相等的值时，指针值是深度相等的。
+Func values are deeply equal if both are nil; otherwise they are not deeply equal.
 
-​	当以下条件全部为 true 时，Slice 值是深度相等的：它们都为 nil 或都不为 nil，它们具有相同的长度，并且它们指向相同底层数组的相同初始元素(也就是，&x[0] == &y[0])，或它们的相应元素(最多是长度)是深度相等的。请注意，非 nil 的空 Slice 和 nil Slice(例如 []byte{} 和 []byte(nil))不是深度相等的。
+​	如果两个 Func 值都为 nil，则它们是深度相等；否则它们不是深度相等的。
 
-​	其他值 - 数字、布尔值、字符串和通道 - 如果它们使用 Go 的 == 运算符相等，则它们是深度相等的。
+Interface values are deeply equal if they hold deeply equal concrete values.
 
-​	一般而言，DeepEqual函数是 Go 的 == 运算符的递归放宽版。然而，这个想法在没有一些不一致性的情况下是不可能实现的。具体来说，一个值可能不等于它自身，因为它是 func 类型(通常是不可比较的)，或者因为它是浮点数 NaN 值(在浮点比较中不等于它本身)，或者因为它是包含这样的值的数组、结构体或接口。另一方面，指针值始终等于它们自己，即使它们指向或包含这样的问题值，因为它们使用 Go 的 == 运算符比较相等，而这是一个足够的条件来深度相等，而不考虑内容。DeepEqual函数已被定义为使得同样的快捷方式适用于切片和映射：如果 x 和 y 是同一个切片或同一个映射，那么它们无论内容如何都是深度相等的。
+​	如果 Interface 值包含深度相等的具体值，那么它们是深度相等的。
 
-​	当 DeepEqual函数遍历数据值时，可能会找到一个循环。DeepEqual函数第二次及后续比较已经比较过的两个指针值时，它将这些值视为相等，而不是检查它们所指向的值。这确保了 DeepEqual函数终止。
+Map values are deeply equal when all of the following are true: they are both nil or both non-nil, they have the same length, and either they are the same map object or their corresponding keys (matched using Go equality) map to deeply equal values.
 
-#### func Swapper  <- go1.8
+当	满足以下所有条件时，Map 值是深度相等的：它们都为 nil 或都非 nil、它们具有相同的长度，它们是相同的映射对象，或者它们的相应键（使用 Go 的相等性进行匹配）映射到深度相等的值。
+
+Pointer values are deeply equal if they are equal using Go's == operator or if they point to deeply equal values.
+
+​	当它们使用 Go 的==运算符相等，或者它们指向深度相等的值时，Pointer 值是深度相等的。
+
+Slice values are deeply equal when all of the following are true: they are both nil or both non-nil, they have the same length, and either they point to the same initial entry of the same underlying array (that is, &x[0] == &y[0]) or their corresponding elements (up to length) are deeply equal. Note that a non-nil empty slice and a nil slice (for example, []byte{} and []byte(nil)) are not deeply equal.
+
+​	当满足以下所有条件时，Slice 值是深度相等的：它们都为 nil 或都非 nil、它们具有相同的长度，它们指向相同底层数tries 中的相同初始条目（即 &x[0] == &y[0]），或者它们的相应元素（直到长度为止）是深度相等的。请注意，非 nil 的空切片和 nil 切片（例如，[]byte{} 和 []byte(nil)）不是深度相等的。
+
+Other values - numbers, bools, strings, and channels - are deeply equal if they are equal using Go's == operator.
+
+​	其他值，如数字、布尔值、字符串和通道，只有在使用 Go 的==运算符时它们是深度相等的。
+
+In general DeepEqual is a recursive relaxation of Go's == operator. However, this idea is impossible to implement without some inconsistency. Specifically, it is possible for a value to be unequal to itself, either because it is of func type (uncomparable in general) or because it is a floating-point NaN value (not equal to itself in floating-point comparison), or because it is an array, struct, or interface containing such a value. On the other hand, pointer values are always equal to themselves, even if they point at or contain such problematic values, because they compare equal using Go's == operator, and that is a sufficient condition to be deeply equal, regardless of content. DeepEqual has been defined so that the same short-cut applies to slices and maps: if x and y are the same slice or the same map, they are deeply equal regardless of content.
+
+​	通常，DeepEqual 是 Go 的==运算符的递归放宽版本。然而，这个想法在没有一些不一致性的情况下是不可能实现的。具体来说，一个值可能与自身不相等，原因可能是它是 func 类型（一般来说无法比较）或者它是浮点NaN值（在浮点比较中与自身不相等），或者它是一个包含这样的值的数组、结构体或接口。另一方面，指针值始终等于自身，即使它们指向或包含这些问题值，因为它们使用 Go 的==运算符相等，这是深度相等的充分条件，无论内容如何。DeepEqual 已经定义，以便相同的快捷方式也适用于切片和映射：如果 x 和 y 是相同的切片或相同的映射，不考虑内容，它们是深度相等的。
+
+As DeepEqual traverses the data values it may find a cycle. The second and subsequent times that DeepEqual compares two pointer values that have been compared before, it treats the values as equal rather than examining the values to which they point. This ensures that DeepEqual terminates.
+
+​	当 DeepEqual 遍历数据值时，它可能会找到一个循环。第二次及以后比较已经比较过的两个指针值，它们视为相等而不是检查它们指向的值。这确保了 DeepEqual 的终止。
+
+### func Swapper  <- go1.8
 
 ``` go 
 func Swapper(slice any) func(i, j int)
@@ -82,6 +106,14 @@ func Swapper(slice any) func(i, j int)
 
 ​	如果提供的接口不是切片，Swapper 将会 panic。
 
+Swapper returns a function that swaps the elements in the provided slice.
+
+​	Swapper 函数返回一个用于交换提供的切片中元素的函数。
+
+Swapper panics if the provided interface is not a slice.
+
+​	如果提供的接口不是切片类型，Swapper 会引发 panic。
+
 ## 类型
 
 ### type ChanDir 
@@ -90,7 +122,11 @@ func Swapper(slice any) func(i, j int)
 type ChanDir int
 ```
 
-​	ChanDir 表示通道类型的方向。
+ChanDir represents a channel type's direction.	
+
+ChanDir 表示通道类型的方向。
+
+​	ChanDir 类型表示通道类型的方向。
 
 ``` go 
 const (
@@ -114,9 +150,13 @@ func (d ChanDir) String() string
 type Kind uint
 ```
 
-​	Kind 表示 Type 所代表的具体类型种类。零 Kind 不是有效的类型。
+A Kind represents the specific kind of type that a Type represents. The zero Kind is not a valid kind.
 
-##### Kind Example
+Kind 表示 Type 所代表的具体类型种类。零 Kind 不是有效的类型。
+
+​	Kind 类型表示 Type 表示的特定类型。零 Kind 不是有效的类型。
+
+### Kind Example
 
 ``` go 
 package main
@@ -186,7 +226,11 @@ const (
 func (k Kind) String() string
 ```
 
+String returns the name of k.
+
 ​	String方法返回k的名称。
+
+​	String 返回 k 的名称。
 
 ### type MapIter  <- go1.12
 
@@ -197,7 +241,11 @@ type MapIter struct {
 }
 ```
 
+A MapIter is an iterator for ranging over a map. See Value.MapRange.
+
 ​	MapIter结构体是一个用于遍历映射的迭代器。参见Value.MapRange。
+
+​	MapIter 是用于遍历映射的迭代器。参见 Value.MapRange。
 
 #### (*MapIter) Key  <- go1.12
 
@@ -205,7 +253,11 @@ type MapIter struct {
 func (iter *MapIter) Key() Value
 ```
 
+Key returns the key of iter's current map entry.
+
 ​	Key方法返回iter当前映射条目的键。
+
+​	Key 返回 iter 当前映射条目的键。
 
 #### (*MapIter) Next  <- go1.12
 
@@ -213,7 +265,11 @@ func (iter *MapIter) Key() Value
 func (iter *MapIter) Next() bool
 ```
 
+Next advances the map iterator and reports whether there is another entry. It returns false when iter is exhausted; subsequent calls to Key, Value, or Next will panic.
+
 ​	Next方法将映射迭代器前进，并报告是否有另一个条目。当iter耗尽时，它返回false；对Key，Value或Next的后续调用将引发panic。
+
+​	Next 推进映射迭代器，并报告是否还有其他条目。当 iter 耗尽时返回 false；随后对 Key、Value 或 Next 的调用会引发 panic。
 
 #### (*MapIter) Reset  <- go1.18
 
@@ -221,7 +277,11 @@ func (iter *MapIter) Next() bool
 func (iter *MapIter) Reset(v Value)
 ```
 
+Reset modifies iter to iterate over v. It panics if v's Kind is not Map and v is not the zero Value. Reset(Value{}) causes iter to not to refer to any map, which may allow the previously iterated-over map to be garbage collected.
+
 ​	Reset方法修改iter以遍历v。如果v的Kind不是Map且v不是零值，则它会引发panic。Reset(Value{})会导致iter不引用任何映射，这可能允许之前遍历过的映射被垃圾回收。
+
+​	Reset 修改 iter 以遍历 v。如果 v 的 Kind 不是 Map，且 v 不是零 Value，则会引发 panic。Reset(Value{}) 可能会使 iter 不引用任何映射，这可能允许先前遍历的映射被垃圾回收。
 
 #### (*MapIter) Value  <- go1.12
 
@@ -229,7 +289,11 @@ func (iter *MapIter) Reset(v Value)
 func (iter *MapIter) Value() Value
 ```
 
+Value returns the value of iter's current map entry.
+
 ​	Value方法返回iter当前映射条目的值。
+
+​	Value 返回 iter 当前映射条目的值。
 
 ### type Method 
 
@@ -251,6 +315,8 @@ type Method struct {
 }
 ```
 
+Method represents a single method.
+
 ​	Method表示单个方法。
 
 #### (Method) IsExported  <- go1.17
@@ -259,31 +325,47 @@ type Method struct {
 func (m Method) IsExported() bool
 ```
 
+IsExported reports whether the method is exported.
+
 ​	IsExported 返回该方法是否为导出方法。
+
+​	IsExported 报告方法是否被导出。
 
 ### type SelectCase  <- go1.1
 
 ``` go 
 type SelectCase struct {
 	Dir  SelectDir // case 方向
-	Chan Value     // 使用的通道 (用于发送或接收)
+	Chan Value     // 用于发送或接收的通道
 	Send Value     // 发送的值 (用于发送)
 }
 ```
 
-​	SelectCase 描述 select 操作中的一个 case。case 的类型取决于 Dir，通信方向。
+A SelectCase describes a single case in a select operation. The kind of case depends on Dir, the communication direction.
 
-​	如果 Dir 是 SelectDefault，则 case 表示默认情况。Chan 和 Send 必须是零值。
+​	SelectCase 描述 select 操作中的一个单独 case。情况的种类取决于 Dir，通信方向。
 
-​	如果 Dir 是 SelectSend，则 case 表示发送操作。通常 Chan 的基础值必须是一个通道，Send 的基础值必须可以分配给通道的元素类型。作为特例，如果 Chan 是零值，则忽略该 case，Send 字段也将被忽略，并且可以是零值或非零值。
+If Dir is SelectDefault, the case represents a default case. Chan and Send must be zero Values.
 
-​	如果 Dir 是 SelectRecv，则 case 表示接收操作。通常 Chan 的基础值必须是一个通道，Send 必须是零值。如果 Chan 是零值，则忽略该 case，但 Send 仍必须是零值。当选择接收操作时，Select 将返回接收到的值。
+​	如果 Dir 是 SelectDefault，则该 case 表示默认 case。Chan 和 Send 必须是零 Value。
+
+If Dir is SelectSend, the case represents a send operation. Normally Chan's underlying value must be a channel, and Send's underlying value must be assignable to the channel's element type. As a special case, if Chan is a zero Value, then the case is ignored, and the field Send will also be ignored and may be either zero or non-zero.
+
+​	如果 Dir 是 SelectSend，则该 case 表示发送操作。通常情况下，Chan 的底层值必须是通道，并且 Send 的底层值必须可以赋值给通道的元素类型。作为特殊情况，如果 Chan 是零 Value，则 case 将被忽略，Send 字段也将被忽略，可以是零或非零。
+
+If Dir is SelectRecv, the case represents a receive operation. Normally Chan's underlying value must be a channel and Send must be a zero Value. If Chan is a zero Value, then the case is ignored, but Send must still be a zero Value. When a receive operation is selected, the received Value is returned by Select.
+
+​	如果 Dir 是 SelectRecv，则该 case 表示接收操作。通常情况下，Chan 的底层值必须是通道，Send 必须是零 Value。如果 Chan 是零 Value，则 case 将被忽略，但 Send 仍然必须是零 Value。当选择接收操作时，接收到的 Value 将由 Select 返回。	
 
 ### type SelectDir  <- go1.1
 
 ``` go 
 type SelectDir int
 ```
+
+A SelectDir describes the communication direction of a select case.
+
+​	SelectDir 描述 select case 的通信方向。
 
 ​	SelectDir 描述 select case 的通信方向。
 
@@ -305,9 +387,13 @@ type SliceHeader struct {
 }
 ```
 
-​	SliceHeader 是切片的运行时表示。它不能安全或便携地使用，并且它的表示可能在以后的版本中更改。此外，Data 字段不足以保证它引用的数据不会被垃圾回收，因此程序必须保持一个单独的、正确类型的指向底层数据的指针。
+SliceHeader is the runtime representation of a slice. It cannot be used safely or portably and its representation may change in a later release. Moreover, the Data field is not sufficient to guarantee the data it references will not be garbage collected, so programs must keep a separate, correctly typed pointer to the underlying data.
 
-​	在新代码中，请改用 unsafe.Slice 或 unsafe.SliceData。
+​	SliceHeader 是切片的运行时表示。它不能安全或可移植地使用，其表示可能会在以后的版本中更改。此外，Data 字段不足以保证其引用的数据不会被垃圾收集，因此程序必须保留一个单独的、正确类型的指针来引用底层数据。
+
+In new code, use unsafe.Slice or unsafe.SliceData instead.
+
+​	在新代码中，使用 unsafe.Slice 或 unsafe.SliceData 代替。	
 
 ### type StringHeader 
 
@@ -318,9 +404,13 @@ type StringHeader struct {
 }
 ```
 
-​	StringHeader是一个字符串的底层运行时表示形式。它不能安全或便携地使用，并且它的表示形式可能会在以后的版本中更改。此外，Data字段不足以保证它引用的数据不会被垃圾回收，因此程序必须保持一个单独的、正确类型的指向底层数据的指针。
+StringHeader is the runtime representation of a string. It cannot be used safely or portably and its representation may change in a later release. Moreover, the Data field is not sufficient to guarantee the data it references will not be garbage collected, so programs must keep a separate, correctly typed pointer to the underlying data.
 
-​	在新代码中，应使用unsafe.String或unsafe.StringData代替。
+​	StringHeader 是字符串的运行时表示。它不能安全或可移植地使用，其表示可能会在以后的版本中更改。此外，Data 字段不足以保证其引用的数据不会被垃圾收集，因此程序必须保留一个单独的、正确类型的指针来引用底层数据。
+
+In new code, use unsafe.String or unsafe.StringData instead.
+
+​	在新代码中，使用 unsafe.String 或 unsafe.StringData 代替。	
 
 ### type StructField 
 
@@ -329,7 +419,7 @@ type StructField struct {
 	// Name 是字段名。
 	Name string
 
-	// PkgPath 是限定小写(未公开)字段名的包路径。
+	// PkgPath 是限定小写(未导出)字段名的包路径。
     // 对于大写(公开)字段名，它为空。
 	// See https://golang.org/ref/spec#Uniqueness_of_identifiers
 	PkgPath string
@@ -342,7 +432,11 @@ type StructField struct {
 }
 ```
 
+A StructField describes a single field in a struct.
+
 ​	StructField结构体描述结构体中的一个字段。
+
+​	StructField 描述结构体中的一个字段。
 
 #### func VisibleFields  <- go1.17
 
@@ -350,9 +444,13 @@ type StructField struct {
 func VisibleFields(t Type) []StructField
 ```
 
-​	VisibleFields返回t中所有可见的字段，t必须是结构体类型。如果可以直接通过FieldByName调用访问字段，则定义字段为可见字段。返回的字段包括匿名结构成员内部的字段和未公开的字段。它们遵循在结构中找到的相同顺序，其中匿名字段紧随其提升的字段之后。
+VisibleFields returns all the visible fields in t, which must be a struct type. A field is defined as visible if it's accessible directly with a FieldByName call. The returned fields include fields inside anonymous struct members and unexported fields. They follow the same order found in the struct, with anonymous fields followed immediately by their promoted fields.
 
-​	对于返回的切片中的每个元素e，可以通过调用v.FieldByIndex(e.Index)从类型为t的值v中检索相应的字段。
+​	VisibleFields 返回类型 t 中的所有可见字段，t 必须是结构体类型。字段定义为可直接通过 FieldByName 调用访问的字段。返回的字段包括嵌入结构体成员内的字段和未导出字段。它们遵循与结构体中找到的相同顺序，嵌入字段后面紧跟其被提升的字段。
+
+For each element e of the returned slice, the corresponding field can be retrieved from a value v of type t by calling v.FieldByIndex(e.Index).
+
+​	对于返回的切片的每个元素 e，可以通过调用 v.FieldByIndex(e.Index) 从类型 t 的值 v 中获取相应的字段。	
 
 #### (StructField) IsExported  <- go1.17
 
@@ -360,7 +458,11 @@ func VisibleFields(t Type) []StructField
 func (f StructField) IsExported() bool
 ```
 
+IsExported reports whether the field is exported.
+
 ​	IsExported报告字段是否已公开。
+
+​	IsExported 报告字段是否被导出。
 
 ### type StructTag 
 
@@ -370,11 +472,17 @@ type StructTag string
 
 ​	StructTag 是结构体字段的标签字符串。
 
+A StructTag is the tag string in a struct field.
+
+​	StructTag 是结构体字段中的标签字符串。
+
 By convention, tag strings are a concatenation of optionally space-separated key:"value" pairs. Each key is a non-empty string consisting of non-control characters other than space (U+0020 ' '), quote (U+0022 '"'), and colon (U+003A ':'). Each value is quoted using U+0022 '"' characters and Go string literal syntax.
+
+​	按照约定，标记字符串是一个可选的空格分隔的key:"value"对的串联。每个key都是一个由非空格（U+0020 ' '）、引号（U+0022 '"'）和冒号（U+003A ':'）之外的控制字符组成的非空字符串。每个value都使用U+0022 '"'字符和Go字符串文字语法引起引用。 
 
 ​	按照惯例，标签字符串是可选地用空格分隔的 key:"value" 键值对的串联。每个键是由非空字符组成的字符串，不能包含空格(U+0020 ' ')、引号(U+0022 '"')和冒号(U+003A ':')以外的控制字符。每个值都使用 U+0022 '"' 字符引用并采用 Go 字符串文字语法进行引用。
 
-##### StructTag Example
+#### StructTag Example
 
 ``` go 
 package main
@@ -408,7 +516,11 @@ blue gopher
 func (tag StructTag) Get(key string) string
 ```
 
+Get returns the value associated with key in the tag string. If there is no such key in the tag, Get returns the empty string. If the tag does not have the conventional format, the value returned by Get is unspecified. To determine whether a tag is explicitly set to the empty string, use Lookup.
+
 ​	Get方法在标签字符串中返回与键关联的值。如果标签中没有这样的键，则 Get 返回空字符串。如果标签不具有常规格式，则 Get 返回的值是未指定的。要确定标记是否显式设置为空字符串，请使用 Lookup。
+
+​	Get返回与标记字符串中的键关联的值。如果标记中没有这样的键，Get将返回空字符串。如果标记没有常规格式，Get返回的值是未指定的。要确定标记是否明确设置为空字符串，请使用Lookup。 
 
 #### (StructTag) Lookup  <- go1.7
 
@@ -416,7 +528,11 @@ func (tag StructTag) Get(key string) string
 func (tag StructTag) Lookup(key string) (value string, ok bool)
 ```
 
+Lookup returns the value associated with key in the tag string. If the key is present in the tag the value (which may be empty) is returned. Otherwise the returned value will be the empty string. The ok return value reports whether the value was explicitly set in the tag string. If the tag does not have the conventional format, the value returned by Lookup is unspecified.
+
 ​	Lookup方法在标签字符串中返回与键关联的值。如果标签中存在该键，则返回值(可能为空)。否则，返回的值将是空字符串。ok 返回值报告值是否在标签字符串中显式设置。如果标签不具有常规格式，则 Lookup 返回的值是未指定的。
+
+​	Lookup返回与标记字符串中的键关联的值。如果标记中存在该键，则返回值（可以为空）。否则，返回值将为空字符串。ok返回值报告值是否在标记字符串中明确设置。如果标记没有常规格式，Lookup返回的值是未指定的。 
 
 ##### Lookup Example
 
@@ -464,173 +580,264 @@ field_0
 
 ``` go 
 type Type interface {
-	// Align方法返回该类型在内存中分配时所需的字节对齐方式。
+	// Align returns the alignment in bytes of a value of
+	// this type when allocated in memory.
+    // Align返回在内存中分配该类型的值的对齐字节数。
 	Align() int
 
-	// FieldAlign方法返回该类型在结构体字段中使用时所需的字节对齐方式。
+    // FieldAlign returns the alignment in bytes of a value of
+	// this type when used as a field in a struct.
+	// FieldAlign返回在结构体中使用该类型作为字段时的值的对齐字节数。
 	FieldAlign() int
-
-	// Method方法返回类型方法集中第i个方法。
-    // 如果i不在[0，NumMethod())范围内，
-    // 则会出现恐慌。
-	// 对于非接口类型T或T，
-    // 返回的Method的Type和Func字段描述的是第一个参数是接收器的函数，
-    // 只有导出的方法可访问。
-	// 对于接口类型，
-    // 返回的Method的Type字段给出了方法签名，
-    // 没有接收器，而Func字段为nil。
-	// 方法按字典顺序排序。
+	
+    // Method returns the i'th method in the type's method set.
+    // Method返回类型方法集中的第i个方法。 
+	// It panics if i is not in the range [0, NumMethod()).
+    // 如果i不在[0, NumMethod())范围内，则会引发恐慌。
+	//
+	// For a non-interface type T or *T, the returned Method's Type and Func
+	// fields describe a function whose first argument is the receiver,
+	// and only exported methods are accessible.
+    // 对于非接口类型T或*T，返回方法的Type和Func字段描述了第一个参数为接收器的函数，
+    // 并且只有导出的方法才可访问。
+	//
+	// For an interface type, the returned Method's Type field gives the
+	// method signature, without a receiver, and the Func field is nil.
+    // 对于接口类型，返回方法的Type字段给出没有接收器的方法签名，并且Func字段为nil。
+	//
+	// Methods are sorted in lexicographic order.
+    // 方法按字母顺序排序。
 	Method(int) Method
 
-	// MethodByName方法返回类型方法集中具有该名称的方法以及指示方法是否被找到的布尔值。
-	// 对于非接口类型T或T，
-    // 返回的Method的Type和Func字段描述的是第一个参数是接收器的函数。
-	// 对于接口类型，
-    // 返回的Method的Type字段给出了方法签名，
-    // 没有接收器，而Func字段为nil。
+    // MethodByName returns the method with that name in the type's
+	// method set and a boolean indicating if the method was found.
+    // MethodByName返回类型方法集中具有该名称的方法以及一个布尔值，指示是否找到该方法。
+	//
+	// For a non-interface type T or *T, the returned Method's Type and Func
+	// fields describe a function whose first argument is the receiver.
+	//
+	// For an interface type, the returned Method's Type field gives the
+	// method signature, without a receiver, and the Func field is nil.
+	// 对于接口类型，返回方法的Type字段给出没有接收器的方法签名，并且Func字段为nil。
 	MethodByName(string) (Method, bool)
 
-	// NumMethod方法返回使用Method可访问的方法数。
-	// 对于非接口类型，它返回导出的方法的数量。
-	// 对于接口类型，它返回导出和未导出方法的数量。
+	// NumMethod returns the number of methods accessible using Method.
+    // NumMethod返回使用Method可访问的方法数。
+	//
+	// For a non-interface type, it returns the number of exported methods.
+    // 对于非接口类型，它返回导出的方法数。
+	//
+	// For an interface type, it returns the number of exported and unexported methods.
+    // 对于接口类型，它返回导出的和未导出的方法数。
 	NumMethod() int
 
-	// Name方法返回定义类型的类型在其包中的名称。
-    // 对于其他(非定义)类型，它返回空字符串。	
+    // Name returns the type's name within its package for a defined type.
+	// For other (non-defined) types it returns the empty string.
+    // Name返回已定义类型的类型的名称（在其包内）。 
+    // 对于其他（未定义的）类型，它将返回空字符串。	
 	Name() string
 
-	// PkgPath方法返回已定义类型的包路径，
-    // 即唯一标识包的导入路径，例如"encoding/base64"。
-    // 如果类型是预声明的(string，error)或未定义(T，struct{}，
-    // []int或A是非定义类型的别名，其中A是别名)，
-    // 则包路径将为空字符串。
+    // PkgPath returns a defined type's package path, that is, the import path
+	// that uniquely identifies the package, such as "encoding/base64".
+	// If the type was predeclared (string, error) or not defined (*T, struct{},
+	// []int, or A where A is an alias for a non-defined type), the package path
+	// will be the empty string.
+    // PkgPath() 方法返回一个已定义的类型的包路径，
+    // 即唯一标识该包的导入路径，例如 "encoding/base64"。
+    // 如果该类型是预先声明的（例如 string 或 error）或未定义的
+    // （例如 *T，struct{}，[int]，或 A（其中A是非定义类型的别名）），则包路径将是空字符串。
 	PkgPath() string
 
-	// Size方法返回存储给定类型值所需的字节数；类似于unsafe.Sizeof。
+    // Size returns the number of bytes needed to store
+	// a value of the given type; it is analogous to unsafe.Sizeof.
+	// Size 方法返回存储给定类型值的字节数，类似于 unsafe.Sizeof。
 	Size() uintptr
 
-	// String方法返回类型的字符串表示形式。
-    // 字符串表示可以使用缩短的包名(例如，base64代替"encoding/base64")，
-    // 并且不能保证在类型中唯一。
-	// 要测试类型标识，请直接比较Types。
+    // String returns a string representation of the type.
+	// The string representation may use shortened package names
+	// (e.g., base64 instead of "encoding/base64") and is not
+	// guaranteed to be unique among types. To test for type identity,
+	// compare the Types directly.
+	// String() 方法返回类型的字符串表示形式。
+    // 该字符串表示形式可能使用简短的文件名（例如 base64 而不是 "encoding/base64"）
+    // 并不保证在类型之间具有唯一性。要测试类型的身份，请直接比较 Types。
 	String() string
 
-	// Kind方法返回此类型的具体种类。
+    // Kind returns the specific kind of this type.
+	// Kind方法返回此类型的特定种类（Kind）。
 	Kind() Kind
 
-	// Implements方法报告类型是否实现了接口类型u。
+    // Implements reports whether the type implements the interface type u.
+	// Implements方法报告该类型是否实现了接口类型 u。
 	Implements(u Type) bool
 
-	// AssignableTo方法报告该类型的值是否可分配给类型u。
+    // AssignableTo reports whether a value of the type is assignable to type u.
+	// AssignableTo 方法报告一个该类型的值是否可分配给类型 u。
 	AssignableTo(u Type) bool
 
 	// ConvertibleTo reports whether a value of the type is convertible to type u.
 	// Even if ConvertibleTo returns true, the conversion may still panic.
 	// For example, a slice of type []T is convertible to *[N]T,
 	// but the conversion will panic if its length is less than N.
-    // ConvertibleTo 报告该类型的值是否可以转换为u类型。
-	// 即使ConvertibleTo返回true，转换仍然可能发生恐慌。
-	// 例如，一个[]T类型的片断可以转换为*[N]T，但是如果它的长度小于N的话，转换就会发生恐慌。
+    // ConvertibleTo 方法报告一个该类型的值是否可转换为类型 u。
+    // 即使 ConvertibleTo() 返回 true，转换仍可能引发恐慌。
+    // 例如，类型为 []T 的切片可转换为 *[N]T，但如果其长度小于 N，则转换会引发恐慌。
 	ConvertibleTo(u Type) bool
 
-	// ConvertibleTo方法报告该类型的值是否可转换为类型u。
-    // 即使ConvertibleTo返回true，
-    // 转换仍可能出现恐慌。
-    // 例如，类型[]T的切片可转换为[N]T，
-    // 但是如果其长度小于N，则转换将导致恐慌。
+    // Comparable reports whether values of this type are comparable.
+	// Even if Comparable returns true, the comparison may still panic.
+	// For example, values of interface type are comparable,
+	// but the comparison will panic if their dynamic type is not comparable.
+    // Comparable 方法报告该类型的值是否可以比较。
+    // 即使 Comparable() 返回 true，比较仍可能引发恐慌。
+    // 例如，接口类型的值是可以比较的，但如果它们的动态类型不可比较，则比较会引发恐慌。	
 	Comparable() bool
 
-	// Bits方法返回类型以位为单位的大小。
-    // 如果类型的种类不是有大小或无大小的Int，Uint，Float或Complex，
-    // 则它会出现恐慌。
+    // Bits returns the size of the type in bits.
+	// It panics if the type's Kind is not one of the
+	// sized or unsized Int, Uint, Float, or Complex kinds.
+	// Bits方法返回该类型的大小（以位为单位）。
+    // 如果该类型的 Kind 不是有尺寸或无尺寸的 Int、Uint、Float 或 Complex 类型，
+    // 则 Bits() 会引发恐慌。
 	Bits() int
 
-	// ChanDir返回通道类型的方向。
-	// 如果类型的种类不是Chan，则会引发panic。
+    // ChanDir returns a channel type's direction.
+	// It panics if the type's Kind is not Chan.
+	// ChanDir 返回一个通道类型的方向。  
+	// 如果该类型的 Kind 不是 Chan，则会引发恐慌。  
 	ChanDir() ChanDir
 
-	// IsVariadic报告函数类型的最后一个输入参数是否为"…"参数。
-    // 如果是，则t.In(t.NumIn()-1)返回参数的隐式实际类型[]T。
+    // IsVariadic reports whether a function type's final input parameter
+	// is a "..." parameter. If so, t.In(t.NumIn() - 1) returns the parameter's
+	// implicit actual type []T.
+    // IsVariadic 报告函数类型的最后一个输入参数  
+	// 是否是 "..." 参数。如果是，t.In(t.NumIn() - 1) 返回参数的  
+	// 隐式实际类型 []T。  
 	//
-	// 具体来说，如果t表示func(x int，y ...float64)，则
+	// For concreteness, if t represents func(x int, y ... float64), then
+    // 具体来说，如果 t 代表 func(x int, y ... float64)，那么 
 	//
-	// 	t.NumIn()== 2
-	// 	t.In(0)是"int"的reflect.Type
-	// 	t.In(1)是"[]float64"的reflect.Type
-	// 	t.IsVariadic()== true
+	//	t.NumIn() == 2
+	//	t.In(0) is the reflect.Type for "int"
+	//	t.In(1) is the reflect.Type for "[]float64"
+	//	t.IsVariadic() == true
 	//
-	// 如果类型的种类不是Func，则IsVariadic会引发panic。
+	// IsVariadic panics if the type's Kind is not Func.
+	// 如果类型的 Kind 不是 Func，IsVariadic 会引发恐慌。      
 	IsVariadic() bool
 
-	// Elem返回类型的元素类型。
-	// 如果类型的种类不是Array，Chan，Map，Pointer或Slice，则会引发panic。
+    // Elem returns a type's element type.
+	// It panics if the type's Kind is not Array, Chan, Map, Pointer, or Slice.
+	// Elem 返回一个类型的元素类型。  
+	// 如果该类型的 Kind 不是 Array、Chan、Map、Pointer 或 Slice，则会引发恐慌。
 	Elem() Type
 
-	// Field返回结构体类型的第i个字段。
-	// 如果类型的种类不是Struct，则会引发panic。
-	// 如果i不在[0，NumField())范围内，则会引发panic。
+    // Field returns a struct type's i'th field.
+    // Field 返回结构类型的第 i 个字段。
+	// It panics if the type's Kind is not Struct.
+    // 如果类型的 Kind 不是 Struct，则会引发恐慌。
+	// It panics if i is not in the range [0, NumField()).
+	// 如果 i 不在范围 [0, NumField()) 内，也会引发恐慌。
 	Field(i int) StructField
 
-	// FieldByIndex返回相应于索引序列的嵌套字段。
-    // 等效于依次调用Field(i)。
-	// 如果类型的种类不是Struct，则会引发panic。
+    // FieldByIndex returns the nested field corresponding
+	// to the index sequence. It is equivalent to calling Field
+	// successively for each index i.
+    // FieldByIndex 返回与索引序列相对应的嵌套字段。  
+	// 它相当于为每个索引 i 连续调用 Field。  
+	// It panics if the type's Kind is not Struct.
+	// 如果类型的 Kind 不是 Struct，则会引发恐慌。
 	FieldByIndex(index []int) StructField
 
-	// FieldByName返回具有给定名称的结构体字段和一个布尔值，
-    // 指示是否找到了该字段。
-	// 如果类型的种类不是Struct，则会引发panic。
+    // FieldByName returns the struct field with the given name
+	// and a boolean indicating if the field was found.
+	// FieldByName 返回给定名称的结构字段  
+	// 以及一个布尔值，表示是否找到该字段。  
 	FieldByName(name string) (StructField, bool)
 
-	// FieldByNameFunc返回具有满足匹配函数的名称的结构字段和一个布尔值，
-    // 指示是否找到了该字段。
+    // FieldByNameFunc returns the struct field with a name
+	// that satisfies the match function and a boolean indicating if
+	// the field was found.
+    // FieldByNameFunc 返回满足匹配函数的结构字段  
+	// 以及一个布尔值，表示是否找到该字段。  
 	//
-	// FieldByNameFunc在结构体本身中考虑字段，
-    // 然后在任何嵌入式结构体中考虑字段，
-    // 以广度优先的顺序停止于包含一个或多个满足匹配函数的字段的最浅嵌套深度。
-    // 如果该深度处的多个字段都满足匹配函数，
-    // 则它们相互取消，
-    // 并且FieldByNameFunc不返回任何匹配项。
-	// 这种行为与Go处理包含嵌入字段的结构体的名称查找相同。
+	// FieldByNameFunc considers the fields in the struct itself
+	// and then the fields in any embedded structs, in breadth first order,
+	// stopping at the shallowest nesting depth containing one or more
+	// fields satisfying the match function. If multiple fields at that depth
+	// satisfy the match function, they cancel each other
+	// and FieldByNameFunc returns no match.
+	// This behavior mirrors Go's handling of name lookup in
+	// structs containing embedded fields.
+	// FieldByNameFunc 首先考虑结构本身的字段，  
+	// 然后考虑任何嵌入结构的字段，按广度优先顺序，  
+	// 在包含满足匹配函数的一个或多个字段的最浅嵌套深度停止。  
+	// 如果在该深度的多个字段满足匹配函数，它们会相互抵消，  
+	// 并且 FieldByNameFunc 返回无匹配项。  
+	// 此行为反映了 Go 在包含嵌入字段的结构中处理名称查找的行为。  
 	FieldByNameFunc(match func(string) bool) (StructField, bool)
 
-	// In返回函数类型的第i个输入参数的类型。
-	// 如果类型的Kind不是Func，则会panic。
-	// 如果i不在[0，NumIn())范围内，则会panic。
+    // In returns the type of a function type's i'th input parameter.
+    // In 返回函数类型的第 i 个输入参数的类型。
+	// It panics if the type's Kind is not Func.
+    // 如果该类型的 Kind 不是 Func，则会引发恐慌。
+	// It panics if i is not in the range [0, NumIn()).
+	// 如果 i 不在范围 [0, NumIn()) 内，也会引发恐慌。  
 	In(i int) Type
 
-	// Key返回映射类型的键类型。
-	// 如果类型的Kind不是Map，则会panic。
+    // Key returns a map type's key type.
+	// It panics if the type's Kind is not Map.
+	// Key 返回映射类型的键类型。
+	// 如果该类型的 Kind 不是 Map，则会引发恐慌。 
 	Key() Type
 
-	// Len返回数组类型的长度。
-	// 如果类型的Kind不是Array，则会panic。
+    // Len returns an array type's length.
+	// It panics if the type's Kind is not Array.
+	// Len 返回数组类型的长度。  
+	// 如果该类型的 Kind 不是 Array，则会引发恐慌。
 	Len() int
 
-	// NumField返回结构体类型的字段数。
-	// 如果类型的Kind不是Struct，则会panic。
+    // NumField returns a struct type's field count.
+    // NumField 返回结构类型的字段数量。 
+	// It panics if the type's Kind is not Struct.
+	// 如果该类型的 Kind 不是 Struct，则会引发恐慌。
 	NumField() int
 
-	// NumIn返回函数类型的输入参数计数。
-	// 如果类型的Kind不是Func，则会panic。
+    // NumIn returns a function type's input parameter count.
+    // NumIn 返回函数类型的输入参数数量。
+	// It panics if the type's Kind is not Func.
+	// 如果该类型的 Kind 不是 Func，则会引发恐慌。
 	NumIn() int
 
+    // NumOut returns a function type's output parameter count.
+    // NumOut 返回函数类型的输出参数数量。
+	// It panics if the type's Kind is not Func.
 	// NumOut返回函数类型的输出参数计数。
-	// 如果类型的Kind不是Func，则会panic。
+	// 如果该类型的 Kind 不是 Func，则会引发恐慌。
 	NumOut() int
 
-	// Out返回函数类型的第i个输出参数的类型。
-	// 如果类型的Kind不是Func，则会panic。
-	// 如果i不在[0，NumOut())范围内，则会panic。
+    // Out returns the type of a function type's i'th output parameter.
+    // Out 返回函数类型的第 i 个输出参数的类型。
+	// It panics if the type's Kind is not Func.
+    // 如果该类型的 Kind 不是 Func，则会引发恐慌。
+	// It panics if i is not in the range [0, NumOut()).
+	// 如果 i 不在范围 [0, NumOut()) 内，也会引发恐慌。
 	Out(i int) Type
 	// 包含已过滤或未导出的方法
 }
 ```
 
-​	Type 是 Go 语言类型的表示。
+Type is the representation of a Go type.
 
-​	并不是所有的方法都适用于所有类型。如果有限制，则在每个方法的文档中进行说明。在调用特定于类型种类的方法之前，请使用 Kind 方法查找类型的种类。调用不适用于类型种类的方法会导致运行时恐慌。
+​	`Type` 是 Go 语言类型的表示。
 
-​	Type 值是可比较的，例如使用 == 运算符，因此它们可以用作映射键。如果它们表示相同的类型，则两个 Type 值相等。
+Not all methods apply to all kinds of types. Restrictions, if any, are noted in the documentation for each method. Use the Kind method to find out the kind of type before calling kind-specific methods. Calling a method inappropriate to the kind of type causes a run-time panic.
+
+​	并非所有的方法都适用于所有类型。如果有任何限制，会在每个方法的文档中注明。在调用特定类型的方法之前，请使用 `Kind` 方法来查明类型的种类。如果调用的方法是不适合类型的种类，会导致运行时恐慌（panic）。
+
+Type values are comparable, such as with the == operator, so they can be used as map keys. Two Type values are equal if they represent identical types.
+
+​	`Type` 值是可比较的，例如使用 `==` 运算符，因此它们可以用作映射键。如果两个 `Type` 值表示相同的类型，则它们是相等的。
 
 #### func ArrayOf  <- go1.5
 
@@ -638,9 +845,13 @@ type Type interface {
 func ArrayOf(length int, elem Type) Type
 ```
 
-​	ArrayOf函数返回具有给定长度和元素类型的数组类型。例如，如果 t 表示 int，则 ArrayOf(5, t) 表示 [5]int。
+ArrayOf returns the array type with the given length and element type. For example, if t represents int, ArrayOf(5, t) represents [5]int.
 
-​	如果结果类型的大小大于可用地址空间，则 ArrayOf 会发生恐慌。
+​	`ArrayOf` 函数返回给定长度和元素类型的数组类型。例如，如果 `t` 代表 `int`，则 `ArrayOf(5, t)` 代表 `[5]int`。
+
+If the resulting type would be larger than the available address space, ArrayOf panics.
+
+​	如果结果类型大于可用的地址空间，`ArrayOf` 会引发恐慌。
 
 #### func ChanOf  <- go1.1
 
@@ -648,9 +859,13 @@ func ArrayOf(length int, elem Type) Type
 func ChanOf(dir ChanDir, t Type) Type
 ```
 
-​	ChanOf函数返回具有给定方向和元素类型的通道类型。例如，如果 t 表示 int，则 ChanOf(RecvDir, t) 表示 <-chan int。
+ChanOf returns the channel type with the given direction and element type. For example, if t represents int, ChanOf(RecvDir, t) represents <-chan int.
 
-​	gc 运行时对通道元素类型施加了 64 kB 的限制。如果 t 的大小等于或超过此限制，则 ChanOf 会发生恐慌。
+​	`ChanOf` 函数返回给定方向和元素类型的通道类型。例如，如果 `t` 代表 `int`，则 `ChanOf(RecvDir, t)` 代表 `<-chan int`。
+
+The gc runtime imposes a limit of 64 kB on channel element types. If t's size is equal to or exceeds this limit, ChanOf panics.
+
+​	gc 运行时对通道元素类型的大小限制为 64 kB。如果 `t` 的大小等于或超过此限制，`ChanOf` 会引发恐慌。
 
 #### func FuncOf  <- go1.5
 
@@ -658,9 +873,13 @@ func ChanOf(dir ChanDir, t Type) Type
 func FuncOf(in, out []Type, variadic bool) Type
 ```
 
-​	FuncOf函数返回具有给定参数和结果类型的函数类型。例如，如果 k 表示 int，e 表示 string，则 FuncOf([]Type{k}, []Type{e}, false) 表示 func(int) string。
+FuncOf returns the function type with the given argument and result types. For example if k represents int and e represents string, FuncOf([]Type{k}, []Type{e}, false) represents func(int) string.
 
-​	可变参数控制函数是否为变参。如果 in[len(in)-1] 不表示一个切片并且 variadic 为 true，则 FuncOf 会发生恐慌。
+​	`FuncOf` 函数返回给定实参和结果类型的函数类型。例如，如果 `k` 代表 `int`，`e` 代表 `string`，则 `FuncOf([]Type{k}, []Type{e}, false)` 代表 `func(int) string`。
+
+The variadic argument controls whether the function is variadic. FuncOf panics if the in[len(in)-1] does not represent a slice and variadic is true.
+
+​	变参实参控制函数是否为变参函数。如果 `in[len(in)-1]` 不表示一个切片且 `variadic` 为 `true`，`FuncOf` 会引发恐慌。
 
 #### func MapOf  <- go1.1
 
@@ -668,9 +887,13 @@ func FuncOf(in, out []Type, variadic bool) Type
 func MapOf(key, elem Type) Type
 ```
 
-​	MapOf函数返回具有给定键和元素类型的映射类型。例如，如果 k 表示 int，e 表示 string，则 MapOf(k, e) 表示 map[int]string。
+MapOf returns the map type with the given key and element types. For example, if k represents int and e represents string, MapOf(k, e) represents map[int]string.
 
-​	如果键类型不是有效的映射键类型(即，如果它不实现 Go 的 == 运算符)，则 MapOf 会发生恐慌。
+​	`MapOf` 函数返回给定键和元素类型的映射类型。例如，如果 `k` 代表 `int`，`e` 代表 `string`，则 `MapOf(k, e)` 代表 `map[int]string`。
+
+If the key type is not a valid map key type (that is, if it does not implement Go's == operator), MapOf panics.
+
+​	如果键类型不是有效的映射键类型（即，如果它没有实现 Go 的 `==` 操作符），`MapOf` 会引发恐慌。
 
 #### func PointerTo  <- go1.18
 
@@ -678,7 +901,9 @@ func MapOf(key, elem Type) Type
 func PointerTo(t Type) Type
 ```
 
-​	PointerTo函数返回带有元素类型t的指针类型。例如，如果t表示类型Foo，则PointerTo(t)表示`*Foo`。
+PointerTo returns the pointer type with element t. For example, if t represents type Foo, PointerTo(t) represents *Foo.
+
+​	`PointerTo` 函数返回元素为 `t` 的指针类型。例如，如果 `t` 代表 `Foo` 类型，`PointerTo(t)` 就代表 `*Foo`。 
 
 #### func PtrTo 
 
@@ -686,9 +911,13 @@ func PointerTo(t Type) Type
 func PtrTo(t Type) Type
 ```
 
-​	PtrTo返回带有元素类型t的指针类型。例如，如果t表示类型Foo，则PtrTo(t)表示`*Foo`。
+PtrTo returns the pointer type with element t. For example, if t represents type Foo, PtrTo(t) represents *Foo.
 
-​	PtrTo函数是PointerTo的旧拼写。这两个函数的行为相同。
+​	`PtrTo` 函数返回元素为 `t` 的指针类型。例如，如果 `t` 代表 `Foo` 类型，`PtrTo(t)` 就代表 `*Foo`。
+
+PtrTo is the old spelling of PointerTo. The two functions behave identically.
+
+​	`PtrTo` 是 `PointerTo` 的旧拼写方式。这两个函数的行为完全相同。  	
 
 #### func SliceOf  <- go1.1
 
@@ -696,7 +925,9 @@ func PtrTo(t Type) Type
 func SliceOf(t Type) Type
 ```
 
-​	SliceOf函数返回具有元素类型t的切片类型。例如，如果t表示int，则SliceOf(t)表示[]int。
+SliceOf returns the slice type with element type t. For example, if t represents int, SliceOf(t) represents []int.
+
+​	`SliceOf` 函数返回具有元素类型`t`的切片类型。例如，如果`t`表示`int`，则`SliceOf(t)`表示`[]int`。
 
 #### func StructOf  <- go1.7
 
@@ -704,9 +935,13 @@ func SliceOf(t Type) Type
 func StructOf(fields []StructField) Type
 ```
 
-​	StructOf返回包含字段的结构类型。忽略Offset和Index字段，计算它们时，它们的值将与编译器生成的值相同。
+StructOf returns the struct type containing fields. The Offset and Index fields are ignored and computed as they would be by the compiler.
 
-​	StructOf函数当前不会为嵌入字段生成包装器方法，并且如果传递未公开的StructFields，则会引发错误。这些限制在将来的版本中可能会被解除。
+​	`StructOf` 函数返回包含 `fields` 的结构体类型。`Offset` 和 `Index` 字段会被忽略，并会计算出编译器所期望的值。  
+
+StructOf currently does not generate wrapper methods for embedded fields and panics if passed unexported StructFields. These limitations may be lifted in a future version.
+
+​	`StructOf` 目前不会为嵌入字段生成包装方法，如果传入未导出的 `StructFields`，它会引发恐慌。这些限制在未来的版本中可能会被解除。  
 
 ##### StructOf Example
 
@@ -769,7 +1004,9 @@ value: &{Height:1.5 Age:10}
 func TypeOf(i any) Type
 ```
 
-​	TypeOf函数返回表示i的动态类型的反射类型。如果i是nil接口值，则TypeOf返回nil。
+TypeOf returns the reflection Type that represents the dynamic type of i. If i is a nil interface value, TypeOf returns nil.
+
+​	`TypeOf` 函数返回表示 `i` 的动态类型的反射 `Type`。如果 `i` 是 `nil` 接口值，`TypeOf` 返回 `nil`。  
 
 #### typeOf Example
 
@@ -784,17 +1021,19 @@ import (
 )
 
 func main() {
-	// 由于接口类型只用于静态类型，
-    // 因此通常可以使用*Foo值来查找接口类型Foo的反射Type的惯用语。
+    // As interface types are only used for static typing, a
+	// common idiom to find the reflection Type for an interface
+	// type Foo is to use a *Foo value.
+	// 由于接口类型仅用于静态类型检查，
+    // 因此找到一个接口类型 Foo 的反射类型的常见做法是使用一个指向 Foo 类型的指针。
 	writerType := reflect.TypeOf((*io.Writer)(nil)).Elem()
 
 	fileType := reflect.TypeOf((*os.File)(nil))
 	fmt.Println(fileType.Implements(writerType))
 
 }
-Output:
-
-true
+// Output:
+// true
 ```
 
 
@@ -807,15 +1046,25 @@ type Value struct {
 }
 ```
 
-​	Value结构体是表示Go值的反射接口。
+Value is the reflection interface to a Go value.
 
-​	不是所有的方法都适用于所有类型的值。每个方法的文档中都有限制，如果有的话。在调用特定于类型的方法之前，请使用Kind方法找出类型的种类。调用不适合类型种类的方法会导致运行时panic。
+​	`Value` 是Go值的反射接口。
 
-​	零值表示没有值。它的IsValid方法返回false，它的Kind方法返回Invalid，它的String方法返回"`<invalid Value>`"，所有其他方法都会panic。大多数函数和方法从不返回无效值。如果有，则它的文档明确说明条件。
+Not all methods apply to all kinds of values. Restrictions, if any, are noted in the documentation for each method. Use the Kind method to find out the kind of value before calling kind-specific methods. Calling a method inappropriate to the kind of type causes a run time panic.
 
-​	Value结构体可以被多个goroutine并发使用，前提是底层的Go值可以被用于等效的直接操作。
+​	并非所有方法都适用于所有类型的值。如果有任何限制，会在每个方法的文档中注明。在调用特定类型的方法之前，使用Kind方法来查明值的类型。调用不适合该类型的方法会导致运行时恐慌。  
 
-​	要比较两个值，请比较Interface方法的结果。使用==比较两个值不会比较它们表示的底层值。
+The zero Value represents no value. Its IsValid method returns false, its Kind method returns Invalid, its String method returns "<invalid Value>", and all other methods panic. Most functions and methods never return an invalid value. If one does, its documentation states the conditions explicitly.
+
+​	零值Value代表没有值。其`IsValid`方法返回`false`，其`Kind`方法返回`Invalid`，其`String`方法返回"`<invalid Value>`"，所有其他方法都会引发恐慌。大多数函数和方法永远不会返回无效的值。如果有，其文档会明确地说明这些条件。  
+
+A Value can be used concurrently by multiple goroutines provided that the underlying Go value can be used concurrently for the equivalent direct operations.
+
+​	如果基础的Go值可以被并发地用于等价的直接操作，那么一个`Value`可以被多个goroutine并发地使用。  
+
+To compare two Values, compare the results of the Interface method. Using == on two Values does not compare the underlying values they represent.
+
+​	要比较两个`Value`，请比较它们的`Interface`方法的结果。在两个`Value`上使用`==`并不会比较它们所代表的基础值。  	
 
 #### func Append 
 
@@ -823,7 +1072,9 @@ type Value struct {
 func Append(s Value, x ...Value) Value
 ```
 
-​	Append函数将值x附加到切片s并返回结果切片。与Go语言一样，x的每个值都必须可分配给切片的元素类型。
+Append appends the values x to a slice s and returns the resulting slice. As in Go, each x's value must be assignable to the slice's element type.
+
+​	`Append`函数将值`x`追加到切片`s`上，并返回结果切片。像在Go中一样，每个`x`的值必须可以分配给切片的元素类型。  
 
 #### func AppendSlice 
 
@@ -831,7 +1082,9 @@ func Append(s Value, x ...Value) Value
 func AppendSlice(s, t Value) Value
 ```
 
-​	AppendSlice函数将切片t附加到切片s并返回结果切片。切片s和t必须具有相同的元素类型。
+AppendSlice appends a slice t to a slice s and returns the resulting slice. The slices s and t must have the same element type.
+
+​	`AppendSlice`函数将切片`t`追加到切片`s`上，并返回结果切片。切片`s`和`t`必须具有相同的元素类型。  
 
 #### func Indirect 
 
@@ -839,7 +1092,9 @@ func AppendSlice(s, t Value) Value
 func Indirect(v Value) Value
 ```
 
-​	Indirect函数返回v所指向的值。如果v是一个nil指针，则Indirect返回零值。如果v不是一个指针，则Indirect返回v。
+Indirect returns the value that v points to. If v is a nil pointer, Indirect returns a zero Value. If v is not a pointer, Indirect returns v.
+
+​	`Indirect`函数返回`v`指向的值。如果`v`是一个`nil`指针，`Indirect`返回一个零值。如果`v`不是一个指针，`Indirect`返回`v`。  
 
 #### func MakeChan 
 
@@ -847,13 +1102,32 @@ func Indirect(v Value) Value
 func MakeChan(typ Type, buffer int) Value
 ```
 
-​	MakeChan函数创建一个具有指定类型和缓冲区大小的新通道。
+MakeChan creates a new channel with the specified type and buffer size.
+
+​	`MakeChan`函数使用指定的类型和缓冲区大小创建一个新的通道。
 
 #### func MakeFunc  <- go1.1
 
 ``` go 
 func MakeFunc(typ Type, fn func(args []Value) (results []Value)) Value
 ```
+
+MakeFunc returns a new function of the given Type that wraps the function fn. When called, that new function does the following:
+
+​	`MakeFunc`返回一个给定`Type`的新函数，该函数包装了`fn`。当被调用时，这个新函数执行以下操作：
+
+- converts its arguments to a slice of Values.
+- 将其实参转换为 `Value` 切片。
+- runs results := fn(args).
+- 运行 `results := fn(args)`。
+- returns the results as a slice of Values, one per formal result.
+- 将结果作为 `Value` 切片返回，每个形式结果一个。
+
+The implementation fn can assume that the argument Value slice has the number and type of arguments given by typ. If typ describes a variadic function, the final Value is itself a slice representing the variadic arguments, as in the body of a variadic function. The result Value slice returned by fn must have the number and type of results given by typ.
+
+The Value.Call method allows the caller to invoke a typed function in terms of Values; in contrast, MakeFunc allows the caller to implement a typed function in terms of Values.
+
+The Examples section of the documentation includes an illustration of how to use MakeFunc to build a swap function for different types.
 
 ​	MakeFunc函数返回一个给定Type的新函数，该函数包装了fn函数。当调用该新函数时，它会执行以下操作：
 
@@ -927,6 +1201,8 @@ Output:
 func MakeMap(typ Type) Value
 ```
 
+MakeMap creates a new map with the specified type.
+
 ​	MakeMap函数创建一个指定类型的新map。
 
 #### func MakeMapWithSize  <- go1.9
@@ -934,6 +1210,8 @@ func MakeMap(typ Type) Value
 ``` go 
 func MakeMapWithSize(typ Type, n int) Value
 ```
+
+MakeMapWithSize creates a new map with the specified type and initial space for approximately n elements.
 
 ​	MakeMapWithSize函数创建一个指定类型和大约n个元素的初始空间的新map。
 
@@ -943,6 +1221,8 @@ func MakeMapWithSize(typ Type, n int) Value
 func MakeSlice(typ Type, len, cap int) Value
 ```
 
+MakeSlice creates a new zero-initialized slice value for the specified slice type, length, and capacity.
+
 ​	MakeSlice函数为指定的slice类型、长度和容量创建一个新的零值初始化的slice。
 
 #### func New 
@@ -950,6 +1230,8 @@ func MakeSlice(typ Type, len, cap int) Value
 ``` go 
 func New(typ Type) Value
 ```
+
+New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value's Type is PointerTo(typ).
 
 ​	New函数返回表示指向指定类型的新零值的指针的Value。也就是，返回的Value的Type为PointerTo(typ)。
 
@@ -959,6 +1241,8 @@ func New(typ Type) Value
 func NewAt(typ Type, p unsafe.Pointer) Value
 ```
 
+NewAt returns a Value representing a pointer to a value of the specified type, using p as that pointer.
+
 ​	NewAt函数返回一个表示指向指定类型值的指针的Value，使用p作为该指针。
 
 #### func Select  <- go1.1
@@ -966,6 +1250,8 @@ func NewAt(typ Type, p unsafe.Pointer) Value
 ``` go 
 func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool)
 ```
+
+Select executes a select operation described by the list of cases. Like the Go select statement, it blocks until at least one of the cases can proceed, makes a uniform pseudo-random choice, and then executes that case. It returns the index of the chosen case and, if that case was a receive operation, the value received and a boolean indicating whether the value corresponds to a send on the channel (as opposed to a zero value received because the channel is closed). Select supports a maximum of 65536 cases.
 
 ​	Select执行由cases列表描述的select操作。与Go select语句一样，它会阻塞，直到至少有一个case可以进行，然后做出统一的伪随机选择，然后执行该case。它返回选择的case的索引以及(如果该case是接收操作)接收到的值和一个布尔值，指示该值是否对应于对通道的发送(而不是接收到的零值，因为通道已关闭)。Select最多支持65536个case。
 
@@ -975,6 +1261,8 @@ func Select(cases []SelectCase) (chosen int, recv Value, recvOK bool)
 func ValueOf(i any) Value
 ```
 
+ValueOf returns a new Value initialized to the concrete value stored in the interface i. ValueOf(nil) returns the zero Value.
+
 ​	ValueOf函数返回一个初始化为接口i存储的具体值的新Value。ValueOf(nil)返回零Value。
 
 #### func Zero 
@@ -982,6 +1270,8 @@ func ValueOf(i any) Value
 ``` go 
 func Zero(typ Type) Value
 ```
+
+Zero returns a Value representing the zero value for the specified type. The result is different from the zero value of the Value struct, which represents no value at all. For example, Zero(TypeOf(42)) returns a Value with Kind Int and value 0. The returned value is neither addressable nor settable.
 
 ​	Zero函数返回表示指定类型的零值的Value。结果与Value结构体的零值不同，后者表示没有值。例如，Zero(TypeOf(42))返回一个Kind为Int且值为0的Value。返回的值既不可寻址也不可设置。
 
@@ -991,6 +1281,8 @@ func Zero(typ Type) Value
 func (v Value) Addr() Value
 ```
 
+Addr returns a pointer value representing the address of v. It panics if CanAddr() returns false. Addr is typically used to obtain a pointer to a struct field or slice element in order to call a method that requires a pointer receiver.
+
 ​	Addr方法返回表示v地址的指针值。如果CanAddr()返回false，则会引发恐慌。Addr通常用于获取结构体字段或切片元素的指针，以便调用需要指针接收器的方法。
 
 #### (Value) Bool 
@@ -998,6 +1290,8 @@ func (v Value) Addr() Value
 ``` go 
 func (v Value) Bool() bool
 ```
+
+Bool returns v's underlying value. It panics if v's kind is not Bool.
 
 ​	Bool方法返回v的底层值。如果v的kind不是Bool，则会引发恐慌。
 
@@ -1007,6 +1301,8 @@ func (v Value) Bool() bool
 func (v Value) Bytes() []byte
 ```
 
+Bytes returns v's underlying value. It panics if v's underlying value is not a slice of bytes or an addressable array of bytes.
+
 ​	Bytes方法返回v的底层值。如果v的底层值不是字节的切片或可寻址的字节数组，则会引发恐慌。
 
 #### (Value) Call 
@@ -1014,6 +1310,8 @@ func (v Value) Bytes() []byte
 ``` go 
 func (v Value) Call(in []Value) []Value
 ```
+
+Call calls the function v with the input arguments in. For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]). Call panics if v's Kind is not Func. It returns the output results as Values. As in Go, each input argument must be assignable to the type of the function's corresponding input parameter. If v is a variadic function, Call creates the variadic slice parameter itself, copying in the corresponding values.
 
 ​	Call方法使用输入参数in调用函数v。例如，如果len(in)==3，则v.Call(in)表示Go调用v(in[0]、in[1]、in[2])。如果v的Kind不是Func，则会引发恐慌。它返回输出结果作为Values。与Go一样，每个输入参数必须可分配给函数对应的输入参数的类型。如果v是可变参数函数，则Call创建可变参数切片参数本身，并复制相应的值。
 
@@ -1023,6 +1321,8 @@ func (v Value) Call(in []Value) []Value
 func (v Value) CallSlice(in []Value) []Value
 ```
 
+CallSlice calls the variadic function v with the input arguments in, assigning the slice in[len(in)-1] to v's final variadic argument. For example, if len(in) == 3, v.CallSlice(in) represents the Go call v(in[0], in[1], in[2]...). CallSlice panics if v's Kind is not Func or if v is not variadic. It returns the output results as Values. As in Go, each input argument must be assignable to the type of the function's corresponding input parameter.
+
 ​	CallSlice方法调用可变参数函数 v，并将 in 作为输入参数，将 in[len(in)-1] 作为 v 的最后一个可变参数赋值。例如，如果 len(in) == 3，则 v.CallSlice(in) 表示 Go 调用 v(in[0], in[1], in[2]...)。如果 v 的 Kind 不是 Func 或 v 不是可变参数，则 CallSlice 会引发 panic。它将输出结果作为 Values 返回。与 Go 语言相同，每个输入参数必须可以分配到函数的相应输入参数的类型。
 
 #### (Value) CanAddr 
@@ -1030,6 +1330,8 @@ func (v Value) CallSlice(in []Value) []Value
 ``` go 
 func (v Value) CanAddr() bool
 ```
+
+CanAddr reports whether the value's address can be obtained with Addr. Such values are called addressable. A value is addressable if it is an element of a slice, an element of an addressable array, a field of an addressable struct, or the result of dereferencing a pointer. If CanAddr returns false, calling Addr will panic.
 
 ​	CanAddr方法报告值的地址是否可以使用 Addr 获取。这样的值称为可寻址值。如果它是 slice 的元素，是可寻址数组的元素，是可寻址结构的字段或是指针的解引用结果，它就是可寻址的。如果 CanAddr 返回 false，则调用 Addr 将引发 panic。
 
@@ -1039,6 +1341,8 @@ func (v Value) CanAddr() bool
 func (v Value) CanComplex() bool
 ```
 
+CanComplex reports whether Complex can be used without panicking.
+
 ​	CanComplex方法报告是否可以使用 Complex 而不会引发 panic。
 
 #### (Value) CanConvert  <- go1.17
@@ -1046,6 +1350,8 @@ func (v Value) CanComplex() bool
 ``` go 
 func (v Value) CanConvert(t Type) bool
 ```
+
+CanConvert reports whether the value v can be converted to type t. If v.CanConvert(t) returns true then v.Convert(t) will not panic.
 
 ​	CanConvert方法报告值 v 是否可以转换为类型 t。如果 v.CanConvert(t) 返回 true，则 v.Convert(t) 不会引发 panic。
 
@@ -1055,6 +1361,8 @@ func (v Value) CanConvert(t Type) bool
 func (v Value) CanFloat() bool
 ```
 
+CanFloat reports whether Float can be used without panicking.
+
 ​	CanFloat方法报告是否可以使用 Float 而不会引发 panic。
 
 #### (Value) CanInt  <- go1.18
@@ -1062,6 +1370,8 @@ func (v Value) CanFloat() bool
 ``` go 
 func (v Value) CanInt() bool
 ```
+
+CanInt reports whether Int can be used without panicking.
 
 ​	CanInt方法报告是否可以使用 Int 而不会引发 panic。
 
@@ -1071,6 +1381,8 @@ func (v Value) CanInt() bool
 func (v Value) CanInterface() bool
 ```
 
+CanInterface reports whether Interface can be used without panicking.
+
 ​	CanInterface方法报告是否可以使用 Interface 而不会引发 panic。
 
 #### (Value) CanSet 
@@ -1078,6 +1390,8 @@ func (v Value) CanInterface() bool
 ``` go 
 func (v Value) CanSet() bool
 ```
+
+CanSet reports whether the value of v can be changed. A Value can be changed only if it is addressable and was not obtained by the use of unexported struct fields. If CanSet returns false, calling Set or any type-specific setter (e.g., SetBool, SetInt) will panic.
 
 ​	CanSet方法报告是否可以更改 v 的值。只有可寻址的值且没有通过使用未公开的结构字段获得的值才能更改。如果 CanSet 返回 false，则调用 Set 或任何类型特定的 setter(例如 SetBool、SetInt)将引发 panic。
 
@@ -1087,6 +1401,8 @@ func (v Value) CanSet() bool
 func (v Value) CanUint() bool
 ```
 
+CanUint reports whether Uint can be used without panicking.
+
 ​	CanUint方法报告是否可以使用Uint而不会引起panic。
 
 #### (Value) Cap 
@@ -1094,6 +1410,8 @@ func (v Value) CanUint() bool
 ``` go 
 func (v Value) Cap() int
 ```
+
+Cap returns v's capacity. It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
 
 ​	Cap方法返回v的容量。如果v的Kind不是Array、Chan、Slice或指向Array的指针，则会引发panic。
 
@@ -1103,6 +1421,8 @@ func (v Value) Cap() int
 func (v Value) Close()
 ```
 
+Close closes the channel v. It panics if v's Kind is not Chan.
+
 ​	Close方法关闭通道v。如果v的Kind不是Chan，则会引发panic。
 
 #### (Value) Comparable  <- go1.20
@@ -1110,6 +1430,8 @@ func (v Value) Close()
 ``` go 
 func (v Value) Comparable() bool
 ```
+
+Comparable reports whether the value v is comparable. If the type of v is an interface, this checks the dynamic type. If this reports true then v.Interface() == x will not panic for any x, nor will v.Equal(u) for any Value u.
 
 ​	Comparable方法报告值v是否可比较。如果v的类型是接口，则会检查动态类型。如果此报告为true，则v.Interface()==x对于任何x都不会引发panic，也不会对于任何Value u引发v.Equal(u)。
 
@@ -1119,6 +1441,8 @@ func (v Value) Comparable() bool
 func (v Value) Complex() complex128
 ```
 
+Complex returns v's underlying value, as a complex128. It panics if v's Kind is not Complex64 or Complex128
+
 ​	Complex方法返回v的底层值，作为complex128。如果v的Kind不是Complex64或Complex128，则会引发panic。
 
 #### (Value) Convert  <- go1.1
@@ -1126,6 +1450,8 @@ func (v Value) Complex() complex128
 ``` go 
 func (v Value) Convert(t Type) Value
 ```
+
+Convert returns the value v converted to type t. If the usual Go conversion rules do not allow conversion of the value v to type t, or if converting v to type t panics, Convert panics.
 
 ​	Convert方法返回值v转换为类型t后的值。如果通常的Go转换规则不允许将值v转换为类型t，或者将v转换为类型t会引发panic，则Convert会引发panic。
 
@@ -1135,6 +1461,8 @@ func (v Value) Convert(t Type) Value
 func (v Value) Elem() Value
 ```
 
+Elem returns the value that the interface v contains or that the pointer v points to. It panics if v's Kind is not Interface or Pointer. It returns the zero Value if v is nil.
+
 ​	Elem方法返回接口v包含的值或指针v指向的值。如果v的Kind不是Interface或Pointer，则会引发panic。如果v为nil，则返回零值。
 
 #### (Value) Equal  <- go1.20
@@ -1142,6 +1470,8 @@ func (v Value) Elem() Value
 ``` go 
 func (v Value) Equal(u Value) bool
 ```
+
+Equal reports true if v is equal to u. For two invalid values, Equal will report true. For an interface value, Equal will compare the value within the interface. Otherwise, If the values have different types, Equal will report false. Otherwise, for arrays and structs Equal will compare each element in order, and report false if it finds non-equal elements. During all comparisons, if values of the same type are compared, and the type is not comparable, Equal will panic.
 
 ​	Equal方法报告v是否等于u。对于两个无效值，Equal将报告为true。对于接口值，Equal将比较接口中的值。否则，如果值具有不同的类型，则Equal将报告false。否则，对于数组和结构体，Equal将按顺序比较每个元素，并在找到不相等的元素时报告false。在所有比较期间，如果比较相同类型的值，并且类型不可比较，则Equal将引发panic。
 
@@ -1151,6 +1481,8 @@ func (v Value) Equal(u Value) bool
 func (v Value) Field(i int) Value
 ```
 
+Field returns the i'th field of the struct v. It panics if v's Kind is not Struct or i is out of range.
+
 ​	Field方法返回v的第i个结构体字段的值。如果v的Kind不是Struct或i越界，则会出现panic。
 
 #### (Value) FieldByIndex 
@@ -1158,6 +1490,8 @@ func (v Value) Field(i int) Value
 ``` go 
 func (v Value) FieldByIndex(index []int) Value
 ```
+
+FieldByIndex returns the nested field corresponding to index. It panics if evaluation requires stepping through a nil pointer or a field that is not a struct.
 
 ​	FieldByIndex方法返回对应于索引的嵌套字段。如果需要通过nil指针或不是结构体的字段进行步进，则会出现panic。
 
@@ -1208,6 +1542,8 @@ embedded last name: Embedded Doe
 func (v Value) FieldByIndexErr(index []int) (Value, error)
 ```
 
+FieldByIndexErr returns the nested field corresponding to index. It returns an error if evaluation requires stepping through a nil pointer, but panics if it must step through a field that is not a struct.
+
 ​	FieldByIndexErr方法返回对应于索引的嵌套字段。如果需要通过nil指针进行步进，则返回错误，但如果必须通过不是结构体的字段进行步进，则会出现panic。
 
 #### (Value) FieldByName 
@@ -1215,6 +1551,8 @@ func (v Value) FieldByIndexErr(index []int) (Value, error)
 ``` go 
 func (v Value) FieldByName(name string) Value
 ```
+
+FieldByName returns the struct field with the given name. It returns the zero Value if no field was found. It panics if v's Kind is not struct.
 
 ​	FieldByName方法返回具有给定名称的结构体字段。如果未找到字段，则返回零值。如果v的Kind不是struct，则会出现panic。
 
@@ -1253,6 +1591,8 @@ Name: John
 func (v Value) FieldByNameFunc(match func(string) bool) Value
 ```
 
+FieldByNameFunc returns the struct field with a name that satisfies the match function. It panics if v's Kind is not struct. It returns the zero Value if no field was found.
+
 ​	FieldByNameFunc方法返回满足match函数的名称的结构体字段。如果v的Kind不是struct，则会出现panic。如果未找到字段，则返回零值。
 
 #### (Value) Float 
@@ -1261,6 +1601,8 @@ func (v Value) FieldByNameFunc(match func(string) bool) Value
 func (v Value) Float() float64
 ```
 
+Float returns v's underlying value, as a float64. It panics if v's Kind is not Float32 or Float64
+
 ​	Float方法返回v的基础值，作为float64。如果v的Kind不是Float32或Float64，则会出现panic。
 
 #### (Value) Grow  <- go1.20
@@ -1268,6 +1610,10 @@ func (v Value) Float() float64
 ``` go 
 func (v Value) Grow(n int)
 ```
+
+Grow increases the slice's capacity, if necessary, to guarantee space for another n elements. After Grow(n), at least n elements can be appended to the slice without another allocation.
+
+It panics if v's Kind is not a Slice or if n is negative or too large to allocate the memory.
 
 ​	Grow方法增加切片的容量，如果需要的话，以保证为另外n个元素腾出空间。在Grow(n)之后，可以将至少n个元素附加到切片中而不进行另一个分配。
 
@@ -1279,6 +1625,8 @@ func (v Value) Grow(n int)
 func (v Value) Index(i int) Value
 ```
 
+Index returns v's i'th element. It panics if v's Kind is not Array, Slice, or String or i is out of range.
+
 ​	Index方法返回v的第i个元素。如果v的Kind不是Array，Slice或String，或者i越界，则会panic。
 
 #### (Value) Int 
@@ -1286,6 +1634,8 @@ func (v Value) Index(i int) Value
 ``` go 
 func (v Value) Int() int64
 ```
+
+Int returns v's underlying value, as an int64. It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
 
 ​	Int方法返回v的基础值，作为int64。如果v的Kind不是Int，Int8，Int16，Int32或Int64，则会panic。
 
@@ -1295,6 +1645,8 @@ func (v Value) Int() int64
 func (v Value) Interface() (i any)
 ```
 
+Interface returns v's current value as an interface{}. It is equivalent to:
+
 ​	Interface方法将v的当前值作为interface{}返回。它等同于：
 
 ``` go 
@@ -1303,11 +1655,21 @@ var i interface{} = (v's underlying value)
 
 ​	如果Value是通过访问不公开的struct字段获得的，则会panic。
 
+#### (Value) InterfaceData <- DEPRECATED
+
+```go
+func (v Value) IsNil() bool
+```
+
+IsNil reports whether its argument v is nil. The argument must be a chan, func, interface, map, pointer, or slice value; if it is not, IsNil panics. Note that IsNil is not always equivalent to a regular comparison with nil in Go. For example, if v was created by calling ValueOf with an uninitialized interface variable i, i==nil will be true but v.IsNil will panic as v will be the zero Value.
+
 #### (Value) IsNil 
 
 ``` go 
 func (v Value) IsNil() bool
 ```
+
+IsNil reports whether its argument v is nil. The argument must be a chan, func, interface, map, pointer, or slice value; if it is not, IsNil panics. Note that IsNil is not always equivalent to a regular comparison with nil in Go. For example, if v was created by calling ValueOf with an uninitialized interface variable i, i==nil will be true but v.IsNil will panic as v will be the zero Value.
 
 ​	IsNil方法报告其参数v是否为nil。参数必须是chan，func，interface，map，pointer或slice值；如果不是，IsNil会panic。请注意，IsNil并不总是等价于在Go中使用nil的常规比较。例如，如果v是通过使用未初始化的接口变量i调用ValueOf创建的，则i == nil将为true，但v.IsNil将会panic，因为v将是零值。
 
@@ -1325,6 +1687,8 @@ func (v Value) IsValid() bool
 func (v Value) IsZero() bool
 ```
 
+IsZero reports whether v is the zero value for its type. It panics if the argument is invalid.
+
 ​	IsZero方法报告v是否为其类型的零值。如果参数无效，则会panic。
 
 #### (Value) Kind 
@@ -1332,6 +1696,8 @@ func (v Value) IsZero() bool
 ``` go 
 func (v Value) Kind() Kind
 ```
+
+Kind returns v's Kind. If v is the zero Value (IsValid returns false), Kind returns Invalid.
 
 ​	Kind方法返回v的Kind。如果v是零值(IsValid返回false)，则Kind返回Invalid。
 
@@ -1341,6 +1707,8 @@ func (v Value) Kind() Kind
 func (v Value) Len() int
 ```
 
+Len returns v's length. It panics if v's Kind is not Array, Chan, Map, Slice, String, or pointer to Array.
+
 ​	Len方法返回v的长度。如果v的Kind不是Array，Chan，Map，Slice，String或指向Array的指针，则会panic。
 
 #### (Value) MapIndex 
@@ -1348,6 +1716,8 @@ func (v Value) Len() int
 ``` go 
 func (v Value) MapIndex(key Value) Value
 ```
+
+MapIndex returns the value associated with key in the map v. It panics if v's Kind is not Map. It returns the zero Value if key is not found in the map or if v represents a nil map. As in Go, the key's value must be assignable to the map's key type.
 
 ​	MapIndex 方法返回 map v 中关联于 key 的值。若 v 的 Kind 不是 Map，则会 panic。若 key 不存在于 map 中或 v 代表一个 nil 的 map，则返回 zero Value。与 Go 语言类似，key 的值必须能赋值给 map 的 key 类型。
 
@@ -1357,6 +1727,8 @@ func (v Value) MapIndex(key Value) Value
 func (v Value) MapKeys() []Value
 ```
 
+MapKeys returns a slice containing all the keys present in the map, in unspecified order. It panics if v's Kind is not Map. It returns an empty slice if v represents a nil map.
+
 ​	MapKeys 方法返回 map 中所有键的 slice，顺序不确定。若 v 的 Kind 不是 Map，则会 panic。若 v 代表一个 nil 的 map，则返回一个空的 slice。
 
 #### (Value) MapRange  <- go1.12
@@ -1364,6 +1736,10 @@ func (v Value) MapKeys() []Value
 ``` go 
 func (v Value) MapRange() *MapIter
 ```
+
+MapRange returns a range iterator for a map. It panics if v's Kind is not Map.
+
+Call Next to advance the iterator, and Key/Value to access each entry. Next returns false when the iterator is exhausted. MapRange follows the same iteration semantics as a range statement.
 
 ​	MapRange 方法返回一个 map 的 range 迭代器。若 v 的 Kind 不是 Map，则会 panic。
 
@@ -1386,6 +1762,8 @@ for iter.Next() {
 func (v Value) Method(i int) Value
 ```
 
+Method returns a function value corresponding to v's i'th method. The arguments to a Call on the returned function should not include a receiver; the returned function will always use v as the receiver. Method panics if i is out of range or if v is a nil interface value.
+
 ​	Method 方法返回 v 的第 i 个方法对应的函数值。调用返回函数时，不需要包含一个接收器；返回的函数总是使用 v 作为接收器。若 i 超出了范围或 v 是 nil 的接口值，则 Method 会 panic。
 
 #### (Value) MethodByName 
@@ -1393,6 +1771,8 @@ func (v Value) Method(i int) Value
 ``` go 
 func (v Value) MethodByName(name string) Value
 ```
+
+MethodByName returns a function value corresponding to the method of v with the given name. The arguments to a Call on the returned function should not include a receiver; the returned function will always use v as the receiver. It returns the zero Value if no method was found.
 
 ​	MethodByName 方法返回名称为 name 的 v 方法对应的函数值。调用返回函数时，不需要包含一个接收器；返回的函数总是使用 v 作为接收器。如果没有找到方法，则返回 zero Value。
 
@@ -1402,6 +1782,8 @@ func (v Value) MethodByName(name string) Value
 func (v Value) NumField() int
 ```
 
+NumField returns the number of fields in the struct v. It panics if v's Kind is not Struct.
+
 ​	NumField 方法返回结构体 v 中的字段数。若 v 的 Kind 不是 Struct，则会 panic。
 
 #### (Value) NumMethod 
@@ -1409,6 +1791,12 @@ func (v Value) NumField() int
 ``` go 
 func (v Value) NumMethod() int
 ```
+
+NumMethod returns the number of methods in the value's method set.
+
+For a non-interface type, it returns the number of exported methods.
+
+For an interface type, it returns the number of exported and unexported methods.
 
 ​	NumMethod方法返回值的方法集中的方法数量。
 
@@ -1422,6 +1810,8 @@ func (v Value) NumMethod() int
 func (v Value) OverflowComplex(x complex128) bool
 ```
 
+OverflowComplex reports whether the complex128 x cannot be represented by v's type. It panics if v's Kind is not Complex64 or Complex128.
+
 ​	OverflowComplex方法报告 complex128 类型 x 是否无法被 v 的类型所表示。如果 v 的 Kind 不是 Complex64 或 Complex128，则会出现 panic。
 
 #### (Value) OverflowFloat 
@@ -1429,6 +1819,8 @@ func (v Value) OverflowComplex(x complex128) bool
 ``` go 
 func (v Value) OverflowFloat(x float64) bool
 ```
+
+OverflowFloat reports whether the float64 x cannot be represented by v's type. It panics if v's Kind is not Float32 or Float64.
 
 ​	OverflowFloat方法报告 float64 类型 x 是否无法被 v 的类型所表示。如果 v 的 Kind 不是 Float32 或 Float64，则会出现 panic。
 
@@ -1438,6 +1830,8 @@ func (v Value) OverflowFloat(x float64) bool
 func (v Value) OverflowInt(x int64) bool
 ```
 
+OverflowInt reports whether the int64 x cannot be represented by v's type. It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64.
+
 ​	OverflowInt方法报告 int64 类型 x 是否无法被 v 的类型所表示。如果 v 的 Kind 不是 Int、Int8、Int16、Int32 或 Int64，则会出现 panic。
 
 #### (Value) OverflowUint 
@@ -1446,6 +1840,8 @@ func (v Value) OverflowInt(x int64) bool
 func (v Value) OverflowUint(x uint64) bool
 ```
 
+OverflowUint reports whether the uint64 x cannot be represented by v's type. It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+
 ​	OverflowUint方法报告 uint64 类型 x 是否无法被 v 的类型所表示。如果 v 的 Kind 不是 Uint、Uintptr、Uint8、Uint16、Uint32 或 Uint64，则会出现 panic。
 
 #### (Value) Pointer 
@@ -1453,6 +1849,14 @@ func (v Value) OverflowUint(x uint64) bool
 ``` go 
 func (v Value) Pointer() uintptr
 ```
+
+Pointer returns v's value as a uintptr. It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+
+If v's Kind is Func, the returned pointer is an underlying code pointer, but not necessarily enough to identify a single function uniquely. The only guarantee is that the result is zero if and only if v is a nil func Value.
+
+If v's Kind is Slice, the returned pointer is to the first element of the slice. If the slice is nil the returned value is 0. If the slice is empty but non-nil the return value is non-zero.
+
+It's preferred to use uintptr(Value.UnsafePointer()) to get the equivalent result.
 
 ​	Pointer方法返回 v 的值作为 uintptr。如果 v 的 Kind 不是 Chan、Func、Map、Pointer、Slice 或 UnsafePointer，则会出现 panic。
 
@@ -1468,6 +1872,8 @@ func (v Value) Pointer() uintptr
 func (v Value) Recv() (x Value, ok bool)
 ```
 
+Recv receives and returns a value from the channel v. It panics if v's Kind is not Chan. The receive blocks until a value is ready. The boolean value ok is true if the value x corresponds to a send on the channel, false if it is a zero value received because the channel is closed.
+
 ​	Recv方法从通道 v 中接收并返回一个值。如果 v 的 Kind 不是 Chan，则会 panic。该接收操作会阻塞直到值准备就绪。如果值 x 对应于通道的发送操作，则布尔值 ok 为 true，如果是一个零值，表示通道已关闭，则为 false。
 
 #### (Value) Send 
@@ -1475,6 +1881,8 @@ func (v Value) Recv() (x Value, ok bool)
 ``` go 
 func (v Value) Send(x Value)
 ```
+
+Send sends x on the channel v. It panics if v's kind is not Chan or if x's type is not the same type as v's element type. As in Go, x's value must be assignable to the channel's element type.
 
 ​	Send方法在通道 v 上发送 x。如果 v 的 Kind 不是 Chan 或者 x 的类型与 v 的元素类型不同，则会 panic。与 Go 语言类似，x 的值必须可分配给通道的元素类型。
 
@@ -1484,6 +1892,8 @@ func (v Value) Send(x Value)
 func (v Value) Set(x Value)
 ```
 
+Set assigns x to the value v. It panics if CanSet returns false. As in Go, x's value must be assignable to v's type and must not be derived from an unexported field.
+
 ​	Set方法将 x 赋值给值 v。如果 CanSet 返回 false，则会 panic。与 Go 语言类似，x 的值必须可分配给 v 的类型，且不能是未公开字段派生的。
 
 #### (Value) SetBool 
@@ -1491,6 +1901,8 @@ func (v Value) Set(x Value)
 ``` go 
 func (v Value) SetBool(x bool)
 ```
+
+SetBool sets v's underlying value. It panics if v's Kind is not Bool or if CanSet() is false.
 
 ​	SetBool方法设置 v 的底层值为 x。如果 v 的 Kind 不是 Bool 或者 CanSet() 返回 false，则会 panic。
 
@@ -1500,6 +1912,8 @@ func (v Value) SetBool(x bool)
 func (v Value) SetBytes(x []byte)
 ```
 
+SetBytes sets v's underlying value. It panics if v's underlying value is not a slice of bytes.
+
 ​	SetBytes方法设置 v 的底层值为 x。如果 v 的底层值不是字节切片，则会 panic。
 
 #### (Value) SetCap  <- go1.2
@@ -1507,6 +1921,8 @@ func (v Value) SetBytes(x []byte)
 ``` go 
 func (v Value) SetCap(n int)
 ```
+
+SetCap sets v's capacity to n. It panics if v's Kind is not Slice or if n is smaller than the length or greater than the capacity of the slice.
 
 ​	SetCap方法将 v 的容量设置为 n。如果 v 的 Kind 不是 Slice 或者 n 小于切片的长度或大于切片的容量，则会 panic。
 
@@ -1516,6 +1932,8 @@ func (v Value) SetCap(n int)
 func (v Value) SetComplex(x complex128)
 ```
 
+SetComplex sets v's underlying value to x. It panics if v's Kind is not Complex64 or Complex128, or if CanSet() is false.
+
 ​	SetComplex方法将 v 的底层值设置为 x。如果 v 的 Kind 不是 Complex64 或 Complex128，或者 CanSet() 返回 false，则会 panic。
 
 #### (Value) SetFloat 
@@ -1523,6 +1941,8 @@ func (v Value) SetComplex(x complex128)
 ``` go 
 func (v Value) SetFloat(x float64)
 ```
+
+SetFloat sets v's underlying value to x. It panics if v's Kind is not Float32 or Float64, or if CanSet() is false.
 
 ​	SetFloat方法将 v 的底层值设置为 x。如果 v 的 Kind 不是 Float32 或 Float64，或者 CanSet() 返回 false，则会 panic。
 
@@ -1532,6 +1952,8 @@ func (v Value) SetFloat(x float64)
 func (v Value) SetInt(x int64)
 ```
 
+SetInt sets v's underlying value to x. It panics if v's Kind is not Int, Int8, Int16, Int32, or Int64, or if CanSet() is false.
+
 ​	SetInt方法将 v 的底层值设置为 x。如果 v 的 Kind 不是 Int、Int8、Int16、Int32 或 Int64，或者 CanSet() 返回 false，则会 panic。
 
 #### (Value) SetIterKey  <- go1.18
@@ -1539,6 +1961,8 @@ func (v Value) SetInt(x int64)
 ``` go 
 func (v Value) SetIterKey(iter *MapIter)
 ```
+
+SetIterKey assigns to v the key of iter's current map entry. It is equivalent to v.Set(iter.Key()), but it avoids allocating a new Value. As in Go, the key must be assignable to v's type and must not be derived from an unexported field.
 
 ​	SetIterKey方法将 iter 当前映射项的键赋值给 v。它等价于 v.Set(iter.Key())，但是它避免了分配新值。与 Go 语言类似，键必须可分配给 v 的类型，且不能是未公开字段派生的。
 
@@ -1548,6 +1972,8 @@ func (v Value) SetIterKey(iter *MapIter)
 func (v Value) SetIterValue(iter *MapIter)
 ```
 
+SetIterValue assigns to v the value of iter's current map entry. It is equivalent to v.Set(iter.Value()), but it avoids allocating a new Value. As in Go, the value must be assignable to v's type and must not be derived from an unexported field.
+
 ​	SetIterValue方法为 v 赋值为 iter 当前的键值。它等同于 v.Set(iter.Value())，但是它避免了分配新的 Value。与 Go 一样，值必须可分配给 v 的类型，且不能从未公开的字段派生。
 
 #### (Value) SetLen 
@@ -1555,6 +1981,8 @@ func (v Value) SetIterValue(iter *MapIter)
 ``` go 
 func (v Value) SetLen(n int)
 ```
+
+SetLen sets v's length to n. It panics if v's Kind is not Slice or if n is negative or greater than the capacity of the slice.
 
 ​	SetLen方法将 v 的长度设置为 n。如果 v 的 Kind 不是 Slice，或者 n 是负数或大于切片的容量，则会 panic。
 
@@ -1564,6 +1992,8 @@ func (v Value) SetLen(n int)
 func (v Value) SetMapIndex(key, elem Value)
 ```
 
+SetMapIndex sets the element associated with key in the map v to elem. It panics if v's Kind is not Map. If elem is the zero Value, SetMapIndex deletes the key from the map. Otherwise if v holds a nil map, SetMapIndex will panic. As in Go, key's elem must be assignable to the map's key type, and elem's value must be assignable to the map's elem type.
+
 ​	SetMapIndex方法将与键 key 相关联的元素设置为 elem。如果 v 的 Kind 不是 Map，则会 panic。如果 elem 是零值，则 SetMapIndex 会从 map 中删除该键。否则，如果 v 持有一个 nil map，则 SetMapIndex 会 panic。与 Go 一样，key 的值必须可分配给 map 的键类型，elem 的值必须可分配给 map 的值类型。
 
 #### (Value) SetPointer 
@@ -1571,6 +2001,8 @@ func (v Value) SetMapIndex(key, elem Value)
 ``` go 
 func (v Value) SetPointer(x unsafe.Pointer)
 ```
+
+SetPointer sets the [unsafe.Pointer](https://pkg.go.dev/unsafe#Pointer) value v to x. It panics if v's Kind is not UnsafePointer.
 
 ​	SetPointer方法将 unsafe.Pointer 值 x 分配给 v。如果 v 的 Kind 不是 UnsafePointer，则会 panic。
 
@@ -1580,6 +2012,8 @@ func (v Value) SetPointer(x unsafe.Pointer)
 func (v Value) SetString(x string)
 ```
 
+SetString sets v's underlying value to x. It panics if v's Kind is not String or if CanSet() is false.
+
 ​	SetString方法将 v 的底层值设置为 x。如果 v 的 Kind 不是 String 或 CanSet() 为 false，则会 panic。
 
 #### (Value) SetUint 
@@ -1587,6 +2021,8 @@ func (v Value) SetString(x string)
 ``` go 
 func (v Value) SetUint(x uint64)
 ```
+
+SetUint sets v's underlying value to x. It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64, or if CanSet() is false.
 
 ​	SetUint方法将 v 的底层值设置为 x。如果 v 的 Kind 不是 Uint，Uintptr，Uint8，Uint16，Uint32 或 Uint64 或 CanSet() 为 false，则会 panic。
 
@@ -1596,6 +2032,8 @@ func (v Value) SetUint(x uint64)
 func (v Value) SetZero()
 ```
 
+SetZero sets v to be the zero value of v's type. It panics if CanSet returns false.
+
 ​	SetZero方法将 v 设置为 v 类型的零值。如果 CanSet 返回 false，则会 panic。
 
 #### (Value) Slice 
@@ -1603,6 +2041,8 @@ func (v Value) SetZero()
 ``` go 
 func (v Value) Slice(i, j int) Value
 ```
+
+Slice returns v[i:j]. It panics if v's Kind is not Array, Slice or String, or if v is an unaddressable array, or if the indexes are out of bounds.
 
 ​	Slice方法返回 v[i:j]。如果 v 的 Kind 不是 Array，Slice 或 String，或者 v 是不可寻址的数组，或者索引超出范围，则会 panic。
 
@@ -1612,6 +2052,8 @@ func (v Value) Slice(i, j int) Value
 func (v Value) Slice3(i, j, k int) Value
 ```
 
+Slice3 is the 3-index form of the slice operation: it returns v[i:j:k]. It panics if v's Kind is not Array or Slice, or if v is an unaddressable array, or if the indexes are out of bounds.
+
 ​	Slice3方法是 slice 操作的三个索引形式：它返回 v[i:j:k]。如果 v 的 Kind 不是 Array 或 Slice，或者 v 是不可寻址的数组，或者索引超出范围，则会 panic。
 
 #### (Value) String 
@@ -1619,6 +2061,8 @@ func (v Value) Slice3(i, j, k int) Value
 ``` go 
 func (v Value) String() string
 ```
+
+String returns the string v's underlying value, as a string. String is a special case because of Go's String method convention. Unlike the other getters, it does not panic if v's Kind is not String. Instead, it returns a string of the form "<T value>" where T is v's type. The fmt package treats Values specially. It does not call their String method implicitly but instead prints the concrete values they hold.
 
 ​	String方法返回值v的基础值作为字符串。String方法是一个特殊情况，因为Go的String方法约定。与其他的getter不同，如果v的Kind不是String，它不会抛出panic。相反，它返回一个字符串"<T value>"，其中T是v的类型。fmt包对Values进行了特殊处理。它不会隐式调用它们的String方法，而是打印它们所持有的具体值。
 
@@ -1628,6 +2072,8 @@ func (v Value) String() string
 func (v Value) TryRecv() (x Value, ok bool)
 ```
 
+TryRecv attempts to receive a value from the channel v but will not block. It panics if v's Kind is not Chan. If the receive delivers a value, x is the transferred value and ok is true. If the receive cannot finish without blocking, x is the zero Value and ok is false. If the channel is closed, x is the zero value for the channel's element type and ok is false.
+
 ​	TryRecv方法尝试从通道v接收一个值，但不会阻塞。如果接收到值，则x是传输的值，ok为true。如果接收无法完成而不阻塞，则x是零值，并且ok为false。如果通道关闭，则x是通道元素类型的零值，ok为false。如果v的Kind不是Chan，它将panic。
 
 #### (Value) TrySend 
@@ -1635,6 +2081,8 @@ func (v Value) TryRecv() (x Value, ok bool)
 ``` go 
 func (v Value) TrySend(x Value) bool
 ```
+
+TrySend attempts to send x on the channel v but will not block. It panics if v's Kind is not Chan. It reports whether the value was sent. As in Go, x's value must be assignable to the channel's element type.
 
 ​	TrySend方法尝试在通道v上发送x，但不会阻塞。如果v的Kind不是Chan，它将panic。它报告值是否已发送。与Go中一样，x的值必须可分配给通道的元素类型。
 
@@ -1644,6 +2092,8 @@ func (v Value) TrySend(x Value) bool
 func (v Value) Type() Type
 ```
 
+Type returns v's type.
+
 ​	Type方法返回v的类型。
 
 #### (Value) Uint 
@@ -1652,6 +2102,8 @@ func (v Value) Type() Type
 func (v Value) Uint() uint64
 ```
 
+Uint returns v's underlying value, as a uint64. It panics if v's Kind is not Uint, Uintptr, Uint8, Uint16, Uint32, or Uint64.
+
 ​	Uint方法返回v的基础值作为uint64。如果v的Kind不是Uint、Uintptr、Uint8、Uint16、Uint32或Uint64，它将panic。
 
 #### (Value) UnsafeAddr 
@@ -1659,6 +2111,10 @@ func (v Value) Uint() uint64
 ``` go 
 func (v Value) UnsafeAddr() uintptr
 ```
+
+UnsafeAddr returns a pointer to v's data, as a uintptr. It panics if v is not addressable.
+
+It's preferred to use uintptr(Value.Addr().UnsafePointer()) to get the equivalent result.
 
 ​	UnsafeAddr方法返回指向v的数据的指针，作为uintptr。如果v不可寻址，则它将panic。
 
@@ -1669,6 +2125,12 @@ func (v Value) UnsafeAddr() uintptr
 ``` go 
 func (v Value) UnsafePointer() unsafe.Pointer
 ```
+
+UnsafePointer returns v's value as a [unsafe.Pointer](https://pkg.go.dev/unsafe#Pointer). It panics if v's Kind is not Chan, Func, Map, Pointer, Slice, or UnsafePointer.
+
+If v's Kind is Func, the returned pointer is an underlying code pointer, but not necessarily enough to identify a single function uniquely. The only guarantee is that the result is zero if and only if v is a nil func Value.
+
+If v's Kind is Slice, the returned pointer is to the first element of the slice. If the slice is nil the returned value is nil. If the slice is empty but non-nil the return value is non-nil.
 
 ​	UnsafePointer方法返回v的值作为unsafe.Pointer。如果v的Kind不是Chan、Func、Map、Pointer、Slice或UnsafePointer，它将panic。
 
@@ -1685,6 +2147,8 @@ type ValueError struct {
 }
 ```
 
+A ValueError occurs when a Value method is invoked on a Value that does not support it. Such cases are documented in the description of each method.
+
 ​	ValueError结构体在对不支持它的Value调用Value方法时发生。这些情况在每个方法的描述中都有记录。
 
 #### (*ValueError) Error 
@@ -1697,4 +2161,5 @@ func (e *ValueError) Error() string
 
 ## Bugs
 
+- FieldByName and related functions consider struct field names to be equal if the names are equal, even if they are unexported names originating in different packages. The practical effect of this is that the result of t.FieldByName("x") is not well defined if the struct type t contains multiple fields named x (embedded from different packages). FieldByName may return one of the fields named x or may report that there are none. See https://golang.org/issue/4876 for more details.
 - FieldByName和相关函数认为结构体字段名称相等，即使它们是来自不同包的未导出名称。这样的实际影响是，如果结构体类型t包含多个名为x的字段(来自不同的包)，则t.FieldByName("x")的结果不是定义良好的。FieldByName可能返回一个名为x的字段，也可能报告没有任何字段。有关更多详细信息，请参见https://golang.org/issue/4876。
