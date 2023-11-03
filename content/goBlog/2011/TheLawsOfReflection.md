@@ -71,8 +71,6 @@ type Writer interface {
 
 Any type that implements a `Read` (or `Write`) method with this signature is said to implement `io.Reader` (or `io.Writer`). For the purposes of this discussion, that means that a variable of type `io.Reader` can hold any value whose type has a `Read` method:
 
-任何用这个签名实现读（或写）方法的类型都被称为实现了io.Reader（或io.Writer）。在本讨论中，这意味着一个io.Reader类型的变量可以持有任何类型具有Read方法的值：
-
 ​	任何实现了具有以下签名的`Read`（或`Write`）方法的类型都被认为实现了`io.Reader`（或`io.Writer`）。在本文中，这意味着类型为`io.Reader`的变量可以持有具有`Read`方法的任何类型的值：
 
 ```go
@@ -124,8 +122,6 @@ Russ Cox has written a [detailed blog post](https://research.swtch.com/2009/12/g
 
 A variable of interface type stores a pair: the concrete value assigned to the variable, and that value’s type descriptor. To be more precise, the value is the underlying concrete data item that implements the interface and the type describes the full type of that item. For instance, after
 
-一个接口类型的变量存储了一对：分配给该变量的具体数值，以及该数值的类型描述符。更准确地说，值是实现接口的底层具体数据项，而类型则描述了该数据项的完整类型。例如，在
-
 ​	接口类型的变量存储一对内容：分配给变量的具体值，以及该值的类型描述符。更准确地说，值是实现接口的底层具体数据项，而类型描述了该项的完整类型。例如，经过以下操作之后：
 
 ```go
@@ -147,8 +143,6 @@ w = r.(io.Writer)
 ```
 
 The expression in this assignment is a type assertion; what it asserts is that the item inside `r` also implements `io.Writer`, and so we can assign it to `w`. After the assignment, `w` will contain the pair (`tty`, `*os.File`). That’s the same pair as was held in `r`. The static type of the interface determines what methods may be invoked with an interface variable, even though the concrete value inside may have a larger set of methods.
-
-这个赋值中的表达式是一个类型断言；它断言r里面的项目也实现了io.Writer，所以我们可以把它赋给w。接口的静态类型决定了哪些方法可以被接口变量调用，即使里面的具体值可能有更大的方法集。
 
 ​	此赋值中的表达式是一种类型断言；它断言`r`内部的项还实现了`io.Writer`，因此我们可以将其赋给`w`。在赋值之后，`w`将包含（`tty`, `*os.File`）对，这与`r`中保持的内容相同。接口的静态类型决定了哪些方法可以被接口变量调用，尽管内部可能具有更多的方法集。
 
@@ -179,7 +173,7 @@ Now we’re ready to reflect.
 
 ## 反射的第一法则 The first law of reflection 
 
-## 1. 反射从接口值到反射对象。 1. Reflection goes from interface value to reflection object. 
+## 1. 反射可将接口值转换为反射对象。 1. Reflection goes from interface value to reflection object. 
 
 At the basic level, reflection is just a mechanism to examine the type and value pair stored inside an interface variable. To get started, there are two types we need to know about in [package reflect](https://go.dev/pkg/reflect/): [Type](https://go.dev/pkg/reflect/#Type) and [Value](https://go.dev/pkg/reflect/#Value). Those two types give access to the contents of an interface variable, and two simple functions, called `reflect.TypeOf` and `reflect.ValueOf`, retrieve `reflect.Type` and `reflect.Value` pieces out of an interface value. (Also, from a `reflect.Value` it’s easy to get to the corresponding `reflect.Type`, but let’s keep the `Value` and `Type` concepts separate for now.)
 
@@ -248,7 +242,7 @@ value: <float64 Value>
 
 Both `reflect.Type` and `reflect.Value` have lots of methods to let us examine and manipulate them. One important example is that `Value` has a `Type` method that returns the `Type` of a `reflect.Value`. Another is that both `Type` and `Value` have a `Kind` method that returns a constant indicating what sort of item is stored: `Uint`, `Float64`, `Slice`, and so on. Also methods on `Value` with names like `Int` and `Float` let us grab values (as `int64` and `float64`) stored inside:
 
-​	`reflect.Type`和`reflect.Value`都有许多方法，可以让我们检查和操作它们。一个重要的示例是，`Value`类型具有一个`Type`方法，该方法返回`reflect.Value`的`Type`。还有`Kind`方法，`Type`类型和`Value`类型都有`Kind`方法，该方法返回一个常数，指示存储的是什么类型的项：`Uint`、`Float64`、`Slice`等等（参见下图）。还有像`Int`和`Float`这样的`Value`方法，让我们提取里面存储的值（作为`int64`和`float64`）： 
+​	`reflect.Type`和`reflect.Value`都有许多方法，可以让我们检查和操作它们。一个重要的示例是，`Value`类型具有一个`Type`方法，该方法返回`reflect.Value`的`Type`类型。还有`Kind`方法，`Type`类型和`Value`类型都有`Kind`方法，该方法返回一个常数，指示存储的是什么类型的项：`Uint`、`Float64`、`Slice`等等（参见下图）。还有像`Int`和`Float`这样的`Value`方法，让我们提取里面存储的值（作为`int64`和`float64`）： 
 
 ![image-20231102164457305](TheLawsOfReflection_img/image-20231102164457305.png)
 
@@ -298,8 +292,6 @@ v := reflect.ValueOf(x)
 
 the `Kind` of `v` is still `reflect.Int`, even though the static type of `x` is `MyInt`, not `int`. In other words, the `Kind` cannot discriminate an `int` from a `MyInt` even though the `Type` can.
 
-v的Kind仍然是reflect.Int，尽管x的静态类型是MyInt而不是int。换句话说，尽管类型可以区分int和MyInt，但Kind不能区分int。
-
 ​	`v`的`Kind`（方法返回的）仍然是`reflect.Int`，尽管`x`的静态类型是`MyInt`，而不是`int`。换句话说，尽管`Type`方法可以区分`int`和`MyInt`，但`Kind`方法却不能。
 
 ```go
@@ -331,29 +323,23 @@ func main() {
 
 ## 反射的第二法则 The second law of reflection
 
-## 2. 反射从反射对象到接口值。 2. Reflection goes from reflection object to interface value.  
+## 2. 反射可将反射对象转换为接口值。 2. Reflection goes from reflection object to interface value.  
 
 Like physical reflection, reflection in Go generates its own inverse.
-
-像物理反射一样，Go中的反射也会产生它自己的逆向。
 
 ​	与物理反射类似，Go中的反射生成了它自己的反操作。
 
 Given a `reflect.Value` we can recover an interface value using the `Interface` method; in effect the method packs the type and value information back into an interface representation and returns the result:
 
-给定一个reflect.Value，我们可以使用Interface方法恢复一个接口值；实际上，该方法将类型和值信息打包回一个接口表示，并返回结果：
-
-​	给定一个reflect.Value，我们可以使用Interface方法来恢复一个接口值；实际上，该方法将类型和值信息重新打包成一个接口表示，并返回结果：
+​	给定一个`reflect.Value`，我们可以使用`Interface`方法来恢复一个接口值；实际上，该方法将类型和值信息重新打包成一个接口表示，并返回结果：
 
 ```go
 // Interface returns v's value as an interface{}.
-// Interface返回v的值作为interface{}。
+// Interface 返回v的值作为interface{}。
 func (v Value) Interface() interface{}
 ```
 
 As a consequence we can say
-
-因此，我们可以说
 
 ​	因此，我们可以说
 
@@ -364,15 +350,11 @@ fmt.Println(y)
 
 to print the `float64` value represented by the reflection object `v`.
 
-来打印由反射对象v代表的float64值。
-
-来打印由反射对象v表示的float64值。
+来打印由反射对象`v`表示的`float64`值。
 
 We can do even better, though. The arguments to `fmt.Println`, `fmt.Printf` and so on are all passed as empty interface values, which are then unpacked by the `fmt` package internally just as we have been doing in the previous examples. Therefore all it takes to print the contents of a `reflect.Value` correctly is to pass the result of the `Interface` method to the formatted print routine:
 
-不过，我们可以做得更好。fmt.Println、fmt.Printf 等的参数都是作为空的接口值传递的，然后由 fmt 包内部解包，就像我们在前面的例子中做的那样。因此，正确打印reflect.Value的内容只需要将接口方法的结果传递给格式化的打印例程：
-
-​	不过，我们可以做得更好。fmt.Println、fmt.Printf等函数的参数都作为空接口值传递，然后由fmt包内部解包，就像我们在先前的示例中所做的那样。因此，要正确打印reflect.Value的内容，只需将Interface方法的结果传递给格式化打印例程：
+​	不过，我们可以做得更好。`fmt.Println`、`fmt.Printf`等函数的参数都作为空接口值传递，然后由`fmt`包内部解包，就像我们在先前的示例中所做的那样。因此，要正确打印`reflect.Value`的内容，只需将`Interface`方法的结果传递给格式化打印例程：
 
 ```go
 fmt.Println(v.Interface())
@@ -380,9 +362,7 @@ fmt.Println(v.Interface())
 
 (Since this article was first written, a change was made to the `fmt` package so that it automatically unpacks a `reflect.Value` like this, so we could just say
 
-(自从这篇文章第一次写完后，fmt包做了一个修改，这样它就会像这样自动解包一个reflect.Value，所以我们可以直接说
-
-（由于这篇文章最初是在写的，fmt包已经进行了更改，以便自动解包像这样的reflect.Value，因此我们可以只说
+（自从这篇文章第一次写完后，`fmt`包已经进行了更改，以便自动解包像这样的`reflect.Value`，因此我们可以只说
 
 ```go
 fmt.Println(v)
@@ -390,23 +370,17 @@ fmt.Println(v)
 
 for the same result, but for clarity we’ll keep the `.Interface()` calls here.)
 
-得到同样的结果，但为了清楚起见，我们将在这里保留.Interface()的调用）。
-
-获得相同的结果，但为了清晰起见，我们将保留.Interface()调用。）
+获得相同的结果，但为了清晰起见，我们将在这里保留`.Interface()`的调用。）
 
 Since our value is a `float64`, we can even use a floating-point format if we want:
 
-由于我们的值是 float64，如果我们想的话，甚至可以使用浮点格式：
-
-​	由于我们的值是一个float64，如果需要，我们甚至可以使用浮点数格式：
+​	由于我们的值是一个`float64`，如果需要，我们甚至可以使用浮点数格式：
 
 ```go
 fmt.Printf("value is %7.1e\n", v.Interface())
 ```
 
 and get in this case
-
-并在本例中得到
 
 在这种情况下，将获得
 
@@ -416,35 +390,25 @@ and get in this case
 
 Again, there’s no need to type-assert the result of `v.Interface()` to `float64`; the empty interface value has the concrete value’s type information inside and `Printf` will recover it.
 
-同样，不需要对v.Interface()的结果进行type-assert到float64；空的接口值里面有具体值的type信息，Printf会恢复它。
-
-​	同样，没有必要将v.Interface()的结果类型断言为float64；空接口值内部具有具体值的类型信息，并且Printf会恢复它。
+​	同样，没有必要将`v.Interface()`的结果类型断言为`float64`；空接口值内部具有具体值的类型信息，并且`Printf`会恢复它。
 
 In short, the `Interface` method is the inverse of the `ValueOf` function, except that its result is always of static type `interface{}`.
 
-简而言之，Interface方法是ValueOf函数的倒数，只是它的结果总是静态类型interface{}。
-
-​	总之，Interface方法是ValueOf函数的反操作，不过它的结果始终是静态类型interface{}。
+​	总之，`Interface`方法是`ValueOf`函数的反操作，不过它的结果始终是静态类型`interface{}`。
 
 Reiterating: Reflection goes from interface values to reflection objects and back again.
-
-重申一下。反射从接口值到反射对象，然后再返回。
 
 ​	再次强调：反射从接口值到反射对象，然后再返回。
 
 ## 反射的第三法则 The third law of reflection
 
-## 3. 要修改一个反射对象，其值必须是可设置性。3. To modify a reflection object, the value must be settable. 
+## 3. 要修改一个反射对象，其值必须是可设置的。3. To modify a reflection object, the value must be settable. 
 
 The third law is the most subtle and confusing, but it’s easy enough to understand if we start from first principles.
-
-第三条定律是最微妙和令人困惑的，但如果我们从第一条原则出发，就很容易理解。
 
 ​	第三法则是最微妙和令人困惑的，但如果我们从基本原理出发，就很容易理解。
 
 Here is some code that does not work, but is worth studying.
-
-下面是一些不起作用的代码，但值得研究。
 
 ​	以下是一些代码示例，虽然无法正常工作，但值得学习。
 
@@ -456,9 +420,7 @@ v.SetFloat(7.1) // Error: will panic. 错误：会引发panic
 
 If you run this code, it will panic with the cryptic message
 
-如果您运行这段代码，它就会出现恐慌，并发出神秘的信息
-
-​	如果运行这段代码，它将引发一个晦涩的错误消息：
+​	如果运行这段代码，它就会出现panic ，并发出晦涩的信息：
 
 ```
 panic: reflect.Value.SetFloat using unaddressable value
@@ -466,15 +428,11 @@ panic: reflect.Value.SetFloat using unaddressable value
 
 The problem is not that the value `7.1` is not addressable; it’s that `v` is not settable. Settability is a property of a reflection `Value`, and not all reflection `Values` have it.
 
-问题不在于7.1这个值不可寻址，而在于v不可设置。可设置性是反射值的一个属性，并不是所有的反射值都有这个属性。
-
-​	问题不在于值`7.1`不可寻址；问题在于v不可设置。可设置性是反射Value的属性，而不是所有反射Values都具备可设置性。
+​	问题不在于值`7.1`不可寻址；问题在于`v`不可设置。可设置性是反射`Value`的属性，但并不是所有反射`Values`都具备可设置性。
 
 The `CanSet` method of `Value` reports the settability of a `Value`; in our case,
 
-Value的CanSet方法报告一个Value的可设置性；在我们的例子中。
-
-​	Value的CanSet方法报告了Value的可设置性；在我们的案例中，
+​	`Value`的`CanSet`方法报告了`Value`的可设置性；在我们的案例中，
 
 ```go
 var x float64 = 3.4
@@ -492,15 +450,11 @@ settability of v: false
 
 It is an error to call a `Set` method on a non-settable `Value`. But what is settability?
 
-在一个不可设置的值上调用一个设置方法是一个错误。但什么是可设置性？
-
-​	在不可设置的Value上调用Set方法是一个错误。但是，可设置性是什么？
+​	在不可设置的`Value`上调用`Set`方法是一个错误。但是，可设置性是什么？
 
 Settability is a bit like addressability, but stricter. It’s the property that a reflection object can modify the actual storage that was used to create the reflection object. Settability is determined by whether the reflection object holds the original item. When we say
 
-可设置性有点像可寻址性，但更严格。它是一个反射对象可以修改用于创建反射对象的实际存储的属性。可设置性是由反射对象是否持有原始项目决定的。当我们说
-
-​	可设置性有点像可寻址性，但更为严格。它表示反射对象是否可以修改用于创建反射对象的实际存储。可设置性是由反射对象是否持有原始项来确定的。当我们写下：
+​	**可设置性有点像可寻址性，但更为严格**。它表示反射对象是否可以修改用于创建反射对象的实际存储。可设置性是由反射对象是否持有原始项来确定的。当我们写下：
 
 ```go
 var x float64 = 3.4
@@ -509,9 +463,7 @@ v := reflect.ValueOf(x)
 
 we pass a copy of `x` to `reflect.ValueOf`, so the interface value created as the argument to `reflect.ValueOf` is a copy of `x`, not `x` itself. Thus, if the statement
 
-我们把 x 的副本传递给 reflect.ValueOf，所以作为 reflect.ValueOf 的参数创建的接口值是 x 的副本，而不是 x 本身。因此，如果语句
-
-​	我们将x的一个副本传递给reflect.ValueOf，因此作为reflect.ValueOf参数创建的接口值是x的副本，而不是x本身。因此，如果允许该语句成功执行，
+​	我们将`x`的一个副本传递给`reflect.ValueOf`，因此作为`reflect.ValueOf`实参创建的接口值是`x`的副本，而不是`x`本身。因此，如果允许该语句成功执行，
 
 ```go
 v.SetFloat(7.1)
@@ -519,15 +471,11 @@ v.SetFloat(7.1)
 
 were allowed to succeed, it would not update `x`, even though `v` looks like it was created from `x`. Instead, it would update the copy of `x` stored inside the reflection value and `x` itself would be unaffected. That would be confusing and useless, so it is illegal, and settability is the property used to avoid this issue.
 
-允许成功的话，它不会更新x，尽管v看起来是由x创建的。相反，它将更新存储在反射值中的x的副本，而x本身不会受到影响。这将是混乱和无用的，所以它是非法的，而settability是用来避免这个问题的属性。
-
-它不会更新x，即使v看起来是从x创建的。相反，它将更新存储在反射值内部的x的副本，而x本身将不受影响。这将会令人困惑并且没有用处，因此它是不允许的，可设置性是用来避免这个问题的属性。
+它不会更新`x`，即使`v`看起来是从`x`创建的。相反，它将更新存储在反射值内部的`x`的副本，而`x`本身将不受影响。这将会令人困惑并且没有用处，因此它是非法的，可设置性是用来避免这个问题的属性。
 
 If this seems bizarre, it’s not. It’s actually a familiar situation in unusual garb. Think of passing `x` to a function:
 
-如果这看起来很怪异，其实不然。它实际上是一个熟悉的情况，穿着不寻常的衣服。想想把x传给一个函数：
-
-​	如果这看起来很奇怪，实际上它并不奇怪。它实际上是一个常见情况，只是以不同的方式呈现。想象将x传递给一个函数：
+​	如果这看起来很奇怪，其实不然。它实际上是一个常见情况，只是以不同的方式呈现。想象将`x`传递给一个函数：
 
 ```go
 f(x)
@@ -535,9 +483,7 @@ f(x)
 
 We would not expect `f` to be able to modify `x` because we passed a copy of `x`’s value, not `x` itself. If we want `f` to modify `x` directly we must pass our function the address of `x` (that is, a pointer to `x`):
 
-我们不会期望f能够修改x，因为我们传递的是x的值的拷贝，而不是x本身。如果我们想让f直接修改x，我们必须把x的地址（也就是一个指向x的指针）传给我们的函数：
-
-​	我们不会期望f能够修改x，因为我们传递了x的值的副本，而不是x本身。如果我们希望f直接修改x，我们必须将x的地址传递给我们的函数（即x的指针）：
+​	我们不会期望`f`能够修改`x`，因为我们传递了`x`的值的副本，而不是`x`本身。如果我们希望`f`直接修改`x`，我们必须将`x`的地址传递给我们的函数（即`x`的指针）：
 
 ```go
 f(&x)
@@ -545,9 +491,7 @@ f(&x)
 
 This is straightforward and familiar, and reflection works the same way. If we want to modify `x` by reflection, we must give the reflection library a pointer to the value we want to modify.
 
-这是直接的和熟悉的，反射的工作方式也是如此。如果我们想通过反射来修改x，我们必须给反射库一个指向我们想修改的值的指针。
-
-​	这是简单和常见的，反射也是相同的方式工作。如果我们想要通过反射修改x，我们必须向反射库提供我们要修改的值的指针。
+​	这是简单和常见的，反射的工作方式也是如此。如果我们想要通过反射修改`x`，我们必须向反射库提供我们要修改的值的指针。
 
 ```go
 var x float64 = 3.4
@@ -558,9 +502,7 @@ fmt.Println("settability of p:", p.CanSet())
 
 Let’s do that. First we initialize `x` as usual and then create a reflection value that points to it, called `p`.
 
-让我们来做这件事。首先我们像往常一样初始化x，然后创建一个指向它的反射值，叫做p。
-
-​	让我们来做这个。首先，我们像往常一样初始化x，然后创建一个指向它的反射值，称为p。
+​	让我们来做这件事。首先，我们像往常一样初始化`x`，然后创建一个指向它的反射值，称为`p`。
 
 ```go
 var x float64 = 3.4
@@ -573,8 +515,6 @@ The output so far is
 
 到目前为止的输出是
 
-到目前为止的输出是
-
 ```go
 type of p: *float64
 settability of p: false
@@ -582,9 +522,7 @@ settability of p: false
 
 The reflection object `p` isn’t settable, but it’s not `p` we want to set, it’s (in effect) `*p`. To get to what `p` points to, we call the `Elem` method of `Value`, which indirects through the pointer, and save the result in a reflection `Value` called `v`:
 
-反射对象p是不可设置的，但我们想设置的不是p，而是（实际上）*p。为了得到p所指向的东西，我们调用Value的Elem方法，它通过指针进行间接操作，并将结果保存在一个叫做v的反射Value中：
-
-​	反射对象p不可设置，但我们不是想设置p本身，而是（实际上）*p。为了获取p指向的内容，我们调用Value的Elem方法，该方法通过指针进行间接操作，并将结果保存在一个名为v的反射Value中：
+​	反射对象`p`是不可设置的，但我们不是想设置`p`本身，而是（实际上）`*p`。为了获取`p`指向的内容，我们调用`Value`的`Elem`方法，该方法通过指针进行间接操作，并将结果保存在一个名为`v`的反射`Value`中：
 
 ```go
 v := p.Elem()
@@ -593,9 +531,7 @@ fmt.Println("settability of v:", v.CanSet())
 
 Now `v` is a settable reflection object, as the output demonstrates,
 
-现在v是一个可设置的反射对象，正如输出所演示的那样。
-
-​	现在v是一个可设置的反射对象，如输出所示，
+​	现在`v`是一个可设置的反射对象，如输出所示，
 
 ```
 settability of v: true
@@ -603,9 +539,7 @@ settability of v: true
 
 and since it represents `x`, we are finally able to use `v.SetFloat` to modify the value of `x`:
 
-并且由于它代表x，我们最终能够使用v.SetFloat来修改x的值：
-
-既然它代表x，我们最终可以使用v.SetFloat来修改x的值：
+并且由于它代表`x`，我们最终可以使用`v.SetFloat`来修改`x`的值：
 
 ```go
 v.SetFloat(7.1)
@@ -614,8 +548,6 @@ fmt.Println(x)
 ```
 
 The output, as expected, is
-
-正如预期的那样，输出结果是
 
 输出如预期的那样：
 
@@ -626,23 +558,17 @@ The output, as expected, is
 
 Reflection can be hard to understand but it’s doing exactly what the language does, albeit through reflection `Types` and `Values` that can disguise what’s going on. Just keep in mind that reflection Values need the address of something in order to modify what they represent.
 
-反射可能很难理解，但它所做的正是语言所做的，尽管通过反射类型和值可以掩盖正在发生的事情。请记住，反射值需要某个东西的地址，以便修改它们所代表的东西。
-
-​	反射可能很难理解，但它实际上就是在执行与反射类型和值相关的操作，尽管这些类型和值可以掩盖发生的事情。只需记住，反射Values需要某物的地址才能修改它们所代表的内容。
+​	反射可能难以理解，尽管是通过反射`Types`和`Values`来掩盖正在发生的事情，但它确实在做语言所做的事情。只需记住，反射`Values`需要某个东西的地址才能修改它们所代表的内容。
 
 ## 结构体 Structs 
 
 In our previous example `v` wasn’t a pointer itself, it was just derived from one. A common way for this situation to arise is when using reflection to modify the fields of a structure. As long as we have the address of the structure, we can modify its fields.
 
-在我们前面的例子中，v本身并不是一个指针，它只是从一个指针派生出来的。出现这种情况的一个常见方法是使用反射来修改结构的字段。只要我们有结构的地址，我们就可以修改它的字段。
-
-​	在我们之前的示例中，v本身不是指针，它只是从指针派生而来。在使用反射来修改结构体的字段时，这种情况经常发生。只要我们有结构体的地址，我们就可以修改它的字段。
+​	在我们之前的示例中，`v`本身不是指针，它只是从指针派生而来。在使用反射来修改结构体的字段时，这种情况经常发生。只要我们有结构体的地址，我们就可以修改它的字段。
 
 Here’s a simple example that analyzes a struct value, `t`. We create the reflection object with the address of the struct because we’ll want to modify it later. Then we set `typeOfT` to its type and iterate over the fields using straightforward method calls (see [package reflect](https://go.dev/pkg/reflect/) for details). Note that we extract the names of the fields from the struct type, but the fields themselves are regular `reflect.Value` objects.
 
-下面是一个分析结构值t的简单例子。我们用结构的地址创建反射对象，因为我们以后会想修改它。然后我们将typeOfT设置为它的类型，并使用直接的方法调用遍历字段（详见包reflect）。请注意，我们从结构类型中提取字段的名称，但字段本身是普通的 reflect.Value 对象。
-
-​	下面是一个简单的示例，分析了一个结构体值t。我们使用结构体的地址创建反射对象，因为我们稍后要对其进行修改。然后，我们将typeOfT设置为它的类型，并使用直接的方法调用来迭代字段（有关详细信息，请参阅reflect包）。请注意，我们从结构体类型中提取字段的名称，但字段本身是常规的reflect.Value对象。
+​	下面是一个简单的示例，分析了一个结构体值`t`。我们使用结构体的地址创建反射对象，因为我们稍后要对其进行修改。然后，我们将`typeOfT`设置为它的类型，并使用直接的方法调用来迭代字段（有关详细信息，请参阅[reflect包]({{< ref "/stdLib/reflect">}})）。请注意，我们从结构体类型中提取字段的名称，但字段本身是常规的`reflect.Value`对象。
 
 ```go
 type T struct {
@@ -663,8 +589,6 @@ The output of this program is
 
 这个程序的输出是
 
-这个程序的输出是
-
 ```
 0: A int = 23
 1: B string = skidoo
@@ -672,15 +596,11 @@ The output of this program is
 
 There’s one more point about settability introduced in passing here: the field names of `T` are upper case (exported) because only exported fields of a struct are settable.
 
-这里还顺便介绍了一个关于可设置性的观点：T的字段名是大写的（导出的），因为只有结构的导出字段是可设置的。
-
-​	这里还有关于可设置性的一个附加点：T的字段名称是大写（已导出字段），因为只有结构体的导出字段是可设置的。
+​	关于可设置性，这里还有一个顺便引入的点：`T`的字段名是大写的（已导出的），因为只有结构的导出字段是可以设置的。
 
 Because `s` contains a settable reflection object, we can modify the fields of the structure.
 
-因为s包含一个可设置的反射对象，我们可以修改结构的字段。
-
-​	由于s包含一个可设置的反射对象，我们可以修改结构体的字段。
+​	由于`s`包含一个可设置的反射对象，我们可以修改结构体的字段。
 
 ```
 s.Field(0).SetInt(77)
@@ -690,8 +610,6 @@ fmt.Println("t is now", t)
 
 And here’s the result:
 
-这里是结果：
-
 这是结果：
 
 ```
@@ -700,24 +618,20 @@ t is now {77 Sunset Strip}
 
 If we modified the program so that `s` was created from `t`, not `&t`, the calls to `SetInt` and `SetString` would fail as the fields of `t` would not be settable.
 
-如果我们修改程序，使s是从t而不是&t创建的，那么对SetInt和SetString的调用就会失败，因为t的字段不能被设置。
-
-​	如果我们修改程序，以便s是从t而不是&t创建的，那么对SetInt和SetString的调用将失败，因为t的字段将不可设置。
+​	如果我们修改程序，使`s`是从`t`而不是`&t`创建的，那么对`SetInt`和`SetString`的调用将失败，因为`t`的字段不能被设置。
 
 ## 结论 Conclusion 
 
 Here again are the laws of reflection:
 
-这里又是反射的规律：
+​	这里再次提到反射的三个法则：
 
-这里再次提到反射的三个法则：
-
-- Reflection goes from interface value to reflection object. 反射从接口值到反射对象。
-- 反射从接口值到反射对象的转换。
-- Reflection goes from reflection object to interface value. 反射从反射对象到接口值。
-- 反射从反射对象到接口值的转换。
-- To modify a reflection object, the value must be settable. 要修改一个反射对象，其值必须是可设置的。
-- 要修改反射对象，该值必须是可设置的。
+- Reflection goes from interface value to reflection object.
+- 反射可将接口值转换为反射对象。
+- Reflection goes from reflection object to interface value. 
+- 反射可将反射对象转换为接口值。
+- To modify a reflection object, the value must be settable. 
+- 要修改一个反射对象，其值必须是可设置的。
 
 Once you understand these laws reflection in Go becomes much easier to use, although it remains subtle. It’s a powerful tool that should be used with care and avoided unless strictly necessary.
 
