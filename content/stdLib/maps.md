@@ -9,23 +9,23 @@ draft = false
 
 [https://pkg.go.dev/maps@go1.21.3](https://pkg.go.dev/maps@go1.21.3)
 
-### 概述
+## 概述
 
 Package maps defines various functions useful with maps of any type.
 
 ​	maps包定义了各种类型映射的有用函数。
 
-### 常量
+## 常量
 
 This section is empty.
 
-### 变量
+## 变量
 
 This section is empty.
 
-### 函数
+## 函数
 
-#### func Clone 
+### func Clone 
 
 ``` go
 func Clone[M ~map[K]V, K comparable, V any](m M) M
@@ -35,7 +35,7 @@ Clone returns a copy of m. This is a shallow clone: the new keys and values are 
 
 ​	Clone返回m的副本。这是一个浅拷贝：新键和值使用普通赋值设置。
 
-#### func Copy 
+### func Copy 
 
 ``` go
 func Copy[M1 ~map[K]V, M2 ~map[K]V, K comparable, V any](dst M1, src M2)
@@ -45,7 +45,7 @@ Copy copies all key/value pairs in src adding them to dst. When a key in src is 
 
 ​	`Copy`函数将`src`中的所有键/值对复制到`dst`中。当`src`中的某个键已经存在于`dst`中时，`dst`中的值将被`src`中与该键关联的值覆盖。
 
-#### func DeleteFunc 
+### func DeleteFunc 
 
 ``` go
 func DeleteFunc[M ~map[K]V, K comparable, V any](m M, del func(K, V) bool)
@@ -55,7 +55,7 @@ DeleteFunc deletes any key/value pairs from m for which del returns true.
 
 ​	`DeleteFunc`函数从`m`中删除`del`返回`true`的任何键/值对。
 
-##### DeleteFunc Example
+#### DeleteFunc Example
 
 ``` go
 package main
@@ -81,7 +81,7 @@ Output:
 
 map[four:4 two:2]
 ```
-#### func Equal 
+### func Equal 
 
 ``` go
 func Equal[M1, M2 ~map[K]V, K, V comparable](m1 M1, m2 M2) bool
@@ -91,7 +91,7 @@ Equal reports whether two maps contain the same key/value pairs. Values are comp
 
 ​	`Equal`函数报告两个映射是否包含相同的键/值对。值使用`==`进行比较。
 
-#### func EqualFunc 
+### func EqualFunc 
 
 ``` go
 func EqualFunc[M1 ~map[K]V1, M2 ~map[K]V2, K comparable, V1, V2 any](m1 M1, m2 M2, eq func(V1, V2) bool) bool
@@ -101,7 +101,7 @@ EqualFunc is like Equal, but compares values using eq. Keys are still compared w
 
 ​	`EqualFunc`函数类似于`Equal`函数，但使用`eq`比较值。键仍然使用`==`进行比较。
 
-##### EqualFunc  Example
+#### EqualFunc  Example
 
 ```
 package main
@@ -136,7 +136,7 @@ true
 
 
 
-### 类型
+## 类型
 
 This section is empty.
 

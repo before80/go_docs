@@ -8,15 +8,7 @@ draft = false
 +++
 https://pkg.go.dev/mime/quotedprintable@go1.20.1
 
-
-
 Package quotedprintable implements quoted-printable encoding as specified by [RFC 2045](https://rfc-editor.org/rfc/rfc2045.html).
-
-
-
-
-
-
 
 
 ## 常量 
@@ -51,8 +43,32 @@ func NewReader(r io.Reader) *Reader
 
 NewReader returns a quoted-printable reader, decoding from r.
 
-##### Example
+##### NewReader Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"io"
+	"mime/quotedprintable"
+	"strings"
+)
+
+func main() {
+	for _, s := range []string{
+		`=48=65=6C=6C=6F=2C=20=47=6F=70=68=65=72=73=21`,
+		`invalid escape: <b style="font-size: 200%">hello</b>`,
+		"Hello, Gophers! This symbol will be unescaped: =3D and this will be written in =\r\none line.",
+	} {
+		b, err := io.ReadAll(quotedprintable.NewReader(strings.NewReader(s)))
+		fmt.Printf("%s %v\n", b, err)
+	}
+}
+Output:
+
+Hello, Gophers! <nil>
+invalid escape: <b style="font-size: 200%">hello</b> <nil>
+Hello, Gophers! This symbol will be unescaped: = and this will be written in one line. <nil>
 ```
 
 #### (*Reader) Read 
@@ -84,8 +100,24 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter returns a new Writer that writes to w.
 
-##### Example
+##### NewWriter Example
 ``` go 
+package main
+
+import (
+	"mime/quotedprintable"
+	"os"
+)
+
+func main() {
+	w := quotedprintable.NewWriter(os.Stdout)
+	w.Write([]byte("These symbols will be escaped: = \t"))
+	w.Close()
+
+}
+Output:
+
+These symbols will be escaped: =3D =09
 ```
 
 #### (*Writer) Close 

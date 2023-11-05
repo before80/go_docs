@@ -8,7 +8,11 @@ draft = false
 +++
 https://pkg.go.dev/io@go1.20.1
 
-​	io包提供了基本的I/O原语接口。它的主要任务是将这些原语的现有实现(例如os包中的实现)封装到共享的公共接口中，以抽象功能，以及一些其他相关的原语。
+Package io provides basic interfaces to I/O primitives. Its primary job is to wrap existing implementations of such primitives, such as those in package os, into shared public interfaces that abstract the functionality, plus some other related primitives.
+
+​	`io`包提供了基本的I/O原语接口。它的主要任务是将这些原语的现有实现(例如os包中的实现)封装到共享的公共接口中，以抽象功能，以及一些其他相关的原语。
+
+Because these interfaces and primitives wrap lower-level operations with various implementations, unless otherwise informed clients should not assume they are safe for parallel execution.
 
 ​	由于这些接口和原语封装了具有各种实现的底层操作，除非另有通知，否则客户端不应假设它们适合并行执行。
 
@@ -16,9 +20,9 @@ https://pkg.go.dev/io@go1.20.1
 
 ``` go 
 const (
-	SeekStart   = 0 // 相对于文件的起点进行寻找
-	SeekCurrent = 1 // 相对于当前偏移量进行寻找
-	SeekEnd     = 2 // 相对于结尾进行寻找
+	SeekStart   = 0 // 相对于文件的起点进行寻找 seek relative to the origin of the file
+	SeekCurrent = 1 // 相对于当前偏移量进行寻找 seek relative to the current offset
+	SeekEnd     = 2 // 相对于结尾进行寻找 seek relative to the end
 )
 ```
 
@@ -32,11 +36,15 @@ Seek whence values.
 var EOF = errors.New("EOF")
 ```
 
+EOF is the error returned by Read when no more input is available. (Read must return EOF itself, not an error wrapping EOF, because callers will test for EOF using ==.) Functions should return EOF only to signal a graceful end of input. If the EOF occurs unexpectedly in a structured data stream, the appropriate error is either ErrUnexpectedEOF or some other error giving more detail.
+
 ​	EOF 是 Read方法在没有更多输入可用时返回的错误。(Read方法必须自己返回 EOF，而不是封装 EOF 的错误，因为调用者将使用 == 测试 EOF。)函数只应返回 EOF 来表示输入的优雅结束。如果 EOF 在结构化数据流中意外发生，则适当的错误是 ErrUnexpectedEOF 或提供更多详细信息的其他错误。
 
 ``` go 
 var ErrClosedPipe = errors.New("io: read/write on closed pipe")
 ```
+
+ErrClosedPipe is the error used for read or write operations on a closed pipe.
 
 ​	ErrClosedPipe是在关闭的管道上进行读取或写入操作时使用的错误。
 
@@ -44,11 +52,15 @@ var ErrClosedPipe = errors.New("io: read/write on closed pipe")
 var ErrNoProgress = errors.New("multiple Read calls return no data or error")
 ```
 
+ErrNoProgress is returned by some clients of a Reader when many calls to Read have failed to return any data or error, usually the sign of a broken Reader implementation.
+
 ​	ErrNoProgress 是一些 Reader 的客户端在多次调用 Read 后未返回任何数据或错误时返回的错误，通常表明 Reader 实现有问题。
 
 ``` go 
 var ErrShortBuffer = errors.New("short buffer")
 ```
+
+ErrShortBuffer means that a read required a longer buffer than was provided.
 
 ​	ErrShortBuffer表示读取所需的缓冲区比提供的缓冲区要长。
 
@@ -56,11 +68,15 @@ var ErrShortBuffer = errors.New("short buffer")
 var ErrShortWrite = errors.New("short write")
 ```
 
+ErrShortWrite means that a write accepted fewer bytes than requested but failed to return an explicit error.
+
 ​	ErrShortWrite表示写入接受的字节数比请求的字节数少，但未返回明确的错误。
 
 ``` go 
 var ErrUnexpectedEOF = errors.New("unexpected EOF")
 ```
+
+ErrUnexpectedEOF means that EOF was encountered in the middle of reading a fixed-size block or data structure.
 
 ​	ErrUnexpectedEOF表示在读取固定大小的块或数据结构的过程中遇到了EOF。
 
@@ -72,9 +88,15 @@ var ErrUnexpectedEOF = errors.New("unexpected EOF")
 func Copy(dst Writer, src Reader) (written int64, err error)
 ```
 
+Copy copies from src to dst until either EOF is reached on src or an error occurs. It returns the number of bytes copied and the first error encountered while copying, if any.
+
 ​	Copy函数从src复制到dst，直到在src上到达EOF或发生错误。它返回复制的字节数和在复制过程中遇到的第一个错误(如果有)。
 
+A successful Copy returns err == nil, not err == EOF. Because Copy is defined to read from src until EOF, it does not treat an EOF from Read as an error to be reported.
+
 ​	成功的Copy返回err==nil，而不是err==EOF。因为Copy定义为从src读取直到EOF，所以它不会将从Read返回的EOF视为要报告的错误。
+
+If src implements the WriterTo interface, the copy is implemented by calling src.WriteTo(dst). Otherwise, if dst implements the ReaderFrom interface, the copy is implemented by calling dst.ReadFrom(src).
 
 ​	如果src实现了`WriterTo`接口，则通过调用src.WriteTo(dst)来实现复制。否则，如果dst实现了`ReaderFrom`接口，则通过调用dst.ReadFrom(src)来实现复制。【如果src和dst都实现了所说的，以哪个为准？-> src 】
 
@@ -385,7 +407,11 @@ func FileSize(file *os.File) int {
 func CopyBuffer(dst Writer, src Reader, buf []byte) (written int64, err error)
 ```
 
+CopyBuffer is identical to Copy except that it stages through the provided buffer (if one is required) rather than allocating a temporary one. If buf is nil, one is allocated; otherwise if it has zero length, CopyBuffer panics.
+
 ​	CopyBuffer函数与Copy函数相同，只是它通过提供的缓冲区(如果需要)进行阶段处理，而不是分配临时缓冲区。如果`buf`为nil，则会分配一个；否则，如果长度为零，则CopyBuffer函数会出现panic。
+
+If either src implements WriterTo or dst implements ReaderFrom, buf will not be used to perform the copy.
 
 ​	如果src实现了WriterTo或dst实现了ReaderFrom，则不会使用buf执行复制。
 
@@ -643,7 +669,11 @@ func FileSize(file *os.File) int {
 func CopyN(dst Writer, src Reader, n int64) (written int64, err error)
 ```
 
+CopyN copies n bytes (or until an error) from src to dst. It returns the number of bytes copied and the earliest error encountered while copying. On return, written == n if and only if err == nil.
+
 ​	CopyN函数从src复制n个字节(或直到出现错误)到dst。它返回已复制的字节数和在复制过程中遇到的最早的错误。如果err == nil，则written == n。
+
+If dst implements the ReaderFrom interface, the copy is implemented using it.
 
 ​	如果dst实现了ReaderFrom接口，则使用它来实现复制。
 
@@ -891,9 +921,15 @@ func FileSize(file *os.File) int {
 func Pipe() (*PipeReader, *PipeWriter)
 ```
 
+Pipe creates a synchronous in-memory pipe. It can be used to connect code expecting an io.Reader with code expecting an io.Writer.
+
 ​	Pipe 函数创建一个同步的内存管道。它可以用来连接期望io.Reader的代码和期望io.Writer的代码。   
 
+Reads and Writes on the pipe are matched one to one except when multiple Reads are needed to consume a single Write. That is, each Write to the PipeWriter blocks until it has satisfied one or more Reads from the PipeReader that fully consume the written data. The data is copied directly from the Write to the corresponding Read (or Reads); there is no internal buffering.
+
 ​	除非多个Read被需要来消费一个Write，否则Pipe上的读和写是一一对应的。也就是说，每次向PipeWriter写入都会阻塞，直到一个或多个从PipeReader完全消费写入数据的Read满足写入。数据是直接从Write复制到相应的Read(或Reads)；没有内部缓冲。   
+
+It is safe to call Read and Write in parallel with each other or with Close. Parallel calls to Read and parallel calls to Write are also safe: the individual calls will be gated sequentially.
 
 ​	同时调用Read和Write或者与Close是安全的。对Read的并行调用和对Write的并行调用也是安全的：各个调用将依次进行。
 
@@ -995,6 +1031,8 @@ func main() {
 func ReadAll(r Reader) ([]byte, error)
 ```
 
+ReadAll reads from r until an error or EOF and returns the data it read. A successful call returns err == nil, not err == EOF. Because ReadAll is defined to read from src until EOF, it does not treat an EOF from Read as an error to be reported.
+
 ​	ReadAll函数从r读取直到出现错误或EOF，并返回它读取的数据。成功调用返回err == nil，而不是err == EOF。因为ReadAll函数定义为从src读取直到EOF，所以它不会将从Read中读取的EOF视为错误报告。
 
 ####    ReadAll Example 
@@ -1058,6 +1096,8 @@ func main() {
 ``` go 
 func ReadAtLeast(r Reader, buf []byte, min int) (n int, err error)
 ```
+
+ReadAll reads from r until an error or EOF and returns the data it read. A successful call returns err == nil, not err == EOF. Because ReadAll is defined to read from src until EOF, it does not treat an EOF from Read as an error to be reported.
 
 ​	ReadAtLeast函数从`r`中读取到`buf`，直到它读取至少`min`个字节。它返回已复制的字节数和错误(如果读取的字节数少于`min`个)。如果没有读取任何字节，则错误为EOF。如果在读取少于min个字节后出现EOF，则ReadAtLeast返回ErrUnexpectedEOF。如果min大于buf的长度，则ReadAtLeast返回ErrShortBuffer。返回时，当且仅当err == nil时，n >= min。如果r在读取至少min个字节后返回错误，则将删除该错误。
 
@@ -1205,6 +1245,8 @@ func main() {
 func ReadFull(r Reader, buf []byte) (n int, err error)
 ```
 
+ReadFull reads exactly len(buf) bytes from r into buf. It returns the number of bytes copied and an error if fewer bytes were read. The error is EOF only if no bytes were read. If an EOF happens after reading some but not all the bytes, ReadFull returns ErrUnexpectedEOF. On return, n == len(buf) if and only if err == nil. If r returns an error having read at least len(buf) bytes, the error is dropped.
+
 ​	ReadFull函数从`r`中精确地读取len(buf)个字节到`buf`中。它返回已复制的字节数和错误(如果读取的字节数少于len(buf)个)。如果没有读取任何字节，则错误为EOF。如果在读取一些但不是所有字节后出现EOF，则ReadFull函数返回ErrUnexpectedEOF。返回时，当且仅当err == nil时，n == len(buf)。如果`r`在读取至少len(buf)个字节后返回错误，则将删除该错误。
 
 ####    ReadFull Example 
@@ -1300,6 +1342,8 @@ func main() {
 func WriteString(w Writer, s string) (n int, err error)
 ```
 
+WriteString writes the contents of the string s to w, which accepts a slice of bytes. If w implements StringWriter, its WriteString method is invoked directly. Otherwise, w.Write is called exactly once.
+
 ​	WriteString函数将字符串`s`的内容写入接受字节切片的`w`中。如果`w`实现了StringWriter，则直接调用其WriteString方法。否则，将调用w.Write一次。
 
 ####    WriteString Example 
@@ -1389,9 +1433,15 @@ type ByteReader interface {
 }
 ```
 
+ByteReader is the interface that wraps the ReadByte method.
+
 ​	ByteReader是封装了ReadByte方法的接口。
 
+ReadByte reads and returns the next byte from the input or any error encountered. If ReadByte returns an error, no input byte was consumed, and the returned byte value is undefined.
+
 ​	ReadByte读取并返回输入中的下一个字节或遇到的任何错误。如果ReadByte返回错误，则没有输入字节被消耗，返回的字节值未定义。
+
+ReadByte provides an efficient interface for byte-at-time processing. A Reader that does not implement ByteReader can be wrapped using bufio.NewReader to add this method.
 
 ​	ReadByte提供了逐字节处理的有效接口。如果Reader未实现ByteReader，则可以使用bufio.NewReader进行封装以添加此方法。
 
@@ -1472,7 +1522,11 @@ type ByteScanner interface {
 }
 ```
 
+ByteScanner is the interface that adds the UnreadByte method to the basic ReadByte method.
+
 ​	ByteScanner是在基本ReadByte方法上添加了UnreadByte方法的接口。
+
+UnreadByte causes the next call to ReadByte to return the last byte read. If the last operation was not a successful call to ReadByte, UnreadByte may return an error, unread the last byte read (or the byte prior to the last-unread byte), or (in implementations that support the Seeker interface) seek to one byte before the current offset.
 
 ​	UnreadByte方法使得下一次调用ReadByte方法返回上次读取的最后一个字节。如果上次操作不是对ReadByte方法的成功调用，则UnreadByte方法可能会返回错误，未读取最后一个字节(或上一个未读取字节)，或(在支持Seeker接口的实现中)将偏移量设置为当前偏移量前一个字节。
 
@@ -1551,6 +1605,8 @@ type ByteWriter interface {
 }
 ```
 
+ByteWriter is the interface that wraps the WriteByte method.
+
 ​	ByteWriter是封装了WriteByte方法的接口。
 
 #### My Example
@@ -1567,11 +1623,13 @@ type Closer interface {
 }
 ```
 
+Closer is the interface that wraps the basic Close method.
+
 ​	Closer是封装了基本Close方法的接口。
 
-​	第一次调用Close方法后的行为是未定义的。具体的实现可能会记录自己的行为。
+The behavior of Close after the first call is undefined. Specific implementations may document their own behavior.
 
-#### 
+​	第一次调用Close方法后的行为是未定义的。具体的实现可能会记录自己的行为。
 
 ### type LimitedReader 
 
@@ -1581,6 +1639,8 @@ type LimitedReader struct {
 	N int64  // 最多可以读取的字节数
 }
 ```
+
+A LimitedReader reads from R but limits the amount of data returned to just N bytes. Each call to Read updates N to reflect the new amount remaining. Read returns EOF when N <= 0 or when the underlying R returns EOF.
 
 ​	LimitedReader结构体从 R 中读取数据，但是限制了返回数据的数量，只有最多 N 个字节。每次调用 Read 都会更新 N 的值以反映新的剩余字节数。当 N <= 0 或者底层的 R 返回 EOF 时，Read 会返回 EOF。
 
@@ -1632,6 +1692,8 @@ type OffsetWriter struct {
 }
 ```
 
+An OffsetWriter maps writes at offset base to offset base+off in the underlying writer.
+
 ​	OffsetWriter结构体将写入基于 offset 的数据映射到底层 Writer 中基于 base+off 的偏移位置。
 
 #### func NewOffsetWriter  <- go1.20
@@ -1639,6 +1701,8 @@ type OffsetWriter struct {
 ``` go 
 func NewOffsetWriter(w WriterAt, off int64) *OffsetWriter
 ```
+
+NewOffsetWriter returns an OffsetWriter that writes to w starting at offset off.
 
 ​	NewOffsetWriter函数返回一个 OffsetWriter，它从 offset 位置开始写入 w。
 
@@ -1838,6 +1902,8 @@ type PipeReader struct {
 }
 ```
 
+A PipeReader is the read half of a pipe.
+
 ​	PipeReader结构体是管道的读取端。
 
 #### (*PipeReader) Close 
@@ -1845,6 +1911,8 @@ type PipeReader struct {
 ``` go 
 func (r *PipeReader) Close() error
 ```
+
+Close closes the reader; subsequent writes to the write half of the pipe will return the error ErrClosedPipe.
 
 ​	Close方法关闭读取器；后续对管道写入端的写入将返回 ErrClosedPipe 错误。
 
@@ -1922,7 +1990,11 @@ func main() {
 func (r *PipeReader) CloseWithError(err error) error
 ```
 
+CloseWithError closes the reader; subsequent writes to the write half of the pipe will return the error err.
+
 ​	CloseWithError方法关闭读取器；后续对管道写入端的写入将返回 err 错误。
+
+CloseWithError never overwrites the previous error if it exists and always returns nil.
 
 ​	如果存在先前的错误，CloseWithError不会覆盖它并始终返回nil。
 
@@ -1989,6 +2061,8 @@ func main() {
 ``` go 
 func (r *PipeReader) Read(data []byte) (n int, err error)
 ```
+
+Read implements the standard Read interface: it reads data from the pipe, blocking until a writer arrives or the write end is closed. If the write end is closed with an error, that error is returned as err; otherwise err is EOF.
 
 ​	Read方法实现标准的Read接口：它从管道中读取数据，在写入方到达或写入端关闭之前阻塞。如果写入端以错误关闭，则将该错误作为err返回；否则err为EOF。
 
@@ -2067,6 +2141,8 @@ type PipeWriter struct {
     // 包含已过滤或未导出的字段
 }
 ```
+
+A PipeWriter is the write half of a pipe.
 
 ​	PipeWriter结构体是管道的写入方。
 
@@ -2152,7 +2228,11 @@ func main() {
 func (w *PipeWriter) CloseWithError(err error) error
 ```
 
+Close closes the writer; subsequent reads from the read half of the pipe will return no bytes and EOF.
+
 ​	CloseWithError方法关闭写入器；随后从读取器读取数据将不会返回字节和错误err，如果err为nil，则返回EOF。
+
+CloseWithError never overwrites the previous error if it exists and always returns nil.
 
 ​	如果存在先前的错误，CloseWithError不会覆盖它并始终返回nil。
 
@@ -2228,6 +2308,8 @@ func main() {
 ``` go 
 func (w *PipeWriter) Write(data []byte) (n int, err error)
 ```
+
+Write implements the standard Write interface: it writes data to the pipe, blocking until one or more readers have consumed all the data or the read end is closed. If the read end is closed with an error, that err is returned as err; otherwise err is ErrClosedPipe.
 
 ​	Write方法实现标准的Write接口：它将数据写入管道，阻塞直到一个或多个读取器消耗了所有数据或读取端关闭。如果读取端以错误关闭，则将该err返回；否则err为ErrClosedPipe。
 
@@ -2307,6 +2389,8 @@ type ReadCloser interface {
 }
 ```
 
+ReadCloser is the interface that groups the basic Read and Close methods.
+
 ​	ReadCloser接口组合了基本的Read和Close方法。
 
 #### func NopCloser  <- go1.16
@@ -2315,7 +2399,7 @@ type ReadCloser interface {
 func NopCloser(r Reader) ReadCloser
 ```
 
-​	NopCloser returns a ReadCloser with a no-op Close method wrapping the provided Reader r. If r implements WriterTo, the returned ReadCloser will implement WriterTo by forwarding calls to r.
+NopCloser returns a ReadCloser with a no-op Close method wrapping the provided Reader r. If r implements WriterTo, the returned ReadCloser will implement WriterTo by forwarding calls to r.
 
 ​	NopCloser函数返回一个带有no-op Close方法的ReadCloser，封装提供的Reader r。如果r实现了WriterTo，则返回的ReadCloser将通过转发调用来实现WriterTo方法。
 
@@ -2393,6 +2477,8 @@ type ReadSeekCloser interface {
 	Closer
 }
 ```
+
+ReadSeekCloser is the interface that groups the basic Read, Seek and Close methods.
 
 ​	ReadSeekCloser接口组合了基本的Read、Seek和Close方法。
 
@@ -2479,6 +2565,8 @@ type ReadSeeker interface {
 }
 ```
 
+ReadSeeker is the interface that groups the basic Read and Seek methods.
+
 ​	ReadSeeker接口组合了基本的Read、Seek方法。
 
 #### ReadSeeker My Example
@@ -2551,6 +2639,8 @@ type ReadWriteCloser interface {
 	Closer
 }
 ```
+
+ReadWriteCloser is the interface that groups the basic Read, Write and Close methods.
 
 ​	ReadWriteCloser接口组合了基本的Read、Write和Close方法。
 
@@ -2643,6 +2733,8 @@ type ReadWriteSeeker interface {
 	Writer
 ```
 
+ReadWriteSeeker is the interface that groups the basic Read, Write and Seek methods.
+
 ​	ReadWriteSeeker接口组合了基本的Read、Write和Seek方法。
 
 ### type ReadWriter 
@@ -2654,6 +2746,8 @@ type ReadWriter interface {
 }
 ```
 
+ReadWriter is the interface that groups the basic Read and Write methods.
+
 ​	ReadWriter接口组合了基本的Read和Write方法。
 
 ### type Reader 
@@ -2664,15 +2758,27 @@ type Reader interface {
 }
 ```
 
+Reader is the interface that wraps the basic Read method.
+
 ​	Reader接口封装了基本的Read方法。
+
+Read reads up to len(p) bytes into p. It returns the number of bytes read (0 <= n <= len(p)) and any error encountered. Even if Read returns n < len(p), it may use all of p as scratch space during the call. If some data is available but not len(p) bytes, Read conventionally returns what is available instead of waiting for more.
 
 ​	Read方法将最多len(p)个字节读取到p中。它返回读取的字节数(0 <= n <= len(p))以及任何遇到的错误。即使Read返回n < len(p)，它也可以在调用期间使用p作为临时空间。如果一些数据可用但不足len(p)字节，则Read通常返回可用的内容而不是等待更多。
 
+When Read encounters an error or end-of-file condition after successfully reading n > 0 bytes, it returns the number of bytes read. It may return the (non-nil) error from the same call or return the error (and n == 0) from a subsequent call. An instance of this general case is that a Reader returning a non-zero number of bytes at the end of the input stream may return either err == EOF or err == nil. The next Read should return 0, EOF.
+
 ​	当Read方法在成功读取n > 0个字节后遇到错误或文件结束条件时，它返回读取的字节数。它可能从同一调用返回(非零)错误，也可能从后续调用返回错误(n == 0)。一般情况下，一个返回非零字节数并在输入流结束时返回EOF或nil错误的Reader实例，下一次Read应该返回0，EOF。
+
+Callers should always process the n > 0 bytes returned before considering the error err. Doing so correctly handles I/O errors that happen after reading some bytes and also both of the allowed EOF behaviors.
 
 ​	在考虑错误err之前，调用者应始终处理返回的n > 0字节。这样做可以正确处理在读取一些字节之后发生的I/O错误，以及两种允许的EOF行为。
 
+Implementations of Read are discouraged from returning a zero byte count with a nil error, except when len(p) == 0. Callers should treat a return of 0 and nil as indicating that nothing happened; in particular it does not indicate EOF.
+
 ​	实现Read的方法不应该返回具有nil错误的零字节计数，除非len(p) == 0。调用者应该将返回0和nil视为表示没有发生任何事情；特别是它不表示EOF。
+
+Implementations must not retain p.
 
 ​	实现不能保留p。
 
@@ -2681,6 +2787,8 @@ type Reader interface {
 ``` go 
 func LimitReader(r Reader, n int64) Reader
 ```
+
+LimitReader returns a Reader that reads from r but stops with EOF after n bytes. The underlying implementation is a *LimitedReader.
 
 ​	LimitReader函数返回一个从 r 读取但在读取 n 个字节后停止并返回 EOF 的 Reader。底层实现是一个 `*LimitedReader`。
 
@@ -2721,6 +2829,8 @@ some
 ``` go 
 func MultiReader(readers ...Reader) Reader
 ```
+
+MultiReader returns a Reader that's the logical concatenation of the provided input readers. They're read sequentially. Once all inputs have returned EOF, Read will return EOF. If any of the readers return a non-nil, non-EOF error, Read will return that error.
 
 ​	MultiReader函数返回一个 Reader，它是提供的输入 readers 的逻辑连接。它们按顺序读取。一旦所有输入都返回 EOF，Read 将返回 EOF。如果任何读取器返回非 nil、非 EOF 错误，则 Read 将返回该错误。
 
@@ -2763,6 +2873,8 @@ first reader second reader third reader
 ``` go 
 func TeeReader(r Reader, w Writer) Reader
 ```
+
+TeeReader returns a Reader that writes to w what it reads from r. All reads from r performed through it are matched with corresponding writes to w. There is no internal buffering - the write must complete before the read completes. Any error encountered while writing is reported as a read error.
 
 ​	TeeReader函数返回一个 Reader，它从 r 中读取并将其写入 w。通过它执行的所有对 r 的读取都将与对 w 的相应写入匹配。没有内部缓冲区——写入必须在读取完成之前完成。任何在写入时遇到的错误都将作为读取错误报告。
 
@@ -2856,19 +2968,35 @@ type ReaderAt interface {
 }
 ```
 
+ReaderAt is the interface that wraps the basic ReadAt method.
+
 ​	ReaderAt 是封装基本 ReadAt 方法的接口。
+
+ReadAt reads len(p) bytes into p starting at offset off in the underlying input source. It returns the number of bytes read (0 <= n <= len(p)) and any error encountered.
 
 ​	ReadAt方法从基础输入源的偏移量 off 开始将 len(p) 个字节读入 p 中。它返回读取的字节数(0 <= n <= len(p))和任何遇到的错误。
 
+When ReadAt returns n < len(p), it returns a non-nil error explaining why more bytes were not returned. In this respect, ReadAt is stricter than Read.
+
 ​	当 ReadAt方法返回 n < len(p) 时，它返回一个非 nil 的错误，解释为什么没有返回更多的字节。在这方面，ReadAt方法比 Read方法更严格。
+
+Even if ReadAt returns n < len(p), it may use all of p as scratch space during the call. If some data is available but not len(p) bytes, ReadAt blocks until either all the data is available or an error occurs. In this respect ReadAt is different from Read.
 
 ​	即使 ReadAt方法返回 n < len(p)，它也可以在调用期间使用 p 中的所有字节作为临时空间。如果有一些数据可用但不是 len(p) 字节，则 ReadAt 阻塞，直到所有数据都可用或发生错误。在这方面，ReadAt 不同于 Read。
 
+If the n = len(p) bytes returned by ReadAt are at the end of the input source, ReadAt may return either err == EOF or err == nil.
+
 ​	如果 ReadAt方法返回的 n = len(p) 字节在输入源的末尾，则 ReadAt 可能返回 err == EOF 或 err == nil。
+
+If ReadAt is reading from an input source with a seek offset, ReadAt should not affect nor be affected by the underlying seek offset.
 
 ​	如果 ReadAt方法从具有 seek 偏移量的输入源中读取，则 ReadAt方法不应影响底层 seek 偏移量，也不应受其影响。
 
+Clients of ReadAt can execute parallel ReadAt calls on the same input source.
+
 ​	ReadAt方法的客户端可以在同一输入源上并行执行 ReadAt方法调用。
+
+Implementations must not retain p.
 
 ​	实现不得保留 p。
 
@@ -2949,9 +3077,15 @@ type ReaderFrom interface {
 }
 ```
 
+ReaderFrom is the interface that wraps the ReadFrom method.
+
 ​	ReaderFrom 是封装 ReadFrom 方法的接口。
 
+ReadFrom reads data from r until EOF or error. The return value n is the number of bytes read. Any error except EOF encountered during the read is also returned.
+
 ​	ReadFrom方法从 r 中读取数据，直到 EOF 或错误。返回值 n 是读取的字节数。除了 EOF 之外，在读取过程中遇到的任何错误也将返回。
+
+The Copy function uses ReaderFrom if available.
 
 ​	如果可用，Copy函数将使用 ReaderFrom方法。
 
@@ -2967,7 +3101,11 @@ type RuneReader interface {
 }
 ```
 
+RuneReader is the interface that wraps the ReadRune method.
+
 ​	RuneReader 是封装了 ReadRune 方法的接口。
+
+ReadRune reads a single encoded Unicode character and returns the rune and its size in bytes. If no character is available, err will be set.
 
 ​	ReadRune方法读取一个单一的编码的 Unicode 字符并返回该字符以及其所占用的字节数。如果没有字符可用，则 err 将被设置。
 
@@ -2980,7 +3118,11 @@ type RuneScanner interface {
 }
 ```
 
+RuneScanner is the interface that adds the UnreadRune method to the basic ReadRune method.
+
 ​	RuneScanner 是在基本 ReadRune 方法上添加了 UnreadRune 方法的接口。
+
+UnreadRune causes the next call to ReadRune to return the last rune read. If the last operation was not a successful call to ReadRune, UnreadRune may return an error, unread the last rune read (or the rune prior to the last-unread rune), or (in implementations that support the Seeker interface) seek to the start of the rune before the current offset.
 
 ​	UnreadRune方法会导致下一次调用 ReadRune方法返回上次读取的最后一个字符。如果上次操作不是成功的 ReadRune方法调用，则 UnreadRune方法可能会返回错误、未读取最后一个字符(或最后一个未读取字符之前的字符)，或者(在支持 Seeker 接口的实现中)定位到当前偏移量之前的字符的开头。
 
@@ -2992,6 +3134,8 @@ type SectionReader struct {
     // 包含已过滤或未导出的字段
 }
 ```
+
+SectionReader implements Read, Seek, and ReadAt on a section of an underlying ReaderAt.
 
 ​	SectionReader 在底层的 ReaderAt方法的一部分实现了 Read、Seek 和 ReadAt方法。
 
@@ -3026,6 +3170,8 @@ io.Reader stream
 ``` go 
 func NewSectionReader(r ReaderAt, off int64, n int64) *SectionReader
 ```
+
+NewSectionReader returns a SectionReader that reads from r starting at offset off and stops with EOF after n bytes.
 
 ​	NewSectionReader函数返回一个 SectionReader，该 Reader 从偏移量 off 处开始从 r 读取并在 n 字节后以 EOF 结束。
 
@@ -3141,6 +3287,8 @@ stream
 func (s *SectionReader) Size() int64
 ```
 
+Size returns the size of the section in bytes.
+
 ​	Size方法返回该 SectionReader 中字节的大小。
 
 #####    Size Example 
@@ -3174,9 +3322,15 @@ type Seeker interface {
 }
 ```
 
+Seeker is the interface that wraps the basic Seek method.
+
 ​	Seeker 是封装基本 Seek 方法的接口。
 
+Seek sets the offset for the next Read or Write to offset, interpreted according to whence: SeekStart means relative to the start of the file, SeekCurrent means relative to the current offset, and SeekEnd means relative to the end (for example, offset = -2 specifies the penultimate byte of the file). Seek returns the new offset relative to the start of the file or an error, if any.
+
 ​	Seek方法设置下一个 Read 或 Write 的偏移量，根据 whence 进行解释：SeekStart 表示相对于文件的开头，SeekCurrent 表示相对于当前偏移量，SeekEnd 表示相对于结尾(例如，offset = -2 表示文件的倒数第二个字节)。Seek 返回相对于文件开头的新偏移量，或者如果有的话，返回错误。
+
+Seeking to an offset before the start of the file is an error. Seeking to any positive offset may be allowed, but if the new offset exceeds the size of the underlying object the behavior of subsequent I/O operations is implementation-dependent.
 
 ​	寻找到文件开头之前的偏移量是一个错误。寻找任何正偏移量可能是允许的，但是如果新的偏移量超过底层对象的大小，则随后的 I/O 操作的行为取决于实现。
 
@@ -3187,6 +3341,8 @@ type StringWriter interface {
 	WriteString(s string) (n int, err error)
 }
 ```
+
+StringWriter is the interface that wraps the WriteString method.
 
 ​	StringWriter 是封装 WriteString 方法的接口。
 
@@ -3199,6 +3355,8 @@ type WriteCloser interface {
 }
 ```
 
+WriteCloser is the interface that groups the basic Write and Close methods.
+
 ​	WriteCloser 是组合基本的 Write 和 Close 方法的接口。
 
 ### type WriteSeeker 
@@ -3210,6 +3368,8 @@ type WriteSeeker interface {
 }
 ```
 
+WriteSeeker is the interface that groups the basic Write and Seek methods.
+
 ​	WriteSeeker 是组合基本的 Write 和 Seek 方法的接口。
 
 ### type Writer 
@@ -3220,15 +3380,23 @@ type Writer interface {
 }
 ```
 
+Writer is the interface that wraps the basic Write method.
+
 ​	Writer 是封装基本 Write 方法的接口。
 
+Write writes len(p) bytes from p to the underlying data stream. It returns the number of bytes written from p (0 <= n <= len(p)) and any error encountered that caused the write to stop early. Write must return a non-nil error if it returns n < len(p). Write must not modify the slice data, even temporarily.
+
 ​	Write方法从 p 中写入 len(p) 个字节到基础数据流中。它返回从 p 中写入的字节数 n(0 <= n <= len(p))和任何导致写入提前停止的错误。如果它返回 n < len(p)，则 Write 必须返回非 nil 错误。Write 必须不修改切片数据，即使是暂时的也不行。
+
+Implementations must not retain p.
 
 ​	实现不得保留p。
 
 ``` go 
 var Discard Writer = discard{}
 ```
+
+Discard is a Writer on which all Write calls succeed without doing anything.
 
 ​	Discard 是一个 Writer，所有的写入调用都会成功地且不进行任何操作。
 
@@ -3238,7 +3406,11 @@ var Discard Writer = discard{}
 func MultiWriter(writers ...Writer) Writer
 ```
 
+MultiWriter creates a writer that duplicates its writes to all the provided writers, similar to the Unix tee(1) command.
+
 ​	MultiWriter函数创建一个将其写入复制到所有提供的 writer 的 writer，类似于 Unix 的 tee(1) 命令。
+
+Each write is written to each listed writer, one at a time. If a listed writer returns an error, that overall write operation stops and returns the error; it does not continue down the list.
 
 ​	每个写入都写入到每个列出的 writer 中，一个接一个地。如果列出的 writer 返回错误，整个写操作将停止并返回该错误；不会继续下一个 writer。
 
@@ -3341,13 +3513,23 @@ type WriterAt interface {
 }
 ```
 
+WriterAt is the interface that wraps the basic WriteAt method.
+
 ​	WriterAt 是封装 WriteAt 方法的接口。
+
+WriteAt writes len(p) bytes from p to the underlying data stream at offset off. It returns the number of bytes written from p (0 <= n <= len(p)) and any error encountered that caused the write to stop early. WriteAt must return a non-nil error if it returns n < len(p).
 
 ​	WriteAt方法从偏移量off处将长度为len(p)的p写入底层数据流。它返回写入的字节数(0 <= n <= len(p))和任何导致写入提前停止的错误。如果返回n < len(p)，WriteAt必须返回非nil的错误。
 
+If WriteAt is writing to a destination with a seek offset, WriteAt should not affect nor be affected by the underlying seek offset.
+
 ​	如果WriteAt方法正在向带有寻址偏移量的目标写入，则WriteAt方法不应受到影响，也不应影响基础寻址偏移量。
 
+Clients of WriteAt can execute parallel WriteAt calls on the same destination if the ranges do not overlap.
+
 ​	如果WriteAt方法正在向目标写入数据，则客户端可以在同一目标上并行执行WriteAt方法调用，前提是范围不重叠。
+
+Implementations must not retain p.
 
 ​	实现不得保留p。
 
@@ -3359,9 +3541,15 @@ type WriterTo interface {
 }
 ```
 
+WriterTo is the interface that wraps the WriteTo method.
+
 ​	WriterTo是封装WriteTo方法的接口。
 
+WriteTo writes data to w until there's no more data to write or when an error occurs. The return value n is the number of bytes written. Any error encountered during the write is also returned.
+
 ​	WriteTo方法写入数据直到没有更多数据可写或出现错误。返回值n是写入的字节数。任何在写入期间遇到的错误也将返回。
+
+The Copy function uses WriterTo if available.
 
 ​	如果可用，Copy函数将使用WriterTo方法。
 

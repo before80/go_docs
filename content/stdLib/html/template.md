@@ -34,11 +34,9 @@ https://pkg.go.dev/html/template@go1.20.1
 
 
 
-
-
 Package template (html/template) implements data-driven templates for generating HTML output safe against code injection. It provides the same interface as package text/template and should be used instead of text/template whenever the output is HTML.
 
-​	template包（html/template）实现了用于生成安全的、防止代码注入的HTML输出的数据驱动模板。它提供了与text/template包相同的接口，应该在输出为HTML的情况下使用它来替代text/template。
+​	`template`包（html/template）实现了用于生成安全的、防止代码注入的HTML输出的数据驱动模板。它提供了与text/template包相同的接口，应该在输出为HTML的情况下使用它来替代text/template。
 
 The documentation here focuses on the security features of the package. For information about how to program the templates themselves, see the documentation for text/template.
 

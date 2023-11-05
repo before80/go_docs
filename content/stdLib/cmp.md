@@ -9,23 +9,23 @@ draft = false
 
 [https://pkg.go.dev/cmp@go1.21.3](https://pkg.go.dev/cmp@go1.21.3)
 
-### 概述
+## 概述
 
 Package cmp provides types and functions related to comparing ordered values.
 
 ​	`cmp`包提供了与比较有序值相关的类型和函数。
 
-### 常量
+## 常量
 
 This section is empty.
 
-### 变量
+## 变量
 
 This section is empty.
 
-### 函数
+## 函数
 
-#### func Compare 
+### func Compare 
 
 ``` go
 func Compare[T Ordered](x, y T) int
@@ -48,7 +48,7 @@ For floating-point types, a NaN is considered less than any non-NaN, a NaN is co
 
 ​	对于浮点类型，`NaN`被视为小于任何非`NaN`，`NaN`被视为等于`NaN`，`-0.0`等于`0.0`。
 
-#### func Less 
+### func Less 
 
 ``` go
 func Less[T Ordered](x, y T) bool
@@ -58,9 +58,9 @@ Less reports whether x is less than y. For floating-point types, a NaN is consid
 
 ​	`Less`函数报告`x`是否小于`y`。对于浮点类型，`NaN`被视为小于任何非`NaN`，并且`-0.0`不小于（等于）`0.0`。
 
-### 类型
+## 类型
 
-#### type Ordered 
+### type Ordered 
 
 ``` go
 type Ordered interface {

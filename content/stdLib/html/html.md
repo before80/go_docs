@@ -8,13 +8,9 @@ draft = false
 +++
 https://pkg.go.dev/html@go1.20.1
 
-
-
 Package html provides functions for escaping and unescaping HTML text.
 
-​	html包提供了用于转义和反转义HTML文本的函数。
-
-
+​	`html`包提供了用于转义和反转义HTML文本的函数。
 
 
 ## 常量 

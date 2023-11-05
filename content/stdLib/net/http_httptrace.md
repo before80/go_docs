@@ -52,7 +52,7 @@ This section is empty.
 
 ## 函数
 
-#### func WithClientTrace 
+### func WithClientTrace 
 
 ``` go 
 func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context

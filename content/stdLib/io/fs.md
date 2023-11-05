@@ -8,7 +8,9 @@ draft = false
 +++
 https://pkg.go.dev/io/fs@go1.20.1
 
-​	fs包定义了与文件系统交互的基本接口。文件系统可以由操作系统提供，也可以由其他包提供。
+Package fs defines basic interfaces to a file system. A file system can be provided by the host operating system but also by other packages.
+
+​	`fs`包定义了与文件系统交互的基本接口。文件系统可以由操作系统提供，也可以由其他包提供。
 
 ## 常量 
 
@@ -20,13 +22,15 @@ This section is empty.
 
 ``` go 
 var (
-	ErrInvalid    = errInvalid()    // "参数无效"
-	ErrPermission = errPermission() // "权限被拒绝"
-	ErrExist      = errExist()      // "文件已经存在"
-	ErrNotExist   = errNotExist()   // "文件不存在"
-	ErrClosed     = errClosed()     // "文件已经关闭"
+	ErrInvalid    = errInvalid()    // "参数无效" "invalid argument"
+	ErrPermission = errPermission() // "权限被拒绝" "permission denied"
+	ErrExist      = errExist()      // "文件已经存在" "file already exists"
+	ErrNotExist   = errNotExist()   // "文件不存在" "file does not exist"
+	ErrClosed     = errClosed()     // "文件已经关闭" "file already closed"
 )
 ```
+
+Generic file system errors. Errors returned by file systems can be tested against these errors using errors.Is.
 
 ​	通用的文件系统错误。可以使用errors.Is将文件系统返回的错误与这些错误进行比较。
 
@@ -36,6 +40,8 @@ var (
 var SkipAll = errors.New("skip everything and stop the walk")
 ```
 
+SkipAll is used as a return value from WalkDirFuncs to indicate that all remaining files and directories are to be skipped. It is not returned as an error by any function.
+
 ​	SkipAll是从WalkDirFuncs返回的值，用于指示所有剩余的文件和目录都应该被跳过。任何函数都不会将其作为错误返回。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/io/fs/walk.go;l=15)
@@ -44,23 +50,31 @@ var SkipAll = errors.New("skip everything and stop the walk")
 var SkipDir = errors.New("skip this directory")
 ```
 
+SkipDir is used as a return value from WalkDirFuncs to indicate that the directory named in the call is to be skipped. It is not returned as an error by any function.
+
 ​	SkipDir是从WalkDirFuncs返回的值，用于指示应该跳过调用中指定的目录。任何函数都不会将其作为错误返回。
 
 ## 函数
 
-#### func Glob 
+### func Glob 
 
 ``` go 
 func Glob(fsys FS, pattern string) (matches []string, err error)
 ```
 
+Glob returns the names of all files matching pattern or nil if there is no matching file. The syntax of patterns is the same as in path.Match. The pattern may describe hierarchical names such as usr/*/bin/ed.
+
 ​	Glob函数返回与pattern匹配的所有文件的名称，如果没有匹配的文件，则返回nil。模式的语法与path.Match中的语法相同。模式可以描述分层名称，例如`usr/*/bin/ed`。
+
+Glob ignores file system errors such as I/O errors reading directories. The only possible returned error is path.ErrBadPattern, reporting that the pattern is malformed.
 
 ​	Glob函数忽略文件系统错误，例如读取目录的I/O错误。唯一可能返回的错误是path.ErrBadPattern，报告模式格式不正确。
 
+If fs implements GlobFS, Glob calls fs.Glob. Otherwise, Glob uses ReadDir to traverse the directory tree and look for matches for the pattern.
+
 ​	如果fs实现了GlobFS，则Glob函数调用fs.Glob。否则，Glob函数使用ReadDir遍历目录树并查找模式匹配项。
 
-##### Glob My Example
+#### Glob My Example
 
 ![image-20230823204039795](fs_img/image-20230823204039795.png)
 
@@ -110,7 +124,7 @@ func main() {
 
 
 
-#### func ReadFile 
+### func ReadFile 
 
 ``` go 
 func ReadFile(fsys FS, name string) ([]byte, error) {
@@ -150,11 +164,15 @@ func ReadFile(fsys FS, name string) ([]byte, error) {
 }
 ```
 
+ReadFile reads the named file from the file system fs and returns its contents. A successful call returns a nil error, not io.EOF. (Because ReadFile reads the whole file, the expected EOF from the final Read is not treated as an error to be reported.)
+
 ​	ReadFile 函数从文件系统fs中读取指定的文件并返回其内容。成功调用返回nil错误，而不是io.EOF。(因为ReadFile读取整个文件，因此不会将最终的EOF视为要报告的错误。)
+
+If fs implements ReadFileFS, ReadFile calls fs.ReadFile. Otherwise ReadFile calls fs.Open and uses Read and Close on the returned file.
 
 ​	如果fs实现了ReadFileFS，则ReadFile调用fs.ReadFile。否则，ReadFile调用fs.Open并在返回的文件上使用Read和Close。
 
-##### ReadFile My Example
+#### ReadFile My Example
 
 ![image-20230823204943901](fs_img/image-20230823204943901.png)
 
@@ -233,13 +251,17 @@ func main() {
 //Matched file content is: 这是该方法的自定义内容，之后才是文件中的内容！Hello! Nice to meet you! (notice: All in one line and no newline)
 ```
 
-#### func ValidPath 
+### func ValidPath 
 
 ``` go 
 func ValidPath(name string) bool
 ```
 
+ValidPath reports whether the given path name is valid for use in a call to Open.
+
 ​	ValidPath 函数报告给定的路径名在调用 Open 时是否有效。
+
+Path names passed to open are UTF-8-encoded, unrooted, slash-separated sequences of path elements, like “x/y/z”. Path names must not contain an element that is “.” or “..” or the empty string, except for the special case that the root directory is named “.”. Paths must not start or end with a slash: “/x” and “x/” are invalid.
 
 ​	传递给 Open 的路径名是以 UTF-8 编码的、无根的、斜杠分隔的路径元素序列，例如 "`x/y/z`"。路径名不得包含 "`.`" 或 "`..`" 或空字符串，但根目录的特殊情况是命名为 "`.`"。路径不能以斜杠开头或结尾，即 "`/x`" 和 "`x/`" 是无效的。
 
@@ -247,7 +269,7 @@ Note that paths are slash-separated on all systems, even Windows. Paths containi
 
 ​	请注意，路径在所有系统上都是以斜杠分隔的，即使在 Windows 上也是如此。包含反斜杠和冒号等其他字符的路径被接受为有效，但这些字符绝不能被 FS 实现解释为路径元素分隔符。
 
-##### ValidPath My Example
+#### ValidPath My Example
 
 ```go
 package main
@@ -330,7 +352,7 @@ func main() {
 //../tmp/subdir/example.txt
 ```
 
-#### func WalkDir 
+### func WalkDir 
 
 ``` go 
 func WalkDir(fsys FS, root string, fn WalkDirFunc) error {
@@ -347,15 +369,23 @@ func WalkDir(fsys FS, root string, fn WalkDirFunc) error {
 }
 ```
 
+WalkDir walks the file tree rooted at root, calling fn for each file or directory in the tree, including root.
+
 ​	WalkDir 函数遍历以 `root` 为根的文件树，在树中的每个文件或目录(包括 `root`)上调用 fn。
+
+All errors that arise visiting files and directories are filtered by fn: see the fs.WalkDirFunc documentation for details.
 
 ​	`fn` 过滤了遍历文件和目录时出现的所有错误：详见 [fs.WalkDirFunc](#type-walkdirfunc) 文档。
 
+The files are walked in lexical order, which makes the output deterministic but requires WalkDir to read an entire directory into memory before proceeding to walk that directory.
+
 ​	文件以字典序遍历，这使输出是确定性的，但需要在继续遍历该目录之前将整个目录读入内存。
+
+WalkDir does not follow symbolic links found in directories, but if root itself is a symbolic link, its target will be walked.
 
 ​	WalkDir 函数不会跟踪目录中发现的符号链接，但如果 `root` 本身是符号链接，则会遍历其目标。
 
-##### WalkDir My Example
+#### WalkDir My Example
 
 ![image-20230824144819156](fs_img/image-20230824144819156.png)
 
@@ -518,7 +548,7 @@ func main() {
 //d.Type()= ----------
 ```
 
-##### WalkDir Example
+#### WalkDir Example
 
 ``` go 
 package main
@@ -553,19 +583,31 @@ func main() {
 
 ``` go 
 type DirEntry interface {
+    // Name returns the name of the file (or subdirectory) described by the entry.
+	// This name is only the final element of the path (the base name), not the entire path.
+	// For example, Name would return "hello.go" not "home/gopher/hello.go".
     // Name 返回该条目描述的文件(或子目录)的名称。
     // 该名称仅为路径的最后一个元素(基本名称)，而不是整个路径。
     // 例如，Name 将返回"hello.go"而不是"home/gopher/hello.go"。
 	Name() string
 
+    // IsDir reports whether the entry describes a directory.
     // IsDir 报告该条目是否描述一个目录。
 	IsDir() bool
 
+    // Type returns the type bits for the entry.
+	// The type bits are a subset of the usual FileMode bits, those returned by the FileMode.Type method.
     // Type 返回该条目的类型位。
     // 类型位是 FileMode 常量的子集，
     // 是由 FileMode.Type 方法返回的常量之一。
 	Type() FileMode
 
+    // Info returns the FileInfo for the file or subdirectory described by the entry.
+	// The returned FileInfo may be from the time of the original directory read
+	// or from the time of the call to Info. If the file has been removed or renamed
+	// since the directory read, Info may return an error satisfying errors.Is(err, ErrNotExist).
+	// If the entry denotes a symbolic link, Info reports the information about the link itself,
+	// not the link's target.
     // Info 返回该条目描述的文件或子目录的 FileInfo。
     // 返回的 FileInfo 可能来自原始目录读取的时间或 Info 调用的时间。
     // 如果文件已在目录读取后被删除或重命名，
@@ -576,6 +618,8 @@ type DirEntry interface {
 }
 ```
 
+A DirEntry is an entry read from a directory (using the ReadDir function or a ReadDirFile's ReadDir method).
+
 ​	DirEntry 是从目录中读取的一个条目(使用 ReadDir 函数或 ReadDirFile 的 ReadDir 方法)。
 
 #### func FileInfoToDirEntry  <- go1.17
@@ -583,6 +627,8 @@ type DirEntry interface {
 ``` go 
 func FileInfoToDirEntry(info FileInfo) DirEntry
 ```
+
+FileInfoToDirEntry returns a DirEntry that returns information from info. If info is nil, FileInfoToDirEntry returns nil.
 
 ​	FileInfoToDirEntry 函数返回一个从 `info` 中获取信息的 DirEntry。如果 info 为 nil，则 FileInfoToDirEntry 返回 nil。
 
@@ -672,7 +718,11 @@ func main() {
 func ReadDir(fsys FS, name string) ([]DirEntry, error)
 ```
 
+ReadDir reads the named directory and returns a list of directory entries sorted by filename.
+
 ​	ReadDir函数读取命名的目录并返回一个按文件名排序的目录条目列表。
+
+If fs implements ReadDirFS, ReadDir calls fs.ReadDir. Otherwise ReadDir calls fs.Open and uses ReadDir and Close on the returned file.
 
 ​	如果 fs 实现了 ReadDirFS，则 ReadDir 调用 fs.ReadDir。否则，ReadDir调用fs.Open并对返回的文件使用ReadDir和Close。
 
@@ -772,6 +822,15 @@ func main() {
 
 ``` go 
 type FS interface {
+    // Open opens the named file.
+	//
+	// When Open returns an error, it should be of type *PathError
+	// with the Op field set to "open", the Path field set to name,
+	// and the Err field describing the problem.
+	//
+	// Open should reject attempts to open names that do not satisfy
+	// ValidPath(name), returning a *PathError with Err set to
+	// ErrInvalid or ErrNotExist.
     // Open打开命名的文件。
 	//
 	// 当Open返回一个错误时，它应该是*PathError类型，Op字段设置为 "open"，Path字段设置为name，Err字段描述了问题所在。
@@ -781,7 +840,11 @@ type FS interface {
 }
 ```
 
+An FS provides access to a hierarchical file system.
+
 ​	FS 提供对一个分层文件系统的访问。
+
+The FS interface is the minimum implementation required of the file system. A file system may implement additional interfaces, such as ReadFileFS, to provide additional or optimized functionality.
 
 ​	FS 接口是文件系统所需的最小实现。一个文件系统可能会实现其他接口(如 ReadFileFS)以提供附加或优化的功能。
 
@@ -802,9 +865,15 @@ func Sub(fsys FS, dir string) (FS, error) {
 }
 ```
 
+Sub returns an FS corresponding to the subtree rooted at fsys's dir.
+
 ​	Sub 函数返回一个对应于以 `fsys` 的 `dir` 为根的子树的 FS。
 
+If dir is ".", Sub returns fsys unchanged. Otherwise, if fs implements SubFS, Sub returns fsys.Sub(dir). Otherwise, Sub returns a new FS implementation sub that, in effect, implements sub.Open(name) as fsys.Open(path.Join(dir, name)). The implementation also translates calls to ReadDir, ReadFile, and Glob appropriately.
+
 ​	如果 dir 为"`.`"，则 Sub 返回未更改的 fsys。否则，如果 fs 实现了 SubFS，则 Sub 返回 fsys.Sub(dir)。否则，Sub 返回一个新的 FS 实现 sub，该实现实际上将 sub.Open(name) 实现为 fsys.Open(path.Join(dir, name))。该实现还适当地翻译了对 ReadDir、ReadFile 和 Glob 的调用。
+
+Note that Sub(os.DirFS("/"), "prefix") is equivalent to os.DirFS("/prefix") and that neither of them guarantees to avoid operating system accesses outside "/prefix", because the implementation of os.DirFS does not check for symbolic links inside "/prefix" that point to other directories. That is, os.DirFS is not a general substitute for a chroot-style security mechanism, and Sub does not change that fact.
 
 ​	请注意，Sub(os.DirFS("/"), "prefix") 等同于 os.DirFS("/prefix")，并且它们都不能保证避免操作系统对"/prefix "之外的访问，因为os.DirFS的实现并不检查"/prefix "内指向其他目录的符号链接。也就是说，os.DirFS 并不是 chroot 式安全机制的通用替代品，Sub 并不能改变这个事实。
 
@@ -945,6 +1014,8 @@ type File interface {
 }
 ```
 
+A File provides access to a single file. The File interface is the minimum implementation required of the file. Directory files should also implement ReadDirFile. A file may implement io.ReaderAt or io.Seeker as optimizations.
+
 ​	File接口提供对单个文件的访问。File接口是文件所需的最小实现。目录文件还应该实现ReadDirFile。文件可以实现io.ReaderAt或io.Seeker作为优化。
 
 ### type FileInfo 
@@ -960,6 +1031,8 @@ type FileInfo interface {
 }
 ```
 
+A FileInfo describes a file and is returned by Stat.
+
 ​	FileInfo描述了一个文件，并由Stat函数返回。
 
 #### func Stat 
@@ -968,7 +1041,11 @@ type FileInfo interface {
 func Stat(fsys FS, name string) (FileInfo, error)
 ```
 
+Stat returns a FileInfo describing the named file from the file system.
+
 ​	Stat函数从文件系统返回描述命名文件的FileInfo。
+
+If fs implements StatFS, Stat calls fs.Stat. Otherwise, Stat opens the file to stat it.
 
 ​	如果fs实现了StatFS，则Stat函数调用fs.Stat。否则，Stat打开文件以获取其状态。
 
@@ -1047,6 +1124,8 @@ func main() {
 type FileMode uint32
 ```
 
+A FileMode represents a file's mode and permission bits. The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is ModeDir for directories.
+
 ​	FileMode表示一个文件的模式和权限位。这些位在所有系统上具有相同的定义，以便可以在不同系统之间可移植地移动文件信息。并非所有位都适用于所有系统。唯一需要的位是目录的ModeDir。
 
 ``` go 
@@ -1076,6 +1155,8 @@ const (
 )
 ```
 
+The defined file mode bits are the most significant bits of the FileMode. The nine least-significant bits are the standard Unix rwxrwxrwx permissions. The values of these bits should be considered part of the public API and may be used in wire protocols or disk representations: they must not be changed, although new bits might be added.
+
 ​	定义的文件模式位是 FileMode 的最高位。最低的九位是标准 Unix rwxrwxrwx 权限位。这些位的值应该被视为公共 API 的一部分，可以在传输协议或磁盘表示中使用：它们不得被更改，但可以添加新的位。
 
 #### (FileMode) IsDir 
@@ -1083,6 +1164,8 @@ const (
 ``` go 
 func (m FileMode) IsDir() bool
 ```
+
+IsDir reports whether m describes a directory. That is, it tests for the ModeDir bit being set in m.
 
 ​	IsDir 方法报告 `m` 是否描述一个目录。也就是说，它测试 ModeDir 位是否在 `m` 中被设置。
 
@@ -1144,6 +1227,8 @@ func main() {
 func (m FileMode) IsRegular() bool
 ```
 
+IsRegular reports whether m describes a regular file. That is, it tests that no mode type bits are set.
+
 ​	IsRegular 方法报告 `m` 是否描述一个普通文件。也就是说，它测试是否没有设置任何模式类型位。
 
 ##### IsRegular My Example
@@ -1188,6 +1273,8 @@ func main() {
 ``` go 
 func (m FileMode) Perm() FileMode
 ```
+
+Perm returns the Unix permission bits in m (m & ModePerm).
 
 ​	Perm 方法返回 `m` 中的 Unix 权限位(m＆ModePerm)。
 
@@ -1252,6 +1339,8 @@ func (m FileMode) String() string
 func (m FileMode) Type() FileMode
 ```
 
+Type returns type bits in m (m & ModeType).
+
 ​	Type 方法返回 `m` 中的类型位(m＆ModeType)。
 
 ##### Type My Example
@@ -1309,15 +1398,20 @@ func main() {
 type GlobFS interface {
 	FS
 
+    // Glob returns the names of all files matching pattern,
+	// providing an implementation of the top-level
+	// Glob function.
     // Glob 返回与 pattern 匹配的所有文件的名称，
     // 提供了顶层 Glob 函数的实现。
 	Glob(pattern string) ([]string, error)
 }
 ```
 
+A GlobFS is a file system with a Glob method.
+
 ​	GlobFS 是具有 Glob 方法的文件系统。
 
-##### GlobFS My Example
+#### GlobFS My Example
 
 ```go
 package main
@@ -1417,6 +1511,8 @@ type PathError struct {
 }
 ```
 
+PathError records an error and the operation and file path that caused it.
+
 ​	PathError 记录了一个错误以及导致该错误的操作和文件路径。
 
 #### (*PathError) Error 
@@ -1466,6 +1562,8 @@ func (e *PathError) Timeout() bool {
 	return ok && t.Timeout()
 }
 ```
+
+Timeout reports whether this error represents a timeout.
 
 ​	Timeout方法报告此错误是否表示超时。
 
@@ -1618,14 +1716,18 @@ func main() {
 type ReadDirFS interface {
 	FS
 
+    // ReadDir reads the named directory
+	// and returns a list of directory entries sorted by filename.
 	// ReadDir读取指定的目录并返回按文件名排序的目录条目列表。
 	ReadDir(name string) ([]DirEntry, error)
 }
 ```
 
+ReadDirFS is the interface implemented by a file system that provides an optimized implementation of ReadDir.
+
 ​	ReadDirFS是由文件系统实现的接口，它提供了ReadDir方法的优化实现。
 
-##### ReadDirFS My Example
+#### ReadDirFS My Example
 
 ```go
 package main
@@ -1690,6 +1792,21 @@ func main() {
 type ReadDirFile interface {
 	File
 
+    // ReadDir reads the contents of the directory and returns
+	// a slice of up to n DirEntry values in directory order.
+	// Subsequent calls on the same file will yield further DirEntry values.
+	//
+	// If n > 0, ReadDir returns at most n DirEntry structures.
+	// In this case, if ReadDir returns an empty slice, it will return
+	// a non-nil error explaining why.
+	// At the end of a directory, the error is io.EOF.
+	// (ReadDir must return io.EOF itself, not an error wrapping io.EOF.)
+	//
+	// If n <= 0, ReadDir returns all the DirEntry values from the directory
+	// in a single slice. In this case, if ReadDir succeeds (reads all the way
+	// to the end of the directory), it returns the slice and a nil error.
+	// If it encounters an error before the end of the directory,
+	// ReadDir returns the DirEntry list read until that point and a non-nil error.
 	// ReadDir读取目录的内容并以目录顺序返回高达n个DirEntry值的切片。
     // 后续对同一文件的调用将产生更多的DirEntry值。
     //
@@ -1709,9 +1826,11 @@ type ReadDirFile interface {
 }
 ```
 
+A ReadDirFile is a directory file whose entries can be read with the ReadDir method. Every directory file should implement this interface. (It is permissible for any file to implement this interface, but if so ReadDir should return an error for non-directories.)
+
 ​	ReadDirFile是一个可以使用ReadDir方法读取其条目的目录文件。每个目录文件都应实现此接口。(任何文件都可以实现此接口，但如果这样做，对于非目录，ReadDir应返回一个错误。)
 
-##### ReadDirFile My Example
+#### ReadDirFile My Example
 
 ![image-20230825082407827](fs_img/image-20230825082407827.png)
 
@@ -1822,6 +1941,13 @@ func main() {
 type ReadFileFS interface {
 	FS
 
+    // ReadFile reads the named file and returns its contents.
+	// A successful call returns a nil error, not io.EOF.
+	// (Because ReadFile reads the whole file, the expected EOF
+	// from the final Read is not treated as an error to be reported.)
+	//
+	// The caller is permitted to modify the returned byte slice.
+	// This method should return a copy of the underlying data.
     // ReadFile 读取指定的文件并返回其内容。
     // 一次成功的调用返回一个nil错误，而不是io.EOF。
     // (因为ReadFile读取整个文件，因此从最后一次读取的EOF不被视为要报告的错误。)
@@ -1832,9 +1958,11 @@ type ReadFileFS interface {
 }
 ```
 
+ReadFileFS is the interface implemented by a file system that provides an optimized implementation of ReadFile.
+
 ​	`ReadFileFS` 是一个由文件系统实现的接口，该接口提供了 `ReadFile` 的优化实现。
 
-##### ReadFileFS My Example
+ReadFileFS My Example
 
 ![image-20230825085347673](fs_img/image-20230825085347673.png)
 
@@ -1915,15 +2043,19 @@ func main() {
 type StatFS interface {
 	FS
 
+    // Stat returns a FileInfo describing the file.
+	// If there is an error, it should be of type *PathError.
     // Stat 返回描述文件的FileInfo。
     // 如果发生错误，它应该是类型为*PathError。
 	Stat(name string) (FileInfo, error)
 }
 ```
 
+A StatFS is a file system with a Stat method.
+
 ​	StatFS是一个具有Stat方法的文件系统。
 
-##### StatFS My Example
+#### StatFS My Example
 
 ![image-20230825111439914](fs_img/image-20230825111439914.png)
 
@@ -2021,10 +2153,13 @@ func main() {
 type SubFS interface {
 	FS
 
+    // Sub returns an FS corresponding to the subtree rooted at dir.
 	// Sub 返回与dir根目录对应的FS。
 	Sub(dir string) (FS, error)
 }
 ```
+
+A SubFS is a file system with a Sub method.
 
 ​	SubFS是一个具有Sub方法的文件系统。
 
@@ -2126,30 +2261,52 @@ func main() {
 type WalkDirFunc func(path string, d DirEntry, err error) error
 ```
 
+WalkDirFunc is the type of the function called by WalkDir to visit each file or directory.
+
 ​	WalkDirFunc 是WalkDir函数用来访问每个文件或目录的函数类型。
+
+The path argument contains the argument to WalkDir as a prefix. That is, if WalkDir is called with root argument "dir" and finds a file named "a" in that directory, the walk function will be called with argument "dir/a".
 
 ​	`path` 实参包含WalkDir函数的实参作为前缀。也就是说，如果使用根实参"dir"调用WalkDir函数，并在该目录中找到名为"a"的文件，则遍历函数将使用实参"dir/a"进行调用。
 
+The d argument is the fs.DirEntry for the named path.
+
 ​	`d`实参是具有 fs.DirEntry 的命名路径。
+
+The error result returned by the function controls how WalkDir continues. If the function returns the special value SkipDir, WalkDir skips the current directory (path if d.IsDir() is true, otherwise path's parent directory). If the function returns the special value SkipAll, WalkDir skips all remaining files and directories. Otherwise, if the function returns a non-nil error, WalkDir stops entirely and returns that error.
 
 ​	该函数返回的错误结果控制WalkDir函数的继续。如果函数返回特殊值`SkipDir`，则WalkDir函数跳过当前目录（如果 `d.IsDir()`为true，则为`path`，否则为`path`的父目录）。如果函数返回特殊值`SkipAll`，则WalkDir函数跳过所有剩余文件和目录。否则，如果该函数返回非nil错误，则WalkDir函数完全停止并返回该错误。
 
+The err argument reports an error related to path, signaling that WalkDir will not walk into that directory. The function can decide how to handle that error; as described earlier, returning the error will cause WalkDir to stop walking the entire tree.
+
 ​	`err`参数报告与`path`相关的错误，表示WalkDir函数不会遍历该目录。该函数可以决定如何处理该错误；如前所述，返回错误将导致WalkDir函数停止遍历整个树。
+
+WalkDir calls the function with a non-nil err argument in two cases.
 
 ​	WalkDir函数在两种情况下使用非nil `err`实参调用函数。
 
+First, if the initial fs.Stat on the root directory fails, WalkDir calls the function with path set to root, d set to nil, and err set to the error from fs.Stat.
+
 ​	第一，如果根目录上的初始fs.Stat失败，WalkDir函数调用该函数时，`path`设置为`root`，`d`设置为nil，`err`设置为fs.Stat的错误。
+
+Second, if a directory's ReadDir method fails, WalkDir calls the function with path set to the directory's path, d set to an fs.DirEntry describing the directory, and err set to the error from ReadDir. In this second case, the function is called twice with the path of the directory: the first call is before the directory read is attempted and has err set to nil, giving the function a chance to return SkipDir or SkipAll and avoid the ReadDir entirely. The second call is after a failed ReadDir and reports the error from ReadDir. (If ReadDir succeeds, there is no second call.)
 
 ​	第二，如果一个目录的ReadDir方法失败，WalkDir函数调用该函数，`path`设置为该目录的路径，`d`设置为描述该目录的fs.DirEntry，`err`设置为ReadDir的错误。 在这第二种情况下，该函数被调用两次，`path`为该目录：第一次调用是在试图读取目录之前，`err`设置为nil，给该函数一个机会返回`SkipDir`或`SkipAll`，并完全避免ReadDir。第二次调用是在ReadDir失败之后，并报告ReadDir的错误(如果ReadDir成功，则没有第二次调用)。
 
+The differences between WalkDirFunc compared to filepath.WalkFunc are:
+
 ​	WalkDirFunc与filepath.WalkFunc的不同之处在于：
 
+- The second argument has type fs.DirEntry instead of fs.FileInfo.
+
 - 第二个实参的类型为fs.DirEntry，而不是fs.FileInfo。 
+- The function is called before reading a directory, to allow SkipDir or SkipAll to bypass the directory read entirely or skip all remaining files and directories respectively.
 - 该函数在读取目录之前被调用，以允许`SkipDir`或`SkipAll`完全跳过目录读取或跳过所有剩余的文件和目录。 
+- If a directory read fails, the function is called a second time for that directory to report the error.
 - 如果目录读取失败，该函数将被第二次被调用，以报告该目录的错误。
 
 
 
-##### WalkDirFunc My Example
+#### WalkDirFunc My Example
 
 参见 [func WalkDir](#func-walkdir)

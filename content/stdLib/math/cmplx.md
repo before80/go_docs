@@ -14,12 +14,6 @@ Package cmplx provides basic constants and mathematical functions for complex nu
 
 
 
-
-
-
-
-
-
 ## 常量 
 
 This section is empty.
@@ -30,7 +24,7 @@ This section is empty.
 
 ## 函数
 
-#### func Abs 
+### func Abs 
 
 ``` go 
 func Abs(x complex128) float64
@@ -38,11 +32,24 @@ func Abs(x complex128) float64
 
 Abs returns the absolute value (also called the modulus) of x.
 
-##### Example
+#### Abs Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math/cmplx"
+)
+
+func main() {
+	fmt.Printf("%.1f", cmplx.Abs(3+4i))
+}
+Output:
+
+5.0
 ```
 
-#### func Acos 
+### func Acos 
 
 ``` go 
 func Acos(x complex128) complex128
@@ -50,7 +57,7 @@ func Acos(x complex128) complex128
 
 Acos returns the inverse cosine of x.
 
-#### func Acosh 
+### func Acosh 
 
 ``` go 
 func Acosh(x complex128) complex128
@@ -58,7 +65,7 @@ func Acosh(x complex128) complex128
 
 Acosh returns the inverse hyperbolic cosine of x.
 
-#### func Asin 
+### func Asin 
 
 ``` go 
 func Asin(x complex128) complex128
@@ -66,7 +73,7 @@ func Asin(x complex128) complex128
 
 Asin returns the inverse sine of x.
 
-#### func Asinh 
+### func Asinh 
 
 ``` go 
 func Asinh(x complex128) complex128
@@ -74,7 +81,7 @@ func Asinh(x complex128) complex128
 
 Asinh returns the inverse hyperbolic sine of x.
 
-#### func Atan 
+### func Atan 
 
 ``` go 
 func Atan(x complex128) complex128
@@ -82,7 +89,7 @@ func Atan(x complex128) complex128
 
 Atan returns the inverse tangent of x.
 
-#### func Atanh 
+### func Atanh 
 
 ``` go 
 func Atanh(x complex128) complex128
@@ -90,7 +97,7 @@ func Atanh(x complex128) complex128
 
 Atanh returns the inverse hyperbolic tangent of x.
 
-#### func Conj 
+### func Conj 
 
 ``` go 
 func Conj(x complex128) complex128
@@ -98,7 +105,7 @@ func Conj(x complex128) complex128
 
 Conj returns the complex conjugate of x.
 
-#### func Cos 
+### func Cos 
 
 ``` go 
 func Cos(x complex128) complex128
@@ -106,7 +113,7 @@ func Cos(x complex128) complex128
 
 Cos returns the cosine of x.
 
-#### func Cosh 
+### func Cosh 
 
 ``` go 
 func Cosh(x complex128) complex128
@@ -114,7 +121,7 @@ func Cosh(x complex128) complex128
 
 Cosh returns the hyperbolic cosine of x.
 
-#### func Cot 
+### func Cot 
 
 ``` go 
 func Cot(x complex128) complex128
@@ -122,7 +129,7 @@ func Cot(x complex128) complex128
 
 Cot returns the cotangent of x.
 
-#### func Exp 
+### func Exp 
 
 ``` go 
 func Exp(x complex128) complex128
@@ -130,11 +137,26 @@ func Exp(x complex128) complex128
 
 Exp returns e**x, the base-e exponential of x.
 
-##### Example
+#### Exp Example
+
+ExampleExp computes Euler's identity.
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/cmplx"
+)
+
+func main() {
+	fmt.Printf("%.1f", cmplx.Exp(1i*math.Pi)+1)
+}
+
 ```
 
-#### func Inf 
+### func Inf 
 
 ``` go 
 func Inf() complex128
@@ -142,7 +164,7 @@ func Inf() complex128
 
 Inf returns a complex infinity, complex(+Inf, +Inf).
 
-#### func IsInf 
+### func IsInf 
 
 ``` go 
 func IsInf(x complex128) bool
@@ -150,7 +172,7 @@ func IsInf(x complex128) bool
 
 IsInf reports whether either real(x) or imag(x) is an infinity.
 
-#### func IsNaN 
+### func IsNaN 
 
 ``` go 
 func IsNaN(x complex128) bool
@@ -158,7 +180,7 @@ func IsNaN(x complex128) bool
 
 IsNaN reports whether either real(x) or imag(x) is NaN and neither is an infinity.
 
-#### func Log 
+### func Log 
 
 ``` go 
 func Log(x complex128) complex128
@@ -166,7 +188,7 @@ func Log(x complex128) complex128
 
 Log returns the natural logarithm of x.
 
-#### func Log10 
+### func Log10 
 
 ``` go 
 func Log10(x complex128) complex128
@@ -174,7 +196,7 @@ func Log10(x complex128) complex128
 
 Log10 returns the decimal logarithm of x.
 
-#### func NaN 
+### func NaN 
 
 ``` go 
 func NaN() complex128
@@ -182,7 +204,7 @@ func NaN() complex128
 
 NaN returns a complex "not-a-number" value.
 
-#### func Phase 
+### func Phase 
 
 ``` go 
 func Phase(x complex128) float64
@@ -190,7 +212,7 @@ func Phase(x complex128) float64
 
 Phase returns the phase (also called the argument) of x. The returned value is in the range [-Pi, Pi].
 
-#### func Polar 
+### func Polar 
 
 ``` go 
 func Polar(x complex128) (r, θ float64)
@@ -198,11 +220,26 @@ func Polar(x complex128) (r, θ float64)
 
 Polar returns the absolute value r and phase θ of x, such that x = r * e**θi. The phase is in the range [-Pi, Pi].
 
-##### Example
+#### Polar Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/cmplx"
+)
+
+func main() {
+	r, theta := cmplx.Polar(2i)
+	fmt.Printf("r: %.1f, θ: %.1f*π", r, theta/math.Pi)
+}
+Output:
+
+r: 2.0, θ: 0.5*π
 ```
 
-#### func Pow 
+### func Pow 
 
 ``` go 
 func Pow(x, y complex128) complex128
@@ -215,7 +252,7 @@ Pow(0, ±0) returns 1+0i
 Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
 ```
 
-#### func Rect 
+### func Rect 
 
 ``` go 
 func Rect(r, θ float64) complex128
@@ -223,7 +260,7 @@ func Rect(r, θ float64) complex128
 
 Rect returns the complex number x with polar coordinates r, θ.
 
-#### func Sin 
+### func Sin 
 
 ``` go 
 func Sin(x complex128) complex128
@@ -231,7 +268,7 @@ func Sin(x complex128) complex128
 
 Sin returns the sine of x.
 
-#### func Sinh 
+### func Sinh 
 
 ``` go 
 func Sinh(x complex128) complex128
@@ -239,7 +276,7 @@ func Sinh(x complex128) complex128
 
 Sinh returns the hyperbolic sine of x.
 
-#### func Sqrt 
+### func Sqrt 
 
 ``` go 
 func Sqrt(x complex128) complex128
@@ -247,7 +284,7 @@ func Sqrt(x complex128) complex128
 
 Sqrt returns the square root of x. The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).
 
-#### func Tan 
+### func Tan 
 
 ``` go 
 func Tan(x complex128) complex128
@@ -255,7 +292,7 @@ func Tan(x complex128) complex128
 
 Tan returns the tangent of x.
 
-#### func Tanh 
+### func Tanh 
 
 ``` go 
 func Tanh(x complex128) complex128

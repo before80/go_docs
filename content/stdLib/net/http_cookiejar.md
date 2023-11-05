@@ -8,7 +8,9 @@ draft = false
 +++
 https://pkg.go.dev/net/http/cookiejar@go1.20.1
 
- cookiejar 包实现了一个内存中符合 [RFC 6265](https://rfc-editor.org/rfc/rfc6265.html) 标准的 http.CookieJar。
+Package cookiejar implements an in-memory [RFC 6265](https://rfc-editor.org/rfc/rfc6265.html)-compliant http.CookieJar.
+
+​	 `cookiejar` 包实现了一个内存中符合 [RFC 6265](https://rfc-editor.org/rfc/rfc6265.html) 标准的 http.CookieJar。
 
 ## 常量 
 
@@ -32,6 +34,8 @@ type Jar struct {
 }
 ```
 
+Jar implements the http.CookieJar interface from the net/http package.
+
 ​	Jar 实现了 net/http 包中的 http.CookieJar 接口。
 
 #### func New 
@@ -40,10 +44,13 @@ type Jar struct {
 func New(o *Options) (*Jar, error)
 ```
 
+New returns a new cookie jar. A nil *Options is equivalent to a zero Options.
+
 ​	New 函数返回一个新的 cookie 存储器。空的 `*Options` 等同于零值的 Options。
 
-##### Example
+##### New Example
 ``` go 
+// Start a server to give us cookies.
 // 启动一个服务器以提供给我们 cookies。
 ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	if cookie, err := r.Cookie("Flavor"); err != nil {
@@ -103,7 +110,11 @@ After 2nd request:
 func (j *Jar) Cookies(u *url.URL) (cookies []*http.Cookie)
 ```
 
+Cookies implements the Cookies method of the http.CookieJar interface.
+
 ​	Cookies 方法实现了 http.CookieJar 接口的 Cookies 方法。
+
+It returns an empty slice if the URL's scheme is not HTTP or HTTPS.
 
 ​	如果 URL 的 scheme 不是 HTTP 或 HTTPS，则返回一个空切片。
 
@@ -113,7 +124,11 @@ func (j *Jar) Cookies(u *url.URL) (cookies []*http.Cookie)
 func (j *Jar) SetCookies(u *url.URL, cookies []*http.Cookie)
 ```
 
+SetCookies implements the SetCookies method of the http.CookieJar interface.
+
 ​	SetCookies 方法实现了 http.CookieJar 接口的 SetCookies 方法。
+
+It does nothing if the URL's scheme is not HTTP or HTTPS.
 
 ​	如果 URL 的 scheme 不是 HTTP 或 HTTPS，则不执行任何操作。
 
@@ -121,6 +136,12 @@ func (j *Jar) SetCookies(u *url.URL, cookies []*http.Cookie)
 
 ``` go 
 type Options struct {
+    // PublicSuffixList is the public suffix list that determines whether
+	// an HTTP server can set a cookie for a domain.
+	//
+	// A nil value is valid and may be useful for testing but it is not
+	// secure: it means that the HTTP server for foo.co.uk can set a cookie
+	// for bar.co.uk.
     // PublicSuffixList 是确定 HTTP 服务器是否能够为域设置 cookie 的公共后缀列表。
 	//
 	// nil 值是有效的，对于测试可能是有用的，但不安全：
@@ -128,6 +149,8 @@ type Options struct {
 	PublicSuffixList PublicSuffixList
 }
 ```
+
+Options are the options for creating a new Jar.
 
 ​	Options 是创建新的 Jar 的选项。
 
@@ -154,14 +177,25 @@ type PublicSuffixList interface {
 }
 ```
 
+PublicSuffixList provides the public suffix of a domain. For example:
+
 ​	PublicSuffixList 提供了一个域的公共后缀。例如： 
 
+- the public suffix of "example.com" is "com",
 - "example.com" 的公共后缀是 "com"，
+- the public suffix of "foo1.foo2.foo3.co.uk" is "co.uk", and
 - "foo1.foo2.foo3.co.uk" 的公共后缀是 "co.uk"，以及
+- the public suffix of "bar.pvt.k12.ma.us" is "pvt.k12.ma.us".
 - "bar.pvt.k12.ma.us" 的公共后缀是 "pvt.k12.ma.us"。
+
+Implementations of PublicSuffixList must be safe for concurrent use by multiple goroutines.
 
 ​	PublicSuffixList 的实现必须能够在多个 goroutine 中安全地进行并发使用。
 
+An implementation that always returns "" is valid and may be useful for testing but it is not secure: it means that the HTTP server for foo.com can set a cookie for bar.com.
+
 ​	总是返回 "" 的实现是有效的，可能对于测试有用，但不安全： 这意味着 foo.com 的 HTTP 服务器可以为 bar.com 设置 cookie。
+
+A public suffix list implementation is in the package golang.org/x/net/publicsuffix.
 
 ​	在 golang.org/x/net/publicsuffix 包中有一个公共后缀列表的实现。

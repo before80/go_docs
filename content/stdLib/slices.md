@@ -9,23 +9,23 @@ draft = false
 
 [https://pkg.go.dev/slices](https://pkg.go.dev/slices)
 
-### 概述 
+## 概述 
 
 Package slices defines various functions useful with slices of any type.
 
 ​	`slices` 包定义了各种类型切片的有用函数。
 
-### 常量
+## 常量
 
 This section is empty.
 
-### 常量
+## 常量
 
 This section is empty.
 
-### 函数
+## 函数
 
-#### func BinarySearch 
+### func BinarySearch 
 
 ``` go
 func BinarySearch[S ~[]E, E cmp.Ordered](x S, target E) (int, bool)
@@ -35,7 +35,7 @@ BinarySearch searches for target in a sorted slice and returns the position wher
 
 ​	`BinarySearch` 在已排序的切片中搜索目标，并返回找到目标的位置，或者在排序顺序中目标应该出现的位置；它还返回一个布尔值，表示目标是否真正在切片中找到。切片必须以递增顺序排序。
 
-##### BinarySearch Example
+#### BinarySearch Example
 
 ``` go
 package main
@@ -57,7 +57,7 @@ Output:
 Vera: 2 true
 Bill: 1 false
 ```
-#### func BinarySearchFunc 
+### func BinarySearchFunc 
 
 ``` go
 func BinarySearchFunc[S ~[]E, E, T any](x S, target T, cmp func(E, T) int) (int, bool)
@@ -67,7 +67,7 @@ BinarySearchFunc works like [BinarySearch](https://pkg.go.dev/slices#BinarySearc
 
 ​	`BinarySearchFunc` 函数的工作原理类似于 [BinarySearch](#binarySearch)函数，但使用自定义的比较函数。切片必须以递增顺序排序，其中“递增（increasing）”由 `cmp` 定义。如果切片元素与目标匹配，则 `cmp` 应返回 0；如果切片元素在目标之前，则返回一个负数；如果切片元素在目标之后，则返回一个正数。`cmp` 必须实现与切片相同的排序顺序，以便如果 `cmp(a, t) < 0` 和 `cmp(b, t) >= 0`，那么 `a` 必须在切片中出现在 `b` 之前。
 
-##### BinarySearchFunc Example
+#### BinarySearchFunc Example
 
 ``` go
 package main
@@ -97,7 +97,7 @@ Output:
 
 Bob: 1 true
 ```
-#### func Clip 
+### func Clip 
 
 ``` go
 func Clip[S ~[]E, E any](s S) S
@@ -107,7 +107,7 @@ Clip removes unused capacity from the slice, returning s[:len(s):len(s)].
 
 ​	`Clip` 函数从切片中移除未使用的容量，并返回 `s[:len(s):len(s)]`。
 
-#### func Clone 
+### func Clone 
 
 ``` go
 func Clone[S ~[]E, E any](s S) S
@@ -117,7 +117,7 @@ Clone returns a copy of the slice. The elements are copied using assignment, so 
 
 ​	`Clone` 函数返回切片的副本。元素是通过赋值复制的，因此这是`浅复制`。
 
-#### func Compact 
+### func Compact 
 
 ``` go
 func Compact[S ~[]E, E comparable](s S) S
@@ -127,7 +127,7 @@ Compact replaces consecutive runs of equal elements with a single copy. This is 
 
 ​	这个函数`Compact`的作用是将连续相等的元素替换为单个副本，类似于Unix中的uniq命令。它修改切片`s`的内容并返回修改后的切片，返回切片的长度可能会变小。当`Compact`总共丢弃m个元素时，它可能不会修改元素`s[len(s)-m:len(s)]`。如果这些元素包含指针，您可能需要将这些元素置零，以便垃圾回收可以收集它们引用的对象。
 
-##### Compact Example
+#### Compact Example
 
 ``` go
 package main
@@ -146,7 +146,7 @@ Output:
 
 [0 1 2 3 5 8]
 ```
-#### func CompactFunc 
+### func CompactFunc 
 
 ``` go
 func CompactFunc[S ~[]E, E any](s S, eq func(E, E) bool) S
@@ -156,7 +156,7 @@ CompactFunc is like [Compact](https://pkg.go.dev/slices#Compact) but uses an equ
 
 ​	`CompactFunc`函数类似于[Compact](#compact)，但它使用一个等价函数来比较元素。对于比较相等的元素序列，`CompactFunc`保留第一个元素。
 
-##### CompactFunc Example
+#### CompactFunc Example
 
 ``` go
 package main
@@ -178,7 +178,7 @@ Output:
 
 [bob alice Vera]
 ```
-#### func Compare 
+### func Compare 
 
 ``` go
 func Compare[S ~[]E, E cmp.Ordered](s1, s2 S) int
@@ -188,7 +188,7 @@ Compare compares the elements of s1 and s2, using [cmp.Compare](https://pkg.go.d
 
 ​	Compare函数比较s1和s2的元素，使用[cmp.Compare](https://pkg.go.dev/cmp#Compare)来比较每一对元素。元素按顺序进行比较，从索引0开始，直到找到不相等的元素。返回比较第一个不匹配元素的结果。如果两个切片相等直到其中一个切片结束，那么较短的切片被认为是小于较长的切片。如果s1等于s2，结果为0；如果s1小于s2，结果为-1；如果s1大于s2，结果为+1。
 
-##### Compare Example
+#### Compare Example
 
 ``` go
 package main
@@ -212,7 +212,7 @@ V < X: -1
 V > C: 1
 3 > 2: 1
 ```
-#### func CompareFunc 
+### func CompareFunc 
 
 ``` go
 func CompareFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, cmp func(E1, E2) int) int
@@ -220,7 +220,7 @@ func CompareFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, cmp func(E1, E2) 
 
 CompareFunc is like [Compare](https://pkg.go.dev/slices#Compare) but uses a custom comparison function on each pair of elements. The result is the first non-zero result of cmp; if cmp always returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2), and +1 if len(s1) > len(s2).
 
-##### CompareFunc Example
+#### CompareFunc Example
 
 ``` go
 package main
@@ -248,7 +248,7 @@ Output:
 
 1
 ```
-#### func Contains 
+### func Contains 
 
 ``` go
 func Contains[S ~[]E, E comparable](s S, v E) bool
@@ -256,7 +256,7 @@ func Contains[S ~[]E, E comparable](s S, v E) bool
 
 Contains reports whether v is present in s.
 
-#### func ContainsFunc 
+### func ContainsFunc 
 
 ``` go
 func ContainsFunc[S ~[]E, E any](s S, f func(E) bool) bool
@@ -264,7 +264,7 @@ func ContainsFunc[S ~[]E, E any](s S, f func(E) bool) bool
 
 ContainsFunc reports whether at least one element e of s satisfies f(e).
 
-##### ContainsFunc Example
+#### ContainsFunc Example
 
 ``` go
 package main
@@ -290,7 +290,7 @@ Output:
 Has a negative: true
 Has an odd number: false
 ```
-#### func Delete 
+### func Delete 
 
 ``` go
 func Delete[S ~[]E, E any](s S, i, j int) S
@@ -298,7 +298,7 @@ func Delete[S ~[]E, E any](s S, i, j int) S
 
 Delete removes the elements s[i:j] from s, returning the modified slice. Delete panics if s[i:j] is not a valid slice of s. Delete is O(len(s)-j), so if many items must be deleted, it is better to make a single call deleting them all together than to delete one at a time. Delete might not modify the elements s[len(s)-(j-i):len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.
 
-##### Delete Example
+#### Delete Example
 
 ``` go
 package main
@@ -317,7 +317,7 @@ Output:
 
 [a e]
 ```
-#### func DeleteFunc 
+### func DeleteFunc 
 
 ``` go
 func DeleteFunc[S ~[]E, E any](s S, del func(E) bool) S
@@ -325,7 +325,7 @@ func DeleteFunc[S ~[]E, E any](s S, del func(E) bool) S
 
 DeleteFunc removes any elements from s for which del returns true, returning the modified slice. When DeleteFunc removes m elements, it might not modify the elements s[len(s)-m:len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.
 
-##### DeleteFunc Example
+#### DeleteFunc Example
 
 ``` go
 package main
@@ -346,7 +346,7 @@ Output:
 
 [0 2 8]
 ```
-#### func Equal 
+### func Equal 
 
 ``` go
 func Equal[S ~[]E, E comparable](s1, s2 S) bool
@@ -354,7 +354,7 @@ func Equal[S ~[]E, E comparable](s1, s2 S) bool
 
 Equal reports whether two slices are equal: the same length and all elements equal. If the lengths are different, Equal returns false. Otherwise, the elements are compared in increasing index order, and the comparison stops at the first unequal pair. Floating point NaNs are not considered equal.
 
-##### Equal Example
+#### Equal Example
 
 ``` go
 package main
@@ -374,7 +374,7 @@ Output:
 true
 false
 ```
-#### func EqualFunc 
+### func EqualFunc 
 
 ``` go
 func EqualFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, eq func(E1, E2) bool) bool
@@ -382,7 +382,7 @@ func EqualFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, eq func(E1, E2) boo
 
 EqualFunc reports whether two slices are equal using an equality function on each pair of elements. If the lengths are different, EqualFunc returns false. Otherwise, the elements are compared in increasing index order, and the comparison stops at the first index for which eq returns false.
 
-##### EqualFunc Example
+#### EqualFunc Example
 
 ``` go
 package main
@@ -409,7 +409,7 @@ Output:
 
 true
 ```
-#### func Grow 
+### func Grow 
 
 ``` go
 func Grow[S ~[]E, E any](s S, n int) S
@@ -417,7 +417,7 @@ func Grow[S ~[]E, E any](s S, n int) S
 
 Grow increases the slice's capacity, if necessary, to guarantee space for another n elements. After Grow(n), at least n elements can be appended to the slice without another allocation. If n is negative or too large to allocate the memory, Grow panics.
 
-#### func Index 
+### func Index 
 
 ``` go
 func Index[S ~[]E, E comparable](s S, v E) int
@@ -425,7 +425,7 @@ func Index[S ~[]E, E comparable](s S, v E) int
 
 Index returns the index of the first occurrence of v in s, or -1 if not present.
 
-##### Index Example
+#### Index Example
 
 ``` go
 package main
@@ -445,7 +445,7 @@ Output:
 2
 -1
 ```
-#### func IndexFunc 
+### func IndexFunc 
 
 ``` go
 func IndexFunc[S ~[]E, E any](s S, f func(E) bool) int
@@ -453,7 +453,7 @@ func IndexFunc[S ~[]E, E any](s S, f func(E) bool) int
 
 IndexFunc returns the first index i satisfying f(s[i]), or -1 if none do.
 
-##### IndexFunc Example
+#### IndexFunc Example
 
 ``` go
 package main
@@ -474,7 +474,7 @@ Output:
 
 First negative at index 2
 ```
-#### func Insert 
+### func Insert 
 
 ``` go
 func Insert[S ~[]E, E any](s S, i int, v ...E) S
@@ -482,7 +482,7 @@ func Insert[S ~[]E, E any](s S, i int, v ...E) S
 
 Insert inserts the values v... into s at index i, returning the modified slice. The elements at s[i:] are shifted up to make room. In the returned slice r, r[i] == v[0], and r[i+len(v)] == value originally at r[i]. Insert panics if i is out of range. This function is O(len(s) + len(v)).
 
-##### Insert Example
+#### Insert Example
 
 ``` go
 package main
@@ -502,7 +502,7 @@ Output:
 
 [Alice Bill Billie Bob Vera Zac]
 ```
-#### func IsSorted 
+### func IsSorted 
 
 ``` go
 func IsSorted[S ~[]E, E cmp.Ordered](x S) bool
@@ -510,7 +510,7 @@ func IsSorted[S ~[]E, E cmp.Ordered](x S) bool
 
 IsSorted reports whether x is sorted in ascending order.
 
-##### IsSorted Example
+#### IsSorted Example
 
 ``` go
 package main
@@ -529,7 +529,7 @@ Output:
 true
 false
 ```
-#### func IsSortedFunc 
+### func IsSortedFunc 
 
 ``` go
 func IsSortedFunc[S ~[]E, E any](x S, cmp func(a, b E) int) bool
@@ -537,7 +537,7 @@ func IsSortedFunc[S ~[]E, E any](x S, cmp func(a, b E) int) bool
 
 IsSortedFunc reports whether x is sorted in ascending order, with cmp as the comparison function as defined by [SortFunc](https://pkg.go.dev/slices#SortFunc).
 
-##### IsSortedFunc Example
+#### IsSortedFunc Example
 
 ``` go
 package main
@@ -562,7 +562,7 @@ Output:
 true
 false
 ```
-#### func Max 
+### func Max 
 
 ``` go
 func Max[S ~[]E, E cmp.Ordered](x S) E
@@ -570,7 +570,7 @@ func Max[S ~[]E, E cmp.Ordered](x S) E
 
 Max returns the maximal value in x. It panics if x is empty. For floating-point E, Max propagates NaNs (any NaN value in x forces the output to be NaN).
 
-##### Max Example
+#### Max Example
 
 ``` go
 package main
@@ -588,7 +588,7 @@ Output:
 
 42
 ```
-#### func MaxFunc 
+### func MaxFunc 
 
 ``` go
 func MaxFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
@@ -596,7 +596,7 @@ func MaxFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
 
 MaxFunc returns the maximal value in x, using cmp to compare elements. It panics if x is empty. If there is more than one maximal element according to the cmp function, MaxFunc returns the first one.
 
-##### MaxFunc Example
+#### MaxFunc Example
 
 ``` go
 package main
@@ -627,7 +627,7 @@ Output:
 
 Alice
 ```
-#### func Min 
+### func Min 
 
 ``` go
 func Min[S ~[]E, E cmp.Ordered](x S) E
@@ -635,7 +635,7 @@ func Min[S ~[]E, E cmp.Ordered](x S) E
 
 Min returns the minimal value in x. It panics if x is empty. For floating-point numbers, Min propagates NaNs (any NaN value in x forces the output to be NaN).
 
-##### Min  Example
+#### Min  Example
 
 ```go
 package main
@@ -654,7 +654,7 @@ Output:
 -10
 ```
 
-#### func MinFunc 
+### func MinFunc 
 
 ``` go
 func MinFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
@@ -662,7 +662,7 @@ func MinFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
 
 MinFunc returns the minimal value in x, using cmp to compare elements. It panics if x is empty. If there is more than one minimal element according to the cmp function, MinFunc returns the first one.
 
-##### MinFunc Example
+#### MinFunc Example
 
 ``` go
 package main
@@ -693,7 +693,7 @@ Output:
 
 Bob
 ```
-#### func Replace 
+### func Replace 
 
 ``` go
 func Replace[S ~[]E, E any](s S, i, j int, v ...E) S
@@ -701,7 +701,7 @@ func Replace[S ~[]E, E any](s S, i, j int, v ...E) S
 
 Replace replaces the elements s[i:j] by the given v, and returns the modified slice. Replace panics if s[i:j] is not a valid slice of s.
 
-##### Replace Example
+#### Replace Example
 
 ``` go
 package main
@@ -720,7 +720,7 @@ Output:
 
 [Alice Bill Billie Cat Zac]
 ```
-#### func Reverse 
+### func Reverse 
 
 ``` go
 func Reverse[S ~[]E, E any](s S)
@@ -728,7 +728,7 @@ func Reverse[S ~[]E, E any](s S)
 
 Reverse reverses the elements of the slice in place.
 
-##### Reverse Example
+#### Reverse Example
 
 ``` go
 package main
@@ -747,7 +747,7 @@ Output:
 
 [VERA Bob alice]
 ```
-#### func Sort 
+### func Sort 
 
 ``` go
 func Sort[S ~[]E, E cmp.Ordered](x S)
@@ -755,7 +755,7 @@ func Sort[S ~[]E, E cmp.Ordered](x S)
 
 Sort sorts a slice of any ordered type in ascending order. When sorting floating-point numbers, NaNs are ordered before other values.
 
-##### Sort Example
+#### Sort Example
 
 ``` go
 package main
@@ -774,7 +774,7 @@ Output:
 
 [-10 0 8 42]
 ```
-#### func SortFunc 
+### func SortFunc 
 
 ``` go
 func SortFunc[S ~[]E, E any](x S, cmp func(a, b E) int)
@@ -784,7 +784,7 @@ SortFunc sorts the slice x in ascending order as determined by the cmp function.
 
 SortFunc requires that cmp is a strict weak ordering. See https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings.
 
-##### SortFunc Example (CaseInsensitive)
+#### SortFunc Example (CaseInsensitive)
 
 ``` go
 package main
@@ -807,7 +807,7 @@ Output:
 
 [alice Bob VERA]
 ```
-##### SortFunc Example (MultiField)
+#### SortFunc Example (MultiField)
 
 ``` go
 package main
@@ -842,7 +842,7 @@ Output:
 
 [{Alice 20} {Alice 55} {Bob 24} {Gopher 13}]
 ```
-#### func SortStableFunc 
+### func SortStableFunc 
 
 ``` go
 func SortStableFunc[S ~[]E, E any](x S, cmp func(a, b E) int)
@@ -850,7 +850,7 @@ func SortStableFunc[S ~[]E, E any](x S, cmp func(a, b E) int)
 
 SortStableFunc sorts the slice x while keeping the original order of equal elements, using cmp to compare elements in the same way as [SortFunc](https://pkg.go.dev/slices#SortFunc).
 
-##### SortStableFunc Example
+#### SortStableFunc Example
 
 ``` go
 package main
