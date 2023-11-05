@@ -50,7 +50,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/profile/legacy_profile.go;l=21)
 
-```
+``` go
 var (
 
 	// LegacyHeapAllocated instructs the heapz parsers to use the

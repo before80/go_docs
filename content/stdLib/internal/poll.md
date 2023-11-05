@@ -74,7 +74,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/hook_cloexec.go;l=12)
 
-```
+``` go
 var Accept4Func func(int, int) (int, syscall.Sockaddr, error) = syscall.Accept4
 ```
 
@@ -82,7 +82,7 @@ Accept4Func is used to hook the accept4 call.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/hook_unix.go;l=15)
 
-```
+``` go
 var AcceptFunc func(int) (int, syscall.Sockaddr, error) = syscall.Accept
 ```
 
@@ -90,7 +90,7 @@ AcceptFunc is used to hook the accept call.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/hook_unix.go;l=12)
 
-```
+``` go
 var CloseFunc func(int) error = syscall.Close
 ```
 
@@ -98,7 +98,7 @@ CloseFunc is used to hook the close call.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=51)
 
-```
+``` go
 var ErrDeadlineExceeded error = &DeadlineExceededError{}
 ```
 
@@ -106,7 +106,7 @@ ErrDeadlineExceeded is returned for an expired deadline. This is exported by the
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=35)
 
-```
+``` go
 var ErrFileClosing = errors.New("use of closed file")
 ```
 
@@ -114,7 +114,7 @@ ErrFileClosing is returned when a file descriptor is used after it has been clos
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=31)
 
-```
+``` go
 var ErrNetClosing = errNetClosing{}
 ```
 
@@ -122,7 +122,7 @@ ErrNetClosing is returned when a network descriptor is used after it has been cl
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=39)
 
-```
+``` go
 var ErrNoDeadline = errors.New("file type does not support deadline")
 ```
 
@@ -130,7 +130,7 @@ ErrNoDeadline is returned when a request is made to set a deadline on a file typ
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=66)
 
-```
+``` go
 var ErrNotPollable = errors.New("not pollable")
 ```
 
@@ -138,7 +138,7 @@ ErrNotPollable is returned when the file or socket is not suitable for event not
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/poll/fd.go;l=83)
 
-```
+``` go
 var TestHookDidWritev = func(wrote int) {}
 ```
 

@@ -316,7 +316,7 @@ Output:
 
 ### func Read <- DEPRECATED
 
-```
+``` go
 func Read(p []byte) (n int, err error)
 ```
 
@@ -330,7 +330,7 @@ Deprecated: For almost all use cases, crypto/rand.Read is more appropriate.
 
 ### func Seed <- DEPRECATED
 
-```
+``` go
 func Seed(seed int64)
 ```
 

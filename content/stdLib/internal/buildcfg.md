@@ -35,7 +35,7 @@ DefaultGOEXPERIMENT is the embedded default GOEXPERIMENT string. It is not guara
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/cfg.go;l=22)
 
-```
+``` go
 var (
 	GOROOT   = runtime.GOROOT() // cached for efficiency
 	GOARCH   = envOr("GOARCH", defaultGOARCH)
@@ -55,7 +55,7 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/cfg.go;l=39)
 
-```
+``` go
 var Error error
 ```
 
@@ -63,7 +63,7 @@ Error is one of the errors found (if any) in the build configuration.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/buildcfg/exp.go;l=51)
 
-```
+``` go
 var FramePointerEnabled = GOARCH == "amd64" || GOARCH == "arm64"
 ```
 
@@ -110,7 +110,7 @@ type ExperimentFlags struct {
 
 ExperimentFlags represents a set of GOEXPERIMENT flags relative to a baseline (platform-default) experiment configuration.
 
-```
+``` go
 var Experiment ExperimentFlags = func() ExperimentFlags {
 	flags, err := ParseGOEXPERIMENT(GOOS, GOARCH, envOr("GOEXPERIMENT", defaultGOEXPERIMENT))
 	if err != nil {

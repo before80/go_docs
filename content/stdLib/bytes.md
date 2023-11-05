@@ -1,6 +1,5 @@
 +++
 title = "bytes"
-linkTitle = "bytes"
 date = 2023-05-17T09:59:21+08:00
 type = "docs"
 description = ""
@@ -8,6 +7,8 @@ isCJKLanguage = true
 draft = false
 +++
 https://pkg.go.dev/bytes@go1.20.1
+
+Package bytes implements functions for the manipulation of byte slices. It is analogous to the facilities of the strings package.
 
 ​	bytes包实现了操作字节切片的功能。它类似于strings包的功能。
 
@@ -19,6 +20,8 @@ https://pkg.go.dev/bytes@go1.20.1
 const MinRead = 512
 ```
 
+MinRead is the minimum slice size passed to a Read call by Buffer.ReadFrom. As long as the Buffer has at least MinRead bytes beyond what is required to hold the contents of r, ReadFrom will not grow the underlying buffer.
+
 ​	MinRead是Buffer.ReadFrom()方法在调用Buffer.Read()时传递的最小切片大小。只要Buffer至少有MinRead字节超出了`r`内容的所需的空间，Buffer.ReadFrom()就不会增长底层的缓冲区。
 
 ## 变量 
@@ -28,6 +31,8 @@ const MinRead = 512
 ``` go 
 var ErrTooLarge = errors.New("bytes.Buffer: too large")
 ```
+
+ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer.
 
 ​	如果无法分配内存以存储缓冲区中的数据，ErrTooLarge将被传递给panic。
 
@@ -39,6 +44,8 @@ var ErrTooLarge = errors.New("bytes.Buffer: too large")
 func Clone(b []byte) []byte
 ```
 
+Clone returns a copy of b[:len(b)]. The result may have additional unused capacity. Clone(nil) returns nil.
+
 ​	Clone函数返回b[:len(b)]的副本。其结果可能有额外的未使用的容量。	Clone(nil)返回nil。
 
 ### func Compare 
@@ -46,6 +53,8 @@ func Clone(b []byte) []byte
 ``` go 
 func Compare(a, b []byte) int
 ```
+
+Compare returns an integer comparing two byte slices lexicographically. The result will be 0 if a == b, -1 if a < b, and +1 if a > b. A nil argument is equivalent to an empty slice.
 
 ​	Compare函数返回一个整数，按字典顺序比较两个字节切片。如果a == b，结果是0，如果a < b，结果是-1，如果a > b，结果是+1。nil参数等效于空切片。
 
@@ -58,6 +67,7 @@ import (
 )
 
 func main() {
+    // Interpret Compare's result by comparing it to zero.
 	// 将Compare的结果与零进行比较来解释。
 	var a, b []byte
 	if bytes.Compare(a, b) < 0 {
@@ -73,6 +83,7 @@ func main() {
 		// a greater or equal b
 	}
 
+    // Prefer Equal to Compare for equality comparisons.
 	// 倾向于用Equal来进行相等比较。
 	if bytes.Equal(a, b) {
 		// a equal b
@@ -94,9 +105,10 @@ import (
 )
 
 func main() {
+    // Binary search to find a matching byte slice.
 	// 通过二进制搜索找到匹配的字节切片。
 	var needle []byte
-	var haystack [][]byte // 假设已排序
+	var haystack [][]byte // 假设已排序 Assume sorted
 	i := sort.Search(len(haystack), func(i int) bool {
 		// Return haystack[i] >= needle.
 		return bytes.Compare(haystack[i], needle) >= 0
@@ -113,6 +125,8 @@ func main() {
 ``` go 
 func Contains(b, subslice []byte) bool
 ```
+
+Contains reports whether subslice is within b.
 
 ​	Contains函数报告子字节切片subslice是否在字节切片b中。
 
@@ -145,6 +159,8 @@ true
 func ContainsAny(b []byte, chars string) bool
 ```
 
+ContainsAny reports whether any of the UTF-8-encoded code points in chars are within b.
+
 ​	ContainsAny函数报告chars中是否存在任何一个使用UTF-8编码的码点在字节切片b中。
 
 #### ContainsAny Example
@@ -175,6 +191,8 @@ false
 ``` go 
 func ContainsRune(b []byte, r rune) bool
 ```
+
+ContainsRune reports whether the rune is contained in the UTF-8-encoded byte slice b.
 
 ​	ContainsRune函数报告符文`r`是否包含在UTF-8编码的字节切片b中。
 
@@ -209,6 +227,8 @@ false
 func Count(s, sep []byte) int
 ```
 
+Count counts the number of non-overlapping instances of sep in s. If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s.
+
 ​	Count函数计算s中sep的非重叠实例数。如果 sep 是一个空切片，则 Count 返回 s 中 UTF-8 编码的码点数加 1。
 
 #### Count Example
@@ -236,7 +256,11 @@ Output:
 func Cut(s, sep []byte) (before, after []byte, found bool)
 ```
 
+Cut slices s around the first instance of sep, returning the text before and after sep. The found result reports whether sep appears in s. If sep does not appear in s, cut returns s, nil, false.
+
 ​	Cut 函数将 s 切片在第一个 sep 的实例处分割，返回 sep 前面和后面的文本。 found的结果报告sep是否出现在s中。如果 sep 不出现在 s 中，则 Cut函数返回 s，nil，false。
+
+Cut returns slices of the original slice s, not copies.
 
 ​	Cut函数返回原始切片s的切片，而不是副本。
 
@@ -273,7 +297,11 @@ Cut("Gopher", "Badger") = "Gopher", "", false
 func CutPrefix(s, prefix []byte) (after []byte, found bool)
 ```
 
+CutPrefix returns s without the provided leading prefix byte slice and reports whether it found the prefix. If s doesn't start with prefix, CutPrefix returns s, false. If prefix is the empty byte slice, CutPrefix returns s, true.
+
 ​	CutPrefix函数返回没有提供前缀 prefix 的 s，并报告它是否找到了前缀。如果 s 不以 prefix 开头，则 CutPrefix函数返回 s、false。如果 prefix 是空字节切片，则 CutPrefix函数返回 s、true。
+
+CutPrefix returns slices of the original slice s, not copies.
 
 ​	CutPrefix函数返回原始切片s的切片，而不是副本。
 
@@ -294,9 +322,13 @@ after, found := bytes.CutPrefix(s, prefix)
 func CutSuffix(s, suffix []byte) (before []byte, found bool)
 ```
 
+CutSuffix returns s without the provided ending suffix byte slice and reports whether it found the suffix. If s doesn't end with suffix, CutSuffix returns s, false. If suffix is the empty byte slice, CutSuffix returns s, true.
+
 ​	CutSuffix函数返回没有提供后缀字节切片的s，并报告它是否找到了后缀。如果s没有以后缀结束，CutSuffix返回s，false。如果后缀是空字节切片，CutSuffix返回s，true。
 
 ​	CutSuffix 函数返回没有提供后缀 suffix 的 s，并报告它是否找到了后缀。如果 s 不以 suffix 结尾，则 CutSuffix 返回 s、false。如果 suffix 是空字节切片，则 CutSuffix函数返回 s、true。
+
+CutSuffix returns slices of the original slice s, not copies.
 
 ​	CutSuffix函数返回原始切片s的切片，而不是副本。
 
@@ -316,6 +348,8 @@ before, found := bytes.CutSuffix(s, suffix)
 ``` go 
 func Equal(a, b []byte) bool
 ```
+
+Equal reports whether a and b are the same length and contain the same bytes. A nil argument is equivalent to an empty slice.
 
 ​	Equal 函数报告 a 和 b 是否具有相同的长度并包含相同的字节。nil 参数等价于空切片。
 
@@ -344,6 +378,8 @@ false
 func EqualFold(s, t []byte) bool
 ```
 
+EqualFold reports whether s and t, interpreted as UTF-8 strings, are equal under simple Unicode case-folding, which is a more general form of case-insensitivity.
+
 ​	EqualFold 函数报告将 s 和 t(解释为 UTF-8 字符串)在简单的 Unicode 大小写折叠下是否相等，这是一种更通用的不区分大小写的形式。
 
 #### EqualFold Example
@@ -368,6 +404,8 @@ true
 ``` go 
 func Fields(s []byte) [][]byte
 ```
+
+Fields interprets s as a sequence of UTF-8-encoded code points. It splits the slice s around each instance of one or more consecutive white space characters, as defined by unicode.IsSpace, returning a slice of subslices of s or an empty slice if s contains only white space.
 
 ​	Fields函数将s解释为UTF-8编码的码点序列，并根据unicode.IsSpace定义的一个或多个连续的空白字符实例分隔切片s，返回s的子切片的切片，如果s仅包含空白，则返回一个空切片。
 
@@ -397,7 +435,11 @@ Fields are: [][]uint8{[]uint8{0x66, 0x6f, 0x6f}, []uint8{0x62, 0x61, 0x72}, []ui
 func FieldsFunc(s []byte, f func(rune) bool) [][]byte
 ```
 
+FieldsFunc interprets s as a sequence of UTF-8-encoded code points. It splits the slice s at each run of code points c satisfying f(c) and returns a slice of subslices of s. If all code points in s satisfy f(c), or len(s) == 0, an empty slice is returned.
+
 ​	FieldsFunc函数将s解释为UTF-8编码的码点序列，并根据满足f(c)的码点c的每个运行位置分隔切片s，并返回s的子切片。如果s中所有码点都满足f(c)，或者len(s) == 0，则返回一个空切片。
+
+FieldsFunc makes no guarantees about the order in which it calls f(c) and assumes that f always returns the same value for a given c.
 
 ​	FieldsFunc函数对于调用f(c)的顺序没有保证，并且假定对于给定的c，f始终返回相同的值。
 
@@ -443,6 +485,8 @@ Fields are: ["foo1" "bar2" "baz3"]
 func HasPrefix(s, prefix []byte) bool
 ```
 
+HasPrefix tests whether the byte slice s begins with prefix.
+
 ​	HasPrefix测试字节切片 s 是否以前缀 prefix 开头。
 
 #### HasPrefix Example
@@ -471,6 +515,8 @@ true
 ``` go 
 func HasSuffix(s, suffix []byte) bool
 ```
+
+HasSuffix tests whether the byte slice s ends with suffix.
 
 ​	HasSuffix函数测试字节切片s是否以后缀 suffix 结尾。
 
@@ -503,6 +549,8 @@ true
 func Index(s, sep []byte) int
 ```
 
+Index returns the index of the first instance of sep in s, or -1 if sep is not present in s.
+
 ​	Index函数返回sep在s中第一次出现的索引，如果sep不在s中，则返回-1。
 
 #### Index Example
@@ -529,6 +577,8 @@ Output:
 ``` go 
 func IndexAny(s []byte, chars string) int
 ```
+
+IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points. It returns the byte index of the first occurrence in s of any of the Unicode code points in chars. It returns -1 if chars is empty or if there is no code point in common.
 
 ​	IndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回chars中任何一个Unicode码点在s中第一次出现的字节索引。如果chars为空或在s中没有公共的码点，则返回-1。
 
@@ -557,6 +607,8 @@ Output:
 func IndexByte(b []byte, c byte) int
 ```
 
+IndexByte returns the index of the first instance of c in b, or -1 if c is not present in b.
+
 ​	IndexByte函数返回c在b中第一次出现的索引，如果c不在b中，则返回-1。
 
 #### IndexByte Example
@@ -583,6 +635,8 @@ Output:
 ``` go 
 func IndexFunc(s []byte, f func(r rune) bool) int
 ```
+
+IndexFunc interprets s as a sequence of UTF-8-encoded code points. It returns the byte index in s of the first Unicode code point satisfying f(c), or -1 if none do.
 
 ​	IndexFunc函数将s解释为UTF-8编码的码点序列。它返回s中第一个满足f(c)的Unicode码点的字节索引，如果没有则返回-1。
 
@@ -614,6 +668,8 @@ Output:
 ``` go 
 func IndexRune(s []byte, r rune) int
 ```
+
+IndexRune interprets s as a sequence of UTF-8-encoded code points. It returns the byte index of the first occurrence in s of the given rune. It returns -1 if rune is not present in s. If r is utf8.RuneError, it returns the first instance of any invalid UTF-8 byte sequence.
 
 ​	IndexRune函数将s解释为UTF-8编码的码点序列。它返回给定符文在s中第一次出现的字节索引。如果rune不存在于s中，则返回-1。如果r是utf8.RuneError，则返回任何无效UTF-8字节序列的第一个实例。
 
@@ -672,6 +728,8 @@ foo, bar, baz
 func LastIndex(s, sep []byte) int
 ```
 
+LastIndex returns the index of the last instance of sep in s, or -1 if sep is not present in s.
+
 ​	LastIndex函数返回sep在s中最后一次出现的索引，如果sep不在s中，则返回-1。
 
 #### LastIndex Example
@@ -700,6 +758,8 @@ Output:
 ``` go 
 func LastIndexAny(s []byte, chars string) int
 ```
+
+LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code points. It returns the byte index of the last occurrence in s of any of the Unicode code points in chars. It returns -1 if chars is empty or if there is no code point in common.
 
 ​	LastIndexAny函数将s解释为UTF-8编码的Unicode码点序列。它返回s中任何一个Unicode代码点(chars中的)的最后一次出现的字节索引。如果chars为空或没有共同码点，则返回-1。
 
@@ -730,6 +790,8 @@ Output:
 func LastIndexByte(s []byte, c byte) int
 ```
 
+LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s.
+
 ​	LastIndexByte函数返回c在s中最后一次出现的实例索引，如果c不在s中，则返回-1。
 
 #### LastIndexByte Example
@@ -758,6 +820,8 @@ Output:
 ``` go 
 func LastIndexFunc(s []byte, f func(r rune) bool) int
 ```
+
+LastIndexFunc interprets s as a sequence of UTF-8-encoded code points. It returns the byte index in s of the last Unicode code point satisfying f(c), or -1 if none do.
 
 ​	LastIndexFunc将s解释为UTF-8编码的码点序列。它返回s中最后一个满足f(c)的Unicode码点(rune)的字节索引，如果没有符合条件的，则返回-1。
 
@@ -788,6 +852,8 @@ Output:
 ``` go 
 func Map(mapping func(r rune) rune, s []byte) []byte
 ```
+
+Map returns a copy of the byte slice s with all its characters modified according to the mapping function. If mapping returns a negative value, the character is dropped from the byte slice with no replacement. The characters in s and the output are interpreted as UTF-8-encoded code points.
 
 ​	Map函数返回一个字节切片s的副本，其中所有字符根据映射函数进行修改。如果映射函数返回负值，则从字节切片中删除该字符而不作替换。s和输出中的字符被解释为UTF-8编码的码点。
 
@@ -825,7 +891,11 @@ Hell0, W0rld!
 func Repeat(b []byte, count int) []byte
 ```
 
+Repeat returns a new byte slice consisting of count copies of b.
+
 ​	Repeat函数返回一个新的字节切片，其中包含count个b的副本。
+
+It panics if count is negative or if the result of (len(b) * count) overflows.
 
 ​	如果count为负数或者(len(b) * count)的结果溢出，它就会发生panic。
 
@@ -881,6 +951,8 @@ moo moo moo
 func ReplaceAll(s, old, new []byte) []byte
 ```
 
+ReplaceAll returns a copy of the slice s with all non-overlapping instances of old replaced by new. If old is empty, it matches at the beginning of the slice and after each UTF-8 sequence, yielding up to k+1 replacements for a k-rune slice.
+
 ​	ReplaceAll函数返回将 s 中所有非重叠的 old 替换为 new 后得到的新 byte 切片。如果 old 是空的，则匹配从切片开头和每个 UTF-8 序列之后开始，最多得到 k+1 次替换，其中 k 是切片中的 Unicode 码点数。
 
 #### ReplaceAll Example
@@ -907,6 +979,8 @@ moo moo moo
 ``` go 
 func Runes(s []byte) []rune
 ```
+
+Runes interprets s as a sequence of UTF-8-encoded code points. It returns a slice of runes (Unicode code points) equivalent to s.
 
 ​	Runes函数将 s 解释为一系列 UTF-8 编码的码点。它返回一个等价于 s 的码点切片(Unicode 码点)。
 
@@ -947,7 +1021,11 @@ U+0072 'r'
 func Split(s, sep []byte) [][]byte
 ```
 
+Split slices s into all subslices separated by sep and returns a slice of the subslices between those separators. If sep is empty, Split splits after each UTF-8 sequence. It is equivalent to SplitN with a count of -1.
+
 ​	Split函数将s切成由sep分隔的所有子片，并返回这些分隔符之间的子片的一个片断。如果sep为空，Split会在每个UTF-8序列之后进行分割。它等同于SplitN，计数为-1。
+
+To split around the first instance of a separator, see Cut.
 
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
@@ -980,6 +1058,8 @@ Output:
 func SplitAfter(s, sep []byte) [][]byte
 ```
 
+SplitAfter slices s into all subslices after each instance of sep and returns a slice of those subslices. If sep is empty, SplitAfter splits after each UTF-8 sequence. It is equivalent to SplitAfterN with a count of -1.
+
 ​	SplitAfter函数将 s 切分成在每个 sep 实例之后的所有子切片，并返回这些子切片的切片。如果 sep 是空的，则 SplitAfter 在每个 UTF-8 序列之后分隔。它等同于SplitAfterN，计数为-1。
 
 #### SplitAfter Example
@@ -1005,15 +1085,20 @@ Output:
 func SplitAfterN(s, sep []byte, n int) [][]byte
 ```
 
+SplitAfterN slices s into subslices after each instance of sep and returns a slice of those subslices. If sep is empty, SplitAfterN splits after each UTF-8 sequence. The count determines the number of subslices to return:
+
 ​	SplitAfterN 将 s 切分成每个 sep 实例之后的子切片，并返回这些子切片的切片。如果 sep 是空的，则 SplitAfterN 在每个 UTF-8 序列之后分隔。n 决定要返回的子切片数：
 
-
-
+```go
+n > 0: at most n subslices; the last subslice will be the unsplit remainder.
 n > 0：最多 n 个子切片；最后一个子切片将是未拆分的剩余部分。
 
- n == 0：结果为 nil(零个子切片)
+n == 0: the result is nil (zero subslices)
+n == 0：结果为 nil(零个子切片)
 
- n < 0：所有子切片
+n < 0: all subslices
+n < 0：所有子切片
+```
 
 #### SplitAfterN Example
 
@@ -1039,15 +1124,22 @@ Output:
 func SplitN(s, sep []byte, n int) [][]byte
 ```
 
+SplitN slices s into subslices separated by sep and returns a slice of the subslices between those separators. If sep is empty, SplitN splits after each UTF-8 sequence. The count determines the number of subslices to return:
+
 ​	SplitN函数将 s 切分成由 sep 分隔的子切片，并返回这些分隔符之间的子切片的切片。如果 sep 是空的，则 SplitN 在每个 UTF-8 序列之后分隔。n 决定要返回的子切片数：
 
+```go
+n > 0: at most n subslices; the last subslice will be the unsplit remainder.
+n > 0：最多 n 个子切片；最后一个子切片将是未拆分的剩余部分。
 
-
-n > 0：最多 n 个子切片；最后一个子切片将是未拆分的剩余部分。 
-
+n == 0: the result is nil (zero subslices)
 n == 0：结果为 nil(零个子切片)
 
+n < 0: all subslices
 n < 0：所有子切片
+```
+
+ To split around the first instance of a separator, see Cut.
 
 ​	要围绕第一个分隔符进行分割，请参见 [Cut](#func-cut-go118)。
 
@@ -1071,6 +1163,32 @@ Output:
 [] (nil = true)
 ```
 
+### func Title <- DEPRECATED
+
+```go
+func Title(s []byte) []byte
+```
+
+Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin words mapped to their title case.
+
+Deprecated: The rule Title uses for word boundaries does not handle Unicode punctuation properly. Use golang.org/x/text/cases instead.
+
+#### Title Example
+
+```
+package main
+
+import (
+	"bytes"
+	"fmt"
+)
+
+func main() {
+	fmt.Printf("%s", bytes.Title([]byte("her royal highness")))
+}
+
+```
+
 
 
 ### func ToLower 
@@ -1078,6 +1196,8 @@ Output:
 ``` go 
 func ToLower(s []byte) []byte
 ```
+
+ToLower returns a copy of the byte slice s with all Unicode letters mapped to their lower case.
 
 ​	ToLower函数返回一个将 s 中所有 Unicode 字母都转为其小写形式的新字节切片。
 
@@ -1103,6 +1223,8 @@ gopher
 ``` go 
 func ToLowerSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
+
+ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their lower case, giving priority to the special casing rules.
 
 ​	ToLowerSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其小写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
@@ -1134,6 +1256,8 @@ ToLower : ahoj vývojári golang
 func ToTitle(s []byte) []byte
 ```
 
+ToTitle treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case.
+
 ​	ToTitle函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片。
 
 #### ToTitle Example
@@ -1160,6 +1284,8 @@ LOUD NOISES
 ``` go 
 func ToTitleSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
+
+ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case, giving priority to the special casing rules.
 
 ​	ToTitleSpecia函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其 title case 形式的新字节切片，其规则按照特定的 casing 规则进行。
 
@@ -1190,6 +1316,8 @@ ToTitle : AHOJ VÝVOJÁRİ GOLANG
 ``` go 
 func ToUpper(s []byte) []byte
 ```
+
+ToUpper returns a copy of the byte slice s with all Unicode letters mapped to their upper case.
 
 ​	ToUppe函数返回一个将 s 中所有 Unicode 字母都转为其大写形式的新字节切片。
 
@@ -1224,7 +1352,9 @@ GOPHER
 func ToUpperSpecial(c unicode.SpecialCase, s []byte) []byte
 ```
 
-​		ToUpperSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其大写形式的新字节切片，其规则按照特定的 casing 规则进行。
+ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their upper case, giving priority to the special casing rules.
+
+​	ToUpperSpecial函数将 s 视为 UTF-8 编码的字节切片，返回一个将其中所有 Unicode 字母都转为其大写形式的新字节切片，其规则按照特定的 casing 规则进行。
 
 #### ToUpperSpecial Example
 ``` go 
@@ -1254,6 +1384,8 @@ ToUpper : AHOJ VÝVOJÁRİ GOLANG
 func ToValidUTF8(s, replacement []byte) []byte
 ```
 
+ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes representing invalid UTF-8 replaced with the bytes in replacement, which may be empty.
+
 ​	ToValidUTF8 函数将 s 视为 UTF-8 编码的字节并返回一份副本，其中每个表示无效 UTF-8 的字节序列被替换为 replacement 中的字节，replacement 可以为空。
 
 ### func Trim 
@@ -1261,6 +1393,8 @@ func ToValidUTF8(s, replacement []byte) []byte
 ``` go 
 func Trim(s []byte, cutset string) []byte
 ```
+
+Trim returns a subslice of s by slicing off all leading and trailing UTF-8-encoded code points contained in cutset.
 
 ​	Trim函数返回一个将 s 去掉开头和结尾的包含在 cutset 中的所有 UTF-8 编码的码点后的新字节切片。
 
@@ -1286,6 +1420,8 @@ Output:
 ``` go 
 func TrimFunc(s []byte, f func(r rune) bool) []byte
 ```
+
+TrimFunc returns a subslice of s by slicing off all leading and trailing UTF-8-encoded code points c that satisfy f(c).
 
 ​	TrimFunc函数返回一个将 s 去掉开头和结尾的所有满足 f(c) 的 UTF-8 编码的码点后的新字节切片。
 
@@ -1319,6 +1455,8 @@ go-gopher!
 func TrimLeft(s []byte, cutset string) []byte
 ```
 
+TrimLeft returns a subslice of s by slicing off all leading UTF-8-encoded code points contained in cutset.
+
 ​	TrimLeft函数返回一个去除了s中前部包含在cutset中的Unicode编码字符的子字节切片。
 
 #### TrimLeft Example
@@ -1343,6 +1481,8 @@ gopher8257
 ``` go 
 func TrimLeftFunc(s []byte, f func(r rune) bool) []byte
 ```
+
+TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off all leading UTF-8-encoded code points c that satisfy f(c).
 
 ​	TrimLeftFunc函数返回一个去除了s中前部符合函数f(c) 的Unicode编码字符的子字节切片。
 
@@ -1374,6 +1514,8 @@ go-gopher!567
 func TrimPrefix(s, prefix []byte) []byte
 ```
 
+TrimPrefix returns s without the provided leading prefix string. If s doesn't start with prefix, s is returned unchanged.
+
 ​	TrimPrefix函数返回一个去除了s中前缀prefix的字节切片。如果s不是以prefix开头，则返回s本身。
 
 #### TrimPrefix Example
@@ -1402,6 +1544,8 @@ Hello, world!
 func TrimRight(s []byte, cutset string) []byte
 ```
 
+TrimRight returns a subslice of s by slicing off all trailing UTF-8-encoded code points that are contained in cutset.
+
 ​	TrimRight函数返回一个去除了s中尾部包含在cutset中的Unicode编码字符的子字节切片。
 
 #### TrimRight Example
@@ -1426,6 +1570,8 @@ Output:
 ``` go 
 func TrimRightFunc(s []byte, f func(r rune) bool) []byte
 ```
+
+TrimRightFunc returns a subslice of s by slicing off all trailing UTF-8-encoded code points c that satisfy f(c).
 
 ​	TrimRightFunc 函数返回一个 s 的子切片，该子切片去除了满足 f(c) 的所有后缀 UTF-8 编码的码点。
 
@@ -1457,6 +1603,8 @@ go-gopher
 func TrimSpace(s []byte) []byte
 ```
 
+TrimSpace returns a subslice of s by slicing off all leading and trailing white space, as defined by Unicode.
+
 ​	TrimSpace 函数返回 s 的子切片，该子切片去除了所有的前导和尾随 Unicode 定义的空格。
 
 #### TrimSpace Example
@@ -1481,6 +1629,8 @@ a lone gopher
 ``` go 
 func TrimSuffix(s, suffix []byte) []byte
 ```
+
+TrimSuffix returns s without the provided trailing suffix string. If s doesn't end with suffix, s is returned unchanged.
 
 ​	TrimSuffix 函数返回不包含指定后缀的字节切片 s。如果 s 不以后缀结尾，则返回未更改的 s。
 
@@ -1520,6 +1670,8 @@ type Buffer struct {
     				// 表示最后一次读取操作的类型，以便Unread*方法可以正确地工作。
 }
 ```
+
+A Buffer is a variable-sized buffer of bytes with Read and Write methods. The zero value for Buffer is an empty buffer ready to use.
 
 ​	Buffer是一个可变大小的字节缓冲区，具有Read和Write方法。Buffer的零值是一个空缓冲区，可以直接使用。
 
@@ -1574,7 +1726,11 @@ Gophers rule!
 func NewBuffer(buf []byte) *Buffer
 ```
 
-​	NewBuffer函数使用buf作为其初始内容创建并初始化一个新的Buffer。新的Buffer接管了buf，并且调用方不应在此调用之后使用buf。NewBuffer用于准备从现有数据中读取数据的缓冲区。它还可用于设置写入的内部缓冲区的初始大小。为此，buf应该具有所需的容量，但长度为零。 
+NewBuffer creates and initializes a new Buffer using buf as its initial contents. The new Buffer takes ownership of buf, and the caller should not use buf after this call. NewBuffer is intended to prepare a Buffer to read existing data. It can also be used to set the initial size of the internal buffer for writing. To do that, buf should have the desired capacity but a length of zero.
+
+​	NewBuffer函数使用buf作为其初始内容创建并初始化一个新的Buffer。新的Buffer接管了buf，并且调用方不应在此调用之后使用buf。NewBuffer用于准备从现有数据中读取数据的缓冲区。它还可用于设置写入的内部缓冲区的初始大小。为此，buf应该具有所需的容量，但长度为零。
+
+In most cases, new(Buffer) (or just declaring a Buffer variable) is sufficient to initialize a Buffer. 
 
 ​	在大多数情况下，new(Buffer)(或仅声明一个Buffer变量)足以初始化一个Buffer。
 
@@ -1584,7 +1740,11 @@ func NewBuffer(buf []byte) *Buffer
 func NewBufferString(s string) *Buffer
 ```
 
+NewBufferString creates and initializes a new Buffer using string s as its initial contents. It is intended to prepare a buffer to read an existing string.
+
 ​	NewBufferString函数使用字符串s作为其初始内容创建并初始化一个新的Buffer。它用于准备从现有字符串中读取数据。
+
+In most cases, new(Buffer) (or just declaring a Buffer variable) is sufficient to initialize a Buffer.
 
 ​	在大多数情况下，new(Buffer)(或仅声明一个Buffer变量)足以初始化一个Buffer。
 
@@ -1593,6 +1753,8 @@ func NewBufferString(s string) *Buffer
 ``` go 
 func (b *Buffer) Bytes() []byte
 ```
+
+Bytes returns a slice of length b.Len() holding the unread portion of the buffer. The slice is valid for use only until the next buffer modification (that is, only until the next call to a method like Read, Write, Reset, or Truncate). The slice aliases the buffer content at least until the next buffer modification, so immediate changes to the slice will affect the result of future reads.
 
 ​	Bytes方法返回一个长度为b.Len()的切片，其中包含缓冲区未读部分。切片仅在下一次缓冲区修改之前有效(即只在下一次像Read、Write、Reset或Truncate这样的方法调用之前有效)。切片至少与缓冲区内容同步，直到下一次缓冲区修改，因此立即更改切片将影响将来读取的结果。
 
@@ -1620,6 +1782,8 @@ hello world
 ``` go 
 func (b *Buffer) Cap() int
 ```
+
+Cap returns the capacity of the buffer's underlying byte slice, that is, the total space allocated for the buffer's data.
 
 ​	Cap方法返回缓冲区底层字节切片的容量，即分配给缓冲区数据的总空间。
 
@@ -1650,6 +1814,8 @@ Output:
 func (b *Buffer) Grow(n int)
 ```
 
+Grow grows the buffer's capacity, if necessary, to guarantee space for another n bytes. After Grow(n), at least n bytes can be written to the buffer without another allocation. If n is negative, Grow will panic. If the buffer can't grow it will panic with ErrTooLarge.
+
 ​	Grow方法增加缓冲区的容量(必要时)，以保证另外n个字节的空间。调用Grow(n)之后，可以将至少n个字节写入缓冲区，而不需要另一个分配。如果n为负数，Grow方法将发生panic。如果缓冲区无法增长，它将发生ErrTooLarge的panic。
 
 ##### Grow Example
@@ -1679,6 +1845,8 @@ Output:
 func (b *Buffer) Len() int
 ```
 
+Len returns the number of bytes of the unread portion of the buffer; b.Len() == len(b.Bytes()).
+
 ​	Len方法返回缓冲区未读部分的字节数；`b.Len() == len(b.Bytes())`。
 
 ##### Len Example
@@ -1706,6 +1874,8 @@ Output:
 ``` go 
 func (b *Buffer) Next(n int) []byte
 ```
+
+Next returns a slice containing the next n bytes from the buffer, advancing the buffer as if the bytes had been returned by Read. If there are fewer than n bytes in the buffer, Next returns the entire buffer. The slice is only valid until the next call to a read or write method.
 
 ​	Next方法返回一个包含从缓冲区中取出的下一个 n 个字节的切片，并将缓冲区推进，就像这些字节已经被 Read 返回一样。如果缓冲区中的字节数少于 n，则 Next 返回整个缓冲区。该切片只在下一次读或写方法调用之前有效。
 
@@ -1738,6 +1908,8 @@ e
 ``` go 
 func (b *Buffer) Read(p []byte) (n int, err error)
 ```
+
+Read reads the next len(p) bytes from the buffer or until the buffer is drained. The return value n is the number of bytes read. If the buffer has no data to return, err is io.EOF (unless len(p) is zero); otherwise it is nil.
 
 ​	Read方法从缓冲区读取 len(p) 个字节或直到缓冲区被耗尽。返回值 n 是读取的字节数。如果缓冲区没有数据可返回，则 err 为 io.EOF， len(p) == 0否则为 nil。
 
@@ -1776,6 +1948,8 @@ func main() {
 func (b *Buffer) ReadByte() (byte, error)
 ```
 
+ReadByte reads and returns the next byte from the buffer. If no byte is available, it returns error io.EOF.
+
 ​	ReadByte方法从缓冲区读取并返回下一个字节。如果没有字节可用，则返回错误 io.EOF。
 
 ##### ReadByte Example
@@ -1810,6 +1984,8 @@ func main() {
 func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 ```
 
+ReadBytes reads until the first occurrence of delim in the input, returning a slice containing the data up to and including the delimiter. If ReadBytes encounters an error before finding a delimiter, it returns the data read before the error and the error itself (often io.EOF). ReadBytes returns err != nil if and only if the returned data does not end in delim.
+
 ​	ReadBytes方法从输入中读取，直到遇到第一个分隔符 delim，返回包含数据和分隔符的切片。如果在找到分隔符之前遇到错误，则返回在错误之前读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以 delim 结尾，则 ReadBytes 返回 err != nil。
 
 #### (*Buffer) ReadFrom 
@@ -1817,6 +1993,8 @@ func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)
 ``` go 
 func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 ```
+
+ReadFrom reads data from r until EOF and appends it to the buffer, growing the buffer as needed. The return value n is the number of bytes read. Any error except io.EOF encountered during the read is also returned. If the buffer becomes too large, ReadFrom will panic with ErrTooLarge.
 
 ​	ReadFrom方法从 `r` 中读取数据，直到遇到 EOF，然后将其附加到缓冲区中，`并根据需要增加缓冲区的大小`。返回值 n 是读取的字节数。读取期间遇到的除 io.EOF 以外的任何错误也将被返回。如果缓冲区变得太大，ReadFrom 方法将使用 ErrTooLarge 引发 panic。
 
@@ -1826,6 +2004,8 @@ func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)
 func (b *Buffer) ReadRune() (r rune, size int, err error)
 ```
 
+ReadRune reads and returns the next UTF-8-encoded Unicode code point from the buffer. If no bytes are available, the error returned is io.EOF. If the bytes are an erroneous UTF-8 encoding, it consumes one byte and returns U+FFFD, 1.
+
 ​	ReadRune方法从缓冲区读取并返回下一个 UTF-8 编码的 Unicode 码点。如果没有字节可用，则返回的错误是 io.EOF。如果字节是错误的 UTF-8 编码，则它会消耗一个字节并返回 U+FFFD，1。
 
 #### (*Buffer) ReadString 
@@ -1833,6 +2013,8 @@ func (b *Buffer) ReadRune() (r rune, size int, err error)
 ``` go 
 func (b *Buffer) ReadString(delim byte) (line string, err error)
 ```
+
+ReadString reads until the first occurrence of delim in the input, returning a string containing the data up to and including the delimiter. If ReadString encounters an error before finding a delimiter, it returns the data read before the error and the error itself (often io.EOF). ReadString returns err != nil if and only if the returned data does not end in delim.
 
 ​	ReadString方法从输入中读取，直到遇到第一个分隔符 delim，返回包含数据和分隔符的字符串。如果在找到分隔符之前遇到错误，则返回在错误之前读取的数据和错误本身(通常是 io.EOF)。如果返回的数据不以 delim 结尾，则 ReadString 返回 err != nil。
 
@@ -1842,6 +2024,8 @@ func (b *Buffer) ReadString(delim byte) (line string, err error)
 func (b *Buffer) Reset()
 ```
 
+Reset resets the buffer to be empty, but it retains the underlying storage for use by future writes. Reset is the same as Truncate(0).
+
 ​	Reset方法将缓冲区重置为空，但保留底层存储空间供未来写入使用。Reset方法相当于Truncate(0)。
 
 #### (*Buffer) String 
@@ -1850,7 +2034,11 @@ func (b *Buffer) Reset()
 func (b *Buffer) String() string
 ```
 
+String returns the contents of the unread portion of the buffer as a string. If the Buffer is a nil pointer, it returns "<nil>".
+
 ​	String方法返回缓冲区未读部分的内容作为字符串。如果Buffer是nil指针，则返回"`<nil>`"。
+
+To build strings more efficiently, see the strings.Builder type.
 
 ​	为了更有效地构建字符串，可以使用strings.Builder类型。
 
@@ -1860,6 +2048,8 @@ func (b *Buffer) String() string
 func (b *Buffer) Truncate(n int)
 ```
 
+Truncate discards all but the first n unread bytes from the buffer but continues to use the same allocated storage. It panics if n is negative or greater than the length of the buffer.
+
 ​	Truncate方法将缓冲区保留未读的前n个字节，但继续使用相同的分配存储空间。如果n为负数或大于缓冲区的长度，则会引发panic。
 
 #### (*Buffer) UnreadByte 
@@ -1867,6 +2057,8 @@ func (b *Buffer) Truncate(n int)
 ``` go 
 func (b *Buffer) UnreadByte() error
 ```
+
+UnreadByte unreads the last byte returned by the most recent successful read operation that read at least one byte. If a write has happened since the last read, if the last read returned an error, or if the read read zero bytes, UnreadByte returns an error.
 
 ​	UnreadByte方法撤消最近一次成功读取至少一个字节的读操作返回的最后一个字节。如果自上次读取以来已经发生写入，或者上次读取返回错误，或者读取了零个字节，则UnreadByte会返回错误。
 
@@ -1876,6 +2068,8 @@ func (b *Buffer) UnreadByte() error
 func (b *Buffer) UnreadRune() error
 ```
 
+UnreadRune unreads the last rune returned by ReadRune. If the most recent read or write operation on the buffer was not a successful ReadRune, UnreadRune returns an error. (In this regard it is stricter than UnreadByte, which will unread the last byte from any read operation.)
+
 ​	UnreadRune方法撤消ReadRune方法返回的最后一个符文。如果缓冲区上最近一次读取或写入操作不是成功的ReadRune，则UnreadRune会返回错误。(在这方面，它比UnreadByte更严格，后者会从任何读操作中撤消最后一个字节。)
 
 #### (*Buffer) Write 
@@ -1883,6 +2077,8 @@ func (b *Buffer) UnreadRune() error
 ``` go 
 func (b *Buffer) Write(p []byte) (n int, err error)
 ```
+
+Write appends the contents of p to the buffer, growing the buffer as needed. The return value n is the length of p; err is always nil. If the buffer becomes too large, Write will panic with ErrTooLarge.
 
 ​	Write方法将`p`的内容附加到缓冲区，必要时扩展缓冲区。返回值`n`是p的长度；err始终为nil。如果缓冲区变得太大，Write方法会发生ErrTooLarge的panic。
 
@@ -1892,6 +2088,8 @@ func (b *Buffer) Write(p []byte) (n int, err error)
 func (b *Buffer) WriteByte(c byte) error
 ```
 
+WriteByte appends the byte c to the buffer, growing the buffer as needed. The returned error is always nil, but is included to match bufio.Writer's WriteByte. If the buffer becomes too large, WriteByte will panic with ErrTooLarge.
+
 ​	WriteByte方法将字节`c`附加到缓冲区，必要时扩展缓冲区。返回的错误始终为nil，但包含在其中是为了与bufio.Writer的WriteByte方法匹配。如果缓冲区变得太大，WriteByte方法会发生ErrTooLarge的panic。
 
 #### (*Buffer) WriteRune 
@@ -1899,6 +2097,8 @@ func (b *Buffer) WriteByte(c byte) error
 ``` go 
 func (b *Buffer) WriteRune(r rune) (n int, err error)
 ```
+
+WriteRune appends the UTF-8 encoding of Unicode code point r to the buffer, returning its length and an error, which is always nil but is included to match bufio.Writer's WriteRune. The buffer is grown as needed; if it becomes too large, WriteRune will panic with ErrTooLarge.
 
 ​	WriteRune方法将Unicode码点`r`的UTF-8编码附加到缓冲区，返回其长度和错误(始终为nil，但包含在其中是为了与bufio.Writer的WriteRune方法匹配)。必要时扩展缓冲区；如果缓冲区变得太大，则WriteRune方法会发生ErrTooLarge的panic。
 
@@ -1908,6 +2108,8 @@ func (b *Buffer) WriteRune(r rune) (n int, err error)
 func (b *Buffer) WriteString(s string) (n int, err error)
 ```
 
+WriteString appends the contents of s to the buffer, growing the buffer as needed. The return value n is the length of s; err is always nil. If the buffer becomes too large, WriteString will panic with ErrTooLarge.
+
 ​	WriteString方法将`s`的内容附加到缓冲区，必要时扩展缓冲区。返回值`n`是s的长度；err总是nil。如果缓冲区变得太大，WriteString方法会发生ErrTooLarge的panic。
 
 #### (*Buffer) WriteTo 
@@ -1915,6 +2117,8 @@ func (b *Buffer) WriteString(s string) (n int, err error)
 ``` go 
 func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)
 ```
+
+WriteTo writes data to w until the buffer is drained or an error occurs. The return value n is the number of bytes written; it always fits into an int, but it is int64 to match the io.WriterTo interface. Any error encountered during the write is also returned.
 
 ​	WriteTo方法将缓冲区中的数据写入`w`中，直到缓冲区被耗尽或出现错误。返回值`n`为写入的字节数；它总是能够适合int，但是为了匹配io.WriterTo接口，它是int64类型。任何在写入过程中遇到的错误也会被返回。
 
@@ -1928,6 +2132,8 @@ type Reader struct {
 }
 ```
 
+A Reader implements the io.Reader, io.ReaderAt, io.WriterTo, io.Seeker, io.ByteScanner, and io.RuneScanner interfaces by reading from a byte slice. Unlike a Buffer, a Reader is read-only and supports seeking. The zero value for Reader operates like a Reader of an empty slice.
+
 ​	Reader通过从一个字节切片读取实现io.Reader、io.ReaderAt、io.WriterTo、io.Seeker、io.ByteScanner和io.RuneScanner接口。与Buffer不同，Reader是只读的，并支持寻找。Reader的零值操作方式类似于空切片的Reader。
 
 #### func NewReader 
@@ -1936,6 +2142,8 @@ type Reader struct {
 func NewReader(b []byte) *Reader
 ```
 
+NewReader returns a new Reader reading from b.
+
 ​	NewReader函数返回一个从`b`读取的新Reader。
 
 #### (*Reader) Len 
@@ -1943,6 +2151,8 @@ func NewReader(b []byte) *Reader
 ``` go 
 func (r *Reader) Len() int
 ```
+
+Len returns the number of bytes of the unread portion of the slice.
 
 ​	Len方法返回未读部分的字节数。
 
@@ -1971,6 +2181,8 @@ Output:
 func (r *Reader) Read(b []byte) (n int, err error)
 ```
 
+Read implements the io.Reader interface.
+
 ​	Read方法实现io.Reader接口。
 
 #### (*Reader) ReadAt 
@@ -1978,6 +2190,8 @@ func (r *Reader) Read(b []byte) (n int, err error)
 ``` go 
 func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 ```
+
+ReadAt implements the io.ReaderAt interface.
 
 ​	ReadAt方法实现io.ReaderAt接口。
 
@@ -1987,6 +2201,8 @@ func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)
 func (r *Reader) ReadByte() (byte, error)
 ```
 
+ReadByte implements the io.ByteReader interface.
+
 ​	ReadByte方法实现io.ByteReader接口。
 
 #### (*Reader) ReadRune 
@@ -1994,6 +2210,8 @@ func (r *Reader) ReadByte() (byte, error)
 ``` go 
 func (r *Reader) ReadRune() (ch rune, size int, err error)
 ```
+
+ReadRune implements the io.RuneReader interface.
 
 ​	ReadRune方法实现io.RuneReader接口。
 
@@ -2003,6 +2221,8 @@ func (r *Reader) ReadRune() (ch rune, size int, err error)
 func (r *Reader) Reset(b []byte)
 ```
 
+Reset resets the Reader to be reading from b.
+
 ​	Reset方法将Reader重置为从b读取。
 
 #### (*Reader) Seek 
@@ -2010,6 +2230,8 @@ func (r *Reader) Reset(b []byte)
 ``` go 
 func (r *Reader) Seek(offset int64, whence int) (int64, error)
 ```
+
+Seek implements the io.Seeker interface.
 
 ​	Seek方法实现io.Seeker接口。
 
@@ -2019,6 +2241,8 @@ func (r *Reader) Seek(offset int64, whence int) (int64, error)
 func (r *Reader) Size() int64
 ```
 
+Size returns the original length of the underlying byte slice. Size is the number of bytes available for reading via ReadAt. The result is unaffected by any method calls except Reset.
+
 ​	Size方法返回底层字节切片的原始长度。Size方法是可通过ReadAt方法读取的字节数。该结果不受任何方法调用的影响，除了Reset方法。
 
 #### (*Reader) UnreadByte 
@@ -2026,6 +2250,8 @@ func (r *Reader) Size() int64
 ``` go 
 func (r *Reader) UnreadByte() error
 ```
+
+UnreadByte complements ReadByte in implementing the io.ByteScanner interface.
 
 ​	UnreadByte 方法实现了 io.ByteScanner 接口，用于将上一次读取的一个字节退回到 Reader 中。
 
@@ -2035,6 +2261,8 @@ func (r *Reader) UnreadByte() error
 func (r *Reader) UnreadRune() error
 ```
 
+UnreadRune complements ReadRune in implementing the io.RuneScanner interface.
+
 ​	UnreadRune 方法实现了 io.RuneScanner 接口，用于将上一次读取的一个符文退回到 Reader 中。
 
 #### (*Reader) WriteTo  <- go1.1
@@ -2042,5 +2270,7 @@ func (r *Reader) UnreadRune() error
 ``` go 
 func (r *Reader) WriteTo(w io.Writer) (n int64, err error)
 ```
+
+WriteTo implements the io.WriterTo interface.
 
 ​	WriteTo 方法实现了 io.WriterTo 接口，用于将 Reader 中未读取的数据写入 w，直到读取完毕或出现错误。返回值 n 是写入的字节数，它总是可以用 int 表示，但为了匹配 io.WriterTo 接口，返回值类型为 int64。在写入过程中遇到的任何错误也会一并返回。

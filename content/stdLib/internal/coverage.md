@@ -112,7 +112,7 @@ const PkgIdOffset = 1
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=274)
 
-```
+``` go
 var CovCounterMagic = [4]byte{'\x00', '\x63', '\x77', '\x6d'}
 ```
 
@@ -120,7 +120,7 @@ CovCounterMagic holds the magic string for a coverage counter-data file.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/coverage/defs.go;l=56)
 
-```
+``` go
 var CovMetaMagic = [4]byte{'\x00', '\x63', '\x76', '\x6d'}
 ```
 

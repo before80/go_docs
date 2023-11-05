@@ -1,6 +1,5 @@
 +++
 title = "reflect"
-linkTitle = "reflect"
 date = 2023-05-17T09:59:21+08:00
 type = "docs"
 description = ""
@@ -9,9 +8,15 @@ draft = false
 +++
 [https://pkg.go.dev/reflect@go1.20.1](https://pkg.go.dev/reflect@go1.20.1)
 
+Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information by calling TypeOf, which returns a Type.
+
 ​	`reflect`包实现了运行时反射，允许程序操作任意类型的对象。典型用法是将静态类型为`interface{}`的值传递给`TypeOf`函数提取其动态类型信息，`TypeOf`函数返回一个`Type`。
 
+A call to ValueOf returns a Value representing the run-time data. Zero takes a Type and returns a Value representing a zero value for that type.
+
 ​	调用`ValueOf`函数返回一个`Value`类型的值，表示运行时数据。`Zero`函数接受一个`Type`参数，并返回表示该类型零值的Value。
+
+See "The Laws of Reflection" for an introduction to reflection in Go: https://golang.org/doc/articles/laws_of_reflection.html
 
 ​	请参阅《[反射法则]({{< ref "/goBlog/2011/TheLawsOfReflection">}})》(The Laws of Reflection)了解Go语言中的反射介绍。
 

@@ -245,7 +245,7 @@ type DriverContext interface {
 
 ### type Execer <- DEPRECATED
 
-```
+``` go
 type Execer interface {
 	Exec(query string, args []Value) (Result, error)
 }

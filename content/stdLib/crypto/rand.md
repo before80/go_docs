@@ -21,7 +21,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rand/rand.go;l=20)
 
-```
+``` go
 var Reader io.Reader
 ```
 

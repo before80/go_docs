@@ -36,7 +36,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/dsa/dsa.go;l=46)
 
-```
+``` go
 var ErrInvalidPublicKey = errors.New("crypto/dsa: invalid public key")
 ```
 

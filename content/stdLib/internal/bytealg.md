@@ -42,7 +42,7 @@ PrimeRK is the prime base used in Rabin-Karp algorithm.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/internal/bytealg/bytealg.go;l=25)
 
-```
+``` go
 var MaxLen int
 ```
 

@@ -39,7 +39,7 @@ const (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=549)
 
-```
+``` go
 var ErrDecryption = errors.New("crypto/rsa: decryption error")
 ```
 
@@ -47,7 +47,7 @@ ErrDecryption represents a failure to decrypt a message. It is deliberately vagu
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=453)
 
-```
+``` go
 var ErrMessageTooLong = errors.New("crypto/rsa: message too long for RSA key size")
 ```
 
@@ -55,7 +55,7 @@ ErrMessageTooLong is returned when attempting to encrypt or sign a message which
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rsa/rsa.go;l=553)
 
-```
+``` go
 var ErrVerification = errors.New("crypto/rsa: verification error")
 ```
 
