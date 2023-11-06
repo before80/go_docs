@@ -8,11 +8,7 @@ draft = false
 +++
 https://pkg.go.dev/encoding/ascii85@go1.20.1
 
-
-
 Package ascii85 implements the ascii85 data encoding as used in the btoa tool and Adobe's PostScript and PDF document formats.
-
-
 
 ## 常量 
 
@@ -24,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func Decode 
+### func Decode 
 
 ``` go 
 func Decode(dst, src []byte, flush bool) (ndst, nsrc int, err error)
@@ -36,7 +32,7 @@ If flush is true, Decode assumes that src represents the end of the input stream
 
 NewDecoder wraps an io.Reader interface around Decode.
 
-#### func Encode 
+### func Encode 
 
 ``` go 
 func Encode(dst, src []byte) int
@@ -48,7 +44,7 @@ The encoding handles 4-byte chunks, using a special encoding for the last fragme
 
 Often, ascii85-encoded data is wrapped in <~ and ~> symbols. Encode does not add these.
 
-#### func MaxEncodedLen 
+### func MaxEncodedLen 
 
 ``` go 
 func MaxEncodedLen(n int) int
@@ -56,7 +52,7 @@ func MaxEncodedLen(n int) int
 
 MaxEncodedLen returns the maximum length of an encoding of n source bytes.
 
-#### func NewDecoder 
+### func NewDecoder 
 
 ``` go 
 func NewDecoder(r io.Reader) io.Reader
@@ -64,7 +60,7 @@ func NewDecoder(r io.Reader) io.Reader
 
 NewDecoder constructs a new ascii85 stream decoder.
 
-#### func NewEncoder 
+### func NewEncoder 
 
 ``` go 
 func NewEncoder(w io.Writer) io.WriteCloser

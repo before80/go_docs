@@ -8,13 +8,9 @@ draft = false
 +++
 https://pkg.go.dev/encoding/asn1@go1.20.1
 
-
-
 Package asn1 implements parsing of DER-encoded ASN.1 data structures, as defined in ITU-T Rec X.690.
 
 See also "A Layman's Guide to a Subset of ASN.1, BER, and DER," http://luca.ntop.org/Teaching/Appunti/asn1.html.
-
-
 
 ## 常量 
 
@@ -78,7 +74,7 @@ NullRawValue is a RawValue with its Tag set to the ASN.1 NULL type tag (5).
 
 ## 函数
 
-#### func Marshal 
+### func Marshal 
 
 ``` go 
 func Marshal(val any) ([]byte, error)
@@ -97,7 +93,7 @@ utc:         causes time.Time to be marshaled as ASN.1, UTCTime values
 generalized: causes time.Time to be marshaled as ASN.1, GeneralizedTime values
 ```
 
-#### func MarshalWithParams  <- go1.10
+### func MarshalWithParams  <- go1.10
 
 ``` go 
 func MarshalWithParams(val any, params string) ([]byte, error)
@@ -105,7 +101,7 @@ func MarshalWithParams(val any, params string) ([]byte, error)
 
 MarshalWithParams allows field parameters to be specified for the top-level element. The form of the params is the same as the field tags.
 
-#### func Unmarshal 
+### func Unmarshal 
 
 ``` go 
 func Unmarshal(b []byte, val any) (rest []byte, err error)
@@ -161,7 +157,7 @@ If the name of a slice type ends with "SET" then it's treated as if the "set" ta
 
 Other ASN.1 types are not supported; if it encounters them, Unmarshal returns a parse error.
 
-#### func UnmarshalWithParams 
+### func UnmarshalWithParams 
 
 ``` go 
 func UnmarshalWithParams(b []byte, val any, params string) (rest []byte, err error)

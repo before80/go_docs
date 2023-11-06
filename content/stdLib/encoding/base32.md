@@ -8,8 +8,6 @@ draft = false
 +++
 https://pkg.go.dev/encoding/base32@go1.20.1
 
-
-
 Package base32 implements base32 encoding as specified by [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html).
 
 ## 常量 
@@ -44,7 +42,7 @@ StdEncoding is the standard base32 encoding, as defined in [RFC 4648](https://rf
 
 ## 函数
 
-#### func NewDecoder 
+### func NewDecoder 
 
 ``` go 
 func NewDecoder(enc *Encoding, r io.Reader) io.Reader
@@ -52,7 +50,7 @@ func NewDecoder(enc *Encoding, r io.Reader) io.Reader
 
 NewDecoder constructs a new base32 stream decoder.
 
-#### func NewEncoder 
+### func NewEncoder 
 
 ``` go 
 func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser
@@ -60,7 +58,7 @@ func NewEncoder(enc *Encoding, w io.Writer) io.WriteCloser
 
 NewEncoder returns a new base32 stream encoder. Data written to the returned writer will be encoded using enc and then written to w. Base32 encodings operate in 5-byte blocks; when finished writing, the caller must Close the returned encoder to flush any partially written blocks.
 
-##### NewEncoder Example
+#### NewEncoder Example
 ``` go 
 package main
 

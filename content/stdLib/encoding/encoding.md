@@ -9,11 +9,9 @@ draft = false
 +++
 https://pkg.go.dev/encoding@go1.20.1
 
-
-
 Package encoding defines interfaces shared by other packages that convert data to and from byte-level and textual representations. Packages that check for these interfaces include encoding/gob, encoding/json, and encoding/xml. As a result, implementing an interface once can make a type useful in multiple encodings. Standard types that implement these interfaces include time.Time and net.IP. The interfaces come in pairs that produce and consume encoded data.
 
-​	encoding包定义了其他包共享的接口，这些接口用于将数据转换为字节级和文本表示形式，以及将数据从字节级和文本表示形式转换回来。检查这些接口的包括 encoding/gob、encoding/json 和 encoding/xml。因此，实现一次接口可以使一个类型在多种编码中变得有用。实现这些接口的标准类型包括 time.Time 和 net.IP。这些接口成对出现，用于生成和消费编码数据。
+​	`encoding`包定义了其他包共享的接口，这些接口用于将数据转换为字节级和文本表示形式，以及将数据从字节级和文本表示形式转换回来。检查这些接口的包括 encoding/gob、encoding/json 和 encoding/xml。因此，实现一次接口可以使一个类型在多种编码中变得有用。实现这些接口的标准类型包括 time.Time 和 net.IP。这些接口成对出现，用于生成和消费编码数据。
 
 ## 常量 
 

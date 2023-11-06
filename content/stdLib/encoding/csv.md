@@ -8,15 +8,13 @@ draft = false
 +++
 https://pkg.go.dev/encoding/csv@go1.20.1
 
-
-
 Package csv reads and writes comma-separated values (CSV) files. There are many kinds of CSV files; this package supports the format described in [RFC 4180](https://rfc-editor.org/rfc/rfc4180.html).
 
-csv包读取和写入逗号分隔的值(CSV)文件。有许多种CSV文件；这个包支持RFC 4180中描述的格式。
+​	`csv`包读取和写入逗号分隔的值(CSV)文件。有许多种CSV文件；这个包支持RFC 4180中描述的格式。
 
 A csv file contains zero or more records of one or more fields per record. Each record is separated by the newline character. The final record may optionally be followed by a newline character.
 
-一个csv文件包含零个或多个记录，每个记录有一个或多个字段。每条记录由换行符分隔。最后一条记录后面可以选择换行符。
+​	一个csv文件包含零个或多个记录，每个记录有一个或多个字段。每条记录由换行符分隔。最后一条记录后面可以选择换行符。
 
 ```
 field1,field2,field3
@@ -24,7 +22,7 @@ field1,field2,field3
 
 White space is considered part of a field.
 
-白色空间被认为是字段的一部分。
+​	空白被认为是字段的一部分。
 
 Carriage returns before newline characters are silently removed.
 
@@ -32,15 +30,15 @@ Carriage returns before newline characters are silently removed.
 
 Blank lines are ignored. A line with only whitespace characters (excluding the ending newline character) is not considered a blank line.
 
-空白行被忽略。只有空白字符的行(不包括结尾的换行字符)不被视为空行。
+​	空白行被忽略。只有空白字符的行(不包括结尾的换行字符)不被视为空行。
 
 Fields which start and stop with the quote character " are called quoted-fields. The beginning and ending quote are not part of the field.
 
-以引号字符""开始和结束的字段被称为引号字段。开始和结束的引号不是字段的一部分。
+​	以引号字符""开始和结束的字段被称为引号字段。开始和结束的引号不是字段的一部分。
 
 The source:
 
-来源：
+​	来源：
 
 ```
 normal string,"quoted-field"
@@ -56,7 +54,7 @@ results in the fields
 
 Within a quoted-field a quote character followed by a second quote character is considered a single quote.
 
-在一个带引号的字段内，一个引号字符后面的第二个引号字符被认为是一个单引号。
+​	在一个带引号的字段内，一个引号字符后面的第二个引号字符被认为是一个单引号。
 
 ```
 "the ""word"" is true","a ""quoted-field"""
@@ -72,7 +70,7 @@ results in
 
 Newlines and commas may be included in a quoted-field
 
-换行符和逗号可以包含在一个引号字段中。
+​	换行符和逗号可以包含在一个引号字段中。
 
 ```
 "Multi-line
@@ -112,7 +110,7 @@ var (
 
 These are the errors that can be returned in ParseError.Err.
 
-这些是可以在ParseError.Err中返回的错误。
+​	这些是可以在ParseError.Err中返回的错误。
 
 ## 函数
 
@@ -133,7 +131,7 @@ type ParseError struct {
 
 A ParseError is returned for parsing errors. Line numbers are 1-indexed and columns are 0-indexed.
 
-对于解析错误会返回一个ParseError。行号是1-索引的，列是0-索引的。
+​	对于解析错误会返回一个ParseError。行号是1-索引的，列是0-索引的。
 
 #### (*ParseError) Error 
 
@@ -211,17 +209,17 @@ type Reader struct {
 
 A Reader reads records from a CSV-encoded file.
 
-Reader 从一个CSV编码的文件中读取记录。
+​	Reader 从一个CSV编码的文件中读取记录。
 
 As returned by NewReader, a Reader expects input conforming to [RFC 4180](https://rfc-editor.org/rfc/rfc4180.html). The exported fields can be changed to customize the details before the first call to Read or ReadAll.
 
-正如NewReader所返回的那样，Reader期望输入的内容符合RFC 4180的规定。在第一次调用Read或ReadAll之前，导出的字段可以被改变以定制细节。
+​	正如NewReader所返回的那样，Reader期望输入的内容符合RFC 4180的规定。在第一次调用Read或ReadAll之前，导出的字段可以被改变以定制细节。
 
 The Reader converts all \r\n sequences in its input to plain \n, including in multiline field values, so that the returned data does not depend on which line-ending convention an input file uses.
 
-Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
+​	Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
 
-##### Reader Example
+#### Reader Example
 ``` go 
 package main
 
@@ -262,7 +260,7 @@ Output:
 [Robert Griesemer gri]
 ```
 
-##### Reader Example(Options)
+### Reader Example(Options)
 
 This example shows how csv.Reader can be configured to handle other types of CSV files.
 
@@ -308,7 +306,7 @@ func NewReader(r io.Reader) *Reader
 
 NewReader returns a new Reader that reads from r.
 
-NewReader返回一个新的阅读器，从r中读取数据。
+​	NewReader返回一个新的阅读器，从r中读取数据。
 
 #### (*Reader) FieldPos  <- go1.17
 
@@ -318,11 +316,11 @@ func (r *Reader) FieldPos(field int) (line, column int)
 
 FieldPos returns the line and column corresponding to the start of the field with the given index in the slice most recently returned by Read. Numbering of lines and columns starts at 1; columns are counted in bytes, not runes.
 
-FieldPos返回对应于最近由Read返回的片断中具有给定索引的字段开始的行和列。行和列的编号从1开始；列的计数单位是字节，而不是符码。
+​	FieldPos返回对应于最近由Read返回的片断中具有给定索引的字段开始的行和列。行和列的编号从1开始；列的计数单位是字节，而不是符码。
 
 If this is called with an out-of-bounds index, it panics.
 
-如果在调用这个函数时，索引超出了范围，它就会惊慌失措。
+​	如果在调用这个函数时，索引超出了范围，它就会惊慌失措。
 
 #### (*Reader) InputOffset  <- go1.19
 
@@ -332,7 +330,7 @@ func (r *Reader) InputOffset() int64
 
 InputOffset returns the input stream byte offset of the current reader position. The offset gives the location of the end of the most recently read row and the beginning of the next row.
 
-InputOffset返回当前阅读器位置的输入流字节偏移。这个偏移量给出了最近读取的行的结束和下一行的开始的位置。
+​	InputOffset返回当前阅读器位置的输入流字节偏移。这个偏移量给出了最近读取的行的结束和下一行的开始的位置。
 
 #### (*Reader) Read 
 
@@ -342,7 +340,7 @@ func (r *Reader) Read() (record []string, err error)
 
 Read reads one record (a slice of fields) from r. If the record has an unexpected number of fields, Read returns the record along with the error ErrFieldCount. Except for that case, Read always returns either a non-nil record or a non-nil error, but not both. If there is no data left to be read, Read returns nil, io.EOF. If ReuseRecord is true, the returned slice may be shared between multiple calls to Read.
 
-如果记录有一个意外的字段数，Read会返回记录和错误ErrFieldCount。除了这种情况，Read总是返回一个非空的记录或一个非空的错误，但不会同时返回。如果没有数据可读，Read返回nil，即io.EOF。如果ReuseRecord为真，返回的片断可以在多次调用Read时共享。
+​	如果记录有一个意外的字段数，Read会返回记录和错误ErrFieldCount。除了这种情况，Read总是返回一个非空的记录或一个非空的错误，但不会同时返回。如果没有数据可读，Read返回nil，即io.EOF。如果ReuseRecord为真，返回的片断可以在多次调用Read时共享。
 
 #### (*Reader) ReadAll 
 
@@ -352,7 +350,7 @@ func (r *Reader) ReadAll() (records [][]string, err error)
 
 ReadAll reads all the remaining records from r. Each record is a slice of fields. A successful call returns err == nil, not err == io.EOF. Because ReadAll is defined to read until EOF, it does not treat end of file as an error to be reported.
 
-ReadAll从r读取所有剩余的记录。一个成功的调用返回err == nil，而不是err == io.EOF。因为ReadAll被定义为读到EOF为止，它不把文件结束作为一个错误来报告。
+​	ReadAll从r读取所有剩余的记录。一个成功的调用返回err == nil，而不是err == io.EOF。因为ReadAll被定义为读到EOF为止，它不把文件结束作为一个错误来报告。
 
 ##### ReadAll Example
 ``` go 
@@ -398,7 +396,7 @@ type Writer struct {
 
 A Writer writes records using CSV encoding.
 
-Writer使用CSV编码来写记录。
+​	Writer使用CSV编码来写记录。
 
 As returned by NewWriter, a Writer writes records terminated by a newline and uses ',' as the field delimiter. The exported fields can be changed to customize the details before the first call to Write or WriteAll.
 
@@ -406,17 +404,17 @@ As returned by NewWriter, a Writer writes records terminated by a newline and us
 
 Comma is the field delimiter.
 
-逗号是字段分隔符。
+​	逗号是字段分隔符。
 
 If UseCRLF is true, the Writer ends each output line with \r\n instead of \n.
 
-如果UseCRLF为真，Writer会以\r\n而不是\n结束每个输出行。
+​	如果UseCRLF为真，Writer会以\r\n而不是\n结束每个输出行。
 
 The writes of individual records are buffered. After all data has been written, the client should call the Flush method to guarantee all data has been forwarded to the underlying io.Writer. Any errors that occurred should be checked by calling the Error method.
 
-单个记录的写入是缓冲的。在所有数据被写入后，客户端应该调用Flush方法以保证所有数据都被转发到底层的io.Writer。任何发生的错误都应该通过调用Error方法来检查。
+​	单个记录的写入是缓冲的。在所有数据被写入后，客户端应该调用Flush方法以保证所有数据都被转发到底层的io.Writer。任何发生的错误都应该通过调用Error方法来检查。
 
-##### Writer Example
+#### Writer Example
 ``` go 
 package main
 
@@ -466,7 +464,7 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter returns a new Writer that writes to w.
 
-NewWriter返回一个新的写入w的Writer。
+​	NewWriter返回一个新的写入w的Writer。
 
 #### (*Writer) Error  <- go1.1
 
@@ -476,7 +474,7 @@ func (w *Writer) Error() error
 
 Error reports any error that has occurred during a previous Write or Flush.
 
-Error报告在之前的写或刷新过程中发生的任何错误。
+​	Error报告在之前的写或刷新过程中发生的任何错误。
 
 #### (*Writer) Flush 
 
@@ -486,7 +484,7 @@ func (w *Writer) Flush()
 
 Flush writes any buffered data to the underlying io.Writer. To check if an error occurred during the Flush, call Error.
 
-Flush将任何缓冲的数据写入底层的io.Writer。要检查在Flush过程中是否有错误发生，请调用Error。
+​	Flush将任何缓冲的数据写入底层的io.Writer。要检查在Flush过程中是否有错误发生，请调用Error。
 
 #### (*Writer) Write 
 
@@ -496,7 +494,7 @@ func (w *Writer) Write(record []string) error
 
 Write writes a single CSV record to w along with any necessary quoting. A record is a slice of strings with each string being one field. Writes are buffered, so Flush must eventually be called to ensure that the record is written to the underlying io.Writer.
 
-Write将一条CSV记录和任何必要的引号一起写到w中。一个记录是一个字符串的切片，每个字符串是一个字段。写入是缓冲的，所以最终必须调用Flush以确保记录被写入底层的io.Writer。
+​	Write将一条CSV记录和任何必要的引号一起写到w中。一个记录是一个字符串的切片，每个字符串是一个字段。写入是缓冲的，所以最终必须调用Flush以确保记录被写入底层的io.Writer。
 
 #### (*Writer) WriteAll 
 
@@ -506,7 +504,7 @@ func (w *Writer) WriteAll(records [][]string) error
 
 WriteAll writes multiple CSV records to w using Write and then calls Flush, returning any error from the Flush.
 
-WriteAll使用Write将多个CSV记录写入w，然后调用Flush，返回Flush的任何错误。
+​	WriteAll使用Write将多个CSV记录写入w，然后调用Flush，返回Flush的任何错误。
 
 ``` go 
 package main

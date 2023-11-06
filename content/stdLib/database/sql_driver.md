@@ -8,19 +8,35 @@ draft = false
 +++
 https://pkg.go.dev/database/sql/driver@go1.20.1
 
-​	driver包定义了数据库驱动需要实现的接口，供sql包使用。
+Package driver defines interfaces to be implemented by database drivers as used by package sql.
 
-​	大多数代码应该使用 sql 包。
+​	`driver`包定义了数据库驱动需要实现的接口，供`sql`包使用。
+
+Most code should use package sql.
+
+​	大多数代码应该使用 `sql` 包。
+
+The driver interface has evolved over time. Drivers should implement Connector and DriverContext interfaces. The Connector.Connect and Driver.Open methods should never return ErrBadConn. ErrBadConn should only be returned from Validator, SessionResetter, or a query method if the connection is already in an invalid (e.g. closed) state.
 
 ​	随着时间的推移，驱动程序接口已经发生了演变。驱动程序应实现Connector和DriverContext接口。 Connector.Connect和Driver.Open方法永远不应该返回ErrBadConn。如果连接已经处于无效状态(例如已关闭)，则 ErrBadConn 只能从 Validator、SessionResetter 或查询方法中返回。
 
+All Conn implementations should implement the following interfaces: Pinger, SessionResetter, and Validator.
+
 ​	所有 Conn 实现应实现以下接口：Pinger、SessionResetter和Validator。
+
+If named parameters or context are supported, the driver's Conn should implement: ExecerContext, QueryerContext, ConnPrepareContext, and ConnBeginTx.
 
 ​	如果支持命名参数或上下文，则驱动程序的Conn应实现：ExecerContext、QueryerContext、ConnPrepareContext和ConnBeginTx。
 
+To support custom data types, implement NamedValueChecker. NamedValueChecker also allows queries to accept per-query options as a parameter by returning ErrRemoveArgument from CheckNamedValue.
+
 ​	为了支持自定义数据类型，则需实现NamedValueChecker。NamedValueChecker还允许查询通过返回ErrRemoveArgument来接受每个查询选项作为参数。
 
+If multiple result sets are supported, Rows should implement RowsNextResultSet. If the driver knows how to describe the types present in the returned result it should implement the following interfaces: RowsColumnTypeScanType, RowsColumnTypeDatabaseTypeName, RowsColumnTypeLength, RowsColumnTypeNullable, and RowsColumnTypePrecisionScale. A given row value may also return a Rows type, which may represent a database cursor value.
+
 ​	如果支持多个结果集，则Rows应实现RowsNextResultSet。如果驱动程序知道如何描述返回结果中存在的类型，则应实现以下接口：RowsColumnTypeScanType、RowsColumnTypeDatabaseTypeName、RowsColumnTypeLength、RowsColumnTypeNullable和RowsColumnTypePrecisionScale。给定的行值还可以返回一个Rows类型，它可以表示数据库游标值。
+
+Before a connection is returned to the connection pool after use, IsValid is called if implemented. Before a connection is reused for another query, ResetSession is called if implemented. If a connection is never returned to the connection pool but immediately reused, then ResetSession is called prior to reuse but IsValid is not called.
 
 ​	在将连接归还给连接池之前，如果实现了 IsValid，则会调用 IsValid。在连接被重用于另一个查询之前，如果实现了 ResetSession，则会调用 ResetSession。如果连接从未返回到连接池而立即被重用，则在重用之前将调用ResetSession，但不会调用IsValid。
 
@@ -36,13 +52,22 @@ This section is empty.
 var Bool boolType
 ```
 
+Bool is a ValueConverter that converts input values to bools.
+
 ​	Bool是一个ValueConverter，用于将输入值转换为布尔值
+
+The conversion rules are:
 
 转换规则如下：
 
+- booleans are returned unchanged
+
 - 布尔值保持不变
+- for integer types, 1 is true 0 is false, other integers are an error
 - 对于整数类型，1为true，0为false，其他整数为错误
+- for strings and []byte, same rules as strconv.ParseBool
 - 对于字符串和[]byte，与strconv.ParseBool相同的规则 
+- all other types are an error
 - 所有其他类型均为错误
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=208)
@@ -51,7 +76,11 @@ var Bool boolType
 var DefaultParameterConverter defaultConverter
 ```
 
+DefaultParameterConverter is the default implementation of ValueConverter that's used when a Stmt doesn't implement ColumnConverter.
+
 ​	DefaultParameterConverter是ValueConverter的默认实现，当Stmt未实现ColumnConverter时使用。
+
+DefaultParameterConverter returns its argument directly if IsValue(arg). Otherwise, if the argument implements Valuer, its Value method is used to return a Value. As a fallback, the provided argument's underlying type is used to convert it to a Value: underlying integer types are converted to int64, floats to float64, bool, string, and []byte to themselves. If the argument is a nil pointer, ConvertValue returns a nil Value. If the argument is a non-nil pointer, it is dereferenced and ConvertValue is called recursively. Other types are an error.
 
 ​	DefaultParameterConverter直接返回其实参（如果IsValue(arg)）。否则，如果实参实现了Valuer接口，则使用其Value方法返回一个Value。作为后备方案，使用提供的实参的底层类型将其转换为Value：底层整数类型转换为int64，浮点数转换为float64，bool、string和[]byte保持不变。如果实参是nil指针，则ConvertValue返回一个nil Value。如果实参是非nil指针，则取消引用并递归调用ConvertValue。其他类型为错误。
 
@@ -61,9 +90,15 @@ var DefaultParameterConverter defaultConverter
 var ErrBadConn = errors.New("driver: bad connection")
 ```
 
+ErrBadConn should be returned by a driver to signal to the sql package that a driver.Conn is in a bad state (such as the server having earlier closed the connection) and the sql package should retry on a new connection.
+
 ​	ErrBadConn应由驱动程序返回，以向sql包发出信号，表明driver.Conn处于不良状态（例如服务器早些时候关闭了连接），sql包应在新的连接上重试。
 
+To prevent duplicate operations, ErrBadConn should NOT be returned if there's a possibility that the database server might have performed the operation. Even if the server sends back an error, you shouldn't return ErrBadConn.
+
 ​	为防止重复操作，如果数据库服务器可能已执行操作，则不应返回ErrBadConn。即使服务器返回错误，也不应返回ErrBadConn。
+
+Errors will be checked using errors.Is. An error may wrap ErrBadConn or implement the Is(error) bool method.
 
 ​	错误将使用errors.Is进行检查。错误可能会包装ErrBadConn或实现Is(error) bool方法。
 
@@ -73,6 +108,8 @@ var ErrBadConn = errors.New("driver: bad connection")
 var ErrRemoveArgument = errors.New("driver: remove argument from query")
 ```
 
+ErrRemoveArgument may be returned from NamedValueChecker to instruct the sql package to not pass the argument to the driver query interface. Return when accepting query specific options or structures that aren't SQL query arguments.
+
 ​	ErrRemoveArgument可能从NamedValueChecker返回，指示sql包不将实参传递给驱动程序查询接口。在接受非SQL查询实参的特定查询选项或结构时返回。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=148)
@@ -80,6 +117,8 @@ var ErrRemoveArgument = errors.New("driver: remove argument from query")
 ``` go 
 var ErrSkip = errors.New("driver: skip fast-path; continue as if unimplemented")
 ```
+
+ErrSkip may be returned by some optional interfaces' methods to indicate at runtime that the fast path is unavailable and the sql package should continue as if the optional interface was not implemented. ErrSkip is only supported where explicitly documented.
 
 ​	ErrSkip可能由某些可选接口的方法在运行时返回，以指示快速路径不可用，sql包应继续执行，就像可选接口未实现一样。ErrSkip仅在显式文档中支持。
 
@@ -89,6 +128,8 @@ var ErrSkip = errors.New("driver: skip fast-path; continue as if unimplemented")
 var Int32 int32Type
 ```
 
+Int32 is a ValueConverter that converts input values to int64, respecting the limits of an int32 value.
+
 ​	Int32是一个ValueConverter，将输入值转换为int64，同时考虑int32值的限制。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/driver.go;l=540)
@@ -97,6 +138,8 @@ var Int32 int32Type
 var ResultNoRows noRows
 ```
 
+ResultNoRows is a pre-defined Result for drivers to return when a DDL command (such as a CREATE TABLE) succeeds. It returns an error for both LastInsertId and RowsAffected.
+
 ​	ResultNoRows是预定义的Result，供驱动程序在DDL命令（例如CREATE TABLE）成功时返回。它同时返回LastInsertId和RowsAffected的错误。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/database/sql/driver/types.go;l=137)
@@ -104,6 +147,8 @@ var ResultNoRows noRows
 ``` go 
 var String stringType
 ```
+
+String is a ValueConverter that converts its input to a string. If the value is already a string or []byte, it's unchanged. If the value is of another type, conversion to string is done with fmt.Sprintf("%v", v).
 
 ​	String是一个ValueConverter，将其输入转换为字符串。如果值已经是字符串或[]byte，则保持不变。如果值是其他类型，则使用`fmt.Sprintf("%v", v)`将其转换为字符串。
 
@@ -115,6 +160,8 @@ var String stringType
 func IsScanValue(v any) bool
 ```
 
+IsScanValue is equivalent to IsValue. It exists for compatibility.
+
 ​	IsScanValue函数和IsValue函数是等价的，为了兼容性而存在。
 
 ### func IsValue 
@@ -123,17 +170,47 @@ func IsScanValue(v any) bool
 func IsValue(v any) bool
 ```
 
+IsValue reports whether v is a valid Value parameter type.
+
 ​	IsValue函数用于判断参数`v`是否是有效的Value参数类型。
 
 ## 类型
+
+### type ColumnConverter <- DEPRECATED
+
+```go
+type ColumnConverter interface {
+	// ColumnConverter returns a ValueConverter for the provided
+	// column index. If the type of a specific column isn't known
+	// or shouldn't be handled specially, DefaultValueConverter
+	// can be returned.
+	ColumnConverter(idx int) ValueConverter
+}
+```
+
+ColumnConverter may be optionally implemented by Stmt if the statement is aware of its own columns' types and can convert from any type to a driver Value.
+
+Deprecated: Drivers should implement NamedValueChecker.
 
 ### type Conn 
 
 ``` go 
 type Conn interface {
+    // Prepare returns a prepared statement, bound to this connection.
 	// Prepare返回绑定到此连接的预处理语句。
 	Prepare(query string) (Stmt, error)
 
+    // Close invalidates and potentially stops any current
+	// prepared statements and transactions, marking this
+	// connection as no longer in use.
+	//
+	// Because the sql package maintains a free pool of
+	// connections and only calls Close when there's a surplus of
+	// idle connections, it shouldn't be necessary for drivers to
+	// do their own connection caching.
+	//
+	// Drivers must ensure all network calls made by Close
+	// do not block indefinitely (e.g. apply a timeout).
 	// Close 使当前预处理语句和事务无效，标记此连接不再使用。
 	//
 	// 因为sql包维护一个空闲连接池，并且仅在空闲连接过多时调用Close，
@@ -142,6 +219,9 @@ type Conn interface {
 	// 驱动程序必须确保由Close进行的所有网络调用都不会无限期阻塞（例如应用超时）。
 	Close() error
 
+    // Begin starts and returns a new transaction.
+	//
+	// Deprecated: Drivers should implement ConnBeginTx instead (or additionally).
     // Begin 启动并返回一个新的事务。
     //
     // 已弃用：驱动程序应该实现 ConnBeginTx 来代替(或同时实现)。
@@ -149,7 +229,11 @@ type Conn interface {
 }
 ```
 
+Conn is a connection to a database. It is not used concurrently by multiple goroutines.
+
 ​	Conn 是到数据库的连接。它不允许多个goroutine并发使用。
+
+Conn is assumed to be stateful.
 
 ​	Conn 被认为是有状态的。
 
@@ -157,18 +241,30 @@ type Conn interface {
 
 ``` go 
 type ConnBeginTx interface {
+    // BeginTx starts and returns a new transaction.
+	// If the context is canceled by the user the sql package will
+	// call Tx.Rollback before discarding and closing the connection.
     // BeginTx 启动并返回一个新的事务。
     // 如果用户取消了上下文，sql包将在丢弃和关闭连接之前调用Tx.Rollback。
     //
+    // This must check opts.Isolation to determine if there is a set
+	// isolation level. If the driver does not support a non-default
+	// level and one is set or if there is a non-default isolation level
+	// that is not supported, an error must be returned.
     // 这必须检查opts.Isolation来确定是否有设置的隔离级别。
     // 如果驱动程序不支持非默认级别并且设置了一个非默认级别，
     // 或者如果驱动程序不支持非默认隔离级别，则必须返回一个错误。
     //
+    // This must also check opts.ReadOnly to determine if the read-only
+	// value is true to either set the read-only transaction property if supported
+	// or return an error if it is not supported.
     // 这还必须检查opts.ReadOnly来确定只读值是否为true，
     // 如果支持则设置只读事务属性，如果不可支持则返回错误。
 	BeginTx(ctx context.Context, opts TxOptions) (Tx, error)
 }
 ```
+
+ConnBeginTx enhances the Conn interface with context and TxOptions.
 
 ​	ConnBeginTx 使用 context 和 TxOptions 增强了 Conn 接口。
 
@@ -176,11 +272,16 @@ type ConnBeginTx interface {
 
 ``` go 
 type ConnPrepareContext interface {
+    // PrepareContext returns a prepared statement, bound to this connection.
+	// context is for the preparation of the statement,
+	// it must not store the context within the statement itself.
     // PrepareContext 返回一个绑定到此连接的预处理语句。
     // context 是用于准备语句的，它不能在语句本身中存储上下文。
 	PrepareContext(ctx context.Context, query string) (Stmt, error)
 }
 ```
+
+ConnPrepareContext enhances the Conn interface with context.
 
 ​	ConnPrepareContext 通过context增强 Conn 接口。
 
@@ -188,26 +289,46 @@ type ConnPrepareContext interface {
 
 ``` go 
 type Connector interface {
+    // Connect returns a connection to the database.
+	// Connect may return a cached connection (one previously
+	// closed), but doing so is unnecessary; the sql package
+	// maintains a pool of idle connections for efficient re-use.
     // Connect 返回到数据库的连接。
     // Connect 可以返回缓存的连接(先前关闭的连接)，但这样做是不必要的；
     // sql 包维护一个空闲连接池，以便有效地重复使用。
     //
+    // The provided context.Context is for dialing purposes only
+	// (see net.DialContext) and should not be stored or used for
+	// other purposes. A default timeout should still be used
+	// when dialing as a connection pool may call Connect
+	// asynchronously to any query.
     // 提供的 context.Context 仅用于拨号目的
     //(请参阅 net.DialContext)，不应存储或用于其他目的。
     // 在拨号时仍应使用默认超时时间，因为连接池可能异步调用Connect来执行任何查询。
     //
+    // The returned connection is only used by one goroutine at a
+	// time.
     // 返回的连接一次只能由一个 goroutine 使用。
 	Connect(context.Context) (Conn, error)
 
+    // Driver returns the underlying Driver of the Connector,
+	// mainly to maintain compatibility with the Driver method
+	// on sql.DB.
     // Driver 返回 Connector 的基础 Driver，
     // 主要是为了与 sql.DB 上的 Driver 方法保持兼容性。
 	Driver() Driver
 }
 ```
 
+A Connector represents a driver in a fixed configuration and can create any number of equivalent Conns for use by multiple goroutines.
+
 ​	Connector 表示一个具有固定配置的驱动程序，可以为多个 goroutine 创建任意数量的等效 Conns。
 
+A Connector can be passed to sql.OpenDB, to allow drivers to implement their own sql.DB constructors, or returned by DriverContext's OpenConnector method, to allow drivers access to context and to avoid repeated parsing of driver configuration.
+
 ​	可以将 Connector 传递给 sql.OpenDB，以允许驱动程序实现自己的 sql.DB 构造函数，或者通过 DriverContext 的 OpenConnector 方法返回，以允许驱动程序访问上下文并避免重复解析驱动程序配置。
+
+If a Connector implements io.Closer, the sql package's DB.Close method will call Close and return error (if any).
 
 ​	如果 Connector 实现了 io.Closer，则 sql 包的 DB.Close 方法将调用 Close 并返回错误（如果有）。	
 
@@ -215,18 +336,29 @@ type Connector interface {
 
 ``` go 
 type Driver interface {
+    // Open returns a new connection to the database.
+	// The name is a string in a driver-specific format.
     // Open 返回到数据库的新连接。
     // name 是一个驱动程序特定的字符串格式。
     //
+    // Open may return a cached connection (one previously
+	// closed), but doing so is unnecessary; the sql package
+	// maintains a pool of idle connections for efficient re-use.
     // Open 可以返回缓存的连接(先前关闭的连接)，但这样做是不必要的；
     // sql 包维护一个空闲连接池，以便高效地重用。
     //
+    // The returned connection is only used by one goroutine at a
+	// time.
     // 返回的连接一次只能由一个 goroutine 使用。
 	Open(name string) (Conn, error)
 }
 ```
 
+Driver is the interface that must be implemented by a database driver.
+
 ​	Driver 是必须由数据库驱动程序实现的接口。
+
+Database drivers may implement DriverContext for access to contexts and to parse the name only once for a pool of connections, instead of once per connection.
 
 ​	数据库驱动程序可以实现对DriverContext的访问，以便访问上下文，并将 name 解析为连接池中的连接，而不是每个连接解析一次。
 
@@ -240,6 +372,8 @@ type DriverContext interface {
 	OpenConnector(name string) (Connector, error)
 }
 ```
+
+If a Driver implements DriverContext, then sql.DB will call OpenConnector to obtain a Connector and then invoke that Connector's Connect method to obtain each needed connection, instead of invoking the Driver's Open method for each connection. The two-step sequence allows drivers to parse the name just once and also provides access to per-Conn contexts.
 
 ​	如果一个 Driver 实现了 DriverContext 接口，则 sql.DB 将调用 OpenConnector 方法来获取 Connector，然后调用该 Connector 的 Connect 方法来获取每个所需的连接，而不是为每个连接调用Driver的 Open 方法。这种两步序列允许驱动程序只解析name一次，并且还提供对每个Conn上下文的访问。
 
@@ -277,11 +411,19 @@ type ExecerContext interface {
 }
 ```
 
+ExecerContext is an optional interface that may be implemented by a Conn.
+
 ​	ExecerContext 是一个可选接口，可以由 Conn （这里是泛指的意思下Conn）实现。
+
+If a Conn does not implement ExecerContext, the sql package's DB.Exec will fall back to Execer; if the Conn does not implement Execer either, DB.Exec will first prepare a query, execute the statement, and then close the statement.
 
 ​	如果 Conn （这里是泛指的意思下Conn）没有实现 ExecerContext，则 sql 包的 DB.Exec 将回退到 Execer；如果 Conn （这里是泛指的意思下Conn）也没有实现 Execer，则 DB.Exec 将首先准备查询，执行语句，然后关闭语句。
 
+ExecContext may return ErrSkip.
+
 ​	ExecContext 方法可以返回 ErrSkip。
+
+ExecContext must honor the context timeout and return when the context is canceled.
 
 ​	ExecContext 方法必须遵守上下文超时，并在上下文取消时返回。
 
@@ -291,7 +433,11 @@ type ExecerContext interface {
 type IsolationLevel int
 ```
 
+IsolationLevel is the transaction isolation level stored in TxOptions.
+
 ​	IsolationLevel 是存储在 TxOptions 中的事务隔离级别。
+
+This type should be considered identical to sql.IsolationLevel along with any values defined on it.
 
 ​	该类型应被视为与sql.IsolationLevel类型相同以及任何在其上定义的值。
 
@@ -299,18 +445,25 @@ type IsolationLevel int
 
 ``` go 
 type NamedValue struct {
+    // If the Name is not empty it should be used for the parameter identifier and
+	// not the ordinal position.
     // 如果 Name 不为空，应该用于参数标识符，而不是位置。
     //
+    // Name will not have a symbol prefix.
     // Name 不会有符号前缀。
 	Name string
 
+    // Ordinal position of the parameter starting from one and is always set.
 	// 参数的序号位置，从一开始计数，并始终设置。
 	Ordinal int	
 
+    // Value is the parameter value.
     // Value是参数的值。
 	Value Value
 }
 ```
+
+NamedValue holds both the value name and value.
 
 ​	NamedValue 持有值的名称和值。
 
@@ -318,6 +471,9 @@ type NamedValue struct {
 
 ``` go 
 type NamedValueChecker interface {
+    // CheckNamedValue is called before passing arguments to the driver
+	// and is called in place of any ColumnConverter. CheckNamedValue must do type
+	// validation and conversion as appropriate for the driver.
     // CheckNamedValue 在将参数传递给驱动程序之前调用，
     // 并在任何 ColumnConverter 的位置调用。
     // CheckNamedValue 必须做类型验证和转换，以适合驱动程序。

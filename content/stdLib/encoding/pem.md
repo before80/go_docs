@@ -8,6 +8,8 @@ draft = false
 +++
 https://pkg.go.dev/encoding/pem@go1.20.1
 
+Package pem implements the PEM data encoding, which originated in Privacy Enhanced Mail. The most common use of PEM encoding today is in TLS keys and certificates. See [RFC 1421](https://rfc-editor.org/rfc/rfc1421.html).
+
 ​	pem包实现了PEM数据编码，该编码起源于隐私增强邮件（Privacy Enhanced Mail）。如今，PEM编码最常用于TLS密钥和证书。详见[RFC 1421](https://rfc-editor.org/rfc/rfc1421.html)。
 
 
@@ -21,15 +23,17 @@ This section is empty.
 
 ## 函数
 
-#### func Encode 
+### func Encode 
 
 ``` go 
 func Encode(out io.Writer, b *Block) error
 ```
 
+Encode writes the PEM encoding of b to out.
+
 ​	Encode函数将`b`的PEM编码写入`out`。
 
-##### Encode Example
+#### Encode Example
 ``` go 
 package main
 
@@ -61,13 +65,17 @@ dGVzdA==
 -----END MESSAGE-----
 ```
 
-#### func EncodeToMemory 
+### func EncodeToMemory 
 
 ``` go 
 func EncodeToMemory(b *Block) []byte
 ```
 
+EncodeToMemory returns the PEM encoding of b.
+
 ​	EncodeToMemory函数返回`b`的PEM编码。
+
+If b has invalid headers and cannot be encoded, EncodeToMemory returns nil. If it is important to report details about this error case, use Encode instead.
 
 ​	如果`b`具有无效的标头且无法被编码，EncodeToMemory函数返回nil。如果报告这种错误情况的细节很重要，请使用Encode代替。
 
@@ -83,7 +91,11 @@ type Block struct {
 }
 ```
 
+A Block represents a PEM encoded structure.
+
 ​	Block表示一个PEM编码的结构。
+
+The encoded form is:
 
 ​	其编码后的形式是：
 
@@ -94,6 +106,8 @@ base64-encoded Bytes
 -----END Type-----
 ```
 
+where Headers is a possibly empty sequence of Key: Value lines.
+
 ​	其中Headers是一个可能是空的Key: Value行序列。
 
 #### func Decode 
@@ -101,6 +115,8 @@ base64-encoded Bytes
 ``` go 
 func Decode(data []byte) (p *Block, rest []byte)
 ```
+
+Decode will find the next PEM formatted block (certificate, private key etc) in the input. It returns that block and the remainder of the input. If no PEM data is found, p is nil and the whole of the input is returned in rest.
 
 ​	Decode函数会在输入中查找下一个PEM格式的块（证书、私钥等）。它返回该块以及剩余的输入。如果未找到PEM数据，`p`为nil，并将整个输入返回给`rest`。
 

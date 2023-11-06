@@ -13,13 +13,13 @@ Package gob manages streams of gobs - binary values exchanged between an Encoder
 
 The implementation compiles a custom codec for each data type in the stream and is most efficient when a single Encoder is used to transmit a stream of values, amortizing the cost of compilation.
 
-#### Basics 
+## Basics 
 
 A stream of gobs is self-describing. Each data item in the stream is preceded by a specification of its type, expressed in terms of a small set of predefined types. Pointers are not transmitted, but the things they point to are transmitted; that is, the values are flattened. Nil pointers are not permitted, as they have no value. Recursive types work fine, but recursive values (data with cycles) are problematic. This may change.
 
 To use gobs, create an Encoder and present it with a series of data items as values or addresses that can be dereferenced to values. The Encoder makes sure all type information is sent before it is needed. At the receive side, a Decoder retrieves values from the encoded stream and unpacks them into local variables.
 
-### 类型
+## Types and Values
 
 The source and destination values/types need not correspond exactly. For structs, fields (identified by name) that are in the source but absent from the receiving variable will be ignored. Fields that are in the receiving variable but missing from the transmitted type or value will be ignored in the destination. If a field with the same name is present in both, their types must be compatible. Both the receiver and transmitter will do all necessary indirection and dereferencing to convert between gobs and actual Go values. For instance, a gob type that is schematically,
 
@@ -69,7 +69,7 @@ Gob can encode a value of any type implementing the GobEncoder or encoding.Binar
 
 Gob can decode a value of any type implementing the GobDecoder or encoding.BinaryUnmarshaler interfaces by calling the corresponding method, again in that order of preference.
 
-#### Encoding Details 
+## Encoding Details 
 
 This section documents the encoding, details that are not important for most users. Details are presented bottom-up.
 
@@ -191,11 +191,11 @@ Compatibility: Any future changes to the package will endeavor to maintain compa
 
 See "Gobs of data" for a design discussion of the gob wire format: https://blog.golang.org/gobs-of-data
 
-#### Security 
+## Security 
 
 This package is not designed to be hardened against adversarial inputs, and is outside the scope of https://go.dev/security/policy. In particular, the Decoder does only basic sanity checking on decoded input sizes, and its limits are not configurable. Care should be taken when decoding gob data from untrusted sources, which may consume significant resources.
 
-##### Example (Basic)
+## Example (Basic)
 
 This example shows the basic usage of the package: Create an encoder, transmit some values, receive them with a decoder.
 
@@ -260,7 +260,7 @@ Output:
 "Treehouse": {1782, 1841}
 ```
 
-##### Example(EncodeDecode)
+## Example(EncodeDecode)
 
 This example transmits a value that implements the custom encoding and decoding methods.
 
@@ -326,7 +326,7 @@ Output:
 {3 4 5}
 ```
 
-##### Example (Interface)
+## Example (Interface)
 
 This example shows how to encode an interface value. The key distinction from regular types is to register the concrete type that implements the interface.
 
@@ -424,7 +424,7 @@ This section is empty.
 
 ## 函数
 
-#### func Register 
+### func Register 
 
 ``` go 
 func Register(value any)
@@ -432,7 +432,7 @@ func Register(value any)
 
 Register records a type, identified by a value for that type, under its internal type name. That name will identify the concrete type of a value sent or received as an interface variable. Only types that will be transferred as implementations of interface values need to be registered. Expecting to be used only during initialization, it panics if the mapping between types and names is not a bijection.
 
-#### func RegisterName 
+### func RegisterName 
 
 ``` go 
 func RegisterName(name string, value any)
