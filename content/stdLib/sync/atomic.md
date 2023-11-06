@@ -6,11 +6,17 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/sync/atomic@go1.20.1
+https://pkg.go.dev/sync/atomic@go1.21.3
 
-​	atomic包提供了低级别的原子内存原语，用于实现同步算法。
+Package atomic provides low-level atomic memory primitives useful for implementing synchronization algorithms.
+
+​	`atomic`包提供了低级别的原子内存原语，用于实现同步算法。
+
+These functions require great care to be used correctly. Except for special, low-level applications, synchronization is better done with channels or the facilities of the [sync](https://pkg.go.dev/sync) package. Share memory by communicating; don't communicate by sharing memory.
 
 ​	这些函数需要极其小心地使用才能正确地使用。除非是特殊的低级别应用，否则使用通道或sync包的工具进行同步更好。通过通信共享内存，而不是通过共享内存进行通信。
+
+The swap operation, implemented by the SwapT functions, is the atomic equivalent of:
 
 ​	SwapT函数实现的交换操作是以下操作的原子等效操作：
 
@@ -19,6 +25,8 @@ old = *addr
 *addr = new
 return old
 ```
+
+The compare-and-swap operation, implemented by the CompareAndSwapT functions, is the atomic equivalent of:
 
 ​	CompareAndSwapT函数实现的比较和交换操作是以下操作的原子等效操作：
 
@@ -30,6 +38,8 @@ if *addr == old {
 return false
 ```
 
+The add operation, implemented by the AddT functions, is the atomic equivalent of:
+
 ​	AddT函数实现的添加操作是以下操作的原子等效操作：
 
 ```go
@@ -37,7 +47,11 @@ return false
 return *addr
 ```
 
+The load and store operations, implemented by the LoadT and StoreT functions, are the atomic equivalents of "return *addr" and "*addr = val".
+
 ​	LoadT和StoreT函数实现的加载和存储操作是"return *addr"和"*addr = val"的原子等效操作。
+
+In the terminology of the Go memory model, if the effect of an atomic operation A is observed by atomic operation B, then A “synchronizes before” B. Additionally, all the atomic operations executed in a program behave as though executed in some sequentially consistent order. This definition provides the same semantics as C++'s sequentially consistent atomics and Java's volatile variables.
 
 ​	在Go内存模型的术语中，如果原子操作A的效果被原子操作B观察到，则A"在"B之前同步。此外，程序中执行的所有原子操作都像按某些顺序连续执行一样运行。这个定义提供了与C++的顺序一致原子和Java的易失性变量相同的语义。
 
@@ -52,235 +66,293 @@ This section is empty.
 
 ## 函数
 
-#### func AddInt32 
+### func AddInt32 
 
 ``` go 
 func AddInt32(addr *int32, delta int32) (new int32)
 ```
 
-AddInt32函数原子地将delta添加到`*addr`，并返回新值。考虑使用更符合人体工程学和更不容易出错的Int32.Add代替。
+AddInt32 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int32.Add](https://pkg.go.dev/sync/atomic#Int32.Add) instead.
 
-#### func AddInt64 
+​	`AddInt32`函数原子地将delta添加到`*addr`，并返回新值。考虑使用更符合人体工程学和更不容易出错的Int32.Add代替。
+
+### func AddInt64 
 
 ``` go 
 func AddInt64(addr *int64, delta int64) (new int64)
 ```
 
-AddInt64函数原子地将delta添加到`*addr`，并返回新值。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的Int64.Add代替(请参见错误部分)。
+AddInt64 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int64.Add](https://pkg.go.dev/sync/atomic#Int64.Add) instead (particularly if you target 32-bit platforms; see the bugs section).
 
-#### func AddUint32 
+​	`AddInt64`函数原子地将delta添加到`*addr`，并返回新值。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的Int64.Add代替(请参见错误部分)。
+
+### func AddUint32 
 
 ``` go 
 func AddUint32(addr *uint32, delta uint32) (new uint32)
 ```
 
+AddUint32 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do AddUint32(&x, ^uint32(c-1)). In particular, to decrement x, do AddUint32(&x, ^uint32(0)). Consider using the more ergonomic and less error-prone [Uint32.Add](https://pkg.go.dev/sync/atomic#Uint32.Add) instead.
+
 ​	AddUint32函数原子地将delta添加到`*addr`，并返回新值。要从x减去已知正常数值c，请执行AddUint32(&x，^uint32(c-1))。特别地，要将x减少1，请执行AddUint32(&x，^uint32(0))。考虑使用更符合人体工程学和更不容易出错的Uint32.Add代替。
 
-#### func AddUint64 
+### func AddUint64 
 
 ``` go 
 func AddUint64(addr *uint64, delta uint64) (new uint64)
 ```
 
-​	AddUint64函数原子地将delta添加到`*addr`，并返回新值。要从x减去已知正常数值c，请执行AddUint64(&x，^uint64(c-1))。特别地，要将x减少1，请执行AddUint64(&x，^uint64(0))。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的Uint64.Add代替(请参见错误部分)。
+AddUint64 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do AddUint64(&x, ^uint64(c-1)). In particular, to decrement x, do AddUint64(&x, ^uint64(0)). Consider using the more ergonomic and less error-prone [Uint64.Add](https://pkg.go.dev/sync/atomic#Uint64.Add) instead (particularly if you target 32-bit platforms; see the bugs section).
 
-#### func AddUintptr 
+​	`AddUint64`函数原子地将delta添加到`*addr`，并返回新值。要从x减去已知正常数值c，请执行AddUint64(&x，^uint64(c-1))。特别地，要将x减少1，请执行AddUint64(&x，^uint64(0))。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的Uint64.Add代替(请参见错误部分)。
+
+### func AddUintptr 
 
 ``` go 
 func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
 ```
 
+AddUintptr atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Uintptr.Add](https://pkg.go.dev/sync/atomic#Uintptr.Add) instead.
+
 ​	AddUintptr函数原子地将delta添加到`*addr`，并返回新值。考虑使用更符合人体工程学和更不容易出错的Uintptr.Add代替。
 
-#### func CompareAndSwapInt32 
+### func CompareAndSwapInt32 
 
 ``` go 
 func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)
 ```
 
+CompareAndSwapInt32 executes the compare-and-swap operation for an int32 value. Consider using the more ergonomic and less error-prone [Int32.CompareAndSwap](https://pkg.go.dev/sync/atomic#Int32.CompareAndSwap) instead.
+
 ​	CompareAndSwapInt32函数执行 int32 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Int32.CompareAndSwap。
 
-#### func CompareAndSwapInt64 
+### func CompareAndSwapInt64 
 
 ``` go 
 func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)
 ```
 
+CompareAndSwapInt64 executes the compare-and-swap operation for an int64 value. Consider using the more ergonomic and less error-prone [Int64.CompareAndSwap](https://pkg.go.dev/sync/atomic#Int64.CompareAndSwap) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	CompareAndSwapInt64函数执行 int64 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Int64.CompareAndSwap (特别是针对 32 位平台；参见错误部分)。
 
-#### func CompareAndSwapPointer 
+### func CompareAndSwapPointer 
 
 ``` go 
 func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)
 ```
 
+CompareAndSwapPointer executes the compare-and-swap operation for a unsafe.Pointer value. Consider using the more ergonomic and less error-prone [Pointer.CompareAndSwap](https://pkg.go.dev/sync/atomic#Pointer.CompareAndSwap) instead.
+
 ​	CompareAndSwapPointer函数执行 unsafe.Pointer 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Pointer.CompareAndSwap。
 
-#### func CompareAndSwapUint32 
+### func CompareAndSwapUint32 
 
 ``` go 
 func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)
 ```
 
+CompareAndSwapUint32 executes the compare-and-swap operation for a uint32 value. Consider using the more ergonomic and less error-prone [Uint32.CompareAndSwap](https://pkg.go.dev/sync/atomic#Uint32.CompareAndSwap) instead.
+
 ​	CompareAndSwapUint32函数执行 uint32 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Uint32.CompareAndSwap。
 
-#### func CompareAndSwapUint64 
+### func CompareAndSwapUint64 
 
 ``` go 
 func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)
 ```
 
+CompareAndSwapUint64 executes the compare-and-swap operation for a uint64 value. Consider using the more ergonomic and less error-prone [Uint64.CompareAndSwap](https://pkg.go.dev/sync/atomic#Uint64.CompareAndSwap) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	CompareAndSwapUint64函数执行 uint64 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Uint64.CompareAndSwap (特别是针对 32 位平台；参见错误部分)。
 
-#### func CompareAndSwapUintptr 
+### func CompareAndSwapUintptr 
 
 ``` go 
 func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)
 ```
 
+CompareAndSwapUintptr executes the compare-and-swap operation for a uintptr value. Consider using the more ergonomic and less error-prone [Uintptr.CompareAndSwap](https://pkg.go.dev/sync/atomic#Uintptr.CompareAndSwap) instead.
+
 ​	CompareAndSwapUintptr函数执行 uintptr 值的比较并交换操作。建议使用更符合人体工程学和更少容易出错的 Uintptr.CompareAndSwap。
 
-#### func LoadInt32 
+### func LoadInt32 
 
 ``` go 
 func LoadInt32(addr *int32) (val int32)
 ```
 
+LoadInt32 atomically loads *addr. Consider using the more ergonomic and less error-prone [Int32.Load](https://pkg.go.dev/sync/atomic#Int32.Load) instead.
+
 ​	LoadInt32函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Int32.Load。
 
-#### func LoadInt64 
+### func LoadInt64 
 
 ``` go 
 func LoadInt64(addr *int64) (val int64)
 ```
 
+LoadInt64 atomically loads *addr. Consider using the more ergonomic and less error-prone [Int64.Load](https://pkg.go.dev/sync/atomic#Int64.Load) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	LoadInt64函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Int64.Load(特别是如果您的目标是32位平台；请参见错误部分)。
 
-#### func LoadPointer 
+### func LoadPointer 
 
 ``` go 
 func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)
 ```
 
+LoadPointer atomically loads *addr. Consider using the more ergonomic and less error-prone [Pointer.Load](https://pkg.go.dev/sync/atomic#Pointer.Load) instead.
+
 ​	LoadPointer函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Pointer.Load。
 
-#### func LoadUint32 
+### func LoadUint32 
 
 ``` go 
 func LoadUint32(addr *uint32) (val uint32)
 ```
 
+LoadUint32 atomically loads *addr. Consider using the more ergonomic and less error-prone [Uint32.Load](https://pkg.go.dev/sync/atomic#Uint32.Load) instead.
+
 ​	LoadUint32函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Uint32.Load。
 
-#### func LoadUint64 
+### func LoadUint64 
 
 ``` go 
 func LoadUint64(addr *uint64) (val uint64)
 ```
 
+LoadUint64 atomically loads *addr. Consider using the more ergonomic and less error-prone [Uint64.Load](https://pkg.go.dev/sync/atomic#Uint64.Load) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	LoadUint64函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Uint64.Load(特别是如果您的目标是32位平台；请参见错误部分)。
 
-#### func LoadUintptr 
+### func LoadUintptr 
 
 ``` go 
 func LoadUintptr(addr *uintptr) (val uintptr)
 ```
 
+LoadUintptr atomically loads *addr. Consider using the more ergonomic and less error-prone [Uintptr.Load](https://pkg.go.dev/sync/atomic#Uintptr.Load) instead.
+
 ​	LoadUintptr函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 Uintptr.Load。
 
-#### func StoreInt32 
+### func StoreInt32 
 
 ``` go 
 func StoreInt32(addr *int32, val int32)
 ```
 
+StoreInt32 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Int32.Store](https://pkg.go.dev/sync/atomic#Int32.Store) instead.
+
 ​	StoreInt32函数原子地将 val 存储到 `*addr`。考虑使用更符合人体工程学且不易出错的 Int32.Store。
 
-#### func StoreInt64 
+### func StoreInt64 
 
 ``` go 
 func StoreInt64(addr *int64, val int64)
 ```
 
+StoreInt64 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Int64.Store](https://pkg.go.dev/sync/atomic#Int64.Store) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	StoreInt64函数原子地将 val 存储到 `*addr`。考虑使用更符合人体工程学且不易出错的 Int64.Store(特别是如果您的目标是32位平台；请参见错误部分)。
 
-#### func StorePointer 
+### func StorePointer 
 
 ``` go 
 func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)
 ```
 
+StorePointer atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Pointer.Store](https://pkg.go.dev/sync/atomic#Pointer.Store) instead.
+
 ​	StorePointer函数原子地将 val 存储到 `*addr`。考虑使用更符合人体工程学且不易出错的 Pointer.Store。
 
-#### func StoreUint32 
+### func StoreUint32 
 
 ``` go 
 func StoreUint32(addr *uint32, val uint32)
 ```
 
+StoreUint32 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uint32.Store](https://pkg.go.dev/sync/atomic#Uint32.Store) instead.
+
 ​	StoreUint32函数原子性地将val存储到`*addr`。考虑使用更符合人体工程学且更少出错的Uint32.Store。
 
-#### func StoreUint64 
+### func StoreUint64 
 
 ``` go 
 func StoreUint64(addr *uint64, val uint64)
 ```
 
+StoreUint64 atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uint64.Store](https://pkg.go.dev/sync/atomic#Uint64.Store) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	StoreUint64函数原子性地将val存储到`*addr`。考虑使用更符合人体工程学且更少出错的Uint64.Store(特别是针对32位平台，参见bugs一节)。
 
-#### func StoreUintptr 
+### func StoreUintptr 
 
 ``` go 
 func StoreUintptr(addr *uintptr, val uintptr)
 ```
 
+StoreUintptr atomically stores val into *addr. Consider using the more ergonomic and less error-prone [Uintptr.Store](https://pkg.go.dev/sync/atomic#Uintptr.Store) instead.
+
 ​	StoreUintptr函数原子性地将val存储到`*addr`。考虑使用更符合人体工程学且更少出错的Uintptr.Store。
 
-#### func SwapInt32  <- go1.2
+### func SwapInt32  <- go1.2
 
 ``` go 
 func SwapInt32(addr *int32, new int32) (old int32)
 ```
 
+SwapInt32 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Int32.Swap](https://pkg.go.dev/sync/atomic#Int32.Swap) instead.
+
 ​	SwapInt32函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Int32.Swap。
 
-#### func SwapInt64  <- go1.2
+### func SwapInt64  <- go1.2
 
 ``` go 
 func SwapInt64(addr *int64, new int64) (old int64)
 ```
 
+SwapInt64 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Int64.Swap](https://pkg.go.dev/sync/atomic#Int64.Swap) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	SwapInt64函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Int64.Swap(特别是针对32位平台，参见bugs一节)。
 
-#### func SwapPointer  <- go1.2
+### func SwapPointer  <- go1.2
 
 ``` go 
 func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)
 ```
 
+SwapPointer atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Pointer.Swap](https://pkg.go.dev/sync/atomic#Pointer.Swap) instead.
+
 ​	SwapPointer函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Pointer.Swap。
 
-#### func SwapUint32  <- go1.2
+### func SwapUint32  <- go1.2
 
 ``` go 
 func SwapUint32(addr *uint32, new uint32) (old uint32)
 ```
 
+SwapUint32 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uint32.Swap](https://pkg.go.dev/sync/atomic#Uint32.Swap) instead.
+
 ​	SwapUint32函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Uint32.Swap。
 
-#### func SwapUint64  <- go1.2
+### func SwapUint64  <- go1.2
 
 ``` go 
 func SwapUint64(addr *uint64, new uint64) (old uint64)
 ```
 
+SwapUint64 atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uint64.Swap](https://pkg.go.dev/sync/atomic#Uint64.Swap) instead (particularly if you target 32-bit platforms; see the bugs section).
+
 ​	SwapUint64函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Uint64.Swap(特别是针对32位平台，参见bugs一节)。
 
-#### func SwapUintptr  <- go1.2
+### func SwapUintptr  <- go1.2
 
 ``` go 
 func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)
 ```
+
+SwapUintptr atomically stores new into *addr and returns the previous *addr value. Consider using the more ergonomic and less error-prone [Uintptr.Swap](https://pkg.go.dev/sync/atomic#Uintptr.Swap) instead.
 
 ​	SwapUintptr函数原子性地将new存储到`*addr`并返回先前的`*addr`值。考虑使用更符合人体工程学且更少出错的Uintptr.Swap。
 
@@ -294,6 +366,8 @@ type Bool struct {
 }
 ```
 
+A Bool is an atomic boolean value. The zero value is false.
+
 ​	Bool结构体是一个原子布尔值。 零值为false。
 
 #### (*Bool) CompareAndSwap  <- go1.19
@@ -301,6 +375,8 @@ type Bool struct {
 ``` go 
 func (x *Bool) CompareAndSwap(old, new bool) (swapped bool)
 ```
+
+CompareAndSwap executes the compare-and-swap operation for the boolean value x.
 
 ​	CompareAndSwap方法执行布尔值x的比较和交换操作。
 
@@ -310,6 +386,8 @@ func (x *Bool) CompareAndSwap(old, new bool) (swapped bool)
 func (x *Bool) Load() bool
 ```
 
+Load atomically loads and returns the value stored in x.
+
 ​	Load方法以原子方式加载并返回存储在x中的值。
 
 #### (*Bool) Store  <- go1.19
@@ -318,6 +396,8 @@ func (x *Bool) Load() bool
 func (x *Bool) Store(val bool)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将val存储到x中。
 
 #### (*Bool) Swap  <- go1.19
@@ -325,6 +405,8 @@ func (x *Bool) Store(val bool)
 ``` go 
 func (x *Bool) Swap(new bool) (old bool)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法以原子方式将new存储到x中并返回先前的值。
 
@@ -336,6 +418,8 @@ type Int32 struct {
 }
 ```
 
+An Int32 is an atomic int32. The zero value is zero.
+
 ​	Int32方法是一个原子int32。 零值为零。
 
 #### (*Int32) Add  <- go1.19
@@ -343,6 +427,8 @@ type Int32 struct {
 ``` go 
 func (x *Int32) Add(delta int32) (new int32)
 ```
+
+Add atomically adds delta to x and returns the new value.
 
 ​	Add方法原子地将delta添加到x并返回新值。
 
@@ -352,6 +438,8 @@ func (x *Int32) Add(delta int32) (new int32)
 func (x *Int32) CompareAndSwap(old, new int32) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for x.
+
 ​	CompareAndSwap方法执行x的比较和交换操作。
 
 #### (*Int32) Load  <- go1.19
@@ -359,6 +447,8 @@ func (x *Int32) CompareAndSwap(old, new int32) (swapped bool)
 ``` go 
 func (x *Int32) Load() int32
 ```
+
+Load atomically loads and returns the value stored in x.
 
 ​	Load方法原子地加载并返回存储在x中的值。
 
@@ -368,6 +458,8 @@ func (x *Int32) Load() int32
 func (x *Int32) Store(val int32)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将val存储到x中。
 
 #### (*Int32) Swap  <- go1.19
@@ -375,6 +467,8 @@ func (x *Int32) Store(val int32)
 ``` go 
 func (x *Int32) Swap(new int32) (old int32)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法原子地将new存储到x中并返回先前的值。
 
@@ -386,6 +480,8 @@ type Int64 struct {
 }
 ```
 
+An Int64 is an atomic int64. The zero value is zero.
+
 ​	Int64方法是原子int64。零值为零。
 
 #### (*Int64) Add  <- go1.19
@@ -393,6 +489,8 @@ type Int64 struct {
 ``` go 
 func (x *Int64) Add(delta int64) (new int64)
 ```
+
+Add atomically adds delta to x and returns the new value.
 
 ​	Add方法原子地将delta添加到x并返回新值。
 
@@ -402,6 +500,8 @@ func (x *Int64) Add(delta int64) (new int64)
 func (x *Int64) CompareAndSwap(old, new int64) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for x.
+
 ​	CompareAndSwap方法执行x的比较并交换操作。
 
 #### (*Int64) Load  <- go1.19
@@ -409,6 +509,8 @@ func (x *Int64) CompareAndSwap(old, new int64) (swapped bool)
 ``` go 
 func (x *Int64) Load() int64
 ```
+
+Load atomically loads and returns the value stored in x.
 
 ​	Load方法原子地加载并返回存储在x中的值。
 
@@ -418,6 +520,8 @@ func (x *Int64) Load() int64
 func (x *Int64) Store(val int64)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将val存储到x中。
 
 #### (*Int64) Swap  <- go1.19
@@ -425,6 +529,8 @@ func (x *Int64) Store(val int64)
 ``` go 
 func (x *Int64) Swap(new int64) (old int64)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法原子地将new存储到x中并返回先前的值。
 
@@ -436,6 +542,8 @@ type Pointer[T any] struct {
 }
 ```
 
+A Pointer is an atomic pointer of type *T. The zero value is a nil *T.
+
 ​	Pointer 是一个类型为 *T 的原子指针。零值是 nil 的 *T。
 
 #### (*Pointer[T]) CompareAndSwap  <- go1.19
@@ -443,6 +551,8 @@ type Pointer[T any] struct {
 ``` go 
 func (x *Pointer[T]) CompareAndSwap(old, new *T) (swapped bool)
 ```
+
+CompareAndSwap executes the compare-and-swap operation for x.
 
 ​	CompareAndSwap方法执行 x 的比较并交换操作。
 
@@ -452,6 +562,8 @@ func (x *Pointer[T]) CompareAndSwap(old, new *T) (swapped bool)
 func (x *Pointer[T]) Load() *T
 ```
 
+Load atomically loads and returns the value stored in x.
+
 ​	Load方法原子地加载并返回存储在 x 中的值。
 
 #### (*Pointer[T]) Store  <- go1.19
@@ -460,6 +572,8 @@ func (x *Pointer[T]) Load() *T
 func (x *Pointer[T]) Store(val *T)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将 val 存储到 x 中。
 
 #### (*Pointer[T]) Swap  <- go1.19
@@ -467,6 +581,8 @@ func (x *Pointer[T]) Store(val *T)
 ``` go 
 func (x *Pointer[T]) Swap(new *T) (old *T)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法原子地将 new 存储到 x 中，并返回先前的值。
 
@@ -478,6 +594,8 @@ type Uint32 struct {
 }
 ```
 
+A Uint32 is an atomic uint32. The zero value is zero.
+
 ​	Uint32方法是一个原子 uint32。零值是零。
 
 #### (*Uint32) Add  <- go1.19
@@ -485,6 +603,8 @@ type Uint32 struct {
 ``` go 
 func (x *Uint32) Add(delta uint32) (new uint32)
 ```
+
+Add atomically adds delta to x and returns the new value.
 
 ​	Add方法原子地将 delta 添加到 x 并返回新值。
 
@@ -494,6 +614,8 @@ func (x *Uint32) Add(delta uint32) (new uint32)
 func (x *Uint32) CompareAndSwap(old, new uint32) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for x.
+
 ​	CompareAndSwap方法执行 x 的比较并交换操作。
 
 #### (*Uint32) Load  <- go1.19
@@ -501,6 +623,8 @@ func (x *Uint32) CompareAndSwap(old, new uint32) (swapped bool)
 ``` go 
 func (x *Uint32) Load() uint32
 ```
+
+Load atomically loads and returns the value stored in x.
 
 ​	Load方法原子地加载并返回存储在x中的值。
 
@@ -510,6 +634,8 @@ func (x *Uint32) Load() uint32
 func (x *Uint32) Store(val uint32)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将val存储到x中。
 
 #### (*Uint32) Swap  <- go1.19
@@ -517,6 +643,8 @@ func (x *Uint32) Store(val uint32)
 ``` go 
 func (x *Uint32) Swap(new uint32) (old uint32)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法原子地将new存储到x中并返回先前的值。
 
@@ -528,6 +656,8 @@ type Uint64 struct {
 }
 ```
 
+A Uint64 is an atomic uint64. The zero value is zero.
+
 ​	Uint64方法是一个原子性的uint64类型。零值为零。
 
 #### (*Uint64) Add  <- go1.19
@@ -535,6 +665,8 @@ type Uint64 struct {
 ``` go 
 func (x *Uint64) Add(delta uint64) (new uint64)
 ```
+
+Add atomically adds delta to x and returns the new value.
 
 ​	Add方法原子性地将delta添加到x中并返回新值。
 
@@ -544,6 +676,8 @@ func (x *Uint64) Add(delta uint64) (new uint64)
 func (x *Uint64) CompareAndSwap(old, new uint64) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for x.
+
 ​	CompareAndSwap方法在x上执行比较并交换操作。
 
 #### (*Uint64) Load  <- go1.19
@@ -551,6 +685,8 @@ func (x *Uint64) CompareAndSwap(old, new uint64) (swapped bool)
 ``` go 
 func (x *Uint64) Load() uint64
 ```
+
+Load atomically loads and returns the value stored in x.
 
 ​	Load方法原子地加载并返回存储在x中的值。
 
@@ -560,6 +696,8 @@ func (x *Uint64) Load() uint64
 func (x *Uint64) Store(val uint64)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法原子地将val存储到x中。
 
 #### (*Uint64) Swap  <- go1.19
@@ -567,6 +705,8 @@ func (x *Uint64) Store(val uint64)
 ``` go 
 func (x *Uint64) Swap(new uint64) (old uint64)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法原子地将new存储到x中并返回先前的值。
 
@@ -578,6 +718,8 @@ type Uintptr struct {
 }
 ```
 
+A Uintptr is an atomic uintptr. The zero value is zero.
+
 ​	Uintptr是一个原子的uintptr类型。零值为零。
 
 #### (*Uintptr) Add  <- go1.19
@@ -585,6 +727,8 @@ type Uintptr struct {
 ``` go 
 func (x *Uintptr) Add(delta uintptr) (new uintptr)
 ```
+
+Add atomically adds delta to x and returns the new value.
 
 ​	Add方法原子地将delta添加到x并返回新值。
 
@@ -594,6 +738,8 @@ func (x *Uintptr) Add(delta uintptr) (new uintptr)
 func (x *Uintptr) CompareAndSwap(old, new uintptr) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for x.
+
 ​	CompareAndSwap方法执行x的比较和交换操作。
 
 #### (*Uintptr) Load  <- go1.19
@@ -601,6 +747,8 @@ func (x *Uintptr) CompareAndSwap(old, new uintptr) (swapped bool)
 ``` go 
 func (x *Uintptr) Load() uintptr
 ```
+
+Load atomically loads and returns the value stored in x.
 
 ​	Load方法以原子方式加载并返回存储在x中的值。
 
@@ -610,6 +758,8 @@ func (x *Uintptr) Load() uintptr
 func (x *Uintptr) Store(val uintptr)
 ```
 
+Store atomically stores val into x.
+
 ​	Store方法以原子方式将val存储到x中。
 
 #### (*Uintptr) Swap  <- go1.19
@@ -617,6 +767,8 @@ func (x *Uintptr) Store(val uintptr)
 ``` go 
 func (x *Uintptr) Swap(new uintptr) (old uintptr)
 ```
+
+Swap atomically stores new into x and returns the previous value.
 
 ​	Swap方法以原子方式将new存储到x中并返回先前的值。
 
@@ -628,11 +780,15 @@ type Value struct {
 }
 ```
 
+A Value provides an atomic load and store of a consistently typed value. The zero value for a Value returns nil from Load. Once Store has been called, a Value must not be copied.
+
 ​	Value类型提供了一个一致类型值的原子加载和存储。Value类型的零值从Load返回nil。一旦调用了Store，就不能再复制Value。
+
+A Value must not be copied after first use.
 
 ​	使用后不能再复制Value。
 
-##### Example (Config)
+#### Example (Config)
 
 The following example shows how to use Value for periodic program config updates and propagation of the changes to worker goroutines.
 
@@ -686,7 +842,7 @@ func main() {
 
 ```
 
-##### Example (ReadMostly) 
+#### Example (ReadMostly) 
 
 The following example shows how to maintain a scalable frequently read, but infrequently updated data structure using copy-on-write idiom.
 
@@ -740,7 +896,11 @@ func main() {
 func (v *Value) CompareAndSwap(old, new any) (swapped bool)
 ```
 
+CompareAndSwap executes the compare-and-swap operation for the Value.
+
 ​	CompareAndSwap方法为Value执行比较和交换操作。
+
+All calls to CompareAndSwap for a given Value must use values of the same concrete type. CompareAndSwap of an inconsistent type panics, as does CompareAndSwap(old, nil).
 
 ​	所有对给定Value的CompareAndSwap调用必须使用相同具体类型的值。类型不一致的CompareAndSwap会导致panic，CompareAndSwap(old, nil)也是如此。
 
@@ -750,6 +910,8 @@ func (v *Value) CompareAndSwap(old, new any) (swapped bool)
 func (v *Value) Load() (val any)
 ```
 
+Load returns the value set by the most recent Store. It returns nil if there has been no call to Store for this Value.
+
 ​	Load方法返回最近一次Store设置的值。如果没有为此Value调用Store，则返回nil。
 
 #### (*Value) Store  <- go1.4
@@ -757,6 +919,8 @@ func (v *Value) Load() (val any)
 ``` go 
 func (v *Value) Store(val any)
 ```
+
+Store sets the value of the Value v to val. All calls to Store for a given Value must use values of the same concrete type. Store of an inconsistent type panics, as does Store(nil).
 
 ​	Store方法将Value v的值设置为val。所有对给定Value的Store调用必须使用相同具体类型的值。类型不一致的Store会导致panic，Store(nil)也是如此。
 
@@ -766,7 +930,11 @@ func (v *Value) Store(val any)
 func (v *Value) Swap(new any) (old any)
 ```
 
+Swap stores new into Value and returns the previous value. It returns nil if the Value is empty.
+
 ​	Swap方法操作将new值存储到Value中，并返回旧值。如果Value为空，则返回nil。
+
+All calls to Swap for a given Value must use values of the same concrete type. Swap of an inconsistent type panics, as does Swap(nil).
 
 ​	对于同一个 Value，所有 Swap方法的调用必须使用相同的具体类型的值。如果使用不一致的类型进行 Swap方法，会导致 panic，就像 Swap(nil) 一样。
 

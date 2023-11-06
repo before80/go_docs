@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/sort@go1.20.1
+https://pkg.go.dev/sort@go1.21.3
 
 Package sort provides primitives for sorting slices and user-defined collections.
 

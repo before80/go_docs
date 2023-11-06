@@ -6,11 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/testing@go1.20.1
+https://pkg.go.dev/testing@go1.21.3
 
-
-
-​	testing包提供了对Go程序包进行自动化测试的支持。它旨在与"go test"命令一起使用，该命令自动执行以下形式的任何函数：
+​	`testing`包提供了对Go程序包进行自动化测试的支持。它旨在与"go test"命令一起使用，该命令自动执行以下形式的任何函数：
 
 ``` go 
 func TestXxx(*testing.T)
@@ -26,7 +24,7 @@ func TestXxx(*testing.T)
 
 (包内测试)如果测试文件在同一个包中，则可以引用包内未公开的标识符，如下面的示例：
 
-```go  hl_lines="1 1"
+```go
 package abs
 
 import "testing"
@@ -41,7 +39,7 @@ func TestAbs(t *testing.T) {
 
 (包外测试)如果测试文件在一个单独的"_test"包中，被测试的包必须显式导入，并且只能使用其导出的标识符。这被称为"黑盒"测试
 
-```go  hl_lines="1 1"
+```go
 package abs_test
 
 import (
@@ -347,7 +345,7 @@ This section is empty.
 
 ## 函数
 
-#### func AllocsPerRun  <- go1.1
+### func AllocsPerRun  <- go1.1
 
 ``` go 
 func AllocsPerRun(runs int, f func()) (avg float64)
@@ -359,7 +357,7 @@ func AllocsPerRun(runs int, f func()) (avg float64)
 
 ​	AllocsPerRun函数在其测量期间将 `GOMAXPROCS` 设置为 1，并在返回前恢复它。
 
-#### func CoverMode  <- go1.8
+### func CoverMode  <- go1.8
 
 ``` go 
 func CoverMode() string
@@ -367,7 +365,7 @@ func CoverMode() string
 
 ​	CoverMode函数报告测试覆盖模式设置为什么。可选值为 "set"、"count" 或 "atomic"。如果测试覆盖未启用，则返回值为空字符串。
 
-#### func Coverage  <- go1.4
+### func Coverage  <- go1.4
 
 ``` go 
 func Coverage() float64
@@ -377,7 +375,7 @@ func Coverage() float64
 
 ​	在运行大型顺序测试集时，每次检查 Coverage函数可以有助于识别哪些测试用例涉及新的代码路径。它不是"go test -cover"和 "go tool cover"生成的报告的替代品。
 
-#### func Init  <- go1.13
+### func Init  <- go1.13
 
 ``` go 
 func Init()
@@ -387,7 +385,7 @@ func Init()
 
 ​	如果已经调用了 Init函数，则 Init 函数没有任何效果。
 
-#### func Main 
+### func Main 
 
 ``` go 
 func Main(matchString func(pat, str string) (bool, error), tests []InternalTest, benchmarks []InternalBenchmark, examples []InternalExample)
@@ -395,7 +393,7 @@ func Main(matchString func(pat, str string) (bool, error), tests []InternalTest,
 
 ​	Main函数是 "go test" 命令实现的内部函数。它被导出是因为它是跨包的，并且早于 "internal" 包。它不再被 "go test" 使用，但为了其他系统可以模拟 "go test" 使用 Main，尽可能地保留了这个函数。但由于 testing 包添加了新功能，有时 Main 无法更新。模拟 "go test" 的系统应该更新为使用 MainStart。
 
-#### func RegisterCover  <- go1.2
+### func RegisterCover  <- go1.2
 
 ``` go 
 func RegisterCover(c Cover)
@@ -403,7 +401,7 @@ func RegisterCover(c Cover)
 
 ​	RegisterCover函数记录测试的覆盖数据累加器。注意：这个函数是 testing 基础设施的内部函数，可能会更改。它 (目前) 不符合 Go 1 兼容性指南。
 
-#### func RunBenchmarks 
+### func RunBenchmarks 
 
 ``` go 
 func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks []InternalBenchmark)
@@ -411,7 +409,7 @@ func RunBenchmarks(matchString func(pat, str string) (bool, error), benchmarks [
 
 ​	RunBenchmarks函数是一个内部函数，但导出是因为它是跨包的；它是 "go test" 命令的实现的一部分。
 
-#### func RunExamples 
+### func RunExamples 
 
 ``` go 
 func RunExamples(matchString func(pat, str string) (bool, error), examples []InternalExample) (ok bool)
@@ -419,7 +417,7 @@ func RunExamples(matchString func(pat, str string) (bool, error), examples []Int
 
 ​	RunExamples函数是一个内部函数，但导出是因为它是跨包的；它是 "go test" 命令的实现的一部分。
 
-#### func RunTests 
+### func RunTests 
 
 ``` go 
 func RunTests(matchString func(pat, str string) (bool, error), tests []InternalTest) (ok bool)
@@ -427,7 +425,7 @@ func RunTests(matchString func(pat, str string) (bool, error), tests []InternalT
 
 ​	RunTests函数是一个内部函数，但导出是因为它是跨包的；它是 "go test" 命令的实现的一部分。
 
-#### func Short 
+### func Short 
 
 ``` go 
 func Short() bool
@@ -435,7 +433,15 @@ func Short() bool
 
 ​	Short 函数报告是否设置了 `-test.short` 标志。
 
-#### func Verbose  <- go1.1
+### func Testing <-go1.21.0
+
+```go
+func Testing() bool
+```
+
+Testing reports whether the current code is being run in a test. This will report true in programs created by "go test", false in programs created by "go build".
+
+### func Verbose  <- go1.1
 
 ``` go 
 func Verbose() bool

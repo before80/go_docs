@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/strings@go1.20.1
+https://pkg.go.dev/strings@go1.21.3
 
 Package strings implements simple functions to manipulate UTF-8 encoded strings.
 
@@ -147,6 +147,14 @@ true
 false
 false
 ```
+
+### func ContainsFunc <-go1.21.0
+
+```go
+func ContainsFunc(s string, f func(rune) bool) bool
+```
+
+ContainsFunc reports whether any Unicode code points r within s satisfy f(r).
 
 ### func ContainsRune 
 

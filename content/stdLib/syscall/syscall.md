@@ -8,8 +8,6 @@ draft = false
 +++
 https://pkg.go.dev/syscall@go1.20.1
 
-
-
 Package syscall contains an interface to the low-level operating system primitives. The details vary depending on the underlying system, and by default, godoc will display the syscall documentation for the current system. If you want godoc to display syscall documentation for another system, set $GOOS and $GOARCH to the desired system. For example, if you want to view documentation for freebsd/arm on linux/amd64, set $GOOS to freebsd and $GOARCH to arm. The primary use of syscall is inside other packages that provide a more portable interface to the system, such as "os", "time" and "net". Use those packages rather than this one if you can. For details of the functions and data types in this package consult the manuals for the appropriate operating system. These calls return err == nil to indicate success; otherwise err is an operating system error describing the failure. On most systems, that error has type syscall.Errno.
 
 Deprecated: this package is locked down. Callers should use the corresponding package in the golang.org/x/sys repository instead. That is also where updates required by new systems or versions should be applied. See https://golang.org/s/go1.4-syscall for more information.
@@ -2013,35 +2011,35 @@ For testing: clients can set this flag to force creation of IPv6 sockets to retu
 
 ## 函数
 
-#### func Access 
+### func Access 
 
 ``` go 
 func Access(path string, mode uint32) (err error)
 ```
 
-#### func Acct 
+### func Acct 
 
 ``` go 
 func Acct(path string) (err error)
 ```
 
-#### func Adjtimex 
+### func Adjtimex 
 
 ``` go 
 func Adjtimex(buf *Timex) (state int, err error)
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-#### func Bind 
+### func Bind 
 
 ``` go 
 func Bind(fd int, sa Sockaddr) (err error)
 ```
 
-#### func BindToDevice 
+### func BindToDevice 
 
 ``` go 
 func BindToDevice(fd int, device string) (err error)
@@ -2049,7 +2047,7 @@ func BindToDevice(fd int, device string) (err error)
 
 BindToDevice binds the socket associated with fd to device.
 
-#### func BytePtrFromString  <- go1.1
+### func BytePtrFromString  <- go1.1
 
 ``` go 
 func BytePtrFromString(s string) (*byte, error)
@@ -2057,7 +2055,7 @@ func BytePtrFromString(s string) (*byte, error)
 
 BytePtrFromString returns a pointer to a NUL-terminated array of bytes containing the text of s. If s contains a NUL byte at any location, it returns (nil, EINVAL).
 
-#### func ByteSliceFromString  <- go1.1
+### func ByteSliceFromString  <- go1.1
 
 ``` go 
 func ByteSliceFromString(s string) ([]byte, error)
@@ -2065,49 +2063,49 @@ func ByteSliceFromString(s string) ([]byte, error)
 
 ByteSliceFromString returns a NUL-terminated slice of bytes containing the text of s. If s contains a NUL byte at any location, it returns (nil, EINVAL).
 
-#### func Chdir 
+### func Chdir 
 
 ``` go 
 func Chdir(path string) (err error)
 ```
 
-#### func Chmod 
+### func Chmod 
 
 ``` go 
 func Chmod(path string, mode uint32) (err error)
 ```
 
-#### func Chown 
+### func Chown 
 
 ``` go 
 func Chown(path string, uid int, gid int) (err error)
 ```
 
-#### func Chroot 
+### func Chroot 
 
 ``` go 
 func Chroot(path string) (err error)
 ```
 
-#### func Clearenv 
+### func Clearenv 
 
 ``` go 
 func Clearenv()
 ```
 
-#### func Close 
+### func Close 
 
 ``` go 
 func Close(fd int) (err error)
 ```
 
-#### func CloseOnExec 
+### func CloseOnExec 
 
 ``` go 
 func CloseOnExec(fd int)
 ```
 
-#### func CmsgLen 
+### func CmsgLen 
 
 ``` go 
 func CmsgLen(datalen int) int
@@ -2115,7 +2113,7 @@ func CmsgLen(datalen int) int
 
 CmsgLen returns the value to store in the Len field of the Cmsghdr structure, taking into account any necessary alignment.
 
-#### func CmsgSpace 
+### func CmsgSpace 
 
 ``` go 
 func CmsgSpace(datalen int) int
@@ -2123,71 +2121,71 @@ func CmsgSpace(datalen int) int
 
 CmsgSpace returns the number of bytes an ancillary element with payload of the passed data length occupies.
 
-#### func Connect 
+### func Connect 
 
 ``` go 
 func Connect(fd int, sa Sockaddr) (err error)
 ```
 
-#### func Creat 
+### func Creat 
 
 ``` go 
 func Creat(path string, mode uint32) (fd int, err error)
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-#### func Dup 
+### func Dup 
 
 ``` go 
 func Dup(oldfd int) (fd int, err error)
 ```
 
-#### func Dup2 
+### func Dup2 
 
 ``` go 
 func Dup2(oldfd int, newfd int) (err error)
 ```
 
-#### func Dup3  <- go1.2
+### func Dup3  <- go1.2
 
 ``` go 
 func Dup3(oldfd int, newfd int, flags int) (err error)
 ```
 
-#### func Environ 
+### func Environ 
 
 ``` go 
 func Environ() []string
 ```
 
-#### func EpollCreate 
+### func EpollCreate 
 
 ``` go 
 func EpollCreate(size int) (fd int, err error)
 ```
 
-#### func EpollCreate1 
+### func EpollCreate1 
 
 ``` go 
 func EpollCreate1(flag int) (fd int, err error)
 ```
 
-#### func EpollCtl 
+### func EpollCtl 
 
 ``` go 
 func EpollCtl(epfd int, op int, fd int, event *EpollEvent) (err error)
 ```
 
-#### func EpollWait 
+### func EpollWait 
 
 ``` go 
 func EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
 ```
 
-#### func Exec 
+### func Exec 
 
 ``` go 
 func Exec(argv0 string, argv []string, envv []string) (err error)
@@ -2195,55 +2193,55 @@ func Exec(argv0 string, argv []string, envv []string) (err error)
 
 Exec invokes the execve(2) system call.
 
-#### func Exit 
+func Exit 
 
 ``` go 
 func Exit(code int)
 ```
 
-#### func Faccessat 
+### func Faccessat 
 
 ``` go 
 func Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
-#### func Fallocate 
+### func Fallocate 
 
 ``` go 
 func Fallocate(fd int, mode uint32, off int64, len int64) (err error)
 ```
 
-#### func Fchdir 
+### func Fchdir 
 
 ``` go 
 func Fchdir(fd int) (err error)
 ```
 
-#### func Fchmod 
+### func Fchmod 
 
 ``` go 
 func Fchmod(fd int, mode uint32) (err error)
 ```
 
-#### func Fchmodat 
+### func Fchmodat 
 
 ``` go 
 func Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
-#### func Fchown 
+### func Fchown 
 
 ``` go 
 func Fchown(fd int, uid int, gid int) (err error)
 ```
 
-#### func Fchownat 
+### func Fchownat 
 
 ``` go 
 func Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
 ```
 
-#### func FcntlFlock  <- go1.3
+### func FcntlFlock  <- go1.3
 
 ``` go 
 func FcntlFlock(fd uintptr, cmd int, lk *Flock_t) error
@@ -2251,19 +2249,19 @@ func FcntlFlock(fd uintptr, cmd int, lk *Flock_t) error
 
 FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
 
-#### func Fdatasync 
+### func Fdatasync 
 
 ``` go 
 func Fdatasync(fd int) (err error)
 ```
 
-#### func Flock 
+### func Flock 
 
 ``` go 
 func Flock(fd int, how int) (err error)
 ```
 
-#### func ForkExec 
+### func ForkExec 
 
 ``` go 
 func ForkExec(argv0 string, argv []string, attr *ProcAttr) (pid int, err error)
@@ -2271,347 +2269,347 @@ func ForkExec(argv0 string, argv []string, attr *ProcAttr) (pid int, err error)
 
 Combination of fork and exec, careful to be thread safe.
 
-#### func Fstat 
+### func Fstat 
 
 ``` go 
 func Fstat(fd int, stat *Stat_t) (err error)
 ```
 
-#### func Fstatfs 
+### func Fstatfs 
 
 ``` go 
 func Fstatfs(fd int, buf *Statfs_t) (err error)
 ```
 
-#### func Fsync 
+### func Fsync 
 
 ``` go 
 func Fsync(fd int) (err error)
 ```
 
-#### func Ftruncate 
+### func Ftruncate 
 
 ``` go 
 func Ftruncate(fd int, length int64) (err error)
 ```
 
-#### func Futimes 
+### func Futimes 
 
 ``` go 
 func Futimes(fd int, tv []Timeval) (err error)
 ```
 
-#### func Futimesat 
+### func Futimesat 
 
 ``` go 
 func Futimesat(dirfd int, path string, tv []Timeval) (err error)
 ```
 
-#### func Getcwd 
+### func Getcwd 
 
 ``` go 
 func Getcwd(buf []byte) (n int, err error)
 ```
 
-#### func Getdents 
+### func Getdents 
 
 ``` go 
 func Getdents(fd int, buf []byte) (n int, err error)
 ```
 
-#### func Getegid 
+### func Getegid 
 
 ``` go 
 func Getegid() (egid int)
 ```
 
-#### func Getenv 
+### func Getenv 
 
 ``` go 
 func Getenv(key string) (value string, found bool)
 ```
 
-#### func Geteuid 
+### func Geteuid 
 
 ``` go 
 func Geteuid() (euid int)
 ```
 
-#### func Getgid 
+### func Getgid 
 
 ``` go 
 func Getgid() (gid int)
 ```
 
-#### func Getgroups 
+### func Getgroups 
 
 ``` go 
 func Getgroups() (gids []int, err error)
 ```
 
-#### func Getpagesize 
+### func Getpagesize 
 
 ``` go 
 func Getpagesize() int
 ```
 
-#### func Getpgid 
+### func Getpgid 
 
 ``` go 
 func Getpgid(pid int) (pgid int, err error)
 ```
 
-#### func Getpgrp 
+### func Getpgrp 
 
 ``` go 
 func Getpgrp() (pid int)
 ```
 
-#### func Getpid 
+### func Getpid 
 
 ``` go 
 func Getpid() (pid int)
 ```
 
-#### func Getppid 
+### func Getppid 
 
 ``` go 
 func Getppid() (ppid int)
 ```
 
-#### func Getpriority  <- go1.2
+### func Getpriority  <- go1.2
 
 ``` go 
 func Getpriority(which int, who int) (prio int, err error)
 ```
 
-#### func Getrlimit 
+func Getrlimit 
 
 ``` go 
 func Getrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
-#### func Getrusage 
+### func Getrusage 
 
 ``` go 
 func Getrusage(who int, rusage *Rusage) (err error)
 ```
 
-#### func GetsockoptInet4Addr 
+### func GetsockoptInet4Addr 
 
 ``` go 
 func GetsockoptInet4Addr(fd, level, opt int) (value [4]byte, err error)
 ```
 
-#### func GetsockoptInt 
+### func GetsockoptInt 
 
 ``` go 
 func GetsockoptInt(fd, level, opt int) (value int, err error)
 ```
 
-#### func Gettid 
+### func Gettid 
 
 ``` go 
 func Gettid() (tid int)
 ```
 
-#### func Gettimeofday 
+### func Gettimeofday 
 
 ``` go 
 func Gettimeofday(tv *Timeval) (err error)
 ```
 
-#### func Getuid 
+### func Getuid 
 
 ``` go 
 func Getuid() (uid int)
 ```
 
-#### func Getwd 
+### func Getwd 
 
 ``` go 
 func Getwd() (wd string, err error)
 ```
 
-#### func Getxattr  <- go1.1
+### func Getxattr  <- go1.1
 
 ``` go 
 func Getxattr(path string, attr string, dest []byte) (sz int, err error)
 ```
 
-#### func InotifyAddWatch 
+### func InotifyAddWatch 
 
 ``` go 
 func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
 ```
 
-#### func InotifyInit 
+### func InotifyInit 
 
 ``` go 
 func InotifyInit() (fd int, err error)
 ```
 
-#### func InotifyInit1 
+### func InotifyInit1 
 
 ``` go 
 func InotifyInit1(flags int) (fd int, err error)
 ```
 
-#### func InotifyRmWatch 
+### func InotifyRmWatch 
 
 ``` go 
 func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
 ```
 
-#### func Ioperm 
+### func Ioperm 
 
 ``` go 
 func Ioperm(from int, num int, on int) (err error)
 ```
 
-#### func Iopl 
+func Iopl 
 
 ``` go 
 func Iopl(level int) (err error)
 ```
 
-#### func Kill 
+### func Kill 
 
 ``` go 
 func Kill(pid int, sig Signal) (err error)
 ```
 
-#### func Klogctl 
+### func Klogctl 
 
 ``` go 
 func Klogctl(typ int, buf []byte) (n int, err error)
 ```
 
-#### func Lchown 
+### func Lchown 
 
 ``` go 
 func Lchown(path string, uid int, gid int) (err error)
 ```
 
-#### func Link 
+### func Link 
 
 ``` go 
 func Link(oldpath string, newpath string) (err error)
 ```
 
-#### func Listen 
+### func Listen 
 
 ``` go 
 func Listen(s int, n int) (err error)
 ```
 
-#### func Listxattr  <- go1.1
+### func Listxattr  <- go1.1
 
 ``` go 
 func Listxattr(path string, dest []byte) (sz int, err error)
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-#### func Lstat 
+### func Lstat 
 
 ``` go 
 func Lstat(path string, stat *Stat_t) (err error)
 ```
 
-#### func Madvise 
+### func Madvise 
 
 ``` go 
 func Madvise(b []byte, advice int) (err error)
 ```
 
-#### func Mkdir 
+### func Mkdir 
 
 ``` go 
 func Mkdir(path string, mode uint32) (err error)
 ```
 
-#### func Mkdirat 
+### func Mkdirat 
 
 ``` go 
 func Mkdirat(dirfd int, path string, mode uint32) (err error)
 ```
 
-#### func Mkfifo 
+### func Mkfifo 
 
 ``` go 
 func Mkfifo(path string, mode uint32) (err error)
 ```
 
-#### func Mknod 
+### func Mknod 
 
 ``` go 
 func Mknod(path string, mode uint32, dev int) (err error)
 ```
 
-#### func Mknodat 
+### func Mknodat 
 
 ``` go 
 func Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
 ```
 
-#### func Mlock 
+### func Mlock 
 
 ``` go 
 func Mlock(b []byte) (err error)
 ```
 
-#### func Mlockall 
+### func Mlockall 
 
 ``` go 
 func Mlockall(flags int) (err error)
 ```
 
-#### func Mmap 
+### func Mmap 
 
 ``` go 
 func Mmap(fd int, offset int64, length int, prot int, flags int) (data []byte, err error)
 ```
 
-#### func Mount 
+### func Mount 
 
 ``` go 
 func Mount(source string, target string, fstype string, flags uintptr, data string) (err error)
 ```
 
-#### func Mprotect 
+### func Mprotect 
 
 ``` go 
 func Mprotect(b []byte, prot int) (err error)
 ```
 
-#### func Munlock 
+### func Munlock 
 
 ``` go 
 func Munlock(b []byte) (err error)
 ```
 
-#### func Munlockall 
+### func Munlockall 
 
 ``` go 
 func Munlockall() (err error)
 ```
 
-#### func Munmap 
+### func Munmap 
 
 ``` go 
 func Munmap(b []byte) (err error)
 ```
 
-#### func Nanosleep 
+### func Nanosleep 
 
 ``` go 
 func Nanosleep(time *Timespec, leftover *Timespec) (err error)
 ```
 
-#### func NetlinkRIB 
+### func NetlinkRIB 
 
 ``` go 
 func NetlinkRIB(proto, family int) ([]byte, error)
@@ -2619,19 +2617,19 @@ func NetlinkRIB(proto, family int) ([]byte, error)
 
 NetlinkRIB returns routing information base, as known as RIB, which consists of network facility information, states and parameters.
 
-#### func Open 
+### func Open 
 
 ``` go 
 func Open(path string, mode int, perm uint32) (fd int, err error)
 ```
 
-#### func Openat 
+### func Openat 
 
 ``` go 
 func Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
 ```
 
-#### func ParseDirent 
+### func ParseDirent 
 
 ``` go 
 func ParseDirent(buf []byte, max int, names []string) (consumed int, count int, newnames []string)
@@ -2639,7 +2637,7 @@ func ParseDirent(buf []byte, max int, names []string) (consumed int, count int, 
 
 ParseDirent parses up to max directory entries in buf, appending the names to names. It returns the number of bytes consumed from buf, the number of entries added to names, and the new names slice.
 
-#### func ParseUnixRights 
+### func ParseUnixRights 
 
 ``` go 
 func ParseUnixRights(m *SocketControlMessage) ([]int, error)
@@ -2647,401 +2645,401 @@ func ParseUnixRights(m *SocketControlMessage) ([]int, error)
 
 ParseUnixRights decodes a socket control message that contains an integer array of open file descriptors from another process.
 
-#### func Pause 
+### func Pause 
 
 ``` go 
 func Pause() (err error)
 ```
 
-#### func Pipe 
+### func Pipe 
 
 ``` go 
 func Pipe(p []int) error
 ```
 
-#### func Pipe2  <- go1.1
+### func Pipe2  <- go1.1
 
 ``` go 
 func Pipe2(p []int, flags int) error
 ```
 
-#### func PivotRoot 
+### func PivotRoot 
 
 ``` go 
 func PivotRoot(newroot string, putold string) (err error)
 ```
 
-#### func Pread 
+### func Pread 
 
 ``` go 
 func Pread(fd int, p []byte, offset int64) (n int, err error)
 ```
 
-#### func PtraceAttach 
+### func PtraceAttach 
 
 ``` go 
 func PtraceAttach(pid int) (err error)
 ```
 
-#### func PtraceCont 
+### func PtraceCont 
 
 ``` go 
 func PtraceCont(pid int, signal int) (err error)
 ```
 
-#### func PtraceDetach 
+### func PtraceDetach 
 
 ``` go 
 func PtraceDetach(pid int) (err error)
 ```
 
-#### func PtraceGetEventMsg 
+func PtraceGetEventMsg 
 
 ``` go 
 func PtraceGetEventMsg(pid int) (msg uint, err error)
 ```
 
-#### func PtraceGetRegs 
+### func PtraceGetRegs 
 
 ``` go 
 func PtraceGetRegs(pid int, regsout *PtraceRegs) (err error)
 ```
 
-#### func PtracePeekData 
+### func PtracePeekData 
 
 ``` go 
 func PtracePeekData(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
-#### func PtracePeekText 
+### func PtracePeekText 
 
 ``` go 
 func PtracePeekText(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
-#### func PtracePokeData 
+### func PtracePokeData 
 
 ``` go 
 func PtracePokeData(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
-#### func PtracePokeText 
+### func PtracePokeText 
 
 ``` go 
 func PtracePokeText(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
-#### func PtraceSetOptions 
+### func PtraceSetOptions 
 
 ``` go 
 func PtraceSetOptions(pid int, options int) (err error)
 ```
 
-#### func PtraceSetRegs 
+### func PtraceSetRegs 
 
 ``` go 
 func PtraceSetRegs(pid int, regs *PtraceRegs) (err error)
 ```
 
-#### func PtraceSingleStep 
+### func PtraceSingleStep 
 
 ``` go 
 func PtraceSingleStep(pid int) (err error)
 ```
 
-#### func PtraceSyscall  <- go1.1
+### func PtraceSyscall  <- go1.1
 
 ``` go 
 func PtraceSyscall(pid int, signal int) (err error)
 ```
 
-#### func Pwrite 
+### func Pwrite 
 
 ``` go 
 func Pwrite(fd int, p []byte, offset int64) (n int, err error)
 ```
 
-#### func Read 
+### func Read 
 
 ``` go 
 func Read(fd int, p []byte) (n int, err error)
 ```
 
-#### func ReadDirent 
+### func ReadDirent 
 
 ``` go 
 func ReadDirent(fd int, buf []byte) (n int, err error)
 ```
 
-#### func Readlink 
+### func Readlink 
 
 ``` go 
 func Readlink(path string, buf []byte) (n int, err error)
 ```
 
-#### func Reboot 
+### func Reboot 
 
 ``` go 
 func Reboot(cmd int) (err error)
 ```
 
-#### func Removexattr  <- go1.1
+### func Removexattr  <- go1.1
 
 ``` go 
 func Removexattr(path string, attr string) (err error)
 ```
 
-#### func Rename 
+### func Rename 
 
 ``` go 
 func Rename(oldpath string, newpath string) (err error)
 ```
 
-#### func Renameat 
+### func Renameat 
 
 ``` go 
 func Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
 ```
 
-#### func Rmdir 
+### func Rmdir 
 
 ``` go 
 func Rmdir(path string) error
 ```
 
-#### func Seek 
+### func Seek 
 
 ``` go 
 func Seek(fd int, offset int64, whence int) (off int64, err error)
 ```
 
-#### func Select 
+### func Select 
 
 ``` go 
 func Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
 ```
 
-#### func Sendfile 
+### func Sendfile 
 
 ``` go 
 func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
 ```
 
-#### func Sendmsg 
+### func Sendmsg 
 
 ``` go 
 func Sendmsg(fd int, p, oob []byte, to Sockaddr, flags int) (err error)
 ```
 
-#### func SendmsgN  <- go1.3
+### func SendmsgN  <- go1.3
 
 ``` go 
 func SendmsgN(fd int, p, oob []byte, to Sockaddr, flags int) (n int, err error)
 ```
 
-#### func Sendto 
+### func Sendto 
 
 ``` go 
 func Sendto(fd int, p []byte, flags int, to Sockaddr) (err error)
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-#### func SetNonblock 
+### func SetNonblock 
 
 ``` go 
 func SetNonblock(fd int, nonblocking bool) (err error)
 ```
 
-#### func Setdomainname 
+### func Setdomainname 
 
 ``` go 
 func Setdomainname(p []byte) (err error)
 ```
 
-#### func Setegid  <- go1.16
+### func Setegid  <- go1.16
 
 ``` go 
 func Setegid(egid int) (err error)
 ```
 
-#### func Setenv 
+### func Setenv 
 
 ``` go 
 func Setenv(key, value string) error
 ```
 
-#### func Seteuid  <- go1.16
+### func Seteuid  <- go1.16
 
 ``` go 
 func Seteuid(euid int) (err error)
 ```
 
-#### func Setfsgid 
+### func Setfsgid 
 
 ``` go 
 func Setfsgid(gid int) (err error)
 ```
 
-#### func Setfsuid 
+### func Setfsuid 
 
 ``` go 
 func Setfsuid(uid int) (err error)
 ```
 
-#### func Setgid 
+func Setgid 
 
 ``` go 
 func Setgid(gid int) (err error)
 ```
 
-#### func Setgroups 
+### func Setgroups 
 
 ``` go 
 func Setgroups(gids []int) (err error)
 ```
 
-#### func Sethostname 
+### func Sethostname 
 
 ``` go 
 func Sethostname(p []byte) (err error)
 ```
 
-#### func Setpgid 
+### func Setpgid 
 
 ``` go 
 func Setpgid(pid int, pgid int) (err error)
 ```
 
-#### func Setpriority  <- go1.2
+### func Setpriority  <- go1.2
 
 ``` go 
 func Setpriority(which int, who int, prio int) (err error)
 ```
 
-#### func Setregid 
+### func Setregid 
 
 ``` go 
 func Setregid(rgid, egid int) (err error)
 ```
 
-#### func Setresgid 
+### func Setresgid 
 
 ``` go 
 func Setresgid(rgid, egid, sgid int) (err error)
 ```
 
-#### func Setresuid 
+### func Setresuid 
 
 ``` go 
 func Setresuid(ruid, euid, suid int) (err error)
 ```
 
-#### func Setreuid 
+### func Setreuid 
 
 ``` go 
 func Setreuid(ruid, euid int) (err error)
 ```
 
-#### func Setrlimit 
+### func Setrlimit 
 
 ``` go 
 func Setrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
-#### func Setsid 
+### func Setsid 
 
 ``` go 
 func Setsid() (pid int, err error)
 ```
 
-#### func SetsockoptByte  <- go1.2
+### func SetsockoptByte  <- go1.2
 
 ``` go 
 func SetsockoptByte(fd, level, opt int, value byte) (err error)
 ```
 
-#### func SetsockoptICMPv6Filter  <- go1.2
+### func SetsockoptICMPv6Filter  <- go1.2
 
 ``` go 
 func SetsockoptICMPv6Filter(fd, level, opt int, filter *ICMPv6Filter) error
 ```
 
-#### func SetsockoptIPMreq 
+### func SetsockoptIPMreq 
 
 ``` go 
 func SetsockoptIPMreq(fd, level, opt int, mreq *IPMreq) (err error)
 ```
 
-#### func SetsockoptIPMreqn 
+### func SetsockoptIPMreqn 
 
 ``` go 
 func SetsockoptIPMreqn(fd, level, opt int, mreq *IPMreqn) (err error)
 ```
 
-#### func SetsockoptIPv6Mreq 
+### func SetsockoptIPv6Mreq 
 
 ``` go 
 func SetsockoptIPv6Mreq(fd, level, opt int, mreq *IPv6Mreq) (err error)
 ```
 
-#### func SetsockoptInet4Addr 
+### func SetsockoptInet4Addr 
 
 ``` go 
 func SetsockoptInet4Addr(fd, level, opt int, value [4]byte) (err error)
 ```
 
-#### func SetsockoptInt 
+### func SetsockoptInt 
 
 ``` go 
 func SetsockoptInt(fd, level, opt int, value int) (err error)
 ```
 
-#### func SetsockoptLinger 
+### func SetsockoptLinger 
 
 ``` go 
 func SetsockoptLinger(fd, level, opt int, l *Linger) (err error)
 ```
 
-#### func SetsockoptString 
+### func SetsockoptString 
 
 ``` go 
 func SetsockoptString(fd, level, opt int, s string) (err error)
 ```
 
-#### func SetsockoptTimeval 
+### func SetsockoptTimeval 
 
 ``` go 
 func SetsockoptTimeval(fd, level, opt int, tv *Timeval) (err error)
 ```
 
-#### func Settimeofday 
+### func Settimeofday 
 
 ``` go 
 func Settimeofday(tv *Timeval) (err error)
 ```
 
-#### func Setuid 
+### func Setuid 
 
 ``` go 
 func Setuid(uid int) (err error)
 ```
 
-#### func Setxattr  <- go1.1
+### func Setxattr  <- go1.1
 
 ``` go 
 func Setxattr(path string, attr string, data []byte, flags int) (err error)
 ```
 
-#### func Shutdown 
+### func Shutdown 
 
 ``` go 
 func Shutdown(fd int, how int) (err error)
 ```
 
-#### func SlicePtrFromStrings  <- go1.1
+func SlicePtrFromStrings  <- go1.1
 
 ``` go 
 func SlicePtrFromStrings(ss []string) ([]*byte, error)
@@ -3049,25 +3047,25 @@ func SlicePtrFromStrings(ss []string) ([]*byte, error)
 
 SlicePtrFromStrings converts a slice of strings to a slice of pointers to NUL-terminated byte arrays. If any string contains a NUL byte, it returns (nil, EINVAL).
 
-#### func Socket 
+### func Socket 
 
 ``` go 
 func Socket(domain, typ, proto int) (fd int, err error)
 ```
 
-#### func Socketpair 
+### func Socketpair 
 
 ``` go 
 func Socketpair(domain, typ, proto int) (fd [2]int, err error)
 ```
 
-#### func Splice 
+### func Splice 
 
 ``` go 
 func Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
 ```
 
-#### func StartProcess 
+### func StartProcess 
 
 ``` go 
 func StartProcess(argv0 string, argv []string, attr *ProcAttr) (pid int, handle uintptr, err error)
@@ -3075,73 +3073,73 @@ func StartProcess(argv0 string, argv []string, attr *ProcAttr) (pid int, handle 
 
 StartProcess wraps ForkExec for package os.
 
-#### func Stat 
+### func Stat 
 
 ``` go 
 func Stat(path string, stat *Stat_t) (err error)
 ```
 
-#### func Statfs 
+### func Statfs 
 
 ``` go 
 func Statfs(path string, buf *Statfs_t) (err error)
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-##### Example
+#### Example
 ``` go 
 ```
 
-#### func Symlink 
+### func Symlink 
 
 ``` go 
 func Symlink(oldpath string, newpath string) (err error)
 ```
 
-#### func Sync 
+### func Sync 
 
 ``` go 
 func Sync()
 ```
 
-#### func SyncFileRange 
+### func SyncFileRange 
 
 ``` go 
 func SyncFileRange(fd int, off int64, n int64, flags int) (err error)
 ```
 
-#### func Sysinfo 
+### func Sysinfo 
 
 ``` go 
 func Sysinfo(info *Sysinfo_t) (err error)
 ```
 
-#### func Tee 
+### func Tee 
 
 ``` go 
 func Tee(rfd int, wfd int, len int, flags int) (n int64, err error)
 ```
 
-#### func Tgkill 
+### func Tgkill 
 
 ``` go 
 func Tgkill(tgid int, tid int, sig Signal) (err error)
 ```
 
-#### func Times 
+### func Times 
 
 ``` go 
 func Times(tms *Tms) (ticks uintptr, err error)
 ```
 
-#### func TimespecToNsec 
+### func TimespecToNsec 
 
 ``` go 
 func TimespecToNsec(ts Timespec) int64
@@ -3149,7 +3147,7 @@ func TimespecToNsec(ts Timespec) int64
 
 TimespecToNSec returns the time stored in ts as nanoseconds.
 
-#### func TimevalToNsec 
+### func TimevalToNsec 
 
 ``` go 
 func TimevalToNsec(tv Timeval) int64
@@ -3157,25 +3155,25 @@ func TimevalToNsec(tv Timeval) int64
 
 TimevalToNsec returns the time stored in tv as nanoseconds.
 
-#### func Truncate 
+### func Truncate 
 
 ``` go 
 func Truncate(path string, length int64) (err error)
 ```
 
-#### func Umask 
+### func Umask 
 
 ``` go 
 func Umask(mask int) (oldmask int)
 ```
 
-#### func Uname 
+### func Uname 
 
 ``` go 
 func Uname(buf *Utsname) (err error)
 ```
 
-#### func UnixCredentials 
+### func UnixCredentials 
 
 ``` go 
 func UnixCredentials(ucred *Ucred) []byte
@@ -3183,7 +3181,7 @@ func UnixCredentials(ucred *Ucred) []byte
 
 UnixCredentials encodes credentials into a socket control message for sending to another process. This can be used for authentication.
 
-#### func UnixRights 
+### func UnixRights 
 
 ``` go 
 func UnixRights(fds ...int) []byte
@@ -3191,67 +3189,67 @@ func UnixRights(fds ...int) []byte
 
 UnixRights encodes a set of open file descriptors into a socket control message for sending to another process.
 
-#### func Unlink 
+### func Unlink 
 
 ``` go 
 func Unlink(path string) error
 ```
 
-#### func Unlinkat 
+### func Unlinkat 
 
 ``` go 
 func Unlinkat(dirfd int, path string) error
 ```
 
-#### func Unmount 
+### func Unmount 
 
 ``` go 
 func Unmount(target string, flags int) (err error)
 ```
 
-#### func Unsetenv  <- go1.4
+### func Unsetenv  <- go1.4
 
 ``` go 
 func Unsetenv(key string) error
 ```
 
-#### func Unshare 
+### func Unshare 
 
 ``` go 
 func Unshare(flags int) (err error)
 ```
 
-#### func Ustat 
+### func Ustat 
 
 ``` go 
 func Ustat(dev int, ubuf *Ustat_t) (err error)
 ```
 
-#### func Utime 
+### func Utime 
 
 ``` go 
 func Utime(path string, buf *Utimbuf) (err error)
 ```
 
-#### func Utimes 
+### func Utimes 
 
 ``` go 
 func Utimes(path string, tv []Timeval) (err error)
 ```
 
-#### func UtimesNano  <- go1.1
+### func UtimesNano  <- go1.1
 
 ``` go 
 func UtimesNano(path string, ts []Timespec) (err error)
 ```
 
-#### func Wait4 
+### func Wait4 
 
 ``` go 
 func Wait4(pid int, wstatus *WaitStatus, options int, rusage *Rusage) (wpid int, err error)
 ```
 
-#### func Write 
+### func Write 
 
 ``` go 
 func Write(fd int, p []byte) (n int, err error)

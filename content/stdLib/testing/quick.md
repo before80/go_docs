@@ -22,7 +22,7 @@ This section is empty.
 
 ## 函数
 
-#### func Check 
+### func Check 
 
 ``` go 
 func Check(f any, config *Config) error
@@ -42,7 +42,7 @@ func TestOddMultipleOfThree(t *testing.T) {
 }
 ```
 
-#### func CheckEqual 
+### func CheckEqual 
 
 ``` go 
 func CheckEqual(f, g any, config *Config) error
@@ -50,7 +50,7 @@ func CheckEqual(f, g any, config *Config) error
 
 ​	CheckEqual函数会查找一个输入，使得`f`和`g`返回不同的结果。它会重复调用`f`和`g`，对于每个参数都使用任意值。如果`f`和`g`返回不同的答案，则CheckEqual函数会返回一个`*CheckEqualError`，描述输入和输出。
 
-#### func Value 
+### func Value 
 
 ``` go 
 func Value(t reflect.Type, rand *rand.Rand) (value reflect.Value, ok bool)

@@ -10,17 +10,9 @@ draft = false
 
 https://pkg.go.dev/syscall/js@go1.20.1
 
-
-
 Package js gives access to the WebAssembly host environment when using the js/wasm architecture. Its API is based on JavaScript semantics.
 
 This package is EXPERIMENTAL. Its current scope is only to allow tests to run, but not yet to provide a comprehensive API for users. It is exempt from the Go compatibility promise.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -32,7 +24,7 @@ This section is empty.
 
 ## 函数
 
-#### func CopyBytesToGo  <- go1.13
+### func CopyBytesToGo  <- go1.13
 
 ``` go 
 func CopyBytesToGo(dst []byte, src Value) int
@@ -40,7 +32,7 @@ func CopyBytesToGo(dst []byte, src Value) int
 
 CopyBytesToGo copies bytes from src to dst. It panics if src is not an Uint8Array or Uint8ClampedArray. It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
 
-#### func CopyBytesToJS  <- go1.13
+### func CopyBytesToJS  <- go1.13
 
 ``` go 
 func CopyBytesToJS(dst Value, src []byte) int

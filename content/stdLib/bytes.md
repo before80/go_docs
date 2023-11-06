@@ -10,7 +10,7 @@ https://pkg.go.dev/bytes@go1.20.1
 
 Package bytes implements functions for the manipulation of byte slices. It is analogous to the facilities of the strings package.
 
-​	bytes包实现了操作字节切片的功能。它类似于strings包的功能。
+​	`bytes`包实现了操作字节切片的功能。它类似于strings包的功能。
 
 ## 常量 
 
@@ -185,6 +185,14 @@ true
 false
 false
 ```
+
+### func ContainsFunc <-go1.21.0
+
+```go
+func ContainsFunc(b []byte, f func(rune) bool) bool
+```
+
+ContainsFunc reports whether any of the UTF-8-encoded code points r within b satisfy f(r).
 
 ### func ContainsRune  <- go1.7
 
@@ -1748,6 +1756,50 @@ In most cases, new(Buffer) (or just declaring a Buffer variable) is sufficient t
 
 ​	在大多数情况下，new(Buffer)(或仅声明一个Buffer变量)足以初始化一个Buffer。
 
+#### (*Buffer)Available <- go1.21.0
+
+```go
+func (b *Buffer) Available() int
+```
+
+Available returns how many bytes are unused in the buffer.
+
+#### (*Buffer) AvailableBuffer <-go1.21.0
+
+```go
+func (b *Buffer) AvailableBuffer() []byte
+```
+
+AvailableBuffer returns an empty buffer with b.Available() capacity. This buffer is intended to be appended to and passed to an immediately succeeding Write call. The buffer is only valid until the next write operation on b.
+
+#### AvailableBuffer Example
+
+```go
+package main
+
+import (
+	"bytes"
+	"os"
+	"strconv"
+)
+
+func main() {
+	var buf bytes.Buffer
+	for i := 0; i < 4; i++ {
+		b := buf.AvailableBuffer()
+		b = strconv.AppendInt(b, int64(i), 10)
+		b = append(b, ' ')
+		buf.Write(b)
+	}
+	os.Stdout.Write(buf.Bytes())
+}
+Output:
+
+0 1 2 3
+```
+
+
+
 #### (*Buffer) Bytes 
 
 ``` go 
@@ -1756,7 +1808,7 @@ func (b *Buffer) Bytes() []byte
 
 Bytes returns a slice of length b.Len() holding the unread portion of the buffer. The slice is valid for use only until the next buffer modification (that is, only until the next call to a method like Read, Write, Reset, or Truncate). The slice aliases the buffer content at least until the next buffer modification, so immediate changes to the slice will affect the result of future reads.
 
-​	Bytes方法返回一个长度为b.Len()的切片，其中包含缓冲区未读部分。切片仅在下一次缓冲区修改之前有效(即只在下一次像Read、Write、Reset或Truncate这样的方法调用之前有效)。切片至少与缓冲区内容同步，直到下一次缓冲区修改，因此立即更改切片将影响将来读取的结果。
+​	`Bytes`方法返回一个长度为b.Len()的切片，其中包含缓冲区未读部分。切片仅在下一次缓冲区修改之前有效(即只在下一次像Read、Write、Reset或Truncate这样的方法调用之前有效)。切片至少与缓冲区内容同步，直到下一次缓冲区修改，因此立即更改切片将影响将来读取的结果。
 
 ##### Example
 ``` go 

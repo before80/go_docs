@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/io/fs@go1.20.1
+https://pkg.go.dev/io/fs@go1.21.3
 
 Package fs defines basic interfaces to a file system. A file system can be provided by the host operating system but also by other packages.
 
@@ -55,6 +55,31 @@ SkipDir is used as a return value from WalkDirFuncs to indicate that the directo
 ​	SkipDir是从WalkDirFuncs返回的值，用于指示应该跳过调用中指定的目录。任何函数都不会将其作为错误返回。
 
 ## 函数
+
+### func FormatDirEntry <-go1.21.0
+
+```go
+func FormatDirEntry(dir DirEntry) string
+```
+
+FormatDirEntry returns a formatted version of dir for human readability. Implementations of DirEntry can call this from a String method. The outputs for a directory named subdir and a file named hello.go are:
+
+```
+d subdir/
+- hello.go
+```
+
+### func FormatFileInfo <-go1.21.0
+
+```go
+func FormatFileInfo(info FileInfo) string
+```
+
+FormatFileInfo returns a formatted version of info for human readability. Implementations of FileInfo can call this from a String method. The output for a file named "hello.go", 100 bytes, mode 0o644, created January 1, 1970 at noon is
+
+```
+-rw-r--r-- 100 1970-01-01 12:00:00 hello.go
+```
 
 ### func Glob 
 

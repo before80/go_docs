@@ -8,13 +8,9 @@ draft = false
 +++
 https://pkg.go.dev/runtime/pprof@go1.20.1
 
-
-
-
-
 Package pprof writes runtime profiling data in the format expected by the pprof visualization tool.
 
-#### Profiling a Go program 
+## Profiling a Go program 
 
 The first step to profiling a Go program is to enable profiling. Support for profiling benchmarks built with the standard testing package is built into go test. For example, the following command runs benchmarks in the current directory and writes the CPU and memory profiles to cpu.prof and mem.prof:
 
@@ -88,7 +84,7 @@ This section is empty.
 
 ## 函数
 
-#### func Do  <- go1.9
+### func Do  <- go1.9
 
 ``` go 
 func Do(ctx context.Context, labels LabelSet, f func(context.Context))
@@ -96,7 +92,7 @@ func Do(ctx context.Context, labels LabelSet, f func(context.Context))
 
 Do calls f with a copy of the parent context with the given labels added to the parent's label map. Goroutines spawned while executing f will inherit the augmented label-set. Each key/value pair in labels is inserted into the label map in the order provided, overriding any previous value for the same key. The augmented label map will be set for the duration of the call to f and restored once f returns.
 
-#### func ForLabels  <- go1.9
+### func ForLabels  <- go1.9
 
 ``` go 
 func ForLabels(ctx context.Context, f func(key, value string) bool)
@@ -104,7 +100,7 @@ func ForLabels(ctx context.Context, f func(key, value string) bool)
 
 ForLabels invokes f with each label set on the context. The function f should return true to continue iteration or false to stop iteration early.
 
-#### func Label  <- go1.9
+### func Label  <- go1.9
 
 ``` go 
 func Label(ctx context.Context, key string) (string, bool)
@@ -112,7 +108,7 @@ func Label(ctx context.Context, key string) (string, bool)
 
 Label returns the value of the label with the given key on ctx, and a boolean indicating whether that label exists.
 
-#### func SetGoroutineLabels  <- go1.9
+### func SetGoroutineLabels  <- go1.9
 
 ``` go 
 func SetGoroutineLabels(ctx context.Context)
@@ -120,7 +116,7 @@ func SetGoroutineLabels(ctx context.Context)
 
 SetGoroutineLabels sets the current goroutine's labels to match ctx. A new goroutine inherits the labels of the goroutine that created it. This is a lower-level API than Do, which should be used instead when possible.
 
-#### func StartCPUProfile 
+### func StartCPUProfile 
 
 ``` go 
 func StartCPUProfile(w io.Writer) error
@@ -130,7 +126,7 @@ StartCPUProfile enables CPU profiling for the current process. While profiling, 
 
 On Unix-like systems, StartCPUProfile does not work by default for Go code built with -buildmode=c-archive or -buildmode=c-shared. StartCPUProfile relies on the SIGPROF signal, but that signal will be delivered to the main program's SIGPROF signal handler (if any) not to the one used by Go. To make it work, call os/signal.Notify for syscall.SIGPROF, but note that doing so may break any profiling being done by the main program.
 
-#### func StopCPUProfile 
+### func StopCPUProfile 
 
 ``` go 
 func StopCPUProfile()
@@ -138,7 +134,7 @@ func StopCPUProfile()
 
 StopCPUProfile stops the current CPU profile, if any. StopCPUProfile only returns after all the writes for the profile have completed.
 
-#### func WithLabels  <- go1.9
+### func WithLabels  <- go1.9
 
 ``` go 
 func WithLabels(ctx context.Context, labels LabelSet) context.Context
@@ -146,7 +142,7 @@ func WithLabels(ctx context.Context, labels LabelSet) context.Context
 
 WithLabels returns a new context.Context with the given labels added. A label overwrites a prior label with the same key.
 
-#### func WriteHeapProfile 
+### func WriteHeapProfile 
 
 ``` go 
 func WriteHeapProfile(w io.Writer) error

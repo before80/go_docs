@@ -6,11 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/strconv@go1.20.1
+https://pkg.go.dev/strconv@go1.21.3
 
 Package strconv implements conversions to and from string representations of basic data types.
 
-​	strconv包实现了基本数据类型的字符串表示与其相互转换的功能。
+​	`strconv`包实现了基本数据类型的字符串表示与其相互转换的功能。
 
 ## 数字转换 Numeric Conversions
 

@@ -6,15 +6,15 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/unsafe@go1.20.1
+https://pkg.go.dev/unsafe@go1.21.3
 
 Package unsafe contains operations that step around the type safety of Go programs.
 
-​	unsafe包包含了绕过Go程序类型安全的操作。
+​	`unsafe`包包含了绕过Go程序类型安全的操作。
 
 Packages that import unsafe may be non-portable and are not protected by the Go 1 compatibility guidelines.
 
-​	导入unsafe包的程序可能是非可移植的，并且不受Go 1兼容性指南的保护。
+​	导入`unsafe`包的程序可能是非可移植的，并且不受Go 1兼容性指南的保护。
 
 ## 常量 
 

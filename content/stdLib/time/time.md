@@ -12,7 +12,7 @@ https://pkg.go.dev/time@go1.20.1
 
 ​	日历计算总是假定[格里高利日历](https://zh.wikipedia.org/wiki/%E5%85%AC%E5%8E%86)，没有[闰秒](https://zh.wikipedia.org/wiki/%E9%97%B0%E7%A7%92)。
 
-#### 单调钟 Monotonic Clocks 
+## 单调钟 Monotonic Clocks 
 
 ​	操作系统提供了“挂钟(wall clock)”和“单调钟(monotonic clock)”两种时钟，前者会受到时间同步的影响，后者则不会。一般规则是挂钟用于显示时间，而单调钟用于计时。为了不分割API，在这个包中，`time.Now`返回的时间包含了挂钟读数和单调钟读数；后续的时间显示操作使用挂钟读数，而后续的时间计算操作，特别是比较和减法操作，使用单调钟读数。
 
@@ -185,7 +185,7 @@ This section is empty.
 
 ## 函数
 
-#### func After 
+### func After 
 
 ``` go 
 func After(d Duration) <-chan Time
@@ -193,7 +193,7 @@ func After(d Duration) <-chan Time
 
 ​	After函数等待指定的时间间隔过去后，将当前时间发送到返回的通道上。它等效于`NewTimer(d).C`。底层的计时器直到计时器触发后才会被垃圾回收器回收。如果效率是一个问题，应该使用`NewTimer`，并在不再需要计时器时调用Timer.Stop。
 
-##### After Example
+#### After Example
 ``` go 
 package main
 
@@ -224,7 +224,7 @@ func main() {
 
 ```
 
-#### func Sleep 
+### func Sleep 
 
 ``` go 
 func Sleep(d Duration)
@@ -232,7 +232,7 @@ func Sleep(d Duration)
 
 ​	Sleep函数暂停当前 goroutine 至少持续时间 d。负或零持续时间会使 Sleep 立即返回。
 
-##### Sleep Example
+#### Sleep Example
 ``` go 
 package main
 
@@ -246,7 +246,7 @@ func main() {
 
 ```
 
-#### func Tick 
+### func Tick 
 
 ``` go 
 func Tick(d Duration) <-chan Time
@@ -254,7 +254,7 @@ func Tick(d Duration) <-chan Time
 
 ​	Tick是对NewTicker的方便封装，仅提供对滴答通道的访问。尽管Tick对于不需要关闭Ticker的客户端很有用，但请注意，如果没有关闭它的方法，底层的Ticker将无法被垃圾回收器回收；它会"泄漏"。与NewTicker不同，如果d <= 0，Tick将返回`nil`。
 
-##### Tick Example
+#### Tick Example
 ``` go 
 package main
 
@@ -319,7 +319,7 @@ type Duration int64
 
 ​	Duration类型表示两个时间点之间经过的时间，以 int64 纳秒计数的方式表示。该表示方式将最大可表示的持续时间限制在大约 `290` 年左右。
 
-##### Example
+#### Example
 ``` go 
 package main
 
@@ -723,7 +723,7 @@ type Location struct {
 
 ​	Location结构体将时间时刻映射到使用的时区。通常，Location 表示在地理区域中使用的时间偏移集合。对于许多 Location，时间偏移量取决于在时间时刻是否使用夏令时。
 
-##### Example
+#### Example
 ``` go 
 package main
 
@@ -861,7 +861,7 @@ type Month int
 
 ​	Month 类型表示一年中的月份(1 代表一月，……)。
 
-##### Example
+#### Example
 ``` go 
 package main
 

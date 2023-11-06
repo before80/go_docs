@@ -9,17 +9,11 @@ draft = false
 https://pkg.go.dev/runtime/metrics@go1.20.1
 
 
-
-
-
-
-
-
 Package metrics provides a stable interface to access implementation-defined metrics exported by the Go runtime. This package is similar to existing functions like runtime.ReadMemStats and debug.ReadGCStats, but significantly more general.
 
 The set of metrics defined by this package may evolve as the runtime itself evolves, and also enables variation across Go implementations, whose relevant metric sets may not intersect.
 
-#### Interface 
+## Interface 
 
 Metrics are designated by a string key, rather than, for example, a field name in a struct. The full list of supported metrics is always available in the slice of Descriptions returned by All. Each Description also includes useful information about the metric.
 
@@ -27,17 +21,17 @@ Thus, users of this API are encouraged to sample supported metrics defined by th
 
 Each metric key also has a "kind" that describes the format of the metric's value. In the interest of not breaking users of this package, the "kind" for a given metric is guaranteed not to change. If it must change, then a new metric will be introduced with a new key and a new "kind."
 
-#### Metric key format 
+## Metric key format 
 
 As mentioned earlier, metric keys are strings. Their format is simple and well-defined, designed to be both human and machine readable. It is split into two components, separated by a colon: a rooted path and a unit. The choice to include the unit in the key is motivated by compatibility: if a metric's unit changes, its semantics likely did also, and a new key should be introduced.
 
 For more details on the precise definition of the metric key's path and unit formats, see the documentation of the Name field of the Description struct.
 
-#### A note about floats 
+## A note about floats 
 
 This package supports metrics whose values have a floating-point representation. In order to improve ease-of-use, this package promises to never produce the following classes of floating-point values: NaN, infinity.
 
-#### Supported metrics 
+## Supported metrics 
 
 Below is the full list of supported metrics, ordered lexicographically.
 
@@ -289,7 +283,7 @@ This section is empty.
 
 ## 函数
 
-#### func Read 
+### func Read 
 
 ``` go 
 func Read(m []Sample)
@@ -305,12 +299,112 @@ It is safe to execute multiple Read calls concurrently, but their arguments must
 
 Sample values with names not appearing in All will have their Value populated as KindBad to indicate that the name is unknown.
 
-##### Example
+#### Example(ReadingAllMetrics)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"runtime/metrics"
+)
+
+func main() {
+	// Get descriptions for all supported metrics.
+	descs := metrics.All()
+
+	// Create a sample for each metric.
+	samples := make([]metrics.Sample, len(descs))
+	for i := range samples {
+		samples[i].Name = descs[i].Name
+	}
+
+	// Sample the metrics. Re-use the samples slice if you can!
+	metrics.Read(samples)
+
+	// Iterate over all results.
+	for _, sample := range samples {
+		// Pull out the name and value.
+		name, value := sample.Name, sample.Value
+
+		// Handle each sample.
+		switch value.Kind() {
+		case metrics.KindUint64:
+			fmt.Printf("%s: %d\n", name, value.Uint64())
+		case metrics.KindFloat64:
+			fmt.Printf("%s: %f\n", name, value.Float64())
+		case metrics.KindFloat64Histogram:
+			// The histogram may be quite large, so let's just pull out
+			// a crude estimate for the median for the sake of this example.
+			fmt.Printf("%s: %f\n", name, medianBucket(value.Float64Histogram()))
+		case metrics.KindBad:
+			// This should never happen because all metrics are supported
+			// by construction.
+			panic("bug in runtime/metrics package!")
+		default:
+			// This may happen as new metrics get added.
+			//
+			// The safest thing to do here is to simply log it somewhere
+			// as something to look into, but ignore it for now.
+			// In the worst case, you might temporarily miss out on a new metric.
+			fmt.Printf("%s: unexpected metric Kind: %v\n", name, value.Kind())
+		}
+	}
+}
+
+func medianBucket(h *metrics.Float64Histogram) float64 {
+	total := uint64(0)
+	for _, count := range h.Counts {
+		total += count
+	}
+	thresh := total / 2
+	total = 0
+	for i, count := range h.Counts {
+		total += count
+		if total >= thresh {
+			return h.Buckets[i]
+		}
+	}
+	panic("should not happen")
+}
+
 ```
 
-##### Example
+#### Example(ReadingOneMetric) 
 ``` go 
+package main
+
+import (
+	"fmt"
+	"runtime/metrics"
+)
+
+func main() {
+	// Name of the metric we want to read.
+	const myMetric = "/memory/classes/heap/free:bytes"
+
+	// Create a sample for the metric.
+	sample := make([]metrics.Sample, 1)
+	sample[0].Name = myMetric
+
+	// Sample the metric.
+	metrics.Read(sample)
+
+	// Check if the metric is actually supported.
+	// If it's not, the resulting value will always have
+	// kind KindBad.
+	if sample[0].Value.Kind() == metrics.KindBad {
+		panic(fmt.Sprintf("metric %q no longer supported", myMetric))
+	}
+
+	// Handle the result.
+	//
+	// It's OK to assume a particular Kind for a metric;
+	// they're guaranteed not to change.
+	freeBytes := sample[0].Value.Uint64()
+
+	fmt.Printf("free but not released memory: %d\n", freeBytes)
+}
+
 ```
 
 ## 类型

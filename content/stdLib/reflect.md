@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-[https://pkg.go.dev/reflect@go1.20.1](https://pkg.go.dev/reflect@go1.20.1)
+[https://pkg.go.dev/reflect@go1.21.3](https://pkg.go.dev/reflect@go1.21.3)
 
 Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information by calling TypeOf, which returns a Type.
 
@@ -1467,6 +1467,16 @@ func (v Value) Cap() int
 Cap returns v's capacity. It panics if v's Kind is not Array, Chan, Slice or pointer to Array.
 
 ​	 `Cap` 方法返回 `v` 的容量。如果 `v` 的 `Kind` 不是 `Array`、`Chan`、`Slice` 或 `Array` 的指针，它会引发 panic。  
+
+#### (Value) Clear <-go1.21.0
+
+```go
+func (v Value) Clear()
+```
+
+Clear clears the contents of a map or zeros the contents of a slice.
+
+It panics if v's Kind is not Map or Slice.
 
 #### (Value) Close 
 

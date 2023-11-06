@@ -6,11 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/flag@go1.20.1
+https://pkg.go.dev/flag@go1.21.3
 
 Package flag implements command-line flag parsing.
 
-​	flag包实现了命令行标志解析。
+​	`flag`包实现了命令行标志解析。
 
 ## Usage 
 
@@ -299,6 +299,45 @@ func Bool(name string, value bool, usage string) *bool
 Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.
 
 ​	Bool函数定义一个具有指定名称、默认值和用法字符串的布尔标志。返回值是存储标志值的布尔变量的地址。
+
+### func BoolFunc <- go1.21.0
+
+```go
+func BoolFunc(name, usage string, fn func(string) error)
+```
+
+BoolFunc defines a flag with the specified name and usage string without requiring values. Each time the flag is seen, fn is called with the value of the flag. If fn returns a non-nil error, it will be treated as a flag value parsing error.
+
+#### BoolFunc Example
+
+```go
+package main
+
+import (
+	"flag"
+	"fmt"
+	"os"
+)
+
+func main() {
+	fs := flag.NewFlagSet("ExampleBoolFunc", flag.ContinueOnError)
+	fs.SetOutput(os.Stdout)
+
+	fs.BoolFunc("log", "logs a dummy message", func(s string) error {
+		fmt.Println("dummy message:", s)
+		return nil
+	})
+	fs.Parse([]string{"-log"})
+	fs.Parse([]string{"-log=0"})
+
+}
+Output:
+
+dummy message: true
+dummy message: 0
+```
+
+
 
 ### func BoolVar 
 
@@ -791,6 +830,14 @@ func (f *FlagSet) Bool(name string, value bool, usage string) *bool
 Bool defines a bool flag with specified name, default value, and usage string. The return value is the address of a bool variable that stores the value of the flag.
 
 ​	Bool方法定义具有指定名称、默认值和用法字符串的布尔标志。返回值是一个bool变量的地址，该变量存储标志的值。
+
+#### (*FlagSet) BoolFunc <-go1.21.0
+
+```go
+func (f *FlagSet) BoolFunc(name, usage string, fn func(string) error)
+```
+
+BoolFunc defines a flag with the specified name and usage string without requiring values. Each time the flag is seen, fn is called with the value of the flag. If fn returns a non-nil error, it will be treated as a flag value parsing error.
 
 #### (*FlagSet) BoolVar 
 

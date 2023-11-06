@@ -9,13 +9,9 @@ draft = false
 https://pkg.go.dev/runtime/trace@go1.20.1
 
 
-
-
-
-
 Package trace contains facilities for programs to generate traces for the Go execution tracer.
 
-#### Tracing runtime activities 
+## Tracing runtime activities 
 
 The execution trace captures a wide range of execution events such as goroutine creation/blocking/unblocking, syscall enter/exit/block, GC-related events, changes of heap size, processor start/stop, etc. When CPU profiling is active, the execution tracer makes an effort to include those samples as well. A precise nanosecond-precision timestamp and a stack trace is captured for most events. The generated trace can be interpreted using `go tool trace`.
 
@@ -35,7 +31,7 @@ import _ "net/http/pprof"
 
 See the net/http/pprof package for more details about all of the debug endpoints installed by this import.
 
-#### User annotation 
+## User annotation 
 
 Package trace provides user annotation APIs that can be used to log interesting events during execution.
 
@@ -87,8 +83,47 @@ go func() {
 
 The trace tool computes the latency of a task by measuring the time between the task creation and the task end and provides latency distributions for each task type found in the trace.
 
-##### Example
+## Example
+
+Example demonstrates the use of the trace package to trace the execution of a Go program. The trace output will be written to the file trace.out
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"runtime/trace"
+)
+
+// Example demonstrates the use of the trace package to trace
+// the execution of a Go program. The trace output will be
+// written to the file trace.out
+func main() {
+	f, err := os.Create("trace.out")
+	if err != nil {
+		log.Fatalf("failed to create trace output file: %v", err)
+	}
+	defer func() {
+		if err := f.Close(); err != nil {
+			log.Fatalf("failed to close trace file: %v", err)
+		}
+	}()
+
+	if err := trace.Start(f); err != nil {
+		log.Fatalf("failed to start trace: %v", err)
+	}
+	defer trace.Stop()
+
+	// your program here
+	RunMyProgram()
+}
+
+func RunMyProgram() {
+	fmt.Printf("this function will be traced")
+}
+
 ```
 
 
@@ -107,7 +142,7 @@ This section is empty.
 
 ## 函数
 
-#### func IsEnabled  <- go1.11
+### func IsEnabled  <- go1.11
 
 ``` go 
 func IsEnabled() bool
@@ -115,7 +150,7 @@ func IsEnabled() bool
 
 IsEnabled reports whether tracing is enabled. The information is advisory only. The tracing status may have changed by the time this function returns.
 
-#### func Log  <- go1.11
+### func Log  <- go1.11
 
 ``` go 
 func Log(ctx context.Context, category, message string)
@@ -123,7 +158,7 @@ func Log(ctx context.Context, category, message string)
 
 Log emits a one-off event with the given category and message. Category can be empty and the API assumes there are only a handful of unique categories in the system.
 
-#### func Logf  <- go1.11
+### func Logf  <- go1.11
 
 ``` go 
 func Logf(ctx context.Context, category, format string, args ...any)
@@ -131,7 +166,7 @@ func Logf(ctx context.Context, category, format string, args ...any)
 
 Logf is like Log, but the value is formatted using the specified format spec.
 
-#### func Start 
+### func Start 
 
 ``` go 
 func Start(w io.Writer) error
@@ -139,7 +174,7 @@ func Start(w io.Writer) error
 
 Start enables tracing for the current program. While tracing, the trace will be buffered and written to w. Start returns an error if tracing is already enabled.
 
-#### func Stop 
+### func Stop 
 
 ``` go 
 func Stop()
@@ -147,7 +182,7 @@ func Stop()
 
 Stop stops the current tracing, if any. Stop only returns after all the writes for the trace have completed.
 
-#### func WithRegion  <- go1.11
+### func WithRegion  <- go1.11
 
 ``` go 
 func WithRegion(ctx context.Context, regionType string, fn func())

@@ -8,8 +8,6 @@ draft = false
 +++
 https://pkg.go.dev/text/scanner@go1.20.1
 
-
-
 Package scanner provides a scanner and tokenizer for UTF-8-encoded text. It takes an io.Reader providing the source, which then can be tokenized through repeated calls to the Scan function. For compatibility with existing tools, the NUL character is not allowed. If the first character in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
 
 ​	scanner包提供了用于UTF-8编码文本的扫描器和标记器。它接受一个提供源代码的io.Reader，然后可以通过重复调用Scan函数来对其进行标记化。为了与现有工具兼容，不允许出现NUL字符。如果源代码中的第一个字符是UTF-8编码的字节顺序标记（BOM），它将被丢弃。

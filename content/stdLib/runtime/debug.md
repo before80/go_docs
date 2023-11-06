@@ -8,11 +8,7 @@ draft = false
 +++
 https://pkg.go.dev/runtime/debug@go1.20.1
 
-
-
 Package debug contains facilities for programs to debug themselves while they are running.
-
-
 
 ## 常量 
 
@@ -24,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func FreeOSMemory  <- go1.1
+### func FreeOSMemory  <- go1.1
 
 ``` go 
 func FreeOSMemory()
@@ -32,7 +28,7 @@ func FreeOSMemory()
 
 FreeOSMemory forces a garbage collection followed by an attempt to return as much memory to the operating system as possible. (Even if this is not called, the runtime gradually returns memory to the operating system in a background task.)
 
-#### func PrintStack 
+### func PrintStack 
 
 ``` go 
 func PrintStack()
@@ -40,7 +36,7 @@ func PrintStack()
 
 PrintStack prints to standard error the stack trace returned by runtime.Stack.
 
-#### func ReadGCStats  <- go1.1
+### func ReadGCStats  <- go1.1
 
 ``` go 
 func ReadGCStats(stats *GCStats)
@@ -48,7 +44,7 @@ func ReadGCStats(stats *GCStats)
 
 ReadGCStats reads statistics about garbage collection into stats. The number of entries in the pause history is system-dependent; stats.Pause slice will be reused if large enough, reallocated otherwise. ReadGCStats may use the full capacity of the stats.Pause slice. If stats.PauseQuantiles is non-empty, ReadGCStats fills it with quantiles summarizing the distribution of pause time. For example, if len(stats.PauseQuantiles) is 5, it will be filled with the minimum, 25%, 50%, 75%, and maximum pause times.
 
-#### func SetGCPercent  <- go1.1
+### func SetGCPercent  <- go1.1
 
 ``` go 
 func SetGCPercent(percent int) int
@@ -56,7 +52,7 @@ func SetGCPercent(percent int) int
 
 SetGCPercent sets the garbage collection target percentage: a collection is triggered when the ratio of freshly allocated data to live data remaining after the previous collection reaches this percentage. SetGCPercent returns the previous setting. The initial setting is the value of the GOGC environment variable at startup, or 100 if the variable is not set. This setting may be effectively reduced in order to maintain a memory limit. A negative percentage effectively disables garbage collection, unless the memory limit is reached. See SetMemoryLimit for more details.
 
-#### func SetMaxStack  <- go1.2
+### func SetMaxStack  <- go1.2
 
 ``` go 
 func SetMaxStack(bytes int) int
@@ -66,7 +62,7 @@ SetMaxStack sets the maximum amount of memory that can be used by a single gorou
 
 SetMaxStack is useful mainly for limiting the damage done by goroutines that enter an infinite recursion. It only limits future stack growth.
 
-#### func SetMaxThreads  <- go1.2
+### func SetMaxThreads  <- go1.2
 
 ``` go 
 func SetMaxThreads(threads int) int
@@ -78,7 +74,7 @@ The limit controls the number of operating system threads, not the number of gor
 
 SetMaxThreads is useful mainly for limiting the damage done by programs that create an unbounded number of threads. The idea is to take down the program before it takes down the operating system.
 
-#### func SetMemoryLimit  <- go1.19
+### func SetMemoryLimit  <- go1.19
 
 ``` go 
 func SetMemoryLimit(limit int64) int64
@@ -112,7 +108,7 @@ The initial setting is math.MaxInt64 unless the GOMEMLIMIT environment variable 
 
 SetMemoryLimit returns the previously set memory limit. A negative input does not adjust the limit, and allows for retrieval of the currently set memory limit.
 
-#### func SetPanicOnFault  <- go1.3
+### func SetPanicOnFault  <- go1.3
 
 ``` go 
 func SetPanicOnFault(enabled bool) bool
@@ -126,7 +122,7 @@ Addr() uintptr
 
 If that method exists, it returns the memory address which triggered the fault. The results of Addr are best-effort and the veracity of the result may depend on the platform. SetPanicOnFault applies only to the current goroutine. It returns the previous setting.
 
-#### func SetTraceback  <- go1.6
+### func SetTraceback  <- go1.6
 
 ``` go 
 func SetTraceback(level string)
@@ -134,7 +130,7 @@ func SetTraceback(level string)
 
 SetTraceback sets the amount of detail printed by the runtime in the traceback it prints before exiting due to an unrecovered panic or an internal runtime error. The level argument takes the same values as the GOTRACEBACK environment variable. For example, SetTraceback("all") ensure that the program prints all goroutines when it crashes. See the package runtime documentation for details. If SetTraceback is called with a level lower than that of the environment variable, the call is ignored.
 
-#### func Stack 
+### func Stack 
 
 ``` go 
 func Stack() []byte
@@ -142,7 +138,7 @@ func Stack() []byte
 
 Stack returns a formatted stack trace of the goroutine that calls it. It calls runtime.Stack with a large enough buffer to capture the entire trace.
 
-#### func WriteHeapDump  <- go1.3
+### func WriteHeapDump  <- go1.3
 
 ``` go 
 func WriteHeapDump(fd uintptr)
