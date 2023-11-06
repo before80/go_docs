@@ -7,11 +7,11 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/net/http/cgi@go1.20.1
+https://pkg.go.dev/net/http/cgi@go1.21.3
 
 Package cgi implements CGI (Common Gateway Interface) as specified in [RFC 3875](https://rfc-editor.org/rfc/rfc3875.html).
 
-​	 cgi 包实现了 CGI（通用网关接口），如 [RFC 3875](https://rfc-editor.org/rfc/rfc3875.html) 中所规定。
+​	 `cgi` 包实现了 CGI（通用网关接口），如 [RFC 3875](https://rfc-editor.org/rfc/rfc3875.html) 中所规定。
 
 Note that using CGI means starting a new process to handle each request, which is typically less efficient than using a long-running server. This package is intended primarily for compatibility with existing systems.
 

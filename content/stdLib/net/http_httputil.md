@@ -6,9 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/httputil@go1.20.1
+https://pkg.go.dev/net/http/httputil@go1.21.3
 
-​	httputil 包提供了 HTTP 的实用函数，补充了 net/http 包中更常见的函数。
+Package httputil provides HTTP utility functions, complementing the more common ones in the net/http package.
+
+​	`httputil` 包提供了 HTTP 的实用函数，补充了 net/http 包中更常见的函数。
 
 
 ## 常量 
@@ -226,6 +228,88 @@ type BufferPool interface {
 ```
 
 ​	BufferPool 是一个接口，用于获取和返回供 io.CopyBuffer 使用的临时字节片。
+
+### type ClientConn <- DEPRECATED
+
+```
+type ClientConn struct {
+	// contains filtered or unexported fields
+}
+```
+
+ClientConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.
+
+Deprecated: Use Client or Transport in package net/http instead.
+
+#### func NewClientConn <- DEPRECATED
+
+```go
+func NewClientConn(c net.Conn, r *bufio.Reader) *ClientConn
+```
+
+NewClientConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.
+
+Deprecated: Use the Client or Transport in package net/http instead.
+
+#### func NewProxyClientConn <- DEPRECATED
+
+```go
+func NewProxyClientConn(c net.Conn, r *bufio.Reader) *ClientConn
+```
+
+NewProxyClientConn is an artifact of Go's early HTTP implementation. It is low-level, old, and unused by Go's current HTTP stack. We should have deleted it before Go 1.
+
+Deprecated: Use the Client or Transport in package net/http instead.
+
+#### func (*ClientConn)Close
+
+```
+func (cc *ClientConn) Close() error
+```
+
+Close calls Hijack and then also closes the underlying connection.
+
+#### func (*ClientConn) Do
+
+```
+func (cc *ClientConn) Do(req *http.Request) (*http.Response, error)
+```
+
+Do is convenience method that writes a request and reads a response.
+
+#### func (*ClientConn) Hijack
+
+```
+func (cc *ClientConn) Hijack() (c net.Conn, r *bufio.Reader)
+```
+
+Hijack detaches the ClientConn and returns the underlying connection as well as the read-side bufio which may have some left over data. Hijack may be called before the user or Read have signaled the end of the keep-alive logic. The user should not call Hijack while Read or Write is in progress.
+
+#### func (*ClientConn) Pending
+
+```
+func (cc *ClientConn) Pending() int
+```
+
+Pending returns the number of unanswered requests that have been sent on the connection.
+
+#### func (*ClientConn) Read
+
+```
+func (cc *ClientConn) Read(req *http.Request) (resp *http.Response, err error)
+```
+
+Read reads the next response from the wire. A valid response might be returned together with an ErrPersistEOF, which means that the remote requested that this be the last request serviced. Read can be called concurrently with Write, but not with another Read.
+
+#### func (*ClientConn) Write
+
+```
+func (cc *ClientConn) Write(req *http.Request) error
+```
+
+Write writes a request. An ErrPersistEOF error is returned if the connection has been closed in an HTTP keep-alive sense. If req.Close equals true, the keep-alive connection is logically closed after this request and the opposing server is informed. An ErrUnexpectedEOF indicates the remote closed the underlying TCP connection, which is usually considered as graceful close.
+
+
 
 ### type ProxyRequest  <- go1.20
 

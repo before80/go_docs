@@ -8,7 +8,7 @@ draft = false
 +++
 https://pkg.go.dev/net/http/pprof@go1.20.1
 
-​	pprof 包通过其 HTTP 服务器以 pprof 可工具所期望的格式提供运行时分析数据。
+​	`pprof` 包通过其 HTTP 服务器以 pprof 可工具所期望的格式提供运行时分析数据。
 
 ​	通常，该包仅用于注册其 HTTP 处理程序的副作用。所有处理的路径都以 `/debug/pprof/` 开头。
 

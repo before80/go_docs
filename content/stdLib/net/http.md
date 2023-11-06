@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http@go1.20.1
+https://pkg.go.dev/net/http@go1.21.3
 
 Package http provides HTTP client and server implementations.
 
@@ -2030,11 +2030,19 @@ ProtocolError represents an HTTP protocol error.
 
 Deprecated: Not all errors in the http package related to protocol errors are of type ProtocolError.
 
-#### (*ProtocolError) Error <- DEPRECATED
+#### (*ProtocolError) Error
 
 ```
 func (pe *ProtocolError) Error() string
 ```
+
+####  (*ProtocolError) Is <-go1.21.0
+
+```go
+func (pe *ProtocolError) Is(err error) bool
+```
+
+Is lets http.ErrNotSupported match errors.ErrUnsupported.
 
 ### type PushOptions  <- go1.8
 
@@ -3229,6 +3237,20 @@ SetWriteDeadline(deadline time.Time) error
 If the ResponseWriter does not support a method, ResponseController returns an error matching ErrNotSupported.
 
 ​	如果ResponseWriter不支持某个方法，则ResponseController返回与ErrNotSupported相匹配的错误。
+
+#### (*ResponseController) EnableFullDuplex <-go1.21.0
+
+```go
+func (c *ResponseController) EnableFullDuplex() error
+```
+
+EnableFullDuplex indicates that the request handler will interleave reads from Request.Body with writes to the ResponseWriter.
+
+For HTTP/1 requests, the Go HTTP server by default consumes any unread portion of the request body before beginning to write the response, preventing handlers from concurrently reading from the request and writing the response. Calling EnableFullDuplex disables this behavior and permits handlers to continue to read from the request while concurrently writing the response.
+
+For HTTP/2 requests, the Go HTTP server always permits concurrent reads and responses.
+
+
 
 #### (*ResponseController) Flush  <- go1.20
 

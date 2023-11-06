@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/httptest@go1.20.1
+https://pkg.go.dev/net/http/httptest@go1.21.3
 
 Package httptest provides utilities for HTTP testing.
 
