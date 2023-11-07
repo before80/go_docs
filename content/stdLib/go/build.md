@@ -6,49 +6,41 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# build
-
-https://pkg.go.dev/go/build@go1.20.1
-
-
-
-
-
-
+https://pkg.go.dev/go/build@go1.21.3
 
 Package build gathers information about Go packages.
 
-包的构建收集了有关Go包的信息。
+​	`build` 包收集了有关Go包的信息。
 
-#### Go Path 
+## Go Path 
 
 The Go path is a list of directory trees containing Go source code. It is consulted to resolve imports that cannot be found in the standard Go tree. The default path is the value of the GOPATH environment variable, interpreted as a path list appropriate to the operating system (on Unix, the variable is a colon-separated string; on Windows, a semicolon-separated string; on Plan 9, a list).
 
-Go路径是一个包含Go源代码的目录树列表。它被用来解决在标准Go树中找不到的导入问题。默认路径是 GOPATH 环境变量的值，被解释为适合操作系统的路径列表(在 Unix 上，该变量是一个以冒号分隔的字符串；在 Windows 上，是一个以分号分隔的字符串；在 Plan 9 上，是一个列表)。
+​	Go路径是一个包含Go源代码的目录树列表。它被用来解决在标准Go树中找不到的导入问题。默认路径是 GOPATH 环境变量的值，被解释为适合操作系统的路径列表(在 Unix 上，该变量是一个以冒号分隔的字符串；在 Windows 上，是一个以分号分隔的字符串；在 Plan 9 上，是一个列表)。
 
 Each directory listed in the Go path must have a prescribed structure:
 
-Go路径中列出的每个目录必须有规定的结构：
+​	Go路径中列出的每个目录必须有规定的结构：
 
 The src/ directory holds source code. The path below 'src' determines the import path or executable name.
 
-src/目录存放源代码。src "下面的路径决定了导入路径或可执行名称。
+​	src/目录存放源代码。src "下面的路径决定了导入路径或可执行名称。
 
 The pkg/ directory holds installed package objects. As in the Go tree, each target operating system and architecture pair has its own subdirectory of pkg (pkg/GOOS_GOARCH).
 
-pkg/目录存放已安装的包对象。与Go树一样，每个目标操作系统和架构对都有自己的pkg子目录(pkg/GOOS_GOARCH)。
+​	pkg/目录存放已安装的包对象。与Go树一样，每个目标操作系统和架构对都有自己的pkg子目录(pkg/GOOS_GOARCH)。
 
 If DIR is a directory listed in the Go path, a package with source in DIR/src/foo/bar can be imported as "foo/bar" and has its compiled form installed to "DIR/pkg/GOOS_GOARCH/foo/bar.a" (or, for gccgo, "DIR/pkg/gccgo/foo/libbar.a").
 
-如果DIR是Go路径中列出的目录，一个源代码在DIR/src/foo/bar的包可以被导入为 "foo/bar"，并将其编译后的形式安装到 "DIR/pkg/GOOS_GOARCH/foo/bar.a"(或者，对于gccgo，"DIR/pkg/gccgo/foo/libbar.a")。
+​	如果DIR是Go路径中列出的目录，一个源代码在DIR/src/foo/bar的包可以被导入为 "foo/bar"，并将其编译后的形式安装到 "DIR/pkg/GOOS_GOARCH/foo/bar.a"(或者，对于gccgo，"DIR/pkg/gccgo/foo/libbar.a")。
 
 The bin/ directory holds compiled commands. Each command is named for its source directory, but only using the final element, not the entire path. That is, the command with source in DIR/src/foo/quux is installed into DIR/bin/quux, not DIR/bin/foo/quux. The foo/ is stripped so that you can add DIR/bin to your PATH to get at the installed commands.
 
-bin/目录存放已编译的命令。每个命令都以其源目录命名，但只使用最后一个元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/被删除了，这样您就可以在PATH中加入DIR/bin来获取已安装的命令。
+​	bin/目录存放已编译的命令。每个命令都以其源目录命名，但只使用最后一个元素，而不是整个路径。也就是说，源码在DIR/src/foo/quux的命令被安装到DIR/bin/quux，而不是DIR/bin/foo/quux。foo/被删除了，这样您就可以在PATH中加入DIR/bin来获取已安装的命令。
 
 Here's an example directory layout:
 
-下面是一个目录布局的例子：
+​	下面是一个目录布局的例子：
 
 ```
 GOPATH=/home/user/gocode
@@ -68,11 +60,11 @@ GOPATH=/home/user/gocode
                 bar.a          (installed package object)
 ```
 
-#### Build Constraints  构建约束
+## Build Constraints  构建约束
 
 A build constraint, also known as a build tag, is a condition under which a file should be included in the package. Build constraints are given by a line comment that begins
 
-构建约束，也被称为构建标签，是一个文件应该被包含在包中的条件。构建约束是由一行注释给出的，注释的开头是
+​	构建约束，也被称为构建标签，是一个文件应该被包含在包中的条件。构建约束是由一行注释给出的，注释的开头是
 
 ```
 //go:build
@@ -80,19 +72,19 @@ A build constraint, also known as a build tag, is a condition under which a file
 
 Build constraints may also be part of a file's name (for example, source_windows.go will only be included if the target operating system is windows).
 
-构建约束也可以是文件名称的一部分(例如，source_windows.go只有在目标操作系统是windows时才会被包含)。
+​	构建约束也可以是文件名称的一部分(例如，source_windows.go只有在目标操作系统是windows时才会被包含)。
 
 See 'go help buildconstraint' (https://golang.org/cmd/go/#hdr-Build_constraints) for details.
 
-#### Binary-Only Packages 
+## Binary-Only Packages 
 
 In Go 1.12 and earlier, it was possible to distribute packages in binary form without including the source code used for compiling the package. The package was distributed with a source file not excluded by build constraints and containing a "//go:binary-only-package" comment. Like a build constraint, this comment appeared at the top of a file, preceded only by blank lines and other line comments and with a blank line following the comment, to separate it from the package documentation. Unlike build constraints, this comment is only recognized in non-test Go source files.
 
-在Go 1.12和更早的版本中，可以以二进制形式发布包，而不包括用于编译包的源代码。包的发布包含一个没有被构建约束排除的源文件，并且包含一个"//go:binary-only-package "注释。和构建约束一样，这个注释出现在文件的顶部，前面只有空行和其他行的注释，并且在注释后面有一个空行，把它和包的文档分开。与构建约束不同，这个注释只在非测试Go源文件中被识别。
+​	在Go 1.12和更早的版本中，可以以二进制形式发布包，而不包括用于编译包的源代码。包的发布包含一个没有被构建约束排除的源文件，并且包含一个"//go:binary-only-package "注释。和构建约束一样，这个注释出现在文件的顶部，前面只有空行和其他行的注释，并且在注释后面有一个空行，把它和包的文档分开。与构建约束不同，这个注释只在非测试Go源文件中被识别。
 
 The minimal source code for a binary-only package was therefore:
 
-因此，一个仅有二进制的包的最小源代码是：
+​	因此，一个仅有二进制的包的最小源代码是：
 
 ```
 //go:binary-only-package
@@ -102,11 +94,11 @@ package mypkg
 
 The source code could include additional Go code. That code was never compiled but would be processed by tools like godoc and might be useful as end-user documentation.
 
-源代码可以包括额外的Go代码。这些代码从未被编译过，但会被godoc等工具处理，并可能作为最终用户的文档而有用。
+​	源代码可以包括额外的Go代码。这些代码从未被编译过，但会被godoc等工具处理，并可能作为最终用户的文档而有用。
 
 "go build" and other commands no longer support binary-only-packages. Import and ImportDir will still set the BinaryOnly flag in packages containing these comments for use in tools and error messages.
 
-"go build "和其他命令不再支持只用二进制的包。Import和ImportDir仍然会在包含这些注释的包中设置BinaryOnly标志，以便在工具和错误信息中使用。
+​	"go build "和其他命令不再支持只用二进制的包。Import和ImportDir仍然会在包含这些注释的包中设置BinaryOnly标志，以便在工具和错误信息中使用。
 
 
 
@@ -124,11 +116,11 @@ var ToolDir = getToolDir()
 
 ToolDir is the directory containing build tools.
 
-ToolDir是包含构建工具的目录。
+​	`ToolDir`是包含构建工具的目录。
 
 ## 函数
 
-#### func ArchChar 
+### func ArchChar 
 
 ``` go 
 func ArchChar(goarch string) (string, error)
@@ -136,9 +128,9 @@ func ArchChar(goarch string) (string, error)
 
 ArchChar returns "?" and an error. In earlier versions of Go, the returned string was used to derive the compiler and linker tool names, the default object file suffix, and the default linker output name. As of Go 1.5, those strings no longer vary by architecture; they are compile, link, .o, and a.out, respectively.
 
-ArchChar返回"？"和一个错误。在Go的早期版本中，返回的字符串被用来推导出编译器和链接器的工具名称、默认对象文件后缀和默认链接器输出名称。从 Go 1.5 开始，这些字符串不再因架构而异；它们分别是编译、链接、.o 和 a.out。
+​	`ArchChar`返回"？"和一个错误。在Go的早期版本中，返回的字符串被用来推导出编译器和链接器的工具名称、默认对象文件后缀和默认链接器输出名称。从 Go 1.5 开始，这些字符串不再因架构而异；它们分别是编译、链接、.o 和 a.out。
 
-#### func IsLocalImport 
+### func IsLocalImport 
 
 ``` go 
 func IsLocalImport(path string) bool
@@ -146,7 +138,7 @@ func IsLocalImport(path string) bool
 
 IsLocalImport reports whether the import path is a local import path, like ".", "..", "./foo", or "../foo".
 
-IsLocalImport报告导入路径是否为本地导入路径，如"."、"..."、"./foo "或"./foo"。
+​	`IsLocalImport`报告导入路径是否为本地导入路径，如"."、"..."、"./foo "或"./foo"。
 
 ## 类型
 
@@ -257,7 +249,7 @@ type Context struct {
 
 A Context specifies the supporting context for a build.
 
-Context指定了支持构建的上下文。
+​	`Context`指定了支持构建的上下文。
 
 ``` go 
 var Default Context = defaultContext()
@@ -265,7 +257,7 @@ var Default Context = defaultContext()
 
 Default is the default Context for builds. It uses the GOARCH, GOOS, GOROOT, and GOPATH environment variables if set, or else the compiled code's GOARCH, GOOS, and GOROOT.
 
-Default是用于构建的默认上下文。它使用 GOARCH、GOOS、GOROOT 和 GOPATH 环境变量(如果设置了)，否则就使用编译后的代码的 GOARCH、GOOS 和 GOROOT。
+​	`Default`是用于构建的默认上下文。它使用 GOARCH、GOOS、GOROOT 和 GOPATH 环境变量(如果设置了)，否则就使用编译后的代码的 GOARCH、GOOS 和 GOROOT。
 
 #### (*Context) Import 
 
@@ -275,11 +267,11 @@ func (ctxt *Context) Import(path string, srcDir string, mode ImportMode) (*Packa
 
 Import returns details about the Go package named by the import path, interpreting local import paths relative to the srcDir directory. If the path is a local import path naming a package that can be imported using a standard import path, the returned package will set p.ImportPath to that path.
 
-Import返回由导入路径命名的Go包的详细信息，解释相对于srcDir目录的本地导入路径。如果路径是命名一个可以使用标准导入路径导入的包的本地导入路径，返回的包将把p.ImportPath设置为该路径。
+​	`Import`返回由导入路径命名的Go包的详细信息，解释相对于srcDir目录的本地导入路径。如果路径是命名一个可以使用标准导入路径导入的包的本地导入路径，返回的包将把p.ImportPath设置为该路径。
 
 In the directory containing the package, .go, .c, .h, and .s files are considered part of the package except for:
 
-在包含包的目录中，.go、.c、.h和.s文件被认为是包的一部分，除了：
+​	在包含包的目录中，.go、.c、.h和.s文件被认为是包的一部分，除了：
 
 - .go files in package documentation 包文件中的.go文件
 - files starting with _ or . (likely editor temporary files) 以_或.开头的文件(可能是编辑器的临时文件)
@@ -287,7 +279,7 @@ In the directory containing the package, .go, .c, .h, and .s files are considere
 
 If an error occurs, Import returns a non-nil error and a non-nil *Package containing partial information.
 
-如果发生错误，Import会返回一个非零的错误和一个非零的*Package，包含部分信息。
+​	如果发生错误，Import会返回一个非零的错误和一个非零的*Package，包含部分信息。
 
 #### (*Context) ImportDir 
 
@@ -297,7 +289,7 @@ func (ctxt *Context) ImportDir(dir string, mode ImportMode) (*Package, error)
 
 ImportDir is like Import but processes the Go package found in the named directory.
 
-ImportDir与Import类似，但处理在指定目录中发现的Go包。
+​	`ImportDir`与`Import`类似，但处理在指定目录中发现的Go包。
 
 #### (*Context) MatchFile  <- go1.2
 
@@ -307,11 +299,11 @@ func (ctxt *Context) MatchFile(dir, name string) (match bool, err error)
 
 MatchFile reports whether the file with the given name in the given directory matches the context and would be included in a Package created by ImportDir of that directory.
 
-MatchFile报告在给定目录中具有给定名称的文件是否与上下文相匹配，以及是否会被包含在由该目录的ImportDir创建的包中。
+​	`MatchFile`报告在给定目录中具有给定名称的文件是否与上下文相匹配，以及是否会被包含在由该目录的ImportDir创建的包中。
 
 MatchFile considers the name of the file and may use ctxt.OpenFile to read some or all of the file's content.
 
-MatchFile考虑文件的名称，并可能使用ctxt.OpenFile读取部分或全部文件的内容。
+​	`MatchFile`考虑文件的名称，并可能使用ctxt.OpenFile读取部分或全部文件的内容。
 
 #### (*Context) SrcDirs 
 
@@ -321,7 +313,18 @@ func (ctxt *Context) SrcDirs() []string
 
 SrcDirs returns a list of package source root directories. It draws from the current Go root and Go path but omits directories that do not exist.
 
-SrcDirs 返回包源码根目录的列表。它从当前的 Go 根目录和 Go 路径中提取，但会省略不存在的目录。
+​	`SrcDirs` 返回包源码根目录的列表。它从当前的 Go 根目录和 Go 路径中提取，但会省略不存在的目录。
+
+#### type Directive <-go1.21.0
+
+```go
+type Directive struct {
+	Text string         // full line comment including leading slashes
+	Pos  token.Position // position of comment
+}
+```
+
+A Directive is a Go directive comment (//go:zzz...) found in a source file.
 
 ### type ImportMode 
 
@@ -331,7 +334,7 @@ type ImportMode uint
 
 An ImportMode controls the behavior of the Import method.
 
-ImportMode控制导入方法的行为。
+​	`ImportMode`控制导入方法的行为。
 
 ``` go 
 const (
@@ -409,7 +412,7 @@ type MultiplePackageError struct {
 
 MultiplePackageError describes a directory containing multiple buildable Go source files for multiple packages.
 
-MultiplePackageError 描述了一个包含多个包的多个可构建Go源代码文件的目录。
+​	`MultiplePackageError` 描述了一个包含多个包的多个可构建Go源代码文件的目录。
 
 #### (*MultiplePackageError) Error  <- go1.4
 
@@ -427,7 +430,7 @@ type NoGoError struct {
 
 NoGoError is the error used by Import to describe a directory containing no buildable Go source files. (It may still contain test files, files hidden by build tags, and so on.)
 
-NoGoError是Import用来描述一个不包含可构建的Go源文件的目录的错误。(它可能仍然包含测试文件、被构建标签隐藏的文件，等等。)
+​	`NoGoError`是Import用来描述一个不包含可构建的Go源文件的目录的错误。(它可能仍然包含测试文件、被构建标签隐藏的文件，等等。)
 
 #### (*NoGoError) Error 
 
@@ -507,7 +510,7 @@ type Package struct {
 
 A Package describes the Go package found in a directory.
 
-一个Package描述了在一个目录中发现的Go包。
+​	一个Package描述了在一个目录中发现的Go包。
 
 #### func Import 
 
@@ -517,7 +520,7 @@ func Import(path, srcDir string, mode ImportMode) (*Package, error)
 
 Import is shorthand for Default.Import.
 
-Import是Default.Import的简写。
+​	`Import`是Default.Import的简写。
 
 #### func ImportDir 
 
@@ -527,7 +530,7 @@ func ImportDir(dir string, mode ImportMode) (*Package, error)
 
 ImportDir is shorthand for Default.ImportDir.
 
-ImportDir是Default.ImportDir的简写。
+​	`ImportDir`是Default.ImportDir的简写。
 
 #### (*Package) IsCommand 
 
@@ -537,4 +540,4 @@ func (p *Package) IsCommand() bool
 
 IsCommand reports whether the package is considered a command to be installed (not just a library). Packages named "main" are treated as commands.
 
-IsCommand 报告包是否被认为是一个要安装的命令(而不仅仅是一个库)。命名为 "main "的包被当作命令来对待。
+​	`IsCommand` 报告包是否被认为是一个要安装的命令(而不仅仅是一个库)。命名为 "main "的包被当作命令来对待。

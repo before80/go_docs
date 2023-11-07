@@ -10,7 +10,7 @@ https://pkg.go.dev/log/syslog@go1.21.3
 
 Package syslog provides a simple interface to the system log service. It can send messages to the syslog daemon using UNIX domain sockets, UDP or TCP.
 
-​	syslog包提供了一个简单的接口来访问系统日志服务。它可以使用 UNIX 域套接字、UDP 或 TCP 发送消息到 syslog 守护进程。
+​	`syslog`包提供了一个简单的接口来访问系统日志服务。它可以使用 UNIX 域套接字、UDP 或 TCP 发送消息到 syslog 守护进程。
 
 Only one call to Dial is necessary. On write failures, the syslog client will attempt to reconnect to the server and write again.
 

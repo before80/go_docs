@@ -6,15 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image/gif@go1.20.1
-
-
+https://pkg.go.dev/image/gif@go1.21.3
 
 Package gif implements a GIF image decoder and encoder.
 
 The GIF specification is at https://www.w3.org/Graphics/GIF/spec-gif89a.txt.
-
-
 
 ## 常量 
 
@@ -36,7 +32,7 @@ This section is empty.
 
 ## 函数
 
-#### func Decode 
+### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -44,7 +40,7 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a GIF image from r and returns the first embedded image as an image.Image.
 
-#### func DecodeConfig 
+### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -52,7 +48,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the global color model and dimensions of a GIF image without decoding the entire image.
 
-#### func Encode  <- go1.2
+### func Encode  <- go1.2
 
 ``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
@@ -60,7 +56,7 @@ func Encode(w io.Writer, m image.Image, o *Options) error
 
 Encode writes the Image m to w in GIF format.
 
-#### func EncodeAll  <- go1.2
+### func EncodeAll  <- go1.2
 
 ``` go 
 func EncodeAll(w io.Writer, g *GIF) error

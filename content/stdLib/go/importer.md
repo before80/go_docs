@@ -6,15 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# importer
-
-https://pkg.go.dev/go/importer@go1.20.1
-
-
+https://pkg.go.dev/go/importer@go1.21.3
 
 Package importer provides access to export data importers.
-
-
 
 ## 常量 
 
@@ -26,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func Default 
+### func Default 
 
 ``` go 
 func Default() types.Importer
@@ -34,11 +28,17 @@ func Default() types.Importer
 
 Default returns an Importer for the compiler that built the running binary. If available, the result implements types.ImporterFrom.
 
-##### Example
-``` go 
+### func For <-DEPRECATED
+
+```go
+func For(compiler string, lookup Lookup) types.Importer
 ```
 
-#### func ForCompiler  <- go1.12
+For calls ForCompiler with a new FileSet.
+
+Deprecated: Use ForCompiler, which populates a FileSet with the positions of objects created by the importer.
+
+### func ForCompiler  <- go1.12
 
 ``` go 
 func ForCompiler(fset *token.FileSet, compiler string, lookup Lookup) types.Importer

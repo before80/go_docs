@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/ecdsa@go1.20.1
-
-
+https://pkg.go.dev/crypto/ecdsa@go1.21.3
 
 Package ecdsa implements the Elliptic Curve Digital Signature Algorithm, as defined in FIPS 186-4 and SEC 1, Version 2.0.
 
@@ -58,7 +56,7 @@ This section is empty.
 
 ## 函数
 
-#### func Sign 
+### func Sign 
 
 ``` go
 func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)
@@ -66,7 +64,7 @@ func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err err
 
 Sign signs a hash (which should be the result of hashing a larger message) using the private key, priv. If the hash is longer than the bit-length of the private key's curve order, the hash will be truncated to that length. It returns the signature as a pair of integers. Most applications should use SignASN1 instead of dealing directly with r, s.
 
-#### func SignASN1  <- go1.15
+### func SignASN1  <- go1.15
 
 ``` go
 func SignASN1(rand io.Reader, priv *PrivateKey, hash []byte) ([]byte, error)
@@ -74,7 +72,7 @@ func SignASN1(rand io.Reader, priv *PrivateKey, hash []byte) ([]byte, error)
 
 SignASN1 signs a hash (which should be the result of hashing a larger message) using the private key, priv. If the hash is longer than the bit-length of the private key's curve order, the hash will be truncated to that length. It returns the ASN.1 encoded signature.
 
-#### func Verify 
+### func Verify 
 
 ``` go
 func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool
@@ -82,7 +80,7 @@ func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool
 
 Verify verifies the signature in r, s of hash using the public key, pub. Its return value records whether the signature is valid. Most applications should use VerifyASN1 instead of dealing directly with r, s.
 
-#### func VerifyASN1  <- go1.15
+### func VerifyASN1  <- go1.15
 
 ``` go
 func VerifyASN1(pub *PublicKey, hash, sig []byte) bool

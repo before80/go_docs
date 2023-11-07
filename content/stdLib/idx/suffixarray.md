@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/index/suffixarray@go1.20.1
-
-
+https://pkg.go.dev/index/suffixarray@go1.21.3
 
 Package suffixarray implements substring search in logarithmic time using an in-memory suffix array.
 
@@ -22,12 +20,6 @@ index := suffixarray.New(data)
 offsets1 := index.Lookup(s, -1) // the list of all indices where s occurs in data
 offsets2 := index.Lookup(s, 3)  // the list of at most 3 indices where s occurs in data
 ```
-
-
-
-
-
-
 
 ## 常量 
 

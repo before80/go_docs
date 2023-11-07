@@ -7,13 +7,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/bzip2@go1.20.1
-
-
+https://pkg.go.dev/compress/bzip2@go1.21.3
 
 Package bzip2 implements bzip2 decompression.
-
-
 
 ## 常量 
 
@@ -25,7 +21,7 @@ This section is empty.
 
 ## 函数
 
-#### func NewReader 
+### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) io.Reader

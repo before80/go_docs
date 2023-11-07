@@ -6,11 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# types
-
-https://pkg.go.dev/go/types@go1.20.1
-
-
+https://pkg.go.dev/go/types@go1.21.3
 
 Package types declares the data types and implements the algorithms for type-checking of Go packages. Use Config.Check to invoke the type checker for a package. Alternatively, create a new type checker with NewChecker and invoke it incrementally by calling Checker.Files.
 
@@ -23,12 +19,6 @@ Constant folding computes the exact constant value (constant.Value) for every ex
 Type inference computes the type (Type) of every expression (ast.Expr) and checks for compliance with the language specification. Use Info.Types[expr].Type for the results of type inference.
 
 For a tutorial, see https://golang.org/s/types-tutorial.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -77,7 +67,7 @@ The *Basic type for Typ[Byte] will have the name "uint8". Use Universe.Lookup("b
 
 ## 函数
 
-#### func AssertableTo 
+### func AssertableTo 
 
 ``` go 
 func AssertableTo(V *Interface, T Type) bool
@@ -91,7 +81,7 @@ The behavior of AssertableTo is unspecified in three cases:
 - if V is a generalized interface; i.e., an interface that may only be used as a type constraint in Go code
 - if T is an uninstantiated generic type
 
-#### func AssignableTo 
+### func AssignableTo 
 
 ``` go 
 func AssignableTo(V, T Type) bool
@@ -101,7 +91,7 @@ AssignableTo reports whether a value of type V is assignable to a variable of ty
 
 The behavior of AssignableTo is unspecified if V or T is Typ[Invalid] or an uninstantiated generic type.
 
-#### func CheckExpr  <- go1.13
+### func CheckExpr  <- go1.13
 
 ``` go 
 func CheckExpr(fset *token.FileSet, pkg *Package, pos token.Pos, expr ast.Expr, info *Info) (err error)
@@ -115,7 +105,7 @@ An error is returned if pos is not within the package or if the node cannot be t
 
 Note: Eval and CheckExpr should not be used instead of running Check to compute types and values, but in addition to Check, as these functions ignore the context in which an expression is used (e.g., an assignment). Thus, top-level untyped constants will return an untyped type rather then the respective context-specific type.
 
-#### func Comparable 
+### func Comparable 
 
 ``` go 
 func Comparable(T Type) bool
@@ -123,7 +113,7 @@ func Comparable(T Type) bool
 
 Comparable reports whether values of type T are comparable.
 
-#### func ConvertibleTo 
+### func ConvertibleTo 
 
 ``` go 
 func ConvertibleTo(V, T Type) bool
@@ -133,7 +123,7 @@ ConvertibleTo reports whether a value of type V is convertible to a value of typ
 
 The behavior of ConvertibleTo is unspecified if V or T is Typ[Invalid] or an uninstantiated generic type.
 
-#### func DefPredeclaredTestFuncs 
+### func DefPredeclaredTestFuncs 
 
 ``` go 
 func DefPredeclaredTestFuncs()
@@ -141,7 +131,7 @@ func DefPredeclaredTestFuncs()
 
 DefPredeclaredTestFuncs defines the assert and trace built-ins. These built-ins are intended for debugging and testing of this package only.
 
-#### func ExprString 
+### func ExprString 
 
 ``` go 
 func ExprString(x ast.Expr) string
@@ -149,7 +139,7 @@ func ExprString(x ast.Expr) string
 
 ExprString returns the (possibly shortened) string representation for x. Shortened representations are suitable for user interfaces but may not necessarily follow Go syntax.
 
-#### func Id 
+### func Id 
 
 ``` go 
 func Id(pkg *Package, name string) string
@@ -157,7 +147,7 @@ func Id(pkg *Package, name string) string
 
 Id returns name if it is exported, otherwise it returns the name qualified with the package path.
 
-#### func Identical 
+### func Identical 
 
 ``` go 
 func Identical(x, y Type) bool
@@ -165,7 +155,7 @@ func Identical(x, y Type) bool
 
 Identical reports whether x and y are identical types. Receivers of Signature types are ignored.
 
-#### func IdenticalIgnoreTags  <- go1.8
+### func IdenticalIgnoreTags  <- go1.8
 
 ``` go 
 func IdenticalIgnoreTags(x, y Type) bool
@@ -173,7 +163,7 @@ func IdenticalIgnoreTags(x, y Type) bool
 
 IdenticalIgnoreTags reports whether x and y are identical types if tags are ignored. Receivers of Signature types are ignored.
 
-#### func Implements 
+### func Implements 
 
 ``` go 
 func Implements(V Type, T *Interface) bool
@@ -183,7 +173,7 @@ Implements reports whether type V implements interface T.
 
 The behavior of Implements is unspecified if V is Typ[Invalid] or an uninstantiated generic type.
 
-#### func IsInterface 
+### func IsInterface 
 
 ``` go 
 func IsInterface(t Type) bool
@@ -191,7 +181,7 @@ func IsInterface(t Type) bool
 
 IsInterface reports whether t is an interface type.
 
-#### func ObjectString 
+### func ObjectString 
 
 ``` go 
 func ObjectString(obj Object, qf Qualifier) string
@@ -199,7 +189,7 @@ func ObjectString(obj Object, qf Qualifier) string
 
 ObjectString returns the string form of obj. The Qualifier controls the printing of package-level objects, and may be nil.
 
-#### func Satisfies  <- go1.20
+### func Satisfies  <- go1.20
 
 ``` go 
 func Satisfies(V Type, T *Interface) bool
@@ -209,7 +199,7 @@ Satisfies reports whether type V satisfies the constraint T.
 
 The behavior of Satisfies is unspecified if V is Typ[Invalid] or an uninstantiated generic type.
 
-#### func SelectionString 
+### func SelectionString 
 
 ``` go 
 func SelectionString(s *Selection, qf Qualifier) string
@@ -225,7 +215,7 @@ Examples:
 "method expr (T) f(X) Y"
 ```
 
-#### func TypeString 
+### func TypeString 
 
 ``` go 
 func TypeString(typ Type, qf Qualifier) string
@@ -233,7 +223,7 @@ func TypeString(typ Type, qf Qualifier) string
 
 TypeString returns the string representation of typ. The Qualifier controls the printing of package-level objects, and may be nil.
 
-#### func WriteExpr 
+### func WriteExpr 
 
 ``` go 
 func WriteExpr(buf *bytes.Buffer, x ast.Expr)
@@ -241,7 +231,7 @@ func WriteExpr(buf *bytes.Buffer, x ast.Expr)
 
 WriteExpr writes the (possibly shortened) string representation for x to buf. Shortened representations are suitable for user interfaces but may not necessarily follow Go syntax.
 
-#### func WriteSignature 
+### func WriteSignature 
 
 ``` go 
 func WriteSignature(buf *bytes.Buffer, sig *Signature, qf Qualifier)
@@ -249,7 +239,7 @@ func WriteSignature(buf *bytes.Buffer, sig *Signature, qf Qualifier)
 
 WriteSignature writes the representation of the signature sig to buf, without a leading "func" keyword. The Qualifier controls the printing of package-level objects, and may be nil.
 
-#### func WriteType 
+### func WriteType 
 
 ``` go 
 func WriteType(buf *bytes.Buffer, typ Type, qf Qualifier)
@@ -618,11 +608,11 @@ type Config struct {
 	// type checker will initialize this field with a newly created context.
 	Context *Context
 
-	// GoVersion describes the accepted Go language version. The string
-	// must follow the format "go%d.%d" (e.g. "go1.12") or it must be
-	// empty; an empty string indicates the latest language version.
-	// If the format is invalid, invoking the type checker will cause a
-	// panic.
+	// GoVersion describes the accepted Go language version. The string must
+	// start with a prefix of the form "go%d.%d" (e.g. "go1.20", "go1.21rc1", or
+	// "go1.21.0") or it must be empty; an empty string disables Go language
+	// version checks. If the format is invalid, invoking the type checker will
+	// result in an error.
 	GoVersion string
 
 	// If IgnoreFuncBodies is set, function bodies are not
@@ -1082,8 +1072,144 @@ type Info struct {
 
 Info holds result type information for a type-checked package. Only the information for which a map is provided is collected. If the package has type errors, the collected information may be incomplete.
 
-##### Example
+#### Example
+
+ExampleInfo prints various facts recorded by the type checker in a types.Info struct: definitions of and references to each named object, and the type, value, and mode of every expression in the package.
+
 ``` go 
+// Parse a single source file.
+const input = `
+package fib
+
+type S string
+
+var a, b, c = len(b), S(c), "hello"
+
+func fib(x int) int {
+	if x < 2 {
+		return x
+	}
+	return fib(x-1) - fib(x-2)
+}`
+// We need a specific fileset in this test below for positions.
+// Cannot use typecheck helper.
+fset := token.NewFileSet()
+f := mustParse(fset, input)
+
+// Type-check the package.
+// We create an empty map for each kind of input
+// we're interested in, and Check populates them.
+info := types.Info{
+	Types: make(map[ast.Expr]types.TypeAndValue),
+	Defs:  make(map[*ast.Ident]types.Object),
+	Uses:  make(map[*ast.Ident]types.Object),
+}
+var conf types.Config
+pkg, err := conf.Check("fib", fset, []*ast.File{f}, &info)
+if err != nil {
+	log.Fatal(err)
+}
+
+// Print package-level variables in initialization order.
+fmt.Printf("InitOrder: %v\n\n", info.InitOrder)
+
+// For each named object, print the line and
+// column of its definition and each of its uses.
+fmt.Println("Defs and Uses of each named object:")
+usesByObj := make(map[types.Object][]string)
+for id, obj := range info.Uses {
+	posn := fset.Position(id.Pos())
+	lineCol := fmt.Sprintf("%d:%d", posn.Line, posn.Column)
+	usesByObj[obj] = append(usesByObj[obj], lineCol)
+}
+var items []string
+for obj, uses := range usesByObj {
+	sort.Strings(uses)
+	item := fmt.Sprintf("%s:\n  defined at %s\n  used at %s",
+		types.ObjectString(obj, types.RelativeTo(pkg)),
+		fset.Position(obj.Pos()),
+		strings.Join(uses, ", "))
+	items = append(items, item)
+}
+sort.Strings(items) // sort by line:col, in effect
+fmt.Println(strings.Join(items, "\n"))
+fmt.Println()
+
+fmt.Println("Types and Values of each expression:")
+items = nil
+for expr, tv := range info.Types {
+	var buf strings.Builder
+	posn := fset.Position(expr.Pos())
+	tvstr := tv.Type.String()
+	if tv.Value != nil {
+		tvstr += " = " + tv.Value.String()
+	}
+	// line:col | expr | mode : type = value
+	fmt.Fprintf(&buf, "%2d:%2d | %-19s | %-7s : %s",
+		posn.Line, posn.Column, exprString(fset, expr),
+		mode(tv), tvstr)
+	items = append(items, buf.String())
+}
+sort.Strings(items)
+fmt.Println(strings.Join(items, "\n"))
+
+
+Output:
+
+InitOrder: [c = "hello" b = S(c) a = len(b)]
+
+Defs and Uses of each named object:
+builtin len:
+  defined at -
+  used at 6:15
+func fib(x int) int:
+  defined at fib:8:6
+  used at 12:20, 12:9
+type S string:
+  defined at fib:4:6
+  used at 6:23
+type int:
+  defined at -
+  used at 8:12, 8:17
+type string:
+  defined at -
+  used at 4:8
+var b S:
+  defined at fib:6:8
+  used at 6:19
+var c string:
+  defined at fib:6:11
+  used at 6:25
+var x int:
+  defined at fib:8:10
+  used at 10:10, 12:13, 12:24, 9:5
+
+Types and Values of each expression:
+ 4: 8 | string              | type    : string
+ 6:15 | len                 | builtin : func(fib.S) int
+ 6:15 | len(b)              | value   : int
+ 6:19 | b                   | var     : fib.S
+ 6:23 | S                   | type    : fib.S
+ 6:23 | S(c)                | value   : fib.S
+ 6:25 | c                   | var     : string
+ 6:29 | "hello"             | value   : string = "hello"
+ 8:12 | int                 | type    : int
+ 8:17 | int                 | type    : int
+ 9: 5 | x                   | var     : int
+ 9: 5 | x < 2               | value   : untyped bool
+ 9: 9 | 2                   | value   : int = 2
+10:10 | x                   | var     : int
+12: 9 | fib                 | value   : func(x int) int
+12: 9 | fib(x - 1)          | value   : int
+12: 9 | fib(x-1) - fib(x-2) | value   : int
+12:13 | x                   | var     : int
+12:13 | x - 1               | value   : int
+12:15 | 1                   | value   : int = 1
+12:20 | fib                 | value   : func(x int) int
+12:20 | fib(x - 2)          | value   : int
+12:24 | x                   | var     : int
+12:24 | x - 2               | value   : int
+12:26 | 2                   | value   : int = 2
 ```
 
 #### (*Info) ObjectOf 
@@ -1144,9 +1270,15 @@ type Interface struct {
 
 An Interface represents an interface type.
 
-##### Example
-``` go 
+#### func NewInterface <-DEPRECATED
+
+```go
+func NewInterface(methods []*Func, embeddeds []*Named) *Interface
 ```
+
+NewInterface returns a new interface for the given methods and embedded types. NewInterface takes ownership of the provided methods and may modify their types by setting missing receivers.
+
+Deprecated: Use NewInterfaceType instead which allows arbitrary embedded types.
 
 #### func NewInterfaceType  <- go1.11
 
@@ -1168,9 +1300,15 @@ Complete computes the interface's type set. It must be called by users of NewInt
 
 Interface types that have been completed are safe for concurrent use.
 
-##### Example
-``` go 
+#### (*Interface) Embedded <-DEPRECATED
+
+```go
+func (t *Interface) Embedded(i int) *Named
 ```
+
+Embedded returns the i'th embedded defined (*Named) type of interface t for 0 <= i < t.NumEmbeddeds(). The result is nil if the i'th embedded type is not a defined type.
+
+Deprecated: Use EmbeddedType which is not restricted to defined (*Named) types.
 
 #### (*Interface) EmbeddedType  <- go1.11
 
@@ -1409,7 +1547,77 @@ type MethodSet struct {
 A MethodSet is an ordered set of concrete or abstract (interface) methods; a method is a MethodVal selection, and they are ordered by ascending m.Obj().Id(). The zero value for a MethodSet is a ready-to-use empty method set.
 
 ##### Example
+
+ExampleMethodSet prints the method sets of various types.
+
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/ast"
+	"go/importer"
+	"go/parser"
+	"go/token"
+	"go/types"
+	"log"
+)
+
+func main() {
+	// Parse a single source file.
+	const input = `
+package temperature
+import "fmt"
+type Celsius float64
+func (c Celsius) String() string  { return fmt.Sprintf("%g°C", c) }
+func (c *Celsius) SetF(f float64) { *c = Celsius(f - 32 / 9 * 5) }
+
+type S struct { I; m int }
+type I interface { m() byte }
+`
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, "celsius.go", input, 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Type-check a package consisting of this file.
+	// Type information for the imported packages
+	// comes from $GOROOT/pkg/$GOOS_$GOOARCH/fmt.a.
+	conf := types.Config{Importer: importer.Default()}
+	pkg, err := conf.Check("temperature", fset, []*ast.File{f}, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Print the method sets of Celsius and *Celsius.
+	celsius := pkg.Scope().Lookup("Celsius").Type()
+	for _, t := range []types.Type{celsius, types.NewPointer(celsius)} {
+		fmt.Printf("Method set of %s:\n", t)
+		mset := types.NewMethodSet(t)
+		for i := 0; i < mset.Len(); i++ {
+			fmt.Println(mset.At(i))
+		}
+		fmt.Println()
+	}
+
+	// Print the method set of S.
+	styp := pkg.Scope().Lookup("S").Type()
+	fmt.Printf("Method set of %s:\n", styp)
+	fmt.Println(types.NewMethodSet(styp))
+
+}
+Output:
+
+Method set of temperature.Celsius:
+method (temperature.Celsius) String() string
+
+Method set of *temperature.Celsius:
+method (*temperature.Celsius) SetF(f float64)
+method (*temperature.Celsius) String() string
+
+Method set of temperature.S:
+MethodSet {}
 ```
 
 #### func NewMethodSet 
@@ -1699,6 +1907,14 @@ func (pkg *Package) Complete() bool
 
 A package is complete if its scope contains (at least) all exported objects; otherwise it is incomplete.
 
+#### (*Package) GoVersion <-go1.21.0
+
+```go
+func (pkg *Package) GoVersion() string
+```
+
+GoVersion returns the minimum Go version required by this package. If the minimum version is unknown, GoVersion returns the empty string. Individual source files may specify a different minimum Go version, as reported in the [go/ast.File.GoVersion](https://pkg.go.dev/go/ast#File.GoVersion) field.
+
 #### (*Package) Imports 
 
 ``` go 
@@ -1922,7 +2138,82 @@ type Scope struct {
 A Scope maintains a set of objects and links to its containing (parent) and contained (children) scopes. Objects may be inserted and looked up by name. The zero value for Scope is a ready-to-use empty scope.
 
 ##### Example
+
+ExampleScope prints the tree of Scopes of a package created from a set of parsed files.
+
 ``` go 
+// Parse the source files for a package.
+fset := token.NewFileSet()
+var files []*ast.File
+for _, src := range []string{
+	`package main
+import "fmt"
+func main() {
+	freezing := FToC(-18)
+	fmt.Println(freezing, Boiling) }
+`,
+	`package main
+import "fmt"
+type Celsius float64
+func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+func FToC(f float64) Celsius { return Celsius(f - 32 / 9 * 5) }
+const Boiling Celsius = 100
+func Unused() { {}; {{ var x int; _ = x }} } // make sure empty block scopes get printed
+`,
+} {
+	files = append(files, mustParse(fset, src))
+}
+
+// Type-check a package consisting of these files.
+// Type information for the imported "fmt" package
+// comes from $GOROOT/pkg/$GOOS_$GOOARCH/fmt.a.
+conf := types.Config{Importer: importer.Default()}
+pkg, err := conf.Check("temperature", fset, files, nil)
+if err != nil {
+	log.Fatal(err)
+}
+
+// Print the tree of scopes.
+// For determinism, we redact addresses.
+var buf strings.Builder
+pkg.Scope().WriteTo(&buf, 0, true)
+rx := regexp.MustCompile(` 0x[a-fA-F\d]*`)
+fmt.Println(rx.ReplaceAllString(buf.String(), ""))
+
+
+Output:
+
+package "temperature" scope {
+.  const temperature.Boiling temperature.Celsius
+.  type temperature.Celsius float64
+.  func temperature.FToC(f float64) temperature.Celsius
+.  func temperature.Unused()
+.  func temperature.main()
+.  main scope {
+.  .  package fmt
+.  .  function scope {
+.  .  .  var freezing temperature.Celsius
+.  .  }
+.  }
+.  main scope {
+.  .  package fmt
+.  .  function scope {
+.  .  .  var c temperature.Celsius
+.  .  }
+.  .  function scope {
+.  .  .  var f float64
+.  .  }
+.  .  function scope {
+.  .  .  block scope {
+.  .  .  }
+.  .  .  block scope {
+.  .  .  .  block scope {
+.  .  .  .  .  var x int
+.  .  .  .  }
+.  .  .  }
+.  .  }
+.  }
+}
 ```
 
 ``` go 
@@ -2164,9 +2455,15 @@ type Signature struct {
 
 A Signature represents a (non-builtin) function or method type. The receiver is ignored when comparing signatures for identity.
 
-##### Example
-``` go 
+#### func NewSignature <-DEPRECATED
+
+```go
+func NewSignature(recv *Var, params, results *Tuple, variadic bool) *Signature
 ```
+
+NewSignature returns a new function type for the given receiver, parameters, and results, either of which may be nil. If variadic is set, the function is variadic, it must have at least one parameter, and the last parameter must be of unnamed slice type.
+
+Deprecated: Use NewSignatureType instead which allows for type parameters.
 
 #### func NewSignatureType  <- go1.18
 

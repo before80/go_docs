@@ -8,7 +8,7 @@ draft = false
 +++
 
 
-https://pkg.go.dev/syscall/js@go1.20.1
+https://pkg.go.dev/syscall/js@go1.21.3
 
 Package js gives access to the WebAssembly host environment when using the js/wasm architecture. Its API is based on JavaScript semantics.
 

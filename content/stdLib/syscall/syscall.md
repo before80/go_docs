@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/syscall@go1.20.1
+https://pkg.go.dev/syscall@go1.21.3
 
 Package syscall contains an interface to the low-level operating system primitives. The details vary depending on the underlying system, and by default, godoc will display the syscall documentation for the current system. If you want godoc to display syscall documentation for another system, set $GOOS and $GOARCH to the desired system. For example, if you want to view documentation for freebsd/arm on linux/amd64, set $GOOS to freebsd and $GOARCH to arm. The primary use of syscall is inside other packages that provide a more portable interface to the system, such as "os", "time" and "net". Use those packages rather than this one if you can. For details of the functions and data types in this package consult the manuals for the appropriate operating system. These calls return err == nil to indicate success; otherwise err is an operating system error describing the failure. On most systems, that error has type syscall.Errno.
 
@@ -2029,9 +2029,13 @@ func Acct(path string) (err error)
 func Adjtimex(buf *Timex) (state int, err error)
 ```
 
-#### Example
-``` go 
+### func AttachLsf <-DEPRECATED
+
 ```
+func AttachLsf(fd int, i []SockFilter) error
+```
+
+Deprecated: Use golang.org/x/net/bpf instead.
 
 ### func Bind 
 
@@ -2133,9 +2137,13 @@ func Connect(fd int, sa Sockaddr) (err error)
 func Creat(path string, mode uint32) (fd int, err error)
 ```
 
-#### Example
-``` go 
+### func DetachLsf <-DEPRECATED
+
 ```
+func DetachLsf(fd int) error
+```
+
+Deprecated: Use golang.org/x/net/bpf instead.
 
 ### func Dup 
 
@@ -2509,9 +2517,13 @@ func Listen(s int, n int) (err error)
 func Listxattr(path string, dest []byte) (sz int, err error)
 ```
 
-#### Example
-``` go 
+### func LsfSocket <-DEPRECATED
+
 ```
+func LsfSocket(ifindex, proto int) (int, error)
+```
+
+Deprecated: Use golang.org/x/net/bpf instead.
 
 ### func Lstat 
 
@@ -2843,9 +2855,13 @@ func SendmsgN(fd int, p, oob []byte, to Sockaddr, flags int) (n int, err error)
 func Sendto(fd int, p []byte, flags int, to Sockaddr) (err error)
 ```
 
-#### Example
-``` go 
+### func SetLsfPromisc <-DEPRECATED
+
 ```
+func SetLsfPromisc(name string, m bool) error
+```
+
+Deprecated: Use golang.org/x/net/bpf instead.
 
 ### func SetNonblock 
 
@@ -3085,17 +3101,35 @@ func Stat(path string, stat *Stat_t) (err error)
 func Statfs(path string, buf *Statfs_t) (err error)
 ```
 
-#### Example
-``` go 
+### func StringBytePtr <-DEPRECATED
+
+```
+func StringBytePtr(s string) *byte
 ```
 
-#### Example
-``` go 
+StringBytePtr returns a pointer to a NUL-terminated array of bytes. If s contains a NUL byte this function panics instead of returning an error.
+
+Deprecated: Use BytePtrFromString instead.
+
+### func StringByteSlice <-DEPRECATED
+
+```
+func StringByteSlice(s string) []byte
 ```
 
-#### Example
-``` go 
+StringByteSlice converts a string to a NUL-terminated []byte, If s contains a NUL byte this function panics instead of returning an error.
+
+Deprecated: Use ByteSliceFromString instead.
+
+### func StringSlicePtr <-DEPRECATED
+
 ```
+func StringSlicePtr(ss []string) []*byte
+```
+
+StringSlicePtr converts a slice of strings to a slice of pointers to NUL-terminated byte arrays. If any string contains a NUL byte this function panics instead of returning an error.
+
+Deprecated: Use SlicePtrFromStrings instead.
 
 ### func Symlink 
 
@@ -3964,13 +3998,21 @@ type SockFilter struct {
 }
 ```
 
-##### Example
-``` go 
+#### func LsfJump <-DEPRECATED
+
+```
+func LsfJump(code, k, jt, jf int) *SockFilter
 ```
 
-##### Example
-``` go 
+Deprecated: Use golang.org/x/net/bpf instead.
+
+#### func LsfStmt <-DEPRECATED
+
 ```
+func LsfStmt(code, k int) *SockFilter
+```
+
+Deprecated: Use golang.org/x/net/bpf instead.
 
 ### type SockFprog 
 

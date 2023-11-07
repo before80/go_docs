@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/io/ioutil@go1.20.1
+https://pkg.go.dev/io/ioutil@go1.21.3
 
 Package ioutil implements some I/O utility functions.
 

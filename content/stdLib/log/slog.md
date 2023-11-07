@@ -7,6 +7,8 @@ isCJKLanguage = true
 draft = false
 +++
 
+https://pkg.go.dev/slog@go1.21.3
+
 ## Overview 
 
 Package slog provides structured logging, in which log records include a message, a severity level, and various other attributes expressed as key-value pairs.

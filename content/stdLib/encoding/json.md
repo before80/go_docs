@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/encoding/json@go1.20.1
+https://pkg.go.dev/encoding/json@go1.21.3
 
 Package json implements encoding and decoding of JSON as defined in [RFC 7159](https://rfc-editor.org/rfc/rfc7159.html). The mapping between JSON and Go values is described in the documentation for the Marshal and Unmarshal functions.
 

@@ -7,13 +7,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/gzip@go1.20.1
-
-
+https://pkg.go.dev/compress/gzip@go1.21.3
 
 Package gzip implements reading and writing of gzip format compressed files, as specified in [RFC 1952](https://rfc-editor.org/rfc/rfc1952.html).
 
-##### Example (CompressingReader)
+## Example (CompressingReader)
 ``` go 
 package main
 
@@ -117,7 +115,7 @@ Output:
 the data to be compressed
 ```
 
-##### Example (WriterReader)
+## Example (WriterReader)
 ``` go 
 package main
 
@@ -176,7 +174,7 @@ A long time ago in a galaxy far, far away...
 
 ## 常量 
 
-[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/compress/gzip/gzip.go;l=18)
+[View Source](https://cs.opensource.google/go/go/+/go1.21.3:src/compress/gzip/gzip.go;l=18)
 
 ``` go 
 const (

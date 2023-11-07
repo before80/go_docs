@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/hash@go1.20.1
-
-
+https://pkg.go.dev/hash@go1.21.3
 
 Package hash provides interfaces for hash functions.
 

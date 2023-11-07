@@ -7,11 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# constraint
-
-https://pkg.go.dev/go/build/constraint@go1.20.1
-
-
+https://pkg.go.dev/go/build/constraint@go1.21.3
 
 Package constraint implements parsing and evaluation of build constraint lines. See https://golang.org/cmd/go/#hdr-Build_constraints for documentation about build constraints themselves.
 
@@ -29,7 +25,33 @@ This section is empty.
 
 ## 函数
 
-#### func IsGoBuild 
+### func GoVersion <- go1.21.0
+
+```go
+func GoVersion(x Expr) string
+```
+
+GoVersion returns the minimum Go version implied by a given build expression. If the expression can be satisfied without any Go version tags, GoVersion returns an empty string.
+
+For example:
+
+```go
+GoVersion(linux && go1.22) = "go1.22"
+GoVersion((linux && go1.22) || (windows && go1.20)) = "go1.20" => go1.20
+GoVersion(linux) = ""
+GoVersion(linux || (windows && go1.22)) = ""
+GoVersion(!go1.22) = ""
+```
+
+GoVersion assumes that any tag or negated tag may independently be true, so that its analysis can be purely structural, without SAT solving. “Impossible” subexpressions may therefore affect the result.
+
+For example:
+
+```go
+GoVersion((linux && !linux && go1.20) || go1.21) = "go1.20"
+```
+
+### func IsGoBuild 
 
 ``` go 
 func IsGoBuild(line string) bool
@@ -37,7 +59,7 @@ func IsGoBuild(line string) bool
 
 IsGoBuild reports whether the line of text is a "//go:build" constraint. It only checks the prefix of the text, not that the expression itself parses.
 
-#### func IsPlusBuild 
+### func IsPlusBuild 
 
 ``` go 
 func IsPlusBuild(line string) bool
@@ -45,7 +67,7 @@ func IsPlusBuild(line string) bool
 
 IsPlusBuild reports whether the line of text is a "// +build" constraint. It only checks the prefix of the text, not that the expression itself parses.
 
-#### func PlusBuildLines 
+### func PlusBuildLines 
 
 ``` go 
 func PlusBuildLines(x Expr) ([]string, error)

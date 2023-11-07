@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image@go1.20.1
-
-
+https://pkg.go.dev/image@go1.21.3
 
 Package image implements a basic 2-D image library.
 
@@ -16,7 +14,7 @@ The fundamental interface is called Image. An Image contains colors, which are d
 
 Values of the Image interface are created either by calling functions such as NewRGBA and NewPaletted, or by calling Decode on an io.Reader containing image data in a format such as GIF, JPEG or PNG. Decoding any particular image format requires the prior registration of a decoder function. Registration is typically automatic as a side effect of initializing that format's package so that, to decode a PNG image, it suffices to have
 
-```
+```go
 import _ "image/png"
 ```
 
@@ -289,7 +287,7 @@ ErrFormat indicates that decoding encountered an unknown format.
 
 ## 函数
 
-#### func RegisterFormat 
+### func RegisterFormat 
 
 ``` go 
 func RegisterFormat(name, magic string, decode func(io.Reader) (Image, error), decodeConfig func(io.Reader) (Config, error))

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/database/sql@go1.20.1
+https://pkg.go.dev/database/sql@go1.21.3
 
 ## 关系图
 
@@ -14,7 +14,7 @@ https://pkg.go.dev/database/sql@go1.20.1
 
 Package sql provides a generic interface around SQL (or SQL-like) databases.
 
-​	sql包提供了一个围绕SQL(或类SQL)数据库的通用接口。
+​	`sql`包提供了一个围绕SQL(或类SQL)数据库的通用接口。
 
 The sql package must be used in conjunction with a database driver. See https://golang.org/s/sqldrivers for a list of drivers.
 

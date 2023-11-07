@@ -7,9 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/zlib@go1.20.1
-
-
+https://pkg.go.dev/compress/zlib@go1.21.3
 
 Package zlib implements reading and writing of zlib format compressed data, as specified in [RFC 1950](https://rfc-editor.org/rfc/rfc1950.html).
 
@@ -24,17 +22,11 @@ w.Close()
 
 and to read that data back:
 
-```
+```go
 r, err := zlib.NewReader(&b)
 io.Copy(os.Stdout, r)
 r.Close()
 ```
-
-
-
-
-
-
 
 
 ## 常量 
@@ -70,7 +62,7 @@ var (
 
 ## 函数
 
-#### func NewReader 
+### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) (io.ReadCloser, error)
@@ -80,7 +72,7 @@ NewReader creates a new ReadCloser. Reads from the returned ReadCloser read and 
 
 The ReadCloser returned by NewReader also implements Resetter.
 
-##### NewReader Example
+#### NewReader Example
 ``` go 
 package main
 
@@ -109,7 +101,7 @@ Output:
 hello, world
 ```
 
-#### func NewReaderDict 
+### func NewReaderDict 
 
 ``` go 
 func NewReaderDict(r io.Reader, dict []byte) (io.ReadCloser, error)

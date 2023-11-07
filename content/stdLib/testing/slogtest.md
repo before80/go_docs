@@ -10,11 +10,11 @@ draft = false
 
 https://pkg.go.dev/testing/slogtest@go1.21.3
 
-## Overview 
+## 概述
 
 Package slogtest implements support for testing implementations of log/slog.Handler.
 
-### Example (Parsing)
+## Example (Parsing)
 
 This example demonstrates one technique for testing a handler with this package. The handler is given a [bytes.Buffer](https://pkg.go.dev/bytes#Buffer) to write to, and each line of the resulting output is parsed. For JSON output, [encoding/json.Unmarshal](https://pkg.go.dev/encoding/json#Unmarshal) produces a result in the desired format when given a pointer to a map[string]any.
 
@@ -55,15 +55,15 @@ func main() {
 }
 
 ```
-## Constants 
+## 常量
 
 This section is empty.
 
-## Variables 
+## 变量
 
 This section is empty.
 
-## Functions 
+## 函数 
 
 ### func TestHandler 
 
@@ -81,6 +81,6 @@ If the Handler outputs JSON, then calling [encoding/json.Unmarshal](https://pkg.
 
 If a Handler intentionally drops an attribute that is checked by a test, then the results function should check for its absence and add it to the map it returns.
 
-## Types 
+## 类型
 
 This section is empty.

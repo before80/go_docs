@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/html@go1.20.1
+https://pkg.go.dev/html@go1.21.3
 
 Package html provides functions for escaping and unescaping HTML text.
 

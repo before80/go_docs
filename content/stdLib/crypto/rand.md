@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/rand@go1.20.1
-
-
+https://pkg.go.dev/crypto/rand@go1.21.3
 
 Package rand implements a cryptographically secure random number generator.
 
@@ -31,7 +29,7 @@ On Linux, FreeBSD, Dragonfly and Solaris, Reader uses getrandom(2) if available,
 
 ## 函数
 
-#### func Int 
+### func Int 
 
 ``` go
 func Int(rand io.Reader, max *big.Int) (n *big.Int, err error)
@@ -39,7 +37,7 @@ func Int(rand io.Reader, max *big.Int) (n *big.Int, err error)
 
 Int returns a uniform random value in [0, max). It panics if max <= 0.
 
-#### func Prime 
+### func Prime 
 
 ``` go
 func Prime(rand io.Reader, bits int) (*big.Int, error)
@@ -47,7 +45,7 @@ func Prime(rand io.Reader, bits int) (*big.Int, error)
 
 Prime returns a number of the given bit length that is prime with high probability. Prime will return error for any error returned by rand.Read or if bits < 2.
 
-#### func Read 
+### func Read 
 
 ``` go
 func Read(b []byte) (n int, err error)
@@ -55,7 +53,7 @@ func Read(b []byte) (n int, err error)
 
 Read is a helper function that calls Reader.Read using io.ReadFull. On return, n == len(b) if and only if err == nil.
 
-##### Read Example
+#### Read Example
 
 ```go
 package main

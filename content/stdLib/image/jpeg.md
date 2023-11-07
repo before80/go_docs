@@ -6,15 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image/jpeg@go1.20.1
-
-
+https://pkg.go.dev/image/jpeg@go1.21.3
 
 Package jpeg implements a JPEG image decoder and encoder.
 
 JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
-
-
 
 ## 常量 
 
@@ -32,7 +28,7 @@ This section is empty.
 
 ## 函数
 
-#### func Decode 
+### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -40,7 +36,7 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a JPEG image from r and returns it as an image.Image.
 
-#### func DecodeConfig 
+### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -48,7 +44,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the color model and dimensions of a JPEG image without decoding the entire image.
 
-#### func Encode 
+### func Encode 
 
 ``` go 
 func Encode(w io.Writer, m image.Image, o *Options) error
@@ -83,6 +79,16 @@ type Options struct {
 Options are the encoding parameters. Quality ranges from 1 to 100 inclusive, higher is better.
 
 ### type Reader <- DEPRECATED
+
+```go
+type Reader interface {
+	io.ByteReader
+	io.Reader
+}
+```
+
+Deprecated: Reader is not used by the image/jpeg package and should not be used by others. It is kept for compatibility.
+
 ### type UnsupportedError 
 
 ``` go 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/hex@go1.20.1
+https://pkg.go.dev/encoding/hex@go1.21.3
 
 Package hex implements hexadecimal encoding and decoding.
 

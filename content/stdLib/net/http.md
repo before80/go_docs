@@ -3066,31 +3066,31 @@ func Post(url, contentType string, body io.Reader) (resp *Response, err error)
 
 Post issues a POST to the specified URL.
 
-​	Post函数向指定的URL发出POST请求。
+​	`Post`函数向指定的URL发出POST请求。
 
 Caller should close resp.Body when done reading from it.
 
-​	调用者在读取完resp.Body后应该关闭它。
+​	调用者在读取完`resp.Body`后应该关闭它。
 
 If the provided body is an io.Closer, it is closed after the request.
 
-​	如果提供的body实现了io.Closer接口，则在请求之后会关闭它。
+​	如果提供的body实现了`io.Closer`接口，则在请求之后会关闭它。
 
 Post is a wrapper around DefaultClient.Post.
 
-​	Post函数是DefaultClient.Post的包装函数。
+​	`Post`函数是`DefaultClient.Post`的包装函数。
 
 To set custom headers, use NewRequest and DefaultClient.Do.
 
-​	要设置自定义头，请使用NewRequest函数和DefaultClient.Do方法。
+​	要设置自定义头，请使用`NewRequest`函数和`DefaultClient.Do`方法。
 
 See the Client.Do method documentation for details on how redirects are handled.
 
-​	有关重定向处理方式的详细信息，请参见Client.Do方法文档。
+​	有关重定向处理方式的详细信息，请参见`Client.Do`方法文档。
 
 To make a request with a specified context.Context, use NewRequestWithContext and DefaultClient.Do.
 
-​	要使用指定的context.Context发出请求，请使用NewRequestWithContext函数和DefaultClient.Do方法。
+​	要使用指定的context.Context发出请求，请使用`NewRequestWithContext`函数和`DefaultClient.Do`方法。
 
 #### func PostForm 
 
@@ -3100,19 +3100,19 @@ func PostForm(url string, data url.Values) (resp *Response, err error)
 
 PostForm issues a POST to the specified URL, with data's keys and values URL-encoded as the request body.
 
-​	PostForm函数向指定的URL发出POST请求，使用data的键和值作为请求体进行URL编码。
+​	`PostForm`函数向指定的URL发出POST请求，使用`data`的键和值作为请求体进行URL编码。
 
 The Content-Type header is set to application/x-www-form-urlencoded. To set other headers, use NewRequest and DefaultClient.Do.
 
-​	Content-Type标头设置为application/x-www-form-urlencoded。要设置其他标头，请使用NewRequest函数和DefaultClient.Do方法。
+​	Content-Type标头设置为application/x-www-form-urlencoded。要设置其他标头，请使用`NewRequest`函数和`DefaultClient.Do`方法。
 
 When err is nil, resp always contains a non-nil resp.Body. Caller should close resp.Body when done reading from it.
 
-​	当err为nil时，resp始终包含一个非空的resp.Body。在读取完毕后，调用者应该关闭resp.Body。
+​	当`err`为nil时，resp始终包含一个非空的`resp.Body`。在读取完毕后，调用者应该关闭resp.Body。
 
 PostForm is a wrapper around DefaultClient.PostForm.
 
-​	PostForm函数是DefaultClient.PostForm的包装函数。
+​	`PostForm`函数是`DefaultClient.PostForm`的包装函数。
 
 See the Client.Do method documentation for details on how redirects are handled.
 
@@ -3120,7 +3120,7 @@ See the Client.Do method documentation for details on how redirects are handled.
 
 To make a request with a specified context.Context, use NewRequestWithContext and DefaultClient.Do.
 
-​	要使用指定的context.Context发出请求，请使用NewRequestWithContext和DefaultClient.Do。
+​	要使用指定的context.Context发出请求，请使用`NewRequestWithContext`和`DefaultClient.Do`。
 
 #### func ReadResponse 
 
@@ -3130,7 +3130,7 @@ func ReadResponse(r *bufio.Reader, req *Request) (*Response, error)
 
 ReadResponse reads and returns an HTTP response from r. The req parameter optionally specifies the Request that corresponds to this Response. If nil, a GET request is assumed. Clients must call resp.Body.Close when finished reading resp.Body. After that call, clients can inspect resp.Trailer to find key/value pairs included in the response trailer.
 
-​	ReadResponse函数从r中读取并返回HTTP响应。 req参数可选地指定与此Response对应的Request。如果为nil，则假定为GET请求。客户端必须在完成读取resp.Body后调用resp.Body.Close。在该调用之后，客户端可以检查resp.Trailer以查找包含在响应trailer中的键/值对。
+​	`ReadResponse`函数从r中读取并返回HTTP响应。 req参数可选地指定与此Response对应的Request。如果为nil，则假定为GET请求。客户端必须在完成读取resp.Body后调用resp.Body.Close。在该调用之后，客户端可以检查resp.Trailer以查找包含在响应trailer中的键/值对。
 
 #### (*Response) Cookies 
 
@@ -3140,7 +3140,7 @@ func (r *Response) Cookies() []*Cookie
 
 Cookies parses and returns the cookies set in the Set-Cookie headers.
 
-​	Cookies方法解析并返回在Set-Cookie头中设置的Cookie。
+​	`Cookies`方法解析并返回在Set-Cookie头中设置的Cookie。
 
 #### (*Response) Location 
 
@@ -3150,7 +3150,7 @@ func (r *Response) Location() (*url.URL, error)
 
 Location returns the URL of the response's "Location" header, if present. Relative redirects are resolved relative to the Response's Request. ErrNoLocation is returned if no Location header is present.
 
-​	Location方法返回响应头"Location"字段的URL，如果存在的话。相对URL会根据响应的请求进行解析。如果没有Location头，会返回ErrNoLocation。
+​	`Location`方法返回响应头"Location"字段的URL，如果存在的话。相对URL会根据响应的请求进行解析。如果没有Location头，会返回ErrNoLocation。
 
 #### (*Response) ProtoAtLeast 
 
@@ -3160,7 +3160,7 @@ func (r *Response) ProtoAtLeast(major, minor int) bool
 
 ProtoAtLeast reports whether the HTTP protocol used in the response is at least major.minor.
 
-​	ProtoAtLeast方法报告响应中使用的HTTP协议是否至少为major.minor。
+​	`ProtoAtLeast`方法报告响应中使用的HTTP协议是否至少为major.minor。
 
 #### (*Response) Write 
 
@@ -3170,7 +3170,7 @@ func (r *Response) Write(w io.Writer) error
 
 Write writes r to w in the HTTP/1.x server response format, including the status line, headers, body, and optional trailer.
 
-​	Write方法以HTTP/1.x服务器响应格式将r写入w，包括状态行、头部、正文和可选的尾随部分。
+​	`Write`方法以HTTP/1.x服务器响应格式将r写入w，包括状态行、头部、正文和可选的尾随部分。
 
 This method consults the following fields of the response r:
 
@@ -3202,11 +3202,11 @@ type ResponseController struct {
 
 A ResponseController is used by an HTTP handler to control the response.
 
-​	ResponseController用于在HTTP处理程序中控制响应。
+​	`ResponseController`用于在HTTP处理程序中控制响应。
 
 A ResponseController may not be used after the Handler.ServeHTTP method has returned.
 
-​	在Handler.ServeHTTP方法返回之后，不得再使用ResponseController。
+​	在`Handler.ServeHTTP`方法返回之后，不得再使用`ResponseController`。
 
 #### func NewResponseController  <- go1.20
 
@@ -3216,15 +3216,15 @@ func NewResponseController(rw ResponseWriter) *ResponseController
 
 NewResponseController creates a ResponseController for a request.
 
-​	NewResponseController函数为请求创建一个ResponseController。
+​	`NewResponseController`函数为请求创建一个ResponseController。
 
 The ResponseWriter should be the original value passed to the Handler.ServeHTTP method, or have an Unwrap method returning the original ResponseWriter.
 
-​	ResponseWriter应该是传递给Handler.ServeHTTP方法的原始值，或者具有返回原始ResponseWriter的Unwrap方法。
+​	`ResponseWriter`应该是传递给Handler.ServeHTTP方法的原始值，或者具有返回原始ResponseWriter的Unwrap方法。
 
 If the ResponseWriter implements any of the following methods, the ResponseController will call them as appropriate:
 
-​	如果ResponseWriter实现了以下任何方法，则ResponseController将根据需要调用它们：
+​	如果`ResponseWriter`实现了以下任何方法，则ResponseController将根据需要调用它们：
 
 ```
 Flush()
@@ -3236,7 +3236,7 @@ SetWriteDeadline(deadline time.Time) error
 
 If the ResponseWriter does not support a method, ResponseController returns an error matching ErrNotSupported.
 
-​	如果ResponseWriter不支持某个方法，则ResponseController返回与ErrNotSupported相匹配的错误。
+​	如果`ResponseWriter`不支持某个方法，则ResponseController返回与ErrNotSupported相匹配的错误。
 
 #### (*ResponseController) EnableFullDuplex <-go1.21.0
 
@@ -3260,7 +3260,7 @@ func (c *ResponseController) Flush() error
 
 Flush flushes buffered data to the client.
 
-​	Flush方法将缓冲数据刷新到客户端。
+​	`Flush`方法将缓冲数据刷新到客户端。
 
 #### (*ResponseController) Hijack  <- go1.20
 
@@ -3270,7 +3270,7 @@ func (c *ResponseController) Hijack() (net.Conn, *bufio.ReadWriter, error)
 
 Hijack lets the caller take over the connection. See the Hijacker interface for details.
 
-​	Hijack方法允许调用者接管连接。有关详细信息，请参见Hijacker接口。
+​	`Hijack`方法允许调用者接管连接。有关详细信息，请参见Hijacker接口。
 
 #### (*ResponseController) SetReadDeadline  <- go1.20
 
@@ -3280,7 +3280,7 @@ func (c *ResponseController) SetReadDeadline(deadline time.Time) error
 
 SetReadDeadline sets the deadline for reading the entire request, including the body. Reads from the request body after the deadline has been exceeded will return an error. A zero value means no deadline.
 
-​	SetReadDeadline方法设置读取整个请求(包括正文)的截止日期。超过截止日期后从请求正文中读取会返回错误。零值表示没有截止日期。
+​	`SetReadDeadline`方法设置读取整个请求(包括正文)的截止日期。超过截止日期后从请求正文中读取会返回错误。零值表示没有截止日期。
 
 Setting the read deadline after it has been exceeded will not extend it.
 
@@ -3294,7 +3294,7 @@ func (c *ResponseController) SetWriteDeadline(deadline time.Time) error
 
 SetWriteDeadline sets the deadline for writing the response. Writes to the response body after the deadline has been exceeded will not block, but may succeed if the data has been buffered. A zero value means no deadline.
 
-​	SetWriteDeadline方法为写入响应设置截止日期。在截止日期之后向响应正文写入不会阻塞，但如果数据已被缓冲，则可能成功。零值表示没有截止日期。
+​	`SetWriteDeadline`方法为写入响应设置截止日期。在截止日期之后向响应正文写入不会阻塞，但如果数据已被缓冲，则可能成功。零值表示没有截止日期。
 
 Setting the write deadline after it has been exceeded will not extend it.
 
@@ -3426,7 +3426,7 @@ type ResponseWriter interface {
 
 A ResponseWriter interface is used by an HTTP handler to construct an HTTP response.
 
-​	ResponseWriter接口由HTTP处理程序用于构建HTTP响应。
+​	`ResponseWriter`接口由HTTP处理程序用于构建HTTP响应。
 
 A ResponseWriter may not be used after the Handler.ServeHTTP method has returned.
 
@@ -3521,11 +3521,11 @@ type RoundTripper interface {
 
 RoundTripper is an interface representing the ability to execute a single HTTP transaction, obtaining the Response for a given Request.
 
-​	RoundTripper是一个接口，表示执行单个HTTP事务的能力，获得给定请求的响应。
+​	`RoundTripper`是一个接口，表示执行单个HTTP事务的能力，获得给定请求的响应。
 
 A RoundTripper must be safe for concurrent use by multiple goroutines.
 
-​	RoundTripper必须对多个goroutine进行并发使用的安全。
+​	`RoundTripper`必须对多个goroutine进行并发使用的安全。
 
 ``` go 
 var DefaultTransport RoundTripper = &Transport{
@@ -3544,7 +3544,7 @@ var DefaultTransport RoundTripper = &Transport{
 
 DefaultTransport is the default implementation of Transport and is used by DefaultClient. It establishes network connections as needed and caches them for reuse by subsequent calls. It uses HTTP proxies as directed by the environment variables HTTP_PROXY, HTTPS_PROXY and NO_PROXY (or the lowercase versions thereof).
 
-​	DefaultTransport是Transport的默认实现，并由DefaultClient使用。它根据需要建立网络连接并将其缓存以供后续调用重用。它按照环境变量HTTP_PROXY、HTTPS_PROXY和NO_PROXY(或其小写版本)的指示使用HTTP代理。
+​	`DefaultTransport`是Transport的默认实现，并由DefaultClient使用。它根据需要建立网络连接并将其缓存以供后续调用重用。它按照环境变量HTTP_PROXY、HTTPS_PROXY和NO_PROXY(或其小写版本)的指示使用HTTP代理。
 
 #### func NewFileTransport 
 
@@ -3554,11 +3554,11 @@ func NewFileTransport(fs FileSystem) RoundTripper
 
 NewFileTransport returns a new RoundTripper, serving the provided FileSystem. The returned RoundTripper ignores the URL host in its incoming requests, as well as most other properties of the request.
 
-​	NewFileTransport函数返回一个新的RoundTripper，为所提供的FileSystem提供服务。返回的RoundTripper忽略其传入请求中的URL主机，以及请求的大多数其他属性。
+​	`NewFileTransport`函数返回一个新的`RoundTripper`，为所提供的`FileSystem`提供服务。返回的RoundTripper忽略其传入请求中的URL主机，以及请求的大多数其他属性。
 
 The typical use case for NewFileTransport is to register the "file" protocol with a Transport, as in:
 
-​	NewFileTransport函数的典型用例是向Transport注册"file"协议，例如：
+​	`NewFileTransport`函数的典型用例是向Transport注册"file"协议，例如：
 
 ```
 t := &http.Transport{}
@@ -3576,7 +3576,7 @@ type SameSite int
 
 SameSite allows a server to define a cookie attribute making it impossible for the browser to send this cookie along with cross-site requests. The main goal is to mitigate the risk of cross-origin information leakage, and provide some protection against cross-site request forgery attacks.
 
-​	SameSite 允许服务器定义一个 cookie 属性，使浏览器无法将该 cookie 与跨站请求一起发送。主要目的是减少跨源信息泄露的风险，并提供一定的保护，以防止跨站请求伪造攻击。
+​	`SameSite` 允许服务器定义一个 cookie 属性，使浏览器无法将该 cookie 与跨站请求一起发送。主要目的是减少跨源信息泄露的风险，并提供一定的保护，以防止跨站请求伪造攻击。
 
 See https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00 for details.
 
@@ -3601,7 +3601,7 @@ type ServeMux struct {
 
 ServeMux is an HTTP request multiplexer. It matches the URL of each incoming request against a list of registered patterns and calls the handler for the pattern that most closely matches the URL.
 
-​	ServeMux 是一个 HTTP 请求多路复用器。它将每个传入请求的 URL 与已注册模式列表进行匹配，并调用与 URL 最匹配的模式的处理程序。
+​	`ServeMux` 是一个 HTTP 请求多路复用器。它将每个传入请求的 URL 与已注册模式列表进行匹配，并调用与 URL 最匹配的模式的处理程序。
 
 Patterns name fixed, rooted paths, like "/favicon.ico", or rooted subtrees, like "/images/" (note the trailing slash). Longer patterns take precedence over shorter ones, so that if there are handlers registered for both "/images/" and "/images/thumbnails/", the latter handler will be called for paths beginning "/images/thumbnails/" and the former will receive requests for any other paths in the "/images/" subtree.
 
@@ -3613,7 +3613,7 @@ Note that since a pattern ending in a slash names a rooted subtree, the pattern 
 
 If a subtree has been registered and a request is received naming the subtree root without its trailing slash, ServeMux redirects that request to the subtree root (adding the trailing slash). This behavior can be overridden with a separate registration for the path without the trailing slash. For example, registering "/images/" causes ServeMux to redirect a request for "/images" to "/images/", unless "/images" has been registered separately.
 
-​	如果已经注册了子树，并收到了以其末尾没有斜杠的根子树命名的请求，ServeMux 会将该请求重定向到根子树(添加尾随斜杠)。此行为可以通过单独为没有尾随斜杠的路径注册来覆盖。例如，注册 "/images/" 会导致 ServeMux 将对 "/images" 的请求重定向到 "/images/"，除非 "/images" 已经单独注册。
+​	如果已经注册了子树，并收到了以其末尾没有斜杠的根子树命名的请求，`ServeMux` 会将该请求重定向到根子树(添加尾随斜杠)。此行为可以通过单独为没有尾随斜杠的路径注册来覆盖。例如，注册 "/images/" 会导致 ServeMux 将对 "/images" 的请求重定向到 "/images/"，除非 "/images" 已经单独注册。
 
 Patterns may optionally begin with a host name, restricting matches to URLs on that host only. Host-specific patterns take precedence over general patterns, so that a handler might register for the two patterns "/codesearch" and "codesearch.google.com/" without also taking over requests for "http://www.google.com/".
 
@@ -3621,7 +3621,7 @@ Patterns may optionally begin with a host name, restricting matches to URLs on t
 
 ServeMux also takes care of sanitizing the URL request path and the Host header, stripping the port number and redirecting any request containing . or .. elements or repeated slashes to an equivalent, cleaner URL.
 
-​	ServeMux 还负责对 URL 请求路径和 Host 标头进行清理，删除端口号，并将包含 . 或 .. 元素或重复斜杠的任何请求重定向到等效且更清晰的 URL。
+​	`ServeMux` 还负责对 URL 请求路径和 Host 标头进行清理，删除端口号，并将包含 . 或 .. 元素或重复斜杠的任何请求重定向到等效且更清晰的 URL。
 
 #### func NewServeMux 
 
@@ -3631,7 +3631,7 @@ func NewServeMux() *ServeMux
 
 NewServeMux allocates and returns a new ServeMux.
 
-​	NewServeMux函数分配并返回一个新的 ServeMux。
+​	`NewServeMux`函数分配并返回一个新的 ServeMux。
 
 #### (*ServeMux) Handle 
 
@@ -3641,7 +3641,7 @@ func (mux *ServeMux) Handle(pattern string, handler Handler)
 
 Handle registers the handler for the given pattern. If a handler already exists for pattern, Handle panics.
 
-​	Handle方法为给定的模式注册处理程序。如果已存在处理程序，则 Handle 方法会引发 panic。
+​	`Handle`方法为给定的模式注册处理程序。如果已存在处理程序，则 Handle 方法会引发 panic。
 
 ##### Handle Example
 ``` go 
@@ -3680,7 +3680,7 @@ func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Re
 
 HandleFunc registers the handler function for the given pattern.
 
-​	HandleFunc方法为给定的模式注册处理函数。
+​	`HandleFunc`方法为给定的模式注册处理函数。
 
 #### (*ServeMux) Handler  <- go1.1
 
@@ -3690,7 +3690,7 @@ func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
 
 Handler returns the handler to use for the given request, consulting r.Method, r.Host, and r.URL.Path. It always returns a non-nil handler. If the path is not in its canonical form, the handler will be an internally-generated handler that redirects to the canonical path. If the host contains a port, it is ignored when matching handlers.
 
-​	Handler方法根据 r.Method、r.Host 和 r.URL.Path 来获取给定请求使用的处理程序。它始终返回一个非 nil 的处理程序。如果路径不在其规范形式中，则处理程序将是一个内部生成的处理程序，用于重定向到规范路径。如果主机包含端口，则匹配处理程序时将忽略该端口。
+​	`Handler`方法根据 r.Method、r.Host 和 r.URL.Path 来获取给定请求使用的处理程序。它始终返回一个非 nil 的处理程序。如果路径不在其规范形式中，则处理程序将是一个内部生成的处理程序，用于重定向到规范路径。如果主机包含端口，则匹配处理程序时将忽略该端口。
 
 The path and host are used unchanged for CONNECT requests.
 
@@ -3698,7 +3698,7 @@ The path and host are used unchanged for CONNECT requests.
 
 Handler also returns the registered pattern that matches the request or, in the case of internally-generated redirects, the pattern that will match after following the redirect.
 
-​	Handler方法还返回与请求匹配的已注册模式，或在生成重定向的情况下，将在遵循重定向后匹配的模式。
+​	`Handler`方法还返回与请求匹配的已注册模式，或在生成重定向的情况下，将在遵循重定向后匹配的模式。
 
 If there is no registered handler that applies to the request, Handler returns a “page not found” handler and an empty pattern.
 
@@ -3712,7 +3712,7 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 
 ServeHTTP dispatches the request to the handler whose pattern most closely matches the request URL.
 
-​	ServeHTTP方法将请求分派到模式最接近请求 URL 的处理程序。
+​	`ServeHTTP`方法将请求分派到模式最接近请求 URL 的处理程序。
 
 ### type Server 
 
@@ -3878,7 +3878,7 @@ type Server struct {
 
 A Server defines parameters for running an HTTP server. The zero value for Server is a valid configuration.
 
-​	Server定义了运行HTTP服务器的参数。Server的零值是有效的配置。
+​	`Server`定义了运行HTTP服务器的参数。`Server`的零值是有效的配置。
 
 #### (*Server) Close  <- go1.8
 
@@ -3888,15 +3888,15 @@ func (srv *Server) Close() error
 
 Close immediately closes all active net.Listeners and any connections in state StateNew, StateActive, or StateIdle. For a graceful shutdown, use Shutdown.
 
-​	Close方法会立即关闭所有活动的net.Listeners和状态为StateNew、StateActive或StateIdle的任何连接。为了优雅的关闭，请使用Shutdown方法。
+​	`Close`方法会立即关闭所有活动的`net.Listeners`和状态为`StateNew`、`StateActive`或`StateIdle`的任何连接。为了优雅的关闭，请使用Shutdown方法。
 
 Close does not attempt to close (and does not even know about) any hijacked connections, such as WebSockets.
 
-​	Close方法不会尝试关闭(甚至不知道)任何被劫持的连接，例如WebSockets。
+​	`Close`方法不会尝试关闭(甚至不知道)任何被劫持的连接，例如WebSockets。
 
 Close returns any error returned from closing the Server's underlying Listener(s).
 
-​	Close方法返回从关闭Server的底层Listener(s)返回的任何错误。
+​	`Close`方法返回从关闭Server的底层`Listener(s)`返回的任何错误。
 
 #### (*Server) ListenAndServe 
 
@@ -3906,15 +3906,15 @@ func (srv *Server) ListenAndServe() error
 
 ListenAndServe listens on the TCP network address srv.Addr and then calls Serve to handle requests on incoming connections. Accepted connections are configured to enable TCP keep-alives.
 
-​	ListenAndServe方法在TCP网络地址srv.Addr上监听并调用Serve来处理传入连接的请求。接受的连接将被配置为启用TCP keep-alives。
+​	`ListenAndServe`方法在TCP网络地址srv.Addr上监听并调用Serve来处理传入连接的请求。接受的连接将被配置为启用TCP keep-alives。
 
 If srv.Addr is blank, ":http" is used.
 
-​	如果srv.Addr为空，则使用"：http"。
+​	如果`srv.Addr`为空，则使用"：http"。
 
 ListenAndServe always returns a non-nil error. After Shutdown or Close, the returned error is ErrServerClosed.
 
-​	ListenAndServe方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
+​	`ListenAndServe`方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
 #### (*Server) ListenAndServeTLS 
 
@@ -3924,19 +3924,19 @@ func (srv *Server) ListenAndServeTLS(certFile, keyFile string) error
 
 ListenAndServeTLS listens on the TCP network address srv.Addr and then calls ServeTLS to handle requests on incoming TLS connections. Accepted connections are configured to enable TCP keep-alives.
 
-​	ListenAndServeTLS方法在TCP网络地址srv.Addr上监听并调用ServeTLS来处理传入TLS连接的请求。接受的连接将被配置为启用TCP keep-alives。
+​	`ListenAndServeTLS`方法在TCP网络地址`srv.Addr`上监听并调用`ServeTLS`来处理传入TLS连接的请求。接受的连接将被配置为启用TCP keep-alives。
 
 Filenames containing a certificate and matching private key for the server must be provided if neither the Server's TLSConfig.Certificates nor TLSConfig.GetCertificate are populated. If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate.
 
-​	如果Server的TLSConfig.Certificates或TLSConfig.GetCertificate都未填充，则必须提供包含服务器证书和匹配私钥的文件名。如果证书由证书颁发机构签名，则certFile应该是服务器证书、任何中间证书和CA的证书的串联。
+​	如果Server的`TLSConfig.Certificates`或`TLSConfig.GetCertificate`都未填充，则必须提供包含服务器证书和匹配私钥的文件名。如果证书由证书颁发机构签名，则certFile应该是服务器证书、任何中间证书和CA的证书的串联。
 
 If srv.Addr is blank, ":https" is used.
 
-​	如果srv.Addr为空，则使用"：https"。
+​	如果`srv.Addr`为空，则使用"：https"。
 
 ListenAndServeTLS always returns a non-nil error. After Shutdown or Close, the returned error is ErrServerClosed.
 
-​	ListenAndServeTLS方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
+​	`ListenAndServeTLS`方法始终返回非零错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
 
 #### (*Server) RegisterOnShutdown  <- go1.9
 
@@ -3946,7 +3946,7 @@ func (srv *Server) RegisterOnShutdown(f func())
 
 RegisterOnShutdown registers a function to call on Shutdown. This can be used to gracefully shutdown connections that have undergone ALPN protocol upgrade or that have been hijacked. This function should start protocol-specific graceful shutdown, but should not wait for shutdown to complete.
 
-​	RegisterOnShutdown方法注册一个在Shutdown时调用的函数。这可用于优雅地关闭已经进行了ALPN协议升级或已被劫持的连接。此函数应启动协议特定的优雅关闭，但不应等待关闭完成。
+​	`RegisterOnShutdown`方法注册一个在`Shutdown`时调用的函数。这可用于优雅地关闭已经进行了ALPN协议升级或已被劫持的连接。此函数应启动协议特定的优雅关闭，但不应等待关闭完成。
 
 #### (*Server) Serve 
 
@@ -3956,15 +3956,15 @@ func (srv *Server) Serve(l net.Listener) error
 
 Serve accepts incoming connections on the Listener l, creating a new service goroutine for each. The service goroutines read requests and then call srv.Handler to reply to them.
 
-​	Serve方法在监听器l上接受传入的连接，为每个连接创建一个新的服务goroutine。服务goroutine读取请求，然后调用srv.Handler回复请求。
+​	`Serve`方法在监听器l上接受传入的连接，为每个连接创建一个新的服务goroutine。服务goroutine读取请求，然后调用`srv.Handler`回复请求。
 
 HTTP/2 support is only enabled if the Listener returns *tls.Conn connections and they were configured with "h2" in the TLS Config.NextProtos.
 
-​	仅当Listener返回*tls.Conn连接并且它们使用TLS Config.NextProtos配置为"h2"时才启用HTTP/2支持。
+​	仅当`Listener`返回`*tls.Conn`连接并且它们使用`TLS` `Config.NextProtos`配置为"h2"时才启用HTTP/2支持。
 
 Serve always returns a non-nil error and closes l. After Shutdown or Close, the returned error is ErrServerClosed.
 
-​	Serve方法总是返回一个非nil错误并关闭l。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
+​	`Serve`方法总是返回一个非nil错误并关闭l。在`Shutdown`方法或`Close`方法之后，返回的错误是`ErrServerClosed`。
 
 #### (*Server) ServeTLS  <- go1.9
 
@@ -3974,15 +3974,15 @@ func (srv *Server) ServeTLS(l net.Listener, certFile, keyFile string) error
 
 ServeTLS accepts incoming connections on the Listener l, creating a new service goroutine for each. The service goroutines perform TLS setup and then read requests, calling srv.Handler to reply to them.
 
-​	ServeTLS方法在监听器l上接受传入的连接，为每个连接创建一个新的服务goroutine。服务goroutine执行TLS设置，然后读取请求，调用srv.Handler回复请求。
+​	`ServeTLS`方法在监听器l上接受传入的连接，为每个连接创建一个新的服务goroutine。服务goroutine执行TLS设置，然后读取请求，调用`srv.Handler`回复请求。
 
 Files containing a certificate and matching private key for the server must be provided if neither the Server's TLSConfig.Certificates nor TLSConfig.GetCertificate are populated. If the certificate is signed by a certificate authority, the certFile should be the concatenation of the server's certificate, any intermediates, and the CA's certificate.
 
-​	如果未填充Server的TLSConfig.Certificates或TLSConfig.GetCertificate，则必须提供包含服务器证书和匹配私钥的文件。如果证书由证书颁发机构签名，则certFile应该是服务器证书、任何中间证书和CA证书的连接。
+​	如果未填充Server的`TLSConfig.Certificates`或`TLSConfig.GetCertificate`，则必须提供包含服务器证书和匹配私钥的文件。如果证书由证书颁发机构签名，则certFile应该是服务器证书、任何中间证书和CA证书的连接。
 
 ServeTLS always returns a non-nil error. After Shutdown or Close, the returned error is ErrServerClosed.
 
-​	ServeTLS方法总是返回一个非nil错误。在Shutdown方法或Close方法之后，返回的错误是ErrServerClosed。
+​	`ServeTLS`方法总是返回一个非nil错误。在`Shutdown`方法或`Close`方法之后，返回的错误是ErrServerClosed。
 
 #### (*Server) SetKeepAlivesEnabled  <- go1.3
 
@@ -3992,7 +3992,7 @@ func (srv *Server) SetKeepAlivesEnabled(v bool)
 
 SetKeepAlivesEnabled controls whether HTTP keep-alives are enabled. By default, keep-alives are always enabled. Only very resource-constrained environments or servers in the process of shutting down should disable them.
 
-​	SetKeepAlivesEnabled方法控制是否启用HTTP keep-alives。默认情况下，keep-alives始终启用。只有非常资源受限的环境或正在关闭的服务器才应禁用它们。
+​	`SetKeepAlivesEnabled`方法控制是否启用HTTP keep-alives。默认情况下，keep-alives始终启用。只有非常资源受限的环境或正在关闭的服务器才应禁用它们。
 
 #### (*Server) Shutdown  <- go1.8
 
@@ -4002,19 +4002,19 @@ func (srv *Server) Shutdown(ctx context.Context) error
 
 Shutdown gracefully shuts down the server without interrupting any active connections. Shutdown works by first closing all open listeners, then closing all idle connections, and then waiting indefinitely for connections to return to idle and then shut down. If the provided context expires before the shutdown is complete, Shutdown returns the context's error, otherwise it returns any error returned from closing the Server's underlying Listener(s).
 
-​	Shutdown方法优雅地关闭服务器，而不会中断任何活动连接。Shutdown的工作原理是首先关闭所有打开的侦听器，然后关闭所有空闲连接，最后无限期地等待连接返回空闲状态，然后关闭。如果提供的上下文在关闭完成之前过期，则Shutdown方法返回上下文的错误，否则它返回从关闭服务器的基础侦听器(s)返回的任何错误。
+​	`Shutdown`方法优雅地关闭服务器，而不会中断任何活动连接。`Shutdown`的工作原理是首先关闭所有打开的侦听器，然后关闭所有空闲连接，最后无限期地等待连接返回空闲状态，然后关闭。如果提供的上下文在关闭完成之前过期，则`Shutdown`方法返回上下文的错误，否则它返回从关闭服务器的基础侦听器(s)返回的任何错误。
 
 When Shutdown is called, Serve, ListenAndServe, and ListenAndServeTLS immediately return ErrServerClosed. Make sure the program doesn't exit and waits instead for Shutdown to return.
 
-​	当调用 Shutdown方法时，Serve函数、ListenAndServe函数和 ListenAndServeTLS函数立即返回 ErrServerClosed。确保程序不会退出，而是等待 Shutdown 返回。
+​	当调用 `Shutdown`方法时，`Serve`函数、`ListenAndServe`函数和 `ListenAndServeTLS`函数立即返回 `ErrServerClosed`。确保程序不会退出，而是等待 `Shutdown` 返回。
 
 Shutdown does not attempt to close nor wait for hijacked connections such as WebSockets. The caller of Shutdown should separately notify such long-lived connections of shutdown and wait for them to close, if desired. See RegisterOnShutdown for a way to register shutdown notification functions.
 
-​	Shutdown方法不会尝试关闭也不会等待诸如 WebSocket 等被劫持的连接。如果需要，Shutdown 的调用者应该单独通知这些长期运行的连接关闭并等待它们关闭。有关注册关闭通知函数的方法，请参见 RegisterOnShutdown。
+​	`Shutdown`方法不会尝试关闭也不会等待诸如 WebSocket 等被劫持的连接。如果需要，`Shutdown` 的调用者应该单独通知这些长期运行的连接关闭并等待它们关闭。有关注册关闭通知函数的方法，请参见 `RegisterOnShutdown`。
 
 Once Shutdown has been called on a server, it may not be reused; future calls to methods such as Serve will return ErrServerClosed.
 
-​	一旦在服务器上调用了 Shutdown方法，就不能重用它；诸如 Serve 等方法的未来调用将返回 ErrServerClosed。
+​	一旦在服务器上调用了 `Shutdown`方法，就不能重用它；诸如 `Serve` 等方法的未来调用将返回 `ErrServerClosed`。
 
 ##### Shutdown Example
 ``` go 
@@ -4351,11 +4351,11 @@ type Transport struct {
 
 Transport is an implementation of RoundTripper that supports HTTP, HTTPS, and HTTP proxies (for either HTTP or HTTPS with CONNECT).
 
-​	Transport 是一个实现了 RoundTripper 接口的结构体，支持 HTTP、HTTPS 和 HTTP 代理(使用 CONNECT 实现 HTTP 或 HTTPS 代理)。
+​	`Transport` 是一个实现了 `RoundTripper` 接口的结构体，支持 HTTP、HTTPS 和 HTTP 代理(使用 `CONNECT` 实现 HTTP 或 HTTPS 代理)。
 
 By default, Transport caches connections for future re-use. This may leave many open connections when accessing many hosts. This behavior can be managed using Transport's CloseIdleConnections method and the MaxIdleConnsPerHost and DisableKeepAlives fields.
 
-​	默认情况下，Transport 会缓存连接以便后续重用。这会在访问多个主机时导致许多开放的连接。可以使用 Transport 的 CloseIdleConnections 方法以及 MaxIdleConnsPerHost 和 DisableKeepAlives 字段来管理这种行为。
+​	默认情况下，Transport 会缓存连接以便后续重用。这会在访问多个主机时导致许多开放的连接。可以使用 `Transport` 的 `CloseIdleConnections` 方法以及 `MaxIdleConnsPerHost` 和 `DisableKeepAlives` 字段来管理这种行为。
 
 Transports should be reused instead of created as needed. Transports are safe for concurrent use by multiple goroutines.
 
@@ -4363,15 +4363,15 @@ Transports should be reused instead of created as needed. Transports are safe fo
 
 A Transport is a low-level primitive for making HTTP and HTTPS requests. For high-level functionality, such as cookies and redirects, see Client.
 
-​	Transport 是用于进行 HTTP 和 HTTPS 请求的低级原语。对于高级功能(如 cookie 和重定向)，请参阅 Client。
+​	`Transport` 是用于进行 HTTP 和 HTTPS 请求的低级原语。对于高级功能(如 cookie 和重定向)，请参阅 Client。
 
 Transport uses HTTP/1.1 for HTTP URLs and either HTTP/1.1 or HTTP/2 for HTTPS URLs, depending on whether the server supports HTTP/2, and how the Transport is configured. The DefaultTransport supports HTTP/2. To explicitly enable HTTP/2 on a transport, use golang.org/x/net/http2 and call ConfigureTransport. See the package docs for more about HTTP/2.
 
-​	Transport 在 HTTP URL 上使用 HTTP/1.1，在 HTTPS URL 上使用 HTTP/1.1 或 HTTP/2，具体取决于服务器是否支持 HTTP/2，以及 Transport 的配置方式。DefaultTransport 支持 HTTP/2。要在传输中显式启用 HTTP/2，请使用 golang.org/x/net/http2 并调用 ConfigureTransport。有关 HTTP/2 的更多信息，请参见软件包文档。
+​	`Transport` 在 HTTP URL 上使用 HTTP/1.1，在 HTTPS URL 上使用 HTTP/1.1 或 HTTP/2，具体取决于服务器是否支持 HTTP/2，以及 Transport 的配置方式。DefaultTransport 支持 HTTP/2。要在传输中显式启用 HTTP/2，请使用 golang.org/x/net/http2 并调用 `ConfigureTransport`。有关 HTTP/2 的更多信息，请参见软件包文档。
 
 Responses with status codes in the 1xx range are either handled automatically (100 expect-continue) or ignored. The one exception is HTTP status code 101 (Switching Protocols), which is considered a terminal status and returned by RoundTrip. To see the ignored 1xx responses, use the httptrace trace package's ClientTrace.Got1xxResponse.
 
-​	状态码为 1xx 的响应要么被自动处理(100 expect-continue)，要么被忽略。唯一的例外是 HTTP 状态码 101(切换协议)，它被视为终端状态并由 RoundTrip 返回。要查看被忽略的 1xx 响应，请使用 httptrace 跟踪包的 ClientTrace.Got1xxResponse。
+​	状态码为 1xx 的响应要么被自动处理(100 expect-continue)，要么被忽略。唯一的例外是 HTTP 状态码 101(切换协议)，它被视为终端状态并由 `RoundTrip` 返回。要查看被忽略的 1xx 响应，请使用 httptrace 跟踪包的 `ClientTrace.Got1xxResponse`。
 
 Transport only retries a request upon encountering a network error if the request is idempotent and either has no body or has its Request.GetBody defined. HTTP requests are considered idempotent if they have HTTP methods GET, HEAD, OPTIONS, or TRACE; or if their Header map contains an "Idempotency-Key" or "X-Idempotency-Key" entry. If the idempotency key value is a zero-length slice, the request is treated as idempotent but the header is not sent on the wire.
 
@@ -4395,7 +4395,7 @@ func (t *Transport) Clone() *Transport
 
 Clone returns a deep copy of t's exported fields.
 
-​	Clone方法返回 t 的导出字段的深度副本。
+​	`Clone`方法返回 `t` 的导出字段的深度副本。
 
 #### (*Transport) CloseIdleConnections 
 
@@ -4405,7 +4405,7 @@ func (t *Transport) CloseIdleConnections()
 
 CloseIdleConnections closes any connections which were previously connected from previous requests but are now sitting idle in a "keep-alive" state. It does not interrupt any connections currently in use.
 
-​	CloseIdleConnections方法关闭之前从先前的请求连接到的但现在处于"保持活动"状态的空闲连接。它不会中断当前正在使用的任何连接。
+​	`CloseIdleConnections`方法关闭之前从先前的请求连接到的但现在处于"保持活动"状态的空闲连接。它不会中断当前正在使用的任何连接。
 
 #### (*Transport) RegisterProtocol 
 
@@ -4415,15 +4415,15 @@ func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)
 
 RegisterProtocol registers a new protocol with scheme. The Transport will pass requests using the given scheme to rt. It is rt's responsibility to simulate HTTP request semantics.
 
-​	RegisterProtocol方法注册一个新的协议，使用指定的协议名称(scheme)和RoundTripper处理程序(rt)。Transport会将使用给定scheme的请求传递给rt。它是rt的责任来模拟HTTP请求语义。
+​	`RegisterProtocol`方法注册一个新的协议，使用指定的协议名称(`scheme`)和`RoundTripper`处理程序(rt)。`Transport`会将使用给定`scheme`的请求传递给`rt`。它是rt的责任来模拟HTTP请求语义。
 
 RegisterProtocol can be used by other packages to provide implementations of protocol schemes like "ftp" or "file".
 
-​	RegisterProtocol方法可以被其他包用来提供协议方案(scheme)的实现，例如"ftp"或"file"。
+​	`RegisterProtocol`方法可以被其他包用来提供协议方案(scheme)的实现，例如"ftp"或"file"。
 
 If rt.RoundTrip returns ErrSkipAltProtocol, the Transport will handle the RoundTrip itself for that one request, as if the protocol were not registered.
 
-​	如果rt.RoundTrip返回ErrSkipAltProtocol，则Transport将自己处理该请求的RoundTrip，就好像未注册该协议一样。
+​	如果`rt.RoundTrip`返回`ErrSkipAltProtocol`，则`Transport`将自己处理该请求的`RoundTrip`，就好像未注册该协议一样。
 
 #### (*Transport) RoundTrip 
 
@@ -4433,12 +4433,12 @@ func (t *Transport) RoundTrip(req *Request) (*Response, error)
 
 RoundTrip implements the RoundTripper interface.
 
-​	RoundTrip方法实现RoundTripper接口。
+​	`RoundTrip`方法实现`RoundTripper`接口。
 
 For higher-level HTTP client support (such as handling of cookies and redirects), see Get, Post, and the Client type.
 
-​	对于更高级的HTTP客户端支持(例如处理cookie和重定向)，请参见Get，Post和Client类型。
+​	对于更高级的HTTP客户端支持(例如处理cookie和重定向)，请参见`Get`，`Post`和`Client`类型。
 
 Like the RoundTripper interface, the error types returned by RoundTrip are unspecified.
 
-​	与RoundTripper接口一样，RoundTrip返回的错误类型是未指定的。
+​	与`RoundTripper`接口一样，RoundTrip返回的错误类型是未指定的。

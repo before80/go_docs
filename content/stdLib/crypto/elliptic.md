@@ -6,33 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/elliptic@go1.20.1
-
-
+https://pkg.go.dev/crypto/elliptic@go1.21.3
 
 Package elliptic implements the standard NIST P-224, P-256, P-384, and P-521 elliptic curves over prime fields.
 
-The P224(), P256(), P384() and P521() values are necessary to use the crypto/ecdsa package. Most other uses should migrate to the more efficient and safer crypto/ecdh package.
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-
-  
-
-  
+The P224(), P256(), P384() and P521() values are necessary to use the crypto/ecdsa package. Most other uses should migrate to the more efficient and safer crypto/ecdh package.  
 
 ## 常量 
 
@@ -44,7 +22,7 @@ This section is empty.
 
 ## 函数
 
-#### func GenerateKey 
+### func GenerateKey <- DEPRECATED
 
 ``` go
 func GenerateKey(curve Curve, rand io.Reader) (priv []byte, x, y *big.Int, err error)
@@ -52,9 +30,9 @@ func GenerateKey(curve Curve, rand io.Reader) (priv []byte, x, y *big.Int, err e
 
 GenerateKey returns a public/private key pair. The private key is generated using the given reader, which must return random data.
 
-Note: for ECDH, use the GenerateKey methods of the crypto/ecdh package; for ECDSA, use the GenerateKey function of the crypto/ecdsa package.
+Deprecated: for ECDH, use the GenerateKey methods of the crypto/ecdh package; for ECDSA, use the GenerateKey function of the crypto/ecdsa package.
 
-#### func Marshal 
+### func Marshal <- DEPRECATED
 
 ``` go
 func Marshal(curve Curve, x, y *big.Int) []byte
@@ -62,9 +40,9 @@ func Marshal(curve Curve, x, y *big.Int) []byte
 
 Marshal converts a point on the curve into the uncompressed form specified in SEC 1, Version 2.0, Section 2.3.3. If the point is not on the curve (or is the conventional point at infinity), the behavior is undefined.
 
-Note: for ECDH, use the crypto/ecdh package. This function returns an encoding equivalent to that of PublicKey.Bytes in crypto/ecdh.
+Deprecated: for ECDH, use the crypto/ecdh package. This function returns an encoding equivalent to that of PublicKey.Bytes in crypto/ecdh.
 
-#### func MarshalCompressed  <- go1.15
+### func MarshalCompressed  <- go1.15
 
 ``` go
 func MarshalCompressed(curve Curve, x, y *big.Int) []byte
@@ -72,7 +50,7 @@ func MarshalCompressed(curve Curve, x, y *big.Int) []byte
 
 MarshalCompressed converts a point on the curve into the compressed form specified in SEC 1, Version 2.0, Section 2.3.3. If the point is not on the curve (or is the conventional point at infinity), the behavior is undefined.
 
-#### func Unmarshal 
+### func Unmarshal <- DEPRECATED
 
 ``` go
 func Unmarshal(curve Curve, data []byte) (x, y *big.Int)
@@ -80,9 +58,9 @@ func Unmarshal(curve Curve, data []byte) (x, y *big.Int)
 
 Unmarshal converts a point, serialized by Marshal, into an x, y pair. It is an error if the point is not in uncompressed form, is not on the curve, or is the point at infinity. On error, x = nil.
 
-Note: for ECDH, use the crypto/ecdh package. This function accepts an encoding equivalent to that of the NewPublicKey methods in crypto/ecdh.
+Deprecated: for ECDH, use the crypto/ecdh package. This function accepts an encoding equivalent to that of the NewPublicKey methods in crypto/ecdh.
 
-#### func UnmarshalCompressed  <- go1.15
+### func UnmarshalCompressed  <- go1.15
 
 ``` go
 func UnmarshalCompressed(curve Curve, data []byte) (x, y *big.Int)
@@ -204,7 +182,7 @@ CurveParams contains the parameters of an elliptic curve and also provides a gen
 
 Note: Custom curves (those not returned by P224(), P256(), P384(), and P521()) are not guaranteed to provide any security property.
 
-#### (*CurveParams) Add 
+#### (*CurveParams) Add <- DEPRECATED
 
 ``` go
 func (curve *CurveParams) Add(x1, y1, x2, y2 *big.Int) (*big.Int, *big.Int)
@@ -212,9 +190,9 @@ func (curve *CurveParams) Add(x1, y1, x2, y2 *big.Int) (*big.Int, *big.Int)
 
 Add implements Curve.Add.
 
-Note: the CurveParams methods are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
+Deprecated: the CurveParams methods are deprecated and are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
 
-#### (*CurveParams) Double 
+#### (*CurveParams) Double <- DEPRECATED
 
 ``` go
 func (curve *CurveParams) Double(x1, y1 *big.Int) (*big.Int, *big.Int)
@@ -222,9 +200,9 @@ func (curve *CurveParams) Double(x1, y1 *big.Int) (*big.Int, *big.Int)
 
 Double implements Curve.Double.
 
-Note: the CurveParams methods are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
+Deprecated: the CurveParams methods are deprecated and are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
 
-#### (*CurveParams) IsOnCurve 
+#### (*CurveParams) IsOnCurve <- DEPRECATED
 
 ``` go
 func (curve *CurveParams) IsOnCurve(x, y *big.Int) bool
@@ -232,7 +210,7 @@ func (curve *CurveParams) IsOnCurve(x, y *big.Int) bool
 
 IsOnCurve implements Curve.IsOnCurve.
 
-Note: the CurveParams methods are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
+Deprecated: the CurveParams methods are deprecated and are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
 
 #### (*CurveParams) Params 
 
@@ -240,7 +218,7 @@ Note: the CurveParams methods are not guaranteed to provide any security propert
 func (curve *CurveParams) Params() *CurveParams
 ```
 
-#### (*CurveParams) ScalarBaseMult 
+#### (*CurveParams) ScalarBaseMult <- DEPRECATED
 
 ``` go
 func (curve *CurveParams) ScalarBaseMult(k []byte) (*big.Int, *big.Int)
@@ -248,9 +226,9 @@ func (curve *CurveParams) ScalarBaseMult(k []byte) (*big.Int, *big.Int)
 
 ScalarBaseMult implements Curve.ScalarBaseMult.
 
-Note: the CurveParams methods are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
+Deprecated: the CurveParams methods are deprecated and are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
 
-#### (*CurveParams) ScalarMult 
+#### (*CurveParams) ScalarMult <- DEPRECATED
 
 ``` go
 func (curve *CurveParams) ScalarMult(Bx, By *big.Int, k []byte) (*big.Int, *big.Int)
@@ -258,4 +236,4 @@ func (curve *CurveParams) ScalarMult(Bx, By *big.Int, k []byte) (*big.Int, *big.
 
 ScalarMult implements Curve.ScalarMult.
 
-Note: the CurveParams methods are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().
+Deprecated: the CurveParams methods are deprecated and are not guaranteed to provide any security property. For ECDH, use the crypto/ecdh package. For ECDSA, use the crypto/ecdsa package with a Curve value returned directly from P224(), P256(), P384(), or P521().

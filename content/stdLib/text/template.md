@@ -7,11 +7,11 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/text/template@go1.20.1
+https://pkg.go.dev/text/template@go1.21.3
 
 Package template implements data-driven templates for generating textual output.
 
-​	template 包实现了基于数据驱动的模板，用于生成文本输出。
+​	`template` 包实现了基于数据驱动的模板，用于生成文本输出。
 
 To generate HTML output, see package html/template, which has the same interface as this package but automatically secures HTML output against certain attacks.
 

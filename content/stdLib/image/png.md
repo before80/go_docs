@@ -6,19 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image/png@go1.20.1
-
-
+https://pkg.go.dev/image/png@go1.21.3
 
 Package png implements a PNG image decoder and encoder.
 
 The PNG specification is at https://www.w3.org/TR/PNG/.
-
-
-
-
-
-
 
 
 ## 常量 
@@ -31,7 +23,7 @@ This section is empty.
 
 ## 函数
 
-#### func Decode 
+### func Decode 
 
 ``` go 
 func Decode(r io.Reader) (image.Image, error)
@@ -39,7 +31,7 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a PNG image from r and returns it as an image.Image. The type of Image returned depends on the PNG contents.
 
-##### Decode Example
+#### Decode Example
 ``` go 
 package main
 
@@ -83,7 +75,7 @@ func main() {
 Output:
 ```
 
-#### func DecodeConfig 
+### func DecodeConfig 
 
 ``` go 
 func DecodeConfig(r io.Reader) (image.Config, error)
@@ -91,7 +83,7 @@ func DecodeConfig(r io.Reader) (image.Config, error)
 
 DecodeConfig returns the color model and dimensions of a PNG image without decoding the entire image.
 
-#### func Encode 
+### func Encode 
 
 ``` go 
 func Encode(w io.Writer, m image.Image) error
@@ -99,7 +91,7 @@ func Encode(w io.Writer, m image.Image) error
 
 Encode writes the Image m to w in PNG format. Any Image may be encoded, but images that are not image.NRGBA might be encoded lossily.
 
-##### Encode Example
+#### Encode Example
 ``` go 
 package main
 

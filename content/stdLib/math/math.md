@@ -6,11 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/math@go1.20.1
+https://pkg.go.dev/math@go1.21.3
 
 Package math provides basic constants and mathematical functions.
 
-​	math包提供基本常量和数学函数。
+​	`math`包提供基本常量和数学函数。
 
 This package does not guarantee bit-identical results across architectures.
 

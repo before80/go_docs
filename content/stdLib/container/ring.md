@@ -7,9 +7,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/container/ring@go1.20.1
+https://pkg.go.dev/container/ring@go1.21.3
 
-​	ring 包实现了对循环列表（circular lists）的操作。
+Package ring implements operations on circular lists.
+
+​	`ring` 包实现了对循环列表（circular lists）的操作。
 
 ## 常量 
 
@@ -44,7 +46,9 @@ A Ring is an element of a circular list, or ring. Rings do not have a beginning 
 func New(n int) *Ring
 ```
 
-​	New函数创建一个有`n`个元素的环。
+New creates a ring of n elements.
+
+​	`New`函数创建一个有`n`个元素的环。
 
 #### (*Ring) Do 
 
@@ -52,7 +56,7 @@ func New(n int) *Ring
 func (r *Ring) Do(f func(any))
 ```
 
-​	Do方法在环的每个元素上以正向顺序调用函数`f`。如果`f`改变了`*r`，Do方法的行为是未定义的。
+​	`Do`方法在环的每个元素上以正向顺序调用函数`f`。如果`f`改变了`*r`，Do方法的行为是未定义的。
 
 ##### Do Example
 ``` go 
@@ -101,7 +105,9 @@ Output:
 func (r *Ring) Len() int
 ```
 
-​	Len方法计算环中元素的数量，执行时间与元素的数量成正比。
+Do calls function f on each element of the ring, in forward order. The behavior of Do is undefined if f changes *r.
+
+​	`Len`方法计算环中元素的数量，执行时间与元素的数量成正比。
 
 ##### Len Example
 ``` go 
@@ -254,7 +260,9 @@ Output:
 func (r *Ring) Next() *Ring
 ```
 
-​	Next方法返回下一个环元素，`r`必须不是空的。
+Next returns the next ring element. r must not be empty.
+
+​	`Next`方法返回下一个环元素，`r`必须不是空的。
 
 ##### Next Example
 ``` go 
@@ -300,7 +308,9 @@ Output:
 func (r *Ring) Prev() *Ring
 ```
 
-​	Prev方法返回上一个环元素，`r`不能为空。
+Prev returns the previous ring element. r must not be empty.
+
+​	`Prev`方法返回上一个环元素，`r`不能为空。
 
 ##### Prev Example
 ``` go 
@@ -348,7 +358,7 @@ func (r *Ring) Unlink(n int) *Ring
 
 Unlink removes n % r.Len() elements from the ring r, starting at r.Next(). If n % r.Len() == 0, r remains unchanged. The result is the removed subring. r must not be empty.
 
-​	Unlink方法从`r`环中移除`n % r.Len()`个元素，从`r.Next()`开始。如果`n % r.Len() == 0`，`r`保持不变。结果是移除的子环。`r`不能为空。
+​	`Unlink`方法从`r`环中移除`n % r.Len()`个元素，从`r.Next()`开始。如果`n % r.Len() == 0`，`r`保持不变。结果是移除的子环。`r`不能为空。
 
 ##### Unlink Example
 

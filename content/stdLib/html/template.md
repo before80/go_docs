@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/html/template@go1.20.1
+https://pkg.go.dev/html/template@go1.21.3
 
 
 
@@ -352,7 +352,7 @@ Least Surprise Property: "A developer (or code reviewer) familiar with HTML, CSS
 
 ​	最小惊奇属性："熟悉 HTML、CSS 和 JavaScript 的开发人员（或代码审查人员）应该能够了解到上下文自动转义的存在，并能正确推断出进行了哪些净化。"
 
-### Example
+## Example
 ``` go 
 package main
 
@@ -433,7 +433,7 @@ Output:
 </html>
 ```
 
-### Example (Autoescaping)
+## Example (Autoescaping)
 ``` go 
 package main
 
@@ -460,7 +460,7 @@ Output:
 Hello, &lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;/script&gt;!
 ```
 
-### Example (Escape) 
+## Example (Escape) 
 ``` go 
 package main
 

@@ -6,13 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image/color@go1.20.1
-
-
+https://pkg.go.dev/image/color@go1.21.3
 
 Package color implements a basic color library.
-
-
 
 ## 常量 
 
@@ -35,7 +31,7 @@ Standard colors.
 
 ## 函数
 
-#### func CMYKToRGB  <- go1.5
+### func CMYKToRGB  <- go1.5
 
 ``` go 
 func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8)
@@ -43,7 +39,7 @@ func CMYKToRGB(c, m, y, k uint8) (uint8, uint8, uint8)
 
 CMYKToRGB converts a CMYK quadruple to an RGB triple.
 
-#### func RGBToCMYK  <- go1.5
+### func RGBToCMYK  <- go1.5
 
 ``` go 
 func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8)
@@ -51,7 +47,7 @@ func RGBToCMYK(r, g, b uint8) (uint8, uint8, uint8, uint8)
 
 RGBToCMYK converts an RGB triple to a CMYK quadruple.
 
-#### func RGBToYCbCr 
+### func RGBToYCbCr 
 
 ``` go 
 func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8)
@@ -59,7 +55,7 @@ func RGBToYCbCr(r, g, b uint8) (uint8, uint8, uint8)
 
 RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
 
-#### func YCbCrToRGB 
+### func YCbCrToRGB 
 
 ``` go 
 func YCbCrToRGB(y, cb, cr uint8) (uint8, uint8, uint8)

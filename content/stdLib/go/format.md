@@ -6,23 +6,13 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# format
-
-https://pkg.go.dev/go/format@go1.20.1
-
-
+https://pkg.go.dev/go/format@go1.21.3
 
 Package format implements standard formatting of Go source.
 
 Note that formatting of Go source code changes over time, so tools relying on consistent formatting should execute a specific version of the gofmt binary instead of using this package. That way, the formatting will be stable, and the tools won't need to be recompiled each time gofmt changes.
 
 For example, pre-submit checks that use this package directly would behave differently depending on what Go version each developer uses, causing the check to be inherently fragile.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -34,7 +24,7 @@ This section is empty.
 
 ## 函数
 
-#### func Node 
+### func Node 
 
 ``` go 
 func Node(dst io.Writer, fset *token.FileSet, node any) error
@@ -46,11 +36,48 @@ The node type must be *ast.File, *printer.CommentedNode, []ast.Decl, []ast.Stmt,
 
 The function may return early (before the entire result is written) and return a formatting error, for instance due to an incorrect AST.
 
-##### Example
+#### Node Example
 ``` go 
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"go/format"
+	"go/parser"
+	"go/token"
+	"log"
+)
+
+func main() {
+	const expr = "(6+2*3)/4"
+
+	// parser.ParseExpr parses the argument and returns the
+	// corresponding ast.Node.
+	node, err := parser.ParseExpr(expr)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Create a FileSet for node. Since the node does not come
+	// from a real source file, fset will be empty.
+	fset := token.NewFileSet()
+
+	var buf bytes.Buffer
+	err = format.Node(&buf, fset, node)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(buf.String())
+
+}
+Output:
+
+(6 + 2*3) / 4
 ```
 
-#### func Source 
+### func Source 
 
 ``` go 
 func Source(src []byte) ([]byte, error)

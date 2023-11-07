@@ -6,19 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image/draw@go1.20.1
-
-
+https://pkg.go.dev/image/draw@go1.21.3
 
 Package draw provides image composition functions.
 
 See "The Go image/draw package" for an introduction to this package: https://golang.org/doc/articles/image_draw.html
-
-
-
-
-
-
 
 ## 常量 
 
@@ -30,7 +22,7 @@ This section is empty.
 
 ## 函数
 
-#### func Draw 
+### func Draw 
 
 ``` go 
 func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)
@@ -38,7 +30,7 @@ func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)
 
 Draw calls DrawMask with a nil mask.
 
-#### func DrawMask 
+### func DrawMask 
 
 ``` go 
 func DrawMask(dst Image, r image.Rectangle, src image.Image, sp image.Point, mask image.Image, mp image.Point, op Op)
@@ -60,7 +52,7 @@ type Drawer interface {
 
 Drawer contains the Draw method.
 
-##### Example (FloydSteinberg)
+#### Example (FloydSteinberg)
 ``` go 
 package main
 

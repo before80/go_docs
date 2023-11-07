@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/hash/adler32@go1.20.1
-
-
+https://pkg.go.dev/hash/adler32@go1.21.3
 
 Package adler32 implements the Adler-32 checksum.
 
@@ -40,7 +38,7 @@ This section is empty.
 
 ## 函数
 
-#### func Checksum 
+### func Checksum 
 
 ``` go 
 func Checksum(data []byte) uint32
@@ -48,7 +46,7 @@ func Checksum(data []byte) uint32
 
 Checksum returns the Adler-32 checksum of data.
 
-#### func New 
+### func New 
 
 ``` go 
 func New() hash.Hash32

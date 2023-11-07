@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto@go1.20.1
+https://pkg.go.dev/crypto@go1.21.3
 
 Package crypto collects common cryptographic constants.
 
@@ -20,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func RegisterHash 
+### func RegisterHash 
 
 ``` go
 func RegisterHash(h Hash, f func() hash.Hash)

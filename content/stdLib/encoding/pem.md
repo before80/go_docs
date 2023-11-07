@@ -6,11 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/pem@go1.20.1
+https://pkg.go.dev/encoding/pem@go1.21.3
 
 Package pem implements the PEM data encoding, which originated in Privacy Enhanced Mail. The most common use of PEM encoding today is in TLS keys and certificates. See [RFC 1421](https://rfc-editor.org/rfc/rfc1421.html).
 
-​	pem包实现了PEM数据编码，该编码起源于隐私增强邮件（Privacy Enhanced Mail）。如今，PEM编码最常用于TLS密钥和证书。详见[RFC 1421](https://rfc-editor.org/rfc/rfc1421.html)。
+​	`pem`包实现了PEM数据编码，该编码起源于隐私增强邮件（Privacy Enhanced Mail）。如今，PEM编码最常用于TLS密钥和证书。详见[RFC 1421](https://rfc-editor.org/rfc/rfc1421.html)。
 
 
 ## 常量 

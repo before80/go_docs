@@ -7,13 +7,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/flate@go1.20.1
-
-
+https://pkg.go.dev/compress/flate@go1.21.3
 
 Package flate implements the DEFLATE compressed data format, described in [RFC 1951](https://rfc-editor.org/rfc/rfc1951.html). The gzip and zlib packages implement access to DEFLATE-based file formats.
 
-##### Example (Dictionary)
+## Example (Dictionary)
 
 A preset dictionary can be used to improve the compression ratio. The downside to using a dictionary is that the compressor and decompressor must agree in advance what dictionary to use.
 
@@ -115,7 +113,7 @@ Substrings matched by the dictionary are marked with #:
 </#####
 ```
 
-##### Example  (Reset)
+## Example  (Reset)
 
 In performance critical applications, Reset can be used to discard the current compressor or decompressor state and reinitialize them quickly by taking advantage of previously allocated memory.
 
@@ -183,7 +181,7 @@ The bigger the interface, the weaker the abstraction.
 Documentation is for users.
 ```
 
-##### Example  (Synchronization)
+## Example  (Synchronization)
 
 DEFLATE is suitable for transmitting compressed data across the network.
 
@@ -318,7 +316,7 @@ This section is empty.
 
 ## 函数
 
-#### func NewReader 
+### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader) io.ReadCloser
@@ -328,7 +326,7 @@ NewReader returns a new ReadCloser that can be used to read the uncompressed ver
 
 The ReadCloser returned by NewReader also implements Resetter.
 
-#### func NewReaderDict 
+### func NewReaderDict 
 
 ``` go 
 func NewReaderDict(r io.Reader, dict []byte) io.ReadCloser
@@ -368,7 +366,24 @@ An InternalError reports an error in the flate code itself.
 func (e InternalError) Error() string
 ```
 
-#### type ReadError <- DEPRECATED
+### type ReadError <- DEPRECATED
+
+```go
+type ReadError struct {
+	Offset int64 // byte offset where error occurred
+	Err    error // error returned by underlying Read
+}
+```
+
+A ReadError reports an error encountered while reading input.
+
+Deprecated: No longer returned.
+
+#### func (*ReadError) Error
+
+```go
+func (e *ReadError) Error() string
+```
 
 
 ### type Reader 
@@ -394,7 +409,25 @@ type Resetter interface {
 
 Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to a new underlying Reader. This permits reusing a ReadCloser instead of allocating a new one.
 
-#### type WriteError <- DEPRECATED
+### type WriteError <- DEPRECATED
+
+```go
+type WriteError struct {
+	Offset int64 // byte offset where error occurred
+	Err    error // error returned by underlying Write
+}
+```
+
+A WriteError reports an error encountered while writing output.
+
+Deprecated: No longer returned.
+
+####  (*WriteError) Error
+
+```go
+func (e *WriteError) Error() string
+```
+
 ### type Writer 
 
 ``` go 

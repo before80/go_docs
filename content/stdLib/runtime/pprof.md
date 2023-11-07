@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/runtime/pprof@go1.20.1
+https://pkg.go.dev/runtime/pprof@go1.21.3
 
 Package pprof writes runtime profiling data in the format expected by the pprof visualization tool.
 

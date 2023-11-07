@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/cipher@go1.20.1
-
-
+https://pkg.go.dev/crypto/cipher@go1.21.3
 
 Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html and NIST Special Publication 800-38A.
 
@@ -639,7 +637,7 @@ type StreamReader struct {
 
 StreamReader wraps a Stream into an io.Reader. It calls XORKeyStream to process each slice of data which passes through.
 
-##### Example
+#### Example
 
 ```go
 package main
@@ -710,7 +708,7 @@ type StreamWriter struct {
 
 StreamWriter wraps a Stream into an io.Writer. It calls XORKeyStream to process each slice of data which passes through. If any Write call returns short then the StreamWriter is out of sync and must be discarded. A StreamWriter has no internal buffering; Close does not need to be called to flush write data.
 
-##### Example
+#### Example
 
 ```go
 package main

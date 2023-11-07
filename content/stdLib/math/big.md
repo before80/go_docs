@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/math/big@go1.20.1
-
-
+https://pkg.go.dev/math/big@go1.21.3
 
 Package big implements arbitrary-precision arithmetic (big numbers). The following numeric types are supported:
 
@@ -307,7 +305,7 @@ This section is empty.
 
 ## 函数
 
-#### func Jacobi  <- go1.5
+### func Jacobi  <- go1.5
 
 ``` go 
 func Jacobi(x, y *Int) int
@@ -385,7 +383,7 @@ The zero (uninitialized) value for a Float is ready to use and represents the nu
 
 Operations always take pointer arguments (*Float) rather than Float values, and each unique Float value requires its own unique *Float pointer. To "copy" a Float value, an existing (or newly allocated) Float must be set to a new value using the Float.Set method; shallow copies of Floats are not supported and may lead to errors.
 
-##### Example (Shift)
+#### Example (Shift)
 ``` go 
 package main
 
@@ -1205,6 +1203,14 @@ FillBytes sets buf to the absolute value of x, storing it as a zero-extended big
 
 If the absolute value of x doesn't fit in buf, FillBytes will panic.
 
+#### (*Int) Float64 <-go1.21.0
+
+```go
+func (x *Int) Float64() (float64, Accuracy)
+```
+
+Float64 returns the float64 value nearest x, and an indication of any rounding that occurred.
+
 #### (*Int) Format 
 
 ``` go 
@@ -1432,8 +1438,28 @@ func (z *Int) Scan(s fmt.ScanState, ch rune) error
 
 Scan is a support routine for fmt.Scanner; it sets z to the value of the scanned number. It accepts the formats 'b' (binary), 'o' (octal), 'd' (decimal), 'x' (lowercase hexadecimal), and 'X' (uppercase hexadecimal).
 
-##### Example
+##### Scan Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"math/big"
+)
+
+func main() {
+	// The Scan function is rarely used directly;
+	// the fmt package recognizes it as an implementation of fmt.Scanner.
+	i := new(big.Int)
+	_, err := fmt.Sscan("18446744073709551617", i)
+	if err != nil {
+		log.Println("error scanning value:", err)
+	} else {
+		fmt.Println(i)
+	}
+}
+
 ```
 
 #### (*Int) Set 
@@ -1929,7 +1955,7 @@ type RoundingMode byte
 
 RoundingMode determines how a Float value is rounded to the desired precision. Rounding may change the Float value; the rounding error is described by the Float's Accuracy.
 
-##### Example
+#### Example
 ``` go 
 package main
 

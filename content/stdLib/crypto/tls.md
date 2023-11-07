@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/tls@go1.20.1
-
-
+https://pkg.go.dev/crypto/tls@go1.21.3
 
 Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc-editor.org/rfc/rfc5246.html), and TLS 1.3, as specified in [RFC 8446](https://rfc-editor.org/rfc/rfc8446.html).
 
@@ -84,7 +82,7 @@ This section is empty.
 
 ## 函数
 
-#### func CipherSuiteName  <- go1.14
+### func CipherSuiteName  <- go1.14
 
 ``` go
 func CipherSuiteName(id uint16) string
@@ -92,7 +90,7 @@ func CipherSuiteName(id uint16) string
 
 CipherSuiteName returns the standard name for the passed cipher suite ID (e.g. "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"), or a fallback representation of the ID value if the cipher suite is not implemented by this package.
 
-#### func Listen 
+### func Listen 
 
 ``` go
 func Listen(network, laddr string, config *Config) (net.Listener, error)
@@ -100,7 +98,7 @@ func Listen(network, laddr string, config *Config) (net.Listener, error)
 
 Listen creates a TLS listener accepting connections on the given network address using net.Listen. The configuration config must be non-nil and must include at least one certificate or else set GetCertificate.
 
-#### func NewListener 
+### func NewListener 
 
 ``` go
 func NewListener(inner net.Listener, config *Config) net.Listener
@@ -745,7 +743,7 @@ type Config struct {
 
 A Config structure is used to configure a TLS client or server. After one has been passed to a TLS function it must not be modified. A Config may be reused; the tls package will also not modify it.
 
-##### Example (KeyLogWriter)
+#### Example (KeyLogWriter)
 
 ```go
 package main
@@ -813,7 +811,7 @@ func main() {
 
 
 
-##### Example (VerifyConnection)
+#### Example (VerifyConnection)
 
 ```go
 package main
@@ -876,6 +874,14 @@ Output:
 
 
 #### func (*Config) BuildNameToCertificate <- DEPRECATED
+
+```go
+func (c *Config) BuildNameToCertificate()
+```
+
+BuildNameToCertificate parses c.Certificates and builds c.NameToCertificate from the CommonName and SubjectAlternateName fields of each of the leaf certificates.
+
+Deprecated: NameToCertificate only allows associating a single certificate with a given name. Leave that field nil to let the library select the first compatible chain from Certificates.
 
 #### (*Config) Clone  <- go1.8
 

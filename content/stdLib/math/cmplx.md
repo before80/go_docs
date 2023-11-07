@@ -6,13 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/math/cmplx@go1.20.1
-
-
+https://pkg.go.dev/math/cmplx@go1.21.3
 
 Package cmplx provides basic constants and mathematical functions for complex numbers. Special case handling conforms to the C99 standard Annex G IEC 60559-compatible complex arithmetic.
-
-
 
 ## 常量 
 

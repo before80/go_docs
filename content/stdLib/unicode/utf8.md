@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-https://pkg.go.dev/unicode/utf8@go1.20.1
+https://pkg.go.dev/unicode/utf8@go1.21.3
 
 Package utf8 implements functions and constants to support text encoded in UTF-8. It includes functions to translate between runes and UTF-8 byte sequences. See https://en.wikipedia.org/wiki/UTF-8
 
@@ -46,7 +46,7 @@ func AppendRune(p []byte, r rune) []byte
 
 AppendRune appends the UTF-8 encoding of r to the end of p and returns the extended buffer. If the rune is out of range, it appends the encoding of RuneError.
 
-​	AppendRune函数将 r 的 UTF-8 编码附加到 p 的结尾并返回扩展后的缓冲区。如果符文超出范围，则附加 RuneError 的编码。
+​	`AppendRune`函数将 `r` 的 UTF-8 编码附加到 `p` 的结尾并返回扩展后的缓冲区。如果符文超出范围，则附加 RuneError 的编码。
 
 #### AppendRune Example
 ``` go 
@@ -77,7 +77,7 @@ func DecodeLastRune(p []byte) (r rune, size int)
 
 DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	DecodeLastRune函数解码p中的最后一个UTF-8编码，并返回该符文及其占用的字节数。如果p为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeLastRune`函数解码`p`中的最后一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -123,7 +123,7 @@ func DecodeLastRuneInString(s string) (r rune, size int)
 
 DecodeLastRuneInString is like DecodeLastRune but its input is a string. If s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	DecodeLastRuneInString函数类似于DecodeLastRune，但其输入为字符串。如果s为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeLastRuneInString`函数类似于`DecodeLastRune`，但其输入为字符串。如果`s`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -169,7 +169,7 @@ func DecodeRune(p []byte) (r rune, size int)
 
 DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	DecodeRune函数解码p中的第一个UTF-8编码，并返回该符文及其占用的字节数。如果p为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeRune`函数解码`p`中的第一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -215,7 +215,7 @@ func DecodeRuneInString(s string) (r rune, size int)
 
 DecodeRuneInString is like DecodeRune but its input is a string. If s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	DecodeRuneInString函数类似于DecodeRune函数，但其输入为字符串。如果s为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeRuneInString`函数类似于DecodeRune函数，但其输入为字符串。如果`s`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -261,7 +261,7 @@ func EncodeRune(p []byte, r rune) int
 
 EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune. If the rune is out of range, it writes the encoding of RuneError. It returns the number of bytes written.
 
-​	EncodeRune函数将符文的UTF-8编码写入p(p必须足够大)。如果符文超出范围，则写入RuneError的编码。返回写入的字节数。
+​	`EncodeRune`函数将符文的UTF-8编码写入`p`(`p`必须足够大)。如果符文超出范围，则写入RuneError的编码。返回写入的字节数。
 
 #### EncodeRune Example
 ``` go 
@@ -326,7 +326,7 @@ func FullRune(p []byte) bool
 
 FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune. An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
 
-​	FullRune函数报告p中的字节是否以完整的UTF-8符文编码开头。无效的编码被认为是完整的符文，因为它们将转换为宽度为1的错误符文。 
+​	`FullRune`函数报告`p`中的字节是否以完整的UTF-8符文编码开头。无效的编码被认为是完整的符文，因为它们将转换为宽度为1的错误符文。 
 
 #### FullRune Example
 ``` go 
@@ -356,7 +356,7 @@ func FullRuneInString(s string) bool
 
 FullRuneInString is like FullRune but its input is a string.
 
-​	FullRuneInString函数类似于FullRune，但其输入是字符串。
+​	`FullRuneInString`函数类似于FullRune，但其输入是字符串。
 
 #### FullRuneInString Example
 ``` go 
@@ -386,7 +386,7 @@ func RuneCount(p []byte) int
 
 RuneCount returns the number of runes in p. Erroneous and short encodings are treated as single runes of width 1 byte.
 
-​	RuneCount函数返回p中符文的数量。错误和短编码被视为宽度为1个字节的单个符文。
+​	`RuneCount`函数返回`p`中符文的数量。错误和短编码被视为宽度为1个字节的单个符文。
 
 #### RuneCount Example
 ``` go 
@@ -416,7 +416,7 @@ func RuneCountInString(s string) (n int)
 
 RuneCountInString is like RuneCount but its input is a string.
 
-​	RuneCountInString函数类似于RuneCount，但其输入是字符串。
+​	`RuneCountInString`函数类似于`RuneCount`，但其输入是字符串。
 
 #### RuneCountInString Example
 ``` go 
@@ -446,7 +446,7 @@ func RuneLen(r rune) int
 
 RuneLen returns the number of bytes required to encode the rune. It returns -1 if the rune is not a valid value to encode in UTF-8.
 
-​	RuneLen函数返回编码符文所需的字节数。如果符文不是UTF-8的有效值，则返回-1。
+​	`RuneLen`函数返回编码符文所需的字节数。如果符文不是UTF-8的有效值，则返回`-1`。
 
 #### RuneLen Example
 ``` go 
@@ -475,7 +475,7 @@ func RuneStart(b byte) bool
 
 RuneStart reports whether the byte could be the first byte of an encoded, possibly invalid rune. Second and subsequent bytes always have the top two bits set to 10.
 
-​	RuneStart函数报告字节是否可以是编码的第一个字节，可能无效。第二个及后续字节的前两位始终设置为10。
+​	`RuneStart`函数报告字节是否可以是编码的第一个字节，可能无效。第二个及后续字节的前两位始终设置为`10`。
 
 #### RuneStart Example
 ``` go 
@@ -507,7 +507,7 @@ func Valid(p []byte) bool
 
 Valid reports whether p consists entirely of valid UTF-8-encoded runes.
 
-​	Valid函数报告p是否完全由有效的UTF-8编码符文组成。
+​	`Valid`函数报告`p`是否完全由有效的UTF-8编码符文组成。
 
 #### Valid Example
 ``` go 
@@ -539,7 +539,7 @@ func ValidRune(r rune) bool
 
 ValidRune reports whether r can be legally encoded as UTF-8. Code points that are out of range or a surrogate half are illegal.
 
-​	ValidRune函数报告r是否可以合法地编码为UTF-8。超出范围或替代字符的一半的代码点是非法的。
+​	`ValidRune`函数报告r是否可以合法地编码为UTF-8。超出范围或替代字符的一半的代码点是非法的。
 
 #### ValidRune Example
 ``` go 
@@ -571,7 +571,7 @@ func ValidString(s string) bool
 
 ValidString reports whether s consists entirely of valid UTF-8-encoded runes.
 
-​	ValidString函数报告s是否完全由有效的UTF-8编码符文组成。
+​	`ValidString`函数报告`s`是否完全由有效的UTF-8编码符文组成。
 
 #### ValidString Example
 ``` go 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/database/sql/driver@go1.20.1
+https://pkg.go.dev/database/sql/driver@go1.21.3
 
 Package driver defines interfaces to be implemented by database drivers as used by package sql.
 
@@ -534,6 +534,22 @@ type Pinger interface {
 ​	如果一个 Conn（这里是泛指的意思下Conn） 没有实现 Pinger接口，那么 sql 包中的 DB.Ping 和 DB.PingContext 将检查是否至少有一个可用的 Conn。
 
 ​	如果 sql.Conn.Ping 方法返回 ErrBadConn，则sql.DB.Ping 方法和 sql.DB.PingContext 方法将从池中移除该 Conn。
+
+### type Queryer <-DEPRECATED
+
+```
+type Queryer interface {
+	Query(query string, args []Value) (Rows, error)
+}
+```
+
+Queryer is an optional interface that may be implemented by a Conn.
+
+If a Conn implements neither QueryerContext nor Queryer, the sql package's DB.Query will first prepare a query, execute the statement, and then close the statement.
+
+Query may return ErrSkip.
+
+Deprecated: Drivers should implement QueryerContext instead.
 
 ### type QueryerContext  <- go1.8
 

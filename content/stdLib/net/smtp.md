@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/smtp@go1.20.1
-
-
+https://pkg.go.dev/net/smtp@go1.21.3
 
 Package smtp implements the Simple Mail Transfer Protocol as defined in [RFC 5321](https://rfc-editor.org/rfc/rfc5321.html). It also implements the following extensions:
 
@@ -26,17 +24,53 @@ The smtp package is frozen and is not accepting new features. Some external pack
 https://godoc.org/?q=smtp
 ```
 
-##### Example
+## Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/smtp"
+)
+
+func main() {
+	// Connect to the remote SMTP server.
+	c, err := smtp.Dial("mail.example.com:25")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Set the sender and recipient first
+	if err := c.Mail("sender@example.org"); err != nil {
+		log.Fatal(err)
+	}
+	if err := c.Rcpt("recipient@example.net"); err != nil {
+		log.Fatal(err)
+	}
+
+	// Send the email body.
+	wc, err := c.Data()
+	if err != nil {
+		log.Fatal(err)
+	}
+	_, err = fmt.Fprintf(wc, "This is the email body")
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = wc.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Send the QUIT command and close the connection.
+	err = c.Quit()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 ```
-
-
-
-
-
-
-
-
 
 ## 常量 
 
@@ -48,7 +82,7 @@ This section is empty.
 
 ## 函数
 
-#### func SendMail 
+### func SendMail 
 
 ``` go 
 func SendMail(addr string, a Auth, from string, to []string, msg []byte) error
@@ -62,8 +96,32 @@ The msg parameter should be an [RFC 822](https://rfc-editor.org/rfc/rfc822.html)
 
 The SendMail function and the net/smtp package are low-level mechanisms and provide no support for DKIM signing, MIME attachments (see the mime/multipart package), or other mail functionality. Higher-level packages exist outside of the standard library.
 
-##### Example
+#### SendMail Example
 ``` go 
+package main
+
+import (
+	"log"
+	"net/smtp"
+)
+
+func main() {
+	// Set up authentication information.
+	auth := smtp.PlainAuth("", "user@example.com", "password", "mail.example.com")
+
+	// Connect to the server, authenticate, set the sender and recipient,
+	// and send the email all in one step.
+	to := []string{"recipient@example.net"}
+	msg := []byte("To: recipient@example.net\r\n" +
+		"Subject: discount Gophers!\r\n" +
+		"\r\n" +
+		"This is the email body.\r\n")
+	err := smtp.SendMail("mail.example.com:25", auth, "sender@example.org", to, msg)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 ```
 
 ## 类型
@@ -110,8 +168,34 @@ PlainAuth returns an Auth that implements the PLAIN authentication mechanism as 
 
 PlainAuth will only send the credentials if the connection is using TLS or is connected to localhost. Otherwise authentication will fail with an error, without sending the credentials.
 
-##### Example
+##### PlainAuth Example
 ``` go 
+package main
+
+import (
+	"log"
+	"net/smtp"
+)
+
+// variables to make ExamplePlainAuth compile, without adding
+// unnecessary noise there.
+var (
+	from       = "gopher@example.net"
+	msg        = []byte("dummy message")
+	recipients = []string{"foo@example.com"}
+)
+
+func main() {
+	// hostname is used by PlainAuth to validate the TLS certificate.
+	hostname := "mail.example.com"
+	auth := smtp.PlainAuth("", "user@example.com", "password", hostname)
+
+	err := smtp.SendMail(hostname+":25", auth, from, recipients, msg)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 ```
 
 ### type Client 

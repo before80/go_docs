@@ -6,13 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/text/template/parse@go1.20.1
-
-
+https://pkg.go.dev/text/template/parse@go1.21.3
 
 Package parse builds parse trees for templates as defined by text/template and html/template. Clients should use those packages to construct templates rather than this one, which provides shared internal data structures not intended for general use.
 
-​	parse包根据text/template和html/template定义的模板构建解析树。客户端应使用这些包来构建模板，而不是使用本包，本包提供了一些共享的内部数据结构，不适用于一般用途。
+​	`parse`包根据`text/template`和`html/template`定义的模板构建解析树。客户端应使用这些包来构建模板，而不是使用本包，本包提供了一些共享的内部数据结构，不适用于一般用途。
 
 ## 常量 
 

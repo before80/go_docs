@@ -7,9 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/lzw@go1.20.1
-
-
+https://pkg.go.dev/compress/lzw@go1.21.3
 
 Package lzw implements the Lempel-Ziv-Welch compressed data format, described in T. A. Welch, "A Technique for High-Performance Data Compression", Computer, 17(6) (June 1984), pp 8-19.
 
@@ -29,7 +27,7 @@ This section is empty.
 
 ## 函数
 
-#### func NewReader 
+### func NewReader 
 
 ``` go 
 func NewReader(r io.Reader, order Order, litWidth int) io.ReadCloser
@@ -39,7 +37,7 @@ NewReader creates a new io.ReadCloser. Reads from the returned io.ReadCloser rea
 
 It is guaranteed that the underlying type of the returned io.ReadCloser is a *Reader.
 
-#### func NewWriter 
+### func NewWriter 
 
 ``` go 
 func NewWriter(w io.Writer, order Order, litWidth int) io.WriteCloser

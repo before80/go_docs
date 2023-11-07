@@ -6,27 +6,56 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# constant
-
-https://pkg.go.dev/go/constant@go1.20.1
-
-
+https://pkg.go.dev/go/constant@go1.21.3
 
 Package constant implements Values representing untyped Go constants and their corresponding operations.
 
 A special Unknown value may be used when a value is unknown due to an error. Operations on unknown values produce unknown values unless specified otherwise.
 
-##### Example
+## Example (ComplexNumbers)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"go/token"
+)
+
+func main() {
+	// Create the complex number 2.3 + 5i.
+	ar := constant.MakeFloat64(2.3)
+	ai := constant.MakeImag(constant.MakeInt64(5))
+	a := constant.BinaryOp(ar, token.ADD, ai)
+
+	// Compute (2.3 + 5i) * 11.
+	b := constant.MakeUint64(11)
+	c := constant.BinaryOp(a, token.MUL, b)
+
+	// Convert c into a complex128.
+	Ar, exact := constant.Float64Val(constant.Real(c))
+	if !exact {
+		fmt.Printf("Could not represent real part %s exactly as float64\n", constant.Real(c))
+	}
+	Ai, exact := constant.Float64Val(constant.Imag(c))
+	if !exact {
+		fmt.Printf("Could not represent imaginary part %s as exactly as float64\n", constant.Imag(c))
+	}
+	C := complex(Ar, Ai)
+
+	fmt.Println("literal", 25.3+55i)
+	fmt.Println("go/constant", c)
+	fmt.Println("complex128", C)
+
+}
+Output:
+
+
+Could not represent real part 25.3 exactly as float64
+literal (25.3+55i)
+go/constant (25.3 + 55i)
+complex128 (25.299999999999997+55i)
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -41,7 +70,7 @@ This section is empty.
 
 ## 函数
 
-#### func BitLen 
+### func BitLen 
 
 ``` go 
 func BitLen(x Value) int
@@ -49,7 +78,7 @@ func BitLen(x Value) int
 
 BitLen returns the number of bits required to represent the absolute value x in binary representation; x must be an Int or an Unknown. If x is Unknown, the result is 0.
 
-#### func BoolVal 
+### func BoolVal 
 
 ``` go 
 func BoolVal(x Value) bool
@@ -57,7 +86,7 @@ func BoolVal(x Value) bool
 
 BoolVal returns the Go boolean value of x, which must be a Bool or an Unknown. If x is Unknown, the result is false.
 
-#### func Bytes 
+### func Bytes 
 
 ``` go 
 func Bytes(x Value) []byte
@@ -65,7 +94,7 @@ func Bytes(x Value) []byte
 
 Bytes returns the bytes for the absolute value of x in little- endian binary representation; x must be an Int.
 
-#### func Compare 
+### func Compare 
 
 ``` go 
 func Compare(x_ Value, op token.Token, y_ Value) bool
@@ -73,11 +102,49 @@ func Compare(x_ Value, op token.Token, y_ Value) bool
 
 Compare returns the result of the comparison x op y. The comparison must be defined for the operands. If one of the operands is Unknown, the result is false.
 
-##### Example
+#### Compare Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"go/token"
+	"sort"
+)
+
+func main() {
+	vs := []constant.Value{
+		constant.MakeString("Z"),
+		constant.MakeString("bacon"),
+		constant.MakeString("go"),
+		constant.MakeString("Frame"),
+		constant.MakeString("defer"),
+		constant.MakeFromLiteral(`"a"`, token.STRING, 0),
+	}
+
+	sort.Slice(vs, func(i, j int) bool {
+		// Equivalent to vs[i] <= vs[j].
+		return constant.Compare(vs[i], token.LEQ, vs[j])
+	})
+
+	for _, v := range vs {
+		fmt.Println(constant.StringVal(v))
+	}
+
+}
+Output:
+
+
+Frame
+Z
+a
+bacon
+defer
+go
 ```
 
-#### func Float32Val 
+### func Float32Val 
 
 ``` go 
 func Float32Val(x Value) (float32, bool)
@@ -85,7 +152,7 @@ func Float32Val(x Value) (float32, bool)
 
 Float32Val is like Float64Val but for float32 instead of float64.
 
-#### func Float64Val 
+### func Float64Val 
 
 ``` go 
 func Float64Val(x Value) (float64, bool)
@@ -93,7 +160,7 @@ func Float64Val(x Value) (float64, bool)
 
 Float64Val returns the nearest Go float64 value of x and whether the result is exact; x must be numeric or an Unknown, but not Complex. For values too small (too close to 0) to represent as float64, Float64Val silently underflows to 0. The result sign always matches the sign of x, even for 0. If x is Unknown, the result is (0, false).
 
-#### func Int64Val 
+### func Int64Val 
 
 ``` go 
 func Int64Val(x Value) (int64, bool)
@@ -101,7 +168,7 @@ func Int64Val(x Value) (int64, bool)
 
 Int64Val returns the Go int64 value of x and whether the result is exact; x must be an Int or an Unknown. If the result is not exact, its value is undefined. If x is Unknown, the result is (0, false).
 
-#### func Sign 
+### func Sign 
 
 ``` go 
 func Sign(x Value) int
@@ -109,11 +176,60 @@ func Sign(x Value) int
 
 Sign returns -1, 0, or 1 depending on whether x < 0, x == 0, or x > 0; x must be numeric or Unknown. For complex values x, the sign is 0 if x == 0, otherwise it is != 0. If x is Unknown, the result is 1.
 
-##### Example
+#### Sign Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"go/token"
+)
+
+func main() {
+	zero := constant.MakeInt64(0)
+	one := constant.MakeInt64(1)
+	negOne := constant.MakeInt64(-1)
+
+	mkComplex := func(a, b constant.Value) constant.Value {
+		b = constant.MakeImag(b)
+		return constant.BinaryOp(a, token.ADD, b)
+	}
+
+	vs := []constant.Value{
+		negOne,
+		mkComplex(zero, negOne),
+		mkComplex(one, negOne),
+		mkComplex(negOne, one),
+		mkComplex(negOne, negOne),
+		zero,
+		mkComplex(zero, zero),
+		one,
+		mkComplex(zero, one),
+		mkComplex(one, one),
+	}
+
+	for _, v := range vs {
+		fmt.Printf("% d %s\n", constant.Sign(v), v)
+	}
+
+}
+Output:
+
+
+-1 -1
+-1 (0 + -1i)
+-1 (1 + -1i)
+-1 (-1 + 1i)
+-1 (-1 + -1i)
+ 0 0
+ 0 (0 + 0i)
+ 1 1
+ 1 (0 + 1i)
+ 1 (1 + 1i)
 ```
 
-#### func StringVal 
+### func StringVal 
 
 ``` go 
 func StringVal(x Value) string
@@ -121,7 +237,7 @@ func StringVal(x Value) string
 
 StringVal returns the Go string value of x, which must be a String or an Unknown. If x is Unknown, the result is "".
 
-#### func Uint64Val 
+### func Uint64Val 
 
 ``` go 
 func Uint64Val(x Value) (uint64, bool)
@@ -129,7 +245,7 @@ func Uint64Val(x Value) (uint64, bool)
 
 Uint64Val returns the Go uint64 value of x and whether the result is exact; x must be an Int or an Unknown. If the result is not exact, its value is undefined. If x is Unknown, the result is (0, false).
 
-#### func Val  <- go1.13
+### func Val  <- go1.13
 
 ``` go 
 func Val(x Value) any
@@ -147,8 +263,37 @@ Float              *big.Float or *big.Rat
 everything else    nil
 ```
 
-##### Example
+#### Val  Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"math"
+)
+
+func main() {
+	maxint := constant.MakeInt64(math.MaxInt64)
+	fmt.Printf("%v\n", constant.Val(maxint))
+
+	e := constant.MakeFloat64(math.E)
+	fmt.Printf("%v\n", constant.Val(e))
+
+	b := constant.MakeBool(true)
+	fmt.Printf("%v\n", constant.Val(b))
+
+	b = constant.Make(false)
+	fmt.Printf("%v\n", constant.Val(b))
+
+}
+Output:
+
+
+9223372036854775807
+6121026514868073/2251799813685248
+true
+false
 ```
 
 ## 类型
@@ -215,8 +360,27 @@ BinaryOp returns the result of the binary expression x op y. The operation must 
 
 To force integer division of Int operands, use op == token.QUO_ASSIGN instead of token.QUO; the result is guaranteed to be Int in this case. Division by zero leads to a run-time panic.
 
-##### Example
+##### BinaryOp Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"go/token"
+)
+
+func main() {
+	// 11 / 0.5
+	a := constant.MakeUint64(11)
+	b := constant.MakeFloat64(0.5)
+	c := constant.BinaryOp(a, token.QUO, b)
+	fmt.Println(c)
+
+}
+Output:
+
+22
 ```
 
 #### func Denom 
@@ -382,3 +546,50 @@ func UnaryOp(op token.Token, y Value, prec uint) Value
 ```
 
 UnaryOp returns the result of the unary expression op y. The operation must be defined for the operand. If prec > 0 it specifies the ^ (xor) result size in bits. If y is Unknown, the result is Unknown.
+
+##### UnaryOp Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"go/constant"
+	"go/token"
+)
+
+func main() {
+	vs := []constant.Value{
+		constant.MakeBool(true),
+		constant.MakeFloat64(2.7),
+		constant.MakeUint64(42),
+	}
+
+	for i, v := range vs {
+		switch v.Kind() {
+		case constant.Bool:
+			vs[i] = constant.UnaryOp(token.NOT, v, 0)
+
+		case constant.Float:
+			vs[i] = constant.UnaryOp(token.SUB, v, 0)
+
+		case constant.Int:
+			// Use 16-bit precision.
+			// This would be equivalent to ^uint16(v).
+			vs[i] = constant.UnaryOp(token.XOR, v, 16)
+		}
+	}
+
+	for _, v := range vs {
+		fmt.Println(v)
+	}
+
+}
+Output:
+
+
+false
+-2.7
+65493
+```
+

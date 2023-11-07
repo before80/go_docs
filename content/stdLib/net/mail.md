@@ -8,8 +8,6 @@ draft = false
 +++
 https://pkg.go.dev/net/mail@go1.21.3
 
-
-
 Package mail implements parsing of mail messages.
 
 For the most part, this package follows the syntax as specified by [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) and extended by [RFC 6532](https://rfc-editor.org/rfc/rfc6532.html). Notable divergences:
@@ -18,14 +16,6 @@ For the most part, this package follows the syntax as specified by [RFC 5322](ht
 - The full range of spacing (the CFWS syntax element) is not supported, such as breaking addresses across lines.
 - No unicode normalization is performed.
 - The special characters ()[]:;@\, are allowed to appear unquoted in names.
-
-
-
-
-
-
-
-
 
 ## 常量 
 
@@ -41,7 +31,7 @@ var ErrHeaderNotPresent = errors.New("mail: header not in message")
 
 ## 函数
 
-#### func ParseDate  <- go1.8
+### func ParseDate  <- go1.8
 
 ``` go 
 func ParseDate(date string) (time.Time, error)
@@ -70,8 +60,28 @@ func ParseAddress(address string) (*Address, error)
 
 ParseAddress parses a single [RFC 5322](https://rfc-editor.org/rfc/rfc5322.html) address, e.g. "Barry Gibbs <bg@example.com>"
 
-##### Example
+##### ParseAddress  Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/mail"
+)
+
+func main() {
+	e, err := mail.ParseAddress("Alice <alice@example.com>")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(e.Name, e.Address)
+
+}
+Output:
+
+Alice alice@example.com
 ```
 
 #### func ParseAddressList  <- go1.1
@@ -82,8 +92,33 @@ func ParseAddressList(list string) ([]*Address, error)
 
 ParseAddressList parses the given string as a list of addresses.
 
-##### Example
+##### ParseAddressList Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/mail"
+)
+
+func main() {
+	const list = "Alice <alice@example.com>, Bob <bob@example.com>, Eve <eve@example.com>"
+	emails, err := mail.ParseAddressList(list)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, v := range emails {
+		fmt.Println(v.Name, v.Address)
+	}
+
+}
+Output:
+
+Alice alice@example.com
+Bob bob@example.com
+Eve eve@example.com
 ```
 
 #### (*Address) String 
@@ -172,7 +207,52 @@ func ReadMessage(r io.Reader) (msg *Message, err error)
 
 ReadMessage reads a message from r. The headers are parsed, and the body of the message will be available for reading from msg.Body.
 
-##### Example
+##### ReadMessage Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"net/mail"
+	"strings"
+)
+
+func main() {
+	msg := `Date: Mon, 23 Jun 2015 11:40:36 -0400
+From: Gopher <from@example.com>
+To: Another Gopher <to@example.com>
+Subject: Gophers at Gophercon
+
+Message body
+`
+
+	r := strings.NewReader(msg)
+	m, err := mail.ReadMessage(r)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	header := m.Header
+	fmt.Println("Date:", header.Get("Date"))
+	fmt.Println("From:", header.Get("From"))
+	fmt.Println("To:", header.Get("To"))
+	fmt.Println("Subject:", header.Get("Subject"))
+
+	body, err := io.ReadAll(m.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", body)
+
+}
+Output:
+
+Date: Mon, 23 Jun 2015 11:40:36 -0400
+From: Gopher <from@example.com>
+To: Another Gopher <to@example.com>
+Subject: Gophers at Gophercon
+Message body
 ```
 

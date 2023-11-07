@@ -6,27 +6,13 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/dsa@go1.20.1
-
-
+https://pkg.go.dev/crypto/dsa@go1.21.3
 
 Package dsa implements the Digital Signature Algorithm, as defined in FIPS 186-3.
 
 The DSA operations in this package are not implemented using constant-time algorithms.
 
 Deprecated: DSA is a legacy algorithm, and modern alternatives such as Ed25519 (implemented by package crypto/ed25519) should be used instead. Keys with 1024-bit moduli (L1024N160 parameters) are cryptographically weak, while bigger keys are not widely supported. Note that FIPS 186-5 no longer approves DSA for signature generation.
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## 常量 
 
@@ -44,7 +30,7 @@ ErrInvalidPublicKey results when a public key is not usable by this code. FIPS i
 
 ## 函数
 
-#### func GenerateKey 
+### func GenerateKey 
 
 ``` go
 func GenerateKey(priv *PrivateKey, rand io.Reader) error
@@ -52,7 +38,7 @@ func GenerateKey(priv *PrivateKey, rand io.Reader) error
 
 GenerateKey generates a public&private key pair. The Parameters of the PrivateKey must already be valid (see GenerateParameters).
 
-#### func GenerateParameters 
+### func GenerateParameters 
 
 ``` go
 func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes) error
@@ -60,7 +46,7 @@ func GenerateParameters(params *Parameters, rand io.Reader, sizes ParameterSizes
 
 GenerateParameters puts a random, valid set of DSA parameters into params. This function can take many seconds, even on fast machines.
 
-#### func Sign 
+### func Sign 
 
 ``` go
 func Sign(rand io.Reader, priv *PrivateKey, hash []byte) (r, s *big.Int, err error)
@@ -72,7 +58,7 @@ Note that FIPS 186-3 section 4.6 specifies that the hash should be truncated to 
 
 Be aware that calling Sign with an attacker-controlled PrivateKey may require an arbitrary amount of CPU.
 
-#### func Verify 
+### func Verify 
 
 ``` go
 func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool

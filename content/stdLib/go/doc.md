@@ -6,19 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# doc
-
-https://pkg.go.dev/go/doc@go1.20.1
-
-
+https://pkg.go.dev/go/doc@go1.21.3
 
 Package doc extracts source code documentation from a Go AST.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -40,7 +30,7 @@ IllegalPrefixes is a list of lower-case prefixes that identify a comment as not 
 
 ## 函数
 
-#### func IsPredeclared  <- go1.8
+### func IsPredeclared  <- go1.8
 
 ``` go 
 func IsPredeclared(s string) bool
@@ -48,17 +38,74 @@ func IsPredeclared(s string) bool
 
 IsPredeclared reports whether s is a predeclared identifier.
 
-##### Example
-``` go 
+### func Synopsis <-DEPRECATED
+
+```
+func Synopsis(text string) string
 ```
 
-##### Example
-``` go 
+Synopsis returns a cleaned version of the first sentence in text.
+
+Deprecated: New programs should use [Package.Synopsis](https://pkg.go.dev/go/doc@go1.21.3#Package.Synopsis) instead, which handles links in text properly.
+
+### func ToHTML<-DEPRECATED
+
+```go
+func ToHTML(w io.Writer, text string, words map[string]string)
 ```
 
-##### Example
-``` go 
+ToHTML converts comment text to formatted HTML.
+
+Deprecated: ToHTML cannot identify documentation links in the doc comment, because they depend on knowing what package the text came from, which is not included in this API.
+
+Given the *[doc.Package](https://pkg.go.dev/go/doc@go1.21.3#Package) p where text was found, ToHTML(w, text, nil) can be replaced by:
+
+```go
+w.Write(p.HTML(text))
 ```
+
+which is in turn shorthand for:
+
+```go
+w.Write(p.Printer().HTML(p.Parser().Parse(text)))
+```
+
+If words may be non-nil, the longer replacement is:
+
+```go
+parser := p.Parser()
+parser.Words = words
+w.Write(p.Printer().HTML(parser.Parse(d)))
+```
+
+### func ToText <-DEPRECATED
+
+```go
+func ToText(w io.Writer, text string, prefix, codePrefix string, width int)
+```
+
+ToText converts comment text to formatted text.
+
+Deprecated: ToText cannot identify documentation links in the doc comment, because they depend on knowing what package the text came from, which is not included in this API.
+
+Given the *[doc.Package](https://pkg.go.dev/go/doc@go1.21.3#Package) p where text was found, ToText(w, text, "", "\t", 80) can be replaced by:
+
+```go
+w.Write(p.Text(text))
+```
+
+In the general case, ToText(w, text, prefix, codePrefix, width) can be replaced by:
+
+```go
+d := p.Parser().Parse(text)
+pr := p.Printer()
+pr.TextPrefix = prefix
+pr.TextCodePrefix = codePrefix
+pr.TextWidth = width
+w.Write(pr.Text(d))
+```
+
+See the documentation for [Package.Text](https://pkg.go.dev/go/doc@go1.21.3#Package.Text) and [comment.Printer.Text](https://pkg.go.dev/go/doc/comment#Printer.Text) for more details.
 
 ## 类型
 
@@ -215,8 +262,72 @@ Optionally, a single extra argument of type Mode can be provided to control low-
 
 NewFromFiles takes ownership of the AST files and may edit them, unless the PreserveAST Mode bit is on.
 
-##### Example
+##### NewFromFiles  Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/ast"
+	"go/doc"
+	"go/parser"
+	"go/token"
+)
+
+func main() {
+	// src and test are two source files that make up
+	// a package whose documentation will be computed.
+	const src = `
+// This is the package comment.
+package p
+
+import "fmt"
+
+// This comment is associated with the Greet function.
+func Greet(who string) {
+	fmt.Printf("Hello, %s!\n", who)
+}
+`
+	const test = `
+package p_test
+
+// This comment is associated with the ExampleGreet_world example.
+func ExampleGreet_world() {
+	Greet("world")
+}
+`
+
+	// Create the AST by parsing src and test.
+	fset := token.NewFileSet()
+	files := []*ast.File{
+		mustParse(fset, "src.go", src),
+		mustParse(fset, "src_test.go", test),
+	}
+
+	// Compute package documentation with examples.
+	p, err := doc.NewFromFiles(fset, files, "example.com/p")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("package %s - %s", p.Name, p.Doc)
+	fmt.Printf("func %s - %s", p.Funcs[0].Name, p.Funcs[0].Doc)
+	fmt.Printf(" ⤷ example with suffix %q - %s", p.Funcs[0].Examples[0].Suffix, p.Funcs[0].Examples[0].Doc)
+
+}
+
+func mustParse(fset *token.FileSet, filename, src string) *ast.File {
+	f, err := parser.ParseFile(fset, filename, src, parser.ParseComments)
+	if err != nil {
+		panic(err)
+	}
+	return f
+}
+Output:
+
+package p - This is the package comment.
+func Greet - This comment is associated with the Greet function.
+ ⤷ example with suffix "world" - This comment is associated with the ExampleGreet_world example.
 ```
 
 #### (*Package) Filter 

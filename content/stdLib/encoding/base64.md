@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/base64@go1.20.1
+https://pkg.go.dev/encoding/base64@go1.21.3
 
 Package base64 implements base64 encoding as specified by [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html).
 

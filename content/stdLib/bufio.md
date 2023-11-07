@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-https://pkg.go.dev/bufio@go1.20.1
+https://pkg.go.dev/bufio@go1.21.3
 
 Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O.
 
@@ -466,7 +466,7 @@ Scanning stops unrecoverably at EOF, the first I/O error, or a token too large t
 >
 > ​	这句话的意思是，当扫描器(Scanner)停止扫描时，读取器(Reader)可能会在最后一个标记(token)之后任意移动多个字节的位置。也就是说，即使扫描器停止扫描了，读取器仍然可以继续读取数据，而这些数据可能并不是标记的一部分。这个特性可能会对一些应用程序造成困扰，需要注意处理。
 
-##### Example(Custom) 
+#### Example(Custom) 
 
 Use a Scanner with a custom split function (built by wrapping ScanWords) to validate 32-bit decimal input.
 
@@ -516,7 +516,7 @@ Output:
 Invalid input: strconv.ParseInt: parsing "1234567901234567890": value out of range
 ```
 
-##### Example(EmptyFinalToken) 
+#### Example(EmptyFinalToken) 
 
 Use a Scanner with a custom split function to parse a comma-separated list with an empty final value.
 
@@ -569,7 +569,7 @@ func main() {
 
 ```
 
-##### Example(Lines) 
+#### Example(Lines) 
 
 The simplest use of a Scanner, to read standard input as a set of lines.
 
@@ -596,7 +596,7 @@ func main() {
 
 ```
 
-##### Example(Words) 
+#### Example(Words) 
 
 Use a Scanner to implement a simple word-count utility by scanning the input as a sequence of space-delimited tokens.
 
@@ -782,7 +782,7 @@ Writer implements buffering for an io.Writer object. If an error occurs writing 
 
 ​	Writer结构体实现了对io.Writer对象的缓存。如果写入Writer时发生错误，则不再接受更多数据，并且所有后续的写入和Flush都将返回该错误。在写入所有数据后，客户端应调用Flush方法以确保所有数据已转发到底层的io.Writer。
 
-##### Writer Example
+#### Writer Example
 
 ```go 
 package main
@@ -960,4 +960,4 @@ func (b *Writer) WriteString(s string) (int, error)
 
 WriteString writes a string. It returns the number of bytes written. If the count is less than len(s), it also returns an error explaining why the write is short.
 
-​	WriteString方法写入一个字符串。它返回写入的字节数。如果写入的字节数少于 len(s)，它还会返回一个错误，解释为什么写入不足。
+​	WriteString方法写入一个字符串。它返回写入的字节数。如果写入的字节数少于 len(s)，它还会返回一个错误，解释为什么写入不足。1.2

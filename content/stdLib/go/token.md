@@ -6,21 +6,87 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# token
-
-https://pkg.go.dev/go/token@go1.20.1
-
-
+https://pkg.go.dev/go/token@go1.21.3
 
 Package token defines constants representing the lexical tokens of the Go programming language and basic operations on tokens (printing, predicates).
 
-##### Example
+## Example(RetrievePositionInfo)
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/ast"
+	"go/parser"
+	"go/token"
+)
+
+func main() {
+	fset := token.NewFileSet()
+
+	const src = `package main
+
+import "fmt"
+
+import "go/token"
+
+//line :1:5
+type p = token.Pos
+
+const bad = token.NoPos
+
+//line fake.go:42:11
+func ok(pos p) bool {
+	return pos != bad
+}
+
+/*line :7:9*/func main() {
+	fmt.Println(ok(bad) == bad.IsValid())
+}
+`
+
+	f, err := parser.ParseFile(fset, "main.go", src, 0)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// Print the location and kind of each declaration in f.
+	for _, decl := range f.Decls {
+		// Get the filename, line, and column back via the file set.
+		// We get both the relative and absolute position.
+		// The relative position is relative to the last line directive.
+		// The absolute position is the exact position in the source.
+		pos := decl.Pos()
+		relPosition := fset.Position(pos)
+		absPosition := fset.PositionFor(pos, false)
+
+		// Either a FuncDecl or GenDecl, since we exit on error.
+		kind := "func"
+		if gen, ok := decl.(*ast.GenDecl); ok {
+			kind = gen.Tok.String()
+		}
+
+		// If the relative and absolute positions differ, show both.
+		fmtPosition := relPosition.String()
+		if relPosition != absPosition {
+			fmtPosition += "[" + absPosition.String() + "]"
+		}
+
+		fmt.Printf("%s: %s\n", fmtPosition, kind)
+	}
+
+}
+Output:
+
+
+main.go:3:1: import
+main.go:5:1: import
+main.go:1:5[main.go:8:1]: type
+main.go:3:1[main.go:10:1]: const
+fake.go:42:11[main.go:13:1]: func
+fake.go:7:9[main.go:17:14]: func
 ```
-
-
-
-
 
 
 
@@ -44,7 +110,7 @@ This section is empty.
 
 ## 函数
 
-#### func IsExported  <- go1.13
+### func IsExported  <- go1.13
 
 ``` go 
 func IsExported(name string) bool
@@ -52,7 +118,7 @@ func IsExported(name string) bool
 
 IsExported reports whether name starts with an upper-case letter.
 
-#### func IsIdentifier  <- go1.13
+### func IsIdentifier  <- go1.13
 
 ``` go 
 func IsIdentifier(name string) bool
@@ -60,7 +126,7 @@ func IsIdentifier(name string) bool
 
 IsIdentifier reports whether name is a Go identifier, that is, a non-empty string made up of letters, digits, and underscores, where the first character is not a digit. Keywords are not identifiers.
 
-#### func IsKeyword  <- go1.13
+### func IsKeyword  <- go1.13
 
 ``` go 
 func IsKeyword(name string) bool
@@ -137,6 +203,14 @@ func (f *File) LineStart(line int) Pos
 ```
 
 LineStart returns the Pos value of the start of the specified line. It ignores any alternative positions set using AddLineColumnInfo. LineStart panics if the 1-based line number is invalid.
+
+#### (*File) Lines <-go1.21.0
+
+```go
+func (f *File) Lines() []int
+```
+
+Lines returns the effective line offset table of the form described by SetLines. Callers must not mutate the result.
 
 #### (*File) MergeLine  <- go1.2
 

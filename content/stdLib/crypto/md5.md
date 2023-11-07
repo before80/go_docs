@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/md5@go1.20.1
-
-
+https://pkg.go.dev/crypto/md5@go1.21.3
 
 Package md5 implements the MD5 hash algorithm as defined in [RFC 1321](https://rfc-editor.org/rfc/rfc1321.html).
 
@@ -38,7 +36,7 @@ This section is empty.
 
 ## 函数
 
-#### func New 
+### func New 
 
 ``` go
 func New() hash.Hash
@@ -46,7 +44,7 @@ func New() hash.Hash
 
 New returns a new hash.Hash computing the MD5 checksum. The Hash also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-##### New Example
+#### New Example
 
 ```go
 package main
@@ -70,7 +68,7 @@ e2c569be17396eca2a2e3c11578123ed
 
 
 
-##### New Example (File)
+#### New Example (File)
 
 ```go
 package main
@@ -102,7 +100,7 @@ Output:
 
 
 
-#### func Sum  <- go1.2
+### func Sum  <- go1.2
 
 ``` go
 func Sum(data []byte) [Size]byte
@@ -110,7 +108,7 @@ func Sum(data []byte) [Size]byte
 
 Sum returns the MD5 checksum of the data.
 
-##### Sum  Example
+#### Sum  Example
 
 ```go
 package main

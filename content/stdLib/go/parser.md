@@ -6,21 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# parser
-
-https://pkg.go.dev/go/parser@go1.20.1
-
-
+https://pkg.go.dev/go/parser@go1.21.3
 
 Package parser implements a parser for Go source files. Input may be provided in a variety of forms (see the various Parse* functions); the output is an abstract syntax tree (AST) representing the Go source. The parser is invoked through one of the Parse* functions.
 
 The parser accepts a larger language than is syntactically permitted by the Go spec, for simplicity, and for improved robustness in the presence of syntax errors. For instance, in method declarations, the receiver is treated like an ordinary parameter list and thus may contain multiple entries where the spec permits exactly one. Consequently, the corresponding field in the AST (ast.FuncDecl.Recv) field is not restricted to one entry.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -32,7 +22,7 @@ This section is empty.
 
 ## 函数
 
-#### func ParseDir 
+### func ParseDir 
 
 ``` go 
 func ParseDir(fset *token.FileSet, path string, filter func(fs.FileInfo) bool, mode Mode) (pkgs map[string]*ast.Package, first error)
@@ -44,7 +34,7 @@ If filter != nil, only the files with fs.FileInfo entries passing through the fi
 
 If the directory couldn't be read, a nil map and the respective error are returned. If a parse error occurred, a non-nil but incomplete map and the first error encountered are returned.
 
-#### func ParseExpr 
+### func ParseExpr 
 
 ``` go 
 func ParseExpr(x string) (ast.Expr, error)
@@ -54,7 +44,7 @@ ParseExpr is a convenience function for obtaining the AST of an expression x. Th
 
 If syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
-#### func ParseExprFrom  <- go1.5
+### func ParseExprFrom  <- go1.5
 
 ``` go 
 func ParseExprFrom(fset *token.FileSet, filename string, src any, mode Mode) (expr ast.Expr, err error)
@@ -64,7 +54,7 @@ ParseExprFrom is a convenience function for parsing an expression. The arguments
 
 If the source couldn't be read, the returned AST is nil and the error indicates the specific failure. If the source was read but syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
-#### func ParseFile 
+### func ParseFile 
 
 ``` go 
 func ParseFile(fset *token.FileSet, filename string, src any, mode Mode) (f *ast.File, err error)
@@ -80,8 +70,48 @@ Position information is recorded in the file set fset, which must not be nil.
 
 If the source couldn't be read, the returned AST is nil and the error indicates the specific failure. If the source was read but syntax errors were found, the result is a partial AST (with ast.Bad* nodes representing the fragments of erroneous source code). Multiple errors are returned via a scanner.ErrorList which is sorted by source position.
 
-##### Example
+#### ParseFile Example
 ``` go 
+package main
+
+import (
+	"fmt"
+	"go/parser"
+	"go/token"
+)
+
+func main() {
+	fset := token.NewFileSet() // positions are relative to fset
+
+	src := `package foo
+
+import (
+	"fmt"
+	"time"
+)
+
+func bar() {
+	fmt.Println(time.Now())
+}`
+
+	// Parse src but stop after processing the imports.
+	f, err := parser.ParseFile(fset, "", src, parser.ImportsOnly)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// Print the imports from the file's AST.
+	for _, s := range f.Imports {
+		fmt.Println(s.Path.Value)
+	}
+
+}
+Output:
+
+
+"fmt"
+"time"
 ```
 
 ## 类型

@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/subtle@go1.20.1
-
-
+https://pkg.go.dev/crypto/subtle@go1.21.3
 
 Package subtle implements functions that are often useful in cryptographic code but require careful thought to use correctly.
 
@@ -22,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func ConstantTimeByteEq 
+### func ConstantTimeByteEq 
 
 ``` go
 func ConstantTimeByteEq(x, y uint8) int
@@ -30,7 +28,7 @@ func ConstantTimeByteEq(x, y uint8) int
 
 ConstantTimeByteEq returns 1 if x == y and 0 otherwise.
 
-#### func ConstantTimeCompare 
+### func ConstantTimeCompare 
 
 ``` go
 func ConstantTimeCompare(x, y []byte) int
@@ -38,7 +36,7 @@ func ConstantTimeCompare(x, y []byte) int
 
 ConstantTimeCompare returns 1 if the two slices, x and y, have equal contents and 0 otherwise. The time taken is a function of the length of the slices and is independent of the contents. If the lengths of x and y do not match it returns 0 immediately.
 
-#### func ConstantTimeCopy 
+### func ConstantTimeCopy 
 
 ``` go
 func ConstantTimeCopy(v int, x, y []byte)
@@ -46,7 +44,7 @@ func ConstantTimeCopy(v int, x, y []byte)
 
 ConstantTimeCopy copies the contents of y into x (a slice of equal length) if v == 1. If v == 0, x is left unchanged. Its behavior is undefined if v takes any other value.
 
-#### func ConstantTimeEq 
+### func ConstantTimeEq 
 
 ``` go
 func ConstantTimeEq(x, y int32) int
@@ -54,7 +52,7 @@ func ConstantTimeEq(x, y int32) int
 
 ConstantTimeEq returns 1 if x == y and 0 otherwise.
 
-#### func ConstantTimeLessOrEq  <- go1.2
+### func ConstantTimeLessOrEq  <- go1.2
 
 ``` go
 func ConstantTimeLessOrEq(x, y int) int
@@ -62,7 +60,7 @@ func ConstantTimeLessOrEq(x, y int) int
 
 ConstantTimeLessOrEq returns 1 if x <= y and 0 otherwise. Its behavior is undefined if x or y are negative or > 2**31 - 1.
 
-#### func ConstantTimeSelect 
+### func ConstantTimeSelect 
 
 ``` go
 func ConstantTimeSelect(v, x, y int) int
@@ -70,7 +68,7 @@ func ConstantTimeSelect(v, x, y int) int
 
 ConstantTimeSelect returns x if v == 1 and y if v == 0. Its behavior is undefined if v takes any other value.
 
-#### func XORBytes  <- go1.20
+### func XORBytes  <- go1.20
 
 ``` go
 func XORBytes(dst, x, y []byte) int

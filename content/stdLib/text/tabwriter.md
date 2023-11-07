@@ -6,13 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/text/tabwriter@go1.20.1
-
-
+https://pkg.go.dev/text/tabwriter@go1.21.3
 
 Package tabwriter implements a write filter (tabwriter.Writer) that translates tabbed columns in input into properly aligned text.
 
-​	tabwriter包实现了一个写入过滤器（tabwriter.Writer），它将输入中的制表符列转换为正确对齐的文本。
+​	`tabwriter`包实现了一个写入过滤器（tabwriter.Writer），它将输入中的制表符列转换为正确对齐的文本。
 
 The package is using the Elastic Tabstops algorithm described at http://nickgravgaard.com/elastictabstops/index.html.
 
@@ -20,7 +18,7 @@ The package is using the Elastic Tabstops algorithm described at http://nickgrav
 
 The text/tabwriter package is frozen and is not accepting new features.
 
-​	text/tabwriter包已经冻结，不再接受新功能。
+​	`text/tabwriter`包已经冻结，不再接受新功能。
 
 ## Example (Elastic 灵活的)
 ``` go 

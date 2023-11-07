@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/runtime/trace@go1.20.1
+https://pkg.go.dev/runtime/trace@go1.21.3
 
 
 Package trace contains facilities for programs to generate traces for the Go execution tracer.

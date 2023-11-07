@@ -6,15 +6,11 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/rc4@go1.20.1
-
-
+https://pkg.go.dev/crypto/rc4@go1.21.3
 
 Package rc4 implements RC4 encryption, as defined in Bruce Schneier's Applied Cryptography.
 
 RC4 is cryptographically broken and should not be used for secure applications.
-
-
 
 
 ## 常量 
@@ -50,6 +46,14 @@ func NewCipher(key []byte) (*Cipher, error)
 NewCipher creates and returns a new Cipher. The key argument should be the RC4 key, at least 1 byte and at most 256 bytes.
 
 #### (*Cipher) Reset <- DEPRECATED
+
+```go
+func (c *Cipher) Reset()
+```
+
+Reset zeros the key data and makes the Cipher unusable.
+
+Deprecated: Reset can't guarantee that the key will be entirely removed from the process's memory.
 
 #### (*Cipher) XORKeyStream 
 

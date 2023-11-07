@@ -6,19 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-# scanner
-
-https://pkg.go.dev/go/scanner@go1.20.1
-
-
+https://pkg.go.dev/go/scanner@go1.21.3
 
 Package scanner implements a scanner for Go source text. It takes a []byte as source which can then be tokenized through repeated calls to the Scan method.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -30,7 +20,7 @@ This section is empty.
 
 ## 函数
 
-#### func PrintError 
+### func PrintError 
 
 ``` go 
 func PrintError(w io.Writer, err error)
@@ -204,3 +194,52 @@ In all other cases, Scan returns an empty literal string.
 For more tolerant parsing, Scan will return a valid token if possible even if a syntax error was encountered. Thus, even if the resulting token sequence contains no illegal tokens, a client may not assume that no error occurred. Instead it must check the scanner's ErrorCount or the number of calls of the error handler, if there was one installed.
 
 Scan adds line information to the file added to the file set with Init. Token positions are relative to that file and thus relative to the file set.
+
+##### Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"go/scanner"
+	"go/token"
+)
+
+func main() {
+	// src is the input that we want to tokenize.
+	src := []byte("cos(x) + 1i*sin(x) // Euler")
+
+	// Initialize the scanner.
+	var s scanner.Scanner
+	fset := token.NewFileSet()                      // positions are relative to fset
+	file := fset.AddFile("", fset.Base(), len(src)) // register input "file"
+	s.Init(file, src, nil /* no error handler */, scanner.ScanComments)
+
+	// Repeated calls to Scan yield the token sequence found in the input.
+	for {
+		pos, tok, lit := s.Scan()
+		if tok == token.EOF {
+			break
+		}
+		fmt.Printf("%s\t%s\t%q\n", fset.Position(pos), tok, lit)
+	}
+
+}
+Output:
+
+1:1	IDENT	"cos"
+1:4	(	""
+1:5	IDENT	"x"
+1:6	)	""
+1:8	+	""
+1:10	IMAG	"1i"
+1:12	*	""
+1:13	IDENT	"sin"
+1:16	(	""
+1:17	IDENT	"x"
+1:18	)	""
+1:20	COMMENT	"// Euler"
+1:28	;	"\n"
+```
+

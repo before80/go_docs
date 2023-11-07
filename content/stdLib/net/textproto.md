@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/textproto@go1.20.1
-
-
+https://pkg.go.dev/net/textproto@go1.21.3
 
 Package textproto implements generic support for text-based request/response protocols in the style of HTTP, NNTP, and SMTP.
 
@@ -36,7 +34,7 @@ This section is empty.
 
 ## 函数
 
-#### func CanonicalMIMEHeaderKey 
+### func CanonicalMIMEHeaderKey 
 
 ``` go 
 func CanonicalMIMEHeaderKey(s string) string
@@ -44,7 +42,7 @@ func CanonicalMIMEHeaderKey(s string) string
 
 CanonicalMIMEHeaderKey returns the canonical format of the MIME header key s. The canonicalization converts the first letter and any letter following a hyphen to upper case; the rest are converted to lowercase. For example, the canonical key for "accept-encoding" is "Accept-Encoding". MIME header keys are assumed to be ASCII only. If s contains a space or invalid header field bytes, it is returned without modifications.
 
-#### func TrimBytes  <- go1.1
+### func TrimBytes  <- go1.1
 
 ``` go 
 func TrimBytes(b []byte) []byte
@@ -52,7 +50,7 @@ func TrimBytes(b []byte) []byte
 
 TrimBytes returns b without leading and trailing ASCII space.
 
-#### func TrimString  <- go1.1
+### func TrimString  <- go1.1
 
 ``` go 
 func TrimString(s string) string

@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/rsa@go1.20.1
-
-
+https://pkg.go.dev/crypto/rsa@go1.21.3
 
 Package rsa implements RSA encryption as specified in PKCS #1 and [RFC 8017](https://rfc-editor.org/rfc/rfc8017.html).
 
@@ -63,7 +61,7 @@ ErrVerification represents a failure to verify a signature. It is deliberately v
 
 ## 函数
 
-#### func DecryptOAEP 
+### func DecryptOAEP 
 
 ``` go
 func DecryptOAEP(hash hash.Hash, random io.Reader, priv *PrivateKey, ciphertext []byte, label []byte) ([]byte, error)
@@ -77,7 +75,7 @@ The random parameter is legacy and ignored, and it can be as nil.
 
 The label parameter must match the value given when encrypting. See EncryptOAEP for details.
 
-##### DecryptOAEP Example
+#### DecryptOAEP Example
 
 ```go
 ciphertext, _ := hex.DecodeString("4d1ee10e8f286390258c51a5e80802844c3e6358ad6690b7285218a7c7ed7fc3a4c7b950fbd04d4b0239cc060dcc7065ca6f84c1756deb71ca5685cadbb82be025e16449b905c568a19c088a1abfad54bf7ecc67a7df39943ec511091a34c0f2348d04e058fcff4d55644de3cd1d580791d4524b92f3e91695582e6e340a1c50b6c6d78e80b4e42c5b4d45e479b492de42bbd39cc642ebb80226bb5200020d501b24a37bcc2ec7f34e596b4fd6b063de4858dbf5a4e3dd18e262eda0ec2d19dbd8e890d672b63d368768360b20c0b6b8592a438fa275e5fa7f60bef0dd39673fd3989cc54d2cb80c08fcd19dacbc265ee1c6014616b0e04ea0328c2a04e73460")
@@ -101,7 +99,7 @@ Output:
 
 
 
-#### func DecryptPKCS1v15 
+### func DecryptPKCS1v15 
 
 ``` go
 func DecryptPKCS1v15(random io.Reader, priv *PrivateKey, ciphertext []byte) ([]byte, error)
@@ -111,7 +109,7 @@ DecryptPKCS1v15 decrypts a plaintext using RSA and the padding scheme from PKCS 
 
 Note that whether this function returns an error or not discloses secret information. If an attacker can cause this function to run repeatedly and learn whether each instance returned an error then they can decrypt and forge signatures as if they had the private key. See DecryptPKCS1v15SessionKey for a way of solving this problem.
 
-#### func DecryptPKCS1v15SessionKey 
+### func DecryptPKCS1v15SessionKey 
 
 ``` go
 func DecryptPKCS1v15SessionKey(random io.Reader, priv *PrivateKey, ciphertext []byte, key []byte) error
@@ -121,7 +119,7 @@ DecryptPKCS1v15SessionKey decrypts a session key using RSA and the padding schem
 
 Note that if the session key is too small then it may be possible for an attacker to brute-force it. If they can do that then they can learn whether a random value was used (because it'll be different for the same ciphertext) and thus whether the padding was correct. This defeats the point of this function. Using at least a 16-byte key will protect against this attack.
 
-##### DecryptPKCS1v15SessionKey Example
+#### DecryptPKCS1v15SessionKey Example
 
 RSA is able to encrypt only a very limited amount of data. In order to encrypt reasonable amounts of data a hybrid scheme is commonly used: RSA is used to encrypt a key for a symmetric primitive like AES-GCM.
 
@@ -180,7 +178,7 @@ Output:
 
 
 
-#### func EncryptOAEP 
+### func EncryptOAEP 
 
 ``` go
 func EncryptOAEP(hash hash.Hash, random io.Reader, pub *PublicKey, msg []byte, label []byte) ([]byte, error)
@@ -196,7 +194,7 @@ The label parameter may contain arbitrary data that will not be encrypted, but w
 
 The message must be no longer than the length of the public modulus minus twice the hash length, minus a further 2.
 
-##### EncryptOAEP Example
+#### EncryptOAEP Example
 
 ```go
 secretMessage := []byte("send reinforcements, we're going to advance")
@@ -221,7 +219,7 @@ Output:
 
 
 
-#### func EncryptPKCS1v15 
+### func EncryptPKCS1v15 
 
 ``` go
 func EncryptPKCS1v15(random io.Reader, pub *PublicKey, msg []byte) ([]byte, error)
@@ -233,7 +231,7 @@ The random parameter is used as a source of entropy to ensure that encrypting th
 
 WARNING: use of this function to encrypt plaintexts other than session keys is dangerous. Use RSA OAEP in new protocols.
 
-#### func SignPKCS1v15 
+### func SignPKCS1v15 
 
 ``` go
 func SignPKCS1v15(random io.Reader, priv *PrivateKey, hash crypto.Hash, hashed []byte) ([]byte, error)
@@ -245,7 +243,7 @@ The random parameter is legacy and ignored, and it can be as nil.
 
 This function is deterministic. Thus, if the set of possible messages is small, an attacker may be able to build a map from messages to signatures and identify the signed messages. As ever, signatures provide authenticity, not confidentiality.
 
-##### SignPKCS1v15 Example
+#### SignPKCS1v15 Example
 
 ```go
 message := []byte("message to be signed")
@@ -270,7 +268,7 @@ Output:
 
 
 
-#### func SignPSS  <- go1.2
+### func SignPSS  <- go1.2
 
 ``` go
 func SignPSS(rand io.Reader, priv *PrivateKey, hash crypto.Hash, digest []byte, opts *PSSOptions) ([]byte, error)
@@ -280,7 +278,7 @@ SignPSS calculates the signature of digest using PSS.
 
 digest must be the result of hashing the input message using the given hash function. The opts argument may be nil, in which case sensible defaults are used. If opts.Hash is set, it overrides hash.
 
-#### func VerifyPKCS1v15 
+### func VerifyPKCS1v15 
 
 ``` go
 func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte) error
@@ -288,7 +286,7 @@ func VerifyPKCS1v15(pub *PublicKey, hash crypto.Hash, hashed []byte, sig []byte)
 
 VerifyPKCS1v15 verifies an RSA PKCS #1 v1.5 signature. hashed is the result of hashing the input message using the given hash function and sig is the signature. A valid signature is indicated by returning a nil error. If hash is zero then hashed is used directly. This isn't advisable except for interoperability.
 
-##### VerifyPKCS1v15 Example
+#### VerifyPKCS1v15 Example
 
 ```go
 message := []byte("message to be signed")
@@ -314,7 +312,7 @@ Output:
 
 
 
-#### func VerifyPSS  <- go1.2
+### func VerifyPSS  <- go1.2
 
 ``` go
 func VerifyPSS(pub *PublicKey, hash crypto.Hash, digest []byte, sig []byte, opts *PSSOptions) error
@@ -443,7 +441,7 @@ func GenerateKey(random io.Reader, bits int) (*PrivateKey, error)
 
 GenerateKey generates an RSA keypair of the given bit size using the random source random (for example, crypto/rand.Reader).
 
-#### func GenerateMultiPrimeKey 
+#### func GenerateMultiPrimeKey <-DEPRECATED
 
 ``` go
 func GenerateMultiPrimeKey(random io.Reader, nprimes int, bits int) (*PrivateKey, error)
@@ -457,7 +455,7 @@ Although the public keys are compatible (actually, indistinguishable) from the 2
 
 This package does not implement CRT optimizations for multi-prime RSA, so the keys with more than two primes will have worse performance.
 
-Note: The use of this function with a number of primes different from two is not recommended for the above security, compatibility, and performance reasons. Use GenerateKey instead.
+Deprecated: The use of this function with a number of primes different from two is not recommended for the above security, compatibility, and performance reasons. Use GenerateKey instead.
 
 #### (*PrivateKey) Decrypt  <- go1.5
 

@@ -6,21 +6,13 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/hash/crc32@go1.20.1
-
-
+https://pkg.go.dev/hash/crc32@go1.21.3
 
 Package crc32 implements the 32-bit cyclic redundancy check, or CRC-32, checksum. See https://en.wikipedia.org/wiki/Cyclic_redundancy_check for information.
 
 Polynomials are represented in LSB-first form also known as reversed representation.
 
 See https://en.wikipedia.org/wiki/Mathematics_of_cyclic_redundancy_checks#Reversed_representations_and_reciprocal_polynomials for information.
-
-
-
-
-
-
 
 ## 常量 
 
@@ -66,7 +58,7 @@ IEEETable is the table for the IEEE polynomial.
 
 ## 函数
 
-#### func Checksum 
+### func Checksum 
 
 ``` go 
 func Checksum(data []byte, tab *Table) uint32
@@ -74,7 +66,7 @@ func Checksum(data []byte, tab *Table) uint32
 
 Checksum returns the CRC-32 checksum of data using the polynomial represented by the Table.
 
-#### func ChecksumIEEE 
+### func ChecksumIEEE 
 
 ``` go 
 func ChecksumIEEE(data []byte) uint32
@@ -82,7 +74,7 @@ func ChecksumIEEE(data []byte) uint32
 
 ChecksumIEEE returns the CRC-32 checksum of data using the IEEE polynomial.
 
-#### func New 
+### func New 
 
 ``` go 
 func New(tab *Table) hash.Hash32
@@ -90,7 +82,7 @@ func New(tab *Table) hash.Hash32
 
 New creates a new hash.Hash32 computing the CRC-32 checksum using the polynomial represented by the Table. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func NewIEEE 
+### func NewIEEE 
 
 ``` go 
 func NewIEEE() hash.Hash32
@@ -98,7 +90,7 @@ func NewIEEE() hash.Hash32
 
 NewIEEE creates a new hash.Hash32 computing the CRC-32 checksum using the IEEE polynomial. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func Update 
+### func Update 
 
 ``` go 
 func Update(crc uint32, tab *Table, p []byte) uint32

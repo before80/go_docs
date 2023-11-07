@@ -6,13 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/hash/crc64@go1.20.1
-
-
+https://pkg.go.dev/hash/crc64@go1.21.3
 
 Package crc64 implements the 64-bit cyclic redundancy check, or CRC-64, checksum. See https://en.wikipedia.org/wiki/Cyclic_redundancy_check for information.
-
-
 
 ## 常量 
 
@@ -44,7 +40,7 @@ This section is empty.
 
 ## 函数
 
-#### func Checksum 
+### func Checksum 
 
 ``` go 
 func Checksum(data []byte, tab *Table) uint64
@@ -52,7 +48,7 @@ func Checksum(data []byte, tab *Table) uint64
 
 Checksum returns the CRC-64 checksum of data using the polynomial represented by the Table.
 
-#### func New 
+### func New 
 
 ``` go 
 func New(tab *Table) hash.Hash64
@@ -60,7 +56,7 @@ func New(tab *Table) hash.Hash64
 
 New creates a new hash.Hash64 computing the CRC-64 checksum using the polynomial represented by the Table. Its Sum method will lay the value out in big-endian byte order. The returned Hash64 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
 
-#### func Update 
+### func Update 
 
 ``` go 
 func Update(crc uint64, tab *Table, p []byte) uint64

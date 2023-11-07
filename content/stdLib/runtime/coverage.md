@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/runtime/coverage@go1.20.1
+https://pkg.go.dev/runtime/coverage@go1.21.3
 
 
 

@@ -6,17 +6,17 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/debug/pe@go1.20.1
+https://pkg.go.dev/debug/pe@go1.21.3
 
 Package pe implements access to PE (Microsoft Windows Portable Executable) files.
 
-Package pe 实现对 PE（Microsoft Windows Portable Executable）文件的访问。
+​	`pe` 包实现对 PE（Microsoft Windows Portable Executable）文件的访问。
 
-#### Security 安全性
+## Security 安全性
 
 This package is not designed to be hardened against adversarial inputs, and is outside the scope of https://go.dev/security/policy. In particular, only basic validation is done when parsing object files. As such, care should be taken when parsing untrusted inputs, as parsing malformed files may consume significant resources, or cause panics.
 
-该包没有设计用于抵御对抗性输入，并且超出了 https://go.dev/security/policy 的范围。特别地，在解析对象文件时仅进行基本验证。因此，在解析不受信任的输入时应当小心，因为解析格式错误的文件可能会消耗大量资源或导致崩溃。
+​	该包没有设计用于抵御对抗性输入，并且超出了 https://go.dev/security/policy 的范围。特别地，在解析对象文件时仅进行基本验证。因此，在解析不受信任的输入时应当小心，因为解析格式错误的文件可能会消耗大量资源或导致崩溃。
 
 ## 常量 
 
@@ -127,7 +127,7 @@ const (
 
 OptionalHeader64.Subsystem and OptionalHeader32.Subsystem values.
 
-OptionalHeader64.Subsystem 和 OptionalHeader32.Subsystem 的取值。
+​	OptionalHeader64.Subsystem 和 OptionalHeader32.Subsystem 的取值。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/pe.go;l=177)
 
@@ -149,7 +149,7 @@ const (
 
 OptionalHeader64.DllCharacteristics and OptionalHeader32.DllCharacteristics values. These can be combined together.
 
-OptionalHeader64.DllCharacteristics 和 OptionalHeader32.DllCharacteristics 的取值。可以将它们组合在一起。
+​	OptionalHeader64.DllCharacteristics 和 OptionalHeader32.DllCharacteristics 的取值。可以将它们组合在一起。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/section.go;l=110)
 
@@ -168,7 +168,7 @@ const (
 
 Section characteristics flags.
 
-节的特征标志。
+​	节的特征标志。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=174)
 
@@ -185,7 +185,7 @@ const (
 
 These constants make up the possible values for the 'Selection' field in an AuxFormat5.
 
-这些常量构成 AuxFormat5 中 'Selection' 字段的可能取值。
+​	这些常量构成 AuxFormat5 中 'Selection' 字段的可能取值。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/pe/symbol.go;l=16)
 
@@ -218,7 +218,7 @@ type COFFSymbol struct {
 
 COFFSymbol represents single COFF symbol table record.
 
-COFFSymbol 表示单个 COFF 符号表记录。
+​	COFFSymbol 表示单个 COFF 符号表记录。
 
 #### (*COFFSymbol) FullName  <- go1.8
 
@@ -228,7 +228,7 @@ func (sym *COFFSymbol) FullName(st StringTable) (string, error)
 
 FullName finds real name of symbol sym. Normally name is stored in sym.Name, but if it is longer then 8 characters, it is stored in COFF string table st instead.
 
-FullName 查找符号 sym 的实际名称。通常名称存储在 sym.Name 中，但如果超过 8 个字符，则存储在 COFF 字符串表 st 中。
+​	FullName 查找符号 sym 的实际名称。通常名称存储在 sym.Name 中，但如果超过 8 个字符，则存储在 COFF 字符串表 st 中。
 
 ### type COFFSymbolAuxFormat5  <- go1.19
 
@@ -246,7 +246,7 @@ type COFFSymbolAuxFormat5 struct {
 
 COFFSymbolAuxFormat5 describes the expected form of an aux symbol attached to a section definition symbol. The PE format defines a number of different aux symbol formats: format 1 for function definitions, format 2 for .be and .ef symbols, and so on. Format 5 holds extra info associated with a section definition, including number of relocations + line numbers, as well as COMDAT info. See https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions for more on what's going on here.
 
-COFFSymbolAuxFormat5 描述了附加到节定义符号的辅助符号的预期形式。PE 格式定义了多种不同的辅助符号格式：格式 1 用于函数定义，格式 2 用于 .be 和 .ef 符号，等等。格式 5 包含与节定义相关的额外信息，包括重定位数目+行号以及 COMDAT 信息。有关此处发生的更多信息，请参阅 https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions。
+​	COFFSymbolAuxFormat5 描述了附加到节定义符号的辅助符号的预期形式。PE 格式定义了多种不同的辅助符号格式：格式 1 用于函数定义，格式 2 用于 .be 和 .ef 符号，等等。格式 5 包含与节定义相关的额外信息，包括重定位数目+行号以及 COMDAT 信息。有关此处发生的更多信息，请参阅 https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions。
 
 ### type DataDirectory  <- go1.3
 
@@ -283,7 +283,7 @@ func NewFile(r io.ReaderAt) (*File, error)
 
 NewFile creates a new File for accessing a PE binary in an underlying reader.
 
-NewFile 创建一个用于访问底层 Reader 中的 PE 二进制文件的新 File。
+​	NewFile 创建一个用于访问底层 Reader 中的 PE 二进制文件的新 File。
 
 #### func Open 
 
@@ -293,7 +293,7 @@ func Open(name string) (*File, error)
 
 Open opens the named file using os.Open and prepares it for use as a PE binary.
 
-Open 使用 os.Open 打开指定的文件，并准备将其用作 PE 二进制文件。
+​	Open 使用 os.Open 打开指定的文件，并准备将其用作 PE 二进制文件。
 
 #### (*File) COFFSymbolReadSectionDefAux  <- go1.19
 
@@ -303,19 +303,19 @@ func (f *File) COFFSymbolReadSectionDefAux(idx int) (*COFFSymbolAuxFormat5, erro
 
 COFFSymbolReadSectionDefAux returns a blob of axiliary information (including COMDAT info) for a section definition symbol. Here 'idx' is the index of a section symbol in the main COFFSymbol array for the File. Return value is a pointer to the appropriate aux symbol struct. For more info, see:
 
-COFFSymbolReadSectionDefAux 返回与节定义符号相关的辅助信息块（包括 COMDAT 信息）。这里的 'idx' 是 File 的主 COFFSymbol 数组中节符号的索引。返回值是适当的辅助符号结构体的指针。了解更多信息，请参阅：
+​	COFFSymbolReadSectionDefAux 返回与节定义符号相关的辅助信息块（包括 COMDAT 信息）。这里的 'idx' 是 File 的主 COFFSymbol 数组中节符号的索引。返回值是适当的辅助符号结构体的指针。了解更多信息，请参阅：
 
 auxiliary symbols: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-symbol-records 
 
-辅助符号：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-symbol-records 
+​	辅助符号：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-symbol-records 
 
 COMDAT sections: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#comdat-sections-object-only 
 
-COMDAT 节：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#comdat-sections-object-only 
+​	COMDAT 节：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#comdat-sections-object-only 
 
 auxiliary info for section definitions: https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions
 
-节定义的辅助信息：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions
+​	节定义的辅助信息：https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#auxiliary-format-5-section-definitions
 
 #### (*File) Close 
 
@@ -325,7 +325,7 @@ func (f *File) Close() error
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
 
-Close 关闭 File。如果 File 是直接使用 NewFile 创建而不是使用 Open，Close 不产生任何效果。
+​	`Close` 关闭 File。如果 File 是直接使用 NewFile 创建而不是使用 Open，Close 不产生任何效果。
 
 #### (*File) DWARF 
 
@@ -333,7 +333,7 @@ Close 关闭 File。如果 File 是直接使用 NewFile 创建而不是使用 Op
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
-DWARF 返回 PE 文件的 DWARF 调试信息。
+​	`DWARF` 返回 PE 文件的 DWARF 调试信息。
 
 #### (*File) ImportedLibraries 
 
@@ -343,7 +343,7 @@ func (f *File) ImportedLibraries() ([]string, error)
 
 ImportedLibraries returns the names of all libraries referred to by the binary f that are expected to be linked with the binary at dynamic link time.
 
-ImportedLibraries 返回二进制文件 f 引用的所有库的名称，这些库预计在动态链接时与该二进制文件链接。
+​	`ImportedLibraries` 返回二进制文件 f 引用的所有库的名称，这些库预计在动态链接时与该二进制文件链接。
 
 
 
@@ -355,7 +355,7 @@ func (f *File) ImportedSymbols() ([]string, error)
 
 ImportedSymbols returns the names of all symbols referred to by the binary f that are expected to be satisfied by other libraries at dynamic load time. It does not return weak symbols.
 
-ImportedSymbols 返回二进制文件 f 引用的所有符号的名称，这些符号预计在动态加载时由其他库满足。它不返回弱符号。
+​	`ImportedSymbols` 返回二进制文件 f 引用的所有符号的名称，这些符号预计在动态加载时由其他库满足。它不返回弱符号。
 
 #### (*File) Section 
 
@@ -365,7 +365,7 @@ func (f *File) Section(name string) *Section
 
 Section returns the first section with the given name, or nil if no such section exists.
 
-Section 返回具有给定名称的第一个节，如果不存在这样的节，则返回 nil。
+​	`Section` 返回具有给定名称的第一个节，如果不存在这样的节，则返回 nil。
 
 ### type FileHeader 
 
@@ -390,7 +390,7 @@ type FormatError struct {
 
 FormatError is unused. The type is retained for compatibility.
 
-FormatError 未被使用。该类型保留是为了保持兼容性。
+​	`FormatError` 未被使用。该类型保留是为了保持兼容性。
 
 #### (*FormatError) Error 
 
@@ -498,7 +498,7 @@ type Reloc struct {
 
 Reloc represents a PE COFF relocation. Each section contains its own relocation list.
 
-Reloc 表示一个 PE COFF 重定位。每个节都包含自己的重定位列表。
+​	`Reloc` 表示一个 PE COFF 重定位。每个节都包含自己的重定位列表。
 
 ### type Section 
 
@@ -525,7 +525,7 @@ type Section struct {
 
 Section provides access to PE COFF section.
 
-Section 提供对 PE COFF 节的访问。
+​	`Section` 提供对 PE COFF 节的访问。
 
 #### (*Section) Data 
 
@@ -535,7 +535,7 @@ func (s *Section) Data() ([]byte, error)
 
 Data reads and returns the contents of the PE section s.
 
-Data 读取并返回 PE 节 s 的内容。
+​	`Data` 读取并返回 PE 节 s 的内容。
 
 #### (*Section) Open 
 
@@ -545,7 +545,7 @@ func (s *Section) Open() io.ReadSeeker
 
 Open returns a new ReadSeeker reading the PE section s.
 
-Open 返回一个新的 ReadSeeker，用于读取 PE 节 s。
+​	`Open` 返回一个新的 `ReadSeeker`，用于读取 PE 节 s。
 
 ### type SectionHeader 
 
@@ -566,7 +566,7 @@ type SectionHeader struct {
 
 SectionHeader is similar to SectionHeader32 with Name field replaced by Go string.
 
-SectionHeader 类似于 SectionHeader32，但 Name 字段替换为 Go 字符串。
+​	`SectionHeader` 类似于 `SectionHeader32`，但 `Name` 字段替换为 Go 字符串。
 
 ### type SectionHeader32 
 
@@ -587,7 +587,7 @@ type SectionHeader32 struct {
 
 SectionHeader32 represents real PE COFF section header.
 
-SectionHeader32 表示真实的 PE COFF 节头。
+​	`SectionHeader32` 表示真实的 PE COFF 节头。
 
 ### type StringTable  <- go1.8
 
@@ -597,7 +597,7 @@ type StringTable []byte
 
 StringTable is a COFF string table.
 
-StringTable 是 COFF 字符串表。
+​	`StringTable` 是 COFF 字符串表。
 
 #### (StringTable) String  <- go1.8
 
@@ -607,7 +607,7 @@ func (st StringTable) String(start uint32) (string, error)
 
 String extracts string from COFF string table st at offset start.
 
-String 从 COFF 字符串表 st 的偏移 start 处提取字符串。
+​	`String` 从 COFF 字符串表 st 的偏移 start 处提取字符串。
 
 ### type Symbol  <- go1.1
 
@@ -623,4 +623,4 @@ type Symbol struct {
 
 Symbol is similar to COFFSymbol with Name field replaced by Go string. Symbol also does not have NumberOfAuxSymbols.
 
-Symbol 类似于 COFFSymbol，但 Name 字段替换为 Go 字符串。Symbol 也不包含 NumberOfAuxSymbols。
+​	`Symbol` 类似于 `COFFSymbol`，但 `Name` 字段替换为 `Go` 字符串。`Symbol` 也不包含 `NumberOfAuxSymbols`。

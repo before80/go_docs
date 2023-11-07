@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/mime@go1.20.1
+https://pkg.go.dev/mime@go1.21.3
 
 Package mime implements parts of the MIME spec.
 

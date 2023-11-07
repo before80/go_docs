@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/hash/maphash@go1.20.1
-
-
+https://pkg.go.dev/hash/maphash@go1.21.3
 
 Package maphash provides hash functions on byte sequences. These hash functions are intended to be used to implement hash tables or other data structures that need to map arbitrary strings or byte sequences to a uniform distribution on unsigned 64-bit integers. Each different instance of a hash table or data structure should use its own Seed.
 
@@ -63,7 +61,7 @@ This section is empty.
 
 ## 函数
 
-#### func Bytes  <- go1.19
+### func Bytes  <- go1.19
 
 ``` go 
 func Bytes(seed Seed, b []byte) uint64
@@ -80,7 +78,7 @@ h.Write(b)
 return h.Sum64()
 ```
 
-#### func String  <- go1.19
+### func String  <- go1.19
 
 ``` go 
 func String(seed Seed, s string) uint64

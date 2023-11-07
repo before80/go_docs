@@ -6,15 +6,15 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/embed@go1.20.1
+https://pkg.go.dev/embed@go1.21.3
 
 Package embed provides access to files embedded in the running Go program.
 
-​	embed包提供了访问嵌入在运行的 Go 程序中的文件的功能。
+​	`embed`包提供了访问嵌入在运行的 Go 程序中的文件的功能。
 
 Go source files that import "embed" can use the //go:embed directive to initialize a variable of type string, []byte, or FS with the contents of files read from the package directory or subdirectories at compile time.
 
-​	导入 "embed" 的 Go 源文件可以使用 `//go:embed` 指令，在编译时使用来自包目录或子目录中读取的文件的内容来初始化一个string类型、[]byte 类型或 FS 类型的变量。
+​	导入 "embed" 的 Go 源文件可以使用 `//go:embed` 指令，在编译时使用来自包目录或子目录中读取的文件的内容来初始化一个`string`类型、`[]byte` 类型或 `FS` 类型的变量。
 
 For example, here are three ways to embed a file named hello.txt and then print its contents at run time.
 
@@ -270,7 +270,7 @@ To support tools that analyze Go packages, the patterns found in //go:embed line
 
 ​	为了支持分析Go包的工具，在`//go:embed`行中发现的模式可以在 "`go list`"输出中使用。请参阅 "`go help list` "输出中的EmbedPatterns、TestEmbedPatterns和XTestEmbedPatterns字段。
 
-### Example
+## Example
 ``` go 
 package main
 
@@ -353,19 +353,19 @@ type FS struct {
 
 An FS is a read-only collection of files, usually initialized with a //go:embed directive. When declared without a //go:embed directive, an FS is an empty file system.
 
-​	FS结构体是一个只读的文件集合，通常用一个`//go:embed`指令来初始化。当声明时没有`//go:embed`指令，FS是一个空的文件系统。
+​	`FS`结构体是一个只读的文件集合，通常用一个`//go:embed`指令来初始化。当声明时没有`//go:embed`指令，FS是一个空的文件系统。
 
 An FS is a read-only value, so it is safe to use from multiple goroutines simultaneously and also safe to assign values of type FS to each other.
 
-​	FS 是一个只读值，因此可以同时从多个 goroutine 中安全使用，也可以将类型为 FS 的值安全地赋值给其他（变量）。
+​	`FS` 是一个只读值，因此可以同时从多个 goroutine 中安全使用，也可以将类型为 FS 的值安全地赋值给其他（变量）。
 
 FS implements fs.FS, so it can be used with any package that understands file system interfaces, including net/http, text/template, and html/template.
 
-​	FS 实现了 `fs.FS` 接口，因此可以与任何理解文件系统接口的包一起使用，包括 `net/http`、`text/template` 和 `html/template`。
+​	`FS` 实现了 `fs.FS` 接口，因此可以与任何理解文件系统接口的包一起使用，包括 `net/http`、`text/template` 和 `html/template`。
 
 See the package documentation for more details about initializing an FS.
 
-​	有关初始化 FS 的更多详细信息，请参阅该包文档。
+​	有关初始化 `FS` 的更多详细信息，请参阅该包文档。
 
 #### (FS) Open 
 
@@ -375,7 +375,7 @@ func (f FS) Open(name string) (fs.File, error)
 
 Open opens the named file for reading and returns it as an fs.File.
 
-​	Open方法打开指定的文件以进行读取，并将其作为 `fs.File` 返回。
+​	`Open`方法打开指定的文件以进行读取，并将其作为 `fs.File` 返回。
 
 The returned file implements io.Seeker when the file is not a directory.
 
@@ -389,9 +389,9 @@ func (f FS) ReadDir(name string) ([]fs.DirEntry, error)
 
 ReadDir reads and returns the entire named directory.
 
-​	ReadDir方法读取并返回整个命名的目录。??
+​	`ReadDir`方法读取并返回整个命名的目录。??
 
-​	ReadDir方法读取并返回指定目录的全部内容。??
+​	`ReadDir`方法读取并返回指定目录的全部内容。??
 
 #### (FS) ReadFile 
 
@@ -401,4 +401,4 @@ func (f FS) ReadFile(name string) ([]byte, error)
 
 ReadFile reads and returns the content of the named file.
 
-​	ReadFile方法读取并返回指定文件的内容。
+​	`ReadFile`方法读取并返回指定文件的内容。

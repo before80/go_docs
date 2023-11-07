@@ -7,9 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/archive/zip@go1.20.1
-
-
+https://pkg.go.dev/archive/zip@go1.21.3
 
 Package zip provides support for reading and writing ZIP archives.
 
@@ -20,14 +18,6 @@ This package does not support disk spanning.
 A note about ZIP64:
 
 To be backwards compatible the FileHeader has both 32 and 64 bit Size fields. The 64 bit fields will always contain the correct value and for normal archives both fields will be the same. For files requiring the ZIP64 format the 32 bit fields will be 0xffffffff and the 64 bit fields must be used instead.
-
-
-
-
-
-
-
-
 
 ## 常量 
 
@@ -57,7 +47,7 @@ var (
 
 ## 函数
 
-#### func RegisterCompressor  <- go1.2
+### func RegisterCompressor  <- go1.2
 
 ``` go 
 func RegisterCompressor(method uint16, comp Compressor)
@@ -65,7 +55,7 @@ func RegisterCompressor(method uint16, comp Compressor)
 
 RegisterCompressor registers custom compressors for a specified method ID. The common methods Store and Deflate are built in.
 
-#### func RegisterDecompressor  <- go1.2
+### func RegisterDecompressor  <- go1.2
 
 ``` go 
 func RegisterDecompressor(method uint16, dcomp Decompressor)
@@ -227,9 +217,15 @@ func (h *FileHeader) FileInfo() fs.FileInfo
 
 FileInfo returns an fs.FileInfo for the FileHeader.
 
-##### Example
-``` go 
+#### (*FileHeader) ModTime <-DEPRECATED
+
 ```
+func (h *FileHeader) ModTime() time.Time
+```
+
+ModTime returns the modification time in UTC using the legacy ModifiedDate and ModifiedTime fields.
+
+Deprecated: Use Modified instead.
 
 #### (*FileHeader) Mode 
 
@@ -239,9 +235,15 @@ func (h *FileHeader) Mode() (mode fs.FileMode)
 
 Mode returns the permission and mode bits for the FileHeader.
 
-##### Example
-``` go 
+(*FileHeader) SetModTime <-DEPRECATED
+
 ```
+func (h *FileHeader) SetModTime(t time.Time)
+```
+
+SetModTime sets the Modified, ModifiedTime, and ModifiedDate fields to the given time in UTC.
+
+Deprecated: Use Modified instead.
 
 #### (*FileHeader) SetMode 
 
@@ -290,7 +292,7 @@ type Reader struct {
 
 A Reader serves content from a ZIP archive.
 
-##### Example
+#### Example
 ``` go 
 package main
 
@@ -368,7 +370,7 @@ type Writer struct {
 
 Writer implements a zip file writer.
 
-##### Example
+### Example
 ``` go 
 package main
 
@@ -483,7 +485,7 @@ func (w *Writer) RegisterCompressor(method uint16, comp Compressor)
 
 RegisterCompressor registers or overrides a custom compressor for a specific method ID. If a compressor for a given method is not found, Writer will default to looking up the compressor at the package level.
 
-##### Example
+##### RegisterCompressor  Example
 ``` go 
 package main
 

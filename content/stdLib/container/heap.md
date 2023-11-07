@@ -7,9 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/container/heap@go1.20.1
-
-
+https://pkg.go.dev/container/heap@go1.21.3
 
 Package heap provides heap operations for any type that implements heap.Interface. A heap is a tree with the property that each node is the minimum-valued node in its subtree.
 
@@ -193,7 +191,7 @@ This section is empty.
 
 ## 函数
 
-#### func Fix  <- go1.2
+### func Fix  <- go1.2
 
 ``` go 
 func Fix(h Interface, i int)
@@ -203,7 +201,7 @@ Fix re-establishes the heap ordering after the element at index i has changed it
 
 ​	Fix函数在索引`i`处的元素改变其值后重新建立堆的顺序。改变索引`i`处元素的值，然后调用Fix函数，相当于调用`Remove(h, i)`，然后推送新的值，但成本较低。复杂度是O(log n)，其中`n = h.Len()`。
 
-#### func Init 
+### func Init 
 
 ``` go 
 func Init(h Interface)
@@ -211,9 +209,9 @@ func Init(h Interface)
 
 Init establishes the heap invariants required by the other routines in this package. Init is idempotent with respect to the heap invariants and may be called whenever the heap invariants may have been invalidated. The complexity is O(n) where n = h.Len().
 
-​	Init函数建立了本包中其他例程所要求的堆不变性。Init函数对于堆不变性来说是等价的，只要堆不变性可能已经失效，就可以调用它。复杂度为O(n)，其中`n = h.Len()`。
+​	`Init`函数建立了本包中其他例程所要求的堆不变性。Init函数对于堆不变性来说是等价的，只要堆不变性可能已经失效，就可以调用它。复杂度为O(n)，其中`n = h.Len()`。
 
-#### func Pop 
+### func Pop 
 
 ``` go 
 func Pop(h Interface) any
@@ -221,9 +219,9 @@ func Pop(h Interface) any
 
 Pop removes and returns the minimum element (according to Less) from the heap. The complexity is O(log n) where n = h.Len(). Pop is equivalent to Remove(h, 0).
 
-​	Pop函数删除并返回堆中的最小元素(根据Less)。复杂度为O(log n)，其中`n = h.Len()`。Pop函数等同于`Remove(h, 0)`。
+​	`Pop`函数删除并返回堆中的最小元素(根据Less)。复杂度为O(log n)，其中`n = h.Len()`。Pop函数等同于`Remove(h, 0)`。
 
-#### func Push 
+### func Push 
 
 ``` go 
 func Push(h Interface, x any)
@@ -231,9 +229,9 @@ func Push(h Interface, x any)
 
 Push pushes the element x onto the heap. The complexity is O(log n) where n = h.Len().
 
-​	Push函数将元素`x`推到堆上。复杂度为O(log n)，其中`n = h.Len()`。
+​	`Push`函数将元素`x`推到堆上。复杂度为O(log n)，其中`n = h.Len()`。
 
-#### func Remove 
+### func Remove 
 
 ``` go 
 func Remove(h Interface, i int) any
@@ -241,7 +239,7 @@ func Remove(h Interface, i int) any
 
 Remove removes and returns the element at index i from the heap. The complexity is O(log n) where n = h.Len().
 
-​	Remove函数从堆中删除并返回索引为`i`的元素。复杂度为O(log n)，其中`n = h.Len()`。
+​	`Remove`函数从堆中删除并返回索引为`i`的元素。复杂度为O(log n)，其中`n = h.Len()`。
 
 ## 类型
 

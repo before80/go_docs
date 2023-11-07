@@ -6,9 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/aes@go1.20.1
-
-
+https://pkg.go.dev/crypto/aes@go1.21.3
 
 Package aes implements AES encryption (formerly Rijndael), as defined in U.S. Federal Information Processing Standards Publication 197.
 
@@ -31,7 +29,7 @@ This section is empty.
 
 ## 函数
 
-#### func NewCipher 
+### func NewCipher 
 
 ``` go
 func NewCipher(key []byte) (cipher.Block, error)
