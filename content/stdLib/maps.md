@@ -103,7 +103,7 @@ EqualFunc is like Equal, but compares values using eq. Keys are still compared w
 
 #### EqualFunc  Example
 
-```
+```go
 package main
 
 import (
