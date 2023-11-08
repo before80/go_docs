@@ -8,11 +8,15 @@ isCJKLanguage = true
 draft = false
 +++
 
-https://pkg.go.dev/unicode@go1.20.1
+https://pkg.go.dev/unicode@go1.21.3
 
-​	unicode包提供了测试Unicode码点某些属性的数据和函数。
+Package unicode provides data and functions to test some properties of Unicode code points.
 
-### Example
+​	`unicode`包提供了测试Unicode码点某些属性的数据和函数。
+
+## Example (Is)
+
+Functions starting with "Is" can be used to inspect which table of range a rune belongs to. Note that runes may fit into more than one range.
 
 ​	以 "Is" 开头的函数可以用于检查一个 rune 属于哪个范围的表。请注意，一个 rune 可能适用于多个范围。
 
@@ -153,7 +157,9 @@ const (
 )
 ```
 
-​	Delta数组的索引，表示用于大小写映射的不同情况。
+Indices into the Delta arrays inside CaseRanges for case mapping.
+
+​	`Delta`数组的索引，表示用于大小写映射的不同情况。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/letter.go;l=82)
 
@@ -163,7 +169,9 @@ const (
 )
 ```
 
-​	如果CaseRange结构体的Delta字段是UpperLower，则表示此CaseRange结构体表示形式为(例如)Upper Lower Upper Lower的序列。
+If the Delta field of a CaseRange is UpperLower, it means this CaseRange represents a sequence of the form (say) Upper Lower Upper Lower.
+
+​	如果`CaseRange`结构体的`Delta`字段是`UpperLower`，则表示此`CaseRange`结构体表示形式为(例如)`Upper Lower Upper Lower`的序列。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6)
 
@@ -171,7 +179,9 @@ const (
 const Version = "13.0.0"
 ```
 
-​	Version是派生表的Unicode版本。
+Version is the Unicode edition from which the tables are derived.
+
+​	`Version`是派生表的Unicode版本。
 
 ## 变量
 
@@ -179,55 +189,57 @@ const Version = "13.0.0"
 
 ``` go 
 var (
-	Cc     = _Cc // Cc是类别为Cc(其他，控制)的Unicode字符集。
-	Cf     = _Cf // Cf是类别为Cf(其他，格式)的Unicode字符集。
-	Co     = _Co // Co是类别为Co(其他，专用)的Unicode字符集。
-	Cs     = _Cs // Cs是类别为Cs(其他，代理)的Unicode字符集。
-	Digit  = _Nd // Digit是具有"十进制数"属性的Unicode字符集。
-	Nd     = _Nd // Nd是类别为Nd(数字，十进制数)的Unicode字符集。
-	Letter = _L  // Letter/L是Unicode字母集，类别L。
+	Cc     = _Cc // Cc是类别为Cc(其他，控制)的Unicode字符集。 Cc is the set of Unicode characters in category Cc (Other, control).
+	Cf     = _Cf // Cf是类别为Cf(其他，格式)的Unicode字符集。  Cf is the set of Unicode characters in category Cf (Other, format).
+	Co     = _Co // Co是类别为Co(其他，专用)的Unicode字符集。  Co is the set of Unicode characters in category Co (Other, private use).
+	Cs     = _Cs // Cs是类别为Cs(其他，代理)的Unicode字符集。 Cs is the set of Unicode characters in category Cs (Other, surrogate).
+	Digit  = _Nd // Digit是具有"十进制数"属性的Unicode字符集。 Digit is the set of Unicode characters with the "decimal digit" property.
+	Nd     = _Nd // Nd是类别为Nd(数字，十进制数)的Unicode字符集。 Nd is the set of Unicode characters in category Nd (Number, decimal digit).
+	Letter = _L  // Letter/L是Unicode字母集，类别L。Letter/L is the set of Unicode letters, category L.
 	L      = _L
-	Lm     = _Lm // Lm是类别为Lm(字母，修饰符)的Unicode字符集。
-	Lo     = _Lo // Lo是类别为Lo(字母，其他)的Unicode字符集。
-	Lower  = _Ll // Lower是Unicode小写字母集。
-	Ll     = _Ll // Ll是类别为Ll(字母，小写)的Unicode字符集。
-	Mark   = _M  // Mark/M是Unicode标记字符集，类别M。
+	Lm     = _Lm // Lm是类别为Lm(字母，修饰符)的Unicode字符集。Lm is the set of Unicode characters in category Lm (Letter, modifier).
+	Lo     = _Lo // Lo是类别为Lo(字母，其他)的Unicode字符集。Lo is the set of Unicode characters in category Lo (Letter, other).
+	Lower  = _Ll // Lower是Unicode小写字母集。Lower is the set of Unicode lower case letters.
+	Ll     = _Ll // Ll是类别为Ll(字母，小写)的Unicode字符集。Ll is the set of Unicode characters in category Ll (Letter, lowercase).
+	Mark   = _M  // Mark/M是Unicode标记字符集，类别M。Mark/M is the set of Unicode mark characters, category M.
 	M      = _M
-	Mc     = _Mc // Mc是类别为Mc(标记，间距组合)的Unicode字符集。
-	Me     = _Me // Me是类别为Me(标记，封闭)的Unicode字符集。
-	Mn     = _Mn // Mn是类别为Mn(标记，非间距)的Unicode字符集。
-	Nl     = _Nl // Nl是类别为Nl(数字，字母)的Unicode字符集。
-	No     = _No // No是类别为No(数字，其他)的Unicode字符集。
-	Number = _N  // Number/N是Unicode数字字符集，类别N。
+	Mc     = _Mc // Mc是类别为Mc(标记，间距组合)的Unicode字符集。Mc is the set of Unicode characters in category Mc (Mark, spacing combining).
+	Me     = _Me // Me是类别为Me(标记，封闭)的Unicode字符集。Me is the set of Unicode characters in category Me (Mark, enclosing).
+	Mn     = _Mn // Mn是类别为Mn(标记，非间距)的Unicode字符集。 Mn is the set of Unicode characters in category Mn (Mark, nonspacing).
+	Nl     = _Nl // Nl是类别为Nl(数字，字母)的Unicode字符集。Nl is the set of Unicode characters in category Nl (Number, letter).
+	No     = _No // No是类别为No(数字，其他)的Unicode字符集。No is the set of Unicode characters in category No (Number, other).
+	Number = _N  // Number/N是Unicode数字字符集，类别N。Number/N is the set of Unicode number characters, category N.
 	N      = _N
-	Other  = _C //  Other/C是Unicode控制和特殊字符集，类别C。
+	Other  = _C //  Other/C是Unicode控制和特殊字符集，类别C。Other/C is the set of Unicode control and special characters, category C.
 	C      = _C
-	Pc     = _Pc // Pc是类别为Pc(标点符号，连接符)的Unicode字符集。
-	Pd     = _Pd // Pd是类别为Pd(标点符号，破折号)的Unicode字符集。
-	Pe     = _Pe // Pe是类别为Pe(标点符号，右括号)的Unicode字符集。
-	Pf     = _Pf // Pf是类别为Pf(标点符号，结束引号)的Unicode字符集。
-	Pi     = _Pi // Pi是类别为Pi(标点符号，开始引号)的Unicode字符集。
-	Po     = _Po // Po是类别为Po(标点符号，其他)的Unicode字符集。
-	Ps     = _Ps // Ps是类别为Ps(标点符号，左括号)的Unicode字符集。
-	Punct  = _P  // Punct/P是Unicode标点字符集，类别P。
+	Pc     = _Pc // Pc是类别为Pc(标点符号，连接符)的Unicode字符集。Pc is the set of Unicode characters in category Pc (Punctuation, connector).
+	Pd     = _Pd // Pd是类别为Pd(标点符号，破折号)的Unicode字符集。Pd is the set of Unicode characters in category Pd (Punctuation, dash).
+	Pe     = _Pe // Pe是类别为Pe(标点符号，右括号)的Unicode字符集。Pe is the set of Unicode characters in category Pe (Punctuation, close).
+	Pf     = _Pf // Pf是类别为Pf(标点符号，结束引号)的Unicode字符集。Pf is the set of Unicode characters in category Pf (Punctuation, final quote).
+	Pi     = _Pi // Pi是类别为Pi(标点符号，开始引号)的Unicode字符集。Pi is the set of Unicode characters in category Pi (Punctuation, initial quote).
+	Po     = _Po // Po是类别为Po(标点符号，其他)的Unicode字符集。Po is the set of Unicode characters in category Po (Punctuation, other).
+	Ps     = _Ps // Ps是类别为Ps(标点符号，左括号)的Unicode字符集。Ps is the set of Unicode characters in category Ps (Punctuation, open).
+	Punct  = _P  // Punct/P是Unicode标点字符集，类别P。Punct/P is the set of Unicode punctuation characters, category P.
 	P      = _P
-	Sc     = _Sc // Sc是类别为Sc(符号，货币)的Unicode字符集。
-	Sk     = _Sk // Sk 是Unicode修饰符号字符集(Symbol, modifier)。
-	Sm     = _Sm // Sm 是Unicode数学符号字符集(Symbol, math)。
-	So     = _So // So 是Unicode其他符号字符集(Symbol, other)。
-	Space  = _Z  // Space/Z 是Unicode空格字符集(Separator, space)。
+	Sc     = _Sc // Sc是类别为Sc(符号，货币)的Unicode字符集。Sc is the set of Unicode characters in category Sc (Symbol, currency).
+	Sk     = _Sk // Sk 是Unicode修饰符号字符集(Symbol, modifier)。Sk is the set of Unicode characters in category Sk (Symbol, modifier).
+	Sm     = _Sm // Sm 是Unicode数学符号字符集(Symbol, math)。Sm is the set of Unicode characters in category Sm (Symbol, math).
+	So     = _So // So 是Unicode其他符号字符集(Symbol, other)。So is the set of Unicode characters in category So (Symbol, other).
+	Space  = _Z  // Space/Z 是Unicode空格字符集(Separator, space)。Space/Z is the set of Unicode space characters, category Z.
 	Z      = _Z
-	Symbol = _S // Symbol/S 是Unicode符号字符集(Symbol)。
+	Symbol = _S // Symbol/S 是Unicode符号字符集(Symbol)。Symbol/S is the set of Unicode symbol characters, category S.
 	S      = _S
-	Title  = _Lt // Title 是Unicode标题大小写字母集。
-	Lt     = _Lt // Lt 是Unicode标题大小写字母字符集(Letter, titlecase)。
-	Upper  = _Lu // Upper 是Unicode大写字母集。
-	Lu     = _Lu // Lu 是Unicode大写字母字符集(Letter, uppercase)。
-	Zl     = _Zl // Zl 是Unicode行分隔符字符集(Separator, line)。
-	Zp     = _Zp // Zp 是Unicode段落分隔符字符集(Separator, paragraph)。
-	Zs     = _Zs // Zs 是Unicode空格分隔符字符集(Separator, space)。
+	Title  = _Lt // Title 是Unicode标题大小写字母集。Title is the set of Unicode title case letters.
+	Lt     = _Lt // Lt 是Unicode标题大小写字母字符集(Letter, titlecase)。Lt is the set of Unicode characters in category Lt (Letter, titlecase).
+	Upper  = _Lu // Upper 是Unicode大写字母集。Upper is the set of Unicode upper case letters.
+	Lu     = _Lu // Lu 是Unicode大写字母字符集(Letter, uppercase)。Lu is the set of Unicode characters in category Lu (Letter, uppercase).
+	Zl     = _Zl // Zl 是Unicode行分隔符字符集(Separator, line)。Zl is the set of Unicode characters in category Zl (Separator, line).
+	Zp     = _Zp // Zp 是Unicode段落分隔符字符集(Separator, paragraph)。Zp is the set of Unicode characters in category Zp (Separator, paragraph).
+	Zs     = _Zs // Zs 是Unicode空格分隔符字符集(Separator, space)。Zs is the set of Unicode characters in category Zs (Separator, space).
 )
 ```
+
+These variables have type *RangeTable.
 
 这些变量的类型为`*RangeTable`。
 
@@ -394,6 +406,8 @@ var (
 )
 ```
 
+These variables have type *RangeTable.
+
 ​	这些变量的类型为`*RangeTable`。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6889)
@@ -438,6 +452,8 @@ var (
 )
 ```
 
+These variables have type *RangeTable.
+
 ​	这些变量的类型为`*RangeTable`。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=6929)
@@ -446,7 +462,9 @@ var (
 var CaseRanges = _CaseRanges
 ```
 
-​	CaseRanges是描述所有具有非自身映射的字母的大小写映射的表。
+CaseRanges is the table describing case mappings for all letters with non-self mappings.
+
+​	`CaseRanges`是描述所有具有非自身映射的字母的大小写映射的表。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=9)
 
@@ -491,7 +509,9 @@ var Categories = map[string]*RangeTable{
 }
 ```
 
-​	Categories是Unicode类别表的集合。
+Categories is the set of Unicode category tables.
+
+​	`Categories`是Unicode类别表的集合。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=7736)
 
@@ -506,7 +526,9 @@ var FoldCategory = map[string]*RangeTable{
 }
 ```
 
-​	FoldCategory将类别名称映射到表格，其中类别外的码点在简单大小写折叠下与类别内的码点等效。如果类别名称没有条目，则不存在这样的点。 
+FoldCategory maps a category name to a table of code points outside the category that are equivalent under simple case folding to code points inside the category. If there is no entry for a category name, there are no such points.
+
+​	`FoldCategory`将类别名称映射到表格，其中类别外的码点在简单大小写折叠下与类别内的码点等效。如果类别名称没有条目，则不存在这样的点。 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=8026)
 
@@ -518,7 +540,9 @@ var FoldScript = map[string]*RangeTable{
 }
 ```
 
-​	FoldScript将脚本名称映射到表格，其中脚本外的码点在简单大小写折叠下与脚本内的码点等效。如果脚本名称没有条目，则不存在这样的点。 
+FoldScript maps a script name to a table of code points outside the script that are equivalent under simple case folding to code points inside the script. If there is no entry for a script name, there are no such points.
+
+​	`FoldScript`将脚本名称映射到表格，其中脚本外的码点在简单大小写折叠下与脚本内的码点等效。如果脚本名称没有条目，则不存在这样的点。 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=23)
 
@@ -528,7 +552,9 @@ var GraphicRanges = []*RangeTable{
 }
 ```
 
-​	GraphicRanges根据Unicode定义了一组图形字符。
+GraphicRanges defines the set of graphic characters according to Unicode.
+
+​	`GraphicRanges`根据Unicode定义了一组图形字符。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/graphic.go;l=29)
 
@@ -538,7 +564,9 @@ var PrintRanges = []*RangeTable{
 }
 ```
 
-​	PrintRanges根据Go定义了一组可打印字符。 ASCII空格U+0020单独处理。
+PrintRanges defines the set of printable characters according to Go. ASCII space, U+0020, is handled separately.
+
+​	`PrintRanges`根据Go定义了一组可打印字符。 ASCII空格U+0020单独处理。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=5745)
 
@@ -582,7 +610,9 @@ var Properties = map[string]*RangeTable{
 }
 ```
 
-​	Properties是Unicode属性表的集合。 
+Properties is the set of Unicode property tables.
+
+​	`Properties`是Unicode属性表的集合。 
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/unicode/tables.go;l=3655)
 
@@ -590,43 +620,53 @@ var Properties = map[string]*RangeTable{
 var Scripts = map[string]*RangeTable{}/* 156 elements not displayed */
 ```
 
-​	Scripts是Unicode脚本表的集合。
+Scripts is the set of Unicode script tables.
+
+​	`Scripts`是Unicode脚本表的集合。
 
 ## 函数
 
-#### func In  <- go1.2
+### func In  <- go1.2
 
 ``` go 
 func In(r rune, ranges ...*RangeTable) bool
 ```
 
-​	In函数报告符文是否属于其中一个范围。
+In reports whether the rune is a member of one of the ranges.
 
-#### func Is 
+​	`In`函数报告符文是否属于其中一个范围。
+
+### func Is 
 
 ``` go 
 func Is(rangeTab *RangeTable, r rune) bool
 ```
 
-​	Is函数报告符文是否在指定的范围表中。
+Is reports whether the rune is in the specified table of ranges.
 
-#### func IsControl 
+​	`Is`函数报告符文是否在指定的范围表中。
+
+### func IsControl 
 
 ``` go 
 func IsControl(r rune) bool
 ```
 
-​	IsControl函数报告符文是否为控制字符。C (Other) Unicode类别包括更多的码点，例如代理项；使用Is(C, r) 进行测试。
+IsControl reports whether the rune is a control character. The C (Other) Unicode category includes more code points such as surrogates; use Is(C, r) to test for them.
 
-#### func IsDigit 
+​	`IsControl`函数报告符文是否为控制字符。C (Other) Unicode类别包括更多的码点，例如代理项；使用`Is(C, r)` 进行测试。
+
+### func IsDigit 
 
 ``` go 
 func IsDigit(r rune) bool
 ```
 
-​	IsDigit函数报告符文是否为十进制数字。
+IsDigit reports whether the rune is a decimal digit.
 
-##### IsDigit Example
+​	`IsDigit`函数报告符文是否为十进制数字。
+
+#### IsDigit Example
 ``` go 
 package main
 
@@ -645,23 +685,27 @@ true
 false
 ```
 
-#### func IsGraphic 
+### func IsGraphic 
 
 ``` go 
 func IsGraphic(r rune) bool
 ```
 
-​	IsGraphic函数报告符文是否根据Unicode定义为图形字符。这些字符包括类别L、M、N、P、S、Zs的字母、标记、数字、标点、符号和空格。
+IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such characters include letters, marks, numbers, punctuation, symbols, and spaces, from categories L, M, N, P, S, Zs.
 
-#### func IsLetter 
+​	`IsGraphic`函数报告符文是否根据Unicode定义为图形字符。这些字符包括类别L、M、N、P、S、Zs的字母、标记、数字、标点、符号和空格。
+
+### func IsLetter 
 
 ``` go 
 func IsLetter(r rune) bool
 ```
 
-​	IsLetter函数报告符文是否为字母(类别L)。
+IsLetter reports whether the rune is a letter (category L).
 
-##### IsLetter Example
+​	`IsLetter`函数报告符文是否为字母(类别L)。
+
+#### IsLetter Example
 ``` go 
 package main
 
@@ -680,15 +724,17 @@ true
 false
 ```
 
-#### func IsLower 
+### func IsLower 
 
 ``` go 
 func IsLower(r rune) bool
 ```
 
-​	IsLower函数报告符文是否为小写字母。
+IsLower reports whether the rune is a lower case letter.
 
-##### IsLower Example
+​	`IsLower`函数报告符文是否为小写字母。
+
+#### IsLower Example
 ``` go 
 package main
 
@@ -707,23 +753,27 @@ true
 false
 ```
 
-#### func IsMark 
+### func IsMark 
 
 ``` go 
 func IsMark(r rune) bool
 ```
 
-​	IsMark函数报告符文是否为标记字符(类别M)。
+IsMark reports whether the rune is a mark character (category M).
 
-#### func IsNumber 
+​	`IsMark`函数报告符文是否为标记字符(类别M)。
+
+### func IsNumber 
 
 ``` go 
 func IsNumber(r rune) bool
 ```
 
-​	IsNumber函数报告符文是否为数字(类别N)。
+IsNumber reports whether the rune is a number (category N).
 
-##### IsNumber Example
+​	`IsNumber`函数报告符文是否为数字(类别N)。
+
+#### IsNumber Example
 ``` go 
 package main
 
@@ -742,45 +792,55 @@ true
 false
 ```
 
-#### func IsOneOf 
+### func IsOneOf 
 
 ``` go 
 func IsOneOf(ranges []*RangeTable, r rune) bool
 ```
 
-​	IsOneOf函数报告符文是否属于其中一个范围。函数"In"提供了更好的签名，应优先使用IsOneOf。
+IsOneOf reports whether the rune is a member of one of the ranges. The function "In" provides a nicer signature and should be used in preference to IsOneOf.
 
-#### func IsPrint 
+​	`IsOneOf`函数报告符文是否属于其中一个范围。函数"In"提供了更好的签名，应优先使用IsOneOf。
+
+### func IsPrint 
 
 ``` go 
 func IsPrint(r rune) bool
 ```
 
-​	IsPrint函数报告符文是否根据Go定义为可打印字符。这些字符包括类别L、M、N、P、S和ASCII空格字符。此分类与IsGraphic相同，除了唯一的间距字符是ASCII空格U+0020。
+IsPrint reports whether the rune is defined as printable by Go. Such characters include letters, marks, numbers, punctuation, symbols, and the ASCII space character, from categories L, M, N, P, S and the ASCII space character. This categorization is the same as IsGraphic except that the only spacing character is ASCII space, U+0020.
 
-#### func IsPunct 
+​	`IsPrint`函数报告符文是否根据Go定义为可打印字符。这些字符包括类别L、M、N、P、S和ASCII空格字符。此分类与IsGraphic相同，除了唯一的间距字符是ASCII空格`U+0020`。
+
+### func IsPunct 
 
 ``` go 
 func IsPunct(r rune) bool
 ```
 
-​	IsPunct函数报告符文是否为Unicode标点字符(类别P)。
+IsPunct reports whether the rune is a Unicode punctuation character (category P).
 
-#### func IsSpace 
+​	`IsPunct`函数报告符文是否为Unicode标点字符(类别P)。
+
+### func IsSpace 
 
 ``` go 
 func IsSpace(r rune) bool
 ```
 
-​	IsSpace函数判断rune是否为Unicode空格字符，包括Latin-1空格字符
+IsSpace reports whether the rune is a space character as defined by Unicode's White Space property; in the Latin-1 space this is
 
-```
+​	`IsSpace`函数判断rune是否为Unicode空格字符，包括Latin-1空格字符
+
+```go
 '\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
 ```
 
-以及其他由类别Z和属性Pattern_White_Space定义的空格字符。
+Other definitions of spacing characters are set by category Z and property Pattern_White_Space.
 
-##### IsSpace Example
+​	以及其他由类别Z和属性`Pattern_White_Space`定义的空格字符。
+
+#### IsSpace Example
 ``` go 
 package main
 
@@ -803,23 +863,27 @@ true
 false
 ```
 
-#### func IsSymbol 
+### func IsSymbol 
 
 ``` go 
 func IsSymbol(r rune) bool
 ```
 
-​	IsSymbol函数判断rune是否为Unicode符号字符。
+IsSymbol reports whether the rune is a symbolic character.
 
-#### func IsTitle 
+​	`IsSymbol`函数判断rune是否为Unicode符号字符。
+
+### func IsTitle 
 
 ``` go 
 func IsTitle(r rune) bool
 ```
 
-​	IsTitle函数判断rune是否为Unicode标题大小写字母。
+IsTitle reports whether the rune is a title case letter.
 
-##### IsTitle Example
+​	`IsTitle`函数判断rune是否为Unicode标题大小写字母。
+
+#### IsTitle Example
 ``` go 
 package main
 
@@ -838,15 +902,17 @@ true
 false
 ```
 
-#### func IsUpper 
+### func IsUpper 
 
 ``` go 
 func IsUpper(r rune) bool
 ```
 
-​	IsUpper函数判断rune是否为Unicode大写字母。
+IsUpper reports whether the rune is an upper case letter.
 
-##### IsUpper Example
+​	`IsUpper`函数判断rune是否为Unicode大写字母。
+
+#### IsUpper Example
 ``` go 
 package main
 
@@ -865,17 +931,19 @@ true
 false
 ```
 
-#### func SimpleFold 
+### func SimpleFold 
 
 ``` go 
 func SimpleFold(r rune) rune
 ```
 
-​	SimpleFold函数迭代Unicode定义的简单大小写折叠等效的Unicode码点。在等效于rune(包括rune本身)的码点中，如果存在一个最小的大于r的rune，则SimpleFold函数返回该rune，否则返回最小的rune>=0。如果r不是有效的Unicode码点，则SimpleFold(r)返回r。
+SimpleFold iterates over Unicode code points equivalent under the Unicode-defined simple case folding. Among the code points equivalent to rune (including rune itself), SimpleFold returns the smallest rune > r if one exists, or else the smallest rune >= 0. If r is not a valid Unicode code point, SimpleFold(r) returns r.
+
+​	`SimpleFold`函数迭代Unicode定义的简单大小写折叠等效的Unicode码点。在等效于rune(包括rune本身)的码点中，如果存在一个最小的大于`r`的rune，则`SimpleFold`函数返回该rune，否则返回最小的`rune>=0`。如果`r`不是有效的Unicode码点，则`SimpleFold(r)`返回`r`。
 
 For example:
 
-```
+```go
 SimpleFold('A') = 'a'
 SimpleFold('a') = 'A'
 
@@ -888,7 +956,7 @@ SimpleFold('1') = '1'
 SimpleFold(-2) = -2
 ```
 
-##### SimpleFold Example
+#### SimpleFold Example
 ``` go 
 package main
 
@@ -916,15 +984,17 @@ U+004B 'K'
 U+0031 '1'
 ```
 
-#### func To 
+### func To 
 
 ``` go 
 func To(_case int, r rune) rune
 ```
 
-​	To函数将rune映射到指定的大小写：UpperCase，LowerCase或TitleCase。
+To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 
-##### To Example
+​	`To`函数将rune映射到指定的大小写：`UpperCase`，`LowerCase`或`TitleCase`。
+
+#### To Example
 ``` go 
 package main
 
@@ -955,15 +1025,17 @@ U+0067 'g'
 U+0047 'G'
 ```
 
-#### func ToLower 
+### func ToLower 
 
 ``` go 
 func ToLower(r rune) rune
 ```
 
-​	ToLower函数将rune映射为小写字母。
+ToLower maps the rune to lower case.
 
-##### ToLower  Example
+​	`ToLower`函数将rune映射为小写字母。
+
+#### ToLower  Example
 ``` go 
 package main
 
@@ -982,15 +1054,17 @@ Output:
 U+0067 'g'
 ```
 
-#### func ToTitle 
+### func ToTitle 
 
 ``` go 
 func ToTitle(r rune) rune
 ```
 
-​	ToTitle函数将rune映射为标题大小写。
+ToTitle maps the rune to title case.
 
-##### ToTitle Example
+​	`ToTitle`函数将rune映射为标题大小写。
+
+#### ToTitle Example
 ``` go 
 package main
 
@@ -1009,15 +1083,17 @@ Output:
 U+0047 'G'
 ```
 
-#### func ToUpper 
+### func ToUpper 
 
 ``` go 
 func ToUpper(r rune) rune
 ```
 
-​	ToUpper函数将rune映射为大写字母。
+ToUpper maps the rune to upper case.
 
-##### ToUpper Example
+​	`ToUpper`函数将rune映射为大写字母。
+
+#### ToUpper Example
 ``` go 
 package main
 
@@ -1048,7 +1124,9 @@ type CaseRange struct {
 }
 ```
 
-​	CaseRange结构体表示Unicode码点的一个范围，用于简单(一个码点对一个码点)的大小写转换。范围从Lo到Hi，包括Lo和Hi，步幅为1。Delta是添加到码点的数字，以达到该字符的不同大小写的码点。它们可以是负数。如果是零，则表示该字符的大小写相同。有一种特殊情况，表示交替的对应的大写和小写字符序列。它显示为具有固定Delta的{UpperLower，UpperLower，UpperLower}。常量UpperLower具有无法实现的Delta值。
+CaseRange represents a range of Unicode code points for simple (one code point to one code point) case conversion. The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas are the number to add to the code point to reach the code point for a different case for that character. They may be negative. If zero, it means the character is in the corresponding case. There is a special case representing sequences of alternating corresponding Upper and Lower pairs. It appears with a fixed Delta of `{UpperLower, UpperLower, UpperLower}` . The constant UpperLower has an otherwise impossible delta value.
+
+​	`CaseRange`结构体表示Unicode码点的一个范围，用于简单(一个码点对一个码点)的大小写转换。范围从Lo到Hi，包括Lo和Hi，步幅为1。`Delta`是添加到码点的数字，以达到该字符的不同大小写的码点。它们可以是负数。如果是零，则表示该字符的大小写相同。有一种特殊情况，表示交替的对应的大写和小写字符序列。它显示为具有固定`Delta`的`{UpperLower，UpperLower，UpperLower}`。常量`UpperLower`具有无法实现的`Delta`值。
 
 ### type Range16 
 
@@ -1060,7 +1138,9 @@ type Range16 struct {
 }
 ```
 
-​	Range16结构体表示16位Unicode码点的一个范围。范围从Lo到Hi，包括Lo和Hi，并具有指定的步幅。
+Range16 represents of a range of 16-bit Unicode code points. The range runs from Lo to Hi inclusive and has the specified stride.
+
+​	`Range16`结构体表示16位Unicode码点的一个范围。范围从Lo到Hi，包括Lo和Hi，并具有指定的步幅。
 
 ### type Range32 
 
@@ -1072,7 +1152,9 @@ type Range32 struct {
 }
 ```
 
-​	Range32结构体表示 Unicode 码点的范围，当一个或多个值无法适应 16 位时使用。该范围从 Lo 到 Hi，包括 Lo 和 Hi，并具有指定的步长。Lo 和 Hi 必须始终 >= 1<<16。
+Range32 represents of a range of Unicode code points and is used when one or more of the values will not fit in 16 bits. The range runs from Lo to Hi inclusive and has the specified stride. Lo and Hi must always be >= 1<<16.
+
+​	`Range32`结构体表示 Unicode 码点的范围，当一个或多个值无法适应 16 位时使用。该范围从 Lo 到 Hi，包括 Lo 和 Hi，并具有指定的步长。Lo 和 Hi 必须始终 `>= 1<<16`。
 
 ### type RangeTable 
 
@@ -1084,7 +1166,9 @@ type RangeTable struct {
 }
 ```
 
-​	RangeTable结构体通过列出集合内码点的范围来定义 Unicode 码点的集合。范围在两个切片中列出以节省空间：一个 16 位范围的切片和一个 32 位范围的切片。两个切片必须按排序顺序且不重叠。此外，R32 应仅包含值 >= 0x10000(1<<16)。
+RangeTable defines a set of Unicode code points by listing the ranges of code points within the set. The ranges are listed in two slices to save space: a slice of 16-bit ranges and a slice of 32-bit ranges. The two slices must be in sorted order and non-overlapping. Also, R32 should contain only values >= 0x10000 (1<<16).
+
+​	`RangeTable`结构体通过列出集合内码点的范围来定义 Unicode 码点的集合。范围在两个切片中列出以节省空间：一个 16 位范围的切片和一个 32 位范围的切片。两个切片必须按排序顺序且不重叠。此外，R32 应仅包含值 `>= 0x10000(1<<16)`。
 
 ### type SpecialCase 
 
@@ -1092,9 +1176,11 @@ type RangeTable struct {
 type SpecialCase []CaseRange
 ```
 
-​	SpecialCase表示特定语言的大小写映射，例如土耳其语。SpecialCase 的方法通过自定义(覆盖)标准映射来定制。
+SpecialCase represents language-specific case mappings such as Turkish. Methods of SpecialCase customize (by overriding) the standard mappings.
 
-##### SpecialCase Example
+​	`SpecialCase`表示特定语言的大小写映射，例如土耳其语。`SpecialCase` 的方法通过自定义(覆盖)标准映射来定制。
+
+#### SpecialCase Example
 ``` go 
 package main
 
@@ -1138,7 +1224,9 @@ var TurkishCase SpecialCase = _TurkishCase
 func (special SpecialCase) ToLower(r rune) rune
 ```
 
-​	ToLower方法将符文映射为小写字母，优先考虑特殊映射。
+ToLower maps the rune to lower case giving priority to the special mapping.
+
+​	`ToLower`方法将符文映射为小写字母，优先考虑特殊映射。
 
 #### (SpecialCase) ToTitle 
 
@@ -1146,7 +1234,9 @@ func (special SpecialCase) ToLower(r rune) rune
 func (special SpecialCase) ToTitle(r rune) rune
 ```
 
-​	ToTitle方法将符文映射为标题大小写，优先考虑特殊映射。
+ToTitle maps the rune to title case giving priority to the special mapping.
+
+​	`ToTitle`方法将符文映射为标题大小写，优先考虑特殊映射。
 
 #### (SpecialCase) ToUpper 
 
@@ -1154,12 +1244,13 @@ func (special SpecialCase) ToTitle(r rune) rune
 func (special SpecialCase) ToUpper(r rune) rune
 ```
 
-​	ToUpper方法将符文映射为大写字母，优先考虑特殊映射。
+ToUpper maps the rune to upper case giving priority to the special mapping.
+
+​	`ToUpper`方法将符文映射为大写字母，优先考虑特殊映射。
 
 ## Notes
 
-​	存在全大写或全小写等特殊映射，如土耳其语中的特殊映射。
-
 ## Bugs
 
+- There is no mechanism for full case folding, that is, for characters that involve multiple runes in the input or output.
 - 不存在完全的大小写折叠机制，即涉及输入或输出中的多个符文的字符。

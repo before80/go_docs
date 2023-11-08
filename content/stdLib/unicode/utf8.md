@@ -77,7 +77,7 @@ func DecodeLastRune(p []byte) (r rune, size int)
 
 DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	`DecodeLastRune`函数解码`p`中的最后一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回(RuneError，0)。否则，如果编码无效，则返回(RuneError，1)。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeLastRune`函数解码`p`中的最后一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回`(RuneError, 0)`。否则，如果编码无效，则返回`(RuneError, 1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -123,7 +123,7 @@ func DecodeLastRuneInString(s string) (r rune, size int)
 
 DecodeLastRuneInString is like DecodeLastRune but its input is a string. If s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	`DecodeLastRuneInString`函数类似于`DecodeLastRune`，但其输入为字符串。如果`s`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeLastRuneInString`函数类似于`DecodeLastRune`，但其输入为字符串。如果`s`为空，则返回`(RuneError, 0)`。否则，如果编码无效，则返回`(RuneError, 1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -169,7 +169,7 @@ func DecodeRune(p []byte) (r rune, size int)
 
 DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	`DecodeRune`函数解码`p`中的第一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeRune`函数解码`p`中的第一个UTF-8编码，并返回该符文及其占用的字节数。如果`p`为空，则返回`(RuneError, 0)`。否则，如果编码无效，则返回`(RuneError,1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -215,7 +215,7 @@ func DecodeRuneInString(s string) (r rune, size int)
 
 DecodeRuneInString is like DecodeRune but its input is a string. If s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it returns (RuneError, 1). Both are impossible results for correct, non-empty UTF-8.
 
-​	`DecodeRuneInString`函数类似于DecodeRune函数，但其输入为字符串。如果`s`为空，则返回`(RuneError，0)`。否则，如果编码无效，则返回`(RuneError，1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
+​	`DecodeRuneInString`函数类似于`DecodeRune`函数，但其输入为字符串。如果`s`为空，则返回`(RuneError, 0)`。否则，如果编码无效，则返回`(RuneError, 1)`。对于正确的非空UTF-8，这两种情况都是不可能的。
 
 An encoding is invalid if it is incorrect UTF-8, encodes a rune that is out of range, or is not the shortest possible UTF-8 encoding for the value. No other validation is performed.
 
@@ -261,7 +261,7 @@ func EncodeRune(p []byte, r rune) int
 
 EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune. If the rune is out of range, it writes the encoding of RuneError. It returns the number of bytes written.
 
-​	`EncodeRune`函数将符文的UTF-8编码写入`p`(`p`必须足够大)。如果符文超出范围，则写入RuneError的编码。返回写入的字节数。
+​	`EncodeRune`函数将符文的UTF-8编码写入`p`(`p`必须足够大)。如果符文超出范围，则写入`RuneError`的编码。返回写入的字节数。
 
 #### EncodeRune Example
 ``` go 
@@ -326,7 +326,7 @@ func FullRune(p []byte) bool
 
 FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune. An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
 
-​	`FullRune`函数报告`p`中的字节是否以完整的UTF-8符文编码开头。无效的编码被认为是完整的符文，因为它们将转换为宽度为1的错误符文。 
+​	`FullRune`函数报告`p`中的字节是否以完整的UTF-8符文编码开头。无效的编码被认为是完整的符文，因为它们将转换为宽度为`1`的错误符文。 
 
 #### FullRune Example
 ``` go 
@@ -356,7 +356,7 @@ func FullRuneInString(s string) bool
 
 FullRuneInString is like FullRune but its input is a string.
 
-​	`FullRuneInString`函数类似于FullRune，但其输入是字符串。
+​	`FullRuneInString`函数类似于`FullRune`函数，但其输入是字符串。
 
 #### FullRuneInString Example
 ``` go 

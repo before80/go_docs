@@ -31,7 +31,7 @@ func AppendRune(a []uint16, r rune) []uint16
 
 AppendRune appends the UTF-16 encoding of the Unicode code point r to the end of p and returns the extended buffer. If the rune is not a valid Unicode code point, it appends the encoding of U+FFFD.
 
-​	`AppendRune`函数将Unicode码点r的UTF-16编码追加到a的末尾，并返回扩展后的缓冲区。如果r不是有效的Unicode码点，则追加U+FFFD的编码。
+​	`AppendRune`函数将Unicode码点r的UTF-16编码追加到`a`的末尾，并返回扩展后的缓冲区。如果r不是有效的Unicode码点，则追加`U+FFFD`的编码。
 
 ### func Decode 
 
@@ -41,7 +41,7 @@ func Decode(s []uint16) []rune
 
 Decode returns the Unicode code point sequence represented by the UTF-16 encoding s.
 
-​	`Decode`函数返回由UTF-16编码s表示的Unicode码点序列。
+​	`Decode`函数返回由UTF-16编码`s`表示的Unicode码点序列。
 
 ### func DecodeRune 
 
@@ -51,7 +51,7 @@ func DecodeRune(r1, r2 rune) rune
 
 DecodeRune returns the UTF-16 decoding of a surrogate pair. If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns the Unicode replacement code point U+FFFD.
 
-​	`DecodeRune`函数返回代理对的UTF-16解码。如果代理对不是有效的UTF-16代理对，则DecodeRune返回Unicode替换码点U+FFFD。
+​	`DecodeRune`函数返回代理对的UTF-16解码。如果代理对不是有效的UTF-16代理对，则`DecodeRune`返回Unicode替换码点`U+FFFD`。
 
 ### func Encode 
 
@@ -71,7 +71,7 @@ func EncodeRune(r rune) (r1, r2 rune)
 
 EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune. If the rune is not a valid Unicode code point or does not need encoding, EncodeRune returns U+FFFD, U+FFFD.
 
-​	`EncodeRune`函数返回给定rune的UTF-16代理对r1、r2。如果rune不是有效的Unicode码点或不需要编码，则EncodeRune返回U+FFFD、U+FFFD。
+​	`EncodeRune`函数返回给定rune的UTF-16代理对r1、r2。如果rune不是有效的Unicode码点或不需要编码，则`EncodeRune`返回`U+FFFD`、`U+FFFD`。
 
 ### func IsSurrogate 
 

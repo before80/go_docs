@@ -11,7 +11,7 @@ https://pkg.go.dev/bufio@go1.21.3
 
 Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O.
 
-​	`bufio`包实现了带缓冲的 I/O 操作。它包装了一个 io.Reader 或 io.Writer 对象，创建另一个实现相同接口的对象(Reader 或 Writer)，但提供了缓冲和一些文本 I/O 的辅助。
+​	`bufio`包实现了带缓冲的 I/O 操作。它包装了一个 `io.Reader` 或 `io.Writer` 对象，创建另一个实现相同接口的对象(`Reader` 或 `Writer`)，但提供了缓冲和一些文本 I/O 的辅助。
 
 
 ## 常量 
@@ -58,7 +58,7 @@ var (
 
 Errors returned by Scanner.
 
-​	由Scanner返回的错误。
+​	由`Scanner`返回的错误。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/bufio/scan.go;l=124)
 
@@ -68,7 +68,7 @@ var ErrFinalToken = errors.New("final token")
 
 ErrFinalToken is a special sentinel error value. It is intended to be returned by a Split function to indicate that the token being delivered with the error is the last token and scanning should stop after this one. After ErrFinalToken is received by Scan, scanning stops with no error. The value is useful to stop processing early or when it is necessary to deliver a final empty token. One could achieve the same behavior with a custom error value but providing one here is tidier. See the emptyFinalToken example for a use of this value.
 
-​	`ErrFinalToken` 是一个特殊的错误值，用作分割函数的返回值。它的作用是告诉 Scan 函数返回的标记是最后一个标记，扫描应该在此标记后停止。在 Scan函数收到 ErrFinalToken 后，扫描将无错误地停止。这个值在需要提前停止处理或需要传递一个最终的空标记时很有用。虽然可以使用自定义错误值实现相同的行为，但在这里提供一个固定的值更加方便。可以查看 [emptyFinalToken 示例](#example-emptyfinaltoken) )以了解此值的使用方法。
+​	`ErrFinalToken` 是一个特殊的错误值，用作分割函数的返回值。它的作用是告诉 Scan 函数返回的标记是最后一个标记，扫描应该在此标记后停止。在 `Scan`函数收到 `ErrFinalToken` 后，扫描将无错误地停止。这个值在需要提前停止处理或需要传递一个最终的空标记时很有用。虽然可以使用自定义错误值实现相同的行为，但在这里提供一个固定的值更加方便。可以查看 [emptyFinalToken 示例](#exampleemptyfinaltoken) )以了解此值的使用方法。
 
 ## 函数 
 
@@ -80,7 +80,7 @@ func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ScanBytes is a split function for a Scanner that returns each byte as a token.
 
-​	ScanBytes函数是一个用于 Scanner 的分割函数，将每个字节作为一个标记返回。
+​	`ScanBytes`函数是一个用于 `Scanner` 的分割函数，将每个字节作为一个标记返回。
 
 ### func ScanLines  <- go1.1
 
@@ -90,7 +90,7 @@ func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ScanLines is a split function for a Scanner that returns each line of text, stripped of any trailing end-of-line marker. The returned line may be empty. The end-of-line marker is one optional carriage return followed by one mandatory newline. In regular expression notation, it is `\r?\n`. The last non-empty line of input will be returned even if it has no newline.
 
-​	ScanLines函数是一个用于 Scanner 的分割函数，返回每行文本，删除任何尾随的行尾标记。返回的行可能为空。行尾标记是一个可选的回车符后跟一个必需的换行符。在正则表达式符号中，它是 `\r?\n`。即使最后一个非空行没有换行符，它也会被返回。
+​	`ScanLines`函数是一个用于 `Scanner` 的分割函数，返回每行文本，删除任何尾随的行尾标记。返回的行可能为空。行尾标记是一个可选的回车符后跟一个必需的换行符。在正则表达式符号中，它是 `\r?\n`。即使最后一个非空行没有换行符，它也会被返回。
 
 ### func ScanRunes  <- go1.1
 
@@ -100,7 +100,7 @@ func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ScanRunes is a split function for a Scanner that returns each UTF-8-encoded rune as a token. The sequence of runes returned is equivalent to that from a range loop over the input as a string, which means that erroneous UTF-8 encodings translate to U+FFFD = "\xef\xbf\xbd". Because of the Scan interface, this makes it impossible for the client to distinguish correctly encoded replacement runes from encoding errors.
 
-​	ScanRunes函数是一个用于 Scanner 的分割函数，返回每个 UTF-8 编码的符文作为一个标记。返回的符文序列等同于作为字符串遍历输入的范围循环的符文序列，这意味着错误的 UTF-8 编码将被翻译为 U+FFFD = "\xef\xbf\xbd"。由于 Scan 接口的限制，这使得客户端无法区分正确编码的替换符与编码错误。
+​	`ScanRunes`函数是一个用于 `Scanner` 的分割函数，返回每个 UTF-8 编码的符文作为一个标记。返回的符文序列等同于作为字符串遍历输入的范围循环的符文序列，这意味着错误的 UTF-8 编码将被翻译为 `U+FFFD` = "`\xef\xbf\xbd`"。由于 `Scan` 接口的限制，这使得客户端无法区分正确编码的替换符与编码错误。
 
 ### func ScanWords  <- go1.1
 
@@ -110,7 +110,7 @@ func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
 
 ScanWords is a split function for a Scanner that returns each space-separated word of text, with surrounding spaces deleted. It will never return an empty string. The definition of space is set by unicode.IsSpace.
 
-​	ScanWords函数是一个用于 Scanner 的分割函数，返回每个以空格分隔的文本单词，删除周围的空格。它永远不会返回空字符串。空格的定义由 unicode.IsSpace 设置。
+​	`ScanWords`函数是一个用于 `Scanner` 的分割函数，返回每个以空格分隔的文本单词，删除周围的空格。它永远不会返回空字符串。空格的定义由 [unicode.IsSpace]() 设置。
 
 ## 类型 
 
