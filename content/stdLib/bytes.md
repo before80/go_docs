@@ -6,7 +6,9 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/bytes@go1.20.1
+https://pkg.go.dev/bytes@go1.21.3
+
+![image-20231109160722609](bytes_img/image-20231109160722609.png)
 
 Package bytes implements functions for the manipulation of byte slices. It is analogous to the facilities of the strings package.
 
@@ -56,7 +58,7 @@ func Compare(a, b []byte) int
 
 Compare returns an integer comparing two byte slices lexicographically. The result will be 0 if a == b, -1 if a < b, and +1 if a > b. A nil argument is equivalent to an empty slice.
 
-​	`Compare`函数返回一个整数，按字典顺序比较两个字节切片。如果`a == b`，结果是`0`，如果`a < b`，结果是`-1`，如果`a > b`，结果是`+1`。nil参数等效于空切片。
+​	`Compare`函数返回一个整数，按字典顺序比较两个字节切片。如果`a == b`，结果是`0`，如果`a < b`，结果是`-1`，如果`a > b`，结果是`+1`。nil实参等效于空切片。
 
 #### Compare Example
 ``` go 
@@ -361,7 +363,7 @@ func Equal(a, b []byte) bool
 
 Equal reports whether a and b are the same length and contain the same bytes. A nil argument is equivalent to an empty slice.
 
-​	`Equal` 函数报告 `a` 和 `b` 是否具有相同的长度并包含相同的字节。nil 参数等价于空切片。
+​	`Equal` 函数报告 `a` 和 `b` 是否具有相同的长度并包含相同的字节。nil 实参等价于空切片。
 
 #### Equal Example
 ``` go 
@@ -390,7 +392,7 @@ func EqualFold(s, t []byte) bool
 
 EqualFold reports whether s and t, interpreted as UTF-8 strings, are equal under simple Unicode case-folding, which is a more general form of case-insensitivity.
 
-​	`EqualFold` 函数报告将 `s` 和 t(解释为 UTF-8 字符串)在简单的 Unicode 大小写折叠下是否相等，这是一种更通用的不区分大小写的形式。
+​	`EqualFold` 函数报告将 `s` 和 `t`(解释为 UTF-8 字符串)在简单的 Unicode 大小写折叠下是否相等，这是一种更通用的不区分大小写的形式。
 
 #### EqualFold Example
 ``` go 
@@ -710,9 +712,7 @@ func Join(s [][]byte, sep []byte) []byte
 
 Join concatenates the elements of s to create a new byte slice. The separator sep is placed between elements in the resulting slice.
 
-Join函数将s的元素连接起来，创建一个新的字节切片。分隔符 sep 被放置在结果切片的元素之间。
-
-​	`Join`函数将`s`中的元素连接起来以创建一个新的字节切片。分隔符`sep`放置在结果切片中的元素之间。
+​	`Join`函数将`s`中的元素连接起来以创建一个新的字节切片。分隔符`sep`放置在结果切片中的**元素之间**。
 
 #### Join Example
 ``` go 
