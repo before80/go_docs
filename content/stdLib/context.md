@@ -99,7 +99,7 @@ Multiple calls to AfterFunc on a context operate independently; one does not rep
 
 Calling the returned stop function stops the association of ctx with f. It returns true if the call stopped f from being run. If stop returns false, either the context is done and f has been started in its own goroutine; or f was already stopped. The stop function does not wait for f to complete before returning. If the caller needs to know whether f is completed, it must coordinate with f explicitly.
 
-​	调用返回的停止函数会停止将`ctx`与`f`关联起来。如果调用停止了`f`的运行，它会返回true。如果停止函数返回false，则要么是上下文已完成并且`f`已在其自己的goroutine中开始；要么`f`已经被停止。停止函数不会等待`f`完成就返回。如果调用者需要知道`f`是否已完成，它必须与`f`显式协调。
+​	调用返回的`stop`函数会停止将`ctx`与`f`关联起来。如果调用停止了`f`的运行，它会返回`true`。如果`stop`函数返回`false`，则要么是上下文已完成并且`f`已在其自己的goroutine中开始；要么`f`已经被停止。`stop`函数不会等待`f`完成就返回。如果调用者需要知道`f`是否已完成，它必须与`f`显式协调。
 
 If ctx has a "AfterFunc(func()) func() bool" method, AfterFunc will use it to schedule the call.
 
@@ -127,17 +127,26 @@ func main() {
 			// We need to acquire cond.L here to be sure that the Broadcast
 			// below won't occur before the call to Wait, which would result
 			// in a missed signal (and deadlock).
+            // 我们需要在这里获取 cond.L，以确保在调用 Wait 之前不会发生下面的 Broadcast，
+			// 其将导致信号丢失（和死锁）。
 			cond.L.Lock()
 			defer cond.L.Unlock()
-
+            
 			// If multiple goroutines are waiting on cond simultaneously,
 			// we need to make sure we wake up exactly this one.
 			// That means that we need to Broadcast to all of the goroutines,
 			// which will wake them all up.
-			//
+            // 如果多个 goroutine 同时在 cond 上等待，
+			// 我们需要确保我们只唤醒这一个。
+			// 这意味着我们需要 Broadcast 到所有 goroutine，
+			// 这将唤醒它们所有。
+			//            
 			// If there are N concurrent calls to waitOnCond, each of the goroutines
 			// will spuriously wake up O(N) other goroutines that aren't ready yet,
 			// so this will cause the overall CPU cost to be O(N²).
+            // 如果有 N 个并发的 waitOnCond 调用，每个 goroutine
+			// 都会让 O(N) 其他尚未准备好的 goroutine 被虚假唤醒，
+			// 所以这将导致总体 CPU 成本为 O(N²)。
 			cond.Broadcast()
 		})
 		defer stopf()
@@ -145,6 +154,8 @@ func main() {
 		// Since the wakeups are using Broadcast instead of Signal, this call to
 		// Wait may unblock due to some other goroutine's context becoming done,
 		// so to be sure that ctx is actually done we need to check it in a loop.
+        // 由于唤醒使用的是 Broadcast 而不是 Signal，所以调用 Wait 可能由于其他 goroutine 的上下文完成而取消，
+		// 因此为了确保 ctx 实际上已完成，我们需要在循环中检查它。
 		for !conditionMet() {
 			cond.Wait()
 			if ctx.Err() != nil {
@@ -211,6 +222,8 @@ func main() {
 		if !stop() {
 			// The AfterFunc was started.
 			// Wait for it to complete, and reset the Conn's deadline.
+            // AfterFunc已经启动。
+			// 等待它完成，并重置Conn的截止时间。
 			<-stopc
 			conn.SetReadDeadline(time.Time{})
 			return n, ctx.Err()
@@ -263,6 +276,7 @@ import (
 func main() {
 	// mergeCancel returns a context that contains the values of ctx,
 	// and which is canceled when either ctx or cancelCtx is canceled.
+    // mergeCancel 返回一个包含ctx值的上下文，当ctx或cancelCtx被取消时，该上下文也将被取消。
 	mergeCancel := func(ctx, cancelCtx context.Context) (context.Context, context.CancelFunc) {
 		ctx, cancel := context.WithCancelCause(ctx)
 		stop := context.AfterFunc(cancelCtx, func() {
