@@ -8,6 +8,8 @@ draft = false
 +++
 https://pkg.go.dev/sync/atomic@go1.21.3
 
+![image-20231110170148590](atomic_img/image-20231110170148590.png)
+
 Package atomic provides low-level atomic memory primitives useful for implementing synchronization algorithms.
 
 ​	`atomic`包提供了低级别的原子内存原语，用于实现同步算法。
@@ -430,7 +432,7 @@ func (x *Int32) Add(delta int32) (new int32)
 
 Add atomically adds delta to x and returns the new value.
 
-​	`Add`方法原子地将`delta`添加到`x`并返回新值。
+​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
 #### (*Int32) CompareAndSwap  <- go1.19
 
@@ -492,7 +494,7 @@ func (x *Int64) Add(delta int64) (new int64)
 
 Add atomically adds delta to x and returns the new value.
 
-​	`Add`方法原子地将`delta`添加到`x`并返回新值。
+​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
 #### (*Int64) CompareAndSwap  <- go1.19
 
@@ -522,7 +524,7 @@ func (x *Int64) Store(val int64)
 
 Store atomically stores val into x.
 
-​	`Store`方法原子地将`val`存储到x中。
+​	`Store`方法原子地将`val`存储到`x`中。
 
 #### (*Int64) Swap  <- go1.19
 
@@ -606,7 +608,7 @@ func (x *Uint32) Add(delta uint32) (new uint32)
 
 Add atomically adds delta to x and returns the new value.
 
-​	`Add`方法原子地将 `delta` 添加到 `x` 并返回新值。
+​	`Add`方法原子地将 `delta` 添加到 `x` 并返回`new`值。
 
 #### (*Uint32) CompareAndSwap  <- go1.19
 
@@ -668,7 +670,7 @@ func (x *Uint64) Add(delta uint64) (new uint64)
 
 Add atomically adds delta to x and returns the new value.
 
-​	`Add`方法原子性地将`delta`添加到`x`中并返回新值。
+​	`Add`方法原子性地将`delta`添加到`x`中并返回`new`值。
 
 #### (*Uint64) CompareAndSwap  <- go1.19
 
@@ -730,7 +732,7 @@ func (x *Uintptr) Add(delta uintptr) (new uintptr)
 
 Add atomically adds delta to x and returns the new value.
 
-​	`Add`方法原子地将`delta`添加到`x`并返回新值。
+​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
 #### (*Uintptr) CompareAndSwap  <- go1.19
 

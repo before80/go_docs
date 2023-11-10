@@ -5,10 +5,11 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 https://pkg.go.dev/sync@go1.21.3
 
-![image-20231110145227900](sync_img/image-20231110145227900.png)
+![image-20231110174318814](sync_img/image-20231110174318814.png)
 
 Package sync provides basic synchronization primitives such as mutual exclusion locks. Other than the Once and WaitGroup types, most are intended for use by low-level library routines. Higher-level synchronization is better done via channels and communication.
 
@@ -76,21 +77,24 @@ If f panics, the returned function will panic with the same value on every call.
 
 ``` go 
 type Cond struct {
-
+    noCopy noCopy
+    
     // L is held while observing or changing the condition
 	// 在观察或更改条件时保持 L
 	L Locker
-	// 包含过滤或未公开的字段
+    
+	notify  notifyList
+	checker copyChecker
 }
 ```
 
 Cond implements a condition variable, a rendezvous point for goroutines waiting for or announcing the occurrence of an event.
 
-​	`Cond`结构体实现条件变量，是用于等待或宣布事件发生的 goroutine 等待的交汇点。
+​	`Cond`结构体实现了一个条件变量，这是等待或宣布事件发生的goroutine的集合点。
 
-Each Cond has an associated Locker L (often a *Mutex or *RWMutex), which must be held when changing the condition and when calling the Wait method.
+Each Cond has an associated Locker L (often a `*Mutex` or `*RWMutex`), which must be held when changing the condition and when calling the Wait method.
 
-​	每个 `Cond` 都有一个关联的 `Locker L`(通常是 `*Mutex` 或 `*RWMutex`)，在更改条件和调用 Wait 方法时必须持有该锁。
+​	每个`Cond`都有一个关联的`Locker` `L`（通常是`*Mutex`或`*RWMutex`），在改变条件或调用`Wait`方法时必须保持有该锁。
 
 A Cond must not be copied after first use.
 
@@ -98,7 +102,7 @@ A Cond must not be copied after first use.
 
 In the terminology of the Go memory model, Cond arranges that a call to Broadcast or Signal “synchronizes before” any Wait call that it unblocks.
 
-​	`Cond` 在 Go 内存模型的术语中，使 `Broadcast` 或 `Signal` 调用在解除其阻塞的任何 Wait 调用"之前同步"。
+​	在 Go 内存模型的术语中，`Cond` 使 `Broadcast` 方法或 `Signal` 方法的调用在解除其阻塞的任何 `Wait` 的调用"之前同步"。
 
 For many simple use cases, users will be better off using channels than a Cond (Broadcast corresponds to closing a channel, and Signal corresponds to sending on a channel).
 
@@ -130,7 +134,7 @@ Broadcast wakes all goroutines waiting on c.
 
 It is allowed but not required for the caller to hold c.L during the call.
 
-​	调用者可以在调用时持有`c.L`，但不是必须的。
+​	调用 `Broadcast` 时，允许但不要求调用方持有 `c.L`。
 
 #### (*Cond) Signal
 
@@ -140,7 +144,7 @@ func (c *Cond) Signal()
 
 Signal wakes one goroutine waiting on c, if there is any.
 
-​	`Signal` 方法会唤醒一个等待在 `c` 上的 goroutine，如果有的话。
+​	如果`c`上有任何等待的goroutine，`Signal`方法会唤醒其中一个。
 
 It is allowed but not required for the caller to hold c.L during the call.
 
@@ -158,11 +162,13 @@ func (c *Cond) Wait()
 
 Wait atomically unlocks c.L and suspends execution of the calling goroutine. After later resuming execution, Wait locks c.L before returning. Unlike in other systems, Wait cannot return unless awoken by Broadcast or Signal.
 
-​	`Wait`方法原子性地解锁 `c.L` 并挂起调用的 goroutine 的执行。稍后恢复执行后，`Wait` 在返回之前锁定 `c.L`。与其他系统不同，除非被 `Broadcast` 或 `Signal` 唤醒，`Wait` 不能返回。
+​	`Wait`方法会以原子方式解锁`c.L`并使调用goroutine的执行暂停。在稍后的恢复执行后，`Wait`方法会在返回前锁定`c.L`。与其他系统不同，`Wait`只有在被`Broadcast`或`Signal`唤醒时才能返回。
 
 Because c.L is not locked while Wait is waiting, the caller typically cannot assume that the condition is true when Wait returns. Instead, the caller should Wait in a loop:
 
-​	由于 `Wait`方法在等待时未锁定 `c.L`，因此调用者通常不能假设在 `Wait` 返回时条件为`true` 。相反，调用者应在循环中等待：
+​	由于 `Wait`方法在等待时未锁定 `c.L`，因此调用者通常不能假设在 `Wait` 返回时条件为`true` 。相反，调用者应在循环中`Wait` ：
+
+（这里的示例可以参考context包中`AfterFunc`函数的[Example (Cond)]({{< ref "/stdLib/context#example-cond">}})）
 
 ```go
 c.L.Lock()
