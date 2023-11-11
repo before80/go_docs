@@ -14,7 +14,7 @@ Package unsafe contains operations that step around the type safety of Go progra
 
 Packages that import unsafe may be non-portable and are not protected by the Go 1 compatibility guidelines.
 
-​	导入`unsafe`包的程序可能是非可移植的，并且不受Go 1兼容性指南的保护。
+​	导入`unsafe`包的程序可能是不可移植的，并且不受Go 1兼容性指南的保护。
 
 ## 常量 
 
@@ -176,19 +176,19 @@ Sizeof takes an expression x of any type and returns the size in bytes of a hypo
 >
 > ​	`unsafe`包中的`Sizeof`函数返回`uintptr`而不是`int`有几个原因：
 >
-> ### 可移植性
+> 可移植性
 >
 > ​	`uintptr`是一个整数类型，其大小足以容纳任何指针的值。在不同的架构和平台上，指针的大小可能会有所不同。例如，32位系统上的指针大小为4字节，而64位系统上的指针大小为8字节。通过返回`uintptr`，该函数可以适应不同的系统，保证足够的容量存储指针的大小。
 >
-> ### 用于低级编程
+> 用于低级编程
 >
 > ​	`unsafe`包是用于低级编程的，包括与C语言互操作、访问内存位置等。`uintptr`类型被设计成能够用于这些低级操作。在这些场景中，你可能需要用一个整数值表示指针，`uintptr`为此提供了正确的大小和类型。
 >
-> ### 安全性
+> 安全性
 >
 > ​	返回`uintptr`而不是`int`也有助于提高安全性。由于`uintptr`是一个特殊类型，它更容易引起开发者的注意，并提醒他们正在处理一个特殊的、与指针相关的值。这有助于减少意外错误，例如错误地将这个值当作普通整数来处理。
 >
-> ### 总结
+> 总结
 >
 > ​	综上所述，尽管返回`int`在某些情况下可能更为直观，但返回`uintptr`类型提供了更好的可移植性、适应低级编程需要，并有助于提高代码的安全性。这些考虑因素在设计Go语言的`unsafe`包时都很重要。
 
@@ -262,17 +262,59 @@ func main() {
 	msbst2 := MyStruct4{}
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2), msbst2) // 24,main.MyStruct4
 
+	fmt.Println("struct multi fields 1-------------")
+	type MyStruct5 struct {
+		a byte
+		b int64
+		c [6]string
+		d []int
+		e bool
+	}
+
+	msmf1 := MyStruct5{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1), msmf1) // 144,main.MyStruct5
+
+	fmt.Println("struct multi fields 2-------------")
+	type MyStruct6 struct {
+		a byte
+		b int64
+		c [6]string
+		d []int
+	}
+
+	msmf2 := MyStruct6{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf2), msmf2) // 136,main.MyStruct6
+
+	fmt.Println("struct multi fields 3-------------")
+	type MyStruct7 struct {
+		a byte
+		b int64
+		c [6]string
+	}
+
+	msmf3 := MyStruct7{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf3), msmf3) // 112,main.MyStruct7
+
+	fmt.Println("struct multi fields 4-------------")
+	type MyStruct8 struct {
+		a byte
+		b int64
+	}
+
+	msmf4 := MyStruct8{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf4), msmf4) // 16,main.MyStruct8
+
 	fmt.Println("uintptr-------------")
 	x := 2
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(uintptr(x)), uintptr(x)) // 8,uintptr
 
-	fmt.Println("array -> []int-------------")
-	var arrI0 []int
-	arrI1 := []int{1}
-	arrI2 := []int{1, 2}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI0), arrI0) //24,[]int
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI1), arrI1) //24,[]int
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI2), arrI2) //24,[]int
+	fmt.Println("array -> [1]int [2]int-------------")
+	var arrI0 [1]int
+	arrI1 := [1]int{1}
+	arrI2 := [2]int{1, 2}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI0), arrI0) //8,[1]int
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI1), arrI1) //8,[1]int
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(arrI2), arrI2) //16,[2]int
 
 	fmt.Println("array -> []string-------------")
 	var arrStr0 []string
@@ -328,6 +370,7 @@ func main() {
 	mis2[2] = "b"
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(mis2), mis2) //8,map[int]string
 }
+
 ```
 
 
