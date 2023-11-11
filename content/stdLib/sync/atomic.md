@@ -16,7 +16,7 @@ Package atomic provides low-level atomic memory primitives useful for implementi
 
 These functions require great care to be used correctly. Except for special, low-level applications, synchronization is better done with channels or the facilities of the [sync](https://pkg.go.dev/sync) package. Share memory by communicating; don't communicate by sharing memory.
 
-​	这些函数需要非常小心才能正确使用。除特殊的低级应用外，最好使用通道或`sync`包的设施进行同步。通过通信来共享内存，而不是通过共享内存来通信。
+​	这些函数需要非常小心才能正确使用。除特殊的低级应用外，最好使用通道或`sync`包的工具进行同步。通过通信来共享内存，而不是通过共享内存来通信。
 
 The swap operation, implemented by the SwapT functions, is the atomic equivalent of:
 
@@ -74,9 +74,9 @@ This section is empty.
 func AddInt32(addr *int32, delta int32) (new int32)
 ```
 
-AddInt32 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int32.Add](https://pkg.go.dev/sync/atomic#Int32.Add) instead.
+AddInt32 atomically adds delta to `*addr` and returns the new value. Consider using the more ergonomic and less error-prone [Int32.Add](https://pkg.go.dev/sync/atomic#Int32.Add) instead.
 
-​	`AddInt32`函数原子地将delta添加到`*addr`，并返回新值。考虑使用更符合人体工程学和更不容易出错的Int32.Add代替。
+​	`AddInt32`函数原子地将delta添加到`*addr`，并返回`new`值。考虑使用更符合人体工程学和更不容易出错的Int32.Add代替。
 
 ### func AddInt64 
 
@@ -84,9 +84,9 @@ AddInt32 atomically adds delta to *addr and returns the new value. Consider usin
 func AddInt64(addr *int64, delta int64) (new int64)
 ```
 
-AddInt64 atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Int64.Add](https://pkg.go.dev/sync/atomic#Int64.Add) instead (particularly if you target 32-bit platforms; see the bugs section).
+AddInt64 atomically adds delta to `*addr` and returns the new value. Consider using the more ergonomic and less error-prone [Int64.Add](https://pkg.go.dev/sync/atomic#Int64.Add) instead (particularly if you target 32-bit platforms; see the bugs section).
 
-​	`AddInt64`函数原子地将`delta`添加到`*addr`，并返回新值。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的`Int64.Add`代替(请参见错误部分)。
+​	`AddInt64`函数原子地将`delta`添加到`*addr`，并返回`new`值。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的`Int64.Add`代替(请参见错误部分)。
 
 ### func AddUint32 
 
@@ -94,9 +94,9 @@ AddInt64 atomically adds delta to *addr and returns the new value. Consider usin
 func AddUint32(addr *uint32, delta uint32) (new uint32)
 ```
 
-AddUint32 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do `AddUint32(&x, ^uint32(c-1))`. In particular, to decrement x, do AddUint32(&x, ^uint32(0)). Consider using the more ergonomic and less error-prone [Uint32.Add](https://pkg.go.dev/sync/atomic#Uint32.Add) instead.
+AddUint32 atomically adds delta to `*addr` and returns the new value. To subtract a signed positive constant value c from x, do `AddUint32(&x, ^uint32(c-1))`. In particular, to decrement x, do AddUint32(&x, ^uint32(0)). Consider using the more ergonomic and less error-prone [Uint32.Add](https://pkg.go.dev/sync/atomic#Uint32.Add) instead.
 
-​	`AddUint32`函数原子地将`delta`添加到`*addr`，并返回新值。要从x减去已知正常数值c，请执行`AddUint32(&x，^uint32(c-1))`。特别地，要将`x`减少1，请执行`AddUint32(&x，^uint32(0))`。考虑使用更符合人体工程学和更不容易出错的`Uint32.Add`代替。
+​	`AddUint32`函数原子地将`delta`添加到`*addr`，并返回`new` 值。要从`x`减去已知正常数值`c`，请执行`AddUint32(&x，^uint32(c-1))`。特别地，要将`x`减少1，请执行`AddUint32(&x，^uint32(0))`。考虑使用更符合人体工程学和更不容易出错的`Uint32.Add`代替。
 
 ### func AddUint64 
 
@@ -106,7 +106,7 @@ func AddUint64(addr *uint64, delta uint64) (new uint64)
 
 AddUint64 atomically adds delta to *addr and returns the new value. To subtract a signed positive constant value c from x, do `AddUint64(&x, ^uint64(c-1))`. In particular, to decrement x, do `AddUint64(&x, ^uint64(0))`. Consider using the more ergonomic and less error-prone [Uint64.Add](https://pkg.go.dev/sync/atomic#Uint64.Add) instead (particularly if you target 32-bit platforms; see the bugs section).
 
-​	`AddUint64`函数原子地将delta添加到`*addr`，并返回新值。要从x减去已知正常数值c，请执行`AddUint64(&x，^uint64(c-1))`。特别地，要将`x`减少1，请执行`AddUint64(&x，^uint64(0))`。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的`Uint64.Add`代替(请参见错误部分)。
+​	`AddUint64`函数原子地将`delta`添加到`*addr`，并返回`new`值。要从`x`减去已知正常数值`c`，请执行`AddUint64(&x，^uint64(c-1))`。特别地，要将`x`减少`1`，请执行`AddUint64(&x，^uint64(0))`。如果您的目标是32位平台，请考虑使用更符合人体工程学和更不容易出错的`Uint64.Add`代替(请参见错误部分)。
 
 ### func AddUintptr 
 
@@ -116,7 +116,7 @@ func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
 
 AddUintptr atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Uintptr.Add](https://pkg.go.dev/sync/atomic#Uintptr.Add) instead.
 
-​	`AddUintptr`函数原子地将`delta`添加到`*addr`，并返回新值。考虑使用更符合人体工程学和更不容易出错的`Uintptr.Add`代替。
+​	`AddUintptr`函数原子地将`delta`添加到`*addr`，并返回`new`值。考虑使用更符合人体工程学和更不容易出错的`Uintptr.Add`代替。
 
 ### func CompareAndSwapInt32 
 

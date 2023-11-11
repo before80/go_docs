@@ -94,7 +94,7 @@ Cond implements a condition variable, a rendezvous point for goroutines waiting 
 
 Each Cond has an associated Locker L (often a `*Mutex` or `*RWMutex`), which must be held when changing the condition and when calling the Wait method.
 
-​	每个`Cond`都有一个关联的`Locker` `L`（通常是`*Mutex`或`*RWMutex`），在改变条件或调用`Wait`方法时必须保持有该锁。
+​	每个`Cond`都有一个关联的`Locker` `L`（通常是`*Mutex`或`*RWMutex`），在改变条件或调用`Wait`方法时必须持有该锁。
 
 A Cond must not be copied after first use.
 
@@ -102,7 +102,17 @@ A Cond must not be copied after first use.
 
 In the terminology of the Go memory model, Cond arranges that a call to Broadcast or Signal “synchronizes before” any Wait call that it unblocks.
 
-​	在 Go 内存模型的术语中，`Cond` 使 `Broadcast` 方法或 `Signal` 方法的调用在解除其阻塞的任何 `Wait` 的调用"之前同步"。
+​	在 [Go 内存模型]({{< ref "/docs/References/TheGoMemoryModel">}})的术语中，`Cond` 使 `Broadcast` 方法或 `Signal` 方法的调用在解除其（指的是`Cond`）阻塞的任何 `Wait` 的调用"之前同步"。
+
+> 个人注释
+>
+> 1. **Go内存模型**：Go的内存模型定义了在一个Go程序中，当一个goroutine观察或修改另一个goroutine中的内存时，什么条件下它是安全的。它确保了对于共享数据的正确同步，并允许编译器和处理器进行某些优化。
+> 2. **同步（Synchronizes）**：在内存模型的上下文中，同步意味着一个操作（或一组操作）在另一个操作之前完成。
+> 3. **Broadcast和Signal**：这两个方法都是`sync.Cond`类型的方法。`Broadcast`会唤醒所有等待的goroutine，而`Signal`只唤醒其中一个。
+> 4. **Wait**：`Wait`也是`sync.Cond`的一个方法，它会阻塞当前的goroutine，直到被`Broadcast`或`Signal`唤醒。
+> 5. **“synchronizes before”**：这是描述两个操作之间的关系的术语。如果一个操作A “synchronizes before”另一个操作B，那么意味着A在B之前完成。
+>
+> 根据Go的内存模型，当调用`Broadcast`或`Signal`方法时，这两个方法的执行会在它们唤醒的任何`Wait`方法之前完成。换句话说，确保先执行完`Broadcast`或`Signal`，再执行被唤醒的`Wait`。
 
 For many simple use cases, users will be better off using channels than a Cond (Broadcast corresponds to closing a channel, and Signal corresponds to sending on a channel).
 
@@ -110,7 +120,7 @@ For many simple use cases, users will be better off using channels than a Cond (
 
 For more on replacements for sync.Cond, see [Roberto Clapis's series on advanced concurrency patterns](https://blogtitle.github.io/categories/concurrency/), as well as [Bryan Mills's talk on concurrency patterns](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view).
 
-​	有关替代 sync.Cond 的更多信息，请参见 [Roberto Clapis 的高级并发模式系列](https://blogtitle.github.io/categories/concurrency/)以及 [Bryan Mills 的并发模式演讲](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view)。
+​	有关替代 `sync.Cond` 的更多信息，请参见 [Roberto Clapis 的高级并发模式系列](https://blogtitle.github.io/categories/concurrency/)以及 [Bryan Mills 的并发模式演讲](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view)。
 
 #### func NewCond 
 
@@ -168,7 +178,17 @@ Because c.L is not locked while Wait is waiting, the caller typically cannot ass
 
 ​	由于 `Wait`方法在等待时未锁定 `c.L`，因此调用者通常不能假设在 `Wait` 返回时条件为`true` 。相反，调用者应在循环中`Wait` ：
 
-（这里的示例可以参考context包中`AfterFunc`函数的[Example (Cond)]({{< ref "/stdLib/context#example-cond">}})）
+> 个人注释
+>
+> ​	首先，这段话提到了“c.L is not locked while Wait is waiting”。这意味着当一个goroutine调用`Wait`方法时，与之相关联的互斥锁`c.L`会被释放，允许其他goroutine锁定该互斥锁并修改相关的条件。
+>
+> ​	接下来，这段话指出“the caller typically cannot assume that the condition is true when Wait returns”。这是因为在`Wait`返回时，仅仅意味着该goroutine被唤醒并重新获取了互斥锁，但这并不意味着它唤醒时条件就一定为真。在`Wait`返回后，调用者应当重新评估条件，以确保它满足预期。
+>
+> ​	为了处理这种情况，这段话给出了建议：“Instead, the caller should Wait in a loop”。这表示调用者应当在循环中调用`Wait`，每次被唤醒时都检查条件，如果条件不满足，则再次调用`Wait`。这样的循环确保了goroutine只有在条件满足时才会退出循环。
+>
+> ​	简而言之，这段话提醒调用者在使用`Wait`方法时不要假设唤醒时条件一定为真，而应在循环中调用`Wait`并每次检查条件，以确保正确同步和条件满足。这是一种更健壮的并发编程实践，避免了可能的竞态条件和错误假设。
+
+（这里的示例可以参考`context`包中`AfterFunc`函数的[Example (Cond)]({{< ref "/stdLib/context#example-cond">}})）
 
 ```go
 c.L.Lock()
