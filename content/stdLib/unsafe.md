@@ -34,7 +34,15 @@ func Alignof(x ArbitraryType) uintptr
 
 Alignof takes an expression x of any type and returns the required alignment of a hypothetical variable v as if v was declared via var v = x. It is the largest value m such that the address of v is always zero mod m. It is the same as the value returned by reflect.TypeOf(x).Align(). As a special case, if a variable s is of struct type and f is a field within that struct, then Alignof(s.f) will return the required alignment of a field of that type within a struct. This case is the same as the value returned by reflect.TypeOf(s.f).FieldAlign(). The return value of Alignof is a Go constant if the type of the argument does not have variable size. (See the description of [Sizeof](https://pkg.go.dev/unsafe@go1.20.1#Sizeof) for a definition of variable sized types.)
 
-​	`Alignof`函数接受任何类型的表达式`x`，并返回假设通过 `var v = x` 声明变量 `v` 时，`v` 所需的对齐方式。它是这样一个最大值 `m`，使得`v`的地址始终为`0 mod m`。它与`reflect.TypeOf(x).Align()`返回的值相同。作为特例，如果变量`s`是结构体类型，`f`是该结构体中的字段，则`Alignof(s.f)`将返回该类型字段在结构体中所需的对齐方式。该情况与`reflect.TypeOf(s.f).FieldAlign()`返回的值相同。如果实参的类型不具有可变大小，则`Alignof`函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见`Sizeof`函数的描述。)
+​	`Alignof`函数接受任何类型的表达式`x`，并返回假设通过 `var v = x` 声明变量 `v` 时，`v` 所需的对齐要求。它是这样一个最大值 `m`，使得`v`的地址始终为`0 mod m`。它与`reflect.TypeOf(x).Align()`返回的值相同。作为特例，如果变量`s`是结构体类型，`f`是该结构体中的字段，则`Alignof(s.f)`将返回该类型字段在结构体中所需的对齐方式。该情况与`reflect.TypeOf(s.f).FieldAlign()`返回的值相同。如果实参的类型不具有可变大小，则`Alignof`函数的返回值是一个Go常量。(有关可变大小类型的定义，请参见`Sizeof`函数的描述。)
+
+> 个人注释
+>
+> 对齐是底层的、与平台相关的概念。不同硬件平台可能有不同的对齐要求。
+>
+> 参见：[https://verytools.net/xtools-guide/posts/golang-unsafe-alignof](https://verytools.net/xtools-guide/posts/golang-unsafe-alignof)
+>
+> [golang中的内存对齐和unsafe初探](https://driverzhang.github.io/post/golang%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90%E5%92%8Cunsafe%E5%88%9D%E6%8E%A2/)
 
 #### Alignof My Example
 
@@ -56,7 +64,7 @@ func main() {
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi32), msbi32)      // 8,main.MyStruct1
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbi32), msbi32)     // 4,main.MyStruct1
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbi32.a), msbi32.a) // 1,uint8
-	fmt.Printf("%v,%T\n", unsafe.Alignof(msbi32.a), msbi32.b) // 1,int32
+	fmt.Printf("%v,%T\n", unsafe.Alignof(msbi32.b), msbi32.b) // 4,int32
 
 	fmt.Println("struct byte int64-------------")
 	type MyStruct2 struct {
@@ -78,9 +86,50 @@ func main() {
 
 	msbsli64 := MyStruct3{}
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbsli64), msbsli64)      // 32,main.MyStruct3
-	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64), msbsli64)     // 8,main.MyStruct2
+	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64), msbsli64)     // 8,main.MyStruct3
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64.a), msbsli64.a) // 1,uint8
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64.b), msbsli64.b) // 8,[]int64
+
+	fmt.Printf("%v,%T\n", unsafe.Alignof(true), true)                             //1,bool
+	fmt.Printf("%v,%T\n", unsafe.Alignof(byte('A')), byte('A'))                   //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Alignof(int(1)), int(1))                         //8,int
+	fmt.Printf("%v,%T\n", unsafe.Alignof(uint(1)), uint(1))                       //8,uint
+	fmt.Printf("%v,%T\n", unsafe.Alignof(float32(1.2)), float32(1.2))             //4,float32
+	fmt.Printf("%v,%T\n", unsafe.Alignof(1.2), 1.2)                               //8,float64
+	fmt.Printf("%v,%T\n", unsafe.Alignof("A"), "A")                               //8,string
+	fmt.Printf("%v,%T\n", unsafe.Alignof("AB"), "AB")                             //8,string
+	fmt.Printf("%v,%T\n", unsafe.Alignof([1]int{1}), [1]int{1})                   //8,[1]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([2]int{1, 2}), [2]int{1, 2})             //8,[2]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([3]int{1, 2, 3}), [3]int{1, 2, 3})       //8,[3]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([...]int{256: 256}), [...]int{256: 256}) //8,[257]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([]int{1}), []int{1})                     //8,[]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([]int{1, 2}), []int{1, 2})               //8,[]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([]int{1, 2, 3}), []int{1, 2, 3})         //8,[]int
+	fmt.Printf("%v,%T\n", unsafe.Alignof([]int{256: 256}), []int{256: 256})       //8,[]int
+
+	type ExampleStruct1 struct {
+		Field1 int
+		Field2 float64
+	}
+
+	type ExampleStruct2 struct {
+		Field1 int
+	}
+
+	var x int
+	var y float64
+	var z ExampleStruct1
+	var w ExampleStruct2
+
+	alignX := unsafe.Alignof(x)
+	alignY := unsafe.Alignof(y)
+	alignZ := unsafe.Alignof(z)
+	alignW := unsafe.Alignof(w)
+
+	fmt.Printf("Alignment of int: %d\n", alignX)            // Alignment of int: 8
+	fmt.Printf("Alignment of float64: %d\n", alignY)        // Alignment of float64: 8
+	fmt.Printf("Alignment of ExampleStruct1: %d\n", alignZ) //Alignment of ExampleStruct1: 8
+	fmt.Printf("Alignment of ExampleStruct2: %d\n", alignW) //Alignment of ExampleStruct2: 8
 }
 
 ```
@@ -706,6 +755,10 @@ The most common use of this pattern is to access fields in a struct or elements 
 
 ​	此模式最常见的用途是访问结构体的字段或数组的元素：
 
+> 个人注释
+>
+> ​	也可以用于访问切片元素！
+
 ```go 
 // equivalent to f := unsafe.Pointer(&s.f)
 // 等同于 f := unsafe.Pointer(&s.f)
@@ -722,30 +775,28 @@ It is valid both to add and to subtract offsets from a pointer in this way. It i
 
 Unlike in C, it is not valid to advance a pointer just beyond the end of its original allocation:
 
-​	与C语言不同的是，将一个指针推进到其原始分配的末端是无效的：
-
 ​	与 C 语言不同的是，将指针移动到其原始分配空间的边界之外是无效的：
 
 ```go 
 // INVALID: end points outside allocated space.
-// 不正确：end 指向分配空间之外。
+// 无效：end 指向分配空间之外。
 var s thing
 end = unsafe.Pointer(uintptr(unsafe.Pointer(&s)) + unsafe.Sizeof(s))
 
 // INVALID: end points outside allocated space.
-// 不正确：end 在分配的空间之外。
+// 无效：end 在分配的空间之外。
 b := make([]byte, n)
 end = unsafe.Pointer(uintptr(unsafe.Pointer(&b[0])) + uintptr(n))
 ```
 
 Note that both conversions must appear in the same expression, with only the intervening arithmetic between them:
 
-​	请注意，两个转换必须出现在同一表达式中，只能在它们之间进行算术运算：
+​	请注意，**两个转换必须出现在同一表达式中**，只能在它们之间进行算术运算：
 
 ```go 
 // INVALID: uintptr cannot be stored in variable
 // before conversion back to Pointer.
-// 不正确：uintptr在转换回Pointer之前不能被存储在变量中。
+// 无效：uintptr在转换回Pointer之前不能被存储在变量中。
 u := uintptr(p)
 p = unsafe.Pointer(u + offset)
 ```
@@ -756,7 +807,7 @@ Note that the pointer must point into an allocated object, so it may not be nil.
 
 ```go 
 // INVALID: conversion of nil pointer
-// 不合法：转换为零的指针
+// 无效：转换nil的指针
 u := unsafe.Pointer(nil)
 p := unsafe.Pointer(uintptr(u) + offset)
 ```
@@ -779,16 +830,16 @@ syscall.Syscall(SYS_READ, uintptr(fd), uintptr(unsafe.Pointer(p)), uintptr(n))
 
 The compiler handles a Pointer converted to a uintptr in the argument list of a call to a function implemented in assembly by arranging that the referenced allocated object, if any, is retained and not moved until the call completes, even though from the types alone it would appear that the object is no longer needed during the call.
 
-​	编译器通过在汇编实现的函数调用的实参列表中处理将 Pointer 转换为 uintptr，安排保留引用的分配对象(如果有的话)，即使从类型上看，在调用期间似乎不再需要该对象。
+​	编译器通过在汇编实现的函数调用的实参列表中处理将 `Pointer` 转换为 `uintptr`，安排保留引用的分配对象(如果有的话)，即使从类型上看，在调用期间似乎不再需要该对象。
 
 For the compiler to recognize this pattern, the conversion must appear in the argument list:
 
-​	为了让编译器识别这种模式，转换必须出现在实参列表中：
+​	为了让编译器识别这种模式，该转换必须出现在实参列表中：
 
 ```go 
 // INVALID: uintptr cannot be stored in variable
 // before implicit conversion back to Pointer during system call.
-// INVALID: uintptr在系统调用过程中隐式转换回指针前不能被存储在变量中。
+// 无效: uintptr在系统调用过程中隐式转换回Pointer前不能被存储在变量中。
 u := uintptr(unsafe.Pointer(p))
 syscall.Syscall(SYS_READ, uintptr(fd), u, uintptr(n))
 ```
@@ -799,7 +850,7 @@ syscall.Syscall(SYS_READ, uintptr(fd), u, uintptr(n))
 
 Package reflect's Value methods named Pointer and UnsafeAddr return type uintptr instead of unsafe.Pointer to keep callers from changing the result to an arbitrary type without first importing "unsafe". However, this means that the result is fragile and must be converted to Pointer immediately after making the call, in the same expression:
 
-​	`reflect`包名为 `Pointer` 和 `UnsafeAddr` 的 `Value` 方法返回类型为 `uintptr`，而不是 `unsafe.Pointer`，以防止调用者在未导入 `"unsafe"` 的情况下将结果更改为任意类型。但是，这意味着结果是脆弱的，并且必须在调用后立即将其转换为 `Pointer`，即在同一表达式中：
+​	`reflect`包中的`Value`结构体的：`Pointer`和`UnsafeAddr`方法返回`uintptr`类型而不是`unsafe.Pointer`类型，以防止调用者在未导入 `"unsafe"` 的情况下将结果更改为任意类型。然而，这意味着结果是脆弱的，必须在调用后立即在同一个表达式中将其转换为`Pointer`：
 
 ```go
 p := (*int)(unsafe.Pointer(reflect.ValueOf(new(int)).Pointer()))
@@ -812,18 +863,35 @@ As in the cases above, it is invalid to store the result before the conversion:
 ```go
 // INVALID: uintptr cannot be stored in variable
 // before conversion back to Pointer.
-// INVALID: uintptr在转换回Pointer之前不能被存储在变量中。
+// 无效: uintptr在转换回Pointer之前不能被存储在变量中。
 u := reflect.ValueOf(new(int)).Pointer()
 p := (*int)(unsafe.Pointer(u))
 ```
 
 (6) Conversion of a reflect.SliceHeader or reflect.StringHeader Data field to or from Pointer.
 
-(6) 将`reflect.SliceHeader`或`reflect.StringHeader`数据字段转换为`Pointer`，或将`Pointer`转换为`reflect.SliceHeader`或`reflect.StringHeader`数据字段。
+(6) 将`reflect.SliceHeader`结构体或`reflect.StringHeader`结构体中的`Data`字段转换为`Pointer`，或将`Pointer`转换为`reflect.SliceHeader`结构体或`reflect.StringHeader`结构体中的`Data`字段。
 
 As in the previous case, the reflect data structures SliceHeader and StringHeader declare the field Data as a uintptr to keep callers from changing the result to an arbitrary type without first importing "unsafe". However, this means that SliceHeader and StringHeader are only valid when interpreting the content of an actual slice or string value.
 
-​	与之前的情况类似，`reflect.SliceHeader`和`reflect.StringHeader`将`Data`字段声明为`uintptr`，以防止调用者在未导入`"unsafe"`包之前将结果更改为任意类型。但是，这意味着`SliceHeader`和`StringHeader`仅在解释实际切片或字符串值的内容时才有效。
+​	与之前的情况类似，`reflect.SliceHeader`结构体和`reflect.StringHeader`结构体将`Data`字段声明为`uintptr`，以防止调用者在未导入`"unsafe"`包之前将结果更改为任意类型。但是，这意味着`SliceHeader`和`StringHeader`仅在解释实际切片或字符串值的内容时才有效。
+
+> 个人注释
+>
+> ​	这里给出reflect包中的`SliceHeader`和`StringHeader`结构体的定义：
+>
+> ```go
+> type SliceHeader struct {
+> 	Data uintptr
+> 	Len  int
+> 	Cap  int
+> }
+> 
+> type StringHeader struct {
+> 	Data uintptr
+> 	Len  int
+> }
+> ```
 
 ``` go 
 var s string
@@ -834,7 +902,7 @@ hdr.Len = n
 
 In this usage hdr.Data is really an alternate way to refer to the underlying pointer in the string header, not a uintptr variable itself.
 
-​	在这种用法中，`hdr.Data`实际上是一种替代方式，用于引用字符串头中的底层指针，而不是`uintptr`变量本身。
+​	在这种用法中，`hdr.Data`实际上是字符串头中底层指针的另一种引用方式，而不是`uintptr`变量本身。
 
 In general, reflect.SliceHeader and reflect.StringHeader should be used only as *reflect.SliceHeader and *reflect.StringHeader pointing at actual slices or strings, never as plain structs. A program should not declare or allocate variables of these struct types.
 
@@ -842,7 +910,7 @@ In general, reflect.SliceHeader and reflect.StringHeader should be used only as 
 
 ```go 
 // INVALID: a directly-declared header will not hold Data as a reference.
-// INVALID：直接声明的header不会将Data作为引用保存。
+// 无效：直接声明的header无法将Data作为引用保存。
 var hdr reflect.StringHeader
 hdr.Data = uintptr(unsafe.Pointer(p))
 hdr.Len = n
@@ -858,3 +926,53 @@ func Add(ptr Pointer, len IntegerType) Pointer
 The function Add adds len to ptr and returns the updated pointer Pointer(uintptr(ptr) + uintptr(len)). The len argument must be of integer type or an untyped constant. A constant len argument must be representable by a value of type int; if it is an untyped constant it is given type int. The rules for valid uses of Pointer still apply.
 
 ​	`Add`函数将`len`添加到`ptr`并返回更新后的指针`Pointer(uintptr(ptr) + uintptr(len))`。`len`实参必须是整数类型或无类型常量。常量`len`实参必须可由`int`类型的值表示；如果它是无类型常量，则它会被赋予`int`类型。仍然适用指针的有效用法规则。
+
+##### Add My Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"unsafe"
+)
+
+func main() {
+	fmt.Println("[]int ------------")
+	sliI := []int{1, 2, 3, 4, 9: 9}
+	fmt.Println(sliI)
+	end := (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&sliI[0])) + 3*unsafe.Sizeof(sliI[0])))
+	*end = 33
+	fmt.Println(sliI)
+	end = (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&sliI[0])) + 4*unsafe.Sizeof(sliI[0])))
+	*end = 44
+	fmt.Println(sliI)
+	end = (*int)(unsafe.Add(unsafe.Pointer(&sliI[0]), 5*unsafe.Sizeof(1)))
+	*end = 55
+	fmt.Println(sliI)
+	fmt.Println("[9]int ------------")
+	arrI := [...]int{1, 2, 3, 4, 9: 9}
+	fmt.Println(arrI)
+	end = (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&arrI[0])) + 3*unsafe.Sizeof(arrI[0])))
+	*end = 33
+	fmt.Println(arrI)
+	end = (*int)(unsafe.Pointer(uintptr(unsafe.Pointer(&arrI[0])) + 4*unsafe.Sizeof(arrI[0])))
+	*end = 44
+	fmt.Println(arrI)
+	end = (*int)(unsafe.Add(unsafe.Pointer(&arrI[0]), 5*unsafe.Sizeof(1)))
+	*end = 55
+	fmt.Println(arrI)
+}
+// Output:
+//[]int ------------
+//[1 2 3 4 0 0 0 0 0 9]
+//[1 2 3 33 0 0 0 0 0 9]
+//[1 2 3 33 44 0 0 0 0 9]
+//[1 2 3 33 44 55 0 0 0 9]
+//[9]int ------------
+//[1 2 3 4 0 0 0 0 0 9]
+//[1 2 3 33 0 0 0 0 0 9]
+//[1 2 3 33 44 0 0 0 0 9]
+//[1 2 3 33 44 55 0 0 0 9]
+```
+
