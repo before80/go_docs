@@ -5,8 +5,11 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 https://pkg.go.dev/unsafe@go1.21.3
+
+![image-20231113093004634](unsafe_img/image-20231113093004634.png)
 
 Package unsafe contains operations that step around the type safety of Go programs.
 
@@ -90,8 +93,29 @@ func main() {
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64.a), msbsli64.a) // 1,uint8
 	fmt.Printf("%v,%T\n", unsafe.Alignof(msbsli64.b), msbsli64.b) // 8,[]int64
 
+	fmt.Println("struct byte [3]int64-------------")
+	type MyStruct4 struct {
+		a byte
+		b [3]int64
+	}
+	msbarri64 := MyStruct4{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbarri64), msbarri64)  // 32,main.MyStruct4
+	fmt.Printf("%v,%T\n", unsafe.Alignof(msbarri64), msbarri64) // 8,main.MyStruct4
+
+	fmt.Println("struct byte bool-------------")
+	type MyStruct5 struct {
+		a byte
+		b bool
+	}
+	msbb := MyStruct5{}
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbb), msbb)  // 2,main.MyStruct5
+	fmt.Printf("%v,%T\n", unsafe.Alignof(msbb), msbb) // 1,main.MyStruct5
+
 	fmt.Printf("%v,%T\n", unsafe.Alignof(true), true)                             //1,bool
 	fmt.Printf("%v,%T\n", unsafe.Alignof(byte('A')), byte('A'))                   //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Alignof(int8(1)), int8(1))                       //1,int8
+	fmt.Printf("%v,%T\n", unsafe.Alignof(int16(1)), int16(1))                     //2,int16
+	fmt.Printf("%v,%T\n", unsafe.Alignof(int32(1)), int32(1))                     //4,int32
 	fmt.Printf("%v,%T\n", unsafe.Alignof(int(1)), int(1))                         //8,int
 	fmt.Printf("%v,%T\n", unsafe.Alignof(uint(1)), uint(1))                       //8,uint
 	fmt.Printf("%v,%T\n", unsafe.Alignof(float32(1.2)), float32(1.2))             //4,float32
@@ -131,7 +155,6 @@ func main() {
 	fmt.Printf("Alignment of ExampleStruct1: %d\n", alignZ) //Alignment of ExampleStruct1: 8
 	fmt.Printf("Alignment of ExampleStruct2: %d\n", alignW) //Alignment of ExampleStruct2: 8
 }
-
 ```
 
 
@@ -203,6 +226,11 @@ func main() {
 	fmt.Printf("%v,%T\n", unsafe.Offsetof(msbst2.c.a), msbst2.c.a) // 0,uint8
 	fmt.Printf("%v,%T\n", unsafe.Offsetof(msbst2.c.b), msbst2.c.b) // 8,int64
 	fmt.Printf("%v,%T\n", unsafe.Offsetof(msbst2.d), msbst2.d)     // 16,uint8
+
+	//x := 1
+	//fmt.Printf("%v,%T\n", unsafe.Offsetof(x), x) //invalid argument: x is not a selector expression
+	//arr := [3]int{1, 2, 3}
+	//fmt.Printf("%v,%T\n", unsafe.Offsetof(arr), arr) //invalid argument: arr is not a selector expression
 }
 
 ```
@@ -282,7 +310,9 @@ func main() {
 	}
 
 	msbi32 := MyStruct1{}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi32), msbi32) // 8,main.MyStruct1
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi32), msbi32)     // 8,main.MyStruct1
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi32.a), msbi32.a) //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi32.b), msbi32.b) //1,uint8
 
 	fmt.Println("struct byte int64-------------")
 	type MyStruct2 struct {
@@ -291,7 +321,9 @@ func main() {
 	}
 
 	msbi64 := MyStruct2{}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi64), msbi64) // 16,main.MyStruct2
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi64), msbi64)     // 16,main.MyStruct2
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi64.a), msbi64.a) //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbi64.b), msbi64.b) //8,int64
 
 	fmt.Println("struct byte struct 1-------------")
 	type MyStruct3 struct {
@@ -300,7 +332,11 @@ func main() {
 	}
 
 	msbst1 := MyStruct3{}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1), msbst1) // 24,main.MyStruct3
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1), msbst1)                         // 24,main.MyStruct3
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1.a), msbst1.a)                     //8,int64
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1.MyStruct2), msbst1.MyStruct2)     //16,main.MyStruct2
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1.MyStruct2.a), msbst1.MyStruct2.a) //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst1.MyStruct2.b), msbst1.MyStruct2.b) //8,int64
 
 	fmt.Println("struct byte struct 2-------------")
 	type MyStruct4 struct {
@@ -309,7 +345,11 @@ func main() {
 	}
 
 	msbst2 := MyStruct4{}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2), msbst2) // 24,main.MyStruct4
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2), msbst2)         // 24,main.MyStruct4
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2.a), msbst2.a)     //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2.b), msbst2.b)     //16,main.MyStruct2
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2.b.a), msbst2.b.a) //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msbst2.b.b), msbst2.b.b) //1,uint8
 
 	fmt.Println("struct multi fields 1-------------")
 	type MyStruct5 struct {
@@ -321,7 +361,12 @@ func main() {
 	}
 
 	msmf1 := MyStruct5{}
-	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1), msmf1) // 144,main.MyStruct5
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1), msmf1)     // 144,main.MyStruct5
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1.a), msmf1.a) //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1.b), msmf1.b) //8,int64
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1.c), msmf1.c) //96,[6]string
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1.d), msmf1.d) //24,[]int
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf1.e), msmf1.e) //1,bool
 
 	fmt.Println("struct multi fields 2-------------")
 	type MyStruct6 struct {
@@ -352,6 +397,33 @@ func main() {
 
 	msmf4 := MyStruct8{}
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(msmf4), msmf4) // 16,main.MyStruct8
+
+	fmt.Println("bool-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(true), true) //1,bool
+
+	fmt.Println("ints-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(int8(1)), int8(1))   //1,int8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(int16(1)), int16(1)) //2,int16
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(int32(1)), int32(1)) //4,int32
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(int(1)), int(1))     //8,int
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(int64(1)), int64(1)) //8,int64
+
+	fmt.Println("uints-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(uint8(1)), uint8(1))   //1,uint8
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(uint16(1)), uint16(1)) //4,uint32
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(uint32(1)), uint32(1)) //4,uint32
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(uint(1)), uint(1))     //8,uint
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(uint64(1)), uint64(1)) //1,uint8
+
+	fmt.Println("byte-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(byte('A')), byte('A')) //1,uint8
+
+	fmt.Println("floats-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(float32(1.2)), float32(1.2)) //4,float32
+	fmt.Printf("%v,%T\n", unsafe.Sizeof(1.2), 1.2)                   //8,float64
+
+	fmt.Println("string-------------")
+	fmt.Printf("%v,%T\n", unsafe.Sizeof("abc"), "abc") // 16,string
 
 	fmt.Println("uintptr-------------")
 	x := 2
@@ -419,7 +491,6 @@ func main() {
 	mis2[2] = "b"
 	fmt.Printf("%v,%T\n", unsafe.Sizeof(mis2), mis2) //8,map[int]string
 }
-
 ```
 
 
