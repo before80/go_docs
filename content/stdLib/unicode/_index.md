@@ -18,7 +18,7 @@ Package unicode provides data and functions to test some properties of Unicode c
 
 Functions starting with "Is" can be used to inspect which table of range a rune belongs to. Note that runes may fit into more than one range.
 
-​	以 "Is" 开头的函数可以用于检查一个 rune 属于哪个范围的表。请注意，一个 rune 可能适用于多个范围。
+​	以 "Is" 开头的函数可以用于检查一个 `rune`属于哪个范围的表。请注意，一个 `rune`可能适用于多个范围。
 
 ``` go 
 package main
@@ -634,7 +634,7 @@ func In(r rune, ranges ...*RangeTable) bool
 
 In reports whether the rune is a member of one of the ranges.
 
-​	`In`函数报告符文是否属于其中一个范围。
+​	`In`函数报告`rune`是否属于其中一个范围。
 
 ### func Is 
 
@@ -644,7 +644,7 @@ func Is(rangeTab *RangeTable, r rune) bool
 
 Is reports whether the rune is in the specified table of ranges.
 
-​	`Is`函数报告符文是否在指定的范围表中。
+​	`Is`函数报告`rune`是否在指定的范围表中。
 
 ### func IsControl 
 
@@ -654,7 +654,7 @@ func IsControl(r rune) bool
 
 IsControl reports whether the rune is a control character. The C (Other) Unicode category includes more code points such as surrogates; use Is(C, r) to test for them.
 
-​	`IsControl`函数报告符文是否为控制字符。C (Other) Unicode类别包括更多的码点，例如代理项；使用`Is(C, r)` 进行测试。
+​	`IsControl`函数报告`rune`是否为控制字符。C (Other) Unicode类别包括更多的码点，例如代理项；使用`Is(C, r)` 进行测试。
 
 ### func IsDigit 
 
@@ -664,7 +664,7 @@ func IsDigit(r rune) bool
 
 IsDigit reports whether the rune is a decimal digit.
 
-​	`IsDigit`函数报告符文是否为十进制数字。
+​	`IsDigit`函数报告`rune`是否为十进制数字。
 
 #### IsDigit Example
 ``` go 
@@ -693,7 +693,7 @@ func IsGraphic(r rune) bool
 
 IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such characters include letters, marks, numbers, punctuation, symbols, and spaces, from categories L, M, N, P, S, Zs.
 
-​	`IsGraphic`函数报告符文是否根据Unicode定义为图形字符。这些字符包括类别L、M、N、P、S、Zs的字母、标记、数字、标点、符号和空格。
+​	`IsGraphic`函数报告`rune`是否根据Unicode定义为图形字符。这些字符包括类别L、M、N、P、S、Zs的字母、标记、数字、标点、符号和空格。
 
 ### func IsLetter 
 
@@ -703,7 +703,7 @@ func IsLetter(r rune) bool
 
 IsLetter reports whether the rune is a letter (category L).
 
-​	`IsLetter`函数报告符文是否为字母(类别L)。
+​	`IsLetter`函数报告`rune`是否为字母(类别L)。
 
 #### IsLetter Example
 ``` go 
@@ -732,7 +732,7 @@ func IsLower(r rune) bool
 
 IsLower reports whether the rune is a lower case letter.
 
-​	`IsLower`函数报告符文是否为小写字母。
+​	`IsLower`函数报告`rune`是否为小写字母。
 
 #### IsLower Example
 ``` go 
@@ -761,7 +761,7 @@ func IsMark(r rune) bool
 
 IsMark reports whether the rune is a mark character (category M).
 
-​	`IsMark`函数报告符文是否为标记字符(类别M)。
+​	`IsMark`函数报告`rune`是否为标记字符(类别M)。
 
 ### func IsNumber 
 
@@ -771,7 +771,7 @@ func IsNumber(r rune) bool
 
 IsNumber reports whether the rune is a number (category N).
 
-​	`IsNumber`函数报告符文是否为数字(类别N)。
+​	`IsNumber`函数报告`rune`是否为数字(类别N)。
 
 #### IsNumber Example
 ``` go 
@@ -800,7 +800,7 @@ func IsOneOf(ranges []*RangeTable, r rune) bool
 
 IsOneOf reports whether the rune is a member of one of the ranges. The function "In" provides a nicer signature and should be used in preference to IsOneOf.
 
-​	`IsOneOf`函数报告符文是否属于其中一个范围。函数"In"提供了更好的签名，应优先使用IsOneOf。
+​	`IsOneOf`函数报告符文是否属于其中一个范围。函数"In"提供了更好的签名，应优先使用`IsOneOf`。
 
 ### func IsPrint 
 
@@ -871,7 +871,7 @@ func IsSymbol(r rune) bool
 
 IsSymbol reports whether the rune is a symbolic character.
 
-​	`IsSymbol`函数判断rune是否为Unicode符号字符。
+​	`IsSymbol`函数判断`rune`是否为Unicode符号字符。
 
 ### func IsTitle 
 
@@ -881,7 +881,7 @@ func IsTitle(r rune) bool
 
 IsTitle reports whether the rune is a title case letter.
 
-​	`IsTitle`函数判断rune是否为Unicode标题大小写字母。
+​	`IsTitle`函数判断`rune`是否为Unicode标题大小写字母。
 
 #### IsTitle Example
 ``` go 
@@ -910,9 +910,6 @@ func IsUpper(r rune) bool
 
 IsUpper reports whether the rune is an upper case letter.
 
-​	`IsUpper`函数判断rune是否为Unicode大写字母。
-
-#### IsUpper Example
 ``` go 
 package main
 
@@ -939,7 +936,7 @@ func SimpleFold(r rune) rune
 
 SimpleFold iterates over Unicode code points equivalent under the Unicode-defined simple case folding. Among the code points equivalent to rune (including rune itself), SimpleFold returns the smallest rune > r if one exists, or else the smallest rune >= 0. If r is not a valid Unicode code point, SimpleFold(r) returns r.
 
-​	`SimpleFold`函数迭代Unicode定义的简单大小写折叠等效的Unicode码点。在等效于rune(包括rune本身)的码点中，如果存在一个最小的大于`r`的rune，则`SimpleFold`函数返回该rune，否则返回最小的`rune>=0`。如果`r`不是有效的Unicode码点，则`SimpleFold(r)`返回`r`。
+​	`SimpleFold`遍历Unicode定义的简单大小写折叠下相等的Unicode码点。在与`rune`相等的码点（包括`rune`本身）中，如果存在比`r`大的最小的`rune`，`SimpleFold`就返回该`rune`，否则返回大于等于`0`的最小的`rune`。如果`r`不是有效的Unicode码点，`SimpleFold(r)`返回`r`。
 
 For example:
 
@@ -992,7 +989,7 @@ func To(_case int, r rune) rune
 
 To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 
-​	`To`函数将rune映射到指定的大小写：`UpperCase`，`LowerCase`或`TitleCase`。
+​	`To`函数将`rune`映射到指定的大小写：`UpperCase`，`LowerCase`或`TitleCase`。
 
 #### To Example
 ``` go 
@@ -1033,7 +1030,7 @@ func ToLower(r rune) rune
 
 ToLower maps the rune to lower case.
 
-​	`ToLower`函数将rune映射为小写字母。
+​	`ToLower`函数将`rune`映射为小写字母。
 
 #### ToLower  Example
 ``` go 
@@ -1062,7 +1059,7 @@ func ToTitle(r rune) rune
 
 ToTitle maps the rune to title case.
 
-​	`ToTitle`函数将rune映射为标题大小写。
+​	`ToTitle`函数将`rune`映射为标题大小写。
 
 #### ToTitle Example
 ``` go 
@@ -1091,7 +1088,7 @@ func ToUpper(r rune) rune
 
 ToUpper maps the rune to upper case.
 
-​	`ToUpper`函数将rune映射为大写字母。
+​	`ToUpper`函数将`rune`映射为大写字母。
 
 #### ToUpper Example
 ``` go 
@@ -1226,7 +1223,7 @@ func (special SpecialCase) ToLower(r rune) rune
 
 ToLower maps the rune to lower case giving priority to the special mapping.
 
-​	`ToLower`方法将符文映射为小写字母，优先考虑特殊映射。
+​	`ToLower`方法将`rune`映射为小写字母，优先考虑特殊映射。
 
 #### (SpecialCase) ToTitle 
 
@@ -1236,7 +1233,7 @@ func (special SpecialCase) ToTitle(r rune) rune
 
 ToTitle maps the rune to title case giving priority to the special mapping.
 
-​	`ToTitle`方法将符文映射为标题大小写，优先考虑特殊映射。
+​	`ToTitle`方法将`rune`映射为标题大小写，优先考虑特殊映射。
 
 #### (SpecialCase) ToUpper 
 
@@ -1246,7 +1243,7 @@ func (special SpecialCase) ToUpper(r rune) rune
 
 ToUpper maps the rune to upper case giving priority to the special mapping.
 
-​	`ToUpper`方法将符文映射为大写字母，优先考虑特殊映射。
+​	`ToUpper`方法将`rune`映射为大写字母，优先考虑特殊映射。
 
 ## Notes
 

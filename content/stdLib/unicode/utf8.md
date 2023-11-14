@@ -261,7 +261,7 @@ func EncodeRune(p []byte, r rune) int
 
 EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune. If the rune is out of range, it writes the encoding of RuneError. It returns the number of bytes written.
 
-​	`EncodeRune`函数将符文的UTF-8编码写入`p`(`p`必须足够大)。如果符文超出范围，则写入`RuneError`的编码。返回写入的字节数。
+​	`EncodeRune`函数将`rune`的UTF-8编码写入`p`(`p`必须足够大)。如果`rune`超出范围，则写入`RuneError`的编码。返回写入的字节数。
 
 #### EncodeRune Example
 ``` go 
@@ -475,7 +475,7 @@ func RuneStart(b byte) bool
 
 RuneStart reports whether the byte could be the first byte of an encoded, possibly invalid rune. Second and subsequent bytes always have the top two bits set to 10.
 
-​	`RuneStart`函数报告字节是否可以是编码的第一个字节，可能无效。第二个及后续字节的前两位始终设置为`10`。
+​	`RuneStart`函数报告这个字节是否可能是编码的（可能是无效的）`rune`的第一个字节。第二个和随后的字节总是将最高的两位设置为`10`。
 
 #### RuneStart Example
 ``` go 
@@ -539,7 +539,13 @@ func ValidRune(r rune) bool
 
 ValidRune reports whether r can be legally encoded as UTF-8. Code points that are out of range or a surrogate half are illegal.
 
-​	`ValidRune`函数报告r是否可以合法地编码为UTF-8。超出范围或替代字符的一半的代码点是非法的。
+​	`ValidRune`函数报告`r`是否可以合法地编码为UTF-8。超出范围或代理对的一半的代码点是非法的。
+
+> 个人注释
+>
+> ​	**surrogate half 是指“代理对的一半”**。在UTF-16编码中，某些Unicode字符需要用两个16位代码单元来表示，这种特殊的两个代码单元的组合被称为代理对（surrogate pair）。而"surrogate half"就是指这个代理对中的一个16位代码单元。
+>
+> ​	代理项（Surrogate），是Unicode编码方式之一UTF-16中的特殊概念，主要用于表示那些无法用单个16位单元完全表示的字符。在UTF-16编码中，为补充字符分配两个16位的Unicode代码单元：第一个代码单元被称为高代理项代码单元或前导代码单元；而第二个代码单元则被称为低代理项代码单元或后随代码单元。当某个字符的编号大于65536时，就会使用这两个代理项来共同表示，这种表示方法称为"代理对"。如果某程序在处理这类16位项目时遇到值在0xD800到0xDFFF范围内的数值，那么它就会知道需要将其与前一个或后一个16位值配对，从而获取完整的字符信息。
 
 #### ValidRune Example
 ``` go 

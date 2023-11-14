@@ -31,7 +31,7 @@ func AppendRune(a []uint16, r rune) []uint16
 
 AppendRune appends the UTF-16 encoding of the Unicode code point r to the end of p and returns the extended buffer. If the rune is not a valid Unicode code point, it appends the encoding of U+FFFD.
 
-​	`AppendRune`函数将Unicode码点r的UTF-16编码追加到`a`的末尾，并返回扩展后的缓冲区。如果r不是有效的Unicode码点，则追加`U+FFFD`的编码。
+​	`AppendRune`函数将Unicode码点r的UTF-16编码追加到`a`的末尾，并返回扩展后的缓冲区。如果`r`不是有效的Unicode码点，则追加`U+FFFD`的编码。
 
 ### func Decode 
 
@@ -71,7 +71,7 @@ func EncodeRune(r rune) (r1, r2 rune)
 
 EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune. If the rune is not a valid Unicode code point or does not need encoding, EncodeRune returns U+FFFD, U+FFFD.
 
-​	`EncodeRune`函数返回给定rune的UTF-16代理对r1、r2。如果rune不是有效的Unicode码点或不需要编码，则`EncodeRune`返回`U+FFFD`、`U+FFFD`。
+​	`EncodeRune`函数返回给定rune的UTF-16代理对`r1`、`r2`。如果`rune`不是有效的Unicode码点或不需要编码，则`EncodeRune`返回`U+FFFD`，`U+FFFD`。
 
 ### func IsSurrogate 
 
