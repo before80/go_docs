@@ -1491,15 +1491,15 @@ type T struct {
 
 T is a type passed to Test functions to manage test state and support formatted test logs.
 
-​	T结构体是传递给测试函数以管理测试状态并支持格式化测试日志的类型。
+​	`T`结构体是传递给测试函数以管理测试状态并支持格式化测试日志的类型。
 
 A test ends when its Test function returns or calls any of the methods FailNow, Fatal, Fatalf, SkipNow, Skip, or Skipf. Those methods, as well as the Parallel method, must be called only from the goroutine running the Test function.
 
-​	当Test函数返回或调用任何FailNow方法、Fatal方法、Fatalf方法、SkipNow方法、Skip方法或Skipf方法时，测试结束。这些方法以及Parallel方法只能从运行Test函数的goroutine中调用。
+​	当Test函数返回或调用任何`FailNow`方法、`Fatal`方法、`Fatalf`方法、`SkipNow`方法、`Skip`方法或`Skipf`方法时，测试结束。这些方法以及`Parallel`方法只能从运行Test函数的goroutine中调用。
 
 The other reporting methods, such as the variations of Log and Error, may be called simultaneously from multiple goroutines.
 
-​	其他报告方法，如Log方法和Error方法的变体，可以同时从多个goroutine调用。
+​	其他报告方法，如`Log`方法和`Error`方法的变体，可以同时从多个goroutine调用。
 
 #### (*T) Cleanup  <- go1.14
 
@@ -1509,7 +1509,28 @@ func (c *T) Cleanup(f func())
 
 Cleanup registers a function to be called when the test (or subtest) and all its subtests complete. Cleanup functions will be called in last added, first called order.
 
-​	Cleanup方法注册一个函数，在测试(或子测试)及其所有子测试完成时调用。Cleanup方法将按照最后添加、最先调用的顺序调用。
+​	`Cleanup`方法注册一个函数，在测试(或子测试)及其所有子测试完成时调用。`Cleanup`方法将按照最后添加、最先调用的顺序调用。
+
+##### Cleanup  My Example 
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试开始时执行一些准备工作
+
+    t.Cleanup(func() {
+        // 在测试结束时执行清理工作
+        // 这个函数将在测试函数返回或调用 t.FailNow、t.Fatal、t.Fatalf、t.SkipNow、t.Skip、t.Skipf 时执行
+        // 通常用于释放资源、关闭连接等收尾工作
+    })
+
+    // 测试代码
+
+    // 如果测试失败，t.Cleanup 中注册的清理函数将被执行
+    // 如果测试通过，t.Cleanup 中注册的清理函数也会被执行
+}
+```
+
+
 
 #### (*T) Deadline  <- go1.15
 
@@ -1523,7 +1544,66 @@ Deadline reports the time at which the test binary will have exceeded the timeou
 
 The ok result is false if the -timeout flag indicates “no timeout” (0).
 
-​	如果`-timeout`标志指示"no timeout"(0)，则ok结果为false。
+​	如果`-timeout`标志指示"no timeout"(0)，则`ok`结果为`false`。
+
+##### Deadline My Example 	
+
+​	超时设置可帮助确保测试在合理的时间内完成，避免无限执行时间导致的问题。
+
+```go
+func TestAbsDeadline(t *testing.T) {
+	t.Logf("nowtime=%v", time.Now())
+	time.Sleep(5 * time.Second)
+	got := Abs(-1)
+	// 获取测试函数的截止时间
+	deadline, ok := t.Deadline()
+	t.Logf("deadline=%v,ok=%v", deadline, ok)
+
+	if !ok {
+		t.Fatal("Test deadline not set") // 如果截止时间未设置，标记测试失败
+	}
+
+	// 计算距离截止时间的剩余时间
+	remainingTime := time.Until(deadline)
+
+	// 在测试代码中使用截止时间的信息
+	if remainingTime < 0 {
+		t.Fatal("Test has exceeded the deadline") // 如果超过了截止时间，标记测试失败
+	}
+
+	// 其他测试逻辑...
+	if got != 1 {
+		t.Fatalf("Abs(-1) = %f; want 1", got)
+	}
+	// 如果测试通过，截止时间方法也会被执行
+	deadline, ok = t.Deadline()
+	t.Logf("deadline=%v,ok=%v", deadline, ok)
+}
+```
+
+​	请注意，超时时间的设置是可选的，如果不设置，默认情况下测试不会超时（但目前我在go1.21.4中发现，若没有设置`-timeout`，则默认为`-timeout=10m`）。
+
+```cmd
+PS F:\Devs\MyCodes\gin_learn\test\unit> go test -v
+=== RUN   TestAbsDeadline
+    unit_test.go:21: nowtime=2023-12-11 18:32:22.657096 +0800 CST m=+0.005378001
+    unit_test.go:26: deadline=2023-12-11 18:42:22.6565738 +0800 CST m=+600.004855801,ok=true
+    unit_test.go:46: deadline=2023-12-11 18:42:22.6565738 +0800 CST m=+600.004855801,ok=true
+--- PASS: TestAbsDeadline (5.04s)
+PASS
+ok      github.com/before80/test/unit   5.106s
+
+
+PS F:\Devs\MyCodes\gin_learn\test\unit> go test -v -timeout=10m
+=== RUN   TestAbsDeadline
+    unit_test.go:21: nowtime=2023-12-11 18:35:10.9793265 +0800 CST m=+0.005418601
+    unit_test.go:26: deadline=2023-12-11 18:45:10.9788156 +0800 CST m=+600.004907701,ok=true
+    unit_test.go:46: deadline=2023-12-11 18:45:10.9788156 +0800 CST m=+600.004907701,ok=true
+--- PASS: TestAbsDeadline (5.03s)
+PASS
+ok      github.com/before80/test/unit   5.083s
+
+```
 
 #### (*T) Error 
 
@@ -1533,7 +1613,49 @@ func (c *T) Error(args ...any)
 
 Error is equivalent to Log followed by Fail.
 
-​	Error方法等同于Log方法后面跟着Fail方法。
+​	`Error`方法等同于`Log`方法后面跟着`Fail`方法。
+
+##### Error My Example
+
+```go
+
+func TestAbsError(t *testing.T) {
+	tests := []struct {
+		x     float64
+		want  float64
+		eWant float64
+	}{
+		{-0.1, 0.1, -0.1},
+		{-2, 2, -2},
+		{-0.3, 0.3, -0.3},
+		{-4, 4, -4},
+		{-0.5, 0.5, -0.5},
+	}
+
+	for _, tt := range tests {
+		if got := Abs(tt.x); got != tt.eWant {
+			t.Error("Abs(", tt.x, ") = ", got, "; want ", tt.want)
+		}
+	}
+}
+```
+
+```cmd
+PS F:\Devs\MyCodes\gin_learn\test\unit> go test -v
+=== RUN   TestAbsError
+    unit_test.go:63: Abs( -0.1 ) =  0.1 ; want  0.1
+    unit_test.go:63: Abs( -2 ) =  2 ; want  2
+    unit_test.go:63: Abs( -0.3 ) =  0.3 ; want  0.3
+    unit_test.go:63: Abs( -4 ) =  4 ; want  4
+    unit_test.go:63: Abs( -0.5 ) =  0.5 ; want  0.5
+--- FAIL: TestAbsError (0.00s)
+FAIL
+exit status 1
+FAIL    github.com/before80/test/unit   0.062s
+
+```
+
+
 
 #### (*T) Errorf 
 
@@ -1543,7 +1665,47 @@ func (c *T) Errorf(format string, args ...any)
 
 Errorf is equivalent to Logf followed by Fail.
 
-​	Errorf方法等同于Logf方法后跟Fail方法。
+​	`Errorf`方法等同于`Logf`方法后跟`Fail`方法。
+
+##### Errorf My Example
+
+```go
+func TestAbsErrorf(t *testing.T) {
+	tests := []struct {
+		x     float64
+		want  float64
+		eWant float64
+	}{
+		{-0.1, 0.1, -0.1},
+		{-2, 2, -2},
+		{-0.3, 0.3, -0.3},
+		{-4, 4, -4},
+		{-0.5, 0.5, -0.5},
+	}
+
+	for _, tt := range tests {
+		if got := Abs(tt.x); got != tt.eWant {
+			t.Errorf("Abs(%v) = %v; want %v", tt.x, got, tt.want)
+		}
+	}
+}
+```
+
+```cmd
+PS F:\Devs\MyCodes\gin_learn\test\unit> go test -v
+=== RUN   TestAbsError
+    unit_test.go:64: Abs(-0.1) = 0.1; want 0.1
+    unit_test.go:64: Abs(-2) = 2; want 2
+    unit_test.go:64: Abs(-0.3) = 0.3; want 0.3
+    unit_test.go:64: Abs(-4) = 4; want 4
+    unit_test.go:64: Abs(-0.5) = 0.5; want 0.5
+--- FAIL: TestAbsError (0.00s)
+FAIL
+exit status 1
+FAIL    github.com/before80/test/unit   0.055s
+```
+
+
 
 #### (*T) Fail 
 
@@ -1553,9 +1715,28 @@ func (c *T) Fail()
 
 Fail marks the function as having failed but continues execution.
 
-​	Fail方法标记函数已经失败，但继续执行。
+​	`Fail`方法标记函数已经失败，但继续执行。
 
-#### (*T) FailNow 
+##### Fail My Example
+
+```go
+func TestExample(t *testing.T) {
+	// 在测试代码中执行一些逻辑...
+
+	// 如果满足某些条件，标记测试失败
+	if someCondition {
+		t.Fail() // 标记测试失败
+	}
+
+	// 继续执行其他测试代码...
+
+	// 如果测试通过，Fail 方法不会终止测试，测试会继续执行
+}
+```
+
+
+
+#### (*T) FailNow <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) FailNow()
@@ -1563,7 +1744,26 @@ func (c *T) FailNow()
 
 FailNow marks the function as having failed and stops its execution by calling runtime.Goexit (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.
 
-​	FailNow方法标记函数已经失败并通过调用runtime.Goexit(然后在当前goroutine中运行所有延迟调用)停止其执行。执行将继续在下一个测试或基准测试上。FailNow方法必须从运行测试或基准测试函数的goroutine中调用，而不是从在测试期间创建的其他goroutine中调用。调用FailNow方法不会停止这些其他goroutine。
+​	`FailNow`方法标记函数已经失败并通过调用`runtime.Goexit`(然后在当前goroutine中运行所有延迟调用)停止其执行。执行将继续在下一个测试或基准测试上。`FailNow`方法必须从运行测试或基准测试函数的goroutine中调用，而不是从在测试期间创建的其他goroutine中调用。调用`FailNow`方法不会停止这些其他goroutine。
+
+##### FailNow My Example 
+
+```go
+func TestExample(t *testing.T) {
+	// 在测试代码中执行一些逻辑...
+
+	// 如果满足某些条件，标记测试失败并立即终止本测试函数的测试
+	if someCondition {
+		t.FailNow() // 标记测试失败并立即终止本测试函数的测试
+	}
+
+	// 以下代码不会被执行，因为本测试函数已经被终止
+
+	// 但会继续执行其他测试函数的代码...
+}
+```
+
+
 
 #### (*T) Failed 
 
@@ -1573,9 +1773,32 @@ func (c *T) Failed() bool
 
 Failed reports whether the function has failed.
 
-​	Failed方法返回当前测试是否失败。
+​	`Failed`方法返回当前测试是否失败。
 
-#### (*T) Fatal 
+##### Failed My Example
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试代码中执行一些逻辑...
+
+    // 如果满足某些条件，标记测试失败
+    if someCondition {
+        t.Fail() // 标记测试失败
+    }
+
+    // 在后续的代码中检查测试是否失败
+    if t.Failed() {
+        // 在这里处理测试失败的逻辑
+        t.Logf("Test failed: %v", someValue)
+    }
+
+    // 继续执行其他测试函数的代码...
+}
+```
+
+
+
+#### (*T) Fatal  <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) Fatal(args ...any)
@@ -1583,9 +1806,30 @@ func (c *T) Fatal(args ...any)
 
 Fatal is equivalent to Log followed by FailNow.
 
-​	Fatal方法等同于 Log方法后跟FailNow方法。
+​	`Fatal`方法等同于 `Log`方法后跟`FailNow`方法。
 
-#### (*T) Fatalf 
+
+
+##### Fatal My Example
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试代码中执行一些逻辑...
+
+    // 如果满足某些条件，标记测试失败并立即终止本测试函数的测试
+    if someCondition {
+        t.Fatal("Test failed: some condition not met") // 标记测试失败并立即终止本测试函数的测试
+    }
+
+    // 以下代码不会被执行，因为本测试函数已经被终止
+
+    // 但会继续执行其他测试函数的代码...
+}
+```
+
+
+
+#### (*T) Fatalf <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) Fatalf(format string, args ...any)
@@ -1593,7 +1837,26 @@ func (c *T) Fatalf(format string, args ...any)
 
 Fatalf is equivalent to Logf followed by FailNow.
 
-​	Fatalf方法等同于 Logf方法后跟 FailNow方法。
+​	`Fatalf`方法等同于 `Logf`方法后跟 `FailNow`方法。
+
+##### Fatalf My Example
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试代码中执行一些逻辑...   
+
+    // 如果满足某些条件，标记测试失败并立即终止本测试函数的测试
+    if someCondition {
+        t.Fatalf("Test failed: %s", "some condition not met") // 标记测试失败并立即终止本测试函数的测试
+    }
+
+    // 以下代码不会被执行，因为本测试函数已经被终止
+
+    // 但会继续执行其他测试函数的代码...
+}
+```
+
+
 
 #### (*T) Helper  <- go1.9
 
@@ -1603,7 +1866,25 @@ func (c *T) Helper()
 
 Helper marks the calling function as a test helper function. When printing file and line information, that function will be skipped. Helper may be called simultaneously from multiple goroutines.
 
-​	Helper方法标记调用该函数的函数为测试帮助函数。在打印文件和行信息时，该函数将被跳过。多个 goroutine 可以同时调用 Helper方法。
+​	`Helper`方法标记调用该函数的函数为测试帮助函数。在打印文件和行信息时，该函数将被跳过。多个 goroutine 可以同时调用 `Helper`方法。
+
+```go
+func failExample(t *testing.T) {
+    // 在测试辅助函数中调用 Helper 方法
+    t.Helper()
+
+    // 在测试辅助函数中发现测试失败的情况
+    // 这里使用 t.Error 方法模拟测试失败
+    t.Error("This is a helper function example")
+}
+
+func TestHelperExample(t *testing.T) {
+    // 在测试函数中调用测试辅助函数
+    failExample(t)
+}
+```
+
+
 
 #### (*T) Log 
 
@@ -1613,7 +1894,27 @@ func (c *T) Log(args ...any)
 
 Log formats its arguments using default formatting, analogous to Println, and records the text in the error log. For tests, the text will be printed only if the test fails or the -test.v flag is set. For benchmarks, the text is always printed to avoid having performance depend on the value of the -test.v flag.
 
-​	Log方法使用默认格式化方式格式化其参数，类似于 Println，然后将文本记录在错误日志中。对于测试，只有在测试失败或 `-test.v` 标志设置时才会打印该文本。对于基准测试，总是会打印该文本，以避免性能受到 `-test.v` 标志值的影响。
+​	`Log`方法使用默认格式化方式格式化其参数，类似于 `Println`，然后将文本记录在错误日志中。对于测试，只有在测试失败或 `-test.v` 标志设置时才会打印该文本。对于基准测试，总是会打印该文本，以避免性能受到 `-test.v` 标志值的影响。
+
+> 个人注释
+>
+> ​	这里的`-test.v`即`-v`。
+
+##### Log  My Example
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试代码中执行一些逻辑...   
+
+    t.Log("This is a log message with a value: ", 42)
+
+    // 以下代码会被执行
+
+    // 继续执行其他测试函数的代码...
+}
+```
+
+
 
 #### (*T) Logf 
 
@@ -1623,7 +1924,27 @@ func (c *T) Logf(format string, args ...any)
 
 Logf formats its arguments according to the format, analogous to Printf, and records the text in the error log. A final newline is added if not provided. For tests, the text will be printed only if the test fails or the -test.v flag is set. For benchmarks, the text is always printed to avoid having performance depend on the value of the -test.v flag.
 
-​	Logf方法根据格式进行参数格式化，类似于 Printf，然后将文本记录在错误日志中。如果未提供最后的换行符，则添加一个。对于测试，只有在测试失败或 `-test.v` 标志设置时才会打印该文本。对于基准测试，总是会打印该文本，以避免性能受到 `-test.v` 标志值的影响。
+​	`Logf`方法根据格式进行参数格式化，类似于 `Printf`，然后将文本记录在错误日志中。如果未提供最后的换行符，则添加一个。对于测试，只有在测试失败或 `-test.v` 标志设置时才会打印该文本。对于基准测试，总是会打印该文本，以避免性能受到 `-test.v` 标志值的影响。
+
+> 个人注释
+>
+> ​	这里的`-test.v`即`-v`。
+
+##### Logf  My Example
+
+```go
+func TestExample(t *testing.T) {
+    // 在测试代码中执行一些逻辑...   
+
+    t.Logf("This is a log message with a value: %d", 42)
+
+    // 以下代码会被执行
+
+    // 继续执行其他测试函数的代码...
+}
+```
+
+
 
 #### (*T) Name  <- go1.8
 
@@ -1633,13 +1954,53 @@ func (c *T) Name() string
 
 Name returns the name of the running (sub-) test or benchmark.
 
-​	Name方法返回当前运行的(子)测试或基准测试的名称。
+​	`Name`方法返回当前运行的(子)测试或基准测试的名称。
 
 The name will include the name of the test along with the names of any nested sub-tests. If two sibling sub-tests have the same name, Name will append a suffix to guarantee the returned name is unique.
 
-​	名称将包括测试的名称以及任何嵌套子测试的名称。如果两个同级别的子测试具有相同的名称，则 Name 方法将附加后缀以确保返回的名称是唯一的。
+​	名称将包括测试的名称以及任何嵌套子测试的名称。如果两个同级别的子测试具有相同的名称，则 `Name` 方法将附加后缀以确保返回的名称是唯一的。
 
-#### (*T) Parallel 
+##### Name My Example
+
+```go
+func TestAbsError(t *testing.T) {
+	// 使用 Name 方法获取当前测试函数的名称
+	testName := t.Name()
+	t.Logf("Running test: %s", testName)
+
+	tests := []struct {
+		x     float64
+		want  float64
+		eWant float64
+	}{
+		{-0.1, 0.1, -0.1},
+		{-2, 2, -2},
+		{-0.3, 0.3, -0.3},
+		{-4, 4, -4},
+		{-0.5, 0.5, -0.5},
+	}
+
+	for _, tt := range tests {
+		if got := Abs(tt.x); got != tt.want {
+			t.Errorf("Abs(%v) = %v; want %v", tt.x, got, tt.want)
+		}
+	}
+}
+```
+
+```cmd
+PS F:\Devs\MyCodes\gin_learn\test\unit> go test -v
+=== RUN   TestAbsError
+    unit_test.go:51: Running test: TestAbsError
+--- PASS: TestAbsError (0.00s)
+PASS
+ok      github.com/before80/test/unit   0.061s
+
+```
+
+
+
+#### (*T) Parallel <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (t *T) Parallel()
@@ -1647,7 +2008,15 @@ func (t *T) Parallel()
 
 Parallel signals that this test is to be run in parallel with (and only with) other parallel tests. When a test is run multiple times due to use of -test.count or -test.cpu, multiple instances of a single test never run in parallel with each other.
 
-​	Parallel方法表示该测试将与其他并行测试一起运行(且仅与其他并行测试一起运行)。当由于使用 `-test.count` 或 `-test.cpu` 而多次运行测试时，单个测试的多个实例永远不会彼此并行运行。
+​	`Parallel`方法表示该测试将与其他并行测试一起运行(且仅与其他并行测试一起运行)。当由于使用 `-test.count` 或 `-test.cpu` 而多次运行测试时，单个测试的多个实例永远不会彼此并行运行。
+
+##### Parallel My Example 
+
+```
+
+```
+
+
 
 #### (*T) Run  <- go1.7
 
@@ -1657,11 +2026,11 @@ func (t *T) Run(name string, f func(t *T)) bool
 
 Run runs f as a subtest of t called name. It runs f in a separate goroutine and blocks until f returns or calls t.Parallel to become a parallel test. Run reports whether f succeeded (or at least did not fail before calling t.Parallel).
 
-​	Run方法将`f`作为`t`的子测试运行，其名称为name。它在单独的goroutine中运行f并阻塞，直到`f`返回或调用`t.Parallel`成为并行测试。Run方法报告`f`是否成功(或至少在调用`t.Parallel`之前未失败)。
+​	`Run`方法将`f`作为`t`的子测试运行，其名称为`name`。它在单独的goroutine中运行f并阻塞，直到`f`返回或调用`t.Parallel`成为并行测试。`Run`方法报告`f`是否成功(或至少在调用`t.Parallel`之前未失败)。
 
 Run may be called simultaneously from multiple goroutines, but all such calls must return before the outer test function for t returns.
 
-​	Run方法可以同时从多个goroutine调用，但是所有这些调用必须在`t`返回外部测试函数之前返回。
+​	`Run`方法可以同时从多个goroutine调用，但是所有这些调用必须在`t`返回外部测试函数之前返回。
 
 #### (*T) Setenv  <- go1.17
 
@@ -1671,13 +2040,13 @@ func (t *T) Setenv(key, value string)
 
 Setenv calls os.Setenv(key, value) and uses Cleanup to restore the environment variable to its original value after the test.
 
-​	Setenv方法调用os.Setenv(key，value)并使用Cleanup将环境变量恢复为其原始值。测试完成后，Cleanup方法将在最后一个添加的函数优先调用的顺序下被调用。
+​	`Setenv`方法调用`os.Setenv(key，value)`并使用Cleanup将环境变量恢复为其原始值。测试完成后，`Cleanup`方法将在最后一个添加的函数优先调用的顺序下被调用。
 
 Because Setenv affects the whole process, it cannot be used in parallel tests or tests with parallel ancestors.
 
-​	由于Setenv方法会影响整个进程，因此它不能用于并行测试或具有并行祖先的测试。
+​	由于`Setenv`方法会影响整个进程，因此它不能用于并行测试或具有并行祖先的测试。
 
-#### (*T) Skip  <- go1.1
+#### (*T) Skip  <- go1.1 <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) Skip(args ...any)
@@ -1685,9 +2054,9 @@ func (c *T) Skip(args ...any)
 
 Skip is equivalent to Log followed by SkipNow.
 
-​	Skip方法等效于Log方法后跟SkipNow方法。
+​	`Skip`方法等效于`Log`方法后跟`SkipNow`方法。
 
-#### (*T) SkipNow  <- go1.1
+#### (*T) SkipNow  <- go1.1 <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) SkipNow()
@@ -1695,9 +2064,9 @@ func (c *T) SkipNow()
 
 SkipNow marks the test as having been skipped and stops its execution by calling runtime.Goexit. If a test fails (see Error, Errorf, Fail) and is then skipped, it is still considered to have failed. Execution will continue at the next test or benchmark. See also FailNow. SkipNow must be called from the goroutine running the test, not from other goroutines created during the test. Calling SkipNow does not stop those other goroutines.
 
-​	SkipNow方法将测试标记为已跳过，并通过调用runtime.Goexit停止其执行。如果测试失败(请参见Error，Errorf，Fail)，然后跳过它，仍将视为已失败。执行将继续在下一个测试或基准中进行。请参见FailNow。SkipNow方法必须从运行测试的goroutine中调用，而不是从测试期间创建的其他goroutine中调用。调用SkipNow不会停止这些其他goroutine。
+​	`SkipNow`方法将测试标记为已跳过，并通过调用`runtime.Goexit`停止其执行。如果测试失败(请参见`Error`，`Errorf`，`Fail`)，然后跳过它，仍将视为已失败。执行将继续在下一个测试或基准中进行。请参见`FailNow`。`SkipNow`方法必须从运行测试的goroutine中调用，而不是从测试期间创建的其他goroutine中调用。调用`SkipNow`不会停止这些其他goroutine。
 
-#### (*T) Skipf  <- go1.1
+#### (*T) Skipf  <- go1.1 <- 只能在Test函数的goroutine中调用
 
 ``` go 
 func (c *T) Skipf(format string, args ...any)
@@ -1705,7 +2074,7 @@ func (c *T) Skipf(format string, args ...any)
 
 Skipf is equivalent to Logf followed by SkipNow.
 
-​	Skipf方法等效于Logf方法后跟SkipNow方法。
+​	`Skipf`方法等效于`Logf`方法后跟`SkipNow`方法。
 
 #### (*T) Skipped  <- go1.1
 
@@ -1715,7 +2084,7 @@ func (c *T) Skipped() bool
 
 Skipped reports whether the test was skipped.
 
-​	Skipped方法报告测试是否已被跳过。
+​	`Skipped`方法报告测试是否已被跳过。
 
 #### (*T) TempDir  <- go1.15
 
@@ -1725,7 +2094,7 @@ func (c *T) TempDir() string
 
 TempDir returns a temporary directory for the test to use. The directory is automatically removed by Cleanup when the test and all its subtests complete. Each subsequent call to t.TempDir returns a unique directory; if the directory creation fails, TempDir terminates the test by calling Fatal.
 
-​	TempDir方法返回测试用于的临时目录。当测试及其所有子测试完成时，Cleanup方法会自动删除该目录。每个后续调用t.TempDir都会返回一个唯一的目录；如果目录创建失败，则TempDir方法通过调用Fatal方法终止测试。
+​	`TempDir`方法返回测试用于的临时目录。当测试及其所有子测试完成时，`Cleanup`方法会自动删除该目录。每个后续调用`t.TempDir`都会返回一个唯一的目录；如果目录创建失败，则`TempDir`方法通过调用`Fatal`方法终止测试。
 
 ### type TB  <- go1.2
 
