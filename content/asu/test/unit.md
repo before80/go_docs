@@ -47,4 +47,4 @@ func TestExample(t *testing.T) {
 }
 ```
 
-​	关于`T`结构体的详情，请参阅[type T]({{< ref "/stdLib/testing/testing/#type-t">}})。
+​	关于`T`结构体的详情，请参阅[type T]({{< ref "/stdLib/testing/testing#type-t">}})。
