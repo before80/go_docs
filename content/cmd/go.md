@@ -51,7 +51,7 @@ version     打印 Go 版本 print Go version
 vet         报告包中可能存在的错误 report likely mistakes in packages
 ```
 
-Use "go help <command>" for more information about a command.
+Use "`go help <command>`" for more information about a command.
 
 ​	使用"`go help <command>`"了解有关命令的更多信息。
 

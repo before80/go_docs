@@ -22,7 +22,7 @@ draft = false
 
 ## 测试标志
 
-​	另请参阅：[go命令中的go test部分]({{< ref "/cmd/go#go-test---测试包">}})  和 [go help testflag]({{< ref "/cmd/testflag">}})。
+​	另请参阅：[go命令中的go test部分]({{< ref "/cmd/go#go-test---测试包">}})  和 [go help testflag]({{< ref "/cmd/gohelptestflag">}})。
 
 ## 测试规范
 
