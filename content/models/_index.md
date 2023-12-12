@@ -1,5 +1,6 @@
 +++
 title = "什么是结构化思考"
+linkTitle="结构化思考"
 date = 2023-12-12T20:31:28+08:00
 type = "docs"
 description = ""
@@ -8,7 +9,6 @@ draft = true
 
 +++
 
-# 什么是结构化思考
 
 > TODO：待向视频博主询问是否可以将他的视频内容中的文字和图片发表在github上？
 >
