@@ -1,12 +1,15 @@
 +++
-title = "Everything You Always Wanted to Know About Type Inference - And a Little Bit More"
+title = "关于类型推断，你一直想知道的一切——以及更多"
 date = 2023-11-05T13:31:35+08:00
+weight = 78
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
 
 +++
+
+## Everything You Always Wanted to Know About Type Inference - And a Little Bit More
 
 [https://go.dev/blog/type-inference](https://go.dev/blog/type-inference)
 
