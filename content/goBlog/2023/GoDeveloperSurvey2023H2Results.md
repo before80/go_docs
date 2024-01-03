@@ -11,6 +11,8 @@ draft = false
 
 # Go Developer Survey 2023 H2 Results Go 开发者调查 2023 年下半年结果
 
+[https://go.dev/blog/survey2023-h2-results](https://go.dev/blog/survey2023-h2-results)
+
 Todd Kulesza
 5 December 2023
 
