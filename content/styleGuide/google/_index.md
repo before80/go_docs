@@ -17,7 +17,7 @@ The Go Style Guide and accompanying documents codify the current best approaches
 
 ​	Go 风格指南和随附文档编纂了编写可读且符合惯例的 Go 代码的当前最佳方法。遵守风格指南并非绝对的，并且这些文档永远不会详尽无遗。我们的目的是最大限度地减少编写可读 Go 代码的猜测，以便语言新手可以避免常见错误。风格指南还用于统一 Google 中任何审阅 Go 代码的人员提供的风格指导。
 
-| Document 文档                | Link 链接                                             | Primary Audience 主要受众        | [Normative 规范性](https://google.github.io/styleguide/go/#normative) | [Canonical 规范](https://google.github.io/styleguide/go/#canonical) |
+| Document 文档                | Link 链接                                             | Primary Audience 主要受众        | [Normative 规范性](https://google.github.io/styleguide/go/#normative) | [Canonical 权威性](https://google.github.io/styleguide/go/#canonical) |
 | ---------------------------- | ----------------------------------------------------- | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Style Guide 风格指南**     | https://google.github.io/styleguide/go/guide          | Everyone 每个人                  | Yes                                                          | Yes                                                          |
 | **Style Decisions 风格决策** | https://google.github.io/styleguide/go/decisions      | Readability Mentors 可读性导师   | Yes                                                          | No                                                           |
@@ -95,7 +95,7 @@ The following words, which are used throughout the style documents, are defined 
 
 - **Canonical**: Establishes prescriptive and enduring rules
 
-  ​	规范：建立规范性和持久性规则
+  ​	权威性：建立规范性和持久性规则
 
   Within these documents, “canonical” is used to describe something that is considered a standard that all code (old and new) should follow and that is not expected to change substantially over time. Principles in the canonical documents should be understood by authors and reviewers alike, so everything included within a canonical document must meet a high bar. As such, canonical documents are generally shorter and prescribe fewer elements of style than non-canonical documents.
 
@@ -129,7 +129,7 @@ The following words, which are used throughout the style documents, are defined 
 
 This guide assumes the reader is familiar with [Effective Go](https://go.dev/doc/effective_go), as it provides a common baseline for Go code across the entire Go community.
 
-​	本指南假定读者熟悉《有效的 Go》，因为它为整个 Go 社区中的 Go 代码提供了共同的基础线。
+​	本指南假定读者熟悉《高效的 Go》，因为它为整个 Go 社区中的 Go 代码提供了共同的基础线。
 
 Below are some additional resources for those looking to self-educate about Go style and for reviewers looking to provide further linkable context in their reviews. Participants in the Go readability process are not expected to be familiar with these resources, but they may arise as context in readability reviews.
 
