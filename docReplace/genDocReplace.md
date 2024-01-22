@@ -9,6 +9,33 @@ draft = false
 
 # 生成文档前的替换
 
+```
+{{< ref "">}}
+
+// 在浏览器控制台中执行以下代码
+var elements = document.querySelectorAll('p > font > font > font');
+
+elements.forEach(function(element) {        
+        var newline = document.createElement('br');
+        element.parentNode.insertBefore(newline, element);        
+        element.firstChild.nodeValue = '&zeroWidthSpace;' +element.firstChild.nodeValue;
+});
+
+
+```
+
+## 替换掉`&zeroWidthSpace;`
+
+```
+// 查找匹配如下字符
+&zeroWidthSpace;
+
+// 替换成 tab
+​	
+```
+
+
+
 ## 替换掉 ¶ 符
 
 ```
@@ -71,7 +98,7 @@ $1$3$4
 
 
 
-## 替换掉details嵌入的作为Exampe的html
+## 替换掉details嵌入的作为Example的html
 
 ````
 // 查找匹配如下正则表达式
@@ -120,10 +147,6 @@ const
 或
 ```
 var
-
-或
-```
-const
 
 
 // 分别在```后加上go

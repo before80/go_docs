@@ -1,5 +1,6 @@
 +++
-title = "example"
+title = "示例"
+linkTitle="示例"
 date = 2023-08-07T13:28:52+08:00
 type = "docs"
 description = ""

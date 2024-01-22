@@ -6,6 +6,8 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = true
+[menu.main]
+    weight = 9999
 
 +++
 
