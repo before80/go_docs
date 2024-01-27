@@ -17,6 +17,12 @@ draft = false
 
 ​	go基础语言，go第三方库，开发笔记，日志，测试，web开发，爬虫等介绍，特别是开发笔记，分场景进行了总结，存在借鉴参考的价值。
 
+
+
+## 精选的优秀文章和资源，用于学习和实践 Golang 及其相关技术。
+
+[https://mehdihadeli.github.io/awesome-go-education/](https://mehdihadeli.github.io/awesome-go-education/)  【推荐】
+
 ## shockerli/go-awesome: Go 语言优秀资源整理，为项目落地加速🏃
 
 [https://github.com/shockerli/go-awesome](https://github.com/shockerli/go-awesome)
@@ -38,6 +44,12 @@ draft = false
 [https://learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code](https://learn.microsoft.com/en-us/azure/developer/go/configure-visual-studio-code)
 
 ​	Configure Visual Studio Code for Go development。
+
+## www.practical-go-lessons.com
+
+[https://www.practical-go-lessons.com/](https://www.practical-go-lessons.com/)
+
+​	包含go语言各种语法。【推荐】
 
 ## www.golangprograms.com
 
