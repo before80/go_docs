@@ -8,6 +8,8 @@ draft = false
 
 +++
 
+> 原文：[https://www.lua.org/about.html](https://www.lua.org/about.html)
+
 ## What is Lua? Lua 是什么？
 
 Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.

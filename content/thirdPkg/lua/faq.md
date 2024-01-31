@@ -8,6 +8,8 @@ draft = false
 
 +++
 
+> 原文：
+
 # Frequently Asked Questions 常见问题
 
 Here are answers to some frequently asked questions about Lua.

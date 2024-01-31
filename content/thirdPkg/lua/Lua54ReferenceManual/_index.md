@@ -8,6 +8,8 @@ draft = false
 
 +++
 
+> 原文：[https://www.lua.org/manual/5.4/manual.html](https://www.lua.org/manual/5.4/manual.html)
+
 # Lua 5.4 Reference Manual 
 
 by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes
