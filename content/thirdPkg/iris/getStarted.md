@@ -25,7 +25,7 @@ The only requirement is the [Go Programming Language](https://go.dev/dl/), versi
 $ mkdir myapp
 $ cd myapp
 $ go mod init myapp
-$ go get github.com/kataras/iris/v12@latestCopy to clipboardErrorCopied
+$ go get github.com/kataras/iris/v12@latest
 ```
 
 Import it in your code:
@@ -33,7 +33,7 @@ Import it in your code:
 ​	在您的代码中导入它：
 
 ```go
-import "github.com/kataras/iris/v12"Copy to clipboardErrorCopied
+import "github.com/kataras/iris/v12"
 ```
 
 ### Troubleshooting 故障排除
@@ -43,7 +43,7 @@ If you get a network error during installation please make sure you set a valid 
 ​	如果在安装过程中出现网络错误，请确保设置了有效的 GOPROXY 环境变量。
 
 ```sh
-go env -w GOPROXY=https://goproxy.io,directCopy to clipboardErrorCopied
+go env -w GOPROXY=https://goproxy.io,direct
 ```
 
 Perform a clean of your go modules cache if none of the above worked:
@@ -51,14 +51,14 @@ Perform a clean of your go modules cache if none of the above worked:
 ​	如果上述方法均无效，请清除 go 模块缓存：
 
 ```sh
-go clean --modcacheCopy to clipboardErrorCopied
+go clean --modcache
 ```
 
 ## Quick start 快速入门
 
 ```sh
 # assume the following codes in main.go file
-$ cat main.goCopy to clipboardErrorCopied
+$ cat main.go
 package main
 
 import "github.com/kataras/iris/v12"
@@ -114,7 +114,7 @@ func create(ctx iris.Context) {
     println("Received Book: " + b.Title)
 
     ctx.StatusCode(iris.StatusCreated)
-}Copy to clipboardErrorCopied
+}
 ```
 
 **MVC** equivalent:
@@ -122,9 +122,9 @@ func create(ctx iris.Context) {
 ​	MVC 等价：
 
 ```go
-import "github.com/kataras/iris/v12/mvc"Copy to clipboardErrorCopied
+import "github.com/kataras/iris/v12/mvc"
 m := mvc.New(booksAPI)
-m.Handle(new(BookController))Copy to clipboardErrorCopied
+m.Handle(new(BookController))
 type BookController struct {
     /* dependencies */
 }
@@ -143,7 +143,7 @@ func (c *BookController) Post(b Book) int {
     println("Received Book: " + b.Title)
 
     return iris.StatusCreated
-}Copy to clipboardErrorCopied
+}
 ```
 
 **Run** your Iris web server:
@@ -153,7 +153,7 @@ func (c *BookController) Post(b Book) int {
 ```sh
 $ go run main.go
 > Now listening on: http://localhost:8080
-> Application started. Press CTRL+C to shut down.Copy to clipboardErrorCopied
+> Application started. Press CTRL+C to shut down.
 ```
 
 **List** Books:
@@ -173,7 +173,7 @@ $ curl --header 'Accept-Encoding:gzip' http://localhost:8080/books
   {
     "title": "Black Hat Go"
   }
-]Copy to clipboardErrorCopied
+]
 ```
 
 **Create** a new Book:
@@ -187,7 +187,7 @@ $ curl -i -X POST \
 --data "{\"title\":\"Writing An Interpreter In Go\"}" \
 http://localhost:8080/books
 
-> HTTP/1.1 201 CreatedCopy to clipboardErrorCopied
+> HTTP/1.1 201 Created
 ```
 
 That's how an **error** response looks like:
@@ -204,7 +204,7 @@ http://localhost:8080/books
   "status": 400,
   "title": "Book creation failure"
   "detail": "invalid character '\"' after object key",
-}Copy to clipboardErrorCopied
+}
 ```
 
 [![run in the browser](./getStarted_img/Run-in%20the%20Browser-348798.svgstyle=for-the-badge&logo=repl.svg)](https://replit.com/@kataras/Iris-Hello-World-v1220?v=1)
@@ -260,7 +260,7 @@ func main() {
     app.Options("/someOptions", options)
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Parameters in path 路径中的参数
@@ -290,7 +290,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 Builtin available parameter types:
@@ -339,7 +339,7 @@ func main() {
         ctx.Writef("Hello %s %s", firstname, lastname)
     })
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Multipart/Urlencoded Form Multipart/Urlencoded 表单
@@ -359,7 +359,7 @@ func main() {
         })
     })
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Another example: query + post form 另一个示例：查询 + post 表单
@@ -368,7 +368,7 @@ func main() {
 POST /post?id=1234&page=1 HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
-name=kataras&message=this_is_greatCopy to clipboardErrorCopied
+name=kataras&message=this_is_great
 func main() {
     app := iris.Default()
 
@@ -386,15 +386,15 @@ func main() {
         ctx.Writef("id: %d; page: %d; name: %s; message: %s", id, page, name, message)
     })
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
-id: 1234; page: 1; name: kataras; message: this_is_greatCopy to clipboardErrorCopied
+}
+id: 1234; page: 1; name: kataras; message: this_is_great
 ```
 
 ### Query and post form parameters 查询和 post 表单参数
 
 ```
 POST /post?id=a&id=b&id=c&name=john&name=doe&name=kataras
-Content-Type: application/x-www-form-urlencodedCopy to clipboardErrorCopied
+Content-Type: application/x-www-form-urlencoded
 func main() {
     app := iris.Default()
 
@@ -410,8 +410,8 @@ func main() {
         ctx.Writef("ids: %v; names: %v", ids, names)
     })
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
-ids: [a b c], names: [john doe kataras]Copy to clipboardErrorCopied
+}
+ids: [a b c], names: [john doe kataras]
 ```
 
 ### Upload files 上传文件
@@ -447,7 +447,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 How to `curl`:
@@ -457,7 +457,7 @@ How to `curl`:
 ```bash
 curl -X POST http://localhost:8080/upload \
   -F "file=@/Users/kataras/test.zip" \
-  -H "Content-Type: multipart/form-data"Copy to clipboardErrorCopied
+  -H "Content-Type: multipart/form-data"
 ```
 
 #### Multiple files 多个文件
@@ -480,7 +480,7 @@ func main() {
     })
 
     app.Listen(":8080", iris.WithPostMaxMemory(8 * iris.MB))
-}Copy to clipboardErrorCopied
+}
 ```
 
 How to `curl`:
@@ -491,7 +491,7 @@ How to `curl`:
 curl -X POST http://localhost:8080/upload \
   -F "upload[]=@/Users/kataras/test1.zip" \
   -F "upload[]=@/Users/kataras/test2.zip" \
-  -H "Content-Type: multipart/form-data"Copy to clipboardErrorCopied
+  -H "Content-Type: multipart/form-data"
 ```
 
 ### Grouping routes 分组路由
@@ -517,7 +517,7 @@ func main() {
     }
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Blank Iris without middleware by default 默认情况下，空白 Iris 不带中间件
@@ -525,7 +525,7 @@ func main() {
 Use
 
 ```go
-app := iris.New()Copy to clipboardErrorCopied
+app := iris.New()
 ```
 
 instead of
@@ -538,7 +538,7 @@ instead of
 // and HTML templates on "./views" or "./templates" directory.
 // It runs with the AccessLog on "./access.log",
 // Recovery and Request ID middleware already attached.
-app := iris.Default()Copy to clipboardErrorCopied
+app := iris.Default()
 ```
 
 ### Using middleware 使用中间件
@@ -583,7 +583,7 @@ func main() {
 
     // Listen and serve on 0.0.0.0:8080
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Application File Logger 应用程序文件记录器
@@ -605,7 +605,7 @@ func main() {
     })
 
    app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Controlling Log output coloring 控制日志输出着色
@@ -627,7 +627,7 @@ import (
     "github.com/kataras/golog"
     "github.com/kataras/pio"
     // [...]
-)Copy to clipboardErrorCopied
+)
 ```
 
 Get a level to customize e.g. `DebugLevel`:
@@ -635,7 +635,7 @@ Get a level to customize e.g. `DebugLevel`:
 ​	获取要自定义的级别，例如 `DebugLevel` ：
 
 ```go
-level := golog.Levels[golog.DebugLevel]Copy to clipboardErrorCopied
+level := golog.Levels[golog.DebugLevel]
 ```
 
 You have full control over his text, title and style:
@@ -660,7 +660,7 @@ Title string
 // ColorCode a color for the `Title`.
 ColorCode int
 // Style one or more rich options for the `Title`.
-Style []pio.RichOptionCopy to clipboardErrorCopied
+Style []pio.RichOption
 ```
 
 Example Code:
@@ -671,21 +671,21 @@ Example Code:
 level := golog.Levels[golog.DebugLevel]
 level.Name = "debug" // default
 level.Title = "[DBUG]" // default
-level.ColorCode = pio.Yellow // defaultCopy to clipboardErrorCopied
+level.ColorCode = pio.Yellow // default
 ```
 
 **To change the output format:
 要更改输出格式：**
 
 ```go
-app.Logger().SetFormat("json", "    ")Copy to clipboardErrorCopied
+app.Logger().SetFormat("json", "    ")
 ```
 
 **To register a custom Formatter:
 要注册自定义格式化程序：**
 
 ```go
-app.Logger().RegisterFormatter(new(myFormatter))Copy to clipboardErrorCopied
+app.Logger().RegisterFormatter(new(myFormatter))
 ```
 
 The [golog.Formatter interface](https://github.com/kataras/golog/blob/master/formatter.go) looks like this:
@@ -702,7 +702,7 @@ type Formatter interface {
     Options(opts ...interface{}) Formatter
     // Writes the "log" to "dest" logger.
     Format(dest io.Writer, log *Log) bool
-}Copy to clipboardErrorCopied
+}
 ```
 
 **To change the output and the format per level:
@@ -710,7 +710,7 @@ type Formatter interface {
 
 ```go
 app.Logger().SetLevelOutput("error", os.Stderr)
-app.Logger().SetLevelFormat("json")Copy to clipboardErrorCopied
+app.Logger().SetLevelFormat("json")
 ```
 
 ### Request Logging 请求日志记录
@@ -780,7 +780,7 @@ func main() {
 
 func indexHandler(ctx iris.Context) {
     ctx.WriteString("OK")
-}Copy to clipboardErrorCopied
+}
 ```
 
 Read more examples at: [_examples/logging/request-logger](https://github.com/kataras/iris/tree/main/_examples/logging/request-logger).
@@ -801,7 +801,7 @@ ReadMsgPack(ptr interface{}) error
 ReadXML(outPtr interface{}) error
 ReadYAML(outPtr interface{}) error
 ReadForm(formObject interface{}) error
-ReadQuery(ptr interface{}) errorCopy to clipboardErrorCopied
+ReadQuery(ptr interface{}) error
 ```
 
 When using the `ReadBody`, Iris tries to infer the binder depending on the Content-Type header. If you are sure what you are binding, you can use the specific `ReadXXX` methods, e.g. `ReadJSON` or `ReadProtobuf` and e.t.c.
@@ -809,7 +809,7 @@ When using the `ReadBody`, Iris tries to infer the binder depending on the Conte
 ​	使用 `ReadBody` 时，Iris 会尝试根据 Content-Type 标头推断绑定器。如果您确定要绑定什么，可以使用特定的 `ReadXXX` 方法，例如 `ReadJSON` 或 `ReadProtobuf` 等。
 
 ```go
-ReadBody(ptr interface{}) errorCopy to clipboardErrorCopied
+ReadBody(ptr interface{}) error
 ```
 
 Iris, wisely, not features a builtin data validation. However, it does allow you to attach a validator which will automatically called on methods like `ReadJSON`, `ReadXML`.... In this example we will learn how to use the [go-playground/validator/v10](https://www.iris-go.com/docs/(https://github.com/go-playground/validator)) for request body validation.
@@ -920,7 +920,7 @@ func postUser(ctx iris.Context) {
 func resolveErrorsDocumentation(ctx iris.Context) {
     ctx.WriteString("A page that should document to web developers or users of the API on how to resolve the validation errors")
 }
-Copy to clipboardErrorCopied
+
 ```
 
 **Sample request
@@ -939,7 +939,7 @@ Copy to clipboardErrorCopied
         "phone": "none",
         "city": "Unknown"
     }]
-}Copy to clipboardErrorCopied
+}
 ```
 
 **Sample response
@@ -969,7 +969,7 @@ Copy to clipboardErrorCopied
         "param": ""
     }
     ]
-}Copy to clipboardErrorCopied
+}
 ```
 
 Learn more about model validation at: https://github.com/go-playground/validator/blob/master/_examples
@@ -1007,7 +1007,7 @@ func index(ctx iris.Context) {
 
     ctx.Application().Logger().Infof("Person: %#+v", person)
     ctx.WriteString("Success")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Bind Any 绑定任何内容
@@ -1048,7 +1048,7 @@ func index(ctx iris.Context) {
 
     ctx.Application().Logger().Infof("Person: %#+v", person)
     ctx.WriteString("Success")
-}Copy to clipboardErrorCopied
+}
 ```
 
 Test it with:
@@ -1056,7 +1056,7 @@ Test it with:
 ​	使用以下内容进行测试：
 
 ```sh
-$ curl -X GET "localhost:8085/testing?name=kataras&address=xyz&birthday=1992-03-15&createTime=1562400033000000123&unixTime=1562400033"Copy to clipboardErrorCopied
+$ curl -X GET "localhost:8085/testing?name=kataras&address=xyz&birthday=1992-03-15&createTime=1562400033000000123&unixTime=1562400033"
 ```
 
 ### Bind URL Path Parameters 绑定 URL 路径参数
@@ -1086,14 +1086,14 @@ func main() {
         ctx.Writef("myParams: %#v", p)
     })
     app.Listen(":8088")
-}Copy to clipboardErrorCopied
+}
 ```
 
 **Request
 请求**
 
 ```sh
-$ curl -v http://localhost:8080/kataras/27/iris/web/frameworkCopy to clipboardErrorCopied
+$ curl -v http://localhost:8080/kataras/27/iris/web/framework
 ```
 
 ### Bind Header 绑定标题
@@ -1122,7 +1122,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 **Request
@@ -1130,7 +1130,7 @@ func main() {
 
 ```sh
 curl -H "x-request-id:373713f0-6b4b-42ea-ab9f-e2e04bc38e73" -H "authentication: Bearer my-token" \
-http://localhost:8080Copy to clipboardErrorCopied
+http://localhost:8080
 ```
 
 **Response
@@ -1140,7 +1140,7 @@ http://localhost:8080Copy to clipboardErrorCopied
 {
   "RequestID": "373713f0-6b4b-42ea-ab9f-e2e04bc38e73",
   "Authentication": "Bearer my-token"
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Bind HTML checkboxes 绑定 HTML 复选框
@@ -1180,7 +1180,7 @@ func handleForm(ctx iris.Context) {
     }
 
     ctx.JSON(iris.Map{"Colors": form.Colors})
-}Copy to clipboardErrorCopied
+}
 ```
 
 **templates/form.html**
@@ -1197,7 +1197,7 @@ func handleForm(ctx iris.Context) {
     <label for="blue">Blue</label>
     <input type="checkbox" name="colors[]" value="blue" id="blue">
     <input type="submit">
-</form>Copy to clipboardErrorCopied
+</form>
 ```
 
 **Response
@@ -1210,7 +1210,7 @@ func handleForm(ctx iris.Context) {
     "green",
     "blue"
   ]
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### JSON, JSONP, XML, Markdown, YAML and MsgPack rendering JSON、JSONP、XML、Markdown、YAML 和 MsgPack 渲染
@@ -1309,7 +1309,7 @@ func main() {
 
     // Render using jsoniter instead of the encoding/json:
     app.Listen(":8080", iris.WithOptimizations)
-}Copy to clipboardErrorCopied
+}
 ```
 
 #### Protobuf
@@ -1378,7 +1378,7 @@ func readFromJSON(ctx iris.Context) {
     }
 
     ctx.Writef("HelloRequest.Name = %s", request.Name)
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Serving static files 提供静态文件
@@ -1390,7 +1390,7 @@ func main() {
     app.HandleDir("/assets", iris.Dir("./assets"))
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 The `HandleDir` method accepts a third, optional argument of `DirOptions`:
@@ -1442,7 +1442,7 @@ type DirOptions struct {
 
     // Optional validator that loops through each requested resource.
     AssetValidator func(ctx *context.Context, name string) bool
-}Copy to clipboardErrorCopied
+}
 ```
 
 Learn more about [file-server](https://github.com/kataras/iris/tree/main/_examples/file-server).
@@ -1453,7 +1453,7 @@ Learn more about [file-server](https://github.com/kataras/iris/tree/main/_exampl
 
 ```go
 SendFile(filename string, destinationName string) error
-SendFileWithRate(src, destName string, limit float64, burst int) errorCopy to clipboardErrorCopied
+SendFileWithRate(src, destName string, limit float64, burst int) error
 ```
 
 **Usage
@@ -1467,7 +1467,7 @@ Force-Send a file to the client:
 func handler(ctx iris.Context) {
     src := "./files/first.zip"
     ctx.SendFile(src, "client.zip")
-}Copy to clipboardErrorCopied
+}
 ```
 
 Limit download speed to ~50Kb/s with a burst of 100KB:
@@ -1483,12 +1483,12 @@ func handler(ctx iris.Context) {
     limit := 50.0 * iris.KB
     burst := 100 * iris.KB
     ctx.SendFileWithRate(src, dest, limit, burst)
-}Copy to clipboardErrorCopied
+}
 ServeContent(content io.ReadSeeker, filename string, modtime time.Time)
 ServeContentWithRate(content io.ReadSeeker, filename string, modtime time.Time, limit float64, burst int)
 
 ServeFile(filename string) error
-ServeFileWithRate(filename string, limit float64, burst int) errorCopy to clipboardErrorCopied
+ServeFileWithRate(filename string, limit float64, burst int) error
 ```
 
 **Usage
@@ -1497,7 +1497,7 @@ ServeFileWithRate(filename string, limit float64, burst int) errorCopy to clipbo
 ```go
 func handler(ctx iris.Context) {
     ctx.ServeFile("./public/main.js")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Template rendering 模板渲染
@@ -1540,7 +1540,7 @@ Load all templates from the "./views" folder where extension is ".html" and pars
 ```go
 // [app := iris.New...]
 tmpl := iris.HTML("./views", ".html")
-app.RegisterView(tmpl)Copy to clipboardErrorCopied
+app.RegisterView(tmpl)
 ```
 
 To **render or execute** a view use the `Context.View` method inside the main route's handler.
@@ -1551,7 +1551,7 @@ To **render or execute** a view use the `Context.View` method inside the main ro
 if err := ctx.View("hi.html"); err!=nil {
     ctx.HTML("<h3>%s</h3>", err.Error())
     return
-}Copy to clipboardErrorCopied
+}
 ```
 
 To **bind** Go values with key-value pattern inside a view through middleware or main handler use the `Context.ViewData` method before the `Context.View` one.
@@ -1563,7 +1563,7 @@ Bind: `{{.message}}` with `"Hello world!"`.
 ​	绑定： `{{.message}}` 与 `"Hello world!"` 。
 
 ```go
-ctx.ViewData("message", "Hello world!")Copy to clipboardErrorCopied
+ctx.ViewData("message", "Hello world!")
 ```
 
 Root binding:
@@ -1576,7 +1576,7 @@ if err := ctx.View("user-page.html", User{}); err!=nil {
     return
 }
 
-// root binding as {{.Name}}Copy to clipboardErrorCopied
+// root binding as {{.Name}}
 ```
 
 To **add a template function** use the `AddFunc` method of the preferred view engine.
@@ -1587,7 +1587,7 @@ To **add a template function** use the `AddFunc` method of the preferred view en
 //       func name, input arguments, render value
 tmpl.AddFunc("greet", func(s string) string {
     return "Greetings " + s + "!"
-})Copy to clipboardErrorCopied
+})
 ```
 
 To **reload on every request** call the view engine's `Reload` method.
@@ -1595,7 +1595,7 @@ To **reload on every request** call the view engine's `Reload` method.
 ​	要在每次请求时重新加载，请调用视图引擎的 `Reload` 方法。
 
 ```go
-tmpl.Reload(true)Copy to clipboardErrorCopied
+tmpl.Reload(true)
 ```
 
 To use **embedded** templates and not depend on local file system use the [go-bindata](https://github.com/go-bindata/go-bindata) external tool and pass its `AssetFile()` generated function to the first input argument of the preferred view engine.
@@ -1603,7 +1603,7 @@ To use **embedded** templates and not depend on local file system use the [go-bi
 ​	要使用嵌入式模板而不依赖于本地文件系统，请使用 go-bindata 外部工具，并将它生成的 `AssetFile()` 函数传递给首选视图引擎的第一个输入参数。
 
 ```go
- tmpl := iris.HTML(AssetFile(), ".html")Copy to clipboardErrorCopied
+ tmpl := iris.HTML(AssetFile(), ".html")
 ```
 
 Example Code:
@@ -1658,7 +1658,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 <!-- file: ./views/hi.html -->
 <html>
 <head>
@@ -1668,7 +1668,7 @@ func main() {
     <h1>{{.message}}</h1>
     <strong>{{greet "to you"}}</strong>
 </body>
-</html>Copy to clipboardErrorCopied
+</html>
 ```
 
 Open a browser tab at [http://localhost:8080](http://localhost:8080/).
@@ -1688,7 +1688,7 @@ The **rendered result** will look like this:
     <h1>Hello world!</h1>
     <strong>Greetings to you!</strong>
 </body>
-</html>Copy to clipboardErrorCopied
+</html>
 ```
 
 ### Multitemplate
@@ -1700,7 +1700,7 @@ Iris allows unlimited number of registered view engines per Application. Besides
 ```go
 // Register a view engine per group of routes.
 adminGroup := app.Party("/admin")
-adminGroup.RegisterView(iris.Blocks("./views/admin", ".html"))Copy to clipboardErrorCopied
+adminGroup.RegisterView(iris.Blocks("./views/admin", ".html"))
 ```
 
 #### Through Middleware 通过中间件
@@ -1711,7 +1711,7 @@ func middleware(views iris.ViewEngine) iris.Handler {
         ctx.ViewEngine(views)
         ctx.Next()
     }
-}Copy to clipboardErrorCopied
+}
 ```
 
 **Usage
@@ -1722,7 +1722,7 @@ func middleware(views iris.ViewEngine) iris.Handler {
 views := iris.Blocks("./views/on-fly", ".html")
 views.Load()
 
-app.Get("/", setViews(views), onFly)Copy to clipboardErrorCopied
+app.Get("/", setViews(views), onFly)
 ```
 
 ### Redirects 重定向
@@ -1736,7 +1736,7 @@ Issuing a HTTP redirect is easy. Both internal and external locations are suppor
 ```go
 app.Get("/", func(ctx iris.Context) {
     ctx.Redirect("https://go.dev/dl", iris.StatusMovedPermanently)
-})Copy to clipboardErrorCopied
+})
 ```
 
 Issuing a HTTP redirect from POST.
@@ -1746,7 +1746,7 @@ Issuing a HTTP redirect from POST.
 ```go
 app.Post("/", func(ctx iris.Context) {
     ctx.Redirect("/login", iris.StatusFound)
-})Copy to clipboardErrorCopied
+})
 ```
 
 Issuing a local router redirect from a Handler, use `Application.ServeHTTPC` or `Exec()` like below.
@@ -1765,7 +1765,7 @@ app.Get("/test", func(ctx iris.Context) {
 
 app.Get("/test2", func(ctx iris.Context) {
     ctx.JSON(iris.Map{"hello": "world"})
-})Copy to clipboardErrorCopied
+})
 ```
 
 #### Globally 全局
@@ -1775,14 +1775,14 @@ Use the syntax we all love.
 ​	使用我们都喜欢的语法。
 
 ```go
-import "github.com/kataras/iris/v12/middleware/rewrite"Copy to clipboardErrorCopied
+import "github.com/kataras/iris/v12/middleware/rewrite"
 func main() {
     app := iris.New()
     // [...routes]
     redirects := rewrite.Load("redirects.yml")
     app.WrapRouter(redirects)
     app.Listen(":80")
-}Copy to clipboardErrorCopied
+}
 ```
 
 The `"redirects.yml"` file looks like that:
@@ -1813,7 +1813,7 @@ RedirectMatch:
 # Redirects root domain to www.
 # Creation of a www subdomain inside the Application is unnecessary,
 # all requests are handled by the root Application itself.
-PrimarySubdomain: wwwCopy to clipboardErrorCopied
+PrimarySubdomain: www
 ```
 
 The full code can be found at the [rewrite middleware example](https://github.com/kataras/iris/tree/main/_examples/routing/rewrite).
@@ -1857,7 +1857,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Using Basic Authentication 使用基本身份验证
@@ -1875,7 +1875,7 @@ The Basic Authentication middleware [is included](https://github.com/kataras/iri
 ​	1. 导入中间件
 
 ```go
-import "github.com/kataras/iris/v12/middleware/basicauth"Copy to clipboardErrorCopied
+import "github.com/kataras/iris/v12/middleware/basicauth"
 ```
 
 **2.** Configure the middleware with its `Options` struct:
@@ -1890,7 +1890,7 @@ opts := basicauth.Options{
     Realm:        "Authorization Required",
     ErrorHandler: basicauth.DefaultErrorHandler,
     // [...more options]
-}Copy to clipboardErrorCopied
+}
 ```
 
 **3.** Initialize the middleware:
@@ -1898,7 +1898,7 @@ opts := basicauth.Options{
 ​	3. 初始化中间件：
 
 ```go
-auth := basicauth.New(opts)Copy to clipboardErrorCopied
+auth := basicauth.New(opts)
 ```
 
 **3.1** The above steps are the same as the `Default` function:
@@ -1908,7 +1908,7 @@ auth := basicauth.New(opts)Copy to clipboardErrorCopied
 ```go
 auth := basicauth.Default(map[string]string{
     "username": "password",
-})Copy to clipboardErrorCopied
+})
 ```
 
 **3.2** Use a custom slice of Users:
@@ -1924,7 +1924,7 @@ type User struct {
 }
 
 // [...]
-auth := basicauth.Default([]User{...})Copy to clipboardErrorCopied
+auth := basicauth.Default([]User{...})
 ```
 
 **3.3** Load users from a file optionally, passwords are encrypted using the [pkg.go.dev/golang.org/x/crypto/bcrypt](https://pkg.go.dev/golang.org/x/crypto/bcrypt) package:
@@ -1932,7 +1932,7 @@ auth := basicauth.Default([]User{...})Copy to clipboardErrorCopied
 ​	3.3 从文件中加载用户（可选），使用 pkg.go.dev/golang.org/x/crypto/bcrypt 包对密码进行加密：
 
 ```go
-auth := basicauth.Load("users.yml", basicauth.BCRYPT)Copy to clipboardErrorCopied
+auth := basicauth.Load("users.yml", basicauth.BCRYPT)
 ```
 
 **3.3.1** The same can be achieved using the `Options` (recommended):
@@ -1946,7 +1946,7 @@ opts := basicauth.Options{
     // [...more options]
 }
 
-auth := basicauth.New(opts)Copy to clipboardErrorCopied
+auth := basicauth.New(opts)
 ```
 
 Where the `users.yml` may look like that:
@@ -1961,7 +1961,7 @@ Where the `users.yml` may look like that:
 - username: makis
   password: $2a$10$3GXzp3J5GhHThGisbpvpZuftbmzPivDMo94XPnkTnDe7254x7sJ3O
   # encrypted of makis_pass
-  role: memberCopy to clipboardErrorCopied
+  role: member
 ```
 
 **4.** Register the middleware:
@@ -1981,7 +1981,7 @@ app.UseError(auth)
 app.UseRouter(auth)
 
 // OR register to a specific Route before its main handler.
-app.Post("/protected", auth, routeHandler)Copy to clipboardErrorCopied
+app.Post("/protected", auth, routeHandler)
 ```
 
 **5.** Retrieve the username & password:
@@ -1992,7 +1992,7 @@ app.Post("/protected", auth, routeHandler)Copy to clipboardErrorCopied
 func routeHandler(ctx iris.Context) {
     username, password, _ := ctx.Request().BasicAuth()
     // [...]
-}Copy to clipboardErrorCopied
+}
 ```
 
 **5.1** Retrieve the User value (useful when you register a slice of custom user struct at `Options.AllowUsers`):
@@ -2004,7 +2004,7 @@ func routeHandler(ctx iris.Context) {
     user := ctx.User().(*iris.SimpleUser)
     // user.Username
     // user.Password
-}Copy to clipboardErrorCopied
+}
 ```
 
 Read more authorization and authentication examples at [_examples/auth](https://github.com/kataras/iris/tree/main/_examples/auth).
@@ -2042,7 +2042,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Custom HTTP configuration 自定义 HTTP 配置
@@ -2063,7 +2063,7 @@ func main() {
         panic(err)
     }
     http.ListenAndServe(":8080", app)
-}Copy to clipboardErrorCopied
+}
 ```
 
 Note that you **SHOULD** call its `Build` method manually to build the application and the router before using it as an `http.Handler`.
@@ -2088,7 +2088,7 @@ func main() {
         MaxHeaderBytes: 1 << 20,
     }
     srv.ListenAndServe()
-}Copy to clipboardErrorCopied
+}
 ```
 
 However, you rarely need an external `http.Server` instance with Iris. You can listen using any tcp listener, http server or a custom function via `Application.Run` method.
@@ -2103,7 +2103,7 @@ app.Run(iris.TLS(addr string, certFileOrContents, keyFileOrContents string)) // 
 app.Run(iris.AutoTLS(addr, domain, email string)) // listen using letsencrypt (see below).
 
 // and any custom function that returns an error:
-app.Run(iris.Raw(f func() error))Copy to clipboardErrorCopied
+app.Run(iris.Raw(f func() error))
 ```
 
 ### Socket Sharding 套接字分片
@@ -2135,7 +2135,7 @@ func main() {
 
     app.Listen(":8080", iris.WithSocketSharding)
     // or app.Run(..., iris.WithSocketSharding)
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Support Let's Encrypt 支持 Let's Encrypt
@@ -2163,7 +2163,7 @@ func main() {
     })
 
     app.Run(iris.AutoTLS(":443", "example.com example2.com", "mail@example.com"))
-}Copy to clipboardErrorCopied
+}
 ```
 
 Example for custom TLS (you can bind an autocert manager too):
@@ -2177,7 +2177,7 @@ app.Run(
             /* your custom fields */
         },
     }),
-)Copy to clipboardErrorCopied
+)
 ```
 
 > All `iris.Runner` methods such as: Addr, TLS, AutoTLS, Server, Listener and e.t.c accept a variadic input argument of `func(*iris.Supervisor)` to configure the http server instance on build state.
@@ -2238,7 +2238,7 @@ func main() {
     if err := g.Wait(); err != nil {
         log.Fatal(err)
     }
-}Copy to clipboardErrorCopied
+}
 ```
 
 Manage multiple Iris instances through the `apps` package. Read more [here](https://github.com/kataras/iris/blob/master/apps/README.md).
@@ -2268,7 +2268,7 @@ iris.RegisterOnInterrupt(func() {
 
 // [...]
 app.Listen(":8080", iris.WithoutInterruptHandler, iris.WithoutServerError(iris.ErrServerClosed))
-<-idleConnsClosedCopy to clipboardErrorCopied
+<-idleConnsClosed
 ```
 
 ### Build a single binary with templates 使用模板构建单个二进制文件
@@ -2280,7 +2280,7 @@ You can build a server into a single binary containing templates by using [go-bi
 ```sh
 $ go get -u github.com/go-bindata/go-bindata/...
 $ go-bindata -fs -prefix "templates" ./templates/...
-$ go run .Copy to clipboardErrorCopied
+$ go run .
 ```
 
 Example Code:
@@ -2299,7 +2299,7 @@ func main() {
     app.RegisterView(tmpl)
 
     // [...]
-}Copy to clipboardErrorCopied
+}
 ```
 
 See complete examples at the [_examples/view](https://github.com/kataras/iris/tree/main/_examples/view).
@@ -2364,7 +2364,7 @@ func logFormValues(ctx iris.Context) {
     }
 
     ctx.Next()
-}Copy to clipboardErrorCopied
+}
 ```
 
 You can use the `ReadBody` to bind a struct to a request based on the client's content-type. You can also use [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation). Here's a full example:
@@ -2429,7 +2429,7 @@ func setAllowedResponses(ctx iris.Context) {
     ctx.Negotiation().Accept.JSON()
 
     ctx.Next()
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### HTTP2 server push HTTP2 服务器推送
@@ -2485,7 +2485,7 @@ func pushHandler(ctx iris.Context) {
 
 func simpleAssetHandler(ctx iris.Context) {
     ctx.ServeFile("./public/main.js")
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Set and get a cookie 设置和获取 Cookie
@@ -2514,7 +2514,7 @@ func main() {
     })
 
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 If you want to set custom the path:
@@ -2522,7 +2522,7 @@ If you want to set custom the path:
 ​	如果您想设置自定义路径：
 
 ```go
-ctx.SetCookieKV(name, value, iris.CookiePath("/custom/path/cookie/will/be/stored"))Copy to clipboardErrorCopied
+ctx.SetCookieKV(name, value, iris.CookiePath("/custom/path/cookie/will/be/stored"))
 ```
 
 If you want to be visible only to current request path:
@@ -2530,7 +2530,7 @@ If you want to be visible only to current request path:
 ​	如果您只想对当前请求路径可见：
 
 ```go
-ctx.SetCookieKV(name, value, iris.CookieCleanPath /* or iris.CookiePath("") */)Copy to clipboardErrorCopied
+ctx.SetCookieKV(name, value, iris.CookieCleanPath /* or iris.CookiePath("") */)
 ```
 
 More:
@@ -2555,7 +2555,7 @@ You can add cookie options for the whole request in a middleware too:
 func setCookieOptions(ctx iris.Context) {
     ctx.AddCookieOptions(iris.CookieHTTPOnly(true), iris.CookieExpires(1*time.Hour))
     ctx.Next()
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## JSON Web Tokens JSON Web 令牌
@@ -2674,7 +2674,7 @@ func logout(ctx iris.Context) {
     } else {
         ctx.Writef("token invalidated, a new token is required to access the protected API")
     }
-}Copy to clipboardErrorCopied
+}
 ```
 
 > Learn about refresh tokens, blocklist and more at: [_examples/auth/jwt](https://github.com/kataras/iris/tree/main/_examples/auth/jwt).
@@ -2750,7 +2750,7 @@ func h(ctx iris.Context) {
 func main() {
     app := newApp()
     app.Listen(":8080")
-}Copy to clipboardErrorCopied
+}
 ```
 
 **2.** Now, create a `main_test.go` file and copy-paste the following.
@@ -2787,7 +2787,7 @@ func TestNewApp(t *testing.T) {
     e.GET("/admin/settings").WithBasicAuth("invalidusername", "invalidpassword").
         Expect().Status(httptest.StatusUnauthorized)
 
-}Copy to clipboardErrorCopied
+}
 ```
 
 **3.** Open your command line and execute:
@@ -2795,7 +2795,7 @@ func TestNewApp(t *testing.T) {
 ​	3. 打开命令行并执行：
 
 ```bash
-$ go test -vCopy to clipboardErrorCopied
+$ go test -v
 ```
 
 ### Testing Cookies 测试 Cookie
@@ -2836,8 +2836,8 @@ func TestCookiesBasic(t *testing.T) {
     t4 := e.GET(path).Expect().Status(httptest.StatusOK)
     t4.Cookies().Empty()
     t4.Body().Empty()
-}Copy to clipboardErrorCopied
-$ go test -v -run=TestCookiesBasic$Copy to clipboardErrorCopied
+}
+$ go test -v -run=TestCookiesBasic$
 ```
 
 Iris web framework itself uses this package to test itself. In the [_examples repository directory](https://github.com/kataras/iris/tree/main/_examples) you will find some useful tests as well. For more information please take a look and read the [httpexpect's documentation](https://github.com/gavv/httpexpect).
@@ -2860,7 +2860,7 @@ Localization features provide a convenient way to retrieve strings in various la
     ├───en-US
     │       home.yml
     └───zh-CN
-            home.ymlCopy to clipboardErrorCopied
+            home.yml
 ```
 
 The default language for your application is the first registered language.
@@ -2873,7 +2873,7 @@ app := iris.New()
 // First parameter: Glob filpath patern,
 // Second variadic parameter: Optional language tags,
 // the first one is the default/fallback one.
-app.I18n.Load("./locales/*/*", "en-US", "el-GR", "zh-CN")Copy to clipboardErrorCopied
+app.I18n.Load("./locales/*/*", "en-US", "el-GR", "zh-CN")
 ```
 
 Or if you load all languages by:
@@ -2883,7 +2883,7 @@ Or if you load all languages by:
 ```go
 app.I18n.Load("./locales/*/*")
 // Then set the default language using:
-app.I18n.SetDefault("en-US")Copy to clipboardErrorCopied
+app.I18n.SetDefault("en-US")
 ```
 
 ### Load embedded locales 加载嵌入式语言环境
@@ -2898,7 +2898,7 @@ You may want to embed locales with the new [embed directive](https://gobyexample
 ```go
 import (
     "embed"
-)Copy to clipboardErrorCopied
+)
 ```
 
 1. Embed directives accept paths relative to the directory containing the Go source file. We can embed multiple files or even folders with wildcards. This uses a variable of the embed.FS type, which implements a simple virtual file system.
@@ -2906,7 +2906,7 @@ import (
 
 ```go
 //go:embed embedded/locales/*
-var embeddedFS embed.FSCopy to clipboardErrorCopied
+var embeddedFS embed.FS
 ```
 
 1. Instead of the `Load` method, we should use the `LoadFS` one.
@@ -2917,7 +2917,7 @@ err := app.I18n.LoadFS(embeddedFS, "./embedded/locales/*/*.ini", "en-US", "el-GR
 // OR to load all languages by filename:
 // app.I18n.LoadFS(embeddedFS, "./embedded/locales/*/*.ini")
 // Then set the default language using:
-// app.I18n.SetDefault("en-US")Copy to clipboardErrorCopied
+// app.I18n.SetDefault("en-US")
 ```
 
 ### Defining Translations 定义翻译
@@ -2941,17 +2941,17 @@ Iris i18n module supports **pluralization** out-of-the-box, see below.
 ### Fmt Style
 
 ```yaml
-hi: "Hi %s!"Copy to clipboardErrorCopied
+hi: "Hi %s!"
 ctx.Tr("Hi", "John")
-// Outputs: Hi John!Copy to clipboardErrorCopied
+// Outputs: Hi John!
 ```
 
 ### Template 模板
 
 ```yaml
-hi: "Hi {{.Name}}!"Copy to clipboardErrorCopied
+hi: "Hi {{.Name}}!"
 ctx.Tr("Hi", iris.Map{"Name": "John"})
-// Outputs: Hi John!Copy to clipboardErrorCopied
+// Outputs: Hi John!
 ```
 
 ### Pluralization 复数形式
@@ -2982,7 +2982,7 @@ Vars:
       other: "minutes"
   - Houses:
       one: "house"
-      other: "houses"Copy to clipboardErrorCopied
+      other: "houses"
 ```
 
 Then, each message can use this variable, here's how:
@@ -2995,14 +2995,14 @@ YouLate: "You are %[1]d ${Minutes} late."
 # [x] is the argument position,
 # variables always have priority other fmt-style arguments,
 # that's why we see [1] for houses and [2] for the string argument.
-HouseCount: "%[2]s has %[1]d ${Houses}."Copy to clipboardErrorCopied
+HouseCount: "%[2]s has %[1]d ${Houses}."
 ctx.Tr("YouLate", 1)
 // Outputs: You are 1 minute late.
 ctx.Tr("YouLate", 10)
 // Outputs: You are 10 minutes late.
 
 ctx.Tr("HouseCount", 2, "John")
-// Outputs: John has 2 houses.Copy to clipboardErrorCopied
+// Outputs: John has 2 houses.
 ```
 
 You can select what message will be shown based on a given plural count.
@@ -3033,13 +3033,13 @@ Let's create a simple plural-featured message, it can use the Minutes variable w
 FreeDay:
   "=3": "You have three days and %[2]d ${Minutes} off." # "FreeDay" 3, 15
   one:  "You have a day off." # "FreeDay", 1
-  other: "You have %[1]d free days." # "FreeDay", 5Copy to clipboardErrorCopied
+  other: "You have %[1]d free days." # "FreeDay", 5
 ctx.Tr("FreeDay", 3, 15)
 // Outputs: You have three days and 15 minutes off.
 ctx.Tr("FreeDay", 1)
 // Outputs: You have a day off.
 ctx.Tr("FreeDay", 5)
-// Outputs: You have 5 free days.Copy to clipboardErrorCopied
+// Outputs: You have 5 free days.
 ```
 
 Let's continue with a bit more advanced example, using template text + functions + plural + variables.
@@ -3058,7 +3058,7 @@ Vars:
 VarTemplatePlural:
   one: "${Gender} is awesome!"
   other: "other (${Gender}) has %[3]d ${Houses}."
-  "=5": "{{call .InlineJoin .Names}} are awesome."Copy to clipboardErrorCopied
+  "=5": "{{call .InlineJoin .Names}} are awesome."
 const (
     female = iota + 1
     male
@@ -3077,7 +3077,7 @@ ctx.Tr("VarTemplatePlural", 1, female)
 // Outputs: She is awesome!
 
 ctx.Tr("VarTemplatePlural", 2, female, 5)
-// Outputs: other (She) has 5 houses.Copy to clipboardErrorCopied
+// Outputs: other (She) has 5 houses.
 ```
 
 ### Sections 部分
@@ -3088,9 +3088,9 @@ If the key is not a reserved one (e.g. one, two...) then it acts as a sub sectio
 
 ```yaml
 Welcome:
-  Message: "Welcome {{.Name}}"Copy to clipboardErrorCopied
+  Message: "Welcome {{.Name}}"
 ctx.Tr("Welcome.Message", iris.Map{"Name": "John"})
-// Outputs: Welcome JohnCopy to clipboardErrorCopied
+// Outputs: Welcome John
 ```
 
 ### Determining The Current Locale 确定当前语言环境
@@ -3103,7 +3103,7 @@ You may use the `context.GetLocale` method to determine the current locale or ch
 func(ctx iris.Context) {
     locale := ctx.GetLocale()
     // [...]
-}Copy to clipboardErrorCopied
+}
 ```
 
 The **Locale** interface looks like this.
@@ -3126,7 +3126,7 @@ type Locale interface {
     Language() string
     // GetMessage should return translated text based n the given "key".
     GetMessage(key string, args ...interface{}) string
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Retrieving Translation 检索翻译
@@ -3139,7 +3139,7 @@ Use of `context.Tr` method as a shortcut to get a translated text for this reque
 func(ctx iris.Context) {
     text := ctx.Tr("hi", "name")
     // [...]
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Inside Views 在视图中
@@ -3153,7 +3153,7 @@ func(ctx iris.Context) {
         ctx.HTML("<h3>%s</h3>", err.Error())
         return
     }
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Example
@@ -3251,7 +3251,7 @@ func main() {
     //
     // or use cookies to set the language.
     app.Listen(":8080", iris.WithSitemap("http://localhost:8080"))
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Sitemap 站点地图
@@ -3265,7 +3265,7 @@ Read more at: https://support.google.com/webmasters/answer/189077?hl=en
 ​	阅读更多内容：https://support.google.com/webmasters/answer/189077?hl=en
 
 ```bash
-GET http://localhost:8080/sitemap.xmlCopy to clipboardErrorCopied
+GET http://localhost:8080/sitemap.xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
@@ -3292,7 +3292,7 @@ GET http://localhost:8080/sitemap.xmlCopy to clipboardErrorCopied
         <xhtml:link rel="alternate" hreflang="el-GR" href="http://localhost:8080/el-GR/templates"></xhtml:link>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:8080/zh-CN/templates"></xhtml:link>
     </url>
-</urlset>Copy to clipboardErrorCopied
+</urlset>
 ```
 
 That's all the basics about Iris. This document covers enough for beginners. Want to become an expert and a Certificated Iris Developer, learn about MVC, i18n, dependency-injection, gRPC, lambda functions, websockets, best practises and more? [Request the Iris E-Book](https://www.iris-go.com/#ebookDonateForm) today and be participated in the development of Iris!
