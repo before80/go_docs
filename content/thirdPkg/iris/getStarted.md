@@ -94,6 +94,7 @@ func list(ctx iris.Context) {
     ctx.JSON(books)
     // TIP: negotiate the response between server's prioritizes
     // and client's requirements, instead of ctx.JSON:
+    // 提示：在服务器的优先级和客户端的要求之间进行协商响应，而不是使用 ctx.JSON：
     // ctx.Negotiation().JSON().MsgPack().Protobuf()
     // ctx.Negotiate(books)
 }
@@ -103,11 +104,13 @@ func create(ctx iris.Context) {
     err := ctx.ReadJSON(&b)
     // TIP: use ctx.ReadBody(&b) to bind
     // any type of incoming data instead.
+    // 提示：使用 ctx.ReadBody(&b) 来绑定任何类型的传入数据
     if err != nil {
         ctx.StopWithProblem(iris.StatusBadRequest, iris.NewProblem().
             Title("Book creation failure").DetailErr(err))
         // TIP: use ctx.StopWithError(code, err) when only
         // plain text responses are expected on errors.
+        // 提示：当仅在错误时期望纯文本响应时，请使用 ctx.StopWithError(code, err)。
         return
     }
 
@@ -123,8 +126,14 @@ func create(ctx iris.Context) {
 
 ```go
 import "github.com/kataras/iris/v12/mvc"
+```
+
+```go
 m := mvc.New(booksAPI)
 m.Handle(new(BookController))
+```
+
+```go
 type BookController struct {
     /* dependencies */
 }
@@ -221,17 +230,17 @@ Iris uses a custom version of [muxie](https://github.com/kataras/muxie).
 
 ​	📖 使用 int 动态参数发送 200000 个请求，将 JSON 作为请求正文发送，并接收 JSON 作为响应。
 
-| Name 名称                                        | Language 语言 | Reqs/sec 请求/秒 | Latency 延迟         | Throughput 吞吐量   | Time To Complete 完成时间 |
-| ------------------------------------------------ | ------------- | ---------------- | -------------------- | ------------------- | ------------------------- |
-| [Iris](https://github.com/kataras/iris)          | Go            | 238954           | 521.69us 521.69 微秒 | 64.15MB             | 0.84s 0.84 秒             |
-| [Gin](https://github.com/gin-gonic/gin)          | Go            | 229665           | 541.96us 541.96微秒  | 62.86MB 62.86兆字节 | 0.87s 0.87秒              |
-| [Chi](https://github.com/go-chi/chi)             | Go            | 228072           | 545.78us 545.78微秒  | 62.61MB 62.61兆字节 | 0.88s 0.88秒              |
-| [Echo 回声](https://github.com/labstack/echo)    | Go            | 224491           | 553.84us 553.84微秒  | 61.70MB 61.70兆字节 | 0.89s 0.89秒              |
-| [Martini](https://github.com/go-martini/martini) | Go            | 198166           | 627.46us 627.46微秒  | 54.47MB             | 1.01s 1.01秒              |
-| [Kestrel](https://github.com/dotnet/aspnetcore)  | C#            | 163486           | 766.90us 766.90微秒  | 47.42MB             | 1.23s 1.23秒              |
-| [Buffalo](https://github.com/gobuffalo/buffalo)  | Go            | 102478           | 1.22ms 1.22毫秒      | 28.14MB             | 1.95s 1.95秒              |
-| [Koa](https://github.com/koajs/koa)              | Javascript    | 48425            | 2.56ms 2.56毫秒      | 15.39MB             | 4.14s 4.14秒              |
-| [Express](https://github.com/expressjs/express)  | Javascript    | 23622            | 5.25ms 5.25毫秒      | 9.04MB              | 8.41s                     |
+| Name 名称                                        | Language 语言 | Reqs/sec 请求/秒 | Latency 延迟 | Throughput 吞吐量 | Time To Complete 完成时间 |
+| ------------------------------------------------ | ------------- | ---------------- | ------------ | ----------------- | ------------------------- |
+| [Iris](https://github.com/kataras/iris)          | Go            | 238954           | 521.69us     | 64.15MB           | 0.84s                     |
+| [Gin](https://github.com/gin-gonic/gin)          | Go            | 229665           | 541.96us     | 62.86MB           | 0.87s                     |
+| [Chi](https://github.com/go-chi/chi)             | Go            | 228072           | 545.78us     | 62.61MB           | 0.88s                     |
+| [Echo ](https://github.com/labstack/echo)        | Go            | 224491           | 553.84us     | 61.70MB           | 0.89s                     |
+| [Martini](https://github.com/go-martini/martini) | Go            | 198166           | 627.46us     | 54.47MB           | 1.01s                     |
+| [Kestrel](https://github.com/dotnet/aspnetcore)  | C#            | 163486           | 766.90us     | 47.42MB           | 1.23s                     |
+| [Buffalo](https://github.com/gobuffalo/buffalo)  | Go            | 102478           | 1.22ms       | 28.14MB           | 1.95s                     |
+| [Koa](https://github.com/koajs/koa)              | Javascript    | 48425            | 2.56ms       | 15.39MB           | 4.14s                     |
+| [Express](https://github.com/expressjs/express)  | Javascript    | 23622            | 5.25ms       | 9.04MB            | 8.41s                     |
 
 ## API Examples API 示例
 
@@ -239,16 +248,22 @@ You can find a number of ready-to-run examples at [Iris examples repository](htt
 
 ​	您可以在 Iris 示例存储库中找到许多可运行的示例。
 
-### Using GET, POST, PUT, PATCH, DELETE and OPTIONS 使用 GET、POST、PUT、PATCH、DELETE 和 OPTIONS
+### Using GET, POST, PUT, PATCH, DELETE and OPTIONS
 
 ```go
 func main() {
     // Creates an iris application with default middleware:
+    // 创建一个带有默认中间件的 Iris 应用程序：
     // Default with "debug" Logger Level.
+    // 默认使用 "debug" 日志级别。
     // Localization enabled on "./locales" directory
     // and HTML templates on "./views" or "./templates" directory.
+    // 在 "./locales" 目录启用本地化功能，
+    // HTML 模板位于 "./views" 或 "./templates" 目录。
     // It runs with the AccessLog on "./access.log",
     // Recovery (crash-free) and Request ID middleware already attached.
+    // 应用程序记录访问日志到 "./access.log"，
+    // 已附加了Recovery（无崩溃）和 Request ID 中间件。
     app := iris.Default()
 
     app.Get("/someGet", getting)
@@ -270,6 +285,7 @@ func main() {
     app := iris.Default()
 
     // This handler will match /user/john but will not match /user/ or /user
+    // 这个处理程序将匹配 /user/john，但不会匹配 /user/ 或 /user
     app.Get("/user/{name}", func(ctx iris.Context) {
         name := ctx.Params().Get("name")
         ctx.Writef("Hello %s", name)
@@ -277,6 +293,8 @@ func main() {
 
     // However, this one will match /user/john/ and also /user/john/send
     // If no other routers match /user/john, it will redirect to /user/john/
+    // 然而，这个处理程序将匹配 /user/john/ 以及 /user/john/send。
+    // 如果没有其他路由匹配 /user/john，它将重定向到 /user/john/。
     app.Get("/user/{name}/{action:path}", func(ctx iris.Context) {
         name := ctx.Params().Get("name")
         action := ctx.Params().Get("action")

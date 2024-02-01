@@ -70,19 +70,24 @@ Some of the features Iris offers:
 - gRPC
 - Auto-HTTPS
 - Builtin support for ngrok to put your app on the internet, the fastest way
+- 内置对 ngrok 的支持，以最快的方式将您的应用放到互联网上
 - Unique Router with dynamic path as parameter with standard types like :uuid, :string, :int... and the ability to create your own
+- 独特的路由器，具有动态路径作为参数，具有标准类型，如： :uuid, :string, :int…以及创建您自己的能力
 - Compression
 - View Engines (HTML, Django, Handlebars, Pug/Jade and more)
+- 视图引擎（HTML、Django、Handlebars、Pug/Jade 等）
 - Create your own File Server and host your own WebDAV server
+- 创建您自己的文件服务器并托管您自己的 WebDAV 服务器
 - Cache
 - Localization (i18n, sitemap)
 - Sessions
 - Rich Responses (HTML, Text, Markdown, XML, YAML, Binary, JSON, JSONP, Protocol Buffers, MessagePack, Content Negotiation, Streaming, Server-Sent Events and more)
 - Response Compression (gzip, deflate, brotli, snappy, s2)
 - Rich Requests (Bind URL Query, Headers, Form, Text, XML, YAML, Binary, JSON, Validation, Protocol Buffers, MessagePack and more)
-- Dependency Injection (MVC, Handlers, API Routers)
+- Dependency Injection (MVC, Handlers, API Routers) 依赖注入
 - Testing Suite
 - And the most important... you get fast answers and support from the 1st day until now - that's six full years!
+- 最重要的是……从第一天到现在，您都能获得快速解答和支持——整整六年！
 
 #### 👑 [Supporters](https://iris-go.com/donate)
 
