@@ -315,28 +315,28 @@ Builtin available parameter types:
 
 ​	内置可用参数类型：
 
-| Param Type 参数类型 | Go Type Go 类型                          | Validation 验证                                              | Retrieve Helper 检索助手                                     |
-| ------------------- | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `:string`           | string 字符串                            | anything (single path segment) 任何内容（单路径段）          | `Params().Get`                                               |
-| `:uuid`             | string 字符串                            | uuidv4 or v1 (single path segment) uuidv4 或 v1（单路径段）  | `Params().Get`                                               |
-| `:int`              | int                                      | -9223372036854775808 to 9223372036854775807 (x64) or -2147483648 to 2147483647 (x32), depends on the host arch -9223372036854775808 到 9223372036854775807 (x64) 或 -2147483648 到 2147483647 (x32)，取决于主机体系结构 | `Params().GetInt`                                            |
-| `:int8`             | int8                                     | -128 to 127 -128 到 127                                      | `Params().GetInt8`                                           |
-| `:int16`            | int16                                    | -32768 to 32767 -32768 到 32767                              | `Params().GetInt16`                                          |
-| `:int32`            | int32                                    | -2147483648 to 2147483647 -2147483648 到 2147483647          | `Params().GetInt32`                                          |
-| `:int64`            | int64                                    | -9223372036854775808 to 9223372036854775807 -9223372036854775808 到 9223372036854775807 | `Params().GetInt64`                                          |
-| `:uint`             | uint                                     | 0 to 18446744073709551615 (x64) or 0 to 4294967295 (x32), depends on the host arch 0 到 18446744073709551615 (x64) 或 0 到 4294967295 (x32)，取决于主机架构 | `Params().GetUint`                                           |
-| `:uint8`            | uint8                                    | 0 to 255 0 到 255                                            | `Params().GetUint8`                                          |
-| `:uint16`           | uint16                                   | 0 to 65535 0 到 65535                                        | `Params().GetUint16`                                         |
-| `:uint32`           | uint32                                   | 0 to 4294967295 0 到 4294967295                              | `Params().GetUint32`                                         |
-| `:uint64`           | uint64                                   | 0 to 18446744073709551615 0 到 18446744073709551615          | `Params().GetUint64`                                         |
-| `:bool`             | bool                                     | "1" or "t" or "T" or "TRUE" or "true" or "True" or "0" or "f" or "F" or "FALSE" or "false" or "False" "1" 或 "t" 或 "T" 或 "TRUE" 或 "true" 或 "True" 或 "0" 或 "f" 或 "F" 或 "FALSE" 或 "false" 或 "False" | `Params().GetBool`                                           |
-| `:alphabetical`     | string 字符串                            | lowercase or uppercase letters 小写或大写字母                | `Params().Get`                                               |
-| `:file`             | string 字符串                            | lowercase or uppercase letters, numbers, underscore (_), dash (-), point (.) and no spaces or other special characters that are not valid for filenames 小写或大写字母、数字、下划线 (_)、破折号 (-)、句点 (.)，且没有空格或其他对文件名无效的特殊字符 | `Params().Get`                                               |
-| `:path`             | string 字符串                            | anything, can be separated by slashes (path segments) but should be the last part of the route path 任意内容，可以用斜杠 (路径段) 分隔，但应为路由路径的最后一部分 | `Params().Get`                                               |
-| `:mail`             | string 字符串                            | Email without domain validation 未经域验证的电子邮件         | `Params().Get`                                               |
-| `:email`            | string 字符串                            | Email with domain validation 经过域验证的电子邮件            | `Params().Get`                                               |
-| `:date`             | string                                   | yyyy/mm/dd format e.g. /blog/{param:date} matches /blog/2022/04/21 yyyy/mm/dd 格式，例如 /blog/{param:date} 匹配 /blog/2022/04/21 | `Params().GetTime` and `Params().SimpleDate` `Params().GetTime` 和 `Params().SimpleDate` |
-| `:weekday`          | uint (0-6) or string uint (0-6) 或字符串 | string of time.Weekday longname format ("sunday" to "monday" or "Sunday" to "Monday") format e.g. /schedule/{param:weekday} matches /schedule/monday time.Weekday longname 格式的字符串（“sunday”到“monday”或“Sunday”到“Monday”）格式，例如 /schedule/{param:weekday} 匹配 /schedule/monday | `Params().GetWeekday`                                        |
+| Param Type 参数类型 | Go Type Go 类型      | Validation 验证                                              | Retrieve Helper 检索助手                                     |
+| ------------------- | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `:string`           | string               | anything (single path segment) 任何内容（单路径段）          | `Params().Get`                                               |
+| `:uuid`             | string               | uuidv4 or v1 (single path segment) uuidv4 或 v1（单路径段）  | `Params().Get`                                               |
+| `:int`              | int                  | -9223372036854775808 to 9223372036854775807 (x64) or -2147483648 to 2147483647 (x32), depends on the host arch -9223372036854775808 到 9223372036854775807 (x64) 或 -2147483648 到 2147483647 (x32)，取决于主机体系结构 | `Params().GetInt`                                            |
+| `:int8`             | int8                 | -128 to 127 -128 到 127                                      | `Params().GetInt8`                                           |
+| `:int16`            | int16                | -32768 to 32767 -32768 到 32767                              | `Params().GetInt16`                                          |
+| `:int32`            | int32                | -2147483648 to 2147483647 -2147483648 到 2147483647          | `Params().GetInt32`                                          |
+| `:int64`            | int64                | -9223372036854775808 to 9223372036854775807 -9223372036854775808 到 9223372036854775807 | `Params().GetInt64`                                          |
+| `:uint`             | uint                 | 0 to 18446744073709551615 (x64) or 0 to 4294967295 (x32), depends on the host arch 0 到 18446744073709551615 (x64) 或 0 到 4294967295 (x32)，取决于主机架构 | `Params().GetUint`                                           |
+| `:uint8`            | uint8                | 0 to 255 0 到 255                                            | `Params().GetUint8`                                          |
+| `:uint16`           | uint16               | 0 to 65535 0 到 65535                                        | `Params().GetUint16`                                         |
+| `:uint32`           | uint32               | 0 to 4294967295 0 到 4294967295                              | `Params().GetUint32`                                         |
+| `:uint64`           | uint64               | 0 to 18446744073709551615 0 到 18446744073709551615          | `Params().GetUint64`                                         |
+| `:bool`             | bool                 | "1" or "t" or "T" or "TRUE" or "true" or "True" or "0" or "f" or "F" or "FALSE" or "false" or "False" "1" 或 "t" 或 "T" 或 "TRUE" 或 "true" 或 "True" 或 "0" 或 "f" 或 "F" 或 "FALSE" 或 "false" 或 "False" | `Params().GetBool`                                           |
+| `:alphabetical`     | string               | lowercase or uppercase letters 小写或大写字母                | `Params().Get`                                               |
+| `:file`             | string               | lowercase or uppercase letters, numbers, underscore (`_`), dash (`-`), point (`.`) and no spaces or other special characters that are not valid for filenames 小写或大写字母、数字、下划线 (`_`)、破折号 (`-`)、句点 (`.`)，且没有空格或其他对文件名无效的特殊字符 | `Params().Get`                                               |
+| `:path`             | string               | anything, can be separated by slashes (path segments) but should be the last part of the route path 任意内容，可以用斜杠 (路径段) 分隔，但应为路由路径的最后一部分 | `Params().Get`                                               |
+| `:mail`             | string               | Email without domain validation 未经域验证的电子邮件         | `Params().Get`                                               |
+| `:email`            | string               | Email with domain validation 经过域验证的电子邮件            | `Params().Get`                                               |
+| `:date`             | string               | yyyy/mm/dd format e.g. /blog/{param:date} matches /blog/2022/04/21 yyyy/mm/dd 格式，例如 /blog/{param:date} 匹配 /blog/2022/04/21 | `Params().GetTime` and `Params().SimpleDate` `Params().GetTime` 和 `Params().SimpleDate` |
+| `:weekday`          | uint (0-6) or string | string of time.Weekday longname format ("sunday" to "monday" or "Sunday" to "Monday") format e.g. /schedule/{param:weekday} matches /schedule/monday time.Weekday longname 格式的字符串（“sunday”到“monday”或“Sunday”到“Monday”）格式，例如 /schedule/{param:weekday} 匹配 /schedule/monday | `Params().GetWeekday`                                        |
 
 More examples can be found at: [_examples/routing](https://github.com/kataras/iris/tree/main/_examples/routing).
 
@@ -387,6 +387,9 @@ POST /post?id=1234&page=1 HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
 name=kataras&message=this_is_great
+```
+
+```go
 func main() {
     app := iris.Default()
 
@@ -405,14 +408,22 @@ func main() {
     })
     app.Listen(":8080")
 }
+```
+
+```
 id: 1234; page: 1; name: kataras; message: this_is_great
 ```
+
+
 
 ### Query and post form parameters 查询和 post 表单参数
 
 ```
 POST /post?id=a&id=b&id=c&name=john&name=doe&name=kataras
 Content-Type: application/x-www-form-urlencoded
+```
+
+```go
 func main() {
     app := iris.Default()
 
@@ -429,8 +440,14 @@ func main() {
     })
     app.Listen(":8080")
 }
+
+```
+
+```
 ids: [a b c], names: [john doe kataras]
 ```
+
+
 
 ### Upload files 上传文件
 
