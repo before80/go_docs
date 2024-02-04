@@ -19,13 +19,13 @@ draft = false
 
 Beego uses a typical Model-View-Controller (MVC) framework. This diagram illustrates how request handling logic is processed:
 
-&zeroWidthSpace;Beego 使用典型的模型-视图-控制器 (MVC) 框架。此图表说明了如何处理请求处理逻辑：
+​	Beego 使用典型的模型-视图-控制器 (MVC) 框架。此图表说明了如何处理请求处理逻辑：
 
 ![img](./_index_img/detail.png)
 
 The whole logic handling process is explained below:
 
-&zeroWidthSpace;整个逻辑处理过程如下所述：
+​	整个逻辑处理过程如下所述：
 
 1. Data is recieved from the listening port. The listening port is set to 8080 by default.
    从侦听端口接收数据。侦听端口默认设置为 8080。
@@ -72,7 +72,7 @@ The whole logic handling process is explained below:
 
 The next sections will detail the first step of Beego’s MVC, routing:
 
-&zeroWidthSpace;下一节将详细介绍 Beego 的 MVC 的第一步，路由：
+​	下一节将详细介绍 Beego 的 MVC 的第一步，路由：
 
 - [Routing 路由](https://beego.wiki/docs/mvc/controller/router)
 - [Controller functions 控制器函数](https://beego.wiki/docs/mvc/controller/controller)

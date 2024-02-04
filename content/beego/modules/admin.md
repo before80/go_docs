@@ -1,7 +1,7 @@
 +++
 title = "admin 模块"
 date = 2024-02-04T09:32:11+08:00
-weight = 7
+weight = 9
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/admin/](https://beego.wiki/docs/module/admin/)
+> 原文：[https://beego.wiki/docs/module/admin/]({{< ref "/beego/modules/admin" >}})
 
 # Admin module 管理模块
 
@@ -17,11 +17,11 @@ draft = false
 
 This module is based on the [Dropwizard framework](https://github.com/dropwizard/dropwizard) for Java. One user told me about this framework and it’s cool stuff. [Issue 128](https://github.com/beego/beego/issues/128) talked about this feature. I added more cool features. Here are the features: healthcheck, profiling, statistics and tasks.
 
-&zeroWidthSpace;此模块基于 Java 的 Dropwizard 框架。一位用户告诉我这个框架，它很酷。第 128 期讨论了此功能。我添加了更多很酷的功能。以下是这些功能：健康检查、分析、统计和任务。
+​	此模块基于 Java 的 Dropwizard 框架。一位用户告诉我这个框架，它很酷。第 128 期讨论了此功能。我添加了更多很酷的功能。以下是这些功能：健康检查、分析、统计和任务。
 
 In v2.x, we plit `toolbox` into two pars, `admin` and `task`.
 
-&zeroWidthSpace;在 v2.x 中，我们将 `toolbox` 拆分为两个部分， `admin` 和 `task` 。
+​	在 v2.x 中，我们将 `toolbox` 拆分为两个部分， `admin` 和 `task` 。
 
 ## How to install 如何安装
 
@@ -33,7 +33,7 @@ go get github.com/beego/beego/v2/core/admin
 
 It can check the health status of your application. E.g.: To check if database is available:
 
-&zeroWidthSpace;它可以检查应用程序的运行状况。例如：要检查数据库是否可用：
+​	它可以检查应用程序的运行状况。例如：要检查数据库是否可用：
 
 ```go
 type DatabaseCheck struct {
@@ -50,7 +50,7 @@ func (dc *DatabaseCheck) Check() error {
 
 Then you can add it as a check item:
 
-&zeroWidthSpace;然后，您可以将其添加为检查项：
+​	然后，您可以将其添加为检查项：
 
 ```go
 admin.AddHealthCheck("database",&DatabaseCheck{})
@@ -58,7 +58,7 @@ admin.AddHealthCheck("database",&DatabaseCheck{})
 
 After this you can send get request to `/healthcheck`:
 
-&zeroWidthSpace;之后，您可以向 `/healthcheck` 发送 get 请求：
+​	之后，您可以向 `/healthcheck` 发送 get 请求：
 
 ```
 $ curl http://beego.wiki:8088/healthcheck
@@ -68,25 +68,25 @@ $ curl http://beego.wiki:8088/healthcheck
 
 It will return the database status accordingly.
 
-&zeroWidthSpace;它将相应地返回数据库状态。
+​	它将相应地返回数据库状态。
 
 ## Profiling
 
 Monitoring the performance of running processes is a very good way to optimize performance and to look for issues in our application. E.g.: information of GC and goroutine.
 
-&zeroWidthSpace;监视正在运行的进程的性能是优化性能和查找应用程序中问题的一种非常好的方法。例如：GC 和 goroutine 的信息。
+​	监视正在运行的进程的性能是优化性能和查找应用程序中问题的一种非常好的方法。例如：GC 和 goroutine 的信息。
 
 Profile provides a easy entry point for you to debug the application. It uses the `ProcessInput` entry function to process the requests. Here are some debugging types:
 
-&zeroWidthSpace;Profile 为您提供了一个轻松的入口点来调试应用程序。它使用 `ProcessInput` 入口函数来处理请求。这里有一些调试类型：
+​	Profile 为您提供了一个轻松的入口点来调试应用程序。它使用 `ProcessInput` 入口函数来处理请求。这里有一些调试类型：
 
 - lookup goroutine
 
-  &zeroWidthSpace;查找 goroutine
+  ​	查找 goroutine
 
   Print out the tasks of all goroutines which are currently running. You can easily see what all goroutines are doing.
 
-  &zeroWidthSpace;打印出当前正在运行的所有 goroutine 的任务。您可以轻松地看到所有 goroutine 在做什么。
+  ​	打印出当前正在运行的所有 goroutine 的任务。您可以轻松地看到所有 goroutine 在做什么。
 
   ```
     goroutine 3 [running]:
@@ -118,7 +118,7 @@ Profile provides a easy entry point for you to debug the application. It uses th
 
   Print out information of current heap:
 
-  &zeroWidthSpace;打印出当前堆的信息：
+  ​	打印出当前堆的信息：
 
   ```
     heap profile: 1: 288 [2: 296] @ heap/1048576
@@ -153,7 +153,7 @@ Profile provides a easy entry point for you to debug the application. It uses th
 
   Print out information of threads:
 
-  &zeroWidthSpace;打印出线程的信息：
+  ​	打印出线程的信息：
 
   ```
     threadcreate profile: total 4
@@ -184,7 +184,7 @@ Profile provides a easy entry point for you to debug the application. It uses th
 
   Print out information of block:
 
-  &zeroWidthSpace;打印出块的信息：
+  ​	打印出块的信息：
 
   ```
     --- contention:
@@ -195,29 +195,29 @@ Profile provides a easy entry point for you to debug the application. It uses th
 
   Start recording cpuprof info into created file cpu-pid.pprof.
 
-  &zeroWidthSpace;开始将 cpuprof 信息记录到创建的文件 cpu-pid.pprof 中。
+  ​	开始将 cpuprof 信息记录到创建的文件 cpu-pid.pprof 中。
 
 - stop cpuprof
 
   Stop recording.
 
-  &zeroWidthSpace;停止记录。
+  ​	停止记录。
 
 - get memprof
 
-  &zeroWidthSpace;获取 memprof
+  ​	获取 memprof
 
   Start recording memprof into created file mem-pid.memprof
 
-  &zeroWidthSpace;开始将 memprof 记录到创建的文件 mem-pid.memprof 中
+  ​	开始将 memprof 记录到创建的文件 mem-pid.memprof 中
 
 - gc summary
 
-  &zeroWidthSpace;gc 摘要
+  ​	gc 摘要
 
   Check GC status:
 
-  &zeroWidthSpace;检查 GC 状态：
+  ​	检查 GC 状态：
 
   ```
     NumGC:2 Pause:54.54us Pause(Avg):170.82us Overhead:177.49% Alloc:248.97K Sys:3.88M Alloc(Rate):1.23G/s Histogram:287.09us 287.09us 287.09us 
@@ -227,13 +227,13 @@ Profile provides a easy entry point for you to debug the application. It uses th
 
 Look at this picture, what do you think? It’s cool, right? admin module supports it.
 
-&zeroWidthSpace;看看这张图片，你觉得怎么样？很酷，对吧？admin 模块支持它。
+​	看看这张图片，你觉得怎么样？很酷，对吧？admin 模块支持它。
 
 ![img](https://beego.wiki/docs/images/toolbox.jpg)
 
 How can I use the statistics? Add statistics like this:
 
-&zeroWidthSpace;如何使用统计信息？像这样添加统计信息：
+​	如何使用统计信息？像这样添加统计信息：
 
 ```
 admin.StatisticsMap.AddStatistics("POST", "/api/user", "&admin.user", time.Duration(2000))
@@ -247,7 +247,7 @@ admin.StatisticsMap.AddStatistics("DELETE", "/api/user", "&admin.user", time.Dur
 
 Get statistics information:
 
-&zeroWidthSpace;获取统计信息：
+​	获取统计信息：
 
 ```
 admin.StatisticsMap.GetMap(os.Stdout)	
@@ -255,7 +255,7 @@ admin.StatisticsMap.GetMap(os.Stdout)
 
 Here is the output:
 
-&zeroWidthSpace;以下是输出：
+​	以下是输出：
 
 ```
 | requestUrl                                        | method     | times            | used             | max used         | min used         | avg used         |

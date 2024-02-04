@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/query/](https://beego.wiki/docs/mvc/model/query/)
+> 原文：[https://beego.wiki/docs/mvc/model/query/]({{< ref "/beego/mvcIntroduction/models/advancedQueries" >}})
 
 # Advanced Queries 高级查询
 
@@ -19,11 +19,11 @@ draft = false
 
 ORM uses **QuerySeter** to organize queries. Every method that returns **QuerySeter** will give you a new **QuerySeter** object.
 
-&zeroWidthSpace;ORM 使用 QuerySeter 来组织查询。每个返回 QuerySeter 的方法都会给你一个新的 QuerySeter 对象。
+​	ORM 使用 QuerySeter 来组织查询。每个返回 QuerySeter 的方法都会给你一个新的 QuerySeter 对象。
 
 Basic Usage:
 
-&zeroWidthSpace;基本用法：
+​	基本用法：
 
 ```go
 o := orm.NewOrm()
@@ -40,15 +40,15 @@ qs = o.QueryTable(user) // return a QuerySeter
 
 expr describes fields and SQL operators in `QuerySeter`.
 
-&zeroWidthSpace;expr 在 `QuerySeter` 中描述字段和 SQL 运算符。
+​	expr 在 `QuerySeter` 中描述字段和 SQL 运算符。
 
 Field combination orders are decided by the relationship of tables. For example, `User` has a foreign key to `Profile`, so if you want to use `Profile.Age` as the condition, you have to use the expression `Profile__Age`. Note that the separator is double under scores `__`. `Expr` can also append operators at the end to execute related SQL. For example, `Profile__Age__gt` represents condition query `Profile.Age > 18`.
 
-&zeroWidthSpace;字段组合顺序由表的关联决定。例如， `User` 有一个外键指向 `Profile` ，所以如果你想使用 `Profile.Age` 作为条件，你必须使用表达式 `Profile__Age` 。请注意，分隔符是双下划线 `__` 。 `Expr` 也可以在末尾追加运算符来执行相关的 SQL。例如， `Profile__Age__gt` 表示条件查询 `Profile.Age > 18` 。
+​	字段组合顺序由表的关联决定。例如， `User` 有一个外键指向 `Profile` ，所以如果你想使用 `Profile.Age` 作为条件，你必须使用表达式 `Profile__Age` 。请注意，分隔符是双下划线 `__` 。 `Expr` 也可以在末尾追加运算符来执行相关的 SQL。例如， `Profile__Age__gt` 表示条件查询 `Profile.Age > 18` 。
 
 Comments below describe SQL statements that are similar to the expr, but may not be the exact generated results.
 
-&zeroWidthSpace;下面的注释描述了与 expr 相似的 SQL 语句，但可能不是确切的生成结果。
+​	下面的注释描述了与 expr 相似的 SQL 语句，但可能不是确切的生成结果。
 
 ```go
 qs.Filter("id", 1) // WHERE id = 1
@@ -67,7 +67,7 @@ qs.Filter("profile__age__in", 18, 20).Exclude("profile__lt", 1000)
 
 The supported operators:
 
-&zeroWidthSpace;支持的操作符：
+​	支持的操作符：
 
 - [exact](https://beego.wiki/docs/mvc/model/query/#exact) / [iexact](https://beego.wiki/docs/mvc/model/query/#iexact) equal to
   exact / iexact 等于
@@ -91,7 +91,7 @@ The operators that start with `i` ignore case.
 
 Default values of Filter, Exclude and Condition expr
 
-&zeroWidthSpace;Filter、Exclude 和 Condition expr 的默认值
+​	Filter、Exclude 和 Condition expr 的默认值
 
 ```go
 qs.Filter("name", "slene") // WHERE name = 'slene'
@@ -198,7 +198,7 @@ qs.Filter("profile__isnull", false)
 
 QuerySeter is the API of advanced queries. Here are its methods:
 
-&zeroWidthSpace;QuerySeter 是高级查询的 API。以下是其方法：
+​	QuerySeter 是高级查询的 API。以下是其方法：
 
 ```go
 type QuerySeter interface {
@@ -377,21 +377,21 @@ RowsToStruct(ptrStruct interface{}, keyCol, valueCol string) (int64, error)
 
 - Every API call that returns **QuerySeter** will give you a new **QuerySeter** object. It won’t affect the previous object.
 
-  &zeroWidthSpace;每个返回 QuerySeter 的 API 调用都会为您提供一个新的 QuerySeter 对象。它不会影响以前的对象。
+  ​	每个返回 QuerySeter 的 API 调用都会为您提供一个新的 QuerySeter 对象。它不会影响以前的对象。
 
 - Advanced queries use `Filter` and `Exclude` to do conditional queries. There are two filter rules - contain and exclude
 
-  &zeroWidthSpace;高级查询使用 `Filter` 和 `Exclude` 来执行条件查询。有两个过滤规则 - 包含和不包含
+  ​	高级查询使用 `Filter` 和 `Exclude` 来执行条件查询。有两个过滤规则 - 包含和不包含
 
 ### Filter 过滤
 
 Used to filter the result for the **include conditions**.
 
-&zeroWidthSpace;用于过滤包含条件的结果。
+​	用于过滤包含条件的结果。
 
 Use `AND` to connect multiple filters:
 
-&zeroWidthSpace;使用 `AND` 连接多个过滤器：
+​	使用 `AND` 连接多个过滤器：
 
 ```go
 qs.Filter("profile__isnull", true).Filter("name", "slene")
@@ -402,11 +402,11 @@ qs.Filter("profile__isnull", true).Filter("name", "slene")
 
 Used to filter the result for the **exclude conditions**.
 
-&zeroWidthSpace;用于过滤不包含条件的结果。
+​	用于过滤不包含条件的结果。
 
 Use `NOT` to exclude condition Use `AND` to connect multiple filters:
 
-&zeroWidthSpace;使用 `NOT` 排除条件 使用 `AND` 连接多个过滤器：
+​	使用 `NOT` 排除条件 使用 `AND` 连接多个过滤器：
 
 ```go
 qs.Exclude("profile__isnull", true).Filter("name", "slene")
@@ -417,7 +417,7 @@ qs.Exclude("profile__isnull", true).Filter("name", "slene")
 
 Custom conditions:
 
-&zeroWidthSpace;自定义条件：
+​	自定义条件：
 
 ```go
 cond := NewCondition()
@@ -436,7 +436,7 @@ qs = qs.SetCond(cond2).Count()
 
 Limit maximum returned lines. The second param can set `Offset`
 
-&zeroWidthSpace;限制返回的最大行数。第二个参数可以设置 `Offset`
+​	限制返回的最大行数。第二个参数可以设置 `Offset`
 
 ```go
 var DefaultRowsLimit = 1000 // The default limit of ORM is 1000
@@ -461,7 +461,7 @@ qs.Limit(-1, 100)
 
 Set offset lines:
 
-&zeroWidthSpace;设置偏移行：
+​	设置偏移行：
 
 ```go
 qs.Offset(20)
@@ -479,11 +479,11 @@ qs.GroupBy("id", "age")
 
 Param uses **expr**
 
-&zeroWidthSpace;Param 使用 expr
+​	Param 使用 expr
 
 Using `-` at the beginning of expr stands for order by `DESC`
 
-&zeroWidthSpace;在 expr 的开头使用 `-` 表示按 `DESC` 排序
+​	在 expr 的开头使用 `-` 表示按 `DESC` 排序
 
 ```go
 qs.OrderBy("id", "-profile__age")
@@ -497,11 +497,11 @@ qs.OrderBy("-profile__age", "profile")
 
 Forcing DB to use the index.
 
-&zeroWidthSpace;强制数据库使用索引。
+​	强制数据库使用索引。
 
 You need to check your DB whether it support this feature.
 
-&zeroWidthSpace;您需要检查您的数据库是否支持此功能。
+​	您需要检查您的数据库是否支持此功能。
 
 ```go
 qs.ForceIndex(`idx_name1`,`idx_name2`)
@@ -511,11 +511,11 @@ qs.ForceIndex(`idx_name1`,`idx_name2`)
 
 Suggest DB to user the index.
 
-&zeroWidthSpace;建议数据库使用索引。
+​	建议数据库使用索引。
 
 You need to check your DB whether it support this feature.
 
-&zeroWidthSpace;您需要检查您的数据库是否支持此功能。
+​	您需要检查您的数据库是否支持此功能。
 
 ```go
 qs.UseIndex(`idx_name1`,`idx_name2`)
@@ -525,11 +525,11 @@ qs.UseIndex(`idx_name1`,`idx_name2`)
 
 Make DB ignore the index
 
-&zeroWidthSpace;使数据库忽略索引
+​	使数据库忽略索引
 
 You need to check your DB whether it support this feature.
 
-&zeroWidthSpace;您需要检查您的数据库是否支持此功能。
+​	您需要检查您的数据库是否支持此功能。
 
 ```go
 qs.IgnoreIndex(`idx_name1`,`idx_name2`)
@@ -539,7 +539,7 @@ qs.IgnoreIndex(`idx_name1`,`idx_name2`)
 
 Same as `distinct` statement in sql, return only distinct (different) values
 
-&zeroWidthSpace;与 sql 中的 `distinct` 语句相同，仅返回不同的值
+​	与 sql 中的 `distinct` 语句相同，仅返回不同的值
 
 ```go
 qs.Distinct()
@@ -550,7 +550,7 @@ qs.Distinct()
 
 Relational queries. Param uses **expr**
 
-&zeroWidthSpace;关系查询。Param 使用 expr
+​	关系查询。Param 使用 expr
 
 ```go
 var DefaultRelsDepth = 5 // RelatedSel will query for maximum 5 level by default
@@ -571,7 +571,7 @@ qs.RelatedSel("user")
 
 Return line count based on the current query
 
-&zeroWidthSpace;根据当前查询返回行数
+​	根据当前查询返回行数
 
 ```go
 cnt, err := o.QueryTable("user").Count() // SELECT COUNT(*) FROM USER
@@ -589,7 +589,7 @@ fmt.Printf("Is Exist: %s", exist)
 
 Execute batch updating based on the current query
 
-&zeroWidthSpace;根据当前查询执行批量更新
+​	根据当前查询执行批量更新
 
 ```go
 num, err := o.QueryTable("user").Filter("name", "slene").Update(orm.Params{
@@ -601,7 +601,7 @@ fmt.Printf("Affected Num: %s, %s", num, err)
 
 Atom operation add field:
 
-&zeroWidthSpace;原子操作添加字段：
+​	原子操作添加字段：
 
 ```go
 // Assume there is a nums int field in user struct
@@ -613,7 +613,7 @@ num, err := o.QueryTable("user").Update(orm.Params{
 
 orm.ColValue supports:
 
-&zeroWidthSpace;orm.ColValue 支持：
+​	orm.ColValue 支持：
 
 ```go
 Col_Add      // plus
@@ -626,7 +626,7 @@ Col_Except   // divide
 
 Execute batch deletion based on the current query
 
-&zeroWidthSpace;根据当前查询执行批量删除
+​	根据当前查询执行批量删除
 
 ```go
 num, err := o.QueryTable("user").Filter("name", "slene").Delete()
@@ -638,7 +638,7 @@ fmt.Printf("Affected Num: %s, %s", num, err)
 
 Use a prepared statement to increase inserting speed with multiple inserts.
 
-&zeroWidthSpace;使用预处理语句，通过多次插入提高插入速度。
+​	使用预处理语句，通过多次插入提高插入速度。
 
 ```go
 var users []*User
@@ -662,11 +662,11 @@ i.Close() // Don't forget to close the statement
 
 Return the related ResultSet
 
-&zeroWidthSpace;返回相关的 ResultSet
+​	返回相关的 ResultSet
 
 Param of `All` supports *[]Type and *[]*Type
 
-&zeroWidthSpace; `All` 的 Param 支持 *[]Type 和 *[]*Type
+​	 `All` 的 Param 支持 *[]Type 和 *[]*Type
 
 ```go
 var users []*User
@@ -676,11 +676,11 @@ fmt.Printf("Returned Rows Num: %s, %s", num, err)
 
 All / Values / ValuesList / ValuesFlat will be limited by [Limit](https://beego.wiki/docs/mvc/model/query/#limit). 1000 lines by default.
 
-&zeroWidthSpace;所有 / 值 / 值列表 / 值平面都将受到限制。默认情况下为 1000 行。
+​	所有 / 值 / 值列表 / 值平面都将受到限制。默认情况下为 1000 行。
 
 The returned fields can be specified:
 
-&zeroWidthSpace;可以指定返回的字段：
+​	可以指定返回的字段：
 
 ```go
 type Post struct {
@@ -697,13 +697,13 @@ o.QueryTable("post").Filter("Status", 1).All(&posts, "Id", "Title")
 
 The other fields of the object are set to the default value of the field’s type.
 
-&zeroWidthSpace;对象的其余字段设置为字段类型的默认值。
+​	对象的其余字段设置为字段类型的默认值。
 
 ### One
 
 Try to return one record
 
-&zeroWidthSpace;尝试返回一条记录
+​	尝试返回一条记录
 
 ```go
 var user User
@@ -720,7 +720,7 @@ if err == orm.ErrNoRows {
 
 The returned fields can be specified:
 
-&zeroWidthSpace;可以指定返回的字段：
+​	可以指定返回的字段：
 
 ```go
 // Only return Id and Title
@@ -730,17 +730,17 @@ o.QueryTable("post").Filter("Content__istartswith", "prefix string").One(&post, 
 
 The other fields of the object are set to the default value of the fields’ type.
 
-&zeroWidthSpace;对象的其他字段设置为字段类型的默认值。
+​	对象的其他字段设置为字段类型的默认值。
 
 ### Values 值
 
 Return key => value of result set
 
-&zeroWidthSpace;返回键 => 结果集的值
+​	返回键 => 结果集的值
 
 key is Field name in Model. value type if string.
 
-&zeroWidthSpace;键是模型中的字段名称。值类型为字符串。
+​	键是模型中的字段名称。值类型为字符串。
 
 ```go
 var maps []orm.Params
@@ -755,15 +755,15 @@ if err == nil {
 
 Return specific fields:
 
-&zeroWidthSpace;返回特定字段：
+​	返回特定字段：
 
 **TODO**: doesn’t support recursive query. **RelatedSel** return Values directly
 
-&zeroWidthSpace;TODO：不支持递归查询。RelatedSel 直接返回值
+​	TODO：不支持递归查询。RelatedSel 直接返回值
 
 But it can specify the value needed by expr.
 
-&zeroWidthSpace;但它可以通过 expr 指定所需的值。
+​	但它可以通过 expr 指定所需的值。
 
 ```go
 var maps []orm.Params
@@ -781,15 +781,15 @@ if err == nil {
 
 The result set will be stored as a slice
 
-&zeroWidthSpace;结果集将存储为切片
+​	结果集将存储为切片
 
 The order of the result is same as the Fields order in the Model definition.
 
-&zeroWidthSpace;结果的顺序与模型定义中的字段顺序相同。
+​	结果的顺序与模型定义中的字段顺序相同。
 
 The values are saved as strings.
 
-&zeroWidthSpace;这些值以字符串形式保存。
+​	这些值以字符串形式保存。
 
 ```go
 var lists []orm.ParamsList
@@ -804,7 +804,7 @@ if err == nil {
 
 It can return specific fields by setting expr.
 
-&zeroWidthSpace;它可以通过设置 expr 返回特定字段。
+​	它可以通过设置 expr 返回特定字段。
 
 ```go
 var lists []orm.ParamsList
@@ -821,7 +821,7 @@ if err == nil {
 
 Only returns a single values slice of a specific field.
 
-&zeroWidthSpace;仅返回特定字段的单个值切片。
+​	仅返回特定字段的单个值切片。
 
 ```go
 var list orm.ParamsList
@@ -834,15 +834,15 @@ if err == nil {
 
 ## Relational Query 关系查询
 
-Let’s see how to do a Relational Query by looking at [Model Definition](https://beego.wiki/docs/mvc/model/orm)
+Let’s see how to do a Relational Query by looking at [Model Definition]({{< ref "/beego/mvcIntroduction/models/ormUsage" >}})
 
-&zeroWidthSpace;让我们通过查看模型定义来了解如何执行关系查询
+​	让我们通过查看模型定义来了解如何执行关系查询
 
 #### User and Profile is OnToOne relation User 和 Profile 是 OnToOne 关系
 
 Query Profile by known User object:
 
-&zeroWidthSpace;通过已知的 User 对象查询 Profile：
+​	通过已知的 User 对象查询 Profile：
 
 ```go
 user := &User{Id: 1}
@@ -854,7 +854,7 @@ if user.Profile != nil {
 
 Cascaded query directly:
 
-&zeroWidthSpace;直接级联查询：
+​	直接级联查询：
 
 ```go
 user := &User{}
@@ -867,7 +867,7 @@ fmt.Println(user.Profile.User)
 
 Reverse finding Profile by User:
 
-&zeroWidthSpace;通过 User 反向查找 Profile：
+​	通过 User 反向查找 Profile：
 
 ```go
 var profile Profile
@@ -898,11 +898,11 @@ if err == nil {
 
 Query related User by Post.Title:
 
-&zeroWidthSpace;通过 Post.Title 查询相关 User：
+​	通过 Post.Title 查询相关 User：
 
 While RegisterModel, ORM will create reverse relation for Post in User. So it can query directly:
 
-&zeroWidthSpace;在 RegisterModel 时，ORM 会在 User 中为 Post 创建反向关系。因此它可以直接查询：
+​	在 RegisterModel 时，ORM 会在 User 中为 Post 创建反向关系。因此它可以直接查询：
 
 ```go
 var user User
@@ -916,7 +916,7 @@ if err == nil {
 
 After setting rel(m2m), ORM will create connecting table automatically.
 
-&zeroWidthSpace;设置 rel(m2m) 后，ORM 会自动创建连接表。
+​	设置 rel(m2m) 后，ORM 会自动创建连接表。
 
 ```go
 type Post struct {
@@ -934,7 +934,7 @@ type Tag struct {
 
 Query which post used the tag with tag name:
 
-&zeroWidthSpace;查询使用带有标签名称的标签的帖子：
+​	查询使用带有标签名称的标签的帖子：
 
 ```go
 var posts []*Post
@@ -943,7 +943,7 @@ num, err := dORM.QueryTable("post").Filter("Tags__Tag__Name", "golang").All(&pos
 
 Query how many tags does the post have with post title:
 
-&zeroWidthSpace;查询帖子标题中包含多少个标签：
+​	查询帖子标题中包含多少个标签：
 
 ```go
 var tags []*Tag
@@ -954,11 +954,11 @@ num, err := dORM.QueryTable("tag").Filter("Posts__Post__Title", "Introduce Beego
 
 LoadRelated is used to load relation field of model. Including all rel/reverse - one/many relation.
 
-&zeroWidthSpace;LoadRelated 用于加载模型的关系字段。包括所有 rel/reverse - one/many 关系。
+​	LoadRelated 用于加载模型的关系字段。包括所有 rel/reverse - one/many 关系。
 
 Load ManyToMany relation field
 
-&zeroWidthSpace;加载多对多关系字段
+​	加载多对多关系字段
 
 ```go
 // load related Tags
@@ -973,7 +973,7 @@ num, err := o.LoadRelated(&tag, "Posts")
 
 User is the ForeignKey of Post. Load related ReverseMany
 
-&zeroWidthSpace;用户是 Post 的外键。加载相关 ReverseMany
+​	用户是 Post 的外键。加载相关 ReverseMany
 
 ```go
 type User struct {
@@ -1025,7 +1025,7 @@ type QueryM2Mer interface {
 
 Create a QueryM2Mer object
 
-&zeroWidthSpace;创建一个 QueryM2Mer 对象
+​	创建一个 QueryM2Mer 对象
 
 ```go
 o := orm.NewOrm()
@@ -1050,7 +1050,7 @@ if err == nil {
 
 Add supports many types: Tag *Tag []*Tag []Tag []interface{}
 
-&zeroWidthSpace;添加支持多种类型：Tag *Tag []*Tag []Tag []interface{}
+​	添加支持多种类型：Tag *Tag []*Tag []Tag []interface{}
 
 ```go
 var tags []*Tag
@@ -1069,11 +1069,11 @@ if err == nil {
 
 Remove tag from M2M relation:
 
-&zeroWidthSpace;从 M2M 关系中删除标签：
+​	从 M2M 关系中删除标签：
 
 Remove supports many types: Tag *Tag []*Tag []Tag []interface{}
 
-&zeroWidthSpace;删除支持多种类型：Tag *Tag []*Tag []Tag []interface{}
+​	删除支持多种类型：Tag *Tag []*Tag []Tag []interface{}
 
 ```go
 var tags []*Tag
@@ -1092,7 +1092,7 @@ if err == nil {
 
 Test if Tag is in M2M relation
 
-&zeroWidthSpace;测试标签是否在 M2M 关系中
+​	测试标签是否在 M2M 关系中
 
 ```go
 if m2m.Exist(&Tag{Id: 2}) {
@@ -1104,7 +1104,7 @@ if m2m.Exist(&Tag{Id: 2}) {
 
 Clear all M2M relation
 
-&zeroWidthSpace;清除所有 M2M 关系
+​	清除所有 M2M 关系
 
 ```go
 nums, err := m2m.Clear()
@@ -1117,7 +1117,7 @@ if err == nil {
 
 Count the number of Tags
 
-&zeroWidthSpace;计算标签数
+​	计算标签数
 
 ```go
 nums, err := m2m.Count()

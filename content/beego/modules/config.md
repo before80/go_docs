@@ -1,7 +1,7 @@
 +++
 title = "config 模块"
 date = 2024-02-04T09:32:20+08:00
-weight = 8
+weight = 10
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/config/](https://beego.wiki/docs/module/config/)
+> 原文：[https://beego.wiki/docs/module/config/]({{< ref "/beego/modules/config" >}})
 
 # Config Module 配置模块
 
@@ -19,7 +19,7 @@ draft = false
 
 The config module is used for parsing configuration files, inspired by `database/sql`. It supports ini, json, xml and yaml files. You can install it by:
 
-&zeroWidthSpace;config 模块用于解析配置文件，灵感来自 `database/sql` 。它支持 ini、json、xml 和 yaml 文件。您可以通过以下方式安装它：
+​	config 模块用于解析配置文件，灵感来自 `database/sql` 。它支持 ini、json、xml 和 yaml 文件。您可以通过以下方式安装它：
 
 ```
 go get github.com/beego/beego/v2/core/config
@@ -27,7 +27,7 @@ go get github.com/beego/beego/v2/core/config
 
 If you want to parse xml or yaml, you should first install:
 
-&zeroWidthSpace;如果您想解析 xml 或 yaml，您应该首先安装：
+​	如果您想解析 xml 或 yaml，您应该首先安装：
 
 ```
 go get -u github.com/beego/beego/v2/core/config/xml
@@ -35,7 +35,7 @@ go get -u github.com/beego/beego/v2/core/config/xml
 
 and then import:
 
-&zeroWidthSpace;然后导入：
+​	然后导入：
 
 ```
 import _ "github.com/beego/beego/v2/core/config/xml"
@@ -45,7 +45,7 @@ import _ "github.com/beego/beego/v2/core/config/xml"
 
 Now we support `etcd` as the implementation.
 
-&zeroWidthSpace;现在我们支持 `etcd` 作为实现。
+​	现在我们支持 `etcd` 作为实现。
 
 ## Usage 用法
 
@@ -53,7 +53,7 @@ Now we support `etcd` as the implementation.
 
 In v2.x, Beego create a `globalInstance`, so that users could use `config` module directly.
 
-&zeroWidthSpace;在 v2.x 中，Beego 创建了一个 `globalInstance` ，以便用户可以直接使用 `config` 模块。
+​	在 v2.x 中，Beego 创建了一个 `globalInstance` ，以便用户可以直接使用 `config` 模块。
 
 ```go
 val, err := config.String("mykey")
@@ -61,15 +61,15 @@ val, err := config.String("mykey")
 
 Beego use `ini` implementation and loads config from `config/app.conf`.
 
-&zeroWidthSpace;Beego 使用 `ini` 实现并从 `config/app.conf` 加载配置。
+​	Beego 使用 `ini` 实现并从 `config/app.conf` 加载配置。
 
 If the file not found or got some error, Beego outputs some warning log.
 
-&zeroWidthSpace;如果找不到文件或出现错误，Beego 会输出一些警告日志。
+​	如果找不到文件或出现错误，Beego 会输出一些警告日志。
 
 Or you can initialize the `globalInstance` by:
 
-&zeroWidthSpace;或者，您可以通过以下方式初始化 `globalInstance` ：
+​	或者，您可以通过以下方式初始化 `globalInstance` ：
 
 ```go
 _ import "github.com/beego/beego/v2/core/config/toml"
@@ -83,7 +83,7 @@ val, err := config.String("mykey")
 
 Initialize a parser object:
 
-&zeroWidthSpace;初始化解析器对象：
+​	初始化解析器对象：
 
 ```
 iniconf, err := NewConfig("ini", "testini.conf")
@@ -94,7 +94,7 @@ if err != nil {
 
 Get data from parser:
 
-&zeroWidthSpace;从解析器获取数据：
+​	从解析器获取数据：
 
 ```
 iniconf.String("appname")
@@ -104,7 +104,7 @@ iniconf.String("appname")
 
 Here are the parser’s methods:
 
-&zeroWidthSpace;以下是解析器的方法：
+​	以下是解析器的方法：
 
 ```
 // Configer defines how to get and set value from configuration raw data.
@@ -143,7 +143,7 @@ type Configer interface {
 
 Notice:
 
-&zeroWidthSpace;注意：
+​	注意：
 
 1. All `Default*` methods, default value will be returned if key not found or go some error;
    所有 `Default*` 方法，如果未找到键或出现错误，将返回默认值；
@@ -166,11 +166,11 @@ Notice:
 
 The ini file supports configuration sections. You can get values inside a section by using `section::key`.
 
-&zeroWidthSpace;ini 文件支持配置节。您可以使用 `section::key` 获取节中的值。
+​	ini 文件支持配置节。您可以使用 `section::key` 获取节中的值。
 
 For example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```
 [demo]
@@ -180,25 +180,25 @@ key2 = "xie"
 
 You can use `iniconf.String("demo::key2")` to get the value.
 
-&zeroWidthSpace;您可以使用 `iniconf.String("demo::key2")` 获取值。
+​	您可以使用 `iniconf.String("demo::key2")` 获取值。
 
 ### How to Obtain Environment Variables 如何获取环境变量
 
 After Pull Request “Support get environment variables in config #1636” was merged into the code, beego supports using environment variables in the configuration file.
 
-&zeroWidthSpace;在将 Pull Request “在配置中支持获取环境变量 #1636” 合并到代码后，beego 支持在配置文件中使用环境变量。
+​	在将 Pull Request “在配置中支持获取环境变量 #1636” 合并到代码后，beego 支持在配置文件中使用环境变量。
 
 The format for this is `${ENVIRONMENTVARIABLE}` within the configuration file which is equivalent to `value = os.Getenv('ENVIRONMENTVARIABLE')`. Beego will only check for environment variables if the value begins with `${` and ends with `}`.
 
-&zeroWidthSpace;此格式在配置文件中为 `${ENVIRONMENTVARIABLE}` ，等效于 `value = os.Getenv('ENVIRONMENTVARIABLE')` 。Beego 仅在值以 `${` 开头并以 `}` 结尾时检查环境变量。
+​	此格式在配置文件中为 `${ENVIRONMENTVARIABLE}` ，等效于 `value = os.Getenv('ENVIRONMENTVARIABLE')` 。Beego 仅在值以 `${` 开头并以 `}` 结尾时检查环境变量。
 
 Additionally, a default value can be configured for the case that there is no environment variable set or the environment variable is empty. This is accomplished by using the format `${ENVVAR||defaultvalue}`, for example `${GOPATH||/home/asataxie/workspace/go}`. This `||` is used to split environment values and default values. See `/config/config_test.go` in the [beego repo](https://github.com/beego/beego) for more examples and edge cases about how these environment variables and default values are parsed.
 
-&zeroWidthSpace;此外，还可以为没有设置环境变量或环境变量为空的情况配置一个默认值。这可以通过使用格式 `${ENVVAR||defaultvalue}` 来实现，例如 `${GOPATH||/home/asataxie/workspace/go}` 。此 `||` 用于分割环境值和默认值。有关如何解析这些环境变量和默认值的更多示例和边缘情况，请参阅 beego 仓库中的 `/config/config_test.go` 。
+​	此外，还可以为没有设置环境变量或环境变量为空的情况配置一个默认值。这可以通过使用格式 `${ENVVAR||defaultvalue}` 来实现，例如 `${GOPATH||/home/asataxie/workspace/go}` 。此 `||` 用于分割环境值和默认值。有关如何解析这些环境变量和默认值的更多示例和边缘情况，请参阅 beego 仓库中的 `/config/config_test.go` 。
 
 For example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```
 password = ${MyPWD}
@@ -208,8 +208,8 @@ user = ${MyUser||beego}
 
 If the environment variable `$TOKEN` is set, its value will be used for the `token` configuration value and `beego.AppConfig.String("token")` would return its value. If `$TOKEN` is not set, the value would then be the string `astaxie`.
 
-&zeroWidthSpace;如果设置了环境变量 `$TOKEN` ，则其值将用于 `token` 配置值，并且 `beego.AppConfig.String("token")` 将返回其值。如果未设置 `$TOKEN` ，则该值将为字符串 `astaxie` 。
+​	如果设置了环境变量 `$TOKEN` ，则其值将用于 `token` 配置值，并且 `beego.AppConfig.String("token")` 将返回其值。如果未设置 `$TOKEN` ，则该值将为字符串 `astaxie` 。
 
 **Please note**: The environment variables are only read when the configuration file is parsed, not when configuration item is obtained by a function like `beego.AppConfig.String(string)`.
 
-&zeroWidthSpace;请注意：仅在解析配置文件时才会读取环境变量，而不是通过函数（如 `beego.AppConfig.String(string)` ）获取配置项时读取环境变量。
+​	请注意：仅在解析配置文件时才会读取环境变量，而不是通过函数（如 `beego.AppConfig.String(string)` ）获取配置项时读取环境变量。

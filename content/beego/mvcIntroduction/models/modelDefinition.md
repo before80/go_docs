@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/models/](https://beego.wiki/docs/mvc/model/models/)
+> 原文：[https://beego.wiki/docs/mvc/model/models/]({{< ref "/beego/mvcIntroduction/models/modelDefinition" >}})
 
 # Model Definition 模型定义
 
@@ -19,13 +19,13 @@ draft = false
 
 Model names are used for database data conversion and [Database Schema Generation](https://beego.wiki/docs/mvc/model/models/cmd.md#database-schema-generation)
 
-&zeroWidthSpace;模型名称用于数据库数据转换和数据库模式生成
+​	模型名称用于数据库数据转换和数据库模式生成
 
 ## Naming conventions 命名约定
 
 Table name conversion consists in translating camel case used for model names to snake case for table names as follows:
 
-&zeroWidthSpace;表名转换包括将用于模型名称的驼峰式大小写转换为表名的蛇形大小写，如下所示：
+​	表名转换包括将用于模型名称的驼峰式大小写转换为表名的蛇形大小写，如下所示：
 
 ```
 AuthUser -> auth_user
@@ -35,13 +35,13 @@ DB_AuthUser -> d_b__auth_user
 
 In other words, all is converted to lower case and `_` is the separator. Every uppercase add a separator before it, except the first one.
 
-&zeroWidthSpace;换句话说，所有内容都转换为小写， `_` 是分隔符。每个大写字母在其前面添加一个分隔符，第一个除外。
+​	换句话说，所有内容都转换为小写， `_` 是分隔符。每个大写字母在其前面添加一个分隔符，第一个除外。
 
 ## Custom table name 自定义表名
 
 Using `TableNameI` interface:
 
-&zeroWidthSpace;使用 `TableNameI` 接口：
+​	使用 `TableNameI` 接口：
 
 ```go
 type User struct {
@@ -56,17 +56,17 @@ func (u *User) TableName() string {
 
 If you set [prefix](https://beego.wiki/docs/mvc/model/models/orm.md#registermodelwithprefix) to `prefix_`, the table name will be `prefix_auth_user`.
 
-&zeroWidthSpace;如果将前缀设置为 `prefix_` ，则表名将为 `prefix_auth_user` 。
+​	如果将前缀设置为 `prefix_` ，则表名将为 `prefix_auth_user` 。
 
 ## Custom index 自定义索引
 
 Using `TableIndexI` interface:
 
-&zeroWidthSpace;使用 `TableIndexI` 接口：
+​	使用 `TableIndexI` 接口：
 
 Add index to one or more fields:
 
-&zeroWidthSpace;为一个或多个字段添加索引：
+​	为一个或多个字段添加索引：
 
 ```go
 type User struct {
@@ -94,15 +94,15 @@ func (u *User) TableUnique() [][]string {
 
 Only supports MySQL database
 
-&zeroWidthSpace;仅支持 MySQL 数据库
+​	仅支持 MySQL 数据库
 
 The default engine is the default engine of the current database engine of your mysql settings.
 
-&zeroWidthSpace;默认引擎是您 mysql 设置的当前数据库引擎的默认引擎。
+​	默认引擎是您 mysql 设置的当前数据库引擎的默认引擎。
 
 Using `TableEngineI` interface:
 
-&zeroWidthSpace;使用 `TableEngineI` 接口：
+​	使用 `TableEngineI` 接口：
 
 ```go
 type User struct {
@@ -125,13 +125,13 @@ orm:"null;rel(fk)"
 
 Use `;` as the separator of multiple settings. Use `,` as the separator if a setting has multiple values.
 
-&zeroWidthSpace;使用 `;` 作为多个设置的分隔符。如果某个设置具有多个值，请使用 `,` 作为分隔符。
+​	使用 `;` 作为多个设置的分隔符。如果某个设置具有多个值，请使用 `,` 作为分隔符。
 
 #### Ignore field 忽略字段
 
 Use `-` to ignore field in the struct.
 
-&zeroWidthSpace;使用 `-` 忽略结构中的字段。
+​	使用 `-` 忽略结构中的字段。
 
 ```go
 type User struct {
@@ -145,7 +145,7 @@ type User struct {
 
 When Field type is int, int32, int64, uint, uint32 or uint64, you can set it as auto increment.
 
-&zeroWidthSpace;当字段类型为 int、int32、int64、uint、uint32 或 uint64 时，您可以将其设置为自增。
+​	当字段类型为 int、int32、int64、uint、uint32 或 uint64 时，您可以将其设置为自增。
 
 - If there is no primary key in the model definition, the field `Id` with one of the types above will be considered as auto increment key
   如果模型定义中没有主键，则类型为上述类型之一的字段 `Id` 将被视为自增键
@@ -154,13 +154,13 @@ When Field type is int, int32, int64, uint, uint32 or uint64, you can set it as 
 
 Set as primary key. Used for using other type field as primary key.
 
-&zeroWidthSpace;设置为主键。用于使用其他类型字段作为主键。
+​	设置为主键。用于使用其他类型字段作为主键。
 
 #### null
 
 Fields are `NOT NULL` by default. Set null to `ALLOW NULL`.
 
-&zeroWidthSpace;字段默认值为 `NOT NULL` 。将 null 设置为 `ALLOW NULL` 。
+​	字段默认值为 `NOT NULL` 。将 null 设置为 `ALLOW NULL` 。
 
 ```go
 Name string `orm:"null"`
@@ -170,13 +170,13 @@ Name string `orm:"null"`
 
 Add index for one field
 
-&zeroWidthSpace;为一个字段添加索引
+​	为一个字段添加索引
 
 #### unique
 
 Add unique key for one field
 
-&zeroWidthSpace;为一个字段添加唯一键
+​	为一个字段添加唯一键
 
 ```go
 Name string `orm:"unique"`
@@ -186,7 +186,7 @@ Name string `orm:"unique"`
 
 Set column name in db table for field.
 
-&zeroWidthSpace;为字段设置数据库表中的列名。
+​	为字段设置数据库表中的列名。
 
 ```go
 Name string `orm:"column(user_name)"`
@@ -196,11 +196,11 @@ Name string `orm:"column(user_name)"`
 
 Default value for string field is varchar(255).
 
-&zeroWidthSpace;字符串字段的默认值为 varchar(255)。
+​	字符串字段的默认值为 varchar(255)。
 
 It will use varchar(size) after setting.
 
-&zeroWidthSpace;设置后将使用 varchar(size)。
+​	设置后将使用 varchar(size)。
 
 ```go
 Title string `orm:"size(60)"`
@@ -210,7 +210,7 @@ Title string `orm:"size(60)"`
 
 Set precision for float32 or float64.
 
-&zeroWidthSpace;为 float32 或 float64 设置精度。
+​	为 float32 或 float64 设置精度。
 
 ```go
 Money float64 `orm:"digits(12);decimals(4)"`
@@ -218,7 +218,7 @@ Money float64 `orm:"digits(12);decimals(4)"`
 
 Total 12 digits, 4 digits after point. For example: `12345678.1234`
 
-&zeroWidthSpace;总共 12 位数字，小数点后 4 位数字。例如： `12345678.1234`
+​	总共 12 位数字，小数点后 4 位数字。例如： `12345678.1234`
 
 #### auto_now / auto_now_add
 
@@ -234,13 +234,13 @@ Updated time.Time `orm:"auto_now;type(datetime)"`
 
 This setting won’t affect massive `update`.
 
-&zeroWidthSpace;此设置不会影响大规模 `update` 。
+​	此设置不会影响大规模 `update` 。
 
 #### type 类型
 
 If set type as date, the field’s db type is date.
 
-&zeroWidthSpace;如果将类型设置为日期，则字段的数据库类型为日期。
+​	如果将类型设置为日期，则字段的数据库类型为日期。
 
 ```go
 Created time.Time `orm:"auto_now_add;type(date)"`
@@ -248,7 +248,7 @@ Created time.Time `orm:"auto_now_add;type(date)"`
 
 If set type as datetime, the field’s db type is datetime.
 
-&zeroWidthSpace;如果将类型设置为日期时间，则字段的数据库类型为日期时间。
+​	如果将类型设置为日期时间，则字段的数据库类型为日期时间。
 
 ```go
 Created time.Time `orm:"auto_now_add;type(datetime)"`
@@ -268,7 +268,7 @@ Created time.Time `orm:"type(datetime);precision(4)"`
 
 you could use it like:
 
-&zeroWidthSpace;您可以像这样使用它：
+​	您可以像这样使用它：
 
 ```go
 import (
@@ -295,13 +295,13 @@ func XXX() {
 NewDefaultValueFilterChainBuilder`will create an instance of `DefaultValueFilterChainBuilder` In beego v1.x, the default value config looks like `orm:default(xxxx)` But the default value in 2.x is `default:xxx`, so if you want to be compatible with v1.x, please pass true as `compatibleWithOldStyle
 ```
 
-&zeroWidthSpace; `NewDefaultValueFilterChainBuilder` 将创建一个 `DefaultValueFilterChainBuilder` 的实例。在 beego v1.x 中，默认值配置如下所示 `orm:default(xxxx)` 。但在 2.x 中，默认值为 `default:xxx` ，因此如果您想与 v1.x 兼容，请将 true 作为 `compatibleWithOldStyle` 传递。
+​	 `NewDefaultValueFilterChainBuilder` 将创建一个 `DefaultValueFilterChainBuilder` 的实例。在 beego v1.x 中，默认值配置如下所示 `orm:default(xxxx)` 。但在 2.x 中，默认值为 `default:xxx` ，因此如果您想与 v1.x 兼容，请将 true 作为 `compatibleWithOldStyle` 传递。
 
 #### Comment 注释
 
 Set comment value for field.
 
-&zeroWidthSpace;为字段设置注释值。
+​	为字段设置注释值。
 
 ```go
 type User struct {
@@ -327,7 +327,7 @@ type User struct {
 
 The reverse relationship **RelReverseOne**:
 
-&zeroWidthSpace;反向关系 RelReverseOne:
+​	反向关系 RelReverseOne:
 
 ```go
 type Profile struct {
@@ -351,7 +351,7 @@ type Post struct {
 
 The reverse relationship **RelReverseMany**:
 
-&zeroWidthSpace;反向关系 RelReverseMany:
+​	反向关系 RelReverseMany:
 
 ```go
 type User struct {
@@ -375,7 +375,7 @@ type Post struct {
 
 The reverse relationship **RelReverseMany**:
 
-&zeroWidthSpace;反向关系 RelReverseMany:
+​	反向关系 RelReverseMany:
 
 ```go
 type Tag struct {
@@ -387,13 +387,13 @@ type Tag struct {
 
 In this example, by default the auto-generated table name is: `post_tag`. The name of the struct in which we have `orm:"rel(m2m)"` defines the first half part, the name of the struct in which we have `orm:"reverse(many)"` defines the other half. It respects the naming conversion convention we have seen in [Naming conventions](https://beego.wiki/docs/mvc/model/models/#naming-conventions)
 
-&zeroWidthSpace;在此示例中，默认情况下自动生成的表名为： `post_tag` 。我们拥有 `orm:"rel(m2m)"` 的结构的名称定义了前半部分，我们拥有 `orm:"reverse(many)"` 的结构的名称定义了后半部分。它遵循我们在命名约定中看到的命名转换约定
+​	在此示例中，默认情况下自动生成的表名为： `post_tag` 。我们拥有 `orm:"rel(m2m)"` 的结构的名称定义了前半部分，我们拥有 `orm:"reverse(many)"` 的结构的名称定义了后半部分。它遵循我们在命名约定中看到的命名转换约定
 
 ##### rel_table / rel_through
 
 This setting is for `orm:"rel(m2m)"` field:
 
-&zeroWidthSpace;此设置适用于 `orm:"rel(m2m)"` 字段：
+​	此设置适用于 `orm:"rel(m2m)"` 字段：
 
 ```
 rel_table       Set the auto-generated m2m connecting table name
@@ -404,11 +404,11 @@ rel_through     If you want to use custom m2m connecting table, set name by usin
 
 If rel_table is set, rel_through is ignored.
 
-&zeroWidthSpace;如果设置了 rel_table，则忽略 rel_through。
+​	如果设置了 rel_table，则忽略 rel_through。
 
 You can set these as follows:
 
-&zeroWidthSpace;您可以按如下方式设置这些内容：
+​	您可以按如下方式设置这些内容：
 
 ```
 orm:"rel(m2m);rel_table(the_table_name)"
@@ -419,7 +419,7 @@ orm:"rel(m2m);rel_through(project_path/current_package.ModelName)"
 
 Set how to deal with field if related relationship is deleted:
 
-&zeroWidthSpace;设置在删除相关关系时如何处理字段：
+​	设置在删除相关关系时如何处理字段：
 
 ```
 cascade        cascade delete (default)
@@ -457,7 +457,7 @@ type Post struct {
 
 Assume Post -> User is ManyToOne relationship by foreign key.
 
-&zeroWidthSpace;假设 Post -> User 是通过外键建立的 ManyToOne 关系。
+​	假设 Post -> User 是通过外键建立的 ManyToOne 关系。
 
 ```
 o.Filter("Id", 1).Delete()
@@ -465,11 +465,11 @@ o.Filter("Id", 1).Delete()
 
 This will delete User with Id 1 and all his Posts.
 
-&zeroWidthSpace;这将删除 Id 为 1 的 User 及其所有 Post。
+​	这将删除 Id 为 1 的 User 及其所有 Post。
 
 If you don’t want to delete the Posts, you need to set `set_null`
 
-&zeroWidthSpace;如果您不想删除 Post，则需要设置 `set_null`
+​	如果您不想删除 Post，则需要设置 `set_null`
 
 ```go
 type Post struct {
@@ -481,11 +481,11 @@ type Post struct {
 
 In this case, only set related Post.user_id to NULL while deleting.
 
-&zeroWidthSpace;在这种情况下，仅在删除时将相关的 Post.user_id 设置为 NULL。
+​	在这种情况下，仅在删除时将相关的 Post.user_id 设置为 NULL。
 
 Usually for performance purposes, it doesn’t matter to have redundant data. The massive deletion is the real problem
 
-&zeroWidthSpace;通常出于性能目的，拥有冗余数据无关紧要。真正的问题是大规模删除
+​	通常出于性能目的，拥有冗余数据无关紧要。真正的问题是大规模删除
 
 ```go
 type Post struct {
@@ -497,17 +497,17 @@ type Post struct {
 
 So just don’t change Post (ignore it) while deleting User.
 
-&zeroWidthSpace;因此，在删除用户时，不要更改帖子（忽略它）。
+​	因此，在删除用户时，不要更改帖子（忽略它）。
 
 ## Model fields mapping with database type 模型字段与数据库类型的映射
 
 Here is the recommended database type mapping. It’s also the standard for table generation.
 
-&zeroWidthSpace;以下是推荐的数据库类型映射。它也是表生成的标准。
+​	以下是推荐的数据库类型映射。它也是表生成的标准。
 
 All the fields are **NOT NULL** by default.
 
-&zeroWidthSpace;默认情况下，所有字段均为非空。
+​	默认情况下，所有字段均为非空。
 
 #### MySQL
 

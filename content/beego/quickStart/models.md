@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/quickstart/model/](https://beego.wiki/docs/quickstart/model/)
+> 原文：[https://beego.wiki/docs/quickstart/model/]({{< ref "/beego/quickStart/models" >}})
 
 # Models 模型
 
@@ -19,15 +19,15 @@ draft = false
 
 Models are normally the best way to handle the numerous databases used in web applications. The `bee new` project does not contain an example of models. Demos on implementing and using models can instead be found in `bee api` projects.
 
-&zeroWidthSpace;模型通常是处理 Web 应用程序中使用的众多数据库的最佳方式。 `bee new` 项目不包含模型示例。相反，可以在 `bee api` 项目中找到有关实现和使用模型的演示。
+​	模型通常是处理 Web 应用程序中使用的众多数据库的最佳方式。 `bee new` 项目不包含模型示例。相反，可以在 `bee api` 项目中找到有关实现和使用模型的演示。
 
 The Controller can automatically handle models for simple applications.
 
-&zeroWidthSpace;对于简单的应用程序，控制器可以自动处理模型。
+​	对于简单的应用程序，控制器可以自动处理模型。
 
 Larger applications with more reusable code requiring logic separation must use models. Reusable logic can be factored out into a Model and used to handle database interactions. The following is an example:
 
-&zeroWidthSpace;需要逻辑分离且具有更多可重用代码的大型应用程序必须使用模型。可将可重用逻辑分解到模型中，并用于处理数据库交互。以下是一个示例：
+​	需要逻辑分离且具有更多可重用代码的大型应用程序必须使用模型。可将可重用逻辑分解到模型中，并用于处理数据库交互。以下是一个示例：
 
 ```
 package models
@@ -59,6 +59,6 @@ func LogPV(urls string) bool {
 }
 ```
 
-Please see [MVC Models](https://beego.wiki/docs/mvc/model/overview) for the specific examples of database models and Beego’s ORM framework. [The next section](https://beego.wiki/docs/quickstart/view) will cover writing views.
+Please see [MVC Models]({{< ref "/beego/mvcIntroduction/models/overview" >}}) for the specific examples of database models and Beego’s ORM framework. [The next section]({{< ref "/beego/quickStart/view" >}}) will cover writing views.
 
-&zeroWidthSpace;有关数据库模型和 Beego 的 ORM 框架的具体示例，请参阅 MVC 模型。下一节将介绍编写视图。
+​	有关数据库模型和 Beego 的 ORM 框架的具体示例，请参阅 MVC 模型。下一节将介绍编写视图。

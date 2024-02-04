@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/session/](https://beego.wiki/docs/mvc/controller/session/)
+> 原文：[https://beego.wiki/docs/mvc/controller/session/]({{< ref "/beego/mvcIntroduction/controllers/sessionControl" >}})
 
 # Session control 会话控制
 
@@ -19,11 +19,11 @@ draft = false
 
 Beego has a built-in session module that supports memory, file, mysql, redis, couchbase, memcache and postgres as the save provider. Other providers can be implemented according to the interface.
 
-&zeroWidthSpace;Beego 具有一个内建的会话模块，支持内存、文件、数据库、redis、couchbase、memcache 和 postgre 作为保存方式。其他方式可以根据接口来定。
+​	Beego 具有一个内建的会话模块，支持内存、文件、数据库、redis、couchbase、memcache 和 postgre 作为保存方式。其他方式可以根据接口来定。
 
 To use session in Beego switch it on in the main function:
 
-&zeroWidthSpace;在 Go 中使用会话时，在主函数中打开它：
+​	在 Go 中使用会话时，在主函数中打开它：
 
 ```
 web.BConfig.WebConfig.Session.SessionOn = true
@@ -31,7 +31,7 @@ web.BConfig.WebConfig.Session.SessionOn = true
 
 Or it can be activated in the configuration file:
 
-&zeroWidthSpace;或者它可以在配置文件中：
+​	或者它可以在配置文件中：
 
 ```
 SessionOn = true
@@ -39,7 +39,7 @@ SessionOn = true
 
 After being switched on, session can used be used like this:
 
-&zeroWidthSpace;打开后，会话可以像这样使用：
+​	打开后，会话可以像这样使用：
 
 ```go
 func (this *MainController) Get() {
@@ -57,7 +57,7 @@ func (this *MainController) Get() {
 
 There are several useful methods to handle session:
 
-&zeroWidthSpace;有几个有用的方法来处理会话：
+​	有几个有用的方法来处理会话：
 
 - SetSession(name string, value interface{})
   SetSession(name string, value interface)
@@ -69,11 +69,11 @@ There are several useful methods to handle session:
 
 The most commonly used methods are `SetSession`, `GetSession`, and `DelSession`.
 
-&zeroWidthSpace;最常用的方法是 `SetSession` 、 `GetSession` 和 `DelSession` 。
+​	最常用的方法是 `SetSession` 、 `GetSession` 和 `DelSession` 。
 
 Custom logic can also be used:
 
-&zeroWidthSpace;也可以使用自定义逻辑：
+​	也可以使用自定义逻辑：
 
 ```
 sess := this.StartSession()
@@ -82,7 +82,7 @@ defer sess.SessionRelease()
 
 sess object has following methods:
 
-&zeroWidthSpace;sess 对象具有以下方法：
+​	sess 对象具有以下方法：
 
 - Set
 - Get
@@ -93,17 +93,17 @@ sess object has following methods:
 
 SetSession, GetSession and DelSession methods are recommended for session operation as it will release resource automatically.
 
-&zeroWidthSpace;建议使用 SetSession、GetSession 和 DelSession 方法进行会话操作，因为它会自动释放资源。
+​	建议使用 SetSession、GetSession 和 DelSession 方法进行会话操作，因为它会自动释放资源。
 
 Here are some parameters used in the Session module:
 
-&zeroWidthSpace;以下是 Session 模块中使用的一些参数：
+​	以下是 Session 模块中使用的一些参数：
 
 - SessionOn
 
   Enables Session. Default value is `false`. Parameter name in configuration file: `SessionOn`
 
-  &zeroWidthSpace;启用 Session。默认值为 `false` 。配置文件中的参数名称： `SessionOn`
+  ​	启用 Session。默认值为 `false` 。配置文件中的参数名称： `SessionOn`
 
 - SessionProvider Sets Session provider. Set to `memory` by default. `File`, `mysql` and `redis` are also supported. Parameter name in configuration file: `sessionprovider`.
   SessionProvider 设置会话提供程序。默认设置为 `memory` 。还支持 `File` 、 `mysql` 和 `redis` 。配置文件中的参数名称： `sessionprovider` 。

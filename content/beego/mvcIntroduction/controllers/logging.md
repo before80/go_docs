@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/logs/](https://beego.wiki/docs/mvc/controller/logs/)
+> 原文：[https://beego.wiki/docs/mvc/controller/logs/]({{< ref "/beego/mvcIntroduction/controllers/logging" >}})
 
 # Logging 日志记录
 
@@ -17,6 +17,6 @@ draft = false
 
 ## Logging 日志记录
 
-This part was removed in Beego 2.0, and please use [logs module](https://beego.wiki/docs/module/logs)
+This part was removed in Beego 2.0, and please use [logs module]({{< ref "/beego/modules/logs" >}})
 
 ​	此部分在 Beego 2.0 中已移除，请使用日志模块

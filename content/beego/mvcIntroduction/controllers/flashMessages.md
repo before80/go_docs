@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/flash/](https://beego.wiki/docs/mvc/controller/flash/)
+> 原文：[https://beego.wiki/docs/mvc/controller/flash/]({{< ref "/beego/mvcIntroduction/controllers/flashMessages" >}})
 
 # Flash messages 闪存消息
 
@@ -19,7 +19,7 @@ draft = false
 
 Flash messages are not related to Adobe/Macromedia Flash. They are temporary messages between two logic blocks. All flash messages will be cleared after the very next logic block. They are normally used to send notes and error messages. Their use is suited for the [Post/Redirect/Get](http://en.wikipedia.org/wiki/Post/Redirect/Get) model. For example:
 
-&zeroWidthSpace;闪存消息与 Adobe/Macromedia Flash 无关。它们是两个逻辑块之间的临时消息。所有闪存消息将在下一个逻辑块之后被清除。它们通常用于发送注释和错误消息。它们的使用适用于 Post/Redirect/Get 模型。例如：
+​	闪存消息与 Adobe/Macromedia Flash 无关。它们是两个逻辑块之间的临时消息。所有闪存消息将在下一个逻辑块之后被清除。它们通常用于发送注释和错误消息。它们的使用适用于 Post/Redirect/Get 模型。例如：
 
 ```go
 // Display settings message
@@ -64,7 +64,7 @@ func (c *MainController) Post() {
 
 The logic of the code above is as follows:
 
-&zeroWidthSpace;以上代码的逻辑如下：
+​	以上代码的逻辑如下：
 
 1. Execute GET method. There’s no flash data, so display settings page.
    执行 GET 方法。没有闪存数据，因此显示设置页面。
@@ -77,7 +77,7 @@ The logic of the code above is as follows:
 
 `ReadFromRequest` assigns messages to flash, so you can use it in your template:
 
-&zeroWidthSpace; `ReadFromRequest` 将消息分配给闪存，以便您可以在模板中使用它：
+​	 `ReadFromRequest` 将消息分配给闪存，以便您可以在模板中使用它：
 
 ```
 {{.flash.error}}
@@ -88,7 +88,7 @@ The logic of the code above is as follows:
 
 There are 4 different levels of flash messages:
 
-&zeroWidthSpace;闪存消息有 4 个不同的级别：
+​	闪存消息有 4 个不同的级别：
 
 - Notice: Notice message
   通知：通知消息

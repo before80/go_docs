@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/validation/](https://beego.wiki/docs/mvc/controller/validation/)
+> 原文：[https://beego.wiki/docs/mvc/controller/validation/]({{< ref "/beego/mvcIntroduction/controllers/formValidation" >}})
 
 # Form validation 表单验证
 
@@ -19,13 +19,13 @@ draft = false
 
 The Form validation module is used for data validation and error collection.
 
-&zeroWidthSpace;表单验证模块用于数据验证和错误收集。
+​	表单验证模块用于数据验证和错误收集。
 
 ## Installing and testing 安装和测试
 
 Installing:
 
-&zeroWidthSpace;安装：
+​	安装：
 
 ```
 go get github.com/beego/beego/v2/core/validation
@@ -33,7 +33,7 @@ go get github.com/beego/beego/v2/core/validation
 
 Testing:
 
-&zeroWidthSpace;测试：
+​	测试：
 
 ```
 go test github.com/beego/beego/v2/core/validation
@@ -43,19 +43,19 @@ go test github.com/beego/beego/v2/core/validation
 
 In order to localize validation error messages, one might use `SetDefaultMessage` function of the `validation` package.
 
-&zeroWidthSpace;为了本地化验证错误消息，可以使用 `SetDefaultMessage` 包的 `validation` 函数。
+​	为了本地化验证错误消息，可以使用 `SetDefaultMessage` 包的 `validation` 函数。
 
 Note that format markers (`%d`, `%s`) must be preserved in translated text to provide resulting messages with validation context values.
 
-&zeroWidthSpace;请注意，格式标记（ `%d` 、 `%s` ）必须保留在翻译后的文本中，以便为结果消息提供验证上下文值。
+​	请注意，格式标记（ `%d` 、 `%s` ）必须保留在翻译后的文本中，以便为结果消息提供验证上下文值。
 
 Default template messages are present in `validation.MessageTmpls` variable.
 
-&zeroWidthSpace;默认模板消息存在于 `validation.MessageTmpls` 变量中。
+​	默认模板消息存在于 `validation.MessageTmpls` 变量中。
 
 Simple message localization for Russian language:
 
-&zeroWidthSpace;俄语的简单消息本地化：
+​	俄语的简单消息本地化：
 
 ```go
 import "github.com/beego/beego/v2/core/validation"
@@ -90,7 +90,7 @@ func init() {
 
 Direct use:
 
-&zeroWidthSpace;直接使用：
+​	直接使用：
 
 ```go
 import (
@@ -131,7 +131,7 @@ func main() {
 
 Use through StructTag
 
-&zeroWidthSpace;通过 StructTag 使用
+​	通过 StructTag 使用
 
 ```go
 import (
@@ -184,7 +184,7 @@ func main() {
 
 Available validation functions in StrucTag:
 
-&zeroWidthSpace;StrucTag 中可用的验证函数：
+​	StrucTag 中可用的验证函数：
 
 - `Required` not empty. :TODO 不为空，即各个类型要求不为其零值
 - `Min(min int)` minimum value. Valid type is `int`, all other types are invalid.
@@ -228,4 +228,4 @@ Available validation functions in StrucTag:
 
 Please see [Go Walker](http://gowalker.org/github.com/beego/beego/v2/core/validation)
 
-&zeroWidthSpace;请参阅 Go Walker
+​	请参阅 Go Walker

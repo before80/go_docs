@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/object/](https://beego.wiki/docs/mvc/model/object/)
+> 原文：[https://beego.wiki/docs/mvc/model/object/]({{< ref "/beego/mvcIntroduction/models/crudOperations" >}})
 
 # CRUD Operations -  CRUD 操作
 
@@ -19,7 +19,7 @@ draft = false
 
 If the value of the primary key is already known, `Read`, `Insert`, `Update`, `Delete` can be used to manipulate the object.
 
-&zeroWidthSpace;如果主键的值已知， `Read` 、 `Insert` 、 `Update` 、 `Delete` 可用于操作对象。
+​	如果主键的值已知， `Read` 、 `Insert` 、 `Update` 、 `Delete` 可用于操作对象。
 
 ```go
 o := orm.NewOrm()
@@ -36,7 +36,7 @@ fmt.Println(o.Delete(user))
 
 To query the object by conditions see [Query in advance](https://beego.wiki/docs/mvc/model/object/query.md#all)
 
-&zeroWidthSpace;要按条件查询对象，请参阅预先查询
+​	要按条件查询对象，请参阅预先查询
 
 ## Read 读取
 
@@ -57,7 +57,7 @@ if err == orm.ErrNoRows {
 
 Read uses primary key by default. But it can use other fields as well:
 
-&zeroWidthSpace;读取默认情况下使用主键。但它也可以使用其他字段：
+​	读取默认情况下使用主键。但它也可以使用其他字段：
 
 ```go
 user := User{Name: "slene"}
@@ -67,21 +67,21 @@ err := o.Read(&user, "Name")
 
 Other fields of the object are set to the default value according to the field type.
 
-&zeroWidthSpace;对象的其它字段根据字段类型设置为默认值。
+​	对象的其它字段根据字段类型设置为默认值。
 
 For detailed single object query, see [One](https://beego.wiki/docs/mvc/model/object/query.md#one)
 
-&zeroWidthSpace;有关详细的单个对象查询，请参阅一个
+​	有关详细的单个对象查询，请参阅一个
 
 ## ReadOrCreate 读取或创建
 
 Try to read a row from the database, or insert one if it doesn’t exist.
 
-&zeroWidthSpace;尝试从数据库中读取一行，或在不存在时插入一行。
+​	尝试从数据库中读取一行，或在不存在时插入一行。
 
 At least one condition field must be supplied, multiple condition fields are also supported.
 
-&zeroWidthSpace;必须提供至少一个条件字段，也支持多个条件字段。
+​	必须提供至少一个条件字段，也支持多个条件字段。
 
 ```go
 o := orm.NewOrm()
@@ -100,7 +100,7 @@ if created, id, err := o.ReadOrCreate(&user, "Name"); err == nil {
 
 The first return value is auto inc Id value.
 
-&zeroWidthSpace;第一个返回值是自动增长的 Id 值。
+​	第一个返回值是自动增长的 Id 值。
 
 ```go
 o := orm.NewOrm()
@@ -116,17 +116,17 @@ if err == nil {
 
 After creation, it will assign values for auto fields.
 
-&zeroWidthSpace;创建后，它将为自动字段分配值。
+​	创建后，它将为自动字段分配值。
 
 ## InsertMulti
 
 Insert multiple objects in one api.
 
-&zeroWidthSpace;在一次 API 中插入多个对象。
+​	在一次 API 中插入多个对象。
 
 Like sql statement:
 
-&zeroWidthSpace;类似于 sql 语句：
+​	类似于 sql 语句：
 
 ```
 insert into table (name, age) values("slene", 28),("astaxie", 30),("unknown", 20)
@@ -134,11 +134,11 @@ insert into table (name, age) values("slene", 28),("astaxie", 30),("unknown", 20
 
 The 1st param is the number of records to insert in one bulk statement. The 2nd param is models slice.
 
-&zeroWidthSpace;第一个参数是在一个批量语句中要插入的记录数。第二个参数是模型切片。
+​	第一个参数是在一个批量语句中要插入的记录数。第二个参数是模型切片。
 
 The return value is the number of successfully inserted rows.
 
-&zeroWidthSpace;返回值是成功插入的行数。
+​	返回值是成功插入的行数。
 
 ```go
 users := []User{
@@ -152,13 +152,13 @@ successNums, err := o.InsertMulti(100, users)
 
 When bulk is equal to 1, then models will be inserted one by one.
 
-&zeroWidthSpace;当批量等于 1 时，模型将被逐个插入。
+​	当批量等于 1 时，模型将被逐个插入。
 
 ## Update
 
 The first return value is the number of affected rows.
 
-&zeroWidthSpace;第一个返回值是受影响的行数。
+​	第一个返回值是受影响的行数。
 
 ```go
 o := orm.NewOrm()
@@ -173,7 +173,7 @@ if o.Read(&user) == nil {
 
 Update updates all fields by default. You can update specified fields:
 
-&zeroWidthSpace;默认情况下，Update 会更新所有字段。您可以更新指定字段：
+​	默认情况下，Update 会更新所有字段。您可以更新指定字段：
 
 ```go
 // Only update Name
@@ -185,13 +185,13 @@ o.Update(&user, "Name")
 
 For detailed object update, see [One](https://beego.wiki/docs/mvc/model/object/query.md#one)
 
-&zeroWidthSpace;有关详细的对象更新，请参阅 One
+​	有关详细的对象更新，请参阅 One
 
 ## Delete
 
 The first return value is the number of affected rows.
 
-&zeroWidthSpace;第一个返回值是受影响的行数。
+​	第一个返回值是受影响的行数。
 
 ```go
 o := orm.NewOrm()
@@ -202,12 +202,12 @@ if num, err := o.Delete(&User{Id: 1}); err == nil {
 
 Delete will also manipulate reverse relationships. E.g.: `Post` has a foreign key to `User`. If on_delete is set to `cascade`, `Post` will be deleted while delete `User`.
 
-&zeroWidthSpace;Delete 还会处理反向关系。例如： `Post` 具有指向 `User` 的外键。如果 on_delete 设置为 `cascade` ，则在删除 `User` 时将删除 `Post` 。
+​	Delete 还会处理反向关系。例如： `Post` 具有指向 `User` 的外键。如果 on_delete 设置为 `cascade` ，则在删除 `User` 时将删除 `Post` 。
 
 After deleting, it will clean up values for auto fields.
 
-&zeroWidthSpace;删除后，它将清理自动字段的值。
+​	删除后，它将清理自动字段的值。
 
 **Changed in 1.0.3** After deleting, it will **not** clean up values for auto fields.
 
-&zeroWidthSpace;在 1.0.3 中更改删除后，它不会清理自动字段的值。
+​	在 1.0.3 中更改删除后，它不会清理自动字段的值。

@@ -9,13 +9,13 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/cache/](https://beego.wiki/docs/module/cache/)
+> 原文：[https://beego.wiki/docs/module/cache/]({{< ref "/beego/modules/cache" >}})
 
 # Cache Module 缓存模块
 
 Beego’s cache module is used for caching data, inspired by `database/sql`. It supports four cache providers: file, memcache, memory and redis. You can install it by:
 
-&zeroWidthSpace;Beego 的缓存模块用于缓存数据，灵感来自 `database/sql` 。它支持四种缓存提供程序：文件、memcache、内存和 redis。您可以通过以下方式安装它：
+​	Beego 的缓存模块用于缓存数据，灵感来自 `database/sql` 。它支持四种缓存提供程序：文件、memcache、内存和 redis。您可以通过以下方式安装它：
 
 ```
 github.com/beego/beego/v2/client/cache
@@ -23,14 +23,14 @@ github.com/beego/beego/v2/client/cache
 
 If you use the `memcache` or `redis` provider, you should first install:
 
-&zeroWidthSpace;如果您使用 `memcache` 或 `redis` 提供程序，则应首先安装：
+​	如果您使用 `memcache` 或 `redis` 提供程序，则应首先安装：
 
 ```
 go get -u github.com/beego/beego/v2/client/cache/memcache
 ```
 
 and then import: 
-&zeroWidthSpace;然后导入：
+​	然后导入：
 
 ```
 import _ "github.com/beego/beego/v2/client/cache/memcache"
@@ -40,7 +40,7 @@ import _ "github.com/beego/beego/v2/client/cache/memcache"
 
 First step is importing the package:
 
-&zeroWidthSpace;第一步是导入包：
+​	第一步是导入包：
 
 ```
 import (
@@ -50,7 +50,7 @@ import (
 
 Then initialize a global variable object:
 
-&zeroWidthSpace;然后初始化一个全局变量对象：
+​	然后初始化一个全局变量对象：
 
 ```
 bm, err := cache.NewCache("memory", `{"interval":60}`)
@@ -58,7 +58,7 @@ bm, err := cache.NewCache("memory", `{"interval":60}`)
 
 Then we can use `bm` to modify the cache:
 
-&zeroWidthSpace;然后我们可以使用 `bm` 来修改缓存：
+​	然后我们可以使用 `bm` 来修改缓存：
 
 ```
 bm.Put("astaxie", 1, 10*time.Second)
@@ -71,13 +71,13 @@ bm.Delete("astaxie")
 
 Here is how to configure the four providers:
 
-&zeroWidthSpace;以下是配置四个提供程序的方法：
+​	以下是配置四个提供程序的方法：
 
 - memory
 
   `interval` stands for GC time, which means the cache will be cleared every 60s:
 
-  &zeroWidthSpace; `interval` 代表 GC 时间，这意味着缓存每 60 秒清除一次：
+  ​	 `interval` 代表 GC 时间，这意味着缓存每 60 秒清除一次：
 
   ```
     {"interval":60}
@@ -92,7 +92,7 @@ Here is how to configure the four providers:
 - redis
 
   redis uses [redigo](https://github.com/garyburd/redigo/tree/master/redis) 
-  &zeroWidthSpace;redis 使用 redigo
+  ​	redis 使用 redigo
 
   ```
     {"key":"collectionName","conn":":6039","dbNum":"0","password":"thePassWord"}
@@ -110,7 +110,7 @@ Here is how to configure the four providers:
 - memcache
 
   memcache uses [vitess](http://code.google.com/p/vitess/go/memcache) 
-  &zeroWidthSpace;memcache 使用 vitess
+  ​	memcache 使用 vitess
 
   ```
     {"conn":"127.0.0.1:11211"}
@@ -120,7 +120,7 @@ Here is how to configure the four providers:
 
 The cache module uses the Cache interface, so you can create your own cache provider by implementing this interface and registering it.
 
-&zeroWidthSpace;缓存模块使用 Cache 接口，因此您可以通过实现此接口并注册它来创建自己的缓存提供程序。
+​	缓存模块使用 Cache 接口，因此您可以通过实现此接口并注册它来创建自己的缓存提供程序。
 
 ```go
 type Cache interface {
@@ -147,7 +147,7 @@ type Cache interface {
 
 Register your provider:
 
-&zeroWidthSpace;注册您的提供程序：
+​	注册您的提供程序：
 
 ```
 func init() {

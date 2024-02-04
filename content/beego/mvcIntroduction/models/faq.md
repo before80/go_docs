@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/faq/](https://beego.wiki/docs/mvc/model/faq/)
+> 原文：[https://beego.wiki/docs/mvc/model/faq/]({{< ref "/beego/mvcIntroduction/models/faq" >}})
 
 # FAQ
 

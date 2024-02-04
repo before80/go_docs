@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/deploy/nginx/](https://beego.wiki/docs/deploy/nginx/)
+> 原文：[https://beego.wiki/docs/deploy/nginx/]({{< ref "/beego/deployment/deploymentWithNginx" >}})
 
 # Deployment with nginx 使用 nginx 部署
 
@@ -17,7 +17,7 @@ draft = false
 
 Go already has a standalone http server. But we still want to have nginx to do more for us such as logging, CC attack and act as a static file server because nginx performs well as a web server. So Go can just focus on functionality and logic. We can also use the nginx proxy to deploy multiple applications at the same time. Here is an example of two applications that share port 80 but have different domains, and requests are forwarding to different applications by nginx.
 
-&zeroWidthSpace;Go 已经有一个独立的 http 服务器。但我们仍然希望 nginx 为我们做更多的事情，例如记录、CC 攻击和充当静态文件服务器，因为 nginx 作为 Web 服务器性能良好。因此，Go 只需专注于功能和逻辑即可。我们还可以使用 nginx 代理同时部署多个应用程序。以下是一个示例，其中两个应用程序共享端口 80 但具有不同的域，并且请求由 nginx 转发到不同的应用程序。
+​	Go 已经有一个独立的 http 服务器。但我们仍然希望 nginx 为我们做更多的事情，例如记录、CC 攻击和充当静态文件服务器，因为 nginx 作为 Web 服务器性能良好。因此，Go 只需专注于功能和逻辑即可。我们还可以使用 nginx 代理同时部署多个应用程序。以下是一个示例，其中两个应用程序共享端口 80 但具有不同的域，并且请求由 nginx 转发到不同的应用程序。
 
 ```
 server {

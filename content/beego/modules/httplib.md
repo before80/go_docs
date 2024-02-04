@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/httplib/](https://beego.wiki/docs/module/httplib/)
+> 原文：[https://beego.wiki/docs/module/httplib/]({{< ref "/beego/modules/httplib" >}})
 
 # Httplib Module - Httplib 模块
 
@@ -19,7 +19,7 @@ draft = false
 
 Similar to Curl, httplib is used to simulate http requests sent by clients. Similar to jQuery, it supports method chaining. It’s easy to use and it can be installed by:
 
-&zeroWidthSpace;与 Curl 类似，httplib 用于模拟客户端发送的 http 请求。与 jQuery 类似，它支持方法链接。它易于使用，可以通过以下方式安装：
+​	与 Curl 类似，httplib 用于模拟客户端发送的 http 请求。与 jQuery 类似，它支持方法链接。它易于使用，可以通过以下方式安装：
 
 ```
 go get github.com/beego/beego/v2/client/httplib
@@ -28,7 +28,7 @@ go get github.com/beego/beego/v2/client/httplib
 ## Basic Usage 基本用法
 
 Import package: 
-&zeroWidthSpace;导入包：
+​	导入包：
 
 ```
 import (
@@ -38,7 +38,7 @@ import (
 
 Initialize request method and url:
 
-&zeroWidthSpace;初始化请求方法和 url：
+​	初始化请求方法和 url：
 
 ```
 req := httplib.Get("http://beego.wiki/")
@@ -46,7 +46,7 @@ req := httplib.Get("http://beego.wiki/")
 
 Send the request and retrieve the data in the response:
 
-&zeroWidthSpace;发送请求并在响应中检索数据：
+​	发送请求并在响应中检索数据：
 
 ```
 str, err := req.String()
@@ -60,7 +60,7 @@ fmt.Println(str)
 
 httplib supports these methods:
 
-&zeroWidthSpace;httplib 支持以下方法：
+​	httplib 支持以下方法：
 
 - `Get(url string)`
 - `Post(url string)`
@@ -72,7 +72,7 @@ httplib supports these methods:
 
 Enable debug information output:
 
-&zeroWidthSpace;启用调试信息输出：
+​	启用调试信息输出：
 
 ```
 req.Debug(true)
@@ -80,7 +80,7 @@ req.Debug(true)
 
 Then it will output debug information:
 
-&zeroWidthSpace;然后它将输出调试信息：
+​	然后它将输出调试信息：
 
 ```
 httplib.Get("http://beego.wiki/").Debug(true).Response()
@@ -95,7 +95,7 @@ User-Agent: beegoServer
 
 If the requested scheme is https, we need to set the TLS of client:
 
-&zeroWidthSpace;如果请求的方案是 https，我们需要设置客户端的 TLS：
+​	如果请求的方案是 https，我们需要设置客户端的 TLS：
 
 ```
 req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
@@ -108,7 +108,7 @@ req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
 
 Can set request timeout and data reading timeout by:
 
-&zeroWidthSpace;可以通过以下方式设置请求超时和数据读取超时：
+​	可以通过以下方式设置请求超时和数据读取超时：
 
 ```
 req.SetTimeout(connectTimeout, readWriteTimeout)
@@ -116,7 +116,7 @@ req.SetTimeout(connectTimeout, readWriteTimeout)
 
 It is a function of request object. So it can be done like this:
 
-&zeroWidthSpace;它是请求对象的一个函数。因此可以像这样完成：
+​	它是请求对象的一个函数。因此可以像这样完成：
 
 ```
 httplib.Get("http://beego.wiki/").SetTimeout(100 * time.Second, 30 * time.Second).Response()
@@ -126,7 +126,7 @@ httplib.Get("http://beego.wiki/").SetTimeout(100 * time.Second, 30 * time.Second
 
 For Put or Post requests, we may need to send parameters. Parameters can be set in the following manner:
 
-&zeroWidthSpace;对于 Put 或 Post 请求，我们可能需要发送参数。参数可以按以下方式设置：
+​	对于 Put 或 Post 请求，我们可能需要发送参数。参数可以按以下方式设置：
 
 ```
 req := httplib.Post("http://beego.wiki/")
@@ -138,7 +138,7 @@ req.Param("password","123456")
 
 To simulate file uploading or to send big data, one can use the `Body` function:
 
-&zeroWidthSpace;要模拟文件上传或发送大数据，可以使用 `Body` 函数：
+​	要模拟文件上传或发送大数据，可以使用 `Body` 函数：
 
 ```
 req := httplib.Post("http://beego.wiki/")
@@ -153,7 +153,7 @@ req.Body(bt)
 
 To simulate header values, e.g.:
 
-&zeroWidthSpace;要模拟标头值，例如：
+​	要模拟标头值，例如：
 
 ```
 Accept-Encoding:gzip,deflate,sdch
@@ -163,7 +163,7 @@ User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KH
 
 Can use `Header` function:
 
-&zeroWidthSpace;可以使用 `Header` 函数：
+​	可以使用 `Header` 函数：
 
 ```
 req := httplib.Post("http://beego.wiki/")
@@ -176,7 +176,7 @@ req.Header("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWeb
 
 PostFile function requires the first parameter to be the name of form and the second parameter is the filename or filepath you want to send.
 
-&zeroWidthSpace;PostFile 函数要求第一个参数是表单的名称，第二个参数是要发送的文件名或文件路径。
+​	PostFile 函数要求第一个参数是表单的名称，第二个参数是要发送的文件名或文件路径。
 
 ```
 b:=httplib.Post("http://beego.wiki/")
@@ -194,7 +194,7 @@ if err != nil {
 
 The settings above are before sending request, how can we get response after request? Here are the ways:
 
-&zeroWidthSpace;以上设置是在发送请求之前，我们如何在请求后获取响应？方法如下：
+​	以上设置是在发送请求之前，我们如何在请求后获取响应？方法如下：
 
 | Method 方法                      | Type 类型                 | Description 说明                                             |
 | -------------------------------- | ------------------------- | ------------------------------------------------------------ |
@@ -209,11 +209,11 @@ The settings above are before sending request, how can we get response after req
 
 In order to support some AOP feature, e.g. logs, tracing, we designed `filter-chain` for httplib.
 
-&zeroWidthSpace;为了支持一些 AOP 功能，例如日志、跟踪，我们为 httplib 设计了 `filter-chain` 。
+​	为了支持一些 AOP 功能，例如日志、跟踪，我们为 httplib 设计了 `filter-chain` 。
 
 There are two key interfaces:
 
-&zeroWidthSpace;有两个关键接口：
+​	有两个关键接口：
 
 ```go
 type FilterChain func(next Filter) Filter
@@ -223,11 +223,11 @@ type Filter func(ctx context.Context, req *BeegoHTTPRequest) (*http.Response, er
 
 This is a typical usage of `Filter-Chain` pattern. So you must invoke `next(...)` when you want to implement your own logic.
 
-&zeroWidthSpace;这是 `Filter-Chain` 模式的典型用法。因此，当您想要实现自己的逻辑时，必须调用 `next(...)` 。
+​	这是 `Filter-Chain` 模式的典型用法。因此，当您想要实现自己的逻辑时，必须调用 `next(...)` 。
 
 Here is an example：
 
-&zeroWidthSpace;这里有一个示例：
+​	这里有一个示例：
 
 ```go
 func myFilter(next httplib.Filter) httplib.Filter {
@@ -242,7 +242,7 @@ func myFilter(next httplib.Filter) httplib.Filter {
 
 And we could register this filter as global filter:
 
-&zeroWidthSpace;我们可以将此过滤器注册为全局过滤器：
+​	我们可以将此过滤器注册为全局过滤器：
 
 ```go
 	httplib.SetDefaultSetting(httplib.BeegoHTTPSettings{
@@ -261,7 +261,7 @@ And we could register this filter as global filter:
 
 Sometimes you only want to use the filter for specific requests:
 
-&zeroWidthSpace;有时您只想将过滤器用于特定请求：
+​	有时您只想将过滤器用于特定请求：
 
 ```go
 req.AddFilters(myFilter)
@@ -269,13 +269,13 @@ req.AddFilters(myFilter)
 
 We provide some filters.
 
-&zeroWidthSpace;我们提供了一些过滤器。
+​	我们提供了一些过滤器。
 
 ## Prometheus Filter Prometheus 过滤器
 
 It’s used to support `Prometheus` framework to collect metric data.
 
-&zeroWidthSpace;它用于支持 `Prometheus` 框架收集指标数据。
+​	它用于支持 `Prometheus` 框架收集指标数据。
 
 ```go
 	builder := prometheus.FilterChainBuilder{
@@ -297,7 +297,7 @@ It’s used to support `Prometheus` framework to collect metric data.
 
 If you don’t use Beego’s admin service, you must expose `prometheus` port manually.
 
-&zeroWidthSpace;如果您不使用 Beego 的管理服务，则必须手动公开 `prometheus` 端口。
+​	如果您不使用 Beego 的管理服务，则必须手动公开 `prometheus` 端口。
 
 ## Opentracing Filter Opentracing 过滤器
 
@@ -317,4 +317,4 @@ If you don’t use Beego’s admin service, you must expose `prometheus` port ma
 
 Don’t forget to register `Opentracing` real implementation.
 
-&zeroWidthSpace;别忘了注册 `Opentracing` 真实实现。
+​	别忘了注册 `Opentracing` 真实实现。

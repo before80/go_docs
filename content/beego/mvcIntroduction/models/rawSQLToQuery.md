@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/rawsql/](https://beego.wiki/docs/mvc/model/rawsql/)
+> 原文：[https://beego.wiki/docs/mvc/model/rawsql/]({{< ref "/beego/mvcIntroduction/models/rawSQLToQuery" >}})
 
 # Raw SQL to query 使用 Raw SQL 查询
 
@@ -31,7 +31,7 @@ p.Raw("SELECT name FROM user WHERE id IN (?, ?, ?)", ids)
 
 Create a **RawSeter**
 
-&zeroWidthSpace;创建 RawSeter
+​	创建 RawSeter
 
 ```go
 o := NewOrm()
@@ -103,7 +103,7 @@ type RawSeter interface {
 
 Run sql query and return [sql.Result](http://gowalker.org/database/sql#Result) object
 
-&zeroWidthSpace;运行 SQL 查询并返回 sql.Result 对象
+​	运行 SQL 查询并返回 sql.Result 对象
 
 ```go
 res, err := o.Raw("UPDATE user SET name = ?", "your").Exec()
@@ -117,11 +117,11 @@ if err == nil {
 
 QueryRow and QueryRows support high-level sql mapper.
 
-&zeroWidthSpace;QueryRow 和 QueryRows 支持高级 SQL 映射器。
+​	QueryRow 和 QueryRows 支持高级 SQL 映射器。
 
 Supports struct:
 
-&zeroWidthSpace;支持结构体：
+​	支持结构体：
 
 ```go
 type User struct {
@@ -135,13 +135,13 @@ err := o.Raw("SELECT id, name FROM user WHERE id = ?", 1).QueryRow(&user)
 
 > from Beego 1.1.0 remove multiple struct support [ISSUE 384](https://github.com/beego/beego/issues/384)
 >
-> &zeroWidthSpace;从 Beego 1.1.0 中移除对多个结构体支持的问题 384
+> ​	从 Beego 1.1.0 中移除对多个结构体支持的问题 384
 
 #### QueryRows
 
 QueryRows supports the same mapping rules as QueryRow but all of them are slice.
 
-&zeroWidthSpace;QueryRows 支持与 QueryRow 相同的映射规则，但它们都是切片。
+​	QueryRows 支持与 QueryRow 相同的映射规则，但它们都是切片。
 
 ```go
 type User struct {
@@ -158,17 +158,17 @@ if err == nil {
 
 > from Beego 1.1.0 remove multiple struct support [ISSUE 384](https://github.com/beego/beego/issues/384)
 >
-> &zeroWidthSpace;从 Beego 1.1.0 中移除对多个结构体支持的问题 384
+> ​	从 Beego 1.1.0 中移除对多个结构体支持的问题 384
 
 #### SetArgs
 
 Changing args param in Raw(sql, args…) can return a new RawSeter.
 
-&zeroWidthSpace;在 Raw(sql, args…) 中更改 args 参数可以返回一个新的 RawSeter。
+​	在 Raw(sql, args…) 中更改 args 参数可以返回一个新的 RawSeter。
 
 It can reuse the same SQL query but different params.
 
-&zeroWidthSpace;它可以重用相同的 SQL 查询，但参数不同。
+​	它可以重用相同的 SQL 查询，但参数不同。
 
 ```go
 res, err := r.SetArgs("arg1", "arg2").Exec()
@@ -180,17 +180,17 @@ res, err := r.SetArgs("arg1", "arg2").Exec()
 
 The resultSet values returned by Raw SQL query are `string`. NULL field will return empty string ``
 
-&zeroWidthSpace;Raw SQL 查询返回的结果集值是 `string` 。NULL 字段将返回空字符串 ``
+​	Raw SQL 查询返回的结果集值是 `string` 。NULL 字段将返回空字符串 ``
 
 > from Beego 1.1.0 Values, ValuesList, ValuesFlat. The returned fields can be specified. Generally you don’t need to specify. Because the field names are already defined in your SQL.
 >
-> &zeroWidthSpace;从 Beego 1.1.0 Values、ValuesList、ValuesFlat。可以指定返回的字段。通常您无需指定。因为字段名称已在您的 SQL 中定义。
+> ​	从 Beego 1.1.0 Values、ValuesList、ValuesFlat。可以指定返回的字段。通常您无需指定。因为字段名称已在您的 SQL 中定义。
 
 #### Values 值
 
 The key => value pairs of resultSet:
 
-&zeroWidthSpace;结果集的键值对：
+​	结果集的键值对：
 
 ```go
 var maps []orm.Params
@@ -204,7 +204,7 @@ if err == nil && num > 0 {
 
 slice of resultSet
 
-&zeroWidthSpace;结果集切片
+​	结果集切片
 
 ```go
 var lists []orm.ParamsList
@@ -218,7 +218,7 @@ if err == nil && num > 0 {
 
 Return slice of a single field:
 
-&zeroWidthSpace;返回单个字段的切片：
+​	返回单个字段的切片：
 
 ```go
 var list orm.ParamsList
@@ -232,7 +232,7 @@ if err == nil && num > 0 {
 
 SQL query results
 
-&zeroWidthSpace;SQL 查询结果
+​	SQL 查询结果
 
 | name 名称    | value 值 |
 | ------------ | -------- |
@@ -241,7 +241,7 @@ SQL query results
 
 map rows results to map
 
-&zeroWidthSpace;将映射行结果映射到映射
+​	将映射行结果映射到映射
 
 ```go
 res := make(orm.Params)
@@ -256,7 +256,7 @@ nums, err := o.Raw("SELECT name, value FROM options_table").RowsToMap(&res, "nam
 
 SQL query results
 
-&zeroWidthSpace;SQL 查询结果
+​	SQL 查询结果
 
 | name 名称    | value 值 |
 | ------------ | -------- |
@@ -265,7 +265,7 @@ SQL query results
 
 map rows results to struct
 
-&zeroWidthSpace;将映射行结果映射到结构
+​	将映射行结果映射到结构
 
 ```go
 type Options struct {
@@ -281,13 +281,13 @@ fmt.Println(res.Found) // 200
 
 > support name conversion: snake -> camel, eg: SELECT user_name … to your struct field UserName.
 >
-> &zeroWidthSpace;支持名称转换：snake -> camel，例如：SELECT user_name … 到您的结构字段 UserName。
+> ​	支持名称转换：snake -> camel，例如：SELECT user_name … 到您的结构字段 UserName。
 
 #### Prepare 准备
 
 Prepare once and exec multiple times to improve the speed of batch execution.
 
-&zeroWidthSpace;一次准备，多次执行，以提高批处理执行速度。
+​	一次准备，多次执行，以提高批处理执行速度。
 
 ```go
 p, err := o.Raw("UPDATE user SET name = ? WHERE name = ?").Prepare()

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/errors/](https://beego.wiki/docs/mvc/controller/errors/)
+> 原文：[https://beego.wiki/docs/mvc/controller/errors/]({{< ref "/beego/mvcIntroduction/controllers/errorHanding" >}})
 
 # Error Handling 错误处理
 
@@ -19,7 +19,7 @@ draft = false
 
 In web development, we need to be able to redirect pages and handle errors. Beego uses `Redirect` for page redirection and error handling:
 
-&zeroWidthSpace;在 Web 开发中，我们需要能够重定向页面并处理错误。Beego 使用 `Redirect` 进行页面重定向和错误处理：
+​	在 Web 开发中，我们需要能够重定向页面并处理错误。Beego 使用 `Redirect` 进行页面重定向和错误处理：
 
 ```go
 func (this *AddController) Get() {
@@ -29,7 +29,7 @@ func (this *AddController) Get() {
 
 If you want to stop this request and throw an exception, you can do this in Beego’s controller:
 
-&zeroWidthSpace;如果您想停止此请求并抛出异常，可以在 Beego 的控制器中执行此操作：
+​	如果您想停止此请求并抛出异常，可以在 Beego 的控制器中执行此操作：
 
 ```go
 func (this *MainController) Get() {
@@ -48,13 +48,13 @@ func (this *MainController) Get() {
 
 The `this.Abort("401")` will stop any further execution and it will show this page:
 
-&zeroWidthSpace; `this.Abort("401")` 将停止任何进一步的执行，并将显示此页面：
+​	 `this.Abort("401")` 将停止任何进一步的执行，并将显示此页面：
 
 ![img](./errorHanding_img/401.png)
 
 Beego supports 404, 401, 403, 500, 503 error handling by default. You can also define a custom error handling page. For example redefined 404 page:
 
-&zeroWidthSpace;Beego 默认支持 404、401、403、500、503 错误处理。您还可以定义自定义错误处理页面。例如，重新定义 404 页面：
+​	Beego 默认支持 404、401、403、500、503 错误处理。您还可以定义自定义错误处理页面。例如，重新定义 404 页面：
 
 ```go
 func page_not_found(rw http.ResponseWriter, r *http.Request){
@@ -73,11 +73,11 @@ func main() {
 
 We can therefore define our own `404.html` page to handle a 404 error.
 
-&zeroWidthSpace;因此，我们可以定义自己的 `404.html` 页面来处理 404 错误。
+​	因此，我们可以定义自己的 `404.html` 页面来处理 404 错误。
 
 Another cool feature of Beego is support for customized string error handling functions, such as the code below which registers a database error page:
 
-&zeroWidthSpace;Beego 的另一个很酷的功能是对自定义字符串错误处理函数的支持，例如以下代码注册了一个数据库错误页面：
+​	Beego 的另一个很酷的功能是对自定义字符串错误处理函数的支持，例如以下代码注册了一个数据库错误页面：
 
 ```go
 func dbError(rw http.ResponseWriter, r *http.Request){
@@ -96,13 +96,13 @@ func main() {
 
 After registering this error handling code, you can call `this.Abort("dbError")` at any point in your code to handle the database error.
 
-&zeroWidthSpace;注册此错误处理代码后，您可以在代码中的任何位置调用 `this.Abort("dbError")` 来处理数据库错误。
+​	注册此错误处理代码后，您可以在代码中的任何位置调用 `this.Abort("dbError")` 来处理数据库错误。
 
 # Controller define Error 控制器定义错误
 
 Beego version 1.4.3 added support for Controller defined Error handlers, so we can use the `web.Controller` and `template.Render` context functions
 
-&zeroWidthSpace;Beego 版本 1.4.3 添加了对控制器定义的错误处理程序的支持，因此我们可以使用 `web.Controller` 和 `template.Render` 上下文函数
+​	Beego 版本 1.4.3 添加了对控制器定义的错误处理程序的支持，因此我们可以使用 `web.Controller` 和 `template.Render` 上下文函数
 
 ```go
 package controllers
@@ -133,11 +133,11 @@ func (c *ErrorController) ErrorDb() {
 
 From the example we can see that all the error handling functions have the prefix `Error`，the other string is the name of `Abort`，like `Error404` match `Abort("404")`
 
-&zeroWidthSpace;从示例中我们可以看到所有的错误处理函数都有前缀 `Error` ，另一个字符串是 `Abort` 的名称，如 `Error404` 匹配 `Abort("404")`
+​	从示例中我们可以看到所有的错误处理函数都有前缀 `Error` ，另一个字符串是 `Abort` 的名称，如 `Error404` 匹配 `Abort("404")`
 
 Use `web.ErrorController` to register the error controller before `web.Run`
 
-&zeroWidthSpace;在 `web.Run` 之前使用 `web.ErrorController` 注册错误控制器
+​	在 `web.Run` 之前使用 `web.ErrorController` 注册错误控制器
 
 ```go
 package main

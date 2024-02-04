@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/deploy/supervisor/](https://beego.wiki/docs/deploy/supervisor/)
+> 原文：[https://beego.wiki/docs/deploy/supervisor/]({{< ref "/beego/deployment/deploymentWithSupervisord" >}})
 
 # Deployment with Supervisord 使用 Supervisord 进行部署
 
@@ -17,12 +17,12 @@ draft = false
 
 Supervisord is a very useful process manager implemented in Python. Supervisord can change your non-daemon application into a daemon application. The application needs to be a non-daemon app. So if you want to use Supervisord to manage nginx, you need to set daemon off to run nginx in non-daemon mode.
 
-&zeroWidthSpace;Supervisord 是一个用 Python 实现的非常有用的进程管理器。Supervisord 可以将非守护进程应用程序更改为守护进程应用程序。该应用程序需要是非守护进程应用程序。因此，如果您想使用 Supervisord 来管理 nginx，则需要将守护进程设置为关闭，以在非守护进程模式下运行 nginx。
+​	Supervisord 是一个用 Python 实现的非常有用的进程管理器。Supervisord 可以将非守护进程应用程序更改为守护进程应用程序。该应用程序需要是非守护进程应用程序。因此，如果您想使用 Supervisord 来管理 nginx，则需要将守护进程设置为关闭，以在非守护进程模式下运行 nginx。
 
 ## Install Supervisord 安装 Supervisord
 
 1. install setuptools 
-   &zeroWidthSpace;安装 setuptools
+   ​	安装 setuptools
 
    ```
     wget https://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg
@@ -37,7 +37,7 @@ Supervisord is a very useful process manager implemented in Python. Supervisord 
    ```
 
 2. config `/etc/supervisord.conf` 
-   &zeroWidthSpace;配置 `/etc/supervisord.conf`
+   ​	配置 `/etc/supervisord.conf`
 
    ```
     [include]
@@ -46,7 +46,7 @@ Supervisord is a very useful process manager implemented in Python. Supervisord 
 
 3. Create new application to be managed
 
-   &zeroWidthSpace;创建要管理的新应用程序
+   ​	创建要管理的新应用程序
 
    ```
     cd /etc/supervisord.conf.d
@@ -54,7 +54,7 @@ Supervisord is a very useful process manager implemented in Python. Supervisord 
    ```
 
    Configurations： 
-   &zeroWidthSpace;配置：
+   ​	配置：
 
    ```
     [program:beepkg]
@@ -71,7 +71,7 @@ Supervisord is a very useful process manager implemented in Python. Supervisord 
 
 Supervisord provides two commands, supervisord and supervisorctl:
 
-&zeroWidthSpace;Supervisord 提供两个命令，supervisord 和 supervisorctl：
+​	Supervisord 提供两个命令，supervisord 和 supervisorctl：
 
 - supervisord: Initialize Supervisord, run configed processes
   supervisord：初始化 Supervisord，运行已配置的进程
@@ -92,4 +92,4 @@ Supervisord provides two commands, supervisord and supervisorctl:
 
 > Notes: The processes stopped by `stop` manually won’t restart after reload or update.
 >
-> &zeroWidthSpace;注意：手动通过 `stop` 停止的进程在重新加载或更新后不会重新启动。
+> ​	注意：手动通过 `stop` 停止的进程在重新加载或更新后不会重新启动。

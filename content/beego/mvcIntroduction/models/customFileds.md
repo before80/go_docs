@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/custom_fields/](https://beego.wiki/docs/mvc/model/custom_fields/)
+> 原文：[https://beego.wiki/docs/mvc/model/custom_fields/]({{< ref "/beego/mvcIntroduction/models/customFileds" >}})
 
 # Custom Fields 自定义字段
 

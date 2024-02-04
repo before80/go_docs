@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/view/page/](https://beego.wiki/docs/mvc/view/page/)
+> 原文：[https://beego.wiki/docs/mvc/view/page/]({{< ref "/beego/mvcIntroduction/views/pagination" >}})
 
 
 
@@ -21,13 +21,13 @@ draft = false
 
 We use often pagination in templates. How do we do that? We have created this demo for pagination. We hope it’s useful to you.
 
-&zeroWidthSpace;我们在模板中经常使用分页。我们如何做到这一点？我们为此演示创建了分页。我们希望对您有用。
+​	我们在模板中经常使用分页。我们如何做到这一点？我们为此演示创建了分页。我们希望对您有用。
 
 ## Controllers 控制器
 
 Before you can use the paginator in the view you have to set it in your controller:
 
-&zeroWidthSpace;在视图中使用分页器之前，您必须在控制器中设置它：
+​	在视图中使用分页器之前，您必须在控制器中设置它：
 
 ```
 package controllers
@@ -50,6 +50,6 @@ func (this *PostsController) ListAllPosts() {
 
 Example templates (using Twitter Bootstrap):
 
-&zeroWidthSpace;示例模板（使用 Twitter Bootstrap）：
+​	示例模板（使用 Twitter Bootstrap）：
 
 https://github.com/beego/wetalk/blob/master/views/base/paginator.html

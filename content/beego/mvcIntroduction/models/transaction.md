@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/transaction/](https://beego.wiki/docs/mvc/model/transaction/)
+> 原文：[https://beego.wiki/docs/mvc/model/transaction/]({{< ref "/beego/mvcIntroduction/models/transaction" >}})
 
 # Transaction 事务
 
@@ -19,7 +19,7 @@ draft = false
 
 There are two ways to handle transaction in Beego. One is closure:
 
-&zeroWidthSpace;在 Beego 中有两种处理事务的方法。一种是闭包：
+​	在 Beego 中有两种处理事务的方法。一种是闭包：
 
 ```go
 // Beego will manage the transaction's lifecycle
@@ -41,19 +41,19 @@ err := o.DoTx(func(ctx context.Context, txOrm orm.TxOrmer) error {
 
 In this way, the first parameter is `task`, all DB operation should be inside the task.
 
-&zeroWidthSpace;这种方式中，第一个参数是 `task` ，所有数据库操作都应该在任务内部。
+​	这种方式中，第一个参数是 `task` ，所有数据库操作都应该在任务内部。
 
 If the task return error, Beego rollback the transaction.
 
-&zeroWidthSpace;如果任务返回错误，Beego 会回滚事务。
+​	如果任务返回错误，Beego 会回滚事务。
 
 We recommend you to use this way.
 
-&zeroWidthSpace;我们建议您使用这种方式。
+​	我们建议您使用这种方式。
 
 Another way is that users handle transaction manually:
 
-&zeroWidthSpace;另一种方式是用户手动处理事务：
+​	另一种方式是用户手动处理事务：
 
 ```go
 	o := orm.NewOrm()

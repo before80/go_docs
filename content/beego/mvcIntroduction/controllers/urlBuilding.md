@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/urlbuilding/](https://beego.wiki/docs/mvc/controller/urlbuilding/)
+> 原文：[https://beego.wiki/docs/mvc/controller/urlbuilding/]({{< ref "/beego/mvcIntroduction/controllers/urlBuilding" >}})
 
 # URL Building - URL 构建
 
@@ -19,11 +19,11 @@ draft = false
 
 If it can match URLs, can Beego also generate them? Of course it can. To build a URL to a specific function you can use the URLFor() function. It accepts the name of the function of Controller as first argument and a number of keyword arguments, each corresponding to the variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters. Here are some examples:
 
-&zeroWidthSpace;如果它可以匹配 URL，那么 Beego 是否也可以生成它们？当然可以。要构建到特定函数的 URL，可以使用 URLFor() 函数。它接受控制器函数的名称作为第一个参数，以及许多关键字参数，每个参数都对应于 URL 规则的可变部分。未知的可变部分作为查询参数附加到 URL。这里有一些示例：
+​	如果它可以匹配 URL，那么 Beego 是否也可以生成它们？当然可以。要构建到特定函数的 URL，可以使用 URLFor() 函数。它接受控制器函数的名称作为第一个参数，以及许多关键字参数，每个参数都对应于 URL 规则的可变部分。未知的可变部分作为查询参数附加到 URL。这里有一些示例：
 
 Here is the controller definition:
 
-&zeroWidthSpace;这是控制器定义：
+​	这是控制器定义：
 
 ```
 type TestController struct {
@@ -54,7 +54,7 @@ func (this *TestController) GetUrl() {
 
 This is how you register the router:
 
-&zeroWidthSpace;这是注册路由器的方式：
+​	这是注册路由器的方式：
 
 ```
 web.Router("/api/list", &TestController{}, "*:List")
@@ -64,7 +64,7 @@ web.AutoRouter(&TestController{})
 
 This is how you generate the url:
 
-&zeroWidthSpace;这是生成 URL 的方式：
+​	这是生成 URL 的方式：
 
 ```
 web.URLFor("TestController.List")
@@ -84,7 +84,7 @@ web.URLFor("TestController.GetUrl")
 
 beego has already registered the template function `urlfor`. You can use it like this:
 
-&zeroWidthSpace;beego 已经注册了模板函数 `urlfor` 。您可以像这样使用它：
+​	beego 已经注册了模板函数 `urlfor` 。您可以像这样使用它：
 
 ```
 {{urlfor "TestController.List"}}
@@ -96,7 +96,7 @@ beego has already registered the template function `urlfor`. You can use it like
 
 Why would you want to build URLs instead of hard-coding them into your templates? There are three good reasons for this:
 
-&zeroWidthSpace;为什么要构建 URL 而不是将它们硬编码到模板中？这样做有三个很好的理由：
+​	为什么要构建 URL 而不是将它们硬编码到模板中？这样做有三个很好的理由：
 
 1. Reversing is often more descriptive than hard-coding the URLs. More importantly, it allows you to change URLs in one go, without having to remember to change URLs all over the place.
    反向解析通常比硬编码 URL 更具描述性。更重要的是，它允许您一次更改 URL，而无需记住在所有地方更改 URL。

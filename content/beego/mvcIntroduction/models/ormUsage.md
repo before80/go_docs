@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/orm/](https://beego.wiki/docs/mvc/model/orm/)
+> 原文：[https://beego.wiki/docs/mvc/model/orm/]({{< ref "/beego/mvcIntroduction/models/ormUsage" >}})
 
 # ORM Usage - ORM 用法
 
@@ -19,19 +19,19 @@ draft = false
 
 An example of beego/orm is set out below.
 
-&zeroWidthSpace;下面列出了 beego/orm 的一个示例。
+​	下面列出了 beego/orm 的一个示例。
 
 All the code samples in this section are based on this example unless otherwise stated.
 
-&zeroWidthSpace;除非另有说明，本节中的所有代码示例均基于此示例。
+​	除非另有说明，本节中的所有代码示例均基于此示例。
 
 In v2.x, there is a big big change:
 
-&zeroWidthSpace;在 v2.x 中，有一个很大的变化：
+​	在 v2.x 中，有一个很大的变化：
 
 The ORM instance should be stateless, so it’s now thread safe.
 
-&zeroWidthSpace;ORM 实例应该是无状态的，因此现在是线程安全的。
+​	ORM 实例应该是无状态的，因此现在是线程安全的。
 
 ##### models.go: models.go：
 
@@ -98,7 +98,7 @@ func main() {
 
 ORM supports three popular databases. Here are the tested drivers, you need to import them:
 
-&zeroWidthSpace;ORM 支持三个流行的数据库。以下是经过测试的驱动程序，您需要导入它们：
+​	ORM 支持三个流行的数据库。以下是经过测试的驱动程序，您需要导入它们：
 
 ```go
 import (
@@ -112,7 +112,7 @@ import (
 
 Default databases:
 
-&zeroWidthSpace;默认数据库：
+​	默认数据库：
 
 ```go
 orm.DRMySQL
@@ -135,11 +135,11 @@ orm.RegisterDriver("mysql", orm.DRMySQL)
 
 ORM must register a database with alias `default`.
 
-&zeroWidthSpace;ORM 必须使用别名 `default` 注册数据库。
+​	ORM 必须使用别名 `default` 注册数据库。
 
 ORM uses golang built-in connection pool.
 
-&zeroWidthSpace;ORM 使用 golang 内置连接池。
+​	ORM 使用 golang 内置连接池。
 
 ```go
 // param 1:        Database alias. ORM will use it to switch database.
@@ -154,15 +154,15 @@ maxConn := 30
 orm.RegisterDataBase("default", "mysql", "root:root@/orm_test?charset=utf8", maxIdle, maxConn)
 ```
 
-See [Test](https://beego.wiki/docs/mvc/model/test) for more information on database connection strings.
+See [Test]({{< ref "/beego/mvcIntroduction/models/testCases" >}}) for more information on database connection strings.
 
-&zeroWidthSpace;有关数据库连接字符串的更多信息，请参阅测试。
+​	有关数据库连接字符串的更多信息，请参阅测试。
 
 #### SetMaxIdleConns
 
 Set maximum idle connections according to database alias:
 
-&zeroWidthSpace;根据数据库别名设置最大空闲连接：
+​	根据数据库别名设置最大空闲连接：
 
 ```go
 orm.SetMaxIdleConns("default", 30)
@@ -172,7 +172,7 @@ orm.SetMaxIdleConns("default", 30)
 
 Set maximum connections (go >= 1.2) according to database alias:
 
-&zeroWidthSpace;设定数据库别名对应的连接数上限（go >= 1.2）：
+​	设定数据库别名对应的连接数上限（go >= 1.2）：
 
 ```go
 orm.SetMaxOpenConns("default", 30)
@@ -182,7 +182,7 @@ orm.SetMaxOpenConns("default", 30)
 
 ORM uses time.Local by default
 
-&zeroWidthSpace;ORM 默认使用 time.Local
+​	ORM 默认使用 time.Local
 
 - used for ORM automatically created time
   用于 ORM 自动创建的时间
@@ -191,7 +191,7 @@ ORM uses time.Local by default
 
 You can change it if needed:
 
-&zeroWidthSpace;如果需要，您可以更改它：
+​	如果需要，您可以更改它：
 
 ```go
 // Set to UTC time
@@ -200,7 +200,7 @@ orm.DefaultTimeLoc = time.UTC
 
 ORM will get timezone of database while performing `RegisterDataBase`. When setting or getting time.Time it will convert accordingly to match system time and make sure the time is correct.
 
-&zeroWidthSpace;ORM 将在执行 `RegisterDataBase` 时获取数据库的时区。在设置或获取 time.Time 时，它将相应地进行转换以匹配系统时间并确保时间正确。
+​	ORM 将在执行 `RegisterDataBase` 时获取数据库的时区。在设置或获取 time.Time 时，它将相应地进行转换以匹配系统时间并确保时间正确。
 
 **Note:
 注意：**
@@ -214,17 +214,17 @@ ORM will get timezone of database while performing `RegisterDataBase`. When sett
 
 Registering a model is mandatory if you use orm.QuerySeter for advanced queries.
 
-&zeroWidthSpace;如果您使用 orm.QuerySeter 进行高级查询，则必须注册模型。
+​	如果您使用 orm.QuerySeter 进行高级查询，则必须注册模型。
 
-Otherwise, you don’t need to do this if you’re using raw SQL queries and map struct only. [See Raw SQL Query](https://beego.wiki/docs/mvc/model/rawsql)
+Otherwise, you don’t need to do this if you’re using raw SQL queries and map struct only. [See Raw SQL Query]({{< ref "/beego/mvcIntroduction/models/rawSQLToQuery" >}})
 
-&zeroWidthSpace;否则，如果您使用原始 SQL 查询并仅映射结构，则无需执行此操作。请参阅原始 SQL 查询
+​	否则，如果您使用原始 SQL 查询并仅映射结构，则无需执行此操作。请参阅原始 SQL 查询
 
 #### RegisterModel
 
 Register the Model you defined. The best practice is to have a single models.go file and register in it’s init function.
 
-&zeroWidthSpace;注册您定义的模型。最佳做法是在单个 models.go 文件中进行注册，并在其 init 函数中注册。
+​	注册您定义的模型。最佳做法是在单个 models.go 文件中进行注册，并在其 init 函数中注册。
 
 Mini models.go
 
@@ -245,21 +245,21 @@ func init(){
 
 RegisterModel can register multiple models at the same time:
 
-&zeroWidthSpace;RegisterModel 可以同时注册多个模型：
+​	RegisterModel 可以同时注册多个模型：
 
 ```go
 orm.RegisterModel(new(User), new(Profile), new(Post))
 ```
 
-For detailed struct definition, see [Model define](https://beego.wiki/docs/mvc/model/models)
+For detailed struct definition, see [Model define]({{< ref "/beego/mvcIntroduction/models/modelDefinition" >}})
 
-&zeroWidthSpace;有关详细的结构定义，请参阅模型定义
+​	有关详细的结构定义，请参阅模型定义
 
 #### Generate Tables 生成表
 
-You may want Beego to automatically create your database tables. One way to do this is by using the method described in the [cli](https://beego.wiki/docs/mvc/model/cmd) documentation. Alternatively, you could choose to autogenerate your tables by including the following in your main.go file in your main block.
+You may want Beego to automatically create your database tables. One way to do this is by using the method described in the [cli]({{< ref "/beego/mvcIntroduction/models/commandLine" >}}) documentation. Alternatively, you could choose to autogenerate your tables by including the following in your main.go file in your main block.
 
-&zeroWidthSpace;您可能希望 Beego 自动创建数据库表。执行此操作的一种方法是使用 cli 文档中描述的方法。或者，您也可以选择通过在 main 块中的 main.go 文件中包含以下内容来自动生成表。
+​	您可能希望 Beego 自动创建数据库表。执行此操作的一种方法是使用 cli 文档中描述的方法。或者，您也可以选择通过在 main 块中的 main.go 文件中包含以下内容来自动生成表。
 
 ```go
 // Database alias.
@@ -280,13 +280,13 @@ if err != nil {
 
 After the initial “bee run” command, change the values of force and verbose to false. The default behavior for Beego is to add additional columns when the model is updated. You will need to manually handle dropping your columns if they are removed from your model.
 
-&zeroWidthSpace;在初始“bee run”命令后，将 force 和 verbose 的值更改为 false。Beego 的默认行为是在更新模型时添加其他列。如果从模型中删除列，您需要手动处理删除列。
+​	在初始“bee run”命令后，将 force 和 verbose 的值更改为 false。Beego 的默认行为是在更新模型时添加其他列。如果从模型中删除列，您需要手动处理删除列。
 
 #### RegisterModelWithPrefix
 
 Using table prefix
 
-&zeroWidthSpace;使用表前缀
+​	使用表前缀
 
 ```go
 orm.RegisterModelWithPrefix("prefix_", new(User))
@@ -294,17 +294,17 @@ orm.RegisterModelWithPrefix("prefix_", new(User))
 
 The created table name is prefix_user
 
-&zeroWidthSpace;创建的表名为 prefix_user
+​	创建的表名为 prefix_user
 
 #### NewOrmWithDB
 
 You may need to manage db pools by yourself. (eg: needing two queries in one connection)
 
-&zeroWidthSpace;您可能需要自己管理数据库池。（例如：在一个连接中需要两个查询）
+​	您可能需要自己管理数据库池。（例如：在一个连接中需要两个查询）
 
 But you want to use awesome orm features. Voila!
 
-&zeroWidthSpace;但您想使用强大的 orm 功能。瞧！
+​	但您想使用强大的 orm 功能。瞧！
 
 ```go
 var driverName, aliasName string
@@ -319,7 +319,7 @@ o := orm.NewOrmWithDB(driverName, aliasName, db)
 
 Get *sql.DB from the registered databases. This will use `default` as default if you do not set.
 
-&zeroWidthSpace;从已注册的数据库中获取 *sql.DB。如果您未设置，这将使用 `default` 作为默认值。
+​	从已注册的数据库中获取 *sql.DB。如果您未设置，这将使用 `default` 作为默认值。
 
 ```go
 db, err := orm.GetDB()
@@ -337,7 +337,7 @@ if err != nil {
 
 Reset registered models. Commonly used to write test cases.
 
-&zeroWidthSpace;重置已注册的模型。通常用于编写测试用例。
+​	重置已注册的模型。通常用于编写测试用例。
 
 ```go
 orm.ResetModelCache()
@@ -347,50 +347,50 @@ orm.ResetModelCache()
 
 Let’s see how to use Ormer API:
 
-&zeroWidthSpace;让我们看看如何使用 Ormer API：
+​	让我们看看如何使用 Ormer API：
 
 ```go
 var o orm.Ormer
 o = orm.NewOrm() // create a Ormer // While running NewOrm, it will run orm.BootStrap (only run once in the whole app lifetime) to validate the definition between models and cache it.
 ```
 
-If you want to use DB transaction，we will return `TxOrm` instance [ORM Transaction](https://beego.wiki/docs/mvc/model/transaction)
+If you want to use DB transaction，we will return `TxOrm` instance [ORM Transaction]({{< ref "/beego/mvcIntroduction/models/transaction" >}})
 
-&zeroWidthSpace;如果您想使用 DB 事务，我们将返回 `TxOrm` 实例 ORM 事务
+​	如果您想使用 DB 事务，我们将返回 `TxOrm` 实例 ORM 事务
 
 Comparing with v1.x, we designed another interface `TxOrm` to handle transaction.
 
-&zeroWidthSpace;与 v1.x 相比，我们设计了另一个接口 `TxOrm` 来处理事务。
+​	与 v1.x 相比，我们设计了另一个接口 `TxOrm` 来处理事务。
 
 From v1.x, we found that many users reuse global ORM instance to handle transaction. It made unpredictable result.
 
-&zeroWidthSpace;从 v1.x 开始，我们发现许多用户重复使用全局 ORM 实例来处理事务。这导致了不可预测的结果。
+​	从 v1.x 开始，我们发现许多用户重复使用全局 ORM 实例来处理事务。这导致了不可预测的结果。
 
 When you use `TxOrm`, you should drop it after ending transaction. It’s stateful object.
 
-&zeroWidthSpace;当您使用 `TxOrm` 时，您应该在结束事务后将其删除。它是状态对象。
+​	当您使用 `TxOrm` 时，您应该在结束事务后将其删除。它是状态对象。
 
 - type Ormer interface {
-  - [Read(interface{}, …string) error](https://beego.wiki/docs/mvc/model/object#read)
-  - [ReadOrCreate(interface{}, string, …string) (bool, int64, error)](https://beego.wiki/docs/mvc/model/object#readorcreate)
-  - [Insert(interface{}) (int64, error)](https://beego.wiki/docs/mvc/model/object#insert)
-  - [InsertMulti(int, interface{}) (int64, error)](https://beego.wiki/docs/mvc/model/object#insertmulti)
+  - [Read(interface{}, …string) error]({{< ref "/beego/mvcIntroduction/models/crudOperations#read" >}})
+  - [ReadOrCreate(interface{}, string, …string) (bool, int64, error)]({{< ref "/beego/mvcIntroduction/models/crudOperations#readorcreate" >}})
+  - [Insert(interface{}) (int64, error)]({{< ref "/beego/mvcIntroduction/models/crudOperations#insert" >}})
+  - [InsertMulti(int, interface{}) (int64, error)]({{< ref "/beego/mvcIntroduction/models/crudOperations#insertmulti" >}})
   - [Update(interface{}, …string) (int64, error)
-    更新(接口{}, …字符串) (int64, 错误)](https://beego.wiki/docs/mvc/model/object#update)
+    更新(接口{}, …字符串) (int64, 错误)]({{< ref "/beego/mvcIntroduction/models/crudOperations#update" >}})
   - [Delete(interface{}) (int64, error)
-    删除(接口{}) (int64, 错误)](https://beego.wiki/docs/mvc/model/object#delete)
+    删除(接口{}) (int64, 错误)]({{< ref "/beego/mvcIntroduction/models/crudOperations#delete" >}})
   - [LoadRelated(interface{}, string, …interface{}) (int64, error)
-    加载相关(接口{}, 字符串, …接口{}) (int64, 错误)](https://beego.wiki/docs/mvc/model/query#load-related-field)
+    加载相关(接口{}, 字符串, …接口{}) (int64, 错误)]({{< ref "/beego/mvcIntroduction/models/advancedQueries#load-related-field" >}})
   - [QueryM2M(interface{}, string) QueryM2Mer
-    查询M2M(接口{}, 字符串) QueryM2Mer](https://beego.wiki/docs/mvc/model/query#handling-manytomany-relation)
+    查询M2M(接口{}, 字符串) QueryM2Mer]({{< ref "/beego/mvcIntroduction/models/advancedQueries#handling-manytomany-relation" >}})
   - [QueryTable(interface{}) QuerySeter
     查询表(接口{}) QuerySeter](https://beego.wiki/docs/mvc/model/orm/#querytable)
   - [Begin() error
-    开始() 错误](https://beego.wiki/docs/mvc/model/transaction)
+    开始() 错误]({{< ref "/beego/mvcIntroduction/models/transaction" >}})
   - [Commit() error
-    提交() 错误](https://beego.wiki/docs/mvc/model/transaction)
+    提交() 错误]({{< ref "/beego/mvcIntroduction/models/transaction" >}})
   - [Rollback() error
-    回滚() 错误](https://beego.wiki/docs/mvc/model/transaction)
+    回滚() 错误]({{< ref "/beego/mvcIntroduction/models/transaction" >}})
   - [Raw(string, …interface{}) RawSeter
     原始(字符串, …接口{}) RawSeter](https://beego.wiki/docs/mvc/model/orm/#raw)
   - [Driver() Driver
@@ -399,9 +399,9 @@ When you use `TxOrm`, you should drop it after ending transaction. It’s statef
 
 #### QueryTable
 
-Pass in a table name or a Model object and return a [QuerySeter](https://beego.wiki/docs/mvc/model/query#queryseter)
+Pass in a table name or a Model object and return a [QuerySeter]({{< ref "/beego/mvcIntroduction/models/advancedQueries#queryseter" >}})
 
-&zeroWidthSpace;传入一个表名或一个 Model 对象并返回一个 QuerySeter
+​	传入一个表名或一个 Model 对象并返回一个 QuerySeter
 
 ```go
 o := orm.NewOrm()
@@ -414,11 +414,11 @@ qs = o.QueryTable("user")
 
 We remove `Using` method since some users use this method in wrong way and then met some concurrent problems.
 
-&zeroWidthSpace;我们移除了 `Using` 方法，因为一些用户错误地使用此方法，然后遇到了一些并发问题。
+​	我们移除了 `Using` 方法，因为一些用户错误地使用此方法，然后遇到了一些并发问题。
 
 You can use `NewOrmUsingDB`:
 
-&zeroWidthSpace;您可以使用 `NewOrmUsingDB` ：
+​	您可以使用 `NewOrmUsingDB` ：
 
 ```go
 o := orm.NewOrmUsingDB("db_name")
@@ -428,11 +428,11 @@ o := orm.NewOrmUsingDB("db_name")
 
 Use raw SQL query:
 
-&zeroWidthSpace;使用原始 SQL 查询：
+​	使用原始 SQL 查询：
 
-Raw function will return a [RawSeter](https://beego.wiki/docs/mvc/model/rawsql) to execute a query with the SQL and params provided:
+Raw function will return a [RawSeter]({{< ref "/beego/mvcIntroduction/models/rawSQLToQuery" >}}) to execute a query with the SQL and params provided:
 
-&zeroWidthSpace;Raw 函数将返回一个 RawSeter，以使用提供的 SQL 和参数执行查询：
+​	Raw 函数将返回一个 RawSeter，以使用提供的 SQL 和参数执行查询：
 
 ```go
 o := NewOrm()
@@ -444,7 +444,7 @@ r = o.Raw("UPDATE user SET name = ? WHERE name = ?", "testing", "slene")
 
 The current db infomation used by ORM
 
-&zeroWidthSpace;ORM 使用的当前数据库信息
+​	ORM 使用的当前数据库信息
 
 ```go
 type Driver interface {
@@ -469,11 +469,11 @@ fmt.Println(dr.Type() == orm.DRSqlite) // true
 
 Setting `orm.Debug` to true will print out SQL queries.
 
-&zeroWidthSpace;将 `orm.Debug` 设置为 true 将打印出 SQL 查询。
+​	将 `orm.Debug` 设置为 true 将打印出 SQL 查询。
 
 It may cause performance issues. It is not recommended to be used in a production env.
 
-&zeroWidthSpace;它可能会导致性能问题。不建议在生产环境中使用。
+​	它可能会导致性能问题。不建议在生产环境中使用。
 
 ```go
 func main() {
@@ -483,11 +483,11 @@ func main() {
 
 Prints to `os.Stderr` by default.
 
-&zeroWidthSpace;默认情况下打印到 `os.Stderr` 。
+​	默认情况下打印到 `os.Stderr` 。
 
 You can change it to your own `io.Writer`
 
-&zeroWidthSpace;您可以将其更改为您自己的 `io.Writer`
+​	您可以将其更改为您自己的 `io.Writer`
 
 ```go
 var w io.Writer
@@ -499,7 +499,7 @@ orm.DebugLog = orm.NewLog(w)
 
 Logs formatting
 
-&zeroWidthSpace;日志格式化
+​	日志格式化
 
 ```go
 [ORM] - time - [Queries/database name] - [operation/executing time] - [SQL query] - separate params with `,`  -errors 
@@ -515,4 +515,4 @@ Logs formatting
 
 The log contains all the database operations, transactions, prepare etc.
 
-&zeroWidthSpace;日志包含所有数据库操作、事务、准备等。
+​	日志包含所有数据库操作、事务、准备等。

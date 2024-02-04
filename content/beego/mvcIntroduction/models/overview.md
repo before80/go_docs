@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/overview/](https://beego.wiki/docs/mvc/model/overview/)
+> 原文：[https://beego.wiki/docs/mvc/model/overview/]({{< ref "/beego/mvcIntroduction/models/overview" >}})
 
 # Overview 概述
 
@@ -19,11 +19,11 @@ draft = false
 
 Beego ORM is a powerful ORM framework written in Go. It is inspired by Django ORM and SQLAlchemy.
 
-&zeroWidthSpace;Beego ORM 是一个用 Go 编写的功能强大的 ORM 框架。它受到 Django ORM 和 SQLAlchemy 的启发。
+​	Beego ORM 是一个用 Go 编写的功能强大的 ORM 框架。它受到 Django ORM 和 SQLAlchemy 的启发。
 
 This framework is still under development so compatibility is not guaranteed.
 
-&zeroWidthSpace;此框架仍在开发中，因此不保证兼容性。
+​	此框架仍在开发中，因此不保证兼容性。
 
 **Supported Database: 支持的数据库：**
 
@@ -33,7 +33,7 @@ This framework is still under development so compatibility is not guaranteed.
 
 All of the database drivers have passed the tests, but we still need your feedback and bug reports.
 
-&zeroWidthSpace;所有数据库驱动程序都已通过测试，但我们仍然需要您的反馈和错误报告。
+​	所有数据库驱动程序都已通过测试，但我们仍然需要您的反馈和错误报告。
 
 **ORM Features: ORM 特性：**
 
@@ -52,7 +52,7 @@ All of the database drivers have passed the tests, but we still need your feedba
 
 You can learn more in this documentation.
 
-&zeroWidthSpace;您可以在此文档中了解更多信息。
+​	您可以在此文档中了解更多信息。
 
 **Install ORM: 安装 ORM：**
 
@@ -130,7 +130,7 @@ num, err := qs.Filter("User__Name", "slene").All(&posts)
 
 You can always use raw SQL to query and mapping.
 
-&zeroWidthSpace;您可以始终使用原始 SQL 进行查询和映射。
+​	您可以始终使用原始 SQL 进行查询和映射。
 
 ```go
 var maps []Params
@@ -158,7 +158,7 @@ if err == nil {
 
 In development environment, you can enable debug mode by:
 
-&zeroWidthSpace;在开发环境中，您可以通过以下方式启用调试模式：
+​	在开发环境中，您可以通过以下方式启用调试模式：
 
 ```go
 func main() {
@@ -168,10 +168,10 @@ func main() {
 
 It will output every query statement including execution, preparation and transactions.
 
-&zeroWidthSpace;它将输出包括执行、准备和事务在内的每个查询语句。
+​	它将输出包括执行、准备和事务在内的每个查询语句。
 
 For example: 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```go
 [ORM] - 2013-08-09 13:18:16 - [Queries/default] - [    db.Exec /     0.4ms] - 	[INSERT INTO `user` (`name`) VALUES (?)] - `slene`
@@ -180,5 +180,5 @@ For example:
 
 Notes: It is not recommended to enable debug mode in a production environment.
 
-&zeroWidthSpace;注意：不建议在生产环境中启用调试模式。
+​	注意：不建议在生产环境中启用调试模式。
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/querybuilder/](https://beego.wiki/docs/mvc/model/querybuilder/)
+> 原文：[https://beego.wiki/docs/mvc/model/querybuilder/]({{< ref "/beego/mvcIntroduction/models/queryBuilder" >}})
 
 # Query Builder 查询构建器
 
@@ -19,15 +19,15 @@ draft = false
 
 **QueryBuilder** provides an API for convenient and fluent construction of SQL queries. It consists of a set of methods enabling developers to easily construct SQL queries without compromising readability.
 
-&zeroWidthSpace;QueryBuilder 提供了一个 API，用于方便且流畅地构建 SQL 查询。它由一组方法组成，使开发人员能够轻松构建 SQL 查询，而不会影响可读性。
+​	QueryBuilder 提供了一个 API，用于方便且流畅地构建 SQL 查询。它由一组方法组成，使开发人员能够轻松构建 SQL 查询，而不会影响可读性。
 
 It serves as an alternative to ORM. ORM is more for simple CRUD operations, whereas QueryBuilder is for complex queries with subqueries and multi-joins.
 
-&zeroWidthSpace;它作为 ORM 的替代品。ORM 更适用于简单的 CRUD 操作，而 QueryBuilder 适用于具有子查询和多重联接的复杂查询。
+​	它作为 ORM 的替代品。ORM 更适用于简单的 CRUD 操作，而 QueryBuilder 适用于具有子查询和多重联接的复杂查询。
 
 Usage example:
 
-&zeroWidthSpace;用法示例：
+​	用法示例：
 
 ```go
 // User is a wrapper for result row in this example
@@ -60,7 +60,7 @@ o.Raw(sql, 20).QueryRows(&users)
 
 Full API interface:
 
-&zeroWidthSpace;完整的 API 接口：
+​	完整的 API 接口：
 
 ```go
 type QueryBuilder interface {
@@ -94,4 +94,4 @@ type QueryBuilder interface {
 
 Now we support `Postgress`, `MySQL` and `TiDB`。
 
-&zeroWidthSpace;现在我们支持 `Postgress` 、 `MySQL` 和 `TiDB` 。
+​	现在我们支持 `Postgress` 、 `MySQL` 和 `TiDB` 。

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/advantage/docs/](https://beego.wiki/docs/advantage/docs/)
+> 原文：[https://beego.wiki/docs/advantage/docs/]({{< ref "/beego/advancedBeego/automatedAPI" >}})
 
 # Automated API Documentation 自动 API 文档
 
@@ -17,21 +17,21 @@ draft = false
 
 Automated documentation is a very cool feature that I found to be desirable. Now it became a reality in Beego. As I said Beego will not only boost the development of your API but also make the API easy to use for the user.
 
-&zeroWidthSpace;自动文档是我发现很想要的一个非常酷的功能。现在它已成为 Beego 中的现实。正如我所说，Beego 不仅会提升您的 API 开发，还会让用户更轻松地使用 API。
+​	自动文档是我发现很想要的一个非常酷的功能。现在它已成为 Beego 中的现实。正如我所说，Beego 不仅会提升您的 API 开发，还会让用户更轻松地使用 API。
 
 Beego implemented the [swagger specification](http://swagger.io/) for API documentation. It’s very easy to create powerful interactive API documentation.
 
-&zeroWidthSpace;Beego 为 API 文档实现了 swagger 规范。创建功能强大的交互式 API 文档非常容易。
+​	Beego 为 API 文档实现了 swagger 规范。创建功能强大的交互式 API 文档非常容易。
 
 Ok, let’s try it out now. First let’s create a new API application by `bee api beeapi`
 
-&zeroWidthSpace;好的，我们现在就试一试。首先，让我们通过 `bee api beeapi` 创建一个新的 API 应用程序：
+​	好的，我们现在就试一试。首先，让我们通过 `bee api beeapi` 创建一个新的 API 应用程序：
 
 ## API global settings API 全局设置
 
 Add the following comments at the top of `routers/router.go`:
 
-&zeroWidthSpace;在 `routers/router.go` 顶部添加以下注释：
+​	在 `routers/router.go` 顶部添加以下注释：
 
 ```
 // @APIVersion 1.0.0
@@ -43,7 +43,7 @@ package routers
 
 The comments above set the global information. The available settings:
 
-&zeroWidthSpace;上面的注释设置全局信息。可用的设置：
+​	上面的注释设置全局信息。可用的设置：
 
 - @APIVersion
 - @Title
@@ -63,19 +63,19 @@ The comments above set the global information. The available settings:
 
 Right now automated API documentation only supports `NSNamespace` and `NSInclude` and it only supports two levels of parsing. The first level is the API version and the second level is the modules.
 
-&zeroWidthSpace;目前，自动 API 文档仅支持 `NSNamespace` 和 `NSInclude` ，并且仅支持两级解析。第一级是 API 版本，第二级是模块。
+​	目前，自动 API 文档仅支持 `NSNamespace` 和 `NSInclude` ，并且仅支持两级解析。第一级是 API 版本，第二级是模块。
 
 This only works for `dev` environment. We think that, all API must be tested, and if users are able to generate API in non-dev environment, some users may use it in production environment.
 
-&zeroWidthSpace;这仅适用于 `dev` 环境。我们认为，所有 API 都必须经过测试，如果用户能够在非开发环境中生成 API，则某些用户可能会在生产环境中使用它。
+​	这仅适用于 `dev` 环境。我们认为，所有 API 都必须经过测试，如果用户能够在非开发环境中生成 API，则某些用户可能会在生产环境中使用它。
 
-In v2.x, a big change is that we scan the directory which is configured by [CommentRouterPath](https://beego.wiki/docs/mvc/controller/config).
+In v2.x, a big change is that we scan the directory which is configured by [CommentRouterPath]({{< ref "/beego/mvcIntroduction/controllers/configuration" >}}).
 
-&zeroWidthSpace;在 v2.x 中，一个很大的变化是，我们扫描由 CommentRouterPath 配置的目录。
+​	在 v2.x 中，一个很大的变化是，我们扫描由 CommentRouterPath 配置的目录。
 
 But we only generate router files, you must call `Include` method to use it.
 
-&zeroWidthSpace;但我们只生成路由器文件，您必须调用 `Include` 方法才能使用它。
+​	但我们只生成路由器文件，您必须调用 `Include` 方法才能使用它。
 
 ```
 func init() {
@@ -116,7 +116,7 @@ func init() {
 
 This is the most important part of comment. For example:
 
-&zeroWidthSpace;这是注释中最重要的部分。例如：
+​	这是注释中最重要的部分。例如：
 
 ```
 package controllers
@@ -173,37 +173,37 @@ func (c *CMSController) Product() {
 
 In the code above, we defined the comment on top of `CMSController` is the information for this module. Then we defined the comment for every controller’s methods.
 
-&zeroWidthSpace;在上面的代码中，我们在 `CMSController` 顶部定义的注释是此模块的信息。然后，我们为每个控制器的函数定义注释。
+​	在上面的代码中，我们在 `CMSController` 顶部定义的注释是此模块的信息。然后，我们为每个控制器的函数定义注释。
 
 Below is a list of supported comments for generating swagger APIs:
 
-&zeroWidthSpace;以下是生成 swagger API 支持的注释列表：
+​	以下是生成 swagger API 支持的注释列表：
 
 - @Accept Aceept type json/xml/html/plain
 
-  &zeroWidthSpace;@Accept 接受类型 json/xml/html/plain
+  ​	@Accept 接受类型 json/xml/html/plain
 
 - @Deprecated Deprecated flag.
 
-  &zeroWidthSpace;@Deprecated 已弃用标志。
+  ​	@Deprecated 已弃用标志。
 
 - @Title
 
   The title for this API. It’s a string, and all the content after the first space will be parsed as the title.
 
-  &zeroWidthSpace;此 API 的标题。它是一个字符串，第一个空格之后的所有内容都将被解析为标题。
+  ​	此 API 的标题。它是一个字符串，第一个空格之后的所有内容都将被解析为标题。
 
 - @Description
 
   The description for this API. It’s a string, and all the content after the first space will be parsed as the description.
 
-  &zeroWidthSpace;此 API 的描述。它是一个字符串，第一个空格之后的所有内容都将被解析为描述。
+  ​	此 API 的描述。它是一个字符串，第一个空格之后的所有内容都将被解析为描述。
 
 - @Param
 
   `@Param` defines the parameters sent to the server. There are five columns for each `@Param`:
 
-  &zeroWidthSpace; `@Param` 定义发送到服务器的参数。每个 `@Param` 有五列：
+  ​	 `@Param` 定义发送到服务器的参数。每个 `@Param` 有五列：
 
   1. parameter key;
      参数键；
@@ -222,7 +222,7 @@ Below is a list of supported comments for generating swagger APIs:
 
   The success message returned to client. Three parameters.
 
-  &zeroWidthSpace;返回给客户端的成功消息。三个参数。
+  ​	返回给客户端的成功消息。三个参数。
 
   1. status code.
      状态代码。
@@ -233,13 +233,13 @@ Below is a list of supported comments for generating swagger APIs:
 
   > > > Use space to separate these three parameters
   > > >
-  > > > &zeroWidthSpace;使用空格分隔这三个参数
+  > > > ​	使用空格分隔这三个参数
 
 - @Failure
 
   The failure message returned to client. Two parameters separated by space.
 
-  &zeroWidthSpace;返回给客户端的失败消息。两个参数，用空格分隔。
+  ​	返回给客户端的失败消息。两个参数，用空格分隔。
 
   1. Status code.
      状态代码。
@@ -250,7 +250,7 @@ Below is a list of supported comments for generating swagger APIs:
 
   Router information. Two parameters separated by space.
 
-  &zeroWidthSpace;路由器信息。两个参数，用空格分隔。
+  ​	路由器信息。两个参数，用空格分隔。
 
   1. The request’s router address.
      请求的路由器地址。
@@ -261,7 +261,7 @@ Below is a list of supported comments for generating swagger APIs:
 
 Make it work by following the steps:
 
-&zeroWidthSpace;按照以下步骤操作以使其正常工作：
+​	按照以下步骤操作以使其正常工作：
 
 1. Enable docs by setting `EnableDocs = true` in `conf/app.conf`.
    在 `conf/app.conf` 中设置 `EnableDocs = true` 以启用文档。
@@ -272,7 +272,7 @@ Make it work by following the steps:
 
 Your API documentation is available now. Open your browser and check it out.
 
-&zeroWidthSpace;您的 API 文档现已可用。打开浏览器并查看。
+​	您的 API 文档现已可用。打开浏览器并查看。
 
 ![img](./automatedAPI_img/docs.png)
 
@@ -287,7 +287,7 @@ Your API documentation is available now. Open your browser and check it out.
 
    1. Integrate `swagger` into the application. Download [swagger](https://github.com/web/swagger/releases) and put it into project folder. (`bee run -downdoc=true` will also download it and put it into project folder) And before `web.Run()` in `func main()` of `main.go`
 
-      &zeroWidthSpace;将 `swagger` 集成到应用程序中。下载 swagger 并将其放入项目文件夹。（ `bee run -downdoc=true` 也会下载它并将其放入项目文件夹）并在 `main.go` 的 `func main()` 中 `web.Run()` 之前
+      ​	将 `swagger` 集成到应用程序中。下载 swagger 并将其放入项目文件夹。（ `bee run -downdoc=true` 也会下载它并将其放入项目文件夹）并在 `main.go` 的 `func main()` 中 `web.Run()` 之前
 
       ```go
       if web.BConfig.RunMode == "dev" {
@@ -298,11 +298,11 @@ Your API documentation is available now. Open your browser and check it out.
 
       And then visit `/swagger` in your project.
 
-      &zeroWidthSpace;然后访问项目中的 `/swagger` 。
+      ​	然后访问项目中的 `/swagger` 。
 
    2. Make API support CORS
 
-      &zeroWidthSpace;使 API 支持 CORS
+      ​	使 API 支持 CORS
 
       ```go
       ctx.Output.Header("Access-Control-Allow-Origin", "*")

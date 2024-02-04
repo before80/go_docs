@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/deploy/apache/](https://beego.wiki/docs/deploy/apache/)
+> 原文：[https://beego.wiki/docs/deploy/apache/]({{< ref "/beego/deployment/deploymentWithApache" >}})
 
 # Deployment with Apache 使用 Apache 部署
 
@@ -17,7 +17,7 @@ draft = false
 
 Apache is a web server and is set up to perform the same functions as nginx, serving as a reverse proxy and sending requests to the backend. Here is a configuration example:
 
-&zeroWidthSpace;Apache 是一个 Web 服务器，其设置与 nginx 的功能相同，用作反向代理并将请求发送到后端。这是一个配置示例：
+​	Apache 是一个 Web 服务器，其设置与 nginx 的功能相同，用作反向代理并将请求发送到后端。这是一个配置示例：
 
 ```
 NameVirtualHost *:80

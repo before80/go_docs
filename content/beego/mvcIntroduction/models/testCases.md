@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/model/test/](https://beego.wiki/docs/mvc/model/test/)
+> 原文：[https://beego.wiki/docs/mvc/model/test/]({{< ref "/beego/mvcIntroduction/models/testCases" >}})
 
 # Test Cases 测试用例
 

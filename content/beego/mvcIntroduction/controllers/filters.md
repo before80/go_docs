@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/controller/filter/](https://beego.wiki/docs/mvc/controller/filter/)
+> 原文：[https://beego.wiki/docs/mvc/controller/filter/]({{< ref "/beego/mvcIntroduction/controllers/filters" >}})
 
 # Filters 过滤器
 
@@ -19,17 +19,17 @@ draft = false
 
 Beego supports custom filter middlewares. E.g.: user authentication and force redirection.
 
-&zeroWidthSpace;Beego 支持自定义过滤器中间件。例如：用户认证和强制重定向。
+​	Beego 支持自定义过滤器中间件。例如：用户认证和强制重定向。
 
 ## Activating Filters 激活过滤器
 
 Before filters can be used, filters must be activated.
 
-&zeroWidthSpace;在使用过滤器之前，必须先激活过滤器。
+​	在使用过滤器之前，必须先激活过滤器。
 
 Filters can be activated at the code level:
 
-&zeroWidthSpace;可以在代码级别激活过滤器：
+​	可以在代码级别激活过滤器：
 
 ```
 web.BConfig.WebConfig.Session.SessionOn = true
@@ -37,7 +37,7 @@ web.BConfig.WebConfig.Session.SessionOn = true
 
 Filters can also be activated in the configuration file:
 
-&zeroWidthSpace;也可以在配置文件中激活过滤器：
+​	也可以在配置文件中激活过滤器：
 
 ```
 SessionOn = true
@@ -45,13 +45,13 @@ SessionOn = true
 
 Attempting to use a filter without activation will cause a `Handler crashed with error runtime error: invalid memory address or nil pointer dereference` error
 
-&zeroWidthSpace;尝试在未激活的情况下使用过滤器将导致 `Handler crashed with error runtime error: invalid memory address or nil pointer dereference` 错误
+​	尝试在未激活的情况下使用过滤器将导致 `Handler crashed with error runtime error: invalid memory address or nil pointer dereference` 错误
 
 ## Inserting Filters 插入过滤器
 
 A filter function can be inserted as follows:
 
-&zeroWidthSpace;可以按如下方式插入过滤器函数：
+​	可以按如下方式插入过滤器函数：
 
 ```go
 web.InsertFilter(pattern string, pos int, filter FilterFunc, opts ...FilterOpt)
@@ -59,7 +59,7 @@ web.InsertFilter(pattern string, pos int, filter FilterFunc, opts ...FilterOpt)
 
 This is the FilterFunc signature:
 
-&zeroWidthSpace;这是 FilterFunc 签名：
+​	这是 FilterFunc 签名：
 
 ```go
 type FilterFunc func(*context.Context)
@@ -67,7 +67,7 @@ type FilterFunc func(*context.Context)
 
 The *context* must be imported if this has not already been done:
 
-&zeroWidthSpace;如果尚未导入上下文，则必须导入上下文：
+​	如果尚未导入上下文，则必须导入上下文：
 
 ```go
 import "github.com/beego/beego/v2/server/web/context"
@@ -75,7 +75,7 @@ import "github.com/beego/beego/v2/server/web/context"
 
 InsertFilter’s four parameters:
 
-&zeroWidthSpace;InsertFilter 的四个参数：
+​	InsertFilter 的四个参数：
 
 - `pattern`: string or regex to match against router rules. Use `/*` to match all.
   `pattern` ：用于与路由规则匹配的字符串或正则表达式。使用 `/*` 匹配所有内容。
@@ -118,11 +118,11 @@ InsertFilter’s four parameters:
 
 > from beego version 1.3 AddFilter has been removed
 >
-> &zeroWidthSpace;从 beego 版本 1.3 开始，已移除 AddFilter
+> ​	从 beego 版本 1.3 开始，已移除 AddFilter
 
 Here is an example to authenticate if the user is logged in for all requests:
 
-&zeroWidthSpace;以下是一个示例，用于验证用户是否已登录所有请求：
+​	以下是一个示例，用于验证用户是否已登录所有请求：
 
 ```go
 var FilterUser = func(ctx *context.Context) {
@@ -139,13 +139,13 @@ var FilterUser = func(ctx *context.Context) {
 web.InsertFilter("/*", web.BeforeRouter, FilterUser)
 ```
 
-> Filters which use session must be executed after `BeforeRouter` because session is not initialized before that. web session module must be enabled first. (see [Session control](https://beego.wiki/docs/mvc/controller/session))
+> Filters which use session must be executed after `BeforeRouter` because session is not initialized before that. web session module must be enabled first. (see [Session control]({{< ref "/beego/mvcIntroduction/controllers/sessionControl" >}}))
 >
-> &zeroWidthSpace;使用会话的过滤器必须在 `BeforeRouter` 之后执行，因为在此之前不会初始化会话。必须首先启用 web 会话模块。（请参阅会话控制）
+> ​	使用会话的过滤器必须在 `BeforeRouter` 之后执行，因为在此之前不会初始化会话。必须首先启用 web 会话模块。（请参阅会话控制）
 
 Filters can be run against requests which use a regex router rule for matching:
 
-&zeroWidthSpace;可以使用正则表达式路由规则进行匹配来对请求运行过滤器：
+​	可以使用正则表达式路由规则进行匹配来对请求运行过滤器：
 
 ```go
 var FilterUser = func(ctx *context.Context) {
@@ -161,11 +161,11 @@ web.InsertFilter("/user/:id([0-9]+)", web.BeforeRouter, FilterUser)
 
 Context.Input has new features `RunController` and `RunMethod` from beego version 1.1.2. These can control the router in the filter and skip the Beego router rule.
 
-&zeroWidthSpace;Context.Input 从 beego 版本 1.1.2 开始具有新功能 `RunController` 和 `RunMethod` 。这些功能可以在过滤器中控制路由器并跳过 Beego 路由规则。
+​	Context.Input 从 beego 版本 1.1.2 开始具有新功能 `RunController` 和 `RunMethod` 。这些功能可以在过滤器中控制路由器并跳过 Beego 路由规则。
 
 For example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```go
 var UrlManager = func(ctx *context.Context) {
@@ -187,11 +187,11 @@ web.InsertFilter("/*", web.BeforeRouter, UrlManager)
 
 In v1.x, we can’t invoke next `Filter` inside a `Filter`. So we got a problem: we could not do something “surrounding” request execution.
 
-&zeroWidthSpace;在 v1.x 中，我们无法在 `Filter` 内调用下一个 `Filter` 。因此我们遇到了一个问题：我们无法对请求执行进行“环绕”。
+​	在 v1.x 中，我们无法在 `Filter` 内调用下一个 `Filter` 。因此我们遇到了一个问题：我们无法对请求执行进行“环绕”。
 
 For example, if we want to do:
 
-&zeroWidthSpace;例如，如果我们想执行以下操作：
+​	例如，如果我们想执行以下操作：
 
 ```
 func filter() {
@@ -203,11 +203,11 @@ func filter() {
 
 The typical cases are tracing and metrics.
 
-&zeroWidthSpace;典型的案例是跟踪和指标。
+​	典型的案例是跟踪和指标。
 
 So we enhance `Filter` by designing a new interface:
 
-&zeroWidthSpace;因此，我们通过设计一个新接口来增强 `Filter` ：
+​	因此，我们通过设计一个新接口来增强 `Filter` ：
 
 ```go
 type FilterChain func(next FilterFunc) FilterFunc
@@ -215,7 +215,7 @@ type FilterChain func(next FilterFunc) FilterFunc
 
 Here is a simple example:
 
-&zeroWidthSpace;这是一个简单的示例：
+​	这是一个简单的示例：
 
 ```go
 package main
@@ -242,7 +242,7 @@ func main() {
 
 In this example, we only output “hello” and then we invoke next filter.
 
-&zeroWidthSpace;在此示例中，我们仅输出“hello”，然后调用下一个过滤器。
+​	在此示例中，我们仅输出“hello”，然后调用下一个过滤器。
 
 ### Prometheus例子 Prometheus 示例
 
@@ -290,7 +290,7 @@ func (ctrl *MainController) Hello() {
 
 If you don’t use Beego’s admin service, don’t forget to expose `prometheus`’s port.
 
-&zeroWidthSpace;如果您不使用 Beego 的管理服务，请不要忘记公开 `prometheus` 的端口。
+​	如果您不使用 Beego 的管理服务，请不要忘记公开 `prometheus` 的端口。
 
 ### Opentracing例子 Opentracing 示例
 
@@ -330,4 +330,4 @@ func (ctrl *MainController) Hello() {
 
 Don’t forget to using `SetGlobalTracer` to initialize opentracing.
 
-&zeroWidthSpace;不要忘记使用 `SetGlobalTracer` 初始化 opentracing。
+​	不要忘记使用 `SetGlobalTracer` 初始化 opentracing。

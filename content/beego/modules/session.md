@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/session/](https://beego.wiki/docs/module/session/)
+> 原文：[https://beego.wiki/docs/module/session/]({{< ref "/beego/modules/session" >}})
 
 # Session Module 会话模块
 
@@ -17,21 +17,21 @@ draft = false
 
 > Notes: 备注：
 >
-> - This document is for using `session` as a standalone module in other projects. If you are using `session` with Beego, please check here [session control](https://beego.wiki/docs/mvc/controller/session)*
+> - This document is for using `session` as a standalone module in other projects. If you are using `session` with Beego, please check here [session control]({{< ref "/beego/mvcIntroduction/controllers/sessionControl" >}})*
 >   本文档用于在其他项目中将 `session` 作为独立模块使用。如果您将 `session` 与 Beego 一起使用，请在此处查看会话控制*
 
 ## Introduction to Session Module 会话模块简介
 
 The session module is used to store user data between different requests. It only supports saving the session id into a cookie, so if the client doesn’t support cookies, it won’t work.
 
-&zeroWidthSpace;会话模块用于在不同请求之间存储用户数据。它仅支持将会话 ID 保存到 cookie 中，因此如果客户端不支持 cookie，则它将不起作用。
+​	会话模块用于在不同请求之间存储用户数据。它仅支持将会话 ID 保存到 cookie 中，因此如果客户端不支持 cookie，则它将不起作用。
 
 It is inspired by `database/sql`, which means: one interface, multiple implementations. By default it supports four saving providers: memory, file, redis and mysql.
 
-&zeroWidthSpace;它受 `database/sql` 的启发，这意味着：一个接口，多种实现。默认情况下，它支持四种保存提供程序：内存、文件、redis 和 mysql。
+​	它受 `database/sql` 的启发，这意味着：一个接口，多种实现。默认情况下，它支持四种保存提供程序：内存、文件、redis 和 mysql。
 
 Install session module: 
-&zeroWidthSpace;安装会话模块：
+​	安装会话模块：
 
 ```
 go get github.com/beego/beego/v2/server/web/session
@@ -40,7 +40,7 @@ go get github.com/beego/beego/v2/server/web/session
 ## Basic Usage: 基本用法：
 
 Import package first: 
-&zeroWidthSpace;首先导入包：
+​	首先导入包：
 
 ```
 import (
@@ -50,7 +50,7 @@ import (
 
 Then initialize a global variable as the session manager:
 
-&zeroWidthSpace;然后初始化一个全局变量作为会话管理器：
+​	然后初始化一个全局变量作为会话管理器：
 
 ```
 var globalSessions *session.Manager
@@ -58,7 +58,7 @@ var globalSessions *session.Manager
 
 Then initialize data in your main function:
 
-&zeroWidthSpace;然后在主函数中初始化数据：
+​	然后在主函数中初始化数据：
 
 ```
 func init() {
@@ -69,7 +69,7 @@ func init() {
 
 Parameters of NewManager:
 
-&zeroWidthSpace;NewManager 的参数：
+​	NewManager 的参数：
 
 1. Saving provider name: memory, file, mysql, redis
    保存提供程序名称：memory、file、mysql、redis
@@ -100,7 +100,7 @@ Parameters of NewManager:
 
 Then we can use session in our code:
 
-&zeroWidthSpace;然后我们可以在代码中使用 session：
+​	然后我们可以在代码中使用 session：
 
 ```
 func login(w http.ResponseWriter, r *http.Request) {
@@ -118,7 +118,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 Here are the methods of globalSessions:
 
-&zeroWidthSpace;以下是 globalSessions 的方法：
+​	以下是 globalSessions 的方法：
 
 - `SessionStart` Return session object based on current request.
   `SessionStart` 根据当前请求返回会话对象。
@@ -135,7 +135,7 @@ Here are the methods of globalSessions:
 
 The returned session object is a Interface. Here are the methods:
 
-&zeroWidthSpace;返回的会话对象是一个接口。以下是方法：
+​	返回的会话对象是一个接口。以下是方法：
 
 - `Set(key, value interface{}) error`
 - `Get(key interface{}) interface{}`
@@ -148,13 +148,13 @@ The returned session object is a Interface. Here are the methods:
 
 We’ve already seen configuration of `memory` provider. Here is the configuration of the others:
 
-&zeroWidthSpace;我们已经看到了 `memory` 提供程序的配置。以下是其他配置：
+​	我们已经看到了 `memory` 提供程序的配置。以下是其他配置：
 
 - `mysql`:
 
   All the parameters are the same as memory’s except the fourth parameter, e.g.:
 
-  &zeroWidthSpace;所有参数都与内存相同，除了第四个参数，例如：
+  ​	所有参数都与内存相同，除了第四个参数，例如：
 
   ```
     username:password@protocol(address)/dbname?param=value
@@ -162,13 +162,13 @@ We’ve already seen configuration of `memory` provider. Here is the configurati
 
   For details see the [go-sql-driver/mysql](https://github.com/go-sql-driver/mysql#dsn-data-source-name) documentation.
 
-  &zeroWidthSpace;有关详细信息，请参阅 go-sql-driver/mysql 文档。
+  ​	有关详细信息，请参阅 go-sql-driver/mysql 文档。
 
 - `redis`:
 
   Connection config: address,pool,password
 
-  &zeroWidthSpace;连接配置：地址、池、密码
+  ​	连接配置：地址、池、密码
 
   ```
     127.0.0.1:6379,100,astaxie
@@ -178,7 +178,7 @@ We’ve already seen configuration of `memory` provider. Here is the configurati
 
   The session save path. Create new files in two levels by default. E.g.: if sessionID is `xsnkjklkjjkh27hjh78908` the file will be saved as `./tmp/x/s/xsnkjklkjjkh27hjh78908`
 
-  &zeroWidthSpace;会话保存路径。默认情况下，在两级目录中创建新文件。例如：如果 sessionID 为 `xsnkjklkjjkh27hjh78908` ，则文件将保存为 `./tmp/x/s/xsnkjklkjjkh27hjh78908`
+  ​	会话保存路径。默认情况下，在两级目录中创建新文件。例如：如果 sessionID 为 `xsnkjklkjjkh27hjh78908` ，则文件将保存为 `./tmp/x/s/xsnkjklkjjkh27hjh78908`
 
   ```
     ./tmp
@@ -188,7 +188,7 @@ We’ve already seen configuration of `memory` provider. Here is the configurati
 
 Sometimes you need to create your own session provider. The Session module uses interfaces, so you can implement this interface to create your own provider easily.
 
-&zeroWidthSpace;有时您需要创建自己的会话提供程序。Session 模块使用接口，因此您可以实现此接口以轻松创建自己的提供程序。
+​	有时您需要创建自己的会话提供程序。Session 模块使用接口，因此您可以实现此接口以轻松创建自己的提供程序。
 
 ```go
 // Store contains all data for one session process with specific id.
@@ -216,7 +216,7 @@ type Provider interface {
 
 Finally, register your provider:
 
-&zeroWidthSpace;最后，注册您的提供程序：
+​	最后，注册您的提供程序：
 
 ```
 func init() {

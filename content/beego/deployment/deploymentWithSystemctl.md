@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/deploy/systemctl/](https://beego.wiki/docs/deploy/systemctl/)
+> 原文：[https://beego.wiki/docs/deploy/systemctl/]({{< ref "/beego/deployment/deploymentWithSystemctl" >}})
 
 # Deployment with Systemctl 使用 Systemctl 部署
 
@@ -17,16 +17,16 @@ draft = false
 
 Systemctl command is a command used to manage and control services. It allows you to enable, disable, view, start, stop, or restart system services.
 
-&zeroWidthSpace;Systemctl 命令用于管理和控制服务。它允许您启用、禁用、查看、启动、停止或重新启动系统服务。
+​	Systemctl 命令用于管理和控制服务。它允许您启用、禁用、查看、启动、停止或重新启动系统服务。
 
 ## Install beego application as a service 将 beego 应用程序安装为服务
 
 1. Pack your application using `bee pack` command. Copy the resultant `.tar.gz` file to target server.
 
-   &zeroWidthSpace;使用 `bee pack` 命令打包您的应用程序。将生成的 `.tar.gz` 文件复制到目标服务器。
+   ​	使用 `bee pack` 命令打包您的应用程序。将生成的 `.tar.gz` 文件复制到目标服务器。
 
 2. Unpack 
-   &zeroWidthSpace;解压
+   ​	解压
 
    ```
     mkdir -p /usr/local/beepkg && cd "$_"
@@ -36,7 +36,7 @@ Systemctl command is a command used to manage and control services. It allows yo
 
 3. Configure service parameters
 
-   &zeroWidthSpace;配置服务参数
+   ​	配置服务参数
 
    ```
     cat <<'EOF' > /etc/systemd/system/beepkg.service
@@ -59,7 +59,7 @@ Systemctl command is a command used to manage and control services. It allows yo
    ```
 
 4. Install service 
-   &zeroWidthSpace;安装服务
+   ​	安装服务
 
    ```
     chmod +x beepkg

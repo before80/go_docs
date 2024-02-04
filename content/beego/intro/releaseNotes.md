@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/intro/releases/](https://beego.wiki/docs/intro/releases/)
+> 原文：[https://beego.wiki/docs/intro/releases/]({{< ref "/beego/intro/releaseNotes" >}})
 
 # Release Notes 发行说明
 
@@ -19,7 +19,7 @@ draft = false
 
 Note: now we force the web admin service serving HTTP only.
 
-&zeroWidthSpace;注意：现在我们强制 Web 管理服务仅提供 HTTP 服务。
+​	注意：现在我们强制 Web 管理服务仅提供 HTTP 服务。
 
 [Change Log
 更改日志](https://github.com/beego/beego/releases/tag/v2.0.4)
@@ -38,11 +38,11 @@ Note: now we force the web admin service serving HTTP only.
 
 When we release v2.0.0, something wrong and then we re-release v2.0.0.
 
-&zeroWidthSpace;当我们发布 v2.0.0 时，出现了一些问题，然后我们重新发布了 v2.0.0。
+​	当我们发布 v2.0.0 时，出现了一些问题，然后我们重新发布了 v2.0.0。
 
 But the checksum in sum.golang.cn is immutable, so we release this version
 
-&zeroWidthSpace;但是 sum.golang.cn 中的校验和是不可变的，因此我们发布此版本
+​	但是 sum.golang.cn 中的校验和是不可变的，因此我们发布此版本
 
 # beego 2.0.0
 
@@ -390,7 +390,7 @@ But the checksum in sum.golang.cn is immutable, so we release this version
 
 New features:
 
-&zeroWidthSpace;新功能：
+​	新功能：
 
 1. Added IP for access log [#2156](https://github.com/beego/beego/pull/2156)
    添加 IP 以访问日志 #2156
@@ -411,7 +411,7 @@ New features:
 
 Bug fixes:
 
-&zeroWidthSpace;错误修复：
+​	错误修复：
 
 1. No / added while visiting static folder who contains index.html. For example visit /swagger won’t redirect to /swagger/ so that relitive css and js won’t be access. [#2142](https://github.com/beego/beego/issues/2142)
    访问包含 index.html 的静态文件夹时未添加 /。例如，访问 /swagger 不会重定向到 /swagger/，因此无法访问相对的 css 和 js。#2142
@@ -426,7 +426,7 @@ Bug fixes:
 
 New features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. Improved Filter speed by 7.5+ times [#1799](https://github.com/beego/beego/pull/1799)
    将 Filter 速度提高了 7.5 倍以上 #1799
@@ -463,7 +463,7 @@ func main() {
 
 ![img](./releaseNotes_img/f608b658-f1ff-11e5-8d57-72030cfe4f5d.png) 7. Log for session if error occurred. [#1833](https://github.com/beego/beego/pull/1833) 8. Public methods for logs: `EnableFuncCallDepth` and `SetLogFuncCallDepth` for setting function call level. [#1837](https://github.com/beego/beego/pull/1837) 9. Use `go run` to run beego project [#1840](https://github.com/beego/beego/pull/1840) 10. Added `ExecuteTemplate` method which is used to access template other than use map since map is not safe for concurrent reading and writing. [#1848](https://github.com/beego/beego/pull/1848) 11. `time` type for ORM field [#1856](https://github.com/beego/beego/pull/1856) 12. ORM One only fetch one record [#1874](https://github.com/beego/beego/pull/1874) 13. ORM suports json jsonb type [#1875](https://github.com/beego/beego/pull/1875) 14. ORM uses text type by default. [#1879](https://github.com/beego/beego/pull/1879) 15. session configurations: `EnableSidInHttpHeader` `EnableSidInUrlQuery` `SessionNameInHttpHeader` let user pass sid in http header or in URL. [#1897](https://github.com/beego/beego/pull/1897) 16. Shorten fileanme of auto-generated router file name. [#1924](https://github.com/beego/beego/pull/1924) 17. Complex template engine. ace jade [#1940](https://github.com/beego/beego/pull/1940)
 
-&zeroWidthSpace;7. 如果发生错误，则记录会话。#1833 8. 日志的公共方法： `EnableFuncCallDepth` 和 `SetLogFuncCallDepth` 用于设置函数调用级别。#1837 9. 使用 `go run` 运行 beego 项目 #1840 10. 添加 `ExecuteTemplate` 方法，用于访问模板，而不是使用映射，因为映射不适用于并发读写。#1848 11. ORM 字段的 `time` 类型 #1856 12. ORM One 只获取一条记录 #1874 13. ORM 支持 json jsonb 类型 #1875 14. ORM 默认使用 text 类型。#1879 15. 会话配置： `EnableSidInHttpHeader` `EnableSidInUrlQuery` `SessionNameInHttpHeader` 允许用户在 http 头或 URL 中传递 sid。#1897 16. 缩短自动生成的路由器文件名。#1924 17. 复杂的模板引擎。ace jade #1940
+​	7. 如果发生错误，则记录会话。#1833 8. 日志的公共方法： `EnableFuncCallDepth` 和 `SetLogFuncCallDepth` 用于设置函数调用级别。#1837 9. 使用 `go run` 运行 beego 项目 #1840 10. 添加 `ExecuteTemplate` 方法，用于访问模板，而不是使用映射，因为映射不适用于并发读写。#1848 11. ORM 字段的 `time` 类型 #1856 12. ORM One 只获取一条记录 #1874 13. ORM 支持 json jsonb 类型 #1875 14. ORM 默认使用 text 类型。#1879 15. 会话配置： `EnableSidInHttpHeader` `EnableSidInUrlQuery` `SessionNameInHttpHeader` 允许用户在 http 头或 URL 中传递 sid。#1897 16. 缩短自动生成的路由器文件名。#1924 17. 复杂的模板引擎。ace jade #1940
 
 ```
 beego.AddTemplateEngine("ace", func(root, path string, funcs template.FuncMap) (*template.Template, error) {
@@ -482,13 +482,13 @@ beego.AddTemplateEngine("ace", func(root, path string, funcs template.FuncMap) (
 
 [#1940](https://github.com/beego/beego/pull/1940) 18. session suports ssdb [#1953](https://github.com/beego/beego/pull/1953) 19. RenderForm supports required [#1993](https://github.com/beego/beego/pull/1993) 20. Beautified beego logs [#1997](https://github.com/beego/beego/pull/1997)
 
-&zeroWidthSpace;#1940 18. 会话支持 ssdb #1953 19. RenderForm 支持 required #1993 20. 美化的 beego 日志 #1997 ![img](./releaseNotes_img/f654b08e-34a4-11e6-894d-24f16ab847a7.png) 21. ORM suports `time.Time` pointer in struct [#2006](https://github.com/beego/beego/pull/2006) 22. `TplPrefix` in Controller for setting prefix folder in baseController [#2030](https://github.com/beego/beego/pull/2030) 23. js function checking in jsonb to avoid non-exist methods. [#2045](https://github.com/beego/beego/pull/2045) 24. `InsertOrUpdate` method in ORM [#2053](https://github.com/beego/beego/pull/2053) 25. Filter method added parameter for resetting parameters. Because when using `beego.InsertFilter("*", beego.BeforeStatic, RedirectHTTP)` parameter will be assigned to `:splat` which will affect other useful routers. [#2085](https://github.com/beego/beego/pull/2085) 26. session initialized by object other than json. *It might have issue for the projects use session module separately.* [#2096](https://github.com/beego/beego/pull/2096) 27. Upgraded Swagger to 2.0. The code generated now doesn’t rely on API. beego generat swagger.json directly.
+​	#1940 18. 会话支持 ssdb #1953 19. RenderForm 支持 required #1993 20. 美化的 beego 日志 #1997 ![img](./releaseNotes_img/f654b08e-34a4-11e6-894d-24f16ab847a7.png) 21. ORM suports `time.Time` pointer in struct [#2006](https://github.com/beego/beego/pull/2006) 22. `TplPrefix` in Controller for setting prefix folder in baseController [#2030](https://github.com/beego/beego/pull/2030) 23. js function checking in jsonb to avoid non-exist methods. [#2045](https://github.com/beego/beego/pull/2045) 24. `InsertOrUpdate` method in ORM [#2053](https://github.com/beego/beego/pull/2053) 25. Filter method added parameter for resetting parameters. Because when using `beego.InsertFilter("*", beego.BeforeStatic, RedirectHTTP)` parameter will be assigned to `:splat` which will affect other useful routers. [#2085](https://github.com/beego/beego/pull/2085) 26. session initialized by object other than json. *It might have issue for the projects use session module separately.* [#2096](https://github.com/beego/beego/pull/2096) 27. Upgraded Swagger to 2.0. The code generated now doesn’t rely on API. beego generat swagger.json directly.
 
-&zeroWidthSpace;21. ORM 支持结构体中的 `time.Time` 指针 #2006 22. `TplPrefix` 在 Controller 中用于设置 baseController 中的前缀文件夹 #2030 23. js 函数在 jsonb 中检查以避免不存在的方法。 #2045 24. `InsertOrUpdate` 方法在 ORM 中 #2053 25. Filter 方法添加了用于重置参数的参数。因为在使用 `beego.InsertFilter("*", beego.BeforeStatic, RedirectHTTP)` 时，参数将被分配给 `:splat` ，这会影响其他有用的路由器。 #2085 26. 由非 json 对象初始化的会话。对于单独使用会话模块的项目，这可能会出现问题。 #2096 27. 将 Swagger 升级到 2.0。现在生成的代码不依赖于 API。beego 直接生成 swagger.json。
+​	21. ORM 支持结构体中的 `time.Time` 指针 #2006 22. `TplPrefix` 在 Controller 中用于设置 baseController 中的前缀文件夹 #2030 23. js 函数在 jsonb 中检查以避免不存在的方法。 #2045 24. `InsertOrUpdate` 方法在 ORM 中 #2053 25. Filter 方法添加了用于重置参数的参数。因为在使用 `beego.InsertFilter("*", beego.BeforeStatic, RedirectHTTP)` 时，参数将被分配给 `:splat` ，这会影响其他有用的路由器。 #2085 26. 由非 json 对象初始化的会话。对于单独使用会话模块的项目，这可能会出现问题。 #2096 27. 将 Swagger 升级到 2.0。现在生成的代码不依赖于 API。beego 直接生成 swagger.json。
 
 bugfix:
 
-&zeroWidthSpace;错误修复：
+​	错误修复：
 
 1. `/m` redirect to `/m/` automatically in static reouters. [#1792](https://github.com/beego/beego/pull/1792)
    `/m` 在静态路由器中自动重定向到 `/m/` 。 #1792
@@ -500,7 +500,7 @@ bugfix:
    修复了多次调用 response.WriteHeader 的错误。 #1805
 5. Fixed panic if primary key is uint in ORM [#1828](https://github.com/beego/beego/pull/1828)
    修复了 ORM 中主键为 uint 时出现的恐慌。 #1828
-6. Fixed panic if current time is less than 2000 while rotate logs. [#](https://beego.wiki/docs/intro/releases/)
+6. Fixed panic if current time is less than 2000 while rotate logs. [#]({{< ref "/beego/intro/releaseNotes" >}})
    修复了轮换日志时当前时间小于 2000 时出现的恐慌。 #
 7. Fixed XSRF reuse caused by context reuse.[#1863](https://github.com/beego/beego/pull/1863)
    修复了由上下文重用导致的 XSRF 重用。 #1863
@@ -524,7 +524,7 @@ bugfix:
 
 New features
 
-&zeroWidthSpace;新特性
+​	新特性
 
 1. Oracle driver for ORM
    ORM 的 Oracle 驱动程序
@@ -541,7 +541,7 @@ New features
 
 bugfix：
 
-&zeroWidthSpace;错误修复：
+​	错误修复：
 
 1. cookie time config
    cookie 时间配置
@@ -586,7 +586,7 @@ bugfix：
 
 New features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. `log` supports rotating files like `xx.2013-01-01.2.log` [#1265](https://github.com/beego/beego/pull/1265)
    `log` 支持轮换文件，例如 `xx.2013-01-01.2.log` #1265
@@ -650,7 +650,7 @@ bugfix:
 
 Improvement:
 
-&zeroWidthSpace;改进：
+​	改进：
 
 1. Moved example to [samples](https://github.com/beego/samples)
    将示例移至样本
@@ -677,7 +677,7 @@ Improvement:
 
 New Features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. Graceful shutdown
    优雅关机
@@ -700,7 +700,7 @@ New Features:
 
 Bugfixes:
 
-&zeroWidthSpace;错误修复：
+​	错误修复：
 
 1. Wrong parameters for ledis driver.
    ledis 驱动程序的参数错误。
@@ -729,7 +729,7 @@ Bugfixes:
 
 New Features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. ORM support default settting
    ORM 支持默认设置
@@ -773,99 +773,99 @@ bugfix:
 
 New Features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. Added SQL Constructor inspired by ZEND ORM.
 
-   &zeroWidthSpace;添加了受 ZEND ORM 启发的 SQL 构造器。
+   ​	添加了受 ZEND ORM 启发的 SQL 构造器。
 
 2. Added `GetInt()`, `GetInt8()`, `GetInt16()`, `GetInt32()`, `GetInt64()` for Controller.
 
-   &zeroWidthSpace;为 Controller 添加了 `GetInt()` 、 `GetInt8()` 、 `GetInt16()` 、 `GetInt32()` 、 `GetInt64()` 。
+   ​	为 Controller 添加了 `GetInt()` 、 `GetInt8()` 、 `GetInt16()` 、 `GetInt32()` 、 `GetInt64()` 。
 
 3. Improved the logging. Added `FilterHandler` for filter logging output.
 
-   &zeroWidthSpace;改进了日志记录。添加了 `FilterHandler` 用于过滤日志输出。
+   ​	改进了日志记录。添加了 `FilterHandler` 用于过滤日志输出。
 
 4. Static folder supports `index.html`. Automatically adding `/` for static folders.
 
-   &zeroWidthSpace;静态文件夹支持 `index.html` 。自动为静态文件夹添加 `/` 。
+   ​	静态文件夹支持 `index.html` 。自动为静态文件夹添加 `/` 。
 
 5. `flash` supports `success` and `set` methods.
 
-   &zeroWidthSpace; `flash` 支持 `success` 和 `set` 方法。
+   ​	 `flash` 支持 `success` 和 `set` 方法。
 
 6. Config for ignoring case for routers: `RouterCaseSensitive`. Case sensitive by default.
 
-   &zeroWidthSpace;忽略路由器大小写的配置： `RouterCaseSensitive` 。默认情况下区分大小写。
+   ​	忽略路由器大小写的配置： `RouterCaseSensitive` 。默认情况下区分大小写。
 
 7. Configs load based on environment: `beego.AppConfig.String("myvar")` return 456 on dev mode and return 123 on the other modes.
 
-   &zeroWidthSpace;根据环境加载配置： `beego.AppConfig.String("myvar")` 在开发模式下返回 456，在其他模式下返回 123。
+   ​	根据环境加载配置： `beego.AppConfig.String("myvar")` 在开发模式下返回 456，在其他模式下返回 123。
 
    > runmode = dev myvar = 123 [dev] myvar = 456
 
 8. Added `include` for `ini` config files:
 
-   &zeroWidthSpace;为 `ini` 配置文件添加 `include` ：
+   ​	为 `ini` 配置文件添加 `include` ：
 
    > appname = btest include b.conf
 
 9. Added `paginator` utils.
 
-   &zeroWidthSpace;添加 `paginator` utils。
+   ​	添加 `paginator` utils。
 
 10. Added `BEEGO_RUNMODE` environment variable. You can change the application mode by changing this environment variable.
 
-    &zeroWidthSpace;添加 `BEEGO_RUNMODE` 环境变量。您可以通过更改此环境变量来更改应用程序模式。
+    ​	添加 `BEEGO_RUNMODE` 环境变量。您可以通过更改此环境变量来更改应用程序模式。
 
 11. Added Json function for fetching `statistics` in `toolbox`.
 
-    &zeroWidthSpace;添加 Json 函数以在 `toolbox` 中获取 `statistics` 。
+    ​	添加 Json 函数以在 `toolbox` 中获取 `statistics` 。
 
 12. Attachements support for mail utils.
 
-    &zeroWidthSpace;邮件工具的附件支持。
+    ​	邮件工具的附件支持。
 
 13. Turn on fastcgi by standard IO.
 
-    &zeroWidthSpace;通过标准 IO 打开 fastcgi。
+    ​	通过标准 IO 打开 fastcgi。
 
 14. Using `SETEX` command to support the old version redis in redis Session engine.
 
-    &zeroWidthSpace;使用 `SETEX` 命令在 redis Session 引擎中支持旧版本 redis。
+    ​	使用 `SETEX` 命令在 redis Session 引擎中支持旧版本 redis。
 
 15. RenderForm supports html id and class by using id and class tag.
 
-    &zeroWidthSpace;RenderForm 通过使用 id 和 class 标记支持 html id 和 class。
+    ​	RenderForm 通过使用 id 和 class 标记支持 html id 和 class。
 
 16. ini config files support BOM head.
 
-    &zeroWidthSpace;ini 配置文件支持 BOM 头。
+    ​	ini 配置文件支持 BOM 头。
 
 17. Added new Session engine `ledis`.
 
-    &zeroWidthSpace;添加了新的 Session 引擎 `ledis` 。
+    ​	添加了新的 Session 引擎 `ledis` 。
 
 18. Improved file uploading in `httplib`. Supporting extremely large files by using `io.Pipe`.
 
-    &zeroWidthSpace;改进了 `httplib` 中的文件上传。通过使用 `io.Pipe` 支持超大文件。
+    ​	改进了 `httplib` 中的文件上传。通过使用 `io.Pipe` 支持超大文件。
 
 19. Binding to TCP4 address by default. It will bind to ipv6 in GO. Added config variable `ListenTCP4`.
 
-    &zeroWidthSpace;默认情况下绑定到 TCP4 地址。它将在 GO 中绑定到 ipv6。添加了配置变量 `ListenTCP4` 。
+    ​	默认情况下绑定到 TCP4 地址。它将在 GO 中绑定到 ipv6。添加了配置变量 `ListenTCP4` 。
 
 20. off/on/yes/no/1/0 will parse to `bool` in form rendering. Support time format.
 
-    &zeroWidthSpace;off/on/yes/no/1/0 将在表单渲染中解析为 `bool` 。支持时间格式。
+    ​	off/on/yes/no/1/0 将在表单渲染中解析为 `bool` 。支持时间格式。
 
 21. Simplify the generating of SeesionID. Using golang buildin `rand` function other than `hmac_sha1`.
 
-    &zeroWidthSpace;简化 SeesionID 的生成。使用 golang 内置 `rand` 函数而不是 `hmac_sha1` 。
+    ​	简化 SeesionID 的生成。使用 golang 内置 `rand` 函数而不是 `hmac_sha1` 。
 
 bugfix:
 
-&zeroWidthSpace;错误修复：
+​	错误修复：
 
 1. XSRF verification failure while `PUT` and `DELETE` cased by lowercased `_method`
    由于小写的 `_method` 导致 `PUT` 和 `DELETE` 中的 XSRF 验证失败
@@ -900,7 +900,7 @@ bugfix:
 
 New features:
 
-&zeroWidthSpace;新特性：
+​	新特性：
 
 1. `context.Input.Url` get path info without domain scheme.
    `context.Input.Url` 获取不带域方案的路径信息。
@@ -922,17 +922,17 @@ bugfix:
 
 Hi guys! After the hard working for one month, we are so excited to release Beego 1.3.0. We brought many useful features. [Upgrade notes](http://beego.wiki/docs/intro/upgrade.md)
 
-&zeroWidthSpace;嗨，伙计们！经过一个月的努力工作，我们非常高兴地发布 Beego 1.3.0。我们带来了许多有用的功能。升级说明
+​	嗨，伙计们！经过一个月的努力工作，我们非常高兴地发布 Beego 1.3.0。我们带来了许多有用的功能。升级说明
 
 #### The brand new router system 全新的路由器系统
 
 We rewrote the router system to tree router. It improved the performance significantly and supported more formats.
 
-&zeroWidthSpace;我们将路由器系统重写为树形路由器。它显著提高了性能并支持更多格式。
+​	我们将路由器系统重写为树形路由器。它显著提高了性能并支持更多格式。
 
 For the routers below:
 
-&zeroWidthSpace;对于以下路由器：
+​	对于以下路由器：
 
 ```
 /user/astaxie
@@ -941,13 +941,13 @@ For the routers below:
 
 If the request is `/user/astaxie`, it will match fixed router which is the first one; If the request is `/user/slene`, it will match the second one. The register order doesn’t matter.
 
-&zeroWidthSpace;如果请求是 `/user/astaxie` ，它将匹配固定路由器，即第一个路由器；如果请求是 `/user/slene` ，它将匹配第二个路由器。注册顺序无关紧要。
+​	如果请求是 `/user/astaxie` ，它将匹配固定路由器，即第一个路由器；如果请求是 `/user/slene` ，它将匹配第二个路由器。注册顺序无关紧要。
 
 #### namespace is more elegant 命名空间更加优雅
 
 `namespace` is designed for modular applications. It was using chain style similar to jQuery in previous version but `gofmt` can’t format it very well. Now we are using multi parameters style: (The chain style still works)
 
-&zeroWidthSpace; `namespace` 专为模块化应用程序而设计。它在以前的版本中使用类似于 jQuery 的链式样式，但 `gofmt` 无法很好地格式化它。现在我们使用多参数样式：（链式样式仍然有效）
+​	 `namespace` 专为模块化应用程序而设计。它在以前的版本中使用类似于 jQuery 的链式样式，但 `gofmt` 无法很好地格式化它。现在我们使用多参数样式：（链式样式仍然有效）
 
 ```
 ns :=
@@ -972,7 +972,7 @@ beego.NewNamespace("/v1",
 
 For more information please check [namespace](http://beego.wiki/docs/mvc/controller/router.md#namespace)
 
-&zeroWidthSpace;有关更多信息，请检查命名空间
+​	有关更多信息，请检查命名空间
 
 #### Annotation Router 注释路由器
 
@@ -1004,11 +1004,11 @@ func (this *CMSController) AllBlock() {
 
 Automated document is a very cool feature that I wish to have. Now it became real in Beego. As I said Beego will not only boost the development of API but also make the API easy to use for the user.
 
-&zeroWidthSpace;自动文档是我希望拥有的一个非常酷的功能。现在它在 Beego 中成为现实。如我所说，Beego 不仅会促进 API 的开发，还会让用户更轻松地使用 API。 API 文档可以由注释自动生成，并可以在线测试。
+​	自动文档是我希望拥有的一个非常酷的功能。现在它在 Beego 中成为现实。如我所说，Beego 不仅会促进 API 的开发，还会让用户更轻松地使用 API。 API 文档可以由注释自动生成，并可以在线测试。
 
 The API document can be generated by annotations automatically and can be tested online.
 
-&zeroWidthSpace;有关更多信息，请检查自动文档 config 支持不同的运行模式 您可以在其自己的部分下为不同的运行模式设置配置。默认情况下，Beego 将采用当前运行模式的配置。例如： 上面的配置为 dev、prod 和 test 环境设置了 httpport。Beego 将采用 httpport = 8080 作为当前运行模式“dev”。
+​	有关更多信息，请检查自动文档 config 支持不同的运行模式 您可以在其自己的部分下为不同的运行模式设置配置。默认情况下，Beego 将采用当前运行模式的配置。例如： 上面的配置为 dev、prod 和 test 环境设置了 httpport。Beego 将采用 httpport = 8080 作为当前运行模式“dev”。
 
 ![img](./releaseNotes_img/docs.png)
 
@@ -1056,7 +1056,7 @@ beego.BeeApp.Server.TLSConfig = &config
 
 `beego.Run()` Run on `HttpPort` by default
 
-&zeroWidthSpace; `beego.Run()` 默认在 `HttpPort` 上运行
+​	 `beego.Run()` 默认在 `HttpPort` 上运行
 
 ```
 beego.Run(":8089")
@@ -1092,7 +1092,7 @@ beego.Run("127.0.0.1:8089")
 
 Hi guys! After one month of hard work, we released the new awesome version 1.2.0. Beego is the fastest Go framework in the latest [Web Framework Benchmarks](http://www.techempower.com/benchmarks/#section=data-r9&hw=i7&test=json) already though our goal is to make Beego the best and easiest framework to use. In this new release, we improved even more in both usability and performance which is closer to native Go.
 
-&zeroWidthSpace;大家好！经过一个月的努力工作，我们发布了新的 1.2.0 版本。Beego 是最新的 Web 框架基准测试中最快的 Go 框架，尽管我们的目标是让 Beego 成为最棒且最易用的框架。在此新版本中，我们在可用性和性能方面进行了更多改进，更接近原生 Go。
+​	大家好！经过一个月的努力工作，我们发布了新的 1.2.0 版本。Beego 是最新的 Web 框架基准测试中最快的 Go 框架，尽管我们的目标是让 Beego 成为最棒且最易用的框架。在此新版本中，我们在可用性和性能方面进行了更多改进，更接近原生 Go。
 
 ### New Features: 新功能：
 
@@ -1116,7 +1116,7 @@ Hi guys! After one month of hard work, we released the new awesome version 1.2.0
 
 The code above supports the URL requests below:
 
-&zeroWidthSpace;上面的代码支持以下 URL 请求：
+​	上面的代码支持以下 URL 请求：
 
 ```
 GET       /v1/notallowed
@@ -1127,13 +1127,13 @@ GET       /v1/shop/123
 namespace` also supports pre-filters, conditions checking and unlimited nested `namespace
 ```
 
-&zeroWidthSpace; `namespace` 还支持预过滤器、条件检查和无限嵌套 `namespace`
+​	 `namespace` 还支持预过滤器、条件检查和无限嵌套 `namespace`
 
 #### 2. Supporting more flexible router modes 2. 支持更灵活的路由器模式
 
 Custom functions from RESTful router
 
-&zeroWidthSpace;RESTful 路由器的自定义函数
+​	RESTful 路由器的自定义函数
 
 ```
 beego.Get(router, beego.FilterFunc)
@@ -1150,7 +1150,7 @@ beego.Get("/user", func(ctx *context.Context) {
 
 More flexible Handler
 
-&zeroWidthSpace;更灵活的 Handler
+​	更灵活的 Handler
 
 ```
 beego.Handler(router, http.Handler)
@@ -1158,7 +1158,7 @@ beego.Handler(router, http.Handler)
 
 Integrating other services easily
 
-&zeroWidthSpace;轻松集成其他服务
+​	轻松集成其他服务
 
 ```
 import (
@@ -1179,7 +1179,7 @@ func init() {
 
 For example: this request parameters
 
-&zeroWidthSpace;例如：此请求参数
+​	例如：此请求参数
 
 ```
 ?id=123&isok=true&ft=1.2&ol[0]=1&ol[1]=2&ul[]=str&ul[]=array&user.Name=astaxie
@@ -1226,7 +1226,7 @@ if err != nil {
 
 `httplib` also supports custom protocol version
 
-&zeroWidthSpace; `httplib` 还支持自定义协议版本
+​	 `httplib` 还支持自定义协议版本
 
 #### 9. ORM supports all the unexport fields of struct 9. ORM 支持 struct 的所有 unexport 字段
 
@@ -1263,19 +1263,19 @@ func (a *AdminController) Prepare(){
 
 This is an emergency release for solving a serious security problem. Please update to the latest version! By the way released all changes together.
 
-&zeroWidthSpace;这是一个紧急版本，用于解决一个严重的安全性问题。请更新到最新版本！顺便一起发布了所有更改。
+​	这是一个紧急版本，用于解决一个严重的安全性问题。请更新到最新版本！顺便一起发布了所有更改。
 
 1. fixed a security problem. I will show the details in beego/security.md later.
 
-   &zeroWidthSpace;修复了一个安全性问题。我稍后会在 beego/security.md 中显示详细信息。
+   ​	修复了一个安全性问题。我稍后会在 beego/security.md 中显示详细信息。
 
 2. `statifile` move to new file.
 
-   &zeroWidthSpace; `statifile` 移至新文件。
+   ​	 `statifile` 移至新文件。
 
 3. move dependence of the third libs,if you use this module in your application: session/cache/config, please import the submodule of the third libs:
 
-   &zeroWidthSpace;移动第三方库的依赖项，如果您在应用程序中使用此模块：session/cache/config，请导入第三方库的子模块：
+   ​	移动第三方库的依赖项，如果您在应用程序中使用此模块：session/cache/config，请导入第三方库的子模块：
 
    ```
    import (
@@ -1286,43 +1286,43 @@ This is an emergency release for solving a serious security problem. Please upda
 
 4. modify some functions to private.
 
-   &zeroWidthSpace;将一些函数修改为私有。
+   ​	将一些函数修改为私有。
 
 5. improve the FormParse.
 
-   &zeroWidthSpace;改进了 FormParse。
+   ​	改进了 FormParse。
 
 released date: 2014-04-08
 
-&zeroWidthSpace;发布日期：2014-04-08
+​	发布日期：2014-04-08
 
 # Beego 1.1.3
 
 this is a hot fixed:
 
-&zeroWidthSpace;这是一个热修复：
+​	这是一个热修复：
 
 1. console engine for logs.It will not run if there’s no config.
 
-   &zeroWidthSpace;日志的控制台引擎。如果无配置，它将不会运行。
+   ​	日志的控制台引擎。如果无配置，它将不会运行。
 
 2. Beego 1.1.2 support `go run main.go`, but if `main.go` bot abute the Beego’s project rule,use own AppConfigPath or not exist app.conf will panic.
 
-   &zeroWidthSpace;Beego 1.1.2 支持 `go run main.go` ，但如果 `main.go` 机器人滥用 Beego 的项目规则，使用自己的 AppConfigPath 或不存在 app.conf 将会引发恐慌。
+   ​	Beego 1.1.2 支持 `go run main.go` ，但如果 `main.go` 机器人滥用 Beego 的项目规则，使用自己的 AppConfigPath 或不存在 app.conf 将会引发恐慌。
 
 3. Beego 1.1.2 supports `go test` parse config,but actually when call TestBeegoInit still can’t parseconfig
 
-   &zeroWidthSpace;Beego 1.1.2 支持 `go test` 分析配置，但实际上在调用 TestBeegoInit 时仍然无法分析配置
+   ​	Beego 1.1.2 支持 `go test` 分析配置，但实际上在调用 TestBeegoInit 时仍然无法分析配置
 
 released date: 2014-04-04
 
-&zeroWidthSpace;发布日期：2014-04-04
+​	发布日期：2014-04-04
 
 # Beego 1.1.2
 
 The improvements:
 
-&zeroWidthSpace;改进之处：
+​	改进之处：
 
 1. Added ExceptMethodAppend fuction which supports filter out some functions while run autorouter
    添加了 ExceptMethodAppend 函数，该函数支持在运行自动路由器时过滤掉某些函数
@@ -1351,13 +1351,13 @@ The improvements:
 
 released date: 2014-04-03
 
-&zeroWidthSpace;发布日期：2014-04-03
+​	发布日期：2014-04-03
 
 # Beego 1.1.1
 
 Added some new features and fixed some bugs in this release.
 
-&zeroWidthSpace;此版本中添加了一些新功能并修复了一些错误。
+​	此版本中添加了一些新功能并修复了一些错误。
 
 1. File engine can’t delete file in session module which will raise reading failure.
    文件引擎无法删除会话模块中的文件，这将引发读取失败。
@@ -1392,17 +1392,17 @@ Added some new features and fixed some bugs in this release.
 
 released date: 2014-03-12
 
-&zeroWidthSpace;发布日期：2014-03-12
+​	发布日期：2014-03-12
 
 # Beego 1.1.0
 
 Added some new features and fixed some bugs in this release.
 
-&zeroWidthSpace;此版本中添加了一些新功能并修复了一些错误。
+​	此版本中添加了一些新功能并修复了一些错误。
 
 New features
 
-&zeroWidthSpace;新功能
+​	新功能
 
 1. Supporting AddAPPStartHook function
    支持 AddAPPStartHook 函数
@@ -1429,7 +1429,7 @@ New features
 
 bugfix
 
-&zeroWidthSpace;错误修复
+​	错误修复
 
 1. Fixed the bug of FileCache
    修复了 FileCache 的错误
@@ -1446,50 +1446,50 @@ bugfix
 
 released date: 2014-02-10
 
-&zeroWidthSpace;发布日期：2014-02-10
+​	发布日期：2014-02-10
 
 # Beego 1.0 release Beego 1.0 发布
 
 After four months code refactoring, we released the first stable version of Beego. We did a lot of refactoring and improved a lot in detail. Here is the list of the main improvements:
 
-&zeroWidthSpace;经过四个月的代码重构，我们发布了 Beego 的第一个稳定版本。我们做了很多重构，并在细节上做了很多改进。以下是主要改进列表：
+​	经过四个月的代码重构，我们发布了 Beego 的第一个稳定版本。我们做了很多重构，并在细节上做了很多改进。以下是主要改进列表：
 
 1. Modular design. Right now Beego is a light weight assembling framework with eight powerful stand alone modules including cache, config, logs, sessions, httplibs, toolbox, orm and context. It might have more in the future. You can use all of these stand alone modules in your other applications directly no matter it’s web applications or any other applications such as web games and mobile games.
 
-   &zeroWidthSpace;模块化设计。现在 Beego 是一个轻量级的组装框架，具有八个强大的独立模块，包括缓存、配置、日志、会话、httplibs、工具箱、orm 和上下文。未来可能会更多。您可以在其他应用程序中直接使用所有这些独立模块，无论它是 Web 应用程序还是任何其他应用程序，例如网络游戏和手机游戏。
+   ​	模块化设计。现在 Beego 是一个轻量级的组装框架，具有八个强大的独立模块，包括缓存、配置、日志、会话、httplibs、工具箱、orm 和上下文。未来可能会更多。您可以在其他应用程序中直接使用所有这些独立模块，无论它是 Web 应用程序还是任何其他应用程序，例如网络游戏和手机游戏。
 
 2. Supervisor module. In the real world engineering, after the deployment of the application, we need to do many kinds of statistics and analytics for the application such as QPS statistics, GC analytics, memory and CPU monitoring and so on. When the live issue happends we also want to debug and profile our application on live. All of these real world engineering features are included in Beego. You can enable the supervisor module in Beego and visit it from default port 8088.
 
-   &zeroWidthSpace;Supervisor 模块。在现实世界的工程中，在应用程序部署后，我们需要对应用程序执行多种统计和分析，例如 QPS 统计、GC 分析、内存和 CPU 监视等。当实时问题发生时，我们还希望在实时环境中调试和分析我们的应用程序。所有这些现实世界的工程功能都包含在 Beego 中。您可以在 Beego 中启用 Supervisor 模块，并从默认端口 8088 访问它。
+   ​	Supervisor 模块。在现实世界的工程中，在应用程序部署后，我们需要对应用程序执行多种统计和分析，例如 QPS 统计、GC 分析、内存和 CPU 监视等。当实时问题发生时，我们还希望在实时环境中调试和分析我们的应用程序。所有这些现实世界的工程功能都包含在 Beego 中。您可以在 Beego 中启用 Supervisor 模块，并从默认端口 8088 访问它。
 
 3. Detailed document. We rewritten all the document. We improved the document based on many advices from the users. To make it communicate easier for different language speakers, now the comments of the document in each language are separated.
 
-   &zeroWidthSpace;详细文档。我们重写了所有文档。我们根据许多用户的建议改进了文档。为了让不同语言的使用者更容易交流，现在文档中的注释以每种语言分开。
+   ​	详细文档。我们重写了所有文档。我们根据许多用户的建议改进了文档。为了让不同语言的使用者更容易交流，现在文档中的注释以每种语言分开。
 
 4. Demos. We provided three examples, chat room, url shortener and todo list. You can understand and use Beego easier and faster by learning the demos.
 
-   &zeroWidthSpace;演示。我们提供了三个示例，聊天室、网址缩短器和待办事项列表。通过学习这些演示，您可以更容易、更快速地理解和使用 Beego。
+   ​	演示。我们提供了三个示例，聊天室、网址缩短器和待办事项列表。通过学习这些演示，您可以更容易、更快速地理解和使用 Beego。
 
 5. Redesigned Beego website. Nice people from Beego community helped Beego for logo design and website design.
 
-   &zeroWidthSpace;重新设计了 Beego 网站。Beego 社区的热心人士帮助 Beego 设计了徽标和网站。
+   ​	重新设计了 Beego 网站。Beego 社区的热心人士帮助 Beego 设计了徽标和网站。
 
 6. More and more users. We listed our typical users in our homepage. They are all big companies and they are using Beego for their products already. Beego already tested by those live applications.
 
-   &zeroWidthSpace;越来越多的用户。我们在主页上列出了我们的典型用户。他们都是大公司，并且已经在为他们的产品使用 Beego。Beego 已经通过这些实时应用程序进行了测试。
+   ​	越来越多的用户。我们在主页上列出了我们的典型用户。他们都是大公司，并且已经在为他们的产品使用 Beego。Beego 已经通过这些实时应用程序进行了测试。
 
 7. Growing active communities. There are more than 390 issues on github, more than 36 contributors and more than 700 commits. Google groups is also growing.
 
-   &zeroWidthSpace;不断壮大的活跃社区。在 github 上有超过 390 个问题、超过 36 个贡献者和超过 700 次提交。Google 群组也在不断壮大。
+   ​	不断壮大的活跃社区。在 github 上有超过 390 个问题、超过 36 个贡献者和超过 700 次提交。Google 群组也在不断壮大。
 
 8. More and more applications in Beego. There are some open source applications as well. E.g.: CMS system: https://github.com/insionng/toropress and admin system: https://github.com/beego/admin
 
-   &zeroWidthSpace;Beego 中的应用程序越来越多。还有一些开源应用程序。例如：CMS 系统：https://github.com/insionng/toropress 和管理系统：https://github.com/beego/admin
+   ​	Beego 中的应用程序越来越多。还有一些开源应用程序。例如：CMS 系统：https://github.com/insionng/toropress 和管理系统：https://github.com/beego/admin
 
 9. Powerful assistance tools. bee is used to assist the development of Beego applications. It can create, compile, package the Beego application easily.
 
-   &zeroWidthSpace;强大的辅助工具。bee 用于辅助 Beego 应用程序的开发。它可以轻松地创建、编译和打包 Beego 应用程序。
+   ​	强大的辅助工具。bee 用于辅助 Beego 应用程序的开发。它可以轻松地创建、编译和打包 Beego 应用程序。
 
 released date: 2013-12-19
 
-&zeroWidthSpace;发行日期：2013-12-19
+​	发行日期：2013-12-19

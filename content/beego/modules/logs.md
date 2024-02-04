@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/module/logs/](https://beego.wiki/docs/module/logs/)
+> 原文：[https://beego.wiki/docs/module/logs/]({{< ref "/beego/modules/logs" >}})
 
 # Logs Module 日志模块
 
@@ -19,7 +19,7 @@ draft = false
 
 The logging module is inspired by `database/sql`. It supports file, console, net and smtp as destination providers by default. It is installed like this:
 
-&zeroWidthSpace;日志记录模块的灵感来自 `database/sql` 。它默认支持文件、控制台、网络和 smtp 作为目标提供程序。它的安装方式如下：
+​	日志记录模块的灵感来自 `database/sql` 。它默认支持文件、控制台、网络和 smtp 作为目标提供程序。它的安装方式如下：
 
 ```
 go get github.com/beego/beego/v2/core/logs
@@ -30,7 +30,7 @@ go get github.com/beego/beego/v2/core/logs
 ### General Usage 常规用法
 
 Import package: 
-&zeroWidthSpace;导入包：
+​	导入包：
 
 ```
 import (
@@ -40,7 +40,7 @@ import (
 
 Initialize log variable (10000 is the cache size):
 
-&zeroWidthSpace;初始化日志变量（10000 是缓存大小）：
+​	初始化日志变量（10000 是缓存大小）：
 
 ```
 log := logs.NewLogger(10000)
@@ -48,7 +48,7 @@ log := logs.NewLogger(10000)
 
 Then add the output provider (it supports outputting to multiple providers at the same time). The first parameter is the provider name (`console`, `file`,`multifile`, `conn` , `smtp` or `es`).
 
-&zeroWidthSpace;然后添加输出提供程序（它支持同时向多个提供程序输出）。第一个参数是提供程序名称（ `console` 、 `file` 、 `multifile` 、 `conn` 、 `smtp` 或 `es` ）。
+​	然后添加输出提供程序（它支持同时向多个提供程序输出）。第一个参数是提供程序名称（ `console` 、 `file` 、 `multifile` 、 `conn` 、 `smtp` 或 `es` ）。
 
 ```
 log.SetLogger("console")
@@ -56,11 +56,11 @@ log.SetLogger("console")
 
 The second parameter is a provider-specific configuration string (see below for details). logs.SetLogger(logs.AdapterFile,`{"filename":"project.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":10,"color":true}`)
 
-&zeroWidthSpace;第二个参数是特定于提供程序的配置字符串（有关详细信息，请参见下文）。 logs.SetLogger(logs.AdapterFile, `{"filename":"project.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":10,"color":true}` )
+​	第二个参数是特定于提供程序的配置字符串（有关详细信息，请参见下文）。 logs.SetLogger(logs.AdapterFile, `{"filename":"project.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":10,"color":true}` )
 
 Then we can use it in our code:
 
-&zeroWidthSpace;然后我们可以在代码中使用它：
+​	然后我们可以在代码中使用它：
 
 ```
 package main
@@ -88,7 +88,7 @@ func main() {
 
 beego/logs supports to declare a single logger to use
 
-&zeroWidthSpace;beego/logs 支持声明一个要使用的单一记录器
+​	beego/logs 支持声明一个要使用的单一记录器
 
 ```
     package main
@@ -108,7 +108,7 @@ beego/logs supports to declare a single logger to use
 
 The module can be configured to include the file & line number of the log calls in the logging output. This functionality is disabled by default, but can be enabled using the following code:
 
-&zeroWidthSpace;该模块可以配置为在日志输出中包含日志调用的文件和行号。此功能默认情况下处于禁用状态，但可以使用以下代码启用：
+​	该模块可以配置为在日志输出中包含日志调用的文件和行号。此功能默认情况下处于禁用状态，但可以使用以下代码启用：
 
 ```
 logs.EnableFuncCallDepth(true)
@@ -116,11 +116,11 @@ logs.EnableFuncCallDepth(true)
 
 Use `true` to turn file & line number logging on, and `false` to turn it off. Default is `false`.
 
-&zeroWidthSpace;使用 `true` 打开文件和行号日志记录，使用 `false` 关闭它。默认值为 `false` 。
+​	使用 `true` 打开文件和行号日志记录，使用 `false` 关闭它。默认值为 `false` 。
 
 If your application encapsulates the call to the log methods, you may need use `SetLogFuncCallDepth` to set the number of stack frames to be skipped before the caller information is retrieved. The default is 2.
 
-&zeroWidthSpace;如果您的应用程序封装了对日志方法的调用，您可能需要使用 `SetLogFuncCallDepth` 来设置在检索调用者信息之前要跳过的堆栈帧数。默认值为 2。
+​	如果您的应用程序封装了对日志方法的调用，您可能需要使用 `SetLogFuncCallDepth` 来设置在检索调用者信息之前要跳过的堆栈帧数。默认值为 2。
 
 ```
 logs.SetLogFuncCallDepth(3)
@@ -130,7 +130,7 @@ logs.SetLogFuncCallDepth(3)
 
 You can set logger to asynchronous logging to improve performance:
 
-&zeroWidthSpace;您可以将记录器设置为异步记录以提高性能：
+​	您可以将记录器设置为异步记录以提高性能：
 
 ```
 logs.Async()
@@ -138,20 +138,20 @@ logs.Async()
 
 Add a parameter to set the length of buffer channel logs.Async(1e3)
 
-&zeroWidthSpace;添加一个参数来设置缓冲区通道的长度 logs.Async(1e3)
+​	添加一个参数来设置缓冲区通道的长度 logs.Async(1e3)
 
 ## Provider configuration 提供程序配置
 
 Each provider supports a set of configuration options.
 
-&zeroWidthSpace;每个提供程序都支持一组配置选项。
+​	每个提供程序都支持一组配置选项。
 
 - console 
-  &zeroWidthSpace;控制台
+  ​	控制台
 
   Can set output level or use default. Uses `os.Stdout` by default.
 
-  &zeroWidthSpace;可以设置输出级别或使用默认值。默认情况下使用 `os.Stdout` 。
+  ​	可以设置输出级别或使用默认值。默认情况下使用 `os.Stdout` 。
 
   ```
     logs.SetLogger(logs.AdapterConsole, `{"level":1}`)
@@ -160,14 +160,14 @@ Each provider supports a set of configuration options.
 - file
 
   E.g.: 
-  &zeroWidthSpace;例如：
+  ​	例如：
 
   ```
     logs.SetLogger(logs.AdapterFile, `{"filename":"test.log"}`)
   ```
 
   Parameters: 
-  &zeroWidthSpace;参数：
+  ​	参数：
 
   - filename: Save to filename.
     filename：保存到 filename。
@@ -189,14 +189,14 @@ Each provider supports a set of configuration options.
 - multifile
 
   E.g.: 
-  &zeroWidthSpace;例如：
+  ​	例如：
 
   ```
     logs.SetLogger(logs.AdapterMultiFile, ``{"filename":"test.log","separate":["emergency", "alert", "critical", "error", "warning", "notice", "info", "debug"]}``)
   ```
 
   Parameters: 
-  &zeroWidthSpace;参数：
+  ​	参数：
 
   - filename: Save to filename.
     filename：保存到 filename。
@@ -241,14 +241,14 @@ Each provider supports a set of configuration options.
 - smtp
 
   Log by email: 
-  &zeroWidthSpace;电子邮件日志：
+  ​	电子邮件日志：
 
   ```
     logs.SetLogger(logs.AdapterMail, `{"username":"beegotest@gmail.com","password":"xxxxxxxx","host":"smtp.gmail.com:587","sendTos":["xiemengjun@gmail.com"]}`)
   ```
 
   Parameters: 
-  &zeroWidthSpace;参数：
+  ​	参数：
 
   - username: smtp username.
     username：smtp 用户名。
@@ -266,7 +266,7 @@ Each provider supports a set of configuration options.
 - ElasticSearch
 
   Log to ElasticSearch: 
-  &zeroWidthSpace;记录到 ElasticSearch：
+  ​	记录到 ElasticSearch：
 
   ```
     logs.SetLogger(logs.AdapterEs, `{"dsn":"http://localhost:9200/","level":1}`)
@@ -275,7 +275,7 @@ Each provider supports a set of configuration options.
 - JianLiao
 
   Log to JianLiao 
-  &zeroWidthSpace;记录到 JianLiao
+  ​	记录到 JianLiao
 
   ```
     logs.SetLogger(logs.AdapterJianLiao, `{"authorname":"xxx","title":"beego", "webhookurl":"https://jianliao.com/xxx", "redirecturl":"https://jianliao.com/xxx","imageurl":"https://jianliao.com/xxx","level":1}`)
@@ -284,7 +284,7 @@ Each provider supports a set of configuration options.
 - Slack
 
   Log to Slack 
-  &zeroWidthSpace;记录到 Slack
+  ​	记录到 Slack
 
   ```
     logs.SetLogger(logs.AdapterSlack, `{"webhookurl":"https://slack.com/xxx","level":1}`)
@@ -294,7 +294,7 @@ Each provider supports a set of configuration options.
 
 A new feature of the 2.0 release of beego is the ability to have custom formatting applied to your logs before being sent to your preferred adapter. Here is an example of it in use:
 
-&zeroWidthSpace;beego 2.0 版本的新功能是能够在将日志发送到首选适配器之前对日志应用自定义格式。以下是一个使用示例：
+​	beego 2.0 版本的新功能是能够在将日志发送到首选适配器之前对日志应用自定义格式。以下是一个使用示例：
 
 ```go
 package main
@@ -339,7 +339,7 @@ func main() {
 
 With the global formatter you can override and *default* logging formatters. This means that setting a global formatter will override any `logs.SetLogger()` adapters but will not override and `logs.SetLoggerWithOpts()` adapters. Default logging formatters are any adapters set using the following syntax:
 
-&zeroWidthSpace;使用全局格式化程序，您可以覆盖默认日志记录格式化程序。这意味着设置全局格式化程序将覆盖任何 `logs.SetLogger()` 适配器，但不会覆盖任何 `logs.SetLoggerWithOpts()` 适配器。默认日志记录格式化程序是使用以下语法设置的任何适配器：
+​	使用全局格式化程序，您可以覆盖默认日志记录格式化程序。这意味着设置全局格式化程序将覆盖任何 `logs.SetLogger()` 适配器，但不会覆盖任何 `logs.SetLoggerWithOpts()` 适配器。默认日志记录格式化程序是使用以下语法设置的任何适配器：
 
 ```go
 logs.SetLogger("adapterName", '{"key":"value"}')
@@ -349,7 +349,7 @@ logs.SetLogger("adapterName", '{"key":"value"}')
 
 Apapter specific formatters can be set and will override any default or global formatter that has been set for a given adapter. Adapter specific logging formatters can be set using the following syntax:
 
-&zeroWidthSpace;可以设置特定于适配器的格式化程序，它将覆盖为给定适配器设置的任何默认或全局格式化程序。可以使用以下语法设置特定于适配器的日志记录格式化程序：
+​	可以设置特定于适配器的格式化程序，它将覆盖为给定适配器设置的任何默认或全局格式化程序。可以使用以下语法设置特定于适配器的日志记录格式化程序：
 
 ```go
 logs.SetLoggerWithOpts("adapterName", []string{'{"key":"value"}'}, utils.KV{Key:"formatter", Value: formatterFunc})
