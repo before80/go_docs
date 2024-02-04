@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/quickstart/](https://beego.wiki/docs/quickstart/)
+> 原文：[https://beego.wiki/docs/quickstart/]({{< ref "/beego/quickStart" >}})
 
 # Quickstart 快速入门
 

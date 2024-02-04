@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/about/](https://beego.wiki/docs/about/)
+> 原文：[https://beego.wiki/docs/about/]({{< ref "/beego/at" >}})
 
 # About 关于
 
@@ -19,7 +19,7 @@ This manual documents aspects of Beego app framework.
 
 ### New to Beego? 新手使用 Beego？
 
-Read about the [Quick Start](https://beego.wiki/docs/quickstart).
+Read about the [Quick Start]({{< ref "/beego/quickStart" >}}).
 
 ​	阅读快速入门。
 

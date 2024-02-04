@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/mvc/](https://beego.wiki/docs/mvc/)
+> 原文：[https://beego.wiki/docs/mvc/]({{< ref "/beego/mvcIntroduction" >}})
 
 # MVC Introduction - MVC 简介
 
@@ -74,18 +74,18 @@ The next sections will detail the first step of Beego’s MVC, routing:
 
 ​	下一节将详细介绍 Beego 的 MVC 的第一步，路由：
 
-- [Routing 路由](https://beego.wiki/docs/mvc/controller/router)
-- [Controller functions 控制器函数](https://beego.wiki/docs/mvc/controller/controller)
+- [Routing 路由]({{< ref "/beego/mvcIntroduction/controllers/routing" >}})
+- [Controller functions 控制器函数]({{< ref "/beego/mvcIntroduction/controllers/controllerFuncs" >}})
 - [Cross-site request forgery (XSRF)
-  跨站点请求伪造 (XSRF)](https://beego.wiki/docs/mvc/controller/xsrf)
-- [Session control 会话控制](https://beego.wiki/docs/mvc/controller/session)
-- [Message flashing 消息闪烁](https://beego.wiki/docs/mvc/controller/flash)
-- [Accessing Request Data 访问请求数据](https://beego.wiki/docs/mvc/controller/params)
+  跨站点请求伪造 (XSRF)]({{< ref "/beego/mvcIntroduction/controllers/xfrfFiltering" >}})
+- [Session control 会话控制]({{< ref "/beego/mvcIntroduction/controllers/sessionControl" >}})
+- [Message flashing 消息闪烁]({{< ref "/beego/mvcIntroduction/controllers/flashMessages" >}})
+- [Accessing Request Data 访问请求数据]({{< ref "/beego/mvcIntroduction/controllers/requestParameters" >}})
 - [Multiple Response Formats
-  多种响应格式](https://beego.wiki/docs/mvc/controller/jsonxml)
-- [Form validation 表单验证](https://beego.wiki/docs/mvc/controller/validation)
-- [Rendering templates 渲染模板](https://beego.wiki/docs/mvc/view/view)
-- [Template functions 模板函数](https://beego.wiki/docs/mvc/view/template)
-- [Error handling 错误处理](https://beego.wiki/docs/mvc/controller/errors)
-- [Handling static files 处理静态文件](https://beego.wiki/docs/mvc/view/static)
-- [Parameter configuration 参数配置](https://beego.wiki/docs/mvc/controller/config)
+  多种响应格式]({{< ref "/beego/mvcIntroduction/controllers/responseFormats" >}})
+- [Form validation 表单验证]({{< ref "/beego/mvcIntroduction/controllers/formValidation" >}})
+- [Rendering templates 渲染模板]({{< ref "/beego/mvcIntroduction/views/templateParsing" >}})
+- [Template functions 模板函数]({{< ref "/beego/mvcIntroduction/views/templateFunctions" >}})
+- [Error handling 错误处理]({{< ref "/beego/mvcIntroduction/controllers/errorHanding" >}})
+- [Handling static files 处理静态文件]({{< ref "/beego/mvcIntroduction/views/staticFiles" >}})
+- [Parameter configuration 参数配置]({{< ref "/beego/mvcIntroduction/controllers/configuration" >}})

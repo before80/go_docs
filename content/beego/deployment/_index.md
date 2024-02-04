@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/deploy/](https://beego.wiki/docs/deploy/)
+> 原文：[https://beego.wiki/docs/deploy/]({{< ref "/beego/deployment" >}})
 
 # Deployment 部署
 
@@ -99,13 +99,13 @@ There are three ways to run it:
 
 ​	有三种方法可以运行它：
 
-- [Stand alone deploy 独立部署](https://beego.wiki/docs/deploy/beego)
-- [Deploy with Supervisord 使用 Supervisord 部署](https://beego.wiki/docs/deploy/supervisor)
-- [Deploy with Systemctl 使用 Systemctl 部署](https://beego.wiki/docs/deploy/systemctl)
+- [Stand alone deploy 独立部署]({{< ref "/beego/deployment/standAloneDeployment" >}})
+- [Deploy with Supervisord 使用 Supervisord 部署]({{< ref "/beego/deployment/deploymentWithSupervisord" >}})
+- [Deploy with Systemctl 使用 Systemctl 部署]({{< ref "/beego/deployment/deploymentWithSystemctl" >}})
 
 The application is exposed above, then usually we will have a nginx or apache to serve pages and perform load balancing on our application.
 
 ​	应用程序在上面公开，那么通常我们会使用 nginx 或 apache 来提供页面并在我们的应用程序上执行负载平衡。
 
-- [Deploy with Nginx 使用 Nginx 部署](https://beego.wiki/docs/deploy/nginx)
-- [Deploy with Apache 使用 Apache 部署](https://beego.wiki/docs/deploy/apache)
+- [Deploy with Nginx 使用 Nginx 部署]({{< ref "/beego/deployment/deploymentWithNginx" >}})
+- [Deploy with Apache 使用 Apache 部署]({{< ref "/beego/deployment/deploymentWithApache" >}})

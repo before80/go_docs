@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/examples/](https://beego.wiki/docs/examples/)
+> 原文：[https://beego.wiki/docs/examples/]({{< ref "/beego/demos" >}})
 
 # Demos 演示
 

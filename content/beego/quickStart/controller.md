@@ -71,6 +71,6 @@ There is no need to render manually. Beego will call the `Render` function (whic
 
 ​	无需手动渲染。如果在模板中设置了 `Render` 函数（在 `web.Controller` 中实现），Beego 将自动调用该函数。
 
-Check the controller section in the [MVC Introduction](https://beego.wiki/docs/mvc/) to learn more about these functions. [The next section]({{< ref "/beego/quickStart/models" >}}) will describe model writing.
+Check the controller section in the [MVC Introduction]({{< ref "/beego/mvcIntroduction" >}}) to learn more about these functions. [The next section]({{< ref "/beego/quickStart/models" >}}) will describe model writing.
 
 ​	查看 MVC 简介中的控制器部分以了解有关这些函数的更多信息。下一节将介绍模型编写。

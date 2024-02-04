@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/contributed/](https://beego.wiki/docs/contributed/)
+> 原文：[https://beego.wiki/docs/contributed/]({{< ref "/beego/middlewareContribution" >}})
 
 # Middleware contribution 中间件贡献
 

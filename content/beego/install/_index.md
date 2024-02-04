@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/install/](https://beego.wiki/docs/install/)
+> 原文：[https://beego.wiki/docs/install/]({{< ref "/beego/install" >}})
 
 # Install 安装
 

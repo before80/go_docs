@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://beego.wiki/docs/faq/](https://beego.wiki/docs/faq/)
+> 原文：[https://beego.wiki/docs/faq/]({{< ref "/beego/faq" >}})
 
 # FAQ
 
