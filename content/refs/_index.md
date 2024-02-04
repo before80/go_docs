@@ -1,6 +1,6 @@
 +++
 title = "相关参考"
-linkTitle="相关参考"
+linkTitle="参考"
 date = 2023-10-14T19:07:35+08:00
 type = "docs"
 description = ""
