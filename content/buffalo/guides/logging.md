@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/logging/](https://gobuffalo.io/documentation/guides/logging/)
+> 原文：[https://gobuffalo.io/documentation/guides/logging/]({{< ref "/buffalo/guides/templateEngines" >}})
 
 # Logging 日志记录 
 

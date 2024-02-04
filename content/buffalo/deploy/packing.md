@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/deploy/packing/](https://gobuffalo.io/documentation/deploy/packing/)
+> 原文：[https://gobuffalo.io/documentation/deploy/packing/]({{< ref "/buffalo/deploy/packing" >}})
 
 # Packing 打包 
 
@@ -235,9 +235,9 @@ Hello World!
 
 ## Next Steps 后续步骤 
 
-- [Using a Proxy](https://gobuffalo.io/documentation/deploy/proxy) - Integrate your app with a server like NGINX.
+- [Using a Proxy]({{< ref "/buffalo/deploy/usingAProxy" >}}) - Integrate your app with a server like NGINX.
   使用代理 - 将您的应用与 NGINX 等服务器集成。
-- [Systemd Service](https://gobuffalo.io/documentation/deploy/systemd) - Run your app as a systemd service.
+- [Systemd Service]({{< ref "/buffalo/deploy/systemdService" >}}) - Run your app as a systemd service.
   Systemd 服务 - 将您的应用作为 systemd 服务运行。
-- [Cloud Providers](https://gobuffalo.io/documentation/deploy/cloud-providers) - Deploy your app on a cloud provider.
+- [Cloud Providers]({{< ref "/buffalo/deploy/cloudProviders" >}}) - Deploy your app on a cloud provider.
   云提供商 - 在云提供商上部署您的应用。

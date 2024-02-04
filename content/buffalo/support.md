@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/support/](https://gobuffalo.io/documentation/support/)
+> 原文：[https://gobuffalo.io/documentation/support/]({{< ref "/buffalo/support" >}})
 
 # Support 支持 
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/deploy/cloud-providers/](https://gobuffalo.io/documentation/deploy/cloud-providers/)
+> 原文：[https://gobuffalo.io/documentation/deploy/cloud-providers/]({{< ref "/buffalo/deploy/cloudProviders" >}})
 
 # Cloud Providers 云提供商 
 

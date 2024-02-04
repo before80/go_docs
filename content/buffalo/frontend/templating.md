@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/templating/](https://gobuffalo.io/documentation/frontend-layer/templating/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/templating/]({{< ref "/buffalo/frontend/templating" >}})
 
 # Templating 模板化 
 

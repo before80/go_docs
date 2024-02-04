@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/events/](https://gobuffalo.io/documentation/guides/events/)
+> 原文：[https://gobuffalo.io/documentation/guides/events/]({{< ref "/buffalo/guides/events" >}})
 
 # Events 事件 
 

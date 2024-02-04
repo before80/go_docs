@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/getting_started/installation/](https://gobuffalo.io/documentation/getting_started/installation/)
+> 原文：[https://gobuffalo.io/documentation/getting_started/installation/]({{< ref "/buffalo/gettingStarted/installBuffalo" >}})
 
 # Install Buffalo  
 
@@ -53,7 +53,7 @@ The following requirements are optional. You don’t need them if you want to bu
 
 - [node](https://github.com/nodejs/node) version `8` or greater
   node 版本 `8` 或更高版本
-- either [yarn](https://yarnpkg.com/en/) or [npm](https://github.com/npm/npm) for the [asset pipeline](https://gobuffalo.io/documentation/frontend-layer/assets) built upon [webpack](https://github.com/webpack/webpack).
+- either [yarn](https://yarnpkg.com/en/) or [npm](https://github.com/npm/npm) for the [asset pipeline]({{< ref "/buffalo/frontend/assets" >}}) built upon [webpack](https://github.com/webpack/webpack).
   yarn 或 npm 用于基于 webpack 构建的资产管道。
 
 ##### Database Specific Requirements 数据库特定要求 
@@ -212,5 +212,5 @@ If you have a similar output, your Buffalo toolbox is ready to work!
 
 ## Next Steps 后续步骤 
 
-- [Generate a New Project](https://gobuffalo.io/documentation/getting_started/new-project) - Create your first Buffalo project!
+- [Generate a New Project]({{< ref "/buffalo/gettingStarted/generatingANewProject" >}}) - Create your first Buffalo project!
   生成一个新项目 - 创建您的第一个 Buffalo 项目！

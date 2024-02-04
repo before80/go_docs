@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/apis/](https://gobuffalo.io/documentation/guides/apis/)
+> 原文：[https://gobuffalo.io/documentation/guides/apis/]({{< ref "/buffalo/guides/APIApplications" >}})
 
 # API Applications API 应用程序 
 

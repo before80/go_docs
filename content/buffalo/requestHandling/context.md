@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/context/](https://gobuffalo.io/documentation/request_handling/context/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/context/]({{< ref "/buffalo/requestHandling/context" >}})
 
 # Context 上下文 
 
@@ -61,7 +61,7 @@ The `Websocket() (*websocket.Conn, error)` function was removed from `buffalo.Co
 
 ## Context and Rendering 上下文和渲染 
 
-As part of the context interface, there is a `Render` function that takes a type of `render.Renderer`. See [rendering](https://gobuffalo.io/documentation/frontend-layer/rendering) for more information.
+As part of the context interface, there is a `Render` function that takes a type of `render.Renderer`. See [rendering]({{< ref "/buffalo/frontend/rendering" >}}) for more information.
 
 ​	作为上下文接口的一部分，有一个 `Render` 函数，它采用 `render.Renderer` 类型。有关更多信息，请参阅渲染。
 
@@ -155,6 +155,6 @@ Buffalo stuffs the context of each request with a lot of information that could 
 | `request`       | [`*http.Request`](https://godoc.org/net/http#Request)        | The current request. 当前请求。                              |
 | `tx`            | [`*pop.Connection`](https://godoc.org/github.com/gobuffalo/pop#Connection) | Only set if using the `github.com/gobuffalo/buffalo/middleware.PopTransaction` middleware (on by default). 仅在使用 `github.com/gobuffalo/buffalo/middleware.PopTransaction` 中间件（默认情况下打开）时设置。 |
 
-See [Helpers](https://gobuffalo.io/documentation/frontend-layer/helpers#builtin-helpers) for a list of built-in helper functions available inside of templates.
+See [Helpers]({{< ref "/buffalo/frontend/helpers#builtin-helpers" >}}) for a list of built-in helper functions available inside of templates.
 
 ​	请参阅帮助程序，以获取模板内部可用的内置帮助程序函数列表。

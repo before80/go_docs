@@ -6,9 +6,8 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
-
 [menu.main]
-    weight = -3
+    weight = 50
 
 +++
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/tasks/](https://gobuffalo.io/documentation/guides/tasks/)
+> 原文：[https://gobuffalo.io/documentation/guides/tasks/]({{< ref "/buffalo/guides/tasks" >}})
 
 # Tasks 任务 
 
@@ -82,7 +82,7 @@ $ buffalo task hello
 
 ### From a Built Binary 从已构建的二进制文件 
 
-After a binary has been [built](https://gobuffalo.io/documentation/deploy/packing), the tasks can be run with the `task` subcommand:
+After a binary has been [built]({{< ref "/buffalo/deploy/packing" >}}), the tasks can be run with the `task` subcommand:
 
 ​	构建二进制文件后，可以使用 `task` 子命令运行任务：
 

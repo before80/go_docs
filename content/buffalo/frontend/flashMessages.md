@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/flash-messages/](https://gobuffalo.io/documentation/frontend-layer/flash-messages/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/flash-messages/]({{< ref "/buffalo/frontend/flashMessages" >}})
 
 # Flash Messages 闪存消息 
 
@@ -36,7 +36,7 @@ Being able to set these messages in a Buffalo handler and then pass them down to
 
 ## Setting Flash Messages 设置闪存消息 
 
-Creating flash messages can easily be done by using the `c.Flash()` function provided on the [`buffalo.Context`](https://gobuffalo.io/documentation/request_handling/context).
+Creating flash messages can easily be done by using the `c.Flash()` function provided on the [`buffalo.Context`]({{< ref "/buffalo/requestHandling/context" >}}).
 
 ​	使用 `buffalo.Context` 上提供的 `c.Flash()` 函数可以轻松创建闪存消息。
 

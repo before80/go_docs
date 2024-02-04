@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/cookies/](https://gobuffalo.io/documentation/request_handling/cookies/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/cookies/]({{< ref "/buffalo/requestHandling/cookies" >}})
 
 # Cookies Cookie 
 
-An HTTP cookie is a small piece of data that a server sends to the user’s web browser. The browser can store this data and send it back to the same server, even after the browser restart (unlike a [browser session](https://gobuffalo.io/documentation/request_handling/sessions)).
+An HTTP cookie is a small piece of data that a server sends to the user’s web browser. The browser can store this data and send it back to the same server, even after the browser restart (unlike a [browser session]({{< ref "/buffalo/requestHandling/sessions" >}})).
 
 ​	HTTP cookie 是服务器发送给用户网络浏览器的少量数据。浏览器可以存储此数据，并在浏览器重新启动后将其发送回同一服务器（与浏览器会话不同）。
 

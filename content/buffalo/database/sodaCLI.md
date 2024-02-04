@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/soda/](https://gobuffalo.io/documentation/database/soda/)
+> 原文：[https://gobuffalo.io/documentation/database/soda/]({{< ref "/buffalo/database/sodaCLI" >}})
 
 # Soda CLI
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/workers/](https://gobuffalo.io/documentation/guides/workers/)
+> 原文：[https://gobuffalo.io/documentation/guides/workers/]({{< ref "/buffalo/guides/backgroundJobWorkers" >}})
 
 # Background Job Workers 后台作业工作者 
 
@@ -17,7 +17,7 @@ When building complex applications it is often nice to be able to run things in 
 
 ​	在构建复杂应用程序时，通常希望能够在“后台”运行某些内容。虽然 Go 提供了漂亮的并发特性，例如著名的 Goroutine，但通常希望在不同的机器上运行这些特性，使用 Redis 持久化这些特性，或者出于多种潜在原因，而简单的 Goroutine 不够用。
 
-Workers shouldn’t be confused with [tasks](https://gobuffalo.io/documentation/guides/tasks): tasks are synchronous tools, whereas workers are intended to run asynchronously.
+Workers shouldn’t be confused with [tasks]({{< ref "/buffalo/guides/tasks" >}}): tasks are synchronous tools, whereas workers are intended to run asynchronously.
 工作者不应与任务混淆：任务是同步工具，而工作者旨在异步运行。
 
 ## The Worker Interface 工作者接口 

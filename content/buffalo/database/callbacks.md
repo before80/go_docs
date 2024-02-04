@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/callbacks/](https://gobuffalo.io/documentation/database/callbacks/)
+> 原文：[https://gobuffalo.io/documentation/database/callbacks/]({{< ref "/buffalo/database/callbacks" >}})
 
 # Callbacks 回调 
 
@@ -61,5 +61,5 @@ The available callbacks include:
 
 ## Related Content 相关内容 
 
-- [Models](https://gobuffalo.io/documentation/database/models) - Define a database model.
+- [Models]({{< ref "/buffalo/database/models" >}}) - Define a database model.
   模型 - 定义数据库模型。

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/deploy/systemd/](https://gobuffalo.io/documentation/deploy/systemd/)
+> 原文：[https://gobuffalo.io/documentation/deploy/systemd/]({{< ref "/buffalo/deploy/systemdService" >}})
 
 # Systemd Service Systemd 服务 
 
@@ -85,7 +85,7 @@ WantedBy=multi-user.target
 
 ## Set Env Variables 设置环境变量 
 
-The official way to handle config with Buffalo is through [environment variables](https://gobuffalo.io/documentation/getting_started/configuration). Using Systemd, you can set them with an override file.
+The official way to handle config with Buffalo is through [environment variables]({{< ref "/buffalo/gettingStarted/configuration" >}}). Using Systemd, you can set them with an override file.
 
 ​	使用 Buffalo 处理配置的官方方法是通过环境变量。使用 Systemd，您可以使用覆盖文件设置它们。
 

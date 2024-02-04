@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/bind/](https://gobuffalo.io/documentation/request_handling/bind/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/bind/]({{< ref "/buffalo/requestHandling/requestBinding" >}})
 
 # Request Binding 请求绑定 
 

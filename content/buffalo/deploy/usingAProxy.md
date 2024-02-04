@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/deploy/proxy/](https://gobuffalo.io/documentation/deploy/proxy/)
+> 原文：[https://gobuffalo.io/documentation/deploy/proxy/]({{< ref "/buffalo/deploy/usingAProxy" >}})
 
 # Using a Proxy 使用代理 
 

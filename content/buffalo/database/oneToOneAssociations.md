@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/relations-one-to-one/](https://gobuffalo.io/documentation/database/relations-one-to-one/)
+> 原文：[https://gobuffalo.io/documentation/database/relations-one-to-one/]({{< ref "/buffalo/database/oneToOneAssociations" >}})
 
 # One to One Associations 一对一关联 
 
-In this chapter, you’ll learn how to write a one to one [association](https://gobuffalo.io/documentation/database/relations/) in Pop.
+In this chapter, you’ll learn how to write a one to one [association]({{< ref "/buffalo/database/associationsAndRelationships" >}}) in Pop.
 
 ​	在本章中，您将学习如何在 Pop 中编写一对一关联。
 

@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/fizz/](https://gobuffalo.io/documentation/database/fizz/)
+> 原文：[https://gobuffalo.io/documentation/database/fizz/]({{< ref "/buffalo/database/fizz" >}})
 
 # Fizz
 
-Fizz is a common DSL for migrating databases. It tries to be as database-agnostic as possible. This is the default language used by Pop to define [database migrations](https://gobuffalo.io/documentation/database/migrations).
+Fizz is a common DSL for migrating databases. It tries to be as database-agnostic as possible. This is the default language used by Pop to define [database migrations]({{< ref "/buffalo/database/migrations" >}}).
 
 ​	Fizz 是一种用于迁移数据库的通用 DSL。它尝试尽可能地与数据库无关。这是 Pop 用于定义数据库迁移的默认语言。
 

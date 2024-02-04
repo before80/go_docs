@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/helpers/](https://gobuffalo.io/documentation/frontend-layer/helpers/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/helpers/]({{< ref "/buffalo/frontend/helpers" >}})
 
 # Helpers 帮助程序 
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/resources/](https://gobuffalo.io/documentation/request_handling/resources/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/resources/]({{< ref "/buffalo/requestHandling/resources" >}})
 
 # Resources 资源 
 
@@ -512,10 +512,10 @@ func (v BaseResource) Edit(c Context) error {
 
 ## Related Content 相关内容 
 
-- [Actions](https://gobuffalo.io/documentation/request_handling/actions) - Learn more about Buffalo actions.
+- [Actions]({{< ref "/buffalo/requestHandling/actionController" >}}) - Learn more about Buffalo actions.
   操作 - 了解有关 Buffalo 操作的更多信息。
 
 ## Next Steps 后续步骤 
 
-- [Context](https://gobuffalo.io/documentation/request_handling/context/) - Learn more about Buffalo context.
+- [Context]({{< ref "/buffalo/requestHandling/context" >}}) - Learn more about Buffalo context.
   上下文 - 了解有关 Buffalo 上下文的更多信息。

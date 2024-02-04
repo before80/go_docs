@@ -7,5 +7,5 @@ description = ""
 isCJKLanguage = true
 draft = false
 [menu.main]
-    weight = 20
+    weight = 90
 +++

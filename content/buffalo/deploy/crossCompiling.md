@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/deploy/cross-compiling/](https://gobuffalo.io/documentation/deploy/cross-compiling/)
+> 原文：[https://gobuffalo.io/documentation/deploy/cross-compiling/]({{< ref "/buffalo/deploy/crossCompiling" >}})
 
 # Cross-compiling a Buffalo application 交叉编译 Buffalo 应用程序 
 

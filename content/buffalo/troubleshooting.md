@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/troubleshooting/](https://gobuffalo.io/documentation/troubleshooting/)
+> 原文：[https://gobuffalo.io/documentation/troubleshooting/]({{< ref "/buffalo/troubleshooting" >}})
 
 # Troubleshooting 故障排除 
 

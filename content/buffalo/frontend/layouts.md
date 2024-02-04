@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/layouts/](https://gobuffalo.io/documentation/frontend-layer/layouts/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/layouts/]({{< ref "/buffalo/frontend/layouts" >}})
 
 # Layouts 布局 
 

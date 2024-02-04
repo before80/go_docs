@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/overview/](https://gobuffalo.io/documentation/overview/)
+> 原文：[https://gobuffalo.io/documentation/overview/]({{< ref "/buffalo/overview" >}})
 
 # Overview 概述 
 

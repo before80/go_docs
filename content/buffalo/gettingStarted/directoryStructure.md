@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/getting_started/directory-structure/](https://gobuffalo.io/documentation/getting_started/directory-structure/)
+> 原文：[https://gobuffalo.io/documentation/getting_started/directory-structure/]({{< ref "/buffalo/gettingStarted/directoryStructure" >}})
 
 # Directory Structure 目录结构 
 
@@ -91,10 +91,10 @@ This folder contains the `main.go` file which bootstraps your app and starts it.
 
 ### grifts
 
-This directory is optional. If you don’t need to use [tasks](https://gobuffalo.io/documentation/guides/tasks), you can remove it.
+This directory is optional. If you don’t need to use [tasks]({{< ref "/buffalo/guides/tasks" >}}), you can remove it.
 此目录是可选的。如果您不需要使用任务，则可以将其删除。
 
-This directory contains the [tasks](https://gobuffalo.io/documentation/guides/tasks) powered by [grift](https://github.com/gobuffalo/grift).
+This directory contains the [tasks]({{< ref "/buffalo/guides/tasks" >}}) powered by [grift](https://github.com/gobuffalo/grift).
 
 ​	此目录包含由 grift 支持的任务。
 
@@ -157,7 +157,7 @@ This file contains the database configuration for [pop/soda](https://github.com/
 
 ## Next Steps 后续步骤 
 
-- [Configuration](https://gobuffalo.io/documentation/getting_started/configuration) - Manage your app configuration.
+- [Configuration]({{< ref "/buffalo/gettingStarted/configuration" >}}) - Manage your app configuration.
   配置 - 管理您的应用配置。
-- [Tooling Integration](https://gobuffalo.io/documentation/getting_started/integrations) - Work with Buffalo, using existing tools.
+- [Tooling Integration]({{< ref "/buffalo/gettingStarted/toolingIntegration" >}}) - Work with Buffalo, using existing tools.
   工具集成 - 使用现有工具与 Buffalo 协同工作。

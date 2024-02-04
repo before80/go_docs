@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/videos/](https://gobuffalo.io/documentation/guides/videos/)
+> 原文：[https://gobuffalo.io/documentation/guides/videos/]({{< ref "/buffalo/guides/videos" >}})
 
 # Videos 视频 
 

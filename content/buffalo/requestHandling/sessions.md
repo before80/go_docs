@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/sessions/](https://gobuffalo.io/documentation/request_handling/sessions/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/sessions/]({{< ref "/buffalo/requestHandling/sessions" >}})
 
 # Sessions 会话 
 
-An HTTP session is a non-persistent data storage, which is destroyed on browser shutdown (in the default browser configuration). It can be used to store flash messages, or any temporary user-specific data. Use [cookies](https://gobuffalo.io/documentation/request_handling/cookies) instead if you need a more persistent client side storage.
+An HTTP session is a non-persistent data storage, which is destroyed on browser shutdown (in the default browser configuration). It can be used to store flash messages, or any temporary user-specific data. Use [cookies]({{< ref "/buffalo/requestHandling/cookies" >}}) instead if you need a more persistent client side storage.
 
 ​	HTTP 会话是一种非持久性数据存储，在浏览器关闭时销毁（在默认浏览器配置中）。它可用于存储闪存消息或任何临时用户特定数据。如果您需要更持久性客户端存储，请改用 Cookie。
 
@@ -95,7 +95,7 @@ func init() {
 
 ## Saving a Session 保存会话 
 
-Buffalo automatically saves your session for you, so you don’t have to. If there is an error when saving the session, Buffalo will return an error through the normal [error handling ](https://gobuffalo.io/documentation/request_handling/errors)process.
+Buffalo automatically saves your session for you, so you don’t have to. If there is an error when saving the session, Buffalo will return an error through the normal [error handling ]({{< ref "/buffalo/requestHandling/errorHanding" >}})process.
 
 ​	Buffalo 会自动为您保存会话，因此您不必这样做。如果在保存会话时出错，Buffalo 将通过正常的错误处理过程返回错误。
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/getting_started/integrations/](https://gobuffalo.io/documentation/getting_started/integrations/)
+> 原文：[https://gobuffalo.io/documentation/getting_started/integrations/]({{< ref "/buffalo/gettingStarted/toolingIntegration" >}})
 
 # Tooling Integration 工具集成 
 
@@ -37,5 +37,5 @@ If you use `Visual Studio Code` as code editor, you can try this extension: [Go]
 
 ## Next Steps 后续步骤 
 
-- [Generate a New Project](https://gobuffalo.io/documentation/getting_started/new-project) - Create your first Buffalo project!
+- [Generate a New Project]({{< ref "/buffalo/gettingStarted/generatingANewProject" >}}) - Create your first Buffalo project!
   生成一个新项目 - 创建您的第一个 Buffalo 项目！

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/forms/](https://gobuffalo.io/documentation/frontend-layer/forms/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/forms/]({{< ref "/buffalo/frontend/forms" >}})
 
 # Forms 表单 
 
@@ -344,7 +344,7 @@ func init() {
 
 ### How Do I Map a Form to a Model/Struct? 如何将表单映射到模型/结构？ 
 
-See the [Request Binding](https://gobuffalo.io/documentation/request_handling/bind) page for more information on request binding.
+See the [Request Binding]({{< ref "/buffalo/requestHandling/requestBinding" >}}) page for more information on request binding.
 
 ​	请参阅请求绑定页面以获取有关请求绑定的更多信息。
 

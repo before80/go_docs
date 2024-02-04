@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/raw-queries/](https://gobuffalo.io/documentation/database/raw-queries/)
+> 原文：[https://gobuffalo.io/documentation/database/raw-queries/]({{< ref "/buffalo/database/rawQueries" >}})
 
 # Raw Queries 原始查询 
 

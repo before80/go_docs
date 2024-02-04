@@ -8,5 +8,5 @@ isCJKLanguage = true
 type = "docs"
 draft = false
 [menu.main]
-    weight = -10
+    weight = 30
 +++

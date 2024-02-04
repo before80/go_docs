@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/models/](https://gobuffalo.io/documentation/database/models/)
+> 原文：[https://gobuffalo.io/documentation/database/models/]({{< ref "/buffalo/database/models" >}})
 
 # Models 模型 
 
@@ -23,7 +23,7 @@ In this chapter, you’ll learn how to work with models by hand; and how to impr
 
 ## The Models Directory 模型目录 
 
-Pop model files are stored in the `models` directory, at your project root (see [the Directory Structure](https://gobuffalo.io/documentation/getting_started/directory-structure) chapter for more info about the Buffalo way to organize your files).
+Pop model files are stored in the `models` directory, at your project root (see [the Directory Structure]({{< ref "/buffalo/gettingStarted/directoryStructure" >}}) chapter for more info about the Buffalo way to organize your files).
 
 ​	Pop 模型文件存储在 `models` 目录中，位于您的项目根目录（有关组织文件的 Buffalo 方式的更多信息，请参阅目录结构章节）。
 
@@ -191,7 +191,7 @@ Now the columns names are expected to be `id`, `email`, and `password`.
 
 ​	现在，列名预计为 `id` 、 `email` 和 `password` 。
 
-This is very similar to how [form binding](https://gobuffalo.io/documentation/request_handling/bind) works.
+This is very similar to how [form binding]({{< ref "/buffalo/requestHandling/requestBinding" >}}) works.
 
 ​	这与表单绑定工作方式非常相似。
 
@@ -460,7 +460,7 @@ As we learned in this chapter, each attribute on the structure has a read-only t
 
 ## Related Content 相关内容 
 
-- [Migrations](https://gobuffalo.io/documentation/database/migrations) - Write database migrations.
+- [Migrations]({{< ref "/buffalo/database/migrations" >}}) - Write database migrations.
   迁移 - 编写数据库迁移。
-- [Querying](https://gobuffalo.io/documentation/database/querying) - Query data from your database.
+- [Querying]({{< ref "/buffalo/database/querying" >}}) - Query data from your database.
   查询 - 从数据库中查询数据。

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/file-uploads/](https://gobuffalo.io/documentation/guides/file-uploads/)
+> 原文：[https://gobuffalo.io/documentation/guides/file-uploads/]({{< ref "/buffalo/guides/fileUploads" >}})
 
 # File Uploads 文件上传 
 

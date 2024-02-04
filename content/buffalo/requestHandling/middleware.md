@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/middleware/](https://gobuffalo.io/documentation/request_handling/middleware/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/middleware/]({{< ref "/buffalo/requestHandling/middleware" >}})
 
 # Middleware 中间件 
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/testing/](https://gobuffalo.io/documentation/guides/testing/)
+> 原文：[https://gobuffalo.io/documentation/guides/testing/]({{< ref "/buffalo/guides/testing" >}})
 
 # Testing 测试 
 

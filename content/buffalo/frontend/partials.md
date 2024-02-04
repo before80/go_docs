@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/partials/](https://gobuffalo.io/documentation/frontend-layer/partials/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/partials/]({{< ref "/buffalo/frontend/partials" >}})
 
 # Partials 部分 
 
@@ -42,7 +42,7 @@ Output
 
 ## Context 上下文 
 
-All [rendering context](https://gobuffalo.io/documentation/frontend-layer/rendering) from the parent template will automatically pass through to the partial, and any partials that partial may call. (see also [Context](https://gobuffalo.io/documentation/request_handling/context))
+All [rendering context]({{< ref "/buffalo/frontend/rendering" >}}) from the parent template will automatically pass through to the partial, and any partials that partial may call. (see also [Context]({{< ref "/buffalo/requestHandling/context" >}}))
 
 ​	父模板的所有渲染上下文将自动传递到部分，以及该部分可能调用的任何部分。（另请参阅上下文）
 
@@ -68,7 +68,7 @@ func UsersEdit(c buffalo.Context) error {
 
 ## Local Context 局部上下文 
 
-In addition to have the global [context](https://gobuffalo.io/documentation/request_handling/context), you can set additional variable only for partials as “local” variables.
+In addition to have the global [context]({{< ref "/buffalo/requestHandling/context" >}}), you can set additional variable only for partials as “local” variables.
 
 ​	除了拥有全局上下文外，您还可以仅为局部变量设置其他变量，作为“局部”变量。
 
@@ -97,6 +97,6 @@ func ColorsHandler(c buffalo.Context) error {
 
 ## Helpers 帮助程序 
 
-Partials are not much different from standard [templates](https://gobuffalo.io/documentation/frontend-layer/templating) in Buffalo. They include all of the same [helpers](https://gobuffalo.io/documentation/frontend-layer/helpers) as well.
+Partials are not much different from standard [templates]({{< ref "/buffalo/frontend/templating" >}}) in Buffalo. They include all of the same [helpers]({{< ref "/buffalo/frontend/helpers" >}}) as well.
 
 ​	局部模板与 Buffalo 中的标准模板没有太大区别。它们也包含所有相同的帮助程序。

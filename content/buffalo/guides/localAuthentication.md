@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/auth/](https://gobuffalo.io/documentation/guides/auth/)
+> 原文：[https://gobuffalo.io/documentation/guides/auth/]({{< ref "/buffalo/guides/localAuthentication" >}})
 
 # Local Authentication 本地身份验证 
 

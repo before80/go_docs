@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/errors/](https://gobuffalo.io/documentation/request_handling/errors/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/errors/]({{< ref "/buffalo/requestHandling/errorHanding" >}})
 
 # Error Handling 错误处理 
 

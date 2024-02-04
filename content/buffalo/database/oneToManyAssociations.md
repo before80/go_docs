@@ -1,5 +1,5 @@
 +++
-title = "oneToManyAssociations"
+title = "一对多关联"
 date = 2024-02-04T21:15:49+08:00
 weight = 16
 type = "docs"
@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/relations-one-to-many/](https://gobuffalo.io/documentation/database/relations-one-to-many/)
+> 原文：[https://gobuffalo.io/documentation/database/relations-one-to-many/]({{< ref "/buffalo/database/oneToManyAssociations" >}})
 
 # One to Many Associations 一对多关联 
 
-In this chapter, you’ll learn how to write a one to many [association](https://gobuffalo.io/documentation/database/relations/) in Pop.
+In this chapter, you’ll learn how to write a one to many [association]({{< ref "/buffalo/database/associationsAndRelationships" >}}) in Pop.
 
 ​	在本章中，您将学习如何在 Pop 中编写一对多关联。
 

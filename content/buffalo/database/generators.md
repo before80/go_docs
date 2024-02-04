@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/generators/](https://gobuffalo.io/documentation/database/generators/)
+> 原文：[https://gobuffalo.io/documentation/database/generators/]({{< ref "/buffalo/database/generators" >}})
 
 # Generators 生成器 
 
@@ -43,6 +43,6 @@ Use "buffalo-pop pop generate [command] --help" for more information about a com
 
 ## Migrations 迁移 
 
-For information on generating migrations see [Migrations](https://gobuffalo.io/documentation/database/migrations).
+For information on generating migrations see [Migrations]({{< ref "/buffalo/database/migrations" >}}).
 
 ​	有关生成迁移的信息，请参阅迁移。

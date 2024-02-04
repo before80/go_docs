@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/buffalo-integration/](https://gobuffalo.io/documentation/database/buffalo-integration/)
+> 原文：[https://gobuffalo.io/documentation/database/buffalo-integration/]({{< ref "/buffalo/database/buffaloIntegration" >}})
 
 # Buffalo Integration Buffalo 集成 
 

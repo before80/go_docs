@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/querying/](https://gobuffalo.io/documentation/database/querying/)
+> 原文：[https://gobuffalo.io/documentation/database/querying/]({{< ref "/buffalo/database/querying" >}})
 
 # Querying 查询 
 

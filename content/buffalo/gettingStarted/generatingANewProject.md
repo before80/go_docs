@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/getting_started/new-project/](https://gobuffalo.io/documentation/getting_started/new-project/)
+> 原文：[https://gobuffalo.io/documentation/getting_started/new-project/]({{< ref "/buffalo/gettingStarted/generatingANewProject" >}})
 
 # Generating a New Project 生成新项目 
 
@@ -262,7 +262,7 @@ with-dep: true
 
 ## Running Your Application in Development 在开发中运行您的应用程序 
 
-Before starting Buffalo for the first time, please head over to the [Database](https://gobuffalo.io/documentation/database/pop) docs and read a little bit about setting up your databases.
+Before starting Buffalo for the first time, please head over to the [Database]({{< ref "/buffalo/database/gettingStartedWithPop" >}}) docs and read a little bit about setting up your databases.
 在首次启动 Buffalo 之前，请前往数据库文档并阅读有关设置数据库的少量内容。
 
 One of the downsides to Go development is the lack of code “reloading”. This means as you change your code **you need to manually stop** your application, rebuild it, then restart it. Buffalo finds this annoying, and wants to make life better for you.
@@ -273,7 +273,7 @@ One of the downsides to Go development is the lack of code “reloading”. This
 $ buffalo dev
 ```
 
-The `dev` command will watch your `.go` and `.html` files and the [asset](https://gobuffalo.io/documentation/frontend-layer/assets) folder by default. It will **rebuild and restart your binary for you** automatically, so you don’t have to worry about such things.
+The `dev` command will watch your `.go` and `.html` files and the [asset]({{< ref "/buffalo/frontend/assets" >}}) folder by default. It will **rebuild and restart your binary for you** automatically, so you don’t have to worry about such things.
 
 ​	 `dev` 命令将默认监视您的 `.go` 和 `.html` 文件以及资产文件夹。它将自动为您重新构建并重新启动您的二进制文件，因此您不必担心这些事情。
 
@@ -291,11 +291,11 @@ Sometimes you will already have an app working on the 3000 port. You can configu
 $ PORT=3001 buffalo dev
 ```
 
-You can also take a look at the [Env Variables](https://gobuffalo.io/documentation/getting_started/configuration) chapter for further information on Buffalo configuration.
+You can also take a look at the [Env Variables]({{< ref "/buffalo/gettingStarted/configuration" >}}) chapter for further information on Buffalo configuration.
 
 ​	您还可以查看环境变量章节以获取有关 Buffalo 配置的更多信息。
 
 ## Next Steps 后续步骤 
 
-- [Directory Structure](https://gobuffalo.io/documentation/getting_started/directory-structure) - Learn more about Buffalo structure.
+- [Directory Structure]({{< ref "/buffalo/gettingStarted/directoryStructure" >}}) - Learn more about Buffalo structure.
   目录结构 - 了解有关 Buffalo 结构的更多信息。

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/configuration/](https://gobuffalo.io/documentation/database/configuration/)
+> 原文：[https://gobuffalo.io/documentation/database/configuration/]({{< ref "/buffalo/database/databaseConfiguration" >}})
 
 # Database Configuration 数据库配置 
 

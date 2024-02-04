@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/migrations/](https://gobuffalo.io/documentation/database/migrations/)
+> 原文：[https://gobuffalo.io/documentation/database/migrations/]({{< ref "/buffalo/database/migrations" >}})
 
 # Migrations 迁移 
 

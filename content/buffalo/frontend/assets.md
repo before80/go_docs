@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/assets/](https://gobuffalo.io/documentation/frontend-layer/assets/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/assets/]({{< ref "/buffalo/frontend/assets" >}})
 
 # Assets 资产 
 
@@ -110,6 +110,6 @@ The `buffalo dev` command, in addition to watching and rebuilding the applicatio
 
 ## Building Assets for Deployment 构建资产以进行部署 
 
-The `buffalo build` command will build the asset pipeline, and properly attach it to the generated Go binary. One binary to run them all! See [Packing](https://gobuffalo.io/documentation/deploy/packing) for more options on building assets for deployment.
+The `buffalo build` command will build the asset pipeline, and properly attach it to the generated Go binary. One binary to run them all! See [Packing]({{< ref "/buffalo/deploy/packing" >}}) for more options on building assets for deployment.
 
 ​	 `buffalo build` 命令将构建资产管道，并将其正确附加到生成的 Go 二进制文件。一个二进制文件即可运行所有内容！有关构建资产以进行部署的更多选项，请参阅打包。

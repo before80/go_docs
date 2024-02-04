@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/mutations/](https://gobuffalo.io/documentation/database/mutations/)
+> 原文：[https://gobuffalo.io/documentation/database/mutations/]({{< ref "/buffalo/database/mutations" >}})
 
 # Mutations 突变 
 
@@ -109,7 +109,7 @@ err := c.Destroy(fruit)
 
 ## Next Steps 后续步骤 
 
-- [Querying](https://gobuffalo.io/documentation/database/querying) - Fetch the data you inserted in the database.
+- [Querying]({{< ref "/buffalo/database/querying" >}}) - Fetch the data you inserted in the database.
   查询 - 获取您在数据库中插入的数据。
-- [Associations and Relationships](https://gobuffalo.io/documentation/database/relations) - Handle relations between models.
+- [Associations and Relationships]({{< ref "/buffalo/database/associationsAndRelationships" >}}) - Handle relations between models.
   关联和关系 - 处理模型之间的关系。

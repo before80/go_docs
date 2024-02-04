@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/frontend-layer/rendering/](https://gobuffalo.io/documentation/frontend-layer/rendering/)
+> 原文：[https://gobuffalo.io/documentation/frontend-layer/rendering/]({{< ref "/buffalo/frontend/rendering" >}})
 
 # Rendering 渲染 
 
@@ -172,7 +172,7 @@ func Beatles(c buffalo.Context) error {
 }
 ```
 
-This works with [partials](https://gobuffalo.io/documentation/frontend-layer/partials) too.
+This works with [partials]({{< ref "/buffalo/frontend/partials" >}}) too.
 这也适用于部分内容。
 
 ## Download files 下载文件 
@@ -228,7 +228,7 @@ return c.Render(http.StatusOK, r.Func("application/json", func(w io.Writer, d re
 
 ## Renderer Interface 渲染器接口 
 
-In order for a renderer to be able to be used with [`Context#Render`](https://gobuffalo.io/documentation/request_handling/context#context-and-rendering) it must implement the following interface:
+In order for a renderer to be able to be used with [`Context#Render`]({{< ref "/buffalo/requestHandling/context#context-and-rendering" >}}) it must implement the following interface:
 
 ​	为了使渲染器能够与 `Context#Render` 一起使用，它必须实现以下接口：
 

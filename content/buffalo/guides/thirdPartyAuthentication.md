@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/goth/](https://gobuffalo.io/documentation/guides/goth/)
+> 原文：[https://gobuffalo.io/documentation/guides/goth/]({{< ref "/buffalo/guides/thirdPartyAuthentication" >}})
 
 # Third Party Authentication 第三方认证 
 
@@ -154,4 +154,4 @@ func AuthCallback(c buffalo.Context) error {
 
 ## See Also 另请参阅 # 本地认证 - 管理内部用户认证。
 
-- [Local Authentication](https://gobuffalo.io/documentation/guides/auth) - Manage internal users auth.
+- [Local Authentication]({{< ref "/buffalo/guides/localAuthentication" >}}) - Manage internal users auth.

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/scoping/](https://gobuffalo.io/documentation/database/scoping/)
+> 原文：[https://gobuffalo.io/documentation/database/scoping/]({{< ref "/buffalo/database/scoping" >}})
 
 # Scoping 作用域 
 

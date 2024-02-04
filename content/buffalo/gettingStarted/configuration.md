@@ -1,5 +1,5 @@
 +++
-title = "configuration"
+title = "配置"
 date = 2024-02-04T21:06:28+08:00
 weight = 4
 type = "docs"
@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/getting_started/configuration/](https://gobuffalo.io/documentation/getting_started/configuration/)
+> 原文：[https://gobuffalo.io/documentation/getting_started/configuration/]({{< ref "/buffalo/gettingStarted/configuration" >}})
 
 # Configuration 配置 
 
@@ -81,5 +81,5 @@ Generated apps (**with buffalo >= 0.10.3**) will also create a default `.env` fi
 
 ## Next Steps 后续步骤 
 
-- [Tooling Integration](https://gobuffalo.io/documentation/getting_started/integrations) - Work with Buffalo, using existing tools.
+- [Tooling Integration]({{< ref "/buffalo/gettingStarted/toolingIntegration" >}}) - Work with Buffalo, using existing tools.
   工具集成 - 使用现有工具与 Buffalo 协同工作。

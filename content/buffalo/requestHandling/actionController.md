@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/actions/](https://gobuffalo.io/documentation/request_handling/actions/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/actions/]({{< ref "/buffalo/requestHandling/actionController" >}})
 
 # Action Controller 动作控制器 
 
@@ -47,7 +47,7 @@ In this example, we defined a “Home” action, and asked the rendering engine 
 
 ​	在此示例中，我们定义了一个“主页”动作，并要求渲染引擎使用“home.html”模板生成 HTML 页面，并以 HTTP 200 代码回复。
 
-Each action takes a `buffalo.Context` as parameter: see [Context](https://gobuffalo.io/documentation/request_handling/context) to learn more about all you can do with it.
+Each action takes a `buffalo.Context` as parameter: see [Context]({{< ref "/buffalo/requestHandling/context" >}}) to learn more about all you can do with it.
 
 ​	每个操作都将 `buffalo.Context` 作为参数：请参阅上下文以详细了解您可以使用它执行的所有操作。
 
@@ -127,7 +127,7 @@ In some other scenarios you will need to generate an action without generating a
 $ buffalo g actions users update --skip-template
 ```
 
-That’s the default behavior for applications generated with the `--api` flag. See [APIs](https://gobuffalo.io/documentation/guides/apis/) for further informations.
+That’s the default behavior for applications generated with the `--api` flag. See [APIs]({{< ref "/buffalo/guides/APIApplications" >}}) for further informations.
 这是使用 `--api` 标志生成的应用程序的默认行为。有关更多信息，请参阅 API。
 
 ## Destroying Actions 销毁操作 
@@ -150,7 +150,7 @@ $ buffalo d a users
 
 ## Next Steps 后续步骤 
 
-- [Resources](https://gobuffalo.io/documentation/request_handling/resources) - Define CRUD-like action bundles.
+- [Resources]({{< ref "/buffalo/requestHandling/resources" >}}) - Define CRUD-like action bundles.
   资源 - 定义类似 CRUD 的操作包。
-- [Context](https://gobuffalo.io/documentation/request_handling/context) - Learn more about Buffalo Context.
+- [Context]({{< ref "/buffalo/requestHandling/context" >}}) - Learn more about Buffalo Context.
   上下文 - 了解有关 Buffalo 上下文的更多信息。

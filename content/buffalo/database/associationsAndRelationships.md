@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/relations/](https://gobuffalo.io/documentation/database/relations/)
+> 原文：[https://gobuffalo.io/documentation/database/relations/]({{< ref "/buffalo/database/associationsAndRelationships" >}})
 
 # Associations and Relationships 关联和关系 
 
@@ -347,6 +347,6 @@ In the case where you feed the eager create with associated models that already 
 ## Next Steps 后续步骤 
 
 - [One to one relations
-  一对一关系](https://gobuffalo.io/documentation/database/relations-one-to-one)
+  一对一关系]({{< ref "/buffalo/database/oneToOneAssociations" >}})
 - [One to many relations
-  一对多关系](https://gobuffalo.io/documentation/database/relations-one-to-many)
+  一对多关系]({{< ref "/buffalo/database/oneToManyAssociations" >}})

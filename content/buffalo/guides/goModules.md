@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/gomods/](https://gobuffalo.io/documentation/guides/gomods/)
+> 原文：[https://gobuffalo.io/documentation/guides/gomods/]({{< ref "/buffalo/guides/goModules" >}})
 
 # Go Modules Go 模块 
 

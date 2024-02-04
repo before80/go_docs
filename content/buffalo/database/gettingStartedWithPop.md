@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/database/pop/](https://gobuffalo.io/documentation/database/pop/)
+> 原文：[https://gobuffalo.io/documentation/database/pop/]({{< ref "/buffalo/database/gettingStartedWithPop" >}})
 
 # Getting Started with Pop Pop入门
 
@@ -56,7 +56,7 @@ $ go get github.com/gobuffalo/pop/...
 
 ## Next Steps 后续步骤 
 
-- [CLI Soda](https://gobuffalo.io/documentation/database/soda) - Install the Soda CLI.
+- [CLI Soda]({{< ref "/buffalo/database/sodaCLI" >}}) - Install the Soda CLI.
   CLI Soda - 安装 Soda CLI。
-- [Configuration](https://gobuffalo.io/documentation/database/configuration) - Configure your database connections.
+- [Configuration]({{< ref "/buffalo/database/databaseConfiguration" >}}) - Configure your database connections.
   配置 - 配置您的数据库连接。

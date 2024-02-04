@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/request_handling/routing/](https://gobuffalo.io/documentation/request_handling/routing/)
+> 原文：[https://gobuffalo.io/documentation/request_handling/routing/]({{< ref "/buffalo/requestHandling/routing" >}})
 
 # Routing 路由 
 
@@ -64,7 +64,7 @@ This is the place where all the app logic goes. The handler function takes a `bu
 
 ​	这是所有应用程序逻辑所在的位置。处理程序函数采用 `buffalo.Context` 参数，其中包含有关当前请求所需的一切。
 
-See the [Context](https://gobuffalo.io/documentation/request_handling/context) to understand the `buffalo.Context` interface.
+See the [Context]({{< ref "/buffalo/requestHandling/context" >}}) to understand the `buffalo.Context` interface.
 请参阅上下文以了解 `buffalo.Context` 接口。
 
 ## Mapping Handlers 映射处理程序 
@@ -128,7 +128,7 @@ app.POST("/another/path", func (c buffalo.Context) error {
 // etc...
 ```
 
-As you can see, you can use inline buffalo.Handlers if you want. For more readability though, it’s often better to separate your handlers into multiple files. For example, if you have many handlers managing users stuff, you can group them into a `users.go` file in the [`actions`](https://gobuffalo.io/documentation/getting_started/directory-structure#actions) folder, for instance.
+As you can see, you can use inline buffalo.Handlers if you want. For more readability though, it’s often better to separate your handlers into multiple files. For example, if you have many handlers managing users stuff, you can group them into a `users.go` file in the [`actions`]({{< ref "/buffalo/gettingStarted/directoryStructure#actions" >}}) folder, for instance.
 
 ​	如您所见，如果您愿意，可以使用内联 buffalo.Handlers。但为了提高可读性，通常最好将处理程序分成多个文件。例如，如果您有许多处理程序管理用户内容，可以将它们分组到 `users.go` 文件夹中的 `actions` 文件中。
 
@@ -380,7 +380,7 @@ func MyHandler(c buffalo.Context) error {
 
 ## Parameters 参数 
 
-Query string and other parameters are available from the [`buffalo.Context`](https://gobuffalo.io/documentation/request_handling/context) that is passed into the `buffalo.Handler`.
+Query string and other parameters are available from the [`buffalo.Context`]({{< ref "/buffalo/requestHandling/context" >}}) that is passed into the `buffalo.Handler`.
 
 ​	查询字符串和其他参数可从传递给 `buffalo.Handler` 的 `buffalo.Context` 中获得。
 
@@ -396,7 +396,7 @@ Given the above code sample, if we make a request with `GET /users?name=ringo`, 
 
 ## Named Parameters 命名参数 
 
-Since Buffalo is the [github.com/gorilla/mux](http://www.gorillatoolkit.org/pkg/mux) under the covers, it means we can get access to some of the goodness it provides. In this case, the ability to create pseudo-regular expression patterns in the mapped path that will get converted into parameters that can be accessed from a [`buffalo.Context`](https://gobuffalo.io/documentation/request_handling/context).
+Since Buffalo is the [github.com/gorilla/mux](http://www.gorillatoolkit.org/pkg/mux) under the covers, it means we can get access to some of the goodness it provides. In this case, the ability to create pseudo-regular expression patterns in the mapped path that will get converted into parameters that can be accessed from a [`buffalo.Context`]({{< ref "/buffalo/requestHandling/context" >}}).
 
 ​	由于 Buffalo 是 github.com/gorilla/mux 的底层，这意味着我们可以访问它提供的一些优点。在这种情况下，能够在映射路径中创建伪正则表达式模式，该模式将转换为可从 `buffalo.Context` 访问的参数。
 
@@ -437,7 +437,7 @@ a.GET("/articles/{id:[0-9]+}", func (c buffalo.Context) error {
 
 ## Groups 组 
 
-Buffalo apps allow for the grouping of end-points. This allows for common functionality, such as [middleware](https://gobuffalo.io/documentation/request_handling/middleware) to be collected together. A great example of this would be an API end-point.
+Buffalo apps allow for the grouping of end-points. This allows for common functionality, such as [middleware]({{< ref "/buffalo/requestHandling/middleware" >}}) to be collected together. A great example of this would be an API end-point.
 
 ​	Buffalo 应用程序允许对端点进行分组。这允许将常见的功能（例如中间件）收集在一起。一个很好的例子就是 API 端点。
 
@@ -459,7 +459,7 @@ g := a.Group("/api/v1")
 g.Use(APIAuthorizer)
 ```
 
-In the above example the `/api/v1` group will use both `SomeMiddleware` and `APIAuthorizer`. See [middleware](https://gobuffalo.io/documentation/request_handling/middleware) for more information about using, skipping, and clearing middleware.
+In the above example the `/api/v1` group will use both `SomeMiddleware` and `APIAuthorizer`. See [middleware]({{< ref "/buffalo/requestHandling/middleware" >}}) for more information about using, skipping, and clearing middleware.
 
 ​	在上面的示例中， `/api/v1` 组将同时使用 `SomeMiddleware` 和 `APIAuthorizer` 。有关使用、跳过和清除中间件的更多信息，请参阅中间件。
 

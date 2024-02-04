@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/localization/](https://gobuffalo.io/documentation/guides/localization/)
+> 原文：[https://gobuffalo.io/documentation/guides/localization/]({{< ref "/buffalo/guides/localization" >}})
 
 # Localization 本地化 
 

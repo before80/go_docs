@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/plugins/](https://gobuffalo.io/documentation/guides/plugins/)
+> 原文：[https://gobuffalo.io/documentation/guides/plugins/]({{< ref "/buffalo/guides/plugins" >}})
 
 # Plugins 插件 
 

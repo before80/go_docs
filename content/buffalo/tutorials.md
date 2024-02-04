@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/tutorials/](https://gobuffalo.io/documentation/tutorials/)
+> 原文：[https://gobuffalo.io/documentation/tutorials/]({{< ref "/buffalo/tutorials" >}})
 
 # Tutorials 教程 
 

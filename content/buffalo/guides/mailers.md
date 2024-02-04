@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://gobuffalo.io/documentation/guides/mailers/](https://gobuffalo.io/documentation/guides/mailers/)
+> 原文：[https://gobuffalo.io/documentation/guides/mailers/]({{< ref "/buffalo/guides/mailers" >}})
 
 # Mailers 邮件发送器 
 
@@ -148,7 +148,7 @@ Since **0.13.0-rc1**
 
 
 
-To use context variables such as [RouteHelpers](https://gobuffalo.io/documentation/request_handling/routing#using-route-helpers-in-templates) or those set with `c.Set(...)`, `mail.New` accepts a `buffalo.Context`.
+To use context variables such as [RouteHelpers]({{< ref "/buffalo/requestHandling/routing#using-route-helpers-in-templates" >}}) or those set with `c.Set(...)`, `mail.New` accepts a `buffalo.Context`.
 
 ​	要使用诸如 RouteHelpers 或使用 `c.Set(...)` 设置的上下文变量， `mail.New` 接受 `buffalo.Context` 。
 
