@@ -77,5 +77,5 @@ Webpack is configured by default to hash and minify your assets.
 
 ## Next Steps 后续步骤 
 
-- [Installation](https://gobuffalo.io/en/docs/getting-started/installation) - Install Buffalo!
+- [Installation]({{< ref "/buffalo/gettingStarted/installBuffalo">}}) - Install Buffalo!
   安装 - 安装 Buffalo！

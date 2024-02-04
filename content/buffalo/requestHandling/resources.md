@@ -287,7 +287,7 @@ func App() *buffalo.App {
 // translations will load locale files, set up the translator `actions.T`,
 // and will return a middleware to use to load the correct locale for each
 // request.
-// for more information: https://gobuffalo.io/en/docs/localization
+// for more information: https://gobuffalo.io/docs/localization
 func translations() buffalo.MiddlewareFunc {
 	var err error
 	if T, err = i18n.New(locales.FS(), "en-US"); err != nil {
@@ -299,7 +299,7 @@ func translations() buffalo.MiddlewareFunc {
 // forceSSL will return a middleware that will redirect an incoming request
 // if it is not HTTPS. "http://example.com" => "https://example.com".
 // This middleware does **not** enable SSL. for your application. To do that
-// we recommend using a proxy: https://gobuffalo.io/en/docs/proxy
+// we recommend using a proxy: https://gobuffalo.io/docs/proxy
 // for more information: https://github.com/unrolled/secure/
 func forceSSL() buffalo.MiddlewareFunc {
 	return forcessl.Middleware(secure.Options{
