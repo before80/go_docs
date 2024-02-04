@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en-US">
+
+	<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+		<link rel="profile" href="https://gmpg.org/xfn/11">
+
+		<title></title>
+<meta name='robots' content='noindex, nofollow' />
+<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="https://learn.maximizeproject.app/feed/" />
+<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="https://learn.maximizeproject.app/comments/feed/" />
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/learn.maximizeproject.app\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.3"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://learn.maximizeproject.app/wp-includes/css/dist/block-library/style.min.css?ver=6.4.3' media='all' />
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent: #ae1d44;--wp--preset--color--primary: #000000;--wp--preset--color--secondary: #3b4c32;--wp--preset--color--subtle-background: #90c175;--wp--preset--color--background: #bcdba9;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 18px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 26.25px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 21px;--wp--preset--font-size--larger: 32px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='twentytwenty-style-css' href='https://learn.maximizeproject.app/wp-content/themes/twentytwenty/style.css?ver=1.9' media='all' />
+<style id='twentytwenty-style-inline-css'>
+.color-accent,.color-accent-hover:hover,.color-accent-hover:focus,:root .has-accent-color,.has-drop-cap:not(:focus):first-letter,.wp-block-button.is-style-outline,a { color: #ae1d44; }blockquote,.border-color-accent,.border-color-accent-hover:hover,.border-color-accent-hover:focus { border-color: #ae1d44; }button,.button,.faux-button,.wp-block-button__link,.wp-block-file .wp-block-file__button,input[type="button"],input[type="reset"],input[type="submit"],.bg-accent,.bg-accent-hover:hover,.bg-accent-hover:focus,:root .has-accent-background-color,.comment-reply-link { background-color: #ae1d44; }.fill-children-accent,.fill-children-accent * { fill: #ae1d44; }:root .has-background-color,button,.button,.faux-button,.wp-block-button__link,.wp-block-file__button,input[type="button"],input[type="reset"],input[type="submit"],.wp-block-button,.comment-reply-link,.has-background.has-primary-background-color:not(.has-text-color),.has-background.has-primary-background-color *:not(.has-text-color),.has-background.has-accent-background-color:not(.has-text-color),.has-background.has-accent-background-color *:not(.has-text-color) { color: #bcdba9; }:root .has-background-background-color { background-color: #bcdba9; }body,.entry-title a,:root .has-primary-color { color: #000000; }:root .has-primary-background-color { background-color: #000000; }cite,figcaption,.wp-caption-text,.post-meta,.entry-content .wp-block-archives li,.entry-content .wp-block-categories li,.entry-content .wp-block-latest-posts li,.wp-block-latest-comments__comment-date,.wp-block-latest-posts__post-date,.wp-block-embed figcaption,.wp-block-image figcaption,.wp-block-pullquote cite,.comment-metadata,.comment-respond .comment-notes,.comment-respond .logged-in-as,.pagination .dots,.entry-content hr:not(.has-background),hr.styled-separator,:root .has-secondary-color { color: #3b4c32; }:root .has-secondary-background-color { background-color: #3b4c32; }pre,fieldset,input,textarea,table,table *,hr { border-color: #90c175; }caption,code,code,kbd,samp,.wp-block-table.is-style-stripes tbody tr:nth-child(odd),:root .has-subtle-background-background-color { background-color: #90c175; }.wp-block-table.is-style-stripes { border-bottom-color: #90c175; }.wp-block-latest-posts.is-grid li { border-top-color: #90c175; }:root .has-subtle-background-color { color: #90c175; }body:not(.overlay-header) .primary-menu > li > a,body:not(.overlay-header) .primary-menu > li > .icon,.modal-menu a,.footer-menu a, .footer-widgets a,#site-footer .wp-block-button.is-style-outline,.wp-block-pullquote:before,.singular:not(.overlay-header) .entry-header a,.archive-header a,.header-footer-group .color-accent,.header-footer-group .color-accent-hover:hover { color: #cd2653; }.social-icons a,#site-footer button:not(.toggle),#site-footer .button,#site-footer .faux-button,#site-footer .wp-block-button__link,#site-footer .wp-block-file__button,#site-footer input[type="button"],#site-footer input[type="reset"],#site-footer input[type="submit"] { background-color: #cd2653; }.header-footer-group,body:not(.overlay-header) #site-header .toggle,.menu-modal .toggle { color: #000000; }body:not(.overlay-header) .primary-menu ul { background-color: #000000; }body:not(.overlay-header) .primary-menu > li > ul:after { border-bottom-color: #000000; }body:not(.overlay-header) .primary-menu ul ul:after { border-left-color: #000000; }.site-description,body:not(.overlay-header) .toggle-inner .toggle-text,.widget .post-date,.widget .rss-date,.widget_archive li,.widget_categories li,.widget cite,.widget_pages li,.widget_meta li,.widget_nav_menu li,.powered-by-wordpress,.to-the-top,.singular .entry-header .post-meta,.singular:not(.overlay-header) .entry-header .post-meta a { color: #6d6d6d; }.header-footer-group pre,.header-footer-group fieldset,.header-footer-group input,.header-footer-group textarea,.header-footer-group table,.header-footer-group table *,.footer-nav-widgets-wrapper,#site-footer,.menu-modal nav *,.footer-widgets-outer-wrapper,.footer-top { border-color: #dcd7ca; }.header-footer-group table caption,body:not(.overlay-header) .header-inner .toggle-wrapper::before { background-color: #dcd7ca; }
+</style>
+<link rel='stylesheet' id='twentytwenty-print-style-css' href='https://learn.maximizeproject.app/wp-content/themes/twentytwenty/print.css?ver=1.9' media='print' />
+<link rel='stylesheet' id='epkb-icon-fonts-css' href='https://learn.maximizeproject.app/wp-content/plugins/echo-knowledge-base/css/epkb-icon-fonts.min.css?ver=11.31.0' media='all' />
+<link rel='stylesheet' id='epkb-mp-frontend-basic-layout-css' href='https://learn.maximizeproject.app/wp-content/plugins/echo-knowledge-base/css/mp-frontend-basic-layout.min.css?ver=11.31.0' media='all' />
+<style id='epkb-mp-frontend-basic-layout-inline-css'>
+ #epkb-main-page-container .epkb-category-level-2-3__cat-name,#epkb-main-page-container .epkb-articles-coming-soon,#epkb-main-page-container .epkb-show-all-articles{font-family:inherit;font-weight:inherit;font-size:14px!important;}#epkb-main-page-container .epkb-category-level-2-3{font-size:14px!important;}#epkb-main-page-container .epkb-section-body .eckb-article-title__text{font-family:inherit;font-weight:inherit;font-size:14px!important;}#epkb-main-page-container .epkb-section-body .eckb-article-title__icon{font-size:14px!important;}#wpadminbar #wp-admin-bar-epkb-edit-mode-button>.ab-item:before{content:"\f118";top:2px;float:left;font:normal 20px/1 dashicons;speak:none;padding:4px 0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-image:none !important;margin-right:6px;color:#4391F3;}#wpadminbar #wp-admin-bar-epkb-edit-mode-button>.ab-item:hover:before{color:#4391F3;}
+</style>
+<script src="https://learn.maximizeproject.app/wp-content/themes/twentytwenty/assets/js/index.js?ver=1.9" id="twentytwenty-js-js" async></script>
+<script src="https://learn.maximizeproject.app/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://learn.maximizeproject.app/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script id="epkb-public-scripts-js-extra">
+var epkb_vars = {"ajaxurl":"\/wp-admin\/admin-ajax.php","msg_try_again":"Please try again later.","error_occurred":"Error occurred (1936)","not_saved":"Error occurred (2456)","unknown_error":"Unknown error (1247)","reload_try_again":"Please reload the page and try again.","save_config":"Saving configuration","input_required":"Input is required","load_template":"Loading Template...","nonce":"098a3dbc27","toc_editor_msg":"The TOC is not displayed because there are no matching headers in the article."};
+</script>
+<script src="https://learn.maximizeproject.app/wp-content/plugins/echo-knowledge-base/js/public-scripts.min.js?ver=11.31.0" id="epkb-public-scripts-js"></script>
+<link rel="https://api.w.org/" href="https://learn.maximizeproject.app/wp-json/" /><link rel="alternate" type="application/json" href="https://learn.maximizeproject.app/wp-json/wp/v2/pages/6" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://learn.maximizeproject.app/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.4.3" />
+<link rel="canonical" href="https://learn.maximizeproject.app/" />
+<link rel='shortlink' href='https://learn.maximizeproject.app/' />
+<link rel="alternate" type="application/json+oembed" href="https://learn.maximizeproject.app/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flearn.maximizeproject.app%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://learn.maximizeproject.app/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flearn.maximizeproject.app%2F&#038;format=xml" />
+	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+	<style id="custom-background-css">
+body.custom-background { background-color: #bcdba9; }
+</style>
+			<style id="wp-custom-css">
+			body
+{
+	background-color:#fff !important;
+}
+
+div#epkb-content-container
+{
+	background:transparent !important;
+}
+
+div#epkb-content-container section
+{
+	background:transparent !important;
+}
+
+.epkb-section-body ul li {
+    background-color: #f7f7f7;
+    margin: 5px -5px!important;
+    border-radius: 10px !important;
+    padding: 17px 10px !important;
+    color: black !important;
+
+}
+
+#eckb-article-content-toolbar-container {
+	display: none !important;
+}
+
+li.epkb-article-level-1 a span {
+    color: black !important;
+}
+ 
+.epkb-section-body
+{
+	background-color:transparent !important;
+	margin: 0px !important;
+	max-height: 200px !important;
+	min-height: 200px !important;
+	padding-top: 10px !important;
+	overflow-y:auto !important;
+ } 
+
+/* .section-head {
+	    box-shadow: inset 0px 0px 5px 1px #00000029 !important;
+	background-color: #427a5f !important;
+}
+.section-head .epkb-category--top-cat-icon{
+text-shadow: 1px 2px 2px black;
+} */
+#epkb-main-page-container.epkb-basic-template .section-head {
+    background: transparent !important;
+}
+header#site-header {
+        background-color: #427a5f;
+    box-shadow: -4px 1px 13px 3px #2d333859;
+/*     position: sticky;
+    top: 32px; */
+} 
+
+.epkb-top-category-box, section#epkb_cat_1 {
+    box-shadow: 0px 0px 15px #cccccc54 !important;
+    border-radius: 14px !important;
+}
+ul.primary-menu li a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+header#site-header .toggle-text {
+    display: none !important;
+}
+
+header#site-header .search-toggle .svg-icon {
+    color:white !important;
+}
+
+input#search-form-1 {
+    height: 10rem !important;
+}
+
+input#search-form-1:focus {
+    outline: none !important;
+}
+
+footer#site-footer {
+    max-height: 0px !important;
+    display: flex;
+    align-items: center;
+    padding: 30px !important;
+		background-color: #2d3338;
+	color:white !important
+}
+
+div#eckb-article-header {
+    display: none !important;
+}
+
+span.epkb-show-text, .epkb-hide-text {
+    color: black !important;
+}
+
+section#epkb-sidebar-container-v2 {
+	border-radius: 20px !important;
+    max-height: 92vh !important;
+    min-height: 92vh!important;
+    box-shadow: inset 0px 0px 5px 1px #00000029 !important;
+    padding-top: 10px !important;
+    overflow-y: auto !important;
+	background-color: #427a5f;
+}
+
+#eckb-article-page-container-v2 #eckb-article-body {
+    width: 1250px !important;
+	background:transparent !important;
+}
+
+#epkb-sidebar-container-v2 ul.epkb-sidebar__cat-container li ul li {
+    background-color: #fff!important;
+    margin: 10px 10px!important;
+    border-radius: 10px !important;
+    padding: 17px 15px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+#epkb-sidebar-container-v2 .epkb-sidebar__cat-container li .active {
+    background-color: #fff !important;
+    margin: 10px 10px!important;
+    border-radius: 10px !important;
+    padding: 17px 15px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+#epkb-sidebar-container-v2 .epkb-sidebar__cat__top-cat .epkb-sidebar__cat__top-cat__heading-container
+{
+	background-color:#bcdba900 !important;
+	border-bottom-color: #427a5f ;
+}
+
+#eckb-article-page-container-v2 .eckb-article-toc
+{
+	    top:6% !important;
+}
+
+#eckb-article-body .eckb-article-toc__inner {
+    box-shadow: 5px 4px 10px -5px black !important;
+	max-height: 92vh !important;
+    min-height: 92vh !important;
+	border-color: #427a5f !important;
+    background-color: #bcdba9 !important;
+}
+
+div#eckb-article-content-header-row-3 {
+    margin-top: 19px !important;
+}
+
+#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2
+{
+	align-items: center;
+}
+
+div#eckb-article-content-title-container .eckb-article-title {
+    text-align: center !important;
+}
+/* div#eckb-article-content-body {
+    margin-top: -41px !important;
+} */
+
+section#epkb-sidebar-container-v2
+{
+	    position: sticky !important;
+    top: 40px !important;
+}
+
+#epkb-sidebar-container-v2 .epkb-sidebar__heading__inner__name {
+    justify-content: center;
+}
+
+#epkb-sidebar-container-v2 .epkb-sidebar__heading__inner__cat-name {
+    color: white !important;
+    text-shadow: 1px 2px 2px black;
+}
+/* 
+#epkb-sidebar-container-v2.epkb-sidebar--slim-scrollbar::-webkit-scrollbar
+{
+	width:0px !important;
+}
+
+#epkb-content-container .epkb-section-body::-webkit-scrollbar {
+  width: 0px !important;
+	
+} */
+  
+/* #epkb-content-container .epkb-section-body::-webkit-scrollbar-thumb {
+  background:#c1c1c1;
+	
+} */
+h2.epkb-cat-name {
+    color: #427a5f !important;
+    font-weight: 600 !important;
+}
+
+.epkb-article-navigation__previous {
+    background-color: #fff !important;
+    margin: 10px 10px!important;
+    border-radius: 10px !important;
+    padding: 17px 15px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+.epkb-article-navigation__next {
+    background-color: #fff!important;
+    margin: 10px 10px!important;
+    border-radius: 10px !important;
+    padding: 17px 15px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-footer .epkb-article-navigation-container a {
+    text-decoration: none !important;
+	    background-color: #ffffff !important;
+}
+
+#epkb-sidebar-container-v2 ul.epkb-sidebar__cat-container li ul li span, #epkb-sidebar-container-v2 ul.epkb-sidebar__cat-container li ul li h3 {
+    color: #000000 !important;
+}
+
+#epkb-sidebar-container-v2 ul.epkb-sidebar__cat-container li ul li span
+{
+	    line-height: 25px !important;
+
+}
+
+#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 .eckb-article-content-header-row-left-group
+{
+	    flex-wrap: nowrap !important;
+	
+}
+
+div#eckb-article-content-toolbar-container .eckb-article-content-toolbar-button-container {
+    background-color: #427a5f!important;
+	border-radius:3px !important;
+		color:white !important;
+}
+
+div#eckb-article-content-toolbar-container .eckb-article-content-toolbar-button-container span{
+		color:white !important;
+}
+
+#eckb-article-back-navigation-container .eckb-navigation-button {
+    border-color: #000000 !important;
+    background-color: #f1f1f5 !important;
+}
+
+button.epkb-show-all-articles {
+    background-color: #427a5f !important; 
+    margin: 7px -5px!important;
+    border-radius: 10px !important;
+    padding: 17px 10px !important;
+    color: white !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+button.epkb-show-all-articles span
+{
+	color:white !important;
+}
+
+div#eckb-categories-archive__body__content {
+    background-color: #f1f1f5 !important;
+}
+
+div#eckb-categories-archive__body__content__body .eckb-article-container {
+    background-color: #fff0;
+    margin: 26px 0px!important;
+    border-radius: 10px !important;
+    padding: 35px 75px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+#eckb-categories-archive__body__content__header header.eckb-category-archive-header h1, #eckb-categories-archive__body__content__header header.eckb-category-archive-header ul li span {
+    color: black !important;
+    text-shadow: 1px 2px 2px #c5a0a0;
+}
+
+div#eckb-categories-archive__body__content__body .eckb-article-container ul li a {
+    color: black;
+}
+
+#eckb-categories-archive-container-v2 .eckb-category-archive-style-2 .eckb-article-container .eckb-article-body .eckb-article-read-more {
+    color: #000000 !important;
+	
+}
+
+div#eckb-categories-archive__body__content__body .eckb-article-container a {
+    color: black;
+}
+
+.nav-links {
+    color: #c1ced9 !important;
+    font-size: 20px !important;
+
+}
+.nav-links a {
+    color: #2d3338 !important;
+	padding: 0px 15px !important;
+    text-decoration: none !important;
+    font-size: 20px !important;
+	    background-color: #fff0;
+	
+    border-radius: 4px !important;
+    padding: 1px 16px !important;
+    /* color: black !important; */
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+
+.nav-links span.page-numbers.current{
+	padding: 10px !important;
+}
+
+.nav-links span span 
+{
+	padding: 0px !important;
+}
+
+#eckb-article-page-container-v2 #eckb-article-body #eckb-article-content #eckb-article-content-header-v2 .eckb-article-content-header-row-left-group
+{
+	margin-right:0px !important;
+}
+
+div#eckb-article-page-container-v2 ul.eckb-breadcrumb-nav {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+}
+
+div#eckb-article-content-header-v2 {
+    background-color: #ffffff !important;
+    margin: 10px 10px!important;
+    border-radius: 10px !important;
+    padding: 17px 15px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+.epkb-top-category-box, section#epkb_cat_1{
+	position:relative;
+	margin-bottom:60px !important;
+}
+.epkb-top-category-box:before, section#epkb_cat_1:before {
+    content: "";
+    height: 86px;
+    width: 86px;
+    background: #427a5f17;
+    position: absolute;
+    border-radius: 50%;
+    top: -43px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 768px){
+
+	
+#epkb-main-page-container.epkb-basic-template #epkb-content-container section {
+    margin: 0 0 0em 0 !important;
+}
+#epkb-main-page-container.epkb-basic-template .epkb-section-body {	max-height: 300px !important;
+    min-height: auto !important;
+}
+	
+div#eckb-article-content-header-row-1 {
+    flex-direction: row;
+}
+	
+	ul.eckb-breadcrumb-nav li{
+    text-align: center !important;
+}
+	
+	div#eckb-article-content-title-container .eckb-article-title {
+    font-size: 40px !important;
+}
+	
+	div#eckb-article-content-header-row-4 .eckb-article-content-header-row-left-group {
+    align-items: center !important;
+    flex-direction: column !important;
+}
+	
+	div#eckb-article-content-header-v2 {
+    margin: unset !important;
+}
+	
+/* 	#eckb-categories-archive-container-v2 .eckb-category-archive-title h1 {
+    font-size: 25px; !important
+}
+	
+	.archive .eckb-breadcrumb {
+    padding-left: 35px !important;
+}
+	
+	div#eckb-categories-archive__body__content__body .eckb-article-container {
+    background-color: #fff0;
+    margin: 26px 0px!important;
+    border-radius: 10px !important;
+    padding: 18px 61px !important;
+    color: black !important;
+    box-shadow: 1px 1px 6px -3px black !important;
+}
+	
+	#eckb-categories-archive-container-v2 .eckb-category-archive-style-2 .eckb-article-container .eckb-article-header .eckb-article-title .eckb-article-title-icon {
+    position: absolute;
+    top: -8px;
+    left: 125px;
+    font-size: 1.9em;
+} */
+}
+
+#eckb-article-page-container-v2 #eckb-article-left-sidebar
+{
+	background : transparent !important;
+}
+
+#eckb-article-page-container-v2 #eckb-article-content
+{
+	background : transparent !important;
+}
+
+#eckb-article-content-header-v2 .eckb-navigation-button {
+    border: none !important;
+    background-color: #427a5f !important;
+    color: white !important;
+    padding: 13px 20px !important;
+    border-radius: 3px;
+}
+
+#eckb-article-content-header-v2 .eckb-article-content-toolbar-button-container {
+    border: none !important;
+    background-color: #427a5f !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 3px;
+}
+
+div#eckb-article-content-body h2 {
+    font-size: 35px !important;
+	margin-top: 0;
+}
+
+div#eckb-article-content-body h1 {
+       font-size: 4.4rem !important;
+}
+
+div#eckb-article-content-body h3 {
+    font-size: 30px !important;
+	margin-top: 0;
+}
+
+div#eckb-article-content-body h4 {
+    font-size: 25px !important;
+}
+div#eckb-article-content-body h5 {
+    font-size: 20px !important;
+}
+
+div#eckb-article-content-body h6 {
+    font-size: 16px !important;
+}
+
+div#eckb-article-content-body p {
+    font-size: 16px !important;
+}
+div#eckb-article-content-body li {
+    font-size: 16px !important;
+}
+
+div#eckb-article-content-body a {
+    font-size: 16px !important;
+}
+
+button.toggle.nav-toggle.mobile-nav-toggle svg.svg-icon {
+    color: white !important;
+}
+
+.menu-modal-inner.modal-inner span.toggle-text {
+    display: none !important;
+}
+
+nav.mobile-menu a {
+    color: black !important;
+	text-decoration:none !important;
+}
+
+.menu-bottom nav a {
+    background-color: black !important;
+}
+
+#site-footer a {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+#site-footer {
+    background-color: #427a5f !important;
+}
+
+span.epkb-cat-icon.epkbfa {
+	    display: flex !important;
+    justify-content: center;
+    align-items: center;
+   margin-bottom: 15px !important;
+    margin-top: -60px !important;
+    padding: 7% !important;
+    background-color: #427a5f !important;
+    border: 4px solid #deedd5 !important;
+    border-radius: 100% !important;
+    width: 80px !important;
+    height: 80px !important;
+}
+
+#epkb-main-page-container.epkb-basic-template .section-head {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+#epkb-sidebar-container-v2 .epkb-sidebar__cat__top-cat__body-container ul {
+    padding-left: 5px !important;
+}
+/********/
+div#eckb-categories-archive__body__content {
+    background: transparent !important;
+    padding: 40px 0px !important;
+}
+#eckb-categories-archive-container-v2 .eckb-category-archive-style-2 .eckb-article-container {
+    box-shadow: 0px 0px 15px #cccccc54 !important;
+    border-radius: 14px !important;
+    border: none;
+    width: 30%;
+    float: left;
+    margin: 0px 15px !important;
+    position: relative;
+    padding: 80px 40px 40px 40px !important;
+}
+div#eckb-categories-archive__body__content__body .eckb-article-container a {
+    font-size: 18px;
+    line-height: 22px !important;
+}
+.eckb-category-archive-main span.eckb-article-title-icon.epkbfa.epkbfa-file-text-o {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px !important;
+    margin-top: -60px !important;
+    padding: 7% !important;
+    background-color: #427a5f !important;
+    border: 4px solid #deedd5 !important;
+    border-radius: 100% !important;
+    width: 80px !important;
+    height: 80px !important;
+    color: #fff;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0;
+    margin: 0 auto;
+    top: -60px !important;
+}
+main.eckb-category-archive-main {
+    margin-top: 60px;
+}
+h1, h2, h3, h4, h5, h6, p, a, span {
+    text-shadow: none !important;
+}
+#eckb-categories-archive-container-v2 .eckb-category-archive-style-2 .eckb-article-container .eckb-article-header .eckb-article-title h2 {
+    font-size: inherit !important;
+    margin-bottom: 15px;
+}
+@media(max-width:767px){
+	#eckb-categories-archive-container-v2 .eckb-category-archive-style-2 .eckb-article-container {
+    width: 90%;
+		margin:0 auto;
+		    margin-bottom: 80px !important;
+}
+	#eckb-categories-archive-container-v2 .eckb-category-archive-title h1 {
+    font-size: 20px !important;
+}
+	
+}
+
+div#eckb-article-content-header-v2 {
+	box-shadow: none !important;
+}
+
+#eckb-article-content-title-container h1.eckb-article-title {
+	font-size: 48px !important;
+}
+
+#eckb-article-content-body {
+max-width: 720px;
+	margin: 0 auto;
+}
+#epkb-main-page-container.epkb-categories-template .section-head .epkb-category-level-1 {
+    display: flex !important;
+    flex-direction: column;
+}
+#epkb-main-page-container.epkb-categories-template .section-head .epkb-category-level-1 {
+    display: flex !important;
+    flex-direction: column;
+}		</style>
+		
+	</head>
+
+	<body class="home page-template-default page page-id-6 custom-background wp-embed-responsive singular enable-search-modal missing-post-thumbnail has-no-pagination not-showing-comments hide-avatars footer-top-visible">
+
+		<a class="skip-link screen-reader-text" href="#site-content">Skip to the content</a>
+		<header id="site-header" class="header-footer-group">
+
+			<div class="header-inner section-inner" style="max-width: 1140px;">
+				<div>
+					<img src="https://learn.maximizeproject.app/wp-content/uploads/2023/07/maximize-logo-white.png" style="height: 40px;">
+				</div>
+				<div class="header-titles-wrapper">
+
+					
+						<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+							<span class="toggle-inner">
+								<span class="toggle-icon">
+									<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23"><path d="M38.710696,48.0601792 L43,52.3494831 L41.3494831,54 L37.0601792,49.710696 C35.2632422,51.1481185 32.9839107,52.0076499 30.5038249,52.0076499 C24.7027226,52.0076499 20,47.3049272 20,41.5038249 C20,35.7027226 24.7027226,31 30.5038249,31 C36.3049272,31 41.0076499,35.7027226 41.0076499,41.5038249 C41.0076499,43.9839107 40.1481185,46.2632422 38.710696,48.0601792 Z M36.3875844,47.1716785 C37.8030221,45.7026647 38.6734666,43.7048964 38.6734666,41.5038249 C38.6734666,36.9918565 35.0157934,33.3341833 30.5038249,33.3341833 C25.9918565,33.3341833 22.3341833,36.9918565 22.3341833,41.5038249 C22.3341833,46.0157934 25.9918565,49.6734666 30.5038249,49.6734666 C32.7048964,49.6734666 34.7026647,48.8030221 36.1716785,47.3875844 C36.2023931,47.347638 36.2360451,47.3092237 36.2726343,47.2726343 C36.3092237,47.2360451 36.347638,47.2023931 36.3875844,47.1716785 Z" transform="translate(-20 -31)" /></svg>								</span>
+								<span class="toggle-text">Search</span>
+							</span>
+						</button><!-- .search-toggle -->
+
+					
+					<div class="header-titles">
+
+						<div class="site-title faux-heading"><a href="https://learn.maximizeproject.app/"></a></div>
+					</div><!-- .header-titles -->
+
+					<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
+						<span class="toggle-inner">
+							<span class="toggle-icon">
+								<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="26" height="7" viewBox="0 0 26 7"><path fill-rule="evenodd" d="M332.5,45 C330.567003,45 329,43.4329966 329,41.5 C329,39.5670034 330.567003,38 332.5,38 C334.432997,38 336,39.5670034 336,41.5 C336,43.4329966 334.432997,45 332.5,45 Z M342,45 C340.067003,45 338.5,43.4329966 338.5,41.5 C338.5,39.5670034 340.067003,38 342,38 C343.932997,38 345.5,39.5670034 345.5,41.5 C345.5,43.4329966 343.932997,45 342,45 Z M351.5,45 C349.567003,45 348,43.4329966 348,41.5 C348,39.5670034 349.567003,38 351.5,38 C353.432997,38 355,39.5670034 355,41.5 C355,43.4329966 353.432997,45 351.5,45 Z" transform="translate(-329 -38)" /></svg>							</span>
+							<span class="toggle-text">Menu</span>
+						</span>
+					</button><!-- .nav-toggle -->
+
+				</div><!-- .header-titles-wrapper -->
+
+				<div class="header-navigation-wrapper">
+
+					
+							<nav class="primary-menu-wrapper" aria-label="Horizontal">
+
+								<ul class="primary-menu reset-list-style">
+
+								<li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-72"><a href="https://learn.maximizeproject.app/" aria-current="page">Toolkit</a></li>
+<li id="menu-item-822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="https://learn.maximizeproject.app/strategies/">Strategies</a></li>
+<li id="menu-item-158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-158"><a href="https://maximizeproject.app/dashboard">Dashboard</a></li>
+
+								</ul>
+
+							</nav><!-- .primary-menu-wrapper -->
+
+						
+						<div class="header-toggles hide-no-js">
+
+						
+							<div class="toggle-wrapper search-toggle-wrapper">
+
+								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+									<span class="toggle-inner">
+										<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23"><path d="M38.710696,48.0601792 L43,52.3494831 L41.3494831,54 L37.0601792,49.710696 C35.2632422,51.1481185 32.9839107,52.0076499 30.5038249,52.0076499 C24.7027226,52.0076499 20,47.3049272 20,41.5038249 C20,35.7027226 24.7027226,31 30.5038249,31 C36.3049272,31 41.0076499,35.7027226 41.0076499,41.5038249 C41.0076499,43.9839107 40.1481185,46.2632422 38.710696,48.0601792 Z M36.3875844,47.1716785 C37.8030221,45.7026647 38.6734666,43.7048964 38.6734666,41.5038249 C38.6734666,36.9918565 35.0157934,33.3341833 30.5038249,33.3341833 C25.9918565,33.3341833 22.3341833,36.9918565 22.3341833,41.5038249 C22.3341833,46.0157934 25.9918565,49.6734666 30.5038249,49.6734666 C32.7048964,49.6734666 34.7026647,48.8030221 36.1716785,47.3875844 C36.2023931,47.347638 36.2360451,47.3092237 36.2726343,47.2726343 C36.3092237,47.2360451 36.347638,47.2023931 36.3875844,47.1716785 Z" transform="translate(-20 -31)" /></svg>										<span class="toggle-text">Search</span>
+									</span>
+								</button><!-- .search-toggle -->
+
+							</div>
+
+							
+						</div><!-- .header-toggles -->
+						
+				</div><!-- .header-navigation-wrapper -->
+
+			</div><!-- .header-inner -->
+
+			<div class="search-modal cover-modal header-footer-group" data-modal-target-string=".search-modal">
+
+	<div class="search-modal-inner modal-inner">
+
+		<div class="section-inner">
+
+			<form role="search" aria-label="Search for:" method="get" class="search-form" action="https://learn.maximizeproject.app/">
+	<label for="search-form-1">
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" id="search-form-1" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<input type="submit" class="search-submit" value="Search" />
+</form>
+
+			<button class="toggle search-untoggle close-search-toggle fill-children-current-color" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field">
+				<span class="screen-reader-text">Close search</span>
+				<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><polygon fill="" fill-rule="evenodd" points="6.852 7.649 .399 1.195 1.445 .149 7.899 6.602 14.352 .149 15.399 1.195 8.945 7.649 15.399 14.102 14.352 15.149 7.899 8.695 1.445 15.149 .399 14.102" /></svg>			</button><!-- .search-toggle -->
+
+		</div><!-- .section-inner -->
+
+	</div><!-- .search-modal-inner -->
+
+</div><!-- .menu-modal -->
+
+		</header><!-- #site-header -->
+
+		
+<div class="menu-modal cover-modal header-footer-group" data-modal-target-string=".menu-modal">
+
+	<div class="menu-modal-inner modal-inner">
+
+		<div class="menu-wrapper section-inner">
+
+			<div class="menu-top">
+
+				<button class="toggle close-nav-toggle fill-children-current-color" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".menu-modal">
+					<span class="toggle-text">Close Menu</span>
+					<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><polygon fill="" fill-rule="evenodd" points="6.852 7.649 .399 1.195 1.445 .149 7.899 6.602 14.352 .149 15.399 1.195 8.945 7.649 15.399 14.102 14.352 15.149 7.899 8.695 1.445 15.149 .399 14.102" /></svg>				</button><!-- .nav-toggle -->
+
+				
+					<nav class="mobile-menu" aria-label="Mobile">
+
+						<ul class="modal-menu reset-list-style">
+
+						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-72"><div class="ancestor-wrapper"><a href="https://learn.maximizeproject.app/" aria-current="page">Toolkit</a></div><!-- .ancestor-wrapper --></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><div class="ancestor-wrapper"><a href="https://learn.maximizeproject.app/strategies/">Strategies</a></div><!-- .ancestor-wrapper --></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-158"><div class="ancestor-wrapper"><a href="https://maximizeproject.app/dashboard">Dashboard</a></div><!-- .ancestor-wrapper --></li>
+
+						</ul>
+
+					</nav>
+
+					
+			</div><!-- .menu-top -->
+
+			<div class="menu-bottom">
+
+				
+					<nav aria-label="Expanded Social links">
+						<ul class="social-menu reset-list-style social-icons fill-children-current-color">
+
+							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-72"><a href="https://learn.maximizeproject.app/" aria-current="page"><span class="screen-reader-text">Toolkit</span><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M6.70846497,10.3082552 C6.43780491,9.94641406 6.5117218,9.43367048 6.87356298,9.16301045 C7.23540415,8.89235035 7.74814771,8.96626726 8.01880776,9.32810842 C8.5875786,10.0884893 9.45856383,10.5643487 10.4057058,10.6321812 C11.3528479,10.7000136 12.2827563,10.3531306 12.9541853,9.68145807 L15.3987642,7.23705399 C16.6390369,5.9529049 16.6212992,3.91168563 15.3588977,2.6492841 C14.0964962,1.38688258 12.0552769,1.36914494 10.77958,2.60113525 L9.37230725,4.00022615 C9.05185726,4.31881314 8.53381538,4.31730281 8.21522839,3.99685275 C7.89664141,3.67640269 7.89815174,3.15836082 8.21860184,2.83977385 L9.63432671,1.43240056 C11.5605503,-0.42800847 14.6223793,-0.401402004 16.5159816,1.49220028 C18.4095838,3.38580256 18.4361903,6.44763148 16.5658147,8.38399647 L14.1113741,10.838437 C13.1043877,11.8457885 11.7095252,12.366113 10.2888121,12.2643643 C8.86809903,12.1626156 7.56162126,11.4488264 6.70846497,10.3082552 Z M11.291535,7.6917448 C11.5621951,8.05358597 11.4882782,8.56632952 11.126437,8.83698955 C10.7645959,9.10764965 10.2518523,9.03373274 9.98119227,8.67189158 C9.4124214,7.91151075 8.54143617,7.43565129 7.59429414,7.36781884 C6.6471521,7.29998638 5.71724372,7.64686937 5.04581464,8.31854193 L2.60123581,10.762946 C1.36096312,12.0470951 1.37870076,14.0883144 2.64110228,15.3507159 C3.90350381,16.6131174 5.94472309,16.630855 7.21873082,15.400549 L8.61782171,14.0014581 C8.93734159,13.6819382 9.45538568,13.6819382 9.77490556,14.0014581 C10.0944254,14.320978 10.0944254,14.839022 9.77490556,15.1585419 L8.36567329,16.5675994 C6.43944966,18.4280085 3.37762074,18.401402 1.48401846,16.5077998 C-0.409583822,14.6141975 -0.436190288,11.5523685 1.43418536,9.61600353 L3.88862594,7.16156298 C4.89561225,6.15421151 6.29047483,5.63388702 7.71118789,5.7356357 C9.13190097,5.83738438 10.4383788,6.55117356 11.291535,7.6917448 Z" /></svg></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-822"><a href="https://learn.maximizeproject.app/strategies/"><span class="screen-reader-text">Strategies</span><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M6.70846497,10.3082552 C6.43780491,9.94641406 6.5117218,9.43367048 6.87356298,9.16301045 C7.23540415,8.89235035 7.74814771,8.96626726 8.01880776,9.32810842 C8.5875786,10.0884893 9.45856383,10.5643487 10.4057058,10.6321812 C11.3528479,10.7000136 12.2827563,10.3531306 12.9541853,9.68145807 L15.3987642,7.23705399 C16.6390369,5.9529049 16.6212992,3.91168563 15.3588977,2.6492841 C14.0964962,1.38688258 12.0552769,1.36914494 10.77958,2.60113525 L9.37230725,4.00022615 C9.05185726,4.31881314 8.53381538,4.31730281 8.21522839,3.99685275 C7.89664141,3.67640269 7.89815174,3.15836082 8.21860184,2.83977385 L9.63432671,1.43240056 C11.5605503,-0.42800847 14.6223793,-0.401402004 16.5159816,1.49220028 C18.4095838,3.38580256 18.4361903,6.44763148 16.5658147,8.38399647 L14.1113741,10.838437 C13.1043877,11.8457885 11.7095252,12.366113 10.2888121,12.2643643 C8.86809903,12.1626156 7.56162126,11.4488264 6.70846497,10.3082552 Z M11.291535,7.6917448 C11.5621951,8.05358597 11.4882782,8.56632952 11.126437,8.83698955 C10.7645959,9.10764965 10.2518523,9.03373274 9.98119227,8.67189158 C9.4124214,7.91151075 8.54143617,7.43565129 7.59429414,7.36781884 C6.6471521,7.29998638 5.71724372,7.64686937 5.04581464,8.31854193 L2.60123581,10.762946 C1.36096312,12.0470951 1.37870076,14.0883144 2.64110228,15.3507159 C3.90350381,16.6131174 5.94472309,16.630855 7.21873082,15.400549 L8.61782171,14.0014581 C8.93734159,13.6819382 9.45538568,13.6819382 9.77490556,14.0014581 C10.0944254,14.320978 10.0944254,14.839022 9.77490556,15.1585419 L8.36567329,16.5675994 C6.43944966,18.4280085 3.37762074,18.401402 1.48401846,16.5077998 C-0.409583822,14.6141975 -0.436190288,11.5523685 1.43418536,9.61600353 L3.88862594,7.16156298 C4.89561225,6.15421151 6.29047483,5.63388702 7.71118789,5.7356357 C9.13190097,5.83738438 10.4383788,6.55117356 11.291535,7.6917448 Z" /></svg></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-158"><a href="https://maximizeproject.app/dashboard"><span class="screen-reader-text">Dashboard</span><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M6.70846497,10.3082552 C6.43780491,9.94641406 6.5117218,9.43367048 6.87356298,9.16301045 C7.23540415,8.89235035 7.74814771,8.96626726 8.01880776,9.32810842 C8.5875786,10.0884893 9.45856383,10.5643487 10.4057058,10.6321812 C11.3528479,10.7000136 12.2827563,10.3531306 12.9541853,9.68145807 L15.3987642,7.23705399 C16.6390369,5.9529049 16.6212992,3.91168563 15.3588977,2.6492841 C14.0964962,1.38688258 12.0552769,1.36914494 10.77958,2.60113525 L9.37230725,4.00022615 C9.05185726,4.31881314 8.53381538,4.31730281 8.21522839,3.99685275 C7.89664141,3.67640269 7.89815174,3.15836082 8.21860184,2.83977385 L9.63432671,1.43240056 C11.5605503,-0.42800847 14.6223793,-0.401402004 16.5159816,1.49220028 C18.4095838,3.38580256 18.4361903,6.44763148 16.5658147,8.38399647 L14.1113741,10.838437 C13.1043877,11.8457885 11.7095252,12.366113 10.2888121,12.2643643 C8.86809903,12.1626156 7.56162126,11.4488264 6.70846497,10.3082552 Z M11.291535,7.6917448 C11.5621951,8.05358597 11.4882782,8.56632952 11.126437,8.83698955 C10.7645959,9.10764965 10.2518523,9.03373274 9.98119227,8.67189158 C9.4124214,7.91151075 8.54143617,7.43565129 7.59429414,7.36781884 C6.6471521,7.29998638 5.71724372,7.64686937 5.04581464,8.31854193 L2.60123581,10.762946 C1.36096312,12.0470951 1.37870076,14.0883144 2.64110228,15.3507159 C3.90350381,16.6131174 5.94472309,16.630855 7.21873082,15.400549 L8.61782171,14.0014581 C8.93734159,13.6819382 9.45538568,13.6819382 9.77490556,14.0014581 C10.0944254,14.320978 10.0944254,14.839022 9.77490556,15.1585419 L8.36567329,16.5675994 C6.43944966,18.4280085 3.37762074,18.401402 1.48401846,16.5077998 C-0.409583822,14.6141975 -0.436190288,11.5523685 1.43418536,9.61600353 L3.88862594,7.16156298 C4.89561225,6.15421151 6.29047483,5.63388702 7.71118789,5.7356357 C9.13190097,5.83738438 10.4383788,6.55117356 11.291535,7.6917448 Z" /></svg></a></li>
+
+						</ul>
+					</nav><!-- .social-menu -->
+
+				
+			</div><!-- .menu-bottom -->
+
+		</div><!-- .menu-wrapper -->
+
+	</div><!-- .menu-modal-inner -->
+
+</div><!-- .menu-modal -->
+
+	<div class="eckb-kb-template"  style="padding-top: 60px; padding-bottom: 50px; padding-left: 0px; padding-right: 0px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" >	        
+		<div id="epkb-main-page-container" role="main" aria-labelledby="Knowledge Base" class="epkb-css-full-reset epkb-basic-template eckb_mp_active_theme_twentytwenty">
+			<div class="epkb-full">  				<div id="epkb-content-container"  style="background-color: #bcdba9;"  >
+
+					<!--  Main Page Content -->
+					<div class="epkb-section-container">	
+		<div class="epkb-three-col eckb-categories-list" > 
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_1" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa epkbfa-user-circle-o" data-kb-category-icon="epkbfa-user-circle-o"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Exploring Identity</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts-3/"  class="epkb-mp-article" data-kb-article-id="582" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos-3/"  class="epkb-mp-article" data-kb-article-id="586" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites-3/"  class="epkb-mp-article" data-kb-article-id="584" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/activities/"  class="epkb-mp-article" data-kb-article-id="1225" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Activities</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_2" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa epkbfa-balance-scale" data-kb-category-icon="epkbfa-balance-scale"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Equity vs Equality</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts/"  class="epkb-mp-article" data-kb-article-id="538" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos/"  class="epkb-mp-article" data-kb-article-id="534" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites/"  class="epkb-mp-article" data-kb-article-id="536" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_3" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa epkbfa-heart" data-kb-category-icon="epkbfa-heart"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Exploring Emotions</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts-4/"  class="epkb-mp-article" data-kb-article-id="588" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos-4/"  class="epkb-mp-article" data-kb-article-id="590" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites-4/"  class="epkb-mp-article" data-kb-article-id="592" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_4" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa epkbfa-child" data-kb-category-icon="epkbfa-child"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Relationships with Students</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts-5/"  class="epkb-mp-article" data-kb-article-id="594" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos-5/"  class="epkb-mp-article" data-kb-article-id="596" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites-5/"  class="epkb-mp-article" data-kb-article-id="598" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_5" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_people" data-kb-category-icon="ep_font_icon_people"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Reflecting on Biases</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts-2/"  class="epkb-mp-article" data-kb-article-id="546" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos-2/"  class="epkb-mp-article" data-kb-article-id="544" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites-2/"  class="epkb-mp-article" data-kb-article-id="548" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_6" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_map" data-kb-category-icon="ep_font_icon_map"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Equity Literacy Framework</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/handouts-6/"  class="epkb-mp-article" data-kb-article-id="600" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Handouts</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/videos-6/"  class="epkb-mp-article" data-kb-article-id="602" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Videos</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/websites-6/"  class="epkb-mp-article" data-kb-article-id="604" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Websites</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_7" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_book" data-kb-category-icon="ep_font_icon_book"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Children&#039;s Book Suggestions</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/reading-for-culturally-responsive-classrooms/"  class="epkb-mp-article" data-kb-article-id="784" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Reading for Culturally Responsive Classrooms</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/diverse-book-project/"  class="epkb-mp-article" data-kb-article-id="772" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >UMBC Diverse Book Project</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_8" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_gear" data-kb-category-icon="ep_font_icon_gear"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >Maximize Mindset</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/2022/"  class="epkb-mp-article" data-kb-article-id="800" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >2022</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/2023/"  class="epkb-mp-article" data-kb-article-id="808" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >2023</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_9" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_clip_board" data-kb-category-icon="ep_font_icon_clip_board"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >User Manual</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/create-a-bookmark-and-add-to-your-home-screen/"  class="epkb-mp-article" data-kb-article-id="112" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Create a Bookmark and Add to Your Home Screen</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/resetting-your-password/"  class="epkb-mp-article" data-kb-article-id="116" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Resetting Your Password</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/security-and-confidentiality/"  class="epkb-mp-article" data-kb-article-id="118" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Security and Confidentiality</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/setting-a-goal/"  class="epkb-mp-article" data-kb-article-id="93" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Setting a Goal</span>
+			</span>
+		</a> 				</li> 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/troubleshooting/"  class="epkb-mp-article" data-kb-article-id="120" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Troubleshooting</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_10" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa epkbfa-suitcase" data-kb-category-icon="epkbfa-suitcase"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >My Professional Development</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > <li class="epkb-articles-coming-soon">Articles coming soon</li>
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+				<!-- Section Container ( Category Box ) -->
+				<section id="epkb_cat_11" class="no_shadow epkb-top-category-box"  style="border-radius: 14px; border-width: 0px; border-color: #F7F7F7; background-color: #f1f1f5; border-style: solid;"  >
+
+					<!-- Section Head -->
+					<div class="section-head"  style="border-bottom-width: 7px; background-color: #c1ced9; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-color: #edf2f6; padding-top: 20px; padding-bottom: 20px; padding-left: 4px; padding-right: 4px;"  >
+
+						<!-- Category Name + Icon -->
+						<div class="epkb-category-level-1 epkb-category--top-cat-icon"   style="color: #427a5f; text-align: center; justify-content: center;"  >
+
+							<!-- Icon Top / Left -->	                            									<span class="epkb-cat-icon epkbfa ep_font_icon_question" data-kb-category-icon="ep_font_icon_question"  style="color: #ffffff; font-size: 28px;" ></span>									<h2 class="epkb-cat-name"  style="color: #427a5f; font-size:21px;" >FAQs</h2>							
+							<!-- Icon Right -->     
+						</div>
+
+						<!-- Category Description -->											</div>
+
+					<!-- Section Body -->
+					<div class="epkb-section-body"  style="border-bottom-width: 0px; padding-top: 4px; padding-bottom: 4px; padding-left: 10px; padding-right: 10px; min-height: 200px;"  >						
+		<ul class="epkb-main-category epkb-articles"  style="padding-left: 10px;" > 				<li class="epkb-article-level-1 "   style="padding-bottom: 8px; padding-top: 8px;"  >   
+		<a href="https://learn.maximizeproject.app/knowledge-base/questions-about-using-the-website/"  class="epkb-mp-article" data-kb-article-id="122" >
+			<span class="eckb-article-title"  style="color: #0a0a0a;"  >
+				<span class="eckb-article-title__icon ep_font_icon_document"  style="color: #0a0a0a;"  aria-hidden="true"></span>
+				<span class="eckb-article-title__text" >Questions about Using the Website</span>
+			</span>
+		</a> 				</li> 
+		</ul> 
+					</div><!-- Section Body End -->
+
+				</section><!-- Section End -->  
+		</div>       					</div>
+
+				</div>
+			</div>
+		</div>   
+
+	</div>   			<footer id="site-footer" class="header-footer-group">
+
+				<div class="section-inner">
+
+					<div class="footer-credits">
+
+						<p class="footer-copyright">Copyright &copy; 2022 Ohio University. All Rights Reserved.
+							
+						</p><!-- .footer-copyright -->
+
+
+					</div><!-- .footer-credits -->
+
+					<a class="to-the-top" href="#site-header">
+						<span class="to-the-top-long">
+							To the top <span class="arrow" aria-hidden="true">&uarr;</span>						</span><!-- .to-the-top-long -->
+						<span class="to-the-top-short">
+							Up <span class="arrow" aria-hidden="true">&uarr;</span>						</span><!-- .to-the-top-short -->
+					</a><!-- .to-the-top -->
+
+				</div><!-- .section-inner -->
+
+			</footer><!-- #site-footer -->
+
+			<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	
+	</body>
+</html>
