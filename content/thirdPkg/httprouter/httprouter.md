@@ -322,11 +322,15 @@ router.NotFound = http.FileServer(http.Dir("public"))
 
 ## Documentation 
 
-### Overview 
+### 概述
 
 Package httprouter is a trie based high performance HTTP request router.
 
+​	httprouter 包是一个基于字典树的高性能 HTTP 请求路由器。
+
 A trivial example is:
+
+​	一个简单的例子是：
 
 ``` go
 package main
@@ -357,7 +361,11 @@ func main() {
 
 The router matches incoming requests by the request method and the path. If a handle is registered for this path and method, the router delegates the request to that function. For the methods GET, POST, PUT, PATCH and DELETE shortcut functions exist to register handles, for all other methods router.Handle can be used.
 
+​	路由器通过请求方法和路径匹配传入的请求。如果为该路径和方法注册了一个处理程序，路由器会将请求委托给该函数。对于 `GET`、`POST`、`PUT`、`PATCH` 和 `DELETE` 方法，存在用于注册处理程序的快捷函数，对于所有其他方法，可以使用 `router.Handle`。
+
 The registered path, against which the router matches incoming requests, can contain two types of parameters:
+
+​	路由器用来匹配传入请求的已注册路径可以包含两种类型的参数：
 
 ```
 Syntax    Type
@@ -366,6 +374,8 @@ Syntax    Type
 ```
 
 Named parameters are dynamic path segments. They match anything until the next '/' or the path end:
+
+​	命名参数是动态路径段。它们匹配到下一个“/”或路径结束之前的所有内容：
 
 ```
 Path: /blog/:category/:post
@@ -379,6 +389,8 @@ Requests:
 
 Catch-all parameters match anything until the path end, including the directory index (the '/' before the catch-all). Since they match anything until the end, catch-all parameters must always be the final path element.
 
+​	万能参数匹配到路径结束之前的所有内容，包括目录索引（万能参数之前的“/”）。由于它们匹配到结束之前的所有内容，因此万能参数必须始终是路径的最后一个元素。
+
 ```
 Path: /files/*filepath
 
@@ -391,6 +403,8 @@ Requests:
 
 The value of parameters is saved as a slice of the Param struct, consisting each of a key and a value. The slice is passed to the Handle func as a third parameter. There are two ways to retrieve the value of a parameter:
 
+​	参数的值保存在 Param 结构的切片中，每个参数都由一个键和一个值组成。该切片作为第三个参数传递给 Handle 函数。有两种方法可以检索参数的值：
+
 ```
 // by the name of the parameter
 user := ps.ByName("user") // defined by :user or *user
@@ -400,36 +414,11 @@ thirdKey   := ps[2].Key   // the name of the 3rd parameter
 thirdValue := ps[2].Value // the value of the 3rd parameter
 ```
 
-### Index 
-
-- [Variables](https://pkg.go.dev/github.com/julienschmidt/httprouter#pkg-variables)
-- [func CleanPath(p string) string](https://pkg.go.dev/github.com/julienschmidt/httprouter#CleanPath)
-- [type Handle](https://pkg.go.dev/github.com/julienschmidt/httprouter#Handle)
-- [type Param](https://pkg.go.dev/github.com/julienschmidt/httprouter#Param)
-- [type Params](https://pkg.go.dev/github.com/julienschmidt/httprouter#Params)
-- - [func ParamsFromContext(ctx context.Context) Params](https://pkg.go.dev/github.com/julienschmidt/httprouter#ParamsFromContext)
-- - [func (ps Params) ByName(name string) string](https://pkg.go.dev/github.com/julienschmidt/httprouter#Params.ByName)
-- [type Router](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router)
-- - [func New() *Router](https://pkg.go.dev/github.com/julienschmidt/httprouter#New)
-- - [func (r *Router) DELETE(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.DELETE)
-  - [func (r *Router) GET(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.GET)
-  - [func (r *Router) HEAD(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.HEAD)
-  - [func (r *Router) Handle(method, path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.Handle)
-  - [func (r *Router) Handler(method, path string, handler http.Handler)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.Handler)
-  - [func (r *Router) HandlerFunc(method, path string, handler http.HandlerFunc)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.HandlerFunc)
-  - [func (r *Router) Lookup(method, path string) (Handle, Params, bool)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.Lookup)
-  - [func (r *Router) OPTIONS(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.OPTIONS)
-  - [func (r *Router) PATCH(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.PATCH)
-  - [func (r *Router) POST(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.POST)
-  - [func (r *Router) PUT(path string, handle Handle)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.PUT)
-  - [func (r *Router) ServeFiles(path string, root http.FileSystem)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.ServeFiles)
-  - [func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request)](https://pkg.go.dev/github.com/julienschmidt/httprouter#Router.ServeHTTP)
-
-### Constants 
+### 常量
 
 This section is empty.
 
-### Variables 
+### 变量
 
 [View Source](https://github.com/julienschmidt/httprouter/blob/v1.3.0/router.go#L115)
 
@@ -439,7 +428,9 @@ var ParamsKey = paramsKey{}
 
 ParamsKey is the request context key under which URL params are stored.
 
-### Functions 
+​	ParamsKey 是存储 URL 参数的请求上下文键。
+
+### 函数
 
 #### func CleanPath 
 
@@ -449,16 +440,26 @@ func CleanPath(p string) string
 
 CleanPath is the URL version of path.Clean, it returns a canonical URL path for p, eliminating . and .. elements.
 
+​	`CleanPath` 是 `path.Clean` 的 URL 版本，它返回 `p` 的规范 URL 路径，消除了 `.` 和 `..` 元素。
+
 The following rules are applied iteratively until no further processing can be done:
 
+​	以下规则会反复应用，直到无法进行进一步处理：
+
 1. Replace multiple slashes with a single slash.
-2. Eliminate each . path name element (the current directory).
-3. Eliminate each inner .. path name element (the parent directory) along with the non-.. element that precedes it.
-4. Eliminate .. elements that begin a rooted path: that is, replace "/.." by "/" at the beginning of a path.
+2. 将多个斜杠替换为单个斜杠。
+3. Eliminate each . path name element (the current directory).
+4. 消除每个 . 路径名元素（当前目录）。
+5. Eliminate each inner .. path name element (the parent directory) along with the non-.. element that precedes it.
+6. 消除每个内部 `..` 路径名元素（父目录）以及紧靠其前面的非 `..` 元素。
+7. Eliminate .. elements that begin a rooted path: that is, replace "/.." by "/" at the beginning of a path.
+8. 消除开始根路径的 `..` 元素`：`即，在路径开头将 “`/..`” 替换为 “`/`”。
 
 If the result of this process is an empty string, "/" is returned
 
-### Types 
+​	如果此过程的结果为空字符串，则返回“/”
+
+### 类型
 
 #### type Handle 
 
@@ -467,6 +468,8 @@ type Handle func(http.ResponseWriter, *http.Request, Params)
 ```
 
 Handle is a function that can be registered to a route to handle HTTP requests. Like http.HandlerFunc, but has a third parameter for the values of wildcards (variables).
+
+​	Handle 是可以注册到路由以处理 HTTP 请求的函数。与 `http.HandlerFunc` 类似，但具有第三个参数，用于通配符（变量）的值。
 
 #### type Param  <- 1.1.0
 
@@ -479,6 +482,8 @@ type Param struct {
 
 Param is a single URL parameter, consisting of a key and a value.
 
+​	`Param` 是单个 URL 参数，由键和值组成。
+
 #### type Params  <- 1.1.0
 
 ``` go
@@ -486,6 +491,8 @@ type Params []Param
 ```
 
 Params is a Param-slice, as returned by the router. The slice is ordered, the first URL parameter is also the first slice value. It is therefore safe to read values by the index.
+
+​	`Params` 是 `Param` 切片，由路由器返回。该切片是有序的，第一个 URL 参数也是第一个切片值。因此，按索引读取值是安全的。
 
 #### func ParamsFromContext  <- 1.2.0
 
@@ -495,6 +502,8 @@ func ParamsFromContext(ctx context.Context) Params
 
 ParamsFromContext pulls the URL parameters from a request context, or returns nil if none are present.
 
+​	`ParamsFromContext` 从请求上下文中提取 URL 参数，如果不存在，则返回 nil。
+
 #### (Params) ByName  <- 1.1.0
 
 ``` go
@@ -502,6 +511,8 @@ func (ps Params) ByName(name string) string
 ```
 
 ByName returns the value of the first Param which key matches the given name. If no matching Param is found, an empty string is returned.
+
+​	`ByName` 返回键与给定名称匹配的第一个 Param 的值。如果找不到匹配的 Param，则返回一个空字符串。
 
 #### type Router 
 
@@ -567,6 +578,8 @@ type Router struct {
 
 Router is a http.Handler which can be used to dispatch requests to different handler functions via configurable routes
 
+​	Router 是一个 `http.Handler`，可用于通过可配置路由将请求分派到不同的处理程序函数
+
 #### func New 
 
 ``` go
@@ -574,6 +587,8 @@ func New() *Router
 ```
 
 New returns a new initialized Router. Path auto-correction, including trailing slashes, is enabled by default.
+
+​	`New` 返回一个新的已初始化的 Router。默认情况下，启用路径自动更正，包括尾随斜杠。
 
 #### (*Router) DELETE 
 
@@ -583,6 +598,8 @@ func (r *Router) DELETE(path string, handle Handle)
 
 DELETE is a shortcut for router.Handle(http.MethodDelete, path, handle)
 
+​	`DELETE` 是 `router.Handle(http.MethodDelete, path, handle)` 的快捷方式
+
 #### (*Router) GET 
 
 ``` go
@@ -590,6 +607,8 @@ func (r *Router) GET(path string, handle Handle)
 ```
 
 GET is a shortcut for router.Handle(http.MethodGet, path, handle)
+
+​	`GET` 是 `router.Handle(http.MethodGet, path, handle)` 的快捷方式
 
 #### (*Router) HEAD  <- 1.1.0
 
@@ -599,6 +618,8 @@ func (r *Router) HEAD(path string, handle Handle)
 
 HEAD is a shortcut for router.Handle(http.MethodHead, path, handle)
 
+​	`HEAD` 是 `router.Handle(http.MethodHead, path, handle)` 的快捷方式
+
 #### (*Router) Handle 
 
 ``` go
@@ -607,9 +628,15 @@ func (r *Router) Handle(method, path string, handle Handle)
 
 Handle registers a new request handle with the given path and method.
 
+​	`Handle` 使用给定的路径和方法注册新的请求句柄。
+
 For GET, POST, PUT, PATCH and DELETE requests the respective shortcut functions can be used.
 
+​	对于 GET、POST、PUT、PATCH 和 DELETE 请求，可以使用相应的快捷方式函数。
+
 This function is intended for bulk loading and to allow the usage of less frequently used, non-standardized or custom methods (e.g. for internal communication with a proxy).
+
+​	此函数旨在进行批量加载，并允许使用不常用的、非标准化或自定义方法（例如，用于与代理进行内部通信）。
 
 #### (*Router) Handler <- 1.1.0
 
@@ -619,6 +646,8 @@ func (r *Router) Handler(method, path string, handler http.Handler)
 
 Handler is an adapter which allows the usage of an http.Handler as a request handle. The Params are available in the request context under ParamsKey.
 
+​	`Handler` 是一个适配器，它允许将 `http.Handler` 用作请求句柄。`Params` 在 `ParamsKey` 下的请求上下文中可用。
+
 #### (*Router) HandlerFunc 
 
 ``` go
@@ -626,6 +655,8 @@ func (r *Router) HandlerFunc(method, path string, handler http.HandlerFunc)
 ```
 
 HandlerFunc is an adapter which allows the usage of an http.HandlerFunc as a request handle.
+
+​	`HandlerFunc` 是一个适配器，它允许将 `http.HandlerFunc` 用作请求句柄。
 
 #### (*Router) Lookup <- 1.1.0
 
@@ -635,6 +666,8 @@ func (r *Router) Lookup(method, path string) (Handle, Params, bool)
 
 Lookup allows the manual lookup of a method + path combo. This is e.g. useful to build a framework around this router. If the path was found, it returns the handle function and the path parameter values. Otherwise the third return value indicates whether a redirection to the same path with an extra / without the trailing slash should be performed.
 
+​	`Lookup` 允许手动查找方法 + 路径组合。例如，这对于围绕此路由器构建框架很有用。如果找到路径，它将返回处理函数和路径参数值。否则，第三个返回值指示是否应执行对具有额外 / 的相同路径的重定向，而无需尾随斜杠。
+
 #### (*Router) OPTIONS <- 1.1.0
 
 ``` go
@@ -642,6 +675,8 @@ func (r *Router) OPTIONS(path string, handle Handle)
 ```
 
 OPTIONS is a shortcut for router.Handle(http.MethodOptions, path, handle)
+
+​	`OPTIONS` 是 `router.Handle(http.MethodOptions, path, handle)` 的快捷方式
 
 #### (*Router) PATCH 
 
@@ -651,6 +686,8 @@ func (r *Router) PATCH(path string, handle Handle)
 
 PATCH is a shortcut for router.Handle(http.MethodPatch, path, handle)
 
+​	`PATCH` 是 `router.Handle(http.MethodPatch, path, handle)` 的快捷方式
+
 #### (*Router) POST 
 
 ``` go
@@ -658,6 +695,8 @@ func (r *Router) POST(path string, handle Handle)
 ```
 
 POST is a shortcut for router.Handle(http.MethodPost, path, handle)
+
+​	`POST` 是 `router.Handle(http.MethodPost, path, handle)` 的快捷方式
 
 #### (*Router) PUT 
 
@@ -667,13 +706,17 @@ func (r *Router) PUT(path string, handle Handle)
 
 PUT is a shortcut for router.Handle(http.MethodPut, path, handle)
 
+​	`PUT` 是 `router.Handle(http.MethodPut, path, handle)` 的快捷方式
+
 #### (*Router) ServeFiles 
 
 ``` go
 func (r *Router) ServeFiles(path string, root http.FileSystem)
 ```
 
-ServeFiles serves files from the given file system root. The path must end with "/*filepath", files are then served from the local path /defined/root/dir/*filepath. For example if root is "/etc" and *filepath is "passwd", the local file "/etc/passwd" would be served. Internally a http.FileServer is used, therefore http.NotFound is used instead of the Router's NotFound handler. To use the operating system's file system implementation, use http.Dir:
+ServeFiles serves files from the given file system root. The path must end with "`/*filepath`", files are then served from the local path `/defined/root/dir/*filepath`. For example if root is "`/etc`" and `*filepath` is "passwd", the local file "/etc/passwd" would be served. Internally a http.FileServer is used, therefore http.NotFound is used instead of the Router's NotFound handler. To use the operating system's file system implementation, use http.Dir:
+
+​	`ServeFiles` 从给定的文件系统根目录提供文件。路径必须以“`/*filepath`”结尾，然后从本地路径 `/defined/root/dir/*filepath` 提供文件。例如，如果根目录是“`/etc`”，而 `*filepath` 是“`passwd`”，则会提供本地文件“`/etc/passwd`”。在内部使用 `http.FileServer`，因此使用 `http.NotFound` 而不是路由器的 NotFound 处理程序。要使用操作系统的文件系统实现，请使用 `http.Dir`：
 
 ```
 router.ServeFiles("/src/*filepath", http.Dir("/var/www"))
@@ -686,3 +729,5 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request)
 ```
 
 ServeHTTP makes the router implement the http.Handler interface.
+
+​	`ServeHTTP` 使路由器实现 `http.Handler` 接口。
