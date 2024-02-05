@@ -10,7 +10,7 @@ draft = false
 
 # Six years of Go - go 六岁了
 
-https://go.dev/blog/6years
+> 原文：[https://go.dev/blog/6years](https://go.dev/blog/6years)
 
 Andrew Gerrand
 10 November 2015

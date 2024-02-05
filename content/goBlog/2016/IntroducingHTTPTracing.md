@@ -10,7 +10,7 @@ draft = false
 
 # Introducing HTTP Tracing - 介绍一下HTTP追踪
 
-https://go.dev/blog/http-tracing
+> 原文：[https://go.dev/blog/http-tracing](https://go.dev/blog/http-tracing)
 
 Jaana Burcu Dogan
 4 October 2016

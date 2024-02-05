@@ -10,7 +10,7 @@ draft = false
 
 # The Go Gopher
 
-https://go.dev/blog/gopher
+> 原文：[https://go.dev/blog/gopher](https://go.dev/blog/gopher)
 
 Rob Pike and Andrew Gerrand
 24 March 2014

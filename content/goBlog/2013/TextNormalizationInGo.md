@@ -10,7 +10,7 @@ draft = false
 
 # Text normalization in Go - go 的文本规范化
 
-https://go.dev/blog/normalization
+> 原文：[https://go.dev/blog/normalization](https://go.dev/blog/normalization)
 
 Marcel van Lohuizen
 26 November 2013

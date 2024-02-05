@@ -10,7 +10,7 @@ draft = false
 
 # Go: one year ago today - go: 一年前的今天
 
-https://go.dev/blog/1year
+> 原文：[https://go.dev/blog/1year](https://go.dev/blog/1year)
 
 Andrew Gerrand
 10 November 2010

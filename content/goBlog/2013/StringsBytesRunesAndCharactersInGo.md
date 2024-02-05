@@ -10,7 +10,7 @@ draft = false
 
 # Strings, bytes, runes and characters in Go - go 中的字符串、字节、符文和字符
 
-https://go.dev/blog/strings
+> 原文：[https://go.dev/blog/strings](https://go.dev/blog/strings)
 
 Rob Pike
 23 October 2013

@@ -10,7 +10,7 @@ draft = false
 
 # GopherChina Trip Report - GopherChina之旅报告
 
-https://go.dev/blog/gopherchina
+> 原文：[https://go.dev/blog/gopherchina](https://go.dev/blog/gopherchina)
 
 Robert Griesemer
 1 July 2015

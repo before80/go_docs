@@ -10,7 +10,7 @@ draft = false
 
 # Contexts and structs - 上下文和结构
 
-https://go.dev/blog/context-and-structs
+> 原文：[https://go.dev/blog/context-and-structs](https://go.dev/blog/context-and-structs)
 
 Jean de Klerk, Matt T. Proud
 24 February 2021

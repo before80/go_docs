@@ -9,7 +9,7 @@ draft = false
 
 # File Upload
 
-https://echo.labstack.com/docs/cookbook/file-upload
+> 原文：[https://echo.labstack.com/docs/cookbook/file-upload](https://echo.labstack.com/docs/cookbook/file-upload)
 
 ## Upload single file with parameters
 

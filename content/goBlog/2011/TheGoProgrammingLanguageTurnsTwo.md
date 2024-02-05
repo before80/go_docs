@@ -10,7 +10,7 @@ draft = false
 
 # The Go Programming Language turns two - go 编程语言两岁了
 
-https://go.dev/blog/2years
+> 原文：[https://go.dev/blog/2years](https://go.dev/blog/2years)
 
 Andrew Gerrand
 10 November 2011

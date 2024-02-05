@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/delete.html](https://gorm.io/docs/delete.html)
+> 原文：[https://gorm.io/docs/delete.html](https://gorm.io/docs/delete.html)
 
 ## 删除记录 Delete a Record
 

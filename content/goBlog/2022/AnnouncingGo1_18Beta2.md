@@ -10,7 +10,7 @@ draft = false
 
 # Announcing Go 1.18 Beta 2 - 宣布Go 1.18 Beta 2
 
-https://go.dev/blog/go1.18beta2
+> 原文：[https://go.dev/blog/go1.18beta2](https://go.dev/blog/go1.18beta2)
 
 Jeremy Faller and Steve Francia, for the Go team
 31 January 2022

@@ -10,7 +10,7 @@ draft = false
 
 # Deploying Go servers with Docker - 用Docker部署 go 服务器
 
-https://go.dev/blog/docker
+> 原文：[https://go.dev/blog/docker](https://go.dev/blog/docker)
 
 Andrew Gerrand
 26 September 2014

@@ -10,7 +10,7 @@ draft = false
 
 # Godoc: documenting Go code - godoc：文档化 go 代码
 
-https://go.dev/blog/godoc
+> 原文：[https://go.dev/blog/godoc](https://go.dev/blog/godoc)
 
 Andrew Gerrand
 31 March 2011

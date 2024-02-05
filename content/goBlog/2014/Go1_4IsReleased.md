@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.4 is released - go 1.4发布了
 
-https://go.dev/blog/go1.4
+> 原文：[https://go.dev/blog/go1.4](https://go.dev/blog/go1.4)
 
 Andrew Gerrand
 10 December 2014

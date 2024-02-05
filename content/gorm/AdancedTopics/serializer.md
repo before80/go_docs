@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/serializer.html](https://gorm.io/docs/serializer.html)
+> 原文：[https://gorm.io/docs/serializer.html](https://gorm.io/docs/serializer.html)
 
 Serializer is an extensible interface that allows to customize how to serialize and deserialize data with databasae.
 

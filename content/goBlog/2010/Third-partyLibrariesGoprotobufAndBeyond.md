@@ -10,7 +10,7 @@ draft = false
 
 # Third-party libraries: goprotobuf and beyond - 第三方库：goprotobuf及其他
 
-https://go.dev/blog/protobuf
+> 原文：[https://go.dev/blog/protobuf](https://go.dev/blog/protobuf)
 
 Andrew Gerrand
 20 April 2010

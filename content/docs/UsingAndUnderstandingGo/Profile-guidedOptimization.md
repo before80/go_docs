@@ -8,7 +8,7 @@ draft = false
 
 # Profile-guided optimization
 
-https://go.dev/doc/pgo
+> 原文：[https://go.dev/doc/pgo](https://go.dev/doc/pgo)
 
 
 

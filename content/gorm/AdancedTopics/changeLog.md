@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/changelog.html](https://gorm.io/docs/changelog.html)
+> 原文：[https://gorm.io/docs/changelog.html](https://gorm.io/docs/changelog.html)
 
 ## v2.0 - 2020.08
 

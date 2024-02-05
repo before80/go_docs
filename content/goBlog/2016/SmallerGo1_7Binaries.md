@@ -10,7 +10,7 @@ draft = false
 
 # Smaller Go 1.7 binaries - 更小的 go 1.7二进制文件
 
-https://go.dev/blog/go1.7-binary-size
+> 原文：[https://go.dev/blog/go1.7-binary-size](https://go.dev/blog/go1.7-binary-size)
 
 David Crawshaw
 18 August 2016

@@ -10,7 +10,7 @@ draft = false
 
 ## Fourteen Years of Go 十四年的 Go
 
-[https://go.dev/blog/14years](https://go.dev/blog/14years)
+> 原文：[https://go.dev/blog/14years](https://go.dev/blog/14years)
 
 Russ Cox, for the Go team
 

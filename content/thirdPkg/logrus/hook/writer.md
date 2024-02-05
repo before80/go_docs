@@ -10,7 +10,7 @@ draft = false
 
 # Writer Hooks for Logrus - Logrus 的 Writer 钩子
 
-https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer
+> 原文：[https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer](https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer)
 
 ​	将指定级别的日志发送到任何实现了 `io.Writer` 接口的对象。
 

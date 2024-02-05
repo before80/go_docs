@@ -10,7 +10,7 @@ draft = false
 
 # Updating the Go Code of Conduct - 更新 go 行为准则
 
-https://go.dev/blog/conduct-2018
+> 原文：[https://go.dev/blog/conduct-2018](https://go.dev/blog/conduct-2018)
 
 Steve Francia
 23 May 2018

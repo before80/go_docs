@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/sharding.html](https://gorm.io/docs/sharding.html)
+> 原文：[https://gorm.io/docs/sharding.html](https://gorm.io/docs/sharding.html)
 
 Sharding plugin using SQL parser and replace for splits large tables into smaller ones, redirects Query into sharding tables. Give you a high performance database access.
 

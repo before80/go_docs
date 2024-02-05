@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.9 is released - go 1.9发布了
 
-https://go.dev/blog/go1.9
+> 原文：[https://go.dev/blog/go1.9](https://go.dev/blog/go1.9)
 
 Francesc Campoy
 24 August 2017

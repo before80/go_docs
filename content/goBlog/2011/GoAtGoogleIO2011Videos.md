@@ -10,7 +10,7 @@ draft = false
 
 # Go at Google I/O 2011: videos - 谷歌2011年I/O大会上的 go：视频
 
-https://go.dev/blog/io2011
+> 原文：[https://go.dev/blog/io2011](https://go.dev/blog/io2011)
 
 Andrew Gerrand
 23 May 2011

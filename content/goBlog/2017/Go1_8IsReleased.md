@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.8 is released - go 1.8发布了
 
-https://go.dev/blog/go1.8
+> 原文：[https://go.dev/blog/go1.8](https://go.dev/blog/go1.8)
 
 Chris Broadfoot
 16 February 2017

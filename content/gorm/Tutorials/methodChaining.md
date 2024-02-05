@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/method_chaining.html](https://gorm.io/docs/method_chaining.html)
+> 原文：[https://gorm.io/docs/method_chaining.html](https://gorm.io/docs/method_chaining.html)
 
 GORM allows method chaining, so you can write code like this:
 

@@ -10,7 +10,7 @@ draft = false
 
 # Two recent Go talks - 最近的两次 go 讲座
 
-https://go.dev/blog/two-recent-go-talks
+> 原文：[https://go.dev/blog/two-recent-go-talks](https://go.dev/blog/two-recent-go-talks)
 
 Andrew Gerrand
 2 January 2013

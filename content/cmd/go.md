@@ -8,7 +8,7 @@ draft = false
 
 +++
 
-https://pkg.go.dev/cmd/go@go1.21.5
+> 原文：[https://pkg.go.dev/cmd/go@go1.21.5](https://pkg.go.dev/cmd/go@go1.21.5)
 
 ## Overview 
 

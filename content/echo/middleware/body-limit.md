@@ -11,7 +11,7 @@ draft = false
 
 # 请求体限制
 
-https://echo.labstack.com/docs/middleware/body-limit
+> 原文：[https://echo.labstack.com/docs/middleware/body-limit](https://echo.labstack.com/docs/middleware/body-limit)
 
 ​	请求体限制中间件设置请求体的最大允许大小，如果大小超过配置的限制，则发送 "413 - Request Entity Too Large" 响应。请求体限制基于请求头中的 `Content-Length` 和实际读取的内容来确定，这使得它非常安全。
 

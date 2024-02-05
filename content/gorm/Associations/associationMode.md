@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/associations.html](https://gorm.io/docs/associations.html)
+> 原文：[https://gorm.io/docs/associations.html](https://gorm.io/docs/associations.html)
 
 ## 自动创建/更新 Auto Create/Update
 

@@ -10,7 +10,7 @@ draft = false
 
 # Share your feedback about developing with Go 分享您对使用Go开发的反馈
 
-https://go.dev/blog/survey2022-q2
+> 原文：[https://go.dev/blog/survey2022-q2](https://go.dev/blog/survey2022-q2)
 
 Todd Kulesza, for the Go team
 1 June 2022

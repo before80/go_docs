@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http@go1.21.3
+> 原文：[https://pkg.go.dev/net/http@go1.21.3](https://pkg.go.dev/net/http@go1.21.3)
 
 Package http provides HTTP client and server implementations.
 
@@ -278,8 +278,8 @@ This mechanism is intended only for trailers that are not known prior to the hea
 ​	该机制仅用于不在编写标头之前未知的trailers。如果trailers的集合是固定的或在编写标头之前已知，则首选常规的Go trailers机制：
 
 ```
-https://pkg.go.dev/net/http#ResponseWriter
-https://pkg.go.dev/net/http#example-ResponseWriter-Trailers
+> 原文：[https://pkg.go.dev/net/http#ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter)
+> 原文：[https://pkg.go.dev/net/http#example-ResponseWriter-Trailers](https://pkg.go.dev/net/http#example-ResponseWriter-Trailers)
 ```
 
 ## 变量

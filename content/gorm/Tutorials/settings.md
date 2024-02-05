@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/settings.html](https://gorm.io/docs/settings.html)
+> 原文：[https://gorm.io/docs/settings.html](https://gorm.io/docs/settings.html)
 
 GORM provides `Set`, `Get`, `InstanceSet`, `InstanceGet` methods allow users pass values to [hooks](https://gorm.io/docs/hooks.html) or other methods
 

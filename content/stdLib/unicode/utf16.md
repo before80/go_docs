@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/unicode/utf16@go1.21.3
+> 原文：[https://pkg.go.dev/unicode/utf16@go1.21.3](https://pkg.go.dev/unicode/utf16@go1.21.3)
 
 Package utf16 implements encoding and decoding of UTF-16 sequences.
 

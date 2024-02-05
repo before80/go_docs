@@ -10,7 +10,7 @@ draft = false
 
 # Static
 
-https://echo.labstack.com/docs/middleware/static
+> 原文：[https://echo.labstack.com/docs/middleware/static](https://echo.labstack.com/docs/middleware/static)
 
 Static middleware can be used to serve static files from the provided root directory.
 

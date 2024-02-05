@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/os/exec@go1.21.3
+> 原文：[https://pkg.go.dev/os/exec@go1.21.3](https://pkg.go.dev/os/exec@go1.21.3)
 
 Package exec runs external commands. It wraps os.StartProcess to make it easier to remap stdin and stdout, connect I/O with pipes, and do other adjustments.
 

@@ -10,7 +10,7 @@ draft = false
 
 # Redirect
 
-https://echo.labstack.com/docs/middleware/redirect
+> 原文：[https://echo.labstack.com/docs/middleware/redirect](https://echo.labstack.com/docs/middleware/redirect)
 
 ## HTTPS Redirect
 

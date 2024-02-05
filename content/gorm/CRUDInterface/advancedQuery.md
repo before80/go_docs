@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/advanced_query.html](https://gorm.io/docs/advanced_query.html)
+> 原文：[https://gorm.io/docs/advanced_query.html](https://gorm.io/docs/advanced_query.html)
 
 ## 智能选择字段 Smart Select Fields
 

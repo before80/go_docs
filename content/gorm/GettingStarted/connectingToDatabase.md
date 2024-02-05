@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/connecting_to_the_database.html](https://gorm.io/docs/connecting_to_the_database.html)
+> 原文：[https://gorm.io/docs/connecting_to_the_database.html](https://gorm.io/docs/connecting_to_the_database.html)
 
 GORM officially supports the databases MySQL, PostgreSQL, SQLite, SQL Server, and TiDB
 
@@ -236,7 +236,7 @@ func main() {
 
 ## Clickhouse
 
-[https://github.com/go-gorm/clickhouse](https://github.com/go-gorm/clickhouse)
+> 原文：[https://github.com/go-gorm/clickhouse](https://github.com/go-gorm/clickhouse)
 
 ```go
 import (

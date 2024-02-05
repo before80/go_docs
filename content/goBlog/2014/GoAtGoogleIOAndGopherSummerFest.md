@@ -10,7 +10,7 @@ draft = false
 
 # Go at Google I/O and Gopher SummerFest - 在Google I/O和Gopher SummerFest上的 go
 
-https://go.dev/blog/io2014
+> 原文：[https://go.dev/blog/io2014](https://go.dev/blog/io2014)
 
 Francesc Campoy
 6 October 2014

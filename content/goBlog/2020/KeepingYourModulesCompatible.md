@@ -10,7 +10,7 @@ draft = false
 
 # Keeping Your Modules Compatible - 保持您的模块兼容
 
-https://go.dev/blog/module-compatibility
+> 原文：[https://go.dev/blog/module-compatibility](https://go.dev/blog/module-compatibility)
 
 Jean de Klerk and Jonathan Amsterdam
 7 July 2020

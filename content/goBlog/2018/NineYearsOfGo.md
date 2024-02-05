@@ -10,7 +10,7 @@ draft = false
 
 # Nine years of Go - go 9 岁了
 
-https://go.dev/blog/9years
+> 原文：[https://go.dev/blog/9years](https://go.dev/blog/9years)
 
 Steve Francia
 10 November 2018

@@ -10,7 +10,7 @@ draft = false
 
 # Go GC: Prioritizing low latency and simplicity - go GC：优先考虑低延迟和简单性
 
-https://go.dev/blog/go15gc
+> 原文：[https://go.dev/blog/go15gc](https://go.dev/blog/go15gc)
 
 Richard Hudson
 31 August 2015

@@ -10,7 +10,7 @@ draft = false
 
 # A conversation with the Go team - 与 go 团队的对话
 
-https://go.dev/blog/io2013-chat
+> 原文：[https://go.dev/blog/io2013-chat](https://go.dev/blog/io2013-chat)
 
 6 June 2013
 

@@ -10,7 +10,7 @@ draft = false
 
 # Experiment, Simplify, Ship - 实验, 简化, ship
 
-https://go.dev/blog/experiment
+> 原文：[https://go.dev/blog/experiment](https://go.dev/blog/experiment)
 
 Russ Cox
 1 August 2019

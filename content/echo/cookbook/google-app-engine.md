@@ -9,7 +9,7 @@ draft = false
 
 # Google App Engine
 
-https://echo.labstack.com/docs/cookbook/google-app-engine
+> 原文：[https://echo.labstack.com/docs/cookbook/google-app-engine](https://echo.labstack.com/docs/cookbook/google-app-engine)
 
 Google App Engine (GAE) provides a range of hosting options from pure PaaS (App Engine Classic) through Managed VMs to fully self-managed or container-driven Compute Engine instances. Echo works great with all of these but requires a few changes to the usual examples to run on the AppEngine Classic and Managed VM options. With a small amount of effort though it's possible to produce a codebase that will run on these and also non-managed platforms automatically.
 

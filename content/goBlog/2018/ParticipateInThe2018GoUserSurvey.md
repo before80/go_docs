@@ -10,7 +10,7 @@ draft = false
 
 # Participate in the 2018 Go User Survey -  参与2018年 go 用户调查
 
-https://go.dev/blog/survey2018
+> 原文：[https://go.dev/blog/survey2018](https://go.dev/blog/survey2018)
 
 Ran Tao, Steve Francia
 8 November 2018

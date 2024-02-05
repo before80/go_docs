@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.6 is released - go 1.6发布了
 
-https://go.dev/blog/go1.6
+> 原文：[https://go.dev/blog/go1.6](https://go.dev/blog/go1.6)
 
 Andrew Gerrand
 17 February 2016

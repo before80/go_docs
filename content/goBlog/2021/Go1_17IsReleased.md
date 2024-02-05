@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.17 is released - go 1.17版发布了
 
-https://go.dev/blog/go1.17
+> 原文：[https://go.dev/blog/go1.17](https://go.dev/blog/go1.17)
 
 Matt Pearring and Alex Rakoczy
 16 August 2021

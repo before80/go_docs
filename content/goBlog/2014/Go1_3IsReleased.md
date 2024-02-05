@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.3 is released - go 1.3发布了
 
-https://go.dev/blog/go1.3
+> 原文：[https://go.dev/blog/go1.3](https://go.dev/blog/go1.3)
 
 Andrew Gerrand
 18 June 2014

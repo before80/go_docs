@@ -11,7 +11,7 @@ draft = false
 
 # Casbin Auth
 
-https://echo.labstack.com/docs/middleware/casbin-auth
+> 原文：[https://echo.labstack.com/docs/middleware/casbin-auth](https://echo.labstack.com/docs/middleware/casbin-auth)
 
 > 注意
 >

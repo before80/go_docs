@@ -11,7 +11,7 @@ draft = false
 
 ##  Methods 方法
 
-[https://go.dev/tour/methods/1](https://go.dev/tour/methods/1)
+> 原文：[https://go.dev/tour/methods/1](https://go.dev/tour/methods/1)
 
 ​	Go没有类。不过，您可以在类型上定义方法。
 
@@ -46,7 +46,7 @@ func main() {
 
 ##  Methods are functions 方法即函数
 
-[https://go.dev/tour/methods/2](https://go.dev/tour/methods/2)
+> 原文：[https://go.dev/tour/methods/2](https://go.dev/tour/methods/2)
 
 ​	记住：方法只是一个带有接收器参数的函数。
 
@@ -77,7 +77,7 @@ func main() {
 
 ##  Methods continued 方法（续）
 
-[https://go.dev/tour/methods/3](https://go.dev/tour/methods/3)
+> 原文：[https://go.dev/tour/methods/3](https://go.dev/tour/methods/3)
 
 ​	您也可以在非结构体类型上声明方法。
 
@@ -111,7 +111,7 @@ func main() {
 
 ##  Pointer receivers 指针接收器
 
-[https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
+> 原文：[https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
 
 ​	您可以声明带有指针接收器的方法。
 
@@ -158,7 +158,7 @@ func main() {
 
 ##  Pointers and functions 指针和函数
 
-[https://go.dev/tour/methods/5](https://go.dev/tour/methods/5)
+> 原文：[https://go.dev/tour/methods/5](https://go.dev/tour/methods/5)
 
 ​	这里我们看到`Abs`和`Scale`方法被改写成了函数。
 
@@ -197,7 +197,7 @@ func main() {
 
 ##  Methods and pointer indirection 方法和指针重定向
 
-[https://go.dev/tour/methods/6](https://go.dev/tour/methods/6)
+> 原文：[https://go.dev/tour/methods/6](https://go.dev/tour/methods/6)
 
 ​	对比前面两个程序，您可能会注意到，带有指针参数的函数必须接受一个指针。
 
@@ -253,7 +253,7 @@ func main() {
 
 ## Methods and pointer indirection (2) 方法和指针重定向 (2)
 
-[https://go.dev/tour/methods/7](https://go.dev/tour/methods/7)
+> 原文：[https://go.dev/tour/methods/7](https://go.dev/tour/methods/7)
 
 ​	同样的事情也发生在相反的方向上。
 
@@ -310,7 +310,7 @@ func main() {
 
 ##  Choosing a value or pointer receiver 选择值或指针接收器
 
-[https://go.dev/tour/methods/8](https://go.dev/tour/methods/8)
+> 原文：[https://go.dev/tour/methods/8](https://go.dev/tour/methods/8)
 
 ​	使用指针接收器有两个原因：
 
@@ -354,7 +354,7 @@ func main() {
 
 ##  Interfaces 接口
 
-[https://go.dev/tour/methods/9](https://go.dev/tour/methods/9)
+> 原文：[https://go.dev/tour/methods/9](https://go.dev/tour/methods/9)
 
 ​	接口类型被定义为一组方法签名的集合。
 
@@ -410,7 +410,7 @@ func (v *Vertex) Abs() float64 {
 
 ## Interfaces are implemented implicitly 接口与隐式实现
 
-[https://go.dev/tour/methods/10](https://go.dev/tour/methods/10)
+> 原文：[https://go.dev/tour/methods/10](https://go.dev/tour/methods/10)
 
 ​	类型通过实现其方法来实现一个接口。既无需专门显式声明，也没有"implements"关键字。
 
@@ -445,7 +445,7 @@ func main() {
 
 ## Interface values 接口值
 
-[https://go.dev/tour/methods/11](https://go.dev/tour/methods/11)
+> 原文：[https://go.dev/tour/methods/11](https://go.dev/tour/methods/11)
 
 ​	在底层，接口值可以被认为是一个值和具体类型的元组:
 
@@ -503,7 +503,7 @@ func describe(i I) {
 
 ##  Interface values with nil underlying values 底层值为nil的接口值
 
-[https://go.dev/tour/methods/12](https://go.dev/tour/methods/12)
+> 原文：[https://go.dev/tour/methods/12](https://go.dev/tour/methods/12)
 
 ​	即便接口本身的具体值是`nil`，方法仍将被调用，其接收器为`nil`。
 
@@ -553,7 +553,7 @@ func describe(i I) {
 
 ##  Nil interface values  - nil 接口值
 
-[https://go.dev/tour/methods/13](https://go.dev/tour/methods/13)
+> 原文：[https://go.dev/tour/methods/13](https://go.dev/tour/methods/13)
 
 ​	`nil`接口值既不保存值也不保存具体类型。
 
@@ -582,7 +582,7 @@ func describe(i I) {
 
 ##  The empty interface 空接口
 
-[https://go.dev/tour/methods/14](https://go.dev/tour/methods/14)
+> 原文：[https://go.dev/tour/methods/14](https://go.dev/tour/methods/14)
 
 ​	未指定任何方法的接口类型被称为`空接口`。
 
@@ -618,7 +618,7 @@ func describe(i interface{}) {
 
 ##  Type assertions 类型断言
 
-[https://go.dev/tour/methods/15](https://go.dev/tour/methods/15)
+> 原文：[https://go.dev/tour/methods/15](https://go.dev/tour/methods/15)
 
 ​	类型断言提供了对一个接口值的底层具体值的访问。
 
@@ -667,7 +667,7 @@ func main() {
 
 ##  Type switches 类型选择
 
-[https://go.dev/tour/methods/16](https://go.dev/tour/methods/16)
+> 原文：[https://go.dev/tour/methods/16](https://go.dev/tour/methods/16)
 
 ​	`类型选择`是一种按顺序从几个`类型断言`中选择分支的结构。
 
@@ -714,7 +714,7 @@ func main() {
 
 ##  Stringers 串联器
 
-[https://go.dev/tour/methods/17](https://go.dev/tour/methods/17)
+> 原文：[https://go.dev/tour/methods/17](https://go.dev/tour/methods/17)
 
 ​	`fmt`包中定义的[Stringer](https://go.dev/pkg/fmt/#Stringer)是最普遍的接口之一。
 
@@ -750,7 +750,7 @@ func main() {
 
 ## Exercise: Stringers 练习：Stringer
 
-[https://go.dev/tour/methods/18](https://go.dev/tour/methods/18)
+> 原文：[https://go.dev/tour/methods/18](https://go.dev/tour/methods/18)
 
 ​	通过让`IPAddr`类型实现`fmt.Stringer`，来打印为点号分隔的地址。
 
@@ -791,7 +791,7 @@ func main() {
 
 ## Errors 错误
 
-[https://go.dev/tour/methods/19](https://go.dev/tour/methods/19)
+> 原文：[https://go.dev/tour/methods/19](https://go.dev/tour/methods/19)
 
 ​	Go程序用`error`值来表达错误状态。
 
@@ -853,7 +853,7 @@ func main() {
 
 ##  Exercise: Errors 练习：错误
 
-[https://go.dev/tour/methods/20](https://go.dev/tour/methods/20)
+> 原文：[https://go.dev/tour/methods/20](https://go.dev/tour/methods/20)
 
 ​	从[之前的练习](#choosing-a-value-or-pointer-receiver)中复制`Sqrt`函数，并修改它以返回一个`error`值。
 
@@ -914,7 +914,7 @@ func main() {
 
 ##  Readers 
 
-[https://go.dev/tour/methods/21](https://go.dev/tour/methods/21)
+> 原文：[https://go.dev/tour/methods/21](https://go.dev/tour/methods/21)
 
 ​	`io` 包指定了 `io.Reader` 接口，该接口表示数据流的读取端。
 
@@ -957,7 +957,7 @@ func main() {
 
 ##  Exercise: Readers 练习：Readers 
 
-[https://go.dev/tour/methods/22](https://go.dev/tour/methods/22)
+> 原文：[https://go.dev/tour/methods/22](https://go.dev/tour/methods/22)
 
 ​	实现一个`Reader`类型，它可以产生一个ASCII字符'A'的无限流。
 
@@ -998,7 +998,7 @@ func main() {
 
 ## Exercise: rot13Reader 练习：Rot13Reader
 
-[https://go.dev/tour/methods/23](https://go.dev/tour/methods/23)
+> 原文：[https://go.dev/tour/methods/23](https://go.dev/tour/methods/23)
 
 ​	一个常见的模式是一个[io.Reader](https://go.dev/pkg/io/#Reader)包装另一个`io.Reader`，然后通过某种方式修改其数据流。
 
@@ -1048,7 +1048,7 @@ func main() {
 
 ##  Images 图像
 
-[https://go.dev/tour/methods/24](https://go.dev/tour/methods/24)
+> 原文：[https://go.dev/tour/methods/24](https://go.dev/tour/methods/24)
 
 ​	[image](https://go.dev/pkg/image/#Image)包定义了`Image`接口。
 
@@ -1086,7 +1086,7 @@ func main() {
 
 ##  Exercise: Images 练习：图片
 
-[https://go.dev/tour/methods/25](https://go.dev/tour/methods/25)
+> 原文：[https://go.dev/tour/methods/25](https://go.dev/tour/methods/25)
 
 ​	还记得您之前写的[图片生成器](#exercise-stringers-stringers)吗？让我们再写一个，但这次它将返回`image.Image`的实现，而不是一个数据切片。
 
@@ -1134,7 +1134,7 @@ func main() {
 
 ## Congratulations! 祝贺您!
 
-[https://go.dev/tour/methods/26](https://go.dev/tour/methods/26)
+> 原文：[https://go.dev/tour/methods/26](https://go.dev/tour/methods/26)
 
 您完成了这一课!
 

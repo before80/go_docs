@@ -9,7 +9,7 @@ draft = false
 
 # Hello World
 
-https://echo.labstack.com/docs/cookbook/hello-world
+> 原文：[https://echo.labstack.com/docs/cookbook/hello-world](https://echo.labstack.com/docs/cookbook/hello-world)
 
 ## Server
 

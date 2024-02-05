@@ -10,7 +10,7 @@ draft = false
 
 # Using Subtests and Sub-benchmarks - 使用子测试和子基准
 
-https://go.dev/blog/subtests
+> 原文：[https://go.dev/blog/subtests](https://go.dev/blog/subtests)
 
 Marcel van Lohuizen
 3 October 2016

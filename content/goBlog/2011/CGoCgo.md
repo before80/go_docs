@@ -10,7 +10,7 @@ draft = false
 
 # C? Go? Cgo!
 
-https://go.dev/blog/cgo
+> 原文：[https://go.dev/blog/cgo](https://go.dev/blog/cgo)
 
 Andrew Gerrand
 17 March 2011

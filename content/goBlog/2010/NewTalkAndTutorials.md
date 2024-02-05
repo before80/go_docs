@@ -10,7 +10,7 @@ draft = false
 
 # New Talk and Tutorials - 新演讲和教程
 
-https://go.dev/blog/new-talk-and-tutorials
+> 原文：[https://go.dev/blog/new-talk-and-tutorials](https://go.dev/blog/new-talk-and-tutorials)
 
 Andrew Gerrand
 5 May 2010

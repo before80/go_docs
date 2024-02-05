@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/httptrace@go1.21.3
+> 原文：[https://pkg.go.dev/net/http/httptrace@go1.21.3](https://pkg.go.dev/net/http/httptrace@go1.21.3)
 
 ​	httptrace 包提供了在 HTTP 客户端请求内部跟踪事件的机制。
 

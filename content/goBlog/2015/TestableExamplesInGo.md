@@ -10,7 +10,7 @@ draft = false
 
 # Testable Examples in Go - go 中的可测试实例
 
-https://go.dev/blog/examples
+> 原文：[https://go.dev/blog/examples](https://go.dev/blog/examples)
 
 Andrew Gerrand
 7 May 2015

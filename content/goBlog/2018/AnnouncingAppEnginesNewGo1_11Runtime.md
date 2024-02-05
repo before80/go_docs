@@ -10,7 +10,7 @@ draft = false
 
 # Announcing App Engine’s New Go 1.11 Runtime - 宣布App Engine的新 go 1.11运行时
 
-https://go.dev/blog/appengine-go111
+> 原文：[https://go.dev/blog/appengine-go111](https://go.dev/blog/appengine-go111)
 
 Eno Compton and Tyler Bui-Palsulich
 16 October 2018

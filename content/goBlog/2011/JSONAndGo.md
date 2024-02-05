@@ -10,7 +10,7 @@ draft = false
 
 # JSON and Go - JSON 和 go
 
-https://go.dev/blog/json
+> 原文：[https://go.dev/blog/json](https://go.dev/blog/json)
 
 Andrew Gerrand
 25 January 2011

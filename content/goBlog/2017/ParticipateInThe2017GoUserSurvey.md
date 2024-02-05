@@ -10,7 +10,7 @@ draft = false
 
 # Participate in the 2017 Go User Survey - 参与2017年 go 用户调查
 
-https://go.dev/blog/survey2017
+> 原文：[https://go.dev/blog/survey2017](https://go.dev/blog/survey2017)
 
 Steve Francia
 16 November 2017

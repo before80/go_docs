@@ -9,7 +9,7 @@ draft = false
 
 # WebSocket
 
-https://echo.labstack.com/docs/cookbook/websocket
+> 原文：[https://echo.labstack.com/docs/cookbook/websocket](https://echo.labstack.com/docs/cookbook/websocket)
 
 ## Using net WebSocket
 

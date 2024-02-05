@@ -10,7 +10,7 @@ draft = false
 
 # Go 2, here we come!
 
-https://go.dev/blog/go2-here-we-come
+> 原文：[https://go.dev/blog/go2-here-we-come](https://go.dev/blog/go2-here-we-come)
 
 Robert Griesemer
 29 November 2018

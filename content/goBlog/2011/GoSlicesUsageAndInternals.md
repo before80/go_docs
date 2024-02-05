@@ -10,7 +10,7 @@ draft = false
 
 # Go Slices: usage and internals - go 切片：用法和内部机制
 
-https://go.dev/blog/slices-intro
+> 原文：[https://go.dev/blog/slices-intro](https://go.dev/blog/slices-intro)
 
 Andrew Gerrand
 5 January 2011

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/index.html](https://gorm.io/docs/index.html)
+> 原文：[https://gorm.io/docs/index.html](https://gorm.io/docs/index.html)
 
 The fantastic ORM library for Golang aims to be developer friendly.
 

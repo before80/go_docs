@@ -10,7 +10,7 @@ draft = false
 
 # Go for App Engine is now generally available
 
-https://go.dev/blog/appengine-ga
+> 原文：[https://go.dev/blog/appengine-ga](https://go.dev/blog/appengine-ga)
 
 Andrew Gerrand
 21 July 2011

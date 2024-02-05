@@ -10,7 +10,7 @@ draft = false
 
 # GopherCon 2015 Roundup - 2015年GopherCon综述
 
-https://go.dev/blog/gophercon2015
+> 原文：[https://go.dev/blog/gophercon2015](https://go.dev/blog/gophercon2015)
 
 Andrew Gerrand
 28 July 2015

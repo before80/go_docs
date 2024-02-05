@@ -10,7 +10,7 @@ draft = false
 
 # Go and the Google Cloud Platform - go 和谷歌云平台
 
-https://go.dev/blog/io2013-talks-cloud
+> 原文：[https://go.dev/blog/io2013-talks-cloud](https://go.dev/blog/io2013-talks-cloud)
 
 Andrew Gerrand
 12 June 2013

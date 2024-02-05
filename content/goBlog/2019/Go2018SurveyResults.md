@@ -10,7 +10,7 @@ draft = false
 
 # Go 2018 Survey Results - 2018年 go 调查结果
 
-https://go.dev/blog/survey2018-results
+> 原文：[https://go.dev/blog/survey2018-results](https://go.dev/blog/survey2018-results)
 
 Todd Kulesza, Steve Francia
 28 March 2019

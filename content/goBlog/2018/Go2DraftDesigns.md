@@ -10,7 +10,7 @@ draft = false
 
 # Go 2 Draft Designs - go 2草案设计
 
-https://go.dev/blog/go2draft
+> 原文：[https://go.dev/blog/go2draft](https://go.dev/blog/go2draft)
 
 28 August 2018
 

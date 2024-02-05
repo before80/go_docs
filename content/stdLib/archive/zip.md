@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/archive/zip@go1.21.3
+> 原文：[https://pkg.go.dev/archive/zip@go1.21.3](https://pkg.go.dev/archive/zip@go1.21.3)
 
 Package zip provides support for reading and writing ZIP archives.
 

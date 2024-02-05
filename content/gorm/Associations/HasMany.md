@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/has_many.html](https://gorm.io/docs/has_many.html)
+> 原文：[https://gorm.io/docs/has_many.html](https://gorm.io/docs/has_many.html)
 
 ## 多对一 Has Many
 

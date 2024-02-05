@@ -10,7 +10,7 @@ draft = false
 
 # What's new in the Go Cloud Development Kit - go 云开发工具包的新内容
 
-https://go.dev/blog/go-cloud2019
+> 原文：[https://go.dev/blog/go-cloud2019](https://go.dev/blog/go-cloud2019)
 
 The Go Cloud Development Kit team at Google  谷歌的Go云开发工具包团队
 

@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/net/http/cgi@go1.21.3
+> 原文：[https://pkg.go.dev/net/http/cgi@go1.21.3](https://pkg.go.dev/net/http/cgi@go1.21.3)
 
 Package cgi implements CGI (Common Gateway Interface) as specified in [RFC 3875](https://rfc-editor.org/rfc/rfc3875.html).
 

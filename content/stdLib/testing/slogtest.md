@@ -8,7 +8,7 @@ draft = false
 
 +++
 
-https://pkg.go.dev/testing/slogtest@go1.21.3
+> 原文：[https://pkg.go.dev/testing/slogtest@go1.21.3](https://pkg.go.dev/testing/slogtest@go1.21.3)
 
 ## 概述
 

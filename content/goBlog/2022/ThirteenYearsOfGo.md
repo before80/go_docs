@@ -10,7 +10,7 @@ draft = false
 
 # Thirteen Years of Go - go 13 岁了
 
-https://go.dev/blog/13years
+> 原文：[https://go.dev/blog/13years](https://go.dev/blog/13years)
 
 Russ Cox, for the Go team
 10 November 2022

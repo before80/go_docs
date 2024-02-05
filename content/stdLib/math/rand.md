@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-[https://pkg.go.dev/math/rand@go1.21.3](https://pkg.go.dev/math/rand@go1.21.3)
+> 原文：[https://pkg.go.dev/math/rand@go1.21.3](https://pkg.go.dev/math/rand@go1.21.3)
 
 Package rand implements pseudo-random number generators unsuitable for security-sensitive work.
 

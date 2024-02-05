@@ -9,7 +9,7 @@ draft = false
 
 # JWT
 
-https://echo.labstack.com/docs/cookbook/jwt
+> 原文：[https://echo.labstack.com/docs/cookbook/jwt](https://echo.labstack.com/docs/cookbook/jwt)
 
 [JWT middleware](https://echo.labstack.com/docs/middleware/jwt) configuration can be found [here](https://echo.labstack.com/docs/middleware/jwt#configuration).
 

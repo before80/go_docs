@@ -10,7 +10,7 @@ draft = false
 
 # Share Memory By Communicating - 通过通信共享内存
 
-https://go.dev/blog/codelab-share
+> 原文：[https://go.dev/blog/codelab-share](https://go.dev/blog/codelab-share)
 
 Andrew Gerrand
 13 July 2010

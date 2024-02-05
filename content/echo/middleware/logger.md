@@ -11,7 +11,7 @@ draft = false
 
 # Logger
 
-https://echo.labstack.com/docs/middleware/logger
+> 原文：[https://echo.labstack.com/docs/middleware/logger](https://echo.labstack.com/docs/middleware/logger)
 
 ​	Logger 中间件用于记录每个 HTTP 请求的信息。
 

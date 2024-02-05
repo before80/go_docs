@@ -10,7 +10,7 @@ draft = false
 
 # Go, the Go Community, and the Pandemic - go、go社区界和大流行病
 
-https://go.dev/blog/pandemic
+> 原文：[https://go.dev/blog/pandemic](https://go.dev/blog/pandemic)
 
 Carmen Andoh, Russ Cox, and Steve Francia
 25 March 2020

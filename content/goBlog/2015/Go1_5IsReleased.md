@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.5 is released - go 1.5发布了
 
-https://go.dev/blog/go1.5
+> 原文：[https://go.dev/blog/go1.5](https://go.dev/blog/go1.5)
 
 Andrew Gerrand
 19 August 2015

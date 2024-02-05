@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-[https://gorm.io/docs/session.html](https://gorm.io/docs/session.html)
+> 原文：[https://gorm.io/docs/session.html](https://gorm.io/docs/session.html)
 
 GORM provides `Session` method, which is a [`New Session Method`](https://gorm.io/docs/method_chaining.html), it allows to create a new session mode with configuration:
 

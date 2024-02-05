@@ -10,7 +10,7 @@ draft = false
 
 # Arrays, slices (and strings): The mechanics of 'append'  - 数组、切片（和字符串）：append 的原理
 
-https://go.dev/blog/slices
+> 原文：[https://go.dev/blog/slices](https://go.dev/blog/slices)
 
 Rob Pike
 26 September 2013

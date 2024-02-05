@@ -10,7 +10,7 @@ draft = false
 
 # Redirecting godoc.org requests to pkg.go.dev - 将godoc.org的请求重定向到pkg.go.dev
 
-https://go.dev/blog/godoc.org-redirect
+> 原文：[https://go.dev/blog/godoc.org-redirect](https://go.dev/blog/godoc.org-redirect)
 
 Julie Qiu
 15 December 2020

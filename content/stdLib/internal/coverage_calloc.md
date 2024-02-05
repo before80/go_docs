@@ -1,6 +1,6 @@
 # calloc
 
-https://pkg.go.dev/internal/coverage/calloc@go1.20.1
+> 原文：[https://pkg.go.dev/internal/coverage/calloc@go1.20.1](https://pkg.go.dev/internal/coverage/calloc@go1.20.1)
 
 
 

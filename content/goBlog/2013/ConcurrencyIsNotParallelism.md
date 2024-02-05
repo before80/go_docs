@@ -10,7 +10,7 @@ draft = false
 
 # Concurrency is not parallelism - 并发不是并行
 
-https://go.dev/blog/waza-talk
+> 原文：[https://go.dev/blog/waza-talk](https://go.dev/blog/waza-talk)
 
 Andrew Gerrand
 16 January 2013

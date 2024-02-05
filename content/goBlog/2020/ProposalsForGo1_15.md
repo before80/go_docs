@@ -10,7 +10,7 @@ draft = false
 
 # Proposals for Go 1.15 - 关于go 1.15的建议
 
-https://go.dev/blog/go1.15-proposals
+> 原文：[https://go.dev/blog/go1.15-proposals](https://go.dev/blog/go1.15-proposals)
 
 Robert Griesemer, for the Go team
 28 January 2020

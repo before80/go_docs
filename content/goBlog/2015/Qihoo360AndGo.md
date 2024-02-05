@@ -10,7 +10,7 @@ draft = false
 
 # Qihoo 360 and Go - 奇虎360与 go
 
-https://go.dev/blog/qihoo
+> 原文：[https://go.dev/blog/qihoo](https://go.dev/blog/qihoo)
 
 Yang Zhou
 6 July 2015

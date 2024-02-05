@@ -10,7 +10,7 @@ draft = false
 
 # Go Modules: v2 and Beyond - go模块：V2版及以后
 
-https://go.dev/blog/v2-go-modules
+> 原文：[https://go.dev/blog/v2-go-modules](https://go.dev/blog/v2-go-modules)
 
 Jean de Klerk and Tyler Bui-Palsulich
 7 November 2019

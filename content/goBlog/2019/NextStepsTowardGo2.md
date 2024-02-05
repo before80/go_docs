@@ -10,7 +10,7 @@ draft = false
 
 # Next steps toward Go 2 - 迈向go 2的下一步
 
-https://go.dev/blog/go2-next-steps
+> 原文：[https://go.dev/blog/go2-next-steps](https://go.dev/blog/go2-next-steps)
 
 Robert Griesemer, for the Go team
 26 June 2019

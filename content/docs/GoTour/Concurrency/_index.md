@@ -11,7 +11,7 @@ draft = false
 
 ## Goroutines
 
-[https://go.dev/tour/concurrency/1](https://go.dev/tour/concurrency/1)
+> 原文：[https://go.dev/tour/concurrency/1](https://go.dev/tour/concurrency/1)
 
 ​	goroutine是一个由Go运行时管理的轻量级线程。
 
@@ -53,7 +53,7 @@ func main() {
 
 ## Channels 通道
 
-[https://go.dev/tour/concurrency/2](https://go.dev/tour/concurrency/2)
+> 原文：[https://go.dev/tour/concurrency/2](https://go.dev/tour/concurrency/2)
 
 ​	通道是一个类型化的管道，您可以通过通道操作符`<-`来发送和接收值。
 
@@ -102,7 +102,7 @@ func main() {
 
 ## Buffered Channels 缓冲通道
 
-[https://go.dev/tour/concurrency/3](https://go.dev/tour/concurrency/3)
+> 原文：[https://go.dev/tour/concurrency/3](https://go.dev/tour/concurrency/3)
 
 ​	通道可以是带缓冲的。提供缓冲区长度作为`make`的第二个参数，以初始化一个缓冲通道：
 
@@ -132,7 +132,7 @@ func main() {
 
 ##  Range and Close
 
-[https://go.dev/tour/concurrency/4](https://go.dev/tour/concurrency/4)
+> 原文：[https://go.dev/tour/concurrency/4](https://go.dev/tour/concurrency/4)
 
 ​	发送者可以`close`（关闭）一个通道，表示不再发送任何值。接收者可以通过给`接收表达式`分配`第二个参数`来测试一个通道是否被关闭，在执行完
 
@@ -176,7 +176,7 @@ func main() {
 
 ## Select
 
-[https://go.dev/tour/concurrency/5](https://go.dev/tour/concurrency/5)
+> 原文：[https://go.dev/tour/concurrency/5](https://go.dev/tour/concurrency/5)
 
 ​	`select`语句允许goroutine等待多个通信操作。
 
@@ -216,7 +216,7 @@ func main() {
 
 ##  Default Selection
 
-[https://go.dev/tour/concurrency/6](https://go.dev/tour/concurrency/6)
+> 原文：[https://go.dev/tour/concurrency/6](https://go.dev/tour/concurrency/6)
 
 ​	当 `select` 中的其它分支都没有准备好时，`default` 分支就会执行。
 
@@ -260,7 +260,7 @@ func main() {
 
 ##  Exercise: Equivalent Binary Trees  练习：等价二叉查找树
 
-[https://go.dev/tour/concurrency/7](https://go.dev/tour/concurrency/7)
+> 原文：[https://go.dev/tour/concurrency/7](https://go.dev/tour/concurrency/7)
 
 ​	可以有许多不同的二进制树，其中存储着相同的数值序列。例如，这里有两棵二叉树，都存储着序列1, 1, 2, 3, 5, 8, 13。
 
@@ -282,7 +282,7 @@ type Tree struct {
 
 ##  Exercise: Equivalent Binary Trees 练习：等价二叉查找树
 
-[https://go.dev/tour/concurrency/8](https://go.dev/tour/concurrency/8)
+> 原文：[https://go.dev/tour/concurrency/8](https://go.dev/tour/concurrency/8)
 
 **1.** 实现`Walk`函数。
 
@@ -361,7 +361,7 @@ func main() {
 
 ##  sync.Mutex
 
-[https://go.dev/tour/concurrency/9](https://go.dev/tour/concurrency/9)
+> 原文：[https://go.dev/tour/concurrency/9](https://go.dev/tour/concurrency/9)
 
 ​	我们已经看到通道是如何在goroutines之间进行通信的。
 
@@ -423,7 +423,7 @@ func main() {
 
 ##  Exercise: Web Crawler 练习：网络爬虫
 
-[https://go.dev/tour/concurrency/10](https://go.dev/tour/concurrency/10)
+> 原文：[https://go.dev/tour/concurrency/10](https://go.dev/tour/concurrency/10)
 
 ​	在这个练习中，您将使用 Go 的并发特性来并行处理一个网络爬虫。
 
@@ -560,7 +560,7 @@ var fetcher = fakeFetcher{
 
 ## Where to Go from here... 从这里开始去哪里...
 
-[https://go.dev/tour/concurrency/11](https://go.dev/tour/concurrency/11)
+> 原文：[https://go.dev/tour/concurrency/11](https://go.dev/tour/concurrency/11)
 
 ​	您可以从[安装Go](../../../GettingStarted/InstallingGo)开始。
 

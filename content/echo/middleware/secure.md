@@ -10,7 +10,7 @@ draft = false
 
 # Secure
 
-https://echo.labstack.com/docs/middleware/secure
+> 原文：[https://echo.labstack.com/docs/middleware/secure](https://echo.labstack.com/docs/middleware/secure)
 
 Secure middleware provides protection against cross-site scripting (XSS) attack, content type sniffing, clickjacking, insecure connection and other code injection attacks.
 

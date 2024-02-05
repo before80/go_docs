@@ -10,7 +10,7 @@ draft = false
 
 # Debugging what you deploy in Go 1.12 - 调试您在go 1.12中部署的内容
 
-https://go.dev/blog/debug-opt
+> 原文：[https://go.dev/blog/debug-opt](https://go.dev/blog/debug-opt)
 
 David Chase
 21 March 2019

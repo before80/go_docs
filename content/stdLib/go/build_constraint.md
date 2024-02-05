@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-https://pkg.go.dev/go/build/constraint@go1.21.3
+> 原文：[https://pkg.go.dev/go/build/constraint@go1.21.3](https://pkg.go.dev/go/build/constraint@go1.21.3)
 
 Package constraint implements parsing and evaluation of build constraint lines. See https://golang.org/cmd/go/#hdr-Build_constraints for documentation about build constraints themselves.
 

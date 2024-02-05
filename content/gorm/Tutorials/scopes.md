@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/scopes.html](https://gorm.io/docs/scopes.html)
+> 原文：[https://gorm.io/docs/scopes.html](https://gorm.io/docs/scopes.html)
 
 Scopes allow you to re-use commonly used logic, the shared logic needs to be defined as type `func(*gorm.DB) *gorm.DB`
 

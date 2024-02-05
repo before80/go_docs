@@ -10,7 +10,7 @@ draft = false
 
 # Publishing Go Modules - 发布 go 模块
 
-https://go.dev/blog/publishing-go-modules
+> 原文：[https://go.dev/blog/publishing-go-modules](https://go.dev/blog/publishing-go-modules)
 
 Tyler Bui-Palsulich
 26 September 2019

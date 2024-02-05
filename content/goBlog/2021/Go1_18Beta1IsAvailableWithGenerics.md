@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.18 Beta 1 is available, with generics - go 1.18 Beta 1已经推出，有泛型的功能
 
-https://go.dev/blog/go1.18beta1
+> 原文：[https://go.dev/blog/go1.18beta1](https://go.dev/blog/go1.18beta1)
 
 Russ Cox, for the Go team
 14 December 2021

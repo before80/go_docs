@@ -10,7 +10,7 @@ draft = false
 
 # Constants - 常量
 
-https://go.dev/blog/constants
+> 原文：[https://go.dev/blog/constants](https://go.dev/blog/constants)
 
 Rob Pike
 25 August 2014

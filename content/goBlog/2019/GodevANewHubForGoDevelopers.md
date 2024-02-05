@@ -10,7 +10,7 @@ draft = false
 
 # Go.dev: a new hub for Go developers - go.dev：go开发者的新中心
 
-https://go.dev/blog/go.dev
+> 原文：[https://go.dev/blog/go.dev](https://go.dev/blog/go.dev)
 
 Steve Francia and Julie Qiu
 13 November 2019

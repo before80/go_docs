@@ -11,7 +11,7 @@ draft = false
 
 # Routing - 路由
 
-https://echo.labstack.com/docs/routing
+> 原文：[https://echo.labstack.com/docs/routing](https://echo.labstack.com/docs/routing)
 
 ​	Echo的路由器基于[基数树（radix tree）](http://en.wikipedia.org/wiki/Radix_tree)，使路由查找非常快速。它利用[同步池（sync pool）](https://golang.org/pkg/sync/#Pool)来重用内存，实现零动态内存分配且没有垃圾回收开销。
 

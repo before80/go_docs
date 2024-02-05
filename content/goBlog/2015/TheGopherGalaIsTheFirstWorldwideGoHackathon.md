@@ -10,7 +10,7 @@ draft = false
 
 # The Gopher Gala is the first worldwide Go hackathon - Gopher Gala是第一个全球Go黑客马拉松活动
 
-https://go.dev/blog/gophergala
+> 原文：[https://go.dev/blog/gophergala](https://go.dev/blog/gophergala)
 
 Francesc Campoy
 7 January 2015

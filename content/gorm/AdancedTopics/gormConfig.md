@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/gorm_config.html](https://gorm.io/docs/gorm_config.html)
+> 原文：[https://gorm.io/docs/gorm_config.html](https://gorm.io/docs/gorm_config.html)
 
 GORM provides Config can be used during initialization
 

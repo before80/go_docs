@@ -10,7 +10,7 @@ draft = false
 
 # GothamGo: gophers in the big apple - GothamGo：大苹果中的地鼠
 
-https://go.dev/blog/gothamgo
+> 原文：[https://go.dev/blog/gothamgo](https://go.dev/blog/gothamgo)
 
 Francesc Campoy
 9 January 2015

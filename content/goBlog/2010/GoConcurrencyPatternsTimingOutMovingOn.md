@@ -10,7 +10,7 @@ draft = false
 
 # Go Concurrency Patterns: Timing out, moving on - go 并发模式：超时和继续
 
-https://go.dev/blog/concurrency-timeouts
+> 原文：[https://go.dev/blog/concurrency-timeouts](https://go.dev/blog/concurrency-timeouts)
 
 Andrew Gerrand
 23 September 2010

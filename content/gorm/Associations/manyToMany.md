@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-https://gorm.io/docs/many_to_many.html
+> 原文：[https://gorm.io/docs/many_to_many.html](https://gorm.io/docs/many_to_many.html)
 
 ## 多对多 Many To Many
 

@@ -11,7 +11,7 @@ draft = false
 
 # Context - 上下文
 
-https://echo.labstack.com/docs/context
+> 原文：[https://echo.labstack.com/docs/context](https://echo.labstack.com/docs/context)
 
 ​	`echo.Context` 表示当前 HTTP 请求的上下文。它保存了请求和响应的引用、路径、路径参数、数据、已注册的处理程序以及读取请求和写入响应的 API。由于 Context 是一个接口，可以轻松地通过自定义 API 扩展它。
 

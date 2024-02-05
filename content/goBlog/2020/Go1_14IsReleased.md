@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.14 is released - go 1.14版发布了
 
-https://go.dev/blog/go1.14
+> 原文：[https://go.dev/blog/go1.14](https://go.dev/blog/go1.14)
 
 Alex Rakoczy
 25 February 2020

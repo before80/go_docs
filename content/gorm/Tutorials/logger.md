@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/logger.html](https://gorm.io/docs/logger.html)
+> 原文：[https://gorm.io/docs/logger.html](https://gorm.io/docs/logger.html)
 
 Gorm has a [default logger implementation](https://github.com/go-gorm/gorm/blob/master/logger/logger.go), it will print Slow SQL and happening errors by default
 

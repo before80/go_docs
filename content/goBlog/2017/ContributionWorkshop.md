@@ -10,7 +10,7 @@ draft = false
 
 # Contribution Workshop - 贡献研讨会
 
-https://go.dev/blog/contributor-workshop
+> 原文：[https://go.dev/blog/contributor-workshop](https://go.dev/blog/contributor-workshop)
 
 Steve Francia, Cassandra Salisbury, Matt Broberg, and Dmitri Shuralyov
 9 August 2017

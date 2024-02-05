@@ -11,7 +11,7 @@ draft = false
 
 # Cookies
 
-https://echo.labstack.com/docs/cookies
+> 原文：[https://echo.labstack.com/docs/cookies](https://echo.labstack.com/docs/cookies)
 
 ​	Cookie（Cookie）是从网站服务器发送并存储在用户的网络浏览器中的一小段数据。每次用户加载网站时，浏览器会将 Cookie 发送回服务器，通知服务器用户的最新活动。Cookie 被设计为网站记住有状态信息（例如，在在线商店中添加到购物车的商品）或记录用户的浏览活动（例如，点击特定按钮、登录或用户先前访问的网站页面）的可靠机制。Cookie 还可以存储用户先前输入的表单内容，例如用户名、性别、年龄、地址等。
 

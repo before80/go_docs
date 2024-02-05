@@ -10,7 +10,7 @@ draft = false
 
 # Introducing the Go Playground - 介绍 go Playground
 
-https://go.dev/blog/playground-intro
+> 原文：[https://go.dev/blog/playground-intro](https://go.dev/blog/playground-intro)
 
 Andrew Gerrand
 15 September 2010

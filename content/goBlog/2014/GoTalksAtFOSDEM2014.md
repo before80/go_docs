@@ -10,7 +10,7 @@ draft = false
 
 # Go talks at FOSDEM 2014 - 2014年FOSDEM上的 go 讲座
 
-https://go.dev/blog/fosdem14
+> 原文：[https://go.dev/blog/fosdem14](https://go.dev/blog/fosdem14)
 
 Andrew Gerrand
 24 February 2014

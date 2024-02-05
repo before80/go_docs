@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/security.html](https://gorm.io/docs/security.html)
+> 原文：[https://gorm.io/docs/security.html](https://gorm.io/docs/security.html)
 
 GORM uses the `database/sql`‘s argument placeholders to construct the SQL statement, which will automatically escape arguments to avoid SQL injection
 

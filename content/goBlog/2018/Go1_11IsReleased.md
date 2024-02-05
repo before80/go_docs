@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.11 is released - go 1.11发布了
 
-https://go.dev/blog/go1.11
+> 原文：[https://go.dev/blog/go1.11](https://go.dev/blog/go1.11)
 
 Andrew Bonventre
 24 August 2018

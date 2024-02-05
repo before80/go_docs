@@ -10,7 +10,7 @@ draft = false
 
 # Announcing the 2021 Go Developer Survey - 宣布2021年Go开发者调查
 
-https://go.dev/blog/survey2021
+> 原文：[https://go.dev/blog/survey2021](https://go.dev/blog/survey2021)
 
 Alice Merrick
 26 October 2021

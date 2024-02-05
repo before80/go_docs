@@ -10,7 +10,7 @@ draft = false
 
 # Go maps in action
 
-https://go.dev/blog/maps
+> 原文：[https://go.dev/blog/maps](https://go.dev/blog/maps)
 
 Andrew Gerrand
 6 February 2013

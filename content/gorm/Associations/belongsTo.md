@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/belongs_to.html](https://gorm.io/docs/belongs_to.html)
+> 原文：[https://gorm.io/docs/belongs_to.html](https://gorm.io/docs/belongs_to.html)
 
 ## 属于关系 Belongs To
 

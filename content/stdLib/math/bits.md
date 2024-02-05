@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/math/bits@go1.21.3
+> 原文：[https://pkg.go.dev/math/bits@go1.21.3](https://pkg.go.dev/math/bits@go1.21.3)
 
 Package bits implements bit counting and manipulation functions for the predeclared unsigned integer types.
 

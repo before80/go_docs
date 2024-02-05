@@ -10,7 +10,7 @@ draft = false
 
 # Migrating to Go Modules - 迁移到 go 模块
 
-https://go.dev/blog/migrating-to-go-modules
+> 原文：[https://go.dev/blog/migrating-to-go-modules](https://go.dev/blog/migrating-to-go-modules)
 
 Jean de Klerk
 21 August 2019

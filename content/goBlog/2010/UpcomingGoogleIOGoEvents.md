@@ -10,7 +10,7 @@ draft = false
 
 # Upcoming Google I/O Go Events - 即将举行的Google I/O Go Events
 
-https://go.dev/blog/io2010-preview
+> 原文：[https://go.dev/blog/io2010-preview](https://go.dev/blog/io2010-preview)
 
 Andrew Gerrand
 12 May 2010	

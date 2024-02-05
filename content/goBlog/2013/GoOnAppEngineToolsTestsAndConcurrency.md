@@ -10,7 +10,7 @@ draft = false
 
 # Go on App Engine: tools, tests, and concurrency - App Engine上的go：工具、测试和并发
 
-https://go.dev/blog/appengine-dec2013
+> 原文：[https://go.dev/blog/appengine-dec2013](https://go.dev/blog/appengine-dec2013)
 
 Andrew Gerrand and Johan Euphrosine
 13 December 2013

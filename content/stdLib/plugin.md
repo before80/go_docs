@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/plugin@go1.20.1
+> 原文：[https://pkg.go.dev/plugin@go1.20.1](https://pkg.go.dev/plugin@go1.20.1)
 
 Package plugin implements loading and symbol resolution of Go plugins.
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/migration.html](https://gorm.io/docs/migration.html)
+> 原文：[https://gorm.io/docs/migration.html](https://gorm.io/docs/migration.html)
 
 ## 自动迁移 Auto Migration
 

@@ -10,7 +10,7 @@ draft = false
 
 # Go updates in App Engine 1.7.1  - App Engine 1.7.1中的 go 更新
 
-https://go.dev/blog/appengine-171
+> 原文：[https://go.dev/blog/appengine-171](https://go.dev/blog/appengine-171)
 
 Andrew Gerrand
 22 August 2012

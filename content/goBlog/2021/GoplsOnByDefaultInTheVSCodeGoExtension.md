@@ -10,7 +10,7 @@ draft = false
 
 # Gopls on by default in the VS Code Go extension - 在VS Code Go扩展中默认打开gopls
 
-https://go.dev/blog/gopls-vscode-go
+> 原文：[https://go.dev/blog/gopls-vscode-go](https://go.dev/blog/gopls-vscode-go)
 
 Go tools team
 1 February 2021

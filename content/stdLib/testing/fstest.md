@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/testing/fstest@go1.21.3
+> 原文：[https://pkg.go.dev/testing/fstest@go1.21.3](https://pkg.go.dev/testing/fstest@go1.21.3)
 
 Package fstest implements support for testing implementations and users of file systems.
 

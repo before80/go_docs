@@ -10,7 +10,7 @@ draft = false
 
 # Fuzzing is Beta Ready - 模糊测试已经准备好进入Beta测试
 
-[https://go.dev/blog/fuzz-beta](https://go.dev/blog/fuzz-beta)
+> 原文：[https://go.dev/blog/fuzz-beta](https://go.dev/blog/fuzz-beta)
 
 Katie Hockman and Jay Conrod
 3 June 2021

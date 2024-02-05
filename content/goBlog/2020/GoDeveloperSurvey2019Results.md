@@ -10,7 +10,7 @@ draft = false
 
 # Go Developer Survey 2019 Results - 2019年Go开发者调查结果
 
-https://go.dev/blog/survey2019-results
+> 原文：[https://go.dev/blog/survey2019-results](https://go.dev/blog/survey2019-results)
 
 Todd Kulesza
 20 April 2020

@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.7 is released - go 1.7发布了
 
-https://go.dev/blog/go1.7
+> 原文：[https://go.dev/blog/go1.7](https://go.dev/blog/go1.7)
 
 Chris Broadfoot
 15 August 2016

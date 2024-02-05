@@ -12,7 +12,7 @@ draft = false
 
 ## Finding unreachable functions with deadcode 使用 deadcode 查找无法访问的函数
 
-[https://go.dev/blog/deadcode](https://go.dev/blog/deadcode)
+> 原文：[https://go.dev/blog/deadcode](https://go.dev/blog/deadcode)
 
 Alan Donovan
 

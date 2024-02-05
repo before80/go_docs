@@ -10,7 +10,7 @@ draft = false
 
 # Contributors Summit - 贡献者峰会
 
-https://go.dev/blog/contributors-summit
+> 原文：[https://go.dev/blog/contributors-summit](https://go.dev/blog/contributors-summit)
 
 Sam Whited
 3 August 2017

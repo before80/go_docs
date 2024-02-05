@@ -10,7 +10,7 @@ draft = false
 
 # JWT
 
-https://echo.labstack.com/docs/middleware/jwt
+> 原文：[https://echo.labstack.com/docs/middleware/jwt](https://echo.labstack.com/docs/middleware/jwt)
 
 
 

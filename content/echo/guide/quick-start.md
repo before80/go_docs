@@ -11,7 +11,7 @@ draft = false
 
 # Quick Start - 快速入门
 
-https://echo.labstack.com/docs/quick-start
+> 原文：[https://echo.labstack.com/docs/quick-start](https://echo.labstack.com/docs/quick-start)
 
 ## 安装
 

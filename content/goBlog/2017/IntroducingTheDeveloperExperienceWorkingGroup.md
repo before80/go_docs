@@ -10,7 +10,7 @@ draft = false
 
 # Introducing the Developer Experience Working Group - 开发者体验工作组介绍
 
-https://go.dev/blog/developer-experience
+> 原文：[https://go.dev/blog/developer-experience](https://go.dev/blog/developer-experience)
 
 The Developer Experience Working Group
 10 April 2017

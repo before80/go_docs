@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/fcgi@go1.21.3
+> 原文：[https://pkg.go.dev/net/http/fcgi@go1.21.3](https://pkg.go.dev/net/http/fcgi@go1.21.3)
 
 Package fcgi implements the FastCGI protocol.
 

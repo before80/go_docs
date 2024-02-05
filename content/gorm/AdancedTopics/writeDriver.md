@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/write_driver.html](https://gorm.io/docs/write_driver.html)
+> 原文：[https://gorm.io/docs/write_driver.html](https://gorm.io/docs/write_driver.html)
 
 ## 编写新驱动 Write new driver
 

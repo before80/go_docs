@@ -10,7 +10,7 @@ draft = false
 
 # Code of Conduct Updates - 行为准则更新
 
-https://go.dev/blog/conduct-2021
+> 原文：[https://go.dev/blog/conduct-2021](https://go.dev/blog/conduct-2021)
 
 Carmen Andoh, Russ Cox, and Steve Francia
 16 September 2021

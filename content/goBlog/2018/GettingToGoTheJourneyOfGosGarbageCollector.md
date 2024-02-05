@@ -10,7 +10,7 @@ draft = false
 
 # Getting to Go: The Journey of Go's Garbage Collector - 走向 go：go垃圾收集器的历程
 
-https://go.dev/blog/ismmkeynote
+> 原文：[https://go.dev/blog/ismmkeynote](https://go.dev/blog/ismmkeynote)
 
 Rick Hudson
 12 July 2018

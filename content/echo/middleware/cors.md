@@ -10,7 +10,7 @@ draft = false
 
 # CORS - 跨域资源共享 Cross Origin Resources Sharing
 
-https://echo.labstack.com/docs/middleware/cors
+> 原文：[https://echo.labstack.com/docs/middleware/cors](https://echo.labstack.com/docs/middleware/cors)
 
 ​	CORS 中间件实现了 [CORS](http://www.w3.org/TR/cors) 规范。CORS 可以给 web 服务器提供跨域访问控制，从而实现安全的跨域数据传输。
 

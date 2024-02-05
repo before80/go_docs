@@ -10,7 +10,7 @@ draft = false
 
 # Go at Heroku - Heroku 上的 go
 
-https://go.dev/blog/heroku
+> 原文：[https://go.dev/blog/heroku](https://go.dev/blog/heroku)
 
 Keith Rarick and Blake Mizerany
 21 April 2011

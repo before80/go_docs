@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/container/ring@go1.21.3
+> 原文：[https://pkg.go.dev/container/ring@go1.21.3](https://pkg.go.dev/container/ring@go1.21.3)
 
 Package ring implements operations on circular lists.
 

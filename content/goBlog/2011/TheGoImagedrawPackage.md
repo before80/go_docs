@@ -10,7 +10,7 @@ draft = false
 
 # The Go image/draw package - go 的image/draw包
 
-https://go.dev/blog/image-draw
+> 原文：[https://go.dev/blog/image-draw](https://go.dev/blog/image-draw)
 
 Nigel Tao
 29 September 2011

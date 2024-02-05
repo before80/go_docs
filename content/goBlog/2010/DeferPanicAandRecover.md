@@ -10,7 +10,7 @@ draft = false
 
 # Defer, Panic, and Recover
 
-https://go.dev/blog/defer-panic-and-recover
+> 原文：[https://go.dev/blog/defer-panic-and-recover](https://go.dev/blog/defer-panic-and-recover)
 
 Andrew Gerrand
 4 August 2010

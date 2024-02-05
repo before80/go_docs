@@ -10,7 +10,7 @@ draft = false
 
 # Golang UK 2015 - 2015年英国Golang展会
 
-https://go.dev/blog/gouk15
+> 原文：[https://go.dev/blog/gouk15](https://go.dev/blog/gouk15)
 
 Francesc Campoy
 9 October 2015

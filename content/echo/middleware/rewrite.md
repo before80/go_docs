@@ -10,7 +10,7 @@ draft = false
 
 # Rewrite
 
-https://echo.labstack.com/docs/middleware/rewrite
+> 原文：[https://echo.labstack.com/docs/middleware/rewrite](https://echo.labstack.com/docs/middleware/rewrite)
 
 Rewrite middleware allows to rewrite an URL path based on provided rules. It can be helpful for backward compatibility or just creating cleaner and more descriptive links.
 

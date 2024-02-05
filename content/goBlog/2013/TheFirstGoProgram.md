@@ -10,7 +10,7 @@ draft = false
 
 # The first Go program - 第一个 go 项目
 
-https://go.dev/blog/first-go-program
+> 原文：[https://go.dev/blog/first-go-program](https://go.dev/blog/first-go-program)
 
 Andrew Gerrand
 18 July 2013

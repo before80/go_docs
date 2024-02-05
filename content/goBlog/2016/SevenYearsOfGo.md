@@ -10,7 +10,7 @@ draft = false
 
 # Seven years of Go - go 7 岁了
 
-https://go.dev/blog/7years
+> 原文：[https://go.dev/blog/7years](https://go.dev/blog/7years)
 
 The Go Team
 10 November 2016

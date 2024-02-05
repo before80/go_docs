@@ -10,7 +10,7 @@ draft = false
 
 # Contributors Summit 2019
 
-https://go.dev/blog/contributors-summit-2019
+> 原文：[https://go.dev/blog/contributors-summit-2019](https://go.dev/blog/contributors-summit-2019)
 
 Carmen Andoh and contributors
 15 August 2019

@@ -10,7 +10,7 @@ draft = false
 
 # The VS Code Go extension joins the Go project - VS Code Go扩展加入了go项目
 
-https://go.dev/blog/vscode-go
+> 原文：[https://go.dev/blog/vscode-go](https://go.dev/blog/vscode-go)
 
 The Go team
 9 June 2020

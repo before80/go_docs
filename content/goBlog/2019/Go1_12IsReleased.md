@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.12 is released - go 1.12发布了
 
-https://go.dev/blog/go1.12
+> 原文：[https://go.dev/blog/go1.12](https://go.dev/blog/go1.12)
 
 Andrew Bonventre
 25 February 2019

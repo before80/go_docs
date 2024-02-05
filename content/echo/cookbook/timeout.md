@@ -9,7 +9,7 @@ draft = false
 
 # Timeout
 
-https://echo.labstack.com/docs/cookbook/timeout
+> 原文：[https://echo.labstack.com/docs/cookbook/timeout](https://echo.labstack.com/docs/cookbook/timeout)
 
 ## Server
 

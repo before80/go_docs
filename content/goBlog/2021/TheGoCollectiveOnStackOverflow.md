@@ -10,7 +10,7 @@ draft = false
 
 # The Go Collective on Stack Overflow
 
-[https://go.dev/blog/stackoverflow](https://go.dev/blog/stackoverflow)
+> 原文：[https://go.dev/blog/stackoverflow](https://go.dev/blog/stackoverflow)
 
 Steve Francia
 23 June 2021

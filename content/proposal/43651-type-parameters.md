@@ -9,7 +9,7 @@ draft = false
 
 # Type Parameters Proposal
 
-https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md
+> 原文：[https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md](https://go.googlesource.com/proposal/+/HEAD/design/43651-type-parameters.md)
 
 Ian Lance Taylor
 Robert Griesemer

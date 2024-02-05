@@ -10,7 +10,7 @@ draft = false
 
 # Portable Cloud Programming with Go Cloud - 使用 go Cloud的便携式云编程
 
-https://go.dev/blog/go-cloud
+> 原文：[https://go.dev/blog/go-cloud](https://go.dev/blog/go-cloud)
 
 Eno Compton and Cassandra Salisbury
 24 July 2018

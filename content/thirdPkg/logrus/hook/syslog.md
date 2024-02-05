@@ -10,7 +10,7 @@ draft = false
 
 # Syslog Hooks for Logrus - Logrus 的 Syslog 钩子
 
-https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer
+> 原文：[https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer](https://github.com/sirupsen/logrus/tree/v1.9.3/hooks/writer)
 
 ## 用法
 

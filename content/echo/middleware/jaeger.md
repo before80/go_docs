@@ -10,7 +10,7 @@ draft = false
 
 # Jaeger
 
-https://echo.labstack.com/docs/middleware/jaeger
+> 原文：[https://echo.labstack.com/docs/middleware/jaeger](https://echo.labstack.com/docs/middleware/jaeger)
 
 > 注意
 >

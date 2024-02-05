@@ -10,7 +10,7 @@ draft = false
 
 # JSON-RPC: a tale of interfaces - JSON-RPC：接口的故事
 
-https://go.dev/blog/json-rpc
+> 原文：[https://go.dev/blog/json-rpc](https://go.dev/blog/json-rpc)
 
 Andrew Gerrand
 27 April 2010

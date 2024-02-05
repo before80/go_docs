@@ -8,7 +8,7 @@ draft = false
 +++
 # Go CNA Policy - go CNA策略
 
-[https://go.dev/security/vuln/cna](https://go.dev/security/vuln/cna)
+> 原文：[https://go.dev/security/vuln/cna](https://go.dev/security/vuln/cna)
 
 ## 概述
 

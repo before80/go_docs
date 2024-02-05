@@ -10,7 +10,7 @@ draft = false
 
 # Go fonts - go 字体
 
-https://go.dev/blog/go-fonts
+> 原文：[https://go.dev/blog/go-fonts](https://go.dev/blog/go-fonts)
 
 Nigel Tao, Chuck Bigelow, and Rob Pike
 16 November 2016

@@ -10,7 +10,7 @@ draft = false
 
 # Participate in the 2018 Go Company Questionnaire - 参与2018年 go 公司调查问卷
 
-https://go.dev/blog/survey2018-company
+> 原文：[https://go.dev/blog/survey2018-company](https://go.dev/blog/survey2018-company)
 
 Ran Tao, Steve Francia
 4 October 2018

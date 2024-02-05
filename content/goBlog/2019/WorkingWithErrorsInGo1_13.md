@@ -10,7 +10,7 @@ draft = false
 
 # Working with Errors in Go 1.13 - 在 go 1.13中处理错误
 
-https://go.dev/blog/go1.13-errors
+> 原文：[https://go.dev/blog/go1.13-errors](https://go.dev/blog/go1.13-errors)
 
 Damien Neil and Jonathan Amsterdam
 17 October 2019

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/generic_interface.html](https://gorm.io/docs/generic_interface.html)
+> 原文：[https://gorm.io/docs/generic_interface.html](https://gorm.io/docs/generic_interface.html)
 
 GORM provides the method `DB` which returns a generic database interface [*sql.DB](https://pkg.go.dev/database/sql#DB) from the current `*gorm.DB`
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/asn1@go1.21.3
+> 原文：[https://pkg.go.dev/encoding/asn1@go1.21.3](https://pkg.go.dev/encoding/asn1@go1.21.3)
 
 Package asn1 implements parsing of DER-encoded ASN.1 data structures, as defined in ITU-T Rec X.690.
 

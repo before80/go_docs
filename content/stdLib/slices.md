@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-[https://pkg.go.dev/slices](https://pkg.go.dev/slices)
+> 原文：[https://pkg.go.dev/slices](https://pkg.go.dev/slices)
 
 ## 概述 
 

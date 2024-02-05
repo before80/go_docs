@@ -10,7 +10,7 @@ draft = false
 
 # Tidying up the Go web experience - 整理 go 的Web体验
 
-[https://go.dev/blog/tidy-web](https://go.dev/blog/tidy-web)
+> 原文：[https://go.dev/blog/tidy-web](https://go.dev/blog/tidy-web)
 
 Russ Cox
 18 August 2021

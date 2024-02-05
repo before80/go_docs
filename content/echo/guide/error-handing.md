@@ -11,7 +11,7 @@ draft = false
 
 # Error Handling - 错误处理
 
-https://echo.labstack.com/docs/error-handling
+> 原文：[https://echo.labstack.com/docs/error-handling](https://echo.labstack.com/docs/error-handling)
 
 ​	Echo 提倡通过从中间件和处理程序返回错误来进行集中的 HTTP 错误处理。集中的错误处理程序允许我们从统一的位置将错误日志记录到外部服务，并向客户端发送自定义的 HTTP 响应。
 

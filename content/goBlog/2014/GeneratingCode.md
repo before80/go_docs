@@ -10,7 +10,7 @@ draft = false
 
 # Generating code - 生成代码
 
-https://go.dev/blog/generate
+> 原文：[https://go.dev/blog/generate](https://go.dev/blog/generate)
 
 Rob Pike
 22 December 2014

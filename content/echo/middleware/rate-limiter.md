@@ -10,7 +10,7 @@ draft = false
 
 # Rate Limiter
 
-https://echo.labstack.com/docs/middleware/rate-limiter
+> 原文：[https://echo.labstack.com/docs/middleware/rate-limiter](https://echo.labstack.com/docs/middleware/rate-limiter)
 
 `RateLimiter` provides a Rate Limiter middleware for limiting the amount of requests to the server from a particular IP or id within a time period.
 

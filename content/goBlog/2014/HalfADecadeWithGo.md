@@ -10,7 +10,7 @@ draft = false
 
 # Half a decade with Go - 与 go 相处的5年
 
-https://go.dev/blog/5years
+> 原文：[https://go.dev/blog/5years](https://go.dev/blog/5years)
 
 Andrew Gerrand
 10 November 2014

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/has_one.html](https://gorm.io/docs/has_one.html)
+> 原文：[https://gorm.io/docs/has_one.html](https://gorm.io/docs/has_one.html)
 
 ## 一对一 Has One
 

@@ -10,7 +10,7 @@ draft = false
 
 # Four years of Go - go 四岁了
 
-https://go.dev/blog/4years
+> 原文：[https://go.dev/blog/4years](https://go.dev/blog/4years)
 
 Andrew Gerrand
 10 November 2013

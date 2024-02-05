@@ -10,7 +10,7 @@ draft = false
 
 # Go Programming session video from Google I/O - Google I/O大会中的 go 编程会话视频
 
-https://go.dev/blog/io2010
+> 原文：[https://go.dev/blog/io2010](https://go.dev/blog/io2010)
 
 Andrew Gerrand
 6 June 2010

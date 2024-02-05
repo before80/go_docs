@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.15 is released - go 1.15版发布了
 
-https://go.dev/blog/go1.15
+> 原文：[https://go.dev/blog/go1.15](https://go.dev/blog/go1.15)
 
 Alex Rakoczy
 11 August 2020

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/image@go1.21.3
+> 原文：[https://pkg.go.dev/image@go1.21.3](https://pkg.go.dev/image@go1.21.3)
 
 Package image implements a basic 2-D image library.
 

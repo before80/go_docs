@@ -10,7 +10,7 @@ draft = false
 
 # A new Go API for Protocol Buffers - 用于协议缓冲区的新 go API
 
-https://go.dev/blog/protobuf-apiv2
+> 原文：[https://go.dev/blog/protobuf-apiv2](https://go.dev/blog/protobuf-apiv2)
 
 Joe Tsai, Damien Neil, and Herbie Ong
 2 March 2020

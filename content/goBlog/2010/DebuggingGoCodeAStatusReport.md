@@ -10,7 +10,7 @@ draft = false
 
 # Debugging Go code (a status report) - 调试 go 代码（状态报告）
 
-https://go.dev/blog/debug-status
+> 原文：[https://go.dev/blog/debug-status](https://go.dev/blog/debug-status)
 
 Luuk van Dijk
 2 November 2010

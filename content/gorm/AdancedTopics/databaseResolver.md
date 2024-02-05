@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/dbresolver.html](https://gorm.io/docs/dbresolver.html)
+> 原文：[https://gorm.io/docs/dbresolver.html](https://gorm.io/docs/dbresolver.html)
 
 DBResolver adds multiple databases support to GORM, the following features are supported:
 

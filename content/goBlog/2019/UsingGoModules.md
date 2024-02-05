@@ -10,7 +10,7 @@ draft = false
 
 # Using Go Modules - 使用 go 模块
 
-https://go.dev/blog/using-go-modules
+> 原文：[https://go.dev/blog/using-go-modules](https://go.dev/blog/using-go-modules)
 
 Tyler Bui-Palsulich and Eno Compton
 19 March 2019

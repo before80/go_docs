@@ -10,7 +10,7 @@ draft = false
 
 # Go videos from Google I/O 2012 - 2012年谷歌I/O大会的视频
 
-https://go.dev/blog/io2012-videos
+> 原文：[https://go.dev/blog/io2012-videos](https://go.dev/blog/io2012-videos)
 
 Andrew Gerrand
 2 July 2012

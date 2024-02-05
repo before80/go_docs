@@ -10,7 +10,7 @@ draft = false
 
 # Gobs of data - 海量数据
 
-https://go.dev/blog/gob
+> 原文：[https://go.dev/blog/gob](https://go.dev/blog/gob)
 
 Rob Pike
 24 March 2011

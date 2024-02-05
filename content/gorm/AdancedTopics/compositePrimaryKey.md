@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/composite_primary_key.html](https://gorm.io/docs/composite_primary_key.html)
+> 原文：[https://gorm.io/docs/composite_primary_key.html](https://gorm.io/docs/composite_primary_key.html)
 
 Set multiple fields as primary key creates composite primary key, for example:
 

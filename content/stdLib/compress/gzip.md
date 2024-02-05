@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/gzip@go1.21.3
+> 原文：[https://pkg.go.dev/compress/gzip@go1.21.3](https://pkg.go.dev/compress/gzip@go1.21.3)
 
 Package gzip implements reading and writing of gzip format compressed files, as specified in [RFC 1952](https://rfc-editor.org/rfc/rfc1952.html).
 

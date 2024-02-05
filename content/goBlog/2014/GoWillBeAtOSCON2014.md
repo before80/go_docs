@@ -10,7 +10,7 @@ draft = false
 
 # Go will be at OSCON 2014 - go 将参加2014年OSCON展会
 
-https://go.dev/blog/oscon
+> 原文：[https://go.dev/blog/oscon](https://go.dev/blog/oscon)
 
 Francesc Campoy
 15 July 2014

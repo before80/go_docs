@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/runtime/debug@go1.21.3
+> 原文：[https://pkg.go.dev/runtime/debug@go1.21.3](https://pkg.go.dev/runtime/debug@go1.21.3)
 
 Package debug contains facilities for programs to debug themselves while they are running.
 

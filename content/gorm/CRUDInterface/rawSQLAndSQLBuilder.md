@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/sql_builder.html](https://gorm.io/docs/sql_builder.html)
+> 原文：[https://gorm.io/docs/sql_builder.html](https://gorm.io/docs/sql_builder.html)
 
 ## 原始SQL Raw SQL
 

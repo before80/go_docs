@@ -9,7 +9,7 @@ draft = false
 
 # Embed Resources
 
-https://echo.labstack.com/docs/cookbook/embed-resources
+> 原文：[https://echo.labstack.com/docs/cookbook/embed-resources](https://echo.labstack.com/docs/cookbook/embed-resources)
 
 ## With go 1.16 embed feature
 

@@ -10,7 +10,7 @@ draft = false
 
 # Building StatHat with Go - 用 go 构建StatHat
 
-https://go.dev/blog/stathat
+> 原文：[https://go.dev/blog/stathat](https://go.dev/blog/stathat)
 
 Patrick Crosby
 19 December 2011

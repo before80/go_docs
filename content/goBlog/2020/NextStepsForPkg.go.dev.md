@@ -10,7 +10,7 @@ draft = false
 
 # Next steps for pkg.go.dev - pkg.go.dev的下一步工作
 
-https://go.dev/blog/pkg.go.dev-2020
+> 原文：[https://go.dev/blog/pkg.go.dev-2020](https://go.dev/blog/pkg.go.dev-2020)
 
 Julie Qiu
 31 January 2020

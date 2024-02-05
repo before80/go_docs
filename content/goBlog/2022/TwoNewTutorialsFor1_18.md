@@ -10,7 +10,7 @@ draft = false
 
 # Two New Tutorials for 1.18 - 1.18版的两个新教程
 
-https://go.dev/blog/tutorials-go1.18
+> 原文：[https://go.dev/blog/tutorials-go1.18](https://go.dev/blog/tutorials-go1.18)
 
 Katie Hockman, for the Go team
 14 January 2022

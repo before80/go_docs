@@ -10,7 +10,7 @@ draft = false
 
 # Go on ARM and Beyond - go 在ARM和其他
 
-https://go.dev/blog/ports
+> 原文：[https://go.dev/blog/ports](https://go.dev/blog/ports)
 
 Russ Cox
 17 December 2020

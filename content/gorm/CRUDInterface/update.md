@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/update.html](https://gorm.io/docs/update.html)
+> 原文：[https://gorm.io/docs/update.html](https://gorm.io/docs/update.html)
 
 ## 保存所有字段 Save All Fields
 

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/data_types.html](https://gorm.io/docs/data_types.html)
+> 原文：[https://gorm.io/docs/data_types.html](https://gorm.io/docs/data_types.html)
 
 GORM provides few interfaces that allow users to define well-supported customized data types for GORM, takes [json](https://github.com/go-gorm/datatypes/blob/master/json.go) as an example
 

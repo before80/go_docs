@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/go/doc/comment@go1.21.3
+> 原文：[https://pkg.go.dev/go/doc/comment@go1.21.3](https://pkg.go.dev/go/doc/comment@go1.21.3)
 
 Package comment implements parsing and reformatting of Go doc comments, (documentation comments), which are comments that immediately precede a top-level declaration of a package, const, func, type, or var.
 

@@ -10,7 +10,7 @@ draft = false
 
 # The cover story - 封面故事
 
-https://go.dev/blog/cover
+> 原文：[https://go.dev/blog/cover](https://go.dev/blog/cover)
 
 Rob Pike
 2 December 2013

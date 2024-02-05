@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/preload.html](https://gorm.io/docs/preload.html)
+> 原文：[https://gorm.io/docs/preload.html](https://gorm.io/docs/preload.html)
 
 ## 预加载 Preload
 

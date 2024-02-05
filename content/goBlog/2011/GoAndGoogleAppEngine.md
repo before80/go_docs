@@ -10,7 +10,7 @@ draft = false
 
 # Go and Google App Engine - go 和 Google App Engine
 
-https://go.dev/blog/appengine
+> 原文：[https://go.dev/blog/appengine](https://go.dev/blog/appengine)
 
 David Symonds, Nigel Tao, and Andrew Gerrand
 10 May 2011

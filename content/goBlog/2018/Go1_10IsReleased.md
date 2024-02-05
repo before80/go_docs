@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.10 is released - go 1.10发布了
 
-https://go.dev/blog/go1.10
+> 原文：[https://go.dev/blog/go1.10](https://go.dev/blog/go1.10)
 
 Brad Fitzpatrick
 16 February 2018

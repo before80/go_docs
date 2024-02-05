@@ -10,7 +10,7 @@ draft = false
 
 # Toward Go 2 - 迈向 go 2
 
-https://go.dev/blog/toward-go2
+> 原文：[https://go.dev/blog/toward-go2](https://go.dev/blog/toward-go2)
 
 Russ Cox
 13 July 2017

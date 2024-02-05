@@ -11,7 +11,7 @@ draft = false
 
 # Templates - 模板
 
-https://echo.labstack.com/docs/templates
+> 原文：[https://echo.labstack.com/docs/templates](https://echo.labstack.com/docs/templates)
 
 ## 渲染
 

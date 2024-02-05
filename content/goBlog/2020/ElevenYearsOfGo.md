@@ -10,7 +10,7 @@ draft = false
 
 # Eleven Years of Go - go 11 岁了
 
-https://go.dev/blog/11years
+> 原文：[https://go.dev/blog/11years](https://go.dev/blog/11years)
 
 Russ Cox, for the Go team
 10 November 2020

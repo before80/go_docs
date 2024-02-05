@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/query.html](https://gorm.io/docs/query.html)
+> 原文：[https://gorm.io/docs/query.html](https://gorm.io/docs/query.html)
 
 ## 检索单个对象 Retrieving a single object
 

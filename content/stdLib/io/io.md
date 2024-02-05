@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/io@go1.21.3
+> 原文：[https://pkg.go.dev/io@go1.21.3](https://pkg.go.dev/io@go1.21.3)
 
 Package io provides basic interfaces to I/O primitives. Its primary job is to wrap existing implementations of such primitives, such as those in package os, into shared public interfaces that abstract the functionality, plus some other related primitives.
 

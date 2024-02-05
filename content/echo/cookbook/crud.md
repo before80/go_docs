@@ -9,7 +9,7 @@ draft = false
 
 # CRUD
 
-https://echo.labstack.com/docs/cookbook/crud
+> 原文：[https://echo.labstack.com/docs/cookbook/crud](https://echo.labstack.com/docs/cookbook/crud)
 
 ## Server
 

@@ -10,7 +10,7 @@ draft = false
 
 # How Go Mitigates Supply Chain Attacks  - Go如何减轻供应链攻击的影响
 
-https://go.dev/blog/supply-chain
+> 原文：[https://go.dev/blog/supply-chain](https://go.dev/blog/supply-chain)
 
 Filippo Valsorda
 31 March 2022

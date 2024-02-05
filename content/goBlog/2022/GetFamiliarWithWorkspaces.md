@@ -10,7 +10,7 @@ draft = false
 
 # Get familiar with workspaces - 熟悉工作空间
 
-https://go.dev/blog/get-familiar-with-workspaces
+> 原文：[https://go.dev/blog/get-familiar-with-workspaces](https://go.dev/blog/get-familiar-with-workspaces)
 
 Beth Brown, for the Go team
 5 April 2022

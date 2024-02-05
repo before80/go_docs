@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/subtle@go1.21.3
+> 原文：[https://pkg.go.dev/crypto/subtle@go1.21.3](https://pkg.go.dev/crypto/subtle@go1.21.3)
 
 Package subtle implements functions that are often useful in cryptographic code but require careful thought to use correctly.
 

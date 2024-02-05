@@ -10,7 +10,7 @@ draft = false
 
 # Learn Go from your browser - 从您的浏览器中学习 go
 
-https://go.dev/blog/tour
+> 原文：[https://go.dev/blog/tour](https://go.dev/blog/tour)
 
 Andrew Gerrand
 4 October 2011

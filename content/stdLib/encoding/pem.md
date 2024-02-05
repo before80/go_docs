@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/pem@go1.21.3
+> 原文：[https://pkg.go.dev/encoding/pem@go1.21.3](https://pkg.go.dev/encoding/pem@go1.21.3)
 
 Package pem implements the PEM data encoding, which originated in Privacy Enhanced Mail. The most common use of PEM encoding today is in TLS keys and certificates. See [RFC 1421](https://rfc-editor.org/rfc/rfc1421.html).
 

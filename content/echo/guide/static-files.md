@@ -11,7 +11,7 @@ draft = false
 
 # Static Files - 静态文件
 
-https://echo.labstack.com/docs/static-files
+> 原文：[https://echo.labstack.com/docs/static-files](https://echo.labstack.com/docs/static-files)
 
 ​	图片、JavaScript、CSS、PDF、字体等等...
 

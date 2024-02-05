@@ -10,7 +10,7 @@ draft = false
 
 # Organizing Go code - 组织 go 代码
 
-https://go.dev/blog/organizing-go-code
+> 原文：[https://go.dev/blog/organizing-go-code](https://go.dev/blog/organizing-go-code)
 
 Andrew Gerrand
 16 August 2012

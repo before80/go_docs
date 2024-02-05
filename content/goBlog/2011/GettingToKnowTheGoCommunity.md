@@ -10,7 +10,7 @@ draft = false
 
 # Getting to know the Go community - 了解 go 社区
 
-https://go.dev/blog/survey2011
+> 原文：[https://go.dev/blog/survey2011](https://go.dev/blog/survey2011)
 
 Andrew Gerrand
 21 December 2011

@@ -10,7 +10,7 @@ draft = false
 
 # The New Go Developer Network - 新的 go 开发者网络
 
-https://go.dev/blog/go-developer-network
+> 原文：[https://go.dev/blog/go-developer-network](https://go.dev/blog/go-developer-network)
 
 GoBridge Leadership Team
 14 March 2019

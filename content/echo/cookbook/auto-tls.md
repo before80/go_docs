@@ -9,7 +9,7 @@ draft = false
 
 # Auto TLS
 
-https://echo.labstack.com/docs/cookbook/auto-tls
+> 原文：[https://echo.labstack.com/docs/cookbook/auto-tls](https://echo.labstack.com/docs/cookbook/auto-tls)
 
 This recipe demonstrates how to obtain TLS certificates for a domain automatically from Let's Encrypt. `Echo#StartAutoTLS` accepts an address which should listen on port `443`.
 

@@ -11,7 +11,7 @@ draft = false
 
 # Start Server - 启动服务器
 
-https://echo.labstack.com/docs/start-server
+> 原文：[https://echo.labstack.com/docs/start-server](https://echo.labstack.com/docs/start-server)
 
 ​	Echo 提供以下方便的方法来启动服务器： 
 

@@ -10,7 +10,7 @@ draft = false
 
 # Go Turns 10 - go进入10周年
 
-https://go.dev/blog/10years
+> 原文：[https://go.dev/blog/10years](https://go.dev/blog/10years)
 
 Russ Cox, for the Go team
 8 November 2019

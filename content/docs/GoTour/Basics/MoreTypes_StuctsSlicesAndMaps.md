@@ -10,7 +10,7 @@ draft = false
 
 ## Pointers 指针
 
-[https://go.dev/tour/moretypes/1](https://go.dev/tour/moretypes/1)
+> 原文：[https://go.dev/tour/moretypes/1](https://go.dev/tour/moretypes/1)
 
 ​	Go拥有指针。指针保存了值的内存地址。
 
@@ -60,7 +60,7 @@ func main() {
 
 ##  Structs 结构体
 
-[https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)
+> 原文：[https://go.dev/tour/moretypes/2](https://go.dev/tour/moretypes/2)
 
 一个结构体（`struct`）就是一组字段（field）的集合。
 
@@ -82,7 +82,7 @@ func main() {
 
 ##  Struct Fields 结构体字段
 
-[https://go.dev/tour/moretypes/3](https://go.dev/tour/moretypes/3)
+> 原文：[https://go.dev/tour/moretypes/3](https://go.dev/tour/moretypes/3)
 
 ​	结构体字段使用点号来访问。
 
@@ -106,7 +106,7 @@ func main() {
 
 ## Pointers to structs 结构体指针
 
-[https://go.dev/tour/moretypes/4](https://go.dev/tour/moretypes/4)
+> 原文：[https://go.dev/tour/moretypes/4](https://go.dev/tour/moretypes/4)
 
 ​	结构字段可以通过结构体指针来访问。
 
@@ -133,7 +133,7 @@ func main() {
 
 ## Struct Literals 结构体字面量
 
-[https://go.dev/tour/moretypes/5](https://go.dev/tour/moretypes/5)
+> 原文：[https://go.dev/tour/moretypes/5](https://go.dev/tour/moretypes/5)
 
 ​	结构字面量通过直接列出字段的值来分配一个新的结构体。
 
@@ -165,7 +165,7 @@ func main() {
 
 ## Arrays 数组
 
-[https://go.dev/tour/moretypes/6](https://go.dev/tour/moretypes/6)
+> 原文：[https://go.dev/tour/moretypes/6](https://go.dev/tour/moretypes/6)
 
 ​	类型`[n]T`是一个包含`n`个`T`类型的值的数组。
 
@@ -199,7 +199,7 @@ func main() {
 
 ## Slices 切片
 
-[https://go.dev/tour/moretypes/7](https://go.dev/tour/moretypes/7)
+> 原文：[https://go.dev/tour/moretypes/7](https://go.dev/tour/moretypes/7)
 
 ​	每个数组的大小是固定的。而切片则为数组元素提供一个动态的、灵活的的视角。在实践中，切片比数组更常用。
 
@@ -235,7 +235,7 @@ func main() {
 
 ## Slices are like references to arrays 切片就像是对数组的引用
 
-[https://go.dev/tour/moretypes/8](https://go.dev/tour/moretypes/8)
+> 原文：[https://go.dev/tour/moretypes/8](https://go.dev/tour/moretypes/8)
 
 ​	切片不存储任何数据，它只是描述底层数组的一个部分。
 
@@ -279,7 +279,7 @@ func main() {
 
 ## Slice literals 切片字面量
 
-[https://go.dev/tour/moretypes/9](https://go.dev/tour/moretypes/9)
+> 原文：[https://go.dev/tour/moretypes/9](https://go.dev/tour/moretypes/9)
 
 ​	切片字面量类似没有长度的数组字面量。
 
@@ -325,7 +325,7 @@ func main() {
 
 ##  Slice defaults 切片的默认行为
 
-[https://go.dev/tour/moretypes/10](https://go.dev/tour/moretypes/10)
+> 原文：[https://go.dev/tour/moretypes/10](https://go.dev/tour/moretypes/10)
 
 ​	在进行切片时，您可以省略上界或下界，而使用它的默认行为。
 
@@ -370,7 +370,7 @@ func main() {
 
 ## Slice length and capacity 切片的长度和容量
 
-[https://go.dev/tour/moretypes/11](https://go.dev/tour/moretypes/11)
+> 原文：[https://go.dev/tour/moretypes/11](https://go.dev/tour/moretypes/11)
 
 ​	切片有长度和容量。
 
@@ -412,7 +412,7 @@ func printSlice(s []int) {
 
 ##  Nil slices - nil 切片
 
-[https://go.dev/tour/moretypes/12](https://go.dev/tour/moretypes/12)
+> 原文：[https://go.dev/tour/moretypes/12](https://go.dev/tour/moretypes/12)
 
 ​	切片的零值是`nil`。
 
@@ -435,7 +435,7 @@ func main() {
 
 ## Creating a slice with make 用 make 创建切片
 
-[https://go.dev/tour/moretypes/13](https://go.dev/tour/moretypes/13)
+> 原文：[https://go.dev/tour/moretypes/13](https://go.dev/tour/moretypes/13)
 
 ​	切片可以用内置的`make`函数来创建；这也是您创建动态数组的方式。
 
@@ -482,7 +482,7 @@ func printSlice(s string, x []int) {
 
 ##  Slices of slices 切片的切片
 
-[https://go.dev/tour/moretypes/14](https://go.dev/tour/moretypes/14)
+> 原文：[https://go.dev/tour/moretypes/14](https://go.dev/tour/moretypes/14)
 
 ​	切片可包含任何类型，甚至包括其它的切片。
 
@@ -518,7 +518,7 @@ func main() {
 
 ##  Appending to a slice - 向切片追加（元素）
 
-[https://go.dev/tour/moretypes/15](https://go.dev/tour/moretypes/15)
+> 原文：[https://go.dev/tour/moretypes/15](https://go.dev/tour/moretypes/15)
 
 ​	将新的元素追加到切片中是很常见的，因此Go提供了一个内置的`append`函数。内置包的[文档](https://go.dev/pkg/builtin/#append)描述了`append`。
 
@@ -567,7 +567,7 @@ func printSlice(s []int) {
 
 ##  Range
 
-[https://go.dev/tour/moretypes/16](https://go.dev/tour/moretypes/16)
+> 原文：[https://go.dev/tour/moretypes/16](https://go.dev/tour/moretypes/16)
 
 ​	`for`循环的`range`形式可遍历切片或映射。
 
@@ -590,7 +590,7 @@ func main() {
 
 ##  Range continued - range （续）
 
-[https://go.dev/tour/moretypes/17](https://go.dev/tour/moretypes/17)
+> 原文：[https://go.dev/tour/moretypes/17](https://go.dev/tour/moretypes/17)
 
 ​	可以通过赋值给`_`来忽略索引或值。
 
@@ -624,7 +624,7 @@ func main() {
 
 ##  Exercise: Slices 练习：切片
 
-[https://go.dev/tour/moretypes/18](https://go.dev/tour/moretypes/18)
+> 原文：[https://go.dev/tour/moretypes/18](https://go.dev/tour/moretypes/18)
 
 ​	实现`Pic`。它应返回一个长度为`dy`的切片，其中每个元素都是一个长度为`dx`的uint8切片。当您运行该程序时，它将显示您的图片，将整数解释为灰度值（好吧，其实是蓝度值）。
 
@@ -660,7 +660,7 @@ func main() {
 
 ##  Maps 映射
 
-[https://go.dev/tour/moretypes/19](https://go.dev/tour/moretypes/19)
+> 原文：[https://go.dev/tour/moretypes/19](https://go.dev/tour/moretypes/19)
 
 ​	映射将键映射到值。
 
@@ -695,7 +695,7 @@ func main() {
 
 ## Map literals 映射字面量
 
-[https://go.dev/tour/moretypes/20](https://go.dev/tour/moretypes/20)
+> 原文：[https://go.dev/tour/moretypes/20](https://go.dev/tour/moretypes/20)
 
 ​	映射字面量与结构体字面量类似，不过映射字面量必须有键名。
 
@@ -725,7 +725,7 @@ func main() {
 
 ##  Map literals continued 映射字面量（续）
 
-[https://go.dev/tour/moretypes/21](https://go.dev/tour/moretypes/21)
+> 原文：[https://go.dev/tour/moretypes/21](https://go.dev/tour/moretypes/21)
 
 如果顶层类型只是一个类型名，您可以从字面量的元素中省略它。
 
@@ -751,7 +751,7 @@ func main() {
 
 ##  Mutating Maps 修改映射
 
-[https://go.dev/tour/moretypes/22](https://go.dev/tour/moretypes/22)
+> 原文：[https://go.dev/tour/moretypes/22](https://go.dev/tour/moretypes/22)
 
 ​	在映射`m`中插入或修改元素：
 
@@ -812,7 +812,7 @@ func main() {
 
 ##  Exercise: Maps 练习：映射
 
-[https://go.dev/tour/moretypes/23](https://go.dev/tour/moretypes/23)
+> 原文：[https://go.dev/tour/moretypes/23](https://go.dev/tour/moretypes/23)
 
 ​	实现`WordCount`。它应当返回一个映射，其中包含字符串`s`中的每个"单词"。函数`wc.Test`会对函数执行一系列测试用例，并输出成功或失败。
 
@@ -843,7 +843,7 @@ func main() {
 
 ##  Function values 函数值
 
-[https://go.dev/tour/moretypes/24](https://go.dev/tour/moretypes/24)
+> 原文：[https://go.dev/tour/moretypes/24](https://go.dev/tour/moretypes/24)
 
 ​	函数也是值。它们可以像其他值一样被传递。
 
@@ -875,7 +875,7 @@ func main() {
 
 ##  Function closures 函数闭包
 
-[https://go.dev/tour/moretypes/25](https://go.dev/tour/moretypes/25)
+> 原文：[https://go.dev/tour/moretypes/25](https://go.dev/tour/moretypes/25)
 
 ​	Go函数可以是一个`闭包`的。`闭包`是一个函数值，它从其函数体之外引用变量。该函数可以访问并赋予其引用的变量的值；在这个意义上，该函数被 "绑定 "到这些变量上。
 
@@ -908,7 +908,7 @@ func main() {
 
 ##  Exercise: Fibonacci closure 练习：斐波那契闭包
 
-[https://go.dev/tour/moretypes/26](https://go.dev/tour/moretypes/26)
+> 原文：[https://go.dev/tour/moretypes/26](https://go.dev/tour/moretypes/26)
 
 ​	让我们用函数做些好玩的吧。
 
@@ -941,7 +941,7 @@ func main() {
 
 ##  Congratulations! 祝贺您!
 
-[https://go.dev/tour/moretypes/27](https://go.dev/tour/moretypes/27)
+> 原文：[https://go.dev/tour/moretypes/27](https://go.dev/tour/moretypes/27)
 
 您完成了这一课!
 

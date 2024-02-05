@@ -9,7 +9,7 @@ draft = false
 
 # Reverse Proxy
 
-https://echo.labstack.com/docs/cookbook/reverse-proxy
+> 原文：[https://echo.labstack.com/docs/cookbook/reverse-proxy](https://echo.labstack.com/docs/cookbook/reverse-proxy)
 
 This recipe demonstrates how you can use Echo as a reverse proxy server and load balancer in front of your favorite applications like WordPress, Node.js, Java, Python, Ruby or even Go. For simplicity, I will use Go upstream servers with WebSocket.
 

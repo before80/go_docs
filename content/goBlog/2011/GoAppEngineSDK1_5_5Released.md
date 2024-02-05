@@ -10,7 +10,7 @@ draft = false
 
 # Go App Engine SDK 1.5.5 released
 
-https://go.dev/blog/appengine-155
+> 原文：[https://go.dev/blog/appengine-155](https://go.dev/blog/appengine-155)
 
 Andrew Gerrand
 11 October 2011

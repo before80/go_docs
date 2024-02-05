@@ -10,7 +10,7 @@ draft = false
 
 # Introducing Gofix - 介绍一下 gofix
 
-https://go.dev/blog/introducing-gofix
+> 原文：[https://go.dev/blog/introducing-gofix](https://go.dev/blog/introducing-gofix)
 
 Russ Cox
 15 April 2011

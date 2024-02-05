@@ -9,7 +9,7 @@ draft = false
 
 # File Download
 
-https://echo.labstack.com/docs/cookbook/file-download
+> 原文：[https://echo.labstack.com/docs/cookbook/file-download](https://echo.labstack.com/docs/cookbook/file-download)
 
 ## Download file
 

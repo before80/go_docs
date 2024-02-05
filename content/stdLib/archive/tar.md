@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/archive/tar@go1.21.3
+> 原文：[https://pkg.go.dev/archive/tar@go1.21.3](https://pkg.go.dev/archive/tar@go1.21.3)
 
 Package tar implements access to tar archives.
 

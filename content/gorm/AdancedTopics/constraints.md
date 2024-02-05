@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/constraints.html](https://gorm.io/docs/constraints.html)
+> 原文：[https://gorm.io/docs/constraints.html](https://gorm.io/docs/constraints.html)
 
 GORM allows create database constraints with tag, constraints will be created when [AutoMigrate or CreateTable with GORM](https://gorm.io/docs/migration.html)
 

@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.16 is released - go 1.16版发布了
 
-https://go.dev/blog/go1.16
+> 原文：[https://go.dev/blog/go1.16](https://go.dev/blog/go1.16)
 
 Matt Pearring and Dmitri Shuralyov
 16 February 2021

@@ -11,7 +11,7 @@ draft = false
 
 # Request - 请求
 
-https://echo.labstack.com/docs/request
+> 原文：[https://echo.labstack.com/docs/request](https://echo.labstack.com/docs/request)
 
 ## 检索数据 - Retrieve Data
 

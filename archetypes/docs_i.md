@@ -1,11 +1,13 @@
 +++
 title = "{{ .Name }}"
 linkTitle = "{{ .Name }}"
-weight = 20
 date = {{ .Date }}
+type="docs"
 description = ""
 isCJKLanguage = true
 draft = false
+[menu.main]
+	weight = 20
 +++
 
 > 原文：

@@ -11,7 +11,7 @@ draft = false
 
 # Key Auth
 
-https://echo.labstack.com/docs/middleware/key-auth
+> 原文：[https://echo.labstack.com/docs/middleware/key-auth](https://echo.labstack.com/docs/middleware/key-auth)
 
 ​	Key Auth 中间件提供基于密钥的身份验证。 
 

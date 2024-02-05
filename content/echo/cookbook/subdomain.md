@@ -9,7 +9,7 @@ draft = false
 
 # Subdomain
 
-https://echo.labstack.com/docs/cookbook/subdomain
+> 原文：[https://echo.labstack.com/docs/cookbook/subdomain](https://echo.labstack.com/docs/cookbook/subdomain)
 
 ## Server
 

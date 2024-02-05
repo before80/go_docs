@@ -10,7 +10,7 @@ draft = false
 
 # Inside the Go Playground - Go Playground内部情况
 
-https://go.dev/blog/playground
+> 原文：[https://go.dev/blog/playground](https://go.dev/blog/playground)
 
 Andrew Gerrand
 12 December 2013

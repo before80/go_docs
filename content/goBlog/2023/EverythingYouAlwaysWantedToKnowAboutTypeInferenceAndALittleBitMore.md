@@ -11,7 +11,7 @@ draft = false
 
 ## Everything You Always Wanted to Know About Type Inference - And a Little Bit More
 
-[https://go.dev/blog/type-inference](https://go.dev/blog/type-inference)
+> 原文：[https://go.dev/blog/type-inference](https://go.dev/blog/type-inference)
 
 Robert Griesemer
 9 October 2023

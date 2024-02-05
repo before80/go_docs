@@ -10,7 +10,7 @@ draft = false
 
 # HTTP/2 Server Push - HTTP/2服务器推送
 
-https://go.dev/blog/h2push
+> 原文：[https://go.dev/blog/h2push](https://go.dev/blog/h2push)
 
 Jaana Burcu Dogan and Tom Bergan
 24 March 2017

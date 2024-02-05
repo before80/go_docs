@@ -11,7 +11,7 @@ draft = false
 
 # Gzip
 
-https://echo.labstack.com/docs/middleware/gzip
+> 原文：[https://echo.labstack.com/docs/middleware/gzip](https://echo.labstack.com/docs/middleware/gzip)
 
 ​	Gzip中间件使用gzip压缩方案对HTTP响应进行压缩。
 

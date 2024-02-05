@@ -10,7 +10,7 @@ draft = false
 
 # Announcing the 2020 Go Developer Survey - 宣布2020年 go 开发者调查
 
-https://go.dev/blog/survey2020
+> 原文：[https://go.dev/blog/survey2020](https://go.dev/blog/survey2020)
 
 Alice Merrick
 20 October 2020

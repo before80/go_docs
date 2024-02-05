@@ -9,7 +9,7 @@ draft = false
 
 # JSONP
 
-https://echo.labstack.com/docs/cookbook/jsonp
+> 原文：[https://echo.labstack.com/docs/cookbook/jsonp](https://echo.labstack.com/docs/cookbook/jsonp)
 
 JSONP is a method that allows cross-domain server calls. You can read more about it at the JSON versus JSONP Tutorial.
 

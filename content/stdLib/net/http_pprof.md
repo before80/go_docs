@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/pprof@go1.20.1
+> 原文：[https://pkg.go.dev/net/http/pprof@go1.20.1](https://pkg.go.dev/net/http/pprof@go1.20.1)
 
 ​	`pprof` 包通过其 HTTP 服务器以 pprof 可工具所期望的格式提供运行时分析数据。
 

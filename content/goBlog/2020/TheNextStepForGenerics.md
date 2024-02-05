@@ -10,7 +10,7 @@ draft = false
 
 # The Next Step for Generics - 泛型的下一步
 
-https://go.dev/blog/generics-next-step
+> 原文：[https://go.dev/blog/generics-next-step](https://go.dev/blog/generics-next-step)
 
 Ian Lance Taylor and Robert Griesemer
 16 June 2020

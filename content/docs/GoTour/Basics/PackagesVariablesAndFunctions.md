@@ -11,7 +11,7 @@ draft = false
 
 ## Packages 包
 
-[https://go.dev/tour/basics/1](https://go.dev/tour/basics/1)
+> 原文：[https://go.dev/tour/basics/1](https://go.dev/tour/basics/1)
 
 ​	每个Go程序都是由包组成的。
 
@@ -40,7 +40,7 @@ func main() {
 
 ## Imports 导入
 
-[https://go.dev/tour/basics/2](https://go.dev/tour/basics/2)
+> 原文：[https://go.dev/tour/basics/2](https://go.dev/tour/basics/2)
 
 ​	此代码用圆括号组合了导入，这是 "分组 "形式的导入语句。
 
@@ -69,7 +69,7 @@ func main() {
 
 ## Exported names 导出名
 
-[https://go.dev/tour/basics/3](https://go.dev/tour/basics/3)
+> 原文：[https://go.dev/tour/basics/3](https://go.dev/tour/basics/3)
 
 ​	在Go中，如果一个名字以大写字母开头，那么它就是已导出的。例如，`Pizza`是就是一个已导出名，`Pi`也是一个已导出名，它导出自`math`包。
 
@@ -100,7 +100,7 @@ func main() {
 
 ## Functions 函数
 
-[https://go.dev/tour/basics/4](https://go.dev/tour/basics/4)
+> 原文：[https://go.dev/tour/basics/4](https://go.dev/tour/basics/4)
 
 ​	函数可以接受零个或多个参数。
 
@@ -127,7 +127,7 @@ func main() {
 
 ## Functions continued 函数（续）
 
-[https://go.dev/tour/basics/5](https://go.dev/tour/basics/5)
+> 原文：[https://go.dev/tour/basics/5](https://go.dev/tour/basics/5)
 
 ​	当连续两个或更多的函数的已命名形参类型相同时，除了最后一个以外，其它都可以省略。
 
@@ -162,7 +162,7 @@ func main() {
 
 ##  Multiple results 多值返回
 
-[https://go.dev/tour/basics/6](https://go.dev/tour/basics/6)
+> 原文：[https://go.dev/tour/basics/6](https://go.dev/tour/basics/6)
 
 函数可以返回任意数量的返回值。
 
@@ -186,7 +186,7 @@ func main() {
 
 ##  Named return values 命名返回值
 
-[https://go.dev/tour/basics/7](https://go.dev/tour/basics/7)
+> 原文：[https://go.dev/tour/basics/7](https://go.dev/tour/basics/7)
 
 ​	Go 的返回值可被命名。它们被视作定义在函数顶部的变量。
 
@@ -215,7 +215,7 @@ func main() {
 
 ##  Variables 变量
 
-[https://go.dev/tour/basics/8](https://go.dev/tour/basics/8)
+> 原文：[https://go.dev/tour/basics/8](https://go.dev/tour/basics/8)
 
 ​	`var`语句用于声明一个变量列表，和函数参数列表一样，类型在最后。
 
@@ -237,7 +237,7 @@ func main() {
 
 ## Variables with initializers 变量初始化
 
-[https://go.dev/tour/basics/9](https://go.dev/tour/basics/9)
+> 原文：[https://go.dev/tour/basics/9](https://go.dev/tour/basics/9)
 
 ​	var声明可以包含初始化值，每个变量对应一个。
 
@@ -259,7 +259,7 @@ func main() {
 
 ##  Short variable declarations 短变量声明
 
-[https://go.dev/tour/basics/10](https://go.dev/tour/basics/10)
+> 原文：[https://go.dev/tour/basics/10](https://go.dev/tour/basics/10)
 
 ​	在函数中，可用 `:=` 短赋值语句来代替隐含类型的`var`声明。
 
@@ -282,7 +282,7 @@ func main() {
 
 ## Basic types 
 
-[https://go.dev/tour/basics/11](https://go.dev/tour/basics/11)
+> 原文：[https://go.dev/tour/basics/11](https://go.dev/tour/basics/11)
 
 ​	Go的基本类型有：
 
@@ -332,7 +332,7 @@ func main() {
 
 ##  Zero values 零值
 
-[https://go.dev/tour/basics/12](https://go.dev/tour/basics/12)
+> 原文：[https://go.dev/tour/basics/12](https://go.dev/tour/basics/12)
 
 ​	在没有明确初始值的变量声明中，变量会被赋予零值。
 
@@ -359,7 +359,7 @@ func main() {
 
 ##  Type conversions 类型转换
 
-[https://go.dev/tour/basics/13](https://go.dev/tour/basics/13)
+> 原文：[https://go.dev/tour/basics/13](https://go.dev/tour/basics/13)
 
 ​	表达式`T(v)`将值`v`转换为类型`T`。
 
@@ -400,7 +400,7 @@ func main() {
 
 ##  Type inference 类型推导
 
-[https://go.dev/tour/basics/14](https://go.dev/tour/basics/14)
+> 原文：[https://go.dev/tour/basics/14](https://go.dev/tour/basics/14)
 
 ​	当声明一个变量而不指定明确的类型时（无论是使用`:=`语法还是`var=`表达式语法），变量的类型是由右侧的值推导出来的。
 
@@ -435,7 +435,7 @@ func main() {
 
 ##  Constants 常量
 
-[https://go.dev/tour/basics/15](https://go.dev/tour/basics/15)
+> 原文：[https://go.dev/tour/basics/15](https://go.dev/tour/basics/15)
 
 ​	常量的声明与变量类似，但使用`const`关键字。
 
@@ -463,7 +463,7 @@ func main() {
 
 ##  Numeric Constants 数值常量
 
-[https://go.dev/tour/basics/16](https://go.dev/tour/basics/16)
+> 原文：[https://go.dev/tour/basics/16](https://go.dev/tour/basics/16)
 
 ​	数值常量是高精度的数值。
 
@@ -501,7 +501,7 @@ func main() {
 
 ##  Congratulations! 祝贺您!
 
-[https://go.dev/tour/basics/17](https://go.dev/tour/basics/17)
+> 原文：[https://go.dev/tour/basics/17](https://go.dev/tour/basics/17)
 
 ​	您完成了这一课!
 

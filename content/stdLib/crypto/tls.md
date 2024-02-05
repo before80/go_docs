@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/tls@go1.21.3
+> 原文：[https://pkg.go.dev/crypto/tls@go1.21.3](https://pkg.go.dev/crypto/tls@go1.21.3)
 
 Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc-editor.org/rfc/rfc5246.html), and TLS 1.3, as specified in [RFC 8446](https://rfc-editor.org/rfc/rfc8446.html).
 

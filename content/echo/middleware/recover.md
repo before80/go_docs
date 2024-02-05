@@ -10,7 +10,7 @@ draft = false
 
 # Recover
 
-https://echo.labstack.com/docs/middleware/recover
+> 原文：[https://echo.labstack.com/docs/middleware/recover](https://echo.labstack.com/docs/middleware/recover)
 
 Recover middleware recovers from panics anywhere in the chain, prints stack trace and handles the control to the centralized [HTTPErrorHandler](https://echo.labstack.com/docs/customization#http-error-handler).
 

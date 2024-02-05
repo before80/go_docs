@@ -1,6 +1,6 @@
 # cmerge
 
-https://pkg.go.dev/internal/coverage/cmerge@go1.20.1
+> 原文：[https://pkg.go.dev/internal/coverage/cmerge@go1.20.1](https://pkg.go.dev/internal/coverage/cmerge@go1.20.1)
 
 
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/http/httputil@go1.21.3
+> 原文：[https://pkg.go.dev/net/http/httputil@go1.21.3](https://pkg.go.dev/net/http/httputil@go1.21.3)
 
 Package httputil provides HTTP utility functions, complementing the more common ones in the net/http package.
 

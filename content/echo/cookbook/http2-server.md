@@ -9,7 +9,7 @@ draft = false
 
 # HTTP/2 Server
 
-https://echo.labstack.com/docs/cookbook/http2
+> 原文：[https://echo.labstack.com/docs/cookbook/http2](https://echo.labstack.com/docs/cookbook/http2)
 
 ## 1) Generate a self-signed X.509 TLS certificate
 

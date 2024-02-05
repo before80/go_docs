@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/csv@go1.21.3
+> 原文：[https://pkg.go.dev/encoding/csv@go1.21.3](https://pkg.go.dev/encoding/csv@go1.21.3)
 
 Package csv reads and writes comma-separated values (CSV) files. There are many kinds of CSV files; this package supports the format described in [RFC 4180](https://rfc-editor.org/rfc/rfc4180.html).
 

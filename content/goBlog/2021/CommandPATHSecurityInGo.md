@@ -10,7 +10,7 @@ draft = false
 
 # Command PATH security in Go - go 中的指令PATH安全
 
-[https://go.dev/blog/path-security](https://go.dev/blog/path-security)
+> 原文：[https://go.dev/blog/path-security](https://go.dev/blog/path-security)
 
 Russ Cox
 19 January 2021

@@ -10,7 +10,7 @@ draft = false
 
 # Why Generics? - 为什么泛型？
 
-https://go.dev/blog/why-generics
+> 原文：[https://go.dev/blog/why-generics](https://go.dev/blog/why-generics)
 
 Ian Lance Taylor
 31 July 2019

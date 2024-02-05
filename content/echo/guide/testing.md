@@ -11,7 +11,7 @@ draft = false
 
 # Testing - 测试
 
-https://echo.labstack.com/docs/testing
+> 原文：[https://echo.labstack.com/docs/testing](https://echo.labstack.com/docs/testing)
 
 ## 测试处理程序
 

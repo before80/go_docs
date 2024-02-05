@@ -9,7 +9,7 @@ draft = false
 
 # Twitter Like API
 
-https://echo.labstack.com/docs/cookbook/twitter
+> 原文：[https://echo.labstack.com/docs/cookbook/twitter](https://echo.labstack.com/docs/cookbook/twitter)
 
 This recipe demonstrates how to create a Twitter like REST API using MongoDB (Database), JWT (API security) and JSON (Data exchange).
 

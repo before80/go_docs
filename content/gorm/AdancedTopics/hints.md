@@ -9,13 +9,13 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/hints.html](https://gorm.io/docs/hints.html)
+> 原文：[https://gorm.io/docs/hints.html](https://gorm.io/docs/hints.html)
 
 GORM provides optimizer/index/comment hints support
 
 ​	GORM提供了优化器/索引/注释提示支持。
 
-[https://github.com/go-gorm/hints](https://github.com/go-gorm/hints)
+> 原文：[https://github.com/go-gorm/hints](https://github.com/go-gorm/hints)
 
 ## 优化器提示 Optimizer Hints
 

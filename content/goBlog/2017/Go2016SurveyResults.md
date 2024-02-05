@@ -10,7 +10,7 @@ draft = false
 
 # Go 2016 Survey Results - 2016年 go 调查结果
 
-https://go.dev/blog/survey2016-results
+> 原文：[https://go.dev/blog/survey2016-results](https://go.dev/blog/survey2016-results)
 
 Steve Francia, for the Go team
 6 March 2017

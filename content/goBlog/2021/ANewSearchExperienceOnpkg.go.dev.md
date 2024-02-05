@@ -10,7 +10,7 @@ draft = false
 
 # A new search experience on pkg.go.dev - pkg.go.dev上的新搜索体验
 
-https://go.dev/blog/pkgsite-search-redesign
+> 原文：[https://go.dev/blog/pkgsite-search-redesign](https://go.dev/blog/pkgsite-search-redesign)
 
 Julie Qiu
 9 November 2021

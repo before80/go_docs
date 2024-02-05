@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/models.html](https://gorm.io/docs/models.html)
+> 原文：[https://gorm.io/docs/models.html](https://gorm.io/docs/models.html)
 
 Models are normal structs with basic Go types, pointers/alias of them or custom types implementing [Scanner](https://pkg.go.dev/database/sql/?tab=doc#Scanner) and [Valuer](https://pkg.go.dev/database/sql/driver#Valuer) interfaces
 

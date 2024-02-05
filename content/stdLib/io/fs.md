@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/io/fs@go1.21.3
+> 原文：[https://pkg.go.dev/io/fs@go1.21.3](https://pkg.go.dev/io/fs@go1.21.3)
 
 Package fs defines basic interfaces to a file system. A file system can be provided by the host operating system but also by other packages.
 

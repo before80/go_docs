@@ -10,7 +10,7 @@ draft = false
 
 # Writing scalable App Engine applications - 编写可扩展的App Engine应用程序
 
-https://go.dev/blog/appengine-scalable
+> 原文：[https://go.dev/blog/appengine-scalable](https://go.dev/blog/appengine-scalable)
 
 David Symonds
 1 November 2011

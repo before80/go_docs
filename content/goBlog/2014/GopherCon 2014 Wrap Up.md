@@ -10,7 +10,7 @@ draft = false
 
 # GopherCon 2014 Wrap Up - GopherCon 2014总结
 
-https://go.dev/blog/gophercon
+> 原文：[https://go.dev/blog/gophercon](https://go.dev/blog/gophercon)
 
 Andrew Gerrand
 28 May 2014

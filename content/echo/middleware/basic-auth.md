@@ -11,7 +11,7 @@ draft = false
 
 # Basic Auth - 基本认证
 
-https://echo.labstack.com/docs/middleware/basic-auth
+> 原文：[https://echo.labstack.com/docs/middleware/basic-auth](https://echo.labstack.com/docs/middleware/basic-auth)
 
 ​	基本认证中间件提供了HTTP基本认证。 
 

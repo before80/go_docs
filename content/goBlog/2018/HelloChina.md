@@ -10,7 +10,7 @@ draft = false
 
 # Hello, 中国!
 
-https://go.dev/blog/hello-china
+> 原文：[https://go.dev/blog/hello-china](https://go.dev/blog/hello-china)
 
 Andrew Bonventre
 22 January 2018

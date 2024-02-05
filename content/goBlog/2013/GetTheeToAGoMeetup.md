@@ -10,7 +10,7 @@ draft = false
 
 # Get thee to a Go meetup - 去参加 go 聚会吧
 
-https://go.dev/blog/meetups
+> 原文：[https://go.dev/blog/meetups](https://go.dev/blog/meetups)
 
 Andrew Gerrand
 27 February 2013

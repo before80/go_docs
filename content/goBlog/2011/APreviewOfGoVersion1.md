@@ -10,7 +10,7 @@ draft = false
 
 # A preview of Go version 1 - go 的第一版的预览
 
-https://go.dev/blog/go1-preview
+> 原文：[https://go.dev/blog/go1-preview](https://go.dev/blog/go1-preview)
 
 Russ Cox
 5 October 2011

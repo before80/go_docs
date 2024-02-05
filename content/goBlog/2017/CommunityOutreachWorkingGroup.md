@@ -10,7 +10,7 @@ draft = false
 
 # Community Outreach Working Group - 社区外展工作小组
 
-https://go.dev/blog/cwg
+> 原文：[https://go.dev/blog/cwg](https://go.dev/blog/cwg)
 
 Steve Francia & Cassandra Salisbury
 5 September 2017

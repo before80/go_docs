@@ -10,7 +10,7 @@ draft = false
 
 # Introducing the Go Race Detector - 介绍 go 竞争检测器
 
-https://go.dev/blog/race-detector
+> 原文：[https://go.dev/blog/race-detector](https://go.dev/blog/race-detector)
 
 Dmitry Vyukov and Andrew Gerrand
 26 June 2013

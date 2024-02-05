@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/testing@go1.21.3
+> 原文：[https://pkg.go.dev/testing@go1.21.3](https://pkg.go.dev/testing@go1.21.3)
 
 Package testing provides support for automated testing of Go packages. It is intended to be used in concert with the "go test" command, which automates execution of any function of the form
 

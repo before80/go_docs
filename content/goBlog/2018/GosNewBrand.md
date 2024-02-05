@@ -10,7 +10,7 @@ draft = false
 
 # Go's New Brand - go 的新品牌
 
-https://go.dev/blog/go-brand
+> 原文：[https://go.dev/blog/go-brand](https://go.dev/blog/go-brand)
 
 Steve Francia
 26 April 2018

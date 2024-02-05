@@ -10,7 +10,7 @@ draft = false
 
 # Eight years of Go - go 8 岁了
 
-https://go.dev/blog/8years
+> 原文：[https://go.dev/blog/8years](https://go.dev/blog/8years)
 
 Steve Francia
 10 November 2017

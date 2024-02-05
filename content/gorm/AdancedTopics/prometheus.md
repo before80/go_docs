@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/prometheus.html](https://gorm.io/docs/prometheus.html)
+> 原文：[https://gorm.io/docs/prometheus.html](https://gorm.io/docs/prometheus.html)
 
 GORM provides Prometheus plugin to collect [DBStats](https://pkg.go.dev/database/sql?tab=doc#DBStats) or user-defined metrics
 

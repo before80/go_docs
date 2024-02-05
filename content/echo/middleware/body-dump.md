@@ -10,7 +10,7 @@ draft = false
 
 # Body Dump
 
-https://echo.labstack.com/docs/middleware/body-dump
+> 原文：[https://echo.labstack.com/docs/middleware/body-dump](https://echo.labstack.com/docs/middleware/body-dump)
 
 Body dump middleware captures the request and response payload and calls the registered handler. Generally used for debugging/logging purpose. Avoid using it if your request/response payload is huge e.g. file upload/download, but if you still need to, add an exception for your endpoints in the skipper function.
 

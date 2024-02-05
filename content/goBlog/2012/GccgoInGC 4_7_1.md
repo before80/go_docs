@@ -10,7 +10,7 @@ draft = false
 
 # Gccgo in GCC 4.7.1
 
-https://go.dev/blog/gccgo-in-gcc-471
+> 原文：[https://go.dev/blog/gccgo-in-gcc-471](https://go.dev/blog/gccgo-in-gcc-471)
 
 Ian Lance Taylor
 11 July 2012

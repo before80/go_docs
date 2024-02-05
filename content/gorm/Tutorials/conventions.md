@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/conventions.html](https://gorm.io/docs/conventions.html)
+> 原文：[https://gorm.io/docs/conventions.html](https://gorm.io/docs/conventions.html)
 
 ## `ID` 作为主键 `ID` as Primary Key
 

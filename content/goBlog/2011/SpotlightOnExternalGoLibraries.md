@@ -10,7 +10,7 @@ draft = false
 
 # Spotlight on external Go libraries - 聚焦外部 go 库
 
-https://go.dev/blog/external-libraries
+> 原文：[https://go.dev/blog/external-libraries](https://go.dev/blog/external-libraries)
 
 Andrew Gerrand
 3 June 2011

@@ -10,7 +10,7 @@ draft = false
 
 # First Class Functions in Go - go 的一等函数
 
-[https://go.dev/blog/functions-codewalk](https://go.dev/blog/functions-codewalk)
+> 原文：[https://go.dev/blog/functions-codewalk](https://go.dev/blog/functions-codewalk)
 
 Andrew Gerrand
 30 June 2011

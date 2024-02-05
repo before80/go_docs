@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.19 is released! - Go 1.19发布了!
 
-https://go.dev/blog/go1.19
+> 原文：[https://go.dev/blog/go1.19](https://go.dev/blog/go1.19)
 
 The Go Team
 2 August 2022

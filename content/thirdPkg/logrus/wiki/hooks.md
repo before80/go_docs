@@ -9,7 +9,7 @@ draft = false
 
 # Hooks
 
-https://github.com/sirupsen/logrus/wiki/Hooks
+> 原文：[https://github.com/sirupsen/logrus/wiki/Hooks](https://github.com/sirupsen/logrus/wiki/Hooks)
 
 Owefsad 在 2 月 1 日编辑了此页面·[35 次修订](https://github.com/sirupsen/logrus/wiki/Hooks/_history)
 

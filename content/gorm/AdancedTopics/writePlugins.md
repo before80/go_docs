@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/write_plugins.html](https://gorm.io/docs/write_plugins.html)
+> 原文：[https://gorm.io/docs/write_plugins.html](https://gorm.io/docs/write_plugins.html)
 
 ## 回调 Callbacks
 

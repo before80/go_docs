@@ -10,7 +10,7 @@ draft = false
 
 # Go Wins 2010 Bossie Award - go获得了2010年Bossie奖
 
-https://go.dev/blog/bossie
+> 原文：[https://go.dev/blog/bossie](https://go.dev/blog/bossie)
 
 Andrew Gerrand
 6 September 2010

@@ -10,7 +10,7 @@ draft = false
 
 # Cobra Generator - Cobra 生成器
 
-https://github.com/spf13/cobra-cli
+> 原文：[https://github.com/spf13/cobra-cli](https://github.com/spf13/cobra-cli)
 
 
 

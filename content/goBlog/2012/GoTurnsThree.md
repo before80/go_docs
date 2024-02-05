@@ -10,7 +10,7 @@ draft = false
 
 # Go turns three - go 三周年
 
-https://go.dev/blog/3years
+> 原文：[https://go.dev/blog/3years](https://go.dev/blog/3years)
 
 Russ Cox
 10 November 2012

@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/community.html](https://gorm.io/community.html)
+> 原文：[https://gorm.io/community.html](https://gorm.io/community.html)
 
 ## 提问 Ask
 

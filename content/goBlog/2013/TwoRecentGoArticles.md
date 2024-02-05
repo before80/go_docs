@@ -10,7 +10,7 @@ draft = false
 
 # Two recent Go articles - 最近的两篇 go 文章
 
-https://go.dev/blog/two-recent-go-articles
+> 原文：[https://go.dev/blog/two-recent-go-articles](https://go.dev/blog/two-recent-go-articles)
 
 Andrew Gerrand
 6 March 2013

@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.18 is released!  - go 1.18发布了!
 
-https://go.dev/blog/go1.18
+> 原文：[https://go.dev/blog/go1.18](https://go.dev/blog/go1.18)
 
 The Go Team
 15 March 2022

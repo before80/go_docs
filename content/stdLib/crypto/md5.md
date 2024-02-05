@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/md5@go1.21.3
+> 原文：[https://pkg.go.dev/crypto/md5@go1.21.3](https://pkg.go.dev/crypto/md5@go1.21.3)
 
 Package md5 implements the MD5 hash algorithm as defined in [RFC 1321](https://rfc-editor.org/rfc/rfc1321.html).
 

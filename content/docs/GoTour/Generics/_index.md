@@ -11,7 +11,7 @@ draft = false
 
 ##  Type parameters 类型参数
 
-[https://go.dev/tour/generics/1](https://go.dev/tour/generics/1)
+> 原文：[https://go.dev/tour/generics/1](https://go.dev/tour/generics/1)
 
 ​	可以使用类型参数编写 Go 函数，以便对多种类型进行操作。一个函数的类型参数出现在括号中，在函数的参数之前。
 
@@ -56,7 +56,7 @@ func main() {
 
 ##  Generic types 范型
 
-[https://go.dev/tour/generics/2](https://go.dev/tour/generics/2)
+> 原文：[https://go.dev/tour/generics/2](https://go.dev/tour/generics/2)
 
 ​	除了泛型函数，Go 还支持泛型。一个类型可以用一个类型参数进行参数化，这对实现通用数据结构很有用。
 
@@ -85,7 +85,7 @@ func main() {
 
 ##  Congratulations!
 
-[https://go.dev/tour/generics/3](https://go.dev/tour/generics/3)
+> 原文：[https://go.dev/tour/generics/3](https://go.dev/tour/generics/3)
 
 您完成了这一课!
 

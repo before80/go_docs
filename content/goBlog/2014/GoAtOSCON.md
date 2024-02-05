@@ -10,7 +10,7 @@ draft = false
 
 # Go at OSCON  - 在 OSCON上的 go
 
-https://go.dev/blog/osconreport
+> 原文：[https://go.dev/blog/osconreport](https://go.dev/blog/osconreport)
 
 Francesc Campoy
 20 August 2014

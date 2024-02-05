@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/bytes@go1.21.3
+> 原文：[https://pkg.go.dev/bytes@go1.21.3](https://pkg.go.dev/bytes@go1.21.3)
 
 ![image-20231109160722609](bytes_img/image-20231109160722609.png)
 

@@ -10,7 +10,7 @@ draft = false
 
 # Go Developer Survey 2022 Q2 Results - 2022年第二季度Go开发者调查结果
 
-https://go.dev/blog/survey2022-q2-results
+> 原文：[https://go.dev/blog/survey2022-q2-results](https://go.dev/blog/survey2022-q2-results)
 
 Todd Kulesza
 8 September 2022

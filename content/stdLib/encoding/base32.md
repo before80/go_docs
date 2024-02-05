@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/encoding/base32@go1.21.3
+> 原文：[https://pkg.go.dev/encoding/base32@go1.21.3](https://pkg.go.dev/encoding/base32@go1.21.3)
 
 Package base32 implements base32 encoding as specified by [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html).
 

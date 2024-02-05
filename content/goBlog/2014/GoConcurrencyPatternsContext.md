@@ -10,7 +10,7 @@ draft = false
 
 # Go Concurrency Patterns: Context - go 并发模式：Context
 
-[https://go.dev/blog/context](https://go.dev/blog/context)
+> 原文：[https://go.dev/blog/context](https://go.dev/blog/context)
 
 Sameer Ajmani
 29 July 2014

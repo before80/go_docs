@@ -10,7 +10,7 @@ draft = false
 
 # Request ID
 
-https://echo.labstack.com/docs/middleware/request-id
+> 原文：[https://echo.labstack.com/docs/middleware/request-id](https://echo.labstack.com/docs/middleware/request-id)
 
 Request ID middleware generates a unique id for a request.
 

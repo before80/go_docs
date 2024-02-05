@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/go/types@go1.21.3
+> 原文：[https://pkg.go.dev/go/types@go1.21.3](https://pkg.go.dev/go/types@go1.21.3)
 
 Package types declares the data types and implements the algorithms for type-checking of Go packages. Use Config.Check to invoke the type checker for a package. Alternatively, create a new type checker with NewChecker and invoke it incrementally by calling Checker.Files.
 

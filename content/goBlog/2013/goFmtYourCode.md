@@ -10,7 +10,7 @@ draft = false
 
 # go fmt your code - go fmt 您的代码
 
-https://go.dev/blog/gofmt
+> 原文：[https://go.dev/blog/gofmt](https://go.dev/blog/gofmt)
 
 Andrew Gerrand
 23 January 2013

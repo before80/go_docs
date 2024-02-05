@@ -10,7 +10,7 @@ draft = false
 
 # A Proposal for Package Versioning in Go - 关于 go 中包的版本管理的建议
 
-https://go.dev/blog/versioning-proposal
+> 原文：[https://go.dev/blog/versioning-proposal](https://go.dev/blog/versioning-proposal)
 
 Russ Cox
 26 March 2018

@@ -10,7 +10,7 @@ draft = false
 
 # Error handling and Go - 错误处理和 go
 
-[https://go.dev/blog/error-handling-and-go](https://go.dev/blog/error-handling-and-go)
+> 原文：[https://go.dev/blog/error-handling-and-go](https://go.dev/blog/error-handling-and-go)
 
 Andrew Gerrand
 12 July 2011

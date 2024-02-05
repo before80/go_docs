@@ -10,7 +10,7 @@ draft = false
 
 # When To Use Generics - 何时使用泛型
 
-https://go.dev/blog/when-generics
+> 原文：[https://go.dev/blog/when-generics](https://go.dev/blog/when-generics)
 
 Ian Lance Taylor
 12 April 2022

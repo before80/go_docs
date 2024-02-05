@@ -10,7 +10,7 @@ draft = false
 
 # Trailing Slash
 
-https://echo.labstack.com/docs/middleware/trailing-slash
+> 原文：[https://echo.labstack.com/docs/middleware/trailing-slash](https://echo.labstack.com/docs/middleware/trailing-slash)
 
 ## Add Trailing Slash
 

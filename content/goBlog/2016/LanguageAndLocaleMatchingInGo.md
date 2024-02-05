@@ -10,7 +10,7 @@ draft = false
 
 # Language and Locale Matching in Go - go 中的语言和地域匹配
 
-https://go.dev/blog/matchlang
+> 原文：[https://go.dev/blog/matchlang](https://go.dev/blog/matchlang)
 
 Marcel van Lohuizen
 9 February 2016

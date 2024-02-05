@@ -10,7 +10,7 @@ draft = false
 
 # A Proposal for Adding Generics to go - 关于在 go 中添加泛型的建议
 
-https://go.dev/blog/generics-proposal
+> 原文：[https://go.dev/blog/generics-proposal](https://go.dev/blog/generics-proposal)
 
 Ian Lance Taylor
 12 January 2021

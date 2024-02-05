@@ -10,7 +10,7 @@ draft = false
 
 # Two Go Talks: "Lexical Scanning in Go" and "Cuddle: an App Engine Demo" - 两场 go 讲座： go 中的词汇扫描 和 Cuddle：一个App Engine Demo
 
-https://go.dev/blog/sydney-gtug
+> 原文：[https://go.dev/blog/sydney-gtug](https://go.dev/blog/sydney-gtug)
 
 Andrew Gerrand
 1 September 2011

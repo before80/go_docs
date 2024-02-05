@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/create.html](https://gorm.io/docs/create.html)
+> 原文：[https://gorm.io/docs/create.html](https://gorm.io/docs/create.html)
 
 ## 创建记录 Create Record
 

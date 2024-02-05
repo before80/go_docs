@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/contribute.html](https://gorm.io/contribute.html)
+> 原文：[https://gorm.io/contribute.html](https://gorm.io/contribute.html)
 
 **You can help to deliver a better GORM! there are many things that you can do:**
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-https://pkg.go.dev/unicode/utf8@go1.21.3
+> 原文：[https://pkg.go.dev/unicode/utf8@go1.21.3](https://pkg.go.dev/unicode/utf8@go1.21.3)
 
 Package utf8 implements functions and constants to support text encoded in UTF-8. It includes functions to translate between runes and UTF-8 byte sequences. See https://en.wikipedia.org/wiki/UTF-8
 

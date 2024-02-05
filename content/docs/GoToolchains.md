@@ -11,7 +11,7 @@ draft = false
 
 # Go Toolchains - Go 工具链
 
-https://go.dev/doc/toolchain
+> 原文：[https://go.dev/doc/toolchain](https://go.dev/doc/toolchain)
 
 ## 简介
 

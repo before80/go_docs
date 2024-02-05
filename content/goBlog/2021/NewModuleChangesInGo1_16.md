@@ -10,7 +10,7 @@ draft = false
 
 # New module changes in Go 1.16 - go 1.16中的新模块变化
 
-[https://go.dev/blog/go116-module-changes](https://go.dev/blog/go116-module-changes)
+> 原文：[https://go.dev/blog/go116-module-changes](https://go.dev/blog/go116-module-changes)
 
 Jay Conrod
 18 February 2021

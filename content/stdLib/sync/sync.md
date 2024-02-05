@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-https://pkg.go.dev/sync@go1.21.3
+> 原文：[https://pkg.go.dev/sync@go1.21.3](https://pkg.go.dev/sync@go1.21.3)
 
 ![image-20231110174318814](sync_img/image-20231110174318814.png)
 

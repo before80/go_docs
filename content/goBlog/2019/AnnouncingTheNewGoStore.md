@@ -10,7 +10,7 @@ draft = false
 
 # Announcing The New Go Store - 宣布新的go Store
 
-https://go.dev/blog/store
+> 原文：[https://go.dev/blog/store](https://go.dev/blog/store)
 
 Cassandra Salisbury
 18 July 2019

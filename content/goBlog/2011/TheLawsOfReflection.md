@@ -11,7 +11,7 @@ draft = false
 
 # The Laws of Reflection - 反射法则
 
-[https://go.dev/blog/laws-of-reflection](https://go.dev/blog/laws-of-reflection)
+> 原文：[https://go.dev/blog/laws-of-reflection](https://go.dev/blog/laws-of-reflection)
 
 Rob Pike
 6 September 2011

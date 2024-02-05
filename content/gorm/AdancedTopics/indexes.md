@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/indexes.html](https://gorm.io/docs/indexes.html)
+> 原文：[https://gorm.io/docs/indexes.html](https://gorm.io/docs/indexes.html)
 
 GORM allows create database index with tag `index`, `uniqueIndex`, those indexes will be created when [AutoMigrate or CreateTable with GORM](https://gorm.io/docs/migration.html)
 

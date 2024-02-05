@@ -10,7 +10,7 @@ draft = false
 
 # Go at I/O: Frequently Asked Questions - go 在 I/O 大会上：常见问题
 
-https://go.dev/blog/io2010-faq
+> 原文：[https://go.dev/blog/io2010-faq](https://go.dev/blog/io2010-faq)
 
 Andrew Gerrand
 27 May 2010

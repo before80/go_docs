@@ -9,7 +9,7 @@ draft = false
 
 # Tips
 
-https://github.com/sirupsen/logrus/wiki/Tips
+> 原文：[https://github.com/sirupsen/logrus/wiki/Tips](https://github.com/sirupsen/logrus/wiki/Tips)
 
 pavel edited this page on Jul 7, 2021 · [2 revisions](https://github.com/sirupsen/logrus/wiki/Tips/_history)
 

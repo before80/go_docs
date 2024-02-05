@@ -10,7 +10,7 @@ draft = false
 
 # Pkg.go.dev has a new look! - pkg.go.dev有了新的面貌!
 
-https://go.dev/blog/pkgsite-redesign
+> 原文：[https://go.dev/blog/pkgsite-redesign](https://go.dev/blog/pkgsite-redesign)
 
 Julie Qiu
 10 November 2020

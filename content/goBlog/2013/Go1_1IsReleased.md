@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.1 is released - go 1.1发布了
 
-https://go.dev/blog/go1.1
+> 原文：[https://go.dev/blog/go1.1](https://go.dev/blog/go1.1)
 
 Andrew Gerrand
 13 May 2013

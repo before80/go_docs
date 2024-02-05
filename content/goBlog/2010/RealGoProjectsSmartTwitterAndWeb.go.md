@@ -10,7 +10,7 @@ draft = false
 
 # Real Go Projects: SmartTwitter and web.go - 真正的 go 项目：SmartTwitter 和web.go
 
-https://go.dev/blog/smarttwitter
+> 原文：[https://go.dev/blog/smarttwitter](https://go.dev/blog/smarttwitter)
 
 Michael Hoisie
 19 October 2010

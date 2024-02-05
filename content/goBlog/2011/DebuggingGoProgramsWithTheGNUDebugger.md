@@ -10,7 +10,7 @@ draft = false
 
 # Debugging Go programs with the GNU Debugger - 用GNU调试器调试 go 程序
 
-https://go.dev/blog/debug-gdb
+> 原文：[https://go.dev/blog/debug-gdb](https://go.dev/blog/debug-gdb)
 
 Andrew Gerrand
 30 October 2011

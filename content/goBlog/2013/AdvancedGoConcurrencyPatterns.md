@@ -10,7 +10,7 @@ draft = false
 
 # Advanced Go Concurrency Patterns - 高级 go 并发模式
 
-https://go.dev/blog/io2013-talk-concurrency
+> 原文：[https://go.dev/blog/io2013-talk-concurrency](https://go.dev/blog/io2013-talk-concurrency)
 
 Andrew Gerrand
 23 May 2013

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/elliptic@go1.21.3
+> 原文：[https://pkg.go.dev/crypto/elliptic@go1.21.3](https://pkg.go.dev/crypto/elliptic@go1.21.3)
 
 Package elliptic implements the standard NIST P-224, P-256, P-384, and P-521 elliptic curves over prime fields.
 

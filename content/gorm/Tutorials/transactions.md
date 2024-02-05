@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/transactions.html](https://gorm.io/docs/transactions.html)
+> 原文：[https://gorm.io/docs/transactions.html](https://gorm.io/docs/transactions.html)
 
 ## 禁用默认事务 Disable Default Transaction
 

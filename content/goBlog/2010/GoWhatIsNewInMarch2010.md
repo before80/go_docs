@@ -10,7 +10,7 @@ draft = false
 
 # Go: What's New in March 2010- go： 2010年3月有什么新动态
 
-[https://go.dev/blog/hello-world](https://go.dev/blog/hello-world)
+> 原文：[https://go.dev/blog/hello-world](https://go.dev/blog/hello-world)
 
 Andrew Gerrand
 18 March 2010

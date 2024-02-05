@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/go/token@go1.21.3
+> 原文：[https://pkg.go.dev/go/token@go1.21.3](https://pkg.go.dev/go/token@go1.21.3)
 
 Package token defines constants representing the lexical tokens of the Go programming language and basic operations on tokens (printing, predicates).
 

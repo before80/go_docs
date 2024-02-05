@@ -11,7 +11,7 @@ draft = false
 
 # Share your feedback about developing with Go - 分享您对使用 Go 进行开发的反馈
 
-[https://go.dev/blog/survey2023-q1](https://go.dev/blog/survey2023-q1)
+> 原文：[https://go.dev/blog/survey2023-q1](https://go.dev/blog/survey2023-q1)
 
 Alice Merrick, for the Go team Go 团队
 18 January 2023

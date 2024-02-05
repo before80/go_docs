@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/compress/lzw@go1.21.3
+> 原文：[https://pkg.go.dev/compress/lzw@go1.21.3](https://pkg.go.dev/compress/lzw@go1.21.3)
 
 Package lzw implements the Lempel-Ziv-Welch compressed data format, described in T. A. Welch, "A Technique for High-Performance Data Compression", Computer, 17(6) (June 1984), pp 8-19.
 

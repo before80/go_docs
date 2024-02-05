@@ -11,7 +11,7 @@ draft = false
 
 # IP Address - IP 地址
 
-https://echo.labstack.com/docs/ip-address
+> 原文：[https://echo.labstack.com/docs/ip-address](https://echo.labstack.com/docs/ip-address)
 
 ​	IP 地址在 HTTP 中起着基础性的作用；它用于访问控制（access control）、审计（auditing）、基于地理位置的访问分析（geo-based access analysis）等等。Echo 提供了一个方便的方法 [`Context#RealIP()`](https://godoc.org/github.com/labstack/echo#Context) 来获取 IP 地址。
 

@@ -12,14 +12,14 @@ draft = false
 
 ## OneCompiler 在线体验
 
-[https://onecompiler.com/lua/](https://onecompiler.com/lua/)
+> 原文：[https://onecompiler.com/lua/](https://onecompiler.com/lua/)
 
 ## 在线体验LuaOS
 
-[https://wiki.luatos.com/](https://wiki.luatos.com/)
+> 原文：[https://wiki.luatos.com/](https://wiki.luatos.com/)
 
 
 
 ## LuatOS在线模拟
 
-[https://wiki.luatos.com/pages/emulator.html](https://wiki.luatos.com/pages/emulator.html)
+> 原文：[https://wiki.luatos.com/pages/emulator.html](https://wiki.luatos.com/pages/emulator.html)

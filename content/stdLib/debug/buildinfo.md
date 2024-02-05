@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/debug/buildinfo@go1.21.3
+> 原文：[https://pkg.go.dev/debug/buildinfo@go1.21.3](https://pkg.go.dev/debug/buildinfo@go1.21.3)
 
 Package buildinfo provides access to information embedded in a Go binary about how it was built. This includes the Go toolchain version, and the set of modules used (for binaries built in module mode).
 

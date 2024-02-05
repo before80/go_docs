@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/error_handling.html](https://gorm.io/docs/error_handling.html)
+> 原文：[https://gorm.io/docs/error_handling.html](https://gorm.io/docs/error_handling.html)
 
 In Go, error handling is important.
 

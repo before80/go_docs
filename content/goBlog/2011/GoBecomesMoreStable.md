@@ -10,7 +10,7 @@ draft = false
 
 # Go becomes more stable - go 变得更加稳定
 
-https://go.dev/blog/stable-releases
+> 原文：[https://go.dev/blog/stable-releases](https://go.dev/blog/stable-releases)
 
 Andrew Gerrand
 16 March 2011

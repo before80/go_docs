@@ -10,7 +10,7 @@ draft = false
 
 # Go Modules in 2019 - 2019年的 go 模块
 
-https://go.dev/blog/modules2019
+> 原文：[https://go.dev/blog/modules2019](https://go.dev/blog/modules2019)
 
 Russ Cox
 19 December 2018

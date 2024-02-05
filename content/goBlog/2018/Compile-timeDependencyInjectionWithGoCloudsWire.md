@@ -10,7 +10,7 @@ draft = false
 
 # Compile-time Dependency Injection With Go Cloud's Wire - 使用 go Cloud的Wire进行编译时依赖注入
 
-https://go.dev/blog/wire
+> 原文：[https://go.dev/blog/wire](https://go.dev/blog/wire)
 
 Robert van Gent
 9 October 2018

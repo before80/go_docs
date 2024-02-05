@@ -10,7 +10,7 @@ draft = false
 
 # Go 1.13 is released - go 1.13发布了
 
-https://go.dev/blog/go1.13
+> 原文：[https://go.dev/blog/go1.13](https://go.dev/blog/go1.13)
 
 Andrew Bonventre
 3 September 2019

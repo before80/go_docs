@@ -10,7 +10,7 @@ draft = false
 
 # Errors are values - errors 是值
 
-https://go.dev/blog/errors-are-values
+> 原文：[https://go.dev/blog/errors-are-values](https://go.dev/blog/errors-are-values)
 
 Rob Pike
 12 January 2015

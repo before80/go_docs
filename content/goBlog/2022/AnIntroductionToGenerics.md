@@ -11,7 +11,7 @@ draft = false
 
 # An Introduction To Generics - 泛型简介
 
-https://go.dev/blog/intro-generics
+> 原文：[https://go.dev/blog/intro-generics](https://go.dev/blog/intro-generics)
 
 Robert Griesemer and Ian Lance Taylor
 22 March 2022

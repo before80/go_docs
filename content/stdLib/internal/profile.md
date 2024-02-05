@@ -1,6 +1,6 @@
 # profile
 
-https://pkg.go.dev/internal/profile@go1.20.1
+> 原文：[https://pkg.go.dev/internal/profile@go1.20.1](https://pkg.go.dev/internal/profile@go1.20.1)
 
 
 

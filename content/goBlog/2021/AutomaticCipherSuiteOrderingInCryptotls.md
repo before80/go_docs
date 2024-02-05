@@ -10,7 +10,7 @@ draft = false
 
 # Automatic cipher suite ordering in crypto/tls - crypto/tls中的自动密码套件排序
 
-https://go.dev/blog/tls-cipher-suites
+> 原文：[https://go.dev/blog/tls-cipher-suites](https://go.dev/blog/tls-cipher-suites)
 
 Filippo Valsorda
 15 September 2021

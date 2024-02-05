@@ -10,7 +10,7 @@ draft = false
 
 # Go, Open Source, Community - go, 开源, 社区
 
-https://go.dev/blog/open-source
+> 原文：[https://go.dev/blog/open-source](https://go.dev/blog/open-source)
 
 Russ Cox
 8 July 2015

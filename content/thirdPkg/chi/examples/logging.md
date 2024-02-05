@@ -23,7 +23,7 @@ func main() {
 }
 ```
 
-[https://github.com/go-chi/httplog/blob/master/_example/main.go](https://github.com/go-chi/httplog/blob/master/_example/main.go):
+> 原文：[https://github.com/go-chi/httplog/blob/master/_example/main.go](https://github.com/go-chi/httplog/blob/master/_example/main.go):
 
 ```go
 package main

@@ -10,7 +10,7 @@ draft = false
 
 # Module Mirror and Checksum Database Launched - 模块镜像和校验数据库发布
 
-https://go.dev/blog/module-mirror-launch
+> 原文：[https://go.dev/blog/module-mirror-launch](https://go.dev/blog/module-mirror-launch)
 
 Katie Hockman
 29 August 2019

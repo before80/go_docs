@@ -10,7 +10,7 @@ draft = false
 
 # Go runtime: 4 years later - go 的 runtime: 4年之后
 
-https://go.dev/blog/go119runtime
+> 原文：[https://go.dev/blog/go119runtime](https://go.dev/blog/go119runtime)
 
 Michael Knyszek
 26 September 2022

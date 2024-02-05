@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/crypto/dsa@go1.21.3
+> 原文：[https://pkg.go.dev/crypto/dsa@go1.21.3](https://pkg.go.dev/crypto/dsa@go1.21.3)
 
 Package dsa implements the Digital Signature Algorithm, as defined in FIPS 186-3.
 

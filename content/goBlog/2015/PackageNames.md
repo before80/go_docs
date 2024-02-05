@@ -10,7 +10,7 @@ draft = false
 
 # Package names - 包名
 
-https://go.dev/blog/package-names
+> 原文：[https://go.dev/blog/package-names](https://go.dev/blog/package-names)
 
 Sameer Ajmani
 4 February 2015

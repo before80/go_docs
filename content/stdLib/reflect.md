@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-[https://pkg.go.dev/reflect@go1.21.3](https://pkg.go.dev/reflect@go1.21.3)
+> 原文：[https://pkg.go.dev/reflect@go1.21.3](https://pkg.go.dev/reflect@go1.21.3)
 
 Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information by calling TypeOf, which returns a Type.
 

@@ -10,7 +10,7 @@ draft = false
 
 # Go Concurrency Patterns: Pipelines and cancellation - go 并发模式：管道和取消
 
-https://go.dev/blog/pipelines
+> 原文：[https://go.dev/blog/pipelines](https://go.dev/blog/pipelines)
 
 Sameer Ajmani
 13 March 2014

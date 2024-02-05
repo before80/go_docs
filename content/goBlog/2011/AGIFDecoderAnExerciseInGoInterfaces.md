@@ -10,7 +10,7 @@ draft = false
 
 # A GIF decoder: an exercise in Go interfaces - GIF解码器：go 接口的练习
 
-https://go.dev/blog/gif-decoder
+> 原文：[https://go.dev/blog/gif-decoder](https://go.dev/blog/gif-decoder)
 
 Rob Pike
 25 May 2011

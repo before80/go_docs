@@ -11,7 +11,7 @@ draft = false
 
 # Method Override - 方法重写
 
-https://echo.labstack.com/docs/middleware/method-override
+> 原文：[https://echo.labstack.com/docs/middleware/method-override](https://echo.labstack.com/docs/middleware/method-override)
 
 ​	Method Override 中间件检查请求中是否存在覆盖的方法，并使用覆盖的方法替代原始方法。
 

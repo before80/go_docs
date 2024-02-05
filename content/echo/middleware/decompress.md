@@ -11,7 +11,7 @@ draft = false
 
 # Decompress - 解压缩
 
-https://echo.labstack.com/docs/middleware/decompress
+> 原文：[https://echo.labstack.com/docs/middleware/decompress](https://echo.labstack.com/docs/middleware/decompress)
 
 ​	解压缩中间件会在Content-Encoding标头设置为gzip时对HTTP请求进行解压缩。
 

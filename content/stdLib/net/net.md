@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net@go1.21.3
+> 原文：[https://pkg.go.dev/net@go1.21.3](https://pkg.go.dev/net@go1.21.3)
 
 Package net provides a portable interface for network I/O, including TCP/IP, UDP, domain name resolution, and Unix domain sockets.
 

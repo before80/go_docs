@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/math/big@go1.21.3
+> 原文：[https://pkg.go.dev/math/big@go1.21.3](https://pkg.go.dev/math/big@go1.21.3)
 
 Package big implements arbitrary-precision arithmetic (big numbers). The following numeric types are supported:
 

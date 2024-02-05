@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/net/textproto@go1.21.3
+> 原文：[https://pkg.go.dev/net/textproto@go1.21.3](https://pkg.go.dev/net/textproto@go1.21.3)
 
 Package textproto implements generic support for text-based request/response protocols in the style of HTTP, NNTP, and SMTP.
 

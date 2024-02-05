@@ -11,7 +11,7 @@ draft = false
 
 # Binding - 绑定
 
-https://echo.labstack.com/docs/binding
+> 原文：[https://echo.labstack.com/docs/binding](https://echo.labstack.com/docs/binding)
 
 ​	解析请求数据是 Web 应用程序的关键部分。在 Echo 中，这是通过一种称为 *绑定* 的过程来完成的。绑定使用客户端在 HTTP 请求的以下部分中传递的信息来进行： 
 

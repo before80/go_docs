@@ -10,7 +10,7 @@ draft = false
 
 # Proxy
 
-https://echo.labstack.com/docs/middleware/proxy
+> 原文：[https://echo.labstack.com/docs/middleware/proxy](https://echo.labstack.com/docs/middleware/proxy)
 
 Proxy provides an HTTP/WebSocket reverse proxy middleware. It forwards a request to upstream server using a configured load balancing technique.
 

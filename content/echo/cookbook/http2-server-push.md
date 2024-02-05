@@ -9,7 +9,7 @@ draft = false
 
 # HTTP/2 Server Push
 
-https://echo.labstack.com/docs/cookbook/http2-server-push
+> 原文：[https://echo.labstack.com/docs/cookbook/http2-server-push](https://echo.labstack.com/docs/cookbook/http2-server-push)
 
 NOTE
 

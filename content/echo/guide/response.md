@@ -11,7 +11,7 @@ draft = false
 
 # Response - 响应
 
-https://echo.labstack.com/docs/response
+> 原文：[https://echo.labstack.com/docs/response](https://echo.labstack.com/docs/response)
 
 ## 发送字符串
 

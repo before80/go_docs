@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/strconv@go1.21.3
+> 原文：[https://pkg.go.dev/strconv@go1.21.3](https://pkg.go.dev/strconv@go1.21.3)
 
 Package strconv implements conversions to and from string representations of basic data types.
 

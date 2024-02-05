@@ -10,7 +10,7 @@ draft = false
 
 # Pkg.go.dev is open source! - pkg.go.dev是开源的!
 
-https://go.dev/blog/pkgsite
+> 原文：[https://go.dev/blog/pkgsite](https://go.dev/blog/pkgsite)
 
 Julie Qiu
 15 June 2020

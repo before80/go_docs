@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-https://pkg.go.dev/context@go1.21.3
+> 原文：[https://pkg.go.dev/context@go1.21.3](https://pkg.go.dev/context@go1.21.3)
 
 Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes.
 

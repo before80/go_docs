@@ -10,7 +10,7 @@ draft = false
 
 # The App Engine SDK and workspaces (GOPATH) - The App Engine SDK和工作区(GOPATH)
 
-https://go.dev/blog/appengine-gopath
+> 原文：[https://go.dev/blog/appengine-gopath](https://go.dev/blog/appengine-gopath)
 
 Andrew Gerrand
 9 January 2013

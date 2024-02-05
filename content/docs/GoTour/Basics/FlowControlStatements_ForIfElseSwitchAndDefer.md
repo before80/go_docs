@@ -10,7 +10,7 @@ draft = false
 
 ##  For
 
-[https://go.dev/tour/flowcontrol/1](https://go.dev/tour/flowcontrol/1)
+> 原文：[https://go.dev/tour/flowcontrol/1](https://go.dev/tour/flowcontrol/1)
 
 ​	Go 只有一个循环结构：`for` 循环。
 
@@ -43,7 +43,7 @@ func main() {
 
 ## For continued - for (续)
 
-[https://go.dev/tour/flowcontrol/2](https://go.dev/tour/flowcontrol/2)
+> 原文：[https://go.dev/tour/flowcontrol/2](https://go.dev/tour/flowcontrol/2)
 
 初始化语句和后置语句都是可选的。
 
@@ -64,7 +64,7 @@ func main() {
 
 ##  For is Go's "while"
 
-[https://go.dev/tour/flowcontrol/3](https://go.dev/tour/flowcontrol/3)
+> 原文：[https://go.dev/tour/flowcontrol/3](https://go.dev/tour/flowcontrol/3)
 
 ​	此时，您可以放弃分号。C的`while`在Go中叫做`for`。
 
@@ -85,7 +85,7 @@ func main() {
 
 ##  Forever 无限循环
 
-[https://go.dev/tour/flowcontrol/4](https://go.dev/tour/flowcontrol/4)
+> 原文：[https://go.dev/tour/flowcontrol/4](https://go.dev/tour/flowcontrol/4)
 
 ​	如果您省略了循环条件，它就会永远循环下去。因此无限循环可以写得很紧凑。
 
@@ -101,7 +101,7 @@ func main() {
 
 ##  If
 
-[https://go.dev/tour/flowcontrol/5](https://go.dev/tour/flowcontrol/5)
+> 原文：[https://go.dev/tour/flowcontrol/5](https://go.dev/tour/flowcontrol/5)
 
 ​	Go的`if`语句与它的`for`循环类似；表达式`不需要`用小括号`()`包围，`但需要`用大括号`{}`。
 
@@ -128,7 +128,7 @@ func main() {
 
 ## If with a short statement - if 的简短语句
 
-[https://go.dev/tour/flowcontrol/6](https://go.dev/tour/flowcontrol/6)
+> 原文：[https://go.dev/tour/flowcontrol/6](https://go.dev/tour/flowcontrol/6)
 
 ​	和`for`一样，`if`语句可以在条件表达式之前执行一个简短语句。
 
@@ -162,7 +162,7 @@ func main() {
 
 ##  If and else
 
-[https://go.dev/tour/flowcontrol/7](https://go.dev/tour/flowcontrol/7)
+> 原文：[https://go.dev/tour/flowcontrol/7](https://go.dev/tour/flowcontrol/7)
 
 ​	在`if`简短语句中声明的变量`也可以`在任何对应的`else`块中使用。
 
@@ -197,7 +197,7 @@ func main() {
 
 ##  Exercise: Loops and Functions 练习：循环和函数
 
-[https://go.dev/tour/flowcontrol/8](https://go.dev/tour/flowcontrol/8)
+> 原文：[https://go.dev/tour/flowcontrol/8](https://go.dev/tour/flowcontrol/8)
 
 ​	为了练习函数和循环，我们来实现一个平方根函数：给定一个数字`x`，我们想找到`z²`最接近`x`的数字`z`。
 
@@ -240,7 +240,7 @@ func main() {
 
 ##  Switch
 
-[https://go.dev/tour/flowcontrol/9](https://go.dev/tour/flowcontrol/9)
+> 原文：[https://go.dev/tour/flowcontrol/9](https://go.dev/tour/flowcontrol/9)
 
 ​	`switch`语句是写一连串`if-else`语句的一种更简短的方式。它运行第一个值等于条件表达式的`case`语句。
 
@@ -272,7 +272,7 @@ func main() {
 
 ## Switch evaluation order
 
-[https://go.dev/tour/flowcontrol/10](https://go.dev/tour/flowcontrol/10)
+> 原文：[https://go.dev/tour/flowcontrol/10](https://go.dev/tour/flowcontrol/10)
 
 `switch` 的 `case`语句从上到下顺序执行，直到匹配成功时停止。
 
@@ -318,7 +318,7 @@ func main() {
 
 ##  Switch with no condition 没有条件的 switch
 
-[https://go.dev/tour/flowcontrol/11](https://go.dev/tour/flowcontrol/11)
+> 原文：[https://go.dev/tour/flowcontrol/11](https://go.dev/tour/flowcontrol/11)
 
 ​	没有条件的`switch`和`switch true`是一样的。
 
@@ -348,7 +348,7 @@ func main() {
 
 ## Defer
 
-[https://go.dev/tour/flowcontrol/12](https://go.dev/tour/flowcontrol/12)
+> 原文：[https://go.dev/tour/flowcontrol/12](https://go.dev/tour/flowcontrol/12)
 
 ​	`defer` 语句将一个函数的执行推迟到外层函数返回的最后执行。
 
@@ -369,7 +369,7 @@ func main() {
 
 ##  Stacking defers
 
-[https://go.dev/tour/flowcontrol/13](https://go.dev/tour/flowcontrol/13)
+> 原文：[https://go.dev/tour/flowcontrol/13](https://go.dev/tour/flowcontrol/13)
 
 ​	推迟的函数调用被压入一个栈中。当外层函数返回时，被推迟的函数会按照后进先出的顺序调用。
 
@@ -394,7 +394,7 @@ func main() {
 
 ##  Congratulations!
 
-[https://go.dev/tour/flowcontrol/14](https://go.dev/tour/flowcontrol/14)
+> 原文：[https://go.dev/tour/flowcontrol/14](https://go.dev/tour/flowcontrol/14)
 
 ​	您完成了这一课!
 

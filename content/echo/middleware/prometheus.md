@@ -10,7 +10,7 @@ draft = false
 
 # Prometheus
 
-https://echo.labstack.com/docs/middleware/prometheus
+> 原文：[https://echo.labstack.com/docs/middleware/prometheus](https://echo.labstack.com/docs/middleware/prometheus)
 
 > 注意
 >

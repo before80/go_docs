@@ -9,7 +9,7 @@ draft = false
 
 # Load Balancing - 负载均衡
 
-https://echo.labstack.com/docs/cookbook/load-balancing
+> 原文：[https://echo.labstack.com/docs/cookbook/load-balancing](https://echo.labstack.com/docs/cookbook/load-balancing)
 
 This recipe demonstrates how you can use Nginx as a reverse proxy server and load balance between multiple Echo servers.
 
@@ -76,14 +76,14 @@ func main() {
 
 ### 1) Install Nginx
 
-https://www.nginx.com/resources/wiki/start/topics/tutorials/install
+> 原文：[https://www.nginx.com/resources/wiki/start/topics/tutorials/install](https://www.nginx.com/resources/wiki/start/topics/tutorials/install)
 
 ### 2) Configure Nginx
 
 Create a file `/etc/nginx/sites-enabled/localhost` with the following content:
 
 ```reference
-https://github.com/labstack/echox/blob/master/cookbook/load-balancing/nginx.conf
+> 原文：[https://github.com/labstack/echox/blob/master/cookbook/load-balancing/nginx.conf](https://github.com/labstack/echox/blob/master/cookbook/load-balancing/nginx.conf)
 ```
 
 

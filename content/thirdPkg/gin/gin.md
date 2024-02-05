@@ -11,7 +11,7 @@ draft = false
 
 # Gin Web Framework
 
-https://pkg.go.dev/github.com/gin-gonic/gin
+> 原文：[https://pkg.go.dev/github.com/gin-gonic/gin](https://pkg.go.dev/github.com/gin-gonic/gin)
 
 当前版本：1.9.0 发布时间：2023.2.21
 

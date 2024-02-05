@@ -11,7 +11,7 @@ draft = false
 
 # CSRF - 跨站请求伪造
 
-https://echo.labstack.com/docs/middleware/csrf
+> 原文：[https://echo.labstack.com/docs/middleware/csrf](https://echo.labstack.com/docs/middleware/csrf)
 
 ​	跨站请求伪造（Cross-site request forgery），也称为一次点击攻击（one-click attack）、会话劫持（session riding），缩写为 CSRF（有时发音为 sea-surf）或 XSRF，是一种对网站的恶意利用（malicious exploit）方式，通过该方式，未经授权的命令可以从被网站信任的用户那里传输。
 

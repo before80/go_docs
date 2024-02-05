@@ -10,7 +10,7 @@ draft = false
 
 # Timeout
 
-https://echo.labstack.com/docs/middleware/timeout
+> 原文：[https://echo.labstack.com/docs/middleware/timeout](https://echo.labstack.com/docs/middleware/timeout)
 
 Timeout middleware is used to timeout at a long running operation within a predefined period.
 

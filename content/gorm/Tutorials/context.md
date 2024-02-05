@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-[https://gorm.io/docs/context.html](https://gorm.io/docs/context.html)
+> 原文：[https://gorm.io/docs/context.html](https://gorm.io/docs/context.html)
 
 GORM provides Context support, you can use it with method `WithContext`
 
