@@ -17,7 +17,7 @@ draft = false
 
 > Routing refers to how an application's endpoints (URIs) respond to client requests.
 >
-> &zeroWidthSpace;路由是指应用程序的端点 (URI) 如何响应客户端请求。
+> ​	路由是指应用程序的端点 (URI) 如何响应客户端请求。
 
 `Chi` allows you to route/handle any HTTP request method, such as all the usual suspects: GET, POST, HEAD, PUT, PATCH, DELETE, OPTIONS, TRACE, CONNECT
 
@@ -27,7 +27,7 @@ draft = false
 
 These methods are defined on the `chi.Router` as:
 
-&zeroWidthSpace;这些方法在 `chi.Router` 上定义为：
+​	这些方法在 `chi.Router` 上定义为：
 
 ```go
 // HTTP-method routing along `pattern`
@@ -44,25 +44,25 @@ Trace(pattern string, h http.HandlerFunc)Copy to clipboardErrorCopied
 
 and may set a route by calling ie. `r.Put("/path", myHandler)`.
 
-&zeroWidthSpace;并可以通过调用即 `r.Put("/path", myHandler)` 设置路由。
+​	并可以通过调用即 `r.Put("/path", myHandler)` 设置路由。
 
 You may also register your own custom method names, by calling `chi.RegisterMethod("JELLO")` and then setting the routing handler via `r.Method("JELLO", "/path", myJelloMethodHandler)`
 
-&zeroWidthSpace;您还可以通过调用 `chi.RegisterMethod("JELLO")` 并通过 `r.Method("JELLO", "/path", myJelloMethodHandler)` 设置路由处理程序来注册您自己的自定义方法名称
+​	您还可以通过调用 `chi.RegisterMethod("JELLO")` 并通过 `r.Method("JELLO", "/path", myJelloMethodHandler)` 设置路由处理程序来注册您自己的自定义方法名称
 
 ## Routing patterns & url parameters 路由模式和 URL 参数
 
 Each routing method accepts a URL `pattern` and chain of `handlers`.
 
-&zeroWidthSpace;每个路由方法接受一个 URL `pattern` 和 `handlers` 链。
+​	每个路由方法接受一个 URL `pattern` 和 `handlers` 链。
 
 The URL pattern supports named params (ie. `/users/{userID}`) and wildcards (ie. `/admin/*`).
 
-&zeroWidthSpace;URL 模式支持命名参数（即 `/users/{userID}` ）和通配符（即 `/admin/*` ）。
+​	URL 模式支持命名参数（即 `/users/{userID}` ）和通配符（即 `/admin/*` ）。
 
 URL parameters can be fetched at runtime by calling `chi.URLParam(r, "userID")` for named parameters and `chi.URLParam(r, "*")` for a wildcard parameter.
 
-&zeroWidthSpace;可以通过调用 `chi.URLParam(r, "userID")` 获取命名参数的 URL 参数，或调用 `chi.URLParam(r, "*")` 获取通配符参数的 URL 参数。
+​	可以通过调用 `chi.URLParam(r, "userID")` 获取命名参数的 URL 参数，或调用 `chi.URLParam(r, "*")` 获取通配符参数的 URL 参数。
 
 **Routing a slug:
 路由 slug：**
@@ -94,23 +94,23 @@ func getArticle(w http.ResponseWriter, r *http.Request) {
 
 as you can see above, the url parameters are defined using the curly brackets `{}` with the parameter name in between, as `{date}` and `{slug}`.
 
-&zeroWidthSpace;如您在上面看到的，URL 参数使用带有参数名称的卷曲括号 `{}` 定义，如 `{date}` 和 `{slug}` 。
+​	如您在上面看到的，URL 参数使用带有参数名称的卷曲括号 `{}` 定义，如 `{date}` 和 `{slug}` 。
 
 When a HTTP request is sent to the server and handled by the chi router, if the URL path matches the format of `/articles/{date}-{slug}`, then the `getArticle` function will be called to send a response to the client.
 
-&zeroWidthSpace;当 HTTP 请求发送到服务器并由 chi 路由器处理时，如果 URL 路径与 `/articles/{date}-{slug}` 的格式匹配，则将调用 `getArticle` 函数向客户端发送响应。
+​	当 HTTP 请求发送到服务器并由 chi 路由器处理时，如果 URL 路径与 `/articles/{date}-{slug}` 的格式匹配，则将调用 `getArticle` 函数向客户端发送响应。
 
 For instance, URL paths like `/articles/20200109-this-is-so-cool` will match the route, however, `/articles/1` will not.
 
-&zeroWidthSpace;例如，URL 路径（如 `/articles/20200109-this-is-so-cool` ）将匹配路由，但 `/articles/1` 不会。
+​	例如，URL 路径（如 `/articles/20200109-this-is-so-cool` ）将匹配路由，但 `/articles/1` 不会。
 
 We can also use regex in url patterns
 
-&zeroWidthSpace;我们还可以在 URL 模式中使用正则表达式
+​	我们还可以在 URL 模式中使用正则表达式
 
 For Example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```go
 r := chi.NewRouter()
@@ -121,7 +121,7 @@ r.Get("/articles/{rid:^[0-9]{5,6}}", getArticle)Copy to clipboardErrorCopied
 
 You can create Custom `http.StatusNotFound` and `http.StatusMethodNotAllowed` handlers in `chi`
 
-&zeroWidthSpace;您可以在 `chi` 中创建自定义 `http.StatusNotFound` 和 `http.StatusMethodNotAllowed` 处理程序
+​	您可以在 `chi` 中创建自定义 `http.StatusNotFound` 和 `http.StatusMethodNotAllowed` 处理程序
 
 ```go
 r.NotFound(func(w http.ResponseWriter, r *http.Request) {
@@ -138,11 +138,11 @@ r.MethodNotAllowed(func(w http.ResponseWriter, r *http.Request) {
 
 You can create New Routers and Mount them on the Main Router to act as Sub Routers.
 
-&zeroWidthSpace;您可以创建新路由并将其安装在主路由上，使其充当子路由。
+​	您可以创建新路由并将其安装在主路由上，使其充当子路由。
 
 For Example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```go
 func main(){
@@ -162,7 +162,7 @@ func main(){
 
 Another Way of Implementing Sub Routers would be:
 
-&zeroWidthSpace;实现子路由的另一种方法是：
+​	实现子路由的另一种方法是：
 
 ```go
 r.Route("/articles", func(r chi.Router) {
@@ -189,11 +189,11 @@ r.Route("/articles", func(r chi.Router) {
 
 You can create Groups in Routers to segregate routes using a middleware and some not using a middleware
 
-&zeroWidthSpace;您可以在路由器中创建组，以使用中间件隔离路由，而有些则不使用中间件
+​	您可以在路由器中创建组，以使用中间件隔离路由，而有些则不使用中间件
 
 for example:
 
-&zeroWidthSpace;例如：
+​	例如：
 
 ```go
 func main(){

@@ -319,7 +319,8 @@ li > code, p > code, h2 > code, h3 > code, h4 > code {
 /*临时性修复点击toc，却看不到标题的问题*/
 .td-navbar {
     /*background: rgba(48, 99, 142, 0.36);*/
-    background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0%, rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(48, 99, 142, 0.99) 100%);
+    /* background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0%, rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(48, 99, 142, 0.99) 100%); */
+    background: linear-gradient(to right, rgba(48, 99, 142, 0.99) 0%, rgba(48, 99, 142, 0) 15%, rgba(48, 99, 142, 0) 75%, rgba(255, 255, 255, 0.99) 100%);
 }
 
 .toc-list-item.is-active-li > a {
