@@ -28,6 +28,12 @@
         height: 5rem;
         visibility: visible;
     }
+
+    .td-navbar-cover .nav-link {
+        text-shadow: none !important;
+        font-weight: 500 !important;
+        font-size: 1.25rem !important;
+    }
 }
 
 .td-content {
