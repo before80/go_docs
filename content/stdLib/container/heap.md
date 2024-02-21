@@ -25,6 +25,8 @@ A heap is a common way to implement a priority queue. To build a priority queue,
 
 This example inserts several ints into an IntHeap, checks the minimum, and removes them in order of priority.
 
+​	这个例子将几个整数插入到一个IntHeap中，检查最小值，并按优先级顺序移除它们。
+
 ``` go 
 // This example demonstrates an integer heap built using the heap interface.
 package main
@@ -75,6 +77,8 @@ minimum: 1
 ## Example (PriorityQueue) 
 
 This example creates a PriorityQueue with some items, adds and manipulates an item, and then removes the items in priority order.
+
+​		这个例子创建了一个优先队列，添加和操作了一些项，然后按优先顺序移除项。
 
 ``` go 
 // This example demonstrates a priority queue built using the heap interface.
@@ -263,4 +267,4 @@ The Interface type describes the requirements for a type using the routines in t
 
 Note that Push and Pop in this interface are for package heap's implementation to call. To add and remove things from the heap, use heap.Push and heap.Pop.
 
-注意，这个接口中的Push方法和Pop方法是供包堆的实现调用的。要从堆中添加和删除东西，请使用`heap.Push`函数和`heap.Pop`函数。
+​	注意，这个接口中的Push方法和Pop方法是供包堆的实现调用的。要从堆中添加和删除东西，请使用`heap.Push`函数和`heap.Pop`函数。

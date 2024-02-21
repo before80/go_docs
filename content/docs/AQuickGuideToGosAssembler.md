@@ -1,5 +1,5 @@
 +++
-title = "go 汇编器速成指南"
+title = "Go 汇编器速成指南"
 weight = 28
 date = 2023-05-18T17:31:23+08:00
 description = ""

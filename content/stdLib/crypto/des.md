@@ -10,7 +10,11 @@ draft = false
 
 Package des implements the Data Encryption Standard (DES) and the Triple Data Encryption Algorithm (TDEA) as defined in U.S. Federal Information Processing Standards Publication 46-3.
 
+​	des 包实现了美国联邦信息处理标准出版物 46-3 中定义的数据加密标准 (DES) 和三重数据加密算法 (TDEA)。
+
 DES is cryptographically broken and should not be used for secure applications.
+
+​	DES 在密码学上已被攻破，不应将其用于安全应用程序。
 
 ## 常量 
 
@@ -21,6 +25,8 @@ const BlockSize = 8
 ```
 
 The DES block size in bytes.
+
+​	DES 块大小（以字节为单位）。
 
 ## 变量
 
@@ -36,6 +42,8 @@ func NewCipher(key []byte) (cipher.Block, error)
 
 NewCipher creates and returns a new cipher.Block.
 
+​	NewCipher 创建并返回一个新的 cipher.Block。
+
 ### func NewTripleDESCipher 
 
 ``` go
@@ -43,6 +51,8 @@ func NewTripleDESCipher(key []byte) (cipher.Block, error)
 ```
 
 NewTripleDESCipher creates and returns a new cipher.Block.
+
+​	NewTripleDESCipher 创建并返回一个新的 cipher.Block。
 
 ##### NewTripleDESCipher Example
 

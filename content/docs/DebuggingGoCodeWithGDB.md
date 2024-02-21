@@ -1,12 +1,12 @@
 +++
-title = "使用GDB调试 go 代码"
+title = "使用GDB调试 Go 代码"
 weight = 22
 date = 2023-05-18T17:31:23+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Debugging Go Code with GDB - 使用GDB调试 go 代码
+# Debugging Go Code with GDB - 使用GDB调试 Go 代码
 
 > 原文：[https://go.dev/doc/gdb](https://go.dev/doc/gdb)
 

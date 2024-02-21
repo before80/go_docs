@@ -1,12 +1,13 @@
 +++
-title = "go 安全策略"
+title = "Go 安全策略"
 weight = 3
 date = 2023-05-18T16:50:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# Go Security Policy - go 安全策略
+# Go Security Policy - Go 安全策略
 
 > 原文：[https://go.dev/security/policy](https://go.dev/security/policy)
 

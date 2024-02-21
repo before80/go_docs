@@ -1,5 +1,5 @@
 +++
-title = "CoverageProfilingSupportForIntegrationTests"
+title = "Coverage profiling support for integration tests"
 date = 2023-07-12T20:37:11+08:00
 weight = 100
 description = ""

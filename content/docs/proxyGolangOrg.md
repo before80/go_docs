@@ -1,12 +1,13 @@
 +++
-title = "go 模块镜像、索引和校验数据库"
+title = "Go 模块镜像、索引和校验数据库"
 weight = 27
 date = 2023-05-18T17:31:23+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# Go Module Mirror, Index, and Checksum Database - go 模块镜像、索引和校验数据库
+# Go Module Mirror, Index, and Checksum Database - Go 模块镜像、索引和校验数据库
 
 > 原文：[https://proxy.golang.org/](https://proxy.golang.org/)
 

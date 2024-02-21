@@ -1,5 +1,5 @@
 +++
-title = "go 发布周期(v18)"
+title = "Go 发布周期(v18)"
 weight = 25
 date = 2023-05-18T17:26:23+08:00
 description = ""

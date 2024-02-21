@@ -1,12 +1,13 @@
 +++
-title = "go内存模型"
+title = "Go 内存模型"
 date = 2023-05-17T09:59:21+08:00
 weight = 1
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# The Go Memory Model - Go内存模型
+# The Go Memory Model - Go 内存模型
 
 Version of June 6, 2022
 

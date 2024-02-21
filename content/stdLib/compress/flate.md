@@ -11,9 +11,13 @@ draft = false
 
 Package flate implements the DEFLATE compressed data format, described in [RFC 1951](https://rfc-editor.org/rfc/rfc1951.html). The gzip and zlib packages implement access to DEFLATE-based file formats.
 
+​	flate 包实现 DEFLATE 压缩数据格式，在 RFC 1951 中进行了描述。gzip 和 zlib 包实现对基于 DEFLATE 的文件格式的访问。
+
 ## Example (Dictionary)
 
 A preset dictionary can be used to improve the compression ratio. The downside to using a dictionary is that the compressor and decompressor must agree in advance what dictionary to use.
+
+​	可以使用预设字典来提高压缩率。使用字典的缺点是，压缩器和解压缩器必须预先协商好使用哪个字典。
 
 ``` go 
 package main
@@ -117,6 +121,8 @@ Substrings matched by the dictionary are marked with #:
 
 In performance critical applications, Reset can be used to discard the current compressor or decompressor state and reinitialize them quickly by taking advantage of previously allocated memory.
 
+​	在对性能至关重要的应用程序中，可以使用 Reset 来丢弃当前压缩器或解压缩器状态，并通过利用先前分配的内存快速重新初始化它们。
+
 ``` go 
 package main
 
@@ -184,6 +190,8 @@ Documentation is for users.
 ## Example  (Synchronization)
 
 DEFLATE is suitable for transmitting compressed data across the network.
+
+​	DEFLATE 适用于通过网络传输压缩数据。
 
 ``` go 
 package main
@@ -324,7 +332,11 @@ func NewReader(r io.Reader) io.ReadCloser
 
 NewReader returns a new ReadCloser that can be used to read the uncompressed version of r. If r does not also implement io.ByteReader, the decompressor may read more data than necessary from r. The reader returns io.EOF after the final block in the DEFLATE stream has been encountered. Any trailing data after the final block is ignored.
 
+​	NewReader 返回一个新的 ReadCloser，可用于读取 r 的未压缩版本。如果 r 也没有实现 io.ByteReader，则解压缩器可能会从 r 中读取比必要更多的 data。在遇到 DEFLATE 流中的最后一个块后，读取器返回 io.EOF。最后一个块之后的任何尾随数据都将被忽略。
+
 The ReadCloser returned by NewReader also implements Resetter.
+
+​	NewReader 返回的 ReadCloser 也实现了 Resetter。
 
 ### func NewReaderDict 
 
@@ -334,7 +346,11 @@ func NewReaderDict(r io.Reader, dict []byte) io.ReadCloser
 
 NewReaderDict is like NewReader but initializes the reader with a preset dictionary. The returned Reader behaves as if the uncompressed data stream started with the given dictionary, which has already been read. NewReaderDict is typically used to read data compressed by NewWriterDict.
 
+​	NewReaderDict 类似于 NewReader，但使用预设词典初始化读取器。返回的读取器表现得就像未压缩数据流以给定词典开头，该词典已读入。NewReaderDict 通常用于读取由 NewWriterDict 压缩的数据。
+
 The ReadCloser returned by NewReader also implements Resetter.
+
+​	NewReader 返回的 ReadCloser 也实现了 Resetter。
 
 ## 类型
 
@@ -345,6 +361,8 @@ type CorruptInputError int64
 ```
 
 A CorruptInputError reports the presence of corrupt input at a given offset.
+
+​	CorruptInputError 报告给定偏移量处存在损坏的输入。
 
 #### (CorruptInputError) Error 
 
@@ -377,7 +395,11 @@ type ReadError struct {
 
 A ReadError reports an error encountered while reading input.
 
+​	ReadError 报告在读取输入时遇到的错误。
+
 Deprecated: No longer returned.
+
+​	已弃用：不再返回。
 
 #### func (*ReadError) Error
 
@@ -397,6 +419,8 @@ type Reader interface {
 
 The actual read interface needed by NewReader. If the passed in io.Reader does not also have ReadByte, the NewReader will introduce its own buffering.
 
+​	NewReader 所需的实际读取接口。如果传入的 io.Reader 也没有 ReadByte，NewReader 将引入自己的缓冲。
+
 ### type Resetter  <- go1.4
 
 ``` go 
@@ -409,6 +433,8 @@ type Resetter interface {
 
 Resetter resets a ReadCloser returned by NewReader or NewReaderDict to switch to a new underlying Reader. This permits reusing a ReadCloser instead of allocating a new one.
 
+​	Resetter 重置 NewReader 或 NewReaderDict 返回的 ReadCloser 以切换到新的底层 Reader。这允许重用 ReadCloser，而不是分配一个新的。
+
 ### type WriteError <- DEPRECATED
 
 ```go
@@ -420,7 +446,11 @@ type WriteError struct {
 
 A WriteError reports an error encountered while writing output.
 
+​	WriteError 报告在写入输出时遇到的错误。
+
 Deprecated: No longer returned.
+
+​	已弃用：不再返回。
 
 ####  (*WriteError) Error
 
@@ -438,6 +468,8 @@ type Writer struct {
 
 A Writer takes data written to it and writes the compressed form of that data to an underlying writer (see NewWriter).
 
+​	Writer 接收写入其中的数据，并将该数据的压缩形式写入底层 writer（请参阅 NewWriter）。
+
 #### func NewWriter 
 
 ``` go 
@@ -446,7 +478,11 @@ func NewWriter(w io.Writer, level int) (*Writer, error)
 
 NewWriter returns a new Writer compressing data at the given level. Following zlib, levels range from 1 (BestSpeed) to 9 (BestCompression); higher levels typically run slower but compress more. Level 0 (NoCompression) does not attempt any compression; it only adds the necessary DEFLATE framing. Level -1 (DefaultCompression) uses the default compression level. Level -2 (HuffmanOnly) will use Huffman compression only, giving a very fast compression for all types of input, but sacrificing considerable compression efficiency.
 
+​	NewWriter 返回一个在给定级别压缩数据的新的 Writer。按照 zlib，级别范围从 1（BestSpeed）到 9（BestCompression）；较高的级别通常运行得较慢，但压缩得更多。级别 0（NoCompression）不尝试任何压缩；它只添加必要的 DEFLATE 框架。级别 -1（DefaultCompression）使用默认压缩级别。级别 -2（HuffmanOnly）将仅使用霍夫曼压缩，为所有类型的输入提供非常快速的压缩，但牺牲了相当大的压缩效率。
+
 If level is in the range [-2, 9] then the error returned will be nil. Otherwise the error returned will be non-nil.
+
+​	如果级别在 `[-2, 9]` 范围内，则返回的错误将为 nil。否则，返回的错误将为非 nil。
 
 #### func NewWriterDict 
 
@@ -456,6 +492,8 @@ func NewWriterDict(w io.Writer, level int, dict []byte) (*Writer, error)
 
 NewWriterDict is like NewWriter but initializes the new Writer with a preset dictionary. The returned Writer behaves as if the dictionary had been written to it without producing any compressed output. The compressed data written to w can only be decompressed by a Reader initialized with the same dictionary.
 
+​	NewWriterDict 与 NewWriter 类似，但使用预设词典初始化新的 Writer。返回的 Writer 的行为就像词典已经写入其中而没有产生任何压缩输出一样。写入 w 的压缩数据只能由使用相同词典初始化的 Reader 解压缩。
+
 #### (*Writer) Close 
 
 ``` go 
@@ -463,6 +501,8 @@ func (w *Writer) Close() error
 ```
 
 Close flushes and closes the writer.
+
+​	Close 刷新并关闭 writer。
 
 #### (*Writer) Flush 
 
@@ -472,7 +512,11 @@ func (w *Writer) Flush() error
 
 Flush flushes any pending data to the underlying writer. It is useful mainly in compressed network protocols, to ensure that a remote reader has enough data to reconstruct a packet. Flush does not return until the data has been written. Calling Flush when there is no pending data still causes the Writer to emit a sync marker of at least 4 bytes. If the underlying writer returns an error, Flush returns that error.
 
+​	Flush 将所有待处理数据刷新到底层写入器。它主要用于压缩网络协议，以确保远程读取器有足够的数据来重建数据包。在数据写入之前，Flush 不会返回。在没有待处理数据的情况下调用 Flush 仍会导致写入器发出至少 4 个字节的同步标记。如果底层写入器返回错误，Flush 将返回该错误。
+
 In the terminology of the zlib library, Flush is equivalent to Z_SYNC_FLUSH.
+
+​	在 zlib 库的术语中，Flush 等效于 Z_SYNC_FLUSH。
 
 #### (*Writer) Reset  <- go1.2
 
@@ -482,6 +526,8 @@ func (w *Writer) Reset(dst io.Writer)
 
 Reset discards the writer's state and makes it equivalent to the result of NewWriter or NewWriterDict called with dst and w's level and dictionary.
 
+​	Reset 丢弃写入器状态，使其等效于使用 dst 和 w 的级别和词典调用的 NewWriter 或 NewWriterDict 的结果。
+
 #### (*Writer) Write 
 
 ``` go 
@@ -489,3 +535,5 @@ func (w *Writer) Write(data []byte) (n int, err error)
 ```
 
 Write writes data to w, which will eventually write the compressed form of data to its underlying writer.
+
+​	Write 将数据写入 w，最终将写入数据的压缩形式到其底层编写器。

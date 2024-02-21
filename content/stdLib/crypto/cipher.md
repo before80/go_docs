@@ -10,6 +10,8 @@ draft = false
 
 Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html and NIST Special Publication 800-38A.
 
+​	cipher 包实现标准分组密码模式，该模式可以包装在低级分组密码实现中。请参阅 [https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html](https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html) 和 NIST 特别出版物 800-38A。
+
 
 ## 常量
 
@@ -63,6 +65,8 @@ type AEAD interface {
 
 AEAD is a cipher mode providing authenticated encryption with associated data. For a description of the methodology, see https://en.wikipedia.org/wiki/Authenticated_encryption.
 
+​	AEAD 是一种密码模式，提供带关联数据的经过身份验证的加密。有关方法的说明，请参阅 [https://en.wikipedia.org/wiki/Authenticated_encryption](https://en.wikipedia.org/wiki/Authenticated_encryption)。
+
 #### func NewGCM  <- go1.2
 
 ``` go
@@ -71,7 +75,11 @@ func NewGCM(cipher Block) (AEAD, error)
 
 NewGCM returns the given 128-bit, block cipher wrapped in Galois Counter Mode with the standard nonce length.
 
+​	NewGCM 返回给定的 128 位分组密码，该密码采用标准随机数长度包装在 Galois 计数器模式中。
+
 In general, the GHASH operation performed by this implementation of GCM is not constant-time. An exception is when the underlying Block was created by aes.NewCipher on systems with hardware support for AES. See the crypto/aes package documentation for details.
+
+​	通常，此 GCM 实现执行的 GHASH 操作不是恒定时间的。例外情况是，当底层 Block 由 aes.NewCipher 在具有 AES 硬件支持的系统上创建时。有关详细信息，请参阅 crypto/aes 包文档。
 
 ##### Example (Decrypt)
 
@@ -174,7 +182,11 @@ func NewGCMWithNonceSize(cipher Block, size int) (AEAD, error)
 
 NewGCMWithNonceSize returns the given 128-bit, block cipher wrapped in Galois Counter Mode, which accepts nonces of the given length. The length must not be zero.
 
+​	NewGCMWithNonceSize 返回给定的 128 位分组密码，该密码包装在 Galois 计数器模式中，接受给定长度的随机数。长度不能为零。
+
 Only use this function if you require compatibility with an existing cryptosystem that uses non-standard nonce lengths. All other users should use NewGCM, which is faster and more resistant to misuse.
+
+​	仅当您需要与使用非标准随机数长度的现有密码系统兼容时才使用此功能。所有其他用户都应使用 NewGCM，它速度更快，并且更能抵抗误用。
 
 #### func NewGCMWithTagSize  <- go1.11
 
@@ -184,9 +196,15 @@ func NewGCMWithTagSize(cipher Block, tagSize int) (AEAD, error)
 
 NewGCMWithTagSize returns the given 128-bit, block cipher wrapped in Galois Counter Mode, which generates tags with the given length.
 
+​	NewGCMWithTagSize 返回给定的 128 位块密码，该密码封装在伽罗瓦计数器模式中，该模式生成具有给定长度的标记。
+
 Tag sizes between 12 and 16 bytes are allowed.
 
+​	允许标记大小在 12 到 16 个字节之间。
+
 Only use this function if you require compatibility with an existing cryptosystem that uses non-standard tag lengths. All other users should use NewGCM, which is more resistant to misuse.
+
+​	仅当您需要与使用非标准标记长度的现有密码系统兼容时才使用此功能。所有其他用户都应使用 NewGCM，它更能抵抗误用。
 
 ### type Block 
 
@@ -206,6 +224,8 @@ type Block interface {
 ```
 
 A Block represents an implementation of block cipher using a given key. It provides the capability to encrypt or decrypt individual blocks. The mode implementations extend that capability to streams of blocks.
+
+​	Block 表示使用给定密钥实现块密码。它提供了加密或解密各个块的功能。模式实现将该功能扩展到块流。
 
 ### type BlockMode 
 
@@ -231,6 +251,8 @@ type BlockMode interface {
 
 A BlockMode represents a block cipher running in a block-based mode (CBC, ECB etc).
 
+​	BlockMode 表示在基于块的模式（CBC、ECB 等）中运行的块密码。
+
 #### func NewCBCDecrypter 
 
 ``` go
@@ -238,6 +260,8 @@ func NewCBCDecrypter(b Block, iv []byte) BlockMode
 ```
 
 NewCBCDecrypter returns a BlockMode which decrypts in cipher block chaining mode, using the given Block. The length of iv must be the same as the Block's block size and must match the iv used to encrypt the data.
+
+​	NewCBCDecrypter 返回一个使用给定 Block 在密码块链接模式下解密的 BlockMode。iv 的长度必须与 Block 的块大小相同，并且必须与用于加密数据的 iv 匹配。
 
 ##### NewCBCDecrypter  Example
 
@@ -306,6 +330,8 @@ func NewCBCEncrypter(b Block, iv []byte) BlockMode
 ```
 
 NewCBCEncrypter returns a BlockMode which encrypts in cipher block chaining mode, using the given Block. The length of iv must be the same as the Block's block size.
+
+​	NewCBCEncrypter 返回一个使用给定 Block 在密码块链接模式下加密的 BlockMode。iv 的长度必须与 Block 的块大小相同。
 
 ##### NewCBCEncrypter Example
 
@@ -384,6 +410,8 @@ type Stream interface {
 
 A Stream represents a stream cipher.
 
+​	Stream 表示流密码。
+
 #### func NewCFBDecrypter 
 
 ``` go
@@ -391,6 +419,8 @@ func NewCFBDecrypter(block Block, iv []byte) Stream
 ```
 
 NewCFBDecrypter returns a Stream which decrypts with cipher feedback mode, using the given Block. The iv must be the same length as the Block's block size.
+
+​	NewCFBDecrypter 返回一个使用给定 Block 在密码反馈模式下解密的 Stream。iv 必须与 Block 的块大小相同。
 
 ##### NewCFBDecrypter Example
 
@@ -445,6 +475,8 @@ func NewCFBEncrypter(block Block, iv []byte) Stream
 ```
 
 NewCFBEncrypter returns a Stream which encrypts with cipher feedback mode, using the given Block. The iv must be the same length as the Block's block size.
+
+​	NewCFBEncrypter 返回一个使用给定 Block 以密码反馈模式加密的 Stream。iv 必须与 Block 的块大小相同。
 
 ##### NewCFBEncrypter Example
 
@@ -501,6 +533,8 @@ func NewCTR(block Block, iv []byte) Stream
 ```
 
 NewCTR returns a Stream which encrypts/decrypts using the given Block in counter mode. The length of iv must be the same as the Block's block size.
+
+​	NewCTR 返回一个使用给定 Block 以计数器模式加密/解密的 Stream。iv 的长度必须与 Block 的块大小相同。
 
 ##### NewCTR Example
 
@@ -567,6 +601,8 @@ func NewOFB(b Block, iv []byte) Stream
 ```
 
 NewOFB returns a Stream that encrypts or decrypts using the block cipher b in output feedback mode. The initialization vector iv's length must be equal to b's block size.
+
+​	NewOFB 返回一个使用块密码 b 以输出反馈模式加密或解密的 Stream。初始化向量 iv 的长度必须等于 b 的块大小。
 
 ##### NewOFB Example
 
@@ -636,6 +672,8 @@ type StreamReader struct {
 ```
 
 StreamReader wraps a Stream into an io.Reader. It calls XORKeyStream to process each slice of data which passes through.
+
+​	StreamReader 将 Stream 封装到 io.Reader 中。它调用 XORKeyStream 来处理通过的每个数据切片。
 
 #### Example
 
@@ -708,6 +746,8 @@ type StreamWriter struct {
 
 StreamWriter wraps a Stream into an io.Writer. It calls XORKeyStream to process each slice of data which passes through. If any Write call returns short then the StreamWriter is out of sync and must be discarded. A StreamWriter has no internal buffering; Close does not need to be called to flush write data.
 
+​	StreamWriter 将 Stream 封装到 io.Writer 中。它调用 XORKeyStream 来处理通过的每个数据切片。如果任何 Write 调用返回短，则 StreamWriter 将不同步，并且必须将其丢弃。StreamWriter 没有内部缓冲；无需调用 Close 来刷新写入数据。
+
 #### Example
 
 ```go
@@ -770,6 +810,8 @@ func (w StreamWriter) Close() error
 ```
 
 Close closes the underlying Writer and returns its Close return value, if the Writer is also an io.Closer. Otherwise it returns nil.
+
+​	Close 关闭底层 Writer 并返回其 Close 返回值（如果 Writer 也是 io.Closer）。否则它返回 nil。
 
 #### (StreamWriter) Write 
 

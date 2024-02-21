@@ -1,5 +1,5 @@
 +++
-title = "go 代码审查意见"
+title = "Go 代码审查意见"
 weight = 20
 date = 2023-05-18T17:31:23+08:00
 description = ""
