@@ -10,7 +10,9 @@ draft = false
 
 Package ast declares the types used to represent syntax trees for Go packages.
 
-## 常量 
+​	ast 包声明用于表示 Go 包的语法树的类型。
+
+## 常量
 
 This section is empty.
 
@@ -20,69 +22,93 @@ This section is empty.
 
 ## 函数
 
-### func FileExports 
+### func FileExports
 
-``` go 
+```go
 func FileExports(src *File) bool
 ```
 
 FileExports trims the AST for a Go source file in place such that only exported nodes remain: all top-level identifiers which are not exported and their associated information (such as type, initial value, or function body) are removed. Non-exported fields and methods of exported types are stripped. The File.Comments list is not changed.
 
+​	FileExports 就地修剪 Go 源文件中的 AST，以便仅保留导出的节点：所有未导出的顶级标识符及其关联信息（例如类型、初始值或函数体）都会被移除。导出的类型的非导出字段和方法也会被剥离。File.Comments 列表不会发生变化。
+
 FileExports reports whether there are exported declarations.
 
-### func FilterDecl 
+​	FileExports 报告是否存在导出的声明。
 
-``` go 
+### func FilterDecl
+
+```go
 func FilterDecl(decl Decl, f Filter) bool
 ```
 
-FilterDecl trims the AST for a Go declaration in place by removing all names (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f.
+FilterDecl trims the AST for a Go declaration in place by removing all names (including struct field and interface method names, but not from parameter lists) that don’t pass through the filter f.
+
+​	FilterDecl 就地修剪 Go 声明的 AST，方法是移除所有未通过过滤器 f 的名称（包括结构字段和接口方法名称，但不包括参数列表）。
 
 FilterDecl reports whether there are any declared names left after filtering.
 
-### func FilterFile 
+​	FilterDecl 报告过滤后是否还有任何已声明的名称。
 
-``` go 
+### func FilterFile
+
+```go
 func FilterFile(src *File, f Filter) bool
 ```
 
-FilterFile trims the AST for a Go file in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. Import declarations are always removed. The File.Comments list is not changed.
+FilterFile trims the AST for a Go file in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don’t pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. Import declarations are always removed. The File.Comments list is not changed.
+
+​	FilterFile 就地修剪 Go 文件的 AST，方法是移除所有未通过过滤器 f 的顶级声明中的名称（包括结构字段和接口方法名称，但不包括参数列表）。如果声明之后为空，则从 AST 中移除该声明。始终移除导入声明。File.Comments 列表不会发生变化。
 
 FilterFile reports whether there are any top-level declarations left after filtering.
 
-### func FilterPackage 
+​	FilterFile 报告过滤后是否还有任何顶级声明。
 
-``` go 
+### func FilterPackage
+
+```go
 func FilterPackage(pkg *Package, f Filter) bool
 ```
 
-FilterPackage trims the AST for a Go package in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don't pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. The pkg.Files list is not changed, so that file names and top-level package comments don't get lost.
+FilterPackage trims the AST for a Go package in place by removing all names from top-level declarations (including struct field and interface method names, but not from parameter lists) that don’t pass through the filter f. If the declaration is empty afterwards, the declaration is removed from the AST. The pkg.Files list is not changed, so that file names and top-level package comments don’t get lost.
+
+​	FilterPackage 就地修剪 Go 包的 AST，方法是删除所有顶级声明中的名称（包括结构字段和接口方法名称，但不包括参数列表），这些名称未通过过滤器 f。如果声明之后为空，则从 AST 中删除该声明。 pkg.Files 列表不会更改，因此不会丢失文件名和顶级包注释。
 
 FilterPackage reports whether there are any top-level declarations left after filtering.
 
-### func Fprint 
+​	FilterPackage 报告过滤后是否还有任何顶级声明。
 
-``` go 
+### func Fprint
+
+```go
 func Fprint(w io.Writer, fset *token.FileSet, x any, f FieldFilter) error
 ```
 
 Fprint prints the (sub-)tree starting at AST node x to w. If fset != nil, position information is interpreted relative to that file set. Otherwise positions are printed as integer values (file set specific offsets).
 
+​	Fprint 将从 AST 节点 x 开始的（子）树打印到 w。如果 fset 不为 nil，则位置信息将相对于该文件集进行解释。否则，位置将以整数值（特定于文件集的偏移量）打印。
+
 A non-nil FieldFilter f may be provided to control the output: struct fields for which f(fieldname, fieldvalue) is true are printed; all others are filtered from the output. Unexported struct fields are never printed.
 
-### func Inspect 
+​	可以提供一个非 nil 的 FieldFilter f 来控制输出：将打印 f(fieldname, fieldvalue) 为 true 的结构字段；所有其他字段都将从输出中过滤掉。从不打印未导出的结构字段。
 
-``` go 
+### func Inspect
+
+```go
 func Inspect(node Node, f func(Node) bool)
 ```
 
 Inspect traverses an AST in depth-first order: It starts by calling f(node); node must not be nil. If f returns true, Inspect invokes f recursively for each of the non-nil children of node, followed by a call of f(nil).
 
-#### Inspect Example
+​	Inspect 以深度优先顺序遍历 AST：它首先调用 f(node)；node 不能为 nil。如果 f 返回 true，则 Inspect 会为 node 的每个非 nil 子项递归调用 f，然后调用 f(nil)。
+
+#### Inspect Example 
 
 This example demonstrates how to inspect the AST of a Go program.
 
-``` go 
+​	此示例演示如何检查 Go 程序的 AST。
+
+```go
 package main
 
 import (
@@ -135,13 +161,15 @@ src.go:4:17:	2
 src.go:4:21:	c
 ```
 
-### func IsExported 
+### func IsExported
 
-``` go 
+```go
 func IsExported(name string) bool
 ```
 
 IsExported reports whether name starts with an upper-case letter.
+
+​	IsExported 报告名称是否以大写字母开头。
 
 ### func IsGenerated <-go1.21.0
 
@@ -151,7 +179,11 @@ func IsGenerated(file *File) bool
 
 IsGenerated reports whether the file was generated by a program, not handwritten, by detecting the special comment described at https://go.dev/s/generatedcode.
 
+​	IsGenerated 报告文件是否由程序生成，而不是手写，方法是检测 https://go.dev/s/generatedcode 中描述的特殊注释。
+
 The syntax tree must have been parsed with the ParseComments flag. Example:
+
+​	必须使用 ParseComments 标志解析语法树。示例：
 
 ```
 f, err := parser.ParseFile(fset, filename, src, parser.ParseComments|parser.PackageClauseOnly)
@@ -159,37 +191,47 @@ if err != nil { ... }
 gen := ast.IsGenerated(f)
 ```
 
-### func NotNilFilter 
+### func NotNilFilter
 
-``` go 
+```go
 func NotNilFilter(_ string, v reflect.Value) bool
 ```
 
 NotNilFilter returns true for field values that are not nil; it returns false otherwise.
 
-### func PackageExports 
+​	NotNilFilter 对非 nil 的字段值返回 true；否则返回 false。
 
-``` go 
+### func PackageExports
+
+```go
 func PackageExports(pkg *Package) bool
 ```
 
-PackageExports trims the AST for a Go package in place such that only exported nodes remain. The pkg.Files list is not changed, so that file names and top-level package comments don't get lost.
+PackageExports trims the AST for a Go package in place such that only exported nodes remain. The pkg.Files list is not changed, so that file names and top-level package comments don’t get lost.
+
+​	PackageExports 就地修剪 Go 包的 AST，以便仅保留导出的节点。pkg.Files 列表不会更改，因此不会丢失文件名和顶级包注释。
 
 PackageExports reports whether there are exported declarations; it returns false otherwise.
 
-### func Print 
+​	PackageExports 报告是否存在导出的声明；否则返回 false。
 
-``` go 
+### func Print
+
+```go
 func Print(fset *token.FileSet, x any) error
 ```
 
 Print prints x to standard output, skipping nil fields. Print(fset, x) is the same as Fprint(os.Stdout, fset, x, NotNilFilter).
 
-#### Print Example
+​	Print 将 x 打印到标准输出，跳过 nil 字段。Print(fset, x) 与 Fprint(os.Stdout, fset, x, NotNilFilter) 相同。
+
+#### Print Example 
 
 This example shows what an AST looks like when printed for debugging.
 
-``` go 
+​	此示例显示了在调试时打印 AST 的样子。
+
+```go
 package main
 
 import (
@@ -284,27 +326,31 @@ Output:
     61  }
 ```
 
-### func SortImports 
+### func SortImports
 
-``` go 
+```go
 func SortImports(fset *token.FileSet, f *File)
 ```
 
 SortImports sorts runs of consecutive import lines in import blocks in f. It also removes duplicate imports when it is possible to do so without data loss.
 
-### func Walk 
+​	SortImports 对 f 中导入块中连续导入行的运行进行排序。当有可能在不丢失数据的情况下执行此操作时，它还会删除重复的导入。
 
-``` go 
+### func Walk
+
+```go
 func Walk(v Visitor, node Node)
 ```
 
 Walk traverses an AST in depth-first order: It starts by calling v.Visit(node); node must not be nil. If the visitor w returned by v.Visit(node) is not nil, Walk is invoked recursively with visitor w for each of the non-nil children of node, followed by a call of w.Visit(nil).
 
+​	Walk 以深度优先顺序遍历 AST：它首先调用 v.Visit(node)；node 不能为 nil。如果 v.Visit(node) 返回的访问者 w 不为 nil，则对 node 的每个非 nil 子级递归调用访问者 w，然后调用 w.Visit(nil)。
+
 ## 类型
 
-### type ArrayType 
+### type ArrayType
 
-``` go 
+```go
 type ArrayType struct {
 	Lbrack token.Pos // position of "["
 	Len    Expr      // Ellipsis node for [...]T array types, nil for slice types
@@ -314,21 +360,23 @@ type ArrayType struct {
 
 An ArrayType node represents an array or slice type.
 
-#### (*ArrayType) End 
+​	ArrayType 节点表示数组或切片类型。
 
-``` go 
+#### (*ArrayType) End
+
+```go
 func (x *ArrayType) End() token.Pos
 ```
 
-#### (*ArrayType) Pos 
+#### (*ArrayType) Pos
 
-``` go 
+```go
 func (x *ArrayType) Pos() token.Pos
 ```
 
-### type AssignStmt 
+### type AssignStmt
 
-``` go 
+```go
 type AssignStmt struct {
 	Lhs    []Expr
 	TokPos token.Pos   // position of Tok
@@ -339,21 +387,23 @@ type AssignStmt struct {
 
 An AssignStmt node represents an assignment or a short variable declaration.
 
+​	AssignStmt 节点表示赋值或短变量声明。
+
 #### (*AssignStmt) End 
 
-``` go 
+```go
 func (s *AssignStmt) End() token.Pos
 ```
 
 #### (*AssignStmt) Pos 
 
-``` go 
+```go
 func (s *AssignStmt) Pos() token.Pos
 ```
 
-### type BadDecl 
+### type BadDecl
 
-``` go 
+```go
 type BadDecl struct {
 	From, To token.Pos // position range of bad declaration
 }
@@ -361,21 +411,23 @@ type BadDecl struct {
 
 A BadDecl node is a placeholder for a declaration containing syntax errors for which a correct declaration node cannot be created.
 
+​	BadDecl 节点是包含语法错误的声明的占位符，无法为其创建正确的声明节点。
+
 #### (*BadDecl) End 
 
-``` go 
+```go
 func (d *BadDecl) End() token.Pos
 ```
 
 #### (*BadDecl) Pos 
 
-``` go 
+```go
 func (d *BadDecl) Pos() token.Pos
 ```
 
 ### type BadExpr 
 
-``` go 
+```go
 type BadExpr struct {
 	From, To token.Pos // position range of bad expression
 }
@@ -383,21 +435,23 @@ type BadExpr struct {
 
 A BadExpr node is a placeholder for an expression containing syntax errors for which a correct expression node cannot be created.
 
+​	BadExpr 节点是包含语法错误的表达式的占位符，无法为其创建正确的表达式节点。
+
 #### (*BadExpr) End 
 
-``` go 
+```go
 func (x *BadExpr) End() token.Pos
 ```
 
-#### (*BadExpr) Pos 
+#### (*BadExpr) Pos
 
-``` go 
+```go
 func (x *BadExpr) Pos() token.Pos
 ```
 
-### type BadStmt 
+### type BadStmt
 
-``` go 
+```go
 type BadStmt struct {
 	From, To token.Pos // position range of bad statement
 }
@@ -405,21 +459,23 @@ type BadStmt struct {
 
 A BadStmt node is a placeholder for statements containing syntax errors for which no correct statement nodes can be created.
 
-#### (*BadStmt) End 
+​	BadStmt 节点是包含语法错误的语句的占位符，无法为其创建正确的语句节点。
 
-``` go 
+#### (*BadStmt) End
+
+```go
 func (s *BadStmt) End() token.Pos
 ```
 
-#### (*BadStmt) Pos 
+#### (*BadStmt) Pos
 
-``` go 
+```go
 func (s *BadStmt) Pos() token.Pos
 ```
 
-### type BasicLit 
+### type BasicLit
 
-``` go 
+```go
 type BasicLit struct {
 	ValuePos token.Pos   // literal position
 	Kind     token.Token // token.INT, token.FLOAT, token.IMAG, token.CHAR, or token.STRING
@@ -429,21 +485,23 @@ type BasicLit struct {
 
 A BasicLit node represents a literal of basic type.
 
-#### (*BasicLit) End 
+​	BasicLit 节点表示基本类型的文字。
 
-``` go 
+#### (*BasicLit) End
+
+```go
 func (x *BasicLit) End() token.Pos
 ```
 
-#### (*BasicLit) Pos 
+#### (*BasicLit) Pos
 
-``` go 
+```go
 func (x *BasicLit) Pos() token.Pos
 ```
 
-### type BinaryExpr 
+### type BinaryExpr
 
-``` go 
+```go
 type BinaryExpr struct {
 	X     Expr        // left operand
 	OpPos token.Pos   // position of Op
@@ -454,21 +512,23 @@ type BinaryExpr struct {
 
 A BinaryExpr node represents a binary expression.
 
-#### (*BinaryExpr) End 
+​	BinaryExpr 节点表示二元表达式。
 
-``` go 
+#### (*BinaryExpr) End
+
+```go
 func (x *BinaryExpr) End() token.Pos
 ```
 
-#### (*BinaryExpr) Pos 
+#### (*BinaryExpr) Pos
 
-``` go 
+```go
 func (x *BinaryExpr) Pos() token.Pos
 ```
 
 ### type BlockStmt 
 
-``` go 
+```go
 type BlockStmt struct {
 	Lbrace token.Pos // position of "{"
 	List   []Stmt
@@ -478,21 +538,23 @@ type BlockStmt struct {
 
 A BlockStmt node represents a braced statement list.
 
+​	A BlockStmt 节点表示一个带大括号的语句列表。
+
 #### (*BlockStmt) End 
 
-``` go 
+```go
 func (s *BlockStmt) End() token.Pos
 ```
 
 #### (*BlockStmt) Pos 
 
-``` go 
+```go
 func (s *BlockStmt) Pos() token.Pos
 ```
 
-### type BranchStmt 
+### type BranchStmt
 
-``` go 
+```go
 type BranchStmt struct {
 	TokPos token.Pos   // position of Tok
 	Tok    token.Token // keyword token (BREAK, CONTINUE, GOTO, FALLTHROUGH)
@@ -502,21 +564,23 @@ type BranchStmt struct {
 
 A BranchStmt node represents a break, continue, goto, or fallthrough statement.
 
+​	BranchStmt 节点表示 break、continue、goto 或 fallthrough 语句。
+
 #### (*BranchStmt) End 
 
-``` go 
+```go
 func (s *BranchStmt) End() token.Pos
 ```
 
 #### (*BranchStmt) Pos 
 
-``` go 
+```go
 func (s *BranchStmt) Pos() token.Pos
 ```
 
-### type CallExpr 
+### type CallExpr
 
-``` go 
+```go
 type CallExpr struct {
 	Fun      Expr      // function expression
 	Lparen   token.Pos // position of "("
@@ -528,21 +592,23 @@ type CallExpr struct {
 
 A CallExpr node represents an expression followed by an argument list.
 
-#### (*CallExpr) End 
+​	CallExpr 节点表示一个表达式，后跟一个参数列表。
 
-``` go 
+#### (*CallExpr) End
+
+```go
 func (x *CallExpr) End() token.Pos
 ```
 
 #### (*CallExpr) Pos 
 
-``` go 
+```go
 func (x *CallExpr) Pos() token.Pos
 ```
 
 ### type CaseClause 
 
-``` go 
+```go
 type CaseClause struct {
 	Case  token.Pos // position of "case" or "default" keyword
 	List  []Expr    // list of expressions or types; nil means default case
@@ -553,27 +619,31 @@ type CaseClause struct {
 
 A CaseClause represents a case of an expression or type switch statement.
 
+​	CaseClause 表示表达式或类型 switch 语句的一个 case。
+
 #### (*CaseClause) End 
 
-``` go 
+```go
 func (s *CaseClause) End() token.Pos
 ```
 
-#### (*CaseClause) Pos 
+#### (*CaseClause) Pos
 
-``` go 
+```go
 func (s *CaseClause) Pos() token.Pos
 ```
 
-### type ChanDir 
+### type ChanDir
 
-``` go 
+```go
 type ChanDir int
 ```
 
 The direction of a channel type is indicated by a bit mask including one or both of the following constants.
 
-``` go 
+​	通道类型的方向由一个位掩码指示，其中包括以下一个或两个常量。
+
+```go
 const (
 	SEND ChanDir = 1 << iota
 	RECV
@@ -582,7 +652,7 @@ const (
 
 ### type ChanType 
 
-``` go 
+```go
 type ChanType struct {
 	Begin token.Pos // position of "chan" keyword or "<-" (whichever comes first)
 	Arrow token.Pos // position of "<-" (token.NoPos if there is no "<-")
@@ -593,21 +663,23 @@ type ChanType struct {
 
 A ChanType node represents a channel type.
 
+​	ChanType 节点表示通道类型。
+
 #### (*ChanType) End 
 
-``` go 
+```go
 func (x *ChanType) End() token.Pos
 ```
 
 #### (*ChanType) Pos 
 
-``` go 
+```go
 func (x *ChanType) Pos() token.Pos
 ```
 
-### type CommClause 
+### type CommClause
 
-``` go 
+```go
 type CommClause struct {
 	Case  token.Pos // position of "case" or "default" keyword
 	Comm  Stmt      // send or receive statement; nil means default case
@@ -618,21 +690,23 @@ type CommClause struct {
 
 A CommClause node represents a case of a select statement.
 
+​	CommClause 节点表示 select 语句的一个 case。
+
 #### (*CommClause) End 
 
-``` go 
+```go
 func (s *CommClause) End() token.Pos
 ```
 
 #### (*CommClause) Pos 
 
-``` go 
+```go
 func (s *CommClause) Pos() token.Pos
 ```
 
 ### type Comment 
 
-``` go 
+```go
 type Comment struct {
 	Slash token.Pos // position of "/" starting the comment
 	Text  string    // comment text (excluding '\n' for //-style comments)
@@ -641,23 +715,27 @@ type Comment struct {
 
 A Comment node represents a single //-style or /*-style comment.
 
-The Text field contains the comment text without carriage returns (\r) that may have been present in the source. Because a comment's end position is computed using len(Text), the position reported by End() does not match the true source end position for comments containing carriage returns.
+​	Comment 节点表示单个 // 样式或 /* 样式注释。
 
-#### (*Comment) End 
+The Text field contains the comment text without carriage returns (\r) that may have been present in the source. Because a comment’s end position is computed using len(Text), the position reported by End() does not match the true source end position for comments containing carriage returns.
 
-``` go 
+​	Text 字段包含注释文本，不包含源代码中可能存在的回车符 (\r)。由于注释的结束位置是使用 len(Text) 计算的，因此 End() 报告的位置与包含回车符的注释的真实源结束位置不匹配。
+
+#### (*Comment) End （*Comment）End
+
+```go
 func (c *Comment) End() token.Pos
 ```
 
-#### (*Comment) Pos 
+#### (*Comment) Pos
 
-``` go 
+```go
 func (c *Comment) Pos() token.Pos
 ```
 
-### type CommentGroup 
+### type CommentGroup
 
-``` go 
+```go
 type CommentGroup struct {
 	List []*Comment // len(List) > 0
 }
@@ -665,87 +743,192 @@ type CommentGroup struct {
 
 A CommentGroup represents a sequence of comments with no other tokens and no empty lines between.
 
-#### (*CommentGroup) End 
+​	CommentGroup 表示一系列注释，其间没有其他标记且没有空行。
 
-``` go 
+#### (*CommentGroup) End
+
+```go
 func (g *CommentGroup) End() token.Pos
 ```
 
-#### (*CommentGroup) Pos 
+#### (*CommentGroup) Pos
 
-``` go 
+```go
 func (g *CommentGroup) Pos() token.Pos
 ```
 
-#### (*CommentGroup) Text 
+#### (*CommentGroup) Text
 
-``` go 
+```go
 func (g *CommentGroup) Text() string
 ```
 
-Text returns the text of the comment. Comment markers (//, /*, and */), the first space of a line comment, and leading and trailing empty lines are removed. Comment directives like "//line" and "//go:noinline" are also removed. Multiple empty lines are reduced to one, and trailing space on lines is trimmed. Unless the result is empty, it is newline-terminated.
+Text returns the text of the comment. Comment markers (//, /*, and */), the first space of a line comment, and leading and trailing empty lines are removed. Comment directives like “//line” and “//go:noinline” are also removed. Multiple empty lines are reduced to one, and trailing space on lines is trimmed. Unless the result is empty, it is newline-terminated.
 
-### type CommentMap  <- go1.1
+​	Text 返回注释的文本。注释标记（//、/* 和 */）、行注释的第一个空格以及前导和尾随空行均已删除。注释指令（如 “//line” 和 “//go:noinline”）也已删除。多个空行减少为一个，并且修剪了行上的尾随空格。除非结果为空，否则它以换行符结尾。
 
-``` go 
+### type CommentMap <- go1.1
+
+```go
 type CommentMap map[Node][]*CommentGroup
 ```
 
 A CommentMap maps an AST node to a list of comment groups associated with it. See NewCommentMap for a description of the association.
 
+​	CommentMap 将 AST 节点映射到与之关联的注释组列表。有关关联的说明，请参阅 NewCommentMap。
+
 ##### Example
-``` go 
+
+This example illustrates how to remove a variable declaration in a Go program while maintaining correct comment association using an ast.CommentMap.
+
+​	这个例子说明了如何在Go程序中删除变量声明，同时使用ast.CommentMap保持正确的注释关联。
+
+```go
+package main
+
+import (
+	"fmt"
+	"go/ast"
+	"go/format"
+	"go/parser"
+	"go/token"
+	"strings"
+)
+
+func main() {
+	// src is the input for which we create the AST that we
+	// are going to manipulate.
+	src := `
+// This is the package comment.
+package main
+
+// This comment is associated with the hello constant.
+const hello = "Hello, World!" // line comment 1
+
+// This comment is associated with the foo variable.
+var foo = hello // line comment 2
+
+// This comment is associated with the main function.
+func main() {
+	fmt.Println(hello) // line comment 3
+}
+`
+
+	// Create the AST by parsing src.
+	fset := token.NewFileSet() // positions are relative to fset
+	f, err := parser.ParseFile(fset, "src.go", src, parser.ParseComments)
+	if err != nil {
+		panic(err)
+	}
+
+	// Create an ast.CommentMap from the ast.File's comments.
+	// This helps keeping the association between comments
+	// and AST nodes.
+	cmap := ast.NewCommentMap(fset, f, f.Comments)
+
+	// Remove the first variable declaration from the list of declarations.
+	for i, decl := range f.Decls {
+		if gen, ok := decl.(*ast.GenDecl); ok && gen.Tok == token.VAR {
+			copy(f.Decls[i:], f.Decls[i+1:])
+			f.Decls = f.Decls[:len(f.Decls)-1]
+			break
+		}
+	}
+
+	// Use the comment map to filter comments that don't belong anymore
+	// (the comments associated with the variable declaration), and create
+	// the new comments list.
+	f.Comments = cmap.Filter(f).Comments()
+
+	// Print the modified AST.
+	var buf strings.Builder
+	if err := format.Node(&buf, fset, f); err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s", buf.String())
+
+}
+
+Output:
+
+// This is the package comment.
+package main
+
+// This comment is associated with the hello constant.
+const hello = "Hello, World!" // line comment 1
+
+// This comment is associated with the main function.
+func main() {
+	fmt.Println(hello) // line comment 3
+}
 ```
 
-#### func NewCommentMap  <- go1.1
 
-``` go 
+
+#### func NewCommentMap <- go1.1
+
+```go
 func NewCommentMap(fset *token.FileSet, node Node, comments []*CommentGroup) CommentMap
 ```
 
 NewCommentMap creates a new comment map by associating comment groups of the comments list with the nodes of the AST specified by node.
 
+​	NewCommentMap 通过将注释列表的注释组与节点关联起来创建新的注释映射。
+
 A comment group g is associated with a node n if:
 
+​	注释组 g 与节点 n 相关联，如果：
+
 - g starts on the same line as n ends
+  g 与 n 结束在同一行开始
 - g starts on the line immediately following n, and there is at least one empty line after g and before the next node
+  g 在紧跟 n 的行开始，并且 g 和下一个节点之前至少有一行空行
 - g starts before n and is not associated to the node before n via the previous rules
+  g 在 n 之前开始，并且通过前面的规则未与 n 之前的节点相关联
 
-NewCommentMap tries to associate a comment group to the "largest" node possible: For instance, if the comment is a line comment trailing an assignment, the comment is associated with the entire assignment rather than just the last operand in the assignment.
+NewCommentMap tries to associate a comment group to the “largest” node possible: For instance, if the comment is a line comment trailing an assignment, the comment is associated with the entire assignment rather than just the last operand in the assignment.
 
-#### (CommentMap) Comments  <- go1.1
+​	NewCommentMap 尝试将注释组与尽可能“最大”的节点相关联：例如，如果注释是尾随赋值的行注释，则注释与整个赋值相关联，而不仅仅是赋值中的最后一个操作数。
 
-``` go 
+#### (CommentMap) Comments <- go1.1
+
+```go
 func (cmap CommentMap) Comments() []*CommentGroup
 ```
 
 Comments returns the list of comment groups in the comment map. The result is sorted in source order.
 
-#### (CommentMap) Filter  <- go1.1
+​	Comments 返回注释映射中的注释组列表。结果按源顺序排序。
 
-``` go 
+#### (CommentMap) Filter <- go1.1
+
+```go
 func (cmap CommentMap) Filter(node Node) CommentMap
 ```
 
 Filter returns a new comment map consisting of only those entries of cmap for which a corresponding node exists in the AST specified by node.
 
-#### (CommentMap) String  <- go1.1
+​	Filter 返回一个新的注释映射，其中仅包含 cmap 的那些条目，其对应的节点存在于节点指定的 AST 中。
 
-``` go 
+#### (CommentMap) String <- go1.1
+
+```go
 func (cmap CommentMap) String() string
 ```
 
-#### (CommentMap) Update  <- go1.1
+#### (CommentMap) Update <- go1.1
 
-``` go 
+```go
 func (cmap CommentMap) Update(old, new Node) Node
 ```
 
 Update replaces an old node in the comment map with the new node and returns the new node. Comments that were associated with the old node are associated with the new node.
 
-### type CompositeLit 
+​	Update 用新节点替换注释图中的旧节点，并返回新节点。与旧节点关联的注释与新节点关联。
 
-``` go 
+### type CompositeLit
+
+```go
 type CompositeLit struct {
 	Type       Expr      // literal type; or nil
 	Lbrace     token.Pos // position of "{"
@@ -757,21 +940,23 @@ type CompositeLit struct {
 
 A CompositeLit node represents a composite literal.
 
-#### (*CompositeLit) End 
+​	CompositeLit 节点表示复合字面量。
 
-``` go 
+#### (*CompositeLit) End
+
+```go
 func (x *CompositeLit) End() token.Pos
 ```
 
-#### (*CompositeLit) Pos 
+#### (*CompositeLit) Pos
 
-``` go 
+```go
 func (x *CompositeLit) Pos() token.Pos
 ```
 
-### type Decl 
+### type Decl
 
-``` go 
+```go
 type Decl interface {
 	Node
 	// contains filtered or unexported methods
@@ -780,9 +965,11 @@ type Decl interface {
 
 All declaration nodes implement the Decl interface.
 
-### type DeclStmt 
+​	所有声明节点都实现了 Decl 接口。
 
-``` go 
+### type DeclStmt
+
+```go
 type DeclStmt struct {
 	Decl Decl // *GenDecl with CONST, TYPE, or VAR token
 }
@@ -790,21 +977,23 @@ type DeclStmt struct {
 
 A DeclStmt node represents a declaration in a statement list.
 
-#### (*DeclStmt) End 
+​	DeclStmt 节点表示语句列表中的声明。
 
-``` go 
+#### (*DeclStmt) End
+
+```go
 func (s *DeclStmt) End() token.Pos
 ```
 
-#### (*DeclStmt) Pos 
+#### (*DeclStmt) Pos
 
-``` go 
+```go
 func (s *DeclStmt) Pos() token.Pos
 ```
 
-### type DeferStmt 
+### type DeferStmt
 
-``` go 
+```go
 type DeferStmt struct {
 	Defer token.Pos // position of "defer" keyword
 	Call  *CallExpr
@@ -813,67 +1002,73 @@ type DeferStmt struct {
 
 A DeferStmt node represents a defer statement.
 
-#### (*DeferStmt) End 
+​	DeferStmt 节点表示 defer 语句。
 
-``` go 
+#### (*DeferStmt) End
+
+```go
 func (s *DeferStmt) End() token.Pos
 ```
 
-#### (*DeferStmt) Pos 
+#### (*DeferStmt) Pos
 
-``` go 
+```go
 func (s *DeferStmt) Pos() token.Pos
 ```
 
 ### type Ellipsis 
 
-``` go 
+```go
 type Ellipsis struct {
 	Ellipsis token.Pos // position of "..."
 	Elt      Expr      // ellipsis element type (parameter lists only); or nil
 }
 ```
 
-An Ellipsis node stands for the "..." type in a parameter list or the "..." length in an array type.
+An Ellipsis node stands for the “…” type in a parameter list or the “…” length in an array type.
 
-#### (*Ellipsis) End 
+​	Ellipsis 节点表示参数列表中的“…”类型或数组类型中的“…”长度。
 
-``` go 
+#### (*Ellipsis) End
+
+```go
 func (x *Ellipsis) End() token.Pos
 ```
 
 #### (*Ellipsis) Pos 
 
-``` go 
+```go
 func (x *Ellipsis) Pos() token.Pos
 ```
 
-### type EmptyStmt 
+### type EmptyStmt
 
-``` go 
+```go
 type EmptyStmt struct {
 	Semicolon token.Pos // position of following ";"
 	Implicit  bool      // if set, ";" was omitted in the source
 }
 ```
 
-An EmptyStmt node represents an empty statement. The "position" of the empty statement is the position of the immediately following (explicit or implicit) semicolon.
+An EmptyStmt node represents an empty statement. The “position” of the empty statement is the position of the immediately following (explicit or implicit) semicolon.
 
-#### (*EmptyStmt) End 
+​	EmptyStmt 节点表示一个空语句。“位置”的空语句是紧跟其后（显式或隐式）分号的位置。
 
-``` go 
+#### (*EmptyStmt) End
+
+```go
 func (s *EmptyStmt) End() token.Pos
 ```
 
-#### (*EmptyStmt) Pos 
+#### (*EmptyStmt) Pos
 
-``` go 
+```go
 func (s *EmptyStmt) Pos() token.Pos
 ```
 
-### type Expr 
+### type Expr
 
-``` go 
+```go
 type Expr interface {
 	Node
 	// contains filtered or unexported methods
@@ -882,9 +1077,11 @@ type Expr interface {
 
 All expression nodes implement the Expr interface.
 
-### type ExprStmt 
+​	所有表达式节点都实现了 Expr 接口。
 
-``` go 
+### type ExprStmt
+
+```go
 type ExprStmt struct {
 	X Expr // expression
 }
@@ -892,21 +1089,23 @@ type ExprStmt struct {
 
 An ExprStmt node represents a (stand-alone) expression in a statement list.
 
-#### (*ExprStmt) End 
+​	ExprStmt 节点表示语句列表中的（独立）表达式。
 
-``` go 
+#### (*ExprStmt) End
+
+```go
 func (s *ExprStmt) End() token.Pos
 ```
 
-#### (*ExprStmt) Pos 
+#### (*ExprStmt) Pos
 
-``` go 
+```go
 func (s *ExprStmt) Pos() token.Pos
 ```
 
-### type Field 
+### type Field
 
-``` go 
+```go
 type Field struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Names   []*Ident      // field/method/(type) parameter names; or nil
@@ -918,29 +1117,33 @@ type Field struct {
 
 A Field represents a Field declaration list in a struct type, a method list in an interface type, or a parameter/result declaration in a signature. Field.Names is nil for unnamed parameters (parameter lists which only contain types) and embedded struct fields. In the latter case, the field name is the type name.
 
-#### (*Field) End 
+​	Field 表示结构类型中的 Field 声明列表、接口类型中的方法列表或签名中的参数/结果声明。对于未命名参数（仅包含类型的参数列表）和嵌入式结构字段，Field.Names 为 nil。在后一种情况下，字段名称是类型名称。
 
-``` go 
+#### (*Field) End
+
+```go
 func (f *Field) End() token.Pos
 ```
 
-#### (*Field) Pos 
+#### (*Field) Pos
 
-``` go 
+```go
 func (f *Field) Pos() token.Pos
 ```
 
-### type FieldFilter 
+### type FieldFilter
 
-``` go 
+```go
 type FieldFilter func(name string, value reflect.Value) bool
 ```
 
 A FieldFilter may be provided to Fprint to control the output.
 
-### type FieldList 
+​	可以向 Fprint 提供 FieldFilter 以控制输出。
 
-``` go 
+### type FieldList
+
+```go
 type FieldList struct {
 	Opening token.Pos // position of opening parenthesis/brace/bracket, if any
 	List    []*Field  // field list; or nil
@@ -950,29 +1153,33 @@ type FieldList struct {
 
 A FieldList represents a list of Fields, enclosed by parentheses, curly braces, or square brackets.
 
-#### (*FieldList) End 
+​	FieldList 表示用括号、花括号或方括号括起来的一系列 Field。
 
-``` go 
+#### (*FieldList) End
+
+```go
 func (f *FieldList) End() token.Pos
 ```
 
-#### (*FieldList) NumFields 
+#### (*FieldList) NumFields
 
-``` go 
+```go
 func (f *FieldList) NumFields() int
 ```
 
 NumFields returns the number of parameters or struct fields represented by a FieldList.
 
-#### (*FieldList) Pos 
+​	NumFields 返回 FieldList 表示的参数或结构字段的数量。
 
-``` go 
+#### (*FieldList) Pos
+
+```go
 func (f *FieldList) Pos() token.Pos
 ```
 
-### type File 
+### type File
 
-``` go 
+```go
 type File struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Package token.Pos     // position of "package" keyword
@@ -989,45 +1196,59 @@ type File struct {
 
 A File node represents a Go source file.
 
+​	File 节点表示 Go 源文件。
+
 The Comments list contains all comments in the source file in order of appearance, including the comments that are pointed to from other nodes via Doc and Comment fields.
 
-For correct printing of source code containing comments (using packages go/format and go/printer), special care must be taken to update comments when a File's syntax tree is modified: For printing, comments are interspersed between tokens based on their position. If syntax tree nodes are removed or moved, relevant comments in their vicinity must also be removed (from the File.Comments list) or moved accordingly (by updating their positions). A CommentMap may be used to facilitate some of these operations.
+​	Comments 列表按出现顺序包含源文件中的所有注释，包括通过 Doc 和 Comment 字段指向的其他节点中的注释。
 
-Whether and how a comment is associated with a node depends on the interpretation of the syntax tree by the manipulating program: Except for Doc and Comment comments directly associated with nodes, the remaining comments are "free-floating" (see also issues #18593, #20744).
+For correct printing of source code containing comments (using packages go/format and go/printer), special care must be taken to update comments when a File’s syntax tree is modified: For printing, comments are interspersed between tokens based on their position. If syntax tree nodes are removed or moved, relevant comments in their vicinity must also be removed (from the File.Comments list) or moved accordingly (by updating their positions). A CommentMap may be used to facilitate some of these operations.
 
-#### func MergePackageFiles 
+​	为了正确打印包含注释的源代码（使用包 go/format 和 go/printer），在修改 File 的语法树时必须特别注意更新注释：为了打印，注释会根据其位置穿插在标记之间。如果删除或移动语法树节点，还必须删除其附近相关的注释（从 File.Comments 列表中删除）或相应地移动（通过更新其位置）。可以使用 CommentMap 来简化其中一些操作。
 
-``` go 
+Whether and how a comment is associated with a node depends on the interpretation of the syntax tree by the manipulating program: Except for Doc and Comment comments directly associated with nodes, the remaining comments are “free-floating” (see also issues #18593, #20744).
+
+​	注释是否以及如何与节点相关联取决于操纵程序对语法树的解释：除了与节点直接关联的 Doc 和 Comment 注释外，其余注释都是“自由浮动”（另请参阅问题 #18593、#20744）。
+
+#### func MergePackageFiles
+
+```go
 func MergePackageFiles(pkg *Package, mode MergeMode) *File
 ```
 
 MergePackageFiles creates a file AST by merging the ASTs of the files belonging to a package. The mode flags control merging behavior.
 
-#### (*File) End 
+​	MergePackageFiles 通过合并属于包的文件的 AST 来创建文件 AST。模式标志控制合并行为。
 
-``` go 
+#### (*File) End
+
+```go
 func (f *File) End() token.Pos
 ```
 
 End returns the end of the last declaration in the file. (Use FileEnd for the end of the entire file.)
 
-#### (*File) Pos 
+​	End 返回文件中最后一个声明的结尾。（对于整个文件的结尾，请使用 FileEnd。）
 
-``` go 
+#### (*File) Pos
+
+```go
 func (f *File) Pos() token.Pos
 ```
 
 Pos returns the position of the package declaration. (Use FileStart for the start of the entire file.)
 
-### type Filter 
+​	Pos 返回包声明的位置。（对于整个文件的开头，请使用 FileStart。）
 
-``` go 
+### type Filter
+
+```go
 type Filter func(string) bool
 ```
 
-### type ForStmt 
+### type ForStmt
 
-``` go 
+```go
 type ForStmt struct {
 	For  token.Pos // position of "for" keyword
 	Init Stmt      // initialization statement; or nil
@@ -1039,21 +1260,23 @@ type ForStmt struct {
 
 A ForStmt represents a for statement.
 
-#### (*ForStmt) End 
+​	ForStmt 表示 for 语句。
 
-``` go 
+#### (*ForStmt) End
+
+```go
 func (s *ForStmt) End() token.Pos
 ```
 
-#### (*ForStmt) Pos 
+#### (*ForStmt) Pos
 
-``` go 
+```go
 func (s *ForStmt) Pos() token.Pos
 ```
 
-### type FuncDecl 
+### type FuncDecl
 
-``` go 
+```go
 type FuncDecl struct {
 	Doc  *CommentGroup // associated documentation; or nil
 	Recv *FieldList    // receiver (methods); or nil (functions)
@@ -1065,21 +1288,23 @@ type FuncDecl struct {
 
 A FuncDecl node represents a function declaration.
 
-#### (*FuncDecl) End 
+​	FuncDecl 节点表示函数声明。
 
-``` go 
+#### (*FuncDecl) End
+
+```go
 func (d *FuncDecl) End() token.Pos
 ```
 
-#### (*FuncDecl) Pos 
+#### (*FuncDecl) Pos
 
-``` go 
+```go
 func (d *FuncDecl) Pos() token.Pos
 ```
 
-### type FuncLit 
+### type FuncLit
 
-``` go 
+```go
 type FuncLit struct {
 	Type *FuncType  // function type
 	Body *BlockStmt // function body
@@ -1088,21 +1313,23 @@ type FuncLit struct {
 
 A FuncLit node represents a function literal.
 
-#### (*FuncLit) End 
+​	FuncLit 节点表示函数字面量。
 
-``` go 
+#### (*FuncLit) End
+
+```go
 func (x *FuncLit) End() token.Pos
 ```
 
-#### (*FuncLit) Pos 
+#### (*FuncLit) Pos
 
-``` go 
+```go
 func (x *FuncLit) Pos() token.Pos
 ```
 
-### type FuncType 
+### type FuncType
 
-``` go 
+```go
 type FuncType struct {
 	Func       token.Pos  // position of "func" keyword (token.NoPos if there is no "func")
 	TypeParams *FieldList // type parameters; or nil
@@ -1113,21 +1340,23 @@ type FuncType struct {
 
 A FuncType node represents a function type.
 
+​	FuncType 节点表示函数类型。
+
 #### (*FuncType) End 
 
-``` go 
+```go
 func (x *FuncType) End() token.Pos
 ```
 
-#### (*FuncType) Pos 
+#### (*FuncType) Pos
 
-``` go 
+```go
 func (x *FuncType) Pos() token.Pos
 ```
 
-### type GenDecl 
+### type GenDecl
 
-``` go 
+```go
 type GenDecl struct {
 	Doc    *CommentGroup // associated documentation; or nil
 	TokPos token.Pos     // position of Tok
@@ -1140,7 +1369,11 @@ type GenDecl struct {
 
 A GenDecl node (generic declaration node) represents an import, constant, type or variable declaration. A valid Lparen position (Lparen.IsValid()) indicates a parenthesized declaration.
 
+​	GenDecl 节点（泛型声明节点）表示导入、常量、类型或变量声明。有效的 Lparen 位置（Lparen.IsValid()）表示括号声明。
+
 Relationship between Tok value and Specs element type:
+
+​	Tok 值与 Specs 元素类型之间的关系：
 
 ```
 token.IMPORT  *ImportSpec
@@ -1151,19 +1384,19 @@ token.VAR     *ValueSpec
 
 #### (*GenDecl) End 
 
-``` go 
+```go
 func (d *GenDecl) End() token.Pos
 ```
 
 #### (*GenDecl) Pos 
 
-``` go 
+```go
 func (d *GenDecl) Pos() token.Pos
 ```
 
-### type GoStmt 
+### type GoStmt
 
-``` go 
+```go
 type GoStmt struct {
 	Go   token.Pos // position of "go" keyword
 	Call *CallExpr
@@ -1172,21 +1405,23 @@ type GoStmt struct {
 
 A GoStmt node represents a go statement.
 
+​	GoStmt 节点表示 go 语句。
+
 #### (*GoStmt) End 
 
-``` go 
+```go
 func (s *GoStmt) End() token.Pos
 ```
 
-#### (*GoStmt) Pos 
+#### (*GoStmt) Pos
 
-``` go 
+```go
 func (s *GoStmt) Pos() token.Pos
 ```
 
-### type Ident 
+### type Ident
 
-``` go 
+```go
 type Ident struct {
 	NamePos token.Pos // identifier position
 	Name    string    // identifier name
@@ -1196,43 +1431,49 @@ type Ident struct {
 
 An Ident node represents an identifier.
 
-#### func NewIdent 
+​	Ident 节点表示标识符。
 
-``` go 
+#### func NewIdent
+
+```go
 func NewIdent(name string) *Ident
 ```
 
 NewIdent creates a new Ident without position. Useful for ASTs generated by code other than the Go parser.
 
-#### (*Ident) End 
+​	NewIdent 创建一个没有位置的新 Ident。对于由 Go 解析器以外的代码生成的 AST 很有用。
 
-``` go 
+#### (*Ident) End
+
+```go
 func (x *Ident) End() token.Pos
 ```
 
-#### (*Ident) IsExported 
+#### (*Ident) IsExported
 
-``` go 
+```go
 func (id *Ident) IsExported() bool
 ```
 
 IsExported reports whether id starts with an upper-case letter.
 
-#### (*Ident) Pos 
+​	IsExported 报告 id 是否以大写字母开头。
 
-``` go 
+#### (*Ident) Pos
+
+```go
 func (x *Ident) Pos() token.Pos
 ```
 
-#### (*Ident) String 
+#### (*Ident) String
 
-``` go 
+```go
 func (id *Ident) String() string
 ```
 
-### type IfStmt 
+### type IfStmt
 
-``` go 
+```go
 type IfStmt struct {
 	If   token.Pos // position of "if" keyword
 	Init Stmt      // initialization statement; or nil
@@ -1244,21 +1485,23 @@ type IfStmt struct {
 
 An IfStmt node represents an if statement.
 
-#### (*IfStmt) End 
+​	IfStmt 节点表示 if 语句。
 
-``` go 
+#### (*IfStmt) End
+
+```go
 func (s *IfStmt) End() token.Pos
 ```
 
-#### (*IfStmt) Pos 
+#### (*IfStmt) Pos
 
-``` go 
+```go
 func (s *IfStmt) Pos() token.Pos
 ```
 
-### type ImportSpec 
+### type ImportSpec
 
-``` go 
+```go
 type ImportSpec struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Name    *Ident        // local package name (including "."); or nil
@@ -1270,29 +1513,33 @@ type ImportSpec struct {
 
 An ImportSpec node represents a single package import.
 
-#### (*ImportSpec) End 
+​	ImportSpec 节点表示单个包导入。
 
-``` go 
+#### (*ImportSpec) End
+
+```go
 func (s *ImportSpec) End() token.Pos
 ```
 
-#### (*ImportSpec) Pos 
+#### (*ImportSpec) Pos
 
-``` go 
+```go
 func (s *ImportSpec) Pos() token.Pos
 ```
 
-### type Importer 
+### type Importer
 
-``` go 
+```go
 type Importer func(imports map[string]*Object, path string) (pkg *Object, err error)
 ```
 
 An Importer resolves import paths to package Objects. The imports map records the packages already imported, indexed by package id (canonical import path). An Importer must determine the canonical import path and check the map to see if it is already present in the imports map. If so, the Importer can return the map entry. Otherwise, the Importer should load the package data for the given path into a new *Object (pkg), record pkg in the imports map, and then return pkg.
 
-### type IncDecStmt 
+​	Importer 将导入路径解析为包对象。imports 映射记录已导入的包，按包 ID（规范导入路径）编制索引。Importer 必须确定规范导入路径并检查映射，以查看它是否已存在于 imports 映射中。如果是，Importer 可以返回映射条目。否则，Importer 应将给定路径的包数据加载到新的 *Object (pkg) 中，将 pkg 记录在 imports 映射中，然后返回 pkg。
 
-``` go 
+### type IncDecStmt
+
+```go
 type IncDecStmt struct {
 	X      Expr
 	TokPos token.Pos   // position of Tok
@@ -1302,21 +1549,23 @@ type IncDecStmt struct {
 
 An IncDecStmt node represents an increment or decrement statement.
 
-#### (*IncDecStmt) End 
+​	IncDecStmt 节点表示增量或减量语句。
 
-``` go 
+#### (*IncDecStmt) End
+
+```go
 func (s *IncDecStmt) End() token.Pos
 ```
 
-#### (*IncDecStmt) Pos 
+#### (*IncDecStmt) Pos
 
-``` go 
+```go
 func (s *IncDecStmt) Pos() token.Pos
 ```
 
-### type IndexExpr 
+### type IndexExpr
 
-``` go 
+```go
 type IndexExpr struct {
 	X      Expr      // expression
 	Lbrack token.Pos // position of "["
@@ -1327,21 +1576,23 @@ type IndexExpr struct {
 
 An IndexExpr node represents an expression followed by an index.
 
-#### (*IndexExpr) End 
+​	IndexExpr 节点表示表达式后跟索引。
 
-``` go 
+#### (*IndexExpr) End
+
+```go
 func (x *IndexExpr) End() token.Pos
 ```
 
-#### (*IndexExpr) Pos 
+#### (*IndexExpr) Pos
 
-``` go 
+```go
 func (x *IndexExpr) Pos() token.Pos
 ```
 
-### type IndexListExpr  <- go1.18
+### type IndexListExpr <- go1.18
 
-``` go 
+```go
 type IndexListExpr struct {
 	X       Expr      // expression
 	Lbrack  token.Pos // position of "["
@@ -1352,21 +1603,23 @@ type IndexListExpr struct {
 
 An IndexListExpr node represents an expression followed by multiple indices.
 
-#### (*IndexListExpr) End  <- go1.18
+​	IndexListExpr 节点表示表达式后跟多个索引。
 
-``` go 
+#### (*IndexListExpr) End <- go1.18 
+
+```go
 func (x *IndexListExpr) End() token.Pos
 ```
 
-#### (*IndexListExpr) Pos  <- go1.18
+#### (*IndexListExpr) Pos <- go1.18
 
-``` go 
+```go
 func (x *IndexListExpr) Pos() token.Pos
 ```
 
-### type InterfaceType 
+### type InterfaceType
 
-``` go 
+```go
 type InterfaceType struct {
 	Interface  token.Pos  // position of "interface" keyword
 	Methods    *FieldList // list of embedded interfaces, methods, or types
@@ -1376,21 +1629,23 @@ type InterfaceType struct {
 
 An InterfaceType node represents an interface type.
 
-#### (*InterfaceType) End 
+​	InterfaceType 节点表示接口类型。
 
-``` go 
+#### (*InterfaceType) End
+
+```go
 func (x *InterfaceType) End() token.Pos
 ```
 
-#### (*InterfaceType) Pos 
+#### (*InterfaceType) Pos
 
-``` go 
+```go
 func (x *InterfaceType) Pos() token.Pos
 ```
 
-### type KeyValueExpr 
+### type KeyValueExpr
 
-``` go 
+```go
 type KeyValueExpr struct {
 	Key   Expr
 	Colon token.Pos // position of ":"
@@ -1400,21 +1655,23 @@ type KeyValueExpr struct {
 
 A KeyValueExpr node represents (key : value) pairs in composite literals.
 
-#### (*KeyValueExpr) End 
+​	KeyValueExpr 节点表示复合字面量中的 (key : value) 对。
 
-``` go 
+#### (*KeyValueExpr) End
+
+```go
 func (x *KeyValueExpr) End() token.Pos
 ```
 
-#### (*KeyValueExpr) Pos 
+#### (*KeyValueExpr) Pos
 
-``` go 
+```go
 func (x *KeyValueExpr) Pos() token.Pos
 ```
 
-### type LabeledStmt 
+### type LabeledStmt
 
-``` go 
+```go
 type LabeledStmt struct {
 	Label *Ident
 	Colon token.Pos // position of ":"
@@ -1424,21 +1681,23 @@ type LabeledStmt struct {
 
 A LabeledStmt node represents a labeled statement.
 
-#### (*LabeledStmt) End 
+​	LabeledStmt 节点表示带标签的语句。
 
-``` go 
+#### (*LabeledStmt) End
+
+```go
 func (s *LabeledStmt) End() token.Pos
 ```
 
-#### (*LabeledStmt) Pos 
+#### (*LabeledStmt) Pos
 
-``` go 
+```go
 func (s *LabeledStmt) Pos() token.Pos
 ```
 
-### type MapType 
+### type MapType
 
-``` go 
+```go
 type MapType struct {
 	Map   token.Pos // position of "map" keyword
 	Key   Expr
@@ -1448,27 +1707,31 @@ type MapType struct {
 
 A MapType node represents a map type.
 
-#### (*MapType) End 
+​	MapType 节点表示映射类型。
 
-``` go 
+#### (*MapType) End
+
+```go
 func (x *MapType) End() token.Pos
 ```
 
-#### (*MapType) Pos 
+#### (*MapType) Pos
 
-``` go 
+```go
 func (x *MapType) Pos() token.Pos
 ```
 
-### type MergeMode 
+### type MergeMode
 
-``` go 
+```go
 type MergeMode uint
 ```
 
 The MergeMode flags control the behavior of MergePackageFiles.
 
-``` go 
+​	MergeMode 标志控制 MergePackageFiles 的行为。
+
+```go
 const (
 	// If set, duplicate function declarations are excluded.
 	FilterFuncDuplicates MergeMode = 1 << iota
@@ -1480,9 +1743,9 @@ const (
 )
 ```
 
-### type Node 
+### type Node
 
-``` go 
+```go
 type Node interface {
 	Pos() token.Pos // position of first character belonging to the node
 	End() token.Pos // position of first character immediately after the node
@@ -1491,15 +1754,19 @@ type Node interface {
 
 All node types implement the Node interface.
 
+​	所有节点类型都实现 Node 接口。
+
 ### type ObjKind 
 
-``` go 
+```go
 type ObjKind int
 ```
 
 ObjKind describes what an object represents.
 
-``` go 
+​	ObjKind 描述对象表示什么。
+
+```go
 const (
 	Bad ObjKind = iota // for error handling
 	Pkg                // package
@@ -1513,15 +1780,17 @@ const (
 
 The list of possible Object kinds.
 
-#### (ObjKind) String 
+​	可能的对象种类的列表。
 
-``` go 
+#### (ObjKind) String
+
+```go
 func (kind ObjKind) String() string
 ```
 
-### type Object 
+### type Object
 
-``` go 
+```go
 type Object struct {
 	Kind ObjKind
 	Name string // declared name
@@ -1533,7 +1802,11 @@ type Object struct {
 
 An Object describes a named language entity such as a package, constant, type, variable, function (incl. methods), or label.
 
+​	对象描述命名的语言实体，例如包、常量、类型、变量、函数（包括方法）或标签。
+
 The Data fields contains object-specific data:
+
+​	Data 字段包含特定于对象的数据：
 
 ```
 Kind    Data type         Data value
@@ -1541,25 +1814,29 @@ Pkg     *Scope            package scope
 Con     int               iota for the respective declaration
 ```
 
-#### func NewObj 
+#### func NewObj
 
-``` go 
+```go
 func NewObj(kind ObjKind, name string) *Object
 ```
 
 NewObj creates a new object of a given kind and name.
 
-#### (*Object) Pos 
+​	NewObj 创建一个给定类型和名称的新对象。
 
-``` go 
+#### (*Object) Pos
+
+```go
 func (obj *Object) Pos() token.Pos
 ```
 
 Pos computes the source position of the declaration of an object name. The result may be an invalid position if it cannot be computed (obj.Decl may be nil or not correct).
 
-### type Package 
+​	Pos 计算对象名称声明的源位置。如果无法计算，结果可能是一个无效的位置（obj.Decl 可能为 nil 或不正确）。
 
-``` go 
+### type Package
+
+```go
 type Package struct {
 	Name    string             // package name
 	Scope   *Scope             // package scope across all files
@@ -1570,29 +1847,33 @@ type Package struct {
 
 A Package node represents a set of source files collectively building a Go package.
 
-#### func NewPackage 
+​	Package 节点表示一组源文件，共同构建一个 Go 包。
 
-``` go 
+#### func NewPackage
+
+```go
 func NewPackage(fset *token.FileSet, files map[string]*File, importer Importer, universe *Scope) (*Package, error)
 ```
 
-NewPackage creates a new Package node from a set of File nodes. It resolves unresolved identifiers across files and updates each file's Unresolved list accordingly. If a non-nil importer and universe scope are provided, they are used to resolve identifiers not declared in any of the package files. Any remaining unresolved identifiers are reported as undeclared. If the files belong to different packages, one package name is selected and files with different package names are reported and then ignored. The result is a package node and a scanner.ErrorList if there were errors.
+NewPackage creates a new Package node from a set of File nodes. It resolves unresolved identifiers across files and updates each file’s Unresolved list accordingly. If a non-nil importer and universe scope are provided, they are used to resolve identifiers not declared in any of the package files. Any remaining unresolved identifiers are reported as undeclared. If the files belong to different packages, one package name is selected and files with different package names are reported and then ignored. The result is a package node and a scanner.ErrorList if there were errors.
 
-#### (*Package) End 
+​	NewPackage 从一组 File 节点创建新的 Package 节点。它解析文件中的未解析标识符，并相应地更新每个文件的 Unresolved 列表。如果提供了非 nil 的导入程序和 universe 作用域，则使用它们来解析未在任何包文件中声明的标识符。任何剩余的未解析标识符都将报告为未声明。如果文件属于不同的包，则选择一个包名称，并报告具有不同包名称的文件，然后忽略它们。结果是一个包节点和一个 scanner.ErrorList（如果有错误）。
 
-``` go 
+#### (*Package) End
+
+```go
 func (p *Package) End() token.Pos
 ```
 
-#### (*Package) Pos 
+#### (*Package) Pos
 
-``` go 
+```go
 func (p *Package) Pos() token.Pos
 ```
 
-### type ParenExpr 
+### type ParenExpr
 
-``` go 
+```go
 type ParenExpr struct {
 	Lparen token.Pos // position of "("
 	X      Expr      // parenthesized expression
@@ -1602,21 +1883,23 @@ type ParenExpr struct {
 
 A ParenExpr node represents a parenthesized expression.
 
-#### (*ParenExpr) End 
+​	ParenExpr 节点表示括号表达式。
 
-``` go 
+#### (*ParenExpr) End
+
+```go
 func (x *ParenExpr) End() token.Pos
 ```
 
-#### (*ParenExpr) Pos 
+#### (*ParenExpr) Pos
 
-``` go 
+```go
 func (x *ParenExpr) Pos() token.Pos
 ```
 
-### type RangeStmt 
+### type RangeStmt
 
-``` go 
+```go
 type RangeStmt struct {
 	For        token.Pos   // position of "for" keyword
 	Key, Value Expr        // Key, Value may be nil
@@ -1630,21 +1913,23 @@ type RangeStmt struct {
 
 A RangeStmt represents a for statement with a range clause.
 
-#### (*RangeStmt) End 
+​	RangeStmt 表示带有范围子句的 for 语句。
 
-``` go 
+#### (*RangeStmt) End
+
+```go
 func (s *RangeStmt) End() token.Pos
 ```
 
-#### (*RangeStmt) Pos 
+#### (*RangeStmt) Pos
 
-``` go 
+```go
 func (s *RangeStmt) Pos() token.Pos
 ```
 
-### type ReturnStmt 
+### type ReturnStmt
 
-``` go 
+```go
 type ReturnStmt struct {
 	Return  token.Pos // position of "return" keyword
 	Results []Expr    // result expressions; or nil
@@ -1653,21 +1938,23 @@ type ReturnStmt struct {
 
 A ReturnStmt node represents a return statement.
 
-#### (*ReturnStmt) End 
+​	ReturnStmt 节点表示 return 语句。
 
-``` go 
+#### (*ReturnStmt) End
+
+```go
 func (s *ReturnStmt) End() token.Pos
 ```
 
 #### (*ReturnStmt) Pos 
 
-``` go 
+```go
 func (s *ReturnStmt) Pos() token.Pos
 ```
 
-### type Scope 
+### type Scope
 
-``` go 
+```go
 type Scope struct {
 	Outer   *Scope
 	Objects map[string]*Object
@@ -1676,41 +1963,51 @@ type Scope struct {
 
 A Scope maintains the set of named language entities declared in the scope and a link to the immediately surrounding (outer) scope.
 
-#### func NewScope 
+​	范围维护在范围内声明的命名语言实体集以及与紧邻的（外部）范围的链接。
 
-``` go 
+#### func NewScope
+
+```go
 func NewScope(outer *Scope) *Scope
 ```
 
 NewScope creates a new scope nested in the outer scope.
 
+​	NewScope 在外部范围内创建一个新的嵌套范围。
+
 #### (*Scope) Insert 
 
-``` go 
+```go
 func (s *Scope) Insert(obj *Object) (alt *Object)
 ```
 
 Insert attempts to insert a named object obj into the scope s. If the scope already contains an object alt with the same name, Insert leaves the scope unchanged and returns alt. Otherwise it inserts obj and returns nil.
 
-#### (*Scope) Lookup 
+​	Insert 尝试将命名对象 obj 插入范围 s。如果范围已经包含具有相同名称的对象 alt，则 Insert 将范围保持不变并返回 alt。否则，它将插入 obj 并返回 nil。
 
-``` go 
+#### (*Scope) Lookup
+
+```go
 func (s *Scope) Lookup(name string) *Object
 ```
 
 Lookup returns the object with the given name if it is found in scope s, otherwise it returns nil. Outer scopes are ignored.
 
+​	如果在范围 s 中找到具有给定名称的对象，则 Lookup 返回该对象，否则返回 nil。忽略外部范围。
+
 #### (*Scope) String 
 
-``` go 
+```go
 func (s *Scope) String() string
 ```
 
 Debugging support
 
-### type SelectStmt 
+​	调试支持
 
-``` go 
+### type SelectStmt
+
+```go
 type SelectStmt struct {
 	Select token.Pos  // position of "select" keyword
 	Body   *BlockStmt // CommClauses only
@@ -1719,21 +2016,23 @@ type SelectStmt struct {
 
 A SelectStmt node represents a select statement.
 
+​	SelectStmt 节点表示一个 select 语句。
+
 #### (*SelectStmt) End 
 
-``` go 
+```go
 func (s *SelectStmt) End() token.Pos
 ```
 
-#### (*SelectStmt) Pos 
+#### (*SelectStmt) Pos
 
-``` go 
+```go
 func (s *SelectStmt) Pos() token.Pos
 ```
 
-### type SelectorExpr 
+### type SelectorExpr
 
-``` go 
+```go
 type SelectorExpr struct {
 	X   Expr   // expression
 	Sel *Ident // field selector
@@ -1742,21 +2041,23 @@ type SelectorExpr struct {
 
 A SelectorExpr node represents an expression followed by a selector.
 
+​	SelectorExpr 节点表示一个表达式，后跟一个选择器。
+
 #### (*SelectorExpr) End 
 
-``` go 
+```go
 func (x *SelectorExpr) End() token.Pos
 ```
 
 #### (*SelectorExpr) Pos 
 
-``` go 
+```go
 func (x *SelectorExpr) Pos() token.Pos
 ```
 
-### type SendStmt 
+### type SendStmt
 
-``` go 
+```go
 type SendStmt struct {
 	Chan  Expr
 	Arrow token.Pos // position of "<-"
@@ -1766,21 +2067,23 @@ type SendStmt struct {
 
 A SendStmt node represents a send statement.
 
-#### (*SendStmt) End 
+​	SendStmt 节点表示一个 send 语句。
 
-``` go 
+#### (*SendStmt) End
+
+```go
 func (s *SendStmt) End() token.Pos
 ```
 
-#### (*SendStmt) Pos 
+#### (*SendStmt) Pos
 
-``` go 
+```go
 func (s *SendStmt) Pos() token.Pos
 ```
 
-### type SliceExpr 
+### type SliceExpr
 
-``` go 
+```go
 type SliceExpr struct {
 	X      Expr      // expression
 	Lbrack token.Pos // position of "["
@@ -1794,21 +2097,23 @@ type SliceExpr struct {
 
 A SliceExpr node represents an expression followed by slice indices.
 
-#### (*SliceExpr) End 
+​	SliceExpr 节点表示一个表达式，后跟切片索引。
 
-``` go 
+#### (*SliceExpr) End
+
+```go
 func (x *SliceExpr) End() token.Pos
 ```
 
-#### (*SliceExpr) Pos 
+#### (*SliceExpr) Pos
 
-``` go 
+```go
 func (x *SliceExpr) Pos() token.Pos
 ```
 
-### type Spec 
+### type Spec
 
-``` go 
+```go
 type Spec interface {
 	Node
 	// contains filtered or unexported methods
@@ -1817,32 +2122,36 @@ type Spec interface {
 
 The Spec type stands for any of *ImportSpec, *ValueSpec, and *TypeSpec.
 
-### type StarExpr 
+​	Spec 类型表示 *ImportSpec、*ValueSpec 和 *TypeSpec 中的任何一个。
 
-``` go 
+### type StarExpr
+
+```go
 type StarExpr struct {
 	Star token.Pos // position of "*"
 	X    Expr      // operand
 }
 ```
 
-A StarExpr node represents an expression of the form "*" Expression. Semantically it could be a unary "*" expression, or a pointer type.
+A StarExpr node represents an expression of the form “*” Expression. Semantically it could be a unary “*” expression, or a pointer type.
 
-#### (*StarExpr) End 
+​	StarExpr 节点表示形式为 “” Expression 的表达式。语义上它可以是单一的 “” 表达式，或指针类型。
 
-``` go 
+#### (*StarExpr) End
+
+```go
 func (x *StarExpr) End() token.Pos
 ```
 
-#### (*StarExpr) Pos 
+#### (*StarExpr) Pos
 
-``` go 
+```go
 func (x *StarExpr) Pos() token.Pos
 ```
 
-### type Stmt 
+### type Stmt
 
-``` go 
+```go
 type Stmt interface {
 	Node
 	// contains filtered or unexported methods
@@ -1851,9 +2160,11 @@ type Stmt interface {
 
 All statement nodes implement the Stmt interface.
 
-### type StructType 
+​	所有语句节点都实现了 Stmt 接口。
 
-``` go 
+### type StructType
+
+```go
 type StructType struct {
 	Struct     token.Pos  // position of "struct" keyword
 	Fields     *FieldList // list of field declarations
@@ -1863,21 +2174,23 @@ type StructType struct {
 
 A StructType node represents a struct type.
 
-#### (*StructType) End 
+​	StructType 节点表示结构类型。
 
-``` go 
+#### (*StructType) End
+
+```go
 func (x *StructType) End() token.Pos
 ```
 
-#### (*StructType) Pos 
+#### (*StructType) Pos
 
-``` go 
+```go
 func (x *StructType) Pos() token.Pos
 ```
 
-### type SwitchStmt 
+### type SwitchStmt
 
-``` go 
+```go
 type SwitchStmt struct {
 	Switch token.Pos  // position of "switch" keyword
 	Init   Stmt       // initialization statement; or nil
@@ -1888,21 +2201,23 @@ type SwitchStmt struct {
 
 A SwitchStmt node represents an expression switch statement.
 
-#### (*SwitchStmt) End 
+​	SwitchStmt 节点表示表达式 switch 语句。
 
-``` go 
+#### (*SwitchStmt) End
+
+```go
 func (s *SwitchStmt) End() token.Pos
 ```
 
-#### (*SwitchStmt) Pos 
+#### (*SwitchStmt) Pos
 
-``` go 
+```go
 func (s *SwitchStmt) Pos() token.Pos
 ```
 
-### type TypeAssertExpr 
+### type TypeAssertExpr
 
-``` go 
+```go
 type TypeAssertExpr struct {
 	X      Expr      // expression
 	Lparen token.Pos // position of "("
@@ -1913,21 +2228,23 @@ type TypeAssertExpr struct {
 
 A TypeAssertExpr node represents an expression followed by a type assertion.
 
-#### (*TypeAssertExpr) End 
+​	TypeAssertExpr 节点表示一个表达式，后跟一个类型断言。
 
-``` go 
+#### (*TypeAssertExpr) End
+
+```go
 func (x *TypeAssertExpr) End() token.Pos
 ```
 
-#### (*TypeAssertExpr) Pos 
+#### (*TypeAssertExpr) Pos
 
-``` go 
+```go
 func (x *TypeAssertExpr) Pos() token.Pos
 ```
 
-### type TypeSpec 
+### type TypeSpec
 
-``` go 
+```go
 type TypeSpec struct {
 	Doc        *CommentGroup // associated documentation; or nil
 	Name       *Ident        // type name
@@ -1940,21 +2257,23 @@ type TypeSpec struct {
 
 A TypeSpec node represents a type declaration (TypeSpec production).
 
-#### (*TypeSpec) End 
+​	TypeSpec 节点表示类型声明（TypeSpec 生成）。
 
-``` go 
+#### (*TypeSpec) End
+
+```go
 func (s *TypeSpec) End() token.Pos
 ```
 
 #### (*TypeSpec) Pos 
 
-``` go 
+```go
 func (s *TypeSpec) Pos() token.Pos
 ```
 
-### type TypeSwitchStmt 
+### type TypeSwitchStmt
 
-``` go 
+```go
 type TypeSwitchStmt struct {
 	Switch token.Pos  // position of "switch" keyword
 	Init   Stmt       // initialization statement; or nil
@@ -1965,21 +2284,23 @@ type TypeSwitchStmt struct {
 
 A TypeSwitchStmt node represents a type switch statement.
 
+​	TypeSwitchStmt节点表示类型switch语句。
+
 #### (*TypeSwitchStmt) End 
 
-``` go 
+```go
 func (s *TypeSwitchStmt) End() token.Pos
 ```
 
 #### (*TypeSwitchStmt) Pos 
 
-``` go 
+```go
 func (s *TypeSwitchStmt) Pos() token.Pos
 ```
 
-### type UnaryExpr 
+### type UnaryExpr
 
-``` go 
+```go
 type UnaryExpr struct {
 	OpPos token.Pos   // position of Op
 	Op    token.Token // operator
@@ -1987,23 +2308,25 @@ type UnaryExpr struct {
 }
 ```
 
-A UnaryExpr node represents a unary expression. Unary "*" expressions are represented via StarExpr nodes.
+A UnaryExpr node represents a unary expression. Unary “*” expressions are represented via StarExpr nodes.
 
-#### (*UnaryExpr) End 
+​	UnaryExpr节点表示一元表达式。一元“*”表达式通过StarExpr节点表示。
 
-``` go 
+#### (*UnaryExpr) End
+
+```go
 func (x *UnaryExpr) End() token.Pos
 ```
 
 #### (*UnaryExpr) Pos 
 
-``` go 
+```go
 func (x *UnaryExpr) Pos() token.Pos
 ```
 
-### type ValueSpec 
+### type ValueSpec
 
-``` go 
+```go
 type ValueSpec struct {
 	Doc     *CommentGroup // associated documentation; or nil
 	Names   []*Ident      // value names (len(Names) > 0)
@@ -2015,24 +2338,28 @@ type ValueSpec struct {
 
 A ValueSpec node represents a constant or variable declaration (ConstSpec or VarSpec production).
 
+​	A ValueSpec 节点表示常量或变量声明（ConstSpec 或 VarSpec 生成）。
+
 #### (*ValueSpec) End 
 
-``` go 
+```go
 func (s *ValueSpec) End() token.Pos
 ```
 
 #### (*ValueSpec) Pos 
 
-``` go 
+```go
 func (s *ValueSpec) Pos() token.Pos
 ```
 
-### type Visitor 
+### type Visitor
 
-``` go 
+```go
 type Visitor interface {
 	Visit(node Node) (w Visitor)
 }
 ```
 
-A Visitor's Visit method is invoked for each node encountered by Walk. If the result visitor w is not nil, Walk visits each of the children of node with the visitor w, followed by a call of w.Visit(nil).
+A Visitor’s Visit method is invoked for each node encountered by Walk. If the result visitor w is not nil, Walk visits each of the children of node with the visitor w, followed by a call of w.Visit(nil).
+
+​	Walk 遍历到的每个节点都会调用 Visitor 的 Visit 方法。如果结果访问者 w 不为 nil，Walk 会使用访问者 w 遍历节点的每个子节点，然后调用 w.Visit(nil)。

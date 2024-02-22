@@ -10,3 +10,5 @@ draft = false
 > 原文：[https://pkg.go.dev/runtime/race@go1.21.3](https://pkg.go.dev/runtime/race@go1.21.3)
 
 Package race implements data race detection logic. No public interface is provided. For details about the race detector see https://golang.org/doc/articles/race_detector.html
+
+​	race 包实现数据竞争检测逻辑。不提供公共接口。有关竞争检测器的详细信息，请参阅 [https://golang.org/doc/articles/race_detector.html](https://golang.org/doc/articles/race_detector.html)

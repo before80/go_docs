@@ -10,6 +10,8 @@ draft = false
 
 Package printer implements printing of AST nodes.
 
+​	Package printer 实现 AST 节点的打印。
+
 ## 常量 
 
 This section is empty.
@@ -26,10 +28,13 @@ This section is empty.
 func Fprint(output io.Writer, fset *token.FileSet, node any) error
 ```
 
-Fprint "pretty-prints" an AST node to output. It calls Config.Fprint with default settings. Note that gofmt uses tabs for indentation but spaces for alignment; use format.Node (package go/format) for output that matches gofmt.
+Fprint “pretty-prints” an AST node to output. It calls Config.Fprint with default settings. Note that gofmt uses tabs for indentation but spaces for alignment; use format.Node (package go/format) for output that matches gofmt.
+
+​	Fprint 将 AST 节点“漂亮地打印”到输出。它使用默认设置调用 Config.Fprint。请注意，gofmt 使用制表符进行缩进，但使用空格进行对齐；使用 format.Node（包 go/format）以获得与 gofmt 匹配的输出。
 
 #### Fprint Example
-``` go 
+
+```go
 package main
 
 import (
@@ -98,9 +103,9 @@ fmt.Println(s)
 
 ## 类型
 
-### type CommentedNode 
+### type CommentedNode
 
-``` go 
+```go
 type CommentedNode struct {
 	Node     any // *ast.File, or ast.Expr, ast.Decl, ast.Spec, or ast.Stmt
 	Comments []*ast.CommentGroup
@@ -109,9 +114,11 @@ type CommentedNode struct {
 
 A CommentedNode bundles an AST node and corresponding comments. It may be provided as argument to any of the Fprint functions.
 
-### type Config 
+​	CommentedNode 捆绑了一个 AST 节点和相应的注释。它可以作为任何 Fprint 函数的参数提供。
 
-``` go 
+### type Config
+
+```go
 type Config struct {
 	Mode     Mode // default: 0
 	Tabwidth int  // default: 8
@@ -121,21 +128,27 @@ type Config struct {
 
 A Config node controls the output of Fprint.
 
-#### (*Config) Fprint 
+​	Config 节点控制 Fprint 的输出。
 
-``` go 
+#### (*Config) Fprint
+
+```go
 func (cfg *Config) Fprint(output io.Writer, fset *token.FileSet, node any) error
 ```
 
-Fprint "pretty-prints" an AST node to output for a given configuration cfg. Position information is interpreted relative to the file set fset. The node type must be *ast.File, *CommentedNode, []ast.Decl, []ast.Stmt, or assignment-compatible to ast.Expr, ast.Decl, ast.Spec, or ast.Stmt.
+Fprint “pretty-prints” an AST node to output for a given configuration cfg. Position information is interpreted relative to the file set fset. The node type must be *ast.File, *CommentedNode, []ast.Decl, []ast.Stmt, or assignment-compatible to ast.Expr, ast.Decl, ast.Spec, or ast.Stmt.
 
-### type Mode 
+​	Fprint “漂亮地打印”一个 AST 节点，以针对给定配置 cfg 输出。位置信息相对于文件集 fset 解释。节点类型必须是 *ast.File、*CommentedNode、[]ast.Decl、[]ast.Stmt 或与 ast.Expr、ast.Decl、ast.Spec 或 ast.Stmt 兼容的赋值。
 
-``` go 
+### type Mode
+
+```go
 type Mode uint
 ```
 
 A Mode value is a set of flags (or 0). They control printing.
+
+​	Mode 值是一组标志（或 0）。它们控制打印。
 
 ``` go 
 const (

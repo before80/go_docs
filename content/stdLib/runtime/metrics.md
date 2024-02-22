@@ -8,32 +8,49 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/runtime/metrics@go1.21.3](https://pkg.go.dev/runtime/metrics@go1.21.3)
 
-
 Package metrics provides a stable interface to access implementation-defined metrics exported by the Go runtime. This package is similar to existing functions like runtime.ReadMemStats and debug.ReadGCStats, but significantly more general.
+
+​	metrics 包提供了一个稳定的接口，用于访问 Go 运行时导出的实现定义的指标。此软件包类似于现有的函数，如 runtime.ReadMemStats 和 debug.ReadGCStats，但更具通用性。
 
 The set of metrics defined by this package may evolve as the runtime itself evolves, and also enables variation across Go implementations, whose relevant metric sets may not intersect.
 
-## Interface 
+​	此包定义的指标集可能会随着运行时本身的演变而演变，并且还支持跨 Go 实现的变化，其相关的指标集可能不会相交。
+
+## Interface 接口
 
 Metrics are designated by a string key, rather than, for example, a field name in a struct. The full list of supported metrics is always available in the slice of Descriptions returned by All. Each Description also includes useful information about the metric.
 
+​	指标由字符串键指定，而不是结构中的字段名。支持的指标的完整列表始终在 All 返回的 Descriptions 片段中可用。每个 Description 还包括有关指标的有用信息。
+
 Thus, users of this API are encouraged to sample supported metrics defined by the slice returned by All to remain compatible across Go versions. Of course, situations arise where reading specific metrics is critical. For these cases, users are encouraged to use build tags, and although metrics may be deprecated and removed, users should consider this to be an exceptional and rare event, coinciding with a very large change in a particular Go implementation.
 
-Each metric key also has a "kind" that describes the format of the metric's value. In the interest of not breaking users of this package, the "kind" for a given metric is guaranteed not to change. If it must change, then a new metric will be introduced with a new key and a new "kind."
+​	因此，鼓励此 API 的用户对 All 返回的片段定义的支持的指标进行采样，以保持跨 Go 版本的兼容性。当然，会出现读取特定指标至关重要的的情况。对于这些情况，鼓励用户使用构建标记，并且尽管指标可能会被弃用并删除，但用户应认为这是一个例外且罕见的事件，与特定 Go 实现中的非常大的更改相吻合。
 
-## Metric key format 
+Each metric key also has a “kind” that describes the format of the metric’s value. In the interest of not breaking users of this package, the “kind” for a given metric is guaranteed not to change. If it must change, then a new metric will be introduced with a new key and a new “kind.”
 
-As mentioned earlier, metric keys are strings. Their format is simple and well-defined, designed to be both human and machine readable. It is split into two components, separated by a colon: a rooted path and a unit. The choice to include the unit in the key is motivated by compatibility: if a metric's unit changes, its semantics likely did also, and a new key should be introduced.
+​	每个指标键还具有一个“类型”，用于描述指标值的格式。为了不破坏此软件包的用户，保证给定指标的“类型”不会更改。如果必须更改，则将引入一个具有新键和新“类型”的新指标。
 
-For more details on the precise definition of the metric key's path and unit formats, see the documentation of the Name field of the Description struct.
+## Metric key format 指标键格式
 
-## A note about floats 
+As mentioned earlier, metric keys are strings. Their format is simple and well-defined, designed to be both human and machine readable. It is split into two components, separated by a colon: a rooted path and a unit. The choice to include the unit in the key is motivated by compatibility: if a metric’s unit changes, its semantics likely did also, and a new key should be introduced.
+
+​	如前所述，指标键是字符串。它们的格式简单且定义明确，旨在便于人类和机器读取。它分为两个部分，用冒号分隔：根路径和单位。在键中包含单位的选择是出于兼容性的考虑：如果指标的单位发生变化，则其语义也可能发生变化，并且应该引入一个新键。
+
+For more details on the precise definition of the metric key’s path and unit formats, see the documentation of the Name field of the Description struct.
+
+​	有关指标键的路径和单位格式的精确定义的更多详细信息，请参阅 Description 结构的 Name 字段的文档。
+
+## A note about floats 关于浮点数的说明
 
 This package supports metrics whose values have a floating-point representation. In order to improve ease-of-use, this package promises to never produce the following classes of floating-point values: NaN, infinity.
 
-## Supported metrics 
+​	此软件包支持值具有浮点表示形式的指标。为了提高易用性，此软件包承诺绝不会产生以下类别的浮点值：NaN、无穷大。
+
+## Supported metrics 支持的指标
 
 Below is the full list of supported metrics, ordered lexicographically.
+
+​	以下是按字母顺序排列的受支持指标的完整列表。
 
 ```
 /cgo/go-to-c-calls:calls
@@ -266,14 +283,7 @@ Below is the full list of supported metrics, ordered lexicographically.
 	contention data.
 ```
 
-
-
-
-
-
-
-
-## 常量 
+## 常量
 
 This section is empty.
 
@@ -283,24 +293,35 @@ This section is empty.
 
 ## 函数
 
-### func Read 
+### func Read
 
-``` go 
+```go
 func Read(m []Sample)
 ```
 
 Read populates each Value field in the given slice of metric samples.
 
+​	Read 填充给定度量样本切片中的每个 Value 字段。
+
 Desired metrics should be present in the slice with the appropriate name. The user of this API is encouraged to re-use the same slice between calls for efficiency, but is not required to do so.
+
+​	所需度量应以适当的名称出现在切片中。为了提高效率，鼓励此 API 的用户在调用之间重复使用相同的切片，但不是必需的。
 
 Note that re-use has some caveats. Notably, Values should not be read or manipulated while a Read with that value is outstanding; that is a data race. This property includes pointer-typed Values (for example, Float64Histogram) whose underlying storage will be reused by Read when possible. To safely use such values in a concurrent setting, all data must be deep-copied.
 
+​	请注意，重复使用有一些注意事项。值得注意的是，在使用该值进行 Read 时，不应读取或操作 Values；这是一个数据竞争。此属性包括指针类型的值（例如，Float64Histogram），Read 在可能时会重用其基础存储。要在并发设置中安全地使用此类值，必须对所有数据进行深度复制。
+
 It is safe to execute multiple Read calls concurrently, but their arguments must share no underlying memory. When in doubt, create a new []Sample from scratch, which is always safe, though may be inefficient.
+
+​	可以安全地并发执行多个 Read 调用，但它们的实参不得共享基础内存。如有疑问，请从头创建一个新的 []Sample，这始终是安全的，尽管可能效率低下。
 
 Sample values with names not appearing in All will have their Value populated as KindBad to indicate that the name is unknown.
 
+​	名称未出现在 All 中的样本值将以 KindBad 填充其 Value，以指示名称未知。
+
 #### Example(ReadingAllMetrics)
-``` go 
+
+```go
 package main
 
 import (
@@ -366,11 +387,11 @@ func medianBucket(h *metrics.Float64Histogram) float64 {
 	}
 	panic("should not happen")
 }
-
 ```
 
-#### Example(ReadingOneMetric) 
-``` go 
+#### Example(ReadingOneMetric)
+
+```go
 package main
 
 import (
@@ -404,14 +425,13 @@ func main() {
 
 	fmt.Printf("free but not released memory: %d\n", freeBytes)
 }
-
 ```
 
 ## 类型
 
-### type Description 
+### type Description
 
-``` go 
+```go
 type Description struct {
 	// Name is the full name of the metric which includes the unit.
 	//
@@ -458,17 +478,21 @@ type Description struct {
 
 Description describes a runtime metric.
 
-#### func All 
+​	Description 描述运行时度量。
 
-``` go 
+#### func All
+
+```go
 func All() []Description
 ```
 
 All returns a slice of containing metric descriptions for all supported metrics.
 
-### type Float64Histogram 
+​	All 返回一个切片，其中包含所有受支持指标的指标说明。
 
-``` go 
+### type Float64Histogram
+
+```go
 type Float64Histogram struct {
 	// Counts contains the weights for each histogram bucket.
 	//
@@ -499,9 +523,11 @@ type Float64Histogram struct {
 
 Float64Histogram represents a distribution of float64 values.
 
-### type Sample 
+​	Float64Histogram 表示 float64 值的分布。
 
-``` go 
+### type Sample
+
+```go
 type Sample struct {
 	// Name is the name of the metric sampled.
 	//
@@ -516,9 +542,11 @@ type Sample struct {
 
 Sample captures a single metric sample.
 
-### type Value 
+​	Sample 捕获单个指标样本。
 
-``` go 
+### type Value
+
+```go
 type Value struct {
 	// contains filtered or unexported fields
 }
@@ -526,51 +554,69 @@ type Value struct {
 
 Value represents a metric value returned by the runtime.
 
-#### (Value) Float64 
+​	Value 表示运行时返回的指标值。
 
-``` go 
+#### (Value) Float64
+
+```go
 func (v Value) Float64() float64
 ```
 
 Float64 returns the internal float64 value for the metric.
 
+​	Float64 返回指标的内部 float64 值。
+
 If v.Kind() != KindFloat64, this method panics.
+
+​	如果 v.Kind() != KindFloat64，此方法会引发 panic。
 
 #### (Value) Float64Histogram 
 
-``` go 
+```go
 func (v Value) Float64Histogram() *Float64Histogram
 ```
 
 Float64Histogram returns the internal *Float64Histogram value for the metric.
 
+​	Float64Histogram 返回指标的内部 *Float64Histogram 值。
+
 If v.Kind() != KindFloat64Histogram, this method panics.
 
-#### (Value) Kind 
+​	如果 v.Kind() != KindFloat64Histogram，则此方法会引发 panic。
 
-``` go 
+#### (Value) Kind
+
+```go
 func (v Value) Kind() ValueKind
 ```
 
 Kind returns the tag representing the kind of value this is.
 
-#### (Value) Uint64 
+​	类型返回表示此值类型的标签。
 
-``` go 
+#### (Value) Uint64
+
+```go
 func (v Value) Uint64() uint64
 ```
 
 Uint64 returns the internal uint64 value for the metric.
 
+​	Uint64 返回度量的内部 uint64 值。
+
 If v.Kind() != KindUint64, this method panics.
 
-### type ValueKind 
+​	如果 v.Kind() != KindUint64，此方法会引发恐慌。
 
-``` go 
+### type ValueKind
+
+```go
 type ValueKind int
 ```
 
 ValueKind is a tag for a metric Value which indicates its type.
+
+​	ValueKind 是度量值 Value 的标签，用于指示其类型。
 
 ``` go 
 const (

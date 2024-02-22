@@ -8,11 +8,15 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/net/netip@go1.21.3](https://pkg.go.dev/net/netip@go1.21.3)
 
-Package netip defines an IP address type that's a small value type. Building on that Addr type, the package also defines AddrPort (an IP address and a port), and Prefix (an IP address and a bit length prefix).
+Package netip defines an IP address type that’s a small value type. Building on that Addr type, the package also defines AddrPort (an IP address and a port), and Prefix (an IP address and a bit length prefix).
 
-Compared to the net.IP type, this package's Addr type takes less memory, is immutable, and is comparable (supports == and being a map key).
+​	netip 包定义了一个 IP 地址类型，它是一个小值类型。在此 Addr 类型之上，该包还定义了 AddrPort（一个 IP 地址和一个端口）和 Prefix（一个 IP 地址和一个位长度前缀）。
 
-## 常量 
+Compared to the net.IP type, this package’s Addr type takes less memory, is immutable, and is comparable (supports == and being a map key).
+
+​	与 net.IP 类型相比，此包的 Addr 类型占用更少的内存，是不可变的，并且是可比较的（支持 == 并成为映射键）。
+
+## 常量
 
 This section is empty.
 
@@ -26,9 +30,9 @@ This section is empty.
 
 ## 类型
 
-### type Addr 
+### type Addr
 
-``` go 
+```go
 type Addr struct {
 	// contains filtered or unexported fields
 }
@@ -36,365 +40,475 @@ type Addr struct {
 
 Addr represents an IPv4 or IPv6 address (with or without a scoped addressing zone), similar to net.IP or net.IPAddr.
 
+​	Addr 表示 IPv4 或 IPv6 地址（带或不带作用域寻址区域），类似于 net.IP 或 net.IPAddr。
+
 Unlike net.IP or net.IPAddr, Addr is a comparable value type (it supports == and can be a map key) and is immutable.
+
+​	与 net.IP 或 net.IPAddr 不同，Addr 是一个可比较的值类型（它支持 == 并且可以是映射键），并且是不可变的。
 
 The zero Addr is not a valid IP address. Addr{} is distinct from both 0.0.0.0 and ::.
 
-#### func AddrFrom16 
+​	零 Addr 不是有效的 IP 地址。Addr{} 与 0.0.0.0 和 :: 都不同。
 
-``` go 
+#### func AddrFrom16
+
+```go
 func AddrFrom16(addr [16]byte) Addr
 ```
 
 AddrFrom16 returns the IPv6 address given by the bytes in addr. An IPv4-mapped IPv6 address is left as an IPv6 address. (Use Unmap to convert them if needed.)
 
-#### func AddrFrom4 
+​	AddrFrom16 返回 addr 中的字节给出的 IPv6 地址。IPv4 映射的 IPv6 地址保留为 IPv6 地址。（如果需要，请使用 Unmap 转换它们。）
 
-``` go 
+#### func AddrFrom4
+
+```go
 func AddrFrom4(addr [4]byte) Addr
 ```
 
 AddrFrom4 returns the address of the IPv4 address given by the bytes in addr.
 
-#### func AddrFromSlice 
+​	AddrFrom4 返回 addr 中的字节给出的 IPv4 地址的地址。
 
-``` go 
+#### func AddrFromSlice
+
+```go
 func AddrFromSlice(slice []byte) (ip Addr, ok bool)
 ```
 
-AddrFromSlice parses the 4- or 16-byte byte slice as an IPv4 or IPv6 address. Note that a net.IP can be passed directly as the []byte argument. If slice's length is not 4 or 16, AddrFromSlice returns Addr{}, false.
+AddrFromSlice parses the 4- or 16-byte byte slice as an IPv4 or IPv6 address. Note that a net.IP can be passed directly as the []byte argument. If slice’s length is not 4 or 16, AddrFromSlice returns Addr{}, false.
 
-#### func IPv4Unspecified 
+​	AddrFromSlice 将 4 或 16 字节的字节切片解析为 IPv4 或 IPv6 地址。请注意，net.IP 可以直接作为 []byte 参数传递。如果切片的长度不是 4 或 16，AddrFromSlice 将返回 Addr{}、false。
 
-``` go 
+#### func IPv4Unspecified
+
+```go
 func IPv4Unspecified() Addr
 ```
 
-IPv4Unspecified returns the IPv4 unspecified address "0.0.0.0".
+IPv4Unspecified returns the IPv4 unspecified address “0.0.0.0”.
 
-#### func IPv6LinkLocalAllNodes 
+​	IPv4Unspecified 返回 IPv4 未指定地址“0.0.0.0”。
 
-``` go 
+#### func IPv6LinkLocalAllNodes
+
+```go
 func IPv6LinkLocalAllNodes() Addr
 ```
 
 IPv6LinkLocalAllNodes returns the IPv6 link-local all nodes multicast address ff02::1.
 
-#### func IPv6LinkLocalAllRouters  <- go1.20
+​	IPv6LinkLocalAllNodes 返回 IPv6 链路本地所有节点多播地址 ff02::1。
 
-``` go 
+#### func IPv6LinkLocalAllRouters <- go1.20
+
+```go
 func IPv6LinkLocalAllRouters() Addr
 ```
 
 IPv6LinkLocalAllRouters returns the IPv6 link-local all routers multicast address ff02::2.
 
-#### func IPv6Loopback  <- go1.20
+​	IPv6LinkLocalAllRouters 返回 IPv6 链路本地所有路由器多播地址 ff02::2。
 
-``` go 
+#### func IPv6Loopback <- go1.20
+
+```go
 func IPv6Loopback() Addr
 ```
 
 IPv6Loopback returns the IPv6 loopback address ::1.
 
-#### func IPv6Unspecified 
+​	IPv6Loopback 返回 IPv6 环回地址 ::1。
 
-``` go 
+#### func IPv6Unspecified
+
+```go
 func IPv6Unspecified() Addr
 ```
 
-IPv6Unspecified returns the IPv6 unspecified address "::".
+IPv6Unspecified returns the IPv6 unspecified address “::”.
 
-#### func MustParseAddr 
+​	IPv6Unspecified 返回 IPv6 未指定地址“::”。
 
-``` go 
+#### func MustParseAddr
+
+```go
 func MustParseAddr(s string) Addr
 ```
 
 MustParseAddr calls ParseAddr(s) and panics on error. It is intended for use in tests with hard-coded strings.
 
-#### func ParseAddr 
+​	MustParseAddr 调用 ParseAddr(s) 并引发错误恐慌。它旨在用于具有硬编码字符串的测试。
 
-``` go 
+#### func ParseAddr
+
+```go
 func ParseAddr(s string) (Addr, error)
 ```
 
-ParseAddr parses s as an IP address, returning the result. The string s can be in dotted decimal ("192.0.2.1"), IPv6 ("2001:db8::68"), or IPv6 with a scoped addressing zone ("fe80::1cc0:3e8c:119f:c2e1%ens18").
+ParseAddr parses s as an IP address, returning the result. The string s can be in dotted decimal (“192.0.2.1”), IPv6 (“2001:db8::68”), or IPv6 with a scoped addressing zone (“fe80::1cc0:3e8c:119f:c2e1%ens18”).
 
-#### (Addr) AppendTo 
+​	ParseAddr 将 s 解析为 IP 地址，并返回结果。字符串 s 可以是点分十进制 (“192.0.2.1”)、IPv6 (“2001:db8::68”) 或带作用域寻址区域的 IPv6 (“fe80::1cc0:3e8c:119f:c2e1%ens18”)。
 
-``` go 
+#### (Addr) AppendTo
+
+```go
 func (ip Addr) AppendTo(b []byte) []byte
 ```
 
 AppendTo appends a text encoding of ip, as generated by MarshalText, to b and returns the extended buffer.
 
-#### (Addr) As16 
+​	AppendTo 将由 MarshalText 生成的 ip 文本编码追加到 b 并返回扩展缓冲区。
 
-``` go 
+#### (Addr) As16
+
+```go
 func (ip Addr) As16() (a16 [16]byte)
 ```
 
 As16 returns the IP address in its 16-byte representation. IPv4 addresses are returned as IPv4-mapped IPv6 addresses. IPv6 addresses with zones are returned without their zone (use the Zone method to get it). The ip zero value returns all zeroes.
 
-#### (Addr) As4 
+​	As16 以其 16 字节表示形式返回 IP 地址。IPv4 地址作为 IPv4 映射的 IPv6 地址返回。带区域的 IPv6 地址不带区域返回（使用 Zone 方法获取）。ip 零值返回所有零。
 
-``` go 
+#### (Addr) As4
+
+```go
 func (ip Addr) As4() (a4 [4]byte)
 ```
 
 As4 returns an IPv4 or IPv4-in-IPv6 address in its 4-byte representation. If ip is the zero Addr or an IPv6 address, As4 panics. Note that 0.0.0.0 is not the zero Addr.
 
-#### (Addr) AsSlice 
+​	As4 以其 4 字节表示形式返回 IPv4 或 IPv4-in-IPv6 地址。如果 ip 是零 Addr 或 IPv6 地址，则 As4 会引发 panic。请注意，0.0.0.0 不是零 Addr。
 
-``` go 
+#### (Addr) AsSlice
+
+```go
 func (ip Addr) AsSlice() []byte
 ```
 
 AsSlice returns an IPv4 or IPv6 address in its respective 4-byte or 16-byte representation.
 
-#### (Addr) BitLen 
+​	AsSlice 以其各自的 4 字节或 16 字节表示形式返回 IPv4 或 IPv6 地址。
 
-``` go 
+#### (Addr) BitLen
+
+```go
 func (ip Addr) BitLen() int
 ```
 
-BitLen returns the number of bits in the IP address: 128 for IPv6, 32 for IPv4, and 0 for the zero Addr.
+BitLen returns the number of bits in the IP address: 128 for IPv6, 32 for IPv4, and 0 for the zero Addr. 
 
-Note that IPv4-mapped IPv6 addresses are considered IPv6 addresses and therefore have bit length 128.
+​	BitLen 返回 IP 地址中的位数：IPv6 为 128，IPv4 为 32，零 Addr 为 0。
+
+Note that IPv4-mapped IPv6 addresses are considered IPv6 addresses and therefore have bit length 128. 
+
+​	请注意，IPv4 映射的 IPv6 地址被视为 IPv6 地址，因此位长为 128。
 
 #### (Addr) Compare 
 
-``` go 
+```go
 func (ip Addr) Compare(ip2 Addr) int
 ```
 
-Compare returns an integer comparing two IPs. The result will be 0 if ip == ip2, -1 if ip < ip2, and +1 if ip > ip2. The definition of "less than" is the same as the Less method.
+Compare returns an integer comparing two IPs. The result will be 0 if ip == ip2, -1 if ip < ip2, and +1 if ip > ip2. The definition of “less than” is the same as the Less method. 
 
-#### (Addr) Is4 
+​	Compare 返回一个整数，比较两个 IP。如果 ip == ip2，结果为 0；如果 ip < ip2，结果为 -1；如果 ip > ip2，结果为 +1。“小于”的定义与 Less 方法相同。
 
-``` go 
+#### (Addr) Is4
+
+```go
 func (ip Addr) Is4() bool
 ```
 
-Is4 reports whether ip is an IPv4 address.
+Is4 reports whether ip is an IPv4 address. 
+
+​	Is4 报告 ip 是否是 IPv4 地址。
 
 It returns false for IPv4-mapped IPv6 addresses. See Addr.Unmap.
 
-#### (Addr) Is4In6 
+​	对于 IPv4 映射的 IPv6 地址，它返回 false。请参阅 Addr.Unmap。
 
-``` go 
+#### (Addr) Is4In6
+
+```go
 func (ip Addr) Is4In6() bool
 ```
 
 Is4In6 reports whether ip is an IPv4-mapped IPv6 address.
 
-#### (Addr) Is6 
+​	Is4In6 报告 ip 是否是 IPv4 映射的 IPv6 地址。
 
-``` go 
+#### (Addr) Is6
+
+```go
 func (ip Addr) Is6() bool
 ```
 
 Is6 reports whether ip is an IPv6 address, including IPv4-mapped IPv6 addresses.
 
-#### (Addr) IsGlobalUnicast 
+​	Is6 报告 ip 是否是 IPv6 地址，包括 IPv4 映射的 IPv6 地址。
 
-``` go 
+#### (Addr) IsGlobalUnicast
+
+```go
 func (ip Addr) IsGlobalUnicast() bool
 ```
 
 IsGlobalUnicast reports whether ip is a global unicast address.
 
+​	IsGlobalUnicast 报告 ip 是否是全局单播地址。
+
 It returns true for IPv6 addresses which fall outside of the current IANA-allocated 2000::/3 global unicast space, with the exception of the link-local address space. It also returns true even if ip is in the IPv4 private address space or IPv6 unique local address space. It returns false for the zero Addr.
+
+​	对于不在当前 IANA 分配的 2000::/3 全局单播空间范围内的 IPv6 地址，它返回 true，但链路本地地址空间除外。即使 ip 位于 IPv4 私有地址空间或 IPv6 唯一本地地址空间中，它也会返回 true。对于零地址，它返回 false。
 
 For reference, see [RFC 1122](https://rfc-editor.org/rfc/rfc1122.html), [RFC 4291](https://rfc-editor.org/rfc/rfc4291.html), and [RFC 4632](https://rfc-editor.org/rfc/rfc4632.html).
 
-#### (Addr) IsInterfaceLocalMulticast 
+​	有关参考，请参阅 RFC 1122、RFC 4291 和 RFC 4632。
 
-``` go 
+#### (Addr) IsInterfaceLocalMulticast
+
+```go
 func (ip Addr) IsInterfaceLocalMulticast() bool
 ```
 
 IsInterfaceLocalMulticast reports whether ip is an IPv6 interface-local multicast address.
 
-#### (Addr) IsLinkLocalMulticast 
+​	IsInterfaceLocalMulticast 报告 ip 是否是 IPv6 接口本地多播地址。
 
-``` go 
+#### (Addr) IsLinkLocalMulticast
+
+```go
 func (ip Addr) IsLinkLocalMulticast() bool
 ```
 
 IsLinkLocalMulticast reports whether ip is a link-local multicast address.
 
-#### (Addr) IsLinkLocalUnicast 
+​	IsLinkLocalMulticast 报告 ip 是否是链路本地多播地址。
 
-``` go 
+#### (Addr) IsLinkLocalUnicast
+
+```go
 func (ip Addr) IsLinkLocalUnicast() bool
 ```
 
 IsLinkLocalUnicast reports whether ip is a link-local unicast address.
 
-#### (Addr) IsLoopback 
+​	IsLinkLocalUnicast 报告 ip 是否是链路本地单播地址。
 
-``` go 
+#### (Addr) IsLoopback
+
+```go
 func (ip Addr) IsLoopback() bool
 ```
 
 IsLoopback reports whether ip is a loopback address.
 
-#### (Addr) IsMulticast 
+​	IsLoopback 报告 ip 是否是环回地址。
 
-``` go 
+#### (Addr) IsMulticast
+
+```go
 func (ip Addr) IsMulticast() bool
 ```
 
 IsMulticast reports whether ip is a multicast address.
 
-#### (Addr) IsPrivate 
+​	IsMulticast 报告 ip 是否是多播地址。
 
-``` go 
+#### (Addr) IsPrivate
+
+```go
 func (ip Addr) IsPrivate() bool
 ```
 
 IsPrivate reports whether ip is a private address, according to [RFC 1918](https://rfc-editor.org/rfc/rfc1918.html) (IPv4 addresses) and [RFC 4193](https://rfc-editor.org/rfc/rfc4193.html) (IPv6 addresses). That is, it reports whether ip is in 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, or fc00::/7. This is the same as net.IP.IsPrivate.
 
+​	IsPrivate 报告 ip 是否是私有地址，根据 RFC 1918（IPv4 地址）和 RFC 4193（IPv6 地址）。也就是说，它报告 ip 是否在 10.0.0.0/8、172.16.0.0/12、192.168.0.0/16 或 fc00::/7 中。这与 net.IP.IsPrivate 相同。
+
 #### (Addr) IsUnspecified 
 
-``` go 
+```go
 func (ip Addr) IsUnspecified() bool
 ```
 
-IsUnspecified reports whether ip is an unspecified address, either the IPv4 address "0.0.0.0" or the IPv6 address "::".
+IsUnspecified reports whether ip is an unspecified address, either the IPv4 address “0.0.0.0” or the IPv6 address “::”.
+
+​	IsUnspecified 报告 ip 是否是未指定地址，即 IPv4 地址“0.0.0.0”或 IPv6 地址“::”。
 
 Note that the zero Addr is not an unspecified address.
 
-#### (Addr) IsValid 
+​	请注意，零地址不是未指定地址。
 
-``` go 
+#### (Addr) IsValid
+
+```go
 func (ip Addr) IsValid() bool
 ```
 
 IsValid reports whether the Addr is an initialized address (not the zero Addr).
 
-Note that "0.0.0.0" and "::" are both valid values.
+​	IsValid 报告 Addr 是否是已初始化地址（不是零地址）。
 
-#### (Addr) Less 
+Note that “0.0.0.0” and “::” are both valid values.
 
-``` go 
+​	请注意，“0.0.0.0”和“::”都是有效值。
+
+#### (Addr) Less
+
+```go
 func (ip Addr) Less(ip2 Addr) bool
 ```
 
 Less reports whether ip sorts before ip2. IP addresses sort first by length, then their address. IPv6 addresses with zones sort just after the same address without a zone.
 
+​	Less 报告 ip 是否在 ip2 之前排序。IP 地址首先按长度排序，然后按其地址排序。带区域的 IPv6 地址紧跟没有区域的相同地址之后排序。
+
 #### (Addr) MarshalBinary 
 
-``` go 
+```go
 func (ip Addr) MarshalBinary() ([]byte, error)
 ```
 
 MarshalBinary implements the encoding.BinaryMarshaler interface. It returns a zero-length slice for the zero Addr, the 4-byte form for an IPv4 address, and the 16-byte form with zone appended for an IPv6 address.
 
-#### (Addr) MarshalText 
+​	MarshalBinary 实现 encoding.BinaryMarshaler 接口。它为零地址返回一个零长度切片，为 IPv4 地址返回 4 字节形式，为 IPv6 地址返回附加区域的 16 字节形式。
 
-``` go 
+#### (Addr) MarshalText
+
+```go
 func (ip Addr) MarshalText() ([]byte, error)
 ```
 
 MarshalText implements the encoding.TextMarshaler interface, The encoding is the same as returned by String, with one exception: If ip is the zero Addr, the encoding is the empty string.
 
-#### (Addr) Next 
+​	MarshalText 实现 encoding.TextMarshaler 接口，编码与 String 返回的编码相同，但有一个例外：如果 ip 是零地址，则编码为空字符串。
 
-``` go 
+#### (Addr) Next
+
+```go
 func (ip Addr) Next() Addr
 ```
 
 Next returns the address following ip. If there is none, it returns the zero Addr.
 
-#### (Addr) Prefix 
+​	Next 返回 ip 之后的地址。如果没有，则返回零地址。
 
-``` go 
+#### (Addr) Prefix
+
+```go
 func (ip Addr) Prefix(b int) (Prefix, error)
 ```
 
 Prefix keeps only the top b bits of IP, producing a Prefix of the specified length. If ip is a zero Addr, Prefix always returns a zero Prefix and a nil error. Otherwise, if bits is less than zero or greater than ip.BitLen(), Prefix returns an error.
 
-#### (Addr) Prev 
+​	Prefix 仅保留 IP 的前 b 位，生成指定长度的 Prefix。如果 ip 是零地址，则 Prefix 始终返回零 Prefix 和 nil 错误。否则，如果位数小于零或大于 ip.BitLen()，则 Prefix 返回错误。
 
-``` go 
+#### (Addr) Prev
+
+```go
 func (ip Addr) Prev() Addr
 ```
 
 Prev returns the IP before ip. If there is none, it returns the IP zero value.
 
-#### (Addr) String 
+​	Prev 返回 ip 之前的 IP。如果没有，则返回 IP 零值。
 
-``` go 
+#### (Addr) String
+
+```go
 func (ip Addr) String() string
 ```
 
 String returns the string form of the IP address ip. It returns one of 5 forms:
 
-- "invalid IP", if ip is the zero Addr
-- IPv4 dotted decimal ("192.0.2.1")
-- IPv6 ("2001:db8::1")
-- "::ffff:1.2.3.4" (if Is4In6)
-- IPv6 with zone ("fe80:db8::1%eth0")
+​	String 返回 IP 地址 ip 的字符串形式。它返回 5 种形式之一：
 
-Note that unlike package net's IP.String method, IPv4-mapped IPv6 addresses format with a "::ffff:" prefix before the dotted quad.
+- “invalid IP”, if ip is the zero Addr
+  “无效 IP”，如果 ip 是零 Addr
+- IPv4 dotted decimal (“192.0.2.1”)
+  IPv4 点分十进制 (“192.0.2.1”)
+- IPv6 (“2001:db8::1”)
+- “::ffff:1.2.3.4” (if Is4In6)
+  “::ffff:1.2.3.4” (如果 Is4In6)
+- IPv6 with zone (“fe80:db8::1%eth0”)
+  带区域的 IPv6 (“fe80:db8::1%eth0”)
+
+Note that unlike package net’s IP.String method, IPv4-mapped IPv6 addresses format with a “::ffff:” prefix before the dotted quad.
+
+​	请注意，与包 net 的 IP.String 方法不同，IPv4 映射的 IPv6 地址格式在点分四元组前带有“::ffff:”前缀。
 
 #### (Addr) StringExpanded 
 
-``` go 
+```go
 func (ip Addr) StringExpanded() string
 ```
 
-StringExpanded is like String but IPv6 addresses are expanded with leading zeroes and no "::" compression. For example, "2001:db8::1" becomes "2001:0db8:0000:0000:0000:0000:0000:0001".
+StringExpanded is like String but IPv6 addresses are expanded with leading zeroes and no “::” compression. For example, “2001:db8::1” becomes “2001:0db8:0000:0000:0000:0000:0000:0001”.
 
-#### (Addr) Unmap 
+​	StringExpanded 与 String 类似，但 IPv6 地址会扩展为前导零，且没有“::”压缩。例如，“2001:db8::1”变为“2001:0db8:0000:0000:0000:0000:0000:0001”。
 
-``` go 
+#### (Addr) Unmap
+
+```go
 func (ip Addr) Unmap() Addr
 ```
 
 Unmap returns ip with any IPv4-mapped IPv6 address prefix removed.
 
+​	Unmap 返回 ip，其中删除了任何 IPv4 映射的 IPv6 地址前缀。
+
 That is, if ip is an IPv6 address wrapping an IPv4 address, it returns the wrapped IPv4 address. Otherwise it returns ip unmodified.
 
-#### (*Addr) UnmarshalBinary 
+​	也就是说，如果 ip 是一个包装了 IPv4 地址的 IPv6 地址，它将返回包装的 IPv4 地址。否则，它将返回未修改的 ip。
 
-``` go 
+#### (*Addr) UnmarshalBinary
+
+```go
 func (ip *Addr) UnmarshalBinary(b []byte) error
 ```
 
 UnmarshalBinary implements the encoding.BinaryUnmarshaler interface. It expects data in the form generated by MarshalBinary.
 
-#### (*Addr) UnmarshalText 
+​	UnmarshalBinary 实现 encoding.BinaryUnmarshaler 接口。它期望以 MarshalBinary 生成的形式接收数据。
 
-``` go 
+#### (*Addr) UnmarshalText
+
+```go
 func (ip *Addr) UnmarshalText(text []byte) error
 ```
 
 UnmarshalText implements the encoding.TextUnmarshaler interface. The IP address is expected in a form accepted by ParseAddr.
 
+​	UnmarshalText 实现 encoding.TextUnmarshaler 接口。IP 地址应采用 ParseAddr 接受的形式。
+
 If text is empty, UnmarshalText sets *ip to the zero Addr and returns no error.
 
-#### (Addr) WithZone 
+​	如果 text 为空，UnmarshalText 将 *ip 设置为零 Addr，并且不返回错误。
 
-``` go 
+#### (Addr) WithZone
+
+```go
 func (ip Addr) WithZone(zone string) Addr
 ```
 
-WithZone returns an IP that's the same as ip but with the provided zone. If zone is empty, the zone is removed. If ip is an IPv4 address, WithZone is a no-op and returns ip unchanged.
+WithZone returns an IP that’s the same as ip but with the provided zone. If zone is empty, the zone is removed. If ip is an IPv4 address, WithZone is a no-op and returns ip unchanged.
 
-#### (Addr) Zone 
+​	WithZone 返回一个与 ip 相同但具有所提供区域的 IP。如果区域为空，则删除该区域。如果 ip 是 IPv4 地址，则 WithZone 是一个空操作，并返回未更改的 ip。
 
-``` go 
+#### (Addr) Zone
+
+```go
 func (ip Addr) Zone() string
 ```
 
-Zone returns ip's IPv6 scoped addressing zone, if any.
+Zone returns ip’s IPv6 scoped addressing zone, if any.
 
-### type AddrPort 
+​	Zone 返回 ip 的 IPv6 作用域寻址区域（如果有）。
 
-``` go 
+### type AddrPort
+
+```go
 type AddrPort struct {
 	// contains filtered or unexported fields
 }
@@ -402,105 +516,131 @@ type AddrPort struct {
 
 AddrPort is an IP and a port number.
 
-#### func AddrPortFrom 
+​	AddrPort 是一个 IP 和一个端口号。
 
-``` go 
+#### func AddrPortFrom
+
+```go
 func AddrPortFrom(ip Addr, port uint16) AddrPort
 ```
 
 AddrPortFrom returns an AddrPort with the provided IP and port. It does not allocate.
 
-#### func MustParseAddrPort 
+​	AddrPortFrom 使用提供的 IP 和端口返回一个 AddrPort。它不会分配。
 
-``` go 
+#### func MustParseAddrPort
+
+```go
 func MustParseAddrPort(s string) AddrPort
 ```
 
 MustParseAddrPort calls ParseAddrPort(s) and panics on error. It is intended for use in tests with hard-coded strings.
 
-#### func ParseAddrPort 
+​	MustParseAddrPort 调用 ParseAddrPort(s) 并引发错误恐慌。它旨在用于具有硬编码字符串的测试中。
 
-``` go 
+#### func ParseAddrPort
+
+```go
 func ParseAddrPort(s string) (AddrPort, error)
 ```
 
 ParseAddrPort parses s as an AddrPort.
 
-It doesn't do any name resolution: both the address and the port must be numeric.
+​	ParseAddrPort 将 s 解析为 AddrPort。
 
-#### (AddrPort) Addr 
+It doesn’t do any name resolution: both the address and the port must be numeric.
 
-``` go 
+​	它不会执行任何名称解析：地址和端口都必须是数字。
+
+#### (AddrPort) Addr
+
+```go
 func (p AddrPort) Addr() Addr
 ```
 
-Addr returns p's IP address.
+Addr returns p’s IP address.
 
-#### (AddrPort) AppendTo 
+​	Addr 返回 p 的 IP 地址。
 
-``` go 
+#### (AddrPort) AppendTo
+
+```go
 func (p AddrPort) AppendTo(b []byte) []byte
 ```
 
 AppendTo appends a text encoding of p, as generated by MarshalText, to b and returns the extended buffer.
 
-#### (AddrPort) IsValid 
+​	AppendTo 将 p 的文本编码（由 MarshalText 生成）追加到 b 并返回扩展缓冲区。
 
-``` go 
+#### (AddrPort) IsValid
+
+```go
 func (p AddrPort) IsValid() bool
 ```
 
 IsValid reports whether p.Addr() is valid. All ports are valid, including zero.
 
-#### (AddrPort) MarshalBinary 
+​	IsValid 报告 p.Addr() 是否有效。所有端口都是有效的，包括零。
 
-``` go 
+#### (AddrPort) MarshalBinary
+
+```go
 func (p AddrPort) MarshalBinary() ([]byte, error)
 ```
 
 MarshalBinary implements the encoding.BinaryMarshaler interface. It returns Addr.MarshalBinary with an additional two bytes appended containing the port in little-endian.
 
-#### (AddrPort) MarshalText 
+​	MarshalBinary 实现 encoding.BinaryMarshaler 接口。它返回 Addr.MarshalBinary，并追加两个字节，其中包含小端序的端口。
 
-``` go 
+#### (AddrPort) MarshalText
+
+```go
 func (p AddrPort) MarshalText() ([]byte, error)
 ```
 
 MarshalText implements the encoding.TextMarshaler interface. The encoding is the same as returned by String, with one exception: if p.Addr() is the zero Addr, the encoding is the empty string.
 
-#### (AddrPort) Port 
+​	MarshalText 实现 encoding.TextMarshaler 接口。编码与 String 返回的编码相同，但有一个例外：如果 p.Addr() 是零 Addr，则编码为空字符串。
 
-``` go 
+#### (AddrPort) Port
+
+```go
 func (p AddrPort) Port() uint16
 ```
 
-Port returns p's port.
+Port returns p’s port.
 
-#### (AddrPort) String 
+​	Port 返回 p 的端口。
 
-``` go 
+#### (AddrPort) String
+
+```go
 func (p AddrPort) String() string
 ```
 
-#### (*AddrPort) UnmarshalBinary 
+#### (*AddrPort) UnmarshalBinary
 
-``` go 
+```go
 func (p *AddrPort) UnmarshalBinary(b []byte) error
 ```
 
 UnmarshalBinary implements the encoding.BinaryUnmarshaler interface. It expects data in the form generated by MarshalBinary.
 
-#### (*AddrPort) UnmarshalText 
+​	UnmarshalBinary 实现 encoding.BinaryUnmarshaler 接口。它期望以 MarshalBinary 生成的形式提供数据。
 
-``` go 
+#### (*AddrPort) UnmarshalText
+
+```go
 func (p *AddrPort) UnmarshalText(text []byte) error
 ```
 
 UnmarshalText implements the encoding.TextUnmarshaler interface. The AddrPort is expected in a form generated by MarshalText or accepted by ParseAddrPort.
 
-### type Prefix 
+​	UnmarshalText 实现 encoding.TextUnmarshaler 接口。AddrPort 预期以 MarshalText 生成的形式提供，或由 ParseAddrPort 接受。
 
-``` go 
+### type Prefix
+
+```go
 type Prefix struct {
 	// contains filtered or unexported fields
 }
@@ -508,146 +648,196 @@ type Prefix struct {
 
 Prefix is an IP address prefix (CIDR) representing an IP network.
 
+​	前缀是一个 IP 地址前缀 (CIDR)，表示一个 IP 网络。
+
 The first Bits() of Addr() are specified. The remaining bits match any address. The range of Bits() is [0,32] for IPv4 or [0,128] for IPv6.
 
-#### func MustParsePrefix 
+​	指定了 Addr() 的第一个 Bits()。剩余的位与任何地址匹配。IPv4 的 Bits() 范围为 [0,32]，IPv6 的范围为 [0,128]。
 
-``` go 
+#### func MustParsePrefix
+
+```go
 func MustParsePrefix(s string) Prefix
 ```
 
 MustParsePrefix calls ParsePrefix(s) and panics on error. It is intended for use in tests with hard-coded strings.
 
-#### func ParsePrefix 
+​	MustParsePrefix 调用 ParsePrefix(s) 并引发错误恐慌。它旨在用于具有硬编码字符串的测试中。
 
-``` go 
+#### func ParsePrefix
+
+```go
 func ParsePrefix(s string) (Prefix, error)
 ```
 
-ParsePrefix parses s as an IP address prefix. The string can be in the form "192.168.1.0/24" or "2001:db8::/32", the CIDR notation defined in [RFC 4632](https://rfc-editor.org/rfc/rfc4632.html) and [RFC 4291](https://rfc-editor.org/rfc/rfc4291.html). IPv6 zones are not permitted in prefixes, and an error will be returned if a zone is present.
+ParsePrefix parses s as an IP address prefix. The string can be in the form “192.168.1.0/24” or “2001:db8::/32”, the CIDR notation defined in [RFC 4632](https://rfc-editor.org/rfc/rfc4632.html) and [RFC 4291](https://rfc-editor.org/rfc/rfc4291.html). IPv6 zones are not permitted in prefixes, and an error will be returned if a zone is present.
+
+​	ParsePrefix 将 s 解析为 IP 地址前缀。字符串可以采用“192.168.1.0/24”或“2001:db8::/32”的形式，即 RFC 4632 和 RFC 4291 中定义的 CIDR 表示法。前缀中不允许使用 IPv6 区域，如果存在区域，则会返回错误。
 
 Note that masked address bits are not zeroed. Use Masked for that.
 
-#### func PrefixFrom 
+​	请注意，掩码地址位不会清零。为此，请使用 Masked。
 
-``` go 
+#### func PrefixFrom
+
+```go
 func PrefixFrom(ip Addr, bits int) Prefix
 ```
 
 PrefixFrom returns a Prefix with the provided IP address and bit prefix length.
 
+​	PrefixFrom 返回一个具有提供的 IP 地址和位前缀长度的前缀。
+
 It does not allocate. Unlike Addr.Prefix, PrefixFrom does not mask off the host bits of ip.
+
+​	它不会分配。与 Addr.Prefix 不同，PrefixFrom 不会屏蔽 ip 的主机位。
 
 If bits is less than zero or greater than ip.BitLen, Prefix.Bits will return an invalid value -1.
 
-#### (Prefix) Addr 
+​	如果位数小于零或大于 ip.BitLen，则 Prefix.Bits 将返回无效值 -1。
 
-``` go 
+#### (Prefix) Addr
+
+```go
 func (p Prefix) Addr() Addr
 ```
 
-Addr returns p's IP address.
+Addr returns p’s IP address.
 
-#### (Prefix) AppendTo 
+​	Addr 返回 p 的 IP 地址。
 
-``` go 
+#### (Prefix) AppendTo
+
+```go
 func (p Prefix) AppendTo(b []byte) []byte
 ```
 
 AppendTo appends a text encoding of p, as generated by MarshalText, to b and returns the extended buffer.
 
-#### (Prefix) Bits 
+​	AppendTo 将 p 的文本编码（由 MarshalText 生成）追加到 b 并返回扩展的缓冲区。
 
-``` go 
+#### (Prefix) Bits
+
+```go
 func (p Prefix) Bits() int
 ```
 
-Bits returns p's prefix length.
+Bits returns p’s prefix length.
+
+​	Bits 返回 p 的前缀长度。
 
 It reports -1 if invalid.
 
-#### (Prefix) Contains 
+​	如果无效，则报告 -1。
 
-``` go 
+#### (Prefix) Contains
+
+```go
 func (p Prefix) Contains(ip Addr) bool
 ```
 
 Contains reports whether the network p includes ip.
 
+​	Contains 报告网络 p 是否包含 ip。
+
 An IPv4 address will not match an IPv6 prefix. An IPv4-mapped IPv6 address will not match an IPv4 prefix. A zero-value IP will not match any prefix. If ip has an IPv6 zone, Contains returns false, because Prefixes strip zones.
 
-#### (Prefix) IsSingleIP 
+​	IPv4 地址不会匹配 IPv6 前缀。IPv4 映射的 IPv6 地址不会匹配 IPv6 前缀。零值 IP 不会匹配任何前缀。如果 ip 具有 IPv6 区域，则 Contains 返回 false，因为前缀会剥离区域。
 
-``` go 
+#### (Prefix) IsSingleIP
+
+```go
 func (p Prefix) IsSingleIP() bool
 ```
 
 IsSingleIP reports whether p contains exactly one IP.
 
-#### (Prefix) IsValid 
+​	IsSingleIP 报告 p 是否恰好包含一个 IP。
 
-``` go 
+#### (Prefix) IsValid
+
+```go
 func (p Prefix) IsValid() bool
 ```
 
 IsValid reports whether p.Bits() has a valid range for p.Addr(). If p.Addr() is the zero Addr, IsValid returns false. Note that if p is the zero Prefix, then p.IsValid() == false.
 
+​	IsValid 报告 p.Bits() 是否具有 p.Addr() 的有效范围。如果 p.Addr() 是零 Addr，则 IsValid 返回 false。请注意，如果 p 是零前缀，则 p.IsValid() == false。
+
 #### (Prefix) MarshalBinary 
 
-``` go 
+```go
 func (p Prefix) MarshalBinary() ([]byte, error)
 ```
 
 MarshalBinary implements the encoding.BinaryMarshaler interface. It returns Addr.MarshalBinary with an additional byte appended containing the prefix bits.
 
-#### (Prefix) MarshalText 
+​	MarshalBinary 实现 encoding.BinaryMarshaler 接口。它返回 Addr.MarshalBinary，并附加一个包含前缀位的字节。
 
-``` go 
+#### (Prefix) MarshalText
+
+```go
 func (p Prefix) MarshalText() ([]byte, error)
 ```
 
 MarshalText implements the encoding.TextMarshaler interface, The encoding is the same as returned by String, with one exception: If p is the zero value, the encoding is the empty string.
 
-#### (Prefix) Masked 
+​	MarshalText 实现 encoding.TextMarshaler 接口，编码与 String 返回的编码相同，但有一个例外：如果 p 是零值，则编码为空字符串。
 
-``` go 
+#### (Prefix) Masked
+
+```go
 func (p Prefix) Masked() Prefix
 ```
 
 Masked returns p in its canonical form, with all but the high p.Bits() bits of p.Addr() masked off.
 
+​	Masked 以其规范形式返回 p，其中 p.Addr() 的所有位都被屏蔽掉，除了 p.Bits() 的高位。
+
 If p is zero or otherwise invalid, Masked returns the zero Prefix.
 
-#### (Prefix) Overlaps 
+​	如果 p 为零或无效，Masked 返回零前缀。
 
-``` go 
+#### (Prefix) Overlaps
+
+```go
 func (p Prefix) Overlaps(o Prefix) bool
 ```
 
 Overlaps reports whether p and o contain any IP addresses in common.
 
+​	重叠报告 p 和 o 是否包含任何公共 IP 地址。
+
 If p and o are of different address families or either have a zero IP, it reports false. Like the Contains method, a prefix with an IPv4-mapped IPv6 address is still treated as an IPv6 mask.
 
-#### (Prefix) String 
+​	如果 p 和 o 属于不同的地址族或任一地址具有零 IP，则报告为 false。与 Contains 方法一样，具有 IPv4 映射 IPv6 地址的前缀仍被视为 IPv6 掩码。
 
-``` go 
+#### (Prefix) String
+
+```go
 func (p Prefix) String() string
 ```
 
-String returns the CIDR notation of p: "<ip>/<bits>".
+String returns the CIDR notation of p: “/”.
 
-#### (*Prefix) UnmarshalBinary 
+​	字符串返回 p 的 CIDR 表示法：“/”。
 
-``` go 
+#### (*Prefix) UnmarshalBinary
+
+```go
 func (p *Prefix) UnmarshalBinary(b []byte) error
 ```
 
 UnmarshalBinary implements the encoding.BinaryUnmarshaler interface. It expects data in the form generated by MarshalBinary.
 
+​	UnmarshalBinary 实现 encoding.BinaryUnmarshaler 接口。它期望以 MarshalBinary 生成的形式提供数据。
+
 #### (*Prefix) UnmarshalText 
 
-``` go 
+```go
 func (p *Prefix) UnmarshalText(text []byte) error
 ```
 
 UnmarshalText implements the encoding.TextUnmarshaler interface. The IP address is expected in a form accepted by ParsePrefix or generated by MarshalText.
+
+​	UnmarshalText 实现 encoding.TextUnmarshaler 接口。IP 地址应采用 ParsePrefix 接受或由 MarshalText 生成的形式。

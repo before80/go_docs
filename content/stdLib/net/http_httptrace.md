@@ -8,6 +8,8 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/net/http/httptrace@go1.21.3](https://pkg.go.dev/net/http/httptrace@go1.21.3)
 
+Package httptrace provides mechanisms to trace the events within HTTP client requests.
+
 ​	httptrace 包提供了在 HTTP 客户端请求内部跟踪事件的机制。
 
 ## Example
@@ -57,6 +59,8 @@ This section is empty.
 ``` go 
 func WithClientTrace(ctx context.Context, trace *ClientTrace) context.Context
 ```
+
+WithClientTrace returns a new context based on the provided parent ctx. HTTP client requests made with the returned context will use the provided trace hooks, in addition to any previous hooks registered with ctx. Any hooks defined in the provided trace will be called first.
 
 ​	WithClientTrace 函数基于提供的父上下文（ctx）返回一个新的上下文。使用返回的上下文进行的 HTTP 客户端请求将使用提供的跟踪钩子（trace hooks），除此之外，还会使用之前在 ctx 中注册的任何钩子。在提供的 trace 中定义的任何钩子都将首先被调用。
 
@@ -139,6 +143,8 @@ ClientTrace currently traces a single HTTP request & response during a single ro
 
 ​	ClientTrace 当前在单个往返期间跟踪单个 HTTP 请求和响应，并且没有跨越一系列重定向请求的钩子。
 
+See https://blog.golang.org/http-tracing for more.
+
 ​	有关更多信息，请参见 https://blog.golang.org/http-tracing。
 
 #### func ContextClientTrace 
@@ -146,6 +152,8 @@ ClientTrace currently traces a single HTTP request & response during a single ro
 ``` go 
 func ContextClientTrace(ctx context.Context) *ClientTrace
 ```
+
+ContextClientTrace returns the ClientTrace associated with the provided context. If none, it returns nil.
 
 ​	ContextClientTrace 函数返回与提供的上下文关联的 ClientTrace。如果没有关联的，则返回 nil。
 
@@ -164,6 +172,8 @@ type DNSDoneInfo struct {
 }
 ```
 
+DNSDoneInfo contains information about the results of a DNS lookup.
+
 ​	DNSDoneInfo 包含关于 DNS 查找结果的信息。
 
 ### type DNSStartInfo 
@@ -173,6 +183,8 @@ type DNSStartInfo struct {
 	Host string
 }
 ```
+
+DNSStartInfo contains information about a DNS request.
 
 ​	DNSStartInfo 包含关于 DNS 请求的信息。
 
@@ -195,6 +207,8 @@ type GotConnInfo struct {
 }
 ```
 
+GotConnInfo is the argument to the ClientTrace.GotConn function and contains information about the obtained connection.
+
 ​	GotConnInfo 是传递给 ClientTrace.GotConn 函数的实参，包含有关获取的连接的信息。
 
 ### type WroteRequestInfo 
@@ -206,4 +220,6 @@ type WroteRequestInfo struct {
 }
 ```
 
-​	WroteRequestInfo 包含提供给 WroteRequest （ClientTrace结构体中的字段，ClientTrace#WroteRequest 类型为函数）钩子的信息。
+WroteRequestInfo contains information provided to the WroteRequest hook.
+
+​	WroteRequestInfo包含提供给WroteRequest钩子的信息。

@@ -14,7 +14,7 @@ Package rpc provides access to the exported methods of an object across a networ
 
 Only methods that satisfy these criteria will be made available for remote access; other methods will be ignored:
 
-仅满足以下条件的方法才可供远程访问，其他方法将被忽略：
+​	仅满足以下条件的方法才可供远程访问，其他方法将被忽略：
 
 - the method's type is exported.
 - 方法的类型是导出的。

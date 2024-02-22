@@ -775,9 +775,9 @@ Erfinv(NaN) = NaN
 func Exp(x float64) float64
 ```
 
-Exp returns `e**x`, the base-e exponential of x.
+Exp returns $e^x$, the base-e exponential of x.
 
-​	Exp返回`e**x`，即x的以e为底的指数函数值。
+​	Exp返回 $e^x$，即x的以e为底的指数函数值。
 
 Special cases are:
 

@@ -8,11 +8,13 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/syscall@go1.21.3](https://pkg.go.dev/syscall@go1.21.3)
 
-Package syscall contains an interface to the low-level operating system primitives. The details vary depending on the underlying system, and by default, godoc will display the syscall documentation for the current system. If you want godoc to display syscall documentation for another system, set $GOOS and $GOARCH to the desired system. For example, if you want to view documentation for freebsd/arm on linux/amd64, set $GOOS to freebsd and $GOARCH to arm. The primary use of syscall is inside other packages that provide a more portable interface to the system, such as "os", "time" and "net". Use those packages rather than this one if you can. For details of the functions and data types in this package consult the manuals for the appropriate operating system. These calls return err == nil to indicate success; otherwise err is an operating system error describing the failure. On most systems, that error has type syscall.Errno.
+Package syscall contains an interface to the low-level operating system primitives. The details vary depending on the underlying system, and by default, godoc will display the syscall documentation for the current system. If you want godoc to display syscall documentation for another system, set `$GOOS` and `$GOARCH` to the desired system. For example, if you want to view documentation for freebsd/arm on linux/amd64, set `$GOOS` to freebsd and $GOARCH to arm. The primary use of syscall is inside other packages that provide a more portable interface to the system, such as “os”, “time” and “net”. Use those packages rather than this one if you can. For details of the functions and data types in this package consult the manuals for the appropriate operating system. These calls return err == nil to indicate success; otherwise err is an operating system error describing the failure. On most systems, that error has type syscall.Errno.
+
+​	syscall 包包含一个低级操作系统原语的接口。具体细节取决于底层系统，默认情况下，godoc 将显示当前系统的 syscall 文档。如果您希望 godoc 显示另一个系统的 syscall 文档，请将 `$GOOS` 和 `$GOARCH` 设置为所需系统。例如，如果您想在 linux/amd64 上查看 freebsd/arm 的文档，请将 `$GOOS` 设置为 freebsd，将 `$GOARCH` 设置为 arm。syscall 的主要用途是位于其他包中，这些包为系统提供了更便携的接口，例如“os”、“time”和“net”。如果可以，请使用这些包，而不是此包。有关此包中的函数和数据类型的详细信息，请参阅相应操作系统的说明手册。这些调用返回 err == nil 表示成功；否则，err 是描述失败的操作系统错误。在大多数系统上，该错误的类型为 syscall.Errno。
 
 Deprecated: this package is locked down. Callers should use the corresponding package in the golang.org/x/sys repository instead. That is also where updates required by new systems or versions should be applied. See https://golang.org/s/go1.4-syscall for more information.
 
-
+​	已弃用：此软件包已锁定。调用者应改用 golang.org/x/sys 存储库中的相应软件包。这也是新系统或版本所需的更新应应用的地方。有关更多信息，请参阅 https://golang.org/s/go1.4-syscall。
 
 ## 常量 
 
@@ -53,6 +55,8 @@ const (
 ```
 
 Linux unshare/clone/clone2/clone3 flags, architecture-independent, copied from linux/sched.h.
+
+​	Linux unshare/clone/clone2/clone3 标志，与体系结构无关，从 linux/sched.h 复制。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/syscall/zerrors_linux_amd64.go;l=11)
 
@@ -2009,6 +2013,8 @@ var SocketDisableIPv6 bool
 
 For testing: clients can set this flag to force creation of IPv6 sockets to return EAFNOSUPPORT.
 
+​	用于测试：客户端可以设置此标志以强制创建 IPv6 套接字以返回 EAFNOSUPPORT。
+
 ## 函数
 
 ### func Access 
@@ -2037,107 +2043,119 @@ func AttachLsf(fd int, i []SockFilter) error
 
 Deprecated: Use golang.org/x/net/bpf instead.
 
-### func Bind 
+​	已弃用：请改用 golang.org/x/net/bpf。
 
-``` go 
+### func Bind
+
+```go
 func Bind(fd int, sa Sockaddr) (err error)
 ```
 
-### func BindToDevice 
+### func BindToDevice
 
-``` go 
+```go
 func BindToDevice(fd int, device string) (err error)
 ```
 
 BindToDevice binds the socket associated with fd to device.
 
-### func BytePtrFromString  <- go1.1
+​	BindToDevice 将与 fd 关联的套接字绑定到设备。
 
-``` go 
+### func BytePtrFromString <- go1.1
+
+```go
 func BytePtrFromString(s string) (*byte, error)
 ```
 
 BytePtrFromString returns a pointer to a NUL-terminated array of bytes containing the text of s. If s contains a NUL byte at any location, it returns (nil, EINVAL).
 
-### func ByteSliceFromString  <- go1.1
+​	BytePtrFromString 返回一个指向包含 s 文本的以 NUL 结尾的字节数组的指针。如果 s 在任何位置包含 NUL 字节，则返回 (nil, EINVAL)。
 
-``` go 
+### func ByteSliceFromString <- go1.1
+
+```go
 func ByteSliceFromString(s string) ([]byte, error)
 ```
 
 ByteSliceFromString returns a NUL-terminated slice of bytes containing the text of s. If s contains a NUL byte at any location, it returns (nil, EINVAL).
 
-### func Chdir 
+​	ByteSliceFromString 返回一个包含 s 文本的以 NUL 结尾的字节切片。如果 s 在任何位置包含 NUL 字节，则返回 (nil, EINVAL)。
 
-``` go 
+### func Chdir
+
+```go
 func Chdir(path string) (err error)
 ```
 
-### func Chmod 
+### func Chmod
 
-``` go 
+```go
 func Chmod(path string, mode uint32) (err error)
 ```
 
-### func Chown 
+### func Chown
 
-``` go 
+```go
 func Chown(path string, uid int, gid int) (err error)
 ```
 
-### func Chroot 
+### func Chroot
 
-``` go 
+```go
 func Chroot(path string) (err error)
 ```
 
-### func Clearenv 
+### func Clearenv
 
-``` go 
+```go
 func Clearenv()
 ```
 
-### func Close 
+### func Close
 
-``` go 
+```go
 func Close(fd int) (err error)
 ```
 
-### func CloseOnExec 
+### func CloseOnExec
 
-``` go 
+```go
 func CloseOnExec(fd int)
 ```
 
-### func CmsgLen 
+### func CmsgLen
 
-``` go 
+```go
 func CmsgLen(datalen int) int
 ```
 
 CmsgLen returns the value to store in the Len field of the Cmsghdr structure, taking into account any necessary alignment.
 
-### func CmsgSpace 
+​	CmsgLen 返回要存储在 Cmsghdr 结构的 Len 字段中的值，同时考虑任何必要的对齐。
 
-``` go 
+### func CmsgSpace
+
+```go
 func CmsgSpace(datalen int) int
 ```
 
 CmsgSpace returns the number of bytes an ancillary element with payload of the passed data length occupies.
 
-### func Connect 
+​	CmsgSpace 返回具有传递的数据长度的有效负载的辅助元素占用的字节数。
 
-``` go 
+### func Connect
+
+```go
 func Connect(fd int, sa Sockaddr) (err error)
 ```
 
-### func Creat 
+### func Creat
 
-``` go 
+```go
 func Creat(path string, mode uint32) (fd int, err error)
 ```
 
-### func DetachLsf <-DEPRECATED
+### func DetachLsf <-DEPRECATED 
 
 ```
 func DetachLsf(fd int) error
@@ -2145,375 +2163,383 @@ func DetachLsf(fd int) error
 
 Deprecated: Use golang.org/x/net/bpf instead.
 
-### func Dup 
+​	已弃用：请改用 golang.org/x/net/bpf。
 
-``` go 
+### func Dup
+
+```go
 func Dup(oldfd int) (fd int, err error)
 ```
 
-### func Dup2 
+### func Dup2
 
-``` go 
+```go
 func Dup2(oldfd int, newfd int) (err error)
 ```
 
-### func Dup3  <- go1.2
+### func Dup3 <- go1.2
 
-``` go 
+```go
 func Dup3(oldfd int, newfd int, flags int) (err error)
 ```
 
-### func Environ 
+### func Environ
 
-``` go 
+```go
 func Environ() []string
 ```
 
-### func EpollCreate 
+### func EpollCreate
 
-``` go 
+```go
 func EpollCreate(size int) (fd int, err error)
 ```
 
-### func EpollCreate1 
+### func EpollCreate1
 
-``` go 
+```go
 func EpollCreate1(flag int) (fd int, err error)
 ```
 
-### func EpollCtl 
+### func EpollCtl
 
-``` go 
+```go
 func EpollCtl(epfd int, op int, fd int, event *EpollEvent) (err error)
 ```
 
-### func EpollWait 
+### func EpollWait
 
-``` go 
+```go
 func EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
 ```
 
-### func Exec 
+### func Exec
 
-``` go 
+```go
 func Exec(argv0 string, argv []string, envv []string) (err error)
 ```
 
 Exec invokes the execve(2) system call.
 
-func Exit 
+​	Exec 调用 execve(2) 系统调用。
 
-``` go 
+func Exit
+
+```go
 func Exit(code int)
 ```
 
-### func Faccessat 
+### func Faccessat
 
-``` go 
+```go
 func Faccessat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
-### func Fallocate 
+### func Fallocate
 
-``` go 
+```go
 func Fallocate(fd int, mode uint32, off int64, len int64) (err error)
 ```
 
-### func Fchdir 
+### func Fchdir
 
-``` go 
+```go
 func Fchdir(fd int) (err error)
 ```
 
-### func Fchmod 
+### func Fchmod
 
-``` go 
+```go
 func Fchmod(fd int, mode uint32) (err error)
 ```
 
-### func Fchmodat 
+### func Fchmodat
 
-``` go 
+```go
 func Fchmodat(dirfd int, path string, mode uint32, flags int) (err error)
 ```
 
-### func Fchown 
+### func Fchown
 
-``` go 
+```go
 func Fchown(fd int, uid int, gid int) (err error)
 ```
 
-### func Fchownat 
+### func Fchownat
 
-``` go 
+```go
 func Fchownat(dirfd int, path string, uid int, gid int, flags int) (err error)
 ```
 
-### func FcntlFlock  <- go1.3
+### func FcntlFlock <- go1.3
 
-``` go 
+```go
 func FcntlFlock(fd uintptr, cmd int, lk *Flock_t) error
 ```
 
 FcntlFlock performs a fcntl syscall for the F_GETLK, F_SETLK or F_SETLKW command.
 
-### func Fdatasync 
+​	FcntlFlock 对 F_GETLK、F_SETLK 或 F_SETLKW 命令执行 fcntl 系统调用。
 
-``` go 
+### func Fdatasync
+
+```go
 func Fdatasync(fd int) (err error)
 ```
 
-### func Flock 
+### func Flock
 
-``` go 
+```go
 func Flock(fd int, how int) (err error)
 ```
 
-### func ForkExec 
+### func ForkExec
 
-``` go 
+```go
 func ForkExec(argv0 string, argv []string, attr *ProcAttr) (pid int, err error)
 ```
 
 Combination of fork and exec, careful to be thread safe.
 
-### func Fstat 
+​	fork 和 exec 的组合，小心确保线程安全。
 
-``` go 
+### func Fstat
+
+```go
 func Fstat(fd int, stat *Stat_t) (err error)
 ```
 
-### func Fstatfs 
+### func Fstatfs
 
-``` go 
+```go
 func Fstatfs(fd int, buf *Statfs_t) (err error)
 ```
 
-### func Fsync 
+### func Fsync
 
-``` go 
+```go
 func Fsync(fd int) (err error)
 ```
 
-### func Ftruncate 
+### func Ftruncate
 
-``` go 
+```go
 func Ftruncate(fd int, length int64) (err error)
 ```
 
-### func Futimes 
+### func Futimes
 
-``` go 
+```go
 func Futimes(fd int, tv []Timeval) (err error)
 ```
 
-### func Futimesat 
+### func Futimesat
 
-``` go 
+```go
 func Futimesat(dirfd int, path string, tv []Timeval) (err error)
 ```
 
-### func Getcwd 
+### func Getcwd
 
-``` go 
+```go
 func Getcwd(buf []byte) (n int, err error)
 ```
 
-### func Getdents 
+### func Getdents
 
-``` go 
+```go
 func Getdents(fd int, buf []byte) (n int, err error)
 ```
 
-### func Getegid 
+### func Getegid
 
-``` go 
+```go
 func Getegid() (egid int)
 ```
 
-### func Getenv 
+### func Getenv
 
-``` go 
+```go
 func Getenv(key string) (value string, found bool)
 ```
 
-### func Geteuid 
+### func Geteuid
 
-``` go 
+```go
 func Geteuid() (euid int)
 ```
 
-### func Getgid 
+### func Getgid
 
-``` go 
+```go
 func Getgid() (gid int)
 ```
 
-### func Getgroups 
+### func Getgroups
 
-``` go 
+```go
 func Getgroups() (gids []int, err error)
 ```
 
-### func Getpagesize 
+### func Getpagesize
 
-``` go 
+```go
 func Getpagesize() int
 ```
 
-### func Getpgid 
+### func Getpgid
 
-``` go 
+```go
 func Getpgid(pid int) (pgid int, err error)
 ```
 
-### func Getpgrp 
+### func Getpgrp
 
-``` go 
+```go
 func Getpgrp() (pid int)
 ```
 
-### func Getpid 
+### func Getpid
 
-``` go 
+```go
 func Getpid() (pid int)
 ```
 
-### func Getppid 
+### func Getppid
 
-``` go 
+```go
 func Getppid() (ppid int)
 ```
 
-### func Getpriority  <- go1.2
+### func Getpriority <- go1.2
 
-``` go 
+```go
 func Getpriority(which int, who int) (prio int, err error)
 ```
 
-func Getrlimit 
+func Getrlimit
 
-``` go 
+```go
 func Getrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
-### func Getrusage 
+### func Getrusage
 
-``` go 
+```go
 func Getrusage(who int, rusage *Rusage) (err error)
 ```
 
-### func GetsockoptInet4Addr 
+### func GetsockoptInet4Addr
 
-``` go 
+```go
 func GetsockoptInet4Addr(fd, level, opt int) (value [4]byte, err error)
 ```
 
-### func GetsockoptInt 
+### func GetsockoptInt
 
-``` go 
+```go
 func GetsockoptInt(fd, level, opt int) (value int, err error)
 ```
 
-### func Gettid 
+### func Gettid
 
-``` go 
+```go
 func Gettid() (tid int)
 ```
 
-### func Gettimeofday 
+### func Gettimeofday
 
-``` go 
+```go
 func Gettimeofday(tv *Timeval) (err error)
 ```
 
-### func Getuid 
+### func Getuid
 
-``` go 
+```go
 func Getuid() (uid int)
 ```
 
-### func Getwd 
+### func Getwd
 
-``` go 
+```go
 func Getwd() (wd string, err error)
 ```
 
-### func Getxattr  <- go1.1
+### func Getxattr <- go1.1
 
-``` go 
+```go
 func Getxattr(path string, attr string, dest []byte) (sz int, err error)
 ```
 
-### func InotifyAddWatch 
+### func InotifyAddWatch
 
-``` go 
+```go
 func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
 ```
 
-### func InotifyInit 
+### func InotifyInit
 
-``` go 
+```go
 func InotifyInit() (fd int, err error)
 ```
 
-### func InotifyInit1 
+### func InotifyInit1
 
-``` go 
+```go
 func InotifyInit1(flags int) (fd int, err error)
 ```
 
-### func InotifyRmWatch 
+### func InotifyRmWatch
 
-``` go 
+```go
 func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
 ```
 
-### func Ioperm 
+### func Ioperm
 
-``` go 
+```go
 func Ioperm(from int, num int, on int) (err error)
 ```
 
-func Iopl 
+func Iopl
 
-``` go 
+```go
 func Iopl(level int) (err error)
 ```
 
-### func Kill 
+### func Kill
 
-``` go 
+```go
 func Kill(pid int, sig Signal) (err error)
 ```
 
-### func Klogctl 
+### func Klogctl
 
-``` go 
+```go
 func Klogctl(typ int, buf []byte) (n int, err error)
 ```
 
-### func Lchown 
+### func Lchown
 
-``` go 
+```go
 func Lchown(path string, uid int, gid int) (err error)
 ```
 
-### func Link 
+### func Link
 
-``` go 
+```go
 func Link(oldpath string, newpath string) (err error)
 ```
 
-### func Listen 
+### func Listen
 
-``` go 
+```go
 func Listen(s int, n int) (err error)
 ```
 
-### func Listxattr  <- go1.1
+### func Listxattr <- go1.1
 
-``` go 
+```go
 func Listxattr(path string, dest []byte) (sz int, err error)
 ```
 
@@ -2525,333 +2551,341 @@ func LsfSocket(ifindex, proto int) (int, error)
 
 Deprecated: Use golang.org/x/net/bpf instead.
 
-### func Lstat 
+​	已弃用：请改用 golang.org/x/net/bpf。
 
-``` go 
+### func Lstat
+
+```go
 func Lstat(path string, stat *Stat_t) (err error)
 ```
 
-### func Madvise 
+### func Madvise
 
-``` go 
+```go
 func Madvise(b []byte, advice int) (err error)
 ```
 
-### func Mkdir 
+### func Mkdir
 
-``` go 
+```go
 func Mkdir(path string, mode uint32) (err error)
 ```
 
-### func Mkdirat 
+### func Mkdirat
 
-``` go 
+```go
 func Mkdirat(dirfd int, path string, mode uint32) (err error)
 ```
 
-### func Mkfifo 
+### func Mkfifo
 
-``` go 
+```go
 func Mkfifo(path string, mode uint32) (err error)
 ```
 
-### func Mknod 
+### func Mknod
 
-``` go 
+```go
 func Mknod(path string, mode uint32, dev int) (err error)
 ```
 
-### func Mknodat 
+### func Mknodat
 
-``` go 
+```go
 func Mknodat(dirfd int, path string, mode uint32, dev int) (err error)
 ```
 
-### func Mlock 
+### func Mlock
 
-``` go 
+```go
 func Mlock(b []byte) (err error)
 ```
 
-### func Mlockall 
+### func Mlockall
 
-``` go 
+```go
 func Mlockall(flags int) (err error)
 ```
 
-### func Mmap 
+### func Mmap
 
-``` go 
+```go
 func Mmap(fd int, offset int64, length int, prot int, flags int) (data []byte, err error)
 ```
 
-### func Mount 
+### func Mount
 
-``` go 
+```go
 func Mount(source string, target string, fstype string, flags uintptr, data string) (err error)
 ```
 
-### func Mprotect 
+### func Mprotect
 
-``` go 
+```go
 func Mprotect(b []byte, prot int) (err error)
 ```
 
-### func Munlock 
+### func Munlock
 
-``` go 
+```go
 func Munlock(b []byte) (err error)
 ```
 
-### func Munlockall 
+### func Munlockall
 
-``` go 
+```go
 func Munlockall() (err error)
 ```
 
-### func Munmap 
+### func Munmap
 
-``` go 
+```go
 func Munmap(b []byte) (err error)
 ```
 
-### func Nanosleep 
+### func Nanosleep
 
-``` go 
+```go
 func Nanosleep(time *Timespec, leftover *Timespec) (err error)
 ```
 
-### func NetlinkRIB 
+### func NetlinkRIB
 
-``` go 
+```go
 func NetlinkRIB(proto, family int) ([]byte, error)
 ```
 
 NetlinkRIB returns routing information base, as known as RIB, which consists of network facility information, states and parameters.
 
-### func Open 
+​	NetlinkRIB 返回路由信息库，也称为 RIB，它由网络设施信息、状态和参数组成。
 
-``` go 
+### func Open
+
+```go
 func Open(path string, mode int, perm uint32) (fd int, err error)
 ```
 
-### func Openat 
+### func Openat
 
-``` go 
+```go
 func Openat(dirfd int, path string, flags int, mode uint32) (fd int, err error)
 ```
 
-### func ParseDirent 
+### func ParseDirent
 
-``` go 
+```go
 func ParseDirent(buf []byte, max int, names []string) (consumed int, count int, newnames []string)
 ```
 
 ParseDirent parses up to max directory entries in buf, appending the names to names. It returns the number of bytes consumed from buf, the number of entries added to names, and the new names slice.
 
-### func ParseUnixRights 
+​	ParseDirent 在 buf 中最多解析 max 个目录条目，并将名称追加到 names。它返回从 buf 中消耗的字节数、添加到 names 中的条目数以及新的名称切片。
 
-``` go 
+### func ParseUnixRights
+
+```go
 func ParseUnixRights(m *SocketControlMessage) ([]int, error)
 ```
 
 ParseUnixRights decodes a socket control message that contains an integer array of open file descriptors from another process.
 
-### func Pause 
+​	ParseUnixRights 解码一个套接字控制消息，该消息包含来自另一个进程的打开文件描述符的整数数组。
 
-``` go 
+### func Pause
+
+```go
 func Pause() (err error)
 ```
 
-### func Pipe 
+### func Pipe
 
-``` go 
+```go
 func Pipe(p []int) error
 ```
 
-### func Pipe2  <- go1.1
+### func Pipe2 <- go1.1
 
-``` go 
+```go
 func Pipe2(p []int, flags int) error
 ```
 
-### func PivotRoot 
+### func PivotRoot
 
-``` go 
+```go
 func PivotRoot(newroot string, putold string) (err error)
 ```
 
-### func Pread 
+### func Pread
 
-``` go 
+```go
 func Pread(fd int, p []byte, offset int64) (n int, err error)
 ```
 
-### func PtraceAttach 
+### func PtraceAttach
 
-``` go 
+```go
 func PtraceAttach(pid int) (err error)
 ```
 
-### func PtraceCont 
+### func PtraceCont
 
-``` go 
+```go
 func PtraceCont(pid int, signal int) (err error)
 ```
 
-### func PtraceDetach 
+### func PtraceDetach
 
-``` go 
+```go
 func PtraceDetach(pid int) (err error)
 ```
 
-func PtraceGetEventMsg 
+func PtraceGetEventMsg
 
-``` go 
+```go
 func PtraceGetEventMsg(pid int) (msg uint, err error)
 ```
 
-### func PtraceGetRegs 
+### func PtraceGetRegs
 
-``` go 
+```go
 func PtraceGetRegs(pid int, regsout *PtraceRegs) (err error)
 ```
 
-### func PtracePeekData 
+### func PtracePeekData
 
-``` go 
+```go
 func PtracePeekData(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
-### func PtracePeekText 
+### func PtracePeekText
 
-``` go 
+```go
 func PtracePeekText(pid int, addr uintptr, out []byte) (count int, err error)
 ```
 
-### func PtracePokeData 
+### func PtracePokeData
 
-``` go 
+```go
 func PtracePokeData(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
-### func PtracePokeText 
+### func PtracePokeText
 
-``` go 
+```go
 func PtracePokeText(pid int, addr uintptr, data []byte) (count int, err error)
 ```
 
-### func PtraceSetOptions 
+### func PtraceSetOptions
 
-``` go 
+```go
 func PtraceSetOptions(pid int, options int) (err error)
 ```
 
-### func PtraceSetRegs 
+### func PtraceSetRegs
 
-``` go 
+```go
 func PtraceSetRegs(pid int, regs *PtraceRegs) (err error)
 ```
 
-### func PtraceSingleStep 
+### func PtraceSingleStep
 
-``` go 
+```go
 func PtraceSingleStep(pid int) (err error)
 ```
 
-### func PtraceSyscall  <- go1.1
+### func PtraceSyscall <- go1.1
 
-``` go 
+```go
 func PtraceSyscall(pid int, signal int) (err error)
 ```
 
-### func Pwrite 
+### func Pwrite
 
-``` go 
+```go
 func Pwrite(fd int, p []byte, offset int64) (n int, err error)
 ```
 
-### func Read 
+### func Read
 
-``` go 
+```go
 func Read(fd int, p []byte) (n int, err error)
 ```
 
-### func ReadDirent 
+### func ReadDirent
 
-``` go 
+```go
 func ReadDirent(fd int, buf []byte) (n int, err error)
 ```
 
-### func Readlink 
+### func Readlink
 
-``` go 
+```go
 func Readlink(path string, buf []byte) (n int, err error)
 ```
 
-### func Reboot 
+### func Reboot
 
-``` go 
+```go
 func Reboot(cmd int) (err error)
 ```
 
-### func Removexattr  <- go1.1
+### func Removexattr <- go1.1
 
-``` go 
+```go
 func Removexattr(path string, attr string) (err error)
 ```
 
-### func Rename 
+### func Rename
 
-``` go 
+```go
 func Rename(oldpath string, newpath string) (err error)
 ```
 
-### func Renameat 
+### func Renameat
 
-``` go 
+```go
 func Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
 ```
 
-### func Rmdir 
+### func Rmdir
 
-``` go 
+```go
 func Rmdir(path string) error
 ```
 
-### func Seek 
+### func Seek
 
-``` go 
+```go
 func Seek(fd int, offset int64, whence int) (off int64, err error)
 ```
 
-### func Select 
+### func Select
 
-``` go 
+```go
 func Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error)
 ```
 
-### func Sendfile 
+### func Sendfile
 
-``` go 
+```go
 func Sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
 ```
 
-### func Sendmsg 
+### func Sendmsg
 
-``` go 
+```go
 func Sendmsg(fd int, p, oob []byte, to Sockaddr, flags int) (err error)
 ```
 
-### func SendmsgN  <- go1.3
+### func SendmsgN <- go1.3
 
-``` go 
+```go
 func SendmsgN(fd int, p, oob []byte, to Sockaddr, flags int) (n int, err error)
 ```
 
-### func Sendto 
+### func Sendto
 
-``` go 
+```go
 func Sendto(fd int, p []byte, flags int, to Sockaddr) (err error)
 ```
 
@@ -2863,241 +2897,247 @@ func SetLsfPromisc(name string, m bool) error
 
 Deprecated: Use golang.org/x/net/bpf instead.
 
-### func SetNonblock 
+​	已弃用：请改用 golang.org/x/net/bpf。
 
-``` go 
+### func SetNonblock
+
+```go
 func SetNonblock(fd int, nonblocking bool) (err error)
 ```
 
-### func Setdomainname 
+### func Setdomainname
 
-``` go 
+```go
 func Setdomainname(p []byte) (err error)
 ```
 
-### func Setegid  <- go1.16
+### func Setegid <- go1.16
 
-``` go 
+```go
 func Setegid(egid int) (err error)
 ```
 
-### func Setenv 
+### func Setenv
 
-``` go 
+```go
 func Setenv(key, value string) error
 ```
 
-### func Seteuid  <- go1.16
+### func Seteuid <- go1.16
 
-``` go 
+```go
 func Seteuid(euid int) (err error)
 ```
 
-### func Setfsgid 
+### func Setfsgid
 
-``` go 
+```go
 func Setfsgid(gid int) (err error)
 ```
 
-### func Setfsuid 
+### func Setfsuid
 
-``` go 
+```go
 func Setfsuid(uid int) (err error)
 ```
 
-func Setgid 
+func Setgid
 
-``` go 
+```go
 func Setgid(gid int) (err error)
 ```
 
-### func Setgroups 
+### func Setgroups
 
-``` go 
+```go
 func Setgroups(gids []int) (err error)
 ```
 
-### func Sethostname 
+### func Sethostname
 
-``` go 
+```go
 func Sethostname(p []byte) (err error)
 ```
 
-### func Setpgid 
+### func Setpgid
 
-``` go 
+```go
 func Setpgid(pid int, pgid int) (err error)
 ```
 
-### func Setpriority  <- go1.2
+### func Setpriority <- go1.2
 
-``` go 
+```go
 func Setpriority(which int, who int, prio int) (err error)
 ```
 
-### func Setregid 
+### func Setregid
 
-``` go 
+```go
 func Setregid(rgid, egid int) (err error)
 ```
 
-### func Setresgid 
+### func Setresgid
 
-``` go 
+```go
 func Setresgid(rgid, egid, sgid int) (err error)
 ```
 
-### func Setresuid 
+### func Setresuid
 
-``` go 
+```go
 func Setresuid(ruid, euid, suid int) (err error)
 ```
 
-### func Setreuid 
+### func Setreuid
 
-``` go 
+```go
 func Setreuid(ruid, euid int) (err error)
 ```
 
-### func Setrlimit 
+### func Setrlimit
 
-``` go 
+```go
 func Setrlimit(resource int, rlim *Rlimit) (err error)
 ```
 
-### func Setsid 
+### func Setsid
 
-``` go 
+```go
 func Setsid() (pid int, err error)
 ```
 
-### func SetsockoptByte  <- go1.2
+### func SetsockoptByte <- go1.2
 
-``` go 
+```go
 func SetsockoptByte(fd, level, opt int, value byte) (err error)
 ```
 
-### func SetsockoptICMPv6Filter  <- go1.2
+### func SetsockoptICMPv6Filter <- go1.2
 
-``` go 
+```go
 func SetsockoptICMPv6Filter(fd, level, opt int, filter *ICMPv6Filter) error
 ```
 
-### func SetsockoptIPMreq 
+### func SetsockoptIPMreq
 
-``` go 
+```go
 func SetsockoptIPMreq(fd, level, opt int, mreq *IPMreq) (err error)
 ```
 
-### func SetsockoptIPMreqn 
+### func SetsockoptIPMreqn
 
-``` go 
+```go
 func SetsockoptIPMreqn(fd, level, opt int, mreq *IPMreqn) (err error)
 ```
 
-### func SetsockoptIPv6Mreq 
+### func SetsockoptIPv6Mreq
 
-``` go 
+```go
 func SetsockoptIPv6Mreq(fd, level, opt int, mreq *IPv6Mreq) (err error)
 ```
 
-### func SetsockoptInet4Addr 
+### func SetsockoptInet4Addr
 
-``` go 
+```go
 func SetsockoptInet4Addr(fd, level, opt int, value [4]byte) (err error)
 ```
 
-### func SetsockoptInt 
+### func SetsockoptInt
 
-``` go 
+```go
 func SetsockoptInt(fd, level, opt int, value int) (err error)
 ```
 
-### func SetsockoptLinger 
+### func SetsockoptLinger
 
-``` go 
+```go
 func SetsockoptLinger(fd, level, opt int, l *Linger) (err error)
 ```
 
-### func SetsockoptString 
+### func SetsockoptString
 
-``` go 
+```go
 func SetsockoptString(fd, level, opt int, s string) (err error)
 ```
 
-### func SetsockoptTimeval 
+### func SetsockoptTimeval
 
-``` go 
+```go
 func SetsockoptTimeval(fd, level, opt int, tv *Timeval) (err error)
 ```
 
-### func Settimeofday 
+### func Settimeofday
 
-``` go 
+```go
 func Settimeofday(tv *Timeval) (err error)
 ```
 
-### func Setuid 
+### func Setuid
 
-``` go 
+```go
 func Setuid(uid int) (err error)
 ```
 
-### func Setxattr  <- go1.1
+### func Setxattr <- go1.1
 
-``` go 
+```go
 func Setxattr(path string, attr string, data []byte, flags int) (err error)
 ```
 
-### func Shutdown 
+### func Shutdown
 
-``` go 
+```go
 func Shutdown(fd int, how int) (err error)
 ```
 
-func SlicePtrFromStrings  <- go1.1
+func SlicePtrFromStrings <- go1.1
 
-``` go 
+```go
 func SlicePtrFromStrings(ss []string) ([]*byte, error)
 ```
 
 SlicePtrFromStrings converts a slice of strings to a slice of pointers to NUL-terminated byte arrays. If any string contains a NUL byte, it returns (nil, EINVAL).
 
-### func Socket 
+​	SlicePtrFromStrings 将字符串切片转换为指向以 NUL 结尾的字节数组的指针切片。如果任何字符串包含 NUL 字节，则返回 (nil, EINVAL)。
 
-``` go 
+### func Socket
+
+```go
 func Socket(domain, typ, proto int) (fd int, err error)
 ```
 
-### func Socketpair 
+### func Socketpair
 
-``` go 
+```go
 func Socketpair(domain, typ, proto int) (fd [2]int, err error)
 ```
 
-### func Splice 
+### func Splice
 
-``` go 
+```go
 func Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
 ```
 
-### func StartProcess 
+### func StartProcess
 
-``` go 
+```go
 func StartProcess(argv0 string, argv []string, attr *ProcAttr) (pid int, handle uintptr, err error)
 ```
 
 StartProcess wraps ForkExec for package os.
 
-### func Stat 
+​	StartProcess 封装了包 os 的 ForkExec。
 
-``` go 
+### func Stat
+
+```go
 func Stat(path string, stat *Stat_t) (err error)
 ```
 
-### func Statfs 
+### func Statfs
 
-``` go 
+```go
 func Statfs(path string, buf *Statfs_t) (err error)
 ```
 
@@ -3109,7 +3149,11 @@ func StringBytePtr(s string) *byte
 
 StringBytePtr returns a pointer to a NUL-terminated array of bytes. If s contains a NUL byte this function panics instead of returning an error.
 
+​	StringBytePtr 返回指向以 NUL 结尾的字节数组的指针。如果 s 包含 NUL 字节，此函数会引发 panic，而不是返回错误。
+
 Deprecated: Use BytePtrFromString instead.
+
+​	已弃用：请改用 BytePtrFromString。
 
 ### func StringByteSlice <-DEPRECATED
 
@@ -3119,7 +3163,11 @@ func StringByteSlice(s string) []byte
 
 StringByteSlice converts a string to a NUL-terminated []byte, If s contains a NUL byte this function panics instead of returning an error.
 
+​	StringByteSlice 将字符串转换为以 NUL 结尾的 []byte，如果 s 包含 NUL 字节，此函数会引发 panic，而不是返回错误。
+
 Deprecated: Use ByteSliceFromString instead.
+
+​	已弃用：请改用 ByteSliceFromString。
 
 ### func StringSlicePtr <-DEPRECATED
 
@@ -3129,163 +3177,175 @@ func StringSlicePtr(ss []string) []*byte
 
 StringSlicePtr converts a slice of strings to a slice of pointers to NUL-terminated byte arrays. If any string contains a NUL byte this function panics instead of returning an error.
 
+​	StringSlicePtr 将字符串切片转换为指向以 NUL 结尾的字节数组的指针切片。如果任何字符串包含 NUL 字节，此函数会引发 panic，而不是返回错误。
+
 Deprecated: Use SlicePtrFromStrings instead.
 
-### func Symlink 
+​	已弃用：请改用 SlicePtrFromStrings。
 
-``` go 
+### func Symlink
+
+```go
 func Symlink(oldpath string, newpath string) (err error)
 ```
 
-### func Sync 
+### func Sync
 
-``` go 
+```go
 func Sync()
 ```
 
-### func SyncFileRange 
+### func SyncFileRange
 
-``` go 
+```go
 func SyncFileRange(fd int, off int64, n int64, flags int) (err error)
 ```
 
-### func Sysinfo 
+### func Sysinfo
 
-``` go 
+```go
 func Sysinfo(info *Sysinfo_t) (err error)
 ```
 
-### func Tee 
+### func Tee
 
-``` go 
+```go
 func Tee(rfd int, wfd int, len int, flags int) (n int64, err error)
 ```
 
-### func Tgkill 
+### func Tgkill
 
-``` go 
+```go
 func Tgkill(tgid int, tid int, sig Signal) (err error)
 ```
 
-### func Times 
+### func Times
 
-``` go 
+```go
 func Times(tms *Tms) (ticks uintptr, err error)
 ```
 
-### func TimespecToNsec 
+### func TimespecToNsec
 
-``` go 
+```go
 func TimespecToNsec(ts Timespec) int64
 ```
 
 TimespecToNSec returns the time stored in ts as nanoseconds.
 
-### func TimevalToNsec 
+​	TimespecToNSec 返回以纳秒为单位存储在 ts 中的时间。
 
-``` go 
+### func TimevalToNsec
+
+```go
 func TimevalToNsec(tv Timeval) int64
 ```
 
 TimevalToNsec returns the time stored in tv as nanoseconds.
 
-### func Truncate 
+​	TimevalToNsec 返回以纳秒为单位存储在 tv 中的时间。
 
-``` go 
+### func Truncate
+
+```go
 func Truncate(path string, length int64) (err error)
 ```
 
-### func Umask 
+### func Umask
 
-``` go 
+```go
 func Umask(mask int) (oldmask int)
 ```
 
-### func Uname 
+### func Uname
 
-``` go 
+```go
 func Uname(buf *Utsname) (err error)
 ```
 
-### func UnixCredentials 
+### func UnixCredentials
 
-``` go 
+```go
 func UnixCredentials(ucred *Ucred) []byte
 ```
 
 UnixCredentials encodes credentials into a socket control message for sending to another process. This can be used for authentication.
 
-### func UnixRights 
+​	UnixCredentials 将凭据编码到套接字控制消息中，以便发送到另一个进程。这可用于身份验证。
 
-``` go 
+### func UnixRights
+
+```go
 func UnixRights(fds ...int) []byte
 ```
 
 UnixRights encodes a set of open file descriptors into a socket control message for sending to another process.
 
-### func Unlink 
+​	UnixRights 将一组打开的文件描述符编码到套接字控制消息中，以便发送到另一个进程。
 
-``` go 
+### func Unlink
+
+```go
 func Unlink(path string) error
 ```
 
-### func Unlinkat 
+### func Unlinkat
 
-``` go 
+```go
 func Unlinkat(dirfd int, path string) error
 ```
 
-### func Unmount 
+### func Unmount
 
-``` go 
+```go
 func Unmount(target string, flags int) (err error)
 ```
 
-### func Unsetenv  <- go1.4
+### func Unsetenv <- go1.4
 
-``` go 
+```go
 func Unsetenv(key string) error
 ```
 
-### func Unshare 
+### func Unshare
 
-``` go 
+```go
 func Unshare(flags int) (err error)
 ```
 
-### func Ustat 
+### func Ustat
 
-``` go 
+```go
 func Ustat(dev int, ubuf *Ustat_t) (err error)
 ```
 
-### func Utime 
+### func Utime
 
-``` go 
+```go
 func Utime(path string, buf *Utimbuf) (err error)
 ```
 
-### func Utimes 
+### func Utimes
 
-``` go 
+```go
 func Utimes(path string, tv []Timeval) (err error)
 ```
 
-### func UtimesNano  <- go1.1
+### func UtimesNano <- go1.1
 
-``` go 
+```go
 func UtimesNano(path string, ts []Timespec) (err error)
 ```
 
-### func Wait4 
+### func Wait4
 
-``` go 
+```go
 func Wait4(pid int, wstatus *WaitStatus, options int, rusage *Rusage) (wpid int, err error)
 ```
 
-### func Write 
+### func Write
 
-``` go 
+```go
 func Write(fd int, p []byte) (n int, err error)
 ```
 
@@ -3318,9 +3378,11 @@ type Conn interface {
 
 Conn is implemented by some types in the net and os packages to provide access to the underlying file descriptor or handle.
 
-### type Credential 
+​	Conn 由 net 和 os 包中的一些类型实现，以提供对底层文件描述符或句柄的访问。
 
-``` go 
+### type Credential
+
+```go
 type Credential struct {
 	Uid         uint32   // User ID.
 	Gid         uint32   // Group ID.
@@ -3331,9 +3393,11 @@ type Credential struct {
 
 Credential holds user and group identities to be assumed by a child process started by StartProcess.
 
-### type Dirent 
+​	Credential 保存由 StartProcess 启动的子进程要假定的用户和组标识。
 
-``` go 
+### type Dirent
+
+```go
 type Dirent struct {
 	Ino       uint64
 	Off       int64
@@ -3344,9 +3408,9 @@ type Dirent struct {
 }
 ```
 
-### type EpollEvent 
+### type EpollEvent
 
-``` go 
+```go
 type EpollEvent struct {
 	Events uint32
 	Fd     int32
@@ -3354,13 +3418,15 @@ type EpollEvent struct {
 }
 ```
 
-### type Errno 
+### type Errno
 
-``` go 
+```go
 type Errno uintptr
 ```
 
 An Errno is an unsigned number describing an error condition. It implements the error interface. The zero Errno is by convention a non-error, so code to convert from Errno to error should use:
+
+​	Errno 是一个描述错误条件的无符号数字。它实现了错误接口。根据惯例，零 Errno 是非错误，因此从 Errno 转换为错误的代码应使用：
 
 ```
 err = nil
@@ -3371,30 +3437,40 @@ if errno != 0 {
 
 Errno values can be tested against error values from the os package using errors.Is. For example:
 
+​	可以使用 errors.Is 将 Errno 值与 os 包中的错误值进行比较。例如：
+
 ```
 _, _, err := syscall.Syscall(...)
 if errors.Is(err, fs.ErrNotExist) ...
 ```
 
-#### func AllThreadsSyscall  <- go1.16
+#### func AllThreadsSyscall <- go1.16
 
-``` go 
+```go
 func AllThreadsSyscall(trap, a1, a2, a3 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
-AllThreadsSyscall performs a syscall on each OS thread of the Go runtime. It first invokes the syscall on one thread. Should that invocation fail, it returns immediately with the error status. Otherwise, it invokes the syscall on all of the remaining threads in parallel. It will terminate the program if it observes any invoked syscall's return value differs from that of the first invocation.
+AllThreadsSyscall performs a syscall on each OS thread of the Go runtime. It first invokes the syscall on one thread. Should that invocation fail, it returns immediately with the error status. Otherwise, it invokes the syscall on all of the remaining threads in parallel. It will terminate the program if it observes any invoked syscall’s return value differs from that of the first invocation.
+
+​	AllThreadsSyscall 对 Go 运行时的每个操作系统线程执行系统调用。它首先在一个线程上调用系统调用。如果该调用失败，它会立即返回错误状态。否则，它会并行调用所有剩余线程上的系统调用。如果它观察到任何被调用的系统调用的返回值与第一次调用的返回值不同，它将终止程序。
 
 AllThreadsSyscall is intended for emulating simultaneous process-wide state changes that require consistently modifying per-thread state of the Go runtime.
 
+​	AllThreadsSyscall 用于模拟需要一致修改 Go 运行时每个线程状态的同步进程范围状态更改。
+
 AllThreadsSyscall is unaware of any threads that are launched explicitly by cgo linked code, so the function always returns ENOTSUP in binaries that use cgo.
 
-#### func AllThreadsSyscall6  <- go1.16
+​	AllThreadsSyscall 不知道任何由 cgo 链接代码显式启动的线程，因此该函数在使用 cgo 的二进制文件中始终返回 ENOTSUP。
 
-``` go 
+#### func AllThreadsSyscall6 <- go1.16
+
+```go
 func AllThreadsSyscall6(trap, a1, a2, a3, a4, a5, a6 uintptr) (r1, r2 uintptr, err Errno)
 ```
 
 AllThreadsSyscall6 is like AllThreadsSyscall, but extended to six arguments.
+
+​	AllThreadsSyscall6 与 AllThreadsSyscall 类似，但扩展为六个实参。
 
 #### func RawSyscall 
 
@@ -3662,6 +3738,8 @@ type NetlinkMessage struct {
 
 NetlinkMessage represents a netlink message.
 
+​	NetlinkMessage 表示 netlink 消息。
+
 #### func ParseNetlinkMessage 
 
 ``` go 
@@ -3669,6 +3747,8 @@ func ParseNetlinkMessage(b []byte) ([]NetlinkMessage, error)
 ```
 
 ParseNetlinkMessage parses b as an array of netlink messages and returns the slice containing the NetlinkMessage structures.
+
+​	ParseNetlinkMessage 将 b 解析为 netlink 消息数组，并返回包含 NetlinkMessage 结构的切片。
 
 ### type NetlinkRouteAttr 
 
@@ -3681,6 +3761,8 @@ type NetlinkRouteAttr struct {
 
 NetlinkRouteAttr represents a netlink route attribute.
 
+​	NetlinkRouteAttr 表示 netlink 路由属性。
+
 #### func ParseNetlinkRouteAttr 
 
 ``` go 
@@ -3688,6 +3770,8 @@ func ParseNetlinkRouteAttr(m *NetlinkMessage) ([]NetlinkRouteAttr, error)
 ```
 
 ParseNetlinkRouteAttr parses m's payload as an array of netlink route attributes and returns the slice containing the NetlinkRouteAttr structures.
+
+​	ParseNetlinkRouteAttr 将 m 的有效负载解析为 netlink 路由属性数组，并返回包含 NetlinkRouteAttr 结构的切片。
 
 ### type NetlinkRouteRequest 
 
@@ -3699,6 +3783,8 @@ type NetlinkRouteRequest struct {
 ```
 
 NetlinkRouteRequest represents a request message to receive routing and link states from the kernel.
+
+​	NetlinkRouteRequest 表示从内核接收路由和链路状态的请求消息。
 
 ### type NlAttr 
 
@@ -3742,6 +3828,8 @@ type ProcAttr struct {
 ```
 
 ProcAttr holds attributes that will be applied to a new process started by StartProcess.
+
+​	ProcAttr 保存将应用于由 StartProcess 启动的新进程的属性。
 
 ### type PtraceRegs 
 
@@ -3815,6 +3903,8 @@ type RawConn interface {
 ```
 
 A RawConn is a raw network connection.
+
+​	RawConn 是原始网络连接。
 
 ### type RawSockaddr 
 
@@ -3975,6 +4065,8 @@ type Signal int
 
 A Signal is a number describing a process signal. It implements the os.Signal interface.
 
+​	Signal 是描述进程信号的数字。它实现了 os.Signal 接口。
+
 #### (Signal) Signal 
 
 ``` go 
@@ -4006,6 +4098,8 @@ func LsfJump(code, k, jt, jf int) *SockFilter
 
 Deprecated: Use golang.org/x/net/bpf instead.
 
+​	已弃用：请改用 golang.org/x/net/bpf。
+
 #### func LsfStmt <-DEPRECATED
 
 ```
@@ -4013,6 +4107,8 @@ func LsfStmt(code, k int) *SockFilter
 ```
 
 Deprecated: Use golang.org/x/net/bpf instead.
+
+​	已弃用：请改用 golang.org/x/net/bpf。
 
 ### type SockFprog 
 
@@ -4135,6 +4231,8 @@ type SocketControlMessage struct {
 
 SocketControlMessage represents a socket control message.
 
+​	SocketControlMessage 表示套接字控制消息。
+
 #### func ParseSocketControlMessage 
 
 ``` go 
@@ -4142,6 +4240,8 @@ func ParseSocketControlMessage(b []byte) ([]SocketControlMessage, error)
 ```
 
 ParseSocketControlMessage parses b as an array of socket control messages.
+
+​	ParseSocketControlMessage 将 b 解析为套接字控制消息数组。
 
 ### type Stat_t 
 
@@ -4243,6 +4343,8 @@ type SysProcIDMap struct {
 ```
 
 SysProcIDMap holds Container ID to Host ID mappings used for User Namespaces in Linux. See user_namespaces(7).
+
+​	SysProcIDMap 包含用于 Linux 中用户命名空间的容器 ID 到主机 ID 映射。请参阅 user_namespaces(7)。
 
 ### type Sysinfo_t 
 
@@ -4350,6 +4452,8 @@ func NsecToTimespec(nsec int64) Timespec
 
 NsecToTimespec converts a number of nanoseconds into a Timespec.
 
+​	NsecToTimespec 将纳秒数转换为 Timespec。
+
 #### (*Timespec) Nano 
 
 ``` go 
@@ -4358,6 +4462,8 @@ func (ts *Timespec) Nano() int64
 
 Nano returns the time stored in ts as nanoseconds.
 
+​	Nano 返回以纳秒为单位存储在 ts 中的时间。
+
 #### (*Timespec) Unix 
 
 ``` go 
@@ -4365,6 +4471,8 @@ func (ts *Timespec) Unix() (sec int64, nsec int64)
 ```
 
 Unix returns the time stored in ts as seconds plus nanoseconds.
+
+​	Unix 返回以秒加纳秒为单位存储在 ts 中的时间。
 
 ### type Timeval 
 
@@ -4383,6 +4491,8 @@ func NsecToTimeval(nsec int64) Timeval
 
 NsecToTimeval converts a number of nanoseconds into a Timeval.
 
+​	NsecToTimeval 将纳秒数转换为 Timeval。
+
 #### (*Timeval) Nano 
 
 ``` go 
@@ -4391,6 +4501,8 @@ func (tv *Timeval) Nano() int64
 
 Nano returns the time stored in tv as nanoseconds.
 
+​	Nano 将 tv 中存储的时间以纳秒为单位返回。
+
 #### (*Timeval) Unix 
 
 ``` go 
@@ -4398,6 +4510,8 @@ func (tv *Timeval) Unix() (sec int64, nsec int64)
 ```
 
 Unix returns the time stored in tv as seconds plus nanoseconds.
+
+​	Unix 将 tv 中存储的时间以秒加纳秒为单位返回。
 
 ### type Timex 
 
@@ -4464,6 +4578,8 @@ func ParseUnixCredentials(m *SocketControlMessage) (*Ucred, error)
 ```
 
 ParseUnixCredentials decodes a socket control message that contains credentials in a Ucred structure. To receive such a message, the SO_PASSCRED option must be enabled on the socket.
+
+​	ParseUnixCredentials 解码包含 Ucred 结构中凭据的套接字控制消息。要接收此类消息，必须在套接字上启用 SO_PASSCRED 选项。
 
 ### type Ustat_t 
 
