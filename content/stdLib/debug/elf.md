@@ -10,9 +10,13 @@ draft = false
 
 Package elf implements access to ELF object files.
 
+​	elf 包实现了对 ELF 目标文件的访问。
+
 ## Security 
 
 This package is not designed to be hardened against adversarial inputs, and is outside the scope of https://go.dev/security/policy. In particular, only basic validation is done when parsing object files. As such, care should be taken when parsing untrusted inputs, as parsing malformed files may consume significant resources, or cause panics.
+
+​	此包并非设计为可抵御对抗性输入，并且超出了 https://go.dev/security/policy 的范围。特别是，在解析目标文件时仅执行基本验证。因此，在解析不受信任的输入时应小心，因为解析格式错误的文件可能会消耗大量资源或导致 panic。
 
 ## 常量 
 
@@ -32,6 +36,8 @@ const (
 
 Indexes into the Header.Ident array.
 
+​	Header.Ident 数组中的索引。
+
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3232)
 
 ``` go 
@@ -40,6 +46,8 @@ const ARM_MAGIC_TRAMP_NUMBER = 0x5c000003
 
 Magic number for the elf trampoline, chosen wisely to be an immediate value.
 
+​	elf 蹦床的魔术数字，经过精心选择，成为一个直接值。
+
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=65)
 
 ``` go 
@@ -47,6 +55,8 @@ const ELFMAG = "\177ELF"
 ```
 
 Initial magic number for ELF files.
+
+​	ELF 文件的初始魔术数字。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/debug/elf/elf.go;l=3322)
 
@@ -69,6 +79,8 @@ var ErrNoSymbols = errors.New("no symbol section")
 ```
 
 ErrNoSymbols is returned by File.Symbols and File.DynamicSymbols if there is no such section in the File.
+
+​	如果 File 中没有此类节，则 File.Symbols 和 File.DynamicSymbols 会返回 ErrNoSymbols。
 
 ## 函数
 
@@ -128,6 +140,8 @@ type Chdr32 struct {
 
 ELF32 Compression header.
 
+​	ELF32 压缩头。
+
 ### type Chdr64  <- go1.6
 
 ``` go 
@@ -142,6 +156,8 @@ type Chdr64 struct {
 
 ELF64 Compression header.
 
+​	ELF64 压缩头。
+
 ### type Class 
 
 ``` go 
@@ -149,6 +165,8 @@ type Class byte
 ```
 
 Class is found in Header.Ident[EI_CLASS] and Header.Class.
+
+​	Class 在 Header.Ident[EI_CLASS] 和 Header.Class 中找到。
 
 ``` go 
 const (
@@ -177,6 +195,8 @@ type CompressionType int
 ```
 
 Section compression type.
+
+​	Section 压缩类型。
 
 ``` go 
 const (
@@ -208,7 +228,9 @@ type Data byte
 
 Data is found in Header.Ident[EI_DATA] and Header.Data.
 
-``` go 
+​	数据位于 Header.Ident[EI_DATA] 和 Header.Data 中。
+
+```go
 const (
 	ELFDATANONE Data = 0 /* Unknown data format. */
 	ELFDATA2LSB Data = 1 /* 2's complement little-endian. */
@@ -216,49 +238,55 @@ const (
 )
 ```
 
-#### (Data) GoString 
+#### (Data) GoString
 
-``` go 
+```go
 func (i Data) GoString() string
 ```
 
-#### (Data) String 
+#### (Data) String
 
-``` go 
+```go
 func (i Data) String() string
 ```
 
-### type Dyn32 
+### type Dyn32
 
-``` go 
+```go
 type Dyn32 struct {
 	Tag int32  /* Entry type. */
 	Val uint32 /* Integer/Address value. */
 }
 ```
 
-ELF32 Dynamic structure. The ".dynamic" section contains an array of them.
+ELF32 Dynamic structure. The “.dynamic” section contains an array of them.
 
-### type Dyn64 
+​	ELF32 动态结构。“.dynamic” 部分包含它们的数组。
 
-``` go 
+### type Dyn64
+
+```go
 type Dyn64 struct {
 	Tag int64  /* Entry type. */
 	Val uint64 /* Integer/address value */
 }
 ```
 
-ELF64 Dynamic structure. The ".dynamic" section contains an array of them.
+ELF64 Dynamic structure. The “.dynamic” section contains an array of them.
 
-### type DynFlag 
+​	ELF64 动态结构。“.dynamic” 部分包含它们的数组。
 
-``` go 
+### type DynFlag
+
+```go
 type DynFlag int
 ```
 
 DT_FLAGS values.
 
-``` go 
+​	DT_FLAGS 值。
+
+```go
 const (
 	DF_ORIGIN DynFlag = 0x0001 /* Indicates that the object being loaded may
 	   make reference to the
@@ -275,15 +303,15 @@ const (
 )
 ```
 
-#### (DynFlag) GoString 
+#### (DynFlag) GoString
 
-``` go 
+```go
 func (i DynFlag) GoString() string
 ```
 
-#### (DynFlag) String 
+#### (DynFlag) String
 
-``` go 
+```go
 func (i DynFlag) String() string
 ```
 
@@ -294,6 +322,8 @@ type DynFlag1 uint32
 ```
 
 DT_FLAGS_1 values.
+
+​	DT_FLAGS_1 值。
 
 ```go
 const (
@@ -387,15 +417,15 @@ func (i DynFlag1) GoString() string
 func (i DynFlag1) String() string
 ```
 
-### type DynTag 
+### type DynTag
 
-``` go 
+```go
 type DynTag int
 ```
 
 Dyn.Tag
 
-``` go 
+```go
 const (
 	DT_NULL         DynTag = 0  /* Terminating entry. */
 	DT_NEEDED       DynTag = 1  /* String table offset of a needed shared library. */
@@ -544,21 +574,21 @@ const (
 )
 ```
 
-#### (DynTag) GoString 
+#### (DynTag) GoString
 
-``` go 
+```go
 func (i DynTag) GoString() string
 ```
 
-#### (DynTag) String 
+#### (DynTag) String
 
-``` go 
+```go
 func (i DynTag) String() string
 ```
 
-### type File 
+### type File
 
-``` go 
+```go
 type File struct {
 	FileHeader
 	Sections []*Section
@@ -569,45 +599,57 @@ type File struct {
 
 A File represents an open ELF file.
 
-#### func NewFile 
+​	File 表示一个打开的 ELF 文件。
 
-``` go 
+#### func NewFile
+
+```go
 func NewFile(r io.ReaderAt) (*File, error)
 ```
 
 NewFile creates a new File for accessing an ELF binary in an underlying reader. The ELF binary is expected to start at position 0 in the ReaderAt.
 
-#### func Open 
+​	NewFile 为访问底层读取器中的 ELF 二进制文件创建一个新 File。ELF 二进制文件应从 ReaderAt 中的第 0 个位置开始。
 
-``` go 
+#### func Open
+
+```go
 func Open(name string) (*File, error)
 ```
 
 Open opens the named file using os.Open and prepares it for use as an ELF binary.
 
-#### (*File) Close 
+​	Open 使用 os.Open 打开指定文件，并准备将其用作 ELF 二进制文件。
 
-``` go 
+#### (*File) Close
+
+```go
 func (f *File) Close() error
 ```
 
 Close closes the File. If the File was created using NewFile directly instead of Open, Close has no effect.
 
-#### (*File) DWARF 
+​	Close 关闭 File。如果 File 是使用 NewFile 直接创建的，而不是使用 Open 创建的，则 Close 不起作用。
 
-``` go 
+#### (*File) DWARF
+
+```go
 func (f *File) DWARF() (*dwarf.Data, error)
 ```
 
-#### (*File) DynString  <- go1.1
+#### (*File) DynString <- go1.1
 
-``` go 
+```go
 func (f *File) DynString(tag DynTag) ([]string, error)
 ```
 
-DynString returns the strings listed for the given tag in the file's dynamic section.
+DynString returns the strings listed for the given tag in the file’s dynamic section.
+
+​	DynString 返回文件中动态部分中给定标记所列的字符串。
 
 The tag must be one that takes string values: DT_NEEDED, DT_SONAME, DT_RPATH, or DT_RUNPATH.
+
+​	标记必须是采用字符串值的一个标记：DT_NEEDED、DT_SONAME、DT_RPATH 或 DT_RUNPATH。
 
 #### (*File) DynValue <-go1.21.0
 
@@ -615,65 +657,85 @@ The tag must be one that takes string values: DT_NEEDED, DT_SONAME, DT_RPATH, or
 func (f *File) DynValue(tag DynTag) ([]uint64, error)
 ```
 
-DynValue returns the values listed for the given tag in the file's dynamic section.
+DynValue returns the values listed for the given tag in the file’s dynamic section.
 
-#### (*File) DynamicSymbols  <- go1.4
+​	DynValue 返回文件中动态部分中为给定标记列出的值。
 
-``` go 
+#### (*File) DynamicSymbols <- go1.4
+
+```go
 func (f *File) DynamicSymbols() ([]Symbol, error)
 ```
 
 DynamicSymbols returns the dynamic symbol table for f. The symbols will be listed in the order they appear in f.
 
+​	DynamicSymbols 返回 f 的动态符号表。符号将按它们在 f 中出现的顺序列出。
+
 If f has a symbol version table, the returned Symbols will have initialized Version and Library fields.
+
+​	如果 f 有符号版本表，则返回的 Symbols 将初始化 Version 和 Library 字段。
 
 For compatibility with Symbols, DynamicSymbols omits the null symbol at index 0. After retrieving the symbols as symtab, an externally supplied index x corresponds to symtab[x-1], not symtab[x].
 
-#### (*File) ImportedLibraries 
+​	为了与 Symbols 兼容，DynamicSymbols 省略了索引 0 处的空符号。在将符号作为 symtab 检索后，外部提供的索引 x 对应于 symtab[x-1]，而不是 symtab[x]。
 
-``` go 
+#### (*File) ImportedLibraries
+
+```go
 func (f *File) ImportedLibraries() ([]string, error)
 ```
 
 ImportedLibraries returns the names of all libraries referred to by the binary f that are expected to be linked with the binary at dynamic link time.
 
-#### (*File) ImportedSymbols 
+​	ImportedLibraries 返回二进制文件 f 引用且预期在动态链接时与二进制文件链接的所有库的名称。
 
-``` go 
+#### (*File) ImportedSymbols
+
+```go
 func (f *File) ImportedSymbols() ([]ImportedSymbol, error)
 ```
 
 ImportedSymbols returns the names of all symbols referred to by the binary f that are expected to be satisfied by other libraries at dynamic load time. It does not return weak symbols.
 
+​	ImportedSymbols 返回二进制文件 f 引用且预期在动态加载时由其他库满足的所有符号的名称。它不返回弱符号。
+
 #### (*File) Section 
 
-``` go 
+```go
 func (f *File) Section(name string) *Section
 ```
 
 Section returns a section with the given name, or nil if no such section exists.
 
-#### (*File) SectionByType 
+​	节返回具有给定名称的节，如果不存在此类节，则返回 nil。
 
-``` go 
+#### (*File) SectionByType
+
+```go
 func (f *File) SectionByType(typ SectionType) *Section
 ```
 
 SectionByType returns the first section in f with the given type, or nil if there is no such section.
 
-#### (*File) Symbols 
+​	SectionByType 返回 f 中具有给定类型的第一个节，如果不存在此类节，则返回 nil。
 
-``` go 
+#### (*File) Symbols
+
+```go
 func (f *File) Symbols() ([]Symbol, error)
 ```
 
 Symbols returns the symbol table for f. The symbols will be listed in the order they appear in f.
 
+​	符号返回 f 的符号表。符号将按它们在 f 中出现的顺序列出。
+
 For compatibility with Go 1.0, Symbols omits the null symbol at index 0. After retrieving the symbols as symtab, an externally supplied index x corresponds to symtab[x-1], not symtab[x].
 
-### type FileHeader 
+​	为了与 Go 1.0 兼容，符号在索引 0 处省略空符号。在将符号作为 symtab 检索后，外部提供的索引 x 对应于 symtab[x-1]，而不是 symtab[x]。
 
-``` go 
+### type FileHeader
+
+```go
 type FileHeader struct {
 	Class      Class
 	Data       Data
@@ -689,23 +751,25 @@ type FileHeader struct {
 
 A FileHeader represents an ELF file header.
 
-### type FormatError 
+​	文件头表示 ELF 文件头。
 
-``` go 
+### type FormatError
+
+```go
 type FormatError struct {
 	// contains filtered or unexported fields
 }
 ```
 
-#### (*FormatError) Error 
+#### (*FormatError) Error
 
-``` go 
+```go
 func (e *FormatError) Error() string
 ```
 
-### type Header32 
+### type Header32
 
-``` go 
+```go
 type Header32 struct {
 	Ident     [EI_NIDENT]byte /* File identification. */
 	Type      uint16          /* File type. */
@@ -726,9 +790,11 @@ type Header32 struct {
 
 ELF32 File header.
 
-### type Header64 
+​	ELF32 文件头。
 
-``` go 
+### type Header64
+
+```go
 type Header64 struct {
 	Ident     [EI_NIDENT]byte /* File identification. */
 	Type      uint16          /* File type. */
@@ -749,9 +815,11 @@ type Header64 struct {
 
 ELF64 file header.
 
-### type ImportedSymbol 
+​	ELF64 文件头。
 
-``` go 
+### type ImportedSymbol
+
+```go
 type ImportedSymbol struct {
 	Name    string
 	Version string
@@ -759,15 +827,17 @@ type ImportedSymbol struct {
 }
 ```
 
-### type Machine 
+### type Machine
 
-``` go 
+```go
 type Machine uint16
 ```
 
 Machine is found in Header.Machine.
 
-``` go 
+​	Machine 在 Header.Machine 中找到。
+
+```go
 const (
 	EM_NONE          Machine = 0   /* Unknown machine. */
 	EM_M32           Machine = 1   /* AT&T WE32100. */
@@ -961,27 +1031,29 @@ const (
 )
 ```
 
-#### (Machine) GoString 
+#### (Machine) GoString
 
-``` go 
+```go
 func (i Machine) GoString() string
 ```
 
-#### (Machine) String 
+#### (Machine) String
 
-``` go 
+```go
 func (i Machine) String() string
 ```
 
-### type NType 
+### type NType
 
-``` go 
+```go
 type NType int
 ```
 
 NType values; used in core files.
 
-``` go 
+​	NType 值；用于核心文件中。
+
+```go
 const (
 	NT_PRSTATUS NType = 1 /* Process status. */
 	NT_FPREGSET NType = 2 /* Floating point registers. */
@@ -989,27 +1061,29 @@ const (
 )
 ```
 
-#### (NType) GoString 
+#### (NType) GoString
 
-``` go 
+```go
 func (i NType) GoString() string
 ```
 
-#### (NType) String 
+#### (NType) String
 
-``` go 
+```go
 func (i NType) String() string
 ```
 
-### type OSABI 
+### type OSABI
 
-``` go 
+```go
 type OSABI byte
 ```
 
 OSABI is found in Header.Ident[EI_OSABI] and Header.OSABI.
 
-``` go 
+​	OSABI 位于 Header.Ident[EI_OSABI] 和 Header.OSABI 中。
+
+```go
 const (
 	ELFOSABI_NONE       OSABI = 0   /* UNIX System V ABI */
 	ELFOSABI_HPUX       OSABI = 1   /* HP-UX operating system */
@@ -1034,21 +1108,21 @@ const (
 )
 ```
 
-#### (OSABI) GoString 
+#### (OSABI) GoString
 
-``` go 
+```go
 func (i OSABI) GoString() string
 ```
 
-#### (OSABI) String 
+#### (OSABI) String
 
-``` go 
+```go
 func (i OSABI) String() string
 ```
 
-### type Prog 
+### type Prog
 
-``` go 
+```go
 type Prog struct {
 	ProgHeader
 
@@ -1065,17 +1139,21 @@ type Prog struct {
 
 A Prog represents a single ELF program header in an ELF binary.
 
-#### (*Prog) Open 
+​	Prog 表示 ELF 二进制文件中的单个 ELF 程序头。
 
-``` go 
+#### (*Prog) Open （*程序）打开
+
+```go
 func (p *Prog) Open() io.ReadSeeker
 ```
 
 Open returns a new ReadSeeker reading the ELF program body.
 
-### type Prog32 
+​	Open 返回一个新的 ReadSeeker，用于读取 ELF 程序体。
 
-``` go 
+### type Prog32
+
+```go
 type Prog32 struct {
 	Type   uint32 /* Entry type. */
 	Off    uint32 /* File offset of contents. */
@@ -1090,9 +1168,11 @@ type Prog32 struct {
 
 ELF32 Program header.
 
-### type Prog64 
+​	ELF32 程序头。
 
-``` go 
+### type Prog64
+
+```go
 type Prog64 struct {
 	Type   uint32 /* Entry type. */
 	Flags  uint32 /* Access permission flags. */
@@ -1107,15 +1187,17 @@ type Prog64 struct {
 
 ELF64 Program header.
 
-### type ProgFlag 
+​	ELF64 程序头。
 
-``` go 
+### type ProgFlag
+
+```go
 type ProgFlag uint32
 ```
 
 Prog.Flag
 
-``` go 
+```go
 const (
 	PF_X        ProgFlag = 0x1        /* Executable. */
 	PF_W        ProgFlag = 0x2        /* Writable. */
@@ -1125,21 +1207,21 @@ const (
 )
 ```
 
-#### (ProgFlag) GoString 
+#### (ProgFlag) GoString
 
-``` go 
+```go
 func (i ProgFlag) GoString() string
 ```
 
-#### (ProgFlag) String 
+#### (ProgFlag) String
 
-``` go 
+```go
 func (i ProgFlag) String() string
 ```
 
-### type ProgHeader 
+### type ProgHeader
 
-``` go 
+```go
 type ProgHeader struct {
 	Type   ProgType
 	Flags  ProgFlag
@@ -1154,15 +1236,17 @@ type ProgHeader struct {
 
 A ProgHeader represents a single ELF program header.
 
-### type ProgType 
+​	A ProgHeader 表示单个 ELF 程序头。
 
-``` go 
+### type ProgType
+
+```go
 type ProgType int
 ```
 
 Prog.Type
 
-``` go 
+```go
 const (
 	PT_NULL    ProgType = 0 /* Unused entry. */
 	PT_LOAD    ProgType = 1 /* Loadable segment. */
@@ -1212,27 +1296,29 @@ const (
 )
 ```
 
-#### (ProgType) GoString 
+#### (ProgType) GoString
 
-``` go 
+```go
 func (i ProgType) GoString() string
 ```
 
-#### (ProgType) String 
+#### (ProgType) String
 
-``` go 
+```go
 func (i ProgType) String() string
 ```
 
-### type R_386 
+### type R_386
 
-``` go 
+```go
 type R_386 int
 ```
 
 Relocation types for 386.
 
-``` go 
+​	386 的重定位类型。
+
+```go
 const (
 	R_386_NONE          R_386 = 0  /* No relocation. */
 	R_386_32            R_386 = 1  /* Add symbol value. */
@@ -1279,27 +1365,29 @@ const (
 )
 ```
 
-#### (R_386) GoString 
+#### (R_386) GoString
 
-``` go 
+```go
 func (i R_386) GoString() string
 ```
 
-#### (R_386) String 
+#### (R_386) String
 
-``` go 
+```go
 func (i R_386) String() string
 ```
 
-### type R_390  <- go1.7
+### type R_390 <- go1.7
 
-``` go 
+```go
 type R_390 int
 ```
 
 Relocation types for s390x processors.
 
-``` go 
+​	s390x 处理器的重定位类型。
+
+```go
 const (
 	R_390_NONE        R_390 = 0
 	R_390_8           R_390 = 1
@@ -1365,27 +1453,29 @@ const (
 )
 ```
 
-#### (R_390) GoString  <- go1.7
+#### (R_390) GoString <- go1.7
 
-``` go 
+```go
 func (i R_390) GoString() string
 ```
 
-#### (R_390) String  <- go1.7
+#### (R_390) String <- go1.7
 
-``` go 
+```go
 func (i R_390) String() string
 ```
 
-### type R_AARCH64  <- go1.4
+### type R_AARCH64 <- go1.4
 
-``` go 
+```go
 type R_AARCH64 int
 ```
 
 Relocation types for AArch64 (aka arm64)
 
-``` go 
+​	AArch64（又名 arm64）的重定位类型
+
+```go
 const (
 	R_AARCH64_NONE                            R_AARCH64 = 0
 	R_AARCH64_P32_ABS32                       R_AARCH64 = 1
@@ -1520,27 +1610,29 @@ const (
 )
 ```
 
-#### (R_AARCH64) GoString  <- go1.4
+#### (R_AARCH64) GoString <- go1.4
 
-``` go 
+```go
 func (i R_AARCH64) GoString() string
 ```
 
-#### (R_AARCH64) String  <- go1.4
+#### (R_AARCH64) String <- go1.4
 
-``` go 
+```go
 func (i R_AARCH64) String() string
 ```
 
-### type R_ALPHA 
+### type R_ALPHA
 
-``` go 
+```go
 type R_ALPHA int
 ```
 
 Relocation types for Alpha.
 
-``` go 
+​	Alpha 的重定位类型。
+
+```go
 const (
 	R_ALPHA_NONE           R_ALPHA = 0  /* No reloc */
 	R_ALPHA_REFLONG        R_ALPHA = 1  /* Direct 32 bit */
@@ -1573,27 +1665,29 @@ const (
 )
 ```
 
-#### (R_ALPHA) GoString 
+#### (R_ALPHA) GoString
 
-``` go 
+```go
 func (i R_ALPHA) GoString() string
 ```
 
-#### (R_ALPHA) String 
+#### (R_ALPHA) String
 
-``` go 
+```go
 func (i R_ALPHA) String() string
 ```
 
-### type R_ARM 
+### type R_ARM
 
-``` go 
+```go
 type R_ARM int
 ```
 
 Relocation types for ARM.
 
-``` go 
+​	ARM 的重定位类型。
+
+```go
 const (
 	R_ARM_NONE               R_ARM = 0 /* No relocation. */
 	R_ARM_PC24               R_ARM = 1
@@ -1742,27 +1836,29 @@ const (
 )
 ```
 
-#### (R_ARM) GoString 
+#### (R_ARM) GoString
 
-``` go 
+```go
 func (i R_ARM) GoString() string
 ```
 
-#### (R_ARM) String 
+#### (R_ARM) String
 
-``` go 
+```go
 func (i R_ARM) String() string
 ```
 
-### type R_LARCH  <- go1.19
+### type R_LARCH <- go1.19
 
-``` go 
+```go
 type R_LARCH int
 ```
 
 Relocation types for LoongArch.
 
-``` go 
+​	LoongArch 的重定位类型。
+
+```go
 const (
 	R_LARCH_NONE                       R_LARCH = 0
 	R_LARCH_32                         R_LARCH = 1
@@ -1856,27 +1952,29 @@ const (
 )
 ```
 
-#### (R_LARCH) GoString  <- go1.19
+#### (R_LARCH) GoString <- go1.19
 
-``` go 
+```go
 func (i R_LARCH) GoString() string
 ```
 
-#### (R_LARCH) String  <- go1.19
+#### (R_LARCH) String <- go1.19
 
-``` go 
+```go
 func (i R_LARCH) String() string
 ```
 
-### type R_MIPS  <- go1.6
+### type R_MIPS <- go1.6
 
-``` go 
+```go
 type R_MIPS int
 ```
 
 Relocation types for MIPS.
 
-``` go 
+​	MIPS 的重定位类型。
+
+```go
 const (
 	R_MIPS_NONE          R_MIPS = 0
 	R_MIPS_16            R_MIPS = 1
@@ -1930,29 +2028,33 @@ const (
 )
 ```
 
-#### (R_MIPS) GoString  <- go1.6
+#### (R_MIPS) GoString <- go1.6
 
-``` go 
+```go
 func (i R_MIPS) GoString() string
 ```
 
-#### (R_MIPS) String  <- go1.6
+#### (R_MIPS) String <- go1.6
 
-``` go 
+```go
 func (i R_MIPS) String() string
 ```
 
-### type R_PPC 
+### type R_PPC
 
-``` go 
+```go
 type R_PPC int
 ```
 
 Relocation types for PowerPC.
 
+​	PowerPC 的重定位类型。
+
 Values that are shared by both R_PPC and R_PPC64 are prefixed with R_POWERPC_ in the ELF standard. For the R_PPC type, the relevant shared relocations have been renamed with the prefix R_PPC_. The original name follows the value in a comment.
 
-``` go 
+​	R_PPC 和 R_PPC64 共享的值在 ELF 标准中以 R_POWERPC_ 为前缀。对于 R_PPC 类型，相关的共享重定位已重命名，前缀为 R_PPC_。原始名称在注释中跟在值后面。
+
+```go
 const (
 	R_PPC_NONE            R_PPC = 0  // R_POWERPC_NONE
 	R_PPC_ADDR32          R_PPC = 1  // R_POWERPC_ADDR32
@@ -2034,29 +2136,33 @@ const (
 )
 ```
 
-#### (R_PPC) GoString 
+#### (R_PPC) GoString
 
-``` go 
+```go
 func (i R_PPC) GoString() string
 ```
 
-#### (R_PPC) String 
+#### (R_PPC) String
 
-``` go 
+```go
 func (i R_PPC) String() string
 ```
 
-### type R_PPC64  <- go1.5
+### type R_PPC64 <- go1.5
 
-``` go 
+```go
 type R_PPC64 int
 ```
 
 Relocation types for 64-bit PowerPC or Power Architecture processors.
 
+​	64 位 PowerPC 或 Power 架构处理器的重定位类型。
+
 Values that are shared by both R_PPC and R_PPC64 are prefixed with R_POWERPC_ in the ELF standard. For the R_PPC64 type, the relevant shared relocations have been renamed with the prefix R_PPC64_. The original name follows the value in a comment.
 
-``` go 
+​	R_PPC 和 R_PPC64 共享的值在 ELF 标准中以 R_POWERPC_ 为前缀。对于 R_PPC64 类型，相关的共享重定位已重命名，前缀为 R_PPC64_。原始名称在注释中跟在值后面。
+
+```go
 const (
 	R_PPC64_NONE               R_PPC64 = 0  // R_POWERPC_NONE
 	R_PPC64_ADDR32             R_PPC64 = 1  // R_POWERPC_ADDR32
@@ -2221,27 +2327,29 @@ const (
 )
 ```
 
-#### (R_PPC64) GoString  <- go1.5
+#### (R_PPC64) GoString <- go1.5
 
-``` go 
+```go
 func (i R_PPC64) GoString() string
 ```
 
-#### (R_PPC64) String  <- go1.5
+#### (R_PPC64) String <- go1.5
 
-``` go 
+```go
 func (i R_PPC64) String() string
 ```
 
-### type R_RISCV  <- go1.11
+### type R_RISCV <- go1.11
 
-``` go 
+```go
 type R_RISCV int
 ```
 
 Relocation types for RISC-V processors.
 
-``` go 
+​	RISC-V 处理器的重定位类型。
+
+```go
 const (
 	R_RISCV_NONE          R_RISCV = 0  /* No relocation. */
 	R_RISCV_32            R_RISCV = 1  /* Add 32 bit zero extended symbol value */
@@ -2300,27 +2408,29 @@ const (
 )
 ```
 
-#### (R_RISCV) GoString  <- go1.11
+#### (R_RISCV) GoString <- go1.11
 
-``` go 
+```go
 func (i R_RISCV) GoString() string
 ```
 
-#### (R_RISCV) String  <- go1.11
+#### (R_RISCV) String <- go1.11
 
-``` go 
+```go
 func (i R_RISCV) String() string
 ```
 
-### type R_SPARC 
+### type R_SPARC
 
-``` go 
+```go
 type R_SPARC int
 ```
 
 Relocation types for SPARC.
 
-``` go 
+​	SPARC 的重定位类型。
+
+```go
 const (
 	R_SPARC_NONE     R_SPARC = 0
 	R_SPARC_8        R_SPARC = 1
@@ -2381,27 +2491,29 @@ const (
 )
 ```
 
-#### (R_SPARC) GoString 
+#### (R_SPARC) GoString
 
-``` go 
+```go
 func (i R_SPARC) GoString() string
 ```
 
-#### (R_SPARC) String 
+#### (R_SPARC) String
 
-``` go 
+```go
 func (i R_SPARC) String() string
 ```
 
-### type R_X86_64 
+### type R_X86_64
 
-``` go 
+```go
 type R_X86_64 int
 ```
 
 Relocation types for x86-64.
 
-``` go 
+​	x86-64 的重定位类型。
+
+```go
 const (
 	R_X86_64_NONE            R_X86_64 = 0  /* No relocation. */
 	R_X86_64_64              R_X86_64 = 1  /* Add 64 bit symbol value. */
@@ -2449,43 +2561,47 @@ const (
 )
 ```
 
-#### (R_X86_64) GoString 
+#### (R_X86_64) GoString
 
-``` go 
+```go
 func (i R_X86_64) GoString() string
 ```
 
-#### (R_X86_64) String 
+#### (R_X86_64) String
 
-``` go 
+```go
 func (i R_X86_64) String() string
 ```
 
-### type Rel32 
+### type Rel32
 
-``` go 
+```go
 type Rel32 struct {
 	Off  uint32 /* Location to be relocated. */
 	Info uint32 /* Relocation type and symbol index. */
 }
 ```
 
-ELF32 Relocations that don't need an addend field.
+ELF32 Relocations that don’t need an addend field.
 
-### type Rel64 
+​	不需要加数字段的 ELF32 重定位。
 
-``` go 
+### type Rel64
+
+```go
 type Rel64 struct {
 	Off  uint64 /* Location to be relocated. */
 	Info uint64 /* Relocation type and symbol index. */
 }
 ```
 
-ELF64 relocations that don't need an addend field.
+ELF64 relocations that don’t need an addend field.
 
-### type Rela32 
+​	不需要加数字段的 ELF64 重定位。
 
-``` go 
+### type Rela32
+
+```go
 type Rela32 struct {
 	Off    uint32 /* Location to be relocated. */
 	Info   uint32 /* Relocation type and symbol index. */
@@ -2495,9 +2611,11 @@ type Rela32 struct {
 
 ELF32 Relocations that need an addend field.
 
-### type Rela64 
+​	需要加数字段的 ELF32 重定位。
 
-``` go 
+### type Rela64
+
+```go
 type Rela64 struct {
 	Off    uint64 /* Location to be relocated. */
 	Info   uint64 /* Relocation type and symbol index. */
@@ -2507,9 +2625,11 @@ type Rela64 struct {
 
 ELF64 relocations that need an addend field.
 
-### type Section 
+​	需要加数字段的 ELF64 重定位。
 
-``` go 
+### type Section
+
+```go
 type Section struct {
 	SectionHeader
 
@@ -2530,29 +2650,39 @@ type Section struct {
 
 A Section represents a single section in an ELF file.
 
-#### (*Section) Data 
+​	Section 表示 ELF 文件中的单个节。
 
-``` go 
+#### (*Section) Data
+
+```go
 func (s *Section) Data() ([]byte, error)
 ```
 
 Data reads and returns the contents of the ELF section. Even if the section is stored compressed in the ELF file, Data returns uncompressed data.
 
+​	Data 读取并返回 ELF 节的内容。即使该节以压缩形式存储在 ELF 文件中，Data 也会返回未压缩的数据。
+
 For an SHT_NOBITS section, Data always returns a non-nil error.
 
-#### (*Section) Open 
+​	对于 SHT_NOBITS 节，Data 始终返回非 nil 错误。
 
-``` go 
+#### (*Section) Open
+
+```go
 func (s *Section) Open() io.ReadSeeker
 ```
 
 Open returns a new ReadSeeker reading the ELF section. Even if the section is stored compressed in the ELF file, the ReadSeeker reads uncompressed data.
 
+​	Open 返回一个新的 ReadSeeker 来读取 ELF 节。即使该节以压缩形式存储在 ELF 文件中，ReadSeeker 也会读取未压缩的数据。
+
 For an SHT_NOBITS section, all calls to the opened reader will return a non-nil error.
 
-### type Section32 
+​	对于 SHT_NOBITS 节，对已打开的读取器的所有调用都将返回非 nil 错误。
 
-``` go 
+### type Section32
+
+```go
 type Section32 struct {
 	Name      uint32 /* Section name (index into the section header string table). */
 	Type      uint32 /* Section type. */
@@ -2569,9 +2699,11 @@ type Section32 struct {
 
 ELF32 Section header.
 
-### type Section64 
+​	ELF32 节头。
 
-``` go 
+### type Section64
+
+```go
 type Section64 struct {
 	Name      uint32 /* Section name (index into the section header string table). */
 	Type      uint32 /* Section type. */
@@ -2588,15 +2720,19 @@ type Section64 struct {
 
 ELF64 Section header.
 
-### type SectionFlag 
+​	ELF64 节头。
 
-``` go 
+### type SectionFlag
+
+```go
 type SectionFlag uint32
 ```
 
 Section flags.
 
-``` go 
+​	节标志。
+
+```go
 const (
 	SHF_WRITE            SectionFlag = 0x1        /* Section contains writable data. */
 	SHF_ALLOC            SectionFlag = 0x2        /* Section occupies memory. */
@@ -2614,21 +2750,21 @@ const (
 )
 ```
 
-#### (SectionFlag) GoString 
+#### (SectionFlag) GoString
 
-``` go 
+```go
 func (i SectionFlag) GoString() string
 ```
 
 #### (SectionFlag) String 
 
-``` go 
+```go
 func (i SectionFlag) String() string
 ```
 
-### type SectionHeader 
+### type SectionHeader
 
-``` go 
+```go
 type SectionHeader struct {
 	Name      string
 	Type      SectionType
@@ -2651,15 +2787,19 @@ type SectionHeader struct {
 
 A SectionHeader represents a single ELF section header.
 
-### type SectionIndex 
+​	SectionHeader 表示单个 ELF 节头。
 
-``` go 
+### type SectionIndex
+
+```go
 type SectionIndex int
 ```
 
 Special section indices.
 
-``` go 
+​	特殊节索引。
+
+```go
 const (
 	SHN_UNDEF     SectionIndex = 0      /* Undefined, missing, irrelevant. */
 	SHN_LORESERVE SectionIndex = 0xff00 /* First of reserved range. */
@@ -2674,27 +2814,29 @@ const (
 )
 ```
 
-#### (SectionIndex) GoString 
+#### (SectionIndex) GoString
 
-``` go 
+```go
 func (i SectionIndex) GoString() string
 ```
 
-#### (SectionIndex) String 
+#### (SectionIndex) String
 
-``` go 
+```go
 func (i SectionIndex) String() string
 ```
 
-### type SectionType 
+### type SectionType
 
-``` go 
+```go
 type SectionType uint32
 ```
 
 Section type.
 
-``` go 
+​	节类型。
+
+```go
 const (
 	SHT_NULL           SectionType = 0          /* inactive */
 	SHT_PROGBITS       SectionType = 1          /* program defined information */
@@ -2729,21 +2871,21 @@ const (
 )
 ```
 
-#### (SectionType) GoString 
+#### (SectionType) GoString
 
-``` go 
+```go
 func (i SectionType) GoString() string
 ```
 
-#### (SectionType) String 
+#### (SectionType) String
 
-``` go 
+```go
 func (i SectionType) String() string
 ```
 
-### type Sym32 
+### type Sym32
 
-``` go 
+```go
 type Sym32 struct {
 	Name  uint32
 	Value uint32
@@ -2756,9 +2898,11 @@ type Sym32 struct {
 
 ELF32 Symbol.
 
-### type Sym64 
+​	ELF32 符号。
 
-``` go 
+### type Sym64
+
+```go
 type Sym64 struct {
 	Name  uint32 /* String table index of name. */
 	Info  uint8  /* Type and binding information. */
@@ -2771,15 +2915,17 @@ type Sym64 struct {
 
 ELF64 symbol table entries.
 
-### type SymBind 
+​	ELF64 符号表条目。
 
-``` go 
+### type SymBind
+
+```go
 type SymBind int
 ```
 
 Symbol Binding - ELFNN_ST_BIND - st_info
 
-``` go 
+```go
 const (
 	STB_LOCAL  SymBind = 0  /* Local symbol */
 	STB_GLOBAL SymBind = 1  /* Global symbol */
@@ -2791,33 +2937,35 @@ const (
 )
 ```
 
-#### func ST_BIND 
+#### func ST_BIND
 
-``` go 
+```go
 func ST_BIND(info uint8) SymBind
 ```
 
-#### (SymBind) GoString 
+#### (SymBind) GoString
 
-``` go 
+```go
 func (i SymBind) GoString() string
 ```
 
-#### (SymBind) String 
+#### (SymBind) String
 
-``` go 
+```go
 func (i SymBind) String() string
 ```
 
-### type SymType 
+### type SymType
 
-``` go 
+```go
 type SymType int
 ```
 
 Symbol type - ELFNN_ST_TYPE - st_info
 
-``` go 
+​	Symbol 类型 - ELFNN_ST_TYPE - st_info
+
+```go
 const (
 	STT_NOTYPE  SymType = 0  /* Unspecified type. */
 	STT_OBJECT  SymType = 1  /* Data object. */
@@ -2833,33 +2981,35 @@ const (
 )
 ```
 
-#### func ST_TYPE 
+#### func ST_TYPE
 
-``` go 
+```go
 func ST_TYPE(info uint8) SymType
 ```
 
-#### (SymType) GoString 
+#### (SymType) GoString
 
-``` go 
+```go
 func (i SymType) GoString() string
 ```
 
-#### (SymType) String 
+#### (SymType) String
 
-``` go 
+```go
 func (i SymType) String() string
 ```
 
-### type SymVis 
+### type SymVis
 
-``` go 
+```go
 type SymVis int
 ```
 
 Symbol visibility - ELFNN_ST_VISIBILITY - st_other
 
-``` go 
+​	符号可见性 - ELFNN_ST_VISIBILITY - st_other
+
+```go
 const (
 	STV_DEFAULT   SymVis = 0x0 /* Default visibility (see binding). */
 	STV_INTERNAL  SymVis = 0x1 /* Special meaning in relocatable objects. */
@@ -2868,27 +3018,27 @@ const (
 )
 ```
 
-#### func ST_VISIBILITY 
+#### func ST_VISIBILITY
 
-``` go 
+```go
 func ST_VISIBILITY(other uint8) SymVis
 ```
 
-#### (SymVis) GoString 
+#### (SymVis) GoString
 
-``` go 
+```go
 func (i SymVis) GoString() string
 ```
 
-#### (SymVis) String 
+#### (SymVis) String
 
-``` go 
+```go
 func (i SymVis) String() string
 ```
 
-### type Symbol 
+### type Symbol
 
-``` go 
+```go
 type Symbol struct {
 	Name        string
 	Info, Other byte
@@ -2904,15 +3054,19 @@ type Symbol struct {
 
 A Symbol represents an entry in an ELF symbol table section.
 
-### type Type 
+​	Symbol 表示 ELF 符号表部分中的一个条目。
 
-``` go 
+### type Type
+
+```go
 type Type uint16
 ```
 
 Type is found in Header.Type.
 
-``` go 
+​	类型位于 Header.Type 中。
+
+```go
 const (
 	ET_NONE   Type = 0      /* Unknown type. */
 	ET_REL    Type = 1      /* Relocatable. */
@@ -2926,25 +3080,27 @@ const (
 )
 ```
 
-#### (Type) GoString 
+#### (Type) GoString
 
-``` go 
+```go
 func (i Type) GoString() string
 ```
 
 #### (Type) String 
 
-``` go 
+```go
 func (i Type) String() string
 ```
 
-### type Version 
+### type Version
 
-``` go 
+```go
 type Version byte
 ```
 
 Version is found in Header.Ident[EI_VERSION] and Header.Version.
+
+​	Version 位于 Header.Ident[EI_VERSION] 和 Header.Version 中。
 
 ``` go 
 const (

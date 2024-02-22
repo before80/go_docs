@@ -10,20 +10,31 @@ draft = false
 
 Package image implements a basic 2-D image library.
 
+​	image 包实现了一个基本的 2-D 图像库。
+
 The fundamental interface is called Image. An Image contains colors, which are described in the image/color package.
 
-Values of the Image interface are created either by calling functions such as NewRGBA and NewPaletted, or by calling Decode on an io.Reader containing image data in a format such as GIF, JPEG or PNG. Decoding any particular image format requires the prior registration of a decoder function. Registration is typically automatic as a side effect of initializing that format's package so that, to decode a PNG image, it suffices to have
+​	基本接口称为 Image。Image 包含颜色，这些颜色在 image/color 包中进行了描述。
+
+Values of the Image interface are created either by calling functions such as NewRGBA and NewPaletted, or by calling Decode on an io.Reader containing image data in a format such as GIF, JPEG or PNG. Decoding any particular image format requires the prior registration of a decoder function. Registration is typically automatic as a side effect of initializing that format’s package so that, to decode a PNG image, it suffices to have
+
+​	Image 接口的值通过调用 NewRGBA 和 NewPaletted 等函数或通过对包含 GIF、JPEG 或 PNG 等格式的图像数据的 io.Reader 调用 Decode 来创建。解码任何特定图像格式都需要预先注册解码器函数。注册通常是初始化该格式的包的副作用的自动结果，因此，要解码 PNG 图像，只需在程序的主包中使用
 
 ```go
 import _ "image/png"
 ```
 
-in a program's main package. The _ means to import a package purely for its initialization side effects.
+in a program’s main package. The _ means to import a package purely for its initialization side effects.
 
-See "The Go image package" for more details: https://golang.org/doc/articles/image_package.html
+。_ 表示纯粹为了其初始化副作用而导入一个包。
+
+See “The Go image package” for more details: https://golang.org/doc/articles/image_package.html
+
+​	有关更多详细信息，请参阅“Go image 包”：[https://golang.org/doc/articles/image_package.html](https://golang.org/doc/articles/image_package.html)
 
 ## Example
-``` go 
+
+```go
 package main
 
 import (
@@ -163,7 +174,8 @@ bin               red  green   blue  alpha
 ```
 
 ## Example (DecodeConfig)
-``` go 
+
+```go
 package main
 
 import (
@@ -253,10 +265,7 @@ ubeK6t3gnXdG4wwziiii/UTKMOg6dbzJLFE4dSCP3rEdeOM8805tDsGMvySgSsS6rM6gk9eAcUUVftZt
 Output:
 ```
 
-
-
-
-## 常量 
+## 常量
 
 This section is empty.
 
@@ -264,7 +273,7 @@ This section is empty.
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/names.go;l=11)
 
-``` go 
+```go
 var (
 	// Black is an opaque black uniform image.
 	Black = NewUniform(color.Black)
@@ -279,27 +288,31 @@ var (
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/image/format.go;l=16)
 
-``` go 
+```go
 var ErrFormat = errors.New("image: unknown format")
 ```
 
 ErrFormat indicates that decoding encountered an unknown format.
 
+​	ErrFormat 指示解码遇到未知格式。
+
 ## 函数
 
-### func RegisterFormat 
+### func RegisterFormat
 
-``` go 
+```go
 func RegisterFormat(name, magic string, decode func(io.Reader) (Image, error), decodeConfig func(io.Reader) (Config, error))
 ```
 
-RegisterFormat registers an image format for use by Decode. Name is the name of the format, like "jpeg" or "png". Magic is the magic prefix that identifies the format's encoding. The magic string can contain "?" wildcards that each match any one byte. Decode is the function that decodes the encoded image. DecodeConfig is the function that decodes just its configuration.
+RegisterFormat registers an image format for use by Decode. Name is the name of the format, like “jpeg” or “png”. Magic is the magic prefix that identifies the format’s encoding. The magic string can contain “?” wildcards that each match any one byte. Decode is the function that decodes the encoded image. DecodeConfig is the function that decodes just its configuration.
+
+​	RegisterFormat 为 Decode 注册一种图像格式。Name 是格式的名称，如“jpeg”或“png”。Magic 是标识格式编码的魔术前缀。魔术字符串可以包含“?”通配符，每个通配符匹配任何一个字节。Decode 是解码编码图像的函数。DecodeConfig 是仅解码其配置的函数。
 
 ## 类型
 
-### type Alpha 
+### type Alpha
 
-``` go 
+```go
 type Alpha struct {
 	// Pix holds the image's pixels, as alpha values. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*1].
@@ -313,89 +326,99 @@ type Alpha struct {
 
 Alpha is an in-memory image whose At method returns color.Alpha values.
 
-#### func NewAlpha 
+​	Alpha 是一个内存中图像，其 At 方法返回 color.Alpha 值。
 
-``` go 
+#### func NewAlpha
+
+```go
 func NewAlpha(r Rectangle) *Alpha
 ```
 
 NewAlpha returns a new Alpha image with the given bounds.
 
-#### (*Alpha) AlphaAt  <- go1.4
+​	NewAlpha 返回一个具有给定边界的 Alpha 新图像。
 
-``` go 
+#### (*Alpha) AlphaAt <- go1.4
+
+```go
 func (p *Alpha) AlphaAt(x, y int) color.Alpha
 ```
 
-#### (*Alpha) At 
+#### (*Alpha) At
 
-``` go 
+```go
 func (p *Alpha) At(x, y int) color.Color
 ```
 
-#### (*Alpha) Bounds 
+#### (*Alpha) Bounds
 
-``` go 
+```go
 func (p *Alpha) Bounds() Rectangle
 ```
 
-#### (*Alpha) ColorModel 
+#### (*Alpha) ColorModel
 
-``` go 
+```go
 func (p *Alpha) ColorModel() color.Model
 ```
 
-#### (*Alpha) Opaque 
+#### (*Alpha) Opaque
 
-``` go 
+```go
 func (p *Alpha) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Alpha) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Alpha) PixOffset
+
+```go
 func (p *Alpha) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Alpha) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*Alpha) RGBA64At <- go1.17
+
+```go
 func (p *Alpha) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Alpha) Set 
+#### (*Alpha) Set
 
-``` go 
+```go
 func (p *Alpha) Set(x, y int, c color.Color)
 ```
 
-#### (*Alpha) SetAlpha 
+#### (*Alpha) SetAlpha
 
-``` go 
+```go
 func (p *Alpha) SetAlpha(x, y int, c color.Alpha)
 ```
 
-#### (*Alpha) SetRGBA64  <- go1.17
+#### (*Alpha) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *Alpha) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Alpha) SubImage 
+#### (*Alpha) SubImage
 
-``` go 
+```go
 func (p *Alpha) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type Alpha16 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type Alpha16
+
+```go
 type Alpha16 struct {
 	// Pix holds the image's pixels, as alpha values in big-endian format. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*2].
@@ -409,89 +432,99 @@ type Alpha16 struct {
 
 Alpha16 is an in-memory image whose At method returns color.Alpha16 values.
 
-#### func NewAlpha16 
+​	Alpha16 是一个内存中图像，其 At 方法返回 color.Alpha16 值。
 
-``` go 
+#### func NewAlpha16
+
+```go
 func NewAlpha16(r Rectangle) *Alpha16
 ```
 
 NewAlpha16 returns a new Alpha16 image with the given bounds.
 
-#### (*Alpha16) Alpha16At  <- go1.4
+​	NewAlpha16 返回一个具有给定边界的 Alpha16 新图像。
 
-``` go 
+#### (*Alpha16) Alpha16At <- go1.4
+
+```go
 func (p *Alpha16) Alpha16At(x, y int) color.Alpha16
 ```
 
-#### (*Alpha16) At 
+#### (*Alpha16) At
 
-``` go 
+```go
 func (p *Alpha16) At(x, y int) color.Color
 ```
 
-#### (*Alpha16) Bounds 
+#### (*Alpha16) Bounds
 
-``` go 
+```go
 func (p *Alpha16) Bounds() Rectangle
 ```
 
-#### (*Alpha16) ColorModel 
+#### (*Alpha16) ColorModel
 
-``` go 
+```go
 func (p *Alpha16) ColorModel() color.Model
 ```
 
-#### (*Alpha16) Opaque 
+#### (*Alpha16) Opaque
 
-``` go 
+```go
 func (p *Alpha16) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Alpha16) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Alpha16) PixOffset
+
+```go
 func (p *Alpha16) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Alpha16) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*Alpha16) RGBA64At <- go1.17
+
+```go
 func (p *Alpha16) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Alpha16) Set 
+#### (*Alpha16) Set
 
-``` go 
+```go
 func (p *Alpha16) Set(x, y int, c color.Color)
 ```
 
-#### (*Alpha16) SetAlpha16 
+#### (*Alpha16) SetAlpha16
 
-``` go 
+```go
 func (p *Alpha16) SetAlpha16(x, y int, c color.Alpha16)
 ```
 
-#### (*Alpha16) SetRGBA64  <- go1.17
+#### (*Alpha16) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *Alpha16) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Alpha16) SubImage 
+#### (*Alpha16) SubImage
 
-``` go 
+```go
 func (p *Alpha16) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type CMYK  <- go1.5
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type CMYK <- go1.5
+
+```go
 type CMYK struct {
 	// Pix holds the image's pixels, in C, M, Y, K order. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].
@@ -505,108 +538,122 @@ type CMYK struct {
 
 CMYK is an in-memory image whose At method returns color.CMYK values.
 
-#### func NewCMYK  <- go1.5
+​	CMYK 是一个内存中的图像，其 At 方法返回 color.CMYK 值。
 
-``` go 
+#### func NewCMYK <- go1.5
+
+```go
 func NewCMYK(r Rectangle) *CMYK
 ```
 
 NewCMYK returns a new CMYK image with the given bounds.
 
-#### (*CMYK) At  <- go1.5
+​	NewCMYK 返回一个具有给定边界的新的 CMYK 图像。
 
-``` go 
+#### (*CMYK) At <- go1.5
+
+```go
 func (p *CMYK) At(x, y int) color.Color
 ```
 
-#### (*CMYK) Bounds  <- go1.5
+#### (*CMYK) Bounds <- go1.5
 
-``` go 
+```go
 func (p *CMYK) Bounds() Rectangle
 ```
 
-#### (*CMYK) CMYKAt  <- go1.5
+#### (*CMYK) CMYKAt <- go1.5
 
-``` go 
+```go
 func (p *CMYK) CMYKAt(x, y int) color.CMYK
 ```
 
-#### (*CMYK) ColorModel  <- go1.5
+#### (*CMYK) ColorModel <- go1.5
 
-``` go 
+```go
 func (p *CMYK) ColorModel() color.Model
 ```
 
-#### (*CMYK) Opaque  <- go1.5
+#### (*CMYK) Opaque <- go1.5
 
-``` go 
+```go
 func (p *CMYK) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*CMYK) PixOffset  <- go1.5
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*CMYK) PixOffset <- go1.5
+
+```go
 func (p *CMYK) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*CMYK) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*CMYK) RGBA64At <- go1.17
+
+```go
 func (p *CMYK) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*CMYK) Set  <- go1.5
+#### (*CMYK) Set <- go1.5
 
-``` go 
+```go
 func (p *CMYK) Set(x, y int, c color.Color)
 ```
 
-#### (*CMYK) SetCMYK  <- go1.5
+#### (*CMYK) SetCMYK <- go1.5
 
-``` go 
+```go
 func (p *CMYK) SetCMYK(x, y int, c color.CMYK)
 ```
 
-#### (*CMYK) SetRGBA64  <- go1.17
+#### (*CMYK) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *CMYK) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*CMYK) SubImage  <- go1.5
+#### (*CMYK) SubImage <- go1.5
 
-``` go 
+```go
 func (p *CMYK) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type Config 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type Config
+
+```go
 type Config struct {
 	ColorModel    color.Model
 	Width, Height int
 }
 ```
 
-Config holds an image's color model and dimensions.
+Config holds an image’s color model and dimensions.
 
-#### func DecodeConfig 
+​	Config 保存图像的色彩模型和尺寸。
 
-``` go 
+#### func DecodeConfig
+
+```go
 func DecodeConfig(r io.Reader) (Config, string, error)
 ```
 
 DecodeConfig decodes the color model and dimensions of an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec-specific package.
 
-### type Gray 
+​	DecodeConfig 解码已编码为已注册格式的图像的色彩模型和尺寸。返回的字符串是在格式注册期间使用的格式名称。格式注册通常由编解码器特定包中的 init 函数完成。
 
-``` go 
+### type Gray
+
+```go
 type Gray struct {
 	// Pix holds the image's pixels, as gray values. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*1].
@@ -620,89 +667,99 @@ type Gray struct {
 
 Gray is an in-memory image whose At method returns color.Gray values.
 
-#### func NewGray 
+​	Gray 是一个内存中的图像，其 At 方法返回 color.Gray 值。
 
-``` go 
+#### func NewGray
+
+```go
 func NewGray(r Rectangle) *Gray
 ```
 
 NewGray returns a new Gray image with the given bounds.
 
-#### (*Gray) At 
+​	NewGray 返回一个具有给定边界的新的 Gray 图像。
 
-``` go 
+#### (*Gray) At
+
+```go
 func (p *Gray) At(x, y int) color.Color
 ```
 
 #### (*Gray) Bounds 
 
-``` go 
+```go
 func (p *Gray) Bounds() Rectangle
 ```
 
-#### (*Gray) ColorModel 
+#### (*Gray) ColorModel
 
-``` go 
+```go
 func (p *Gray) ColorModel() color.Model
 ```
 
-#### (*Gray) GrayAt  <- go1.4
+#### (*Gray) GrayAt <- go1.4
 
-``` go 
+```go
 func (p *Gray) GrayAt(x, y int) color.Gray
 ```
 
-#### (*Gray) Opaque 
+#### (*Gray) Opaque
 
-``` go 
+```go
 func (p *Gray) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Gray) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Gray) PixOffset
+
+```go
 func (p *Gray) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Gray) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*Gray) RGBA64At <- go1.17
+
+```go
 func (p *Gray) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Gray) Set 
+#### (*Gray) Set
 
-``` go 
+```go
 func (p *Gray) Set(x, y int, c color.Color)
 ```
 
-#### (*Gray) SetGray 
+#### (*Gray) SetGray
 
-``` go 
+```go
 func (p *Gray) SetGray(x, y int, c color.Gray)
 ```
 
-#### (*Gray) SetRGBA64  <- go1.17
+#### (*Gray) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *Gray) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Gray) SubImage 
+#### (*Gray) SubImage
 
-``` go 
+```go
 func (p *Gray) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type Gray16 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type Gray16
+
+```go
 type Gray16 struct {
 	// Pix holds the image's pixels, as gray values in big-endian format. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*2].
@@ -716,89 +773,99 @@ type Gray16 struct {
 
 Gray16 is an in-memory image whose At method returns color.Gray16 values.
 
-#### func NewGray16 
+​	Gray16 是一个内存中图像，其 At 方法返回 color.Gray16 值。
 
-``` go 
+#### func NewGray16
+
+```go
 func NewGray16(r Rectangle) *Gray16
 ```
 
 NewGray16 returns a new Gray16 image with the given bounds.
 
-#### (*Gray16) At 
+​	NewGray16 返回具有给定边界的新的 Gray16 图像。 （*Gray16）边界
 
-``` go 
+#### (*Gray16) At
+
+```go
 func (p *Gray16) At(x, y int) color.Color
 ```
 
 #### (*Gray16) Bounds 
 
-``` go 
+```go
 func (p *Gray16) Bounds() Rectangle
 ```
 
-#### (*Gray16) ColorModel 
+#### (*Gray16) ColorModel
 
-``` go 
+```go
 func (p *Gray16) ColorModel() color.Model
 ```
 
-#### (*Gray16) Gray16At  <- go1.4
+#### (*Gray16) Gray16At <- go1.4
 
-``` go 
+```go
 func (p *Gray16) Gray16At(x, y int) color.Gray16
 ```
 
-#### (*Gray16) Opaque 
+#### (*Gray16) Opaque
 
-``` go 
+```go
 func (p *Gray16) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Gray16) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Gray16) PixOffset
+
+```go
 func (p *Gray16) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Gray16) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*Gray16) RGBA64At <- go1.17
+
+```go
 func (p *Gray16) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Gray16) Set 
+#### (*Gray16) Set
 
-``` go 
+```go
 func (p *Gray16) Set(x, y int, c color.Color)
 ```
 
-#### (*Gray16) SetGray16 
+#### (*Gray16) SetGray16
 
-``` go 
+```go
 func (p *Gray16) SetGray16(x, y int, c color.Gray16)
 ```
 
-#### (*Gray16) SetRGBA64  <- go1.17
+#### (*Gray16) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *Gray16) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Gray16) SubImage 
+#### (*Gray16) SubImage
 
-``` go 
+```go
 func (p *Gray16) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type Image 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type Image
+
+```go
 type Image interface {
 	// ColorModel returns the Image's color model.
 	ColorModel() color.Model
@@ -814,17 +881,21 @@ type Image interface {
 
 Image is a finite rectangular grid of color.Color values taken from a color model.
 
-#### func Decode 
+​	Image 是一个有限的矩形颜色网格。颜色值取自颜色模型。
 
-``` go 
+#### func Decode
+
+```go
 func Decode(r io.Reader) (Image, string, error)
 ```
 
 Decode decodes an image that has been encoded in a registered format. The string returned is the format name used during format registration. Format registration is typically done by an init function in the codec- specific package.
 
-### type NRGBA 
+​	Decode 解码已按注册格式编码的图像。返回的字符串是格式注册期间使用的格式名称。格式注册通常由编解码器特定包中的 init 函数完成。
 
-``` go 
+### type NRGBA
+
+```go
 type NRGBA struct {
 	// Pix holds the image's pixels, in R, G, B, A order. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].
@@ -838,89 +909,99 @@ type NRGBA struct {
 
 NRGBA is an in-memory image whose At method returns color.NRGBA values.
 
-#### func NewNRGBA 
+​	NRGBA 是一个内存中图像，其 At 方法返回 color.NRGBA 值。
 
-``` go 
+#### func NewNRGBA
+
+```go
 func NewNRGBA(r Rectangle) *NRGBA
 ```
 
 NewNRGBA returns a new NRGBA image with the given bounds.
 
-#### (*NRGBA) At 
+​	NewNRGBA 返回具有给定边界的全新 NRGBA 图像。
 
-``` go 
+#### (*NRGBA) At
+
+```go
 func (p *NRGBA) At(x, y int) color.Color
 ```
 
-#### (*NRGBA) Bounds 
+#### (*NRGBA) Bounds
 
-``` go 
+```go
 func (p *NRGBA) Bounds() Rectangle
 ```
 
-#### (*NRGBA) ColorModel 
+#### (*NRGBA) ColorModel
 
-``` go 
+```go
 func (p *NRGBA) ColorModel() color.Model
 ```
 
-#### (*NRGBA) NRGBAAt  <- go1.4
+#### (*NRGBA) NRGBAAt <- go1.4
 
-``` go 
+```go
 func (p *NRGBA) NRGBAAt(x, y int) color.NRGBA
 ```
 
-#### (*NRGBA) Opaque 
+#### (*NRGBA) Opaque
 
-``` go 
+```go
 func (p *NRGBA) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NRGBA) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*NRGBA) PixOffset
+
+```go
 func (p *NRGBA) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*NRGBA) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*NRGBA) RGBA64At <- go1.17
+
+```go
 func (p *NRGBA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NRGBA) Set 
+#### (*NRGBA) Set
 
-``` go 
+```go
 func (p *NRGBA) Set(x, y int, c color.Color)
 ```
 
-#### (*NRGBA) SetNRGBA 
+#### (*NRGBA) SetNRGBA
 
-``` go 
+```go
 func (p *NRGBA) SetNRGBA(x, y int, c color.NRGBA)
 ```
 
-#### (*NRGBA) SetRGBA64  <- go1.17
+#### (*NRGBA) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *NRGBA) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*NRGBA) SubImage 
+#### (*NRGBA) SubImage
 
-``` go 
+```go
 func (p *NRGBA) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type NRGBA64 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回的值与原始图像共享像素。
 
-``` go 
+### type NRGBA64
+
+```go
 type NRGBA64 struct {
 	// Pix holds the image's pixels, in R, G, B, A order and big-endian format. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*8].
@@ -934,89 +1015,99 @@ type NRGBA64 struct {
 
 NRGBA64 is an in-memory image whose At method returns color.NRGBA64 values.
 
-#### func NewNRGBA64 
+​	NRGBA64 是一个内存中图像，其 At 方法返回 color.NRGBA64 值。
 
-``` go 
+#### func NewNRGBA64
+
+```go
 func NewNRGBA64(r Rectangle) *NRGBA64
 ```
 
 NewNRGBA64 returns a new NRGBA64 image with the given bounds.
 
-#### (*NRGBA64) At 
+​	NewNRGBA64 返回具有给定边界的全新 NRGBA64 图像。
 
-``` go 
+#### (*NRGBA64) At
+
+```go
 func (p *NRGBA64) At(x, y int) color.Color
 ```
 
-#### (*NRGBA64) Bounds 
+#### (*NRGBA64) Bounds
 
-``` go 
+```go
 func (p *NRGBA64) Bounds() Rectangle
 ```
 
-#### (*NRGBA64) ColorModel 
+#### (*NRGBA64) ColorModel
 
-``` go 
+```go
 func (p *NRGBA64) ColorModel() color.Model
 ```
 
-#### (*NRGBA64) NRGBA64At  <- go1.4
+#### (*NRGBA64) NRGBA64At <- go1.4
 
-``` go 
+```go
 func (p *NRGBA64) NRGBA64At(x, y int) color.NRGBA64
 ```
 
-#### (*NRGBA64) Opaque 
+#### (*NRGBA64) Opaque
 
-``` go 
+```go
 func (p *NRGBA64) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NRGBA64) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*NRGBA64) PixOffset
+
+```go
 func (p *NRGBA64) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*NRGBA64) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处的像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*NRGBA64) RGBA64At <- go1.17
+
+```go
 func (p *NRGBA64) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NRGBA64) Set 
+#### (*NRGBA64) Set
 
-``` go 
+```go
 func (p *NRGBA64) Set(x, y int, c color.Color)
 ```
 
-#### (*NRGBA64) SetNRGBA64 
+#### (*NRGBA64) SetNRGBA64
 
-``` go 
+```go
 func (p *NRGBA64) SetNRGBA64(x, y int, c color.NRGBA64)
 ```
 
-#### (*NRGBA64) SetRGBA64  <- go1.17
+#### (*NRGBA64) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *NRGBA64) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*NRGBA64) SubImage 
+#### (*NRGBA64) SubImage
 
-``` go 
+```go
 func (p *NRGBA64) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type NYCbCrA  <- go1.6
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回的值与原始图像共享像素。
 
-``` go 
+### type NYCbCrA <- go1.6
+
+```go
 type NYCbCrA struct {
 	YCbCr
 	A       []uint8
@@ -1024,67 +1115,77 @@ type NYCbCrA struct {
 }
 ```
 
-NYCbCrA is an in-memory image of non-alpha-premultiplied Y'CbCr-with-alpha colors. A and AStride are analogous to the Y and YStride fields of the embedded YCbCr.
+NYCbCrA is an in-memory image of non-alpha-premultiplied Y’CbCr-with-alpha colors. A and AStride are analogous to the Y and YStride fields of the embedded YCbCr.
 
-#### func NewNYCbCrA  <- go1.6
+​	NYCbCrA 是非 alpha 预乘 Y’CbCr-with-alpha 颜色的内存中图像。A 和 AStride 与嵌入式 YCbCr 的 Y 和 YStride 字段类似。
 
-``` go 
+#### func NewNYCbCrA <- go1.6
+
+```go
 func NewNYCbCrA(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *NYCbCrA
 ```
 
 NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample ratio.
 
-#### (*NYCbCrA) AOffset  <- go1.6
+​	NewNYCbCrA 返回具有给定边界和子采样率的新 NYCbCrA 图像。
 
-``` go 
+#### (*NYCbCrA) AOffset <- go1.6
+
+```go
 func (p *NYCbCrA) AOffset(x, y int) int
 ```
 
 AOffset returns the index of the first element of A that corresponds to the pixel at (x, y).
 
-#### (*NYCbCrA) At  <- go1.6
+​	AOffset 返回对应于 (x, y) 处的像素的 A 的第一个元素的索引。
 
-``` go 
+#### (*NYCbCrA) At <- go1.6
+
+```go
 func (p *NYCbCrA) At(x, y int) color.Color
 ```
 
-#### (*NYCbCrA) ColorModel  <- go1.6
+#### (*NYCbCrA) ColorModel <- go1.6
 
-``` go 
+```go
 func (p *NYCbCrA) ColorModel() color.Model
 ```
 
-#### (*NYCbCrA) NYCbCrAAt  <- go1.6
+#### (*NYCbCrA) NYCbCrAAt <- go1.6
 
-``` go 
+```go
 func (p *NYCbCrA) NYCbCrAAt(x, y int) color.NYCbCrA
 ```
 
-#### (*NYCbCrA) Opaque  <- go1.6
+#### (*NYCbCrA) Opaque <- go1.6
 
-``` go 
+```go
 func (p *NYCbCrA) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*NYCbCrA) RGBA64At  <- go1.17
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*NYCbCrA) RGBA64At <- go1.17
+
+```go
 func (p *NYCbCrA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*NYCbCrA) SubImage  <- go1.6
+#### (*NYCbCrA) SubImage <- go1.6
 
-``` go 
+```go
 func (p *NYCbCrA) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type Paletted 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回的值与原始图像共享像素。
 
-``` go 
+### type Paletted
+
+```go
 type Paletted struct {
 	// Pix holds the image's pixels, as palette indices. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*1].
@@ -1100,89 +1201,99 @@ type Paletted struct {
 
 Paletted is an in-memory image of uint8 indices into a given palette.
 
-#### func NewPaletted 
+​	Paletted 是给定调色板中 uint8 索引的内存中图像。
 
-``` go 
+#### func NewPaletted
+
+```go
 func NewPaletted(r Rectangle, p color.Palette) *Paletted
 ```
 
 NewPaletted returns a new Paletted image with the given width, height and palette.
 
-#### (*Paletted) At 
+​	NewPaletted 返回具有给定宽度、高度和调色板的新调色板图像。
 
-``` go 
+#### (*Paletted) At
+
+```go
 func (p *Paletted) At(x, y int) color.Color
 ```
 
-#### (*Paletted) Bounds 
+#### (*Paletted) Bounds
 
-``` go 
+```go
 func (p *Paletted) Bounds() Rectangle
 ```
 
-#### (*Paletted) ColorIndexAt 
+#### (*Paletted) ColorIndexAt
 
-``` go 
+```go
 func (p *Paletted) ColorIndexAt(x, y int) uint8
 ```
 
-#### (*Paletted) ColorModel 
+#### (*Paletted) ColorModel
 
-``` go 
+```go
 func (p *Paletted) ColorModel() color.Model
 ```
 
-#### (*Paletted) Opaque 
+#### (*Paletted) Opaque
 
-``` go 
+```go
 func (p *Paletted) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Paletted) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Paletted) PixOffset
+
+```go
 func (p *Paletted) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*Paletted) RGBA64At  <- go1.17
+​	PixOffset 返回对应于 (x, y) 处像素的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*Paletted) RGBA64At <- go1.17
+
+```go
 func (p *Paletted) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*Paletted) Set 
+#### (*Paletted) Set
 
-``` go 
+```go
 func (p *Paletted) Set(x, y int, c color.Color)
 ```
 
-#### (*Paletted) SetColorIndex 
+#### (*Paletted) SetColorIndex
 
-``` go 
+```go
 func (p *Paletted) SetColorIndex(x, y int, index uint8)
 ```
 
-#### (*Paletted) SetRGBA64  <- go1.17
+#### (*Paletted) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *Paletted) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*Paletted) SubImage 
+#### (*Paletted) SubImage
 
-``` go 
+```go
 func (p *Paletted) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type PalettedImage 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type PalettedImage
+
+```go
 type PalettedImage interface {
 	// ColorIndexAt returns the palette index of the pixel at (x, y).
 	ColorIndexAt(x, y int) uint8
@@ -1190,11 +1301,13 @@ type PalettedImage interface {
 }
 ```
 
-PalettedImage is an image whose colors may come from a limited palette. If m is a PalettedImage and m.ColorModel() returns a color.Palette p, then m.At(x, y) should be equivalent to p[m.ColorIndexAt(x, y)]. If m's color model is not a color.Palette, then ColorIndexAt's behavior is undefined.
+PalettedImage is an image whose colors may come from a limited palette. If m is a PalettedImage and m.ColorModel() returns a color.Palette p, then m.At(x, y) should be equivalent to p[m.ColorIndexAt(x, y)]. If m’s color model is not a color.Palette, then ColorIndexAt’s behavior is undefined.
 
-### type Point 
+​	PalettedImage 是一个颜色可能来自有限调色板的图像。如果 m 是一个 PalettedImage，并且 m.ColorModel() 返回一个颜色。Palette p，那么 m.At(x, y) 应该等同于 p[m.ColorIndexAt(x, y)]。如果 m 的颜色模型不是一个颜色。Palette，那么 ColorIndexAt 的行为是未定义的。
 
-``` go 
+### type Point
+
+```go
 type Point struct {
 	X, Y int
 }
@@ -1202,7 +1315,9 @@ type Point struct {
 
 A Point is an X, Y coordinate pair. The axes increase right and down.
 
-``` go 
+​	点是一对 X、Y 坐标。轴向右和向下增加。
+
+```go
 var ZP Point
 ```
 
@@ -1210,81 +1325,95 @@ ZP is the zero Point.
 
 Deprecated: Use a literal image.Point{} instead.
 
-#### func Pt 
+​	已弃用：改用文字图像。Point{}。
 
-``` go 
+#### func Pt
+
+```go
 func Pt(X, Y int) Point
 ```
 
 Pt is shorthand for Point{X, Y}.
 
-#### (Point) Add 
+​	Pt 是 Point{X, Y} 的简写。
 
-``` go 
+#### (Point) Add
+
+```go
 func (p Point) Add(q Point) Point
 ```
 
 Add returns the vector p+q.
 
-#### (Point) Div 
+​	Add 返回向量 p+q。
 
-``` go 
+#### (Point) Div
+
+```go
 func (p Point) Div(k int) Point
 ```
 
 Div returns the vector p/k.
 
-#### (Point) Eq 
+#### (Point) Eq
 
-``` go 
+```go
 func (p Point) Eq(q Point) bool
 ```
 
 Eq reports whether p and q are equal.
 
-#### (Point) In 
+​	Eq 报告 p 和 q 是否相等。
 
-``` go 
+#### (Point) In
+
+```go
 func (p Point) In(r Rectangle) bool
 ```
 
 In reports whether p is in r.
 
-#### (Point) Mod 
+​	In 报告 p 是否在 r 中。
 
-``` go 
+#### (Point) Mod
+
+```go
 func (p Point) Mod(r Rectangle) Point
 ```
 
-Mod returns the point q in r such that p.X-q.X is a multiple of r's width and p.Y-q.Y is a multiple of r's height.
+Mod returns the point q in r such that p.X-q.X is a multiple of r’s width and p.Y-q.Y is a multiple of r’s height.
 
-#### (Point) Mul 
+​	Mod 返回 r 中的点 q，使得 p.X-q.X 是 r 的宽度的倍数，p.Y-q.Y 是 r 的高度的倍数。
 
-``` go 
+#### (Point) Mul
+
+```go
 func (p Point) Mul(k int) Point
 ```
 
 Mul returns the vector p*k.
 
-#### (Point) String 
+#### (Point) String
 
-``` go 
+```go
 func (p Point) String() string
 ```
 
-String returns a string representation of p like "(3,4)".
+String returns a string representation of p like “(3,4)”.
 
-#### (Point) Sub 
+​	String 返回 p 的字符串表示形式，如 “(3,4)”。
 
-``` go 
+#### (Point) Sub
+
+```go
 func (p Point) Sub(q Point) Point
 ```
 
 Sub returns the vector p-q.
 
-### type RGBA 
+### type RGBA
 
-``` go 
+```go
 type RGBA struct {
 	// Pix holds the image's pixels, in R, G, B, A order. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*4].
@@ -1298,89 +1427,99 @@ type RGBA struct {
 
 RGBA is an in-memory image whose At method returns color.RGBA values.
 
-#### func NewRGBA 
+​	RGBA 是一个内存中图像，其 At 方法返回 color.RGBA 值。
 
-``` go 
+#### func NewRGBA
+
+```go
 func NewRGBA(r Rectangle) *RGBA
 ```
 
 NewRGBA returns a new RGBA image with the given bounds.
 
-#### (*RGBA) At 
+​	NewRGBA 返回具有给定边界的新的 RGBA 图像。
 
-``` go 
+#### (*RGBA) At
+
+```go
 func (p *RGBA) At(x, y int) color.Color
 ```
 
-#### (*RGBA) Bounds 
+#### (*RGBA) Bounds
 
-``` go 
+```go
 func (p *RGBA) Bounds() Rectangle
 ```
 
-#### (*RGBA) ColorModel 
+#### (*RGBA) ColorModel
 
-``` go 
+```go
 func (p *RGBA) ColorModel() color.Model
 ```
 
-#### (*RGBA) Opaque 
+#### (*RGBA) Opaque
 
-``` go 
+```go
 func (p *RGBA) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*RGBA) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*RGBA) PixOffset
+
+```go
 func (p *RGBA) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*RGBA) RGBA64At  <- go1.17
+​	PixOffset 返回与 (x, y) 处的像素对应的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*RGBA) RGBA64At <- go1.17
+
+```go
 func (p *RGBA) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*RGBA) RGBAAt  <- go1.4
+#### (*RGBA) RGBAAt <- go1.4
 
-``` go 
+```go
 func (p *RGBA) RGBAAt(x, y int) color.RGBA
 ```
 
-#### (*RGBA) Set 
+#### (*RGBA) Set
 
-``` go 
+```go
 func (p *RGBA) Set(x, y int, c color.Color)
 ```
 
-#### (*RGBA) SetRGBA 
+#### (*RGBA) SetRGBA
 
-``` go 
+```go
 func (p *RGBA) SetRGBA(x, y int, c color.RGBA)
 ```
 
-#### (*RGBA) SetRGBA64  <- go1.17
+#### (*RGBA) SetRGBA64 <- go1.17
 
-``` go 
+```go
 func (p *RGBA) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*RGBA) SubImage 
+#### (*RGBA) SubImage
 
-``` go 
+```go
 func (p *RGBA) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type RGBA64 
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type RGBA64
+
+```go
 type RGBA64 struct {
 	// Pix holds the image's pixels, in R, G, B, A order and big-endian format. The pixel at
 	// (x, y) starts at Pix[(y-Rect.Min.Y)*Stride + (x-Rect.Min.X)*8].
@@ -1394,77 +1533,87 @@ type RGBA64 struct {
 
 RGBA64 is an in-memory image whose At method returns color.RGBA64 values.
 
-#### func NewRGBA64 
+​	RGBA64 是一个内存中的图像，其 At 方法返回 color.RGBA64 值。
 
-``` go 
+#### func NewRGBA64
+
+```go
 func NewRGBA64(r Rectangle) *RGBA64
 ```
 
 NewRGBA64 returns a new RGBA64 image with the given bounds.
 
-#### (*RGBA64) At 
+​	NewRGBA64 返回一个具有给定边界的 RGBA64 新图像。
 
-``` go 
+#### (*RGBA64) At
+
+```go
 func (p *RGBA64) At(x, y int) color.Color
 ```
 
-#### (*RGBA64) Bounds 
+#### (*RGBA64) Bounds
 
-``` go 
+```go
 func (p *RGBA64) Bounds() Rectangle
 ```
 
-#### (*RGBA64) ColorModel 
+#### (*RGBA64) ColorModel
 
-``` go 
+```go
 func (p *RGBA64) ColorModel() color.Model
 ```
 
-#### (*RGBA64) Opaque 
+#### (*RGBA64) Opaque
 
-``` go 
+```go
 func (p *RGBA64) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*RGBA64) PixOffset 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*RGBA64) PixOffset
+
+```go
 func (p *RGBA64) PixOffset(x, y int) int
 ```
 
 PixOffset returns the index of the first element of Pix that corresponds to the pixel at (x, y).
 
-#### (*RGBA64) RGBA64At  <- go1.4
+​	PixOffset 返回与 (x, y) 处的像素对应的 Pix 的第一个元素的索引。
 
-``` go 
+#### (*RGBA64) RGBA64At <- go1.4
+
+```go
 func (p *RGBA64) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*RGBA64) Set 
+#### (*RGBA64) Set
 
-``` go 
+```go
 func (p *RGBA64) Set(x, y int, c color.Color)
 ```
 
-#### (*RGBA64) SetRGBA64 
+#### (*RGBA64) SetRGBA64
 
-``` go 
+```go
 func (p *RGBA64) SetRGBA64(x, y int, c color.RGBA64)
 ```
 
-#### (*RGBA64) SubImage 
+#### (*RGBA64) SubImage
 
-``` go 
+```go
 func (p *RGBA64) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-### type RGBA64Image  <- go1.17
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+### type RGBA64Image <- go1.17
+
+```go
 type RGBA64Image interface {
 	// RGBA64At returns the RGBA64 color of the pixel at (x, y). It is
 	// equivalent to calling At(x, y).RGBA() and converting the resulting
@@ -1477,19 +1626,25 @@ type RGBA64Image interface {
 
 RGBA64Image is an Image whose pixels can be converted directly to a color.RGBA64.
 
-### type Rectangle 
+​	RGBA64Image 是一个图像，其像素可以直接转换为 color.RGBA64。
 
-``` go 
+### type Rectangle
+
+```go
 type Rectangle struct {
 	Min, Max Point
 }
 ```
 
-A Rectangle contains the points with Min.X <= X < Max.X, Min.Y <= Y < Max.Y. It is well-formed if Min.X <= Max.X and likewise for Y. Points are always well-formed. A rectangle's methods always return well-formed outputs for well-formed inputs.
+A Rectangle contains the points with Min.X <= X < Max.X, Min.Y <= Y < Max.Y. It is well-formed if Min.X <= Max.X and likewise for Y. Points are always well-formed. A rectangle’s methods always return well-formed outputs for well-formed inputs.
+
+​	矩形包含点 Min.X <= X < Max.X、Min.Y <= Y < Max.Y。如果 Min.X <= Max.X，并且 Y 也是如此，则它格式良好。点始终格式良好。对于格式良好的输入，矩形的方法始终返回格式良好的输出。
 
 A Rectangle is also an Image whose bounds are the rectangle itself. At returns color.Opaque for points in the rectangle and color.Transparent otherwise.
 
-``` go 
+​	矩形也是一个图像，其边界就是矩形本身。At 返回矩形中点的颜色。Opaque，否则返回颜色。Transparent。
+
+```go
 var ZR Rectangle
 ```
 
@@ -1497,161 +1652,199 @@ ZR is the zero Rectangle.
 
 Deprecated: Use a literal image.Rectangle{} instead.
 
-#### func Rect 
+​	已弃用：改用文字图像。Rectangle{}。
 
-``` go 
+#### func Rect
+
+```go
 func Rect(x0, y0, x1, y1 int) Rectangle
 ```
 
 Rect is shorthand for Rectangle{Pt(x0, y0), Pt(x1, y1)}. The returned rectangle has minimum and maximum coordinates swapped if necessary so that it is well-formed.
 
-#### (Rectangle) Add 
+​	Rect 是 Rectangle{Pt(x0, y0), Pt(x1, y1)} 的简写。如果需要，返回的矩形具有交换的最小和最大坐标，以便它格式良好。
 
-``` go 
+#### (Rectangle) Add
+
+```go
 func (r Rectangle) Add(p Point) Rectangle
 ```
 
 Add returns the rectangle r translated by p.
 
-#### (Rectangle) At  <- go1.5
+​	Add 返回由 p 平移的矩形 r。
 
-``` go 
+#### (Rectangle) At <- go1.5
+
+```go
 func (r Rectangle) At(x, y int) color.Color
 ```
 
 At implements the Image interface.
 
-#### (Rectangle) Bounds  <- go1.5
+​	At 实现 Image 接口。
 
-``` go 
+#### (Rectangle) Bounds <- go1.5
+
+```go
 func (r Rectangle) Bounds() Rectangle
 ```
 
 Bounds implements the Image interface.
 
-#### (Rectangle) Canon 
+​	Bounds 实现 Image 接口。
 
-``` go 
+#### (Rectangle) Canon
+
+```go
 func (r Rectangle) Canon() Rectangle
 ```
 
 Canon returns the canonical version of r. The returned rectangle has minimum and maximum coordinates swapped if necessary so that it is well-formed.
 
-#### (Rectangle) ColorModel  <- go1.5
+​	Canon 返回 r 的规范版本。如果需要，返回的矩形具有交换的最小和最大坐标，以便它格式良好。
 
-``` go 
+#### (Rectangle) ColorModel <- go1.5
+
+```go
 func (r Rectangle) ColorModel() color.Model
 ```
 
 ColorModel implements the Image interface.
 
-#### (Rectangle) Dx 
+​	ColorModel 实现 Image 接口。
 
-``` go 
+#### (Rectangle) Dx
+
+```go
 func (r Rectangle) Dx() int
 ```
 
-Dx returns r's width.
+Dx returns r’s width.
 
-#### (Rectangle) Dy 
+#### (Rectangle) Dy
 
-``` go 
+```go
 func (r Rectangle) Dy() int
 ```
 
-Dy returns r's height.
+Dy returns r’s height.
 
-#### (Rectangle) Empty 
+​	Dy 返回 r 的高度。
 
-``` go 
+#### (Rectangle) Empty
+
+```go
 func (r Rectangle) Empty() bool
 ```
 
 Empty reports whether the rectangle contains no points.
 
-#### (Rectangle) Eq 
+​	Empty 报告矩形是否不包含任何点。
 
-``` go 
+#### (Rectangle) Eq
+
+```go
 func (r Rectangle) Eq(s Rectangle) bool
 ```
 
 Eq reports whether r and s contain the same set of points. All empty rectangles are considered equal.
 
-#### (Rectangle) In 
+​	Eq 报告 r 和 s 是否包含相同的点集。所有空矩形都被视为相等。
 
-``` go 
+#### (Rectangle) In
+
+```go
 func (r Rectangle) In(s Rectangle) bool
 ```
 
 In reports whether every point in r is in s.
 
-#### (Rectangle) Inset 
+​	In 报告 r 中的每个点是否都在 s 中。
 
-``` go 
+#### (Rectangle) Inset
+
+```go
 func (r Rectangle) Inset(n int) Rectangle
 ```
 
-Inset returns the rectangle r inset by n, which may be negative. If either of r's dimensions is less than 2*n then an empty rectangle near the center of r will be returned.
+Inset returns the rectangle r inset by n, which may be negative. If either of r’s dimensions is less than 2*n then an empty rectangle near the center of r will be returned.
+
+​	Inset 返回矩形 r 向内缩进 n，n 可能为负值。如果 r 的任何一个维度小于 2*n，则将返回 r 中心附近的空矩形。
 
 #### (Rectangle) Intersect 
 
-``` go 
+```go
 func (r Rectangle) Intersect(s Rectangle) Rectangle
 ```
 
 Intersect returns the largest rectangle contained by both r and s. If the two rectangles do not overlap then the zero rectangle will be returned.
 
-#### (Rectangle) Overlaps 
+​	Intersect 返回 r 和 s 都包含的最大矩形。如果两个矩形不重叠，则返回零矩形。
 
-``` go 
+#### (Rectangle) Overlaps
+
+```go
 func (r Rectangle) Overlaps(s Rectangle) bool
 ```
 
 Overlaps reports whether r and s have a non-empty intersection.
 
-#### (Rectangle) RGBA64At  <- go1.17
+​	Overlaps 报告 r 和 s 是否有非空交集。
 
-``` go 
+#### (Rectangle) RGBA64At <- go1.17
+
+```go
 func (r Rectangle) RGBA64At(x, y int) color.RGBA64
 ```
 
 RGBA64At implements the RGBA64Image interface.
 
+​	RGBA64At 实现 RGBA64Image 接口。
+
 #### (Rectangle) Size 
 
-``` go 
+```go
 func (r Rectangle) Size() Point
 ```
 
-Size returns r's width and height.
+Size returns r’s width and height.
+
+​	Size 返回 r 的宽度和高度。
 
 #### (Rectangle) String 
 
-``` go 
+```go
 func (r Rectangle) String() string
 ```
 
-String returns a string representation of r like "(3,4)-(6,5)".
+String returns a string representation of r like “(3,4)-(6,5)”.
 
-#### (Rectangle) Sub 
+​	String 返回 r 的字符串表示形式，如 “(3,4)-(6,5)”。
 
-``` go 
+#### (Rectangle) Sub
+
+```go
 func (r Rectangle) Sub(p Point) Rectangle
 ```
 
 Sub returns the rectangle r translated by -p.
 
-#### (Rectangle) Union 
+​	Sub 返回平移了 -p 的矩形 r。
 
-``` go 
+#### (Rectangle) Union
+
+```go
 func (r Rectangle) Union(s Rectangle) Rectangle
 ```
 
 Union returns the smallest rectangle that contains both r and s.
 
-### type Uniform 
+​	Union 返回包含 r 和 s 的最小矩形。
 
-``` go 
+### type Uniform
+
+```go
 type Uniform struct {
 	C color.Color
 }
@@ -1659,61 +1852,67 @@ type Uniform struct {
 
 Uniform is an infinite-sized Image of uniform color. It implements the color.Color, color.Model, and Image interfaces.
 
-#### func NewUniform 
+​	Uniform 是一个颜色均匀的无限大小的图像。它实现了 color.Color、color.Model 和 Image 接口。
 
-``` go 
+#### func NewUniform
+
+```go
 func NewUniform(c color.Color) *Uniform
 ```
 
 NewUniform returns a new Uniform image of the given color.
 
-#### (*Uniform) At 
+​	NewUniform 返回一个给定颜色的新 Uniform 图像。
 
-``` go 
+#### (*Uniform) At
+
+```go
 func (c *Uniform) At(x, y int) color.Color
 ```
 
-#### (*Uniform) Bounds 
+#### (*Uniform) Bounds
 
-``` go 
+```go
 func (c *Uniform) Bounds() Rectangle
 ```
 
-#### (*Uniform) ColorModel 
+#### (*Uniform) ColorModel
 
-``` go 
+```go
 func (c *Uniform) ColorModel() color.Model
 ```
 
-#### (*Uniform) Convert 
+#### (*Uniform) Convert
 
-``` go 
+```go
 func (c *Uniform) Convert(color.Color) color.Color
 ```
 
-#### (*Uniform) Opaque 
+#### (*Uniform) Opaque
 
-``` go 
+```go
 func (c *Uniform) Opaque() bool
 ```
 
 Opaque scans the entire image and reports whether it is fully opaque.
 
-#### (*Uniform) RGBA 
+​	Opaque 扫描整个图像并报告它是否完全不透明。
 
-``` go 
+#### (*Uniform) RGBA
+
+```go
 func (c *Uniform) RGBA() (r, g, b, a uint32)
 ```
 
-#### (*Uniform) RGBA64At  <- go1.17
+#### (*Uniform) RGBA64At <- go1.17
 
-``` go 
+```go
 func (c *Uniform) RGBA64At(x, y int) color.RGBA64
 ```
 
-### type YCbCr 
+### type YCbCr
 
-``` go 
+```go
 type YCbCr struct {
 	Y, Cb, Cr      []uint8
 	YStride        int
@@ -1723,7 +1922,9 @@ type YCbCr struct {
 }
 ```
 
-YCbCr is an in-memory image of Y'CbCr colors. There is one Y sample per pixel, but each Cb and Cr sample can span one or more pixels. YStride is the Y slice index delta between vertically adjacent pixels. CStride is the Cb and Cr slice index delta between vertically adjacent pixels that map to separate chroma samples. It is not an absolute requirement, but YStride and len(Y) are typically multiples of 8, and:
+YCbCr is an in-memory image of Y’CbCr colors. There is one Y sample per pixel, but each Cb and Cr sample can span one or more pixels. YStride is the Y slice index delta between vertically adjacent pixels. CStride is the Cb and Cr slice index delta between vertically adjacent pixels that map to separate chroma samples. It is not an absolute requirement, but YStride and len(Y) are typically multiples of 8, and:
+
+​	YCbCr 是 Y’CbCr 颜色的内存中图像。每个像素有一个 Y 样本，但每个 Cb 和 Cr 样本可以跨越一个或多个像素。YStride 是垂直相邻像素之间的 Y 切片索引增量。CStride 是垂直相邻像素之间的 Cb 和 Cr 切片索引增量，这些像素映射到单独的色度样本。这不是绝对要求，但 YStride 和 len(Y) 通常是 8 的倍数，并且：
 
 ```
 For 4:4:4, CStride == YStride/1 && len(Cb) == len(Cr) == len(Y)/1.
@@ -1734,81 +1935,91 @@ For 4:1:1, CStride == YStride/4 && len(Cb) == len(Cr) == len(Y)/4.
 For 4:1:0, CStride == YStride/4 && len(Cb) == len(Cr) == len(Y)/8.
 ```
 
-#### func NewYCbCr 
+#### func NewYCbCr
 
-``` go 
+```go
 func NewYCbCr(r Rectangle, subsampleRatio YCbCrSubsampleRatio) *YCbCr
 ```
 
 NewYCbCr returns a new YCbCr image with the given bounds and subsample ratio.
 
-#### (*YCbCr) At 
+​	NewYCbCr 返回具有给定边界和子采样率的新 YCbCr 图像。
 
-``` go 
+#### (*YCbCr) At
+
+```go
 func (p *YCbCr) At(x, y int) color.Color
 ```
 
-#### (*YCbCr) Bounds 
+#### (*YCbCr) Bounds
 
-``` go 
+```go
 func (p *YCbCr) Bounds() Rectangle
 ```
 
-#### (*YCbCr) COffset 
+#### (*YCbCr) COffset
 
-``` go 
+```go
 func (p *YCbCr) COffset(x, y int) int
 ```
 
 COffset returns the index of the first element of Cb or Cr that corresponds to the pixel at (x, y).
 
-#### (*YCbCr) ColorModel 
+​	COffset 返回对应于 (x, y) 处像素的 Cb 或 Cr 的第一个元素的索引。
 
-``` go 
+#### (*YCbCr) ColorModel
+
+```go
 func (p *YCbCr) ColorModel() color.Model
 ```
 
-#### (*YCbCr) Opaque 
+#### (*YCbCr) Opaque
 
-``` go 
+```go
 func (p *YCbCr) Opaque() bool
 ```
 
-#### (*YCbCr) RGBA64At  <- go1.17
+#### (*YCbCr) RGBA64At <- go1.17
 
-``` go 
+```go
 func (p *YCbCr) RGBA64At(x, y int) color.RGBA64
 ```
 
-#### (*YCbCr) SubImage 
+#### (*YCbCr) SubImage
 
-``` go 
+```go
 func (p *YCbCr) SubImage(r Rectangle) Image
 ```
 
 SubImage returns an image representing the portion of the image p visible through r. The returned value shares pixels with the original image.
 
-#### (*YCbCr) YCbCrAt  <- go1.4
+​	SubImage 返回一个图像，表示通过 r 可见的图像 p 的部分。返回值与原始图像共享像素。
 
-``` go 
+#### (*YCbCr) YCbCrAt <- go1.4
+
+```go
 func (p *YCbCr) YCbCrAt(x, y int) color.YCbCr
 ```
 
-#### (*YCbCr) YOffset 
+#### (*YCbCr) YOffset
 
-``` go 
+```go
 func (p *YCbCr) YOffset(x, y int) int
 ```
 
 YOffset returns the index of the first element of Y that corresponds to the pixel at (x, y).
 
-### type YCbCrSubsampleRatio 
+​	YOffset 返回对应于像素 (x, y) 的 Y 的第一个元素的索引。
 
-``` go 
+### type YCbCrSubsampleRatio
+
+```go
 type YCbCrSubsampleRatio int
 ```
 
 YCbCrSubsampleRatio is the chroma subsample ratio used in a YCbCr image.
+
+​	YCbCrSubsampleRatio 是 YCbCr 图像中使用的色度子采样率。
 
 ``` go 
 const (

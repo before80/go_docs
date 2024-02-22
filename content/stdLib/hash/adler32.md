@@ -10,7 +10,11 @@ draft = false
 
 Package adler32 implements the Adler-32 checksum.
 
+​	Package adler32 实现 Adler-32 校验和。
+
 It is defined in [RFC 1950](https://rfc-editor.org/rfc/rfc1950.html):
+
+​	它在 [RFC 1950](https://rfc-editor.org/rfc/rfc1950.html) 中定义：
 
 ```
 Adler-32 is composed of two sums accumulated per byte: s1 is
@@ -32,6 +36,8 @@ const Size = 4
 
 The size of an Adler-32 checksum in bytes.
 
+​	Adler-32 校验和的大小（以字节为单位）。
+
 ## 变量
 
 This section is empty.
@@ -46,13 +52,17 @@ func Checksum(data []byte) uint32
 
 Checksum returns the Adler-32 checksum of data.
 
-### func New 
+​	Checksum 返回数据的 Adler-32 校验和。
 
-``` go 
+### func New
+
+```go
 func New() hash.Hash32
 ```
 
 New returns a new hash.Hash32 computing the Adler-32 checksum. Its Sum method will lay the value out in big-endian byte order. The returned Hash32 also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
+
+​	New 返回一个新的 hash.Hash32，用于计算 Adler-32 校验和。它的 Sum 方法将以大端字节顺序排列值。返回的 Hash32 还实现了 encoding.BinaryMarshaler 和 encoding.BinaryUnmarshaler，用于编组和取消编组哈希的内部状态。
 
 ## 类型
 

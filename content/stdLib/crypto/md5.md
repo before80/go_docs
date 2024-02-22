@@ -10,7 +10,11 @@ draft = false
 
 Package md5 implements the MD5 hash algorithm as defined in [RFC 1321](https://rfc-editor.org/rfc/rfc1321.html).
 
+​	Package md5 实现 RFC 1321 中定义的 MD5 哈希算法。
+
 MD5 is cryptographically broken and should not be used for secure applications.
+
+​	MD5 在密码学上已遭破解，不应在安全应用程序中使用。
 
 ## 常量 
 
@@ -22,6 +26,8 @@ const BlockSize = 64
 
 The blocksize of MD5 in bytes.
 
+​	MD5 的块大小（以字节为单位）。
+
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/md5/md5.go;l=25)
 
 ``` go
@@ -29,6 +35,8 @@ const Size = 16
 ```
 
 The size of an MD5 checksum in bytes.
+
+​	MD5 校验和的大小（以字节为单位）。
 
 ## 变量
 
@@ -43,6 +51,8 @@ func New() hash.Hash
 ```
 
 New returns a new hash.Hash computing the MD5 checksum. The Hash also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
+
+​	New 返回一个新的 hash.Hash 计算 MD5 校验和。Hash 还实现了 encoding.BinaryMarshaler 和 encoding.BinaryUnmarshaler 来编组和取消编组哈希的内部状态。
 
 #### New Example
 
@@ -107,6 +117,8 @@ func Sum(data []byte) [Size]byte
 ```
 
 Sum returns the MD5 checksum of the data.
+
+​	Sum 返回数据的 MD5 校验和。
 
 #### Sum  Example
 

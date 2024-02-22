@@ -10,7 +10,11 @@ draft = false
 
 Package gif implements a GIF image decoder and encoder.
 
+​	 gif 包实现了一个 GIF 图像解码器和编码器。
+
 The GIF specification is at https://www.w3.org/Graphics/GIF/spec-gif89a.txt.
+
+​	GIF 规范位于 [https://www.w3.org/Graphics/GIF/spec-gif89a.txt](https://www.w3.org/Graphics/GIF/spec-gif89a.txt)。
 
 ## 常量 
 
@@ -26,6 +30,8 @@ const (
 
 Disposal Methods.
 
+​	处置方法。
+
 ## 变量
 
 This section is empty.
@@ -40,35 +46,43 @@ func Decode(r io.Reader) (image.Image, error)
 
 Decode reads a GIF image from r and returns the first embedded image as an image.Image.
 
-### func DecodeConfig 
+​	Decode 从 r 读取 GIF 图像，并将第一个嵌入图像作为 image.Image 返回。
 
-``` go 
+### func DecodeConfig
+
+```go
 func DecodeConfig(r io.Reader) (image.Config, error)
 ```
 
 DecodeConfig returns the global color model and dimensions of a GIF image without decoding the entire image.
 
-### func Encode  <- go1.2
+​	DecodeConfig 返回 GIF 图像的全局颜色模型和尺寸，而无需解码整个图像。
 
-``` go 
+### func Encode <- go1.2
+
+```go
 func Encode(w io.Writer, m image.Image, o *Options) error
 ```
 
 Encode writes the Image m to w in GIF format.
 
-### func EncodeAll  <- go1.2
+​	Encode 以 GIF 格式将图像 m 写入 w。
 
-``` go 
+### func EncodeAll <- go1.2
+
+```go
 func EncodeAll(w io.Writer, g *GIF) error
 ```
 
 EncodeAll writes the images in g to w in GIF format with the given loop count and delay between frames.
 
+​	EncodeAll 以 GIF 格式将 g 中的图像写入 w，并具有给定的循环计数和帧之间的延迟。
+
 ## 类型
 
-### type GIF 
+### type GIF
 
-``` go 
+```go
 type GIF struct {
 	Image []*image.Paletted // The successive images.
 	Delay []int             // The successive delay times, one per frame, in 100ths of a second.
@@ -101,17 +115,21 @@ type GIF struct {
 
 GIF represents the possibly multiple images stored in a GIF file.
 
-#### func DecodeAll 
+​	GIF 表示存储在 GIF 文件中的可能多个图像。
 
-``` go 
+#### func DecodeAll
+
+```go
 func DecodeAll(r io.Reader) (*GIF, error)
 ```
 
 DecodeAll reads a GIF image from r and returns the sequential frames and timing information.
 
-### type Options  <- go1.2
+​	DecodeAll 从 r 读取 GIF 图像，并返回顺序帧和计时信息。
 
-``` go 
+### type Options <- go1.2
+
+```go
 type Options struct {
 	// NumColors is the maximum number of colors used in the image.
 	// It ranges from 1 to 256.
@@ -128,3 +146,5 @@ type Options struct {
 ```
 
 Options are the encoding parameters.
+
+​	Options 是编码参数。

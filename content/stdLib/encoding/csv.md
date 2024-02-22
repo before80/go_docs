@@ -34,7 +34,7 @@ Blank lines are ignored. A line with only whitespace characters (excluding the e
 
 Fields which start and stop with the quote character " are called quoted-fields. The beginning and ending quote are not part of the field.
 
-​	以引号字符""开始和结束的字段被称为引号字段。开始和结束的引号不是字段的一部分。
+​	以引号字符`"`开始和结束的字段被称为引号字段。开始和结束的引号不是字段的一部分。
 
 The source:
 
@@ -215,9 +215,9 @@ As returned by NewReader, a Reader expects input conforming to [RFC 4180](https:
 
 ​	正如NewReader所返回的那样，Reader期望输入的内容符合RFC 4180的规定。在第一次调用Read或ReadAll之前，导出的字段可以被改变以定制细节。
 
-The Reader converts all \r\n sequences in its input to plain \n, including in multiline field values, so that the returned data does not depend on which line-ending convention an input file uses.
+The Reader converts all `\r\n` sequences in its input to plain \n, including in multiline field values, so that the returned data does not depend on which line-ending convention an input file uses.
 
-​	Reader 将其输入中的所有\r\n序列转换为普通的\n，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
+​	Reader 将其输入中的所有`\r\n`序列转换为普通的`\n`，包括在多行字段值中，因此返回的数据不依赖于输入文件使用的行结束惯例。
 
 #### Reader Example
 ``` go 

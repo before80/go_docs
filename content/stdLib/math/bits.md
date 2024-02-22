@@ -10,18 +10,24 @@ draft = false
 
 Package bits implements bit counting and manipulation functions for the predeclared unsigned integer types.
 
+​	bits 包为预声明的无符号整数类型实现位计数和操作函数。
+
 Functions in this package may be implemented directly by the compiler, for better performance. For those functions the code in this package will not be used. Which functions are implemented by the compiler depends on the architecture and the Go release.
 
+​	此包中的函数可能由编译器直接实现，以获得更好的性能。对于这些函数，将不会使用此包中的代码。由编译器实现哪些函数取决于体系结构和 Go 版本。
 
-## 常量 
+## 常量
 
-[View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=20)
+[View Source
+查看源代码](https://cs.opensource.google/go/go/+/go1.20.1:src/math/bits/bits.go;l=20)
 
-``` go 
+```go
 const UintSize = uintSize
 ```
 
 UintSize is the size of a uint in bits.
+
+​	UintSize 是以位为单位的 uint 的大小。
 
 ## 变量
 
@@ -29,28 +35,37 @@ This section is empty.
 
 ## 函数
 
-### func Add  <- go1.12
+### func Add <- go1.12
 
-``` go 
+```go
 func Add(x, y, carry uint) (sum, carryOut uint)
 ```
 
 Add returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Add 返回 x、y 和进位之和：sum = x + y + 进位。进位输入必须为 0 或 1；否则行为是未定义的。carryOut 输出保证为 0 或 1。
 
-### func Add32  <- go1.12
+This function’s execution time does not depend on the inputs.
 
-``` go 
+​	此函数的执行时间不依赖于输入。
+
+### func Add32 <- go1.12
+
+```go
 func Add32(x, y, carry uint32) (sum, carryOut uint32)
 ```
 
 Add32 returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Add32 返回 x、y 和进位之和：sum = x + y + 进位。进位输入必须为 0 或 1；否则行为是未定义的。carryOut 输出保证为 0 或 1。
 
-#### Add32  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Add32 Example
+
+```go
 package main
 
 import (
@@ -85,18 +100,23 @@ Output:
 [1 2147483648] + [1 2147483648] = [3 0] (carry bit was 1)
 ```
 
-### func Add64  <- go1.12
+### func Add64 <- go1.12 
 
-``` go 
+```go
 func Add64(x, y, carry uint64) (sum, carryOut uint64)
 ```
 
 Add64 returns the sum with carry of x, y and carry: sum = x + y + carry. The carry input must be 0 or 1; otherwise the behavior is undefined. The carryOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Add64 返回 x、y 和进位之和：sum = x + y + 进位。进位输入必须为 0 或 1；否则行为是未定义的。carryOut 输出保证为 0 或 1。
 
-#### Add64  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Add64 Example 
+
+```go
 package main
 
 import (
@@ -125,27 +145,31 @@ func main() {
 	nsum = []uint64{d0, d1}
 	fmt.Printf("%v + %v = %v (carry bit was %v)\n", n1, n2, nsum, carry)
 }
-
 ```
 
-### func Div  <- go1.12
+### func Div <- go1.12
 
-``` go 
+```go
 func Div(hi, lo, y uint) (quo, rem uint)
 ```
 
-Div returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+Div returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits’ upper half in parameter hi and the lower half in parameter lo. Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 
-### func Div32  <- go1.12
+​	Div 返回 (hi, lo)/y 的商和余数：quo = (hi, lo)/y，rem = (hi, lo)%y，其中被除数的二进制位高半部分在参数 hi 中，低半部分在参数 lo 中。如果 y == 0（除以零）或 y <= hi（商溢出），Div 会引发 panic。
 
-``` go 
+### func Div32 <- go1.12
+
+```go
 func Div32(hi, lo, y uint32) (quo, rem uint32)
 ```
 
-Div32 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+Div32 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits’ upper half in parameter hi and the lower half in parameter lo. Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 
-#### Div32  Example
-``` go 
+​	Div32 返回 (hi, lo)/y 的商和余数：quo = (hi, lo)/y，rem = (hi, lo)%y，其中被除数的二进制位高半部分在参数 hi 中，低半部分在参数 lo 中。如果 y == 0（除以零）或 y <= hi（商溢出），Div32 会引发 panic。
+
+#### Div32 Example
+
+```go
 package main
 
 import (
@@ -178,16 +202,19 @@ Output:
 [2 2147483648] / 2147483648 = [5 0]
 ```
 
-### func Div64  <- go1.12
+### func Div64 <- go1.12
 
-``` go 
+```go
 func Div64(hi, lo, y uint64) (quo, rem uint64)
 ```
 
-Div64 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper half in parameter hi and the lower half in parameter lo. Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+Div64 returns the quotient and remainder of (hi, lo) divided by y: quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits’ upper half in parameter hi and the lower half in parameter lo. Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
 
-#### Div64  Example
-``` go 
+​	Div64 返回 (hi, lo)/y 的商和余数：quo = (hi, lo)/y，rem = (hi, lo)%y，其中被除数的二进制位高半部分在参数 hi 中，低半部分在参数 lo 中。如果 y == 0（除以零）或 y <= hi（商溢出），Div64 会引发 panic。
+
+#### Div64 Example
+
+```go
 package main
 
 import (
@@ -220,24 +247,29 @@ Output:
 [2 9223372036854775808] / 9223372036854775808 = [5 0]
 ```
 
-### func LeadingZeros 
+### func LeadingZeros
 
-``` go 
+```go
 func LeadingZeros(x uint) int
 ```
 
 LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
 
-### func LeadingZeros16 
+​	LeadingZeros 返回 x 中前导零位的数量；对于 x == 0，结果为 UintSize。
 
-``` go 
+### func LeadingZeros16
+
+```go
 func LeadingZeros16(x uint16) int
 ```
 
 LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
 
+​	LeadingZeros16 返回 x 中前导零位的数量；对于 x == 0，结果为 16。
+
 #### LeadingZeros16 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -253,16 +285,19 @@ Output:
 LeadingZeros16(0000000000000001) = 15
 ```
 
-### func LeadingZeros32 
+### func LeadingZeros32
 
-``` go 
+```go
 func LeadingZeros32(x uint32) int
 ```
 
 LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
 
+​	LeadingZeros32 返回 x 中前导零位的数量；对于 x == 0，结果为 32。
+
 #### LeadingZeros32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -278,16 +313,19 @@ Output:
 LeadingZeros32(00000000000000000000000000000001) = 31
 ```
 
-### func LeadingZeros64 
+### func LeadingZeros64
 
-``` go 
+```go
 func LeadingZeros64(x uint64) int
 ```
 
 LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
 
+​	LeadingZeros64 返回 x 中前导零位的数量；对于 x == 0，结果为 64。
+
 #### LeadingZeros64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -303,16 +341,19 @@ Output:
 LeadingZeros64(0000000000000000000000000000000000000000000000000000000000000001) = 63
 ```
 
-### func LeadingZeros8 
+### func LeadingZeros8
 
-``` go 
+```go
 func LeadingZeros8(x uint8) int
 ```
 
 LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
 
+​	LeadingZeros8 返回 x 中前导零位的数量；对于 x == 0，结果为 8。
+
 #### LeadingZeros8 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -328,24 +369,29 @@ Output:
 LeadingZeros8(00000001) = 7
 ```
 
-### func Len 
+### func Len
 
-``` go 
+```go
 func Len(x uint) int
 ```
 
 Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
-### func Len16 
+​	Len 返回表示 x 所需的最小位数；对于 x == 0，结果为 0。
 
-``` go 
+### func Len16
+
+```go
 func Len16(x uint16) (n int)
 ```
 
 Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
+​	Len16 返回表示 x 所需的最小位数；对于 x == 0，结果为 0。
+
 #### Len16 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -361,16 +407,19 @@ Output:
 Len16(0000000000001000) = 4
 ```
 
-### func Len32 
+### func Len32
 
-``` go 
+```go
 func Len32(x uint32) (n int)
 ```
 
 Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
+​	Len32 返回表示 x 所需的最小位数；对于 x == 0，结果为 0。
+
 #### Len32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -386,16 +435,19 @@ Output:
 Len32(00000000000000000000000000001000) = 4
 ```
 
-### func Len64 
+### func Len64
 
-``` go 
+```go
 func Len64(x uint64) (n int)
 ```
 
 Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
+​	Len64 返回表示 x 所需的最小位数；对于 x == 0，结果为 0。
+
 #### Len64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -411,16 +463,19 @@ Output:
 Len64(0000000000000000000000000000000000000000000000000000000000001000) = 4
 ```
 
-### func Len8 
+### func Len8
 
-``` go 
+```go
 func Len8(x uint8) int
 ```
 
 Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
 
+​	Len8 返回表示 x 所需的最小位数；对于 x == 0，结果为 0。
+
 #### Len8 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -436,28 +491,37 @@ Output:
 Len8(00001000) = 4
 ```
 
-### func Mul  <- go1.12
+### func Mul <- go1.12
 
-``` go 
+```go
 func Mul(x, y uint) (hi, lo uint)
 ```
 
-Mul returns the full-width product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.
+Mul returns the full-width product of x and y: (hi, lo) = x * y with the product bits’ upper half returned in hi and the lower half returned in lo.
 
-This function's execution time does not depend on the inputs.
+​	Mul 返回 x 和 y 的全宽乘积：(hi, lo) = x * y，其中乘积位的高半部分在 hi 中返回，低半部分在 lo 中返回。
 
-### func Mul32  <- go1.12
+This function’s execution time does not depend on the inputs.
 
-``` go 
+​	此函数的执行时间不依赖于输入。
+
+### func Mul32 <- go1.12
+
+```go
 func Mul32(x, y uint32) (hi, lo uint32)
 ```
 
-Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.
+Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y with the product bits’ upper half returned in hi and the lower half returned in lo.
 
-This function's execution time does not depend on the inputs.
+​	Mul32 返回 x 和 y 的 64 位乘积：(hi, lo) = x * y，其中乘积位的高半部分在 hi 中返回，低半部分在 lo 中返回。
 
-#### Mul32  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Mul32 Example
+
+```go
 package main
 
 import (
@@ -490,18 +554,23 @@ Output:
 2147483648 * 2 = [1 0]
 ```
 
-### func Mul64  <- go1.12
+### func Mul64 <- go1.12
 
-``` go 
+```go
 func Mul64(x, y uint64) (hi, lo uint64)
 ```
 
-Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y with the product bits' upper half returned in hi and the lower half returned in lo.
+Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y with the product bits’ upper half returned in hi and the lower half returned in lo.
 
-This function's execution time does not depend on the inputs.
+​	Mul64 返回 x 和 y 的 128 位乘积：(hi, lo) = x * y，其中乘积位的高半部分在 hi 中返回，低半部分在 lo 中返回。
 
-#### Mul64  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Mul64 Example
+
+```go
 package main
 
 import (
@@ -534,16 +603,19 @@ Output:
 9223372036854775808 * 2 = [1 0]
 ```
 
-### func OnesCount 
+### func OnesCount
 
-``` go 
+```go
 func OnesCount(x uint) int
 ```
 
-OnesCount returns the number of one bits ("population count") in x.
+OnesCount returns the number of one bits (“population count”) in x.
+
+​	OnesCount 返回 x 中的 1 位数（“基数计数”）。
 
 #### OnesCount Example
-``` go 
+
+```go
 package main
 
 import (
@@ -559,16 +631,19 @@ Output:
 OnesCount(1110) = 3
 ```
 
-### func OnesCount16 
+### func OnesCount16
 
-``` go 
+```go
 func OnesCount16(x uint16) int
 ```
 
-OnesCount16 returns the number of one bits ("population count") in x.
+OnesCount16 returns the number of one bits (“population count”) in x.
+
+​	OnesCount16 返回 x 中的 1 位数（“基数计数”）。
 
 #### OnesCount16 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -584,16 +659,19 @@ Output:
 OnesCount16(0000000000001110) = 3
 ```
 
-### func OnesCount32 
+### func OnesCount32
 
-``` go 
+```go
 func OnesCount32(x uint32) int
 ```
 
-OnesCount32 returns the number of one bits ("population count") in x.
+OnesCount32 returns the number of one bits (“population count”) in x.
+
+​	OnesCount32 返回 x 中的 1 位数（“基数计数”）。
 
 #### OnesCount32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -609,16 +687,19 @@ Output:
 OnesCount32(00000000000000000000000000001110) = 3
 ```
 
-### func OnesCount64 
+### func OnesCount64
 
-``` go 
+```go
 func OnesCount64(x uint64) int
 ```
 
-OnesCount64 returns the number of one bits ("population count") in x.
+OnesCount64 returns the number of one bits (“population count”) in x.
+
+​	OnesCount64 返回 x 中的 1 位数（“基数计数”）。
 
 #### OnesCount64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -634,16 +715,19 @@ Output:
 OnesCount64(0000000000000000000000000000000000000000000000000000000000001110) = 3
 ```
 
-### func OnesCount8 
+### func OnesCount8
 
-``` go 
+```go
 func OnesCount8(x uint8) int
 ```
 
-OnesCount8 returns the number of one bits ("population count") in x.
+OnesCount8 returns the number of one bits (“population count”) in x.
+
+​	OnesCount8 返回 x 中的 1 位数（“基数计数”）。
 
 #### OnesCount8 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -659,48 +743,59 @@ Output:
 OnesCount8(00001110) = 3
 ```
 
-### func Rem  <- go1.14
+### func Rem <- go1.14
 
-``` go 
+```go
 func Rem(hi, lo, y uint) uint
 ```
 
-Rem returns the remainder of (hi, lo) divided by y. Rem panics for y == 0 (division by zero) but, unlike Div, it doesn't panic on a quotient overflow.
+Rem returns the remainder of (hi, lo) divided by y. Rem panics for y == 0 (division by zero) but, unlike Div, it doesn’t panic on a quotient overflow.
 
-### func Rem32  <- go1.14
+​	Rem 返回 (hi, lo) 除以 y 的余数。Rem 在 y == 0（除以零）时会引发 panic，但与 Div 不同，它不会在商溢出时引发 panic。
 
-``` go 
+### func Rem32 <- go1.14
+
+```go
 func Rem32(hi, lo, y uint32) uint32
 ```
 
-Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics for y == 0 (division by zero) but, unlike Div32, it doesn't panic on a quotient overflow.
+Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics for y == 0 (division by zero) but, unlike Div32, it doesn’t panic on a quotient overflow.
 
-### func Rem64  <- go1.14
+​	Rem32 返回 (hi, lo) 除以 y 的余数。Rem32 在 y == 0（除以零）时会引发 panic，但与 Div32 不同，它不会在商溢出时引发 panic。
 
-``` go 
+### func Rem64 <- go1.14
+
+```go
 func Rem64(hi, lo, y uint64) uint64
 ```
 
-Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics for y == 0 (division by zero) but, unlike Div64, it doesn't panic on a quotient overflow.
+Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics for y == 0 (division by zero) but, unlike Div64, it doesn’t panic on a quotient overflow.
 
-### func Reverse 
+​	Rem64 返回 (hi, lo) 除以 y 的余数。Rem64 在 y == 0（除以零）时会引发 panic，但与 Div64 不同，它不会在商溢出时引发 panic。
 
-``` go 
+### func Reverse
+
+```go
 func Reverse(x uint) uint
 ```
 
 Reverse returns the value of x with its bits in reversed order.
 
-### func Reverse16 
+​	Reverse 返回 x 的值，其位按相反的顺序排列。
 
-``` go 
+### func Reverse16
+
+```go
 func Reverse16(x uint16) uint16
 ```
 
 Reverse16 returns the value of x with its bits in reversed order.
 
+​	Reverse16 返回 x 的值，其位按相反的顺序排列。
+
 #### Reverse16 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -718,16 +813,19 @@ Output:
 1100100000000000
 ```
 
-### func Reverse32 
+### func Reverse32
 
-``` go 
+```go
 func Reverse32(x uint32) uint32
 ```
 
 Reverse32 returns the value of x with its bits in reversed order.
 
-#### Reverse32 Example
-``` go 
+​	Reverse32 返回 x 的值，其位按相反的顺序排列。
+
+#### Reverse32 Example 
+
+```go
 package main
 
 import (
@@ -745,16 +843,19 @@ Output:
 11001000000000000000000000000000
 ```
 
-### func Reverse64 
+### func Reverse64
 
-``` go 
+```go
 func Reverse64(x uint64) uint64
 ```
 
 Reverse64 returns the value of x with its bits in reversed order.
 
-#### Reverse64 Example
-``` go 
+​	Reverse64 返回 x 的值，其位按相反的顺序排列。
+
+#### Reverse64 Example 
+
+```go
 package main
 
 import (
@@ -772,16 +873,19 @@ Output:
 1100100000000000000000000000000000000000000000000000000000000000
 ```
 
-### func Reverse8 
+### func Reverse8
 
-``` go 
+```go
 func Reverse8(x uint8) uint8
 ```
 
 Reverse8 returns the value of x with its bits in reversed order.
 
+​	Reverse8 返回其位以相反顺序排列的 x 的值。
+
 #### Reverse8 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -799,28 +903,37 @@ Output:
 11001000
 ```
 
-### func ReverseBytes 
+### func ReverseBytes
 
-``` go 
+```go
 func ReverseBytes(x uint) uint
 ```
 
 ReverseBytes returns the value of x with its bytes in reversed order.
 
-This function's execution time does not depend on the inputs.
+​	ReverseBytes 返回其字节以相反顺序排列的 x 的值。
 
-### func ReverseBytes16 
+This function’s execution time does not depend on the inputs.
 
-``` go 
+​	此函数的执行时间不依赖于输入。
+
+### func ReverseBytes16
+
+```go
 func ReverseBytes16(x uint16) uint16
 ```
 
 ReverseBytes16 returns the value of x with its bytes in reversed order.
 
-This function's execution time does not depend on the inputs.
+​	ReverseBytes16 返回其字节以相反顺序排列的 x 的值。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### ReverseBytes16 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -838,18 +951,23 @@ Output:
 0000111100000000
 ```
 
-### func ReverseBytes32 
+### func ReverseBytes32
 
-``` go 
+```go
 func ReverseBytes32(x uint32) uint32
 ```
 
 ReverseBytes32 returns the value of x with its bytes in reversed order.
 
-This function's execution time does not depend on the inputs.
+​	ReverseBytes32 返回其字节顺序相反的 x 的值。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### ReverseBytes32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -867,18 +985,23 @@ Output:
 00001111000000000000000000000000
 ```
 
-### func ReverseBytes64 
+### func ReverseBytes64
 
-``` go 
+```go
 func ReverseBytes64(x uint64) uint64
 ```
 
 ReverseBytes64 returns the value of x with its bytes in reversed order.
 
-This function's execution time does not depend on the inputs.
+​	ReverseBytes64 返回其字节顺序相反的 x 的值。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### ReverseBytes64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -896,28 +1019,37 @@ Output:
 0000111100000000000000000000000000000000000000000000000000000000
 ```
 
-### func RotateLeft 
+### func RotateLeft
 
-``` go 
+```go
 func RotateLeft(x uint, k int) uint
 ```
 
 RotateLeft returns the value of x rotated left by (k mod UintSize) bits. To rotate x right by k bits, call RotateLeft(x, -k).
 
-This function's execution time does not depend on the inputs.
+​	RotateLeft 返回 x 左移 (k mod UintSize) 位的值。要将 x 右移 k 位，请调用 RotateLeft(x, -k)。
 
-### func RotateLeft16 
+This function’s execution time does not depend on the inputs.
 
-``` go 
+​	此函数的执行时间不依赖于输入。
+
+### func RotateLeft16
+
+```go
 func RotateLeft16(x uint16, k int) uint16
 ```
 
 RotateLeft16 returns the value of x rotated left by (k mod 16) bits. To rotate x right by k bits, call RotateLeft16(x, -k).
 
-This function's execution time does not depend on the inputs.
+​	RotateLeft16 返回 x 左移 (k mod 16) 位的值。要将 x 右移 k 位，请调用 RotateLeft16(x, -k)。
 
-#### RotateLeft16 Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### RotateLeft16 Example 
+
+```go
 package main
 
 import (
@@ -937,18 +1069,23 @@ Output:
 1100000000000011
 ```
 
-### func RotateLeft32 
+### func RotateLeft32
 
-``` go 
+```go
 func RotateLeft32(x uint32, k int) uint32
 ```
 
 RotateLeft32 returns the value of x rotated left by (k mod 32) bits. To rotate x right by k bits, call RotateLeft32(x, -k).
 
-This function's execution time does not depend on the inputs.
+​	RotateLeft32 返回 x 左移 (k mod 32) 位的值。要将 x 右移 k 位，请调用 RotateLeft32(x, -k)。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### RotateLeft32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -968,18 +1105,23 @@ Output:
 11000000000000000000000000000011
 ```
 
-### func RotateLeft64 
+### func RotateLeft64
 
-``` go 
+```go
 func RotateLeft64(x uint64, k int) uint64
 ```
 
 RotateLeft64 returns the value of x rotated left by (k mod 64) bits. To rotate x right by k bits, call RotateLeft64(x, -k).
 
-This function's execution time does not depend on the inputs.
+​	RotateLeft64 返回 x 左移 (k mod 64) 位后的值。要将 x 右移 k 位，请调用 RotateLeft64(x, -k)。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### RotateLeft64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -999,18 +1141,23 @@ Output:
 1100000000000000000000000000000000000000000000000000000000000011
 ```
 
-### func RotateLeft8 
+### func RotateLeft8
 
-``` go 
+```go
 func RotateLeft8(x uint8, k int) uint8
 ```
 
 RotateLeft8 returns the value of x rotated left by (k mod 8) bits. To rotate x right by k bits, call RotateLeft8(x, -k).
 
-This function's execution time does not depend on the inputs.
+​	RotateLeft8 返回 x 左移 (k mod 8) 位后的值。要将 x 右移 k 位，请调用 RotateLeft8(x, -k)。
+
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
 
 #### RotateLeft8 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -1030,28 +1177,37 @@ Output:
 11000011
 ```
 
-### func Sub  <- go1.12
+### func Sub <- go1.12
 
-``` go 
+```go
 func Sub(x, y, borrow uint) (diff, borrowOut uint)
 ```
 
 Sub returns the difference of x, y and borrow: diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Sub 返回 x、y 和借位的差值：diff = x - y - borrow。借位输入必须为 0 或 1；否则行为未定义。borrowOut 输出保证为 0 或 1。
 
-### func Sub32  <- go1.12
+This function’s execution time does not depend on the inputs.
 
-``` go 
+​	此函数的执行时间不依赖于输入。
+
+### func Sub32 <- go1.12
+
+```go
 func Sub32(x, y, borrow uint32) (diff, borrowOut uint32)
 ```
 
 Sub32 returns the difference of x, y and borrow, diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Sub32 返回 x、y 和借位 diff = x - y - borrow 的差值。借位输入必须为 0 或 1；否则行为未定义。borrowOut 输出保证为 0 或 1。
 
-#### Sub32  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Sub32 Example
+
+```go
 package main
 
 import (
@@ -1086,18 +1242,23 @@ Output:
 [3 2147483647] - [1 2147483648] = [1 4294967295] (carry bit was 1)
 ```
 
-### func Sub64  <- go1.12
+### func Sub64 <- go1.12
 
-``` go 
+```go
 func Sub64(x, y, borrow uint64) (diff, borrowOut uint64)
 ```
 
 Sub64 returns the difference of x, y and borrow: diff = x - y - borrow. The borrow input must be 0 or 1; otherwise the behavior is undefined. The borrowOut output is guaranteed to be 0 or 1.
 
-This function's execution time does not depend on the inputs.
+​	Sub64 返回 x、y 和借位 diff = x - y - borrow 的差值。借位输入必须为 0 或 1；否则行为未定义。borrowOut 输出保证为 0 或 1。
 
-#### Sub64  Example
-``` go 
+This function’s execution time does not depend on the inputs.
+
+​	此函数的执行时间不依赖于输入。
+
+#### Sub64 Example 
+
+```go
 package main
 
 import (
@@ -1132,24 +1293,29 @@ Output:
 [3 9223372036854775807] - [1 9223372036854775808] = [1 18446744073709551615] (carry bit was 1)
 ```
 
-### func TrailingZeros 
+### func TrailingZeros
 
-``` go 
+```go
 func TrailingZeros(x uint) int
 ```
 
 TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
 
-### func TrailingZeros16 
+​	TrailingZeros 返回 x 中尾随零位的数量；结果为 x == 0 时的 UintSize。
 
-``` go 
+### func TrailingZeros16
+
+```go
 func TrailingZeros16(x uint16) int
 ```
 
 TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
 
-#### TrailingZeros16 Example
-``` go 
+​	TrailingZeros16 返回 x 中尾随零位的数量；结果为 x == 0 时的 16。
+
+#### TrailingZeros16 Example 
+
+```go
 package main
 
 import (
@@ -1165,16 +1331,19 @@ Output:
 TrailingZeros16(0000000000001110) = 1
 ```
 
-### func TrailingZeros32 
+### func TrailingZeros32
 
-``` go 
+```go
 func TrailingZeros32(x uint32) int
 ```
 
 TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
 
+​	TrailingZeros32 返回 x 中尾随零位的数量；结果为 x == 0 时的 32。
+
 #### TrailingZeros32 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -1190,16 +1359,19 @@ Output:
 TrailingZeros32(00000000000000000000000000001110) = 1
 ```
 
-### func TrailingZeros64 
+### func TrailingZeros64
 
-``` go 
+```go
 func TrailingZeros64(x uint64) int
 ```
 
 TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
 
+​	TrailingZeros64 返回 x 中尾随零位的数量；结果为 x == 0 时的 64。
+
 #### TrailingZeros64 Example
-``` go 
+
+```go
 package main
 
 import (
@@ -1215,13 +1387,15 @@ Output:
 TrailingZeros64(0000000000000000000000000000000000000000000000000000000000001110) = 1
 ```
 
-### func TrailingZeros8 
+### func TrailingZeros8
 
-``` go 
+```go
 func TrailingZeros8(x uint8) int
 ```
 
 TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
+
+​	TrailingZeros8 返回 x 中尾随零位的数量；对于 x == 0，结果为 8。
 
 #### TrailingZeros8 Example
 ``` go 

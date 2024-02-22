@@ -10,7 +10,11 @@ draft = false
 
 Package draw provides image composition functions.
 
-See "The Go image/draw package" for an introduction to this package: https://golang.org/doc/articles/image_draw.html
+​	draw 包提供图像合成函数。
+
+See “The Go image/draw package” for an introduction to this package: https://golang.org/doc/articles/image_draw.html
+
+​	有关此包的介绍，请参阅“Go image/draw 包”：https://golang.org/doc/articles/image_draw.html
 
 ## 常量 
 
@@ -30,19 +34,23 @@ func Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point, op Op)
 
 Draw calls DrawMask with a nil mask.
 
-### func DrawMask 
+​	Draw 使用 nil 蒙版调用 DrawMask。
 
-``` go 
+### func DrawMask
+
+```go
 func DrawMask(dst Image, r image.Rectangle, src image.Image, sp image.Point, mask image.Image, mp image.Point, op Op)
 ```
 
 DrawMask aligns r.Min in dst with sp in src and mp in mask and then replaces the rectangle r in dst with the result of a Porter-Duff composition. A nil mask is treated as opaque.
 
+​	DrawMask 将 r.Min 在 dst 中与 src 中的 sp 和 mask 中的 mp 对齐，然后用 Porter-Duff 合成的结果替换 dst 中的矩形 r。将 nil 蒙版视为不透明。
+
 ## 类型
 
-### type Drawer  <- go1.2
+### type Drawer <- go1.2
 
-``` go 
+```go
 type Drawer interface {
 	// Draw aligns r.Min in dst with sp in src and then replaces the
 	// rectangle r in dst with the result of drawing src on dst.
@@ -52,8 +60,11 @@ type Drawer interface {
 
 Drawer contains the Draw method.
 
-#### Example (FloydSteinberg)
-``` go 
+​	Drawer 包含 Draw 方法。
+
+#### Example (FloydSteinberg) 
+
+```go
 package main
 
 import (
@@ -104,9 +115,11 @@ Output:
 
 FloydSteinberg is a Drawer that is the Src Op with Floyd-Steinberg error diffusion.
 
-### type Image 
+​	FloydSteinberg 是一个 Drawer，它是具有 Floyd-Steinberg 错误扩散的 Src Op。
 
-``` go 
+### type Image
+
+```go
 type Image interface {
 	image.Image
 	Set(x, y int, c color.Color)
@@ -115,15 +128,19 @@ type Image interface {
 
 Image is an image.Image with a Set method to change a single pixel.
 
-### type Op 
+​	Image 是一个 image.Image，它具有一个 Set 方法来更改单个像素。
 
-``` go 
+### type Op
+
+```go
 type Op int
 ```
 
 Op is a Porter-Duff compositing operator.
 
-``` go 
+​	Op 是一个 Porter-Duff 合成运算符。
+
+```go
 const (
 	// Over specifies "(src in mask) over dst".
 	Over Op = iota
@@ -132,17 +149,19 @@ const (
 )
 ```
 
-#### (Op) Draw  <- go1.2
+#### (Op) Draw <- go1.2
 
-``` go 
+```go
 func (op Op) Draw(dst Image, r image.Rectangle, src image.Image, sp image.Point)
 ```
 
 Draw implements the Drawer interface by calling the Draw function with this Op.
 
-### type Quantizer  <- go1.2
+​	Draw 通过使用此 Op 调用 Draw 函数来实现 Drawer 接口。
 
-``` go 
+### type Quantizer <- go1.2
+
+```go
 type Quantizer interface {
 	// Quantize appends up to cap(p) - len(p) colors to p and returns the
 	// updated palette suitable for converting m to a paletted image.
@@ -152,9 +171,11 @@ type Quantizer interface {
 
 Quantizer produces a palette for an image.
 
-### type RGBA64Image  <- go1.17
+​	Quantizer 为图像生成一个调色板。
 
-``` go 
+### type RGBA64Image <- go1.17
+
+```go
 type RGBA64Image interface {
 	image.RGBA64Image
 	Set(x, y int, c color.Color)
@@ -163,3 +184,5 @@ type RGBA64Image interface {
 ```
 
 RGBA64Image extends both the Image and image.RGBA64Image interfaces with a SetRGBA64 method to change a single pixel. SetRGBA64 is equivalent to calling Set, but it can avoid allocations from converting concrete color types to the color.Color interface type.
+
+​	RGBA64Image 同时扩展了 Image 和 image.RGBA64Image 接口，并通过 SetRGBA64 方法来更改单个像素。SetRGBA64 等同于调用 Set，但它可以避免从将具体颜色类型转换为 color.Color 接口类型而产生的分配。

@@ -10,7 +10,11 @@ draft = false
 
 Package sha1 implements the SHA-1 hash algorithm as defined in [RFC 3174](https://rfc-editor.org/rfc/rfc3174.html).
 
+​	sha1 包实现了 RFC 3174 中定义的 SHA-1 哈希算法。
+
 SHA-1 is cryptographically broken and should not be used for secure applications.
+
+​	SHA-1 在密码学上已遭破解，不应将其用于安全应用程序。
 
 ## 常量 
 
@@ -22,6 +26,8 @@ const BlockSize = 64
 
 The blocksize of SHA-1 in bytes.
 
+​	SHA-1 以字节为单位的块大小。
+
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/sha1/sha1.go;l=23)
 
 ``` go
@@ -29,6 +35,8 @@ const Size = 20
 ```
 
 The size of a SHA-1 checksum in bytes.
+
+​	SHA-1 校验和的字节大小。
 
 ## 变量
 
@@ -43,6 +51,8 @@ func New() hash.Hash
 ```
 
 New returns a new hash.Hash computing the SHA1 checksum. The Hash also implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.
+
+​	New 返回一个新的哈希。Hash 计算 SHA1 校验和。Hash 还实现了 encoding.BinaryMarshaler 和 encoding.BinaryUnmarshaler 来编组和取消编组哈希的内部状态。
 
 #### New Example
 
@@ -110,6 +120,8 @@ func Sum(data []byte) [Size]byte
 ```
 
 Sum returns the SHA-1 checksum of the data.
+
+​	Sum 返回数据的 SHA-1 校验和。
 
 #### Sum  Example
 

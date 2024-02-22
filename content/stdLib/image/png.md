@@ -10,10 +10,13 @@ draft = false
 
 Package png implements a PNG image decoder and encoder.
 
+​	png 包实现了一个 PNG 图像解码器和编码器。
+
 The PNG specification is at https://www.w3.org/TR/PNG/.
 
+​	PNG 规范位于 [https://www.w3.org/TR/PNG/](https://www.w3.org/TR/PNG/)。
 
-## 常量 
+## 常量
 
 This section is empty.
 
@@ -23,16 +26,19 @@ This section is empty.
 
 ## 函数
 
-### func Decode 
+### func Decode
 
-``` go 
+```go
 func Decode(r io.Reader) (image.Image, error)
 ```
 
 Decode reads a PNG image from r and returns it as an image.Image. The type of Image returned depends on the PNG contents.
 
+​	Decode 从 r 读取 PNG 图像并将其作为 image.Image 返回。返回的 Image 类型取决于 PNG 内容。
+
 #### Decode Example
-``` go 
+
+```go
 package main
 
 import (
@@ -75,24 +81,29 @@ func main() {
 Output:
 ```
 
-### func DecodeConfig 
+### func DecodeConfig
 
-``` go 
+```go
 func DecodeConfig(r io.Reader) (image.Config, error)
 ```
 
 DecodeConfig returns the color model and dimensions of a PNG image without decoding the entire image.
 
-### func Encode 
+​	DecodeConfig 返回 PNG 图像的颜色模型和尺寸，而无需解码整个图像。
 
-``` go 
+### func Encode
+
+```go
 func Encode(w io.Writer, m image.Image) error
 ```
 
 Encode writes the Image m to w in PNG format. Any Image may be encoded, but images that are not image.NRGBA might be encoded lossily.
 
+​	Encode 将图像 m 以 PNG 格式写入 w。可以对任何图像进行编码，但不是 image.NRGBA 的图像可能会以有损方式进行编码。
+
 #### Encode Example
-``` go 
+
+```go
 package main
 
 import (
@@ -139,15 +150,17 @@ Output:
 
 ## 类型
 
-### type CompressionLevel  <- go1.4
+### type CompressionLevel <- go1.4
 
-``` go 
+```go
 type CompressionLevel int
 ```
 
 CompressionLevel indicates the compression level.
 
-``` go 
+​	CompressionLevel 指示压缩级别。
+
+```go
 const (
 	DefaultCompression CompressionLevel = 0
 	NoCompression      CompressionLevel = -1
@@ -156,9 +169,9 @@ const (
 )
 ```
 
-### type Encoder  <- go1.4
+### type Encoder <- go1.4
 
-``` go 
+```go
 type Encoder struct {
 	CompressionLevel CompressionLevel
 
@@ -170,25 +183,31 @@ type Encoder struct {
 
 Encoder configures encoding PNG images.
 
-#### (*Encoder) Encode  <- go1.4
+​	Encoder 配置 PNG 图像的编码。
 
-``` go 
+#### (*Encoder) Encode <- go1.4
+
+```go
 func (enc *Encoder) Encode(w io.Writer, m image.Image) error
 ```
 
 Encode writes the Image m to w in PNG format.
 
-### type EncoderBuffer  <- go1.9
+​	Encode 将图像 m 以 PNG 格式写入 w。
 
-``` go 
+### type EncoderBuffer <- go1.9
+
+```go
 type EncoderBuffer encoder
 ```
 
 EncoderBuffer holds the buffers used for encoding PNG images.
 
-### type EncoderBufferPool  <- go1.9
+​	EncoderBuffer 保存用于编码 PNG 图像的缓冲区。
 
-``` go 
+### type EncoderBufferPool <- go1.9
+
+```go
 type EncoderBufferPool interface {
 	Get() *EncoderBuffer
 	Put(*EncoderBuffer)
@@ -197,27 +216,33 @@ type EncoderBufferPool interface {
 
 EncoderBufferPool is an interface for getting and returning temporary instances of the EncoderBuffer struct. This can be used to reuse buffers when encoding multiple images.
 
-### type FormatError 
+​	EncoderBufferPool 是一个用于获取和返回 EncoderBuffer 结构的临时实例的接口。这可用于在编码多张图像时重用缓冲区。
 
-``` go 
+### type FormatError
+
+```go
 type FormatError string
 ```
 
 A FormatError reports that the input is not a valid PNG.
 
-#### (FormatError) Error 
+​	FormatError 报告输入不是有效的 PNG。
 
-``` go 
+#### (FormatError) Error
+
+```go
 func (e FormatError) Error() string
 ```
 
-### type UnsupportedError 
+### type UnsupportedError
 
-``` go 
+```go
 type UnsupportedError string
 ```
 
 An UnsupportedError reports that the input uses a valid but unimplemented PNG feature.
+
+​	UnsupportedError 报告输入使用了有效但未实现的 PNG 功能。
 
 #### (UnsupportedError) Error 
 

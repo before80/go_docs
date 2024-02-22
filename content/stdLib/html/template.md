@@ -68,7 +68,7 @@ The security model used by this package assumes that template authors are truste
 
 示例
 
-```
+```go
 import "text/template"
 ...
 t, err := template.New("foo").Parse(`{{define "T"}}Hello, {{.}}!{{end}}`)
@@ -85,7 +85,7 @@ but the contextual autoescaping in html/template
 
 但是，在html/template的上下文自动转义中：
 
-```
+```go
 import "html/template"
 ...
 t, err := template.New("foo").Parse(`{{define "T"}}Hello, {{.}}!{{end}}`)
@@ -106,7 +106,7 @@ This package understands HTML, CSS, JavaScript, and URIs. It adds sanitizing fun
 
 ​	该包理解HTML、CSS、JavaScript和URI。它为每个简单操作管道添加了清理函数，因此在给定的摘录中
 
-```
+```html
 <a href="/search?q={{.}}">{{.}}</a>
 ```
 
@@ -114,7 +114,7 @@ At parse time each {{.}} is overwritten to add escaping functions as necessary. 
 
 ​	在解析时，每个{{.}}都会被覆盖以添加必要的转义函数。在这种情况下，它变成了
 
-```
+```html
 <a href="/search?q={{. | urlescaper | attrescaper}}">{{. | htmlescaper}}</a>
 ```
 
@@ -132,7 +132,7 @@ Attributes with a namespace are treated as if they had no namespace. Given the e
 
 ​	具有命名空间的属性被视为没有命名空间。给定摘录
 
-```
+```html
 <a my:href="{{.}}"></a>
 ```
 
@@ -140,7 +140,7 @@ At parse time the attribute will be treated as if it were just "href". So at par
 
 ​	在解析时，该属性将被视为只有 "href"。因此，在解析时，模板变为：
 
-```
+```html
 <a my:href="{{. | urlescaper | attrescaper}}"></a>
 ```
 
@@ -148,7 +148,7 @@ Similarly to attributes with namespaces, attributes with a "data-" prefix are tr
 
 ​	类似于带有命名空间的属性，具有 "data-" 前缀的属性被视为没有 "data-" 前缀。因此，给定
 
-```
+```html
 <a data-href="{{.}}"></a>
 ```
 
@@ -156,7 +156,7 @@ At parse time this becomes
 
 ​	在解析时，它变为
 
-```
+```html
 <a data-href="{{. | urlescaper | attrescaper}}"></a>
 ```
 
@@ -164,7 +164,7 @@ If an attribute has both a namespace and a "data-" prefix, only the namespace wi
 
 ​	如果一个属性既有命名空间又有 "data-" 前缀，在确定上下文时，只有命名空间将被移除。例如
 
-```
+```html
 <a my:data-href="{{.}}"></a>
 ```
 
@@ -180,7 +180,7 @@ As a special case, attributes with the namespace "xmlns" are always treated as c
 
 ​	作为特例，具有命名空间 "xmlns" 的属性始终被视为包含URL。给定摘录
 
-```
+```html
 <a xmlns:title="{{.}}"></a>
 <a xmlns:href="{{.}}"></a>
 <a xmlns:onclick="{{.}}"></a>
@@ -190,7 +190,7 @@ At parse time they become:
 
 ​	在解析时，它们变成：
 
-```
+```html
 <a xmlns:title="{{. | urlescaper | attrescaper}}"></a>
 <a xmlns:href="{{. | urlescaper | attrescaper}}"></a>
 <a xmlns:onclick="{{. | urlescaper | attrescaper}}"></a>
@@ -1130,6 +1130,8 @@ Names: Gamora, Groot, Nebula, Rocket, Star-Lord
 
 Here we demonstrate loading a set of templates from a directory.
 
+​	此处演示从目录加载一组模板。
+
 ``` go 
 package main
 
@@ -1202,6 +1204,8 @@ T0 invokes T1: (T1 invokes T2: (This is T2))
 #### Example (Helpers)
 
 This example demonstrates one way to share some templates and use them in different contexts. In this variant we add multiple driver templates by hand to an existing bundle of templates.
+
+​	此示例演示共享一些模板并在不同上下文中使用它们的一种方法。在此变体中，我们将多个驱动程序模板手动添加到现有模板包中。
 
 ``` go 
 package main
@@ -1288,6 +1292,8 @@ Driver 2 calls T2: (This is T2)
 #### Example (Parsefiles)
 
 Here we demonstrate loading a set of templates from files in different directories
+
+​	此处演示从不同目录中的文件加载一组模板
 
 ``` go 
 package main

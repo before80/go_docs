@@ -10,8 +10,9 @@ draft = false
 
 Package quotedprintable implements quoted-printable encoding as specified by [RFC 2045](https://rfc-editor.org/rfc/rfc2045.html).
 
+​	Package quotedprintable 实现 RFC 2045 中指定的 quoted-printable 编码。
 
-## 常量 
+## 常量
 
 This section is empty.
 
@@ -25,9 +26,9 @@ This section is empty.
 
 ## 类型
 
-### type Reader 
+### type Reader
 
-``` go 
+```go
 type Reader struct {
 	// contains filtered or unexported fields
 }
@@ -35,16 +36,21 @@ type Reader struct {
 
 Reader is a quoted-printable decoder.
 
-#### func NewReader 
+​	Reader 是一个 quoted-printable 解码器。
 
-``` go 
+#### func NewReader
+
+```go
 func NewReader(r io.Reader) *Reader
 ```
 
 NewReader returns a quoted-printable reader, decoding from r.
 
-##### NewReader Example
-``` go 
+​	NewReader 返回一个 quoted-printable 读取器，从 r 解码。
+
+##### NewReader Example 
+
+```go
 package main
 
 import (
@@ -71,17 +77,19 @@ invalid escape: <b style="font-size: 200%">hello</b> <nil>
 Hello, Gophers! This symbol will be unescaped: = and this will be written in one line. <nil>
 ```
 
-#### (*Reader) Read 
+#### (*Reader) Read
 
-``` go 
+```go
 func (r *Reader) Read(p []byte) (n int, err error)
 ```
 
 Read reads and decodes quoted-printable data from the underlying reader.
 
-### type Writer 
+​	Read 从底层读取器读取并解码 quoted-printable 数据。
 
-``` go 
+### type Writer
+
+```go
 type Writer struct {
 	// Binary mode treats the writer's input as pure binary and processes end of
 	// line bytes as binary data.
@@ -92,16 +100,21 @@ type Writer struct {
 
 A Writer is a quoted-printable writer that implements io.WriteCloser.
 
-#### func NewWriter 
+​	Writer 是一个实现 io.WriteCloser 的 quoted-printable 写入器。
 
-``` go 
+#### func NewWriter
+
+```go
 func NewWriter(w io.Writer) *Writer
 ```
 
 NewWriter returns a new Writer that writes to w.
 
+​	NewWriter 返回一个新的 Writer，写入 w。
+
 ##### NewWriter Example
-``` go 
+
+```go
 package main
 
 import (
@@ -120,18 +133,22 @@ Output:
 These symbols will be escaped: =3D =09
 ```
 
-#### (*Writer) Close 
+#### (*Writer) Close
 
-``` go 
+```go
 func (w *Writer) Close() error
 ```
 
 Close closes the Writer, flushing any unwritten data to the underlying io.Writer, but does not close the underlying io.Writer.
 
-#### (*Writer) Write 
+​	Close 关闭 Writer，将任何未写入的数据刷新到底层 io.Writer，但不关闭底层 io.Writer。
 
-``` go 
+#### (*Writer) Write
+
+```go
 func (w *Writer) Write(p []byte) (n int, err error)
 ```
 
 Write encodes p using quoted-printable encoding and writes it to the underlying io.Writer. It limits line length to 76 characters. The encoded bytes are not necessarily flushed until the Writer is closed.
+
+​	Write 使用 quoted-printable 编码对 p 进行编码，并将其写入底层 io.Writer。它将行长限制为 76 个字符。在关闭 Writer 之前，不会强制刷新已编码的字节。
