@@ -141,15 +141,15 @@ func (h LogHandler) ServeHTTP(
 }
 ```
 
-### Receivers and Interfaces 具有值接收者的方法可以调用指针和值。具有指针接收者的方法只能调用指针或可寻址值。
+### Receivers and Interfaces 
 
 Methods with value receivers can be called on pointers as well as values. Methods with pointer receivers can only be called on pointers or [addressable values](https://golang.org/ref/spec#Method_values).
 
-​	例如，
+​	具有值接收者的方法可以调用指针和值。具有指针接收者的方法只能调用指针或可寻址值。	
 
 For example,
 
-​	同样，即使方法具有值接收者，接口也可以由指针满足。
+​	例如，	
 
 ```go
 type S struct {
@@ -189,7 +189,7 @@ sPtrs[1].Write("test")
 
 Similarly, an interface can be satisfied by a pointer, even if the method has a value receiver.
 
-​	Effective Go 对指针与值进行了很好的撰写。
+​	同样，即使方法具有值接收者，接口也可以由指针满足。
 
 ```go
 type F interface {
@@ -220,9 +220,9 @@ i = s2Ptr
 
 Effective Go has a good write up on [Pointers vs. Values](https://golang.org/doc/effective_go.html#pointers_vs_values).
 
-​	零值互斥锁有效
+​	Effective Go 对指针与值进行了很好的撰写。	
 
-### Zero-value Mutexes are Valid
+### Zero-value Mutexes are Valid 零值互斥锁有效
 
 The zero-value of `sync.Mutex` and `sync.RWMutex` is valid, so you almost never need a pointer to a mutex.
 
