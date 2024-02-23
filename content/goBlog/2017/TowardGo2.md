@@ -1,5 +1,5 @@
 +++
-title = "迈向 go 2"
+title = "迈向 Go 2"
 weight = 7
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Toward Go 2 - 迈向 go 2
+# Toward Go 2 - 迈向 Go 2
 
 > 原文：[https://go.dev/blog/toward-go2](https://go.dev/blog/toward-go2)
 

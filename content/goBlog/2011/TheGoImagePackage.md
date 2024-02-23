@@ -1,5 +1,5 @@
 +++
-title = "go 的image包"
+title = "Go 的image包"
 weight = 11
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

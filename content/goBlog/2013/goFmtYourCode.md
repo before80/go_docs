@@ -1,5 +1,5 @@
 +++
-title = "go fmt 您的代码"
+title = "Go fmt 您的代码"
 weight = 18
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

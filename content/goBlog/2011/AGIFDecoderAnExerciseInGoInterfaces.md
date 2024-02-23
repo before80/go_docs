@@ -1,5 +1,5 @@
 +++
-title = "GIF解码器：go 接口的练习"
+title = "GIF解码器：Go 接口的练习"
 weight = 19
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# A GIF decoder: an exercise in Go interfaces - GIF解码器：go 接口的练习
+# A GIF decoder: an exercise in Go interfaces - GIF解码器：Go 接口的练习
 
 > 原文：[https://go.dev/blog/gif-decoder](https://go.dev/blog/gif-decoder)
 

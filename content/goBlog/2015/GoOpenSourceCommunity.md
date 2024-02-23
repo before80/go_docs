@@ -1,5 +1,5 @@
 +++
-title = "go, 开源, 社区"
+title = "Go, 开源, 社区"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go, Open Source, Community - go, 开源, 社区
+# Go, Open Source, Community - Go, 开源, 社区
 
 > 原文：[https://go.dev/blog/open-source](https://go.dev/blog/open-source)
 

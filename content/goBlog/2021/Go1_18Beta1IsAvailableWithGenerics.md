@@ -1,5 +1,5 @@
 +++
-title = "go 1.18 Beta 1已经推出，有泛型的功能"
+title = "Go 1.18 Beta 1已经推出，有泛型的功能"
 weight = 84
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

@@ -1,5 +1,5 @@
 +++
-title = "go 变得更加稳定"
+title = "Go 变得更加稳定"
 weight = 27
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

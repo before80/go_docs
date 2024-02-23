@@ -1,5 +1,5 @@
 +++
-title = "go 的 runtime: 4年之后"
+title = "Go 的 runtime: 4年之后"
 weight = 88
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

@@ -1,5 +1,5 @@
 +++
-title = "更新 go 行为准则"
+title = "更新 Go 行为准则"
 weight = 12
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

@@ -1,5 +1,5 @@
 +++
-title = "2018年 go 调查结果"
+title = "2018年 Go 调查结果"
 weight = 15
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

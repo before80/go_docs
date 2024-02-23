@@ -1,5 +1,5 @@
 +++
-title = "go获得了2010年Bossie奖"
+title = "Go获得了2010年Bossie奖"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Wins 2010 Bossie Award - go获得了2010年Bossie奖
+# Go Wins 2010 Bossie Award - Go获得了2010年Bossie奖
 
 > 原文：[https://go.dev/blog/bossie](https://go.dev/blog/bossie)
 

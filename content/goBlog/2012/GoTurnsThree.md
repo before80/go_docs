@@ -1,5 +1,5 @@
 +++
-title = "go 三周年"
+title = "Go 三周年"
 weight = 1
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

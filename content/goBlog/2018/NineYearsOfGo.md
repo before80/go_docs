@@ -1,5 +1,5 @@
 +++
-title = "go 9 岁了"
+title = "Go 9 岁了"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Nine years of Go - go 9 岁了
+# Nine years of Go - Go 9 岁了
 
 > 原文：[https://go.dev/blog/9years](https://go.dev/blog/9years)
 

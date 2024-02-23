@@ -1,5 +1,5 @@
 +++
-title = "go 13 岁了"
+title = "Go 13 岁了"
 weight = 87
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

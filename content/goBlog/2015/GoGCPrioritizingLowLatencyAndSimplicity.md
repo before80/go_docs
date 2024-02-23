@@ -1,5 +1,5 @@
 +++
-title = "go GC：优先考虑低延迟和简单性"
+title = "Go GC：优先考虑低延迟和简单性"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go GC: Prioritizing low latency and simplicity - go GC：优先考虑低延迟和简单性
+# Go GC: Prioritizing low latency and simplicity - Go GC：优先考虑低延迟和简单性
 
 > 原文：[https://go.dev/blog/go15gc](https://go.dev/blog/go15gc)
 

@@ -1,5 +1,5 @@
 +++
-title = "go 字体"
+title = "Go 字体"
 weight = 2
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go fonts - go 字体
+# Go fonts - Go 字体
 
 > 原文：[https://go.dev/blog/go-fonts](https://go.dev/blog/go-fonts)
 

@@ -1,5 +1,5 @@
 +++
-title = "go 1.9发布了"
+title = "Go 1.9发布了"
 weight = 4
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go 1.9 is released - go 1.9发布了
+# Go 1.9 is released - Go 1.9发布了
 
 > 原文：[https://go.dev/blog/go1.9](https://go.dev/blog/go1.9)
 

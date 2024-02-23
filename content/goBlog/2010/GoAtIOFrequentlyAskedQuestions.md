@@ -1,5 +1,5 @@
 +++
-title = "go 在 I/O 大会上：常见问题"
+title = "Go 在 I/O 大会上：常见问题"
 weight = 11
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

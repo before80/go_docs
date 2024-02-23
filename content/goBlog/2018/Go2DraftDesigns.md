@@ -1,5 +1,5 @@
 +++
-title = "go 2草案设计"
+title = "Go 2草案设计"
 weight = 8
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go 2 Draft Designs - go 2草案设计
+# Go 2 Draft Designs - Go 2草案设计
 
 > 原文：[https://go.dev/blog/go2draft](https://go.dev/blog/go2draft)
 

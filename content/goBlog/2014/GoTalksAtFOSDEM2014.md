@@ -1,5 +1,5 @@
 +++
-title = "2014年FOSDEM上的 go 讲座"
+title = "2014年FOSDEM上的 Go 讲座"
 weight = 14
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go talks at FOSDEM 2014 - 2014年FOSDEM上的 go 讲座
+# Go talks at FOSDEM 2014 - 2014年FOSDEM上的 Go 讲座
 
 > 原文：[https://go.dev/blog/fosdem14](https://go.dev/blog/fosdem14)
 

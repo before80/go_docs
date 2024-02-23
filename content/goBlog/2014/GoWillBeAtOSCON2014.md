@@ -1,5 +1,5 @@
 +++
-title = "go 将参加2014年OSCON展会"
+title = "Go 将参加2014年OSCON展会"
 weight = 9
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

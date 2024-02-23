@@ -1,5 +1,5 @@
 +++
-title = "了解 go 社区"
+title = "了解 Go 社区"
 weight = 1
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Getting to know the Go community - 了解 go 社区
+# Getting to know the Go community - 了解 Go 社区
 
 > 原文：[https://go.dev/blog/survey2011](https://go.dev/blog/survey2011)
 

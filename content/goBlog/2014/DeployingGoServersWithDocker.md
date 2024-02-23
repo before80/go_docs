@@ -1,5 +1,5 @@
 +++
-title = "用Docker部署 go 服务器"
+title = "用Docker部署 Go 服务器"
 weight = 5
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Deploying Go servers with Docker - 用Docker部署 go 服务器
+# Deploying Go servers with Docker - 用Docker部署 Go 服务器
 
 > 原文：[https://go.dev/blog/docker](https://go.dev/blog/docker)
 

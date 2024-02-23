@@ -1,5 +1,5 @@
 +++
-title = "go 的新品牌"
+title = "Go 的新品牌"
 weight = 13
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go's New Brand - go 的新品牌
+# Go's New Brand - Go 的新品牌
 
 > 原文：[https://go.dev/blog/go-brand](https://go.dev/blog/go-brand)
 

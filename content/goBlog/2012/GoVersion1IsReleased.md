@@ -1,5 +1,5 @@
 +++
-title = "go 第一版发布"
+title = "Go 第一版发布"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

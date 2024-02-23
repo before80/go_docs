@@ -1,5 +1,5 @@
 +++
-title = "go 的文本规范化"
+title = "Go 的文本规范化"
 weight = 4
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

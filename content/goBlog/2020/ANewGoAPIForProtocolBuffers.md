@@ -1,5 +1,5 @@
 +++
-title = "用于协议缓冲区的新 go API"
+title = "用于协议缓冲区的新 Go API"
 weight = 13
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

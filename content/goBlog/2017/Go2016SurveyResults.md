@@ -1,5 +1,5 @@
 +++
-title = "2016年 go 调查结果"
+title = "2016年 Go 调查结果"
 weight = 10
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go 2016 Survey Results - 2016年 go 调查结果
+# Go 2016 Survey Results - 2016年 Go 调查结果
 
 > 原文：[https://go.dev/blog/survey2016-results](https://go.dev/blog/survey2016-results)
 

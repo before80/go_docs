@@ -1,5 +1,5 @@
 +++
-title = "go 中的语言和地域匹配"
+title = "Go 中的语言和地域匹配"
 weight = 9
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Language and Locale Matching in Go - go 中的语言和地域匹配
+# Language and Locale Matching in Go - Go 中的语言和地域匹配
 
 > 原文：[https://go.dev/blog/matchlang](https://go.dev/blog/matchlang)
 

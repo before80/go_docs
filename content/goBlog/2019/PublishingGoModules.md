@@ -1,5 +1,5 @@
 +++
-title = "发布 go 模块"
+title = "发布 Go 模块"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

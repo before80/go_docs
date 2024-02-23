@@ -1,5 +1,5 @@
 +++
-title = "go 中的指令PATH安全"
+title = "Go 中的指令PATH安全"
 weight = 99
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

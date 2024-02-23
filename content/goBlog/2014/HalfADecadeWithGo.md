@@ -1,5 +1,5 @@
 +++
-title = "与 go 相处的5年"
+title = "与 Go 相处的5年"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Half a decade with Go - 与 go 相处的5年
+# Half a decade with Go - 与 Go 相处的5年
 
 > 原文：[https://go.dev/blog/5years](https://go.dev/blog/5years)
 

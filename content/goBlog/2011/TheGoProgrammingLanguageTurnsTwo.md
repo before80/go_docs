@@ -1,5 +1,5 @@
 +++
-title = "go 编程语言两岁了"
+title = "Go 编程语言两岁了"
 weight = 4
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

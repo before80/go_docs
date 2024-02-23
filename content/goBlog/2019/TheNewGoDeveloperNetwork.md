@@ -1,5 +1,5 @@
 +++
-title = "新的 go 开发者网络"
+title = "新的 Go 开发者网络"
 weight = 18
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

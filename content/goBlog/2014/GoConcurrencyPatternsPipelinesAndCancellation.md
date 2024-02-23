@@ -1,5 +1,5 @@
 +++
-title = "go 并发模式：Pipelines和取消"
+title = "Go 并发模式：Pipelines和取消"
 weight = 13
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

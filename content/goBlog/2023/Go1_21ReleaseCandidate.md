@@ -1,5 +1,5 @@
 +++
-title = "go1.21 候选版本"
+title = "Go 1.21 候选版本"
 date = 2023-07-12T20:42:31+08:00
 weight = 94
 type = "docs"
@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-# Go 1.21 Release Candidate - go1.21 候选版本
+# Go 1.21 Release Candidate - Go 1.21 候选版本
 
 > 原文：[https://go.dev/blog/go1.21rc](https://go.dev/blog/go1.21rc)
 >

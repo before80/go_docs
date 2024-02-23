@@ -1,5 +1,5 @@
 +++
-title = "参与2017年 go 用户调查"
+title = "参与2017年 Go 用户调查"
 weight = 1
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Participate in the 2017 Go User Survey - 参与2017年 go 用户调查
+# Participate in the 2017 Go User Survey - 参与2017年 Go 用户调查
 
 > 原文：[https://go.dev/blog/survey2017](https://go.dev/blog/survey2017)
 

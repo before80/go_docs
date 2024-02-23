@@ -1,5 +1,5 @@
 +++
-title = "go 中的可测试实例"
+title = "Go 中的可测试实例"
 weight = 9
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Testable Examples in Go - go 中的可测试实例
+# Testable Examples in Go - Go 中的可测试实例
 
 > 原文：[https://go.dev/blog/examples](https://go.dev/blog/examples)
 

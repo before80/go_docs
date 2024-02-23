@@ -1,5 +1,5 @@
 +++
-title = "go 云开发工具包的新内容"
+title = "Go 云开发工具包的新内容"
 weight = 19
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

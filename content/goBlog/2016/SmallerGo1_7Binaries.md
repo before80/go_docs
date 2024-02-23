@@ -1,5 +1,5 @@
 +++
-title = "更小的 go 1.7二进制文件"
+title = "更小的 Go 1.7二进制文件"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Smaller Go 1.7 binaries - 更小的 go 1.7二进制文件
+# Smaller Go 1.7 binaries - 更小的 Go 1.7二进制文件
 
 > 原文：[https://go.dev/blog/go1.7-binary-size](https://go.dev/blog/go1.7-binary-size)
 

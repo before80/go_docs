@@ -1,5 +1,5 @@
 +++
-title = "go: 一年前的今天"
+title = "Go: 一年前的今天"
 weight = 1
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go: one year ago today - go: 一年前的今天
+# Go: one year ago today - Go: 一年前的今天
 
 > 原文：[https://go.dev/blog/1year](https://go.dev/blog/1year)
 

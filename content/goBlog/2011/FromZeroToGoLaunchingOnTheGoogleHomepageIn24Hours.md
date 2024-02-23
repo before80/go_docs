@@ -1,5 +1,5 @@
 +++
-title = "从0到 go：24小时内在谷歌主页上发布"
+title = "从0到 Go：24小时内在谷歌主页上发布"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# From zero to Go: launching on the Google homepage in 24 hours - 从0到 go：24小时内在谷歌主页上发布
+# From zero to Go: launching on the Google homepage in 24 hours - 从0到 Go：24小时内在谷歌主页上发布
 
 > 原文：[https://go.dev/blog/turkey-doodle](https://go.dev/blog/turkey-doodle)
 

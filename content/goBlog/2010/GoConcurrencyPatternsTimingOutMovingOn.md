@@ -1,5 +1,5 @@
 +++
-title = "go 并发模式：超时和继续"
+title = "Go 并发模式：超时和继续"
 weight = 4
 date = 2023-05-18T17:03:08+08:00
 type = "docs"

@@ -1,5 +1,5 @@
 +++
-title = "go： 2010年3月有什么新动态"
+title = "Go： 2010年3月有什么新动态"
 weight = 16
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go: What's New in March 2010- go： 2010年3月有什么新动态
+# Go: What's New in March 2010- Go： 2010年3月有什么新动态
 
 > 原文：[https://go.dev/blog/hello-world](https://go.dev/blog/hello-world)
 
