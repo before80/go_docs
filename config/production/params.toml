@@ -1,3 +1,4 @@
 MyDefLastUrlEle = "/go_docs"
 # Enable Algolia DocSearch
-algolia_docsearch = true
+#algolia_docsearch = true
+search = "algolia"
