@@ -2,3 +2,7 @@ MyDefLastUrlEle = "/go_docs"
 # Enable Algolia DocSearch
 #algolia_docsearch = true
 search = "algolia"
+[search.algolia]
+appId = "DV76UK9EIH"
+apiKey = "227dec0ac6cbc8dfad748f27b2974507"
+indexName = "go-"
