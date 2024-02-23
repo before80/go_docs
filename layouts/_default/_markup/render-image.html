@@ -6,7 +6,7 @@
     />
 {{ else }}
     {{ $rel := .Destination | relURL }}
-    {{ $curDir := .Page.File | path.Dir }}
+    {{ $curDir := .Page.File.Dir }}
     {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle }}
     {{ if eq $MyDefLastUrlEle "" }}
         {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
