@@ -9,7 +9,7 @@
     {{ $curDir := .Page.File | path.Dir }}
     {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle}}
     {{ if eq $MyDefLastUrlEle "" }}
-    {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
+        {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
         {{ if eq $curDir "." }}
         <img src="..{{- $rel -}}"
              alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
