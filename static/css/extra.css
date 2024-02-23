@@ -1,3 +1,7 @@
+/*去除a链接的下划线*/
+a, a:-webkit-any-link {
+    text-decoration:none !important;
+}
 /* 设置滚动条的样式 */
 /* Webkit浏览器（Chrome、Safari等） */
 ::-webkit-scrollbar {

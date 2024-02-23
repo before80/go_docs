@@ -1,5 +1,5 @@
 +++
-title = "管道"
+title = "通道"
 weight = 93
 date = 2023-06-12T16:06:37+08:00
 type = "docs"
@@ -9,11 +9,11 @@ draft = false
 
 +++
 
-# 管道
+#通道
 
-## 会触发panic的管道操作
+## 会触发panic的通道操作
 
-### 关闭值为nil的管道
+### 关闭值为nil的通道
 
 ```go
 package main
@@ -35,7 +35,7 @@ func main() {
 
 
 
-### 关闭已被关闭的管道
+### 关闭已被关闭的通道
 
 ```go
 package main
@@ -64,7 +64,7 @@ func main() {
 
 
 
-### 向已关闭的管道写入数据
+### 向已关闭的通道写入数据
 
 ```go
 package main
@@ -86,7 +86,7 @@ func main() {
 	d := <-ch
 	fmt.Println(d) // 1
 	close(ch)
-	// 向已关闭的管道写入数据
+	// 向已关闭的通道写入数据
 	ch <- 2
 }
 
@@ -94,7 +94,7 @@ func main() {
 
 
 
-## 注意点：for ... range 带缓冲区管道
+## 注意点：for ... range 带缓冲区通道
 
 只能有一个迭代变量
 
@@ -136,7 +136,7 @@ func main() {
 
 
 
-## 注意点：for ... range 无缓冲区管道
+## 注意点：for ... range 无缓冲区通道
 
 只能有一个迭代变量
 

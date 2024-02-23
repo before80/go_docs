@@ -4,7 +4,13 @@ linkTitle = "Go中文档集"
 draft = false
 +++
 
-{{< blocks/cover title="欢迎来到 Go 中文档集" image_anchor="top" height="full" color="orange" >}}
+<style>
+	.navbar-dark .navbar-nav .nav-link {
+		color: rgb(224 238 223 / 75%) !important;
+	}
+</style>
+
+{{< blocks/cover title="欢迎来到 Go 中文档集" image_anchor="top" height="full" >}}
 <div class="mx-auto">
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< ref "/docs" >}}">
 		了解更多 <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -17,30 +23,22 @@ draft = false
 </div>
 {{< /blocks/cover >}}
 
-
 {{% blocks/lead color="primary" %}}
 该文档提供了Go 官方文档、Go 标准库、Go 官方博客、以及一些wiki类文章的中文翻译。目前还没有全部完善，但我想目前这些应该也能对您写 Go 代码有所帮助！
 {{% /blocks/lead %}}
 
-{{< blocks/section color="dark" >}}
-{{% blocks/feature icon="fa-lightbulb" title="Go 标准库的版本是go 1.21.3" url="https://before80.github.io/go_docs/stdLib/" %}}
-翻译从2023年2月底开始
+{{< blocks/section color="dark" type="row" >}}
 
+{{% blocks/feature icon="fa-lightbulb" title="Go 标准库的版本是go 1.21.3" url="https://before80.github.io/go_docs/stdLib/" %}} 翻译从2023年2月底开始
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fa-lightbulb" title="Go 官方文档的版本是go 1.19.3" url="https://before80.github.io/go_docs/docs/" %}}
-翻译从2022年11月初开始
+{{% blocks/feature icon="fa-lightbulb" title="Go 官方文档的版本是go 1.19.3" url="https://before80.github.io/go_docs/docs/" %}} 翻译从2022年11月初开始
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fa-lightbulb" title="完全收录Go 官方博客" url="https://before80.github.io/go_docs/goBlog/" %}}
-翻译从2022年12月初开始
+{{% blocks/feature icon="fa-lightbulb" title="完全收录Go 官方博客" url="https://before80.github.io/go_docs/goBlog/" %}} 翻译从2022年12月初开始
 {{% /blocks/feature %}}
-
 
 {{< /blocks/section >}}
-
 
 {{< blocks/section >}}
 <div class="col">
