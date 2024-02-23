@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Concurrency Patterns: Context - go 并发模式：Context
+# Go Concurrency Patterns: Context - Go 并发模式：Context
 
 > 原文：[https://go.dev/blog/context](https://go.dev/blog/context)
 

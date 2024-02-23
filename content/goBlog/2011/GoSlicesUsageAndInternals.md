@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Slices: usage and internals - go 切片：用法和内部机制
+# Go Slices: usage and internals - Go 切片：用法和内部机制
 
 > 原文：[https://go.dev/blog/slices-intro](https://go.dev/blog/slices-intro)
 

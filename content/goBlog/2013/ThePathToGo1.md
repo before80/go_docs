@@ -1,5 +1,5 @@
 +++
-title = "通往 go 1的道路"
+title = "通往 Go 1的道路"
 weight = 14
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# The path to Go 1 - 通往 go 1的道路
+# The path to Go 1 - 通往 Go 1的道路
 
 > 原文：[https://go.dev/blog/go1-path](https://go.dev/blog/go1-path)
 

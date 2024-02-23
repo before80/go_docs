@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go at I/O: Frequently Asked Questions - go 在 I/O 大会上：常见问题
+# Go at I/O: Frequently Asked Questions - Go 在 I/O 大会上：常见问题
 
 > 原文：[https://go.dev/blog/io2010-faq](https://go.dev/blog/io2010-faq)
 

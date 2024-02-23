@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go 1.2 is released - go 1.2发布了
+# Go 1.2 is released - Go 1.2发布了
 
 > 原文：[https://go.dev/blog/go12](https://go.dev/blog/go12)
 

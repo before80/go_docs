@@ -1,5 +1,5 @@
 +++
-title = "第一个 go 项目"
+title = "第一个 Go 项目"
 weight = 8
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# The first Go program - 第一个 go 项目
+# The first Go program - 第一个 Go 项目
 
 > 原文：[https://go.dev/blog/first-go-program](https://go.dev/blog/first-go-program)
 

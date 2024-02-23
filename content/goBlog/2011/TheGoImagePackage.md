@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# The Go image package - go 的image包
+# The Go image package - Go 的image包
 
 > 原文：[https://go.dev/blog/image](https://go.dev/blog/image)
 

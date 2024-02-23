@@ -1,5 +1,5 @@
 +++
-title = "用GNU调试器调试 go 程序"
+title = "用GNU调试器调试 Go 程序"
 weight = 6
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Debugging Go programs with the GNU Debugger - 用GNU调试器调试 go 程序
+# Debugging Go programs with the GNU Debugger - 用GNU调试器调试 Go 程序
 
 > 原文：[https://go.dev/blog/debug-gdb](https://go.dev/blog/debug-gdb)
 

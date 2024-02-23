@@ -1,5 +1,5 @@
 +++
-title = "聚焦外部 go 库"
+title = "聚焦外部 Go 库"
 weight = 18
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Spotlight on external Go libraries - 聚焦外部 go 库
+# Spotlight on external Go libraries - 聚焦外部 Go 库
 
 > 原文：[https://go.dev/blog/external-libraries](https://go.dev/blog/external-libraries)
 

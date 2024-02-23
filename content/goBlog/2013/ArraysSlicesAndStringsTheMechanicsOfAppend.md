@@ -877,7 +877,7 @@ We can also take a normal slice of bytes and create a string from it with the si
 str := string(slice)
 ```
 
-and go in the reverse direction as well:
+and Go in the reverse direction as well:
 
 并以相反的方向进行：
 

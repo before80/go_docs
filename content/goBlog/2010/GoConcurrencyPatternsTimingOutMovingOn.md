@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Concurrency Patterns: Timing out, moving on - go 并发模式：超时和继续
+# Go Concurrency Patterns: Timing out, moving on - Go 并发模式：超时和继续
 
 > 原文：[https://go.dev/blog/concurrency-timeouts](https://go.dev/blog/concurrency-timeouts)
 

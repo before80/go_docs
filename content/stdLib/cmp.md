@@ -77,4 +77,4 @@ Ordered is a constraint that permits any ordered type: any type that supports th
 
 Note that floating-point types may contain NaN ("not-a-number") values. An operator such as == or < will always report false when comparing a NaN value with any other value, NaN or not. See the [Compare](https://pkg.go.dev/cmp@go1.21.3#Compare) function for a consistent way to compare NaN values.
 
-​	请注意，浮点类型可能包含`NaN`（“非数字”）值。当将`NaN`值与其他值（`NaN`或非`NaN`）进行比较时，`==`或`<`等操作符将始终报告`false`。请使用[Compare](#compare)函数作为比较`NaN`值的一致方式。
+​	请注意，浮点类型可能包含`NaN`（“非数字”）值。当将`NaN`值与其他值（`NaN`或非`NaN`）进行比较时，`==`或`<`等操作符将始终报告`false`。请使用[Compare](#func-compare)函数作为比较`NaN`值的一致方式。

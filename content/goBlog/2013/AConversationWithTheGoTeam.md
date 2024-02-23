@@ -1,5 +1,5 @@
 +++
-title = "与 go 团队的对话"
+title = "与 Go 团队的对话"
 weight = 11
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# A conversation with the Go team - 与 go 团队的对话
+# A conversation with the Go team - 与 Go 团队的对话
 
 > 原文：[https://go.dev/blog/io2013-chat](https://go.dev/blog/io2013-chat)
 

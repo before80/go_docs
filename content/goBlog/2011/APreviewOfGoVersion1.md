@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# A preview of Go version 1 - go 的第一版的预览
+# A preview of Go version 1 - Go 的第一版的预览
 
 > 原文：[https://go.dev/blog/go1-preview](https://go.dev/blog/go1-preview)
 

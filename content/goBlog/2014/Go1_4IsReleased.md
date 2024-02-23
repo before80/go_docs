@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go 1.4 is released - go 1.4发布了
+# Go 1.4 is released - Go 1.4发布了
 
 > 原文：[https://go.dev/blog/go1.4](https://go.dev/blog/go1.4)
 

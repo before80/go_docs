@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# First Class Functions in Go - go 的一等函数
+# First Class Functions in Go - Go 的一等函数
 
 > 原文：[https://go.dev/blog/functions-codewalk](https://go.dev/blog/functions-codewalk)
 

@@ -1,5 +1,5 @@
 +++
-title = "调试 go 代码（状态报告）"
+title = "调试 Go 代码（状态报告）"
 weight = 2
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Debugging Go code (a status report) - 调试 go 代码（状态报告）
+# Debugging Go code (a status report) - 调试 Go 代码（状态报告）
 
 > 原文：[https://go.dev/blog/debug-status](https://go.dev/blog/debug-status)
 

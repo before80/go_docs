@@ -1,5 +1,5 @@
 +++
-title = "介绍 go Playground"
+title = "介绍 Go Playground"
 weight = 5
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Introducing the Go Playground - 介绍 go Playground
+# Introducing the Go Playground - 介绍 Go Playground
 
 > 原文：[https://go.dev/blog/playground-intro](https://go.dev/blog/playground-intro)
 

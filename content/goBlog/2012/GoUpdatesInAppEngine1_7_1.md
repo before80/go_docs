@@ -1,5 +1,5 @@
 +++
-title = "App Engine 1.7.1中的 go 更新"
+title = "App Engine 1.7.1中的 Go 更新"
 weight = 2
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go updates in App Engine 1.7.1  - App Engine 1.7.1中的 go 更新
+# Go updates in App Engine 1.7.1  - App Engine 1.7.1中的 Go 更新
 
 > 原文：[https://go.dev/blog/appengine-171](https://go.dev/blog/appengine-171)
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Four years of Go - go 四岁了
+# Four years of Go - Go 四岁了
 
 > 原文：[https://go.dev/blog/4years](https://go.dev/blog/4years)
 

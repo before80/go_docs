@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go becomes more stable - go 变得更加稳定
+# Go becomes more stable - Go 变得更加稳定
 
 > 原文：[https://go.dev/blog/stable-releases](https://go.dev/blog/stable-releases)
 

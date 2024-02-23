@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Text normalization in Go - go 的文本规范化
+# Text normalization in Go - Go 的文本规范化
 
 > 原文：[https://go.dev/blog/normalization](https://go.dev/blog/normalization)
 

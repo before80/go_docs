@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# The Go Programming Language turns two - go 编程语言两岁了
+# The Go Programming Language turns two - Go 编程语言两岁了
 
 > 原文：[https://go.dev/blog/2years](https://go.dev/blog/2years)
 

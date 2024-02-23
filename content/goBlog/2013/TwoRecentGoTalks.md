@@ -1,5 +1,5 @@
 +++
-title = "最近的两次 go 讲座"
+title = "最近的两次 Go 讲座"
 weight = 21
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Two recent Go talks - 最近的两次 go 讲座
+# Two recent Go talks - 最近的两次 Go 讲座
 
 > 原文：[https://go.dev/blog/two-recent-go-talks](https://go.dev/blog/two-recent-go-talks)
 

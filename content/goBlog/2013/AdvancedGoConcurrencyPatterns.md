@@ -1,5 +1,5 @@
 +++
-title = "高级 go 并发模式"
+title = "高级 Go 并发模式"
 weight = 12
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Advanced Go Concurrency Patterns - 高级 go 并发模式
+# Advanced Go Concurrency Patterns - 高级 Go 并发模式
 
 > 原文：[https://go.dev/blog/io2013-talk-concurrency](https://go.dev/blog/io2013-talk-concurrency)
 

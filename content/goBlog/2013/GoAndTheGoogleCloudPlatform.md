@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go and the Google Cloud Platform - go 和谷歌云平台
+# Go and the Google Cloud Platform - Go 和谷歌云平台
 
 > 原文：[https://go.dev/blog/io2013-talks-cloud](https://go.dev/blog/io2013-talks-cloud)
 

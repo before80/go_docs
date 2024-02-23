@@ -1,5 +1,5 @@
 +++
-title = "介绍 go 竞争检测器"
+title = "介绍 Go 竞争检测器"
 weight = 9
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Introducing the Go Race Detector - 介绍 go 竞争检测器
+# Introducing the Go Race Detector - 介绍 Go 竞争检测器
 
 > 原文：[https://go.dev/blog/race-detector](https://go.dev/blog/race-detector)
 

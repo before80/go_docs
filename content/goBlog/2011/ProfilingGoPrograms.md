@@ -1,5 +1,5 @@
 +++
-title = "分析 go  程序"
+title = "分析 Go  程序"
 weight = 17
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-# Profiling Go Programs - 分析 go  程序
+# Profiling Go Programs - 分析 Go  程序
 
 Russ Cox, July 2011; updated by Shenghou Ma, May 2013
 24 June 2011
@@ -29,7 +29,7 @@ Hundt’s paper does not specify which versions of the C++, Go, Java, and Scala 
 ​	Hundt的论文没有指定他使用的C++、Go、Java和Scala工具的版本。在这篇博文中，我们将使用最新的`6g` Go编译器的每周快照以及随Ubuntu Natty分发的`g++`版本。（我们不会使用Java或Scala，因为我们在这两种语言中都不擅长编写高效的程序，所以比较将是不公平的。由于C++在论文中是最快的语言，这里与C++的比较应该足够。）（更新：在这篇更新的博文中，我们将使用amd64架构上最新的Go编译器开发快照和最新的`g++`版本-4.8.0，该版本于2013年3月发布。）
 
 ```bash
-$ go version
+$ Go version
 go version devel +08d20469cc20 Tue Mar 26 08:27:18 2013 +0100 linux/amd64
 $ g++ --version
 g++ (GCC) 4.8.0

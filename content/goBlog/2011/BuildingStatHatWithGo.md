@@ -1,5 +1,5 @@
 +++
-title = "用 go 构建StatHat"
+title = "用 Go 构建StatHat"
 weight = 2
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Building StatHat with Go - 用 go 构建StatHat
+# Building StatHat with Go - 用 Go 构建StatHat
 
 > 原文：[https://go.dev/blog/stathat](https://go.dev/blog/stathat)
 

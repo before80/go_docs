@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go turns three - go 三周年
+# Go turns three - Go 三周年
 
 > 原文：[https://go.dev/blog/3years](https://go.dev/blog/3years)
 

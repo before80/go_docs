@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Strings, bytes, runes and characters in Go - go 中的字符串、字节、符文和字符
+# Strings, bytes, runes and characters in Go - Go 中的字符串、字节、符文和字符
 
 > 原文：[https://go.dev/blog/strings](https://go.dev/blog/strings)
 

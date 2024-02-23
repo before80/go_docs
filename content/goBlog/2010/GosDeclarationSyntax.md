@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go's Declaration Syntax - go 的声明语法
+# Go's Declaration Syntax - Go 的声明语法
 
 > 原文：[https://go.dev/blog/declaration-syntax](https://go.dev/blog/declaration-syntax)
 >

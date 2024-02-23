@@ -15,7 +15,7 @@ draft = false
 Ian Lance Taylor
 11 July 2012
 
-The Go language has always been defined by a [spec](https://go.dev/ref/spec), not an implementation. The Go team has written two different compilers that implement that spec: gc and gccgo. Having two different implementations helps ensure that the spec is complete and correct: when the compilers disagree, we fix the spec, and change one or both compilers accordingly. Gc is the original compiler, and the go tool uses it by default. Gccgo is a different implementation with a different focus, and in this post we’ll take a closer look at it.
+The Go language has always been defined by a [spec](https://go.dev/ref/spec), not an implementation. The Go team has written two different compilers that implement that spec: gc and gccgo. Having two different implementations helps ensure that the spec is complete and correct: when the compilers disagree, we fix the spec, and change one or both compilers accordingly. Gc is the original compiler, and the Go tool uses it by default. Gccgo is a different implementation with a different focus, and in this post we’ll take a closer look at it.
 
 Go语言一直是由一个规范来定义的，而不是一个实现。Go团队编写了两种不同的编译器来实现该规范：GCC和Gccgo。有两种不同的实现方式有助于确保规范的完整性和正确性：当编译器出现分歧时，我们会修正规范，并相应地改变一个或两个编译器。Gc是原始的编译器，go工具默认使用它。Gccgo是一个不同的实现，有不同的重点，在这篇文章中，我们将对它进行仔细研究。
 

@@ -1,5 +1,5 @@
 +++
-title = "组织 go 代码"
+title = "组织 Go 代码"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Organizing Go code - 组织 go 代码
+# Organizing Go code - 组织 Go 代码
 
 > 原文：[https://go.dev/blog/organizing-go-code](https://go.dev/blog/organizing-go-code)
 

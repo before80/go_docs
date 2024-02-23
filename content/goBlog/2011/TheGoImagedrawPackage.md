@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# The Go image/draw package - go 的image/draw包
+# The Go image/draw package - Go 的image/draw包
 
 > 原文：[https://go.dev/blog/image-draw](https://go.dev/blog/image-draw)
 

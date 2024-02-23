@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Concurrency Patterns: Pipelines and cancellation - go 并发模式：管道和取消
+# Go Concurrency Patterns: Pipelines and cancellation - Go 并发模式：管道和取消
 
 > 原文：[https://go.dev/blog/pipelines](https://go.dev/blog/pipelines)
 

@@ -1,5 +1,5 @@
 +++
-title = "Google I/O大会中的 go 编程会话视频"
+title = "Google I/O大会中的 Go 编程会话视频"
 weight = 10
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go Programming session video from Google I/O - Google I/O大会中的 go 编程会话视频
+# Go Programming session video from Google I/O - Google I/O大会中的 Go 编程会话视频
 
 > 原文：[https://go.dev/blog/io2010](https://go.dev/blog/io2010)
 

@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go version 1 is released - go 第一版发布
+# Go version 1 is released - Go 第一版发布
 
 > 原文：[https://go.dev/blog/go1](https://go.dev/blog/go1)
 
@@ -41,7 +41,7 @@ Go 1 introduces changes to the language (such as new types for [Unicode characte
 
 Go 1对语言（如Unicode字符和错误的新类型）和标准库（如新的时间包和strconv包的重命名）进行了修改。另外，包的层次结构也被重新安排，以便将相关的项目放在一起，例如将网络设施，例如rpc包，移到net的子目录中。完整的变化列表见 Go 1 发行说明。该文件是程序员从Go早期版本迁移代码的重要参考。
 
-We also restructured the Go tool suite around the new [go command](https://go.dev/doc/go1.html#cmd_go), a program for fetching, building, installing and maintaining Go code. The go command eliminates the need for Makefiles to write Go code because it uses the Go program source itself to derive the build instructions. No more build scripts!
+We also restructured the Go tool suite around the new [go command](https://go.dev/doc/go1.html#cmd_go), a program for fetching, building, installing and maintaining Go code. The Go command eliminates the need for Makefiles to write Go code because it uses the Go program source itself to derive the build instructions. No more build scripts!
 
 我们还围绕新的 go 命令重组了 Go 工具套件，这是一个用于获取、构建、安装和维护 Go 代码的程序。go命令消除了编写Go代码时对Makefile的需求，因为它使用Go程序源代码本身来获取构建指令。没有更多的构建脚本!
 

@@ -1,5 +1,5 @@
 +++
-title = "真正的 go 项目：SmartTwitter 和web.go"
+title = "真正的 Go 项目：SmartTwitter 和web.go"
 weight = 3
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Real Go Projects: SmartTwitter and web.go - 真正的 go 项目：SmartTwitter 和web.go
+# Real Go Projects: SmartTwitter and web.go - 真正的 Go 项目：SmartTwitter 和web.go
 
 > 原文：[https://go.dev/blog/smarttwitter](https://go.dev/blog/smarttwitter)
 

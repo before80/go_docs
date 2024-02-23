@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Go and Google App Engine - go 和 Google App Engine
+# Go and Google App Engine - Go 和 Google App Engine
 
 > 原文：[https://go.dev/blog/appengine](https://go.dev/blog/appengine)
 

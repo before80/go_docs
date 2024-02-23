@@ -1,5 +1,5 @@
 +++
-title = "去参加 go 聚会吧"
+title = "去参加 Go 聚会吧"
 weight = 16
 date = 2023-05-18T17:03:08+08:00
 type = "docs"
@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-# Get thee to a Go meetup - 去参加 go 聚会吧
+# Get thee to a Go meetup - 去参加 Go 聚会吧
 
 > 原文：[https://go.dev/blog/meetups](https://go.dev/blog/meetups)
 
