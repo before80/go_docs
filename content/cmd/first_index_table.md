@@ -10,13 +10,23 @@ draft = false
 
 > 原文：[https://go.dev/doc/cmd](https://go.dev/doc/cmd)
 
+There is a suite of programs to build and process Go source code. Instead of being run directly, programs in the suite are usually invoked by the [go](https://go.dev/cmd/go/) program.
+
 ​	有一套程序用于构建和处理 Go 源代码。这套程序通常由[go](../go)程序调用，而不是直接运行。
+
+The most common way to run these programs is as a subcommand of the go program, for instance as `go fmt`. Run like this, the command operates on complete packages of Go source code, with the go program invoking the underlying binary with arguments appropriate to package-level processing.
 
 ​	运行这些程序最常见的方式是作为 `go` 程序的一个子命令，例如 `go fmt`。以这种方式运行，该命令对完整的 Go 源代码包进行操作，`go` 使用适合于包级别处理的参数调用底层二进制文件。
 
+The programs can also be run as stand-alone binaries, with unmodified arguments, using the go `tool` subcommand, such as `go tool cgo`. For most commands this is mainly useful for debugging. Some of the commands, such as `pprof`, are accessible only through the go `tool` subcommand.
+
 ​	这些程序也可以作为独立的二进制文件运行，带有未做修改的参数，使用`go tool`子命令，如`go tool cgo`。对于大多数命令来说，主要用于调试。有些命令，如`pprof`，只能通过`go tool`子命令来访问。
 
+Finally the `fmt` and `godoc` commands are installed as regular binaries called `gofmt` and `godoc` because they are so often referenced.
+
 ​	最后，`fmt`和`godoc`命令被安装成常规的二进制文件，称为`gofmt`和`godoc`，因为它们经常被引用。
+
+Click on the links for more documentation, invocation methods, and usage details.
 
 ​	点击链接以获得更多的文档、调用方法和使用细节。
 

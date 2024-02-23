@@ -12,15 +12,21 @@ draft = false
 
 ### Overview 概述
 
+Link, typically invoked as “go tool link”, reads the Go archive or object for a package main, along with its dependencies, and combines them into an executable binary.
+
 ​	`link`，通常以 "`go tool link` "的形式调用，读取包 `main` 的 Go 存档或对象及其依赖项，并将它们组合成一个可执行的二进制文件。
 
 #### Command Line 命令行
+
+Usage:
 
 使用方法：
 
 ```
 go tool link [flags] main.a
 ```
+
+Flags:
 
 标志：
 

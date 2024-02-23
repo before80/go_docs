@@ -12,6 +12,8 @@ draft = false
 
 ### Overview
 
+Api computes the exported API of a set of Go packages.
+
 ​	`api`计算一组Go包的导出`API`。
 
 

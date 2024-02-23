@@ -12,13 +12,19 @@ draft = false
 
 ### Overview 概述
 
+Nm lists the symbols defined or used by an object file, archive, or executable.
+
 ​	`nm`列出对象文件、存案或可执行文件所定义或使用的符号。
+
+Usage:
 
 使用方法：
 
 ```
 go tool nm [options] file...
 ```
+
+The default output prints one line per symbol, with three space-separated fields giving the address (in hexadecimal), type (a character), and name of the symbol. The types are:
 
 ​	默认输出为每个符号打印一行，使用三个空格分隔的字段给出地址(十六进制)、类型（一个字符）和符号的名称。这些类型是：
 
@@ -54,7 +60,11 @@ U	referenced but undefined symbol
 	=> 被引用但未定义的符号
 ```
 
+Following established convention, the address is omitted for undefined symbols (type U).
+
 ​	按照既定惯例，未定义的符号（`U`类型）省略了地址。
+
+The options control the printed output:
 
 ​	以下这些选项（options ）控制打印输出：
 

@@ -14,7 +14,11 @@ draft = false
 
 Objdump disassembles executable files.
 
+​	objdump 反汇编可执行文件。
+
 Usage:
+
+​	用法：
 
 ```
 go tool objdump [-s symregexp] binary
@@ -22,13 +26,19 @@ go tool objdump [-s symregexp] binary
 
 Objdump prints a disassembly of all text symbols (code) in the binary. If the -s option is present, objdump only disassembles symbols with names matching the regular expression.
 
+​	objdump 打印二进制文件中所有文本符号（代码）的反汇编。如果存在 -s 选项，objdump 只反汇编名称与正则表达式匹配的符号。
+
 Alternate usage:
+
+​	其他用法：
 
 ```
 go tool objdump binary start end
 ```
 
 In this mode, objdump disassembles the binary starting at the start address and stopping at the end address. The start and end addresses are program counters written in hexadecimal with optional leading 0x prefix. In this mode, objdump prints a sequence of stanzas of the form:
+
+​	在此模式下，objdump 从起始地址开始反汇编二进制文件，并在结束地址停止。起始地址和结束地址是十六进制形式的程序计数器，前面可以加上可选的前缀 0x。在此模式下，objdump 打印一系列形式为：
 
 ```
 file:line
@@ -38,6 +48,8 @@ file:line
 ```
 
 Each stanza gives the disassembly for a contiguous range of addresses all mapped to the same original source file and line number. This mode is intended for use by pprof.
+
+​	每个节都给出连续地址范围的反汇编，所有地址都映射到相同的原始源文件和行号。此模式旨在供 pprof 使用。
 
 === "main.go"
 

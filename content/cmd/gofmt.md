@@ -14,13 +14,15 @@ draft = false
 
 Gofmt formats Go programs. It uses tabs for indentation and blanks for alignment. Alignment assumes that an editor is using a fixed-width font.
 
-Gofmt可以格式化Go程序。它使用制表符来缩进，使用空白来对齐。对齐的前提是编辑器使用固定宽度的字体。
+​	gofmt可以格式化Go程序。它使用制表符来缩进，使用空白来对齐。对齐的前提是编辑器使用固定宽度的字体。
 
-Without an explicit path, it processes the standard input. Given a file, it operates on that file; given a directory, it operates on all .go files in that directory, recursively. (Files starting with a period are ignored.) By default, gofmt prints the reformatted sources to standard output.
+Without an explicit path, it processes the standard input. Given a file, it operates on that file; given a directory, it operates on all `.go` files in that directory, recursively. (Files starting with a period are ignored.) By default, gofmt prints the reformatted sources to standard output.
 
-没有明确的路径，它处理标准输入。给定一个文件，它就对该文件进行操作；给定一个目录，它就对该目录中的所有.go文件进行递归操作。(以句号开头的文件被忽略。)默认情况下，gofmt将重新格式化的源文件打印到标准输出。
+​	没有明确的路径，它处理标准输入。给定一个文件，它就对该文件进行操作；给定一个目录，它就对该目录中的所有`.go`文件进行递归操作。(以句号开头的文件被忽略。)默认情况下，gofmt将重新格式化的源文件打印到标准输出。
 
-使用方法：
+Usage:
+
+​	使用方法：
 
 ```
 gofmt [flags] [path ...]
@@ -28,7 +30,7 @@ gofmt [flags] [path ...]
 
 The flags are:
 
-标志是：
+​	标志是：
 
 ```
 -d
@@ -69,7 +71,7 @@ The flags are:
 
 Debugging support:
 
-调试支持：
+​	调试支持：
 
 ```
 -cpuprofile filename
@@ -78,7 +80,7 @@ Debugging support:
 
 The rewrite rule specified with the -r flag must be a string of the form:
 
-用-r标志指定的重写规则必须是一个形式的字符串：
+​	用-r标志指定的重写规则必须是一个形式的字符串：
 
 ```
 pattern -> replacement
@@ -86,17 +88,17 @@ pattern -> replacement
 
 Both pattern and replacement must be valid Go expressions. In the pattern, single-character lowercase identifiers serve as wildcards matching arbitrary sub-expressions; those expressions will be substituted for the same identifiers in the replacement.
 
-pattern和replacement都必须是有效的Go表达式。在模式中，单字符小写标识符作为通配符匹配任意子表达式；这些表达式将被替换为替换中的相同标识符。
+​	pattern和replacement都必须是有效的Go表达式。在模式中，单字符小写标识符作为通配符匹配任意子表达式；这些表达式将被替换为替换中的相同标识符。
 
 When gofmt reads from standard input, it accepts either a full Go program or a program fragment. A program fragment must be a syntactically valid declaration list, statement list, or expression. When formatting such a fragment, gofmt preserves leading indentation as well as leading and trailing spaces, so that individual sections of a Go program can be formatted by piping them through gofmt.
 
-当gofmt从标准输入读取时，它接受一个完整的Go程序或程序片段。程序片段必须是一个语法上有效的声明列表、语句列表或表达式。当格式化这样的片段时，gofmt 会保留前导缩进以及前导和后导空格，因此 Go 程序的各个部分可以通过 gofmt 的管道来进行格式化。
+​	当gofmt从标准输入读取时，它接受一个完整的Go程序或程序片段。程序片段必须是一个语法上有效的声明列表、语句列表或表达式。当格式化这样的片段时，gofmt 会保留前导缩进以及前导和后导空格，因此 Go 程序的各个部分可以通过 gofmt 的管道来进行格式化。
 
 #### Examples  例子
 
 To check files for unnecessary parentheses:
 
-检查文件是否有不必要的括号：
+​	检查文件是否有不必要的括号：
 
 ```
 gofmt -r '(a) -> a' -l *.go
@@ -104,7 +106,7 @@ gofmt -r '(a) -> a' -l *.go
 
 To remove the parentheses:
 
-要删除括号：
+​	要删除括号：
 
 ```
 gofmt -r '(a) -> a' -w *.go
@@ -112,7 +114,7 @@ gofmt -r '(a) -> a' -w *.go
 
 To convert the package tree from explicit slice upper bounds to implicit ones:
 
-将包树从明确的片断上界转换为隐含的上界：
+​	将包树从明确的片断上界转换为隐含的上界：
 
 ```
 gofmt -r 'α[β:len(α)] -> α[β:]' -w $GOROOT/src
@@ -122,7 +124,7 @@ gofmt -r 'α[β:len(α)] -> α[β:]' -w $GOROOT/src
 
 When invoked with -s gofmt will make the following source transformations where possible.
 
-当与-s一起调用时，gofmt将尽可能地进行以下源转换。
+​	当与-s一起调用时，gofmt将尽可能地进行以下源转换。
 
 ```
 An array, slice, or map composite literal of the form:
@@ -148,11 +150,13 @@ will be simplified to:
 
 This may result in changes that are incompatible with earlier versions of Go.
 
-这可能会导致与Go早期版本不兼容的变化。
+​	这可能会导致与Go早期版本不兼容的变化。
 
 ### Notes  注意事项
 
 ### Bugs 
 
-- The implementation of -r is a bit slow.-r的实现有点慢。
-- If -w fails, the restored original file may not have some of the original file attributes.如果-w失败，恢复的原始文件可能没有一些原始文件的属性。
+- The implementation of -r is a bit slow.
+- -r的实现有点慢。
+- If -w fails, the restored original file may not have some of the original file attributes.
+- 如果-w失败，恢复的原始文件可能没有一些原始文件的属性。

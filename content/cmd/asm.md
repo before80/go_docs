@@ -12,19 +12,27 @@ draft = false
 
 ### Overview 概述
 
+Asm, typically invoked as “go tool asm”, assembles the source file into an object file named for the basename of the argument source file with a .o suffix. The object file can then be combined with other objects into a package archive.
+
 ​	`asm`，通常以 "`go tool asm` "调用，将源文件组装成一个对象文件，该文件以参数源文件的基本名称命名，并使用`.o`后缀。之后，该对象文件可以与其他对象组合成一个包存档。
 
 #### Command Line 命令行
 
-使用方法：
+Usage:
+
+​	用法：
 
 ```
 go tool asm [flags] file
 ```
 
+The specified file must be a Go assembly file. The same assembler is used for all target operating systems and architectures. The GOOS and GOARCH environment variables set the desired target.
+
 ​	指定的 `file` 必须是一个Go汇编文件。所有的目标操作系统和体系结构都使用同一个汇编器。`GOOS`和`GOARCH`环境变量设置所需的目标。
 
-标志：
+Flags:
+
+​	标志：
 
 ```
 -D name[=value]
@@ -88,13 +96,15 @@ go tool asm [flags] file
 
 Input language:
 
-输入语言：
+​	输入语言：
 
 The assembler uses mostly the same syntax for all architectures, the main variation having to do with addressing modes. Input is run through a simplified C preprocessor that implements #include, #define, #ifdef/endif, but not #if or ##.
 
 ​	汇编器对所有的架构都使用相同的语法，主要的变化是与寻址模式有关。输入是通过一个简化的C预处理器运行的，它实现了#include、#define、#ifdef/endif，但没有#if或##。
 
-​	更多信息请参见https://golang.org/doc/asm。
+For more information, see https://golang.org/doc/asm.
+
+​	更多信息请参见[Go 汇编器速成指南]({{< ref "/docs/AQuickGuideToGosAssembler">}})。
 
 
 

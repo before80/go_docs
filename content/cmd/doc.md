@@ -14,7 +14,11 @@ draft = false
 
 Doc (usually run as go doc) accepts zero, one or two arguments.
 
+​	doc（通常作为 go doc 运行）接受零个、一个或两个参数。
+
 Zero arguments:
+
+​	零个参数：
 
 ```
 go doc
@@ -22,7 +26,11 @@ go doc
 
 Show the documentation for the package in the current directory.
 
+​	显示当前目录中包的文档。 一个参数：
+
 One argument:
+
+​	此列表中第一个成功的项是打印其文档的项。如果存在符号但没有包，则选择当前目录中的包。但是，如果参数以大写字母开头，则始终假定它是当前目录中的符号。 两个参数：
 
 ```
 go doc <pkg>
@@ -33,7 +41,11 @@ go doc [<pkg>.][<sym>.]<methodOrField>
 
 The first item in this list that succeeds is the one whose documentation is printed. If there is a symbol but no package, the package in the current directory is chosen. However, if the argument begins with a capital letter it is always assumed to be a symbol in the current directory.
 
+​	显示包、符号以及方法或字段的文档。第一个参数必须是完整的包路径。这类似于 godoc 命令的命令行用法。
+
 Two arguments:
+
+​	对于命令，除非存在 -cmd 标志，否则“go doc command”仅显示包的包级文档。
 
 ```
 go doc <pkg> <sym>[.<methodOrField>]
@@ -41,9 +53,15 @@ go doc <pkg> <sym>[.<methodOrField>]
 
 Show the documentation for the package, symbol, and method or field. The first argument must be a full package path. This is similar to the command-line usage for the godoc command.
 
+​	-src 标志导致 doc 打印符号的完整源代码，例如结构、函数或方法的主体。
+
 For commands, unless the -cmd flag is present "go doc command" shows only the package-level docs for the package.
 
+​	-all 标志导致 doc 打印包及其所有可见符号的所有文档。参数必须标识一个包。
+
 The -src flag causes doc to print the full source code for the symbol, such as the body of a struct, function or method.
+
+​	有关完整文档，请运行“go help doc”。
 
 The -all flag causes doc to print all documentation for the package and all its visible symbols. The argument must identify a package.
 

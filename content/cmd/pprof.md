@@ -12,7 +12,11 @@ draft = false
 
 ### Overview 概述
 
-​	pprof 解释（interprets ）并显示（displays ）Go程序的配置文件。
+Pprof interprets and displays profiles of Go programs.
+
+​	pprof 解释（interprets ）并显示（displays ）Go程序的分析文件。
+
+Basic usage:
 
 ​	基本用法：
 
@@ -20,13 +24,17 @@ draft = false
 go tool pprof binary profile
 ```
 
-​	详细使用信息：
+For detailed usage information:
+
+​	有关详细用法信息：
 
 ```
 go tool pprof -h
 ```
 
-​	举个例子，见https://blog.golang.org/profiling-go-programs。
+For an example, see https://blog.golang.org/profiling-go-programs.
+
+​	举个例子，见[分析 Go 程序]({{< ref "/goBlog/2011/ProfilingGoPrograms">}})。
 
 === "pprof.go"
 

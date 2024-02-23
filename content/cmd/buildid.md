@@ -8,11 +8,17 @@ draft = false
 +++
 # buildid
 
+
+
 ### Overview
 
 Buildid displays or updates the build ID stored in a Go package or binary.
 
-Usage:
+​	buildid 显示或更新存储在 Go 包或二进制文件中的构建 ID。
+
+用法：
+
+​	Usage:
 
 ```
 go tool buildid [-w] file
@@ -20,9 +26,11 @@ go tool buildid [-w] file
 
 By default, buildid prints the build ID found in the named file. If the -w option is given, buildid rewrites the build ID found in the file to accurately record a content hash of the file.
 
+​	默认情况下，buildid 打印在指定文件中找到的构建 ID。如果给出了 -w 选项，buildid 会重写文件中找到的构建 ID，以准确记录文件的哈希值。
+
 This tool is only intended for use by the go command or other build systems.
 
-
+​	此工具仅供 go 命令或其他构建系统使用。
 
 === "buildid.go"
 

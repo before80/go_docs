@@ -12,15 +12,23 @@ draft = false
 
 ### Overview 概述
 
+Addr2line is a minimal simulation of the GNU addr2line tool, just enough to support pprof.
+
 ​	`addr2line`是对`GNU addr2line`工具的最小模拟，足以支持`pprof`。
 
-使用方法：
+Usage:
+
+​	用法：
 
 ```
 go tool addr2line binary
 ```
 
+Addr2line reads hexadecimal addresses, one per line and with optional 0x prefix, from standard input. For each input address, addr2line prints two output lines, first the name of the function containing the address and second the file:line of the source code corresponding to that address.
+
 ​	`addr2line`从标准输入中读取十六进制地址，每行一个，前缀为可选的`0x`。对于每个输入地址，`addr2line`打印两个输出行，首先是包含该地址的函数名称，其次是该地址对应的源代码的file:line。
+
+This tool is intended for use only by pprof; its interface may change or it may be deleted entirely in future releases.
 
 ​	这个工具仅用于`pprof`；它的接口可能会改变，或者在未来的版本中被完全删除。
 

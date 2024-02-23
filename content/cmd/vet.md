@@ -14,11 +14,11 @@ draft = false
 
 Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string. Vet uses heuristics that do not guarantee all reports are genuine problems, but it can find errors not caught by the compilers.
 
-Vet检查Go源代码并报告可疑的结构，例如参数与格式字符串不一致的Printf调用。Vet使用启发式方法，不能保证所有报告都是真正的问题，但它可以发现编译器没有发现的错误。
+​	vet检查Go源代码并报告可疑的结构，例如参数与格式字符串不一致的Printf调用。vet 使用启发式方法，不能保证所有报告都是真正的问题，但它可以发现编译器没有发现的错误。
 
 Vet is normally invoked through the go command. This command vets the package in the current directory:
 
-Vet通常是通过go命令调用的。该命令对当前目录下的软件包进行审查：
+​	vet通常是通过go命令调用的。该命令对当前目录下的软件包进行审查：
 
 ```
 go vet
@@ -34,55 +34,76 @@ go vet my/project/...
 
 Use "go help packages" to see other ways of specifying which packages to vet.
 
-使用 "go help packages "来查看其他指定审查软件包的方法。
+​	使用 "go help packages "来查看其他指定审查软件包的方法。
 
 Vet's exit code is non-zero for erroneous invocation of the tool or if a problem was reported, and 0 otherwise. Note that the tool does not check every possible problem and depends on unreliable heuristics, so it should be used as guidance only, not as a firm indicator of program correctness.
 
-Vet的退出代码在错误地调用工具或报告问题时为非零，否则为0。请注意，该工具并没有检查每一个可能的问题，而是依赖于不可靠的启发式方法，所以它应该只作为指导，而不是作为程序正确性的一个确定指标。
+​	vet的退出代码在错误地调用工具或报告问题时为非零，否则为0。请注意，该工具并没有检查每一个可能的问题，而是依赖于不可靠的启发式方法，所以它应该只作为指导，而不是作为程序正确性的一个确定指标。
 
 To list the available checks, run "go tool vet help":
 
-要列出可用的检查，请运行 "go tool vet help"：
+​	要列出可用的检查，请运行 "go tool vet help"：
 
 ```
 asmdecl      report mismatches between assembly files and Go declarations
+			 检查汇编文件与Go声明之间的不匹配情况			 
 assign       check for useless assignments
+			 检查无用的赋值操作	
 atomic       check for common mistakes using the sync/atomic package
+			 检查使用sync/atomic包时常见的错误
 bools        check for common mistakes involving boolean operators
+			 检查涉及布尔运算符的常见错误
 buildtag     check that +build tags are well-formed and correctly located
+			 检查+build标签是否格式良好且位置正确
 cgocall      detect some violations of the cgo pointer passing rules
+			 检测一些违反cgo指针传递规则的情况
 composites   check for unkeyed composite literals
+			 检查未键控的复合文字
 copylocks    check for locks erroneously passed by value
+			 检查错误地通过值传递锁的情况
 httpresponse check for mistakes using HTTP responses
+			 检查使用HTTP响应时的错误
 loopclosure  check references to loop variables from within nested functions
+			 检查从嵌套函数中引用循环变量的情况
 lostcancel   check cancel func returned by context.WithCancel is called
+			 检查是否调用了由context.WithCancel返回的cancel函数
 nilfunc      check for useless comparisons between functions and nil
+			 检查函数与nil之间无用的比较
 printf       check consistency of Printf format strings and arguments
+			 检查Printf格式字符串和实参的一致性
 shift        check for shifts that equal or exceed the width of the integer
+			 检查等于或超过整数宽度的位移操作
 stdmethods   check signature of methods of well-known interfaces
+			 检查已知接口方法的签名
 structtag    check that struct field tags conform to reflect.StructTag.Get
+			 检查结构字段标签是否符合reflect.StructTag.Get的规范
 tests        check for common mistaken usages of tests and examples
+			 检查测试和示例的常见错误用法
 unmarshal    report passing non-pointer or non-interface values to unmarshal
+			 报告将非指针或非接口值传递给unmarshal的情况
 unreachable  check for unreachable code
+			 检查不可到达的代码
 unsafeptr    check for invalid conversions of uintptr to unsafe.Pointer
+			 检查将uintptr无效转换为unsafe.Pointer的情况
 unusedresult check for unused results of calls to some functions
+			 检查对某些函数调用的未使用结果
 ```
 
 For details and flags of a particular check, such as printf, run "go tool vet help printf".
 
-要了解某个特定检查的细节和标志，例如printf，请运行 "go tool vet help printf"。
+​	要了解某个特定检查的细节和标志，例如printf，请运行 "go tool vet help printf"。
 
 By default, all checks are performed. If any flags are explicitly set to true, only those tests are run. Conversely, if any flag is explicitly set to false, only those tests are disabled. Thus -printf=true runs the printf check, and -printf=false runs all checks except the printf check.
 
-默认情况下，所有的检查都被执行。如果任何标志被明确地设置为 "true"，则只有这些测试被运行。反之，如果任何标志被明确设置为false，则只有这些测试被禁用。因此，-printf=true运行printf检查，而-printf=false运行除printf检查之外的所有检查。
+​	默认情况下，所有的检查都被执行。如果任何标志被明确地设置为 "true"，则只有这些测试被运行。反之，如果任何标志被明确设置为false，则只有这些测试被禁用。因此，-printf=true运行printf检查，而-printf=false运行除printf检查之外的所有检查。
 
 For information on writing a new check, see golang.org/x/tools/go/analysis.
 
-有关编写新检查的信息，请参见golang.org/x/tools/go/analysis。
+​	有关编写新检查的信息，请参见golang.org/x/tools/go/analysis。
 
 Core flags:
 
-核心标志：
+​	核心标志：
 
 ```
 -c=N

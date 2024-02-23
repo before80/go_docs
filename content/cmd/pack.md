@@ -12,6 +12,8 @@ draft = false
 
 ### Overview 概述
 
+Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go.
+
 ​	`pack`是传统`Unix ar`工具的一个简单版本。它只实现Go所需的操作。
 
 使用方法：
@@ -45,11 +47,19 @@ x	extract files from the archive
 	=> 从存档中提取文件
 ```
 
+The archive argument to the c command must be non-existent or a valid archive file, which will be cleared before adding new entries. It is an error if the file exists but is not an archive.
+
 ​	`c`命令的存档参数必须是不存在的，或者是一个有效的（在添加新条目之前会被清除的）存档文件。如果文件存在但不是归档文件，则会是一个错误。
+
+For the p, t, and x commands, listing no names on the command line causes the operation to apply to all files in the archive.
 
 ​	对于`p`、`t`和`x`命令，在命令行中不列出名称将导致操作应用于存档中的所有文件。
 
+In contrast to Unix ar, the r operation always appends to the archive, even if a file with the given name already exists in the archive. In this way pack's r operation is more like Unix ar's rq operation.
+
 ​	与`Unix ar`不同的是，`r`操作总是追加到归档文件中，即使归档文件中已经存在一个给定名称的文件。在这种情况下，`pack`的`r`操作更像`Unix ar`的`rq`操作。
+
+Adding the letter v to an operation, as in pv or rv, enables verbose operation: For the c and r commands, names are printed as files are added. For the p command, each file is prefixed by the name on a line by itself. For the t command, the listing includes additional file metadata. For the x command, names are printed as files are extracted.
 
 ​	在操作中添加字母`v`，如`pv`或`rv`，可以启用详细操作：
 
