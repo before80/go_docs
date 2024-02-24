@@ -1,39 +1,27 @@
-{{- $src := .Destination | safeURL -}}
-{{ if strings.HasPrefix $src "http" }}
-    <img src="{{ $src }}"
-         alt="{{ .Text }}"
-         {{ with .Title }} title="{{ . }}"{{ end }}
-    />
-{{ else }}
-    {{ $rel := .Destination | relURL }}
-    {{ $curDir := .Page.File.Dir }}
-    {{ $MyDefLastUrlEle := .Page.Site.Params.MyDefLastUrlEle }}
-    {{ if eq $MyDefLastUrlEle "" }}
-        {{/* 站点配置中 $MyDefLastUrlEle == "" 的情况 */}}
-        {{ if eq $curDir "." }}
-            <img src="..{{- $rel -}}"
-                 alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
-                 {{ with .Title }} title="{{ . }}"{{ end }}
-            />
-        {{ else }}
-            <img src="/{{- $curDir -}}{{- $rel -}}"
-                 alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rel="{{- $rel -}}" data-1my="{{ .Page.Site.Params.MyDefLastUrlEle }}"
-                 {{ with .Title }} title="{{ . }}"{{ end }}
-            />
-        {{ end }}
-    {{ else }}
-        {{/* 站点配置中 $MyDefLastUrlEle != "" 的情况 */}}
-        {{ $rg := strings.TrimPrefix $MyDefLastUrlEle $rel }}
-        {{ if eq $curDir "." }}
-        <img src="..{{- $rg -}}"
-             alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
-             {{ with .Title }} title="{{ . }}"{{ end }}
-        />
-        {{ else }}
-        <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}{{- $rg -}}"
-             alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rel="{{- $rel -}}" data-2my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
-             {{ with .Title }} title="{{ . }}"{{ end }}
-        />
-        {{ end }}
-    {{ end }}
-{{ end }}
+<!-- layouts/partials/render-image.html -->
+<!-- get image URL from Markdown tag -->
+{{- $src := (.Destination | safeURL) -}}
+{{ $src = replace $src "./" "" }}
+{{- $src = index ($fragments) 0 -}}
+<!-- get actual filename -->
+{{/*- $src = path.Base $src -*/}}
+<!-- check if it exists as a page resource -->
+{{- with (.Page.Resources.ByType "image").GetMatch (printf "**%s" $src) -}}
+{{- if strings.HasSuffix $src ".svg" -}}
+    {{ .Content | safeHTML }}
+{{- else -}}
+    {{ with $.Title }}<figure>{{ end }}
+    <img src="{{ $src.RelPermalink }}"
+         width="{{ $src.Width }}"
+         height="{{ $src.Height }}"
+         alt="{{ $.Text }}" {{ with $.Title }} title="{{ . }}" {{ end }}
+         loading="lazy" decoding="async" >
+    {{ with $.Title }}<figcaption>{{ . | markdownify }}</figcaption></figure>{{ end }}
+{{- end -}}
+<!-- or otherwise simply load the URL -->
+{{- else -}}
+    <img src="{{ .Destination | safeURL }}"
+         alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }}
+         {{ with index ($fragments ) 1 }}class="{{ . }}" {{ end }}
+         loading="lazy" decoding="async" data-src="external" >
+{{- end -}}
