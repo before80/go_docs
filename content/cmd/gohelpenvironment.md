@@ -74,13 +74,13 @@ The go command and the tools it invokes consult environment variables for config
 
 ​        Comma-separated list of glob patterns (in the syntax of Go's path.Match) of module path prefixes that should always be fetched in an insecure manner. Only applies to dependencies that are being fetched directly. GOINSECURE does not disable checksum database validation. GOPRIVATE or GONOSUMDB may be used to achieve that.
 
- 	以逗号分隔的模块路径前缀的 glob 模式列表（以 Go 的 path.Match 语法为准），始终以不安全的方式获取。仅适用于直接获取的依赖项。GOINSECURE 不会禁用校验和数据库验证。可以使用 GOPRIVATE 或 GONOSUMDB 来实现。
+​	以逗号分隔的模块路径前缀的 glob 模式列表（以 Go 的 path.Match 语法为准），始终以不安全的方式获取。仅适用于直接获取的依赖项。GOINSECURE 不会禁用校验和数据库验证。可以使用 GOPRIVATE 或 GONOSUMDB 来实现。
 
 ### GOOS
 
 ​        The operating system for which to compile code. Examples are linux, darwin, windows, netbsd.
 
- 	用于编译代码的操作系统。例如 linux、darwin、windows、netbsd。
+​	用于编译代码的操作系统。例如 linux、darwin、windows、netbsd。
 
 ### GOPATH
 
@@ -92,7 +92,7 @@ The go command and the tools it invokes consult environment variables for config
 
 ​        URL of Go module proxy. See https://golang.org/ref/mod#environment-variables and https://golang.org/ref/mod#module-proxy for details.
 
- 	Go 模块代理的 URL。请参见 https://golang.org/ref/mod#environment-variables 和 https://golang.org/ref/mod#module-proxy 了解详细信息。
+​	Go 模块代理的 URL。请参见 https://golang.org/ref/mod#environment-variables 和 https://golang.org/ref/mod#module-proxy 了解详细信息。
 
 ### GOPRIVATE, GONOPROXY, GONOSUMDB
 
@@ -128,7 +128,7 @@ The go command and the tools it invokes consult environment variables for config
 
 ​        Lists version control commands that may be used with matching servers. See 'go help vcs'.
 
- 	列出可用于与匹配服务器一起使用的版本控制命令。请参见 'go help vcs'。
+​	列出可用于与匹配服务器一起使用的版本控制命令。请参见 'go help vcs'。
 
 ### GOWORK
 
@@ -210,7 +210,7 @@ The go command and the tools it invokes consult environment variables for config
 
 ​        The command to use to compile Fortran code.
 
- 	用于编译 Fortran 代码的命令。
+​	用于编译 Fortran 代码的命令。
 
 ### PKG_CONFIG
 
@@ -340,7 +340,7 @@ Additional information available from 'go env' but not read from the environment
 
 ​        The absolute path to the go.mod of the main module.If module-aware mode is enabled, but there is no go.mod, GOMOD will be os.DevNull ("/dev/null" on Unix-like systems, "NUL" on Windows). If module-aware mode is disabled, GOMOD will be the empty string.
 
- 	主模块的 go.mod 的绝对路径。如果启用了模块感知模式，但没有 go.mod，则 GOMOD 将是 os.DevNull（在类 Unix 系统上为 "/dev/null"，在 Windows 上为 "NUL"）。如果禁用了模块感知模式，则 GOMOD 将为空字符串。
+​	主模块的 go.mod 的绝对路径。如果启用了模块感知模式，但没有 go.mod，则 GOMOD 将是 os.DevNull（在类 Unix 系统上为 "/dev/null"，在 Windows 上为 "NUL"）。如果禁用了模块感知模式，则 GOMOD 将为空字符串。
 
 ### GOTOOLDIR
 
