@@ -5,6 +5,7 @@ date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # Writing Web Applications - 编写 Web 应用程序
 
@@ -43,7 +44,7 @@ $ cd gowiki
 
 ​	创建一个名为`wiki.go`的文件，用您喜欢的编辑器打开它，并添加以下几行：
 
-```go linenums="1"
+```go 
 package main
 
 import (
@@ -58,7 +59,7 @@ import (
 
 ​	让我们从定义数据结构开始。一个`wiki`由一系列相互关联的页面组成，每个页面都有一个标题和一个主体（页面内容）。在这里，我们将`Page`定义为一个结构，有两个字段代表标题和正文。
 
-```go linenums="1"
+```go 
 type Page struct {
     Title string
     Body  []byte
@@ -69,7 +70,7 @@ type Page struct {
 
 ​	`Page`结构描述如何将page数据据存储在内存中。但是持久性存储怎么办呢？我们可以通过在`Page`上创建一个`save`方法来解决这个问题。
 
-```go linenums="1"
+```go 
 func (p *Page) save() error {
     filename := p.Title + ".txt"
     return os.WriteFile(filename, p.Body, 0600)
@@ -86,7 +87,7 @@ func (p *Page) save() error {
 
 ​	除了保存页面之外，我们也想加载页面：
 
-```go linenums="1"
+```go 
 func loadPage(title string) *Page {
     filename := title + ".txt"
     body, _ := os.ReadFile(filename)
@@ -100,7 +101,7 @@ func loadPage(title string) *Page {
 
 ​	但是如果`ReadFile`遇到了错误会怎样呢？例如，该文件可能不存在。我们不应该忽视这样的错误。让我们修改这个函数，以返回`*Page`和`error`。
 
-```go linenums="1"
+```go 
 func loadPage(title string) (*Page, error) {
     filename := title + ".txt"
     body, err := os.ReadFile(filename)
@@ -115,7 +116,7 @@ func loadPage(title string) (*Page, error) {
 
 ​	此时，我们有一个简单的数据结构，以及保存到文件和从文件加载的能力。让我们写一个`main`函数来测试我们所写的东西。
 
-```go linenums="1"
+```go 
 func main() {
     p1 := &Page{Title: "TestPage", Body: []byte("This is a sample Page.")}
     p1.save()
@@ -138,7 +139,7 @@ This is a sample Page.
 
 ​	我们到目前为止所写的代码如下：
 
-```go linenums="1" title="wiki.go"
+```go  title="wiki.go"
 // Copyright 2010 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -183,7 +184,7 @@ func main() {
 
 下面是一个简单的Web服务器的完整工作实例：
 
-```go linenums="1"
+```go 
 //go:build ignore
 
 package main
@@ -232,7 +233,7 @@ Hi there, I love monkeys!
 
 要使用 `net/http` 包，必须导入它：
 
-```go linenums="1"
+```go 
 import (
     "fmt"
     "os"
@@ -243,7 +244,7 @@ import (
 
 ​	让我们创建一个处理程序，`viewHandler`，它将允许用户查看一个`wiki`页面。它将处理以 "`/view/`" 为前缀的 URL。
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/view/"):]
     p, _ := loadPage(title)
@@ -259,7 +260,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	为了使用这个处理程序，我们重写我们的`main`函数，使用`viewHandler`初始化`http`，以处理路径`/view/`下的任何请求。
 
-```go linenums="1"
+```go 
 func main() {
     http.HandleFunc("/view/", viewHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
@@ -268,7 +269,7 @@ func main() {
 
 ​	我们到目前为止所写的代码如下：
 
-```go linenums="1" title="wiki.go"
+```go  title="wiki.go"
 // Copyright 2010 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -339,7 +340,7 @@ $ ./wiki
 
 ​	首先，我们把它们添加到`main()`中。
 
-```go linenums="1"
+```go 
 func main() {
     http.HandleFunc("/view/", viewHandler)
     http.HandleFunc("/edit/", editHandler)
@@ -350,7 +351,7 @@ func main() {
 
 ​	函数 `editHandler` 加载页面（如果它不存在，则创建一个空的 `Page` 结构），并显示一个 HTML 表单。
 
-```go linenums="1"
+```go 
 func editHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/edit/"):]
     p, err := loadPage(title)
@@ -374,7 +375,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	首先，我们必须将 `html/template` 添加到导入列表中。我们也不会再使用 `fmt`，所以我们必须删除它。
 
-```go linenums="1"
+```go 
 import (
     "html/template"
     "os"
@@ -395,7 +396,7 @@ import (
 
 修改 `editHandler` 以使用模板，而不是硬编码的 HTML：
 
-```go linenums="1" hl_lines="7 8"
+```go
 func editHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/edit/"):]
     p, err := loadPage(title)
@@ -423,9 +424,9 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 <div>{{printf "%s" .Body}}</div>
 ```
 
-对`viewHandler`进行相应的修改：
+​	对`viewHandler`进行相应的修改：
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/view/"):]
     p, _ := loadPage(title)
@@ -436,16 +437,16 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	请注意，我们在两个处理程序中使用了几乎完全相同的模板代码。让我们通过把模板代码移到自己的函数中来消除这种重复。
 
-```go linenums="1"
+```go
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
     t, _ := template.ParseFiles(tmpl + ".html")
     t.Execute(w, p)
 }
 ```
 
-并修改处理程序以使用该函数：
+​	并修改处理程序以使用该函数：
 
-```go linenums="1" hl_lines="4 4"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/view/"):]
     p, _ := loadPage(title)
@@ -453,7 +454,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-```go linenums="1" hl_lines="7 7"
+```go
 func editHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/edit/"):]
     p, err := loadPage(title)
@@ -468,107 +469,117 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	我们到目前为止所写的代码如下：
 
-=== "wiki.go"
+{{< tabpane text=true >}}
 
-    ```go linenums="1" title="wiki.go"
-    // Copyright 2010 The Go Authors. All rights reserved.
-    // Use of this source code is governed by a BSD-style
-    // license that can be found in the LICENSE file.
-    
-    //go:build ignore
-    
-    package main
-    
-    import (
-        "html/template"
-        "log"
-        "net/http"
-        "os"
-    )
-    
-    type Page struct {
-        Title string
-        Body  []byte
+{{< tab header="wiki.go" >}}
+
+```go
+// Copyright 2010 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+//go:build ignore
+
+package main
+
+import (
+    "html/template"
+    "log"
+    "net/http"
+    "os"
+)
+
+type Page struct {
+    Title string
+    Body  []byte
+}
+
+func (p *Page) save() error {
+    filename := p.Title + ".txt"
+    return os.WriteFile(filename, p.Body, 0600)
+}
+
+func loadPage(title string) (*Page, error) {
+    filename := title + ".txt"
+    body, err := os.ReadFile(filename)
+    if err != nil {
+        return nil, err
     }
-    
-    func (p *Page) save() error {
-        filename := p.Title + ".txt"
-        return os.WriteFile(filename, p.Body, 0600)
+    return &Page{Title: title, Body: body}, nil
+}
+
+func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+    t, _ := template.ParseFiles(tmpl + ".html")
+    t.Execute(w, p)
+}
+
+func viewHandler(w http.ResponseWriter, r *http.Request) {
+    title := r.URL.Path[len("/view/"):]
+    p, _ := loadPage(title)
+    renderTemplate(w, "view", p)
+}
+
+func editHandler(w http.ResponseWriter, r *http.Request) {
+    title := r.URL.Path[len("/edit/"):]
+    p, err := loadPage(title)
+    if err != nil {
+        p = &Page{Title: title}
     }
-    
-    func loadPage(title string) (*Page, error) {
-        filename := title + ".txt"
-        body, err := os.ReadFile(filename)
-        if err != nil {
-            return nil, err
-        }
-        return &Page{Title: title, Body: body}, nil
-    }
-    
-    func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-        t, _ := template.ParseFiles(tmpl + ".html")
-        t.Execute(w, p)
-    }
-    
-    func viewHandler(w http.ResponseWriter, r *http.Request) {
-        title := r.URL.Path[len("/view/"):]
-        p, _ := loadPage(title)
-        renderTemplate(w, "view", p)
-    }
-    
-    func editHandler(w http.ResponseWriter, r *http.Request) {
-        title := r.URL.Path[len("/edit/"):]
-        p, err := loadPage(title)
-        if err != nil {
-            p = &Page{Title: title}
-        }
-        renderTemplate(w, "edit", p)
-    }
-    
-    func main() {
-        http.HandleFunc("/view/", viewHandler)
-        http.HandleFunc("/edit/", editHandler)
-        //http.HandleFunc("/save/", saveHandler)
-        log.Fatal(http.ListenAndServe(":8080", nil))
-    }
-    ```
+    renderTemplate(w, "edit", p)
+}
 
-=== "view.html"
+func main() {
+    http.HandleFunc("/view/", viewHandler)
+    http.HandleFunc("/edit/", editHandler)
+    //http.HandleFunc("/save/", saveHandler)
+    log.Fatal(http.ListenAndServe(":8080", nil))
+}
+```
 
-    ```html linenums="1"
-    <h1>{{.Title}}</h1>
-    
-    <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
-    
-    <div>{{printf "%s" .Body}}</div>
-    ```
+{{< /tab  >}}
 
-=== "edit.html"
+{{< tab header="view.html" >}}
 
-    ```html linenums="1"
-    <h1>Editing {{.Title}}</h1>
-    
-    <form action="/save/{{.Title}}" method="POST">
-    <div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
-    <div><input type="submit" value="Save"></div>
-    </form>
-    ```
+```go
+<h1>{{.Title}}</h1>
 
-=== "test.txt"
+<p>[<a href="/edit/{{.Title}}">edit</a>]</p>
 
-    ```text linenums="1"
-    Hello world
-    ```
+<div>{{printf "%s" .Body}}</div>
+```
 
+{{< /tab  >}}
 
+{{< tab header="edit.html" >}}
+
+```go
+<h1>Editing {{.Title}}</h1>
+
+<form action="/save/{{.Title}}" method="POST">
+<div><textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea></div>
+<div><input type="submit" value="Save"></div>
+</form>
+```
+
+{{< /tab  >}}
+
+{{< tab header="test.txt" >}}
+
+```go
+Hello world
+```
+
+{{< /tab  >}}
+
+{{< /tabpane >}}
 
 ## 处理不存在的页面
 
 What if you visit [`/view/APageThatDoesntExist`](http://localhost:8080/view/APageThatDoesntExist)? You'll see a page containing HTML. This is because it ignores the error return value from `loadPage` and continues to try and fill out the template with no data. Instead, if the requested Page doesn't exist, it should redirect the client to the edit Page so the content may be created:
 
-​	如果您访问`/view/APageThatDoesntExist`怎么办？您会看到一个包含HTML的页面。这是因为它忽略了`loadPage`的错误返回值，并继续尝试在没有数据的情况下填充模板。相反，如果请求的页面不存在，它应该把客户端重定向到编辑页面，这样就可以创建内容了：
+​	如果您访问[`/view/APageThatDoesntExist`](http://localhost:8080/view/APageThatDoesntExist)怎么办？您会看到一个包含HTML的页面。这是因为它忽略了`loadPage`的错误返回值，并继续尝试在没有数据的情况下填充模板。相反，如果请求的页面不存在，它应该把客户端重定向到编辑页面，这样就可以创建内容了：
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/view/"):]
     p, err := loadPage(title)
@@ -586,7 +597,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	函数`saveHandler`将处理位于编辑页上的表单的提交。在取消对`main`中相关行的注释后，让我们来实现这个处理程序：
 
-```go linenums="1" hl_lines="3 4"
+```go
 func saveHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/save/"):]
     body := r.FormValue("body")
@@ -606,7 +617,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 首先，让我们在`renderTemplate`中处理这些错误：
 
-```go linenums="1" hl_lines="3 6"
+```go
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
     t, err := template.ParseFiles(tmpl + ".html")
     if err != nil {
@@ -624,7 +635,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 现在让我们来修复`saveHandler`：
 
-```go linenums="1" hl_lines="6 9"
+```go
 func saveHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/save/"):]
     body := r.FormValue("body")
@@ -646,7 +657,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 首先我们创建一个名为`templates`的全局变量，并用`ParseFiles`初始化它。
 
-```go linenums="1"
+```go 
 var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
 ```
 
@@ -656,7 +667,7 @@ var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
 
 ​	然后我们修改`renderTemplate`函数，用适当的模板名称调用`templates.ExecuteTemplate`方法：
 
-```go linenums="1" hl_lines="2 2"
+```go
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
     err := templates.ExecuteTemplate(w, tmpl+".html", p)
     if err != nil {
@@ -673,7 +684,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 ​	首先，将 `"regexp"`添加到`import`列表中。然后我们可以创建一个全局变量来存储我们的验证表达式：
 
-```go linenums="1"
+```go 
 var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 ```
 
@@ -681,7 +692,7 @@ var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 
 ​	现在，让我们写一个函数，使用`validPath`表达式来验证路径并提取页面标题：
 
-```go linenums="1" hl_lines="2 2"
+```go
 func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
     m := validPath.FindStringSubmatch(r.URL.Path)
     if m == nil {
@@ -696,7 +707,7 @@ func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
 
 让我们在每个处理程序中调用`getTitle`：
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
     title, err := getTitle(w, r)
     if err != nil {
@@ -742,7 +753,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 首先，我们重写每个处理程序的函数定义，接收一个标题字符串：
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string)
 func editHandler(w http.ResponseWriter, r *http.Request, title string)
 func saveHandler(w http.ResponseWriter, r *http.Request, title string)
@@ -750,7 +761,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string)
 
 ​	现在让我们定义一个包装函数，它接收一个上述类型的函数，并返回一个`http.HandlerFunc`类型的函数（适合传递给函数`http.HandleFunc`）：
 
-```go linenums="1"
+```go 
 func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         // Here we will extract the page title from the Request,
@@ -763,7 +774,7 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 
 ​	现在我们可以从`getTitle`中提取代码，并在这里使用它（做一些小修改）：
 
-```go linenums="1"
+```go 
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         m := validPath.FindStringSubmatch(r.URL.Path)
@@ -780,7 +791,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 ​	现在我们可以用`main`中的`makeHandler`来包装处理函数，然后再将它们注册到`http`包中：
 
-```go linenums="1"
+```go 
 func main() {
     http.HandleFunc("/view/", makeHandler(viewHandler))
     http.HandleFunc("/edit/", makeHandler(editHandler))
@@ -792,7 +803,7 @@ func main() {
 
 ​	最后，我们从处理函数中删除了对 `getTitle` 的调用，使它们变得更加简单：
 
-```go linenums="1"
+```go 
 func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
     p, err := loadPage(title)
     if err != nil {
@@ -827,7 +838,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 {{< tabpane text=true >}}
 {{< tab header="wiki.go" >}}
 
-```go linenums="1" title="wiki.go"
+```go  title="wiki.go"
 // Copyright 2010 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
