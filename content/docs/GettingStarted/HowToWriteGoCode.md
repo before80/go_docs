@@ -1,5 +1,5 @@
 +++
-title = "如何编写 go 代码"
+title = "如何编写 Go 代码"
 weight = 14
 date = 2023-05-18T16:35:08+08:00
 description = ""

@@ -1,10 +1,11 @@
 +++
-title = "下载并安装go"
+title = "下载并安装 Go"
 weight = 1
 date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
 # Download and install 下载并安装
 

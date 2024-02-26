@@ -1,12 +1,12 @@
 +++
-title = "从源码安装go"
+title = "从源码安装 Go"
 weight = 3
 date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
 +++
-# Installing Go from source - 从源码安装Go
+# Installing Go from source - 从源码安装 Go
 
 > 原文：[https://go.dev/doc/install/source](https://go.dev/doc/install/source)
 

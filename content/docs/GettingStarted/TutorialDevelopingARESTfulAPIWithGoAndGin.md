@@ -1,12 +1,13 @@
 +++
-title = "教程：用go和Gin开发一个RESTful API"
+title = "教程：用 Go 和Gin开发一个RESTful API"
 weight = 10
 date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# Tutorial: Developing a RESTful API with Go and Gin - 教程：用Go和Gin开发一个RESTful API
+# Tutorial: Developing a RESTful API with Go and Gin - 教程：用 Go 和Gin开发一个RESTful API
 
 > 原文：[https://go.dev/doc/tutorial/web-service-gin](https://go.dev/doc/tutorial/web-service-gin)
 
@@ -309,7 +310,7 @@ func postAlbums(c *gin.Context) {
 
 - 使用[Context.BindJSON]({{< ref "/thirdPkg/gin/gin#context-bindjson">}})将请求主体绑定到`newAlbum`。
 
-- 将从JSON中初始化的`album`结构追加到`album`切片中。
+- 将从JSON中初始化的`album`结构追加到`albums`切片中。
 
 - 在响应中添加一个`201`状态码，以及表示您添加的专辑的JSON。
 
@@ -497,9 +498,9 @@ $ curl http://localhost:8080/albums/2
 
 建议的下一个主题：
 
-- 如果您是Go的新手，您会在[Effective Go]({{< ref "/docs/UsingAndUnderstandingGo/EffectiveGo">}})和[如何编写 go 代码](../HowToWriteGoCode)中找到有用的最佳实践。
+- 如果您是Go的新手，您会在[Effective Go]({{< ref "/docs/UsingAndUnderstandingGo/EffectiveGo">}})和[如何编写 Go 代码](../HowToWriteGoCode)中找到有用的最佳实践。
 - [go Tour]({{< ref "/docs/GoTour">}})是对Go基础知识的一个很好的循序渐进的介绍。
-- 关于Gin的更多信息，请参见[Gin Web Framework package documentation]({{ ref "/thirdPkg/gin/gin"}})或[Gin Web Framework docs](https://gin-gonic.com/docs/)。
+- 关于Gin的更多信息，请参见[Gin Web Framework package documentation]({{< ref "/thirdPkg/gin/gin">}})或[Gin Web Framework docs](https://gin-gonic.com/docs/)。
 
 ## 完整的代码 
 

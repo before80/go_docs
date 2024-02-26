@@ -1,12 +1,13 @@
 +++
-title = "如何编写go代码（使用GOPATH）"
+title = "如何编写 Go 代码（使用GOPATH）"
 weight = 15
 date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# How to Write Go Code (with GOPATH) - 如何编写Go代码（使用GOPATH）
+# How to Write Go Code (with GOPATH) - 如何编写 Go 代码（使用GOPATH）
 
 > 原文：[https://go.dev/doc/gopath_code](https://go.dev/doc/gopath_code)
 

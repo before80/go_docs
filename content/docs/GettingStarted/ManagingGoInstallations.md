@@ -1,5 +1,5 @@
 +++
-title = "管理 go 安装"
+title = "管理 Go 安装"
 weight = 2
 date = 2023-05-18T16:35:08+08:00
 description = ""

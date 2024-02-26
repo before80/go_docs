@@ -326,9 +326,9 @@ FAIL    example/fuzz  0.016s
 
 首先，考虑[utf8.ValidString]({{< ref "/stdLib/unicode/utf8#func-validstring">}})的文档。
 
-```
-ValidString reports whether s consists entirely of valid UTF-8-encoded runes. `ValidString`报告s是否完全由有效的utf -8编码的符文组成。
-```
+ValidString reports whether s consists entirely of valid UTF-8-encoded runes. 
+
+​	`ValidString`报告s是否完全由有效的utf -8编码的符文组成。
 
 ​	目前的`Reverse`函数是`逐个字节地 （byte-by-byte）`反转字符串，这就是我们的问题所在。为了保留原始字符串的UTF-8编码的符文，我们必须`逐个符文地（rune-by-rune）`反转字符串。
 
@@ -613,7 +613,7 @@ ok      example/fuzz  31.025s
 
 Fuzzing通过了!
 
-除了`-fuzz`标志外，还有几个新的标志被添加到`go test`中，可以在[文档](../../UsingAndUnderstandingGo/Fuzzing#自定义设置-custom-settings)中查看。
+​	除了`-fuzz`标志外，还有几个新的标志被添加到`go test`中，可以在[文档](../../UsingAndUnderstandingGo/Fuzzing#自定义设置-custom-settings)中查看。
 
 ## 总结
 

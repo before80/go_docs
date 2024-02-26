@@ -1,12 +1,13 @@
 +++
-title = "教程：开始使用go"
+title = "教程：开始使用 Go"
 weight = 6
 date = 2023-05-18T16:35:08+08:00
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-# Tutorial: Get started with Go - 教程：开始使用Go
+# Tutorial: Get started with Go - 教程：开始使用 Go
 
 > 原文：[https://go.dev/doc/tutorial/getting-started](https://go.dev/doc/tutorial/getting-started)
 

@@ -1,5 +1,5 @@
 +++
-title = "教程：创建一个go模块"
+title = "教程：创建一个 Go 模块"
 weight = 7
 date = 2023-05-18T16:35:08+08:00
 description = ""
@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-# Tutorial: Create a Go module - 教程：创建一个Go模块
+# Tutorial: Create a Go module - 教程：创建一个 Go 模块
 
 > 原文：[https://go.dev/doc/tutorial/create-module.html](https://go.dev/doc/tutorial/create-module.html)
 
