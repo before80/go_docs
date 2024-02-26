@@ -2,6 +2,7 @@
 title = "go help env"
 date = 2024-02-24T10:56:10+08:00
 type = "docs"
+weight = 520
 description = ""
 isCJKLanguage = true
 draft = false

@@ -2,6 +2,7 @@
 title = "go help buildmode"
 date = 2023-12-12T14:13:21+08:00
 type = "docs"
+weight = 420
 description = ""
 isCJKLanguage = true
 draft = false

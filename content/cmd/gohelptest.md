@@ -2,6 +2,7 @@
 title = "go help test"
 date = 2024-02-24T10:57:59+08:00
 type = "docs"
+weight = 650
 description = ""
 isCJKLanguage = true
 draft = false
