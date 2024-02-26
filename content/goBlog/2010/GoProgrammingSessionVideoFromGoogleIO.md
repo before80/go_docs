@@ -19,5 +19,5 @@ Andrew Gerrand
 
 以下是Rob Pike和Russ Cox在 2010 年 Google I/O 大会上的演讲视频。
 
-<iframe src="https://www.youtube.com/embed/jgVhBThJdXc" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "jgVhBThJdXc">}}
 

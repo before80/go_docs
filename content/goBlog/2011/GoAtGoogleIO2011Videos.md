@@ -58,7 +58,7 @@ For those that didn’t get one at the conference, we hope to make him available
   - [Atlassian](http://www.atlassian.com/)’s virtual machine cluster management system, Atlassian的虚拟机集群管理系统。
   - [Camlistore](http://www.camlistore.org/), a content addressable storage system. Camlistore，一个内容可寻址存储系统。
 
-<iframe src="https://www.youtube.com/embed/7QDVRowyUQA" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "7QDVRowyUQA">}}
 
 (See the [presentation slides](https://go.dev/doc/talks/io2011/Real_World_Go.pdf).)
 

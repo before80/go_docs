@@ -22,7 +22,7 @@ For a quick overview, watch this short message we just played at Gophercon 2018:
 
 要想快速了解情况，请观看我们刚刚在Gophercon 2018上播放的这段短消息：
 
-<iframe src="https://www.youtube.com/embed/6wIP3rO6On8" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "6wIP3rO6On8">}}
 
 We invite everyone in the Go community to [learn more about the designs](https://go.googlesource.com/proposal/+/master/design/go2draft.md) and help us improve them.
 

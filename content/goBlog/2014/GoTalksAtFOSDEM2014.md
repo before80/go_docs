@@ -43,7 +43,7 @@ The talk covers some history about how and why the team chose Go, and how it pai
 
 讲座涵盖了一些关于团队如何和为什么选择Go的历史，以及它是如何得到回报的。Sugu还谈到了使用Go来扩展Vitess的技巧和方法。
 
-<iframe src="https://www.youtube.com/embed/qATTTSg6zXk" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "qATTTSg6zXk">}}
 
 The slides for the talk are [available here](https://github.com/youtube/vitess/blob/master/doc/Vitess2014.pdf?raw=true).
 
@@ -55,7 +55,7 @@ The slides for the talk are [available here](https://github.com/youtube/vitess/b
 
 Camlistore被设计成 "您的个人生活存储系统，让您掌控，并且设计得很持久"。它是开源的，经过近4年的积极开发，而且非常灵活。在这个讲座中，Brad Fitzpatrick和Mathieu Lonjaret解释了他们为什么要建造它，它的作用，并谈到了它的设计。
 
-<iframe src="https://www.youtube.com/embed/yvjeIZgykiA" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "yvjeIZgykiA">}}
 
 ## Write your own Go compiler 编写您自己的Go编译器
 
@@ -67,7 +67,7 @@ He said: "Based on my experiences writing an experimental Go to Haxe translator,
 
 他说："根据我编写实验性Go到Haxe翻译器的经验，我将谈论代码生成和运行时仿真所需的实际问题。我将把我的一些设计决定与其他两个建立在go.tools库上的Go编译器/翻译器进行比较。我的目的是鼓励您尝试这些新的 "变种 "Go编译器中的一个。我希望您们中的一些人会受到启发，为其中一个编译器做出贡献，甚至自己编写一个新的编译器"。
 
-<iframe src="https://www.youtube.com/embed/Qe8Dq7V3hXY" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "Qe8Dq7V3hXY">}}
 
 ## More 更多
 

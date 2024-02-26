@@ -18,7 +18,7 @@ At Google I/O 2013, several members of the Go team hosted a "Fireside chat." Rob
 
 在2013年谷歌I/O大会上，Go团队的几位成员主持了一场 "炉边谈话"。Robert Griesemer、Rob Pike、David Symonds、Andrew Gerrand、Ian Lance Taylor、Sameer Ajmani、Brad Fitzpatrick和Nigel Tao接受了来自观众和世界各地的人们关于Go项目各个方面的问题。
 
-<iframe src="https://www.youtube.com/embed/p9VUCp98ay4" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "p9VUCp98ay4">}}
 
 We also hosted a similar session at I/O last year: [*Meet the Go team*](http://www.youtube.com/watch?v=sln-gJaURzk).
 

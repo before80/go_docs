@@ -21,7 +21,7 @@ This is the blog post version of my talks at Google Open Source Live:
 
 ​	这是我在Google Open Source Live
 
-<iframe src="https://www.youtube.com/embed/nr8EpUO9jhw" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "nr8EpUO9jhw">}}
 
 和GopherCon 2021的演讲的博文版本：
 

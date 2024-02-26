@@ -81,7 +81,7 @@ Last week at [Google Open Source Live](https://opensourcelive.withgoogle.com/eve
 
 上周在Google Open Source Live上，我们在演讲《Level Up》中介绍了新网站的体验。Go软件包发现和编辑工具。
 
-<iframe src="https://www.youtube.com/embed/n7ayE29b7QA" width="650" height="400" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "n7ayE29b7QA">}}
 
 ## Feedback 反馈
 

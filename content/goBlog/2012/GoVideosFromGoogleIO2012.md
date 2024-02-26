@@ -33,7 +33,7 @@ Rob Pike的Go并发模式
 
 并发是设计高性能网络服务的关键。Go的并发基元（goroutines和channel）为表达并发执行提供了简单而有效的手段。在本讲座中，我们将看到如何用简单的Go代码优雅地解决棘手的并发问题。
 
-<iframe src="https://www.youtube.com/embed/f6kdp27TYZs" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "f6kdp27TYZs">}}
 
 ## Go in production 生产中的 Go
 
@@ -41,7 +41,7 @@ Rob Pike的Go并发模式
 
 自2009年Go发布以来，许多公司（当然，除了谷歌）已经使用该语言建立了很酷的东西。在本次会议中，Gustavo Niemeyer（Canonical）、Keith Rarick（Heroku）、Evan Shaw（Iron.io）和Patrick Crosby（StatHat）将分享他们在生产环境中使用Go的第一手经验。
 
-<iframe src="https://www.youtube.com/embed/kKQLhGZVN4A" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "kKQLhGZVN4A">}}
 
 ## Meet the Go team 认识Go团队
 
@@ -59,4 +59,4 @@ Rob Pike的Go并发模式
 
 在本讲座中，我们使用地图API和应用引擎上的Go来构建一个应用，为谷歌地图构建自定义的瓦片集。该应用展示了Go在云计算中的适用性以及App Engine的关键可扩展性功能，如任务队列和后端。
 
-<iframe src="https://www.youtube.com/embed/sPagpg0b7no" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "sPagpg0b7no">}}

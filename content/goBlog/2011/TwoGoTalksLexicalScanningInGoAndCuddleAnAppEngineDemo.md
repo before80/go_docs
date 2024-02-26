@@ -23,7 +23,7 @@ Rob’s talk, "[Lexical Scanning in Go](http://www.youtube.com/watch?v=HxaD_trXw
 
 Rob的演讲是 "Go中的词汇扫描"，讨论了Go代码中一个特别有趣和习惯的部分的设计，即新模板包的词汇器组件。
 
-<iframe src="https://www.youtube.com/embed/HxaD_trXwRE" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "HxaD_trXwRE">}}
 
 The slides are [available here](http://cuddle.googlecode.com/hg/talk/lex.html). The new template package is available as [exp/template](https://go.dev/pkg/exp/template/) in Go release r59. In a future release it will replace the old template package.
 

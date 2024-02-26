@@ -31,7 +31,7 @@ Learn more by watching these talks from Google I/O this year:
 
 App Engine的Go运行时是运行网络应用的高性能引擎。它能产生快速响应，在几分之一秒内启动实例，最大限度地利用实例时间，并允许您的应用程序以全机器速度进行认真处理。请来听听如何在App Engine上充分利用Go的力量，使您的网络应用成为最好的。
 
-<iframe src="https://www.youtube.com/embed/fc25ihfXhbg" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "fc25ihfXhbg">}}
 
 ## All the Ships in the World 世界上所有的船
 
@@ -43,4 +43,4 @@ Visualizing Data with Google Cloud and Maps
 
 数以万计的船只每5分钟至少报告一次它们的位置，一天24小时都是如此。将这么多的数据可视化并提供给大量的人，需要在浏览器和服务器上耗费大量的能量。本次会议将探讨如何使用地图、应用引擎、Go、计算引擎、BigQuery、云存储和WebGL来实现大规模的数据可视化。
 
-<iframe src="https://www.youtube.com/embed/MT7cd4M9vzs" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "MT7cd4M9vzs">}}
