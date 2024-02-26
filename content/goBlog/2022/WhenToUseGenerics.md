@@ -25,7 +25,7 @@ This is the blog post version of my talks at Google Open Source Live:
 
 和GopherCon 2021的演讲的博文版本：
 
-<iframe src="https://www.youtube.com/embed/Pa_e9EeCdy8?start=1244" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "Pa_e9EeCdy8">}}
 
 The Go 1.18 release adds a major new language feature: support for generic programming. In this article I’m not going to describe what generics are nor how to use them. This article is about when to use generics in Go code, and when not to use them.
 

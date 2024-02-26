@@ -41,7 +41,7 @@ Our new logo went through an extensive design process. Here are some of the revi
 
 我们的新标志经历了一个广泛的设计过程。以下是我们经历的一些修改...
 
-<iframe src="https://www.youtube.com/embed/V4t-ymImW6c" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "V4t-ymImW6c">}}
 
 ## New Brand Guide 新的品牌指南
 

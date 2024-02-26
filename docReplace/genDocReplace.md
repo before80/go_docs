@@ -62,6 +62,23 @@ $1$2
 ​	
 ```
 
+## 替换掉youtube视频的HTML
+
+```
+// 查找匹配如下正则表达式
+<iframe src="https:\/\/www\.youtube\.com\/embed\/([\w\-]+)([\w=\?]?)" [^\n]+><\/iframe>
+
+或 
+
+<iframe src="https:\/\/www\.youtube\.com\/embed\/([\w\-]+)\?[\w=]+" [^\n]+><\/iframe>
+
+// 替换成
+{{< youtube "$1">}}
+
+```
+
+
+
 ## 替换掉标题中的重复章节数字
 
 ```

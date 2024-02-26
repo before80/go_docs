@@ -27,7 +27,7 @@ In "[Writing Web Apps in Go](http://www.youtube.com/watch?v=-i0hat7pdpk)" we ann
 
 在 "用Go编写网络应用程序 "中，我们宣布了Google App Engine的Go运行时间，并介绍了Moustachio的开发和部署，这是第一个Go App Engine应用程序。
 
-<iframe src="https://www.youtube.com/embed/-i0hat7pdpk" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "-i0hat7pdpk">}}
 
 (See the [presentation slides](https://go.dev/doc/talks/io2011/Writing_Web_Apps_in_Go.pdf).)
 

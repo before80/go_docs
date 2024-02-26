@@ -49,7 +49,7 @@ Rob Pike的Go并发模式
 
 与David Symonds、Robert Griesemer、Rob Pike、Ken Thompson、Andrew Gerrand和Brad Fitzpatrick进行小组讨论。
 
-<iframe src="https://www.youtube.com/embed/sln-gJaURzk" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "sln-gJaURzk">}}
 
 **Computing Map Tiles with Go on App Engine** by Chris Broadfoot and Andrew Gerrand
 

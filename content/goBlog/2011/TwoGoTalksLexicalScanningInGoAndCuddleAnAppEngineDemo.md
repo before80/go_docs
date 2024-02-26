@@ -33,7 +33,7 @@ Andrew’s talk, "[Cuddle: an App Engine Demo](http://www.youtube.com/watch?v=HQ
 
 Andrew的演讲 "Cuddle: an App Engine Demo "描述了一个简单的实时聊天应用的构建，该应用使用了App Engine的Datastore、Channel和Memcache APIs。它还包括一个问答环节，涉及App Engine的Go和更广泛的Go。
 
-<iframe src="https://www.youtube.com/embed/HQtLRqqB-Kk" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "HQtLRqqB-Kk">}}
 
 The slides are [available here](http://cuddle.googlecode.com/hg/talk/index.html). The code is available at the [cuddle Google Code project](http://code.google.com/p/cuddle/).
 

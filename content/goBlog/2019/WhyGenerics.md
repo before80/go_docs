@@ -21,7 +21,7 @@ This is the blog post version of my talk last week at Gophercon 2019.
 
 这是我上周在Gophercon 2019的演讲的博文版本。
 
-<iframe src="https://www.youtube.com/embed/WzgLqE-3IhY?rel=0" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "WzgLqE-3IhY">}}
 
 This article is about what it would mean to add generics to Go, and why I think we should do it. I’ll also touch on an update to a possible design for adding generics to Go.
 

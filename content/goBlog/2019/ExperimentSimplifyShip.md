@@ -21,7 +21,7 @@ This is the blog post version of my talk last week at GopherCon 2019.
 
 这是我上周在GopherCon 2019上的演讲的博文版本。
 
-<iframe src="https://www.youtube.com/embed/kNHo788oO5Y?rel=0" width="560" height="315" frameborder="0" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" style="box-sizing: border-box;"></iframe>
+{{< youtube "kNHo788oO5Y">}}
 
 We are all on the path to Go 2, together, but none of us know exactly where that path leads or sometimes even which direction the path goes. This post discusses how we actually find and follow the path to Go 2. Here’s what the process looks like.
 
