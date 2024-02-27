@@ -1042,7 +1042,15 @@ json:  {"height":0.4,"age":2}
 value: &{Height:1.5 Age:10}
 ```
 
+#### func TypeFor <-go1.22.0
 
+```
+func TypeFor[T any]() Type
+```
+
+TypeFor returns the [Type](https://pkg.go.dev/reflect#Type) that represents the type argument T.
+
+​	`TypeFor` 函数返回表示类型实参`T`的Type。
 
 #### func TypeOf 
 

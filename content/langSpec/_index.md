@@ -13,3 +13,7 @@ draft = false
 +++
 
 # The Go Programming Language Specification - Go编程语言规范
+
+> 更新备注
+>
+> 2024年2月27日：已更新至最新版。

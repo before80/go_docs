@@ -220,6 +220,16 @@ func CompareFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, cmp func(E1, E2) 
 
 CompareFunc is like [Compare](https://pkg.go.dev/slices#Compare) but uses a custom comparison function on each pair of elements. The result is the first non-zero result of cmp; if cmp always returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2), and +1 if len(s1) > len(s2).
 
+​	CompareFunc 函数与 Compare 函数类似，但对每对元素使用自定义比较函数。结果是 cmp 的第一个非零结果；
+
+如果 `cmp` 始终返回 0，则结果为 
+
+0（如果 len(s1) == len(s2)），
+
+-1（如果 len(s1) < len(s2)），
+
++1（如果 len(s1) > len(s2)）。
+
 #### CompareFunc Example
 
 ``` go
@@ -248,6 +258,16 @@ Output:
 
 1
 ```
+#### func Concat <-go1.22.0
+
+```
+func Concat[S ~[]E, E any](slices ...S) S
+```
+
+Concat returns a new slice concatenating the passed in slices.
+
+​	Concat 函数返回一个新的切片，将传入的切片连接起来。
+
 ### func Contains 
 
 ``` go
@@ -256,6 +276,8 @@ func Contains[S ~[]E, E comparable](s S, v E) bool
 
 Contains reports whether v is present in s.
 
+​	Contains 报告 v 是否存在于 s 中。
+
 ### func ContainsFunc 
 
 ``` go
@@ -263,6 +285,8 @@ func ContainsFunc[S ~[]E, E any](s S, f func(E) bool) bool
 ```
 
 ContainsFunc reports whether at least one element e of s satisfies f(e).
+
+​	ContainsFunc 报告 s 的至少一个元素 e 是否满足 f(e)。
 
 #### ContainsFunc Example
 
@@ -296,7 +320,9 @@ Has an odd number: false
 func Delete[S ~[]E, E any](s S, i, j int) S
 ```
 
-Delete removes the elements s[i:j] from s, returning the modified slice. Delete panics if s[i:j] is not a valid slice of s. Delete is O(len(s)-j), so if many items must be deleted, it is better to make a single call deleting them all together than to delete one at a time. Delete might not modify the elements s[len(s)-(j-i):len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.
+Delete removes the elements s[i:j] from s, returning the modified slice. Delete panics if j > len(s) or s[i:j] is not a valid slice of s. Delete is O(len(s)-i), so if many items must be deleted, it is better to make a single call deleting them all together than to delete one at a time. Delete zeroes the elements s[len(s)-(j-i):len(s)].
+
+​	Delete 从 s 中删除元素 s[i:j]，返回修改后的切片。如果 j > len(s) 或 s[i:j] 不是 s 的有效切片，则 Delete 会引发 panic。Delete 为 O(len(s)-i)，因此如果必须删除许多项，最好一次性删除所有项，而不是一次删除一项。Delete 将元素 s[len(s)-(j-i):len(s)] 清零。
 
 #### Delete Example
 
@@ -323,7 +349,11 @@ Output:
 func DeleteFunc[S ~[]E, E any](s S, del func(E) bool) S
 ```
 
-DeleteFunc removes any elements from s for which del returns true, returning the modified slice. When DeleteFunc removes m elements, it might not modify the elements s[len(s)-m:len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.
+DeleteFunc removes any elements from s for which del returns true, returning the modified slice. DeleteFunc zeroes the elements between the new length and the original length.
+
+​	DeleteFunc 从 s 中删除所有使 del 返回 true 的元素，返回修改后的切片。DeleteFunc 将新长度和原始长度之间的元素清零。
+
+
 
 #### DeleteFunc Example
 
@@ -354,6 +384,8 @@ func Equal[S ~[]E, E comparable](s1, s2 S) bool
 
 Equal reports whether two slices are equal: the same length and all elements equal. If the lengths are different, Equal returns false. Otherwise, the elements are compared in increasing index order, and the comparison stops at the first unequal pair. Floating point NaNs are not considered equal.
 
+​	Equal 报告两个切片是否相等：长度相同且所有元素相等。如果长度不同，Equal 返回 false。否则，将按升序比较元素，并在第一个不相等的元素对处停止比较。浮点 NaN 不被视为相等。
+
 #### Equal Example
 
 ``` go
@@ -381,6 +413,8 @@ func EqualFunc[S1 ~[]E1, S2 ~[]E2, E1, E2 any](s1 S1, s2 S2, eq func(E1, E2) boo
 ```
 
 EqualFunc reports whether two slices are equal using an equality function on each pair of elements. If the lengths are different, EqualFunc returns false. Otherwise, the elements are compared in increasing index order, and the comparison stops at the first index for which eq returns false.
+
+​	EqualFunc 报告两个切片是否相等，方法是对每对元素使用相等函数。如果长度不同，EqualFunc 返回 false。否则，将按升序比较元素，并在 eq 返回 false 的第一个索引处停止比较。
 
 #### EqualFunc Example
 
@@ -417,6 +451,8 @@ func Grow[S ~[]E, E any](s S, n int) S
 
 Grow increases the slice's capacity, if necessary, to guarantee space for another n elements. After Grow(n), at least n elements can be appended to the slice without another allocation. If n is negative or too large to allocate the memory, Grow panics.
 
+​	Grow 在必要时增加切片的容量，以保证有空间容纳另外 n 个元素。在 Grow(n) 之后，至少可以向切片追加 n 个元素，而无需进行其他分配。如果 n 为负数或太大而无法分配内存，Grow 会引发 panic。
+
 ### func Index 
 
 ``` go
@@ -424,6 +460,8 @@ func Index[S ~[]E, E comparable](s S, v E) int
 ```
 
 Index returns the index of the first occurrence of v in s, or -1 if not present.
+
+​	Index 返回 v 在 s 中首次出现的索引，如果不存在，则返回 -1。
 
 #### Index Example
 
@@ -452,6 +490,8 @@ func IndexFunc[S ~[]E, E any](s S, f func(E) bool) int
 ```
 
 IndexFunc returns the first index i satisfying f(s[i]), or -1 if none do.
+
+​	IndexFunc 返回满足 f(s[i]) 的第一个索引 i，如果不存在，则返回 -1。
 
 #### IndexFunc Example
 
@@ -482,6 +522,8 @@ func Insert[S ~[]E, E any](s S, i int, v ...E) S
 
 Insert inserts the values v... into s at index i, returning the modified slice. The elements at s[i:] are shifted up to make room. In the returned slice r, r[i] == v[0], and r[i+len(v)] == value originally at r[i]. Insert panics if i is out of range. This function is O(len(s) + len(v)).
 
+​	Insert 将值 v... 插入到 s 的索引 i 处，返回修改后的切片。s[i:] 处的元素向上移动以腾出空间。在返回的切片 r 中，r[i] == v[0]，r[i+len(v)] == r[i] 处的原始值。如果 i 超出范围，Insert 会引发 panic。此函数为 O(len(s) + len(v))。
+
 #### Insert Example
 
 ``` go
@@ -510,6 +552,8 @@ func IsSorted[S ~[]E, E cmp.Ordered](x S) bool
 
 IsSorted reports whether x is sorted in ascending order.
 
+​	IsSorted 报告 x 是否按升序排序。
+
 #### IsSorted Example
 
 ``` go
@@ -536,6 +580,8 @@ func IsSortedFunc[S ~[]E, E any](x S, cmp func(a, b E) int) bool
 ```
 
 IsSortedFunc reports whether x is sorted in ascending order, with cmp as the comparison function as defined by [SortFunc](https://pkg.go.dev/slices#SortFunc).
+
+​	IsSortedFunc 报告 x 是否按升序排序，cmp 为 SortFunc 定义的比较函数。
 
 #### IsSortedFunc Example
 
@@ -570,6 +616,8 @@ func Max[S ~[]E, E cmp.Ordered](x S) E
 
 Max returns the maximal value in x. It panics if x is empty. For floating-point E, Max propagates NaNs (any NaN value in x forces the output to be NaN).
 
+​	Max 返回 x 中的最大值。如果 x 为空，它会引发 panic。对于浮点数 E，Max 会传播 NaN（x 中的任何 NaN 值都会强制输出为 NaN）。
+
 #### Max Example
 
 ``` go
@@ -595,6 +643,8 @@ func MaxFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
 ```
 
 MaxFunc returns the maximal value in x, using cmp to compare elements. It panics if x is empty. If there is more than one maximal element according to the cmp function, MaxFunc returns the first one.
+
+​	MaxFunc 使用 cmp 比较元素，返回 x 中的最大值。如果 x 为空，它会引发 panic。如果根据 cmp 函数有多个最大元素，MaxFunc 将返回第一个元素。
 
 #### MaxFunc Example
 
@@ -635,6 +685,8 @@ func Min[S ~[]E, E cmp.Ordered](x S) E
 
 Min returns the minimal value in x. It panics if x is empty. For floating-point numbers, Min propagates NaNs (any NaN value in x forces the output to be NaN).
 
+​	Min 返回 x 中的最小值。如果 x 为空，它会引发 panic。对于浮点数，Min 会传播 NaN（x 中的任何 NaN 值都会强制输出为 NaN）。
+
 #### Min  Example
 
 ```go
@@ -661,6 +713,8 @@ func MinFunc[S ~[]E, E any](x S, cmp func(a, b E) int) E
 ```
 
 MinFunc returns the minimal value in x, using cmp to compare elements. It panics if x is empty. If there is more than one minimal element according to the cmp function, MinFunc returns the first one.
+
+​	MinFunc 使用 cmp 比较元素，返回 x 中的最小值。如果 x 为空，它会引发 panic。如果根据 cmp 函数有多个最小元素，MinFunc 将返回第一个元素。
 
 #### MinFunc Example
 
@@ -699,7 +753,9 @@ Bob
 func Replace[S ~[]E, E any](s S, i, j int, v ...E) S
 ```
 
-Replace replaces the elements s[i:j] by the given v, and returns the modified slice. Replace panics if s[i:j] is not a valid slice of s.
+Replace replaces the elements s[i:j] by the given v, and returns the modified slice. Replace panics if j > len(s) or s[i:j] is not a valid slice of s. When len(v) < (j-i), Replace zeroes the elements between the new length and the original length.
+
+​	Replace 替换元素 s[i:j] 为给定的 v，并返回修改后的切片。如果 j > len(s) 或 s[i:j] 不是 s 的有效切片，Replace 会引发 panic。当 len(v) < (j-i) 时，Replace 将新长度和原始长度之间的元素清零。
 
 #### Replace Example
 
@@ -728,6 +784,8 @@ func Reverse[S ~[]E, E any](s S)
 
 Reverse reverses the elements of the slice in place.
 
+​	Reverse 就地反转切片中的元素。
+
 #### Reverse Example
 
 ``` go
@@ -754,6 +812,8 @@ func Sort[S ~[]E, E cmp.Ordered](x S)
 ```
 
 Sort sorts a slice of any ordered type in ascending order. When sorting floating-point numbers, NaNs are ordered before other values.
+
+​	Sort 按升序对任何有序类型的切片进行排序。对浮点数进行排序时，NaN 排在其他值之前。
 
 #### Sort Example
 
@@ -782,7 +842,11 @@ func SortFunc[S ~[]E, E any](x S, cmp func(a, b E) int)
 
 SortFunc sorts the slice x in ascending order as determined by the cmp function. This sort is not guaranteed to be stable. cmp(a, b) should return a negative number when a < b, a positive number when a > b and zero when a == b.
 
+​	SortFunc 按 cmp 函数确定的升序对切片 x 进行排序。此排序不能保证稳定。当 a < b 时，cmp(a, b) 应返回负数；当 a > b 时，应返回正数；当 a == b 时，应返回零。
+
 SortFunc requires that cmp is a strict weak ordering. See https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings.
+
+​	SortFunc 要求 cmp 是严格弱序。请参阅 https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings。
 
 #### SortFunc Example (CaseInsensitive)
 
@@ -849,6 +913,8 @@ func SortStableFunc[S ~[]E, E any](x S, cmp func(a, b E) int)
 ```
 
 SortStableFunc sorts the slice x while keeping the original order of equal elements, using cmp to compare elements in the same way as [SortFunc](https://pkg.go.dev/slices#SortFunc).
+
+​	SortStableFunc 在对切片 x 进行排序时保持相等元素的原始顺序，使用 cmp 以与 SortFunc 相同的方式比较元素。
 
 #### SortStableFunc Example
 

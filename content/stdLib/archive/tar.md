@@ -445,7 +445,17 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter creates a new Writer writing to w.
 
-​	NewWriter 创建一个新的 Writer，写入 w。
+​	NewWriter 函数创建一个新的 Writer，写入 w。
+
+#### (*Writer) AddFS <-go1.22.0
+
+```
+func (tw *Writer) AddFS(fsys fs.FS) error
+```
+
+AddFS adds the files from fs.FS to the archive. It walks the directory tree starting at the root of the filesystem adding each file to the tar archive while maintaining the directory structure.
+
+​	AddFS 方法将 fs.FS 中的文件添加到存档中。它从文件系统的根目录开始遍历目录树，将每个文件添加到 tar 存档中，同时保持目录结构。
 
 #### (*Writer) Close 
 

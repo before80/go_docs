@@ -491,7 +491,17 @@ func NewWriter(w io.Writer) *Writer
 
 NewWriter returns a new Writer writing a zip file to w.
 
-​	NewWriter 返回一个新的 Writer，将 zip 文件写入 w。
+​	NewWriter 函数返回一个新的 Writer，将 zip 文件写入 w。
+
+#### (*Writer) AddFS <- go1.22.0
+
+```
+func (w *Writer) AddFS(fsys fs.FS) error
+```
+
+AddFS adds the files from fs.FS to the archive. It walks the directory tree starting at the root of the filesystem adding each file to the zip using deflate while maintaining the directory structure.
+
+​	AddFS 将 fs.FS 中的文件添加到存档中。它从文件系统的根目录开始遍历目录树，使用 deflate 将每个文件添加到 zip 中，同时保持目录结构。
 
 #### (*Writer) Close 
 

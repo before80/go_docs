@@ -58,6 +58,93 @@ Less reports whether x is less than y. For floating-point types, a NaN is consid
 
 ​	`Less`函数报告`x`是否小于`y`。对于浮点类型，`NaN`被视为小于任何非`NaN`，并且`-0.0`不小于（等于）`0.0`。
 
+#### func Or <-go1.22.0
+
+```
+func Or[T comparable](vals ...T) T
+```
+
+Or returns the first of its arguments that is not equal to the zero value. If no argument is non-zero, it returns the zero value.
+
+​	`Or` 函数返回其第一个不等于零值的实参。如果没有实参为非零，则返回零值。
+
+##### Example 
+
+```go
+package main
+
+import (
+	"cmp"
+	"fmt"
+)
+
+func main() {
+	// Suppose we have some user input
+	// that may or may not be an empty string
+	userInput1 := ""
+	userInput2 := "some text"
+
+	fmt.Println(cmp.Or(userInput1, "default"))
+	fmt.Println(cmp.Or(userInput2, "default"))
+	fmt.Println(cmp.Or(userInput1, userInput2, "default"))
+}
+
+Output:
+
+default
+some text
+some text
+```
+
+##### Example (Sort)
+
+```go
+import (
+	"cmp"
+	"fmt"
+	"slices"
+)
+
+func main() {
+	type Order struct {
+		Product  string
+		Customer string
+		Price    float64
+	}
+	orders := []Order{
+		{"foo", "alice", 1.00},
+		{"bar", "bob", 3.00},
+		{"baz", "carol", 4.00},
+		{"foo", "alice", 2.00},
+		{"bar", "carol", 1.00},
+		{"foo", "bob", 4.00},
+	}
+	// Sort by customer first, product second, and last by higher price
+	slices.SortFunc(orders, func(a, b Order) int {
+		return cmp.Or(
+			cmp.Compare(a.Customer, b.Customer),
+			cmp.Compare(a.Product, b.Product),
+			cmp.Compare(b.Price, a.Price),
+		)
+	})
+	for _, order := range orders {
+		fmt.Printf("%s %s %.2f\n", order.Product, order.Customer, order.Price)
+	}
+
+}
+
+Output:
+
+foo alice 2.00
+foo alice 1.00
+bar bob 3.00
+foo bob 4.00
+bar carol 1.00
+baz carol 4.00
+```
+
+
+
 ## 类型
 
 ### type Ordered 

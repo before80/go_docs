@@ -479,6 +479,10 @@ Float64s sorts a slice of float64s in increasing order. Not-a-number (NaN) value
 
 ​	Float64s函数以递增顺序对float64s切片进行排序。非数字(NaN)值在其他值之前排序。
 
+Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
+
+​	注意:从Go 1.22开始，这个函数只调用[slices.Sort]({{< ref "/stdLib/slices#func-sort">}})。
+
 #### Float64s Example
 ``` go 
 package main
@@ -514,6 +518,8 @@ func Float64sAreSorted(x []float64) bool
 Float64sAreSorted reports whether the slice x is sorted in increasing order, with not-a-number (NaN) values before any other values.
 
 ​	Float64sAreSorted函数报告切片x是否按递增顺序排序，其中非数字(NaN)值在任何其他值之前。
+
+Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
 
 #### Float64sAreSorted Example
 ``` go 
@@ -552,6 +558,8 @@ Ints sorts a slice of ints in increasing order.
 
 ​	Ints函数按递增顺序对int的切片进行排序。
 
+Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
+
 #### Ints Example
 ``` go 
 package main
@@ -580,6 +588,8 @@ func IntsAreSorted(x []int) bool
 IntsAreSorted reports whether the slice x is sorted in increasing order.
 
 ​	IntsAreSorted函数报告切片x是否按递增顺序排序。
+
+Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
 
 #### IntsAreSorted Example
 ``` go 
@@ -980,6 +990,8 @@ Strings sorts a slice of strings in increasing order.
 
 ​	Strings函数按照升序规则对字符串切片 x 进行排序。
 
+Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
+
 #### Strings Example
 ``` go 
 package main
@@ -1008,6 +1020,8 @@ func StringsAreSorted(x []string) bool
 StringsAreSorted reports whether the slice x is sorted in increasing order.
 
 ​	StringsAreSorted函数报告字符串切片 x 是否按升序排列。
+
+Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
 
 ## 类型
 
