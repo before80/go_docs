@@ -11,7 +11,11 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Constants](https://go.dev/ref/spec#Constants)
 
+There are *boolean constants*, *rune constants*, *integer constants*, *floating-point constants*, *complex constants*, and *string constants*. Rune, integer, floating-point, and complex constants are collectively called *numeric constants*.
+
 ​	有布尔常量、符文常量、整数常量、浮点常量、复数常量和字符串常量。符文、整数、浮点和复数常量统称为`数值常量`。
+
+A constant value is represented by a [rune](https://go.dev/ref/spec#Rune_literals), [integer](https://go.dev/ref/spec#Integer_literals), [floating-point](https://go.dev/ref/spec#Floating-point_literals), [imaginary](https://go.dev/ref/spec#Imaginary_literals), or [string](https://go.dev/ref/spec#String_literals) literal, an identifier denoting a constant, a [constant expression](https://go.dev/ref/spec#Constant_expressions), a [conversion](https://go.dev/ref/spec#Conversions) with a result that is a constant, or the result value of some built-in functions such as `min` or `max` applied to constant arguments, `unsafe.Sizeof` applied to [certain values](https://go.dev/ref/spec#Package_unsafe), `cap` or `len` applied to [some expressions](https://go.dev/ref/spec#Length_and_capacity), `real` and `imag` applied to a complex constant and `complex` applied to numeric constants. The boolean truth values are represented by the predeclared constants `true` and `false`. The predeclared identifier [iota](https://go.dev/ref/spec#Iota) denotes an integer constant.
 
 ​	常量值由一个[符文字面量](../LexicalElements#rune-literals-符文字面量)、[整数字面量](../LexicalElements#imaginary-literals-虚数字面量)、[浮点数字面量](../LexicalElements#floating-point-literals-浮点数字面量)、[虚数字面量](../LexicalElements#imaginary-literals-虚数字面量)或[字符串字面量](../LexicalElements#string-literals-字符串字面量)，表示常量的标识符，[常量表达式](../Expressions#constant-expressions-常量表达式)，结果为常量的[转换](../Expressions#conversions-转换)，或一些内置函数的结果值表示，如`unsafe.Sizeof`应用于某些值，`cap`或`len`应用于一些表达式，`real`和`imag`应用于复数常量，`complex`应用于数值常量。布尔真值由预先声明的常数`true`和`false`表示。预先声明的标识符`iota`表示一个整数常量。
 
@@ -156,7 +160,11 @@ draft = false
 >
 > 明显，常量的值不能为变量！
 
+In general, complex constants are a form of [constant expression](https://go.dev/ref/spec#Constant_expressions) and are discussed in that section.
+
 ​	通常，复数常量是[常量表达式](../Expressions#constant-expressions-常量表达式)的一种形式，将在该节中讨论。
+
+Numeric constants represent exact values of arbitrary precision and do not overflow. Consequently, there are no constants denoting the IEEE-754 negative zero, infinity, and not-a-number values.
 
 ​	数值常量表示任意精度的精确值，不会溢出。因此，不存在表示IEEE-754负零、无穷大和非数字值的常量。
 
@@ -231,7 +239,11 @@ draft = false
 >
 > 
 
+Constants may be [typed](https://go.dev/ref/spec#Types) or *untyped*. Literal constants, `true`, `false`, `iota`, and certain [constant expressions](https://go.dev/ref/spec#Constant_expressions) containing only untyped constant operands are untyped.
+
 ​	常量可以是[有类型的](../Types)的或无类型的。`字面常量`、`true`、`false`、`iota`，以及某些只包含无类型的常量操作数的[常量表达式](../Expressions#constant-expressions-常量表达式)是无类型的。
+
+A constant may be given a type explicitly by a [constant declaration](https://go.dev/ref/spec#Constant_declarations) or [conversion](https://go.dev/ref/spec#Conversions), or implicitly when used in a [variable declaration](https://go.dev/ref/spec#Variable_declarations) or an [assignment statement](https://go.dev/ref/spec#Assignment_statements) or as an operand in an [expression](https://go.dev/ref/spec#Expressions). It is an error if the constant value cannot be [represented](https://go.dev/ref/spec#Representability) as a value of the respective type. If the type is a type parameter, the constant is converted into a non-constant value of the type parameter.
 
 ​	常量可以通过[常量声明](../DeclarationsAndScope#constant-declarations-常量声明)或[转换](../Expressions#conversions-转换)显式地给出类型，也可以在[变量声明](../DeclarationsAndScope#variable-declarations-变量声明)、[赋值语句](../Statements#assignment-statements-赋值语句) 、作为[表达式](../Expressions)的操作数时，隐式赋予类型。如果常量值不能被[表示](../PropertiesOfTypesAndValues#representability-可表示性)为相应类型的值，那就是一个错误。如果类型是一个[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，常量将被转换为类型参数的一个非常量值。
 
@@ -282,14 +294,25 @@ draft = false
 >
 > 以上示例a + A、b + B 、d + D中，+ 运算符两边的类型分明是不一致的（特别是d + D），但却可以进行运算，可见就是隐式赋予了无类型常量（**该常量声明时没有给出明确类型，采用了默认类型**）以类型，这应该是编译时就处理好的吧。TODO 待找出出处。
 
+An untyped constant has a *default type* which is the type to which the constant is implicitly converted in contexts where a typed value is required, for instance, in a [short variable declaration](https://go.dev/ref/spec#Short_variable_declarations) such as `i := 0` where there is no explicit type. The default type of an untyped constant is `bool`, `rune`, `int`, `float64`, `complex128`, or `string` respectively, depending on whether it is a boolean, rune, integer, floating-point, complex, or string constant.
+
 ​	一个无类型常量有一个默认的类型，该类型是在需要类型化值的上下文中隐式转换为的类型，例如，在一个[短变量声明](../DeclarationsAndScope#short-variable-declarations-短变量声明)中，如`i := 0`，没有明确的类型。无类型常量的默认类型分别是`bool`, `rune`, `int`, `float64`, `complex128`或`string`，具体取决于它是一个布尔型常量、rune型常量、整数型常量、浮点型常量、复数型常量还是字符串型常量。
+
+Implementation restriction: Although numeric constants have arbitrary precision in the language, a compiler may implement them using an internal representation with limited precision. That said, every implementation must:
 
 ​	实现限制：尽管数值常量在语言中具有任意的精度，但编译器可以使用有限精度的内部表示法来实现它们。也就是说，每个实现都必须：
 
+- Represent integer constants with at least 256 bits.
 - 用至少256位来表示整数常量。
+- Represent floating-point constants, including the parts of a complex constant, with a mantissa of at least 256 bits and a signed binary exponent of at least 16 bits.
 - 用至少256位的尾数和至少16位的有符号二进制指数来表示浮点常量，包括复数常量的对应部分。
+- Give an error if unable to represent an integer constant precisely.
 - 如果不能精确表示一个整数常量，则给出一个错误。
+- Give an error if unable to represent a floating-point or complex constant due to overflow.
 - 如果由于溢出而无法表示一个浮点常量或复数常量，则给出一个错误。
+- Round to the nearest representable constant if unable to represent a floating-point or complex constant due to limits on precision.
 - 如果由于精度的限制，无法表示一个浮点常量或复数常量，则四舍五入到最接近的可表示常量。
+
+These requirements apply both to literal constants and to the result of evaluating [constant expressions](https://go.dev/ref/spec#Constant_expressions).
 
 ​	这些要求既适用于字面常量，也适用于[常量表达式](../Expressions#constant-expressions-常量表达式)的计算结果。

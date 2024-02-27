@@ -11,13 +11,17 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Errors](https://go.dev/ref/spec#Errors)
 
-预先声明的`error`类型被定义为
+The predeclared type `error` is defined as
+
+​	预先声明的`error`类型被定义为
 
 ```go 
 type error interface {
 	Error() string
 }
 ```
+
+It is the conventional interface for representing an error condition, with the nil value representing no error. For instance, a function to read data from a file might be defined:
 
 ​	它是代表错误条件的常规接口，`nil`值代表没有错误。例如，可以定义一个从文件中读取数据的函数：
 

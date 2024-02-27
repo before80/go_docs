@@ -12,6 +12,8 @@ draft = false
 
 > 原文：[https://go.dev/ref/spec#Types ](https://go.dev/ref/spec#Types )
 
+A type determines a set of values together with operations and methods specific to those values. A type may be denoted by a *type name*, if it has one, which must be followed by [type arguments](https://go.dev/ref/spec#Instantiations) if the type is generic. A type may also be specified using a *type literal*, which composes a type from existing types.
+
 ​	类型确定了一组值，以及针对这些值的特定操作和方法。如果一个类型有类型名称，可以通过类型名称来表示该类型，如果该类型是泛型的，则必须在类型名称后面跟上[类型实参](../Expressions#instantiations-实例化)。还可以使用`类型字面量`来指定类型，该类型由现有类型组成
 
 ``` go
@@ -121,7 +123,11 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 > >
 > > 这些是Go语言中常见的类型字面量示例。通过组合和嵌套这些类型字面量，可以创建更复杂的类型。需要注意的是，还有一些其他的类型字面量，如函数字面量和接口字面量，用于直接定义匿名函数和匿名接口。
 
+The language [predeclares](https://go.dev/ref/spec#Predeclared_identifiers) certain type names. Others are introduced with [type declarations](https://go.dev/ref/spec#Type_declarations) or [type parameter lists](https://go.dev/ref/spec#Type_parameter_declarations). *Composite types*—array, struct, pointer, function, interface, slice, map, and channel types—may be constructed using type literals.
+
 ​	该语言[预先声明](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)了某些类型的名称。其他类型是通过[类型声明](../DeclarationsAndScope#type-declarations-类型声明)或[类型参数列表](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)引入的。`复合类型`：数组、结构体、指针、函数、接口、切片、映射和通道类型 —— 可以用类型字面量来构造。
+
+Predeclared types, defined types, and type parameters are called *named types*. An alias denotes a named type if the type given in the alias declaration is a named type.
 
 ​	预先声明的类型、[已定义的类型](../DeclarationsAndScope#type-declarations-类型声明)和类型参数被称为`命名类型`。如果别名声明中给出的类型是命名类型，则别名也表示一个（新的）命名类型。
 
@@ -133,9 +139,13 @@ TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType 
 
 ### Boolean types 布尔型
 
+A *boolean type* represents the set of Boolean truth values denoted by the predeclared constants `true` and `false`. The predeclared boolean type is `bool`; it is a [defined type](https://go.dev/ref/spec#Type_definitions).
+
 ​	布尔型表示由预先声明的常量`true`和`false`表示的一组布尔真值。预先声明的布尔类型是`bool`；它是一个[已定义的类型]({{<ref "/langSpec/DeclarationsAndScope#type-definitions-类型定义">}})。
 
 ### Numeric types 数值型
+
+An *integer*, *floating-point*, or *complex* type represents the set of integer, floating-point, or complex values, respectively. They are collectively called *numeric types*. The predeclared architecture-independent numeric types are:
 
 ​	整数类型、浮点类型或复数类型分别表示整数、浮点或复数的值的集合。它们被统称为`数值类型`。预先声明的与体系结构无关的数值类型有：
 
@@ -160,9 +170,11 @@ byte        alias for uint8
 rune        alias for int32
 ```
 
-​	The value of an *n*-bit integer is *n* bits wide and represented using [two's complement arithmetic](https://en.wikipedia.org/wiki/Two's_complement). =>仍有疑问？？
+The value of an *n*-bit integer is *n* bits wide and represented using [two's complement arithmetic](https://en.wikipedia.org/wiki/Two's_complement). =>仍有疑问？？
 
 ​	一个n bit整数的值是n bit宽，并用[二进制补码运算法（two's complement arithmetic）](https://en.wikipedia.org/wiki/Two's_complement)表示。
+
+There is also a set of predeclared integer types with implementation-specific sizes:
 
 ​	还有一组预先声明的整数类型，其具体实现的大小因实现而异：
 
@@ -172,11 +184,17 @@ int      与uint大小相同
 uintptr  an unsigned integer large enough to store the uninterpreted bits of a pointer value => 一个足够大的无符号整数，用于存储指针值的未解释位
 ```
 
+To avoid portability issues all numeric types are [defined types](https://go.dev/ref/spec#Type_definitions) and thus distinct except `byte`, which is an [alias](https://go.dev/ref/spec#Alias_declarations) for `uint8`, and `rune`, which is an alias for `int32`. Explicit conversions are required when different numeric types are mixed in an expression or assignment. For instance, `int32` and `int` are not the same type even though they may have the same size on a particular architecture.
+
 ​	为了避免可移植性问题，所有的数值类型都是[已定义的类型](../DeclarationsAndScope#type-definitions-类型定义)，因此除了 `byte` (它是`uint8`的别名)和 `rune` (它是`int32`的别名)之外，它们是截然不同的。 当不同的数值类型在表达式或赋值中混合使用时，需要进行显式转换。例如，int32和int不是相同类型，尽管它们在一个特定的体系结构上可能具有相同的大小。
 
 ### String types 字符串型
 
+A *string type* represents the set of string values. A string value is a (possibly empty) sequence of bytes. The number of bytes is called the length of the string and is never negative. Strings are immutable: once created, it is impossible to change the contents of a string. The predeclared string type is `string`; it is a [defined type](https://go.dev/ref/spec#Type_definitions).
+
 ​	字符串类型表示字符串值的集合。字符串值是（可能为空的）字节序列。`字节数`被称为字符串的`长度`，并且永远不会是负数。字符串是不可变的：一旦创建，就无法改变字符串的内容。预先声明的字符串类型是`string`；它是一种[已定义的类型](../DeclarationsAndScope#type-declarations-类型定义)。
+
+The length of a string `s` can be discovered using the built-in function [`len`](https://go.dev/ref/spec#Length_and_capacity). The length is a compile-time constant if the string is a constant. A string's bytes can be accessed by integer [indices](https://go.dev/ref/spec#Index_expressions) 0 through `len(s)-1`. It is illegal to take the address of such an element; if `s[i]` is the `i`'th byte of a string, `&s[i]` is invalid.
 
 ​	可以使用内置函数 `len` 查找字符串 `s` 的长度。如果字符串是常量，那么长度就是编译时常量。字符串的字节可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`来访问。`取这样一个元素的地址是非法的`；如果`s[i]`是字符串的第`i`个字节，那么`&s[i]`是无效的。
 
@@ -201,6 +219,8 @@ uintptr  an unsigned integer large enough to store the uninterpreted bits of a p
 
 ### Array types 数组型
 
+An array is a numbered sequence of elements of a single type, called the element type. The number of elements is called the length of the array and is never negative.
+
 ​	数组是单类型的元素组成的编号序列，称为元素类型。`元素的数量`被称为数组的`长度`，并且永远不会是负数。
 
 ```
@@ -208,6 +228,8 @@ ArrayType   = "[" ArrayLength "]" ElementType .
 ArrayLength = Expression .
 ElementType = Type .
 ```
+
+The length is part of the array's type; it must evaluate to a non-negative [constant](https://go.dev/ref/spec#Constants) [representable](https://go.dev/ref/spec#Representability) by a value of type `int`. The length of array `a` can be discovered using the built-in function [`len`](https://go.dev/ref/spec#Length_and_capacity). The elements can be addressed by integer [indices](https://go.dev/ref/spec#Index_expressions) 0 through `len(a)-1`. Array types are always one-dimensional but may be composed to form multi-dimensional types.
 
 ​	长度是数组类型的一部分；它必须求值为一个非负[常数](../Constants)，该常数可由 int 类型的值[表示](../PropertiesOfTypesAndValues#representability)。数组`a`的长度可以用内置函数`len`发现。元素可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(a)-1`进行寻址。数组类型总是一维的，但是可以组成多维类型。
 
@@ -293,13 +315,40 @@ ElementType = Type .
 >
 > 
 
+An array type `T` may not have an element of type `T`, or of a type containing `T` as a component, directly or indirectly, if those containing types are only array or struct types.
+
+​	数组类型 `T` 不能直接或间接地包含类型 `T` 的元素，或包含类型 `T` 作为组件的元素，如果这些包含的类型仅为数组或结构类型。
+
+```go
+// invalid array types 非法数组类型
+type (
+	T1 [10]T1                 // element type of T1 is T1
+	T2 [10]struct{ f T2 }     // T2 contains T2 as component of a struct
+	T3 [10]T4                 // T3 contains T3 as component of a struct in T4
+	T4 struct{ f T3 }         // T4 contains T4 as component of array T3 in a struct
+)
+
+// valid array types 合法数组类型
+type (
+	T5 [10]*T5                // T5 contains T5 as component of a pointer
+	T6 [10]func() T6          // T6 contains T6 as component of a function type
+	T7 [10]struct{ f []T7 }   // T7 contains T7 as component of a slice in a struct
+)
+```
+
+
+
 ### Slice types 切片型
+
+A slice is a descriptor for a contiguous segment of an *underlying array* and provides access to a numbered sequence of elements from that array. A slice type denotes the set of all slices of arrays of its element type. The number of elements is called the length of the slice and is never negative. The value of an uninitialized slice is `nil`.
 
 ​	切片是底层数组的连续段的描述符，并提供对该数组中编号的元素序列的访问。切片类型表示其元素类型的所有数组切片的集合。`元素的数量`被称为切片的`长度`，并且永远不会是负数。一个未初始化的切片的值是`nil`。
 
 ```
 SliceType = "[" "]" ElementType .
 ```
+
+The length of a slice `s` can be discovered by the built-in function [`len`](https://go.dev/ref/spec#Length_and_capacity); unlike with arrays it may change during execution. The elements can be addressed by integer [indices](https://go.dev/ref/spec#Index_expressions) 0 through `len(s)-1`. The slice index of a given element may be less than the index of the same element in the underlying array.
 
 ​	切片`s`的长度可以通过内置函数`len`发现；与数组不同，它在运行过程中可能会发生变化。元素可以通过整数[索引](../Expressions#index-expressions-索引表达式)0到`len(s)-1`进行寻址。给定元素的切片索引可能小于底层数组中同一元素的索引。
 
@@ -357,6 +406,8 @@ SliceType = "[" "]" ElementType .
 >
 > 
 
+A slice, once initialized, is always associated with an underlying array that holds its elements. A slice therefore shares storage with its array and with other slices of the same array; by contrast, distinct arrays always represent distinct storage.
+
 ​	切片一旦被初始化，总是与保存其元素的底层数组相关联。因此，一个切片与它的底层数组和同一数组的其他切片共享存储；相反，不同的数组总是表示不同的存储。
 
 > 个人注释
@@ -392,6 +443,8 @@ SliceType = "[" "]" ElementType .
 > ```
 >
 > 
+
+The array underlying a slice may extend past the end of the slice. The *capacity* is a measure of that extent: it is the sum of the length of the slice and the length of the array beyond the slice; a slice of length up to that capacity can be created by [*slicing*](https://go.dev/ref/spec#Slice_expressions) a new one from the original slice. The capacity of a slice `a` can be discovered using the built-in function [`cap(a)`](https://go.dev/ref/spec#Length_and_capacity).
 
 ​	切片的底层数组可以超过切片的末端。容量是对这一范围的衡量：它是切片的长度和切片之外的数组长度之和；可以通过从原始切片切割一个新的切片来创建一个达到这个容量的切片。使用内置函数 `cap(a)`可以发现切片 `a` 的容量。
 
@@ -452,13 +505,15 @@ SliceType = "[" "]" ElementType .
 >
 > 
 
-
+A new, initialized slice value for a given element type `T` may be made using the built-in function [`make`](https://go.dev/ref/spec#Making_slices_maps_and_channels), which takes a slice type and parameters specifying the length and optionally the capacity. A slice created with `make` always allocates a new, hidden array to which the returned slice value refers. That is, executing
 
 ​	可以使用内置函数`make`来创建一个给定元素类型`T`的新的、初始化的切片值，该函数接受一个切片类型和指定长度和可选容量的参数。用`make`创建的切片总是分配一个新的、隐藏的数组，返回的切片值指向该数组。也就是说，执行
 
 ```go 
 make([]T, length, capacity)
 ```
+
+produces the same slice as allocating an array and [slicing](https://go.dev/ref/spec#Slice_expressions) it, so these two expressions are equivalent:
 
 产生的切片与分配一个数组并对其进行[切片](../Expressions#slice-expressions-切片表达式)是一样的，所以这两个表达式是等同的：
 
@@ -513,6 +568,8 @@ new([100]int)[0:50]
 > ```
 >
 > ​	奇怪了，难道是Go的做了什么特殊处理？TODO
+
+Like arrays, slices are always one-dimensional but may be composed to construct higher-dimensional objects. With arrays of arrays, the inner arrays are, by construction, always the same length; however with slices of slices (or arrays of slices), the inner lengths may vary dynamically. Moreover, the inner slices must be initialized individually.
 
 ​	和数组一样，切片总是一维的，但可以通过组合来构造更高维的对象。对于数组的数组，内部数组在结构上总是相同的长度；但是对于切片的切片（或切片的数组），内部长度可以动态变化。此外，`内部切片必须被单独初始化`。
 
@@ -601,6 +658,8 @@ new([100]int)[0:50]
 
 ### Struct types 结构体型
 
+A struct is a sequence of named elements, called fields, each of which has a name and a type. Field names may be specified explicitly (IdentifierList) or implicitly (EmbeddedField). Within a struct, non-[blank](https://go.dev/ref/spec#Blank_identifier) field names must be [unique](https://go.dev/ref/spec#Uniqueness_of_identifiers).
+
 ​	结构体是一系列具有名称和类型的命名元素，称为`字段`。字段名可以显式指定（IdentifierList）或隐式指定（EmbeddedField）。在结构体内部，非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)字段名必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers-标识符的唯一性)的。
 
 ```
@@ -624,6 +683,8 @@ struct {
 	F func()
 }
 ```
+
+A field declared with a type but no explicit field name is called an *embedded field*. An embedded field must be specified as a type name `T` or as a pointer to a non-interface type name `*T`, and `T` itself may not be a pointer type. The unqualified type name acts as the field name. 
 
 ​	使用类型但没有显式字段名声明的字段被称为`嵌入字段`。嵌入字段必须被指定为一个类型名`T`或一个指向非接口类型名`*T`的指针，而且`T`本身不能是一个指针类型。未限定类型名作为字段名。
 
@@ -724,6 +785,8 @@ type MySt2 struct {
 >
 > ​	相信以上示例，已经给出了答案：未限定类型名作为字段名，即是将类型名直接作为字段名；结构体变量不能用于 for range语句中作为被迭代对象。
 
+The following declaration is illegal because field names must be unique in a struct type:
+
 ​	下面的声明是非法的，`因为字段名在一个结构体类型中必须是唯一的`。
 
 ```go 
@@ -762,6 +825,8 @@ struct {
 > ```
 >
 > 
+
+A field or [method](https://go.dev/ref/spec#Method_declarations) `f` of an embedded field in a struct `x` is called *promoted* if `x.f` is a legal [selector](https://go.dev/ref/spec#Selectors) that denotes that field or method `f`.
 
 ​	如果`x.f`是表示字段或[方法](../DeclarationsAndScope#function-declarations-方法声明)`f`的合法[选择器](../Expressions#selectors-选择器)，那么结构体`x`中的嵌入字段或方法`f`被称为（自动）提升（的字段或方法）。
 
@@ -810,6 +875,8 @@ struct {
 >
 > 
 
+Promoted fields act like ordinary fields of a struct except that they cannot be used as field names in [composite literals](https://go.dev/ref/spec#Composite_literals) of the struct.
+
 ​	被提升的字段与结构体中的普通字段一样，只是它们不能在结构体的[复合字面量](../Expressions#composite-literals-复合字面量)中作为字段名使用。
 
 > 个人注释
@@ -855,11 +922,17 @@ struct {
 >
 > ​	即Size这个字段不能直接在结构体字面量的最外围花括号中直接使用。
 
+Given a struct type `S` and a [named type](https://go.dev/ref/spec#Types) `T`, promoted methods are included in the method set of the struct as follows:
+
 ​	给定一个结构体类型`S`和一个[命名类型](../Types)`T`，提升的方法按以下方式包含在结构体的方法集中：
 
-(aa）如果`S`包含一个嵌入式字段`T`，那么`S`和`*S`的方法集都包括带有接收器`T`的提升方法，`*S`的方法集也包括带有接收器`*T`的提升方法。
+(aa）If `S` contains an embedded field `T`, the [method sets](https://go.dev/ref/spec#Method_sets) of `S` and `*S` both include promoted methods with receiver `T`. The method set of `*S` also includes promoted methods with receiver `*T`.
 
-(bb) 如果`S`包含一个嵌入式字段`*T`，那么`S`和`*S`的方法集都包括带有接收器`T`或`*T`的提升方法。
+​	如果`S`包含一个嵌入式字段`T`，那么`S`和`*S`的方法集都包括带有接收器`T`的提升方法，`*S`的方法集也包括带有接收器`*T`的提升方法。
+
+(bb) If `S` contains an embedded field `*T`, the method sets of `S` and `*S` both include promoted methods with receiver `T` or `*T`.
+
+​	如果`S`包含一个嵌入式字段`*T`，那么`S`和`*S`的方法集都包括带有接收器`T`或`*T`的提升方法。
 
 > ​	个人注释
 >
@@ -979,6 +1052,8 @@ struct {
 >
 > 
 
+A field declaration may be followed by an optional string literal *tag*, which becomes an attribute for all the fields in the corresponding field declaration. An empty tag string is equivalent to an absent tag. The tags are made visible through a [reflection interface](https://go.dev/pkg/reflect/#StructTag) and take part in [type identity](https://go.dev/ref/spec#Type_identity) for structs but are otherwise ignored.
+
 ​	一个字段声明后面可以有一个可选的`字符串字面量标签`，它成为相应字段声明中所有字段的属性。一个空的标签字符串等同于一个不存在标签。标签通过[反射接口](https://pkg.go.dev/reflect#StructTag)可见，并参与结构体的[类型标识](../PropertiesOfTypesAndValues#type-identity-类型一致性)，但在其他情况下被忽略。
 
 ```go 
@@ -1010,18 +1085,48 @@ struct {
 >
 > 
 
+A struct type `T` may not contain a field of type `T`, or of a type containing `T` as a component, directly or indirectly, if those containing types are only array or struct types.
+
+​	结构类型 `T` 不能包含类型 `T` 的字段，或者包含类型 `T` 作为组件的字段，无论直接还是间接，如果这些包含的类型只是数组或结构类型。
+
+```go
+// invalid struct types 非法结构体类型
+type (
+	T1 struct{ T1 }            // T1 contains a field of T1
+	T2 struct{ f [10]T2 }      // T2 contains T2 as component of an array
+	T3 struct{ T4 }            // T3 contains T3 as component of an array in struct T4
+	T4 struct{ f [10]T3 }      // T4 contains T4 as component of struct T3 in an array
+)
+
+// valid struct types 合法结构体类型
+type (
+	T5 struct{ f *T5 }         // T5 contains T5 as component of a pointer
+	T6 struct{ f func() T6 }   // T6 contains T6 as component of a function type
+	T7 struct{ f [10][]T7 }    // T7 contains T7 as component of a slice in an array
+)
+```
+
+
+
 ### Pointer types 指针型
+
+A pointer type denotes the set of all pointers to [variables](https://go.dev/ref/spec#Variables) of a given type, called the *base type* of the pointer. The value of an uninitialized pointer is `nil`.
 
 ​	指针类型表示指向给定类型（称为指针的基本类型）[变量](../Variables)的所有指针的集合。一个未初始化的指针的值是`nil`。
 
 ```go 
 PointerType = "*" BaseType .
 BaseType    = Type .
+```
+
+```go
 *Point
 *[4]int
 ```
 
 ### Function types 函数型
+
+A function type denotes the set of all functions with the same parameter and result types. The value of an uninitialized variable of function type is `nil`.
 
 ​	函数类型表示具有相同参数类型和结果类型的所有函数的集合。一个函数类型的未初始化变量的值是`nil`。
 
@@ -1034,7 +1139,11 @@ ParameterList  = ParameterDecl { "," ParameterDecl } .
 ParameterDecl  = [ IdentifierList ] [ "..." ] Type .
 ```
 
+Within a list of parameters or results, the names (IdentifierList) must either all be present or all be absent. If present, each name stands for one item (parameter or result) of the specified type and all non-[blank](https://go.dev/ref/spec#Blank_identifier) names in the signature must be [unique](https://go.dev/ref/spec#Uniqueness_of_identifiers). If absent, each type stands for one item of that type. Parameter and result lists are always parenthesized except that if there is exactly one unnamed result it may be written as an unparenthesized type.
+
 ​	在参数或结果的列表中，名称（IdentifierList）必须全部存在或全部不存在。如果存在（名称），每个名称代表指定类型的一个项（参数或结果），并且签名中所有非[空白](../DeclarationsAndScope#blank-identifier-空白标识符)的名称必须是唯一的。如果不存在（名称），每个类型代表该类型的一个项。参数和结果列表总是用括号表示，但如果正好仅有一个未命名的结果，则可以写成未括号的类型。
+
+The final incoming parameter in a function signature may have a type prefixed with `...`. A function with such a parameter is called *variadic* and may be invoked with zero or more arguments for that parameter.
 
 ​	在函数签名中的最后一个传入参数可以有一个`类型前缀` `...`。有这样一个参数的函数被称为 variadic （`可变参数函数`），可以用零个或多个参数来调用该函数。
 
@@ -1051,6 +1160,8 @@ func(n int) func(p *T)
 
 ### Interface types 接口型
 
+An interface type defines a *type set*. A variable of interface type can store a value of any type that is in the type set of the interface. Such a type is said to [implement the interface](https://go.dev/ref/spec#Implementing_an_interface). The value of an uninitialized variable of interface type is `nil`. 
+
 ​	接口类型定义了一个类型集。接口类型的变量可以存储该接口类型集中的任何类型的值。这样的类型被称为[实现了该接口](#implementing-an-interface-实现一个接口)。未初始化的接口类型变量的值是`nil`。
 
 ```
@@ -1063,9 +1174,13 @@ TypeTerm       = Type | UnderlyingType .
 UnderlyingType = "~" Type .
 ```
 
+An interface type is specified by a list of *interface elements*. An interface element is either a *method* or a *type element*, where a type element is a union of one or more *type terms*. A type term is either a single type or a single underlying type.
+
 ​	接口类型由接口元素列表指定。接口元素是一个方法或一个类型元素，其中类型元素是一个或多个类型项的联合。类型项可以是一个单一类型，也可以是一个单一的底层类型。
 
 #### Basic interfaces 基本接口
+
+In its most basic form an interface specifies a (possibly empty) list of methods. The type set defined by such an interface is the set of types which implement all of those methods, and the corresponding [method set](https://go.dev/ref/spec#Method_sets) consists exactly of the methods specified by the interface. Interfaces whose type sets can be defined entirely by a list of methods are called *basic interfaces.*
 
 ​	在其最基本的形式中，接口指定了一个（可能是空的）方法列表。由这样一个接口定义的类型集是实现了所有这些方法的类型集，而相应的方法集则完全由这个接口指定的方法组成。那些类型集可以`完全由一个方法列表`来定义的接口被称为`基本接口`。
 
@@ -1078,7 +1193,9 @@ interface {
 }
 ```
 
-每个显式指定的方法的名称必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers)的，不能是[空白](../PropertiesOfTypesAndValues#blank-identity)。
+The name of each explicitly specified method must be [unique](https://go.dev/ref/spec#Uniqueness_of_identifiers) and not [blank](https://go.dev/ref/spec#Blank_identifier).
+
+​	每个显式指定的方法的名称必须是[唯一](../DeclarationsAndScope#uniqueness-of-identifiers)的，不能是[空白](../PropertiesOfTypesAndValues#blank-identity)。
 
 ```go 
 interface {
@@ -1088,6 +1205,8 @@ interface {
 }
 ```
 
+More than one type may implement an interface. For instance, if two types `S1` and `S2` have the method set
+
 ​	多个类型可以实现一个（相同的）接口。例如，如果两个类型`S1`和`S2`的方法设置为
 
 ```go 
@@ -1096,7 +1215,11 @@ func (p T) Write(p []byte) (n int, err error)
 func (p T) Close() error
 ```
 
+(where `T` stands for either `S1` or `S2`) then the `File` interface is implemented by both `S1` and `S2`, regardless of what other methods `S1` and `S2` may have or share.
+
 (其中`T`代表`S1`或`S2`），那么`File`接口就由`S1`和`S2`实现，而不管`S1`和`S2`可能有其他方法或共享什么其他方法。
+
+Every type that is a member of the type set of an interface implements that interface. Any given type may implement several distinct interfaces. For instance, all types implement the *empty interface* which stands for the set of all (non-interface) types:
 
 ​	作为接口类型集成员的每个类型都实现了该接口。任何给定的类型都可以实现几个不同的接口。例如，所有类型都实现`空接口` （interface {}），它代表所有（非接口）类型的集合：
 
@@ -1104,7 +1227,11 @@ func (p T) Close() error
 interface{}
 ```
 
-为了方便，预先声明的类型`any`是`空接口的别名`。
+For convenience, the predeclared type `any` is an alias for the empty interface. [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]
+
+​	为了方便，预先声明的类型`any`是`空接口的别名`。[[Go 1.18](https://go.dev/ref/spec#Go_1.18)]
+
+Similarly, consider this interface specification, which appears within a [type declaration](https://go.dev/ref/spec#Type_declarations) to define an interface called `Locker`:
 
 ​	类似地，考虑这个接口规范，它出现在定义名为 `Locker` 的接口的类型声明中：
 
@@ -1115,18 +1242,24 @@ type Locker interface {
 }
 ```
 
-如果`S1`和`S2`也实现了
+If `S1` and `S2` also implement
+
+​	如果`S1`和`S2`也实现了
 
 ```go 
 func (p T) Lock() { … }
 func (p T) Unlock() { … }
 ```
 
+they implement the `Locker` interface as well as the `File` interface.
+
 他们就实现了`Locker`接口和`File`接口。
 
 #### Embedded interfaces 嵌入接口
 
-​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E`。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
+In a slightly more general form an interface `T` may use a (possibly qualified) interface type name `E` as an interface element. This is called *embedding* interface `E` in `T` [[Go 1.14](https://go.dev/ref/spec#Go_1.14)]. The type set of `T` is the *intersection* of the type sets defined by `T`'s explicitly declared methods and the type sets of `T`’s embedded interfaces. In other words, the type set of `T` is the set of all types that implement all the explicitly declared methods of `T` and also all the methods of `E` [[Go 1.18](https://go.dev/ref/spec#Go_1.18)].
+
+​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E` [[Go 1.14](https://go.dev/ref/spec#Go_1.14)]。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
 
 ```go 
 type Reader interface {
@@ -1146,7 +1279,9 @@ type ReadWriter interface {
 }
 ```
 
-在嵌入接口时，具有[相同](../DeclarationsAndScope#uniqueness-of-identifiers)名称的方法必须具有[相同](../PropertiesOfTypesAndValues#type-identity)的签名。
+When embedding interfaces, methods with the [same](https://go.dev/ref/spec#Uniqueness_of_identifiers) names must have [identical](https://go.dev/ref/spec#Type_identity) signatures.
+
+​	在嵌入接口时，具有[相同](../DeclarationsAndScope#uniqueness-of-identifiers)名称的方法必须具有[相同](../PropertiesOfTypesAndValues#type-identity)的签名。
 
 ```go 
 type ReadCloser interface {
@@ -1157,16 +1292,28 @@ type ReadCloser interface {
 
 #### General interfaces 通用接口
 
-​	在最通用的形式下，接口元素也可以是一个任意类型项`T`，或者是一个指定底层类型`T`的`~T`形式的项，或者是一系列项`t1|t2|...|tn`的联合。结合方法规范，这些元素能够精确地定义一个接口的类型集，如下所示：
+In their most general form, an interface element may also be an arbitrary type term `T`, or a term of the form `~T` specifying the underlying type `T`, or a union of terms `t1|t2|…|tn` [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]. Together with method specifications, these elements enable the precise definition of an interface's type set as follows:
 
+​	在最通用的形式下，接口元素也可以是一个任意类型项`T`，或者是一个指定底层类型`T`的`~T`形式的项，或者是一系列项`t1|t2|...|tn`的联合 [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]。结合方法规范，这些元素能够精确地定义一个接口的类型集，如下所示：
+
+- The type set of the empty interface is the set of all non-interface types.
 - 空接口的类型集是`所有非接口类型的集合`。
+- The type set of a non-empty interface is the intersection of the type sets of its interface elements.
 - 非空接口的类型集是其接口元素的类型集的交集。
+- The type set of a method specification is the set of all non-interface types whose method sets include that method.
 - 方法规范的类型集是包含该方法的`所有非接口类型的集合`。
+- The type set of a non-interface type term is the set consisting of just that type.
 - 非接口类型项的类型集是仅由该类型组成的集合。
+- The type set of a term of the form `~T` is the set of all types whose underlying type is `T`.
 - 形式为`~T`的项的类型集是底层类型为`T`的所有类型的集合。
+- The type set of a *union* of terms `t1|t2|…|tn` is the union of the type sets of the terms.
 - 一系列项`t1|t2|...|tn`的类型集是这些项的类型集的并集。
 
+The quantification "the set of all non-interface types" refers not just to all (non-interface) types declared in the program at hand, but all possible types in all possible programs, and hence is infinite. Similarly, given the set of all non-interface types that implement a particular method, the intersection of the method sets of those types will contain exactly that method, even if all types in the program at hand always pair that method with another method.
+
 ​	量化 "`所有非接口类型的集合` "不仅指当前程序中声明的所有（非接口）类型，还指所有可能程序中的所有可能类型，因此是无限的。类似地，给定实现某个特定方法的`所有非接口类型的集合`，这些类型的方法集的`交集`将正好包含该方法，即使当前程序中的所有类型总是将该方法与另一个方法配对。
+
+By construction, an interface's type set never contains an interface type.
 
 ​	根据定义，`一个接口的类型集永远不会包含一个接口类型`。
 
@@ -1198,6 +1345,8 @@ interface {
 }
 ```
 
+In a term of the form `~T`, the underlying type of `T` must be itself, and `T` cannot be an interface.
+
 ​	在形式为`~T`的项中，`T`的底层类型必须是它自己，而且`T`不能是一个接口。
 
 ```go 
@@ -1210,7 +1359,9 @@ interface {
 }
 ```
 
-联合元素表示类型集的并集：
+Union elements denote unions of type sets:
+
+​	联合元素表示类型集的并集：
 
 ```go 
 // The Float interface represents all floating-point types
@@ -1221,6 +1372,8 @@ type Float interface {
 	~float32 | ~float64
 }
 ```
+
+The type `T` in a term of the form `T` or `~T` cannot be a [type parameter](https://go.dev/ref/spec#Type_parameter_declarations), and the type sets of all non-interface terms must be pairwise disjoint (the pairwise intersection of the type sets must be empty). Given a type parameter `P`:
 
 ​	形式为`T`或`~T`的项中的类型`T`不能是[类型参数](../DeclarationsAndScope#type-parameter-declarations)，所有非接口项的类型集必须是成对不相交的（类型集的成对交集必须为空）。给定一个类型参数P：
 
@@ -1233,7 +1386,11 @@ interface {
 }
 ```
 
-实现限制：一个联合(有多个项)不能包含[预先声明的标识符中的](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)`comparable`或指定了方法的接口，或嵌入`comparable`或指定了方法的接口。
+Implementation restriction: A union (with more than one term) cannot contain the [predeclared identifier](https://go.dev/ref/spec#Predeclared_identifiers) `comparable` or interfaces that specify methods, or embed `comparable` or interfaces that specify methods.
+
+​	实现限制：一个联合(有多个项)不能包含[预先声明的标识符中的](../DeclarationsAndScope#predeclared-identifiers--预先声明的标识符)`comparable`或指定了方法的接口，或嵌入`comparable`或指定了方法的接口。
+
+Interfaces that are not [basic](https://go.dev/ref/spec#Basic_interfaces) may only be used as type constraints, or as elements of other interfaces used as constraints. They cannot be the types of values or variables, or components of other, non-interface types.
 
 ​	非[基本接口](#basic-interfaces-基本接口)只能作为类型约束使用，或者作为其他接口的元素作为约束使用。它们不能作为值或变量的类型，**也不能作为其他非接口类型的组成部分**。
 
@@ -1247,7 +1404,9 @@ type Floatish struct {
 }
 ```
 
-接口类型 `T` 不能嵌入任何递归地包含或嵌入 `T` 的类型元素。
+An interface type `T` may not embed a type element that is, contains, or embeds `T`, directly or indirectly.
+
+​	接口类型 `T` 不能嵌入任何递归地包含或嵌入 `T` 的类型元素。
 
 ```go 
 // illegal: Bad cannot embed itself => 非法: Bad 不能嵌入自己
@@ -1271,13 +1430,21 @@ type Bad3 interface {
 
 #### Implementing an interface 实现一个接口
 
-如果类型`T`实现了接口`I`，则
+A type `T` implements an interface `I` if
 
-​	(a)`T`不是接口，并且是`I`类型集的元素；或者
+​	如果类型`T`实现了接口`I`，则
 
-​	(b) `T`是接口，并且`T`的类型集是`I`的类型集的子集。
+​	(a)`T` is not an interface and is an element of the type set of `I`; or
 
-如果`T`实现了一个接口，那么`T`类型的值就实现了该接口。
+​	`T`不是接口，并且是`I`类型集的元素；或者
+
+​	(b) `T` is an interface and the type set of `T` is a subset of the type set of `I`.
+
+​	`T`是接口，并且`T`的类型集是`I`的类型集的子集。
+
+A value of type `T` implements an interface if `T` implements the interface.
+
+​	如果`T`实现了一个接口，那么`T`类型的值就实现了该接口。
 
 > 个人注释
 >
@@ -1337,12 +1504,16 @@ type Bad3 interface {
 
 ### Map types 映射型
 
+A map is an unordered group of elements of one type, called the element type, indexed by a set of unique *keys* of another type, called the key type. The value of an uninitialized map is `nil`.
+
 ​	映射是一个无序的元素组，由一种类型的元素（称为`元素类型`）组成，由另一种类型的唯一键集（称为`键类型`）进行索引。一个未初始化的映射的值是`nil`。
 
 ```
 MapType     = "map" "[" KeyType "]" ElementType .
 KeyType     = Type .
 ```
+
+The [comparison operators](https://go.dev/ref/spec#Comparison_operators) `==` and `!=` must be fully defined for operands of the key type; thus the key type must not be a function, map, or slice. If the key type is an interface type, these comparison operators must be defined for the dynamic key values; failure will cause a [run-time panic](https://go.dev/ref/spec#Run_time_panics).
 
 ​	[比较运算符](../Expressions#comparison-operators-比较运算符)`==`和`!=`必须为键类型的操作数完全定义；`因此键类型不能是函数、映射或切片`。如果键类型是接口类型，则必须为动态键值定义这些比较运算符；失败将导致[运行时恐慌（run-time panic）](../Run-timePanics)。
 
@@ -1406,7 +1577,11 @@ map[*T]struct{ x, y float64 }
 map[string]interface{}
 ```
 
+The number of map elements is called its length. For a map `m`, it can be discovered using the built-in function [`len`](https://go.dev/ref/spec#Length_and_capacity) and may change during execution. Elements may be added during execution using [assignments](https://go.dev/ref/spec#Assignment_statements) and retrieved with [index expressions](https://go.dev/ref/spec#Index_expressions); they may be removed with the [`delete`](https://go.dev/ref/spec#Deletion_of_map_elements) and [`clear`](https://go.dev/ref/spec#Clear) built-in function.
+
 ​	映射元素的数量被称为它的`长度`。对于一个map `m`来说，它可以用内置函数`len`来发现，并且在运行过程中可能会改变。在运行过程中可以用[赋值](../Statements#assignment-statements)添加元素，用[索引表达式](../Expressions##index-expressions-索引表达式)检索元素；可以用内置函数`delete`删除元素。
+
+A new, empty map value is made using the built-in function [`make`](https://go.dev/ref/spec#Making_slices_maps_and_channels), which takes the map type and an optional capacity hint as arguments:
 
 ​	使用内置函数 `make` 创建一个新的空 map 值，它使用 map 类型和一个可选的容量提示作为参数：
 
@@ -1415,15 +1590,21 @@ make(map[string]int)
 make(map[string]int, 100)
 ```
 
+The initial capacity does not bound its size: maps grow to accommodate the number of items stored in them, with the exception of `nil` maps. A `nil` map is equivalent to an empty map except that no elements may be added.
+
 ​	初始容量不限制其大小：映射会增长以容纳其中存储的项数，但`nil`映射除外。`nil`映射等同于空映射，`只是不能添加任何元素`。
 
 ### Channel types 通道型
+
+A channel provides a mechanism for [concurrently executing functions](https://go.dev/ref/spec#Go_statements) to communicate by [sending](https://go.dev/ref/spec#Send_statements) and [receiving](https://go.dev/ref/spec#Receive_operator) values of a specified element type. The value of an uninitialized channel is `nil`.
 
 ​	通道为[并发执行函数](../Statements#go-statements----go-语句)提供了一种机制，通过[发送](../Statements#send-statements-发送语句)和[接收](../Expressions#receive-operator-接收操作符)指定元素类型的值进行通信。未初始化的通道的值是`nil`。
 
 ```
 ChannelType = ( "chan" | "chan" "<-" | "<-" "chan" ) ElementType .
 ```
+
+The optional `<-` operator specifies the channel *direction*, *send* or *receive*. If a direction is given, the channel is *directional*, otherwise it is *bidirectional*. A channel may be constrained only to send or only to receive by [assignment](https://go.dev/ref/spec#Assignment_statements) or explicit [conversion](https://go.dev/ref/spec#Conversions).
 
 ​	可选的`<-`操作符指定了通道的方向：发送或接收。如果指定了方向，则该通道是定向的，否则是双向的。通过[赋值](../Statements#assignment-statements-赋值语句)或显式[转换](../Expressions#conversions-转换)，通道可以被限制为仅发送或仅接收。
 
@@ -1433,7 +1614,9 @@ chan<- float64  // can only be used to send float64s => 仅用于发送 float64 
 <-chan int      // can only be used to receive ints => 仅用于接收 int 类型
 ```
 
-`<-` 操作符尽可能与最左边的 `chan` 相关联：
+The `<-` operator associates with the leftmost `chan` possible:
+
+​	`<-` 操作符尽可能与最左边的 `chan` 相关联：
 
 ```go 
 chan<- chan int    // same as chan<- (chan int) => 与 chan<- (chan int) 相同
@@ -1442,11 +1625,15 @@ chan<- <-chan int  // same as chan<- (<-chan int) =>与 chan<- (<-chan int) 相�
 chan (<-chan int)
 ```
 
+A new, initialized channel value can be made using the built-in function [`make`](https://go.dev/ref/spec#Making_slices_maps_and_channels), which takes the channel type and an optional *capacity* as arguments:
+
 ​	可以使用内置函数 `make` 创建一个新的、初始化的 channel 值，它以channel 类型和可选的容量作为参数：
 
 ```go 
 make(chan int, 100)
 ```
+
+The capacity, in number of elements, sets the size of the buffer in the channel. If the capacity is zero or absent, the channel is unbuffered and communication succeeds only when both a sender and receiver are ready. Otherwise, the channel is buffered and communication succeeds without blocking if the buffer is not full (sends) or not empty (receives). A `nil` channel is never ready for communication.
 
 ​	容量(以元素数量为单位)设置通道中缓冲区的大小。如果容量为零或没有指定，则通道是无缓冲的，只有当发送方和接收方都准备好时，通信才会成功。否则，如果缓冲区不满(可继续发送)或不是空的(可继续接收) ，通道会将数据缓冲起来，并且通信在没有阻塞的情况下成功。一个`nil`通道不能用于通信。
 
@@ -1456,7 +1643,7 @@ make(chan int, 100)
 > ​    与无缓冲channel 不同，带缓冲channel 可以通过带有 capacity 参数的内置make 函数创建：c:= make(chan  T, capctity)
 > ​    由于带缓冲channel 的运行时层实现带有缓冲区，因此对带有缓冲channel的发送操作在缓冲区未满、接收操作在缓冲区非空的情况下是异步的（发送或接收无需阻塞等待）。也就是说，对一个带缓冲channel，在缓冲区无数据或有数据但未满的情况下，对其进行发送操作的goroutine不会阻塞；在缓冲区已满的情况下，对其进行发送操作的goroutine会阻塞；在缓冲区为空的情况下，对其进行接收操作的goroutine亦会阻塞。
 
-
+A channel may be closed with the built-in function [`close`](https://go.dev/ref/spec#Close). The multi-valued assignment form of the [receive operator](https://go.dev/ref/spec#Receive_operator) reports whether a received value was sent before the channel was closed.
 
 ​	通道可以用内置函数`close`来关闭。[接收操作符](../Expressions#receive-operator-接收操作符)的多值赋值形式可以用来判断数据是否在通道关闭之前发送出去。
 
@@ -1469,5 +1656,7 @@ make(chan int, 100)
 > ```
 >
 > ​	
+
+A single channel may be used in [send statements](https://go.dev/ref/spec#Send_statements), [receive operations](https://go.dev/ref/spec#Receive_operator), and calls to the built-in functions [`cap`](https://go.dev/ref/spec#Length_and_capacity) and [`len`](https://go.dev/ref/spec#Length_and_capacity) by any number of goroutines without further synchronization. Channels act as first-in-first-out queues. For example, if one goroutine sends values on a channel and a second goroutine receives them, the values are received in the order sent.
 
 ​	任意数量的goroutines都可以通过[发送语句](../Statements#send-statements-发送语句)、[接收操作](../Expressions#receive-operator-接收操作符)以及对内置函数`cap`和`len`的调用，来操作一个通道。通道是一个先入先出的队列。例如，如果一个goroutine在通道上发送数据，第二个goroutine接收这些数据，那么这些数据将按照发送的顺序被接收。

@@ -13,40 +13,62 @@ draft = false
 
 ### Comments 注释
 
+Comments serve as program documentation. There are two forms:
+
 ​	注释服务于程序文档，有两种形式：
 
-1. 行注释以字符序列`//`开始，并在行尾结束。
-2. 通用注释以字符序列`/*`开始，并以随后的第一个字符序列`*/`结束。
+1. *Line comments* start with the character sequence `//` and stop at the end of the line.
+2. 行注释以字符序列`//`开始，并在行尾结束。
+3. *General comments* start with the character sequence `/*` and stop with the first subsequent character sequence `*/`.
+4. 通用注释以字符序列`/*`开始，并以随后的第一个字符序列`*/`结束。
+
+A comment cannot start inside a [rune](https://go.dev/ref/spec#Rune_literals) or [string literal](https://go.dev/ref/spec#String_literals), or inside a comment. A general comment containing no newlines acts like a space. Any other comment acts like a newline.
 
 ​	注释不能从[rune]({{< ref "/langSpec/LexicalElements#rune-literals-符文字面量">}})或[string literal]({{< ref "/langSpec/LexicalElements#string-literals-字符串字面量">}})开始，也不能从注释内部开始。一个不包含换行符的通用注释就像一个空格。任何其他的注释就像一个换行符。
 
 ### Tokens
 
+Tokens form the vocabulary of the Go language. There are four classes: *identifiers*, *keywords*, *operators and punctuation*, and *literals*. *White space*, formed from spaces (U+0020), horizontal tabs (U+0009), carriage returns (U+000D), and newlines (U+000A), is ignored except as it separates tokens that would otherwise combine into a single token. Also, a newline or end of file may trigger the insertion of a [semicolon](https://go.dev/ref/spec#Semicolons). While breaking the input into tokens, the next token is the longest sequence of characters that form a valid token.
+
 ​	tokens 构成了Go语言的词汇表。有四个类别：`标识符`、`关键字`、`操作符和标点符号`以及`字面量（literals）`。由空格（U+0020）、水平制表符（U+0009）、回车符（U+000D）和换行符（U+000A）组成的空白空间被忽略，除非它分隔本来会合并成单个标记的标记。此外，换行或文件结束可能会触发插入分号[semicolon](#semicolons-分号) 。当把输入分解为 tokens 时，下一个 token 是形成有效 token 的最长的字符序列。
 
 ### Semicolons 分号
 
+The formal syntax uses semicolons `";"` as terminators in a number of productions. Go programs may omit most of these semicolons using the following two rules:
+
 ​	正式语法（formal syntax）在许多结果（productions）中使用分号"`;`"作为终止符。Go程序可以通过以下两条规则省略大部分的分号：
 
-a. 当输入被分解成 tokens 时，分号会自动插入标记流后，如果某行的最后一个 token 是：
+a. When the input is broken into tokens, a semicolon is automatically inserted into the token stream immediately after a line's final token if that token is
 
+当输入被分解成 tokens 时，分号会自动插入标记流后，如果某行的最后一个 token 是：
 
+   - an [identifier](https://go.dev/ref/spec#Identifiers)  一个标识符（[identifier](#identifiers-标识符)）
 
-   - 一个标识符（[identifier](#identifiers-标识符)）
+   - an [integer](https://go.dev/ref/spec#Integer_literals), [floating-point](https://go.dev/ref/spec#Floating-point_literals), [imaginary](https://go.dev/ref/spec#Imaginary_literals), [rune](https://go.dev/ref/spec#Rune_literals), or [string](https://go.dev/ref/spec#String_literals) literal
 
    - 一个[整数字面量]({{< ref "/langSpec/LexicalElements#integer-literals-整数字面量">}})、[浮点数字面量]({{< ref "/langSpec/LexicalElements#floating-point-literals-浮点数字面量">}})、[虚数字面量]({{< ref "/langSpec/LexicalElements#imaginary-literals-虚数字面量">}})、[符文字面量]({{< ref "/langSpec/LexicalElements#rune-literals-符文字面量">}})或[字符串字面量]({{< ref "/langSpec/LexicalElements#string-literals-字符串字面量">}} )
 
+   - one of the [keywords](https://go.dev/ref/spec#Keywords) `break`, `continue`, `fallthrough`, or `return`
+
    - `break`、 `continue`、`fallthrough`、 `return`中的任意一个[关键字](#keywords-关键字)
+
+   - one of the [operators and punctuation](https://go.dev/ref/spec#Operators_and_punctuation) `++`, `--`, `)`, `]`, or `}`
 
    - `++`、`--`、`)`、`]`、 `}`中的任意一个[操作符或标点符号](#operators-and-punctuation-操作符和标点符号)
 
         
 
-b. 为了允许复杂的语句占用一行，在结尾的"`)`"或"`}`"之前可以省略分号。
+b. To allow complex statements to occupy a single line, a semicolon may be omitted before a closing `")"` or `"}"`.
+
+为了允许复杂的语句占用一行，在结尾的"`)`"或"`}`"之前可以省略分号。
+
+To reflect idiomatic use, code examples in this document elide semicolons using these rules.
 
 ​	为了响应惯用法（idiomatic use），本文档中的代码示例使用这些规则省略分号。
 
 ### Identifiers 标识符
+
+Identifiers name program entities such as variables and types. An identifier is a sequence of one or more letters and digits. The first character in an identifier must be a letter.
 
 ​	标识符命名程序实体，如变量和类型。标识符是一个或多个字母和数字的序列。标识符中的第一个字符必须是字母。
 
@@ -58,9 +80,13 @@ ThisVariableIsExported
 αβ
 ```
 
-一些标识符是预先声明的（[predeclared]({{< ref "/langSpec/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符">}})）。
+Some identifiers are [predeclared](https://go.dev/ref/spec#Predeclared_identifiers).
+
+​	一些标识符是预先声明的（[predeclared]({{< ref "/langSpec/DeclarationsAndScope#predeclared-identifiers--预先声明的标识符">}})）。
 
 ### Keywords 关键字
+
+The following keywords are reserved and may not be used as identifiers.
 
 ​	以下关键词被作为保留，不能作为标识符使用：
 
@@ -73,6 +99,8 @@ continue     for          import       return       var
 ```
 
 ### Operators and punctuation 操作符和标点符号
+
+The following character sequences represent [operators](https://go.dev/ref/spec#Operators) (including [assignment operators](https://go.dev/ref/spec#Assignment_statements)) and punctuation [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]:
 
 ​	以下字符序列代表运算符（[operators]({{< ref "/langSpec/Expressions#operators-操作符">}})）（包括赋值运算符（[assignment operators]({{< ref "/langSpec/Statements#assignment-statements-赋值语句">}})））和标点符号：
 
@@ -87,9 +115,13 @@ continue     for          import       return       var
 
 ### Integer literals 整数字面量
 
-​	整数字面量是代表一个整数常量的数字序列。可选的前缀用于设置非十进制的基数。二进制为`0b`或`0B`，八进制为`0`、`0o`或`0O`，十六进制为`0x`或`0X`。`单一的0被认为是十进制的0`。在十六进制字面量中，字母`a`到`f`和`A`到`F`代表数值10到15。
+An integer literal is a sequence of digits representing an [integer constant](https://go.dev/ref/spec#Constants). An optional prefix sets a non-decimal base: `0b` or `0B` for binary, `0`, `0o`, or `0O` for octal, and `0x` or `0X` for hexadecimal [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]. A single `0` is considered a decimal zero. In hexadecimal literals, letters `a` through `f` and `A` through `F` represent values 10 through 15.
 
-​	为了便于阅读，下划线字符`_`可以出现在基数前缀之后或连续的数字之间。这种下划线不会改变字面的值。`（只有从 go 1.几的版本及以上版本才可以使用）`
+​	整数字面量是代表一个整数常量的数字序列。可选的前缀用于设置非十进制的基数。二进制为`0b`或`0B`，八进制为`0`、`0o`或`0O`，十六进制为`0x`或`0X` [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]。`单一的0被认为是十进制的0`。在十六进制字面量中，字母`a`到`f`和`A`到`F`代表数值10到15。
+
+For readability, an underscore character `_` may appear after a base prefix or between successive digits; such underscores do not change the literal's value.
+
+​	为了便于阅读，下划线字符`_`可以出现在基数前缀之后或连续的数字之间。这种下划线不会改变字面的值。`（个人注释：只有从 go 1.几的版本及以上版本才可以使用）`
 
 ```
 int_lit        = decimal_lit | binary_lit | octal_lit | hex_lit .
@@ -102,6 +134,9 @@ decimal_digits = decimal_digit { [ "_" ] decimal_digit } .
 binary_digits  = binary_digit { [ "_" ] binary_digit } .
 octal_digits   = octal_digit { [ "_" ] octal_digit } .
 hex_digits     = hex_digit { [ "_" ] hex_digit } .
+```
+
+```go
 42
 4_2
 0600
@@ -125,13 +160,21 @@ _42         // an identifier, not an integer literal => 标识符,非整数字�
 
 ### Floating-point literals 浮点数字面量
 
+A floating-point literal is a decimal or hexadecimal representation of a [floating-point constant](https://go.dev/ref/spec#Constants).
+
 ​	浮点数字面量是[浮点常量]({{< ref "/langSpec/Constants">}})的十进制或十六进制表示。
+
+A decimal floating-point literal consists of an integer part (decimal digits), a decimal point, a fractional part (decimal digits), and an exponent part (`e` or `E` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; one of the decimal point or the exponent part may be elided. An exponent value exp scales the mantissa (integer and fractional part) by 10exp.
 
 ​	十进制浮点数字面量由整数部分（integer part）（十进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十进制数字）和指数部分（exponent part ）（`e`或`E`后面有可选的符号和十进制数字）组成。整数部分或小数部分中的一个可以省略；小数点或指数部分中的一个可以省略。指数值 exp 将尾数（mantissa ）（整数和小数部分）按$10^{exp}$ 进行缩放。
 
-​	十六进制浮点数字面量由`0x`或`0X`前缀（prefix）、整数部分（integer part）（十六进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十六进制数字）和指数部分（exponent part ）（`p`或`P`后面有可选的符号和`十进制数字`）组成。整数部分或小数部分中的一个可以省略；小数点也可以省略，但指数部分是必须要存在的。(这个语法与`IEEE 754-2008 §5.12.3`中给出的语法一致。) 指数值exp将尾数（mantissa ）(整数和小数部分)按$2^{exp}$ 进行缩放。
+A hexadecimal floating-point literal consists of a `0x` or `0X` prefix, an integer part (hexadecimal digits), a radix point, a fractional part (hexadecimal digits), and an exponent part (`p` or `P` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; the radix point may be elided as well, but the exponent part is required. (This syntax matches the one given in IEEE 754-2008 §5.12.3.) An exponent value exp scales the mantissa (integer and fractional part) by 2exp [[Go 1.13](https://go.dev/ref/spec#Go_1.13)].
 
-​	为了便于阅读，一个下划线字符`_`可以出现在基数前缀之后或连续的数字之间；这样的下划线不会改变字面量的值。`（只有从 go 1.几的版本及以上版本才可以使用）`
+​	十六进制浮点数字面量由`0x`或`0X`前缀（prefix）、整数部分（integer part）（十六进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十六进制数字）和指数部分（exponent part ）（`p`或`P`后面有可选的符号和`十进制数字`）组成。整数部分或小数部分中的一个可以省略；小数点也可以省略，但指数部分是必须要存在的。(这个语法与`IEEE 754-2008 §5.12.3`中给出的语法一致。) 指数值exp将尾数（mantissa ）(整数和小数部分)按$2^{exp}$​ 进行缩放。
+
+For readability, an underscore character `_` may appear after a base prefix or between successive digits; such underscores do not change the literal value.
+
+​	为了便于阅读，一个下划线字符`_`可以出现在基数前缀之后或连续的数字之间；这样的下划线不会改变字面量的值。`（个人注释：只有从 go 1.几的版本及以上版本才可以使用）`
 
 ```
 float_lit         = decimal_float_lit | hex_float_lit .
@@ -146,6 +189,9 @@ hex_mantissa      = [ "_" ] hex_digits "." [ hex_digits ] |
                     [ "_" ] hex_digits |
                     "." hex_digits .
 hex_exponent      = ( "p" | "P" ) [ "+" | "-" ] decimal_digits .
+```
+
+```
 0.
 72.40
 072.40       // == 72.40
@@ -188,11 +234,15 @@ hex_exponent      = ( "p" | "P" ) [ "+" | "-" ] decimal_digits .
 
 ### Imaginary literals 虚数字面量
 
-​	虚数字面量表示一个[复数常量]({{< ref "/langSpec/Constants">}})的虚数部分。它由一个[整数字面量](#integer-literals-整数字面量)或[浮点数的字面量](#floating-point-literals-浮点数字面量)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i`。
+An imaginary literal represents the imaginary part of a [complex constant](https://go.dev/ref/spec#Constants). It consists of an [integer](https://go.dev/ref/spec#Integer_literals) or [floating-point](https://go.dev/ref/spec#Floating-point_literals) literal followed by the lowercase letter `i`. The value of an imaginary literal is the value of the respective integer or floating-point literal multiplied by the imaginary unit *i* [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]
+
+​	虚数字面量表示一个[复数常量]({{< ref "/langSpec/Constants">}})的虚数部分。它由一个[整数字面量](#integer-literals-整数字面量)或[浮点数的字面量](#floating-point-literals-浮点数字面量)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i` [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]。
 
 ```
 imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 ```
+
+For backward compatibility, an imaginary literal's integer part consisting entirely of decimal digits (and possibly underscores) is considered a decimal integer, even if it starts with a leading `0`. 
 
 ​	为了向后兼容，虚数字面量的整数部分完全由十进制数字（可能还有下划线）组成，被认为是一个十进制整数，即使它以前导`0`开始。
 
@@ -213,9 +263,15 @@ imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 
 ### Rune literals 符文字面量
 
+A rune literal represents a [rune constant](https://go.dev/ref/spec#Constants), an integer value identifying a Unicode code point. A rune literal is expressed as one or more characters enclosed in single quotes, as in `'x'` or `'\n'`. Within the quotes, any character may appear except newline and unescaped single quote. A single quoted character represents the Unicode value of the character itself, while multi-character sequences beginning with a backslash encode values in various formats.
+
 ​	符文字面量表示一个[符文常量]({{< ref "/langSpec/Constants">}})，一个识别Unicode码点的整数值。一个符文字面量表示为一个或多个字符，用单引号包裹起来，如`'x'`或`'\n'`。在引号内，除了换行符（newline）和未转义的单引号（unescaped single quote），任何字符都可以出现。一个单引号字符代表该字符本身的Unicode值，而以`反斜线`开始的多字符序列则以各种格式编码。
 
+The simplest form represents the single character within the quotes; since Go source text is Unicode characters encoded in UTF-8, multiple UTF-8-encoded bytes may represent a single integer value. For instance, the literal `'a'` holds a single byte representing a literal `a`, Unicode U+0061, value `0x61`, while `'ä'` holds two bytes (`0xc3` `0xa4`) representing a literal `a`-dieresis, U+00E4, value `0xe4`.
+
 ​	最简单的形式代表引号内的单个字符；由于Go源文本是以UTF-8编码的Unicode字符，多个UTF-8编码的字节可能代表一个整数值。例如，字面意义上的`'a'`持有一个字节，代表字面意义上的`a`，Unicode U+0061，数值为`0x61`，而`'ä'`持有两个字节（`0xc3 0xa4`），代表字面意义上的a-dieresis，U+00E4，数值为`0xe4`。
+
+Several backslash escapes allow arbitrary values to be encoded as ASCII text. There are four ways to represent the integer value as a numeric constant: `\x` followed by exactly two hexadecimal digits; `\u` followed by exactly four hexadecimal digits; `\U` followed by exactly eight hexadecimal digits, and a plain backslash `\` followed by exactly three octal digits. In each case the value of the literal is the value represented by the digits in the corresponding base.
 
 ​	一些反斜线转义允许任意的值被编码为ASCII文本。有四种方法可以将整数值表示为数字常量：
 
@@ -226,7 +282,11 @@ imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 
 在每种情况下，字面的值都是由相应基数的数字代表的值。
 
+Although these representations all result in an integer, they have different valid ranges. Octal escapes must represent a value between 0 and 255 inclusive. Hexadecimal escapes satisfy this condition by construction. The escapes `\u` and `\U` represent Unicode code points so within them some values are illegal, in particular those above `0x10FFFF` and surrogate halves.
+
 ​	虽然这些表示方法都是一个整数，但它们的有效范围不同。八进制转义必须代表0到255之间的值。十六进制转义在结构上满足这一条件。转义`\u`和`\U`代表Unicode码点，所以在它们里面有些值是非法的，特别是那些高于`0x10FFFF`的值和 surrogate halves 的值。
+
+After a backslash, certain single-character escapes represent special values:
 
 ​	在反斜线之后，某些单字符转义表示特殊的值：
 
@@ -243,7 +303,9 @@ imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 \"   U+0022 double quote  (valid escape only within string literals) => 双引号(仅在字符串字面值内有效转义)
 ```
 
-在符文字面量中的反斜线后面无法识别的字符是非法的。
+An unrecognized character following a backslash in a rune literal is illegal.
+
+​	在符文字面量中的反斜线后面无法识别的字符是非法的。
 
 ```
 rune_lit         = "'" ( unicode_value | byte_value ) "'" .
@@ -255,6 +317,9 @@ little_u_value   = `\` "u" hex_digit hex_digit hex_digit hex_digit .
 big_u_value      = `\` "U" hex_digit hex_digit hex_digit hex_digit
                            hex_digit hex_digit hex_digit hex_digit .
 escaped_char     = `\` ( "a" | "b" | "f" | "n" | "r" | "t" | "v" | `\` | "'" | `"` ) .
+```
+
+```
 'a'
 'ä'
 '本'
@@ -278,16 +343,25 @@ escaped_char     = `\` ( "a" | "b" | "f" | "n" | "r" | "t" | "v" | `\` | "'" | `
 
 ### String literals 字符串字面量
 
+A string literal represents a [string constant](https://go.dev/ref/spec#Constants) obtained from concatenating a sequence of characters. There are two forms: raw string literals and interpreted string literals.
+
 ​	字符串字面量表示通过连接字符序列获得的[字符串常量]({{< ref "/langSpec/Constants">}})。有两种形式：`原始字符串字面量`和`解释字符串字面量`。
+
+Raw string literals are character sequences between back quotes, as in ``foo``. Within the quotes, any character may appear except back quote. The value of a raw string literal is the string composed of the uninterpreted (implicitly UTF-8-encoded) characters between the quotes; in particular, backslashes have no special meaning and the string may contain newlines. Carriage return characters ('\r') inside raw string literals are discarded from the raw string value.
 
 ​	原始字符串字面量是`反引号之间`的字符序列，如\`foo\`。在引号内，任何字符都可以出现，除了反引号。原始字符串字面量的值是由引号之间未解释的（隐含的UTF-8编码）字符组成的字符串；特别是，反斜线没有特殊含义，字符串可以包含新行。原始字符串字面量内的回车字符（'\r'）会从原始字符串值中丢弃。
 
-​	解释字符串字面量是`双引号之间`的字符序列，如 "bar"。在引号内，除了换行和未转义的双引号，任何字符都可以出现。引号之间的文字构成了字面量的值，反斜线转义的解释与符文字面量中的解释相同（除了`\'`是非法的，`\"`是合法的），限制也相同。三位数的八进制(`\nnn`)和两位数的十六进制(`\xnn`)转义代表结果字符串的单个字节；所有其他转义表示单个字符的（可能是多字节的）UTF-8编码。因此，在一个字符串字面中，`\377`和`\xFF`代表值为`0xFF`=255的单个字节，而`ÿ`、`\u00FF`、`\U000000FF`和 `\xc3\xbf`代表字符`U+00FF`的UTF-8编码的两个字节`0xc3 0xbf`。
+Interpreted string literals are character sequences between double quotes, as in `"bar"`. Within the quotes, any character may appear except newline and unescaped double quote. The text between the quotes forms the value of the literal, with backslash escapes interpreted as they are in [rune literals](https://go.dev/ref/spec#Rune_literals) (except that `\'` is illegal and `\"` is legal), with the same restrictions. The three-digit octal (`\`*nnn*) and two-digit hexadecimal (`\x`*nn*) escapes represent individual *bytes* of the resulting string; all other escapes represent the (possibly multi-byte) UTF-8 encoding of individual *characters*. Thus inside a string literal `\377` and `\xFF` represent a single byte of value `0xFF`=255, while `ÿ`, `\u00FF`, `\U000000FF` and `\xc3\xbf` represent the two bytes `0xc3` `0xbf` of the UTF-8 encoding of character U+00FF.
+
+​	解释字符串字面量是`双引号之间`的字符序列，如 `"bar"`。在引号内，除了换行和未转义的双引号，任何字符都可以出现。引号之间的文字构成了字面量的值，反斜线转义的解释与符文字面量中的解释相同（除了`\'`是非法的，`\"`是合法的），限制也相同。三位数的八进制(`\nnn`)和两位数的十六进制(`\xnn`)转义代表结果字符串的单个字节；所有其他转义表示单个字符的（可能是多字节的）UTF-8编码。因此，在一个字符串字面中，`\377`和`\xFF`代表值为`0xFF`=255的单个字节，而`ÿ`、`\u00FF`、`\U000000FF`和 `\xc3\xbf`代表字符`U+00FF`的UTF-8编码的两个字节`0xc3` ` 0xbf`。
 
 ```
 string_lit             = raw_string_lit | interpreted_string_lit .
 raw_string_lit         = "`" { unicode_char | newline } "`" .
 interpreted_string_lit = `"` { unicode_value | byte_value } `"` .
+```
+
+```
 `abc`                // same as "abc"
 `\n
 \n`                  // same as "\\n\n\\n"
@@ -301,7 +375,9 @@ interpreted_string_lit = `"` { unicode_value | byte_value } `"` .
 "\U00110000"         // illegal: invalid Unicode code point
 ```
 
-这些示例都表示相同的字符串：
+These examples all represent the same string:
+
+​	这些示例都表示相同的字符串：
 
 ```
 "日本語"                                 // UTF-8 input text
@@ -310,5 +386,7 @@ interpreted_string_lit = `"` { unicode_value | byte_value } `"` .
 "\U000065e5\U0000672c\U00008a9e"        // the explicit Unicode code points
 "\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e"  // the explicit UTF-8 bytes
 ```
+
+If the source code represents a character as two code points, such as a combining form involving an accent and a letter, the result will be an error if placed in a rune literal (it is not a single code point), and will appear as two code points if placed in a string literal.
 
 ​	如果源代码将一个字符表示为两个码点，例如涉及重音和字母的组合形式，如果放在符文字面量中，结果将是一个错误（它不是一个单一码点），如果放在字符串字面量中，将显示为两个码点。
