@@ -70,7 +70,7 @@ A (variable of) type `T` has *variable size* if `T` is a [type parameter](https:
 
 ​	如果`T`是一个[类型参数](../DeclarationsAndScope#type-parameter-declarations-类型参数声明)，或者它是一个包含可变大小的元素或字段的数组或结构体类型，则`T`类型的（变量）具有可变大小。否则，大小是常量。如果对 `Alignof`、`Offsetof` 和 `Sizeof` 的调用的实参（或 `Offsetof` 的选择器表达式 `s.f` 中的结构体 `s`）是恒定大小的类型，则它们是 `uintptr` 类型的编译时[常量表达式](../Expressions#constant-expressions-常量表达式)。
 
-The function `Add` adds `len` to `ptr` and returns the updated pointer `unsafe.Pointer(uintptr(ptr) + uintptr(len))` [[Go 1.17](https://go.dev/ref/spec#Go_1.17)]. The `len` argument must be of [integer type](https://go.dev/ref/spec#Numeric_types) or an untyped [constant](https://go.dev/ref/spec#Constants). A constant `len` argument must be [representable](https://go.dev/ref/spec#Representability) by a value of type `int`; if it is an untyped constant it is given type `int`. The rules for [valid uses](https://go.dev/pkg/unsafe#Pointer) of `Pointer` still apply.
+The function `Add` adds `len` to `ptr` and returns the updated pointer `unsafe.Pointer(uintptr(ptr) + uintptr(len))` [[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})]. The `len` argument must be of [integer type](https://go.dev/ref/spec#Numeric_types) or an untyped [constant](https://go.dev/ref/spec#Constants). A constant `len` argument must be [representable](https://go.dev/ref/spec#Representability) by a value of type `int`; if it is an untyped constant it is given type `int`. The rules for [valid uses](https://go.dev/pkg/unsafe#Pointer) of `Pointer` still apply.
 
 ​	 `Add` 函数将 `len` 添加到 `ptr` 并返回更新后的指针 `unsafe.Pointer(uintptr(ptr) + uintptr(len))` 。`len`实参必须是[整数类型](../Types#numeric-types-数值型)或无类型的[常量](../Constants)。一个常量`len`实参必须可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)；如果它是一个无类型的常量，则它会被赋予`int`类型。Pointer的[有效使用](https://go.dev/pkg/unsafe#Pointer)规则仍然适用。
 
@@ -82,25 +82,25 @@ The function `Slice` returns a slice whose underlying array starts at `ptr` and 
 (*[len]ArbitraryType)(unsafe.Pointer(ptr))[:]
 ```
 
-except that, as a special case, if `ptr` is `nil` and `len` is zero, `Slice` returns `nil` [[Go 1.17](https://go.dev/ref/spec#Go_1.17)].
+except that, as a special case, if `ptr` is `nil` and `len` is zero, `Slice` returns `nil` [[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})].
 
 **除了这样，还有一种特殊情况**，如果 `ptr` 是 `nil` 并且 `len` 是零，`Slice` 返回 `nil`。
 
-The `len` argument must be of [integer type](https://go.dev/ref/spec#Numeric_types) or an untyped [constant](https://go.dev/ref/spec#Constants). A constant `len` argument must be non-negative and [representable](https://go.dev/ref/spec#Representability) by a value of type `int`; if it is an untyped constant it is given type `int`. At run time, if `len` is negative, or if `ptr` is `nil` and `len` is not zero, a [run-time panic](https://go.dev/ref/spec#Run_time_panics) occurs [[Go 1.17](https://go.dev/ref/spec#Go_1.17)].
+The `len` argument must be of [integer type](https://go.dev/ref/spec#Numeric_types) or an untyped [constant](https://go.dev/ref/spec#Constants). A constant `len` argument must be non-negative and [representable](https://go.dev/ref/spec#Representability) by a value of type `int`; if it is an untyped constant it is given type `int`. At run time, if `len` is negative, or if `ptr` is `nil` and `len` is not zero, a [run-time panic](https://go.dev/ref/spec#Run_time_panics) occurs [[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})].
 
-​	`len`实参必须是[整数类型](../Types#numeric-types-数值型)或无类型的[常量](../Constants)。一个常量`len`实参必须是非负的，并且可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)；如果它是一个无类型的常量，则它会被赋予`int`类型。在运行时，如果`len`是负的，或者如果`ptr`是`nil`而`len`不是0，会发生[运行时恐慌](../Run-timePanics) [[Go 1.17](https://go.dev/ref/spec#Go_1.17)]。
+​	`len`实参必须是[整数类型](../Types#numeric-types-数值型)或无类型的[常量](../Constants)。一个常量`len`实参必须是非负的，并且可以用`int`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)；如果它是一个无类型的常量，则它会被赋予`int`类型。在运行时，如果`len`是负的，或者如果`ptr`是`nil`而`len`不是0，会发生[运行时恐慌](../Run-timePanics) [[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})]。
 
-The function `SliceData` returns a pointer to the underlying array of the `slice` argument. If the slice's capacity `cap(slice)` is not zero, that pointer is `&slice[:1][0]`. If `slice` is `nil`, the result is `nil`. Otherwise it is a non-`nil` pointer to an unspecified memory address [[Go 1.20](https://go.dev/ref/spec#Go_1.20)].
+The function `SliceData` returns a pointer to the underlying array of the `slice` argument. If the slice's capacity `cap(slice)` is not zero, that pointer is `&slice[:1][0]`. If `slice` is `nil`, the result is `nil`. Otherwise it is a non-`nil` pointer to an unspecified memory address [[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})].
 
-​	函数 `SliceData` 返回一个指向 `slice` 参数的底层数组的指针。如果切片的容量 `cap(slice)` 不为零，则该指针为 `&slice[:1][0]` 。如果 `slice` 为 `nil` ，则结果为 `nil` 。否则，它是一个指向未指定内存地址的非 `nil` 指针 [ [Go 1.20](https://go.dev/ref/spec#Go_1.20)]。
+​	函数 `SliceData` 返回一个指向 `slice` 参数的底层数组的指针。如果切片的容量 `cap(slice)` 不为零，则该指针为 `&slice[:1][0]` 。如果 `slice` 为 `nil` ，则结果为 `nil` 。否则，它是一个指向未指定内存地址的非 `nil` 指针 [ [Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})]。
 
-The function `String` returns a `string` value whose underlying bytes start at `ptr` and whose length is `len`. The same requirements apply to the `ptr` and `len` argument as in the function `Slice`. If `len` is zero, the result is the empty string `""`. Since Go strings are immutable, the bytes passed to `String` must not be modified afterwards. [[Go 1.20](https://go.dev/ref/spec#Go_1.20)]
+The function `String` returns a `string` value whose underlying bytes start at `ptr` and whose length is `len`. The same requirements apply to the `ptr` and `len` argument as in the function `Slice`. If `len` is zero, the result is the empty string `""`. Since Go strings are immutable, the bytes passed to `String` must not be modified afterwards. [[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})]
 
-​	函数 `String` 返回一个 `string` 值，其底层字节从 `ptr` 开始，长度为 `len` 。 `ptr` 和 `len` 参数与函数 `Slice` 中的要求相同。如果 `len` 为零，则结果为空字符串 `""` 。由于 Go 字符串是不可变的，因此传递给 `String` 的字节之后不能被修改。[[Go 1.20](https://go.dev/ref/spec#Go_1.20)]
+​	函数 `String` 返回一个 `string` 值，其底层字节从 `ptr` 开始，长度为 `len` 。 `ptr` 和 `len` 参数与函数 `Slice` 中的要求相同。如果 `len` 为零，则结果为空字符串 `""` 。由于 Go 字符串是不可变的，因此传递给 `String` 的字节之后不能被修改。[[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})]
 
-The function `StringData` returns a pointer to the underlying bytes of the `str` argument. For an empty string the return value is unspecified, and may be `nil`. Since Go strings are immutable, the bytes returned by `StringData` must not be modified [[Go 1.20](https://go.dev/ref/spec#Go_1.20)].
+The function `StringData` returns a pointer to the underlying bytes of the `str` argument. For an empty string the return value is unspecified, and may be `nil`. Since Go strings are immutable, the bytes returned by `StringData` must not be modified [[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})].
 
-​	函数 `StringData` 返回一个指向 `str` 参数的底层字节的指针。对于空字符串，返回值未指定，可能为 `nil` 。由于 Go 字符串是不可变的，因此 `StringData` 返回的字节不能被修改 [[Go 1.20](https://go.dev/ref/spec#Go_1.20)]。
+​	函数 `StringData` 返回一个指向 `str` 参数的底层字节的指针。对于空字符串，返回值未指定，可能为 `nil` 。由于 Go 字符串是不可变的，因此 `StringData` 返回的字节不能被修改 [[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})]。
 
 ### Size and alignment guarantees 大小和对齐保证
 

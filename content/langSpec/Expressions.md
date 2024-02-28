@@ -1721,7 +1721,7 @@ within `Greeting`, `who` will have the same value as `s` with the same underlyin
 
 ### Instantiations 实例化
 
-A generic function or type is *instantiated* by substituting *type arguments* for the type parameters [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]. Instantiation proceeds in two steps:
+A generic function or type is *instantiated* by substituting *type arguments* for the type parameters [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]. Instantiation proceeds in two steps:
 
 ​	`泛型函数`或`泛型`是通过用`类型实参`替换`类型参数`而被实例化的。实例化分两步进行：
 
@@ -1967,7 +1967,7 @@ Except for shift operations, if one operand is an untyped [constant](https://go.
 
 ​	除了**移位操作符**之外，如果一个操作数是`无类型`常量，而另一个操作数不是，那么该常量将被隐式地[转换](#conversions-转换)为另一个操作数的类型。
 
-The right operand in a shift expression must have [integer type](https://go.dev/ref/spec#Numeric_types) [[Go 1.13](https://go.dev/ref/spec#Go_1.13)] or be an untyped constant [representable](https://go.dev/ref/spec#Representability) by a value of type `uint`. If the left operand of a non-constant shift expression is an untyped constant, it is first implicitly converted to the type it would assume if the shift expression were replaced by its left operand alone.
+The right operand in a shift expression must have [integer type](https://go.dev/ref/spec#Numeric_types) [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})] or be an untyped constant [representable](https://go.dev/ref/spec#Representability) by a value of type `uint`. If the left operand of a non-constant shift expression is an untyped constant, it is first implicitly converted to the type it would assume if the shift expression were replaced by its left operand alone.
 
 ​	移位表达式中的`右操作数`必须是[整数类型](../Types#numeric-types-数值型)，或者是可以用`uint`类型的值[表示](../PropertiesOfTypesAndValues#representability-可表示性)的`无类型`常量。如果一个非常量移位表达式的`左操作数`是一个`无类型`常量，那么它首先被隐式地转换为假设移位表达式被其左操作数单独替换时的类型。
 
@@ -2414,8 +2414,8 @@ A non-constant value `x` can be converted to type `T` in any of these cases:
 - `x`是一个整型、字节型、符文型的切片，`T`是一个字符串类型。
 - `x` is a string and `T` is a slice of bytes or runes. 
 - `x`是一个字符串类型，`T`是一个字节型、符文型的切片。
-- `x` is a slice, `T` is an array [[Go 1.20](https://go.dev/ref/spec#Go_1.20)] or a pointer to an array [[Go 1.17](https://go.dev/ref/spec#Go_1.17)], and the slice and array types have [identical](https://go.dev/ref/spec#Type_identity) element types. 
-- `x` 是切片， `T` 是数组[[Go 1.20](https://go.dev/ref/spec#Go_1.20)] 或数组指针[[Go 1.17](https://go.dev/ref/spec#Go_1.17)]，切片和数组类型具有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)元素类型。
+- `x` is a slice, `T` is an array [[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})] or a pointer to an array [[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})], and the slice and array types have [identical](https://go.dev/ref/spec#Type_identity) element types. 
+- `x` 是切片， `T` 是数组[[Go 1.20]({{< ref "/langSpec/Appendix#go-120">}})] 或数组指针[[Go 1.17]({{< ref "/langSpec/Appendix#go-117">}})]，切片和数组类型具有[一致的](../PropertiesOfTypesAndValues#type-identity-类型一致性)元素类型。
 
 Additionally, if `T` or `x`'s type `V` are type parameters, `x` can also be converted to type `T` if one of the following conditions applies:
 

@@ -5,7 +5,9 @@ weight = 4
 description = ""
 isCJKLanguage = true
 type = "docs"
+math = true
 draft = false
+
 +++
 ## Lexical elements 词汇元素
 
@@ -40,9 +42,11 @@ The formal syntax uses semicolons `";"` as terminators in a number of production
 
 a. When the input is broken into tokens, a semicolon is automatically inserted into the token stream immediately after a line's final token if that token is
 
-当输入被分解成 tokens 时，分号会自动插入标记流后，如果某行的最后一个 token 是：
+​	当输入被分解成 tokens 时，分号会自动插入标记流后，如果某行的最后一个 token 是：
 
-   - an [identifier](https://go.dev/ref/spec#Identifiers)  一个标识符（[identifier](#identifiers-标识符)）
+   - an [identifier](https://go.dev/ref/spec#Identifiers)  
+
+   - 一个标识符（[identifier](#identifiers-标识符)）
 
    - an [integer](https://go.dev/ref/spec#Integer_literals), [floating-point](https://go.dev/ref/spec#Floating-point_literals), [imaginary](https://go.dev/ref/spec#Imaginary_literals), [rune](https://go.dev/ref/spec#Rune_literals), or [string](https://go.dev/ref/spec#String_literals) literal
 
@@ -60,7 +64,7 @@ a. When the input is broken into tokens, a semicolon is automatically inserted i
 
 b. To allow complex statements to occupy a single line, a semicolon may be omitted before a closing `")"` or `"}"`.
 
-为了允许复杂的语句占用一行，在结尾的"`)`"或"`}`"之前可以省略分号。
+​	为了允许复杂的语句占用一行，在结尾的"`)`"或"`}`"之前可以省略分号。
 
 To reflect idiomatic use, code examples in this document elide semicolons using these rules.
 
@@ -100,7 +104,7 @@ continue     for          import       return       var
 
 ### Operators and punctuation 操作符和标点符号
 
-The following character sequences represent [operators](https://go.dev/ref/spec#Operators) (including [assignment operators](https://go.dev/ref/spec#Assignment_statements)) and punctuation [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]:
+The following character sequences represent [operators](https://go.dev/ref/spec#Operators) (including [assignment operators](https://go.dev/ref/spec#Assignment_statements)) and punctuation [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]:
 
 ​	以下字符序列代表运算符（[operators]({{< ref "/langSpec/Expressions#operators-操作符">}})）（包括赋值运算符（[assignment operators]({{< ref "/langSpec/Statements#assignment-statements-赋值语句">}})））和标点符号：
 
@@ -115,9 +119,9 @@ The following character sequences represent [operators](https://go.dev/ref/spec#
 
 ### Integer literals 整数字面量
 
-An integer literal is a sequence of digits representing an [integer constant](https://go.dev/ref/spec#Constants). An optional prefix sets a non-decimal base: `0b` or `0B` for binary, `0`, `0o`, or `0O` for octal, and `0x` or `0X` for hexadecimal [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]. A single `0` is considered a decimal zero. In hexadecimal literals, letters `a` through `f` and `A` through `F` represent values 10 through 15.
+An integer literal is a sequence of digits representing an [integer constant](https://go.dev/ref/spec#Constants). An optional prefix sets a non-decimal base: `0b` or `0B` for binary, `0`, `0o`, or `0O` for octal, and `0x` or `0X` for hexadecimal [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})]. A single `0` is considered a decimal zero. In hexadecimal literals, letters `a` through `f` and `A` through `F` represent values 10 through 15.
 
-​	整数字面量是代表一个整数常量的数字序列。可选的前缀用于设置非十进制的基数。二进制为`0b`或`0B`，八进制为`0`、`0o`或`0O`，十六进制为`0x`或`0X` [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]。`单一的0被认为是十进制的0`。在十六进制字面量中，字母`a`到`f`和`A`到`F`代表数值10到15。
+​	整数字面量是代表一个整数常量的数字序列。可选的前缀用于设置非十进制的基数。二进制为`0b`或`0B`，八进制为`0`、`0o`或`0O`，十六进制为`0x`或`0X` [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})]。`单一的0被认为是十进制的0`。在十六进制字面量中，字母`a`到`f`和`A`到`F`代表数值10到15。
 
 For readability, an underscore character `_` may appear after a base prefix or between successive digits; such underscores do not change the literal's value.
 
@@ -164,13 +168,13 @@ A floating-point literal is a decimal or hexadecimal representation of a [floati
 
 ​	浮点数字面量是[浮点常量]({{< ref "/langSpec/Constants">}})的十进制或十六进制表示。
 
-A decimal floating-point literal consists of an integer part (decimal digits), a decimal point, a fractional part (decimal digits), and an exponent part (`e` or `E` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; one of the decimal point or the exponent part may be elided. An exponent value exp scales the mantissa (integer and fractional part) by 10exp.
+A decimal floating-point literal consists of an integer part (decimal digits), a decimal point, a fractional part (decimal digits), and an exponent part (`e` or `E` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; one of the decimal point or the exponent part may be elided. An exponent value exp scales the mantissa (integer and fractional part) by \\(10^{exp}\\) .
 
-​	十进制浮点数字面量由整数部分（integer part）（十进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十进制数字）和指数部分（exponent part ）（`e`或`E`后面有可选的符号和十进制数字）组成。整数部分或小数部分中的一个可以省略；小数点或指数部分中的一个可以省略。指数值 exp 将尾数（mantissa ）（整数和小数部分）按$10^{exp}$ 进行缩放。
+​	十进制浮点数字面量由整数部分（integer part）（十进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十进制数字）和指数部分（exponent part ）（`e`或`E`后面有可选的符号和十进制数字）组成。整数部分或小数部分中的一个可以省略；小数点或指数部分中的一个可以省略。指数值 exp 将尾数（mantissa ）（整数和小数部分）按\\(10^{exp}\\) 进行缩放。
 
-A hexadecimal floating-point literal consists of a `0x` or `0X` prefix, an integer part (hexadecimal digits), a radix point, a fractional part (hexadecimal digits), and an exponent part (`p` or `P` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; the radix point may be elided as well, but the exponent part is required. (This syntax matches the one given in IEEE 754-2008 §5.12.3.) An exponent value exp scales the mantissa (integer and fractional part) by 2exp [[Go 1.13](https://go.dev/ref/spec#Go_1.13)].
+A hexadecimal floating-point literal consists of a `0x` or `0X` prefix, an integer part (hexadecimal digits), a radix point, a fractional part (hexadecimal digits), and an exponent part (`p` or `P` followed by an optional sign and decimal digits). One of the integer part or the fractional part may be elided; the radix point may be elided as well, but the exponent part is required. (This syntax matches the one given in IEEE 754-2008 §5.12.3.) An exponent value exp scales the mantissa (integer and fractional part) by \\(2^{exp}\\)  [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})].
 
-​	十六进制浮点数字面量由`0x`或`0X`前缀（prefix）、整数部分（integer part）（十六进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十六进制数字）和指数部分（exponent part ）（`p`或`P`后面有可选的符号和`十进制数字`）组成。整数部分或小数部分中的一个可以省略；小数点也可以省略，但指数部分是必须要存在的。(这个语法与`IEEE 754-2008 §5.12.3`中给出的语法一致。) 指数值exp将尾数（mantissa ）(整数和小数部分)按$2^{exp}$​ 进行缩放。
+​	十六进制浮点数字面量由`0x`或`0X`前缀（prefix）、整数部分（integer part）（十六进制数字）、小数点（ a radix point）、小数部分（fractional part ）（十六进制数字）和指数部分（exponent part ）（`p`或`P`后面有可选的符号和`十进制数字`）组成。整数部分或小数部分中的一个可以省略；小数点也可以省略，但指数部分是必须要存在的。(这个语法与`IEEE 754-2008 §5.12.3`中给出的语法一致。) 指数值exp将尾数（mantissa ）(整数和小数部分)按\\(2^{exp}\\)​ 进行缩放。
 
 For readability, an underscore character `_` may appear after a base prefix or between successive digits; such underscores do not change the literal value.
 
@@ -215,28 +219,28 @@ hex_exponent      = ( "p" | "P" ) [ "+" | "-" ] decimal_digits .
 	          //而不是十进制浮点数字面量中的指数部分前面的 e
 
 0x.p1        // invalid: mantissa has no digits  
-	       //=> 无效的： 尾数没有数字
+	       	 //=> 无效的： 尾数没有数字
 1p-2         // invalid: p exponent requires hexadecimal mantissa  
-	      //=> 无效的：p 指数需要十六进制尾数
+	      	 //=> 无效的：p 指数需要十六进制尾数
 0x1.5e-2     // invalid: hexadecimal mantissa requires p exponent 
-	          //=> 无效的：十六进制尾数需要 p 指数
+	         //=> 无效的：十六进制尾数需要 p 指数
 1_.5         // invalid: _ must separate successive digits
-	     //=> 无效的：十六进制尾数需要 p 指数
+	     	 //=> 无效的：_ 必须分开连续的数字
 1._5         // invalid: _ must separate successive digits
-	      //=> 无效的：十六进制尾数需要 p 指数
+	      	 //=> 无效的：_ 必须分开连续的数字
 1.5_e1       // invalid: _ must separate successive digits
-	         //=> 无效的：十六进制尾数需要 p 指数
+	         //=> 无效的：_ 必须分开连续的数字
 1.5e_1       // invalid: _ must separate successive digits
-	         //=> 无效的：十六进制尾数需要 p 指数
+	         //=> 无效的：_ 必须分开连续的数字
 1.5e1_       // invalid: _ must separate successive digits
-	         //=> 无效的：十六进制尾数需要 p 指数
+	         //=> 无效的：_ 必须分开连续的数字
 ```
 
 ### Imaginary literals 虚数字面量
 
-An imaginary literal represents the imaginary part of a [complex constant](https://go.dev/ref/spec#Constants). It consists of an [integer](https://go.dev/ref/spec#Integer_literals) or [floating-point](https://go.dev/ref/spec#Floating-point_literals) literal followed by the lowercase letter `i`. The value of an imaginary literal is the value of the respective integer or floating-point literal multiplied by the imaginary unit *i* [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]
+An imaginary literal represents the imaginary part of a [complex constant](https://go.dev/ref/spec#Constants). It consists of an [integer](https://go.dev/ref/spec#Integer_literals) or [floating-point](https://go.dev/ref/spec#Floating-point_literals) literal followed by the lowercase letter `i`. The value of an imaginary literal is the value of the respective integer or floating-point literal multiplied by the imaginary unit *i* [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})]
 
-​	虚数字面量表示一个[复数常量]({{< ref "/langSpec/Constants">}})的虚数部分。它由一个[整数字面量](#integer-literals-整数字面量)或[浮点数的字面量](#floating-point-literals-浮点数字面量)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i` [[Go 1.13](https://go.dev/ref/spec#Go_1.13)]。
+​	虚数字面量表示一个[复数常量]({{< ref "/langSpec/Constants">}})的虚数部分。它由一个[整数字面量](#integer-literals-整数字面量)或[浮点数的字面量](#floating-point-literals-浮点数字面量)和小写字母`i`组成，虚数字面量的值是各个整数或浮点数字面量的值乘以虚数单位`i` [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})]。
 
 ```
 imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .

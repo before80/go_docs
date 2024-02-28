@@ -19,7 +19,7 @@ The [Go 1 compatibility guarantee](https://go.dev/doc/go1compat) ensures that pr
 
 ​	Go 1 兼容性保证确保按照 Go 1 规范编写的程序在该规范的生命周期内将继续编译并正确运行，且保持不变。更普遍地说，随着对语言进行调整并添加功能，兼容性保证确保与特定 Go 语言版本一起使用的 Go 程序将继续与任何后续版本一起使用。
 
-For instance, the ability to use the prefix `0b` for binary integer literals was introduced with Go 1.13, indicated by [[Go 1.13](https://go.dev/ref/spec#Go_1.13)] in the section on [integer literals](https://go.dev/ref/spec#Integer_literals). Source code containing an integer literal such as `0b1011` will be rejected if the implied or required language version used by the compiler is older than Go 1.13.
+For instance, the ability to use the prefix `0b` for binary integer literals was introduced with Go 1.13, indicated by [[Go 1.13]({{< ref "/langSpec/Appendix#go-113">}})] in the section on [integer literals](https://go.dev/ref/spec#Integer_literals). Source code containing an integer literal such as `0b1011` will be rejected if the implied or required language version used by the compiler is older than Go 1.13.
 
 ​	例如，使用前缀 `0b` 表示二进制整数字面量的功能在 Go 1.13 中引入，在整数字面量部分用 [Go 1.13] 表示。如果编译器使用的隐含或必需的语言版本低于 Go 1.13，则包含整数字面量（例如 `0b1011` ）的源代码将被拒绝。
 

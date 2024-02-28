@@ -805,9 +805,9 @@ for cond { S() }    is the same as    for ; cond ; { S() }
 for      { S() }    is the same as    for true     { S() }
 ```
 
-Each iteration has its own separate declared variable (or variables) [[Go 1.22](https://go.dev/ref/spec#Go_1.22)]. The variable used by the first iteration is declared by the init statement. The variable used by each subsequent iteration is declared implicitly before executing the post statement and initialized to the value of the previous iteration's variable at that moment.
+Each iteration has its own separate declared variable (or variables) [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})]. The variable used by the first iteration is declared by the init statement. The variable used by each subsequent iteration is declared implicitly before executing the post statement and initialized to the value of the previous iteration's variable at that moment.
 
-​	每次迭代都有其自己的单独声明的变量（或变量）[[Go 1.22](https://go.dev/ref/spec#Go_1.22)]。第一次迭代使用的变量由 init 语句声明。每次后续迭代使用的变量在执行 post 语句之前隐式声明，并初始化为该时刻前一次迭代变量的值。
+​	每次迭代都有其自己的单独声明的变量（或变量）[[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})]。第一次迭代使用的变量由 init 语句声明。每次后续迭代使用的变量在执行 post 语句之前隐式声明，并初始化为该时刻前一次迭代变量的值。
 
 ```go
 var prints []func()
@@ -830,9 +830,9 @@ prints
 5
 ```
 
-Prior to [[Go 1.22](https://go.dev/ref/spec#Go_1.22)], iterations share one set of variables instead of having their own separate variables. In that case, the example above prints
+Prior to [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})], iterations share one set of variables instead of having their own separate variables. In that case, the example above prints
 
-​	在 [[Go 1.22](https://go.dev/ref/spec#Go_1.22)] 之前，迭代共享一组变量，而不是拥有它们自己的独立变量。在这种情况下，上面的示例打印
+​	在 [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})] 之前，迭代共享一组变量，而不是拥有它们自己的独立变量。在这种情况下，上面的示例打印
 
 ```
 6
@@ -842,9 +842,9 @@ Prior to [[Go 1.22](https://go.dev/ref/spec#Go_1.22)], iterations share one set 
 
 #### For statements with `range` clause  带有range子句的for语句
 
-A "for" statement with a "range" clause iterates through all entries of an array, slice, string or map, values received on a channel, or integer values from zero to an upper limit [[Go 1.22](https://go.dev/ref/spec#Go_1.22)]. For each entry it assigns *iteration values* to corresponding *iteration variables* if present and then executes the block.
+A "for" statement with a "range" clause iterates through all entries of an array, slice, string or map, values received on a channel, or integer values from zero to an upper limit [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})]. For each entry it assigns *iteration values* to corresponding *iteration variables* if present and then executes the block.
 
-​	带有 "`range`"子句的 "for"语句会迭代数组、切片、字符串或映射的所有条目，在通道上接收的值，或从零到上限的整数值 [[Go 1.22](https://go.dev/ref/spec#Go_1.22)]。对于每个条目，它将迭代值分配给相应的迭代变量（如果存在），然后执行块。
+​	带有 "`range`"子句的 "for"语句会迭代数组、切片、字符串或映射的所有条目，在通道上接收的值，或从零到上限的整数值 [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})]。对于每个条目，它将迭代值分配给相应的迭代变量（如果存在），然后执行块。
 
 ```
 RangeClause = [ ExpressionList "=" | IdentifierList ":=" ] "range" Expression .
@@ -1093,9 +1093,9 @@ channel         c  chan E, <-chan E       element  e  E
 10. 对于整数值 `n` ，迭代值 0 到 `n-1` 按递增顺序生成。如果 `n` <= 0，则循环不会运行任何迭代。
 
 
-The iteration variables may be declared by the "range" clause using a form of [short variable declaration](https://go.dev/ref/spec#Short_variable_declarations) (`:=`). In this case their [scope](https://go.dev/ref/spec#Declarations_and_scope) is the block of the "for" statement and each iteration has its own new variables [[Go 1.22](https://go.dev/ref/spec#Go_1.22)] (see also ["for" statements with a ForClause](https://go.dev/ref/spec#For_clause)). If the range expression is a (possibly untyped) integer expression `n`, the variable has the same type as if it was [declared](https://go.dev/ref/spec#Variable_declarations) with initialization expression `n`. Otherwise, the variables have the types of their respective iteration values.
+The iteration variables may be declared by the "range" clause using a form of [short variable declaration](https://go.dev/ref/spec#Short_variable_declarations) (`:=`). In this case their [scope](https://go.dev/ref/spec#Declarations_and_scope) is the block of the "for" statement and each iteration has its own new variables [[Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})] (see also ["for" statements with a ForClause](https://go.dev/ref/spec#For_clause)). If the range expression is a (possibly untyped) integer expression `n`, the variable has the same type as if it was [declared](https://go.dev/ref/spec#Variable_declarations) with initialization expression `n`. Otherwise, the variables have the types of their respective iteration values.
 
-​	迭代变量可以通过“range”子句使用短变量声明的形式（ `:=` ）来声明。在这种情况下，它们的范围是“for”语句的块，并且每次迭代都有其自己的新变量 [ [Go 1.22](https://go.dev/ref/spec#Go_1.22)]（另请参阅带有 ForClause 的“for”语句）。如果范围表达式是（可能未键入的）整数表达式 `n` ，则变量的类型与使用初始化表达式 `n` 声明的类型相同。否则，变量具有其各自迭代值的数据类型。
+​	迭代变量可以通过“range”子句使用短变量声明的形式（ `:=` ）来声明。在这种情况下，它们的范围是“for”语句的块，并且每次迭代都有其自己的新变量 [ [Go 1.22]({{< ref "/langSpec/Appendix#go-122">}})]（另请参阅带有 ForClause 的“for”语句）。如果范围表达式是（可能未键入的）整数表达式 `n` ，则变量的类型与使用初始化表达式 `n` 声明的类型相同。否则，变量具有其各自迭代值的数据类型。
 
 If the iteration variables are not explicitly declared by the "range" clause, they must be preexisting. In this case, the iteration values are assigned to the respective variables as in an [assignment statement](https://go.dev/ref/spec#Assignment_statements). If the range expression is a (possibly untyped) integer expression `n`, `n` too must be [assignable](https://go.dev/ref/spec#Assignability) to the iteration variable; if there is no iteration variable, `n` must be assignable to `int`.
 

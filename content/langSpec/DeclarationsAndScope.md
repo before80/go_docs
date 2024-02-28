@@ -71,9 +71,9 @@ The *blank identifier* is represented by the underscore character `_`. It serves
 
 ### Predeclared identifiers  预先声明的标识符
 
-The following identifiers are implicitly declared in the [universe block](https://go.dev/ref/spec#Blocks) [[Go 1.18](https://go.dev/ref/spec#Go_1.18)] [[Go 1.21](https://go.dev/ref/spec#Go_1.21)]:
+The following identifiers are implicitly declared in the [universe block](https://go.dev/ref/spec#Blocks) [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})] [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})]:
 
-​	下列标识符是在[universe block](../Blocks)中隐式声明的 [[Go 1.18](https://go.dev/ref/spec#Go_1.18)] [[Go 1.21](https://go.dev/ref/spec#Go_1.21)]:
+​	下列标识符是在[universe block](../Blocks)中隐式声明的 [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})] [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})]:
 
 ``` go
 types:
@@ -386,7 +386,7 @@ func (l *List[T]) Len() int  { … }
 
 ### Type parameter declarations 类型参数声明
 
-A type parameter list declares the *type parameters* of a generic function or type declaration. The type parameter list looks like an ordinary [function parameter list](https://go.dev/ref/spec#Function_types) except that the type parameter names must all be present and the list is enclosed in square brackets rather than parentheses [[Go 1.18](https://go.dev/ref/spec#Go_1.18)].
+A type parameter list declares the *type parameters* of a generic function or type declaration. The type parameter list looks like an ordinary [function parameter list](https://go.dev/ref/spec#Function_types) except that the type parameter names must all be present and the list is enclosed in square brackets rather than parentheses [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})].
 
 ​	类型参数列表`声明`了一个泛型函数或类型声明的类型参数。类型参数列表看起来和普通的函数参数列表一样，除了类型参数名称必须全部出现，并且列表被括在`方括号`中，而不是`花括号`中。
 
@@ -452,7 +452,7 @@ type T6[P int] struct{ f *T6[P] }     // ok: reference to T6 is not in type para
 
 #### Type constraints 类型约束
 
-A *type constraint* is an [interface](https://go.dev/ref/spec#Interface_types) that defines the set of permissible type arguments for the respective type parameter and controls the operations supported by values of that type parameter [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]. 
+A *type constraint* is an [interface](https://go.dev/ref/spec#Interface_types) that defines the set of permissible type arguments for the respective type parameter and controls the operations supported by values of that type parameter [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]. 
 
 ​	类型约束是一个[接口](../Types#interface-types-接口型)，该接口定义了对应的`类型参数`所允许的一组`类型实参`，并控制该类型参数的值所支持的操作。
 
@@ -472,9 +472,9 @@ type Constraint ~int         // illegal: ~int is not inside a type parameter lis
 //=> 非法的： ~int 不在一个类型参数列表中
 ```
 
-The [predeclared](https://go.dev/ref/spec#Predeclared_identifiers) [interface type](https://go.dev/ref/spec#Interface_types) `comparable` denotes the set of all non-interface types that are [strictly comparable](https://go.dev/ref/spec#Comparison_operators) [[Go 1.18](https://go.dev/ref/spec#Go_1.18)].
+The [predeclared](https://go.dev/ref/spec#Predeclared_identifiers) [interface type](https://go.dev/ref/spec#Interface_types) `comparable` denotes the set of all non-interface types that are [strictly comparable](https://go.dev/ref/spec#Comparison_operators) [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})].
 
-​	[预先声明的接口类型](../Types#interface-types-接口型)： `comparable` ，表示所有非接口类型的集合，这些类型是[严格可比较的](../Expressions#comparison-operators-比较运算符)  [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]。 具体来说，如果一个类型`T`实现了`comparable`：
+​	[预先声明的接口类型](../Types#interface-types-接口型)： `comparable` ，表示所有非接口类型的集合，这些类型是[严格可比较的](../Expressions#comparison-operators-比较运算符)  [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]。 具体来说，如果一个类型`T`实现了`comparable`：
 
 - `T`不是一个接口类型并且`T`支持操作`==`和`!=`；或者
 - `T`是一个接口类型，并且`T`的[类型集](../Types#interface-types-接口型)中的每个类型都实现了`comparable`。

@@ -1227,9 +1227,9 @@ Every type that is a member of the type set of an interface implements that inte
 interface{}
 ```
 
-For convenience, the predeclared type `any` is an alias for the empty interface. [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]
+For convenience, the predeclared type `any` is an alias for the empty interface. [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]
 
-​	为了方便，预先声明的类型`any`是`空接口的别名`。[[Go 1.18](https://go.dev/ref/spec#Go_1.18)]
+​	为了方便，预先声明的类型`any`是`空接口的别名`。[[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]
 
 Similarly, consider this interface specification, which appears within a [type declaration](https://go.dev/ref/spec#Type_declarations) to define an interface called `Locker`:
 
@@ -1257,9 +1257,9 @@ they implement the `Locker` interface as well as the `File` interface.
 
 #### Embedded interfaces 嵌入接口
 
-In a slightly more general form an interface `T` may use a (possibly qualified) interface type name `E` as an interface element. This is called *embedding* interface `E` in `T` [[Go 1.14](https://go.dev/ref/spec#Go_1.14)]. The type set of `T` is the *intersection* of the type sets defined by `T`'s explicitly declared methods and the type sets of `T`’s embedded interfaces. In other words, the type set of `T` is the set of all types that implement all the explicitly declared methods of `T` and also all the methods of `E` [[Go 1.18](https://go.dev/ref/spec#Go_1.18)].
+In a slightly more general form an interface `T` may use a (possibly qualified) interface type name `E` as an interface element. This is called *embedding* interface `E` in `T` [[Go 1.14]({{< ref "/langSpec/Appendix#go-114">}})]. The type set of `T` is the *intersection* of the type sets defined by `T`'s explicitly declared methods and the type sets of `T`’s embedded interfaces. In other words, the type set of `T` is the set of all types that implement all the explicitly declared methods of `T` and also all the methods of `E` [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})].
 
-​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E` [[Go 1.14](https://go.dev/ref/spec#Go_1.14)]。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
+​	接口`T`可以使用（可能是限定的）接口类型名称`E`作为接口元素。这就是在 `T` 中嵌入接口 `E` [[Go 1.14]({{< ref "/langSpec/Appendix#go-114">}})]。`T`的类型集是由`T`的显式声明方法定义的类型集和`T`的嵌入接口的类型集的`交集`。换句话说，`T`的类型集是实现`T`的所有显式声明的方法以及`E`的所有方法的所有类型的集合。
 
 ```go 
 type Reader interface {
@@ -1292,9 +1292,9 @@ type ReadCloser interface {
 
 #### General interfaces 通用接口
 
-In their most general form, an interface element may also be an arbitrary type term `T`, or a term of the form `~T` specifying the underlying type `T`, or a union of terms `t1|t2|…|tn` [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]. Together with method specifications, these elements enable the precise definition of an interface's type set as follows:
+In their most general form, an interface element may also be an arbitrary type term `T`, or a term of the form `~T` specifying the underlying type `T`, or a union of terms `t1|t2|…|tn` [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]. Together with method specifications, these elements enable the precise definition of an interface's type set as follows:
 
-​	在最通用的形式下，接口元素也可以是一个任意类型项`T`，或者是一个指定底层类型`T`的`~T`形式的项，或者是一系列项`t1|t2|...|tn`的联合 [[Go 1.18](https://go.dev/ref/spec#Go_1.18)]。结合方法规范，这些元素能够精确地定义一个接口的类型集，如下所示：
+​	在最通用的形式下，接口元素也可以是一个任意类型项`T`，或者是一个指定底层类型`T`的`~T`形式的项，或者是一系列项`t1|t2|...|tn`的联合 [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})]。结合方法规范，这些元素能够精确地定义一个接口的类型集，如下所示：
 
 - The type set of the empty interface is the set of all non-interface types.
 - 空接口的类型集是`所有非接口类型的集合`。

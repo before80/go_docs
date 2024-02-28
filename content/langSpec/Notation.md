@@ -47,5 +47,5 @@ The form `a … b` represents the set of characters from `a` through `b` as alte
 
 A link of the form [[Go 1.xx](https://go.dev/ref/spec#Language_versions)] indicates that a described language feature (or some aspect of it) was changed or added with language version 1.xx and thus requires at minimum that language version to build. For details, see the [linked section](https://go.dev/ref/spec#Language_versions) in the [appendix](https://go.dev/ref/spec#Appendix).
 
-​	表格的链接[[Go 1.xx](https://go.dev/ref/spec#Language_versions)]表示已描述语言功能(或其某些方面)已更改或添加了语言版本1.xx和 因此，至少需要构建该语言版本。 有关详细信息，请参见 [链接部分](https://go.dev/ref/spec#Language_versions) 在 [附录](https://go.dev/ref/spec#Appendix)。 
+​	表格的链接[[Go 1.xx]({{< ref "/langSpec/Appendix#language-versions-语言版本">}})]表示已描述语言功能(或其某些方面)已更改或添加了语言版本1.xx和 因此，至少需要构建该语言版本。 有关详细信息，请参见 [链接部分]({{< ref "/langSpec/Appendix#language-versions-语言版本">}}) 在 [附录]({{< ref "/langSpec/Appendix">}})。 
 

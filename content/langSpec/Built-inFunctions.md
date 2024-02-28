@@ -27,8 +27,6 @@ The built-in functions `append` and `copy` assist in common slice operations. Fo
 
 The [variadic](https://go.dev/ref/spec#Function_types) function `append` appends zero or more values `x` to a slice `s` and returns the resulting slice of the same type as `s`. The [core type](https://go.dev/ref/spec#Core_types) of `s` must be a slice of type `[]E`. The values `x` are passed to a parameter of type `...E` and the respective [parameter passing rules](https://go.dev/ref/spec#Passing_arguments_to_..._parameters) apply. As a special case, if the core type of `s` is `[]byte`, `append` also accepts a second argument with core type [`bytestring`](https://go.dev/ref/spec#Core_types) followed by `...`. This form appends the bytes of the byte slice or string.
 
-The [variadic](https://go.dev/ref/spec#Function_types) function `append` appends zero or more values `x` to a slice `s` and returns the resulting slice of the same type as `s`. The [core type](https://go.dev/ref/spec#Core_types) of `s` must be a slice of type `[]E`. The values `x` are passed to a parameter of type `...E` and the respective [parameter passing rules](https://go.dev/ref/spec#Passing_arguments_to_..._parameters) apply. As a special case, if the core type of `s` is `[]byte`, `append` also accepts a second argument with core type [`bytestring`](https://go.dev/ref/spec#Core_types) followed by `...`. This form appends the bytes of the byte slice or string.
-
 ​	[可变参数](../Types#function-types-函数型)函数`append`将**零个或多个值**`x`追加到一个切片`s`，并返回与`s`相同类型的结果切片。值`x`被传递给一个类型为`...E`的参数，各自的[参数传递规则](../Expressions#passing-arguments-to--parameters-向参数传递实参)适用。**作为一个特例**，如果`s`的[核心类型](../PropertiesOfTypesAndValues#core-types-核心类型)是`[]byte`，`append`也接受第二个参数，其核心类型是[bytestring](../PropertiesOfTypesAndValues#core-types-核心类型)，后面是`...` 。这种形式追加了字节切片或字符串的字节。
 
 ```go 
@@ -77,9 +75,9 @@ n3 := copy(b, "Hello, World!")  // n3 == 5, b == []byte("Hello")
 
 ### Clear
 
-The built-in function `clear` takes an argument of [map](https://go.dev/ref/spec#Map_types), [slice](https://go.dev/ref/spec#Slice_types), or [type parameter](https://go.dev/ref/spec#Type_parameter_declarations) type, and deletes or zeroes out all elements [[Go 1.21](https://go.dev/ref/spec#Go_1.21)].
+The built-in function `clear` takes an argument of [map](https://go.dev/ref/spec#Map_types), [slice](https://go.dev/ref/spec#Slice_types), or [type parameter](https://go.dev/ref/spec#Type_parameter_declarations) type, and deletes or zeroes out all elements [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})].
 
-​	内置函数 `clear` 采用映射、切片或类型参数类型的实参，并删除或将所有元素清零 [[Go 1.21](https://go.dev/ref/spec#Go_1.21)]。
+​	内置函数 `clear` 采用映射、切片或类型参数类型的实参，并删除或将所有元素清零 [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})]。
 
 ```
 Call        Argument type     Result
@@ -262,9 +260,9 @@ Calling `make` with a map type and size hint `n` will create a map with initial 
 
 ### Min and max 最小值和最大值
 
-The built-in functions `min` and `max` compute the smallest—or largest, respectively—value of a fixed number of arguments of [ordered types](https://go.dev/ref/spec#Comparison_operators). There must be at least one argument [[Go 1.21](https://go.dev/ref/spec#Go_1.21)].
+The built-in functions `min` and `max` compute the smallest—or largest, respectively—value of a fixed number of arguments of [ordered types](https://go.dev/ref/spec#Comparison_operators). There must be at least one argument [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})].
 
-​	内置函数 `min` 和 `max` 分别计算固定数量的有序类型实参的最小值或最大值。必须至少有一个参数 [[Go 1.21](https://go.dev/ref/spec#Go_1.21)]。
+​	内置函数 `min` 和 `max` 分别计算固定数量的有序类型实参的最小值或最大值。必须至少有一个参数 [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})]。
 
 The same type rules as for [operators](https://go.dev/ref/spec#Operators) apply: for [ordered](https://go.dev/ref/spec#Comparison_operators) arguments `x` and `y`, `min(x, y)` is valid if `x + y` is valid, and the type of `min(x, y)` is the type of `x + y` (and similarly for `max`). If all arguments are constant, the result is constant.
 
