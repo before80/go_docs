@@ -89,8 +89,8 @@ Zero value:
 	nil
 
 Functions:
-	append cap close complex copy delete imag len
-	make new panic print println real recover
+	append cap clear close complex copy delete imag len
+	make max min new panic print println real recover
 ```
 
 ### Exported identifiers 可导出的标识符

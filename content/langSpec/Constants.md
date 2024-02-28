@@ -86,7 +86,7 @@ A constant value is represented by a [rune](https://go.dev/ref/spec#Rune_literal
 > 
 > ```
 >
-> 这么说，难道常量值的类型不能是数组、切片、map、channel、结构体？
+> ​	这么说，难道常量值的类型不能是数组、切片、map、channel、结构体？
 >
 > ```go
 > package main
@@ -109,9 +109,9 @@ A constant value is represented by a [rune](https://go.dev/ref/spec#Rune_literal
 > 
 > ```
 >
-> 确实不能为数组、切片、map、结构体、channel！
+> ​	确实不能为数组、切片、map、结构体、channel！
 >
-> 那常量的值可以是指针吗？
+> ​	那常量的值可以是指针吗？
 >
 > ```go
 > package main
@@ -140,11 +140,11 @@ A constant value is represented by a [rune](https://go.dev/ref/spec#Rune_literal
 > 
 > ```
 >
-> 看来常量的值也是不能为指针！
+> ​	看来常量的值也是不能为指针！
 >
 > > ​	常量在**编译时**就确定了它们的值，并且在程序运行期间是不可修改的。**指针类型是动态的**，它们包含了变量的内存地址，而这个地址是在运行时确定的。因此，指针类型的值是不适合用作常量的。
 >
-> 常量值可以是变量吗？
+> ​	常量值可以是变量吗？
 >
 > ```go
 > package main
@@ -158,7 +158,7 @@ A constant value is represented by a [rune](https://go.dev/ref/spec#Rune_literal
 > 
 > ```
 >
-> 明显，常量的值不能为变量！
+> ​	明显，常量的值不能为变量！
 
 In general, complex constants are a form of [constant expression](https://go.dev/ref/spec#Constant_expressions) and are discussed in that section.
 
@@ -170,7 +170,7 @@ Numeric constants represent exact values of arbitrary precision and do not overf
 
 > 个人注释
 >
-> 关于“数值常量表示任意精度的精确值，不会溢出”，还是不能理解！—— 请查看下面的**实施限制**！！！
+> ​	关于“数值常量表示任意精度的精确值，不会溢出”，还是不能理解！—— 请查看下面的**实现限制**！！！
 >
 > ```go
 > package main
@@ -213,6 +213,8 @@ Numeric constants represent exact values of arbitrary precision and do not overf
 > 	//fmt.Printf("i1=%v，其类型是%T\n", i1, i1)
 > 	//fmt.Printf("i2=%v，其类型是%T\n", i2, i2)
 > }
+> 
+> 
 > f1=1.1234567890123457，其类型是float64
 > f2=1.1234567890123457，其类型是float64
 > f1=1.12345678901234569125，其类型是float64
@@ -249,7 +251,7 @@ A constant may be given a type explicitly by a [constant declaration](https://go
 
 > 个人注释
 >
-> 这里提到的隐式赋予类型怎么解释？请看以下给出的示例
+> ​	这里提到的隐式赋予类型怎么解释？请看以下给出的示例
 >
 > ```go
 > package main
@@ -265,34 +267,34 @@ A constant may be given a type explicitly by a [constant declaration](https://go
 > 	var a int8 = 1
 > 	fmt.Printf("A的类型是：%T\n", A)        //A的类型是：int
 > 	fmt.Printf("a的类型是：%T\n", a)        //a的类型是：int8
-> 	fmt.Println("a + A = ", a+A)       //a + A =  2
+> 	fmt.Println("a + A = ", a+A)          //a + A =  2
 > 	fmt.Printf("a + A后的类型是：%T\n", a+A) //a + A后的类型是：int8
 > 
 > 	var b uint8 = 2
 > 	fmt.Printf("B的类型是：%T\n", B)        //B的类型是：int
 > 	fmt.Printf("b的类型是：%T\n", b)        //b的类型是：uint8
-> 	fmt.Println("b + B = ", b+B)       //b + B =  4
+> 	fmt.Println("b + B = ", b+B)          //b + B =  4
 > 	fmt.Printf("b + B后的类型是：%T\n", b+B) //b + B后的类型是：uint8
 > 
 > 	var c int = 3
-> 	fmt.Printf("C的类型是：%T\n", C) //C的类型是：uint8
-> 	fmt.Printf("c的类型是：%T\n", c) //c的类型是：int
+> 	fmt.Printf("C的类型是：%T\n", C)       //C的类型是：uint8
+> 	fmt.Printf("c的类型是：%T\n", c)       //c的类型是：int
 > 	//fmt.Println("c + C = ", c+C)       // invalid operation: c + C (mismatched types int and uint8)
 > 	//fmt.Printf("c + C后的类型是：%T\n", c+C) // invalid operation: c + C (mismatched types int and uint8)
 > 
 > 	var d float64 = 1.2
 > 	fmt.Printf("D的类型是：%T\n", D)        //D的类型是：int
 > 	fmt.Printf("d的类型是：%T\n", d)        //d的类型是：float64
-> 	fmt.Println("d + D = ", d+D)       // d + D =  5.2
+> 	fmt.Println("d + D = ", d+D)          // d + D =  5.2
 > 	fmt.Printf("d + D后的类型是：%T\n", d+D) // d + D后的类型是：float64
 > 
 > }
 > 
 > ```
 >
-> 我们知道算数运算符左右两个操作数的类型必须一致，才能进行运算（可参见 [数值型]({{< ref "/langSpec/Types#numeric-types-数值型">}})的最后一段话：当不同的数值类型在表达式或赋值中混合使用时，需要进行显示转换。）。
+> ​	我们知道算数运算符左右两个操作数的类型必须一致，才能进行运算（可参见 [数值型]({{< ref "/langSpec/Types#numeric-types-数值型">}})的最后一段话：当不同的数值类型在表达式或赋值中混合使用时，需要进行显示转换。）。
 >
-> 以上示例a + A、b + B 、d + D中，+ 运算符两边的类型分明是不一致的（特别是d + D），但却可以进行运算，可见就是隐式赋予了无类型常量（**该常量声明时没有给出明确类型，采用了默认类型**）以类型，这应该是编译时就处理好的吧。TODO 待找出出处。
+> ​	以上示例a + A、b + B 、d + D中，+ 运算符两边的类型分明是不一致的（特别是d + D），但却可以进行运算，可见就是隐式赋予了无类型常量（**该常量声明时没有给出明确类型，采用了默认类型**）以类型，这应该是编译时就处理好的吧。TODO 待找出出处。
 
 An untyped constant has a *default type* which is the type to which the constant is implicitly converted in contexts where a typed value is required, for instance, in a [short variable declaration](https://go.dev/ref/spec#Short_variable_declarations) such as `i := 0` where there is no explicit type. The default type of an untyped constant is `bool`, `rune`, `int`, `float64`, `complex128`, or `string` respectively, depending on whether it is a boolean, rune, integer, floating-point, complex, or string constant.
 
