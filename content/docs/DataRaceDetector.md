@@ -4,6 +4,7 @@ weight = 21
 date = 2023-05-18T17:31:23+08:00
 description = ""
 isCJKLanguage = true
+math = true
 draft = false
 +++
 # Data Race Detector - 数据竞争检测器
@@ -95,7 +96,7 @@ GORACE="option1=val1 option2=val2"
 - `log_path`(默认值`stderr`)：竞态检测器将其报告写入名为`log_path.pid`的文件中。特殊名称`stdout`和`stderr`会分别将报告写入标准输出和标准错误。
 - `exitcode`(默认值`66`)：在检测到竞争后退出时使用的退出状态。
 - `strip_path_prefix`(默认值`""`)：从所有报告的文件路径中删除该前缀，以使报告更加简洁。
-- `history_size`(默认值`1`)：每个goroutine的内存访问历史记录为$32K * 2 ^{history\_size}$元素。增加此值可以避免在报告中出现"failed to restore the stack(无法恢复栈)" 错误，但会增加内存使用量。
+- `history_size`(默认值`1`)：每个goroutine的内存访问历史记录为\\(32K * 2 ^{history_size}\\)元素。增加此值可以避免在报告中出现"failed to restore the stack(无法恢复栈)" 错误，但会增加内存使用量。
 - `halt_on_error`(默认值`0`)：控制程序在报告第一个数据竞争后是否退出。
 - `atexit_sleep_ms`(默认值`1000`)：主goroutine在退出前休眠的毫秒数。
 
