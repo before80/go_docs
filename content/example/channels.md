@@ -11,6 +11,30 @@ draft = false
 
 # channel
 
+## channel 是什么？
+
+​	channel是Go语言中的一种内置数据类型。
+
+## channel有什么用？
+
+​	可用于：
+
+- 信息交流：
+- 数据传递：
+- 信号通知：
+- 任务编排：
+- 互斥锁：
+
+## channel该怎么使用？
+
+​	
+
+### channel的基础用法
+
+
+
+
+
 ```go
 package main
 
