@@ -67,4 +67,37 @@ func main() {
 	delete(m8, "C")
 	mfp.PrintFmtValWithL("m8", m8, verbs)
 
+	fmt.Println("修改元素")
+	m9 := map[string]int{"A": 1, "B": 2, "C": 3}
+	mfp.PrintFmtValWithL("1 m9", m9, verbs)
+	m9["A"] = 11
+	mfp.PrintFmtValWithL("2 m9", m9, verbs)
+	m9["D"] = 4 // 修改不存在的Key
+	mfp.PrintFmtValWithL("3 m9", m9, verbs)
+
+	fmt.Println("用整个map赋值")
+	m10 := map[string]int{"A": 1, "B": 2, "C": 3}
+	mfp.PrintFmtValWithL("1 m10", m10, verbs)
+	m10 = map[string]int{"A": 11, "B": 22, "C": 33, "D": 44}
+	mfp.PrintFmtValWithL("2 m10", m10, verbs)
+	m11 := map[string]int{"A": 111, "B": 222, "C": 333, "D": 444}
+	m10 = m11
+	mfp.PrintFmtValWithL("3 m10", m10, verbs)
+	m11["A"] = 1
+	mfp.PrintFmtValWithL("4 m10", m10, verbs)
+
+	fmt.Println("直接访问指定Key的元素")
+	m12 := map[string]int{"A": 1, "B": 2, "C": 3}
+	fmt.Println(m12["A"])
+	fmt.Println(m12["B"])
+	fmt.Println(m12["C"])
+	fmt.Println(m12["D"]) // 访问不存在的Key
+
+	fmt.Println("遍历map")
+	for k, v := range m12 {
+		fmt.Println(k, "->", v)
+	}
+
+	fmt.Println("获取相关map属性")
+	fmt.Println("m12 map的长度 len(m12)=", len(m12))
 }

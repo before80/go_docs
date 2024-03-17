@@ -1868,9 +1868,104 @@ m7:     %T -> map[string]int | %v -> map[A:1] | %#v -> map[string]int{"A":1} | l
 
 #### U修改
 
-修改
+##### 修改元素
+
+```
+m9 := map[string]int{"A": 1, "B": 2, "C": 3}
+mfp.PrintFmtValWithL("1 m9", m9, verbs)
+m9["A"] = 11
+mfp.PrintFmtValWithL("2 m9", m9, verbs)
+m9["D"] = 4 // 修改不存在的Key
+mfp.PrintFmtValWithL("3 m9", m9, verbs)
+```
+
+```
+1 m9:   %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+2 m9:   %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
+3 m9:   %T -> map[string]int | %v -> map[A:11 B:2 C:3 D:4] | %#v -> map[string]int{"A":11, "B":2, "C":3, "D":4} | len=4
+```
+
+
+
+##### 用整个map赋值
+
+```go
+m10 := map[string]int{"A": 1, "B": 2, "C": 3}
+mfp.PrintFmtValWithL("1 m10", m10, verbs)
+m10 = map[string]int{"A": 11, "B": 22, "C": 33, "D": 44}
+mfp.PrintFmtValWithL("2 m10", m10, verbs)
+m11 := map[string]int{"A": 111, "B": 222, "C": 333, "D": 444}
+m10 = m11
+mfp.PrintFmtValWithL("3 m10", m10, verbs)
+m11["A"] = 1
+mfp.PrintFmtValWithL("4 m10", m10, verbs)
+```
+
+```
+1 m10:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+2 m10:  %T -> map[string]int | %v -> map[A:11 B:22 C:33 D:44] | %#v -> map[string]int{"A":11, "B":22, "C":33, "D":44} | len=4
+3 m10:  %T -> map[string]int | %v -> map[A:111 B:222 C:333 D:444] | %#v -> map[string]int{"A":111, "B":222, "C":333, "D":444} | len=4
+4 m10:  %T -> map[string]int | %v -> map[A:1 B:222 C:333 D:444] | %#v -> map[string]int{"A":1, "B":222, "C":333, "D":444} | len=4
+```
+
+
 
 #### A访问
+
+##### 直接访问指定Key的元素
+
+```go
+m12 := map[string]int{"A": 1, "B": 2, "C": 3}
+fmt.Println(m12["A"])
+fmt.Println(m12["B"])
+fmt.Println(m12["C"])
+fmt.Println(m12["D"])// 访问不存在的Key
+```
+
+```
+1
+2
+3
+0
+```
+
+
+
+##### 遍历map
+
+```go
+for k,v := range m12 {
+    fmt.Println(k,"->", v)
+}
+```
+
+```
+A -> 1
+B -> 2
+C -> 3
+```
+
+​	需要注意的是，遍历是无序的，每一次的遍历顺序都有可能不同！
+
+##### 复制map
+
+```go
+
+```
+
+
+
+##### 获取相关map属性
+
+```go
+fmt.Println("m12 map的长度 len(m12)=", len(m12))
+```
+
+```
+m12 map的长度 len(m12)= 3
+```
+
+
 
 #### D删除
 
@@ -1901,7 +1996,7 @@ m8:     %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
 
 
 
-#### 作为实参传递为函数或方法
+#### 作为实参传递给函数或方法
 
 ​	在 Go 语言中，`map 是引用类型`。当你将一个 map 赋值给另一个变量，或者将一个 map 作为函数参数传递时，实际上是传递了 map 的引用，而不是整个 map 的副本。因此，对 map 的修改会影响到原始 map 以及引用同一个 map 的其他变量。
 
@@ -1915,7 +2010,9 @@ m8:     %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
 
 #### 易错点
 
+new函数创建的map直接进行
 
+##### 以为可以使用copy函数来复制一个map
 
 
 
