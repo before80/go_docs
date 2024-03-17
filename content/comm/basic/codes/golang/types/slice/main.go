@@ -163,6 +163,31 @@ func main() {
 	i = 0
 	sl42 = append(sl42[0:i], sl42[i+1:]...) // 删除 当前索引为0的元素
 	mfp.PrintFmtValWithLC("4 sl42", sl42, verbs)
+	sl42 = sl42[:len(sl42)-1] // 删除当前的最后一个元素
+	mfp.PrintFmtValWithLC("5 sl42", sl42, verbs)
+	sl42 = sl42[1:] // 删除当前的第一个元素
+	mfp.PrintFmtValWithLC("6 sl42", sl42, verbs)
+
+	fmt.Println("复制切片")
+	slSrc43 := []int{1, 2, 3}
+	mfp.PrintFmtValWithLC("slSrc43", slSrc43, verbs)
+	slDst44 := make([]int, len(slSrc43))
+	mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+
+	copy(slDst44, slSrc43)
+	slDst44[0] = 11
+	fmt.Println("slDst44[0] = 11 之后")
+	mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
+	mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+	slSrc43[1] = 22
+	fmt.Println("slSrc43[1] = 22 之后")
+	mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
+	mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+
+	fmt.Println("访问切片的最后一个元素")
+	sl45 := []int{1, 2, 3}
+	//fmt.Println(sl45[len(sl45)])   // 报错：panic: runtime error: index out of range [3] with length 3
+	fmt.Println(sl45[len(sl45)-1]) // 正确方式
 
 	fmt.Println("排序")
 

@@ -1694,6 +1694,38 @@ for k, v := range sl40 {
 2 -> 3
 ```
 
+##### 复制切片
+
+```go
+slSrc43 := []int{1, 2, 3}
+mfp.PrintFmtValWithLC("slSrc43", slSrc43, verbs)
+slDst44 := make([]int, len(slSrc43))
+mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+
+copy(slDst44, slSrc43)
+slDst44[0] = 11
+fmt.Println("slDst44[0] = 11 之后")
+mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
+mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+slSrc43[1] = 22
+fmt.Println("slSrc43[1] = 22 之后")
+mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
+mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+```
+
+```
+slSrc43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+slDst44:        %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=3
+slDst44[0] = 11 之后
+slDst43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+slDst44:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+slSrc43[1] = 22 之后
+slDst43:        %T -> []int | %v -> [1 22 3] | %#v -> []int{1, 22, 3} | len=3 | cap=3
+slDst44:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+```
+
+​	可见，`copy`函数复制后产生的切片和源切片不共用底层数组！
+
 ##### 获取相关切片属性
 
 ```go
@@ -1724,6 +1756,10 @@ mfp.PrintFmtValWithLC("3 sl42", sl42, verbs)
 i = 0
 sl42 = append(sl42[0:i], sl42[i+1:]...) // 删除 当前索引为0的元素
 mfp.PrintFmtValWithLC("4 sl42", sl42, verbs)
+sl42 = sl42[:len(sl42) - 1] // 删除当前的最后一个元素
+mfp.PrintFmtValWithLC("5 sl42", sl42, verbs)
+sl42 = sl42[1:] // 删除当前的第一个元素
+mfp.PrintFmtValWithLC("6 sl42", sl42, verbs)
 ```
 
 ```
@@ -1731,19 +1767,149 @@ mfp.PrintFmtValWithLC("4 sl42", sl42, verbs)
 2 sl42:         %T -> []int | %v -> [1 2 3 5 6] | %#v -> []int{1, 2, 3, 5, 6} | len=5 | cap=6
 3 sl42:         %T -> []int | %v -> [1 2 3 6] | %#v -> []int{1, 2, 3, 6} | len=4 | cap=6
 4 sl42:         %T -> []int | %v -> [2 3 6] | %#v -> []int{2, 3, 6} | len=3 | cap=6
+4 sl42:         %T -> []int | %v -> [2 3 6] | %#v -> []int{2, 3, 6} | len=3 | cap=6
+5 sl42:         %T -> []int | %v -> [2 3] | %#v -> []int{2, 3} | len=2 | cap=6
+6 sl42:         %T -> []int | %v -> [3] | %#v -> []int{3} | len=1 | cap=5
 ```
 
 #### 作为实参传递给函数或方法
 
+​	在 Go 语言中，`切片是引用类型`。切片本身是一个包含指向底层数组的指针、长度和容量的数据结构。当你将一个切片赋值给另一个切片，或者将一个切片作为函数参数传递时，实际上是传递了切片的引用，而不是切片的副本。因此，对切片的修改会影响到原始切片以及引用同一底层数组的其他切片。
+
+​	切片作为函数参数传递时，由于只是传递了切片的引用，而不是整个切片的副本，因此`在性能和内存上并不会有大开销`。即使切片的长度很大，传递切片的引用也只是传递了指向底层数组的指针、长度和容量这几个值，并不会复制整个底层数组。因此，切片作为实参通常不会产生额外的内存开销。
+
+​	需要注意的是，如果在函数内部修改了切片的长度或容量，可能会导致底层数组重新分配内存，从而产生额外的内存开销。但是这种情况并不是切片本身作为实参引起的，而是对切片的修改引起的。
+
+#### 易混淆的知识点
+
 ​	
 
-### 遍历切片
+#### 易错点
 
-复制切片：通过[:]；使用copy函数
+##### 访问最后一个切片元素
 
-遍历切片注意点
+​	直接用`sl[len(sl)]`访问切片`sl`的最后一个元素 => 肯定报错！
 
-### 使用切片应避免的错误
+```go
+sl45 := []int{1, 2, 3}
+//fmt.Println(sl45[len(sl45)])   // 报错：panic: runtime error: index out of range [3] with length 3
+fmt.Println(sl45[len(sl45)-1]) // 正确方式
+```
+
+```
+3
+```
+
+
+
+### map
+
+#### C创建
+
+##### 直接创建
+
+```go
+var m1 map[int]int
+var m2 map[string]int = map[string]int{"A": 1, "B": 2}
+var m3 = map[string]int{"A": 1, "B": 2}
+m4 := map[string]int{"A": 1, "B": 2}
+mfp.PrintFmtValWithL("m1", m1, verbs)
+mfp.PrintFmtValWithL("m2", m2, verbs)
+mfp.PrintFmtValWithL("m3", m3, verbs)
+mfp.PrintFmtValWithL("m4", m4, verbs)
+```
+
+```
+m1:     %T -> map[int]int | %v -> map[] | %#v -> map[int]int(nil) | len=0
+m2:     %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+m3:     %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+m4:     %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+```
+
+
+
+##### 用make创建
+
+```go
+m5 := make(map[string]int)
+m6 := make(map[string]int, 3)
+//m7 := make(map[string]int, 3, 3) // 报错：invalid operation: make(map[string]int, 3, 3) expects 1 or 2 arguments; found 3
+mfp.PrintFmtValWithL("1 m5", m5, verbs)
+mfp.PrintFmtValWithL("2 m6", m6, verbs)
+//mfp.PrintFmtValWithL("m7", m7, verbs)
+```
+
+```
+1 m5:   %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
+2 m6:   %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
+```
+
+
+
+##### 用new创建
+
+```go
+m7 := *new(map[string]int)
+mfp.PrintFmtValWithL("m7", m7, verbs)
+
+//m7["A"] = 1 // 报错：panic: assignment to entry in nil map
+//mfp.PrintFmtValWithL("m7", m7, verbs)
+
+m7 = map[string]int{"A": 1}
+mfp.PrintFmtValWithL("m7", m7, verbs)
+```
+
+```
+m7:     %T -> map[string]int | %v -> map[] | %#v -> map[string]int(nil) | len=0
+m7:     %T -> map[string]int | %v -> map[A:1] | %#v -> map[string]int{"A":1} | len=1
+```
+
+
+
+#### U修改
+
+修改
+
+#### A访问
+
+#### D删除
+
+##### 是否可以删除map中的某一元素？
+
+​	=> 可以！
+
+```go
+m8 := map[string]int{"A": 1, "B": 2, "C": 3}
+mfp.PrintFmtValWithL("m8", m8, verbs)
+delete(m8, "A")
+mfp.PrintFmtValWithL("m8", m8, verbs)
+delete(m8, "A") // 重复删除，也不会报错
+mfp.PrintFmtValWithL("m8", m8, verbs)
+delete(m8, "B")
+mfp.PrintFmtValWithL("m8", m8, verbs)
+delete(m8, "C")
+mfp.PrintFmtValWithL("m8", m8, verbs)
+```
+
+```
+m8:     %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+m8:     %T -> map[string]int | %v -> map[B:2 C:3] | %#v -> map[string]int{"B":2, "C":3} | len=2
+m8:     %T -> map[string]int | %v -> map[B:2 C:3] | %#v -> map[string]int{"B":2, "C":3} | len=2
+m8:     %T -> map[string]int | %v -> map[C:3] | %#v -> map[string]int{"C":3} | len=1
+m8:     %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
+```
+
+
+
+#### 作为实参传递为函数或方法
+
+​	在 Go 语言中，`map 是引用类型`。当你将一个 map 赋值给另一个变量，或者将一个 map 作为函数参数传递时，实际上是传递了 map 的引用，而不是整个 map 的副本。因此，对 map 的修改会影响到原始 map 以及引用同一个 map 的其他变量。
+
+​	`map 作为函数参数传递时，并不会产生大的性能和内存开销`。与切片类似，虽然 map 可能包含大量的键值对，但传递 map 的引用只是传递了指向底层数据结构的指针，而不是复制整个底层数据结构。因此，map 作为实参传递通常不会产生额外的内存开销。
+
+​	需要注意的是，在并发编程中，对 map 的并发访问可能会导致竞态条件，因此在多个 goroutine 中共享 map 时，需要使用适当的同步机制（例如 sync.Mutex 或 sync.RWMutex）来保护 map 的访问。
+
+#### 易混淆的知识点
 
 
 
