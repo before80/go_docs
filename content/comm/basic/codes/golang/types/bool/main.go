@@ -9,7 +9,7 @@ import (
 var gb1 = true
 var gb2 bool = false
 
-var verbs = []string{"T", "v", "+v", "#v"}
+var verbs = []string{"T", "v", "+v", "#v", "t"}
 
 func init() {
 	fmt.Println("---init 修改前---")
