@@ -150,6 +150,12 @@ func main() {
 	for k, v := range sl40 {
 		fmt.Println(k, "->", v)
 	}
+	mfp.PrintHr()
+	IamNaN5 := math.NaN()
+	sl40x := []float64{0, 42.12, -10.123, 8, IamNaN5}
+	for k, v := range sl40x {
+		fmt.Println(k, "->", v)
+	}
 
 	fmt.Println("获取相关切片属性")
 	sl41 := []int{1, 2, 3}
@@ -371,7 +377,7 @@ func main() {
 	mfp.PrintFmtValWithLC("1 sl74", sl74, verbs)
 	sl74 = slices.Replace(sl74, 0, 6, []int{1, 2, 3, 4, 5, 6}...)
 	mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
-	sl74 = slices.Replace(sl74, 0, 0, 111)
+	sl74 = slices.Replace(sl74, 0, 1, 111)
 	mfp.PrintFmtValWithLC("3 sl74", sl74, verbs)
 	//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
 	//mfp.PrintFmtValWithLC("4 sl74", sl74, verbs)
@@ -407,6 +413,74 @@ func main() {
 	mfp.PrintFmtValWithLC("1 sl78", sl78, verbs)
 	sl78 = slices.Clip(sl78)
 	mfp.PrintFmtValWithLC("2 sl78", sl78, verbs)
+
+	fmt.Println("易错点：使用slices.Replace函数")
+	fmt.Println("错误的方式 1")
+	sl79 := []int{1, 2, 3}
+	mfp.PrintFmtValWithLC("1 sl79", sl79, verbs)
+	// 要修改索引0处的元素值
+	sl79 = slices.Replace(sl19, 0, 0, 111)
+	mfp.PrintFmtValWithLC("2 sl79", sl79, verbs)
+
+	fmt.Println("错误的方式 2")
+	sl81 := []int{1, 2, 3}
+	mfp.PrintFmtValWithLC("1 sl81", sl81, verbs)
+	fmt.Println("若 i == j == len(sl) 呢？")
+	sl81 = slices.Replace(sl81, 3, 3, 111)
+	mfp.PrintFmtValWithLC("2 sl81", sl81, verbs)
+
+	fmt.Println("正确的方式")
+	sl80 := []int{1, 2, 3}
+	mfp.PrintFmtValWithLC("1 sl80", sl80, verbs)
+	sl80 = slices.Replace(sl80, 0, 1, 111)
+	mfp.PrintFmtValWithLC("2 sl80", sl80, verbs)
+
+	fmt.Println("排序")
+	fmt.Println("使用slices.Sort函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	sl82 := []float64{0, 42.12, -10.123, 8, math.NaN()}
+	mfp.PrintFmtValWithL("1 sl82", sl82, verbs)
+	slices.Sort(sl82)
+	mfp.PrintFmtValWithL("2 sl82", sl82, verbs)
+
+	type Person struct {
+		name string
+		age  int8
+	}
+
+	sl83 := []Person{
+		{"zlx2", 30},
+		{"zlx1", 32},
+		{"zlx3", 29},
+	}
+
+	mfp.PrintFmtValWithLC("1 sl83", sl83, verbs)
+	//slices.Sort(sl83) // 报错：Person does not satisfy cmp.Ordered (Person missing in ~int | ~int8 | ~int16 | ~int32 | ~int64 | ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr | ~float32 | ~float64 | ~string)
+	//mfp.PrintFmtValWithLC("2 sl83", sl83, verbs)
+
+	sl84 := []int{2, 4, 6, 8, 1, 3, 5, 7}
+	mfp.PrintFmtValWithLC("1 sl84", sl84, verbs)
+	slices.Sort(sl84)
+	mfp.PrintFmtValWithLC("2 sl84", sl84, verbs)
+
+	sl85 := make([]int, 3, 6)
+	sl85 = slices.Replace(sl85, 0, 3, []int{2, 1, 3}...)
+	mfp.PrintFmtValWithLC("1 sl85", sl85, verbs)
+	slices.Sort(sl85)
+	mfp.PrintFmtValWithLC("2 sl85", sl85, verbs)
+
+	fmt.Println("使用slices.SortFunc函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	sl86 := []Person{
+		{"zlx2", 30},
+		{"zlx1", 32},
+		{"zlx3", 29},
+	}
+	mfp.PrintFmtValWithLC("1 sl86", sl86, verbs)
+	slices.SortFunc(sl86, func(a, b Person) int {
+		return cmp.Compare(a.age, b.age)
+	})
+	mfp.PrintFmtValWithLC("2 sl86", sl86, verbs)
 
 }
 

@@ -1673,18 +1673,21 @@ sl74 := make([]int, 6, 10)
 mfp.PrintFmtValWithLC("1 sl74", sl74, verbs)
 sl74 = slices.Replace(sl74, 0, 6, []int{1, 2, 3, 4, 5, 6}...)
 mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
+sl74 = slices.Replace(sl74, 0, 1, 111)
+mfp.PrintFmtValWithLC("3 sl74", sl74, verbs)
 //sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
-//mfp.PrintFmtValWithLC("3 sl74", sl74, verbs)
-//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6, 7}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
 //mfp.PrintFmtValWithLC("4 sl74", sl74, verbs)
+//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6, 7}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
+//mfp.PrintFmtValWithLC("5 sl74", sl74, verbs)
 ```
 
 ```
 1 sl74:         %T -> []int | %v -> [0 0 0 0 0 0] | %#v -> []int{0, 0, 0, 0, 0, 0} | len=6 | cap=10
 2 sl74:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=10
+3 sl74:         %T -> []int | %v -> [111 2 3 4 5 6] | %#v -> []int{111, 2, 3, 4, 5, 6} | len=6 | cap=10
 ```
 
-​	这里的Replace函数的定义为`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S`，结合以上示例，可以发现， `i`和`j` 的必须是在`[0, len(S)]` （包含`0`和`len(S)`）的范围内，否则报错。
+​	这里的Replace函数的定义为`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S`，结合以上示例，可以发现， `i`和`j` 的必须是在`[0, len(S)]` （包含`0`和`len(S)`）的范围内，否则报错，实际替换不会替换`j`处的元素值。
 
 ##### 反转
 
@@ -1750,8 +1753,76 @@ mfp.PrintFmtValWithLC("2 sl78", sl78, verbs)
 
 ##### 排序
 
-```go
+###### 使用slices.Sort函数
 
+```go
+fmt.Println("从go1.21版本开始才可以使用")	
+sl82 := []float64{0, 42.12, -10.123, 8, math.NaN()}
+mfp.PrintFmtValWithL("1 sl82", sl82, verbs)
+slices.Sort(sl82)
+mfp.PrintFmtValWithL("2 sl82", sl82, verbs)
+
+type Person struct {
+    name string
+    age  int8
+}
+
+sl83 := []Person{
+    {"zlx2", 30},
+    {"zlx1", 32},
+    {"zlx3", 29},
+}
+
+mfp.PrintFmtValWithLC("1 sl83", sl83, verbs)
+//slices.Sort(sl83) // 报错：Person does not satisfy cmp.Ordered (Person missing in ~int | ~int8 | ~int16 | ~int32 | ~int64 | ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr | ~float32 | ~float64 | ~string)
+//mfp.PrintFmtValWithLC("2 sl83", sl83, verbs)
+
+sl84 := []int{2, 4, 6, 8, 1, 3, 5, 7}
+mfp.PrintFmtValWithLC("1 sl84", sl84, verbs)
+slices.Sort(sl84)
+mfp.PrintFmtValWithLC("2 sl84", sl84, verbs)
+
+sl85 := make([]int, 3, 6)
+sl85 = slices.Replace(sl85, 0, 3, []int{2, 1, 3}...)
+mfp.PrintFmtValWithLC("1 sl85", sl85, verbs)
+slices.Sort(sl85)
+mfp.PrintFmtValWithLC("2 sl85", sl85, verbs)
+```
+
+```
+1 sl82:         %T -> []float64 | %v -> [0 42.12 -10.123 8 NaN] | %#v -> []float64{0, 42.12, -10.123, 8, NaN} | len=5
+2 sl82:         %T -> []float64 | %v -> [NaN -10.123 0 8 42.12] | %#v -> []float64{NaN, -10.123, 0, 8, 42.12} | len=5
+1 sl83:         %T -> []main.Person | %v -> [{zlx2 30} {zlx1 32} {zlx3 29}] | %#v -> []main.Person{main.Person{name:"zlx2", age:30}, main.Person{name:"zlx1", age:32}, main.Person{name:"zlx3", age:29}} | len=3 | cap=3
+1 sl84:         %T -> []int | %v -> [2 4 6 8 1 3 5 7] | %#v -> []int{2, 4, 6, 8, 1, 3, 5, 7} | len=8 | cap=8
+2 sl84:         %T -> []int | %v -> [1 2 3 4 5 6 7 8] | %#v -> []int{1, 2, 3, 4, 5, 6, 7, 8} | len=8 | cap=8
+1 sl85:         %T -> []int | %v -> [2 1 3] | %#v -> []int{2, 1, 3} | len=3 | cap=6
+2 sl85:         %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
+```
+
+###### 使用slices.SortFunc函数
+
+```go
+type Person struct {
+    name string
+    age  int8
+}
+
+sl86 := []Person{
+    {"zlx2", 30},
+    {"zlx1", 32},
+    {"zlx3", 29},
+}
+
+mfp.PrintFmtValWithLC("1 sl86", sl86, verbs)
+slices.SortFunc(sl86, func(a, b Person) int {
+    return cmp.Compare(a.age, b.age)
+})
+mfp.PrintFmtValWithLC("2 sl86", sl86, verbs)
+```
+
+```
+1 sl86:         %T -> []main.Person | %v -> [{zlx2 30} {zlx1 32} {zlx3 29}] | %#v -> []main.Person{main.Person{name:"zlx2", age:30}, main.Person{name:"zlx1", age:32}, main.Person{name:"zlx3", age:29}} | len=3 | cap=3
+2 sl86:         %T -> []main.Person | %v -> [{zlx3 29} {zlx2 30} {zlx1 32}] | %#v -> []main.Person{main.Person{name:"zlx3", age:29}, main.Person{name:"zlx2", age:30}, main.Person{name:"zlx1", age:32}} | len=3 | cap=3
 ```
 
 
@@ -1787,6 +1858,12 @@ mfp.PrintHr()
 for k, v := range sl40 {
     fmt.Println(k, "->", v)
 }
+mfp.PrintHr()
+IamNaN5 := math.NaN()
+sl40x := []float64{0, 42.12, -10.123, 8, IamNaN5}
+for k, v := range sl40x {
+    fmt.Println(k, "->", v)
+}
 ```
 
 ```
@@ -1796,6 +1873,12 @@ for k, v := range sl40 {
 0 -> 1
 1 -> 2
 2 -> 3
+------------------
+0 -> 0
+1 -> 42.12
+2 -> -10.123
+3 -> 8
+4 -> NaN
 ```
 
 ##### 复制切片
@@ -2156,7 +2239,7 @@ mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
 
 
 
-##### 排序
+
 
 
 
@@ -2244,10 +2327,41 @@ mfp.PrintFmtValWithLC("1 sl75", sl75, verbs)
 
 ##### 使用slices.Replace函数
 
-​	使用slices.Replace函数：`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S ` 时，将 `i`和 `j`设置成一样，以为只会替换索引`i`这一处的元素值，而实际上却是往索引`i`前面插入一个新的元素值`v`。
+​	使用slices.Replace函数：`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S ` 时，将 `i`和 `j`设置成一样，以为只会替换索引一处的元素值，而实际上却是往索引`i`前面插入一个新的元素值`v`。
 
 ```go
+fmt.Println("错误的方式 1")
+sl79 := []int{1, 2, 3}
+mfp.PrintFmtValWithLC("1 sl79", sl79, verbs)
+// 要修改索引0处的元素值
+sl79 = slices.Replace(sl19, 0, 0, 111)
+mfp.PrintFmtValWithLC("2 sl79", sl79, verbs)
 
+fmt.Println("错误的方式 2")
+sl81 := []int{1, 2, 3}
+mfp.PrintFmtValWithLC("1 sl81", sl81, verbs)
+fmt.Println("若 i == j == len(sl) 呢？")
+sl81 = slices.Replace(sl81, 3, 3, 111)
+mfp.PrintFmtValWithLC("2 sl81", sl81, verbs)
+
+fmt.Println("正确的方式")
+sl80 := []int{1, 2, 3}
+mfp.PrintFmtValWithLC("1 sl80", sl80, verbs)
+sl80 = slices.Replace(sl80, 0, 1, 111)
+mfp.PrintFmtValWithLC("2 sl80", sl80, verbs)
+```
+
+```
+错误的方式 1
+1 sl79:         %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+2 sl79:         %T -> []int | %v -> [111 1 2 3] | %#v -> []int{111, 1, 2, 3} | len=4 | cap=4
+错误的方式 2
+1 sl81:         %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+若 i == j == len(sl) 呢？
+2 sl81:         %T -> []int | %v -> [1 2 3 111] | %#v -> []int{1, 2, 3, 111} | len=4 | cap=6
+正确的方式
+1 sl80:         %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+2 sl80:         %T -> []int | %v -> [111 2 3] | %#v -> []int{111, 2, 3} | len=3 | cap=3
 ```
 
 
