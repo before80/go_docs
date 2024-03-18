@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/before80/utils/mfp"
+	"maps"
 )
 
 var verbs = []string{"T", "v", "#v"}
@@ -100,4 +101,87 @@ func main() {
 
 	fmt.Println("获取相关map属性")
 	fmt.Println("m12 map的长度 len(m12)=", len(m12))
+
+	fmt.Println("复制map")
+	fmt.Println("从go1.21版本开始才可以使用")
+	fmt.Println("使用maps.Clone函数")
+	m13 := map[string]int{"A": 1, "B": 2, "C": 3}
+	mfp.PrintFmtValWithL("1 m13", m13, verbs)
+	m14 := maps.Clone(m13)
+	mfp.PrintFmtValWithL("2 m14", m14, verbs)
+	m13["A"] = 11
+	fmt.Println(`修改 m13["A"] = 11`)
+	mfp.PrintFmtValWithL("3 m13", m13, verbs)
+	mfp.PrintFmtValWithL("4 m14", m14, verbs)
+	m14["B"] = 22
+	fmt.Println(`修改 m14["B"] = 22`)
+	mfp.PrintFmtValWithL("5 m13", m13, verbs)
+	mfp.PrintFmtValWithL("6 m14", m14, verbs)
+	mfp.PrintHr()
+	fmt.Println("使用maps.Copy函数")
+	m15 := map[string]int{"A": 1, "B": 2}
+	m16 := map[string]int{"A": 11, "C": 33}
+	fmt.Println(`使用Copy函数前`)
+	mfp.PrintFmtValWithL("m15", m15, verbs)
+	mfp.PrintFmtValWithL("m16", m16, verbs)
+	maps.Copy(m16, m15) // func Copy[M1 ~map[K]V, M2 ~map[K]V, K comparable, V any](dst M1, src M2)
+	fmt.Println(`使用Copy函数后`)
+	mfp.PrintFmtValWithL("m15", m15, verbs)
+	mfp.PrintFmtValWithL("m16", m16, verbs)
+	m15["A"] = 111
+	fmt.Println(`修改 m15["A"] = 111`)
+	mfp.PrintFmtValWithL("m15", m15, verbs)
+	mfp.PrintFmtValWithL("m16", m16, verbs)
+	m16["B"] = 222
+	fmt.Println(`修改 m16["B"] = 222`)
+	mfp.PrintFmtValWithL("m15", m15, verbs)
+	mfp.PrintFmtValWithL("m16", m16, verbs)
+
+	fmt.Println("使用maps.DeleteFunc函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	m17 := map[string]int{"A": 1, "B": 2, "C": 3, "D": 4}
+	fmt.Println("使用maps.DeleteFunc函数前")
+	mfp.PrintFmtValWithL("m17", m17, verbs)
+	maps.DeleteFunc(m17, func(k string, v int) bool {
+		if v%2 == 1 {
+			return true
+		}
+		return false
+	})
+
+	fmt.Println("使用maps.DeleteFunc函数后")
+	mfp.PrintFmtValWithL("m17", m17, verbs)
+
+	fmt.Println("判断相等")
+	m18 := map[string]int{"A": 1, "B": 2, "C": 3}
+	m19 := map[string]int{"A": 1, "B": 2, "C": 3}
+	//fmt.Println("m18 == m19 -> ", m18 == m19) // 报错：invalid operation: m18 == m19 (map can only be compared to nil)
+	//fmt.Println("m18 != m19 -> ", m18 != m19) // 报错：invalid operation: m18 != m19 (map can only be compared to nil)
+
+	_ = m18
+	_ = m19
+
+	fmt.Println("使用maps.Equal函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	m20 := map[string]int{"A": 1, "B": 2}
+	m21 := map[string]int{"A": 1, "B": 2}
+	fmt.Println("m20 == m21 ->", maps.Equal(m20, m21))
+
+	m22 := map[string]int{"A": 11, "B": 2}
+	fmt.Println("m20 == m22 ->", maps.Equal(m20, m22))
+
+	m23 := map[string]int{"A": 1, "B": 2, "C": 3}
+	fmt.Println("m20 == m23 ->", maps.Equal(m20, m23))
+
+	fmt.Println("使用maps.EqualFunc函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	m24 := map[string]int{"A": 1, "B": 2}
+	m25 := map[string]int{"A": 1, "B": 2}
+	fmt.Println("m24 == m25 -> ", maps.EqualFunc(m24, m25, func(v1 int, v2 int) bool {
+		if v1 == v2 {
+			return true
+		}
+		return false
+	}))
+
 }

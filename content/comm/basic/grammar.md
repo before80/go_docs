@@ -1644,6 +1644,110 @@ mfp.PrintFmtValWithLC("6 sl38", sl38, verbs)
 6 sl38:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=6
 ```
 
+##### 替换
+
+###### 使用for循环
+
+```go
+sl73 := make([]int, 6, 10)
+mfp.PrintFmtValWithLC("1 sl73", sl73, verbs)
+// 将 sl73[0]~sl73[6]依次替换为 1~6
+for k, _ := range sl73 {
+    if k <= 6 {
+        sl73[k] = k + 1
+    }
+}
+mfp.PrintFmtValWithLC("2 sl73", sl73, verbs)
+```
+
+```
+1 sl73:         %T -> []int | %v -> [0 0 0 0 0 0] | %#v -> []int{0, 0, 0, 0, 0, 0} | len=6 | cap=10
+2 sl73:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=10
+```
+
+###### 使用slices.Replace函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl74 := make([]int, 6, 10)
+mfp.PrintFmtValWithLC("1 sl74", sl74, verbs)
+sl74 = slices.Replace(sl74, 0, 6, []int{1, 2, 3, 4, 5, 6}...)
+mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
+//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
+//mfp.PrintFmtValWithLC("3 sl74", sl74, verbs)
+//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6, 7}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
+//mfp.PrintFmtValWithLC("4 sl74", sl74, verbs)
+```
+
+```
+1 sl74:         %T -> []int | %v -> [0 0 0 0 0 0] | %#v -> []int{0, 0, 0, 0, 0, 0} | len=6 | cap=10
+2 sl74:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=10
+```
+
+​	这里的Replace函数的定义为`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S`，结合以上示例，可以发现， `i`和`j` 的必须是在`[0, len(S)]` （包含`0`和`len(S)`）的范围内，否则报错。
+
+##### 反转
+
+###### 使用for循环
+
+```go
+func reverseSlice(slice []int) {
+	length := len(slice)
+    for i := 0; i < length/2; i++ {
+        j := length - 1 - i
+        slice[i], slice[j] = slice[j], slice[i]
+    }
+}
+sl76 := []int{1, 2, 3, 4, 5, 6}
+mfp.PrintFmtValWithLC("1 sl76", sl76, verbs)
+reverseSlice(sl76)
+mfp.PrintFmtValWithLC("2 sl76", sl76, verbs)
+```
+
+```
+1 sl76:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=6
+2 sl76:         %T -> []int | %v -> [6 5 4 3 2 1] | %#v -> []int{6, 5, 4, 3, 2, 1} | len=6 | cap=6
+```
+
+
+
+###### 使用slices.Reverse函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl77 := []int{1, 2, 3, 4, 5, 6}
+mfp.PrintFmtValWithLC("1 sl77", sl77, verbs)
+slices.Reverse(sl77)
+mfp.PrintFmtValWithLC("2 sl77", sl77, verbs)
+```
+
+```
+1 sl77:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=6
+2 sl77:         %T -> []int | %v -> [6 5 4 3 2 1] | %#v -> []int{6, 5, 4, 3, 2, 1} | len=6 | cap=6
+```
+
+##### 移除
+
+###### 移除未使用的容量
+
+​	这里使用了`slices.Clip`函数，需要注意，`Clip的返回值`才是移除未使用的容量后的切片。
+
+```go
+fmt.Println("使用slices.Clip函数")
+fmt.Println("从go1.21版本开始才可以使用")
+sl78 := make([]int, 3, 6)
+mfp.PrintFmtValWithLC("1 sl78", sl78, verbs)
+sl78 = slices.Clip(sl78)
+mfp.PrintFmtValWithLC("2 sl78", sl78, verbs)
+```
+
+```
+1 sl78:         %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=6
+2 sl78:         %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=3
+```
+
+
+
 ##### 排序
 
 ```go
@@ -1702,7 +1806,8 @@ mfp.PrintFmtValWithLC("slSrc43", slSrc43, verbs)
 slDst44 := make([]int, len(slSrc43))
 mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
 
-copy(slDst44, slSrc43)
+copy(slDst44, slSrc43) // func copy(dst []Type, src []Type) int
+fmt.Println("使用copy函数")
 slDst44[0] = 11
 fmt.Println("slDst44[0] = 11 之后")
 mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
@@ -1716,6 +1821,7 @@ mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
 ```
 slSrc43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
 slDst44:        %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=3
+使用copy函数
 slDst44[0] = 11 之后
 slDst43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
 slDst44:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
@@ -1738,6 +1844,325 @@ fmt.Println("sl41切片的容量 cap(sl41)=", cap(sl41))
 sl41切片的长度 len(sl41)= 3
 sl41切片的容量 cap(sl41)= 3
 ```
+
+##### 判断相等
+
+###### 是否可以使用`==`或`!=`?
+
+​	=> 不可以！
+
+```go
+sl46 := []int{1, 2, 3}
+sl47 := []int{1, 2, 3}
+//fmt.Println("sl46 == sl47 -> ", sl46 == sl47) // 报错：invalid operation: sl46 == sl47 (slice can only be compared to nil)
+//fmt.Println("sl46 != sl47 -> ", sl46 != sl47)// 报错：invalid operation: sl46 != sl47 (slice can only be compared to nil)
+```
+
+​	以上示例显示，在使用`==` 或 `!=` 时 切片 只可以和 `nil` 进行比较。
+
+###### 使用slices.Equal函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl48 := []int{1, 2, 3}
+sl49 := []int{1, 2, 3}
+sl50 := []int{11, 2, 3}
+sl51 := []int{1, 2, 3, 4}
+fmt.Println("sl48 == sl49 -> ", slices.Equal(sl48, sl49))
+fmt.Println("sl48 == sl50 -> ", slices.Equal(sl48, sl50))
+fmt.Println("sl48 == sl51 -> ", slices.Equal(sl48, sl51))
+```
+
+```
+sl48 == sl49 ->  true
+sl48 == sl50 ->  false
+sl48 == sl51 ->  false
+```
+
+
+
+###### 使用slices.EqualFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl52 := []int{1, 15, 8}
+sl53 := []int{1, 15, 8}
+sl54 := []int{11, 15, 8}
+sl55 := []string{"01", "0x0f", "0o10"}
+
+feq1 := func(e1, e2 int) bool {
+    return e1 == e2
+}
+feq2 := func(e1 int, e2 string) bool {
+    sn, err := strconv.ParseInt(e2, 0, 64)
+    if err != nil {
+        return false
+    }
+    return e1 == int(sn)
+}
+fmt.Println("sl52 == sl53 -> ", slices.EqualFunc(sl52, sl53, feq1))
+fmt.Println("sl52 == sl54 -> ", slices.EqualFunc(sl52, sl54, feq1))
+fmt.Println("sl52 == sl55 -> ", slices.EqualFunc(sl52, sl55, feq2))
+```
+
+```
+sl52 == sl53 ->  true
+sl52 == sl54 ->  false
+sl52 == sl55 ->  true
+```
+
+##### 判断是否存在
+
+###### 	使用for循环
+
+```go
+sl56 := []int{1, 2, 3}
+forFunc := func(src []int, target int) bool {
+    for _, v := range src {
+        if v == target {
+            return true
+        }
+    }
+    return false
+}
+
+fmt.Println("1 在 sl56中 -> ", forFunc(sl56, 1))
+fmt.Println("4 在 sl56中 -> ", forFunc(sl56, 4))
+```
+
+```
+1 在 sl56中 ->  true
+4 在 sl56中 ->  false
+```
+
+###### 使用slices.Contains函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl57 := []int{1, 2, 3}
+fmt.Println("1 在 sl57中 -> ", slices.Contains(sl57, 1))
+fmt.Println("4 在 sl57中 -> ", slices.Contains(sl57, 4))
+```
+
+```
+1 在 sl57中 ->  true
+4 在 sl57中 ->  false
+```
+
+###### 使用slices.ContainsFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl58 := []int{0, 42, -10, 8}
+
+fmt.Println("sl58中存在负数 -> ", slices.ContainsFunc(sl58, func(e int) bool {
+    return e < 0
+}))
+fmt.Println("sl58中存在奇数 -> ", slices.ContainsFunc(sl58, func(e int) bool {
+    return e%2 == 1
+}))
+fmt.Println("sl58中存在 8 -> ", slices.ContainsFunc(sl58, func(e int) bool {
+    return e == 8
+}))
+```
+
+```
+sl58中存在负数 ->  true
+sl58中存在奇数 ->  false
+sl58中存在 8 ->  true
+```
+
+
+
+##### 获取最大值
+
+###### 使用for循环
+
+```go
+sl59 := []int{0, 42, -10, 8}
+
+maxK := 0
+maxV := sl59[0]
+for k, v := range sl59 {
+    if maxV < v {
+        maxK = k
+        maxV = v
+    }
+}
+fmt.Printf("sl59中的最大值是sl59[%d]=%d\n", maxK, maxV)
+```
+
+```
+sl59中的最大值是sl59[1]=42
+```
+
+
+
+###### 使用slices.Max函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl60 := []int{0, 42, -10, 8}
+IamNaN := math.NaN()
+sl61 := []float64{0, 42.12, -10.123, 8, IamNaN}
+//sl62 := []int{0, 42, -10, 8, IamNaN} // 报错：cannot use IamNaN (variable of type float64) as int value in array or slice literal
+fmt.Printf("sl60中的最大值是%d\n", slices.Max(sl60))
+
+maxV2 := slices.Max(sl61)
+fmt.Printf("sl61中的最大值是%f（%T）\n", maxV2, maxV2)
+```
+
+```
+sl60中的最大值是42
+sl61中的最大值是NaN（float64）
+```
+
+
+
+###### 使用slices.MaxFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl64 := []int{0, 42, -10, 8}
+IamNaN2 := math.NaN()
+sl65 := []float64{0, 42.12, -10.123, 8, IamNaN2}
+fmt.Printf("sl64中最大值是%d\n", slices.MaxFunc(sl64, func(e1, e2 int) int {
+    return cmp.Compare(e1, e2)
+}))
+
+fmt.Printf("sl65中最大值是%f\n", slices.MaxFunc(sl65, func(e1, e2 float64) int {
+    return cmp.Compare(e1, e2)
+}))
+
+//sl66 := []int{}
+//fmt.Printf("sl66中最大值是%d\n", slices.MaxFunc(sl66, func(e1, e2 int) int {
+//	return cmp.Compare(e1, e2)
+//})) // 报错：panic: slices.Max: empty list
+```
+
+```
+sl64中最大值是42
+sl65中最大值是42.120000
+```
+
+
+
+##### 获取最小值
+
+###### 使用for循环
+
+```go
+func findMin[T1, T2 cmp.Ordered](minK T1, minV T2, src []T2) (T1, T2) {
+	for k, v := range src {
+		if minV > v {
+			minK = T1(k)
+			minV = v
+		}
+	}
+	return minK, minV
+}
+
+sl67 := []int{0, 42, -10, 8}
+minK1, minV1 := findMin(0, sl67[0], sl67)
+fmt.Printf("sl67中的最小值是sl67[%d]=%d\n", minK1, minV1)
+
+sl68 := []float64{0, 42.12, -10.123, 8}
+minK2, minV2 := findMin(0, sl68[0], sl68)
+fmt.Printf("sl68中的最小值是sl68[%d]=%f\n", minK2, minV2)
+
+IamNaN3 := math.NaN()
+sl69 := []float64{0, 42.12, -10.123, 8, IamNaN3}
+minK3, minV3 := findMin(0, sl69[0], sl69)
+fmt.Printf("sl69中的最小值是sl69[%d]=%f\n", minK3, minV3)
+```
+
+```
+sl67中的最小值是sl67[2]=-10
+sl68中的最小值是sl68[2]=-10.123000
+sl69中的最小值是sl69[2]=-10.123000
+```
+
+###### 使用slices.Min函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl70 := []int{0, 42, -10, 8}
+sl71 := []float64{0, 42.12, -10.123, 8}
+IamNaN4 := math.NaN()
+sl72 := []float64{0, 42.12, -10.123, 8, IamNaN4}
+fmt.Println("sl70中的最小值是", slices.Min(sl70))
+fmt.Println("sl71中的最小值是", slices.Min(sl71))
+fmt.Println("sl72中的最小值是", slices.Min(sl72))
+```
+
+```
+sl70中的最小值是 -10
+sl71中的最小值是 -10.123
+sl72中的最小值是 NaN
+```
+
+
+
+###### 使用slices.MinFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl70 := []int{0, 42, -10, 8}
+sl71 := []float64{0, 42.12, -10.123, 8}
+IamNaN4 := math.NaN()
+sl72 := []float64{0, 42.12, -10.123, 8, IamNaN4}
+fmt.Println("sl70中的最小值是", slices.MinFunc(sl70, func(a, b int) int {
+	return cmp.Compare(a, b)
+}))
+fmt.Println("sl71中的最小值是", slices.MinFunc(sl71, func(a, b float64) int {
+	return cmp.Compare(a, b)
+}))
+fmt.Println("sl72中的最小值是", slices.MinFunc(sl72, func(a, b float64) int {
+	return cmp.Compare(a, b)
+}))
+```
+
+```
+sl70中的最小值是 -10
+sl71中的最小值是 -10.123
+sl72中的最小值是 NaN
+```
+
+
+
+
+
+###### 使用slices.Replace函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl74 := make([]int, 6, 10)
+mfp.PrintFmtValWithLC("1 sl74", sl74, verbs)
+sl74 = slices.Replace(sl74, 0, 6, []int{1, 2, 3, 4, 5, 6}...)
+mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
+//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
+//mfp.PrintFmtValWithLC("3 sl74", sl74, verbs)
+//sl74 = slices.Replace(sl74, 0, 7, []int{1, 2, 3, 4, 5, 6, 7}...) // 报错：panic: runtime error: slice bounds out of range [7:6]
+//mfp.PrintFmtValWithLC("4 sl74", sl74, verbs)
+```
+
+```
+1 sl74:         %T -> []int | %v -> [0 0 0 0 0 0] | %#v -> []int{0, 0, 0, 0, 0, 0} | len=6 | cap=10
+2 sl74:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=10
+```
+
+
+
+##### 排序
+
+
+
+###### 
+
+
 
 #### D删除
 
@@ -1798,6 +2223,31 @@ fmt.Println(sl45[len(sl45)-1]) // 正确方式
 
 ```
 3
+```
+
+##### 长度和容量不一致的切片
+
+​	长度和容量不一致时，给索引`i`的范围是`len(sl) <= i <= cap(sl)` 的元素赋值，以为可以增加切片的长度，实际却是 `panic`。 
+
+```go
+sl75 := make([]int, 3, 6)
+mfp.PrintFmtValWithLC("1 sl75", sl75, verbs)
+//sl75[3] = 4 // 报错：panic: runtime error: index out of range [3] with length 3
+//mfp.PrintFmtValWithLC("2 sl75", sl75, verbs)
+//sl75[4] = 5 // 报错：panic: runtime error: index out of range [4] with length 3
+//mfp.PrintFmtValWithLC("3 sl75", sl75, verbs)
+```
+
+```
+1 sl75:         %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=6
+```
+
+##### 使用slices.Replace函数
+
+​	使用slices.Replace函数：`func Replace[S ~[]E, E any](s S, i, j int, v ...E) S ` 时，将 `i`和 `j`设置成一样，以为只会替换索引`i`这一处的元素值，而实际上却是往索引`i`前面插入一个新的元素值`v`。
+
+```go
+
 ```
 
 
@@ -1950,7 +2400,74 @@ C -> 3
 ##### 复制map
 
 ```go
+fmt.Println("从go1.21版本开始才可以使用")
 
+fmt.Println("使用maps.Clone函数")
+m13 := map[string]int{"A": 1, "B": 2, "C": 3}
+mfp.PrintFmtValWithL("1 m13", m13, verbs)
+m14 := maps.Clone(m13)
+mfp.PrintFmtValWithL("2 m14", m14, verbs)
+
+m13["A"] = 11
+fmt.Println(`修改 m13["A"] = 11`)
+mfp.PrintFmtValWithL("3 m13", m13, verbs)
+mfp.PrintFmtValWithL("4 m14", m14, verbs)
+
+m14["B"] = 22
+fmt.Println(`修改 m14["B"] = 22`)
+mfp.PrintFmtValWithL("5 m13", m13, verbs)
+mfp.PrintFmtValWithL("6 m14", m14, verbs)
+mfp.PrintHr()
+
+fmt.Println("使用maps.Copy函数")
+m15 := map[string]int{"A": 1, "B": 2}
+m16 := map[string]int{"A": 11, "C": 33}
+
+fmt.Println(`使用Copy函数前`)
+mfp.PrintFmtValWithL("m15", m15, verbs)
+mfp.PrintFmtValWithL("m16", m16, verbs)
+maps.Copy(m16, m15) // func Copy[M1 ~map[K]V, M2 ~map[K]V, K comparable, V any](dst M1, src M2)
+
+fmt.Println(`使用Copy函数后`)
+mfp.PrintFmtValWithL("m15", m15, verbs)
+mfp.PrintFmtValWithL("m16", m16, verbs)
+
+m15["A"] = 111
+fmt.Println(`修改 m15["A"] = 111`)
+mfp.PrintFmtValWithL("m15", m15, verbs)
+mfp.PrintFmtValWithL("m16", m16, verbs)
+
+m16["B"] = 222
+fmt.Println(`修改 m16["B"] = 222`)
+mfp.PrintFmtValWithL("m15", m15, verbs)
+mfp.PrintFmtValWithL("m16", m16, verbs)
+```
+
+```
+从go1.21版本开始可使用
+使用maps.Clone函数
+1 m13:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+2 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+修改 m13["A"] = 11
+3 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
+4 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+修改 m14["B"] = 22
+5 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
+6 m14:  %T -> map[string]int | %v -> map[A:1 B:22 C:3] | %#v -> map[string]int{"A":1, "B":22, "C":3} | len=3
+------------------
+使用maps.Copy函数
+使用Copy函数前
+m15:    %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+m16:    %T -> map[string]int | %v -> map[A:11 C:33] | %#v -> map[string]int{"A":11, "C":33} | len=2
+使用Copy函数后
+m15:    %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+m16:    %T -> map[string]int | %v -> map[A:1 B:2 C:33] | %#v -> map[string]int{"A":1, "B":2, "C":33} | len=3
+修改 m15["A"] = 111
+m15:    %T -> map[string]int | %v -> map[A:111 B:2] | %#v -> map[string]int{"A":111, "B":2} | len=2
+m16:    %T -> map[string]int | %v -> map[A:1 B:2 C:33] | %#v -> map[string]int{"A":1, "B":2, "C":33} | len=3
+修改 m16["B"] = 222
+m15:    %T -> map[string]int | %v -> map[A:111 B:2] | %#v -> map[string]int{"A":111, "B":2} | len=2
+m16:    %T -> map[string]int | %v -> map[A:1 B:222 C:33] | %#v -> map[string]int{"A":1, "B":222, "C":33} | len=3
 ```
 
 
@@ -1965,6 +2482,61 @@ fmt.Println("m12 map的长度 len(m12)=", len(m12))
 m12 map的长度 len(m12)= 3
 ```
 
+##### 判断相等
+
+###### 是否可以使用==或 !=？
+
+​	=> 不可以！
+
+```go
+m18 := map[string]int{"A": 1, "B": 2, "C": 3}
+m19 := map[string]int{"A": 1, "B": 2, "C": 3}
+//fmt.Println("m18 == m19 -> ", m18 == m19) // 报错：invalid operation: m18 == m19 (map can only be compared to nil)
+//fmt.Println("m18 != m19 -> ", m18 != m19) // 报错：invalid operation: m18 != m19 (map can only be compared to nil)
+```
+
+​	以上示例显示，在使用`==` 或 `!=` 时 map 只可以和 `nil` 进行比较。
+
+###### 使用maps.Equal函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+m20 := map[string]int{"A": 1, "B": 2}
+m21 := map[string]int{"A": 1, "B": 2}
+fmt.Println("m20 == m21 ->", maps.Equal(m20, m21))
+
+m22 := map[string]int{"A": 11, "B": 2}
+fmt.Println("m20 == m22 ->", maps.Equal(m20, m22))
+
+m23 := map[string]int{"A": 1, "B": 2, "C": 3}
+fmt.Println("m20 == m23 ->", maps.Equal(m20, m23))
+```
+
+```
+m20 == m21 -> true
+m20 == m22 -> false
+m20 == m23 -> false
+```
+
+###### 使用maps.EqualFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+m24 := map[string]int{"A": 1, "B": 2}
+m25 := map[string]int{"A": 1, "B": 2}
+fmt.Println("m24 == m25 -> ", maps.EqualFunc(m24, m25, func(v1 int, v2 int) bool {
+    if v1 == v2 {
+        return true
+    }
+    return false
+}))
+```
+
+```
+m24 == m25 ->  true
+```
+
 
 
 #### D删除
@@ -1972,6 +2544,8 @@ m12 map的长度 len(m12)= 3
 ##### 是否可以删除map中的某一元素？
 
 ​	=> 可以！
+
+###### 使用delete函数
 
 ```go
 m8 := map[string]int{"A": 1, "B": 2, "C": 3}
@@ -1992,6 +2566,30 @@ m8:     %T -> map[string]int | %v -> map[B:2 C:3] | %#v -> map[string]int{"B":2,
 m8:     %T -> map[string]int | %v -> map[B:2 C:3] | %#v -> map[string]int{"B":2, "C":3} | len=2
 m8:     %T -> map[string]int | %v -> map[C:3] | %#v -> map[string]int{"C":3} | len=1
 m8:     %T -> map[string]int | %v -> map[] | %#v -> map[string]int{} | len=0
+```
+
+###### 使用maps.DeleteFunc函数
+
+```go
+m17 := map[string]int{"A": 1, "B": 2, "C": 3, "D": 4}
+fmt.Println("使用maps.DeleteFunc函数前")
+mfp.PrintFmtValWithL("m17", m17, verbs)
+maps.DeleteFunc(m17, func(k string, v int) bool {
+    if v%2 == 1 {
+        return true
+    }
+    return false
+})
+
+fmt.Println("使用maps.DeleteFunc函数后")
+mfp.PrintFmtValWithL("m17", m17, verbs)
+```
+
+```
+使用maps.DeleteFunc函数前
+m17:    %T -> map[string]int | %v -> map[A:1 B:2 C:3 D:4] | %#v -> map[string]int{"A":1, "B":2, "C":3, "D":4} | len=4
+使用maps.DeleteFunc函数后
+m17:    %T -> map[string]int | %v -> map[B:2 D:4] | %#v -> map[string]int{"B":2, "D":4} | len=2
 ```
 
 
