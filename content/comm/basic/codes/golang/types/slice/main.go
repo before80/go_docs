@@ -3,10 +3,11 @@ package main
 import (
 	"cmp"
 	"fmt"
-	"github.com/before80/utils/mfp"
 	"math"
 	"slices"
 	"strconv"
+
+	"github.com/before80/utils/mfp"
 )
 
 var verbs = []string{"T", "v", "#v"}
@@ -481,6 +482,47 @@ func main() {
 		return cmp.Compare(a.age, b.age)
 	})
 	mfp.PrintFmtValWithLC("2 sl86", sl86, verbs)
+
+	sl88 := []Person{
+		{"Gopher", 13},
+		{"Alice", 55},
+		{"Bob", 24},
+		{"Alice", 20},
+	}
+	mfp.PrintFmtValWithLC("1 sl88", sl88, verbs)
+	slices.SortFunc(sl88, func(a, b Person) int {
+		if n := cmp.Compare(a.name, b.name); n != 0 {
+			return n
+		}
+		// 如果 name 字段的值相等，则继续按 age 字段进行排序
+		return cmp.Compare(a.age, b.age)
+	})
+	mfp.PrintFmtValWithLC("2 sl88", sl88, verbs)
+
+	fmt.Println("使用slices.SortStableFunc函数")
+	fmt.Println("从go1.21版本开始才可以使用")	
+	
+	sl89 := []Person{
+		{"Gopher", 13},
+		{"Alice", 55},
+		{"Bob", 24},
+		{"Alice", 30},
+		{"Alice", 20},
+	}
+	mfp.PrintFmtValWithLC("1 sl89", sl89, verbs)
+	slices.SortStableFunc(sl89, func(a, b Person) int {
+		return cmp.Compare(a.name, b.name)
+	})
+	mfp.PrintFmtValWithLC("2 sl89", sl89, verbs)
+
+	fmt.Println("使用slices.Delete函数")
+	fmt.Println("从go1.21版本开始才可以使用")
+	sl87 := []int{1, 2, 3, 4, 5, 6}
+	mfp.PrintFmtValWithLC("1 sl87", sl87, verbs)
+	sl87 = slices.Delete(sl87, 0, 0) // 注意这里并没有删除成功
+	mfp.PrintFmtValWithLC("2 sl87", sl87, verbs)
+	sl87 = slices.Delete(sl87, 0, 1) // 这里才会删除成功
+	mfp.PrintFmtValWithLC("3 sl87", sl87, verbs)
 
 }
 

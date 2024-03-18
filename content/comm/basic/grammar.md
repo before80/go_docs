@@ -1802,6 +1802,7 @@ mfp.PrintFmtValWithLC("2 sl85", sl85, verbs)
 ###### 使用slices.SortFunc函数
 
 ```go
+fmt.Println("从go1.21版本开始才可以使用")	
 type Person struct {
     name string
     age  int8
@@ -1818,11 +1819,53 @@ slices.SortFunc(sl86, func(a, b Person) int {
     return cmp.Compare(a.age, b.age)
 })
 mfp.PrintFmtValWithLC("2 sl86", sl86, verbs)
+
+sl88 := []Person{
+    {"Gopher", 13},
+    {"Alice", 55},
+    {"Bob", 24},
+    {"Alice", 20},
+}
+mfp.PrintFmtValWithLC("1 sl88", sl88, verbs)
+slices.SortFunc(sl88, func(a, b Person) int {
+    if n := cmp.Compare(a.name, b.name); n != 0 {
+        return n
+    }
+    // 如果 name 字段的值相等，则继续按 age 字段进行排序
+    return cmp.Compare(a.age, b.age)
+})
+mfp.PrintFmtValWithLC("2 sl88", sl88, verbs)
 ```
 
 ```
 1 sl86:         %T -> []main.Person | %v -> [{zlx2 30} {zlx1 32} {zlx3 29}] | %#v -> []main.Person{main.Person{name:"zlx2", age:30}, main.Person{name:"zlx1", age:32}, main.Person{name:"zlx3", age:29}} | len=3 | cap=3
 2 sl86:         %T -> []main.Person | %v -> [{zlx3 29} {zlx2 30} {zlx1 32}] | %#v -> []main.Person{main.Person{name:"zlx3", age:29}, main.Person{name:"zlx2", age:30}, main.Person{name:"zlx1", age:32}} | len=3 | cap=3
+1 sl88: 	%T -> []main.Person | %v -> [{Gopher 13} {Alice 55} {Bob 24} {Alice 20}] | %#v -> []main.Person{main.Person{name:"Gopher", age:13}, main.Person{name:"Alice", age:55}, main.Person{name:"Bob", age:24}, main.Person{name:"Alice", age:20}} | len=4 | cap=4
+2 sl88: 	%T -> []main.Person | %v -> [{Alice 20} {Alice 55} {Bob 24} {Gopher 13}] | %#v -> []main.Person{main.Person{name:"Alice", age:20}, main.Person{name:"Alice", age:55}, main.Person{name:"Bob", age:24}, main.Person{name:"Gopher", age:13}} | len=4 | cap=4
+```
+
+###### 使用slices.SortStableFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")	
+
+sl89 := []Person{
+    {"Gopher", 13},
+    {"Alice", 55},
+    {"Bob", 24},
+    {"Alice", 30},
+    {"Alice", 20},
+}
+mfp.PrintFmtValWithLC("1 sl89", sl89, verbs)
+slices.SortStableFunc(sl89, func(a, b Person) int {
+    return cmp.Compare(a.name, b.name)
+})
+mfp.PrintFmtValWithLC("2 sl89", sl89, verbs)
+```
+
+```
+ sl89: 	%T -> []main.Person | %v -> [{Gopher 13} {Alice 55} {Bob 24} {Alice 30} {Alice 20}] | %#v -> []main.Person{main.Person{name:"Gopher", age:13}, main.Person{name:"Alice", age:55}, main.Person{name:"Bob", age:24}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}} | len=5 | cap=5
+2 sl89: 	%T -> []main.Person | %v -> [{Alice 55} {Alice 30} {Alice 20} {Bob 24} {Gopher 13}] | %#v -> []main.Person{main.Person{name:"Alice", age:55}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}, main.Person{name:"Bob", age:24}, main.Person{name:"Gopher", age:13}} | len=5 | cap=5
 ```
 
 
@@ -2253,6 +2296,8 @@ mfp.PrintFmtValWithLC("2 sl74", sl74, verbs)
 
 ​	=> 可以！
 
+###### 使用append函数
+
 ```go
 sl42 := []int{1, 2, 3, 4, 5, 6}
 i := 3 // 需要删除元素的索引下标
@@ -2279,6 +2324,30 @@ mfp.PrintFmtValWithLC("6 sl42", sl42, verbs)
 5 sl42:         %T -> []int | %v -> [2 3] | %#v -> []int{2, 3} | len=2 | cap=6
 6 sl42:         %T -> []int | %v -> [3] | %#v -> []int{3} | len=1 | cap=5
 ```
+
+###### 使用slices.Delete函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")	
+sl87 := []int{1, 2, 3, 4, 5, 6}
+mfp.PrintFmtValWithLC("1 sl87", sl87, verbs)
+sl87 = slices.Delete(sl87, 0, 0) // 注意这里并没有删除成功
+mfp.PrintFmtValWithLC("2 sl87", sl87, verbs)
+sl87 = slices.Delete(sl87, 0, 1)// 这里才会删除成功
+mfp.PrintFmtValWithLC("3 sl87", sl87, verbs)
+```
+
+```
+
+```
+
+##### 是否可以批量删除一些元素
+
+​	=> 可以 ！
+
+​	可以使用`append`函数或`slices.Delete`函数来实现，具体代码参照删除某一元素的代码。
+
+
 
 #### 作为实参传递给函数或方法
 
