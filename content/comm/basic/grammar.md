@@ -1422,6 +1422,34 @@ fmt.Println(a21[len(a21)-1]) // 正确方式
 
 ### 切片
 
+#### 格式化动词
+
+```go
+type Person struct {
+    name string
+    age  int8
+}
+
+newVerbs := []string{"T", "%v", "+v", "#v"}
+sl115 := []int{1, 2, 3}
+sl116 := []float32{1.1, 2.2, 3.3}
+sl117 := []string{"A", "B", "C"}
+sl118 := []Person{{"Alice", 12}, {"Bob", 28}}
+mfp.PrintFmtValWithLC("sl115", sl115, newVerbs)
+mfp.PrintFmtValWithLC("sl116", sl116, newVerbs)
+mfp.PrintFmtValWithLC("sl117", sl117, newVerbs)
+mfp.PrintFmtValWithLC("sl118", sl118, newVerbs)
+```
+
+```
+sl115:  %T -> []int | %[1 2 3] -> %v | %+v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+sl116:  %T -> []float32 | %[1.1 2.2 3.3] -> %v | %+v -> [1.1 2.2 3.3] | %#v -> []float32{1.1, 2.2, 3.3} | len=3 | cap=3
+sl117:  %T -> []string | %[A B C] -> %v | %+v -> [A B C] | %#v -> []string{"A", "B", "C"} | len=3 | cap=3
+sl118:  %T -> []main.Person | %[{Alice 12} {Bob 28}] -> %v | %+v -> [{name:Alice age:12} {name:Bob age:28}] | %#v -> []main.Person{main.Person{name:"Alice", age:12}, main.Person{name:"Bob", age:28}} | len=2 | cap=2
+```
+
+
+
 #### C创建
 
 ##### 直接创建
@@ -1644,6 +1672,65 @@ mfp.PrintFmtValWithLC("6 sl38", sl38, verbs)
 6 sl38:         %T -> []int | %v -> [1 2 3 4 5 6] | %#v -> []int{1, 2, 3, 4, 5, 6} | len=6 | cap=6
 ```
 
+##### 插入
+
+###### 使用slices.Insert函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl109 := make([]int, 2, 3)
+sl109 = slices.Replace(sl109, 0, 2, []int{1, 2}...)
+mfp.PrintFmtValWithLC("1 sl109", sl109, verbs)
+sl109 = slices.Insert(sl109, 0, []int{11, 22, 33}...)
+mfp.PrintFmtValWithLC("2 sl109", sl109, verbs)
+
+sl110 := make([]int, 2)
+sl110 = slices.Replace(sl110, 0, 2, []int{1, 2}...)
+mfp.PrintFmtValWithLC("1 sl110", sl110, verbs)
+sl110 = slices.Insert(sl110, 0, []int{11, 22}...)
+mfp.PrintFmtValWithLC("2 sl110", sl110, verbs)
+
+sl111 := make([]int, 2)
+sl111 = slices.Replace(sl111, 0, 2, []int{1, 2}...)
+mfp.PrintFmtValWithLC("1 sl111", sl111, verbs)
+sl111 = slices.Insert(sl111, 0, []int{11, 22, 33}...)
+mfp.PrintFmtValWithLC("2 sl111", sl111, verbs)
+```
+
+```
+1 sl109:        %T -> []int | %v -> [1 2] | %#v -> []int{1, 2} | len=2 | cap=3
+2 sl109:        %T -> []int | %v -> [11 22 33 1 2] | %#v -> []int{11, 22, 33, 1, 2} | len=5 | cap=6
+1 sl110:        %T -> []int | %v -> [1 2] | %#v -> []int{1, 2} | len=2 | cap=2
+2 sl110:        %T -> []int | %v -> [11 22 1 2] | %#v -> []int{11, 22, 1, 2} | len=4 | cap=4
+1 sl111:        %T -> []int | %v -> [1 2] | %#v -> []int{1, 2} | len=2 | cap=2
+2 sl111:        %T -> []int | %v -> [11 22 33 1 2] | %#v -> []int{11, 22, 33, 1, 2} | len=5 | cap=6
+```
+
+​	由以上示例，我们可以发现在使用`slices.Insert`函数可以一次性插入多个新的元素，并且新生成的切片会自动进行扩容。
+
+###### 使用slices.Replace函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl112 := make([]int, 2, 3)
+sl112 = slices.Replace(sl112, 0, 2, []int{1, 2}...)
+mfp.PrintFmtValWithLC("1 sl112", sl112, verbs)
+sl112 = slices.Replace(sl112, 0, 0, 11)
+mfp.PrintFmtValWithLC("2 sl112", sl112, verbs)
+sl112 = slices.Replace(sl112, 0, 0, 111)
+mfp.PrintFmtValWithLC("3 sl112", sl112, verbs)
+```
+
+```
+1 sl112:        %T -> []int | %v -> [1 2] | %#v -> []int{1, 2} | len=2 | cap=3
+2 sl112:        %T -> []int | %v -> [11 1 2] | %#v -> []int{11, 1, 2} | len=3 | cap=3
+3 sl112:        %T -> []int | %v -> [111 11 1 2] | %#v -> []int{111, 11, 1, 2} | len=4 | cap=6
+```
+
+​	由以上示例，我们可以发现在使用`slices.Replace`函数一次只能插入1个新的元素，并且新生成的切片会自动进行扩容。
+
 ##### 替换
 
 ###### 使用for循环
@@ -1864,8 +1951,8 @@ mfp.PrintFmtValWithLC("2 sl89", sl89, verbs)
 ```
 
 ```
- sl89: 	%T -> []main.Person | %v -> [{Gopher 13} {Alice 55} {Bob 24} {Alice 30} {Alice 20}] | %#v -> []main.Person{main.Person{name:"Gopher", age:13}, main.Person{name:"Alice", age:55}, main.Person{name:"Bob", age:24}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}} | len=5 | cap=5
-2 sl89: 	%T -> []main.Person | %v -> [{Alice 55} {Alice 30} {Alice 20} {Bob 24} {Gopher 13}] | %#v -> []main.Person{main.Person{name:"Alice", age:55}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}, main.Person{name:"Bob", age:24}, main.Person{name:"Gopher", age:13}} | len=5 | cap=5
+1 sl89:         %T -> []main.Person | %v -> [{Gopher 13} {Alice 55} {Bob 24} {Alice 30} {Alice 20}] | %#v -> []main.Person{main.Person{name:"Gopher", age:13}, main.Person{name:"Alice", age:55}, main.Person{name:"Bob", age:24}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}} | len=5 | cap=5
+2 sl89:         %T -> []main.Person | %v -> [{Alice 55} {Alice 30} {Alice 20} {Bob 24} {Gopher 13}] | %#v -> []main.Person{main.Person{name:"Alice", age:55}, main.Person{name:"Alice", age:30}, main.Person{name:"Alice", age:20}, main.Person{name:"Bob", age:24}, main.Person{name:"Gopher", age:13}} | len=5 | cap=5
 ```
 
 
@@ -1926,37 +2013,114 @@ for k, v := range sl40x {
 
 ##### 复制切片
 
+###### 使用copy函数
+
 ```go
-slSrc43 := []int{1, 2, 3}
-mfp.PrintFmtValWithLC("slSrc43", slSrc43, verbs)
+slSrc43 := make([]int, 3, 6)
+slSrc43 = slices.Replace(slSrc43, 0, 3, []int{1, 2, 3}...)
+mfp.PrintFmtValWithLC("1 slSrc43", slSrc43, verbs)
 slDst44 := make([]int, len(slSrc43))
-mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+mfp.PrintFmtValWithLC("2 slDst44", slDst44, verbs)
 
 copy(slDst44, slSrc43) // func copy(dst []Type, src []Type) int
-fmt.Println("使用copy函数")
+mfp.PrintFmtValWithLC("3 slDst44", slDst44, verbs)
 slDst44[0] = 11
 fmt.Println("slDst44[0] = 11 之后")
-mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
-mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+mfp.PrintFmtValWithLC("4 slDst43", slSrc43, verbs)
+mfp.PrintFmtValWithLC("5 slDst44", slDst44, verbs)
 slSrc43[1] = 22
 fmt.Println("slSrc43[1] = 22 之后")
-mfp.PrintFmtValWithLC("slDst43", slSrc43, verbs)
-mfp.PrintFmtValWithLC("slDst44", slDst44, verbs)
+mfp.PrintFmtValWithLC("6 slDst43", slSrc43, verbs)
+mfp.PrintFmtValWithLC("7 slDst44", slDst44, verbs)
 ```
 
 ```
-slSrc43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
-slDst44:        %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=3
-使用copy函数
+1 slSrc43:      %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
+2 slDst44:      %T -> []int | %v -> [0 0 0] | %#v -> []int{0, 0, 0} | len=3 | cap=3
+3 slDst44:      %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
 slDst44[0] = 11 之后
-slDst43:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
-slDst44:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+4 slDst43:      %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
+5 slDst44:      %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
 slSrc43[1] = 22 之后
-slDst43:        %T -> []int | %v -> [1 22 3] | %#v -> []int{1, 22, 3} | len=3 | cap=3
-slDst44:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+6 slDst43:      %T -> []int | %v -> [1 22 3] | %#v -> []int{1, 22, 3} | len=3 | cap=6
+7 slDst44:      %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
 ```
 
-​	可见，`copy`函数复制后产生的切片和源切片不共用底层数组！
+​	可见，`copy`函数复制后产生的切片和源切片不共用同一个底层数组！
+
+###### 使用slices.Clone函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")	
+sl107 := make([]int, 3, 6)
+sl107 = slices.Replace(sl107, 0, 3, []int{1, 2, 3}...)
+mfp.PrintFmtValWithLC("1 sl107", sl107, verbs)
+sl108 := slices.Clone(sl107)
+mfp.PrintFmtValWithLC("2 sl108", sl108, verbs)
+sl108[0] = 11
+fmt.Println("sl108[0] = 11 之后")
+mfp.PrintFmtValWithLC("3 sl107", sl107, verbs)
+mfp.PrintFmtValWithLC("4 sl108", sl108, verbs)
+
+sl107[1] = 22
+fmt.Println("sl107[1] = 22 之后")
+mfp.PrintFmtValWithLC("5 sl107", sl107, verbs)
+mfp.PrintFmtValWithLC("6 sl108", sl108, verbs)
+```
+
+```
+1 sl107:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
+2 sl108:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+sl108[0] = 11 之后
+3 sl107:        %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
+4 sl108:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+sl107[1] = 22 之后
+5 sl107:        %T -> []int | %v -> [1 22 3] | %#v -> []int{1, 22, 3} | len=3 | cap=6
+6 sl108:        %T -> []int | %v -> [11 2 3] | %#v -> []int{11, 2, 3} | len=3 | cap=3
+```
+
+​	通过以上示例，我们可以发现，`slices.Clone`函数并不会将源切片中的未使用的容量复制给新生成的切片，并且源切片和新生成的切片不共用同一个底层数组。
+
+##### 连接多个切片
+
+###### 使用slices.Concat函数
+
+```go
+fmt.Println("从go1.22版本开始才可以使用")
+sl94 := []int{1, 2, 3}
+sl95 := []int{4, 5, 6}
+sl96 := make([]int, 3, 6)
+sl96 = slices.Replace(sl96, 0, 3, []int{7, 8, 9}...)
+sl97 := make([]int, 3, 7)
+sl97 = slices.Replace(sl97, 0, 3, []int{7, 8, 9}...)
+sl98 := make([]int, 3, 8)
+sl98 = slices.Replace(sl98, 0, 3, []int{7, 8, 9}...)
+sl99 := slices.Concat(sl94, sl95, sl96)
+sl100 := slices.Concat(sl94, sl95, sl97)
+sl101 := slices.Concat(sl94, sl95, sl98)
+mfp.PrintFmtValWithLC("sl94", sl94, verbs)
+mfp.PrintFmtValWithLC("sl95", sl95, verbs)
+mfp.PrintFmtValWithLC("sl96", sl96, verbs)
+mfp.PrintFmtValWithLC("sl97", sl97, verbs)
+mfp.PrintFmtValWithLC("sl98", sl98, verbs)
+mfp.PrintFmtValWithLC("sl99", sl99, verbs)
+mfp.PrintFmtValWithLC("sl100", sl100, verbs)
+mfp.PrintFmtValWithLC("sl101", sl101, verbs)
+```
+
+```
+从go1.22版本开始才可以使用
+sl94:   %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=3
+sl95:   %T -> []int | %v -> [4 5 6] | %#v -> []int{4, 5, 6} | len=3 | cap=3
+sl96:   %T -> []int | %v -> [7 8 9] | %#v -> []int{7, 8, 9} | len=3 | cap=6
+sl97:   %T -> []int | %v -> [7 8 9] | %#v -> []int{7, 8, 9} | len=3 | cap=7
+sl98:   %T -> []int | %v -> [7 8 9] | %#v -> []int{7, 8, 9} | len=3 | cap=8
+sl99:   %T -> []int | %v -> [1 2 3 4 5 6 7 8 9] | %#v -> []int{1, 2, 3, 4, 5, 6, 7, 8, 9} | len=9 | cap=10
+sl100:  %T -> []int | %v -> [1 2 3 4 5 6 7 8 9] | %#v -> []int{1, 2, 3, 4, 5, 6, 7, 8, 9} | len=9 | cap=10
+sl101:  %T -> []int | %v -> [1 2 3 4 5 6 7 8 9] | %#v -> []int{1, 2, 3, 4, 5, 6, 7, 8, 9} | len=9 | cap=10
+```
+
+
 
 ##### 获取相关切片属性
 
@@ -1971,7 +2135,80 @@ sl41切片的长度 len(sl41)= 3
 sl41切片的容量 cap(sl41)= 3
 ```
 
-##### 判断相等
+##### 获取索引
+
+###### 使用slices.Index函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
+sl113 := []string{"hello", "golang", "China", "World"}
+fmt.Println("golang在sl113中的索引是 ", slices.Index(sl113, "golang"))
+fmt.Println("China在sl113中的索引是 ", slices.Index(sl113, "China"))
+fmt.Println("xyz在sl113中的索引是 ", slices.Index(sl113, "xyz"))
+```
+
+```
+golang在sl113中的索引是  1
+China在sl113中的索引是  2
+xyz在sl113中的索引是  -1
+```
+
+​	需要注意的是，若指定的元素值并不在切片中，`slices.Index`函数返回的是`-1`。
+
+###### 使用slices.BinarySearch函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl114 := []string{"hello", "golang", "China", "World"}
+fmt.Println("未排序的sl114")
+mfp.PrintFmtValWithLC("1 sl114", sl114, verbs)
+i114, b114 := slices.BinarySearch(sl114, "golang")
+fmt.Printf("golang 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+i114, b114 = slices.BinarySearch(sl114, "China")
+fmt.Printf("China 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+i114, b114 = slices.BinarySearch(sl114, "xyz")
+fmt.Printf("xyz 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+
+mfp.PrintHr()
+fmt.Println("已排序的sl114")
+slices.Sort(sl114)
+mfp.PrintFmtValWithLC("2 sl114", sl114, verbs)
+i114, b114 = slices.BinarySearch(sl114, "golang")
+fmt.Printf("golang 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+i114, b114 = slices.BinarySearch(sl114, "China")
+fmt.Printf("China 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+i114, b114 = slices.BinarySearch(sl114, "xyz")
+fmt.Printf("xyz 存在于sl114中？-> %t 所在索引是 %d\n", b114, i114)
+```
+
+```
+未排序的sl114
+1 sl114:        %T -> []string | %v -> [hello golang China World] | %#v -> []string{"hello", "golang", "China", "World"} | len=4 | cap=4
+golang 存在于sl114中？-> false 所在索引是 4
+China 存在于sl114中？-> false 所在索引是 0
+xyz 存在于sl114中？-> false 所在索引是 4
+------------------
+已排序的sl114
+2 sl114:        %T -> []string | %v -> [China World golang hello] | %#v -> []string{"China", "World", "golang", "hello"} | len=4 | cap=4
+golang 存在于sl114中？-> true 所在索引是 2
+China 存在于sl114中？-> true 所在索引是 0
+xyz 存在于sl114中？-> false 所在索引是 4
+```
+
+​	由以上示例，我们可以发现在未排序的切片中使用`slices.BinarySearch`函数时，返回的结果都是不正确的！在查找不存在切片的中元素时，返回的索引是切片的长度，而非`-1`.
+
+###### 使用slices.BinarySearchFunc函数
+
+​	感觉不怎么实用，故未给出示例。
+
+```go
+
+```
+
+
+
+##### 判断是否相等
 
 ###### 是否可以使用`==`或`!=`?
 
@@ -1994,15 +2231,21 @@ sl48 := []int{1, 2, 3}
 sl49 := []int{1, 2, 3}
 sl50 := []int{11, 2, 3}
 sl51 := []int{1, 2, 3, 4}
+sl48x1 := make([]int, 3, 6)
+sl48x1 = slices.Replace(sl48x1, 0, 3, []int{1, 2, 3}...)
+mfp.PrintFmtValWithLC("sl48x1", sl48x1, verbs)
 fmt.Println("sl48 == sl49 -> ", slices.Equal(sl48, sl49))
 fmt.Println("sl48 == sl50 -> ", slices.Equal(sl48, sl50))
 fmt.Println("sl48 == sl51 -> ", slices.Equal(sl48, sl51))
+fmt.Println("sl48 == sl48x1 -> ", slices.Equal(sl48, sl48x1))
 ```
 
 ```
+sl48x1:         %T -> []int | %v -> [1 2 3] | %#v -> []int{1, 2, 3} | len=3 | cap=6
 sl48 == sl49 ->  true
 sl48 == sl50 ->  false
 sl48 == sl51 ->  false
+sl48 == sl48x1 ->  true
 ```
 
 
@@ -2010,12 +2253,13 @@ sl48 == sl51 ->  false
 ###### 使用slices.EqualFunc函数
 
 ```go
-fmt.Println("从go1.21版本开始才可以使用")
 sl52 := []int{1, 15, 8}
 sl53 := []int{1, 15, 8}
 sl54 := []int{11, 15, 8}
 sl55 := []string{"01", "0x0f", "0o10"}
-
+sl52x1 := make([]int, 3, 6)
+sl52x1 = slices.Replace(sl52x1, 0, 3, []int{1, 15, 8}...)
+mfp.PrintFmtValWithLC("sl52x1", sl52x1, verbs)
 feq1 := func(e1, e2 int) bool {
     return e1 == e2
 }
@@ -2029,13 +2273,36 @@ feq2 := func(e1 int, e2 string) bool {
 fmt.Println("sl52 == sl53 -> ", slices.EqualFunc(sl52, sl53, feq1))
 fmt.Println("sl52 == sl54 -> ", slices.EqualFunc(sl52, sl54, feq1))
 fmt.Println("sl52 == sl55 -> ", slices.EqualFunc(sl52, sl55, feq2))
+fmt.Println("sl52 == sl52x1 -> ", slices.EqualFunc(sl52, sl52x1, feq1))
 ```
 
 ```
+sl52x1:         %T -> []int | %v -> [1 15 8] | %#v -> []int{1, 15, 8} | len=3 | cap=6
 sl52 == sl53 ->  true
 sl52 == sl54 ->  false
 sl52 == sl55 ->  true
+sl52 == sl52x1 ->  true
 ```
+
+###### 使用slices.Compare函数
+
+```go
+sl90 := []int{1, 2, 3}
+sl91 := []int{1, 2, 3}
+sl92 := []int{1, 2, 3, 4}
+sl93 := []int{11, 2, 3}
+fmt.Println("sl90 == sl91 ->", slices.Compare(sl90, sl91) == 0)
+fmt.Println("sl90 == sl92 ->", slices.Compare(sl90, sl92) == 0)
+fmt.Println("sl90 == sl93 ->", slices.Compare(sl90, sl93) == 0)
+```
+
+```
+sl90 == sl91 -> true
+sl90 == sl92 -> false
+sl90 == sl93 -> false
+```
+
+
 
 ##### 判断是否存在
 
@@ -2096,6 +2363,37 @@ fmt.Println("sl58中存在 8 -> ", slices.ContainsFunc(sl58, func(e int) bool {
 sl58中存在负数 ->  true
 sl58中存在奇数 ->  false
 sl58中存在 8 ->  true
+```
+
+##### 判断是否已排序
+
+###### 使用slices.IsSorted函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl104 := []int{1, 2, 3}
+sl105 := []int{1, 3, 2}
+fmt.Println("sl104已排序？-> ", slices.IsSorted(sl104))
+fmt.Println("sl105已排序？-> ", slices.IsSorted(sl105))
+```
+
+```
+sl104已排序？->  true
+sl105已排序？->  false
+```
+
+###### 使用slices.IsSortedFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl106 := []string{"alice", "Bob", "VERA"}
+fmt.Println("sl106已排序？-> ", slices.IsSortedFunc(sl106, func(a, b string) int {
+    return cmp.Compare(strings.ToLower(a), strings.ToLower(b))
+}))
+```
+
+```
+sl106已排序？->  true
 ```
 
 
@@ -2346,6 +2644,42 @@ mfp.PrintFmtValWithLC("3 sl87", sl87, verbs)
 ​	=> 可以 ！
 
 ​	可以使用`append`函数或`slices.Delete`函数来实现，具体代码参照删除某一元素的代码。
+
+##### 去重
+
+###### 使用slices.Compact函数
+
+​	注意`slices.Compact`函数只能用于去除连续相等的元素。
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl102 := []int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 8, 8, 1, 2, 3, 4, 5, 8}
+mfp.PrintFmtValWithLC("1 sl102", sl102, verbs)
+sl102 = slices.Compact(sl102)
+mfp.PrintFmtValWithLC("2 sl102", sl102, verbs)
+```
+
+```
+1 sl102:        %T -> []int | %v -> [0 1 1 2 2 3 3 4 4 5 5 8 8 1 2 3 4 5 8] | %#v -> []int{0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 8, 8, 1, 2, 3, 4, 5, 8} | len=19 | cap=19
+2 sl102:        %T -> []int | %v -> [0 1 2 3 4 5 8 1 2 3 4 5 8] | %#v -> []int{0, 1, 2, 3, 4, 5, 8, 1, 2, 3, 4, 5, 8} | len=13 | cap=19
+```
+
+###### 使用slices.CompactFunc函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+sl103 := []string{"bob", "Bob", "alice", "Vera", "VERA"}
+mfp.PrintFmtValWithLC("1 sl103", sl103, verbs)
+sl103 = slices.CompactFunc(sl103, func(a, b string) bool {
+    return strings.ToLower(a) == strings.ToLower(b)
+})
+mfp.PrintFmtValWithLC("2 sl103", sl103, verbs)
+```
+
+```
+1 sl103:        %T -> []string | %v -> [bob Bob alice Vera VERA] | %#v -> []string{"bob", "Bob", "alice", "Vera", "VERA"} | len=5 | cap=5
+2 sl103:        %T -> []string | %v -> [bob alice Vera] | %#v -> []string{"bob", "alice", "Vera"} | len=3 | cap=5
+```
 
 
 
