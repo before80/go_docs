@@ -2916,6 +2916,8 @@ C -> 3
 
 ##### 复制map
 
+###### 使用maps.Clone函数
+
 ```go
 fmt.Println("从go1.21版本开始才可以使用")
 
@@ -2934,12 +2936,30 @@ m14["B"] = 22
 fmt.Println(`修改 m14["B"] = 22`)
 mfp.PrintFmtValWithL("5 m13", m13, verbs)
 mfp.PrintFmtValWithL("6 m14", m14, verbs)
-mfp.PrintHr()
+```
 
-fmt.Println("使用maps.Copy函数")
+```
+从go1.21版本开始可使用
+使用maps.Clone函数
+1 m13:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+2 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+修改 m13["A"] = 11
+3 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
+4 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
+修改 m14["B"] = 22
+5 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
+6 m14:  %T -> map[string]int | %v -> map[A:1 B:22 C:3] | %#v -> map[string]int{"A":1, "B":22, "C":3} | len=3
+```
+
+​	由以上示例，我们可以发现使用maps.Clone函数生成的新的map和源map在数据操作上互不影响。
+
+###### 使用maps.Copy函数
+
+```go
+fmt.Println("从go1.21版本开始才可以使用")
+
 m15 := map[string]int{"A": 1, "B": 2}
 m16 := map[string]int{"A": 11, "C": 33}
-
 fmt.Println(`使用Copy函数前`)
 mfp.PrintFmtValWithL("m15", m15, verbs)
 mfp.PrintFmtValWithL("m16", m16, verbs)
@@ -2961,18 +2981,6 @@ mfp.PrintFmtValWithL("m16", m16, verbs)
 ```
 
 ```
-从go1.21版本开始可使用
-使用maps.Clone函数
-1 m13:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
-2 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
-修改 m13["A"] = 11
-3 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
-4 m14:  %T -> map[string]int | %v -> map[A:1 B:2 C:3] | %#v -> map[string]int{"A":1, "B":2, "C":3} | len=3
-修改 m14["B"] = 22
-5 m13:  %T -> map[string]int | %v -> map[A:11 B:2 C:3] | %#v -> map[string]int{"A":11, "B":2, "C":3} | len=3
-6 m14:  %T -> map[string]int | %v -> map[A:1 B:22 C:3] | %#v -> map[string]int{"A":1, "B":22, "C":3} | len=3
-------------------
-使用maps.Copy函数
 使用Copy函数前
 m15:    %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
 m16:    %T -> map[string]int | %v -> map[A:11 C:33] | %#v -> map[string]int{"A":11, "C":33} | len=2
@@ -2987,7 +2995,7 @@ m15:    %T -> map[string]int | %v -> map[A:111 B:2] | %#v -> map[string]int{"A":
 m16:    %T -> map[string]int | %v -> map[A:1 B:222 C:33] | %#v -> map[string]int{"A":1, "B":222, "C":33} | len=3
 ```
 
-
+​	由以上示例，我们可以发现使用maps.Copy函数后目的map和源map在数据操作上互不影响。
 
 ##### 获取相关map属性
 
@@ -3125,11 +3133,33 @@ m17:    %T -> map[string]int | %v -> map[B:2 D:4] | %#v -> map[string]int{"B":2,
 
 #### 易错点
 
-new函数创建的map直接进行
+##### 直接对new函数创建的map进行key操作
 
-##### 以为可以使用copy函数来复制一个map
+​	=> 直接报错！
 
+```go
+m26 := *new(map[string]int)
+mfp.PrintFmtValWithL("1 m26", m26, verbs)
+//m26["A"] = 1 // 报错：panic: assignment to entry in nil map
+m26 = map[string]int{"A": 1} // 正确方式
+mfp.PrintFmtValWithL("2 m26", m26, verbs)
+m26["B"] = 2
+mfp.PrintFmtValWithL("3 m26", m26, verbs)
+```
 
+```
+1 m26:  %T -> map[string]int | %v -> map[] | %#v -> map[string]int(nil) | len=0
+2 m26:  %T -> map[string]int | %v -> map[A:1] | %#v -> map[string]int{"A":1} | len=1
+3 m26:  %T -> map[string]int | %v -> map[A:1 B:2] | %#v -> map[string]int{"A":1, "B":2} | len=2
+```
+
+##### 以为可以使用copy内置函数来复制一个map
+
+```go
+m27 := map[string]int{"A": 1}
+m28 := make(map[string]int, 1)
+//copy(m28, m27) // 报错：invalid argument: copy expects slice arguments; found m28 (variable of type map[string]int) and m27 (variable of type map[string]int)
+```
 
 
 

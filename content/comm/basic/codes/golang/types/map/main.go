@@ -184,4 +184,19 @@ func main() {
 		return false
 	}))
 
+	fmt.Println("直接对new函数创建的map进行key操作")
+	m26 := *new(map[string]int)
+	mfp.PrintFmtValWithL("1 m26", m26, verbs)
+	//m26["A"] = 1 // 报错：panic: assignment to entry in nil map
+	m26 = map[string]int{"A": 1} // 正确方式
+	mfp.PrintFmtValWithL("2 m26", m26, verbs)
+	m26["B"] = 2
+	mfp.PrintFmtValWithL("3 m26", m26, verbs)
+
+	fmt.Println("以为可以使用copy内置函数来复制一个map")
+	m27 := map[string]int{"A": 1}
+	m28 := make(map[string]int, 1)
+	//copy(m28, m27) // 报错：invalid argument: copy expects slice arguments; found m28 (variable of type map[string]int) and m27 (variable of type map[string]int)
+	_ = m27
+	_ = m28
 }
