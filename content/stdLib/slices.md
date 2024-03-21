@@ -945,6 +945,9 @@ func main() {
 	fmt.Println(people)
 }
 
+Output:
+
+[{Alice 20} {Alice 55} {Bob 24} {Gopher 13}]
 ```
 ### Types 
 
