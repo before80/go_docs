@@ -135,3 +135,95 @@ func main() {
 - 在文本编辑器中，可能显示为 `^B` 
 - 在浏览器中，可能显示为一个小方块 `□` 
 
+
+
+## func New() gdb.Driver {   return &Driver{} } 为什么需要使用 &?
+
+```go
+func New() gdb.Driver {
+    return &Driver{}
+}
+```
+
+gdb.Driver的定义
+
+```go
+type Driver interface {
+	// New creates and returns a database object for specified database server.
+	New(core *Core, node *ConfigNode) (DB, error)
+}
+```
+
+Driver的定义
+
+```go
+type Driver struct {
+	*gdb.Core
+}
+```
+
+gdb.Core的定义
+
+```go
+type Core struct {
+	db            DB              // DB interface object.
+	ctx           context.Context // Context for chaining operation only. Do not set a default value in Core initialization.
+	group         string          // Configuration group name.
+	schema        string          // Custom schema for this object.
+	debug         *gtype.Bool     // Enable debug mode for the database, which can be changed in runtime.
+	cache         *gcache.Cache   // Cache manager, SQL result cache only.
+	links         *gmap.StrAnyMap // links caches all created links by node.
+	logger        glog.ILogger    // Logger for logging functionality.
+	config        *ConfigNode     // Current config node.
+	dynamicConfig dynamicConfig   // Dynamic configurations, which can be changed in runtime.
+}
+```
+
+
+
+​	我们先将以上相关代码做下简化:
+
+```go
+package main
+
+import "fmt"
+
+// gdb.Driver -> A
+type A interface {
+	F()
+}
+
+// Driver -> a
+type a struct {
+	b
+}
+
+func (ar a) F() {}
+
+// gdb.Core -> b
+type b struct {
+	V string
+}
+
+func New1() A {
+	return &a{}
+}
+
+func New2() A {
+	return a{}
+}
+
+func main() {
+	v1 := New1()
+	v2 := New2()
+
+	fmt.Printf("%T, %#v\n", v1, v1)
+	fmt.Printf("%T, %#v\n", v2, v2)
+}
+
+*main.a, &main.a{b:main.b{V:""}}
+main.a, main.a{b:main.b{V:""}}
+```
+
+​	我们发现实际上无论是否使用`&`这个符号，返回的值都是满足 `A`这个接口的。使用`&`只是减少数据的拷贝， 如果 `a` 是一个很大的结构体(包含很多字段或嵌入字段)，不使用`&`，势必会发生拷贝时间长等问题。
+

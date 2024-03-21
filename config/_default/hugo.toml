@@ -89,7 +89,7 @@ ordered = false
 # style = "onedark"
 # style = "manni"
 style = "igor"
-linenos = true
+linenos = false
 #noClasses = true
 #lineNumbersInTable = true
 # Uncomment if you want your chosen highlight style used for code blocks without a specified language
