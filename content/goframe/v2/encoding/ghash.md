@@ -9,148 +9,177 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/ghash)
 
 Package ghash provides some classic hash functions(uint32/uint64) in go.
 
-### Constants 
+​	软件包 ghash 在 go 中提供了一些经典的哈希函数（uint32/uint64）。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func AP 
+#### func AP
 
-``` go
+```go
 func AP(str []byte) uint32
 ```
 
 AP implements the classic AP hash algorithm for 32 bits.
 
-##### func AP64 
+​	AP 实现了 32 位的经典 AP 哈希算法。
 
-``` go
+#### func AP64
+
+```go
 func AP64(str []byte) uint64
 ```
 
 AP64 implements the classic AP hash algorithm for 64 bits.
 
-##### func BKDR 
+​	AP64 实现了 64 位的经典 AP 哈希算法。
 
-``` go
+#### func BKDR
+
+```go
 func BKDR(str []byte) uint32
 ```
 
 BKDR implements the classic BKDR hash algorithm for 32 bits.
 
-##### func BKDR64 
+​	BKDR 实现了 32 位的经典 BKDR 哈希算法。
 
-``` go
+#### func BKDR64
+
+```go
 func BKDR64(str []byte) uint64
 ```
 
 BKDR64 implements the classic BKDR hash algorithm for 64 bits.
 
-##### func DJB 
+​	BKDR64 实现了 64 位的经典 BKDR 哈希算法。
 
-``` go
+#### func DJB
+
+```go
 func DJB(str []byte) uint32
 ```
 
 DJB implements the classic DJB hash algorithm for 32 bits.
 
-##### func DJB64 
+​	DJB 实现了 32 位的经典 DJB 哈希算法。
 
-``` go
+#### func DJB64
+
+```go
 func DJB64(str []byte) uint64
 ```
 
 DJB64 implements the classic DJB hash algorithm for 64 bits.
 
-##### func ELF 
+​	DJB64 实现了 64 位的经典 DJB 哈希算法。
 
-``` go
+#### func ELF
+
+```go
 func ELF(str []byte) uint32
 ```
 
 ELF implements the classic ELF hash algorithm for 32 bits.
 
-##### func ELF64 
+​	ELF 实现了 32 位的经典 ELF 哈希算法。
 
-``` go
+#### func ELF64
+
+```go
 func ELF64(str []byte) uint64
 ```
 
 ELF64 implements the classic ELF hash algorithm for 64 bits.
 
-##### func JS 
+​	ELF64 实现了 64 位的经典 ELF 哈希算法。
 
-``` go
+#### func JS
+
+```go
 func JS(str []byte) uint32
 ```
 
 JS implements the classic JS hash algorithm for 32 bits.
 
-##### func JS64 
+​	JS 实现了 32 位的经典 JS 哈希算法。
 
-``` go
+#### func JS64
+
+```go
 func JS64(str []byte) uint64
 ```
 
 JS64 implements the classic JS hash algorithm for 64 bits.
 
-##### func PJW 
+​	JS64 实现了 64 位的经典 JS 哈希算法。
 
-``` go
+#### func PJW
+
+```go
 func PJW(str []byte) uint32
 ```
 
 PJW implements the classic PJW hash algorithm for 32 bits.
 
-##### func PJW64 
+​	PJW 实现了 32 位的经典 PJW 哈希算法。
 
-``` go
+#### func PJW64
+
+```go
 func PJW64(str []byte) uint64
 ```
 
 PJW64 implements the classic PJW hash algorithm for 64 bits.
+PJW64 实现了 64 位的经典 PJW 哈希算法。
 
-##### func RS 
+#### func RS
 
-``` go
+```go
 func RS(str []byte) uint32
 ```
 
 RS implements the classic RS hash algorithm for 32 bits.
+RS 实现了 32 位的经典 RS 哈希算法。
 
-##### func RS64 
+#### func RS64
 
-``` go
+```go
 func RS64(str []byte) uint64
 ```
 
 RS64 implements the classic RS hash algorithm for 64 bits.
+RS64 实现了 64 位的经典 RS 哈希算法。
 
-##### func SDBM 
+#### func SDBM
 
-``` go
+```go
 func SDBM(str []byte) uint32
 ```
 
 SDBM implements the classic SDBM hash algorithm for 32 bits.
+SDBM 实现了 32 位的经典 SDBM 哈希算法。
 
-##### func SDBM64 
+#### func SDBM64
 
-``` go
+```go
 func SDBM64(str []byte) uint64
 ```
 
 SDBM64 implements the classic SDBM hash algorithm for 64 bits.
+SDBM64 实现了 64 位的经典 SDBM 哈希算法。
 
-### Types 
+## 类型
 
 This section is empty.

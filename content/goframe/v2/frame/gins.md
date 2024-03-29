@@ -9,92 +9,112 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/frame/gins
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/frame/gins](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/frame/gins)
 
 Package gins provides instances and core components management.
 
-### Constants 
+​	Package gins 提供实例和核心组件管理。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Config 
+#### func Config
 
-``` go
+```go
 func Config(name ...string) *gcfg.Config
 ```
 
 Config returns an instance of View with default settings. The parameter `name` is the name for the instance.
 
-##### func Database 
+​	Config 返回具有默认设置的 View 实例。该参数 `name` 是实例的名称。
 
-``` go
+#### func Database
+
+```go
 func Database(name ...string) gdb.DB
 ```
 
 Database returns an instance of database ORM object with specified configuration group name. Note that it panics if any error occurs duration instance creating.
 
-##### func HttpClient 
+​	Database 返回具有指定配置组名称的数据库 ORM 对象的实例。请注意，如果实例创建过程中发生任何错误，它会崩溃。
 
-``` go
+#### func HttpClient
+
+```go
 func HttpClient(name ...interface{}) *gclient.Client
 ```
 
 HttpClient returns an instance of http client with specified name.
 
-##### func I18n 
+​	HttpClient 返回具有指定名称的 http 客户端实例。
 
-``` go
+#### func I18n
+
+```go
 func I18n(name ...string) *gi18n.Manager
 ```
 
 I18n returns an instance of gi18n.Manager. The parameter `name` is the name for the instance.
 
-##### func Log 
+​	I18n 返回 gi18n 的实例。经理。该参数 `name` 是实例的名称。
 
-``` go
+#### func Log
+
+```go
 func Log(name ...string) *glog.Logger
 ```
 
 Log returns an instance of glog.Logger. The parameter `name` is the name for the instance. Note that it panics if any error occurs duration instance creating.
 
-##### func Redis 
+​	log 返回 glog 的实例。记录。该参数 `name` 是实例的名称。请注意，如果实例创建过程中发生任何错误，它会崩溃。
 
-``` go
+#### func Redis
+
+```go
 func Redis(name ...string) *gredis.Redis
 ```
 
 Redis returns an instance of redis client with specified configuration group name. Note that it panics if any error occurs duration instance creating.
 
-##### func Resource 
+​	Redis 返回具有指定配置组名称的 redis 客户端实例。请注意，如果实例创建过程中发生任何错误，它会崩溃。
 
-``` go
+#### func Resource
+
+```go
 func Resource(name ...string) *gres.Resource
 ```
 
 Resource returns an instance of Resource. The parameter `name` is the name for the instance.
 
-##### func Server 
+​	Resource 返回 Resource 的实例。该参数 `name` 是实例的名称。
 
-``` go
+#### func Server
+
+```go
 func Server(name ...interface{}) *ghttp.Server
 ```
 
 Server returns an instance of http server with specified name. Note that it panics if any error occurs duration instance creating.
 
-##### func View 
+​	Server 返回具有指定名称的 http 服务器实例。请注意，如果实例创建过程中发生任何错误，它会崩溃。
 
-``` go
+#### func View
+
+```go
 func View(name ...string) *gview.View
 ```
 
 View returns an instance of View with default settings. The parameter `name` is the name for the instance. Note that it panics if any error occurs duration instance creating.
 
-### Types 
+​	View 返回具有默认设置的 View 实例。该参数 `name` 是实例的名称。请注意，如果实例创建过程中发生任何错误，它会崩溃。
+
+## 类型
 
 This section is empty.

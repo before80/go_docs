@@ -9,33 +9,37 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsel
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsel](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsel)
 
 Package gsel provides selector definition and implements.
 
-### Constants 
+​	软件包 gsel 提供选择器定义和实现。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func SetBuilder 
+#### func SetBuilder
 
-``` go
+```go
 func SetBuilder(builder Builder)
 ```
 
 SetBuilder sets the default builder for globally used purpose.
 
-### Types 
+​	SetBuilder 为全局使用目的设置默认构建器。
 
-#### type Builder 
+## 类型
 
-``` go
+### type Builder
+
+```go
 type Builder interface {
 	Name() string
 	Build() Selector
@@ -44,49 +48,55 @@ type Builder interface {
 
 Builder creates and returns selector in runtime.
 
-##### func GetBuilder 
+​	Builder 在运行时创建并返回选择器。
 
-``` go
+#### func GetBuilder
+
+```go
 func GetBuilder() Builder
 ```
 
 GetBuilder returns the default builder for globally used purpose.
 
-##### func NewBuilderLeastConnection 
+​	GetBuilder 返回用于全局使用的默认构建器。
 
-``` go
+#### func NewBuilderLeastConnection
+
+```go
 func NewBuilderLeastConnection() Builder
 ```
 
-##### func NewBuilderRandom 
+#### func NewBuilderRandom
 
-``` go
+```go
 func NewBuilderRandom() Builder
 ```
 
-##### func NewBuilderRoundRobin 
+#### func NewBuilderRoundRobin
 
-``` go
+```go
 func NewBuilderRoundRobin() Builder
 ```
 
-##### func NewBuilderWeight 
+#### func NewBuilderWeight
 
-``` go
+```go
 func NewBuilderWeight() Builder
 ```
 
-#### type DoneFunc 
+### type DoneFunc
 
-``` go
+```go
 type DoneFunc func(ctx context.Context, di DoneInfo)
 ```
 
 DoneFunc is callback function when RPC invoke done.
 
-#### type DoneInfo 
+​	DoneFunc 是 RPC 调用完成时的回调函数。
 
-``` go
+### type DoneInfo
+
+```go
 type DoneInfo struct {
 	// Err is the rpc error the RPC finished with. It could be nil.
 	Err error
@@ -110,9 +120,11 @@ type DoneInfo struct {
 
 DoneInfo contains additional information for done.
 
-#### type DoneInfoMD 
+​	DoneInfo 包含有关完成的其他信息。
 
-``` go
+### type DoneInfoMD
+
+```go
 type DoneInfoMD interface {
 	// Len returns the number of items in md.
 	Len() int
@@ -141,9 +153,11 @@ type DoneInfoMD interface {
 
 DoneInfoMD is a mapping from metadata keys to value array. Users should use the following two convenience functions New and Pairs to generate MD.
 
-#### type Node 
+​	DoneInfoMD 是从元数据键到值数组的映射。用户应使用以下两个便捷函数 New 和 Pairs 来生成 MD。
 
-``` go
+### type Node
+
+```go
 type Node interface {
 	Service() gsvc.Service
 	Address() string
@@ -152,25 +166,31 @@ type Node interface {
 
 Node is node interface.
 
-#### type Nodes <-2.1.0
+​	节点是节点接口。
 
-``` go
+### type Nodes <-2.1.0
+
+```go
 type Nodes []Node
 ```
 
 Nodes contains multiple Node.
 
-##### (Nodes) String <-2.1.0
+​	节点包含多个节点。
 
-``` go
+#### (Nodes) String
+
+```go
 func (ns Nodes) String() string
 ```
 
 String formats and returns Nodes as string.
 
-#### type Selector 
+​	String 格式化并返回 Nodes 作为字符串。
 
-``` go
+### type Selector
+
+```go
 type Selector interface {
 	// Pick selects and returns service.
 	Pick(ctx context.Context) (node Node, done DoneFunc, err error)
@@ -182,26 +202,28 @@ type Selector interface {
 
 Selector for service balancer.
 
-##### func NewSelectorLeastConnection 
+​	服务平衡器的选择器。
 
-``` go
+#### func NewSelectorLeastConnection
+
+```go
 func NewSelectorLeastConnection() Selector
 ```
 
-##### func NewSelectorRandom 
+#### func NewSelectorRandom
 
-``` go
+```go
 func NewSelectorRandom() Selector
 ```
 
-##### func NewSelectorRoundRobin 
+#### func NewSelectorRoundRobin
 
-``` go
+```go
 func NewSelectorRoundRobin() Selector
 ```
 
-##### func NewSelectorWeight 
+#### func NewSelectorWeight
 
-``` go
+```go
 func NewSelectorWeight() Selector
 ```

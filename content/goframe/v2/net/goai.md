@@ -9,17 +9,19 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/goai
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/goai](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/goai)
 
 Package goai implements and provides document generating for OpenApi specification.
 
+​	软件包 goai 实现并提供 OpenApi 规范的文档生成。
+
 https://editor.swagger.io/
 
-### Constants 
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/net/goai/goai.go#L40)
 
-``` go
+```go
 const (
 	TypeInteger    = `integer`
 	TypeNumber     = `number`
@@ -41,7 +43,7 @@ const (
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/net/goai/goai.go#L58)
 
-``` go
+```go
 const (
 	ParameterInHeader = `header`
 	ParameterInPath   = `path`
@@ -50,19 +52,19 @@ const (
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
 This section is empty.
 
-### Types 
+## 类型
 
-#### type AddInput 
+### type AddInput
 
-``` go
+```go
 type AddInput struct {
 	Path   string      // Path specifies the custom path if this is not configured in Meta of struct tag.
 	Prefix string      // Prefix specifies the custom route path prefix, which will be added with the path tag in Meta of struct tag.
@@ -73,38 +75,42 @@ type AddInput struct {
 
 AddInput is the structured parameter for function OpenApiV3.Add.
 
-#### type Callback 
+​	AddInput 是函数 OpenApiV3.Add 的结构化参数。
 
-``` go
+### type Callback
+
+```go
 type Callback map[string]*Path
 ```
 
 Callback is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type CallbackRef 
+​	回调由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type CallbackRef
+
+```go
 type CallbackRef struct {
 	Ref   string
 	Value *Callback
 }
 ```
 
-##### (CallbackRef) MarshalJSON 
+#### (CallbackRef) MarshalJSON
 
-``` go
+```go
 func (r CallbackRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Callbacks 
+### type Callbacks
 
-``` go
+```go
 type Callbacks map[string]*CallbackRef
 ```
 
-#### type Components 
+### type Components
 
-``` go
+```go
 type Components struct {
 	Schemas         Schemas         `json:"schemas,omitempty"`
 	Parameters      ParametersMap   `json:"parameters,omitempty"`
@@ -120,9 +126,11 @@ type Components struct {
 
 Components is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Config 
+​	组件由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Config
+
+```go
 type Config struct {
 	ReadContentTypes        []string    // ReadContentTypes specifies the default MIME types for consuming if MIME types are not configured.
 	WriteContentTypes       []string    // WriteContentTypes specifies the default MIME types for producing if MIME types are not configured.
@@ -136,9 +144,11 @@ type Config struct {
 
 Config provides extra configuration feature for OpenApiV3 implements.
 
-#### type Contact 
+​	Config 为 OpenApiV3 实现提供了额外的配置功能。
 
-``` go
+### type Contact
+
+```go
 type Contact struct {
 	Name  string `json:"name,omitempty"`
 	URL   string `json:"url,omitempty"`
@@ -148,17 +158,21 @@ type Contact struct {
 
 Contact is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Content 
+​	联系人由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Content
+
+```go
 type Content map[string]MediaType
 ```
 
 Content is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type Discriminator 
+​	内容由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type Discriminator
+
+```go
 type Discriminator struct {
 	PropertyName string            `json:"propertyName"`
 	Mapping      map[string]string `json:"mapping,omitempty"`
@@ -167,9 +181,11 @@ type Discriminator struct {
 
 Discriminator is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Encoding 
+​	鉴别器由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Encoding
+
+```go
 type Encoding struct {
 	ContentType   string  `json:"contentType,omitempty"`
 	Headers       Headers `json:"headers,omitempty"`
@@ -181,9 +197,11 @@ type Encoding struct {
 
 Encoding is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type Example 
+​	编码由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type Example
+
+```go
 type Example struct {
 	Summary       string      `json:"summary,omitempty"`
 	Description   string      `json:"description,omitempty"`
@@ -194,30 +212,32 @@ type Example struct {
 
 Example is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type ExampleRef 
+​	示例由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type ExampleRef
+
+```go
 type ExampleRef struct {
 	Ref   string
 	Value *Example
 }
 ```
 
-##### (ExampleRef) MarshalJSON 
+#### (ExampleRef) MarshalJSON
 
-``` go
+```go
 func (r ExampleRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Examples 
+### type Examples
 
-``` go
+```go
 type Examples map[string]*ExampleRef
 ```
 
-#### type ExternalDocs 
+### type ExternalDocs
 
-``` go
+```go
 type ExternalDocs struct {
 	URL         string `json:"url,omitempty"`
 	Description string `json:"description,omitempty"`
@@ -226,15 +246,17 @@ type ExternalDocs struct {
 
 ExternalDocs is specified by OpenAPI/Swagger standard version 3.0.
 
-##### (*ExternalDocs) UnmarshalValue 
+​	ExternalDocs 由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+#### (*ExternalDocs) UnmarshalValue
+
+```go
 func (ed *ExternalDocs) UnmarshalValue(value interface{}) error
 ```
 
-#### type Header 
+### type Header
 
-``` go
+```go
 type Header struct {
 	Parameter
 }
@@ -242,30 +264,32 @@ type Header struct {
 
 Header is specified by OpenAPI/Swagger 3.0 standard. See https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#headerObject
 
-#### type HeaderRef 
+​	标头由 OpenAPI/Swagger 3.0 标准指定。请参阅 https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#headerObject
 
-``` go
+### type HeaderRef
+
+```go
 type HeaderRef struct {
 	Ref   string
 	Value *Header
 }
 ```
 
-##### (HeaderRef) MarshalJSON 
+#### (HeaderRef) MarshalJSON
 
-``` go
+```go
 func (r HeaderRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Headers 
+### type Headers
 
-``` go
+```go
 type Headers map[string]HeaderRef
 ```
 
-#### type Info 
+### type Info
 
-``` go
+```go
 type Info struct {
 	Title          string   `json:"title"`
 	Description    string   `json:"description,omitempty"`
@@ -278,9 +302,11 @@ type Info struct {
 
 Info is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type License 
+​	信息由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type License
+
+```go
 type License struct {
 	Name string `json:"name"`
 	URL  string `json:"url,omitempty"`
@@ -289,9 +315,11 @@ type License struct {
 
 License is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Link 
+​	许可证由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Link
+
+```go
 type Link struct {
 	OperationID  string                 `json:"operationId,omitempty"`
 	OperationRef string                 `json:"operationRef,omitempty"`
@@ -304,30 +332,32 @@ type Link struct {
 
 Link is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type LinkRef 
+​	链接由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type LinkRef
+
+```go
 type LinkRef struct {
 	Ref   string
 	Value *Link
 }
 ```
 
-##### (LinkRef) MarshalJSON 
+#### (LinkRef) MarshalJSON
 
-``` go
+```go
 func (r LinkRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Links 
+### type Links
 
-``` go
+```go
 type Links map[string]LinkRef
 ```
 
-#### type MediaType 
+### type MediaType
 
-``` go
+```go
 type MediaType struct {
 	Schema   *SchemaRef           `json:"schema,omitempty"`
 	Example  interface{}          `json:"example,omitempty"`
@@ -338,9 +368,11 @@ type MediaType struct {
 
 MediaType is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type OAuthFlow 
+​	MediaType 由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type OAuthFlow
+
+```go
 type OAuthFlow struct {
 	AuthorizationURL string            `json:"authorizationUrl,omitempty"`
 	TokenURL         string            `json:"tokenUrl,omitempty"`
@@ -349,9 +381,9 @@ type OAuthFlow struct {
 }
 ```
 
-#### type OAuthFlows 
+### type OAuthFlows
 
-``` go
+```go
 type OAuthFlows struct {
 	Implicit          *OAuthFlow `json:"implicit,omitempty"`
 	Password          *OAuthFlow `json:"password,omitempty"`
@@ -360,9 +392,9 @@ type OAuthFlows struct {
 }
 ```
 
-#### type OpenApiV3 
+### type OpenApiV3
 
-``` go
+```go
 type OpenApiV3 struct {
 	Config       Config                `json:"-"`
 	OpenAPI      string                `json:"openapi"`
@@ -378,31 +410,37 @@ type OpenApiV3 struct {
 
 OpenApiV3 is the structure defined from: https://swagger.io/specification/ https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md
 
-##### func New 
+​	OpenApiV3 是定义如下的结构： https://swagger.io/specification/ https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md
 
-``` go
+#### func New
+
+```go
 func New() *OpenApiV3
 ```
 
 New creates and returns an OpenApiV3 implements object.
 
-##### (*OpenApiV3) Add 
+​	New 创建并返回 OpenApiV3 实现对象。
 
-``` go
+#### (*OpenApiV3) Add
+
+```go
 func (oai *OpenApiV3) Add(in AddInput) error
 ```
 
 Add adds an instance of struct or a route function to OpenApiV3 definition implements.
 
-##### (OpenApiV3) String 
+​	Add 将 struct 的实例或路由函数添加到 OpenApiV3 定义实现中。
 
-``` go
+#### (OpenApiV3) String
+
+```go
 func (oai OpenApiV3) String() string
 ```
 
-#### type Operation 
+### type Operation
 
-``` go
+```go
 type Operation struct {
 	Tags         []string              `json:"tags,omitempty"`
 	Summary      string                `json:"summary,omitempty"`
@@ -420,17 +458,19 @@ type Operation struct {
 }
 ```
 
-Operation represents "operation" specified by OpenAPI/Swagger 3.0 standard.
+Operation represents “operation” specified by OpenAPI/Swagger 3.0 standard.
 
-##### (Operation) MarshalJSON 
+​	Operation 表示 OpenAPI/Swagger 3.0 标准指定的“操作”。
 
-``` go
+#### (Operation) MarshalJSON
+
+```go
 func (o Operation) MarshalJSON() ([]byte, error)
 ```
 
-#### type Parameter 
+### type Parameter
 
-``` go
+```go
 type Parameter struct {
 	Name            string      `json:"name,omitempty"`
 	In              string      `json:"in,omitempty"`
@@ -451,44 +491,48 @@ type Parameter struct {
 
 Parameter is specified by OpenAPI/Swagger 3.0 standard. See https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#parameterObject
 
-##### (Parameter) MarshalJSON 
+​	参数由 OpenAPI/Swagger 3.0 标准指定。请参阅 https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#parameterObject
 
-``` go
+#### (Parameter) MarshalJSON
+
+```go
 func (p Parameter) MarshalJSON() ([]byte, error)
 ```
 
-#### type ParameterRef 
+### type ParameterRef
 
-``` go
+```go
 type ParameterRef struct {
 	Ref   string
 	Value *Parameter
 }
 ```
 
-##### (ParameterRef) MarshalJSON 
+#### (ParameterRef) MarshalJSON
 
-``` go
+```go
 func (r ParameterRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Parameters 
+### type Parameters
 
-``` go
+```go
 type Parameters []ParameterRef
 ```
 
 Parameters is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type ParametersMap 
+​	参数由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type ParametersMap
+
+```go
 type ParametersMap map[string]*ParameterRef
 ```
 
-#### type Path 
+### type Path
 
-``` go
+```go
 type Path struct {
 	Ref         string      `json:"$ref,omitempty"`
 	Summary     string      `json:"summary,omitempty"`
@@ -510,31 +554,37 @@ type Path struct {
 
 Path is specified by OpenAPI/Swagger standard version 3.0.
 
-##### (Path) MarshalJSON 
+​	路径由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+#### (Path) MarshalJSON
+
+```go
 func (p Path) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-#### type Paths 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+### type Paths
+
+```go
 type Paths map[string]Path
 ```
 
 Paths are specified by OpenAPI/Swagger standard version 3.0.
 
-#### type RequestBodies 
+​	路径由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type RequestBodies
+
+```go
 type RequestBodies map[string]*RequestBodyRef
 ```
 
-#### type RequestBody 
+### type RequestBody
 
-``` go
+```go
 type RequestBody struct {
 	Description string  `json:"description,omitempty"`
 	Required    bool    `json:"required,omitempty"`
@@ -544,24 +594,26 @@ type RequestBody struct {
 
 RequestBody is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type RequestBodyRef 
+​	RequestBody 由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type RequestBodyRef
+
+```go
 type RequestBodyRef struct {
 	Ref   string
 	Value *RequestBody
 }
 ```
 
-##### (RequestBodyRef) MarshalJSON 
+#### (RequestBodyRef) MarshalJSON
 
-``` go
+```go
 func (r RequestBodyRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Response 
+### type Response
 
-``` go
+```go
 type Response struct {
 	Description string      `json:"description"`
 	Headers     Headers     `json:"headers,omitempty"`
@@ -573,38 +625,42 @@ type Response struct {
 
 Response is specified by OpenAPI/Swagger 3.0 standard.
 
-##### (Response) MarshalJSON 
+​	响应由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+#### (Response) MarshalJSON
+
+```go
 func (r Response) MarshalJSON() ([]byte, error)
 ```
 
-#### type ResponseRef 
+### type ResponseRef
 
-``` go
+```go
 type ResponseRef struct {
 	Ref   string
 	Value *Response
 }
 ```
 
-##### (ResponseRef) MarshalJSON 
+#### (ResponseRef) MarshalJSON
 
-``` go
+```go
 func (r ResponseRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type Responses 
+### type Responses
 
-``` go
+```go
 type Responses map[string]ResponseRef
 ```
 
 Responses is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type Schema 
+​	响应由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type Schema
+
+```go
 type Schema struct {
 	OneOf                SchemaRefs     `json:"oneOf,omitempty"`
 	AnyOf                SchemaRefs     `json:"anyOf,omitempty"`
@@ -649,106 +705,110 @@ type Schema struct {
 
 Schema is specified by OpenAPI/Swagger 3.0 standard.
 
-##### (*Schema) Clone <-2.4.2
+​	架构由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+#### (*Schema) Clone
+
+```go
 func (s *Schema) Clone() *Schema
 ```
 
 Clone only clones necessary attributes. TODO clone all attributes, or improve package deepcopy.
 
-##### (Schema) MarshalJSON 
+​	仅克隆必要的属性。TODO 克隆所有属性，或改进包 deepcopy。
 
-``` go
+#### (Schema) MarshalJSON
+
+```go
 func (s Schema) MarshalJSON() ([]byte, error)
 ```
 
-#### type SchemaRef 
+### type SchemaRef
 
-``` go
+```go
 type SchemaRef struct {
 	Ref   string
 	Value *Schema
 }
 ```
 
-##### (SchemaRef) MarshalJSON 
+#### (SchemaRef) MarshalJSON
 
-``` go
+```go
 func (r SchemaRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type SchemaRefs 
+### type SchemaRefs
 
-``` go
+```go
 type SchemaRefs []SchemaRef
 ```
 
-#### type Schemas 
+### type Schemas
 
-``` go
+```go
 type Schemas struct {
 	// contains filtered or unexported fields
 }
 ```
 
-##### (*Schemas) Clone <-2.4.2
+#### (*Schemas) Clone
 
-``` go
+```go
 func (s *Schemas) Clone() Schemas
 ```
 
-##### (*Schemas) Get 
+#### (*Schemas) Get
 
-``` go
+```go
 func (s *Schemas) Get(name string) *SchemaRef
 ```
 
-##### (*Schemas) Iterator 
+#### (*Schemas) Iterator
 
-``` go
+```go
 func (s *Schemas) Iterator(f func(key string, ref SchemaRef) bool)
 ```
 
-##### (*Schemas) Map 
+#### (*Schemas) Map
 
-``` go
+```go
 func (s *Schemas) Map() map[string]SchemaRef
 ```
 
-##### (Schemas) MarshalJSON 
+#### (Schemas) MarshalJSON
 
-``` go
+```go
 func (s Schemas) MarshalJSON() ([]byte, error)
 ```
 
-##### (*Schemas) Removes 
+#### (*Schemas) Removes
 
-``` go
+```go
 func (s *Schemas) Removes(names []interface{})
 ```
 
-##### (*Schemas) Set 
+#### (*Schemas) Set
 
-``` go
+```go
 func (s *Schemas) Set(name string, ref SchemaRef)
 ```
 
-#### type SecurityRequirement 
+### type SecurityRequirement
 
-``` go
+```go
 type SecurityRequirement map[string][]string
 ```
 
-#### type SecurityRequirements 
+### type SecurityRequirements
 
-``` go
+```go
 type SecurityRequirements []SecurityRequirement
 ```
 
-#### type SecurityScheme 
+### type SecurityScheme
 
-``` go
+```go
 type SecurityScheme struct {
 	Type             string      `json:"type,omitempty"`
 	Description      string      `json:"description,omitempty"`
@@ -761,30 +821,30 @@ type SecurityScheme struct {
 }
 ```
 
-#### type SecuritySchemeRef 
+### type SecuritySchemeRef
 
-``` go
+```go
 type SecuritySchemeRef struct {
 	Ref   string
 	Value *SecurityScheme
 }
 ```
 
-##### (SecuritySchemeRef) MarshalJSON 
+#### (SecuritySchemeRef) MarshalJSON
 
-``` go
+```go
 func (r SecuritySchemeRef) MarshalJSON() ([]byte, error)
 ```
 
-#### type SecuritySchemes 
+### type SecuritySchemes
 
-``` go
+```go
 type SecuritySchemes map[string]SecuritySchemeRef
 ```
 
-#### type Server 
+### type Server
 
-``` go
+```go
 type Server struct {
 	URL         string                     `json:"url"`
 	Description string                     `json:"description,omitempty"`
@@ -794,9 +854,11 @@ type Server struct {
 
 Server is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type ServerVariable 
+​	服务器由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type ServerVariable
+
+```go
 type ServerVariable struct {
 	Enum        []string `json:"enum,omitempty"`
 	Default     string   `json:"default,omitempty"`
@@ -806,17 +868,21 @@ type ServerVariable struct {
 
 ServerVariable is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Servers 
+​	ServerVariable 由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Servers
+
+```go
 type Servers []Server
 ```
 
 Servers is specified by OpenAPI/Swagger standard version 3.0.
 
-#### type Tag 
+​	服务器由 OpenAPI/Swagger 标准版本 3.0 指定。
 
-``` go
+### type Tag
+
+```go
 type Tag struct {
 	Name         string        `json:"name,omitempty"`
 	Description  string        `json:"description,omitempty"`
@@ -826,18 +892,24 @@ type Tag struct {
 
 Tag is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type Tags 
+​	标签由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type Tags
+
+```go
 type Tags []Tag
 ```
 
 Tags is specified by OpenAPI/Swagger 3.0 standard.
 
-#### type XExtensions 
+​	标签由 OpenAPI/Swagger 3.0 标准指定。
 
-``` go
+### type XExtensions
+
+```go
 type XExtensions map[string]string
 ```
 
 XExtensions stores the `x-` custom extensions.
+
+​	XExtensions 存储 `x-` 自定义扩展。

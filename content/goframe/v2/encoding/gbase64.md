@@ -9,126 +9,152 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gbase64)
 
 Package gbase64 provides useful API for BASE64 encoding/decoding algorithm.
 
+​	软件包 gbase64 为 BASE64 编码/解码算法提供了有用的 API。
 
-
-### Constants 
-
-This section is empty.
-
-### Variables 
+## 常量
 
 This section is empty.
 
-### Functions 
+## 变量
 
-##### func Decode 
+This section is empty.
 
-``` go
+## 函数
+
+#### func Decode
+
+```go
 func Decode(data []byte) ([]byte, error)
 ```
 
 Decode decodes bytes with BASE64 algorithm.
 
-##### func DecodeString 
+​	Decode 使用 BASE64 算法解码字节。
 
-``` go
+#### func DecodeString
+
+```go
 func DecodeString(data string) ([]byte, error)
 ```
 
 DecodeString decodes string with BASE64 algorithm.
 
-##### func DecodeToString 
+​	DecodeString 使用 BASE64 算法解码字符串。
 
-``` go
+#### func DecodeToString
+
+```go
 func DecodeToString(data string) (string, error)
 ```
 
 DecodeToString decodes string with BASE64 algorithm.
 
-##### func Encode 
+​	DecodeToString 使用 BASE64 算法解码字符串。
 
-``` go
+#### func Encode
+
+```go
 func Encode(src []byte) []byte
 ```
 
 Encode encodes bytes with BASE64 algorithm.
 
-##### func EncodeFile 
+​	Encode 使用 BASE64 算法对字节进行编码。
 
-``` go
+#### func EncodeFile
+
+```go
 func EncodeFile(path string) ([]byte, error)
 ```
 
 EncodeFile encodes file content of `path` using BASE64 algorithms.
 
-##### func EncodeFileToString 
+​	EncodeFile `path` 使用 BASE64 算法对文件内容进行编码。
 
-``` go
+#### func EncodeFileToString
+
+```go
 func EncodeFileToString(path string) (string, error)
 ```
 
 EncodeFileToString encodes file content of `path` to string using BASE64 algorithms.
 
-##### func EncodeString 
+​	EncodeFileToString 使用 BASE64 算法对 `path` to 字符串的文件内容进行编码。
 
-``` go
+#### func EncodeString
+
+```go
 func EncodeString(src string) string
 ```
 
 EncodeString encodes string with BASE64 algorithm.
 
-##### func EncodeToString 
+​	EncodeString 使用 BASE64 算法对字符串进行编码。
 
-``` go
+#### func EncodeToString
+
+```go
 func EncodeToString(src []byte) string
 ```
 
 EncodeToString encodes bytes to string with BASE64 algorithm.
 
-##### func MustDecode 
+​	EncodeToString 使用 BASE64 算法将字节编码为字符串。
 
-``` go
+#### func MustDecode
+
+```go
 func MustDecode(data []byte) []byte
 ```
 
 MustDecode decodes bytes with BASE64 algorithm. It panics if any error occurs.
 
-##### func MustDecodeString 
+​	MustDecode 使用 BASE64 算法解码字节。如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustDecodeString
+
+```go
 func MustDecodeString(data string) []byte
 ```
 
 MustDecodeString decodes string with BASE64 algorithm. It panics if any error occurs.
 
-##### func MustDecodeToString 
+​	MustDecodeString 使用 BASE64 算法解码字符串。如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustDecodeToString
+
+```go
 func MustDecodeToString(data string) string
 ```
 
 MustDecodeToString decodes string with BASE64 algorithm. It panics if any error occurs.
 
-##### func MustEncodeFile 
+​	MustDecodeToString 使用 BASE64 算法解码字符串。如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustEncodeFile
+
+```go
 func MustEncodeFile(path string) []byte
 ```
 
 MustEncodeFile encodes file content of `path` using BASE64 algorithms. It panics if any error occurs.
 
-##### func MustEncodeFileToString 
+​	MustEncodeFile `path` 使用 BASE64 算法对文件内容进行编码。如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustEncodeFileToString
+
+```go
 func MustEncodeFileToString(path string) string
 ```
 
 MustEncodeFileToString encodes file content of `path` to string using BASE64 algorithms. It panics if any error occurs.
 
-### Types 
+​	MustEncodeFileToString 使用 BASE64 算法对 `path` to 字符串的文件内容进行编码。如果发生任何错误，它会崩溃。
+
+## 类型
 
 This section is empty.

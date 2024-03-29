@@ -9,77 +9,95 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis)
 
 Package gredis provides convenient client for redis server.
 
+​	软件包 gredis 为 redis 服务器提供了便捷的客户端。
+
 Redis Client.
+
+​	Redis 客户端。
 
 Redis Commands Official: https://redis.io/commands
 
+​	Redis 命令官方：https://redis.io/commands
+
 Redis Chinese Documentation: http://redisdoc.com/
 
-### Constants 
+​	Redis 中文文档：http://redisdoc.com/
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/database/gredis/gredis_config.go#L48)
 
-``` go
+```go
 const (
 	DefaultGroupName = "default" // Default configuration group name.
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func ClearConfig 
+#### func ClearConfig
 
-``` go
+```go
 func ClearConfig()
 ```
 
 ClearConfig removes all configurations of redis.
 
-##### func RegisterAdapterFunc <-2.3.0
+​	ClearConfig 删除 redis 的所有配置。
 
-``` go
+#### func RegisterAdapterFunc <-2.3.0
+
+```go
 func RegisterAdapterFunc(adapterFunc AdapterFunc)
 ```
 
 RegisterAdapterFunc registers default function creating redis adapter.
 
-##### func RemoveConfig 
+​	RegisterAdapterFunc 注册创建 redis 适配器的默认函数。
 
-``` go
+#### func RemoveConfig
+
+```go
 func RemoveConfig(name ...string)
 ```
 
 RemoveConfig removes the global configuration with specified group. If `name` is not passed, it removes configuration of the default group name.
 
-##### func SetConfig 
+​	RemoveConfig 删除具有指定组的全局配置。如果 `name` 未传递，则删除默认组名称的配置。
 
-``` go
+#### func SetConfig
+
+```go
 func SetConfig(config *Config, name ...string)
 ```
 
 SetConfig sets the global configuration for specified group. If `name` is not passed, it sets configuration for the default group name.
 
-##### func SetConfigByMap 
+​	SetConfig 设置指定组的全局配置。如果 `name` 未传递，它将设置默认组名称的配置。
 
-``` go
+#### func SetConfigByMap
+
+```go
 func SetConfigByMap(m map[string]interface{}, name ...string) error
 ```
 
 SetConfigByMap sets the global configuration for specified group with map. If `name` is not passed, it sets configuration for the default group name.
 
-### Types 
+​	SetConfigByMap 使用 map 设置指定组的全局配置。如果 `name` 未传递，它将设置默认组名称的配置。
 
-#### type Adapter 
+## 类型
 
-``` go
+### type Adapter
+
+```go
 type Adapter interface {
 	AdapterGroup
 	AdapterOperation
@@ -88,17 +106,21 @@ type Adapter interface {
 
 Adapter is an interface for universal redis operations.
 
-#### type AdapterFunc <-2.3.0
+​	适配器是用于通用 redis 操作的接口。
 
-``` go
+### type AdapterFunc <-2.3.0
+
+```go
 type AdapterFunc func(config *Config) Adapter
 ```
 
 AdapterFunc is the function creating redis adapter.
 
-#### type AdapterGroup <-2.3.0
+​	AdapterFunc 是创建 redis 适配器的函数。
 
-``` go
+### type AdapterGroup <-2.3.0
+
+```go
 type AdapterGroup interface {
 	GroupGeneric() IGroupGeneric
 	GroupHash() IGroupHash
@@ -113,9 +135,11 @@ type AdapterGroup interface {
 
 AdapterGroup is an interface managing group operations for redis.
 
-#### type AdapterOperation <-2.6.2
+​	AdapterGroup 是管理 redis 的组操作的接口。
 
-``` go
+### type AdapterOperation <-2.6.2
+
+```go
 type AdapterOperation interface {
 	// Do send a command to the server and returns the received reply.
 	// It uses json.Marshal for struct/slice/map type values before committing them to redis.
@@ -132,9 +156,11 @@ type AdapterOperation interface {
 
 AdapterOperation is the core operation functions for redis. These functions can be easily overwritten by custom implements.
 
-#### type Config 
+​	AdapterOperation 是 redis 的核心操作函数。这些函数可以很容易地被自定义实现覆盖。
 
-``` go
+### type Config
+
+```go
 type Config struct {
 	// Address It supports single and cluster redis server. Multiple addresses joined with char ','. Eg: 192.168.1.1:6379, 192.168.1.2:6379.
 	Address         string        `json:"address"`
@@ -164,25 +190,31 @@ type Config struct {
 
 Config is redis configuration.
 
-##### func ConfigFromMap 
+​	Config 是 redis 配置。
 
-``` go
+#### func ConfigFromMap
+
+```go
 func ConfigFromMap(m map[string]interface{}) (config *Config, err error)
 ```
 
 ConfigFromMap parses and returns config from given map.
 
-##### func GetConfig 
+​	ConfigFromMap 解析并返回给定映射中的配置。
 
-``` go
+#### func GetConfig
+
+```go
 func GetConfig(name ...string) (config *Config, ok bool)
 ```
 
 GetConfig returns the global configuration with specified group name. If `name` is not passed, it returns configuration of the default group name.
 
-#### type Conn 
+​	GetConfig 返回具有指定组名称的全局配置。如果 `name` 未传递，则返回默认组名称的配置。
 
-``` go
+### type Conn
+
+```go
 type Conn interface {
 	ConnCommand
 
@@ -197,9 +229,11 @@ type Conn interface {
 
 Conn is an interface of a connection from universal redis client.
 
-#### type ConnCommand <-2.3.0
+​	Conn 是来自通用 redis 客户端的连接接口。
 
-``` go
+### type ConnCommand <-2.3.0
+
+```go
 type ConnCommand interface {
 	// Subscribe subscribes the client to the specified channels.
 	// https://redis.io/commands/subscribe/
@@ -227,9 +261,11 @@ type ConnCommand interface {
 
 ConnCommand is an interface managing some operations bound to certain connection.
 
-#### type CopyOption <-2.3.0
+​	ConnCommand 是一个接口，用于管理绑定到某个连接的某些操作。
 
-``` go
+### type CopyOption <-2.3.0
+
+```go
 type CopyOption struct {
 	DB      int  // DB option allows specifying an alternative logical database index for the destination key.
 	REPLACE bool // REPLACE option removes the destination key before copying the value to it.
@@ -238,9 +274,11 @@ type CopyOption struct {
 
 CopyOption provides options for function Copy.
 
-#### type ExpireOption <-2.3.0
+​	CopyOption 为函数 Copy 提供选项。
 
-``` go
+### type ExpireOption <-2.3.0
+
+```go
 type ExpireOption struct {
 	NX bool // NX -- Set expiry only when the key has no expiry
 	XX bool // XX -- Set expiry only when the key has an existing expiry
@@ -251,9 +289,11 @@ type ExpireOption struct {
 
 ExpireOption provides options for function Expire.
 
-#### type FlushOp <-2.3.0
+​	ExpireOption 为函数 Expire 提供选项。
 
-``` go
+### type FlushOp <-2.3.0
+
+```go
 type FlushOp string
 const (
 	FlushAsync FlushOp = "ASYNC" // ASYNC: flushes the databases asynchronously
@@ -261,9 +301,9 @@ const (
 )
 ```
 
-#### type GetEXOption <-2.3.0
+### type GetEXOption <-2.3.0
 
-``` go
+```go
 type GetEXOption struct {
 	TTLOption
 	Persist bool // Persist -- Remove the time to live associated with the key.
@@ -272,9 +312,11 @@ type GetEXOption struct {
 
 GetEXOption provides extra option for GetEx function.
 
-#### type IGroupGeneric <-2.3.0
+​	GetEXOption 为 GetEx 函数提供了额外的选项。
 
-``` go
+### type IGroupGeneric <-2.3.0
+
+```go
 type IGroupGeneric interface {
 	Copy(ctx context.Context, source, destination string, option ...CopyOption) (int64, error)
 	Exists(ctx context.Context, keys ...string) (int64, error)
@@ -303,9 +345,11 @@ type IGroupGeneric interface {
 
 IGroupGeneric manages generic redis operations. Implements see redis.GroupGeneric.
 
-#### type IGroupHash <-2.3.0
+​	IGroupGeneric 管理泛型 redis 操作。实现见 redis。GroupGeneric。
 
-``` go
+### type IGroupHash <-2.3.0
+
+```go
 type IGroupHash interface {
 	HSet(ctx context.Context, key string, fields map[string]interface{}) (int64, error)
 	HSetNX(ctx context.Context, key, field string, value interface{}) (int64, error)
@@ -326,9 +370,11 @@ type IGroupHash interface {
 
 IGroupHash manages redis hash operations. Implements see redis.GroupHash.
 
-#### type IGroupList <-2.3.0
+​	IGroupHash 管理 redis 哈希操作。实现见 redis。GroupHash 中。
 
-``` go
+### type IGroupList <-2.3.0
+
+```go
 type IGroupList interface {
 	LPush(ctx context.Context, key string, values ...interface{}) (int64, error)
 	LPushX(ctx context.Context, key string, element interface{}, elements ...interface{}) (int64, error)
@@ -352,9 +398,11 @@ type IGroupList interface {
 
 IGroupList manages redis list operations. Implements see redis.GroupList.
 
-#### type IGroupPubSub <-2.3.0
+​	IGroupList 管理 redis 列表操作。实现见 redis。GroupList。
 
-``` go
+### type IGroupPubSub <-2.3.0
+
+```go
 type IGroupPubSub interface {
 	Publish(ctx context.Context, channel string, message interface{}) (int64, error)
 	Subscribe(ctx context.Context, channel string, channels ...string) (Conn, []*Subscription, error)
@@ -364,9 +412,11 @@ type IGroupPubSub interface {
 
 IGroupPubSub manages redis pub/sub operations. Implements see redis.GroupPubSub.
 
-#### type IGroupScript <-2.3.0
+​	IGroupPubSub 管理 redis 发布/订阅操作。实现见 redis。GroupPubSub 中。
 
-``` go
+### type IGroupScript <-2.3.0
+
+```go
 type IGroupScript interface {
 	Eval(ctx context.Context, script string, numKeys int64, keys []string, args []interface{}) (*gvar.Var, error)
 	EvalSha(ctx context.Context, sha1 string, numKeys int64, keys []string, args []interface{}) (*gvar.Var, error)
@@ -379,9 +429,11 @@ type IGroupScript interface {
 
 IGroupScript manages redis script operations. Implements see redis.GroupScript.
 
-#### type IGroupSet <-2.3.0
+​	IGroupScript 管理 redis 脚本操作。实现见 redis。GroupScript的。
 
-``` go
+### type IGroupSet <-2.3.0
+
+```go
 type IGroupSet interface {
 	SAdd(ctx context.Context, key string, member interface{}, members ...interface{}) (int64, error)
 	SIsMember(ctx context.Context, key string, member interface{}) (int64, error)
@@ -403,9 +455,11 @@ type IGroupSet interface {
 
 IGroupSet manages redis set operations. Implements see redis.GroupSet.
 
-#### type IGroupSortedSet <-2.3.0
+​	IGroupSet 管理 redis 集操作。实现见 redis。GroupSet。
 
-``` go
+### type IGroupSortedSet <-2.3.0
+
+```go
 type IGroupSortedSet interface {
 	ZAdd(ctx context.Context, key string, option *ZAddOption, member ZAddMember, members ...ZAddMember) (*gvar.Var, error)
 	ZScore(ctx context.Context, key string, member interface{}) (float64, error)
@@ -426,9 +480,11 @@ type IGroupSortedSet interface {
 
 IGroupSortedSet manages redis sorted set operations. Implements see redis.GroupSortedSet.
 
-#### type IGroupString <-2.3.0
+​	IGroupSortedSet 管理 redis 排序集操作。实现见 redis。GroupSortedSet。
 
-``` go
+### type IGroupString <-2.3.0
+
+```go
 type IGroupString interface {
 	Set(ctx context.Context, key string, value interface{}, option ...SetOption) (*gvar.Var, error)
 	SetNX(ctx context.Context, key string, value interface{}) (bool, error)
@@ -454,24 +510,28 @@ type IGroupString interface {
 
 IGroupString manages redis string operations. Implements see redis.GroupString.
 
-#### type LInsertOp <-2.3.0
+​	IGroupString 管理 redis 字符串操作。实现见 redis。GroupString 中。
 
-``` go
+### type LInsertOp <-2.3.0
+
+```go
 type LInsertOp string
 ```
 
 LInsertOp defines the operation name for function LInsert.
 
-``` go
+​	LInsertOp 定义函数 LInsert 的操作名称。
+
+```go
 const (
 	LInsertBefore LInsertOp = "BEFORE"
 	LInsertAfter  LInsertOp = "AFTER"
 )
 ```
 
-#### type Message 
+### type Message
 
-``` go
+```go
 type Message struct {
 	Channel      string
 	Pattern      string
@@ -482,9 +542,11 @@ type Message struct {
 
 Message received as result of a PUBLISH command issued by another client.
 
-#### type Redis 
+​	由于另一个客户端发出的 PUBLISH 命令而收到的消息。
 
-``` go
+### type Redis
+
+```go
 type Redis struct {
 	// contains filtered or unexported fields
 }
@@ -492,89 +554,111 @@ type Redis struct {
 
 Redis client.
 
-##### func Instance 
+​	Redis 客户端。
 
-``` go
+#### func Instance
+
+```go
 func Instance(name ...string) *Redis
 ```
 
 Instance returns an instance of redis client with specified group. The `name` param is unnecessary, if `name` is not passed, it returns a redis instance with default configuration group.
 
-##### func New 
+​	实例返回具有指定组的 redis 客户端实例。 `name` 参数是不必要的，如果 `name` 未传递，则返回具有默认配置组的 redis 实例。
 
-``` go
+#### func New
+
+```go
 func New(config ...*Config) (*Redis, error)
 ```
 
 New creates and returns a redis client. It creates a default redis adapter of go-redis.
 
-##### func NewWithAdapter 
+​	New 创建并返回 redis 客户端。它创建一个默认的 redis 适配器 go-redis。
 
-``` go
+#### func NewWithAdapter
+
+```go
 func NewWithAdapter(adapter Adapter) (*Redis, error)
 ```
 
 NewWithAdapter creates and returns a redis client with given adapter.
 
-##### (*Redis) Close 
+​	NewWithAdapter 创建并返回具有给定适配器的 redis 客户端。
 
-``` go
+#### (*Redis) Close
+
+```go
 func (r *Redis) Close(ctx context.Context) error
 ```
 
 Close closes current redis client, closes its connection pool and releases all its related resources.
 
-##### (*Redis) Conn 
+​	关闭将关闭当前 redis 客户端，关闭其连接池并释放其所有相关资源。
 
-``` go
+#### (*Redis) Conn
+
+```go
 func (r *Redis) Conn(ctx context.Context) (Conn, error)
 ```
 
 Conn retrieves and returns a connection object for continuous operations. Note that you should call Close function manually if you do not use this connection any further.
 
-##### (*Redis) Do 
+​	Conn 检索并返回连接对象以进行连续操作。请注意，如果不再使用此连接，则应手动调用 Close 函数。
 
-``` go
+#### (*Redis) Do
+
+```go
 func (r *Redis) Do(ctx context.Context, command string, args ...interface{}) (*gvar.Var, error)
 ```
 
 Do send a command to the server and returns the received reply. It uses json.Marshal for struct/slice/map type values before committing them to redis.
 
-##### (*Redis) GetAdapter 
+​	务必向服务器发送命令并返回收到的回复。它使用 json。在将 struct/slice/map 类型值提交到 redis 之前对其进行封送。
 
-``` go
+#### (*Redis) GetAdapter
+
+```go
 func (r *Redis) GetAdapter() Adapter
 ```
 
 GetAdapter returns the adapter that is set in current redis client.
 
-##### (*Redis) MustConn 
+​	GetAdapter 返回在当前 redis 客户端中设置的适配器。
 
-``` go
+#### (*Redis) MustConn
+
+```go
 func (r *Redis) MustConn(ctx context.Context) Conn
 ```
 
 MustConn performs as function Conn, but it panics if any error occurs internally.
 
-##### (*Redis) MustDo 
+​	MustConn 作为函数 Conn 执行，但如果内部发生任何错误，它会崩溃。
 
-``` go
+#### (*Redis) MustDo
+
+```go
 func (r *Redis) MustDo(ctx context.Context, command string, args ...interface{}) *gvar.Var
 ```
 
 MustDo performs as function Do, but it panics if any error occurs internally.
 
-##### (*Redis) SetAdapter 
+​	MustDo 与函数 Do 一样执行，但如果内部发生任何错误，它会崩溃。
 
-``` go
+#### (*Redis) SetAdapter
+
+```go
 func (r *Redis) SetAdapter(adapter Adapter)
 ```
 
 SetAdapter changes the underlying adapter with custom adapter for current redis client.
 
-#### type ScriptFlushOption <-2.3.0
+​	SetAdapter 使用当前 redis 客户端的自定义适配器更改基础适配器。
 
-``` go
+### type ScriptFlushOption <-2.3.0
+
+```go
 type ScriptFlushOption struct {
 	SYNC  bool // SYNC  flushes the cache synchronously.
 	ASYNC bool // ASYNC flushes the cache asynchronously.
@@ -583,9 +667,11 @@ type ScriptFlushOption struct {
 
 ScriptFlushOption provides options for function ScriptFlush.
 
-#### type SetOption <-2.3.0
+​	ScriptFlushOption 提供函数 ScriptFlush 的选项。
 
-``` go
+### type SetOption <-2.3.0
+
+```go
 type SetOption struct {
 	TTLOption
 	NX bool // Only set the key if it does not already exist.
@@ -599,9 +685,11 @@ type SetOption struct {
 
 SetOption provides extra option for Set function.
 
-#### type Subscription 
+​	SetOption 为 Set 函数提供了额外的选项。
 
-``` go
+### type Subscription
+
+```go
 type Subscription struct {
 	Kind    string // Can be "subscribe", "unsubscribe", "psubscribe" or "punsubscribe".
 	Channel string // Channel name we have subscribed to.
@@ -611,17 +699,21 @@ type Subscription struct {
 
 Subscription received after a successful subscription to channel.
 
-##### (*Subscription) String 
+​	成功订阅频道后收到的订阅。
 
-``` go
+#### (*Subscription) String
+
+```go
 func (m *Subscription) String() string
 ```
 
 String converts current object to a readable string.
 
-#### type TTLOption <-2.3.0
+​	String 将当前对象转换为可读字符串。
 
-``` go
+### type TTLOption <-2.3.0
+
+```go
 type TTLOption struct {
 	EX      *int64 // EX seconds -- Set the specified expire time, in seconds.
 	PX      *int64 // PX milliseconds -- Set the specified expire time, in milliseconds.
@@ -633,9 +725,11 @@ type TTLOption struct {
 
 TTLOption provides extra option for TTL related functions.
 
-#### type ZAddMember <-2.3.0
+​	TTLOption 为 TTL 相关功能提供了额外的选项。
 
-``` go
+### type ZAddMember <-2.3.0
+
+```go
 type ZAddMember struct {
 	Score  float64
 	Member interface{}
@@ -644,9 +738,11 @@ type ZAddMember struct {
 
 ZAddMember is element struct for set.
 
-#### type ZAddOption <-2.3.0
+​	ZAddMember 是 set 的元素结构。
 
-``` go
+### type ZAddOption <-2.3.0
+
+```go
 type ZAddOption struct {
 	XX bool // Only update elements that already exist. Don't add new elements.
 	NX bool // Only add new elements. Don't update already existing elements.
@@ -671,9 +767,11 @@ type ZAddOption struct {
 
 ZAddOption provides options for function ZAdd.
 
-#### type ZRangeOption <-2.3.0
+​	ZAddOption 为函数 ZAdd 提供选项。
 
-``` go
+### type ZRangeOption <-2.3.0
+
+```go
 type ZRangeOption struct {
 	ByScore bool
 	ByLex   bool
@@ -688,9 +786,11 @@ type ZRangeOption struct {
 
 ZRangeOption provides extra option for ZRange function.
 
-#### type ZRangeOptionLimit <-2.3.0
+​	ZRangeOption 为 ZRange 函数提供了额外的选项。
 
-``` go
+### type ZRangeOptionLimit <-2.3.0
+
+```go
 type ZRangeOptionLimit struct {
 	Offset *int
 	Count  *int
@@ -699,12 +799,16 @@ type ZRangeOptionLimit struct {
 
 ZRangeOptionLimit provides LIMIT argument for ZRange function. The optional LIMIT argument can be used to obtain a sub-range from the matching elements (similar to SELECT LIMIT offset, count in SQL). A negative `Count` returns all elements from the `Offset`.
 
-#### type ZRevRangeOption <-2.3.0
+​	ZRangeOptionLimit 为 ZRange 函数提供 LIMIT 参数。可选的 LIMIT 参数可用于从匹配元素中获取子范围（类似于 SQL 中的 SELECT LIMIT offset、count）。否定 `Count` 返回 `Offset` 中的所有元素。
 
-``` go
+### type ZRevRangeOption <-2.3.0
+
+```go
 type ZRevRangeOption struct {
 	WithScores bool
 }
 ```
 
 ZRevRangeOption provides options for function ZRevRange.
+
+​	ZRevRangeOption 提供函数 ZRevRange 的选项。

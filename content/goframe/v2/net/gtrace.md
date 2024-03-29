@@ -9,137 +9,167 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gtrace
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gtrace](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gtrace)
 
 Package gtrace provides convenience wrapping functionality for tracing feature using OpenTelemetry.
 
-### Constants 
+​	包 gtrace 为使用 OpenTelemetry 的跟踪功能提供了便利的包装功能。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func CheckSetDefaultTextMapPropagator 
+#### func CheckSetDefaultTextMapPropagator
 
-``` go
+```go
 func CheckSetDefaultTextMapPropagator()
 ```
 
 CheckSetDefaultTextMapPropagator sets the default TextMapPropagator if it is not set previously.
 
-##### func CommonLabels 
+​	CheckSetDefaultTextMapPropagator 设置默认的 TextMapPropagator（如果之前未设置）。
 
-``` go
+#### func CommonLabels
+
+```go
 func CommonLabels() []attribute.KeyValue
 ```
 
 CommonLabels returns common used attribute labels: ip.intranet, hostname.
 
-##### func GetBaggageMap 
+​	CommonLabels 返回常用的属性标签：ip.intranet、hostname。
 
-``` go
+#### func GetBaggageMap
+
+```go
 func GetBaggageMap(ctx context.Context) *gmap.StrAnyMap
 ```
 
 GetBaggageMap retrieves and returns the baggage values as map.
 
-##### func GetBaggageVar 
+​	GetBaggageMap 检索行李值并将其作为 map 返回。
 
-``` go
+#### func GetBaggageVar
+
+```go
 func GetBaggageVar(ctx context.Context, key string) *gvar.Var
 ```
 
 GetBaggageVar retrieves value and returns a *gvar.Var for specified key from baggage.
 
-##### func GetDefaultTextMapPropagator 
+​	GetBaggageVar 检索值并返回 *gvar。Var 表示行李中的指定密钥。
 
-``` go
+#### func GetDefaultTextMapPropagator
+
+```go
 func GetDefaultTextMapPropagator() propagation.TextMapPropagator
 ```
 
 GetDefaultTextMapPropagator returns the default propagator for context propagation between peers.
 
-##### func GetSpanID 
+​	GetDefaultTextMapPropagator 返回用于在对等方之间进行上下文传播的默认传播器。
 
-``` go
+#### func GetSpanID
+
+```go
 func GetSpanID(ctx context.Context) string
 ```
 
 GetSpanID retrieves and returns SpanId from context. It returns an empty string is tracing feature is not activated.
 
-##### func GetTraceID 
+​	GetSpanID 从上下文中检索并返回 SpanId。它返回一个空字符串，即跟踪功能未激活。
 
-``` go
+#### func GetTraceID
+
+```go
 func GetTraceID(ctx context.Context) string
 ```
 
 GetTraceID retrieves and returns TraceId from context. It returns an empty string is tracing feature is not activated.
 
-##### func IsTracingInternal 
+​	GetTraceID 从上下文中检索并返回 TraceId。它返回一个空字符串，即跟踪功能未激活。
 
-``` go
+#### func IsTracingInternal
+
+```go
 func IsTracingInternal() bool
 ```
 
 IsTracingInternal returns whether tracing spans of internal components.
 
-##### func IsUsingDefaultProvider 
+​	IsTracingInternal 返回是否跟踪内部组件的跨度。
 
-``` go
+#### func IsUsingDefaultProvider
+
+```go
 func IsUsingDefaultProvider() bool
 ```
 
 IsUsingDefaultProvider checks and return if currently using default trace provider.
 
-##### func MaxContentLogSize 
+​	IsUsingDefaultProvider 检查并返回当前是否使用默认跟踪提供程序。
 
-``` go
+#### func MaxContentLogSize
+
+```go
 func MaxContentLogSize() int
 ```
 
 MaxContentLogSize returns the max log size for request and response body, especially for HTTP/RPC request.
 
-##### func SetBaggageMap 
+​	MaxContentLogSize 返回请求和响应正文的最大日志大小，尤其是 HTTP/RPC 请求。
 
-``` go
+#### func SetBaggageMap
+
+```go
 func SetBaggageMap(ctx context.Context, data map[string]interface{}) context.Context
 ```
 
 SetBaggageMap is a convenient function for adding map key-value pairs to baggage. Note that it uses attribute.Any to set the key-value pair.
 
-##### func SetBaggageValue 
+​	SetBaggageMap 是一个方便的函数，用于将地图键值对添加到行李中。请注意，它使用属性。any 设置键值对。
 
-``` go
+#### func SetBaggageValue
+
+```go
 func SetBaggageValue(ctx context.Context, key string, value interface{}) context.Context
 ```
 
 SetBaggageValue is a convenient function for adding one key-value pair to baggage. Note that it uses attribute.Any to set the key-value pair.
 
-##### func WithTraceID 
+​	SetBaggageValue 是一个方便的函数，用于将一个键值对添加到行李中。请注意，它使用属性。any 设置键值对。
 
-``` go
+#### func WithTraceID
+
+```go
 func WithTraceID(ctx context.Context, traceID string) (context.Context, error)
 ```
 
 WithTraceID injects custom trace id into context to propagate.
 
-##### func WithUUID <-2.2.0
+​	WithTraceID 将自定义跟踪 ID 注入到上下文中进行传播。
 
-``` go
+#### func WithUUID <-2.2.0
+
+```go
 func WithUUID(ctx context.Context, uuid string) (context.Context, error)
 ```
 
 WithUUID injects custom trace id with UUID into context to propagate.
 
-### Types 
+​	WithUUID 将带有 UUID 的自定义跟踪 ID 注入到上下文中以进行传播。
 
-#### type Baggage 
+## 类型
 
-``` go
+### type Baggage
+
+```go
 type Baggage struct {
 	// contains filtered or unexported fields
 }
@@ -147,121 +177,151 @@ type Baggage struct {
 
 Baggage holds the data through all tracing spans.
 
-##### func NewBaggage 
+​	行李在所有跟踪跨度中保存数据。
 
-``` go
+#### func NewBaggage
+
+```go
 func NewBaggage(ctx context.Context) *Baggage
 ```
 
 NewBaggage creates and returns a new Baggage object from given tracing context.
 
-##### (*Baggage) Ctx 
+​	NewBaggage 从给定的跟踪上下文创建并返回一个新的 Baggage 对象。
 
-``` go
+#### (*Baggage) Ctx
+
+```go
 func (b *Baggage) Ctx() context.Context
 ```
 
 Ctx returns the context that Baggage holds.
 
-##### (*Baggage) GetMap 
+​	Ctx 返回 Baggage 所包含的上下文。
 
-``` go
+#### (*Baggage) GetMap
+
+```go
 func (b *Baggage) GetMap() *gmap.StrAnyMap
 ```
 
 GetMap retrieves and returns the baggage values as map.
 
-##### (*Baggage) GetVar 
+​	GetMap 检索行李值并将其作为地图返回。
 
-``` go
+#### (*Baggage) GetVar
+
+```go
 func (b *Baggage) GetVar(key string) *gvar.Var
 ```
 
 GetVar retrieves value and returns a *gvar.Var for specified key from baggage.
 
-##### (*Baggage) SetMap 
+​	GetVar 检索值并返回 *gvar。Var 表示行李中的指定密钥。
 
-``` go
+#### (*Baggage) SetMap
+
+```go
 func (b *Baggage) SetMap(data map[string]interface{}) context.Context
 ```
 
 SetMap is a convenient function for adding map key-value pairs to baggage. Note that it uses attribute.Any to set the key-value pair.
 
-##### (*Baggage) SetValue 
+​	SetMap 是一个方便的功能，用于将地图键值对添加到行李中。请注意，它使用属性。any 设置键值对。
 
-``` go
+#### (*Baggage) SetValue
+
+```go
 func (b *Baggage) SetValue(key string, value interface{}) context.Context
 ```
 
 SetValue is a convenient function for adding one key-value pair to baggage. Note that it uses attribute.Any to set the key-value pair.
 
-#### type Carrier 
+​	SetValue 是一个方便的函数，用于将一个键值对添加到行李中。请注意，它使用属性。any 设置键值对。
 
-``` go
+### type Carrier
+
+```go
 type Carrier map[string]interface{}
 ```
 
 Carrier is the storage medium used by a TextMapPropagator.
 
-##### func NewCarrier 
+​	Carrier 是 TextMapPropagator 使用的存储介质。
 
-``` go
+#### func NewCarrier
+
+```go
 func NewCarrier(data ...map[string]interface{}) Carrier
 ```
 
 NewCarrier creates and returns a Carrier.
 
-##### (Carrier) Get 
+​	NewCarrier 创建并返回一个 Carrier。
 
-``` go
+#### (Carrier) Get
+
+```go
 func (c Carrier) Get(k string) string
 ```
 
 Get returns the value associated with the passed key.
 
-##### (Carrier) Keys 
+​	Get 返回与传递的密钥关联的值。
 
-``` go
+#### (Carrier) Keys
+
+```go
 func (c Carrier) Keys() []string
 ```
 
 Keys lists the keys stored in this carrier.
 
-##### (Carrier) MustMarshal 
+​	密钥列出了存储在此载体中的密钥。
 
-``` go
+#### (Carrier) MustMarshal
+
+```go
 func (c Carrier) MustMarshal() []byte
 ```
 
 MustMarshal .returns the JSON encoding of c
 
-##### (Carrier) Set 
+​	MustMarshal .返回 c 的 JSON 编码
 
-``` go
+#### (Carrier) Set
+
+```go
 func (c Carrier) Set(k, v string)
 ```
 
 Set stores the key-value pair.
 
-##### (Carrier) String 
+​	Set 存储键值对。
 
-``` go
+#### (Carrier) String
+
+```go
 func (c Carrier) String() string
 ```
 
 String converts and returns current Carrier as string.
 
-##### (Carrier) UnmarshalJSON 
+​	String 转换并返回当前 Carrier 作为字符串。
 
-``` go
+#### (Carrier) UnmarshalJSON
+
+```go
 func (c Carrier) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements interface UnmarshalJSON for package json.
 
-#### type Span 
+​	UnmarshalJSON 为包 json 实现接口 UnmarshalJSON。
 
-``` go
+### type Span
+
+```go
 type Span struct {
 	trace.Span
 }
@@ -269,17 +329,21 @@ type Span struct {
 
 Span warps trace.Span for compatibility and extension.
 
-##### func NewSpan 
+​	跨度翘曲轨迹。跨度用于兼容性和扩展。
 
-``` go
+#### func NewSpan
+
+```go
 func NewSpan(ctx context.Context, spanName string, opts ...trace.SpanStartOption) (context.Context, *Span)
 ```
 
 NewSpan creates a span using default tracer.
 
-#### type Tracer 
+​	NewSpan 使用默认跟踪器创建跨度。
 
-``` go
+### type Tracer
+
+```go
 type Tracer struct {
 	trace.Tracer
 }
@@ -287,10 +351,14 @@ type Tracer struct {
 
 Tracer warps trace.Tracer for compatibility and extension.
 
-##### func NewTracer 
+​	示踪剂翘曲跟踪。用于兼容性和扩展的示踪剂。
 
-``` go
+#### func NewTracer
+
+```go
 func NewTracer(name ...string) *Tracer
 ```
 
 NewTracer Tracer is a short function for retrieving Tracer.
+
+​	NewTracer Tracer 是用于检索 Tracer 的简短函数。

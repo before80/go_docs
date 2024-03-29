@@ -9,309 +9,403 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gcache
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gcache](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gcache)
 
 Package gcache provides kinds of cache management for process.
 
+​	软件包 gcache 为进程提供了各种缓存管理。
+
 It provides a concurrent-safe in-memory cache adapter for process in default.
 
-### Constants 
+​	默认情况下，它为进程提供并发安全的内存中缓存适配器。
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/os/gcache/gcache.go#L22)
 
-``` go
+```go
 const (
 	DurationNoExpire = time.Duration(0) // Expire duration that never expires.
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Contains 
+#### func Contains
 
-``` go
+```go
 func Contains(ctx context.Context, key interface{}) (bool, error)
 ```
 
 Contains checks and returns true if `key` exists in the cache, or else returns false.
 
-##### func Data 
+​	包含检查并返回 true（如果 `key` 缓存中存在），否则返回 false。
 
-``` go
+#### func Data
+
+```go
 func Data(ctx context.Context) (map[interface{}]interface{}, error)
 ```
 
 Data returns a copy of all key-value pairs in the cache as map type. Note that this function may lead lots of memory usage, you can implement this function if necessary.
 
-##### func Get 
+​	数据以映射类型返回缓存中所有键值对的副本。请注意，此函数可能会导致大量内存使用，如有必要，可以实现此函数。
 
-``` go
+#### func Get
+
+```go
 func Get(ctx context.Context, key interface{}) (*gvar.Var, error)
 ```
 
-Get retrieves and returns the associated value of given `key`. It returns nil if it does not exist, or its value is nil, or it's expired. If you would like to check if the `key` exists in the cache, it's better using function Contains.
+Get retrieves and returns the associated value of given `key`. It returns nil if it does not exist, or its value is nil, or it’s expired. If you would like to check if the `key` exists in the cache, it’s better using function Contains.
 
-##### func GetExpire 
+​	Get 检索并返回给定 `key` 的关联值。如果它不存在，或者它的值为 nil，或者它已过期，则返回 nil。如果您想检查缓存中是否存在， `key` 最好使用函数 Contains。
 
-``` go
+#### func GetExpire
+
+```go
 func GetExpire(ctx context.Context, key interface{}) (time.Duration, error)
 ```
 
 GetExpire retrieves and returns the expiration of `key` in the cache.
 
+​	GetExpire 检索并返回缓存中的过 `key` 期时间。
+
 Note that, It returns 0 if the `key` does not expire. It returns -1 if the `key` does not exist in the cache.
 
-##### func GetOrSet 
+​	请注意，如果 不 `key` 过期，则返回 0。如果缓存中不存在， `key` 则返回 -1。
 
-``` go
+#### func GetOrSet
+
+```go
 func GetOrSet(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSet retrieves and returns the value of `key`, or sets `key`-`value` pair and returns `value` if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSet 检索并返回 的 `key` 值，或者 sets `key` - `value` pair 的值，如果 `key` 缓存中不存在则返回 `value` 。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### func GetOrSetFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### func GetOrSetFunc
+
+```go
 func GetOrSetFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSetFunc retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFunc 检索并返回 `key` 的值，或具有函数 `f` 结果的集合 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### func GetOrSetFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### func GetOrSetFuncLock
+
+```go
 func GetOrSetFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSetFuncLock retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFuncLock 检索并返回 `key` 的值，或使用 result of 函数 `f` 进行设置 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
 Note that it differs from function `GetOrSetFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### func KeyStrings 
+​	请注意，它与函数 `GetOrSetFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### func KeyStrings
+
+```go
 func KeyStrings(ctx context.Context) ([]string, error)
 ```
 
 KeyStrings returns all keys in the cache as string slice.
 
-##### func Keys 
+​	KeyStrings 将缓存中的所有键作为字符串切片返回。
 
-``` go
+#### func Keys
+
+```go
 func Keys(ctx context.Context) ([]interface{}, error)
 ```
 
 Keys returns all keys in the cache as slice.
 
-##### func MustContains 
+​	Keys 将缓存中的所有键作为切片返回。
 
-``` go
+#### func MustContains
+
+```go
 func MustContains(ctx context.Context, key interface{}) bool
 ```
 
 MustContains acts like Contains, but it panics if any error occurs.
 
-##### func MustData 
+​	MustContains 的行为类似于 Contains，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustData
+
+```go
 func MustData(ctx context.Context) map[interface{}]interface{}
 ```
 
 MustData acts like Data, but it panics if any error occurs.
 
-##### func MustGet 
+​	MustData 的行为类似于 Data，但如果发生任何错误，它就会崩溃。
 
-``` go
+#### func MustGet
+
+```go
 func MustGet(ctx context.Context, key interface{}) *gvar.Var
 ```
 
 MustGet acts like Get, but it panics if any error occurs.
 
-##### func MustGetExpire 
+​	MustGet 的行为类似于 Get，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustGetExpire
+
+```go
 func MustGetExpire(ctx context.Context, key interface{}) time.Duration
 ```
 
 MustGetExpire acts like GetExpire, but it panics if any error occurs.
 
-##### func MustGetOrSet 
+​	MustGetExpire 的行为类似于 GetExpire，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustGetOrSet
+
+```go
 func MustGetOrSet(ctx context.Context, key interface{}, value interface{}, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSet acts like GetOrSet, but it panics if any error occurs.
 
-##### func MustGetOrSetFunc 
+​	MustGetOrSet 的行为类似于 GetOrSet，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustGetOrSetFunc
+
+```go
 func MustGetOrSetFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSetFunc acts like GetOrSetFunc, but it panics if any error occurs.
 
-##### func MustGetOrSetFuncLock 
+​	MustGetOrSetFunc 的行为类似于 GetOrSetFunc，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustGetOrSetFuncLock
+
+```go
 func MustGetOrSetFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSetFuncLock acts like GetOrSetFuncLock, but it panics if any error occurs.
 
-##### func MustKeyStrings 
+​	MustGetOrSetFuncLock 的行为类似于 GetOrSetFuncLock，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustKeyStrings
+
+```go
 func MustKeyStrings(ctx context.Context) []string
 ```
 
 MustKeyStrings acts like KeyStrings, but it panics if any error occurs.
 
-##### func MustKeys 
+​	MustKeyStrings 的行为类似于 KeyStrings，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustKeys
+
+```go
 func MustKeys(ctx context.Context) []interface{}
 ```
 
 MustKeys acts like Keys, but it panics if any error occurs.
 
-##### func MustSize 
+​	MustKeys 的行为类似于 Keys，但如果发生任何错误，它会崩溃。
 
-``` go
+#### func MustSize
+
+```go
 func MustSize(ctx context.Context) int
 ```
 
 MustSize acts like Size, but it panics if any error occurs.
 
-##### func MustValues 
+​	MustSize 的作用类似于 Size，但如果发生任何错误，它就会崩溃。
 
-``` go
+#### func MustValues
+
+```go
 func MustValues(ctx context.Context) []interface{}
 ```
 
 MustValues acts like Values, but it panics if any error occurs.
 
-##### func Remove 
+​	MustValues 的作用类似于 Values，但如果发生任何错误，它就会崩溃。
 
-``` go
+#### func Remove
+
+```go
 func Remove(ctx context.Context, keys ...interface{}) (value *gvar.Var, err error)
 ```
 
 Remove deletes one or more keys from cache, and returns its value. If multiple keys are given, it returns the value of the last deleted item.
 
-##### func Removes 
+​	Remove 从缓存中删除一个或多个键，并返回其值。如果给定了多个键，则返回上次删除的项目的值。
 
-``` go
+#### func Removes
+
+```go
 func Removes(ctx context.Context, keys []interface{}) error
 ```
 
 Removes deletes `keys` in the cache.
 
-##### func Set 
+​	删除缓存 `keys` 中的删除内容。
 
-``` go
+#### func Set
+
+```go
 func Set(ctx context.Context, key interface{}, value interface{}, duration time.Duration) error
 ```
 
 Set sets cache with `key`-`value` pair, which is expired after `duration`.
 
+​	设置 cache with `key` - `value` pair，在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### func SetIfNotExist 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### func SetIfNotExist
+
+```go
 func SetIfNotExist(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExist sets cache with `key`-`value` pair which is expired after `duration` if `key` does not exist in the cache. It returns true the `key` does not exist in the cache, and it sets `value` successfully to the cache, or else it returns false.
 
+​	SetIfNotExist 将缓存设置为 `key` - 对，如果缓存中不存在，则在 `duration` if `key` `value` 之后过期。它返回 true the `key` does not exist in the cache，并成功设置为 `value` 缓存，否则返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### func SetIfNotExistFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### func SetIfNotExistFunc
+
+```go
 func SetIfNotExistFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExistFunc sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFunc 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果 `key` 已存在，则返回 false。
+
 The parameter `value` can be type of `func() interface{}`, but it does nothing if its result is nil.
+
+​	参数 `value` 的类型可以是 `func() interface{}` ，但如果其结果为 nil，则不执行任何操作。
 
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### func SetIfNotExistFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### func SetIfNotExistFuncLock
+
+```go
 func SetIfNotExistFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExistFuncLock sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFuncLock 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果已存在，则 `key` 返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
 Note that it differs from function `SetIfNotExistFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### func SetMap 
+​	请注意，它与函数 `SetIfNotExistFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### func SetMap
+
+```go
 func SetMap(ctx context.Context, data map[interface{}]interface{}, duration time.Duration) error
 ```
 
 SetMap batch sets cache with key-value pairs by `data` map, which is expired after `duration`.
 
+​	SetMap 按 `data` map 批量设置键值对缓存，该缓存在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### func Size 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### func Size
+
+```go
 func Size(ctx context.Context) (int, error)
 ```
 
 Size returns the number of items in the cache.
 
-##### func Update 
+​	Size 返回缓存中的项数。
 
-``` go
+#### func Update
+
+```go
 func Update(ctx context.Context, key interface{}, value interface{}) (oldValue *gvar.Var, exist bool, err error)
 ```
 
 Update updates the value of `key` without changing its expiration and returns the old value. The returned value `exist` is false if the `key` does not exist in the cache.
 
+​	Update 在不更改其过期时间的情况下更新 的 `key` 值，并返回旧值。如果缓存中不存在， `key` 则返回的值 `exist` 为 false。
+
 It deletes the `key` if given `value` is nil. It does nothing if `key` does not exist in the cache.
 
-##### func UpdateExpire 
+​	它删除了 `key` if given `value` is nil。如果 `key` 缓存中不存在，则它不执行任何操作。
 
-``` go
+#### func UpdateExpire
+
+```go
 func UpdateExpire(ctx context.Context, key interface{}, duration time.Duration) (oldDuration time.Duration, err error)
 ```
 
 UpdateExpire updates the expiration of `key` and returns the old expiration duration value.
 
+​	UpdateExpire 更新过 `key` 期时间并返回旧的过期持续时间值。
+
 It returns -1 and does nothing if the `key` does not exist in the cache. It deletes the `key` if `duration` < 0.
 
-##### func Values 
+​	它返回 -1，如果缓存中不存在， `key` 则不执行任何操作。它删除了 `key` if `duration` < 0。
 
-``` go
+#### func Values
+
+```go
 func Values(ctx context.Context) ([]interface{}, error)
 ```
 
 Values returns all values in the cache as slice.
 
-### Types 
+​	Values 将缓存中的所有值作为切片返回。
 
-#### type Adapter 
+## 类型
 
-``` go
+### type Adapter
+
+```go
 type Adapter interface {
 	// Set sets cache with `key`-`value` pair, which is expired after `duration`.
 	//
@@ -440,27 +534,35 @@ type Adapter interface {
 
 Adapter is the core adapter for cache features implements.
 
+​	适配器是缓存功能实现的核心适配器。
+
 Note that the implementer itself should guarantee the concurrent safety of these functions.
 
-##### func NewAdapterMemory 
+​	请注意，实现者本身应保证这些功能的并发安全性。
 
-``` go
+#### func NewAdapterMemory
+
+```go
 func NewAdapterMemory(lruCap ...int) Adapter
 ```
 
 NewAdapterMemory creates and returns a new memory cache object.
 
-##### func NewAdapterRedis 
+​	NewAdapterMemory 创建并返回新的内存缓存对象。
 
-``` go
+#### func NewAdapterRedis
+
+```go
 func NewAdapterRedis(redis *gredis.Redis) Adapter
 ```
 
 NewAdapterRedis creates and returns a new memory cache object.
 
-#### type AdapterMemory 
+​	NewAdapterRedis 创建并返回新的内存缓存对象。
 
-``` go
+### type AdapterMemory
+
+```go
 type AdapterMemory struct {
 	// contains filtered or unexported fields
 }
@@ -468,197 +570,267 @@ type AdapterMemory struct {
 
 AdapterMemory is an adapter implements using memory.
 
-##### (*AdapterMemory) Clear 
+​	AdapterMemory 是使用内存实现的适配器。
 
-``` go
+#### (*AdapterMemory) Clear
+
+```go
 func (c *AdapterMemory) Clear(ctx context.Context) error
 ```
 
 Clear clears all data of the cache. Note that this function is sensitive and should be carefully used.
 
-##### (*AdapterMemory) Close 
+​	清除缓存中的所有数据。请注意，此功能很敏感，应谨慎使用。
 
-``` go
+#### (*AdapterMemory) Close
+
+```go
 func (c *AdapterMemory) Close(ctx context.Context) error
 ```
 
 Close closes the cache.
 
-##### (*AdapterMemory) Contains 
+​	关闭 关闭缓存。
 
-``` go
+#### (*AdapterMemory) Contains
+
+```go
 func (c *AdapterMemory) Contains(ctx context.Context, key interface{}) (bool, error)
 ```
 
 Contains checks and returns true if `key` exists in the cache, or else returns false.
 
-##### (*AdapterMemory) Data 
+​	包含检查并返回 true（如果 `key` 缓存中存在），否则返回 false。
 
-``` go
+#### (*AdapterMemory) Data
+
+```go
 func (c *AdapterMemory) Data(ctx context.Context) (map[interface{}]interface{}, error)
 ```
 
 Data returns a copy of all key-value pairs in the cache as map type.
 
-##### (*AdapterMemory) Get 
+​	数据以映射类型返回缓存中所有键值对的副本。
 
-``` go
+#### (*AdapterMemory) Get
+
+```go
 func (c *AdapterMemory) Get(ctx context.Context, key interface{}) (*gvar.Var, error)
 ```
 
-Get retrieves and returns the associated value of given `key`. It returns nil if it does not exist, or its value is nil, or it's expired. If you would like to check if the `key` exists in the cache, it's better using function Contains.
+Get retrieves and returns the associated value of given `key`. It returns nil if it does not exist, or its value is nil, or it’s expired. If you would like to check if the `key` exists in the cache, it’s better using function Contains.
 
-##### (*AdapterMemory) GetExpire 
+​	Get 检索并返回给定 `key` 的关联值。如果它不存在，或者它的值为 nil，或者它已过期，则返回 nil。如果您想检查缓存中是否存在， `key` 最好使用函数 Contains。
 
-``` go
+#### (*AdapterMemory) GetExpire
+
+```go
 func (c *AdapterMemory) GetExpire(ctx context.Context, key interface{}) (time.Duration, error)
 ```
 
 GetExpire retrieves and returns the expiration of `key` in the cache.
 
+​	GetExpire 检索并返回缓存中的过 `key` 期时间。
+
 Note that, It returns 0 if the `key` does not expire. It returns -1 if the `key` does not exist in the cache.
 
-##### (*AdapterMemory) GetOrSet 
+​	请注意，如果 不 `key` 过期，则返回 0。如果缓存中不存在， `key` 则返回 -1。
 
-``` go
+#### (*AdapterMemory) GetOrSet
+
+```go
 func (c *AdapterMemory) GetOrSet(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSet retrieves and returns the value of `key`, or sets `key`-`value` pair and returns `value` if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSet 检索并返回 的 `key` 值，或者 sets `key` - `value` pair 的值，如果 `key` 缓存中不存在则返回 `value` 。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### (*AdapterMemory) GetOrSetFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### (*AdapterMemory) GetOrSetFunc
+
+```go
 func (c *AdapterMemory) GetOrSetFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSetFunc retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFunc 检索并返回 `key` 的值，或具有函数 `f` 结果的集合 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### (*AdapterMemory) GetOrSetFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### (*AdapterMemory) GetOrSetFuncLock
+
+```go
 func (c *AdapterMemory) GetOrSetFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (*gvar.Var, error)
 ```
 
 GetOrSetFuncLock retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFuncLock 检索并返回 `key` 的值，或使用 result of 函数 `f` 进行设置 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
 Note that it differs from function `GetOrSetFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### (*AdapterMemory) Keys 
+​	请注意，它与函数 `GetOrSetFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### (*AdapterMemory) Keys
+
+```go
 func (c *AdapterMemory) Keys(ctx context.Context) ([]interface{}, error)
 ```
 
 Keys returns all keys in the cache as slice.
 
-##### (*AdapterMemory) Remove 
+​	Keys 将缓存中的所有键作为切片返回。
 
-``` go
+#### (*AdapterMemory) Remove
+
+```go
 func (c *AdapterMemory) Remove(ctx context.Context, keys ...interface{}) (*gvar.Var, error)
 ```
 
 Remove deletes one or more keys from cache, and returns its value. If multiple keys are given, it returns the value of the last deleted item.
 
-##### (*AdapterMemory) Set 
+​	Remove 从缓存中删除一个或多个键，并返回其值。如果给定了多个键，则返回上次删除的项目的值。
 
-``` go
+#### (*AdapterMemory) Set
+
+```go
 func (c *AdapterMemory) Set(ctx context.Context, key interface{}, value interface{}, duration time.Duration) error
 ```
 
 Set sets cache with `key`-`value` pair, which is expired after `duration`.
 
+​	设置 cache with `key` - `value` pair，在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterMemory) SetIfNotExist 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### (*AdapterMemory) SetIfNotExist
+
+```go
 func (c *AdapterMemory) SetIfNotExist(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExist sets cache with `key`-`value` pair which is expired after `duration` if `key` does not exist in the cache. It returns true the `key` does not exist in the cache, and it sets `value` successfully to the cache, or else it returns false.
 
+​	SetIfNotExist 将缓存设置为 `key` - 对，如果缓存中不存在，则在 `duration` if `key` `value` 之后过期。它返回 true the `key` does not exist in the cache，并成功设置为 `value` 缓存，否则返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterMemory) SetIfNotExistFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### (*AdapterMemory) SetIfNotExistFunc
+
+```go
 func (c *AdapterMemory) SetIfNotExistFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExistFunc sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFunc 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果 `key` 已存在，则返回 false。
+
 The parameter `value` can be type of `func() interface{}`, but it does nothing if its result is nil.
+
+​	参数 `value` 的类型可以是 `func() interface{}` ，但如果其结果为 nil，则不执行任何操作。
 
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterMemory) SetIfNotExistFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### (*AdapterMemory) SetIfNotExistFuncLock
+
+```go
 func (c *AdapterMemory) SetIfNotExistFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExistFuncLock sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFuncLock 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果已存在，则 `key` 返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
 Note that it differs from function `SetIfNotExistFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### (*AdapterMemory) SetMap 
+​	请注意，它与函数 `SetIfNotExistFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### (*AdapterMemory) SetMap
+
+```go
 func (c *AdapterMemory) SetMap(ctx context.Context, data map[interface{}]interface{}, duration time.Duration) error
 ```
 
 SetMap batch sets cache with key-value pairs by `data` map, which is expired after `duration`.
 
+​	SetMap 按 `data` map 批量设置键值对缓存，该缓存在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterMemory) Size 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### (*AdapterMemory) Size
+
+```go
 func (c *AdapterMemory) Size(ctx context.Context) (size int, err error)
 ```
 
 Size returns the size of the cache.
 
-##### (*AdapterMemory) Update 
+​	Size 返回缓存的大小。
 
-``` go
+#### (*AdapterMemory) Update
+
+```go
 func (c *AdapterMemory) Update(ctx context.Context, key interface{}, value interface{}) (oldValue *gvar.Var, exist bool, err error)
 ```
 
 Update updates the value of `key` without changing its expiration and returns the old value. The returned value `exist` is false if the `key` does not exist in the cache.
 
+​	Update 在不更改其过期时间的情况下更新 的 `key` 值，并返回旧值。如果缓存中不存在， `key` 则返回的值 `exist` 为 false。
+
 It deletes the `key` if given `value` is nil. It does nothing if `key` does not exist in the cache.
 
-##### (*AdapterMemory) UpdateExpire 
+​	它删除了 `key` if given `value` is nil。如果 `key` 缓存中不存在，则它不执行任何操作。
 
-``` go
+#### (*AdapterMemory) UpdateExpire
+
+```go
 func (c *AdapterMemory) UpdateExpire(ctx context.Context, key interface{}, duration time.Duration) (oldDuration time.Duration, err error)
 ```
 
 UpdateExpire updates the expiration of `key` and returns the old expiration duration value.
 
+​	UpdateExpire 更新过 `key` 期时间并返回旧的过期持续时间值。
+
 It returns -1 and does nothing if the `key` does not exist in the cache. It deletes the `key` if `duration` < 0.
 
-##### (*AdapterMemory) Values 
+​	它返回 -1，如果缓存中不存在， `key` 则不执行任何操作。它删除了 `key` if `duration` < 0。
 
-``` go
+#### (*AdapterMemory) Values
+
+```go
 func (c *AdapterMemory) Values(ctx context.Context) ([]interface{}, error)
 ```
 
 Values returns all values in the cache as slice.
 
-#### type AdapterRedis 
+​	Values 将缓存中的所有值作为切片返回。
 
-``` go
+### type AdapterRedis
+
+```go
 type AdapterRedis struct {
 	// contains filtered or unexported fields
 }
@@ -666,197 +838,267 @@ type AdapterRedis struct {
 
 AdapterRedis is the gcache adapter implements using Redis server.
 
-##### (*AdapterRedis) Clear 
+​	AdapterRedis 是使用 Redis 服务器实现的 gcache 适配器。
 
-``` go
+#### (*AdapterRedis) Clear
+
+```go
 func (c *AdapterRedis) Clear(ctx context.Context) (err error)
 ```
 
 Clear clears all data of the cache. Note that this function is sensitive and should be carefully used. It uses `FLUSHDB` command in redis server, which might be disabled in server.
 
-##### (*AdapterRedis) Close 
+​	清除缓存中的所有数据。请注意，此功能很敏感，应谨慎使用。它在 redis 服务器中使用 `FLUSHDB` 命令，该命令可能在服务器中被禁用。
 
-``` go
+#### (*AdapterRedis) Close
+
+```go
 func (c *AdapterRedis) Close(ctx context.Context) error
 ```
 
 Close closes the cache.
 
-##### (*AdapterRedis) Contains 
+​	关闭 关闭缓存。
 
-``` go
+#### (*AdapterRedis) Contains
+
+```go
 func (c *AdapterRedis) Contains(ctx context.Context, key interface{}) (bool, error)
 ```
 
 Contains checks and returns true if `key` exists in the cache, or else returns false.
 
-##### (*AdapterRedis) Data 
+​	包含检查并返回 true（如果 `key` 缓存中存在），否则返回 false。
 
-``` go
+#### (*AdapterRedis) Data
+
+```go
 func (c *AdapterRedis) Data(ctx context.Context) (map[interface{}]interface{}, error)
 ```
 
 Data returns a copy of all key-value pairs in the cache as map type. Note that this function may lead lots of memory usage, you can implement this function if necessary.
 
-##### (*AdapterRedis) Get 
+​	数据以映射类型返回缓存中所有键值对的副本。请注意，此函数可能会导致大量内存使用，如有必要，可以实现此函数。
 
-``` go
+#### (*AdapterRedis) Get
+
+```go
 func (c *AdapterRedis) Get(ctx context.Context, key interface{}) (*gvar.Var, error)
 ```
 
-Get retrieves and returns the associated value of given <key>. It returns nil if it does not exist or its value is nil.
+Get retrieves and returns the associated value of given . It returns nil if it does not exist or its value is nil.
 
-##### (*AdapterRedis) GetExpire 
+​	Get 检索并返回给定的关联值。如果它不存在或其值为 nil，则返回 nil。
 
-``` go
+#### (*AdapterRedis) GetExpire
+
+```go
 func (c *AdapterRedis) GetExpire(ctx context.Context, key interface{}) (time.Duration, error)
 ```
 
 GetExpire retrieves and returns the expiration of `key` in the cache.
 
+​	GetExpire 检索并返回缓存中的过 `key` 期时间。
+
 Note that, It returns 0 if the `key` does not expire. It returns -1 if the `key` does not exist in the cache.
 
-##### (*AdapterRedis) GetOrSet 
+​	请注意，如果 不 `key` 过期，则返回 0。如果缓存中不存在， `key` 则返回 -1。
 
-``` go
+#### (*AdapterRedis) GetOrSet
+
+```go
 func (c *AdapterRedis) GetOrSet(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (result *gvar.Var, err error)
 ```
 
 GetOrSet retrieves and returns the value of `key`, or sets `key`-`value` pair and returns `value` if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSet 检索并返回 的 `key` 值，或者 sets `key` - `value` pair 的值，如果 `key` 缓存中不存在则返回 `value` 。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### (*AdapterRedis) GetOrSetFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### (*AdapterRedis) GetOrSetFunc
+
+```go
 func (c *AdapterRedis) GetOrSetFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (result *gvar.Var, err error)
 ```
 
 GetOrSetFunc retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFunc 检索并返回 `key` 的值，或具有函数 `f` 结果的集合 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
 
-##### (*AdapterRedis) GetOrSetFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
-``` go
+#### (*AdapterRedis) GetOrSetFuncLock
+
+```go
 func (c *AdapterRedis) GetOrSetFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (result *gvar.Var, err error)
 ```
 
 GetOrSetFuncLock retrieves and returns the value of `key`, or sets `key` with result of function `f` and returns its result if `key` does not exist in the cache. The key-value pair expires after `duration`.
 
+​	GetOrSetFuncLock 检索并返回 `key` 的值，或使用 result of 函数 `f` 进行设置 `key` ，如果 `key` 缓存中不存在，则返回其结果。键值对在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil, but it does nothing if `value` is a function and the function result is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil，但如果 `value` 是一个函数并且函数结果为 nil，则它不执行任何操作。
 
 Note that it differs from function `GetOrSetFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### (*AdapterRedis) Keys 
+​	请注意，它与函数 `GetOrSetFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### (*AdapterRedis) Keys
+
+```go
 func (c *AdapterRedis) Keys(ctx context.Context) ([]interface{}, error)
 ```
 
 Keys returns all keys in the cache as slice.
 
-##### (*AdapterRedis) Remove 
+​	Keys 将缓存中的所有键作为切片返回。
 
-``` go
+#### (*AdapterRedis) Remove
+
+```go
 func (c *AdapterRedis) Remove(ctx context.Context, keys ...interface{}) (lastValue *gvar.Var, err error)
 ```
 
 Remove deletes the one or more keys from cache, and returns its value. If multiple keys are given, it returns the value of the deleted last item.
 
-##### (*AdapterRedis) Set 
+​	Remove 从缓存中删除一个或多个键，并返回其值。如果给定了多个键，则返回已删除最后一项的值。
 
-``` go
+#### (*AdapterRedis) Set
+
+```go
 func (c *AdapterRedis) Set(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (err error)
 ```
 
 Set sets cache with `key`-`value` pair, which is expired after `duration`.
 
+​	设置 cache with `key` - `value` pair，在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterRedis) SetIfNotExist 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### (*AdapterRedis) SetIfNotExist
+
+```go
 func (c *AdapterRedis) SetIfNotExist(ctx context.Context, key interface{}, value interface{}, duration time.Duration) (bool, error)
 ```
 
 SetIfNotExist sets cache with `key`-`value` pair which is expired after `duration` if `key` does not exist in the cache. It returns true the `key` does not exist in the cache, and it sets `value` successfully to the cache, or else it returns false.
 
+​	SetIfNotExist 将缓存设置为 `key` - 对，如果缓存中不存在，则在 `duration` if `key` `value` 之后过期。它返回 true the `key` does not exist in the cache，并成功设置为 `value` 缓存，否则返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterRedis) SetIfNotExistFunc 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### (*AdapterRedis) SetIfNotExistFunc
+
+```go
 func (c *AdapterRedis) SetIfNotExistFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) (ok bool, err error)
 ```
 
 SetIfNotExistFunc sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFunc 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果 `key` 已存在，则返回 false。
+
 The parameter `value` can be type of `func() interface{}`, but it does nothing if its result is nil.
+
+​	参数 `value` 的类型可以是 `func() interface{}` ，但如果其结果为 nil，则不执行任何操作。
 
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterRedis) SetIfNotExistFuncLock 
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
-``` go
+#### (*AdapterRedis) SetIfNotExistFuncLock
+
+```go
 func (c *AdapterRedis) SetIfNotExistFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) (ok bool, err error)
 ```
 
 SetIfNotExistFuncLock sets `key` with result of function `f` and returns true if `key` does not exist in the cache, or else it does nothing and returns false if `key` already exists.
 
+​	SetIfNotExistFuncLock 设置 `key` 函数 `f` 的结果，如果 `key` 缓存中不存在，则返回 true，否则不执行任何操作，如果已存在，则 `key` 返回 false。
+
 It does not expire if `duration` == 0. It deletes the `key` if `duration` < 0 or given `value` is nil.
+
+​	如果 `duration` == 0，它不会过期。 `key` 它删除了 if `duration` < 0 或 given `value` 为 nil。
 
 Note that it differs from function `SetIfNotExistFunc` is that the function `f` is executed within writing mutex lock for concurrent safety purpose.
 
-##### (*AdapterRedis) SetMap 
+​	请注意，它与函数 `SetIfNotExistFunc` 的不同之处在于，出于并发安全目的，该函数 `f` 是在写入互斥锁的情况下执行的。
 
-``` go
+#### (*AdapterRedis) SetMap
+
+```go
 func (c *AdapterRedis) SetMap(ctx context.Context, data map[interface{}]interface{}, duration time.Duration) error
 ```
 
 SetMap batch sets cache with key-value pairs by `data` map, which is expired after `duration`.
 
+​	SetMap 按 `data` map 批量设置键值对缓存，该缓存在 `duration` 之后过期。
+
 It does not expire if `duration` == 0. It deletes the keys of `data` if `duration` < 0 or given `value` is nil.
 
-##### (*AdapterRedis) Size 
+​	如果 `duration` == 0，它不会过期。 `data` 如果 `duration` < 0 或给定 `value` 为 nil，则删除键。
 
-``` go
+#### (*AdapterRedis) Size
+
+```go
 func (c *AdapterRedis) Size(ctx context.Context) (size int, err error)
 ```
 
 Size returns the number of items in the cache.
 
-##### (*AdapterRedis) Update 
+​	Size 返回缓存中的项数。
 
-``` go
+#### (*AdapterRedis) Update
+
+```go
 func (c *AdapterRedis) Update(ctx context.Context, key interface{}, value interface{}) (oldValue *gvar.Var, exist bool, err error)
 ```
 
 Update updates the value of `key` without changing its expiration and returns the old value. The returned value `exist` is false if the `key` does not exist in the cache.
 
+​	Update 在不更改其过期时间的情况下更新 的 `key` 值，并返回旧值。如果缓存中不存在， `key` 则返回的值 `exist` 为 false。
+
 It deletes the `key` if given `value` is nil. It does nothing if `key` does not exist in the cache.
 
-##### (*AdapterRedis) UpdateExpire 
+​	它删除了 `key` if given `value` is nil。如果 `key` 缓存中不存在，则它不执行任何操作。
 
-``` go
+#### (*AdapterRedis) UpdateExpire
+
+```go
 func (c *AdapterRedis) UpdateExpire(ctx context.Context, key interface{}, duration time.Duration) (oldDuration time.Duration, err error)
 ```
 
 UpdateExpire updates the expiration of `key` and returns the old expiration duration value.
 
+​	UpdateExpire 更新过 `key` 期时间并返回旧的过期持续时间值。
+
 It returns -1 and does nothing if the `key` does not exist in the cache. It deletes the `key` if `duration` < 0.
 
-##### (*AdapterRedis) Values 
+​	它返回 -1，如果缓存中不存在， `key` 则不执行任何操作。它删除了 `key` if `duration` < 0。
 
-``` go
+#### (*AdapterRedis) Values
+
+```go
 func (c *AdapterRedis) Values(ctx context.Context) ([]interface{}, error)
 ```
 
 Values returns all values in the cache as slice.
 
-#### type Cache 
+​	Values 将缓存中的所有值作为切片返回。
 
-``` go
+### type Cache
+
+```go
 type Cache struct {
 	// contains filtered or unexported fields
 }
@@ -864,210 +1106,264 @@ type Cache struct {
 
 Cache struct.
 
-##### func New 
+​	缓存结构。
 
-``` go
+#### func New
+
+```go
 func New(lruCap ...int) *Cache
 ```
 
 New creates and returns a new cache object using default memory adapter. Note that the LRU feature is only available using memory adapter.
 
+​	new 使用默认内存适配器创建并返回新的缓存对象。请注意，LRU 功能仅适用于内存适配器。
+
 ##### Example
 
 ``` go
 ```
-##### func NewWithAdapter 
 
-``` go
+#### func NewWithAdapter
+
+```go
 func NewWithAdapter(adapter Adapter) *Cache
 ```
 
 NewWithAdapter creates and returns a Cache object with given Adapter implements.
 
-##### (*Cache) GetAdapter 
+​	NewWithAdapter 创建并返回具有给定 Adapter 实现的 Cache 对象。
 
-``` go
+#### (*Cache) GetAdapter
+
+```go
 func (c *Cache) GetAdapter() Adapter
 ```
 
 GetAdapter returns the adapter that is set in current Cache.
 
+​	GetAdapter 返回在当前缓存中设置的适配器。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) KeyStrings 
 
-``` go
+#### (*Cache) KeyStrings
+
+```go
 func (c *Cache) KeyStrings(ctx context.Context) ([]string, error)
 ```
 
 KeyStrings returns all keys in the cache as string slice.
 
+​	KeyStrings 将缓存中的所有键作为字符串切片返回。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustContains 
 
-``` go
+#### (*Cache) MustContains
+
+```go
 func (c *Cache) MustContains(ctx context.Context, key interface{}) bool
 ```
 
 MustContains acts like Contains, but it panics if any error occurs.
 
+​	MustContains 的行为类似于 Contains，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustData 
 
-``` go
+#### (*Cache) MustData
+
+```go
 func (c *Cache) MustData(ctx context.Context) map[interface{}]interface{}
 ```
 
 MustData acts like Data, but it panics if any error occurs.
 
+​	MustData 的行为类似于 Data，但如果发生任何错误，它就会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustGet 
 
-``` go
+#### (*Cache) MustGet
+
+```go
 func (c *Cache) MustGet(ctx context.Context, key interface{}) *gvar.Var
 ```
 
 MustGet acts like Get, but it panics if any error occurs.
 
+​	MustGet 的行为类似于 Get，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustGetExpire 
 
-``` go
+#### (*Cache) MustGetExpire
+
+```go
 func (c *Cache) MustGetExpire(ctx context.Context, key interface{}) time.Duration
 ```
 
 MustGetExpire acts like GetExpire, but it panics if any error occurs.
 
+​	MustGetExpire 的行为类似于 GetExpire，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustGetOrSet 
 
-``` go
+#### (*Cache) MustGetOrSet
+
+```go
 func (c *Cache) MustGetOrSet(ctx context.Context, key interface{}, value interface{}, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSet acts like GetOrSet, but it panics if any error occurs.
 
+​	MustGetOrSet 的行为类似于 GetOrSet，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustGetOrSetFunc 
 
-``` go
+#### (*Cache) MustGetOrSetFunc
+
+```go
 func (c *Cache) MustGetOrSetFunc(ctx context.Context, key interface{}, f Func, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSetFunc acts like GetOrSetFunc, but it panics if any error occurs.
 
+​	MustGetOrSetFunc 的行为类似于 GetOrSetFunc，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustGetOrSetFuncLock 
 
-``` go
+#### (*Cache) MustGetOrSetFuncLock
+
+```go
 func (c *Cache) MustGetOrSetFuncLock(ctx context.Context, key interface{}, f Func, duration time.Duration) *gvar.Var
 ```
 
 MustGetOrSetFuncLock acts like GetOrSetFuncLock, but it panics if any error occurs.
 
+​	MustGetOrSetFuncLock 的行为类似于 GetOrSetFuncLock，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustKeyStrings 
 
-``` go
+#### (*Cache) MustKeyStrings
+
+```go
 func (c *Cache) MustKeyStrings(ctx context.Context) []string
 ```
 
 MustKeyStrings acts like KeyStrings, but it panics if any error occurs.
 
+​	MustKeyStrings 的行为类似于 KeyStrings，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustKeys 
 
-``` go
+#### (*Cache) MustKeys
+
+```go
 func (c *Cache) MustKeys(ctx context.Context) []interface{}
 ```
 
 MustKeys acts like Keys, but it panics if any error occurs.
 
+​	MustKeys 的行为类似于 Keys，但如果发生任何错误，它会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustSize 
 
-``` go
+#### (*Cache) MustSize
+
+```go
 func (c *Cache) MustSize(ctx context.Context) int
 ```
 
 MustSize acts like Size, but it panics if any error occurs.
 
+​	MustSize 的作用类似于 Size，但如果发生任何错误，它就会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) MustValues 
 
-``` go
+#### (*Cache) MustValues
+
+```go
 func (c *Cache) MustValues(ctx context.Context) []interface{}
 ```
 
 MustValues acts like Values, but it panics if any error occurs.
 
+​	MustValues 的作用类似于 Values，但如果发生任何错误，它就会崩溃。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) Removes 
 
-``` go
+#### (*Cache) Removes
+
+```go
 func (c *Cache) Removes(ctx context.Context, keys []interface{}) error
 ```
 
 Removes deletes `keys` in the cache.
 
+​	删除缓存 `keys` 中的删除内容。
+
 ##### Example
 
 ``` go
 ```
-##### (*Cache) SetAdapter 
 
-``` go
+#### (*Cache) SetAdapter
+
+```go
 func (c *Cache) SetAdapter(adapter Adapter)
 ```
 
 SetAdapter changes the adapter for this cache. Be very note that, this setting function is not concurrent-safe, which means you should not call this setting function concurrently in multiple goroutines.
 
+​	SetAdapter 更改此缓存的适配器。需要注意的是，此设置函数不是并发安全的，这意味着您不应该在多个 goroutine 中并发调用此设置函数。
+
 ##### Example
 
 ``` go
 ```
-#### type Func 
 
-``` go
+### type Func
+
+```go
 type Func func(ctx context.Context) (value interface{}, err error)
 ```
 
 Func is the cache function that calculates and returns the value.
+
+​	Func 是计算并返回值的缓存函数。

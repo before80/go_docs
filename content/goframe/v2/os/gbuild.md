@@ -9,15 +9,17 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gbuild
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gbuild](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/os/gbuild)
 
-Package gbuild manages the build-in variables from "gf build".
+Package gbuild manages the build-in variables from “gf build”.
 
-### Constants 
+​	软件包 gbuild 管理来自 “gf build” 的内置变量。
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/os/gbuild/gbuild.go#L31)
 
-``` go
+```go
 const (
 	BuiltGit     = `builtGit`
 	BuiltTime    = `builtTime`
@@ -25,33 +27,37 @@ const (
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Data 
+#### func Data
 
-``` go
+```go
 func Data() map[string]interface{}
 ```
 
 Data returns the custom build-in variables as map.
 
-##### func Get 
+​	数据以 map 的形式返回自定义内置变量。
 
-``` go
+#### func Get
+
+```go
 func Get(name string, def ...interface{}) *gvar.Var
 ```
 
 Get retrieves and returns the build-in binary variable with given name.
 
-### Types 
+​	Get 检索并返回具有给定名称的内置二进制变量。
 
-#### type BuildInfo 
+## 类型
 
-``` go
+### type BuildInfo
+
+```go
 type BuildInfo struct {
 	GoFrame string                 // Built used GoFrame version.
 	Golang  string                 // Built used Golang version.
@@ -64,10 +70,14 @@ type BuildInfo struct {
 
 BuildInfo maintains the built info of current binary.
 
-##### func Info 
+​	BuildInfo 维护当前二进制文件的构建信息。
 
-``` go
+#### func Info
+
+```go
 func Info() BuildInfo
 ```
 
-Info returns the basic built information of the binary as map. Note that it should be used with gf-cli tool "gf build", which automatically injects necessary information into the binary.
+Info returns the basic built information of the binary as map. Note that it should be used with gf-cli tool “gf build”, which automatically injects necessary information into the binary.
+
+​	Info 以 map 的形式返回二进制文件的基本构建信息。请注意，它应该与 gf-cli 工具“gf build”一起使用，它会自动将必要的信息注入到二进制文件中。

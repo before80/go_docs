@@ -13,7 +13,7 @@ draft = false
 
 ## Overview 概述
 
-- [API Implementations - API 实现](https://pkg.go.dev/go.opentelemetry.io/otel/trace#hdr-API_Implementations)
+- [API Implementations - API 实现]({{< ref "/thirdPkg/otel-trace/trace_docs#api-实现">}})
 
 Package trace provides an implementation of the tracing part of the OpenTelemetry API.
 
@@ -90,7 +90,7 @@ All interfaces in this API embed a corresponding interface from [go.opentelemetr
 
 ​	此 API 中的所有接口都嵌入了 go.opentelemetry.io/otel/trace/embedded 中的相应接口。如果作者希望其实现的默认行为是编译失败，向用户发出他们需要更新到该实现的最新版本的信号，则需要在其实现中嵌入 go.opentelemetry.io/otel/trace/embedded 相应的接口。例如
 
-```
+```go
 import "go.opentelemetry.io/otel/trace/embedded"
 
 type TracerProvider struct {
@@ -103,7 +103,7 @@ If an author wants the default behavior of their implementations to panic, they 
 
 ​	如果作者希望其实现的默认行为出现恐慌，他们可以直接嵌入 API 接口。
 
-```
+```go
 import "go.opentelemetry.io/otel/trace"
 
 type TracerProvider struct {
@@ -120,7 +120,7 @@ Finally, an author can embed another implementation in theirs. The embedded impl
 
 ​	最后，作者可以在他们的实现中嵌入另一个实现。嵌入式实现将用于作者未定义的方法。例如，想要默认为静默挂断调用的作者可以使用 go.opentelemetry.io/otel/trace/noop：
 
-```
+```go
 import "go.opentelemetry.io/otel/trace/noop"
 
 type TracerProvider struct {
@@ -133,10 +133,9 @@ It is strongly recommended that authors only embed [go.opentelemetry.io/otel/tra
 
 ​	强烈建议作者仅在选择此默认行为时才嵌入 go.opentelemetry.io/otel/trace/noop。该实现是 OpenTelemetry 作者唯一可以保证在用户更新其 API 时完全实现所有 API 接口的实现。
 
-## Constants
+## 常量
 
-[View Source
-查看源代码](https://github.com/open-telemetry/opentelemetry-go/blob/trace/v1.24.0/trace/trace.go#L28)
+[View Source](https://github.com/open-telemetry/opentelemetry-go/blob/trace/v1.24.0/trace/trace.go#L28)
 
 ```go
 const (
@@ -146,11 +145,11 @@ const (
 )
 ```
 
-## Variables
+## 变量
 
 This section is empty.
 
-## Functions
+## 函数
 
 #### func ContextWithRemoteSpanContext
 
@@ -184,7 +183,7 @@ ContextWithSpanContext returns a copy of parent with sc as the current Span. The
 
 ## Types
 
-#### type EventConfig <- 1.0.0
+### type EventConfig <- 1.0.0
 
 ```go
 type EventConfig struct {
@@ -236,7 +235,7 @@ Timestamp is a time in an Event life-cycle.
 
 ​	时间戳是事件生命周期中的时间。
 
-#### type EventOption 
+### type EventOption 
 
 ```go
 type EventOption interface {
@@ -248,7 +247,7 @@ EventOption applies span event options to an EventConfig.
 
 ​	EventOption 将 span 事件选项应用于 EventConfig。
 
-#### type Link 
+### type Link 
 
 ```go
 type Link struct {
@@ -283,7 +282,7 @@ LinkFromContext returns a link encapsulating the SpanContext in the provided ctx
 
 ​	LinkFromContext 返回一个链接，该链接将 SpanContext 封装在提供的 ctx 中。
 
-#### type Span 
+### type Span 
 
 ```go
 type Span interface {
@@ -343,7 +342,7 @@ Warning: Methods may be added to this interface in minor releases. See package d
 
 ​	警告：在次要版本中，可能会将方法添加到此接口。有关如何为未实现的方法设置默认行为的信息，请参阅有关 API 实现的包文档。
 
-#### func SpanFromContext func SpanFromContext 函数
+#### func SpanFromContext
 
 ```go
 func SpanFromContext(ctx context.Context) Span
@@ -357,7 +356,7 @@ If no Span is currently set in ctx an implementation of a Span that performs no 
 
 ​	如果当前未在 ctx 中设置 Span，则返回不执行任何操作的 Span 实现。
 
-#### type SpanConfig 
+### type SpanConfig 
 
 ```go
 type SpanConfig struct {
@@ -429,7 +428,7 @@ SpanKind is the role a Span has in a trace.
 
 ​	SpanKind 是 Span 在跟踪中的角色。
 
-#### (*SpanConfig) StackTrace <- 1.0.0 （*Span配置）堆栈跟踪 <- 1.0.0
+#### (*SpanConfig) StackTrace <- 1.0.0
 
 ```go
 func (cfg *SpanConfig) StackTrace() bool
@@ -439,7 +438,7 @@ StackTrace checks whether stack trace capturing is enabled.
 
 ​	StackTrace 检查是否启用了堆栈跟踪捕获。
 
-#### (*SpanConfig) Timestamp （*Span配置）时间戳
+#### (*SpanConfig) Timestamp
 
 ```go
 func (cfg *SpanConfig) Timestamp() time.Time
@@ -449,7 +448,7 @@ Timestamp is a time in a Span life-cycle.
 
 ​	时间戳是 Span 生命周期中的时间。
 
-#### type SpanContext
+### type SpanContext
 
 ```go
 type SpanContext struct {
@@ -641,7 +640,7 @@ WithTraceState returns a new SpanContext with the TraceState replaced.
 
 ​	WithTraceState 返回替换了 TraceState 的新 SpanContext。
 
-#### type SpanContextConfig <- 0.19.0 
+### type SpanContextConfig <- 0.19.0 
 
 ```go
 type SpanContextConfig struct {
@@ -657,7 +656,7 @@ SpanContextConfig contains mutable fields usable for constructing an immutable S
 
 ​	SpanContextConfig 包含可用于构造不可变 SpanContext 的可变字段。
 
-#### type SpanEndEventOption <- 1.0.0 类型 SpanEndEventOption <- 1.0.0
+### type SpanEndEventOption <- 1.0.0
 
 ```go
 type SpanEndEventOption interface {
@@ -680,7 +679,7 @@ WithStackTrace sets the flag to capture the error with stack trace (e.g. true, f
 
 ​	WithStackTrace 设置标志以捕获堆栈跟踪错误（例如 true、false）。
 
-#### type SpanEndOption <- 1.0.0
+### type SpanEndOption <- 1.0.0
 
 ```go
 type SpanEndOption interface {
@@ -692,7 +691,7 @@ SpanEndOption applies an option to a SpanConfig. These options are applicable on
 
 ​	SpanEndOption 将选项应用于 SpanConfig。这些选项仅在跨度结束时适用。
 
-#### type SpanEventOption <- 1.0.0 
+### type SpanEventOption <- 1.0.0 
 
 ```go
 type SpanEventOption interface {
@@ -705,7 +704,7 @@ SpanEventOption are options that can be used with an event or a span.
 
 ​	SpanEventOption 是可用于事件或跨度的选项。
 
-#### func WithTimestamp func WithTimestamp 函数
+#### func WithTimestamp
 
 ```go
 func WithTimestamp(t time.Time) SpanEventOption
@@ -715,7 +714,7 @@ WithTimestamp sets the time of a Span or Event life-cycle moment (e.g. started, 
 
 ​	WithTimestamp 设置跨度或事件生命周期时刻的时间（例如，已启动、已停止、出错）。
 
-#### type SpanID 键入 SpanID
+### type SpanID
 
 ```go
 type SpanID [8]byte
@@ -735,7 +734,7 @@ SpanIDFromHex returns a SpanID from a hex string if it is compliant with the w3c
 
 ​	如果 SpanIDFromHex 符合 w3c 跟踪上下文规范，则从十六进制字符串返回 SpanID。在 https://www.w3.org/TR/trace-context/#parent-id 上查看更多信息
 
-#### (SpanID) IsValid （西班牙语ID）IsValid
+#### (SpanID) IsValid
 
 ```go
 func (s SpanID) IsValid() bool
@@ -745,7 +744,7 @@ IsValid checks whether the SpanID is valid. A valid SpanID does not consist of z
 
 ​	IsValid 检查 SpanID 是否有效。有效的 SpanID 不仅由零组成。
 
-#### (SpanID) MarshalJSON （西班牙语ID）元帅JSON
+#### (SpanID) MarshalJSON
 
 ```go
 func (s SpanID) MarshalJSON() ([]byte, error)
@@ -755,7 +754,7 @@ MarshalJSON implements a custom marshal function to encode SpanID as a hex strin
 
 ​	MarshalJSON 实现自定义封送函数，将 SpanID 编码为十六进制字符串。
 
-#### (SpanID) String （西班牙语ID）字符串
+#### (SpanID) String
 
 ```go
 func (s SpanID) String() string
@@ -765,7 +764,7 @@ String returns the hex string representation form of a SpanID.
 
 ​	String 返回 SpanID 的十六进制字符串表示形式。
 
-#### type SpanKind 类型 SpanKind
+### type SpanKind
 
 ```go
 type SpanKind int
@@ -814,7 +813,7 @@ The unspecified value is not a valid `SpanKind`. Use `ValidateSpanKind()` to coe
 
 ​	未指定的值不是有效的 `SpanKind` 。用于 `ValidateSpanKind()` 强制 span 类型为有效值。
 
-#### func ValidateSpanKind func ValidateSpanKind 函数
+#### func ValidateSpanKind
 
 ```go
 func ValidateSpanKind(spanKind SpanKind) SpanKind
@@ -824,7 +823,7 @@ ValidateSpanKind returns a valid span kind value. This will coerce invalid value
 
 ​	ValidateSpanKind 返回有效的 span kind 值。这会将无效值强制转换为默认值 SpanKindInternal。
 
-#### (SpanKind) String （斯潘金德）字符串
+#### (SpanKind) String
 
 ```go
 func (sk SpanKind) String() string
@@ -834,7 +833,7 @@ String returns the specified name of the SpanKind in lower-case.
 
 ​	String 以小写形式返回 SpanKind 的指定名称。
 
-#### type SpanOption 类型 SpanOption
+### type SpanOption
 
 ```go
 type SpanOption interface {
@@ -847,7 +846,7 @@ SpanOption are options that can be used at both the beginning and end of a span.
 
 ​	SpanOption 是可以在跨度的开始和结束时使用的选项。
 
-#### type SpanStartEventOption <- 1.0.0 类型 SpanStartEventOption <- 1.0.0
+### type SpanStartEventOption <- 1.0.0
 
 ```go
 type SpanStartEventOption interface {
@@ -860,7 +859,7 @@ SpanStartEventOption are options that can be used at the start of a span, or wit
 
 ​	SpanStartEventOption 是可在跨度开始时使用的选项，也可以与事件一起使用。
 
-#### func WithAttributes func WithAttributes 函数
+#### func WithAttributes
 
 ```go
 func WithAttributes(attributes ...attribute.KeyValue) SpanStartEventOption
@@ -874,7 +873,7 @@ If multiple of these options are passed the attributes of each successive option
 
 ​	如果传递了其中多个选项，则每个连续选项的属性将扩展属性，而不是覆盖。无法保证生成的属性的唯一性。
 
-#### type SpanStartOption <- 1.0.0 类型 SpanStartOption <- 1.0.0
+### type SpanStartOption <- 1.0.0
 
 ```go
 type SpanStartOption interface {
@@ -886,7 +885,7 @@ SpanStartOption applies an option to a SpanConfig. These options are applicable 
 
 ​	SpanStartOption 将选项应用于 SpanConfig。这些选项仅在创建跨度时适用。
 
-#### func WithLinks func WithLinks 函数
+#### func WithLinks
 
 ```go
 func WithLinks(links ...Link) SpanStartOption
@@ -896,7 +895,7 @@ WithLinks adds links to a Span. The links are added to the existing Span links, 
 
 ​	WithLinks 将链接添加到 Span。这些链接被添加到现有的 Span 链接中，即这不会覆盖。将忽略具有无效 span 上下文的链接。
 
-#### func WithNewRoot func WithNewRoot 函数
+#### func WithNewRoot
 
 ```go
 func WithNewRoot() SpanStartOption
@@ -916,7 +915,7 @@ WithSpanKind sets the SpanKind of a Span.
 
 ​	WithSpanKind 将 SpanKind 设置为 Span。
 
-#### type TraceFlags <- 0.20.0 类型 TraceFlags <- 0.20.0
+### type TraceFlags <- 0.20.0
 
 ```go
 type TraceFlags byte //nolint:revive // revive complains about stutter of `trace.TraceFlags`.
@@ -926,7 +925,7 @@ TraceFlags contains flags that can be set on a SpanContext.
 
 ​	TraceFlags 包含可在 SpanContext 上设置的标志。
 
-#### (TraceFlags) IsSampled <- 0.20.0 （跟踪标志）IsSampled <- 0.20.0
+#### (TraceFlags) IsSampled <- 0.20.0
 
 ```go
 func (tf TraceFlags) IsSampled() bool
@@ -936,7 +935,7 @@ IsSampled returns if the sampling bit is set in the TraceFlags.
 
 ​	如果在 TraceFlags 中设置了采样位，则返回 IsSampled。
 
-#### (TraceFlags) MarshalJSON <- 0.20.0 （跟踪标志）元帅JSON <- 0.20.0
+#### (TraceFlags) MarshalJSON <- 0.20.0
 
 ```go
 func (tf TraceFlags) MarshalJSON() ([]byte, error)
@@ -946,7 +945,7 @@ MarshalJSON implements a custom marshal function to encode TraceFlags as a hex s
 
 ​	MarshalJSON 实现自定义封送函数，将 TraceFlags 编码为十六进制字符串。
 
-#### (TraceFlags) String <- 0.20.0 （跟踪标志）字符串 <- 0.20.0
+#### (TraceFlags) String <- 0.20.0
 
 ```go
 func (tf TraceFlags) String() string
@@ -956,7 +955,7 @@ String returns the hex string representation form of TraceFlags.
 
 ​	String 返回 TraceFlags 的十六进制字符串表示形式。
 
-#### (TraceFlags) WithSampled <- 0.20.0 （跟踪标志）WithSampled <- 0.20.0
+#### (TraceFlags) WithSampled <- 0.20.0
 
 ```go
 func (tf TraceFlags) WithSampled(sampled bool) TraceFlags
@@ -966,7 +965,7 @@ WithSampled sets the sampling bit in a new copy of the TraceFlags.
 
 ​	WithSampled 在 TraceFlags 的新副本中设置采样位。
 
-#### type TraceID 键入 TraceID
+### type TraceID
 
 ```go
 type TraceID [16]byte
@@ -986,7 +985,7 @@ TraceIDFromHex returns a TraceID from a hex string if it is compliant with the W
 
 ​	如果 TraceIDFromHex 符合 W3C 跟踪上下文规范，则从十六进制字符串返回 TraceID。有关详细信息 https://www.w3.org/TR/trace-context/#trace-id nolint：revive // revive 抱怨口吃。 `trace.TraceIDFromHex`
 
-#### (TraceID) IsValid （跟踪 ID）IsValid
+#### (TraceID) IsValid
 
 ```go
 func (t TraceID) IsValid() bool
@@ -996,7 +995,7 @@ IsValid checks whether the trace TraceID is valid. A valid trace ID does not con
 
 ​	IsValid 检查跟踪 TraceID 是否有效。有效的跟踪 ID 不仅由零组成。
 
-#### (TraceID) MarshalJSON （跟踪 ID）元帅JSON
+#### (TraceID) MarshalJSON
 
 ```go
 func (t TraceID) MarshalJSON() ([]byte, error)
@@ -1006,7 +1005,7 @@ MarshalJSON implements a custom marshal function to encode TraceID as a hex stri
 
 ​	MarshalJSON 实现自定义封送函数，将 TraceID 编码为十六进制字符串。
 
-#### (TraceID) String （跟踪 ID）字符串
+#### (TraceID) String
 
 ```go
 func (t TraceID) String() string
@@ -1016,7 +1015,7 @@ String returns the hex string representation form of a TraceID.
 
 ​	String 返回 TraceID 的十六进制字符串表示形式。
 
-#### type TraceState 类型：TraceState
+### type TraceState
 
 ```go
 type TraceState struct {
@@ -1042,7 +1041,7 @@ ParseTraceState attempts to decode a TraceState from the passed string. It retur
 
 ​	ParseTraceState 尝试从传递的字符串中解码 TraceState。如果根据 W3C 跟踪上下文规范，输入无效，则返回错误。
 
-#### (TraceState) Delete （跟踪状态）删除
+#### (TraceState) Delete
 
 ```go
 func (ts TraceState) Delete(key string) TraceState
@@ -1052,7 +1051,7 @@ Delete returns a copy of the TraceState with the list-member identified by key r
 
 ​	Delete 返回 TraceState 的副本，其中 list-member 由已删除的键标识。
 
-#### (TraceState) Get （跟踪状态）获取
+#### (TraceState) Get
 
 ```go
 func (ts TraceState) Get(key string) string
@@ -1062,7 +1061,7 @@ Get returns the value paired with key from the corresponding TraceState list-mem
 
 ​	Get 返回与相应 TraceState list-member 中的 key 配对的值（如果存在），否则返回空字符串。
 
-#### (TraceState) Insert （跟踪状态）插入
+#### (TraceState) Insert
 
 ```go
 func (ts TraceState) Insert(key, value string) (TraceState, error)
@@ -1080,7 +1079,7 @@ If adding a new list-member means the TraceState would have more members then is
 
 ​	如果添加新的列表成员意味着 TraceState 将具有更多成员，则将插入新的列表成员，并将最右边的列表成员删除到返回的 TraceState 中。
 
-#### (TraceState) Len <- 1.0.0 （跟踪状态）Len <- 1.0.0
+#### (TraceState) Len <- 1.0.0
 
 ```go
 func (ts TraceState) Len() int
@@ -1090,7 +1089,7 @@ Len returns the number of list-members in the TraceState.
 
 ​	Len 返回 TraceState 中的列表成员数。
 
-#### (TraceState) MarshalJSON （跟踪状态）元帅JSON
+#### (TraceState) MarshalJSON
 
 ```go
 func (ts TraceState) MarshalJSON() ([]byte, error)
@@ -1100,7 +1099,7 @@ MarshalJSON marshals the TraceState into JSON.
 
 ​	MarshalJSON 将 TraceState 封送到 JSON 中。
 
-#### (TraceState) String （跟踪状态）字符串
+#### (TraceState) String
 
 ```go
 func (ts TraceState) String() string
@@ -1110,7 +1109,7 @@ String encodes the TraceState into a string compliant with the W3C Trace Context
 
 ​	String 将 TraceState 编码为符合 W3C 跟踪上下文规范的字符串。如果 TraceState 包含任何无效成员，则返回的字符串将无效。
 
-#### type Tracer 类型 Tracer
+### type Tracer
 
 ```go
 type Tracer interface {
@@ -1144,7 +1143,7 @@ Warning: Methods may be added to this interface in minor releases. See package d
 
 ​	警告：在次要版本中，可能会将方法添加到此接口。有关如何为未实现的方法设置默认行为的信息，请参阅有关 API 实现的包文档。
 
-#### type TracerConfig 类型 TracerConfig
+### type TracerConfig
 
 ```go
 type TracerConfig struct {
@@ -1156,7 +1155,7 @@ TracerConfig is a group of options for a Tracer.
 
 ​	TracerConfig 是 Tracer 的一组选项。
 
-#### func NewTracerConfig func NewTracerConfig 函数
+#### func NewTracerConfig
 
 ```go
 func NewTracerConfig(options ...TracerOption) TracerConfig
@@ -1166,7 +1165,7 @@ NewTracerConfig applies all the options to a returned TracerConfig.
 
 ​	NewTracerConfig 将所有选项应用于返回的 TracerConfig。
 
-#### (*TracerConfig) InstrumentationAttributes <- 1.14.0 （*跟踪器配置）InstrumentationAttributes <- 1.14.0
+#### (*TracerConfig) InstrumentationAttributes <- 1.14.0
 
 ```go
 func (t *TracerConfig) InstrumentationAttributes() attribute.Set
@@ -1176,7 +1175,7 @@ InstrumentationAttributes returns the attributes associated with the library pro
 
 ​	InstrumentationAttributes 返回与提供检测的库关联的属性。
 
-#### (*TracerConfig) InstrumentationVersion （*跟踪器配置）InstrumentationVersion
+#### (*TracerConfig) InstrumentationVersion
 
 ```go
 func (t *TracerConfig) InstrumentationVersion() string
@@ -1186,7 +1185,7 @@ InstrumentationVersion returns the version of the library providing instrumentat
 
 ​	InstrumentationVersion 返回提供检测的库的版本。
 
-#### (*TracerConfig) SchemaURL <- 1.0.0 （*跟踪器配置）SchemaURL <- 1.0.0
+#### (*TracerConfig) SchemaURL <- 1.0.0
 
 ```go
 func (t *TracerConfig) SchemaURL() string
@@ -1196,7 +1195,7 @@ SchemaURL returns the Schema URL of the telemetry emitted by the Tracer.
 
 ​	SchemaURL 返回跟踪器发出的遥测数据的架构 URL。
 
-#### type TracerOption 类型 TracerOption
+### type TracerOption
 
 ```go
 type TracerOption interface {
@@ -1222,7 +1221,7 @@ The passed attributes will be de-duplicated.
 
 ​	传递的属性将被删除重复。
 
-#### func WithInstrumentationVersion func WithInstrumentationVersion 函数
+#### func WithInstrumentationVersion
 
 ```go
 func WithInstrumentationVersion(version string) TracerOption
@@ -1242,7 +1241,7 @@ WithSchemaURL sets the schema URL for the Tracer.
 
 ​	WithSchemaURL 设置跟踪器的架构 URL。
 
-#### type TracerProvider 类型 TracerProvider
+### type TracerProvider
 
 ```go
 type TracerProvider interface {

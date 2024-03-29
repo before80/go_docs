@@ -9,117 +9,135 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gdes
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gdes](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gdes)
 
-### Overview 
+### Overview 概述
 
 Package gdes provides useful API for DES encryption/decryption algorithms.
 
-### Constants 
+​	软件包 gdes 为 DES 加密/解密算法提供了有用的 API。
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/crypto/gdes/gdes.go#L19)
 
-``` go
+```go
 const (
 	NOPADDING = iota
 	PKCS5PADDING
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func DecryptCBC 
+#### func DecryptCBC
 
-``` go
+```go
 func DecryptCBC(cipherText []byte, key []byte, iv []byte, padding int) ([]byte, error)
 ```
 
 DecryptCBC decrypts `cipherText` using CBC mode.
 
-##### func DecryptCBCTriple 
+​	DecryptCBC `cipherText` 使用 CBC 模式解密。
 
-``` go
+#### func DecryptCBCTriple
+
+```go
 func DecryptCBCTriple(cipherText []byte, key []byte, iv []byte, padding int) ([]byte, error)
 ```
 
 DecryptCBCTriple decrypts `cipherText` using TripleDES and CBC mode.
 
-##### func DecryptECB 
+​	DecryptCBCTriple `cipherText` 使用 TripleDES 和 CBC 模式进行解密。
 
-``` go
+#### func DecryptECB
+
+```go
 func DecryptECB(cipherText []byte, key []byte, padding int) ([]byte, error)
 ```
 
 DecryptECB decrypts `cipherText` using ECB mode.
 
-##### func DecryptECBTriple 
+​	DecryptECB `cipherText` 使用 ECB 模式解密。
 
-``` go
+#### func DecryptECBTriple
+
+```go
 func DecryptECBTriple(cipherText []byte, key []byte, padding int) ([]byte, error)
 ```
 
 DecryptECBTriple decrypts `cipherText` using TripleDES and ECB mode. The length of the `key` should be either 16 or 24 bytes.
 
-##### func EncryptCBC 
+​	DecryptECBTriple `cipherText` 使用 TripleDES 和 ECB 模式进行解密。的 `key` 长度应为 16 或 24 字节。
 
-``` go
+#### func EncryptCBC
+
+```go
 func EncryptCBC(plainText []byte, key []byte, iv []byte, padding int) ([]byte, error)
 ```
 
 EncryptCBC encrypts `plainText` using CBC mode.
 
-##### func EncryptCBCTriple 
+​	EncryptCBC `plainText` 使用 CBC 模式进行加密。
 
-``` go
+#### func EncryptCBCTriple
+
+```go
 func EncryptCBCTriple(plainText []byte, key []byte, iv []byte, padding int) ([]byte, error)
 ```
 
 EncryptCBCTriple encrypts `plainText` using TripleDES and CBC mode.
 
-##### func EncryptECB 
+​	EncryptCBCTriple `plainText` 使用 TripleDES 和 CBC 模式进行加密。
 
-``` go
+#### func EncryptECB
+
+```go
 func EncryptECB(plainText []byte, key []byte, padding int) ([]byte, error)
 ```
 
 EncryptECB encrypts `plainText` using ECB mode.
 
-##### func EncryptECBTriple 
+​	EncryptECB `plainText` 使用 ECB 模式进行加密。
 
-``` go
+#### func EncryptECBTriple
+
+```go
 func EncryptECBTriple(plainText []byte, key []byte, padding int) ([]byte, error)
 ```
 
 EncryptECBTriple encrypts `plainText` using TripleDES and ECB mode. The length of the `key` should be either 16 or 24 bytes.
 
-##### func Padding 
+​	EncryptECBTriple `plainText` 使用 TripleDES 和 ECB 模式进行加密。的 `key` 长度应为 16 或 24 字节。
 
-``` go
+#### func Padding
+
+```go
 func Padding(text []byte, padding int) ([]byte, error)
 ```
 
-##### func PaddingPKCS5 
+#### func PaddingPKCS5
 
-``` go
+```go
 func PaddingPKCS5(text []byte, blockSize int) []byte
 ```
 
-##### func UnPadding 
+#### func UnPadding
 
-``` go
+```go
 func UnPadding(text []byte, padding int) ([]byte, error)
 ```
 
-##### func UnPaddingPKCS5 
+#### func UnPaddingPKCS5
 
-``` go
+```go
 func UnPaddingPKCS5(text []byte) []byte
 ```
 
-### Types 
+## 类型
 
 This section is empty.

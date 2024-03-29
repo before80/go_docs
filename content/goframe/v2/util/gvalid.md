@@ -9,81 +9,97 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gvalid
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gvalid](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gvalid)
 
 Package gvalid implements powerful and useful data/form validation functionality.
 
-### Constants 
+​	Package gvalid 实现了强大而有用的数据/表单验证功能。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func DeleteRule 
+#### func DeleteRule
 
-``` go
+```go
 func DeleteRule(rules ...string)
 ```
 
 DeleteRule deletes custom defined validation one or more rules and associated functions from global package.
 
-##### func GetRegisteredRuleMap 
+​	DeleteRule 从全局包中删除自定义验证的一个或多个规则和关联函数。
 
-``` go
+#### func GetRegisteredRuleMap
+
+```go
 func GetRegisteredRuleMap() map[string]RuleFunc
 ```
 
 GetRegisteredRuleMap returns all the custom registered rules and associated functions.
 
-##### func GetTags 
+​	GetRegisteredRuleMap 返回所有自定义注册的规则和关联的函数。
 
-``` go
+#### func GetTags
+
+```go
 func GetTags() []string
 ```
 
 GetTags returns the validation tags.
 
-##### func ParseTagValue 
+​	GetTags 返回验证标记。
 
-``` go
+#### func ParseTagValue
+
+```go
 func ParseTagValue(tag string) (field, rule, msg string)
 ```
 
-ParseTagValue parses one sequence tag to field, rule and error message. The sequence tag is like: [alias@]rule[...#msg...]
+ParseTagValue parses one sequence tag to field, rule and error message. The sequence tag is like: [alias@]rule[…#msg…]
 
-##### func RegisterRule 
+​	ParseTagValue 将一个序列标签解析为字段、规则和错误消息。序列标签如下：[alias@]rule[...#msg...]
 
-``` go
+#### func RegisterRule
+
+```go
 func RegisterRule(rule string, f RuleFunc)
 ```
 
 RegisterRule registers custom validation rule and function for package.
 
-##### func RegisterRuleByMap 
+​	RegisterRule 为包注册自定义验证规则和函数。
 
-``` go
+#### func RegisterRuleByMap
+
+```go
 func RegisterRuleByMap(m map[string]RuleFunc)
 ```
 
 RegisterRuleByMap registers custom validation rules using map for package.
 
-### Types 
+​	RegisterRuleByMap 使用包的 map 注册自定义验证规则。
 
-#### type CustomMsg 
+## 类型
 
-``` go
+### type CustomMsg
+
+```go
 type CustomMsg = map[string]interface{}
 ```
 
 CustomMsg is the custom error message type, like: map[field] => string|map[rule]string
 
-#### type Error 
+​	CustomMsg 是自定义错误消息类型，例如：map[field] => string|map[rule]string
 
-``` go
+### type Error
+
+```go
 type Error interface {
 	Code() gcode.Code
 	Current() error
@@ -101,17 +117,21 @@ type Error interface {
 
 Error is the validation error for validation result.
 
-#### type RuleFunc 
+​	Error 是验证结果的验证错误。
 
-``` go
+### type RuleFunc
+
+```go
 type RuleFunc func(ctx context.Context, in RuleFuncInput) error
 ```
 
 RuleFunc is the custom function for data validation.
 
-#### type RuleFuncInput 
+​	RuleFunc 是用于数据验证的自定义函数。
 
-``` go
+### type RuleFuncInput
+
+```go
 type RuleFuncInput struct {
 	// Rule specifies the validation rule string, like "required", "between:1,100", etc.
 	Rule string
@@ -136,9 +156,11 @@ type RuleFuncInput struct {
 
 RuleFuncInput holds the input parameters that passed to custom rule function RuleFunc.
 
-#### type Validator 
+​	RuleFuncInput 保存传递给自定义规则函数 RuleFunc 的输入参数。
 
-``` go
+### type Validator
+
+```go
 type Validator struct {
 	// contains filtered or unexported fields
 }
@@ -146,155 +168,194 @@ type Validator struct {
 
 Validator is the validation manager for chaining operations.
 
-##### func New 
+​	Validator 是用于链接操作的验证管理器。
 
-``` go
+#### func New
+
+```go
 func New() *Validator
 ```
 
 New creates and returns a new Validator.
 
+​	new 创建并返回一个新的验证器。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Assoc 
 
-``` go
+#### (*Validator) Assoc
+
+```go
 func (v *Validator) Assoc(assoc interface{}) *Validator
 ```
 
 Assoc is a chaining operation function, which sets associated validation data for current operation. The optional parameter `assoc` is usually type of map, which specifies the parameter map used in union validation. Calling this function with `assoc` also sets `useAssocInsteadOfObjectAttributes` true
 
+​	Assoc 是一个链接操作函数，用于设置当前操作的关联验证数据。可选参数 `assoc` 通常是 type of map，它指定联合验证中使用的参数 map。调用此函数 `assoc` 也设置 `useAssocInsteadOfObjectAttributes` true
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Bail 
 
-``` go
+#### (*Validator) Bail
+
+```go
 func (v *Validator) Bail() *Validator
 ```
 
 Bail sets the mark for stopping validation after the first validation error.
 
+​	Bail 设置在第一个验证错误后停止验证的标记。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Ci 
 
-``` go
+#### (*Validator) Ci
+
+```go
 func (v *Validator) Ci() *Validator
 ```
 
 Ci sets the mark for Case-Insensitive for those rules that need value comparison.
 
+​	Ci 为需要值比较的规则设置了“不区分大小写”的标记。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Clone 
 
-``` go
+#### (*Validator) Clone
+
+```go
 func (v *Validator) Clone() *Validator
 ```
 
 Clone creates and returns a new Validator which is a shallow copy of current one.
 
+​	克隆创建并返回一个新的验证者，它是当前验证者的浅层副本。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Data 
 
-``` go
+#### (*Validator) Data
+
+```go
 func (v *Validator) Data(data interface{}) *Validator
 ```
 
 Data is a chaining operation function, which sets validation data for current operation.
 
+​	数据是一个链接操作函数，用于设置当前操作的验证数据。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Foreach <-2.2.0
 
-``` go
+#### (*Validator) Foreach
+
+```go
 func (v *Validator) Foreach() *Validator
 ```
 
 Foreach tells the next validation using current value as an array and validates each of its element. Note that this decorating rule takes effect just once for next validation rule, specially for single value validation.
 
-##### (*Validator) I18n 
+​	Foreach 使用当前值作为数组告诉下一个验证，并验证其每个元素。请注意，此修饰规则仅对下一个验证规则生效一次，特别是对于单值验证。
 
-``` go
+#### (*Validator) I18n
+
+```go
 func (v *Validator) I18n(i18nManager *gi18n.Manager) *Validator
 ```
 
 I18n sets the i18n manager for the validator.
 
+​	I18n 为验证器设置 i18n 管理器。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Messages 
 
-``` go
+#### (*Validator) Messages
+
+```go
 func (v *Validator) Messages(messages interface{}) *Validator
 ```
 
 Messages is a chaining operation function, which sets custom error messages for current operation. The parameter `messages` can be type of string/[]string/map[string]string. It supports sequence in error result if `rules` is type of []string.
 
+​	Messages 是一个链接操作函数，用于设置当前操作的自定义错误消息。参数 `messages` 类型可以是 string/[]string/map[string]string。如果 `rules` 类型为 []string，则支持错误结果中的序列。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) RuleFunc 
 
-``` go
+#### (*Validator) RuleFunc
+
+```go
 func (v *Validator) RuleFunc(rule string, f RuleFunc) *Validator
 ```
 
 RuleFunc registers one custom rule function to current Validator.
 
+​	RuleFunc 向当前 Validator 注册一个自定义规则函数。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) RuleFuncMap 
 
-``` go
+#### (*Validator) RuleFuncMap
+
+```go
 func (v *Validator) RuleFuncMap(m map[string]RuleFunc) *Validator
 ```
 
 RuleFuncMap registers multiple custom rule functions to current Validator.
 
+​	RuleFuncMap 将多个自定义规则函数注册到当前 Validator。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Rules 
 
-``` go
+#### (*Validator) Rules
+
+```go
 func (v *Validator) Rules(rules interface{}) *Validator
 ```
 
 Rules is a chaining operation function, which sets custom validation rules for current operation.
 
+​	Rules是一个链接操作函数，用于设置当前操作的自定义验证规则。
+
 ##### Example
 
 ``` go
 ```
-##### (*Validator) Run 
 
-``` go
+#### (*Validator) Run
+
+```go
 func (v *Validator) Run(ctx context.Context) Error
 ```
 
 Run starts validating the given data with rules and messages.
 
-Example Run
+​	Run 开始使用规则和消息验证给定数据。
+
+##### Example Run
 
 ``` go
 package main

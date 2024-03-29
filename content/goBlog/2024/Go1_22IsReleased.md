@@ -35,7 +35,7 @@ The long-standing “for” loop gotcha with accidental sharing of loop variable
 
 ​	长期存在的“for”循环问题，即在迭代之间意外共享循环变量，现已解决。从 Go 1.22 开始，以下代码将按某种顺序打印“a”、“b”和“c”：
 
-```
+```go
 func main() {
     done := make(chan bool)
 
@@ -62,7 +62,7 @@ The second language change is support for ranging over integers:
 
 ​	第二个语言更改是对整数范围的支持：
 
-```
+```go
 package main
 
 import "fmt"

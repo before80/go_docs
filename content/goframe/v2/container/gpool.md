@@ -13,39 +13,45 @@ draft = false
 
 Package gpool provides object-reusable concurrent-safe pool.
 
-### Constants 
+​	软件包 gpool 提供对象可重用的并发安全池。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
 This section is empty.
 
-### Types 
+## 类型
 
-#### type ExpireFunc 
+### type ExpireFunc
 
-``` go
+```go
 type ExpireFunc func(interface{})
 ```
 
 ExpireFunc Destruction function for object.
 
-#### type NewFunc 
+​	ExpireFunc 对象的销毁函数。
 
-``` go
+### type NewFunc
+
+```go
 type NewFunc func() (interface{}, error)
 ```
 
 NewFunc Creation function for object.
 
-#### type Pool 
+​	NewFunc 对象的创建函数。
 
-``` go
+### type Pool
+
+```go
 type Pool struct {
 	TTL     time.Duration               // Time To Live for pool items.
 	NewFunc func() (interface{}, error) // Callback function to create pool item.
@@ -60,89 +66,113 @@ type Pool struct {
 
 Pool is an Object-Reusable Pool.
 
-##### func New 
+​	Pool 是一个对象可重用的池。
 
-``` go
+#### func New
+
+```go
 func New(ttl time.Duration, newFunc NewFunc, expireFunc ...ExpireFunc) *Pool
 ```
 
 New creates and returns a new object pool. To ensure execution efficiency, the expiration time cannot be modified once it is set.
 
+​	New 创建并返回一个新的对象池。为保证执行效率，过期时间一经设置，无法修改。
+
 Note the expiration logic: ttl = 0 : not expired; ttl < 0 : immediate expired after use; ttl > 0 : timeout expired;
+
+​	注意过期逻辑：ttl = 0 ： 未过期;ttl < 0：使用后立即过期; ttl > 0：超时过期;
 
 ##### Example
 
 ``` go
 ```
-##### (*Pool) Clear 
 
-``` go
+#### (*Pool) Clear
+
+```go
 func (p *Pool) Clear()
 ```
 
 Clear clears pool, which means it will remove all items from pool.
 
+​	清除池，这意味着它将从池中删除所有项目。
+
 ##### Example
 
 ``` go
 ```
-##### (*Pool) Close 
 
-``` go
+#### (*Pool) Close
+
+```go
 func (p *Pool) Close()
 ```
 
-Close closes the pool. If `p` has ExpireFunc, then it automatically closes all items using this function before it's closed. Commonly you do not need to call this function manually.
+Close closes the pool. If `p` has ExpireFunc, then it automatically closes all items using this function before it’s closed. Commonly you do not need to call this function manually.
+
+​	关闭 关闭池。如果 `p` 具有 ExpireFunc，则它会在关闭之前使用此函数自动关闭所有项目。通常，不需要手动调用此函数。
 
 ##### Example
 
 ``` go
 ```
-##### (*Pool) Get 
 
-``` go
+#### (*Pool) Get
+
+```go
 func (p *Pool) Get() (interface{}, error)
 ```
 
 Get picks and returns an item from pool. If the pool is empty and NewFunc is defined, it creates and returns one from NewFunc.
 
+​	从池中获取拣选并返回项目。如果池为空且定义了 NewFunc，则会从 NewFunc 创建并返回一个池。
+
 ##### Example
 
 ``` go
 ```
-##### (*Pool) MustPut <-2.3.0
 
-``` go
+#### (*Pool) MustPut
+
+```go
 func (p *Pool) MustPut(value interface{})
 ```
 
 MustPut puts an item to pool, it panics if any error occurs.
 
-##### (*Pool) Put 
+​	MustPut 将项目放入池中，如果发生任何错误，它会崩溃。
 
-``` go
+#### (*Pool) Put
+
+```go
 func (p *Pool) Put(value interface{}) error
 ```
 
 Put puts an item to pool.
 
+​	Put 将项目放入池中。
+
 ##### Example
 
 ``` go
 ```
-##### (*Pool) Size 
 
-``` go
+#### (*Pool) Size
+
+```go
 func (p *Pool) Size() int
 ```
 
 Size returns the count of available items of pool.
 
+​	Size 返回池中可用项的计数。
 
-
-Example 
+##### Example
 
 ``` go
+```
+
+```go
 package main
 
 import (

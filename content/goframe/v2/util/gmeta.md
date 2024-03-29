@@ -9,42 +9,50 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmeta
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmeta](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmeta)
 
 Package gmeta provides embedded meta data feature for struct.
 
-### Constants 
+​	软件包 gmeta 为 struct 提供嵌入式元数据功能。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Data 
+#### func Data
 
-``` go
+```go
 func Data(object interface{}) map[string]string
 ```
 
 Data retrieves and returns all metadata from `object`.
 
-##### func Get 
+​	数据检索并返回 中 `object` 的所有元数据。
 
-``` go
+#### func Get
+
+```go
 func Get(object interface{}, key string) *gvar.Var
 ```
 
 Get retrieves and returns specified metadata by `key` from `object`.
 
-### Types 
+​	Get 检索并返回指定的 `key` 元数据 from `object` 。
 
-#### type Meta 
+## 类型
 
-``` go
+### type Meta
+
+```go
 type Meta struct{}
 ```
 
 Meta is used as an embedded attribute for struct to enabled metadata feature.
+
+​	Meta 用作 struct 启用元数据功能的嵌入属性。

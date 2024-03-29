@@ -9,17 +9,21 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmode
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmode](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/util/gmode)
 
 Package gmode provides release mode management for project.
 
+​	软件包 gmode 为项目提供发布模式管理。
+
 It uses string to mark the mode instead of integer, which is convenient for configuration.
 
-### Constants 
+​	它使用字符串而不是整数来标记模式，方便配置。
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/util/gmode/gmode.go#L18)
 
-``` go
+```go
 const (
 	NOT_SET = "not-set"
 	DEVELOP = "develop"
@@ -29,92 +33,112 @@ const (
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func IsDevelop 
+#### func IsDevelop
 
-``` go
+```go
 func IsDevelop() bool
 ```
 
 IsDevelop checks and returns whether current application is running in DEVELOP mode.
 
-##### func IsProduct 
+​	IsDevelop 检查并返回当前应用程序是否在 DEVELOP 模式下运行。
 
-``` go
+#### func IsProduct
+
+```go
 func IsProduct() bool
 ```
 
 IsProduct checks and returns whether current application is running in PRODUCT mode.
 
-##### func IsStaging 
+​	IsProduct 检查并返回当前应用程序是否在 PRODUCT 模式下运行。
 
-``` go
+#### func IsStaging
+
+```go
 func IsStaging() bool
 ```
 
 IsStaging checks and returns whether current application is running in STAGING mode.
 
-##### func IsTesting 
+​	IsStaging 检查并返回当前应用程序是否在暂存模式下运行。
 
-``` go
+#### func IsTesting
+
+```go
 func IsTesting() bool
 ```
 
 IsTesting checks and returns whether current application is running in TESTING mode.
 
-##### func Mode 
+​	IsTesting 检查并返回当前应用程序是否在 TESTING 模式下运行。
 
-``` go
+#### func Mode
+
+```go
 func Mode() string
 ```
 
 Mode returns current application mode set.
 
-##### func Set 
+​	Mode 返回当前应用程序模式集。
 
-``` go
+#### func Set
+
+```go
 func Set(mode string)
 ```
 
 Set sets the mode for current application.
 
-##### func SetDevelop 
+​	Set 设置当前应用程序的模式。
 
-``` go
+#### func SetDevelop
+
+```go
 func SetDevelop()
 ```
 
 SetDevelop sets current mode DEVELOP for current application.
 
-##### func SetProduct 
+​	SetDevelop 为当前应用程序设置当前模式 DEVELOP。
 
-``` go
+#### func SetProduct
+
+```go
 func SetProduct()
 ```
 
 SetProduct sets current mode PRODUCT for current application.
 
-##### func SetStaging 
+​	SetProduct 为当前应用程序设置当前模式 PRODUCT。
 
-``` go
+#### func SetStaging
+
+```go
 func SetStaging()
 ```
 
 SetStaging sets current mode STAGING for current application.
 
-##### func SetTesting 
+​	SetStaging 为当前应用程序设置当前模式 STAGING。
 
-``` go
+#### func SetTesting
+
+```go
 func SetTesting()
 ```
 
 SetTesting sets current mode TESTING for current application.
 
-### Types 
+​	SetTesting 为当前应用程序设置当前模式 TESTING。
+
+## 类型
 
 This section is empty.

@@ -9,44 +9,52 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/encoding/gini)
 
 Package gini provides accessing and converting for INI content.
 
-### Constants 
+​	软件包 gini 提供对 INI 内容的访问和转换。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Decode 
+#### func Decode
 
-``` go
+```go
 func Decode(data []byte) (res map[string]interface{}, err error)
 ```
 
 Decode converts INI format to map.
 
-##### func Encode 
+​	Decode 将 INI 格式转换为映射。
 
-``` go
+#### func Encode
+
+```go
 func Encode(data map[string]interface{}) (res []byte, err error)
 ```
 
 Encode converts map to INI format.
 
-##### func ToJson 
+​	Encode 将映射转换为 INI 格式。
 
-``` go
+#### func ToJson
+
+```go
 func ToJson(data []byte) (res []byte, err error)
 ```
 
 ToJson convert INI format to JSON.
 
-### Types 
+​	ToJson 将 INI 格式转换为 JSON。
+
+## 类型
 
 This section is empty.

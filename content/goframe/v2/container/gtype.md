@@ -9,27 +9,29 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/container/gtype
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/container/gtype](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/container/gtype)
 
 Package gtype provides high performance and concurrent-safe basic variable types.
 
-### Constants 
+​	软件包 gtype 提供高性能和并发安全的基本变量类型。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
 This section is empty.
 
-### Types 
+## 类型
 
-#### type Bool 
+### type Bool
 
-``` go
+```go
 type Bool struct {
 	// contains filtered or unexported fields
 }
@@ -37,89 +39,111 @@ type Bool struct {
 
 Bool is a struct for concurrent-safe operation for type bool.
 
-##### func NewBool 
+​	Bool 是用于 bool 类型并发安全操作的结构。
 
-``` go
+#### func NewBool
+
+```go
 func NewBool(value ...bool) *Bool
 ```
 
 NewBool creates and returns a concurrent-safe object for bool type, with given initial value `value`.
 
-##### (*Bool) Cas 
+​	NewBool 创建并返回一个 bool 类型的并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Bool) Cas
+
+```go
 func (v *Bool) Cas(old, new bool) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Bool) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Bool) Clone
+
+```go
 func (v *Bool) Clone() *Bool
 ```
 
 Clone clones and returns a new concurrent-safe object for bool type.
 
-##### (*Bool) DeepCopy <-2.1.0
+​	克隆克隆并返回 bool 类型的新并发安全对象。
 
-``` go
+#### (*Bool) DeepCopy
+
+```go
 func (v *Bool) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Bool) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Bool) MarshalJSON
+
+```go
 func (v Bool) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Bool) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Bool) Set
+
+```go
 func (v *Bool) Set(value bool) (old bool)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Bool) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Bool) String
+
+```go
 func (v *Bool) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Bool) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Bool) UnmarshalJSON
+
+```go
 func (v *Bool) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Bool) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Bool) UnmarshalValue
+
+```go
 func (v *Bool) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Bool) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Bool) Val
+
+```go
 func (v *Bool) Val() bool
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Byte 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Byte
+
+```go
 type Byte struct {
 	// contains filtered or unexported fields
 }
@@ -127,97 +151,121 @@ type Byte struct {
 
 Byte is a struct for concurrent-safe operation for type byte.
 
-##### func NewByte 
+​	Byte 是用于类型 byte 的并发安全操作的结构。
 
-``` go
+#### func NewByte
+
+```go
 func NewByte(value ...byte) *Byte
 ```
 
 NewByte creates and returns a concurrent-safe object for byte type, with given initial value `value`.
 
-##### (*Byte) Add 
+​	NewByte 创建并返回字节类型的并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Byte) Add
+
+```go
 func (v *Byte) Add(delta byte) (new byte)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Byte) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Byte) Cas
+
+```go
 func (v *Byte) Cas(old, new byte) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Byte) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Byte) Clone
+
+```go
 func (v *Byte) Clone() *Byte
 ```
 
 Clone clones and returns a new concurrent-safe object for byte type.
 
-##### (*Byte) DeepCopy <-2.1.0
+​	克隆克隆并返回字节类型的新并发安全对象。
 
-``` go
+#### (*Byte) DeepCopy
+
+```go
 func (v *Byte) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Byte) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Byte) MarshalJSON
+
+```go
 func (v Byte) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Byte) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Byte) Set
+
+```go
 func (v *Byte) Set(value byte) (old byte)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Byte) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Byte) String
+
+```go
 func (v *Byte) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Byte) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Byte) UnmarshalJSON
+
+```go
 func (v *Byte) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Byte) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Byte) UnmarshalValue
+
+```go
 func (v *Byte) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Byte) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Byte) Val
+
+```go
 func (v *Byte) Val() byte
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Bytes 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Bytes
+
+```go
 type Bytes struct {
 	// contains filtered or unexported fields
 }
@@ -225,81 +273,101 @@ type Bytes struct {
 
 Bytes is a struct for concurrent-safe operation for type []byte.
 
-##### func NewBytes 
+​	Bytes 是用于 []byte 类型的并发安全操作的结构。
 
-``` go
+#### func NewBytes
+
+```go
 func NewBytes(value ...[]byte) *Bytes
 ```
 
 NewBytes creates and returns a concurrent-safe object for []byte type, with given initial value `value`.
 
-##### (*Bytes) Clone 
+​	NewBytes 为 []byte 类型创建并返回一个并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Bytes) Clone
+
+```go
 func (v *Bytes) Clone() *Bytes
 ```
 
 Clone clones and returns a new shallow copy object for []byte type.
 
-##### (*Bytes) DeepCopy <-2.1.0
+​	克隆克隆并返回 []byte 类型的新浅层复制对象。
 
-``` go
+#### (*Bytes) DeepCopy
+
+```go
 func (v *Bytes) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Bytes) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Bytes) MarshalJSON
+
+```go
 func (v Bytes) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Bytes) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Bytes) Set
+
+```go
 func (v *Bytes) Set(value []byte) (old []byte)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value. Note: The parameter `value` cannot be nil.
 
-##### (*Bytes) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。注意：该参数 `value` 不能为零。
 
-``` go
+#### (*Bytes) String
+
+```go
 func (v *Bytes) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Bytes) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Bytes) UnmarshalJSON
+
+```go
 func (v *Bytes) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Bytes) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Bytes) UnmarshalValue
+
+```go
 func (v *Bytes) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Bytes) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Bytes) Val
+
+```go
 func (v *Bytes) Val() []byte
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Float32 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Float32
+
+```go
 type Float32 struct {
 	// contains filtered or unexported fields
 }
@@ -307,97 +375,121 @@ type Float32 struct {
 
 Float32 is a struct for concurrent-safe operation for type float32.
 
-##### func NewFloat32 
+​	float32 是用于 float32 类型的并发安全操作的结构。
 
-``` go
+#### func NewFloat32
+
+```go
 func NewFloat32(value ...float32) *Float32
 ```
 
 NewFloat32 creates and returns a concurrent-safe object for float32 type, with given initial value `value`.
 
-##### (*Float32) Add 
+​	NewFloat32 为 float32 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Float32) Add
+
+```go
 func (v *Float32) Add(delta float32) (new float32)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Float32) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Float32) Cas
+
+```go
 func (v *Float32) Cas(old, new float32) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Float32) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Float32) Clone
+
+```go
 func (v *Float32) Clone() *Float32
 ```
 
 Clone clones and returns a new concurrent-safe object for float32 type.
 
-##### (*Float32) DeepCopy <-2.1.0
+​	克隆克隆并返回 float32 类型的新并发安全对象。
 
-``` go
+#### (*Float32) DeepCopy
+
+```go
 func (v *Float32) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Float32) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Float32) MarshalJSON
+
+```go
 func (v Float32) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Float32) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Float32) Set
+
+```go
 func (v *Float32) Set(value float32) (old float32)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Float32) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Float32) String
+
+```go
 func (v *Float32) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Float32) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Float32) UnmarshalJSON
+
+```go
 func (v *Float32) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Float32) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Float32) UnmarshalValue
+
+```go
 func (v *Float32) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Float32) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Float32) Val
+
+```go
 func (v *Float32) Val() float32
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Float64 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Float64
+
+```go
 type Float64 struct {
 	// contains filtered or unexported fields
 }
@@ -405,97 +497,121 @@ type Float64 struct {
 
 Float64 is a struct for concurrent-safe operation for type float64.
 
-##### func NewFloat64 
+​	float64 是用于 float64 类型的并发安全操作的结构。
 
-``` go
+#### func NewFloat64
+
+```go
 func NewFloat64(value ...float64) *Float64
 ```
 
 NewFloat64 creates and returns a concurrent-safe object for float64 type, with given initial value `value`.
 
-##### (*Float64) Add 
+​	NewFloat64 为 float64 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Float64) Add
+
+```go
 func (v *Float64) Add(delta float64) (new float64)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Float64) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Float64) Cas
+
+```go
 func (v *Float64) Cas(old, new float64) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Float64) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Float64) Clone
+
+```go
 func (v *Float64) Clone() *Float64
 ```
 
 Clone clones and returns a new concurrent-safe object for float64 type.
 
-##### (*Float64) DeepCopy <-2.1.0
+​	克隆克隆并返回 float64 类型的新并发安全对象。
 
-``` go
+#### (*Float64) DeepCopy
+
+```go
 func (v *Float64) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Float64) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Float64) MarshalJSON
+
+```go
 func (v Float64) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Float64) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Float64) Set
+
+```go
 func (v *Float64) Set(value float64) (old float64)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Float64) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Float64) String
+
+```go
 func (v *Float64) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Float64) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Float64) UnmarshalJSON
+
+```go
 func (v *Float64) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Float64) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Float64) UnmarshalValue
+
+```go
 func (v *Float64) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Float64) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Float64) Val
+
+```go
 func (v *Float64) Val() float64
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Int 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Int
+
+```go
 type Int struct {
 	// contains filtered or unexported fields
 }
@@ -503,97 +619,121 @@ type Int struct {
 
 Int is a struct for concurrent-safe operation for type int.
 
-##### func NewInt 
+​	Int 是用于 int 类型的并发安全操作的结构。
 
-``` go
+#### func NewInt
+
+```go
 func NewInt(value ...int) *Int
 ```
 
 NewInt creates and returns a concurrent-safe object for int type, with given initial value `value`.
 
-##### (*Int) Add 
+​	NewInt 创建并返回 int 类型的并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Int) Add
+
+```go
 func (v *Int) Add(delta int) (new int)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Int) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Int) Cas
+
+```go
 func (v *Int) Cas(old, new int) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Int) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Int) Clone
+
+```go
 func (v *Int) Clone() *Int
 ```
 
 Clone clones and returns a new concurrent-safe object for int type.
 
-##### (*Int) DeepCopy <-2.1.0
+​	克隆克隆并返回 int 类型的新并发安全对象。
 
-``` go
+#### (*Int) DeepCopy
+
+```go
 func (v *Int) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Int) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Int) MarshalJSON
+
+```go
 func (v Int) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Int) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Int) Set
+
+```go
 func (v *Int) Set(value int) (old int)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Int) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Int) String
+
+```go
 func (v *Int) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Int) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Int) UnmarshalJSON
+
+```go
 func (v *Int) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Int) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Int) UnmarshalValue
+
+```go
 func (v *Int) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Int) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Int) Val
+
+```go
 func (v *Int) Val() int
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Int32 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Int32
+
+```go
 type Int32 struct {
 	// contains filtered or unexported fields
 }
@@ -601,97 +741,121 @@ type Int32 struct {
 
 Int32 is a struct for concurrent-safe operation for type int32.
 
-##### func NewInt32 
+​	Int32 是用于 int32 类型的并发安全操作的结构。
 
-``` go
+#### func NewInt32
+
+```go
 func NewInt32(value ...int32) *Int32
 ```
 
 NewInt32 creates and returns a concurrent-safe object for int32 type, with given initial value `value`.
 
-##### (*Int32) Add 
+​	NewInt32 创建并返回 int32 类型的并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Int32) Add
+
+```go
 func (v *Int32) Add(delta int32) (new int32)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Int32) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Int32) Cas
+
+```go
 func (v *Int32) Cas(old, new int32) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Int32) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Int32) Clone
+
+```go
 func (v *Int32) Clone() *Int32
 ```
 
 Clone clones and returns a new concurrent-safe object for int32 type.
 
-##### (*Int32) DeepCopy <-2.1.0
+​	克隆克隆并返回 int32 类型的新并发安全对象。
 
-``` go
+#### (*Int32) DeepCopy
+
+```go
 func (v *Int32) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Int32) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Int32) MarshalJSON
+
+```go
 func (v Int32) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Int32) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Int32) Set
+
+```go
 func (v *Int32) Set(value int32) (old int32)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Int32) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Int32) String
+
+```go
 func (v *Int32) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Int32) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Int32) UnmarshalJSON
+
+```go
 func (v *Int32) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Int32) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Int32) UnmarshalValue
+
+```go
 func (v *Int32) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Int32) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Int32) Val
+
+```go
 func (v *Int32) Val() int32
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Int64 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Int64
+
+```go
 type Int64 struct {
 	// contains filtered or unexported fields
 }
@@ -699,97 +863,121 @@ type Int64 struct {
 
 Int64 is a struct for concurrent-safe operation for type int64.
 
-##### func NewInt64 
+​	Int64 是用于 int64 类型的并发安全操作的结构。
 
-``` go
+#### func NewInt64
+
+```go
 func NewInt64(value ...int64) *Int64
 ```
 
 NewInt64 creates and returns a concurrent-safe object for int64 type, with given initial value `value`.
 
-##### (*Int64) Add 
+​	NewInt64 创建并返回 int64 类型的并发安全对象，其初始值 `value` 为 。
 
-``` go
+#### (*Int64) Add
+
+```go
 func (v *Int64) Add(delta int64) (new int64)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Int64) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Int64) Cas
+
+```go
 func (v *Int64) Cas(old, new int64) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Int64) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Int64) Clone
+
+```go
 func (v *Int64) Clone() *Int64
 ```
 
 Clone clones and returns a new concurrent-safe object for int64 type.
 
-##### (*Int64) DeepCopy <-2.1.0
+​	克隆克隆并返回 int64 类型的新并发安全对象。
 
-``` go
+#### (*Int64) DeepCopy
+
+```go
 func (v *Int64) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Int64) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Int64) MarshalJSON
+
+```go
 func (v Int64) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Int64) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Int64) Set
+
+```go
 func (v *Int64) Set(value int64) (old int64)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Int64) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Int64) String
+
+```go
 func (v *Int64) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Int64) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Int64) UnmarshalJSON
+
+```go
 func (v *Int64) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Int64) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Int64) UnmarshalValue
+
+```go
 func (v *Int64) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Int64) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Int64) Val
+
+```go
 func (v *Int64) Val() int64
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Interface 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Interface
+
+```go
 type Interface struct {
 	// contains filtered or unexported fields
 }
@@ -797,89 +985,111 @@ type Interface struct {
 
 Interface is a struct for concurrent-safe operation for type interface{}.
 
-##### func New 
+​	interface 是 interface{} 类型的并发安全操作的结构。
 
-``` go
+#### func New
+
+```go
 func New(value ...interface{}) *Interface
 ```
 
 New is alias of NewInterface. See NewInterface.
 
-##### func NewInterface 
+​	New 是 NewInterface 的别名。请参阅 NewInterface。
 
-``` go
+#### func NewInterface
+
+```go
 func NewInterface(value ...interface{}) *Interface
 ```
 
 NewInterface creates and returns a concurrent-safe object for interface{} type, with given initial value `value`.
 
-##### (*Interface) Clone 
+​	NewInterface 为 interface{} 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Interface) Clone
+
+```go
 func (v *Interface) Clone() *Interface
 ```
 
 Clone clones and returns a new concurrent-safe object for interface{} type.
 
-##### (*Interface) DeepCopy <-2.1.0
+​	克隆克隆并返回 interface{} 类型的新并发安全对象。
 
-``` go
+#### (*Interface) DeepCopy
+
+```go
 func (v *Interface) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Interface) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Interface) MarshalJSON
+
+```go
 func (v Interface) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Interface) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Interface) Set
+
+```go
 func (v *Interface) Set(value interface{}) (old interface{})
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value. Note: The parameter `value` cannot be nil.
 
-##### (*Interface) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。注意：该参数 `value` 不能为零。
 
-``` go
+#### (*Interface) String
+
+```go
 func (v *Interface) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Interface) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Interface) UnmarshalJSON
+
+```go
 func (v *Interface) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Interface) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Interface) UnmarshalValue
+
+```go
 func (v *Interface) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Interface) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Interface) Val
+
+```go
 func (v *Interface) Val() interface{}
 ```
 
 Val atomically loads and returns t.value.
 
-#### type String 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type String
+
+```go
 type String struct {
 	// contains filtered or unexported fields
 }
@@ -887,81 +1097,101 @@ type String struct {
 
 String is a struct for concurrent-safe operation for type string.
 
-##### func NewString 
+​	String 是用于字符串类型并发安全操作的结构。
 
-``` go
+#### func NewString
+
+```go
 func NewString(value ...string) *String
 ```
 
 NewString creates and returns a concurrent-safe object for string type, with given initial value `value`.
 
-##### (*String) Clone 
+​	NewString 创建并返回字符串类型的并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*String) Clone
+
+```go
 func (v *String) Clone() *String
 ```
 
 Clone clones and returns a new concurrent-safe object for string type.
 
-##### (*String) DeepCopy <-2.1.2
+​	克隆克隆并返回字符串类型的新并发安全对象。
 
-``` go
+#### (*String) DeepCopy
+
+```go
 func (v *String) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (String) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (String) MarshalJSON
+
+```go
 func (v String) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*String) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*String) Set
+
+```go
 func (v *String) Set(value string) (old string)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*String) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*String) String
+
+```go
 func (v *String) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*String) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*String) UnmarshalJSON
+
+```go
 func (v *String) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*String) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*String) UnmarshalValue
+
+```go
 func (v *String) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*String) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*String) Val
+
+```go
 func (v *String) Val() string
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Uint 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Uint
+
+```go
 type Uint struct {
 	// contains filtered or unexported fields
 }
@@ -969,97 +1199,121 @@ type Uint struct {
 
 Uint is a struct for concurrent-safe operation for type uint.
 
-##### func NewUint 
+​	Uint 是用于 uint 类型并发安全操作的结构。
 
-``` go
+#### func NewUint
+
+```go
 func NewUint(value ...uint) *Uint
 ```
 
 NewUint creates and returns a concurrent-safe object for uint type, with given initial value `value`.
 
-##### (*Uint) Add 
+​	NewUint 为 uint 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Uint) Add
+
+```go
 func (v *Uint) Add(delta uint) (new uint)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Uint) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Uint) Cas
+
+```go
 func (v *Uint) Cas(old, new uint) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Uint) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Uint) Clone
+
+```go
 func (v *Uint) Clone() *Uint
 ```
 
 Clone clones and returns a new concurrent-safe object for uint type.
 
-##### (*Uint) DeepCopy <-2.1.0
+​	克隆克隆并返回 uint 类型的新并发安全对象。
 
-``` go
+#### (*Uint) DeepCopy
+
+```go
 func (v *Uint) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Uint) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Uint) MarshalJSON
+
+```go
 func (v Uint) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Uint) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Uint) Set
+
+```go
 func (v *Uint) Set(value uint) (old uint)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Uint) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Uint) String
+
+```go
 func (v *Uint) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Uint) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Uint) UnmarshalJSON
+
+```go
 func (v *Uint) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Uint) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Uint) UnmarshalValue
+
+```go
 func (v *Uint) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Uint) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Uint) Val
+
+```go
 func (v *Uint) Val() uint
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Uint32 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Uint32
+
+```go
 type Uint32 struct {
 	// contains filtered or unexported fields
 }
@@ -1067,97 +1321,121 @@ type Uint32 struct {
 
 Uint32 is a struct for concurrent-safe operation for type uint32.
 
-##### func NewUint32 
+​	Uint32 是用于 uint32 类型的并发安全操作的结构。
 
-``` go
+#### func NewUint32
+
+```go
 func NewUint32(value ...uint32) *Uint32
 ```
 
 NewUint32 creates and returns a concurrent-safe object for uint32 type, with given initial value `value`.
 
-##### (*Uint32) Add 
+​	NewUint32 为 uint32 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Uint32) Add
+
+```go
 func (v *Uint32) Add(delta uint32) (new uint32)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Uint32) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Uint32) Cas
+
+```go
 func (v *Uint32) Cas(old, new uint32) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Uint32) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Uint32) Clone
+
+```go
 func (v *Uint32) Clone() *Uint32
 ```
 
 Clone clones and returns a new concurrent-safe object for uint32 type.
 
-##### (*Uint32) DeepCopy <-2.1.0
+​	克隆克隆并返回 uint32 类型的新并发安全对象。
 
-``` go
+#### (*Uint32) DeepCopy
+
+```go
 func (v *Uint32) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Uint32) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Uint32) MarshalJSON
+
+```go
 func (v Uint32) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Uint32) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Uint32) Set
+
+```go
 func (v *Uint32) Set(value uint32) (old uint32)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Uint32) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Uint32) String
+
+```go
 func (v *Uint32) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Uint32) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Uint32) UnmarshalJSON
+
+```go
 func (v *Uint32) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Uint32) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Uint32) UnmarshalValue
+
+```go
 func (v *Uint32) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Uint32) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Uint32) Val
+
+```go
 func (v *Uint32) Val() uint32
 ```
 
 Val atomically loads and returns t.value.
 
-#### type Uint64 
+​	Val 以原子方式加载并返回 t.value。
 
-``` go
+### type Uint64
+
+```go
 type Uint64 struct {
 	// contains filtered or unexported fields
 }
@@ -1165,90 +1443,114 @@ type Uint64 struct {
 
 Uint64 is a struct for concurrent-safe operation for type uint64.
 
-##### func NewUint64 
+​	Uint64 是用于 uint64 类型的并发安全操作的结构。
 
-``` go
+#### func NewUint64
+
+```go
 func NewUint64(value ...uint64) *Uint64
 ```
 
 NewUint64 creates and returns a concurrent-safe object for uint64 type, with given initial value `value`.
 
-##### (*Uint64) Add 
+​	NewUint64 为 uint64 类型创建并返回一个并发安全对象，该对象具有给定的初始值 `value` 。
 
-``` go
+#### (*Uint64) Add
+
+```go
 func (v *Uint64) Add(delta uint64) (new uint64)
 ```
 
 Add atomically adds `delta` to t.value and returns the new value.
 
-##### (*Uint64) Cas 
+​	以原子方式添加 `delta` to t.value 并返回新值。
 
-``` go
+#### (*Uint64) Cas
+
+```go
 func (v *Uint64) Cas(old, new uint64) (swapped bool)
 ```
 
 Cas executes the compare-and-swap operation for value.
 
-##### (*Uint64) Clone 
+​	Cas 执行值的比较和交换操作。
 
-``` go
+#### (*Uint64) Clone
+
+```go
 func (v *Uint64) Clone() *Uint64
 ```
 
 Clone clones and returns a new concurrent-safe object for uint64 type.
 
-##### (*Uint64) DeepCopy <-2.1.0
+​	克隆克隆并返回 uint64 类型的新并发安全对象。
 
-``` go
+#### (*Uint64) DeepCopy
+
+```go
 func (v *Uint64) DeepCopy() interface{}
 ```
 
 DeepCopy implements interface for deep copy of current type.
 
-##### (Uint64) MarshalJSON 
+​	DeepCopy实现了当前类型的深度拷贝接口。
 
-``` go
+#### (Uint64) MarshalJSON
+
+```go
 func (v Uint64) MarshalJSON() ([]byte, error)
 ```
 
 MarshalJSON implements the interface MarshalJSON for json.Marshal.
 
-##### (*Uint64) Set 
+​	MarshalJSON 实现 json 的接口 MarshalJSON。元帅。
 
-``` go
+#### (*Uint64) Set
+
+```go
 func (v *Uint64) Set(value uint64) (old uint64)
 ```
 
 Set atomically stores `value` into t.value and returns the previous value of t.value.
 
-##### (*Uint64) String 
+​	设置以原子方式存储 `value` 到 t.value 中，并返回 t.value 的上一个值。
 
-``` go
+#### (*Uint64) String
+
+```go
 func (v *Uint64) String() string
 ```
 
 String implements String interface for string printing.
 
-##### (*Uint64) UnmarshalJSON 
+​	String 实现用于字符串打印的 String 接口。
 
-``` go
+#### (*Uint64) UnmarshalJSON
+
+```go
 func (v *Uint64) UnmarshalJSON(b []byte) error
 ```
 
 UnmarshalJSON implements the interface UnmarshalJSON for json.Unmarshal.
 
-##### (*Uint64) UnmarshalValue 
+​	UnmarshalJSON 实现 json 的接口 UnmarshalJSON。元帅。
 
-``` go
+#### (*Uint64) UnmarshalValue
+
+```go
 func (v *Uint64) UnmarshalValue(value interface{}) error
 ```
 
 UnmarshalValue is an interface implement which sets any type of value for `v`.
 
-##### (*Uint64) Val 
+​	UnmarshalValue 是一个接口实现，它为 `v` .
 
-``` go
+#### (*Uint64) Val
+
+```go
 func (v *Uint64) Val() uint64
 ```
 
 Val atomically loads and returns t.value.
+
+​	Val 以原子方式加载并返回 t.value。

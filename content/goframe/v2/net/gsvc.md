@@ -9,15 +9,17 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsvc
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsvc](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gsvc)
 
 Package gsvc provides service registry and discovery definition.
 
-### Constants 
+​	软件包 gsvc 提供服务注册表和发现定义。
+
+## 常量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/net/gsvc/gsvc.go#L116)
 
-``` go
+```go
 const (
 	Schema                    = `service`            // Schema is the schema of service.
 	DefaultHead               = `service`            // DefaultHead is the default head of service.
@@ -40,33 +42,37 @@ const (
 )
 ```
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Deregister 
+#### func Deregister
 
-``` go
+```go
 func Deregister(ctx context.Context, service Service) error
 ```
 
 Deregister removes `service` from default registry.
 
-##### func SetRegistry 
+​	取消注册将从默认注册表中删除 `service` 。
 
-``` go
+#### func SetRegistry
+
+```go
 func SetRegistry(registry Registry)
 ```
 
 SetRegistry sets the default Registry implements as your own implemented interface.
 
-### Types 
+​	SetRegistry 将默认的 Registry 实现设置为您自己的实现接口。
 
-#### type Discovery 
+## 类型
 
-``` go
+### type Discovery
+
+```go
 type Discovery interface {
 	// Search searches and returns services with specified condition.
 	Search(ctx context.Context, in SearchInput) (result []Service, err error)
@@ -79,9 +85,11 @@ type Discovery interface {
 
 Discovery interface for service discovery.
 
-#### type Endpoint <-2.1.0
+​	用于服务发现的发现接口。
 
-``` go
+### type Endpoint <-2.1.0
+
+```go
 type Endpoint interface {
 	// Host returns the IPv4/IPv6 address of a service.
 	Host() string
@@ -96,41 +104,51 @@ type Endpoint interface {
 
 Endpoint interface for service.
 
-##### func NewEndpoint <-2.1.0
+​	服务的端点接口。
 
-``` go
+#### func NewEndpoint <-2.1.0
+
+```go
 func NewEndpoint(address string) Endpoint
 ```
 
-NewEndpoint creates and returns an Endpoint from address string of pattern "host:port", eg: "192.168.1.100:80".
+NewEndpoint creates and returns an Endpoint from address string of pattern “host:port”, eg: “192.168.1.100:80”.
 
-#### type Endpoints <-2.1.0
+​	NewEndpoint 从模式为“host：port”的地址字符串创建并返回一个 Endpoint，例如：“192.168.1.100：80”。
 
-``` go
+### type Endpoints <-2.1.0
+
+```go
 type Endpoints []Endpoint
 ```
 
 Endpoints are composed by multiple Endpoint.
 
-##### func NewEndpoints <-2.1.0
+​	终结点由多个终结点组成。
 
-``` go
+#### func NewEndpoints <-2.1.0
+
+```go
 func NewEndpoints(addresses string) Endpoints
 ```
 
-NewEndpoints creates and returns Endpoints from multiple addresses like: "192.168.1.100:80,192.168.1.101:80".
+NewEndpoints creates and returns Endpoints from multiple addresses like: “192.168.1.100:80,192.168.1.101:80”.
 
-##### (Endpoints) String <-2.1.0
+​	NewEndpoints 创建并返回来自多个地址的终结点，例如：“192.168.1.100：80,192.168.1.101：80”。
 
-``` go
+#### (Endpoints) String
+
+```go
 func (es Endpoints) String() string
 ```
 
-String formats and returns the Endpoints as a string like: "192.168.1.100:80,192.168.1.101:80"
+String formats and returns the Endpoints as a string like: “192.168.1.100:80,192.168.1.101:80”
 
-#### type LocalEndpoint <-2.1.0
+​	字符串格式化并将终结点返回为字符串，如下所示：“192.168.1.100：80,192.168.1.101：80”
 
-``` go
+### type LocalEndpoint <-2.1.0
+
+```go
 type LocalEndpoint struct {
 	// contains filtered or unexported fields
 }
@@ -138,33 +156,41 @@ type LocalEndpoint struct {
 
 LocalEndpoint implements interface Endpoint.
 
-##### (*LocalEndpoint) Host <-2.1.0
+​	LocalEndpoint 实现接口 Endpoint。
 
-``` go
+#### (*LocalEndpoint) Host
+
+```go
 func (e *LocalEndpoint) Host() string
 ```
 
 Host returns the IPv4/IPv6 address of a service.
 
-##### (*LocalEndpoint) Port <-2.1.0
+​	Host 返回服务的 IPv4/IPv6 地址。
 
-``` go
+#### (*LocalEndpoint) Port
+
+```go
 func (e *LocalEndpoint) Port() int
 ```
 
 Port returns the port of a service.
 
-##### (*LocalEndpoint) String <-2.1.0
+​	Port 返回服务的端口。
 
-``` go
+#### (*LocalEndpoint) String
+
+```go
 func (e *LocalEndpoint) String() string
 ```
 
 String formats and returns the Endpoint as a string, like: 192.168.1.100:80.
 
-#### type LocalService <-2.1.0
+​	String 格式化并将 Endpoint 作为字符串返回，如：192.168.1.100：80。
 
-``` go
+### type LocalService <-2.1.0
+
+```go
 type LocalService struct {
 	Head       string    // Service custom head string in service key.
 	Deployment string    // Service deployment name, eg: dev, qa, staging, prod, etc.
@@ -178,107 +204,135 @@ type LocalService struct {
 
 LocalService provides a default implements for interface Service.
 
-##### (*LocalService) GetEndpoints <-2.1.0
+​	LocalService 为接口服务提供默认实现。
 
-``` go
+#### (*LocalService) GetEndpoints
+
+```go
 func (s *LocalService) GetEndpoints() Endpoints
 ```
 
 GetEndpoints returns the Endpoints of service. The Endpoints contain multiple host/port information of service.
 
-##### (*LocalService) GetKey <-2.1.0
+​	GetEndpoints 返回服务的终结点。端点包含多个主机/端口服务信息。
 
-``` go
+#### (*LocalService) GetKey
+
+```go
 func (s *LocalService) GetKey() string
 ```
 
 GetKey formats and returns a unique key string for service. The result key is commonly used for key-value registrar server.
 
-##### (*LocalService) GetMetadata <-2.1.0
+​	GetKey 格式化并返回服务的唯一键字符串。结果键通常用于键值注册器服务器。
 
-``` go
+#### (*LocalService) GetMetadata
+
+```go
 func (s *LocalService) GetMetadata() Metadata
 ```
 
 GetMetadata returns the Metadata map of service. The Metadata is key-value pair map specifying extra attributes of a service.
 
-##### (*LocalService) GetName <-2.1.0
+​	GetMetadata 返回服务的元数据映射。元数据是键值对映射，用于指定服务的额外属性。
 
-``` go
+#### (*LocalService) GetName
+
+```go
 func (s *LocalService) GetName() string
 ```
 
 GetName returns the name of the service. The name is necessary for a service, and should be unique among services.
 
-##### (*LocalService) GetPrefix <-2.1.0
+​	GetName 返回服务的名称。该名称对于服务是必需的，并且在服务中应该是唯一的。
 
-``` go
+#### (*LocalService) GetPrefix
+
+```go
 func (s *LocalService) GetPrefix() string
 ```
 
 GetPrefix formats and returns the key prefix string. The result prefix string is commonly used in key-value registrar server for service searching.
 
+​	GetPrefix 格式化并返回键前缀字符串。结果前缀字符串通常用于键值注册器服务器中的服务搜索。
+
 Take etcd server for example, the prefix string is used like: `etcdctl get /services/prod/hello.svc --prefix`
 
-##### (*LocalService) GetValue <-2.1.0
+​	以 etcd server 为例，前缀字符串的使用方式如下： `etcdctl get /services/prod/hello.svc --prefix`
 
-``` go
+#### (*LocalService) GetValue
+
+```go
 func (s *LocalService) GetValue() string
 ```
 
 GetValue formats and returns the value of the service. The result value is commonly used for key-value registrar server.
 
-##### (*LocalService) GetVersion <-2.1.0
+​	GetValue 格式化并返回服务的值。结果值通常用于键值注册器服务器。
 
-``` go
+#### (*LocalService) GetVersion
+
+```go
 func (s *LocalService) GetVersion() string
 ```
 
-GetVersion returns the version of the service. It is suggested using GNU version naming like: v1.0.0, v2.0.1, v2.1.0-rc. A service can have multiple versions deployed at once. If no version set in service, the default version of service is "latest".
+GetVersion returns the version of the service. It is suggested using GNU version naming like: v1.0.0, v2.0.1, v2.1.0-rc. A service can have multiple versions deployed at once. If no version set in service, the default version of service is “latest”.
 
-#### type Metadata 
+​	GetVersion 返回服务的版本。建议使用 GNU 版本命名，例如：v1.0.0、v2.0.1、v2.1.0-rc。一个服务可以同时部署多个版本。如果未在服务中设置版本，则默认服务版本为“最新”。
 
-``` go
+### type Metadata
+
+```go
 type Metadata map[string]interface{}
 ```
 
 Metadata stores custom key-value pairs.
 
-##### (Metadata) Get 
+​	元数据存储自定义键值对。
 
-``` go
+#### (Metadata) Get
+
+```go
 func (m Metadata) Get(key string) *gvar.Var
 ```
 
 Get retrieves and returns value of specified key as gvar.
 
-##### (Metadata) IsEmpty <-2.1.0
+​	获取检索并返回指定键的值作为 gvar。
 
-``` go
+#### (Metadata) IsEmpty
+
+```go
 func (m Metadata) IsEmpty() bool
 ```
 
 IsEmpty checks and returns whether current Metadata is empty.
 
-##### (Metadata) Set 
+​	IsEmpty 检查并返回当前元数据是否为空。
 
-``` go
+#### (Metadata) Set
+
+```go
 func (m Metadata) Set(key string, value interface{})
 ```
 
 Set sets key-value pair into metadata.
 
-##### (Metadata) Sets <-2.1.0
+​	将键值对设置为元数据。
 
-``` go
+#### (Metadata) Sets
+
+```go
 func (m Metadata) Sets(kvs map[string]interface{})
 ```
 
 Sets sets key-value pairs into metadata.
 
-#### type Registrar 
+​	Sets 将键值对设置为元数据。
 
-``` go
+### type Registrar
+
+```go
 type Registrar interface {
 	// Register registers `service` to Registry.
 	// Note that it returns a new Service if it changes the input Service with custom one.
@@ -291,9 +345,11 @@ type Registrar interface {
 
 Registrar interface for service registrar.
 
-#### type Registry 
+​	服务注册器的注册器接口。
 
-``` go
+### type Registry
+
+```go
 type Registry interface {
 	Registrar
 	Discovery
@@ -302,17 +358,21 @@ type Registry interface {
 
 Registry interface for service.
 
-##### func GetRegistry 
+​	服务的注册表接口。
 
-``` go
+#### func GetRegistry
+
+```go
 func GetRegistry() Registry
 ```
 
 GetRegistry returns the default Registry that is previously set. It returns nil if no Registry is set.
 
-#### type SearchInput 
+​	GetRegistry 返回以前设置的默认注册表。如果未设置注册表，则返回 nil。
 
-``` go
+### type SearchInput
+
+```go
 type SearchInput struct {
 	Prefix   string   // Search by key prefix.
 	Name     string   // Search by service name.
@@ -323,9 +383,11 @@ type SearchInput struct {
 
 SearchInput is the input for service searching.
 
-#### type Service 
+​	SearchInput 是服务搜索的输入。
 
-``` go
+### type Service
+
+```go
 type Service interface {
 	// GetName returns the name of the service.
 	// The name is necessary for a service, and should be unique among services.
@@ -365,81 +427,101 @@ type Service interface {
 
 Service interface for service definition.
 
-##### func Get 
+​	用于服务定义的服务接口。
 
-``` go
+#### func Get
+
+```go
 func Get(ctx context.Context, name string) (service Service, err error)
 ```
 
 Get retrieves and returns the service by service name.
 
-##### func GetAndWatch <-2.1.0
+​	Get 按服务名称检索并返回服务。
 
-``` go
+#### func GetAndWatch <-2.1.0
+
+```go
 func GetAndWatch(ctx context.Context, name string, watch ServiceWatch) (service Service, err error)
 ```
 
 GetAndWatch is used to getting the service with custom watch callback function.
 
-##### func GetAndWatchWithDiscovery <-2.3.3
+​	GetAndWatch 习惯于使用自定义监视回调函数获取服务。
 
-``` go
+#### func GetAndWatchWithDiscovery <-2.3.3
+
+```go
 func GetAndWatchWithDiscovery(ctx context.Context, discovery Discovery, name string, watch ServiceWatch) (service Service, err error)
 ```
 
 GetAndWatchWithDiscovery is used to getting the service with custom watch callback function in `discovery`.
 
-##### func GetWithDiscovery <-2.3.3
+​	GetAndWatchWithDiscovery 用于获取具有自定义监视回调函数的服务 `discovery` 。
 
-``` go
+#### func GetWithDiscovery <-2.3.3
+
+```go
 func GetWithDiscovery(ctx context.Context, discovery Discovery, name string) (service Service, err error)
 ```
 
 GetWithDiscovery retrieves and returns the service by service name in `discovery`.
 
-##### func NewServiceWithKV 
+​	GetWithDiscovery 按 中的 `discovery` 服务名称检索并返回服务。
 
-``` go
+#### func NewServiceWithKV
+
+```go
 func NewServiceWithKV(key, value string) (Service, error)
 ```
 
 NewServiceWithKV creates and returns a default implements for interface Service by key-value pair string.
 
-##### func NewServiceWithName 
+​	NewServiceWithKV 通过键值对字符串创建并返回接口服务的默认实现。
 
-``` go
+#### func NewServiceWithName
+
+```go
 func NewServiceWithName(name string) Service
 ```
 
 NewServiceWithName creates and returns a default implements for interface Service by service name.
 
-##### func Register 
+​	NewServiceWithName 按服务名称创建并返回接口 Service 的默认实现。
 
-``` go
+#### func Register
+
+```go
 func Register(ctx context.Context, service Service) (Service, error)
 ```
 
 Register registers `service` to default registry..
 
-##### func Search 
+​	将寄 `service` 存器注册到默认注册表..
 
-``` go
+#### func Search
+
+```go
 func Search(ctx context.Context, in SearchInput) ([]Service, error)
 ```
 
 Search searches and returns services with specified condition.
 
-#### type ServiceWatch 
+​	搜索 搜索并返回具有指定条件的服务。
 
-``` go
+### type ServiceWatch
+
+```go
 type ServiceWatch func(service Service)
 ```
 
 ServiceWatch is used to watch the service status.
 
-#### type Watcher 
+​	ServiceWatch 用于监视服务状态。
 
-``` go
+### type Watcher
+
+```go
 type Watcher interface {
 	// Proceed proceeds watch in blocking way.
 	// It returns all complete services that watched by `key` if any change.
@@ -452,10 +534,14 @@ type Watcher interface {
 
 Watcher interface for service.
 
-##### func Watch 
+​	服务的观察程序接口。
 
-``` go
+#### func Watch
+
+```go
 func Watch(ctx context.Context, key string) (Watcher, error)
 ```
 
 Watch watches specified condition changes.
+
+​	手表监视指定的条件变化。

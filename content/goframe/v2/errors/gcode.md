@@ -9,19 +9,21 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/errors/gcode
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/errors/gcode](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/errors/gcode)
 
 Package gcode provides universal error code definition and common error codes implements.
 
-### Constants 
+​	软件包 gcode 提供了通用的错误代码定义和常见的错误代码实现。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 [View Source](https://github.com/gogf/gf/blob/v2.6.4/errors/gcode/gcode.go#L28)
 
-``` go
+```go
 var (
 	CodeNil                       = localCode{-1, "", nil}                             // No error code specified.
 	CodeOK                        = localCode{0, "OK", nil}                            // It is OK.
@@ -48,15 +50,15 @@ var (
 )
 ```
 
-### Functions 
+## 函数
 
 This section is empty.
 
-### Types 
+## 类型
 
-#### type Code 
+### type Code
 
-``` go
+```go
 type Code interface {
 	// Code returns the integer number of current error code.
 	Code() int
@@ -72,18 +74,24 @@ type Code interface {
 
 Code is universal error code interface definition.
 
-##### func New 
+​	代码是通用的错误代码接口定义。
 
-``` go
+#### func New
+
+```go
 func New(code int, message string, detail interface{}) Code
 ```
 
 New creates and returns an error code. Note that it returns an interface object of Code.
 
-##### func WithCode 
+​	New 创建并返回错误代码。请注意，它返回 Code 的接口对象。
 
-``` go
+#### func WithCode
+
+```go
 func WithCode(code Code, detail interface{}) Code
 ```
 
 WithCode creates and returns a new error code based on given Code. The code and message is from given `code`, but the detail if from given `detail`.
+
+​	WithCode 根据给定的代码创建并返回新的错误代码。代码和消息来自给定 `code` 的，但细节如果来自给定 `detail` 的。

@@ -9,32 +9,32 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gipv6
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gipv6](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gipv6)
 
 Package gipv6 provides useful API for IPv6 address handling.
 
-### Index 
+​	软件包 gipv6 为 IPv6 地址处理提供了有用的 API。
 
-- [func Validate(ip string) bool](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/net/gipv6#Validate)
-
-### Constants 
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Validate 
+#### func Validate
 
-``` go
+```go
 func Validate(ip string) bool
 ```
 
 Validate checks whether given `ip` a valid IPv6 address.
 
-### Types 
+​	验证检查是否给定 `ip` 了有效的 IPv6 地址。
+
+## 类型
 
 This section is empty.

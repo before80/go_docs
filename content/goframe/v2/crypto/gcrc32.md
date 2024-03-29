@@ -9,30 +9,34 @@ draft = false
 
 +++
 
-> 原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gcrc32
+> 原文：[https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gcrc32](https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/crypto/gcrc32)
 
-### Overview 
+### Overview 概述
 
 Package gcrc32 provides useful API for CRC32 encryption algorithms.
 
-### Constants 
+​	软件包 gcrc32 为 CRC32 加密算法提供了有用的 API。
+
+## 常量
 
 This section is empty.
 
-### Variables 
+## 变量
 
 This section is empty.
 
-### Functions 
+## 函数
 
-##### func Encrypt 
+#### func Encrypt
 
-``` go
+```go
 func Encrypt(v interface{}) uint32
 ```
 
 Encrypt encrypts any type of variable using CRC32 algorithms. It uses gconv package to convert `v` to its bytes type.
 
-### Types 
+​	Encrypt 使用 CRC32 算法对任何类型的变量进行加密。它使用 gconv 包转换为 `v` 其字节类型。
+
+## 类型
 
 This section is empty.
