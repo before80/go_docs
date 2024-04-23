@@ -46,6 +46,40 @@ draft = false
 
 
 
+{{< tabpane text=true >}}
+
+{{< tab header="Latest" >}}
+
+
+
+{{< /tab  >}}
+
+{{< tab header="Specific version" >}}
+
+
+
+{{< /tab  >}}
+
+{{< /tabpane >}}
+
+
+
+{{< tabpane text=true >}}
+
+{{< tab header="" >}}
+
+
+
+{{< /tab  >}}
+
+{{< tab header="" >}}
+
+
+
+{{< /tab  >}}
+
+{{< /tabpane >}}
+
 在这里没有看到您的操作系统？试试[其他的下载](https://go.dev/dl/)。
 
 注意：默认情况下，`go` 命令使用 Google 运行的 `Go 模块镜像`和 `Go 校验数据库`下载和验证模块。[了解更多](https://go.dev/dl)。

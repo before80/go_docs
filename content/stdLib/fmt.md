@@ -381,7 +381,7 @@ For compound operands such as slices and structs, the format applies to the elem
 
 However, when printing a byte slice with a string-like verb (%s %q %x %X), it is treated identically to a string, as a single item.
 
-​	但是，当使用类似字符串的动词(%s %q %x %X)打印字节切片时，它与字符串一样被视为单个项目。
+​	但是，当使用类似字符串的动词(%s %q %x %X)打印字节切片时，它与字符串一样被视为单个项。
 
 To avoid recursion in cases such as
 
@@ -595,7 +595,7 @@ func main() {
 	fmt.Printf("%d\n", integer)
 
     // The special verb %T shows the type of an item rather than its value.
-	// 特殊的%T谓词显示项目的类型，而不是其值。
+	// 特殊的%T谓词显示项的类型，而不是其值。
 	fmt.Printf("%T %T\n", integer, &integer)
 	// 结果：int *int
 
@@ -835,6 +835,27 @@ Append formats using the default formats for its operands, appends the result to
 
 ​	Append函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
+#### Example My Append
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var b []byte
+	b = fmt.Append(b, "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	fmt.Println(b)
+	fmt.Println(string(b))
+}
+
+Output:
+[97 98 228 184 173 229 155 189 49 32 50 53 53 32 49 48 32 109 97 112 91 97 103 101 58 49 56 93]
+ab中国1 255 10 map[age:18]
+```
+
+
+
 ### func Appendf  <- go1.19
 
 ``` go 
@@ -845,6 +866,33 @@ Appendf formats according to a format specifier, appends the result to the byte 
 
 ​	Appendf函数按照格式说明符进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
+#### Example My Appendf
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var b []byte
+	b1 := fmt.Appendf(b, "%q %s %+q %d %x %o %+v", "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	b2 := fmt.Appendf(b, "%s %q %s %d %#x %#o %v", "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	fmt.Println(b1)
+	fmt.Println(b2)
+	fmt.Println(string(b1))
+	fmt.Println(string(b2))
+}
+Output:
+[34 97 34 32 98 32 34 92 117 52 101 50 100 92 117 53 54 102 100 34 32 49 32 102
+102 32 49 50 32 109 97 112 91 97 103 101 58 49 56 93]
+[97 32 34 98 34 32 228 184 173 229 155 189 32 49 32 48 120 102 102 32 48 49 50 3
+2 109 97 112 91 97 103 101 58 49 56 93]
+"a" b "\u4e2d\u56fd" 1 ff 12 map[age:18]
+a "b" 中国 1 0xff 012 map[age:18]
+```
+
+
+
 ### func Appendln  <- go1.19
 
 ``` go 
@@ -854,6 +902,27 @@ func Appendln(b []byte, a ...any) []byte
 Appendln formats using the default formats for its operands, appends the result to the byte slice, and returns the updated slice. Spaces are always added between operands and a newline is appended.
 
 ​	Appendln函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。在操作数之间始终添加空格，并附加一个换行符。
+
+#### Example My Appendln 
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var b []byte
+	b = fmt.Appendln(b, "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	fmt.Println(b)
+	fmt.Println(string(b))
+}
+
+Output:
+[97 32 98 32 228 184 173 229 155 189 32 49 32 50 53 53 32 49 48 32 109 97 112 91 97 103 101 58 49 56 93 10]
+a b 中国 1 255 10 map[age:18]
+```
+
+
 
 ### func Errorf 
 
@@ -1070,7 +1139,7 @@ func Fscanln(r io.Reader, a ...any) (n int, err error)
 
 Fscanln is similar to Fscan, but stops scanning at a newline and after the final item there must be a newline or EOF.
 
-​	Fscanln函数类似于Fscan，但会在换行符处停止扫描，在最后一个项目之后必须有一个换行符或EOF。
+​	Fscanln函数类似于Fscan，但会在换行符处停止扫描，在最后一个项之后必须有一个换行符或EOF。
 
 #### Fscanln Example
 ``` go 
@@ -1207,7 +1276,7 @@ func Scan(a ...any) (n int, err error)
 
 Scan scans text read from standard input, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.
 
-​	Scan函数扫描从标准输入读取的文本，将连续的以空格分隔的值存储到连续的参数中。换行符会被视为空格。它返回成功扫描的项数。如果它小于参数数目，那么 err 将会报告原因。
+​	Scan函数扫描从`标准输入`读取的文本，将连续的以空格分隔的值存储到连续的参数中。换行符会被视为空格。它返回成功扫描的项数。如果它小于参数个数，那么 err 将会报告原因。
 
 ### func Scanf 
 
@@ -1217,7 +1286,7 @@ func Scanf(format string, a ...any) (n int, err error)
 
 Scanf scans text read from standard input, storing successive space-separated values into successive arguments as determined by the format. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why. Newlines in the input must match newlines in the format. The one exception: the verb %c always scans the next rune in the input, even if it is a space (or tab etc.) or newline.
 
-​	Scanf函数扫描从标准输入读取的文本，根据格式将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项数。如果它小于参数数目，那么 err 将会报告原因。输入中的换行符必须与格式中的换行符相匹配。唯一的例外是，%c 动词总是扫描输入中的下一个符文，即使它是空格(或制表符等)或换行符。
+​	Scanf函数扫描从`标准输入`读取的文本，根据`format`将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项数。如果它小于参数个数，那么 err 将会报告原因。输入中的换行符必须与格式中的换行符相匹配。唯一的例外是，%c 动词总是扫描输入中的下一个符文，即使它是空格(或制表符等)或换行符。
 
 ### func Scanln 
 
@@ -1333,7 +1402,7 @@ func Sscan(str string, a ...any) (n int, err error)
 
 Sscan scans the argument string, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.
 
-​	Sscan函数扫描参数字符串，将连续的以空格分隔的值存储到连续的参数中。换行符视为空格。它返回成功扫描的项目数。如果此数小于参数数，则err会报告原因。
+​	Sscan函数扫描参数`字符串`，将连续的以空格分隔的值存储到连续的参数中。换行符视为空格。它返回成功扫描的项数。如果此数小于参数个数，则err会报告原因。
 
 ### func Sscanf 
 
@@ -1343,7 +1412,7 @@ func Sscanf(str string, format string, a ...any) (n int, err error)
 
 Sscanf scans the argument string, storing successive space-separated values into successive arguments as determined by the format. It returns the number of items successfully parsed. Newlines in the input must match newlines in the format.
 
-​	Sscanf函数扫描参数字符串，将根据格式将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项目数。输入中的换行符必须与格式中的换行符匹配。
+​	Sscanf函数扫描参数`字符串`，将根据格式将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项数。输入中的换行符必须与格式中的换行符匹配。
 
 #### Sscanf  Example
 ``` go 

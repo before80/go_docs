@@ -58,7 +58,7 @@ Less reports whether x is less than y. For floating-point types, a NaN is consid
 
 ​	`Less`函数报告`x`是否小于`y`。对于浮点类型，`NaN`被视为小于任何非`NaN`，并且`-0.0`不小于（等于）`0.0`。
 
-#### func Or <-go1.22.0
+### func Or <-go1.22.0
 
 ```
 func Or[T comparable](vals ...T) T
@@ -68,7 +68,7 @@ Or returns the first of its arguments that is not equal to the zero value. If no
 
 ​	`Or` 函数返回其第一个不等于零值的实参。如果没有实参为非零，则返回零值。
 
-##### Example 
+#### Or Example 
 
 ```go
 package main
@@ -96,7 +96,7 @@ some text
 some text
 ```
 
-##### Example (Sort)
+#### Or Example (Sort)
 
 ```go
 import (
