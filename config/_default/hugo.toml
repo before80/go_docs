@@ -88,8 +88,9 @@ ordered = false
 # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
 # style = "onedark"
 # style = "manni"
-style = "igor"
-linenos = false
+#style = "igor"
+style = "doom-one2"
+linenos = true
 #noClasses = true
 #lineNumbersInTable = true
 # Uncomment if you want your chosen highlight style used for code blocks without a specified language
@@ -181,6 +182,8 @@ pygmentsStyle = "tango"
 
 # User interface configuration
 [params.ui]
+# 2024.5.29
+showLightDarkModeMenu = true
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 # Set to true to disable the About link in the site footer
