@@ -33,7 +33,7 @@
         />
         {{ else }}
         {{ $rg1 := strings.TrimPrefix "/" $rg }}
-        <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}{{- $rg1 -}}"
+        <img src="{{- $MyDefLastUrlEle -}}/{{- $curDir -}}/{{- $rg1 -}}"
              alt="{{ .Text }}" data-cur-dir="{{- $curDir -}}" data-rg="{{- $rg -}}" data-rg1="{{- $rg1 -}}" data-rel="{{- $rel -}}" data-c4my="{{- .Page.Site.Params.MyDefLastUrlEle -}}"
              {{ with .Title }} title="{{ . }}"{{ end }}
         />
