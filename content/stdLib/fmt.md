@@ -911,15 +911,30 @@ package main
 import "fmt"
 
 func main() {
-	var b []byte
-	b = fmt.Appendln(b, "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
-	fmt.Println(b)
-	fmt.Println(string(b))
+	var b1, b2 []byte
+	b1 = fmt.Appendln(b1, "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	b2 = fmt.Append(b2, "a", "b", "中国", 1, 0xff, 012, map[string]int{"age": 18})
+	fmt.Println(b1)
+	fmt.Println(b2)
+	fmt.Println(string(b1))
+	fmt.Println(string(b1))
+	fmt.Println(string(b2))
+	fmt.Println(string(b2))
 }
 
+
 Output:
-[97 32 98 32 228 184 173 229 155 189 32 49 32 50 53 53 32 49 48 32 109 97 112 91 97 103 101 58 49 56 93 10]
+[97 32 98 32 228 184 173 229 155 189 32 49 32 50 53 53 32 49 48 32 109 97 112 91
+ 97 103 101 58 49 56 93 10]
+[97 98 228 184 173 229 155 189 49 32 50 53 53 32 49 48 32 109 97 112 91 97 103 1
+01 58 49 56 93]
 a b 中国 1 255 10 map[age:18]
+
+a b 中国 1 255 10 map[age:18]
+
+ab中国1 255 10 map[age:18]
+ab中国1 255 10 map[age:18]
+
 ```
 
 
