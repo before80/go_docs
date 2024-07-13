@@ -17,11 +17,13 @@ draft = false
 - https://golang.google.cn/dl/
 - https://studygolang.com/dl
 
+> 说明
+>
+> ​	这里以go1.21.2为例，您安装时，请先查看[当前Go的最新版本](https://go.dev/dl/)，有最新版本推荐选择最新版本，毕竟Google内部的多个服务也是用最新版本的，其安全是一定保障的，相信其bug数应该很少。
+
 ## 在Linux上安装Go
 
 ### CentOS
-
-> 说明：这里以go1.21.2为例，您安装时，请先查看[当前Go的最新版本](https://go.dev/dl/)。
 
 （a）下载安装包：
 
