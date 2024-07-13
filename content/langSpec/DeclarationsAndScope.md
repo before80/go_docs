@@ -76,21 +76,21 @@ The following identifiers are implicitly declared in the [universe block](https:
 ​	下列标识符是在[universe block](../Blocks)中隐式声明的 [[Go 1.18]({{< ref "/langSpec/Appendix#go-118">}})] [[Go 1.21]({{< ref "/langSpec/Appendix#go-121">}})]:
 
 ``` go
-types:
-	any bool byte comparable
+types【共22个】:
+	any【go1.18】 bool byte comparable【go1.20】
 	complex64 complex128 error float32 float64
 	int int8 int16 int32 int64 rune string
 	uint uint8 uint16 uint32 uint64 uintptr
 
-Constants:
+Constants【共3个】:
 	true false iota
 
-Zero value:
+Zero value【共1个】:
 	nil
 
-Functions:
-	append cap clear close complex copy delete imag len
-	make max min new panic print println real recover
+Functions【共18个】:
+	append cap clear【go1.21】 close complex copy delete imag len
+	make max【go1.21】 min【go1.21】 new panic print println real recover
 ```
 
 ### Exported identifiers 可导出的标识符

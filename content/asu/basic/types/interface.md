@@ -1,10 +1,11 @@
 +++
-title = "表达式"
-weight = 50
-date = 2023-06-12T09:45:56+08:00
+title = "interface"
+date = 2024-07-13T14:05:59+08:00
+weight = 800
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
 
 +++
+

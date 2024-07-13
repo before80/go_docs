@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-#通道
+
 
 ## 会触发panic的通道操作
 
@@ -96,7 +96,7 @@ func main() {
 
 ## 注意点：for ... range 带缓冲区通道
 
-只能有一个迭代变量
+​	只能有一个迭代变量
 
 ```go
 package main
@@ -138,7 +138,7 @@ func main() {
 
 ## 注意点：for ... range 无缓冲区通道
 
-只能有一个迭代变量
+​	只能有一个迭代变量
 
 ```go
 package main

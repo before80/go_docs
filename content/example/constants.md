@@ -58,13 +58,25 @@ func main() {
 	const i20 int8 = 1
 	const f20 float32 = 1.2
 
-	// 使用iota
+	// （1）使用iota
 	const (
 		ai = iota + 1
 		bi
 		ci
 		_
 		di
+	)
+
+	// （2）使用iota
+	const (
+		t1 = iota
+		t2
+		t3
+		_
+		t4 = "abcde"
+		t5
+		t6 = iota
+		t7
 	)
 
 	fmt.Printf("%v,%T\n", b10, b10)
@@ -79,7 +91,16 @@ func main() {
 	fmt.Printf("%v,%T\n", bi, bi)
 	fmt.Printf("%v,%T\n", ci, ci)
 	fmt.Printf("%v,%T\n", di, di)
+
+	fmt.Printf("%v,%T\n", t1, t1)
+	fmt.Printf("%v,%T\n", t2, t2)
+	fmt.Printf("%v,%T\n", t3, t3)
+	fmt.Printf("%v,%T\n", t4, t4)
+	fmt.Printf("%v,%T\n", t5, t5)
+	fmt.Printf("%v,%T\n", t6, t6)
+	fmt.Printf("%v,%T\n", t7, t7)
 }
+
 // Output:
 //false,bool
 //1,int
@@ -101,6 +122,12 @@ func main() {
 //2,int
 //3,int
 //5,int
-
+//0,int
+//1,int
+//2,int
+//abcde,string
+//abcde,string
+//6,int
+//7,int
 ```
 

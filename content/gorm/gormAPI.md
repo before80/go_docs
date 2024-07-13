@@ -8,7 +8,8 @@ draft = false
 
 +++
 
-
+> 原文：[https://pkg.go.dev/gorm.io/gorm@v1.25.10](https://pkg.go.dev/gorm.io/gorm@v1.25.10)
+>
 
 The fantastic ORM library for Golang, aims to be developer friendly.
 
@@ -1249,6 +1250,12 @@ func (db *PreparedStmtDB) ExecContext(ctx context.Context, query string, args ..
 
 ``` go
 func (db *PreparedStmtDB) GetDBConn() (*sql.DB, error)
+```
+
+#### (*PreparedStmtDB) <- 1.25.10
+
+```go
+func (db *PreparedStmtDB) Ping() error
 ```
 
 #### (*PreparedStmtDB) QueryContext <- 0.2.3
