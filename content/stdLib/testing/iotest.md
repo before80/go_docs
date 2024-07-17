@@ -10,7 +10,7 @@ draft = false
 
 Package iotest implements Readers and Writers useful mainly for testing.
 
- 	`iotest` 包实现了一些用于测试的 `Reader` 和 `Writer`。
+​	`iotest` 包实现了一些用于测试的 `Reader` 和 `Writer`。
 
 ## 常量 
 

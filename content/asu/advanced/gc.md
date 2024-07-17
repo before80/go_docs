@@ -1,9 +1,11 @@
 +++
-title = "变量"
-weight = 30
-date = 2023-06-12T10:57:22+08:00
+title = "gc"
+date = 2024-07-17T12:09:35+08:00
+weight = 1
 type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
+
