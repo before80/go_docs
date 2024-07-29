@@ -12,7 +12,7 @@ draft = false
 ​	关于测试，建议您先看下以下文档：
 
 - [go命令中的测试函数]({{< ref "/cmd/go#测试函数">}})以及[go help testfunc]({{< ref "/cmd/gohelptestfunc">}})
-- [go命令中的测试标志]({{< ref "/cmd/go#测试标志">}})以及[go help testflag]({{< ref "/cmd/gohelptestfuncc">}})
+- [go命令中的测试标志]({{< ref "/cmd/go#测试标志">}})以及[go help testflag]({{< ref "/cmd/gohelptestflag">}})
 - [go命令中的go test]({{< ref "/cmd/go#go-test---测试包">}})以及[go help test]({{< ref "/cmd/gohelptest">}})
 - [标准库testing包]({{< ref "/stdLib/testing/testing">}})
 - [Go官方文档中的Go Fuzzing]({{< ref "/docs/UsingAndUnderstandingGo/Fuzzing">}})
