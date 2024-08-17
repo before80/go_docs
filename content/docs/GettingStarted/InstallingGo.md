@@ -22,63 +22,29 @@ draft = false
 
 点击下面的按钮，下载Go的安装程序。
 
-{{< tabpane text=true >}}
+{{< tabpane text=true persist=disabled >}}
 
-{{< tab header="Linux" >}}
+{{% tab header="Linux" %}}
 
 [Download Go for Linux go1.19.3.linux-amd64.tar.gz (142 MB)](https://go.dev/dl/go1.19.3.windows-amd64.msi)
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="Mac" >}}
+{{% tab header="Mac" %}}
 
 [Download Go for Mac go1.19.3.darwin-amd64.pkg (145 MB)](https://go.dev/dl/go1.19.3.darwin-amd64.pkg)
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="Windows" >}}
+{{% tab header="Windows" %}}
 
 [Download Go for Windows go1.19.3.windows-amd64.msi (135 MB)](https://go.dev/dl/go1.19.3.windows-amd64.msi)
 
-{{< /tab  >}}
+{{% /tab  %}}
 
 {{< /tabpane >}}
 
 
-
-{{< tabpane text=true >}}
-
-{{< tab header="Latest" >}}
-
-
-
-{{< /tab  >}}
-
-{{< tab header="Specific version" >}}
-
-
-
-{{< /tab  >}}
-
-{{< /tabpane >}}
-
-
-
-{{< tabpane text=true >}}
-
-{{< tab header="" >}}
-
-
-
-{{< /tab  >}}
-
-{{< tab header="" >}}
-
-
-
-{{< /tab  >}}
-
-{{< /tabpane >}}
 
 在这里没有看到您的操作系统？试试[其他的下载](https://go.dev/dl/)。
 
@@ -88,9 +54,9 @@ draft = false
 
 选择以下计算机操作系统的选项卡，然后按照其安装说明进行安装。
 
-{{< tabpane text=true >}}
+{{< tabpane text=true persist=disabled >}}
 
-{{< tab header="Linux" >}}
+{{% tab header="Linux" %}}
 
 1. 通过删除`/usr/local/go`文件夹（如果存在）来删除之前的任何Go安装，然后将刚刚下载的存档解压到`/usr/local`，在`/usr/local/go`中创建一个新的Go树：
 ```sh
@@ -116,9 +82,9 @@ $ go version
 ```
 4. 确认该命令打印出已安装的Go的版本。
 
-{{< /tab >}}
+{{% /tab  %}}
 
-{{< tab header="Mac" >}}
+{{% tab header="Mac" %}}
 
 1. 打开您下载的包文件，按照提示安装Go。
    
@@ -132,9 +98,9 @@ $ go version
 
 3. 确认该命令打印出已安装的Go的版本。
 
-{{< /tab >}}
+{{% /tab  %}}
 
-{{< tab header="Windows" >}}
+{{% tab header="Windows" %}}
 
 1. 打开您下载的`MSI`文件，按照提示安装Go。默认情况下，安装程序将把Go安装到`Program Files`或`Program Files (x86)`。您可以根据需要改变位置。安装后，您需要关闭并重新打开任何打开的命令提示符，以便安装程序对环境的改变反映在命令提示符上。
 2. 验证您是否已经安装了Go。
@@ -148,7 +114,7 @@ $ go version
 >    ```
 > 4. 确认该命令打印了已安装的Go的版本。
 
-{{< /tab >}}
+{{% /tab  %}}
 
 {{< /tabpane >}}
 
