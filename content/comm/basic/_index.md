@@ -59,15 +59,17 @@ async      elif       if         or         yield
 
 {{< tab header="Rust" >}}
 
-
-
-{{< /tab  >}}
-
-{{< tab header="C/C++" >}}
-
-
+## 1
 
 {{< /tab  >}}
+
+{{% tab header="C/C++" %}}
+
+## 2
+
+![image-20240817135231850](./_index_img/image-20240817135231850.png)
+
+{{% /tab  %}}
 
 {{< tab header="PHP" >}}
 
