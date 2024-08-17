@@ -13,7 +13,7 @@ draft = false
 
 {{< tabpane text=true >}}
 
-{{< tab header="Go" >}}
+{{% tab header="Go" %}}
 
 ​	Go目前有25个关键字。
 
@@ -29,9 +29,9 @@ continue     for          import       return       var
 
 
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="Python" >}}
+{{% tab header="Python" text=true %}}
 
 ​	Python目前有35个关键字
 
@@ -47,15 +47,15 @@ assert     del        global     not        with
 async      elif       if         or         yield
 ```
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="Java" >}}
+{{% tab header="Java"  text=true %}}
 
 来源：[https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.9](https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html#jls-3.9)
 
 
 
-{{< /tab  >}}
+{{% /tab  %}}
 
 {{< tab header="Rust" >}}
 

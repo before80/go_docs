@@ -11,7 +11,7 @@ draft = false
 
 ## 关于map不得不知的知识点
 
-- map类型的默认值是`nil`；
+1. map类型的默认值是`nil`；
 
   ```go
   var players map[string]int8
@@ -19,15 +19,15 @@ draft = false
   fmt.Printf("%[1]v, %[1]T, %d, %t\n", players, len(players), players == nil) 
   ```
 
-- 当从map中请求不存在的键时，返回的是map值类型的零值：
+2. 当从map中请求不存在的键时，返回的是map值类型的零值：
 
   ```go
   var players map[string]int8
   num := players["Durant"]
-  fmt.Println(num) // 0
+  fmt.Printf("num=%[1]v,%[1]T\n", num) // num=0,int8
   ```
 
-- 通过所接收的第二返回值，来判断所指定的键是否存在于map中：
+3. 通过所接收的第二返回值，来判断所指定的键是否存在于map中：
 
   ```go
   players := map[string]int8{
@@ -43,18 +43,50 @@ draft = false
 
   
 
-- map类型是不可比较的类型；
+4. map类型是不可比较的类型，即不能将两个map类型的值（就算是这两个map类型值是同一变量，也不能）用在比较运算符中，否则编译报错，但map类型可以使用`==`比较运算符与`nil`进行比较，也仅仅可以用`==`比较运算符！
 
-- map的键必须是可比较的类型（例如：布尔值、数字、字符串、指针、通道、由可比较类型组成的数组、字段均为可比较类型的结构体）；
+   ```go
+   players1 := map[string]int8{
+       "Curry":  4,
+       "LeBron": 6,
+   }
+   
+   players2 := map[string]int8{
+       "Curry":  4,
+       "LeBron": 6,
+   }
+   
+   teams := map[string]string{
+       "Warriors": "Golden State",
+       "Lakers":   "Los Angeles",
+   }
+   
+   fmt.Printf("%t\n", players1 == nil)                    // false
+   fmt.Printf("%t\n", players1 == players1)               // invalid operation: players1 == players1 (map can only be compared to nil)
+   fmt.Printf("%t\n", players1 == players2)               // invalid operation: players1 == players2 (map can only be compared to nil)
+   fmt.Printf("%t\n", players1 == teams)                  // invalid operation: players1 == teams (mismatched types map[string]int8 and map[string]string)
+   fmt.Printf("%t\n", players1 >= teams)                  // invalid operation: players1 == teams (mismatched types map[string]int8 and map[string]string)
+   fmt.Printf("%t,%t\n", players1 > nil, players1 >= nil) // invalid operation: players1 > nil (operator > not defined on map) 以及 invalid operation: players1 >= nil (operator >= not defined on map)
+   fmt.Printf("%t,%t\n", players1 < nil, players1 <= nil) // invalid operation: players1 > nil (operator < not defined on map) 以及 invalid operation: players1 <= nil (operator <= not defined on map)
+   
+   players1 = nil
+   fmt.Printf("%t\n", players1 == nil)                    // true
+   fmt.Printf("%t,%t\n", players1 > nil, players1 >= nil) // invalid operation: players1 > nil (operator > not defined on map) 以及 invalid operation: players1 >= nil (operator >= not defined on map)
+   fmt.Printf("%t,%t\n", players1 < nil, players1 <= nil) // invalid operation: players1 > nil (operator < not defined on map) 以及 invalid operation: players1 <= nil (operator <= not defined on map)
+   ```
 
-- 对未初始化的map进行键赋值操作，将引发运行时panic：
+   
+
+5. map的键必须是可比较的类型（例如：布尔值、数字、字符串、指针、通道、由可比较类型组成的数组、字段均为可比较类型的结构体）；
+
+6. 对未初始化的map进行键赋值操作，将引发运行时panic：
 
   ```go
   var players map[string]int8
   players["Curry"] = 4 // panic: assignment to entry in nil map
   ```
 
-- 使用map字面量时，每一行的键值对后面的`,`都是不能省略的(即使是最后一行也是如此)，否则编译时报错：
+7. 使用map字面量时，每一行的键值对后面的`,`都是不能省略的(即使是最后一行也是如此)，否则编译时报错：
 
   ```go
   players = map[string]int8{
@@ -70,34 +102,34 @@ draft = false
 
   
 
-- 内置函数`delete`只能用于map类型，当map是`nil`或map中无任何键值对，delete相当于空操作（no-op）；
+8. 内置函数`delete`只能用于map类型，当map是`nil`或map中无任何键值对，delete相当于空操作（no-op）；
 
-- 内置函数`delete`用于map时，一次只能删除一个键；
+9. 内置函数`delete`用于map时，一次只能删除一个键；
 
-- 内置函数`cap`不能使用获取map的容量，理论上map的能够容纳无限个键值对，若使用`cap`对map进行操作，将导致编译错误：
+10. 内置函数`cap`不能用于获取map的容量，理论上map的能够容纳无限个键值对，若使用`cap`对map进行操作，将导致编译错误：
 
   ```go
   fmt.Println(cap(players)) // invalid argument: players (variable of type map[string]int8) for cap
   ```
 
-- 内置函数`make`初始化map时，可以传递map的长度，但不可传递map的容量，否则将导致编译错误：
+11. 内置函数`make`初始化map时，可以传递map的长度，但不可传递map的容量，否则将导致编译错误：
 
-  ```go
-  equipments := make(map[string]float64, 3) // invalid operation: make(map[string]float64, 3, 3) expects 1 or 2 arguments; found 3
-  ```
+   ```go
+   equipments := make(map[string]float64, 3) // invalid operation: make(map[string]float64, 3, 3) expects 1 or 2 arguments; found 3
+   ```
 
-- 内置函数`make`初始化map后，该map非`nil`：
+12. 内置函数`make`初始化map后，该map非`nil`：
 
-  ```go
-  equipments := make(map[string]float64, 3)
-  fmt.Printf("%[1]v, %[1]T, %d, %t\n", equipments, len(equipments), equipments == nil) // map[], map[string]float64, 0, false
-  ```
+   ```go
+   equipments := make(map[string]float64, 3)
+   fmt.Printf("%[1]v, %[1]T, %d, %t\n", equipments, len(equipments), equipments == nil) // map[], map[string]float64, 0, false
+   ```
 
-  
+   
 
-- 完全删除一个map中存储的值，可以直接赋值`nil`；
+13. 完全删除一个map中存储的值，可以直接赋值`nil`；
 
-  
+    
 
 
 

@@ -11,10 +11,12 @@ func main() {
 	//players["Curry"] = 4 // panic: assignment to entry in nil map
 	players = map[string]int8{
 		//"Curry":  4 // syntax error: unexpected newline in composite literal; possibly missing comma or }
-		"Curry":  4, // syntax error: unexpected newline in composite literal; possibly missing comma or }
+		//"LeBron": 6  // syntax error: unexpected newline in composite literal; possibly missing comma or }
+		"Curry":  4,
 		"LeBron": 6,
 	}
-
+	num := players["Durant"]
+	fmt.Printf("num=%[1]v,%[1]T\n", num) // num=0,int8
 	num, ok := players["Durant"]
 	fmt.Println(num, ok) // 0 false
 	num, ok = players["LeBron"]
