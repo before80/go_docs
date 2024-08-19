@@ -15,7 +15,7 @@ draft = false
 
 {{% tab header="Go" %}}
 
-​	
+​	参见[http://before80.github.io/go_docs/comm/Go/basic/installs/](http://before80.github.io/go_docs/comm/Go/basic/installs/)
 
 {{% /tab  %}}
 
