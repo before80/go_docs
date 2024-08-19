@@ -1,7 +1,7 @@
 +++
 title = "基础"
 date = 2024-03-01T15:18:46+08:00
-weight = 1
+weight = -100
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -9,13 +9,13 @@ draft = false
 
 +++
 
-## 安装和配置
+## 安装、配置、卸载、更新、运行代码
 
 {{< tabpane text=true persist=disabled >}}
 
 {{% tab header="Go" %}}
 
-
+​	
 
 {{% /tab  %}}
 
@@ -111,7 +111,7 @@ continue     for          import       return       var
 
 {{% tab header="Python" %}}
 
-​	Python目前有35个关键字
+​	Python目前有35个关键字。
 
 来源：[https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords](https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords)
 
@@ -174,30 +174,6 @@ open         record     transitive   with
 
 {{% /tab  %}}
 
-{{% tab header="PHP" %}}
-
-来源：[https://www.php.net/manual/en/reserved.keywords.php](https://www.php.net/manual/en/reserved.keywords.php)
-
-```php
-__halt_compiler()	abstract	and	array()	as
-break	callable	case	catch	class
-clone	const	continue	declare	default
-die()	do	echo	else	elseif
-empty()	enddeclare	endfor	endforeach	endif
-endswitch	endwhile	eval()	exit()	extends
-final	finally	fn (as of PHP 7.4)	for	foreach
-function	global	goto	if	implements
-include	include_once	instanceof	insteadof	interface
-isset()	list()	match (as of PHP 8.0)	namespace	new
-or	print	private	protected	public
-readonly (as of PHP 8.1.0) *	require	require_once	return	static
-switch	throw	trait	try	unset()
-use	var	while	xor	yield
-yield from
-```
-
-{{% /tab  %}}
-
 {{% tab header="JavaScript" %}}
 
 来源：[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
@@ -224,7 +200,25 @@ yield from
 
 {{% tab header="PHP" %}}
 
-来源：
+来源：[https://www.php.net/manual/en/reserved.keywords.php](https://www.php.net/manual/en/reserved.keywords.php)
+
+```php
+__halt_compiler()	abstract	and	array()	as
+break	callable	case	catch	class
+clone	const	continue	declare	default
+die()	do	echo	else	elseif
+empty()	enddeclare	endfor	endforeach	endif
+endswitch	endwhile	eval()	exit()	extends
+final	finally	fn (as of PHP 7.4)	for	foreach
+function	global	goto	if	implements
+include	include_once	instanceof	insteadof	interface
+isset()	list()	match (as of PHP 8.0)	namespace	new
+or	print	private	protected	public
+readonly (as of PHP 8.1.0) *	require	require_once	return	static
+switch	throw	trait	try	unset()
+use	var	while	xor	yield
+yield from
+```
 
 {{% /tab  %}}
 
@@ -546,7 +540,75 @@ yield from
 
 {{% /tab  %}}
 
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
 {{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 数据类型
+
+### 数据类型
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
 
 
 
@@ -590,9 +652,7 @@ yield from
 
 {{< /tabpane >}}
 
-## 类型
-
-
+### 类型转换
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -621,12 +681,6 @@ yield from
 {{% /tab  %}}
 
 {{% tab header="C/C++" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="PHP" %}}
 
 
 
@@ -706,7 +760,75 @@ yield from
 
 {{% /tab  %}}
 
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
 {{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+### 常量
+
+
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
 
 
 
@@ -750,7 +872,7 @@ yield from
 
 {{< /tabpane >}}
 
-## 常量
+### 变量
 
 
 
@@ -781,12 +903,6 @@ yield from
 {{% /tab  %}}
 
 {{% tab header="C/C++" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="PHP" %}}
 
 
 
@@ -830,9 +946,7 @@ yield from
 
 {{< /tabpane >}}
 
-## 变量
-
-
+### 命名规范
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -861,12 +975,6 @@ yield from
 {{% /tab  %}}
 
 {{% tab header="C/C++" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="PHP" %}}
 
 
 
@@ -910,9 +1018,9 @@ yield from
 
 {{< /tabpane >}}
 
-## 表达式
+## 控制语句
 
-
+### 判断语句（选择语句）
 
 {{< tabpane text=true persist=disabled >}}
 
@@ -941,12 +1049,6 @@ yield from
 {{% /tab  %}}
 
 {{% tab header="C/C++" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="PHP" %}}
 
 
 
@@ -990,7 +1092,371 @@ yield from
 
 {{< /tabpane >}}
 
-## 语句
+### 循环语句
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 内置函数
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 字符串
+
+### 字符串字面值（string literal）
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+### 格式化字符串
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+### 字符串常见操作
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
+## 指针
 
 
 
@@ -1026,7 +1492,509 @@ yield from
 
 {{% /tab  %}}
 
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
 {{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 模块
+
+
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 测试
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+
+
+## 异常和错误
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 继承
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 编码
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## 正则表达式
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="JavaScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="TypeScript" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C#" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Erlang" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="PHP" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Ruby" %}}
+
+
+
+{{% /tab  %}}
+
+{{< /tabpane >}}
+
+## I/O操作
+
+{{< tabpane text=true persist=disabled >}}
+
+{{% tab header="Go" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Python" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Java" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="Rust" %}}
+
+
+
+{{% /tab  %}}
+
+{{% tab header="C/C++" %}}
 
 
 

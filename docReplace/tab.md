@@ -32,12 +32,6 @@
 
 {{% /tab  %}}
 
-{{% tab header="PHP" %}}
-
-
-
-{{% /tab  %}}
-
 {{% tab header="JavaScript" %}}
 
 
