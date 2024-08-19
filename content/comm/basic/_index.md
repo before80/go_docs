@@ -15,7 +15,7 @@ draft = false
 
 {{% tab header="Go" %}}
 
-​	参见[http://before80.github.io/go_docs/comm/Go/basic/installs/](http://before80.github.io/go_docs/comm/Go/basic/installs/)
+​	详见：[http://before80.github.io/go_docs/comm/Go/basic/installs/](http://before80.github.io/go_docs/comm/Go/basic/installs/)
 
 {{% /tab  %}}
 
@@ -113,7 +113,7 @@ continue     for          import       return       var
 
 ​	Python目前有35个关键字。
 
-来源：[https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords](https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords)
+​	来源：[https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords](https://docs.python.org/zh-cn/3.12/reference/lexical_analysis.html#keywords)
 
 ```python
 False      await      else       import     pass
