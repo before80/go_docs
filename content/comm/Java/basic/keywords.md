@@ -34,4 +34,3 @@ non-sealed   provides   to           when
 open         record     transitive   with    
 ```
 
-{{% /tab  %}}
