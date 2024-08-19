@@ -23,7 +23,7 @@ Today the Go team is happy to release Go 1.23, which you can get by visiting the
 
 If you already have Go 1.22 or Go 1.21 installed on your machine, you can also try `go get toolchain@go1.23.0` in an existing module. This will download the new toolchain and let you begin using it in your module right away. At some later point, you can follow up with `go get go@1.23.0` when you’re ready to fully switch to Go 1.23 and have that be your module’s minimum required Go version. See [Managing Go version module requirements with go get](https://go.dev/doc/toolchain#get) for more information on this functionality.
 
-​	如果你已经在机器上安装了 Go 1.22 或 Go 1.21，也可以在现有模块中尝试使用 `go get toolchain@go1.23.0`。这将下载新的工具链，并让你立即在模块中使用它。稍后，当你准备完全切换到 Go 1.23 并将其设为模块的最低 Go 版本时，可以使用 `go get go@1.23.0`。有关此功能的更多信息，请参阅[使用 go get 管理 Go 版本模块要求]({{< ref "/docs/GoToolchains/#使用go-get管理go版本模块要求-managing-go-version-module-requirements-with-go-get">}})。
+​	如果你已经在机器上安装了 Go 1.22 或 Go 1.21，也可以在现有模块中尝试使用 `go get toolchain@go1.23.0`。这将下载新的工具链，并让你立即在模块中使用它。稍后，当你准备完全切换到 Go 1.23 并将其设为模块的最低 Go 版本时，可以使用 `go get go@1.23.0`。有关此功能的更多信息，请参阅[使用 go get 管理 Go 版本模块要求]({{< ref "/docs/GoToolchains#使用go-get管理go版本模块要求-managing-go-version-module-requirements-with-go-get">}})。
 
 Go 1.23 comes with many improvements over Go 1.22. Some of the highlights include:
 
