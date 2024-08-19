@@ -1,7 +1,7 @@
 +++
 title = "Go 1.23 发布！"
 date = 2024-08-19T20:07:23+08:00
-weight = 1
+weight = 920
 type = "docs"
 description = ""
 isCJKLanguage = true
