@@ -15,7 +15,7 @@ draft = false
 
 {{% tab header="Go" %}}
 
-​	详见：[/comm/Go/basic/installs/]({{< ref "/comm/Go/basic/installs/" >}})
+​	详见：[/comm/Go/basic/installs]({{< ref "/comm/Go/basic/installs" >}})
 
 {{% /tab  %}}
 
