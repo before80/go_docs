@@ -112,7 +112,7 @@ go version
 
 （b）若是使用命令行安装go，则安装步骤和CentOS一样（不同的是配置文件名称不一样，Ubuntu为`/etc/bash.bashrc`和主目录中的`.bashrc`）。
 
-### 在Windows上安装和配置
+### 在Windows 10上安装和配置
 
 （a）下载`MSI`格式的安装包。例如：[https://mirrors.aliyun.com/golang/go1.21.2.windows-amd64.msi](https://mirrors.aliyun.com/golang/go1.21.2.windows-amd64.msi)
 
@@ -342,7 +342,7 @@ go run app.go
 
 ![image-20240819115932270](./installs_img/image-20240819115932270.png)
 
-（c）点击`Go programming Language amd64 go1.xx.x`，点击`卸载`，当探测警告时，再次点击`卸载`：
+（c）点击`Go programming Language amd64 go1.xx.x`，点击`卸载`，当弹出警告时，再次点击`卸载`：
 
 ![image-20240819120201276](./installs_img/image-20240819120201276.png)
 
