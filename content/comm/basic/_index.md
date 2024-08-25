@@ -244,6 +244,8 @@ yield from
 
 {{% tab header="Python" %}}
 
+​	 详见 [comm/Python/basic/operators]({{< ref "/comm/Python/basic/operators">}})
+
 
 
 {{% /tab  %}}
