@@ -111,10 +111,19 @@ $1$2
 // 查找匹配如下字符
 )added in v
 或
+) added in
+
+)added in
+或
 ) added in v
 
 // 替换成
 ) <-  
+
+// 查找匹配如下字符
+added in go1
+// 替换成
+<- go1
 ```
 
 

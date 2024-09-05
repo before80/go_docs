@@ -895,6 +895,32 @@ Outside of those two special cases, ServeFile does not use r.URL.Path for select
 
 ​	除了这两个特殊情况外，ServeFile 不使用 r.URL.Path 来选择要提供的文件或目录；只使用名称参数中提供的文件或目录。
 
+### func ServeFileFS <- go1.22.0
+
+```
+func ServeFileFS(w ResponseWriter, r *Request, fsys fs.FS, name string)
+```
+
+ServeFileFS replies to the request with the contents of the named file or directory from the file system fsys. The files provided by fsys must implement [io.Seeker](https://pkg.go.dev/io#Seeker).
+
+​	ServeFileFS 使用文件系统 `fsys` 中指定文件或目录的内容来回复请求。`fsys` 提供的文件必须实现 [io.Seeker](https://pkg.go.dev/io#Seeker) 接口。
+
+If the provided name is constructed from user input, it should be sanitized before calling [ServeFileFS](https://pkg.go.dev/net/http@go1.23.0#ServeFileFS).
+
+​	如果提供的文件名是由用户输入生成的，在调用 [ServeFileFS](https://pkg.go.dev/net/http@go1.23.0#ServeFileFS) 之前应对其进行清理。
+
+As a precaution, ServeFileFS will reject requests where r.URL.Path contains a ".." path element; this protects against callers who might unsafely use [filepath.Join](https://pkg.go.dev/path/filepath#Join) on r.URL.Path without sanitizing it and then use that filepath.Join result as the name argument.
+
+​	作为预防措施，ServeFileFS 将拒绝 `r.URL.Path` 中包含 ".." 路径元素的请求；这可以防止调用者在未清理 `r.URL.Path` 的情况下使用 [filepath.Join](https://pkg.go.dev/path/filepath#Join) 并将该 `filepath.Join` 结果作为 `name` 参数使用。
+
+As another special case, ServeFileFS redirects any request where r.URL.Path ends in "/index.html" to the same path, without the final "index.html". To avoid such redirects either modify the path or use [ServeContent](https://pkg.go.dev/net/http@go1.23.0#ServeContent).
+
+​	作为另一种特殊情况，ServeFileFS 会将 `r.URL.Path` 以 "/index.html" 结尾的请求重定向到相同路径，但去掉最后的 "index.html"。要避免这种重定向，可以修改路径或使用 [ServeContent](https://pkg.go.dev/net/http@go1.23.0#ServeContent)。
+
+Outside of those two special cases, ServeFileFS does not use r.URL.Path for selecting the file or directory to serve; only the file or directory provided in the name argument is used.
+
+​	除了这两种特殊情况之外，ServeFileFS 不会使用 `r.URL.Path` 来选择要提供的文件或目录；只会使用 `name` 参数中提供的文件或目录。
+
 ### func ServeTLS  <- go1.9
 
 ``` go 
@@ -1359,6 +1385,24 @@ See https://tools.ietf.org/html/rfc6265 for details.
 
 ​	详见[https://tools.ietf.org/html/rfc6265](https://tools.ietf.org/html/rfc6265)。
 
+#### func ParseCookie <- go1.23.0
+
+```
+func ParseCookie(line string) ([]*Cookie, error)
+```
+
+ParseCookie parses a Cookie header value and returns all the cookies which were set in it. Since the same cookie name can appear multiple times the returned Values can contain more than one value for a given key.
+
+​	ParseCookie 解析一个 Cookie 头部的值，并返回其中设置的所有 Cookie。由于同一 Cookie 名称可能会出现多次，因此返回的值可能包含相同键的多个值。
+
+#### func ParseSetCookie <- go1.23.0
+
+```
+func ParseSetCookie(line string) (*Cookie, error)
+```
+
+ParseSetCookie parses a Set-Cookie header value and returns a cookie. It returns an error on syntax error.
+
 #### (*Cookie) String 
 
 ``` go 
@@ -1689,6 +1733,20 @@ func main() {
 	http.Handle("/tmpfiles/", http.StripPrefix("/tmpfiles/", http.FileServer(http.Dir("/tmp"))))
 }
 
+```
+
+#### func FileServerFS <- go1.22.0
+
+```
+func FileServerFS(root fs.FS) Handler
+```
+
+FileServerFS returns a handler that serves HTTP requests with the contents of the file system fsys. The files provided by fsys must implement [io.Seeker](https://pkg.go.dev/io#Seeker).
+
+As a special case, the returned file server redirects any request ending in "/index.html" to the same path, without the final "index.html".
+
+```
+http.Handle("/", http.FileServerFS(fsys))
 ```
 
 #### func MaxBytesHandler  <- go1.18
@@ -2691,6 +2749,14 @@ ParseMultipartForm parses a request body as multipart/form-data. The whole reque
 
 ​	ParseMultipartForm方法将请求体解析为multipart/form-data。整个请求体被解析，并且它的文件部分的最多maxMemory字节数在内存中存储，其余部分在临时文件中存储。ParseMultipartForm方法在必要时调用ParseForm方法。如果ParseForm方法返回错误，则ParseMultipartForm方法返回该错误，但也会继续解析请求体。调用一次ParseMultipartForm方法之后，随后的调用没有任何效果。
 
+#### (*Request) PathValue <- go1.22.0
+
+```
+func (r *Request) PathValue(name string) string
+```
+
+PathValue returns the value for the named path wildcard in the [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux) pattern that matched the request. It returns the empty string if the request was not matched against a pattern or there is no such wildcard in the pattern.
+
 #### (*Request) PostFormValue  <- go1.1
 
 ``` go 
@@ -2742,6 +2808,14 @@ With HTTP Basic Authentication the provided username and password are not encryp
 The username may not contain a colon. Some protocols may impose additional requirements on pre-escaping the username and password. For instance, when used with OAuth2, both arguments must be URL encoded first with url.QueryEscape.
 
 ​	用户名不能包含冒号。某些协议可能会对预转义用户名和密码有额外的要求。例如，当与OAuth2一起使用时，必须首先使用url.QueryEscape对两个参数进行URL编码。
+
+#### (*Request) SetPathValue <- go1.22.0
+
+```
+func (r *Request) SetPathValue(name, value string)
+```
+
+SetPathValue sets name to value, so that subsequent calls to r.PathValue(name) return value.
 
 #### (*Request) UserAgent 
 
@@ -3568,6 +3642,25 @@ res, err := c.Get("file:///etc/passwd")
 ...
 ```
 
+#### func NewFileTransportFS <- go1.22.0
+
+```
+func NewFileTransportFS(fsys fs.FS) RoundTripper
+```
+
+NewFileTransportFS returns a new [RoundTripper](https://pkg.go.dev/net/http@go1.23.0#RoundTripper), serving the provided file system fsys. The returned RoundTripper ignores the URL host in its incoming requests, as well as most other properties of the request. The files provided by fsys must implement [io.Seeker](https://pkg.go.dev/io#Seeker).
+
+The typical use case for NewFileTransportFS is to register the "file" protocol with a [Transport](https://pkg.go.dev/net/http@go1.23.0#Transport), as in:
+
+```
+fsys := os.DirFS("/")
+t := &http.Transport{}
+t.RegisterProtocol("file", http.NewFileTransportFS(fsys))
+c := &http.Client{Transport: t}
+res, err := c.Get("file:///etc/passwd")
+...
+```
+
 ### type SameSite  <- go1.11
 
 ``` go 
@@ -3601,27 +3694,64 @@ type ServeMux struct {
 
 ServeMux is an HTTP request multiplexer. It matches the URL of each incoming request against a list of registered patterns and calls the handler for the pattern that most closely matches the URL.
 
-​	`ServeMux` 是一个 HTTP 请求多路复用器。它将每个传入请求的 URL 与已注册模式列表进行匹配，并调用与 URL 最匹配的模式的处理程序。
+#### Patterns 
 
-Patterns name fixed, rooted paths, like "/favicon.ico", or rooted subtrees, like "/images/" (note the trailing slash). Longer patterns take precedence over shorter ones, so that if there are handlers registered for both "/images/" and "/images/thumbnails/", the latter handler will be called for paths beginning "/images/thumbnails/" and the former will receive requests for any other paths in the "/images/" subtree.
+Patterns can match the method, host and path of a request. Some examples:
 
-​	模式命名了固定的根路径，如 "/favicon.ico"，或根子树，如 "/images/"(请注意尾随斜杠)。较长的模式优先于较短的模式，因此，如果为 "/images/" 和 "/images/thumbnails/" 都注册了处理程序，则后者处理程序将用于以 "/images/thumbnails/" 开头的路径，并且前者将接收任何 "/images/" 子树中的其他路径的请求。
+- "/index.html" matches the path "/index.html" for any host and method.
+- "GET /static/" matches a GET request whose path begins with "/static/".
+- "example.com/" matches any request to the host "example.com".
+- "example.com/{$}" matches requests with host "example.com" and path "/".
+- "/b/{bucket}/o/{objectname...}" matches paths whose first segment is "b" and whose third segment is "o". The name "bucket" denotes the second segment and "objectname" denotes the remainder of the path.
 
-Note that since a pattern ending in a slash names a rooted subtree, the pattern "/" matches all paths not matched by other registered patterns, not just the URL with Path == "/".
+In general, a pattern looks like
 
-​	请注意，由于以斜杠结尾的模式命名了一个根子树，因此模式 "/" 匹配所有未被其他已注册模式匹配的路径，而不仅仅是 Path == "/" 的 URL。
+```
+[METHOD ][HOST]/[PATH]
+```
 
-If a subtree has been registered and a request is received naming the subtree root without its trailing slash, ServeMux redirects that request to the subtree root (adding the trailing slash). This behavior can be overridden with a separate registration for the path without the trailing slash. For example, registering "/images/" causes ServeMux to redirect a request for "/images" to "/images/", unless "/images" has been registered separately.
+All three parts are optional; "/" is a valid pattern. If METHOD is present, it must be followed by at least one space or tab.
 
-​	如果已经注册了子树，并收到了以其末尾没有斜杠的根子树命名的请求，`ServeMux` 会将该请求重定向到根子树(添加尾随斜杠)。此行为可以通过单独为没有尾随斜杠的路径注册来覆盖。例如，注册 "/images/" 会导致 ServeMux 将对 "/images" 的请求重定向到 "/images/"，除非 "/images" 已经单独注册。
+Literal (that is, non-wildcard) parts of a pattern match the corresponding parts of a request case-sensitively.
 
-Patterns may optionally begin with a host name, restricting matches to URLs on that host only. Host-specific patterns take precedence over general patterns, so that a handler might register for the two patterns "/codesearch" and "codesearch.google.com/" without also taking over requests for "http://www.google.com/".
+A pattern with no method matches every method. A pattern with the method GET matches both GET and HEAD requests. Otherwise, the method must match exactly.
 
-​	模式可以可选地以主机名开头，将匹配限制为仅在该主机的 URL。特定于主机的模式优先于通用模式，因此处理程序可能会注册两个模式 "/codesearch" 和 "codesearch.google.com/"，而不会同时接管 "http://www.google.com/" 的请求。
+A pattern with no host matches every host. A pattern with a host matches URLs on that host only.
 
-ServeMux also takes care of sanitizing the URL request path and the Host header, stripping the port number and redirecting any request containing . or .. elements or repeated slashes to an equivalent, cleaner URL.
+A path can include wildcard segments of the form {NAME} or {NAME...}. For example, "/b/{bucket}/o/{objectname...}". The wildcard name must be a valid Go identifier. Wildcards must be full path segments: they must be preceded by a slash and followed by either a slash or the end of the string. For example, "/b_{bucket}" is not a valid pattern.
 
-​	`ServeMux` 还负责对 URL 请求路径和 Host 标头进行清理，删除端口号，并将包含 . 或 .. 元素或重复斜杠的任何请求重定向到等效且更清晰的 URL。
+Normally a wildcard matches only a single path segment, ending at the next literal slash (not %2F) in the request URL. But if the "..." is present, then the wildcard matches the remainder of the URL path, including slashes. (Therefore it is invalid for a "..." wildcard to appear anywhere but at the end of a pattern.) The match for a wildcard can be obtained by calling [Request.PathValue](https://pkg.go.dev/net/http@go1.23.0#Request.PathValue) with the wildcard's name. A trailing slash in a path acts as an anonymous "..." wildcard.
+
+The special wildcard {$} matches only the end of the URL. For example, the pattern "/{$}" matches only the path "/", whereas the pattern "/" matches every path.
+
+For matching, both pattern paths and incoming request paths are unescaped segment by segment. So, for example, the path "/a%2Fb/100%25" is treated as having two segments, "a/b" and "100%". The pattern "/a%2fb/" matches it, but the pattern "/a/b/" does not.
+
+#### Precedence 
+
+If two or more patterns match a request, then the most specific pattern takes precedence. A pattern P1 is more specific than P2 if P1 matches a strict subset of P2’s requests; that is, if P2 matches all the requests of P1 and more. If neither is more specific, then the patterns conflict. There is one exception to this rule, for backwards compatibility: if two patterns would otherwise conflict and one has a host while the other does not, then the pattern with the host takes precedence. If a pattern passed to [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) or [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) conflicts with another pattern that is already registered, those functions panic.
+
+As an example of the general rule, "/images/thumbnails/" is more specific than "/images/", so both can be registered. The former matches paths beginning with "/images/thumbnails/" and the latter will match any other path in the "/images/" subtree.
+
+As another example, consider the patterns "GET /" and "/index.html": both match a GET request for "/index.html", but the former pattern matches all other GET and HEAD requests, while the latter matches any request for "/index.html" that uses a different method. The patterns conflict.
+
+#### Trailing-slash redirection 
+
+Consider a [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux) with a handler for a subtree, registered using a trailing slash or "..." wildcard. If the ServeMux receives a request for the subtree root without a trailing slash, it redirects the request by adding the trailing slash. This behavior can be overridden with a separate registration for the path without the trailing slash or "..." wildcard. For example, registering "/images/" causes ServeMux to redirect a request for "/images" to "/images/", unless "/images" has been registered separately.
+
+#### Request sanitizing 
+
+ServeMux also takes care of sanitizing the URL request path and the Host header, stripping the port number and redirecting any request containing . or .. segments or repeated slashes to an equivalent, cleaner URL.
+
+#### Compatibility 
+
+The pattern syntax and matching behavior of ServeMux changed significantly in Go 1.22. To restore the old behavior, set the GODEBUG environment variable to "httpmuxgo121=1". This setting is read once, at program startup; changes during execution will be ignored.
+
+The backwards-incompatible changes include:
+
+- Wildcards are just ordinary literal path segments in 1.21. For example, the pattern "/{x}" will match only that path in 1.21, but will match any one-segment path in 1.22.
+- In 1.21, no pattern was rejected, unless it was empty or conflicted with an existing pattern. In 1.22, syntactically invalid patterns will cause [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) and [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) to panic. For example, in 1.21, the patterns "/{" and "/a{x}" match themselves, but in 1.22 they are invalid and will cause a panic when registered.
+- In 1.22, each segment of a pattern is unescaped; this was not done in 1.21. For example, in 1.22 the pattern "/%61" matches the path "/a" ("%61" being the URL escape sequence for "a"), but in 1.21 it would match only the path "/%2561" (where "%25" is the escape for the percent sign).
+- When matching patterns to paths, in 1.22 each segment of the path is unescaped; in 1.21, the entire path is unescaped. This change mostly affects how paths with %2F escapes adjacent to slashes are treated. See https://go.dev/issue/21955 for details.
 
 #### func NewServeMux 
 

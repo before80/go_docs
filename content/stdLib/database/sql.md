@@ -1451,6 +1451,42 @@ db.ExecContext(ctx, `
 )
 ```
 
+### type Null <- go1.22.0
+
+```go
+type Null[T any] struct {
+	V     T
+	Valid bool
+}
+```
+
+Null represents a value that may be null. Null implements the [Scanner](https://pkg.go.dev/database/sql@go1.23.0#Scanner) interface so it can be used as a scan destination:
+
+​	Null 表示一个可能为 null 的值。Null 实现了 [Scanner](https://pkg.go.dev/database/sql@go1.23.0#Scanner) 接口，因此它可以用作扫描目标：
+
+```go
+var s Null[string]
+err := db.QueryRow("SELECT name FROM foo WHERE id=?", id).Scan(&s)
+...
+if s.Valid {
+   // use s.V
+} else {
+   // NULL value
+}
+```
+
+#### (*Null[T]) Scan <- go1.22.0
+
+```go
+func (n *Null[T]) Scan(value any) error
+```
+
+#### (Null[T]) Value <- go1.22.0
+
+```go
+func (n Null[T]) Value() (driver.Value, error)
+```
+
 ### type NullBool 
 
 ```go 

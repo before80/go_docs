@@ -180,6 +180,26 @@ NewEncoding returns a new padded Encoding defined by the given alphabet, which m
 
 ​	NewEncoding函数返回一个由给定字母定义的新的填充编码，它必须是一个64字节的字符串，不包含填充字符或CR / LF('\r', '\n')。产生的Encoding使用默认的填充字符('=')，可以通过WithPadding进行更改或禁用。
 
+#### (*Encoding) AppendDecode <- go1.22.0
+
+```
+func (enc *Encoding) AppendDecode(dst, src []byte) ([]byte, error)
+```
+
+AppendDecode appends the base64 decoded src to dst and returns the extended buffer. If the input is malformed, it returns the partially decoded src and an error.
+
+​	AppendDecode 将 base64 解码后的 src 追加到 dst，并返回扩展后的缓冲区。如果输入格式不正确，它会返回部分解码的 src 和一个错误。
+
+#### (*Encoding) AppendEncode <- go1.22.0
+
+```
+func (enc *Encoding) AppendEncode(dst, src []byte) []byte
+```
+
+AppendEncode appends the base64 encoded src to dst and returns the extended buffer.
+
+​	AppendEncode 将 base64 编码后的 src 追加到 dst，并返回扩展后的缓冲区。
+
 #### (*Encoding) Decode 
 
 ``` go 

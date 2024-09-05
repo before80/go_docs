@@ -31,6 +31,26 @@ ErrLength reports an attempt to decode an odd-length input using Decode or Decod
 
 ## 函数
 
+### func AppendDecode <- go1.22.0
+
+```
+func AppendDecode(dst, src []byte) ([]byte, error)
+```
+
+AppendDecode appends the hexadecimally decoded src to dst and returns the extended buffer. If the input is malformed, it returns the partially decoded src and an error.
+
+​	AppendDecode 将十六进制解码后的 src 追加到 dst，并返回扩展后的缓冲区。如果输入格式不正确，它将返回部分解码的 src 和一个错误。
+
+### func AppendEncode <- go1.22.0
+
+```
+func AppendEncode(dst, src []byte) []byte
+```
+
+AppendEncode appends the hexadecimally encoded src to dst and returns the extended buffer.
+
+​	AppendEncode 将十六进制编码的 src 追加到 dst，并返回扩展后的缓冲区。
+
 ### func Decode 
 
 ``` go 

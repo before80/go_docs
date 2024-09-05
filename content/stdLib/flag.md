@@ -308,6 +308,8 @@ func BoolFunc(name, usage string, fn func(string) error)
 
 BoolFunc defines a flag with the specified name and usage string without requiring values. Each time the flag is seen, fn is called with the value of the flag. If fn returns a non-nil error, it will be treated as a flag value parsing error.
 
+​	`BoolFunc` 定义了一个具有指定名称和使用说明的标志，无需提供值。每次看到该标志时，都会调用 `fn` 并传递该标志的值。如果 `fn` 返回非空错误，则会将其视为标志值解析错误。
+
 #### BoolFunc Example
 
 ```go

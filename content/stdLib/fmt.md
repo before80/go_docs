@@ -957,6 +957,8 @@ If the format specifier includes a %w verb with an error operand, the returned e
 
 The Errorf function lets us use formatting features to create descriptive error messages.
 
+​	`Errorf` 函数允许我们使用格式化功能来创建描述性错误消息。
+
 ``` go 
 package main
 
@@ -1488,7 +1490,7 @@ GoStringer is implemented by any value that has a GoString method, which defines
 
 ​	GoStringer 由任何具有 GoString 方法的值实现，该方法定义该值的 Go 语法。GoString 方法用于打印作为 %#v 格式的操作数传递的值。
 
-##### Example
+#### Example
 ``` go 
 package main
 
@@ -1653,7 +1655,7 @@ Stringer is implemented by any value that has a String method, which defines the
 
 ​	Stringer由任何具有String方法的值实现，该方法定义该值的"原生"格式。String方法用于打印作为接受字符串的任何格式的操作数或打印机传递的未格式化操作数，例如Print。
 
-##### Example
+#### Example
 ``` go 
 package main
 

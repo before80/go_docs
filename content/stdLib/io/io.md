@@ -3175,6 +3175,20 @@ NewSectionReader returns a SectionReader that reads from r starting at offset of
 
 ​	NewSectionReader函数返回一个 SectionReader，该 Reader 从偏移量 off 处开始从 r 读取并在 n 字节后以 EOF 结束。
 
+#### (*SectionReader) Outer <- go1.22.0
+
+```
+func (s *SectionReader) Outer() (r ReaderAt, off int64, n int64)
+```
+
+Outer returns the underlying [ReaderAt](https://pkg.go.dev/io@go1.23.0#ReaderAt) and offsets for the section.
+
+​	Outer 返回底层的 [ReaderAt](https://pkg.go.dev/io@go1.23.0#ReaderAt) 和该部分的偏移量。
+
+The returned values are the same that were passed to [NewSectionReader](https://pkg.go.dev/io@go1.23.0#NewSectionReader) when the [SectionReader](https://pkg.go.dev/io@go1.23.0#SectionReader) was created.
+
+​	返回的值与创建 [SectionReader](https://pkg.go.dev/io@go1.23.0#SectionReader) 时传递给 [NewSectionReader](https://pkg.go.dev/io@go1.23.0#NewSectionReader) 的值相同。
+
 #### (*SectionReader) Read 
 
 ``` go 

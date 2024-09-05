@@ -116,7 +116,33 @@ NewListener creates a Listener which accepts connections from an inner Listener 
 
 ​	NewListener 创建一个侦听器，该侦听器接受来自内部侦听器的连接，并将每个连接包装到 Server 中。配置 config 必须为非 nil，并且必须至少包含一个证书，否则设置 GetCertificate。
 
+### func VersionName <- go1.21.0
+
+```go
+func VersionName(version uint16) string
+```
+
+VersionName returns the name for the provided TLS version number (e.g. "TLS 1.3"), or a fallback representation of the value if the version is not implemented by this package.
+
+​	VersionName 返回所提供的 TLS 版本号的名称（例如 "TLS 1.3"），如果该版本未被此包实现，则返回该值的替代表示形式。
+
 ## 类型
+
+### type AlertError <-go1.21.0
+
+```go
+type AlertError uint8
+```
+
+An AlertError is a TLS alert.
+
+When using a QUIC transport, QUICConn methods will return an error which wraps AlertError rather than sending a TLS alert.
+
+#### (AlertError) Error <-go1.21.0
+
+```go
+func (e AlertError) Error() string
+```
 
 ### type Certificate 
 
@@ -158,6 +184,10 @@ LoadX509KeyPair reads and parses a public/private key pair from a pair of files.
 
 ​	LoadX509KeyPair 从一对文件中读取和解析公钥/私钥对。这些文件必须包含 PEM 编码的数据。证书文件可能包含叶证书后面的中间证书，以形成证书链。成功返回后，Certificate.Leaf 将为 nil，因为不会保留证书的解析形式。
 
+Before Go 1.23 Certificate.Leaf was left nil, and the parsed certificate was discarded. This behavior can be re-enabled by setting "x509keypairleaf=0" in the GODEBUG environment variable.
+
+​	Go 1.23 之前Certificate.Leaf为nil，并丢弃已解析的证书。可以通过在GODEBUG环境变量中设置 "x509keypairleaf=0"来重新启用此行为。
+
 ##### LoadX509KeyPair Example
 
 ```go
@@ -195,6 +225,10 @@ func X509KeyPair(certPEMBlock, keyPEMBlock []byte) (Certificate, error)
 X509KeyPair parses a public/private key pair from a pair of PEM encoded data. On successful return, Certificate.Leaf will be nil because the parsed form of the certificate is not retained.
 
 ​	X509KeyPair 从一对 PEM 编码数据中解析公钥/私钥对。成功返回后，Certificate.Leaf 将为 nil，因为不会保留证书的解析形式。
+
+Before Go 1.23 Certificate.Leaf was left nil, and the parsed certificate was discarded. This behavior can be re-enabled by setting "x509keypairleaf=0" in the GODEBUG environment variable.
+
+​	Go 1.23 之前Certificate.Leaf为nil，并丢弃已解析的证书。可以通过在GODEBUG环境变量中设置 "x509keypairleaf=0"来重新启用此行为。
 
 ##### X509KeyPair Example
 
@@ -572,6 +606,34 @@ ClientSessionState contains the state needed by clients to resume TLS sessions.
 
 ​	ClientSessionState 包含客户端恢复 TLS 会话所需的状态。
 
+#### func NewResumptionState <-go1.21.0
+
+```
+func NewResumptionState(ticket []byte, state *SessionState) (*ClientSessionState, error)
+```
+
+NewResumptionState returns a state value that can be returned by `ClientSessionCache.Get` to resume a previous session.
+
+​	`NewResumptionState` 返回一个状态值，该状态值可由`ClientSessionCache.Get`返回，以恢复先前的会话。
+
+state needs to be returned by [ParseSessionState](https://pkg.go.dev/crypto/tls@go1.23.0#ParseSessionState), and the ticket and session state must have been returned by [ClientSessionState.ResumptionState](https://pkg.go.dev/crypto/tls@go1.23.0#ClientSessionState.ResumptionState).
+
+​	`state` 需要由 [ParseSessionState](https://pkg.go.dev/crypto/tls@go1.23.0#ParseSessionState) 返回，而 `ticket` 和会话状态必须由 [ClientSessionState.ResumptionState](https://pkg.go.dev/crypto/tls@go1.23.0#ClientSessionState.ResumptionState) 返回。
+
+#### (*ClientSessionState) ResumptionState <-go1.21.0
+
+```
+func (cs *ClientSessionState) ResumptionState() (ticket []byte, state *SessionState, err error)
+```
+
+ResumptionState returns the session ticket sent by the server (also known as the session's identity) and the state necessary to resume this session.
+
+​	`ResumptionState` 返回由服务器发送的会话票据（也称为会话的标识符）以及恢复此会话所需的状态。
+
+It can be called by `ClientSessionCache.Put`to serialize (with [SessionState.Bytes](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState.Bytes)) and store the session.
+
+​	它可以被 `ClientSessionCache.Put` 调用，以序列化（使用 [SessionState.Bytes](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState.Bytes)）并存储会话。
+
 ### type Config 
 
 ``` go
@@ -580,10 +642,15 @@ type Config struct {
 	// If Rand is nil, TLS uses the cryptographic random reader in package
 	// crypto/rand.
 	// The Reader must be safe for use by multiple goroutines.
+    // Rand 提供用于生成随机数和 RSA 盲签的熵源。
+	// 如果 Rand 为 nil，TLS 将使用 `crypto/rand` 包中的加密随机数生成器。
+	// 该 Reader 必须能够安全地被多个 goroutines 使用。
 	Rand io.Reader
 
 	// Time returns the current time as the number of seconds since the epoch.
 	// If Time is nil, TLS uses time.Now.
+    // Time 返回从 epoch 开始的秒数作为当前时间。
+	// 如果 Time 为 nil，TLS 将使用 time.Now。
 	Time func() time.Time
 
 	// Certificates contains one or more certificate chains to present to the
@@ -597,6 +664,13 @@ type Config struct {
 	// Note: if there are multiple Certificates, and they don't have the
 	// optional field Leaf set, certificate selection will incur a significant
 	// per-handshake performance cost.
+    // Certificates 包含一个或多个要向对方连接展示的证书链。
+	// 系统会自动选择与对方要求兼容的第一个证书。
+	//
+	// 服务器配置必须设置 `Certificates`、`GetCertificate` 或 `GetConfigForClient` 中的一个。
+	// 执行客户端认证的客户端可以设置 `Certificates` 或 `GetClientCertificate` 中的一个。
+	//
+	// 注意：如果有多个证书，且它们未设置可选字段 Leaf，证书选择操作将在每次握手中导致显著的性能消耗。
 	Certificates []Certificate
 
 	// NameToCertificate maps from a certificate name to an element of
@@ -606,6 +680,11 @@ type Config struct {
 	// Deprecated: NameToCertificate only allows associating a single
 	// certificate with a given name. Leave this field nil to let the library
 	// select the first compatible chain from Certificates.
+    // NameToCertificate 映射证书名称到 Certificates 中的元素。
+	// 请注意，证书名称可以是 '*.example.com' 形式，因此不必一定是域名。
+	//
+	// 已弃用：NameToCertificate 只允许将单个证书与给定名称关联。
+	// 将此字段留空以让库从 Certificates 中选择第一个兼容链。
 	NameToCertificate map[string]*Certificate
 
 	// GetCertificate returns a Certificate based on the given
@@ -617,6 +696,13 @@ type Config struct {
 	// best element of Certificates will be used.
 	//
 	// Once a Certificate is returned it should not be modified.
+    // GetCertificate 根据给定的 ClientHelloInfo 返回证书。
+	// 只有在客户端提供 SNI 信息或 Certificates 为空时才会调用此函数。
+	//
+	// 如果 GetCertificate 为 nil 或返回 nil，则从 NameToCertificate 检索证书。
+	// 如果 NameToCertificate 为 nil，则会使用 Certificates 中的最佳元素。
+	//
+	// 一旦返回证书，它就不应被修改。
 	GetCertificate func(*ClientHelloInfo) (*Certificate, error)
 
 	// GetClientCertificate, if not nil, is called when a server requests a
@@ -634,6 +720,17 @@ type Config struct {
 	// connection if renegotiation occurs or if TLS 1.3 is in use.
 	//
 	// Once a Certificate is returned it should not be modified.
+    // GetClientCertificate，如果不为 nil，当服务器请求客户端提供证书时调用。
+	// 如果设置了此选项，则会忽略 Certificates 的内容。
+	//
+	// 如果 GetClientCertificate 返回错误，握手将中止并返回该错误。
+	// 否则，GetClientCertificate 必须返回非空证书。
+	// 如果 Certificate.Certificate 为空，则不会向服务器发送证书。
+	// 如果服务器无法接受这一点，它可能会中止握手。
+	//
+	// 如果发生重新协商或使用 TLS 1.3，则可能会为同一连接多次调用 GetClientCertificate。
+	//
+	// 一旦返回证书，它就不应被修改。
 	GetClientCertificate func(*CertificateRequestInfo) (*Certificate, error)
 
 	// GetConfigForClient, if not nil, is called after a ClientHello is
@@ -649,6 +746,15 @@ type Config struct {
 	// SetSessionTicketKeys was called on the returned Config, those keys will
 	// be used. Otherwise, the original Config keys will be used (and possibly
 	// rotated if they are automatically managed).
+    // GetConfigForClient，如果不为 nil，则在从客户端接收到 ClientHello 后调用。
+	// 它可能会返回非空 Config 以更改将用于处理此连接的 Config。
+	// 如果返回的 Config 为 nil，则将使用原始 Config。
+	// 由此回调返回的 Config 不能在之后被修改。
+	//
+	// 如果 GetConfigForClient 为 nil，则 Server() 传递的 Config 将用于所有连接。
+	//
+	// 如果在返回的 Config 上显式设置了 SessionTicketKey，或者调用了 SetSessionTicketKeys，
+	// 则将使用这些密钥。否则，将使用原始 Config 密钥（如果它们是自动管理的，可能会旋转）。
 	GetConfigForClient func(*ClientHelloInfo) (*Config, error)
 
 	// VerifyPeerCertificate, if not nil, is called after normal
@@ -658,12 +764,31 @@ type Config struct {
 	// non-nil error, the handshake is aborted and that error results.
 	//
 	// If normal verification fails then the handshake will abort before
-	// considering this callback. If normal verification is disabled by
-	// setting InsecureSkipVerify, or (for a server) when ClientAuth is
-	// RequestClientCert or RequireAnyClientCert, then this callback will
-	// be considered but the verifiedChains argument will always be nil.
+	// considering this callback. If normal verification is disabled (on the
+	// client when InsecureSkipVerify is set, or on a server when ClientAuth is
+	// RequestClientCert or RequireAnyClientCert), then this callback will be
+	// considered but the verifiedChains argument will always be nil. When
+	// ClientAuth is NoClientCert, this callback is not called on the server.
+	// rawCerts may be empty on the server if ClientAuth is RequestClientCert or
+	// VerifyClientCertIfGiven.
+	//
+	// This callback is not invoked on resumed connections, as certificates are
+	// not re-verified on resumption.
 	//
 	// verifiedChains and its contents should not be modified.
+    // VerifyPeerCertificate，如果不为 nil，则在 TLS 客户端或服务器的正常证书验证之后调用。
+	// 它接收由对等方提供的原始 ASN.1 证书，以及正常处理过程中发现的任何已验证链。
+	// 如果返回非空错误，则握手中止并导致该错误。
+	//
+	// 如果正常验证失败，握手将在考虑此回调之前中止。
+	// 如果正常验证被禁用（当客户端设置了 InsecureSkipVerify，或服务器的 ClientAuth 为 RequestClientCert 或 RequireAnyClientCert），
+	// 则会考虑此回调，但 verifiedChains 参数将始终为 nil。
+	// 当 ClientAuth 为 NoClientCert 时，服务器不会调用此回调。
+	// 如果 ClientAuth 是 RequestClientCert 或 VerifyClientCertIfGiven，服务器上的 rawCerts 可能为空。
+	//
+	// 在恢复的连接上不会调用此回调，因为恢复时不会重新验证证书。
+	//
+	// verifiedChains 及其内容不应被修改。
 	VerifyPeerCertificate func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error
 
 	// VerifyConnection, if not nil, is called after normal certificate
@@ -672,13 +797,21 @@ type Config struct {
 	// and that error results.
 	//
 	// If normal verification fails then the handshake will abort before
-	// considering this callback. This callback will run for all connections
-	// regardless of InsecureSkipVerify or ClientAuth settings.
+	// considering this callback. This callback will run for all connections,
+	// including resumptions, regardless of InsecureSkipVerify or ClientAuth
+	// settings.
+   // VerifyConnection，如果不为 nil，则在正常证书验证之后以及 VerifyPeerCertificate 之后由 TLS 客户端或服务器调用。
+	// 如果返回非空错误，则握手中止并导致该错误。
+	//
+	// 如果正常验证失败，握手将在考虑此回调之前中止。
+	// 此回调将为所有连接运行，包括恢复连接，无论 InsecureSkipVerify 或 ClientAuth 设置如何。
 	VerifyConnection func(ConnectionState) error
 
 	// RootCAs defines the set of root certificate authorities
 	// that clients use when verifying server certificates.
 	// If RootCAs is nil, TLS uses the host's root CA set.
+    // RootCAs 定义客户端在验证服务器证书时使用的根证书颁发机构集合。
+	// 如果 RootCAs 为 nil，则 TLS 使用主机的根 CA 集合。
 	RootCAs *x509.CertPool
 
 	// NextProtos is a list of supported application level protocols, in
@@ -687,21 +820,28 @@ type Config struct {
 	// if there is no mutually supported protocol. If NextProtos is empty
 	// or the peer doesn't support ALPN, the connection will succeed and
 	// ConnectionState.NegotiatedProtocol will be empty.
+    // NextProtos 是支持的应用层协议的列表，按优先顺序排列。
+	// 如果双方都支持 ALPN，则选择的协议将是此列表中的一个，并且如果没有共同支持的协议，连接将失败。
+	// 如果 NextProtos 为空或对等方不支持 ALPN，连接将成功并且 ConnectionState.NegotiatedProtocol 将为空。
 	NextProtos []string
 
 	// ServerName is used to verify the hostname on the returned
 	// certificates unless InsecureSkipVerify is given. It is also included
 	// in the client's handshake to support virtual hosting unless it is
 	// an IP address.
+    // ServerName 用于验证返回的证书上的主机名，除非设置了 InsecureSkipVerify。
+	// 它还包含在客户端的握手中，以支持虚拟主机，除非它是 IP 地址。
 	ServerName string
 
 	// ClientAuth determines the server's policy for
 	// TLS Client Authentication. The default is NoClientCert.
+    // ClientAuth 决定服务器的 TLS 客户端认证策略。默认值为 NoClientCert。
 	ClientAuth ClientAuthType
 
 	// ClientCAs defines the set of root certificate authorities
 	// that servers use if required to verify a client certificate
 	// by the policy in ClientAuth.
+    // ClientCAs 定义服务器在根据 ClientAuth 策略需要验证客户端证书时使用的根证书颁发机构集合。
 	ClientCAs *x509.CertPool
 
 	// InsecureSkipVerify controls whether a client verifies the server's
@@ -710,13 +850,27 @@ type Config struct {
 	// certificate. In this mode, TLS is susceptible to machine-in-the-middle
 	// attacks unless custom verification is used. This should be used only for
 	// testing or in combination with VerifyConnection or VerifyPeerCertificate.
+    // InsecureSkipVerify 控制客户端是否验证服务器的证书链和主机名。
+	// 如果 InsecureSkipVerify 为 true，crypto/tls 将接受服务器提供的任何证书和证书中的任何主机名。
+	// 在此模式下，除非使用自定义验证，否则 TLS 易受中间人攻击。
+	// 仅应在测试中或与 VerifyConnection 或 VerifyPeerCertificate 结合使用时使用。
 	InsecureSkipVerify bool
 
 	// CipherSuites is a list of enabled TLS 1.0–1.2 cipher suites. The order of
 	// the list is ignored. Note that TLS 1.3 ciphersuites are not configurable.
 	//
 	// If CipherSuites is nil, a safe default list is used. The default cipher
-	// suites might change over time.
+	// suites might change over time. In Go 1.22 RSA key exchange based cipher
+	// suites were removed from the default list, but can be re-added with the
+	// GODEBUG setting tlsrsakex=1. In Go 1.23 3DES cipher suites were removed
+	// from the default list, but can be re-added with the GODEBUG setting
+	// tls3des=1.
+    // CipherSuites 是已启用的 TLS 1.0–1.2 密码套件列表。列表的顺序将被忽略。
+	// 请注意，TLS 1.3 密码套件是不可配置的。
+	//
+	// 如果 CipherSuites 为 nil，则使用安全的默认列表。默认的密码套件可能会随着时间的推移而更改。
+	// 在 Go 1.22 中，基于 RSA 密钥交换的密码套件已从默认列表中移除，但可以通过设置 GODEBUG 为 tlsrsakex=1 来重新添加。
+	// 在 Go 1.23 中，3DES 密码套件已从默认列表中移除，但可以通过设置 GODEBUG 为 tls3des=1 来重新添加。
 	CipherSuites []uint16
 
 	// PreferServerCipherSuites is a legacy field and has no effect.
@@ -727,11 +881,19 @@ type Config struct {
 	// hardware, server hardware, and security.
 	//
 	// Deprecated: PreferServerCipherSuites is ignored.
+    // PreferServerCipherSuites 是一个遗留字段，没有效果。
+	//
+	// 它曾经控制服务器是否遵循客户端或服务器的首选项。
+	// 现在，服务器将根据考虑到客户端硬件、服务器硬件和安全性的逻辑选择最兼容的密码套件。
+	//
+	// 已弃用：PreferServerCipherSuites 被忽略。
 	PreferServerCipherSuites bool
 
 	// SessionTicketsDisabled may be set to true to disable session ticket and
 	// PSK (resumption) support. Note that on clients, session ticket support is
 	// also disabled if ClientSessionCache is nil.
+    // SessionTicketsDisabled 可以设置为 true 以禁用会话票据和 PSK（恢复）支持。
+	// 请注意，在客户端，如果 ClientSessionCache 为 nil，则会话票据支持也将被禁用。
 	SessionTicketsDisabled bool
 
 	// SessionTicketKey is used by TLS servers to provide session resumption.
@@ -742,44 +904,114 @@ type Config struct {
 	// automatically rotated every day and dropped after seven days. For
 	// customizing the rotation schedule or synchronizing servers that are
 	// terminating connections for the same host, use SetSessionTicketKeys.
+    // SessionTicketKey 由 TLS 服务器用于提供会话恢复。请参见 RFC 5077 和 RFC 8446 的 PSK 模式。
+	// 如果为零，在首次服务器握手之前会用随机数据填充它。
+	//
+	// 已弃用：如果此字段保持为零，则会话票据密钥将每天自动旋转一次，并在七天后丢弃。
+	// 要自定义旋转计划或同步终止同一主机连接的服务器，请使用 SetSessionTicketKeys。
 	SessionTicketKey [32]byte
 
 	// ClientSessionCache is a cache of ClientSessionState entries for TLS
 	// session resumption. It is only used by clients.
+    // ClientSessionCache 是 TLS 会话恢复的 ClientSessionState 条目的缓存。它仅由客户端使用。
 	ClientSessionCache ClientSessionCache
+
+	// UnwrapSession is called on the server to turn a ticket/identity
+	// previously produced by [WrapSession] into a usable session.
+	//
+	// UnwrapSession will usually either decrypt a session state in the ticket
+	// (for example with [Config.EncryptTicket]), or use the ticket as a handle
+	// to recover a previously stored state. It must use [ParseSessionState] to
+	// deserialize the session state.
+	//
+	// If UnwrapSession returns an error, the connection is terminated. If it
+	// returns (nil, nil), the session is ignored. crypto/tls may still choose
+	// not to resume the returned session.
+    // UnwrapSession 在服务器上调用，以将之前由 [WrapSession] 生成的票据/身份转换为可用会话。
+	//
+	// UnwrapSession 通常会解密票据中的会话状态（例如使用 [Config.EncryptTicket]），
+	// 或者使用票据作为句柄来恢复之前存储的状态。它必须使用 [ParseSessionState] 来反序列化会话状态。
+	//
+	// 如果 UnwrapSession 返回错误，连接将终止。如果它返回 (nil, nil)，会话将被忽略。
+	// crypto/tls 可能仍会选择不恢复返回的会话。
+	UnwrapSession func(identity []byte, cs ConnectionState) (*SessionState, error)
+
+	// WrapSession is called on the server to produce a session ticket/identity.
+	//
+	// WrapSession must serialize the session state with [SessionState.Bytes].
+	// It may then encrypt the serialized state (for example with
+	// [Config.DecryptTicket]) and use it as the ticket, or store the state and
+	// return a handle for it.
+	//
+	// If WrapSession returns an error, the connection is terminated.
+	//
+	// Warning: the return value will be exposed on the wire and to clients in
+	// plaintext. The application is in charge of encrypting and authenticating
+	// it (and rotating keys) or returning high-entropy identifiers. Failing to
+	// do so correctly can compromise current, previous, and future connections
+	// depending on the protocol version.
+    // WrapSession 在服务器上调用以生成会话票据或 PSK 的身份。
+	// 当 crypto/tls 生成会话票据时，它将使用此功能包装会话状态（例如使用 [Config.EncryptTicket] 加密）。
+	//
+	// 返回的切片将用于 [ClientSessionState.Identity]，并将传递给 [Config.UnwrapSession]。
+	// 如果 UnwrapSession 返回 nil，恢复将失败，并且将像通常一样执行完整握手。
+	// crypto/tls 可能仍会选择不发送票据（例如，因为它在 TLS 1.3 中不支持恢复客户端证书）。
+	//
+	// 如果 WrapSession 返回错误，连接将终止。
+	WrapSession func(ConnectionState, *SessionState) ([]byte, error)
 
 	// MinVersion contains the minimum TLS version that is acceptable.
 	//
-	// By default, TLS 1.2 is currently used as the minimum when acting as a
-	// client, and TLS 1.0 when acting as a server. TLS 1.0 is the minimum
-	// supported by this package, both as a client and as a server.
+	// By default, TLS 1.2 is currently used as the minimum. TLS 1.0 is the
+	// minimum supported by this package.
 	//
-	// The client-side default can temporarily be reverted to TLS 1.0 by
-	// including the value "x509sha1=1" in the GODEBUG environment variable.
-	// Note that this option will be removed in Go 1.19 (but it will still be
-	// possible to set this field to VersionTLS10 explicitly).
+	// The server-side default can be reverted to TLS 1.0 by including the value
+	// "tls10server=1" in the GODEBUG environment variable.
+    // MinVersion 包含可接受的最低 TLS 版本。
+	//
+	// 默认情况下，TLS 1.2 当前作为最低版本使用。此包支持的最低版本是 TLS 1.0。
+	//
+	// 通过在 GODEBUG 环境变量中包含值 "tls10server=1"，可以将服务器端默认值恢复为 TLS 1.0。
 	MinVersion uint16
 
 	// MaxVersion contains the maximum TLS version that is acceptable.
 	//
 	// By default, the maximum version supported by this package is used,
 	// which is currently TLS 1.3.
+    // MaxVersion 包含可接受的最高 TLS 版本。
+	//
+	// 默认情况下，使用该包支持的最高版本，当前为 TLS 1.3。
 	MaxVersion uint16
 
 	// CurvePreferences contains the elliptic curves that will be used in
 	// an ECDHE handshake, in preference order. If empty, the default will
 	// be used. The client will use the first preference as the type for
 	// its key share in TLS 1.3. This may change in the future.
+	//
+	// From Go 1.23, the default includes the X25519Kyber768Draft00 hybrid
+	// post-quantum key exchange. To disable it, set CurvePreferences explicitly
+	// or use the GODEBUG=tlskyber=0 environment variable.
+    // CurvePreferences 包含将在 ECDHE 握手中使用的椭圆曲线，按优先顺序排列。
+	// 如果为空，将使用默认值。客户端将使用第一个首选项作为 TLS 1.3 中其密钥共享的类型。
+	// 未来可能会有所变化。
+	//
+	// 从 Go 1.23 开始，默认包括 X25519Kyber768Draft00 混合后量子密钥交换。
+	// 要禁用它，请显式设置 CurvePreferences 或使用 GODEBUG=tlskyber=0 环境变量。
 	CurvePreferences []CurveID
 
 	// DynamicRecordSizingDisabled disables adaptive sizing of TLS records.
 	// When true, the largest possible TLS record size is always used. When
 	// false, the size of TLS records may be adjusted in an attempt to
 	// improve latency.
+    // DynamicRecordSizingDisabled 禁用 TLS 记录的自适应大小调整。
+	// 当为 true 时，将始终使用最大的 TLS 记录大小。为 false 时，
+	// 记录大小可能会调整以尝试改善延迟。
 	DynamicRecordSizingDisabled bool
 
 	// Renegotiation controls what types of renegotiation are supported.
 	// The default, none, is correct for the vast majority of applications.
+    // Renegotiation 控制支持的重新协商类型。
+	// 默认设置为不允许重新协商，这是绝大多数应用程序的正确选择。
 	Renegotiation RenegotiationSupport
 
 	// KeyLogWriter optionally specifies a destination for TLS master secrets
@@ -788,14 +1020,77 @@ type Config struct {
 	// See https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format.
 	// Use of KeyLogWriter compromises security and should only be
 	// used for debugging.
+    // KeyLogWriter 可选地指定用于记录 TLS 主密钥的目的地，
+	// 以 NSS 密钥日志格式，这些密钥日志可用于让外部程序如 Wireshark 解密 TLS 连接。
+	// 参见 https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format。
+	// 使用 KeyLogWriter 会降低安全性，应仅用于调试。
 	KeyLogWriter io.Writer
+
+	// EncryptedClientHelloConfigList is a serialized ECHConfigList. If
+	// provided, clients will attempt to connect to servers using Encrypted
+	// Client Hello (ECH) using one of the provided ECHConfigs. Servers
+	// currently ignore this field.
+	//
+	// If the list contains no valid ECH configs, the handshake will fail
+	// and return an error.
+	//
+	// If EncryptedClientHelloConfigList is set, MinVersion, if set, must
+	// be VersionTLS13.
+	//
+	// When EncryptedClientHelloConfigList is set, the handshake will only
+	// succeed if ECH is sucessfully negotiated. If the server rejects ECH,
+	// an ECHRejectionError error will be returned, which may contain a new
+	// ECHConfigList that the server suggests using.
+	//
+	// How this field is parsed may change in future Go versions, if the
+	// encoding described in the final Encrypted Client Hello RFC changes.
+    // EncryptedClientHelloConfigList 是序列化的 ECHConfigList。
+	// 如果提供，客户端将尝试使用提供的 ECHConfigs 中的一个通过加密客户端 Hello (ECH) 连接到服务器。
+	// 服务器当前忽略该字段。
+	//
+	// 如果列表中没有有效的 ECH 配置，握手将失败并返回错误。
+	//
+	// 如果设置了 EncryptedClientHelloConfigList，则设置的 MinVersion 必须为 VersionTLS13。
+	//
+	// 当设置了 EncryptedClientHelloConfigList 时，握手只有在成功协商 ECH 的情况下才会成功。
+	// 如果服务器拒绝 ECH，将返回 ECHRejectionError 错误，其中可能包含服务器建议使用的新 ECHConfigList。
+	//
+	// 如果最终的 Encrypted Client Hello RFC 中描述的编码发生变化，
+	// 那么该字段的解析方式可能会在未来的 Go 版本中发生变化。
+	EncryptedClientHelloConfigList []byte
+
+	// EncryptedClientHelloRejectionVerify, if not nil, is called when ECH is
+	// rejected, in order to verify the ECH provider certificate in the outer
+	// Client Hello. If it returns a non-nil error, the handshake is aborted and
+	// that error results.
+	//
+	// Unlike VerifyPeerCertificate and VerifyConnection, normal certificate
+	// verification will not be performed before calling
+	// EncryptedClientHelloRejectionVerify.
+	//
+	// If EncryptedClientHelloRejectionVerify is nil and ECH is rejected, the
+	// roots in RootCAs will be used to verify the ECH providers public
+	// certificate. VerifyPeerCertificate and VerifyConnection are not called
+	// when ECH is rejected, even if set, and InsecureSkipVerify is ignored.
+    // EncryptedClientHelloRejectionVerify，如果不为 nil，则在 ECH 被拒绝时调用，
+	// 以验证外部客户端 Hello 中的 ECH 提供者证书。
+	// 如果返回非 nil 错误，握手将中止并导致该错误。
+	//
+	// 与 VerifyPeerCertificate 和 VerifyConnection 不同，在调用
+	// EncryptedClientHelloRejectionVerify 之前不会执行正常的证书验证。
+	//
+	// 如果 EncryptedClientHelloRejectionVerify 为 nil 且 ECH 被拒绝，
+	// 则将使用 RootCAs 中的根来验证 ECH 提供者的公钥证书。
+	// 即使设置了 VerifyPeerCertificate 和 VerifyConnection，当 ECH 被拒绝时也不会调用，
+	// 并且 InsecureSkipVerify 将被忽略。
+	EncryptedClientHelloRejectionVerify func(ConnectionState) error
 	// contains filtered or unexported fields
 }
 ```
 
 A Config structure is used to configure a TLS client or server. After one has been passed to a TLS function it must not be modified. A Config may be reused; the tls package will also not modify it.
 
-​	Config 结构用于配置 TLS 客户端或服务器。将一个结构传递给 TLS 函数后，不得对其进行修改。Config 可以重复使用；tls 包也不会修改它。
+​	Config 结构用于配置 TLS 客户端或服务器。在将其传递给 TLS 函数后，不得对其进行修改。Config 可以重复使用；tls 包也不会修改它。
 
 #### Example (KeyLogWriter)
 
@@ -927,7 +1222,7 @@ Output:
 
 
 
-#### func (*Config) BuildNameToCertificate <- DEPRECATED
+####  (*Config) BuildNameToCertificate <- DEPRECATED
 
 ```go
 func (c *Config) BuildNameToCertificate()
@@ -949,6 +1244,30 @@ func (c *Config) Clone() *Config
 Clone returns a shallow clone of c or nil if c is nil. It is safe to clone a Config that is being used concurrently by a TLS client or server.
 
 ​	如果 c 为 nil，则 Clone 返回 c 的浅层克隆或 nil。可以克隆正在被 TLS 客户端或服务器并发使用的 Config。
+
+#### (*Config) DecryptTicket <-go1.21.0
+
+```
+func (c *Config) DecryptTicket(identity []byte, cs ConnectionState) (*SessionState, error)
+```
+
+DecryptTicket decrypts a ticket encrypted by [Config.EncryptTicket](https://pkg.go.dev/crypto/tls@go1.23.0#Config.EncryptTicket). It can be used as a [Config.UnwrapSession] implementation.
+
+​	DecryptTicket 用于解密由 [Config.EncryptTicket](https://pkg.go.dev/crypto/tls@go1.23.0#Config.EncryptTicket) 加密的票据。它可以用作 [Config.UnwrapSession] 的实现。
+
+If the ticket can't be decrypted or parsed, DecryptTicket returns (nil, nil).
+
+​	如果票据无法解密或解析，DecryptTicket 返回 (nil, nil)。
+
+#### (*Config) EncryptTicket <-go1.21.0
+
+```
+func (c *Config) EncryptTicket(cs ConnectionState, ss *SessionState) ([]byte, error)
+```
+
+EncryptTicket encrypts a ticket with the [Config](https://pkg.go.dev/crypto/tls@go1.23.0#Config)'s configured (or default) session ticket keys. It can be used as a [Config.WrapSession] implementation.
+
+​	EncryptTicket 使用 [Config](https://pkg.go.dev/crypto/tls@go1.23.0#Config) 配置的（或默认的）会话票据密钥加密票据。它可以用作 [Config.WrapSession] 的实现。
 
 #### (*Config) SetSessionTicketKeys  <- go1.5
 
@@ -1352,6 +1671,10 @@ ExportKeyingMaterial returns length bytes of exported key material in a new slic
 
 ​	ExportKeyingMaterial 以新切片形式返回长度为字节的导出密钥材料，如 RFC 5705 中所定义。如果 context 为 nil，则不会将其用作种子的一部分。如果通过 Config.Renegotiation 将连接设置为允许重新协商，则此函数将返回错误。
 
+Exporting key material without Extended Master Secret or TLS 1.3 was disabled in Go 1.22 due to security issues (see the Security Considerations sections of [RFC 5705](https://rfc-editor.org/rfc/rfc5705.html) and [RFC 7627](https://rfc-editor.org/rfc/rfc7627.html)), but can be re-enabled with the GODEBUG setting tlsunsafeekm=1.
+
+​	由于安全问题，在Go 1.22中禁用了没有Extended Master Secret或TLS 1.3的导出密钥材料(参见[RFC 5705](https://rfc-editor.org/rfc/rfc5705.html)和[RFC 7627](https://rfc-editor.org/rfc/rfc7627.html)的安全注意事项部分)，但可以通过GODEBUG设置tlsunsafeekm=1重新启用。
+
 ### type CurveID  <- go1.3
 
 ``` go
@@ -1438,6 +1761,342 @@ The returned Conn, if any, will always be of type *Conn.
 
 ​	返回的 Conn（如果有）将始终为 *Conn 类型。
 
+### type ECHRejectionError <- go1.23.0
+
+```
+type ECHRejectionError struct {
+	RetryConfigList []byte
+}
+```
+
+ECHRejectionError is the error type returned when ECH is rejected by a remote server. If the server offered a ECHConfigList to use for retries, the RetryConfigList field will contain this list.
+
+​	当远程服务器拒绝 ECH 时，将返回 ECHRejectionError 错误类型。如果服务器提供了用于重试的 ECHConfigList，RetryConfigList 字段将包含此列表。
+
+The client may treat an ECHRejectionError with an empty set of RetryConfigs as a secure signal from the server.
+
+​	客户端可以将没有 RetryConfigs 的 ECHRejectionError 视为来自服务器的安全信号。
+
+#### (*ECHRejectionError) Error <- go1.23.0
+
+```
+func (e *ECHRejectionError) Error() string
+```
+
+### type QUICConfig <-go1.21.0
+
+```
+type QUICConfig struct {
+	TLSConfig *Config
+
+	// EnableSessionEvents may be set to true to enable the
+	// [QUICStoreSession] and [QUICResumeSession] events for client connections.
+	// When this event is enabled, sessions are not automatically
+	// stored in the client session cache.
+	// The application should use [QUICConn.StoreSession] to store sessions.
+	// EnableSessionEvents 可以设置为 true 以启用客户端连接的 [QUICStoreSession] 和 [QUICResumeSession] 事件。
+	// 当此事件启用时，客户端会话缓存中不会自动存储会话。
+	// 应用程序应使用 [QUICConn.StoreSession] 来存储会话。
+	EnableSessionEvents bool
+}
+```
+
+A QUICConfig configures a [QUICConn](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn).
+
+​	QUICConfig 配置了一个 [QUICConn](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn)。
+
+### type QUICConn <-go1.21.0
+
+```
+type QUICConn struct {
+	// contains filtered or unexported fields
+}
+```
+
+A QUICConn represents a connection which uses a QUIC implementation as the underlying transport as described in [RFC 9001](https://rfc-editor.org/rfc/rfc9001.html).
+
+​	QUICConn 表示使用 QUIC 实现作为基础传输协议的连接，具体描述请参见 [RFC 9001](https://rfc-editor.org/rfc/rfc9001.html)。
+
+Methods of QUICConn are not safe for concurrent use.
+
+​	QUICConn 的方法不安全，无法并发使用。
+
+#### func QUICClient <-go1.21.0
+
+```
+func QUICClient(config *QUICConfig) *QUICConn
+```
+
+QUICClient returns a new TLS client side connection using QUICTransport as the underlying transport. The config cannot be nil.
+
+​	QUICClient 返回一个使用 QUICTransport 作为底层传输协议的新 TLS 客户端连接。config 不能为空。
+
+The config's MinVersion must be at least TLS 1.3.
+
+​	config 的 MinVersion 必须至少为 TLS 1.3。
+
+#### func QUICServer <-go1.21.0
+
+```
+func QUICServer(config *QUICConfig) *QUICConn
+```
+
+QUICServer returns a new TLS server side connection using QUICTransport as the underlying transport. The config cannot be nil.
+
+​	QUICServer 返回一个使用 QUICTransport 作为底层传输协议的新 TLS 服务器端连接。config 不能为空。
+
+The config's MinVersion must be at least TLS 1.3.
+
+​	config 的 MinVersion 必须至少为 TLS 1.3。
+
+#### (*QUICConn) Close <-go1.21.0
+
+```
+func (q *QUICConn) Close() error
+```
+
+Close closes the connection and stops any in-progress handshake.
+
+​	Close 关闭连接并停止任何正在进行的握手。
+
+#### (*QUICConn) ConnectionState <-go1.21.0
+
+```
+func (q *QUICConn) ConnectionState() ConnectionState
+```
+
+ConnectionState returns basic TLS details about the connection.
+
+​	ConnectionState 返回有关连接的基本 TLS 详细信息。
+
+#### (*QUICConn) HandleData <-go1.21.0
+
+```
+func (q *QUICConn) HandleData(level QUICEncryptionLevel, data []byte) error
+```
+
+HandleData handles handshake bytes received from the peer. It may produce connection events, which may be read with [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent).
+
+​	HandleData 处理从对等方接收到的握手字节。它可能会生成连接事件，这些事件可以通过 [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent) 读取。
+
+#### (*QUICConn) NextEvent <-go1.21.0
+
+```
+func (q *QUICConn) NextEvent() QUICEvent
+```
+
+NextEvent returns the next event occurring on the connection. It returns an event with a Kind of [QUICNoEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICNoEvent) when no events are available.
+
+​	NextEvent 返回连接上发生的下一个事件。当没有可用事件时，它会返回一个 Kind 为 [QUICNoEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICNoEvent) 的事件。
+
+#### (*QUICConn) SendSessionTicket <-go1.21.0
+
+```
+func (q *QUICConn) SendSessionTicket(opts QUICSessionTicketOptions) error
+```
+
+SendSessionTicket sends a session ticket to the client. It produces connection events, which may be read with [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent). Currently, it can only be called once.
+
+​	SendSessionTicket 向客户端发送会话票据。它会生成连接事件，这些事件可以通过 [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent) 读取。目前它只能调用一次。
+
+#### (*QUICConn) SetTransportParameters <-go1.21.0
+
+```
+func (q *QUICConn) SetTransportParameters(params []byte)
+```
+
+SetTransportParameters sets the transport parameters to send to the peer.
+
+​	SetTransportParameters 设置要发送给对等方的传输参数。
+
+Server connections may delay setting the transport parameters until after receiving the client's transport parameters. See [QUICTransportParametersRequired](https://pkg.go.dev/crypto/tls@go1.23.0#QUICTransportParametersRequired).
+
+​	服务器连接可能会延迟设置传输参数，直到收到客户端的传输参数。参见 [QUICTransportParametersRequired](https://pkg.go.dev/crypto/tls@go1.23.0#QUICTransportParametersRequired)。
+
+#### (*QUICConn) Start <-go1.21.0
+
+```
+func (q *QUICConn) Start(ctx context.Context) error
+```
+
+Start starts the client or server handshake protocol. It may produce connection events, which may be read with [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent).
+
+​	Start 启动客户端或服务器握手协议。它可能会生成连接事件，这些事件可以通过 [QUICConn.NextEvent](https://pkg.go.dev/crypto/tls@go1.23.0#QUICConn.NextEvent) 读取。
+
+Start must be called at most once.
+
+​	Start 最多只能调用一次。
+
+#### (*QUICConn) StoreSession <-go1.23.0
+
+```
+func (q *QUICConn) StoreSession(session *SessionState) error
+```
+
+StoreSession stores a session previously received in a QUICStoreSession event in the ClientSessionCache. The application may process additional events or modify the SessionState before storing the session.
+
+​	StoreSession 将在 QUICStoreSession 事件中接收到的会话存储在 ClientSessionCache 中。应用程序可以在存储会话之前处理其他事件或修改 SessionState。
+
+### type QUICEncryptionLevel <-go1.21.0
+
+```
+type QUICEncryptionLevel int
+```
+
+QUICEncryptionLevel represents a QUIC encryption level used to transmit handshake messages.
+
+​	QUICEncryptionLevel 表示用于传输握手消息的 QUIC 加密级别。
+
+#### (QUICEncryptionLevel) String <-go1.21.0
+
+```
+func (l QUICEncryptionLevel) String() string
+```
+
+### type QUICEvent <-go1.21.0
+
+```
+type QUICEvent struct {
+	Kind QUICEventKind
+
+	// Set for QUICSetReadSecret, QUICSetWriteSecret, and QUICWriteData.
+	// 针对 QUICSetReadSecret、QUICSetWriteSecret 和 QUICWriteData 设置。
+	Level QUICEncryptionLevel
+
+	// Set for QUICTransportParameters, QUICSetReadSecret, QUICSetWriteSecret, and QUICWriteData.
+	// The contents are owned by crypto/tls, and are valid until the next NextEvent call.
+	// 针对 QUICTransportParameters、QUICSetReadSecret、QUICSetWriteSecret 和 QUICWriteData 设置。
+	// 内容由 crypto/tls 拥有，并在下一次调用 NextEvent 前有效。
+	Data []byte
+
+	// Set for QUICSetReadSecret and QUICSetWriteSecret.
+	// 针对 QUICSetReadSecret 和 QUICSetWriteSecret 设置。
+	Suite uint16
+
+	// Set for QUICResumeSession and QUICStoreSession.
+	// 针对 QUICResumeSession 和 QUICStoreSession 设置。
+	SessionState *SessionState
+}
+```
+
+A QUICEvent is an event occurring on a QUIC connection.
+
+​	QUICEvent 是 QUIC 连接上发生的事件。
+
+The type of event is specified by the Kind field. The contents of the other fields are kind-specific.
+
+​	事件类型由 Kind 字段指定，其他字段的内容与类型相关。
+
+### type QUICEventKind <-go1.21.0
+
+```
+type QUICEventKind int
+```
+
+A QUICEventKind is a type of operation on a QUIC connection.
+
+​	QUICEventKind 是 QUIC 连接上的操作类型。
+
+```
+const (
+	// QUICNoEvent indicates that there are no events available.
+	// QUICNoEvent 表示没有可用事件。
+	QUICNoEvent QUICEventKind = iota
+
+	// QUICSetReadSecret and QUICSetWriteSecret provide the read and write
+	// secrets for a given encryption level.
+	// QUICEvent.Level, QUICEvent.Data, and QUICEvent.Suite are set.
+	//
+	// Secrets for the Initial encryption level are derived from the initial
+	// destination connection ID, and are not provided by the QUICConn.
+	// QUICSetReadSecret 和 QUICSetWriteSecret 提供给定加密级别的读取和写入密钥。
+	// QUICEvent.Level、QUICEvent.Data 和 QUICEvent.Suite 已设置。
+	//
+	// 初始加密级别的密钥从初始目标连接 ID 派生，不由 QUICConn 提供。
+	QUICSetReadSecret
+	QUICSetWriteSecret
+
+	// QUICWriteData provides data to send to the peer in CRYPTO frames.
+	// QUICEvent.Data is set.
+	// QUICWriteData 提供要在 CRYPTO 帧中发送给对等方的数据。
+	// QUICEvent.Data 已设置。
+	QUICWriteData
+
+	// QUICTransportParameters provides the peer's QUIC transport parameters.
+	// QUICEvent.Data is set.
+	// QUICTransportParameters 提供对等方的 QUIC 传输参数。
+	// QUICEvent.Data 已设置。
+	QUICTransportParameters
+
+	// QUICTransportParametersRequired indicates that the caller must provide
+	// QUIC transport parameters to send to the peer. The caller should set
+	// the transport parameters with QUICConn.SetTransportParameters and call
+	// QUICConn.NextEvent again.
+	//
+	// If transport parameters are set before calling QUICConn.Start, the
+	// connection will never generate a QUICTransportParametersRequired event.
+	// QUICTransportParametersRequired 表示调用者必须提供要发送给对等方的 QUIC 传输参数。
+	// 调用者应使用 QUICConn.SetTransportParameters 设置传输参数并再次调用 QUICConn.NextEvent。
+	//
+	// 如果在调用 QUICConn.Start 之前设置了传输参数，连接将永远不会生成 QUICTransportParametersRequired 事件。
+	QUICTransportParametersRequired
+
+	// QUICRejectedEarlyData indicates that the server rejected 0-RTT data even
+	// if we offered it. It's returned before QUICEncryptionLevelApplication
+	// keys are returned.
+	// This event only occurs on client connections.
+	// QUICRejectedEarlyData 表示服务器拒绝了 0-RTT 数据，即使我们提供了它。它在返回 QUICEncryptionLevelApplication 密钥之前返回。
+	// 该事件仅发生在客户端连接上。
+	QUICRejectedEarlyData
+
+	// QUICHandshakeDone indicates that the TLS handshake has completed.
+	// QUICHandshakeDone 表示 TLS 握手已完成。
+	QUICHandshakeDone
+
+	// QUICResumeSession indicates that a client is attempting to resume a previous session.
+	// [QUICEvent.SessionState] is set.
+	//
+	// For client connections, this event occurs when the session ticket is selected.
+	// For server connections, this event occurs when receiving the client's session ticket.
+	//
+	// The application may set [QUICEvent.SessionState.EarlyData] to false before the
+	// next call to [QUICConn.NextEvent] to decline 0-RTT even if the session supports it.
+	// QUICResumeSession 表示客户端正在尝试恢复先前的会话。
+	// [QUICEvent.SessionState] 已设置。
+	//
+	// 对于客户端连接，此事件在选择会话票据时发生。
+	// 对于服务器连接，此事件在接收客户端的会话票据时发生。
+	//
+	// 应用程序可以在下一次调用 [QUICConn.NextEvent] 之前将 [QUICEvent.SessionState.EarlyData] 设置为 false，以拒绝 0-RTT，即使会话支持它。
+	QUICResumeSession
+
+	// QUICStoreSession indicates that the server has provided state permitting
+	// the client to resume the session.
+	// [QUICEvent.SessionState] is set.
+	// The application should use [QUICConn.StoreSession] session to store the [SessionState].
+	// The application may modify the [SessionState] before storing it.
+	// This event only occurs on client connections.
+	// QUICStoreSession 表示服务器已提供状态，允许客户端恢复会话。
+	// [QUICEvent.SessionState] 已设置。
+	// 应用程序应使用 [QUICConn.StoreSession] 存储 [SessionState]。应用程序可以在存储之前修改 [SessionState]。
+	// 该事件仅发生在客户端连接上。
+	QUICStoreSession
+)
+```
+
+### type QUICSessionTicketOptions <-go1.21.0
+
+```
+type QUICSessionTicketOptions struct {
+	// EarlyData specifies whether the ticket may be used for 0-RTT.
+	// EarlyData指定票据是否可以用于0-RTT。
+	EarlyData bool
+	Extra     [][]byte
+}
+```
+
+
+
 ### type RecordHeaderError  <- go1.6
 
 ``` go
@@ -1481,22 +2140,91 @@ Even when enabled, the server may not change its identity between handshakes (i.
 
 Renegotiation is not defined in TLS 1.3.
 
-​	TLS 1.3 中未定义重新协商。
+​	重新协商在 TLS 1.3 中未定义。
 
 ``` go
 const (
 	// RenegotiateNever disables renegotiation.
+    // RenegotiateNever 禁用重新协商。
 	RenegotiateNever RenegotiationSupport = iota
 
 	// RenegotiateOnceAsClient allows a remote server to request
 	// renegotiation once per connection.
+    // RenegotiateOnceAsClient 允许远程服务器每个连接请求一次重新协商。
 	RenegotiateOnceAsClient
 
 	// RenegotiateFreelyAsClient allows a remote server to repeatedly
 	// request renegotiation.
+    // RenegotiateFreelyAsClient 允许远程服务器反复请求重新协商。
 	RenegotiateFreelyAsClient
 )
 ```
+
+### type SessionState <-go1.21.0
+
+```
+type SessionState struct {
+
+	// Extra is ignored by crypto/tls, but is encoded by [SessionState.Bytes]
+	// and parsed by [ParseSessionState].
+	//
+	// This allows [Config.UnwrapSession]/[Config.WrapSession] and
+	// [ClientSessionCache] implementations to store and retrieve additional
+	// data alongside this session.
+	//
+	// To allow different layers in a protocol stack to share this field,
+	// applications must only append to it, not replace it, and must use entries
+	// that can be recognized even if out of order (for example, by starting
+	// with an id and version prefix).
+	// Extra 被 crypto/tls 忽略，但会被 [SessionState.Bytes] 编码，
+	// 并通过 [ParseSessionState] 解析。
+	//
+	// 这允许 [Config.UnwrapSession]/[Config.WrapSession] 和
+	// [ClientSessionCache] 实现存储和检索与该会话相关的其他数据。
+	//
+	// 为了允许协议栈中的不同层共享此字段，
+	// 应用程序只能附加数据，而不能替换它，并且必须使用即使顺序混乱也能识别的条目
+	// （例如，以 id 和版本前缀开头）。
+	Extra [][]byte
+
+	// EarlyData indicates whether the ticket can be used for 0-RTT in a QUIC
+	// connection. The application may set this to false if it is true to
+	// decline to offer 0-RTT even if supported.
+	// EarlyData 表示该票据是否可以在 QUIC 连接中用于 0-RTT。
+	// 如果该值为 true，应用程序可以将其设置为 false，
+	// 即使支持 0-RTT 也可以选择不提供它。
+	EarlyData bool
+	// contains filtered or unexported fields
+}
+```
+
+A SessionState is a resumable session.
+
+​	SessionState 是一个可恢复的会话。
+
+#### func ParseSessionState <-go1.21.0
+
+```
+func ParseSessionState(data []byte) (*SessionState, error)
+```
+
+ParseSessionState parses a [SessionState](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState) encoded by [SessionState.Bytes](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState.Bytes).
+
+​	ParseSessionState 解析由 [SessionState.Bytes](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState.Bytes) 编码的 [SessionState](https://pkg.go.dev/crypto/tls@go1.23.0#SessionState)。
+
+#### (*SessionState) Bytes <-go1.21.0
+
+```
+func (s *SessionState) Bytes() ([]byte, error)
+```
+
+Bytes encodes the session, including any private fields, so that it can be parsed by [ParseSessionState](https://pkg.go.dev/crypto/tls@go1.23.0#ParseSessionState). The encoding contains secret values critical to the security of future and possibly past sessions.
+
+​	Bytes 对会话进行编码，包括任何私有字段，以便可以通过 [ParseSessionState](https://pkg.go.dev/crypto/tls@go1.23.0#ParseSessionState) 解析。编码包含对未来甚至过去会话的安全性至关重要的秘密值。
+
+The specific encoding should be considered opaque and may change incompatibly between Go versions.
+
+​	具体的编码应被视为不透明的，并且可能在不同的 Go 版本之间不兼容地更改。
 
 ### type SignatureScheme  <- go1.8
 

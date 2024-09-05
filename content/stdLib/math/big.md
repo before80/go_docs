@@ -2063,6 +2063,28 @@ Float64 returns the nearest float64 value for x and a bool indicating whether f 
 
 ​	Float64 返回 x 的最接近的 float64 值和一个布尔值，指示 f 是否精确地表示 x。如果 x 的大小太大而无法用 float64 表示，则 f 是无穷大，exact 为 false。f 的符号始终与 x 的符号匹配，即使 f == 0。
 
+####  (*Rat) FloatPrec <- go1.22.0
+
+```
+func (x *Rat) FloatPrec() (n int, exact bool)
+```
+
+FloatPrec returns the number n of non-repeating digits immediately following the decimal point of the decimal representation of x. The boolean result indicates whether a decimal representation of x with that many fractional digits is exact or rounded.
+
+​	FloatPrec 返回 x 的十进制表示中，小数点后面立即跟随的非重复数字的数量 n。布尔值结果表示具有这么多小数位的 x 的十进制表示是否精确或已四舍五入。
+
+Examples:
+
+```
+x      n    exact    decimal representation n fractional digits
+0      0    true     0
+1      0    true     1
+1/2    1    true     0.5
+1/3    0    false    0       (0.333... rounded)
+1/4    2    true     0.25
+1/6    1    false    0.2     (0.166... rounded)
+```
+
 #### (*Rat) FloatString
 
 ```go

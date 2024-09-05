@@ -9,6 +9,10 @@ draft = false
 
 > 原文：[https://pkg.go.dev/slices](https://pkg.go.dev/slices)
 
+> 注意
+>
+> ​	从go1.21.0开始才有该包。
+
 ## 概述 
 
 Package slices defines various functions useful with slices of any type.

@@ -9,6 +9,10 @@ draft = false
 
 > 原文：[https://pkg.go.dev/maps@go1.21.3](https://pkg.go.dev/maps@go1.21.3)
 
+> 注意
+>
+> ​	从go1.21.0开始才有该包。
+
 ## 概述
 
 Package maps defines various functions useful with maps of any type.
@@ -25,6 +29,16 @@ This section is empty.
 
 ## 函数
 
+#### func All <- go1.23.0
+
+```
+func All[Map ~map[K]V, K comparable, V any](m Map) iter.Seq2[K, V]
+```
+
+All returns an iterator over key-value pairs from m. The iteration order is not specified and is not guaranteed to be the same from one call to the next.
+
+​	All 返回一个迭代器，用于遍历 m 中的键值对。迭代顺序未指定，并且从一次调用到下一次调用可能不相同。
+
 ### func Clone 
 
 ``` go
@@ -34,6 +48,16 @@ func Clone[M ~map[K]V, K comparable, V any](m M) M
 Clone returns a copy of m. This is a shallow clone: the new keys and values are set using ordinary assignment.
 
 ​	Clone返回m的副本。这是一个浅拷贝：新键和值使用普通赋值设置。
+
+#### func Collect <- go1.23.0
+
+```
+func Collect[K comparable, V any](seq iter.Seq2[K, V]) map[K]V
+```
+
+Collect collects key-value pairs from seq into a new map and returns it.
+
+​	Collect 将 seq 中的键值对收集到一个新的 map 中并返回。
 
 ### func Copy 
 
@@ -133,8 +157,35 @@ Output:
 true
 ```
 
+#### func Insert <- go1.23.0
 
+```
+func Insert[Map ~map[K]V, K comparable, V any](m Map, seq iter.Seq2[K, V])
+```
 
+Insert adds the key-value pairs from seq to m. If a key in seq already exists in m, its value will be overwritten.
+
+​	Insert 将 seq 中的键值对添加到 m 中。如果 seq 中的键已经存在于 m 中，则其值会被覆盖。
+
+#### func Keys <- go1.23.0
+
+```
+func Keys[Map ~map[K]V, K comparable, V any](m Map) iter.Seq[K]
+```
+
+Keys returns an iterator over keys in m. The iteration order is not specified and is not guaranteed to be the same from one call to the next.
+
+​		Keys 返回一个迭代器，用于遍历 m 中的键。迭代顺序未指定，并且从一次调用到下一次调用可能不相同。
+
+#### func Values <- go1.23.0
+
+```
+func Values[Map ~map[K]V, K comparable, V any](m Map) iter.Seq[V]
+```
+
+Values returns an iterator over values in m. The iteration order is not specified and is not guaranteed to be the same from one call to the next.
+
+​	Values 返回一个迭代器，用于遍历 m 中的值。迭代顺序未指定，并且从一次调用到下一次调用可能不相同。
 
 ## 类型
 

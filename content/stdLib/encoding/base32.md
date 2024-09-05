@@ -129,6 +129,26 @@ NewEncoding returns a new Encoding defined by the given alphabet, which must be 
 
 ​	NewEncoding 返回由给定字母表定义的新 Encoding，该字母表必须是一个 32 字节的字符串。
 
+#### (*Encoding) AppendDecode <- go1.22.0
+
+```
+func (enc *Encoding) AppendDecode(dst, src []byte) ([]byte, error)
+```
+
+AppendDecode appends the base32 decoded src to dst and returns the extended buffer. If the input is malformed, it returns the partially decoded src and an error.
+
+​	AppendDecode 将 base32 解码后的 src 追加到 dst，并返回扩展后的缓冲区。如果输入格式不正确，它会返回部分解码的 src 和一个错误。
+
+#### (*Encoding) AppendEncode <- go1.22.0
+
+```
+func (enc *Encoding) AppendEncode(dst, src []byte) []byte
+```
+
+AppendEncode appends the base32 encoded src to dst and returns the extended buffer.
+
+​	AppendEncode 将 base32 编码后的 src 追加到 dst，并返回扩展后的缓冲区。
+
 #### (*Encoding) Decode
 
 ```go

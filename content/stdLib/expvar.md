@@ -8,9 +8,9 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/expvar@go1.21.3](https://pkg.go.dev/expvar@go1.21.3)
 
-Package expvar provides a standardized interface to public variables, such as operation counters in servers. It exposes these variables via HTTP at /debug/vars in JSON format.
+Package expvar provides a standardized interface to public variables, such as operation counters in servers. It exposes these variables via HTTP at /debug/vars in JSON format. As of Go 1.22, the /debug/vars request must use GET.
 
-​	expvar包为公共变量提供了一个标准化的接口，例如服务器中的操作计数器。它通过HTTP在/debug/vars上以JSON格式公开这些变量。
+​	`expvar` 包提供了一个标准化的接口，用于公开变量，如服务器中的操作计数器。它通过 HTTP 在 `/debug/vars` 以 JSON 格式公开这些变量。从 Go 1.22 开始，`/debug/vars` 请求必须使用 GET 方法。
 
 Operations to set or modify these public variables are atomic.
 

@@ -8,6 +8,10 @@ draft = false
 +++
 > 原文：[https://pkg.go.dev/sort@go1.21.3](https://pkg.go.dev/sort@go1.21.3)
 
+> 注意
+>
+> ​	从go1.21.0开始才有该包。
+
 Package sort provides primitives for sorting slices and user-defined collections.
 
 ​	`sort`包提供了对切片和用户定义集合进行排序的基本功能。

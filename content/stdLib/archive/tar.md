@@ -162,6 +162,22 @@ This section is empty.
 
 ## 类型
 
+### type FileInfoNames <- go1.23.0
+
+```
+type FileInfoNames interface {
+	fs.FileInfo
+	// Uname should give a user name.
+	Uname() (string, error)
+	// Gname should give a group name.
+	Gname() (string, error)
+}
+```
+
+FileInfoNames extends [fs.FileInfo](https://pkg.go.dev/io/fs#FileInfo). Passing an instance of this to [FileInfoHeader](https://pkg.go.dev/archive/tar@go1.23.0#FileInfoHeader) permits the caller to avoid a system-dependent name lookup by specifying the Uname and Gname directly.
+
+​	FileInfoNames扩展[fs.FileInfo](https://pkg.go.dev/io/fs#FileInfo)。将此实例传递给[FileInfoHeader](https://pkg.go.dev/archive/tar@go1.23.0#FileInfoHeader)允许调用者通过直接指定Uname和Gname来避免与系统相关的名称查找。
+
 ### type Format  <- go1.10
 
 ``` go 
