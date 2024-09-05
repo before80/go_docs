@@ -52,6 +52,150 @@ ReadGCStats reads statistics about garbage collection into stats. The number of 
 
 ​	ReadGCStats 将有关垃圾回收的统计信息读入 stats。暂停历史记录中的条目数取决于系统；如果 stats.Pause 切片足够大，则会重复使用，否则会重新分配。ReadGCStats 可能会使用 stats.Pause 切片的全部容量。如果 stats.PauseQuantiles 不为空，ReadGCStats 会用概括暂停时间分布的分位数填充它。例如，如果 len(stats.PauseQuantiles) 为 5，它将填充最小值、25%、50%、75% 和最大暂停时间。
 
+### func SetCrashOutput <- go1.23.0
+
+```
+func SetCrashOutput(f *os.File, opts CrashOptions) error
+```
+
+SetCrashOutput configures a single additional file where unhandled panics and other fatal errors are printed, in addition to standard error. There is only one additional file: calling SetCrashOutput again overrides any earlier call. SetCrashOutput duplicates f's file descriptor, so the caller may safely close f as soon as SetCrashOutput returns. To disable this additional crash output, call SetCrashOutput(nil). If called concurrently with a crash, some in-progress output may be written to the old file even after an overriding SetCrashOutput returns.
+
+​	`SetCrashOutput` 配置一个额外的文件，用于输出未处理的 `panic` 和其他致命错误，除了标准错误输出之外。只有一个额外的文件：再次调用 `SetCrashOutput` 将覆盖之前的调用。`SetCrashOutput` 会复制文件描述符 `f`，因此调用方可以在 `SetCrashOutput` 返回后立即安全地关闭 `f`。要禁用此额外的崩溃输出，可以调用 `SetCrashOutput(nil)`。如果在崩溃时并发调用此函数，一些进行中的输出可能会写入旧文件，即使覆盖的 `SetCrashOutput` 已返回。
+
+#### SetCrashOutput  Example (Monitor)
+
+ExampleSetCrashOutput_monitor shows an example of using [debug.SetCrashOutput](https://pkg.go.dev/runtime/debug@go1.23.0#SetCrashOutput) to direct crashes to a "monitor" process, for automated crash reporting. The monitor is the same executable, invoked in a special mode indicated by an environment variable.
+
+​	`ExampleSetCrashOutput_monitor` 展示了一个使用 [debug.SetCrashOutput](https://pkg.go.dev/runtime/debug@go1.23.0#SetCrashOutput) 的示例，将崩溃定向到一个“监视器”进程，用于自动化崩溃报告。监视器是同一个可执行文件，以环境变量指示的特殊模式运行。
+
+```go
+package main
+
+import (
+	"io"
+	"log"
+	"os"
+	"os/exec"
+	"runtime/debug"
+)
+
+// ExampleSetCrashOutput_monitor shows an example of using
+// [debug.SetCrashOutput] to direct crashes to a "monitor" process,
+// for automated crash reporting. The monitor is the same executable,
+// invoked in a special mode indicated by an environment variable.
+// ExampleSetCrashOutput_monitor 展示了一个使用
+// [debug.SetCrashOutput] 的示例，将崩溃定向到一个“监视器”进程，
+// 用于自动化崩溃报告。监视器是同一个可执行文件，
+// 以环境变量指示的特殊模式运行。
+func main() {
+	appmain()
+
+	// This Example doesn't actually run as a test because its
+	// purpose is to crash, so it has no "Output:" comment
+	// within the function body.
+	//
+	// To observe the monitor in action, replace the entire text
+	// of this comment with "Output:" and run this command:
+	//
+	//    $ go test -run=ExampleSetCrashOutput_monitor runtime/debug
+	//    panic: oops
+	//    ...stack...
+	//    monitor: saved crash report at /tmp/10804884239807998216.crash
+    // 此示例实际上不会作为测试运行，因为它的目的是崩溃，
+	// 因此函数体中没有 "Output:" 注释。
+	//
+	// 要观察监视器的运行效果，可以将此注释的整个内容替换为 "Output:"，
+	// 然后运行以下命令：
+	//
+	//    $ go test -run=ExampleSetCrashOutput_monitor runtime/debug
+	//    panic: oops
+	//    ...stack...
+	//    monitor: saved crash report at /tmp/10804884239807998216.crash
+}
+
+// appmain represents the 'main' function of your application.
+// appmain 表示应用程序的 'main' 函数。
+func appmain() {
+	monitor()
+
+	// Run the application.
+    // 运行应用程序。
+	println("hello")
+	panic("oops")
+}
+
+// monitor starts the monitor process, which performs automated
+// crash reporting. Call this function immediately within main.
+//
+// This function re-executes the same executable as a child process,
+// in a special mode. In that mode, the call to monitor will never
+// return.
+// monitor 启动监视器进程，执行自动化崩溃报告。
+// 应在 main 函数中立即调用此函数。
+//
+// 此函数将以特殊模式重新执行同一个可执行文件作为子进程，
+// 在这种模式下，调用 monitor 不会返回。
+func monitor() {
+	const monitorVar = "RUNTIME_DEBUG_MONITOR"
+	if os.Getenv(monitorVar) != "" {
+		// This is the monitor (child) process.
+        // 这是监视器（子）进程。
+		log.SetFlags(0)
+		log.SetPrefix("monitor: ")
+
+		crash, err := io.ReadAll(os.Stdin)
+		if err != nil {
+			log.Fatalf("failed to read from input pipe: %v", err)
+		}
+		if len(crash) == 0 {
+			// Parent process terminated without reporting a crash.
+            // 父进程在没有报告崩溃的情况下终止。
+			os.Exit(0)
+		}
+
+		// Save the crash report securely in the file system.
+        // 将崩溃报告安全地保存到文件系统中。
+		f, err := os.CreateTemp("", "*.crash")
+		if err != nil {
+			log.Fatal(err)
+		}
+		if _, err := f.Write(crash); err != nil {
+			log.Fatal(err)
+		}
+		if err := f.Close(); err != nil {
+			log.Fatal(err)
+		}
+		log.Fatalf("saved crash report at %s", f.Name())
+	}
+
+	// This is the application process.
+	// Fork+exec the same executable in monitor mode.
+    // 这是应用程序进程。
+	// 以监视器模式 Fork+exec 同一个可执行文件。
+	exe, err := os.Executable()
+	if err != nil {
+		log.Fatal(err)
+	}
+	cmd := exec.Command(exe, "-test.run=ExampleSetCrashOutput_monitor")
+	cmd.Env = append(os.Environ(), monitorVar+"=1")
+	cmd.Stderr = os.Stderr
+	cmd.Stdout = os.Stderr
+	pipe, err := cmd.StdinPipe()
+	if err != nil {
+		log.Fatalf("StdinPipe: %v", err)
+	}
+	debug.SetCrashOutput(pipe.(*os.File), debug.CrashOptions{}) // (this conversion is safe) （此转换是安全的）
+	if err := cmd.Start(); err != nil {
+		log.Fatalf("can't start monitor: %v", err)
+	}
+	// Now return and start the application proper...
+    // 现在返回并开始实际的应用程序...
+}
+Output:
+```
+
+
+
 ### func SetGCPercent <- go1.1
 
 ```go
@@ -303,6 +447,17 @@ Defined keys include:
   vcs.time: 与 vcs.revision 关联的修改时间，采用 RFC3339 格式
 - vcs.modified: true or false indicating whether the source tree had local modifications
   vcs.modified: 指示源树是否有本地修改的 true 或 false
+
+### type CrashOptions <- go1.23.0
+
+```
+type CrashOptions struct {
+}
+```
+
+CrashOptions provides options that control the formatting of the fatal crash message.
+
+​	`CrashOptions` 提供控制致命崩溃消息格式的选项。
 
 ### type GCStats <- go1.1
 

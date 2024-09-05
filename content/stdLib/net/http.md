@@ -1403,6 +1403,8 @@ func ParseSetCookie(line string) (*Cookie, error)
 
 ParseSetCookie parses a Set-Cookie header value and returns a cookie. It returns an error on syntax error.
 
+​	ParseSetCookie 解析一个 Set-Cookie 头部的值并返回一个 Cookie。如果语法错误，它将返回错误。
+
 #### (*Cookie) String 
 
 ``` go 
@@ -1743,7 +1745,11 @@ func FileServerFS(root fs.FS) Handler
 
 FileServerFS returns a handler that serves HTTP requests with the contents of the file system fsys. The files provided by fsys must implement [io.Seeker](https://pkg.go.dev/io#Seeker).
 
+​	FileServerFS 返回一个处理器，用于通过文件系统 `fsys` 的内容来处理 HTTP 请求。`fsys` 提供的文件必须实现 [io.Seeker](https://pkg.go.dev/io#Seeker) 接口。
+
 As a special case, the returned file server redirects any request ending in "/index.html" to the same path, without the final "index.html".
+
+​	作为一种特殊情况，返回的文件服务器会将任何以 "/index.html" 结尾的请求重定向到相同路径，但去掉最后的 "index.html"。
 
 ```
 http.Handle("/", http.FileServerFS(fsys))
@@ -2086,7 +2092,11 @@ type ProtocolError struct {
 
 ProtocolError represents an HTTP protocol error.
 
+​	ProtocolError 表示一个 HTTP 协议错误。
+
 Deprecated: Not all errors in the http package related to protocol errors are of type ProtocolError.
+
+​	已弃用：并非所有与协议错误相关的 `http` 包中的错误都属于 `ProtocolError` 类型。
 
 #### (*ProtocolError) Error
 
@@ -2101,6 +2111,8 @@ func (pe *ProtocolError) Is(err error) bool
 ```
 
 Is lets http.ErrNotSupported match errors.ErrUnsupported.
+
+​	`Is` 允许 `http.ErrNotSupported` 与 `errors.ErrUnsupported` 匹配。
 
 ### type PushOptions  <- go1.8
 
@@ -2757,6 +2769,8 @@ func (r *Request) PathValue(name string) string
 
 PathValue returns the value for the named path wildcard in the [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux) pattern that matched the request. It returns the empty string if the request was not matched against a pattern or there is no such wildcard in the pattern.
 
+​	`PathValue` 返回在匹配请求的 [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux) 模式中指定路径通配符的值。如果请求没有匹配到模式或模式中没有这样的通配符，则返回空字符串。
+
 #### (*Request) PostFormValue  <- go1.1
 
 ``` go 
@@ -2816,6 +2830,8 @@ func (r *Request) SetPathValue(name, value string)
 ```
 
 SetPathValue sets name to value, so that subsequent calls to r.PathValue(name) return value.
+
+​	`SetPathValue` 设置名称为 `name` 的通配符值为 `value`，这样后续对 `r.PathValue(name)` 的调用将返回 `value`。
 
 #### (*Request) UserAgent 
 
@@ -3650,7 +3666,11 @@ func NewFileTransportFS(fsys fs.FS) RoundTripper
 
 NewFileTransportFS returns a new [RoundTripper](https://pkg.go.dev/net/http@go1.23.0#RoundTripper), serving the provided file system fsys. The returned RoundTripper ignores the URL host in its incoming requests, as well as most other properties of the request. The files provided by fsys must implement [io.Seeker](https://pkg.go.dev/io#Seeker).
 
+​	`NewFileTransportFS` 返回一个新的 [RoundTripper](https://pkg.go.dev/net/http@go1.23.0#RoundTripper)，用来处理提供的文件系统 `fsys`。返回的 `RoundTripper` 会忽略其传入请求中的 URL 主机以及请求的大多数其他属性。`fsys` 提供的文件必须实现 [io.Seeker](https://pkg.go.dev/io#Seeker) 接口。
+
 The typical use case for NewFileTransportFS is to register the "file" protocol with a [Transport](https://pkg.go.dev/net/http@go1.23.0#Transport), as in:
+
+​	`NewFileTransportFS` 的典型用例是将 "file" 协议与 [Transport](https://pkg.go.dev/net/http@go1.23.0#Transport) 绑定注册，如下所示：
 
 ```
 fsys := os.DirFS("/")
@@ -3694,17 +3714,29 @@ type ServeMux struct {
 
 ServeMux is an HTTP request multiplexer. It matches the URL of each incoming request against a list of registered patterns and calls the handler for the pattern that most closely matches the URL.
 
-#### Patterns 
+​	`ServeMux` 是一个 HTTP 请求多路复用器。它会根据已注册的模式列表匹配每个传入请求的 URL，并调用与该 URL 最匹配的模式对应的处理器。
+
+#### 模式 Patterns 
 
 Patterns can match the method, host and path of a request. Some examples:
 
+​	模式可以匹配请求的方法、主机和路径。例如：
+
 - "/index.html" matches the path "/index.html" for any host and method.
+- "/index.html" 匹配任何主机和方法下的路径 "/index.html"。
+
 - "GET /static/" matches a GET request whose path begins with "/static/".
+- "GET /static/" 匹配路径以 "/static/" 开头的 GET 请求。
 - "example.com/" matches any request to the host "example.com".
+- "example.com/" 匹配主机为 "example.com" 的任何请求。
 - "example.com/{$}" matches requests with host "example.com" and path "/".
+- "example.com/{$}" 匹配主机为 "example.com" 且路径为 "/" 的请求。
 - "/b/{bucket}/o/{objectname...}" matches paths whose first segment is "b" and whose third segment is "o". The name "bucket" denotes the second segment and "objectname" denotes the remainder of the path.
+- "/b/{bucket}/o/{objectname...}" 匹配路径中第一个片段为 "b" 且第三个片段为 "o" 的请求。名称 "bucket" 表示第二个片段，"objectname" 表示路径的其余部分。
 
 In general, a pattern looks like
+
+​	一般来说，一个模式的格式如下：
 
 ```
 [METHOD ][HOST]/[PATH]
@@ -3712,46 +3744,80 @@ In general, a pattern looks like
 
 All three parts are optional; "/" is a valid pattern. If METHOD is present, it must be followed by at least one space or tab.
 
+​	这三个部分都是可选的；"/" 是一个有效的模式。如果指定了 METHOD，则它后面必须至少有一个空格或制表符。
+
 Literal (that is, non-wildcard) parts of a pattern match the corresponding parts of a request case-sensitively.
+
+​	模式中字面的部分（即非通配符的部分）与请求的相应部分是区分大小写的。
 
 A pattern with no method matches every method. A pattern with the method GET matches both GET and HEAD requests. Otherwise, the method must match exactly.
 
+​	没有方法的模式匹配所有方法。带有 GET 方法的模式同时匹配 GET 和 HEAD 请求。否则，方法必须精确匹配。
+
 A pattern with no host matches every host. A pattern with a host matches URLs on that host only.
+
+​	没有主机的模式匹配所有主机。带有主机的模式仅匹配该主机上的 URL。
 
 A path can include wildcard segments of the form {NAME} or {NAME...}. For example, "/b/{bucket}/o/{objectname...}". The wildcard name must be a valid Go identifier. Wildcards must be full path segments: they must be preceded by a slash and followed by either a slash or the end of the string. For example, "/b_{bucket}" is not a valid pattern.
 
+​	路径可以包含形如 `{NAME}` 或 `{NAME...}` 的通配符片段。例如，"/b/{bucket}/o/{objectname...}"。通配符名称必须是有效的 Go 标识符。通配符必须是完整的路径片段：它们必须以斜杠开头，并且以斜杠或字符串结尾。例如，"/b_{bucket}" 不是有效的模式。
+
 Normally a wildcard matches only a single path segment, ending at the next literal slash (not %2F) in the request URL. But if the "..." is present, then the wildcard matches the remainder of the URL path, including slashes. (Therefore it is invalid for a "..." wildcard to appear anywhere but at the end of a pattern.) The match for a wildcard can be obtained by calling [Request.PathValue](https://pkg.go.dev/net/http@go1.23.0#Request.PathValue) with the wildcard's name. A trailing slash in a path acts as an anonymous "..." wildcard.
+
+​	通常情况下，通配符只匹配单个路径片段，匹配到下一个字面斜杠（不是 %2F）时结束。但如果通配符中包含 "..."，则该通配符匹配 URL 路径的其余部分，包括斜杠。（因此，"..." 通配符只能出现在模式的末尾。）可以通过调用 [Request.PathValue](https://pkg.go.dev/net/http@go1.23.0#Request.PathValue) 并提供通配符的名称来获取通配符的匹配结果。路径中的尾随斜杠相当于一个匿名的 "..." 通配符。
 
 The special wildcard {$} matches only the end of the URL. For example, the pattern "/{$}" matches only the path "/", whereas the pattern "/" matches every path.
 
+​	特殊通配符 `{$}` 仅匹配 URL 的结尾。例如，模式 "/{$}" 只匹配路径 "/"，而模式 "/" 则匹配所有路径。
+
 For matching, both pattern paths and incoming request paths are unescaped segment by segment. So, for example, the path "/a%2Fb/100%25" is treated as having two segments, "a/b" and "100%". The pattern "/a%2fb/" matches it, but the pattern "/a/b/" does not.
 
-#### Precedence 
+​	对于匹配来说，模式路径和传入的请求路径都逐段进行解码。因此，例如路径 "/a%2Fb/100%25" 会被视为两个片段："a/b" 和 "100%"。模式 "/a%2fb/" 可以匹配该路径，但模式 "/a/b/" 不能。
+
+#### 优先级 Precedence 
 
 If two or more patterns match a request, then the most specific pattern takes precedence. A pattern P1 is more specific than P2 if P1 matches a strict subset of P2’s requests; that is, if P2 matches all the requests of P1 and more. If neither is more specific, then the patterns conflict. There is one exception to this rule, for backwards compatibility: if two patterns would otherwise conflict and one has a host while the other does not, then the pattern with the host takes precedence. If a pattern passed to [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) or [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) conflicts with another pattern that is already registered, those functions panic.
 
+​	如果两个或多个模式匹配一个请求，则最具体的模式优先。模式 P1 比 P2 更具体是指，P1 匹配的请求严格是 P2 的子集；也就是说，P2 匹配 P1 的所有请求以及更多的请求。如果没有一个模式更具体，那么这些模式之间存在冲突。有一个例外，为了向后兼容：如果两个模式发生冲突，并且其中一个有主机而另一个没有，那么带有主机的模式优先。如果传递给 [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) 或 [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) 的模式与已经注册的模式冲突，这些函数会引发 panic。
+
 As an example of the general rule, "/images/thumbnails/" is more specific than "/images/", so both can be registered. The former matches paths beginning with "/images/thumbnails/" and the latter will match any other path in the "/images/" subtree.
+
+​	例如，"/images/thumbnails/" 比 "/images/" 更具体，因此两者都可以注册。前者匹配以 "/images/thumbnails/" 开头的路径，后者则匹配 "/images/" 子树中的任何其他路径。
 
 As another example, consider the patterns "GET /" and "/index.html": both match a GET request for "/index.html", but the former pattern matches all other GET and HEAD requests, while the latter matches any request for "/index.html" that uses a different method. The patterns conflict.
 
-#### Trailing-slash redirection 
+​	另一个例子，考虑模式 "GET /" 和 "/index.html"：两者都匹配路径为 "/index.html" 的 GET 请求，但前者模式匹配所有其他 GET 和 HEAD 请求，而后者则匹配使用不同方法的 "/index.html" 请求。模式之间存在冲突。
+
+#### 尾部斜杠重定向 Trailing-slash redirection 
 
 Consider a [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux) with a handler for a subtree, registered using a trailing slash or "..." wildcard. If the ServeMux receives a request for the subtree root without a trailing slash, it redirects the request by adding the trailing slash. This behavior can be overridden with a separate registration for the path without the trailing slash or "..." wildcard. For example, registering "/images/" causes ServeMux to redirect a request for "/images" to "/images/", unless "/images" has been registered separately.
 
-#### Request sanitizing 
+​	考虑一个 [ServeMux](https://pkg.go.dev/net/http@go1.23.0#ServeMux)，它为一个子树注册了一个带有尾部斜杠或 "..." 通配符的处理器。如果 ServeMux 接收到对该子树根路径的请求，但请求路径没有尾部斜杠，它会通过添加尾部斜杠来重定向请求。可以通过单独为没有尾部斜杠或 "..." 通配符的路径进行注册来覆盖这种行为。例如，注册 "/images/" 会导致 ServeMux 将 "/images" 的请求重定向到 "/images/"，除非 "/images" 已单独注册。
+
+#### 请求清理 Request sanitizing 
 
 ServeMux also takes care of sanitizing the URL request path and the Host header, stripping the port number and redirecting any request containing . or .. segments or repeated slashes to an equivalent, cleaner URL.
 
-#### Compatibility 
+​	ServeMux 还负责清理 URL 请求路径和 Host 头部，去除端口号，并将包含 `.` 或 `..` 片段或重复斜杠的请求重定向到等效的、更简洁的 URL。
+
+#### 兼容性 Compatibility 
 
 The pattern syntax and matching behavior of ServeMux changed significantly in Go 1.22. To restore the old behavior, set the GODEBUG environment variable to "httpmuxgo121=1". This setting is read once, at program startup; changes during execution will be ignored.
 
+​	`ServeMux` 的模式语法和匹配行为在 Go 1.22 中发生了显著变化。要恢复旧行为，可以将 GODEBUG 环境变量设置为 "httpmuxgo121=1"。此设置在程序启动时读取；执行期间的更改将被忽略。
+
 The backwards-incompatible changes include:
 
+​	向后不兼容的更改包括：
+
 - Wildcards are just ordinary literal path segments in 1.21. For example, the pattern "/{x}" will match only that path in 1.21, but will match any one-segment path in 1.22.
+- 通配符在 1.21 中只是普通的字面路径片段。例如，模式 "/{x}" 在 1.21 中只会匹配该路径，但在 1.22 中会匹配任何单片段路径。
 - In 1.21, no pattern was rejected, unless it was empty or conflicted with an existing pattern. In 1.22, syntactically invalid patterns will cause [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) and [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) to panic. For example, in 1.21, the patterns "/{" and "/a{x}" match themselves, but in 1.22 they are invalid and will cause a panic when registered.
+- 在 1.21 中，除非模式为空或与现有模式冲突，否则不会拒绝任何模式。在 1.22 中，语法无效的模式会导致 [ServeMux.Handle](https://pkg.go.dev/net/http@go1.23.0#ServeMux.Handle) 和 [ServeMux.HandleFunc](https://pkg.go.dev/net/http@go1.23.0#ServeMux.HandleFunc) 引发 panic。例如，在 1.21 中，模式 "/{" 和 "/a{x}" 匹配它们自身，但在 1.22 中它们是无效的，并且注册时会引发 panic。
 - In 1.22, each segment of a pattern is unescaped; this was not done in 1.21. For example, in 1.22 the pattern "/%61" matches the path "/a" ("%61" being the URL escape sequence for "a"), but in 1.21 it would match only the path "/%2561" (where "%25" is the escape for the percent sign).
+- 在 1.22 中，模式的每个片段都会被解码；而在 1.21 中不会。例如，在 1.22 中，模式 "/%61" 匹配路径 "/a"（"%61" 是 "a" 的 URL 转义序列），但在 1.21 中它只匹配路径 "/%2561"（其中 "%25" 是百分号的转义序列）。
 - When matching patterns to paths, in 1.22 each segment of the path is unescaped; in 1.21, the entire path is unescaped. This change mostly affects how paths with %2F escapes adjacent to slashes are treated. See https://go.dev/issue/21955 for details.
+- 在模式与路径匹配时，在 1.22 中路径的每个片段都会被解码；而在 1.21 中整个路径会被解码。此更改主要影响带有紧邻斜杠的 %2F 转义的路径的处理方式。有关详细信息，请参阅 https://go.dev/issue/21955。
 
 #### func NewServeMux 
 

@@ -29,6 +29,63 @@ This section is empty.
 
 ## 函数
 
+### func All <- go1.23.0
+
+```
+func All[Slice ~[]E, E any](s Slice) iter.Seq2[int, E]
+```
+
+All returns an iterator over index-value pairs in the slice in the usual order.
+
+### func AppendSeq <- go1.23.0
+
+```
+func AppendSeq[Slice ~[]E, E any](s Slice, seq iter.Seq[E]) Slice
+```
+
+AppendSeq appends the values from seq to the slice and returns the extended slice.
+
+### func Backward <- go1.23.0
+
+```
+func Backward[Slice ~[]E, E any](s Slice) iter.Seq2[int, E]
+```
+
+Backward returns an iterator over index-value pairs in the slice, traversing it backward with descending indices.
+
+### func BinarySearch 
+
+```
+func BinarySearch[S ~[]E, E cmp.Ordered](x S, target E) (int, bool)
+```
+
+BinarySearch searches for target in a sorted slice and returns the earliest position where target is found, or the position where target would appear in the sort order; it also returns a bool saying whether the target is really found in the slice. The slice must be sorted in increasing order.
+
+#### BinarySearch Example
+
+```
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+func main() {
+	names := []string{"Alice", "Bob", "Vera"}
+	n, found := slices.BinarySearch(names, "Vera")
+	fmt.Println("Vera:", n, found)
+	n, found = slices.BinarySearch(names, "Bill")
+	fmt.Println("Bill:", n, found)
+}
+Output:
+
+Vera: 2 true
+Bill: 1 false
+```
+
+
+
 ### func BinarySearch 
 
 ``` go
@@ -101,6 +158,55 @@ Output:
 
 Bob: 1 true
 ```
+### func Chunk <- go1.23.0
+
+```
+func Chunk[Slice ~[]E, E any](s Slice, n int) iter.Seq[Slice]
+```
+
+Chunk returns an iterator over consecutive sub-slices of up to n elements of s. All but the last sub-slice will have size n. All sub-slices are clipped to have no capacity beyond the length. If s is empty, the sequence is empty: there is no empty slice in the sequence. Chunk panics if n is less than 1.
+
+#### Chunk Example
+
+```
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+func main() {
+	type Person struct {
+		Name string
+		Age  int
+	}
+
+	type People []Person
+
+	people := People{
+		{"Gopher", 13},
+		{"Alice", 20},
+		{"Bob", 5},
+		{"Vera", 24},
+		{"Zac", 15},
+	}
+
+	// Chunk people into []Person 2 elements at a time.
+	for c := range slices.Chunk(people, 2) {
+		fmt.Println(c)
+	}
+
+}
+Output:
+
+[{Gopher 13} {Alice 20}]
+[{Bob 5} {Vera 24}]
+[{Zac 15}]
+```
+
+
+
 ### func Clip 
 
 ``` go
@@ -120,6 +226,14 @@ func Clone[S ~[]E, E any](s S) S
 Clone returns a copy of the slice. The elements are copied using assignment, so this is a shallow clone.
 
 ​	`Clone` 函数返回切片的副本。元素是通过赋值复制的，因此这是`浅复制`。
+
+### func Collect <- go1.23.0
+
+```
+func Collect[E any](seq iter.Seq[E]) []E
+```
+
+Collect collects values from seq into a new slice and returns it.
 
 ### func Compact 
 
@@ -234,6 +348,14 @@ CompareFunc is like [Compare](https://pkg.go.dev/slices#Compare) but uses a cust
 
 +1（如果 len(s1) > len(s2)）。
 
+### func Concat <- go1.22.0
+
+```
+func Concat[S ~[]E, E any](slices ...S) S
+```
+
+Concat returns a new slice concatenating the passed in slices.
+
 #### CompareFunc Example
 
 ``` go
@@ -262,7 +384,7 @@ Output:
 
 1
 ```
-#### func Concat <-go1.22.0
+### func Concat <-go1.22.0
 
 ```
 func Concat[S ~[]E, E any](slices ...S) S
@@ -751,6 +873,36 @@ Output:
 
 Bob
 ```
+### func Repeat <- go1.23.0
+
+```
+func Repeat[S ~[]E, E any](x S, count int) S
+```
+
+Repeat returns a new slice that repeats the provided slice the given number of times. The result has length and capacity (len(x) * count). The result is never nil. Repeat panics if count is negative or if the result of (len(x) * count) overflows.
+
+#### Repeat Example
+
+```
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+func main() {
+	numbers := []int{0, 1, 2, 3}
+	repeat := slices.Repeat(numbers, 2)
+	fmt.Println(repeat)
+}
+Output:
+
+[0 1 2 3 0 1 2 3]
+```
+
+
+
 ### func Replace 
 
 ``` go
@@ -953,6 +1105,38 @@ Output:
 
 [{Alice 20} {Alice 55} {Bob 24} {Gopher 13}]
 ```
+### func Sorted <- go1.23.0
+
+```
+func Sorted[E cmp.Ordered](seq iter.Seq[E]) []E
+```
+
+Sorted collects values from seq into a new slice, sorts the slice, and returns it.
+
+### func SortedFunc <- go1.23.0
+
+```
+func SortedFunc[E any](seq iter.Seq[E], cmp func(E, E) int) []E
+```
+
+SortedFunc collects values from seq into a new slice, sorts the slice using the comparison function, and returns it.
+
+### func SortedStableFunc <- go1.23.0
+
+```
+func SortedStableFunc[E any](seq iter.Seq[E], cmp func(E, E) int) []E
+```
+
+SortedStableFunc collects values from seq into a new slice. It then sorts the slice while keeping the original order of equal elements, using the comparison function to compare elements. It returns the new slice.
+
+### func Values <- go1.23.0
+
+```
+func Values[Slice ~[]E, E any](s Slice) iter.Seq[E]
+```
+
+Values returns an iterator that yields the slice elements in order.
+
 ### Types 
 
 This section is empty.

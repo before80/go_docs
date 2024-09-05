@@ -394,6 +394,24 @@ a/b/c
 ../xyz
 ```
 
+### func Localize <- go1.23.0
+
+```
+func Localize(path string) (string, error)
+```
+
+Localize converts a slash-separated path into an operating system path. The input path must be a valid path as reported by [io/fs.ValidPath](https://pkg.go.dev/io/fs#ValidPath).
+
+​	Localize 将斜杠分隔的路径转换为操作系统的路径。输入路径必须是 [io/fs.ValidPath](https://pkg.go.dev/io/fs#ValidPath) 报告的有效路径。
+
+Localize returns an error if the path cannot be represented by the operating system. For example, the path a\b is rejected on Windows, on which \ is a separator character and cannot be part of a filename.
+
+​	如果路径无法被操作系统表示，Localize 会返回一个错误。例如，在 Windows 上，路径 `a\b` 会被拒绝，因为 `\` 是分隔符，不能成为文件名的一部分。
+
+The path returned by Localize will always be local, as reported by IsLocal.
+
+​	Localize 返回的路径将始终是本地路径，正如 IsLocal 所报告的那样。
+
 ### func Match 
 
 ``` go 

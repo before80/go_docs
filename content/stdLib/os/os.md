@@ -583,7 +583,35 @@ func main() {
 //环境变量： []
 ```
 
+### func CopyFS <- go1.23.0
 
+```
+func CopyFS(dir string, fsys fs.FS) error
+```
+
+CopyFS copies the file system fsys into the directory dir, creating dir if necessary.
+
+​	CopyFS 将文件系统 fsys 复制到目录 dir 中，如果需要会创建 dir。
+
+Files are created with mode 0o666 plus any execute permissions from the source, and directories are created with mode 0o777 (before umask).
+
+​	文件会以模式 0o666 加上源文件的任何执行权限来创建，目录会以模式 0o777 创建（在应用 umask 之前）。
+
+CopyFS will not overwrite existing files, and returns an error if a file name in fsys already exists in the destination.
+
+​	CopyFS 不会覆盖已有文件，如果 fsys 中的文件名在目标目录中已经存在，则返回错误。
+
+Symbolic links in fsys are not supported. A *PathError with Err set to ErrInvalid is returned when copying from a symbolic link.
+
+​	不支持复制 fsys 中的符号链接。如果复制符号链接，将返回一个带有 ErrInvalid 的 *PathError。
+
+Symbolic links in dir are followed.
+
+​	在 dir 中的符号链接会被跟随。
+
+Copying stops at and returns the first error encountered.
+
+​	复制过程中遇到的第一个错误将停止复制并返回该错误。
 
 ### func DirFS  <- go1.16
 
@@ -2689,6 +2717,16 @@ func (f *File) WriteString(s string) (n int, err error)
 WriteString is like Write, but writes the contents of string s rather than a slice of bytes.
 
 ​	WriteString方法类似于 Write，但它写入字符串 s 的内容而不是字节切片。
+
+####  (*File) WriteTo <- go1.22.0
+
+```
+func (f *File) WriteTo(w io.Writer) (n int64, err error)
+```
+
+WriteTo implements io.WriterTo.
+
+​	WriteTo 实现了 io.WriterTo。
 
 ### type FileInfo 
 

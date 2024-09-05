@@ -562,6 +562,16 @@ Addr returns p’s IP address.
 
 ​	Addr 返回 p 的 IP 地址。
 
+#### (AddrPort) Compare <-go1.22.0
+
+```
+func (p AddrPort) Compare(p2 AddrPort) int
+```
+
+Compare returns an integer comparing two AddrPorts. The result will be 0 if p == p2, -1 if p < p2, and +1 if p > p2. AddrPorts sort first by IP address, then port.
+
+​	Compare 返回一个整数，用于比较两个 AddrPort。若 `p == p2`，则返回 0；若 `p < p2`，则返回 -1；若 `p > p2`，则返回 +1。AddrPort 首先根据 IP 地址排序，然后再根据端口排序。
+
 #### (AddrPort) AppendTo
 
 ```go

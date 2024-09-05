@@ -69,6 +69,44 @@ To generate a client HTTP request instead of a server request, see the NewReques
 
 ​	要生成客户端的 HTTP 请求而不是服务器请求，请参见 net/http 包中的 NewRequest 函数。
 
+### func NewRequestWithContext <- go1.23.0
+
+```
+func NewRequestWithContext(ctx context.Context, method, target string, body io.Reader) *http.Request
+```
+
+NewRequestWithContext returns a new incoming server Request, suitable for passing to an [http.Handler](https://pkg.go.dev/net/http#Handler) for testing.
+
+​	`NewRequestWithContext` 返回一个新的传入服务器请求，适合用于测试时传递给 [http.Handler](https://pkg.go.dev/net/http#Handler)。
+
+The target is the [RFC 7230](https://rfc-editor.org/rfc/rfc7230.html) "request-target": it may be either a path or an absolute URL. If target is an absolute URL, the host name from the URL is used. Otherwise, "example.com" is used.
+
+​	`target` 是 [RFC 7230](https://rfc-editor.org/rfc/rfc7230.html) 中的 "request-target"：它可以是路径或绝对 URL。如果 `target` 是绝对 URL，则使用 URL 中的主机名。否则，使用 "example.com"。
+
+The TLS field is set to a non-nil dummy value if target has scheme "https".
+
+​	如果 `target` 的协议方案为 "https"，则 `TLS` 字段会被设置为一个非 nil 的占位值。
+
+The Request.Proto is always HTTP/1.1.
+
+​	请求的 `Proto` 字段始终为 HTTP/1.1。
+
+An empty method means "GET".
+
+​	空的 `method` 意味着 "GET"。
+
+The provided body may be nil. If the body is of type *bytes.Reader, *strings.Reader, or *bytes.Buffer, the Request.ContentLength is set.
+
+​	提供的 `body` 可以为 nil。如果 `body` 是类型为 `*bytes.Reader`、`*strings.Reader` 或 `*bytes.Buffer`，则 `Request.ContentLength` 将被设置。
+
+NewRequest panics on error for ease of use in testing, where a panic is acceptable.
+
+​	为了方便测试，`NewRequest` 遇到错误时会触发 panic，因为在测试中 panic 是可以接受的。
+
+To generate a client HTTP request instead of a server request, see the NewRequest function in the net/http package.
+
+​	要生成客户端 HTTP 请求而不是服务器请求，请参见 `net/http` 包中的 `NewRequest` 函数。
+
 ## 类型
 
 ### type ResponseRecorder 

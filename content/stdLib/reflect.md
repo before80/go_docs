@@ -1062,7 +1062,7 @@ TypeOf returns the reflection Type that represents the dynamic type of i. If i i
 
 ​	`TypeOf` 函数返回表示 `i` 的动态类型的反射 `Type`。如果 `i` 是 `nil` 接口值，`TypeOf` 返回 `nil`。  
 
-#### typeOf Example
+##### typeOf Example
 
 ``` go 
 package main
@@ -1316,6 +1316,20 @@ Select executes a select operation described by the list of cases. Like the Go s
 
 ​	`Select` 函数执行由 `cases` 列表描述的 `select` 操作。与 Go 的 `select` 语句类似，它会阻塞，直到至少有一个 `case` 可以进行，然后做出统一伪随机的（uniform pseudo-random）选择，并执行该 `case`。它返回所选 `case` 的索引，如果该 `case` 是接收操作，则返回接收的值和一个布尔值，该布尔值表示该值是否与通道上的发送相对应（而不是因为通道关闭而接收到的零值）。`Select` 支持最多 `65536` 个 cases。
 
+#### func SliceAt <- go1.23.0
+
+```
+func SliceAt(typ Type, p unsafe.Pointer, n int) Value
+```
+
+SliceAt returns a [Value](https://pkg.go.dev/reflect@go1.23.0#Value) representing a slice whose underlying data starts at p, with length and capacity equal to n.
+
+​	SliceAt 返回一个 [Value](https://pkg.go.dev/reflect@go1.23.0#Value)，表示一个底层数据从 p 开始的 slice，长度和容量等于 n。
+
+This is like [unsafe.Slice](https://pkg.go.dev/unsafe#Slice).
+
+​	这类似于 [unsafe.Slice](https://pkg.go.dev/unsafe#Slice)。
+
 #### func ValueOf 
 
 ``` go 
@@ -1484,7 +1498,11 @@ func (v Value) Clear()
 
 Clear clears the contents of a map or zeros the contents of a slice.
 
+​	Clear 清空 map 的内容或将 slice 的内容置零。
+
 It panics if v's Kind is not Map or Slice.
+
+​	如果 v 的 Kind 不是 Map 或 Slice，会触发 panic。
 
 #### (Value) Close 
 
@@ -2028,6 +2046,26 @@ func (v Value) Send(x Value)
 Send sends x on the channel v. It panics if v's kind is not Chan or if x's type is not the same type as v's element type. As in Go, x's value must be assignable to the channel's element type.
 
 ​	`Send`方法在通道 `v` 上发送 `x`。如果 `v` 的 `Kind` 不是 `Chan` 或者 `x` 的类型与 `v` 的元素类型不同，则会 panic。与 Go 语言类似，`x` 的值必须可分配给通道的元素类型。
+
+#### (Value) Seq <- go1.23.0
+
+```
+func (v Value) Seq() iter.Seq[Value]
+```
+
+Seq returns an iter.Seq[Value] that loops over the elements of v. If v's kind is Func, it must be a function that has no results and that takes a single argument of type func(T) bool for some type T. If v's kind is Pointer, the pointer element type must have kind Array. Otherwise v's kind must be Int, Int8, Int16, Int32, Int64, Uint, Uint8, Uint16, Uint32, Uint64, Uintptr, Array, Chan, Map, Slice, or String.
+
+​	Seq 返回一个 iter.Seq[Value]，遍历 v 的元素。如果 v 的 Kind 是 Func，那么该函数必须没有结果，并且接受一个类型为 `func(T) bool` 的参数，其中 T 是某种类型。如果 v 的 Kind 是 Pointer，则指针的元素类型必须是 Array。否则，v 的 Kind 必须是 Int、Int8、Int16、Int32、Int64、Uint、Uint8、Uint16、Uint32、Uint64、Uintptr、Array、Chan、Map、Slice 或 String。
+
+#### (Value) Seq2 <- go1.23.0
+
+```
+func (v Value) Seq2() iter.Seq2[Value, Value]
+```
+
+Seq2 returns an iter.Seq2[Value, Value] that loops over the elements of v. If v's kind is Func, it must be a function that has no results and that takes a single argument of type func(K, V) bool for some type K, V. If v's kind is Pointer, the pointer element type must have kind Array. Otherwise v's kind must be Array, Map, Slice, or String.
+
+​	Seq2 返回一个 iter.Seq2[Value, Value]，遍历 v 的元素。如果 v 的 Kind 是 Func，那么该函数必须没有结果，并且接受一个类型为 `func(K, V) bool` 的参数，其中 K 和 V 是某种类型。如果 v 的 Kind 是 Pointer，则指针的元素类型必须是 Array。否则，v 的 Kind 必须是 Array、Map、Slice 或 String。
 
 #### (Value) Set 
 
