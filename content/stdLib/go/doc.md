@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/doc@go1.21.3](https://pkg.go.dev/go/doc@go1.21.3)
+> 原文：[https://pkg.go.dev/go/doc@go1.23.0](https://pkg.go.dev/go/doc@go1.23.0)
 
 Package doc extracts source code documentation from a Go AST.
 
@@ -46,7 +46,7 @@ IsPredeclared reports whether s is a predeclared identifier.
 
 ### func Synopsis <-DEPRECATED
 
-```
+``` go
 func Synopsis(text string) string
 ```
 

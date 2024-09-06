@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/http@go1.21.3](https://pkg.go.dev/net/http@go1.21.3)
+> 原文：[https://pkg.go.dev/net/http@go1.23.0](https://pkg.go.dev/net/http@go1.23.0)
 
 Package http provides HTTP client and server implementations.
 
@@ -897,7 +897,7 @@ Outside of those two special cases, ServeFile does not use r.URL.Path for select
 
 ### func ServeFileFS <- go1.22.0
 
-```
+``` go
 func ServeFileFS(w ResponseWriter, r *Request, fsys fs.FS, name string)
 ```
 
@@ -1387,7 +1387,7 @@ See https://tools.ietf.org/html/rfc6265 for details.
 
 #### func ParseCookie <- go1.23.0
 
-```
+``` go
 func ParseCookie(line string) ([]*Cookie, error)
 ```
 
@@ -1397,7 +1397,7 @@ ParseCookie parses a Cookie header value and returns all the cookies which were 
 
 #### func ParseSetCookie <- go1.23.0
 
-```
+``` go
 func ParseSetCookie(line string) (*Cookie, error)
 ```
 
@@ -1739,7 +1739,7 @@ func main() {
 
 #### func FileServerFS <- go1.22.0
 
-```
+``` go
 func FileServerFS(root fs.FS) Handler
 ```
 
@@ -2100,7 +2100,7 @@ Deprecated: Not all errors in the http package related to protocol errors are of
 
 #### (*ProtocolError) Error
 
-```
+``` go
 func (pe *ProtocolError) Error() string
 ```
 
@@ -2763,7 +2763,7 @@ ParseMultipartForm parses a request body as multipart/form-data. The whole reque
 
 #### (*Request) PathValue <- go1.22.0
 
-```
+``` go
 func (r *Request) PathValue(name string) string
 ```
 
@@ -2825,7 +2825,7 @@ The username may not contain a colon. Some protocols may impose additional requi
 
 #### (*Request) SetPathValue <- go1.22.0
 
-```
+``` go
 func (r *Request) SetPathValue(name, value string)
 ```
 
@@ -3660,7 +3660,7 @@ res, err := c.Get("file:///etc/passwd")
 
 #### func NewFileTransportFS <- go1.22.0
 
-```
+``` go
 func NewFileTransportFS(fsys fs.FS) RoundTripper
 ```
 

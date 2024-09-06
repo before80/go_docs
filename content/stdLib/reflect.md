@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/reflect@go1.21.3](https://pkg.go.dev/reflect@go1.21.3)
+> 原文：[https://pkg.go.dev/reflect@go1.23.0](https://pkg.go.dev/reflect@go1.23.0)
 
 Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information by calling TypeOf, which returns a Type.
 
@@ -1044,7 +1044,7 @@ value: &{Height:1.5 Age:10}
 
 #### func TypeFor <-go1.22.0
 
-```
+``` go
 func TypeFor[T any]() Type
 ```
 
@@ -1318,7 +1318,7 @@ Select executes a select operation described by the list of cases. Like the Go s
 
 #### func SliceAt <- go1.23.0
 
-```
+``` go
 func SliceAt(typ Type, p unsafe.Pointer, n int) Value
 ```
 
@@ -2049,7 +2049,7 @@ Send sends x on the channel v. It panics if v's kind is not Chan or if x's type 
 
 #### (Value) Seq <- go1.23.0
 
-```
+``` go
 func (v Value) Seq() iter.Seq[Value]
 ```
 
@@ -2059,7 +2059,7 @@ Seq returns an iter.Seq[Value] that loops over the elements of v. If v's kind is
 
 #### (Value) Seq2 <- go1.23.0
 
-```
+``` go
 func (v Value) Seq2() iter.Seq2[Value, Value]
 ```
 

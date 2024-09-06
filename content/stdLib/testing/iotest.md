@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/testing/iotest@go1.21.3](https://pkg.go.dev/testing/iotest@go1.21.3)
+> 原文：[https://pkg.go.dev/testing/iotest@go1.23.0](https://pkg.go.dev/testing/iotest@go1.23.0)
 
 Package iotest implements Readers and Writers useful mainly for testing.
 

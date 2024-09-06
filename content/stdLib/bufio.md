@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/bufio@go1.21.3](https://pkg.go.dev/bufio@go1.21.3)
+> 原文：[https://pkg.go.dev/bufio@go1.23.0](https://pkg.go.dev/bufio@go1.23.0)
 
 ![image-20231109085559633](bufio_img/image-20231109085559633.png)
 

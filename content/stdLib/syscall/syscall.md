@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/syscall@go1.21.3](https://pkg.go.dev/syscall@go1.21.3)
+> 原文：[https://pkg.go.dev/syscall@go1.23.0](https://pkg.go.dev/syscall@go1.23.0)
 
 Package syscall contains an interface to the low-level operating system primitives. The details vary depending on the underlying system, and by default, godoc will display the syscall documentation for the current system. If you want godoc to display syscall documentation for another system, set `$GOOS` and `$GOARCH` to the desired system. For example, if you want to view documentation for freebsd/arm on linux/amd64, set `$GOOS` to freebsd and $GOARCH to arm. The primary use of syscall is inside other packages that provide a more portable interface to the system, such as “os”, “time” and “net”. Use those packages rather than this one if you can. For details of the functions and data types in this package consult the manuals for the appropriate operating system. These calls return err == nil to indicate success; otherwise err is an operating system error describing the failure. On most systems, that error has type syscall.Errno.
 
@@ -2037,7 +2037,7 @@ func Adjtimex(buf *Timex) (state int, err error)
 
 ### func AttachLsf <-DEPRECATED
 
-```
+``` go
 func AttachLsf(fd int, i []SockFilter) error
 ```
 
@@ -2157,7 +2157,7 @@ func Creat(path string, mode uint32) (fd int, err error)
 
 ### func DetachLsf <-DEPRECATED 
 
-```
+``` go
 func DetachLsf(fd int) error
 ```
 
@@ -2545,7 +2545,7 @@ func Listxattr(path string, dest []byte) (sz int, err error)
 
 ### func LsfSocket <-DEPRECATED
 
-```
+``` go
 func LsfSocket(ifindex, proto int) (int, error)
 ```
 
@@ -2891,7 +2891,7 @@ func Sendto(fd int, p []byte, flags int, to Sockaddr) (err error)
 
 ### func SetLsfPromisc <-DEPRECATED
 
-```
+``` go
 func SetLsfPromisc(name string, m bool) error
 ```
 
@@ -3143,7 +3143,7 @@ func Statfs(path string, buf *Statfs_t) (err error)
 
 ### func StringBytePtr <-DEPRECATED
 
-```
+``` go
 func StringBytePtr(s string) *byte
 ```
 
@@ -3157,7 +3157,7 @@ Deprecated: Use BytePtrFromString instead.
 
 ### func StringByteSlice <-DEPRECATED
 
-```
+``` go
 func StringByteSlice(s string) []byte
 ```
 
@@ -3171,7 +3171,7 @@ Deprecated: Use ByteSliceFromString instead.
 
 ### func StringSlicePtr <-DEPRECATED
 
-```
+``` go
 func StringSlicePtr(ss []string) []*byte
 ```
 
@@ -4092,7 +4092,7 @@ type SockFilter struct {
 
 #### func LsfJump <-DEPRECATED
 
-```
+``` go
 func LsfJump(code, k, jt, jf int) *SockFilter
 ```
 
@@ -4102,7 +4102,7 @@ Deprecated: Use golang.org/x/net/bpf instead.
 
 #### func LsfStmt <-DEPRECATED
 
-```
+``` go
 func LsfStmt(code, k int) *SockFilter
 ```
 

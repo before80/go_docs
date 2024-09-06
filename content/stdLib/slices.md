@@ -31,39 +31,47 @@ This section is empty.
 
 ### func All <- go1.23.0
 
-```
+``` go
 func All[Slice ~[]E, E any](s Slice) iter.Seq2[int, E]
 ```
 
 All returns an iterator over index-value pairs in the slice in the usual order.
 
+​	All 函数返回一个迭代器，该迭代器按常规顺序遍历切片中的索引-值对。
+
 ### func AppendSeq <- go1.23.0
 
-```
+``` go
 func AppendSeq[Slice ~[]E, E any](s Slice, seq iter.Seq[E]) Slice
 ```
 
 AppendSeq appends the values from seq to the slice and returns the extended slice.
 
+​	AppendSeq 函数将 seq 中的值追加到切片中，并返回扩展后的切片。
+
 ### func Backward <- go1.23.0
 
-```
+``` go
 func Backward[Slice ~[]E, E any](s Slice) iter.Seq2[int, E]
 ```
 
 Backward returns an iterator over index-value pairs in the slice, traversing it backward with descending indices.
 
+​	Backward 函数返回一个迭代器，该迭代器按降序遍历切片中的索引-值对。
+
 ### func BinarySearch 
 
-```
+``` go
 func BinarySearch[S ~[]E, E cmp.Ordered](x S, target E) (int, bool)
 ```
 
 BinarySearch searches for target in a sorted slice and returns the earliest position where target is found, or the position where target would appear in the sort order; it also returns a bool saying whether the target is really found in the slice. The slice must be sorted in increasing order.
 
+​	BinarySearch 函数在已排序的切片中搜索目标，并返回目标出现的最早位置，或者目标在排序顺序中应该出现的位置；同时返回一个布尔值，指示目标是否确实在切片中找到。切片必须按递增顺序排序。
+
 #### BinarySearch Example
 
-```
+``` go
 package main
 
 import (
@@ -160,15 +168,17 @@ Bob: 1 true
 ```
 ### func Chunk <- go1.23.0
 
-```
+``` go
 func Chunk[Slice ~[]E, E any](s Slice, n int) iter.Seq[Slice]
 ```
 
 Chunk returns an iterator over consecutive sub-slices of up to n elements of s. All but the last sub-slice will have size n. All sub-slices are clipped to have no capacity beyond the length. If s is empty, the sequence is empty: there is no empty slice in the sequence. Chunk panics if n is less than 1.
 
+​	Chunk 返回一个迭代器，该迭代器按顺序遍历由 s 切片组成的子切片，每个子切片最多包含 n 个元素。除了最后一个子切片外，所有子切片的大小都为 n。所有子切片的容量都被裁剪为与长度相等。如果 s 为空，则序列为空：序列中没有空切片。如果 n 小于 1，Chunk 将触发 panic。
+
 #### Chunk Example
 
-```
+``` go
 package main
 
 import (
@@ -229,11 +239,13 @@ Clone returns a copy of the slice. The elements are copied using assignment, so 
 
 ### func Collect <- go1.23.0
 
-```
+``` go
 func Collect[E any](seq iter.Seq[E]) []E
 ```
 
 Collect collects values from seq into a new slice and returns it.
+
+​	Collect 将 seq 中的值收集到一个新的切片中并返回。
 
 ### func Compact 
 
@@ -348,13 +360,7 @@ CompareFunc is like [Compare](https://pkg.go.dev/slices#Compare) but uses a cust
 
 +1（如果 len(s1) > len(s2)）。
 
-### func Concat <- go1.22.0
 
-```
-func Concat[S ~[]E, E any](slices ...S) S
-```
-
-Concat returns a new slice concatenating the passed in slices.
 
 #### CompareFunc Example
 
@@ -384,9 +390,11 @@ Output:
 
 1
 ```
+
+
 ### func Concat <-go1.22.0
 
-```
+``` go
 func Concat[S ~[]E, E any](slices ...S) S
 ```
 
@@ -875,15 +883,17 @@ Bob
 ```
 ### func Repeat <- go1.23.0
 
-```
+``` go
 func Repeat[S ~[]E, E any](x S, count int) S
 ```
 
 Repeat returns a new slice that repeats the provided slice the given number of times. The result has length and capacity (len(x) * count). The result is never nil. Repeat panics if count is negative or if the result of (len(x) * count) overflows.
 
+​	Repeat 返回一个新的切片，该切片是将提供的切片重复指定次数的结果。结果的长度和容量为 `len(x) * count`。结果永远不会为 nil。如果 count 为负数，或者 `(len(x) * count)` 溢出，Repeat 会触发 panic。
+
 #### Repeat Example
 
-```
+``` go
 package main
 
 import (
@@ -1107,36 +1117,44 @@ Output:
 ```
 ### func Sorted <- go1.23.0
 
-```
+``` go
 func Sorted[E cmp.Ordered](seq iter.Seq[E]) []E
 ```
 
 Sorted collects values from seq into a new slice, sorts the slice, and returns it.
 
+​	Sorted 将 seq 中的值收集到一个新的切片中，排序后返回该切片。
+
 ### func SortedFunc <- go1.23.0
 
-```
+``` go
 func SortedFunc[E any](seq iter.Seq[E], cmp func(E, E) int) []E
 ```
 
 SortedFunc collects values from seq into a new slice, sorts the slice using the comparison function, and returns it.
 
+​	SortedFunc 将 seq 中的值收集到一个新的切片中，并使用提供的比较函数对该切片进行排序，然后返回该切片。
+
 ### func SortedStableFunc <- go1.23.0
 
-```
+``` go
 func SortedStableFunc[E any](seq iter.Seq[E], cmp func(E, E) int) []E
 ```
 
 SortedStableFunc collects values from seq into a new slice. It then sorts the slice while keeping the original order of equal elements, using the comparison function to compare elements. It returns the new slice.
 
+​	SortedStableFunc 将 seq 中的值收集到一个新的切片中，并使用提供的比较函数对切片进行排序，同时保持相等元素的原始顺序。最后返回该切片。
+
 ### func Values <- go1.23.0
 
-```
+``` go
 func Values[Slice ~[]E, E any](s Slice) iter.Seq[E]
 ```
 
 Values returns an iterator that yields the slice elements in order.
 
-### Types 
+​	Values 返回一个迭代器，该迭代器按顺序输出切片中的元素。
+
+### 类型
 
 This section is empty.

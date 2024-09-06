@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/rsa@go1.21.3](https://pkg.go.dev/crypto/rsa@go1.21.3)
+> 原文：[https://pkg.go.dev/crypto/rsa@go1.23.0](https://pkg.go.dev/crypto/rsa@go1.23.0)
 
 Package rsa implements RSA encryption as specified in PKCS #1 and [RFC 8017](https://rfc-editor.org/rfc/rfc8017.html).
 

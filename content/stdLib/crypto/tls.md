@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/tls@go1.21.3](https://pkg.go.dev/crypto/tls@go1.21.3)
+> 原文：[https://pkg.go.dev/crypto/tls@go1.23.0](https://pkg.go.dev/crypto/tls@go1.23.0)
 
 Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc-editor.org/rfc/rfc5246.html), and TLS 1.3, as specified in [RFC 8446](https://rfc-editor.org/rfc/rfc8446.html).
 
@@ -608,7 +608,7 @@ ClientSessionState contains the state needed by clients to resume TLS sessions.
 
 #### func NewResumptionState <-go1.21.0
 
-```
+``` go
 func NewResumptionState(ticket []byte, state *SessionState) (*ClientSessionState, error)
 ```
 
@@ -622,7 +622,7 @@ state needs to be returned by [ParseSessionState](https://pkg.go.dev/crypto/tls@
 
 #### (*ClientSessionState) ResumptionState <-go1.21.0
 
-```
+``` go
 func (cs *ClientSessionState) ResumptionState() (ticket []byte, state *SessionState, err error)
 ```
 
@@ -1247,7 +1247,7 @@ Clone returns a shallow clone of c or nil if c is nil. It is safe to clone a Con
 
 #### (*Config) DecryptTicket <-go1.21.0
 
-```
+``` go
 func (c *Config) DecryptTicket(identity []byte, cs ConnectionState) (*SessionState, error)
 ```
 
@@ -1261,7 +1261,7 @@ If the ticket can't be decrypted or parsed, DecryptTicket returns (nil, nil).
 
 #### (*Config) EncryptTicket <-go1.21.0
 
-```
+``` go
 func (c *Config) EncryptTicket(cs ConnectionState, ss *SessionState) ([]byte, error)
 ```
 
@@ -1763,7 +1763,7 @@ The returned Conn, if any, will always be of type *Conn.
 
 ### type ECHRejectionError <- go1.23.0
 
-```
+``` go
 type ECHRejectionError struct {
 	RetryConfigList []byte
 }
@@ -1779,13 +1779,13 @@ The client may treat an ECHRejectionError with an empty set of RetryConfigs as a
 
 #### (*ECHRejectionError) Error <- go1.23.0
 
-```
+``` go
 func (e *ECHRejectionError) Error() string
 ```
 
 ### type QUICConfig <-go1.21.0
 
-```
+``` go
 type QUICConfig struct {
 	TLSConfig *Config
 
@@ -1807,7 +1807,7 @@ A QUICConfig configures a [QUICConn](https://pkg.go.dev/crypto/tls@go1.23.0#QUIC
 
 ### type QUICConn <-go1.21.0
 
-```
+``` go
 type QUICConn struct {
 	// contains filtered or unexported fields
 }
@@ -1823,7 +1823,7 @@ Methods of QUICConn are not safe for concurrent use.
 
 #### func QUICClient <-go1.21.0
 
-```
+``` go
 func QUICClient(config *QUICConfig) *QUICConn
 ```
 
@@ -1837,7 +1837,7 @@ The config's MinVersion must be at least TLS 1.3.
 
 #### func QUICServer <-go1.21.0
 
-```
+``` go
 func QUICServer(config *QUICConfig) *QUICConn
 ```
 
@@ -1851,7 +1851,7 @@ The config's MinVersion must be at least TLS 1.3.
 
 #### (*QUICConn) Close <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) Close() error
 ```
 
@@ -1861,7 +1861,7 @@ Close closes the connection and stops any in-progress handshake.
 
 #### (*QUICConn) ConnectionState <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) ConnectionState() ConnectionState
 ```
 
@@ -1871,7 +1871,7 @@ ConnectionState returns basic TLS details about the connection.
 
 #### (*QUICConn) HandleData <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) HandleData(level QUICEncryptionLevel, data []byte) error
 ```
 
@@ -1881,7 +1881,7 @@ HandleData handles handshake bytes received from the peer. It may produce connec
 
 #### (*QUICConn) NextEvent <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) NextEvent() QUICEvent
 ```
 
@@ -1891,7 +1891,7 @@ NextEvent returns the next event occurring on the connection. It returns an even
 
 #### (*QUICConn) SendSessionTicket <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) SendSessionTicket(opts QUICSessionTicketOptions) error
 ```
 
@@ -1901,7 +1901,7 @@ SendSessionTicket sends a session ticket to the client. It produces connection e
 
 #### (*QUICConn) SetTransportParameters <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) SetTransportParameters(params []byte)
 ```
 
@@ -1915,7 +1915,7 @@ Server connections may delay setting the transport parameters until after receiv
 
 #### (*QUICConn) Start <-go1.21.0
 
-```
+``` go
 func (q *QUICConn) Start(ctx context.Context) error
 ```
 
@@ -1929,7 +1929,7 @@ Start must be called at most once.
 
 #### (*QUICConn) StoreSession <-go1.23.0
 
-```
+``` go
 func (q *QUICConn) StoreSession(session *SessionState) error
 ```
 
@@ -1939,7 +1939,7 @@ StoreSession stores a session previously received in a QUICStoreSession event in
 
 ### type QUICEncryptionLevel <-go1.21.0
 
-```
+``` go
 type QUICEncryptionLevel int
 ```
 
@@ -1949,13 +1949,13 @@ QUICEncryptionLevel represents a QUIC encryption level used to transmit handshak
 
 #### (QUICEncryptionLevel) String <-go1.21.0
 
-```
+``` go
 func (l QUICEncryptionLevel) String() string
 ```
 
 ### type QUICEvent <-go1.21.0
 
-```
+``` go
 type QUICEvent struct {
 	Kind QUICEventKind
 
@@ -1989,7 +1989,7 @@ The type of event is specified by the Kind field. The contents of the other fiel
 
 ### type QUICEventKind <-go1.21.0
 
-```
+``` go
 type QUICEventKind int
 ```
 
@@ -1997,7 +1997,7 @@ A QUICEventKind is a type of operation on a QUIC connection.
 
 ​	QUICEventKind 是 QUIC 连接上的操作类型。
 
-```
+``` go
 const (
 	// QUICNoEvent indicates that there are no events available.
 	// QUICNoEvent 表示没有可用事件。
@@ -2086,7 +2086,7 @@ const (
 
 ### type QUICSessionTicketOptions <-go1.21.0
 
-```
+``` go
 type QUICSessionTicketOptions struct {
 	// EarlyData specifies whether the ticket may be used for 0-RTT.
 	// EarlyData指定票据是否可以用于0-RTT。
@@ -2162,7 +2162,7 @@ const (
 
 ### type SessionState <-go1.21.0
 
-```
+``` go
 type SessionState struct {
 
 	// Extra is ignored by crypto/tls, but is encoded by [SessionState.Bytes]
@@ -2204,7 +2204,7 @@ A SessionState is a resumable session.
 
 #### func ParseSessionState <-go1.21.0
 
-```
+``` go
 func ParseSessionState(data []byte) (*SessionState, error)
 ```
 
@@ -2214,7 +2214,7 @@ ParseSessionState parses a [SessionState](https://pkg.go.dev/crypto/tls@go1.23.0
 
 #### (*SessionState) Bytes <-go1.21.0
 
-```
+``` go
 func (s *SessionState) Bytes() ([]byte, error)
 ```
 

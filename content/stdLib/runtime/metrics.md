@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/runtime/metrics@go1.21.3](https://pkg.go.dev/runtime/metrics@go1.21.3)
+> 原文：[https://pkg.go.dev/runtime/metrics@go1.23.0](https://pkg.go.dev/runtime/metrics@go1.23.0)
 
 Package metrics provides a stable interface to access implementation-defined metrics exported by the Go runtime. This package is similar to existing functions like runtime.ReadMemStats and debug.ReadGCStats, but significantly more general.
 

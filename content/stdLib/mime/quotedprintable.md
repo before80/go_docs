@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/mime/quotedprintable@go1.21.3](https://pkg.go.dev/mime/quotedprintable@go1.21.3)
+> 原文：[https://pkg.go.dev/mime/quotedprintable@go1.23.0](https://pkg.go.dev/mime/quotedprintable@go1.23.0)
 
 Package quotedprintable implements quoted-printable encoding as specified by [RFC 2045](https://rfc-editor.org/rfc/rfc2045.html).
 

@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/sync@go1.21.3](https://pkg.go.dev/sync@go1.21.3)
+> 原文：[https://pkg.go.dev/sync@go1.23.0](https://pkg.go.dev/sync@go1.23.0)
 
 ![image-20231110174318814](sync_img/image-20231110174318814.png)
 
@@ -239,6 +239,16 @@ The zero Map is empty and ready for use. A Map must not be copied after first us
 In the terminology of the Go memory model, Map arranges that a write operation “synchronizes before” any read operation that observes the effect of the write, where read and write operations are defined as follows. Load, LoadAndDelete, LoadOrStore, Swap, CompareAndSwap, and CompareAndDelete are read operations; Delete, LoadAndDelete, Store, and Swap are write operations; LoadOrStore is a write operation when it returns loaded set to false; CompareAndSwap is a write operation when it returns swapped set to true; and CompareAndDelete is a write operation when it returns deleted set to true.
 
 ​	根据Go内存模型的术语，Map安排写操作"在"观察到写操作的效果的任何读取操作"之前"，其中读取和写操作定义如下。`Load`，`LoadAndDelete`，`LoadOrStore`，`Swap`，`CompareAndSwap`和`CompareAndDelete`是读取操作; `Delete`，`LoadAndDelete`，`Store`和`Swap`是写操作;当`LoadOrStore`返回`loaded`设置为`false`时，它是一个写操作;当`CompareAndSwap`返回`swapped`设置为`true`时，它是一个写操作;当`CompareAndDelete`返回`deleted`设置为`true`时，它是一个写操作。
+
+#### (*Map) Clear <- go1.23.0
+
+``` go
+func (m *Map) Clear()
+```
+
+Clear deletes all the entries, resulting in an empty Map.
+
+​	`Clear` 删除所有条目，使 `Map` 变为空。
 
 #### (*Map) CompareAndDelete  <- go1.20
 

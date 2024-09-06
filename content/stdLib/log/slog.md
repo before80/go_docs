@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/slog@go1.21.3](https://pkg.go.dev/slog@go1.21.3)
+> 原文：[https://pkg.go.dev/slog@go1.23.0](https://pkg.go.dev/slog@go1.23.0)
 
 > 注意
 >
@@ -1314,7 +1314,7 @@ Names for common levels.
 
 #### func SetLogLoggerLevel <- go1.22.0
 
-```
+``` go
 func SetLogLoggerLevel(level Level) (oldLevel Level)
 ```
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/debug/elf@go1.21.3](https://pkg.go.dev/debug/elf@go1.21.3)
+> 原文：[https://pkg.go.dev/debug/elf@go1.23.0](https://pkg.go.dev/debug/elf@go1.23.0)
 
 Package elf implements access to ELF object files.
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net@go1.21.3](https://pkg.go.dev/net@go1.21.3)
+> 原文：[https://pkg.go.dev/net@go1.23.0](https://pkg.go.dev/net@go1.23.0)
 
 Package net provides a portable interface for network I/O, including TCP/IP, UDP, domain name resolution, and Unix domain sockets.
 
@@ -960,7 +960,7 @@ See func Dial for a description of the network and address parameters.
 
 #### (*Dialer) MultipathTCP <-go1.21.0
 
-```
+``` go
 func (d *Dialer) MultipathTCP() bool
 ```
 
@@ -970,7 +970,7 @@ This method doesn't check if MPTCP is supported by the operating system or not.
 
 #### (*Dialer) SetMultipathTCP <-go1.21.0
 
-```
+``` go
 func (d *Dialer) SetMultipathTCP(use bool)
 ```
 
@@ -2290,7 +2290,7 @@ See func ListenPacket for a description of the network and address parameters.
 
 #### (*ListenConfig) MultipathTCP <- go1.21.0
 
-```
+``` go
 func (lc *ListenConfig) MultipathTCP() bool
 ```
 
@@ -2300,7 +2300,7 @@ This method doesn't check if MPTCP is supported by the operating system or not.
 
 ####  (*ListenConfig) SetMultipathTCP <-go1.21.0
 
-```
+``` go
 func (lc *ListenConfig) SetMultipathTCP(use bool)
 ```
 
@@ -3119,7 +3119,7 @@ LocalAddr returns the local network address. The Addr returned is shared by all 
 
 #### (*TCPConn) MultipathTCP <-go1.21.0
 
-```
+``` go
 func (c *TCPConn) MultipathTCP() (bool, error)
 ```
 

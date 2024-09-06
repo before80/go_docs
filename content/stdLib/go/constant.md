@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/constant@go1.21.3](https://pkg.go.dev/go/constant@go1.21.3)
+> 原文：[https://pkg.go.dev/go/constant@go1.23.0](https://pkg.go.dev/go/constant@go1.23.0)
 
 Package constant implements Values representing untyped Go constants and their corresponding operations.
 

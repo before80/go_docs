@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/container/heap@go1.21.3](https://pkg.go.dev/container/heap@go1.21.3)
+> 原文：[https://pkg.go.dev/container/heap@go1.23.0](https://pkg.go.dev/container/heap@go1.23.0)
 
 Package heap provides heap operations for any type that implements heap.Interface. A heap is a tree with the property that each node is the minimum-valued node in its subtree.
 

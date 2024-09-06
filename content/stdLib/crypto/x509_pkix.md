@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/x509/pkix@go1.21.3](https://pkg.go.dev/crypto/x509/pkix@go1.21.3)
+> 原文：[https://pkg.go.dev/crypto/x509/pkix@go1.23.0](https://pkg.go.dev/crypto/x509/pkix@go1.23.0)
 
 Package pkix contains shared, low level structures used for ASN.1 parsing and serialization of X.509 certificates, CRL and OCSP.
 
@@ -220,7 +220,7 @@ RevokedCertificate represents the ASN.1 structure of the same name. See [RFC 528
 
 ### type TBSCertificateList <-DEPRECATED
 
-```
+``` go
 type TBSCertificateList struct {
 	Raw                 asn1.RawContent
 	Version             int `asn1:"optional,default:0"`

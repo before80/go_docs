@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/math/big@go1.21.3](https://pkg.go.dev/math/big@go1.21.3)
+> 原文：[https://pkg.go.dev/math/big@go1.23.0](https://pkg.go.dev/math/big@go1.23.0)
 
 Package big implements arbitrary-precision arithmetic (big numbers). The following numeric types are supported:
 
@@ -2065,7 +2065,7 @@ Float64 returns the nearest float64 value for x and a bool indicating whether f 
 
 ####  (*Rat) FloatPrec <- go1.22.0
 
-```
+``` go
 func (x *Rat) FloatPrec() (n int, exact bool)
 ```
 

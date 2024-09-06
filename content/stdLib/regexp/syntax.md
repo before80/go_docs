@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/regexp/syntax@go1.21.3](https://pkg.go.dev/regexp/syntax@go1.21.3)
+> 原文：[https://pkg.go.dev/regexp/syntax@go1.23.0](https://pkg.go.dev/regexp/syntax@go1.23.0)
 
 Package syntax parses regular expressions into parse trees and compiles parse trees into programs. Most clients of regular expressions will use the facilities of package regexp (such as Compile and Match) instead of this package.
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/text/tabwriter@go1.21.3](https://pkg.go.dev/text/tabwriter@go1.21.3)
+> 原文：[https://pkg.go.dev/text/tabwriter@go1.23.0](https://pkg.go.dev/text/tabwriter@go1.23.0)
 
 Package tabwriter implements a write filter (tabwriter.Writer) that translates tabbed columns in input into properly aligned text.
 

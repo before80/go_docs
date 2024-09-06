@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/log/syslog@go1.21.3](https://pkg.go.dev/log/syslog@go1.21.3)
+> 原文：[https://pkg.go.dev/log/syslog@go1.23.0](https://pkg.go.dev/log/syslog@go1.23.0)
 
 Package syslog provides a simple interface to the system log service. It can send messages to the syslog daemon using UNIX domain sockets, UDP or TCP.
 

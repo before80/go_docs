@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/testing@go1.21.3](https://pkg.go.dev/testing@go1.21.3)
+> 原文：[https://pkg.go.dev/testing@go1.23.0](https://pkg.go.dev/testing@go1.23.0)
 
 Package testing provides support for automated testing of Go packages. It is intended to be used in concert with the "go test" command, which automates execution of any function of the form
 
@@ -562,6 +562,8 @@ func Testing() bool
 ```
 
 Testing reports whether the current code is being run in a test. This will report true in programs created by "go test", false in programs created by "go build".
+
+​	`Testing` 报告当前代码是否正在测试中运行。在由 `go test` 创建的程序中将返回 `true`，在由 `go build` 创建的程序中将返回 `false`。
 
 ### func Verbose  <- go1.1
 

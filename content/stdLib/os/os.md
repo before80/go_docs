@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/os@go1.21.3](https://pkg.go.dev/os@go1.21.3)
+> 原文：[https://pkg.go.dev/os@go1.23.0](https://pkg.go.dev/os@go1.23.0)
 
 Package os provides a platform-independent interface to operating system functionality. The design is Unix-like, although the error handling is Go-like; failing calls return values of type error rather than error numbers. Often, more information is available within the error. For example, if a call that takes a file name fails, such as Open or Stat, the error will include the failing file name when printed and will be of type *PathError, which may be unpacked for more information.
 
@@ -585,7 +585,7 @@ func main() {
 
 ### func CopyFS <- go1.23.0
 
-```
+``` go
 func CopyFS(dir string, fsys fs.FS) error
 ```
 
@@ -2720,7 +2720,7 @@ WriteString is like Write, but writes the contents of string s rather than a sli
 
 ####  (*File) WriteTo <- go1.22.0
 
-```
+``` go
 func (f *File) WriteTo(w io.Writer) (n int64, err error)
 ```
 

@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/cmp@go1.21.3](https://pkg.go.dev/cmp@go1.21.3)
+> 原文：[https://pkg.go.dev/cmp@go1.23.0](https://pkg.go.dev/cmp@go1.23.0)
 
 ## 概述
 
@@ -60,7 +60,7 @@ Less reports whether x is less than y. For floating-point types, a NaN is consid
 
 ### func Or <-go1.22.0
 
-```
+``` go
 func Or[T comparable](vals ...T) T
 ```
 

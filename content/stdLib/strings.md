@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/strings@go1.21.3](https://pkg.go.dev/strings@go1.21.3)
+> 原文：[https://pkg.go.dev/strings@go1.23.0](https://pkg.go.dev/strings@go1.23.0)
 
 Package strings implements simple functions to manipulate UTF-8 encoded strings.
 
@@ -155,6 +155,8 @@ func ContainsFunc(s string, f func(rune) bool) bool
 ```
 
 ContainsFunc reports whether any Unicode code points r within s satisfy f(r).
+
+​	ContainsFunc 判断字符串 s 中是否有任意 Unicode 码点 r 满足函数 f(r) 的条件。
 
 ### func ContainsRune 
 
@@ -1107,7 +1109,7 @@ ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to
 
 ​	ToLowerSpecial函数返回s的所有Unicode字母均被映射为它们的小写形式的副本，使用由c指定的大小写映射。
 
-##### ToLowerSpecial Example
+#### ToLowerSpecial Example
 ``` go 
 package main
 
@@ -1398,7 +1400,7 @@ Output:
 Gophers!!!
 ```
 
-### func TrimRight 
+### xxxxxxxxxx1 1func (e *NumError) Unwrap() errorgo 
 
 ``` go 
 func TrimRight(s, cutset string) string

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/bytes@go1.21.3](https://pkg.go.dev/bytes@go1.21.3)
+> 原文：[https://pkg.go.dev/bytes@go1.23.0](https://pkg.go.dev/bytes@go1.23.0)
 
 ![image-20231109160722609](bytes_img/image-20231109160722609.png)
 
@@ -1189,7 +1189,7 @@ Deprecated: The rule Title uses for word boundaries does not handle Unicode punc
 
 #### Title Example
 
-```
+``` go
 package main
 
 import (

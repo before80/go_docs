@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/fmt@go1.21.3](https://pkg.go.dev/fmt@go1.21.3)
+> 原文：[https://pkg.go.dev/fmt@go1.23.0](https://pkg.go.dev/fmt@go1.23.0)
 
 Package fmt implements formatted I/O with functions analogous to C's printf and scanf. The format 'verbs' are derived from C's but are simpler.
 

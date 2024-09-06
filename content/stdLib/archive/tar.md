@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/archive/tar@go1.21.3](https://pkg.go.dev/archive/tar@go1.21.3)
+> 原文：[https://pkg.go.dev/archive/tar@go1.23.0](https://pkg.go.dev/archive/tar@go1.23.0)
 
 Package tar implements access to tar archives.
 
@@ -164,7 +164,7 @@ This section is empty.
 
 ### type FileInfoNames <- go1.23.0
 
-```
+``` go
 type FileInfoNames interface {
 	fs.FileInfo
 	// Uname should give a user name.
@@ -465,7 +465,7 @@ NewWriter creates a new Writer writing to w.
 
 #### (*Writer) AddFS <-go1.22.0
 
-```
+``` go
 func (tw *Writer) AddFS(fsys fs.FS) error
 ```
 

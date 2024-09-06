@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/hex@go1.21.3](https://pkg.go.dev/encoding/hex@go1.21.3)
+> 原文：[https://pkg.go.dev/encoding/hex@go1.23.0](https://pkg.go.dev/encoding/hex@go1.23.0)
 
 Package hex implements hexadecimal encoding and decoding.
 
@@ -33,7 +33,7 @@ ErrLength reports an attempt to decode an odd-length input using Decode or Decod
 
 ### func AppendDecode <- go1.22.0
 
-```
+``` go
 func AppendDecode(dst, src []byte) ([]byte, error)
 ```
 
@@ -43,7 +43,7 @@ AppendDecode appends the hexadecimally decoded src to dst and returns the extend
 
 ### func AppendEncode <- go1.22.0
 
-```
+``` go
 func AppendEncode(dst, src []byte) []byte
 ```
 

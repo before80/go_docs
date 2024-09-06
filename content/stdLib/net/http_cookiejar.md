@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/http/cookiejar@go1.21.3](https://pkg.go.dev/net/http/cookiejar@go1.21.3)
+> 原文：[https://pkg.go.dev/net/http/cookiejar@go1.23.0](https://pkg.go.dev/net/http/cookiejar@go1.23.0)
 
 Package cookiejar implements an in-memory [RFC 6265](https://rfc-editor.org/rfc/rfc6265.html)-compliant http.CookieJar.
 

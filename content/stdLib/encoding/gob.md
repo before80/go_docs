@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/gob@go1.21.3](https://pkg.go.dev/encoding/gob@go1.21.3)
+> 原文：[https://pkg.go.dev/encoding/gob@go1.23.0](https://pkg.go.dev/encoding/gob@go1.23.0)
 
 Package gob manages streams of gobs - binary values exchanged between an Encoder (transmitter) and a Decoder (receiver). A typical use is transporting arguments and results of remote procedure calls (RPCs) such as those provided by package “net/rpc”.
 

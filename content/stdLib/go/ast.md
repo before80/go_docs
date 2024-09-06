@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/ast@go1.21.3](https://pkg.go.dev/go/ast@go1.21.3)
+> 原文：[https://pkg.go.dev/go/ast@go1.23.0](https://pkg.go.dev/go/ast@go1.23.0)
 
 Package ast declares the types used to represent syntax trees for Go packages.
 
@@ -173,7 +173,7 @@ IsExported reports whether name starts with an upper-case letter.
 
 ### func IsGenerated <-go1.21.0
 
-```
+``` go
 func IsGenerated(file *File) bool
 ```
 

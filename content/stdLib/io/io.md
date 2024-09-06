@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/io@go1.21.3](https://pkg.go.dev/io@go1.21.3)
+> 原文：[https://pkg.go.dev/io@go1.23.0](https://pkg.go.dev/io@go1.23.0)
 
 Package io provides basic interfaces to I/O primitives. Its primary job is to wrap existing implementations of such primitives, such as those in package os, into shared public interfaces that abstract the functionality, plus some other related primitives.
 
@@ -3177,7 +3177,7 @@ NewSectionReader returns a SectionReader that reads from r starting at offset of
 
 #### (*SectionReader) Outer <- go1.22.0
 
-```
+``` go
 func (s *SectionReader) Outer() (r ReaderAt, off int64, n int64)
 ```
 

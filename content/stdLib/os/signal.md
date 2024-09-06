@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/os/signal@go1.21.3](https://pkg.go.dev/os/signal@go1.21.3)
+> 原文：[https://pkg.go.dev/os/signal@go1.23.0](https://pkg.go.dev/os/signal@go1.23.0)
 
 Package signal implements access to incoming signals.
 

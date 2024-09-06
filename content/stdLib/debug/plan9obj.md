@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/debug/plan9obj@go1.21.3](https://pkg.go.dev/debug/plan9obj@go1.21.3)
+> 原文：[https://pkg.go.dev/debug/plan9obj@go1.23.0](https://pkg.go.dev/debug/plan9obj@go1.23.0)
 
 Package plan9obj implements access to Plan 9 a.out object files.
 

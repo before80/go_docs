@@ -25,7 +25,7 @@ An iterator is a function that passes successive elements of a sequence to a cal
 
 ​	迭代器是一个函数，它将序列中的后续元素传递给一个回调函数，通常命名为 `yield`。当序列结束或者 `yield` 返回 `false` 时，函数会停止迭代，表示提前停止迭代。此包定义了 [Seq](https://pkg.go.dev/iter@go1.23.0#Seq) 和 [Seq2](https://pkg.go.dev/iter@go1.23.0#Seq2)（读音类似于 sequence 的前两个音节 “seek”），它们分别代表传递 1 个或 2 个值给 `yield` 的迭代器：
 
-```
+``` go
 type (
 	Seq[V any]     func(yield func(V) bool)
 	Seq2[K, V any] func(yield func(K, V) bool)
@@ -44,7 +44,7 @@ Iterator functions are most often called by a range loop, as in:
 
 ​	迭代器函数通常在 `range` 循环中调用，如下所示：
 
-```
+``` go
 func PrintAll[V any](seq iter.Seq[V]) {
 	for v := range seq {
 		fmt.Println(v)
@@ -251,7 +251,7 @@ This section is empty.
 
 ### func Pull 
 
-```
+``` go
 func Pull[V any](seq Seq[V]) (next func() (V, bool), stop func())
 ```
 
@@ -277,7 +277,7 @@ If the iterator panics during a call to next (or stop), then next (or stop) itse
 
 ### func Pull2 
 
-```
+``` go
 func Pull2[K, V any](seq Seq2[K, V]) (next func() (K, V, bool), stop func())
 ```
 
@@ -305,7 +305,7 @@ If the iterator panics during a call to next (or stop), then next (or stop) itse
 
 ### type Seq 
 
-```
+``` go
 type Seq[V any] func(yield func(V) bool)
 ```
 
@@ -315,7 +315,7 @@ Seq is an iterator over sequences of individual values. When called as seq(yield
 
 ### type Seq2 
 
-```
+``` go
 type Seq2[K, V any] func(yield func(K, V) bool)
 ```
 

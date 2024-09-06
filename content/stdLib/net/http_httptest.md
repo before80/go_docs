@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/http/httptest@go1.21.3](https://pkg.go.dev/net/http/httptest@go1.21.3)
+> 原文：[https://pkg.go.dev/net/http/httptest@go1.23.0](https://pkg.go.dev/net/http/httptest@go1.23.0)
 
 Package httptest provides utilities for HTTP testing.
 
@@ -71,7 +71,7 @@ To generate a client HTTP request instead of a server request, see the NewReques
 
 ### func NewRequestWithContext <- go1.23.0
 
-```
+``` go
 func NewRequestWithContext(ctx context.Context, method, target string, body io.Reader) *http.Request
 ```
 

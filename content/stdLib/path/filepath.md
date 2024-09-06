@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/path/filepath@go1.21.3](https://pkg.go.dev/path/filepath@go1.21.3)
+> 原文：[https://pkg.go.dev/path/filepath@go1.23.0](https://pkg.go.dev/path/filepath@go1.23.0)
 
 Package filepath implements utility routines for manipulating filename paths in a way compatible with the target operating system-defined file paths.
 
@@ -280,7 +280,7 @@ Glob ignores file system errors such as I/O errors reading directories. The only
 
 ### func HasPrefix <-DEPRECATED
 
-```
+``` go
 func HasPrefix(p, prefix string) bool
 ```
 
@@ -396,7 +396,7 @@ a/b/c
 
 ### func Localize <- go1.23.0
 
-```
+``` go
 func Localize(path string) (string, error)
 ```
 

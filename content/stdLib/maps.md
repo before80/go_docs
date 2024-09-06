@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/maps@go1.21.3](https://pkg.go.dev/maps@go1.21.3)
+> 原文：[https://pkg.go.dev/maps@go1.23.0](https://pkg.go.dev/maps@go1.23.0)
 
 > 注意
 >
@@ -31,7 +31,7 @@ This section is empty.
 
 #### func All <- go1.23.0
 
-```
+``` go
 func All[Map ~map[K]V, K comparable, V any](m Map) iter.Seq2[K, V]
 ```
 
@@ -51,7 +51,7 @@ Clone returns a copy of m. This is a shallow clone: the new keys and values are 
 
 #### func Collect <- go1.23.0
 
-```
+``` go
 func Collect[K comparable, V any](seq iter.Seq2[K, V]) map[K]V
 ```
 
@@ -159,7 +159,7 @@ true
 
 #### func Insert <- go1.23.0
 
-```
+``` go
 func Insert[Map ~map[K]V, K comparable, V any](m Map, seq iter.Seq2[K, V])
 ```
 
@@ -169,7 +169,7 @@ Insert adds the key-value pairs from seq to m. If a key in seq already exists in
 
 #### func Keys <- go1.23.0
 
-```
+``` go
 func Keys[Map ~map[K]V, K comparable, V any](m Map) iter.Seq[K]
 ```
 
@@ -179,7 +179,7 @@ Keys returns an iterator over keys in m. The iteration order is not specified an
 
 #### func Values <- go1.23.0
 
-```
+``` go
 func Values[Map ~map[K]V, K comparable, V any](m Map) iter.Seq[V]
 ```
 

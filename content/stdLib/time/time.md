@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/time@go1.21.3](https://pkg.go.dev/time@go1.21.3)
+> 原文：[https://pkg.go.dev/time@go1.23.0](https://pkg.go.dev/time@go1.23.0)
 
 Package time provides functionality for measuring and displaying time.
 
@@ -261,11 +261,15 @@ This section is empty.
 func After(d Duration) <-chan Time
 ```
 
-After waits for the duration to elapse and then sends the current time on the returned channel. It is equivalent to NewTimer(d).C. The underlying Timer is not recovered by the garbage collector until the timer fires. If efficiency is a concern, use NewTimer instead and call Timer.Stop if the timer is no longer needed.
+After waits for the duration to elapse and then sends the current time on the returned channel. It is equivalent to [NewTimer](https://pkg.go.dev/time@go1.23.0#NewTimer)(d).C.
 
-​	`After`函数等待指定的时间间隔过去后，将当前时间发送到返回的通道上。它等效于`NewTimer(d).C`。底层的计时器直到计时器触发后才会被垃圾回收器回收。如果效率是一个问题，应该使用`NewTimer`，并在不再需要计时器时调用Timer.Stop。
+​	`After` 等待指定的持续时间过去，然后将当前时间发送到返回的通道上。它等价于 [NewTimer](https://pkg.go.dev/time@go1.23.0#NewTimer)(d).C。
 
-#### After Example
+Before Go 1.23, this documentation warned that the underlying [Timer](https://pkg.go.dev/time@go1.23.0#Timer) would not be recovered by the garbage collector until the timer fired, and that if efficiency was a concern, code should use NewTimer instead and call [Timer.Stop](https://pkg.go.dev/time@go1.23.0#Timer.Stop) if the timer is no longer needed. As of Go 1.23, the garbage collector can recover unreferenced, unstopped timers. There is no reason to prefer NewTimer when After will do.
+
+​	在 Go 1.23 之前，这段文档警告说，底层的 [Timer](https://pkg.go.dev/time@go1.23.0#Timer) 在触发前不会被垃圾回收器回收，如果效率是一个问题，代码应该使用 `NewTimer` 并在计时器不再需要时调用 [Timer.Stop](https://pkg.go.dev/time@go1.23.0#Timer.Stop)。从 Go 1.23 开始，垃圾回收器可以回收未被引用且未停止的计时器。因此，当 `After` 可以满足需求时，没有理由偏向 `NewTimer`。
+
+#### After Example(go1.23.0之前)
 ``` go 
 package main
 
@@ -295,6 +299,35 @@ func main() {
 //timed out: 2023-10-22 20:02:09.2169465 +0800 CST m=+2.036595701
 
 ```
+
+#### After Example(go1.23.0开始)
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+var c chan int
+
+func handle(int) {}
+
+func main() {
+	select {
+	case m := <-c:
+		handle(m)
+	case <-time.After(10 * time.Second):
+		fmt.Println("timed out")
+	}
+}
+Output:
+
+timed out
+```
+
+
 
 ### func Sleep 
 
@@ -326,9 +359,13 @@ func main() {
 func Tick(d Duration) <-chan Time
 ```
 
-Tick is a convenience wrapper for NewTicker providing access to the ticking channel only. While Tick is useful for clients that have no need to shut down the Ticker, be aware that without a way to shut it down the underlying Ticker cannot be recovered by the garbage collector; it "leaks". Unlike NewTicker, Tick will return nil if d <= 0.
+Tick is a convenience wrapper for [NewTicker](https://pkg.go.dev/time@go1.23.0#NewTicker) providing access to the ticking channel only. Unlike NewTicker, Tick will return nil if d <= 0.
 
-​	`Tick`是对`NewTicker`的方便封装，仅提供对滴答通道的访问。尽管Tick对于不需要关闭Ticker的客户端很有用，但请注意，如果没有关闭它的方法，底层的Ticker将无法被垃圾回收器回收；它会"泄漏"。与NewTicker不同，如果d <= 0，Tick将返回`nil`。
+​	`Tick` 是 NewTicker 的便捷包装，只提供对滴答通道的访问。如果 `d <= 0`，与 `NewTicker` 不同，`Tick` 会返回 `nil`。
+
+Before Go 1.23, this documentation warned that the underlying [Ticker](https://pkg.go.dev/time@go1.23.0#Ticker) would never be recovered by the garbage collector, and that if efficiency was a concern, code should use NewTicker instead and call [Ticker.Stop](https://pkg.go.dev/time@go1.23.0#Ticker.Stop) when the ticker is no longer needed. As of Go 1.23, the garbage collector can recover unreferenced tickers, even if they haven't been stopped. The Stop method is no longer necessary to help the garbage collector. There is no longer any reason to prefer NewTicker when Tick will do.
+
+​	在 Go 1.23 之前，这段文档警告说，底层的 Ticker 永远不会被垃圾回收器回收，如果效率是一个问题，代码应该使用 `NewTicker` 并在计时器不再需要时调用 Ticker.Stop。从 Go 1.23 开始，垃圾回收器可以回收未被引用的滴答计时器，即使它们尚未停止。因此，当 `Tick` 可以满足需求时，不再需要通过调用 `Stop` 来帮助垃圾回收器，也没有理由偏向 `NewTicker`。
 
 #### Tick Example
 ``` go 
@@ -1080,9 +1117,13 @@ A Ticker holds a channel that delivers “ticks” of a clock at intervals.
 func NewTicker(d Duration) *Ticker
 ```
 
-NewTicker returns a new Ticker containing a channel that will send the current time on the channel after each tick. The period of the ticks is specified by the duration argument. The ticker will adjust the time interval or drop ticks to make up for slow receivers. The duration d must be greater than zero; if not, NewTicker will panic. Stop the ticker to release associated resources.
+NewTicker returns a new [Ticker](https://pkg.go.dev/time@go1.23.0#Ticker) containing a channel that will send the current time on the channel after each tick. The period of the ticks is specified by the duration argument. The ticker will adjust the time interval or drop ticks to make up for slow receivers. The duration d must be greater than zero; if not, NewTicker will panic.
 
-​	`NewTicker`函数返回一个包含通道的新的Ticker。每个tick后，通道将发送当前时间。ticks的周期由duration参数指定。为了弥补接收者的速度慢，ticker将调整时间间隔或者丢弃一些ticks。时间间隔`d`必须大于零；否则，NewTicker将引发panic。**停止ticker以释放相关资源**。
+​	`NewTicker` 返回一个新的 Ticker，其中包含一个通道，该通道将在每次滴答后发送当前时间。滴答的周期由 `d` 参数指定。滴答器会调整时间间隔或丢弃滴答，以弥补接收速度慢的问题。`d` 必须大于零，否则 `NewTicker` 会触发 `panic`。
+
+Before Go 1.23, the garbage collector did not recover tickers that had not yet expired or been stopped, so code often immediately deferred t.Stop after calling NewTicker, to make the ticker recoverable when it was no longer needed. As of Go 1.23, the garbage collector can recover unreferenced tickers, even if they haven't been stopped. The Stop method is no longer necessary to help the garbage collector. (Code may of course still want to call Stop to stop the ticker for other reasons.)
+
+​	在 Go 1.23 之前，垃圾回收器不会回收尚未过期或未停止的滴答器，因此代码通常在调用 `NewTicker` 后立即使用 `defer t.Stop` 来确保滴答器在不再需要时可被回收。从 Go 1.23 开始，垃圾回收器可以回收未引用的滴答器，即使它们尚未停止。`Stop` 方法不再需要用来帮助垃圾回收器。（当然，代码仍可能需要调用 `Stop` 来出于其他原因停止滴答器。）
 
 ##### NewTicker Example
 ``` go 
@@ -2618,7 +2659,21 @@ func NewTimer(d Duration) *Timer
 
 NewTimer creates a new Timer that will send the current time on its channel after at least duration d.
 
-​	`NewTimer`函数创建一个新的`Timer`，它将在至少持续时间`d`之后在其通道上发送当前时间。
+​	`NewTimer` 创建一个新的 `Timer`，它将在至少 `d` 持续时间后通过其通道发送当前时间。
+
+Before Go 1.23, the garbage collector did not recover timers that had not yet expired or been stopped, so code often immediately deferred t.Stop after calling NewTimer, to make the timer recoverable when it was no longer needed. As of Go 1.23, the garbage collector can recover unreferenced timers, even if they haven't expired or been stopped. The Stop method is no longer necessary to help the garbage collector. (Code may of course still want to call Stop to stop the timer for other reasons.)
+
+​	在 Go 1.23 之前，垃圾回收器不会回收尚未过期或未停止的计时器，因此代码通常在调用 `NewTimer` 后立即使用 `defer t.Stop` 来确保计时器在不再需要时可被回收。从 Go 1.23 开始，垃圾回收器可以回收未引用的计时器，即使它们尚未过期或停止。`Stop` 方法不再需要用来帮助垃圾回收器。（当然，代码仍可能需要调用 `Stop` 来出于其他原因停止计时器。）
+
+Before Go 1.23, the channel associated with a Timer was asynchronous (buffered, capacity 1), which meant that stale time values could be received even after [Timer.Stop](https://pkg.go.dev/time@go1.23.0#Timer.Stop) or [Timer.Reset](https://pkg.go.dev/time@go1.23.0#Timer.Reset) returned. As of Go 1.23, the channel is synchronous (unbuffered, capacity 0), eliminating the possibility of those stale values.
+
+​	在 Go 1.23 之前，计时器关联的通道是异步的（缓冲，容量为 1），这意味着即使在 [Timer.Stop](https://pkg.go.dev/time@go1.23.0#Timer.Stop) 或 [Timer.Reset](https://pkg.go.dev/time@go1.23.0#Timer.Reset) 返回后，仍可能接收到过时的时间值。从 Go 1.23 开始，该通道变为同步的（无缓冲，容量为 0），消除了接收过时值的可能性。
+
+The GODEBUG setting asynctimerchan=1 restores both pre-Go 1.23 behaviors: when set, unexpired timers won't be garbage collected, and channels will have buffered capacity. This setting may be removed in Go 1.27 or later.
+
+​	通过设置 `GODEBUG` 的 `asynctimerchan=1` 可以恢复 Go 1.23 之前的行为：当设置此选项时，未过期的计时器将不会被垃圾回收，且通道将具有缓冲容量。此设置可能在 Go 1.27 或更高版本中被移除。
+
+##### NewTimer My Example
 
 ```go
 package main
@@ -2649,116 +2704,130 @@ func (t *Timer) Reset(d Duration) bool
 
 Reset changes the timer to expire after duration d. It returns true if the timer had been active, false if the timer had expired or been stopped.
 
-​	`Reset`方法将计时器更改为在持续时间`d`后到期。如果计时器处于活动状态，则返回`true`，如果计时器已过期或已停止，则返回`false`。 
+​	`Reset` 将计时器修改为在 `d` 持续时间后过期。如果计时器仍在活动中，则返回 `true`，如果计时器已经过期或停止，则返回 `false`。
 
-For a Timer created with NewTimer, Reset should be invoked only on stopped or expired timers with drained channels.
+For a func-based timer created with [AfterFunc](https://pkg.go.dev/time@go1.23.0#AfterFunc)(d, f), Reset either reschedules when f will run, in which case Reset returns true, or schedules f to run again, in which case it returns false. When Reset returns false, Reset neither waits for the prior f to complete before returning nor does it guarantee that the subsequent goroutine running f does not run concurrently with the prior one. If the caller needs to know whether the prior execution of f is completed, it must coordinate with f explicitly.
 
-​	**对于使用NewTimer创建的计时器，Reset只应在已停止或已过期且通道已排空的情况下调用**。 
+​	对于使用 [AfterFunc](https://pkg.go.dev/time@go1.23.0#AfterFunc)(d, f) 创建的基于函数的计时器，`Reset` 会重新安排 `f` 的运行时间，这种情况下 `Reset` 返回 `true`；或者重新安排 `f` 再次运行，这种情况下它返回 `false`。当 `Reset` 返回 `false` 时，`Reset` 不会等待之前的 `f` 完成，也不保证之后的 `f` 运行不会与之前的 `f` 并发运行。如果调用方需要知道之前的 `f` 是否已经完成，则必须与 `f` 进行显式协调。
 
-> 个人注释
+For a chan-based timer created with NewTimer, as of Go 1.23, any receive from t.C after Reset has returned is guaranteed not to receive a time value corresponding to the previous timer settings; if the program has not received from t.C already and the timer is running, Reset is guaranteed to return true. Before Go 1.23, the only safe way to use Reset was to [Stop] and explicitly drain the timer first. See the [NewTimer](https://pkg.go.dev/time@go1.23.0#NewTimer) documentation for more details.
+
+​	对于使用 `NewTimer` 创建的基于通道的计时器，从 Go 1.23 开始，`Reset` 返回后，确保从 `t.C` 接收的任何值不会对应之前的计时器设置；如果程序尚未从 `t.C` 接收且计时器正在运行，则 `Reset` 保证返回 `true`。在 Go 1.23 之前，唯一安全的 `Reset` 使用方式是先调用 [Stop] 并明确清空计时器。更多详细信息请参阅 NewTimer 文档。
+
+> go1.23.0之前
+> Reset changes the timer to expire after duration d. It returns true if the timer had been active, false if the timer had expired or been stopped.
 >
-> ​	Reset只应在（已停止）或（已过期且通道已排空）的情况下调用。
+> ​	`Reset`方法将计时器更改为在持续时间`d`后到期。如果计时器处于活动状态，则返回`true`，如果计时器已过期或已停止，则返回`false`。 
 >
-> ​	怎么判断计时器已停止？
+> For a Timer created with NewTimer, Reset should be invoked only on stopped or expired timers with drained channels.
 >
-> ​	调用Stop方法返回true，可以说明计时器已停止。
-
-If a program has already received a value from t.C, the timer is known to have expired and the channel drained, so t.Reset can be used directly. If a program has not yet received a value from t.C, however, the timer must be stopped and—if Stop reports that the timer expired before being stopped—the channel explicitly drained:
-
-​	如果程序已经从t.C接收到值，则已知该计时器已过期并且通道已排空，因此可以直接使用t.Reset。**但是，如果程序尚未从t.C接收到值（即未排空），则必须停止该计时器**，并且如果Stop报告该计时器在停止之前已过期，则必须显式排空通道。
-
-```go
-if !t.Stop() {
-	<-t.C
-}
-t.Reset(d)
-```
-
-This should not be done concurrent to other receives from the Timer's channel.
-
-​	这不应与来自该计时器通道的其他接收同时进行。 
-
-Note that it is not possible to use Reset's return value correctly, as there is a race condition between draining the channel and the new timer expiring. Reset should always be invoked on stopped or expired channels, as described above. The return value exists to preserve compatibility with existing programs.
-
-​	请注意，正确使用Reset的返回值是不可能的，因为在清空通道和新计时器到期之间存在竞态条件。**应如上所述始终在已停止或已到期的通道上调用Reset，以保持与现有程序的兼容性**。返回值存在是为了保持与现有程序的兼容性。 
-
-For a Timer created with AfterFunc(d, f), Reset either reschedules when f will run, in which case Reset returns true, or schedules f to run again, in which case it returns false. When Reset returns false, Reset neither waits for the prior f to complete before returning nor does it guarantee that the subsequent goroutine running f does not run concurrently with the prior one. If the caller needs to know whether the prior execution of f is completed, it must coordinate with f explicitly.
-
-​	对于使用`AfterFunc(d, f)`创建的计时器，Reset方法要么重新安排f的运行时间，此时Reset方法返回`true`，要么安排`f`再次运行，此时Reset方法返回`false`。当Reset方法返回`false`时，Reset方法既不等待之前的`f`完成再返回，也不能保证后续运行`f`的goroutine不与之前的同时运行。如果调用方需要知道之前的`f`执行是否完成，它必须与`f`进行显式的协调。
-
-```go
-package main
-
-import (
-	"fmt"
-	"time"
-)
-
-func main() {
-	fmt.Printf("--------------------\n timer1 \n --------------------\n")
-	fmt.Println("before:", time.Now())
-	timer1 := time.AfterFunc(5*time.Second, func() {
-		fmt.Println("timer1 has been 5+ seconds and Now time is \n", time.Now())
-	})
-	time.Sleep(2 * time.Second)
-	fmt.Println("had sleep 2 second:", time.Now())
-
-	// 应始终在已停止或到期的通道上调用Reset，以保持与现有程序的兼容性
-	if !timer1.Stop() {
-		<-timer1.C
-	}
-
-	fmt.Println("reset:", time.Now())
-	fmt.Printf("Reset timer1 return %t\n", timer1.Reset(5*time.Second))
-	time.Sleep(10 * time.Second)
-
-	fmt.Printf("--------------------\n timer2 \n --------------------\n")
-	fmt.Println("before:", time.Now())
-	timer2 := time.NewTimer(5 * time.Second)
-	time.Sleep(2 * time.Second)
-	fmt.Println("had sleep 2 second:", time.Now())
-	if !timer2.Stop() {
-		fmt.Println("执行Stop方法ing...")
-		<-timer2.C
-		fmt.Println("已执行了Stop方法")
-	}
-	fmt.Printf("Reset timer2 return %t\n", timer2.Reset(5*time.Second))
-
-	for {
-		select {
-		case _, ok := <-timer2.C:
-			if ok {
-				fmt.Println("timer2 has been 5+ seconds and Now time is \n", time.Now())
-				goto END
-			}
-		default:
-		}
-	}
-
-END:
-	fmt.Println("END")
-}
-// 请编译后在执行，直接使用go run 可能结果会不同！！！
-// Output:
-//--------------------
-//timer1
-//--------------------
-//before: 2023-10-22 18:21:18.6134724 +0800 CST m=+0.006476501
-//had sleep 2 second: 2023-10-22 18:21:20.6517914 +0800 CST m=+2.044795501
-//reset: 2023-10-22 18:21:20.6520226 +0800 CST m=+2.045026701
-//Reset timer1 return false
-//timer1 has been 5+ seconds and Now time is
-//2023-10-22 18:21:25.6589852 +0800 CST m=+7.051989301
-//--------------------
-//timer2
-//--------------------
-//before: 2023-10-22 18:21:30.6569628 +0800 CST m=+12.049966901
-//had sleep 2 second: 2023-10-22 18:21:32.6692213 +0800 CST m=+14.062225401
-//Reset timer2 return false
-//timer2 has been 5+ seconds and Now time is
-//2023-10-22 18:21:37.6838445 +0800 CST m=+19.076848601
-//END
-```
+> ​	**对于使用NewTimer创建的计时器，Reset只应在已停止或已过期且通道已排空的情况下调用**。 
+>
+> > 个人注释
+> >
+> > ​	Reset只应在（已停止）或（已过期且通道已排空）的情况下调用。
+> >
+> > ​	怎么判断计时器已停止？
+> >
+> > ​	调用Stop方法返回true，可以说明计时器已停止。
+>
+> If a program has already received a value from t.C, the timer is known to have expired and the channel drained, so t.Reset can be used directly. If a program has not yet received a value from t.C, however, the timer must be stopped and—if Stop reports that the timer expired before being stopped—the channel explicitly drained:
+>
+> ​	如果程序已经从t.C接收到值，则已知该计时器已过期并且通道已排空，因此可以直接使用t.Reset。**但是，如果程序尚未从t.C接收到值（即未排空），则必须停止该计时器**，并且如果Stop报告该计时器在停止之前已过期，则必须显式排空通道。
+>
+> ```go
+> if !t.Stop() {
+> 	<-t.C
+> }
+> t.Reset(d)
+> ```
+>
+> This should not be done concurrent to other receives from the Timer's channel.
+>
+> ​	这不应与来自该计时器通道的其他接收同时进行。 
+>
+> Note that it is not possible to use Reset's return value correctly, as there is a race condition between draining the channel and the new timer expiring. Reset should always be invoked on stopped or expired channels, as described above. The return value exists to preserve compatibility with existing programs.
+>
+> ​	请注意，正确使用Reset的返回值是不可能的，因为在清空通道和新计时器到期之间存在竞态条件。**应如上所述始终在已停止或已到期的通道上调用Reset，以保持与现有程序的兼容性**。返回值存在是为了保持与现有程序的兼容性。 
+>
+> For a Timer created with AfterFunc(d, f), Reset either reschedules when f will run, in which case Reset returns true, or schedules f to run again, in which case it returns false. When Reset returns false, Reset neither waits for the prior f to complete before returning nor does it guarantee that the subsequent goroutine running f does not run concurrently with the prior one. If the caller needs to know whether the prior execution of f is completed, it must coordinate with f explicitly.
+>
+> ​	对于使用`AfterFunc(d, f)`创建的计时器，Reset方法要么重新安排f的运行时间，此时Reset方法返回`true`，要么安排`f`再次运行，此时Reset方法返回`false`。当Reset方法返回`false`时，Reset方法既不等待之前的`f`完成再返回，也不能保证后续运行`f`的goroutine不与之前的同时运行。如果调用方需要知道之前的`f`执行是否完成，它必须与`f`进行显式的协调。
+>
+> ```go
+> package main
+> 
+> import (
+> 	"fmt"
+> 	"time"
+> )
+> 
+> func main() {
+> 	fmt.Printf("--------------------\n timer1 \n --------------------\n")
+> 	fmt.Println("before:", time.Now())
+> 	timer1 := time.AfterFunc(5*time.Second, func() {
+> 		fmt.Println("timer1 has been 5+ seconds and Now time is \n", time.Now())
+> 	})
+> 	time.Sleep(2 * time.Second)
+> 	fmt.Println("had sleep 2 second:", time.Now())
+> 
+> 	// 应始终在已停止或到期的通道上调用Reset，以保持与现有程序的兼容性
+> 	if !timer1.Stop() {
+> 		<-timer1.C
+> 	}
+> 
+> 	fmt.Println("reset:", time.Now())
+> 	fmt.Printf("Reset timer1 return %t\n", timer1.Reset(5*time.Second))
+> 	time.Sleep(10 * time.Second)
+> 
+> 	fmt.Printf("--------------------\n timer2 \n --------------------\n")
+> 	fmt.Println("before:", time.Now())
+> 	timer2 := time.NewTimer(5 * time.Second)
+> 	time.Sleep(2 * time.Second)
+> 	fmt.Println("had sleep 2 second:", time.Now())
+> 	if !timer2.Stop() {
+> 		fmt.Println("执行Stop方法ing...")
+> 		<-timer2.C
+> 		fmt.Println("已执行了Stop方法")
+> 	}
+> 	fmt.Printf("Reset timer2 return %t\n", timer2.Reset(5*time.Second))
+> 
+> 	for {
+> 		select {
+> 		case _, ok := <-timer2.C:
+> 			if ok {
+> 				fmt.Println("timer2 has been 5+ seconds and Now time is \n", time.Now())
+> 				goto END
+> 			}
+> 		default:
+> 		}
+> 	}
+> 
+> END:
+> 	fmt.Println("END")
+> }
+> // 请编译后在执行，直接使用go run 可能结果会不同！！！
+> // Output:
+> //--------------------
+> //timer1
+> //--------------------
+> //before: 2023-10-22 18:21:18.6134724 +0800 CST m=+0.006476501
+> //had sleep 2 second: 2023-10-22 18:21:20.6517914 +0800 CST m=+2.044795501
+> //reset: 2023-10-22 18:21:20.6520226 +0800 CST m=+2.045026701
+> //Reset timer1 return false
+> //timer1 has been 5+ seconds and Now time is
+> //2023-10-22 18:21:25.6589852 +0800 CST m=+7.051989301
+> //--------------------
+> //timer2
+> //--------------------
+> //before: 2023-10-22 18:21:30.6569628 +0800 CST m=+12.049966901
+> //had sleep 2 second: 2023-10-22 18:21:32.6692213 +0800 CST m=+14.062225401
+> //Reset timer2 return false
+> //timer2 has been 5+ seconds and Now time is
+> //2023-10-22 18:21:37.6838445 +0800 CST m=+19.076848601
+> //END
+> ```
+>
 
 
 
@@ -2768,27 +2837,42 @@ END:
 func (t *Timer) Stop() bool
 ```
 
-Stop prevents the Timer from firing. It returns true if the call stops the timer, false if the timer has already expired or been stopped. Stop does not close the channel, to prevent a read from the channel succeeding incorrectly.
+Stop prevents the [Timer](https://pkg.go.dev/time@go1.23.0#Timer) from firing. It returns true if the call stops the timer, false if the timer has already expired or been stopped.
 
-​	`Stop`方法用于阻止计时器触发。如果该调用成功停止了计时器，则返回`true`；如果计时器已过期或已停止，则返回`false`。`Stop`方法不会关闭通道，以防止从通道中成功读取不正确的数据。
+​	`Stop` 防止 [Timer](https://pkg.go.dev/time@go1.23.0#Timer) 触发。如果调用成功停止计时器，则返回 `true`；如果计时器已经过期或已停止，则返回 `false`。
 
-To ensure the channel is empty after a call to Stop, check the return value and drain the channel. For example, assuming the program has not received from t.C already:
+For a func-based timer created with [AfterFunc](https://pkg.go.dev/time@go1.23.0#AfterFunc)(d, f), if t.Stop returns false, then the timer has already expired and the function f has been started in its own goroutine; Stop does not wait for f to complete before returning. If the caller needs to know whether f is completed, it must coordinate with f explicitly.
 
-​	为了确保在调用`Stop`方法后通道为空，需要检查返回值并排空通道。例如，假设程序尚未从`t.C`接收到数据：
+​	对于使用 [AfterFunc](https://pkg.go.dev/time@go1.23.0#AfterFunc)(d, f) 创建的基于函数的计时器，如果 `t.Stop` 返回 `false`，则表示计时器已经过期，函数 `f` 已经在其自己的 `goroutine` 中启动；`Stop` 不会在返回之前等待 `f` 完成。如果调用方需要知道 `f` 是否已经完成，则必须与 `f` 进行显式协调。
 
-```go
-if !t.Stop() {
-	<-t.C
-}
-```
+For a chan-based timer created with NewTimer(d), as of Go 1.23, any receive from t.C after Stop has returned is guaranteed to block rather than receive a stale time value from before the Stop; if the program has not received from t.C already and the timer is running, Stop is guaranteed to return true. Before Go 1.23, the only safe way to use Stop was insert an extra <-t.C if Stop returned false to drain a potential stale value. See the [NewTimer](https://pkg.go.dev/time@go1.23.0#NewTimer) documentation for more details.
 
-This cannot be done concurrent to other receives from the Timer's channel or other calls to the Timer's Stop method.
+​	对于使用 `NewTimer(d)` 创建的基于通道的计时器，从 Go 1.23 开始，在 `Stop` 返回后，从 `t.C` 接收的任何值保证会被阻塞，而不是接收在 `Stop` 之前的过时时间值；如果程序尚未从 `t.C` 接收且计时器正在运行，则 `Stop` 保证返回 `true`。在 Go 1.23 之前，唯一安全的 `Stop` 使用方式是在 `Stop` 返回 `false` 时插入一个额外的 `<-t.C` 来清空潜在的过时值。更多详细信息请参阅 NewTimer 文档。
 
-​	这不能与从该计时器的通道或其他对该计时器的Stop方法的调用并发执行。
-
-For a timer created with AfterFunc(d, f), if t.Stop returns false, then the timer has already expired and the function f has been started in its own goroutine; Stop does not wait for f to complete before returning. If the caller needs to know whether f is completed, it must coordinate with f explicitly.
-
-​	对于使用`AfterFunc(d, f)`创建的计时器，如果t.Stop返回`false`，则计时器已过期，并且函数f已经在其自己的goroutine中启动；Stop方法在返回之前不会等待`f`完成。如果调用者需要知道`f`是否完成，它必须与`f`显式协调。
+> go1.23.0之前
+>
+> Stop prevents the Timer from firing. It returns true if the call stops the timer, false if the timer has already expired or been stopped. Stop does not close the channel, to prevent a read from the channel succeeding incorrectly.
+>
+> ​	`Stop`方法用于阻止计时器触发。如果该调用成功停止了计时器，则返回`true`；如果计时器已过期或已停止，则返回`false`。`Stop`方法不会关闭通道，以防止从通道中成功读取不正确的数据。
+>
+> To ensure the channel is empty after a call to Stop, check the return value and drain the channel. For example, assuming the program has not received from t.C already:
+>
+> ​	为了确保在调用`Stop`方法后通道为空，需要检查返回值并排空通道。例如，假设程序尚未从`t.C`接收到数据：
+>
+> ```go
+> if !t.Stop() {
+> 	<-t.C
+> }
+> ```
+>
+> This cannot be done concurrent to other receives from the Timer's channel or other calls to the Timer's Stop method.
+>
+> ​	这不能与从该计时器的通道或其他对该计时器的Stop方法的调用并发执行。
+>
+> For a timer created with AfterFunc(d, f), if t.Stop returns false, then the timer has already expired and the function f has been started in its own goroutine; Stop does not wait for f to complete before returning. If the caller needs to know whether f is completed, it must coordinate with f explicitly.
+>
+> ​	对于使用`AfterFunc(d, f)`创建的计时器，如果t.Stop返回`false`，则计时器已过期，并且函数f已经在其自己的goroutine中启动；Stop方法在返回之前不会等待`f`完成。如果调用者需要知道`f`是否完成，它必须与`f`显式协调。
+>
 
 ### type Weekday 
 

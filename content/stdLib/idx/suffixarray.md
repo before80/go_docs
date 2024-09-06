@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/index/suffixarray@go1.21.3](https://pkg.go.dev/index/suffixarray@go1.21.3)
+> 原文：[https://pkg.go.dev/index/suffixarray@go1.23.0](https://pkg.go.dev/index/suffixarray@go1.23.0)
 
 Package suffixarray implements substring search in logarithmic time using an in-memory suffix array.
 

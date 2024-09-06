@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/regexp@go1.21.3](https://pkg.go.dev/regexp@go1.21.3)
+> 原文：[https://pkg.go.dev/regexp@go1.23.0](https://pkg.go.dev/regexp@go1.23.0)
 
 Package regexp implements regular expression search.
 
@@ -1024,7 +1024,7 @@ ab
 
 #### (*Regexp) MarshalText <-go1.21.0
 
-```
+``` go
 func (re *Regexp) MarshalText() ([]byte, error)
 ```
 

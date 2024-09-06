@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/http/httputil@go1.21.3](https://pkg.go.dev/net/http/httputil@go1.21.3)
+> 原文：[https://pkg.go.dev/net/http/httputil@go1.23.0](https://pkg.go.dev/net/http/httputil@go1.23.0)
 
 Package httputil provides HTTP utility functions, complementing the more common ones in the net/http package.
 
@@ -251,7 +251,7 @@ A BufferPool is an interface for getting and returning temporary byte slices for
 
 ### type ClientConn <- DEPRECATED
 
-```
+``` go
 type ClientConn struct {
 	// contains filtered or unexported fields
 }
@@ -295,7 +295,7 @@ Deprecated: Use the Client or Transport in package net/http instead.
 
 #### func (*ClientConn)Close
 
-```
+``` go
 func (cc *ClientConn) Close() error
 ```
 
@@ -305,7 +305,7 @@ Close calls Hijack and then also closes the underlying connection.
 
 #### func (*ClientConn) Do
 
-```
+``` go
 func (cc *ClientConn) Do(req *http.Request) (*http.Response, error)
 ```
 
@@ -315,7 +315,7 @@ Do is convenience method that writes a request and reads a response.
 
 #### func (*ClientConn) Hijack
 
-```
+``` go
 func (cc *ClientConn) Hijack() (c net.Conn, r *bufio.Reader)
 ```
 
@@ -325,7 +325,7 @@ Hijack detaches the ClientConn and returns the underlying connection as well as 
 
 #### func (*ClientConn) Pending
 
-```
+``` go
 func (cc *ClientConn) Pending() int
 ```
 
@@ -335,7 +335,7 @@ Pending returns the number of unanswered requests that have been sent on the con
 
 #### func (*ClientConn) Read
 
-```
+``` go
 func (cc *ClientConn) Read(req *http.Request) (resp *http.Response, err error)
 ```
 
@@ -345,7 +345,7 @@ Read reads the next response from the wire. A valid response might be returned t
 
 #### func (*ClientConn) Write
 
-```
+``` go
 func (cc *ClientConn) Write(req *http.Request) error
 ```
 

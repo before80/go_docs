@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/compress/bzip2@go1.21.3](https://pkg.go.dev/compress/bzip2@go1.21.3)
+> 原文：[https://pkg.go.dev/compress/bzip2@go1.23.0](https://pkg.go.dev/compress/bzip2@go1.23.0)
 
 Package bzip2 implements bzip2 decompression.
 

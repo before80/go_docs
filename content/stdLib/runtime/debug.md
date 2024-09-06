@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/runtime/debug@go1.21.3](https://pkg.go.dev/runtime/debug@go1.21.3)
+> 原文：[https://pkg.go.dev/runtime/debug@go1.23.0](https://pkg.go.dev/runtime/debug@go1.23.0)
 
 Package debug contains facilities for programs to debug themselves while they are running.
 
@@ -54,7 +54,7 @@ ReadGCStats reads statistics about garbage collection into stats. The number of 
 
 ### func SetCrashOutput <- go1.23.0
 
-```
+``` go
 func SetCrashOutput(f *os.File, opts CrashOptions) error
 ```
 
@@ -450,7 +450,7 @@ Defined keys include:
 
 ### type CrashOptions <- go1.23.0
 
-```
+``` go
 type CrashOptions struct {
 }
 ```

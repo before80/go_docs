@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/sync/atomic@go1.21.3](https://pkg.go.dev/sync/atomic@go1.21.3)
+> 原文：[https://pkg.go.dev/sync/atomic@go1.23.0](https://pkg.go.dev/sync/atomic@go1.23.0)
 
 ![image-20231110170148590](atomic_img/image-20231110170148590.png)
 
@@ -117,6 +117,56 @@ func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)
 AddUintptr atomically adds delta to *addr and returns the new value. Consider using the more ergonomic and less error-prone [Uintptr.Add](https://pkg.go.dev/sync/atomic#Uintptr.Add) instead.
 
 ​	`AddUintptr`函数原子地将`delta`添加到`*addr`，并返回`new`值。考虑使用更符合人体工程学和更不容易出错的`Uintptr.Add`代替。
+
+### func AndInt32 <- go1.23.0
+
+``` go
+func AndInt32(addr *int32, mask int32) (old int32)
+```
+
+AndInt32 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int32.And](https://pkg.go.dev/sync/atomic@go1.23.0#Int32.And) instead.
+
+​	`AndInt32` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位与操作，并返回旧值。建议使用更方便且不易出错的 [Int32.And](https://pkg.go.dev/sync/atomic@go1.23.0#Int32.And) 代替。
+
+### func AndInt64 <- go1.23.0
+
+``` go
+func AndInt64(addr *int64, mask int64) (old int64)
+```
+
+AndInt64 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int64.And](https://pkg.go.dev/sync/atomic@go1.23.0#Int64.And) instead.
+
+​	`AndInt64` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位与操作，并返回旧值。建议使用更方便且不易出错的 [Int64.And](https://pkg.go.dev/sync/atomic@go1.23.0#Int64.And) 代替。
+
+### func AndUint32 <- go1.23.0
+
+``` go
+func AndUint32(addr *uint32, mask uint32) (old uint32)
+```
+
+AndUint32 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint32.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uint32.And) instead.
+
+​	`AndUint32` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位与操作，并返回旧值。建议使用更方便且不易出错的 [Uint32.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uint32.And) 代替。
+
+### func AndUint64 <- go1.23.0
+
+``` go
+func AndUint64(addr *uint64, mask uint64) (old uint64)
+```
+
+AndUint64 atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old. Consider using the more ergonomic and less error-prone [Uint64.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uint64.And) instead.
+
+​	`AndUint64` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位与操作，并返回旧值。建议使用更方便且不易出错的 [Uint64.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uint64.And) 代替。
+
+### func AndUintptr <- go1.23.0
+
+``` go
+func AndUintptr(addr *uintptr, mask uintptr) (old uintptr)
+```
+
+AndUintptr atomically performs a bitwise AND operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uintptr.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uintptr.And) instead.
+
+​	`AndUintptr` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位与操作，并返回旧值。建议使用更方便且不易出错的 [Uintptr.And](https://pkg.go.dev/sync/atomic@go1.23.0#Uintptr.And) 代替。
 
 ### func CompareAndSwapInt32 
 
@@ -237,6 +287,56 @@ func LoadUintptr(addr *uintptr) (val uintptr)
 LoadUintptr atomically loads *addr. Consider using the more ergonomic and less error-prone [Uintptr.Load](https://pkg.go.dev/sync/atomic#Uintptr.Load) instead.
 
 ​	`LoadUintptr`函数原子地加载 `*addr`。考虑使用更符合人体工程学且不易出错的 `Uintptr.Load`。
+
+### func OrInt32 <- go1.23.0
+
+``` go
+func OrInt32(addr *int32, mask int32) (old int32)
+```
+
+OrInt32 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int32.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Int32.Or) instead.
+
+​	`OrInt32` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位或操作，并返回旧值。建议使用更方便且不易出错的 [Int32.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Int32.Or) 代替。
+
+### func OrInt64 <- go1.23.0
+
+``` go
+func OrInt64(addr *int64, mask int64) (old int64)
+```
+
+OrInt64 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Int64.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Int64.Or) instead.
+
+​	`OrInt64` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位或操作，并返回旧值。建议使用更方便且不易出错的 [Int64.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Int64.Or) 代替。
+
+### func OrUint32 <- go1.23.0
+
+``` go
+func OrUint32(addr *uint32, mask uint32) (old uint32)
+```
+
+OrUint32 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint32.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uint32.Or) instead.
+
+​	`OrUint32` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位或操作，并返回旧值。建议使用更方便且不易出错的 [Uint32.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uint32.Or) 代替。
+
+### func OrUint64 <- go1.23.0
+
+``` go
+func OrUint64(addr *uint64, mask uint64) (old uint64)
+```
+
+OrUint64 atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uint64.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uint64.Or) instead.
+
+​	`OrUint64` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位或操作，并返回旧值。建议使用更方便且不易出错的 [Uint64.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uint64.Or) 代替。
+
+### func OrUintptr <- go1.23.0
+
+``` go
+func OrUintptr(addr *uintptr, mask uintptr) (old uintptr)
+```
+
+OrUintptr atomically performs a bitwise OR operation on *addr using the bitmask provided as mask and returns the old value. Consider using the more ergonomic and less error-prone [Uintptr.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uintptr.Or) instead.
+
+​	`OrUintptr` 使用提供的位掩码 `mask` 对 `*addr` 执行原子按位或操作，并返回旧值。建议使用更方便且不易出错的 [Uintptr.Or](https://pkg.go.dev/sync/atomic@go1.23.0#Uintptr.Or) 代替。
 
 ### func StoreInt32 
 
@@ -434,6 +534,16 @@ Add atomically adds delta to x and returns the new value.
 
 ​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
+#### (*Int32) And <- go1.23.0
+
+``` go
+func (x *Int32) And(mask int32) (old int32)
+```
+
+And atomically performs a bitwise AND operation on x using the bitmask provided as mask and returns the old value.
+
+​	`And` 使用提供的位掩码 `mask` 对 `x` 执行原子按位与操作，并返回旧值。
+
 #### (*Int32) CompareAndSwap  <- go1.19
 
 ``` go 
@@ -453,6 +563,16 @@ func (x *Int32) Load() int32
 Load atomically loads and returns the value stored in x.
 
 ​	`Load`方法原子地加载并返回存储在`x`中的值。
+
+#### (*Int32) Or <- go1.23.0
+
+``` go
+func (x *Int32) Or(mask int32) (old int32)
+```
+
+Or atomically performs a bitwise OR operation on x using the bitmask provided as mask and returns the old value.
+
+​	`Or` 使用提供的位掩码 `mask` 对 `x` 执行原子按位或操作，并返回旧值。
 
 #### (*Int32) Store  <- go1.19
 
@@ -496,6 +616,16 @@ Add atomically adds delta to x and returns the new value.
 
 ​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
+#### (*Int64) And <- go1.23.0
+
+``` go
+func (x *Int64) And(mask int64) (old int64)
+```
+
+And atomically performs a bitwise AND operation on x using the bitmask provided as mask and returns the old value.
+
+​	`And` 使用提供的位掩码 `mask` 对 `x` 执行原子按位与操作，并返回旧值。
+
 #### (*Int64) CompareAndSwap  <- go1.19
 
 ``` go 
@@ -515,6 +645,16 @@ func (x *Int64) Load() int64
 Load atomically loads and returns the value stored in x.
 
 ​	`Load`方法原子地加载并返回存储在`x`中的值。
+
+#### (*Int64) Or <- go1.23.0
+
+``` go
+func (x *Int64) Or(mask int64) (old int64)
+```
+
+Or atomically performs a bitwise OR operation on x using the bitmask provided as mask and returns the old value.
+
+​	`Or` 使用提供的位掩码 `mask` 对 `x` 执行原子按位或操作，并返回旧值。
 
 #### (*Int64) Store  <- go1.19
 
@@ -610,6 +750,16 @@ Add atomically adds delta to x and returns the new value.
 
 ​	`Add`方法原子地将 `delta` 添加到 `x` 并返回`new`值。
 
+#### (*Uint32) And <- go1.23.0
+
+``` go
+func (x *Uint32) And(mask uint32) (old uint32)
+```
+
+And atomically performs a bitwise AND operation on x using the bitmask provided as mask and returns the old value.
+
+​	`And` 使用提供的位掩码 `mask` 对 `x` 执行原子按位与操作，并返回旧值。
+
 #### (*Uint32) CompareAndSwap  <- go1.19
 
 ``` go 
@@ -619,6 +769,16 @@ func (x *Uint32) CompareAndSwap(old, new uint32) (swapped bool)
 CompareAndSwap executes the compare-and-swap operation for x.
 
 ​	`CompareAndSwap`方法执行 `x` 的比较并交换操作。
+
+#### (*Uint32) Or <- go1.23.0
+
+``` go
+func (x *Uint32) Or(mask uint32) (old uint32)
+```
+
+Or atomically performs a bitwise OR operation on x using the bitmask provided as mask and returns the old value.
+
+​	`Or` 使用提供的位掩码 `mask` 对 `x` 执行原子按位或操作，并返回旧值。
 
 #### (*Uint32) Load  <- go1.19
 
@@ -672,6 +832,16 @@ Add atomically adds delta to x and returns the new value.
 
 ​	`Add`方法原子性地将`delta`添加到`x`中并返回`new`值。
 
+#### (*Uint64) And <- go1.23.0
+
+``` go
+func (x *Uint64) And(mask uint64) (old uint64)
+```
+
+And atomically performs a bitwise AND operation on x using the bitmask provided as mask and returns the old value.
+
+​	`And` 使用提供的位掩码 `mask` 对 `x` 执行原子按位与操作，并返回旧值。
+
 #### (*Uint64) CompareAndSwap  <- go1.19
 
 ``` go 
@@ -681,6 +851,16 @@ func (x *Uint64) CompareAndSwap(old, new uint64) (swapped bool)
 CompareAndSwap executes the compare-and-swap operation for x.
 
 ​	`CompareAndSwap`方法在`x`上执行比较并交换操作。
+
+#### (*Uint64) Or <- go1.23.0
+
+``` go
+func (x *Uint64) Or(mask uint64) (old uint64)
+```
+
+Or atomically performs a bitwise OR operation on x using the bitmask provided as mask and returns the old value.
+
+​	`Or` 使用提供的位掩码 `mask` 对 `x` 执行原子按位或操作，并返回旧值。
 
 #### (*Uint64) Load  <- go1.19
 
@@ -734,6 +914,16 @@ Add atomically adds delta to x and returns the new value.
 
 ​	`Add`方法原子地将`delta`添加到`x`并返回`new`值。
 
+#### (*Uintptr) And <- go1.23.0
+
+``` go
+func (x *Uintptr) And(mask uintptr) (old uintptr)
+```
+
+And atomically performs a bitwise AND operation on x using the bitmask provided as mask and returns the old value.
+
+​	`And` 使用提供的位掩码 `mask` 对 `x` 执行原子按位与操作，并返回旧值。
+
 #### (*Uintptr) CompareAndSwap  <- go1.19
 
 ``` go 
@@ -753,6 +943,16 @@ func (x *Uintptr) Load() uintptr
 Load atomically loads and returns the value stored in x.
 
 ​	`Load`方法以原子方式加载并返回存储在`x`中的值。
+
+#### (*Uintptr) Or <- go1.23.0
+
+``` go
+func (x *Uintptr) Or(mask uintptr) (old uintptr)
+```
+
+Or atomically performs a bitwise OR operation on x using the bitmask provided as mask and returns the updated value after the OR operation.
+
+​	`Or` 使用提供的位掩码 `mask` 对 `x` 执行原子按位或操作，并返回按位或操作后的更新值。
 
 #### (*Uintptr) Store  <- go1.19
 

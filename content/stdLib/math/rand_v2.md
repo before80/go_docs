@@ -150,7 +150,7 @@ This section is empty.
 
 ### func ExpFloat64 
 
-```
+``` go
 func ExpFloat64() float64
 ```
 
@@ -164,7 +164,7 @@ sample = ExpFloat64() / desiredRateParameter
 
 ### func Float32 
 
-```
+``` go
 func Float32() float32
 ```
 
@@ -174,7 +174,7 @@ Float32 returns, as a float32, a pseudo-random number in the half-open interval 
 
 ### func Float64 
 
-```
+``` go
 func Float64() float64
 ```
 
@@ -184,7 +184,7 @@ Float64 returns, as a float64, a pseudo-random number in the half-open interval 
 
 ### func Int 
 
-```
+``` go
 func Int() int
 ```
 
@@ -194,7 +194,7 @@ Int returns a non-negative pseudo-random int from the default Source.
 
 ### func Int32 
 
-```
+``` go
 func Int32() int32
 ```
 
@@ -204,7 +204,7 @@ Int32 returns a non-negative pseudo-random 31-bit integer as an int32 from the d
 
 ### func Int32N 
 
-```
+``` go
 func Int32N(n int32) int32
 ```
 
@@ -214,7 +214,7 @@ Int32N returns, as an int32, a pseudo-random number in the half-open interval [0
 
 ### func Int64 
 
-```
+``` go
 func Int64() int64
 ```
 
@@ -224,7 +224,7 @@ Int64 returns a non-negative pseudo-random 63-bit integer as an int64 from the d
 
 ### func Int64N 
 
-```
+``` go
 func Int64N(n int64) int64
 ```
 
@@ -234,7 +234,7 @@ Int64N returns, as an int64, a pseudo-random number in the half-open interval [0
 
 ### func IntN 
 
-```
+``` go
 func IntN(n int) int
 ```
 
@@ -254,7 +254,7 @@ Output:
 
 ### func N 
 
-```
+``` go
 func N[Int intType](n Int) Int
 ```
 
@@ -277,7 +277,7 @@ Output:
 ```
 ### func NormFloat64 
 
-```
+``` go
 func NormFloat64() float64
 ```
 
@@ -291,7 +291,7 @@ sample = NormFloat64() * desiredStdDev + desiredMean
 
 ### func Perm 
 
-```
+``` go
 func Perm(n int) []int
 ```
 
@@ -316,7 +316,7 @@ Output:
 
 ### func Shuffle 
 
-```
+``` go
 func Shuffle(n int, swap func(i, j int))
 ```
 
@@ -351,7 +351,7 @@ Output:
 ```
 ### func Uint <- go1.23.0
 
-```
+``` go
 func Uint() uint
 ```
 
@@ -361,7 +361,7 @@ Uint returns a pseudo-random uint from the default Source.
 
 ### func Uint32 
 
-```
+``` go
 func Uint32() uint32
 ```
 
@@ -371,7 +371,7 @@ Uint32 returns a pseudo-random 32-bit value as a uint32 from the default Source.
 
 ### func Uint32N 
 
-```
+``` go
 func Uint32N(n uint32) uint32
 ```
 
@@ -381,7 +381,7 @@ Uint32N returns, as a uint32, a pseudo-random number in the half-open interval [
 
 ### func Uint64 
 
-```
+``` go
 func Uint64() uint64
 ```
 
@@ -391,7 +391,7 @@ Uint64 returns a pseudo-random 64-bit value as a uint64 from the default Source.
 
 ### func Uint64N 
 
-```
+``` go
 func Uint64N(n uint64) uint64
 ```
 
@@ -401,7 +401,7 @@ Uint64N returns, as a uint64, a pseudo-random number in the half-open interval [
 
 ### func UintN 
 
-```
+``` go
 func UintN(n uint) uint
 ```
 
@@ -413,7 +413,7 @@ UintN returns, as a uint, a pseudo-random number in the half-open interval [0,n)
 
 ### type ChaCha8 
 
-```
+``` go
 type ChaCha8 struct {
 	// contains filtered or unexported fields
 }
@@ -425,7 +425,7 @@ A ChaCha8 is a ChaCha8-based cryptographically strong random number generator.
 
 #### func NewChaCha8 
 
-```
+``` go
 func NewChaCha8(seed [32]byte) *ChaCha8
 ```
 
@@ -435,7 +435,7 @@ NewChaCha8 returns a new ChaCha8 seeded with the given seed.
 
 #### (*ChaCha8) MarshalBinary 
 
-```
+``` go
 func (c *ChaCha8) MarshalBinary() ([]byte, error)
 ```
 
@@ -445,7 +445,7 @@ MarshalBinary implements the encoding.BinaryMarshaler interface.
 
 #### (*ChaCha8) Read <- go1.23.0
 
-```
+``` go
 func (c *ChaCha8) Read(p []byte) (n int, err error)
 ```
 
@@ -457,7 +457,7 @@ Read reads exactly len(p) bytes into p. It always returns len(p) and a nil error
 
 #### (*ChaCha8) Seed 
 
-```
+``` go
 func (c *ChaCha8) Seed(seed [32]byte)
 ```
 
@@ -467,7 +467,7 @@ Seed resets the ChaCha8 to behave the same way as NewChaCha8(seed).
 
 #### (*ChaCha8) Uint64 
 
-```
+``` go
 func (c *ChaCha8) Uint64() uint64
 ```
 
@@ -477,7 +477,7 @@ Uint64 returns a uniformly distributed random uint64 value.
 
 #### (*ChaCha8) UnmarshalBinary 
 
-```
+``` go
 func (c *ChaCha8) UnmarshalBinary(data []byte) error
 ```
 
@@ -487,7 +487,7 @@ UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
 
 ### type PCG 
 
-```
+``` go
 type PCG struct {
 	// contains filtered or unexported fields
 }
@@ -499,7 +499,7 @@ A PCG is a PCG generator with 128 bits of internal state. A zero PCG is equivale
 
 #### func NewPCG 
 
-```
+``` go
 func NewPCG(seed1, seed2 uint64) *PCG
 ```
 
@@ -509,7 +509,7 @@ NewPCG returns a new PCG seeded with the given values.
 
 #### (*PCG) MarshalBinary 
 
-```
+``` go
 func (p *PCG) MarshalBinary() ([]byte, error)
 ```
 
@@ -519,7 +519,7 @@ MarshalBinary implements the encoding.BinaryMarshaler interface.
 
 #### (*PCG) Seed 
 
-```
+``` go
 func (p *PCG) Seed(seed1, seed2 uint64)
 ```
 
@@ -529,7 +529,7 @@ Seed resets the PCG to behave the same way as NewPCG(seed1, seed2).
 
 #### (*PCG) Uint64 
 
-```
+``` go
 func (p *PCG) Uint64() uint64
 ```
 
@@ -539,7 +539,7 @@ Uint64 return a uniformly-distributed random uint64 value.
 
 #### (*PCG) UnmarshalBinary 
 
-```
+``` go
 func (p *PCG) UnmarshalBinary(data []byte) error
 ```
 
@@ -549,7 +549,7 @@ UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.
 
 ### type Rand 
 
-```
+``` go
 type Rand struct {
 	// contains filtered or unexported fields
 }
@@ -561,7 +561,7 @@ A Rand is a source of random numbers.
 
 #### func New 
 
-```
+``` go
 func New(src Source) *Rand
 ```
 
@@ -571,7 +571,7 @@ New returns a new Rand that uses random values from src to generate other random
 
 #### (*Rand) ExpFloat64 
 
-```
+``` go
 func (r *Rand) ExpFloat64() float64
 ```
 
@@ -585,7 +585,7 @@ sample = ExpFloat64() / desiredRateParameter
 
 #### (*Rand) Float32 
 
-```
+``` go
 func (r *Rand) Float32() float32
 ```
 
@@ -595,7 +595,7 @@ Float32 returns, as a float32, a pseudo-random number in the half-open interval 
 
 #### (*Rand) Float64 
 
-```
+``` go
 func (r *Rand) Float64() float64
 ```
 
@@ -605,7 +605,7 @@ Float64 returns, as a float64, a pseudo-random number in the half-open interval 
 
 #### (*Rand) Int 
 
-```
+``` go
 func (r *Rand) Int() int
 ```
 
@@ -615,7 +615,7 @@ Int returns a non-negative pseudo-random int.
 
 #### (*Rand) Int32 
 
-```
+``` go
 func (r *Rand) Int32() int32
 ```
 
@@ -625,7 +625,7 @@ Int32 returns a non-negative pseudo-random 31-bit integer as an int32.
 
 #### (*Rand) Int32N 
 
-```
+``` go
 func (r *Rand) Int32N(n int32) int32
 ```
 
@@ -635,7 +635,7 @@ Int32N returns, as an int32, a non-negative pseudo-random number in the half-ope
 
 #### (*Rand) Int64 
 
-```
+``` go
 func (r *Rand) Int64() int64
 ```
 
@@ -645,7 +645,7 @@ Int64 returns a non-negative pseudo-random 63-bit integer as an int64.
 
 #### (*Rand) Int64N 
 
-```
+``` go
 func (r *Rand) Int64N(n int64) int64
 ```
 
@@ -655,7 +655,7 @@ Int64N returns, as an int64, a non-negative pseudo-random number in the half-ope
 
 #### (*Rand) IntN 
 
-```
+``` go
 func (r *Rand) IntN(n int) int
 ```
 
@@ -665,7 +665,7 @@ IntN returns, as an int, a non-negative pseudo-random number in the half-open in
 
 #### (*Rand) NormFloat64 
 
-```
+``` go
 func (r *Rand) NormFloat64() float64
 ```
 
@@ -679,7 +679,7 @@ sample = NormFloat64() * desiredStdDev + desiredMean
 
 #### (*Rand) Perm 
 
-```
+``` go
 func (r *Rand) Perm(n int) []int
 ```
 
@@ -689,7 +689,7 @@ Perm returns, as a slice of n ints, a pseudo-random permutation of the integers 
 
 #### (*Rand) Shuffle 
 
-```
+``` go
 func (r *Rand) Shuffle(n int, swap func(i, j int))
 ```
 
@@ -699,7 +699,7 @@ Shuffle pseudo-randomizes the order of elements. n is the number of elements. Sh
 
 #### (*Rand) Uint <- go1.23.0
 
-```
+``` go
 func (r *Rand) Uint() uint
 ```
 
@@ -709,7 +709,7 @@ Uint returns a pseudo-random uint.
 
 #### (*Rand) Uint32 
 
-```
+``` go
 func (r *Rand) Uint32() uint32
 ```
 
@@ -719,7 +719,7 @@ Uint32 returns a pseudo-random 32-bit value as a uint32.
 
 #### (*Rand) Uint32N 
 
-```
+``` go
 func (r *Rand) Uint32N(n uint32) uint32
 ```
 
@@ -729,7 +729,7 @@ Uint32N returns, as a uint32, a non-negative pseudo-random number in the half-op
 
 #### (*Rand) Uint64 
 
-```
+``` go
 func (r *Rand) Uint64() uint64
 ```
 
@@ -739,7 +739,7 @@ Uint64 returns a pseudo-random 64-bit value as a uint64.
 
 #### (*Rand) Uint64N 
 
-```
+``` go
 func (r *Rand) Uint64N(n uint64) uint64
 ```
 
@@ -749,7 +749,7 @@ Uint64N returns, as a uint64, a non-negative pseudo-random number in the half-op
 
 #### (*Rand) UintN 
 
-```
+``` go
 func (r *Rand) UintN(n uint) uint
 ```
 
@@ -759,7 +759,7 @@ UintN returns, as a uint, a non-negative pseudo-random number in the half-open i
 
 ### type Source 
 
-```
+``` go
 type Source interface {
 	Uint64() uint64
 }
@@ -775,7 +775,7 @@ A Source is not safe for concurrent use by multiple goroutines.
 
 ### type Zipf 
 
-```
+``` go
 type Zipf struct {
 	// contains filtered or unexported fields
 }
@@ -787,7 +787,7 @@ A Zipf generates Zipf distributed variates.
 
 #### func NewZipf 
 
-```
+``` go
 func NewZipf(r *Rand, s float64, v float64, imax uint64) *Zipf
 ```
 
@@ -797,7 +797,7 @@ NewZipf returns a Zipf variate generator. The generator generates values k ∈ [
 
 #### (*Zipf) Uint64 
 
-```
+``` go
 func (z *Zipf) Uint64() uint64
 ```
 

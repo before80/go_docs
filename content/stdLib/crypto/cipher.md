@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/cipher@go1.21.3](https://pkg.go.dev/crypto/cipher@go1.21.3)
+> 原文：[https://pkg.go.dev/crypto/cipher@go1.23.0](https://pkg.go.dev/crypto/cipher@go1.23.0)
 
 Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html and NIST Special Publication 800-38A.
 

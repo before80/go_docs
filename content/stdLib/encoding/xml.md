@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/xml@go1.21.3](https://pkg.go.dev/encoding/xml@go1.21.3)
+> 原文：[https://pkg.go.dev/encoding/xml@go1.23.0](https://pkg.go.dev/encoding/xml@go1.23.0)
 
 Package xml implements a simple XML 1.0 parser that understands XML name spaces.
 

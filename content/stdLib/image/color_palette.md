@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/image/color/palette@go1.21.3](https://pkg.go.dev/image/color/palette@go1.21.3)
+> 原文：[https://pkg.go.dev/image/color/palette@go1.23.0](https://pkg.go.dev/image/color/palette@go1.23.0)
 
 Package palette provides standard color palettes.
 

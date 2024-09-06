@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/compress/zlib@go1.21.3](https://pkg.go.dev/compress/zlib@go1.21.3)
+> 原文：[https://pkg.go.dev/compress/zlib@go1.23.0](https://pkg.go.dev/compress/zlib@go1.23.0)
 
 Package zlib implements reading and writing of zlib format compressed data, as specified in [RFC 1950](https://rfc-editor.org/rfc/rfc1950.html).
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/sort@go1.21.3](https://pkg.go.dev/sort@go1.21.3)
+> 原文：[https://pkg.go.dev/sort@go1.23.0](https://pkg.go.dev/sort@go1.23.0)
 
 > 注意
 >
@@ -485,7 +485,7 @@ Float64s sorts a slice of float64s in increasing order. Not-a-number (NaN) value
 
 Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
 
-​	注意:从Go 1.22开始，这个函数只调用[slices.Sort]({{< ref "/stdLib/slices#func-sort">}})。
+​	注意:从Go 1.22开始，此函数只是调用了[slices.Sort]({{< ref "/stdLib/slices#func-sort">}})。
 
 #### Float64s Example
 ``` go 
@@ -524,6 +524,8 @@ Float64sAreSorted reports whether the slice x is sorted in increasing order, wit
 ​	Float64sAreSorted函数报告切片x是否按递增顺序排序，其中非数字(NaN)值在任何其他值之前。
 
 Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
+
+​	注意:从Go 1.22开始，此函数只是调用了[slices.IsSorted](https://pkg.go.dev/slices#IsSorted)
 
 #### Float64sAreSorted Example
 ``` go 
@@ -564,6 +566,8 @@ Ints sorts a slice of ints in increasing order.
 
 Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
 
+​	注意:从Go 1.22开始，此函数只是调用了[slices.Sort](https://pkg.go.dev/slices#Sort)
+
 #### Ints Example
 ``` go 
 package main
@@ -594,6 +598,8 @@ IntsAreSorted reports whether the slice x is sorted in increasing order.
 ​	IntsAreSorted函数报告切片x是否按递增顺序排序。
 
 Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
+
+​	注意:从Go 1.22开始，此函数只是调用了[slices.IsSorted](https://pkg.go.dev/slices#IsSorted)
 
 #### IntsAreSorted Example
 ``` go 
@@ -896,7 +902,7 @@ By name: [{Alice 55} {Bob 75} {Gopher 7} {Vera 24}]
 By age: [{Gopher 7} {Vera 24} {Alice 55} {Bob 75}]
 ```
 
-#### func SliceIsSorted  <- go1.8
+### func SliceIsSorted  <- go1.8
 
 ``` go 
 func SliceIsSorted(x any, less func(i, j int) bool) bool
@@ -996,6 +1002,8 @@ Strings sorts a slice of strings in increasing order.
 
 Note: as of Go 1.22, this function simply calls [slices.Sort](https://pkg.go.dev/slices#Sort).
 
+​	注意:从Go 1.22开始，此函数只是调用了[slices.Sort](https://pkg.go.dev/slices#Sort)
+
 #### Strings Example
 ``` go 
 package main
@@ -1026,6 +1034,8 @@ StringsAreSorted reports whether the slice x is sorted in increasing order.
 ​	StringsAreSorted函数报告字符串切片 x 是否按升序排列。
 
 Note: as of Go 1.22, this function simply calls [slices.IsSorted](https://pkg.go.dev/slices#IsSorted).
+
+​	注意:从Go 1.22开始，此函数只是调用了[slices.IsSorted](https://pkg.go.dev/slices#IsSorted)
 
 ## 类型
 

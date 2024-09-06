@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/archive/zip@go1.21.3](https://pkg.go.dev/archive/zip@go1.21.3)
+> 原文：[https://pkg.go.dev/archive/zip@go1.23.0](https://pkg.go.dev/archive/zip@go1.23.0)
 
 Package zip provides support for reading and writing ZIP archives.
 
@@ -255,7 +255,7 @@ FileInfo returns an fs.FileInfo for the FileHeader.
 
 #### (*FileHeader) ModTime <-DEPRECATED
 
-```
+``` go
 func (h *FileHeader) ModTime() time.Time
 ```
 
@@ -279,7 +279,7 @@ Mode returns the permission and mode bits for the FileHeader.
 
 #### (*FileHeader) SetModTime <-DEPRECATED
 
-```
+``` go
 func (h *FileHeader) SetModTime(t time.Time)
 ```
 
@@ -495,7 +495,7 @@ NewWriter returns a new Writer writing a zip file to w.
 
 #### (*Writer) AddFS <- go1.22.0
 
-```
+``` go
 func (w *Writer) AddFS(fsys fs.FS) error
 ```
 

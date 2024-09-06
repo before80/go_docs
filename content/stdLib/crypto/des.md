@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/des@go1.21.3](https://pkg.go.dev/crypto/des@go1.21.3)
+> 原文：[https://pkg.go.dev/crypto/des@go1.23.0](https://pkg.go.dev/crypto/des@go1.23.0)
 
 Package des implements the Data Encryption Standard (DES) and the Triple Data Encryption Algorithm (TDEA) as defined in U.S. Federal Information Processing Standards Publication 46-3.
 

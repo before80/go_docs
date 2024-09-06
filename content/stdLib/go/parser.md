@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/parser@go1.21.3](https://pkg.go.dev/go/parser@go1.21.3)
+> 原文：[https://pkg.go.dev/go/parser@go1.23.0](https://pkg.go.dev/go/parser@go1.23.0)
 
 Package parser implements a parser for Go source files. Input may be provided in a variety of forms (see the various `Parse*` functions); the output is an abstract syntax tree (AST) representing the Go source. The parser is invoked through one of the Parse* functions.
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/netip@go1.21.3](https://pkg.go.dev/net/netip@go1.21.3)
+> 原文：[https://pkg.go.dev/net/netip@go1.23.0](https://pkg.go.dev/net/netip@go1.23.0)
 
 Package netip defines an IP address type that’s a small value type. Building on that Addr type, the package also defines AddrPort (an IP address and a port), and Prefix (an IP address and a bit length prefix).
 
@@ -564,7 +564,7 @@ Addr returns p’s IP address.
 
 #### (AddrPort) Compare <-go1.22.0
 
-```
+``` go
 func (p AddrPort) Compare(p2 AddrPort) int
 ```
 

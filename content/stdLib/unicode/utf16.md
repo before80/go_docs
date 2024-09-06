@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/unicode/utf16@go1.21.3](https://pkg.go.dev/unicode/utf16@go1.21.3)
+> 原文：[https://pkg.go.dev/unicode/utf16@go1.23.0](https://pkg.go.dev/unicode/utf16@go1.23.0)
 
 Package utf16 implements encoding and decoding of UTF-16 sequences.
 
@@ -82,6 +82,16 @@ func IsSurrogate(r rune) bool
 IsSurrogate reports whether the specified Unicode code point can appear in a surrogate pair.
 
 ​	`IsSurrogate`函数报告指定的Unicode码点是否可以出现在代理对中。
+
+### func RuneLen <- go1.23.0
+
+``` go
+func RuneLen(r rune) int
+```
+
+RuneLen returns the number of 16-bit words in the UTF-16 encoding of the rune. It returns -1 if the rune is not a valid value to encode in UTF-16.
+
+​	`RuneLen` 返回该 `rune` 在 UTF-16 编码中的 16 位字数。如果该 `rune` 不是一个有效的 UTF-16 编码值，则返回 -1。
 
 ## 类型
 

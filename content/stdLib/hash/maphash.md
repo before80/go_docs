@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/hash/maphash@go1.21.3](https://pkg.go.dev/hash/maphash@go1.21.3)
+> 原文：[https://pkg.go.dev/hash/maphash@go1.23.0](https://pkg.go.dev/hash/maphash@go1.23.0)
 
 Package maphash provides hash functions on byte sequences. These hash functions are intended to be used to implement hash tables or other data structures that need to map arbitrary strings or byte sequences to a uniform distribution on unsigned 64-bit integers. Each different instance of a hash table or data structure should use its own Seed.
 

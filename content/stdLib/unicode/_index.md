@@ -8,7 +8,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/unicode@go1.21.3](https://pkg.go.dev/unicode@go1.21.3)
+> 原文：[https://pkg.go.dev/unicode@go1.23.0](https://pkg.go.dev/unicode@go1.23.0)
 
 Package unicode provides data and functions to test some properties of Unicode code points.
 

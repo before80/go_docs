@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/expvar@go1.21.3](https://pkg.go.dev/expvar@go1.21.3)
+> 原文：[https://pkg.go.dev/expvar@go1.23.0](https://pkg.go.dev/expvar@go1.23.0)
 
 Package expvar provides a standardized interface to public variables, such as operation counters in servers. It exposes these variables via HTTP at /debug/vars in JSON format. As of Go 1.22, the /debug/vars request must use GET.
 

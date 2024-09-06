@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/base32@go1.21.3](https://pkg.go.dev/encoding/base32@go1.21.3)
+> 原文：[https://pkg.go.dev/encoding/base32@go1.23.0](https://pkg.go.dev/encoding/base32@go1.23.0)
 
 Package base32 implements base32 encoding as specified by [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html).
 
@@ -131,7 +131,7 @@ NewEncoding returns a new Encoding defined by the given alphabet, which must be 
 
 #### (*Encoding) AppendDecode <- go1.22.0
 
-```
+``` go
 func (enc *Encoding) AppendDecode(dst, src []byte) ([]byte, error)
 ```
 
@@ -141,7 +141,7 @@ AppendDecode appends the base32 decoded src to dst and returns the extended buff
 
 #### (*Encoding) AppendEncode <- go1.22.0
 
-```
+``` go
 func (enc *Encoding) AppendEncode(dst, src []byte) []byte
 ```
 

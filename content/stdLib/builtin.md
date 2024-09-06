@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/builtin@go1.21.3](https://pkg.go.dev/builtin@go1.21.3)
+> 原文：[https://pkg.go.dev/builtin@go1.23.0](https://pkg.go.dev/builtin@go1.23.0)
 
 Package builtin provides documentation for Go's predeclared identifiers. The items documented here are not actually in package builtin but their descriptions here allow godoc to present documentation for the language's special identifiers.
 
@@ -108,7 +108,7 @@ For some arguments, such as a simple array expression, the result can be a const
 
 ### func clear <-go1.21.0
 
-```
+``` go
 func clear[T ~[]Type | ~map[Type]Type1](t T)
 ```
 

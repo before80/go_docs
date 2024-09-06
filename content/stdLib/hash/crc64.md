@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/hash/crc64@go1.21.3](https://pkg.go.dev/hash/crc64@go1.21.3)
+> 原文：[https://pkg.go.dev/hash/crc64@go1.23.0](https://pkg.go.dev/hash/crc64@go1.23.0)
 
 Package crc64 implements the 64-bit cyclic redundancy check, or CRC-64, checksum. See https://en.wikipedia.org/wiki/Cyclic_redundancy_check for information.
 
