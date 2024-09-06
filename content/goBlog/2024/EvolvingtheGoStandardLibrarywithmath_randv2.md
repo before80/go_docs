@@ -149,7 +149,7 @@ The [`rand.Rand` type](https://go.dev/pkg/math/rand/#Rand) wraps a `Source` to i
 
 ​	 `rand.Rand` 类型包装 `Source` 以实现更丰富的操作集。例如，以下是 `Int63n` 的 Go 1 实现，它返回 [0, `n` ) 范围内的随机整数。
 
-```
+```go
 func (r *Rand) Int63n(n int64) int64 {
     if n <= 0 {
         panic("invalid argument to Int63n")
@@ -269,7 +269,7 @@ Defining `math/rand/v2` took significant planning, then a [GitHub Discussion](ht
 
   ​	采纳提案讨论中的另一条建议，我们添加了一个新的顶级通用函数 `N` ，它类似于 `Int64N` 或 `Uint64N` ，但适用于任何整数类型。在旧 API 中，要创建一个最长为 5 秒的随机持续时间，必须编写：
 
-  ```
+  ```go
   d := time.Duration(rand.Int63n(int64(5*time.Second)))
   ```
 
@@ -277,7 +277,7 @@ Defining `math/rand/v2` took significant planning, then a [GitHub Discussion](ht
 
   ​	使用 `N` ，等效代码为：
 
-  ```
+  ```go
   d := rand.N(5 * time.Second)
   ```
 
