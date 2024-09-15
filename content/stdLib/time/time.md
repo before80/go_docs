@@ -69,6 +69,14 @@ For debugging, the result of t.String does include the monotonic clock reading i
 
 ​	为了调试，如果存在单调钟读数，则`t.String`的结果会包含该读数。如果`t != u`，因为具有不同的单调钟读数，那么在打印`t.String()`和`u.String()`时将可见这种差异。
 
+## 计时器的精度 Timer Resolution
+
+[Timer](https://pkg.go.dev/time#Timer) resolution varies depending on the Go runtime, the operating system and the underlying hardware. On Unix, the resolution is ~1ms. On Windows version 1803 and newer, the resolution is ~0.5ms. On older Windows versions, the default resolution is ~16ms, but a higher resolution may be requested using [golang.org/x/sys/windows.TimeBeginPeriod](https://pkg.go.dev/golang.org/x/sys/windows#TimeBeginPeriod).
+
+​	[计时器](https://pkg.go.dev/time#Timer) 的精度取决于 Go 运行时、操作系统以及底层硬件。在 Unix 系统中，计时器的精度约为 1 毫秒。在 Windows 1803 及更新版本中，精度约为 0.5 毫秒。在较早的 Windows 版本中，默认精度约为 16 毫秒，但可以通过使用 [golang.org/x/sys/windows.TimeBeginPeriod](https://pkg.go.dev/golang.org/x/sys/windows#TimeBeginPeriod) 请求更高的精度。
+
+## 常量
+
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/time/format.go;l=101)
 
 ``` go 
@@ -189,6 +197,8 @@ Replacing the sign in the format with a Z triggers the ISO 8601 behavior of prin
 ​	用 Z 替换格式中的符号会触发 ISO 8601 的行为，打印 Z 代替 UTC 时区的偏移。因此：
 
 ​	用Z替换格式中的符号会触发ISO 8601的行为，将Z打印为UTC时区的偏移量。因此：
+
+​	将格式中的符号替换为 `Z` 会触发 ISO 8601 行为，即在 UTC 时区打印 `Z` 而不是时区偏移。因此：
 
 ```
 "Z0700"      Z or ±hhmm
