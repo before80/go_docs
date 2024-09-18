@@ -62,7 +62,7 @@ func (s *Server) MountHandlers() {
     // Mount all handlers here
     s.Router.Get("/", HelloWorld)
 
-}Copy to clipboardErrorCopied
+}
 ```
 
 This is how a standard api would look, with a `Server` struct where we can add our router, and database connection...etc.
@@ -141,7 +141,7 @@ func TestHelloWorld(t *testing.T) {
 
     // We can use testify/require to assert values, as it is more convenient
     require.Equal(t, "Hello World!", response.Body.String())
-}Copy to clipboardErrorCopied
+}
 ```
 
 Now run `go test ./... -v -cover`

@@ -40,8 +40,8 @@ func main() {
         w.Write([]byte("Hello World!"))
     })
     http.ListenAndServe(":3000", r)
-}Copy to clipboardErrorCopied
-go run main.goCopy to clipboardErrorCopied
+}
+go run main.go
 ```
 
 Browse to `http://localhost:3000`, and you should see `Hello World!` on the page.

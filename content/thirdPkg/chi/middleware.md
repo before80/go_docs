@@ -43,7 +43,7 @@ func MyMiddleware(next http.Handler) http.Handler {
     // will be accessible from this point forward.
     next.ServeHTTP(w, r.WithContext(ctx))
   })
-}Copy to clipboardErrorCopied
+}
 ```
 
 We can now take these values from the context in our Handlers like this:
@@ -58,7 +58,7 @@ func MyHandler(w http.ResponseWriter, r *http.Request) {
 
     // respond to the client
     w.Write([]byte(fmt.Sprintf("hi %s", user)))
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## AllowContentEncoding
@@ -89,7 +89,7 @@ func main() {
   r := chi.NewRouter()
   r.Use(middleware.AllowContentEncoding("deflate", "gzip"))
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## AllowContentType
@@ -117,7 +117,7 @@ func main(){
   r := chi.NewRouter()
   r.Use(middleware.AllowContentType("application/json","text/xml"))
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## CleanPath
@@ -139,7 +139,7 @@ func main(){
   r := chi.NewRouter()
   r.Use(middleware.CleanPath)
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Compress
@@ -165,7 +165,7 @@ func main(){
   r := chi.NewRouter()
   r.Use(middleware.Compress(5, "text/html", "text/css"))
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## ContentCharset
@@ -188,7 +188,7 @@ func main(){
   allowedCharsets := []string{"UTF-8", "Latin-1", ""}
   r.Use(middleware.ContentCharset(allowedCharsets...))
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## CORS
@@ -225,7 +225,7 @@ func main() {
   })
 
   http.ListenAndServe(":3000", r)
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## GetHead
@@ -251,7 +251,7 @@ func main(){
   r := chi.NewRouter()
   r.Use(middleware.GetHead)
   r.Get("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Heartbeat 心跳
@@ -272,10 +272,10 @@ import (
 func main(){
   r := chi.NewRouter()
   r.Use(middleware.Heartbeat("/"))
-}Copy to clipboardErrorCopied
+}
 Get -> http://api_address/ 
 
-Response -> ".", Status 200Copy to clipboardErrorCopied
+Response -> ".", Status 200
 ```
 
 ## Logger 日志记录器
@@ -306,7 +306,7 @@ func main(){
   r.Use(middleware.Logger)        // <--<< Logger should come before Recoverer
   r.Use(middleware.Recoverer)
   r.Get("/", handler)
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## NoCache
@@ -323,7 +323,7 @@ As per http://wiki.nginx.org/HttpProxyModule - NoCache sets:
 Expires: Thu, 01 Jan 1970 00:00:00 UTC
 Cache-Control: no-cache, private, max-age=0
 X-Accel-Expires: 0
-Pragma: no-cache (for HTTP/1.0 proxies/clients)Copy to clipboardErrorCopied
+Pragma: no-cache (for HTTP/1.0 proxies/clients)
 ```
 
 Usage
@@ -339,7 +339,7 @@ func main(){
   r := chi.NewRouter()
   r.Use(middleware.NoCache)
   r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Oauth 2.0
@@ -398,7 +398,7 @@ func registerAPI(r *chi.Mux) {
     nil)
   r.Post("/token", s.UserCredentials)
   r.Post("/auth", s.ClientCredentials)
-}Copy to clipboardErrorCopied
+}
 ```
 
 #### Generate Token using username & password 使用用户名和密码生成令牌
@@ -410,7 +410,7 @@ func registerAPI(r *chi.Mux) {
     Content-Length: 50
     Content-Type: application/x-www-form-urlencoded
 
-    grant_type=password&username=user01&password=12345Copy to clipboardErrorCopied
+    grant_type=password&username=user01&password=12345
 ```
 
 #### Generate Token using clientID & secret 使用 clientID 和 secret 生成令牌
@@ -422,7 +422,7 @@ func registerAPI(r *chi.Mux) {
     Content-Length: 66
     Content-Type: application/x-www-form-urlencoded
 
-    grant_type=client_credentials&client_id=abcdef&client_secret=12345Copy to clipboardErrorCopied
+    grant_type=client_credentials&client_id=abcdef&client_secret=12345
 ```
 
 #### RefreshTokenGrant Token RefreshTokenGrant 令牌
@@ -435,7 +435,7 @@ func registerAPI(r *chi.Mux) {
     Content-Type: application/x-www-form-urlencoded
 
     grant_type=refresh_token&refresh_token={the refresh_token obtained in the previous response}
-Copy to clipboardErrorCopied
+
 ```
 
 Refer [Example](https://github.com/go-chi/oauth/blob/master/example/authserver/main.go) For the full Example...
@@ -490,7 +490,7 @@ func registerAPI(r *chi.Mux) {
         r.Get("/customers", GetCustomers)
         r.Get("/customers/{id}/orders", GetOrders)
     })
-}Copy to clipboardErrorCopied
+}
    Resource Server Example
 
     Get Customers
@@ -511,7 +511,7 @@ func registerAPI(r *chi.Mux) {
         Content-Type: application/json
         Authorization: Bearer {access_token}
 
-    {access_token} is produced by the Authorization Server response (see example /test/authserver).Copy to clipboardErrorCopied
+    {access_token} is produced by the Authorization Server response (see example /test/authserver).
 ```
 
 Refer [Example](https://github.com/go-chi/oauth/blob/master/example/resourceserver/main.go) For the full Example...
@@ -534,7 +534,7 @@ import (
    // ..middlewares
    r.Mount("/debug", middleware.Profiler())
    // ..routes
-}Copy to clipboardErrorCopied
+}
 ```
 
 Now you can request @ /debug for pprof profiles
@@ -569,7 +569,7 @@ import (
    // ..middlewares
    r.Use(middleware.RealIP)
    // ..routes
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Recoverer
@@ -593,7 +593,7 @@ import (
    r.Use(middleware.Recoverer)
    // ..routes
    r.Get("/", func(http.ResponseWriter, *http.Request) { panic("foo") })
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## RedirectSlashes
@@ -619,7 +619,7 @@ func main(){
    r := chi.NewRouter()
    r.Use(middleware.RedirectSlashes)
    r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## RouteHeaders
@@ -643,7 +643,7 @@ r.Use(middleware.RouteHeaders().
 
 r.Get("/", h)
 rSubdomain.Get("/", h2)
-Copy to clipboardErrorCopied
+
 ```
 
 Another example, imagine you want to setup multiple CORS handlers, where for your origin servers you allow authorized requests, but for third-party public requests, authorization is disabled.
@@ -666,7 +666,7 @@ r.Use(middleware.RouteHeaders().
      AllowedHeaders:   []string{"Accept", "Content-Type"},
      AllowCredentials: false, // <----------<<< do not allow credentials
   })).
-  Handler)Copy to clipboardErrorCopied
+  Handler)
 ```
 
 ## StripSlashes
@@ -688,7 +688,7 @@ func main(){
    r := chi.NewRouter()
    r.Use(middleware.StripSlashes)
    r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Throttle 限流
@@ -714,7 +714,7 @@ func main(){
     r := chi.NewRouter()
     r.Use(middleware.Throttle(15))
     r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## ThrottleBacklog 限流积压
@@ -738,7 +738,7 @@ func main(){
     r := chi.NewRouter()
     r.Use(ThrottleBacklog(10, 50, time.Second*10))
     r.Post("/", func(w http.ResponseWriter, r *http.Request) {})
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Timeout 超时
@@ -769,7 +769,7 @@ ie. a route/handler may look like:
    }
 
    w.Write([]byte("done"))
- })Copy to clipboardErrorCopied
+ })
 ```
 
 Usage
@@ -785,7 +785,7 @@ func main(){
     r := chi.NewRouter()
     r.Use(middleware.Timeout(time.Second*60))
     // handlers ...
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## JWT Authentication JWT 身份验证
@@ -891,7 +891,7 @@ func router() http.Handler {
   })
 
   return r
-}Copy to clipboardErrorCopied
+}
 ```
 
 ## Http Rate Limiting Middleware Http 速率限制中间件
