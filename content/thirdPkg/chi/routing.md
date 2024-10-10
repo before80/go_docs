@@ -39,7 +39,7 @@ Options(pattern string, h http.HandlerFunc)
 Patch(pattern string, h http.HandlerFunc)
 Post(pattern string, h http.HandlerFunc)
 Put(pattern string, h http.HandlerFunc)
-Trace(pattern string, h http.HandlerFunc)Copy to clipboardErrorCopied
+Trace(pattern string, h http.HandlerFunc)
 ```
 
 and may set a route by calling ie. `r.Put("/path", myHandler)`.
@@ -89,7 +89,7 @@ func getArticle(w http.ResponseWriter, r *http.Request) {
     return
   }
   w.Write([]byte(article.Text()))
-})Copy to clipboardErrorCopied
+})
 ```
 
 as you can see above, the url parameters are defined using the curly brackets `{}` with the parameter name in between, as `{date}` and `{slug}`.
@@ -114,7 +114,7 @@ For Example:
 
 ```go
 r := chi.NewRouter()
-r.Get("/articles/{rid:^[0-9]{5,6}}", getArticle)Copy to clipboardErrorCopied
+r.Get("/articles/{rid:^[0-9]{5,6}}", getArticle)
 ```
 
 ## Making Custom 404 and 405 Handlers 制作自定义 404 和 405 处理程序
@@ -131,7 +131,7 @@ r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 r.MethodNotAllowed(func(w http.ResponseWriter, r *http.Request) {
   w.WriteHeader(405)
   w.Write([]byte("method is not valid"))
-})Copy to clipboardErrorCopied
+})
 ```
 
 ## Sub Routers 子路由
@@ -157,7 +157,7 @@ func main(){
 
     // Mounting the new Sub Router on the main router
     r.Mount("/api", apiRouter)
-}Copy to clipboardErrorCopied
+}
 ```
 
 Another Way of Implementing Sub Routers would be:
@@ -182,7 +182,7 @@ r.Route("/articles", func(r chi.Router) {
       r.Put("/", updateArticle)                                       // PUT /articles/123
       r.Delete("/", deleteArticle)                                    // DELETE /articles/123
     })
-  })Copy to clipboardErrorCopied
+  })
 ```
 
 ## Routing Groups 路由组
