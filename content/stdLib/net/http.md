@@ -257,11 +257,13 @@ DefaultMaxIdleConnsPerHost is the default value of Transport's MaxIdleConnsPerHo
 const TimeFormat = "Mon, 02 Jan 2006 15:04:05 GMT"
 ```
 
-TimeFormat is the time format to use when generating times in HTTP headers. It is like time.RFC1123 but hard-codes GMT as the time zone. The time being formatted must be in UTC for Format to generate the correct format.
+TimeFormat is the time format to use when generating times in HTTP headers. It is like time.RFC1123 but hard-codes GMT as the time zone. The time being formatted must be in UTC for Format to generate the correct format.	
 
-​	TimeFormat是生成HTTP标头中时间时要使用的时间格式。它类似于time.RFC1123，但将GMT硬编码为时区。要格式化的时间必须在UTC中，Format才能生成正确的格式。
+​	TimeFormat 是用于在生成 HTTP 头中的时间时使用的时间格式。它类似于 `time.RFC1123`，但硬编码了 GMT 作为时区。要生成正确的格式，必须确保被格式化的时间是 UTC 时间。
 
 For parsing this time format, see ParseTime.
+
+​	要解析这种时间格式，请参见 `ParseTime`。
 
 [View Source](https://cs.opensource.google/go/go/+/go1.20.1:src/net/http/server.go;l=513)
 
@@ -277,10 +279,11 @@ This mechanism is intended only for trailers that are not known prior to the hea
 
 ​	该机制仅用于不在编写标头之前未知的trailers。如果trailers的集合是固定的或在编写标头之前已知，则首选常规的Go trailers机制：
 
-```
-> 原文：[https://pkg.go.dev/net/http#ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter)
-> 原文：[https://pkg.go.dev/net/http#example-ResponseWriter-Trailers](https://pkg.go.dev/net/http#example-ResponseWriter-Trailers)
-```
+- [https://pkg.go.dev/net/http#ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter)
+
+- [https://pkg.go.dev/net/http#example-ResponseWriter-Trailers](https://pkg.go.dev/net/http#example-ResponseWriter-Trailers)
+
+
 
 ## 变量
 
