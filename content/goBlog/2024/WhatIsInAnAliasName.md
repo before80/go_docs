@@ -190,7 +190,7 @@ This map can be instantiated with any key type that satisfies the `integers` con
 
 Finally, because an alias may also denote a type literal, parameterized aliases make it possible to create generic type literals [(playground)](https://go.dev/play/p/wql3NJaUs0o?v=gotip):
 
-​	最后，因为别名也可以表示类型文字，参数化别名使创建泛型类型文字成为可能[(playground)](https://go.dev/play/p/wql3NJaUs0o?v=gotip)：
+​	最后，因为别名也可以表示类型字面量，参数化别名使创建泛型类型字面量成为可能[(playground)](https://go.dev/play/p/wql3NJaUs0o?v=gotip)：
 
 ```go
 type Point3D[E any] = struct{ x, y, z E }
@@ -212,11 +212,11 @@ type TypeName existingType
 
 This declaration creates a new and different type from an existing type and gives that new type a name. It was natural to call such types *named types* as they have a *type name* in contrast to unnamed [type literals](https://go.dev/ref/spec#Types) such as `struct{ x, y int }`.
 
-​	这种声明从现有类型创建了一个新且不同的类型，并为该新类型赋予了一个名称。很自然地将这种类型称为*命名类型*，因为它们有一个*类型名称*，与未命名的[类型文字](https://go.dev/ref/spec#Types)（如 `struct{ x, y int }`）相对。
+​	这种声明从现有类型创建了一个新且不同的类型，并为该新类型赋予了一个名称。很自然地将这种类型称为*命名类型*，因为它们有一个*类型名称*，与未命名的[类型字面量](https://go.dev/ref/spec#Types)（如 `struct{ x, y int }`）相对。
 
 With the introduction of alias types in Go 1.9 it became possible to give a name (an alias) to type literals, too. For instance, consider:
 
-​	随着 Go 1.9 中别名类型的引入，现在可以为类型文字赋予一个名称（别名）。例如，考虑：
+​	随着 Go 1.9 中别名类型的引入，现在可以为类型字面量赋予一个名称（别名）。例如，考虑：
 
 ```
 type Point2D = struct{ x, y int }
@@ -224,7 +224,7 @@ type Point2D = struct{ x, y int }
 
 Suddenly, the notion of a *named type* describing something that is different from a type literal didn’t make that much sense anymore, since an alias name clearly is a name for a type, and thus the denoted type (which might be a type literal, not a type name!) arguably could be called a “named type”.
 
-​	突然之间，描述某些不同于类型文字的东西的*命名类型*概念不再那么有意义了，因为别名显然是类型的一个名称，因此所指的类型（可能是一个类型文字，不是类型名称！）可以被称为“命名类型”。
+​	突然之间，描述某些不同于类型字面量的东西的*命名类型*概念不再那么有意义了，因为别名显然是类型的一个名称，因此所指的类型（可能是一个类型字面量，不是类型名称！）可以被称为“命名类型”。
 
 Because (proper) named types have special properties (one can bind methods to them, they follow different assignment rules, etc.), it seemed prudent to use a new term in order to avoid confusions. Thus, since Go 1.9, the spec calls the types formerly called named types *defined types*: only defined types have properties (methods, assignability restrictions, etc) that are tied to their names. Defined types are introduced through type definitions, and alias types are introduced through alias declarations. In both cases, names are given to types.
 
@@ -240,15 +240,15 @@ To top things off, Go’s predeclared types (`int`, `string` and so on) can only
 
 Therefore, with Go 1.18, the spec came full circle and formally re-introduced the notion of a [named type](https://go.dev/ref/spec#Types) which now comprises “predeclared types, defined types, and type parameters”. To correct for alias types denoting type literals the spec says: “An alias denotes a named type if the type given in the alias declaration is a named type.”
 
-​	因此，随着 Go 1.18 的发布，规范正式重新引入了[命名类型](https://go.dev/ref/spec#Types)的概念，现在它包括“预声明类型、定义类型和类型参数”。为了纠正别名类型表示类型文字的情况，规范规定：“如果别名声明中的类型是命名类型，则别名表示命名类型。”
+​	因此，随着 Go 1.18 的发布，规范正式重新引入了[命名类型](https://go.dev/ref/spec#Types)的概念，现在它包括“预声明类型、定义类型和类型参数”。为了纠正别名类型表示类型字面量的情况，规范规定：“如果别名声明中的类型是命名类型，则别名表示命名类型。”
 
 Stepping back and outside the box of Go nomenclature for a moment, the correct technical term for a named type in Go is probably [*nominal type*](https://en.wikipedia.org/wiki/Nominal_type_system). A nominal type’s identity is explicitly tied to its name which is exactly what Go’s named types (now using the 1.18 terminology) are all about. A nominal type’s behavior is in contrast to a *structural type* which has behavior that only depends on its structure and not its name (if it has one in the first place). Putting it all together, Go’s predeclared, defined, and type parameter types are all nominal types, while Go’s type literals and aliases denoting type literals are structural types. Both nominal and structural types can have names, but having a name doesn’t mean the type is nominal, it just means it is named.
 
-​	从 Go 的术语框架之外稍作思考，Go 中命名类型的正确技术术语可能是[*名义类型*](https://en.wikipedia.org/wiki/Nominal_type_system)。名义类型的身份明确与其名称相关，这正是 Go 的命名类型（现在使用1.18术语）所体现的。名义类型的行为与*结构类型*相对，结构类型的行为只依赖于其结构，而不是其名称（如果它有名称的话）。总而言之，Go的预声明、定义和类型参数都是名义类型，而Go的类型文字和表示类型文字的别名是结构类型。无论是名义类型还是结构类型都可以有名称，但拥有名称并不意味着该类型是名义的，它只是意味着它是命名的。
+​	从 Go 的术语框架之外稍作思考，Go 中命名类型的正确技术术语可能是[*名义类型*](https://en.wikipedia.org/wiki/Nominal_type_system)。名义类型的身份明确与其名称相关，这正是 Go 的命名类型（现在使用1.18术语）所体现的。名义类型的行为与*结构类型*相对，结构类型的行为只依赖于其结构，而不是其名称（如果它有名称的话）。总而言之，Go的预声明、定义和类型参数都是名义类型，而Go的类型字面量和表示类型字面量的别名是结构类型。无论是名义类型还是结构类型都可以有名称，但拥有名称并不意味着该类型是名义的，它只是意味着它是命名的。
 
 None of this matters for day-to-day use of Go and in practice the details can safely be ignored. But precise terminology matters in the spec because it makes it easier to describe the rules governing the language. So should the spec change its terminology one more time? It is probably not worth the churn: it is not just the spec that would need to be updated, but also a lot of supporting documentation. A fair number of books written on Go might become inaccurate. Furthermore, “named”, while less precise, is probably intuitively clearer than “nominal” for most people. It also matches the original terminology used in the spec, even if it now requires an exception for alias types denoting type literals.
 
-​	这些对日常使用Go并没有实际影响，在实践中可以安全地忽略细节。但在规范中，精确的术语很重要，因为它使描述语言规则变得更加容易。那么规范是否应该再次更改其术语？可能不值得这样做：不仅是规范需要更新，还有很多支持文档也需要更新。大量关于Go的书籍可能会因此变得不准确。此外，“命名”虽然不够精确，但对于大多数人来说，可能比“名义”更直观。它也与规范中最初使用的术语一致，尽管现在需要对表示类型文字的别名类型做出例外规定。
+​	这些对日常使用Go并没有实际影响，在实践中可以安全地忽略细节。但在规范中，精确的术语很重要，因为它使描述语言规则变得更加容易。那么规范是否应该再次更改其术语？可能不值得这样做：不仅是规范需要更新，还有很多支持文档也需要更新。大量关于Go的书籍可能会因此变得不准确。此外，“命名”虽然不够精确，但对于大多数人来说，可能比“名义”更直观。它也与规范中最初使用的术语一致，尽管现在需要对表示类型字面量的别名类型做出例外规定。
 
 ## 可用性 Availability
 
