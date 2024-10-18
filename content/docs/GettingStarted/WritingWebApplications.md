@@ -416,7 +416,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	由于我们现在正在使用模板，所以让我们为`viewHandler`创建一个名为`view.html`的模板：
 
-```html linenums="1" title="view.html"
+```html
 <h1>{{.Title}}</h1>
 
 <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
@@ -469,9 +469,9 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 ​	我们到目前为止所写的代码如下：
 
-{{< tabpane text=true >}}
+{{< tabpane text=true persist=disabled >}}
 
-{{< tab header="wiki.go" >}}
+{{% tab header="wiki.go" %}}
 
 ```go
 // Copyright 2010 The Go Authors. All rights reserved.
@@ -536,9 +536,9 @@ func main() {
 }
 ```
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="view.html" >}}
+{{% tab header="view.html" %}}
 
 ```go
 <h1>{{.Title}}</h1>
@@ -548,9 +548,9 @@ func main() {
 <div>{{printf "%s" .Body}}</div>
 ```
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="edit.html" >}}
+{{% tab header="edit.html" %}}
 
 ```go
 <h1>Editing {{.Title}}</h1>
@@ -561,15 +561,15 @@ func main() {
 </form>
 ```
 
-{{< /tab  >}}
+{{% /tab  %}}
 
-{{< tab header="test.txt" >}}
+{{% tab header="test.txt" %}}
 
 ```go
 Hello world
 ```
 
-{{< /tab  >}}
+{{% /tab  %}}
 
 {{< /tabpane >}}
 
@@ -835,10 +835,10 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 
 最终的代码如下:
 
-{{< tabpane text=true >}}
-{{< tab header="wiki.go" >}}
+{{< tabpane text=true persist=disabled >}}
+{{% tab header="wiki.go" %}}
 
-```go  title="wiki.go"
+```go
 // Copyright 2010 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -934,11 +934,11 @@ func main() {
 
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab header="view.html" >}}
+{{% tab header="view.html" %}}
 
-```html linenums="1"
+```html
 <h1>{{.Title}}</h1>
 
 <p>[<a href="/edit/{{.Title}}">edit</a>]</p>
@@ -946,9 +946,9 @@ func main() {
 <div>{{printf "%s" .Body}}</div>
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab header="edit.html" >}}
+{{% tab header="edit.html" %}}
 
 ```html linenums="1"
 <h1>Editing {{.Title}}</h1>
@@ -959,15 +959,15 @@ func main() {
 </form>
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab header="test.txt" >}}
+{{% tab header="test.txt" %}}
 
-```text linenums="1"
+```text
 Hello world
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
 {{< /tabpane >}}
 

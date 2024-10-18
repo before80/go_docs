@@ -569,12 +569,43 @@ DetectContentType implements the algorithm described at https://mimesniff.spec.w
 ### func Error 
 
 ``` go 
-func Error(w ResponseWriter, error string, code int)
+func Error(w ResponseWriter, error string, code int) {
+	h := w.Header()
+
+	// Delete the Content-Length header, which might be for some other content.
+	// Assuming the error string fits in the writer's buffer, we'll figure
+	// out the correct Content-Length for it later.
+	//
+	// We don't delete Content-Encoding, because some middleware sets
+	// Content-Encoding: gzip and wraps the ResponseWriter to compress on-the-fly.
+	// See https://go.dev/issue/66343.
+    // 删除 Content-Length 头信息，它可能是为其他内容设置的。
+	// 假设错误消息可以放在 writer 的缓冲区中，我们稍后会计算出
+	// 正确的 Content-Length。
+	//
+	// 我们不会删除 Content-Encoding，因为某些中间件设置了
+	// Content-Encoding: gzip，并且会包装 ResponseWriter 来进行实时压缩。
+	// 参见 https://go.dev/issue/66343。
+	h.Del("Content-Length")
+
+	// There might be content type already set, but we reset it to
+	// text/plain for the error message.
+    // 可能已经设置了内容类型，但我们会将其重置为
+	// text/plain 以显示错误消息。
+	h.Set("Content-Type", "text/plain; charset=utf-8")
+	h.Set("X-Content-Type-Options", "nosniff")
+	w.WriteHeader(code)
+	fmt.Fprintln(w, error)
+}
 ```
 
 Error replies to the request with the specified error message and HTTP code. It does not otherwise end the request; the caller should ensure no further writes are done to w. The error message should be plain text.
 
-​	Error使用指定的错误消息和HTTP代码回复请求。它不会以其他方式结束请求；调用者应确保不会对w进行进一步的写入。错误消息应为纯文本。
+​	`Error` 函数使用指定的错误消息和 HTTP 状态码回复请求。它不会终止请求；调用者应确保不再向 `w` 进行进一步的写入。错误消息应为纯文本。
+
+Error deletes the Content-Length header, sets Content-Type to “text/plain; charset=utf-8”, and sets X-Content-Type-Options to “nosniff”. This configures the header properly for the error message, in case the caller had set it up expecting a successful output.
+
+​	`Error` 会删除 `Content-Length` 头信息，设置 `Content-Type` 为 “`text/plain; charset=utf-8`”，并设置 `X-Content-Type-Options` 为 “`nosniff`”。这样可以正确配置错误消息的头信息，以防调用者之前设置了预期成功输出的响应头。
 
 ### func Handle 
 
