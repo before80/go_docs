@@ -204,7 +204,7 @@ import "github.com/go-sql-driver/mysql"
 
 a. 在`main.go`中，在您刚刚添加的`import`代码下面，粘贴以下Go代码来创建一个数据库句柄。
 
-```go linenums="1"
+```go
 var db *sql.DB
 
 func main() {
@@ -323,7 +323,7 @@ Connected!
 
 a. 在`main.go`中，紧挨着`func main`的上方，粘贴以下`Album`结构的定义。您将用它来保存从查询中返回的行数据。
 
-```go linenums="1"
+```go
 type Album struct {
     ID     int64
     Title  string
@@ -334,7 +334,7 @@ type Album struct {
 
 b. 在`func main`下面，粘贴以下`associatesByArtist`函数来查询数据库。
 
-```go linenums="1"
+```go
 // albumsByArtist queries for albums that have the specified artist name.
 func albumsByArtist(name string) ([]Album, error) {
     // An albums slice to hold data from returned rows.
@@ -384,7 +384,7 @@ c. 更新您的`main`函数以调用 `albumsByArtist`。
 
 ​	在`func main`的结尾处，添加以下代码。
 
-```go linenums="1"
+```go
 albums, err := albumsByArtist("John Coltrane")
 if err != nil {
     log.Fatal(err)
@@ -419,7 +419,7 @@ Albums found: [{1 Blue Train John Coltrane 56.99} {2 Giant Steps John Coltrane 6
 
 a. 在 `albumsByArtist` 下方，粘贴以下 `albumByID` 函数。
 
-```go linenums="1"
+```go
 // albumByID queries for the album with the specified ID.
 func albumByID(id int64) (Album, error) {
     // An album to hold data from the returned row.
@@ -452,7 +452,7 @@ b. 更新`main`以调用 `albumByID`。
 
 在`func main`的末尾，添加以下代码。
 
-```go linenums="1"
+```go
 // Hard-code ID 2 here to test the query.
 alb, err := albumByID(2)
 if err != nil {
@@ -489,7 +489,7 @@ Album found: {2 Giant Steps John Coltrane 63.99}
 
 a. 在 `albumByID` 下面，粘贴以下 `addAlbum` 函数，在数据库中插入一个新`album` ，然后保存 main.go。
 
-```go linenums="1"
+```go
 // addAlbum adds the specified album to the database,
 // returning the album ID of the new entry
 func addAlbum(alb Album) (int64, error) {
@@ -521,7 +521,7 @@ b. 更新main以调用新的`addAlbum`函数。
 
 在`func main`的末尾，添加以下代码。
 
-```go linenums="1"
+```go
 albID, err := addAlbum(Album{
     Title:  "The Modern Sound of Betty Carter",
     Artist: "Betty Carter",
@@ -563,7 +563,7 @@ ID of added album: 5
 
 本节包含您通过本教程构建的应用程序的代码。
 
-```go title="main.go" linenums="1"
+```go
 package main
 
 import (
@@ -592,6 +592,7 @@ func main() {
         Net:    "tcp",
         Addr:   "127.0.0.1:3306",
         DBName: "recordings",
+        AllowNativePasswords: true,// 目前我在 go1.21.2 版本中测试，发现需要加上这一配置为true
     }
     // Get a database handle.
     var err error

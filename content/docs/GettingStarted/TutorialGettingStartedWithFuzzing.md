@@ -96,7 +96,7 @@ A standalone program (as opposed to a library) is always in package `main`.
 
 c. 在包声明的下面，粘贴以下函数声明。
 
-```go linenums="1" hl_lines="2 2"
+```go
 func Reverse(s string) string {
     b := []byte(s)
     for i, j := 0, len(b)-1; i < len(b)/2; i, j = i+1, j-1 {
@@ -112,7 +112,7 @@ func Reverse(s string) string {
 
 d. 在`main.go`的顶部，在包声明的下面，粘贴以下`main`函数，以初始化一个字符串，反转它，打印输出，然后重复。
 
-```go linenums="1"
+```go
 func main() {
     input := "The quick brown fox jumped over the lazy dog"
     rev := Reverse(input)
@@ -129,7 +129,7 @@ e. `main`函数使用`fmt`包，所以您需要导入它。
 
 第一行代码应该是这样的：
 
-```go linenums="1"
+```go
 package main
 
 import "fmt"
@@ -160,7 +160,7 @@ a. 使用您的文本编辑器，在`fuzz`目录下创建一个名为`reverse_te
 
 b. 将以下代码粘贴到`reverse_test.go`中。
 
-```go title="reverse_test.go" linenums="1"
+```go
 package main
 
 import (
@@ -210,7 +210,7 @@ ok      example/fuzz  0.013s
 
 在您的文本编辑器中，用以下模糊测试替换 `reverse_test.go` 中的单元测试。
 
-```go linenums="1"
+```go
 func FuzzReverse(f *testing.F) {
     testcases := []string{"Hello, world", " ", "!12345"}
     for _, tc := range testcases {
@@ -247,7 +247,7 @@ func FuzzReverse(f *testing.F) {
 
 确保新的包，`unicode/utf8`已经被导入。
 
-```go linenums="1" hl_lines="5 5"
+```go
 package main
 
 import (
@@ -338,7 +338,7 @@ ValidString reports whether s consists entirely of valid UTF-8-encoded runes.
 
 ​	在您的文本编辑器中，将`FuzzReverse`中的 fuzz 目标替换为以下内容。
 
-```go linenums="1"
+```go
 f.Fuzz(func(t *testing.T, orig string) {
     rev := Reverse(orig)
     doubleRev := Reverse(rev)
@@ -383,7 +383,7 @@ FAIL    example/fuzz    0.598s
 
 ​	在您的文本编辑器中，将现有的`Reverse()`函数替换为以下内容。
 
-```go linenums="1" hl_lines="2 2"
+```go
 func Reverse(s string) string {
     r := []rune(s)
     for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
@@ -448,7 +448,7 @@ FAIL    example/fuzz  0.032s
 
 a. 在您的文本编辑器中，将`Reverse`函数替换为以下内容。
 
-```go linenums="1" hl_lines="2 4"
+```go
 func Reverse(s string) string {
     fmt.Printf("input: %q\n", s)
     r := []rune(s)
@@ -493,7 +493,7 @@ FAIL    example/fuzz    0.145s
 
 a. 在您的文本编辑器中，将现有的`Reverse`函数替换为以下内容。
 
-```go linenums="1"
+```go
 func Reverse(s string) (string, error) {
     if !utf8.ValidString(s) {
         return s, errors.New("input is not valid UTF-8")
@@ -510,7 +510,7 @@ func Reverse(s string) (string, error) {
 
 b. 由于`Reverse`函数现在返回一个错误，请修改`main`函数以丢弃额外的错误值。将现有的`main`函数改为以下内容。
 
-```go linenums="1"
+```go
 func main() {
     input := "The quick brown fox jumped over the lazy dog"
     rev, revErr := Reverse(input)
@@ -525,7 +525,7 @@ func main() {
 
 c. 您将需要导入错误和`unicode/utf8`包。`main.go`中的`import`语句应该如下所示。
 
-```go linenums="1"
+```go
 import (
     "errors"
     "fmt"
@@ -535,7 +535,7 @@ import (
 
 d. 修改 `reverse_test.go` 文件以检查错误，如果返回时产生了错误，则跳过测试。
 
-```go linenums="1" hl_lines="8 10"
+```go
 func FuzzReverse(f *testing.F) {
     testcases := []string {"Hello, world", " ", "!12345"}
     for _, tc := range testcases {
@@ -629,10 +629,10 @@ Fuzzing通过了!
 
 ## 完整的代码
 
-{{< tabpane text=true >}}
-{{< tab header="main.go" >}}
+{{< tabpane text=true persist=disabled >}}
+{{% tab header="main.go" %}}
 
-```go title="main.go" linenums="1"
+```go
 package main
 
 import (
@@ -662,11 +662,11 @@ func Reverse(s string) (string, error) {
 }
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
-{{< tab header="reverse_test.go" >}}
+{{% tab header="reverse_test.go" %}}
 
-```go title="reverse_test.go" linenums="1"
+```go
 package main
 
 import (
@@ -698,7 +698,7 @@ func FuzzReverse(f *testing.F) {
 }
 ```
 
-{{< /tab >}}
+{{% /tab %}}
 
 {{< /tabpane >}}
 
