@@ -1,7 +1,5 @@
 title = "Go 中文档集"
 
-ignoreFiles = ["^content/docs/GettingStarted/codes/"]
-
 # 禁用路径小写化
 disablePathToLower = true
 

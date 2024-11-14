@@ -1400,7 +1400,7 @@ Output:
 Gophers!!!
 ```
 
-### xxxxxxxxxx1 1func (e *NumError) Unwrap() errorgo 
+### func TrimRight
 
 ``` go 
 func TrimRight(s, cutset string) string
