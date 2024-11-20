@@ -22,6 +22,16 @@ elements.forEach(function(element) {
 });
 
 
+
+// 在浏览器控制台中执行以下代码
+var elements = document.querySelectorAll('p');
+
+elements.forEach(function(element) {        
+   var parent = element.parentElement; // 获取 element 的直接父元素
+   if (parent.tagName != 'LI') {
+   		element.firstChild.nodeValue = '&zeroWidthSpace;' +element.firstChild.nodeValue;
+   }
+});
 ```
 
 ## 更换标题层级
