@@ -21,11 +21,9 @@ This lib is standalone and stateless, you can use it independently. Such as use 
 
 Here's an [usage example](https://github.com/go-rod/rod/raw/9e847f3bab313a1d233c0c868fe5125e2e70de70/examples_test.go#L370-L393).
 
-# Overview 
-
 Package proto is a lib to encode/decode the data of the cdp protocol.https://pkg.go.dev/github.com/go-rod/rod/lib/proto#WebAuthnVirtualAuthenticatorOptions)
 
-# 常量 
+## 常量 
 
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/lib/proto/definitions.go#L10)
 
@@ -35,11 +33,11 @@ const Version = "v1.3"
 
 Version of cdp protocol.
 
-# 变量
+## 变量
 
 This section is empty.
 
-# 函数
+## 函数
 
 ### func GetType 
 
@@ -65,9 +63,9 @@ func PatternToReg(pattern string) string
 
 PatternToReg FetchRequestPattern.URLPattern to regular expression.
 
-# 类型
+## 类型
 
-## type AccessibilityAXNode 
+### type AccessibilityAXNode 
 
 ``` go
 type AccessibilityAXNode struct {
@@ -114,7 +112,7 @@ type AccessibilityAXNode struct {
 
 AccessibilityAXNode A node in the accessibility tree.
 
-## type AccessibilityAXNodeID 
+### type AccessibilityAXNodeID 
 
 ``` go
 type AccessibilityAXNodeID string
@@ -122,7 +120,7 @@ type AccessibilityAXNodeID string
 
 AccessibilityAXNodeID Unique accessibility node identifier.
 
-## type AccessibilityAXProperty 
+### type AccessibilityAXProperty 
 
 ``` go
 type AccessibilityAXProperty struct {
@@ -136,7 +134,7 @@ type AccessibilityAXProperty struct {
 
 AccessibilityAXProperty ...
 
-## type AccessibilityAXPropertyName 
+### type AccessibilityAXPropertyName 
 
 ``` go
 type AccessibilityAXPropertyName string
@@ -268,7 +266,7 @@ const (
 )
 ```
 
-## type AccessibilityAXRelatedNode 
+### type AccessibilityAXRelatedNode 
 
 ``` go
 type AccessibilityAXRelatedNode struct {
@@ -285,7 +283,7 @@ type AccessibilityAXRelatedNode struct {
 
 AccessibilityAXRelatedNode ...
 
-## type AccessibilityAXValue 
+### type AccessibilityAXValue 
 
 ``` go
 type AccessibilityAXValue struct {
@@ -305,7 +303,7 @@ type AccessibilityAXValue struct {
 
 AccessibilityAXValue A single computed AX property.
 
-## type AccessibilityAXValueNativeSourceType 
+### type AccessibilityAXValueNativeSourceType 
 
 ``` go
 type AccessibilityAXValueNativeSourceType string
@@ -347,7 +345,7 @@ const (
 )
 ```
 
-## type AccessibilityAXValueSource 
+### type AccessibilityAXValueSource 
 
 ``` go
 type AccessibilityAXValueSource struct {
@@ -382,7 +380,7 @@ type AccessibilityAXValueSource struct {
 
 AccessibilityAXValueSource A single source for a computed AX property.
 
-## type AccessibilityAXValueSourceType 
+### type AccessibilityAXValueSourceType 
 
 ``` go
 type AccessibilityAXValueSourceType string
@@ -412,7 +410,7 @@ const (
 )
 ```
 
-## type AccessibilityAXValueType 
+### type AccessibilityAXValueType 
 
 ``` go
 type AccessibilityAXValueType string
@@ -475,7 +473,7 @@ const (
 )
 ```
 
-## type AccessibilityDisable 
+### type AccessibilityDisable 
 
 ``` go
 type AccessibilityDisable struct{}
@@ -483,7 +481,7 @@ type AccessibilityDisable struct{}
 
 AccessibilityDisable Disables the accessibility domain.
 
-### (AccessibilityDisable) Call 
+#### (AccessibilityDisable) Call 
 
 ``` go
 func (m AccessibilityDisable) Call(c Client) error
@@ -491,7 +489,7 @@ func (m AccessibilityDisable) Call(c Client) error
 
 Call sends the request.
 
-### (AccessibilityDisable) ProtoReq <- 0.74.0
+#### (AccessibilityDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AccessibilityDisable) ProtoReq() string
@@ -499,7 +497,7 @@ func (m AccessibilityDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityEnable 
+### type AccessibilityEnable 
 
 ``` go
 type AccessibilityEnable struct{}
@@ -507,7 +505,7 @@ type AccessibilityEnable struct{}
 
 AccessibilityEnable Enables the accessibility domain which causes `AXNodeId`s to remain consistent between method calls. This turns on accessibility for the page, which can impact performance until accessibility is disabled.
 
-### (AccessibilityEnable) Call 
+#### (AccessibilityEnable) Call 
 
 ``` go
 func (m AccessibilityEnable) Call(c Client) error
@@ -515,7 +513,7 @@ func (m AccessibilityEnable) Call(c Client) error
 
 Call sends the request.
 
-### (AccessibilityEnable) ProtoReq <- 0.74.0
+#### (AccessibilityEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AccessibilityEnable) ProtoReq() string
@@ -523,7 +521,7 @@ func (m AccessibilityEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetAXNodeAndAncestors <- 0.102.0
+### type AccessibilityGetAXNodeAndAncestors <- 0.102.0
 
 ``` go
 type AccessibilityGetAXNodeAndAncestors struct {
@@ -540,7 +538,7 @@ type AccessibilityGetAXNodeAndAncestors struct {
 
 AccessibilityGetAXNodeAndAncestors (experimental) Fetches a node and all ancestors up to and including the root. Requires `enable()` to have been called previously.
 
-### (AccessibilityGetAXNodeAndAncestors) Call <- 0.102.0
+#### (AccessibilityGetAXNodeAndAncestors) Call <- 0.102.0
 
 ``` go
 func (m AccessibilityGetAXNodeAndAncestors) Call(c Client) (*AccessibilityGetAXNodeAndAncestorsResult, error)
@@ -548,7 +546,7 @@ func (m AccessibilityGetAXNodeAndAncestors) Call(c Client) (*AccessibilityGetAXN
 
 Call the request.
 
-### (AccessibilityGetAXNodeAndAncestors) ProtoReq <- 0.102.0
+#### (AccessibilityGetAXNodeAndAncestors) ProtoReq <- 0.102.0
 
 ``` go
 func (m AccessibilityGetAXNodeAndAncestors) ProtoReq() string
@@ -556,7 +554,7 @@ func (m AccessibilityGetAXNodeAndAncestors) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetAXNodeAndAncestorsResult <- 0.102.0
+### type AccessibilityGetAXNodeAndAncestorsResult <- 0.102.0
 
 ``` go
 type AccessibilityGetAXNodeAndAncestorsResult struct {
@@ -567,7 +565,7 @@ type AccessibilityGetAXNodeAndAncestorsResult struct {
 
 AccessibilityGetAXNodeAndAncestorsResult (experimental) ...
 
-## type AccessibilityGetChildAXNodes <- 0.90.0
+### type AccessibilityGetChildAXNodes <- 0.90.0
 
 ``` go
 type AccessibilityGetChildAXNodes struct {
@@ -582,7 +580,7 @@ type AccessibilityGetChildAXNodes struct {
 
 AccessibilityGetChildAXNodes (experimental) Fetches a particular accessibility node by AXNodeId. Requires `enable()` to have been called previously.
 
-### (AccessibilityGetChildAXNodes) Call <- 0.90.0
+#### (AccessibilityGetChildAXNodes) Call <- 0.90.0
 
 ``` go
 func (m AccessibilityGetChildAXNodes) Call(c Client) (*AccessibilityGetChildAXNodesResult, error)
@@ -590,7 +588,7 @@ func (m AccessibilityGetChildAXNodes) Call(c Client) (*AccessibilityGetChildAXNo
 
 Call the request.
 
-### (AccessibilityGetChildAXNodes) ProtoReq <- 0.90.0
+#### (AccessibilityGetChildAXNodes) ProtoReq <- 0.90.0
 
 ``` go
 func (m AccessibilityGetChildAXNodes) ProtoReq() string
@@ -598,7 +596,7 @@ func (m AccessibilityGetChildAXNodes) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetChildAXNodesResult <- 0.90.0
+### type AccessibilityGetChildAXNodesResult <- 0.90.0
 
 ``` go
 type AccessibilityGetChildAXNodesResult struct {
@@ -609,7 +607,7 @@ type AccessibilityGetChildAXNodesResult struct {
 
 AccessibilityGetChildAXNodesResult (experimental) ...
 
-## type AccessibilityGetFullAXTree 
+### type AccessibilityGetFullAXTree 
 
 ``` go
 type AccessibilityGetFullAXTree struct {
@@ -625,7 +623,7 @@ type AccessibilityGetFullAXTree struct {
 
 AccessibilityGetFullAXTree (experimental) Fetches the entire accessibility tree for the root Document.
 
-### (AccessibilityGetFullAXTree) Call 
+#### (AccessibilityGetFullAXTree) Call 
 
 ``` go
 func (m AccessibilityGetFullAXTree) Call(c Client) (*AccessibilityGetFullAXTreeResult, error)
@@ -633,7 +631,7 @@ func (m AccessibilityGetFullAXTree) Call(c Client) (*AccessibilityGetFullAXTreeR
 
 Call the request.
 
-### (AccessibilityGetFullAXTree) ProtoReq <- 0.74.0
+#### (AccessibilityGetFullAXTree) ProtoReq <- 0.74.0
 
 ``` go
 func (m AccessibilityGetFullAXTree) ProtoReq() string
@@ -641,7 +639,7 @@ func (m AccessibilityGetFullAXTree) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetFullAXTreeResult 
+### type AccessibilityGetFullAXTreeResult 
 
 ``` go
 type AccessibilityGetFullAXTreeResult struct {
@@ -652,7 +650,7 @@ type AccessibilityGetFullAXTreeResult struct {
 
 AccessibilityGetFullAXTreeResult (experimental) ...
 
-## type AccessibilityGetPartialAXTree 
+### type AccessibilityGetPartialAXTree 
 
 ``` go
 type AccessibilityGetPartialAXTree struct {
@@ -672,7 +670,7 @@ type AccessibilityGetPartialAXTree struct {
 
 AccessibilityGetPartialAXTree (experimental) Fetches the accessibility node and partial accessibility tree for this DOM node, if it exists.
 
-### (AccessibilityGetPartialAXTree) Call 
+#### (AccessibilityGetPartialAXTree) Call 
 
 ``` go
 func (m AccessibilityGetPartialAXTree) Call(c Client) (*AccessibilityGetPartialAXTreeResult, error)
@@ -680,7 +678,7 @@ func (m AccessibilityGetPartialAXTree) Call(c Client) (*AccessibilityGetPartialA
 
 Call the request.
 
-### (AccessibilityGetPartialAXTree) ProtoReq <- 0.74.0
+#### (AccessibilityGetPartialAXTree) ProtoReq <- 0.74.0
 
 ``` go
 func (m AccessibilityGetPartialAXTree) ProtoReq() string
@@ -688,7 +686,7 @@ func (m AccessibilityGetPartialAXTree) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetPartialAXTreeResult 
+### type AccessibilityGetPartialAXTreeResult 
 
 ``` go
 type AccessibilityGetPartialAXTreeResult struct {
@@ -700,7 +698,7 @@ type AccessibilityGetPartialAXTreeResult struct {
 
 AccessibilityGetPartialAXTreeResult (experimental) ...
 
-## type AccessibilityGetRootAXNode <- 0.102.0
+### type AccessibilityGetRootAXNode <- 0.102.0
 
 ``` go
 type AccessibilityGetRootAXNode struct {
@@ -712,7 +710,7 @@ type AccessibilityGetRootAXNode struct {
 
 AccessibilityGetRootAXNode (experimental) Fetches the root node. Requires `enable()` to have been called previously.
 
-### (AccessibilityGetRootAXNode) Call <- 0.102.0
+#### (AccessibilityGetRootAXNode) Call <- 0.102.0
 
 ``` go
 func (m AccessibilityGetRootAXNode) Call(c Client) (*AccessibilityGetRootAXNodeResult, error)
@@ -720,7 +718,7 @@ func (m AccessibilityGetRootAXNode) Call(c Client) (*AccessibilityGetRootAXNodeR
 
 Call the request.
 
-### (AccessibilityGetRootAXNode) ProtoReq <- 0.102.0
+#### (AccessibilityGetRootAXNode) ProtoReq <- 0.102.0
 
 ``` go
 func (m AccessibilityGetRootAXNode) ProtoReq() string
@@ -728,7 +726,7 @@ func (m AccessibilityGetRootAXNode) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityGetRootAXNodeResult <- 0.102.0
+### type AccessibilityGetRootAXNodeResult <- 0.102.0
 
 ``` go
 type AccessibilityGetRootAXNodeResult struct {
@@ -739,7 +737,7 @@ type AccessibilityGetRootAXNodeResult struct {
 
 AccessibilityGetRootAXNodeResult (experimental) ...
 
-## type AccessibilityLoadComplete <- 0.102.0
+### type AccessibilityLoadComplete <- 0.102.0
 
 ``` go
 type AccessibilityLoadComplete struct {
@@ -750,7 +748,7 @@ type AccessibilityLoadComplete struct {
 
 AccessibilityLoadComplete (experimental) The loadComplete event mirrors the load complete event sent by the browser to assistive technology when the web page has finished loading.
 
-### (AccessibilityLoadComplete) ProtoEvent <- 0.102.0
+#### (AccessibilityLoadComplete) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt AccessibilityLoadComplete) ProtoEvent() string
@@ -758,7 +756,7 @@ func (evt AccessibilityLoadComplete) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AccessibilityNodesUpdated <- 0.102.0
+### type AccessibilityNodesUpdated <- 0.102.0
 
 ``` go
 type AccessibilityNodesUpdated struct {
@@ -769,7 +767,7 @@ type AccessibilityNodesUpdated struct {
 
 AccessibilityNodesUpdated (experimental) The nodesUpdated event is sent every time a previously requested node has changed the in tree.
 
-### (AccessibilityNodesUpdated) ProtoEvent <- 0.102.0
+#### (AccessibilityNodesUpdated) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt AccessibilityNodesUpdated) ProtoEvent() string
@@ -777,7 +775,7 @@ func (evt AccessibilityNodesUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AccessibilityQueryAXTree <- 0.82.3
+### type AccessibilityQueryAXTree <- 0.82.3
 
 ``` go
 type AccessibilityQueryAXTree struct {
@@ -800,7 +798,7 @@ type AccessibilityQueryAXTree struct {
 
 AccessibilityQueryAXTree (experimental) Query a DOM node's accessibility subtree for accessible name and role. This command computes the name and role for all nodes in the subtree, including those that are ignored for accessibility, and returns those that match the specified name and role. If no DOM node is specified, or the DOM node does not exist, the command returns an error. If neither `accessibleName` or `role` is specified, it returns all the accessibility nodes in the subtree.
 
-### (AccessibilityQueryAXTree) Call <- 0.82.3
+#### (AccessibilityQueryAXTree) Call <- 0.82.3
 
 ``` go
 func (m AccessibilityQueryAXTree) Call(c Client) (*AccessibilityQueryAXTreeResult, error)
@@ -808,7 +806,7 @@ func (m AccessibilityQueryAXTree) Call(c Client) (*AccessibilityQueryAXTreeResul
 
 Call the request.
 
-### (AccessibilityQueryAXTree) ProtoReq <- 0.82.3
+#### (AccessibilityQueryAXTree) ProtoReq <- 0.82.3
 
 ``` go
 func (m AccessibilityQueryAXTree) ProtoReq() string
@@ -816,7 +814,7 @@ func (m AccessibilityQueryAXTree) ProtoReq() string
 
 ProtoReq name.
 
-## type AccessibilityQueryAXTreeResult <- 0.82.3
+### type AccessibilityQueryAXTreeResult <- 0.82.3
 
 ``` go
 type AccessibilityQueryAXTreeResult struct {
@@ -828,7 +826,7 @@ type AccessibilityQueryAXTreeResult struct {
 
 AccessibilityQueryAXTreeResult (experimental) ...
 
-## type AnimationAnimation 
+### type AnimationAnimation 
 
 ``` go
 type AnimationAnimation struct {
@@ -873,7 +871,7 @@ type AnimationAnimation struct {
 
 AnimationAnimation Animation instance.
 
-## type AnimationAnimationCanceled 
+### type AnimationAnimationCanceled 
 
 ``` go
 type AnimationAnimationCanceled struct {
@@ -884,7 +882,7 @@ type AnimationAnimationCanceled struct {
 
 AnimationAnimationCanceled Event for when an animation has been cancelled.
 
-### (AnimationAnimationCanceled) ProtoEvent <- 0.72.0
+#### (AnimationAnimationCanceled) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt AnimationAnimationCanceled) ProtoEvent() string
@@ -892,7 +890,7 @@ func (evt AnimationAnimationCanceled) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AnimationAnimationCreated 
+### type AnimationAnimationCreated 
 
 ``` go
 type AnimationAnimationCreated struct {
@@ -903,7 +901,7 @@ type AnimationAnimationCreated struct {
 
 AnimationAnimationCreated Event for each animation that has been created.
 
-### (AnimationAnimationCreated) ProtoEvent <- 0.72.0
+#### (AnimationAnimationCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt AnimationAnimationCreated) ProtoEvent() string
@@ -911,7 +909,7 @@ func (evt AnimationAnimationCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AnimationAnimationEffect 
+### type AnimationAnimationEffect 
 
 ``` go
 type AnimationAnimationEffect struct {
@@ -952,7 +950,7 @@ type AnimationAnimationEffect struct {
 
 AnimationAnimationEffect AnimationEffect instance.
 
-## type AnimationAnimationStarted 
+### type AnimationAnimationStarted 
 
 ``` go
 type AnimationAnimationStarted struct {
@@ -963,7 +961,7 @@ type AnimationAnimationStarted struct {
 
 AnimationAnimationStarted Event for animation that has been started.
 
-### (AnimationAnimationStarted) ProtoEvent <- 0.72.0
+#### (AnimationAnimationStarted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt AnimationAnimationStarted) ProtoEvent() string
@@ -971,7 +969,7 @@ func (evt AnimationAnimationStarted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AnimationAnimationType 
+### type AnimationAnimationType 
 
 ``` go
 type AnimationAnimationType string
@@ -992,7 +990,7 @@ const (
 )
 ```
 
-## type AnimationAnimationUpdated <- 0.116.0
+### type AnimationAnimationUpdated <- 0.116.0
 
 ``` go
 type AnimationAnimationUpdated struct {
@@ -1003,7 +1001,7 @@ type AnimationAnimationUpdated struct {
 
 AnimationAnimationUpdated Event for animation that has been updated.
 
-### (AnimationAnimationUpdated) ProtoEvent <- 0.116.0
+#### (AnimationAnimationUpdated) ProtoEvent <- 0.116.0
 
 ``` go
 func (evt AnimationAnimationUpdated) ProtoEvent() string
@@ -1011,7 +1009,7 @@ func (evt AnimationAnimationUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AnimationDisable 
+### type AnimationDisable 
 
 ``` go
 type AnimationDisable struct{}
@@ -1019,7 +1017,7 @@ type AnimationDisable struct{}
 
 AnimationDisable Disables animation domain notifications.
 
-### (AnimationDisable) Call 
+#### (AnimationDisable) Call 
 
 ``` go
 func (m AnimationDisable) Call(c Client) error
@@ -1027,7 +1025,7 @@ func (m AnimationDisable) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationDisable) ProtoReq <- 0.74.0
+#### (AnimationDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationDisable) ProtoReq() string
@@ -1035,7 +1033,7 @@ func (m AnimationDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationEnable 
+### type AnimationEnable 
 
 ``` go
 type AnimationEnable struct{}
@@ -1043,7 +1041,7 @@ type AnimationEnable struct{}
 
 AnimationEnable Enables animation domain notifications.
 
-### (AnimationEnable) Call 
+#### (AnimationEnable) Call 
 
 ``` go
 func (m AnimationEnable) Call(c Client) error
@@ -1051,7 +1049,7 @@ func (m AnimationEnable) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationEnable) ProtoReq <- 0.74.0
+#### (AnimationEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationEnable) ProtoReq() string
@@ -1059,7 +1057,7 @@ func (m AnimationEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationGetCurrentTime 
+### type AnimationGetCurrentTime 
 
 ``` go
 type AnimationGetCurrentTime struct {
@@ -1070,7 +1068,7 @@ type AnimationGetCurrentTime struct {
 
 AnimationGetCurrentTime Returns the current time of the an animation.
 
-### (AnimationGetCurrentTime) Call 
+#### (AnimationGetCurrentTime) Call 
 
 ``` go
 func (m AnimationGetCurrentTime) Call(c Client) (*AnimationGetCurrentTimeResult, error)
@@ -1078,7 +1076,7 @@ func (m AnimationGetCurrentTime) Call(c Client) (*AnimationGetCurrentTimeResult,
 
 Call the request.
 
-### (AnimationGetCurrentTime) ProtoReq <- 0.74.0
+#### (AnimationGetCurrentTime) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationGetCurrentTime) ProtoReq() string
@@ -1086,7 +1084,7 @@ func (m AnimationGetCurrentTime) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationGetCurrentTimeResult 
+### type AnimationGetCurrentTimeResult 
 
 ``` go
 type AnimationGetCurrentTimeResult struct {
@@ -1097,7 +1095,7 @@ type AnimationGetCurrentTimeResult struct {
 
 AnimationGetCurrentTimeResult ...
 
-## type AnimationGetPlaybackRate 
+### type AnimationGetPlaybackRate 
 
 ``` go
 type AnimationGetPlaybackRate struct{}
@@ -1105,7 +1103,7 @@ type AnimationGetPlaybackRate struct{}
 
 AnimationGetPlaybackRate Gets the playback rate of the document timeline.
 
-### (AnimationGetPlaybackRate) Call 
+#### (AnimationGetPlaybackRate) Call 
 
 ``` go
 func (m AnimationGetPlaybackRate) Call(c Client) (*AnimationGetPlaybackRateResult, error)
@@ -1113,7 +1111,7 @@ func (m AnimationGetPlaybackRate) Call(c Client) (*AnimationGetPlaybackRateResul
 
 Call the request.
 
-### (AnimationGetPlaybackRate) ProtoReq <- 0.74.0
+#### (AnimationGetPlaybackRate) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationGetPlaybackRate) ProtoReq() string
@@ -1121,7 +1119,7 @@ func (m AnimationGetPlaybackRate) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationGetPlaybackRateResult 
+### type AnimationGetPlaybackRateResult 
 
 ``` go
 type AnimationGetPlaybackRateResult struct {
@@ -1132,7 +1130,7 @@ type AnimationGetPlaybackRateResult struct {
 
 AnimationGetPlaybackRateResult ...
 
-## type AnimationKeyframeStyle 
+### type AnimationKeyframeStyle 
 
 ``` go
 type AnimationKeyframeStyle struct {
@@ -1146,7 +1144,7 @@ type AnimationKeyframeStyle struct {
 
 AnimationKeyframeStyle Keyframe Style.
 
-## type AnimationKeyframesRule 
+### type AnimationKeyframesRule 
 
 ``` go
 type AnimationKeyframesRule struct {
@@ -1160,7 +1158,7 @@ type AnimationKeyframesRule struct {
 
 AnimationKeyframesRule Keyframes Rule.
 
-## type AnimationReleaseAnimations 
+### type AnimationReleaseAnimations 
 
 ``` go
 type AnimationReleaseAnimations struct {
@@ -1171,7 +1169,7 @@ type AnimationReleaseAnimations struct {
 
 AnimationReleaseAnimations Releases a set of animations to no longer be manipulated.
 
-### (AnimationReleaseAnimations) Call 
+#### (AnimationReleaseAnimations) Call 
 
 ``` go
 func (m AnimationReleaseAnimations) Call(c Client) error
@@ -1179,7 +1177,7 @@ func (m AnimationReleaseAnimations) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationReleaseAnimations) ProtoReq <- 0.74.0
+#### (AnimationReleaseAnimations) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationReleaseAnimations) ProtoReq() string
@@ -1187,7 +1185,7 @@ func (m AnimationReleaseAnimations) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationResolveAnimation 
+### type AnimationResolveAnimation 
 
 ``` go
 type AnimationResolveAnimation struct {
@@ -1198,7 +1196,7 @@ type AnimationResolveAnimation struct {
 
 AnimationResolveAnimation Gets the remote object of the Animation.
 
-### (AnimationResolveAnimation) Call 
+#### (AnimationResolveAnimation) Call 
 
 ``` go
 func (m AnimationResolveAnimation) Call(c Client) (*AnimationResolveAnimationResult, error)
@@ -1206,7 +1204,7 @@ func (m AnimationResolveAnimation) Call(c Client) (*AnimationResolveAnimationRes
 
 Call the request.
 
-### (AnimationResolveAnimation) ProtoReq <- 0.74.0
+#### (AnimationResolveAnimation) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationResolveAnimation) ProtoReq() string
@@ -1214,7 +1212,7 @@ func (m AnimationResolveAnimation) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationResolveAnimationResult 
+### type AnimationResolveAnimationResult 
 
 ``` go
 type AnimationResolveAnimationResult struct {
@@ -1225,7 +1223,7 @@ type AnimationResolveAnimationResult struct {
 
 AnimationResolveAnimationResult ...
 
-## type AnimationSeekAnimations 
+### type AnimationSeekAnimations 
 
 ``` go
 type AnimationSeekAnimations struct {
@@ -1239,7 +1237,7 @@ type AnimationSeekAnimations struct {
 
 AnimationSeekAnimations Seek a set of animations to a particular time within each animation.
 
-### (AnimationSeekAnimations) Call 
+#### (AnimationSeekAnimations) Call 
 
 ``` go
 func (m AnimationSeekAnimations) Call(c Client) error
@@ -1247,7 +1245,7 @@ func (m AnimationSeekAnimations) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationSeekAnimations) ProtoReq <- 0.74.0
+#### (AnimationSeekAnimations) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationSeekAnimations) ProtoReq() string
@@ -1255,7 +1253,7 @@ func (m AnimationSeekAnimations) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationSetPaused 
+### type AnimationSetPaused 
 
 ``` go
 type AnimationSetPaused struct {
@@ -1269,7 +1267,7 @@ type AnimationSetPaused struct {
 
 AnimationSetPaused Sets the paused state of a set of animations.
 
-### (AnimationSetPaused) Call 
+#### (AnimationSetPaused) Call 
 
 ``` go
 func (m AnimationSetPaused) Call(c Client) error
@@ -1277,7 +1275,7 @@ func (m AnimationSetPaused) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationSetPaused) ProtoReq <- 0.74.0
+#### (AnimationSetPaused) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationSetPaused) ProtoReq() string
@@ -1285,7 +1283,7 @@ func (m AnimationSetPaused) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationSetPlaybackRate 
+### type AnimationSetPlaybackRate 
 
 ``` go
 type AnimationSetPlaybackRate struct {
@@ -1296,7 +1294,7 @@ type AnimationSetPlaybackRate struct {
 
 AnimationSetPlaybackRate Sets the playback rate of the document timeline.
 
-### (AnimationSetPlaybackRate) Call 
+#### (AnimationSetPlaybackRate) Call 
 
 ``` go
 func (m AnimationSetPlaybackRate) Call(c Client) error
@@ -1304,7 +1302,7 @@ func (m AnimationSetPlaybackRate) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationSetPlaybackRate) ProtoReq <- 0.74.0
+#### (AnimationSetPlaybackRate) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationSetPlaybackRate) ProtoReq() string
@@ -1312,7 +1310,7 @@ func (m AnimationSetPlaybackRate) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationSetTiming 
+### type AnimationSetTiming 
 
 ``` go
 type AnimationSetTiming struct {
@@ -1329,7 +1327,7 @@ type AnimationSetTiming struct {
 
 AnimationSetTiming Sets the timing of an animation node.
 
-### (AnimationSetTiming) Call 
+#### (AnimationSetTiming) Call 
 
 ``` go
 func (m AnimationSetTiming) Call(c Client) error
@@ -1337,7 +1335,7 @@ func (m AnimationSetTiming) Call(c Client) error
 
 Call sends the request.
 
-### (AnimationSetTiming) ProtoReq <- 0.74.0
+#### (AnimationSetTiming) ProtoReq <- 0.74.0
 
 ``` go
 func (m AnimationSetTiming) ProtoReq() string
@@ -1345,7 +1343,7 @@ func (m AnimationSetTiming) ProtoReq() string
 
 ProtoReq name.
 
-## type AnimationViewOrScrollTimeline <- 0.115.0
+### type AnimationViewOrScrollTimeline <- 0.115.0
 
 ``` go
 type AnimationViewOrScrollTimeline struct {
@@ -1372,7 +1370,7 @@ type AnimationViewOrScrollTimeline struct {
 
 AnimationViewOrScrollTimeline Timeline instance.
 
-## type AuditsAffectedCookie 
+### type AuditsAffectedCookie 
 
 ``` go
 type AuditsAffectedCookie struct {
@@ -1389,7 +1387,7 @@ type AuditsAffectedCookie struct {
 
 AuditsAffectedCookie Information about a cookie that is affected by an inspector issue.
 
-## type AuditsAffectedFrame <- 0.48.0
+### type AuditsAffectedFrame <- 0.48.0
 
 ``` go
 type AuditsAffectedFrame struct {
@@ -1400,7 +1398,7 @@ type AuditsAffectedFrame struct {
 
 AuditsAffectedFrame Information about the frame affected by an inspector issue.
 
-## type AuditsAffectedRequest <- 0.48.0
+### type AuditsAffectedRequest <- 0.48.0
 
 ``` go
 type AuditsAffectedRequest struct {
@@ -1414,7 +1412,7 @@ type AuditsAffectedRequest struct {
 
 AuditsAffectedRequest Information about a request that is affected by an inspector issue.
 
-## type AuditsAttributionReportingIssueDetails <- 0.100.0
+### type AuditsAttributionReportingIssueDetails <- 0.100.0
 
 ``` go
 type AuditsAttributionReportingIssueDetails struct {
@@ -1434,7 +1432,7 @@ type AuditsAttributionReportingIssueDetails struct {
 
 AuditsAttributionReportingIssueDetails Details for issues around "Attribution Reporting API" usage. Explainer: https://github.com/WICG/attribution-reporting-api
 
-## type AuditsAttributionReportingIssueType <- 0.100.0
+### type AuditsAttributionReportingIssueType <- 0.100.0
 
 ``` go
 type AuditsAttributionReportingIssueType string
@@ -1506,7 +1504,7 @@ const (
 )
 ```
 
-## type AuditsBlockedByResponseIssueDetails <- 0.52.0
+### type AuditsBlockedByResponseIssueDetails <- 0.52.0
 
 ``` go
 type AuditsBlockedByResponseIssueDetails struct {
@@ -1526,7 +1524,7 @@ type AuditsBlockedByResponseIssueDetails struct {
 
 AuditsBlockedByResponseIssueDetails Details for a request that has been blocked with the BLOCKED_BY_RESPONSE code. Currently only used for COEP/COOP, but may be extended to include some CSP errors in the future.
 
-## type AuditsBlockedByResponseReason <- 0.52.0
+### type AuditsBlockedByResponseReason <- 0.52.0
 
 ``` go
 type AuditsBlockedByResponseReason string
@@ -1559,7 +1557,7 @@ const (
 )
 ```
 
-## type AuditsBounceTrackingIssueDetails <- 0.112.9
+### type AuditsBounceTrackingIssueDetails <- 0.112.9
 
 ``` go
 type AuditsBounceTrackingIssueDetails struct {
@@ -1570,7 +1568,7 @@ type AuditsBounceTrackingIssueDetails struct {
 
 AuditsBounceTrackingIssueDetails This issue warns about sites in the redirect chain of a finished navigation that may be flagged as trackers and have their state cleared if they don't receive a user interaction. Note that in this context 'site' means eTLD+1. For example, if the URL `https://example.test:80/bounce` was in the redirect chain, the site reported would be `example.test`.
 
-## type AuditsCheckContrast <- 0.93.0
+### type AuditsCheckContrast <- 0.93.0
 
 ``` go
 type AuditsCheckContrast struct {
@@ -1581,7 +1579,7 @@ type AuditsCheckContrast struct {
 
 AuditsCheckContrast Runs the contrast check for the target page. Found issues are reported using Audits.issueAdded event.
 
-### (AuditsCheckContrast) Call <- 0.93.0
+#### (AuditsCheckContrast) Call <- 0.93.0
 
 ``` go
 func (m AuditsCheckContrast) Call(c Client) error
@@ -1589,7 +1587,7 @@ func (m AuditsCheckContrast) Call(c Client) error
 
 Call sends the request.
 
-### (AuditsCheckContrast) ProtoReq <- 0.93.0
+#### (AuditsCheckContrast) ProtoReq <- 0.93.0
 
 ``` go
 func (m AuditsCheckContrast) ProtoReq() string
@@ -1597,7 +1595,7 @@ func (m AuditsCheckContrast) ProtoReq() string
 
 ProtoReq name.
 
-## type AuditsCheckFormsIssues <- 0.115.0
+### type AuditsCheckFormsIssues <- 0.115.0
 
 ``` go
 type AuditsCheckFormsIssues struct{}
@@ -1605,7 +1603,7 @@ type AuditsCheckFormsIssues struct{}
 
 AuditsCheckFormsIssues Runs the form issues check for the target page. Found issues are reported using Audits.issueAdded event.
 
-### (AuditsCheckFormsIssues) Call <- 0.115.0
+#### (AuditsCheckFormsIssues) Call <- 0.115.0
 
 ``` go
 func (m AuditsCheckFormsIssues) Call(c Client) (*AuditsCheckFormsIssuesResult, error)
@@ -1613,7 +1611,7 @@ func (m AuditsCheckFormsIssues) Call(c Client) (*AuditsCheckFormsIssuesResult, e
 
 Call the request.
 
-### (AuditsCheckFormsIssues) ProtoReq <- 0.115.0
+#### (AuditsCheckFormsIssues) ProtoReq <- 0.115.0
 
 ``` go
 func (m AuditsCheckFormsIssues) ProtoReq() string
@@ -1621,7 +1619,7 @@ func (m AuditsCheckFormsIssues) ProtoReq() string
 
 ProtoReq name.
 
-## type AuditsCheckFormsIssuesResult <- 0.115.0
+### type AuditsCheckFormsIssuesResult <- 0.115.0
 
 ``` go
 type AuditsCheckFormsIssuesResult struct {
@@ -1632,7 +1630,7 @@ type AuditsCheckFormsIssuesResult struct {
 
 AuditsCheckFormsIssuesResult ...
 
-## type AuditsClientHintIssueDetails <- 0.102.0
+### type AuditsClientHintIssueDetails <- 0.102.0
 
 ``` go
 type AuditsClientHintIssueDetails struct {
@@ -1646,7 +1644,7 @@ type AuditsClientHintIssueDetails struct {
 
 AuditsClientHintIssueDetails This issue tracks client hints related issues. It's used to deprecate old features, encourage the use of new ones, and provide general guidance.
 
-## type AuditsClientHintIssueReason <- 0.102.0
+### type AuditsClientHintIssueReason <- 0.102.0
 
 ``` go
 type AuditsClientHintIssueReason string
@@ -1664,7 +1662,7 @@ const (
 )
 ```
 
-## type AuditsContentSecurityPolicyIssueDetails <- 0.72.0
+### type AuditsContentSecurityPolicyIssueDetails <- 0.72.0
 
 ``` go
 type AuditsContentSecurityPolicyIssueDetails struct {
@@ -1693,7 +1691,7 @@ type AuditsContentSecurityPolicyIssueDetails struct {
 
 AuditsContentSecurityPolicyIssueDetails ...
 
-## type AuditsContentSecurityPolicyViolationType <- 0.72.0
+### type AuditsContentSecurityPolicyViolationType <- 0.72.0
 
 ``` go
 type AuditsContentSecurityPolicyViolationType string
@@ -1723,7 +1721,7 @@ const (
 )
 ```
 
-## type AuditsCookieDeprecationMetadataIssueDetails <- 0.115.0
+### type AuditsCookieDeprecationMetadataIssueDetails <- 0.115.0
 
 ``` go
 type AuditsCookieDeprecationMetadataIssueDetails struct {
@@ -1743,7 +1741,7 @@ type AuditsCookieDeprecationMetadataIssueDetails struct {
 
 AuditsCookieDeprecationMetadataIssueDetails This issue warns about third-party sites that are accessing cookies on the current page, and have been permitted due to having a global metadata grant. Note that in this context 'site' means eTLD+1. For example, if the URL `https://example.test:80/web_page` was accessing cookies, the site reported would be `example.test`.
 
-## type AuditsCookieExclusionReason <- 0.103.0
+### type AuditsCookieExclusionReason <- 0.103.0
 
 ``` go
 type AuditsCookieExclusionReason string
@@ -1782,7 +1780,7 @@ const (
 )
 ```
 
-## type AuditsCookieIssueDetails <- 0.103.0
+### type AuditsCookieIssueDetails <- 0.103.0
 
 ``` go
 type AuditsCookieIssueDetails struct {
@@ -1818,7 +1816,7 @@ type AuditsCookieIssueDetails struct {
 
 AuditsCookieIssueDetails This information is currently necessary, as the front-end has a difficult time finding a specific cookie. With this, we can convey specific error information without the cookie.
 
-## type AuditsCookieOperation <- 0.103.0
+### type AuditsCookieOperation <- 0.103.0
 
 ``` go
 type AuditsCookieOperation string
@@ -1836,7 +1834,7 @@ const (
 )
 ```
 
-## type AuditsCookieWarningReason <- 0.103.0
+### type AuditsCookieWarningReason <- 0.103.0
 
 ``` go
 type AuditsCookieWarningReason string
@@ -1884,7 +1882,7 @@ const (
 )
 ```
 
-## type AuditsCorsIssueDetails <- 0.93.0
+### type AuditsCorsIssueDetails <- 0.93.0
 
 ``` go
 type AuditsCorsIssueDetails struct {
@@ -1913,7 +1911,7 @@ type AuditsCorsIssueDetails struct {
 
 AuditsCorsIssueDetails Details for a CORS related issue, e.g. a warning or error related to CORS RFC1918 enforcement.
 
-## type AuditsDeprecationIssueDetails <- 0.102.0
+### type AuditsDeprecationIssueDetails <- 0.102.0
 
 ``` go
 type AuditsDeprecationIssueDetails struct {
@@ -1930,7 +1928,7 @@ type AuditsDeprecationIssueDetails struct {
 
 AuditsDeprecationIssueDetails This issue tracks information needed to print a deprecation message. https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/frame/third_party/blink/renderer/core/frame/deprecation/README.md
 
-## type AuditsDisable 
+### type AuditsDisable 
 
 ``` go
 type AuditsDisable struct{}
@@ -1938,7 +1936,7 @@ type AuditsDisable struct{}
 
 AuditsDisable Disables issues domain, prevents further issues from being reported to the client.
 
-### (AuditsDisable) Call 
+#### (AuditsDisable) Call 
 
 ``` go
 func (m AuditsDisable) Call(c Client) error
@@ -1946,7 +1944,7 @@ func (m AuditsDisable) Call(c Client) error
 
 Call sends the request.
 
-### (AuditsDisable) ProtoReq <- 0.74.0
+#### (AuditsDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AuditsDisable) ProtoReq() string
@@ -1954,7 +1952,7 @@ func (m AuditsDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type AuditsEnable 
+### type AuditsEnable 
 
 ``` go
 type AuditsEnable struct{}
@@ -1962,7 +1960,7 @@ type AuditsEnable struct{}
 
 AuditsEnable Enables issues domain, sends the issues collected so far to the client by means of the `issueAdded` event.
 
-### (AuditsEnable) Call 
+#### (AuditsEnable) Call 
 
 ``` go
 func (m AuditsEnable) Call(c Client) error
@@ -1970,7 +1968,7 @@ func (m AuditsEnable) Call(c Client) error
 
 Call sends the request.
 
-### (AuditsEnable) ProtoReq <- 0.74.0
+#### (AuditsEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m AuditsEnable) ProtoReq() string
@@ -1978,7 +1976,7 @@ func (m AuditsEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type AuditsFailedRequestInfo <- 0.115.0
+### type AuditsFailedRequestInfo <- 0.115.0
 
 ``` go
 type AuditsFailedRequestInfo struct {
@@ -1995,7 +1993,7 @@ type AuditsFailedRequestInfo struct {
 
 AuditsFailedRequestInfo ...
 
-## type AuditsFederatedAuthRequestIssueDetails <- 0.102.1
+### type AuditsFederatedAuthRequestIssueDetails <- 0.102.1
 
 ``` go
 type AuditsFederatedAuthRequestIssueDetails struct {
@@ -2006,7 +2004,7 @@ type AuditsFederatedAuthRequestIssueDetails struct {
 
 AuditsFederatedAuthRequestIssueDetails ...
 
-## type AuditsFederatedAuthRequestIssueReason <- 0.102.1
+### type AuditsFederatedAuthRequestIssueReason <- 0.102.1
 
 ``` go
 type AuditsFederatedAuthRequestIssueReason string
@@ -2153,7 +2151,7 @@ const (
 )
 ```
 
-## type AuditsFederatedAuthUserInfoRequestIssueDetails <- 0.115.0
+### type AuditsFederatedAuthUserInfoRequestIssueDetails <- 0.115.0
 
 ``` go
 type AuditsFederatedAuthUserInfoRequestIssueDetails struct {
@@ -2164,7 +2162,7 @@ type AuditsFederatedAuthUserInfoRequestIssueDetails struct {
 
 AuditsFederatedAuthUserInfoRequestIssueDetails ...
 
-## type AuditsFederatedAuthUserInfoRequestIssueReason <- 0.115.0
+### type AuditsFederatedAuthUserInfoRequestIssueReason <- 0.115.0
 
 ``` go
 type AuditsFederatedAuthUserInfoRequestIssueReason string
@@ -2203,7 +2201,7 @@ const (
 )
 ```
 
-## type AuditsGenericIssueDetails <- 0.102.0
+### type AuditsGenericIssueDetails <- 0.102.0
 
 ``` go
 type AuditsGenericIssueDetails struct {
@@ -2226,7 +2224,7 @@ type AuditsGenericIssueDetails struct {
 
 AuditsGenericIssueDetails Depending on the concrete errorType, different properties are set.
 
-## type AuditsGenericIssueErrorType <- 0.102.0
+### type AuditsGenericIssueErrorType <- 0.102.0
 
 ``` go
 type AuditsGenericIssueErrorType string
@@ -2274,7 +2272,7 @@ const (
 )
 ```
 
-## type AuditsGetEncodedResponse 
+### type AuditsGetEncodedResponse 
 
 ``` go
 type AuditsGetEncodedResponse struct {
@@ -2294,7 +2292,7 @@ type AuditsGetEncodedResponse struct {
 
 AuditsGetEncodedResponse Returns the response body and size if it were re-encoded with the specified settings. Only applies to images.
 
-### (AuditsGetEncodedResponse) Call 
+#### (AuditsGetEncodedResponse) Call 
 
 ``` go
 func (m AuditsGetEncodedResponse) Call(c Client) (*AuditsGetEncodedResponseResult, error)
@@ -2302,7 +2300,7 @@ func (m AuditsGetEncodedResponse) Call(c Client) (*AuditsGetEncodedResponseResul
 
 Call the request.
 
-### (AuditsGetEncodedResponse) ProtoReq <- 0.74.0
+#### (AuditsGetEncodedResponse) ProtoReq <- 0.74.0
 
 ``` go
 func (m AuditsGetEncodedResponse) ProtoReq() string
@@ -2310,7 +2308,7 @@ func (m AuditsGetEncodedResponse) ProtoReq() string
 
 ProtoReq name.
 
-## type AuditsGetEncodedResponseEncoding 
+### type AuditsGetEncodedResponseEncoding 
 
 ``` go
 type AuditsGetEncodedResponseEncoding string
@@ -2331,7 +2329,7 @@ const (
 )
 ```
 
-## type AuditsGetEncodedResponseResult 
+### type AuditsGetEncodedResponseResult 
 
 ``` go
 type AuditsGetEncodedResponseResult struct {
@@ -2348,7 +2346,7 @@ type AuditsGetEncodedResponseResult struct {
 
 AuditsGetEncodedResponseResult ...
 
-## type AuditsHeavyAdIssueDetails <- 0.52.0
+### type AuditsHeavyAdIssueDetails <- 0.52.0
 
 ``` go
 type AuditsHeavyAdIssueDetails struct {
@@ -2365,7 +2363,7 @@ type AuditsHeavyAdIssueDetails struct {
 
 AuditsHeavyAdIssueDetails ...
 
-## type AuditsHeavyAdReason <- 0.52.0
+### type AuditsHeavyAdReason <- 0.52.0
 
 ``` go
 type AuditsHeavyAdReason string
@@ -2386,7 +2384,7 @@ const (
 )
 ```
 
-## type AuditsHeavyAdResolutionStatus <- 0.52.0
+### type AuditsHeavyAdResolutionStatus <- 0.52.0
 
 ``` go
 type AuditsHeavyAdResolutionStatus string
@@ -2404,7 +2402,7 @@ const (
 )
 ```
 
-## type AuditsInspectorIssue 
+### type AuditsInspectorIssue 
 
 ``` go
 type AuditsInspectorIssue struct {
@@ -2422,7 +2420,7 @@ type AuditsInspectorIssue struct {
 
 AuditsInspectorIssue An inspector issue reported from the back-end.
 
-## type AuditsInspectorIssueCode 
+### type AuditsInspectorIssueCode 
 
 ``` go
 type AuditsInspectorIssueCode string
@@ -2497,7 +2495,7 @@ const (
 )
 ```
 
-## type AuditsInspectorIssueDetails 
+### type AuditsInspectorIssueDetails 
 
 ``` go
 type AuditsInspectorIssueDetails struct {
@@ -2568,7 +2566,7 @@ type AuditsInspectorIssueDetails struct {
 
 AuditsInspectorIssueDetails This struct holds a list of optional fields with additional information specific to the kind of issue. When adding a new issue code, please also add a new optional field to this type.
 
-## type AuditsIssueAdded 
+### type AuditsIssueAdded 
 
 ``` go
 type AuditsIssueAdded struct {
@@ -2579,7 +2577,7 @@ type AuditsIssueAdded struct {
 
 AuditsIssueAdded ...
 
-### (AuditsIssueAdded) ProtoEvent <- 0.72.0
+#### (AuditsIssueAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt AuditsIssueAdded) ProtoEvent() string
@@ -2587,7 +2585,7 @@ func (evt AuditsIssueAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AuditsIssueID <- 0.101.5
+### type AuditsIssueID <- 0.101.5
 
 ``` go
 type AuditsIssueID string
@@ -2595,7 +2593,7 @@ type AuditsIssueID string
 
 AuditsIssueID A unique id for a DevTools inspector issue. Allows other entities (e.g. exceptions, CDP message, console messages, etc.) to reference an issue.
 
-## type AuditsLowTextContrastIssueDetails <- 0.93.0
+### type AuditsLowTextContrastIssueDetails <- 0.93.0
 
 ``` go
 type AuditsLowTextContrastIssueDetails struct {
@@ -2624,7 +2622,7 @@ type AuditsLowTextContrastIssueDetails struct {
 
 AuditsLowTextContrastIssueDetails ...
 
-## type AuditsMixedContentIssueDetails <- 0.48.0
+### type AuditsMixedContentIssueDetails <- 0.48.0
 
 ``` go
 type AuditsMixedContentIssueDetails struct {
@@ -2654,7 +2652,7 @@ type AuditsMixedContentIssueDetails struct {
 
 AuditsMixedContentIssueDetails ...
 
-## type AuditsMixedContentResolutionStatus <- 0.48.0
+### type AuditsMixedContentResolutionStatus <- 0.48.0
 
 ``` go
 type AuditsMixedContentResolutionStatus string
@@ -2675,7 +2673,7 @@ const (
 )
 ```
 
-## type AuditsMixedContentResourceType <- 0.48.0
+### type AuditsMixedContentResourceType <- 0.48.0
 
 ``` go
 type AuditsMixedContentResourceType string
@@ -2774,7 +2772,7 @@ const (
 )
 ```
 
-## type AuditsNavigatorUserAgentIssueDetails <- 0.101.5
+### type AuditsNavigatorUserAgentIssueDetails <- 0.101.5
 
 ``` go
 type AuditsNavigatorUserAgentIssueDetails struct {
@@ -2788,7 +2786,7 @@ type AuditsNavigatorUserAgentIssueDetails struct {
 
 AuditsNavigatorUserAgentIssueDetails (deprecated) ...
 
-## type AuditsPropertyRuleIssueDetails <- 0.115.0
+### type AuditsPropertyRuleIssueDetails <- 0.115.0
 
 ``` go
 type AuditsPropertyRuleIssueDetails struct {
@@ -2805,7 +2803,7 @@ type AuditsPropertyRuleIssueDetails struct {
 
 AuditsPropertyRuleIssueDetails This issue warns about errors in property rules that lead to property registrations being ignored.
 
-## type AuditsPropertyRuleIssueReason <- 0.115.0
+### type AuditsPropertyRuleIssueReason <- 0.115.0
 
 ``` go
 type AuditsPropertyRuleIssueReason string
@@ -2829,7 +2827,7 @@ const (
 )
 ```
 
-## type AuditsQuirksModeIssueDetails <- 0.100.0
+### type AuditsQuirksModeIssueDetails <- 0.100.0
 
 ``` go
 type AuditsQuirksModeIssueDetails struct {
@@ -2853,7 +2851,7 @@ type AuditsQuirksModeIssueDetails struct {
 
 AuditsQuirksModeIssueDetails Details for issues about documents in Quirks Mode or Limited Quirks Mode that affects page layouting.
 
-## type AuditsSharedArrayBufferIssueDetails <- 0.90.0
+### type AuditsSharedArrayBufferIssueDetails <- 0.90.0
 
 ``` go
 type AuditsSharedArrayBufferIssueDetails struct {
@@ -2870,7 +2868,7 @@ type AuditsSharedArrayBufferIssueDetails struct {
 
 AuditsSharedArrayBufferIssueDetails Details for a issue arising from an SAB being instantiated in, or transferred to a context that is not cross-origin isolated.
 
-## type AuditsSharedArrayBufferIssueType <- 0.90.0
+### type AuditsSharedArrayBufferIssueType <- 0.90.0
 
 ``` go
 type AuditsSharedArrayBufferIssueType string
@@ -2888,7 +2886,7 @@ const (
 )
 ```
 
-## type AuditsSharedDictionaryError <- 0.116.0
+### type AuditsSharedDictionaryError <- 0.116.0
 
 ``` go
 type AuditsSharedDictionaryError string
@@ -2969,7 +2967,7 @@ const (
 )
 ```
 
-## type AuditsSharedDictionaryIssueDetails <- 0.116.0
+### type AuditsSharedDictionaryIssueDetails <- 0.116.0
 
 ``` go
 type AuditsSharedDictionaryIssueDetails struct {
@@ -2983,7 +2981,7 @@ type AuditsSharedDictionaryIssueDetails struct {
 
 AuditsSharedDictionaryIssueDetails ...
 
-## type AuditsSourceCodeLocation <- 0.72.0
+### type AuditsSourceCodeLocation <- 0.72.0
 
 ``` go
 type AuditsSourceCodeLocation struct {
@@ -3003,7 +3001,7 @@ type AuditsSourceCodeLocation struct {
 
 AuditsSourceCodeLocation ...
 
-## type AuditsStyleSheetLoadingIssueReason <- 0.115.0
+### type AuditsStyleSheetLoadingIssueReason <- 0.115.0
 
 ``` go
 type AuditsStyleSheetLoadingIssueReason string
@@ -3021,7 +3019,7 @@ const (
 )
 ```
 
-## type AuditsStylesheetLoadingIssueDetails <- 0.115.0
+### type AuditsStylesheetLoadingIssueDetails <- 0.115.0
 
 ``` go
 type AuditsStylesheetLoadingIssueDetails struct {
@@ -3038,7 +3036,7 @@ type AuditsStylesheetLoadingIssueDetails struct {
 
 AuditsStylesheetLoadingIssueDetails This issue warns when a referenced stylesheet couldn't be loaded.
 
-## type AutofillAddress <- 0.115.0
+### type AutofillAddress <- 0.115.0
 
 ``` go
 type AutofillAddress struct {
@@ -3049,7 +3047,7 @@ type AutofillAddress struct {
 
 AutofillAddress ...
 
-## type AutofillAddressField <- 0.115.0
+### type AutofillAddressField <- 0.115.0
 
 ``` go
 type AutofillAddressField struct {
@@ -3063,7 +3061,7 @@ type AutofillAddressField struct {
 
 AutofillAddressField ...
 
-## type AutofillAddressFields <- 0.115.0
+### type AutofillAddressFields <- 0.115.0
 
 ``` go
 type AutofillAddressFields struct {
@@ -3074,7 +3072,7 @@ type AutofillAddressFields struct {
 
 AutofillAddressFields A list of address fields.
 
-## type AutofillAddressFormFilled <- 0.115.0
+### type AutofillAddressFormFilled <- 0.115.0
 
 ``` go
 type AutofillAddressFormFilled struct {
@@ -3089,7 +3087,7 @@ type AutofillAddressFormFilled struct {
 
 AutofillAddressFormFilled Emitted when an address form is filled.
 
-### (AutofillAddressFormFilled) ProtoEvent <- 0.115.0
+#### (AutofillAddressFormFilled) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt AutofillAddressFormFilled) ProtoEvent() string
@@ -3097,7 +3095,7 @@ func (evt AutofillAddressFormFilled) ProtoEvent() string
 
 ProtoEvent name.
 
-## type AutofillAddressUI <- 0.115.0
+### type AutofillAddressUI <- 0.115.0
 
 ``` go
 type AutofillAddressUI struct {
@@ -3108,7 +3106,7 @@ type AutofillAddressUI struct {
 
 AutofillAddressUI Defines how an address can be displayed like in chrome://settings/addresses. Address UI is a two dimensional array, each inner array is an "address information line", and when rendered in a UI surface should be displayed as such. The following address UI for instance: [[{name: "GIVE_NAME", value: "Jon"}, {name: "FAMILY_NAME", value: "Doe"}], [{name: "CITY", value: "Munich"}, {name: "ZIP", value: "81456"}]] should allow the receiver to render: Jon Doe Munich 81456.
 
-## type AutofillCreditCard <- 0.115.0
+### type AutofillCreditCard <- 0.115.0
 
 ``` go
 type AutofillCreditCard struct {
@@ -3131,7 +3129,7 @@ type AutofillCreditCard struct {
 
 AutofillCreditCard ...
 
-## type AutofillDisable <- 0.115.0
+### type AutofillDisable <- 0.115.0
 
 ``` go
 type AutofillDisable struct{}
@@ -3139,7 +3137,7 @@ type AutofillDisable struct{}
 
 AutofillDisable Disables autofill domain notifications.
 
-### (AutofillDisable) Call <- 0.115.0
+#### (AutofillDisable) Call <- 0.115.0
 
 ``` go
 func (m AutofillDisable) Call(c Client) error
@@ -3147,7 +3145,7 @@ func (m AutofillDisable) Call(c Client) error
 
 Call sends the request.
 
-### (AutofillDisable) ProtoReq <- 0.115.0
+#### (AutofillDisable) ProtoReq <- 0.115.0
 
 ``` go
 func (m AutofillDisable) ProtoReq() string
@@ -3155,7 +3153,7 @@ func (m AutofillDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type AutofillEnable <- 0.115.0
+### type AutofillEnable <- 0.115.0
 
 ``` go
 type AutofillEnable struct{}
@@ -3163,7 +3161,7 @@ type AutofillEnable struct{}
 
 AutofillEnable Enables autofill domain notifications.
 
-### (AutofillEnable) Call <- 0.115.0
+#### (AutofillEnable) Call <- 0.115.0
 
 ``` go
 func (m AutofillEnable) Call(c Client) error
@@ -3171,7 +3169,7 @@ func (m AutofillEnable) Call(c Client) error
 
 Call sends the request.
 
-### (AutofillEnable) ProtoReq <- 0.115.0
+#### (AutofillEnable) ProtoReq <- 0.115.0
 
 ``` go
 func (m AutofillEnable) ProtoReq() string
@@ -3179,7 +3177,7 @@ func (m AutofillEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type AutofillFilledField <- 0.115.0
+### type AutofillFilledField <- 0.115.0
 
 ``` go
 type AutofillFilledField struct {
@@ -3211,7 +3209,7 @@ type AutofillFilledField struct {
 
 AutofillFilledField ...
 
-## type AutofillFillingStrategy <- 0.115.0
+### type AutofillFillingStrategy <- 0.115.0
 
 ``` go
 type AutofillFillingStrategy string
@@ -3229,7 +3227,7 @@ const (
 )
 ```
 
-## type AutofillSetAddresses <- 0.115.0
+### type AutofillSetAddresses <- 0.115.0
 
 ``` go
 type AutofillSetAddresses struct {
@@ -3240,7 +3238,7 @@ type AutofillSetAddresses struct {
 
 AutofillSetAddresses Set addresses so that developers can verify their forms implementation.
 
-### (AutofillSetAddresses) Call <- 0.115.0
+#### (AutofillSetAddresses) Call <- 0.115.0
 
 ``` go
 func (m AutofillSetAddresses) Call(c Client) error
@@ -3248,7 +3246,7 @@ func (m AutofillSetAddresses) Call(c Client) error
 
 Call sends the request.
 
-### (AutofillSetAddresses) ProtoReq <- 0.115.0
+#### (AutofillSetAddresses) ProtoReq <- 0.115.0
 
 ``` go
 func (m AutofillSetAddresses) ProtoReq() string
@@ -3256,7 +3254,7 @@ func (m AutofillSetAddresses) ProtoReq() string
 
 ProtoReq name.
 
-## type AutofillTrigger <- 0.115.0
+### type AutofillTrigger <- 0.115.0
 
 ``` go
 type AutofillTrigger struct {
@@ -3273,7 +3271,7 @@ type AutofillTrigger struct {
 
 AutofillTrigger Trigger autofill on a form identified by the fieldId. If the field and related form cannot be autofilled, returns an error.
 
-### (AutofillTrigger) Call <- 0.115.0
+#### (AutofillTrigger) Call <- 0.115.0
 
 ``` go
 func (m AutofillTrigger) Call(c Client) error
@@ -3281,7 +3279,7 @@ func (m AutofillTrigger) Call(c Client) error
 
 Call sends the request.
 
-### (AutofillTrigger) ProtoReq <- 0.115.0
+#### (AutofillTrigger) ProtoReq <- 0.115.0
 
 ``` go
 func (m AutofillTrigger) ProtoReq() string
@@ -3289,7 +3287,7 @@ func (m AutofillTrigger) ProtoReq() string
 
 ProtoReq name.
 
-## type BackgroundServiceBackgroundServiceEvent 
+### type BackgroundServiceBackgroundServiceEvent 
 
 ``` go
 type BackgroundServiceBackgroundServiceEvent struct {
@@ -3321,7 +3319,7 @@ type BackgroundServiceBackgroundServiceEvent struct {
 
 BackgroundServiceBackgroundServiceEvent ...
 
-## type BackgroundServiceBackgroundServiceEventReceived 
+### type BackgroundServiceBackgroundServiceEventReceived 
 
 ``` go
 type BackgroundServiceBackgroundServiceEventReceived struct {
@@ -3332,7 +3330,7 @@ type BackgroundServiceBackgroundServiceEventReceived struct {
 
 BackgroundServiceBackgroundServiceEventReceived Called with all existing backgroundServiceEvents when enabled, and all new events afterwards if enabled and recording.
 
-### (BackgroundServiceBackgroundServiceEventReceived) ProtoEvent <- 0.72.0
+#### (BackgroundServiceBackgroundServiceEventReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt BackgroundServiceBackgroundServiceEventReceived) ProtoEvent() string
@@ -3340,7 +3338,7 @@ func (evt BackgroundServiceBackgroundServiceEventReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type BackgroundServiceClearEvents 
+### type BackgroundServiceClearEvents 
 
 ``` go
 type BackgroundServiceClearEvents struct {
@@ -3351,7 +3349,7 @@ type BackgroundServiceClearEvents struct {
 
 BackgroundServiceClearEvents Clears all stored data for the service.
 
-### (BackgroundServiceClearEvents) Call 
+#### (BackgroundServiceClearEvents) Call 
 
 ``` go
 func (m BackgroundServiceClearEvents) Call(c Client) error
@@ -3359,7 +3357,7 @@ func (m BackgroundServiceClearEvents) Call(c Client) error
 
 Call sends the request.
 
-### (BackgroundServiceClearEvents) ProtoReq <- 0.74.0
+#### (BackgroundServiceClearEvents) ProtoReq <- 0.74.0
 
 ``` go
 func (m BackgroundServiceClearEvents) ProtoReq() string
@@ -3367,7 +3365,7 @@ func (m BackgroundServiceClearEvents) ProtoReq() string
 
 ProtoReq name.
 
-## type BackgroundServiceEventMetadata 
+### type BackgroundServiceEventMetadata 
 
 ``` go
 type BackgroundServiceEventMetadata struct {
@@ -3381,7 +3379,7 @@ type BackgroundServiceEventMetadata struct {
 
 BackgroundServiceEventMetadata A key-value pair for additional event information to pass along.
 
-## type BackgroundServiceRecordingStateChanged 
+### type BackgroundServiceRecordingStateChanged 
 
 ``` go
 type BackgroundServiceRecordingStateChanged struct {
@@ -3395,7 +3393,7 @@ type BackgroundServiceRecordingStateChanged struct {
 
 BackgroundServiceRecordingStateChanged Called when the recording state for the service has been updated.
 
-### (BackgroundServiceRecordingStateChanged) ProtoEvent <- 0.72.0
+#### (BackgroundServiceRecordingStateChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt BackgroundServiceRecordingStateChanged) ProtoEvent() string
@@ -3403,7 +3401,7 @@ func (evt BackgroundServiceRecordingStateChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type BackgroundServiceServiceName 
+### type BackgroundServiceServiceName 
 
 ``` go
 type BackgroundServiceServiceName string
@@ -3433,7 +3431,7 @@ const (
 )
 ```
 
-## type BackgroundServiceSetRecording 
+### type BackgroundServiceSetRecording 
 
 ``` go
 type BackgroundServiceSetRecording struct {
@@ -3447,7 +3445,7 @@ type BackgroundServiceSetRecording struct {
 
 BackgroundServiceSetRecording Set the recording state for the service.
 
-### (BackgroundServiceSetRecording) Call 
+#### (BackgroundServiceSetRecording) Call 
 
 ``` go
 func (m BackgroundServiceSetRecording) Call(c Client) error
@@ -3455,7 +3453,7 @@ func (m BackgroundServiceSetRecording) Call(c Client) error
 
 Call sends the request.
 
-### (BackgroundServiceSetRecording) ProtoReq <- 0.74.0
+#### (BackgroundServiceSetRecording) ProtoReq <- 0.74.0
 
 ``` go
 func (m BackgroundServiceSetRecording) ProtoReq() string
@@ -3463,7 +3461,7 @@ func (m BackgroundServiceSetRecording) ProtoReq() string
 
 ProtoReq name.
 
-## type BackgroundServiceStartObserving 
+### type BackgroundServiceStartObserving 
 
 ``` go
 type BackgroundServiceStartObserving struct {
@@ -3474,7 +3472,7 @@ type BackgroundServiceStartObserving struct {
 
 BackgroundServiceStartObserving Enables event updates for the service.
 
-### (BackgroundServiceStartObserving) Call 
+#### (BackgroundServiceStartObserving) Call 
 
 ``` go
 func (m BackgroundServiceStartObserving) Call(c Client) error
@@ -3482,7 +3480,7 @@ func (m BackgroundServiceStartObserving) Call(c Client) error
 
 Call sends the request.
 
-### (BackgroundServiceStartObserving) ProtoReq <- 0.74.0
+#### (BackgroundServiceStartObserving) ProtoReq <- 0.74.0
 
 ``` go
 func (m BackgroundServiceStartObserving) ProtoReq() string
@@ -3490,7 +3488,7 @@ func (m BackgroundServiceStartObserving) ProtoReq() string
 
 ProtoReq name.
 
-## type BackgroundServiceStopObserving 
+### type BackgroundServiceStopObserving 
 
 ``` go
 type BackgroundServiceStopObserving struct {
@@ -3501,7 +3499,7 @@ type BackgroundServiceStopObserving struct {
 
 BackgroundServiceStopObserving Disables event updates for the service.
 
-### (BackgroundServiceStopObserving) Call 
+#### (BackgroundServiceStopObserving) Call 
 
 ``` go
 func (m BackgroundServiceStopObserving) Call(c Client) error
@@ -3509,7 +3507,7 @@ func (m BackgroundServiceStopObserving) Call(c Client) error
 
 Call sends the request.
 
-### (BackgroundServiceStopObserving) ProtoReq <- 0.74.0
+#### (BackgroundServiceStopObserving) ProtoReq <- 0.74.0
 
 ``` go
 func (m BackgroundServiceStopObserving) ProtoReq() string
@@ -3517,7 +3515,7 @@ func (m BackgroundServiceStopObserving) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserAddPrivacySandboxEnrollmentOverride <- 0.115.0
+### type BrowserAddPrivacySandboxEnrollmentOverride <- 0.115.0
 
 ``` go
 type BrowserAddPrivacySandboxEnrollmentOverride struct {
@@ -3528,7 +3526,7 @@ type BrowserAddPrivacySandboxEnrollmentOverride struct {
 
 BrowserAddPrivacySandboxEnrollmentOverride Allows a site to use privacy sandbox features that require enrollment without the site actually being enrolled. Only supported on page targets.
 
-### (BrowserAddPrivacySandboxEnrollmentOverride) Call <- 0.115.0
+#### (BrowserAddPrivacySandboxEnrollmentOverride) Call <- 0.115.0
 
 ``` go
 func (m BrowserAddPrivacySandboxEnrollmentOverride) Call(c Client) error
@@ -3536,7 +3534,7 @@ func (m BrowserAddPrivacySandboxEnrollmentOverride) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserAddPrivacySandboxEnrollmentOverride) ProtoReq <- 0.115.0
+#### (BrowserAddPrivacySandboxEnrollmentOverride) ProtoReq <- 0.115.0
 
 ``` go
 func (m BrowserAddPrivacySandboxEnrollmentOverride) ProtoReq() string
@@ -3544,7 +3542,7 @@ func (m BrowserAddPrivacySandboxEnrollmentOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserBounds 
+### type BrowserBounds 
 
 ``` go
 type BrowserBounds struct {
@@ -3567,7 +3565,7 @@ type BrowserBounds struct {
 
 BrowserBounds (experimental) Browser window bounds information.
 
-## type BrowserBrowserCommandID <- 0.90.0
+### type BrowserBrowserCommandID <- 0.90.0
 
 ``` go
 type BrowserBrowserCommandID string
@@ -3585,7 +3583,7 @@ const (
 )
 ```
 
-## type BrowserBrowserContextID 
+### type BrowserBrowserContextID 
 
 ``` go
 type BrowserBrowserContextID string
@@ -3593,7 +3591,7 @@ type BrowserBrowserContextID string
 
 BrowserBrowserContextID (experimental) ...
 
-## type BrowserBucket 
+### type BrowserBucket 
 
 ``` go
 type BrowserBucket struct {
@@ -3610,7 +3608,7 @@ type BrowserBucket struct {
 
 BrowserBucket (experimental) Chrome histogram bucket.
 
-## type BrowserCancelDownload <- 0.97.5
+### type BrowserCancelDownload <- 0.97.5
 
 ``` go
 type BrowserCancelDownload struct {
@@ -3624,7 +3622,7 @@ type BrowserCancelDownload struct {
 
 BrowserCancelDownload (experimental) Cancel a download if in progress.
 
-### (BrowserCancelDownload) Call <- 0.97.5
+#### (BrowserCancelDownload) Call <- 0.97.5
 
 ``` go
 func (m BrowserCancelDownload) Call(c Client) error
@@ -3632,7 +3630,7 @@ func (m BrowserCancelDownload) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserCancelDownload) ProtoReq <- 0.97.5
+#### (BrowserCancelDownload) ProtoReq <- 0.97.5
 
 ``` go
 func (m BrowserCancelDownload) ProtoReq() string
@@ -3640,7 +3638,7 @@ func (m BrowserCancelDownload) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserClose 
+### type BrowserClose 
 
 ``` go
 type BrowserClose struct{}
@@ -3648,7 +3646,7 @@ type BrowserClose struct{}
 
 BrowserClose Close browser gracefully.
 
-### (BrowserClose) Call 
+#### (BrowserClose) Call 
 
 ``` go
 func (m BrowserClose) Call(c Client) error
@@ -3656,7 +3654,7 @@ func (m BrowserClose) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserClose) ProtoReq <- 0.74.0
+#### (BrowserClose) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserClose) ProtoReq() string
@@ -3664,7 +3662,7 @@ func (m BrowserClose) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserCrash 
+### type BrowserCrash 
 
 ``` go
 type BrowserCrash struct{}
@@ -3672,7 +3670,7 @@ type BrowserCrash struct{}
 
 BrowserCrash (experimental) Crashes browser on the main thread.
 
-### (BrowserCrash) Call 
+#### (BrowserCrash) Call 
 
 ``` go
 func (m BrowserCrash) Call(c Client) error
@@ -3680,7 +3678,7 @@ func (m BrowserCrash) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserCrash) ProtoReq <- 0.74.0
+#### (BrowserCrash) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserCrash) ProtoReq() string
@@ -3688,7 +3686,7 @@ func (m BrowserCrash) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserCrashGpuProcess 
+### type BrowserCrashGpuProcess 
 
 ``` go
 type BrowserCrashGpuProcess struct{}
@@ -3696,7 +3694,7 @@ type BrowserCrashGpuProcess struct{}
 
 BrowserCrashGpuProcess (experimental) Crashes GPU process.
 
-### (BrowserCrashGpuProcess) Call 
+#### (BrowserCrashGpuProcess) Call 
 
 ``` go
 func (m BrowserCrashGpuProcess) Call(c Client) error
@@ -3704,7 +3702,7 @@ func (m BrowserCrashGpuProcess) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserCrashGpuProcess) ProtoReq <- 0.74.0
+#### (BrowserCrashGpuProcess) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserCrashGpuProcess) ProtoReq() string
@@ -3712,7 +3710,7 @@ func (m BrowserCrashGpuProcess) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserDownloadProgress <- 0.100.0
+### type BrowserDownloadProgress <- 0.100.0
 
 ``` go
 type BrowserDownloadProgress struct {
@@ -3732,7 +3730,7 @@ type BrowserDownloadProgress struct {
 
 BrowserDownloadProgress (experimental) Fired when download makes progress. Last call has |done| == true.
 
-### (BrowserDownloadProgress) ProtoEvent <- 0.100.0
+#### (BrowserDownloadProgress) ProtoEvent <- 0.100.0
 
 ``` go
 func (evt BrowserDownloadProgress) ProtoEvent() string
@@ -3740,7 +3738,7 @@ func (evt BrowserDownloadProgress) ProtoEvent() string
 
 ProtoEvent name.
 
-## type BrowserDownloadProgressState <- 0.100.0
+### type BrowserDownloadProgressState <- 0.100.0
 
 ``` go
 type BrowserDownloadProgressState string
@@ -3761,7 +3759,7 @@ const (
 )
 ```
 
-## type BrowserDownloadWillBegin <- 0.100.0
+### type BrowserDownloadWillBegin <- 0.100.0
 
 ``` go
 type BrowserDownloadWillBegin struct {
@@ -3781,7 +3779,7 @@ type BrowserDownloadWillBegin struct {
 
 BrowserDownloadWillBegin (experimental) Fired when page is about to start a download.
 
-### (BrowserDownloadWillBegin) ProtoEvent <- 0.100.0
+#### (BrowserDownloadWillBegin) ProtoEvent <- 0.100.0
 
 ``` go
 func (evt BrowserDownloadWillBegin) ProtoEvent() string
@@ -3789,7 +3787,7 @@ func (evt BrowserDownloadWillBegin) ProtoEvent() string
 
 ProtoEvent name.
 
-## type BrowserExecuteBrowserCommand <- 0.90.0
+### type BrowserExecuteBrowserCommand <- 0.90.0
 
 ``` go
 type BrowserExecuteBrowserCommand struct {
@@ -3800,7 +3798,7 @@ type BrowserExecuteBrowserCommand struct {
 
 BrowserExecuteBrowserCommand (experimental) Invoke custom browser commands used by telemetry.
 
-### (BrowserExecuteBrowserCommand) Call <- 0.90.0
+#### (BrowserExecuteBrowserCommand) Call <- 0.90.0
 
 ``` go
 func (m BrowserExecuteBrowserCommand) Call(c Client) error
@@ -3808,7 +3806,7 @@ func (m BrowserExecuteBrowserCommand) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserExecuteBrowserCommand) ProtoReq <- 0.90.0
+#### (BrowserExecuteBrowserCommand) ProtoReq <- 0.90.0
 
 ``` go
 func (m BrowserExecuteBrowserCommand) ProtoReq() string
@@ -3816,7 +3814,7 @@ func (m BrowserExecuteBrowserCommand) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetBrowserCommandLine 
+### type BrowserGetBrowserCommandLine 
 
 ``` go
 type BrowserGetBrowserCommandLine struct{}
@@ -3824,7 +3822,7 @@ type BrowserGetBrowserCommandLine struct{}
 
 BrowserGetBrowserCommandLine (experimental) Returns the command line switches for the browser process if, and only if --enable-automation is on the commandline.
 
-### (BrowserGetBrowserCommandLine) Call 
+#### (BrowserGetBrowserCommandLine) Call 
 
 ``` go
 func (m BrowserGetBrowserCommandLine) Call(c Client) (*BrowserGetBrowserCommandLineResult, error)
@@ -3832,7 +3830,7 @@ func (m BrowserGetBrowserCommandLine) Call(c Client) (*BrowserGetBrowserCommandL
 
 Call the request.
 
-### (BrowserGetBrowserCommandLine) ProtoReq <- 0.74.0
+#### (BrowserGetBrowserCommandLine) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetBrowserCommandLine) ProtoReq() string
@@ -3840,7 +3838,7 @@ func (m BrowserGetBrowserCommandLine) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetBrowserCommandLineResult 
+### type BrowserGetBrowserCommandLineResult 
 
 ``` go
 type BrowserGetBrowserCommandLineResult struct {
@@ -3851,7 +3849,7 @@ type BrowserGetBrowserCommandLineResult struct {
 
 BrowserGetBrowserCommandLineResult (experimental) ...
 
-## type BrowserGetHistogram 
+### type BrowserGetHistogram 
 
 ``` go
 type BrowserGetHistogram struct {
@@ -3865,7 +3863,7 @@ type BrowserGetHistogram struct {
 
 BrowserGetHistogram (experimental) Get a Chrome histogram by name.
 
-### (BrowserGetHistogram) Call 
+#### (BrowserGetHistogram) Call 
 
 ``` go
 func (m BrowserGetHistogram) Call(c Client) (*BrowserGetHistogramResult, error)
@@ -3873,7 +3871,7 @@ func (m BrowserGetHistogram) Call(c Client) (*BrowserGetHistogramResult, error)
 
 Call the request.
 
-### (BrowserGetHistogram) ProtoReq <- 0.74.0
+#### (BrowserGetHistogram) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetHistogram) ProtoReq() string
@@ -3881,7 +3879,7 @@ func (m BrowserGetHistogram) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetHistogramResult 
+### type BrowserGetHistogramResult 
 
 ``` go
 type BrowserGetHistogramResult struct {
@@ -3892,7 +3890,7 @@ type BrowserGetHistogramResult struct {
 
 BrowserGetHistogramResult (experimental) ...
 
-## type BrowserGetHistograms 
+### type BrowserGetHistograms 
 
 ``` go
 type BrowserGetHistograms struct {
@@ -3908,7 +3906,7 @@ type BrowserGetHistograms struct {
 
 BrowserGetHistograms (experimental) Get Chrome histograms.
 
-### (BrowserGetHistograms) Call 
+#### (BrowserGetHistograms) Call 
 
 ``` go
 func (m BrowserGetHistograms) Call(c Client) (*BrowserGetHistogramsResult, error)
@@ -3916,7 +3914,7 @@ func (m BrowserGetHistograms) Call(c Client) (*BrowserGetHistogramsResult, error
 
 Call the request.
 
-### (BrowserGetHistograms) ProtoReq <- 0.74.0
+#### (BrowserGetHistograms) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetHistograms) ProtoReq() string
@@ -3924,7 +3922,7 @@ func (m BrowserGetHistograms) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetHistogramsResult 
+### type BrowserGetHistogramsResult 
 
 ``` go
 type BrowserGetHistogramsResult struct {
@@ -3935,7 +3933,7 @@ type BrowserGetHistogramsResult struct {
 
 BrowserGetHistogramsResult (experimental) ...
 
-## type BrowserGetVersion 
+### type BrowserGetVersion 
 
 ``` go
 type BrowserGetVersion struct{}
@@ -3943,7 +3941,7 @@ type BrowserGetVersion struct{}
 
 BrowserGetVersion Returns version information.
 
-### (BrowserGetVersion) Call 
+#### (BrowserGetVersion) Call 
 
 ``` go
 func (m BrowserGetVersion) Call(c Client) (*BrowserGetVersionResult, error)
@@ -3951,7 +3949,7 @@ func (m BrowserGetVersion) Call(c Client) (*BrowserGetVersionResult, error)
 
 Call the request.
 
-### (BrowserGetVersion) ProtoReq <- 0.74.0
+#### (BrowserGetVersion) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetVersion) ProtoReq() string
@@ -3959,7 +3957,7 @@ func (m BrowserGetVersion) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetVersionResult 
+### type BrowserGetVersionResult 
 
 ``` go
 type BrowserGetVersionResult struct {
@@ -3982,7 +3980,7 @@ type BrowserGetVersionResult struct {
 
 BrowserGetVersionResult ...
 
-## type BrowserGetWindowBounds 
+### type BrowserGetWindowBounds 
 
 ``` go
 type BrowserGetWindowBounds struct {
@@ -3993,7 +3991,7 @@ type BrowserGetWindowBounds struct {
 
 BrowserGetWindowBounds (experimental) Get position and size of the browser window.
 
-### (BrowserGetWindowBounds) Call 
+#### (BrowserGetWindowBounds) Call 
 
 ``` go
 func (m BrowserGetWindowBounds) Call(c Client) (*BrowserGetWindowBoundsResult, error)
@@ -4001,7 +3999,7 @@ func (m BrowserGetWindowBounds) Call(c Client) (*BrowserGetWindowBoundsResult, e
 
 Call the request.
 
-### (BrowserGetWindowBounds) ProtoReq <- 0.74.0
+#### (BrowserGetWindowBounds) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetWindowBounds) ProtoReq() string
@@ -4009,7 +4007,7 @@ func (m BrowserGetWindowBounds) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetWindowBoundsResult 
+### type BrowserGetWindowBoundsResult 
 
 ``` go
 type BrowserGetWindowBoundsResult struct {
@@ -4021,7 +4019,7 @@ type BrowserGetWindowBoundsResult struct {
 
 BrowserGetWindowBoundsResult (experimental) ...
 
-## type BrowserGetWindowForTarget 
+### type BrowserGetWindowForTarget 
 
 ``` go
 type BrowserGetWindowForTarget struct {
@@ -4032,7 +4030,7 @@ type BrowserGetWindowForTarget struct {
 
 BrowserGetWindowForTarget (experimental) Get the browser window that contains the devtools target.
 
-### (BrowserGetWindowForTarget) Call 
+#### (BrowserGetWindowForTarget) Call 
 
 ``` go
 func (m BrowserGetWindowForTarget) Call(c Client) (*BrowserGetWindowForTargetResult, error)
@@ -4040,7 +4038,7 @@ func (m BrowserGetWindowForTarget) Call(c Client) (*BrowserGetWindowForTargetRes
 
 Call the request.
 
-### (BrowserGetWindowForTarget) ProtoReq <- 0.74.0
+#### (BrowserGetWindowForTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGetWindowForTarget) ProtoReq() string
@@ -4048,7 +4046,7 @@ func (m BrowserGetWindowForTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserGetWindowForTargetResult 
+### type BrowserGetWindowForTargetResult 
 
 ``` go
 type BrowserGetWindowForTargetResult struct {
@@ -4063,7 +4061,7 @@ type BrowserGetWindowForTargetResult struct {
 
 BrowserGetWindowForTargetResult (experimental) ...
 
-## type BrowserGrantPermissions 
+### type BrowserGrantPermissions 
 
 ``` go
 type BrowserGrantPermissions struct {
@@ -4080,7 +4078,7 @@ type BrowserGrantPermissions struct {
 
 BrowserGrantPermissions (experimental) Grant specific permissions to the given origin and reject all others.
 
-### (BrowserGrantPermissions) Call 
+#### (BrowserGrantPermissions) Call 
 
 ``` go
 func (m BrowserGrantPermissions) Call(c Client) error
@@ -4088,7 +4086,7 @@ func (m BrowserGrantPermissions) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserGrantPermissions) ProtoReq <- 0.74.0
+#### (BrowserGrantPermissions) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserGrantPermissions) ProtoReq() string
@@ -4096,7 +4094,7 @@ func (m BrowserGrantPermissions) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserHistogram 
+### type BrowserHistogram 
 
 ``` go
 type BrowserHistogram struct {
@@ -4116,7 +4114,7 @@ type BrowserHistogram struct {
 
 BrowserHistogram (experimental) Chrome histogram.
 
-## type BrowserPermissionDescriptor 
+### type BrowserPermissionDescriptor 
 
 ``` go
 type BrowserPermissionDescriptor struct {
@@ -4144,7 +4142,7 @@ type BrowserPermissionDescriptor struct {
 
 BrowserPermissionDescriptor (experimental) Definition of PermissionDescriptor defined in the Permissions API: https://w3c.github.io/permissions/#dom-permissiondescriptor.
 
-## type BrowserPermissionSetting 
+### type BrowserPermissionSetting 
 
 ``` go
 type BrowserPermissionSetting string
@@ -4165,7 +4163,7 @@ const (
 )
 ```
 
-## type BrowserPermissionType 
+### type BrowserPermissionType 
 
 ``` go
 type BrowserPermissionType string
@@ -4264,7 +4262,7 @@ const (
 )
 ```
 
-## type BrowserResetPermissions 
+### type BrowserResetPermissions 
 
 ``` go
 type BrowserResetPermissions struct {
@@ -4275,7 +4273,7 @@ type BrowserResetPermissions struct {
 
 BrowserResetPermissions Reset all permission management for all origins.
 
-### (BrowserResetPermissions) Call 
+#### (BrowserResetPermissions) Call 
 
 ``` go
 func (m BrowserResetPermissions) Call(c Client) error
@@ -4283,7 +4281,7 @@ func (m BrowserResetPermissions) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserResetPermissions) ProtoReq <- 0.74.0
+#### (BrowserResetPermissions) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserResetPermissions) ProtoReq() string
@@ -4291,7 +4289,7 @@ func (m BrowserResetPermissions) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserSetDockTile 
+### type BrowserSetDockTile 
 
 ``` go
 type BrowserSetDockTile struct {
@@ -4305,7 +4303,7 @@ type BrowserSetDockTile struct {
 
 BrowserSetDockTile (experimental) Set dock tile details, platform-specific.
 
-### (BrowserSetDockTile) Call 
+#### (BrowserSetDockTile) Call 
 
 ``` go
 func (m BrowserSetDockTile) Call(c Client) error
@@ -4313,7 +4311,7 @@ func (m BrowserSetDockTile) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserSetDockTile) ProtoReq <- 0.74.0
+#### (BrowserSetDockTile) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserSetDockTile) ProtoReq() string
@@ -4321,7 +4319,7 @@ func (m BrowserSetDockTile) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserSetDownloadBehavior 
+### type BrowserSetDownloadBehavior 
 
 ``` go
 type BrowserSetDownloadBehavior struct {
@@ -4344,7 +4342,7 @@ type BrowserSetDownloadBehavior struct {
 
 BrowserSetDownloadBehavior (experimental) Set the behavior when downloading a file.
 
-### (BrowserSetDownloadBehavior) Call 
+#### (BrowserSetDownloadBehavior) Call 
 
 ``` go
 func (m BrowserSetDownloadBehavior) Call(c Client) error
@@ -4352,7 +4350,7 @@ func (m BrowserSetDownloadBehavior) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserSetDownloadBehavior) ProtoReq <- 0.74.0
+#### (BrowserSetDownloadBehavior) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserSetDownloadBehavior) ProtoReq() string
@@ -4360,7 +4358,7 @@ func (m BrowserSetDownloadBehavior) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserSetDownloadBehaviorBehavior 
+### type BrowserSetDownloadBehaviorBehavior 
 
 ``` go
 type BrowserSetDownloadBehaviorBehavior string
@@ -4384,7 +4382,7 @@ const (
 )
 ```
 
-## type BrowserSetPermission 
+### type BrowserSetPermission 
 
 ``` go
 type BrowserSetPermission struct {
@@ -4404,7 +4402,7 @@ type BrowserSetPermission struct {
 
 BrowserSetPermission (experimental) Set permission settings for given origin.
 
-### (BrowserSetPermission) Call 
+#### (BrowserSetPermission) Call 
 
 ``` go
 func (m BrowserSetPermission) Call(c Client) error
@@ -4412,7 +4410,7 @@ func (m BrowserSetPermission) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserSetPermission) ProtoReq <- 0.74.0
+#### (BrowserSetPermission) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserSetPermission) ProtoReq() string
@@ -4420,7 +4418,7 @@ func (m BrowserSetPermission) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserSetWindowBounds 
+### type BrowserSetWindowBounds 
 
 ``` go
 type BrowserSetWindowBounds struct {
@@ -4435,7 +4433,7 @@ type BrowserSetWindowBounds struct {
 
 BrowserSetWindowBounds (experimental) Set position and/or size of the browser window.
 
-### (BrowserSetWindowBounds) Call 
+#### (BrowserSetWindowBounds) Call 
 
 ``` go
 func (m BrowserSetWindowBounds) Call(c Client) error
@@ -4443,7 +4441,7 @@ func (m BrowserSetWindowBounds) Call(c Client) error
 
 Call sends the request.
 
-### (BrowserSetWindowBounds) ProtoReq <- 0.74.0
+#### (BrowserSetWindowBounds) ProtoReq <- 0.74.0
 
 ``` go
 func (m BrowserSetWindowBounds) ProtoReq() string
@@ -4451,7 +4449,7 @@ func (m BrowserSetWindowBounds) ProtoReq() string
 
 ProtoReq name.
 
-## type BrowserWindowID 
+### type BrowserWindowID 
 
 ``` go
 type BrowserWindowID int
@@ -4459,7 +4457,7 @@ type BrowserWindowID int
 
 BrowserWindowID (experimental) ...
 
-## type BrowserWindowState 
+### type BrowserWindowState 
 
 ``` go
 type BrowserWindowState string
@@ -4483,7 +4481,7 @@ const (
 )
 ```
 
-## type CSSAddRule 
+### type CSSAddRule 
 
 ``` go
 type CSSAddRule struct {
@@ -4505,7 +4503,7 @@ type CSSAddRule struct {
 
 CSSAddRule Inserts a new rule with the given `ruleText` in a stylesheet with given `styleSheetId`, at the position specified by `location`.
 
-### (CSSAddRule) Call 
+#### (CSSAddRule) Call 
 
 ``` go
 func (m CSSAddRule) Call(c Client) (*CSSAddRuleResult, error)
@@ -4513,7 +4511,7 @@ func (m CSSAddRule) Call(c Client) (*CSSAddRuleResult, error)
 
 Call the request.
 
-### (CSSAddRule) ProtoReq <- 0.74.0
+#### (CSSAddRule) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSAddRule) ProtoReq() string
@@ -4521,7 +4519,7 @@ func (m CSSAddRule) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSAddRuleResult 
+### type CSSAddRuleResult 
 
 ``` go
 type CSSAddRuleResult struct {
@@ -4532,7 +4530,7 @@ type CSSAddRuleResult struct {
 
 CSSAddRuleResult ...
 
-## type CSSCSSComputedStyleProperty 
+### type CSSCSSComputedStyleProperty 
 
 ``` go
 type CSSCSSComputedStyleProperty struct {
@@ -4546,7 +4544,7 @@ type CSSCSSComputedStyleProperty struct {
 
 CSSCSSComputedStyleProperty ...
 
-## type CSSCSSContainerQuery <- 0.101.5
+### type CSSCSSContainerQuery <- 0.101.5
 
 ``` go
 type CSSCSSContainerQuery struct {
@@ -4573,7 +4571,7 @@ type CSSCSSContainerQuery struct {
 
 CSSCSSContainerQuery (experimental) CSS container query rule descriptor.
 
-## type CSSCSSFontPaletteValuesRule <- 0.115.0
+### type CSSCSSFontPaletteValuesRule <- 0.115.0
 
 ``` go
 type CSSCSSFontPaletteValuesRule struct {
@@ -4594,7 +4592,7 @@ type CSSCSSFontPaletteValuesRule struct {
 
 CSSCSSFontPaletteValuesRule CSS font-palette-values rule representation.
 
-## type CSSCSSKeyframeRule 
+### type CSSCSSKeyframeRule 
 
 ``` go
 type CSSCSSKeyframeRule struct {
@@ -4615,7 +4613,7 @@ type CSSCSSKeyframeRule struct {
 
 CSSCSSKeyframeRule CSS keyframe rule representation.
 
-## type CSSCSSKeyframesRule 
+### type CSSCSSKeyframesRule 
 
 ``` go
 type CSSCSSKeyframesRule struct {
@@ -4629,7 +4627,7 @@ type CSSCSSKeyframesRule struct {
 
 CSSCSSKeyframesRule CSS keyframes rule representation.
 
-## type CSSCSSLayer <- 0.103.0
+### type CSSCSSLayer <- 0.103.0
 
 ``` go
 type CSSCSSLayer struct {
@@ -4647,7 +4645,7 @@ type CSSCSSLayer struct {
 
 CSSCSSLayer (experimental) CSS Layer at-rule descriptor.
 
-## type CSSCSSLayerData <- 0.103.0
+### type CSSCSSLayerData <- 0.103.0
 
 ``` go
 type CSSCSSLayerData struct {
@@ -4665,7 +4663,7 @@ type CSSCSSLayerData struct {
 
 CSSCSSLayerData (experimental) CSS Layer data.
 
-## type CSSCSSMedia 
+### type CSSCSSMedia 
 
 ``` go
 type CSSCSSMedia struct {
@@ -4695,7 +4693,7 @@ type CSSCSSMedia struct {
 
 CSSCSSMedia CSS media rule descriptor.
 
-## type CSSCSSMediaSource 
+### type CSSCSSMediaSource 
 
 ``` go
 type CSSCSSMediaSource string
@@ -4719,7 +4717,7 @@ const (
 )
 ```
 
-## type CSSCSSPositionFallbackRule <- 0.112.9
+### type CSSCSSPositionFallbackRule <- 0.112.9
 
 ``` go
 type CSSCSSPositionFallbackRule struct {
@@ -4733,7 +4731,7 @@ type CSSCSSPositionFallbackRule struct {
 
 CSSCSSPositionFallbackRule (deprecated) CSS position-fallback rule representation.
 
-## type CSSCSSPositionTryRule <- 0.115.0
+### type CSSCSSPositionTryRule <- 0.115.0
 
 ``` go
 type CSSCSSPositionTryRule struct {
@@ -4754,7 +4752,7 @@ type CSSCSSPositionTryRule struct {
 
 CSSCSSPositionTryRule CSS @position-try rule representation.
 
-## type CSSCSSProperty 
+### type CSSCSSProperty 
 
 ``` go
 type CSSCSSProperty struct {
@@ -4790,7 +4788,7 @@ type CSSCSSProperty struct {
 
 CSSCSSProperty CSS property declaration data.
 
-## type CSSCSSPropertyRegistration <- 0.115.0
+### type CSSCSSPropertyRegistration <- 0.115.0
 
 ``` go
 type CSSCSSPropertyRegistration struct {
@@ -4810,7 +4808,7 @@ type CSSCSSPropertyRegistration struct {
 
 CSSCSSPropertyRegistration Representation of a custom property registration through CSS.registerProperty.
 
-## type CSSCSSPropertyRule <- 0.115.0
+### type CSSCSSPropertyRule <- 0.115.0
 
 ``` go
 type CSSCSSPropertyRule struct {
@@ -4831,7 +4829,7 @@ type CSSCSSPropertyRule struct {
 
 CSSCSSPropertyRule CSS property at-rule representation.
 
-## type CSSCSSRule 
+### type CSSCSSRule 
 
 ``` go
 type CSSCSSRule struct {
@@ -4878,7 +4876,7 @@ type CSSCSSRule struct {
 
 CSSCSSRule CSS rule representation.
 
-## type CSSCSSRuleType <- 0.115.0
+### type CSSCSSRuleType <- 0.115.0
 
 ``` go
 type CSSCSSRuleType string
@@ -4908,7 +4906,7 @@ const (
 )
 ```
 
-## type CSSCSSScope <- 0.108.0
+### type CSSCSSScope <- 0.108.0
 
 ``` go
 type CSSCSSScope struct {
@@ -4926,7 +4924,7 @@ type CSSCSSScope struct {
 
 CSSCSSScope (experimental) CSS Scope at-rule descriptor.
 
-## type CSSCSSStyle 
+### type CSSCSSStyle 
 
 ``` go
 type CSSCSSStyle struct {
@@ -4950,7 +4948,7 @@ type CSSCSSStyle struct {
 
 CSSCSSStyle CSS style representation.
 
-## type CSSCSSStyleSheetHeader 
+### type CSSCSSStyleSheetHeader 
 
 ``` go
 type CSSCSSStyleSheetHeader struct {
@@ -5019,7 +5017,7 @@ type CSSCSSStyleSheetHeader struct {
 
 CSSCSSStyleSheetHeader CSS stylesheet metainformation.
 
-## type CSSCSSSupports <- 0.102.1
+### type CSSCSSSupports <- 0.102.1
 
 ``` go
 type CSSCSSSupports struct {
@@ -5040,7 +5038,7 @@ type CSSCSSSupports struct {
 
 CSSCSSSupports (experimental) CSS Supports at-rule descriptor.
 
-## type CSSCSSTryRule <- 0.112.9
+### type CSSCSSTryRule <- 0.112.9
 
 ``` go
 type CSSCSSTryRule struct {
@@ -5058,7 +5056,7 @@ type CSSCSSTryRule struct {
 
 CSSCSSTryRule CSS try rule representation.
 
-## type CSSCollectClassNames 
+### type CSSCollectClassNames 
 
 ``` go
 type CSSCollectClassNames struct {
@@ -5069,7 +5067,7 @@ type CSSCollectClassNames struct {
 
 CSSCollectClassNames Returns all class names from specified stylesheet.
 
-### (CSSCollectClassNames) Call 
+#### (CSSCollectClassNames) Call 
 
 ``` go
 func (m CSSCollectClassNames) Call(c Client) (*CSSCollectClassNamesResult, error)
@@ -5077,7 +5075,7 @@ func (m CSSCollectClassNames) Call(c Client) (*CSSCollectClassNamesResult, error
 
 Call the request.
 
-### (CSSCollectClassNames) ProtoReq <- 0.74.0
+#### (CSSCollectClassNames) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSCollectClassNames) ProtoReq() string
@@ -5085,7 +5083,7 @@ func (m CSSCollectClassNames) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSCollectClassNamesResult 
+### type CSSCollectClassNamesResult 
 
 ``` go
 type CSSCollectClassNamesResult struct {
@@ -5096,7 +5094,7 @@ type CSSCollectClassNamesResult struct {
 
 CSSCollectClassNamesResult ...
 
-## type CSSCreateStyleSheet 
+### type CSSCreateStyleSheet 
 
 ``` go
 type CSSCreateStyleSheet struct {
@@ -5107,7 +5105,7 @@ type CSSCreateStyleSheet struct {
 
 CSSCreateStyleSheet Creates a new special "via-inspector" stylesheet in the frame with given `frameId`.
 
-### (CSSCreateStyleSheet) Call 
+#### (CSSCreateStyleSheet) Call 
 
 ``` go
 func (m CSSCreateStyleSheet) Call(c Client) (*CSSCreateStyleSheetResult, error)
@@ -5115,7 +5113,7 @@ func (m CSSCreateStyleSheet) Call(c Client) (*CSSCreateStyleSheetResult, error)
 
 Call the request.
 
-### (CSSCreateStyleSheet) ProtoReq <- 0.74.0
+#### (CSSCreateStyleSheet) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSCreateStyleSheet) ProtoReq() string
@@ -5123,7 +5121,7 @@ func (m CSSCreateStyleSheet) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSCreateStyleSheetResult 
+### type CSSCreateStyleSheetResult 
 
 ``` go
 type CSSCreateStyleSheetResult struct {
@@ -5134,7 +5132,7 @@ type CSSCreateStyleSheetResult struct {
 
 CSSCreateStyleSheetResult ...
 
-## type CSSDisable 
+### type CSSDisable 
 
 ``` go
 type CSSDisable struct{}
@@ -5142,7 +5140,7 @@ type CSSDisable struct{}
 
 CSSDisable Disables the CSS agent for the given page.
 
-### (CSSDisable) Call 
+#### (CSSDisable) Call 
 
 ``` go
 func (m CSSDisable) Call(c Client) error
@@ -5150,7 +5148,7 @@ func (m CSSDisable) Call(c Client) error
 
 Call sends the request.
 
-### (CSSDisable) ProtoReq <- 0.74.0
+#### (CSSDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSDisable) ProtoReq() string
@@ -5158,7 +5156,7 @@ func (m CSSDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSEnable 
+### type CSSEnable 
 
 ``` go
 type CSSEnable struct{}
@@ -5166,7 +5164,7 @@ type CSSEnable struct{}
 
 CSSEnable Enables the CSS agent for the given page. Clients should not assume that the CSS agent has been enabled until the result of this command is received.
 
-### (CSSEnable) Call 
+#### (CSSEnable) Call 
 
 ``` go
 func (m CSSEnable) Call(c Client) error
@@ -5174,7 +5172,7 @@ func (m CSSEnable) Call(c Client) error
 
 Call sends the request.
 
-### (CSSEnable) ProtoReq <- 0.74.0
+#### (CSSEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSEnable) ProtoReq() string
@@ -5182,7 +5180,7 @@ func (m CSSEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSFontFace 
+### type CSSFontFace 
 
 ``` go
 type CSSFontFace struct {
@@ -5220,7 +5218,7 @@ type CSSFontFace struct {
 
 CSSFontFace Properties of a web font: https://www.w3.org/TR/2008/REC-CSS2-20080411/fonts.html#font-descriptions and additional information such as platformFontFamily and fontVariationAxes.
 
-## type CSSFontVariationAxis <- 0.72.0
+### type CSSFontVariationAxis <- 0.72.0
 
 ``` go
 type CSSFontVariationAxis struct {
@@ -5243,7 +5241,7 @@ type CSSFontVariationAxis struct {
 
 CSSFontVariationAxis Information about font variation axes for variable fonts.
 
-## type CSSFontsUpdated 
+### type CSSFontsUpdated 
 
 ``` go
 type CSSFontsUpdated struct {
@@ -5254,7 +5252,7 @@ type CSSFontsUpdated struct {
 
 CSSFontsUpdated Fires whenever a web font is updated. A non-empty font parameter indicates a successfully loaded web font.
 
-### (CSSFontsUpdated) ProtoEvent <- 0.72.0
+#### (CSSFontsUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CSSFontsUpdated) ProtoEvent() string
@@ -5262,7 +5260,7 @@ func (evt CSSFontsUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CSSForcePseudoState 
+### type CSSForcePseudoState 
 
 ``` go
 type CSSForcePseudoState struct {
@@ -5276,7 +5274,7 @@ type CSSForcePseudoState struct {
 
 CSSForcePseudoState Ensures that the given node will have specified pseudo-classes whenever its style is computed by the browser.
 
-### (CSSForcePseudoState) Call 
+#### (CSSForcePseudoState) Call 
 
 ``` go
 func (m CSSForcePseudoState) Call(c Client) error
@@ -5284,7 +5282,7 @@ func (m CSSForcePseudoState) Call(c Client) error
 
 Call sends the request.
 
-### (CSSForcePseudoState) ProtoReq <- 0.74.0
+#### (CSSForcePseudoState) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSForcePseudoState) ProtoReq() string
@@ -5292,7 +5290,7 @@ func (m CSSForcePseudoState) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetBackgroundColors 
+### type CSSGetBackgroundColors 
 
 ``` go
 type CSSGetBackgroundColors struct {
@@ -5303,7 +5301,7 @@ type CSSGetBackgroundColors struct {
 
 CSSGetBackgroundColors ...
 
-### (CSSGetBackgroundColors) Call 
+#### (CSSGetBackgroundColors) Call 
 
 ``` go
 func (m CSSGetBackgroundColors) Call(c Client) (*CSSGetBackgroundColorsResult, error)
@@ -5311,7 +5309,7 @@ func (m CSSGetBackgroundColors) Call(c Client) (*CSSGetBackgroundColorsResult, e
 
 Call the request.
 
-### (CSSGetBackgroundColors) ProtoReq <- 0.74.0
+#### (CSSGetBackgroundColors) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetBackgroundColors) ProtoReq() string
@@ -5319,7 +5317,7 @@ func (m CSSGetBackgroundColors) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetBackgroundColorsResult 
+### type CSSGetBackgroundColorsResult 
 
 ``` go
 type CSSGetBackgroundColorsResult struct {
@@ -5341,7 +5339,7 @@ type CSSGetBackgroundColorsResult struct {
 
 CSSGetBackgroundColorsResult ...
 
-## type CSSGetComputedStyleForNode 
+### type CSSGetComputedStyleForNode 
 
 ``` go
 type CSSGetComputedStyleForNode struct {
@@ -5352,7 +5350,7 @@ type CSSGetComputedStyleForNode struct {
 
 CSSGetComputedStyleForNode Returns the computed style for a DOM node identified by `nodeId`.
 
-### (CSSGetComputedStyleForNode) Call 
+#### (CSSGetComputedStyleForNode) Call 
 
 ``` go
 func (m CSSGetComputedStyleForNode) Call(c Client) (*CSSGetComputedStyleForNodeResult, error)
@@ -5360,7 +5358,7 @@ func (m CSSGetComputedStyleForNode) Call(c Client) (*CSSGetComputedStyleForNodeR
 
 Call the request.
 
-### (CSSGetComputedStyleForNode) ProtoReq <- 0.74.0
+#### (CSSGetComputedStyleForNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetComputedStyleForNode) ProtoReq() string
@@ -5368,7 +5366,7 @@ func (m CSSGetComputedStyleForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetComputedStyleForNodeResult 
+### type CSSGetComputedStyleForNodeResult 
 
 ``` go
 type CSSGetComputedStyleForNodeResult struct {
@@ -5379,7 +5377,7 @@ type CSSGetComputedStyleForNodeResult struct {
 
 CSSGetComputedStyleForNodeResult ...
 
-## type CSSGetInlineStylesForNode 
+### type CSSGetInlineStylesForNode 
 
 ``` go
 type CSSGetInlineStylesForNode struct {
@@ -5390,7 +5388,7 @@ type CSSGetInlineStylesForNode struct {
 
 CSSGetInlineStylesForNode Returns the styles defined inline (explicitly in the "style" attribute and implicitly, using DOM attributes) for a DOM node identified by `nodeId`.
 
-### (CSSGetInlineStylesForNode) Call 
+#### (CSSGetInlineStylesForNode) Call 
 
 ``` go
 func (m CSSGetInlineStylesForNode) Call(c Client) (*CSSGetInlineStylesForNodeResult, error)
@@ -5398,7 +5396,7 @@ func (m CSSGetInlineStylesForNode) Call(c Client) (*CSSGetInlineStylesForNodeRes
 
 Call the request.
 
-### (CSSGetInlineStylesForNode) ProtoReq <- 0.74.0
+#### (CSSGetInlineStylesForNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetInlineStylesForNode) ProtoReq() string
@@ -5406,7 +5404,7 @@ func (m CSSGetInlineStylesForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetInlineStylesForNodeResult 
+### type CSSGetInlineStylesForNodeResult 
 
 ``` go
 type CSSGetInlineStylesForNodeResult struct {
@@ -5420,7 +5418,7 @@ type CSSGetInlineStylesForNodeResult struct {
 
 CSSGetInlineStylesForNodeResult ...
 
-## type CSSGetLayersForNode <- 0.103.0
+### type CSSGetLayersForNode <- 0.103.0
 
 ``` go
 type CSSGetLayersForNode struct {
@@ -5431,7 +5429,7 @@ type CSSGetLayersForNode struct {
 
 CSSGetLayersForNode (experimental) Returns all layers parsed by the rendering engine for the tree scope of a node. Given a DOM element identified by nodeId, getLayersForNode returns the root layer for the nearest ancestor document or shadow root. The layer root contains the full layer tree for the tree scope and their ordering.
 
-### (CSSGetLayersForNode) Call <- 0.103.0
+#### (CSSGetLayersForNode) Call <- 0.103.0
 
 ``` go
 func (m CSSGetLayersForNode) Call(c Client) (*CSSGetLayersForNodeResult, error)
@@ -5439,7 +5437,7 @@ func (m CSSGetLayersForNode) Call(c Client) (*CSSGetLayersForNodeResult, error)
 
 Call the request.
 
-### (CSSGetLayersForNode) ProtoReq <- 0.103.0
+#### (CSSGetLayersForNode) ProtoReq <- 0.103.0
 
 ``` go
 func (m CSSGetLayersForNode) ProtoReq() string
@@ -5447,7 +5445,7 @@ func (m CSSGetLayersForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetLayersForNodeResult <- 0.103.0
+### type CSSGetLayersForNodeResult <- 0.103.0
 
 ``` go
 type CSSGetLayersForNodeResult struct {
@@ -5458,7 +5456,7 @@ type CSSGetLayersForNodeResult struct {
 
 CSSGetLayersForNodeResult (experimental) ...
 
-## type CSSGetLocationForSelector <- 0.115.0
+### type CSSGetLocationForSelector <- 0.115.0
 
 ``` go
 type CSSGetLocationForSelector struct {
@@ -5472,7 +5470,7 @@ type CSSGetLocationForSelector struct {
 
 CSSGetLocationForSelector (experimental) Given a CSS selector text and a style sheet ID, getLocationForSelector returns an array of locations of the CSS selector in the style sheet.
 
-### (CSSGetLocationForSelector) Call <- 0.115.0
+#### (CSSGetLocationForSelector) Call <- 0.115.0
 
 ``` go
 func (m CSSGetLocationForSelector) Call(c Client) (*CSSGetLocationForSelectorResult, error)
@@ -5480,7 +5478,7 @@ func (m CSSGetLocationForSelector) Call(c Client) (*CSSGetLocationForSelectorRes
 
 Call the request.
 
-### (CSSGetLocationForSelector) ProtoReq <- 0.115.0
+#### (CSSGetLocationForSelector) ProtoReq <- 0.115.0
 
 ``` go
 func (m CSSGetLocationForSelector) ProtoReq() string
@@ -5488,7 +5486,7 @@ func (m CSSGetLocationForSelector) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetLocationForSelectorResult <- 0.115.0
+### type CSSGetLocationForSelectorResult <- 0.115.0
 
 ``` go
 type CSSGetLocationForSelectorResult struct {
@@ -5499,7 +5497,7 @@ type CSSGetLocationForSelectorResult struct {
 
 CSSGetLocationForSelectorResult (experimental) ...
 
-## type CSSGetMatchedStylesForNode 
+### type CSSGetMatchedStylesForNode 
 
 ``` go
 type CSSGetMatchedStylesForNode struct {
@@ -5510,7 +5508,7 @@ type CSSGetMatchedStylesForNode struct {
 
 CSSGetMatchedStylesForNode Returns requested styles for a DOM node identified by `nodeId`.
 
-### (CSSGetMatchedStylesForNode) Call 
+#### (CSSGetMatchedStylesForNode) Call 
 
 ``` go
 func (m CSSGetMatchedStylesForNode) Call(c Client) (*CSSGetMatchedStylesForNodeResult, error)
@@ -5518,7 +5516,7 @@ func (m CSSGetMatchedStylesForNode) Call(c Client) (*CSSGetMatchedStylesForNodeR
 
 Call the request.
 
-### (CSSGetMatchedStylesForNode) ProtoReq <- 0.74.0
+#### (CSSGetMatchedStylesForNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetMatchedStylesForNode) ProtoReq() string
@@ -5526,7 +5524,7 @@ func (m CSSGetMatchedStylesForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetMatchedStylesForNodeResult 
+### type CSSGetMatchedStylesForNodeResult 
 
 ``` go
 type CSSGetMatchedStylesForNodeResult struct {
@@ -5573,7 +5571,7 @@ type CSSGetMatchedStylesForNodeResult struct {
 
 CSSGetMatchedStylesForNodeResult ...
 
-## type CSSGetMediaQueries 
+### type CSSGetMediaQueries 
 
 ``` go
 type CSSGetMediaQueries struct{}
@@ -5581,7 +5579,7 @@ type CSSGetMediaQueries struct{}
 
 CSSGetMediaQueries Returns all media queries parsed by the rendering engine.
 
-### (CSSGetMediaQueries) Call 
+#### (CSSGetMediaQueries) Call 
 
 ``` go
 func (m CSSGetMediaQueries) Call(c Client) (*CSSGetMediaQueriesResult, error)
@@ -5589,7 +5587,7 @@ func (m CSSGetMediaQueries) Call(c Client) (*CSSGetMediaQueriesResult, error)
 
 Call the request.
 
-### (CSSGetMediaQueries) ProtoReq <- 0.74.0
+#### (CSSGetMediaQueries) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetMediaQueries) ProtoReq() string
@@ -5597,7 +5595,7 @@ func (m CSSGetMediaQueries) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetMediaQueriesResult 
+### type CSSGetMediaQueriesResult 
 
 ``` go
 type CSSGetMediaQueriesResult struct {
@@ -5608,7 +5606,7 @@ type CSSGetMediaQueriesResult struct {
 
 CSSGetMediaQueriesResult ...
 
-## type CSSGetPlatformFontsForNode 
+### type CSSGetPlatformFontsForNode 
 
 ``` go
 type CSSGetPlatformFontsForNode struct {
@@ -5619,7 +5617,7 @@ type CSSGetPlatformFontsForNode struct {
 
 CSSGetPlatformFontsForNode Requests information about platform fonts which we used to render child TextNodes in the given node.
 
-### (CSSGetPlatformFontsForNode) Call 
+#### (CSSGetPlatformFontsForNode) Call 
 
 ``` go
 func (m CSSGetPlatformFontsForNode) Call(c Client) (*CSSGetPlatformFontsForNodeResult, error)
@@ -5627,7 +5625,7 @@ func (m CSSGetPlatformFontsForNode) Call(c Client) (*CSSGetPlatformFontsForNodeR
 
 Call the request.
 
-### (CSSGetPlatformFontsForNode) ProtoReq <- 0.74.0
+#### (CSSGetPlatformFontsForNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetPlatformFontsForNode) ProtoReq() string
@@ -5635,7 +5633,7 @@ func (m CSSGetPlatformFontsForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetPlatformFontsForNodeResult 
+### type CSSGetPlatformFontsForNodeResult 
 
 ``` go
 type CSSGetPlatformFontsForNodeResult struct {
@@ -5646,7 +5644,7 @@ type CSSGetPlatformFontsForNodeResult struct {
 
 CSSGetPlatformFontsForNodeResult ...
 
-## type CSSGetStyleSheetText 
+### type CSSGetStyleSheetText 
 
 ``` go
 type CSSGetStyleSheetText struct {
@@ -5657,7 +5655,7 @@ type CSSGetStyleSheetText struct {
 
 CSSGetStyleSheetText Returns the current textual content for a stylesheet.
 
-### (CSSGetStyleSheetText) Call 
+#### (CSSGetStyleSheetText) Call 
 
 ``` go
 func (m CSSGetStyleSheetText) Call(c Client) (*CSSGetStyleSheetTextResult, error)
@@ -5665,7 +5663,7 @@ func (m CSSGetStyleSheetText) Call(c Client) (*CSSGetStyleSheetTextResult, error
 
 Call the request.
 
-### (CSSGetStyleSheetText) ProtoReq <- 0.74.0
+#### (CSSGetStyleSheetText) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSGetStyleSheetText) ProtoReq() string
@@ -5673,7 +5671,7 @@ func (m CSSGetStyleSheetText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSGetStyleSheetTextResult 
+### type CSSGetStyleSheetTextResult 
 
 ``` go
 type CSSGetStyleSheetTextResult struct {
@@ -5684,7 +5682,7 @@ type CSSGetStyleSheetTextResult struct {
 
 CSSGetStyleSheetTextResult ...
 
-## type CSSInheritedPseudoElementMatches <- 0.104.0
+### type CSSInheritedPseudoElementMatches <- 0.104.0
 
 ``` go
 type CSSInheritedPseudoElementMatches struct {
@@ -5695,7 +5693,7 @@ type CSSInheritedPseudoElementMatches struct {
 
 CSSInheritedPseudoElementMatches Inherited pseudo element matches from pseudos of an ancestor node.
 
-## type CSSInheritedStyleEntry 
+### type CSSInheritedStyleEntry 
 
 ``` go
 type CSSInheritedStyleEntry struct {
@@ -5709,7 +5707,7 @@ type CSSInheritedStyleEntry struct {
 
 CSSInheritedStyleEntry Inherited CSS rule collection from ancestor node.
 
-## type CSSMediaQuery 
+### type CSSMediaQuery 
 
 ``` go
 type CSSMediaQuery struct {
@@ -5723,7 +5721,7 @@ type CSSMediaQuery struct {
 
 CSSMediaQuery Media query descriptor.
 
-## type CSSMediaQueryExpression 
+### type CSSMediaQueryExpression 
 
 ``` go
 type CSSMediaQueryExpression struct {
@@ -5746,7 +5744,7 @@ type CSSMediaQueryExpression struct {
 
 CSSMediaQueryExpression Media query expression descriptor.
 
-## type CSSMediaQueryResultChanged 
+### type CSSMediaQueryResultChanged 
 
 ``` go
 type CSSMediaQueryResultChanged struct{}
@@ -5754,7 +5752,7 @@ type CSSMediaQueryResultChanged struct{}
 
 CSSMediaQueryResultChanged Fires whenever a MediaQuery result changes (for example, after a browser window has been resized.) The current implementation considers only viewport-dependent media features.
 
-### (CSSMediaQueryResultChanged) ProtoEvent <- 0.72.0
+#### (CSSMediaQueryResultChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CSSMediaQueryResultChanged) ProtoEvent() string
@@ -5762,7 +5760,7 @@ func (evt CSSMediaQueryResultChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CSSPlatformFontUsage 
+### type CSSPlatformFontUsage 
 
 ``` go
 type CSSPlatformFontUsage struct {
@@ -5782,7 +5780,7 @@ type CSSPlatformFontUsage struct {
 
 CSSPlatformFontUsage Information about amount of glyphs that were rendered with given font.
 
-## type CSSPseudoElementMatches 
+### type CSSPseudoElementMatches 
 
 ``` go
 type CSSPseudoElementMatches struct {
@@ -5799,7 +5797,7 @@ type CSSPseudoElementMatches struct {
 
 CSSPseudoElementMatches CSS rule collection for a single pseudo style.
 
-## type CSSRuleMatch 
+### type CSSRuleMatch 
 
 ``` go
 type CSSRuleMatch struct {
@@ -5813,7 +5811,7 @@ type CSSRuleMatch struct {
 
 CSSRuleMatch Match data for a CSS rule.
 
-## type CSSRuleUsage 
+### type CSSRuleUsage 
 
 ``` go
 type CSSRuleUsage struct {
@@ -5834,7 +5832,7 @@ type CSSRuleUsage struct {
 
 CSSRuleUsage CSS coverage information.
 
-## type CSSSelectorList 
+### type CSSSelectorList 
 
 ``` go
 type CSSSelectorList struct {
@@ -5848,7 +5846,7 @@ type CSSSelectorList struct {
 
 CSSSelectorList Selector list data.
 
-## type CSSSetContainerQueryText <- 0.101.5
+### type CSSSetContainerQueryText <- 0.101.5
 
 ``` go
 type CSSSetContainerQueryText struct {
@@ -5865,7 +5863,7 @@ type CSSSetContainerQueryText struct {
 
 CSSSetContainerQueryText (experimental) Modifies the expression of a container query.
 
-### (CSSSetContainerQueryText) Call <- 0.101.5
+#### (CSSSetContainerQueryText) Call <- 0.101.5
 
 ``` go
 func (m CSSSetContainerQueryText) Call(c Client) (*CSSSetContainerQueryTextResult, error)
@@ -5873,7 +5871,7 @@ func (m CSSSetContainerQueryText) Call(c Client) (*CSSSetContainerQueryTextResul
 
 Call the request.
 
-### (CSSSetContainerQueryText) ProtoReq <- 0.101.5
+#### (CSSSetContainerQueryText) ProtoReq <- 0.101.5
 
 ``` go
 func (m CSSSetContainerQueryText) ProtoReq() string
@@ -5881,7 +5879,7 @@ func (m CSSSetContainerQueryText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetContainerQueryTextResult <- 0.101.5
+### type CSSSetContainerQueryTextResult <- 0.101.5
 
 ``` go
 type CSSSetContainerQueryTextResult struct {
@@ -5892,7 +5890,7 @@ type CSSSetContainerQueryTextResult struct {
 
 CSSSetContainerQueryTextResult (experimental) ...
 
-## type CSSSetEffectivePropertyValueForNode 
+### type CSSSetEffectivePropertyValueForNode 
 
 ``` go
 type CSSSetEffectivePropertyValueForNode struct {
@@ -5909,7 +5907,7 @@ type CSSSetEffectivePropertyValueForNode struct {
 
 CSSSetEffectivePropertyValueForNode Find a rule with the given active property for the given node and set the new value for this property.
 
-### (CSSSetEffectivePropertyValueForNode) Call 
+#### (CSSSetEffectivePropertyValueForNode) Call 
 
 ``` go
 func (m CSSSetEffectivePropertyValueForNode) Call(c Client) error
@@ -5917,7 +5915,7 @@ func (m CSSSetEffectivePropertyValueForNode) Call(c Client) error
 
 Call sends the request.
 
-### (CSSSetEffectivePropertyValueForNode) ProtoReq <- 0.74.0
+#### (CSSSetEffectivePropertyValueForNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetEffectivePropertyValueForNode) ProtoReq() string
@@ -5925,7 +5923,7 @@ func (m CSSSetEffectivePropertyValueForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetKeyframeKey 
+### type CSSSetKeyframeKey 
 
 ``` go
 type CSSSetKeyframeKey struct {
@@ -5942,7 +5940,7 @@ type CSSSetKeyframeKey struct {
 
 CSSSetKeyframeKey Modifies the keyframe rule key text.
 
-### (CSSSetKeyframeKey) Call 
+#### (CSSSetKeyframeKey) Call 
 
 ``` go
 func (m CSSSetKeyframeKey) Call(c Client) (*CSSSetKeyframeKeyResult, error)
@@ -5950,7 +5948,7 @@ func (m CSSSetKeyframeKey) Call(c Client) (*CSSSetKeyframeKeyResult, error)
 
 Call the request.
 
-### (CSSSetKeyframeKey) ProtoReq <- 0.74.0
+#### (CSSSetKeyframeKey) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetKeyframeKey) ProtoReq() string
@@ -5958,7 +5956,7 @@ func (m CSSSetKeyframeKey) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetKeyframeKeyResult 
+### type CSSSetKeyframeKeyResult 
 
 ``` go
 type CSSSetKeyframeKeyResult struct {
@@ -5969,7 +5967,7 @@ type CSSSetKeyframeKeyResult struct {
 
 CSSSetKeyframeKeyResult ...
 
-## type CSSSetLocalFontsEnabled <- 0.72.0
+### type CSSSetLocalFontsEnabled <- 0.72.0
 
 ``` go
 type CSSSetLocalFontsEnabled struct {
@@ -5980,7 +5978,7 @@ type CSSSetLocalFontsEnabled struct {
 
 CSSSetLocalFontsEnabled (experimental) Enables/disables rendering of local CSS fonts (enabled by default).
 
-### (CSSSetLocalFontsEnabled) Call <- 0.72.0
+#### (CSSSetLocalFontsEnabled) Call <- 0.72.0
 
 ``` go
 func (m CSSSetLocalFontsEnabled) Call(c Client) error
@@ -5988,7 +5986,7 @@ func (m CSSSetLocalFontsEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (CSSSetLocalFontsEnabled) ProtoReq <- 0.74.0
+#### (CSSSetLocalFontsEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetLocalFontsEnabled) ProtoReq() string
@@ -5996,7 +5994,7 @@ func (m CSSSetLocalFontsEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetMediaText 
+### type CSSSetMediaText 
 
 ``` go
 type CSSSetMediaText struct {
@@ -6013,7 +6011,7 @@ type CSSSetMediaText struct {
 
 CSSSetMediaText Modifies the rule selector.
 
-### (CSSSetMediaText) Call 
+#### (CSSSetMediaText) Call 
 
 ``` go
 func (m CSSSetMediaText) Call(c Client) (*CSSSetMediaTextResult, error)
@@ -6021,7 +6019,7 @@ func (m CSSSetMediaText) Call(c Client) (*CSSSetMediaTextResult, error)
 
 Call the request.
 
-### (CSSSetMediaText) ProtoReq <- 0.74.0
+#### (CSSSetMediaText) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetMediaText) ProtoReq() string
@@ -6029,7 +6027,7 @@ func (m CSSSetMediaText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetMediaTextResult 
+### type CSSSetMediaTextResult 
 
 ``` go
 type CSSSetMediaTextResult struct {
@@ -6040,7 +6038,7 @@ type CSSSetMediaTextResult struct {
 
 CSSSetMediaTextResult ...
 
-## type CSSSetPropertyRulePropertyName <- 0.115.0
+### type CSSSetPropertyRulePropertyName <- 0.115.0
 
 ``` go
 type CSSSetPropertyRulePropertyName struct {
@@ -6057,7 +6055,7 @@ type CSSSetPropertyRulePropertyName struct {
 
 CSSSetPropertyRulePropertyName Modifies the property rule property name.
 
-### (CSSSetPropertyRulePropertyName) Call <- 0.115.0
+#### (CSSSetPropertyRulePropertyName) Call <- 0.115.0
 
 ``` go
 func (m CSSSetPropertyRulePropertyName) Call(c Client) (*CSSSetPropertyRulePropertyNameResult, error)
@@ -6065,7 +6063,7 @@ func (m CSSSetPropertyRulePropertyName) Call(c Client) (*CSSSetPropertyRulePrope
 
 Call the request.
 
-### (CSSSetPropertyRulePropertyName) ProtoReq <- 0.115.0
+#### (CSSSetPropertyRulePropertyName) ProtoReq <- 0.115.0
 
 ``` go
 func (m CSSSetPropertyRulePropertyName) ProtoReq() string
@@ -6073,7 +6071,7 @@ func (m CSSSetPropertyRulePropertyName) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetPropertyRulePropertyNameResult <- 0.115.0
+### type CSSSetPropertyRulePropertyNameResult <- 0.115.0
 
 ``` go
 type CSSSetPropertyRulePropertyNameResult struct {
@@ -6084,7 +6082,7 @@ type CSSSetPropertyRulePropertyNameResult struct {
 
 CSSSetPropertyRulePropertyNameResult ...
 
-## type CSSSetRuleSelector 
+### type CSSSetRuleSelector 
 
 ``` go
 type CSSSetRuleSelector struct {
@@ -6101,7 +6099,7 @@ type CSSSetRuleSelector struct {
 
 CSSSetRuleSelector Modifies the rule selector.
 
-### (CSSSetRuleSelector) Call 
+#### (CSSSetRuleSelector) Call 
 
 ``` go
 func (m CSSSetRuleSelector) Call(c Client) (*CSSSetRuleSelectorResult, error)
@@ -6109,7 +6107,7 @@ func (m CSSSetRuleSelector) Call(c Client) (*CSSSetRuleSelectorResult, error)
 
 Call the request.
 
-### (CSSSetRuleSelector) ProtoReq <- 0.74.0
+#### (CSSSetRuleSelector) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetRuleSelector) ProtoReq() string
@@ -6117,7 +6115,7 @@ func (m CSSSetRuleSelector) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetRuleSelectorResult 
+### type CSSSetRuleSelectorResult 
 
 ``` go
 type CSSSetRuleSelectorResult struct {
@@ -6128,7 +6126,7 @@ type CSSSetRuleSelectorResult struct {
 
 CSSSetRuleSelectorResult ...
 
-## type CSSSetScopeText <- 0.108.2
+### type CSSSetScopeText <- 0.108.2
 
 ``` go
 type CSSSetScopeText struct {
@@ -6145,7 +6143,7 @@ type CSSSetScopeText struct {
 
 CSSSetScopeText (experimental) Modifies the expression of a scope at-rule.
 
-### (CSSSetScopeText) Call <- 0.108.2
+#### (CSSSetScopeText) Call <- 0.108.2
 
 ``` go
 func (m CSSSetScopeText) Call(c Client) (*CSSSetScopeTextResult, error)
@@ -6153,7 +6151,7 @@ func (m CSSSetScopeText) Call(c Client) (*CSSSetScopeTextResult, error)
 
 Call the request.
 
-### (CSSSetScopeText) ProtoReq <- 0.108.2
+#### (CSSSetScopeText) ProtoReq <- 0.108.2
 
 ``` go
 func (m CSSSetScopeText) ProtoReq() string
@@ -6161,7 +6159,7 @@ func (m CSSSetScopeText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetScopeTextResult <- 0.108.2
+### type CSSSetScopeTextResult <- 0.108.2
 
 ``` go
 type CSSSetScopeTextResult struct {
@@ -6172,7 +6170,7 @@ type CSSSetScopeTextResult struct {
 
 CSSSetScopeTextResult (experimental) ...
 
-## type CSSSetStyleSheetText 
+### type CSSSetStyleSheetText 
 
 ``` go
 type CSSSetStyleSheetText struct {
@@ -6186,7 +6184,7 @@ type CSSSetStyleSheetText struct {
 
 CSSSetStyleSheetText Sets the new stylesheet text.
 
-### (CSSSetStyleSheetText) Call 
+#### (CSSSetStyleSheetText) Call 
 
 ``` go
 func (m CSSSetStyleSheetText) Call(c Client) (*CSSSetStyleSheetTextResult, error)
@@ -6194,7 +6192,7 @@ func (m CSSSetStyleSheetText) Call(c Client) (*CSSSetStyleSheetTextResult, error
 
 Call the request.
 
-### (CSSSetStyleSheetText) ProtoReq <- 0.74.0
+#### (CSSSetStyleSheetText) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetStyleSheetText) ProtoReq() string
@@ -6202,7 +6200,7 @@ func (m CSSSetStyleSheetText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetStyleSheetTextResult 
+### type CSSSetStyleSheetTextResult 
 
 ``` go
 type CSSSetStyleSheetTextResult struct {
@@ -6213,7 +6211,7 @@ type CSSSetStyleSheetTextResult struct {
 
 CSSSetStyleSheetTextResult ...
 
-## type CSSSetStyleTexts 
+### type CSSSetStyleTexts 
 
 ``` go
 type CSSSetStyleTexts struct {
@@ -6229,7 +6227,7 @@ type CSSSetStyleTexts struct {
 
 CSSSetStyleTexts Applies specified style edits one after another in the given order.
 
-### (CSSSetStyleTexts) Call 
+#### (CSSSetStyleTexts) Call 
 
 ``` go
 func (m CSSSetStyleTexts) Call(c Client) (*CSSSetStyleTextsResult, error)
@@ -6237,7 +6235,7 @@ func (m CSSSetStyleTexts) Call(c Client) (*CSSSetStyleTextsResult, error)
 
 Call the request.
 
-### (CSSSetStyleTexts) ProtoReq <- 0.74.0
+#### (CSSSetStyleTexts) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSSetStyleTexts) ProtoReq() string
@@ -6245,7 +6243,7 @@ func (m CSSSetStyleTexts) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetStyleTextsResult 
+### type CSSSetStyleTextsResult 
 
 ``` go
 type CSSSetStyleTextsResult struct {
@@ -6256,7 +6254,7 @@ type CSSSetStyleTextsResult struct {
 
 CSSSetStyleTextsResult ...
 
-## type CSSSetSupportsText <- 0.103.0
+### type CSSSetSupportsText <- 0.103.0
 
 ``` go
 type CSSSetSupportsText struct {
@@ -6273,7 +6271,7 @@ type CSSSetSupportsText struct {
 
 CSSSetSupportsText (experimental) Modifies the expression of a supports at-rule.
 
-### (CSSSetSupportsText) Call <- 0.103.0
+#### (CSSSetSupportsText) Call <- 0.103.0
 
 ``` go
 func (m CSSSetSupportsText) Call(c Client) (*CSSSetSupportsTextResult, error)
@@ -6281,7 +6279,7 @@ func (m CSSSetSupportsText) Call(c Client) (*CSSSetSupportsTextResult, error)
 
 Call the request.
 
-### (CSSSetSupportsText) ProtoReq <- 0.103.0
+#### (CSSSetSupportsText) ProtoReq <- 0.103.0
 
 ``` go
 func (m CSSSetSupportsText) ProtoReq() string
@@ -6289,7 +6287,7 @@ func (m CSSSetSupportsText) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSSetSupportsTextResult <- 0.103.0
+### type CSSSetSupportsTextResult <- 0.103.0
 
 ``` go
 type CSSSetSupportsTextResult struct {
@@ -6300,7 +6298,7 @@ type CSSSetSupportsTextResult struct {
 
 CSSSetSupportsTextResult (experimental) ...
 
-## type CSSShorthandEntry 
+### type CSSShorthandEntry 
 
 ``` go
 type CSSShorthandEntry struct {
@@ -6317,7 +6315,7 @@ type CSSShorthandEntry struct {
 
 CSSShorthandEntry ...
 
-## type CSSSourceRange 
+### type CSSSourceRange 
 
 ``` go
 type CSSSourceRange struct {
@@ -6337,7 +6335,7 @@ type CSSSourceRange struct {
 
 CSSSourceRange Text range within a resource. All numbers are zero-based.
 
-## type CSSSpecificity <- 0.115.0
+### type CSSSpecificity <- 0.115.0
 
 ``` go
 type CSSSpecificity struct {
@@ -6355,7 +6353,7 @@ type CSSSpecificity struct {
 
 CSSSpecificity (experimental) Specificity: https://drafts.csswg.org/selectors/#specificity-rules
 
-## type CSSStartRuleUsageTracking 
+### type CSSStartRuleUsageTracking 
 
 ``` go
 type CSSStartRuleUsageTracking struct{}
@@ -6363,7 +6361,7 @@ type CSSStartRuleUsageTracking struct{}
 
 CSSStartRuleUsageTracking Enables the selector recording.
 
-### (CSSStartRuleUsageTracking) Call 
+#### (CSSStartRuleUsageTracking) Call 
 
 ``` go
 func (m CSSStartRuleUsageTracking) Call(c Client) error
@@ -6371,7 +6369,7 @@ func (m CSSStartRuleUsageTracking) Call(c Client) error
 
 Call sends the request.
 
-### (CSSStartRuleUsageTracking) ProtoReq <- 0.74.0
+#### (CSSStartRuleUsageTracking) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSStartRuleUsageTracking) ProtoReq() string
@@ -6379,7 +6377,7 @@ func (m CSSStartRuleUsageTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSStopRuleUsageTracking 
+### type CSSStopRuleUsageTracking 
 
 ``` go
 type CSSStopRuleUsageTracking struct{}
@@ -6387,7 +6385,7 @@ type CSSStopRuleUsageTracking struct{}
 
 CSSStopRuleUsageTracking Stop tracking rule usage and return the list of rules that were used since last call to `takeCoverageDelta` (or since start of coverage instrumentation).
 
-### (CSSStopRuleUsageTracking) Call 
+#### (CSSStopRuleUsageTracking) Call 
 
 ``` go
 func (m CSSStopRuleUsageTracking) Call(c Client) (*CSSStopRuleUsageTrackingResult, error)
@@ -6395,7 +6393,7 @@ func (m CSSStopRuleUsageTracking) Call(c Client) (*CSSStopRuleUsageTrackingResul
 
 Call the request.
 
-### (CSSStopRuleUsageTracking) ProtoReq <- 0.74.0
+#### (CSSStopRuleUsageTracking) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSStopRuleUsageTracking) ProtoReq() string
@@ -6403,7 +6401,7 @@ func (m CSSStopRuleUsageTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSStopRuleUsageTrackingResult 
+### type CSSStopRuleUsageTrackingResult 
 
 ``` go
 type CSSStopRuleUsageTrackingResult struct {
@@ -6414,7 +6412,7 @@ type CSSStopRuleUsageTrackingResult struct {
 
 CSSStopRuleUsageTrackingResult ...
 
-## type CSSStyleDeclarationEdit 
+### type CSSStyleDeclarationEdit 
 
 ``` go
 type CSSStyleDeclarationEdit struct {
@@ -6431,7 +6429,7 @@ type CSSStyleDeclarationEdit struct {
 
 CSSStyleDeclarationEdit A descriptor of operation to mutate style declaration text.
 
-## type CSSStyleSheetAdded 
+### type CSSStyleSheetAdded 
 
 ``` go
 type CSSStyleSheetAdded struct {
@@ -6442,7 +6440,7 @@ type CSSStyleSheetAdded struct {
 
 CSSStyleSheetAdded Fired whenever an active document stylesheet is added.
 
-### (CSSStyleSheetAdded) ProtoEvent <- 0.72.0
+#### (CSSStyleSheetAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CSSStyleSheetAdded) ProtoEvent() string
@@ -6450,7 +6448,7 @@ func (evt CSSStyleSheetAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CSSStyleSheetChanged 
+### type CSSStyleSheetChanged 
 
 ``` go
 type CSSStyleSheetChanged struct {
@@ -6461,7 +6459,7 @@ type CSSStyleSheetChanged struct {
 
 CSSStyleSheetChanged Fired whenever a stylesheet is changed as a result of the client operation.
 
-### (CSSStyleSheetChanged) ProtoEvent <- 0.72.0
+#### (CSSStyleSheetChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CSSStyleSheetChanged) ProtoEvent() string
@@ -6469,7 +6467,7 @@ func (evt CSSStyleSheetChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CSSStyleSheetID 
+### type CSSStyleSheetID 
 
 ``` go
 type CSSStyleSheetID string
@@ -6477,7 +6475,7 @@ type CSSStyleSheetID string
 
 CSSStyleSheetID ...
 
-## type CSSStyleSheetOrigin 
+### type CSSStyleSheetOrigin 
 
 ``` go
 type CSSStyleSheetOrigin string
@@ -6501,7 +6499,7 @@ const (
 )
 ```
 
-## type CSSStyleSheetRemoved 
+### type CSSStyleSheetRemoved 
 
 ``` go
 type CSSStyleSheetRemoved struct {
@@ -6512,7 +6510,7 @@ type CSSStyleSheetRemoved struct {
 
 CSSStyleSheetRemoved Fired whenever an active document stylesheet is removed.
 
-### (CSSStyleSheetRemoved) ProtoEvent <- 0.72.0
+#### (CSSStyleSheetRemoved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CSSStyleSheetRemoved) ProtoEvent() string
@@ -6520,7 +6518,7 @@ func (evt CSSStyleSheetRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CSSTakeComputedStyleUpdates <- 0.72.0
+### type CSSTakeComputedStyleUpdates <- 0.72.0
 
 ``` go
 type CSSTakeComputedStyleUpdates struct{}
@@ -6528,7 +6526,7 @@ type CSSTakeComputedStyleUpdates struct{}
 
 CSSTakeComputedStyleUpdates (experimental) Polls the next batch of computed style updates.
 
-### (CSSTakeComputedStyleUpdates) Call <- 0.72.0
+#### (CSSTakeComputedStyleUpdates) Call <- 0.72.0
 
 ``` go
 func (m CSSTakeComputedStyleUpdates) Call(c Client) (*CSSTakeComputedStyleUpdatesResult, error)
@@ -6536,7 +6534,7 @@ func (m CSSTakeComputedStyleUpdates) Call(c Client) (*CSSTakeComputedStyleUpdate
 
 Call the request.
 
-### (CSSTakeComputedStyleUpdates) ProtoReq <- 0.74.0
+#### (CSSTakeComputedStyleUpdates) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSTakeComputedStyleUpdates) ProtoReq() string
@@ -6544,7 +6542,7 @@ func (m CSSTakeComputedStyleUpdates) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSTakeComputedStyleUpdatesResult <- 0.72.0
+### type CSSTakeComputedStyleUpdatesResult <- 0.72.0
 
 ``` go
 type CSSTakeComputedStyleUpdatesResult struct {
@@ -6555,7 +6553,7 @@ type CSSTakeComputedStyleUpdatesResult struct {
 
 CSSTakeComputedStyleUpdatesResult (experimental) ...
 
-## type CSSTakeCoverageDelta 
+### type CSSTakeCoverageDelta 
 
 ``` go
 type CSSTakeCoverageDelta struct{}
@@ -6563,7 +6561,7 @@ type CSSTakeCoverageDelta struct{}
 
 CSSTakeCoverageDelta Obtain list of rules that became used since last call to this method (or since start of coverage instrumentation).
 
-### (CSSTakeCoverageDelta) Call 
+#### (CSSTakeCoverageDelta) Call 
 
 ``` go
 func (m CSSTakeCoverageDelta) Call(c Client) (*CSSTakeCoverageDeltaResult, error)
@@ -6571,7 +6569,7 @@ func (m CSSTakeCoverageDelta) Call(c Client) (*CSSTakeCoverageDeltaResult, error
 
 Call the request.
 
-### (CSSTakeCoverageDelta) ProtoReq <- 0.74.0
+#### (CSSTakeCoverageDelta) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSTakeCoverageDelta) ProtoReq() string
@@ -6579,7 +6577,7 @@ func (m CSSTakeCoverageDelta) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSTakeCoverageDeltaResult 
+### type CSSTakeCoverageDeltaResult 
 
 ``` go
 type CSSTakeCoverageDeltaResult struct {
@@ -6593,7 +6591,7 @@ type CSSTakeCoverageDeltaResult struct {
 
 CSSTakeCoverageDeltaResult ...
 
-## type CSSTrackComputedStyleUpdates <- 0.72.0
+### type CSSTrackComputedStyleUpdates <- 0.72.0
 
 ``` go
 type CSSTrackComputedStyleUpdates struct {
@@ -6604,7 +6602,7 @@ type CSSTrackComputedStyleUpdates struct {
 
 CSSTrackComputedStyleUpdates (experimental) Starts tracking the given computed styles for updates. The specified array of properties replaces the one previously specified. Pass empty array to disable tracking. Use takeComputedStyleUpdates to retrieve the list of nodes that had properties modified. The changes to computed style properties are only tracked for nodes pushed to the front-end by the DOM agent. If no changes to the tracked properties occur after the node has been pushed to the front-end, no updates will be issued for the node.
 
-### (CSSTrackComputedStyleUpdates) Call <- 0.72.0
+#### (CSSTrackComputedStyleUpdates) Call <- 0.72.0
 
 ``` go
 func (m CSSTrackComputedStyleUpdates) Call(c Client) error
@@ -6612,7 +6610,7 @@ func (m CSSTrackComputedStyleUpdates) Call(c Client) error
 
 Call sends the request.
 
-### (CSSTrackComputedStyleUpdates) ProtoReq <- 0.74.0
+#### (CSSTrackComputedStyleUpdates) ProtoReq <- 0.74.0
 
 ``` go
 func (m CSSTrackComputedStyleUpdates) ProtoReq() string
@@ -6620,7 +6618,7 @@ func (m CSSTrackComputedStyleUpdates) ProtoReq() string
 
 ProtoReq name.
 
-## type CSSValue 
+### type CSSValue 
 
 ``` go
 type CSSValue struct {
@@ -6637,7 +6635,7 @@ type CSSValue struct {
 
 CSSValue Data for a simple selector (these are delimited by commas in a selector list).
 
-## type CacheStorageCache 
+### type CacheStorageCache 
 
 ``` go
 type CacheStorageCache struct {
@@ -6660,7 +6658,7 @@ type CacheStorageCache struct {
 
 CacheStorageCache Cache identifier.
 
-## type CacheStorageCacheID 
+### type CacheStorageCacheID 
 
 ``` go
 type CacheStorageCacheID string
@@ -6668,7 +6666,7 @@ type CacheStorageCacheID string
 
 CacheStorageCacheID Unique identifier of the Cache object.
 
-## type CacheStorageCachedResponse 
+### type CacheStorageCachedResponse 
 
 ``` go
 type CacheStorageCachedResponse struct {
@@ -6679,7 +6677,7 @@ type CacheStorageCachedResponse struct {
 
 CacheStorageCachedResponse Cached response.
 
-## type CacheStorageCachedResponseType 
+### type CacheStorageCachedResponseType 
 
 ``` go
 type CacheStorageCachedResponseType string
@@ -6709,7 +6707,7 @@ const (
 )
 ```
 
-## type CacheStorageDataEntry 
+### type CacheStorageDataEntry 
 
 ``` go
 type CacheStorageDataEntry struct {
@@ -6741,7 +6739,7 @@ type CacheStorageDataEntry struct {
 
 CacheStorageDataEntry Data entry.
 
-## type CacheStorageDeleteCache 
+### type CacheStorageDeleteCache 
 
 ``` go
 type CacheStorageDeleteCache struct {
@@ -6752,7 +6750,7 @@ type CacheStorageDeleteCache struct {
 
 CacheStorageDeleteCache Deletes a cache.
 
-### (CacheStorageDeleteCache) Call 
+#### (CacheStorageDeleteCache) Call 
 
 ``` go
 func (m CacheStorageDeleteCache) Call(c Client) error
@@ -6760,7 +6758,7 @@ func (m CacheStorageDeleteCache) Call(c Client) error
 
 Call sends the request.
 
-### (CacheStorageDeleteCache) ProtoReq <- 0.74.0
+#### (CacheStorageDeleteCache) ProtoReq <- 0.74.0
 
 ``` go
 func (m CacheStorageDeleteCache) ProtoReq() string
@@ -6768,7 +6766,7 @@ func (m CacheStorageDeleteCache) ProtoReq() string
 
 ProtoReq name.
 
-## type CacheStorageDeleteEntry 
+### type CacheStorageDeleteEntry 
 
 ``` go
 type CacheStorageDeleteEntry struct {
@@ -6782,7 +6780,7 @@ type CacheStorageDeleteEntry struct {
 
 CacheStorageDeleteEntry Deletes a cache entry.
 
-### (CacheStorageDeleteEntry) Call 
+#### (CacheStorageDeleteEntry) Call 
 
 ``` go
 func (m CacheStorageDeleteEntry) Call(c Client) error
@@ -6790,7 +6788,7 @@ func (m CacheStorageDeleteEntry) Call(c Client) error
 
 Call sends the request.
 
-### (CacheStorageDeleteEntry) ProtoReq <- 0.74.0
+#### (CacheStorageDeleteEntry) ProtoReq <- 0.74.0
 
 ``` go
 func (m CacheStorageDeleteEntry) ProtoReq() string
@@ -6798,7 +6796,7 @@ func (m CacheStorageDeleteEntry) ProtoReq() string
 
 ProtoReq name.
 
-## type CacheStorageHeader 
+### type CacheStorageHeader 
 
 ``` go
 type CacheStorageHeader struct {
@@ -6812,7 +6810,7 @@ type CacheStorageHeader struct {
 
 CacheStorageHeader ...
 
-## type CacheStorageRequestCacheNames 
+### type CacheStorageRequestCacheNames 
 
 ``` go
 type CacheStorageRequestCacheNames struct {
@@ -6830,7 +6828,7 @@ type CacheStorageRequestCacheNames struct {
 
 CacheStorageRequestCacheNames Requests cache names.
 
-### (CacheStorageRequestCacheNames) Call 
+#### (CacheStorageRequestCacheNames) Call 
 
 ``` go
 func (m CacheStorageRequestCacheNames) Call(c Client) (*CacheStorageRequestCacheNamesResult, error)
@@ -6838,7 +6836,7 @@ func (m CacheStorageRequestCacheNames) Call(c Client) (*CacheStorageRequestCache
 
 Call the request.
 
-### (CacheStorageRequestCacheNames) ProtoReq <- 0.74.0
+#### (CacheStorageRequestCacheNames) ProtoReq <- 0.74.0
 
 ``` go
 func (m CacheStorageRequestCacheNames) ProtoReq() string
@@ -6846,7 +6844,7 @@ func (m CacheStorageRequestCacheNames) ProtoReq() string
 
 ProtoReq name.
 
-## type CacheStorageRequestCacheNamesResult 
+### type CacheStorageRequestCacheNamesResult 
 
 ``` go
 type CacheStorageRequestCacheNamesResult struct {
@@ -6857,7 +6855,7 @@ type CacheStorageRequestCacheNamesResult struct {
 
 CacheStorageRequestCacheNamesResult ...
 
-## type CacheStorageRequestCachedResponse 
+### type CacheStorageRequestCachedResponse 
 
 ``` go
 type CacheStorageRequestCachedResponse struct {
@@ -6874,7 +6872,7 @@ type CacheStorageRequestCachedResponse struct {
 
 CacheStorageRequestCachedResponse Fetches cache entry.
 
-### (CacheStorageRequestCachedResponse) Call 
+#### (CacheStorageRequestCachedResponse) Call 
 
 ``` go
 func (m CacheStorageRequestCachedResponse) Call(c Client) (*CacheStorageRequestCachedResponseResult, error)
@@ -6882,7 +6880,7 @@ func (m CacheStorageRequestCachedResponse) Call(c Client) (*CacheStorageRequestC
 
 Call the request.
 
-### (CacheStorageRequestCachedResponse) ProtoReq <- 0.74.0
+#### (CacheStorageRequestCachedResponse) ProtoReq <- 0.74.0
 
 ``` go
 func (m CacheStorageRequestCachedResponse) ProtoReq() string
@@ -6890,7 +6888,7 @@ func (m CacheStorageRequestCachedResponse) ProtoReq() string
 
 ProtoReq name.
 
-## type CacheStorageRequestCachedResponseResult 
+### type CacheStorageRequestCachedResponseResult 
 
 ``` go
 type CacheStorageRequestCachedResponseResult struct {
@@ -6901,7 +6899,7 @@ type CacheStorageRequestCachedResponseResult struct {
 
 CacheStorageRequestCachedResponseResult ...
 
-## type CacheStorageRequestEntries 
+### type CacheStorageRequestEntries 
 
 ``` go
 type CacheStorageRequestEntries struct {
@@ -6921,7 +6919,7 @@ type CacheStorageRequestEntries struct {
 
 CacheStorageRequestEntries Requests data from cache.
 
-### (CacheStorageRequestEntries) Call 
+#### (CacheStorageRequestEntries) Call 
 
 ``` go
 func (m CacheStorageRequestEntries) Call(c Client) (*CacheStorageRequestEntriesResult, error)
@@ -6929,7 +6927,7 @@ func (m CacheStorageRequestEntries) Call(c Client) (*CacheStorageRequestEntriesR
 
 Call the request.
 
-### (CacheStorageRequestEntries) ProtoReq <- 0.74.0
+#### (CacheStorageRequestEntries) ProtoReq <- 0.74.0
 
 ``` go
 func (m CacheStorageRequestEntries) ProtoReq() string
@@ -6937,7 +6935,7 @@ func (m CacheStorageRequestEntries) ProtoReq() string
 
 ProtoReq name.
 
-## type CacheStorageRequestEntriesResult 
+### type CacheStorageRequestEntriesResult 
 
 ``` go
 type CacheStorageRequestEntriesResult struct {
@@ -6952,7 +6950,7 @@ type CacheStorageRequestEntriesResult struct {
 
 CacheStorageRequestEntriesResult ...
 
-## type CastDisable 
+### type CastDisable 
 
 ``` go
 type CastDisable struct{}
@@ -6960,7 +6958,7 @@ type CastDisable struct{}
 
 CastDisable Stops observing for sinks and issues.
 
-### (CastDisable) Call 
+#### (CastDisable) Call 
 
 ``` go
 func (m CastDisable) Call(c Client) error
@@ -6968,7 +6966,7 @@ func (m CastDisable) Call(c Client) error
 
 Call sends the request.
 
-### (CastDisable) ProtoReq <- 0.74.0
+#### (CastDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m CastDisable) ProtoReq() string
@@ -6976,7 +6974,7 @@ func (m CastDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type CastEnable 
+### type CastEnable 
 
 ``` go
 type CastEnable struct {
@@ -6987,7 +6985,7 @@ type CastEnable struct {
 
 CastEnable Starts observing for sinks that can be used for tab mirroring, and if set, sinks compatible with |presentationUrl| as well. When sinks are found, a |sinksUpdated| event is fired. Also starts observing for issue messages. When an issue is added or removed, an |issueUpdated| event is fired.
 
-### (CastEnable) Call 
+#### (CastEnable) Call 
 
 ``` go
 func (m CastEnable) Call(c Client) error
@@ -6995,7 +6993,7 @@ func (m CastEnable) Call(c Client) error
 
 Call sends the request.
 
-### (CastEnable) ProtoReq <- 0.74.0
+#### (CastEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m CastEnable) ProtoReq() string
@@ -7003,7 +7001,7 @@ func (m CastEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type CastIssueUpdated 
+### type CastIssueUpdated 
 
 ``` go
 type CastIssueUpdated struct {
@@ -7014,7 +7012,7 @@ type CastIssueUpdated struct {
 
 CastIssueUpdated This is fired whenever the outstanding issue/error message changes. |issueMessage| is empty if there is no issue.
 
-### (CastIssueUpdated) ProtoEvent <- 0.72.0
+#### (CastIssueUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CastIssueUpdated) ProtoEvent() string
@@ -7022,7 +7020,7 @@ func (evt CastIssueUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CastSetSinkToUse 
+### type CastSetSinkToUse 
 
 ``` go
 type CastSetSinkToUse struct {
@@ -7033,7 +7031,7 @@ type CastSetSinkToUse struct {
 
 CastSetSinkToUse Sets a sink to be used when the web page requests the browser to choose a sink via Presentation API, Remote Playback API, or Cast SDK.
 
-### (CastSetSinkToUse) Call 
+#### (CastSetSinkToUse) Call 
 
 ``` go
 func (m CastSetSinkToUse) Call(c Client) error
@@ -7041,7 +7039,7 @@ func (m CastSetSinkToUse) Call(c Client) error
 
 Call sends the request.
 
-### (CastSetSinkToUse) ProtoReq <- 0.74.0
+#### (CastSetSinkToUse) ProtoReq <- 0.74.0
 
 ``` go
 func (m CastSetSinkToUse) ProtoReq() string
@@ -7049,7 +7047,7 @@ func (m CastSetSinkToUse) ProtoReq() string
 
 ProtoReq name.
 
-## type CastSink 
+### type CastSink 
 
 ``` go
 type CastSink struct {
@@ -7067,7 +7065,7 @@ type CastSink struct {
 
 CastSink ...
 
-## type CastSinksUpdated 
+### type CastSinksUpdated 
 
 ``` go
 type CastSinksUpdated struct {
@@ -7078,7 +7076,7 @@ type CastSinksUpdated struct {
 
 CastSinksUpdated This is fired whenever the list of available sinks changes. A sink is a device or a software surface that you can cast to.
 
-### (CastSinksUpdated) ProtoEvent <- 0.72.0
+#### (CastSinksUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt CastSinksUpdated) ProtoEvent() string
@@ -7086,7 +7084,7 @@ func (evt CastSinksUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type CastStartDesktopMirroring <- 0.102.0
+### type CastStartDesktopMirroring <- 0.102.0
 
 ``` go
 type CastStartDesktopMirroring struct {
@@ -7097,7 +7095,7 @@ type CastStartDesktopMirroring struct {
 
 CastStartDesktopMirroring Starts mirroring the desktop to the sink.
 
-### (CastStartDesktopMirroring) Call <- 0.102.0
+#### (CastStartDesktopMirroring) Call <- 0.102.0
 
 ``` go
 func (m CastStartDesktopMirroring) Call(c Client) error
@@ -7105,7 +7103,7 @@ func (m CastStartDesktopMirroring) Call(c Client) error
 
 Call sends the request.
 
-### (CastStartDesktopMirroring) ProtoReq <- 0.102.0
+#### (CastStartDesktopMirroring) ProtoReq <- 0.102.0
 
 ``` go
 func (m CastStartDesktopMirroring) ProtoReq() string
@@ -7113,7 +7111,7 @@ func (m CastStartDesktopMirroring) ProtoReq() string
 
 ProtoReq name.
 
-## type CastStartTabMirroring 
+### type CastStartTabMirroring 
 
 ``` go
 type CastStartTabMirroring struct {
@@ -7124,7 +7122,7 @@ type CastStartTabMirroring struct {
 
 CastStartTabMirroring Starts mirroring the tab to the sink.
 
-### (CastStartTabMirroring) Call 
+#### (CastStartTabMirroring) Call 
 
 ``` go
 func (m CastStartTabMirroring) Call(c Client) error
@@ -7132,7 +7130,7 @@ func (m CastStartTabMirroring) Call(c Client) error
 
 Call sends the request.
 
-### (CastStartTabMirroring) ProtoReq <- 0.74.0
+#### (CastStartTabMirroring) ProtoReq <- 0.74.0
 
 ``` go
 func (m CastStartTabMirroring) ProtoReq() string
@@ -7140,7 +7138,7 @@ func (m CastStartTabMirroring) ProtoReq() string
 
 ProtoReq name.
 
-## type CastStopCasting 
+### type CastStopCasting 
 
 ``` go
 type CastStopCasting struct {
@@ -7151,7 +7149,7 @@ type CastStopCasting struct {
 
 CastStopCasting Stops the active Cast session on the sink.
 
-### (CastStopCasting) Call 
+#### (CastStopCasting) Call 
 
 ``` go
 func (m CastStopCasting) Call(c Client) error
@@ -7159,7 +7157,7 @@ func (m CastStopCasting) Call(c Client) error
 
 Call sends the request.
 
-### (CastStopCasting) ProtoReq <- 0.74.0
+#### (CastStopCasting) ProtoReq <- 0.74.0
 
 ``` go
 func (m CastStopCasting) ProtoReq() string
@@ -7167,7 +7165,7 @@ func (m CastStopCasting) ProtoReq() string
 
 ProtoReq name.
 
-## type Client 
+### type Client 
 
 ``` go
 type Client interface {
@@ -7177,7 +7175,7 @@ type Client interface {
 
 Client interface to send the request. So that this lib doesn't handle anything has side effect.
 
-## type ConsoleClearMessages 
+### type ConsoleClearMessages 
 
 ``` go
 type ConsoleClearMessages struct{}
@@ -7185,7 +7183,7 @@ type ConsoleClearMessages struct{}
 
 ConsoleClearMessages Does nothing.
 
-### (ConsoleClearMessages) Call 
+#### (ConsoleClearMessages) Call 
 
 ``` go
 func (m ConsoleClearMessages) Call(c Client) error
@@ -7193,7 +7191,7 @@ func (m ConsoleClearMessages) Call(c Client) error
 
 Call sends the request.
 
-### (ConsoleClearMessages) ProtoReq <- 0.74.0
+#### (ConsoleClearMessages) ProtoReq <- 0.74.0
 
 ``` go
 func (m ConsoleClearMessages) ProtoReq() string
@@ -7201,7 +7199,7 @@ func (m ConsoleClearMessages) ProtoReq() string
 
 ProtoReq name.
 
-## type ConsoleConsoleMessage 
+### type ConsoleConsoleMessage 
 
 ``` go
 type ConsoleConsoleMessage struct {
@@ -7227,7 +7225,7 @@ type ConsoleConsoleMessage struct {
 
 ConsoleConsoleMessage Console message.
 
-## type ConsoleConsoleMessageLevel 
+### type ConsoleConsoleMessageLevel 
 
 ``` go
 type ConsoleConsoleMessageLevel string
@@ -7254,7 +7252,7 @@ const (
 )
 ```
 
-## type ConsoleConsoleMessageSource 
+### type ConsoleConsoleMessageSource 
 
 ``` go
 type ConsoleConsoleMessageSource string
@@ -7299,7 +7297,7 @@ const (
 )
 ```
 
-## type ConsoleDisable 
+### type ConsoleDisable 
 
 ``` go
 type ConsoleDisable struct{}
@@ -7307,7 +7305,7 @@ type ConsoleDisable struct{}
 
 ConsoleDisable Disables console domain, prevents further console messages from being reported to the client.
 
-### (ConsoleDisable) Call 
+#### (ConsoleDisable) Call 
 
 ``` go
 func (m ConsoleDisable) Call(c Client) error
@@ -7315,7 +7313,7 @@ func (m ConsoleDisable) Call(c Client) error
 
 Call sends the request.
 
-### (ConsoleDisable) ProtoReq <- 0.74.0
+#### (ConsoleDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ConsoleDisable) ProtoReq() string
@@ -7323,7 +7321,7 @@ func (m ConsoleDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type ConsoleEnable 
+### type ConsoleEnable 
 
 ``` go
 type ConsoleEnable struct{}
@@ -7331,7 +7329,7 @@ type ConsoleEnable struct{}
 
 ConsoleEnable Enables console domain, sends the messages collected so far to the client by means of the `messageAdded` notification.
 
-### (ConsoleEnable) Call 
+#### (ConsoleEnable) Call 
 
 ``` go
 func (m ConsoleEnable) Call(c Client) error
@@ -7339,7 +7337,7 @@ func (m ConsoleEnable) Call(c Client) error
 
 Call sends the request.
 
-### (ConsoleEnable) ProtoReq <- 0.74.0
+#### (ConsoleEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ConsoleEnable) ProtoReq() string
@@ -7347,7 +7345,7 @@ func (m ConsoleEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type ConsoleMessageAdded 
+### type ConsoleMessageAdded 
 
 ``` go
 type ConsoleMessageAdded struct {
@@ -7358,7 +7356,7 @@ type ConsoleMessageAdded struct {
 
 ConsoleMessageAdded Issued when new console message is added.
 
-### (ConsoleMessageAdded) ProtoEvent <- 0.72.0
+#### (ConsoleMessageAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ConsoleMessageAdded) ProtoEvent() string
@@ -7366,7 +7364,7 @@ func (evt ConsoleMessageAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type Contextable <- 0.70.0
+### type Contextable <- 0.70.0
 
 ``` go
 type Contextable interface {
@@ -7376,7 +7374,7 @@ type Contextable interface {
 
 Contextable type has a context.Context for its methods.
 
-## type DOMAttributeModified 
+### type DOMAttributeModified 
 
 ``` go
 type DOMAttributeModified struct {
@@ -7393,7 +7391,7 @@ type DOMAttributeModified struct {
 
 DOMAttributeModified Fired when `Element`'s attribute is modified.
 
-### (DOMAttributeModified) ProtoEvent <- 0.72.0
+#### (DOMAttributeModified) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMAttributeModified) ProtoEvent() string
@@ -7401,7 +7399,7 @@ func (evt DOMAttributeModified) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMAttributeRemoved 
+### type DOMAttributeRemoved 
 
 ``` go
 type DOMAttributeRemoved struct {
@@ -7415,7 +7413,7 @@ type DOMAttributeRemoved struct {
 
 DOMAttributeRemoved Fired when `Element`'s attribute is removed.
 
-### (DOMAttributeRemoved) ProtoEvent <- 0.72.0
+#### (DOMAttributeRemoved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMAttributeRemoved) ProtoEvent() string
@@ -7423,7 +7421,7 @@ func (evt DOMAttributeRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMBackendNode 
+### type DOMBackendNode 
 
 ``` go
 type DOMBackendNode struct {
@@ -7440,7 +7438,7 @@ type DOMBackendNode struct {
 
 DOMBackendNode Backend node with a friendly name.
 
-## type DOMBackendNodeID 
+### type DOMBackendNodeID 
 
 ``` go
 type DOMBackendNodeID int
@@ -7448,7 +7446,7 @@ type DOMBackendNodeID int
 
 DOMBackendNodeID Unique DOM node identifier used to reference a node that may not have been pushed to the front-end.
 
-## type DOMBoxModel 
+### type DOMBoxModel 
 
 ``` go
 type DOMBoxModel struct {
@@ -7477,7 +7475,7 @@ type DOMBoxModel struct {
 
 DOMBoxModel Box model.
 
-## type DOMCSSComputedStyleProperty <- 0.72.0
+### type DOMCSSComputedStyleProperty <- 0.72.0
 
 ``` go
 type DOMCSSComputedStyleProperty struct {
@@ -7491,7 +7489,7 @@ type DOMCSSComputedStyleProperty struct {
 
 DOMCSSComputedStyleProperty ...
 
-## type DOMCharacterDataModified 
+### type DOMCharacterDataModified 
 
 ``` go
 type DOMCharacterDataModified struct {
@@ -7505,7 +7503,7 @@ type DOMCharacterDataModified struct {
 
 DOMCharacterDataModified Mirrors `DOMCharacterDataModified` event.
 
-### (DOMCharacterDataModified) ProtoEvent <- 0.72.0
+#### (DOMCharacterDataModified) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMCharacterDataModified) ProtoEvent() string
@@ -7513,7 +7511,7 @@ func (evt DOMCharacterDataModified) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMChildNodeCountUpdated 
+### type DOMChildNodeCountUpdated 
 
 ``` go
 type DOMChildNodeCountUpdated struct {
@@ -7527,7 +7525,7 @@ type DOMChildNodeCountUpdated struct {
 
 DOMChildNodeCountUpdated Fired when `Container`'s child node count has changed.
 
-### (DOMChildNodeCountUpdated) ProtoEvent <- 0.72.0
+#### (DOMChildNodeCountUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMChildNodeCountUpdated) ProtoEvent() string
@@ -7535,7 +7533,7 @@ func (evt DOMChildNodeCountUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMChildNodeInserted 
+### type DOMChildNodeInserted 
 
 ``` go
 type DOMChildNodeInserted struct {
@@ -7552,7 +7550,7 @@ type DOMChildNodeInserted struct {
 
 DOMChildNodeInserted Mirrors `DOMNodeInserted` event.
 
-### (DOMChildNodeInserted) ProtoEvent <- 0.72.0
+#### (DOMChildNodeInserted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMChildNodeInserted) ProtoEvent() string
@@ -7560,7 +7558,7 @@ func (evt DOMChildNodeInserted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMChildNodeRemoved 
+### type DOMChildNodeRemoved 
 
 ``` go
 type DOMChildNodeRemoved struct {
@@ -7574,7 +7572,7 @@ type DOMChildNodeRemoved struct {
 
 DOMChildNodeRemoved Mirrors `DOMNodeRemoved` event.
 
-### (DOMChildNodeRemoved) ProtoEvent <- 0.72.0
+#### (DOMChildNodeRemoved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMChildNodeRemoved) ProtoEvent() string
@@ -7582,7 +7580,7 @@ func (evt DOMChildNodeRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMCollectClassNamesFromSubtree 
+### type DOMCollectClassNamesFromSubtree 
 
 ``` go
 type DOMCollectClassNamesFromSubtree struct {
@@ -7593,7 +7591,7 @@ type DOMCollectClassNamesFromSubtree struct {
 
 DOMCollectClassNamesFromSubtree (experimental) Collects class names for the node with given id and all of it's child nodes.
 
-### (DOMCollectClassNamesFromSubtree) Call 
+#### (DOMCollectClassNamesFromSubtree) Call 
 
 ``` go
 func (m DOMCollectClassNamesFromSubtree) Call(c Client) (*DOMCollectClassNamesFromSubtreeResult, error)
@@ -7601,7 +7599,7 @@ func (m DOMCollectClassNamesFromSubtree) Call(c Client) (*DOMCollectClassNamesFr
 
 Call the request.
 
-### (DOMCollectClassNamesFromSubtree) ProtoReq <- 0.74.0
+#### (DOMCollectClassNamesFromSubtree) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMCollectClassNamesFromSubtree) ProtoReq() string
@@ -7609,7 +7607,7 @@ func (m DOMCollectClassNamesFromSubtree) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMCollectClassNamesFromSubtreeResult 
+### type DOMCollectClassNamesFromSubtreeResult 
 
 ``` go
 type DOMCollectClassNamesFromSubtreeResult struct {
@@ -7620,7 +7618,7 @@ type DOMCollectClassNamesFromSubtreeResult struct {
 
 DOMCollectClassNamesFromSubtreeResult (experimental) ...
 
-## type DOMCompatibilityMode <- 0.100.0
+### type DOMCompatibilityMode <- 0.100.0
 
 ``` go
 type DOMCompatibilityMode string
@@ -7641,7 +7639,7 @@ const (
 )
 ```
 
-## type DOMCopyTo 
+### type DOMCopyTo 
 
 ``` go
 type DOMCopyTo struct {
@@ -7659,7 +7657,7 @@ type DOMCopyTo struct {
 
 DOMCopyTo (experimental) Creates a deep copy of the specified node and places it into the target container before the given anchor.
 
-### (DOMCopyTo) Call 
+#### (DOMCopyTo) Call 
 
 ``` go
 func (m DOMCopyTo) Call(c Client) (*DOMCopyToResult, error)
@@ -7667,7 +7665,7 @@ func (m DOMCopyTo) Call(c Client) (*DOMCopyToResult, error)
 
 Call the request.
 
-### (DOMCopyTo) ProtoReq <- 0.74.0
+#### (DOMCopyTo) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMCopyTo) ProtoReq() string
@@ -7675,7 +7673,7 @@ func (m DOMCopyTo) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMCopyToResult 
+### type DOMCopyToResult 
 
 ``` go
 type DOMCopyToResult struct {
@@ -7686,7 +7684,7 @@ type DOMCopyToResult struct {
 
 DOMCopyToResult (experimental) ...
 
-## type DOMDebuggerCSPViolationType <- 0.90.0
+### type DOMDebuggerCSPViolationType <- 0.90.0
 
 ``` go
 type DOMDebuggerCSPViolationType string
@@ -7704,7 +7702,7 @@ const (
 )
 ```
 
-## type DOMDebuggerDOMBreakpointType 
+### type DOMDebuggerDOMBreakpointType 
 
 ``` go
 type DOMDebuggerDOMBreakpointType string
@@ -7725,7 +7723,7 @@ const (
 )
 ```
 
-## type DOMDebuggerEventListener 
+### type DOMDebuggerEventListener 
 
 ``` go
 type DOMDebuggerEventListener struct {
@@ -7763,7 +7761,7 @@ type DOMDebuggerEventListener struct {
 
 DOMDebuggerEventListener Object event listener.
 
-## type DOMDebuggerGetEventListeners 
+### type DOMDebuggerGetEventListeners 
 
 ``` go
 type DOMDebuggerGetEventListeners struct {
@@ -7782,7 +7780,7 @@ type DOMDebuggerGetEventListeners struct {
 
 DOMDebuggerGetEventListeners Returns event listeners of the given object.
 
-### (DOMDebuggerGetEventListeners) Call 
+#### (DOMDebuggerGetEventListeners) Call 
 
 ``` go
 func (m DOMDebuggerGetEventListeners) Call(c Client) (*DOMDebuggerGetEventListenersResult, error)
@@ -7790,7 +7788,7 @@ func (m DOMDebuggerGetEventListeners) Call(c Client) (*DOMDebuggerGetEventListen
 
 Call the request.
 
-### (DOMDebuggerGetEventListeners) ProtoReq <- 0.74.0
+#### (DOMDebuggerGetEventListeners) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerGetEventListeners) ProtoReq() string
@@ -7798,7 +7796,7 @@ func (m DOMDebuggerGetEventListeners) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerGetEventListenersResult 
+### type DOMDebuggerGetEventListenersResult 
 
 ``` go
 type DOMDebuggerGetEventListenersResult struct {
@@ -7809,7 +7807,7 @@ type DOMDebuggerGetEventListenersResult struct {
 
 DOMDebuggerGetEventListenersResult ...
 
-## type DOMDebuggerRemoveDOMBreakpoint 
+### type DOMDebuggerRemoveDOMBreakpoint 
 
 ``` go
 type DOMDebuggerRemoveDOMBreakpoint struct {
@@ -7823,7 +7821,7 @@ type DOMDebuggerRemoveDOMBreakpoint struct {
 
 DOMDebuggerRemoveDOMBreakpoint Removes DOM breakpoint that was set using `setDOMBreakpoint`.
 
-### (DOMDebuggerRemoveDOMBreakpoint) Call 
+#### (DOMDebuggerRemoveDOMBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerRemoveDOMBreakpoint) Call(c Client) error
@@ -7831,7 +7829,7 @@ func (m DOMDebuggerRemoveDOMBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerRemoveDOMBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerRemoveDOMBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerRemoveDOMBreakpoint) ProtoReq() string
@@ -7839,7 +7837,7 @@ func (m DOMDebuggerRemoveDOMBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerRemoveEventListenerBreakpoint 
+### type DOMDebuggerRemoveEventListenerBreakpoint 
 
 ``` go
 type DOMDebuggerRemoveEventListenerBreakpoint struct {
@@ -7853,7 +7851,7 @@ type DOMDebuggerRemoveEventListenerBreakpoint struct {
 
 DOMDebuggerRemoveEventListenerBreakpoint Removes breakpoint on particular DOM event.
 
-### (DOMDebuggerRemoveEventListenerBreakpoint) Call 
+#### (DOMDebuggerRemoveEventListenerBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerRemoveEventListenerBreakpoint) Call(c Client) error
@@ -7861,7 +7859,7 @@ func (m DOMDebuggerRemoveEventListenerBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerRemoveEventListenerBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerRemoveEventListenerBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerRemoveEventListenerBreakpoint) ProtoReq() string
@@ -7869,7 +7867,7 @@ func (m DOMDebuggerRemoveEventListenerBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerRemoveInstrumentationBreakpoint 
+### type DOMDebuggerRemoveInstrumentationBreakpoint 
 
 ``` go
 type DOMDebuggerRemoveInstrumentationBreakpoint struct {
@@ -7880,7 +7878,7 @@ type DOMDebuggerRemoveInstrumentationBreakpoint struct {
 
 DOMDebuggerRemoveInstrumentationBreakpoint (deprecated) (experimental) Removes breakpoint on particular native event.
 
-### (DOMDebuggerRemoveInstrumentationBreakpoint) Call 
+#### (DOMDebuggerRemoveInstrumentationBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerRemoveInstrumentationBreakpoint) Call(c Client) error
@@ -7888,7 +7886,7 @@ func (m DOMDebuggerRemoveInstrumentationBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerRemoveInstrumentationBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerRemoveInstrumentationBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerRemoveInstrumentationBreakpoint) ProtoReq() string
@@ -7896,7 +7894,7 @@ func (m DOMDebuggerRemoveInstrumentationBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerRemoveXHRBreakpoint 
+### type DOMDebuggerRemoveXHRBreakpoint 
 
 ``` go
 type DOMDebuggerRemoveXHRBreakpoint struct {
@@ -7907,7 +7905,7 @@ type DOMDebuggerRemoveXHRBreakpoint struct {
 
 DOMDebuggerRemoveXHRBreakpoint Removes breakpoint from XMLHttpRequest.
 
-### (DOMDebuggerRemoveXHRBreakpoint) Call 
+#### (DOMDebuggerRemoveXHRBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerRemoveXHRBreakpoint) Call(c Client) error
@@ -7915,7 +7913,7 @@ func (m DOMDebuggerRemoveXHRBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerRemoveXHRBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerRemoveXHRBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerRemoveXHRBreakpoint) ProtoReq() string
@@ -7923,7 +7921,7 @@ func (m DOMDebuggerRemoveXHRBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerSetBreakOnCSPViolation <- 0.90.0
+### type DOMDebuggerSetBreakOnCSPViolation <- 0.90.0
 
 ``` go
 type DOMDebuggerSetBreakOnCSPViolation struct {
@@ -7934,7 +7932,7 @@ type DOMDebuggerSetBreakOnCSPViolation struct {
 
 DOMDebuggerSetBreakOnCSPViolation (experimental) Sets breakpoint on particular CSP violations.
 
-### (DOMDebuggerSetBreakOnCSPViolation) Call <- 0.90.0
+#### (DOMDebuggerSetBreakOnCSPViolation) Call <- 0.90.0
 
 ``` go
 func (m DOMDebuggerSetBreakOnCSPViolation) Call(c Client) error
@@ -7942,7 +7940,7 @@ func (m DOMDebuggerSetBreakOnCSPViolation) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerSetBreakOnCSPViolation) ProtoReq <- 0.90.0
+#### (DOMDebuggerSetBreakOnCSPViolation) ProtoReq <- 0.90.0
 
 ``` go
 func (m DOMDebuggerSetBreakOnCSPViolation) ProtoReq() string
@@ -7950,7 +7948,7 @@ func (m DOMDebuggerSetBreakOnCSPViolation) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerSetDOMBreakpoint 
+### type DOMDebuggerSetDOMBreakpoint 
 
 ``` go
 type DOMDebuggerSetDOMBreakpoint struct {
@@ -7964,7 +7962,7 @@ type DOMDebuggerSetDOMBreakpoint struct {
 
 DOMDebuggerSetDOMBreakpoint Sets breakpoint on particular operation with DOM.
 
-### (DOMDebuggerSetDOMBreakpoint) Call 
+#### (DOMDebuggerSetDOMBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerSetDOMBreakpoint) Call(c Client) error
@@ -7972,7 +7970,7 @@ func (m DOMDebuggerSetDOMBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerSetDOMBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerSetDOMBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerSetDOMBreakpoint) ProtoReq() string
@@ -7980,7 +7978,7 @@ func (m DOMDebuggerSetDOMBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerSetEventListenerBreakpoint 
+### type DOMDebuggerSetEventListenerBreakpoint 
 
 ``` go
 type DOMDebuggerSetEventListenerBreakpoint struct {
@@ -7995,7 +7993,7 @@ type DOMDebuggerSetEventListenerBreakpoint struct {
 
 DOMDebuggerSetEventListenerBreakpoint Sets breakpoint on particular DOM event.
 
-### (DOMDebuggerSetEventListenerBreakpoint) Call 
+#### (DOMDebuggerSetEventListenerBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerSetEventListenerBreakpoint) Call(c Client) error
@@ -8003,7 +8001,7 @@ func (m DOMDebuggerSetEventListenerBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerSetEventListenerBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerSetEventListenerBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerSetEventListenerBreakpoint) ProtoReq() string
@@ -8011,7 +8009,7 @@ func (m DOMDebuggerSetEventListenerBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerSetInstrumentationBreakpoint 
+### type DOMDebuggerSetInstrumentationBreakpoint 
 
 ``` go
 type DOMDebuggerSetInstrumentationBreakpoint struct {
@@ -8022,7 +8020,7 @@ type DOMDebuggerSetInstrumentationBreakpoint struct {
 
 DOMDebuggerSetInstrumentationBreakpoint (deprecated) (experimental) Sets breakpoint on particular native event.
 
-### (DOMDebuggerSetInstrumentationBreakpoint) Call 
+#### (DOMDebuggerSetInstrumentationBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerSetInstrumentationBreakpoint) Call(c Client) error
@@ -8030,7 +8028,7 @@ func (m DOMDebuggerSetInstrumentationBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerSetInstrumentationBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerSetInstrumentationBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerSetInstrumentationBreakpoint) ProtoReq() string
@@ -8038,7 +8036,7 @@ func (m DOMDebuggerSetInstrumentationBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDebuggerSetXHRBreakpoint 
+### type DOMDebuggerSetXHRBreakpoint 
 
 ``` go
 type DOMDebuggerSetXHRBreakpoint struct {
@@ -8049,7 +8047,7 @@ type DOMDebuggerSetXHRBreakpoint struct {
 
 DOMDebuggerSetXHRBreakpoint Sets breakpoint on XMLHttpRequest.
 
-### (DOMDebuggerSetXHRBreakpoint) Call 
+#### (DOMDebuggerSetXHRBreakpoint) Call 
 
 ``` go
 func (m DOMDebuggerSetXHRBreakpoint) Call(c Client) error
@@ -8057,7 +8055,7 @@ func (m DOMDebuggerSetXHRBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDebuggerSetXHRBreakpoint) ProtoReq <- 0.74.0
+#### (DOMDebuggerSetXHRBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDebuggerSetXHRBreakpoint) ProtoReq() string
@@ -8065,7 +8063,7 @@ func (m DOMDebuggerSetXHRBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDescribeNode 
+### type DOMDescribeNode 
 
 ``` go
 type DOMDescribeNode struct {
@@ -8090,7 +8088,7 @@ type DOMDescribeNode struct {
 
 DOMDescribeNode Describes node given its id, does not require domain to be enabled. Does not start tracking any objects, can be used for automation.
 
-### (DOMDescribeNode) Call 
+#### (DOMDescribeNode) Call 
 
 ``` go
 func (m DOMDescribeNode) Call(c Client) (*DOMDescribeNodeResult, error)
@@ -8098,7 +8096,7 @@ func (m DOMDescribeNode) Call(c Client) (*DOMDescribeNodeResult, error)
 
 Call the request.
 
-### (DOMDescribeNode) ProtoReq <- 0.74.0
+#### (DOMDescribeNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDescribeNode) ProtoReq() string
@@ -8106,7 +8104,7 @@ func (m DOMDescribeNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDescribeNodeResult 
+### type DOMDescribeNodeResult 
 
 ``` go
 type DOMDescribeNodeResult struct {
@@ -8117,7 +8115,7 @@ type DOMDescribeNodeResult struct {
 
 DOMDescribeNodeResult ...
 
-## type DOMDisable 
+### type DOMDisable 
 
 ``` go
 type DOMDisable struct{}
@@ -8125,7 +8123,7 @@ type DOMDisable struct{}
 
 DOMDisable Disables DOM agent for the given page.
 
-### (DOMDisable) Call 
+#### (DOMDisable) Call 
 
 ``` go
 func (m DOMDisable) Call(c Client) error
@@ -8133,7 +8131,7 @@ func (m DOMDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDisable) ProtoReq <- 0.74.0
+#### (DOMDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDisable) ProtoReq() string
@@ -8141,7 +8139,7 @@ func (m DOMDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDiscardSearchResults 
+### type DOMDiscardSearchResults 
 
 ``` go
 type DOMDiscardSearchResults struct {
@@ -8152,7 +8150,7 @@ type DOMDiscardSearchResults struct {
 
 DOMDiscardSearchResults (experimental) Discards search results from the session with the given id. `getSearchResults` should no longer be called for that search.
 
-### (DOMDiscardSearchResults) Call 
+#### (DOMDiscardSearchResults) Call 
 
 ``` go
 func (m DOMDiscardSearchResults) Call(c Client) error
@@ -8160,7 +8158,7 @@ func (m DOMDiscardSearchResults) Call(c Client) error
 
 Call sends the request.
 
-### (DOMDiscardSearchResults) ProtoReq <- 0.74.0
+#### (DOMDiscardSearchResults) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMDiscardSearchResults) ProtoReq() string
@@ -8168,7 +8166,7 @@ func (m DOMDiscardSearchResults) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMDistributedNodesUpdated 
+### type DOMDistributedNodesUpdated 
 
 ``` go
 type DOMDistributedNodesUpdated struct {
@@ -8182,7 +8180,7 @@ type DOMDistributedNodesUpdated struct {
 
 DOMDistributedNodesUpdated (experimental) Called when distribution is changed.
 
-### (DOMDistributedNodesUpdated) ProtoEvent <- 0.72.0
+#### (DOMDistributedNodesUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMDistributedNodesUpdated) ProtoEvent() string
@@ -8190,7 +8188,7 @@ func (evt DOMDistributedNodesUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMDocumentUpdated 
+### type DOMDocumentUpdated 
 
 ``` go
 type DOMDocumentUpdated struct{}
@@ -8198,7 +8196,7 @@ type DOMDocumentUpdated struct{}
 
 DOMDocumentUpdated Fired when `Document` has been totally updated. Node ids are no longer valid.
 
-### (DOMDocumentUpdated) ProtoEvent <- 0.72.0
+#### (DOMDocumentUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMDocumentUpdated) ProtoEvent() string
@@ -8206,7 +8204,7 @@ func (evt DOMDocumentUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMEnable 
+### type DOMEnable 
 
 ``` go
 type DOMEnable struct {
@@ -8217,7 +8215,7 @@ type DOMEnable struct {
 
 DOMEnable Enables DOM agent for the given page.
 
-### (DOMEnable) Call 
+#### (DOMEnable) Call 
 
 ``` go
 func (m DOMEnable) Call(c Client) error
@@ -8225,7 +8223,7 @@ func (m DOMEnable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMEnable) ProtoReq <- 0.74.0
+#### (DOMEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMEnable) ProtoReq() string
@@ -8233,7 +8231,7 @@ func (m DOMEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMEnableIncludeWhitespace <- 0.102.1
+### type DOMEnableIncludeWhitespace <- 0.102.1
 
 ``` go
 type DOMEnableIncludeWhitespace string
@@ -8251,7 +8249,7 @@ const (
 )
 ```
 
-## type DOMFocus 
+### type DOMFocus 
 
 ``` go
 type DOMFocus struct {
@@ -8268,7 +8266,7 @@ type DOMFocus struct {
 
 DOMFocus Focuses the given element.
 
-### (DOMFocus) Call 
+#### (DOMFocus) Call 
 
 ``` go
 func (m DOMFocus) Call(c Client) error
@@ -8276,7 +8274,7 @@ func (m DOMFocus) Call(c Client) error
 
 Call sends the request.
 
-### (DOMFocus) ProtoReq <- 0.74.0
+#### (DOMFocus) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMFocus) ProtoReq() string
@@ -8284,7 +8282,7 @@ func (m DOMFocus) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetAnchorElement <- 0.116.2
+### type DOMGetAnchorElement <- 0.116.2
 
 ``` go
 type DOMGetAnchorElement struct {
@@ -8301,7 +8299,7 @@ type DOMGetAnchorElement struct {
 
 DOMGetAnchorElement (experimental) Returns the target anchor element of the given anchor query according to https://www.w3.org/TR/css-anchor-position-1/#target.
 
-### (DOMGetAnchorElement) Call <- 0.116.2
+#### (DOMGetAnchorElement) Call <- 0.116.2
 
 ``` go
 func (m DOMGetAnchorElement) Call(c Client) (*DOMGetAnchorElementResult, error)
@@ -8309,7 +8307,7 @@ func (m DOMGetAnchorElement) Call(c Client) (*DOMGetAnchorElementResult, error)
 
 Call the request.
 
-### (DOMGetAnchorElement) ProtoReq <- 0.116.2
+#### (DOMGetAnchorElement) ProtoReq <- 0.116.2
 
 ``` go
 func (m DOMGetAnchorElement) ProtoReq() string
@@ -8317,7 +8315,7 @@ func (m DOMGetAnchorElement) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetAnchorElementResult <- 0.116.2
+### type DOMGetAnchorElementResult <- 0.116.2
 
 ``` go
 type DOMGetAnchorElementResult struct {
@@ -8328,7 +8326,7 @@ type DOMGetAnchorElementResult struct {
 
 DOMGetAnchorElementResult (experimental) ...
 
-## type DOMGetAttributes 
+### type DOMGetAttributes 
 
 ``` go
 type DOMGetAttributes struct {
@@ -8339,7 +8337,7 @@ type DOMGetAttributes struct {
 
 DOMGetAttributes Returns attributes for the specified node.
 
-### (DOMGetAttributes) Call 
+#### (DOMGetAttributes) Call 
 
 ``` go
 func (m DOMGetAttributes) Call(c Client) (*DOMGetAttributesResult, error)
@@ -8347,7 +8345,7 @@ func (m DOMGetAttributes) Call(c Client) (*DOMGetAttributesResult, error)
 
 Call the request.
 
-### (DOMGetAttributes) ProtoReq <- 0.74.0
+#### (DOMGetAttributes) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetAttributes) ProtoReq() string
@@ -8355,7 +8353,7 @@ func (m DOMGetAttributes) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetAttributesResult 
+### type DOMGetAttributesResult 
 
 ``` go
 type DOMGetAttributesResult struct {
@@ -8366,7 +8364,7 @@ type DOMGetAttributesResult struct {
 
 DOMGetAttributesResult ...
 
-## type DOMGetBoxModel 
+### type DOMGetBoxModel 
 
 ``` go
 type DOMGetBoxModel struct {
@@ -8383,7 +8381,7 @@ type DOMGetBoxModel struct {
 
 DOMGetBoxModel Returns boxes for the given node.
 
-### (DOMGetBoxModel) Call 
+#### (DOMGetBoxModel) Call 
 
 ``` go
 func (m DOMGetBoxModel) Call(c Client) (*DOMGetBoxModelResult, error)
@@ -8391,7 +8389,7 @@ func (m DOMGetBoxModel) Call(c Client) (*DOMGetBoxModelResult, error)
 
 Call the request.
 
-### (DOMGetBoxModel) ProtoReq <- 0.74.0
+#### (DOMGetBoxModel) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetBoxModel) ProtoReq() string
@@ -8399,7 +8397,7 @@ func (m DOMGetBoxModel) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetBoxModelResult 
+### type DOMGetBoxModelResult 
 
 ``` go
 type DOMGetBoxModelResult struct {
@@ -8410,7 +8408,7 @@ type DOMGetBoxModelResult struct {
 
 DOMGetBoxModelResult ...
 
-## type DOMGetContainerForNode <- 0.101.5
+### type DOMGetContainerForNode <- 0.101.5
 
 ``` go
 type DOMGetContainerForNode struct {
@@ -8430,7 +8428,7 @@ type DOMGetContainerForNode struct {
 
 DOMGetContainerForNode (experimental) Returns the query container of the given node based on container query conditions: containerName, physical, and logical axes. If no axes are provided, the style container is returned, which is the direct parent or the closest element with a matching container-name.
 
-### (DOMGetContainerForNode) Call <- 0.101.5
+#### (DOMGetContainerForNode) Call <- 0.101.5
 
 ``` go
 func (m DOMGetContainerForNode) Call(c Client) (*DOMGetContainerForNodeResult, error)
@@ -8438,7 +8436,7 @@ func (m DOMGetContainerForNode) Call(c Client) (*DOMGetContainerForNodeResult, e
 
 Call the request.
 
-### (DOMGetContainerForNode) ProtoReq <- 0.101.5
+#### (DOMGetContainerForNode) ProtoReq <- 0.101.5
 
 ``` go
 func (m DOMGetContainerForNode) ProtoReq() string
@@ -8446,7 +8444,7 @@ func (m DOMGetContainerForNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetContainerForNodeResult <- 0.101.5
+### type DOMGetContainerForNodeResult <- 0.101.5
 
 ``` go
 type DOMGetContainerForNodeResult struct {
@@ -8457,7 +8455,7 @@ type DOMGetContainerForNodeResult struct {
 
 DOMGetContainerForNodeResult (experimental) ...
 
-## type DOMGetContentQuads 
+### type DOMGetContentQuads 
 
 ``` go
 type DOMGetContentQuads struct {
@@ -8474,7 +8472,7 @@ type DOMGetContentQuads struct {
 
 DOMGetContentQuads (experimental) Returns quads that describe node position on the page. This method might return multiple quads for inline nodes.
 
-### (DOMGetContentQuads) Call 
+#### (DOMGetContentQuads) Call 
 
 ``` go
 func (m DOMGetContentQuads) Call(c Client) (*DOMGetContentQuadsResult, error)
@@ -8482,7 +8480,7 @@ func (m DOMGetContentQuads) Call(c Client) (*DOMGetContentQuadsResult, error)
 
 Call the request.
 
-### (DOMGetContentQuads) ProtoReq <- 0.74.0
+#### (DOMGetContentQuads) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetContentQuads) ProtoReq() string
@@ -8490,7 +8488,7 @@ func (m DOMGetContentQuads) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetContentQuadsResult 
+### type DOMGetContentQuadsResult 
 
 ``` go
 type DOMGetContentQuadsResult struct {
@@ -8501,7 +8499,7 @@ type DOMGetContentQuadsResult struct {
 
 DOMGetContentQuadsResult (experimental) ...
 
-### (*DOMGetContentQuadsResult) Box <- 0.88.6
+#### (*DOMGetContentQuadsResult) Box <- 0.88.6
 
 ``` go
 func (res *DOMGetContentQuadsResult) Box() (box *DOMRect)
@@ -8509,7 +8507,7 @@ func (res *DOMGetContentQuadsResult) Box() (box *DOMRect)
 
 Box returns the smallest leveled rectangle that can cover the whole shape.
 
-### (*DOMGetContentQuadsResult) OnePointInside <- 0.66.0
+#### (*DOMGetContentQuadsResult) OnePointInside <- 0.66.0
 
 ``` go
 func (res *DOMGetContentQuadsResult) OnePointInside() *Point
@@ -8517,7 +8515,7 @@ func (res *DOMGetContentQuadsResult) OnePointInside() *Point
 
 OnePointInside the shape.
 
-## type DOMGetDocument 
+### type DOMGetDocument 
 
 ``` go
 type DOMGetDocument struct {
@@ -8533,7 +8531,7 @@ type DOMGetDocument struct {
 
 DOMGetDocument Returns the root DOM node (and optionally the subtree) to the caller. Implicitly enables the DOM domain events for the current target.
 
-### (DOMGetDocument) Call 
+#### (DOMGetDocument) Call 
 
 ``` go
 func (m DOMGetDocument) Call(c Client) (*DOMGetDocumentResult, error)
@@ -8541,7 +8539,7 @@ func (m DOMGetDocument) Call(c Client) (*DOMGetDocumentResult, error)
 
 Call the request.
 
-### (DOMGetDocument) ProtoReq <- 0.74.0
+#### (DOMGetDocument) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetDocument) ProtoReq() string
@@ -8549,7 +8547,7 @@ func (m DOMGetDocument) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetDocumentResult 
+### type DOMGetDocumentResult 
 
 ``` go
 type DOMGetDocumentResult struct {
@@ -8560,7 +8558,7 @@ type DOMGetDocumentResult struct {
 
 DOMGetDocumentResult ...
 
-## type DOMGetElementByRelation <- 0.116.0
+### type DOMGetElementByRelation <- 0.116.0
 
 ``` go
 type DOMGetElementByRelation struct {
@@ -8574,7 +8572,7 @@ type DOMGetElementByRelation struct {
 
 DOMGetElementByRelation (experimental) Returns the NodeId of the matched element according to certain relations.
 
-### (DOMGetElementByRelation) Call <- 0.116.0
+#### (DOMGetElementByRelation) Call <- 0.116.0
 
 ``` go
 func (m DOMGetElementByRelation) Call(c Client) (*DOMGetElementByRelationResult, error)
@@ -8582,7 +8580,7 @@ func (m DOMGetElementByRelation) Call(c Client) (*DOMGetElementByRelationResult,
 
 Call the request.
 
-### (DOMGetElementByRelation) ProtoReq <- 0.116.0
+#### (DOMGetElementByRelation) ProtoReq <- 0.116.0
 
 ``` go
 func (m DOMGetElementByRelation) ProtoReq() string
@@ -8590,7 +8588,7 @@ func (m DOMGetElementByRelation) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetElementByRelationRelation <- 0.116.0
+### type DOMGetElementByRelationRelation <- 0.116.0
 
 ``` go
 type DOMGetElementByRelationRelation string
@@ -8605,7 +8603,7 @@ const (
 )
 ```
 
-## type DOMGetElementByRelationResult <- 0.116.0
+### type DOMGetElementByRelationResult <- 0.116.0
 
 ``` go
 type DOMGetElementByRelationResult struct {
@@ -8616,7 +8614,7 @@ type DOMGetElementByRelationResult struct {
 
 DOMGetElementByRelationResult (experimental) ...
 
-## type DOMGetFileInfo 
+### type DOMGetFileInfo 
 
 ``` go
 type DOMGetFileInfo struct {
@@ -8627,7 +8625,7 @@ type DOMGetFileInfo struct {
 
 DOMGetFileInfo (experimental) Returns file information for the given File wrapper.
 
-### (DOMGetFileInfo) Call 
+#### (DOMGetFileInfo) Call 
 
 ``` go
 func (m DOMGetFileInfo) Call(c Client) (*DOMGetFileInfoResult, error)
@@ -8635,7 +8633,7 @@ func (m DOMGetFileInfo) Call(c Client) (*DOMGetFileInfoResult, error)
 
 Call the request.
 
-### (DOMGetFileInfo) ProtoReq <- 0.74.0
+#### (DOMGetFileInfo) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetFileInfo) ProtoReq() string
@@ -8643,7 +8641,7 @@ func (m DOMGetFileInfo) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetFileInfoResult 
+### type DOMGetFileInfoResult 
 
 ``` go
 type DOMGetFileInfoResult struct {
@@ -8654,7 +8652,7 @@ type DOMGetFileInfoResult struct {
 
 DOMGetFileInfoResult (experimental) ...
 
-## type DOMGetFlattenedDocument 
+### type DOMGetFlattenedDocument 
 
 ``` go
 type DOMGetFlattenedDocument struct {
@@ -8670,7 +8668,7 @@ type DOMGetFlattenedDocument struct {
 
 DOMGetFlattenedDocument (deprecated) Returns the root DOM node (and optionally the subtree) to the caller. Deprecated, as it is not designed to work well with the rest of the DOM agent. Use DOMSnapshot.captureSnapshot instead.
 
-### (DOMGetFlattenedDocument) Call 
+#### (DOMGetFlattenedDocument) Call 
 
 ``` go
 func (m DOMGetFlattenedDocument) Call(c Client) (*DOMGetFlattenedDocumentResult, error)
@@ -8678,7 +8676,7 @@ func (m DOMGetFlattenedDocument) Call(c Client) (*DOMGetFlattenedDocumentResult,
 
 Call the request.
 
-### (DOMGetFlattenedDocument) ProtoReq <- 0.74.0
+#### (DOMGetFlattenedDocument) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetFlattenedDocument) ProtoReq() string
@@ -8686,7 +8684,7 @@ func (m DOMGetFlattenedDocument) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetFlattenedDocumentResult 
+### type DOMGetFlattenedDocumentResult 
 
 ``` go
 type DOMGetFlattenedDocumentResult struct {
@@ -8697,7 +8695,7 @@ type DOMGetFlattenedDocumentResult struct {
 
 DOMGetFlattenedDocumentResult (deprecated) ...
 
-## type DOMGetFrameOwner 
+### type DOMGetFrameOwner 
 
 ``` go
 type DOMGetFrameOwner struct {
@@ -8708,7 +8706,7 @@ type DOMGetFrameOwner struct {
 
 DOMGetFrameOwner (experimental) Returns iframe node that owns iframe with the given domain.
 
-### (DOMGetFrameOwner) Call 
+#### (DOMGetFrameOwner) Call 
 
 ``` go
 func (m DOMGetFrameOwner) Call(c Client) (*DOMGetFrameOwnerResult, error)
@@ -8716,7 +8714,7 @@ func (m DOMGetFrameOwner) Call(c Client) (*DOMGetFrameOwnerResult, error)
 
 Call the request.
 
-### (DOMGetFrameOwner) ProtoReq <- 0.74.0
+#### (DOMGetFrameOwner) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetFrameOwner) ProtoReq() string
@@ -8724,7 +8722,7 @@ func (m DOMGetFrameOwner) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetFrameOwnerResult 
+### type DOMGetFrameOwnerResult 
 
 ``` go
 type DOMGetFrameOwnerResult struct {
@@ -8738,7 +8736,7 @@ type DOMGetFrameOwnerResult struct {
 
 DOMGetFrameOwnerResult (experimental) ...
 
-## type DOMGetNodeForLocation 
+### type DOMGetNodeForLocation 
 
 ``` go
 type DOMGetNodeForLocation struct {
@@ -8758,7 +8756,7 @@ type DOMGetNodeForLocation struct {
 
 DOMGetNodeForLocation Returns node id at given location. Depending on whether DOM domain is enabled, nodeId is either returned or not.
 
-### (DOMGetNodeForLocation) Call 
+#### (DOMGetNodeForLocation) Call 
 
 ``` go
 func (m DOMGetNodeForLocation) Call(c Client) (*DOMGetNodeForLocationResult, error)
@@ -8766,7 +8764,7 @@ func (m DOMGetNodeForLocation) Call(c Client) (*DOMGetNodeForLocationResult, err
 
 Call the request.
 
-### (DOMGetNodeForLocation) ProtoReq <- 0.74.0
+#### (DOMGetNodeForLocation) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetNodeForLocation) ProtoReq() string
@@ -8774,7 +8772,7 @@ func (m DOMGetNodeForLocation) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetNodeForLocationResult 
+### type DOMGetNodeForLocationResult 
 
 ``` go
 type DOMGetNodeForLocationResult struct {
@@ -8791,7 +8789,7 @@ type DOMGetNodeForLocationResult struct {
 
 DOMGetNodeForLocationResult ...
 
-## type DOMGetNodeStackTraces 
+### type DOMGetNodeStackTraces 
 
 ``` go
 type DOMGetNodeStackTraces struct {
@@ -8802,7 +8800,7 @@ type DOMGetNodeStackTraces struct {
 
 DOMGetNodeStackTraces (experimental) Gets stack traces associated with a Node. As of now, only provides stack trace for Node creation.
 
-### (DOMGetNodeStackTraces) Call 
+#### (DOMGetNodeStackTraces) Call 
 
 ``` go
 func (m DOMGetNodeStackTraces) Call(c Client) (*DOMGetNodeStackTracesResult, error)
@@ -8810,7 +8808,7 @@ func (m DOMGetNodeStackTraces) Call(c Client) (*DOMGetNodeStackTracesResult, err
 
 Call the request.
 
-### (DOMGetNodeStackTraces) ProtoReq <- 0.74.0
+#### (DOMGetNodeStackTraces) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetNodeStackTraces) ProtoReq() string
@@ -8818,7 +8816,7 @@ func (m DOMGetNodeStackTraces) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetNodeStackTracesResult 
+### type DOMGetNodeStackTracesResult 
 
 ``` go
 type DOMGetNodeStackTracesResult struct {
@@ -8829,7 +8827,7 @@ type DOMGetNodeStackTracesResult struct {
 
 DOMGetNodeStackTracesResult (experimental) ...
 
-## type DOMGetNodesForSubtreeByStyle <- 0.72.0
+### type DOMGetNodesForSubtreeByStyle <- 0.72.0
 
 ``` go
 type DOMGetNodesForSubtreeByStyle struct {
@@ -8847,7 +8845,7 @@ type DOMGetNodesForSubtreeByStyle struct {
 
 DOMGetNodesForSubtreeByStyle (experimental) Finds nodes with a given computed style in a subtree.
 
-### (DOMGetNodesForSubtreeByStyle) Call <- 0.72.0
+#### (DOMGetNodesForSubtreeByStyle) Call <- 0.72.0
 
 ``` go
 func (m DOMGetNodesForSubtreeByStyle) Call(c Client) (*DOMGetNodesForSubtreeByStyleResult, error)
@@ -8855,7 +8853,7 @@ func (m DOMGetNodesForSubtreeByStyle) Call(c Client) (*DOMGetNodesForSubtreeBySt
 
 Call the request.
 
-### (DOMGetNodesForSubtreeByStyle) ProtoReq <- 0.74.0
+#### (DOMGetNodesForSubtreeByStyle) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetNodesForSubtreeByStyle) ProtoReq() string
@@ -8863,7 +8861,7 @@ func (m DOMGetNodesForSubtreeByStyle) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetNodesForSubtreeByStyleResult <- 0.72.0
+### type DOMGetNodesForSubtreeByStyleResult <- 0.72.0
 
 ``` go
 type DOMGetNodesForSubtreeByStyleResult struct {
@@ -8874,7 +8872,7 @@ type DOMGetNodesForSubtreeByStyleResult struct {
 
 DOMGetNodesForSubtreeByStyleResult (experimental) ...
 
-## type DOMGetOuterHTML 
+### type DOMGetOuterHTML 
 
 ``` go
 type DOMGetOuterHTML struct {
@@ -8891,7 +8889,7 @@ type DOMGetOuterHTML struct {
 
 DOMGetOuterHTML Returns node's HTML markup.
 
-### (DOMGetOuterHTML) Call 
+#### (DOMGetOuterHTML) Call 
 
 ``` go
 func (m DOMGetOuterHTML) Call(c Client) (*DOMGetOuterHTMLResult, error)
@@ -8899,7 +8897,7 @@ func (m DOMGetOuterHTML) Call(c Client) (*DOMGetOuterHTMLResult, error)
 
 Call the request.
 
-### (DOMGetOuterHTML) ProtoReq <- 0.74.0
+#### (DOMGetOuterHTML) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetOuterHTML) ProtoReq() string
@@ -8907,7 +8905,7 @@ func (m DOMGetOuterHTML) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetOuterHTMLResult 
+### type DOMGetOuterHTMLResult 
 
 ``` go
 type DOMGetOuterHTMLResult struct {
@@ -8918,7 +8916,7 @@ type DOMGetOuterHTMLResult struct {
 
 DOMGetOuterHTMLResult ...
 
-## type DOMGetQueryingDescendantsForContainer <- 0.102.0
+### type DOMGetQueryingDescendantsForContainer <- 0.102.0
 
 ``` go
 type DOMGetQueryingDescendantsForContainer struct {
@@ -8929,7 +8927,7 @@ type DOMGetQueryingDescendantsForContainer struct {
 
 DOMGetQueryingDescendantsForContainer (experimental) Returns the descendants of a container query container that have container queries against this container.
 
-### (DOMGetQueryingDescendantsForContainer) Call <- 0.102.0
+#### (DOMGetQueryingDescendantsForContainer) Call <- 0.102.0
 
 ``` go
 func (m DOMGetQueryingDescendantsForContainer) Call(c Client) (*DOMGetQueryingDescendantsForContainerResult, error)
@@ -8937,7 +8935,7 @@ func (m DOMGetQueryingDescendantsForContainer) Call(c Client) (*DOMGetQueryingDe
 
 Call the request.
 
-### (DOMGetQueryingDescendantsForContainer) ProtoReq <- 0.102.0
+#### (DOMGetQueryingDescendantsForContainer) ProtoReq <- 0.102.0
 
 ``` go
 func (m DOMGetQueryingDescendantsForContainer) ProtoReq() string
@@ -8945,7 +8943,7 @@ func (m DOMGetQueryingDescendantsForContainer) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetQueryingDescendantsForContainerResult <- 0.102.0
+### type DOMGetQueryingDescendantsForContainerResult <- 0.102.0
 
 ``` go
 type DOMGetQueryingDescendantsForContainerResult struct {
@@ -8956,7 +8954,7 @@ type DOMGetQueryingDescendantsForContainerResult struct {
 
 DOMGetQueryingDescendantsForContainerResult (experimental) ...
 
-## type DOMGetRelayoutBoundary 
+### type DOMGetRelayoutBoundary 
 
 ``` go
 type DOMGetRelayoutBoundary struct {
@@ -8967,7 +8965,7 @@ type DOMGetRelayoutBoundary struct {
 
 DOMGetRelayoutBoundary (experimental) Returns the id of the nearest ancestor that is a relayout boundary.
 
-### (DOMGetRelayoutBoundary) Call 
+#### (DOMGetRelayoutBoundary) Call 
 
 ``` go
 func (m DOMGetRelayoutBoundary) Call(c Client) (*DOMGetRelayoutBoundaryResult, error)
@@ -8975,7 +8973,7 @@ func (m DOMGetRelayoutBoundary) Call(c Client) (*DOMGetRelayoutBoundaryResult, e
 
 Call the request.
 
-### (DOMGetRelayoutBoundary) ProtoReq <- 0.74.0
+#### (DOMGetRelayoutBoundary) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetRelayoutBoundary) ProtoReq() string
@@ -8983,7 +8981,7 @@ func (m DOMGetRelayoutBoundary) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetRelayoutBoundaryResult 
+### type DOMGetRelayoutBoundaryResult 
 
 ``` go
 type DOMGetRelayoutBoundaryResult struct {
@@ -8994,7 +8992,7 @@ type DOMGetRelayoutBoundaryResult struct {
 
 DOMGetRelayoutBoundaryResult (experimental) ...
 
-## type DOMGetSearchResults 
+### type DOMGetSearchResults 
 
 ``` go
 type DOMGetSearchResults struct {
@@ -9011,7 +9009,7 @@ type DOMGetSearchResults struct {
 
 DOMGetSearchResults (experimental) Returns search results from given `fromIndex` to given `toIndex` from the search with the given identifier.
 
-### (DOMGetSearchResults) Call 
+#### (DOMGetSearchResults) Call 
 
 ``` go
 func (m DOMGetSearchResults) Call(c Client) (*DOMGetSearchResultsResult, error)
@@ -9019,7 +9017,7 @@ func (m DOMGetSearchResults) Call(c Client) (*DOMGetSearchResultsResult, error)
 
 Call the request.
 
-### (DOMGetSearchResults) ProtoReq <- 0.74.0
+#### (DOMGetSearchResults) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMGetSearchResults) ProtoReq() string
@@ -9027,7 +9025,7 @@ func (m DOMGetSearchResults) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetSearchResultsResult 
+### type DOMGetSearchResultsResult 
 
 ``` go
 type DOMGetSearchResultsResult struct {
@@ -9038,7 +9036,7 @@ type DOMGetSearchResultsResult struct {
 
 DOMGetSearchResultsResult (experimental) ...
 
-## type DOMGetTopLayerElements <- 0.108.0
+### type DOMGetTopLayerElements <- 0.108.0
 
 ``` go
 type DOMGetTopLayerElements struct{}
@@ -9046,7 +9044,7 @@ type DOMGetTopLayerElements struct{}
 
 DOMGetTopLayerElements (experimental) Returns NodeIds of current top layer elements. Top layer is rendered closest to the user within a viewport, therefore its elements always appear on top of all other content.
 
-### (DOMGetTopLayerElements) Call <- 0.108.0
+#### (DOMGetTopLayerElements) Call <- 0.108.0
 
 ``` go
 func (m DOMGetTopLayerElements) Call(c Client) (*DOMGetTopLayerElementsResult, error)
@@ -9054,7 +9052,7 @@ func (m DOMGetTopLayerElements) Call(c Client) (*DOMGetTopLayerElementsResult, e
 
 Call the request.
 
-### (DOMGetTopLayerElements) ProtoReq <- 0.108.0
+#### (DOMGetTopLayerElements) ProtoReq <- 0.108.0
 
 ``` go
 func (m DOMGetTopLayerElements) ProtoReq() string
@@ -9062,7 +9060,7 @@ func (m DOMGetTopLayerElements) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMGetTopLayerElementsResult <- 0.108.0
+### type DOMGetTopLayerElementsResult <- 0.108.0
 
 ``` go
 type DOMGetTopLayerElementsResult struct {
@@ -9073,7 +9071,7 @@ type DOMGetTopLayerElementsResult struct {
 
 DOMGetTopLayerElementsResult (experimental) ...
 
-## type DOMHideHighlight 
+### type DOMHideHighlight 
 
 ``` go
 type DOMHideHighlight struct{}
@@ -9081,7 +9079,7 @@ type DOMHideHighlight struct{}
 
 DOMHideHighlight Hides any highlight.
 
-### (DOMHideHighlight) Call 
+#### (DOMHideHighlight) Call 
 
 ``` go
 func (m DOMHideHighlight) Call(c Client) error
@@ -9089,7 +9087,7 @@ func (m DOMHideHighlight) Call(c Client) error
 
 Call sends the request.
 
-### (DOMHideHighlight) ProtoReq <- 0.74.0
+#### (DOMHideHighlight) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMHideHighlight) ProtoReq() string
@@ -9097,7 +9095,7 @@ func (m DOMHideHighlight) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMHighlightNode 
+### type DOMHighlightNode 
 
 ``` go
 type DOMHighlightNode struct{}
@@ -9105,7 +9103,7 @@ type DOMHighlightNode struct{}
 
 DOMHighlightNode Highlights DOM node.
 
-### (DOMHighlightNode) Call 
+#### (DOMHighlightNode) Call 
 
 ``` go
 func (m DOMHighlightNode) Call(c Client) error
@@ -9113,7 +9111,7 @@ func (m DOMHighlightNode) Call(c Client) error
 
 Call sends the request.
 
-### (DOMHighlightNode) ProtoReq <- 0.74.0
+#### (DOMHighlightNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMHighlightNode) ProtoReq() string
@@ -9121,7 +9119,7 @@ func (m DOMHighlightNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMHighlightRect 
+### type DOMHighlightRect 
 
 ``` go
 type DOMHighlightRect struct{}
@@ -9129,7 +9127,7 @@ type DOMHighlightRect struct{}
 
 DOMHighlightRect Highlights given rectangle.
 
-### (DOMHighlightRect) Call 
+#### (DOMHighlightRect) Call 
 
 ``` go
 func (m DOMHighlightRect) Call(c Client) error
@@ -9137,7 +9135,7 @@ func (m DOMHighlightRect) Call(c Client) error
 
 Call sends the request.
 
-### (DOMHighlightRect) ProtoReq <- 0.74.0
+#### (DOMHighlightRect) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMHighlightRect) ProtoReq() string
@@ -9145,7 +9143,7 @@ func (m DOMHighlightRect) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMInlineStyleInvalidated 
+### type DOMInlineStyleInvalidated 
 
 ``` go
 type DOMInlineStyleInvalidated struct {
@@ -9156,7 +9154,7 @@ type DOMInlineStyleInvalidated struct {
 
 DOMInlineStyleInvalidated (experimental) Fired when `Element`'s inline style is modified via a CSS property modification.
 
-### (DOMInlineStyleInvalidated) ProtoEvent <- 0.72.0
+#### (DOMInlineStyleInvalidated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMInlineStyleInvalidated) ProtoEvent() string
@@ -9164,7 +9162,7 @@ func (evt DOMInlineStyleInvalidated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMLogicalAxes <- 0.112.3
+### type DOMLogicalAxes <- 0.112.3
 
 ``` go
 type DOMLogicalAxes string
@@ -9185,7 +9183,7 @@ const (
 )
 ```
 
-## type DOMMarkUndoableState 
+### type DOMMarkUndoableState 
 
 ``` go
 type DOMMarkUndoableState struct{}
@@ -9193,7 +9191,7 @@ type DOMMarkUndoableState struct{}
 
 DOMMarkUndoableState (experimental) Marks last undoable state.
 
-### (DOMMarkUndoableState) Call 
+#### (DOMMarkUndoableState) Call 
 
 ``` go
 func (m DOMMarkUndoableState) Call(c Client) error
@@ -9201,7 +9199,7 @@ func (m DOMMarkUndoableState) Call(c Client) error
 
 Call sends the request.
 
-### (DOMMarkUndoableState) ProtoReq <- 0.74.0
+#### (DOMMarkUndoableState) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMMarkUndoableState) ProtoReq() string
@@ -9209,7 +9207,7 @@ func (m DOMMarkUndoableState) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMMoveTo 
+### type DOMMoveTo 
 
 ``` go
 type DOMMoveTo struct {
@@ -9227,7 +9225,7 @@ type DOMMoveTo struct {
 
 DOMMoveTo Moves node into the new container, places it before the given anchor.
 
-### (DOMMoveTo) Call 
+#### (DOMMoveTo) Call 
 
 ``` go
 func (m DOMMoveTo) Call(c Client) (*DOMMoveToResult, error)
@@ -9235,7 +9233,7 @@ func (m DOMMoveTo) Call(c Client) (*DOMMoveToResult, error)
 
 Call the request.
 
-### (DOMMoveTo) ProtoReq <- 0.74.0
+#### (DOMMoveTo) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMMoveTo) ProtoReq() string
@@ -9243,7 +9241,7 @@ func (m DOMMoveTo) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMMoveToResult 
+### type DOMMoveToResult 
 
 ``` go
 type DOMMoveToResult struct {
@@ -9254,7 +9252,7 @@ type DOMMoveToResult struct {
 
 DOMMoveToResult ...
 
-## type DOMNode 
+### type DOMNode 
 
 ``` go
 type DOMNode struct {
@@ -9360,7 +9358,7 @@ type DOMNode struct {
 
 DOMNode DOM interaction is implemented in terms of mirror objects that represent the actual DOM nodes. DOMNode is a base node mirror type.
 
-## type DOMNodeID 
+### type DOMNodeID 
 
 ``` go
 type DOMNodeID int
@@ -9368,7 +9366,7 @@ type DOMNodeID int
 
 DOMNodeID Unique DOM node identifier.
 
-## type DOMPerformSearch 
+### type DOMPerformSearch 
 
 ``` go
 type DOMPerformSearch struct {
@@ -9382,7 +9380,7 @@ type DOMPerformSearch struct {
 
 DOMPerformSearch (experimental) Searches for a given string in the DOM tree. Use `getSearchResults` to access search results or `cancelSearch` to end this search session.
 
-### (DOMPerformSearch) Call 
+#### (DOMPerformSearch) Call 
 
 ``` go
 func (m DOMPerformSearch) Call(c Client) (*DOMPerformSearchResult, error)
@@ -9390,7 +9388,7 @@ func (m DOMPerformSearch) Call(c Client) (*DOMPerformSearchResult, error)
 
 Call the request.
 
-### (DOMPerformSearch) ProtoReq <- 0.74.0
+#### (DOMPerformSearch) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMPerformSearch) ProtoReq() string
@@ -9398,7 +9396,7 @@ func (m DOMPerformSearch) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMPerformSearchResult 
+### type DOMPerformSearchResult 
 
 ``` go
 type DOMPerformSearchResult struct {
@@ -9412,7 +9410,7 @@ type DOMPerformSearchResult struct {
 
 DOMPerformSearchResult (experimental) ...
 
-## type DOMPhysicalAxes <- 0.112.3
+### type DOMPhysicalAxes <- 0.112.3
 
 ``` go
 type DOMPhysicalAxes string
@@ -9433,7 +9431,7 @@ const (
 )
 ```
 
-## type DOMPseudoElementAdded 
+### type DOMPseudoElementAdded 
 
 ``` go
 type DOMPseudoElementAdded struct {
@@ -9447,7 +9445,7 @@ type DOMPseudoElementAdded struct {
 
 DOMPseudoElementAdded (experimental) Called when a pseudo element is added to an element.
 
-### (DOMPseudoElementAdded) ProtoEvent <- 0.72.0
+#### (DOMPseudoElementAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMPseudoElementAdded) ProtoEvent() string
@@ -9455,7 +9453,7 @@ func (evt DOMPseudoElementAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMPseudoElementRemoved 
+### type DOMPseudoElementRemoved 
 
 ``` go
 type DOMPseudoElementRemoved struct {
@@ -9469,7 +9467,7 @@ type DOMPseudoElementRemoved struct {
 
 DOMPseudoElementRemoved (experimental) Called when a pseudo element is removed from an element.
 
-### (DOMPseudoElementRemoved) ProtoEvent <- 0.72.0
+#### (DOMPseudoElementRemoved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMPseudoElementRemoved) ProtoEvent() string
@@ -9477,7 +9475,7 @@ func (evt DOMPseudoElementRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMPseudoType 
+### type DOMPseudoType 
 
 ``` go
 type DOMPseudoType string
@@ -9573,7 +9571,7 @@ const (
 )
 ```
 
-## type DOMPushNodeByPathToFrontend 
+### type DOMPushNodeByPathToFrontend 
 
 ``` go
 type DOMPushNodeByPathToFrontend struct {
@@ -9584,7 +9582,7 @@ type DOMPushNodeByPathToFrontend struct {
 
 DOMPushNodeByPathToFrontend (experimental) Requests that the node is sent to the caller given its path. // FIXME, use XPath.
 
-### (DOMPushNodeByPathToFrontend) Call 
+#### (DOMPushNodeByPathToFrontend) Call 
 
 ``` go
 func (m DOMPushNodeByPathToFrontend) Call(c Client) (*DOMPushNodeByPathToFrontendResult, error)
@@ -9592,7 +9590,7 @@ func (m DOMPushNodeByPathToFrontend) Call(c Client) (*DOMPushNodeByPathToFronten
 
 Call the request.
 
-### (DOMPushNodeByPathToFrontend) ProtoReq <- 0.74.0
+#### (DOMPushNodeByPathToFrontend) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMPushNodeByPathToFrontend) ProtoReq() string
@@ -9600,7 +9598,7 @@ func (m DOMPushNodeByPathToFrontend) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMPushNodeByPathToFrontendResult 
+### type DOMPushNodeByPathToFrontendResult 
 
 ``` go
 type DOMPushNodeByPathToFrontendResult struct {
@@ -9611,7 +9609,7 @@ type DOMPushNodeByPathToFrontendResult struct {
 
 DOMPushNodeByPathToFrontendResult (experimental) ...
 
-## type DOMPushNodesByBackendIDsToFrontend <- 0.114.8
+### type DOMPushNodesByBackendIDsToFrontend <- 0.114.8
 
 ``` go
 type DOMPushNodesByBackendIDsToFrontend struct {
@@ -9622,7 +9620,7 @@ type DOMPushNodesByBackendIDsToFrontend struct {
 
 DOMPushNodesByBackendIDsToFrontend (experimental) Requests that a batch of nodes is sent to the caller given their backend node ids.
 
-### (DOMPushNodesByBackendIDsToFrontend) Call <- 0.114.8
+#### (DOMPushNodesByBackendIDsToFrontend) Call <- 0.114.8
 
 ``` go
 func (m DOMPushNodesByBackendIDsToFrontend) Call(c Client) (*DOMPushNodesByBackendIDsToFrontendResult, error)
@@ -9630,7 +9628,7 @@ func (m DOMPushNodesByBackendIDsToFrontend) Call(c Client) (*DOMPushNodesByBacke
 
 Call the request.
 
-### (DOMPushNodesByBackendIDsToFrontend) ProtoReq <- 0.114.8
+#### (DOMPushNodesByBackendIDsToFrontend) ProtoReq <- 0.114.8
 
 ``` go
 func (m DOMPushNodesByBackendIDsToFrontend) ProtoReq() string
@@ -9638,7 +9636,7 @@ func (m DOMPushNodesByBackendIDsToFrontend) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMPushNodesByBackendIDsToFrontendResult <- 0.114.8
+### type DOMPushNodesByBackendIDsToFrontendResult <- 0.114.8
 
 ``` go
 type DOMPushNodesByBackendIDsToFrontendResult struct {
@@ -9650,7 +9648,7 @@ type DOMPushNodesByBackendIDsToFrontendResult struct {
 
 DOMPushNodesByBackendIDsToFrontendResult (experimental) ...
 
-## type DOMQuad 
+### type DOMQuad 
 
 ``` go
 type DOMQuad []float64
@@ -9658,7 +9656,7 @@ type DOMQuad []float64
 
 DOMQuad An array of quad vertices, x immediately followed by y for each point, points clock-wise.
 
-### (DOMQuad) Area <- 0.88.11
+#### (DOMQuad) Area <- 0.88.11
 
 ``` go
 func (q DOMQuad) Area() float64
@@ -9666,7 +9664,7 @@ func (q DOMQuad) Area() float64
 
 Area of the polygon https://en.wikipedia.org/wiki/Polygon#Area
 
-### (DOMQuad) Center <- 0.66.0
+#### (DOMQuad) Center <- 0.66.0
 
 ``` go
 func (q DOMQuad) Center() Point
@@ -9674,7 +9672,7 @@ func (q DOMQuad) Center() Point
 
 Center of the polygon.
 
-### (DOMQuad) Each <- 0.66.0
+#### (DOMQuad) Each <- 0.66.0
 
 ``` go
 func (q DOMQuad) Each(fn func(pt Point, i int))
@@ -9682,7 +9680,7 @@ func (q DOMQuad) Each(fn func(pt Point, i int))
 
 Each point.
 
-### (DOMQuad) Len <- 0.67.0
+#### (DOMQuad) Len <- 0.67.0
 
 ``` go
 func (q DOMQuad) Len() int
@@ -9690,7 +9688,7 @@ func (q DOMQuad) Len() int
 
 Len is the number of vertices.
 
-## type DOMQuerySelector 
+### type DOMQuerySelector 
 
 ``` go
 type DOMQuerySelector struct {
@@ -9704,7 +9702,7 @@ type DOMQuerySelector struct {
 
 DOMQuerySelector Executes `querySelector` on a given node.
 
-### (DOMQuerySelector) Call 
+#### (DOMQuerySelector) Call 
 
 ``` go
 func (m DOMQuerySelector) Call(c Client) (*DOMQuerySelectorResult, error)
@@ -9712,7 +9710,7 @@ func (m DOMQuerySelector) Call(c Client) (*DOMQuerySelectorResult, error)
 
 Call the request.
 
-### (DOMQuerySelector) ProtoReq <- 0.74.0
+#### (DOMQuerySelector) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMQuerySelector) ProtoReq() string
@@ -9720,7 +9718,7 @@ func (m DOMQuerySelector) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMQuerySelectorAll 
+### type DOMQuerySelectorAll 
 
 ``` go
 type DOMQuerySelectorAll struct {
@@ -9734,7 +9732,7 @@ type DOMQuerySelectorAll struct {
 
 DOMQuerySelectorAll Executes `querySelectorAll` on a given node.
 
-### (DOMQuerySelectorAll) Call 
+#### (DOMQuerySelectorAll) Call 
 
 ``` go
 func (m DOMQuerySelectorAll) Call(c Client) (*DOMQuerySelectorAllResult, error)
@@ -9742,7 +9740,7 @@ func (m DOMQuerySelectorAll) Call(c Client) (*DOMQuerySelectorAllResult, error)
 
 Call the request.
 
-### (DOMQuerySelectorAll) ProtoReq <- 0.74.0
+#### (DOMQuerySelectorAll) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMQuerySelectorAll) ProtoReq() string
@@ -9750,7 +9748,7 @@ func (m DOMQuerySelectorAll) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMQuerySelectorAllResult 
+### type DOMQuerySelectorAllResult 
 
 ``` go
 type DOMQuerySelectorAllResult struct {
@@ -9761,7 +9759,7 @@ type DOMQuerySelectorAllResult struct {
 
 DOMQuerySelectorAllResult ...
 
-## type DOMQuerySelectorResult 
+### type DOMQuerySelectorResult 
 
 ``` go
 type DOMQuerySelectorResult struct {
@@ -9772,7 +9770,7 @@ type DOMQuerySelectorResult struct {
 
 DOMQuerySelectorResult ...
 
-## type DOMRGBA 
+### type DOMRGBA 
 
 ``` go
 type DOMRGBA struct {
@@ -9792,7 +9790,7 @@ type DOMRGBA struct {
 
 DOMRGBA A structure holding an RGBA color.
 
-## type DOMRect 
+### type DOMRect 
 
 ``` go
 type DOMRect struct {
@@ -9812,7 +9810,7 @@ type DOMRect struct {
 
 DOMRect Rectangle.
 
-## type DOMRedo 
+### type DOMRedo 
 
 ``` go
 type DOMRedo struct{}
@@ -9820,7 +9818,7 @@ type DOMRedo struct{}
 
 DOMRedo (experimental) Re-does the last undone action.
 
-### (DOMRedo) Call 
+#### (DOMRedo) Call 
 
 ``` go
 func (m DOMRedo) Call(c Client) error
@@ -9828,7 +9826,7 @@ func (m DOMRedo) Call(c Client) error
 
 Call sends the request.
 
-### (DOMRedo) ProtoReq <- 0.74.0
+#### (DOMRedo) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMRedo) ProtoReq() string
@@ -9836,7 +9834,7 @@ func (m DOMRedo) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMRemoveAttribute 
+### type DOMRemoveAttribute 
 
 ``` go
 type DOMRemoveAttribute struct {
@@ -9850,7 +9848,7 @@ type DOMRemoveAttribute struct {
 
 DOMRemoveAttribute Removes attribute with given name from an element with given id.
 
-### (DOMRemoveAttribute) Call 
+#### (DOMRemoveAttribute) Call 
 
 ``` go
 func (m DOMRemoveAttribute) Call(c Client) error
@@ -9858,7 +9856,7 @@ func (m DOMRemoveAttribute) Call(c Client) error
 
 Call sends the request.
 
-### (DOMRemoveAttribute) ProtoReq <- 0.74.0
+#### (DOMRemoveAttribute) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMRemoveAttribute) ProtoReq() string
@@ -9866,7 +9864,7 @@ func (m DOMRemoveAttribute) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMRemoveNode 
+### type DOMRemoveNode 
 
 ``` go
 type DOMRemoveNode struct {
@@ -9877,7 +9875,7 @@ type DOMRemoveNode struct {
 
 DOMRemoveNode Removes node with given id.
 
-### (DOMRemoveNode) Call 
+#### (DOMRemoveNode) Call 
 
 ``` go
 func (m DOMRemoveNode) Call(c Client) error
@@ -9885,7 +9883,7 @@ func (m DOMRemoveNode) Call(c Client) error
 
 Call sends the request.
 
-### (DOMRemoveNode) ProtoReq <- 0.74.0
+#### (DOMRemoveNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMRemoveNode) ProtoReq() string
@@ -9893,7 +9891,7 @@ func (m DOMRemoveNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMRequestChildNodes 
+### type DOMRequestChildNodes 
 
 ``` go
 type DOMRequestChildNodes struct {
@@ -9912,7 +9910,7 @@ type DOMRequestChildNodes struct {
 
 DOMRequestChildNodes Requests that children of the node with given id are returned to the caller in form of `setChildNodes` events where not only immediate children are retrieved, but all children down to the specified depth.
 
-### (DOMRequestChildNodes) Call 
+#### (DOMRequestChildNodes) Call 
 
 ``` go
 func (m DOMRequestChildNodes) Call(c Client) error
@@ -9920,7 +9918,7 @@ func (m DOMRequestChildNodes) Call(c Client) error
 
 Call sends the request.
 
-### (DOMRequestChildNodes) ProtoReq <- 0.74.0
+#### (DOMRequestChildNodes) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMRequestChildNodes) ProtoReq() string
@@ -9928,7 +9926,7 @@ func (m DOMRequestChildNodes) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMRequestNode 
+### type DOMRequestNode 
 
 ``` go
 type DOMRequestNode struct {
@@ -9939,7 +9937,7 @@ type DOMRequestNode struct {
 
 DOMRequestNode Requests that the node is sent to the caller given the JavaScript node object reference. All nodes that form the path from the node to the root are also sent to the client as a series of `setChildNodes` notifications.
 
-### (DOMRequestNode) Call 
+#### (DOMRequestNode) Call 
 
 ``` go
 func (m DOMRequestNode) Call(c Client) (*DOMRequestNodeResult, error)
@@ -9947,7 +9945,7 @@ func (m DOMRequestNode) Call(c Client) (*DOMRequestNodeResult, error)
 
 Call the request.
 
-### (DOMRequestNode) ProtoReq <- 0.74.0
+#### (DOMRequestNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMRequestNode) ProtoReq() string
@@ -9955,7 +9953,7 @@ func (m DOMRequestNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMRequestNodeResult 
+### type DOMRequestNodeResult 
 
 ``` go
 type DOMRequestNodeResult struct {
@@ -9966,7 +9964,7 @@ type DOMRequestNodeResult struct {
 
 DOMRequestNodeResult ...
 
-## type DOMResolveNode 
+### type DOMResolveNode 
 
 ``` go
 type DOMResolveNode struct {
@@ -9986,7 +9984,7 @@ type DOMResolveNode struct {
 
 DOMResolveNode Resolves the JavaScript node object for a given NodeId or BackendNodeId.
 
-### (DOMResolveNode) Call 
+#### (DOMResolveNode) Call 
 
 ``` go
 func (m DOMResolveNode) Call(c Client) (*DOMResolveNodeResult, error)
@@ -9994,7 +9992,7 @@ func (m DOMResolveNode) Call(c Client) (*DOMResolveNodeResult, error)
 
 Call the request.
 
-### (DOMResolveNode) ProtoReq <- 0.74.0
+#### (DOMResolveNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMResolveNode) ProtoReq() string
@@ -10002,7 +10000,7 @@ func (m DOMResolveNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMResolveNodeResult 
+### type DOMResolveNodeResult 
 
 ``` go
 type DOMResolveNodeResult struct {
@@ -10013,7 +10011,7 @@ type DOMResolveNodeResult struct {
 
 DOMResolveNodeResult ...
 
-## type DOMScrollIntoViewIfNeeded 
+### type DOMScrollIntoViewIfNeeded 
 
 ``` go
 type DOMScrollIntoViewIfNeeded struct {
@@ -10034,7 +10032,7 @@ type DOMScrollIntoViewIfNeeded struct {
 
 DOMScrollIntoViewIfNeeded Scrolls the specified rect of the given node into view if not already visible. Note: exactly one between nodeId, backendNodeId and objectId should be passed to identify the node.
 
-### (DOMScrollIntoViewIfNeeded) Call 
+#### (DOMScrollIntoViewIfNeeded) Call 
 
 ``` go
 func (m DOMScrollIntoViewIfNeeded) Call(c Client) error
@@ -10042,7 +10040,7 @@ func (m DOMScrollIntoViewIfNeeded) Call(c Client) error
 
 Call sends the request.
 
-### (DOMScrollIntoViewIfNeeded) ProtoReq <- 0.74.0
+#### (DOMScrollIntoViewIfNeeded) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMScrollIntoViewIfNeeded) ProtoReq() string
@@ -10050,7 +10048,7 @@ func (m DOMScrollIntoViewIfNeeded) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMScrollOrientation <- 0.115.0
+### type DOMScrollOrientation <- 0.115.0
 
 ``` go
 type DOMScrollOrientation string
@@ -10068,7 +10066,7 @@ const (
 )
 ```
 
-## type DOMSetAttributeValue 
+### type DOMSetAttributeValue 
 
 ``` go
 type DOMSetAttributeValue struct {
@@ -10085,7 +10083,7 @@ type DOMSetAttributeValue struct {
 
 DOMSetAttributeValue Sets attribute for an element with given id.
 
-### (DOMSetAttributeValue) Call 
+#### (DOMSetAttributeValue) Call 
 
 ``` go
 func (m DOMSetAttributeValue) Call(c Client) error
@@ -10093,7 +10091,7 @@ func (m DOMSetAttributeValue) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetAttributeValue) ProtoReq <- 0.74.0
+#### (DOMSetAttributeValue) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetAttributeValue) ProtoReq() string
@@ -10101,7 +10099,7 @@ func (m DOMSetAttributeValue) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetAttributesAsText 
+### type DOMSetAttributesAsText 
 
 ``` go
 type DOMSetAttributesAsText struct {
@@ -10119,7 +10117,7 @@ type DOMSetAttributesAsText struct {
 
 DOMSetAttributesAsText Sets attributes on element with given id. This method is useful when user edits some existing attribute value and types in several attribute name/value pairs.
 
-### (DOMSetAttributesAsText) Call 
+#### (DOMSetAttributesAsText) Call 
 
 ``` go
 func (m DOMSetAttributesAsText) Call(c Client) error
@@ -10127,7 +10125,7 @@ func (m DOMSetAttributesAsText) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetAttributesAsText) ProtoReq <- 0.74.0
+#### (DOMSetAttributesAsText) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetAttributesAsText) ProtoReq() string
@@ -10135,7 +10133,7 @@ func (m DOMSetAttributesAsText) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetChildNodes 
+### type DOMSetChildNodes 
 
 ``` go
 type DOMSetChildNodes struct {
@@ -10149,7 +10147,7 @@ type DOMSetChildNodes struct {
 
 DOMSetChildNodes Fired when backend wants to provide client with the missing DOM structure. This happens upon most of the calls requesting node ids.
 
-### (DOMSetChildNodes) ProtoEvent <- 0.72.0
+#### (DOMSetChildNodes) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMSetChildNodes) ProtoEvent() string
@@ -10157,7 +10155,7 @@ func (evt DOMSetChildNodes) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMSetFileInputFiles 
+### type DOMSetFileInputFiles 
 
 ``` go
 type DOMSetFileInputFiles struct {
@@ -10177,7 +10175,7 @@ type DOMSetFileInputFiles struct {
 
 DOMSetFileInputFiles Sets files for the given file input element.
 
-### (DOMSetFileInputFiles) Call 
+#### (DOMSetFileInputFiles) Call 
 
 ``` go
 func (m DOMSetFileInputFiles) Call(c Client) error
@@ -10185,7 +10183,7 @@ func (m DOMSetFileInputFiles) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetFileInputFiles) ProtoReq <- 0.74.0
+#### (DOMSetFileInputFiles) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetFileInputFiles) ProtoReq() string
@@ -10193,7 +10191,7 @@ func (m DOMSetFileInputFiles) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetInspectedNode 
+### type DOMSetInspectedNode 
 
 ``` go
 type DOMSetInspectedNode struct {
@@ -10204,7 +10202,7 @@ type DOMSetInspectedNode struct {
 
 DOMSetInspectedNode (experimental) Enables console to refer to the node with given id via $x (see Command Line API for more details $x functions).
 
-### (DOMSetInspectedNode) Call 
+#### (DOMSetInspectedNode) Call 
 
 ``` go
 func (m DOMSetInspectedNode) Call(c Client) error
@@ -10212,7 +10210,7 @@ func (m DOMSetInspectedNode) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetInspectedNode) ProtoReq <- 0.74.0
+#### (DOMSetInspectedNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetInspectedNode) ProtoReq() string
@@ -10220,7 +10218,7 @@ func (m DOMSetInspectedNode) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetNodeName 
+### type DOMSetNodeName 
 
 ``` go
 type DOMSetNodeName struct {
@@ -10234,7 +10232,7 @@ type DOMSetNodeName struct {
 
 DOMSetNodeName Sets node name for a node with given id.
 
-### (DOMSetNodeName) Call 
+#### (DOMSetNodeName) Call 
 
 ``` go
 func (m DOMSetNodeName) Call(c Client) (*DOMSetNodeNameResult, error)
@@ -10242,7 +10240,7 @@ func (m DOMSetNodeName) Call(c Client) (*DOMSetNodeNameResult, error)
 
 Call the request.
 
-### (DOMSetNodeName) ProtoReq <- 0.74.0
+#### (DOMSetNodeName) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetNodeName) ProtoReq() string
@@ -10250,7 +10248,7 @@ func (m DOMSetNodeName) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetNodeNameResult 
+### type DOMSetNodeNameResult 
 
 ``` go
 type DOMSetNodeNameResult struct {
@@ -10261,7 +10259,7 @@ type DOMSetNodeNameResult struct {
 
 DOMSetNodeNameResult ...
 
-## type DOMSetNodeStackTracesEnabled 
+### type DOMSetNodeStackTracesEnabled 
 
 ``` go
 type DOMSetNodeStackTracesEnabled struct {
@@ -10272,7 +10270,7 @@ type DOMSetNodeStackTracesEnabled struct {
 
 DOMSetNodeStackTracesEnabled (experimental) Sets if stack traces should be captured for Nodes. See `Node.getNodeStackTraces`. Default is disabled.
 
-### (DOMSetNodeStackTracesEnabled) Call 
+#### (DOMSetNodeStackTracesEnabled) Call 
 
 ``` go
 func (m DOMSetNodeStackTracesEnabled) Call(c Client) error
@@ -10280,7 +10278,7 @@ func (m DOMSetNodeStackTracesEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetNodeStackTracesEnabled) ProtoReq <- 0.74.0
+#### (DOMSetNodeStackTracesEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetNodeStackTracesEnabled) ProtoReq() string
@@ -10288,7 +10286,7 @@ func (m DOMSetNodeStackTracesEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetNodeValue 
+### type DOMSetNodeValue 
 
 ``` go
 type DOMSetNodeValue struct {
@@ -10302,7 +10300,7 @@ type DOMSetNodeValue struct {
 
 DOMSetNodeValue Sets node value for a node with given id.
 
-### (DOMSetNodeValue) Call 
+#### (DOMSetNodeValue) Call 
 
 ``` go
 func (m DOMSetNodeValue) Call(c Client) error
@@ -10310,7 +10308,7 @@ func (m DOMSetNodeValue) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetNodeValue) ProtoReq <- 0.74.0
+#### (DOMSetNodeValue) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetNodeValue) ProtoReq() string
@@ -10318,7 +10316,7 @@ func (m DOMSetNodeValue) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSetOuterHTML 
+### type DOMSetOuterHTML 
 
 ``` go
 type DOMSetOuterHTML struct {
@@ -10332,7 +10330,7 @@ type DOMSetOuterHTML struct {
 
 DOMSetOuterHTML Sets node HTML markup, returns new node id.
 
-### (DOMSetOuterHTML) Call 
+#### (DOMSetOuterHTML) Call 
 
 ``` go
 func (m DOMSetOuterHTML) Call(c Client) error
@@ -10340,7 +10338,7 @@ func (m DOMSetOuterHTML) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSetOuterHTML) ProtoReq <- 0.74.0
+#### (DOMSetOuterHTML) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSetOuterHTML) ProtoReq() string
@@ -10348,7 +10346,7 @@ func (m DOMSetOuterHTML) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMShadowRootPopped 
+### type DOMShadowRootPopped 
 
 ``` go
 type DOMShadowRootPopped struct {
@@ -10362,7 +10360,7 @@ type DOMShadowRootPopped struct {
 
 DOMShadowRootPopped (experimental) Called when shadow root is popped from the element.
 
-### (DOMShadowRootPopped) ProtoEvent <- 0.72.0
+#### (DOMShadowRootPopped) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMShadowRootPopped) ProtoEvent() string
@@ -10370,7 +10368,7 @@ func (evt DOMShadowRootPopped) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMShadowRootPushed 
+### type DOMShadowRootPushed 
 
 ``` go
 type DOMShadowRootPushed struct {
@@ -10384,7 +10382,7 @@ type DOMShadowRootPushed struct {
 
 DOMShadowRootPushed (experimental) Called when shadow root is pushed into the element.
 
-### (DOMShadowRootPushed) ProtoEvent <- 0.72.0
+#### (DOMShadowRootPushed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMShadowRootPushed) ProtoEvent() string
@@ -10392,7 +10390,7 @@ func (evt DOMShadowRootPushed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMShadowRootType 
+### type DOMShadowRootType 
 
 ``` go
 type DOMShadowRootType string
@@ -10413,7 +10411,7 @@ const (
 )
 ```
 
-## type DOMShapeOutsideInfo 
+### type DOMShapeOutsideInfo 
 
 ``` go
 type DOMShapeOutsideInfo struct {
@@ -10430,7 +10428,7 @@ type DOMShapeOutsideInfo struct {
 
 DOMShapeOutsideInfo CSS Shape Outside details.
 
-## type DOMSnapshotArrayOfStrings 
+### type DOMSnapshotArrayOfStrings 
 
 ``` go
 type DOMSnapshotArrayOfStrings []DOMSnapshotStringIndex
@@ -10438,7 +10436,7 @@ type DOMSnapshotArrayOfStrings []DOMSnapshotStringIndex
 
 DOMSnapshotArrayOfStrings Index of the string in the strings table.
 
-## type DOMSnapshotCaptureSnapshot 
+### type DOMSnapshotCaptureSnapshot 
 
 ``` go
 type DOMSnapshotCaptureSnapshot struct {
@@ -10465,7 +10463,7 @@ type DOMSnapshotCaptureSnapshot struct {
 
 DOMSnapshotCaptureSnapshot Returns a document snapshot, including the full DOM tree of the root node (including iframes, template contents, and imported documents) in a flattened array, as well as layout and white-listed computed style information for the nodes. Shadow DOM in the returned DOM tree is flattened.
 
-### (DOMSnapshotCaptureSnapshot) Call 
+#### (DOMSnapshotCaptureSnapshot) Call 
 
 ``` go
 func (m DOMSnapshotCaptureSnapshot) Call(c Client) (*DOMSnapshotCaptureSnapshotResult, error)
@@ -10473,7 +10471,7 @@ func (m DOMSnapshotCaptureSnapshot) Call(c Client) (*DOMSnapshotCaptureSnapshotR
 
 Call the request.
 
-### (DOMSnapshotCaptureSnapshot) ProtoReq <- 0.74.0
+#### (DOMSnapshotCaptureSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSnapshotCaptureSnapshot) ProtoReq() string
@@ -10481,7 +10479,7 @@ func (m DOMSnapshotCaptureSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSnapshotCaptureSnapshotResult 
+### type DOMSnapshotCaptureSnapshotResult 
 
 ``` go
 type DOMSnapshotCaptureSnapshotResult struct {
@@ -10495,7 +10493,7 @@ type DOMSnapshotCaptureSnapshotResult struct {
 
 DOMSnapshotCaptureSnapshotResult ...
 
-## type DOMSnapshotComputedStyle 
+### type DOMSnapshotComputedStyle 
 
 ``` go
 type DOMSnapshotComputedStyle struct {
@@ -10506,7 +10504,7 @@ type DOMSnapshotComputedStyle struct {
 
 DOMSnapshotComputedStyle A subset of the full ComputedStyle as defined by the request whitelist.
 
-## type DOMSnapshotDOMNode 
+### type DOMSnapshotDOMNode 
 
 ``` go
 type DOMSnapshotDOMNode struct {
@@ -10604,7 +10602,7 @@ type DOMSnapshotDOMNode struct {
 
 DOMSnapshotDOMNode A Node in the DOM tree.
 
-## type DOMSnapshotDisable 
+### type DOMSnapshotDisable 
 
 ``` go
 type DOMSnapshotDisable struct{}
@@ -10612,7 +10610,7 @@ type DOMSnapshotDisable struct{}
 
 DOMSnapshotDisable Disables DOM snapshot agent for the given page.
 
-### (DOMSnapshotDisable) Call 
+#### (DOMSnapshotDisable) Call 
 
 ``` go
 func (m DOMSnapshotDisable) Call(c Client) error
@@ -10620,7 +10618,7 @@ func (m DOMSnapshotDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSnapshotDisable) ProtoReq <- 0.74.0
+#### (DOMSnapshotDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSnapshotDisable) ProtoReq() string
@@ -10628,7 +10626,7 @@ func (m DOMSnapshotDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSnapshotDocumentSnapshot 
+### type DOMSnapshotDocumentSnapshot 
 
 ``` go
 type DOMSnapshotDocumentSnapshot struct {
@@ -10681,7 +10679,7 @@ type DOMSnapshotDocumentSnapshot struct {
 
 DOMSnapshotDocumentSnapshot Document snapshot.
 
-## type DOMSnapshotEnable 
+### type DOMSnapshotEnable 
 
 ``` go
 type DOMSnapshotEnable struct{}
@@ -10689,7 +10687,7 @@ type DOMSnapshotEnable struct{}
 
 DOMSnapshotEnable Enables DOM snapshot agent for the given page.
 
-### (DOMSnapshotEnable) Call 
+#### (DOMSnapshotEnable) Call 
 
 ``` go
 func (m DOMSnapshotEnable) Call(c Client) error
@@ -10697,7 +10695,7 @@ func (m DOMSnapshotEnable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMSnapshotEnable) ProtoReq <- 0.74.0
+#### (DOMSnapshotEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSnapshotEnable) ProtoReq() string
@@ -10705,7 +10703,7 @@ func (m DOMSnapshotEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSnapshotGetSnapshot 
+### type DOMSnapshotGetSnapshot 
 
 ``` go
 type DOMSnapshotGetSnapshot struct {
@@ -10725,7 +10723,7 @@ type DOMSnapshotGetSnapshot struct {
 
 DOMSnapshotGetSnapshot (deprecated) Returns a document snapshot, including the full DOM tree of the root node (including iframes, template contents, and imported documents) in a flattened array, as well as layout and white-listed computed style information for the nodes. Shadow DOM in the returned DOM tree is flattened.
 
-### (DOMSnapshotGetSnapshot) Call 
+#### (DOMSnapshotGetSnapshot) Call 
 
 ``` go
 func (m DOMSnapshotGetSnapshot) Call(c Client) (*DOMSnapshotGetSnapshotResult, error)
@@ -10733,7 +10731,7 @@ func (m DOMSnapshotGetSnapshot) Call(c Client) (*DOMSnapshotGetSnapshotResult, e
 
 Call the request.
 
-### (DOMSnapshotGetSnapshot) ProtoReq <- 0.74.0
+#### (DOMSnapshotGetSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMSnapshotGetSnapshot) ProtoReq() string
@@ -10741,7 +10739,7 @@ func (m DOMSnapshotGetSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMSnapshotGetSnapshotResult 
+### type DOMSnapshotGetSnapshotResult 
 
 ``` go
 type DOMSnapshotGetSnapshotResult struct {
@@ -10758,7 +10756,7 @@ type DOMSnapshotGetSnapshotResult struct {
 
 DOMSnapshotGetSnapshotResult (deprecated) ...
 
-## type DOMSnapshotInlineTextBox 
+### type DOMSnapshotInlineTextBox 
 
 ``` go
 type DOMSnapshotInlineTextBox struct {
@@ -10777,7 +10775,7 @@ type DOMSnapshotInlineTextBox struct {
 
 DOMSnapshotInlineTextBox Details of post layout rendered text positions. The exact layout should not be regarded as stable and may change between versions.
 
-## type DOMSnapshotLayoutTreeNode 
+### type DOMSnapshotLayoutTreeNode 
 
 ``` go
 type DOMSnapshotLayoutTreeNode struct {
@@ -10808,7 +10806,7 @@ type DOMSnapshotLayoutTreeNode struct {
 
 DOMSnapshotLayoutTreeNode Details of an element in the DOM tree with a LayoutObject.
 
-## type DOMSnapshotLayoutTreeSnapshot 
+### type DOMSnapshotLayoutTreeSnapshot 
 
 ``` go
 type DOMSnapshotLayoutTreeSnapshot struct {
@@ -10851,7 +10849,7 @@ type DOMSnapshotLayoutTreeSnapshot struct {
 
 DOMSnapshotLayoutTreeSnapshot Table of details of an element in the DOM tree with a LayoutObject.
 
-## type DOMSnapshotNameValue 
+### type DOMSnapshotNameValue 
 
 ``` go
 type DOMSnapshotNameValue struct {
@@ -10865,7 +10863,7 @@ type DOMSnapshotNameValue struct {
 
 DOMSnapshotNameValue A name/value pair.
 
-## type DOMSnapshotNodeTreeSnapshot 
+### type DOMSnapshotNodeTreeSnapshot 
 
 ``` go
 type DOMSnapshotNodeTreeSnapshot struct {
@@ -10927,7 +10925,7 @@ type DOMSnapshotNodeTreeSnapshot struct {
 
 DOMSnapshotNodeTreeSnapshot Table containing nodes.
 
-## type DOMSnapshotRareBooleanData 
+### type DOMSnapshotRareBooleanData 
 
 ``` go
 type DOMSnapshotRareBooleanData struct {
@@ -10938,7 +10936,7 @@ type DOMSnapshotRareBooleanData struct {
 
 DOMSnapshotRareBooleanData ...
 
-## type DOMSnapshotRareIntegerData 
+### type DOMSnapshotRareIntegerData 
 
 ``` go
 type DOMSnapshotRareIntegerData struct {
@@ -10952,7 +10950,7 @@ type DOMSnapshotRareIntegerData struct {
 
 DOMSnapshotRareIntegerData ...
 
-## type DOMSnapshotRareStringData 
+### type DOMSnapshotRareStringData 
 
 ``` go
 type DOMSnapshotRareStringData struct {
@@ -10966,7 +10964,7 @@ type DOMSnapshotRareStringData struct {
 
 DOMSnapshotRareStringData Data that is only present on rare nodes.
 
-## type DOMSnapshotRectangle 
+### type DOMSnapshotRectangle 
 
 ``` go
 type DOMSnapshotRectangle []float64
@@ -10974,7 +10972,7 @@ type DOMSnapshotRectangle []float64
 
 DOMSnapshotRectangle ...
 
-## type DOMSnapshotStringIndex 
+### type DOMSnapshotStringIndex 
 
 ``` go
 type DOMSnapshotStringIndex int
@@ -10982,7 +10980,7 @@ type DOMSnapshotStringIndex int
 
 DOMSnapshotStringIndex Index of the string in the strings table.
 
-## type DOMSnapshotTextBoxSnapshot 
+### type DOMSnapshotTextBoxSnapshot 
 
 ``` go
 type DOMSnapshotTextBoxSnapshot struct {
@@ -11004,7 +11002,7 @@ type DOMSnapshotTextBoxSnapshot struct {
 
 DOMSnapshotTextBoxSnapshot Table of details of the post layout rendered text positions. The exact layout should not be regarded as stable and may change between versions.
 
-## type DOMStorageClear 
+### type DOMStorageClear 
 
 ``` go
 type DOMStorageClear struct {
@@ -11015,7 +11013,7 @@ type DOMStorageClear struct {
 
 DOMStorageClear ...
 
-### (DOMStorageClear) Call 
+#### (DOMStorageClear) Call 
 
 ``` go
 func (m DOMStorageClear) Call(c Client) error
@@ -11023,7 +11021,7 @@ func (m DOMStorageClear) Call(c Client) error
 
 Call sends the request.
 
-### (DOMStorageClear) ProtoReq <- 0.74.0
+#### (DOMStorageClear) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageClear) ProtoReq() string
@@ -11031,7 +11029,7 @@ func (m DOMStorageClear) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageDisable 
+### type DOMStorageDisable 
 
 ``` go
 type DOMStorageDisable struct{}
@@ -11039,7 +11037,7 @@ type DOMStorageDisable struct{}
 
 DOMStorageDisable Disables storage tracking, prevents storage events from being sent to the client.
 
-### (DOMStorageDisable) Call 
+#### (DOMStorageDisable) Call 
 
 ``` go
 func (m DOMStorageDisable) Call(c Client) error
@@ -11047,7 +11045,7 @@ func (m DOMStorageDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMStorageDisable) ProtoReq <- 0.74.0
+#### (DOMStorageDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageDisable) ProtoReq() string
@@ -11055,7 +11053,7 @@ func (m DOMStorageDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageDomStorageItemAdded 
+### type DOMStorageDomStorageItemAdded 
 
 ``` go
 type DOMStorageDomStorageItemAdded struct {
@@ -11072,7 +11070,7 @@ type DOMStorageDomStorageItemAdded struct {
 
 DOMStorageDomStorageItemAdded ...
 
-### (DOMStorageDomStorageItemAdded) ProtoEvent <- 0.72.0
+#### (DOMStorageDomStorageItemAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMStorageDomStorageItemAdded) ProtoEvent() string
@@ -11080,7 +11078,7 @@ func (evt DOMStorageDomStorageItemAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMStorageDomStorageItemRemoved 
+### type DOMStorageDomStorageItemRemoved 
 
 ``` go
 type DOMStorageDomStorageItemRemoved struct {
@@ -11094,7 +11092,7 @@ type DOMStorageDomStorageItemRemoved struct {
 
 DOMStorageDomStorageItemRemoved ...
 
-### (DOMStorageDomStorageItemRemoved) ProtoEvent <- 0.72.0
+#### (DOMStorageDomStorageItemRemoved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMStorageDomStorageItemRemoved) ProtoEvent() string
@@ -11102,7 +11100,7 @@ func (evt DOMStorageDomStorageItemRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMStorageDomStorageItemUpdated 
+### type DOMStorageDomStorageItemUpdated 
 
 ``` go
 type DOMStorageDomStorageItemUpdated struct {
@@ -11122,7 +11120,7 @@ type DOMStorageDomStorageItemUpdated struct {
 
 DOMStorageDomStorageItemUpdated ...
 
-### (DOMStorageDomStorageItemUpdated) ProtoEvent <- 0.72.0
+#### (DOMStorageDomStorageItemUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMStorageDomStorageItemUpdated) ProtoEvent() string
@@ -11130,7 +11128,7 @@ func (evt DOMStorageDomStorageItemUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMStorageDomStorageItemsCleared 
+### type DOMStorageDomStorageItemsCleared 
 
 ``` go
 type DOMStorageDomStorageItemsCleared struct {
@@ -11141,7 +11139,7 @@ type DOMStorageDomStorageItemsCleared struct {
 
 DOMStorageDomStorageItemsCleared ...
 
-### (DOMStorageDomStorageItemsCleared) ProtoEvent <- 0.72.0
+#### (DOMStorageDomStorageItemsCleared) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DOMStorageDomStorageItemsCleared) ProtoEvent() string
@@ -11149,7 +11147,7 @@ func (evt DOMStorageDomStorageItemsCleared) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMStorageEnable 
+### type DOMStorageEnable 
 
 ``` go
 type DOMStorageEnable struct{}
@@ -11157,7 +11155,7 @@ type DOMStorageEnable struct{}
 
 DOMStorageEnable Enables storage tracking, storage events will now be delivered to the client.
 
-### (DOMStorageEnable) Call 
+#### (DOMStorageEnable) Call 
 
 ``` go
 func (m DOMStorageEnable) Call(c Client) error
@@ -11165,7 +11163,7 @@ func (m DOMStorageEnable) Call(c Client) error
 
 Call sends the request.
 
-### (DOMStorageEnable) ProtoReq <- 0.74.0
+#### (DOMStorageEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageEnable) ProtoReq() string
@@ -11173,7 +11171,7 @@ func (m DOMStorageEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageGetDOMStorageItems 
+### type DOMStorageGetDOMStorageItems 
 
 ``` go
 type DOMStorageGetDOMStorageItems struct {
@@ -11184,7 +11182,7 @@ type DOMStorageGetDOMStorageItems struct {
 
 DOMStorageGetDOMStorageItems ...
 
-### (DOMStorageGetDOMStorageItems) Call 
+#### (DOMStorageGetDOMStorageItems) Call 
 
 ``` go
 func (m DOMStorageGetDOMStorageItems) Call(c Client) (*DOMStorageGetDOMStorageItemsResult, error)
@@ -11192,7 +11190,7 @@ func (m DOMStorageGetDOMStorageItems) Call(c Client) (*DOMStorageGetDOMStorageIt
 
 Call the request.
 
-### (DOMStorageGetDOMStorageItems) ProtoReq <- 0.74.0
+#### (DOMStorageGetDOMStorageItems) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageGetDOMStorageItems) ProtoReq() string
@@ -11200,7 +11198,7 @@ func (m DOMStorageGetDOMStorageItems) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageGetDOMStorageItemsResult 
+### type DOMStorageGetDOMStorageItemsResult 
 
 ``` go
 type DOMStorageGetDOMStorageItemsResult struct {
@@ -11211,7 +11209,7 @@ type DOMStorageGetDOMStorageItemsResult struct {
 
 DOMStorageGetDOMStorageItemsResult ...
 
-## type DOMStorageItem 
+### type DOMStorageItem 
 
 ``` go
 type DOMStorageItem []string
@@ -11219,7 +11217,7 @@ type DOMStorageItem []string
 
 DOMStorageItem DOM Storage item.
 
-## type DOMStorageRemoveDOMStorageItem 
+### type DOMStorageRemoveDOMStorageItem 
 
 ``` go
 type DOMStorageRemoveDOMStorageItem struct {
@@ -11233,7 +11231,7 @@ type DOMStorageRemoveDOMStorageItem struct {
 
 DOMStorageRemoveDOMStorageItem ...
 
-### (DOMStorageRemoveDOMStorageItem) Call 
+#### (DOMStorageRemoveDOMStorageItem) Call 
 
 ``` go
 func (m DOMStorageRemoveDOMStorageItem) Call(c Client) error
@@ -11241,7 +11239,7 @@ func (m DOMStorageRemoveDOMStorageItem) Call(c Client) error
 
 Call sends the request.
 
-### (DOMStorageRemoveDOMStorageItem) ProtoReq <- 0.74.0
+#### (DOMStorageRemoveDOMStorageItem) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageRemoveDOMStorageItem) ProtoReq() string
@@ -11249,7 +11247,7 @@ func (m DOMStorageRemoveDOMStorageItem) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageSerializedStorageKey <- 0.106.7
+### type DOMStorageSerializedStorageKey <- 0.106.7
 
 ``` go
 type DOMStorageSerializedStorageKey string
@@ -11257,7 +11255,7 @@ type DOMStorageSerializedStorageKey string
 
 DOMStorageSerializedStorageKey ...
 
-## type DOMStorageSetDOMStorageItem 
+### type DOMStorageSetDOMStorageItem 
 
 ``` go
 type DOMStorageSetDOMStorageItem struct {
@@ -11274,7 +11272,7 @@ type DOMStorageSetDOMStorageItem struct {
 
 DOMStorageSetDOMStorageItem ...
 
-### (DOMStorageSetDOMStorageItem) Call 
+#### (DOMStorageSetDOMStorageItem) Call 
 
 ``` go
 func (m DOMStorageSetDOMStorageItem) Call(c Client) error
@@ -11282,7 +11280,7 @@ func (m DOMStorageSetDOMStorageItem) Call(c Client) error
 
 Call sends the request.
 
-### (DOMStorageSetDOMStorageItem) ProtoReq <- 0.74.0
+#### (DOMStorageSetDOMStorageItem) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMStorageSetDOMStorageItem) ProtoReq() string
@@ -11290,7 +11288,7 @@ func (m DOMStorageSetDOMStorageItem) ProtoReq() string
 
 ProtoReq name.
 
-## type DOMStorageStorageID 
+### type DOMStorageStorageID 
 
 ``` go
 type DOMStorageStorageID struct {
@@ -11307,7 +11305,7 @@ type DOMStorageStorageID struct {
 
 DOMStorageStorageID DOM Storage identifier.
 
-## type DOMTopLayerElementsUpdated <- 0.108.0
+### type DOMTopLayerElementsUpdated <- 0.108.0
 
 ``` go
 type DOMTopLayerElementsUpdated struct{}
@@ -11315,7 +11313,7 @@ type DOMTopLayerElementsUpdated struct{}
 
 DOMTopLayerElementsUpdated (experimental) Called when top layer elements are changed.
 
-### (DOMTopLayerElementsUpdated) ProtoEvent <- 0.108.0
+#### (DOMTopLayerElementsUpdated) ProtoEvent <- 0.108.0
 
 ``` go
 func (evt DOMTopLayerElementsUpdated) ProtoEvent() string
@@ -11323,7 +11321,7 @@ func (evt DOMTopLayerElementsUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DOMUndo 
+### type DOMUndo 
 
 ``` go
 type DOMUndo struct{}
@@ -11331,7 +11329,7 @@ type DOMUndo struct{}
 
 DOMUndo (experimental) Undoes the last performed action.
 
-### (DOMUndo) Call 
+#### (DOMUndo) Call 
 
 ``` go
 func (m DOMUndo) Call(c Client) error
@@ -11339,7 +11337,7 @@ func (m DOMUndo) Call(c Client) error
 
 Call sends the request.
 
-### (DOMUndo) ProtoReq <- 0.74.0
+#### (DOMUndo) ProtoReq <- 0.74.0
 
 ``` go
 func (m DOMUndo) ProtoReq() string
@@ -11347,7 +11345,7 @@ func (m DOMUndo) ProtoReq() string
 
 ProtoReq name.
 
-## type DatabaseAddDatabase 
+### type DatabaseAddDatabase 
 
 ``` go
 type DatabaseAddDatabase struct {
@@ -11358,7 +11356,7 @@ type DatabaseAddDatabase struct {
 
 DatabaseAddDatabase ...
 
-### (DatabaseAddDatabase) ProtoEvent <- 0.72.0
+#### (DatabaseAddDatabase) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DatabaseAddDatabase) ProtoEvent() string
@@ -11366,7 +11364,7 @@ func (evt DatabaseAddDatabase) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DatabaseDatabase 
+### type DatabaseDatabase 
 
 ``` go
 type DatabaseDatabase struct {
@@ -11386,7 +11384,7 @@ type DatabaseDatabase struct {
 
 DatabaseDatabase Database object.
 
-## type DatabaseDatabaseID 
+### type DatabaseDatabaseID 
 
 ``` go
 type DatabaseDatabaseID string
@@ -11394,7 +11392,7 @@ type DatabaseDatabaseID string
 
 DatabaseDatabaseID Unique identifier of Database object.
 
-## type DatabaseDisable 
+### type DatabaseDisable 
 
 ``` go
 type DatabaseDisable struct{}
@@ -11402,7 +11400,7 @@ type DatabaseDisable struct{}
 
 DatabaseDisable Disables database tracking, prevents database events from being sent to the client.
 
-### (DatabaseDisable) Call 
+#### (DatabaseDisable) Call 
 
 ``` go
 func (m DatabaseDisable) Call(c Client) error
@@ -11410,7 +11408,7 @@ func (m DatabaseDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DatabaseDisable) ProtoReq <- 0.74.0
+#### (DatabaseDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DatabaseDisable) ProtoReq() string
@@ -11418,7 +11416,7 @@ func (m DatabaseDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DatabaseEnable 
+### type DatabaseEnable 
 
 ``` go
 type DatabaseEnable struct{}
@@ -11426,7 +11424,7 @@ type DatabaseEnable struct{}
 
 DatabaseEnable Enables database tracking, database events will now be delivered to the client.
 
-### (DatabaseEnable) Call 
+#### (DatabaseEnable) Call 
 
 ``` go
 func (m DatabaseEnable) Call(c Client) error
@@ -11434,7 +11432,7 @@ func (m DatabaseEnable) Call(c Client) error
 
 Call sends the request.
 
-### (DatabaseEnable) ProtoReq <- 0.74.0
+#### (DatabaseEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DatabaseEnable) ProtoReq() string
@@ -11442,7 +11440,7 @@ func (m DatabaseEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DatabaseError 
+### type DatabaseError 
 
 ``` go
 type DatabaseError struct {
@@ -11456,7 +11454,7 @@ type DatabaseError struct {
 
 DatabaseError Database error.
 
-## type DatabaseExecuteSQL 
+### type DatabaseExecuteSQL 
 
 ``` go
 type DatabaseExecuteSQL struct {
@@ -11470,7 +11468,7 @@ type DatabaseExecuteSQL struct {
 
 DatabaseExecuteSQL ...
 
-### (DatabaseExecuteSQL) Call 
+#### (DatabaseExecuteSQL) Call 
 
 ``` go
 func (m DatabaseExecuteSQL) Call(c Client) (*DatabaseExecuteSQLResult, error)
@@ -11478,7 +11476,7 @@ func (m DatabaseExecuteSQL) Call(c Client) (*DatabaseExecuteSQLResult, error)
 
 Call the request.
 
-### (DatabaseExecuteSQL) ProtoReq <- 0.74.0
+#### (DatabaseExecuteSQL) ProtoReq <- 0.74.0
 
 ``` go
 func (m DatabaseExecuteSQL) ProtoReq() string
@@ -11486,7 +11484,7 @@ func (m DatabaseExecuteSQL) ProtoReq() string
 
 ProtoReq name.
 
-## type DatabaseExecuteSQLResult 
+### type DatabaseExecuteSQLResult 
 
 ``` go
 type DatabaseExecuteSQLResult struct {
@@ -11503,7 +11501,7 @@ type DatabaseExecuteSQLResult struct {
 
 DatabaseExecuteSQLResult ...
 
-## type DatabaseGetDatabaseTableNames 
+### type DatabaseGetDatabaseTableNames 
 
 ``` go
 type DatabaseGetDatabaseTableNames struct {
@@ -11514,7 +11512,7 @@ type DatabaseGetDatabaseTableNames struct {
 
 DatabaseGetDatabaseTableNames ...
 
-### (DatabaseGetDatabaseTableNames) Call 
+#### (DatabaseGetDatabaseTableNames) Call 
 
 ``` go
 func (m DatabaseGetDatabaseTableNames) Call(c Client) (*DatabaseGetDatabaseTableNamesResult, error)
@@ -11522,7 +11520,7 @@ func (m DatabaseGetDatabaseTableNames) Call(c Client) (*DatabaseGetDatabaseTable
 
 Call the request.
 
-### (DatabaseGetDatabaseTableNames) ProtoReq <- 0.74.0
+#### (DatabaseGetDatabaseTableNames) ProtoReq <- 0.74.0
 
 ``` go
 func (m DatabaseGetDatabaseTableNames) ProtoReq() string
@@ -11530,7 +11528,7 @@ func (m DatabaseGetDatabaseTableNames) ProtoReq() string
 
 ProtoReq name.
 
-## type DatabaseGetDatabaseTableNamesResult 
+### type DatabaseGetDatabaseTableNamesResult 
 
 ``` go
 type DatabaseGetDatabaseTableNamesResult struct {
@@ -11541,7 +11539,7 @@ type DatabaseGetDatabaseTableNamesResult struct {
 
 DatabaseGetDatabaseTableNamesResult ...
 
-## type DebuggerBreakLocation 
+### type DebuggerBreakLocation 
 
 ``` go
 type DebuggerBreakLocation struct {
@@ -11561,7 +11559,7 @@ type DebuggerBreakLocation struct {
 
 DebuggerBreakLocation ...
 
-## type DebuggerBreakLocationType 
+### type DebuggerBreakLocationType 
 
 ``` go
 type DebuggerBreakLocationType string
@@ -11582,7 +11580,7 @@ const (
 )
 ```
 
-## type DebuggerBreakpointID 
+### type DebuggerBreakpointID 
 
 ``` go
 type DebuggerBreakpointID string
@@ -11590,7 +11588,7 @@ type DebuggerBreakpointID string
 
 DebuggerBreakpointID Breakpoint identifier.
 
-## type DebuggerBreakpointResolved 
+### type DebuggerBreakpointResolved 
 
 ``` go
 type DebuggerBreakpointResolved struct {
@@ -11604,7 +11602,7 @@ type DebuggerBreakpointResolved struct {
 
 DebuggerBreakpointResolved Fired when breakpoint is resolved to an actual script and location.
 
-### (DebuggerBreakpointResolved) ProtoEvent <- 0.72.0
+#### (DebuggerBreakpointResolved) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DebuggerBreakpointResolved) ProtoEvent() string
@@ -11612,7 +11610,7 @@ func (evt DebuggerBreakpointResolved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DebuggerCallFrame 
+### type DebuggerCallFrame 
 
 ``` go
 type DebuggerCallFrame struct {
@@ -11652,7 +11650,7 @@ type DebuggerCallFrame struct {
 
 DebuggerCallFrame JavaScript call frame. Array of call frames form the call stack.
 
-## type DebuggerCallFrameID 
+### type DebuggerCallFrameID 
 
 ``` go
 type DebuggerCallFrameID string
@@ -11660,7 +11658,7 @@ type DebuggerCallFrameID string
 
 DebuggerCallFrameID Call frame identifier.
 
-## type DebuggerContinueToLocation 
+### type DebuggerContinueToLocation 
 
 ``` go
 type DebuggerContinueToLocation struct {
@@ -11674,7 +11672,7 @@ type DebuggerContinueToLocation struct {
 
 DebuggerContinueToLocation Continues execution until specific location is reached.
 
-### (DebuggerContinueToLocation) Call 
+#### (DebuggerContinueToLocation) Call 
 
 ``` go
 func (m DebuggerContinueToLocation) Call(c Client) error
@@ -11682,7 +11680,7 @@ func (m DebuggerContinueToLocation) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerContinueToLocation) ProtoReq <- 0.74.0
+#### (DebuggerContinueToLocation) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerContinueToLocation) ProtoReq() string
@@ -11690,7 +11688,7 @@ func (m DebuggerContinueToLocation) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerContinueToLocationTargetCallFrames 
+### type DebuggerContinueToLocationTargetCallFrames 
 
 ``` go
 type DebuggerContinueToLocationTargetCallFrames string
@@ -11708,7 +11706,7 @@ const (
 )
 ```
 
-## type DebuggerDebugSymbols <- 0.48.0
+### type DebuggerDebugSymbols <- 0.48.0
 
 ``` go
 type DebuggerDebugSymbols struct {
@@ -11722,7 +11720,7 @@ type DebuggerDebugSymbols struct {
 
 DebuggerDebugSymbols Debug symbols available for a wasm script.
 
-## type DebuggerDebugSymbolsType <- 0.48.0
+### type DebuggerDebugSymbolsType <- 0.48.0
 
 ``` go
 type DebuggerDebugSymbolsType string
@@ -11746,7 +11744,7 @@ const (
 )
 ```
 
-## type DebuggerDisable 
+### type DebuggerDisable 
 
 ``` go
 type DebuggerDisable struct{}
@@ -11754,7 +11752,7 @@ type DebuggerDisable struct{}
 
 DebuggerDisable Disables debugger for given page.
 
-### (DebuggerDisable) Call 
+#### (DebuggerDisable) Call 
 
 ``` go
 func (m DebuggerDisable) Call(c Client) error
@@ -11762,7 +11760,7 @@ func (m DebuggerDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerDisable) ProtoReq <- 0.74.0
+#### (DebuggerDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerDisable) ProtoReq() string
@@ -11770,7 +11768,7 @@ func (m DebuggerDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerDisassembleWasmModule <- 0.108.2
+### type DebuggerDisassembleWasmModule <- 0.108.2
 
 ``` go
 type DebuggerDisassembleWasmModule struct {
@@ -11781,7 +11779,7 @@ type DebuggerDisassembleWasmModule struct {
 
 DebuggerDisassembleWasmModule (experimental) ...
 
-### (DebuggerDisassembleWasmModule) Call <- 0.108.2
+#### (DebuggerDisassembleWasmModule) Call <- 0.108.2
 
 ``` go
 func (m DebuggerDisassembleWasmModule) Call(c Client) (*DebuggerDisassembleWasmModuleResult, error)
@@ -11789,7 +11787,7 @@ func (m DebuggerDisassembleWasmModule) Call(c Client) (*DebuggerDisassembleWasmM
 
 Call the request.
 
-### (DebuggerDisassembleWasmModule) ProtoReq <- 0.108.2
+#### (DebuggerDisassembleWasmModule) ProtoReq <- 0.108.2
 
 ``` go
 func (m DebuggerDisassembleWasmModule) ProtoReq() string
@@ -11797,7 +11795,7 @@ func (m DebuggerDisassembleWasmModule) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerDisassembleWasmModuleResult <- 0.108.2
+### type DebuggerDisassembleWasmModuleResult <- 0.108.2
 
 ``` go
 type DebuggerDisassembleWasmModuleResult struct {
@@ -11819,7 +11817,7 @@ type DebuggerDisassembleWasmModuleResult struct {
 
 DebuggerDisassembleWasmModuleResult (experimental) ...
 
-## type DebuggerEnable 
+### type DebuggerEnable 
 
 ``` go
 type DebuggerEnable struct {
@@ -11831,7 +11829,7 @@ type DebuggerEnable struct {
 
 DebuggerEnable Enables debugger for the given page. Clients should not assume that the debugging has been enabled until the result for this command is received.
 
-### (DebuggerEnable) Call 
+#### (DebuggerEnable) Call 
 
 ``` go
 func (m DebuggerEnable) Call(c Client) (*DebuggerEnableResult, error)
@@ -11839,7 +11837,7 @@ func (m DebuggerEnable) Call(c Client) (*DebuggerEnableResult, error)
 
 Call the request.
 
-### (DebuggerEnable) ProtoReq <- 0.74.0
+#### (DebuggerEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerEnable) ProtoReq() string
@@ -11847,7 +11845,7 @@ func (m DebuggerEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerEnableResult 
+### type DebuggerEnableResult 
 
 ``` go
 type DebuggerEnableResult struct {
@@ -11858,7 +11856,7 @@ type DebuggerEnableResult struct {
 
 DebuggerEnableResult ...
 
-## type DebuggerEvaluateOnCallFrame 
+### type DebuggerEvaluateOnCallFrame 
 
 ``` go
 type DebuggerEvaluateOnCallFrame struct {
@@ -11896,7 +11894,7 @@ type DebuggerEvaluateOnCallFrame struct {
 
 DebuggerEvaluateOnCallFrame Evaluates expression on a given call frame.
 
-### (DebuggerEvaluateOnCallFrame) Call 
+#### (DebuggerEvaluateOnCallFrame) Call 
 
 ``` go
 func (m DebuggerEvaluateOnCallFrame) Call(c Client) (*DebuggerEvaluateOnCallFrameResult, error)
@@ -11904,7 +11902,7 @@ func (m DebuggerEvaluateOnCallFrame) Call(c Client) (*DebuggerEvaluateOnCallFram
 
 Call the request.
 
-### (DebuggerEvaluateOnCallFrame) ProtoReq <- 0.74.0
+#### (DebuggerEvaluateOnCallFrame) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerEvaluateOnCallFrame) ProtoReq() string
@@ -11912,7 +11910,7 @@ func (m DebuggerEvaluateOnCallFrame) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerEvaluateOnCallFrameResult 
+### type DebuggerEvaluateOnCallFrameResult 
 
 ``` go
 type DebuggerEvaluateOnCallFrameResult struct {
@@ -11926,7 +11924,7 @@ type DebuggerEvaluateOnCallFrameResult struct {
 
 DebuggerEvaluateOnCallFrameResult ...
 
-## type DebuggerGetPossibleBreakpoints 
+### type DebuggerGetPossibleBreakpoints 
 
 ``` go
 type DebuggerGetPossibleBreakpoints struct {
@@ -11944,7 +11942,7 @@ type DebuggerGetPossibleBreakpoints struct {
 
 DebuggerGetPossibleBreakpoints Returns possible locations for breakpoint. scriptId in start and end range locations should be the same.
 
-### (DebuggerGetPossibleBreakpoints) Call 
+#### (DebuggerGetPossibleBreakpoints) Call 
 
 ``` go
 func (m DebuggerGetPossibleBreakpoints) Call(c Client) (*DebuggerGetPossibleBreakpointsResult, error)
@@ -11952,7 +11950,7 @@ func (m DebuggerGetPossibleBreakpoints) Call(c Client) (*DebuggerGetPossibleBrea
 
 Call the request.
 
-### (DebuggerGetPossibleBreakpoints) ProtoReq <- 0.74.0
+#### (DebuggerGetPossibleBreakpoints) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerGetPossibleBreakpoints) ProtoReq() string
@@ -11960,7 +11958,7 @@ func (m DebuggerGetPossibleBreakpoints) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerGetPossibleBreakpointsResult 
+### type DebuggerGetPossibleBreakpointsResult 
 
 ``` go
 type DebuggerGetPossibleBreakpointsResult struct {
@@ -11971,7 +11969,7 @@ type DebuggerGetPossibleBreakpointsResult struct {
 
 DebuggerGetPossibleBreakpointsResult ...
 
-## type DebuggerGetScriptSource 
+### type DebuggerGetScriptSource 
 
 ``` go
 type DebuggerGetScriptSource struct {
@@ -11982,7 +11980,7 @@ type DebuggerGetScriptSource struct {
 
 DebuggerGetScriptSource Returns source for the script with given id.
 
-### (DebuggerGetScriptSource) Call 
+#### (DebuggerGetScriptSource) Call 
 
 ``` go
 func (m DebuggerGetScriptSource) Call(c Client) (*DebuggerGetScriptSourceResult, error)
@@ -11990,7 +11988,7 @@ func (m DebuggerGetScriptSource) Call(c Client) (*DebuggerGetScriptSourceResult,
 
 Call the request.
 
-### (DebuggerGetScriptSource) ProtoReq <- 0.74.0
+#### (DebuggerGetScriptSource) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerGetScriptSource) ProtoReq() string
@@ -11998,7 +11996,7 @@ func (m DebuggerGetScriptSource) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerGetScriptSourceResult 
+### type DebuggerGetScriptSourceResult 
 
 ``` go
 type DebuggerGetScriptSourceResult struct {
@@ -12012,7 +12010,7 @@ type DebuggerGetScriptSourceResult struct {
 
 DebuggerGetScriptSourceResult ...
 
-## type DebuggerGetStackTrace 
+### type DebuggerGetStackTrace 
 
 ``` go
 type DebuggerGetStackTrace struct {
@@ -12023,7 +12021,7 @@ type DebuggerGetStackTrace struct {
 
 DebuggerGetStackTrace (experimental) Returns stack trace with given `stackTraceId`.
 
-### (DebuggerGetStackTrace) Call 
+#### (DebuggerGetStackTrace) Call 
 
 ``` go
 func (m DebuggerGetStackTrace) Call(c Client) (*DebuggerGetStackTraceResult, error)
@@ -12031,7 +12029,7 @@ func (m DebuggerGetStackTrace) Call(c Client) (*DebuggerGetStackTraceResult, err
 
 Call the request.
 
-### (DebuggerGetStackTrace) ProtoReq <- 0.74.0
+#### (DebuggerGetStackTrace) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerGetStackTrace) ProtoReq() string
@@ -12039,7 +12037,7 @@ func (m DebuggerGetStackTrace) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerGetStackTraceResult 
+### type DebuggerGetStackTraceResult 
 
 ``` go
 type DebuggerGetStackTraceResult struct {
@@ -12050,7 +12048,7 @@ type DebuggerGetStackTraceResult struct {
 
 DebuggerGetStackTraceResult (experimental) ...
 
-## type DebuggerGetWasmBytecode 
+### type DebuggerGetWasmBytecode 
 
 ``` go
 type DebuggerGetWasmBytecode struct {
@@ -12061,7 +12059,7 @@ type DebuggerGetWasmBytecode struct {
 
 DebuggerGetWasmBytecode (deprecated) This command is deprecated. Use getScriptSource instead.
 
-### (DebuggerGetWasmBytecode) Call 
+#### (DebuggerGetWasmBytecode) Call 
 
 ``` go
 func (m DebuggerGetWasmBytecode) Call(c Client) (*DebuggerGetWasmBytecodeResult, error)
@@ -12069,7 +12067,7 @@ func (m DebuggerGetWasmBytecode) Call(c Client) (*DebuggerGetWasmBytecodeResult,
 
 Call the request.
 
-### (DebuggerGetWasmBytecode) ProtoReq <- 0.74.0
+#### (DebuggerGetWasmBytecode) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerGetWasmBytecode) ProtoReq() string
@@ -12077,7 +12075,7 @@ func (m DebuggerGetWasmBytecode) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerGetWasmBytecodeResult 
+### type DebuggerGetWasmBytecodeResult 
 
 ``` go
 type DebuggerGetWasmBytecodeResult struct {
@@ -12088,7 +12086,7 @@ type DebuggerGetWasmBytecodeResult struct {
 
 DebuggerGetWasmBytecodeResult (deprecated) ...
 
-## type DebuggerLocation 
+### type DebuggerLocation 
 
 ``` go
 type DebuggerLocation struct {
@@ -12105,7 +12103,7 @@ type DebuggerLocation struct {
 
 DebuggerLocation Location in the source code.
 
-## type DebuggerLocationRange <- 0.72.0
+### type DebuggerLocationRange <- 0.72.0
 
 ``` go
 type DebuggerLocationRange struct {
@@ -12122,7 +12120,7 @@ type DebuggerLocationRange struct {
 
 DebuggerLocationRange (experimental) Location range within one script.
 
-## type DebuggerNextWasmDisassemblyChunk <- 0.108.2
+### type DebuggerNextWasmDisassemblyChunk <- 0.108.2
 
 ``` go
 type DebuggerNextWasmDisassemblyChunk struct {
@@ -12133,7 +12131,7 @@ type DebuggerNextWasmDisassemblyChunk struct {
 
 DebuggerNextWasmDisassemblyChunk (experimental) Disassemble the next chunk of lines for the module corresponding to the stream. If disassembly is complete, this API will invalidate the streamId and return an empty chunk. Any subsequent calls for the now invalid stream will return errors.
 
-### (DebuggerNextWasmDisassemblyChunk) Call <- 0.108.2
+#### (DebuggerNextWasmDisassemblyChunk) Call <- 0.108.2
 
 ``` go
 func (m DebuggerNextWasmDisassemblyChunk) Call(c Client) (*DebuggerNextWasmDisassemblyChunkResult, error)
@@ -12141,7 +12139,7 @@ func (m DebuggerNextWasmDisassemblyChunk) Call(c Client) (*DebuggerNextWasmDisas
 
 Call the request.
 
-### (DebuggerNextWasmDisassemblyChunk) ProtoReq <- 0.108.2
+#### (DebuggerNextWasmDisassemblyChunk) ProtoReq <- 0.108.2
 
 ``` go
 func (m DebuggerNextWasmDisassemblyChunk) ProtoReq() string
@@ -12149,7 +12147,7 @@ func (m DebuggerNextWasmDisassemblyChunk) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerNextWasmDisassemblyChunkResult <- 0.108.2
+### type DebuggerNextWasmDisassemblyChunkResult <- 0.108.2
 
 ``` go
 type DebuggerNextWasmDisassemblyChunkResult struct {
@@ -12160,7 +12158,7 @@ type DebuggerNextWasmDisassemblyChunkResult struct {
 
 DebuggerNextWasmDisassemblyChunkResult (experimental) ...
 
-## type DebuggerPause 
+### type DebuggerPause 
 
 ``` go
 type DebuggerPause struct{}
@@ -12168,7 +12166,7 @@ type DebuggerPause struct{}
 
 DebuggerPause Stops on the next JavaScript statement.
 
-### (DebuggerPause) Call 
+#### (DebuggerPause) Call 
 
 ``` go
 func (m DebuggerPause) Call(c Client) error
@@ -12176,7 +12174,7 @@ func (m DebuggerPause) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerPause) ProtoReq <- 0.74.0
+#### (DebuggerPause) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerPause) ProtoReq() string
@@ -12184,7 +12182,7 @@ func (m DebuggerPause) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerPauseOnAsyncCall 
+### type DebuggerPauseOnAsyncCall 
 
 ``` go
 type DebuggerPauseOnAsyncCall struct {
@@ -12195,7 +12193,7 @@ type DebuggerPauseOnAsyncCall struct {
 
 DebuggerPauseOnAsyncCall (deprecated) (experimental) ...
 
-### (DebuggerPauseOnAsyncCall) Call 
+#### (DebuggerPauseOnAsyncCall) Call 
 
 ``` go
 func (m DebuggerPauseOnAsyncCall) Call(c Client) error
@@ -12203,7 +12201,7 @@ func (m DebuggerPauseOnAsyncCall) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerPauseOnAsyncCall) ProtoReq <- 0.74.0
+#### (DebuggerPauseOnAsyncCall) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerPauseOnAsyncCall) ProtoReq() string
@@ -12211,7 +12209,7 @@ func (m DebuggerPauseOnAsyncCall) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerPaused 
+### type DebuggerPaused 
 
 ``` go
 type DebuggerPaused struct {
@@ -12240,7 +12238,7 @@ type DebuggerPaused struct {
 
 DebuggerPaused Fired when the virtual machine stopped on breakpoint or exception or any other stop criteria.
 
-### (DebuggerPaused) ProtoEvent <- 0.72.0
+#### (DebuggerPaused) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DebuggerPaused) ProtoEvent() string
@@ -12248,7 +12246,7 @@ func (evt DebuggerPaused) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DebuggerPausedReason 
+### type DebuggerPausedReason 
 
 ``` go
 type DebuggerPausedReason string
@@ -12299,7 +12297,7 @@ const (
 )
 ```
 
-## type DebuggerRemoveBreakpoint 
+### type DebuggerRemoveBreakpoint 
 
 ``` go
 type DebuggerRemoveBreakpoint struct {
@@ -12310,7 +12308,7 @@ type DebuggerRemoveBreakpoint struct {
 
 DebuggerRemoveBreakpoint Removes JavaScript breakpoint.
 
-### (DebuggerRemoveBreakpoint) Call 
+#### (DebuggerRemoveBreakpoint) Call 
 
 ``` go
 func (m DebuggerRemoveBreakpoint) Call(c Client) error
@@ -12318,7 +12316,7 @@ func (m DebuggerRemoveBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerRemoveBreakpoint) ProtoReq <- 0.74.0
+#### (DebuggerRemoveBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerRemoveBreakpoint) ProtoReq() string
@@ -12326,7 +12324,7 @@ func (m DebuggerRemoveBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerRestartFrame 
+### type DebuggerRestartFrame 
 
 ``` go
 type DebuggerRestartFrame struct {
@@ -12345,7 +12343,7 @@ To stay back-wards compatible, `restartFrame` now expects a `mode` parameter to 
 
 The various return values are deprecated and `callFrames` is always empty. Use the call frames from the `Debugger#paused` events instead, that fires once V8 pauses at the beginning of the restarted function.
 
-### (DebuggerRestartFrame) Call 
+#### (DebuggerRestartFrame) Call 
 
 ``` go
 func (m DebuggerRestartFrame) Call(c Client) (*DebuggerRestartFrameResult, error)
@@ -12353,7 +12351,7 @@ func (m DebuggerRestartFrame) Call(c Client) (*DebuggerRestartFrameResult, error
 
 Call the request.
 
-### (DebuggerRestartFrame) ProtoReq <- 0.74.0
+#### (DebuggerRestartFrame) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerRestartFrame) ProtoReq() string
@@ -12361,7 +12359,7 @@ func (m DebuggerRestartFrame) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerRestartFrameMode <- 0.107.0
+### type DebuggerRestartFrameMode <- 0.107.0
 
 ``` go
 type DebuggerRestartFrameMode string
@@ -12376,7 +12374,7 @@ const (
 )
 ```
 
-## type DebuggerRestartFrameResult 
+### type DebuggerRestartFrameResult 
 
 ``` go
 type DebuggerRestartFrameResult struct {
@@ -12393,7 +12391,7 @@ type DebuggerRestartFrameResult struct {
 
 DebuggerRestartFrameResult ...
 
-## type DebuggerResume 
+### type DebuggerResume 
 
 ``` go
 type DebuggerResume struct {
@@ -12408,7 +12406,7 @@ type DebuggerResume struct {
 
 DebuggerResume Resumes JavaScript execution.
 
-### (DebuggerResume) Call 
+#### (DebuggerResume) Call 
 
 ``` go
 func (m DebuggerResume) Call(c Client) error
@@ -12416,7 +12414,7 @@ func (m DebuggerResume) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerResume) ProtoReq <- 0.74.0
+#### (DebuggerResume) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerResume) ProtoReq() string
@@ -12424,7 +12422,7 @@ func (m DebuggerResume) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerResumed 
+### type DebuggerResumed 
 
 ``` go
 type DebuggerResumed struct{}
@@ -12432,7 +12430,7 @@ type DebuggerResumed struct{}
 
 DebuggerResumed Fired when the virtual machine resumed execution.
 
-### (DebuggerResumed) ProtoEvent <- 0.72.0
+#### (DebuggerResumed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DebuggerResumed) ProtoEvent() string
@@ -12440,7 +12438,7 @@ func (evt DebuggerResumed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DebuggerScope 
+### type DebuggerScope 
 
 ``` go
 type DebuggerScope struct {
@@ -12465,7 +12463,7 @@ type DebuggerScope struct {
 
 DebuggerScope Scope description.
 
-## type DebuggerScopeType 
+### type DebuggerScopeType 
 
 ``` go
 type DebuggerScopeType string
@@ -12507,7 +12505,7 @@ const (
 )
 ```
 
-## type DebuggerScriptFailedToParse 
+### type DebuggerScriptFailedToParse 
 
 ``` go
 type DebuggerScriptFailedToParse struct {
@@ -12566,7 +12564,7 @@ type DebuggerScriptFailedToParse struct {
 
 DebuggerScriptFailedToParse Fired when virtual machine fails to parse the script.
 
-### (DebuggerScriptFailedToParse) ProtoEvent <- 0.72.0
+#### (DebuggerScriptFailedToParse) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DebuggerScriptFailedToParse) ProtoEvent() string
@@ -12574,7 +12572,7 @@ func (evt DebuggerScriptFailedToParse) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DebuggerScriptLanguage 
+### type DebuggerScriptLanguage 
 
 ``` go
 type DebuggerScriptLanguage string
@@ -12592,7 +12590,7 @@ const (
 )
 ```
 
-## type DebuggerScriptParsed 
+### type DebuggerScriptParsed 
 
 ``` go
 type DebuggerScriptParsed struct {
@@ -12657,7 +12655,7 @@ type DebuggerScriptParsed struct {
 
 DebuggerScriptParsed Fired when virtual machine parses script. This event is also fired for all known and uncollected scripts upon enabling debugger.
 
-### (DebuggerScriptParsed) ProtoEvent <- 0.72.0
+#### (DebuggerScriptParsed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt DebuggerScriptParsed) ProtoEvent() string
@@ -12665,7 +12663,7 @@ func (evt DebuggerScriptParsed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DebuggerScriptPosition 
+### type DebuggerScriptPosition 
 
 ``` go
 type DebuggerScriptPosition struct {
@@ -12679,7 +12677,7 @@ type DebuggerScriptPosition struct {
 
 DebuggerScriptPosition (experimental) Location in the source code.
 
-## type DebuggerSearchInContent 
+### type DebuggerSearchInContent 
 
 ``` go
 type DebuggerSearchInContent struct {
@@ -12699,7 +12697,7 @@ type DebuggerSearchInContent struct {
 
 DebuggerSearchInContent Searches for given string in script content.
 
-### (DebuggerSearchInContent) Call 
+#### (DebuggerSearchInContent) Call 
 
 ``` go
 func (m DebuggerSearchInContent) Call(c Client) (*DebuggerSearchInContentResult, error)
@@ -12707,7 +12705,7 @@ func (m DebuggerSearchInContent) Call(c Client) (*DebuggerSearchInContentResult,
 
 Call the request.
 
-### (DebuggerSearchInContent) ProtoReq <- 0.74.0
+#### (DebuggerSearchInContent) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSearchInContent) ProtoReq() string
@@ -12715,7 +12713,7 @@ func (m DebuggerSearchInContent) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSearchInContentResult 
+### type DebuggerSearchInContentResult 
 
 ``` go
 type DebuggerSearchInContentResult struct {
@@ -12726,7 +12724,7 @@ type DebuggerSearchInContentResult struct {
 
 DebuggerSearchInContentResult ...
 
-## type DebuggerSearchMatch 
+### type DebuggerSearchMatch 
 
 ``` go
 type DebuggerSearchMatch struct {
@@ -12740,7 +12738,7 @@ type DebuggerSearchMatch struct {
 
 DebuggerSearchMatch Search match for resource.
 
-## type DebuggerSetAsyncCallStackDepth 
+### type DebuggerSetAsyncCallStackDepth 
 
 ``` go
 type DebuggerSetAsyncCallStackDepth struct {
@@ -12752,7 +12750,7 @@ type DebuggerSetAsyncCallStackDepth struct {
 
 DebuggerSetAsyncCallStackDepth Enables or disables async call stacks tracking.
 
-### (DebuggerSetAsyncCallStackDepth) Call 
+#### (DebuggerSetAsyncCallStackDepth) Call 
 
 ``` go
 func (m DebuggerSetAsyncCallStackDepth) Call(c Client) error
@@ -12760,7 +12758,7 @@ func (m DebuggerSetAsyncCallStackDepth) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetAsyncCallStackDepth) ProtoReq <- 0.74.0
+#### (DebuggerSetAsyncCallStackDepth) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetAsyncCallStackDepth) ProtoReq() string
@@ -12768,7 +12766,7 @@ func (m DebuggerSetAsyncCallStackDepth) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBlackboxPatterns 
+### type DebuggerSetBlackboxPatterns 
 
 ``` go
 type DebuggerSetBlackboxPatterns struct {
@@ -12779,7 +12777,7 @@ type DebuggerSetBlackboxPatterns struct {
 
 DebuggerSetBlackboxPatterns (experimental) Replace previous blackbox patterns with passed ones. Forces backend to skip stepping/pausing in scripts with url matching one of the patterns. VM will try to leave blackboxed script by performing 'step in' several times, finally resorting to 'step out' if unsuccessful.
 
-### (DebuggerSetBlackboxPatterns) Call 
+#### (DebuggerSetBlackboxPatterns) Call 
 
 ``` go
 func (m DebuggerSetBlackboxPatterns) Call(c Client) error
@@ -12787,7 +12785,7 @@ func (m DebuggerSetBlackboxPatterns) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetBlackboxPatterns) ProtoReq <- 0.74.0
+#### (DebuggerSetBlackboxPatterns) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBlackboxPatterns) ProtoReq() string
@@ -12795,7 +12793,7 @@ func (m DebuggerSetBlackboxPatterns) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBlackboxedRanges 
+### type DebuggerSetBlackboxedRanges 
 
 ``` go
 type DebuggerSetBlackboxedRanges struct {
@@ -12809,7 +12807,7 @@ type DebuggerSetBlackboxedRanges struct {
 
 DebuggerSetBlackboxedRanges (experimental) Makes backend skip steps in the script in blackboxed ranges. VM will try leave blacklisted scripts by performing 'step in' several times, finally resorting to 'step out' if unsuccessful. Positions array contains positions where blackbox state is changed. First interval isn't blackboxed. Array should be sorted.
 
-### (DebuggerSetBlackboxedRanges) Call 
+#### (DebuggerSetBlackboxedRanges) Call 
 
 ``` go
 func (m DebuggerSetBlackboxedRanges) Call(c Client) error
@@ -12817,7 +12815,7 @@ func (m DebuggerSetBlackboxedRanges) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetBlackboxedRanges) ProtoReq <- 0.74.0
+#### (DebuggerSetBlackboxedRanges) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBlackboxedRanges) ProtoReq() string
@@ -12825,7 +12823,7 @@ func (m DebuggerSetBlackboxedRanges) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBreakpoint 
+### type DebuggerSetBreakpoint 
 
 ``` go
 type DebuggerSetBreakpoint struct {
@@ -12840,7 +12838,7 @@ type DebuggerSetBreakpoint struct {
 
 DebuggerSetBreakpoint Sets JavaScript breakpoint at a given location.
 
-### (DebuggerSetBreakpoint) Call 
+#### (DebuggerSetBreakpoint) Call 
 
 ``` go
 func (m DebuggerSetBreakpoint) Call(c Client) (*DebuggerSetBreakpointResult, error)
@@ -12848,7 +12846,7 @@ func (m DebuggerSetBreakpoint) Call(c Client) (*DebuggerSetBreakpointResult, err
 
 Call the request.
 
-### (DebuggerSetBreakpoint) ProtoReq <- 0.74.0
+#### (DebuggerSetBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBreakpoint) ProtoReq() string
@@ -12856,7 +12854,7 @@ func (m DebuggerSetBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBreakpointByURL 
+### type DebuggerSetBreakpointByURL 
 
 ``` go
 type DebuggerSetBreakpointByURL struct {
@@ -12884,7 +12882,7 @@ type DebuggerSetBreakpointByURL struct {
 
 DebuggerSetBreakpointByURL Sets JavaScript breakpoint at given location specified either by URL or URL regex. Once this command is issued, all existing parsed scripts will have breakpoints resolved and returned in `locations` property. Further matching script parsing will result in subsequent `breakpointResolved` events issued. This logical breakpoint will survive page reloads.
 
-### (DebuggerSetBreakpointByURL) Call 
+#### (DebuggerSetBreakpointByURL) Call 
 
 ``` go
 func (m DebuggerSetBreakpointByURL) Call(c Client) (*DebuggerSetBreakpointByURLResult, error)
@@ -12892,7 +12890,7 @@ func (m DebuggerSetBreakpointByURL) Call(c Client) (*DebuggerSetBreakpointByURLR
 
 Call the request.
 
-### (DebuggerSetBreakpointByURL) ProtoReq <- 0.74.0
+#### (DebuggerSetBreakpointByURL) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBreakpointByURL) ProtoReq() string
@@ -12900,7 +12898,7 @@ func (m DebuggerSetBreakpointByURL) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBreakpointByURLResult 
+### type DebuggerSetBreakpointByURLResult 
 
 ``` go
 type DebuggerSetBreakpointByURLResult struct {
@@ -12914,7 +12912,7 @@ type DebuggerSetBreakpointByURLResult struct {
 
 DebuggerSetBreakpointByURLResult ...
 
-## type DebuggerSetBreakpointOnFunctionCall 
+### type DebuggerSetBreakpointOnFunctionCall 
 
 ``` go
 type DebuggerSetBreakpointOnFunctionCall struct {
@@ -12929,7 +12927,7 @@ type DebuggerSetBreakpointOnFunctionCall struct {
 
 DebuggerSetBreakpointOnFunctionCall (experimental) Sets JavaScript breakpoint before each call to the given function. If another function was created from the same source as a given one, calling it will also trigger the breakpoint.
 
-### (DebuggerSetBreakpointOnFunctionCall) Call 
+#### (DebuggerSetBreakpointOnFunctionCall) Call 
 
 ``` go
 func (m DebuggerSetBreakpointOnFunctionCall) Call(c Client) (*DebuggerSetBreakpointOnFunctionCallResult, error)
@@ -12937,7 +12935,7 @@ func (m DebuggerSetBreakpointOnFunctionCall) Call(c Client) (*DebuggerSetBreakpo
 
 Call the request.
 
-### (DebuggerSetBreakpointOnFunctionCall) ProtoReq <- 0.74.0
+#### (DebuggerSetBreakpointOnFunctionCall) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBreakpointOnFunctionCall) ProtoReq() string
@@ -12945,7 +12943,7 @@ func (m DebuggerSetBreakpointOnFunctionCall) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetBreakpointOnFunctionCallResult 
+### type DebuggerSetBreakpointOnFunctionCallResult 
 
 ``` go
 type DebuggerSetBreakpointOnFunctionCallResult struct {
@@ -12956,7 +12954,7 @@ type DebuggerSetBreakpointOnFunctionCallResult struct {
 
 DebuggerSetBreakpointOnFunctionCallResult (experimental) ...
 
-## type DebuggerSetBreakpointResult 
+### type DebuggerSetBreakpointResult 
 
 ``` go
 type DebuggerSetBreakpointResult struct {
@@ -12970,7 +12968,7 @@ type DebuggerSetBreakpointResult struct {
 
 DebuggerSetBreakpointResult ...
 
-## type DebuggerSetBreakpointsActive 
+### type DebuggerSetBreakpointsActive 
 
 ``` go
 type DebuggerSetBreakpointsActive struct {
@@ -12981,7 +12979,7 @@ type DebuggerSetBreakpointsActive struct {
 
 DebuggerSetBreakpointsActive Activates / deactivates all breakpoints on the page.
 
-### (DebuggerSetBreakpointsActive) Call 
+#### (DebuggerSetBreakpointsActive) Call 
 
 ``` go
 func (m DebuggerSetBreakpointsActive) Call(c Client) error
@@ -12989,7 +12987,7 @@ func (m DebuggerSetBreakpointsActive) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetBreakpointsActive) ProtoReq <- 0.74.0
+#### (DebuggerSetBreakpointsActive) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetBreakpointsActive) ProtoReq() string
@@ -12997,7 +12995,7 @@ func (m DebuggerSetBreakpointsActive) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetInstrumentationBreakpoint 
+### type DebuggerSetInstrumentationBreakpoint 
 
 ``` go
 type DebuggerSetInstrumentationBreakpoint struct {
@@ -13008,7 +13006,7 @@ type DebuggerSetInstrumentationBreakpoint struct {
 
 DebuggerSetInstrumentationBreakpoint Sets instrumentation breakpoint.
 
-### (DebuggerSetInstrumentationBreakpoint) Call 
+#### (DebuggerSetInstrumentationBreakpoint) Call 
 
 ``` go
 func (m DebuggerSetInstrumentationBreakpoint) Call(c Client) (*DebuggerSetInstrumentationBreakpointResult, error)
@@ -13016,7 +13014,7 @@ func (m DebuggerSetInstrumentationBreakpoint) Call(c Client) (*DebuggerSetInstru
 
 Call the request.
 
-### (DebuggerSetInstrumentationBreakpoint) ProtoReq <- 0.74.0
+#### (DebuggerSetInstrumentationBreakpoint) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetInstrumentationBreakpoint) ProtoReq() string
@@ -13024,7 +13022,7 @@ func (m DebuggerSetInstrumentationBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetInstrumentationBreakpointInstrumentation 
+### type DebuggerSetInstrumentationBreakpointInstrumentation 
 
 ``` go
 type DebuggerSetInstrumentationBreakpointInstrumentation string
@@ -13042,7 +13040,7 @@ const (
 )
 ```
 
-## type DebuggerSetInstrumentationBreakpointResult 
+### type DebuggerSetInstrumentationBreakpointResult 
 
 ``` go
 type DebuggerSetInstrumentationBreakpointResult struct {
@@ -13053,7 +13051,7 @@ type DebuggerSetInstrumentationBreakpointResult struct {
 
 DebuggerSetInstrumentationBreakpointResult ...
 
-## type DebuggerSetPauseOnExceptions 
+### type DebuggerSetPauseOnExceptions 
 
 ``` go
 type DebuggerSetPauseOnExceptions struct {
@@ -13064,7 +13062,7 @@ type DebuggerSetPauseOnExceptions struct {
 
 DebuggerSetPauseOnExceptions Defines pause on exceptions state. Can be set to stop on all exceptions, uncaught exceptions, or caught exceptions, no exceptions. Initial pause on exceptions state is `none`.
 
-### (DebuggerSetPauseOnExceptions) Call 
+#### (DebuggerSetPauseOnExceptions) Call 
 
 ``` go
 func (m DebuggerSetPauseOnExceptions) Call(c Client) error
@@ -13072,7 +13070,7 @@ func (m DebuggerSetPauseOnExceptions) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetPauseOnExceptions) ProtoReq <- 0.74.0
+#### (DebuggerSetPauseOnExceptions) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetPauseOnExceptions) ProtoReq() string
@@ -13080,7 +13078,7 @@ func (m DebuggerSetPauseOnExceptions) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetPauseOnExceptionsState 
+### type DebuggerSetPauseOnExceptionsState 
 
 ``` go
 type DebuggerSetPauseOnExceptionsState string
@@ -13104,7 +13102,7 @@ const (
 )
 ```
 
-## type DebuggerSetReturnValue 
+### type DebuggerSetReturnValue 
 
 ``` go
 type DebuggerSetReturnValue struct {
@@ -13115,7 +13113,7 @@ type DebuggerSetReturnValue struct {
 
 DebuggerSetReturnValue (experimental) Changes return value in top frame. Available only at return break position.
 
-### (DebuggerSetReturnValue) Call 
+#### (DebuggerSetReturnValue) Call 
 
 ``` go
 func (m DebuggerSetReturnValue) Call(c Client) error
@@ -13123,7 +13121,7 @@ func (m DebuggerSetReturnValue) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetReturnValue) ProtoReq <- 0.74.0
+#### (DebuggerSetReturnValue) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetReturnValue) ProtoReq() string
@@ -13131,7 +13129,7 @@ func (m DebuggerSetReturnValue) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetScriptSource 
+### type DebuggerSetScriptSource 
 
 ``` go
 type DebuggerSetScriptSource struct {
@@ -13155,7 +13153,7 @@ DebuggerSetScriptSource Edits JavaScript source live.
 
 In general, functions that are currently on the stack can not be edited with a single exception: If the edited function is the top-most stack frame and that is the only activation of that function on the stack. In this case the live edit will be successful and a `Debugger.restartFrame` for the top-most function is automatically triggered.
 
-### (DebuggerSetScriptSource) Call 
+#### (DebuggerSetScriptSource) Call 
 
 ``` go
 func (m DebuggerSetScriptSource) Call(c Client) (*DebuggerSetScriptSourceResult, error)
@@ -13163,7 +13161,7 @@ func (m DebuggerSetScriptSource) Call(c Client) (*DebuggerSetScriptSourceResult,
 
 Call the request.
 
-### (DebuggerSetScriptSource) ProtoReq <- 0.74.0
+#### (DebuggerSetScriptSource) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetScriptSource) ProtoReq() string
@@ -13171,7 +13169,7 @@ func (m DebuggerSetScriptSource) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetScriptSourceResult 
+### type DebuggerSetScriptSourceResult 
 
 ``` go
 type DebuggerSetScriptSourceResult struct {
@@ -13199,7 +13197,7 @@ type DebuggerSetScriptSourceResult struct {
 
 DebuggerSetScriptSourceResult ...
 
-## type DebuggerSetScriptSourceResultStatus <- 0.108.0
+### type DebuggerSetScriptSourceResultStatus <- 0.108.0
 
 ``` go
 type DebuggerSetScriptSourceResultStatus string
@@ -13226,7 +13224,7 @@ const (
 )
 ```
 
-## type DebuggerSetSkipAllPauses 
+### type DebuggerSetSkipAllPauses 
 
 ``` go
 type DebuggerSetSkipAllPauses struct {
@@ -13237,7 +13235,7 @@ type DebuggerSetSkipAllPauses struct {
 
 DebuggerSetSkipAllPauses Makes page not interrupt on any pauses (breakpoint, exception, dom exception etc).
 
-### (DebuggerSetSkipAllPauses) Call 
+#### (DebuggerSetSkipAllPauses) Call 
 
 ``` go
 func (m DebuggerSetSkipAllPauses) Call(c Client) error
@@ -13245,7 +13243,7 @@ func (m DebuggerSetSkipAllPauses) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetSkipAllPauses) ProtoReq <- 0.74.0
+#### (DebuggerSetSkipAllPauses) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetSkipAllPauses) ProtoReq() string
@@ -13253,7 +13251,7 @@ func (m DebuggerSetSkipAllPauses) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerSetVariableValue 
+### type DebuggerSetVariableValue 
 
 ``` go
 type DebuggerSetVariableValue struct {
@@ -13274,7 +13272,7 @@ type DebuggerSetVariableValue struct {
 
 DebuggerSetVariableValue Changes value of variable in a callframe. Object-based scopes are not supported and must be mutated manually.
 
-### (DebuggerSetVariableValue) Call 
+#### (DebuggerSetVariableValue) Call 
 
 ``` go
 func (m DebuggerSetVariableValue) Call(c Client) error
@@ -13282,7 +13280,7 @@ func (m DebuggerSetVariableValue) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerSetVariableValue) ProtoReq <- 0.74.0
+#### (DebuggerSetVariableValue) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerSetVariableValue) ProtoReq() string
@@ -13290,7 +13288,7 @@ func (m DebuggerSetVariableValue) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerStepInto 
+### type DebuggerStepInto 
 
 ``` go
 type DebuggerStepInto struct {
@@ -13305,7 +13303,7 @@ type DebuggerStepInto struct {
 
 DebuggerStepInto Steps into the function call.
 
-### (DebuggerStepInto) Call 
+#### (DebuggerStepInto) Call 
 
 ``` go
 func (m DebuggerStepInto) Call(c Client) error
@@ -13313,7 +13311,7 @@ func (m DebuggerStepInto) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerStepInto) ProtoReq <- 0.74.0
+#### (DebuggerStepInto) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerStepInto) ProtoReq() string
@@ -13321,7 +13319,7 @@ func (m DebuggerStepInto) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerStepOut 
+### type DebuggerStepOut 
 
 ``` go
 type DebuggerStepOut struct{}
@@ -13329,7 +13327,7 @@ type DebuggerStepOut struct{}
 
 DebuggerStepOut Steps out of the function call.
 
-### (DebuggerStepOut) Call 
+#### (DebuggerStepOut) Call 
 
 ``` go
 func (m DebuggerStepOut) Call(c Client) error
@@ -13337,7 +13335,7 @@ func (m DebuggerStepOut) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerStepOut) ProtoReq <- 0.74.0
+#### (DebuggerStepOut) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerStepOut) ProtoReq() string
@@ -13345,7 +13343,7 @@ func (m DebuggerStepOut) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerStepOver 
+### type DebuggerStepOver 
 
 ``` go
 type DebuggerStepOver struct {
@@ -13356,7 +13354,7 @@ type DebuggerStepOver struct {
 
 DebuggerStepOver Steps over the statement.
 
-### (DebuggerStepOver) Call 
+#### (DebuggerStepOver) Call 
 
 ``` go
 func (m DebuggerStepOver) Call(c Client) error
@@ -13364,7 +13362,7 @@ func (m DebuggerStepOver) Call(c Client) error
 
 Call sends the request.
 
-### (DebuggerStepOver) ProtoReq <- 0.74.0
+#### (DebuggerStepOver) ProtoReq <- 0.74.0
 
 ``` go
 func (m DebuggerStepOver) ProtoReq() string
@@ -13372,7 +13370,7 @@ func (m DebuggerStepOver) ProtoReq() string
 
 ProtoReq name.
 
-## type DebuggerWasmDisassemblyChunk <- 0.108.2
+### type DebuggerWasmDisassemblyChunk <- 0.108.2
 
 ``` go
 type DebuggerWasmDisassemblyChunk struct {
@@ -13386,7 +13384,7 @@ type DebuggerWasmDisassemblyChunk struct {
 
 DebuggerWasmDisassemblyChunk (experimental) ...
 
-## type DeviceAccessCancelPrompt <- 0.112.9
+### type DeviceAccessCancelPrompt <- 0.112.9
 
 ``` go
 type DeviceAccessCancelPrompt struct {
@@ -13397,7 +13395,7 @@ type DeviceAccessCancelPrompt struct {
 
 DeviceAccessCancelPrompt Cancel a prompt in response to a DeviceAccess.deviceRequestPrompted event.
 
-### (DeviceAccessCancelPrompt) Call <- 0.112.9
+#### (DeviceAccessCancelPrompt) Call <- 0.112.9
 
 ``` go
 func (m DeviceAccessCancelPrompt) Call(c Client) error
@@ -13405,7 +13403,7 @@ func (m DeviceAccessCancelPrompt) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceAccessCancelPrompt) ProtoReq <- 0.112.9
+#### (DeviceAccessCancelPrompt) ProtoReq <- 0.112.9
 
 ``` go
 func (m DeviceAccessCancelPrompt) ProtoReq() string
@@ -13413,7 +13411,7 @@ func (m DeviceAccessCancelPrompt) ProtoReq() string
 
 ProtoReq name.
 
-## type DeviceAccessDeviceID <- 0.112.9
+### type DeviceAccessDeviceID <- 0.112.9
 
 ``` go
 type DeviceAccessDeviceID string
@@ -13421,7 +13419,7 @@ type DeviceAccessDeviceID string
 
 DeviceAccessDeviceID A device id.
 
-## type DeviceAccessDeviceRequestPrompted <- 0.112.9
+### type DeviceAccessDeviceRequestPrompted <- 0.112.9
 
 ``` go
 type DeviceAccessDeviceRequestPrompted struct {
@@ -13435,7 +13433,7 @@ type DeviceAccessDeviceRequestPrompted struct {
 
 DeviceAccessDeviceRequestPrompted A device request opened a user prompt to select a device. Respond with the selectPrompt or cancelPrompt command.
 
-### (DeviceAccessDeviceRequestPrompted) ProtoEvent <- 0.112.9
+#### (DeviceAccessDeviceRequestPrompted) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt DeviceAccessDeviceRequestPrompted) ProtoEvent() string
@@ -13443,7 +13441,7 @@ func (evt DeviceAccessDeviceRequestPrompted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type DeviceAccessDisable <- 0.112.9
+### type DeviceAccessDisable <- 0.112.9
 
 ``` go
 type DeviceAccessDisable struct{}
@@ -13451,7 +13449,7 @@ type DeviceAccessDisable struct{}
 
 DeviceAccessDisable Disable events in this domain.
 
-### (DeviceAccessDisable) Call <- 0.112.9
+#### (DeviceAccessDisable) Call <- 0.112.9
 
 ``` go
 func (m DeviceAccessDisable) Call(c Client) error
@@ -13459,7 +13457,7 @@ func (m DeviceAccessDisable) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceAccessDisable) ProtoReq <- 0.112.9
+#### (DeviceAccessDisable) ProtoReq <- 0.112.9
 
 ``` go
 func (m DeviceAccessDisable) ProtoReq() string
@@ -13467,7 +13465,7 @@ func (m DeviceAccessDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type DeviceAccessEnable <- 0.112.9
+### type DeviceAccessEnable <- 0.112.9
 
 ``` go
 type DeviceAccessEnable struct{}
@@ -13475,7 +13473,7 @@ type DeviceAccessEnable struct{}
 
 DeviceAccessEnable Enable events in this domain.
 
-### (DeviceAccessEnable) Call <- 0.112.9
+#### (DeviceAccessEnable) Call <- 0.112.9
 
 ``` go
 func (m DeviceAccessEnable) Call(c Client) error
@@ -13483,7 +13481,7 @@ func (m DeviceAccessEnable) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceAccessEnable) ProtoReq <- 0.112.9
+#### (DeviceAccessEnable) ProtoReq <- 0.112.9
 
 ``` go
 func (m DeviceAccessEnable) ProtoReq() string
@@ -13491,7 +13489,7 @@ func (m DeviceAccessEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type DeviceAccessPromptDevice <- 0.112.9
+### type DeviceAccessPromptDevice <- 0.112.9
 
 ``` go
 type DeviceAccessPromptDevice struct {
@@ -13505,7 +13503,7 @@ type DeviceAccessPromptDevice struct {
 
 DeviceAccessPromptDevice Device information displayed in a user prompt to select a device.
 
-## type DeviceAccessRequestID <- 0.112.9
+### type DeviceAccessRequestID <- 0.112.9
 
 ``` go
 type DeviceAccessRequestID string
@@ -13513,7 +13511,7 @@ type DeviceAccessRequestID string
 
 DeviceAccessRequestID Device request id.
 
-## type DeviceAccessSelectPrompt <- 0.112.9
+### type DeviceAccessSelectPrompt <- 0.112.9
 
 ``` go
 type DeviceAccessSelectPrompt struct {
@@ -13527,7 +13525,7 @@ type DeviceAccessSelectPrompt struct {
 
 DeviceAccessSelectPrompt Select a device in response to a DeviceAccess.deviceRequestPrompted event.
 
-### (DeviceAccessSelectPrompt) Call <- 0.112.9
+#### (DeviceAccessSelectPrompt) Call <- 0.112.9
 
 ``` go
 func (m DeviceAccessSelectPrompt) Call(c Client) error
@@ -13535,7 +13533,7 @@ func (m DeviceAccessSelectPrompt) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceAccessSelectPrompt) ProtoReq <- 0.112.9
+#### (DeviceAccessSelectPrompt) ProtoReq <- 0.112.9
 
 ``` go
 func (m DeviceAccessSelectPrompt) ProtoReq() string
@@ -13543,7 +13541,7 @@ func (m DeviceAccessSelectPrompt) ProtoReq() string
 
 ProtoReq name.
 
-## type DeviceOrientationClearDeviceOrientationOverride 
+### type DeviceOrientationClearDeviceOrientationOverride 
 
 ``` go
 type DeviceOrientationClearDeviceOrientationOverride struct{}
@@ -13551,7 +13549,7 @@ type DeviceOrientationClearDeviceOrientationOverride struct{}
 
 DeviceOrientationClearDeviceOrientationOverride Clears the overridden Device Orientation.
 
-### (DeviceOrientationClearDeviceOrientationOverride) Call 
+#### (DeviceOrientationClearDeviceOrientationOverride) Call 
 
 ``` go
 func (m DeviceOrientationClearDeviceOrientationOverride) Call(c Client) error
@@ -13559,7 +13557,7 @@ func (m DeviceOrientationClearDeviceOrientationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceOrientationClearDeviceOrientationOverride) ProtoReq <- 0.74.0
+#### (DeviceOrientationClearDeviceOrientationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m DeviceOrientationClearDeviceOrientationOverride) ProtoReq() string
@@ -13567,7 +13565,7 @@ func (m DeviceOrientationClearDeviceOrientationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type DeviceOrientationSetDeviceOrientationOverride 
+### type DeviceOrientationSetDeviceOrientationOverride 
 
 ``` go
 type DeviceOrientationSetDeviceOrientationOverride struct {
@@ -13584,7 +13582,7 @@ type DeviceOrientationSetDeviceOrientationOverride struct {
 
 DeviceOrientationSetDeviceOrientationOverride Overrides the Device Orientation.
 
-### (DeviceOrientationSetDeviceOrientationOverride) Call 
+#### (DeviceOrientationSetDeviceOrientationOverride) Call 
 
 ``` go
 func (m DeviceOrientationSetDeviceOrientationOverride) Call(c Client) error
@@ -13592,7 +13590,7 @@ func (m DeviceOrientationSetDeviceOrientationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (DeviceOrientationSetDeviceOrientationOverride) ProtoReq <- 0.74.0
+#### (DeviceOrientationSetDeviceOrientationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m DeviceOrientationSetDeviceOrientationOverride) ProtoReq() string
@@ -13600,7 +13598,7 @@ func (m DeviceOrientationSetDeviceOrientationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationCanEmulate 
+### type EmulationCanEmulate 
 
 ``` go
 type EmulationCanEmulate struct{}
@@ -13608,7 +13606,7 @@ type EmulationCanEmulate struct{}
 
 EmulationCanEmulate (deprecated) Tells whether emulation is supported.
 
-### (EmulationCanEmulate) Call 
+#### (EmulationCanEmulate) Call 
 
 ``` go
 func (m EmulationCanEmulate) Call(c Client) (*EmulationCanEmulateResult, error)
@@ -13616,7 +13614,7 @@ func (m EmulationCanEmulate) Call(c Client) (*EmulationCanEmulateResult, error)
 
 Call the request.
 
-### (EmulationCanEmulate) ProtoReq <- 0.74.0
+#### (EmulationCanEmulate) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationCanEmulate) ProtoReq() string
@@ -13624,7 +13622,7 @@ func (m EmulationCanEmulate) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationCanEmulateResult 
+### type EmulationCanEmulateResult 
 
 ``` go
 type EmulationCanEmulateResult struct {
@@ -13635,7 +13633,7 @@ type EmulationCanEmulateResult struct {
 
 EmulationCanEmulateResult (deprecated) ...
 
-## type EmulationClearDeviceMetricsOverride 
+### type EmulationClearDeviceMetricsOverride 
 
 ``` go
 type EmulationClearDeviceMetricsOverride struct{}
@@ -13643,7 +13641,7 @@ type EmulationClearDeviceMetricsOverride struct{}
 
 EmulationClearDeviceMetricsOverride Clears the overridden device metrics.
 
-### (EmulationClearDeviceMetricsOverride) Call 
+#### (EmulationClearDeviceMetricsOverride) Call 
 
 ``` go
 func (m EmulationClearDeviceMetricsOverride) Call(c Client) error
@@ -13651,7 +13649,7 @@ func (m EmulationClearDeviceMetricsOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationClearDeviceMetricsOverride) ProtoReq <- 0.74.0
+#### (EmulationClearDeviceMetricsOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationClearDeviceMetricsOverride) ProtoReq() string
@@ -13659,7 +13657,7 @@ func (m EmulationClearDeviceMetricsOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationClearDevicePostureOverride <- 0.116.0
+### type EmulationClearDevicePostureOverride <- 0.116.0
 
 ``` go
 type EmulationClearDevicePostureOverride struct{}
@@ -13667,7 +13665,7 @@ type EmulationClearDevicePostureOverride struct{}
 
 EmulationClearDevicePostureOverride (experimental) Clears a device posture override set with either setDeviceMetricsOverride() or setDevicePostureOverride() and starts using posture information from the platform again. Does nothing if no override is set.
 
-### (EmulationClearDevicePostureOverride) Call <- 0.116.0
+#### (EmulationClearDevicePostureOverride) Call <- 0.116.0
 
 ``` go
 func (m EmulationClearDevicePostureOverride) Call(c Client) error
@@ -13675,7 +13673,7 @@ func (m EmulationClearDevicePostureOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationClearDevicePostureOverride) ProtoReq <- 0.116.0
+#### (EmulationClearDevicePostureOverride) ProtoReq <- 0.116.0
 
 ``` go
 func (m EmulationClearDevicePostureOverride) ProtoReq() string
@@ -13683,7 +13681,7 @@ func (m EmulationClearDevicePostureOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationClearGeolocationOverride 
+### type EmulationClearGeolocationOverride 
 
 ``` go
 type EmulationClearGeolocationOverride struct{}
@@ -13691,7 +13689,7 @@ type EmulationClearGeolocationOverride struct{}
 
 EmulationClearGeolocationOverride Clears the overridden Geolocation Position and Error.
 
-### (EmulationClearGeolocationOverride) Call 
+#### (EmulationClearGeolocationOverride) Call 
 
 ``` go
 func (m EmulationClearGeolocationOverride) Call(c Client) error
@@ -13699,7 +13697,7 @@ func (m EmulationClearGeolocationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationClearGeolocationOverride) ProtoReq <- 0.74.0
+#### (EmulationClearGeolocationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationClearGeolocationOverride) ProtoReq() string
@@ -13707,7 +13705,7 @@ func (m EmulationClearGeolocationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationClearIdleOverride <- 0.72.0
+### type EmulationClearIdleOverride <- 0.72.0
 
 ``` go
 type EmulationClearIdleOverride struct{}
@@ -13715,7 +13713,7 @@ type EmulationClearIdleOverride struct{}
 
 EmulationClearIdleOverride Clears Idle state overrides.
 
-### (EmulationClearIdleOverride) Call <- 0.72.0
+#### (EmulationClearIdleOverride) Call <- 0.72.0
 
 ``` go
 func (m EmulationClearIdleOverride) Call(c Client) error
@@ -13723,7 +13721,7 @@ func (m EmulationClearIdleOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationClearIdleOverride) ProtoReq <- 0.74.0
+#### (EmulationClearIdleOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationClearIdleOverride) ProtoReq() string
@@ -13731,7 +13729,7 @@ func (m EmulationClearIdleOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationDevicePosture <- 0.115.0
+### type EmulationDevicePosture <- 0.115.0
 
 ``` go
 type EmulationDevicePosture struct {
@@ -13742,7 +13740,7 @@ type EmulationDevicePosture struct {
 
 EmulationDevicePosture ...
 
-## type EmulationDevicePostureType <- 0.115.0
+### type EmulationDevicePostureType <- 0.115.0
 
 ``` go
 type EmulationDevicePostureType string
@@ -13760,7 +13758,7 @@ const (
 )
 ```
 
-## type EmulationDisabledImageType <- 0.90.0
+### type EmulationDisabledImageType <- 0.90.0
 
 ``` go
 type EmulationDisabledImageType string
@@ -13778,7 +13776,7 @@ const (
 )
 ```
 
-## type EmulationDisplayFeature <- 0.72.0
+### type EmulationDisplayFeature <- 0.72.0
 
 ``` go
 type EmulationDisplayFeature struct {
@@ -13798,7 +13796,7 @@ type EmulationDisplayFeature struct {
 
 EmulationDisplayFeature ...
 
-## type EmulationDisplayFeatureOrientation <- 0.72.0
+### type EmulationDisplayFeatureOrientation <- 0.72.0
 
 ``` go
 type EmulationDisplayFeatureOrientation string
@@ -13816,7 +13814,7 @@ const (
 )
 ```
 
-## type EmulationGetOverriddenSensorInformation <- 0.115.0
+### type EmulationGetOverriddenSensorInformation <- 0.115.0
 
 ``` go
 type EmulationGetOverriddenSensorInformation struct {
@@ -13827,7 +13825,7 @@ type EmulationGetOverriddenSensorInformation struct {
 
 EmulationGetOverriddenSensorInformation (experimental) ...
 
-### (EmulationGetOverriddenSensorInformation) Call <- 0.115.0
+#### (EmulationGetOverriddenSensorInformation) Call <- 0.115.0
 
 ``` go
 func (m EmulationGetOverriddenSensorInformation) Call(c Client) (*EmulationGetOverriddenSensorInformationResult, error)
@@ -13835,7 +13833,7 @@ func (m EmulationGetOverriddenSensorInformation) Call(c Client) (*EmulationGetOv
 
 Call the request.
 
-### (EmulationGetOverriddenSensorInformation) ProtoReq <- 0.115.0
+#### (EmulationGetOverriddenSensorInformation) ProtoReq <- 0.115.0
 
 ``` go
 func (m EmulationGetOverriddenSensorInformation) ProtoReq() string
@@ -13843,7 +13841,7 @@ func (m EmulationGetOverriddenSensorInformation) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationGetOverriddenSensorInformationResult <- 0.115.0
+### type EmulationGetOverriddenSensorInformationResult <- 0.115.0
 
 ``` go
 type EmulationGetOverriddenSensorInformationResult struct {
@@ -13854,7 +13852,7 @@ type EmulationGetOverriddenSensorInformationResult struct {
 
 EmulationGetOverriddenSensorInformationResult (experimental) ...
 
-## type EmulationMediaFeature 
+### type EmulationMediaFeature 
 
 ``` go
 type EmulationMediaFeature struct {
@@ -13868,7 +13866,7 @@ type EmulationMediaFeature struct {
 
 EmulationMediaFeature ...
 
-## type EmulationResetPageScaleFactor 
+### type EmulationResetPageScaleFactor 
 
 ``` go
 type EmulationResetPageScaleFactor struct{}
@@ -13876,7 +13874,7 @@ type EmulationResetPageScaleFactor struct{}
 
 EmulationResetPageScaleFactor (experimental) Requests that page scale factor is reset to initial values.
 
-### (EmulationResetPageScaleFactor) Call 
+#### (EmulationResetPageScaleFactor) Call 
 
 ``` go
 func (m EmulationResetPageScaleFactor) Call(c Client) error
@@ -13884,7 +13882,7 @@ func (m EmulationResetPageScaleFactor) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationResetPageScaleFactor) ProtoReq <- 0.74.0
+#### (EmulationResetPageScaleFactor) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationResetPageScaleFactor) ProtoReq() string
@@ -13892,7 +13890,7 @@ func (m EmulationResetPageScaleFactor) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationScreenOrientation 
+### type EmulationScreenOrientation 
 
 ``` go
 type EmulationScreenOrientation struct {
@@ -13906,7 +13904,7 @@ type EmulationScreenOrientation struct {
 
 EmulationScreenOrientation Screen orientation.
 
-## type EmulationScreenOrientationType 
+### type EmulationScreenOrientationType 
 
 ``` go
 type EmulationScreenOrientationType string
@@ -13930,7 +13928,7 @@ const (
 )
 ```
 
-## type EmulationSensorMetadata <- 0.115.0
+### type EmulationSensorMetadata <- 0.115.0
 
 ``` go
 type EmulationSensorMetadata struct {
@@ -13947,7 +13945,7 @@ type EmulationSensorMetadata struct {
 
 EmulationSensorMetadata (experimental) ...
 
-## type EmulationSensorReading <- 0.115.0
+### type EmulationSensorReading <- 0.115.0
 
 ``` go
 type EmulationSensorReading struct {
@@ -13964,7 +13962,7 @@ type EmulationSensorReading struct {
 
 EmulationSensorReading (experimental) ...
 
-## type EmulationSensorReadingQuaternion <- 0.115.0
+### type EmulationSensorReadingQuaternion <- 0.115.0
 
 ``` go
 type EmulationSensorReadingQuaternion struct {
@@ -13984,7 +13982,7 @@ type EmulationSensorReadingQuaternion struct {
 
 EmulationSensorReadingQuaternion (experimental) ...
 
-## type EmulationSensorReadingSingle <- 0.115.0
+### type EmulationSensorReadingSingle <- 0.115.0
 
 ``` go
 type EmulationSensorReadingSingle struct {
@@ -13995,7 +13993,7 @@ type EmulationSensorReadingSingle struct {
 
 EmulationSensorReadingSingle (experimental) ...
 
-## type EmulationSensorReadingXYZ <- 0.115.0
+### type EmulationSensorReadingXYZ <- 0.115.0
 
 ``` go
 type EmulationSensorReadingXYZ struct {
@@ -14012,7 +14010,7 @@ type EmulationSensorReadingXYZ struct {
 
 EmulationSensorReadingXYZ (experimental) ...
 
-## type EmulationSensorType <- 0.115.0
+### type EmulationSensorType <- 0.115.0
 
 ``` go
 type EmulationSensorType string
@@ -14051,7 +14049,7 @@ const (
 )
 ```
 
-## type EmulationSetAutoDarkModeOverride <- 0.102.0
+### type EmulationSetAutoDarkModeOverride <- 0.102.0
 
 ``` go
 type EmulationSetAutoDarkModeOverride struct {
@@ -14063,7 +14061,7 @@ type EmulationSetAutoDarkModeOverride struct {
 
 EmulationSetAutoDarkModeOverride (experimental) Automatically render all web contents using a dark theme.
 
-### (EmulationSetAutoDarkModeOverride) Call <- 0.102.0
+#### (EmulationSetAutoDarkModeOverride) Call <- 0.102.0
 
 ``` go
 func (m EmulationSetAutoDarkModeOverride) Call(c Client) error
@@ -14071,7 +14069,7 @@ func (m EmulationSetAutoDarkModeOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetAutoDarkModeOverride) ProtoReq <- 0.102.0
+#### (EmulationSetAutoDarkModeOverride) ProtoReq <- 0.102.0
 
 ``` go
 func (m EmulationSetAutoDarkModeOverride) ProtoReq() string
@@ -14079,7 +14077,7 @@ func (m EmulationSetAutoDarkModeOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetAutomationOverride <- 0.103.0
+### type EmulationSetAutomationOverride <- 0.103.0
 
 ``` go
 type EmulationSetAutomationOverride struct {
@@ -14090,7 +14088,7 @@ type EmulationSetAutomationOverride struct {
 
 EmulationSetAutomationOverride (experimental) Allows overriding the automation flag.
 
-### (EmulationSetAutomationOverride) Call <- 0.103.0
+#### (EmulationSetAutomationOverride) Call <- 0.103.0
 
 ``` go
 func (m EmulationSetAutomationOverride) Call(c Client) error
@@ -14098,7 +14096,7 @@ func (m EmulationSetAutomationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetAutomationOverride) ProtoReq <- 0.103.0
+#### (EmulationSetAutomationOverride) ProtoReq <- 0.103.0
 
 ``` go
 func (m EmulationSetAutomationOverride) ProtoReq() string
@@ -14106,7 +14104,7 @@ func (m EmulationSetAutomationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetCPUThrottlingRate 
+### type EmulationSetCPUThrottlingRate 
 
 ``` go
 type EmulationSetCPUThrottlingRate struct {
@@ -14117,7 +14115,7 @@ type EmulationSetCPUThrottlingRate struct {
 
 EmulationSetCPUThrottlingRate Enables CPU throttling to emulate slow CPUs.
 
-### (EmulationSetCPUThrottlingRate) Call 
+#### (EmulationSetCPUThrottlingRate) Call 
 
 ``` go
 func (m EmulationSetCPUThrottlingRate) Call(c Client) error
@@ -14125,7 +14123,7 @@ func (m EmulationSetCPUThrottlingRate) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetCPUThrottlingRate) ProtoReq <- 0.74.0
+#### (EmulationSetCPUThrottlingRate) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetCPUThrottlingRate) ProtoReq() string
@@ -14133,7 +14131,7 @@ func (m EmulationSetCPUThrottlingRate) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetDefaultBackgroundColorOverride 
+### type EmulationSetDefaultBackgroundColorOverride 
 
 ``` go
 type EmulationSetDefaultBackgroundColorOverride struct {
@@ -14145,7 +14143,7 @@ type EmulationSetDefaultBackgroundColorOverride struct {
 
 EmulationSetDefaultBackgroundColorOverride Sets or clears an override of the default background color of the frame. This override is used if the content does not specify one.
 
-### (EmulationSetDefaultBackgroundColorOverride) Call 
+#### (EmulationSetDefaultBackgroundColorOverride) Call 
 
 ``` go
 func (m EmulationSetDefaultBackgroundColorOverride) Call(c Client) error
@@ -14153,7 +14151,7 @@ func (m EmulationSetDefaultBackgroundColorOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetDefaultBackgroundColorOverride) ProtoReq <- 0.74.0
+#### (EmulationSetDefaultBackgroundColorOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetDefaultBackgroundColorOverride) ProtoReq() string
@@ -14161,7 +14159,7 @@ func (m EmulationSetDefaultBackgroundColorOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetDeviceMetricsOverride 
+### type EmulationSetDeviceMetricsOverride 
 
 ``` go
 type EmulationSetDeviceMetricsOverride struct {
@@ -14216,7 +14214,7 @@ type EmulationSetDeviceMetricsOverride struct {
 
 EmulationSetDeviceMetricsOverride Overrides the values of device screen dimensions (window.screen.width, window.screen.height, window.innerWidth, window.innerHeight, and "device-width"/"device-height"-related CSS media query results).
 
-### (EmulationSetDeviceMetricsOverride) Call 
+#### (EmulationSetDeviceMetricsOverride) Call 
 
 ``` go
 func (m EmulationSetDeviceMetricsOverride) Call(c Client) error
@@ -14224,7 +14222,7 @@ func (m EmulationSetDeviceMetricsOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetDeviceMetricsOverride) ProtoReq <- 0.74.0
+#### (EmulationSetDeviceMetricsOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetDeviceMetricsOverride) ProtoReq() string
@@ -14232,7 +14230,7 @@ func (m EmulationSetDeviceMetricsOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetDevicePostureOverride <- 0.116.0
+### type EmulationSetDevicePostureOverride <- 0.116.0
 
 ``` go
 type EmulationSetDevicePostureOverride struct {
@@ -14243,7 +14241,7 @@ type EmulationSetDevicePostureOverride struct {
 
 EmulationSetDevicePostureOverride (experimental) Start reporting the given posture value to the Device Posture API. This override can also be set in setDeviceMetricsOverride().
 
-### (EmulationSetDevicePostureOverride) Call <- 0.116.0
+#### (EmulationSetDevicePostureOverride) Call <- 0.116.0
 
 ``` go
 func (m EmulationSetDevicePostureOverride) Call(c Client) error
@@ -14251,7 +14249,7 @@ func (m EmulationSetDevicePostureOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetDevicePostureOverride) ProtoReq <- 0.116.0
+#### (EmulationSetDevicePostureOverride) ProtoReq <- 0.116.0
 
 ``` go
 func (m EmulationSetDevicePostureOverride) ProtoReq() string
@@ -14259,7 +14257,7 @@ func (m EmulationSetDevicePostureOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetDisabledImageTypes <- 0.90.0
+### type EmulationSetDisabledImageTypes <- 0.90.0
 
 ``` go
 type EmulationSetDisabledImageTypes struct {
@@ -14270,7 +14268,7 @@ type EmulationSetDisabledImageTypes struct {
 
 EmulationSetDisabledImageTypes (experimental) ...
 
-### (EmulationSetDisabledImageTypes) Call <- 0.90.0
+#### (EmulationSetDisabledImageTypes) Call <- 0.90.0
 
 ``` go
 func (m EmulationSetDisabledImageTypes) Call(c Client) error
@@ -14278,7 +14276,7 @@ func (m EmulationSetDisabledImageTypes) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetDisabledImageTypes) ProtoReq <- 0.90.0
+#### (EmulationSetDisabledImageTypes) ProtoReq <- 0.90.0
 
 ``` go
 func (m EmulationSetDisabledImageTypes) ProtoReq() string
@@ -14286,7 +14284,7 @@ func (m EmulationSetDisabledImageTypes) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetDocumentCookieDisabled 
+### type EmulationSetDocumentCookieDisabled 
 
 ``` go
 type EmulationSetDocumentCookieDisabled struct {
@@ -14297,7 +14295,7 @@ type EmulationSetDocumentCookieDisabled struct {
 
 EmulationSetDocumentCookieDisabled (experimental) ...
 
-### (EmulationSetDocumentCookieDisabled) Call 
+#### (EmulationSetDocumentCookieDisabled) Call 
 
 ``` go
 func (m EmulationSetDocumentCookieDisabled) Call(c Client) error
@@ -14305,7 +14303,7 @@ func (m EmulationSetDocumentCookieDisabled) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetDocumentCookieDisabled) ProtoReq <- 0.74.0
+#### (EmulationSetDocumentCookieDisabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetDocumentCookieDisabled) ProtoReq() string
@@ -14313,7 +14311,7 @@ func (m EmulationSetDocumentCookieDisabled) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetEmitTouchEventsForMouse 
+### type EmulationSetEmitTouchEventsForMouse 
 
 ``` go
 type EmulationSetEmitTouchEventsForMouse struct {
@@ -14327,7 +14325,7 @@ type EmulationSetEmitTouchEventsForMouse struct {
 
 EmulationSetEmitTouchEventsForMouse (experimental) ...
 
-### (EmulationSetEmitTouchEventsForMouse) Call 
+#### (EmulationSetEmitTouchEventsForMouse) Call 
 
 ``` go
 func (m EmulationSetEmitTouchEventsForMouse) Call(c Client) error
@@ -14335,7 +14333,7 @@ func (m EmulationSetEmitTouchEventsForMouse) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetEmitTouchEventsForMouse) ProtoReq <- 0.74.0
+#### (EmulationSetEmitTouchEventsForMouse) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetEmitTouchEventsForMouse) ProtoReq() string
@@ -14343,7 +14341,7 @@ func (m EmulationSetEmitTouchEventsForMouse) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetEmitTouchEventsForMouseConfiguration 
+### type EmulationSetEmitTouchEventsForMouseConfiguration 
 
 ``` go
 type EmulationSetEmitTouchEventsForMouseConfiguration string
@@ -14361,7 +14359,7 @@ const (
 )
 ```
 
-## type EmulationSetEmulatedMedia 
+### type EmulationSetEmulatedMedia 
 
 ``` go
 type EmulationSetEmulatedMedia struct {
@@ -14375,7 +14373,7 @@ type EmulationSetEmulatedMedia struct {
 
 EmulationSetEmulatedMedia Emulates the given media type or media feature for CSS media queries.
 
-### (EmulationSetEmulatedMedia) Call 
+#### (EmulationSetEmulatedMedia) Call 
 
 ``` go
 func (m EmulationSetEmulatedMedia) Call(c Client) error
@@ -14383,7 +14381,7 @@ func (m EmulationSetEmulatedMedia) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetEmulatedMedia) ProtoReq <- 0.74.0
+#### (EmulationSetEmulatedMedia) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetEmulatedMedia) ProtoReq() string
@@ -14391,7 +14389,7 @@ func (m EmulationSetEmulatedMedia) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetEmulatedVisionDeficiency 
+### type EmulationSetEmulatedVisionDeficiency 
 
 ``` go
 type EmulationSetEmulatedVisionDeficiency struct {
@@ -14403,7 +14401,7 @@ type EmulationSetEmulatedVisionDeficiency struct {
 
 EmulationSetEmulatedVisionDeficiency Emulates the given vision deficiency.
 
-### (EmulationSetEmulatedVisionDeficiency) Call 
+#### (EmulationSetEmulatedVisionDeficiency) Call 
 
 ``` go
 func (m EmulationSetEmulatedVisionDeficiency) Call(c Client) error
@@ -14411,7 +14409,7 @@ func (m EmulationSetEmulatedVisionDeficiency) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetEmulatedVisionDeficiency) ProtoReq <- 0.74.0
+#### (EmulationSetEmulatedVisionDeficiency) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetEmulatedVisionDeficiency) ProtoReq() string
@@ -14419,7 +14417,7 @@ func (m EmulationSetEmulatedVisionDeficiency) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetEmulatedVisionDeficiencyType 
+### type EmulationSetEmulatedVisionDeficiencyType 
 
 ``` go
 type EmulationSetEmulatedVisionDeficiencyType string
@@ -14452,7 +14450,7 @@ const (
 )
 ```
 
-## type EmulationSetFocusEmulationEnabled 
+### type EmulationSetFocusEmulationEnabled 
 
 ``` go
 type EmulationSetFocusEmulationEnabled struct {
@@ -14463,7 +14461,7 @@ type EmulationSetFocusEmulationEnabled struct {
 
 EmulationSetFocusEmulationEnabled (experimental) Enables or disables simulating a focused and active page.
 
-### (EmulationSetFocusEmulationEnabled) Call 
+#### (EmulationSetFocusEmulationEnabled) Call 
 
 ``` go
 func (m EmulationSetFocusEmulationEnabled) Call(c Client) error
@@ -14471,7 +14469,7 @@ func (m EmulationSetFocusEmulationEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetFocusEmulationEnabled) ProtoReq <- 0.74.0
+#### (EmulationSetFocusEmulationEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetFocusEmulationEnabled) ProtoReq() string
@@ -14479,7 +14477,7 @@ func (m EmulationSetFocusEmulationEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetGeolocationOverride 
+### type EmulationSetGeolocationOverride 
 
 ``` go
 type EmulationSetGeolocationOverride struct {
@@ -14496,7 +14494,7 @@ type EmulationSetGeolocationOverride struct {
 
 EmulationSetGeolocationOverride Overrides the Geolocation Position or Error. Omitting any of the parameters emulates position unavailable.
 
-### (EmulationSetGeolocationOverride) Call 
+#### (EmulationSetGeolocationOverride) Call 
 
 ``` go
 func (m EmulationSetGeolocationOverride) Call(c Client) error
@@ -14504,7 +14502,7 @@ func (m EmulationSetGeolocationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetGeolocationOverride) ProtoReq <- 0.74.0
+#### (EmulationSetGeolocationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetGeolocationOverride) ProtoReq() string
@@ -14512,7 +14510,7 @@ func (m EmulationSetGeolocationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetHardwareConcurrencyOverride <- 0.107.0
+### type EmulationSetHardwareConcurrencyOverride <- 0.107.0
 
 ``` go
 type EmulationSetHardwareConcurrencyOverride struct {
@@ -14523,7 +14521,7 @@ type EmulationSetHardwareConcurrencyOverride struct {
 
 EmulationSetHardwareConcurrencyOverride (experimental) ...
 
-### (EmulationSetHardwareConcurrencyOverride) Call <- 0.107.0
+#### (EmulationSetHardwareConcurrencyOverride) Call <- 0.107.0
 
 ``` go
 func (m EmulationSetHardwareConcurrencyOverride) Call(c Client) error
@@ -14531,7 +14529,7 @@ func (m EmulationSetHardwareConcurrencyOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetHardwareConcurrencyOverride) ProtoReq <- 0.107.0
+#### (EmulationSetHardwareConcurrencyOverride) ProtoReq <- 0.107.0
 
 ``` go
 func (m EmulationSetHardwareConcurrencyOverride) ProtoReq() string
@@ -14539,7 +14537,7 @@ func (m EmulationSetHardwareConcurrencyOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetIdleOverride <- 0.72.0
+### type EmulationSetIdleOverride <- 0.72.0
 
 ``` go
 type EmulationSetIdleOverride struct {
@@ -14553,7 +14551,7 @@ type EmulationSetIdleOverride struct {
 
 EmulationSetIdleOverride Overrides the Idle state.
 
-### (EmulationSetIdleOverride) Call <- 0.72.0
+#### (EmulationSetIdleOverride) Call <- 0.72.0
 
 ``` go
 func (m EmulationSetIdleOverride) Call(c Client) error
@@ -14561,7 +14559,7 @@ func (m EmulationSetIdleOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetIdleOverride) ProtoReq <- 0.74.0
+#### (EmulationSetIdleOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetIdleOverride) ProtoReq() string
@@ -14569,7 +14567,7 @@ func (m EmulationSetIdleOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetLocaleOverride 
+### type EmulationSetLocaleOverride 
 
 ``` go
 type EmulationSetLocaleOverride struct {
@@ -14581,7 +14579,7 @@ type EmulationSetLocaleOverride struct {
 
 EmulationSetLocaleOverride (experimental) Overrides default host system locale with the specified one.
 
-### (EmulationSetLocaleOverride) Call 
+#### (EmulationSetLocaleOverride) Call 
 
 ``` go
 func (m EmulationSetLocaleOverride) Call(c Client) error
@@ -14589,7 +14587,7 @@ func (m EmulationSetLocaleOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetLocaleOverride) ProtoReq <- 0.74.0
+#### (EmulationSetLocaleOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetLocaleOverride) ProtoReq() string
@@ -14597,7 +14595,7 @@ func (m EmulationSetLocaleOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetNavigatorOverrides 
+### type EmulationSetNavigatorOverrides 
 
 ``` go
 type EmulationSetNavigatorOverrides struct {
@@ -14608,7 +14606,7 @@ type EmulationSetNavigatorOverrides struct {
 
 EmulationSetNavigatorOverrides (deprecated) (experimental) Overrides value returned by the javascript navigator object.
 
-### (EmulationSetNavigatorOverrides) Call 
+#### (EmulationSetNavigatorOverrides) Call 
 
 ``` go
 func (m EmulationSetNavigatorOverrides) Call(c Client) error
@@ -14616,7 +14614,7 @@ func (m EmulationSetNavigatorOverrides) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetNavigatorOverrides) ProtoReq <- 0.74.0
+#### (EmulationSetNavigatorOverrides) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetNavigatorOverrides) ProtoReq() string
@@ -14624,7 +14622,7 @@ func (m EmulationSetNavigatorOverrides) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetPageScaleFactor 
+### type EmulationSetPageScaleFactor 
 
 ``` go
 type EmulationSetPageScaleFactor struct {
@@ -14635,7 +14633,7 @@ type EmulationSetPageScaleFactor struct {
 
 EmulationSetPageScaleFactor (experimental) Sets a specified page scale factor.
 
-### (EmulationSetPageScaleFactor) Call 
+#### (EmulationSetPageScaleFactor) Call 
 
 ``` go
 func (m EmulationSetPageScaleFactor) Call(c Client) error
@@ -14643,7 +14641,7 @@ func (m EmulationSetPageScaleFactor) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetPageScaleFactor) ProtoReq <- 0.74.0
+#### (EmulationSetPageScaleFactor) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetPageScaleFactor) ProtoReq() string
@@ -14651,7 +14649,7 @@ func (m EmulationSetPageScaleFactor) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetScriptExecutionDisabled 
+### type EmulationSetScriptExecutionDisabled 
 
 ``` go
 type EmulationSetScriptExecutionDisabled struct {
@@ -14662,7 +14660,7 @@ type EmulationSetScriptExecutionDisabled struct {
 
 EmulationSetScriptExecutionDisabled Switches script execution in the page.
 
-### (EmulationSetScriptExecutionDisabled) Call 
+#### (EmulationSetScriptExecutionDisabled) Call 
 
 ``` go
 func (m EmulationSetScriptExecutionDisabled) Call(c Client) error
@@ -14670,7 +14668,7 @@ func (m EmulationSetScriptExecutionDisabled) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetScriptExecutionDisabled) ProtoReq <- 0.74.0
+#### (EmulationSetScriptExecutionDisabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetScriptExecutionDisabled) ProtoReq() string
@@ -14678,7 +14676,7 @@ func (m EmulationSetScriptExecutionDisabled) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetScrollbarsHidden 
+### type EmulationSetScrollbarsHidden 
 
 ``` go
 type EmulationSetScrollbarsHidden struct {
@@ -14689,7 +14687,7 @@ type EmulationSetScrollbarsHidden struct {
 
 EmulationSetScrollbarsHidden (experimental) ...
 
-### (EmulationSetScrollbarsHidden) Call 
+#### (EmulationSetScrollbarsHidden) Call 
 
 ``` go
 func (m EmulationSetScrollbarsHidden) Call(c Client) error
@@ -14697,7 +14695,7 @@ func (m EmulationSetScrollbarsHidden) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetScrollbarsHidden) ProtoReq <- 0.74.0
+#### (EmulationSetScrollbarsHidden) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetScrollbarsHidden) ProtoReq() string
@@ -14705,7 +14703,7 @@ func (m EmulationSetScrollbarsHidden) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetSensorOverrideEnabled <- 0.115.0
+### type EmulationSetSensorOverrideEnabled <- 0.115.0
 
 ``` go
 type EmulationSetSensorOverrideEnabled struct {
@@ -14722,7 +14720,7 @@ type EmulationSetSensorOverrideEnabled struct {
 
 EmulationSetSensorOverrideEnabled (experimental) Overrides a platform sensor of a given type. If |enabled| is true, calls to Sensor.start() will use a virtual sensor as backend rather than fetching data from a real hardware sensor. Otherwise, existing virtual sensor-backend Sensor objects will fire an error event and new calls to Sensor.start() will attempt to use a real sensor instead.
 
-### (EmulationSetSensorOverrideEnabled) Call <- 0.115.0
+#### (EmulationSetSensorOverrideEnabled) Call <- 0.115.0
 
 ``` go
 func (m EmulationSetSensorOverrideEnabled) Call(c Client) error
@@ -14730,7 +14728,7 @@ func (m EmulationSetSensorOverrideEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetSensorOverrideEnabled) ProtoReq <- 0.115.0
+#### (EmulationSetSensorOverrideEnabled) ProtoReq <- 0.115.0
 
 ``` go
 func (m EmulationSetSensorOverrideEnabled) ProtoReq() string
@@ -14738,7 +14736,7 @@ func (m EmulationSetSensorOverrideEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetSensorOverrideReadings <- 0.115.0
+### type EmulationSetSensorOverrideReadings <- 0.115.0
 
 ``` go
 type EmulationSetSensorOverrideReadings struct {
@@ -14752,7 +14750,7 @@ type EmulationSetSensorOverrideReadings struct {
 
 EmulationSetSensorOverrideReadings (experimental) Updates the sensor readings reported by a sensor type previously overridden by setSensorOverrideEnabled.
 
-### (EmulationSetSensorOverrideReadings) Call <- 0.115.0
+#### (EmulationSetSensorOverrideReadings) Call <- 0.115.0
 
 ``` go
 func (m EmulationSetSensorOverrideReadings) Call(c Client) error
@@ -14760,7 +14758,7 @@ func (m EmulationSetSensorOverrideReadings) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetSensorOverrideReadings) ProtoReq <- 0.115.0
+#### (EmulationSetSensorOverrideReadings) ProtoReq <- 0.115.0
 
 ``` go
 func (m EmulationSetSensorOverrideReadings) ProtoReq() string
@@ -14768,7 +14766,7 @@ func (m EmulationSetSensorOverrideReadings) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetTimezoneOverride 
+### type EmulationSetTimezoneOverride 
 
 ``` go
 type EmulationSetTimezoneOverride struct {
@@ -14781,7 +14779,7 @@ type EmulationSetTimezoneOverride struct {
 
 EmulationSetTimezoneOverride Overrides default host system timezone with the specified one.
 
-### (EmulationSetTimezoneOverride) Call 
+#### (EmulationSetTimezoneOverride) Call 
 
 ``` go
 func (m EmulationSetTimezoneOverride) Call(c Client) error
@@ -14789,7 +14787,7 @@ func (m EmulationSetTimezoneOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetTimezoneOverride) ProtoReq <- 0.74.0
+#### (EmulationSetTimezoneOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetTimezoneOverride) ProtoReq() string
@@ -14797,7 +14795,7 @@ func (m EmulationSetTimezoneOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetTouchEmulationEnabled 
+### type EmulationSetTouchEmulationEnabled 
 
 ``` go
 type EmulationSetTouchEmulationEnabled struct {
@@ -14811,7 +14809,7 @@ type EmulationSetTouchEmulationEnabled struct {
 
 EmulationSetTouchEmulationEnabled Enables touch on platforms which do not support them.
 
-### (EmulationSetTouchEmulationEnabled) Call 
+#### (EmulationSetTouchEmulationEnabled) Call 
 
 ``` go
 func (m EmulationSetTouchEmulationEnabled) Call(c Client) error
@@ -14819,7 +14817,7 @@ func (m EmulationSetTouchEmulationEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetTouchEmulationEnabled) ProtoReq <- 0.74.0
+#### (EmulationSetTouchEmulationEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetTouchEmulationEnabled) ProtoReq() string
@@ -14827,7 +14825,7 @@ func (m EmulationSetTouchEmulationEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetUserAgentOverride 
+### type EmulationSetUserAgentOverride 
 
 ``` go
 type EmulationSetUserAgentOverride struct {
@@ -14847,7 +14845,7 @@ type EmulationSetUserAgentOverride struct {
 
 EmulationSetUserAgentOverride Allows overriding user agent with the given string. `userAgentMetadata` must be set for Client Hint headers to be sent.
 
-### (EmulationSetUserAgentOverride) Call 
+#### (EmulationSetUserAgentOverride) Call 
 
 ``` go
 func (m EmulationSetUserAgentOverride) Call(c Client) error
@@ -14855,7 +14853,7 @@ func (m EmulationSetUserAgentOverride) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetUserAgentOverride) ProtoReq <- 0.74.0
+#### (EmulationSetUserAgentOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetUserAgentOverride) ProtoReq() string
@@ -14863,7 +14861,7 @@ func (m EmulationSetUserAgentOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetVirtualTimePolicy 
+### type EmulationSetVirtualTimePolicy 
 
 ``` go
 type EmulationSetVirtualTimePolicy struct {
@@ -14885,7 +14883,7 @@ type EmulationSetVirtualTimePolicy struct {
 
 EmulationSetVirtualTimePolicy (experimental) Turns on virtual time for all frames (replacing real-time with a synthetic time source) and sets the current virtual time policy. Note this supersedes any previous time budget.
 
-### (EmulationSetVirtualTimePolicy) Call 
+#### (EmulationSetVirtualTimePolicy) Call 
 
 ``` go
 func (m EmulationSetVirtualTimePolicy) Call(c Client) (*EmulationSetVirtualTimePolicyResult, error)
@@ -14893,7 +14891,7 @@ func (m EmulationSetVirtualTimePolicy) Call(c Client) (*EmulationSetVirtualTimeP
 
 Call the request.
 
-### (EmulationSetVirtualTimePolicy) ProtoReq <- 0.74.0
+#### (EmulationSetVirtualTimePolicy) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetVirtualTimePolicy) ProtoReq() string
@@ -14901,7 +14899,7 @@ func (m EmulationSetVirtualTimePolicy) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationSetVirtualTimePolicyResult 
+### type EmulationSetVirtualTimePolicyResult 
 
 ``` go
 type EmulationSetVirtualTimePolicyResult struct {
@@ -14912,7 +14910,7 @@ type EmulationSetVirtualTimePolicyResult struct {
 
 EmulationSetVirtualTimePolicyResult (experimental) ...
 
-## type EmulationSetVisibleSize 
+### type EmulationSetVisibleSize 
 
 ``` go
 type EmulationSetVisibleSize struct {
@@ -14926,7 +14924,7 @@ type EmulationSetVisibleSize struct {
 
 EmulationSetVisibleSize (deprecated) (experimental) Resizes the frame/viewport of the page. Note that this does not affect the frame's container (e.g. browser window). Can be used to produce screenshots of the specified size. Not supported on Android.
 
-### (EmulationSetVisibleSize) Call 
+#### (EmulationSetVisibleSize) Call 
 
 ``` go
 func (m EmulationSetVisibleSize) Call(c Client) error
@@ -14934,7 +14932,7 @@ func (m EmulationSetVisibleSize) Call(c Client) error
 
 Call sends the request.
 
-### (EmulationSetVisibleSize) ProtoReq <- 0.74.0
+#### (EmulationSetVisibleSize) ProtoReq <- 0.74.0
 
 ``` go
 func (m EmulationSetVisibleSize) ProtoReq() string
@@ -14942,7 +14940,7 @@ func (m EmulationSetVisibleSize) ProtoReq() string
 
 ProtoReq name.
 
-## type EmulationUserAgentBrandVersion <- 0.48.0
+### type EmulationUserAgentBrandVersion <- 0.48.0
 
 ``` go
 type EmulationUserAgentBrandVersion struct {
@@ -14956,7 +14954,7 @@ type EmulationUserAgentBrandVersion struct {
 
 EmulationUserAgentBrandVersion (experimental) Used to specify User Agent Client Hints to emulate. See https://wicg.github.io/ua-client-hints
 
-## type EmulationUserAgentMetadata <- 0.48.0
+### type EmulationUserAgentMetadata <- 0.48.0
 
 ``` go
 type EmulationUserAgentMetadata struct {
@@ -14994,7 +14992,7 @@ type EmulationUserAgentMetadata struct {
 
 EmulationUserAgentMetadata (experimental) Used to specify User Agent Client Hints to emulate. See https://wicg.github.io/ua-client-hints Missing optional values will be filled in by the target with what it would normally use.
 
-## type EmulationVirtualTimeBudgetExpired 
+### type EmulationVirtualTimeBudgetExpired 
 
 ``` go
 type EmulationVirtualTimeBudgetExpired struct{}
@@ -15002,7 +15000,7 @@ type EmulationVirtualTimeBudgetExpired struct{}
 
 EmulationVirtualTimeBudgetExpired (experimental) Notification sent after the virtual time budget for the current VirtualTimePolicy has run out.
 
-### (EmulationVirtualTimeBudgetExpired) ProtoEvent <- 0.72.0
+#### (EmulationVirtualTimeBudgetExpired) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt EmulationVirtualTimeBudgetExpired) ProtoEvent() string
@@ -15010,7 +15008,7 @@ func (evt EmulationVirtualTimeBudgetExpired) ProtoEvent() string
 
 ProtoEvent name.
 
-## type EmulationVirtualTimePolicy 
+### type EmulationVirtualTimePolicy 
 
 ``` go
 type EmulationVirtualTimePolicy string
@@ -15031,7 +15029,7 @@ const (
 )
 ```
 
-## type Event <- 0.72.0
+### type Event <- 0.72.0
 
 ``` go
 type Event interface {
@@ -15042,7 +15040,7 @@ type Event interface {
 
 Event represents a cdp.Event.Params.
 
-## type EventBreakpointsDisable <- 0.115.0
+### type EventBreakpointsDisable <- 0.115.0
 
 ``` go
 type EventBreakpointsDisable struct{}
@@ -15050,7 +15048,7 @@ type EventBreakpointsDisable struct{}
 
 EventBreakpointsDisable Removes all breakpoints.
 
-### (EventBreakpointsDisable) Call <- 0.115.0
+#### (EventBreakpointsDisable) Call <- 0.115.0
 
 ``` go
 func (m EventBreakpointsDisable) Call(c Client) error
@@ -15058,7 +15056,7 @@ func (m EventBreakpointsDisable) Call(c Client) error
 
 Call sends the request.
 
-### (EventBreakpointsDisable) ProtoReq <- 0.115.0
+#### (EventBreakpointsDisable) ProtoReq <- 0.115.0
 
 ``` go
 func (m EventBreakpointsDisable) ProtoReq() string
@@ -15066,7 +15064,7 @@ func (m EventBreakpointsDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type EventBreakpointsRemoveInstrumentationBreakpoint <- 0.102.0
+### type EventBreakpointsRemoveInstrumentationBreakpoint <- 0.102.0
 
 ``` go
 type EventBreakpointsRemoveInstrumentationBreakpoint struct {
@@ -15077,7 +15075,7 @@ type EventBreakpointsRemoveInstrumentationBreakpoint struct {
 
 EventBreakpointsRemoveInstrumentationBreakpoint Removes breakpoint on particular native event.
 
-### (EventBreakpointsRemoveInstrumentationBreakpoint) Call <- 0.102.0
+#### (EventBreakpointsRemoveInstrumentationBreakpoint) Call <- 0.102.0
 
 ``` go
 func (m EventBreakpointsRemoveInstrumentationBreakpoint) Call(c Client) error
@@ -15085,7 +15083,7 @@ func (m EventBreakpointsRemoveInstrumentationBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (EventBreakpointsRemoveInstrumentationBreakpoint) ProtoReq <- 0.102.0
+#### (EventBreakpointsRemoveInstrumentationBreakpoint) ProtoReq <- 0.102.0
 
 ``` go
 func (m EventBreakpointsRemoveInstrumentationBreakpoint) ProtoReq() string
@@ -15093,7 +15091,7 @@ func (m EventBreakpointsRemoveInstrumentationBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type EventBreakpointsSetInstrumentationBreakpoint <- 0.102.0
+### type EventBreakpointsSetInstrumentationBreakpoint <- 0.102.0
 
 ``` go
 type EventBreakpointsSetInstrumentationBreakpoint struct {
@@ -15104,7 +15102,7 @@ type EventBreakpointsSetInstrumentationBreakpoint struct {
 
 EventBreakpointsSetInstrumentationBreakpoint Sets breakpoint on particular native event.
 
-### (EventBreakpointsSetInstrumentationBreakpoint) Call <- 0.102.0
+#### (EventBreakpointsSetInstrumentationBreakpoint) Call <- 0.102.0
 
 ``` go
 func (m EventBreakpointsSetInstrumentationBreakpoint) Call(c Client) error
@@ -15112,7 +15110,7 @@ func (m EventBreakpointsSetInstrumentationBreakpoint) Call(c Client) error
 
 Call sends the request.
 
-### (EventBreakpointsSetInstrumentationBreakpoint) ProtoReq <- 0.102.0
+#### (EventBreakpointsSetInstrumentationBreakpoint) ProtoReq <- 0.102.0
 
 ``` go
 func (m EventBreakpointsSetInstrumentationBreakpoint) ProtoReq() string
@@ -15120,7 +15118,7 @@ func (m EventBreakpointsSetInstrumentationBreakpoint) ProtoReq() string
 
 ProtoReq name.
 
-## type ExtensionsLoadUnpacked <- 0.116.0
+### type ExtensionsLoadUnpacked <- 0.116.0
 
 ``` go
 type ExtensionsLoadUnpacked struct {
@@ -15131,7 +15129,7 @@ type ExtensionsLoadUnpacked struct {
 
 ExtensionsLoadUnpacked Installs an unpacked extension from the filesystem similar to --load-extension CLI flags. Returns extension ID once the extension has been installed.
 
-### (ExtensionsLoadUnpacked) Call <- 0.116.0
+#### (ExtensionsLoadUnpacked) Call <- 0.116.0
 
 ``` go
 func (m ExtensionsLoadUnpacked) Call(c Client) (*ExtensionsLoadUnpackedResult, error)
@@ -15139,7 +15137,7 @@ func (m ExtensionsLoadUnpacked) Call(c Client) (*ExtensionsLoadUnpackedResult, e
 
 Call the request.
 
-### (ExtensionsLoadUnpacked) ProtoReq <- 0.116.0
+#### (ExtensionsLoadUnpacked) ProtoReq <- 0.116.0
 
 ``` go
 func (m ExtensionsLoadUnpacked) ProtoReq() string
@@ -15147,7 +15145,7 @@ func (m ExtensionsLoadUnpacked) ProtoReq() string
 
 ProtoReq name.
 
-## type ExtensionsLoadUnpackedResult <- 0.116.0
+### type ExtensionsLoadUnpackedResult <- 0.116.0
 
 ``` go
 type ExtensionsLoadUnpackedResult struct {
@@ -15158,7 +15156,7 @@ type ExtensionsLoadUnpackedResult struct {
 
 ExtensionsLoadUnpackedResult ...
 
-## type FedCmAccount <- 0.112.9
+### type FedCmAccount <- 0.112.9
 
 ``` go
 type FedCmAccount struct {
@@ -15196,7 +15194,7 @@ type FedCmAccount struct {
 
 FedCmAccount Corresponds to IdentityRequestAccount.
 
-## type FedCmAccountURLType <- 0.115.0
+### type FedCmAccountURLType <- 0.115.0
 
 ``` go
 type FedCmAccountURLType string
@@ -15214,7 +15212,7 @@ const (
 )
 ```
 
-## type FedCmClickDialogButton <- 0.115.0
+### type FedCmClickDialogButton <- 0.115.0
 
 ``` go
 type FedCmClickDialogButton struct {
@@ -15228,7 +15226,7 @@ type FedCmClickDialogButton struct {
 
 FedCmClickDialogButton ...
 
-### (FedCmClickDialogButton) Call <- 0.115.0
+#### (FedCmClickDialogButton) Call <- 0.115.0
 
 ``` go
 func (m FedCmClickDialogButton) Call(c Client) error
@@ -15236,7 +15234,7 @@ func (m FedCmClickDialogButton) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmClickDialogButton) ProtoReq <- 0.115.0
+#### (FedCmClickDialogButton) ProtoReq <- 0.115.0
 
 ``` go
 func (m FedCmClickDialogButton) ProtoReq() string
@@ -15244,7 +15242,7 @@ func (m FedCmClickDialogButton) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmDialogButton <- 0.115.0
+### type FedCmDialogButton <- 0.115.0
 
 ``` go
 type FedCmDialogButton string
@@ -15265,7 +15263,7 @@ const (
 )
 ```
 
-## type FedCmDialogClosed <- 0.115.0
+### type FedCmDialogClosed <- 0.115.0
 
 ``` go
 type FedCmDialogClosed struct {
@@ -15276,7 +15274,7 @@ type FedCmDialogClosed struct {
 
 FedCmDialogClosed Triggered when a dialog is closed, either by user action, JS abort, or a command below.
 
-### (FedCmDialogClosed) ProtoEvent <- 0.115.0
+#### (FedCmDialogClosed) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt FedCmDialogClosed) ProtoEvent() string
@@ -15284,7 +15282,7 @@ func (evt FedCmDialogClosed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type FedCmDialogShown <- 0.112.9
+### type FedCmDialogShown <- 0.112.9
 
 ``` go
 type FedCmDialogShown struct {
@@ -15308,7 +15306,7 @@ type FedCmDialogShown struct {
 
 FedCmDialogShown ...
 
-### (FedCmDialogShown) ProtoEvent <- 0.112.9
+#### (FedCmDialogShown) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt FedCmDialogShown) ProtoEvent() string
@@ -15316,7 +15314,7 @@ func (evt FedCmDialogShown) ProtoEvent() string
 
 ProtoEvent name.
 
-## type FedCmDialogType <- 0.115.0
+### type FedCmDialogType <- 0.115.0
 
 ``` go
 type FedCmDialogType string
@@ -15340,7 +15338,7 @@ const (
 )
 ```
 
-## type FedCmDisable <- 0.112.9
+### type FedCmDisable <- 0.112.9
 
 ``` go
 type FedCmDisable struct{}
@@ -15348,7 +15346,7 @@ type FedCmDisable struct{}
 
 FedCmDisable ...
 
-### (FedCmDisable) Call <- 0.112.9
+#### (FedCmDisable) Call <- 0.112.9
 
 ``` go
 func (m FedCmDisable) Call(c Client) error
@@ -15356,7 +15354,7 @@ func (m FedCmDisable) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmDisable) ProtoReq <- 0.112.9
+#### (FedCmDisable) ProtoReq <- 0.112.9
 
 ``` go
 func (m FedCmDisable) ProtoReq() string
@@ -15364,7 +15362,7 @@ func (m FedCmDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmDismissDialog <- 0.112.9
+### type FedCmDismissDialog <- 0.112.9
 
 ``` go
 type FedCmDismissDialog struct {
@@ -15378,7 +15376,7 @@ type FedCmDismissDialog struct {
 
 FedCmDismissDialog ...
 
-### (FedCmDismissDialog) Call <- 0.112.9
+#### (FedCmDismissDialog) Call <- 0.112.9
 
 ``` go
 func (m FedCmDismissDialog) Call(c Client) error
@@ -15386,7 +15384,7 @@ func (m FedCmDismissDialog) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmDismissDialog) ProtoReq <- 0.112.9
+#### (FedCmDismissDialog) ProtoReq <- 0.112.9
 
 ``` go
 func (m FedCmDismissDialog) ProtoReq() string
@@ -15394,7 +15392,7 @@ func (m FedCmDismissDialog) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmEnable <- 0.112.9
+### type FedCmEnable <- 0.112.9
 
 ``` go
 type FedCmEnable struct {
@@ -15407,7 +15405,7 @@ type FedCmEnable struct {
 
 FedCmEnable ...
 
-### (FedCmEnable) Call <- 0.112.9
+#### (FedCmEnable) Call <- 0.112.9
 
 ``` go
 func (m FedCmEnable) Call(c Client) error
@@ -15415,7 +15413,7 @@ func (m FedCmEnable) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmEnable) ProtoReq <- 0.112.9
+#### (FedCmEnable) ProtoReq <- 0.112.9
 
 ``` go
 func (m FedCmEnable) ProtoReq() string
@@ -15423,7 +15421,7 @@ func (m FedCmEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmLoginState <- 0.112.9
+### type FedCmLoginState <- 0.112.9
 
 ``` go
 type FedCmLoginState string
@@ -15441,7 +15439,7 @@ const (
 )
 ```
 
-## type FedCmOpenURL <- 0.115.0
+### type FedCmOpenURL <- 0.115.0
 
 ``` go
 type FedCmOpenURL struct {
@@ -15458,7 +15456,7 @@ type FedCmOpenURL struct {
 
 FedCmOpenURL ...
 
-### (FedCmOpenURL) Call <- 0.115.0
+#### (FedCmOpenURL) Call <- 0.115.0
 
 ``` go
 func (m FedCmOpenURL) Call(c Client) error
@@ -15466,7 +15464,7 @@ func (m FedCmOpenURL) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmOpenURL) ProtoReq <- 0.115.0
+#### (FedCmOpenURL) ProtoReq <- 0.115.0
 
 ``` go
 func (m FedCmOpenURL) ProtoReq() string
@@ -15474,7 +15472,7 @@ func (m FedCmOpenURL) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmResetCooldown <- 0.112.9
+### type FedCmResetCooldown <- 0.112.9
 
 ``` go
 type FedCmResetCooldown struct{}
@@ -15482,7 +15480,7 @@ type FedCmResetCooldown struct{}
 
 FedCmResetCooldown Resets the cooldown time, if any, to allow the next FedCM call to show a dialog even if one was recently dismissed by the user.
 
-### (FedCmResetCooldown) Call <- 0.112.9
+#### (FedCmResetCooldown) Call <- 0.112.9
 
 ``` go
 func (m FedCmResetCooldown) Call(c Client) error
@@ -15490,7 +15488,7 @@ func (m FedCmResetCooldown) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmResetCooldown) ProtoReq <- 0.112.9
+#### (FedCmResetCooldown) ProtoReq <- 0.112.9
 
 ``` go
 func (m FedCmResetCooldown) ProtoReq() string
@@ -15498,7 +15496,7 @@ func (m FedCmResetCooldown) ProtoReq() string
 
 ProtoReq name.
 
-## type FedCmSelectAccount <- 0.112.9
+### type FedCmSelectAccount <- 0.112.9
 
 ``` go
 type FedCmSelectAccount struct {
@@ -15512,7 +15510,7 @@ type FedCmSelectAccount struct {
 
 FedCmSelectAccount ...
 
-### (FedCmSelectAccount) Call <- 0.112.9
+#### (FedCmSelectAccount) Call <- 0.112.9
 
 ``` go
 func (m FedCmSelectAccount) Call(c Client) error
@@ -15520,7 +15518,7 @@ func (m FedCmSelectAccount) Call(c Client) error
 
 Call sends the request.
 
-### (FedCmSelectAccount) ProtoReq <- 0.112.9
+#### (FedCmSelectAccount) ProtoReq <- 0.112.9
 
 ``` go
 func (m FedCmSelectAccount) ProtoReq() string
@@ -15528,7 +15526,7 @@ func (m FedCmSelectAccount) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchAuthChallenge 
+### type FetchAuthChallenge 
 
 ``` go
 type FetchAuthChallenge struct {
@@ -15548,7 +15546,7 @@ type FetchAuthChallenge struct {
 
 FetchAuthChallenge Authorization challenge for HTTP status code 401 or 407.
 
-## type FetchAuthChallengeResponse 
+### type FetchAuthChallengeResponse 
 
 ``` go
 type FetchAuthChallengeResponse struct {
@@ -15569,7 +15567,7 @@ type FetchAuthChallengeResponse struct {
 
 FetchAuthChallengeResponse Response to an AuthChallenge.
 
-## type FetchAuthChallengeResponseResponse 
+### type FetchAuthChallengeResponseResponse 
 
 ``` go
 type FetchAuthChallengeResponseResponse string
@@ -15590,7 +15588,7 @@ const (
 )
 ```
 
-## type FetchAuthChallengeSource 
+### type FetchAuthChallengeSource 
 
 ``` go
 type FetchAuthChallengeSource string
@@ -15608,7 +15606,7 @@ const (
 )
 ```
 
-## type FetchAuthRequired 
+### type FetchAuthRequired 
 
 ``` go
 type FetchAuthRequired struct {
@@ -15633,7 +15631,7 @@ type FetchAuthRequired struct {
 
 FetchAuthRequired Issued when the domain is enabled with handleAuthRequests set to true. The request is paused until client responds with continueWithAuth.
 
-### (FetchAuthRequired) ProtoEvent <- 0.72.0
+#### (FetchAuthRequired) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt FetchAuthRequired) ProtoEvent() string
@@ -15641,7 +15639,7 @@ func (evt FetchAuthRequired) ProtoEvent() string
 
 ProtoEvent name.
 
-## type FetchContinueRequest 
+### type FetchContinueRequest 
 
 ``` go
 type FetchContinueRequest struct {
@@ -15669,7 +15667,7 @@ type FetchContinueRequest struct {
 
 FetchContinueRequest Continues the request, optionally modifying some of its parameters.
 
-### (FetchContinueRequest) Call 
+#### (FetchContinueRequest) Call 
 
 ``` go
 func (m FetchContinueRequest) Call(c Client) error
@@ -15677,7 +15675,7 @@ func (m FetchContinueRequest) Call(c Client) error
 
 Call sends the request.
 
-### (FetchContinueRequest) ProtoReq <- 0.74.0
+#### (FetchContinueRequest) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchContinueRequest) ProtoReq() string
@@ -15685,7 +15683,7 @@ func (m FetchContinueRequest) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchContinueResponse <- 0.102.0
+### type FetchContinueResponse <- 0.102.0
 
 ``` go
 type FetchContinueResponse struct {
@@ -15712,7 +15710,7 @@ type FetchContinueResponse struct {
 
 FetchContinueResponse (experimental) Continues loading of the paused response, optionally modifying the response headers. If either responseCode or headers are modified, all of them must be present.
 
-### (FetchContinueResponse) Call <- 0.102.0
+#### (FetchContinueResponse) Call <- 0.102.0
 
 ``` go
 func (m FetchContinueResponse) Call(c Client) error
@@ -15720,7 +15718,7 @@ func (m FetchContinueResponse) Call(c Client) error
 
 Call sends the request.
 
-### (FetchContinueResponse) ProtoReq <- 0.102.0
+#### (FetchContinueResponse) ProtoReq <- 0.102.0
 
 ``` go
 func (m FetchContinueResponse) ProtoReq() string
@@ -15728,7 +15726,7 @@ func (m FetchContinueResponse) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchContinueWithAuth 
+### type FetchContinueWithAuth 
 
 ``` go
 type FetchContinueWithAuth struct {
@@ -15742,7 +15740,7 @@ type FetchContinueWithAuth struct {
 
 FetchContinueWithAuth Continues a request supplying authChallengeResponse following authRequired event.
 
-### (FetchContinueWithAuth) Call 
+#### (FetchContinueWithAuth) Call 
 
 ``` go
 func (m FetchContinueWithAuth) Call(c Client) error
@@ -15750,7 +15748,7 @@ func (m FetchContinueWithAuth) Call(c Client) error
 
 Call sends the request.
 
-### (FetchContinueWithAuth) ProtoReq <- 0.74.0
+#### (FetchContinueWithAuth) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchContinueWithAuth) ProtoReq() string
@@ -15758,7 +15756,7 @@ func (m FetchContinueWithAuth) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchDisable 
+### type FetchDisable 
 
 ``` go
 type FetchDisable struct{}
@@ -15766,7 +15764,7 @@ type FetchDisable struct{}
 
 FetchDisable Disables the fetch domain.
 
-### (FetchDisable) Call 
+#### (FetchDisable) Call 
 
 ``` go
 func (m FetchDisable) Call(c Client) error
@@ -15774,7 +15772,7 @@ func (m FetchDisable) Call(c Client) error
 
 Call sends the request.
 
-### (FetchDisable) ProtoReq <- 0.74.0
+#### (FetchDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchDisable) ProtoReq() string
@@ -15782,7 +15780,7 @@ func (m FetchDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchEnable 
+### type FetchEnable 
 
 ``` go
 type FetchEnable struct {
@@ -15799,7 +15797,7 @@ type FetchEnable struct {
 
 FetchEnable Enables issuing of requestPaused events. A request will be paused until client calls one of failRequest, fulfillRequest or continueRequest/continueWithAuth.
 
-### (FetchEnable) Call 
+#### (FetchEnable) Call 
 
 ``` go
 func (m FetchEnable) Call(c Client) error
@@ -15807,7 +15805,7 @@ func (m FetchEnable) Call(c Client) error
 
 Call sends the request.
 
-### (FetchEnable) ProtoReq <- 0.74.0
+#### (FetchEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchEnable) ProtoReq() string
@@ -15815,7 +15813,7 @@ func (m FetchEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchFailRequest 
+### type FetchFailRequest 
 
 ``` go
 type FetchFailRequest struct {
@@ -15829,7 +15827,7 @@ type FetchFailRequest struct {
 
 FetchFailRequest Causes the request to fail with specified reason.
 
-### (FetchFailRequest) Call 
+#### (FetchFailRequest) Call 
 
 ``` go
 func (m FetchFailRequest) Call(c Client) error
@@ -15837,7 +15835,7 @@ func (m FetchFailRequest) Call(c Client) error
 
 Call sends the request.
 
-### (FetchFailRequest) ProtoReq <- 0.74.0
+#### (FetchFailRequest) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchFailRequest) ProtoReq() string
@@ -15845,7 +15843,7 @@ func (m FetchFailRequest) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchFulfillRequest 
+### type FetchFulfillRequest 
 
 ``` go
 type FetchFulfillRequest struct {
@@ -15877,7 +15875,7 @@ type FetchFulfillRequest struct {
 
 FetchFulfillRequest Provides response to the request.
 
-### (FetchFulfillRequest) Call 
+#### (FetchFulfillRequest) Call 
 
 ``` go
 func (m FetchFulfillRequest) Call(c Client) error
@@ -15885,7 +15883,7 @@ func (m FetchFulfillRequest) Call(c Client) error
 
 Call sends the request.
 
-### (FetchFulfillRequest) ProtoReq <- 0.74.0
+#### (FetchFulfillRequest) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchFulfillRequest) ProtoReq() string
@@ -15893,7 +15891,7 @@ func (m FetchFulfillRequest) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchGetResponseBody 
+### type FetchGetResponseBody 
 
 ``` go
 type FetchGetResponseBody struct {
@@ -15904,7 +15902,7 @@ type FetchGetResponseBody struct {
 
 FetchGetResponseBody Causes the body of the response to be received from the server and returned as a single string. May only be issued for a request that is paused in the Response stage and is mutually exclusive with takeResponseBodyForInterceptionAsStream. Calling other methods that affect the request or disabling fetch domain before body is received results in an undefined behavior. Note that the response body is not available for redirects. Requests paused in the _redirect received_ state may be differentiated by `responseCode` and presence of `location` response header, see comments to `requestPaused` for details.
 
-### (FetchGetResponseBody) Call 
+#### (FetchGetResponseBody) Call 
 
 ``` go
 func (m FetchGetResponseBody) Call(c Client) (*FetchGetResponseBodyResult, error)
@@ -15912,7 +15910,7 @@ func (m FetchGetResponseBody) Call(c Client) (*FetchGetResponseBodyResult, error
 
 Call the request.
 
-### (FetchGetResponseBody) ProtoReq <- 0.74.0
+#### (FetchGetResponseBody) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchGetResponseBody) ProtoReq() string
@@ -15920,7 +15918,7 @@ func (m FetchGetResponseBody) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchGetResponseBodyResult 
+### type FetchGetResponseBodyResult 
 
 ``` go
 type FetchGetResponseBodyResult struct {
@@ -15934,7 +15932,7 @@ type FetchGetResponseBodyResult struct {
 
 FetchGetResponseBodyResult ...
 
-## type FetchHeaderEntry 
+### type FetchHeaderEntry 
 
 ``` go
 type FetchHeaderEntry struct {
@@ -15948,7 +15946,7 @@ type FetchHeaderEntry struct {
 
 FetchHeaderEntry Response HTTP header entry.
 
-## type FetchRequestID 
+### type FetchRequestID 
 
 ``` go
 type FetchRequestID string
@@ -15956,7 +15954,7 @@ type FetchRequestID string
 
 FetchRequestID Unique request identifier.
 
-## type FetchRequestPattern 
+### type FetchRequestPattern 
 
 ``` go
 type FetchRequestPattern struct {
@@ -15974,7 +15972,7 @@ type FetchRequestPattern struct {
 
 FetchRequestPattern ...
 
-## type FetchRequestPaused 
+### type FetchRequestPaused 
 
 ``` go
 type FetchRequestPaused struct {
@@ -16014,7 +16012,7 @@ type FetchRequestPaused struct {
 
 FetchRequestPaused Issued when the domain is enabled and the request URL matches the specified filter. The request is paused until the client responds with one of continueRequest, failRequest or fulfillRequest. The stage of the request can be determined by presence of responseErrorReason and responseStatusCode -- the request is at the response stage if either of these fields is present and in the request stage otherwise. Redirect responses and subsequent requests are reported similarly to regular responses and requests. Redirect responses may be distinguished by the value of `responseStatusCode` (which is one of 301, 302, 303, 307, 308) along with presence of the `location` header. Requests resulting from a redirect will have `redirectedRequestId` field set.
 
-### (FetchRequestPaused) ProtoEvent <- 0.72.0
+#### (FetchRequestPaused) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt FetchRequestPaused) ProtoEvent() string
@@ -16022,7 +16020,7 @@ func (evt FetchRequestPaused) ProtoEvent() string
 
 ProtoEvent name.
 
-## type FetchRequestStage 
+### type FetchRequestStage 
 
 ``` go
 type FetchRequestStage string
@@ -16040,7 +16038,7 @@ const (
 )
 ```
 
-## type FetchTakeResponseBodyAsStream 
+### type FetchTakeResponseBodyAsStream 
 
 ``` go
 type FetchTakeResponseBodyAsStream struct {
@@ -16051,7 +16049,7 @@ type FetchTakeResponseBodyAsStream struct {
 
 FetchTakeResponseBodyAsStream Returns a handle to the stream representing the response body. The request must be paused in the HeadersReceived stage. Note that after this command the request can't be continued as is -- client either needs to cancel it or to provide the response body. The stream only supports sequential read, IO.read will fail if the position is specified. This method is mutually exclusive with getResponseBody. Calling other methods that affect the request or disabling fetch domain before body is received results in an undefined behavior.
 
-### (FetchTakeResponseBodyAsStream) Call 
+#### (FetchTakeResponseBodyAsStream) Call 
 
 ``` go
 func (m FetchTakeResponseBodyAsStream) Call(c Client) (*FetchTakeResponseBodyAsStreamResult, error)
@@ -16059,7 +16057,7 @@ func (m FetchTakeResponseBodyAsStream) Call(c Client) (*FetchTakeResponseBodyAsS
 
 Call the request.
 
-### (FetchTakeResponseBodyAsStream) ProtoReq <- 0.74.0
+#### (FetchTakeResponseBodyAsStream) ProtoReq <- 0.74.0
 
 ``` go
 func (m FetchTakeResponseBodyAsStream) ProtoReq() string
@@ -16067,7 +16065,7 @@ func (m FetchTakeResponseBodyAsStream) ProtoReq() string
 
 ProtoReq name.
 
-## type FetchTakeResponseBodyAsStreamResult 
+### type FetchTakeResponseBodyAsStreamResult 
 
 ``` go
 type FetchTakeResponseBodyAsStreamResult struct {
@@ -16078,7 +16076,7 @@ type FetchTakeResponseBodyAsStreamResult struct {
 
 FetchTakeResponseBodyAsStreamResult ...
 
-## type HeadlessExperimentalBeginFrame 
+### type HeadlessExperimentalBeginFrame 
 
 ``` go
 type HeadlessExperimentalBeginFrame struct {
@@ -16104,7 +16102,7 @@ type HeadlessExperimentalBeginFrame struct {
 
 HeadlessExperimentalBeginFrame Sends a BeginFrame to the target and returns when the frame was completed. Optionally captures a screenshot from the resulting frame. Requires that the target was created with enabled BeginFrameControl. Designed for use with --run-all-compositor-stages-before-draw, see also https://goo.gle/chrome-headless-rendering for more background.
 
-### (HeadlessExperimentalBeginFrame) Call 
+#### (HeadlessExperimentalBeginFrame) Call 
 
 ``` go
 func (m HeadlessExperimentalBeginFrame) Call(c Client) (*HeadlessExperimentalBeginFrameResult, error)
@@ -16112,7 +16110,7 @@ func (m HeadlessExperimentalBeginFrame) Call(c Client) (*HeadlessExperimentalBeg
 
 Call the request.
 
-### (HeadlessExperimentalBeginFrame) ProtoReq <- 0.74.0
+#### (HeadlessExperimentalBeginFrame) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeadlessExperimentalBeginFrame) ProtoReq() string
@@ -16120,7 +16118,7 @@ func (m HeadlessExperimentalBeginFrame) ProtoReq() string
 
 ProtoReq name.
 
-## type HeadlessExperimentalBeginFrameResult 
+### type HeadlessExperimentalBeginFrameResult 
 
 ``` go
 type HeadlessExperimentalBeginFrameResult struct {
@@ -16135,7 +16133,7 @@ type HeadlessExperimentalBeginFrameResult struct {
 
 HeadlessExperimentalBeginFrameResult ...
 
-## type HeadlessExperimentalDisable 
+### type HeadlessExperimentalDisable 
 
 ``` go
 type HeadlessExperimentalDisable struct{}
@@ -16143,7 +16141,7 @@ type HeadlessExperimentalDisable struct{}
 
 HeadlessExperimentalDisable (deprecated) Disables headless events for the target.
 
-### (HeadlessExperimentalDisable) Call 
+#### (HeadlessExperimentalDisable) Call 
 
 ``` go
 func (m HeadlessExperimentalDisable) Call(c Client) error
@@ -16151,7 +16149,7 @@ func (m HeadlessExperimentalDisable) Call(c Client) error
 
 Call sends the request.
 
-### (HeadlessExperimentalDisable) ProtoReq <- 0.74.0
+#### (HeadlessExperimentalDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeadlessExperimentalDisable) ProtoReq() string
@@ -16159,7 +16157,7 @@ func (m HeadlessExperimentalDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type HeadlessExperimentalEnable 
+### type HeadlessExperimentalEnable 
 
 ``` go
 type HeadlessExperimentalEnable struct{}
@@ -16167,7 +16165,7 @@ type HeadlessExperimentalEnable struct{}
 
 HeadlessExperimentalEnable (deprecated) Enables headless events for the target.
 
-### (HeadlessExperimentalEnable) Call 
+#### (HeadlessExperimentalEnable) Call 
 
 ``` go
 func (m HeadlessExperimentalEnable) Call(c Client) error
@@ -16175,7 +16173,7 @@ func (m HeadlessExperimentalEnable) Call(c Client) error
 
 Call sends the request.
 
-### (HeadlessExperimentalEnable) ProtoReq <- 0.74.0
+#### (HeadlessExperimentalEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeadlessExperimentalEnable) ProtoReq() string
@@ -16183,7 +16181,7 @@ func (m HeadlessExperimentalEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type HeadlessExperimentalScreenshotParams 
+### type HeadlessExperimentalScreenshotParams 
 
 ``` go
 type HeadlessExperimentalScreenshotParams struct {
@@ -16200,7 +16198,7 @@ type HeadlessExperimentalScreenshotParams struct {
 
 HeadlessExperimentalScreenshotParams Encoding options for a screenshot.
 
-## type HeadlessExperimentalScreenshotParamsFormat 
+### type HeadlessExperimentalScreenshotParamsFormat 
 
 ``` go
 type HeadlessExperimentalScreenshotParamsFormat string
@@ -16221,7 +16219,7 @@ const (
 )
 ```
 
-## type HeapProfilerAddHeapSnapshotChunk 
+### type HeapProfilerAddHeapSnapshotChunk 
 
 ``` go
 type HeapProfilerAddHeapSnapshotChunk struct {
@@ -16232,7 +16230,7 @@ type HeapProfilerAddHeapSnapshotChunk struct {
 
 HeapProfilerAddHeapSnapshotChunk ...
 
-### (HeapProfilerAddHeapSnapshotChunk) ProtoEvent <- 0.72.0
+#### (HeapProfilerAddHeapSnapshotChunk) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt HeapProfilerAddHeapSnapshotChunk) ProtoEvent() string
@@ -16240,7 +16238,7 @@ func (evt HeapProfilerAddHeapSnapshotChunk) ProtoEvent() string
 
 ProtoEvent name.
 
-## type HeapProfilerAddInspectedHeapObject 
+### type HeapProfilerAddInspectedHeapObject 
 
 ``` go
 type HeapProfilerAddInspectedHeapObject struct {
@@ -16251,7 +16249,7 @@ type HeapProfilerAddInspectedHeapObject struct {
 
 HeapProfilerAddInspectedHeapObject Enables console to refer to the node with given id via $x (see Command Line API for more details $x functions).
 
-### (HeapProfilerAddInspectedHeapObject) Call 
+#### (HeapProfilerAddInspectedHeapObject) Call 
 
 ``` go
 func (m HeapProfilerAddInspectedHeapObject) Call(c Client) error
@@ -16259,7 +16257,7 @@ func (m HeapProfilerAddInspectedHeapObject) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerAddInspectedHeapObject) ProtoReq <- 0.74.0
+#### (HeapProfilerAddInspectedHeapObject) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerAddInspectedHeapObject) ProtoReq() string
@@ -16267,7 +16265,7 @@ func (m HeapProfilerAddInspectedHeapObject) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerCollectGarbage 
+### type HeapProfilerCollectGarbage 
 
 ``` go
 type HeapProfilerCollectGarbage struct{}
@@ -16275,7 +16273,7 @@ type HeapProfilerCollectGarbage struct{}
 
 HeapProfilerCollectGarbage ...
 
-### (HeapProfilerCollectGarbage) Call 
+#### (HeapProfilerCollectGarbage) Call 
 
 ``` go
 func (m HeapProfilerCollectGarbage) Call(c Client) error
@@ -16283,7 +16281,7 @@ func (m HeapProfilerCollectGarbage) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerCollectGarbage) ProtoReq <- 0.74.0
+#### (HeapProfilerCollectGarbage) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerCollectGarbage) ProtoReq() string
@@ -16291,7 +16289,7 @@ func (m HeapProfilerCollectGarbage) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerDisable 
+### type HeapProfilerDisable 
 
 ``` go
 type HeapProfilerDisable struct{}
@@ -16299,7 +16297,7 @@ type HeapProfilerDisable struct{}
 
 HeapProfilerDisable ...
 
-### (HeapProfilerDisable) Call 
+#### (HeapProfilerDisable) Call 
 
 ``` go
 func (m HeapProfilerDisable) Call(c Client) error
@@ -16307,7 +16305,7 @@ func (m HeapProfilerDisable) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerDisable) ProtoReq <- 0.74.0
+#### (HeapProfilerDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerDisable) ProtoReq() string
@@ -16315,7 +16313,7 @@ func (m HeapProfilerDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerEnable 
+### type HeapProfilerEnable 
 
 ``` go
 type HeapProfilerEnable struct{}
@@ -16323,7 +16321,7 @@ type HeapProfilerEnable struct{}
 
 HeapProfilerEnable ...
 
-### (HeapProfilerEnable) Call 
+#### (HeapProfilerEnable) Call 
 
 ``` go
 func (m HeapProfilerEnable) Call(c Client) error
@@ -16331,7 +16329,7 @@ func (m HeapProfilerEnable) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerEnable) ProtoReq <- 0.74.0
+#### (HeapProfilerEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerEnable) ProtoReq() string
@@ -16339,7 +16337,7 @@ func (m HeapProfilerEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerGetHeapObjectID 
+### type HeapProfilerGetHeapObjectID 
 
 ``` go
 type HeapProfilerGetHeapObjectID struct {
@@ -16350,7 +16348,7 @@ type HeapProfilerGetHeapObjectID struct {
 
 HeapProfilerGetHeapObjectID ...
 
-### (HeapProfilerGetHeapObjectID) Call 
+#### (HeapProfilerGetHeapObjectID) Call 
 
 ``` go
 func (m HeapProfilerGetHeapObjectID) Call(c Client) (*HeapProfilerGetHeapObjectIDResult, error)
@@ -16358,7 +16356,7 @@ func (m HeapProfilerGetHeapObjectID) Call(c Client) (*HeapProfilerGetHeapObjectI
 
 Call the request.
 
-### (HeapProfilerGetHeapObjectID) ProtoReq <- 0.74.0
+#### (HeapProfilerGetHeapObjectID) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerGetHeapObjectID) ProtoReq() string
@@ -16366,7 +16364,7 @@ func (m HeapProfilerGetHeapObjectID) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerGetHeapObjectIDResult 
+### type HeapProfilerGetHeapObjectIDResult 
 
 ``` go
 type HeapProfilerGetHeapObjectIDResult struct {
@@ -16377,7 +16375,7 @@ type HeapProfilerGetHeapObjectIDResult struct {
 
 HeapProfilerGetHeapObjectIDResult ...
 
-## type HeapProfilerGetObjectByHeapObjectID 
+### type HeapProfilerGetObjectByHeapObjectID 
 
 ``` go
 type HeapProfilerGetObjectByHeapObjectID struct {
@@ -16391,7 +16389,7 @@ type HeapProfilerGetObjectByHeapObjectID struct {
 
 HeapProfilerGetObjectByHeapObjectID ...
 
-### (HeapProfilerGetObjectByHeapObjectID) Call 
+#### (HeapProfilerGetObjectByHeapObjectID) Call 
 
 ``` go
 func (m HeapProfilerGetObjectByHeapObjectID) Call(c Client) (*HeapProfilerGetObjectByHeapObjectIDResult, error)
@@ -16399,7 +16397,7 @@ func (m HeapProfilerGetObjectByHeapObjectID) Call(c Client) (*HeapProfilerGetObj
 
 Call the request.
 
-### (HeapProfilerGetObjectByHeapObjectID) ProtoReq <- 0.74.0
+#### (HeapProfilerGetObjectByHeapObjectID) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerGetObjectByHeapObjectID) ProtoReq() string
@@ -16407,7 +16405,7 @@ func (m HeapProfilerGetObjectByHeapObjectID) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerGetObjectByHeapObjectIDResult 
+### type HeapProfilerGetObjectByHeapObjectIDResult 
 
 ``` go
 type HeapProfilerGetObjectByHeapObjectIDResult struct {
@@ -16418,7 +16416,7 @@ type HeapProfilerGetObjectByHeapObjectIDResult struct {
 
 HeapProfilerGetObjectByHeapObjectIDResult ...
 
-## type HeapProfilerGetSamplingProfile 
+### type HeapProfilerGetSamplingProfile 
 
 ``` go
 type HeapProfilerGetSamplingProfile struct{}
@@ -16426,7 +16424,7 @@ type HeapProfilerGetSamplingProfile struct{}
 
 HeapProfilerGetSamplingProfile ...
 
-### (HeapProfilerGetSamplingProfile) Call 
+#### (HeapProfilerGetSamplingProfile) Call 
 
 ``` go
 func (m HeapProfilerGetSamplingProfile) Call(c Client) (*HeapProfilerGetSamplingProfileResult, error)
@@ -16434,7 +16432,7 @@ func (m HeapProfilerGetSamplingProfile) Call(c Client) (*HeapProfilerGetSampling
 
 Call the request.
 
-### (HeapProfilerGetSamplingProfile) ProtoReq <- 0.74.0
+#### (HeapProfilerGetSamplingProfile) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerGetSamplingProfile) ProtoReq() string
@@ -16442,7 +16440,7 @@ func (m HeapProfilerGetSamplingProfile) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerGetSamplingProfileResult 
+### type HeapProfilerGetSamplingProfileResult 
 
 ``` go
 type HeapProfilerGetSamplingProfileResult struct {
@@ -16453,7 +16451,7 @@ type HeapProfilerGetSamplingProfileResult struct {
 
 HeapProfilerGetSamplingProfileResult ...
 
-## type HeapProfilerHeapSnapshotObjectID 
+### type HeapProfilerHeapSnapshotObjectID 
 
 ``` go
 type HeapProfilerHeapSnapshotObjectID string
@@ -16461,7 +16459,7 @@ type HeapProfilerHeapSnapshotObjectID string
 
 HeapProfilerHeapSnapshotObjectID Heap snapshot object id.
 
-## type HeapProfilerHeapStatsUpdate 
+### type HeapProfilerHeapStatsUpdate 
 
 ``` go
 type HeapProfilerHeapStatsUpdate struct {
@@ -16474,7 +16472,7 @@ type HeapProfilerHeapStatsUpdate struct {
 
 HeapProfilerHeapStatsUpdate If heap objects tracking has been started then backend may send update for one or more fragments.
 
-### (HeapProfilerHeapStatsUpdate) ProtoEvent <- 0.72.0
+#### (HeapProfilerHeapStatsUpdate) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt HeapProfilerHeapStatsUpdate) ProtoEvent() string
@@ -16482,7 +16480,7 @@ func (evt HeapProfilerHeapStatsUpdate) ProtoEvent() string
 
 ProtoEvent name.
 
-## type HeapProfilerLastSeenObjectID 
+### type HeapProfilerLastSeenObjectID 
 
 ``` go
 type HeapProfilerLastSeenObjectID struct {
@@ -16496,7 +16494,7 @@ type HeapProfilerLastSeenObjectID struct {
 
 HeapProfilerLastSeenObjectID If heap objects tracking has been started then backend regularly sends a current value for last seen object id and corresponding timestamp. If the were changes in the heap since last event then one or more heapStatsUpdate events will be sent before a new lastSeenObjectId event.
 
-### (HeapProfilerLastSeenObjectID) ProtoEvent <- 0.72.0
+#### (HeapProfilerLastSeenObjectID) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt HeapProfilerLastSeenObjectID) ProtoEvent() string
@@ -16504,7 +16502,7 @@ func (evt HeapProfilerLastSeenObjectID) ProtoEvent() string
 
 ProtoEvent name.
 
-## type HeapProfilerReportHeapSnapshotProgress 
+### type HeapProfilerReportHeapSnapshotProgress 
 
 ``` go
 type HeapProfilerReportHeapSnapshotProgress struct {
@@ -16521,7 +16519,7 @@ type HeapProfilerReportHeapSnapshotProgress struct {
 
 HeapProfilerReportHeapSnapshotProgress ...
 
-### (HeapProfilerReportHeapSnapshotProgress) ProtoEvent <- 0.72.0
+#### (HeapProfilerReportHeapSnapshotProgress) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt HeapProfilerReportHeapSnapshotProgress) ProtoEvent() string
@@ -16529,7 +16527,7 @@ func (evt HeapProfilerReportHeapSnapshotProgress) ProtoEvent() string
 
 ProtoEvent name.
 
-## type HeapProfilerResetProfiles 
+### type HeapProfilerResetProfiles 
 
 ``` go
 type HeapProfilerResetProfiles struct{}
@@ -16537,7 +16535,7 @@ type HeapProfilerResetProfiles struct{}
 
 HeapProfilerResetProfiles ...
 
-### (HeapProfilerResetProfiles) ProtoEvent <- 0.72.0
+#### (HeapProfilerResetProfiles) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt HeapProfilerResetProfiles) ProtoEvent() string
@@ -16545,7 +16543,7 @@ func (evt HeapProfilerResetProfiles) ProtoEvent() string
 
 ProtoEvent name.
 
-## type HeapProfilerSamplingHeapProfile 
+### type HeapProfilerSamplingHeapProfile 
 
 ``` go
 type HeapProfilerSamplingHeapProfile struct {
@@ -16559,7 +16557,7 @@ type HeapProfilerSamplingHeapProfile struct {
 
 HeapProfilerSamplingHeapProfile Sampling profile.
 
-## type HeapProfilerSamplingHeapProfileNode 
+### type HeapProfilerSamplingHeapProfileNode 
 
 ``` go
 type HeapProfilerSamplingHeapProfileNode struct {
@@ -16579,7 +16577,7 @@ type HeapProfilerSamplingHeapProfileNode struct {
 
 HeapProfilerSamplingHeapProfileNode Sampling Heap Profile node. Holds callsite information, allocation statistics and child nodes.
 
-## type HeapProfilerSamplingHeapProfileSample 
+### type HeapProfilerSamplingHeapProfileSample 
 
 ``` go
 type HeapProfilerSamplingHeapProfileSample struct {
@@ -16597,7 +16595,7 @@ type HeapProfilerSamplingHeapProfileSample struct {
 
 HeapProfilerSamplingHeapProfileSample A single sample from a sampling profile.
 
-## type HeapProfilerStartSampling 
+### type HeapProfilerStartSampling 
 
 ``` go
 type HeapProfilerStartSampling struct {
@@ -16627,7 +16625,7 @@ type HeapProfilerStartSampling struct {
 
 HeapProfilerStartSampling ...
 
-### (HeapProfilerStartSampling) Call 
+#### (HeapProfilerStartSampling) Call 
 
 ``` go
 func (m HeapProfilerStartSampling) Call(c Client) error
@@ -16635,7 +16633,7 @@ func (m HeapProfilerStartSampling) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerStartSampling) ProtoReq <- 0.74.0
+#### (HeapProfilerStartSampling) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerStartSampling) ProtoReq() string
@@ -16643,7 +16641,7 @@ func (m HeapProfilerStartSampling) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerStartTrackingHeapObjects 
+### type HeapProfilerStartTrackingHeapObjects 
 
 ``` go
 type HeapProfilerStartTrackingHeapObjects struct {
@@ -16654,7 +16652,7 @@ type HeapProfilerStartTrackingHeapObjects struct {
 
 HeapProfilerStartTrackingHeapObjects ...
 
-### (HeapProfilerStartTrackingHeapObjects) Call 
+#### (HeapProfilerStartTrackingHeapObjects) Call 
 
 ``` go
 func (m HeapProfilerStartTrackingHeapObjects) Call(c Client) error
@@ -16662,7 +16660,7 @@ func (m HeapProfilerStartTrackingHeapObjects) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerStartTrackingHeapObjects) ProtoReq <- 0.74.0
+#### (HeapProfilerStartTrackingHeapObjects) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerStartTrackingHeapObjects) ProtoReq() string
@@ -16670,7 +16668,7 @@ func (m HeapProfilerStartTrackingHeapObjects) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerStopSampling 
+### type HeapProfilerStopSampling 
 
 ``` go
 type HeapProfilerStopSampling struct{}
@@ -16678,7 +16676,7 @@ type HeapProfilerStopSampling struct{}
 
 HeapProfilerStopSampling ...
 
-### (HeapProfilerStopSampling) Call 
+#### (HeapProfilerStopSampling) Call 
 
 ``` go
 func (m HeapProfilerStopSampling) Call(c Client) (*HeapProfilerStopSamplingResult, error)
@@ -16686,7 +16684,7 @@ func (m HeapProfilerStopSampling) Call(c Client) (*HeapProfilerStopSamplingResul
 
 Call the request.
 
-### (HeapProfilerStopSampling) ProtoReq <- 0.74.0
+#### (HeapProfilerStopSampling) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerStopSampling) ProtoReq() string
@@ -16694,7 +16692,7 @@ func (m HeapProfilerStopSampling) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerStopSamplingResult 
+### type HeapProfilerStopSamplingResult 
 
 ``` go
 type HeapProfilerStopSamplingResult struct {
@@ -16705,7 +16703,7 @@ type HeapProfilerStopSamplingResult struct {
 
 HeapProfilerStopSamplingResult ...
 
-## type HeapProfilerStopTrackingHeapObjects 
+### type HeapProfilerStopTrackingHeapObjects 
 
 ``` go
 type HeapProfilerStopTrackingHeapObjects struct {
@@ -16726,7 +16724,7 @@ type HeapProfilerStopTrackingHeapObjects struct {
 
 HeapProfilerStopTrackingHeapObjects ...
 
-### (HeapProfilerStopTrackingHeapObjects) Call 
+#### (HeapProfilerStopTrackingHeapObjects) Call 
 
 ``` go
 func (m HeapProfilerStopTrackingHeapObjects) Call(c Client) error
@@ -16734,7 +16732,7 @@ func (m HeapProfilerStopTrackingHeapObjects) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerStopTrackingHeapObjects) ProtoReq <- 0.74.0
+#### (HeapProfilerStopTrackingHeapObjects) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerStopTrackingHeapObjects) ProtoReq() string
@@ -16742,7 +16740,7 @@ func (m HeapProfilerStopTrackingHeapObjects) ProtoReq() string
 
 ProtoReq name.
 
-## type HeapProfilerTakeHeapSnapshot 
+### type HeapProfilerTakeHeapSnapshot 
 
 ``` go
 type HeapProfilerTakeHeapSnapshot struct {
@@ -16763,7 +16761,7 @@ type HeapProfilerTakeHeapSnapshot struct {
 
 HeapProfilerTakeHeapSnapshot ...
 
-### (HeapProfilerTakeHeapSnapshot) Call 
+#### (HeapProfilerTakeHeapSnapshot) Call 
 
 ``` go
 func (m HeapProfilerTakeHeapSnapshot) Call(c Client) error
@@ -16771,7 +16769,7 @@ func (m HeapProfilerTakeHeapSnapshot) Call(c Client) error
 
 Call sends the request.
 
-### (HeapProfilerTakeHeapSnapshot) ProtoReq <- 0.74.0
+#### (HeapProfilerTakeHeapSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m HeapProfilerTakeHeapSnapshot) ProtoReq() string
@@ -16779,7 +16777,7 @@ func (m HeapProfilerTakeHeapSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type IOClose 
+### type IOClose 
 
 ``` go
 type IOClose struct {
@@ -16790,7 +16788,7 @@ type IOClose struct {
 
 IOClose Close the stream, discard any temporary backing storage.
 
-### (IOClose) Call 
+#### (IOClose) Call 
 
 ``` go
 func (m IOClose) Call(c Client) error
@@ -16798,7 +16796,7 @@ func (m IOClose) Call(c Client) error
 
 Call sends the request.
 
-### (IOClose) ProtoReq <- 0.74.0
+#### (IOClose) ProtoReq <- 0.74.0
 
 ``` go
 func (m IOClose) ProtoReq() string
@@ -16806,7 +16804,7 @@ func (m IOClose) ProtoReq() string
 
 ProtoReq name.
 
-## type IORead 
+### type IORead 
 
 ``` go
 type IORead struct {
@@ -16824,7 +16822,7 @@ type IORead struct {
 
 IORead Read a chunk of the stream.
 
-### (IORead) Call 
+#### (IORead) Call 
 
 ``` go
 func (m IORead) Call(c Client) (*IOReadResult, error)
@@ -16832,7 +16830,7 @@ func (m IORead) Call(c Client) (*IOReadResult, error)
 
 Call the request.
 
-### (IORead) ProtoReq <- 0.74.0
+#### (IORead) ProtoReq <- 0.74.0
 
 ``` go
 func (m IORead) ProtoReq() string
@@ -16840,7 +16838,7 @@ func (m IORead) ProtoReq() string
 
 ProtoReq name.
 
-## type IOReadResult 
+### type IOReadResult 
 
 ``` go
 type IOReadResult struct {
@@ -16857,7 +16855,7 @@ type IOReadResult struct {
 
 IOReadResult ...
 
-## type IOResolveBlob 
+### type IOResolveBlob 
 
 ``` go
 type IOResolveBlob struct {
@@ -16868,7 +16866,7 @@ type IOResolveBlob struct {
 
 IOResolveBlob Return UUID of Blob object specified by a remote object id.
 
-### (IOResolveBlob) Call 
+#### (IOResolveBlob) Call 
 
 ``` go
 func (m IOResolveBlob) Call(c Client) (*IOResolveBlobResult, error)
@@ -16876,7 +16874,7 @@ func (m IOResolveBlob) Call(c Client) (*IOResolveBlobResult, error)
 
 Call the request.
 
-### (IOResolveBlob) ProtoReq <- 0.74.0
+#### (IOResolveBlob) ProtoReq <- 0.74.0
 
 ``` go
 func (m IOResolveBlob) ProtoReq() string
@@ -16884,7 +16882,7 @@ func (m IOResolveBlob) ProtoReq() string
 
 ProtoReq name.
 
-## type IOResolveBlobResult 
+### type IOResolveBlobResult 
 
 ``` go
 type IOResolveBlobResult struct {
@@ -16895,7 +16893,7 @@ type IOResolveBlobResult struct {
 
 IOResolveBlobResult ...
 
-## type IOStreamHandle 
+### type IOStreamHandle 
 
 ``` go
 type IOStreamHandle string
@@ -16903,7 +16901,7 @@ type IOStreamHandle string
 
 IOStreamHandle This is either obtained from another method or specified as `blob:<uuid>` where `<uuid>` is an UUID of a Blob.
 
-## type IndexedDBClearObjectStore 
+### type IndexedDBClearObjectStore 
 
 ``` go
 type IndexedDBClearObjectStore struct {
@@ -16927,7 +16925,7 @@ type IndexedDBClearObjectStore struct {
 
 IndexedDBClearObjectStore Clears all entries from an object store.
 
-### (IndexedDBClearObjectStore) Call 
+#### (IndexedDBClearObjectStore) Call 
 
 ``` go
 func (m IndexedDBClearObjectStore) Call(c Client) error
@@ -16935,7 +16933,7 @@ func (m IndexedDBClearObjectStore) Call(c Client) error
 
 Call sends the request.
 
-### (IndexedDBClearObjectStore) ProtoReq <- 0.74.0
+#### (IndexedDBClearObjectStore) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBClearObjectStore) ProtoReq() string
@@ -16943,7 +16941,7 @@ func (m IndexedDBClearObjectStore) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBDataEntry 
+### type IndexedDBDataEntry 
 
 ``` go
 type IndexedDBDataEntry struct {
@@ -16960,7 +16958,7 @@ type IndexedDBDataEntry struct {
 
 IndexedDBDataEntry Data entry.
 
-## type IndexedDBDatabaseWithObjectStores 
+### type IndexedDBDatabaseWithObjectStores 
 
 ``` go
 type IndexedDBDatabaseWithObjectStores struct {
@@ -16978,7 +16976,7 @@ type IndexedDBDatabaseWithObjectStores struct {
 
 IndexedDBDatabaseWithObjectStores Database with an array of object stores.
 
-## type IndexedDBDeleteDatabase 
+### type IndexedDBDeleteDatabase 
 
 ``` go
 type IndexedDBDeleteDatabase struct {
@@ -16999,7 +16997,7 @@ type IndexedDBDeleteDatabase struct {
 
 IndexedDBDeleteDatabase Deletes a database.
 
-### (IndexedDBDeleteDatabase) Call 
+#### (IndexedDBDeleteDatabase) Call 
 
 ``` go
 func (m IndexedDBDeleteDatabase) Call(c Client) error
@@ -17007,7 +17005,7 @@ func (m IndexedDBDeleteDatabase) Call(c Client) error
 
 Call sends the request.
 
-### (IndexedDBDeleteDatabase) ProtoReq <- 0.74.0
+#### (IndexedDBDeleteDatabase) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBDeleteDatabase) ProtoReq() string
@@ -17015,7 +17013,7 @@ func (m IndexedDBDeleteDatabase) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBDeleteObjectStoreEntries 
+### type IndexedDBDeleteObjectStoreEntries 
 
 ``` go
 type IndexedDBDeleteObjectStoreEntries struct {
@@ -17042,7 +17040,7 @@ type IndexedDBDeleteObjectStoreEntries struct {
 
 IndexedDBDeleteObjectStoreEntries Delete a range of entries from an object store.
 
-### (IndexedDBDeleteObjectStoreEntries) Call 
+#### (IndexedDBDeleteObjectStoreEntries) Call 
 
 ``` go
 func (m IndexedDBDeleteObjectStoreEntries) Call(c Client) error
@@ -17050,7 +17048,7 @@ func (m IndexedDBDeleteObjectStoreEntries) Call(c Client) error
 
 Call sends the request.
 
-### (IndexedDBDeleteObjectStoreEntries) ProtoReq <- 0.74.0
+#### (IndexedDBDeleteObjectStoreEntries) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBDeleteObjectStoreEntries) ProtoReq() string
@@ -17058,7 +17056,7 @@ func (m IndexedDBDeleteObjectStoreEntries) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBDisable 
+### type IndexedDBDisable 
 
 ``` go
 type IndexedDBDisable struct{}
@@ -17066,7 +17064,7 @@ type IndexedDBDisable struct{}
 
 IndexedDBDisable Disables events from backend.
 
-### (IndexedDBDisable) Call 
+#### (IndexedDBDisable) Call 
 
 ``` go
 func (m IndexedDBDisable) Call(c Client) error
@@ -17074,7 +17072,7 @@ func (m IndexedDBDisable) Call(c Client) error
 
 Call sends the request.
 
-### (IndexedDBDisable) ProtoReq <- 0.74.0
+#### (IndexedDBDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBDisable) ProtoReq() string
@@ -17082,7 +17080,7 @@ func (m IndexedDBDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBEnable 
+### type IndexedDBEnable 
 
 ``` go
 type IndexedDBEnable struct{}
@@ -17090,7 +17088,7 @@ type IndexedDBEnable struct{}
 
 IndexedDBEnable Enables events from backend.
 
-### (IndexedDBEnable) Call 
+#### (IndexedDBEnable) Call 
 
 ``` go
 func (m IndexedDBEnable) Call(c Client) error
@@ -17098,7 +17096,7 @@ func (m IndexedDBEnable) Call(c Client) error
 
 Call sends the request.
 
-### (IndexedDBEnable) ProtoReq <- 0.74.0
+#### (IndexedDBEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBEnable) ProtoReq() string
@@ -17106,7 +17104,7 @@ func (m IndexedDBEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBGetMetadata 
+### type IndexedDBGetMetadata 
 
 ``` go
 type IndexedDBGetMetadata struct {
@@ -17130,7 +17128,7 @@ type IndexedDBGetMetadata struct {
 
 IndexedDBGetMetadata Gets metadata of an object store.
 
-### (IndexedDBGetMetadata) Call 
+#### (IndexedDBGetMetadata) Call 
 
 ``` go
 func (m IndexedDBGetMetadata) Call(c Client) (*IndexedDBGetMetadataResult, error)
@@ -17138,7 +17136,7 @@ func (m IndexedDBGetMetadata) Call(c Client) (*IndexedDBGetMetadataResult, error
 
 Call the request.
 
-### (IndexedDBGetMetadata) ProtoReq <- 0.74.0
+#### (IndexedDBGetMetadata) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBGetMetadata) ProtoReq() string
@@ -17146,7 +17144,7 @@ func (m IndexedDBGetMetadata) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBGetMetadataResult 
+### type IndexedDBGetMetadataResult 
 
 ``` go
 type IndexedDBGetMetadataResult struct {
@@ -17162,7 +17160,7 @@ type IndexedDBGetMetadataResult struct {
 
 IndexedDBGetMetadataResult ...
 
-## type IndexedDBKey 
+### type IndexedDBKey 
 
 ``` go
 type IndexedDBKey struct {
@@ -17185,7 +17183,7 @@ type IndexedDBKey struct {
 
 IndexedDBKey Key.
 
-## type IndexedDBKeyPath 
+### type IndexedDBKeyPath 
 
 ``` go
 type IndexedDBKeyPath struct {
@@ -17202,7 +17200,7 @@ type IndexedDBKeyPath struct {
 
 IndexedDBKeyPath Key path.
 
-## type IndexedDBKeyPathType 
+### type IndexedDBKeyPathType 
 
 ``` go
 type IndexedDBKeyPathType string
@@ -17223,7 +17221,7 @@ const (
 )
 ```
 
-## type IndexedDBKeyRange 
+### type IndexedDBKeyRange 
 
 ``` go
 type IndexedDBKeyRange struct {
@@ -17243,7 +17241,7 @@ type IndexedDBKeyRange struct {
 
 IndexedDBKeyRange Key range.
 
-## type IndexedDBKeyType 
+### type IndexedDBKeyType 
 
 ``` go
 type IndexedDBKeyType string
@@ -17267,7 +17265,7 @@ const (
 )
 ```
 
-## type IndexedDBObjectStore 
+### type IndexedDBObjectStore 
 
 ``` go
 type IndexedDBObjectStore struct {
@@ -17287,7 +17285,7 @@ type IndexedDBObjectStore struct {
 
 IndexedDBObjectStore Object store.
 
-## type IndexedDBObjectStoreIndex 
+### type IndexedDBObjectStoreIndex 
 
 ``` go
 type IndexedDBObjectStoreIndex struct {
@@ -17307,7 +17305,7 @@ type IndexedDBObjectStoreIndex struct {
 
 IndexedDBObjectStoreIndex Object store index.
 
-## type IndexedDBRequestData 
+### type IndexedDBRequestData 
 
 ``` go
 type IndexedDBRequestData struct {
@@ -17343,7 +17341,7 @@ type IndexedDBRequestData struct {
 
 IndexedDBRequestData Requests data from object store or index.
 
-### (IndexedDBRequestData) Call 
+#### (IndexedDBRequestData) Call 
 
 ``` go
 func (m IndexedDBRequestData) Call(c Client) (*IndexedDBRequestDataResult, error)
@@ -17351,7 +17349,7 @@ func (m IndexedDBRequestData) Call(c Client) (*IndexedDBRequestDataResult, error
 
 Call the request.
 
-### (IndexedDBRequestData) ProtoReq <- 0.74.0
+#### (IndexedDBRequestData) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBRequestData) ProtoReq() string
@@ -17359,7 +17357,7 @@ func (m IndexedDBRequestData) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBRequestDataResult 
+### type IndexedDBRequestDataResult 
 
 ``` go
 type IndexedDBRequestDataResult struct {
@@ -17373,7 +17371,7 @@ type IndexedDBRequestDataResult struct {
 
 IndexedDBRequestDataResult ...
 
-## type IndexedDBRequestDatabase 
+### type IndexedDBRequestDatabase 
 
 ``` go
 type IndexedDBRequestDatabase struct {
@@ -17394,7 +17392,7 @@ type IndexedDBRequestDatabase struct {
 
 IndexedDBRequestDatabase Requests database with given name in given frame.
 
-### (IndexedDBRequestDatabase) Call 
+#### (IndexedDBRequestDatabase) Call 
 
 ``` go
 func (m IndexedDBRequestDatabase) Call(c Client) (*IndexedDBRequestDatabaseResult, error)
@@ -17402,7 +17400,7 @@ func (m IndexedDBRequestDatabase) Call(c Client) (*IndexedDBRequestDatabaseResul
 
 Call the request.
 
-### (IndexedDBRequestDatabase) ProtoReq <- 0.74.0
+#### (IndexedDBRequestDatabase) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBRequestDatabase) ProtoReq() string
@@ -17410,7 +17408,7 @@ func (m IndexedDBRequestDatabase) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBRequestDatabaseNames 
+### type IndexedDBRequestDatabaseNames 
 
 ``` go
 type IndexedDBRequestDatabaseNames struct {
@@ -17428,7 +17426,7 @@ type IndexedDBRequestDatabaseNames struct {
 
 IndexedDBRequestDatabaseNames Requests database names for given security origin.
 
-### (IndexedDBRequestDatabaseNames) Call 
+#### (IndexedDBRequestDatabaseNames) Call 
 
 ``` go
 func (m IndexedDBRequestDatabaseNames) Call(c Client) (*IndexedDBRequestDatabaseNamesResult, error)
@@ -17436,7 +17434,7 @@ func (m IndexedDBRequestDatabaseNames) Call(c Client) (*IndexedDBRequestDatabase
 
 Call the request.
 
-### (IndexedDBRequestDatabaseNames) ProtoReq <- 0.74.0
+#### (IndexedDBRequestDatabaseNames) ProtoReq <- 0.74.0
 
 ``` go
 func (m IndexedDBRequestDatabaseNames) ProtoReq() string
@@ -17444,7 +17442,7 @@ func (m IndexedDBRequestDatabaseNames) ProtoReq() string
 
 ProtoReq name.
 
-## type IndexedDBRequestDatabaseNamesResult 
+### type IndexedDBRequestDatabaseNamesResult 
 
 ``` go
 type IndexedDBRequestDatabaseNamesResult struct {
@@ -17455,7 +17453,7 @@ type IndexedDBRequestDatabaseNamesResult struct {
 
 IndexedDBRequestDatabaseNamesResult ...
 
-## type IndexedDBRequestDatabaseResult 
+### type IndexedDBRequestDatabaseResult 
 
 ``` go
 type IndexedDBRequestDatabaseResult struct {
@@ -17466,7 +17464,7 @@ type IndexedDBRequestDatabaseResult struct {
 
 IndexedDBRequestDatabaseResult ...
 
-## type InputCancelDragging <- 0.115.0
+### type InputCancelDragging <- 0.115.0
 
 ``` go
 type InputCancelDragging struct{}
@@ -17474,7 +17472,7 @@ type InputCancelDragging struct{}
 
 InputCancelDragging Cancels any active dragging in the page.
 
-### (InputCancelDragging) Call <- 0.115.0
+#### (InputCancelDragging) Call <- 0.115.0
 
 ``` go
 func (m InputCancelDragging) Call(c Client) error
@@ -17482,7 +17480,7 @@ func (m InputCancelDragging) Call(c Client) error
 
 Call sends the request.
 
-### (InputCancelDragging) ProtoReq <- 0.115.0
+#### (InputCancelDragging) ProtoReq <- 0.115.0
 
 ``` go
 func (m InputCancelDragging) ProtoReq() string
@@ -17490,7 +17488,7 @@ func (m InputCancelDragging) ProtoReq() string
 
 ProtoReq name.
 
-## type InputDispatchDragEvent <- 0.97.5
+### type InputDispatchDragEvent <- 0.97.5
 
 ``` go
 type InputDispatchDragEvent struct {
@@ -17515,7 +17513,7 @@ type InputDispatchDragEvent struct {
 
 InputDispatchDragEvent (experimental) Dispatches a drag event into the page.
 
-### (InputDispatchDragEvent) Call <- 0.97.5
+#### (InputDispatchDragEvent) Call <- 0.97.5
 
 ``` go
 func (m InputDispatchDragEvent) Call(c Client) error
@@ -17523,7 +17521,7 @@ func (m InputDispatchDragEvent) Call(c Client) error
 
 Call sends the request.
 
-### (InputDispatchDragEvent) ProtoReq <- 0.97.5
+#### (InputDispatchDragEvent) ProtoReq <- 0.97.5
 
 ``` go
 func (m InputDispatchDragEvent) ProtoReq() string
@@ -17531,7 +17529,7 @@ func (m InputDispatchDragEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type InputDispatchDragEventType <- 0.97.5
+### type InputDispatchDragEventType <- 0.97.5
 
 ``` go
 type InputDispatchDragEventType string
@@ -17555,7 +17553,7 @@ const (
 )
 ```
 
-## type InputDispatchKeyEvent 
+### type InputDispatchKeyEvent 
 
 ``` go
 type InputDispatchKeyEvent struct {
@@ -17615,7 +17613,7 @@ type InputDispatchKeyEvent struct {
 
 InputDispatchKeyEvent Dispatches a key event to the page.
 
-### (InputDispatchKeyEvent) Call 
+#### (InputDispatchKeyEvent) Call 
 
 ``` go
 func (m InputDispatchKeyEvent) Call(c Client) error
@@ -17623,7 +17621,7 @@ func (m InputDispatchKeyEvent) Call(c Client) error
 
 Call sends the request.
 
-### (InputDispatchKeyEvent) ProtoReq <- 0.74.0
+#### (InputDispatchKeyEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputDispatchKeyEvent) ProtoReq() string
@@ -17631,7 +17629,7 @@ func (m InputDispatchKeyEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type InputDispatchKeyEventType 
+### type InputDispatchKeyEventType 
 
 ``` go
 type InputDispatchKeyEventType string
@@ -17655,7 +17653,7 @@ const (
 )
 ```
 
-## type InputDispatchMouseEvent 
+### type InputDispatchMouseEvent 
 
 ``` go
 type InputDispatchMouseEvent struct {
@@ -17714,7 +17712,7 @@ type InputDispatchMouseEvent struct {
 
 InputDispatchMouseEvent Dispatches a mouse event to the page.
 
-### (InputDispatchMouseEvent) Call 
+#### (InputDispatchMouseEvent) Call 
 
 ``` go
 func (m InputDispatchMouseEvent) Call(c Client) error
@@ -17722,7 +17720,7 @@ func (m InputDispatchMouseEvent) Call(c Client) error
 
 Call sends the request.
 
-### (InputDispatchMouseEvent) ProtoReq <- 0.74.0
+#### (InputDispatchMouseEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputDispatchMouseEvent) ProtoReq() string
@@ -17730,7 +17728,7 @@ func (m InputDispatchMouseEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type InputDispatchMouseEventPointerType 
+### type InputDispatchMouseEventPointerType 
 
 ``` go
 type InputDispatchMouseEventPointerType string
@@ -17748,7 +17746,7 @@ const (
 )
 ```
 
-## type InputDispatchMouseEventType 
+### type InputDispatchMouseEventType 
 
 ``` go
 type InputDispatchMouseEventType string
@@ -17772,7 +17770,7 @@ const (
 )
 ```
 
-## type InputDispatchTouchEvent 
+### type InputDispatchTouchEvent 
 
 ``` go
 type InputDispatchTouchEvent struct {
@@ -17796,7 +17794,7 @@ type InputDispatchTouchEvent struct {
 
 InputDispatchTouchEvent Dispatches a touch event to the page.
 
-### (InputDispatchTouchEvent) Call 
+#### (InputDispatchTouchEvent) Call 
 
 ``` go
 func (m InputDispatchTouchEvent) Call(c Client) error
@@ -17804,7 +17802,7 @@ func (m InputDispatchTouchEvent) Call(c Client) error
 
 Call sends the request.
 
-### (InputDispatchTouchEvent) ProtoReq <- 0.74.0
+#### (InputDispatchTouchEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputDispatchTouchEvent) ProtoReq() string
@@ -17812,7 +17810,7 @@ func (m InputDispatchTouchEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type InputDispatchTouchEventType 
+### type InputDispatchTouchEventType 
 
 ``` go
 type InputDispatchTouchEventType string
@@ -17836,7 +17834,7 @@ const (
 )
 ```
 
-## type InputDragData <- 0.97.5
+### type InputDragData <- 0.97.5
 
 ``` go
 type InputDragData struct {
@@ -17853,7 +17851,7 @@ type InputDragData struct {
 
 InputDragData (experimental) ...
 
-## type InputDragDataItem <- 0.97.5
+### type InputDragDataItem <- 0.97.5
 
 ``` go
 type InputDragDataItem struct {
@@ -17875,7 +17873,7 @@ type InputDragDataItem struct {
 
 InputDragDataItem (experimental) ...
 
-## type InputDragIntercepted <- 0.100.0
+### type InputDragIntercepted <- 0.100.0
 
 ``` go
 type InputDragIntercepted struct {
@@ -17886,7 +17884,7 @@ type InputDragIntercepted struct {
 
 InputDragIntercepted (experimental) Emitted only when `Input.setInterceptDrags` is enabled. Use this data with `Input.dispatchDragEvent` to restore normal drag and drop behavior.
 
-### (InputDragIntercepted) ProtoEvent <- 0.100.0
+#### (InputDragIntercepted) ProtoEvent <- 0.100.0
 
 ``` go
 func (evt InputDragIntercepted) ProtoEvent() string
@@ -17894,7 +17892,7 @@ func (evt InputDragIntercepted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type InputEmulateTouchFromMouseEvent 
+### type InputEmulateTouchFromMouseEvent 
 
 ``` go
 type InputEmulateTouchFromMouseEvent struct {
@@ -17930,7 +17928,7 @@ type InputEmulateTouchFromMouseEvent struct {
 
 InputEmulateTouchFromMouseEvent (experimental) Emulates touch event from the mouse event parameters.
 
-### (InputEmulateTouchFromMouseEvent) Call 
+#### (InputEmulateTouchFromMouseEvent) Call 
 
 ``` go
 func (m InputEmulateTouchFromMouseEvent) Call(c Client) error
@@ -17938,7 +17936,7 @@ func (m InputEmulateTouchFromMouseEvent) Call(c Client) error
 
 Call sends the request.
 
-### (InputEmulateTouchFromMouseEvent) ProtoReq <- 0.74.0
+#### (InputEmulateTouchFromMouseEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputEmulateTouchFromMouseEvent) ProtoReq() string
@@ -17946,7 +17944,7 @@ func (m InputEmulateTouchFromMouseEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type InputEmulateTouchFromMouseEventType 
+### type InputEmulateTouchFromMouseEventType 
 
 ``` go
 type InputEmulateTouchFromMouseEventType string
@@ -17970,7 +17968,7 @@ const (
 )
 ```
 
-## type InputGestureSourceType 
+### type InputGestureSourceType 
 
 ``` go
 type InputGestureSourceType string
@@ -17991,7 +17989,7 @@ const (
 )
 ```
 
-## type InputImeSetComposition <- 0.102.0
+### type InputImeSetComposition <- 0.102.0
 
 ``` go
 type InputImeSetComposition struct {
@@ -18014,7 +18012,7 @@ type InputImeSetComposition struct {
 
 InputImeSetComposition (experimental) This method sets the current candidate text for IME. Use imeCommitComposition to commit the final text. Use imeSetComposition with empty string as text to cancel composition.
 
-### (InputImeSetComposition) Call <- 0.102.0
+#### (InputImeSetComposition) Call <- 0.102.0
 
 ``` go
 func (m InputImeSetComposition) Call(c Client) error
@@ -18022,7 +18020,7 @@ func (m InputImeSetComposition) Call(c Client) error
 
 Call sends the request.
 
-### (InputImeSetComposition) ProtoReq <- 0.102.0
+#### (InputImeSetComposition) ProtoReq <- 0.102.0
 
 ``` go
 func (m InputImeSetComposition) ProtoReq() string
@@ -18030,7 +18028,7 @@ func (m InputImeSetComposition) ProtoReq() string
 
 ProtoReq name.
 
-## type InputInsertText 
+### type InputInsertText 
 
 ``` go
 type InputInsertText struct {
@@ -18041,7 +18039,7 @@ type InputInsertText struct {
 
 InputInsertText (experimental) This method emulates inserting text that doesn't come from a key press, for example an emoji keyboard or an IME.
 
-### (InputInsertText) Call 
+#### (InputInsertText) Call 
 
 ``` go
 func (m InputInsertText) Call(c Client) error
@@ -18049,7 +18047,7 @@ func (m InputInsertText) Call(c Client) error
 
 Call sends the request.
 
-### (InputInsertText) ProtoReq <- 0.74.0
+#### (InputInsertText) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputInsertText) ProtoReq() string
@@ -18057,7 +18055,7 @@ func (m InputInsertText) ProtoReq() string
 
 ProtoReq name.
 
-## type InputMouseButton 
+### type InputMouseButton 
 
 ``` go
 type InputMouseButton string
@@ -18087,7 +18085,7 @@ const (
 )
 ```
 
-## type InputSetIgnoreInputEvents 
+### type InputSetIgnoreInputEvents 
 
 ``` go
 type InputSetIgnoreInputEvents struct {
@@ -18098,7 +18096,7 @@ type InputSetIgnoreInputEvents struct {
 
 InputSetIgnoreInputEvents Ignores input events (useful while auditing page).
 
-### (InputSetIgnoreInputEvents) Call 
+#### (InputSetIgnoreInputEvents) Call 
 
 ``` go
 func (m InputSetIgnoreInputEvents) Call(c Client) error
@@ -18106,7 +18104,7 @@ func (m InputSetIgnoreInputEvents) Call(c Client) error
 
 Call sends the request.
 
-### (InputSetIgnoreInputEvents) ProtoReq <- 0.74.0
+#### (InputSetIgnoreInputEvents) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputSetIgnoreInputEvents) ProtoReq() string
@@ -18114,7 +18112,7 @@ func (m InputSetIgnoreInputEvents) ProtoReq() string
 
 ProtoReq name.
 
-## type InputSetInterceptDrags <- 0.100.0
+### type InputSetInterceptDrags <- 0.100.0
 
 ``` go
 type InputSetInterceptDrags struct {
@@ -18125,7 +18123,7 @@ type InputSetInterceptDrags struct {
 
 InputSetInterceptDrags (experimental) Prevents default drag and drop behavior and instead emits `Input.dragIntercepted` events. Drag and drop behavior can be directly controlled via `Input.dispatchDragEvent`.
 
-### (InputSetInterceptDrags) Call <- 0.100.0
+#### (InputSetInterceptDrags) Call <- 0.100.0
 
 ``` go
 func (m InputSetInterceptDrags) Call(c Client) error
@@ -18133,7 +18131,7 @@ func (m InputSetInterceptDrags) Call(c Client) error
 
 Call sends the request.
 
-### (InputSetInterceptDrags) ProtoReq <- 0.100.0
+#### (InputSetInterceptDrags) ProtoReq <- 0.100.0
 
 ``` go
 func (m InputSetInterceptDrags) ProtoReq() string
@@ -18141,7 +18139,7 @@ func (m InputSetInterceptDrags) ProtoReq() string
 
 ProtoReq name.
 
-## type InputSynthesizePinchGesture 
+### type InputSynthesizePinchGesture 
 
 ``` go
 type InputSynthesizePinchGesture struct {
@@ -18165,7 +18163,7 @@ type InputSynthesizePinchGesture struct {
 
 InputSynthesizePinchGesture (experimental) Synthesizes a pinch gesture over a time period by issuing appropriate touch events.
 
-### (InputSynthesizePinchGesture) Call 
+#### (InputSynthesizePinchGesture) Call 
 
 ``` go
 func (m InputSynthesizePinchGesture) Call(c Client) error
@@ -18173,7 +18171,7 @@ func (m InputSynthesizePinchGesture) Call(c Client) error
 
 Call sends the request.
 
-### (InputSynthesizePinchGesture) ProtoReq <- 0.74.0
+#### (InputSynthesizePinchGesture) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputSynthesizePinchGesture) ProtoReq() string
@@ -18181,7 +18179,7 @@ func (m InputSynthesizePinchGesture) ProtoReq() string
 
 ProtoReq name.
 
-## type InputSynthesizeScrollGesture 
+### type InputSynthesizeScrollGesture 
 
 ``` go
 type InputSynthesizeScrollGesture struct {
@@ -18228,7 +18226,7 @@ type InputSynthesizeScrollGesture struct {
 
 InputSynthesizeScrollGesture (experimental) Synthesizes a scroll gesture over a time period by issuing appropriate touch events.
 
-### (InputSynthesizeScrollGesture) Call 
+#### (InputSynthesizeScrollGesture) Call 
 
 ``` go
 func (m InputSynthesizeScrollGesture) Call(c Client) error
@@ -18236,7 +18234,7 @@ func (m InputSynthesizeScrollGesture) Call(c Client) error
 
 Call sends the request.
 
-### (InputSynthesizeScrollGesture) ProtoReq <- 0.74.0
+#### (InputSynthesizeScrollGesture) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputSynthesizeScrollGesture) ProtoReq() string
@@ -18244,7 +18242,7 @@ func (m InputSynthesizeScrollGesture) ProtoReq() string
 
 ProtoReq name.
 
-## type InputSynthesizeTapGesture 
+### type InputSynthesizeTapGesture 
 
 ``` go
 type InputSynthesizeTapGesture struct {
@@ -18268,7 +18266,7 @@ type InputSynthesizeTapGesture struct {
 
 InputSynthesizeTapGesture (experimental) Synthesizes a tap gesture over a time period by issuing appropriate touch events.
 
-### (InputSynthesizeTapGesture) Call 
+#### (InputSynthesizeTapGesture) Call 
 
 ``` go
 func (m InputSynthesizeTapGesture) Call(c Client) error
@@ -18276,7 +18274,7 @@ func (m InputSynthesizeTapGesture) Call(c Client) error
 
 Call sends the request.
 
-### (InputSynthesizeTapGesture) ProtoReq <- 0.74.0
+#### (InputSynthesizeTapGesture) ProtoReq <- 0.74.0
 
 ``` go
 func (m InputSynthesizeTapGesture) ProtoReq() string
@@ -18284,7 +18282,7 @@ func (m InputSynthesizeTapGesture) ProtoReq() string
 
 ProtoReq name.
 
-## type InputTouchPoint 
+### type InputTouchPoint 
 
 ``` go
 type InputTouchPoint struct {
@@ -18326,7 +18324,7 @@ type InputTouchPoint struct {
 
 InputTouchPoint ...
 
-### (*InputTouchPoint) MoveTo <- 0.61.1
+#### (*InputTouchPoint) MoveTo <- 0.61.1
 
 ``` go
 func (p *InputTouchPoint) MoveTo(x, y float64)
@@ -18334,7 +18332,7 @@ func (p *InputTouchPoint) MoveTo(x, y float64)
 
 MoveTo X and Y to x and y.
 
-## type InspectorDetached 
+### type InspectorDetached 
 
 ``` go
 type InspectorDetached struct {
@@ -18345,7 +18343,7 @@ type InspectorDetached struct {
 
 InspectorDetached Fired when remote debugging connection is about to be terminated. Contains detach reason.
 
-### (InspectorDetached) ProtoEvent <- 0.72.0
+#### (InspectorDetached) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt InspectorDetached) ProtoEvent() string
@@ -18353,7 +18351,7 @@ func (evt InspectorDetached) ProtoEvent() string
 
 ProtoEvent name.
 
-## type InspectorDisable 
+### type InspectorDisable 
 
 ``` go
 type InspectorDisable struct{}
@@ -18361,7 +18359,7 @@ type InspectorDisable struct{}
 
 InspectorDisable Disables inspector domain notifications.
 
-### (InspectorDisable) Call 
+#### (InspectorDisable) Call 
 
 ``` go
 func (m InspectorDisable) Call(c Client) error
@@ -18369,7 +18367,7 @@ func (m InspectorDisable) Call(c Client) error
 
 Call sends the request.
 
-### (InspectorDisable) ProtoReq <- 0.74.0
+#### (InspectorDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m InspectorDisable) ProtoReq() string
@@ -18377,7 +18375,7 @@ func (m InspectorDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type InspectorEnable 
+### type InspectorEnable 
 
 ``` go
 type InspectorEnable struct{}
@@ -18385,7 +18383,7 @@ type InspectorEnable struct{}
 
 InspectorEnable Enables inspector domain notifications.
 
-### (InspectorEnable) Call 
+#### (InspectorEnable) Call 
 
 ``` go
 func (m InspectorEnable) Call(c Client) error
@@ -18393,7 +18391,7 @@ func (m InspectorEnable) Call(c Client) error
 
 Call sends the request.
 
-### (InspectorEnable) ProtoReq <- 0.74.0
+#### (InspectorEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m InspectorEnable) ProtoReq() string
@@ -18401,7 +18399,7 @@ func (m InspectorEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type InspectorTargetCrashed 
+### type InspectorTargetCrashed 
 
 ``` go
 type InspectorTargetCrashed struct{}
@@ -18409,7 +18407,7 @@ type InspectorTargetCrashed struct{}
 
 InspectorTargetCrashed Fired when debugging target has crashed.
 
-### (InspectorTargetCrashed) ProtoEvent <- 0.72.0
+#### (InspectorTargetCrashed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt InspectorTargetCrashed) ProtoEvent() string
@@ -18417,7 +18415,7 @@ func (evt InspectorTargetCrashed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type InspectorTargetReloadedAfterCrash 
+### type InspectorTargetReloadedAfterCrash 
 
 ``` go
 type InspectorTargetReloadedAfterCrash struct{}
@@ -18425,7 +18423,7 @@ type InspectorTargetReloadedAfterCrash struct{}
 
 InspectorTargetReloadedAfterCrash Fired when debugging target has reloaded after crash.
 
-### (InspectorTargetReloadedAfterCrash) ProtoEvent <- 0.72.0
+#### (InspectorTargetReloadedAfterCrash) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt InspectorTargetReloadedAfterCrash) ProtoEvent() string
@@ -18433,7 +18431,7 @@ func (evt InspectorTargetReloadedAfterCrash) ProtoEvent() string
 
 ProtoEvent name.
 
-## type LayerTreeCompositingReasons 
+### type LayerTreeCompositingReasons 
 
 ``` go
 type LayerTreeCompositingReasons struct {
@@ -18444,7 +18442,7 @@ type LayerTreeCompositingReasons struct {
 
 LayerTreeCompositingReasons Provides the reasons why the given layer was composited.
 
-### (LayerTreeCompositingReasons) Call 
+#### (LayerTreeCompositingReasons) Call 
 
 ``` go
 func (m LayerTreeCompositingReasons) Call(c Client) (*LayerTreeCompositingReasonsResult, error)
@@ -18452,7 +18450,7 @@ func (m LayerTreeCompositingReasons) Call(c Client) (*LayerTreeCompositingReason
 
 Call the request.
 
-### (LayerTreeCompositingReasons) ProtoReq <- 0.74.0
+#### (LayerTreeCompositingReasons) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeCompositingReasons) ProtoReq() string
@@ -18460,7 +18458,7 @@ func (m LayerTreeCompositingReasons) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeCompositingReasonsResult 
+### type LayerTreeCompositingReasonsResult 
 
 ``` go
 type LayerTreeCompositingReasonsResult struct {
@@ -18474,7 +18472,7 @@ type LayerTreeCompositingReasonsResult struct {
 
 LayerTreeCompositingReasonsResult ...
 
-## type LayerTreeDisable 
+### type LayerTreeDisable 
 
 ``` go
 type LayerTreeDisable struct{}
@@ -18482,7 +18480,7 @@ type LayerTreeDisable struct{}
 
 LayerTreeDisable Disables compositing tree inspection.
 
-### (LayerTreeDisable) Call 
+#### (LayerTreeDisable) Call 
 
 ``` go
 func (m LayerTreeDisable) Call(c Client) error
@@ -18490,7 +18488,7 @@ func (m LayerTreeDisable) Call(c Client) error
 
 Call sends the request.
 
-### (LayerTreeDisable) ProtoReq <- 0.74.0
+#### (LayerTreeDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeDisable) ProtoReq() string
@@ -18498,7 +18496,7 @@ func (m LayerTreeDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeEnable 
+### type LayerTreeEnable 
 
 ``` go
 type LayerTreeEnable struct{}
@@ -18506,7 +18504,7 @@ type LayerTreeEnable struct{}
 
 LayerTreeEnable Enables compositing tree inspection.
 
-### (LayerTreeEnable) Call 
+#### (LayerTreeEnable) Call 
 
 ``` go
 func (m LayerTreeEnable) Call(c Client) error
@@ -18514,7 +18512,7 @@ func (m LayerTreeEnable) Call(c Client) error
 
 Call sends the request.
 
-### (LayerTreeEnable) ProtoReq <- 0.74.0
+#### (LayerTreeEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeEnable) ProtoReq() string
@@ -18522,7 +18520,7 @@ func (m LayerTreeEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeLayer 
+### type LayerTreeLayer 
 
 ``` go
 type LayerTreeLayer struct {
@@ -18579,7 +18577,7 @@ type LayerTreeLayer struct {
 
 LayerTreeLayer Information about a compositing layer.
 
-## type LayerTreeLayerID 
+### type LayerTreeLayerID 
 
 ``` go
 type LayerTreeLayerID string
@@ -18587,7 +18585,7 @@ type LayerTreeLayerID string
 
 LayerTreeLayerID Unique Layer identifier.
 
-## type LayerTreeLayerPainted 
+### type LayerTreeLayerPainted 
 
 ``` go
 type LayerTreeLayerPainted struct {
@@ -18601,7 +18599,7 @@ type LayerTreeLayerPainted struct {
 
 LayerTreeLayerPainted ...
 
-### (LayerTreeLayerPainted) ProtoEvent <- 0.72.0
+#### (LayerTreeLayerPainted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt LayerTreeLayerPainted) ProtoEvent() string
@@ -18609,7 +18607,7 @@ func (evt LayerTreeLayerPainted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type LayerTreeLayerTreeDidChange 
+### type LayerTreeLayerTreeDidChange 
 
 ``` go
 type LayerTreeLayerTreeDidChange struct {
@@ -18620,7 +18618,7 @@ type LayerTreeLayerTreeDidChange struct {
 
 LayerTreeLayerTreeDidChange ...
 
-### (LayerTreeLayerTreeDidChange) ProtoEvent <- 0.72.0
+#### (LayerTreeLayerTreeDidChange) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt LayerTreeLayerTreeDidChange) ProtoEvent() string
@@ -18628,7 +18626,7 @@ func (evt LayerTreeLayerTreeDidChange) ProtoEvent() string
 
 ProtoEvent name.
 
-## type LayerTreeLoadSnapshot 
+### type LayerTreeLoadSnapshot 
 
 ``` go
 type LayerTreeLoadSnapshot struct {
@@ -18639,7 +18637,7 @@ type LayerTreeLoadSnapshot struct {
 
 LayerTreeLoadSnapshot Returns the snapshot identifier.
 
-### (LayerTreeLoadSnapshot) Call 
+#### (LayerTreeLoadSnapshot) Call 
 
 ``` go
 func (m LayerTreeLoadSnapshot) Call(c Client) (*LayerTreeLoadSnapshotResult, error)
@@ -18647,7 +18645,7 @@ func (m LayerTreeLoadSnapshot) Call(c Client) (*LayerTreeLoadSnapshotResult, err
 
 Call the request.
 
-### (LayerTreeLoadSnapshot) ProtoReq <- 0.74.0
+#### (LayerTreeLoadSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeLoadSnapshot) ProtoReq() string
@@ -18655,7 +18653,7 @@ func (m LayerTreeLoadSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeLoadSnapshotResult 
+### type LayerTreeLoadSnapshotResult 
 
 ``` go
 type LayerTreeLoadSnapshotResult struct {
@@ -18666,7 +18664,7 @@ type LayerTreeLoadSnapshotResult struct {
 
 LayerTreeLoadSnapshotResult ...
 
-## type LayerTreeMakeSnapshot 
+### type LayerTreeMakeSnapshot 
 
 ``` go
 type LayerTreeMakeSnapshot struct {
@@ -18677,7 +18675,7 @@ type LayerTreeMakeSnapshot struct {
 
 LayerTreeMakeSnapshot Returns the layer snapshot identifier.
 
-### (LayerTreeMakeSnapshot) Call 
+#### (LayerTreeMakeSnapshot) Call 
 
 ``` go
 func (m LayerTreeMakeSnapshot) Call(c Client) (*LayerTreeMakeSnapshotResult, error)
@@ -18685,7 +18683,7 @@ func (m LayerTreeMakeSnapshot) Call(c Client) (*LayerTreeMakeSnapshotResult, err
 
 Call the request.
 
-### (LayerTreeMakeSnapshot) ProtoReq <- 0.74.0
+#### (LayerTreeMakeSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeMakeSnapshot) ProtoReq() string
@@ -18693,7 +18691,7 @@ func (m LayerTreeMakeSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeMakeSnapshotResult 
+### type LayerTreeMakeSnapshotResult 
 
 ``` go
 type LayerTreeMakeSnapshotResult struct {
@@ -18704,7 +18702,7 @@ type LayerTreeMakeSnapshotResult struct {
 
 LayerTreeMakeSnapshotResult ...
 
-## type LayerTreePaintProfile 
+### type LayerTreePaintProfile 
 
 ``` go
 type LayerTreePaintProfile []float64
@@ -18712,7 +18710,7 @@ type LayerTreePaintProfile []float64
 
 LayerTreePaintProfile Array of timings, one per paint step.
 
-## type LayerTreePictureTile 
+### type LayerTreePictureTile 
 
 ``` go
 type LayerTreePictureTile struct {
@@ -18729,7 +18727,7 @@ type LayerTreePictureTile struct {
 
 LayerTreePictureTile Serialized fragment of layer picture along with its offset within the layer.
 
-## type LayerTreeProfileSnapshot 
+### type LayerTreeProfileSnapshot 
 
 ``` go
 type LayerTreeProfileSnapshot struct {
@@ -18749,7 +18747,7 @@ type LayerTreeProfileSnapshot struct {
 
 LayerTreeProfileSnapshot ...
 
-### (LayerTreeProfileSnapshot) Call 
+#### (LayerTreeProfileSnapshot) Call 
 
 ``` go
 func (m LayerTreeProfileSnapshot) Call(c Client) (*LayerTreeProfileSnapshotResult, error)
@@ -18757,7 +18755,7 @@ func (m LayerTreeProfileSnapshot) Call(c Client) (*LayerTreeProfileSnapshotResul
 
 Call the request.
 
-### (LayerTreeProfileSnapshot) ProtoReq <- 0.74.0
+#### (LayerTreeProfileSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeProfileSnapshot) ProtoReq() string
@@ -18765,7 +18763,7 @@ func (m LayerTreeProfileSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeProfileSnapshotResult 
+### type LayerTreeProfileSnapshotResult 
 
 ``` go
 type LayerTreeProfileSnapshotResult struct {
@@ -18776,7 +18774,7 @@ type LayerTreeProfileSnapshotResult struct {
 
 LayerTreeProfileSnapshotResult ...
 
-## type LayerTreeReleaseSnapshot 
+### type LayerTreeReleaseSnapshot 
 
 ``` go
 type LayerTreeReleaseSnapshot struct {
@@ -18787,7 +18785,7 @@ type LayerTreeReleaseSnapshot struct {
 
 LayerTreeReleaseSnapshot Releases layer snapshot captured by the back-end.
 
-### (LayerTreeReleaseSnapshot) Call 
+#### (LayerTreeReleaseSnapshot) Call 
 
 ``` go
 func (m LayerTreeReleaseSnapshot) Call(c Client) error
@@ -18795,7 +18793,7 @@ func (m LayerTreeReleaseSnapshot) Call(c Client) error
 
 Call sends the request.
 
-### (LayerTreeReleaseSnapshot) ProtoReq <- 0.74.0
+#### (LayerTreeReleaseSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeReleaseSnapshot) ProtoReq() string
@@ -18803,7 +18801,7 @@ func (m LayerTreeReleaseSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeReplaySnapshot 
+### type LayerTreeReplaySnapshot 
 
 ``` go
 type LayerTreeReplaySnapshot struct {
@@ -18823,7 +18821,7 @@ type LayerTreeReplaySnapshot struct {
 
 LayerTreeReplaySnapshot Replays the layer snapshot and returns the resulting bitmap.
 
-### (LayerTreeReplaySnapshot) Call 
+#### (LayerTreeReplaySnapshot) Call 
 
 ``` go
 func (m LayerTreeReplaySnapshot) Call(c Client) (*LayerTreeReplaySnapshotResult, error)
@@ -18831,7 +18829,7 @@ func (m LayerTreeReplaySnapshot) Call(c Client) (*LayerTreeReplaySnapshotResult,
 
 Call the request.
 
-### (LayerTreeReplaySnapshot) ProtoReq <- 0.74.0
+#### (LayerTreeReplaySnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeReplaySnapshot) ProtoReq() string
@@ -18839,7 +18837,7 @@ func (m LayerTreeReplaySnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeReplaySnapshotResult 
+### type LayerTreeReplaySnapshotResult 
 
 ``` go
 type LayerTreeReplaySnapshotResult struct {
@@ -18850,7 +18848,7 @@ type LayerTreeReplaySnapshotResult struct {
 
 LayerTreeReplaySnapshotResult ...
 
-## type LayerTreeScrollRect 
+### type LayerTreeScrollRect 
 
 ``` go
 type LayerTreeScrollRect struct {
@@ -18864,7 +18862,7 @@ type LayerTreeScrollRect struct {
 
 LayerTreeScrollRect Rectangle where scrolling happens on the main thread.
 
-## type LayerTreeScrollRectType 
+### type LayerTreeScrollRectType 
 
 ``` go
 type LayerTreeScrollRectType string
@@ -18885,7 +18883,7 @@ const (
 )
 ```
 
-## type LayerTreeSnapshotCommandLog 
+### type LayerTreeSnapshotCommandLog 
 
 ``` go
 type LayerTreeSnapshotCommandLog struct {
@@ -18896,7 +18894,7 @@ type LayerTreeSnapshotCommandLog struct {
 
 LayerTreeSnapshotCommandLog Replays the layer snapshot and returns canvas log.
 
-### (LayerTreeSnapshotCommandLog) Call 
+#### (LayerTreeSnapshotCommandLog) Call 
 
 ``` go
 func (m LayerTreeSnapshotCommandLog) Call(c Client) (*LayerTreeSnapshotCommandLogResult, error)
@@ -18904,7 +18902,7 @@ func (m LayerTreeSnapshotCommandLog) Call(c Client) (*LayerTreeSnapshotCommandLo
 
 Call the request.
 
-### (LayerTreeSnapshotCommandLog) ProtoReq <- 0.74.0
+#### (LayerTreeSnapshotCommandLog) ProtoReq <- 0.74.0
 
 ``` go
 func (m LayerTreeSnapshotCommandLog) ProtoReq() string
@@ -18912,7 +18910,7 @@ func (m LayerTreeSnapshotCommandLog) ProtoReq() string
 
 ProtoReq name.
 
-## type LayerTreeSnapshotCommandLogResult 
+### type LayerTreeSnapshotCommandLogResult 
 
 ``` go
 type LayerTreeSnapshotCommandLogResult struct {
@@ -18923,7 +18921,7 @@ type LayerTreeSnapshotCommandLogResult struct {
 
 LayerTreeSnapshotCommandLogResult ...
 
-## type LayerTreeSnapshotID 
+### type LayerTreeSnapshotID 
 
 ``` go
 type LayerTreeSnapshotID string
@@ -18931,7 +18929,7 @@ type LayerTreeSnapshotID string
 
 LayerTreeSnapshotID Unique snapshot identifier.
 
-## type LayerTreeStickyPositionConstraint 
+### type LayerTreeStickyPositionConstraint 
 
 ``` go
 type LayerTreeStickyPositionConstraint struct {
@@ -18951,7 +18949,7 @@ type LayerTreeStickyPositionConstraint struct {
 
 LayerTreeStickyPositionConstraint Sticky position constraints.
 
-## type LogClear 
+### type LogClear 
 
 ``` go
 type LogClear struct{}
@@ -18959,7 +18957,7 @@ type LogClear struct{}
 
 LogClear Clears the log.
 
-### (LogClear) Call 
+#### (LogClear) Call 
 
 ``` go
 func (m LogClear) Call(c Client) error
@@ -18967,7 +18965,7 @@ func (m LogClear) Call(c Client) error
 
 Call sends the request.
 
-### (LogClear) ProtoReq <- 0.74.0
+#### (LogClear) ProtoReq <- 0.74.0
 
 ``` go
 func (m LogClear) ProtoReq() string
@@ -18975,7 +18973,7 @@ func (m LogClear) ProtoReq() string
 
 ProtoReq name.
 
-## type LogDisable 
+### type LogDisable 
 
 ``` go
 type LogDisable struct{}
@@ -18983,7 +18981,7 @@ type LogDisable struct{}
 
 LogDisable Disables log domain, prevents further log entries from being reported to the client.
 
-### (LogDisable) Call 
+#### (LogDisable) Call 
 
 ``` go
 func (m LogDisable) Call(c Client) error
@@ -18991,7 +18989,7 @@ func (m LogDisable) Call(c Client) error
 
 Call sends the request.
 
-### (LogDisable) ProtoReq <- 0.74.0
+#### (LogDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m LogDisable) ProtoReq() string
@@ -18999,7 +18997,7 @@ func (m LogDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type LogEnable 
+### type LogEnable 
 
 ``` go
 type LogEnable struct{}
@@ -19007,7 +19005,7 @@ type LogEnable struct{}
 
 LogEnable Enables log domain, sends the entries collected so far to the client by means of the `entryAdded` notification.
 
-### (LogEnable) Call 
+#### (LogEnable) Call 
 
 ``` go
 func (m LogEnable) Call(c Client) error
@@ -19015,7 +19013,7 @@ func (m LogEnable) Call(c Client) error
 
 Call sends the request.
 
-### (LogEnable) ProtoReq <- 0.74.0
+#### (LogEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m LogEnable) ProtoReq() string
@@ -19023,7 +19021,7 @@ func (m LogEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type LogEntryAdded 
+### type LogEntryAdded 
 
 ``` go
 type LogEntryAdded struct {
@@ -19034,7 +19032,7 @@ type LogEntryAdded struct {
 
 LogEntryAdded Issued when new message was logged.
 
-### (LogEntryAdded) ProtoEvent <- 0.72.0
+#### (LogEntryAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt LogEntryAdded) ProtoEvent() string
@@ -19042,7 +19040,7 @@ func (evt LogEntryAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type LogLogEntry 
+### type LogLogEntry 
 
 ``` go
 type LogLogEntry struct {
@@ -19083,7 +19081,7 @@ type LogLogEntry struct {
 
 LogLogEntry Log entry.
 
-## type LogLogEntryCategory <- 0.102.0
+### type LogLogEntryCategory <- 0.102.0
 
 ``` go
 type LogLogEntryCategory string
@@ -19098,7 +19096,7 @@ const (
 )
 ```
 
-## type LogLogEntryLevel 
+### type LogLogEntryLevel 
 
 ``` go
 type LogLogEntryLevel string
@@ -19122,7 +19120,7 @@ const (
 )
 ```
 
-## type LogLogEntrySource 
+### type LogLogEntrySource 
 
 ``` go
 type LogLogEntrySource string
@@ -19173,7 +19171,7 @@ const (
 )
 ```
 
-## type LogStartViolationsReport 
+### type LogStartViolationsReport 
 
 ``` go
 type LogStartViolationsReport struct {
@@ -19184,7 +19182,7 @@ type LogStartViolationsReport struct {
 
 LogStartViolationsReport start violation reporting.
 
-### (LogStartViolationsReport) Call 
+#### (LogStartViolationsReport) Call 
 
 ``` go
 func (m LogStartViolationsReport) Call(c Client) error
@@ -19192,7 +19190,7 @@ func (m LogStartViolationsReport) Call(c Client) error
 
 Call sends the request.
 
-### (LogStartViolationsReport) ProtoReq <- 0.74.0
+#### (LogStartViolationsReport) ProtoReq <- 0.74.0
 
 ``` go
 func (m LogStartViolationsReport) ProtoReq() string
@@ -19200,7 +19198,7 @@ func (m LogStartViolationsReport) ProtoReq() string
 
 ProtoReq name.
 
-## type LogStopViolationsReport 
+### type LogStopViolationsReport 
 
 ``` go
 type LogStopViolationsReport struct{}
@@ -19208,7 +19206,7 @@ type LogStopViolationsReport struct{}
 
 LogStopViolationsReport Stop violation reporting.
 
-### (LogStopViolationsReport) Call 
+#### (LogStopViolationsReport) Call 
 
 ``` go
 func (m LogStopViolationsReport) Call(c Client) error
@@ -19216,7 +19214,7 @@ func (m LogStopViolationsReport) Call(c Client) error
 
 Call sends the request.
 
-### (LogStopViolationsReport) ProtoReq <- 0.74.0
+#### (LogStopViolationsReport) ProtoReq <- 0.74.0
 
 ``` go
 func (m LogStopViolationsReport) ProtoReq() string
@@ -19224,7 +19222,7 @@ func (m LogStopViolationsReport) ProtoReq() string
 
 ProtoReq name.
 
-## type LogViolationSetting 
+### type LogViolationSetting 
 
 ``` go
 type LogViolationSetting struct {
@@ -19238,7 +19236,7 @@ type LogViolationSetting struct {
 
 LogViolationSetting Violation configuration setting.
 
-## type LogViolationSettingName 
+### type LogViolationSettingName 
 
 ``` go
 type LogViolationSettingName string
@@ -19271,7 +19269,7 @@ const (
 )
 ```
 
-## type MediaDisable 
+### type MediaDisable 
 
 ``` go
 type MediaDisable struct{}
@@ -19279,7 +19277,7 @@ type MediaDisable struct{}
 
 MediaDisable Disables the Media domain.
 
-### (MediaDisable) Call 
+#### (MediaDisable) Call 
 
 ``` go
 func (m MediaDisable) Call(c Client) error
@@ -19287,7 +19285,7 @@ func (m MediaDisable) Call(c Client) error
 
 Call sends the request.
 
-### (MediaDisable) ProtoReq <- 0.74.0
+#### (MediaDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m MediaDisable) ProtoReq() string
@@ -19295,7 +19293,7 @@ func (m MediaDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type MediaEnable 
+### type MediaEnable 
 
 ``` go
 type MediaEnable struct{}
@@ -19303,7 +19301,7 @@ type MediaEnable struct{}
 
 MediaEnable Enables the Media domain.
 
-### (MediaEnable) Call 
+#### (MediaEnable) Call 
 
 ``` go
 func (m MediaEnable) Call(c Client) error
@@ -19311,7 +19309,7 @@ func (m MediaEnable) Call(c Client) error
 
 Call sends the request.
 
-### (MediaEnable) ProtoReq <- 0.74.0
+#### (MediaEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m MediaEnable) ProtoReq() string
@@ -19319,7 +19317,7 @@ func (m MediaEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type MediaPlayerError <- 0.48.0
+### type MediaPlayerError <- 0.48.0
 
 ``` go
 type MediaPlayerError struct {
@@ -19344,7 +19342,7 @@ type MediaPlayerError struct {
 
 MediaPlayerError Corresponds to kMediaError.
 
-## type MediaPlayerErrorSourceLocation <- 0.106.0
+### type MediaPlayerErrorSourceLocation <- 0.106.0
 
 ``` go
 type MediaPlayerErrorSourceLocation struct {
@@ -19358,7 +19356,7 @@ type MediaPlayerErrorSourceLocation struct {
 
 MediaPlayerErrorSourceLocation Represents logged source line numbers reported in an error. NOTE: file and line are from chromium c++ implementation code, not js.
 
-## type MediaPlayerErrorsRaised <- 0.48.0
+### type MediaPlayerErrorsRaised <- 0.48.0
 
 ``` go
 type MediaPlayerErrorsRaised struct {
@@ -19372,7 +19370,7 @@ type MediaPlayerErrorsRaised struct {
 
 MediaPlayerErrorsRaised Send a list of any errors that need to be delivered.
 
-### (MediaPlayerErrorsRaised) ProtoEvent <- 0.72.0
+#### (MediaPlayerErrorsRaised) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt MediaPlayerErrorsRaised) ProtoEvent() string
@@ -19380,7 +19378,7 @@ func (evt MediaPlayerErrorsRaised) ProtoEvent() string
 
 ProtoEvent name.
 
-## type MediaPlayerEvent 
+### type MediaPlayerEvent 
 
 ``` go
 type MediaPlayerEvent struct {
@@ -19394,7 +19392,7 @@ type MediaPlayerEvent struct {
 
 MediaPlayerEvent Corresponds to kMediaEventTriggered.
 
-## type MediaPlayerEventsAdded 
+### type MediaPlayerEventsAdded 
 
 ``` go
 type MediaPlayerEventsAdded struct {
@@ -19408,7 +19406,7 @@ type MediaPlayerEventsAdded struct {
 
 MediaPlayerEventsAdded Send events as a list, allowing them to be batched on the browser for less congestion. If batched, events must ALWAYS be in chronological order.
 
-### (MediaPlayerEventsAdded) ProtoEvent <- 0.72.0
+#### (MediaPlayerEventsAdded) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt MediaPlayerEventsAdded) ProtoEvent() string
@@ -19416,7 +19414,7 @@ func (evt MediaPlayerEventsAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type MediaPlayerID 
+### type MediaPlayerID 
 
 ``` go
 type MediaPlayerID string
@@ -19424,7 +19422,7 @@ type MediaPlayerID string
 
 MediaPlayerID Players will get an ID that is unique within the agent context.
 
-## type MediaPlayerMessage <- 0.48.0
+### type MediaPlayerMessage <- 0.48.0
 
 ``` go
 type MediaPlayerMessage struct {
@@ -19446,7 +19444,7 @@ type MediaPlayerMessage struct {
 
 MediaPlayerMessage Have one type per entry in MediaLogRecord::Type Corresponds to kMessage.
 
-## type MediaPlayerMessageLevel <- 0.48.0
+### type MediaPlayerMessageLevel <- 0.48.0
 
 ``` go
 type MediaPlayerMessageLevel string
@@ -19470,7 +19468,7 @@ const (
 )
 ```
 
-## type MediaPlayerMessagesLogged <- 0.48.0
+### type MediaPlayerMessagesLogged <- 0.48.0
 
 ``` go
 type MediaPlayerMessagesLogged struct {
@@ -19484,7 +19482,7 @@ type MediaPlayerMessagesLogged struct {
 
 MediaPlayerMessagesLogged Send a list of any messages that need to be delivered.
 
-### (MediaPlayerMessagesLogged) ProtoEvent <- 0.72.0
+#### (MediaPlayerMessagesLogged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt MediaPlayerMessagesLogged) ProtoEvent() string
@@ -19492,7 +19490,7 @@ func (evt MediaPlayerMessagesLogged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type MediaPlayerPropertiesChanged 
+### type MediaPlayerPropertiesChanged 
 
 ``` go
 type MediaPlayerPropertiesChanged struct {
@@ -19506,7 +19504,7 @@ type MediaPlayerPropertiesChanged struct {
 
 MediaPlayerPropertiesChanged This can be called multiple times, and can be used to set / override / remove player properties. A null propValue indicates removal.
 
-### (MediaPlayerPropertiesChanged) ProtoEvent <- 0.72.0
+#### (MediaPlayerPropertiesChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt MediaPlayerPropertiesChanged) ProtoEvent() string
@@ -19514,7 +19512,7 @@ func (evt MediaPlayerPropertiesChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type MediaPlayerProperty 
+### type MediaPlayerProperty 
 
 ``` go
 type MediaPlayerProperty struct {
@@ -19528,7 +19526,7 @@ type MediaPlayerProperty struct {
 
 MediaPlayerProperty Corresponds to kMediaPropertyChange.
 
-## type MediaPlayersCreated 
+### type MediaPlayersCreated 
 
 ``` go
 type MediaPlayersCreated struct {
@@ -19539,7 +19537,7 @@ type MediaPlayersCreated struct {
 
 MediaPlayersCreated Called whenever a player is created, or when a new agent joins and receives a list of active players. If an agent is restored, it will receive the full list of player ids and all events again.
 
-### (MediaPlayersCreated) ProtoEvent <- 0.72.0
+#### (MediaPlayersCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt MediaPlayersCreated) ProtoEvent() string
@@ -19547,7 +19545,7 @@ func (evt MediaPlayersCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type MediaTimestamp 
+### type MediaTimestamp 
 
 ``` go
 type MediaTimestamp float64
@@ -19555,7 +19553,7 @@ type MediaTimestamp float64
 
 MediaTimestamp ...
 
-## type MemoryForciblyPurgeJavaScriptMemory 
+### type MemoryForciblyPurgeJavaScriptMemory 
 
 ``` go
 type MemoryForciblyPurgeJavaScriptMemory struct{}
@@ -19563,7 +19561,7 @@ type MemoryForciblyPurgeJavaScriptMemory struct{}
 
 MemoryForciblyPurgeJavaScriptMemory Simulate OomIntervention by purging V8 memory.
 
-### (MemoryForciblyPurgeJavaScriptMemory) Call 
+#### (MemoryForciblyPurgeJavaScriptMemory) Call 
 
 ``` go
 func (m MemoryForciblyPurgeJavaScriptMemory) Call(c Client) error
@@ -19571,7 +19569,7 @@ func (m MemoryForciblyPurgeJavaScriptMemory) Call(c Client) error
 
 Call sends the request.
 
-### (MemoryForciblyPurgeJavaScriptMemory) ProtoReq <- 0.74.0
+#### (MemoryForciblyPurgeJavaScriptMemory) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryForciblyPurgeJavaScriptMemory) ProtoReq() string
@@ -19579,7 +19577,7 @@ func (m MemoryForciblyPurgeJavaScriptMemory) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryGetAllTimeSamplingProfile 
+### type MemoryGetAllTimeSamplingProfile 
 
 ``` go
 type MemoryGetAllTimeSamplingProfile struct{}
@@ -19587,7 +19585,7 @@ type MemoryGetAllTimeSamplingProfile struct{}
 
 MemoryGetAllTimeSamplingProfile Retrieve native memory allocations profile collected since renderer process startup.
 
-### (MemoryGetAllTimeSamplingProfile) Call 
+#### (MemoryGetAllTimeSamplingProfile) Call 
 
 ``` go
 func (m MemoryGetAllTimeSamplingProfile) Call(c Client) (*MemoryGetAllTimeSamplingProfileResult, error)
@@ -19595,7 +19593,7 @@ func (m MemoryGetAllTimeSamplingProfile) Call(c Client) (*MemoryGetAllTimeSampli
 
 Call the request.
 
-### (MemoryGetAllTimeSamplingProfile) ProtoReq <- 0.74.0
+#### (MemoryGetAllTimeSamplingProfile) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryGetAllTimeSamplingProfile) ProtoReq() string
@@ -19603,7 +19601,7 @@ func (m MemoryGetAllTimeSamplingProfile) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryGetAllTimeSamplingProfileResult 
+### type MemoryGetAllTimeSamplingProfileResult 
 
 ``` go
 type MemoryGetAllTimeSamplingProfileResult struct {
@@ -19614,7 +19612,7 @@ type MemoryGetAllTimeSamplingProfileResult struct {
 
 MemoryGetAllTimeSamplingProfileResult ...
 
-## type MemoryGetBrowserSamplingProfile 
+### type MemoryGetBrowserSamplingProfile 
 
 ``` go
 type MemoryGetBrowserSamplingProfile struct{}
@@ -19622,7 +19620,7 @@ type MemoryGetBrowserSamplingProfile struct{}
 
 MemoryGetBrowserSamplingProfile Retrieve native memory allocations profile collected since browser process startup.
 
-### (MemoryGetBrowserSamplingProfile) Call 
+#### (MemoryGetBrowserSamplingProfile) Call 
 
 ``` go
 func (m MemoryGetBrowserSamplingProfile) Call(c Client) (*MemoryGetBrowserSamplingProfileResult, error)
@@ -19630,7 +19628,7 @@ func (m MemoryGetBrowserSamplingProfile) Call(c Client) (*MemoryGetBrowserSampli
 
 Call the request.
 
-### (MemoryGetBrowserSamplingProfile) ProtoReq <- 0.74.0
+#### (MemoryGetBrowserSamplingProfile) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryGetBrowserSamplingProfile) ProtoReq() string
@@ -19638,7 +19636,7 @@ func (m MemoryGetBrowserSamplingProfile) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryGetBrowserSamplingProfileResult 
+### type MemoryGetBrowserSamplingProfileResult 
 
 ``` go
 type MemoryGetBrowserSamplingProfileResult struct {
@@ -19649,7 +19647,7 @@ type MemoryGetBrowserSamplingProfileResult struct {
 
 MemoryGetBrowserSamplingProfileResult ...
 
-## type MemoryGetDOMCounters 
+### type MemoryGetDOMCounters 
 
 ``` go
 type MemoryGetDOMCounters struct{}
@@ -19657,7 +19655,7 @@ type MemoryGetDOMCounters struct{}
 
 MemoryGetDOMCounters ...
 
-### (MemoryGetDOMCounters) Call 
+#### (MemoryGetDOMCounters) Call 
 
 ``` go
 func (m MemoryGetDOMCounters) Call(c Client) (*MemoryGetDOMCountersResult, error)
@@ -19665,7 +19663,7 @@ func (m MemoryGetDOMCounters) Call(c Client) (*MemoryGetDOMCountersResult, error
 
 Call the request.
 
-### (MemoryGetDOMCounters) ProtoReq <- 0.74.0
+#### (MemoryGetDOMCounters) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryGetDOMCounters) ProtoReq() string
@@ -19673,7 +19671,7 @@ func (m MemoryGetDOMCounters) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryGetDOMCountersResult 
+### type MemoryGetDOMCountersResult 
 
 ``` go
 type MemoryGetDOMCountersResult struct {
@@ -19690,7 +19688,7 @@ type MemoryGetDOMCountersResult struct {
 
 MemoryGetDOMCountersResult ...
 
-## type MemoryGetSamplingProfile 
+### type MemoryGetSamplingProfile 
 
 ``` go
 type MemoryGetSamplingProfile struct{}
@@ -19698,7 +19696,7 @@ type MemoryGetSamplingProfile struct{}
 
 MemoryGetSamplingProfile Retrieve native memory allocations profile collected since last `startSampling` call.
 
-### (MemoryGetSamplingProfile) Call 
+#### (MemoryGetSamplingProfile) Call 
 
 ``` go
 func (m MemoryGetSamplingProfile) Call(c Client) (*MemoryGetSamplingProfileResult, error)
@@ -19706,7 +19704,7 @@ func (m MemoryGetSamplingProfile) Call(c Client) (*MemoryGetSamplingProfileResul
 
 Call the request.
 
-### (MemoryGetSamplingProfile) ProtoReq <- 0.74.0
+#### (MemoryGetSamplingProfile) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryGetSamplingProfile) ProtoReq() string
@@ -19714,7 +19712,7 @@ func (m MemoryGetSamplingProfile) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryGetSamplingProfileResult 
+### type MemoryGetSamplingProfileResult 
 
 ``` go
 type MemoryGetSamplingProfileResult struct {
@@ -19725,7 +19723,7 @@ type MemoryGetSamplingProfileResult struct {
 
 MemoryGetSamplingProfileResult ...
 
-## type MemoryModule 
+### type MemoryModule 
 
 ``` go
 type MemoryModule struct {
@@ -19746,7 +19744,7 @@ type MemoryModule struct {
 
 MemoryModule Executable module information.
 
-## type MemoryPrepareForLeakDetection 
+### type MemoryPrepareForLeakDetection 
 
 ``` go
 type MemoryPrepareForLeakDetection struct{}
@@ -19754,7 +19752,7 @@ type MemoryPrepareForLeakDetection struct{}
 
 MemoryPrepareForLeakDetection ...
 
-### (MemoryPrepareForLeakDetection) Call 
+#### (MemoryPrepareForLeakDetection) Call 
 
 ``` go
 func (m MemoryPrepareForLeakDetection) Call(c Client) error
@@ -19762,7 +19760,7 @@ func (m MemoryPrepareForLeakDetection) Call(c Client) error
 
 Call sends the request.
 
-### (MemoryPrepareForLeakDetection) ProtoReq <- 0.74.0
+#### (MemoryPrepareForLeakDetection) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryPrepareForLeakDetection) ProtoReq() string
@@ -19770,7 +19768,7 @@ func (m MemoryPrepareForLeakDetection) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryPressureLevel 
+### type MemoryPressureLevel 
 
 ``` go
 type MemoryPressureLevel string
@@ -19788,7 +19786,7 @@ const (
 )
 ```
 
-## type MemorySamplingProfile 
+### type MemorySamplingProfile 
 
 ``` go
 type MemorySamplingProfile struct {
@@ -19802,7 +19800,7 @@ type MemorySamplingProfile struct {
 
 MemorySamplingProfile Array of heap profile samples.
 
-## type MemorySamplingProfileNode 
+### type MemorySamplingProfileNode 
 
 ``` go
 type MemorySamplingProfileNode struct {
@@ -19819,7 +19817,7 @@ type MemorySamplingProfileNode struct {
 
 MemorySamplingProfileNode Heap profile sample.
 
-## type MemorySetPressureNotificationsSuppressed 
+### type MemorySetPressureNotificationsSuppressed 
 
 ``` go
 type MemorySetPressureNotificationsSuppressed struct {
@@ -19830,7 +19828,7 @@ type MemorySetPressureNotificationsSuppressed struct {
 
 MemorySetPressureNotificationsSuppressed Enable/disable suppressing memory pressure notifications in all processes.
 
-### (MemorySetPressureNotificationsSuppressed) Call 
+#### (MemorySetPressureNotificationsSuppressed) Call 
 
 ``` go
 func (m MemorySetPressureNotificationsSuppressed) Call(c Client) error
@@ -19838,7 +19836,7 @@ func (m MemorySetPressureNotificationsSuppressed) Call(c Client) error
 
 Call sends the request.
 
-### (MemorySetPressureNotificationsSuppressed) ProtoReq <- 0.74.0
+#### (MemorySetPressureNotificationsSuppressed) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemorySetPressureNotificationsSuppressed) ProtoReq() string
@@ -19846,7 +19844,7 @@ func (m MemorySetPressureNotificationsSuppressed) ProtoReq() string
 
 ProtoReq name.
 
-## type MemorySimulatePressureNotification 
+### type MemorySimulatePressureNotification 
 
 ``` go
 type MemorySimulatePressureNotification struct {
@@ -19857,7 +19855,7 @@ type MemorySimulatePressureNotification struct {
 
 MemorySimulatePressureNotification Simulate a memory pressure notification in all processes.
 
-### (MemorySimulatePressureNotification) Call 
+#### (MemorySimulatePressureNotification) Call 
 
 ``` go
 func (m MemorySimulatePressureNotification) Call(c Client) error
@@ -19865,7 +19863,7 @@ func (m MemorySimulatePressureNotification) Call(c Client) error
 
 Call sends the request.
 
-### (MemorySimulatePressureNotification) ProtoReq <- 0.74.0
+#### (MemorySimulatePressureNotification) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemorySimulatePressureNotification) ProtoReq() string
@@ -19873,7 +19871,7 @@ func (m MemorySimulatePressureNotification) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryStartSampling 
+### type MemoryStartSampling 
 
 ``` go
 type MemoryStartSampling struct {
@@ -19887,7 +19885,7 @@ type MemoryStartSampling struct {
 
 MemoryStartSampling Start collecting native memory profile.
 
-### (MemoryStartSampling) Call 
+#### (MemoryStartSampling) Call 
 
 ``` go
 func (m MemoryStartSampling) Call(c Client) error
@@ -19895,7 +19893,7 @@ func (m MemoryStartSampling) Call(c Client) error
 
 Call sends the request.
 
-### (MemoryStartSampling) ProtoReq <- 0.74.0
+#### (MemoryStartSampling) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryStartSampling) ProtoReq() string
@@ -19903,7 +19901,7 @@ func (m MemoryStartSampling) ProtoReq() string
 
 ProtoReq name.
 
-## type MemoryStopSampling 
+### type MemoryStopSampling 
 
 ``` go
 type MemoryStopSampling struct{}
@@ -19911,7 +19909,7 @@ type MemoryStopSampling struct{}
 
 MemoryStopSampling Stop collecting native memory profile.
 
-### (MemoryStopSampling) Call 
+#### (MemoryStopSampling) Call 
 
 ``` go
 func (m MemoryStopSampling) Call(c Client) error
@@ -19919,7 +19917,7 @@ func (m MemoryStopSampling) Call(c Client) error
 
 Call sends the request.
 
-### (MemoryStopSampling) ProtoReq <- 0.74.0
+#### (MemoryStopSampling) ProtoReq <- 0.74.0
 
 ``` go
 func (m MemoryStopSampling) ProtoReq() string
@@ -19927,7 +19925,7 @@ func (m MemoryStopSampling) ProtoReq() string
 
 ProtoReq name.
 
-## type MonotonicTime 
+### type MonotonicTime 
 
 ``` go
 type MonotonicTime float64
@@ -19935,7 +19933,7 @@ type MonotonicTime float64
 
 MonotonicTime Monotonically increasing time in seconds since an arbitrary point in the past.
 
-### (MonotonicTime) Duration <- 0.93.0
+#### (MonotonicTime) Duration <- 0.93.0
 
 ``` go
 func (t MonotonicTime) Duration() time.Duration
@@ -19943,7 +19941,7 @@ func (t MonotonicTime) Duration() time.Duration
 
 Duration interface.
 
-### (MonotonicTime) String <- 0.93.0
+#### (MonotonicTime) String <- 0.93.0
 
 ``` go
 func (t MonotonicTime) String() string
@@ -19951,7 +19949,7 @@ func (t MonotonicTime) String() string
 
 String interface.
 
-## type NetworkAlternateProtocolUsage <- 0.112.1
+### type NetworkAlternateProtocolUsage <- 0.112.1
 
 ``` go
 type NetworkAlternateProtocolUsage string
@@ -19987,7 +19985,7 @@ const (
 )
 ```
 
-## type NetworkAssociatedCookie <- 0.115.0
+### type NetworkAssociatedCookie <- 0.115.0
 
 ``` go
 type NetworkAssociatedCookie struct {
@@ -20005,7 +20003,7 @@ type NetworkAssociatedCookie struct {
 
 NetworkAssociatedCookie (experimental) A cookie associated with the request which may or may not be sent with it. Includes the cookies itself and reasons for blocking or exemption.
 
-## type NetworkAuthChallenge 
+### type NetworkAuthChallenge 
 
 ``` go
 type NetworkAuthChallenge struct {
@@ -20025,7 +20023,7 @@ type NetworkAuthChallenge struct {
 
 NetworkAuthChallenge (experimental) Authorization challenge for HTTP status code 401 or 407.
 
-## type NetworkAuthChallengeResponse 
+### type NetworkAuthChallengeResponse 
 
 ``` go
 type NetworkAuthChallengeResponse struct {
@@ -20046,7 +20044,7 @@ type NetworkAuthChallengeResponse struct {
 
 NetworkAuthChallengeResponse (experimental) Response to an AuthChallenge.
 
-## type NetworkAuthChallengeResponseResponse 
+### type NetworkAuthChallengeResponseResponse 
 
 ``` go
 type NetworkAuthChallengeResponseResponse string
@@ -20067,7 +20065,7 @@ const (
 )
 ```
 
-## type NetworkAuthChallengeSource 
+### type NetworkAuthChallengeSource 
 
 ``` go
 type NetworkAuthChallengeSource string
@@ -20085,7 +20083,7 @@ const (
 )
 ```
 
-## type NetworkBlockedReason 
+### type NetworkBlockedReason 
 
 ``` go
 type NetworkBlockedReason string
@@ -20139,7 +20137,7 @@ const (
 )
 ```
 
-## type NetworkBlockedSetCookieWithReason 
+### type NetworkBlockedSetCookieWithReason 
 
 ``` go
 type NetworkBlockedSetCookieWithReason struct {
@@ -20159,7 +20157,7 @@ type NetworkBlockedSetCookieWithReason struct {
 
 NetworkBlockedSetCookieWithReason (experimental) A cookie which was not stored from a response with the corresponding reason.
 
-## type NetworkCachedResource 
+### type NetworkCachedResource 
 
 ``` go
 type NetworkCachedResource struct {
@@ -20179,7 +20177,7 @@ type NetworkCachedResource struct {
 
 NetworkCachedResource Information about the cached resource.
 
-## type NetworkCanClearBrowserCache 
+### type NetworkCanClearBrowserCache 
 
 ``` go
 type NetworkCanClearBrowserCache struct{}
@@ -20187,7 +20185,7 @@ type NetworkCanClearBrowserCache struct{}
 
 NetworkCanClearBrowserCache (deprecated) Tells whether clearing browser cache is supported.
 
-### (NetworkCanClearBrowserCache) Call 
+#### (NetworkCanClearBrowserCache) Call 
 
 ``` go
 func (m NetworkCanClearBrowserCache) Call(c Client) (*NetworkCanClearBrowserCacheResult, error)
@@ -20195,7 +20193,7 @@ func (m NetworkCanClearBrowserCache) Call(c Client) (*NetworkCanClearBrowserCach
 
 Call the request.
 
-### (NetworkCanClearBrowserCache) ProtoReq <- 0.74.0
+#### (NetworkCanClearBrowserCache) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkCanClearBrowserCache) ProtoReq() string
@@ -20203,7 +20201,7 @@ func (m NetworkCanClearBrowserCache) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkCanClearBrowserCacheResult 
+### type NetworkCanClearBrowserCacheResult 
 
 ``` go
 type NetworkCanClearBrowserCacheResult struct {
@@ -20214,7 +20212,7 @@ type NetworkCanClearBrowserCacheResult struct {
 
 NetworkCanClearBrowserCacheResult (deprecated) ...
 
-## type NetworkCanClearBrowserCookies 
+### type NetworkCanClearBrowserCookies 
 
 ``` go
 type NetworkCanClearBrowserCookies struct{}
@@ -20222,7 +20220,7 @@ type NetworkCanClearBrowserCookies struct{}
 
 NetworkCanClearBrowserCookies (deprecated) Tells whether clearing browser cookies is supported.
 
-### (NetworkCanClearBrowserCookies) Call 
+#### (NetworkCanClearBrowserCookies) Call 
 
 ``` go
 func (m NetworkCanClearBrowserCookies) Call(c Client) (*NetworkCanClearBrowserCookiesResult, error)
@@ -20230,7 +20228,7 @@ func (m NetworkCanClearBrowserCookies) Call(c Client) (*NetworkCanClearBrowserCo
 
 Call the request.
 
-### (NetworkCanClearBrowserCookies) ProtoReq <- 0.74.0
+#### (NetworkCanClearBrowserCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkCanClearBrowserCookies) ProtoReq() string
@@ -20238,7 +20236,7 @@ func (m NetworkCanClearBrowserCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkCanClearBrowserCookiesResult 
+### type NetworkCanClearBrowserCookiesResult 
 
 ``` go
 type NetworkCanClearBrowserCookiesResult struct {
@@ -20249,7 +20247,7 @@ type NetworkCanClearBrowserCookiesResult struct {
 
 NetworkCanClearBrowserCookiesResult (deprecated) ...
 
-## type NetworkCanEmulateNetworkConditions 
+### type NetworkCanEmulateNetworkConditions 
 
 ``` go
 type NetworkCanEmulateNetworkConditions struct{}
@@ -20257,7 +20255,7 @@ type NetworkCanEmulateNetworkConditions struct{}
 
 NetworkCanEmulateNetworkConditions (deprecated) Tells whether emulation of network conditions is supported.
 
-### (NetworkCanEmulateNetworkConditions) Call 
+#### (NetworkCanEmulateNetworkConditions) Call 
 
 ``` go
 func (m NetworkCanEmulateNetworkConditions) Call(c Client) (*NetworkCanEmulateNetworkConditionsResult, error)
@@ -20265,7 +20263,7 @@ func (m NetworkCanEmulateNetworkConditions) Call(c Client) (*NetworkCanEmulateNe
 
 Call the request.
 
-### (NetworkCanEmulateNetworkConditions) ProtoReq <- 0.74.0
+#### (NetworkCanEmulateNetworkConditions) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkCanEmulateNetworkConditions) ProtoReq() string
@@ -20273,7 +20271,7 @@ func (m NetworkCanEmulateNetworkConditions) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkCanEmulateNetworkConditionsResult 
+### type NetworkCanEmulateNetworkConditionsResult 
 
 ``` go
 type NetworkCanEmulateNetworkConditionsResult struct {
@@ -20284,7 +20282,7 @@ type NetworkCanEmulateNetworkConditionsResult struct {
 
 NetworkCanEmulateNetworkConditionsResult (deprecated) ...
 
-## type NetworkCertificateTransparencyCompliance 
+### type NetworkCertificateTransparencyCompliance 
 
 ``` go
 type NetworkCertificateTransparencyCompliance string
@@ -20305,7 +20303,7 @@ const (
 )
 ```
 
-## type NetworkClearAcceptedEncodingsOverride <- 0.97.5
+### type NetworkClearAcceptedEncodingsOverride <- 0.97.5
 
 ``` go
 type NetworkClearAcceptedEncodingsOverride struct{}
@@ -20313,7 +20311,7 @@ type NetworkClearAcceptedEncodingsOverride struct{}
 
 NetworkClearAcceptedEncodingsOverride (experimental) Clears accepted encodings set by setAcceptedEncodings.
 
-### (NetworkClearAcceptedEncodingsOverride) Call <- 0.97.5
+#### (NetworkClearAcceptedEncodingsOverride) Call <- 0.97.5
 
 ``` go
 func (m NetworkClearAcceptedEncodingsOverride) Call(c Client) error
@@ -20321,7 +20319,7 @@ func (m NetworkClearAcceptedEncodingsOverride) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkClearAcceptedEncodingsOverride) ProtoReq <- 0.97.5
+#### (NetworkClearAcceptedEncodingsOverride) ProtoReq <- 0.97.5
 
 ``` go
 func (m NetworkClearAcceptedEncodingsOverride) ProtoReq() string
@@ -20329,7 +20327,7 @@ func (m NetworkClearAcceptedEncodingsOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkClearBrowserCache 
+### type NetworkClearBrowserCache 
 
 ``` go
 type NetworkClearBrowserCache struct{}
@@ -20337,7 +20335,7 @@ type NetworkClearBrowserCache struct{}
 
 NetworkClearBrowserCache Clears browser cache.
 
-### (NetworkClearBrowserCache) Call 
+#### (NetworkClearBrowserCache) Call 
 
 ``` go
 func (m NetworkClearBrowserCache) Call(c Client) error
@@ -20345,7 +20343,7 @@ func (m NetworkClearBrowserCache) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkClearBrowserCache) ProtoReq <- 0.74.0
+#### (NetworkClearBrowserCache) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkClearBrowserCache) ProtoReq() string
@@ -20353,7 +20351,7 @@ func (m NetworkClearBrowserCache) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkClearBrowserCookies 
+### type NetworkClearBrowserCookies 
 
 ``` go
 type NetworkClearBrowserCookies struct{}
@@ -20361,7 +20359,7 @@ type NetworkClearBrowserCookies struct{}
 
 NetworkClearBrowserCookies Clears browser cookies.
 
-### (NetworkClearBrowserCookies) Call 
+#### (NetworkClearBrowserCookies) Call 
 
 ``` go
 func (m NetworkClearBrowserCookies) Call(c Client) error
@@ -20369,7 +20367,7 @@ func (m NetworkClearBrowserCookies) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkClearBrowserCookies) ProtoReq <- 0.74.0
+#### (NetworkClearBrowserCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkClearBrowserCookies) ProtoReq() string
@@ -20377,7 +20375,7 @@ func (m NetworkClearBrowserCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkClientSecurityState <- 0.90.0
+### type NetworkClientSecurityState <- 0.90.0
 
 ``` go
 type NetworkClientSecurityState struct {
@@ -20394,7 +20392,7 @@ type NetworkClientSecurityState struct {
 
 NetworkClientSecurityState (experimental) ...
 
-## type NetworkConnectTiming <- 0.102.0
+### type NetworkConnectTiming <- 0.102.0
 
 ``` go
 type NetworkConnectTiming struct {
@@ -20407,7 +20405,7 @@ type NetworkConnectTiming struct {
 
 NetworkConnectTiming (experimental) ...
 
-## type NetworkConnectionType 
+### type NetworkConnectionType 
 
 ``` go
 type NetworkConnectionType string
@@ -20446,7 +20444,7 @@ const (
 )
 ```
 
-## type NetworkContentEncoding <- 0.97.5
+### type NetworkContentEncoding <- 0.97.5
 
 ``` go
 type NetworkContentEncoding string
@@ -20470,7 +20468,7 @@ const (
 )
 ```
 
-## type NetworkContentSecurityPolicySource <- 0.115.0
+### type NetworkContentSecurityPolicySource <- 0.115.0
 
 ``` go
 type NetworkContentSecurityPolicySource string
@@ -20488,7 +20486,7 @@ const (
 )
 ```
 
-## type NetworkContentSecurityPolicyStatus <- 0.115.0
+### type NetworkContentSecurityPolicyStatus <- 0.115.0
 
 ``` go
 type NetworkContentSecurityPolicyStatus struct {
@@ -20505,7 +20503,7 @@ type NetworkContentSecurityPolicyStatus struct {
 
 NetworkContentSecurityPolicyStatus (experimental) ...
 
-## type NetworkContinueInterceptedRequest 
+### type NetworkContinueInterceptedRequest 
 
 ``` go
 type NetworkContinueInterceptedRequest struct {
@@ -20543,7 +20541,7 @@ type NetworkContinueInterceptedRequest struct {
 
 NetworkContinueInterceptedRequest (deprecated) (experimental) Response to Network.requestIntercepted which either modifies the request to continue with any modifications, or blocks it, or completes it with the provided response bytes. If a network fetch occurs as a result which encounters a redirect an additional Network.requestIntercepted event will be sent with the same InterceptionId. Deprecated, use Fetch.continueRequest, Fetch.fulfillRequest and Fetch.failRequest instead.
 
-### (NetworkContinueInterceptedRequest) Call 
+#### (NetworkContinueInterceptedRequest) Call 
 
 ``` go
 func (m NetworkContinueInterceptedRequest) Call(c Client) error
@@ -20551,7 +20549,7 @@ func (m NetworkContinueInterceptedRequest) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkContinueInterceptedRequest) ProtoReq <- 0.74.0
+#### (NetworkContinueInterceptedRequest) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkContinueInterceptedRequest) ProtoReq() string
@@ -20559,7 +20557,7 @@ func (m NetworkContinueInterceptedRequest) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkCookie 
+### type NetworkCookie 
 
 ``` go
 type NetworkCookie struct {
@@ -20617,7 +20615,7 @@ type NetworkCookie struct {
 
 NetworkCookie Cookie object.
 
-## type NetworkCookieBlockedReason 
+### type NetworkCookieBlockedReason 
 
 ``` go
 type NetworkCookieBlockedReason string
@@ -20677,7 +20675,7 @@ const (
 )
 ```
 
-## type NetworkCookieExemptionReason <- 0.115.0
+### type NetworkCookieExemptionReason <- 0.115.0
 
 ``` go
 type NetworkCookieExemptionReason string
@@ -20719,7 +20717,7 @@ const (
 )
 ```
 
-## type NetworkCookieParam 
+### type NetworkCookieParam 
 
 ``` go
 type NetworkCookieParam struct {
@@ -20780,7 +20778,7 @@ func CookiesToParams(cookies []*NetworkCookie) []*NetworkCookieParam
 
 CookiesToParams converts Cookies list to NetworkCookieParam list.
 
-## type NetworkCookiePartitionKey <- 0.116.2
+### type NetworkCookiePartitionKey <- 0.116.2
 
 ``` go
 type NetworkCookiePartitionKey struct {
@@ -20795,7 +20793,7 @@ type NetworkCookiePartitionKey struct {
 
 NetworkCookiePartitionKey (experimental) cookiePartitionKey object The representation of the components of the key that are created by the cookiePartitionKey class contained in net/cookies/cookie_partition_key.h.
 
-## type NetworkCookiePriority 
+### type NetworkCookiePriority 
 
 ``` go
 type NetworkCookiePriority string
@@ -20816,7 +20814,7 @@ const (
 )
 ```
 
-## type NetworkCookieSameSite 
+### type NetworkCookieSameSite 
 
 ``` go
 type NetworkCookieSameSite string
@@ -20837,7 +20835,7 @@ const (
 )
 ```
 
-## type NetworkCookieSourceScheme <- 0.93.0
+### type NetworkCookieSourceScheme <- 0.93.0
 
 ``` go
 type NetworkCookieSourceScheme string
@@ -20858,7 +20856,7 @@ const (
 )
 ```
 
-## type NetworkCorsError <- 0.90.0
+### type NetworkCorsError <- 0.90.0
 
 ``` go
 type NetworkCorsError string
@@ -20972,7 +20970,7 @@ const (
 )
 ```
 
-## type NetworkCorsErrorStatus <- 0.90.0
+### type NetworkCorsErrorStatus <- 0.90.0
 
 ``` go
 type NetworkCorsErrorStatus struct {
@@ -20986,7 +20984,7 @@ type NetworkCorsErrorStatus struct {
 
 NetworkCorsErrorStatus ...
 
-## type NetworkCrossOriginEmbedderPolicyStatus <- 0.72.0
+### type NetworkCrossOriginEmbedderPolicyStatus <- 0.72.0
 
 ``` go
 type NetworkCrossOriginEmbedderPolicyStatus struct {
@@ -21006,7 +21004,7 @@ type NetworkCrossOriginEmbedderPolicyStatus struct {
 
 NetworkCrossOriginEmbedderPolicyStatus (experimental) ...
 
-## type NetworkCrossOriginEmbedderPolicyValue <- 0.72.0
+### type NetworkCrossOriginEmbedderPolicyValue <- 0.72.0
 
 ``` go
 type NetworkCrossOriginEmbedderPolicyValue string
@@ -21027,7 +21025,7 @@ const (
 )
 ```
 
-## type NetworkCrossOriginOpenerPolicyStatus <- 0.72.0
+### type NetworkCrossOriginOpenerPolicyStatus <- 0.72.0
 
 ``` go
 type NetworkCrossOriginOpenerPolicyStatus struct {
@@ -21047,7 +21045,7 @@ type NetworkCrossOriginOpenerPolicyStatus struct {
 
 NetworkCrossOriginOpenerPolicyStatus (experimental) ...
 
-## type NetworkCrossOriginOpenerPolicyValue <- 0.72.0
+### type NetworkCrossOriginOpenerPolicyValue <- 0.72.0
 
 ``` go
 type NetworkCrossOriginOpenerPolicyValue string
@@ -21077,7 +21075,7 @@ const (
 )
 ```
 
-## type NetworkDataReceived 
+### type NetworkDataReceived 
 
 ``` go
 type NetworkDataReceived struct {
@@ -21100,7 +21098,7 @@ type NetworkDataReceived struct {
 
 NetworkDataReceived Fired when data chunk was received over the network.
 
-### (NetworkDataReceived) ProtoEvent <- 0.72.0
+#### (NetworkDataReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkDataReceived) ProtoEvent() string
@@ -21108,7 +21106,7 @@ func (evt NetworkDataReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkDeleteCookies 
+### type NetworkDeleteCookies 
 
 ``` go
 type NetworkDeleteCookies struct {
@@ -21133,7 +21131,7 @@ type NetworkDeleteCookies struct {
 
 NetworkDeleteCookies Deletes browser cookies with matching name and url or domain/path/partitionKey pair.
 
-### (NetworkDeleteCookies) Call 
+#### (NetworkDeleteCookies) Call 
 
 ``` go
 func (m NetworkDeleteCookies) Call(c Client) error
@@ -21141,7 +21139,7 @@ func (m NetworkDeleteCookies) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkDeleteCookies) ProtoReq <- 0.74.0
+#### (NetworkDeleteCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkDeleteCookies) ProtoReq() string
@@ -21149,7 +21147,7 @@ func (m NetworkDeleteCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkDisable 
+### type NetworkDisable 
 
 ``` go
 type NetworkDisable struct{}
@@ -21157,7 +21155,7 @@ type NetworkDisable struct{}
 
 NetworkDisable Disables network tracking, prevents network events from being sent to the client.
 
-### (NetworkDisable) Call 
+#### (NetworkDisable) Call 
 
 ``` go
 func (m NetworkDisable) Call(c Client) error
@@ -21165,7 +21163,7 @@ func (m NetworkDisable) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkDisable) ProtoReq <- 0.74.0
+#### (NetworkDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkDisable) ProtoReq() string
@@ -21173,7 +21171,7 @@ func (m NetworkDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkEmulateNetworkConditions 
+### type NetworkEmulateNetworkConditions 
 
 ``` go
 type NetworkEmulateNetworkConditions struct {
@@ -21205,7 +21203,7 @@ type NetworkEmulateNetworkConditions struct {
 
 NetworkEmulateNetworkConditions Activates emulation of network conditions.
 
-### (NetworkEmulateNetworkConditions) Call 
+#### (NetworkEmulateNetworkConditions) Call 
 
 ``` go
 func (m NetworkEmulateNetworkConditions) Call(c Client) error
@@ -21213,7 +21211,7 @@ func (m NetworkEmulateNetworkConditions) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkEmulateNetworkConditions) ProtoReq <- 0.74.0
+#### (NetworkEmulateNetworkConditions) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkEmulateNetworkConditions) ProtoReq() string
@@ -21221,7 +21219,7 @@ func (m NetworkEmulateNetworkConditions) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkEnable 
+### type NetworkEnable 
 
 ``` go
 type NetworkEnable struct {
@@ -21238,7 +21236,7 @@ type NetworkEnable struct {
 
 NetworkEnable Enables network tracking, network events will now be delivered to the client.
 
-### (NetworkEnable) Call 
+#### (NetworkEnable) Call 
 
 ``` go
 func (m NetworkEnable) Call(c Client) error
@@ -21246,7 +21244,7 @@ func (m NetworkEnable) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkEnable) ProtoReq <- 0.74.0
+#### (NetworkEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkEnable) ProtoReq() string
@@ -21254,7 +21252,7 @@ func (m NetworkEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkEnableReportingAPI <- 0.102.0
+### type NetworkEnableReportingAPI <- 0.102.0
 
 ``` go
 type NetworkEnableReportingAPI struct {
@@ -21265,7 +21263,7 @@ type NetworkEnableReportingAPI struct {
 
 NetworkEnableReportingAPI (experimental) Enables tracking for the Reporting API, events generated by the Reporting API will now be delivered to the client. Enabling triggers 'reportingApiReportAdded' for all existing reports.
 
-### (NetworkEnableReportingAPI) Call <- 0.102.0
+#### (NetworkEnableReportingAPI) Call <- 0.102.0
 
 ``` go
 func (m NetworkEnableReportingAPI) Call(c Client) error
@@ -21273,7 +21271,7 @@ func (m NetworkEnableReportingAPI) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkEnableReportingAPI) ProtoReq <- 0.102.0
+#### (NetworkEnableReportingAPI) ProtoReq <- 0.102.0
 
 ``` go
 func (m NetworkEnableReportingAPI) ProtoReq() string
@@ -21281,7 +21279,7 @@ func (m NetworkEnableReportingAPI) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkErrorReason 
+### type NetworkErrorReason 
 
 ``` go
 type NetworkErrorReason string
@@ -21335,7 +21333,7 @@ const (
 )
 ```
 
-## type NetworkEventSourceMessageReceived 
+### type NetworkEventSourceMessageReceived 
 
 ``` go
 type NetworkEventSourceMessageReceived struct {
@@ -21358,7 +21356,7 @@ type NetworkEventSourceMessageReceived struct {
 
 NetworkEventSourceMessageReceived Fired when EventSource message is received.
 
-### (NetworkEventSourceMessageReceived) ProtoEvent <- 0.72.0
+#### (NetworkEventSourceMessageReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkEventSourceMessageReceived) ProtoEvent() string
@@ -21366,7 +21364,7 @@ func (evt NetworkEventSourceMessageReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkExemptedSetCookieWithReason <- 0.115.0
+### type NetworkExemptedSetCookieWithReason <- 0.115.0
 
 ``` go
 type NetworkExemptedSetCookieWithReason struct {
@@ -21383,7 +21381,7 @@ type NetworkExemptedSetCookieWithReason struct {
 
 NetworkExemptedSetCookieWithReason (experimental) A cookie should have been blocked by 3PCD but is exempted and stored from a response with the corresponding reason. A cookie could only have at most one exemption reason.
 
-## type NetworkGetAllCookies 
+### type NetworkGetAllCookies 
 
 ``` go
 type NetworkGetAllCookies struct{}
@@ -21391,7 +21389,7 @@ type NetworkGetAllCookies struct{}
 
 NetworkGetAllCookies (deprecated) Returns all browser cookies. Depending on the backend support, will return detailed cookie information in the `cookies` field. Deprecated. Use Storage.getCookies instead.
 
-### (NetworkGetAllCookies) Call 
+#### (NetworkGetAllCookies) Call 
 
 ``` go
 func (m NetworkGetAllCookies) Call(c Client) (*NetworkGetAllCookiesResult, error)
@@ -21399,7 +21397,7 @@ func (m NetworkGetAllCookies) Call(c Client) (*NetworkGetAllCookiesResult, error
 
 Call the request.
 
-### (NetworkGetAllCookies) ProtoReq <- 0.74.0
+#### (NetworkGetAllCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetAllCookies) ProtoReq() string
@@ -21407,7 +21405,7 @@ func (m NetworkGetAllCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetAllCookiesResult 
+### type NetworkGetAllCookiesResult 
 
 ``` go
 type NetworkGetAllCookiesResult struct {
@@ -21418,7 +21416,7 @@ type NetworkGetAllCookiesResult struct {
 
 NetworkGetAllCookiesResult (deprecated) ...
 
-## type NetworkGetCertificate 
+### type NetworkGetCertificate 
 
 ``` go
 type NetworkGetCertificate struct {
@@ -21429,7 +21427,7 @@ type NetworkGetCertificate struct {
 
 NetworkGetCertificate (experimental) Returns the DER-encoded certificate.
 
-### (NetworkGetCertificate) Call 
+#### (NetworkGetCertificate) Call 
 
 ``` go
 func (m NetworkGetCertificate) Call(c Client) (*NetworkGetCertificateResult, error)
@@ -21437,7 +21435,7 @@ func (m NetworkGetCertificate) Call(c Client) (*NetworkGetCertificateResult, err
 
 Call the request.
 
-### (NetworkGetCertificate) ProtoReq <- 0.74.0
+#### (NetworkGetCertificate) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetCertificate) ProtoReq() string
@@ -21445,7 +21443,7 @@ func (m NetworkGetCertificate) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetCertificateResult 
+### type NetworkGetCertificateResult 
 
 ``` go
 type NetworkGetCertificateResult struct {
@@ -21456,7 +21454,7 @@ type NetworkGetCertificateResult struct {
 
 NetworkGetCertificateResult (experimental) ...
 
-## type NetworkGetCookies 
+### type NetworkGetCookies 
 
 ``` go
 type NetworkGetCookies struct {
@@ -21469,7 +21467,7 @@ type NetworkGetCookies struct {
 
 NetworkGetCookies Returns all browser cookies for the current URL. Depending on the backend support, will return detailed cookie information in the `cookies` field.
 
-### (NetworkGetCookies) Call 
+#### (NetworkGetCookies) Call 
 
 ``` go
 func (m NetworkGetCookies) Call(c Client) (*NetworkGetCookiesResult, error)
@@ -21477,7 +21475,7 @@ func (m NetworkGetCookies) Call(c Client) (*NetworkGetCookiesResult, error)
 
 Call the request.
 
-### (NetworkGetCookies) ProtoReq <- 0.74.0
+#### (NetworkGetCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetCookies) ProtoReq() string
@@ -21485,7 +21483,7 @@ func (m NetworkGetCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetCookiesResult 
+### type NetworkGetCookiesResult 
 
 ``` go
 type NetworkGetCookiesResult struct {
@@ -21496,7 +21494,7 @@ type NetworkGetCookiesResult struct {
 
 NetworkGetCookiesResult ...
 
-## type NetworkGetRequestPostData 
+### type NetworkGetRequestPostData 
 
 ``` go
 type NetworkGetRequestPostData struct {
@@ -21507,7 +21505,7 @@ type NetworkGetRequestPostData struct {
 
 NetworkGetRequestPostData Returns post data sent with the request. Returns an error when no data was sent with the request.
 
-### (NetworkGetRequestPostData) Call 
+#### (NetworkGetRequestPostData) Call 
 
 ``` go
 func (m NetworkGetRequestPostData) Call(c Client) (*NetworkGetRequestPostDataResult, error)
@@ -21515,7 +21513,7 @@ func (m NetworkGetRequestPostData) Call(c Client) (*NetworkGetRequestPostDataRes
 
 Call the request.
 
-### (NetworkGetRequestPostData) ProtoReq <- 0.74.0
+#### (NetworkGetRequestPostData) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetRequestPostData) ProtoReq() string
@@ -21523,7 +21521,7 @@ func (m NetworkGetRequestPostData) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetRequestPostDataResult 
+### type NetworkGetRequestPostDataResult 
 
 ``` go
 type NetworkGetRequestPostDataResult struct {
@@ -21534,7 +21532,7 @@ type NetworkGetRequestPostDataResult struct {
 
 NetworkGetRequestPostDataResult ...
 
-## type NetworkGetResponseBody 
+### type NetworkGetResponseBody 
 
 ``` go
 type NetworkGetResponseBody struct {
@@ -21545,7 +21543,7 @@ type NetworkGetResponseBody struct {
 
 NetworkGetResponseBody Returns content served for the given request.
 
-### (NetworkGetResponseBody) Call 
+#### (NetworkGetResponseBody) Call 
 
 ``` go
 func (m NetworkGetResponseBody) Call(c Client) (*NetworkGetResponseBodyResult, error)
@@ -21553,7 +21551,7 @@ func (m NetworkGetResponseBody) Call(c Client) (*NetworkGetResponseBodyResult, e
 
 Call the request.
 
-### (NetworkGetResponseBody) ProtoReq <- 0.74.0
+#### (NetworkGetResponseBody) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetResponseBody) ProtoReq() string
@@ -21561,7 +21559,7 @@ func (m NetworkGetResponseBody) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetResponseBodyForInterception 
+### type NetworkGetResponseBodyForInterception 
 
 ``` go
 type NetworkGetResponseBodyForInterception struct {
@@ -21572,7 +21570,7 @@ type NetworkGetResponseBodyForInterception struct {
 
 NetworkGetResponseBodyForInterception (experimental) Returns content served for the given currently intercepted request.
 
-### (NetworkGetResponseBodyForInterception) Call 
+#### (NetworkGetResponseBodyForInterception) Call 
 
 ``` go
 func (m NetworkGetResponseBodyForInterception) Call(c Client) (*NetworkGetResponseBodyForInterceptionResult, error)
@@ -21580,7 +21578,7 @@ func (m NetworkGetResponseBodyForInterception) Call(c Client) (*NetworkGetRespon
 
 Call the request.
 
-### (NetworkGetResponseBodyForInterception) ProtoReq <- 0.74.0
+#### (NetworkGetResponseBodyForInterception) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetResponseBodyForInterception) ProtoReq() string
@@ -21588,7 +21586,7 @@ func (m NetworkGetResponseBodyForInterception) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetResponseBodyForInterceptionResult 
+### type NetworkGetResponseBodyForInterceptionResult 
 
 ``` go
 type NetworkGetResponseBodyForInterceptionResult struct {
@@ -21602,7 +21600,7 @@ type NetworkGetResponseBodyForInterceptionResult struct {
 
 NetworkGetResponseBodyForInterceptionResult (experimental) ...
 
-## type NetworkGetResponseBodyResult 
+### type NetworkGetResponseBodyResult 
 
 ``` go
 type NetworkGetResponseBodyResult struct {
@@ -21616,7 +21614,7 @@ type NetworkGetResponseBodyResult struct {
 
 NetworkGetResponseBodyResult ...
 
-## type NetworkGetSecurityIsolationStatus <- 0.72.0
+### type NetworkGetSecurityIsolationStatus <- 0.72.0
 
 ``` go
 type NetworkGetSecurityIsolationStatus struct {
@@ -21627,7 +21625,7 @@ type NetworkGetSecurityIsolationStatus struct {
 
 NetworkGetSecurityIsolationStatus (experimental) Returns information about the COEP/COOP isolation status.
 
-### (NetworkGetSecurityIsolationStatus) Call <- 0.72.0
+#### (NetworkGetSecurityIsolationStatus) Call <- 0.72.0
 
 ``` go
 func (m NetworkGetSecurityIsolationStatus) Call(c Client) (*NetworkGetSecurityIsolationStatusResult, error)
@@ -21635,7 +21633,7 @@ func (m NetworkGetSecurityIsolationStatus) Call(c Client) (*NetworkGetSecurityIs
 
 Call the request.
 
-### (NetworkGetSecurityIsolationStatus) ProtoReq <- 0.74.0
+#### (NetworkGetSecurityIsolationStatus) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkGetSecurityIsolationStatus) ProtoReq() string
@@ -21643,7 +21641,7 @@ func (m NetworkGetSecurityIsolationStatus) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkGetSecurityIsolationStatusResult <- 0.72.0
+### type NetworkGetSecurityIsolationStatusResult <- 0.72.0
 
 ``` go
 type NetworkGetSecurityIsolationStatusResult struct {
@@ -21654,7 +21652,7 @@ type NetworkGetSecurityIsolationStatusResult struct {
 
 NetworkGetSecurityIsolationStatusResult (experimental) ...
 
-## type NetworkHeaders 
+### type NetworkHeaders 
 
 ``` go
 type NetworkHeaders map[string]gson.JSON
@@ -21662,7 +21660,7 @@ type NetworkHeaders map[string]gson.JSON
 
 NetworkHeaders Request / response headers as keys / values of JSON object.
 
-## type NetworkIPAddressSpace <- 0.90.0
+### type NetworkIPAddressSpace <- 0.90.0
 
 ``` go
 type NetworkIPAddressSpace string
@@ -21686,7 +21684,7 @@ const (
 )
 ```
 
-## type NetworkInitiator 
+### type NetworkInitiator 
 
 ``` go
 type NetworkInitiator struct {
@@ -21714,7 +21712,7 @@ type NetworkInitiator struct {
 
 NetworkInitiator Information about the request initiator.
 
-## type NetworkInitiatorType 
+### type NetworkInitiatorType 
 
 ``` go
 type NetworkInitiatorType string
@@ -21744,7 +21742,7 @@ const (
 )
 ```
 
-## type NetworkInterceptionID 
+### type NetworkInterceptionID 
 
 ``` go
 type NetworkInterceptionID string
@@ -21752,7 +21750,7 @@ type NetworkInterceptionID string
 
 NetworkInterceptionID Unique intercepted request identifier.
 
-## type NetworkInterceptionStage 
+### type NetworkInterceptionStage 
 
 ``` go
 type NetworkInterceptionStage string
@@ -21770,7 +21768,7 @@ const (
 )
 ```
 
-## type NetworkLoadNetworkResource <- 0.82.3
+### type NetworkLoadNetworkResource <- 0.82.3
 
 ``` go
 type NetworkLoadNetworkResource struct {
@@ -21788,7 +21786,7 @@ type NetworkLoadNetworkResource struct {
 
 NetworkLoadNetworkResource (experimental) Fetches the resource and returns the content.
 
-### (NetworkLoadNetworkResource) Call <- 0.82.3
+#### (NetworkLoadNetworkResource) Call <- 0.82.3
 
 ``` go
 func (m NetworkLoadNetworkResource) Call(c Client) (*NetworkLoadNetworkResourceResult, error)
@@ -21796,7 +21794,7 @@ func (m NetworkLoadNetworkResource) Call(c Client) (*NetworkLoadNetworkResourceR
 
 Call the request.
 
-### (NetworkLoadNetworkResource) ProtoReq <- 0.82.3
+#### (NetworkLoadNetworkResource) ProtoReq <- 0.82.3
 
 ``` go
 func (m NetworkLoadNetworkResource) ProtoReq() string
@@ -21804,7 +21802,7 @@ func (m NetworkLoadNetworkResource) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkLoadNetworkResourceOptions <- 0.82.3
+### type NetworkLoadNetworkResourceOptions <- 0.82.3
 
 ``` go
 type NetworkLoadNetworkResourceOptions struct {
@@ -21818,7 +21816,7 @@ type NetworkLoadNetworkResourceOptions struct {
 
 NetworkLoadNetworkResourceOptions (experimental) An options object that may be extended later to better support CORS, CORB and streaming.
 
-## type NetworkLoadNetworkResourcePageResult <- 0.82.3
+### type NetworkLoadNetworkResourcePageResult <- 0.82.3
 
 ``` go
 type NetworkLoadNetworkResourcePageResult struct {
@@ -21844,7 +21842,7 @@ type NetworkLoadNetworkResourcePageResult struct {
 
 NetworkLoadNetworkResourcePageResult (experimental) An object providing the result of a network resource load.
 
-## type NetworkLoadNetworkResourceResult <- 0.82.3
+### type NetworkLoadNetworkResourceResult <- 0.82.3
 
 ``` go
 type NetworkLoadNetworkResourceResult struct {
@@ -21855,7 +21853,7 @@ type NetworkLoadNetworkResourceResult struct {
 
 NetworkLoadNetworkResourceResult (experimental) ...
 
-## type NetworkLoaderID 
+### type NetworkLoaderID 
 
 ``` go
 type NetworkLoaderID string
@@ -21863,7 +21861,7 @@ type NetworkLoaderID string
 
 NetworkLoaderID Unique loader identifier.
 
-## type NetworkLoadingFailed 
+### type NetworkLoadingFailed 
 
 ``` go
 type NetworkLoadingFailed struct {
@@ -21892,7 +21890,7 @@ type NetworkLoadingFailed struct {
 
 NetworkLoadingFailed Fired when HTTP request has failed to load.
 
-### (NetworkLoadingFailed) ProtoEvent <- 0.72.0
+#### (NetworkLoadingFailed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkLoadingFailed) ProtoEvent() string
@@ -21900,7 +21898,7 @@ func (evt NetworkLoadingFailed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkLoadingFinished 
+### type NetworkLoadingFinished 
 
 ``` go
 type NetworkLoadingFinished struct {
@@ -21917,7 +21915,7 @@ type NetworkLoadingFinished struct {
 
 NetworkLoadingFinished Fired when HTTP request has finished loading.
 
-### (NetworkLoadingFinished) ProtoEvent <- 0.72.0
+#### (NetworkLoadingFinished) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkLoadingFinished) ProtoEvent() string
@@ -21925,7 +21923,7 @@ func (evt NetworkLoadingFinished) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkPolicyUpdated <- 0.116.2
+### type NetworkPolicyUpdated <- 0.116.2
 
 ``` go
 type NetworkPolicyUpdated struct{}
@@ -21933,7 +21931,7 @@ type NetworkPolicyUpdated struct{}
 
 NetworkPolicyUpdated (experimental) Fired once security policy has been updated.
 
-### (NetworkPolicyUpdated) ProtoEvent <- 0.116.2
+#### (NetworkPolicyUpdated) ProtoEvent <- 0.116.2
 
 ``` go
 func (evt NetworkPolicyUpdated) ProtoEvent() string
@@ -21941,7 +21939,7 @@ func (evt NetworkPolicyUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkPostDataEntry <- 0.72.0
+### type NetworkPostDataEntry <- 0.72.0
 
 ``` go
 type NetworkPostDataEntry struct {
@@ -21952,7 +21950,7 @@ type NetworkPostDataEntry struct {
 
 NetworkPostDataEntry Post data entry for HTTP request.
 
-## type NetworkPrivateNetworkRequestPolicy <- 0.90.0
+### type NetworkPrivateNetworkRequestPolicy <- 0.90.0
 
 ``` go
 type NetworkPrivateNetworkRequestPolicy string
@@ -21979,7 +21977,7 @@ const (
 )
 ```
 
-## type NetworkReplayXHR 
+### type NetworkReplayXHR 
 
 ``` go
 type NetworkReplayXHR struct {
@@ -21990,7 +21988,7 @@ type NetworkReplayXHR struct {
 
 NetworkReplayXHR (experimental) This method sends a new XMLHttpRequest which is identical to the original one. The following parameters should be identical: method, url, async, request body, extra headers, withCredentials attribute, user, password.
 
-### (NetworkReplayXHR) Call 
+#### (NetworkReplayXHR) Call 
 
 ``` go
 func (m NetworkReplayXHR) Call(c Client) error
@@ -21998,7 +21996,7 @@ func (m NetworkReplayXHR) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkReplayXHR) ProtoReq <- 0.74.0
+#### (NetworkReplayXHR) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkReplayXHR) ProtoReq() string
@@ -22006,7 +22004,7 @@ func (m NetworkReplayXHR) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkReportID <- 0.102.0
+### type NetworkReportID <- 0.102.0
 
 ``` go
 type NetworkReportID string
@@ -22014,7 +22012,7 @@ type NetworkReportID string
 
 NetworkReportID (experimental) ...
 
-## type NetworkReportStatus <- 0.102.0
+### type NetworkReportStatus <- 0.102.0
 
 ``` go
 type NetworkReportStatus string
@@ -22038,7 +22036,7 @@ const (
 )
 ```
 
-## type NetworkReportingAPIEndpoint <- 0.102.0
+### type NetworkReportingAPIEndpoint <- 0.102.0
 
 ``` go
 type NetworkReportingAPIEndpoint struct {
@@ -22052,7 +22050,7 @@ type NetworkReportingAPIEndpoint struct {
 
 NetworkReportingAPIEndpoint (experimental) ...
 
-## type NetworkReportingAPIEndpointsChangedForOrigin <- 0.102.0
+### type NetworkReportingAPIEndpointsChangedForOrigin <- 0.102.0
 
 ``` go
 type NetworkReportingAPIEndpointsChangedForOrigin struct {
@@ -22066,7 +22064,7 @@ type NetworkReportingAPIEndpointsChangedForOrigin struct {
 
 NetworkReportingAPIEndpointsChangedForOrigin (experimental) ...
 
-### (NetworkReportingAPIEndpointsChangedForOrigin) ProtoEvent <- 0.102.0
+#### (NetworkReportingAPIEndpointsChangedForOrigin) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt NetworkReportingAPIEndpointsChangedForOrigin) ProtoEvent() string
@@ -22074,7 +22072,7 @@ func (evt NetworkReportingAPIEndpointsChangedForOrigin) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkReportingAPIReport <- 0.102.0
+### type NetworkReportingAPIReport <- 0.102.0
 
 ``` go
 type NetworkReportingAPIReport struct {
@@ -22109,7 +22107,7 @@ type NetworkReportingAPIReport struct {
 
 NetworkReportingAPIReport (experimental) An object representing a report generated by the Reporting API.
 
-## type NetworkReportingAPIReportAdded <- 0.102.0
+### type NetworkReportingAPIReportAdded <- 0.102.0
 
 ``` go
 type NetworkReportingAPIReportAdded struct {
@@ -22120,7 +22118,7 @@ type NetworkReportingAPIReportAdded struct {
 
 NetworkReportingAPIReportAdded (experimental) Is sent whenever a new report is added. And after 'enableReportingApi' for all existing reports.
 
-### (NetworkReportingAPIReportAdded) ProtoEvent <- 0.102.0
+#### (NetworkReportingAPIReportAdded) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt NetworkReportingAPIReportAdded) ProtoEvent() string
@@ -22128,7 +22126,7 @@ func (evt NetworkReportingAPIReportAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkReportingAPIReportUpdated <- 0.102.0
+### type NetworkReportingAPIReportUpdated <- 0.102.0
 
 ``` go
 type NetworkReportingAPIReportUpdated struct {
@@ -22139,7 +22137,7 @@ type NetworkReportingAPIReportUpdated struct {
 
 NetworkReportingAPIReportUpdated (experimental) ...
 
-### (NetworkReportingAPIReportUpdated) ProtoEvent <- 0.102.0
+#### (NetworkReportingAPIReportUpdated) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt NetworkReportingAPIReportUpdated) ProtoEvent() string
@@ -22147,7 +22145,7 @@ func (evt NetworkReportingAPIReportUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkRequest 
+### type NetworkRequest 
 
 ``` go
 type NetworkRequest struct {
@@ -22197,7 +22195,7 @@ type NetworkRequest struct {
 
 NetworkRequest HTTP request data.
 
-## type NetworkRequestID 
+### type NetworkRequestID 
 
 ``` go
 type NetworkRequestID string
@@ -22205,7 +22203,7 @@ type NetworkRequestID string
 
 NetworkRequestID Unique request identifier.
 
-## type NetworkRequestIntercepted 
+### type NetworkRequestIntercepted 
 
 ``` go
 type NetworkRequestIntercepted struct {
@@ -22257,7 +22255,7 @@ type NetworkRequestIntercepted struct {
 
 NetworkRequestIntercepted (deprecated) (experimental) Details of an intercepted HTTP request, which must be either allowed, blocked, modified or mocked. Deprecated, use Fetch.requestPaused instead.
 
-### (NetworkRequestIntercepted) ProtoEvent <- 0.72.0
+#### (NetworkRequestIntercepted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkRequestIntercepted) ProtoEvent() string
@@ -22265,7 +22263,7 @@ func (evt NetworkRequestIntercepted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkRequestPattern 
+### type NetworkRequestPattern 
 
 ``` go
 type NetworkRequestPattern struct {
@@ -22283,7 +22281,7 @@ type NetworkRequestPattern struct {
 
 NetworkRequestPattern (experimental) Request pattern for interception.
 
-## type NetworkRequestReferrerPolicy 
+### type NetworkRequestReferrerPolicy 
 
 ``` go
 type NetworkRequestReferrerPolicy string
@@ -22319,7 +22317,7 @@ const (
 )
 ```
 
-## type NetworkRequestServedFromCache 
+### type NetworkRequestServedFromCache 
 
 ``` go
 type NetworkRequestServedFromCache struct {
@@ -22330,7 +22328,7 @@ type NetworkRequestServedFromCache struct {
 
 NetworkRequestServedFromCache Fired if request ended up loading from cache.
 
-### (NetworkRequestServedFromCache) ProtoEvent <- 0.72.0
+#### (NetworkRequestServedFromCache) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkRequestServedFromCache) ProtoEvent() string
@@ -22338,7 +22336,7 @@ func (evt NetworkRequestServedFromCache) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkRequestWillBeSent 
+### type NetworkRequestWillBeSent 
 
 ``` go
 type NetworkRequestWillBeSent struct {
@@ -22384,7 +22382,7 @@ type NetworkRequestWillBeSent struct {
 
 NetworkRequestWillBeSent Fired when page is about to send HTTP request.
 
-### (NetworkRequestWillBeSent) ProtoEvent <- 0.72.0
+#### (NetworkRequestWillBeSent) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkRequestWillBeSent) ProtoEvent() string
@@ -22392,7 +22390,7 @@ func (evt NetworkRequestWillBeSent) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkRequestWillBeSentExtraInfo 
+### type NetworkRequestWillBeSentExtraInfo 
 
 ``` go
 type NetworkRequestWillBeSentExtraInfo struct {
@@ -22419,7 +22417,7 @@ type NetworkRequestWillBeSentExtraInfo struct {
 
 NetworkRequestWillBeSentExtraInfo (experimental) Fired when additional information about a requestWillBeSent event is available from the network stack. Not every requestWillBeSent event will have an additional requestWillBeSentExtraInfo fired for it, and there is no guarantee whether requestWillBeSent or requestWillBeSentExtraInfo will be fired first for the same request.
 
-### (NetworkRequestWillBeSentExtraInfo) ProtoEvent <- 0.72.0
+#### (NetworkRequestWillBeSentExtraInfo) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkRequestWillBeSentExtraInfo) ProtoEvent() string
@@ -22427,7 +22425,7 @@ func (evt NetworkRequestWillBeSentExtraInfo) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkResourceChangedPriority 
+### type NetworkResourceChangedPriority 
 
 ``` go
 type NetworkResourceChangedPriority struct {
@@ -22444,7 +22442,7 @@ type NetworkResourceChangedPriority struct {
 
 NetworkResourceChangedPriority (experimental) Fired when resource loading priority is changed.
 
-### (NetworkResourceChangedPriority) ProtoEvent <- 0.72.0
+#### (NetworkResourceChangedPriority) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkResourceChangedPriority) ProtoEvent() string
@@ -22452,7 +22450,7 @@ func (evt NetworkResourceChangedPriority) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkResourcePriority 
+### type NetworkResourcePriority 
 
 ``` go
 type NetworkResourcePriority string
@@ -22479,7 +22477,7 @@ const (
 )
 ```
 
-## type NetworkResourceTiming 
+### type NetworkResourceTiming 
 
 ``` go
 type NetworkResourceTiming struct {
@@ -22551,7 +22549,7 @@ type NetworkResourceTiming struct {
 
 NetworkResourceTiming Timing information for the request.
 
-## type NetworkResourceType 
+### type NetworkResourceType 
 
 ``` go
 type NetworkResourceType string
@@ -22617,7 +22615,7 @@ const (
 )
 ```
 
-## type NetworkResponse 
+### type NetworkResponse 
 
 ``` go
 type NetworkResponse struct {
@@ -22709,7 +22707,7 @@ type NetworkResponse struct {
 
 NetworkResponse HTTP response data.
 
-## type NetworkResponseReceived 
+### type NetworkResponseReceived 
 
 ``` go
 type NetworkResponseReceived struct {
@@ -22739,7 +22737,7 @@ type NetworkResponseReceived struct {
 
 NetworkResponseReceived Fired when HTTP response is available.
 
-### (NetworkResponseReceived) ProtoEvent <- 0.72.0
+#### (NetworkResponseReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkResponseReceived) ProtoEvent() string
@@ -22747,7 +22745,7 @@ func (evt NetworkResponseReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkResponseReceivedEarlyHints <- 0.116.0
+### type NetworkResponseReceivedEarlyHints <- 0.116.0
 
 ``` go
 type NetworkResponseReceivedEarlyHints struct {
@@ -22761,7 +22759,7 @@ type NetworkResponseReceivedEarlyHints struct {
 
 NetworkResponseReceivedEarlyHints (experimental) Fired when 103 Early Hints headers is received in addition to the common response. Not every responseReceived event will have an responseReceivedEarlyHints fired. Only one responseReceivedEarlyHints may be fired for eached responseReceived event.
 
-### (NetworkResponseReceivedEarlyHints) ProtoEvent <- 0.116.0
+#### (NetworkResponseReceivedEarlyHints) ProtoEvent <- 0.116.0
 
 ``` go
 func (evt NetworkResponseReceivedEarlyHints) ProtoEvent() string
@@ -22769,7 +22767,7 @@ func (evt NetworkResponseReceivedEarlyHints) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkResponseReceivedExtraInfo 
+### type NetworkResponseReceivedExtraInfo 
 
 ``` go
 type NetworkResponseReceivedExtraInfo struct {
@@ -22812,7 +22810,7 @@ type NetworkResponseReceivedExtraInfo struct {
 
 NetworkResponseReceivedExtraInfo (experimental) Fired when additional information about a responseReceived event is available from the network stack. Not every responseReceived event will have an additional responseReceivedExtraInfo for it, and responseReceivedExtraInfo may be fired before or after responseReceived.
 
-### (NetworkResponseReceivedExtraInfo) ProtoEvent <- 0.72.0
+#### (NetworkResponseReceivedExtraInfo) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkResponseReceivedExtraInfo) ProtoEvent() string
@@ -22820,7 +22818,7 @@ func (evt NetworkResponseReceivedExtraInfo) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkSearchInResponseBody 
+### type NetworkSearchInResponseBody 
 
 ``` go
 type NetworkSearchInResponseBody struct {
@@ -22840,7 +22838,7 @@ type NetworkSearchInResponseBody struct {
 
 NetworkSearchInResponseBody (experimental) Searches for given string in response content.
 
-### (NetworkSearchInResponseBody) Call 
+#### (NetworkSearchInResponseBody) Call 
 
 ``` go
 func (m NetworkSearchInResponseBody) Call(c Client) (*NetworkSearchInResponseBodyResult, error)
@@ -22848,7 +22846,7 @@ func (m NetworkSearchInResponseBody) Call(c Client) (*NetworkSearchInResponseBod
 
 Call the request.
 
-### (NetworkSearchInResponseBody) ProtoReq <- 0.74.0
+#### (NetworkSearchInResponseBody) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSearchInResponseBody) ProtoReq() string
@@ -22856,7 +22854,7 @@ func (m NetworkSearchInResponseBody) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSearchInResponseBodyResult 
+### type NetworkSearchInResponseBodyResult 
 
 ``` go
 type NetworkSearchInResponseBodyResult struct {
@@ -22867,7 +22865,7 @@ type NetworkSearchInResponseBodyResult struct {
 
 NetworkSearchInResponseBodyResult (experimental) ...
 
-## type NetworkSecurityDetails 
+### type NetworkSecurityDetails 
 
 ``` go
 type NetworkSecurityDetails struct {
@@ -22922,7 +22920,7 @@ type NetworkSecurityDetails struct {
 
 NetworkSecurityDetails Security details about a request.
 
-## type NetworkSecurityIsolationStatus <- 0.72.0
+### type NetworkSecurityIsolationStatus <- 0.72.0
 
 ``` go
 type NetworkSecurityIsolationStatus struct {
@@ -22939,7 +22937,7 @@ type NetworkSecurityIsolationStatus struct {
 
 NetworkSecurityIsolationStatus (experimental) ...
 
-## type NetworkServiceWorkerResponseSource <- 0.52.0
+### type NetworkServiceWorkerResponseSource <- 0.52.0
 
 ``` go
 type NetworkServiceWorkerResponseSource string
@@ -22963,7 +22961,7 @@ const (
 )
 ```
 
-## type NetworkServiceWorkerRouterInfo <- 0.115.0
+### type NetworkServiceWorkerRouterInfo <- 0.115.0
 
 ``` go
 type NetworkServiceWorkerRouterInfo struct {
@@ -22982,7 +22980,7 @@ type NetworkServiceWorkerRouterInfo struct {
 
 NetworkServiceWorkerRouterInfo (experimental) ...
 
-## type NetworkServiceWorkerRouterSource <- 0.115.0
+### type NetworkServiceWorkerRouterSource <- 0.115.0
 
 ``` go
 type NetworkServiceWorkerRouterSource string
@@ -23006,7 +23004,7 @@ const (
 )
 ```
 
-## type NetworkSetAcceptedEncodings <- 0.97.5
+### type NetworkSetAcceptedEncodings <- 0.97.5
 
 ``` go
 type NetworkSetAcceptedEncodings struct {
@@ -23017,7 +23015,7 @@ type NetworkSetAcceptedEncodings struct {
 
 NetworkSetAcceptedEncodings (experimental) Sets a list of content encodings that will be accepted. Empty list means no encoding is accepted.
 
-### (NetworkSetAcceptedEncodings) Call <- 0.97.5
+#### (NetworkSetAcceptedEncodings) Call <- 0.97.5
 
 ``` go
 func (m NetworkSetAcceptedEncodings) Call(c Client) error
@@ -23025,7 +23023,7 @@ func (m NetworkSetAcceptedEncodings) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetAcceptedEncodings) ProtoReq <- 0.97.5
+#### (NetworkSetAcceptedEncodings) ProtoReq <- 0.97.5
 
 ``` go
 func (m NetworkSetAcceptedEncodings) ProtoReq() string
@@ -23033,7 +23031,7 @@ func (m NetworkSetAcceptedEncodings) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetAttachDebugStack <- 0.90.0
+### type NetworkSetAttachDebugStack <- 0.90.0
 
 ``` go
 type NetworkSetAttachDebugStack struct {
@@ -23044,7 +23042,7 @@ type NetworkSetAttachDebugStack struct {
 
 NetworkSetAttachDebugStack (experimental) Specifies whether to attach a page script stack id in requests.
 
-### (NetworkSetAttachDebugStack) Call <- 0.90.0
+#### (NetworkSetAttachDebugStack) Call <- 0.90.0
 
 ``` go
 func (m NetworkSetAttachDebugStack) Call(c Client) error
@@ -23052,7 +23050,7 @@ func (m NetworkSetAttachDebugStack) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetAttachDebugStack) ProtoReq <- 0.90.0
+#### (NetworkSetAttachDebugStack) ProtoReq <- 0.90.0
 
 ``` go
 func (m NetworkSetAttachDebugStack) ProtoReq() string
@@ -23060,7 +23058,7 @@ func (m NetworkSetAttachDebugStack) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetBlockedURLs 
+### type NetworkSetBlockedURLs 
 
 ``` go
 type NetworkSetBlockedURLs struct {
@@ -23071,7 +23069,7 @@ type NetworkSetBlockedURLs struct {
 
 NetworkSetBlockedURLs (experimental) Blocks URLs from loading.
 
-### (NetworkSetBlockedURLs) Call 
+#### (NetworkSetBlockedURLs) Call 
 
 ``` go
 func (m NetworkSetBlockedURLs) Call(c Client) error
@@ -23079,7 +23077,7 @@ func (m NetworkSetBlockedURLs) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetBlockedURLs) ProtoReq <- 0.74.0
+#### (NetworkSetBlockedURLs) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetBlockedURLs) ProtoReq() string
@@ -23087,7 +23085,7 @@ func (m NetworkSetBlockedURLs) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetBypassServiceWorker 
+### type NetworkSetBypassServiceWorker 
 
 ``` go
 type NetworkSetBypassServiceWorker struct {
@@ -23098,7 +23096,7 @@ type NetworkSetBypassServiceWorker struct {
 
 NetworkSetBypassServiceWorker Toggles ignoring of service worker for each request.
 
-### (NetworkSetBypassServiceWorker) Call 
+#### (NetworkSetBypassServiceWorker) Call 
 
 ``` go
 func (m NetworkSetBypassServiceWorker) Call(c Client) error
@@ -23106,7 +23104,7 @@ func (m NetworkSetBypassServiceWorker) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetBypassServiceWorker) ProtoReq <- 0.74.0
+#### (NetworkSetBypassServiceWorker) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetBypassServiceWorker) ProtoReq() string
@@ -23114,7 +23112,7 @@ func (m NetworkSetBypassServiceWorker) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetCacheDisabled 
+### type NetworkSetCacheDisabled 
 
 ``` go
 type NetworkSetCacheDisabled struct {
@@ -23125,7 +23123,7 @@ type NetworkSetCacheDisabled struct {
 
 NetworkSetCacheDisabled Toggles ignoring cache for each request. If `true`, cache will not be used.
 
-### (NetworkSetCacheDisabled) Call 
+#### (NetworkSetCacheDisabled) Call 
 
 ``` go
 func (m NetworkSetCacheDisabled) Call(c Client) error
@@ -23133,7 +23131,7 @@ func (m NetworkSetCacheDisabled) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetCacheDisabled) ProtoReq <- 0.74.0
+#### (NetworkSetCacheDisabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetCacheDisabled) ProtoReq() string
@@ -23141,7 +23139,7 @@ func (m NetworkSetCacheDisabled) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetCookie 
+### type NetworkSetCookie 
 
 ``` go
 type NetworkSetCookie struct {
@@ -23194,7 +23192,7 @@ type NetworkSetCookie struct {
 
 NetworkSetCookie Sets a cookie with the given cookie data; may overwrite equivalent cookies if they exist.
 
-### (NetworkSetCookie) Call 
+#### (NetworkSetCookie) Call 
 
 ``` go
 func (m NetworkSetCookie) Call(c Client) (*NetworkSetCookieResult, error)
@@ -23202,7 +23200,7 @@ func (m NetworkSetCookie) Call(c Client) (*NetworkSetCookieResult, error)
 
 Call the request.
 
-### (NetworkSetCookie) ProtoReq <- 0.74.0
+#### (NetworkSetCookie) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetCookie) ProtoReq() string
@@ -23210,7 +23208,7 @@ func (m NetworkSetCookie) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetCookieBlockedReason 
+### type NetworkSetCookieBlockedReason 
 
 ``` go
 type NetworkSetCookieBlockedReason string
@@ -23288,7 +23286,7 @@ const (
 )
 ```
 
-## type NetworkSetCookieResult 
+### type NetworkSetCookieResult 
 
 ``` go
 type NetworkSetCookieResult struct {
@@ -23299,7 +23297,7 @@ type NetworkSetCookieResult struct {
 
 NetworkSetCookieResult ...
 
-## type NetworkSetCookies 
+### type NetworkSetCookies 
 
 ``` go
 type NetworkSetCookies struct {
@@ -23310,7 +23308,7 @@ type NetworkSetCookies struct {
 
 NetworkSetCookies Sets given cookies.
 
-### (NetworkSetCookies) Call 
+#### (NetworkSetCookies) Call 
 
 ``` go
 func (m NetworkSetCookies) Call(c Client) error
@@ -23318,7 +23316,7 @@ func (m NetworkSetCookies) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetCookies) ProtoReq <- 0.74.0
+#### (NetworkSetCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetCookies) ProtoReq() string
@@ -23326,7 +23324,7 @@ func (m NetworkSetCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetExtraHTTPHeaders 
+### type NetworkSetExtraHTTPHeaders 
 
 ``` go
 type NetworkSetExtraHTTPHeaders struct {
@@ -23337,7 +23335,7 @@ type NetworkSetExtraHTTPHeaders struct {
 
 NetworkSetExtraHTTPHeaders Specifies whether to always send extra HTTP headers with the requests from this page.
 
-### (NetworkSetExtraHTTPHeaders) Call 
+#### (NetworkSetExtraHTTPHeaders) Call 
 
 ``` go
 func (m NetworkSetExtraHTTPHeaders) Call(c Client) error
@@ -23345,7 +23343,7 @@ func (m NetworkSetExtraHTTPHeaders) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetExtraHTTPHeaders) ProtoReq <- 0.74.0
+#### (NetworkSetExtraHTTPHeaders) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetExtraHTTPHeaders) ProtoReq() string
@@ -23353,7 +23351,7 @@ func (m NetworkSetExtraHTTPHeaders) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetRequestInterception 
+### type NetworkSetRequestInterception 
 
 ``` go
 type NetworkSetRequestInterception struct {
@@ -23365,7 +23363,7 @@ type NetworkSetRequestInterception struct {
 
 NetworkSetRequestInterception (deprecated) (experimental) Sets the requests to intercept that match the provided patterns and optionally resource types. Deprecated, please use Fetch.enable instead.
 
-### (NetworkSetRequestInterception) Call 
+#### (NetworkSetRequestInterception) Call 
 
 ``` go
 func (m NetworkSetRequestInterception) Call(c Client) error
@@ -23373,7 +23371,7 @@ func (m NetworkSetRequestInterception) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetRequestInterception) ProtoReq <- 0.74.0
+#### (NetworkSetRequestInterception) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetRequestInterception) ProtoReq() string
@@ -23381,7 +23379,7 @@ func (m NetworkSetRequestInterception) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSetUserAgentOverride 
+### type NetworkSetUserAgentOverride 
 
 ``` go
 type NetworkSetUserAgentOverride struct {
@@ -23401,7 +23399,7 @@ type NetworkSetUserAgentOverride struct {
 
 NetworkSetUserAgentOverride Allows overriding user agent with the given string.
 
-### (NetworkSetUserAgentOverride) Call 
+#### (NetworkSetUserAgentOverride) Call 
 
 ``` go
 func (m NetworkSetUserAgentOverride) Call(c Client) error
@@ -23409,7 +23407,7 @@ func (m NetworkSetUserAgentOverride) Call(c Client) error
 
 Call sends the request.
 
-### (NetworkSetUserAgentOverride) ProtoReq <- 0.74.0
+#### (NetworkSetUserAgentOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkSetUserAgentOverride) ProtoReq() string
@@ -23417,7 +23415,7 @@ func (m NetworkSetUserAgentOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkSignedCertificateTimestamp 
+### type NetworkSignedCertificateTimestamp 
 
 ``` go
 type NetworkSignedCertificateTimestamp struct {
@@ -23450,7 +23448,7 @@ type NetworkSignedCertificateTimestamp struct {
 
 NetworkSignedCertificateTimestamp Details of a signed certificate timestamp (SCT).
 
-## type NetworkSignedExchangeError 
+### type NetworkSignedExchangeError 
 
 ``` go
 type NetworkSignedExchangeError struct {
@@ -23467,7 +23465,7 @@ type NetworkSignedExchangeError struct {
 
 NetworkSignedExchangeError (experimental) Information about a signed exchange response.
 
-## type NetworkSignedExchangeErrorField 
+### type NetworkSignedExchangeErrorField 
 
 ``` go
 type NetworkSignedExchangeErrorField string
@@ -23497,7 +23495,7 @@ const (
 )
 ```
 
-## type NetworkSignedExchangeHeader 
+### type NetworkSignedExchangeHeader 
 
 ``` go
 type NetworkSignedExchangeHeader struct {
@@ -23520,7 +23518,7 @@ type NetworkSignedExchangeHeader struct {
 
 NetworkSignedExchangeHeader (experimental) Information about a signed exchange header. https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#cbor-representation
 
-## type NetworkSignedExchangeInfo 
+### type NetworkSignedExchangeInfo 
 
 ``` go
 type NetworkSignedExchangeInfo struct {
@@ -23540,7 +23538,7 @@ type NetworkSignedExchangeInfo struct {
 
 NetworkSignedExchangeInfo (experimental) Information about a signed exchange response.
 
-## type NetworkSignedExchangeReceived 
+### type NetworkSignedExchangeReceived 
 
 ``` go
 type NetworkSignedExchangeReceived struct {
@@ -23554,7 +23552,7 @@ type NetworkSignedExchangeReceived struct {
 
 NetworkSignedExchangeReceived (experimental) Fired when a signed exchange was received over the network.
 
-### (NetworkSignedExchangeReceived) ProtoEvent <- 0.72.0
+#### (NetworkSignedExchangeReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkSignedExchangeReceived) ProtoEvent() string
@@ -23562,7 +23560,7 @@ func (evt NetworkSignedExchangeReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkSignedExchangeSignature 
+### type NetworkSignedExchangeSignature 
 
 ``` go
 type NetworkSignedExchangeSignature struct {
@@ -23597,7 +23595,7 @@ type NetworkSignedExchangeSignature struct {
 
 NetworkSignedExchangeSignature (experimental) Information about a signed exchange signature. https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#rfc.section.3.1
 
-## type NetworkStreamResourceContent <- 0.115.0
+### type NetworkStreamResourceContent <- 0.115.0
 
 ``` go
 type NetworkStreamResourceContent struct {
@@ -23608,7 +23606,7 @@ type NetworkStreamResourceContent struct {
 
 NetworkStreamResourceContent (experimental) Enables streaming of the response for the given requestId. If enabled, the dataReceived event contains the data that was received during streaming.
 
-### (NetworkStreamResourceContent) Call <- 0.115.0
+#### (NetworkStreamResourceContent) Call <- 0.115.0
 
 ``` go
 func (m NetworkStreamResourceContent) Call(c Client) (*NetworkStreamResourceContentResult, error)
@@ -23616,7 +23614,7 @@ func (m NetworkStreamResourceContent) Call(c Client) (*NetworkStreamResourceCont
 
 Call the request.
 
-### (NetworkStreamResourceContent) ProtoReq <- 0.115.0
+#### (NetworkStreamResourceContent) ProtoReq <- 0.115.0
 
 ``` go
 func (m NetworkStreamResourceContent) ProtoReq() string
@@ -23624,7 +23622,7 @@ func (m NetworkStreamResourceContent) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkStreamResourceContentResult <- 0.115.0
+### type NetworkStreamResourceContentResult <- 0.115.0
 
 ``` go
 type NetworkStreamResourceContentResult struct {
@@ -23635,7 +23633,7 @@ type NetworkStreamResourceContentResult struct {
 
 NetworkStreamResourceContentResult (experimental) ...
 
-## type NetworkSubresourceWebBundleInnerResponseError <- 0.101.5
+### type NetworkSubresourceWebBundleInnerResponseError <- 0.101.5
 
 ``` go
 type NetworkSubresourceWebBundleInnerResponseError struct {
@@ -23657,7 +23655,7 @@ type NetworkSubresourceWebBundleInnerResponseError struct {
 
 NetworkSubresourceWebBundleInnerResponseError (experimental) Fired when request for resources within a .wbn file failed.
 
-### (NetworkSubresourceWebBundleInnerResponseError) ProtoEvent <- 0.101.5
+#### (NetworkSubresourceWebBundleInnerResponseError) ProtoEvent <- 0.101.5
 
 ``` go
 func (evt NetworkSubresourceWebBundleInnerResponseError) ProtoEvent() string
@@ -23665,7 +23663,7 @@ func (evt NetworkSubresourceWebBundleInnerResponseError) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkSubresourceWebBundleInnerResponseParsed <- 0.101.5
+### type NetworkSubresourceWebBundleInnerResponseParsed <- 0.101.5
 
 ``` go
 type NetworkSubresourceWebBundleInnerResponseParsed struct {
@@ -23684,7 +23682,7 @@ type NetworkSubresourceWebBundleInnerResponseParsed struct {
 
 NetworkSubresourceWebBundleInnerResponseParsed (experimental) Fired when handling requests for resources within a .wbn file. Note: this will only be fired for resources that are requested by the webpage.
 
-### (NetworkSubresourceWebBundleInnerResponseParsed) ProtoEvent <- 0.101.5
+#### (NetworkSubresourceWebBundleInnerResponseParsed) ProtoEvent <- 0.101.5
 
 ``` go
 func (evt NetworkSubresourceWebBundleInnerResponseParsed) ProtoEvent() string
@@ -23692,7 +23690,7 @@ func (evt NetworkSubresourceWebBundleInnerResponseParsed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkSubresourceWebBundleMetadataError <- 0.101.5
+### type NetworkSubresourceWebBundleMetadataError <- 0.101.5
 
 ``` go
 type NetworkSubresourceWebBundleMetadataError struct {
@@ -23706,7 +23704,7 @@ type NetworkSubresourceWebBundleMetadataError struct {
 
 NetworkSubresourceWebBundleMetadataError (experimental) Fired once when parsing the .wbn file has failed.
 
-### (NetworkSubresourceWebBundleMetadataError) ProtoEvent <- 0.101.5
+#### (NetworkSubresourceWebBundleMetadataError) ProtoEvent <- 0.101.5
 
 ``` go
 func (evt NetworkSubresourceWebBundleMetadataError) ProtoEvent() string
@@ -23714,7 +23712,7 @@ func (evt NetworkSubresourceWebBundleMetadataError) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkSubresourceWebBundleMetadataReceived <- 0.101.5
+### type NetworkSubresourceWebBundleMetadataReceived <- 0.101.5
 
 ``` go
 type NetworkSubresourceWebBundleMetadataReceived struct {
@@ -23728,7 +23726,7 @@ type NetworkSubresourceWebBundleMetadataReceived struct {
 
 NetworkSubresourceWebBundleMetadataReceived (experimental) Fired once when parsing the .wbn file has succeeded. The event contains the information about the web bundle contents.
 
-### (NetworkSubresourceWebBundleMetadataReceived) ProtoEvent <- 0.101.5
+#### (NetworkSubresourceWebBundleMetadataReceived) ProtoEvent <- 0.101.5
 
 ``` go
 func (evt NetworkSubresourceWebBundleMetadataReceived) ProtoEvent() string
@@ -23736,7 +23734,7 @@ func (evt NetworkSubresourceWebBundleMetadataReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkTakeResponseBodyForInterceptionAsStream 
+### type NetworkTakeResponseBodyForInterceptionAsStream 
 
 ``` go
 type NetworkTakeResponseBodyForInterceptionAsStream struct {
@@ -23747,7 +23745,7 @@ type NetworkTakeResponseBodyForInterceptionAsStream struct {
 
 NetworkTakeResponseBodyForInterceptionAsStream (experimental) Returns a handle to the stream representing the response body. Note that after this command, the intercepted request can't be continued as is -- you either need to cancel it or to provide the response body. The stream only supports sequential read, IO.read will fail if the position is specified.
 
-### (NetworkTakeResponseBodyForInterceptionAsStream) Call 
+#### (NetworkTakeResponseBodyForInterceptionAsStream) Call 
 
 ``` go
 func (m NetworkTakeResponseBodyForInterceptionAsStream) Call(c Client) (*NetworkTakeResponseBodyForInterceptionAsStreamResult, error)
@@ -23755,7 +23753,7 @@ func (m NetworkTakeResponseBodyForInterceptionAsStream) Call(c Client) (*Network
 
 Call the request.
 
-### (NetworkTakeResponseBodyForInterceptionAsStream) ProtoReq <- 0.74.0
+#### (NetworkTakeResponseBodyForInterceptionAsStream) ProtoReq <- 0.74.0
 
 ``` go
 func (m NetworkTakeResponseBodyForInterceptionAsStream) ProtoReq() string
@@ -23763,7 +23761,7 @@ func (m NetworkTakeResponseBodyForInterceptionAsStream) ProtoReq() string
 
 ProtoReq name.
 
-## type NetworkTakeResponseBodyForInterceptionAsStreamResult 
+### type NetworkTakeResponseBodyForInterceptionAsStreamResult 
 
 ``` go
 type NetworkTakeResponseBodyForInterceptionAsStreamResult struct {
@@ -23774,7 +23772,7 @@ type NetworkTakeResponseBodyForInterceptionAsStreamResult struct {
 
 NetworkTakeResponseBodyForInterceptionAsStreamResult (experimental) ...
 
-## type NetworkTrustTokenOperationDone <- 0.90.0
+### type NetworkTrustTokenOperationDone <- 0.90.0
 
 ``` go
 type NetworkTrustTokenOperationDone struct {
@@ -23803,7 +23801,7 @@ type NetworkTrustTokenOperationDone struct {
 
 NetworkTrustTokenOperationDone (experimental) Fired exactly once for each Trust Token operation. Depending on the type of the operation and whether the operation succeeded or failed, the event is fired before the corresponding request was sent or after the response was received.
 
-### (NetworkTrustTokenOperationDone) ProtoEvent <- 0.90.0
+#### (NetworkTrustTokenOperationDone) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt NetworkTrustTokenOperationDone) ProtoEvent() string
@@ -23811,7 +23809,7 @@ func (evt NetworkTrustTokenOperationDone) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkTrustTokenOperationDoneStatus <- 0.90.0
+### type NetworkTrustTokenOperationDoneStatus <- 0.90.0
 
 ``` go
 type NetworkTrustTokenOperationDoneStatus string
@@ -23859,7 +23857,7 @@ const (
 )
 ```
 
-## type NetworkTrustTokenOperationType <- 0.85.9
+### type NetworkTrustTokenOperationType <- 0.85.9
 
 ``` go
 type NetworkTrustTokenOperationType string
@@ -23880,7 +23878,7 @@ const (
 )
 ```
 
-## type NetworkTrustTokenParams <- 0.85.9
+### type NetworkTrustTokenParams <- 0.85.9
 
 ``` go
 type NetworkTrustTokenParams struct {
@@ -23899,7 +23897,7 @@ type NetworkTrustTokenParams struct {
 
 NetworkTrustTokenParams (experimental) Determines what type of Trust Token operation is executed and depending on the type, some additional parameters. The values are specified in third_party/blink/renderer/core/fetch/trust_token.idl.
 
-## type NetworkTrustTokenParamsRefreshPolicy <- 0.85.9
+### type NetworkTrustTokenParamsRefreshPolicy <- 0.85.9
 
 ``` go
 type NetworkTrustTokenParamsRefreshPolicy string
@@ -23917,7 +23915,7 @@ const (
 )
 ```
 
-## type NetworkWebSocketClosed 
+### type NetworkWebSocketClosed 
 
 ``` go
 type NetworkWebSocketClosed struct {
@@ -23931,7 +23929,7 @@ type NetworkWebSocketClosed struct {
 
 NetworkWebSocketClosed Fired when WebSocket is closed.
 
-### (NetworkWebSocketClosed) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketClosed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketClosed) ProtoEvent() string
@@ -23939,7 +23937,7 @@ func (evt NetworkWebSocketClosed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketCreated 
+### type NetworkWebSocketCreated 
 
 ``` go
 type NetworkWebSocketCreated struct {
@@ -23956,7 +23954,7 @@ type NetworkWebSocketCreated struct {
 
 NetworkWebSocketCreated Fired upon WebSocket creation.
 
-### (NetworkWebSocketCreated) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketCreated) ProtoEvent() string
@@ -23964,7 +23962,7 @@ func (evt NetworkWebSocketCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketFrame 
+### type NetworkWebSocketFrame 
 
 ``` go
 type NetworkWebSocketFrame struct {
@@ -23983,7 +23981,7 @@ type NetworkWebSocketFrame struct {
 
 NetworkWebSocketFrame WebSocket message data. This represents an entire WebSocket message, not just a fragmented frame as the name suggests.
 
-## type NetworkWebSocketFrameError 
+### type NetworkWebSocketFrameError 
 
 ``` go
 type NetworkWebSocketFrameError struct {
@@ -24000,7 +23998,7 @@ type NetworkWebSocketFrameError struct {
 
 NetworkWebSocketFrameError Fired when WebSocket message error occurs.
 
-### (NetworkWebSocketFrameError) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketFrameError) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketFrameError) ProtoEvent() string
@@ -24008,7 +24006,7 @@ func (evt NetworkWebSocketFrameError) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketFrameReceived 
+### type NetworkWebSocketFrameReceived 
 
 ``` go
 type NetworkWebSocketFrameReceived struct {
@@ -24025,7 +24023,7 @@ type NetworkWebSocketFrameReceived struct {
 
 NetworkWebSocketFrameReceived Fired when WebSocket message is received.
 
-### (NetworkWebSocketFrameReceived) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketFrameReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketFrameReceived) ProtoEvent() string
@@ -24033,7 +24031,7 @@ func (evt NetworkWebSocketFrameReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketFrameSent 
+### type NetworkWebSocketFrameSent 
 
 ``` go
 type NetworkWebSocketFrameSent struct {
@@ -24050,7 +24048,7 @@ type NetworkWebSocketFrameSent struct {
 
 NetworkWebSocketFrameSent Fired when WebSocket message is sent.
 
-### (NetworkWebSocketFrameSent) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketFrameSent) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketFrameSent) ProtoEvent() string
@@ -24058,7 +24056,7 @@ func (evt NetworkWebSocketFrameSent) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketHandshakeResponseReceived 
+### type NetworkWebSocketHandshakeResponseReceived 
 
 ``` go
 type NetworkWebSocketHandshakeResponseReceived struct {
@@ -24075,7 +24073,7 @@ type NetworkWebSocketHandshakeResponseReceived struct {
 
 NetworkWebSocketHandshakeResponseReceived Fired when WebSocket handshake response becomes available.
 
-### (NetworkWebSocketHandshakeResponseReceived) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketHandshakeResponseReceived) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketHandshakeResponseReceived) ProtoEvent() string
@@ -24083,7 +24081,7 @@ func (evt NetworkWebSocketHandshakeResponseReceived) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebSocketRequest 
+### type NetworkWebSocketRequest 
 
 ``` go
 type NetworkWebSocketRequest struct {
@@ -24094,7 +24092,7 @@ type NetworkWebSocketRequest struct {
 
 NetworkWebSocketRequest WebSocket request data.
 
-## type NetworkWebSocketResponse 
+### type NetworkWebSocketResponse 
 
 ``` go
 type NetworkWebSocketResponse struct {
@@ -24120,7 +24118,7 @@ type NetworkWebSocketResponse struct {
 
 NetworkWebSocketResponse WebSocket response data.
 
-## type NetworkWebSocketWillSendHandshakeRequest 
+### type NetworkWebSocketWillSendHandshakeRequest 
 
 ``` go
 type NetworkWebSocketWillSendHandshakeRequest struct {
@@ -24140,7 +24138,7 @@ type NetworkWebSocketWillSendHandshakeRequest struct {
 
 NetworkWebSocketWillSendHandshakeRequest Fired when WebSocket is about to initiate handshake.
 
-### (NetworkWebSocketWillSendHandshakeRequest) ProtoEvent <- 0.72.0
+#### (NetworkWebSocketWillSendHandshakeRequest) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt NetworkWebSocketWillSendHandshakeRequest) ProtoEvent() string
@@ -24148,7 +24146,7 @@ func (evt NetworkWebSocketWillSendHandshakeRequest) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebTransportClosed <- 0.90.0
+### type NetworkWebTransportClosed <- 0.90.0
 
 ``` go
 type NetworkWebTransportClosed struct {
@@ -24162,7 +24160,7 @@ type NetworkWebTransportClosed struct {
 
 NetworkWebTransportClosed Fired when WebTransport is disposed.
 
-### (NetworkWebTransportClosed) ProtoEvent <- 0.90.0
+#### (NetworkWebTransportClosed) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt NetworkWebTransportClosed) ProtoEvent() string
@@ -24170,7 +24168,7 @@ func (evt NetworkWebTransportClosed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebTransportConnectionEstablished <- 0.90.0
+### type NetworkWebTransportConnectionEstablished <- 0.90.0
 
 ``` go
 type NetworkWebTransportConnectionEstablished struct {
@@ -24184,7 +24182,7 @@ type NetworkWebTransportConnectionEstablished struct {
 
 NetworkWebTransportConnectionEstablished Fired when WebTransport handshake is finished.
 
-### (NetworkWebTransportConnectionEstablished) ProtoEvent <- 0.90.0
+#### (NetworkWebTransportConnectionEstablished) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt NetworkWebTransportConnectionEstablished) ProtoEvent() string
@@ -24192,7 +24190,7 @@ func (evt NetworkWebTransportConnectionEstablished) ProtoEvent() string
 
 ProtoEvent name.
 
-## type NetworkWebTransportCreated <- 0.90.0
+### type NetworkWebTransportCreated <- 0.90.0
 
 ``` go
 type NetworkWebTransportCreated struct {
@@ -24212,7 +24210,7 @@ type NetworkWebTransportCreated struct {
 
 NetworkWebTransportCreated Fired upon WebTransport creation.
 
-### (NetworkWebTransportCreated) ProtoEvent <- 0.90.0
+#### (NetworkWebTransportCreated) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt NetworkWebTransportCreated) ProtoEvent() string
@@ -24220,7 +24218,7 @@ func (evt NetworkWebTransportCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type OverlayBoxStyle <- 0.90.0
+### type OverlayBoxStyle <- 0.90.0
 
 ``` go
 type OverlayBoxStyle struct {
@@ -24234,7 +24232,7 @@ type OverlayBoxStyle struct {
 
 OverlayBoxStyle Style information for drawing a box.
 
-## type OverlayColorFormat <- 0.48.0
+### type OverlayColorFormat <- 0.48.0
 
 ``` go
 type OverlayColorFormat string
@@ -24258,7 +24256,7 @@ const (
 )
 ```
 
-## type OverlayContainerQueryContainerHighlightConfig <- 0.101.5
+### type OverlayContainerQueryContainerHighlightConfig <- 0.101.5
 
 ``` go
 type OverlayContainerQueryContainerHighlightConfig struct {
@@ -24272,7 +24270,7 @@ type OverlayContainerQueryContainerHighlightConfig struct {
 
 OverlayContainerQueryContainerHighlightConfig ...
 
-## type OverlayContainerQueryHighlightConfig <- 0.101.5
+### type OverlayContainerQueryHighlightConfig <- 0.101.5
 
 ``` go
 type OverlayContainerQueryHighlightConfig struct {
@@ -24286,7 +24284,7 @@ type OverlayContainerQueryHighlightConfig struct {
 
 OverlayContainerQueryHighlightConfig ...
 
-## type OverlayContrastAlgorithm <- 0.90.0
+### type OverlayContrastAlgorithm <- 0.90.0
 
 ``` go
 type OverlayContrastAlgorithm string
@@ -24307,7 +24305,7 @@ const (
 )
 ```
 
-## type OverlayDisable 
+### type OverlayDisable 
 
 ``` go
 type OverlayDisable struct{}
@@ -24315,7 +24313,7 @@ type OverlayDisable struct{}
 
 OverlayDisable Disables domain notifications.
 
-### (OverlayDisable) Call 
+#### (OverlayDisable) Call 
 
 ``` go
 func (m OverlayDisable) Call(c Client) error
@@ -24323,7 +24321,7 @@ func (m OverlayDisable) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayDisable) ProtoReq <- 0.74.0
+#### (OverlayDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayDisable) ProtoReq() string
@@ -24331,7 +24329,7 @@ func (m OverlayDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayEnable 
+### type OverlayEnable 
 
 ``` go
 type OverlayEnable struct{}
@@ -24339,7 +24337,7 @@ type OverlayEnable struct{}
 
 OverlayEnable Enables domain notifications.
 
-### (OverlayEnable) Call 
+#### (OverlayEnable) Call 
 
 ``` go
 func (m OverlayEnable) Call(c Client) error
@@ -24347,7 +24345,7 @@ func (m OverlayEnable) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayEnable) ProtoReq <- 0.74.0
+#### (OverlayEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayEnable) ProtoReq() string
@@ -24355,7 +24353,7 @@ func (m OverlayEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayFlexContainerHighlightConfig <- 0.90.0
+### type OverlayFlexContainerHighlightConfig <- 0.90.0
 
 ``` go
 type OverlayFlexContainerHighlightConfig struct {
@@ -24387,7 +24385,7 @@ type OverlayFlexContainerHighlightConfig struct {
 
 OverlayFlexContainerHighlightConfig Configuration data for the highlighting of Flex container elements.
 
-## type OverlayFlexItemHighlightConfig <- 0.93.0
+### type OverlayFlexItemHighlightConfig <- 0.93.0
 
 ``` go
 type OverlayFlexItemHighlightConfig struct {
@@ -24404,7 +24402,7 @@ type OverlayFlexItemHighlightConfig struct {
 
 OverlayFlexItemHighlightConfig Configuration data for the highlighting of Flex item elements.
 
-## type OverlayFlexNodeHighlightConfig <- 0.90.0
+### type OverlayFlexNodeHighlightConfig <- 0.90.0
 
 ``` go
 type OverlayFlexNodeHighlightConfig struct {
@@ -24418,7 +24416,7 @@ type OverlayFlexNodeHighlightConfig struct {
 
 OverlayFlexNodeHighlightConfig ...
 
-## type OverlayGetGridHighlightObjectsForTest <- 0.72.0
+### type OverlayGetGridHighlightObjectsForTest <- 0.72.0
 
 ``` go
 type OverlayGetGridHighlightObjectsForTest struct {
@@ -24429,7 +24427,7 @@ type OverlayGetGridHighlightObjectsForTest struct {
 
 OverlayGetGridHighlightObjectsForTest For Persistent Grid testing.
 
-### (OverlayGetGridHighlightObjectsForTest) Call <- 0.72.0
+#### (OverlayGetGridHighlightObjectsForTest) Call <- 0.72.0
 
 ``` go
 func (m OverlayGetGridHighlightObjectsForTest) Call(c Client) (*OverlayGetGridHighlightObjectsForTestResult, error)
@@ -24437,7 +24435,7 @@ func (m OverlayGetGridHighlightObjectsForTest) Call(c Client) (*OverlayGetGridHi
 
 Call the request.
 
-### (OverlayGetGridHighlightObjectsForTest) ProtoReq <- 0.74.0
+#### (OverlayGetGridHighlightObjectsForTest) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayGetGridHighlightObjectsForTest) ProtoReq() string
@@ -24445,7 +24443,7 @@ func (m OverlayGetGridHighlightObjectsForTest) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayGetGridHighlightObjectsForTestResult <- 0.72.0
+### type OverlayGetGridHighlightObjectsForTestResult <- 0.72.0
 
 ``` go
 type OverlayGetGridHighlightObjectsForTestResult struct {
@@ -24456,7 +24454,7 @@ type OverlayGetGridHighlightObjectsForTestResult struct {
 
 OverlayGetGridHighlightObjectsForTestResult ...
 
-## type OverlayGetHighlightObjectForTest 
+### type OverlayGetHighlightObjectForTest 
 
 ``` go
 type OverlayGetHighlightObjectForTest struct {
@@ -24479,7 +24477,7 @@ type OverlayGetHighlightObjectForTest struct {
 
 OverlayGetHighlightObjectForTest For testing.
 
-### (OverlayGetHighlightObjectForTest) Call 
+#### (OverlayGetHighlightObjectForTest) Call 
 
 ``` go
 func (m OverlayGetHighlightObjectForTest) Call(c Client) (*OverlayGetHighlightObjectForTestResult, error)
@@ -24487,7 +24485,7 @@ func (m OverlayGetHighlightObjectForTest) Call(c Client) (*OverlayGetHighlightOb
 
 Call the request.
 
-### (OverlayGetHighlightObjectForTest) ProtoReq <- 0.74.0
+#### (OverlayGetHighlightObjectForTest) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayGetHighlightObjectForTest) ProtoReq() string
@@ -24495,7 +24493,7 @@ func (m OverlayGetHighlightObjectForTest) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayGetHighlightObjectForTestResult 
+### type OverlayGetHighlightObjectForTestResult 
 
 ``` go
 type OverlayGetHighlightObjectForTestResult struct {
@@ -24506,7 +24504,7 @@ type OverlayGetHighlightObjectForTestResult struct {
 
 OverlayGetHighlightObjectForTestResult ...
 
-## type OverlayGetSourceOrderHighlightObjectForTest <- 0.72.0
+### type OverlayGetSourceOrderHighlightObjectForTest <- 0.72.0
 
 ``` go
 type OverlayGetSourceOrderHighlightObjectForTest struct {
@@ -24517,7 +24515,7 @@ type OverlayGetSourceOrderHighlightObjectForTest struct {
 
 OverlayGetSourceOrderHighlightObjectForTest For Source Order Viewer testing.
 
-### (OverlayGetSourceOrderHighlightObjectForTest) Call <- 0.72.0
+#### (OverlayGetSourceOrderHighlightObjectForTest) Call <- 0.72.0
 
 ``` go
 func (m OverlayGetSourceOrderHighlightObjectForTest) Call(c Client) (*OverlayGetSourceOrderHighlightObjectForTestResult, error)
@@ -24525,7 +24523,7 @@ func (m OverlayGetSourceOrderHighlightObjectForTest) Call(c Client) (*OverlayGet
 
 Call the request.
 
-### (OverlayGetSourceOrderHighlightObjectForTest) ProtoReq <- 0.74.0
+#### (OverlayGetSourceOrderHighlightObjectForTest) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayGetSourceOrderHighlightObjectForTest) ProtoReq() string
@@ -24533,7 +24531,7 @@ func (m OverlayGetSourceOrderHighlightObjectForTest) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayGetSourceOrderHighlightObjectForTestResult <- 0.72.0
+### type OverlayGetSourceOrderHighlightObjectForTestResult <- 0.72.0
 
 ``` go
 type OverlayGetSourceOrderHighlightObjectForTestResult struct {
@@ -24544,7 +24542,7 @@ type OverlayGetSourceOrderHighlightObjectForTestResult struct {
 
 OverlayGetSourceOrderHighlightObjectForTestResult ...
 
-## type OverlayGridHighlightConfig <- 0.48.0
+### type OverlayGridHighlightConfig <- 0.48.0
 
 ``` go
 type OverlayGridHighlightConfig struct {
@@ -24612,7 +24610,7 @@ type OverlayGridHighlightConfig struct {
 
 OverlayGridHighlightConfig Configuration data for the highlighting of Grid elements.
 
-## type OverlayGridNodeHighlightConfig <- 0.72.0
+### type OverlayGridNodeHighlightConfig <- 0.72.0
 
 ``` go
 type OverlayGridNodeHighlightConfig struct {
@@ -24626,7 +24624,7 @@ type OverlayGridNodeHighlightConfig struct {
 
 OverlayGridNodeHighlightConfig Configurations for Persistent Grid Highlight.
 
-## type OverlayHideHighlight 
+### type OverlayHideHighlight 
 
 ``` go
 type OverlayHideHighlight struct{}
@@ -24634,7 +24632,7 @@ type OverlayHideHighlight struct{}
 
 OverlayHideHighlight Hides any highlight.
 
-### (OverlayHideHighlight) Call 
+#### (OverlayHideHighlight) Call 
 
 ``` go
 func (m OverlayHideHighlight) Call(c Client) error
@@ -24642,7 +24640,7 @@ func (m OverlayHideHighlight) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHideHighlight) ProtoReq <- 0.74.0
+#### (OverlayHideHighlight) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHideHighlight) ProtoReq() string
@@ -24650,7 +24648,7 @@ func (m OverlayHideHighlight) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHighlightConfig 
+### type OverlayHighlightConfig 
 
 ``` go
 type OverlayHighlightConfig struct {
@@ -24715,7 +24713,7 @@ type OverlayHighlightConfig struct {
 
 OverlayHighlightConfig Configuration data for the highlighting of page elements.
 
-## type OverlayHighlightFrame 
+### type OverlayHighlightFrame 
 
 ``` go
 type OverlayHighlightFrame struct {
@@ -24732,7 +24730,7 @@ type OverlayHighlightFrame struct {
 
 OverlayHighlightFrame (deprecated) Highlights owner element of the frame with given id. Deprecated: Doesn't work reliably and cannot be fixed due to process separation (the owner node might be in a different process). Determine the owner node in the client and use highlightNode.
 
-### (OverlayHighlightFrame) Call 
+#### (OverlayHighlightFrame) Call 
 
 ``` go
 func (m OverlayHighlightFrame) Call(c Client) error
@@ -24740,7 +24738,7 @@ func (m OverlayHighlightFrame) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHighlightFrame) ProtoReq <- 0.74.0
+#### (OverlayHighlightFrame) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHighlightFrame) ProtoReq() string
@@ -24748,7 +24746,7 @@ func (m OverlayHighlightFrame) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHighlightNode 
+### type OverlayHighlightNode 
 
 ``` go
 type OverlayHighlightNode struct {
@@ -24771,7 +24769,7 @@ type OverlayHighlightNode struct {
 
 OverlayHighlightNode Highlights DOM node with given id or with the given JavaScript object wrapper. Either nodeId or objectId must be specified.
 
-### (OverlayHighlightNode) Call 
+#### (OverlayHighlightNode) Call 
 
 ``` go
 func (m OverlayHighlightNode) Call(c Client) error
@@ -24779,7 +24777,7 @@ func (m OverlayHighlightNode) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHighlightNode) ProtoReq <- 0.74.0
+#### (OverlayHighlightNode) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHighlightNode) ProtoReq() string
@@ -24787,7 +24785,7 @@ func (m OverlayHighlightNode) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHighlightQuad 
+### type OverlayHighlightQuad 
 
 ``` go
 type OverlayHighlightQuad struct {
@@ -24804,7 +24802,7 @@ type OverlayHighlightQuad struct {
 
 OverlayHighlightQuad Highlights given quad. Coordinates are absolute with respect to the main frame viewport.
 
-### (OverlayHighlightQuad) Call 
+#### (OverlayHighlightQuad) Call 
 
 ``` go
 func (m OverlayHighlightQuad) Call(c Client) error
@@ -24812,7 +24810,7 @@ func (m OverlayHighlightQuad) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHighlightQuad) ProtoReq <- 0.74.0
+#### (OverlayHighlightQuad) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHighlightQuad) ProtoReq() string
@@ -24820,7 +24818,7 @@ func (m OverlayHighlightQuad) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHighlightRect 
+### type OverlayHighlightRect 
 
 ``` go
 type OverlayHighlightRect struct {
@@ -24846,7 +24844,7 @@ type OverlayHighlightRect struct {
 
 OverlayHighlightRect Highlights given rectangle. Coordinates are absolute with respect to the main frame viewport.
 
-### (OverlayHighlightRect) Call 
+#### (OverlayHighlightRect) Call 
 
 ``` go
 func (m OverlayHighlightRect) Call(c Client) error
@@ -24854,7 +24852,7 @@ func (m OverlayHighlightRect) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHighlightRect) ProtoReq <- 0.74.0
+#### (OverlayHighlightRect) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHighlightRect) ProtoReq() string
@@ -24862,7 +24860,7 @@ func (m OverlayHighlightRect) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHighlightSourceOrder <- 0.72.0
+### type OverlayHighlightSourceOrder <- 0.72.0
 
 ``` go
 type OverlayHighlightSourceOrder struct {
@@ -24882,7 +24880,7 @@ type OverlayHighlightSourceOrder struct {
 
 OverlayHighlightSourceOrder Highlights the source order of the children of the DOM node with given id or with the given JavaScript object wrapper. Either nodeId or objectId must be specified.
 
-### (OverlayHighlightSourceOrder) Call <- 0.72.0
+#### (OverlayHighlightSourceOrder) Call <- 0.72.0
 
 ``` go
 func (m OverlayHighlightSourceOrder) Call(c Client) error
@@ -24890,7 +24888,7 @@ func (m OverlayHighlightSourceOrder) Call(c Client) error
 
 Call sends the request.
 
-### (OverlayHighlightSourceOrder) ProtoReq <- 0.74.0
+#### (OverlayHighlightSourceOrder) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlayHighlightSourceOrder) ProtoReq() string
@@ -24898,7 +24896,7 @@ func (m OverlayHighlightSourceOrder) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlayHingeConfig <- 0.48.0
+### type OverlayHingeConfig <- 0.48.0
 
 ``` go
 type OverlayHingeConfig struct {
@@ -24915,7 +24913,7 @@ type OverlayHingeConfig struct {
 
 OverlayHingeConfig Configuration for dual screen hinge.
 
-## type OverlayInspectMode 
+### type OverlayInspectMode 
 
 ``` go
 type OverlayInspectMode string
@@ -24942,7 +24940,7 @@ const (
 )
 ```
 
-## type OverlayInspectModeCanceled 
+### type OverlayInspectModeCanceled 
 
 ``` go
 type OverlayInspectModeCanceled struct{}
@@ -24950,7 +24948,7 @@ type OverlayInspectModeCanceled struct{}
 
 OverlayInspectModeCanceled Fired when user cancels the inspect mode.
 
-### (OverlayInspectModeCanceled) ProtoEvent <- 0.72.0
+#### (OverlayInspectModeCanceled) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt OverlayInspectModeCanceled) ProtoEvent() string
@@ -24958,7 +24956,7 @@ func (evt OverlayInspectModeCanceled) ProtoEvent() string
 
 ProtoEvent name.
 
-## type OverlayInspectNodeRequested 
+### type OverlayInspectNodeRequested 
 
 ``` go
 type OverlayInspectNodeRequested struct {
@@ -24969,7 +24967,7 @@ type OverlayInspectNodeRequested struct {
 
 OverlayInspectNodeRequested Fired when the node should be inspected. This happens after call to `setInspectMode` or when user manually inspects an element.
 
-### (OverlayInspectNodeRequested) ProtoEvent <- 0.72.0
+#### (OverlayInspectNodeRequested) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt OverlayInspectNodeRequested) ProtoEvent() string
@@ -24977,7 +24975,7 @@ func (evt OverlayInspectNodeRequested) ProtoEvent() string
 
 ProtoEvent name.
 
-## type OverlayIsolatedElementHighlightConfig <- 0.102.0
+### type OverlayIsolatedElementHighlightConfig <- 0.102.0
 
 ``` go
 type OverlayIsolatedElementHighlightConfig struct {
@@ -24991,7 +24989,7 @@ type OverlayIsolatedElementHighlightConfig struct {
 
 OverlayIsolatedElementHighlightConfig ...
 
-## type OverlayIsolationModeHighlightConfig <- 0.102.0
+### type OverlayIsolationModeHighlightConfig <- 0.102.0
 
 ``` go
 type OverlayIsolationModeHighlightConfig struct {
@@ -25008,7 +25006,7 @@ type OverlayIsolationModeHighlightConfig struct {
 
 OverlayIsolationModeHighlightConfig ...
 
-## type OverlayLineStyle <- 0.90.0
+### type OverlayLineStyle <- 0.90.0
 
 ``` go
 type OverlayLineStyle struct {
@@ -25022,7 +25020,7 @@ type OverlayLineStyle struct {
 
 OverlayLineStyle Style information for drawing a line.
 
-## type OverlayLineStylePattern <- 0.90.0
+### type OverlayLineStylePattern <- 0.90.0
 
 ``` go
 type OverlayLineStylePattern string
@@ -25040,7 +25038,7 @@ const (
 )
 ```
 
-## type OverlayNodeHighlightRequested 
+### type OverlayNodeHighlightRequested 
 
 ``` go
 type OverlayNodeHighlightRequested struct {
@@ -25051,7 +25049,7 @@ type OverlayNodeHighlightRequested struct {
 
 OverlayNodeHighlightRequested Fired when the node should be highlighted. This happens after call to `setInspectMode`.
 
-### (OverlayNodeHighlightRequested) ProtoEvent <- 0.72.0
+#### (OverlayNodeHighlightRequested) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt OverlayNodeHighlightRequested) ProtoEvent() string
@@ -25059,7 +25057,7 @@ func (evt OverlayNodeHighlightRequested) ProtoEvent() string
 
 ProtoEvent name.
 
-## type OverlayScreenshotRequested 
+### type OverlayScreenshotRequested 
 
 ``` go
 type OverlayScreenshotRequested struct {
@@ -25070,7 +25068,7 @@ type OverlayScreenshotRequested struct {
 
 OverlayScreenshotRequested Fired when user asks to capture screenshot of some area on the page.
 
-### (OverlayScreenshotRequested) ProtoEvent <- 0.72.0
+#### (OverlayScreenshotRequested) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt OverlayScreenshotRequested) ProtoEvent() string
@@ -25078,7 +25076,7 @@ func (evt OverlayScreenshotRequested) ProtoEvent() string
 
 ProtoEvent name.
 
-## type OverlayScrollSnapContainerHighlightConfig <- 0.97.5
+### type OverlayScrollSnapContainerHighlightConfig <- 0.97.5
 
 ``` go
 type OverlayScrollSnapContainerHighlightConfig struct {
@@ -25098,7 +25096,7 @@ type OverlayScrollSnapContainerHighlightConfig struct {
 
 OverlayScrollSnapContainerHighlightConfig ...
 
-## type OverlayScrollSnapHighlightConfig <- 0.97.5
+### type OverlayScrollSnapHighlightConfig <- 0.97.5
 
 ``` go
 type OverlayScrollSnapHighlightConfig struct {
@@ -25112,7 +25110,7 @@ type OverlayScrollSnapHighlightConfig struct {
 
 OverlayScrollSnapHighlightConfig ...
 
-## type OverlaySetInspectMode 
+### type OverlaySetInspectMode 
 
 ``` go
 type OverlaySetInspectMode struct {
@@ -25127,7 +25125,7 @@ type OverlaySetInspectMode struct {
 
 OverlaySetInspectMode Enters the 'inspect' mode. In this mode, elements that user is hovering over are highlighted. Backend then generates 'inspectNodeRequested' event upon element selection.
 
-### (OverlaySetInspectMode) Call 
+#### (OverlaySetInspectMode) Call 
 
 ``` go
 func (m OverlaySetInspectMode) Call(c Client) error
@@ -25135,7 +25133,7 @@ func (m OverlaySetInspectMode) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetInspectMode) ProtoReq <- 0.74.0
+#### (OverlaySetInspectMode) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetInspectMode) ProtoReq() string
@@ -25143,7 +25141,7 @@ func (m OverlaySetInspectMode) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetPausedInDebuggerMessage 
+### type OverlaySetPausedInDebuggerMessage 
 
 ``` go
 type OverlaySetPausedInDebuggerMessage struct {
@@ -25154,7 +25152,7 @@ type OverlaySetPausedInDebuggerMessage struct {
 
 OverlaySetPausedInDebuggerMessage ...
 
-### (OverlaySetPausedInDebuggerMessage) Call 
+#### (OverlaySetPausedInDebuggerMessage) Call 
 
 ``` go
 func (m OverlaySetPausedInDebuggerMessage) Call(c Client) error
@@ -25162,7 +25160,7 @@ func (m OverlaySetPausedInDebuggerMessage) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetPausedInDebuggerMessage) ProtoReq <- 0.74.0
+#### (OverlaySetPausedInDebuggerMessage) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetPausedInDebuggerMessage) ProtoReq() string
@@ -25170,7 +25168,7 @@ func (m OverlaySetPausedInDebuggerMessage) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowAdHighlights 
+### type OverlaySetShowAdHighlights 
 
 ``` go
 type OverlaySetShowAdHighlights struct {
@@ -25181,7 +25179,7 @@ type OverlaySetShowAdHighlights struct {
 
 OverlaySetShowAdHighlights Highlights owner element of all frames detected to be ads.
 
-### (OverlaySetShowAdHighlights) Call 
+#### (OverlaySetShowAdHighlights) Call 
 
 ``` go
 func (m OverlaySetShowAdHighlights) Call(c Client) error
@@ -25189,7 +25187,7 @@ func (m OverlaySetShowAdHighlights) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowAdHighlights) ProtoReq <- 0.74.0
+#### (OverlaySetShowAdHighlights) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowAdHighlights) ProtoReq() string
@@ -25197,7 +25195,7 @@ func (m OverlaySetShowAdHighlights) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowContainerQueryOverlays <- 0.101.5
+### type OverlaySetShowContainerQueryOverlays <- 0.101.5
 
 ``` go
 type OverlaySetShowContainerQueryOverlays struct {
@@ -25208,7 +25206,7 @@ type OverlaySetShowContainerQueryOverlays struct {
 
 OverlaySetShowContainerQueryOverlays ...
 
-### (OverlaySetShowContainerQueryOverlays) Call <- 0.101.5
+#### (OverlaySetShowContainerQueryOverlays) Call <- 0.101.5
 
 ``` go
 func (m OverlaySetShowContainerQueryOverlays) Call(c Client) error
@@ -25216,7 +25214,7 @@ func (m OverlaySetShowContainerQueryOverlays) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowContainerQueryOverlays) ProtoReq <- 0.101.5
+#### (OverlaySetShowContainerQueryOverlays) ProtoReq <- 0.101.5
 
 ``` go
 func (m OverlaySetShowContainerQueryOverlays) ProtoReq() string
@@ -25224,7 +25222,7 @@ func (m OverlaySetShowContainerQueryOverlays) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowDebugBorders 
+### type OverlaySetShowDebugBorders 
 
 ``` go
 type OverlaySetShowDebugBorders struct {
@@ -25235,7 +25233,7 @@ type OverlaySetShowDebugBorders struct {
 
 OverlaySetShowDebugBorders Requests that backend shows debug borders on layers.
 
-### (OverlaySetShowDebugBorders) Call 
+#### (OverlaySetShowDebugBorders) Call 
 
 ``` go
 func (m OverlaySetShowDebugBorders) Call(c Client) error
@@ -25243,7 +25241,7 @@ func (m OverlaySetShowDebugBorders) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowDebugBorders) ProtoReq <- 0.74.0
+#### (OverlaySetShowDebugBorders) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowDebugBorders) ProtoReq() string
@@ -25251,7 +25249,7 @@ func (m OverlaySetShowDebugBorders) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowFPSCounter 
+### type OverlaySetShowFPSCounter 
 
 ``` go
 type OverlaySetShowFPSCounter struct {
@@ -25262,7 +25260,7 @@ type OverlaySetShowFPSCounter struct {
 
 OverlaySetShowFPSCounter Requests that backend shows the FPS counter.
 
-### (OverlaySetShowFPSCounter) Call 
+#### (OverlaySetShowFPSCounter) Call 
 
 ``` go
 func (m OverlaySetShowFPSCounter) Call(c Client) error
@@ -25270,7 +25268,7 @@ func (m OverlaySetShowFPSCounter) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowFPSCounter) ProtoReq <- 0.74.0
+#### (OverlaySetShowFPSCounter) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowFPSCounter) ProtoReq() string
@@ -25278,7 +25276,7 @@ func (m OverlaySetShowFPSCounter) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowFlexOverlays <- 0.90.0
+### type OverlaySetShowFlexOverlays <- 0.90.0
 
 ``` go
 type OverlaySetShowFlexOverlays struct {
@@ -25289,7 +25287,7 @@ type OverlaySetShowFlexOverlays struct {
 
 OverlaySetShowFlexOverlays ...
 
-### (OverlaySetShowFlexOverlays) Call <- 0.90.0
+#### (OverlaySetShowFlexOverlays) Call <- 0.90.0
 
 ``` go
 func (m OverlaySetShowFlexOverlays) Call(c Client) error
@@ -25297,7 +25295,7 @@ func (m OverlaySetShowFlexOverlays) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowFlexOverlays) ProtoReq <- 0.90.0
+#### (OverlaySetShowFlexOverlays) ProtoReq <- 0.90.0
 
 ``` go
 func (m OverlaySetShowFlexOverlays) ProtoReq() string
@@ -25305,7 +25303,7 @@ func (m OverlaySetShowFlexOverlays) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowGridOverlays <- 0.72.0
+### type OverlaySetShowGridOverlays <- 0.72.0
 
 ``` go
 type OverlaySetShowGridOverlays struct {
@@ -25316,7 +25314,7 @@ type OverlaySetShowGridOverlays struct {
 
 OverlaySetShowGridOverlays Highlight multiple elements with the CSS Grid overlay.
 
-### (OverlaySetShowGridOverlays) Call <- 0.72.0
+#### (OverlaySetShowGridOverlays) Call <- 0.72.0
 
 ``` go
 func (m OverlaySetShowGridOverlays) Call(c Client) error
@@ -25324,7 +25322,7 @@ func (m OverlaySetShowGridOverlays) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowGridOverlays) ProtoReq <- 0.74.0
+#### (OverlaySetShowGridOverlays) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowGridOverlays) ProtoReq() string
@@ -25332,7 +25330,7 @@ func (m OverlaySetShowGridOverlays) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowHinge <- 0.48.0
+### type OverlaySetShowHinge <- 0.48.0
 
 ``` go
 type OverlaySetShowHinge struct {
@@ -25343,7 +25341,7 @@ type OverlaySetShowHinge struct {
 
 OverlaySetShowHinge Add a dual screen device hinge.
 
-### (OverlaySetShowHinge) Call <- 0.48.0
+#### (OverlaySetShowHinge) Call <- 0.48.0
 
 ``` go
 func (m OverlaySetShowHinge) Call(c Client) error
@@ -25351,7 +25349,7 @@ func (m OverlaySetShowHinge) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowHinge) ProtoReq <- 0.74.0
+#### (OverlaySetShowHinge) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowHinge) ProtoReq() string
@@ -25359,7 +25357,7 @@ func (m OverlaySetShowHinge) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowHitTestBorders 
+### type OverlaySetShowHitTestBorders 
 
 ``` go
 type OverlaySetShowHitTestBorders struct {
@@ -25370,7 +25368,7 @@ type OverlaySetShowHitTestBorders struct {
 
 OverlaySetShowHitTestBorders (deprecated) Deprecated, no longer has any effect.
 
-### (OverlaySetShowHitTestBorders) Call 
+#### (OverlaySetShowHitTestBorders) Call 
 
 ``` go
 func (m OverlaySetShowHitTestBorders) Call(c Client) error
@@ -25378,7 +25376,7 @@ func (m OverlaySetShowHitTestBorders) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowHitTestBorders) ProtoReq <- 0.74.0
+#### (OverlaySetShowHitTestBorders) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowHitTestBorders) ProtoReq() string
@@ -25386,7 +25384,7 @@ func (m OverlaySetShowHitTestBorders) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowIsolatedElements <- 0.102.0
+### type OverlaySetShowIsolatedElements <- 0.102.0
 
 ``` go
 type OverlaySetShowIsolatedElements struct {
@@ -25397,7 +25395,7 @@ type OverlaySetShowIsolatedElements struct {
 
 OverlaySetShowIsolatedElements Show elements in isolation mode with overlays.
 
-### (OverlaySetShowIsolatedElements) Call <- 0.102.0
+#### (OverlaySetShowIsolatedElements) Call <- 0.102.0
 
 ``` go
 func (m OverlaySetShowIsolatedElements) Call(c Client) error
@@ -25405,7 +25403,7 @@ func (m OverlaySetShowIsolatedElements) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowIsolatedElements) ProtoReq <- 0.102.0
+#### (OverlaySetShowIsolatedElements) ProtoReq <- 0.102.0
 
 ``` go
 func (m OverlaySetShowIsolatedElements) ProtoReq() string
@@ -25413,7 +25411,7 @@ func (m OverlaySetShowIsolatedElements) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowLayoutShiftRegions 
+### type OverlaySetShowLayoutShiftRegions 
 
 ``` go
 type OverlaySetShowLayoutShiftRegions struct {
@@ -25424,7 +25422,7 @@ type OverlaySetShowLayoutShiftRegions struct {
 
 OverlaySetShowLayoutShiftRegions Requests that backend shows layout shift regions.
 
-### (OverlaySetShowLayoutShiftRegions) Call 
+#### (OverlaySetShowLayoutShiftRegions) Call 
 
 ``` go
 func (m OverlaySetShowLayoutShiftRegions) Call(c Client) error
@@ -25432,7 +25430,7 @@ func (m OverlaySetShowLayoutShiftRegions) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowLayoutShiftRegions) ProtoReq <- 0.74.0
+#### (OverlaySetShowLayoutShiftRegions) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowLayoutShiftRegions) ProtoReq() string
@@ -25440,7 +25438,7 @@ func (m OverlaySetShowLayoutShiftRegions) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowPaintRects 
+### type OverlaySetShowPaintRects 
 
 ``` go
 type OverlaySetShowPaintRects struct {
@@ -25451,7 +25449,7 @@ type OverlaySetShowPaintRects struct {
 
 OverlaySetShowPaintRects Requests that backend shows paint rectangles.
 
-### (OverlaySetShowPaintRects) Call 
+#### (OverlaySetShowPaintRects) Call 
 
 ``` go
 func (m OverlaySetShowPaintRects) Call(c Client) error
@@ -25459,7 +25457,7 @@ func (m OverlaySetShowPaintRects) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowPaintRects) ProtoReq <- 0.74.0
+#### (OverlaySetShowPaintRects) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowPaintRects) ProtoReq() string
@@ -25467,7 +25465,7 @@ func (m OverlaySetShowPaintRects) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowScrollBottleneckRects 
+### type OverlaySetShowScrollBottleneckRects 
 
 ``` go
 type OverlaySetShowScrollBottleneckRects struct {
@@ -25478,7 +25476,7 @@ type OverlaySetShowScrollBottleneckRects struct {
 
 OverlaySetShowScrollBottleneckRects Requests that backend shows scroll bottleneck rects.
 
-### (OverlaySetShowScrollBottleneckRects) Call 
+#### (OverlaySetShowScrollBottleneckRects) Call 
 
 ``` go
 func (m OverlaySetShowScrollBottleneckRects) Call(c Client) error
@@ -25486,7 +25484,7 @@ func (m OverlaySetShowScrollBottleneckRects) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowScrollBottleneckRects) ProtoReq <- 0.74.0
+#### (OverlaySetShowScrollBottleneckRects) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowScrollBottleneckRects) ProtoReq() string
@@ -25494,7 +25492,7 @@ func (m OverlaySetShowScrollBottleneckRects) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowScrollSnapOverlays <- 0.97.5
+### type OverlaySetShowScrollSnapOverlays <- 0.97.5
 
 ``` go
 type OverlaySetShowScrollSnapOverlays struct {
@@ -25505,7 +25503,7 @@ type OverlaySetShowScrollSnapOverlays struct {
 
 OverlaySetShowScrollSnapOverlays ...
 
-### (OverlaySetShowScrollSnapOverlays) Call <- 0.97.5
+#### (OverlaySetShowScrollSnapOverlays) Call <- 0.97.5
 
 ``` go
 func (m OverlaySetShowScrollSnapOverlays) Call(c Client) error
@@ -25513,7 +25511,7 @@ func (m OverlaySetShowScrollSnapOverlays) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowScrollSnapOverlays) ProtoReq <- 0.97.5
+#### (OverlaySetShowScrollSnapOverlays) ProtoReq <- 0.97.5
 
 ``` go
 func (m OverlaySetShowScrollSnapOverlays) ProtoReq() string
@@ -25521,7 +25519,7 @@ func (m OverlaySetShowScrollSnapOverlays) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowViewportSizeOnResize 
+### type OverlaySetShowViewportSizeOnResize 
 
 ``` go
 type OverlaySetShowViewportSizeOnResize struct {
@@ -25532,7 +25530,7 @@ type OverlaySetShowViewportSizeOnResize struct {
 
 OverlaySetShowViewportSizeOnResize Paints viewport size upon main frame resize.
 
-### (OverlaySetShowViewportSizeOnResize) Call 
+#### (OverlaySetShowViewportSizeOnResize) Call 
 
 ``` go
 func (m OverlaySetShowViewportSizeOnResize) Call(c Client) error
@@ -25540,7 +25538,7 @@ func (m OverlaySetShowViewportSizeOnResize) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowViewportSizeOnResize) ProtoReq <- 0.74.0
+#### (OverlaySetShowViewportSizeOnResize) ProtoReq <- 0.74.0
 
 ``` go
 func (m OverlaySetShowViewportSizeOnResize) ProtoReq() string
@@ -25548,7 +25546,7 @@ func (m OverlaySetShowViewportSizeOnResize) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowWebVitals <- 0.90.0
+### type OverlaySetShowWebVitals <- 0.90.0
 
 ``` go
 type OverlaySetShowWebVitals struct {
@@ -25559,7 +25557,7 @@ type OverlaySetShowWebVitals struct {
 
 OverlaySetShowWebVitals Request that backend shows an overlay with web vital metrics.
 
-### (OverlaySetShowWebVitals) Call <- 0.90.0
+#### (OverlaySetShowWebVitals) Call <- 0.90.0
 
 ``` go
 func (m OverlaySetShowWebVitals) Call(c Client) error
@@ -25567,7 +25565,7 @@ func (m OverlaySetShowWebVitals) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowWebVitals) ProtoReq <- 0.90.0
+#### (OverlaySetShowWebVitals) ProtoReq <- 0.90.0
 
 ``` go
 func (m OverlaySetShowWebVitals) ProtoReq() string
@@ -25575,7 +25573,7 @@ func (m OverlaySetShowWebVitals) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySetShowWindowControlsOverlay <- 0.115.0
+### type OverlaySetShowWindowControlsOverlay <- 0.115.0
 
 ``` go
 type OverlaySetShowWindowControlsOverlay struct {
@@ -25586,7 +25584,7 @@ type OverlaySetShowWindowControlsOverlay struct {
 
 OverlaySetShowWindowControlsOverlay Show Window Controls Overlay for PWA.
 
-### (OverlaySetShowWindowControlsOverlay) Call <- 0.115.0
+#### (OverlaySetShowWindowControlsOverlay) Call <- 0.115.0
 
 ``` go
 func (m OverlaySetShowWindowControlsOverlay) Call(c Client) error
@@ -25594,7 +25592,7 @@ func (m OverlaySetShowWindowControlsOverlay) Call(c Client) error
 
 Call sends the request.
 
-### (OverlaySetShowWindowControlsOverlay) ProtoReq <- 0.115.0
+#### (OverlaySetShowWindowControlsOverlay) ProtoReq <- 0.115.0
 
 ``` go
 func (m OverlaySetShowWindowControlsOverlay) ProtoReq() string
@@ -25602,7 +25600,7 @@ func (m OverlaySetShowWindowControlsOverlay) ProtoReq() string
 
 ProtoReq name.
 
-## type OverlaySourceOrderConfig <- 0.72.0
+### type OverlaySourceOrderConfig <- 0.72.0
 
 ``` go
 type OverlaySourceOrderConfig struct {
@@ -25616,7 +25614,7 @@ type OverlaySourceOrderConfig struct {
 
 OverlaySourceOrderConfig Configuration data for drawing the source order of an elements children.
 
-## type OverlayWindowControlsOverlayConfig <- 0.115.0
+### type OverlayWindowControlsOverlayConfig <- 0.115.0
 
 ``` go
 type OverlayWindowControlsOverlayConfig struct {
@@ -25633,7 +25631,7 @@ type OverlayWindowControlsOverlayConfig struct {
 
 OverlayWindowControlsOverlayConfig Configuration for Window Controls Overlay.
 
-## type PWAChangeAppUserSettings <- 0.116.2
+### type PWAChangeAppUserSettings <- 0.116.2
 
 ``` go
 type PWAChangeAppUserSettings struct {
@@ -25664,7 +25662,7 @@ Unlike the ones defined in the manifest files of the web apps, these settings ar
 
 See the comment of each parameter.
 
-### (PWAChangeAppUserSettings) Call <- 0.116.2
+#### (PWAChangeAppUserSettings) Call <- 0.116.2
 
 ``` go
 func (m PWAChangeAppUserSettings) Call(c Client) error
@@ -25672,7 +25670,7 @@ func (m PWAChangeAppUserSettings) Call(c Client) error
 
 Call sends the request.
 
-### (PWAChangeAppUserSettings) ProtoReq <- 0.116.2
+#### (PWAChangeAppUserSettings) ProtoReq <- 0.116.2
 
 ``` go
 func (m PWAChangeAppUserSettings) ProtoReq() string
@@ -25680,7 +25678,7 @@ func (m PWAChangeAppUserSettings) ProtoReq() string
 
 ProtoReq name.
 
-## type PWADisplayMode <- 0.116.2
+### type PWADisplayMode <- 0.116.2
 
 ``` go
 type PWADisplayMode string
@@ -25698,7 +25696,7 @@ const (
 )
 ```
 
-## type PWAFileHandler <- 0.116.0
+### type PWAFileHandler <- 0.116.0
 
 ``` go
 type PWAFileHandler struct {
@@ -25715,7 +25713,7 @@ type PWAFileHandler struct {
 
 PWAFileHandler ...
 
-## type PWAFileHandlerAccept <- 0.116.0
+### type PWAFileHandlerAccept <- 0.116.0
 
 ``` go
 type PWAFileHandlerAccept struct {
@@ -25730,7 +25728,7 @@ type PWAFileHandlerAccept struct {
 
 PWAFileHandlerAccept The following types are the replica of https://crsrc.org/c/chrome/browser/web_applications/proto/web_app_os_integration_state.proto;drc=9910d3be894c8f142c977ba1023f30a656bc13fc;l=67
 
-## type PWAGetOsAppState <- 0.116.0
+### type PWAGetOsAppState <- 0.116.0
 
 ``` go
 type PWAGetOsAppState struct {
@@ -25743,7 +25741,7 @@ type PWAGetOsAppState struct {
 
 PWAGetOsAppState Returns the following OS state for the given manifest id.
 
-### (PWAGetOsAppState) Call <- 0.116.0
+#### (PWAGetOsAppState) Call <- 0.116.0
 
 ``` go
 func (m PWAGetOsAppState) Call(c Client) (*PWAGetOsAppStateResult, error)
@@ -25751,7 +25749,7 @@ func (m PWAGetOsAppState) Call(c Client) (*PWAGetOsAppStateResult, error)
 
 Call the request.
 
-### (PWAGetOsAppState) ProtoReq <- 0.116.0
+#### (PWAGetOsAppState) ProtoReq <- 0.116.0
 
 ``` go
 func (m PWAGetOsAppState) ProtoReq() string
@@ -25759,7 +25757,7 @@ func (m PWAGetOsAppState) ProtoReq() string
 
 ProtoReq name.
 
-## type PWAGetOsAppStateResult <- 0.116.0
+### type PWAGetOsAppStateResult <- 0.116.0
 
 ``` go
 type PWAGetOsAppStateResult struct {
@@ -25773,7 +25771,7 @@ type PWAGetOsAppStateResult struct {
 
 PWAGetOsAppStateResult ...
 
-## type PWAInstall <- 0.116.0
+### type PWAInstall <- 0.116.0
 
 ``` go
 type PWAInstall struct {
@@ -25790,7 +25788,7 @@ PWAInstall Installs the given manifest identity, optionally using the given inst
 
 TODO(crbug.com/337872319) Support IWA to meet the following specific requirement. IWA-specific install description: If the manifest_id is isolated-app://, install_url_or_bundle_url is required, and can be either an http(s) URL or file:// URL pointing to a signed web bundle (.swbn). The .swbn file's signing key must correspond to manifest_id. If Chrome is not in IWA dev mode, the installation will fail, regardless of the state of the allowlist.
 
-### (PWAInstall) Call <- 0.116.0
+#### (PWAInstall) Call <- 0.116.0
 
 ``` go
 func (m PWAInstall) Call(c Client) error
@@ -25798,7 +25796,7 @@ func (m PWAInstall) Call(c Client) error
 
 Call sends the request.
 
-### (PWAInstall) ProtoReq <- 0.116.0
+#### (PWAInstall) ProtoReq <- 0.116.0
 
 ``` go
 func (m PWAInstall) ProtoReq() string
@@ -25806,7 +25804,7 @@ func (m PWAInstall) ProtoReq() string
 
 ProtoReq name.
 
-## type PWALaunch <- 0.116.2
+### type PWALaunch <- 0.116.2
 
 ``` go
 type PWALaunch struct {
@@ -25820,7 +25818,7 @@ type PWALaunch struct {
 
 PWALaunch Launches the installed web app, or an url in the same web app instead of the default start url if it is provided. Returns a page Target.TargetID which can be used to attach to via Target.attachToTarget or similar APIs.
 
-### (PWALaunch) Call <- 0.116.2
+#### (PWALaunch) Call <- 0.116.2
 
 ``` go
 func (m PWALaunch) Call(c Client) (*PWALaunchResult, error)
@@ -25828,7 +25826,7 @@ func (m PWALaunch) Call(c Client) (*PWALaunchResult, error)
 
 Call the request.
 
-### (PWALaunch) ProtoReq <- 0.116.2
+#### (PWALaunch) ProtoReq <- 0.116.2
 
 ``` go
 func (m PWALaunch) ProtoReq() string
@@ -25836,7 +25834,7 @@ func (m PWALaunch) ProtoReq() string
 
 ProtoReq name.
 
-## type PWALaunchFilesInApp <- 0.116.2
+### type PWALaunchFilesInApp <- 0.116.2
 
 ``` go
 type PWALaunchFilesInApp struct {
@@ -25854,7 +25852,7 @@ According to the definition of the file handlers in the manifest file, one Targe
 
 TODO(crbug.com/339454034): Check the existences of the input files.
 
-### (PWALaunchFilesInApp) Call <- 0.116.2
+#### (PWALaunchFilesInApp) Call <- 0.116.2
 
 ``` go
 func (m PWALaunchFilesInApp) Call(c Client) (*PWALaunchFilesInAppResult, error)
@@ -25862,7 +25860,7 @@ func (m PWALaunchFilesInApp) Call(c Client) (*PWALaunchFilesInAppResult, error)
 
 Call the request.
 
-### (PWALaunchFilesInApp) ProtoReq <- 0.116.2
+#### (PWALaunchFilesInApp) ProtoReq <- 0.116.2
 
 ``` go
 func (m PWALaunchFilesInApp) ProtoReq() string
@@ -25870,7 +25868,7 @@ func (m PWALaunchFilesInApp) ProtoReq() string
 
 ProtoReq name.
 
-## type PWALaunchFilesInAppResult <- 0.116.2
+### type PWALaunchFilesInAppResult <- 0.116.2
 
 ``` go
 type PWALaunchFilesInAppResult struct {
@@ -25881,7 +25879,7 @@ type PWALaunchFilesInAppResult struct {
 
 PWALaunchFilesInAppResult ...
 
-## type PWALaunchResult <- 0.116.2
+### type PWALaunchResult <- 0.116.2
 
 ``` go
 type PWALaunchResult struct {
@@ -25892,7 +25890,7 @@ type PWALaunchResult struct {
 
 PWALaunchResult ...
 
-## type PWAOpenCurrentPageInApp <- 0.116.2
+### type PWAOpenCurrentPageInApp <- 0.116.2
 
 ``` go
 type PWAOpenCurrentPageInApp struct {
@@ -25903,7 +25901,7 @@ type PWAOpenCurrentPageInApp struct {
 
 PWAOpenCurrentPageInApp Opens the current page in its web app identified by the manifest id, needs to be called on a page target. This function returns immediately without waiting for the app to finish loading.
 
-### (PWAOpenCurrentPageInApp) Call <- 0.116.2
+#### (PWAOpenCurrentPageInApp) Call <- 0.116.2
 
 ``` go
 func (m PWAOpenCurrentPageInApp) Call(c Client) error
@@ -25911,7 +25909,7 @@ func (m PWAOpenCurrentPageInApp) Call(c Client) error
 
 Call sends the request.
 
-### (PWAOpenCurrentPageInApp) ProtoReq <- 0.116.2
+#### (PWAOpenCurrentPageInApp) ProtoReq <- 0.116.2
 
 ``` go
 func (m PWAOpenCurrentPageInApp) ProtoReq() string
@@ -25919,7 +25917,7 @@ func (m PWAOpenCurrentPageInApp) ProtoReq() string
 
 ProtoReq name.
 
-## type PWAUninstall <- 0.116.0
+### type PWAUninstall <- 0.116.0
 
 ``` go
 type PWAUninstall struct {
@@ -25930,7 +25928,7 @@ type PWAUninstall struct {
 
 PWAUninstall Uninstalls the given manifest_id and closes any opened app windows.
 
-### (PWAUninstall) Call <- 0.116.0
+#### (PWAUninstall) Call <- 0.116.0
 
 ``` go
 func (m PWAUninstall) Call(c Client) error
@@ -25938,7 +25936,7 @@ func (m PWAUninstall) Call(c Client) error
 
 Call sends the request.
 
-### (PWAUninstall) ProtoReq <- 0.116.0
+#### (PWAUninstall) ProtoReq <- 0.116.0
 
 ``` go
 func (m PWAUninstall) ProtoReq() string
@@ -25946,7 +25944,7 @@ func (m PWAUninstall) ProtoReq() string
 
 ProtoReq name.
 
-## type PageAdFrameExplanation <- 0.101.5
+### type PageAdFrameExplanation <- 0.101.5
 
 ``` go
 type PageAdFrameExplanation string
@@ -25967,7 +25965,7 @@ const (
 )
 ```
 
-## type PageAdFrameStatus <- 0.101.5
+### type PageAdFrameStatus <- 0.101.5
 
 ``` go
 type PageAdFrameStatus struct {
@@ -25981,7 +25979,7 @@ type PageAdFrameStatus struct {
 
 PageAdFrameStatus (experimental) Indicates whether a frame has been identified as an ad and why.
 
-## type PageAdFrameType <- 0.72.0
+### type PageAdFrameType <- 0.72.0
 
 ``` go
 type PageAdFrameType string
@@ -26002,7 +26000,7 @@ const (
 )
 ```
 
-## type PageAdScriptID <- 0.107.1
+### type PageAdScriptID <- 0.107.1
 
 ``` go
 type PageAdScriptID struct {
@@ -26017,7 +26015,7 @@ type PageAdScriptID struct {
 
 PageAdScriptID (experimental) Identifies the bottom-most script which caused the frame to be labelled as an ad.
 
-## type PageAddCompilationCache 
+### type PageAddCompilationCache 
 
 ``` go
 type PageAddCompilationCache struct {
@@ -26031,7 +26029,7 @@ type PageAddCompilationCache struct {
 
 PageAddCompilationCache (experimental) Seeds compilation cache for given url. Compilation cache does not survive cross-process navigation.
 
-### (PageAddCompilationCache) Call 
+#### (PageAddCompilationCache) Call 
 
 ``` go
 func (m PageAddCompilationCache) Call(c Client) error
@@ -26039,7 +26037,7 @@ func (m PageAddCompilationCache) Call(c Client) error
 
 Call sends the request.
 
-### (PageAddCompilationCache) ProtoReq <- 0.74.0
+#### (PageAddCompilationCache) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageAddCompilationCache) ProtoReq() string
@@ -26047,7 +26045,7 @@ func (m PageAddCompilationCache) ProtoReq() string
 
 ProtoReq name.
 
-## type PageAddScriptToEvaluateOnLoad 
+### type PageAddScriptToEvaluateOnLoad 
 
 ``` go
 type PageAddScriptToEvaluateOnLoad struct {
@@ -26058,7 +26056,7 @@ type PageAddScriptToEvaluateOnLoad struct {
 
 PageAddScriptToEvaluateOnLoad (deprecated) (experimental) Deprecated, please use addScriptToEvaluateOnNewDocument instead.
 
-### (PageAddScriptToEvaluateOnLoad) Call 
+#### (PageAddScriptToEvaluateOnLoad) Call 
 
 ``` go
 func (m PageAddScriptToEvaluateOnLoad) Call(c Client) (*PageAddScriptToEvaluateOnLoadResult, error)
@@ -26066,7 +26064,7 @@ func (m PageAddScriptToEvaluateOnLoad) Call(c Client) (*PageAddScriptToEvaluateO
 
 Call the request.
 
-### (PageAddScriptToEvaluateOnLoad) ProtoReq <- 0.74.0
+#### (PageAddScriptToEvaluateOnLoad) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageAddScriptToEvaluateOnLoad) ProtoReq() string
@@ -26074,7 +26072,7 @@ func (m PageAddScriptToEvaluateOnLoad) ProtoReq() string
 
 ProtoReq name.
 
-## type PageAddScriptToEvaluateOnLoadResult 
+### type PageAddScriptToEvaluateOnLoadResult 
 
 ``` go
 type PageAddScriptToEvaluateOnLoadResult struct {
@@ -26085,7 +26083,7 @@ type PageAddScriptToEvaluateOnLoadResult struct {
 
 PageAddScriptToEvaluateOnLoadResult (deprecated) (experimental) ...
 
-## type PageAddScriptToEvaluateOnNewDocument 
+### type PageAddScriptToEvaluateOnNewDocument 
 
 ``` go
 type PageAddScriptToEvaluateOnNewDocument struct {
@@ -26109,7 +26107,7 @@ type PageAddScriptToEvaluateOnNewDocument struct {
 
 PageAddScriptToEvaluateOnNewDocument Evaluates given script in every frame upon creation (before loading frame's scripts).
 
-### (PageAddScriptToEvaluateOnNewDocument) Call 
+#### (PageAddScriptToEvaluateOnNewDocument) Call 
 
 ``` go
 func (m PageAddScriptToEvaluateOnNewDocument) Call(c Client) (*PageAddScriptToEvaluateOnNewDocumentResult, error)
@@ -26117,7 +26115,7 @@ func (m PageAddScriptToEvaluateOnNewDocument) Call(c Client) (*PageAddScriptToEv
 
 Call the request.
 
-### (PageAddScriptToEvaluateOnNewDocument) ProtoReq <- 0.74.0
+#### (PageAddScriptToEvaluateOnNewDocument) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageAddScriptToEvaluateOnNewDocument) ProtoReq() string
@@ -26125,7 +26123,7 @@ func (m PageAddScriptToEvaluateOnNewDocument) ProtoReq() string
 
 ProtoReq name.
 
-## type PageAddScriptToEvaluateOnNewDocumentResult 
+### type PageAddScriptToEvaluateOnNewDocumentResult 
 
 ``` go
 type PageAddScriptToEvaluateOnNewDocumentResult struct {
@@ -26136,7 +26134,7 @@ type PageAddScriptToEvaluateOnNewDocumentResult struct {
 
 PageAddScriptToEvaluateOnNewDocumentResult ...
 
-## type PageAppManifestError 
+### type PageAppManifestError 
 
 ``` go
 type PageAppManifestError struct {
@@ -26156,7 +26154,7 @@ type PageAppManifestError struct {
 
 PageAppManifestError Error while paring app manifest.
 
-## type PageAppManifestParsedProperties 
+### type PageAppManifestParsedProperties 
 
 ``` go
 type PageAppManifestParsedProperties struct {
@@ -26167,7 +26165,7 @@ type PageAppManifestParsedProperties struct {
 
 PageAppManifestParsedProperties (experimental) Parsed app manifest properties.
 
-## type PageAutoResponseMode <- 0.112.9
+### type PageAutoResponseMode <- 0.112.9
 
 ``` go
 type PageAutoResponseMode string
@@ -26191,7 +26189,7 @@ const (
 )
 ```
 
-## type PageBackForwardCacheBlockingDetails <- 0.115.0
+### type PageBackForwardCacheBlockingDetails <- 0.115.0
 
 ``` go
 type PageBackForwardCacheBlockingDetails struct {
@@ -26211,7 +26209,7 @@ type PageBackForwardCacheBlockingDetails struct {
 
 PageBackForwardCacheBlockingDetails (experimental) ...
 
-## type PageBackForwardCacheNotRestoredExplanation <- 0.101.5
+### type PageBackForwardCacheNotRestoredExplanation <- 0.101.5
 
 ``` go
 type PageBackForwardCacheNotRestoredExplanation struct {
@@ -26233,7 +26231,7 @@ type PageBackForwardCacheNotRestoredExplanation struct {
 
 PageBackForwardCacheNotRestoredExplanation (experimental) ...
 
-## type PageBackForwardCacheNotRestoredExplanationTree <- 0.102.0
+### type PageBackForwardCacheNotRestoredExplanationTree <- 0.102.0
 
 ``` go
 type PageBackForwardCacheNotRestoredExplanationTree struct {
@@ -26250,7 +26248,7 @@ type PageBackForwardCacheNotRestoredExplanationTree struct {
 
 PageBackForwardCacheNotRestoredExplanationTree (experimental) ...
 
-## type PageBackForwardCacheNotRestoredReason <- 0.101.5
+### type PageBackForwardCacheNotRestoredReason <- 0.101.5
 
 ``` go
 type PageBackForwardCacheNotRestoredReason string
@@ -26676,7 +26674,7 @@ const (
 )
 ```
 
-## type PageBackForwardCacheNotRestoredReasonType <- 0.101.5
+### type PageBackForwardCacheNotRestoredReasonType <- 0.101.5
 
 ``` go
 type PageBackForwardCacheNotRestoredReasonType string
@@ -26697,7 +26695,7 @@ const (
 )
 ```
 
-## type PageBackForwardCacheNotUsed <- 0.100.0
+### type PageBackForwardCacheNotUsed <- 0.100.0
 
 ``` go
 type PageBackForwardCacheNotUsed struct {
@@ -26717,7 +26715,7 @@ type PageBackForwardCacheNotUsed struct {
 
 PageBackForwardCacheNotUsed (experimental) Fired for failed bfcache history navigations if BackForwardCache feature is enabled. Do not assume any ordering with the Page.frameNavigated event. This event is fired only for main-frame history navigation where the document changes (non-same-document navigations), when bfcache navigation fails.
 
-### (PageBackForwardCacheNotUsed) ProtoEvent <- 0.100.0
+#### (PageBackForwardCacheNotUsed) ProtoEvent <- 0.100.0
 
 ``` go
 func (evt PageBackForwardCacheNotUsed) ProtoEvent() string
@@ -26725,7 +26723,7 @@ func (evt PageBackForwardCacheNotUsed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageBringToFront 
+### type PageBringToFront 
 
 ``` go
 type PageBringToFront struct{}
@@ -26733,7 +26731,7 @@ type PageBringToFront struct{}
 
 PageBringToFront Brings page to front (activates tab).
 
-### (PageBringToFront) Call 
+#### (PageBringToFront) Call 
 
 ``` go
 func (m PageBringToFront) Call(c Client) error
@@ -26741,7 +26739,7 @@ func (m PageBringToFront) Call(c Client) error
 
 Call sends the request.
 
-### (PageBringToFront) ProtoReq <- 0.74.0
+#### (PageBringToFront) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageBringToFront) ProtoReq() string
@@ -26749,7 +26747,7 @@ func (m PageBringToFront) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCaptureScreenshot 
+### type PageCaptureScreenshot 
 
 ``` go
 type PageCaptureScreenshot struct {
@@ -26775,7 +26773,7 @@ type PageCaptureScreenshot struct {
 
 PageCaptureScreenshot Capture page screenshot.
 
-### (PageCaptureScreenshot) Call 
+#### (PageCaptureScreenshot) Call 
 
 ``` go
 func (m PageCaptureScreenshot) Call(c Client) (*PageCaptureScreenshotResult, error)
@@ -26783,7 +26781,7 @@ func (m PageCaptureScreenshot) Call(c Client) (*PageCaptureScreenshotResult, err
 
 Call the request.
 
-### (PageCaptureScreenshot) ProtoReq <- 0.74.0
+#### (PageCaptureScreenshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageCaptureScreenshot) ProtoReq() string
@@ -26791,7 +26789,7 @@ func (m PageCaptureScreenshot) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCaptureScreenshotFormat 
+### type PageCaptureScreenshotFormat 
 
 ``` go
 type PageCaptureScreenshotFormat string
@@ -26812,7 +26810,7 @@ const (
 )
 ```
 
-## type PageCaptureScreenshotResult 
+### type PageCaptureScreenshotResult 
 
 ``` go
 type PageCaptureScreenshotResult struct {
@@ -26823,7 +26821,7 @@ type PageCaptureScreenshotResult struct {
 
 PageCaptureScreenshotResult ...
 
-## type PageCaptureSnapshot 
+### type PageCaptureSnapshot 
 
 ``` go
 type PageCaptureSnapshot struct {
@@ -26834,7 +26832,7 @@ type PageCaptureSnapshot struct {
 
 PageCaptureSnapshot (experimental) Returns a snapshot of the page as a string. For MHTML format, the serialization includes iframes, shadow DOM, external resources, and element-inline styles.
 
-### (PageCaptureSnapshot) Call 
+#### (PageCaptureSnapshot) Call 
 
 ``` go
 func (m PageCaptureSnapshot) Call(c Client) (*PageCaptureSnapshotResult, error)
@@ -26842,7 +26840,7 @@ func (m PageCaptureSnapshot) Call(c Client) (*PageCaptureSnapshotResult, error)
 
 Call the request.
 
-### (PageCaptureSnapshot) ProtoReq <- 0.74.0
+#### (PageCaptureSnapshot) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageCaptureSnapshot) ProtoReq() string
@@ -26850,7 +26848,7 @@ func (m PageCaptureSnapshot) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCaptureSnapshotFormat 
+### type PageCaptureSnapshotFormat 
 
 ``` go
 type PageCaptureSnapshotFormat string
@@ -26865,7 +26863,7 @@ const (
 )
 ```
 
-## type PageCaptureSnapshotResult 
+### type PageCaptureSnapshotResult 
 
 ``` go
 type PageCaptureSnapshotResult struct {
@@ -26876,7 +26874,7 @@ type PageCaptureSnapshotResult struct {
 
 PageCaptureSnapshotResult (experimental) ...
 
-## type PageClearCompilationCache 
+### type PageClearCompilationCache 
 
 ``` go
 type PageClearCompilationCache struct{}
@@ -26884,7 +26882,7 @@ type PageClearCompilationCache struct{}
 
 PageClearCompilationCache (experimental) Clears seeded compilation cache.
 
-### (PageClearCompilationCache) Call 
+#### (PageClearCompilationCache) Call 
 
 ``` go
 func (m PageClearCompilationCache) Call(c Client) error
@@ -26892,7 +26890,7 @@ func (m PageClearCompilationCache) Call(c Client) error
 
 Call sends the request.
 
-### (PageClearCompilationCache) ProtoReq <- 0.74.0
+#### (PageClearCompilationCache) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageClearCompilationCache) ProtoReq() string
@@ -26900,7 +26898,7 @@ func (m PageClearCompilationCache) ProtoReq() string
 
 ProtoReq name.
 
-## type PageClearDeviceMetricsOverride 
+### type PageClearDeviceMetricsOverride 
 
 ``` go
 type PageClearDeviceMetricsOverride struct{}
@@ -26908,7 +26906,7 @@ type PageClearDeviceMetricsOverride struct{}
 
 PageClearDeviceMetricsOverride (deprecated) (experimental) Clears the overridden device metrics.
 
-### (PageClearDeviceMetricsOverride) Call 
+#### (PageClearDeviceMetricsOverride) Call 
 
 ``` go
 func (m PageClearDeviceMetricsOverride) Call(c Client) error
@@ -26916,7 +26914,7 @@ func (m PageClearDeviceMetricsOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageClearDeviceMetricsOverride) ProtoReq <- 0.74.0
+#### (PageClearDeviceMetricsOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageClearDeviceMetricsOverride) ProtoReq() string
@@ -26924,7 +26922,7 @@ func (m PageClearDeviceMetricsOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageClearDeviceOrientationOverride 
+### type PageClearDeviceOrientationOverride 
 
 ``` go
 type PageClearDeviceOrientationOverride struct{}
@@ -26932,7 +26930,7 @@ type PageClearDeviceOrientationOverride struct{}
 
 PageClearDeviceOrientationOverride (deprecated) (experimental) Clears the overridden Device Orientation.
 
-### (PageClearDeviceOrientationOverride) Call 
+#### (PageClearDeviceOrientationOverride) Call 
 
 ``` go
 func (m PageClearDeviceOrientationOverride) Call(c Client) error
@@ -26940,7 +26938,7 @@ func (m PageClearDeviceOrientationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageClearDeviceOrientationOverride) ProtoReq <- 0.74.0
+#### (PageClearDeviceOrientationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageClearDeviceOrientationOverride) ProtoReq() string
@@ -26948,7 +26946,7 @@ func (m PageClearDeviceOrientationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageClearGeolocationOverride 
+### type PageClearGeolocationOverride 
 
 ``` go
 type PageClearGeolocationOverride struct{}
@@ -26956,7 +26954,7 @@ type PageClearGeolocationOverride struct{}
 
 PageClearGeolocationOverride (deprecated) Clears the overridden Geolocation Position and Error.
 
-### (PageClearGeolocationOverride) Call 
+#### (PageClearGeolocationOverride) Call 
 
 ``` go
 func (m PageClearGeolocationOverride) Call(c Client) error
@@ -26964,7 +26962,7 @@ func (m PageClearGeolocationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageClearGeolocationOverride) ProtoReq <- 0.74.0
+#### (PageClearGeolocationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageClearGeolocationOverride) ProtoReq() string
@@ -26972,7 +26970,7 @@ func (m PageClearGeolocationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageClientNavigationDisposition <- 0.48.0
+### type PageClientNavigationDisposition <- 0.48.0
 
 ``` go
 type PageClientNavigationDisposition string
@@ -26996,7 +26994,7 @@ const (
 )
 ```
 
-## type PageClientNavigationReason 
+### type PageClientNavigationReason 
 
 ``` go
 type PageClientNavigationReason string
@@ -27032,7 +27030,7 @@ const (
 )
 ```
 
-## type PageClose 
+### type PageClose 
 
 ``` go
 type PageClose struct{}
@@ -27040,7 +27038,7 @@ type PageClose struct{}
 
 PageClose Tries to close page, running its beforeunload hooks, if any.
 
-### (PageClose) Call 
+#### (PageClose) Call 
 
 ``` go
 func (m PageClose) Call(c Client) error
@@ -27048,7 +27046,7 @@ func (m PageClose) Call(c Client) error
 
 Call sends the request.
 
-### (PageClose) ProtoReq <- 0.74.0
+#### (PageClose) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageClose) ProtoReq() string
@@ -27056,7 +27054,7 @@ func (m PageClose) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCompilationCacheParams <- 0.97.5
+### type PageCompilationCacheParams <- 0.97.5
 
 ``` go
 type PageCompilationCacheParams struct {
@@ -27071,7 +27069,7 @@ type PageCompilationCacheParams struct {
 
 PageCompilationCacheParams (experimental) Per-script compilation cache parameters for `Page.produceCompilationCache`.
 
-## type PageCompilationCacheProduced 
+### type PageCompilationCacheProduced 
 
 ``` go
 type PageCompilationCacheProduced struct {
@@ -27085,7 +27083,7 @@ type PageCompilationCacheProduced struct {
 
 PageCompilationCacheProduced (experimental) Issued for every compilation cache generated. Is only available if Page.setGenerateCompilationCache is enabled.
 
-### (PageCompilationCacheProduced) ProtoEvent <- 0.72.0
+#### (PageCompilationCacheProduced) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageCompilationCacheProduced) ProtoEvent() string
@@ -27093,7 +27091,7 @@ func (evt PageCompilationCacheProduced) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageCrash 
+### type PageCrash 
 
 ``` go
 type PageCrash struct{}
@@ -27101,7 +27099,7 @@ type PageCrash struct{}
 
 PageCrash (experimental) Crashes renderer on the IO thread, generates minidumps.
 
-### (PageCrash) Call 
+#### (PageCrash) Call 
 
 ``` go
 func (m PageCrash) Call(c Client) error
@@ -27109,7 +27107,7 @@ func (m PageCrash) Call(c Client) error
 
 Call sends the request.
 
-### (PageCrash) ProtoReq <- 0.74.0
+#### (PageCrash) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageCrash) ProtoReq() string
@@ -27117,7 +27115,7 @@ func (m PageCrash) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCreateIsolatedWorld 
+### type PageCreateIsolatedWorld 
 
 ``` go
 type PageCreateIsolatedWorld struct {
@@ -27135,7 +27133,7 @@ type PageCreateIsolatedWorld struct {
 
 PageCreateIsolatedWorld Creates an isolated world for the given frame.
 
-### (PageCreateIsolatedWorld) Call 
+#### (PageCreateIsolatedWorld) Call 
 
 ``` go
 func (m PageCreateIsolatedWorld) Call(c Client) (*PageCreateIsolatedWorldResult, error)
@@ -27143,7 +27141,7 @@ func (m PageCreateIsolatedWorld) Call(c Client) (*PageCreateIsolatedWorldResult,
 
 Call the request.
 
-### (PageCreateIsolatedWorld) ProtoReq <- 0.74.0
+#### (PageCreateIsolatedWorld) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageCreateIsolatedWorld) ProtoReq() string
@@ -27151,7 +27149,7 @@ func (m PageCreateIsolatedWorld) ProtoReq() string
 
 ProtoReq name.
 
-## type PageCreateIsolatedWorldResult 
+### type PageCreateIsolatedWorldResult 
 
 ``` go
 type PageCreateIsolatedWorldResult struct {
@@ -27162,7 +27160,7 @@ type PageCreateIsolatedWorldResult struct {
 
 PageCreateIsolatedWorldResult ...
 
-## type PageCrossOriginIsolatedContextType <- 0.72.0
+### type PageCrossOriginIsolatedContextType <- 0.72.0
 
 ``` go
 type PageCrossOriginIsolatedContextType string
@@ -27183,7 +27181,7 @@ const (
 )
 ```
 
-## type PageDeleteCookie 
+### type PageDeleteCookie 
 
 ``` go
 type PageDeleteCookie struct {
@@ -27197,7 +27195,7 @@ type PageDeleteCookie struct {
 
 PageDeleteCookie (deprecated) (experimental) Deletes browser cookie with given name, domain and path.
 
-### (PageDeleteCookie) Call 
+#### (PageDeleteCookie) Call 
 
 ``` go
 func (m PageDeleteCookie) Call(c Client) error
@@ -27205,7 +27203,7 @@ func (m PageDeleteCookie) Call(c Client) error
 
 Call sends the request.
 
-### (PageDeleteCookie) ProtoReq <- 0.74.0
+#### (PageDeleteCookie) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageDeleteCookie) ProtoReq() string
@@ -27213,7 +27211,7 @@ func (m PageDeleteCookie) ProtoReq() string
 
 ProtoReq name.
 
-## type PageDialogType 
+### type PageDialogType 
 
 ``` go
 type PageDialogType string
@@ -27237,7 +27235,7 @@ const (
 )
 ```
 
-## type PageDisable 
+### type PageDisable 
 
 ``` go
 type PageDisable struct{}
@@ -27245,7 +27243,7 @@ type PageDisable struct{}
 
 PageDisable Disables page domain notifications.
 
-### (PageDisable) Call 
+#### (PageDisable) Call 
 
 ``` go
 func (m PageDisable) Call(c Client) error
@@ -27253,7 +27251,7 @@ func (m PageDisable) Call(c Client) error
 
 Call sends the request.
 
-### (PageDisable) ProtoReq <- 0.74.0
+#### (PageDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageDisable) ProtoReq() string
@@ -27261,7 +27259,7 @@ func (m PageDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type PageDocumentOpened <- 0.90.0
+### type PageDocumentOpened <- 0.90.0
 
 ``` go
 type PageDocumentOpened struct {
@@ -27272,7 +27270,7 @@ type PageDocumentOpened struct {
 
 PageDocumentOpened (experimental) Fired when opening document to write to.
 
-### (PageDocumentOpened) ProtoEvent <- 0.90.0
+#### (PageDocumentOpened) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt PageDocumentOpened) ProtoEvent() string
@@ -27280,7 +27278,7 @@ func (evt PageDocumentOpened) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageDomContentEventFired 
+### type PageDomContentEventFired 
 
 ``` go
 type PageDomContentEventFired struct {
@@ -27291,7 +27289,7 @@ type PageDomContentEventFired struct {
 
 PageDomContentEventFired ...
 
-### (PageDomContentEventFired) ProtoEvent <- 0.72.0
+#### (PageDomContentEventFired) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageDomContentEventFired) ProtoEvent() string
@@ -27299,7 +27297,7 @@ func (evt PageDomContentEventFired) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageDownloadProgress 
+### type PageDownloadProgress 
 
 ``` go
 type PageDownloadProgress struct {
@@ -27319,7 +27317,7 @@ type PageDownloadProgress struct {
 
 PageDownloadProgress (deprecated) (experimental) Fired when download makes progress. Last call has |done| == true. Deprecated. Use Browser.downloadProgress instead.
 
-### (PageDownloadProgress) ProtoEvent <- 0.72.0
+#### (PageDownloadProgress) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageDownloadProgress) ProtoEvent() string
@@ -27327,7 +27325,7 @@ func (evt PageDownloadProgress) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageDownloadProgressState 
+### type PageDownloadProgressState 
 
 ``` go
 type PageDownloadProgressState string
@@ -27348,7 +27346,7 @@ const (
 )
 ```
 
-## type PageDownloadWillBegin 
+### type PageDownloadWillBegin 
 
 ``` go
 type PageDownloadWillBegin struct {
@@ -27368,7 +27366,7 @@ type PageDownloadWillBegin struct {
 
 PageDownloadWillBegin (deprecated) (experimental) Fired when page is about to start a download. Deprecated. Use Browser.downloadWillBegin instead.
 
-### (PageDownloadWillBegin) ProtoEvent <- 0.72.0
+#### (PageDownloadWillBegin) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageDownloadWillBegin) ProtoEvent() string
@@ -27376,7 +27374,7 @@ func (evt PageDownloadWillBegin) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageEnable 
+### type PageEnable 
 
 ``` go
 type PageEnable struct{}
@@ -27384,7 +27382,7 @@ type PageEnable struct{}
 
 PageEnable Enables page domain notifications.
 
-### (PageEnable) Call 
+#### (PageEnable) Call 
 
 ``` go
 func (m PageEnable) Call(c Client) error
@@ -27392,7 +27390,7 @@ func (m PageEnable) Call(c Client) error
 
 Call sends the request.
 
-### (PageEnable) ProtoReq <- 0.74.0
+#### (PageEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageEnable) ProtoReq() string
@@ -27400,7 +27398,7 @@ func (m PageEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type PageFileChooserOpened 
+### type PageFileChooserOpened 
 
 ``` go
 type PageFileChooserOpened struct {
@@ -27417,7 +27415,7 @@ type PageFileChooserOpened struct {
 
 PageFileChooserOpened Emitted only when `page.interceptFileChooser` is enabled.
 
-### (PageFileChooserOpened) ProtoEvent <- 0.72.0
+#### (PageFileChooserOpened) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFileChooserOpened) ProtoEvent() string
@@ -27425,7 +27423,7 @@ func (evt PageFileChooserOpened) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFileChooserOpenedMode 
+### type PageFileChooserOpenedMode 
 
 ``` go
 type PageFileChooserOpenedMode string
@@ -27443,7 +27441,7 @@ const (
 )
 ```
 
-## type PageFileFilter <- 0.116.0
+### type PageFileFilter <- 0.116.0
 
 ``` go
 type PageFileFilter struct {
@@ -27457,7 +27455,7 @@ type PageFileFilter struct {
 
 PageFileFilter (experimental) ...
 
-## type PageFileHandler <- 0.116.0
+### type PageFileHandler <- 0.116.0
 
 ``` go
 type PageFileHandler struct {
@@ -27481,7 +27479,7 @@ type PageFileHandler struct {
 
 PageFileHandler (experimental) ...
 
-## type PageFontFamilies 
+### type PageFontFamilies 
 
 ``` go
 type PageFontFamilies struct {
@@ -27510,7 +27508,7 @@ type PageFontFamilies struct {
 
 PageFontFamilies (experimental) Generic font families collection.
 
-## type PageFontSizes 
+### type PageFontSizes 
 
 ``` go
 type PageFontSizes struct {
@@ -27524,7 +27522,7 @@ type PageFontSizes struct {
 
 PageFontSizes (experimental) Default font sizes.
 
-## type PageFrame 
+### type PageFrame 
 
 ``` go
 type PageFrame struct {
@@ -27577,7 +27575,7 @@ type PageFrame struct {
 
 PageFrame Information about the Frame on the page.
 
-## type PageFrameAttached 
+### type PageFrameAttached 
 
 ``` go
 type PageFrameAttached struct {
@@ -27594,7 +27592,7 @@ type PageFrameAttached struct {
 
 PageFrameAttached Fired when frame has been attached to its parent.
 
-### (PageFrameAttached) ProtoEvent <- 0.72.0
+#### (PageFrameAttached) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameAttached) ProtoEvent() string
@@ -27602,7 +27600,7 @@ func (evt PageFrameAttached) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameClearedScheduledNavigation 
+### type PageFrameClearedScheduledNavigation 
 
 ``` go
 type PageFrameClearedScheduledNavigation struct {
@@ -27613,7 +27611,7 @@ type PageFrameClearedScheduledNavigation struct {
 
 PageFrameClearedScheduledNavigation (deprecated) Fired when frame no longer has a scheduled navigation.
 
-### (PageFrameClearedScheduledNavigation) ProtoEvent <- 0.72.0
+#### (PageFrameClearedScheduledNavigation) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameClearedScheduledNavigation) ProtoEvent() string
@@ -27621,7 +27619,7 @@ func (evt PageFrameClearedScheduledNavigation) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameDetached 
+### type PageFrameDetached 
 
 ``` go
 type PageFrameDetached struct {
@@ -27635,7 +27633,7 @@ type PageFrameDetached struct {
 
 PageFrameDetached Fired when frame has been detached from its parent.
 
-### (PageFrameDetached) ProtoEvent <- 0.72.0
+#### (PageFrameDetached) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameDetached) ProtoEvent() string
@@ -27643,7 +27641,7 @@ func (evt PageFrameDetached) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameDetachedReason <- 0.90.0
+### type PageFrameDetachedReason <- 0.90.0
 
 ``` go
 type PageFrameDetachedReason string
@@ -27661,7 +27659,7 @@ const (
 )
 ```
 
-## type PageFrameID 
+### type PageFrameID 
 
 ``` go
 type PageFrameID string
@@ -27669,7 +27667,7 @@ type PageFrameID string
 
 PageFrameID Unique frame identifier.
 
-## type PageFrameNavigated 
+### type PageFrameNavigated 
 
 ``` go
 type PageFrameNavigated struct {
@@ -27683,7 +27681,7 @@ type PageFrameNavigated struct {
 
 PageFrameNavigated Fired once navigation of the frame has completed. Frame is now associated with the new loader.
 
-### (PageFrameNavigated) ProtoEvent <- 0.72.0
+#### (PageFrameNavigated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameNavigated) ProtoEvent() string
@@ -27691,7 +27689,7 @@ func (evt PageFrameNavigated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameRequestedNavigation 
+### type PageFrameRequestedNavigation 
 
 ``` go
 type PageFrameRequestedNavigation struct {
@@ -27711,7 +27709,7 @@ type PageFrameRequestedNavigation struct {
 
 PageFrameRequestedNavigation (experimental) Fired when a renderer-initiated navigation is requested. Navigation may still be cancelled after the event is issued.
 
-### (PageFrameRequestedNavigation) ProtoEvent <- 0.72.0
+#### (PageFrameRequestedNavigation) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameRequestedNavigation) ProtoEvent() string
@@ -27719,7 +27717,7 @@ func (evt PageFrameRequestedNavigation) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameResized 
+### type PageFrameResized 
 
 ``` go
 type PageFrameResized struct{}
@@ -27727,7 +27725,7 @@ type PageFrameResized struct{}
 
 PageFrameResized (experimental) ...
 
-### (PageFrameResized) ProtoEvent <- 0.72.0
+#### (PageFrameResized) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameResized) ProtoEvent() string
@@ -27735,7 +27733,7 @@ func (evt PageFrameResized) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameResource 
+### type PageFrameResource 
 
 ``` go
 type PageFrameResource struct {
@@ -27764,7 +27762,7 @@ type PageFrameResource struct {
 
 PageFrameResource (experimental) Information about the Resource on the page.
 
-## type PageFrameResourceTree 
+### type PageFrameResourceTree 
 
 ``` go
 type PageFrameResourceTree struct {
@@ -27781,7 +27779,7 @@ type PageFrameResourceTree struct {
 
 PageFrameResourceTree (experimental) Information about the Frame hierarchy along with their cached resources.
 
-## type PageFrameScheduledNavigation 
+### type PageFrameScheduledNavigation 
 
 ``` go
 type PageFrameScheduledNavigation struct {
@@ -27802,7 +27800,7 @@ type PageFrameScheduledNavigation struct {
 
 PageFrameScheduledNavigation (deprecated) Fired when frame schedules a potential navigation.
 
-### (PageFrameScheduledNavigation) ProtoEvent <- 0.72.0
+#### (PageFrameScheduledNavigation) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameScheduledNavigation) ProtoEvent() string
@@ -27810,7 +27808,7 @@ func (evt PageFrameScheduledNavigation) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameStartedLoading 
+### type PageFrameStartedLoading 
 
 ``` go
 type PageFrameStartedLoading struct {
@@ -27821,7 +27819,7 @@ type PageFrameStartedLoading struct {
 
 PageFrameStartedLoading (experimental) Fired when frame has started loading.
 
-### (PageFrameStartedLoading) ProtoEvent <- 0.72.0
+#### (PageFrameStartedLoading) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameStartedLoading) ProtoEvent() string
@@ -27829,7 +27827,7 @@ func (evt PageFrameStartedLoading) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameStoppedLoading 
+### type PageFrameStoppedLoading 
 
 ``` go
 type PageFrameStoppedLoading struct {
@@ -27840,7 +27838,7 @@ type PageFrameStoppedLoading struct {
 
 PageFrameStoppedLoading (experimental) Fired when frame has stopped loading.
 
-### (PageFrameStoppedLoading) ProtoEvent <- 0.72.0
+#### (PageFrameStoppedLoading) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageFrameStoppedLoading) ProtoEvent() string
@@ -27848,7 +27846,7 @@ func (evt PageFrameStoppedLoading) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageFrameTree 
+### type PageFrameTree 
 
 ``` go
 type PageFrameTree struct {
@@ -27862,7 +27860,7 @@ type PageFrameTree struct {
 
 PageFrameTree Information about the Frame hierarchy.
 
-## type PageGatedAPIFeatures <- 0.90.0
+### type PageGatedAPIFeatures <- 0.90.0
 
 ``` go
 type PageGatedAPIFeatures string
@@ -27886,7 +27884,7 @@ const (
 )
 ```
 
-## type PageGenerateTestReport 
+### type PageGenerateTestReport 
 
 ``` go
 type PageGenerateTestReport struct {
@@ -27900,7 +27898,7 @@ type PageGenerateTestReport struct {
 
 PageGenerateTestReport (experimental) Generates a report for testing.
 
-### (PageGenerateTestReport) Call 
+#### (PageGenerateTestReport) Call 
 
 ``` go
 func (m PageGenerateTestReport) Call(c Client) error
@@ -27908,7 +27906,7 @@ func (m PageGenerateTestReport) Call(c Client) error
 
 Call sends the request.
 
-### (PageGenerateTestReport) ProtoReq <- 0.74.0
+#### (PageGenerateTestReport) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGenerateTestReport) ProtoReq() string
@@ -27916,7 +27914,7 @@ func (m PageGenerateTestReport) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetAdScriptID <- 0.112.1
+### type PageGetAdScriptID <- 0.112.1
 
 ``` go
 type PageGetAdScriptID struct {
@@ -27927,7 +27925,7 @@ type PageGetAdScriptID struct {
 
 PageGetAdScriptID (experimental) ...
 
-### (PageGetAdScriptID) Call <- 0.112.1
+#### (PageGetAdScriptID) Call <- 0.112.1
 
 ``` go
 func (m PageGetAdScriptID) Call(c Client) (*PageGetAdScriptIDResult, error)
@@ -27935,7 +27933,7 @@ func (m PageGetAdScriptID) Call(c Client) (*PageGetAdScriptIDResult, error)
 
 Call the request.
 
-### (PageGetAdScriptID) ProtoReq <- 0.112.1
+#### (PageGetAdScriptID) ProtoReq <- 0.112.1
 
 ``` go
 func (m PageGetAdScriptID) ProtoReq() string
@@ -27943,7 +27941,7 @@ func (m PageGetAdScriptID) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetAdScriptIDResult <- 0.112.1
+### type PageGetAdScriptIDResult <- 0.112.1
 
 ``` go
 type PageGetAdScriptIDResult struct {
@@ -27955,7 +27953,7 @@ type PageGetAdScriptIDResult struct {
 
 PageGetAdScriptIDResult (experimental) ...
 
-## type PageGetAppID <- 0.102.0
+### type PageGetAppID <- 0.102.0
 
 ``` go
 type PageGetAppID struct{}
@@ -27963,7 +27961,7 @@ type PageGetAppID struct{}
 
 PageGetAppID (experimental) Returns the unique (PWA) app id. Only returns values if the feature flag 'WebAppEnableManifestId' is enabled.
 
-### (PageGetAppID) Call <- 0.102.0
+#### (PageGetAppID) Call <- 0.102.0
 
 ``` go
 func (m PageGetAppID) Call(c Client) (*PageGetAppIDResult, error)
@@ -27971,7 +27969,7 @@ func (m PageGetAppID) Call(c Client) (*PageGetAppIDResult, error)
 
 Call the request.
 
-### (PageGetAppID) ProtoReq <- 0.102.0
+#### (PageGetAppID) ProtoReq <- 0.102.0
 
 ``` go
 func (m PageGetAppID) ProtoReq() string
@@ -27979,7 +27977,7 @@ func (m PageGetAppID) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetAppIDResult <- 0.102.0
+### type PageGetAppIDResult <- 0.102.0
 
 ``` go
 type PageGetAppIDResult struct {
@@ -27993,7 +27991,7 @@ type PageGetAppIDResult struct {
 
 PageGetAppIDResult (experimental) ...
 
-## type PageGetAppManifest 
+### type PageGetAppManifest 
 
 ``` go
 type PageGetAppManifest struct {
@@ -28011,7 +28009,7 @@ If manifestId is provided, and it does not match the manifest of the
 If there is not a loaded page, this API errors out immediately.
 ```
 
-### (PageGetAppManifest) Call 
+#### (PageGetAppManifest) Call 
 
 ``` go
 func (m PageGetAppManifest) Call(c Client) (*PageGetAppManifestResult, error)
@@ -28019,7 +28017,7 @@ func (m PageGetAppManifest) Call(c Client) (*PageGetAppManifestResult, error)
 
 Call the request.
 
-### (PageGetAppManifest) ProtoReq <- 0.74.0
+#### (PageGetAppManifest) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetAppManifest) ProtoReq() string
@@ -28027,7 +28025,7 @@ func (m PageGetAppManifest) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetAppManifestResult 
+### type PageGetAppManifestResult 
 
 ``` go
 type PageGetAppManifestResult struct {
@@ -28050,7 +28048,7 @@ type PageGetAppManifestResult struct {
 
 PageGetAppManifestResult ...
 
-## type PageGetFrameTree 
+### type PageGetFrameTree 
 
 ``` go
 type PageGetFrameTree struct{}
@@ -28058,7 +28056,7 @@ type PageGetFrameTree struct{}
 
 PageGetFrameTree Returns present frame tree structure.
 
-### (PageGetFrameTree) Call 
+#### (PageGetFrameTree) Call 
 
 ``` go
 func (m PageGetFrameTree) Call(c Client) (*PageGetFrameTreeResult, error)
@@ -28066,7 +28064,7 @@ func (m PageGetFrameTree) Call(c Client) (*PageGetFrameTreeResult, error)
 
 Call the request.
 
-### (PageGetFrameTree) ProtoReq <- 0.74.0
+#### (PageGetFrameTree) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetFrameTree) ProtoReq() string
@@ -28074,7 +28072,7 @@ func (m PageGetFrameTree) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetFrameTreeResult 
+### type PageGetFrameTreeResult 
 
 ``` go
 type PageGetFrameTreeResult struct {
@@ -28085,7 +28083,7 @@ type PageGetFrameTreeResult struct {
 
 PageGetFrameTreeResult ...
 
-## type PageGetInstallabilityErrors 
+### type PageGetInstallabilityErrors 
 
 ``` go
 type PageGetInstallabilityErrors struct{}
@@ -28093,7 +28091,7 @@ type PageGetInstallabilityErrors struct{}
 
 PageGetInstallabilityErrors (experimental) ...
 
-### (PageGetInstallabilityErrors) Call 
+#### (PageGetInstallabilityErrors) Call 
 
 ``` go
 func (m PageGetInstallabilityErrors) Call(c Client) (*PageGetInstallabilityErrorsResult, error)
@@ -28101,7 +28099,7 @@ func (m PageGetInstallabilityErrors) Call(c Client) (*PageGetInstallabilityError
 
 Call the request.
 
-### (PageGetInstallabilityErrors) ProtoReq <- 0.74.0
+#### (PageGetInstallabilityErrors) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetInstallabilityErrors) ProtoReq() string
@@ -28109,7 +28107,7 @@ func (m PageGetInstallabilityErrors) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetInstallabilityErrorsResult 
+### type PageGetInstallabilityErrorsResult 
 
 ``` go
 type PageGetInstallabilityErrorsResult struct {
@@ -28120,7 +28118,7 @@ type PageGetInstallabilityErrorsResult struct {
 
 PageGetInstallabilityErrorsResult (experimental) ...
 
-## type PageGetLayoutMetrics 
+### type PageGetLayoutMetrics 
 
 ``` go
 type PageGetLayoutMetrics struct{}
@@ -28128,7 +28126,7 @@ type PageGetLayoutMetrics struct{}
 
 PageGetLayoutMetrics Returns metrics relating to the layouting of the page, such as viewport bounds/scale.
 
-### (PageGetLayoutMetrics) Call 
+#### (PageGetLayoutMetrics) Call 
 
 ``` go
 func (m PageGetLayoutMetrics) Call(c Client) (*PageGetLayoutMetricsResult, error)
@@ -28136,7 +28134,7 @@ func (m PageGetLayoutMetrics) Call(c Client) (*PageGetLayoutMetricsResult, error
 
 Call the request.
 
-### (PageGetLayoutMetrics) ProtoReq <- 0.74.0
+#### (PageGetLayoutMetrics) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetLayoutMetrics) ProtoReq() string
@@ -28144,7 +28142,7 @@ func (m PageGetLayoutMetrics) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetLayoutMetricsResult 
+### type PageGetLayoutMetricsResult 
 
 ``` go
 type PageGetLayoutMetricsResult struct {
@@ -28170,7 +28168,7 @@ type PageGetLayoutMetricsResult struct {
 
 PageGetLayoutMetricsResult ...
 
-## type PageGetManifestIcons 
+### type PageGetManifestIcons 
 
 ``` go
 type PageGetManifestIcons struct{}
@@ -28178,7 +28176,7 @@ type PageGetManifestIcons struct{}
 
 PageGetManifestIcons (deprecated) (experimental) Deprecated because it's not guaranteed that the returned icon is in fact the one used for PWA installation.
 
-### (PageGetManifestIcons) Call 
+#### (PageGetManifestIcons) Call 
 
 ``` go
 func (m PageGetManifestIcons) Call(c Client) (*PageGetManifestIconsResult, error)
@@ -28186,7 +28184,7 @@ func (m PageGetManifestIcons) Call(c Client) (*PageGetManifestIconsResult, error
 
 Call the request.
 
-### (PageGetManifestIcons) ProtoReq <- 0.74.0
+#### (PageGetManifestIcons) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetManifestIcons) ProtoReq() string
@@ -28194,7 +28192,7 @@ func (m PageGetManifestIcons) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetManifestIconsResult 
+### type PageGetManifestIconsResult 
 
 ``` go
 type PageGetManifestIconsResult struct {
@@ -28205,7 +28203,7 @@ type PageGetManifestIconsResult struct {
 
 PageGetManifestIconsResult (deprecated) (experimental) ...
 
-## type PageGetNavigationHistory 
+### type PageGetNavigationHistory 
 
 ``` go
 type PageGetNavigationHistory struct{}
@@ -28213,7 +28211,7 @@ type PageGetNavigationHistory struct{}
 
 PageGetNavigationHistory Returns navigation history for the current page.
 
-### (PageGetNavigationHistory) Call 
+#### (PageGetNavigationHistory) Call 
 
 ``` go
 func (m PageGetNavigationHistory) Call(c Client) (*PageGetNavigationHistoryResult, error)
@@ -28221,7 +28219,7 @@ func (m PageGetNavigationHistory) Call(c Client) (*PageGetNavigationHistoryResul
 
 Call the request.
 
-### (PageGetNavigationHistory) ProtoReq <- 0.74.0
+#### (PageGetNavigationHistory) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetNavigationHistory) ProtoReq() string
@@ -28229,7 +28227,7 @@ func (m PageGetNavigationHistory) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetNavigationHistoryResult 
+### type PageGetNavigationHistoryResult 
 
 ``` go
 type PageGetNavigationHistoryResult struct {
@@ -28243,7 +28241,7 @@ type PageGetNavigationHistoryResult struct {
 
 PageGetNavigationHistoryResult ...
 
-## type PageGetOriginTrials <- 0.102.0
+### type PageGetOriginTrials <- 0.102.0
 
 ``` go
 type PageGetOriginTrials struct {
@@ -28254,7 +28252,7 @@ type PageGetOriginTrials struct {
 
 PageGetOriginTrials (experimental) Get Origin Trials on given frame.
 
-### (PageGetOriginTrials) Call <- 0.102.0
+#### (PageGetOriginTrials) Call <- 0.102.0
 
 ``` go
 func (m PageGetOriginTrials) Call(c Client) (*PageGetOriginTrialsResult, error)
@@ -28262,7 +28260,7 @@ func (m PageGetOriginTrials) Call(c Client) (*PageGetOriginTrialsResult, error)
 
 Call the request.
 
-### (PageGetOriginTrials) ProtoReq <- 0.102.0
+#### (PageGetOriginTrials) ProtoReq <- 0.102.0
 
 ``` go
 func (m PageGetOriginTrials) ProtoReq() string
@@ -28270,7 +28268,7 @@ func (m PageGetOriginTrials) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetOriginTrialsResult <- 0.102.0
+### type PageGetOriginTrialsResult <- 0.102.0
 
 ``` go
 type PageGetOriginTrialsResult struct {
@@ -28281,7 +28279,7 @@ type PageGetOriginTrialsResult struct {
 
 PageGetOriginTrialsResult (experimental) ...
 
-## type PageGetPermissionsPolicyState <- 0.93.0
+### type PageGetPermissionsPolicyState <- 0.93.0
 
 ``` go
 type PageGetPermissionsPolicyState struct {
@@ -28292,7 +28290,7 @@ type PageGetPermissionsPolicyState struct {
 
 PageGetPermissionsPolicyState (experimental) Get Permissions Policy state on given frame.
 
-### (PageGetPermissionsPolicyState) Call <- 0.93.0
+#### (PageGetPermissionsPolicyState) Call <- 0.93.0
 
 ``` go
 func (m PageGetPermissionsPolicyState) Call(c Client) (*PageGetPermissionsPolicyStateResult, error)
@@ -28300,7 +28298,7 @@ func (m PageGetPermissionsPolicyState) Call(c Client) (*PageGetPermissionsPolicy
 
 Call the request.
 
-### (PageGetPermissionsPolicyState) ProtoReq <- 0.93.0
+#### (PageGetPermissionsPolicyState) ProtoReq <- 0.93.0
 
 ``` go
 func (m PageGetPermissionsPolicyState) ProtoReq() string
@@ -28308,7 +28306,7 @@ func (m PageGetPermissionsPolicyState) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetPermissionsPolicyStateResult <- 0.93.0
+### type PageGetPermissionsPolicyStateResult <- 0.93.0
 
 ``` go
 type PageGetPermissionsPolicyStateResult struct {
@@ -28319,7 +28317,7 @@ type PageGetPermissionsPolicyStateResult struct {
 
 PageGetPermissionsPolicyStateResult (experimental) ...
 
-## type PageGetResourceContent 
+### type PageGetResourceContent 
 
 ``` go
 type PageGetResourceContent struct {
@@ -28333,7 +28331,7 @@ type PageGetResourceContent struct {
 
 PageGetResourceContent (experimental) Returns content of the given resource.
 
-### (PageGetResourceContent) Call 
+#### (PageGetResourceContent) Call 
 
 ``` go
 func (m PageGetResourceContent) Call(c Client) (*PageGetResourceContentResult, error)
@@ -28341,7 +28339,7 @@ func (m PageGetResourceContent) Call(c Client) (*PageGetResourceContentResult, e
 
 Call the request.
 
-### (PageGetResourceContent) ProtoReq <- 0.74.0
+#### (PageGetResourceContent) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetResourceContent) ProtoReq() string
@@ -28349,7 +28347,7 @@ func (m PageGetResourceContent) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetResourceContentResult 
+### type PageGetResourceContentResult 
 
 ``` go
 type PageGetResourceContentResult struct {
@@ -28363,7 +28361,7 @@ type PageGetResourceContentResult struct {
 
 PageGetResourceContentResult (experimental) ...
 
-## type PageGetResourceTree 
+### type PageGetResourceTree 
 
 ``` go
 type PageGetResourceTree struct{}
@@ -28371,7 +28369,7 @@ type PageGetResourceTree struct{}
 
 PageGetResourceTree (experimental) Returns present frame / resource tree structure.
 
-### (PageGetResourceTree) Call 
+#### (PageGetResourceTree) Call 
 
 ``` go
 func (m PageGetResourceTree) Call(c Client) (*PageGetResourceTreeResult, error)
@@ -28379,7 +28377,7 @@ func (m PageGetResourceTree) Call(c Client) (*PageGetResourceTreeResult, error)
 
 Call the request.
 
-### (PageGetResourceTree) ProtoReq <- 0.74.0
+#### (PageGetResourceTree) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageGetResourceTree) ProtoReq() string
@@ -28387,7 +28385,7 @@ func (m PageGetResourceTree) ProtoReq() string
 
 ProtoReq name.
 
-## type PageGetResourceTreeResult 
+### type PageGetResourceTreeResult 
 
 ``` go
 type PageGetResourceTreeResult struct {
@@ -28398,7 +28396,7 @@ type PageGetResourceTreeResult struct {
 
 PageGetResourceTreeResult (experimental) ...
 
-## type PageHandleJavaScriptDialog 
+### type PageHandleJavaScriptDialog 
 
 ``` go
 type PageHandleJavaScriptDialog struct {
@@ -28413,7 +28411,7 @@ type PageHandleJavaScriptDialog struct {
 
 PageHandleJavaScriptDialog Accepts or dismisses a JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload).
 
-### (PageHandleJavaScriptDialog) Call 
+#### (PageHandleJavaScriptDialog) Call 
 
 ``` go
 func (m PageHandleJavaScriptDialog) Call(c Client) error
@@ -28421,7 +28419,7 @@ func (m PageHandleJavaScriptDialog) Call(c Client) error
 
 Call sends the request.
 
-### (PageHandleJavaScriptDialog) ProtoReq <- 0.74.0
+#### (PageHandleJavaScriptDialog) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageHandleJavaScriptDialog) ProtoReq() string
@@ -28429,7 +28427,7 @@ func (m PageHandleJavaScriptDialog) ProtoReq() string
 
 ProtoReq name.
 
-## type PageImageResource <- 0.116.0
+### type PageImageResource <- 0.116.0
 
 ``` go
 type PageImageResource struct {
@@ -28447,7 +28445,7 @@ type PageImageResource struct {
 
 PageImageResource (experimental) The image definition used in both icon and screenshot.
 
-## type PageInstallabilityError 
+### type PageInstallabilityError 
 
 ``` go
 type PageInstallabilityError struct {
@@ -28461,7 +28459,7 @@ type PageInstallabilityError struct {
 
 PageInstallabilityError (experimental) The installability error.
 
-## type PageInstallabilityErrorArgument 
+### type PageInstallabilityErrorArgument 
 
 ``` go
 type PageInstallabilityErrorArgument struct {
@@ -28475,7 +28473,7 @@ type PageInstallabilityErrorArgument struct {
 
 PageInstallabilityErrorArgument (experimental) ...
 
-## type PageInterstitialHidden 
+### type PageInterstitialHidden 
 
 ``` go
 type PageInterstitialHidden struct{}
@@ -28483,7 +28481,7 @@ type PageInterstitialHidden struct{}
 
 PageInterstitialHidden Fired when interstitial page was hidden.
 
-### (PageInterstitialHidden) ProtoEvent <- 0.72.0
+#### (PageInterstitialHidden) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageInterstitialHidden) ProtoEvent() string
@@ -28491,7 +28489,7 @@ func (evt PageInterstitialHidden) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageInterstitialShown 
+### type PageInterstitialShown 
 
 ``` go
 type PageInterstitialShown struct{}
@@ -28499,7 +28497,7 @@ type PageInterstitialShown struct{}
 
 PageInterstitialShown Fired when interstitial page was shown.
 
-### (PageInterstitialShown) ProtoEvent <- 0.72.0
+#### (PageInterstitialShown) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageInterstitialShown) ProtoEvent() string
@@ -28507,7 +28505,7 @@ func (evt PageInterstitialShown) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageJavascriptDialogClosed 
+### type PageJavascriptDialogClosed 
 
 ``` go
 type PageJavascriptDialogClosed struct {
@@ -28521,7 +28519,7 @@ type PageJavascriptDialogClosed struct {
 
 PageJavascriptDialogClosed Fired when a JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload) has been closed.
 
-### (PageJavascriptDialogClosed) ProtoEvent <- 0.72.0
+#### (PageJavascriptDialogClosed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageJavascriptDialogClosed) ProtoEvent() string
@@ -28529,7 +28527,7 @@ func (evt PageJavascriptDialogClosed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageJavascriptDialogOpening 
+### type PageJavascriptDialogOpening 
 
 ``` go
 type PageJavascriptDialogOpening struct {
@@ -28554,7 +28552,7 @@ type PageJavascriptDialogOpening struct {
 
 PageJavascriptDialogOpening Fired when a JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload) is about to open.
 
-### (PageJavascriptDialogOpening) ProtoEvent <- 0.72.0
+#### (PageJavascriptDialogOpening) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageJavascriptDialogOpening) ProtoEvent() string
@@ -28562,7 +28560,7 @@ func (evt PageJavascriptDialogOpening) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageLaunchHandler <- 0.116.0
+### type PageLaunchHandler <- 0.116.0
 
 ``` go
 type PageLaunchHandler struct {
@@ -28573,7 +28571,7 @@ type PageLaunchHandler struct {
 
 PageLaunchHandler (experimental) ...
 
-## type PageLayoutViewport 
+### type PageLayoutViewport 
 
 ``` go
 type PageLayoutViewport struct {
@@ -28593,7 +28591,7 @@ type PageLayoutViewport struct {
 
 PageLayoutViewport Layout viewport position and dimensions.
 
-## type PageLifecycleEvent 
+### type PageLifecycleEvent 
 
 ``` go
 type PageLifecycleEvent struct {
@@ -28613,7 +28611,7 @@ type PageLifecycleEvent struct {
 
 PageLifecycleEvent Fired for top level page lifecycle events such as navigation, load, paint, etc.
 
-### (PageLifecycleEvent) ProtoEvent <- 0.72.0
+#### (PageLifecycleEvent) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageLifecycleEvent) ProtoEvent() string
@@ -28621,7 +28619,7 @@ func (evt PageLifecycleEvent) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageLifecycleEventName <- 0.59.0
+### type PageLifecycleEventName <- 0.59.0
 
 ``` go
 type PageLifecycleEventName string
@@ -28663,7 +28661,7 @@ const (
 )
 ```
 
-## type PageLoadEventFired 
+### type PageLoadEventFired 
 
 ``` go
 type PageLoadEventFired struct {
@@ -28674,7 +28672,7 @@ type PageLoadEventFired struct {
 
 PageLoadEventFired ...
 
-### (PageLoadEventFired) ProtoEvent <- 0.72.0
+#### (PageLoadEventFired) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageLoadEventFired) ProtoEvent() string
@@ -28682,7 +28680,7 @@ func (evt PageLoadEventFired) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageNavigate 
+### type PageNavigate 
 
 ``` go
 type PageNavigate struct {
@@ -28705,7 +28703,7 @@ type PageNavigate struct {
 
 PageNavigate Navigates current page to the given URL.
 
-### (PageNavigate) Call 
+#### (PageNavigate) Call 
 
 ``` go
 func (m PageNavigate) Call(c Client) (*PageNavigateResult, error)
@@ -28713,7 +28711,7 @@ func (m PageNavigate) Call(c Client) (*PageNavigateResult, error)
 
 Call the request.
 
-### (PageNavigate) ProtoReq <- 0.74.0
+#### (PageNavigate) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageNavigate) ProtoReq() string
@@ -28721,7 +28719,7 @@ func (m PageNavigate) ProtoReq() string
 
 ProtoReq name.
 
-## type PageNavigateResult 
+### type PageNavigateResult 
 
 ``` go
 type PageNavigateResult struct {
@@ -28739,7 +28737,7 @@ type PageNavigateResult struct {
 
 PageNavigateResult ...
 
-## type PageNavigateToHistoryEntry 
+### type PageNavigateToHistoryEntry 
 
 ``` go
 type PageNavigateToHistoryEntry struct {
@@ -28750,7 +28748,7 @@ type PageNavigateToHistoryEntry struct {
 
 PageNavigateToHistoryEntry Navigates current page to the given history entry.
 
-### (PageNavigateToHistoryEntry) Call 
+#### (PageNavigateToHistoryEntry) Call 
 
 ``` go
 func (m PageNavigateToHistoryEntry) Call(c Client) error
@@ -28758,7 +28756,7 @@ func (m PageNavigateToHistoryEntry) Call(c Client) error
 
 Call sends the request.
 
-### (PageNavigateToHistoryEntry) ProtoReq <- 0.74.0
+#### (PageNavigateToHistoryEntry) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageNavigateToHistoryEntry) ProtoReq() string
@@ -28766,7 +28764,7 @@ func (m PageNavigateToHistoryEntry) ProtoReq() string
 
 ProtoReq name.
 
-## type PageNavigatedWithinDocument 
+### type PageNavigatedWithinDocument 
 
 ``` go
 type PageNavigatedWithinDocument struct {
@@ -28780,7 +28778,7 @@ type PageNavigatedWithinDocument struct {
 
 PageNavigatedWithinDocument (experimental) Fired when same-document navigation happens, e.g. due to history API usage or anchor navigation.
 
-### (PageNavigatedWithinDocument) ProtoEvent <- 0.72.0
+#### (PageNavigatedWithinDocument) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageNavigatedWithinDocument) ProtoEvent() string
@@ -28788,7 +28786,7 @@ func (evt PageNavigatedWithinDocument) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageNavigationEntry 
+### type PageNavigationEntry 
 
 ``` go
 type PageNavigationEntry struct {
@@ -28811,7 +28809,7 @@ type PageNavigationEntry struct {
 
 PageNavigationEntry Navigation history entry.
 
-## type PageNavigationType <- 0.100.0
+### type PageNavigationType <- 0.100.0
 
 ``` go
 type PageNavigationType string
@@ -28829,7 +28827,7 @@ const (
 )
 ```
 
-## type PageOriginTrial <- 0.100.0
+### type PageOriginTrial <- 0.100.0
 
 ``` go
 type PageOriginTrial struct {
@@ -28846,7 +28844,7 @@ type PageOriginTrial struct {
 
 PageOriginTrial (experimental) ...
 
-## type PageOriginTrialStatus <- 0.100.0
+### type PageOriginTrialStatus <- 0.100.0
 
 ``` go
 type PageOriginTrialStatus string
@@ -28870,7 +28868,7 @@ const (
 )
 ```
 
-## type PageOriginTrialToken <- 0.100.0
+### type PageOriginTrialToken <- 0.100.0
 
 ``` go
 type PageOriginTrialToken struct {
@@ -28896,7 +28894,7 @@ type PageOriginTrialToken struct {
 
 PageOriginTrialToken (experimental) ...
 
-## type PageOriginTrialTokenStatus <- 0.100.0
+### type PageOriginTrialTokenStatus <- 0.100.0
 
 ``` go
 type PageOriginTrialTokenStatus string
@@ -28944,7 +28942,7 @@ const (
 )
 ```
 
-## type PageOriginTrialTokenWithStatus <- 0.100.0
+### type PageOriginTrialTokenWithStatus <- 0.100.0
 
 ``` go
 type PageOriginTrialTokenWithStatus struct {
@@ -28962,7 +28960,7 @@ type PageOriginTrialTokenWithStatus struct {
 
 PageOriginTrialTokenWithStatus (experimental) ...
 
-## type PageOriginTrialUsageRestriction <- 0.100.0
+### type PageOriginTrialUsageRestriction <- 0.100.0
 
 ``` go
 type PageOriginTrialUsageRestriction string
@@ -28980,7 +28978,7 @@ const (
 )
 ```
 
-## type PagePermissionsPolicyBlockLocator <- 0.93.0
+### type PagePermissionsPolicyBlockLocator <- 0.93.0
 
 ``` go
 type PagePermissionsPolicyBlockLocator struct {
@@ -28994,7 +28992,7 @@ type PagePermissionsPolicyBlockLocator struct {
 
 PagePermissionsPolicyBlockLocator (experimental) ...
 
-## type PagePermissionsPolicyBlockReason <- 0.93.0
+### type PagePermissionsPolicyBlockReason <- 0.93.0
 
 ``` go
 type PagePermissionsPolicyBlockReason string
@@ -29018,7 +29016,7 @@ const (
 )
 ```
 
-## type PagePermissionsPolicyFeature <- 0.93.0
+### type PagePermissionsPolicyFeature <- 0.93.0
 
 ``` go
 type PagePermissionsPolicyFeature string
@@ -29285,7 +29283,7 @@ const (
 )
 ```
 
-## type PagePermissionsPolicyFeatureState <- 0.93.0
+### type PagePermissionsPolicyFeatureState <- 0.93.0
 
 ``` go
 type PagePermissionsPolicyFeatureState struct {
@@ -29302,7 +29300,7 @@ type PagePermissionsPolicyFeatureState struct {
 
 PagePermissionsPolicyFeatureState (experimental) ...
 
-## type PagePrintToPDF 
+### type PagePrintToPDF 
 
 ``` go
 type PagePrintToPDF struct {
@@ -29377,7 +29375,7 @@ type PagePrintToPDF struct {
 
 PagePrintToPDF Print page as PDF.
 
-### (PagePrintToPDF) Call 
+#### (PagePrintToPDF) Call 
 
 ``` go
 func (m PagePrintToPDF) Call(c Client) (*PagePrintToPDFResult, error)
@@ -29385,7 +29383,7 @@ func (m PagePrintToPDF) Call(c Client) (*PagePrintToPDFResult, error)
 
 Call the request.
 
-### (PagePrintToPDF) ProtoReq <- 0.74.0
+#### (PagePrintToPDF) ProtoReq <- 0.74.0
 
 ``` go
 func (m PagePrintToPDF) ProtoReq() string
@@ -29393,7 +29391,7 @@ func (m PagePrintToPDF) ProtoReq() string
 
 ProtoReq name.
 
-## type PagePrintToPDFResult 
+### type PagePrintToPDFResult 
 
 ``` go
 type PagePrintToPDFResult struct {
@@ -29407,7 +29405,7 @@ type PagePrintToPDFResult struct {
 
 PagePrintToPDFResult ...
 
-## type PagePrintToPDFTransferMode 
+### type PagePrintToPDFTransferMode 
 
 ``` go
 type PagePrintToPDFTransferMode string
@@ -29425,7 +29423,7 @@ const (
 )
 ```
 
-## type PageProduceCompilationCache <- 0.97.5
+### type PageProduceCompilationCache <- 0.97.5
 
 ``` go
 type PageProduceCompilationCache struct {
@@ -29436,7 +29434,7 @@ type PageProduceCompilationCache struct {
 
 PageProduceCompilationCache (experimental) Requests backend to produce compilation cache for the specified scripts. `scripts` are appended to the list of scripts for which the cache would be produced. The list may be reset during page navigation. When script with a matching URL is encountered, the cache is optionally produced upon backend discretion, based on internal heuristics. See also: `Page.compilationCacheProduced`.
 
-### (PageProduceCompilationCache) Call <- 0.97.5
+#### (PageProduceCompilationCache) Call <- 0.97.5
 
 ``` go
 func (m PageProduceCompilationCache) Call(c Client) error
@@ -29444,7 +29442,7 @@ func (m PageProduceCompilationCache) Call(c Client) error
 
 Call sends the request.
 
-### (PageProduceCompilationCache) ProtoReq <- 0.97.5
+#### (PageProduceCompilationCache) ProtoReq <- 0.97.5
 
 ``` go
 func (m PageProduceCompilationCache) ProtoReq() string
@@ -29452,7 +29450,7 @@ func (m PageProduceCompilationCache) ProtoReq() string
 
 ProtoReq name.
 
-## type PageProtocolHandler <- 0.116.0
+### type PageProtocolHandler <- 0.116.0
 
 ``` go
 type PageProtocolHandler struct {
@@ -29466,7 +29464,7 @@ type PageProtocolHandler struct {
 
 PageProtocolHandler (experimental) ...
 
-## type PageReferrerPolicy 
+### type PageReferrerPolicy 
 
 ``` go
 type PageReferrerPolicy string
@@ -29502,7 +29500,7 @@ const (
 )
 ```
 
-## type PageRelatedApplication <- 0.116.0
+### type PageRelatedApplication <- 0.116.0
 
 ``` go
 type PageRelatedApplication struct {
@@ -29516,7 +29514,7 @@ type PageRelatedApplication struct {
 
 PageRelatedApplication (experimental) ...
 
-## type PageReload 
+### type PageReload 
 
 ``` go
 type PageReload struct {
@@ -29536,7 +29534,7 @@ type PageReload struct {
 
 PageReload Reloads given page optionally ignoring the cache.
 
-### (PageReload) Call 
+#### (PageReload) Call 
 
 ``` go
 func (m PageReload) Call(c Client) error
@@ -29544,7 +29542,7 @@ func (m PageReload) Call(c Client) error
 
 Call sends the request.
 
-### (PageReload) ProtoReq <- 0.74.0
+#### (PageReload) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageReload) ProtoReq() string
@@ -29552,7 +29550,7 @@ func (m PageReload) ProtoReq() string
 
 ProtoReq name.
 
-## type PageRemoveScriptToEvaluateOnLoad 
+### type PageRemoveScriptToEvaluateOnLoad 
 
 ``` go
 type PageRemoveScriptToEvaluateOnLoad struct {
@@ -29563,7 +29561,7 @@ type PageRemoveScriptToEvaluateOnLoad struct {
 
 PageRemoveScriptToEvaluateOnLoad (deprecated) (experimental) Deprecated, please use removeScriptToEvaluateOnNewDocument instead.
 
-### (PageRemoveScriptToEvaluateOnLoad) Call 
+#### (PageRemoveScriptToEvaluateOnLoad) Call 
 
 ``` go
 func (m PageRemoveScriptToEvaluateOnLoad) Call(c Client) error
@@ -29571,7 +29569,7 @@ func (m PageRemoveScriptToEvaluateOnLoad) Call(c Client) error
 
 Call sends the request.
 
-### (PageRemoveScriptToEvaluateOnLoad) ProtoReq <- 0.74.0
+#### (PageRemoveScriptToEvaluateOnLoad) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageRemoveScriptToEvaluateOnLoad) ProtoReq() string
@@ -29579,7 +29577,7 @@ func (m PageRemoveScriptToEvaluateOnLoad) ProtoReq() string
 
 ProtoReq name.
 
-## type PageRemoveScriptToEvaluateOnNewDocument 
+### type PageRemoveScriptToEvaluateOnNewDocument 
 
 ``` go
 type PageRemoveScriptToEvaluateOnNewDocument struct {
@@ -29590,7 +29588,7 @@ type PageRemoveScriptToEvaluateOnNewDocument struct {
 
 PageRemoveScriptToEvaluateOnNewDocument Removes given script from the list.
 
-### (PageRemoveScriptToEvaluateOnNewDocument) Call 
+#### (PageRemoveScriptToEvaluateOnNewDocument) Call 
 
 ``` go
 func (m PageRemoveScriptToEvaluateOnNewDocument) Call(c Client) error
@@ -29598,7 +29596,7 @@ func (m PageRemoveScriptToEvaluateOnNewDocument) Call(c Client) error
 
 Call sends the request.
 
-### (PageRemoveScriptToEvaluateOnNewDocument) ProtoReq <- 0.74.0
+#### (PageRemoveScriptToEvaluateOnNewDocument) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageRemoveScriptToEvaluateOnNewDocument) ProtoReq() string
@@ -29606,7 +29604,7 @@ func (m PageRemoveScriptToEvaluateOnNewDocument) ProtoReq() string
 
 ProtoReq name.
 
-## type PageResetNavigationHistory 
+### type PageResetNavigationHistory 
 
 ``` go
 type PageResetNavigationHistory struct{}
@@ -29614,7 +29612,7 @@ type PageResetNavigationHistory struct{}
 
 PageResetNavigationHistory Resets navigation history for the current page.
 
-### (PageResetNavigationHistory) Call 
+#### (PageResetNavigationHistory) Call 
 
 ``` go
 func (m PageResetNavigationHistory) Call(c Client) error
@@ -29622,7 +29620,7 @@ func (m PageResetNavigationHistory) Call(c Client) error
 
 Call sends the request.
 
-### (PageResetNavigationHistory) ProtoReq <- 0.74.0
+#### (PageResetNavigationHistory) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageResetNavigationHistory) ProtoReq() string
@@ -29630,7 +29628,7 @@ func (m PageResetNavigationHistory) ProtoReq() string
 
 ProtoReq name.
 
-## type PageScopeExtension <- 0.116.0
+### type PageScopeExtension <- 0.116.0
 
 ``` go
 type PageScopeExtension struct {
@@ -29645,7 +29643,7 @@ type PageScopeExtension struct {
 
 PageScopeExtension (experimental) ...
 
-## type PageScreencastFrame 
+### type PageScreencastFrame 
 
 ``` go
 type PageScreencastFrame struct {
@@ -29662,7 +29660,7 @@ type PageScreencastFrame struct {
 
 PageScreencastFrame (experimental) Compressed image data requested by the `startScreencast`.
 
-### (PageScreencastFrame) ProtoEvent <- 0.72.0
+#### (PageScreencastFrame) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageScreencastFrame) ProtoEvent() string
@@ -29670,7 +29668,7 @@ func (evt PageScreencastFrame) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageScreencastFrameAck 
+### type PageScreencastFrameAck 
 
 ``` go
 type PageScreencastFrameAck struct {
@@ -29681,7 +29679,7 @@ type PageScreencastFrameAck struct {
 
 PageScreencastFrameAck (experimental) Acknowledges that a screencast frame has been received by the frontend.
 
-### (PageScreencastFrameAck) Call 
+#### (PageScreencastFrameAck) Call 
 
 ``` go
 func (m PageScreencastFrameAck) Call(c Client) error
@@ -29689,7 +29687,7 @@ func (m PageScreencastFrameAck) Call(c Client) error
 
 Call sends the request.
 
-### (PageScreencastFrameAck) ProtoReq <- 0.74.0
+#### (PageScreencastFrameAck) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageScreencastFrameAck) ProtoReq() string
@@ -29697,7 +29695,7 @@ func (m PageScreencastFrameAck) ProtoReq() string
 
 ProtoReq name.
 
-## type PageScreencastFrameMetadata 
+### type PageScreencastFrameMetadata 
 
 ``` go
 type PageScreencastFrameMetadata struct {
@@ -29726,7 +29724,7 @@ type PageScreencastFrameMetadata struct {
 
 PageScreencastFrameMetadata (experimental) Screencast frame metadata.
 
-## type PageScreencastVisibilityChanged 
+### type PageScreencastVisibilityChanged 
 
 ``` go
 type PageScreencastVisibilityChanged struct {
@@ -29737,7 +29735,7 @@ type PageScreencastVisibilityChanged struct {
 
 PageScreencastVisibilityChanged (experimental) Fired when the page with currently enabled screencast was shown or hidden `.
 
-### (PageScreencastVisibilityChanged) ProtoEvent <- 0.72.0
+#### (PageScreencastVisibilityChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageScreencastVisibilityChanged) ProtoEvent() string
@@ -29745,7 +29743,7 @@ func (evt PageScreencastVisibilityChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PageScreenshot <- 0.116.0
+### type PageScreenshot <- 0.116.0
 
 ``` go
 type PageScreenshot struct {
@@ -29762,7 +29760,7 @@ type PageScreenshot struct {
 
 PageScreenshot (experimental) ...
 
-## type PageScriptFontFamilies <- 0.102.0
+### type PageScriptFontFamilies <- 0.102.0
 
 ``` go
 type PageScriptFontFamilies struct {
@@ -29776,7 +29774,7 @@ type PageScriptFontFamilies struct {
 
 PageScriptFontFamilies (experimental) Font families collection for a script.
 
-## type PageScriptIdentifier 
+### type PageScriptIdentifier 
 
 ``` go
 type PageScriptIdentifier string
@@ -29784,7 +29782,7 @@ type PageScriptIdentifier string
 
 PageScriptIdentifier Unique script identifier.
 
-## type PageSearchInResource 
+### type PageSearchInResource 
 
 ``` go
 type PageSearchInResource struct {
@@ -29807,7 +29805,7 @@ type PageSearchInResource struct {
 
 PageSearchInResource (experimental) Searches for given string in resource content.
 
-### (PageSearchInResource) Call 
+#### (PageSearchInResource) Call 
 
 ``` go
 func (m PageSearchInResource) Call(c Client) (*PageSearchInResourceResult, error)
@@ -29815,7 +29813,7 @@ func (m PageSearchInResource) Call(c Client) (*PageSearchInResourceResult, error
 
 Call the request.
 
-### (PageSearchInResource) ProtoReq <- 0.74.0
+#### (PageSearchInResource) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSearchInResource) ProtoReq() string
@@ -29823,7 +29821,7 @@ func (m PageSearchInResource) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSearchInResourceResult 
+### type PageSearchInResourceResult 
 
 ``` go
 type PageSearchInResourceResult struct {
@@ -29834,7 +29832,7 @@ type PageSearchInResourceResult struct {
 
 PageSearchInResourceResult (experimental) ...
 
-## type PageSecureContextType <- 0.72.0
+### type PageSecureContextType <- 0.72.0
 
 ``` go
 type PageSecureContextType string
@@ -29858,7 +29856,7 @@ const (
 )
 ```
 
-## type PageSetAdBlockingEnabled 
+### type PageSetAdBlockingEnabled 
 
 ``` go
 type PageSetAdBlockingEnabled struct {
@@ -29869,7 +29867,7 @@ type PageSetAdBlockingEnabled struct {
 
 PageSetAdBlockingEnabled (experimental) Enable Chrome's experimental ad filter on all sites.
 
-### (PageSetAdBlockingEnabled) Call 
+#### (PageSetAdBlockingEnabled) Call 
 
 ``` go
 func (m PageSetAdBlockingEnabled) Call(c Client) error
@@ -29877,7 +29875,7 @@ func (m PageSetAdBlockingEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetAdBlockingEnabled) ProtoReq <- 0.74.0
+#### (PageSetAdBlockingEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetAdBlockingEnabled) ProtoReq() string
@@ -29885,7 +29883,7 @@ func (m PageSetAdBlockingEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetBypassCSP 
+### type PageSetBypassCSP 
 
 ``` go
 type PageSetBypassCSP struct {
@@ -29896,7 +29894,7 @@ type PageSetBypassCSP struct {
 
 PageSetBypassCSP Enable page Content Security Policy by-passing.
 
-### (PageSetBypassCSP) Call 
+#### (PageSetBypassCSP) Call 
 
 ``` go
 func (m PageSetBypassCSP) Call(c Client) error
@@ -29904,7 +29902,7 @@ func (m PageSetBypassCSP) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetBypassCSP) ProtoReq <- 0.74.0
+#### (PageSetBypassCSP) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetBypassCSP) ProtoReq() string
@@ -29912,7 +29910,7 @@ func (m PageSetBypassCSP) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetDeviceMetricsOverride 
+### type PageSetDeviceMetricsOverride 
 
 ``` go
 type PageSetDeviceMetricsOverride struct {
@@ -29957,7 +29955,7 @@ type PageSetDeviceMetricsOverride struct {
 
 PageSetDeviceMetricsOverride (deprecated) (experimental) Overrides the values of device screen dimensions (window.screen.width, window.screen.height, window.innerWidth, window.innerHeight, and "device-width"/"device-height"-related CSS media query results).
 
-### (PageSetDeviceMetricsOverride) Call 
+#### (PageSetDeviceMetricsOverride) Call 
 
 ``` go
 func (m PageSetDeviceMetricsOverride) Call(c Client) error
@@ -29965,7 +29963,7 @@ func (m PageSetDeviceMetricsOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetDeviceMetricsOverride) ProtoReq <- 0.74.0
+#### (PageSetDeviceMetricsOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetDeviceMetricsOverride) ProtoReq() string
@@ -29973,7 +29971,7 @@ func (m PageSetDeviceMetricsOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetDeviceOrientationOverride 
+### type PageSetDeviceOrientationOverride 
 
 ``` go
 type PageSetDeviceOrientationOverride struct {
@@ -29990,7 +29988,7 @@ type PageSetDeviceOrientationOverride struct {
 
 PageSetDeviceOrientationOverride (deprecated) (experimental) Overrides the Device Orientation.
 
-### (PageSetDeviceOrientationOverride) Call 
+#### (PageSetDeviceOrientationOverride) Call 
 
 ``` go
 func (m PageSetDeviceOrientationOverride) Call(c Client) error
@@ -29998,7 +29996,7 @@ func (m PageSetDeviceOrientationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetDeviceOrientationOverride) ProtoReq <- 0.74.0
+#### (PageSetDeviceOrientationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetDeviceOrientationOverride) ProtoReq() string
@@ -30006,7 +30004,7 @@ func (m PageSetDeviceOrientationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetDocumentContent 
+### type PageSetDocumentContent 
 
 ``` go
 type PageSetDocumentContent struct {
@@ -30020,7 +30018,7 @@ type PageSetDocumentContent struct {
 
 PageSetDocumentContent Sets given markup as the document's HTML.
 
-### (PageSetDocumentContent) Call 
+#### (PageSetDocumentContent) Call 
 
 ``` go
 func (m PageSetDocumentContent) Call(c Client) error
@@ -30028,7 +30026,7 @@ func (m PageSetDocumentContent) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetDocumentContent) ProtoReq <- 0.74.0
+#### (PageSetDocumentContent) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetDocumentContent) ProtoReq() string
@@ -30036,7 +30034,7 @@ func (m PageSetDocumentContent) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetDownloadBehavior 
+### type PageSetDownloadBehavior 
 
 ``` go
 type PageSetDownloadBehavior struct {
@@ -30051,7 +30049,7 @@ type PageSetDownloadBehavior struct {
 
 PageSetDownloadBehavior (deprecated) (experimental) Set the behavior when downloading a file.
 
-### (PageSetDownloadBehavior) Call 
+#### (PageSetDownloadBehavior) Call 
 
 ``` go
 func (m PageSetDownloadBehavior) Call(c Client) error
@@ -30059,7 +30057,7 @@ func (m PageSetDownloadBehavior) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetDownloadBehavior) ProtoReq <- 0.74.0
+#### (PageSetDownloadBehavior) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetDownloadBehavior) ProtoReq() string
@@ -30067,7 +30065,7 @@ func (m PageSetDownloadBehavior) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetDownloadBehaviorBehavior 
+### type PageSetDownloadBehaviorBehavior 
 
 ``` go
 type PageSetDownloadBehaviorBehavior string
@@ -30088,7 +30086,7 @@ const (
 )
 ```
 
-## type PageSetFontFamilies 
+### type PageSetFontFamilies 
 
 ``` go
 type PageSetFontFamilies struct {
@@ -30102,7 +30100,7 @@ type PageSetFontFamilies struct {
 
 PageSetFontFamilies (experimental) Set generic font families.
 
-### (PageSetFontFamilies) Call 
+#### (PageSetFontFamilies) Call 
 
 ``` go
 func (m PageSetFontFamilies) Call(c Client) error
@@ -30110,7 +30108,7 @@ func (m PageSetFontFamilies) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetFontFamilies) ProtoReq <- 0.74.0
+#### (PageSetFontFamilies) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetFontFamilies) ProtoReq() string
@@ -30118,7 +30116,7 @@ func (m PageSetFontFamilies) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetFontSizes 
+### type PageSetFontSizes 
 
 ``` go
 type PageSetFontSizes struct {
@@ -30129,7 +30127,7 @@ type PageSetFontSizes struct {
 
 PageSetFontSizes (experimental) Set default font sizes.
 
-### (PageSetFontSizes) Call 
+#### (PageSetFontSizes) Call 
 
 ``` go
 func (m PageSetFontSizes) Call(c Client) error
@@ -30137,7 +30135,7 @@ func (m PageSetFontSizes) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetFontSizes) ProtoReq <- 0.74.0
+#### (PageSetFontSizes) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetFontSizes) ProtoReq() string
@@ -30145,7 +30143,7 @@ func (m PageSetFontSizes) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetGeolocationOverride 
+### type PageSetGeolocationOverride 
 
 ``` go
 type PageSetGeolocationOverride struct {
@@ -30162,7 +30160,7 @@ type PageSetGeolocationOverride struct {
 
 PageSetGeolocationOverride (deprecated) Overrides the Geolocation Position or Error. Omitting any of the parameters emulates position unavailable.
 
-### (PageSetGeolocationOverride) Call 
+#### (PageSetGeolocationOverride) Call 
 
 ``` go
 func (m PageSetGeolocationOverride) Call(c Client) error
@@ -30170,7 +30168,7 @@ func (m PageSetGeolocationOverride) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetGeolocationOverride) ProtoReq <- 0.74.0
+#### (PageSetGeolocationOverride) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetGeolocationOverride) ProtoReq() string
@@ -30178,7 +30176,7 @@ func (m PageSetGeolocationOverride) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetInterceptFileChooserDialog 
+### type PageSetInterceptFileChooserDialog 
 
 ``` go
 type PageSetInterceptFileChooserDialog struct {
@@ -30189,7 +30187,7 @@ type PageSetInterceptFileChooserDialog struct {
 
 PageSetInterceptFileChooserDialog Intercept file chooser requests and transfer control to protocol clients. When file chooser interception is enabled, native file chooser dialog is not shown. Instead, a protocol event `Page.fileChooserOpened` is emitted.
 
-### (PageSetInterceptFileChooserDialog) Call 
+#### (PageSetInterceptFileChooserDialog) Call 
 
 ``` go
 func (m PageSetInterceptFileChooserDialog) Call(c Client) error
@@ -30197,7 +30195,7 @@ func (m PageSetInterceptFileChooserDialog) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetInterceptFileChooserDialog) ProtoReq <- 0.74.0
+#### (PageSetInterceptFileChooserDialog) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetInterceptFileChooserDialog) ProtoReq() string
@@ -30205,7 +30203,7 @@ func (m PageSetInterceptFileChooserDialog) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetLifecycleEventsEnabled 
+### type PageSetLifecycleEventsEnabled 
 
 ``` go
 type PageSetLifecycleEventsEnabled struct {
@@ -30216,7 +30214,7 @@ type PageSetLifecycleEventsEnabled struct {
 
 PageSetLifecycleEventsEnabled Controls whether page will emit lifecycle events.
 
-### (PageSetLifecycleEventsEnabled) Call 
+#### (PageSetLifecycleEventsEnabled) Call 
 
 ``` go
 func (m PageSetLifecycleEventsEnabled) Call(c Client) error
@@ -30224,7 +30222,7 @@ func (m PageSetLifecycleEventsEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetLifecycleEventsEnabled) ProtoReq <- 0.74.0
+#### (PageSetLifecycleEventsEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetLifecycleEventsEnabled) ProtoReq() string
@@ -30232,7 +30230,7 @@ func (m PageSetLifecycleEventsEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetPrerenderingAllowed <- 0.115.0
+### type PageSetPrerenderingAllowed <- 0.115.0
 
 ``` go
 type PageSetPrerenderingAllowed struct {
@@ -30247,7 +30245,7 @@ This command is a short-term solution for https://crbug.com/1440085. See https:/
 
 TODO(https://crbug.com/1440085): Remove this once Puppeteer supports tab targets.
 
-### (PageSetPrerenderingAllowed) Call <- 0.115.0
+#### (PageSetPrerenderingAllowed) Call <- 0.115.0
 
 ``` go
 func (m PageSetPrerenderingAllowed) Call(c Client) error
@@ -30255,7 +30253,7 @@ func (m PageSetPrerenderingAllowed) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetPrerenderingAllowed) ProtoReq <- 0.115.0
+#### (PageSetPrerenderingAllowed) ProtoReq <- 0.115.0
 
 ``` go
 func (m PageSetPrerenderingAllowed) ProtoReq() string
@@ -30263,7 +30261,7 @@ func (m PageSetPrerenderingAllowed) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetRPHRegistrationMode <- 0.112.7
+### type PageSetRPHRegistrationMode <- 0.112.7
 
 ``` go
 type PageSetRPHRegistrationMode struct {
@@ -30274,7 +30272,7 @@ type PageSetRPHRegistrationMode struct {
 
 PageSetRPHRegistrationMode (experimental) Extensions for Custom Handlers API: https://html.spec.whatwg.org/multipage/system-state.html#rph-automation
 
-### (PageSetRPHRegistrationMode) Call <- 0.112.7
+#### (PageSetRPHRegistrationMode) Call <- 0.112.7
 
 ``` go
 func (m PageSetRPHRegistrationMode) Call(c Client) error
@@ -30282,7 +30280,7 @@ func (m PageSetRPHRegistrationMode) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetRPHRegistrationMode) ProtoReq <- 0.112.7
+#### (PageSetRPHRegistrationMode) ProtoReq <- 0.112.7
 
 ``` go
 func (m PageSetRPHRegistrationMode) ProtoReq() string
@@ -30290,7 +30288,7 @@ func (m PageSetRPHRegistrationMode) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetSPCTransactionMode <- 0.102.0
+### type PageSetSPCTransactionMode <- 0.102.0
 
 ``` go
 type PageSetSPCTransactionMode struct {
@@ -30301,7 +30299,7 @@ type PageSetSPCTransactionMode struct {
 
 PageSetSPCTransactionMode (experimental) Sets the Secure Payment Confirmation transaction mode. https://w3c.github.io/secure-payment-confirmation/#sctn-automation-set-spc-transaction-mode
 
-### (PageSetSPCTransactionMode) Call <- 0.102.0
+#### (PageSetSPCTransactionMode) Call <- 0.102.0
 
 ``` go
 func (m PageSetSPCTransactionMode) Call(c Client) error
@@ -30309,7 +30307,7 @@ func (m PageSetSPCTransactionMode) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetSPCTransactionMode) ProtoReq <- 0.102.0
+#### (PageSetSPCTransactionMode) ProtoReq <- 0.102.0
 
 ``` go
 func (m PageSetSPCTransactionMode) ProtoReq() string
@@ -30317,7 +30315,7 @@ func (m PageSetSPCTransactionMode) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetTouchEmulationEnabled 
+### type PageSetTouchEmulationEnabled 
 
 ``` go
 type PageSetTouchEmulationEnabled struct {
@@ -30331,7 +30329,7 @@ type PageSetTouchEmulationEnabled struct {
 
 PageSetTouchEmulationEnabled (deprecated) (experimental) Toggles mouse event-based touch event emulation.
 
-### (PageSetTouchEmulationEnabled) Call 
+#### (PageSetTouchEmulationEnabled) Call 
 
 ``` go
 func (m PageSetTouchEmulationEnabled) Call(c Client) error
@@ -30339,7 +30337,7 @@ func (m PageSetTouchEmulationEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetTouchEmulationEnabled) ProtoReq <- 0.74.0
+#### (PageSetTouchEmulationEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetTouchEmulationEnabled) ProtoReq() string
@@ -30347,7 +30345,7 @@ func (m PageSetTouchEmulationEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetTouchEmulationEnabledConfiguration 
+### type PageSetTouchEmulationEnabledConfiguration 
 
 ``` go
 type PageSetTouchEmulationEnabledConfiguration string
@@ -30365,7 +30363,7 @@ const (
 )
 ```
 
-## type PageSetWebLifecycleState 
+### type PageSetWebLifecycleState 
 
 ``` go
 type PageSetWebLifecycleState struct {
@@ -30376,7 +30374,7 @@ type PageSetWebLifecycleState struct {
 
 PageSetWebLifecycleState (experimental) Tries to update the web lifecycle state of the page. It will transition the page to the given state according to: https://github.com/WICG/web-lifecycle/
 
-### (PageSetWebLifecycleState) Call 
+#### (PageSetWebLifecycleState) Call 
 
 ``` go
 func (m PageSetWebLifecycleState) Call(c Client) error
@@ -30384,7 +30382,7 @@ func (m PageSetWebLifecycleState) Call(c Client) error
 
 Call sends the request.
 
-### (PageSetWebLifecycleState) ProtoReq <- 0.74.0
+#### (PageSetWebLifecycleState) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageSetWebLifecycleState) ProtoReq() string
@@ -30392,7 +30390,7 @@ func (m PageSetWebLifecycleState) ProtoReq() string
 
 ProtoReq name.
 
-## type PageSetWebLifecycleStateState 
+### type PageSetWebLifecycleStateState 
 
 ``` go
 type PageSetWebLifecycleStateState string
@@ -30410,7 +30408,7 @@ const (
 )
 ```
 
-## type PageShareTarget <- 0.116.0
+### type PageShareTarget <- 0.116.0
 
 ``` go
 type PageShareTarget struct {
@@ -30439,7 +30437,7 @@ type PageShareTarget struct {
 
 PageShareTarget (experimental) ...
 
-## type PageShortcut <- 0.116.0
+### type PageShortcut <- 0.116.0
 
 ``` go
 type PageShortcut struct {
@@ -30453,7 +30451,7 @@ type PageShortcut struct {
 
 PageShortcut (experimental) ...
 
-## type PageStartScreencast 
+### type PageStartScreencast 
 
 ``` go
 type PageStartScreencast struct {
@@ -30476,7 +30474,7 @@ type PageStartScreencast struct {
 
 PageStartScreencast (experimental) Starts sending each frame using the `screencastFrame` event.
 
-### (PageStartScreencast) Call 
+#### (PageStartScreencast) Call 
 
 ``` go
 func (m PageStartScreencast) Call(c Client) error
@@ -30484,7 +30482,7 @@ func (m PageStartScreencast) Call(c Client) error
 
 Call sends the request.
 
-### (PageStartScreencast) ProtoReq <- 0.74.0
+#### (PageStartScreencast) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageStartScreencast) ProtoReq() string
@@ -30492,7 +30490,7 @@ func (m PageStartScreencast) ProtoReq() string
 
 ProtoReq name.
 
-## type PageStartScreencastFormat 
+### type PageStartScreencastFormat 
 
 ``` go
 type PageStartScreencastFormat string
@@ -30510,7 +30508,7 @@ const (
 )
 ```
 
-## type PageStopLoading 
+### type PageStopLoading 
 
 ``` go
 type PageStopLoading struct{}
@@ -30518,7 +30516,7 @@ type PageStopLoading struct{}
 
 PageStopLoading Force the page stop all navigations and pending resource fetches.
 
-### (PageStopLoading) Call 
+#### (PageStopLoading) Call 
 
 ``` go
 func (m PageStopLoading) Call(c Client) error
@@ -30526,7 +30524,7 @@ func (m PageStopLoading) Call(c Client) error
 
 Call sends the request.
 
-### (PageStopLoading) ProtoReq <- 0.74.0
+#### (PageStopLoading) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageStopLoading) ProtoReq() string
@@ -30534,7 +30532,7 @@ func (m PageStopLoading) ProtoReq() string
 
 ProtoReq name.
 
-## type PageStopScreencast 
+### type PageStopScreencast 
 
 ``` go
 type PageStopScreencast struct{}
@@ -30542,7 +30540,7 @@ type PageStopScreencast struct{}
 
 PageStopScreencast (experimental) Stops sending each frame in the `screencastFrame`.
 
-### (PageStopScreencast) Call 
+#### (PageStopScreencast) Call 
 
 ``` go
 func (m PageStopScreencast) Call(c Client) error
@@ -30550,7 +30548,7 @@ func (m PageStopScreencast) Call(c Client) error
 
 Call sends the request.
 
-### (PageStopScreencast) ProtoReq <- 0.74.0
+#### (PageStopScreencast) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageStopScreencast) ProtoReq() string
@@ -30558,7 +30556,7 @@ func (m PageStopScreencast) ProtoReq() string
 
 ProtoReq name.
 
-## type PageTransitionType 
+### type PageTransitionType 
 
 ``` go
 type PageTransitionType string
@@ -30609,7 +30607,7 @@ const (
 )
 ```
 
-## type PageViewport 
+### type PageViewport 
 
 ``` go
 type PageViewport struct {
@@ -30632,7 +30630,7 @@ type PageViewport struct {
 
 PageViewport Viewport for capturing screenshot.
 
-## type PageVisualViewport 
+### type PageVisualViewport 
 
 ``` go
 type PageVisualViewport struct {
@@ -30664,7 +30662,7 @@ type PageVisualViewport struct {
 
 PageVisualViewport Visual viewport position, dimensions, and scale.
 
-## type PageWaitForDebugger 
+### type PageWaitForDebugger 
 
 ``` go
 type PageWaitForDebugger struct{}
@@ -30672,7 +30670,7 @@ type PageWaitForDebugger struct{}
 
 PageWaitForDebugger (experimental) Pauses page execution. Can be resumed using generic Runtime.runIfWaitingForDebugger.
 
-### (PageWaitForDebugger) Call 
+#### (PageWaitForDebugger) Call 
 
 ``` go
 func (m PageWaitForDebugger) Call(c Client) error
@@ -30680,7 +30678,7 @@ func (m PageWaitForDebugger) Call(c Client) error
 
 Call sends the request.
 
-### (PageWaitForDebugger) ProtoReq <- 0.74.0
+#### (PageWaitForDebugger) ProtoReq <- 0.74.0
 
 ``` go
 func (m PageWaitForDebugger) ProtoReq() string
@@ -30688,7 +30686,7 @@ func (m PageWaitForDebugger) ProtoReq() string
 
 ProtoReq name.
 
-## type PageWebAppManifest <- 0.116.0
+### type PageWebAppManifest <- 0.116.0
 
 ``` go
 type PageWebAppManifest struct {
@@ -30768,7 +30766,7 @@ type PageWebAppManifest struct {
 
 PageWebAppManifest (experimental) ...
 
-## type PageWindowOpen 
+### type PageWindowOpen 
 
 ``` go
 type PageWindowOpen struct {
@@ -30788,7 +30786,7 @@ type PageWindowOpen struct {
 
 PageWindowOpen Fired when a new window is going to be opened, via window.open(), link click, form submission, etc.
 
-### (PageWindowOpen) ProtoEvent <- 0.72.0
+#### (PageWindowOpen) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PageWindowOpen) ProtoEvent() string
@@ -30796,7 +30794,7 @@ func (evt PageWindowOpen) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PerformanceDisable 
+### type PerformanceDisable 
 
 ``` go
 type PerformanceDisable struct{}
@@ -30804,7 +30802,7 @@ type PerformanceDisable struct{}
 
 PerformanceDisable Disable collecting and reporting metrics.
 
-### (PerformanceDisable) Call 
+#### (PerformanceDisable) Call 
 
 ``` go
 func (m PerformanceDisable) Call(c Client) error
@@ -30812,7 +30810,7 @@ func (m PerformanceDisable) Call(c Client) error
 
 Call sends the request.
 
-### (PerformanceDisable) ProtoReq <- 0.74.0
+#### (PerformanceDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m PerformanceDisable) ProtoReq() string
@@ -30820,7 +30818,7 @@ func (m PerformanceDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type PerformanceEnable 
+### type PerformanceEnable 
 
 ``` go
 type PerformanceEnable struct {
@@ -30831,7 +30829,7 @@ type PerformanceEnable struct {
 
 PerformanceEnable Enable collecting and reporting metrics.
 
-### (PerformanceEnable) Call 
+#### (PerformanceEnable) Call 
 
 ``` go
 func (m PerformanceEnable) Call(c Client) error
@@ -30839,7 +30837,7 @@ func (m PerformanceEnable) Call(c Client) error
 
 Call sends the request.
 
-### (PerformanceEnable) ProtoReq <- 0.74.0
+#### (PerformanceEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m PerformanceEnable) ProtoReq() string
@@ -30847,7 +30845,7 @@ func (m PerformanceEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type PerformanceEnableTimeDomain 
+### type PerformanceEnableTimeDomain 
 
 ``` go
 type PerformanceEnableTimeDomain string
@@ -30865,7 +30863,7 @@ const (
 )
 ```
 
-## type PerformanceGetMetrics 
+### type PerformanceGetMetrics 
 
 ``` go
 type PerformanceGetMetrics struct{}
@@ -30873,7 +30871,7 @@ type PerformanceGetMetrics struct{}
 
 PerformanceGetMetrics Retrieve current values of run-time metrics.
 
-### (PerformanceGetMetrics) Call 
+#### (PerformanceGetMetrics) Call 
 
 ``` go
 func (m PerformanceGetMetrics) Call(c Client) (*PerformanceGetMetricsResult, error)
@@ -30881,7 +30879,7 @@ func (m PerformanceGetMetrics) Call(c Client) (*PerformanceGetMetricsResult, err
 
 Call the request.
 
-### (PerformanceGetMetrics) ProtoReq <- 0.74.0
+#### (PerformanceGetMetrics) ProtoReq <- 0.74.0
 
 ``` go
 func (m PerformanceGetMetrics) ProtoReq() string
@@ -30889,7 +30887,7 @@ func (m PerformanceGetMetrics) ProtoReq() string
 
 ProtoReq name.
 
-## type PerformanceGetMetricsResult 
+### type PerformanceGetMetricsResult 
 
 ``` go
 type PerformanceGetMetricsResult struct {
@@ -30900,7 +30898,7 @@ type PerformanceGetMetricsResult struct {
 
 PerformanceGetMetricsResult ...
 
-## type PerformanceMetric 
+### type PerformanceMetric 
 
 ``` go
 type PerformanceMetric struct {
@@ -30914,7 +30912,7 @@ type PerformanceMetric struct {
 
 PerformanceMetric Run-time execution metric.
 
-## type PerformanceMetrics 
+### type PerformanceMetrics 
 
 ``` go
 type PerformanceMetrics struct {
@@ -30928,7 +30926,7 @@ type PerformanceMetrics struct {
 
 PerformanceMetrics Current values of the metrics.
 
-### (PerformanceMetrics) ProtoEvent <- 0.72.0
+#### (PerformanceMetrics) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt PerformanceMetrics) ProtoEvent() string
@@ -30936,7 +30934,7 @@ func (evt PerformanceMetrics) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PerformanceSetTimeDomain 
+### type PerformanceSetTimeDomain 
 
 ``` go
 type PerformanceSetTimeDomain struct {
@@ -30947,7 +30945,7 @@ type PerformanceSetTimeDomain struct {
 
 PerformanceSetTimeDomain (deprecated) (experimental) Sets time domain to use for collecting and reporting duration metrics. Note that this must be called before enabling metrics collection. Calling this method while metrics collection is enabled returns an error.
 
-### (PerformanceSetTimeDomain) Call 
+#### (PerformanceSetTimeDomain) Call 
 
 ``` go
 func (m PerformanceSetTimeDomain) Call(c Client) error
@@ -30955,7 +30953,7 @@ func (m PerformanceSetTimeDomain) Call(c Client) error
 
 Call sends the request.
 
-### (PerformanceSetTimeDomain) ProtoReq <- 0.74.0
+#### (PerformanceSetTimeDomain) ProtoReq <- 0.74.0
 
 ``` go
 func (m PerformanceSetTimeDomain) ProtoReq() string
@@ -30963,7 +30961,7 @@ func (m PerformanceSetTimeDomain) ProtoReq() string
 
 ProtoReq name.
 
-## type PerformanceSetTimeDomainTimeDomain 
+### type PerformanceSetTimeDomainTimeDomain 
 
 ``` go
 type PerformanceSetTimeDomainTimeDomain string
@@ -30981,7 +30979,7 @@ const (
 )
 ```
 
-## type PerformanceTimelineEnable <- 0.90.0
+### type PerformanceTimelineEnable <- 0.90.0
 
 ``` go
 type PerformanceTimelineEnable struct {
@@ -30996,7 +30994,7 @@ type PerformanceTimelineEnable struct {
 
 PerformanceTimelineEnable Previously buffered events would be reported before method returns. See also: timelineEventAdded.
 
-### (PerformanceTimelineEnable) Call <- 0.90.0
+#### (PerformanceTimelineEnable) Call <- 0.90.0
 
 ``` go
 func (m PerformanceTimelineEnable) Call(c Client) error
@@ -31004,7 +31002,7 @@ func (m PerformanceTimelineEnable) Call(c Client) error
 
 Call sends the request.
 
-### (PerformanceTimelineEnable) ProtoReq <- 0.90.0
+#### (PerformanceTimelineEnable) ProtoReq <- 0.90.0
 
 ``` go
 func (m PerformanceTimelineEnable) ProtoReq() string
@@ -31012,7 +31010,7 @@ func (m PerformanceTimelineEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type PerformanceTimelineLargestContentfulPaint <- 0.90.0
+### type PerformanceTimelineLargestContentfulPaint <- 0.90.0
 
 ``` go
 type PerformanceTimelineLargestContentfulPaint struct {
@@ -31038,7 +31036,7 @@ type PerformanceTimelineLargestContentfulPaint struct {
 
 PerformanceTimelineLargestContentfulPaint See https://github.com/WICG/LargestContentfulPaint and largest_contentful_paint.idl.
 
-## type PerformanceTimelineLayoutShift <- 0.90.0
+### type PerformanceTimelineLayoutShift <- 0.90.0
 
 ``` go
 type PerformanceTimelineLayoutShift struct {
@@ -31058,7 +31056,7 @@ type PerformanceTimelineLayoutShift struct {
 
 PerformanceTimelineLayoutShift See https://wicg.github.io/layout-instability/#sec-layout-shift and layout_shift.idl.
 
-## type PerformanceTimelineLayoutShiftAttribution <- 0.90.0
+### type PerformanceTimelineLayoutShiftAttribution <- 0.90.0
 
 ``` go
 type PerformanceTimelineLayoutShiftAttribution struct {
@@ -31075,7 +31073,7 @@ type PerformanceTimelineLayoutShiftAttribution struct {
 
 PerformanceTimelineLayoutShiftAttribution ...
 
-## type PerformanceTimelineTimelineEvent <- 0.90.0
+### type PerformanceTimelineTimelineEvent <- 0.90.0
 
 ``` go
 type PerformanceTimelineTimelineEvent struct {
@@ -31105,7 +31103,7 @@ type PerformanceTimelineTimelineEvent struct {
 
 PerformanceTimelineTimelineEvent ...
 
-## type PerformanceTimelineTimelineEventAdded <- 0.90.0
+### type PerformanceTimelineTimelineEventAdded <- 0.90.0
 
 ``` go
 type PerformanceTimelineTimelineEventAdded struct {
@@ -31116,7 +31114,7 @@ type PerformanceTimelineTimelineEventAdded struct {
 
 PerformanceTimelineTimelineEventAdded Sent when a performance timeline event is added. See reportPerformanceTimeline method.
 
-### (PerformanceTimelineTimelineEventAdded) ProtoEvent <- 0.90.0
+#### (PerformanceTimelineTimelineEventAdded) ProtoEvent <- 0.90.0
 
 ``` go
 func (evt PerformanceTimelineTimelineEventAdded) ProtoEvent() string
@@ -31124,7 +31122,7 @@ func (evt PerformanceTimelineTimelineEventAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type Point <- 0.66.0
+### type Point <- 0.66.0
 
 ``` go
 type Point struct {
@@ -31143,7 +31141,7 @@ func NewPoint(x, y float64) Point
 
 NewPoint instance.
 
-### (Point) Add <- 0.112.0
+#### (Point) Add <- 0.112.0
 
 ``` go
 func (p Point) Add(v Point) Point
@@ -31151,7 +31149,7 @@ func (p Point) Add(v Point) Point
 
 Add v to p and returns a new Point.
 
-### (Point) Minus <- 0.112.0
+#### (Point) Minus <- 0.112.0
 
 ``` go
 func (p Point) Minus(v Point) Point
@@ -31159,7 +31157,7 @@ func (p Point) Minus(v Point) Point
 
 Minus v from p and returns a new Point.
 
-### (Point) Scale <- 0.112.0
+#### (Point) Scale <- 0.112.0
 
 ``` go
 func (p Point) Scale(s float64) Point
@@ -31167,7 +31165,7 @@ func (p Point) Scale(s float64) Point
 
 Scale p with s and returns a new Point.
 
-## type PreloadDisable <- 0.112.9
+### type PreloadDisable <- 0.112.9
 
 ``` go
 type PreloadDisable struct{}
@@ -31175,7 +31173,7 @@ type PreloadDisable struct{}
 
 PreloadDisable ...
 
-### (PreloadDisable) Call <- 0.112.9
+#### (PreloadDisable) Call <- 0.112.9
 
 ``` go
 func (m PreloadDisable) Call(c Client) error
@@ -31183,7 +31181,7 @@ func (m PreloadDisable) Call(c Client) error
 
 Call sends the request.
 
-### (PreloadDisable) ProtoReq <- 0.112.9
+#### (PreloadDisable) ProtoReq <- 0.112.9
 
 ``` go
 func (m PreloadDisable) ProtoReq() string
@@ -31191,7 +31189,7 @@ func (m PreloadDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type PreloadEnable <- 0.112.9
+### type PreloadEnable <- 0.112.9
 
 ``` go
 type PreloadEnable struct{}
@@ -31199,7 +31197,7 @@ type PreloadEnable struct{}
 
 PreloadEnable ...
 
-### (PreloadEnable) Call <- 0.112.9
+#### (PreloadEnable) Call <- 0.112.9
 
 ``` go
 func (m PreloadEnable) Call(c Client) error
@@ -31207,7 +31205,7 @@ func (m PreloadEnable) Call(c Client) error
 
 Call sends the request.
 
-### (PreloadEnable) ProtoReq <- 0.112.9
+#### (PreloadEnable) ProtoReq <- 0.112.9
 
 ``` go
 func (m PreloadEnable) ProtoReq() string
@@ -31215,7 +31213,7 @@ func (m PreloadEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type PreloadPrefetchStatus <- 0.115.0
+### type PreloadPrefetchStatus <- 0.115.0
 
 ``` go
 type PreloadPrefetchStatus string
@@ -31320,7 +31318,7 @@ const (
 )
 ```
 
-## type PreloadPrefetchStatusUpdated <- 0.112.9
+### type PreloadPrefetchStatusUpdated <- 0.112.9
 
 ``` go
 type PreloadPrefetchStatusUpdated struct {
@@ -31346,7 +31344,7 @@ type PreloadPrefetchStatusUpdated struct {
 
 PreloadPrefetchStatusUpdated Fired when a prefetch attempt is updated.
 
-### (PreloadPrefetchStatusUpdated) ProtoEvent <- 0.112.9
+#### (PreloadPrefetchStatusUpdated) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt PreloadPrefetchStatusUpdated) ProtoEvent() string
@@ -31354,7 +31352,7 @@ func (evt PreloadPrefetchStatusUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadPreloadEnabledStateUpdated <- 0.115.0
+### type PreloadPreloadEnabledStateUpdated <- 0.115.0
 
 ``` go
 type PreloadPreloadEnabledStateUpdated struct {
@@ -31377,7 +31375,7 @@ type PreloadPreloadEnabledStateUpdated struct {
 
 PreloadPreloadEnabledStateUpdated Fired when a preload enabled state is updated.
 
-### (PreloadPreloadEnabledStateUpdated) ProtoEvent <- 0.115.0
+#### (PreloadPreloadEnabledStateUpdated) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt PreloadPreloadEnabledStateUpdated) ProtoEvent() string
@@ -31385,7 +31383,7 @@ func (evt PreloadPreloadEnabledStateUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadPreloadingAttemptKey <- 0.112.9
+### type PreloadPreloadingAttemptKey <- 0.112.9
 
 ``` go
 type PreloadPreloadingAttemptKey struct {
@@ -31407,7 +31405,7 @@ PreloadPreloadingAttemptKey A key that identifies a preloading attempt.
 
 The url used is the url specified by the trigger (i.e. the initial URL), and not the final url that is navigated to. For example, prerendering allows same-origin main frame navigations during the attempt, but the attempt is still keyed with the initial URL.
 
-## type PreloadPreloadingAttemptSource <- 0.112.9
+### type PreloadPreloadingAttemptSource <- 0.112.9
 
 ``` go
 type PreloadPreloadingAttemptSource struct {
@@ -31424,7 +31422,7 @@ type PreloadPreloadingAttemptSource struct {
 
 PreloadPreloadingAttemptSource Lists sources for a preloading attempt, specifically the ids of rule sets that had a speculation rule that triggered the attempt, and the BackendNodeIds of <a href> or <area href> elements that triggered the attempt (in the case of attempts triggered by a document rule). It is possible for multiple rule sets and links to trigger a single attempt.
 
-## type PreloadPreloadingAttemptSourcesUpdated <- 0.112.9
+### type PreloadPreloadingAttemptSourcesUpdated <- 0.112.9
 
 ``` go
 type PreloadPreloadingAttemptSourcesUpdated struct {
@@ -31438,7 +31436,7 @@ type PreloadPreloadingAttemptSourcesUpdated struct {
 
 PreloadPreloadingAttemptSourcesUpdated Send a list of sources for all preloading attempts in a document.
 
-### (PreloadPreloadingAttemptSourcesUpdated) ProtoEvent <- 0.112.9
+#### (PreloadPreloadingAttemptSourcesUpdated) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt PreloadPreloadingAttemptSourcesUpdated) ProtoEvent() string
@@ -31446,7 +31444,7 @@ func (evt PreloadPreloadingAttemptSourcesUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadPreloadingStatus <- 0.112.9
+### type PreloadPreloadingStatus <- 0.112.9
 
 ``` go
 type PreloadPreloadingStatus string
@@ -31476,7 +31474,7 @@ const (
 )
 ```
 
-## type PreloadPrerenderFinalStatus <- 0.112.9
+### type PreloadPrerenderFinalStatus <- 0.112.9
 
 ``` go
 type PreloadPrerenderFinalStatus string
@@ -31692,7 +31690,7 @@ const (
 )
 ```
 
-## type PreloadPrerenderMismatchedHeaders <- 0.115.0
+### type PreloadPrerenderMismatchedHeaders <- 0.115.0
 
 ``` go
 type PreloadPrerenderMismatchedHeaders struct {
@@ -31709,7 +31707,7 @@ type PreloadPrerenderMismatchedHeaders struct {
 
 PreloadPrerenderMismatchedHeaders Information of headers to be displayed when the header mismatch occurred.
 
-## type PreloadPrerenderStatusUpdated <- 0.112.9
+### type PreloadPrerenderStatusUpdated <- 0.112.9
 
 ``` go
 type PreloadPrerenderStatusUpdated struct {
@@ -31733,7 +31731,7 @@ type PreloadPrerenderStatusUpdated struct {
 
 PreloadPrerenderStatusUpdated Fired when a prerender attempt is updated.
 
-### (PreloadPrerenderStatusUpdated) ProtoEvent <- 0.112.9
+#### (PreloadPrerenderStatusUpdated) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt PreloadPrerenderStatusUpdated) ProtoEvent() string
@@ -31741,7 +31739,7 @@ func (evt PreloadPrerenderStatusUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadRuleSet <- 0.112.9
+### type PreloadRuleSet <- 0.112.9
 
 ``` go
 type PreloadRuleSet struct {
@@ -31789,7 +31787,7 @@ type PreloadRuleSet struct {
 
 PreloadRuleSet Corresponds to SpeculationRuleSet.
 
-## type PreloadRuleSetErrorType <- 0.112.9
+### type PreloadRuleSetErrorType <- 0.112.9
 
 ``` go
 type PreloadRuleSetErrorType string
@@ -31807,7 +31805,7 @@ const (
 )
 ```
 
-## type PreloadRuleSetID <- 0.112.9
+### type PreloadRuleSetID <- 0.112.9
 
 ``` go
 type PreloadRuleSetID string
@@ -31815,7 +31813,7 @@ type PreloadRuleSetID string
 
 PreloadRuleSetID Unique id.
 
-## type PreloadRuleSetRemoved <- 0.112.9
+### type PreloadRuleSetRemoved <- 0.112.9
 
 ``` go
 type PreloadRuleSetRemoved struct {
@@ -31826,7 +31824,7 @@ type PreloadRuleSetRemoved struct {
 
 PreloadRuleSetRemoved ...
 
-### (PreloadRuleSetRemoved) ProtoEvent <- 0.112.9
+#### (PreloadRuleSetRemoved) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt PreloadRuleSetRemoved) ProtoEvent() string
@@ -31834,7 +31832,7 @@ func (evt PreloadRuleSetRemoved) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadRuleSetUpdated <- 0.112.9
+### type PreloadRuleSetUpdated <- 0.112.9
 
 ``` go
 type PreloadRuleSetUpdated struct {
@@ -31845,7 +31843,7 @@ type PreloadRuleSetUpdated struct {
 
 PreloadRuleSetUpdated Upsert. Currently, it is only emitted when a rule set added.
 
-### (PreloadRuleSetUpdated) ProtoEvent <- 0.112.9
+#### (PreloadRuleSetUpdated) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt PreloadRuleSetUpdated) ProtoEvent() string
@@ -31853,7 +31851,7 @@ func (evt PreloadRuleSetUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type PreloadSpeculationAction <- 0.112.9
+### type PreloadSpeculationAction <- 0.112.9
 
 ``` go
 type PreloadSpeculationAction string
@@ -31871,7 +31869,7 @@ const (
 )
 ```
 
-## type PreloadSpeculationTargetHint <- 0.112.9
+### type PreloadSpeculationTargetHint <- 0.112.9
 
 ``` go
 type PreloadSpeculationTargetHint string
@@ -31889,7 +31887,7 @@ const (
 )
 ```
 
-## type ProfilerConsoleProfileFinished 
+### type ProfilerConsoleProfileFinished 
 
 ``` go
 type ProfilerConsoleProfileFinished struct {
@@ -31909,7 +31907,7 @@ type ProfilerConsoleProfileFinished struct {
 
 ProfilerConsoleProfileFinished ...
 
-### (ProfilerConsoleProfileFinished) ProtoEvent <- 0.72.0
+#### (ProfilerConsoleProfileFinished) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ProfilerConsoleProfileFinished) ProtoEvent() string
@@ -31917,7 +31915,7 @@ func (evt ProfilerConsoleProfileFinished) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ProfilerConsoleProfileStarted 
+### type ProfilerConsoleProfileStarted 
 
 ``` go
 type ProfilerConsoleProfileStarted struct {
@@ -31934,7 +31932,7 @@ type ProfilerConsoleProfileStarted struct {
 
 ProfilerConsoleProfileStarted Sent when new profile recording is started using console.profile() call.
 
-### (ProfilerConsoleProfileStarted) ProtoEvent <- 0.72.0
+#### (ProfilerConsoleProfileStarted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ProfilerConsoleProfileStarted) ProtoEvent() string
@@ -31942,7 +31940,7 @@ func (evt ProfilerConsoleProfileStarted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ProfilerCoverageRange 
+### type ProfilerCoverageRange 
 
 ``` go
 type ProfilerCoverageRange struct {
@@ -31959,7 +31957,7 @@ type ProfilerCoverageRange struct {
 
 ProfilerCoverageRange Coverage data for a source range.
 
-## type ProfilerDisable 
+### type ProfilerDisable 
 
 ``` go
 type ProfilerDisable struct{}
@@ -31967,7 +31965,7 @@ type ProfilerDisable struct{}
 
 ProfilerDisable ...
 
-### (ProfilerDisable) Call 
+#### (ProfilerDisable) Call 
 
 ``` go
 func (m ProfilerDisable) Call(c Client) error
@@ -31975,7 +31973,7 @@ func (m ProfilerDisable) Call(c Client) error
 
 Call sends the request.
 
-### (ProfilerDisable) ProtoReq <- 0.74.0
+#### (ProfilerDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerDisable) ProtoReq() string
@@ -31983,7 +31981,7 @@ func (m ProfilerDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerEnable 
+### type ProfilerEnable 
 
 ``` go
 type ProfilerEnable struct{}
@@ -31991,7 +31989,7 @@ type ProfilerEnable struct{}
 
 ProfilerEnable ...
 
-### (ProfilerEnable) Call 
+#### (ProfilerEnable) Call 
 
 ``` go
 func (m ProfilerEnable) Call(c Client) error
@@ -31999,7 +31997,7 @@ func (m ProfilerEnable) Call(c Client) error
 
 Call sends the request.
 
-### (ProfilerEnable) ProtoReq <- 0.74.0
+#### (ProfilerEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerEnable) ProtoReq() string
@@ -32007,7 +32005,7 @@ func (m ProfilerEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerFunctionCoverage 
+### type ProfilerFunctionCoverage 
 
 ``` go
 type ProfilerFunctionCoverage struct {
@@ -32024,7 +32022,7 @@ type ProfilerFunctionCoverage struct {
 
 ProfilerFunctionCoverage Coverage data for a JavaScript function.
 
-## type ProfilerGetBestEffortCoverage 
+### type ProfilerGetBestEffortCoverage 
 
 ``` go
 type ProfilerGetBestEffortCoverage struct{}
@@ -32032,7 +32030,7 @@ type ProfilerGetBestEffortCoverage struct{}
 
 ProfilerGetBestEffortCoverage Collect coverage data for the current isolate. The coverage data may be incomplete due to garbage collection.
 
-### (ProfilerGetBestEffortCoverage) Call 
+#### (ProfilerGetBestEffortCoverage) Call 
 
 ``` go
 func (m ProfilerGetBestEffortCoverage) Call(c Client) (*ProfilerGetBestEffortCoverageResult, error)
@@ -32040,7 +32038,7 @@ func (m ProfilerGetBestEffortCoverage) Call(c Client) (*ProfilerGetBestEffortCov
 
 Call the request.
 
-### (ProfilerGetBestEffortCoverage) ProtoReq <- 0.74.0
+#### (ProfilerGetBestEffortCoverage) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerGetBestEffortCoverage) ProtoReq() string
@@ -32048,7 +32046,7 @@ func (m ProfilerGetBestEffortCoverage) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerGetBestEffortCoverageResult 
+### type ProfilerGetBestEffortCoverageResult 
 
 ``` go
 type ProfilerGetBestEffortCoverageResult struct {
@@ -32059,7 +32057,7 @@ type ProfilerGetBestEffortCoverageResult struct {
 
 ProfilerGetBestEffortCoverageResult ...
 
-## type ProfilerPositionTickInfo 
+### type ProfilerPositionTickInfo 
 
 ``` go
 type ProfilerPositionTickInfo struct {
@@ -32073,7 +32071,7 @@ type ProfilerPositionTickInfo struct {
 
 ProfilerPositionTickInfo Specifies a number of samples attributed to a certain source position.
 
-## type ProfilerPreciseCoverageDeltaUpdate 
+### type ProfilerPreciseCoverageDeltaUpdate 
 
 ``` go
 type ProfilerPreciseCoverageDeltaUpdate struct {
@@ -32090,7 +32088,7 @@ type ProfilerPreciseCoverageDeltaUpdate struct {
 
 ProfilerPreciseCoverageDeltaUpdate (experimental) Reports coverage delta since the last poll (either from an event like this, or from `takePreciseCoverage` for the current isolate. May only be sent if precise code coverage has been started. This event can be trigged by the embedder to, for example, trigger collection of coverage data immediately at a certain point in time.
 
-### (ProfilerPreciseCoverageDeltaUpdate) ProtoEvent <- 0.72.0
+#### (ProfilerPreciseCoverageDeltaUpdate) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ProfilerPreciseCoverageDeltaUpdate) ProtoEvent() string
@@ -32098,7 +32096,7 @@ func (evt ProfilerPreciseCoverageDeltaUpdate) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ProfilerProfile 
+### type ProfilerProfile 
 
 ``` go
 type ProfilerProfile struct {
@@ -32122,7 +32120,7 @@ type ProfilerProfile struct {
 
 ProfilerProfile Profile.
 
-## type ProfilerProfileNode 
+### type ProfilerProfileNode 
 
 ``` go
 type ProfilerProfileNode struct {
@@ -32149,7 +32147,7 @@ type ProfilerProfileNode struct {
 
 ProfilerProfileNode Profile node. Holds callsite information, execution statistics and child nodes.
 
-## type ProfilerScriptCoverage 
+### type ProfilerScriptCoverage 
 
 ``` go
 type ProfilerScriptCoverage struct {
@@ -32166,7 +32164,7 @@ type ProfilerScriptCoverage struct {
 
 ProfilerScriptCoverage Coverage data for a JavaScript script.
 
-## type ProfilerSetSamplingInterval 
+### type ProfilerSetSamplingInterval 
 
 ``` go
 type ProfilerSetSamplingInterval struct {
@@ -32177,7 +32175,7 @@ type ProfilerSetSamplingInterval struct {
 
 ProfilerSetSamplingInterval Changes CPU profiler sampling interval. Must be called before CPU profiles recording started.
 
-### (ProfilerSetSamplingInterval) Call 
+#### (ProfilerSetSamplingInterval) Call 
 
 ``` go
 func (m ProfilerSetSamplingInterval) Call(c Client) error
@@ -32185,7 +32183,7 @@ func (m ProfilerSetSamplingInterval) Call(c Client) error
 
 Call sends the request.
 
-### (ProfilerSetSamplingInterval) ProtoReq <- 0.74.0
+#### (ProfilerSetSamplingInterval) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerSetSamplingInterval) ProtoReq() string
@@ -32193,7 +32191,7 @@ func (m ProfilerSetSamplingInterval) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerStart 
+### type ProfilerStart 
 
 ``` go
 type ProfilerStart struct{}
@@ -32201,7 +32199,7 @@ type ProfilerStart struct{}
 
 ProfilerStart ...
 
-### (ProfilerStart) Call 
+#### (ProfilerStart) Call 
 
 ``` go
 func (m ProfilerStart) Call(c Client) error
@@ -32209,7 +32207,7 @@ func (m ProfilerStart) Call(c Client) error
 
 Call sends the request.
 
-### (ProfilerStart) ProtoReq <- 0.74.0
+#### (ProfilerStart) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerStart) ProtoReq() string
@@ -32217,7 +32215,7 @@ func (m ProfilerStart) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerStartPreciseCoverage 
+### type ProfilerStartPreciseCoverage 
 
 ``` go
 type ProfilerStartPreciseCoverage struct {
@@ -32234,7 +32232,7 @@ type ProfilerStartPreciseCoverage struct {
 
 ProfilerStartPreciseCoverage Enable precise code coverage. Coverage data for JavaScript executed before enabling precise code coverage may be incomplete. Enabling prevents running optimized code and resets execution counters.
 
-### (ProfilerStartPreciseCoverage) Call 
+#### (ProfilerStartPreciseCoverage) Call 
 
 ``` go
 func (m ProfilerStartPreciseCoverage) Call(c Client) (*ProfilerStartPreciseCoverageResult, error)
@@ -32242,7 +32240,7 @@ func (m ProfilerStartPreciseCoverage) Call(c Client) (*ProfilerStartPreciseCover
 
 Call the request.
 
-### (ProfilerStartPreciseCoverage) ProtoReq <- 0.74.0
+#### (ProfilerStartPreciseCoverage) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerStartPreciseCoverage) ProtoReq() string
@@ -32250,7 +32248,7 @@ func (m ProfilerStartPreciseCoverage) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerStartPreciseCoverageResult 
+### type ProfilerStartPreciseCoverageResult 
 
 ``` go
 type ProfilerStartPreciseCoverageResult struct {
@@ -32261,7 +32259,7 @@ type ProfilerStartPreciseCoverageResult struct {
 
 ProfilerStartPreciseCoverageResult ...
 
-## type ProfilerStop 
+### type ProfilerStop 
 
 ``` go
 type ProfilerStop struct{}
@@ -32269,7 +32267,7 @@ type ProfilerStop struct{}
 
 ProfilerStop ...
 
-### (ProfilerStop) Call 
+#### (ProfilerStop) Call 
 
 ``` go
 func (m ProfilerStop) Call(c Client) (*ProfilerStopResult, error)
@@ -32277,7 +32275,7 @@ func (m ProfilerStop) Call(c Client) (*ProfilerStopResult, error)
 
 Call the request.
 
-### (ProfilerStop) ProtoReq <- 0.74.0
+#### (ProfilerStop) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerStop) ProtoReq() string
@@ -32285,7 +32283,7 @@ func (m ProfilerStop) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerStopPreciseCoverage 
+### type ProfilerStopPreciseCoverage 
 
 ``` go
 type ProfilerStopPreciseCoverage struct{}
@@ -32293,7 +32291,7 @@ type ProfilerStopPreciseCoverage struct{}
 
 ProfilerStopPreciseCoverage Disable precise code coverage. Disabling releases unnecessary execution count records and allows executing optimized code.
 
-### (ProfilerStopPreciseCoverage) Call 
+#### (ProfilerStopPreciseCoverage) Call 
 
 ``` go
 func (m ProfilerStopPreciseCoverage) Call(c Client) error
@@ -32301,7 +32299,7 @@ func (m ProfilerStopPreciseCoverage) Call(c Client) error
 
 Call sends the request.
 
-### (ProfilerStopPreciseCoverage) ProtoReq <- 0.74.0
+#### (ProfilerStopPreciseCoverage) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerStopPreciseCoverage) ProtoReq() string
@@ -32309,7 +32307,7 @@ func (m ProfilerStopPreciseCoverage) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerStopResult 
+### type ProfilerStopResult 
 
 ``` go
 type ProfilerStopResult struct {
@@ -32320,7 +32318,7 @@ type ProfilerStopResult struct {
 
 ProfilerStopResult ...
 
-## type ProfilerTakePreciseCoverage 
+### type ProfilerTakePreciseCoverage 
 
 ``` go
 type ProfilerTakePreciseCoverage struct{}
@@ -32328,7 +32326,7 @@ type ProfilerTakePreciseCoverage struct{}
 
 ProfilerTakePreciseCoverage Collect coverage data for the current isolate, and resets execution counters. Precise code coverage needs to have started.
 
-### (ProfilerTakePreciseCoverage) Call 
+#### (ProfilerTakePreciseCoverage) Call 
 
 ``` go
 func (m ProfilerTakePreciseCoverage) Call(c Client) (*ProfilerTakePreciseCoverageResult, error)
@@ -32336,7 +32334,7 @@ func (m ProfilerTakePreciseCoverage) Call(c Client) (*ProfilerTakePreciseCoverag
 
 Call the request.
 
-### (ProfilerTakePreciseCoverage) ProtoReq <- 0.74.0
+#### (ProfilerTakePreciseCoverage) ProtoReq <- 0.74.0
 
 ``` go
 func (m ProfilerTakePreciseCoverage) ProtoReq() string
@@ -32344,7 +32342,7 @@ func (m ProfilerTakePreciseCoverage) ProtoReq() string
 
 ProtoReq name.
 
-## type ProfilerTakePreciseCoverageResult 
+### type ProfilerTakePreciseCoverageResult 
 
 ``` go
 type ProfilerTakePreciseCoverageResult struct {
@@ -32358,7 +32356,7 @@ type ProfilerTakePreciseCoverageResult struct {
 
 ProfilerTakePreciseCoverageResult ...
 
-## type Request <- 0.72.0
+### type Request <- 0.72.0
 
 ``` go
 type Request interface {
@@ -32369,7 +32367,7 @@ type Request interface {
 
 Request represents a cdp.Request.Method.
 
-## type RuntimeAddBinding 
+### type RuntimeAddBinding 
 
 ``` go
 type RuntimeAddBinding struct {
@@ -32396,7 +32394,7 @@ type RuntimeAddBinding struct {
 
 RuntimeAddBinding If executionContextId is empty, adds binding with the given name on the global objects of all inspected contexts, including those created later, bindings survive reloads. Binding function takes exactly one argument, this argument should be string, in case of any other input, function throws an exception. Each binding function call produces Runtime.bindingCalled notification.
 
-### (RuntimeAddBinding) Call 
+#### (RuntimeAddBinding) Call 
 
 ``` go
 func (m RuntimeAddBinding) Call(c Client) error
@@ -32404,7 +32402,7 @@ func (m RuntimeAddBinding) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeAddBinding) ProtoReq <- 0.74.0
+#### (RuntimeAddBinding) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeAddBinding) ProtoReq() string
@@ -32412,7 +32410,7 @@ func (m RuntimeAddBinding) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeAwaitPromise 
+### type RuntimeAwaitPromise 
 
 ``` go
 type RuntimeAwaitPromise struct {
@@ -32429,7 +32427,7 @@ type RuntimeAwaitPromise struct {
 
 RuntimeAwaitPromise Add handler to promise with given promise object id.
 
-### (RuntimeAwaitPromise) Call 
+#### (RuntimeAwaitPromise) Call 
 
 ``` go
 func (m RuntimeAwaitPromise) Call(c Client) (*RuntimeAwaitPromiseResult, error)
@@ -32437,7 +32435,7 @@ func (m RuntimeAwaitPromise) Call(c Client) (*RuntimeAwaitPromiseResult, error)
 
 Call the request.
 
-### (RuntimeAwaitPromise) ProtoReq <- 0.74.0
+#### (RuntimeAwaitPromise) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeAwaitPromise) ProtoReq() string
@@ -32445,7 +32443,7 @@ func (m RuntimeAwaitPromise) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeAwaitPromiseResult 
+### type RuntimeAwaitPromiseResult 
 
 ``` go
 type RuntimeAwaitPromiseResult struct {
@@ -32459,7 +32457,7 @@ type RuntimeAwaitPromiseResult struct {
 
 RuntimeAwaitPromiseResult ...
 
-## type RuntimeBindingCalled 
+### type RuntimeBindingCalled 
 
 ``` go
 type RuntimeBindingCalled struct {
@@ -32476,7 +32474,7 @@ type RuntimeBindingCalled struct {
 
 RuntimeBindingCalled (experimental) Notification is issued every time when binding is called.
 
-### (RuntimeBindingCalled) ProtoEvent <- 0.72.0
+#### (RuntimeBindingCalled) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeBindingCalled) ProtoEvent() string
@@ -32484,7 +32482,7 @@ func (evt RuntimeBindingCalled) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeCallArgument 
+### type RuntimeCallArgument 
 
 ``` go
 type RuntimeCallArgument struct {
@@ -32501,7 +32499,7 @@ type RuntimeCallArgument struct {
 
 RuntimeCallArgument Represents function call argument. Either remote object id `objectId`, primitive `value`, unserializable primitive value or neither of (for undefined) them should be specified.
 
-## type RuntimeCallFrame 
+### type RuntimeCallFrame 
 
 ``` go
 type RuntimeCallFrame struct {
@@ -32524,7 +32522,7 @@ type RuntimeCallFrame struct {
 
 RuntimeCallFrame Stack entry for runtime errors and assertions.
 
-## type RuntimeCallFunctionOn 
+### type RuntimeCallFunctionOn 
 
 ``` go
 type RuntimeCallFunctionOn struct {
@@ -32584,7 +32582,7 @@ type RuntimeCallFunctionOn struct {
 
 RuntimeCallFunctionOn Calls function with given declaration on the given object. Object group of the result is inherited from the target object.
 
-### (RuntimeCallFunctionOn) Call 
+#### (RuntimeCallFunctionOn) Call 
 
 ``` go
 func (m RuntimeCallFunctionOn) Call(c Client) (*RuntimeCallFunctionOnResult, error)
@@ -32592,7 +32590,7 @@ func (m RuntimeCallFunctionOn) Call(c Client) (*RuntimeCallFunctionOnResult, err
 
 Call the request.
 
-### (RuntimeCallFunctionOn) ProtoReq <- 0.74.0
+#### (RuntimeCallFunctionOn) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeCallFunctionOn) ProtoReq() string
@@ -32600,7 +32598,7 @@ func (m RuntimeCallFunctionOn) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeCallFunctionOnResult 
+### type RuntimeCallFunctionOnResult 
 
 ``` go
 type RuntimeCallFunctionOnResult struct {
@@ -32614,7 +32612,7 @@ type RuntimeCallFunctionOnResult struct {
 
 RuntimeCallFunctionOnResult ...
 
-## type RuntimeCompileScript 
+### type RuntimeCompileScript 
 
 ``` go
 type RuntimeCompileScript struct {
@@ -32635,7 +32633,7 @@ type RuntimeCompileScript struct {
 
 RuntimeCompileScript Compiles expression.
 
-### (RuntimeCompileScript) Call 
+#### (RuntimeCompileScript) Call 
 
 ``` go
 func (m RuntimeCompileScript) Call(c Client) (*RuntimeCompileScriptResult, error)
@@ -32643,7 +32641,7 @@ func (m RuntimeCompileScript) Call(c Client) (*RuntimeCompileScriptResult, error
 
 Call the request.
 
-### (RuntimeCompileScript) ProtoReq <- 0.74.0
+#### (RuntimeCompileScript) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeCompileScript) ProtoReq() string
@@ -32651,7 +32649,7 @@ func (m RuntimeCompileScript) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeCompileScriptResult 
+### type RuntimeCompileScriptResult 
 
 ``` go
 type RuntimeCompileScriptResult struct {
@@ -32665,7 +32663,7 @@ type RuntimeCompileScriptResult struct {
 
 RuntimeCompileScriptResult ...
 
-## type RuntimeConsoleAPICalled 
+### type RuntimeConsoleAPICalled 
 
 ``` go
 type RuntimeConsoleAPICalled struct {
@@ -32695,7 +32693,7 @@ type RuntimeConsoleAPICalled struct {
 
 RuntimeConsoleAPICalled Issued when console API was called.
 
-### (RuntimeConsoleAPICalled) ProtoEvent <- 0.72.0
+#### (RuntimeConsoleAPICalled) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeConsoleAPICalled) ProtoEvent() string
@@ -32703,7 +32701,7 @@ func (evt RuntimeConsoleAPICalled) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeConsoleAPICalledType 
+### type RuntimeConsoleAPICalledType 
 
 ``` go
 type RuntimeConsoleAPICalledType string
@@ -32769,7 +32767,7 @@ const (
 )
 ```
 
-## type RuntimeCustomPreview 
+### type RuntimeCustomPreview 
 
 ``` go
 type RuntimeCustomPreview struct {
@@ -32786,7 +32784,7 @@ type RuntimeCustomPreview struct {
 
 RuntimeCustomPreview (experimental) ...
 
-## type RuntimeDeepSerializedValue <- 0.115.0
+### type RuntimeDeepSerializedValue <- 0.115.0
 
 ``` go
 type RuntimeDeepSerializedValue struct {
@@ -32808,7 +32806,7 @@ type RuntimeDeepSerializedValue struct {
 
 RuntimeDeepSerializedValue Represents deep serialized value.
 
-## type RuntimeDeepSerializedValueType <- 0.115.0
+### type RuntimeDeepSerializedValueType <- 0.115.0
 
 ``` go
 type RuntimeDeepSerializedValueType string
@@ -32892,7 +32890,7 @@ const (
 )
 ```
 
-## type RuntimeDisable 
+### type RuntimeDisable 
 
 ``` go
 type RuntimeDisable struct{}
@@ -32900,7 +32898,7 @@ type RuntimeDisable struct{}
 
 RuntimeDisable Disables reporting of execution contexts creation.
 
-### (RuntimeDisable) Call 
+#### (RuntimeDisable) Call 
 
 ``` go
 func (m RuntimeDisable) Call(c Client) error
@@ -32908,7 +32906,7 @@ func (m RuntimeDisable) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeDisable) ProtoReq <- 0.74.0
+#### (RuntimeDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeDisable) ProtoReq() string
@@ -32916,7 +32914,7 @@ func (m RuntimeDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeDiscardConsoleEntries 
+### type RuntimeDiscardConsoleEntries 
 
 ``` go
 type RuntimeDiscardConsoleEntries struct{}
@@ -32924,7 +32922,7 @@ type RuntimeDiscardConsoleEntries struct{}
 
 RuntimeDiscardConsoleEntries Discards collected exceptions and console API calls.
 
-### (RuntimeDiscardConsoleEntries) Call 
+#### (RuntimeDiscardConsoleEntries) Call 
 
 ``` go
 func (m RuntimeDiscardConsoleEntries) Call(c Client) error
@@ -32932,7 +32930,7 @@ func (m RuntimeDiscardConsoleEntries) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeDiscardConsoleEntries) ProtoReq <- 0.74.0
+#### (RuntimeDiscardConsoleEntries) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeDiscardConsoleEntries) ProtoReq() string
@@ -32940,7 +32938,7 @@ func (m RuntimeDiscardConsoleEntries) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeEnable 
+### type RuntimeEnable 
 
 ``` go
 type RuntimeEnable struct{}
@@ -32948,7 +32946,7 @@ type RuntimeEnable struct{}
 
 RuntimeEnable Enables reporting of execution contexts creation by means of `executionContextCreated` event. When the reporting gets enabled the event will be sent immediately for each existing execution context.
 
-### (RuntimeEnable) Call 
+#### (RuntimeEnable) Call 
 
 ``` go
 func (m RuntimeEnable) Call(c Client) error
@@ -32956,7 +32954,7 @@ func (m RuntimeEnable) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeEnable) ProtoReq <- 0.74.0
+#### (RuntimeEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeEnable) ProtoReq() string
@@ -32964,7 +32962,7 @@ func (m RuntimeEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeEntryPreview 
+### type RuntimeEntryPreview 
 
 ``` go
 type RuntimeEntryPreview struct {
@@ -32978,7 +32976,7 @@ type RuntimeEntryPreview struct {
 
 RuntimeEntryPreview (experimental) ...
 
-## type RuntimeEvaluate 
+### type RuntimeEvaluate 
 
 ``` go
 type RuntimeEvaluate struct {
@@ -33052,7 +33050,7 @@ type RuntimeEvaluate struct {
 
 RuntimeEvaluate Evaluates expression on global object.
 
-### (RuntimeEvaluate) Call 
+#### (RuntimeEvaluate) Call 
 
 ``` go
 func (m RuntimeEvaluate) Call(c Client) (*RuntimeEvaluateResult, error)
@@ -33060,7 +33058,7 @@ func (m RuntimeEvaluate) Call(c Client) (*RuntimeEvaluateResult, error)
 
 Call the request.
 
-### (RuntimeEvaluate) ProtoReq <- 0.74.0
+#### (RuntimeEvaluate) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeEvaluate) ProtoReq() string
@@ -33068,7 +33066,7 @@ func (m RuntimeEvaluate) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeEvaluateResult 
+### type RuntimeEvaluateResult 
 
 ``` go
 type RuntimeEvaluateResult struct {
@@ -33082,7 +33080,7 @@ type RuntimeEvaluateResult struct {
 
 RuntimeEvaluateResult ...
 
-## type RuntimeExceptionDetails 
+### type RuntimeExceptionDetails 
 
 ``` go
 type RuntimeExceptionDetails struct {
@@ -33122,7 +33120,7 @@ type RuntimeExceptionDetails struct {
 
 RuntimeExceptionDetails Detailed information about exception (or error) that was thrown during script compilation or execution.
 
-## type RuntimeExceptionRevoked 
+### type RuntimeExceptionRevoked 
 
 ``` go
 type RuntimeExceptionRevoked struct {
@@ -33136,7 +33134,7 @@ type RuntimeExceptionRevoked struct {
 
 RuntimeExceptionRevoked Issued when unhandled exception was revoked.
 
-### (RuntimeExceptionRevoked) ProtoEvent <- 0.72.0
+#### (RuntimeExceptionRevoked) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeExceptionRevoked) ProtoEvent() string
@@ -33144,7 +33142,7 @@ func (evt RuntimeExceptionRevoked) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeExceptionThrown 
+### type RuntimeExceptionThrown 
 
 ``` go
 type RuntimeExceptionThrown struct {
@@ -33158,7 +33156,7 @@ type RuntimeExceptionThrown struct {
 
 RuntimeExceptionThrown Issued when exception was thrown and unhandled.
 
-### (RuntimeExceptionThrown) ProtoEvent <- 0.72.0
+#### (RuntimeExceptionThrown) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeExceptionThrown) ProtoEvent() string
@@ -33166,7 +33164,7 @@ func (evt RuntimeExceptionThrown) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeExecutionContextCreated 
+### type RuntimeExecutionContextCreated 
 
 ``` go
 type RuntimeExecutionContextCreated struct {
@@ -33177,7 +33175,7 @@ type RuntimeExecutionContextCreated struct {
 
 RuntimeExecutionContextCreated Issued when new execution context is created.
 
-### (RuntimeExecutionContextCreated) ProtoEvent <- 0.72.0
+#### (RuntimeExecutionContextCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeExecutionContextCreated) ProtoEvent() string
@@ -33185,7 +33183,7 @@ func (evt RuntimeExecutionContextCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeExecutionContextDescription 
+### type RuntimeExecutionContextDescription 
 
 ``` go
 type RuntimeExecutionContextDescription struct {
@@ -33211,7 +33209,7 @@ type RuntimeExecutionContextDescription struct {
 
 RuntimeExecutionContextDescription Description of an isolated world.
 
-## type RuntimeExecutionContextDestroyed 
+### type RuntimeExecutionContextDestroyed 
 
 ``` go
 type RuntimeExecutionContextDestroyed struct {
@@ -33225,7 +33223,7 @@ type RuntimeExecutionContextDestroyed struct {
 
 RuntimeExecutionContextDestroyed Issued when execution context is destroyed.
 
-### (RuntimeExecutionContextDestroyed) ProtoEvent <- 0.72.0
+#### (RuntimeExecutionContextDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeExecutionContextDestroyed) ProtoEvent() string
@@ -33233,7 +33231,7 @@ func (evt RuntimeExecutionContextDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeExecutionContextID 
+### type RuntimeExecutionContextID 
 
 ``` go
 type RuntimeExecutionContextID int
@@ -33241,7 +33239,7 @@ type RuntimeExecutionContextID int
 
 RuntimeExecutionContextID Id of an execution context.
 
-## type RuntimeExecutionContextsCleared 
+### type RuntimeExecutionContextsCleared 
 
 ``` go
 type RuntimeExecutionContextsCleared struct{}
@@ -33249,7 +33247,7 @@ type RuntimeExecutionContextsCleared struct{}
 
 RuntimeExecutionContextsCleared Issued when all executionContexts were cleared in browser.
 
-### (RuntimeExecutionContextsCleared) ProtoEvent <- 0.72.0
+#### (RuntimeExecutionContextsCleared) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeExecutionContextsCleared) ProtoEvent() string
@@ -33257,7 +33255,7 @@ func (evt RuntimeExecutionContextsCleared) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeGetExceptionDetails <- 0.102.0
+### type RuntimeGetExceptionDetails <- 0.102.0
 
 ``` go
 type RuntimeGetExceptionDetails struct {
@@ -33268,7 +33266,7 @@ type RuntimeGetExceptionDetails struct {
 
 RuntimeGetExceptionDetails (experimental) This method tries to lookup and populate exception details for a JavaScript Error object. Note that the stackTrace portion of the resulting exceptionDetails will only be populated if the Runtime domain was enabled at the time when the Error was thrown.
 
-### (RuntimeGetExceptionDetails) Call <- 0.102.0
+#### (RuntimeGetExceptionDetails) Call <- 0.102.0
 
 ``` go
 func (m RuntimeGetExceptionDetails) Call(c Client) (*RuntimeGetExceptionDetailsResult, error)
@@ -33276,7 +33274,7 @@ func (m RuntimeGetExceptionDetails) Call(c Client) (*RuntimeGetExceptionDetailsR
 
 Call the request.
 
-### (RuntimeGetExceptionDetails) ProtoReq <- 0.102.0
+#### (RuntimeGetExceptionDetails) ProtoReq <- 0.102.0
 
 ``` go
 func (m RuntimeGetExceptionDetails) ProtoReq() string
@@ -33284,7 +33282,7 @@ func (m RuntimeGetExceptionDetails) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeGetExceptionDetailsResult <- 0.102.0
+### type RuntimeGetExceptionDetailsResult <- 0.102.0
 
 ``` go
 type RuntimeGetExceptionDetailsResult struct {
@@ -33295,7 +33293,7 @@ type RuntimeGetExceptionDetailsResult struct {
 
 RuntimeGetExceptionDetailsResult (experimental) ...
 
-## type RuntimeGetHeapUsage 
+### type RuntimeGetHeapUsage 
 
 ``` go
 type RuntimeGetHeapUsage struct{}
@@ -33303,7 +33301,7 @@ type RuntimeGetHeapUsage struct{}
 
 RuntimeGetHeapUsage (experimental) Returns the JavaScript heap usage. It is the total usage of the corresponding isolate not scoped to a particular Runtime.
 
-### (RuntimeGetHeapUsage) Call 
+#### (RuntimeGetHeapUsage) Call 
 
 ``` go
 func (m RuntimeGetHeapUsage) Call(c Client) (*RuntimeGetHeapUsageResult, error)
@@ -33311,7 +33309,7 @@ func (m RuntimeGetHeapUsage) Call(c Client) (*RuntimeGetHeapUsageResult, error)
 
 Call the request.
 
-### (RuntimeGetHeapUsage) ProtoReq <- 0.74.0
+#### (RuntimeGetHeapUsage) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeGetHeapUsage) ProtoReq() string
@@ -33319,7 +33317,7 @@ func (m RuntimeGetHeapUsage) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeGetHeapUsageResult 
+### type RuntimeGetHeapUsageResult 
 
 ``` go
 type RuntimeGetHeapUsageResult struct {
@@ -33333,7 +33331,7 @@ type RuntimeGetHeapUsageResult struct {
 
 RuntimeGetHeapUsageResult (experimental) ...
 
-## type RuntimeGetIsolateID 
+### type RuntimeGetIsolateID 
 
 ``` go
 type RuntimeGetIsolateID struct{}
@@ -33341,7 +33339,7 @@ type RuntimeGetIsolateID struct{}
 
 RuntimeGetIsolateID (experimental) Returns the isolate id.
 
-### (RuntimeGetIsolateID) Call 
+#### (RuntimeGetIsolateID) Call 
 
 ``` go
 func (m RuntimeGetIsolateID) Call(c Client) (*RuntimeGetIsolateIDResult, error)
@@ -33349,7 +33347,7 @@ func (m RuntimeGetIsolateID) Call(c Client) (*RuntimeGetIsolateIDResult, error)
 
 Call the request.
 
-### (RuntimeGetIsolateID) ProtoReq <- 0.74.0
+#### (RuntimeGetIsolateID) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeGetIsolateID) ProtoReq() string
@@ -33357,7 +33355,7 @@ func (m RuntimeGetIsolateID) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeGetIsolateIDResult 
+### type RuntimeGetIsolateIDResult 
 
 ``` go
 type RuntimeGetIsolateIDResult struct {
@@ -33368,7 +33366,7 @@ type RuntimeGetIsolateIDResult struct {
 
 RuntimeGetIsolateIDResult (experimental) ...
 
-## type RuntimeGetProperties 
+### type RuntimeGetProperties 
 
 ``` go
 type RuntimeGetProperties struct {
@@ -33393,7 +33391,7 @@ type RuntimeGetProperties struct {
 
 RuntimeGetProperties Returns properties of a given object. Object group of the result is inherited from the target object.
 
-### (RuntimeGetProperties) Call 
+#### (RuntimeGetProperties) Call 
 
 ``` go
 func (m RuntimeGetProperties) Call(c Client) (*RuntimeGetPropertiesResult, error)
@@ -33401,7 +33399,7 @@ func (m RuntimeGetProperties) Call(c Client) (*RuntimeGetPropertiesResult, error
 
 Call the request.
 
-### (RuntimeGetProperties) ProtoReq <- 0.74.0
+#### (RuntimeGetProperties) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeGetProperties) ProtoReq() string
@@ -33409,7 +33407,7 @@ func (m RuntimeGetProperties) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeGetPropertiesResult 
+### type RuntimeGetPropertiesResult 
 
 ``` go
 type RuntimeGetPropertiesResult struct {
@@ -33429,7 +33427,7 @@ type RuntimeGetPropertiesResult struct {
 
 RuntimeGetPropertiesResult ...
 
-## type RuntimeGlobalLexicalScopeNames 
+### type RuntimeGlobalLexicalScopeNames 
 
 ``` go
 type RuntimeGlobalLexicalScopeNames struct {
@@ -33440,7 +33438,7 @@ type RuntimeGlobalLexicalScopeNames struct {
 
 RuntimeGlobalLexicalScopeNames Returns all let, const and class variables from global scope.
 
-### (RuntimeGlobalLexicalScopeNames) Call 
+#### (RuntimeGlobalLexicalScopeNames) Call 
 
 ``` go
 func (m RuntimeGlobalLexicalScopeNames) Call(c Client) (*RuntimeGlobalLexicalScopeNamesResult, error)
@@ -33448,7 +33446,7 @@ func (m RuntimeGlobalLexicalScopeNames) Call(c Client) (*RuntimeGlobalLexicalSco
 
 Call the request.
 
-### (RuntimeGlobalLexicalScopeNames) ProtoReq <- 0.74.0
+#### (RuntimeGlobalLexicalScopeNames) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeGlobalLexicalScopeNames) ProtoReq() string
@@ -33456,7 +33454,7 @@ func (m RuntimeGlobalLexicalScopeNames) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeGlobalLexicalScopeNamesResult 
+### type RuntimeGlobalLexicalScopeNamesResult 
 
 ``` go
 type RuntimeGlobalLexicalScopeNamesResult struct {
@@ -33467,7 +33465,7 @@ type RuntimeGlobalLexicalScopeNamesResult struct {
 
 RuntimeGlobalLexicalScopeNamesResult ...
 
-## type RuntimeInspectRequested 
+### type RuntimeInspectRequested 
 
 ``` go
 type RuntimeInspectRequested struct {
@@ -33484,7 +33482,7 @@ type RuntimeInspectRequested struct {
 
 RuntimeInspectRequested Issued when object should be inspected (for example, as a result of inspect() command line API call).
 
-### (RuntimeInspectRequested) ProtoEvent <- 0.72.0
+#### (RuntimeInspectRequested) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt RuntimeInspectRequested) ProtoEvent() string
@@ -33492,7 +33490,7 @@ func (evt RuntimeInspectRequested) ProtoEvent() string
 
 ProtoEvent name.
 
-## type RuntimeInternalPropertyDescriptor 
+### type RuntimeInternalPropertyDescriptor 
 
 ``` go
 type RuntimeInternalPropertyDescriptor struct {
@@ -33506,7 +33504,7 @@ type RuntimeInternalPropertyDescriptor struct {
 
 RuntimeInternalPropertyDescriptor Object internal property descriptor. This property isn't normally visible in JavaScript code.
 
-## type RuntimeObjectPreview 
+### type RuntimeObjectPreview 
 
 ``` go
 type RuntimeObjectPreview struct {
@@ -33532,7 +33530,7 @@ type RuntimeObjectPreview struct {
 
 RuntimeObjectPreview (experimental) Object containing abbreviated remote object value.
 
-## type RuntimeObjectPreviewSubtype 
+### type RuntimeObjectPreviewSubtype 
 
 ``` go
 type RuntimeObjectPreviewSubtype string
@@ -33601,7 +33599,7 @@ const (
 )
 ```
 
-## type RuntimeObjectPreviewType 
+### type RuntimeObjectPreviewType 
 
 ``` go
 type RuntimeObjectPreviewType string
@@ -33637,7 +33635,7 @@ const (
 )
 ```
 
-## type RuntimePrivatePropertyDescriptor 
+### type RuntimePrivatePropertyDescriptor 
 
 ``` go
 type RuntimePrivatePropertyDescriptor struct {
@@ -33659,7 +33657,7 @@ type RuntimePrivatePropertyDescriptor struct {
 
 RuntimePrivatePropertyDescriptor (experimental) Object private field descriptor.
 
-## type RuntimePropertyDescriptor 
+### type RuntimePropertyDescriptor 
 
 ``` go
 type RuntimePropertyDescriptor struct {
@@ -33701,7 +33699,7 @@ type RuntimePropertyDescriptor struct {
 
 RuntimePropertyDescriptor Object property descriptor.
 
-## type RuntimePropertyPreview 
+### type RuntimePropertyPreview 
 
 ``` go
 type RuntimePropertyPreview struct {
@@ -33724,7 +33722,7 @@ type RuntimePropertyPreview struct {
 
 RuntimePropertyPreview (experimental) ...
 
-## type RuntimePropertyPreviewSubtype 
+### type RuntimePropertyPreviewSubtype 
 
 ``` go
 type RuntimePropertyPreviewSubtype string
@@ -33793,7 +33791,7 @@ const (
 )
 ```
 
-## type RuntimePropertyPreviewType 
+### type RuntimePropertyPreviewType 
 
 ``` go
 type RuntimePropertyPreviewType string
@@ -33832,7 +33830,7 @@ const (
 )
 ```
 
-## type RuntimeQueryObjects 
+### type RuntimeQueryObjects 
 
 ``` go
 type RuntimeQueryObjects struct {
@@ -33846,7 +33844,7 @@ type RuntimeQueryObjects struct {
 
 RuntimeQueryObjects ...
 
-### (RuntimeQueryObjects) Call 
+#### (RuntimeQueryObjects) Call 
 
 ``` go
 func (m RuntimeQueryObjects) Call(c Client) (*RuntimeQueryObjectsResult, error)
@@ -33854,7 +33852,7 @@ func (m RuntimeQueryObjects) Call(c Client) (*RuntimeQueryObjectsResult, error)
 
 Call the request.
 
-### (RuntimeQueryObjects) ProtoReq <- 0.74.0
+#### (RuntimeQueryObjects) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeQueryObjects) ProtoReq() string
@@ -33862,7 +33860,7 @@ func (m RuntimeQueryObjects) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeQueryObjectsResult 
+### type RuntimeQueryObjectsResult 
 
 ``` go
 type RuntimeQueryObjectsResult struct {
@@ -33873,7 +33871,7 @@ type RuntimeQueryObjectsResult struct {
 
 RuntimeQueryObjectsResult ...
 
-## type RuntimeReleaseObject 
+### type RuntimeReleaseObject 
 
 ``` go
 type RuntimeReleaseObject struct {
@@ -33884,7 +33882,7 @@ type RuntimeReleaseObject struct {
 
 RuntimeReleaseObject Releases remote object with given id.
 
-### (RuntimeReleaseObject) Call 
+#### (RuntimeReleaseObject) Call 
 
 ``` go
 func (m RuntimeReleaseObject) Call(c Client) error
@@ -33892,7 +33890,7 @@ func (m RuntimeReleaseObject) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeReleaseObject) ProtoReq <- 0.74.0
+#### (RuntimeReleaseObject) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeReleaseObject) ProtoReq() string
@@ -33900,7 +33898,7 @@ func (m RuntimeReleaseObject) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeReleaseObjectGroup 
+### type RuntimeReleaseObjectGroup 
 
 ``` go
 type RuntimeReleaseObjectGroup struct {
@@ -33911,7 +33909,7 @@ type RuntimeReleaseObjectGroup struct {
 
 RuntimeReleaseObjectGroup Releases all remote objects that belong to a given group.
 
-### (RuntimeReleaseObjectGroup) Call 
+#### (RuntimeReleaseObjectGroup) Call 
 
 ``` go
 func (m RuntimeReleaseObjectGroup) Call(c Client) error
@@ -33919,7 +33917,7 @@ func (m RuntimeReleaseObjectGroup) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeReleaseObjectGroup) ProtoReq <- 0.74.0
+#### (RuntimeReleaseObjectGroup) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeReleaseObjectGroup) ProtoReq() string
@@ -33927,7 +33925,7 @@ func (m RuntimeReleaseObjectGroup) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeRemoteObject 
+### type RuntimeRemoteObject 
 
 ``` go
 type RuntimeRemoteObject struct {
@@ -33968,7 +33966,7 @@ type RuntimeRemoteObject struct {
 
 RuntimeRemoteObject Mirror object referencing original JavaScript object.
 
-## type RuntimeRemoteObjectID 
+### type RuntimeRemoteObjectID 
 
 ``` go
 type RuntimeRemoteObjectID string
@@ -33976,7 +33974,7 @@ type RuntimeRemoteObjectID string
 
 RuntimeRemoteObjectID Unique object identifier.
 
-## type RuntimeRemoteObjectSubtype 
+### type RuntimeRemoteObjectSubtype 
 
 ``` go
 type RuntimeRemoteObjectSubtype string
@@ -34045,7 +34043,7 @@ const (
 )
 ```
 
-## type RuntimeRemoteObjectType 
+### type RuntimeRemoteObjectType 
 
 ``` go
 type RuntimeRemoteObjectType string
@@ -34081,7 +34079,7 @@ const (
 )
 ```
 
-## type RuntimeRemoveBinding 
+### type RuntimeRemoveBinding 
 
 ``` go
 type RuntimeRemoveBinding struct {
@@ -34092,7 +34090,7 @@ type RuntimeRemoveBinding struct {
 
 RuntimeRemoveBinding This method does not remove binding function from global object but unsubscribes current runtime agent from Runtime.bindingCalled notifications.
 
-### (RuntimeRemoveBinding) Call 
+#### (RuntimeRemoveBinding) Call 
 
 ``` go
 func (m RuntimeRemoveBinding) Call(c Client) error
@@ -34100,7 +34098,7 @@ func (m RuntimeRemoveBinding) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeRemoveBinding) ProtoReq <- 0.74.0
+#### (RuntimeRemoveBinding) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeRemoveBinding) ProtoReq() string
@@ -34108,7 +34106,7 @@ func (m RuntimeRemoveBinding) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeRunIfWaitingForDebugger 
+### type RuntimeRunIfWaitingForDebugger 
 
 ``` go
 type RuntimeRunIfWaitingForDebugger struct{}
@@ -34116,7 +34114,7 @@ type RuntimeRunIfWaitingForDebugger struct{}
 
 RuntimeRunIfWaitingForDebugger Tells inspected instance to run if it was waiting for debugger to attach.
 
-### (RuntimeRunIfWaitingForDebugger) Call 
+#### (RuntimeRunIfWaitingForDebugger) Call 
 
 ``` go
 func (m RuntimeRunIfWaitingForDebugger) Call(c Client) error
@@ -34124,7 +34122,7 @@ func (m RuntimeRunIfWaitingForDebugger) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeRunIfWaitingForDebugger) ProtoReq <- 0.74.0
+#### (RuntimeRunIfWaitingForDebugger) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeRunIfWaitingForDebugger) ProtoReq() string
@@ -34132,7 +34130,7 @@ func (m RuntimeRunIfWaitingForDebugger) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeRunScript 
+### type RuntimeRunScript 
 
 ``` go
 type RuntimeRunScript struct {
@@ -34167,7 +34165,7 @@ type RuntimeRunScript struct {
 
 RuntimeRunScript Runs script with given id in a given context.
 
-### (RuntimeRunScript) Call 
+#### (RuntimeRunScript) Call 
 
 ``` go
 func (m RuntimeRunScript) Call(c Client) (*RuntimeRunScriptResult, error)
@@ -34175,7 +34173,7 @@ func (m RuntimeRunScript) Call(c Client) (*RuntimeRunScriptResult, error)
 
 Call the request.
 
-### (RuntimeRunScript) ProtoReq <- 0.74.0
+#### (RuntimeRunScript) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeRunScript) ProtoReq() string
@@ -34183,7 +34181,7 @@ func (m RuntimeRunScript) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeRunScriptResult 
+### type RuntimeRunScriptResult 
 
 ``` go
 type RuntimeRunScriptResult struct {
@@ -34197,7 +34195,7 @@ type RuntimeRunScriptResult struct {
 
 RuntimeRunScriptResult ...
 
-## type RuntimeScriptID 
+### type RuntimeScriptID 
 
 ``` go
 type RuntimeScriptID string
@@ -34205,7 +34203,7 @@ type RuntimeScriptID string
 
 RuntimeScriptID Unique script identifier.
 
-## type RuntimeSerializationOptions <- 0.115.0
+### type RuntimeSerializationOptions <- 0.115.0
 
 ``` go
 type RuntimeSerializationOptions struct {
@@ -34224,7 +34222,7 @@ type RuntimeSerializationOptions struct {
 
 RuntimeSerializationOptions Represents options for serialization. Overrides `generatePreview` and `returnByValue`.
 
-## type RuntimeSerializationOptionsSerialization <- 0.115.0
+### type RuntimeSerializationOptionsSerialization <- 0.115.0
 
 ``` go
 type RuntimeSerializationOptionsSerialization string
@@ -34245,7 +34243,7 @@ const (
 )
 ```
 
-## type RuntimeSetAsyncCallStackDepth 
+### type RuntimeSetAsyncCallStackDepth 
 
 ``` go
 type RuntimeSetAsyncCallStackDepth struct {
@@ -34257,7 +34255,7 @@ type RuntimeSetAsyncCallStackDepth struct {
 
 RuntimeSetAsyncCallStackDepth Enables or disables async call stacks tracking.
 
-### (RuntimeSetAsyncCallStackDepth) Call 
+#### (RuntimeSetAsyncCallStackDepth) Call 
 
 ``` go
 func (m RuntimeSetAsyncCallStackDepth) Call(c Client) error
@@ -34265,7 +34263,7 @@ func (m RuntimeSetAsyncCallStackDepth) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeSetAsyncCallStackDepth) ProtoReq <- 0.74.0
+#### (RuntimeSetAsyncCallStackDepth) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeSetAsyncCallStackDepth) ProtoReq() string
@@ -34273,7 +34271,7 @@ func (m RuntimeSetAsyncCallStackDepth) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeSetCustomObjectFormatterEnabled 
+### type RuntimeSetCustomObjectFormatterEnabled 
 
 ``` go
 type RuntimeSetCustomObjectFormatterEnabled struct {
@@ -34284,7 +34282,7 @@ type RuntimeSetCustomObjectFormatterEnabled struct {
 
 RuntimeSetCustomObjectFormatterEnabled (experimental) ...
 
-### (RuntimeSetCustomObjectFormatterEnabled) Call 
+#### (RuntimeSetCustomObjectFormatterEnabled) Call 
 
 ``` go
 func (m RuntimeSetCustomObjectFormatterEnabled) Call(c Client) error
@@ -34292,7 +34290,7 @@ func (m RuntimeSetCustomObjectFormatterEnabled) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeSetCustomObjectFormatterEnabled) ProtoReq <- 0.74.0
+#### (RuntimeSetCustomObjectFormatterEnabled) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeSetCustomObjectFormatterEnabled) ProtoReq() string
@@ -34300,7 +34298,7 @@ func (m RuntimeSetCustomObjectFormatterEnabled) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeSetMaxCallStackSizeToCapture 
+### type RuntimeSetMaxCallStackSizeToCapture 
 
 ``` go
 type RuntimeSetMaxCallStackSizeToCapture struct {
@@ -34311,7 +34309,7 @@ type RuntimeSetMaxCallStackSizeToCapture struct {
 
 RuntimeSetMaxCallStackSizeToCapture (experimental) ...
 
-### (RuntimeSetMaxCallStackSizeToCapture) Call 
+#### (RuntimeSetMaxCallStackSizeToCapture) Call 
 
 ``` go
 func (m RuntimeSetMaxCallStackSizeToCapture) Call(c Client) error
@@ -34319,7 +34317,7 @@ func (m RuntimeSetMaxCallStackSizeToCapture) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeSetMaxCallStackSizeToCapture) ProtoReq <- 0.74.0
+#### (RuntimeSetMaxCallStackSizeToCapture) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeSetMaxCallStackSizeToCapture) ProtoReq() string
@@ -34327,7 +34325,7 @@ func (m RuntimeSetMaxCallStackSizeToCapture) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeStackTrace 
+### type RuntimeStackTrace 
 
 ``` go
 type RuntimeStackTrace struct {
@@ -34348,7 +34346,7 @@ type RuntimeStackTrace struct {
 
 RuntimeStackTrace Call frames for assertions or error messages.
 
-## type RuntimeStackTraceID 
+### type RuntimeStackTraceID 
 
 ``` go
 type RuntimeStackTraceID struct {
@@ -34362,7 +34360,7 @@ type RuntimeStackTraceID struct {
 
 RuntimeStackTraceID (experimental) If `debuggerId` is set stack trace comes from another debugger and can be resolved there. This allows to track cross-debugger calls. See `Runtime.StackTrace` and `Debugger.paused` for usages.
 
-## type RuntimeTerminateExecution 
+### type RuntimeTerminateExecution 
 
 ``` go
 type RuntimeTerminateExecution struct{}
@@ -34370,7 +34368,7 @@ type RuntimeTerminateExecution struct{}
 
 RuntimeTerminateExecution (experimental) Terminate current or next JavaScript execution. Will cancel the termination when the outer-most script execution ends.
 
-### (RuntimeTerminateExecution) Call 
+#### (RuntimeTerminateExecution) Call 
 
 ``` go
 func (m RuntimeTerminateExecution) Call(c Client) error
@@ -34378,7 +34376,7 @@ func (m RuntimeTerminateExecution) Call(c Client) error
 
 Call sends the request.
 
-### (RuntimeTerminateExecution) ProtoReq <- 0.74.0
+#### (RuntimeTerminateExecution) ProtoReq <- 0.74.0
 
 ``` go
 func (m RuntimeTerminateExecution) ProtoReq() string
@@ -34386,7 +34384,7 @@ func (m RuntimeTerminateExecution) ProtoReq() string
 
 ProtoReq name.
 
-## type RuntimeTimeDelta 
+### type RuntimeTimeDelta 
 
 ``` go
 type RuntimeTimeDelta float64
@@ -34394,7 +34392,7 @@ type RuntimeTimeDelta float64
 
 RuntimeTimeDelta Number of milliseconds.
 
-## type RuntimeTimestamp 
+### type RuntimeTimestamp 
 
 ``` go
 type RuntimeTimestamp float64
@@ -34402,7 +34400,7 @@ type RuntimeTimestamp float64
 
 RuntimeTimestamp Number of milliseconds since epoch.
 
-## type RuntimeUniqueDebuggerID 
+### type RuntimeUniqueDebuggerID 
 
 ``` go
 type RuntimeUniqueDebuggerID string
@@ -34410,7 +34408,7 @@ type RuntimeUniqueDebuggerID string
 
 RuntimeUniqueDebuggerID (experimental) Unique identifier of current debugger.
 
-## type RuntimeUnserializableValue 
+### type RuntimeUnserializableValue 
 
 ``` go
 type RuntimeUnserializableValue string
@@ -34418,7 +34416,7 @@ type RuntimeUnserializableValue string
 
 RuntimeUnserializableValue Primitive value which cannot be JSON-stringified. Includes values `-0`, `NaN`, `Infinity`, `-Infinity`, and bigint literals.
 
-## type SchemaDomain 
+### type SchemaDomain 
 
 ``` go
 type SchemaDomain struct {
@@ -34432,7 +34430,7 @@ type SchemaDomain struct {
 
 SchemaDomain Description of the protocol domain.
 
-## type SchemaGetDomains 
+### type SchemaGetDomains 
 
 ``` go
 type SchemaGetDomains struct{}
@@ -34440,7 +34438,7 @@ type SchemaGetDomains struct{}
 
 SchemaGetDomains Returns supported domains.
 
-### (SchemaGetDomains) Call 
+#### (SchemaGetDomains) Call 
 
 ``` go
 func (m SchemaGetDomains) Call(c Client) (*SchemaGetDomainsResult, error)
@@ -34448,7 +34446,7 @@ func (m SchemaGetDomains) Call(c Client) (*SchemaGetDomainsResult, error)
 
 Call the request.
 
-### (SchemaGetDomains) ProtoReq <- 0.74.0
+#### (SchemaGetDomains) ProtoReq <- 0.74.0
 
 ``` go
 func (m SchemaGetDomains) ProtoReq() string
@@ -34456,7 +34454,7 @@ func (m SchemaGetDomains) ProtoReq() string
 
 ProtoReq name.
 
-## type SchemaGetDomainsResult 
+### type SchemaGetDomainsResult 
 
 ``` go
 type SchemaGetDomainsResult struct {
@@ -34467,7 +34465,7 @@ type SchemaGetDomainsResult struct {
 
 SchemaGetDomainsResult ...
 
-## type SecurityCertificateError 
+### type SecurityCertificateError 
 
 ``` go
 type SecurityCertificateError struct {
@@ -34484,7 +34482,7 @@ type SecurityCertificateError struct {
 
 SecurityCertificateError (deprecated) There is a certificate error. If overriding certificate errors is enabled, then it should be handled with the `handleCertificateError` command. Note: this event does not fire if the certificate error has been allowed internally. Only one client per target should override certificate errors at the same time.
 
-### (SecurityCertificateError) ProtoEvent <- 0.72.0
+#### (SecurityCertificateError) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt SecurityCertificateError) ProtoEvent() string
@@ -34492,7 +34490,7 @@ func (evt SecurityCertificateError) ProtoEvent() string
 
 ProtoEvent name.
 
-## type SecurityCertificateErrorAction 
+### type SecurityCertificateErrorAction 
 
 ``` go
 type SecurityCertificateErrorAction string
@@ -34510,7 +34508,7 @@ const (
 )
 ```
 
-## type SecurityCertificateID 
+### type SecurityCertificateID 
 
 ``` go
 type SecurityCertificateID int
@@ -34518,7 +34516,7 @@ type SecurityCertificateID int
 
 SecurityCertificateID An internal certificate ID value.
 
-## type SecurityCertificateSecurityState 
+### type SecurityCertificateSecurityState 
 
 ``` go
 type SecurityCertificateSecurityState struct {
@@ -34580,7 +34578,7 @@ type SecurityCertificateSecurityState struct {
 
 SecurityCertificateSecurityState (experimental) Details about the security state of the page certificate.
 
-## type SecurityDisable 
+### type SecurityDisable 
 
 ``` go
 type SecurityDisable struct{}
@@ -34588,7 +34586,7 @@ type SecurityDisable struct{}
 
 SecurityDisable Disables tracking security state changes.
 
-### (SecurityDisable) Call 
+#### (SecurityDisable) Call 
 
 ``` go
 func (m SecurityDisable) Call(c Client) error
@@ -34596,7 +34594,7 @@ func (m SecurityDisable) Call(c Client) error
 
 Call sends the request.
 
-### (SecurityDisable) ProtoReq <- 0.74.0
+#### (SecurityDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m SecurityDisable) ProtoReq() string
@@ -34604,7 +34602,7 @@ func (m SecurityDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type SecurityEnable 
+### type SecurityEnable 
 
 ``` go
 type SecurityEnable struct{}
@@ -34612,7 +34610,7 @@ type SecurityEnable struct{}
 
 SecurityEnable Enables tracking security state changes.
 
-### (SecurityEnable) Call 
+#### (SecurityEnable) Call 
 
 ``` go
 func (m SecurityEnable) Call(c Client) error
@@ -34620,7 +34618,7 @@ func (m SecurityEnable) Call(c Client) error
 
 Call sends the request.
 
-### (SecurityEnable) ProtoReq <- 0.74.0
+#### (SecurityEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m SecurityEnable) ProtoReq() string
@@ -34628,7 +34626,7 @@ func (m SecurityEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type SecurityHandleCertificateError 
+### type SecurityHandleCertificateError 
 
 ``` go
 type SecurityHandleCertificateError struct {
@@ -34642,7 +34640,7 @@ type SecurityHandleCertificateError struct {
 
 SecurityHandleCertificateError (deprecated) Handles a certificate error that fired a certificateError event.
 
-### (SecurityHandleCertificateError) Call 
+#### (SecurityHandleCertificateError) Call 
 
 ``` go
 func (m SecurityHandleCertificateError) Call(c Client) error
@@ -34650,7 +34648,7 @@ func (m SecurityHandleCertificateError) Call(c Client) error
 
 Call sends the request.
 
-### (SecurityHandleCertificateError) ProtoReq <- 0.74.0
+#### (SecurityHandleCertificateError) ProtoReq <- 0.74.0
 
 ``` go
 func (m SecurityHandleCertificateError) ProtoReq() string
@@ -34658,7 +34656,7 @@ func (m SecurityHandleCertificateError) ProtoReq() string
 
 ProtoReq name.
 
-## type SecurityInsecureContentStatus 
+### type SecurityInsecureContentStatus 
 
 ``` go
 type SecurityInsecureContentStatus struct {
@@ -34687,7 +34685,7 @@ type SecurityInsecureContentStatus struct {
 
 SecurityInsecureContentStatus (deprecated) Information about insecure content on the page.
 
-## type SecurityMixedContentType 
+### type SecurityMixedContentType 
 
 ``` go
 type SecurityMixedContentType string
@@ -34708,7 +34706,7 @@ const (
 )
 ```
 
-## type SecuritySafetyTipInfo 
+### type SecuritySafetyTipInfo 
 
 ``` go
 type SecuritySafetyTipInfo struct {
@@ -34722,7 +34720,7 @@ type SecuritySafetyTipInfo struct {
 
 SecuritySafetyTipInfo (experimental) ...
 
-## type SecuritySafetyTipStatus 
+### type SecuritySafetyTipStatus 
 
 ``` go
 type SecuritySafetyTipStatus string
@@ -34740,7 +34738,7 @@ const (
 )
 ```
 
-## type SecuritySecurityState 
+### type SecuritySecurityState 
 
 ``` go
 type SecuritySecurityState string
@@ -34770,7 +34768,7 @@ const (
 )
 ```
 
-## type SecuritySecurityStateChanged 
+### type SecuritySecurityStateChanged 
 
 ``` go
 type SecuritySecurityStateChanged struct {
@@ -34794,7 +34792,7 @@ type SecuritySecurityStateChanged struct {
 
 SecuritySecurityStateChanged (deprecated) The security state of the page changed. No longer being sent.
 
-### (SecuritySecurityStateChanged) ProtoEvent <- 0.72.0
+#### (SecuritySecurityStateChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt SecuritySecurityStateChanged) ProtoEvent() string
@@ -34802,7 +34800,7 @@ func (evt SecuritySecurityStateChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type SecuritySecurityStateExplanation 
+### type SecuritySecurityStateExplanation 
 
 ``` go
 type SecuritySecurityStateExplanation struct {
@@ -34831,7 +34829,7 @@ type SecuritySecurityStateExplanation struct {
 
 SecuritySecurityStateExplanation An explanation of an factor contributing to the security state.
 
-## type SecuritySetIgnoreCertificateErrors 
+### type SecuritySetIgnoreCertificateErrors 
 
 ``` go
 type SecuritySetIgnoreCertificateErrors struct {
@@ -34842,7 +34840,7 @@ type SecuritySetIgnoreCertificateErrors struct {
 
 SecuritySetIgnoreCertificateErrors Enable/disable whether all certificate errors should be ignored.
 
-### (SecuritySetIgnoreCertificateErrors) Call 
+#### (SecuritySetIgnoreCertificateErrors) Call 
 
 ``` go
 func (m SecuritySetIgnoreCertificateErrors) Call(c Client) error
@@ -34850,7 +34848,7 @@ func (m SecuritySetIgnoreCertificateErrors) Call(c Client) error
 
 Call sends the request.
 
-### (SecuritySetIgnoreCertificateErrors) ProtoReq <- 0.74.0
+#### (SecuritySetIgnoreCertificateErrors) ProtoReq <- 0.74.0
 
 ``` go
 func (m SecuritySetIgnoreCertificateErrors) ProtoReq() string
@@ -34858,7 +34856,7 @@ func (m SecuritySetIgnoreCertificateErrors) ProtoReq() string
 
 ProtoReq name.
 
-## type SecuritySetOverrideCertificateErrors 
+### type SecuritySetOverrideCertificateErrors 
 
 ``` go
 type SecuritySetOverrideCertificateErrors struct {
@@ -34869,7 +34867,7 @@ type SecuritySetOverrideCertificateErrors struct {
 
 SecuritySetOverrideCertificateErrors (deprecated) Enable/disable overriding certificate errors. If enabled, all certificate error events need to be handled by the DevTools client and should be answered with `handleCertificateError` commands.
 
-### (SecuritySetOverrideCertificateErrors) Call 
+#### (SecuritySetOverrideCertificateErrors) Call 
 
 ``` go
 func (m SecuritySetOverrideCertificateErrors) Call(c Client) error
@@ -34877,7 +34875,7 @@ func (m SecuritySetOverrideCertificateErrors) Call(c Client) error
 
 Call sends the request.
 
-### (SecuritySetOverrideCertificateErrors) ProtoReq <- 0.74.0
+#### (SecuritySetOverrideCertificateErrors) ProtoReq <- 0.74.0
 
 ``` go
 func (m SecuritySetOverrideCertificateErrors) ProtoReq() string
@@ -34885,7 +34883,7 @@ func (m SecuritySetOverrideCertificateErrors) ProtoReq() string
 
 ProtoReq name.
 
-## type SecurityVisibleSecurityState 
+### type SecurityVisibleSecurityState 
 
 ``` go
 type SecurityVisibleSecurityState struct {
@@ -34905,7 +34903,7 @@ type SecurityVisibleSecurityState struct {
 
 SecurityVisibleSecurityState (experimental) Security state information about the page.
 
-## type SecurityVisibleSecurityStateChanged 
+### type SecurityVisibleSecurityStateChanged 
 
 ``` go
 type SecurityVisibleSecurityStateChanged struct {
@@ -34916,7 +34914,7 @@ type SecurityVisibleSecurityStateChanged struct {
 
 SecurityVisibleSecurityStateChanged (experimental) The security state of the page changed.
 
-### (SecurityVisibleSecurityStateChanged) ProtoEvent <- 0.72.0
+#### (SecurityVisibleSecurityStateChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt SecurityVisibleSecurityStateChanged) ProtoEvent() string
@@ -34924,7 +34922,7 @@ func (evt SecurityVisibleSecurityStateChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ServiceWorkerDeliverPushMessage 
+### type ServiceWorkerDeliverPushMessage 
 
 ``` go
 type ServiceWorkerDeliverPushMessage struct {
@@ -34941,7 +34939,7 @@ type ServiceWorkerDeliverPushMessage struct {
 
 ServiceWorkerDeliverPushMessage ...
 
-### (ServiceWorkerDeliverPushMessage) Call 
+#### (ServiceWorkerDeliverPushMessage) Call 
 
 ``` go
 func (m ServiceWorkerDeliverPushMessage) Call(c Client) error
@@ -34949,7 +34947,7 @@ func (m ServiceWorkerDeliverPushMessage) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerDeliverPushMessage) ProtoReq <- 0.74.0
+#### (ServiceWorkerDeliverPushMessage) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerDeliverPushMessage) ProtoReq() string
@@ -34957,7 +34955,7 @@ func (m ServiceWorkerDeliverPushMessage) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerDisable 
+### type ServiceWorkerDisable 
 
 ``` go
 type ServiceWorkerDisable struct{}
@@ -34965,7 +34963,7 @@ type ServiceWorkerDisable struct{}
 
 ServiceWorkerDisable ...
 
-### (ServiceWorkerDisable) Call 
+#### (ServiceWorkerDisable) Call 
 
 ``` go
 func (m ServiceWorkerDisable) Call(c Client) error
@@ -34973,7 +34971,7 @@ func (m ServiceWorkerDisable) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerDisable) ProtoReq <- 0.74.0
+#### (ServiceWorkerDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerDisable) ProtoReq() string
@@ -34981,7 +34979,7 @@ func (m ServiceWorkerDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerDispatchPeriodicSyncEvent 
+### type ServiceWorkerDispatchPeriodicSyncEvent 
 
 ``` go
 type ServiceWorkerDispatchPeriodicSyncEvent struct {
@@ -34998,7 +34996,7 @@ type ServiceWorkerDispatchPeriodicSyncEvent struct {
 
 ServiceWorkerDispatchPeriodicSyncEvent ...
 
-### (ServiceWorkerDispatchPeriodicSyncEvent) Call 
+#### (ServiceWorkerDispatchPeriodicSyncEvent) Call 
 
 ``` go
 func (m ServiceWorkerDispatchPeriodicSyncEvent) Call(c Client) error
@@ -35006,7 +35004,7 @@ func (m ServiceWorkerDispatchPeriodicSyncEvent) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerDispatchPeriodicSyncEvent) ProtoReq <- 0.74.0
+#### (ServiceWorkerDispatchPeriodicSyncEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerDispatchPeriodicSyncEvent) ProtoReq() string
@@ -35014,7 +35012,7 @@ func (m ServiceWorkerDispatchPeriodicSyncEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerDispatchSyncEvent 
+### type ServiceWorkerDispatchSyncEvent 
 
 ``` go
 type ServiceWorkerDispatchSyncEvent struct {
@@ -35034,7 +35032,7 @@ type ServiceWorkerDispatchSyncEvent struct {
 
 ServiceWorkerDispatchSyncEvent ...
 
-### (ServiceWorkerDispatchSyncEvent) Call 
+#### (ServiceWorkerDispatchSyncEvent) Call 
 
 ``` go
 func (m ServiceWorkerDispatchSyncEvent) Call(c Client) error
@@ -35042,7 +35040,7 @@ func (m ServiceWorkerDispatchSyncEvent) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerDispatchSyncEvent) ProtoReq <- 0.74.0
+#### (ServiceWorkerDispatchSyncEvent) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerDispatchSyncEvent) ProtoReq() string
@@ -35050,7 +35048,7 @@ func (m ServiceWorkerDispatchSyncEvent) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerEnable 
+### type ServiceWorkerEnable 
 
 ``` go
 type ServiceWorkerEnable struct{}
@@ -35058,7 +35056,7 @@ type ServiceWorkerEnable struct{}
 
 ServiceWorkerEnable ...
 
-### (ServiceWorkerEnable) Call 
+#### (ServiceWorkerEnable) Call 
 
 ``` go
 func (m ServiceWorkerEnable) Call(c Client) error
@@ -35066,7 +35064,7 @@ func (m ServiceWorkerEnable) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerEnable) ProtoReq <- 0.74.0
+#### (ServiceWorkerEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerEnable) ProtoReq() string
@@ -35074,7 +35072,7 @@ func (m ServiceWorkerEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerInspectWorker 
+### type ServiceWorkerInspectWorker 
 
 ``` go
 type ServiceWorkerInspectWorker struct {
@@ -35085,7 +35083,7 @@ type ServiceWorkerInspectWorker struct {
 
 ServiceWorkerInspectWorker ...
 
-### (ServiceWorkerInspectWorker) Call 
+#### (ServiceWorkerInspectWorker) Call 
 
 ``` go
 func (m ServiceWorkerInspectWorker) Call(c Client) error
@@ -35093,7 +35091,7 @@ func (m ServiceWorkerInspectWorker) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerInspectWorker) ProtoReq <- 0.74.0
+#### (ServiceWorkerInspectWorker) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerInspectWorker) ProtoReq() string
@@ -35101,7 +35099,7 @@ func (m ServiceWorkerInspectWorker) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerRegistrationID 
+### type ServiceWorkerRegistrationID 
 
 ``` go
 type ServiceWorkerRegistrationID string
@@ -35109,7 +35107,7 @@ type ServiceWorkerRegistrationID string
 
 ServiceWorkerRegistrationID ...
 
-## type ServiceWorkerServiceWorkerErrorMessage 
+### type ServiceWorkerServiceWorkerErrorMessage 
 
 ``` go
 type ServiceWorkerServiceWorkerErrorMessage struct {
@@ -35135,7 +35133,7 @@ type ServiceWorkerServiceWorkerErrorMessage struct {
 
 ServiceWorkerServiceWorkerErrorMessage ServiceWorker error message.
 
-## type ServiceWorkerServiceWorkerRegistration 
+### type ServiceWorkerServiceWorkerRegistration 
 
 ``` go
 type ServiceWorkerServiceWorkerRegistration struct {
@@ -35152,7 +35150,7 @@ type ServiceWorkerServiceWorkerRegistration struct {
 
 ServiceWorkerServiceWorkerRegistration ServiceWorker registration.
 
-## type ServiceWorkerServiceWorkerVersion 
+### type ServiceWorkerServiceWorkerVersion 
 
 ``` go
 type ServiceWorkerServiceWorkerVersion struct {
@@ -35191,7 +35189,7 @@ type ServiceWorkerServiceWorkerVersion struct {
 
 ServiceWorkerServiceWorkerVersion ServiceWorker version.
 
-## type ServiceWorkerServiceWorkerVersionRunningStatus 
+### type ServiceWorkerServiceWorkerVersionRunningStatus 
 
 ``` go
 type ServiceWorkerServiceWorkerVersionRunningStatus string
@@ -35215,7 +35213,7 @@ const (
 )
 ```
 
-## type ServiceWorkerServiceWorkerVersionStatus 
+### type ServiceWorkerServiceWorkerVersionStatus 
 
 ``` go
 type ServiceWorkerServiceWorkerVersionStatus string
@@ -35245,7 +35243,7 @@ const (
 )
 ```
 
-## type ServiceWorkerSetForceUpdateOnPageLoad 
+### type ServiceWorkerSetForceUpdateOnPageLoad 
 
 ``` go
 type ServiceWorkerSetForceUpdateOnPageLoad struct {
@@ -35256,7 +35254,7 @@ type ServiceWorkerSetForceUpdateOnPageLoad struct {
 
 ServiceWorkerSetForceUpdateOnPageLoad ...
 
-### (ServiceWorkerSetForceUpdateOnPageLoad) Call 
+#### (ServiceWorkerSetForceUpdateOnPageLoad) Call 
 
 ``` go
 func (m ServiceWorkerSetForceUpdateOnPageLoad) Call(c Client) error
@@ -35264,7 +35262,7 @@ func (m ServiceWorkerSetForceUpdateOnPageLoad) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerSetForceUpdateOnPageLoad) ProtoReq <- 0.74.0
+#### (ServiceWorkerSetForceUpdateOnPageLoad) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerSetForceUpdateOnPageLoad) ProtoReq() string
@@ -35272,7 +35270,7 @@ func (m ServiceWorkerSetForceUpdateOnPageLoad) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerSkipWaiting 
+### type ServiceWorkerSkipWaiting 
 
 ``` go
 type ServiceWorkerSkipWaiting struct {
@@ -35283,7 +35281,7 @@ type ServiceWorkerSkipWaiting struct {
 
 ServiceWorkerSkipWaiting ...
 
-### (ServiceWorkerSkipWaiting) Call 
+#### (ServiceWorkerSkipWaiting) Call 
 
 ``` go
 func (m ServiceWorkerSkipWaiting) Call(c Client) error
@@ -35291,7 +35289,7 @@ func (m ServiceWorkerSkipWaiting) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerSkipWaiting) ProtoReq <- 0.74.0
+#### (ServiceWorkerSkipWaiting) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerSkipWaiting) ProtoReq() string
@@ -35299,7 +35297,7 @@ func (m ServiceWorkerSkipWaiting) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerStartWorker 
+### type ServiceWorkerStartWorker 
 
 ``` go
 type ServiceWorkerStartWorker struct {
@@ -35310,7 +35308,7 @@ type ServiceWorkerStartWorker struct {
 
 ServiceWorkerStartWorker ...
 
-### (ServiceWorkerStartWorker) Call 
+#### (ServiceWorkerStartWorker) Call 
 
 ``` go
 func (m ServiceWorkerStartWorker) Call(c Client) error
@@ -35318,7 +35316,7 @@ func (m ServiceWorkerStartWorker) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerStartWorker) ProtoReq <- 0.74.0
+#### (ServiceWorkerStartWorker) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerStartWorker) ProtoReq() string
@@ -35326,7 +35324,7 @@ func (m ServiceWorkerStartWorker) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerStopAllWorkers 
+### type ServiceWorkerStopAllWorkers 
 
 ``` go
 type ServiceWorkerStopAllWorkers struct{}
@@ -35334,7 +35332,7 @@ type ServiceWorkerStopAllWorkers struct{}
 
 ServiceWorkerStopAllWorkers ...
 
-### (ServiceWorkerStopAllWorkers) Call 
+#### (ServiceWorkerStopAllWorkers) Call 
 
 ``` go
 func (m ServiceWorkerStopAllWorkers) Call(c Client) error
@@ -35342,7 +35340,7 @@ func (m ServiceWorkerStopAllWorkers) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerStopAllWorkers) ProtoReq <- 0.74.0
+#### (ServiceWorkerStopAllWorkers) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerStopAllWorkers) ProtoReq() string
@@ -35350,7 +35348,7 @@ func (m ServiceWorkerStopAllWorkers) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerStopWorker 
+### type ServiceWorkerStopWorker 
 
 ``` go
 type ServiceWorkerStopWorker struct {
@@ -35361,7 +35359,7 @@ type ServiceWorkerStopWorker struct {
 
 ServiceWorkerStopWorker ...
 
-### (ServiceWorkerStopWorker) Call 
+#### (ServiceWorkerStopWorker) Call 
 
 ``` go
 func (m ServiceWorkerStopWorker) Call(c Client) error
@@ -35369,7 +35367,7 @@ func (m ServiceWorkerStopWorker) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerStopWorker) ProtoReq <- 0.74.0
+#### (ServiceWorkerStopWorker) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerStopWorker) ProtoReq() string
@@ -35377,7 +35375,7 @@ func (m ServiceWorkerStopWorker) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerUnregister 
+### type ServiceWorkerUnregister 
 
 ``` go
 type ServiceWorkerUnregister struct {
@@ -35388,7 +35386,7 @@ type ServiceWorkerUnregister struct {
 
 ServiceWorkerUnregister ...
 
-### (ServiceWorkerUnregister) Call 
+#### (ServiceWorkerUnregister) Call 
 
 ``` go
 func (m ServiceWorkerUnregister) Call(c Client) error
@@ -35396,7 +35394,7 @@ func (m ServiceWorkerUnregister) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerUnregister) ProtoReq <- 0.74.0
+#### (ServiceWorkerUnregister) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerUnregister) ProtoReq() string
@@ -35404,7 +35402,7 @@ func (m ServiceWorkerUnregister) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerUpdateRegistration 
+### type ServiceWorkerUpdateRegistration 
 
 ``` go
 type ServiceWorkerUpdateRegistration struct {
@@ -35415,7 +35413,7 @@ type ServiceWorkerUpdateRegistration struct {
 
 ServiceWorkerUpdateRegistration ...
 
-### (ServiceWorkerUpdateRegistration) Call 
+#### (ServiceWorkerUpdateRegistration) Call 
 
 ``` go
 func (m ServiceWorkerUpdateRegistration) Call(c Client) error
@@ -35423,7 +35421,7 @@ func (m ServiceWorkerUpdateRegistration) Call(c Client) error
 
 Call sends the request.
 
-### (ServiceWorkerUpdateRegistration) ProtoReq <- 0.74.0
+#### (ServiceWorkerUpdateRegistration) ProtoReq <- 0.74.0
 
 ``` go
 func (m ServiceWorkerUpdateRegistration) ProtoReq() string
@@ -35431,7 +35429,7 @@ func (m ServiceWorkerUpdateRegistration) ProtoReq() string
 
 ProtoReq name.
 
-## type ServiceWorkerWorkerErrorReported 
+### type ServiceWorkerWorkerErrorReported 
 
 ``` go
 type ServiceWorkerWorkerErrorReported struct {
@@ -35442,7 +35440,7 @@ type ServiceWorkerWorkerErrorReported struct {
 
 ServiceWorkerWorkerErrorReported ...
 
-### (ServiceWorkerWorkerErrorReported) ProtoEvent <- 0.72.0
+#### (ServiceWorkerWorkerErrorReported) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ServiceWorkerWorkerErrorReported) ProtoEvent() string
@@ -35450,7 +35448,7 @@ func (evt ServiceWorkerWorkerErrorReported) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ServiceWorkerWorkerRegistrationUpdated 
+### type ServiceWorkerWorkerRegistrationUpdated 
 
 ``` go
 type ServiceWorkerWorkerRegistrationUpdated struct {
@@ -35461,7 +35459,7 @@ type ServiceWorkerWorkerRegistrationUpdated struct {
 
 ServiceWorkerWorkerRegistrationUpdated ...
 
-### (ServiceWorkerWorkerRegistrationUpdated) ProtoEvent <- 0.72.0
+#### (ServiceWorkerWorkerRegistrationUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ServiceWorkerWorkerRegistrationUpdated) ProtoEvent() string
@@ -35469,7 +35467,7 @@ func (evt ServiceWorkerWorkerRegistrationUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type ServiceWorkerWorkerVersionUpdated 
+### type ServiceWorkerWorkerVersionUpdated 
 
 ``` go
 type ServiceWorkerWorkerVersionUpdated struct {
@@ -35480,7 +35478,7 @@ type ServiceWorkerWorkerVersionUpdated struct {
 
 ServiceWorkerWorkerVersionUpdated ...
 
-### (ServiceWorkerWorkerVersionUpdated) ProtoEvent <- 0.72.0
+#### (ServiceWorkerWorkerVersionUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt ServiceWorkerWorkerVersionUpdated) ProtoEvent() string
@@ -35488,7 +35486,7 @@ func (evt ServiceWorkerWorkerVersionUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type Sessionable <- 0.72.0
+### type Sessionable <- 0.72.0
 
 ``` go
 type Sessionable interface {
@@ -35498,7 +35496,7 @@ type Sessionable interface {
 
 Sessionable type has a proto.TargetSessionID for its methods.
 
-## type Shape <- 0.88.11
+### type Shape <- 0.88.11
 
 ``` go
 type Shape []DOMQuad
@@ -35506,7 +35504,7 @@ type Shape []DOMQuad
 
 Shape is a list of DOMQuad.
 
-### (Shape) Box <- 0.88.11
+#### (Shape) Box <- 0.88.11
 
 ``` go
 func (qs Shape) Box() (box *DOMRect)
@@ -35514,7 +35512,7 @@ func (qs Shape) Box() (box *DOMRect)
 
 Box returns the smallest leveled rectangle that can cover the whole shape.
 
-## type StorageAttributionReportingAggregatableDedupKey <- 0.115.0
+### type StorageAttributionReportingAggregatableDedupKey <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregatableDedupKey struct {
@@ -35528,7 +35526,7 @@ type StorageAttributionReportingAggregatableDedupKey struct {
 
 StorageAttributionReportingAggregatableDedupKey (experimental) ...
 
-## type StorageAttributionReportingAggregatableResult <- 0.115.0
+### type StorageAttributionReportingAggregatableResult <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregatableResult string
@@ -35582,7 +35580,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingAggregatableTriggerData <- 0.115.0
+### type StorageAttributionReportingAggregatableTriggerData <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregatableTriggerData struct {
@@ -35599,7 +35597,7 @@ type StorageAttributionReportingAggregatableTriggerData struct {
 
 StorageAttributionReportingAggregatableTriggerData (experimental) ...
 
-## type StorageAttributionReportingAggregatableValueDictEntry <- 0.115.0
+### type StorageAttributionReportingAggregatableValueDictEntry <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregatableValueDictEntry struct {
@@ -35614,7 +35612,7 @@ type StorageAttributionReportingAggregatableValueDictEntry struct {
 
 StorageAttributionReportingAggregatableValueDictEntry (experimental) ...
 
-## type StorageAttributionReportingAggregatableValueEntry <- 0.115.0
+### type StorageAttributionReportingAggregatableValueEntry <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregatableValueEntry struct {
@@ -35628,7 +35626,7 @@ type StorageAttributionReportingAggregatableValueEntry struct {
 
 StorageAttributionReportingAggregatableValueEntry (experimental) ...
 
-## type StorageAttributionReportingAggregationKeysEntry <- 0.115.0
+### type StorageAttributionReportingAggregationKeysEntry <- 0.115.0
 
 ``` go
 type StorageAttributionReportingAggregationKeysEntry struct {
@@ -35642,7 +35640,7 @@ type StorageAttributionReportingAggregationKeysEntry struct {
 
 StorageAttributionReportingAggregationKeysEntry (experimental) ...
 
-## type StorageAttributionReportingEventLevelResult <- 0.115.0
+### type StorageAttributionReportingEventLevelResult <- 0.115.0
 
 ``` go
 type StorageAttributionReportingEventLevelResult string
@@ -35711,7 +35709,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingEventReportWindows <- 0.115.0
+### type StorageAttributionReportingEventReportWindows <- 0.115.0
 
 ``` go
 type StorageAttributionReportingEventReportWindows struct {
@@ -35725,7 +35723,7 @@ type StorageAttributionReportingEventReportWindows struct {
 
 StorageAttributionReportingEventReportWindows (experimental) ...
 
-## type StorageAttributionReportingEventTriggerData <- 0.115.0
+### type StorageAttributionReportingEventTriggerData <- 0.115.0
 
 ``` go
 type StorageAttributionReportingEventTriggerData struct {
@@ -35745,7 +35743,7 @@ type StorageAttributionReportingEventTriggerData struct {
 
 StorageAttributionReportingEventTriggerData (experimental) ...
 
-## type StorageAttributionReportingFilterConfig <- 0.115.0
+### type StorageAttributionReportingFilterConfig <- 0.115.0
 
 ``` go
 type StorageAttributionReportingFilterConfig struct {
@@ -35759,7 +35757,7 @@ type StorageAttributionReportingFilterConfig struct {
 
 StorageAttributionReportingFilterConfig (experimental) ...
 
-## type StorageAttributionReportingFilterDataEntry <- 0.115.0
+### type StorageAttributionReportingFilterDataEntry <- 0.115.0
 
 ``` go
 type StorageAttributionReportingFilterDataEntry struct {
@@ -35773,7 +35771,7 @@ type StorageAttributionReportingFilterDataEntry struct {
 
 StorageAttributionReportingFilterDataEntry (experimental) ...
 
-## type StorageAttributionReportingFilterPair <- 0.115.0
+### type StorageAttributionReportingFilterPair <- 0.115.0
 
 ``` go
 type StorageAttributionReportingFilterPair struct {
@@ -35787,7 +35785,7 @@ type StorageAttributionReportingFilterPair struct {
 
 StorageAttributionReportingFilterPair (experimental) ...
 
-## type StorageAttributionReportingSourceRegistered <- 0.115.0
+### type StorageAttributionReportingSourceRegistered <- 0.115.0
 
 ``` go
 type StorageAttributionReportingSourceRegistered struct {
@@ -35801,7 +35799,7 @@ type StorageAttributionReportingSourceRegistered struct {
 
 StorageAttributionReportingSourceRegistered (experimental) ...
 
-### (StorageAttributionReportingSourceRegistered) ProtoEvent <- 0.115.0
+#### (StorageAttributionReportingSourceRegistered) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt StorageAttributionReportingSourceRegistered) ProtoEvent() string
@@ -35809,7 +35807,7 @@ func (evt StorageAttributionReportingSourceRegistered) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageAttributionReportingSourceRegistration <- 0.115.0
+### type StorageAttributionReportingSourceRegistration <- 0.115.0
 
 ``` go
 type StorageAttributionReportingSourceRegistration struct {
@@ -35859,7 +35857,7 @@ type StorageAttributionReportingSourceRegistration struct {
 
 StorageAttributionReportingSourceRegistration (experimental) ...
 
-## type StorageAttributionReportingSourceRegistrationResult <- 0.115.0
+### type StorageAttributionReportingSourceRegistrationResult <- 0.115.0
 
 ``` go
 type StorageAttributionReportingSourceRegistrationResult string
@@ -35913,7 +35911,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingSourceRegistrationTimeConfig <- 0.115.0
+### type StorageAttributionReportingSourceRegistrationTimeConfig <- 0.115.0
 
 ``` go
 type StorageAttributionReportingSourceRegistrationTimeConfig string
@@ -35931,7 +35929,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingSourceType <- 0.115.0
+### type StorageAttributionReportingSourceType <- 0.115.0
 
 ``` go
 type StorageAttributionReportingSourceType string
@@ -35949,7 +35947,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingTriggerDataMatching <- 0.115.0
+### type StorageAttributionReportingTriggerDataMatching <- 0.115.0
 
 ``` go
 type StorageAttributionReportingTriggerDataMatching string
@@ -35967,7 +35965,7 @@ const (
 )
 ```
 
-## type StorageAttributionReportingTriggerRegistered <- 0.115.0
+### type StorageAttributionReportingTriggerRegistered <- 0.115.0
 
 ``` go
 type StorageAttributionReportingTriggerRegistered struct {
@@ -35984,7 +35982,7 @@ type StorageAttributionReportingTriggerRegistered struct {
 
 StorageAttributionReportingTriggerRegistered (experimental) ...
 
-### (StorageAttributionReportingTriggerRegistered) ProtoEvent <- 0.115.0
+#### (StorageAttributionReportingTriggerRegistered) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt StorageAttributionReportingTriggerRegistered) ProtoEvent() string
@@ -35992,7 +35990,7 @@ func (evt StorageAttributionReportingTriggerRegistered) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageAttributionReportingTriggerRegistration <- 0.115.0
+### type StorageAttributionReportingTriggerRegistration <- 0.115.0
 
 ``` go
 type StorageAttributionReportingTriggerRegistration struct {
@@ -36030,7 +36028,7 @@ type StorageAttributionReportingTriggerRegistration struct {
 
 StorageAttributionReportingTriggerRegistration (experimental) ...
 
-## type StorageAttributionReportingTriggerSpec <- 0.115.0
+### type StorageAttributionReportingTriggerSpec <- 0.115.0
 
 ``` go
 type StorageAttributionReportingTriggerSpec struct {
@@ -36045,7 +36043,7 @@ type StorageAttributionReportingTriggerSpec struct {
 
 StorageAttributionReportingTriggerSpec (experimental) ...
 
-## type StorageCacheStorageContentUpdated 
+### type StorageCacheStorageContentUpdated 
 
 ``` go
 type StorageCacheStorageContentUpdated struct {
@@ -36065,7 +36063,7 @@ type StorageCacheStorageContentUpdated struct {
 
 StorageCacheStorageContentUpdated A cache's contents have been modified.
 
-### (StorageCacheStorageContentUpdated) ProtoEvent <- 0.72.0
+#### (StorageCacheStorageContentUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt StorageCacheStorageContentUpdated) ProtoEvent() string
@@ -36073,7 +36071,7 @@ func (evt StorageCacheStorageContentUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageCacheStorageListUpdated 
+### type StorageCacheStorageListUpdated 
 
 ``` go
 type StorageCacheStorageListUpdated struct {
@@ -36090,7 +36088,7 @@ type StorageCacheStorageListUpdated struct {
 
 StorageCacheStorageListUpdated A cache has been added/deleted.
 
-### (StorageCacheStorageListUpdated) ProtoEvent <- 0.72.0
+#### (StorageCacheStorageListUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt StorageCacheStorageListUpdated) ProtoEvent() string
@@ -36098,7 +36096,7 @@ func (evt StorageCacheStorageListUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageClearCookies 
+### type StorageClearCookies 
 
 ``` go
 type StorageClearCookies struct {
@@ -36109,7 +36107,7 @@ type StorageClearCookies struct {
 
 StorageClearCookies Clears cookies.
 
-### (StorageClearCookies) Call 
+#### (StorageClearCookies) Call 
 
 ``` go
 func (m StorageClearCookies) Call(c Client) error
@@ -36117,7 +36115,7 @@ func (m StorageClearCookies) Call(c Client) error
 
 Call sends the request.
 
-### (StorageClearCookies) ProtoReq <- 0.74.0
+#### (StorageClearCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageClearCookies) ProtoReq() string
@@ -36125,7 +36123,7 @@ func (m StorageClearCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageClearDataForOrigin 
+### type StorageClearDataForOrigin 
 
 ``` go
 type StorageClearDataForOrigin struct {
@@ -36139,7 +36137,7 @@ type StorageClearDataForOrigin struct {
 
 StorageClearDataForOrigin Clears storage for origin.
 
-### (StorageClearDataForOrigin) Call 
+#### (StorageClearDataForOrigin) Call 
 
 ``` go
 func (m StorageClearDataForOrigin) Call(c Client) error
@@ -36147,7 +36145,7 @@ func (m StorageClearDataForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageClearDataForOrigin) ProtoReq <- 0.74.0
+#### (StorageClearDataForOrigin) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageClearDataForOrigin) ProtoReq() string
@@ -36155,7 +36153,7 @@ func (m StorageClearDataForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageClearDataForStorageKey <- 0.108.2
+### type StorageClearDataForStorageKey <- 0.108.2
 
 ``` go
 type StorageClearDataForStorageKey struct {
@@ -36169,7 +36167,7 @@ type StorageClearDataForStorageKey struct {
 
 StorageClearDataForStorageKey Clears storage for storage key.
 
-### (StorageClearDataForStorageKey) Call <- 0.108.2
+#### (StorageClearDataForStorageKey) Call <- 0.108.2
 
 ``` go
 func (m StorageClearDataForStorageKey) Call(c Client) error
@@ -36177,7 +36175,7 @@ func (m StorageClearDataForStorageKey) Call(c Client) error
 
 Call sends the request.
 
-### (StorageClearDataForStorageKey) ProtoReq <- 0.108.2
+#### (StorageClearDataForStorageKey) ProtoReq <- 0.108.2
 
 ``` go
 func (m StorageClearDataForStorageKey) ProtoReq() string
@@ -36185,7 +36183,7 @@ func (m StorageClearDataForStorageKey) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageClearSharedStorageEntries <- 0.112.3
+### type StorageClearSharedStorageEntries <- 0.112.3
 
 ``` go
 type StorageClearSharedStorageEntries struct {
@@ -36196,7 +36194,7 @@ type StorageClearSharedStorageEntries struct {
 
 StorageClearSharedStorageEntries (experimental) Clears all entries for a given origin's shared storage.
 
-### (StorageClearSharedStorageEntries) Call <- 0.112.3
+#### (StorageClearSharedStorageEntries) Call <- 0.112.3
 
 ``` go
 func (m StorageClearSharedStorageEntries) Call(c Client) error
@@ -36204,7 +36202,7 @@ func (m StorageClearSharedStorageEntries) Call(c Client) error
 
 Call sends the request.
 
-### (StorageClearSharedStorageEntries) ProtoReq <- 0.112.3
+#### (StorageClearSharedStorageEntries) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageClearSharedStorageEntries) ProtoReq() string
@@ -36212,7 +36210,7 @@ func (m StorageClearSharedStorageEntries) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageClearTrustTokens <- 0.97.5
+### type StorageClearTrustTokens <- 0.97.5
 
 ``` go
 type StorageClearTrustTokens struct {
@@ -36223,7 +36221,7 @@ type StorageClearTrustTokens struct {
 
 StorageClearTrustTokens (experimental) Removes all Trust Tokens issued by the provided issuerOrigin. Leaves other stored data, including the issuer's Redemption Records, intact.
 
-### (StorageClearTrustTokens) Call <- 0.97.5
+#### (StorageClearTrustTokens) Call <- 0.97.5
 
 ``` go
 func (m StorageClearTrustTokens) Call(c Client) (*StorageClearTrustTokensResult, error)
@@ -36231,7 +36229,7 @@ func (m StorageClearTrustTokens) Call(c Client) (*StorageClearTrustTokensResult,
 
 Call the request.
 
-### (StorageClearTrustTokens) ProtoReq <- 0.97.5
+#### (StorageClearTrustTokens) ProtoReq <- 0.97.5
 
 ``` go
 func (m StorageClearTrustTokens) ProtoReq() string
@@ -36239,7 +36237,7 @@ func (m StorageClearTrustTokens) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageClearTrustTokensResult <- 0.97.5
+### type StorageClearTrustTokensResult <- 0.97.5
 
 ``` go
 type StorageClearTrustTokensResult struct {
@@ -36250,7 +36248,7 @@ type StorageClearTrustTokensResult struct {
 
 StorageClearTrustTokensResult (experimental) ...
 
-## type StorageDeleteSharedStorageEntry <- 0.112.3
+### type StorageDeleteSharedStorageEntry <- 0.112.3
 
 ``` go
 type StorageDeleteSharedStorageEntry struct {
@@ -36264,7 +36262,7 @@ type StorageDeleteSharedStorageEntry struct {
 
 StorageDeleteSharedStorageEntry (experimental) Deletes entry for `key` (if it exists) for a given origin's shared storage.
 
-### (StorageDeleteSharedStorageEntry) Call <- 0.112.3
+#### (StorageDeleteSharedStorageEntry) Call <- 0.112.3
 
 ``` go
 func (m StorageDeleteSharedStorageEntry) Call(c Client) error
@@ -36272,7 +36270,7 @@ func (m StorageDeleteSharedStorageEntry) Call(c Client) error
 
 Call sends the request.
 
-### (StorageDeleteSharedStorageEntry) ProtoReq <- 0.112.3
+#### (StorageDeleteSharedStorageEntry) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageDeleteSharedStorageEntry) ProtoReq() string
@@ -36280,7 +36278,7 @@ func (m StorageDeleteSharedStorageEntry) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageDeleteStorageBucket <- 0.112.9
+### type StorageDeleteStorageBucket <- 0.112.9
 
 ``` go
 type StorageDeleteStorageBucket struct {
@@ -36291,7 +36289,7 @@ type StorageDeleteStorageBucket struct {
 
 StorageDeleteStorageBucket (experimental) Deletes the Storage Bucket with the given storage key and bucket name.
 
-### (StorageDeleteStorageBucket) Call <- 0.112.9
+#### (StorageDeleteStorageBucket) Call <- 0.112.9
 
 ``` go
 func (m StorageDeleteStorageBucket) Call(c Client) error
@@ -36299,7 +36297,7 @@ func (m StorageDeleteStorageBucket) Call(c Client) error
 
 Call sends the request.
 
-### (StorageDeleteStorageBucket) ProtoReq <- 0.112.9
+#### (StorageDeleteStorageBucket) ProtoReq <- 0.112.9
 
 ``` go
 func (m StorageDeleteStorageBucket) ProtoReq() string
@@ -36307,7 +36305,7 @@ func (m StorageDeleteStorageBucket) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetCookies 
+### type StorageGetCookies 
 
 ``` go
 type StorageGetCookies struct {
@@ -36318,7 +36316,7 @@ type StorageGetCookies struct {
 
 StorageGetCookies Returns all browser cookies.
 
-### (StorageGetCookies) Call 
+#### (StorageGetCookies) Call 
 
 ``` go
 func (m StorageGetCookies) Call(c Client) (*StorageGetCookiesResult, error)
@@ -36326,7 +36324,7 @@ func (m StorageGetCookies) Call(c Client) (*StorageGetCookiesResult, error)
 
 Call the request.
 
-### (StorageGetCookies) ProtoReq <- 0.74.0
+#### (StorageGetCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageGetCookies) ProtoReq() string
@@ -36334,7 +36332,7 @@ func (m StorageGetCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetCookiesResult 
+### type StorageGetCookiesResult 
 
 ``` go
 type StorageGetCookiesResult struct {
@@ -36345,7 +36343,7 @@ type StorageGetCookiesResult struct {
 
 StorageGetCookiesResult ...
 
-## type StorageGetInterestGroupDetails <- 0.102.0
+### type StorageGetInterestGroupDetails <- 0.102.0
 
 ``` go
 type StorageGetInterestGroupDetails struct {
@@ -36359,7 +36357,7 @@ type StorageGetInterestGroupDetails struct {
 
 StorageGetInterestGroupDetails (experimental) Gets details for a named interest group.
 
-### (StorageGetInterestGroupDetails) Call <- 0.102.0
+#### (StorageGetInterestGroupDetails) Call <- 0.102.0
 
 ``` go
 func (m StorageGetInterestGroupDetails) Call(c Client) (*StorageGetInterestGroupDetailsResult, error)
@@ -36367,7 +36365,7 @@ func (m StorageGetInterestGroupDetails) Call(c Client) (*StorageGetInterestGroup
 
 Call the request.
 
-### (StorageGetInterestGroupDetails) ProtoReq <- 0.102.0
+#### (StorageGetInterestGroupDetails) ProtoReq <- 0.102.0
 
 ``` go
 func (m StorageGetInterestGroupDetails) ProtoReq() string
@@ -36375,7 +36373,7 @@ func (m StorageGetInterestGroupDetails) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetInterestGroupDetailsResult <- 0.102.0
+### type StorageGetInterestGroupDetailsResult <- 0.102.0
 
 ``` go
 type StorageGetInterestGroupDetailsResult struct {
@@ -36389,7 +36387,7 @@ type StorageGetInterestGroupDetailsResult struct {
 
 StorageGetInterestGroupDetailsResult (experimental) ...
 
-## type StorageGetRelatedWebsiteSets <- 0.115.0
+### type StorageGetRelatedWebsiteSets <- 0.115.0
 
 ``` go
 type StorageGetRelatedWebsiteSets struct{}
@@ -36397,7 +36395,7 @@ type StorageGetRelatedWebsiteSets struct{}
 
 StorageGetRelatedWebsiteSets (experimental) Returns the effective Related Website Sets in use by this profile for the browser session. The effective Related Website Sets will not change during a browser session.
 
-### (StorageGetRelatedWebsiteSets) Call <- 0.115.0
+#### (StorageGetRelatedWebsiteSets) Call <- 0.115.0
 
 ``` go
 func (m StorageGetRelatedWebsiteSets) Call(c Client) (*StorageGetRelatedWebsiteSetsResult, error)
@@ -36405,7 +36403,7 @@ func (m StorageGetRelatedWebsiteSets) Call(c Client) (*StorageGetRelatedWebsiteS
 
 Call the request.
 
-### (StorageGetRelatedWebsiteSets) ProtoReq <- 0.115.0
+#### (StorageGetRelatedWebsiteSets) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageGetRelatedWebsiteSets) ProtoReq() string
@@ -36413,7 +36411,7 @@ func (m StorageGetRelatedWebsiteSets) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetRelatedWebsiteSetsResult <- 0.115.0
+### type StorageGetRelatedWebsiteSetsResult <- 0.115.0
 
 ``` go
 type StorageGetRelatedWebsiteSetsResult struct {
@@ -36424,7 +36422,7 @@ type StorageGetRelatedWebsiteSetsResult struct {
 
 StorageGetRelatedWebsiteSetsResult (experimental) ...
 
-## type StorageGetSharedStorageEntries <- 0.112.1
+### type StorageGetSharedStorageEntries <- 0.112.1
 
 ``` go
 type StorageGetSharedStorageEntries struct {
@@ -36435,7 +36433,7 @@ type StorageGetSharedStorageEntries struct {
 
 StorageGetSharedStorageEntries (experimental) Gets the entries in an given origin's shared storage.
 
-### (StorageGetSharedStorageEntries) Call <- 0.112.1
+#### (StorageGetSharedStorageEntries) Call <- 0.112.1
 
 ``` go
 func (m StorageGetSharedStorageEntries) Call(c Client) (*StorageGetSharedStorageEntriesResult, error)
@@ -36443,7 +36441,7 @@ func (m StorageGetSharedStorageEntries) Call(c Client) (*StorageGetSharedStorage
 
 Call the request.
 
-### (StorageGetSharedStorageEntries) ProtoReq <- 0.112.1
+#### (StorageGetSharedStorageEntries) ProtoReq <- 0.112.1
 
 ``` go
 func (m StorageGetSharedStorageEntries) ProtoReq() string
@@ -36451,7 +36449,7 @@ func (m StorageGetSharedStorageEntries) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetSharedStorageEntriesResult <- 0.112.1
+### type StorageGetSharedStorageEntriesResult <- 0.112.1
 
 ``` go
 type StorageGetSharedStorageEntriesResult struct {
@@ -36462,7 +36460,7 @@ type StorageGetSharedStorageEntriesResult struct {
 
 StorageGetSharedStorageEntriesResult (experimental) ...
 
-## type StorageGetSharedStorageMetadata <- 0.112.1
+### type StorageGetSharedStorageMetadata <- 0.112.1
 
 ``` go
 type StorageGetSharedStorageMetadata struct {
@@ -36473,7 +36471,7 @@ type StorageGetSharedStorageMetadata struct {
 
 StorageGetSharedStorageMetadata (experimental) Gets metadata for an origin's shared storage.
 
-### (StorageGetSharedStorageMetadata) Call <- 0.112.1
+#### (StorageGetSharedStorageMetadata) Call <- 0.112.1
 
 ``` go
 func (m StorageGetSharedStorageMetadata) Call(c Client) (*StorageGetSharedStorageMetadataResult, error)
@@ -36481,7 +36479,7 @@ func (m StorageGetSharedStorageMetadata) Call(c Client) (*StorageGetSharedStorag
 
 Call the request.
 
-### (StorageGetSharedStorageMetadata) ProtoReq <- 0.112.1
+#### (StorageGetSharedStorageMetadata) ProtoReq <- 0.112.1
 
 ``` go
 func (m StorageGetSharedStorageMetadata) ProtoReq() string
@@ -36489,7 +36487,7 @@ func (m StorageGetSharedStorageMetadata) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetSharedStorageMetadataResult <- 0.112.1
+### type StorageGetSharedStorageMetadataResult <- 0.112.1
 
 ``` go
 type StorageGetSharedStorageMetadataResult struct {
@@ -36500,7 +36498,7 @@ type StorageGetSharedStorageMetadataResult struct {
 
 StorageGetSharedStorageMetadataResult (experimental) ...
 
-## type StorageGetStorageKeyForFrame <- 0.107.0
+### type StorageGetStorageKeyForFrame <- 0.107.0
 
 ``` go
 type StorageGetStorageKeyForFrame struct {
@@ -36511,7 +36509,7 @@ type StorageGetStorageKeyForFrame struct {
 
 StorageGetStorageKeyForFrame Returns a storage key given a frame id.
 
-### (StorageGetStorageKeyForFrame) Call <- 0.107.0
+#### (StorageGetStorageKeyForFrame) Call <- 0.107.0
 
 ``` go
 func (m StorageGetStorageKeyForFrame) Call(c Client) (*StorageGetStorageKeyForFrameResult, error)
@@ -36519,7 +36517,7 @@ func (m StorageGetStorageKeyForFrame) Call(c Client) (*StorageGetStorageKeyForFr
 
 Call the request.
 
-### (StorageGetStorageKeyForFrame) ProtoReq <- 0.107.0
+#### (StorageGetStorageKeyForFrame) ProtoReq <- 0.107.0
 
 ``` go
 func (m StorageGetStorageKeyForFrame) ProtoReq() string
@@ -36527,7 +36525,7 @@ func (m StorageGetStorageKeyForFrame) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetStorageKeyForFrameResult <- 0.107.0
+### type StorageGetStorageKeyForFrameResult <- 0.107.0
 
 ``` go
 type StorageGetStorageKeyForFrameResult struct {
@@ -36538,7 +36536,7 @@ type StorageGetStorageKeyForFrameResult struct {
 
 StorageGetStorageKeyForFrameResult ...
 
-## type StorageGetTrustTokens <- 0.90.0
+### type StorageGetTrustTokens <- 0.90.0
 
 ``` go
 type StorageGetTrustTokens struct{}
@@ -36546,7 +36544,7 @@ type StorageGetTrustTokens struct{}
 
 StorageGetTrustTokens (experimental) Returns the number of stored Trust Tokens per issuer for the current browsing context.
 
-### (StorageGetTrustTokens) Call <- 0.90.0
+#### (StorageGetTrustTokens) Call <- 0.90.0
 
 ``` go
 func (m StorageGetTrustTokens) Call(c Client) (*StorageGetTrustTokensResult, error)
@@ -36554,7 +36552,7 @@ func (m StorageGetTrustTokens) Call(c Client) (*StorageGetTrustTokensResult, err
 
 Call the request.
 
-### (StorageGetTrustTokens) ProtoReq <- 0.90.0
+#### (StorageGetTrustTokens) ProtoReq <- 0.90.0
 
 ``` go
 func (m StorageGetTrustTokens) ProtoReq() string
@@ -36562,7 +36560,7 @@ func (m StorageGetTrustTokens) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetTrustTokensResult <- 0.90.0
+### type StorageGetTrustTokensResult <- 0.90.0
 
 ``` go
 type StorageGetTrustTokensResult struct {
@@ -36573,7 +36571,7 @@ type StorageGetTrustTokensResult struct {
 
 StorageGetTrustTokensResult (experimental) ...
 
-## type StorageGetUsageAndQuota 
+### type StorageGetUsageAndQuota 
 
 ``` go
 type StorageGetUsageAndQuota struct {
@@ -36584,7 +36582,7 @@ type StorageGetUsageAndQuota struct {
 
 StorageGetUsageAndQuota Returns usage and quota in bytes.
 
-### (StorageGetUsageAndQuota) Call 
+#### (StorageGetUsageAndQuota) Call 
 
 ``` go
 func (m StorageGetUsageAndQuota) Call(c Client) (*StorageGetUsageAndQuotaResult, error)
@@ -36592,7 +36590,7 @@ func (m StorageGetUsageAndQuota) Call(c Client) (*StorageGetUsageAndQuotaResult,
 
 Call the request.
 
-### (StorageGetUsageAndQuota) ProtoReq <- 0.74.0
+#### (StorageGetUsageAndQuota) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageGetUsageAndQuota) ProtoReq() string
@@ -36600,7 +36598,7 @@ func (m StorageGetUsageAndQuota) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageGetUsageAndQuotaResult 
+### type StorageGetUsageAndQuotaResult 
 
 ``` go
 type StorageGetUsageAndQuotaResult struct {
@@ -36620,7 +36618,7 @@ type StorageGetUsageAndQuotaResult struct {
 
 StorageGetUsageAndQuotaResult ...
 
-## type StorageIndexedDBContentUpdated 
+### type StorageIndexedDBContentUpdated 
 
 ``` go
 type StorageIndexedDBContentUpdated struct {
@@ -36643,7 +36641,7 @@ type StorageIndexedDBContentUpdated struct {
 
 StorageIndexedDBContentUpdated The origin's IndexedDB object store has been modified.
 
-### (StorageIndexedDBContentUpdated) ProtoEvent <- 0.72.0
+#### (StorageIndexedDBContentUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt StorageIndexedDBContentUpdated) ProtoEvent() string
@@ -36651,7 +36649,7 @@ func (evt StorageIndexedDBContentUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageIndexedDBListUpdated 
+### type StorageIndexedDBListUpdated 
 
 ``` go
 type StorageIndexedDBListUpdated struct {
@@ -36668,7 +36666,7 @@ type StorageIndexedDBListUpdated struct {
 
 StorageIndexedDBListUpdated The origin's IndexedDB database list has been modified.
 
-### (StorageIndexedDBListUpdated) ProtoEvent <- 0.72.0
+#### (StorageIndexedDBListUpdated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt StorageIndexedDBListUpdated) ProtoEvent() string
@@ -36676,7 +36674,7 @@ func (evt StorageIndexedDBListUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageInterestGroupAccessType <- 0.102.0
+### type StorageInterestGroupAccessType <- 0.102.0
 
 ``` go
 type StorageInterestGroupAccessType string
@@ -36721,7 +36719,7 @@ const (
 )
 ```
 
-## type StorageInterestGroupAccessed <- 0.102.0
+### type StorageInterestGroupAccessed <- 0.102.0
 
 ``` go
 type StorageInterestGroupAccessed struct {
@@ -36754,7 +36752,7 @@ type StorageInterestGroupAccessed struct {
 
 StorageInterestGroupAccessed One of the interest groups was accessed. Note that these events are global to all targets sharing an interest group store.
 
-### (StorageInterestGroupAccessed) ProtoEvent <- 0.102.0
+#### (StorageInterestGroupAccessed) ProtoEvent <- 0.102.0
 
 ``` go
 func (evt StorageInterestGroupAccessed) ProtoEvent() string
@@ -36762,7 +36760,7 @@ func (evt StorageInterestGroupAccessed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageInterestGroupAuctionEventOccurred <- 0.115.0
+### type StorageInterestGroupAuctionEventOccurred <- 0.115.0
 
 ``` go
 type StorageInterestGroupAuctionEventOccurred struct {
@@ -36785,7 +36783,7 @@ type StorageInterestGroupAuctionEventOccurred struct {
 
 StorageInterestGroupAuctionEventOccurred An auction involving interest groups is taking place. These events are target-specific.
 
-### (StorageInterestGroupAuctionEventOccurred) ProtoEvent <- 0.115.0
+#### (StorageInterestGroupAuctionEventOccurred) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt StorageInterestGroupAuctionEventOccurred) ProtoEvent() string
@@ -36793,7 +36791,7 @@ func (evt StorageInterestGroupAuctionEventOccurred) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageInterestGroupAuctionEventType <- 0.115.0
+### type StorageInterestGroupAuctionEventType <- 0.115.0
 
 ``` go
 type StorageInterestGroupAuctionEventType string
@@ -36811,7 +36809,7 @@ const (
 )
 ```
 
-## type StorageInterestGroupAuctionFetchType <- 0.115.0
+### type StorageInterestGroupAuctionFetchType <- 0.115.0
 
 ``` go
 type StorageInterestGroupAuctionFetchType string
@@ -36838,7 +36836,7 @@ const (
 )
 ```
 
-## type StorageInterestGroupAuctionID <- 0.115.0
+### type StorageInterestGroupAuctionID <- 0.115.0
 
 ``` go
 type StorageInterestGroupAuctionID string
@@ -36846,7 +36844,7 @@ type StorageInterestGroupAuctionID string
 
 StorageInterestGroupAuctionID Protected audience interest group auction identifier.
 
-## type StorageInterestGroupAuctionNetworkRequestCreated <- 0.115.0
+### type StorageInterestGroupAuctionNetworkRequestCreated <- 0.115.0
 
 ``` go
 type StorageInterestGroupAuctionNetworkRequestCreated struct {
@@ -36865,7 +36863,7 @@ type StorageInterestGroupAuctionNetworkRequestCreated struct {
 
 StorageInterestGroupAuctionNetworkRequestCreated Specifies which auctions a particular network fetch may be related to, and in what role. Note that it is not ordered with respect to Network.requestWillBeSent (but will happen before loadingFinished loadingFailed).
 
-### (StorageInterestGroupAuctionNetworkRequestCreated) ProtoEvent <- 0.115.0
+#### (StorageInterestGroupAuctionNetworkRequestCreated) ProtoEvent <- 0.115.0
 
 ``` go
 func (evt StorageInterestGroupAuctionNetworkRequestCreated) ProtoEvent() string
@@ -36873,7 +36871,7 @@ func (evt StorageInterestGroupAuctionNetworkRequestCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageOverrideQuotaForOrigin <- 0.85.9
+### type StorageOverrideQuotaForOrigin <- 0.85.9
 
 ``` go
 type StorageOverrideQuotaForOrigin struct {
@@ -36893,7 +36891,7 @@ type StorageOverrideQuotaForOrigin struct {
 
 StorageOverrideQuotaForOrigin (experimental) Override quota for the specified origin.
 
-### (StorageOverrideQuotaForOrigin) Call <- 0.85.9
+#### (StorageOverrideQuotaForOrigin) Call <- 0.85.9
 
 ``` go
 func (m StorageOverrideQuotaForOrigin) Call(c Client) error
@@ -36901,7 +36899,7 @@ func (m StorageOverrideQuotaForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageOverrideQuotaForOrigin) ProtoReq <- 0.85.9
+#### (StorageOverrideQuotaForOrigin) ProtoReq <- 0.85.9
 
 ``` go
 func (m StorageOverrideQuotaForOrigin) ProtoReq() string
@@ -36909,7 +36907,7 @@ func (m StorageOverrideQuotaForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageRelatedWebsiteSet <- 0.115.0
+### type StorageRelatedWebsiteSet <- 0.115.0
 
 ``` go
 type StorageRelatedWebsiteSet struct {
@@ -36926,7 +36924,7 @@ type StorageRelatedWebsiteSet struct {
 
 StorageRelatedWebsiteSet (experimental) A single Related Website Set object.
 
-## type StorageResetSharedStorageBudget <- 0.112.3
+### type StorageResetSharedStorageBudget <- 0.112.3
 
 ``` go
 type StorageResetSharedStorageBudget struct {
@@ -36937,7 +36935,7 @@ type StorageResetSharedStorageBudget struct {
 
 StorageResetSharedStorageBudget (experimental) Resets the budget for `ownerOrigin` by clearing all budget withdrawals.
 
-### (StorageResetSharedStorageBudget) Call <- 0.112.3
+#### (StorageResetSharedStorageBudget) Call <- 0.112.3
 
 ``` go
 func (m StorageResetSharedStorageBudget) Call(c Client) error
@@ -36945,7 +36943,7 @@ func (m StorageResetSharedStorageBudget) Call(c Client) error
 
 Call sends the request.
 
-### (StorageResetSharedStorageBudget) ProtoReq <- 0.112.3
+#### (StorageResetSharedStorageBudget) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageResetSharedStorageBudget) ProtoReq() string
@@ -36953,7 +36951,7 @@ func (m StorageResetSharedStorageBudget) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageRunBounceTrackingMitigations <- 0.115.0
+### type StorageRunBounceTrackingMitigations <- 0.115.0
 
 ``` go
 type StorageRunBounceTrackingMitigations struct{}
@@ -36961,7 +36959,7 @@ type StorageRunBounceTrackingMitigations struct{}
 
 StorageRunBounceTrackingMitigations (experimental) Deletes state for sites identified as potential bounce trackers, immediately.
 
-### (StorageRunBounceTrackingMitigations) Call <- 0.115.0
+#### (StorageRunBounceTrackingMitigations) Call <- 0.115.0
 
 ``` go
 func (m StorageRunBounceTrackingMitigations) Call(c Client) (*StorageRunBounceTrackingMitigationsResult, error)
@@ -36969,7 +36967,7 @@ func (m StorageRunBounceTrackingMitigations) Call(c Client) (*StorageRunBounceTr
 
 Call the request.
 
-### (StorageRunBounceTrackingMitigations) ProtoReq <- 0.115.0
+#### (StorageRunBounceTrackingMitigations) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageRunBounceTrackingMitigations) ProtoReq() string
@@ -36977,7 +36975,7 @@ func (m StorageRunBounceTrackingMitigations) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageRunBounceTrackingMitigationsResult <- 0.115.0
+### type StorageRunBounceTrackingMitigationsResult <- 0.115.0
 
 ``` go
 type StorageRunBounceTrackingMitigationsResult struct {
@@ -36988,7 +36986,7 @@ type StorageRunBounceTrackingMitigationsResult struct {
 
 StorageRunBounceTrackingMitigationsResult (experimental) ...
 
-## type StorageSendPendingAttributionReports <- 0.115.0
+### type StorageSendPendingAttributionReports <- 0.115.0
 
 ``` go
 type StorageSendPendingAttributionReports struct{}
@@ -36996,7 +36994,7 @@ type StorageSendPendingAttributionReports struct{}
 
 StorageSendPendingAttributionReports (experimental) Sends all pending Attribution Reports immediately, regardless of their scheduled report time.
 
-### (StorageSendPendingAttributionReports) Call <- 0.115.0
+#### (StorageSendPendingAttributionReports) Call <- 0.115.0
 
 ``` go
 func (m StorageSendPendingAttributionReports) Call(c Client) (*StorageSendPendingAttributionReportsResult, error)
@@ -37004,7 +37002,7 @@ func (m StorageSendPendingAttributionReports) Call(c Client) (*StorageSendPendin
 
 Call the request.
 
-### (StorageSendPendingAttributionReports) ProtoReq <- 0.115.0
+#### (StorageSendPendingAttributionReports) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageSendPendingAttributionReports) ProtoReq() string
@@ -37012,7 +37010,7 @@ func (m StorageSendPendingAttributionReports) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSendPendingAttributionReportsResult <- 0.115.0
+### type StorageSendPendingAttributionReportsResult <- 0.115.0
 
 ``` go
 type StorageSendPendingAttributionReportsResult struct {
@@ -37023,7 +37021,7 @@ type StorageSendPendingAttributionReportsResult struct {
 
 StorageSendPendingAttributionReportsResult (experimental) ...
 
-## type StorageSerializedStorageKey <- 0.106.7
+### type StorageSerializedStorageKey <- 0.106.7
 
 ``` go
 type StorageSerializedStorageKey string
@@ -37031,7 +37029,7 @@ type StorageSerializedStorageKey string
 
 StorageSerializedStorageKey ...
 
-## type StorageSetAttributionReportingLocalTestingMode <- 0.115.0
+### type StorageSetAttributionReportingLocalTestingMode <- 0.115.0
 
 ``` go
 type StorageSetAttributionReportingLocalTestingMode struct {
@@ -37042,7 +37040,7 @@ type StorageSetAttributionReportingLocalTestingMode struct {
 
 StorageSetAttributionReportingLocalTestingMode (experimental) https://wicg.github.io/attribution-reporting-api/
 
-### (StorageSetAttributionReportingLocalTestingMode) Call <- 0.115.0
+#### (StorageSetAttributionReportingLocalTestingMode) Call <- 0.115.0
 
 ``` go
 func (m StorageSetAttributionReportingLocalTestingMode) Call(c Client) error
@@ -37050,7 +37048,7 @@ func (m StorageSetAttributionReportingLocalTestingMode) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetAttributionReportingLocalTestingMode) ProtoReq <- 0.115.0
+#### (StorageSetAttributionReportingLocalTestingMode) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageSetAttributionReportingLocalTestingMode) ProtoReq() string
@@ -37058,7 +37056,7 @@ func (m StorageSetAttributionReportingLocalTestingMode) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetAttributionReportingTracking <- 0.115.0
+### type StorageSetAttributionReportingTracking <- 0.115.0
 
 ``` go
 type StorageSetAttributionReportingTracking struct {
@@ -37069,7 +37067,7 @@ type StorageSetAttributionReportingTracking struct {
 
 StorageSetAttributionReportingTracking (experimental) Enables/disables issuing of Attribution Reporting events.
 
-### (StorageSetAttributionReportingTracking) Call <- 0.115.0
+#### (StorageSetAttributionReportingTracking) Call <- 0.115.0
 
 ``` go
 func (m StorageSetAttributionReportingTracking) Call(c Client) error
@@ -37077,7 +37075,7 @@ func (m StorageSetAttributionReportingTracking) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetAttributionReportingTracking) ProtoReq <- 0.115.0
+#### (StorageSetAttributionReportingTracking) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageSetAttributionReportingTracking) ProtoReq() string
@@ -37085,7 +37083,7 @@ func (m StorageSetAttributionReportingTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetCookies 
+### type StorageSetCookies 
 
 ``` go
 type StorageSetCookies struct {
@@ -37099,7 +37097,7 @@ type StorageSetCookies struct {
 
 StorageSetCookies Sets given cookies.
 
-### (StorageSetCookies) Call 
+#### (StorageSetCookies) Call 
 
 ``` go
 func (m StorageSetCookies) Call(c Client) error
@@ -37107,7 +37105,7 @@ func (m StorageSetCookies) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetCookies) ProtoReq <- 0.74.0
+#### (StorageSetCookies) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageSetCookies) ProtoReq() string
@@ -37115,7 +37113,7 @@ func (m StorageSetCookies) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetInterestGroupAuctionTracking <- 0.115.0
+### type StorageSetInterestGroupAuctionTracking <- 0.115.0
 
 ``` go
 type StorageSetInterestGroupAuctionTracking struct {
@@ -37126,7 +37124,7 @@ type StorageSetInterestGroupAuctionTracking struct {
 
 StorageSetInterestGroupAuctionTracking (experimental) Enables/Disables issuing of interestGroupAuctionEventOccurred and interestGroupAuctionNetworkRequestCreated.
 
-### (StorageSetInterestGroupAuctionTracking) Call <- 0.115.0
+#### (StorageSetInterestGroupAuctionTracking) Call <- 0.115.0
 
 ``` go
 func (m StorageSetInterestGroupAuctionTracking) Call(c Client) error
@@ -37134,7 +37132,7 @@ func (m StorageSetInterestGroupAuctionTracking) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetInterestGroupAuctionTracking) ProtoReq <- 0.115.0
+#### (StorageSetInterestGroupAuctionTracking) ProtoReq <- 0.115.0
 
 ``` go
 func (m StorageSetInterestGroupAuctionTracking) ProtoReq() string
@@ -37142,7 +37140,7 @@ func (m StorageSetInterestGroupAuctionTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetInterestGroupTracking <- 0.102.0
+### type StorageSetInterestGroupTracking <- 0.102.0
 
 ``` go
 type StorageSetInterestGroupTracking struct {
@@ -37153,7 +37151,7 @@ type StorageSetInterestGroupTracking struct {
 
 StorageSetInterestGroupTracking (experimental) Enables/Disables issuing of interestGroupAccessed events.
 
-### (StorageSetInterestGroupTracking) Call <- 0.102.0
+#### (StorageSetInterestGroupTracking) Call <- 0.102.0
 
 ``` go
 func (m StorageSetInterestGroupTracking) Call(c Client) error
@@ -37161,7 +37159,7 @@ func (m StorageSetInterestGroupTracking) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetInterestGroupTracking) ProtoReq <- 0.102.0
+#### (StorageSetInterestGroupTracking) ProtoReq <- 0.102.0
 
 ``` go
 func (m StorageSetInterestGroupTracking) ProtoReq() string
@@ -37169,7 +37167,7 @@ func (m StorageSetInterestGroupTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetSharedStorageEntry <- 0.112.3
+### type StorageSetSharedStorageEntry <- 0.112.3
 
 ``` go
 type StorageSetSharedStorageEntry struct {
@@ -37190,7 +37188,7 @@ type StorageSetSharedStorageEntry struct {
 
 StorageSetSharedStorageEntry (experimental) Sets entry with `key` and `value` for a given origin's shared storage.
 
-### (StorageSetSharedStorageEntry) Call <- 0.112.3
+#### (StorageSetSharedStorageEntry) Call <- 0.112.3
 
 ``` go
 func (m StorageSetSharedStorageEntry) Call(c Client) error
@@ -37198,7 +37196,7 @@ func (m StorageSetSharedStorageEntry) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetSharedStorageEntry) ProtoReq <- 0.112.3
+#### (StorageSetSharedStorageEntry) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageSetSharedStorageEntry) ProtoReq() string
@@ -37206,7 +37204,7 @@ func (m StorageSetSharedStorageEntry) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetSharedStorageTracking <- 0.112.1
+### type StorageSetSharedStorageTracking <- 0.112.1
 
 ``` go
 type StorageSetSharedStorageTracking struct {
@@ -37217,7 +37215,7 @@ type StorageSetSharedStorageTracking struct {
 
 StorageSetSharedStorageTracking (experimental) Enables/disables issuing of sharedStorageAccessed events.
 
-### (StorageSetSharedStorageTracking) Call <- 0.112.1
+#### (StorageSetSharedStorageTracking) Call <- 0.112.1
 
 ``` go
 func (m StorageSetSharedStorageTracking) Call(c Client) error
@@ -37225,7 +37223,7 @@ func (m StorageSetSharedStorageTracking) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetSharedStorageTracking) ProtoReq <- 0.112.1
+#### (StorageSetSharedStorageTracking) ProtoReq <- 0.112.1
 
 ``` go
 func (m StorageSetSharedStorageTracking) ProtoReq() string
@@ -37233,7 +37231,7 @@ func (m StorageSetSharedStorageTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSetStorageBucketTracking <- 0.112.9
+### type StorageSetStorageBucketTracking <- 0.112.9
 
 ``` go
 type StorageSetStorageBucketTracking struct {
@@ -37247,7 +37245,7 @@ type StorageSetStorageBucketTracking struct {
 
 StorageSetStorageBucketTracking (experimental) Set tracking for a storage key's buckets.
 
-### (StorageSetStorageBucketTracking) Call <- 0.112.9
+#### (StorageSetStorageBucketTracking) Call <- 0.112.9
 
 ``` go
 func (m StorageSetStorageBucketTracking) Call(c Client) error
@@ -37255,7 +37253,7 @@ func (m StorageSetStorageBucketTracking) Call(c Client) error
 
 Call sends the request.
 
-### (StorageSetStorageBucketTracking) ProtoReq <- 0.112.9
+#### (StorageSetStorageBucketTracking) ProtoReq <- 0.112.9
 
 ``` go
 func (m StorageSetStorageBucketTracking) ProtoReq() string
@@ -37263,7 +37261,7 @@ func (m StorageSetStorageBucketTracking) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageSharedStorageAccessParams <- 0.112.1
+### type StorageSharedStorageAccessParams <- 0.112.1
 
 ``` go
 type StorageSharedStorageAccessParams struct {
@@ -37317,7 +37315,7 @@ type StorageSharedStorageAccessParams struct {
 
 StorageSharedStorageAccessParams Bundles the parameters for shared storage access events whose presence/absence can vary according to SharedStorageAccessType.
 
-## type StorageSharedStorageAccessType <- 0.112.1
+### type StorageSharedStorageAccessType <- 0.112.1
 
 ``` go
 type StorageSharedStorageAccessType string
@@ -37392,7 +37390,7 @@ const (
 )
 ```
 
-## type StorageSharedStorageAccessed <- 0.112.1
+### type StorageSharedStorageAccessed <- 0.112.1
 
 ``` go
 type StorageSharedStorageAccessed struct {
@@ -37416,7 +37414,7 @@ type StorageSharedStorageAccessed struct {
 
 StorageSharedStorageAccessed Shared storage was accessed by the associated page. The following parameters are included in all events.
 
-### (StorageSharedStorageAccessed) ProtoEvent <- 0.112.1
+#### (StorageSharedStorageAccessed) ProtoEvent <- 0.112.1
 
 ``` go
 func (evt StorageSharedStorageAccessed) ProtoEvent() string
@@ -37424,7 +37422,7 @@ func (evt StorageSharedStorageAccessed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageSharedStorageEntry <- 0.112.1
+### type StorageSharedStorageEntry <- 0.112.1
 
 ``` go
 type StorageSharedStorageEntry struct {
@@ -37438,7 +37436,7 @@ type StorageSharedStorageEntry struct {
 
 StorageSharedStorageEntry Struct for a single key-value pair in an origin's shared storage.
 
-## type StorageSharedStorageMetadata <- 0.112.1
+### type StorageSharedStorageMetadata <- 0.112.1
 
 ``` go
 type StorageSharedStorageMetadata struct {
@@ -37459,7 +37457,7 @@ type StorageSharedStorageMetadata struct {
 
 StorageSharedStorageMetadata Details for an origin's shared storage.
 
-## type StorageSharedStorageReportingMetadata <- 0.112.1
+### type StorageSharedStorageReportingMetadata <- 0.112.1
 
 ``` go
 type StorageSharedStorageReportingMetadata struct {
@@ -37473,7 +37471,7 @@ type StorageSharedStorageReportingMetadata struct {
 
 StorageSharedStorageReportingMetadata Pair of reporting metadata details for a candidate URL for `selectURL()`.
 
-## type StorageSharedStorageURLWithMetadata <- 0.112.1
+### type StorageSharedStorageURLWithMetadata <- 0.112.1
 
 ``` go
 type StorageSharedStorageURLWithMetadata struct {
@@ -37487,7 +37485,7 @@ type StorageSharedStorageURLWithMetadata struct {
 
 StorageSharedStorageURLWithMetadata Bundles a candidate URL with its reporting metadata.
 
-## type StorageSignedInt64AsBase10 <- 0.115.0
+### type StorageSignedInt64AsBase10 <- 0.115.0
 
 ``` go
 type StorageSignedInt64AsBase10 string
@@ -37495,7 +37493,7 @@ type StorageSignedInt64AsBase10 string
 
 StorageSignedInt64AsBase10 (experimental) ...
 
-## type StorageStorageBucket <- 0.115.0
+### type StorageStorageBucket <- 0.115.0
 
 ``` go
 type StorageStorageBucket struct {
@@ -37509,7 +37507,7 @@ type StorageStorageBucket struct {
 
 StorageStorageBucket ...
 
-## type StorageStorageBucketCreatedOrUpdated <- 0.112.9
+### type StorageStorageBucketCreatedOrUpdated <- 0.112.9
 
 ``` go
 type StorageStorageBucketCreatedOrUpdated struct {
@@ -37520,7 +37518,7 @@ type StorageStorageBucketCreatedOrUpdated struct {
 
 StorageStorageBucketCreatedOrUpdated ...
 
-### (StorageStorageBucketCreatedOrUpdated) ProtoEvent <- 0.112.9
+#### (StorageStorageBucketCreatedOrUpdated) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt StorageStorageBucketCreatedOrUpdated) ProtoEvent() string
@@ -37528,7 +37526,7 @@ func (evt StorageStorageBucketCreatedOrUpdated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageStorageBucketDeleted <- 0.112.9
+### type StorageStorageBucketDeleted <- 0.112.9
 
 ``` go
 type StorageStorageBucketDeleted struct {
@@ -37539,7 +37537,7 @@ type StorageStorageBucketDeleted struct {
 
 StorageStorageBucketDeleted ...
 
-### (StorageStorageBucketDeleted) ProtoEvent <- 0.112.9
+#### (StorageStorageBucketDeleted) ProtoEvent <- 0.112.9
 
 ``` go
 func (evt StorageStorageBucketDeleted) ProtoEvent() string
@@ -37547,7 +37545,7 @@ func (evt StorageStorageBucketDeleted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type StorageStorageBucketInfo <- 0.112.9
+### type StorageStorageBucketInfo <- 0.112.9
 
 ``` go
 type StorageStorageBucketInfo struct {
@@ -37573,7 +37571,7 @@ type StorageStorageBucketInfo struct {
 
 StorageStorageBucketInfo ...
 
-## type StorageStorageBucketsDurability <- 0.112.9
+### type StorageStorageBucketsDurability <- 0.112.9
 
 ``` go
 type StorageStorageBucketsDurability string
@@ -37591,7 +37589,7 @@ const (
 )
 ```
 
-## type StorageStorageType 
+### type StorageStorageType 
 
 ``` go
 type StorageStorageType string
@@ -37645,7 +37643,7 @@ const (
 )
 ```
 
-## type StorageTrackCacheStorageForOrigin 
+### type StorageTrackCacheStorageForOrigin 
 
 ``` go
 type StorageTrackCacheStorageForOrigin struct {
@@ -37656,7 +37654,7 @@ type StorageTrackCacheStorageForOrigin struct {
 
 StorageTrackCacheStorageForOrigin Registers origin to be notified when an update occurs to its cache storage list.
 
-### (StorageTrackCacheStorageForOrigin) Call 
+#### (StorageTrackCacheStorageForOrigin) Call 
 
 ``` go
 func (m StorageTrackCacheStorageForOrigin) Call(c Client) error
@@ -37664,7 +37662,7 @@ func (m StorageTrackCacheStorageForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageTrackCacheStorageForOrigin) ProtoReq <- 0.74.0
+#### (StorageTrackCacheStorageForOrigin) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageTrackCacheStorageForOrigin) ProtoReq() string
@@ -37672,7 +37670,7 @@ func (m StorageTrackCacheStorageForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageTrackCacheStorageForStorageKey <- 0.112.3
+### type StorageTrackCacheStorageForStorageKey <- 0.112.3
 
 ``` go
 type StorageTrackCacheStorageForStorageKey struct {
@@ -37683,7 +37681,7 @@ type StorageTrackCacheStorageForStorageKey struct {
 
 StorageTrackCacheStorageForStorageKey Registers storage key to be notified when an update occurs to its cache storage list.
 
-### (StorageTrackCacheStorageForStorageKey) Call <- 0.112.3
+#### (StorageTrackCacheStorageForStorageKey) Call <- 0.112.3
 
 ``` go
 func (m StorageTrackCacheStorageForStorageKey) Call(c Client) error
@@ -37691,7 +37689,7 @@ func (m StorageTrackCacheStorageForStorageKey) Call(c Client) error
 
 Call sends the request.
 
-### (StorageTrackCacheStorageForStorageKey) ProtoReq <- 0.112.3
+#### (StorageTrackCacheStorageForStorageKey) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageTrackCacheStorageForStorageKey) ProtoReq() string
@@ -37699,7 +37697,7 @@ func (m StorageTrackCacheStorageForStorageKey) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageTrackIndexedDBForOrigin 
+### type StorageTrackIndexedDBForOrigin 
 
 ``` go
 type StorageTrackIndexedDBForOrigin struct {
@@ -37710,7 +37708,7 @@ type StorageTrackIndexedDBForOrigin struct {
 
 StorageTrackIndexedDBForOrigin Registers origin to be notified when an update occurs to its IndexedDB.
 
-### (StorageTrackIndexedDBForOrigin) Call 
+#### (StorageTrackIndexedDBForOrigin) Call 
 
 ``` go
 func (m StorageTrackIndexedDBForOrigin) Call(c Client) error
@@ -37718,7 +37716,7 @@ func (m StorageTrackIndexedDBForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageTrackIndexedDBForOrigin) ProtoReq <- 0.74.0
+#### (StorageTrackIndexedDBForOrigin) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageTrackIndexedDBForOrigin) ProtoReq() string
@@ -37726,7 +37724,7 @@ func (m StorageTrackIndexedDBForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageTrackIndexedDBForStorageKey <- 0.108.2
+### type StorageTrackIndexedDBForStorageKey <- 0.108.2
 
 ``` go
 type StorageTrackIndexedDBForStorageKey struct {
@@ -37737,7 +37735,7 @@ type StorageTrackIndexedDBForStorageKey struct {
 
 StorageTrackIndexedDBForStorageKey Registers storage key to be notified when an update occurs to its IndexedDB.
 
-### (StorageTrackIndexedDBForStorageKey) Call <- 0.108.2
+#### (StorageTrackIndexedDBForStorageKey) Call <- 0.108.2
 
 ``` go
 func (m StorageTrackIndexedDBForStorageKey) Call(c Client) error
@@ -37745,7 +37743,7 @@ func (m StorageTrackIndexedDBForStorageKey) Call(c Client) error
 
 Call sends the request.
 
-### (StorageTrackIndexedDBForStorageKey) ProtoReq <- 0.108.2
+#### (StorageTrackIndexedDBForStorageKey) ProtoReq <- 0.108.2
 
 ``` go
 func (m StorageTrackIndexedDBForStorageKey) ProtoReq() string
@@ -37753,7 +37751,7 @@ func (m StorageTrackIndexedDBForStorageKey) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageTrustTokens <- 0.90.0
+### type StorageTrustTokens <- 0.90.0
 
 ``` go
 type StorageTrustTokens struct {
@@ -37767,7 +37765,7 @@ type StorageTrustTokens struct {
 
 StorageTrustTokens (experimental) Pair of issuer origin and number of available (signed, but not used) Trust Tokens from that issuer.
 
-## type StorageUnsignedInt128AsBase16 <- 0.115.0
+### type StorageUnsignedInt128AsBase16 <- 0.115.0
 
 ``` go
 type StorageUnsignedInt128AsBase16 string
@@ -37775,7 +37773,7 @@ type StorageUnsignedInt128AsBase16 string
 
 StorageUnsignedInt128AsBase16 (experimental) ...
 
-## type StorageUnsignedInt64AsBase10 <- 0.115.0
+### type StorageUnsignedInt64AsBase10 <- 0.115.0
 
 ``` go
 type StorageUnsignedInt64AsBase10 string
@@ -37783,7 +37781,7 @@ type StorageUnsignedInt64AsBase10 string
 
 StorageUnsignedInt64AsBase10 (experimental) ...
 
-## type StorageUntrackCacheStorageForOrigin 
+### type StorageUntrackCacheStorageForOrigin 
 
 ``` go
 type StorageUntrackCacheStorageForOrigin struct {
@@ -37794,7 +37792,7 @@ type StorageUntrackCacheStorageForOrigin struct {
 
 StorageUntrackCacheStorageForOrigin Unregisters origin from receiving notifications for cache storage.
 
-### (StorageUntrackCacheStorageForOrigin) Call 
+#### (StorageUntrackCacheStorageForOrigin) Call 
 
 ``` go
 func (m StorageUntrackCacheStorageForOrigin) Call(c Client) error
@@ -37802,7 +37800,7 @@ func (m StorageUntrackCacheStorageForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageUntrackCacheStorageForOrigin) ProtoReq <- 0.74.0
+#### (StorageUntrackCacheStorageForOrigin) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageUntrackCacheStorageForOrigin) ProtoReq() string
@@ -37810,7 +37808,7 @@ func (m StorageUntrackCacheStorageForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageUntrackCacheStorageForStorageKey <- 0.112.3
+### type StorageUntrackCacheStorageForStorageKey <- 0.112.3
 
 ``` go
 type StorageUntrackCacheStorageForStorageKey struct {
@@ -37821,7 +37819,7 @@ type StorageUntrackCacheStorageForStorageKey struct {
 
 StorageUntrackCacheStorageForStorageKey Unregisters storage key from receiving notifications for cache storage.
 
-### (StorageUntrackCacheStorageForStorageKey) Call <- 0.112.3
+#### (StorageUntrackCacheStorageForStorageKey) Call <- 0.112.3
 
 ``` go
 func (m StorageUntrackCacheStorageForStorageKey) Call(c Client) error
@@ -37829,7 +37827,7 @@ func (m StorageUntrackCacheStorageForStorageKey) Call(c Client) error
 
 Call sends the request.
 
-### (StorageUntrackCacheStorageForStorageKey) ProtoReq <- 0.112.3
+#### (StorageUntrackCacheStorageForStorageKey) ProtoReq <- 0.112.3
 
 ``` go
 func (m StorageUntrackCacheStorageForStorageKey) ProtoReq() string
@@ -37837,7 +37835,7 @@ func (m StorageUntrackCacheStorageForStorageKey) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageUntrackIndexedDBForOrigin 
+### type StorageUntrackIndexedDBForOrigin 
 
 ``` go
 type StorageUntrackIndexedDBForOrigin struct {
@@ -37848,7 +37846,7 @@ type StorageUntrackIndexedDBForOrigin struct {
 
 StorageUntrackIndexedDBForOrigin Unregisters origin from receiving notifications for IndexedDB.
 
-### (StorageUntrackIndexedDBForOrigin) Call 
+#### (StorageUntrackIndexedDBForOrigin) Call 
 
 ``` go
 func (m StorageUntrackIndexedDBForOrigin) Call(c Client) error
@@ -37856,7 +37854,7 @@ func (m StorageUntrackIndexedDBForOrigin) Call(c Client) error
 
 Call sends the request.
 
-### (StorageUntrackIndexedDBForOrigin) ProtoReq <- 0.74.0
+#### (StorageUntrackIndexedDBForOrigin) ProtoReq <- 0.74.0
 
 ``` go
 func (m StorageUntrackIndexedDBForOrigin) ProtoReq() string
@@ -37864,7 +37862,7 @@ func (m StorageUntrackIndexedDBForOrigin) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageUntrackIndexedDBForStorageKey <- 0.108.2
+### type StorageUntrackIndexedDBForStorageKey <- 0.108.2
 
 ``` go
 type StorageUntrackIndexedDBForStorageKey struct {
@@ -37875,7 +37873,7 @@ type StorageUntrackIndexedDBForStorageKey struct {
 
 StorageUntrackIndexedDBForStorageKey Unregisters storage key from receiving notifications for IndexedDB.
 
-### (StorageUntrackIndexedDBForStorageKey) Call <- 0.108.2
+#### (StorageUntrackIndexedDBForStorageKey) Call <- 0.108.2
 
 ``` go
 func (m StorageUntrackIndexedDBForStorageKey) Call(c Client) error
@@ -37883,7 +37881,7 @@ func (m StorageUntrackIndexedDBForStorageKey) Call(c Client) error
 
 Call sends the request.
 
-### (StorageUntrackIndexedDBForStorageKey) ProtoReq <- 0.108.2
+#### (StorageUntrackIndexedDBForStorageKey) ProtoReq <- 0.108.2
 
 ``` go
 func (m StorageUntrackIndexedDBForStorageKey) ProtoReq() string
@@ -37891,7 +37889,7 @@ func (m StorageUntrackIndexedDBForStorageKey) ProtoReq() string
 
 ProtoReq name.
 
-## type StorageUsageForType 
+### type StorageUsageForType 
 
 ``` go
 type StorageUsageForType struct {
@@ -37905,7 +37903,7 @@ type StorageUsageForType struct {
 
 StorageUsageForType Usage for a storage type.
 
-## type SystemInfoGPUDevice 
+### type SystemInfoGPUDevice 
 
 ``` go
 type SystemInfoGPUDevice struct {
@@ -37937,7 +37935,7 @@ type SystemInfoGPUDevice struct {
 
 SystemInfoGPUDevice Describes a single graphics processor (GPU).
 
-## type SystemInfoGPUInfo 
+### type SystemInfoGPUInfo 
 
 ``` go
 type SystemInfoGPUInfo struct {
@@ -37966,7 +37964,7 @@ type SystemInfoGPUInfo struct {
 
 SystemInfoGPUInfo Provides information about the GPU(s) on the system.
 
-## type SystemInfoGetFeatureState <- 0.112.3
+### type SystemInfoGetFeatureState <- 0.112.3
 
 ``` go
 type SystemInfoGetFeatureState struct {
@@ -37977,7 +37975,7 @@ type SystemInfoGetFeatureState struct {
 
 SystemInfoGetFeatureState Returns information about the feature state.
 
-### (SystemInfoGetFeatureState) Call <- 0.112.3
+#### (SystemInfoGetFeatureState) Call <- 0.112.3
 
 ``` go
 func (m SystemInfoGetFeatureState) Call(c Client) (*SystemInfoGetFeatureStateResult, error)
@@ -37985,7 +37983,7 @@ func (m SystemInfoGetFeatureState) Call(c Client) (*SystemInfoGetFeatureStateRes
 
 Call the request.
 
-### (SystemInfoGetFeatureState) ProtoReq <- 0.112.3
+#### (SystemInfoGetFeatureState) ProtoReq <- 0.112.3
 
 ``` go
 func (m SystemInfoGetFeatureState) ProtoReq() string
@@ -37993,7 +37991,7 @@ func (m SystemInfoGetFeatureState) ProtoReq() string
 
 ProtoReq name.
 
-## type SystemInfoGetFeatureStateResult <- 0.112.3
+### type SystemInfoGetFeatureStateResult <- 0.112.3
 
 ``` go
 type SystemInfoGetFeatureStateResult struct {
@@ -38004,7 +38002,7 @@ type SystemInfoGetFeatureStateResult struct {
 
 SystemInfoGetFeatureStateResult ...
 
-## type SystemInfoGetInfo 
+### type SystemInfoGetInfo 
 
 ``` go
 type SystemInfoGetInfo struct{}
@@ -38012,7 +38010,7 @@ type SystemInfoGetInfo struct{}
 
 SystemInfoGetInfo Returns information about the system.
 
-### (SystemInfoGetInfo) Call 
+#### (SystemInfoGetInfo) Call 
 
 ``` go
 func (m SystemInfoGetInfo) Call(c Client) (*SystemInfoGetInfoResult, error)
@@ -38020,7 +38018,7 @@ func (m SystemInfoGetInfo) Call(c Client) (*SystemInfoGetInfoResult, error)
 
 Call the request.
 
-### (SystemInfoGetInfo) ProtoReq <- 0.74.0
+#### (SystemInfoGetInfo) ProtoReq <- 0.74.0
 
 ``` go
 func (m SystemInfoGetInfo) ProtoReq() string
@@ -38028,7 +38026,7 @@ func (m SystemInfoGetInfo) ProtoReq() string
 
 ProtoReq name.
 
-## type SystemInfoGetInfoResult 
+### type SystemInfoGetInfoResult 
 
 ``` go
 type SystemInfoGetInfoResult struct {
@@ -38051,7 +38049,7 @@ type SystemInfoGetInfoResult struct {
 
 SystemInfoGetInfoResult ...
 
-## type SystemInfoGetProcessInfo 
+### type SystemInfoGetProcessInfo 
 
 ``` go
 type SystemInfoGetProcessInfo struct{}
@@ -38059,7 +38057,7 @@ type SystemInfoGetProcessInfo struct{}
 
 SystemInfoGetProcessInfo Returns information about all running processes.
 
-### (SystemInfoGetProcessInfo) Call 
+#### (SystemInfoGetProcessInfo) Call 
 
 ``` go
 func (m SystemInfoGetProcessInfo) Call(c Client) (*SystemInfoGetProcessInfoResult, error)
@@ -38067,7 +38065,7 @@ func (m SystemInfoGetProcessInfo) Call(c Client) (*SystemInfoGetProcessInfoResul
 
 Call the request.
 
-### (SystemInfoGetProcessInfo) ProtoReq <- 0.74.0
+#### (SystemInfoGetProcessInfo) ProtoReq <- 0.74.0
 
 ``` go
 func (m SystemInfoGetProcessInfo) ProtoReq() string
@@ -38075,7 +38073,7 @@ func (m SystemInfoGetProcessInfo) ProtoReq() string
 
 ProtoReq name.
 
-## type SystemInfoGetProcessInfoResult 
+### type SystemInfoGetProcessInfoResult 
 
 ``` go
 type SystemInfoGetProcessInfoResult struct {
@@ -38086,7 +38084,7 @@ type SystemInfoGetProcessInfoResult struct {
 
 SystemInfoGetProcessInfoResult ...
 
-## type SystemInfoImageDecodeAcceleratorCapability 
+### type SystemInfoImageDecodeAcceleratorCapability 
 
 ``` go
 type SystemInfoImageDecodeAcceleratorCapability struct {
@@ -38106,7 +38104,7 @@ type SystemInfoImageDecodeAcceleratorCapability struct {
 
 SystemInfoImageDecodeAcceleratorCapability Describes a supported image decoding profile with its associated minimum and maximum resolutions and subsampling.
 
-## type SystemInfoImageType 
+### type SystemInfoImageType 
 
 ``` go
 type SystemInfoImageType string
@@ -38127,7 +38125,7 @@ const (
 )
 ```
 
-## type SystemInfoProcessInfo 
+### type SystemInfoProcessInfo 
 
 ``` go
 type SystemInfoProcessInfo struct {
@@ -38145,7 +38143,7 @@ type SystemInfoProcessInfo struct {
 
 SystemInfoProcessInfo Represents process info.
 
-## type SystemInfoSize 
+### type SystemInfoSize 
 
 ``` go
 type SystemInfoSize struct {
@@ -38159,7 +38157,7 @@ type SystemInfoSize struct {
 
 SystemInfoSize Describes the width and height dimensions of an entity.
 
-## type SystemInfoSubsamplingFormat 
+### type SystemInfoSubsamplingFormat 
 
 ``` go
 type SystemInfoSubsamplingFormat string
@@ -38180,7 +38178,7 @@ const (
 )
 ```
 
-## type SystemInfoVideoDecodeAcceleratorCapability 
+### type SystemInfoVideoDecodeAcceleratorCapability 
 
 ``` go
 type SystemInfoVideoDecodeAcceleratorCapability struct {
@@ -38197,7 +38195,7 @@ type SystemInfoVideoDecodeAcceleratorCapability struct {
 
 SystemInfoVideoDecodeAcceleratorCapability Describes a supported video decoding profile with its associated minimum and maximum resolutions.
 
-## type SystemInfoVideoEncodeAcceleratorCapability 
+### type SystemInfoVideoEncodeAcceleratorCapability 
 
 ``` go
 type SystemInfoVideoEncodeAcceleratorCapability struct {
@@ -38219,7 +38217,7 @@ type SystemInfoVideoEncodeAcceleratorCapability struct {
 
 SystemInfoVideoEncodeAcceleratorCapability Describes a supported video encoding profile with its associated maximum resolution and maximum framerate.
 
-## type TargetActivateTarget 
+### type TargetActivateTarget 
 
 ``` go
 type TargetActivateTarget struct {
@@ -38230,7 +38228,7 @@ type TargetActivateTarget struct {
 
 TargetActivateTarget Activates (focuses) the target.
 
-### (TargetActivateTarget) Call 
+#### (TargetActivateTarget) Call 
 
 ``` go
 func (m TargetActivateTarget) Call(c Client) error
@@ -38238,7 +38236,7 @@ func (m TargetActivateTarget) Call(c Client) error
 
 Call sends the request.
 
-### (TargetActivateTarget) ProtoReq <- 0.74.0
+#### (TargetActivateTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetActivateTarget) ProtoReq() string
@@ -38246,7 +38244,7 @@ func (m TargetActivateTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetAttachToBrowserTarget 
+### type TargetAttachToBrowserTarget 
 
 ``` go
 type TargetAttachToBrowserTarget struct{}
@@ -38254,7 +38252,7 @@ type TargetAttachToBrowserTarget struct{}
 
 TargetAttachToBrowserTarget (experimental) Attaches to the browser target, only uses flat sessionId mode.
 
-### (TargetAttachToBrowserTarget) Call 
+#### (TargetAttachToBrowserTarget) Call 
 
 ``` go
 func (m TargetAttachToBrowserTarget) Call(c Client) (*TargetAttachToBrowserTargetResult, error)
@@ -38262,7 +38260,7 @@ func (m TargetAttachToBrowserTarget) Call(c Client) (*TargetAttachToBrowserTarge
 
 Call the request.
 
-### (TargetAttachToBrowserTarget) ProtoReq <- 0.74.0
+#### (TargetAttachToBrowserTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetAttachToBrowserTarget) ProtoReq() string
@@ -38270,7 +38268,7 @@ func (m TargetAttachToBrowserTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetAttachToBrowserTargetResult 
+### type TargetAttachToBrowserTargetResult 
 
 ``` go
 type TargetAttachToBrowserTargetResult struct {
@@ -38281,7 +38279,7 @@ type TargetAttachToBrowserTargetResult struct {
 
 TargetAttachToBrowserTargetResult (experimental) ...
 
-## type TargetAttachToTarget 
+### type TargetAttachToTarget 
 
 ``` go
 type TargetAttachToTarget struct {
@@ -38297,7 +38295,7 @@ type TargetAttachToTarget struct {
 
 TargetAttachToTarget Attaches to the target with given id.
 
-### (TargetAttachToTarget) Call 
+#### (TargetAttachToTarget) Call 
 
 ``` go
 func (m TargetAttachToTarget) Call(c Client) (*TargetAttachToTargetResult, error)
@@ -38305,7 +38303,7 @@ func (m TargetAttachToTarget) Call(c Client) (*TargetAttachToTargetResult, error
 
 Call the request.
 
-### (TargetAttachToTarget) ProtoReq <- 0.74.0
+#### (TargetAttachToTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetAttachToTarget) ProtoReq() string
@@ -38313,7 +38311,7 @@ func (m TargetAttachToTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetAttachToTargetResult 
+### type TargetAttachToTargetResult 
 
 ``` go
 type TargetAttachToTargetResult struct {
@@ -38324,7 +38322,7 @@ type TargetAttachToTargetResult struct {
 
 TargetAttachToTargetResult ...
 
-## type TargetAttachedToTarget 
+### type TargetAttachedToTarget 
 
 ``` go
 type TargetAttachedToTarget struct {
@@ -38341,7 +38339,7 @@ type TargetAttachedToTarget struct {
 
 TargetAttachedToTarget (experimental) Issued when attached to target because of auto-attach or `attachToTarget` command.
 
-### (TargetAttachedToTarget) ProtoEvent <- 0.72.0
+#### (TargetAttachedToTarget) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetAttachedToTarget) ProtoEvent() string
@@ -38349,7 +38347,7 @@ func (evt TargetAttachedToTarget) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetAutoAttachRelated <- 0.102.0
+### type TargetAutoAttachRelated <- 0.102.0
 
 ``` go
 type TargetAutoAttachRelated struct {
@@ -38367,7 +38365,7 @@ type TargetAutoAttachRelated struct {
 
 TargetAutoAttachRelated (experimental) Adds the specified target to the list of targets that will be monitored for any related target creation (such as child frames, child workers and new versions of service worker) and reported through `attachedToTarget`. The specified target is also auto-attached. This cancels the effect of any previous `setAutoAttach` and is also cancelled by subsequent `setAutoAttach`. Only available at the Browser target.
 
-### (TargetAutoAttachRelated) Call <- 0.102.0
+#### (TargetAutoAttachRelated) Call <- 0.102.0
 
 ``` go
 func (m TargetAutoAttachRelated) Call(c Client) error
@@ -38375,7 +38373,7 @@ func (m TargetAutoAttachRelated) Call(c Client) error
 
 Call sends the request.
 
-### (TargetAutoAttachRelated) ProtoReq <- 0.102.0
+#### (TargetAutoAttachRelated) ProtoReq <- 0.102.0
 
 ``` go
 func (m TargetAutoAttachRelated) ProtoReq() string
@@ -38383,7 +38381,7 @@ func (m TargetAutoAttachRelated) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetCloseTarget 
+### type TargetCloseTarget 
 
 ``` go
 type TargetCloseTarget struct {
@@ -38394,7 +38392,7 @@ type TargetCloseTarget struct {
 
 TargetCloseTarget Closes the target. If the target is a page that gets closed too.
 
-### (TargetCloseTarget) Call 
+#### (TargetCloseTarget) Call 
 
 ``` go
 func (m TargetCloseTarget) Call(c Client) (*TargetCloseTargetResult, error)
@@ -38402,7 +38400,7 @@ func (m TargetCloseTarget) Call(c Client) (*TargetCloseTargetResult, error)
 
 Call the request.
 
-### (TargetCloseTarget) ProtoReq <- 0.74.0
+#### (TargetCloseTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetCloseTarget) ProtoReq() string
@@ -38410,7 +38408,7 @@ func (m TargetCloseTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetCloseTargetResult 
+### type TargetCloseTargetResult 
 
 ``` go
 type TargetCloseTargetResult struct {
@@ -38421,7 +38419,7 @@ type TargetCloseTargetResult struct {
 
 TargetCloseTargetResult ...
 
-## type TargetCreateBrowserContext 
+### type TargetCreateBrowserContext 
 
 ``` go
 type TargetCreateBrowserContext struct {
@@ -38442,7 +38440,7 @@ type TargetCreateBrowserContext struct {
 
 TargetCreateBrowserContext Creates a new empty BrowserContext. Similar to an incognito profile but you can have more than one.
 
-### (TargetCreateBrowserContext) Call 
+#### (TargetCreateBrowserContext) Call 
 
 ``` go
 func (m TargetCreateBrowserContext) Call(c Client) (*TargetCreateBrowserContextResult, error)
@@ -38450,7 +38448,7 @@ func (m TargetCreateBrowserContext) Call(c Client) (*TargetCreateBrowserContextR
 
 Call the request.
 
-### (TargetCreateBrowserContext) ProtoReq <- 0.74.0
+#### (TargetCreateBrowserContext) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetCreateBrowserContext) ProtoReq() string
@@ -38458,7 +38456,7 @@ func (m TargetCreateBrowserContext) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetCreateBrowserContextResult 
+### type TargetCreateBrowserContextResult 
 
 ``` go
 type TargetCreateBrowserContextResult struct {
@@ -38469,7 +38467,7 @@ type TargetCreateBrowserContextResult struct {
 
 TargetCreateBrowserContextResult ...
 
-## type TargetCreateTarget 
+### type TargetCreateTarget 
 
 ``` go
 type TargetCreateTarget struct {
@@ -38503,7 +38501,7 @@ type TargetCreateTarget struct {
 
 TargetCreateTarget Creates a new page.
 
-### (TargetCreateTarget) Call 
+#### (TargetCreateTarget) Call 
 
 ``` go
 func (m TargetCreateTarget) Call(c Client) (*TargetCreateTargetResult, error)
@@ -38511,7 +38509,7 @@ func (m TargetCreateTarget) Call(c Client) (*TargetCreateTargetResult, error)
 
 Call the request.
 
-### (TargetCreateTarget) ProtoReq <- 0.74.0
+#### (TargetCreateTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetCreateTarget) ProtoReq() string
@@ -38519,7 +38517,7 @@ func (m TargetCreateTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetCreateTargetResult 
+### type TargetCreateTargetResult 
 
 ``` go
 type TargetCreateTargetResult struct {
@@ -38530,7 +38528,7 @@ type TargetCreateTargetResult struct {
 
 TargetCreateTargetResult ...
 
-## type TargetDetachFromTarget 
+### type TargetDetachFromTarget 
 
 ``` go
 type TargetDetachFromTarget struct {
@@ -38544,7 +38542,7 @@ type TargetDetachFromTarget struct {
 
 TargetDetachFromTarget Detaches session with given id.
 
-### (TargetDetachFromTarget) Call 
+#### (TargetDetachFromTarget) Call 
 
 ``` go
 func (m TargetDetachFromTarget) Call(c Client) error
@@ -38552,7 +38550,7 @@ func (m TargetDetachFromTarget) Call(c Client) error
 
 Call sends the request.
 
-### (TargetDetachFromTarget) ProtoReq <- 0.74.0
+#### (TargetDetachFromTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetDetachFromTarget) ProtoReq() string
@@ -38560,7 +38558,7 @@ func (m TargetDetachFromTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetDetachedFromTarget 
+### type TargetDetachedFromTarget 
 
 ``` go
 type TargetDetachedFromTarget struct {
@@ -38574,7 +38572,7 @@ type TargetDetachedFromTarget struct {
 
 TargetDetachedFromTarget (experimental) Issued when detached from target for any reason (including `detachFromTarget` command). Can be issued multiple times per target if multiple sessions have been attached to it.
 
-### (TargetDetachedFromTarget) ProtoEvent <- 0.72.0
+#### (TargetDetachedFromTarget) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetDetachedFromTarget) ProtoEvent() string
@@ -38582,7 +38580,7 @@ func (evt TargetDetachedFromTarget) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetDisposeBrowserContext 
+### type TargetDisposeBrowserContext 
 
 ``` go
 type TargetDisposeBrowserContext struct {
@@ -38593,7 +38591,7 @@ type TargetDisposeBrowserContext struct {
 
 TargetDisposeBrowserContext Deletes a BrowserContext. All the belonging pages will be closed without calling their beforeunload hooks.
 
-### (TargetDisposeBrowserContext) Call 
+#### (TargetDisposeBrowserContext) Call 
 
 ``` go
 func (m TargetDisposeBrowserContext) Call(c Client) error
@@ -38601,7 +38599,7 @@ func (m TargetDisposeBrowserContext) Call(c Client) error
 
 Call sends the request.
 
-### (TargetDisposeBrowserContext) ProtoReq <- 0.74.0
+#### (TargetDisposeBrowserContext) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetDisposeBrowserContext) ProtoReq() string
@@ -38609,7 +38607,7 @@ func (m TargetDisposeBrowserContext) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetExposeDevToolsProtocol 
+### type TargetExposeDevToolsProtocol 
 
 ``` go
 type TargetExposeDevToolsProtocol struct {
@@ -38627,7 +38625,7 @@ Injected object will be available as `window[bindingName]`.
 
 The object has the following API: - `binding.send(json)` - a method to send messages over the remote debugging protocol - `binding.onmessage = json => handleMessage(json)` - a callback that will be called for the protocol notifications and command responses.
 
-### (TargetExposeDevToolsProtocol) Call 
+#### (TargetExposeDevToolsProtocol) Call 
 
 ``` go
 func (m TargetExposeDevToolsProtocol) Call(c Client) error
@@ -38635,7 +38633,7 @@ func (m TargetExposeDevToolsProtocol) Call(c Client) error
 
 Call sends the request.
 
-### (TargetExposeDevToolsProtocol) ProtoReq <- 0.74.0
+#### (TargetExposeDevToolsProtocol) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetExposeDevToolsProtocol) ProtoReq() string
@@ -38643,7 +38641,7 @@ func (m TargetExposeDevToolsProtocol) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetFilterEntry <- 0.108.2
+### type TargetFilterEntry <- 0.108.2
 
 ``` go
 type TargetFilterEntry struct {
@@ -38657,7 +38655,7 @@ type TargetFilterEntry struct {
 
 TargetFilterEntry (experimental) A filter used by target query/discovery/auto-attach operations.
 
-## type TargetGetBrowserContexts 
+### type TargetGetBrowserContexts 
 
 ``` go
 type TargetGetBrowserContexts struct{}
@@ -38665,7 +38663,7 @@ type TargetGetBrowserContexts struct{}
 
 TargetGetBrowserContexts Returns all browser contexts created with `Target.createBrowserContext` method.
 
-### (TargetGetBrowserContexts) Call 
+#### (TargetGetBrowserContexts) Call 
 
 ``` go
 func (m TargetGetBrowserContexts) Call(c Client) (*TargetGetBrowserContextsResult, error)
@@ -38673,7 +38671,7 @@ func (m TargetGetBrowserContexts) Call(c Client) (*TargetGetBrowserContextsResul
 
 Call the request.
 
-### (TargetGetBrowserContexts) ProtoReq <- 0.74.0
+#### (TargetGetBrowserContexts) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetGetBrowserContexts) ProtoReq() string
@@ -38681,7 +38679,7 @@ func (m TargetGetBrowserContexts) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetGetBrowserContextsResult 
+### type TargetGetBrowserContextsResult 
 
 ``` go
 type TargetGetBrowserContextsResult struct {
@@ -38692,7 +38690,7 @@ type TargetGetBrowserContextsResult struct {
 
 TargetGetBrowserContextsResult ...
 
-## type TargetGetTargetInfo 
+### type TargetGetTargetInfo 
 
 ``` go
 type TargetGetTargetInfo struct {
@@ -38703,7 +38701,7 @@ type TargetGetTargetInfo struct {
 
 TargetGetTargetInfo (experimental) Returns information about a target.
 
-### (TargetGetTargetInfo) Call 
+#### (TargetGetTargetInfo) Call 
 
 ``` go
 func (m TargetGetTargetInfo) Call(c Client) (*TargetGetTargetInfoResult, error)
@@ -38711,7 +38709,7 @@ func (m TargetGetTargetInfo) Call(c Client) (*TargetGetTargetInfoResult, error)
 
 Call the request.
 
-### (TargetGetTargetInfo) ProtoReq <- 0.74.0
+#### (TargetGetTargetInfo) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetGetTargetInfo) ProtoReq() string
@@ -38719,7 +38717,7 @@ func (m TargetGetTargetInfo) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetGetTargetInfoResult 
+### type TargetGetTargetInfoResult 
 
 ``` go
 type TargetGetTargetInfoResult struct {
@@ -38730,7 +38728,7 @@ type TargetGetTargetInfoResult struct {
 
 TargetGetTargetInfoResult (experimental) ...
 
-## type TargetGetTargets 
+### type TargetGetTargets 
 
 ``` go
 type TargetGetTargets struct {
@@ -38743,7 +38741,7 @@ type TargetGetTargets struct {
 
 TargetGetTargets Retrieves a list of available targets.
 
-### (TargetGetTargets) Call 
+#### (TargetGetTargets) Call 
 
 ``` go
 func (m TargetGetTargets) Call(c Client) (*TargetGetTargetsResult, error)
@@ -38751,7 +38749,7 @@ func (m TargetGetTargets) Call(c Client) (*TargetGetTargetsResult, error)
 
 Call the request.
 
-### (TargetGetTargets) ProtoReq <- 0.74.0
+#### (TargetGetTargets) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetGetTargets) ProtoReq() string
@@ -38759,7 +38757,7 @@ func (m TargetGetTargets) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetGetTargetsResult 
+### type TargetGetTargetsResult 
 
 ``` go
 type TargetGetTargetsResult struct {
@@ -38770,7 +38768,7 @@ type TargetGetTargetsResult struct {
 
 TargetGetTargetsResult ...
 
-## type TargetReceivedMessageFromTarget 
+### type TargetReceivedMessageFromTarget 
 
 ``` go
 type TargetReceivedMessageFromTarget struct {
@@ -38787,7 +38785,7 @@ type TargetReceivedMessageFromTarget struct {
 
 TargetReceivedMessageFromTarget Notifies about a new protocol message received from the session (as reported in `attachedToTarget` event).
 
-### (TargetReceivedMessageFromTarget) ProtoEvent <- 0.72.0
+#### (TargetReceivedMessageFromTarget) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetReceivedMessageFromTarget) ProtoEvent() string
@@ -38795,7 +38793,7 @@ func (evt TargetReceivedMessageFromTarget) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetRemoteLocation 
+### type TargetRemoteLocation 
 
 ``` go
 type TargetRemoteLocation struct {
@@ -38809,7 +38807,7 @@ type TargetRemoteLocation struct {
 
 TargetRemoteLocation (experimental) ...
 
-## type TargetSendMessageToTarget 
+### type TargetSendMessageToTarget 
 
 ``` go
 type TargetSendMessageToTarget struct {
@@ -38826,7 +38824,7 @@ type TargetSendMessageToTarget struct {
 
 TargetSendMessageToTarget (deprecated) Sends protocol message over session with given id. Consider using flat mode instead; see commands attachToTarget, setAutoAttach, and crbug.com/991325.
 
-### (TargetSendMessageToTarget) Call 
+#### (TargetSendMessageToTarget) Call 
 
 ``` go
 func (m TargetSendMessageToTarget) Call(c Client) error
@@ -38834,7 +38832,7 @@ func (m TargetSendMessageToTarget) Call(c Client) error
 
 Call sends the request.
 
-### (TargetSendMessageToTarget) ProtoReq <- 0.74.0
+#### (TargetSendMessageToTarget) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetSendMessageToTarget) ProtoReq() string
@@ -38842,7 +38840,7 @@ func (m TargetSendMessageToTarget) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetSessionID 
+### type TargetSessionID 
 
 ``` go
 type TargetSessionID string
@@ -38850,7 +38848,7 @@ type TargetSessionID string
 
 TargetSessionID Unique identifier of attached debugging session.
 
-## type TargetSetAutoAttach 
+### type TargetSetAutoAttach 
 
 ``` go
 type TargetSetAutoAttach struct {
@@ -38873,7 +38871,7 @@ type TargetSetAutoAttach struct {
 
 TargetSetAutoAttach Controls whether to automatically attach to new targets which are considered to be related to this one. When turned on, attaches to all existing related targets as well. When turned off, automatically detaches from all currently attached targets. This also clears all targets added by `autoAttachRelated` from the list of targets to watch for creation of related targets.
 
-### (TargetSetAutoAttach) Call 
+#### (TargetSetAutoAttach) Call 
 
 ``` go
 func (m TargetSetAutoAttach) Call(c Client) error
@@ -38881,7 +38879,7 @@ func (m TargetSetAutoAttach) Call(c Client) error
 
 Call sends the request.
 
-### (TargetSetAutoAttach) ProtoReq <- 0.74.0
+#### (TargetSetAutoAttach) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetSetAutoAttach) ProtoReq() string
@@ -38889,7 +38887,7 @@ func (m TargetSetAutoAttach) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetSetDiscoverTargets 
+### type TargetSetDiscoverTargets 
 
 ``` go
 type TargetSetDiscoverTargets struct {
@@ -38904,7 +38902,7 @@ type TargetSetDiscoverTargets struct {
 
 TargetSetDiscoverTargets Controls whether to discover available targets and notify via `targetCreated/targetInfoChanged/targetDestroyed` events.
 
-### (TargetSetDiscoverTargets) Call 
+#### (TargetSetDiscoverTargets) Call 
 
 ``` go
 func (m TargetSetDiscoverTargets) Call(c Client) error
@@ -38912,7 +38910,7 @@ func (m TargetSetDiscoverTargets) Call(c Client) error
 
 Call sends the request.
 
-### (TargetSetDiscoverTargets) ProtoReq <- 0.74.0
+#### (TargetSetDiscoverTargets) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetSetDiscoverTargets) ProtoReq() string
@@ -38920,7 +38918,7 @@ func (m TargetSetDiscoverTargets) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetSetRemoteLocations 
+### type TargetSetRemoteLocations 
 
 ``` go
 type TargetSetRemoteLocations struct {
@@ -38931,7 +38929,7 @@ type TargetSetRemoteLocations struct {
 
 TargetSetRemoteLocations (experimental) Enables target discovery for the specified locations, when `setDiscoverTargets` was set to `true`.
 
-### (TargetSetRemoteLocations) Call 
+#### (TargetSetRemoteLocations) Call 
 
 ``` go
 func (m TargetSetRemoteLocations) Call(c Client) error
@@ -38939,7 +38937,7 @@ func (m TargetSetRemoteLocations) Call(c Client) error
 
 Call sends the request.
 
-### (TargetSetRemoteLocations) ProtoReq <- 0.74.0
+#### (TargetSetRemoteLocations) ProtoReq <- 0.74.0
 
 ``` go
 func (m TargetSetRemoteLocations) ProtoReq() string
@@ -38947,7 +38945,7 @@ func (m TargetSetRemoteLocations) ProtoReq() string
 
 ProtoReq name.
 
-## type TargetTargetCrashed 
+### type TargetTargetCrashed 
 
 ``` go
 type TargetTargetCrashed struct {
@@ -38964,7 +38962,7 @@ type TargetTargetCrashed struct {
 
 TargetTargetCrashed Issued when a target has crashed.
 
-### (TargetTargetCrashed) ProtoEvent <- 0.72.0
+#### (TargetTargetCrashed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetTargetCrashed) ProtoEvent() string
@@ -38972,7 +38970,7 @@ func (evt TargetTargetCrashed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetTargetCreated 
+### type TargetTargetCreated 
 
 ``` go
 type TargetTargetCreated struct {
@@ -38983,7 +38981,7 @@ type TargetTargetCreated struct {
 
 TargetTargetCreated Issued when a possible inspection target is created.
 
-### (TargetTargetCreated) ProtoEvent <- 0.72.0
+#### (TargetTargetCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetTargetCreated) ProtoEvent() string
@@ -38991,7 +38989,7 @@ func (evt TargetTargetCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetTargetDestroyed 
+### type TargetTargetDestroyed 
 
 ``` go
 type TargetTargetDestroyed struct {
@@ -39002,7 +39000,7 @@ type TargetTargetDestroyed struct {
 
 TargetTargetDestroyed Issued when a target is destroyed.
 
-### (TargetTargetDestroyed) ProtoEvent <- 0.72.0
+#### (TargetTargetDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetTargetDestroyed) ProtoEvent() string
@@ -39010,7 +39008,7 @@ func (evt TargetTargetDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetTargetFilter <- 0.108.2
+### type TargetTargetFilter <- 0.108.2
 
 ``` go
 type TargetTargetFilter []*TargetFilterEntry
@@ -39018,7 +39016,7 @@ type TargetTargetFilter []*TargetFilterEntry
 
 TargetTargetFilter (experimental) The entries in TargetFilter are matched sequentially against targets and the first entry that matches determines if the target is included or not, depending on the value of `exclude` field in the entry. If filter is not specified, the one assumed is [{type: "browser", exclude: true}, {type: "tab", exclude: true}, {}] (i.e. include everything but `browser` and `tab`).
 
-## type TargetTargetID 
+### type TargetTargetID 
 
 ``` go
 type TargetTargetID string
@@ -39026,7 +39024,7 @@ type TargetTargetID string
 
 TargetTargetID ...
 
-## type TargetTargetInfo 
+### type TargetTargetInfo 
 
 ``` go
 type TargetTargetInfo struct {
@@ -39065,7 +39063,7 @@ type TargetTargetInfo struct {
 
 TargetTargetInfo ...
 
-## type TargetTargetInfoChanged 
+### type TargetTargetInfoChanged 
 
 ``` go
 type TargetTargetInfoChanged struct {
@@ -39076,7 +39074,7 @@ type TargetTargetInfoChanged struct {
 
 TargetTargetInfoChanged Issued when some information about a target has changed. This only happens between `targetCreated` and `targetDestroyed`.
 
-### (TargetTargetInfoChanged) ProtoEvent <- 0.72.0
+#### (TargetTargetInfoChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TargetTargetInfoChanged) ProtoEvent() string
@@ -39084,7 +39082,7 @@ func (evt TargetTargetInfoChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TargetTargetInfoType 
+### type TargetTargetInfoType 
 
 ``` go
 type TargetTargetInfoType string
@@ -39114,7 +39112,7 @@ const (
 )
 ```
 
-## type TetheringAccepted 
+### type TetheringAccepted 
 
 ``` go
 type TetheringAccepted struct {
@@ -39128,7 +39126,7 @@ type TetheringAccepted struct {
 
 TetheringAccepted Informs that port was successfully bound and got a specified connection id.
 
-### (TetheringAccepted) ProtoEvent <- 0.72.0
+#### (TetheringAccepted) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TetheringAccepted) ProtoEvent() string
@@ -39136,7 +39134,7 @@ func (evt TetheringAccepted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TetheringBind 
+### type TetheringBind 
 
 ``` go
 type TetheringBind struct {
@@ -39147,7 +39145,7 @@ type TetheringBind struct {
 
 TetheringBind Request browser port binding.
 
-### (TetheringBind) Call 
+#### (TetheringBind) Call 
 
 ``` go
 func (m TetheringBind) Call(c Client) error
@@ -39155,7 +39153,7 @@ func (m TetheringBind) Call(c Client) error
 
 Call sends the request.
 
-### (TetheringBind) ProtoReq <- 0.74.0
+#### (TetheringBind) ProtoReq <- 0.74.0
 
 ``` go
 func (m TetheringBind) ProtoReq() string
@@ -39163,7 +39161,7 @@ func (m TetheringBind) ProtoReq() string
 
 ProtoReq name.
 
-## type TetheringUnbind 
+### type TetheringUnbind 
 
 ``` go
 type TetheringUnbind struct {
@@ -39174,7 +39172,7 @@ type TetheringUnbind struct {
 
 TetheringUnbind Request browser port unbinding.
 
-### (TetheringUnbind) Call 
+#### (TetheringUnbind) Call 
 
 ``` go
 func (m TetheringUnbind) Call(c Client) error
@@ -39182,7 +39180,7 @@ func (m TetheringUnbind) Call(c Client) error
 
 Call sends the request.
 
-### (TetheringUnbind) ProtoReq <- 0.74.0
+#### (TetheringUnbind) ProtoReq <- 0.74.0
 
 ``` go
 func (m TetheringUnbind) ProtoReq() string
@@ -39190,7 +39188,7 @@ func (m TetheringUnbind) ProtoReq() string
 
 ProtoReq name.
 
-## type TimeSinceEpoch 
+### type TimeSinceEpoch 
 
 ``` go
 type TimeSinceEpoch float64
@@ -39204,7 +39202,7 @@ proto.TimeSinceEpoch(time.Now().Unix())
 
 For session cookie, the value should be -1.
 
-### (TimeSinceEpoch) String <- 0.93.0
+#### (TimeSinceEpoch) String <- 0.93.0
 
 ``` go
 func (t TimeSinceEpoch) String() string
@@ -39212,7 +39210,7 @@ func (t TimeSinceEpoch) String() string
 
 String interface.
 
-### (TimeSinceEpoch) Time <- 0.93.0
+#### (TimeSinceEpoch) Time <- 0.93.0
 
 ``` go
 func (t TimeSinceEpoch) Time() time.Time
@@ -39220,7 +39218,7 @@ func (t TimeSinceEpoch) Time() time.Time
 
 Time interface.
 
-## type TracingBufferUsage 
+### type TracingBufferUsage 
 
 ``` go
 type TracingBufferUsage struct {
@@ -39239,7 +39237,7 @@ type TracingBufferUsage struct {
 
 TracingBufferUsage (experimental) ...
 
-### (TracingBufferUsage) ProtoEvent <- 0.72.0
+#### (TracingBufferUsage) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TracingBufferUsage) ProtoEvent() string
@@ -39247,7 +39245,7 @@ func (evt TracingBufferUsage) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TracingDataCollected 
+### type TracingDataCollected 
 
 ``` go
 type TracingDataCollected struct {
@@ -39258,7 +39256,7 @@ type TracingDataCollected struct {
 
 TracingDataCollected (experimental) Contains a bucket of collected trace events. When tracing is stopped collected events will be sent as a sequence of dataCollected events followed by tracingComplete event.
 
-### (TracingDataCollected) ProtoEvent <- 0.72.0
+#### (TracingDataCollected) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TracingDataCollected) ProtoEvent() string
@@ -39266,7 +39264,7 @@ func (evt TracingDataCollected) ProtoEvent() string
 
 ProtoEvent name.
 
-## type TracingEnd 
+### type TracingEnd 
 
 ``` go
 type TracingEnd struct{}
@@ -39274,7 +39272,7 @@ type TracingEnd struct{}
 
 TracingEnd Stop trace events collection.
 
-### (TracingEnd) Call 
+#### (TracingEnd) Call 
 
 ``` go
 func (m TracingEnd) Call(c Client) error
@@ -39282,7 +39280,7 @@ func (m TracingEnd) Call(c Client) error
 
 Call sends the request.
 
-### (TracingEnd) ProtoReq <- 0.74.0
+#### (TracingEnd) ProtoReq <- 0.74.0
 
 ``` go
 func (m TracingEnd) ProtoReq() string
@@ -39290,7 +39288,7 @@ func (m TracingEnd) ProtoReq() string
 
 ProtoReq name.
 
-## type TracingGetCategories 
+### type TracingGetCategories 
 
 ``` go
 type TracingGetCategories struct{}
@@ -39298,7 +39296,7 @@ type TracingGetCategories struct{}
 
 TracingGetCategories (experimental) Gets supported tracing categories.
 
-### (TracingGetCategories) Call 
+#### (TracingGetCategories) Call 
 
 ``` go
 func (m TracingGetCategories) Call(c Client) (*TracingGetCategoriesResult, error)
@@ -39306,7 +39304,7 @@ func (m TracingGetCategories) Call(c Client) (*TracingGetCategoriesResult, error
 
 Call the request.
 
-### (TracingGetCategories) ProtoReq <- 0.74.0
+#### (TracingGetCategories) ProtoReq <- 0.74.0
 
 ``` go
 func (m TracingGetCategories) ProtoReq() string
@@ -39314,7 +39312,7 @@ func (m TracingGetCategories) ProtoReq() string
 
 ProtoReq name.
 
-## type TracingGetCategoriesResult 
+### type TracingGetCategoriesResult 
 
 ``` go
 type TracingGetCategoriesResult struct {
@@ -39325,7 +39323,7 @@ type TracingGetCategoriesResult struct {
 
 TracingGetCategoriesResult (experimental) ...
 
-## type TracingMemoryDumpConfig 
+### type TracingMemoryDumpConfig 
 
 ``` go
 type TracingMemoryDumpConfig map[string]gson.JSON
@@ -39333,7 +39331,7 @@ type TracingMemoryDumpConfig map[string]gson.JSON
 
 TracingMemoryDumpConfig (experimental) Configuration for memory dump. Used only when "memory-infra" category is enabled.
 
-## type TracingMemoryDumpLevelOfDetail <- 0.90.0
+### type TracingMemoryDumpLevelOfDetail <- 0.90.0
 
 ``` go
 type TracingMemoryDumpLevelOfDetail string
@@ -39354,7 +39352,7 @@ const (
 )
 ```
 
-## type TracingRecordClockSyncMarker 
+### type TracingRecordClockSyncMarker 
 
 ``` go
 type TracingRecordClockSyncMarker struct {
@@ -39365,7 +39363,7 @@ type TracingRecordClockSyncMarker struct {
 
 TracingRecordClockSyncMarker (experimental) Record a clock sync marker in the trace.
 
-### (TracingRecordClockSyncMarker) Call 
+#### (TracingRecordClockSyncMarker) Call 
 
 ``` go
 func (m TracingRecordClockSyncMarker) Call(c Client) error
@@ -39373,7 +39371,7 @@ func (m TracingRecordClockSyncMarker) Call(c Client) error
 
 Call sends the request.
 
-### (TracingRecordClockSyncMarker) ProtoReq <- 0.74.0
+#### (TracingRecordClockSyncMarker) ProtoReq <- 0.74.0
 
 ``` go
 func (m TracingRecordClockSyncMarker) ProtoReq() string
@@ -39381,7 +39379,7 @@ func (m TracingRecordClockSyncMarker) ProtoReq() string
 
 ProtoReq name.
 
-## type TracingRequestMemoryDump 
+### type TracingRequestMemoryDump 
 
 ``` go
 type TracingRequestMemoryDump struct {
@@ -39395,7 +39393,7 @@ type TracingRequestMemoryDump struct {
 
 TracingRequestMemoryDump (experimental) Request a global memory dump.
 
-### (TracingRequestMemoryDump) Call 
+#### (TracingRequestMemoryDump) Call 
 
 ``` go
 func (m TracingRequestMemoryDump) Call(c Client) (*TracingRequestMemoryDumpResult, error)
@@ -39403,7 +39401,7 @@ func (m TracingRequestMemoryDump) Call(c Client) (*TracingRequestMemoryDumpResul
 
 Call the request.
 
-### (TracingRequestMemoryDump) ProtoReq <- 0.74.0
+#### (TracingRequestMemoryDump) ProtoReq <- 0.74.0
 
 ``` go
 func (m TracingRequestMemoryDump) ProtoReq() string
@@ -39411,7 +39409,7 @@ func (m TracingRequestMemoryDump) ProtoReq() string
 
 ProtoReq name.
 
-## type TracingRequestMemoryDumpResult 
+### type TracingRequestMemoryDumpResult 
 
 ``` go
 type TracingRequestMemoryDumpResult struct {
@@ -39425,7 +39423,7 @@ type TracingRequestMemoryDumpResult struct {
 
 TracingRequestMemoryDumpResult (experimental) ...
 
-## type TracingStart 
+### type TracingStart 
 
 ``` go
 type TracingStart struct {
@@ -39465,7 +39463,7 @@ type TracingStart struct {
 
 TracingStart Start trace events collection.
 
-### (TracingStart) Call 
+#### (TracingStart) Call 
 
 ``` go
 func (m TracingStart) Call(c Client) error
@@ -39473,7 +39471,7 @@ func (m TracingStart) Call(c Client) error
 
 Call sends the request.
 
-### (TracingStart) ProtoReq <- 0.74.0
+#### (TracingStart) ProtoReq <- 0.74.0
 
 ``` go
 func (m TracingStart) ProtoReq() string
@@ -39481,7 +39479,7 @@ func (m TracingStart) ProtoReq() string
 
 ProtoReq name.
 
-## type TracingStartTransferMode 
+### type TracingStartTransferMode 
 
 ``` go
 type TracingStartTransferMode string
@@ -39499,7 +39497,7 @@ const (
 )
 ```
 
-## type TracingStreamCompression 
+### type TracingStreamCompression 
 
 ``` go
 type TracingStreamCompression string
@@ -39517,7 +39515,7 @@ const (
 )
 ```
 
-## type TracingStreamFormat 
+### type TracingStreamFormat 
 
 ``` go
 type TracingStreamFormat string
@@ -39535,7 +39533,7 @@ const (
 )
 ```
 
-## type TracingTraceConfig 
+### type TracingTraceConfig 
 
 ``` go
 type TracingTraceConfig struct {
@@ -39571,7 +39569,7 @@ type TracingTraceConfig struct {
 
 TracingTraceConfig ...
 
-## type TracingTraceConfigRecordMode 
+### type TracingTraceConfigRecordMode 
 
 ``` go
 type TracingTraceConfigRecordMode string
@@ -39595,7 +39593,7 @@ const (
 )
 ```
 
-## type TracingTracingBackend <- 0.97.5
+### type TracingTracingBackend <- 0.97.5
 
 ``` go
 type TracingTracingBackend string
@@ -39616,7 +39614,7 @@ const (
 )
 ```
 
-## type TracingTracingComplete 
+### type TracingTracingComplete 
 
 ``` go
 type TracingTracingComplete struct {
@@ -39637,7 +39635,7 @@ type TracingTracingComplete struct {
 
 TracingTracingComplete Signals that tracing is stopped and there is no trace buffers pending flush, all data were delivered via dataCollected events.
 
-### (TracingTracingComplete) ProtoEvent <- 0.72.0
+#### (TracingTracingComplete) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt TracingTracingComplete) ProtoEvent() string
@@ -39645,7 +39643,7 @@ func (evt TracingTracingComplete) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioListener 
+### type WebAudioAudioListener 
 
 ``` go
 type WebAudioAudioListener struct {
@@ -39659,7 +39657,7 @@ type WebAudioAudioListener struct {
 
 WebAudioAudioListener Protocol object for AudioListener.
 
-## type WebAudioAudioListenerCreated 
+### type WebAudioAudioListenerCreated 
 
 ``` go
 type WebAudioAudioListenerCreated struct {
@@ -39670,7 +39668,7 @@ type WebAudioAudioListenerCreated struct {
 
 WebAudioAudioListenerCreated Notifies that the construction of an AudioListener has finished.
 
-### (WebAudioAudioListenerCreated) ProtoEvent <- 0.72.0
+#### (WebAudioAudioListenerCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioListenerCreated) ProtoEvent() string
@@ -39678,7 +39676,7 @@ func (evt WebAudioAudioListenerCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioListenerWillBeDestroyed 
+### type WebAudioAudioListenerWillBeDestroyed 
 
 ``` go
 type WebAudioAudioListenerWillBeDestroyed struct {
@@ -39692,7 +39690,7 @@ type WebAudioAudioListenerWillBeDestroyed struct {
 
 WebAudioAudioListenerWillBeDestroyed Notifies that a new AudioListener has been created.
 
-### (WebAudioAudioListenerWillBeDestroyed) ProtoEvent <- 0.72.0
+#### (WebAudioAudioListenerWillBeDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioListenerWillBeDestroyed) ProtoEvent() string
@@ -39700,7 +39698,7 @@ func (evt WebAudioAudioListenerWillBeDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioNode 
+### type WebAudioAudioNode 
 
 ``` go
 type WebAudioAudioNode struct {
@@ -39732,7 +39730,7 @@ type WebAudioAudioNode struct {
 
 WebAudioAudioNode Protocol object for AudioNode.
 
-## type WebAudioAudioNodeCreated 
+### type WebAudioAudioNodeCreated 
 
 ``` go
 type WebAudioAudioNodeCreated struct {
@@ -39743,7 +39741,7 @@ type WebAudioAudioNodeCreated struct {
 
 WebAudioAudioNodeCreated Notifies that a new AudioNode has been created.
 
-### (WebAudioAudioNodeCreated) ProtoEvent <- 0.72.0
+#### (WebAudioAudioNodeCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioNodeCreated) ProtoEvent() string
@@ -39751,7 +39749,7 @@ func (evt WebAudioAudioNodeCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioNodeWillBeDestroyed 
+### type WebAudioAudioNodeWillBeDestroyed 
 
 ``` go
 type WebAudioAudioNodeWillBeDestroyed struct {
@@ -39765,7 +39763,7 @@ type WebAudioAudioNodeWillBeDestroyed struct {
 
 WebAudioAudioNodeWillBeDestroyed Notifies that an existing AudioNode has been destroyed.
 
-### (WebAudioAudioNodeWillBeDestroyed) ProtoEvent <- 0.72.0
+#### (WebAudioAudioNodeWillBeDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioNodeWillBeDestroyed) ProtoEvent() string
@@ -39773,7 +39771,7 @@ func (evt WebAudioAudioNodeWillBeDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioParam 
+### type WebAudioAudioParam 
 
 ``` go
 type WebAudioAudioParam struct {
@@ -39805,7 +39803,7 @@ type WebAudioAudioParam struct {
 
 WebAudioAudioParam Protocol object for AudioParam.
 
-## type WebAudioAudioParamCreated 
+### type WebAudioAudioParamCreated 
 
 ``` go
 type WebAudioAudioParamCreated struct {
@@ -39816,7 +39814,7 @@ type WebAudioAudioParamCreated struct {
 
 WebAudioAudioParamCreated Notifies that a new AudioParam has been created.
 
-### (WebAudioAudioParamCreated) ProtoEvent <- 0.72.0
+#### (WebAudioAudioParamCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioParamCreated) ProtoEvent() string
@@ -39824,7 +39822,7 @@ func (evt WebAudioAudioParamCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAudioParamWillBeDestroyed 
+### type WebAudioAudioParamWillBeDestroyed 
 
 ``` go
 type WebAudioAudioParamWillBeDestroyed struct {
@@ -39841,7 +39839,7 @@ type WebAudioAudioParamWillBeDestroyed struct {
 
 WebAudioAudioParamWillBeDestroyed Notifies that an existing AudioParam has been destroyed.
 
-### (WebAudioAudioParamWillBeDestroyed) ProtoEvent <- 0.72.0
+#### (WebAudioAudioParamWillBeDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioAudioParamWillBeDestroyed) ProtoEvent() string
@@ -39849,7 +39847,7 @@ func (evt WebAudioAudioParamWillBeDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioAutomationRate 
+### type WebAudioAutomationRate 
 
 ``` go
 type WebAudioAutomationRate string
@@ -39867,7 +39865,7 @@ const (
 )
 ```
 
-## type WebAudioBaseAudioContext 
+### type WebAudioBaseAudioContext 
 
 ``` go
 type WebAudioBaseAudioContext struct {
@@ -39896,7 +39894,7 @@ type WebAudioBaseAudioContext struct {
 
 WebAudioBaseAudioContext Protocol object for BaseAudioContext.
 
-## type WebAudioChannelCountMode 
+### type WebAudioChannelCountMode 
 
 ``` go
 type WebAudioChannelCountMode string
@@ -39917,7 +39915,7 @@ const (
 )
 ```
 
-## type WebAudioChannelInterpretation 
+### type WebAudioChannelInterpretation 
 
 ``` go
 type WebAudioChannelInterpretation string
@@ -39935,7 +39933,7 @@ const (
 )
 ```
 
-## type WebAudioContextChanged 
+### type WebAudioContextChanged 
 
 ``` go
 type WebAudioContextChanged struct {
@@ -39946,7 +39944,7 @@ type WebAudioContextChanged struct {
 
 WebAudioContextChanged Notifies that existing BaseAudioContext has changed some properties (id stays the same)..
 
-### (WebAudioContextChanged) ProtoEvent <- 0.72.0
+#### (WebAudioContextChanged) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioContextChanged) ProtoEvent() string
@@ -39954,7 +39952,7 @@ func (evt WebAudioContextChanged) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioContextCreated 
+### type WebAudioContextCreated 
 
 ``` go
 type WebAudioContextCreated struct {
@@ -39965,7 +39963,7 @@ type WebAudioContextCreated struct {
 
 WebAudioContextCreated Notifies that a new BaseAudioContext has been created.
 
-### (WebAudioContextCreated) ProtoEvent <- 0.72.0
+#### (WebAudioContextCreated) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioContextCreated) ProtoEvent() string
@@ -39973,7 +39971,7 @@ func (evt WebAudioContextCreated) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioContextRealtimeData 
+### type WebAudioContextRealtimeData 
 
 ``` go
 type WebAudioContextRealtimeData struct {
@@ -39995,7 +39993,7 @@ type WebAudioContextRealtimeData struct {
 
 WebAudioContextRealtimeData Fields in AudioContext that change in real-time.
 
-## type WebAudioContextState 
+### type WebAudioContextState 
 
 ``` go
 type WebAudioContextState string
@@ -40016,7 +40014,7 @@ const (
 )
 ```
 
-## type WebAudioContextType 
+### type WebAudioContextType 
 
 ``` go
 type WebAudioContextType string
@@ -40034,7 +40032,7 @@ const (
 )
 ```
 
-## type WebAudioContextWillBeDestroyed 
+### type WebAudioContextWillBeDestroyed 
 
 ``` go
 type WebAudioContextWillBeDestroyed struct {
@@ -40045,7 +40043,7 @@ type WebAudioContextWillBeDestroyed struct {
 
 WebAudioContextWillBeDestroyed Notifies that an existing BaseAudioContext will be destroyed.
 
-### (WebAudioContextWillBeDestroyed) ProtoEvent <- 0.72.0
+#### (WebAudioContextWillBeDestroyed) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioContextWillBeDestroyed) ProtoEvent() string
@@ -40053,7 +40051,7 @@ func (evt WebAudioContextWillBeDestroyed) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioDisable 
+### type WebAudioDisable 
 
 ``` go
 type WebAudioDisable struct{}
@@ -40061,7 +40059,7 @@ type WebAudioDisable struct{}
 
 WebAudioDisable Disables the WebAudio domain.
 
-### (WebAudioDisable) Call 
+#### (WebAudioDisable) Call 
 
 ``` go
 func (m WebAudioDisable) Call(c Client) error
@@ -40069,7 +40067,7 @@ func (m WebAudioDisable) Call(c Client) error
 
 Call sends the request.
 
-### (WebAudioDisable) ProtoReq <- 0.74.0
+#### (WebAudioDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAudioDisable) ProtoReq() string
@@ -40077,7 +40075,7 @@ func (m WebAudioDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAudioEnable 
+### type WebAudioEnable 
 
 ``` go
 type WebAudioEnable struct{}
@@ -40085,7 +40083,7 @@ type WebAudioEnable struct{}
 
 WebAudioEnable Enables the WebAudio domain and starts sending context lifetime events.
 
-### (WebAudioEnable) Call 
+#### (WebAudioEnable) Call 
 
 ``` go
 func (m WebAudioEnable) Call(c Client) error
@@ -40093,7 +40091,7 @@ func (m WebAudioEnable) Call(c Client) error
 
 Call sends the request.
 
-### (WebAudioEnable) ProtoReq <- 0.74.0
+#### (WebAudioEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAudioEnable) ProtoReq() string
@@ -40101,7 +40099,7 @@ func (m WebAudioEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAudioGetRealtimeData 
+### type WebAudioGetRealtimeData 
 
 ``` go
 type WebAudioGetRealtimeData struct {
@@ -40112,7 +40110,7 @@ type WebAudioGetRealtimeData struct {
 
 WebAudioGetRealtimeData Fetch the realtime data from the registered contexts.
 
-### (WebAudioGetRealtimeData) Call 
+#### (WebAudioGetRealtimeData) Call 
 
 ``` go
 func (m WebAudioGetRealtimeData) Call(c Client) (*WebAudioGetRealtimeDataResult, error)
@@ -40120,7 +40118,7 @@ func (m WebAudioGetRealtimeData) Call(c Client) (*WebAudioGetRealtimeDataResult,
 
 Call the request.
 
-### (WebAudioGetRealtimeData) ProtoReq <- 0.74.0
+#### (WebAudioGetRealtimeData) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAudioGetRealtimeData) ProtoReq() string
@@ -40128,7 +40126,7 @@ func (m WebAudioGetRealtimeData) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAudioGetRealtimeDataResult 
+### type WebAudioGetRealtimeDataResult 
 
 ``` go
 type WebAudioGetRealtimeDataResult struct {
@@ -40139,7 +40137,7 @@ type WebAudioGetRealtimeDataResult struct {
 
 WebAudioGetRealtimeDataResult ...
 
-## type WebAudioGraphObjectID 
+### type WebAudioGraphObjectID 
 
 ``` go
 type WebAudioGraphObjectID string
@@ -40147,7 +40145,7 @@ type WebAudioGraphObjectID string
 
 WebAudioGraphObjectID An unique ID for a graph object (AudioContext, AudioNode, AudioParam) in Web Audio API.
 
-## type WebAudioNodeParamConnected 
+### type WebAudioNodeParamConnected 
 
 ``` go
 type WebAudioNodeParamConnected struct {
@@ -40167,7 +40165,7 @@ type WebAudioNodeParamConnected struct {
 
 WebAudioNodeParamConnected Notifies that an AudioNode is connected to an AudioParam.
 
-### (WebAudioNodeParamConnected) ProtoEvent <- 0.72.0
+#### (WebAudioNodeParamConnected) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioNodeParamConnected) ProtoEvent() string
@@ -40175,7 +40173,7 @@ func (evt WebAudioNodeParamConnected) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioNodeParamDisconnected 
+### type WebAudioNodeParamDisconnected 
 
 ``` go
 type WebAudioNodeParamDisconnected struct {
@@ -40195,7 +40193,7 @@ type WebAudioNodeParamDisconnected struct {
 
 WebAudioNodeParamDisconnected Notifies that an AudioNode is disconnected to an AudioParam.
 
-### (WebAudioNodeParamDisconnected) ProtoEvent <- 0.72.0
+#### (WebAudioNodeParamDisconnected) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioNodeParamDisconnected) ProtoEvent() string
@@ -40203,7 +40201,7 @@ func (evt WebAudioNodeParamDisconnected) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioNodeType 
+### type WebAudioNodeType 
 
 ``` go
 type WebAudioNodeType string
@@ -40211,7 +40209,7 @@ type WebAudioNodeType string
 
 WebAudioNodeType Enum of AudioNode types.
 
-## type WebAudioNodesConnected 
+### type WebAudioNodesConnected 
 
 ``` go
 type WebAudioNodesConnected struct {
@@ -40234,7 +40232,7 @@ type WebAudioNodesConnected struct {
 
 WebAudioNodesConnected Notifies that two AudioNodes are connected.
 
-### (WebAudioNodesConnected) ProtoEvent <- 0.72.0
+#### (WebAudioNodesConnected) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioNodesConnected) ProtoEvent() string
@@ -40242,7 +40240,7 @@ func (evt WebAudioNodesConnected) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioNodesDisconnected 
+### type WebAudioNodesDisconnected 
 
 ``` go
 type WebAudioNodesDisconnected struct {
@@ -40265,7 +40263,7 @@ type WebAudioNodesDisconnected struct {
 
 WebAudioNodesDisconnected Notifies that AudioNodes are disconnected. The destination can be null, and it means all the outgoing connections from the source are disconnected.
 
-### (WebAudioNodesDisconnected) ProtoEvent <- 0.72.0
+#### (WebAudioNodesDisconnected) ProtoEvent <- 0.72.0
 
 ``` go
 func (evt WebAudioNodesDisconnected) ProtoEvent() string
@@ -40273,7 +40271,7 @@ func (evt WebAudioNodesDisconnected) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAudioParamType 
+### type WebAudioParamType 
 
 ``` go
 type WebAudioParamType string
@@ -40281,7 +40279,7 @@ type WebAudioParamType string
 
 WebAudioParamType Enum of AudioParam types.
 
-## type WebAuthnAddCredential 
+### type WebAuthnAddCredential 
 
 ``` go
 type WebAuthnAddCredential struct {
@@ -40295,7 +40293,7 @@ type WebAuthnAddCredential struct {
 
 WebAuthnAddCredential Adds the credential to the specified authenticator.
 
-### (WebAuthnAddCredential) Call 
+#### (WebAuthnAddCredential) Call 
 
 ``` go
 func (m WebAuthnAddCredential) Call(c Client) error
@@ -40303,7 +40301,7 @@ func (m WebAuthnAddCredential) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnAddCredential) ProtoReq <- 0.74.0
+#### (WebAuthnAddCredential) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnAddCredential) ProtoReq() string
@@ -40311,7 +40309,7 @@ func (m WebAuthnAddCredential) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnAddVirtualAuthenticator 
+### type WebAuthnAddVirtualAuthenticator 
 
 ``` go
 type WebAuthnAddVirtualAuthenticator struct {
@@ -40322,7 +40320,7 @@ type WebAuthnAddVirtualAuthenticator struct {
 
 WebAuthnAddVirtualAuthenticator Creates and adds a virtual authenticator.
 
-### (WebAuthnAddVirtualAuthenticator) Call 
+#### (WebAuthnAddVirtualAuthenticator) Call 
 
 ``` go
 func (m WebAuthnAddVirtualAuthenticator) Call(c Client) (*WebAuthnAddVirtualAuthenticatorResult, error)
@@ -40330,7 +40328,7 @@ func (m WebAuthnAddVirtualAuthenticator) Call(c Client) (*WebAuthnAddVirtualAuth
 
 Call the request.
 
-### (WebAuthnAddVirtualAuthenticator) ProtoReq <- 0.74.0
+#### (WebAuthnAddVirtualAuthenticator) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnAddVirtualAuthenticator) ProtoReq() string
@@ -40338,7 +40336,7 @@ func (m WebAuthnAddVirtualAuthenticator) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnAddVirtualAuthenticatorResult 
+### type WebAuthnAddVirtualAuthenticatorResult 
 
 ``` go
 type WebAuthnAddVirtualAuthenticatorResult struct {
@@ -40349,7 +40347,7 @@ type WebAuthnAddVirtualAuthenticatorResult struct {
 
 WebAuthnAddVirtualAuthenticatorResult ...
 
-## type WebAuthnAuthenticatorID 
+### type WebAuthnAuthenticatorID 
 
 ``` go
 type WebAuthnAuthenticatorID string
@@ -40357,7 +40355,7 @@ type WebAuthnAuthenticatorID string
 
 WebAuthnAuthenticatorID ...
 
-## type WebAuthnAuthenticatorProtocol 
+### type WebAuthnAuthenticatorProtocol 
 
 ``` go
 type WebAuthnAuthenticatorProtocol string
@@ -40375,7 +40373,7 @@ const (
 )
 ```
 
-## type WebAuthnAuthenticatorTransport 
+### type WebAuthnAuthenticatorTransport 
 
 ``` go
 type WebAuthnAuthenticatorTransport string
@@ -40402,7 +40400,7 @@ const (
 )
 ```
 
-## type WebAuthnClearCredentials 
+### type WebAuthnClearCredentials 
 
 ``` go
 type WebAuthnClearCredentials struct {
@@ -40413,7 +40411,7 @@ type WebAuthnClearCredentials struct {
 
 WebAuthnClearCredentials Clears all the credentials from the specified device.
 
-### (WebAuthnClearCredentials) Call 
+#### (WebAuthnClearCredentials) Call 
 
 ``` go
 func (m WebAuthnClearCredentials) Call(c Client) error
@@ -40421,7 +40419,7 @@ func (m WebAuthnClearCredentials) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnClearCredentials) ProtoReq <- 0.74.0
+#### (WebAuthnClearCredentials) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnClearCredentials) ProtoReq() string
@@ -40429,7 +40427,7 @@ func (m WebAuthnClearCredentials) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnCredential 
+### type WebAuthnCredential 
 
 ``` go
 type WebAuthnCredential struct {
@@ -40473,7 +40471,7 @@ type WebAuthnCredential struct {
 
 WebAuthnCredential ...
 
-## type WebAuthnCredentialAdded <- 0.112.3
+### type WebAuthnCredentialAdded <- 0.112.3
 
 ``` go
 type WebAuthnCredentialAdded struct {
@@ -40487,7 +40485,7 @@ type WebAuthnCredentialAdded struct {
 
 WebAuthnCredentialAdded Triggered when a credential is added to an authenticator.
 
-### (WebAuthnCredentialAdded) ProtoEvent <- 0.112.3
+#### (WebAuthnCredentialAdded) ProtoEvent <- 0.112.3
 
 ``` go
 func (evt WebAuthnCredentialAdded) ProtoEvent() string
@@ -40495,7 +40493,7 @@ func (evt WebAuthnCredentialAdded) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAuthnCredentialAsserted <- 0.112.3
+### type WebAuthnCredentialAsserted <- 0.112.3
 
 ``` go
 type WebAuthnCredentialAsserted struct {
@@ -40509,7 +40507,7 @@ type WebAuthnCredentialAsserted struct {
 
 WebAuthnCredentialAsserted Triggered when a credential is used in a webauthn assertion.
 
-### (WebAuthnCredentialAsserted) ProtoEvent <- 0.112.3
+#### (WebAuthnCredentialAsserted) ProtoEvent <- 0.112.3
 
 ``` go
 func (evt WebAuthnCredentialAsserted) ProtoEvent() string
@@ -40517,7 +40515,7 @@ func (evt WebAuthnCredentialAsserted) ProtoEvent() string
 
 ProtoEvent name.
 
-## type WebAuthnCtap2Version <- 0.90.0
+### type WebAuthnCtap2Version <- 0.90.0
 
 ``` go
 type WebAuthnCtap2Version string
@@ -40535,7 +40533,7 @@ const (
 )
 ```
 
-## type WebAuthnDisable 
+### type WebAuthnDisable 
 
 ``` go
 type WebAuthnDisable struct{}
@@ -40543,7 +40541,7 @@ type WebAuthnDisable struct{}
 
 WebAuthnDisable Disable the WebAuthn domain.
 
-### (WebAuthnDisable) Call 
+#### (WebAuthnDisable) Call 
 
 ``` go
 func (m WebAuthnDisable) Call(c Client) error
@@ -40551,7 +40549,7 @@ func (m WebAuthnDisable) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnDisable) ProtoReq <- 0.74.0
+#### (WebAuthnDisable) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnDisable) ProtoReq() string
@@ -40559,7 +40557,7 @@ func (m WebAuthnDisable) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnEnable 
+### type WebAuthnEnable 
 
 ``` go
 type WebAuthnEnable struct {
@@ -40574,7 +40572,7 @@ type WebAuthnEnable struct {
 
 WebAuthnEnable Enable the WebAuthn domain and start intercepting credential storage and retrieval with a virtual authenticator.
 
-### (WebAuthnEnable) Call 
+#### (WebAuthnEnable) Call 
 
 ``` go
 func (m WebAuthnEnable) Call(c Client) error
@@ -40582,7 +40580,7 @@ func (m WebAuthnEnable) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnEnable) ProtoReq <- 0.74.0
+#### (WebAuthnEnable) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnEnable) ProtoReq() string
@@ -40590,7 +40588,7 @@ func (m WebAuthnEnable) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnGetCredential 
+### type WebAuthnGetCredential 
 
 ``` go
 type WebAuthnGetCredential struct {
@@ -40604,7 +40602,7 @@ type WebAuthnGetCredential struct {
 
 WebAuthnGetCredential Returns a single credential stored in the given virtual authenticator that matches the credential ID.
 
-### (WebAuthnGetCredential) Call 
+#### (WebAuthnGetCredential) Call 
 
 ``` go
 func (m WebAuthnGetCredential) Call(c Client) (*WebAuthnGetCredentialResult, error)
@@ -40612,7 +40610,7 @@ func (m WebAuthnGetCredential) Call(c Client) (*WebAuthnGetCredentialResult, err
 
 Call the request.
 
-### (WebAuthnGetCredential) ProtoReq <- 0.74.0
+#### (WebAuthnGetCredential) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnGetCredential) ProtoReq() string
@@ -40620,7 +40618,7 @@ func (m WebAuthnGetCredential) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnGetCredentialResult 
+### type WebAuthnGetCredentialResult 
 
 ``` go
 type WebAuthnGetCredentialResult struct {
@@ -40631,7 +40629,7 @@ type WebAuthnGetCredentialResult struct {
 
 WebAuthnGetCredentialResult ...
 
-## type WebAuthnGetCredentials 
+### type WebAuthnGetCredentials 
 
 ``` go
 type WebAuthnGetCredentials struct {
@@ -40642,7 +40640,7 @@ type WebAuthnGetCredentials struct {
 
 WebAuthnGetCredentials Returns all the credentials stored in the given virtual authenticator.
 
-### (WebAuthnGetCredentials) Call 
+#### (WebAuthnGetCredentials) Call 
 
 ``` go
 func (m WebAuthnGetCredentials) Call(c Client) (*WebAuthnGetCredentialsResult, error)
@@ -40650,7 +40648,7 @@ func (m WebAuthnGetCredentials) Call(c Client) (*WebAuthnGetCredentialsResult, e
 
 Call the request.
 
-### (WebAuthnGetCredentials) ProtoReq <- 0.74.0
+#### (WebAuthnGetCredentials) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnGetCredentials) ProtoReq() string
@@ -40658,7 +40656,7 @@ func (m WebAuthnGetCredentials) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnGetCredentialsResult 
+### type WebAuthnGetCredentialsResult 
 
 ``` go
 type WebAuthnGetCredentialsResult struct {
@@ -40669,7 +40667,7 @@ type WebAuthnGetCredentialsResult struct {
 
 WebAuthnGetCredentialsResult ...
 
-## type WebAuthnRemoveCredential 
+### type WebAuthnRemoveCredential 
 
 ``` go
 type WebAuthnRemoveCredential struct {
@@ -40683,7 +40681,7 @@ type WebAuthnRemoveCredential struct {
 
 WebAuthnRemoveCredential Removes a credential from the authenticator.
 
-### (WebAuthnRemoveCredential) Call 
+#### (WebAuthnRemoveCredential) Call 
 
 ``` go
 func (m WebAuthnRemoveCredential) Call(c Client) error
@@ -40691,7 +40689,7 @@ func (m WebAuthnRemoveCredential) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnRemoveCredential) ProtoReq <- 0.74.0
+#### (WebAuthnRemoveCredential) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnRemoveCredential) ProtoReq() string
@@ -40699,7 +40697,7 @@ func (m WebAuthnRemoveCredential) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnRemoveVirtualAuthenticator 
+### type WebAuthnRemoveVirtualAuthenticator 
 
 ``` go
 type WebAuthnRemoveVirtualAuthenticator struct {
@@ -40710,7 +40708,7 @@ type WebAuthnRemoveVirtualAuthenticator struct {
 
 WebAuthnRemoveVirtualAuthenticator Removes the given authenticator.
 
-### (WebAuthnRemoveVirtualAuthenticator) Call 
+#### (WebAuthnRemoveVirtualAuthenticator) Call 
 
 ``` go
 func (m WebAuthnRemoveVirtualAuthenticator) Call(c Client) error
@@ -40718,7 +40716,7 @@ func (m WebAuthnRemoveVirtualAuthenticator) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnRemoveVirtualAuthenticator) ProtoReq <- 0.74.0
+#### (WebAuthnRemoveVirtualAuthenticator) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnRemoveVirtualAuthenticator) ProtoReq() string
@@ -40726,7 +40724,7 @@ func (m WebAuthnRemoveVirtualAuthenticator) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnSetAutomaticPresenceSimulation <- 0.72.0
+### type WebAuthnSetAutomaticPresenceSimulation <- 0.72.0
 
 ``` go
 type WebAuthnSetAutomaticPresenceSimulation struct {
@@ -40740,7 +40738,7 @@ type WebAuthnSetAutomaticPresenceSimulation struct {
 
 WebAuthnSetAutomaticPresenceSimulation Sets whether tests of user presence will succeed immediately (if true) or fail to resolve (if false) for an authenticator. The default is true.
 
-### (WebAuthnSetAutomaticPresenceSimulation) Call <- 0.72.0
+#### (WebAuthnSetAutomaticPresenceSimulation) Call <- 0.72.0
 
 ``` go
 func (m WebAuthnSetAutomaticPresenceSimulation) Call(c Client) error
@@ -40748,7 +40746,7 @@ func (m WebAuthnSetAutomaticPresenceSimulation) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnSetAutomaticPresenceSimulation) ProtoReq <- 0.74.0
+#### (WebAuthnSetAutomaticPresenceSimulation) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnSetAutomaticPresenceSimulation) ProtoReq() string
@@ -40756,7 +40754,7 @@ func (m WebAuthnSetAutomaticPresenceSimulation) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnSetCredentialProperties <- 0.115.0
+### type WebAuthnSetCredentialProperties <- 0.115.0
 
 ``` go
 type WebAuthnSetCredentialProperties struct {
@@ -40776,7 +40774,7 @@ type WebAuthnSetCredentialProperties struct {
 
 WebAuthnSetCredentialProperties Allows setting credential properties. https://w3c.github.io/webauthn/#sctn-automation-set-credential-properties
 
-### (WebAuthnSetCredentialProperties) Call <- 0.115.0
+#### (WebAuthnSetCredentialProperties) Call <- 0.115.0
 
 ``` go
 func (m WebAuthnSetCredentialProperties) Call(c Client) error
@@ -40784,7 +40782,7 @@ func (m WebAuthnSetCredentialProperties) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnSetCredentialProperties) ProtoReq <- 0.115.0
+#### (WebAuthnSetCredentialProperties) ProtoReq <- 0.115.0
 
 ``` go
 func (m WebAuthnSetCredentialProperties) ProtoReq() string
@@ -40792,7 +40790,7 @@ func (m WebAuthnSetCredentialProperties) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnSetResponseOverrideBits <- 0.112.3
+### type WebAuthnSetResponseOverrideBits <- 0.112.3
 
 ``` go
 type WebAuthnSetResponseOverrideBits struct {
@@ -40815,7 +40813,7 @@ type WebAuthnSetResponseOverrideBits struct {
 
 WebAuthnSetResponseOverrideBits Resets parameters isBogusSignature, isBadUV, isBadUP to false if they are not present.
 
-### (WebAuthnSetResponseOverrideBits) Call <- 0.112.3
+#### (WebAuthnSetResponseOverrideBits) Call <- 0.112.3
 
 ``` go
 func (m WebAuthnSetResponseOverrideBits) Call(c Client) error
@@ -40823,7 +40821,7 @@ func (m WebAuthnSetResponseOverrideBits) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnSetResponseOverrideBits) ProtoReq <- 0.112.3
+#### (WebAuthnSetResponseOverrideBits) ProtoReq <- 0.112.3
 
 ``` go
 func (m WebAuthnSetResponseOverrideBits) ProtoReq() string
@@ -40831,7 +40829,7 @@ func (m WebAuthnSetResponseOverrideBits) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnSetUserVerified 
+### type WebAuthnSetUserVerified 
 
 ``` go
 type WebAuthnSetUserVerified struct {
@@ -40845,7 +40843,7 @@ type WebAuthnSetUserVerified struct {
 
 WebAuthnSetUserVerified Sets whether User Verification succeeds or fails for an authenticator. The default is true.
 
-### (WebAuthnSetUserVerified) Call 
+#### (WebAuthnSetUserVerified) Call 
 
 ``` go
 func (m WebAuthnSetUserVerified) Call(c Client) error
@@ -40853,7 +40851,7 @@ func (m WebAuthnSetUserVerified) Call(c Client) error
 
 Call sends the request.
 
-### (WebAuthnSetUserVerified) ProtoReq <- 0.74.0
+#### (WebAuthnSetUserVerified) ProtoReq <- 0.74.0
 
 ``` go
 func (m WebAuthnSetUserVerified) ProtoReq() string
@@ -40861,7 +40859,7 @@ func (m WebAuthnSetUserVerified) ProtoReq() string
 
 ProtoReq name.
 
-## type WebAuthnVirtualAuthenticatorOptions 
+### type WebAuthnVirtualAuthenticatorOptions 
 
 ``` go
 type WebAuthnVirtualAuthenticatorOptions struct {

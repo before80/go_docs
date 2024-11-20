@@ -17,7 +17,7 @@ draft = false
 
 Rod is a high-level driver directly based on [DevTools Protocol](https://chromedevtools.github.io/devtools-protocol). It's designed for web automation and scraping for both high-level and low-level use, senior developers can use the low-level packages and functions to easily customize or build up their own version of Rod, the high-level functions are just examples to build a default version of Rod.
 
-Features
+**Features**
 
 - Chained context design, intuitive to timeout or cancel the long-running task
 - Auto-wait elements to be ready
@@ -30,7 +30,7 @@ Features
 - No zombie browser process after the crash ([how it works](https://github.com/ysmood/leakless))
 - [CI](https://github.com/go-rod/rod/actions) enforced 100% test coverage
 
-Examples
+**Examples**
 
 Please check the [examples_test.go](https://github.com/go-rod/rod/blob/v0.116.2/examples_test.go) file first, then check the [examples](https://github.com/go-rod/rod/blob/v0.116.2/lib/examples) folder.
 
@@ -40,7 +40,7 @@ For more detailed examples, please search the unit tests. Such as the usage of m
 
 If you have questions, please raise an [issues](https://github.com/go-rod/rod/issues)/[discussions](https://github.com/go-rod/rod/discussions) or join the [chat room](https://discord.gg/CpevuvY).
 
-Join us
+**Join us**
 
 Your help is more than welcome! Even just open an issue to ask a question may greatly help others.
 
@@ -145,11 +145,11 @@ Package rod is a high-level driver directly based on DevTools Protocol.
 ``` go
 
 ```
-# 常量
+## 常量
 
 This section is empty.
 
-# 变量 
+## 变量 
 
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/utils.go#L67)
 
@@ -175,7 +175,7 @@ A(0) = 100ms, A(n) = A(n-1) * random[1.9, 2.1), A(n) < 1s
 
 Why the default is not RequestAnimationFrame or DOM change events is because of if a retry never ends it can easily flood the program. But you can always easily config it into what you want.
 
-# 函数 
+## 函数 
 
 ## func NotFoundSleeper <- 0.88.9
 
@@ -193,9 +193,9 @@ func Try(fn func()) (err error)
 
 Try try fn with recover, return the panic as rod.ErrTry.
 
-# 类型
+## 类型
 
-## type Browser 
+### type Browser 
 
 ``` go
 type Browser struct {
@@ -219,7 +219,7 @@ func New() *Browser
 
 New creates a controller. DefaultDevice to emulate is set to [devices.LaptopWithMDPIScreen](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/devices#LaptopWithMDPIScreen).Landscape(), it will change the default user-agent and can make the actual view area smaller than the browser window on headful mode, you can use [Browser.NoDefaultDevice](https://pkg.go.dev/github.com/go-rod/rod#Browser.NoDefaultDevice) to disable it.
 
-### (*Browser) Call 
+#### (*Browser) Call 
 
 ``` go
 func (b *Browser) Call(ctx context.Context, sessionID, methodName string, params interface{}) (res []byte, err error)
@@ -227,7 +227,7 @@ func (b *Browser) Call(ctx context.Context, sessionID, methodName string, params
 
 Call implements the [proto.Client](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#Client) to call raw cdp interface directly.
 
-### (*Browser) CancelTimeout 
+#### (*Browser) CancelTimeout 
 
 ``` go
 func (b *Browser) CancelTimeout() *Browser
@@ -235,7 +235,7 @@ func (b *Browser) CancelTimeout() *Browser
 
 CancelTimeout cancels the current timeout context and returns a clone with the parent context.
 
-### (*Browser) Client 
+#### (*Browser) Client 
 
 ``` go
 func (b *Browser) Client(c CDPClient) *Browser
@@ -243,7 +243,7 @@ func (b *Browser) Client(c CDPClient) *Browser
 
 Client set the cdp client.
 
-### (*Browser) Close 
+#### (*Browser) Close 
 
 ``` go
 func (b *Browser) Close() error
@@ -251,7 +251,7 @@ func (b *Browser) Close() error
 
 Close the browser.
 
-### (*Browser) Connect 
+#### (*Browser) Connect 
 
 ``` go
 func (b *Browser) Connect() error
@@ -259,7 +259,7 @@ func (b *Browser) Connect() error
 
 Connect to the browser and start to control it. If fails to connect, try to launch a local browser, if local browser not found try to download one.
 
-### (*Browser) Context 
+#### (*Browser) Context 
 
 ``` go
 func (b *Browser) Context(ctx context.Context) *Browser
@@ -267,7 +267,7 @@ func (b *Browser) Context(ctx context.Context) *Browser
 
 Context returns a clone with the specified ctx for chained sub-operations.
 
-### (*Browser) ControlURL 
+#### (*Browser) ControlURL 
 
 ``` go
 func (b *Browser) ControlURL(url string) *Browser
@@ -275,7 +275,7 @@ func (b *Browser) ControlURL(url string) *Browser
 
 ControlURL set the url to remote control browser.
 
-### (*Browser) DefaultDevice <- 0.71.0
+#### (*Browser) DefaultDevice <- 0.71.0
 
 ``` go
 func (b *Browser) DefaultDevice(d devices.Device) *Browser
@@ -283,7 +283,7 @@ func (b *Browser) DefaultDevice(d devices.Device) *Browser
 
 DefaultDevice sets the default device for new page to emulate in the future. Default is [devices.LaptopWithMDPIScreen](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/devices#LaptopWithMDPIScreen). Set it to [devices.Clear](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/devices#Clear) to disable it.
 
-### (*Browser) DisableDomain 
+#### (*Browser) DisableDomain 
 
 ``` go
 func (b *Browser) DisableDomain(sessionID proto.TargetSessionID, req proto.Request) (restore func())
@@ -291,7 +291,7 @@ func (b *Browser) DisableDomain(sessionID proto.TargetSessionID, req proto.Reque
 
 DisableDomain and returns a restore function to restore previous state.
 
-### (*Browser) EachEvent 
+#### (*Browser) EachEvent 
 
 ``` go
 func (b *Browser) EachEvent(callbacks ...interface{}) (wait func())
@@ -299,7 +299,7 @@ func (b *Browser) EachEvent(callbacks ...interface{}) (wait func())
 
 EachEvent is similar to [Page.EachEvent](https://pkg.go.dev/github.com/go-rod/rod#Page.EachEvent), but catches events of the entire browser.
 
-### (*Browser) EnableDomain 
+#### (*Browser) EnableDomain 
 
 ``` go
 func (b *Browser) EnableDomain(sessionID proto.TargetSessionID, req proto.Request) (restore func())
@@ -307,7 +307,7 @@ func (b *Browser) EnableDomain(sessionID proto.TargetSessionID, req proto.Reques
 
 EnableDomain and returns a restore function to restore previous state.
 
-### (*Browser) Event 
+#### (*Browser) Event 
 
 ``` go
 func (b *Browser) Event() <-chan *Message
@@ -315,7 +315,7 @@ func (b *Browser) Event() <-chan *Message
 
 Event of the browser.
 
-### (*Browser) GetContext 
+#### (*Browser) GetContext 
 
 ``` go
 func (b *Browser) GetContext() context.Context
@@ -323,7 +323,7 @@ func (b *Browser) GetContext() context.Context
 
 GetContext of current instance.
 
-### (*Browser) GetCookies <- 0.71.0
+#### (*Browser) GetCookies <- 0.71.0
 
 ``` go
 func (b *Browser) GetCookies() ([]*proto.NetworkCookie, error)
@@ -331,7 +331,7 @@ func (b *Browser) GetCookies() ([]*proto.NetworkCookie, error)
 
 GetCookies from the browser.
 
-### (*Browser) HandleAuth 
+#### (*Browser) HandleAuth 
 
 ``` go
 func (b *Browser) HandleAuth(username, password string) func() error
@@ -339,7 +339,7 @@ func (b *Browser) HandleAuth(username, password string) func() error
 
 HandleAuth for the next basic HTTP authentication. It will prevent the popup that requires user to input user name and password. Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
 
-### (*Browser) HijackRequests 
+#### (*Browser) HijackRequests 
 
 ``` go
 func (b *Browser) HijackRequests() *HijackRouter
@@ -347,7 +347,7 @@ func (b *Browser) HijackRequests() *HijackRouter
 
 HijackRequests same as Page.HijackRequests, but can intercept requests of the entire browser.
 
-### (*Browser) IgnoreCertErrors <- 0.61.3
+#### (*Browser) IgnoreCertErrors <- 0.61.3
 
 ``` go
 func (b *Browser) IgnoreCertErrors(enable bool) error
@@ -355,7 +355,7 @@ func (b *Browser) IgnoreCertErrors(enable bool) error
 
 IgnoreCertErrors switch. If enabled, all certificate errors will be ignored.
 
-### (*Browser) Incognito 
+#### (*Browser) Incognito 
 
 ``` go
 func (b *Browser) Incognito() (*Browser, error)
@@ -363,7 +363,7 @@ func (b *Browser) Incognito() (*Browser, error)
 
 Incognito creates a new incognito browser.
 
-### (*Browser) LoadState 
+#### (*Browser) LoadState 
 
 ``` go
 func (b *Browser) LoadState(sessionID proto.TargetSessionID, method proto.Request) (has bool)
@@ -371,7 +371,7 @@ func (b *Browser) LoadState(sessionID proto.TargetSessionID, method proto.Reques
 
 LoadState into the method, sessionID can be empty.
 
-### (*Browser) Logger <- 0.70.0
+#### (*Browser) Logger <- 0.70.0
 
 ``` go
 func (b *Browser) Logger(l utils.Logger) *Browser
@@ -379,7 +379,7 @@ func (b *Browser) Logger(l utils.Logger) *Browser
 
 Logger overrides the default log functions for tracing.
 
-### (*Browser) Monitor <- 0.70.0
+#### (*Browser) Monitor <- 0.70.0
 
 ``` go
 func (b *Browser) Monitor(url string) *Browser
@@ -387,7 +387,7 @@ func (b *Browser) Monitor(url string) *Browser
 
 Monitor address to listen if not empty. Shortcut for [Browser.ServeMonitor](https://pkg.go.dev/github.com/go-rod/rod#Browser.ServeMonitor).
 
-### (*Browser) MustClose <- 0.50.0
+#### (*Browser) MustClose <- 0.50.0
 
 ``` go
 func (b *Browser) MustClose()
@@ -395,7 +395,7 @@ func (b *Browser) MustClose()
 
 MustClose is similar to [Browser.Close](https://pkg.go.dev/github.com/go-rod/rod#Browser.Close).
 
-### (*Browser) MustConnect <- 0.50.0
+#### (*Browser) MustConnect <- 0.50.0
 
 ``` go
 func (b *Browser) MustConnect() *Browser
@@ -403,7 +403,7 @@ func (b *Browser) MustConnect() *Browser
 
 MustConnect is similar to [Browser.Connect](https://pkg.go.dev/github.com/go-rod/rod#Browser.Connect).
 
-### (*Browser) MustGetCookies <- 0.71.0
+#### (*Browser) MustGetCookies <- 0.71.0
 
 ``` go
 func (b *Browser) MustGetCookies() []*proto.NetworkCookie
@@ -411,7 +411,7 @@ func (b *Browser) MustGetCookies() []*proto.NetworkCookie
 
 MustGetCookies is similar to [Browser.GetCookies](https://pkg.go.dev/github.com/go-rod/rod#Browser.GetCookies).
 
-### (*Browser) MustHandleAuth <- 0.50.0
+#### (*Browser) MustHandleAuth <- 0.50.0
 
 ``` go
 func (b *Browser) MustHandleAuth(username, password string) (wait func())
@@ -419,7 +419,7 @@ func (b *Browser) MustHandleAuth(username, password string) (wait func())
 
 MustHandleAuth is similar to [Browser.HandleAuth](https://pkg.go.dev/github.com/go-rod/rod#Browser.HandleAuth).
 
-### (*Browser) MustIgnoreCertErrors <- 0.61.3
+#### (*Browser) MustIgnoreCertErrors <- 0.61.3
 
 ``` go
 func (b *Browser) MustIgnoreCertErrors(enable bool) *Browser
@@ -427,7 +427,7 @@ func (b *Browser) MustIgnoreCertErrors(enable bool) *Browser
 
 MustIgnoreCertErrors is similar to [Browser.IgnoreCertErrors](https://pkg.go.dev/github.com/go-rod/rod#Browser.IgnoreCertErrors).
 
-### (*Browser) MustIncognito <- 0.50.0
+#### (*Browser) MustIncognito <- 0.50.0
 
 ``` go
 func (b *Browser) MustIncognito() *Browser
@@ -435,7 +435,7 @@ func (b *Browser) MustIncognito() *Browser
 
 MustIncognito is similar to [Browser.Incognito](https://pkg.go.dev/github.com/go-rod/rod#Browser.Incognito).
 
-### (*Browser) MustPage <- 0.50.0
+#### (*Browser) MustPage <- 0.50.0
 
 ``` go
 func (b *Browser) MustPage(url ...string) *Page
@@ -443,7 +443,7 @@ func (b *Browser) MustPage(url ...string) *Page
 
 MustPage is similar to [Browser.Page](https://pkg.go.dev/github.com/go-rod/rod#Browser.Page). The url list will be joined by "/".
 
-### (*Browser) MustPageFromTargetID <- 0.50.0
+#### (*Browser) MustPageFromTargetID <- 0.50.0
 
 ``` go
 func (b *Browser) MustPageFromTargetID(targetID proto.TargetTargetID) *Page
@@ -451,7 +451,7 @@ func (b *Browser) MustPageFromTargetID(targetID proto.TargetTargetID) *Page
 
 MustPageFromTargetID is similar to [Browser.PageFromTargetID].
 
-### (*Browser) MustPages <- 0.50.0
+#### (*Browser) MustPages <- 0.50.0
 
 ``` go
 func (b *Browser) MustPages() Pages
@@ -459,7 +459,7 @@ func (b *Browser) MustPages() Pages
 
 MustPages is similar to [Browser.Pages](https://pkg.go.dev/github.com/go-rod/rod#Browser.Pages).
 
-### (*Browser) MustSetCookies <- 0.71.0
+#### (*Browser) MustSetCookies <- 0.71.0
 
 ``` go
 func (b *Browser) MustSetCookies(cookies ...*proto.NetworkCookie) *Browser
@@ -467,7 +467,7 @@ func (b *Browser) MustSetCookies(cookies ...*proto.NetworkCookie) *Browser
 
 MustSetCookies is similar to [Browser.SetCookies](https://pkg.go.dev/github.com/go-rod/rod#Browser.SetCookies). If the len(cookies) is 0 it will clear all the cookies.
 
-### (*Browser) MustVersion <- 0.107.0
+#### (*Browser) MustVersion <- 0.107.0
 
 ``` go
 func (b *Browser) MustVersion() *proto.BrowserGetVersionResult
@@ -475,7 +475,7 @@ func (b *Browser) MustVersion() *proto.BrowserGetVersionResult
 
 MustVersion is similar to [Browser.Version](https://pkg.go.dev/github.com/go-rod/rod#Browser.Version).
 
-### (*Browser) MustWaitDownload <- 0.83.0
+#### (*Browser) MustWaitDownload <- 0.83.0
 
 ``` go
 func (b *Browser) MustWaitDownload() func() []byte
@@ -483,7 +483,7 @@ func (b *Browser) MustWaitDownload() func() []byte
 
 MustWaitDownload is similar to [Browser.WaitDownload](https://pkg.go.dev/github.com/go-rod/rod#Browser.WaitDownload). It will read the file into bytes then remove the file.
 
-### (*Browser) NoDefaultDevice <- 0.81.1
+#### (*Browser) NoDefaultDevice <- 0.81.1
 
 ``` go
 func (b *Browser) NoDefaultDevice() *Browser
@@ -491,7 +491,7 @@ func (b *Browser) NoDefaultDevice() *Browser
 
 NoDefaultDevice is the same as [Browser.DefaultDevice](https://pkg.go.dev/github.com/go-rod/rod#Browser.DefaultDevice)(devices.Clear).
 
-### (*Browser) Page 
+#### (*Browser) Page 
 
 ``` go
 func (b *Browser) Page(opts proto.TargetCreateTarget) (p *Page, err error)
@@ -499,7 +499,7 @@ func (b *Browser) Page(opts proto.TargetCreateTarget) (p *Page, err error)
 
 Page creates a new browser tab. If opts.URL is empty, the default target will be "about:blank".
 
-### (*Browser) PageFromSession <- 0.74.0
+#### (*Browser) PageFromSession <- 0.74.0
 
 ``` go
 func (b *Browser) PageFromSession(sessionID proto.TargetSessionID) *Page
@@ -507,7 +507,7 @@ func (b *Browser) PageFromSession(sessionID proto.TargetSessionID) *Page
 
 PageFromSession is used for low-level debugging.
 
-### (*Browser) PageFromTarget <- 0.50.0
+#### (*Browser) PageFromTarget <- 0.50.0
 
 ``` go
 func (b *Browser) PageFromTarget(targetID proto.TargetTargetID) (*Page, error)
@@ -515,7 +515,7 @@ func (b *Browser) PageFromTarget(targetID proto.TargetTargetID) (*Page, error)
 
 PageFromTarget gets or creates a Page instance.
 
-### (*Browser) Pages 
+#### (*Browser) Pages 
 
 ``` go
 func (b *Browser) Pages() (Pages, error)
@@ -523,7 +523,7 @@ func (b *Browser) Pages() (Pages, error)
 
 Pages retrieves all visible pages.
 
-### (*Browser) RemoveState <- 0.74.0
+#### (*Browser) RemoveState <- 0.74.0
 
 ``` go
 func (b *Browser) RemoveState(key interface{})
@@ -531,7 +531,7 @@ func (b *Browser) RemoveState(key interface{})
 
 RemoveState a state.
 
-### (*Browser) ServeMonitor 
+#### (*Browser) ServeMonitor 
 
 ``` go
 func (b *Browser) ServeMonitor(host string) string
@@ -539,7 +539,7 @@ func (b *Browser) ServeMonitor(host string) string
 
 ServeMonitor starts the monitor server. The reason why not to use "chrome://inspect/#devices" is one target cannot be driven by multiple controllers.
 
-### (*Browser) SetCookies <- 0.71.0
+#### (*Browser) SetCookies <- 0.71.0
 
 ``` go
 func (b *Browser) SetCookies(cookies []*proto.NetworkCookieParam) error
@@ -547,7 +547,7 @@ func (b *Browser) SetCookies(cookies []*proto.NetworkCookieParam) error
 
 SetCookies to the browser. If the cookies is nil it will clear all the cookies.
 
-### (*Browser) Sleeper <- 0.50.0
+#### (*Browser) Sleeper <- 0.50.0
 
 ``` go
 func (b *Browser) Sleeper(sleeper func() utils.Sleeper) *Browser
@@ -555,7 +555,7 @@ func (b *Browser) Sleeper(sleeper func() utils.Sleeper) *Browser
 
 Sleeper returns a clone with the specified sleeper for chained sub-operations.
 
-### (*Browser) SlowMotion <- 0.77.0
+#### (*Browser) SlowMotion <- 0.77.0
 
 ``` go
 func (b *Browser) SlowMotion(delay time.Duration) *Browser
@@ -563,7 +563,7 @@ func (b *Browser) SlowMotion(delay time.Duration) *Browser
 
 SlowMotion set the delay for each control action, such as the simulation of the human inputs.
 
-### (*Browser) Timeout 
+#### (*Browser) Timeout 
 
 ``` go
 func (b *Browser) Timeout(d time.Duration) *Browser
@@ -571,7 +571,7 @@ func (b *Browser) Timeout(d time.Duration) *Browser
 
 Timeout returns a clone with the specified total timeout of all chained sub-operations.
 
-### (*Browser) Trace 
+#### (*Browser) Trace 
 
 ``` go
 func (b *Browser) Trace(enable bool) *Browser
@@ -579,7 +579,7 @@ func (b *Browser) Trace(enable bool) *Browser
 
 Trace enables/disables the visual tracing of the input actions on the page.
 
-### (*Browser) Version <- 0.107.0
+#### (*Browser) Version <- 0.107.0
 
 ``` go
 func (b *Browser) Version() (*proto.BrowserGetVersionResult, error)
@@ -587,7 +587,7 @@ func (b *Browser) Version() (*proto.BrowserGetVersionResult, error)
 
 Version info of the browser.
 
-### (*Browser) WaitDownload <- 0.83.0
+#### (*Browser) WaitDownload <- 0.83.0
 
 ``` go
 func (b *Browser) WaitDownload(dir string) func() (info *proto.PageDownloadWillBegin)
@@ -599,7 +599,7 @@ WaitDownload returns a helper to get the next download file. The file path will 
 filepath.Join(dir, info.GUID)
 ```
 
-### (*Browser) WaitEvent 
+#### (*Browser) WaitEvent 
 
 ``` go
 func (b *Browser) WaitEvent(e proto.Event) (wait func())
@@ -607,7 +607,7 @@ func (b *Browser) WaitEvent(e proto.Event) (wait func())
 
 WaitEvent waits for the next event for one time. It will also load the data into the event object.
 
-### (*Browser) WithCancel <- 0.69.0
+#### (*Browser) WithCancel <- 0.69.0
 
 ``` go
 func (b *Browser) WithCancel() (*Browser, func())
@@ -615,7 +615,7 @@ func (b *Browser) WithCancel() (*Browser, func())
 
 WithCancel returns a clone with a context cancel function.
 
-### (*Browser) WithPanic <- 0.100.0
+#### (*Browser) WithPanic <- 0.100.0
 
 ``` go
 func (b *Browser) WithPanic(fail func(interface{})) *Browser
@@ -623,7 +623,7 @@ func (b *Browser) WithPanic(fail func(interface{})) *Browser
 
 WithPanic returns a browser clone with the specified panic function. The fail must stop the current goroutine's execution immediately, such as use [runtime.Goexit](https://pkg.go.dev/runtime#Goexit) or panic inside it.
 
-## type CDPClient <- 0.70.0
+### type CDPClient <- 0.70.0
 
 ``` go
 type CDPClient interface {
@@ -634,7 +634,7 @@ type CDPClient interface {
 
 CDPClient is usually used to make rod side-effect free. Such as proxy all IO of rod.
 
-## type CoveredError <- 0.114.8
+### type CoveredError <- 0.114.8
 
 ``` go
 type CoveredError struct {
@@ -644,7 +644,7 @@ type CoveredError struct {
 
 CoveredError error.
 
-### (*CoveredError) Error <- 0.114.8
+#### (*CoveredError) Error <- 0.114.8
 
 ``` go
 func (e *CoveredError) Error() string
@@ -652,7 +652,7 @@ func (e *CoveredError) Error() string
 
 Error ...
 
-### (*CoveredError) Is <- 0.114.8
+#### (*CoveredError) Is <- 0.114.8
 
 ``` go
 func (e *CoveredError) Is(err error) bool
@@ -660,7 +660,7 @@ func (e *CoveredError) Is(err error) bool
 
 Is interface.
 
-### (*CoveredError) Unwrap <- 0.114.8
+#### (*CoveredError) Unwrap <- 0.114.8
 
 ``` go
 func (e *CoveredError) Unwrap() error
@@ -668,7 +668,7 @@ func (e *CoveredError) Unwrap() error
 
 Unwrap ...
 
-## type Element 
+### type Element 
 
 ``` go
 type Element struct {
@@ -679,7 +679,7 @@ type Element struct {
 
 Element represents the DOM element.
 
-### (*Element) Attribute 
+#### (*Element) Attribute 
 
 ``` go
 func (el *Element) Attribute(name string) (*string, error)
@@ -687,7 +687,7 @@ func (el *Element) Attribute(name string) (*string, error)
 
 Attribute of the DOM object. Attribute vs Property: https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html
 
-### (*Element) BackgroundImage <- 0.76.6
+#### (*Element) BackgroundImage <- 0.76.6
 
 ``` go
 func (el *Element) BackgroundImage() ([]byte, error)
@@ -695,7 +695,7 @@ func (el *Element) BackgroundImage() ([]byte, error)
 
 BackgroundImage returns the css background-image of the element.
 
-### (*Element) Blur 
+#### (*Element) Blur 
 
 ``` go
 func (el *Element) Blur() error
@@ -703,7 +703,7 @@ func (el *Element) Blur() error
 
 Blur removes focus from the element.
 
-### (*Element) Call <- 0.70.0
+#### (*Element) Call <- 0.70.0
 
 ``` go
 func (el *Element) Call(ctx context.Context, sessionID, methodName string, params interface{}) (res []byte, err error)
@@ -711,7 +711,7 @@ func (el *Element) Call(ctx context.Context, sessionID, methodName string, param
 
 Call implements the [proto.Client](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#Client).
 
-### (*Element) CancelTimeout 
+#### (*Element) CancelTimeout 
 
 ``` go
 func (el *Element) CancelTimeout() *Element
@@ -719,7 +719,7 @@ func (el *Element) CancelTimeout() *Element
 
 CancelTimeout cancels the current timeout context and returns a clone with the parent context.
 
-### (*Element) CanvasToImage <- 0.45.1
+#### (*Element) CanvasToImage <- 0.45.1
 
 ``` go
 func (el *Element) CanvasToImage(format string, quality float64) ([]byte, error)
@@ -727,7 +727,7 @@ func (el *Element) CanvasToImage(format string, quality float64) ([]byte, error)
 
 CanvasToImage get image data of a canvas. The default format is image/png. The default quality is 0.92. doc: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 
-### (*Element) Click 
+#### (*Element) Click 
 
 ``` go
 func (el *Element) Click(button proto.InputMouseButton, clickCount int) error
@@ -735,7 +735,7 @@ func (el *Element) Click(button proto.InputMouseButton, clickCount int) error
 
 Click will press then release the button just like a human. Before the action, it will try to scroll to the element, hover the mouse over it, wait until the it's interactable and enabled.
 
-### (*Element) ContainsElement <- 0.48.0
+#### (*Element) ContainsElement <- 0.48.0
 
 ``` go
 func (el *Element) ContainsElement(target *Element) (bool, error)
@@ -743,7 +743,7 @@ func (el *Element) ContainsElement(target *Element) (bool, error)
 
 ContainsElement check if the target is equal or inside the element.
 
-### (*Element) Context 
+#### (*Element) Context 
 
 ``` go
 func (el *Element) Context(ctx context.Context) *Element
@@ -751,7 +751,7 @@ func (el *Element) Context(ctx context.Context) *Element
 
 Context returns a clone with the specified ctx for chained sub-operations.
 
-### (*Element) Describe 
+#### (*Element) Describe 
 
 ``` go
 func (el *Element) Describe(depth int, pierce bool) (*proto.DOMNode, error)
@@ -759,7 +759,7 @@ func (el *Element) Describe(depth int, pierce bool) (*proto.DOMNode, error)
 
 Describe the current element. The depth is the maximum depth at which children should be retrieved, defaults to 1, use -1 for the entire subtree or provide an integer larger than 0. The pierce decides whether or not iframes and shadow roots should be traversed when returning the subtree. The returned [proto.DOMNode.NodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMNode.NodeID) will always be empty, because NodeID is not stable (when [proto.DOMDocumentUpdated](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMDocumentUpdated) is fired all NodeID on the page will be reassigned to another value) we don't recommend using the NodeID, instead, use the [proto.DOMBackendNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMBackendNodeID) to identify the element.
 
-### (*Element) Disabled <- 0.112.5
+#### (*Element) Disabled <- 0.112.5
 
 ``` go
 func (el *Element) Disabled() (bool, error)
@@ -767,7 +767,7 @@ func (el *Element) Disabled() (bool, error)
 
 Disabled checks if the element is disabled.
 
-### (*Element) Element 
+#### (*Element) Element 
 
 ``` go
 func (el *Element) Element(selector string) (*Element, error)
@@ -775,7 +775,7 @@ func (el *Element) Element(selector string) (*Element, error)
 
 Element returns the first child that matches the css selector.
 
-### (*Element) ElementByJS 
+#### (*Element) ElementByJS 
 
 ``` go
 func (el *Element) ElementByJS(opts *EvalOptions) (*Element, error)
@@ -783,7 +783,7 @@ func (el *Element) ElementByJS(opts *EvalOptions) (*Element, error)
 
 ElementByJS returns the element from the return value of the js.
 
-### (*Element) ElementR <- 0.57.0
+#### (*Element) ElementR <- 0.57.0
 
 ``` go
 func (el *Element) ElementR(selector, jsRegex string) (*Element, error)
@@ -791,7 +791,7 @@ func (el *Element) ElementR(selector, jsRegex string) (*Element, error)
 
 ElementR returns the first child element that matches the css selector and its text matches the jsRegex.
 
-### (*Element) ElementX 
+#### (*Element) ElementX 
 
 ``` go
 func (el *Element) ElementX(xPath string) (*Element, error)
@@ -799,7 +799,7 @@ func (el *Element) ElementX(xPath string) (*Element, error)
 
 ElementX returns the first child that matches the XPath selector.
 
-### (*Element) Elements 
+#### (*Element) Elements 
 
 ``` go
 func (el *Element) Elements(selector string) (Elements, error)
@@ -807,7 +807,7 @@ func (el *Element) Elements(selector string) (Elements, error)
 
 Elements returns all elements that match the css selector.
 
-### (*Element) ElementsByJS 
+#### (*Element) ElementsByJS 
 
 ``` go
 func (el *Element) ElementsByJS(opts *EvalOptions) (Elements, error)
@@ -815,7 +815,7 @@ func (el *Element) ElementsByJS(opts *EvalOptions) (Elements, error)
 
 ElementsByJS returns the elements from the return value of the js.
 
-### (*Element) ElementsX 
+#### (*Element) ElementsX 
 
 ``` go
 func (el *Element) ElementsX(xpath string) (Elements, error)
@@ -823,7 +823,7 @@ func (el *Element) ElementsX(xpath string) (Elements, error)
 
 ElementsX returns all elements that match the XPath selector.
 
-### (*Element) Equal <- 0.85.7
+#### (*Element) Equal <- 0.85.7
 
 ``` go
 func (el *Element) Equal(elm *Element) (bool, error)
@@ -831,7 +831,7 @@ func (el *Element) Equal(elm *Element) (bool, error)
 
 Equal checks if the two elements are equal.
 
-### (*Element) Eval 
+#### (*Element) Eval 
 
 ``` go
 func (el *Element) Eval(js string, params ...interface{}) (*proto.RuntimeRemoteObject, error)
@@ -839,7 +839,7 @@ func (el *Element) Eval(js string, params ...interface{}) (*proto.RuntimeRemoteO
 
 Eval is a shortcut for [Element.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Element.Evaluate) with AwaitPromise, ByValue and AutoExp set to true.
 
-### (*Element) Evaluate <- 0.67.0
+#### (*Element) Evaluate <- 0.67.0
 
 ``` go
 func (el *Element) Evaluate(opts *EvalOptions) (*proto.RuntimeRemoteObject, error)
@@ -847,7 +847,7 @@ func (el *Element) Evaluate(opts *EvalOptions) (*proto.RuntimeRemoteObject, erro
 
 Evaluate is just a shortcut of [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate) with This set to current element.
 
-### (*Element) Focus 
+#### (*Element) Focus 
 
 ``` go
 func (el *Element) Focus() error
@@ -855,7 +855,7 @@ func (el *Element) Focus() error
 
 Focus sets focus on the specified element. Before the action, it will try to scroll to the element.
 
-### (*Element) Frame 
+#### (*Element) Frame 
 
 ``` go
 func (el *Element) Frame() (*Page, error)
@@ -863,7 +863,7 @@ func (el *Element) Frame() (*Page, error)
 
 Frame creates a page instance that represents the iframe.
 
-### (*Element) GetContext 
+#### (*Element) GetContext 
 
 ``` go
 func (el *Element) GetContext() context.Context
@@ -871,7 +871,7 @@ func (el *Element) GetContext() context.Context
 
 GetContext of current instance.
 
-### (*Element) GetSessionID <- 0.72.0
+#### (*Element) GetSessionID <- 0.72.0
 
 ``` go
 func (el *Element) GetSessionID() proto.TargetSessionID
@@ -879,7 +879,7 @@ func (el *Element) GetSessionID() proto.TargetSessionID
 
 GetSessionID interface.
 
-### (*Element) GetXPath <- 0.109.3
+#### (*Element) GetXPath <- 0.109.3
 
 ``` go
 func (el *Element) GetXPath(optimized bool) (string, error)
@@ -887,7 +887,7 @@ func (el *Element) GetXPath(optimized bool) (string, error)
 
 GetXPath returns the xpath of the element.
 
-### (*Element) HTML 
+#### (*Element) HTML 
 
 ``` go
 func (el *Element) HTML() (string, error)
@@ -895,7 +895,7 @@ func (el *Element) HTML() (string, error)
 
 HTML of the element.
 
-### (*Element) Has 
+#### (*Element) Has 
 
 ``` go
 func (el *Element) Has(selector string) (bool, *Element, error)
@@ -903,7 +903,7 @@ func (el *Element) Has(selector string) (bool, *Element, error)
 
 Has an element that matches the css selector.
 
-### (*Element) HasR <- 0.61.0
+#### (*Element) HasR <- 0.61.0
 
 ``` go
 func (el *Element) HasR(selector, jsRegex string) (bool, *Element, error)
@@ -911,7 +911,7 @@ func (el *Element) HasR(selector, jsRegex string) (bool, *Element, error)
 
 HasR returns true if a child element that matches the css selector and its text matches the jsRegex.
 
-### (*Element) HasX 
+#### (*Element) HasX 
 
 ``` go
 func (el *Element) HasX(selector string) (bool, *Element, error)
@@ -919,7 +919,7 @@ func (el *Element) HasX(selector string) (bool, *Element, error)
 
 HasX an element that matches the XPath selector.
 
-### (*Element) Hover <- 0.49.1
+#### (*Element) Hover <- 0.49.1
 
 ``` go
 func (el *Element) Hover() error
@@ -927,7 +927,7 @@ func (el *Element) Hover() error
 
 Hover the mouse over the center of the element. Before the action, it will try to scroll to the element and wait until it's interactable.
 
-### (*Element) Input 
+#### (*Element) Input 
 
 ``` go
 func (el *Element) Input(text string) error
@@ -939,7 +939,7 @@ Input focuses on the element and input text to it. Before the action, it will sc
 el.SelectAllText().MustInput("")
 ```
 
-### (*Element) InputColor <- 0.114.3
+#### (*Element) InputColor <- 0.114.3
 
 ``` go
 func (el *Element) InputColor(color string) error
@@ -947,7 +947,7 @@ func (el *Element) InputColor(color string) error
 
 InputColor focuses on the element and inputs a color string to it. Before the action, it will scroll to the element, wait until it's visible, enabled and writable.
 
-### (*Element) InputTime <- 0.79.2
+#### (*Element) InputTime <- 0.79.2
 
 ``` go
 func (el *Element) InputTime(t time.Time) error
@@ -955,7 +955,7 @@ func (el *Element) InputTime(t time.Time) error
 
 InputTime focuses on the element and input time to it. Before the action, it will scroll to the element, wait until it's visible, enabled and writable. It will wait until the element is visible, enabled and writable.
 
-### (*Element) Interactable <- 0.66.0
+#### (*Element) Interactable <- 0.66.0
 
 ``` go
 func (el *Element) Interactable() (pt *proto.Point, err error)
@@ -963,7 +963,7 @@ func (el *Element) Interactable() (pt *proto.Point, err error)
 
 Interactable checks if the element is interactable with cursor. The cursor can be mouse, finger, stylus, etc. If not interactable err will be ErrNotInteractable, such as when covered by a modal,.
 
-### (*Element) KeyActions <- 0.107.0
+#### (*Element) KeyActions <- 0.107.0
 
 ``` go
 func (el *Element) KeyActions() (*KeyActions, error)
@@ -971,7 +971,7 @@ func (el *Element) KeyActions() (*KeyActions, error)
 
 KeyActions is similar with Page.KeyActions. Before the action, it will try to scroll to the element and focus on it.
 
-### (*Element) Matches <- 0.45.0
+#### (*Element) Matches <- 0.45.0
 
 ``` go
 func (el *Element) Matches(selector string) (bool, error)
@@ -979,7 +979,7 @@ func (el *Element) Matches(selector string) (bool, error)
 
 Matches checks if the element can be selected by the css selector.
 
-### (*Element) MoveMouseOut <- 0.97.13
+#### (*Element) MoveMouseOut <- 0.97.13
 
 ``` go
 func (el *Element) MoveMouseOut() error
@@ -987,7 +987,7 @@ func (el *Element) MoveMouseOut() error
 
 MoveMouseOut of the current element.
 
-### (*Element) MustAttribute <- 0.50.0
+#### (*Element) MustAttribute <- 0.50.0
 
 ``` go
 func (el *Element) MustAttribute(name string) *string
@@ -995,7 +995,7 @@ func (el *Element) MustAttribute(name string) *string
 
 MustAttribute is similar to [Element.Attribute](https://pkg.go.dev/github.com/go-rod/rod#Element.Attribute).
 
-### (*Element) MustBackgroundImage <- 0.76.6
+#### (*Element) MustBackgroundImage <- 0.76.6
 
 ``` go
 func (el *Element) MustBackgroundImage() []byte
@@ -1003,7 +1003,7 @@ func (el *Element) MustBackgroundImage() []byte
 
 MustBackgroundImage is similar to [Element.BackgroundImage](https://pkg.go.dev/github.com/go-rod/rod#Element.BackgroundImage).
 
-### (*Element) MustBlur <- 0.50.0
+#### (*Element) MustBlur <- 0.50.0
 
 ``` go
 func (el *Element) MustBlur() *Element
@@ -1011,7 +1011,7 @@ func (el *Element) MustBlur() *Element
 
 MustBlur is similar to [Element.Blur](https://pkg.go.dev/github.com/go-rod/rod#Element.Blur).
 
-### (*Element) MustCanvasToImage <- 0.50.0
+#### (*Element) MustCanvasToImage <- 0.50.0
 
 ``` go
 func (el *Element) MustCanvasToImage() []byte
@@ -1019,7 +1019,7 @@ func (el *Element) MustCanvasToImage() []byte
 
 MustCanvasToImage is similar to [Element.CanvasToImage](https://pkg.go.dev/github.com/go-rod/rod#Element.CanvasToImage).
 
-### (*Element) MustClick <- 0.50.0
+#### (*Element) MustClick <- 0.50.0
 
 ``` go
 func (el *Element) MustClick() *Element
@@ -1027,7 +1027,7 @@ func (el *Element) MustClick() *Element
 
 MustClick is similar to [Element.Click](https://pkg.go.dev/github.com/go-rod/rod#Element.Click).
 
-### (*Element) MustContainsElement <- 0.50.0
+#### (*Element) MustContainsElement <- 0.50.0
 
 ``` go
 func (el *Element) MustContainsElement(target *Element) bool
@@ -1035,7 +1035,7 @@ func (el *Element) MustContainsElement(target *Element) bool
 
 MustContainsElement is similar to [Element.ContainsElement](https://pkg.go.dev/github.com/go-rod/rod#Element.ContainsElement).
 
-### (*Element) MustDescribe <- 0.50.0
+#### (*Element) MustDescribe <- 0.50.0
 
 ``` go
 func (el *Element) MustDescribe() *proto.DOMNode
@@ -1043,7 +1043,7 @@ func (el *Element) MustDescribe() *proto.DOMNode
 
 MustDescribe is similar to [Element.Describe](https://pkg.go.dev/github.com/go-rod/rod#Element.Describe).
 
-### (*Element) MustDisabled <- 0.112.5
+#### (*Element) MustDisabled <- 0.112.5
 
 ``` go
 func (el *Element) MustDisabled() bool
@@ -1051,7 +1051,7 @@ func (el *Element) MustDisabled() bool
 
 MustDisabled is similar to [Element.Disabled](https://pkg.go.dev/github.com/go-rod/rod#Element.Disabled).
 
-### (*Element) MustDoubleClick <- 0.111.0
+#### (*Element) MustDoubleClick <- 0.111.0
 
 ``` go
 func (el *Element) MustDoubleClick() *Element
@@ -1059,7 +1059,7 @@ func (el *Element) MustDoubleClick() *Element
 
 MustDoubleClick is similar to [Element.Click](https://pkg.go.dev/github.com/go-rod/rod#Element.Click).
 
-### (*Element) MustElement <- 0.50.0
+#### (*Element) MustElement <- 0.50.0
 
 ``` go
 func (el *Element) MustElement(selector string) *Element
@@ -1067,7 +1067,7 @@ func (el *Element) MustElement(selector string) *Element
 
 MustElement is similar to [Element.Element](https://pkg.go.dev/github.com/go-rod/rod#Element.Element).
 
-### (*Element) MustElementByJS <- 0.50.0
+#### (*Element) MustElementByJS <- 0.50.0
 
 ``` go
 func (el *Element) MustElementByJS(js string, params ...interface{}) *Element
@@ -1075,7 +1075,7 @@ func (el *Element) MustElementByJS(js string, params ...interface{}) *Element
 
 MustElementByJS is similar to [Element.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Element.ElementByJS).
 
-### (*Element) MustElementR <- 0.57.0
+#### (*Element) MustElementR <- 0.57.0
 
 ``` go
 func (el *Element) MustElementR(selector, regex string) *Element
@@ -1083,7 +1083,7 @@ func (el *Element) MustElementR(selector, regex string) *Element
 
 MustElementR is similar to [Element.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Element.ElementR).
 
-### (*Element) MustElementX <- 0.50.0
+#### (*Element) MustElementX <- 0.50.0
 
 ``` go
 func (el *Element) MustElementX(xpath string) *Element
@@ -1091,7 +1091,7 @@ func (el *Element) MustElementX(xpath string) *Element
 
 MustElementX is similar to [Element.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Element.ElementX).
 
-### (*Element) MustElements <- 0.50.0
+#### (*Element) MustElements <- 0.50.0
 
 ``` go
 func (el *Element) MustElements(selector string) Elements
@@ -1099,7 +1099,7 @@ func (el *Element) MustElements(selector string) Elements
 
 MustElements is similar to [Element.Elements](https://pkg.go.dev/github.com/go-rod/rod#Element.Elements).
 
-### (*Element) MustElementsByJS <- 0.50.0
+#### (*Element) MustElementsByJS <- 0.50.0
 
 ``` go
 func (el *Element) MustElementsByJS(js string, params ...interface{}) Elements
@@ -1107,7 +1107,7 @@ func (el *Element) MustElementsByJS(js string, params ...interface{}) Elements
 
 MustElementsByJS is similar to [Element.ElementsByJS](https://pkg.go.dev/github.com/go-rod/rod#Element.ElementsByJS).
 
-### (*Element) MustElementsX <- 0.50.0
+#### (*Element) MustElementsX <- 0.50.0
 
 ``` go
 func (el *Element) MustElementsX(xpath string) Elements
@@ -1115,7 +1115,7 @@ func (el *Element) MustElementsX(xpath string) Elements
 
 MustElementsX is similar to [Element.ElementsX](https://pkg.go.dev/github.com/go-rod/rod#Element.ElementsX).
 
-### (*Element) MustEqual <- 0.85.7
+#### (*Element) MustEqual <- 0.85.7
 
 ``` go
 func (el *Element) MustEqual(elm *Element) bool
@@ -1123,7 +1123,7 @@ func (el *Element) MustEqual(elm *Element) bool
 
 MustEqual is similar to [Element.Equal](https://pkg.go.dev/github.com/go-rod/rod#Element.Equal).
 
-### (*Element) MustEval <- 0.50.0
+#### (*Element) MustEval <- 0.50.0
 
 ``` go
 func (el *Element) MustEval(js string, params ...interface{}) gson.JSON
@@ -1131,7 +1131,7 @@ func (el *Element) MustEval(js string, params ...interface{}) gson.JSON
 
 MustEval is similar to [Element.Eval](https://pkg.go.dev/github.com/go-rod/rod#Element.Eval).
 
-### (*Element) MustFocus <- 0.50.0
+#### (*Element) MustFocus <- 0.50.0
 
 ``` go
 func (el *Element) MustFocus() *Element
@@ -1139,7 +1139,7 @@ func (el *Element) MustFocus() *Element
 
 MustFocus is similar to [Element.Focus](https://pkg.go.dev/github.com/go-rod/rod#Element.Focus).
 
-### (*Element) MustFrame <- 0.55.1
+#### (*Element) MustFrame <- 0.55.1
 
 ``` go
 func (el *Element) MustFrame() *Page
@@ -1147,7 +1147,7 @@ func (el *Element) MustFrame() *Page
 
 MustFrame is similar to [Element.Frame](https://pkg.go.dev/github.com/go-rod/rod#Element.Frame).
 
-### (*Element) MustGetXPath <- 0.109.3
+#### (*Element) MustGetXPath <- 0.109.3
 
 ``` go
 func (el *Element) MustGetXPath(optimized bool) string
@@ -1155,7 +1155,7 @@ func (el *Element) MustGetXPath(optimized bool) string
 
 MustGetXPath is similar to [Element.GetXPath](https://pkg.go.dev/github.com/go-rod/rod#Element.GetXPath).
 
-### (*Element) MustHTML <- 0.50.0
+#### (*Element) MustHTML <- 0.50.0
 
 ``` go
 func (el *Element) MustHTML() string
@@ -1163,7 +1163,7 @@ func (el *Element) MustHTML() string
 
 MustHTML is similar to [Element.HTML](https://pkg.go.dev/github.com/go-rod/rod#Element.HTML).
 
-### (*Element) MustHas <- 0.50.0
+#### (*Element) MustHas <- 0.50.0
 
 ``` go
 func (el *Element) MustHas(selector string) bool
@@ -1171,7 +1171,7 @@ func (el *Element) MustHas(selector string) bool
 
 MustHas is similar to [Element.Has](https://pkg.go.dev/github.com/go-rod/rod#Element.Has).
 
-### (*Element) MustHasR <- 0.61.0
+#### (*Element) MustHasR <- 0.61.0
 
 ``` go
 func (el *Element) MustHasR(selector, regex string) bool
@@ -1179,7 +1179,7 @@ func (el *Element) MustHasR(selector, regex string) bool
 
 MustHasR is similar to [Element.HasR](https://pkg.go.dev/github.com/go-rod/rod#Element.HasR).
 
-### (*Element) MustHasX <- 0.50.0
+#### (*Element) MustHasX <- 0.50.0
 
 ``` go
 func (el *Element) MustHasX(selector string) bool
@@ -1187,7 +1187,7 @@ func (el *Element) MustHasX(selector string) bool
 
 MustHasX is similar to [Element.HasX](https://pkg.go.dev/github.com/go-rod/rod#Element.HasX).
 
-### (*Element) MustHover <- 0.50.0
+#### (*Element) MustHover <- 0.50.0
 
 ``` go
 func (el *Element) MustHover() *Element
@@ -1195,7 +1195,7 @@ func (el *Element) MustHover() *Element
 
 MustHover is similar to [Element.Hover](https://pkg.go.dev/github.com/go-rod/rod#Element.Hover).
 
-### (*Element) MustInput <- 0.50.0
+#### (*Element) MustInput <- 0.50.0
 
 ``` go
 func (el *Element) MustInput(text string) *Element
@@ -1203,7 +1203,7 @@ func (el *Element) MustInput(text string) *Element
 
 MustInput is similar to [Element.Input](https://pkg.go.dev/github.com/go-rod/rod#Element.Input).
 
-### (*Element) MustInputColor <- 0.114.3
+#### (*Element) MustInputColor <- 0.114.3
 
 ``` go
 func (el *Element) MustInputColor(color string) *Element
@@ -1211,7 +1211,7 @@ func (el *Element) MustInputColor(color string) *Element
 
 MustInputColor is similar to [Element.InputColor](https://pkg.go.dev/github.com/go-rod/rod#Element.InputColor).
 
-### (*Element) MustInputTime <- 0.79.2
+#### (*Element) MustInputTime <- 0.79.2
 
 ``` go
 func (el *Element) MustInputTime(t time.Time) *Element
@@ -1219,7 +1219,7 @@ func (el *Element) MustInputTime(t time.Time) *Element
 
 MustInputTime is similar to [Element.Input](https://pkg.go.dev/github.com/go-rod/rod#Element.Input).
 
-### (*Element) MustInteractable <- 0.66.0
+#### (*Element) MustInteractable <- 0.66.0
 
 ``` go
 func (el *Element) MustInteractable() bool
@@ -1227,7 +1227,7 @@ func (el *Element) MustInteractable() bool
 
 MustInteractable is similar to [Element.Interactable](https://pkg.go.dev/github.com/go-rod/rod#Element.Interactable).
 
-### (*Element) MustKeyActions <- 0.107.0
+#### (*Element) MustKeyActions <- 0.107.0
 
 ``` go
 func (el *Element) MustKeyActions() *KeyActions
@@ -1235,7 +1235,7 @@ func (el *Element) MustKeyActions() *KeyActions
 
 MustKeyActions is similar to [Element.KeyActions](https://pkg.go.dev/github.com/go-rod/rod#Element.KeyActions).
 
-### (*Element) MustMatches <- 0.50.0
+#### (*Element) MustMatches <- 0.50.0
 
 ``` go
 func (el *Element) MustMatches(selector string) bool
@@ -1243,7 +1243,7 @@ func (el *Element) MustMatches(selector string) bool
 
 MustMatches is similar to [Element.Matches](https://pkg.go.dev/github.com/go-rod/rod#Element.Matches).
 
-### (*Element) MustMoveMouseOut <- 0.97.13
+#### (*Element) MustMoveMouseOut <- 0.97.13
 
 ``` go
 func (el *Element) MustMoveMouseOut() *Element
@@ -1251,7 +1251,7 @@ func (el *Element) MustMoveMouseOut() *Element
 
 MustMoveMouseOut is similar to [Element.MoveMouseOut](https://pkg.go.dev/github.com/go-rod/rod#Element.MoveMouseOut).
 
-### (*Element) MustNext <- 0.50.0
+#### (*Element) MustNext <- 0.50.0
 
 ``` go
 func (el *Element) MustNext() *Element
@@ -1259,7 +1259,7 @@ func (el *Element) MustNext() *Element
 
 MustNext is similar to [Element.Next](https://pkg.go.dev/github.com/go-rod/rod#Element.Next).
 
-### (*Element) MustParent <- 0.50.0
+#### (*Element) MustParent <- 0.50.0
 
 ``` go
 func (el *Element) MustParent() *Element
@@ -1267,7 +1267,7 @@ func (el *Element) MustParent() *Element
 
 MustParent is similar to [Element.Parent](https://pkg.go.dev/github.com/go-rod/rod#Element.Parent).
 
-### (*Element) MustParents <- 0.50.0
+#### (*Element) MustParents <- 0.50.0
 
 ``` go
 func (el *Element) MustParents(selector string) Elements
@@ -1275,7 +1275,7 @@ func (el *Element) MustParents(selector string) Elements
 
 MustParents is similar to [Element.Parents](https://pkg.go.dev/github.com/go-rod/rod#Element.Parents).
 
-### (*Element) MustPrevious <- 0.50.0
+#### (*Element) MustPrevious <- 0.50.0
 
 ``` go
 func (el *Element) MustPrevious() *Element
@@ -1283,7 +1283,7 @@ func (el *Element) MustPrevious() *Element
 
 MustPrevious is similar to [Element.Previous](https://pkg.go.dev/github.com/go-rod/rod#Element.Previous).
 
-### (*Element) MustProperty <- 0.50.0
+#### (*Element) MustProperty <- 0.50.0
 
 ``` go
 func (el *Element) MustProperty(name string) gson.JSON
@@ -1291,7 +1291,7 @@ func (el *Element) MustProperty(name string) gson.JSON
 
 MustProperty is similar to [Element.Property](https://pkg.go.dev/github.com/go-rod/rod#Element.Property).
 
-### (*Element) MustRelease <- 0.50.0
+#### (*Element) MustRelease <- 0.50.0
 
 ``` go
 func (el *Element) MustRelease()
@@ -1299,7 +1299,7 @@ func (el *Element) MustRelease()
 
 MustRelease is similar to [Element.Release](https://pkg.go.dev/github.com/go-rod/rod#Element.Release).
 
-### (*Element) MustRemove <- 0.66.0
+#### (*Element) MustRemove <- 0.66.0
 
 ``` go
 func (el *Element) MustRemove()
@@ -1307,7 +1307,7 @@ func (el *Element) MustRemove()
 
 MustRemove is similar to [Element.Remove](https://pkg.go.dev/github.com/go-rod/rod#Element.Remove).
 
-### (*Element) MustResource <- 0.50.0
+#### (*Element) MustResource <- 0.50.0
 
 ``` go
 func (el *Element) MustResource() []byte
@@ -1315,7 +1315,7 @@ func (el *Element) MustResource() []byte
 
 MustResource is similar to [Element.Resource](https://pkg.go.dev/github.com/go-rod/rod#Element.Resource).
 
-### (*Element) MustScreenshot <- 0.50.0
+#### (*Element) MustScreenshot <- 0.50.0
 
 ``` go
 func (el *Element) MustScreenshot(toFile ...string) []byte
@@ -1323,7 +1323,7 @@ func (el *Element) MustScreenshot(toFile ...string) []byte
 
 MustScreenshot is similar to [Element.Screenshot](https://pkg.go.dev/github.com/go-rod/rod#Element.Screenshot).
 
-### (*Element) MustScrollIntoView <- 0.50.0
+#### (*Element) MustScrollIntoView <- 0.50.0
 
 ``` go
 func (el *Element) MustScrollIntoView() *Element
@@ -1331,7 +1331,7 @@ func (el *Element) MustScrollIntoView() *Element
 
 MustScrollIntoView is similar to [Element.ScrollIntoView](https://pkg.go.dev/github.com/go-rod/rod#Element.ScrollIntoView).
 
-### (*Element) MustSelect <- 0.50.0
+#### (*Element) MustSelect <- 0.50.0
 
 ``` go
 func (el *Element) MustSelect(selectors ...string) *Element
@@ -1339,7 +1339,7 @@ func (el *Element) MustSelect(selectors ...string) *Element
 
 MustSelect is similar to [Element.Select](https://pkg.go.dev/github.com/go-rod/rod#Element.Select).
 
-### (*Element) MustSelectAllText <- 0.50.0
+#### (*Element) MustSelectAllText <- 0.50.0
 
 ``` go
 func (el *Element) MustSelectAllText() *Element
@@ -1347,7 +1347,7 @@ func (el *Element) MustSelectAllText() *Element
 
 MustSelectAllText is similar to [Element.SelectAllText](https://pkg.go.dev/github.com/go-rod/rod#Element.SelectAllText).
 
-### (*Element) MustSelectText <- 0.50.0
+#### (*Element) MustSelectText <- 0.50.0
 
 ``` go
 func (el *Element) MustSelectText(regex string) *Element
@@ -1355,7 +1355,7 @@ func (el *Element) MustSelectText(regex string) *Element
 
 MustSelectText is similar to [Element.SelectText](https://pkg.go.dev/github.com/go-rod/rod#Element.SelectText).
 
-### (*Element) MustSetFiles <- 0.50.0
+#### (*Element) MustSetFiles <- 0.50.0
 
 ``` go
 func (el *Element) MustSetFiles(paths ...string) *Element
@@ -1363,7 +1363,7 @@ func (el *Element) MustSetFiles(paths ...string) *Element
 
 MustSetFiles is similar to [Element.SetFiles](https://pkg.go.dev/github.com/go-rod/rod#Element.SetFiles).
 
-### (*Element) MustShadowRoot <- 0.50.0
+#### (*Element) MustShadowRoot <- 0.50.0
 
 ``` go
 func (el *Element) MustShadowRoot() *Element
@@ -1371,7 +1371,7 @@ func (el *Element) MustShadowRoot() *Element
 
 MustShadowRoot is similar to [Element.ShadowRoot](https://pkg.go.dev/github.com/go-rod/rod#Element.ShadowRoot).
 
-### (*Element) MustShape <- 0.66.0
+#### (*Element) MustShape <- 0.66.0
 
 ``` go
 func (el *Element) MustShape() *proto.DOMGetContentQuadsResult
@@ -1379,7 +1379,7 @@ func (el *Element) MustShape() *proto.DOMGetContentQuadsResult
 
 MustShape is similar to [Element.Shape](https://pkg.go.dev/github.com/go-rod/rod#Element.Shape).
 
-### (*Element) MustTap <- 0.61.4
+#### (*Element) MustTap <- 0.61.4
 
 ``` go
 func (el *Element) MustTap() *Element
@@ -1387,7 +1387,7 @@ func (el *Element) MustTap() *Element
 
 MustTap is similar to [Element.Tap](https://pkg.go.dev/github.com/go-rod/rod#Element.Tap).
 
-### (*Element) MustText <- 0.50.0
+#### (*Element) MustText <- 0.50.0
 
 ``` go
 func (el *Element) MustText() string
@@ -1395,7 +1395,7 @@ func (el *Element) MustText() string
 
 MustText is similar to [Element.Text](https://pkg.go.dev/github.com/go-rod/rod#Element.Text).
 
-### (*Element) MustType <- 0.107.0
+#### (*Element) MustType <- 0.107.0
 
 ``` go
 func (el *Element) MustType(keys ...input.Key) *Element
@@ -1403,7 +1403,7 @@ func (el *Element) MustType(keys ...input.Key) *Element
 
 MustType is similar to [Element.Type](https://pkg.go.dev/github.com/go-rod/rod#Element.Type).
 
-### (*Element) MustVisible <- 0.50.0
+#### (*Element) MustVisible <- 0.50.0
 
 ``` go
 func (el *Element) MustVisible() bool
@@ -1411,7 +1411,7 @@ func (el *Element) MustVisible() bool
 
 MustVisible is similar to [Element.Visible](https://pkg.go.dev/github.com/go-rod/rod#Element.Visible).
 
-### (*Element) MustWait <- 0.50.0
+#### (*Element) MustWait <- 0.50.0
 
 ``` go
 func (el *Element) MustWait(js string, params ...interface{}) *Element
@@ -1419,7 +1419,7 @@ func (el *Element) MustWait(js string, params ...interface{}) *Element
 
 MustWait is similar to [Element.Wait](https://pkg.go.dev/github.com/go-rod/rod#Element.Wait).
 
-### (*Element) MustWaitEnabled <- 0.84.1
+#### (*Element) MustWaitEnabled <- 0.84.1
 
 ``` go
 func (el *Element) MustWaitEnabled() *Element
@@ -1427,7 +1427,7 @@ func (el *Element) MustWaitEnabled() *Element
 
 MustWaitEnabled is similar to [Element.WaitEnabled](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitEnabled).
 
-### (*Element) MustWaitInteractable <- 0.88.0
+#### (*Element) MustWaitInteractable <- 0.88.0
 
 ``` go
 func (el *Element) MustWaitInteractable() *Element
@@ -1435,7 +1435,7 @@ func (el *Element) MustWaitInteractable() *Element
 
 MustWaitInteractable is similar to [Element.WaitInteractable](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitInteractable).
 
-### (*Element) MustWaitInvisible <- 0.50.0
+#### (*Element) MustWaitInvisible <- 0.50.0
 
 ``` go
 func (el *Element) MustWaitInvisible() *Element
@@ -1443,7 +1443,7 @@ func (el *Element) MustWaitInvisible() *Element
 
 MustWaitInvisible is similar to [Element.WaitInvisible](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitInvisible)..
 
-### (*Element) MustWaitLoad <- 0.50.0
+#### (*Element) MustWaitLoad <- 0.50.0
 
 ``` go
 func (el *Element) MustWaitLoad() *Element
@@ -1451,7 +1451,7 @@ func (el *Element) MustWaitLoad() *Element
 
 MustWaitLoad is similar to [Element.WaitLoad](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitLoad).
 
-### (*Element) MustWaitStable <- 0.50.0
+#### (*Element) MustWaitStable <- 0.50.0
 
 ``` go
 func (el *Element) MustWaitStable() *Element
@@ -1459,7 +1459,7 @@ func (el *Element) MustWaitStable() *Element
 
 MustWaitStable is similar to [Element.WaitStable](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitStable).
 
-### (*Element) MustWaitVisible <- 0.50.0
+#### (*Element) MustWaitVisible <- 0.50.0
 
 ``` go
 func (el *Element) MustWaitVisible() *Element
@@ -1467,7 +1467,7 @@ func (el *Element) MustWaitVisible() *Element
 
 MustWaitVisible is similar to [Element.WaitVisible](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitVisible).
 
-### (*Element) MustWaitWritable <- 0.84.1
+#### (*Element) MustWaitWritable <- 0.84.1
 
 ``` go
 func (el *Element) MustWaitWritable() *Element
@@ -1475,7 +1475,7 @@ func (el *Element) MustWaitWritable() *Element
 
 MustWaitWritable is similar to [Element.WaitWritable](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitWritable).
 
-### (*Element) Next 
+#### (*Element) Next 
 
 ``` go
 func (el *Element) Next() (*Element, error)
@@ -1483,7 +1483,7 @@ func (el *Element) Next() (*Element, error)
 
 Next returns the next sibling element in the DOM tree.
 
-### (*Element) Overlay <- 0.88.0
+#### (*Element) Overlay <- 0.88.0
 
 ``` go
 func (el *Element) Overlay(msg string) (removeOverlay func())
@@ -1491,7 +1491,7 @@ func (el *Element) Overlay(msg string) (removeOverlay func())
 
 Overlay msg on the element.
 
-### (*Element) Page <- 0.101.7
+#### (*Element) Page <- 0.101.7
 
 ``` go
 func (el *Element) Page() *Page
@@ -1499,7 +1499,7 @@ func (el *Element) Page() *Page
 
 Page of the element.
 
-### (*Element) Parent 
+#### (*Element) Parent 
 
 ``` go
 func (el *Element) Parent() (*Element, error)
@@ -1507,7 +1507,7 @@ func (el *Element) Parent() (*Element, error)
 
 Parent returns the parent element in the DOM tree.
 
-### (*Element) Parents 
+#### (*Element) Parents 
 
 ``` go
 func (el *Element) Parents(selector string) (Elements, error)
@@ -1515,7 +1515,7 @@ func (el *Element) Parents(selector string) (Elements, error)
 
 Parents that match the selector.
 
-### (*Element) Previous 
+#### (*Element) Previous 
 
 ``` go
 func (el *Element) Previous() (*Element, error)
@@ -1523,7 +1523,7 @@ func (el *Element) Previous() (*Element, error)
 
 Previous returns the previous sibling element in the DOM tree.
 
-### (*Element) Property 
+#### (*Element) Property 
 
 ``` go
 func (el *Element) Property(name string) (gson.JSON, error)
@@ -1531,7 +1531,7 @@ func (el *Element) Property(name string) (gson.JSON, error)
 
 Property of the DOM object. Property vs Attribute: https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html
 
-### (*Element) Release 
+#### (*Element) Release 
 
 ``` go
 func (el *Element) Release() error
@@ -1539,7 +1539,7 @@ func (el *Element) Release() error
 
 Release is a shortcut for [Page.Release](https://pkg.go.dev/github.com/go-rod/rod#Page.Release) current element.
 
-### (*Element) Remove <- 0.66.0
+#### (*Element) Remove <- 0.66.0
 
 ``` go
 func (el *Element) Remove() error
@@ -1547,7 +1547,7 @@ func (el *Element) Remove() error
 
 Remove the element from the page.
 
-### (*Element) Resource 
+#### (*Element) Resource 
 
 ``` go
 func (el *Element) Resource() ([]byte, error)
@@ -1555,7 +1555,7 @@ func (el *Element) Resource() ([]byte, error)
 
 Resource returns the "src" content of current element. Such as the jpg of <img src="a.jpg">.
 
-### (*Element) Screenshot 
+#### (*Element) Screenshot 
 
 ``` go
 func (el *Element) Screenshot(format proto.PageCaptureScreenshotFormat, quality int) ([]byte, error)
@@ -1563,7 +1563,7 @@ func (el *Element) Screenshot(format proto.PageCaptureScreenshotFormat, quality 
 
 Screenshot of the area of the element.
 
-### (*Element) ScrollIntoView 
+#### (*Element) ScrollIntoView 
 
 ``` go
 func (el *Element) ScrollIntoView() error
@@ -1571,7 +1571,7 @@ func (el *Element) ScrollIntoView() error
 
 ScrollIntoView scrolls the current element into the visible area of the browser window if it's not already within the visible area.
 
-### (*Element) Select 
+#### (*Element) Select 
 
 ``` go
 func (el *Element) Select(selectors []string, selected bool, t SelectorType) error
@@ -1579,7 +1579,7 @@ func (el *Element) Select(selectors []string, selected bool, t SelectorType) err
 
 Select the children option elements that match the selectors. Before the action, it will scroll to the element, wait until it's visible. If no option matches the selectors, it will return [ErrElementNotFound].
 
-### (*Element) SelectAllText 
+#### (*Element) SelectAllText 
 
 ``` go
 func (el *Element) SelectAllText() error
@@ -1587,7 +1587,7 @@ func (el *Element) SelectAllText() error
 
 SelectAllText selects all text Before the action, it will try to scroll to the element and focus on it.
 
-### (*Element) SelectText 
+#### (*Element) SelectText 
 
 ``` go
 func (el *Element) SelectText(regex string) error
@@ -1595,7 +1595,7 @@ func (el *Element) SelectText(regex string) error
 
 SelectText selects the text that matches the regular expression. Before the action, it will try to scroll to the element and focus on it.
 
-### (*Element) SetFiles 
+#### (*Element) SetFiles 
 
 ``` go
 func (el *Element) SetFiles(paths []string) error
@@ -1603,7 +1603,7 @@ func (el *Element) SetFiles(paths []string) error
 
 SetFiles of the current file input element.
 
-### (*Element) ShadowRoot 
+#### (*Element) ShadowRoot 
 
 ``` go
 func (el *Element) ShadowRoot() (*Element, error)
@@ -1611,7 +1611,7 @@ func (el *Element) ShadowRoot() (*Element, error)
 
 ShadowRoot returns the shadow root of this element.
 
-### (*Element) Shape <- 0.66.0
+#### (*Element) Shape <- 0.66.0
 
 ``` go
 func (el *Element) Shape() (*proto.DOMGetContentQuadsResult, error)
@@ -1625,7 +1625,7 @@ Shape of the DOM element content. The shape is a group of 4-sides polygons. A 4-
 /________/                                   /________/
 ```
 
-### (*Element) Sleeper <- 0.50.0
+#### (*Element) Sleeper <- 0.50.0
 
 ``` go
 func (el *Element) Sleeper(sleeper func() utils.Sleeper) *Element
@@ -1633,7 +1633,7 @@ func (el *Element) Sleeper(sleeper func() utils.Sleeper) *Element
 
 Sleeper returns a clone with the specified sleeper for chained sub-operations.
 
-### (*Element) String <- 0.88.0
+#### (*Element) String <- 0.88.0
 
 ``` go
 func (el *Element) String() string
@@ -1641,7 +1641,7 @@ func (el *Element) String() string
 
 String interface.
 
-### (*Element) Tap <- 0.61.4
+#### (*Element) Tap <- 0.61.4
 
 ``` go
 func (el *Element) Tap() error
@@ -1649,7 +1649,7 @@ func (el *Element) Tap() error
 
 Tap will scroll to the button and tap it just like a human. Before the action, it will try to scroll to the element and wait until it's interactable and enabled.
 
-### (*Element) Text 
+#### (*Element) Text 
 
 ``` go
 func (el *Element) Text() (string, error)
@@ -1657,7 +1657,7 @@ func (el *Element) Text() (string, error)
 
 Text that the element displays.
 
-### (*Element) Timeout 
+#### (*Element) Timeout 
 
 ``` go
 func (el *Element) Timeout(d time.Duration) *Element
@@ -1665,7 +1665,7 @@ func (el *Element) Timeout(d time.Duration) *Element
 
 Timeout returns a clone with the specified total timeout of all chained sub-operations.
 
-### (*Element) Type <- 0.107.0
+#### (*Element) Type <- 0.107.0
 
 ``` go
 func (el *Element) Type(keys ...input.Key) error
@@ -1673,7 +1673,7 @@ func (el *Element) Type(keys ...input.Key) error
 
 Type is similar with Keyboard.Type. Before the action, it will try to scroll to the element and focus on it.
 
-### (*Element) Visible 
+#### (*Element) Visible 
 
 ``` go
 func (el *Element) Visible() (bool, error)
@@ -1681,7 +1681,7 @@ func (el *Element) Visible() (bool, error)
 
 Visible returns true if the element is visible on the page.
 
-### (*Element) Wait 
+#### (*Element) Wait 
 
 ``` go
 func (el *Element) Wait(opts *EvalOptions) error
@@ -1689,7 +1689,7 @@ func (el *Element) Wait(opts *EvalOptions) error
 
 Wait until the js returns true.
 
-### (*Element) WaitEnabled <- 0.84.1
+#### (*Element) WaitEnabled <- 0.84.1
 
 ``` go
 func (el *Element) WaitEnabled() error
@@ -1697,7 +1697,7 @@ func (el *Element) WaitEnabled() error
 
 WaitEnabled until the element is not disabled. Doc for readonly: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
 
-### (*Element) WaitInteractable <- 0.88.0
+#### (*Element) WaitInteractable <- 0.88.0
 
 ``` go
 func (el *Element) WaitInteractable() (pt *proto.Point, err error)
@@ -1705,7 +1705,7 @@ func (el *Element) WaitInteractable() (pt *proto.Point, err error)
 
 WaitInteractable waits for the element to be interactable. It will try to scroll to the element on each try.
 
-### (*Element) WaitInvisible 
+#### (*Element) WaitInvisible 
 
 ``` go
 func (el *Element) WaitInvisible() error
@@ -1713,7 +1713,7 @@ func (el *Element) WaitInvisible() error
 
 WaitInvisible until the element invisible.
 
-### (*Element) WaitLoad <- 0.49.0
+#### (*Element) WaitLoad <- 0.49.0
 
 ``` go
 func (el *Element) WaitLoad() error
@@ -1721,7 +1721,7 @@ func (el *Element) WaitLoad() error
 
 WaitLoad for element like <img>.
 
-### (*Element) WaitStable 
+#### (*Element) WaitStable 
 
 ``` go
 func (el *Element) WaitStable(d time.Duration) error
@@ -1729,7 +1729,7 @@ func (el *Element) WaitStable(d time.Duration) error
 
 WaitStable waits until no shape or position change for d duration. Be careful, d is not the max wait timeout, it's the least stable time. If you want to set a timeout you can use the [Element.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Element.Timeout) function.
 
-### (*Element) WaitStableRAF <- 0.84.1
+#### (*Element) WaitStableRAF <- 0.84.1
 
 ``` go
 func (el *Element) WaitStableRAF() error
@@ -1737,7 +1737,7 @@ func (el *Element) WaitStableRAF() error
 
 WaitStableRAF waits until no shape or position change for 2 consecutive animation frames. If you want to wait animation that is triggered by JS not CSS, you'd better use [Element.WaitStable](https://pkg.go.dev/github.com/go-rod/rod#Element.WaitStable). About animation frame: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 
-### (*Element) WaitVisible 
+#### (*Element) WaitVisible 
 
 ``` go
 func (el *Element) WaitVisible() error
@@ -1745,7 +1745,7 @@ func (el *Element) WaitVisible() error
 
 WaitVisible until the element is visible.
 
-### (*Element) WaitWritable <- 0.84.1
+#### (*Element) WaitWritable <- 0.84.1
 
 ``` go
 func (el *Element) WaitWritable() error
@@ -1753,7 +1753,7 @@ func (el *Element) WaitWritable() error
 
 WaitWritable until the element is not readonly. Doc for disabled: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/disabled
 
-### (*Element) WithCancel <- 0.69.0
+#### (*Element) WithCancel <- 0.69.0
 
 ``` go
 func (el *Element) WithCancel() (*Element, func())
@@ -1761,7 +1761,7 @@ func (el *Element) WithCancel() (*Element, func())
 
 WithCancel returns a clone with a context cancel function.
 
-### (*Element) WithPanic <- 0.100.0
+#### (*Element) WithPanic <- 0.100.0
 
 ``` go
 func (el *Element) WithPanic(fail func(interface{})) *Element
@@ -1769,7 +1769,7 @@ func (el *Element) WithPanic(fail func(interface{})) *Element
 
 WithPanic returns an element clone with the specified panic function. The fail must stop the current goroutine's execution immediately, such as use [runtime.Goexit](https://pkg.go.dev/runtime#Goexit) or panic inside it.
 
-## type ElementNotFoundError <- 0.114.8
+### type ElementNotFoundError <- 0.114.8
 
 ``` go
 type ElementNotFoundError struct{}
@@ -1777,13 +1777,13 @@ type ElementNotFoundError struct{}
 
 ElementNotFoundError error.
 
-### (*ElementNotFoundError) Error <- 0.114.8
+#### (*ElementNotFoundError) Error <- 0.114.8
 
 ``` go
 func (e *ElementNotFoundError) Error() string
 ```
 
-## type Elements 
+### type Elements 
 
 ``` go
 type Elements []*Element
@@ -1791,7 +1791,7 @@ type Elements []*Element
 
 Elements provides some helpers to deal with element list.
 
-### (Elements) Empty 
+#### (Elements) Empty 
 
 ``` go
 func (els Elements) Empty() bool
@@ -1799,7 +1799,7 @@ func (els Elements) Empty() bool
 
 Empty returns true if the list is empty.
 
-### (Elements) First 
+#### (Elements) First 
 
 ``` go
 func (els Elements) First() *Element
@@ -1807,7 +1807,7 @@ func (els Elements) First() *Element
 
 First returns the first element, if the list is empty returns nil.
 
-### (Elements) Last 
+#### (Elements) Last 
 
 ``` go
 func (els Elements) Last() *Element
@@ -1815,7 +1815,7 @@ func (els Elements) Last() *Element
 
 Last returns the last element, if the list is empty returns nil.
 
-## type EvalError <- 0.114.8
+### type EvalError <- 0.114.8
 
 ``` go
 type EvalError struct {
@@ -1825,13 +1825,13 @@ type EvalError struct {
 
 EvalError error.
 
-### (*EvalError) Error <- 0.114.8
+#### (*EvalError) Error <- 0.114.8
 
 ``` go
 func (e *EvalError) Error() string
 ```
 
-### (*EvalError) Is <- 0.114.8
+#### (*EvalError) Is <- 0.114.8
 
 ``` go
 func (e *EvalError) Is(err error) bool
@@ -1839,7 +1839,7 @@ func (e *EvalError) Is(err error) bool
 
 Is interface.
 
-## type EvalOptions <- 0.50.0
+### type EvalOptions <- 0.50.0
 
 ``` go
 type EvalOptions struct {
@@ -1879,7 +1879,7 @@ func Eval(js string, args ...interface{}) *EvalOptions
 
 Eval creates a [EvalOptions](https://pkg.go.dev/github.com/go-rod/rod#EvalOptions) with ByValue set to true.
 
-### (*EvalOptions) ByObject <- 0.50.0
+#### (*EvalOptions) ByObject <- 0.50.0
 
 ``` go
 func (e *EvalOptions) ByObject() *EvalOptions
@@ -1887,7 +1887,7 @@ func (e *EvalOptions) ByObject() *EvalOptions
 
 ByObject disables ByValue.
 
-### (*EvalOptions) ByPromise <- 0.74.0
+#### (*EvalOptions) ByPromise <- 0.74.0
 
 ``` go
 func (e *EvalOptions) ByPromise() *EvalOptions
@@ -1895,7 +1895,7 @@ func (e *EvalOptions) ByPromise() *EvalOptions
 
 ByPromise enables AwaitPromise.
 
-### (*EvalOptions) ByUser <- 0.64.0
+#### (*EvalOptions) ByUser <- 0.64.0
 
 ``` go
 func (e *EvalOptions) ByUser() *EvalOptions
@@ -1903,7 +1903,7 @@ func (e *EvalOptions) ByUser() *EvalOptions
 
 ByUser enables UserGesture.
 
-### (*EvalOptions) String <- 0.88.0
+#### (*EvalOptions) String <- 0.88.0
 
 ``` go
 func (e *EvalOptions) String() string
@@ -1911,7 +1911,7 @@ func (e *EvalOptions) String() string
 
 String interface.
 
-### (*EvalOptions) This <- 0.50.0
+#### (*EvalOptions) This <- 0.50.0
 
 ``` go
 func (e *EvalOptions) This(obj *proto.RuntimeRemoteObject) *EvalOptions
@@ -1919,7 +1919,7 @@ func (e *EvalOptions) This(obj *proto.RuntimeRemoteObject) *EvalOptions
 
 This set the obj as ThisObj.
 
-## type ExpectElementError <- 0.114.8
+### type ExpectElementError <- 0.114.8
 
 ``` go
 type ExpectElementError struct {
@@ -1929,13 +1929,13 @@ type ExpectElementError struct {
 
 ExpectElementError error.
 
-### (*ExpectElementError) Error <- 0.114.8
+#### (*ExpectElementError) Error <- 0.114.8
 
 ``` go
 func (e *ExpectElementError) Error() string
 ```
 
-### (*ExpectElementError) Is <- 0.114.8
+#### (*ExpectElementError) Is <- 0.114.8
 
 ``` go
 func (e *ExpectElementError) Is(err error) bool
@@ -1943,7 +1943,7 @@ func (e *ExpectElementError) Is(err error) bool
 
 Is interface.
 
-## type ExpectElementsError <- 0.114.8
+### type ExpectElementsError <- 0.114.8
 
 ``` go
 type ExpectElementsError struct {
@@ -1953,13 +1953,13 @@ type ExpectElementsError struct {
 
 ExpectElementsError error.
 
-### (*ExpectElementsError) Error <- 0.114.8
+#### (*ExpectElementsError) Error <- 0.114.8
 
 ``` go
 func (e *ExpectElementsError) Error() string
 ```
 
-### (*ExpectElementsError) Is <- 0.114.8
+#### (*ExpectElementsError) Is <- 0.114.8
 
 ``` go
 func (e *ExpectElementsError) Is(err error) bool
@@ -1967,7 +1967,7 @@ func (e *ExpectElementsError) Is(err error) bool
 
 Is interface.
 
-## type Hijack 
+### type Hijack 
 
 ``` go
 type Hijack struct {
@@ -1986,7 +1986,7 @@ type Hijack struct {
 
 Hijack context.
 
-### (*Hijack) ContinueRequest <- 0.42.0
+#### (*Hijack) ContinueRequest <- 0.42.0
 
 ``` go
 func (h *Hijack) ContinueRequest(cq *proto.FetchContinueRequest)
@@ -1994,7 +1994,7 @@ func (h *Hijack) ContinueRequest(cq *proto.FetchContinueRequest)
 
 ContinueRequest without hijacking. The RequestID will be set by the router, you don't have to set it.
 
-### (*Hijack) LoadResponse 
+#### (*Hijack) LoadResponse 
 
 ``` go
 func (h *Hijack) LoadResponse(client *http.Client, loadBody bool) error
@@ -2002,7 +2002,7 @@ func (h *Hijack) LoadResponse(client *http.Client, loadBody bool) error
 
 LoadResponse will send request to the real destination and load the response as default response to override.
 
-### (*Hijack) MustLoadResponse <- 0.50.0
+#### (*Hijack) MustLoadResponse <- 0.50.0
 
 ``` go
 func (h *Hijack) MustLoadResponse()
@@ -2010,7 +2010,7 @@ func (h *Hijack) MustLoadResponse()
 
 MustLoadResponse is similar to [Hijack.LoadResponse](https://pkg.go.dev/github.com/go-rod/rod#Hijack.LoadResponse).
 
-## type HijackRequest 
+### type HijackRequest 
 
 ``` go
 type HijackRequest struct {
@@ -2020,7 +2020,7 @@ type HijackRequest struct {
 
 HijackRequest context.
 
-### (*HijackRequest) Body 
+#### (*HijackRequest) Body 
 
 ``` go
 func (ctx *HijackRequest) Body() string
@@ -2028,7 +2028,7 @@ func (ctx *HijackRequest) Body() string
 
 Body of the request, devtools API doesn't support binary data yet, only string can be captured.
 
-### (*HijackRequest) Header 
+#### (*HijackRequest) Header 
 
 ``` go
 func (ctx *HijackRequest) Header(key string) string
@@ -2036,7 +2036,7 @@ func (ctx *HijackRequest) Header(key string) string
 
 Header via a key.
 
-### (*HijackRequest) Headers 
+#### (*HijackRequest) Headers 
 
 ``` go
 func (ctx *HijackRequest) Headers() proto.NetworkHeaders
@@ -2044,7 +2044,7 @@ func (ctx *HijackRequest) Headers() proto.NetworkHeaders
 
 Headers of request.
 
-### (*HijackRequest) IsNavigation <- 0.97.1
+#### (*HijackRequest) IsNavigation <- 0.97.1
 
 ``` go
 func (ctx *HijackRequest) IsNavigation() bool
@@ -2052,7 +2052,7 @@ func (ctx *HijackRequest) IsNavigation() bool
 
 IsNavigation determines whether the request is a navigation request.
 
-### (*HijackRequest) JSONBody 
+#### (*HijackRequest) JSONBody 
 
 ``` go
 func (ctx *HijackRequest) JSONBody() gson.JSON
@@ -2060,7 +2060,7 @@ func (ctx *HijackRequest) JSONBody() gson.JSON
 
 JSONBody of the request.
 
-### (*HijackRequest) Method 
+#### (*HijackRequest) Method 
 
 ``` go
 func (ctx *HijackRequest) Method() string
@@ -2068,7 +2068,7 @@ func (ctx *HijackRequest) Method() string
 
 Method of the request.
 
-### (*HijackRequest) Req <- 0.52.0
+#### (*HijackRequest) Req <- 0.52.0
 
 ``` go
 func (ctx *HijackRequest) Req() *http.Request
@@ -2076,7 +2076,7 @@ func (ctx *HijackRequest) Req() *http.Request
 
 Req returns the underlying http.Request instance that will be used to send the request.
 
-### (*HijackRequest) SetBody 
+#### (*HijackRequest) SetBody 
 
 ``` go
 func (ctx *HijackRequest) SetBody(obj interface{}) *HijackRequest
@@ -2084,7 +2084,7 @@ func (ctx *HijackRequest) SetBody(obj interface{}) *HijackRequest
 
 SetBody of the request, if obj is []byte or string, raw body will be used, else it will be encoded as json.
 
-### (*HijackRequest) SetContext <- 0.57.1
+#### (*HijackRequest) SetContext <- 0.57.1
 
 ``` go
 func (ctx *HijackRequest) SetContext(c context.Context) *HijackRequest
@@ -2092,7 +2092,7 @@ func (ctx *HijackRequest) SetContext(c context.Context) *HijackRequest
 
 SetContext of the underlying http.Request instance.
 
-### (*HijackRequest) Type <- 0.49.1
+#### (*HijackRequest) Type <- 0.49.1
 
 ``` go
 func (ctx *HijackRequest) Type() proto.NetworkResourceType
@@ -2100,7 +2100,7 @@ func (ctx *HijackRequest) Type() proto.NetworkResourceType
 
 Type of the resource.
 
-### (*HijackRequest) URL 
+#### (*HijackRequest) URL 
 
 ``` go
 func (ctx *HijackRequest) URL() *url.URL
@@ -2108,7 +2108,7 @@ func (ctx *HijackRequest) URL() *url.URL
 
 URL of the request.
 
-## type HijackResponse 
+### type HijackResponse 
 
 ``` go
 type HijackResponse struct {
@@ -2119,7 +2119,7 @@ type HijackResponse struct {
 
 HijackResponse context.
 
-### (*HijackResponse) Body 
+#### (*HijackResponse) Body 
 
 ``` go
 func (ctx *HijackResponse) Body() string
@@ -2127,7 +2127,7 @@ func (ctx *HijackResponse) Body() string
 
 Body of the payload.
 
-### (*HijackResponse) Fail <- 0.48.1
+#### (*HijackResponse) Fail <- 0.48.1
 
 ``` go
 func (ctx *HijackResponse) Fail(reason proto.NetworkErrorReason) *HijackResponse
@@ -2135,7 +2135,7 @@ func (ctx *HijackResponse) Fail(reason proto.NetworkErrorReason) *HijackResponse
 
 Fail request.
 
-### (*HijackResponse) Headers 
+#### (*HijackResponse) Headers 
 
 ``` go
 func (ctx *HijackResponse) Headers() http.Header
@@ -2143,7 +2143,7 @@ func (ctx *HijackResponse) Headers() http.Header
 
 Headers returns the clone of response headers. If you want to modify the response headers use HijackResponse.SetHeader .
 
-### (*HijackResponse) Payload <- 0.52.0
+#### (*HijackResponse) Payload <- 0.52.0
 
 ``` go
 func (ctx *HijackResponse) Payload() *proto.FetchFulfillRequest
@@ -2151,7 +2151,7 @@ func (ctx *HijackResponse) Payload() *proto.FetchFulfillRequest
 
 Payload to respond the request from the browser.
 
-### (*HijackResponse) SetBody 
+#### (*HijackResponse) SetBody 
 
 ``` go
 func (ctx *HijackResponse) SetBody(obj interface{}) *HijackResponse
@@ -2159,7 +2159,7 @@ func (ctx *HijackResponse) SetBody(obj interface{}) *HijackResponse
 
 SetBody of the payload, if obj is []byte or string, raw body will be used, else it will be encoded as json.
 
-### (*HijackResponse) SetHeader 
+#### (*HijackResponse) SetHeader 
 
 ``` go
 func (ctx *HijackResponse) SetHeader(pairs ...string) *HijackResponse
@@ -2167,7 +2167,7 @@ func (ctx *HijackResponse) SetHeader(pairs ...string) *HijackResponse
 
 SetHeader of the payload via key-value pairs.
 
-## type HijackRouter 
+### type HijackRouter 
 
 ``` go
 type HijackRouter struct {
@@ -2177,7 +2177,7 @@ type HijackRouter struct {
 
 HijackRouter context.
 
-### (*HijackRouter) Add 
+#### (*HijackRouter) Add 
 
 ``` go
 func (r *HijackRouter) Add(pattern string, resourceType proto.NetworkResourceType, handler func(*Hijack)) error
@@ -2185,7 +2185,7 @@ func (r *HijackRouter) Add(pattern string, resourceType proto.NetworkResourceTyp
 
 Add a hijack handler to router, the doc of the pattern is the same as "proto.FetchRequestPattern.URLPattern".
 
-### (*HijackRouter) MustAdd <- 0.50.0
+#### (*HijackRouter) MustAdd <- 0.50.0
 
 ``` go
 func (r *HijackRouter) MustAdd(pattern string, handler func(*Hijack)) *HijackRouter
@@ -2193,7 +2193,7 @@ func (r *HijackRouter) MustAdd(pattern string, handler func(*Hijack)) *HijackRou
 
 MustAdd is similar to [HijackRouter.Add](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Add).
 
-### (*HijackRouter) MustRemove <- 0.50.0
+#### (*HijackRouter) MustRemove <- 0.50.0
 
 ``` go
 func (r *HijackRouter) MustRemove(pattern string) *HijackRouter
@@ -2201,7 +2201,7 @@ func (r *HijackRouter) MustRemove(pattern string) *HijackRouter
 
 MustRemove is similar to [HijackRouter.Remove](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Remove).
 
-### (*HijackRouter) MustStop <- 0.50.0
+#### (*HijackRouter) MustStop <- 0.50.0
 
 ``` go
 func (r *HijackRouter) MustStop()
@@ -2209,7 +2209,7 @@ func (r *HijackRouter) MustStop()
 
 MustStop is similar to [HijackRouter.Stop](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Stop).
 
-### (*HijackRouter) Remove 
+#### (*HijackRouter) Remove 
 
 ``` go
 func (r *HijackRouter) Remove(pattern string) error
@@ -2217,7 +2217,7 @@ func (r *HijackRouter) Remove(pattern string) error
 
 Remove handler via the pattern.
 
-### (*HijackRouter) Run 
+#### (*HijackRouter) Run 
 
 ``` go
 func (r *HijackRouter) Run()
@@ -2225,7 +2225,7 @@ func (r *HijackRouter) Run()
 
 Run the router, after you call it, you shouldn't add new handler to it.
 
-### (*HijackRouter) Stop 
+#### (*HijackRouter) Stop 
 
 ``` go
 func (r *HijackRouter) Stop() error
@@ -2233,7 +2233,7 @@ func (r *HijackRouter) Stop() error
 
 Stop the router.
 
-## type InvisibleShapeError <- 0.114.8
+### type InvisibleShapeError <- 0.114.8
 
 ``` go
 type InvisibleShapeError struct {
@@ -2243,7 +2243,7 @@ type InvisibleShapeError struct {
 
 InvisibleShapeError error.
 
-### (*InvisibleShapeError) Error <- 0.114.8
+#### (*InvisibleShapeError) Error <- 0.114.8
 
 ``` go
 func (e *InvisibleShapeError) Error() string
@@ -2251,7 +2251,7 @@ func (e *InvisibleShapeError) Error() string
 
 Error ...
 
-### (*InvisibleShapeError) Is <- 0.114.8
+#### (*InvisibleShapeError) Is <- 0.114.8
 
 ``` go
 func (e *InvisibleShapeError) Is(err error) bool
@@ -2259,7 +2259,7 @@ func (e *InvisibleShapeError) Is(err error) bool
 
 Is interface.
 
-### (*InvisibleShapeError) Unwrap <- 0.114.8
+#### (*InvisibleShapeError) Unwrap <- 0.114.8
 
 ``` go
 func (e *InvisibleShapeError) Unwrap() error
@@ -2267,7 +2267,7 @@ func (e *InvisibleShapeError) Unwrap() error
 
 Unwrap ...
 
-## type KeyAction <- 0.107.0
+### type KeyAction <- 0.107.0
 
 ``` go
 type KeyAction struct {
@@ -2278,7 +2278,7 @@ type KeyAction struct {
 
 KeyAction to perform.
 
-## type KeyActionType <- 0.107.0
+### type KeyActionType <- 0.107.0
 
 ``` go
 type KeyActionType int
@@ -2296,7 +2296,7 @@ const (
 
 KeyActionTypes.
 
-## type KeyActions <- 0.107.0
+### type KeyActions <- 0.107.0
 
 ``` go
 type KeyActions struct {
@@ -2307,7 +2307,7 @@ type KeyActions struct {
 
 KeyActions to simulate.
 
-### (*KeyActions) Do <- 0.107.0
+#### (*KeyActions) Do <- 0.107.0
 
 ``` go
 func (ka *KeyActions) Do() (err error)
@@ -2315,7 +2315,7 @@ func (ka *KeyActions) Do() (err error)
 
 Do the actions.
 
-### (*KeyActions) MustDo <- 0.107.0
+#### (*KeyActions) MustDo <- 0.107.0
 
 ``` go
 func (ka *KeyActions) MustDo()
@@ -2323,7 +2323,7 @@ func (ka *KeyActions) MustDo()
 
 MustDo is similar to [KeyActions.Do](https://pkg.go.dev/github.com/go-rod/rod#KeyActions.Do).
 
-### (*KeyActions) Press <- 0.107.0
+#### (*KeyActions) Press <- 0.107.0
 
 ``` go
 func (ka *KeyActions) Press(keys ...input.Key) *KeyActions
@@ -2331,7 +2331,7 @@ func (ka *KeyActions) Press(keys ...input.Key) *KeyActions
 
 Press keys is guaranteed to have a release at the end of actions.
 
-### (*KeyActions) Release <- 0.107.0
+#### (*KeyActions) Release <- 0.107.0
 
 ``` go
 func (ka *KeyActions) Release(keys ...input.Key) *KeyActions
@@ -2339,7 +2339,7 @@ func (ka *KeyActions) Release(keys ...input.Key) *KeyActions
 
 Release keys.
 
-### (*KeyActions) Type <- 0.107.0
+#### (*KeyActions) Type <- 0.107.0
 
 ``` go
 func (ka *KeyActions) Type(keys ...input.Key) *KeyActions
@@ -2347,7 +2347,7 @@ func (ka *KeyActions) Type(keys ...input.Key) *KeyActions
 
 Type will release the key immediately after the pressing.
 
-## type Keyboard 
+### type Keyboard 
 
 ``` go
 type Keyboard struct {
@@ -2358,7 +2358,7 @@ type Keyboard struct {
 
 Keyboard represents the keyboard on a page, it's always related the main frame.
 
-### (*Keyboard) MustType <- 0.107.0
+#### (*Keyboard) MustType <- 0.107.0
 
 ``` go
 func (k *Keyboard) MustType(key ...input.Key) *Keyboard
@@ -2366,7 +2366,7 @@ func (k *Keyboard) MustType(key ...input.Key) *Keyboard
 
 MustType is similar to [Keyboard.Type](https://pkg.go.dev/github.com/go-rod/rod#Keyboard.Type).
 
-### (*Keyboard) Press 
+#### (*Keyboard) Press 
 
 ``` go
 func (k *Keyboard) Press(key input.Key) error
@@ -2374,7 +2374,7 @@ func (k *Keyboard) Press(key input.Key) error
 
 Press the key down. To input characters that are not on the keyboard, such as Chinese or Japanese, you should use method like [Page.InsertText](https://pkg.go.dev/github.com/go-rod/rod#Page.InsertText).
 
-### (*Keyboard) Release <- 0.107.0
+#### (*Keyboard) Release <- 0.107.0
 
 ``` go
 func (k *Keyboard) Release(key input.Key) error
@@ -2382,7 +2382,7 @@ func (k *Keyboard) Release(key input.Key) error
 
 Release the key.
 
-### (*Keyboard) Type <- 0.107.0
+#### (*Keyboard) Type <- 0.107.0
 
 ``` go
 func (k *Keyboard) Type(keys ...input.Key) (err error)
@@ -2390,7 +2390,7 @@ func (k *Keyboard) Type(keys ...input.Key) (err error)
 
 Type releases the key after the press.
 
-## type Message <- 0.74.0
+### type Message <- 0.74.0
 
 ``` go
 type Message struct {
@@ -2402,7 +2402,7 @@ type Message struct {
 
 Message represents a cdp.Event.
 
-### (*Message) Load <- 0.74.0
+#### (*Message) Load <- 0.74.0
 
 ``` go
 func (msg *Message) Load(e proto.Event) bool
@@ -2410,7 +2410,7 @@ func (msg *Message) Load(e proto.Event) bool
 
 Load data into e, returns true if e matches the event type.
 
-## type Mouse 
+### type Mouse 
 
 ``` go
 type Mouse struct {
@@ -2421,7 +2421,7 @@ type Mouse struct {
 
 Mouse represents the mouse on a page, it's always related the main frame.
 
-### (*Mouse) Click 
+#### (*Mouse) Click 
 
 ``` go
 func (m *Mouse) Click(button proto.InputMouseButton, clickCount int) error
@@ -2429,7 +2429,7 @@ func (m *Mouse) Click(button proto.InputMouseButton, clickCount int) error
 
 Click the button. It's the combination of [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down) and [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up).
 
-### (*Mouse) Down 
+#### (*Mouse) Down 
 
 ``` go
 func (m *Mouse) Down(button proto.InputMouseButton, clickCount int) error
@@ -2437,7 +2437,7 @@ func (m *Mouse) Down(button proto.InputMouseButton, clickCount int) error
 
 Down holds the button down.
 
-### (*Mouse) MoveAlong <- 0.112.0
+#### (*Mouse) MoveAlong <- 0.112.0
 
 ``` go
 func (m *Mouse) MoveAlong(guide func() (proto.Point, bool)) error
@@ -2445,7 +2445,7 @@ func (m *Mouse) MoveAlong(guide func() (proto.Point, bool)) error
 
 MoveAlong the guide function. Every time the guide function is called it should return the next mouse position, return true to stop. Read the source code of [Mouse.MoveLinear](https://pkg.go.dev/github.com/go-rod/rod#Mouse.MoveLinear) as an example to use this method.
 
-### (*Mouse) MoveLinear <- 0.112.0
+#### (*Mouse) MoveLinear <- 0.112.0
 
 ``` go
 func (m *Mouse) MoveLinear(to proto.Point, steps int) error
@@ -2453,7 +2453,7 @@ func (m *Mouse) MoveLinear(to proto.Point, steps int) error
 
 MoveLinear to the absolute position with the given steps. Such as move from (0,0) to (6,6) with 3 steps, the mouse will first move to (2,2) then (4,4) then (6,6).
 
-### (*Mouse) MoveTo <- 0.112.0
+#### (*Mouse) MoveTo <- 0.112.0
 
 ``` go
 func (m *Mouse) MoveTo(p proto.Point) error
@@ -2461,7 +2461,7 @@ func (m *Mouse) MoveTo(p proto.Point) error
 
 MoveTo the absolute position.
 
-### (*Mouse) MustClick <- 0.50.0
+#### (*Mouse) MustClick <- 0.50.0
 
 ``` go
 func (m *Mouse) MustClick(button proto.InputMouseButton) *Mouse
@@ -2469,7 +2469,7 @@ func (m *Mouse) MustClick(button proto.InputMouseButton) *Mouse
 
 MustClick is similar to [Mouse.Click](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Click).
 
-### (*Mouse) MustDown <- 0.50.0
+#### (*Mouse) MustDown <- 0.50.0
 
 ``` go
 func (m *Mouse) MustDown(button proto.InputMouseButton) *Mouse
@@ -2477,7 +2477,7 @@ func (m *Mouse) MustDown(button proto.InputMouseButton) *Mouse
 
 MustDown is similar to [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down).
 
-### (*Mouse) MustMoveTo <- 0.112.0
+#### (*Mouse) MustMoveTo <- 0.112.0
 
 ``` go
 func (m *Mouse) MustMoveTo(x, y float64) *Mouse
@@ -2485,7 +2485,7 @@ func (m *Mouse) MustMoveTo(x, y float64) *Mouse
 
 MustMoveTo is similar to [Mouse.Move].
 
-### (*Mouse) MustScroll <- 0.50.0
+#### (*Mouse) MustScroll <- 0.50.0
 
 ``` go
 func (m *Mouse) MustScroll(x, y float64) *Mouse
@@ -2493,7 +2493,7 @@ func (m *Mouse) MustScroll(x, y float64) *Mouse
 
 MustScroll is similar to [Mouse.Scroll](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Scroll).
 
-### (*Mouse) MustUp <- 0.50.0
+#### (*Mouse) MustUp <- 0.50.0
 
 ``` go
 func (m *Mouse) MustUp(button proto.InputMouseButton) *Mouse
@@ -2501,7 +2501,7 @@ func (m *Mouse) MustUp(button proto.InputMouseButton) *Mouse
 
 MustUp is similar to [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up).
 
-### (*Mouse) Position <- 0.112.0
+#### (*Mouse) Position <- 0.112.0
 
 ``` go
 func (m *Mouse) Position() proto.Point
@@ -2509,7 +2509,7 @@ func (m *Mouse) Position() proto.Point
 
 Position of current cursor.
 
-### (*Mouse) Scroll 
+#### (*Mouse) Scroll 
 
 ``` go
 func (m *Mouse) Scroll(offsetX, offsetY float64, steps int) error
@@ -2517,7 +2517,7 @@ func (m *Mouse) Scroll(offsetX, offsetY float64, steps int) error
 
 Scroll the relative offset with specified steps.
 
-### (*Mouse) Up 
+#### (*Mouse) Up 
 
 ``` go
 func (m *Mouse) Up(button proto.InputMouseButton, clickCount int) error
@@ -2525,7 +2525,7 @@ func (m *Mouse) Up(button proto.InputMouseButton, clickCount int) error
 
 Up releases the button.
 
-## type NavigationError <- 0.114.8
+### type NavigationError <- 0.114.8
 
 ``` go
 type NavigationError struct {
@@ -2535,13 +2535,13 @@ type NavigationError struct {
 
 NavigationError error.
 
-### (*NavigationError) Error <- 0.114.8
+#### (*NavigationError) Error <- 0.114.8
 
 ``` go
 func (e *NavigationError) Error() string
 ```
 
-### (*NavigationError) Is <- 0.114.8
+#### (*NavigationError) Is <- 0.114.8
 
 ``` go
 func (e *NavigationError) Is(err error) bool
@@ -2549,7 +2549,7 @@ func (e *NavigationError) Is(err error) bool
 
 Is interface.
 
-## type NoPointerEventsError <- 0.114.8
+### type NoPointerEventsError <- 0.114.8
 
 ``` go
 type NoPointerEventsError struct {
@@ -2559,7 +2559,7 @@ type NoPointerEventsError struct {
 
 NoPointerEventsError error.
 
-### (*NoPointerEventsError) Error <- 0.114.8
+#### (*NoPointerEventsError) Error <- 0.114.8
 
 ``` go
 func (e *NoPointerEventsError) Error() string
@@ -2567,7 +2567,7 @@ func (e *NoPointerEventsError) Error() string
 
 Error ...
 
-### (*NoPointerEventsError) Is <- 0.114.8
+#### (*NoPointerEventsError) Is <- 0.114.8
 
 ``` go
 func (e *NoPointerEventsError) Is(err error) bool
@@ -2575,7 +2575,7 @@ func (e *NoPointerEventsError) Is(err error) bool
 
 Is interface.
 
-### (*NoPointerEventsError) Unwrap <- 0.114.8
+#### (*NoPointerEventsError) Unwrap <- 0.114.8
 
 ``` go
 func (e *NoPointerEventsError) Unwrap() error
@@ -2583,7 +2583,7 @@ func (e *NoPointerEventsError) Unwrap() error
 
 Unwrap ...
 
-## type NoShadowRootError <- 0.114.8
+### type NoShadowRootError <- 0.114.8
 
 ``` go
 type NoShadowRootError struct {
@@ -2593,7 +2593,7 @@ type NoShadowRootError struct {
 
 NoShadowRootError error.
 
-### (*NoShadowRootError) Error <- 0.114.8
+#### (*NoShadowRootError) Error <- 0.114.8
 
 ``` go
 func (e *NoShadowRootError) Error() string
@@ -2601,7 +2601,7 @@ func (e *NoShadowRootError) Error() string
 
 Error ...
 
-### (*NoShadowRootError) Is <- 0.114.8
+#### (*NoShadowRootError) Is <- 0.114.8
 
 ``` go
 func (e *NoShadowRootError) Is(err error) bool
@@ -2609,7 +2609,7 @@ func (e *NoShadowRootError) Is(err error) bool
 
 Is interface.
 
-## type NotInteractableError <- 0.114.8
+### type NotInteractableError <- 0.114.8
 
 ``` go
 type NotInteractableError struct{}
@@ -2617,13 +2617,13 @@ type NotInteractableError struct{}
 
 NotInteractableError error. Check the doc of Element.Interactable for details.
 
-### (*NotInteractableError) Error <- 0.114.8
+#### (*NotInteractableError) Error <- 0.114.8
 
 ``` go
 func (e *NotInteractableError) Error() string
 ```
 
-## type ObjectNotFoundError <- 0.114.8
+### type ObjectNotFoundError <- 0.114.8
 
 ``` go
 type ObjectNotFoundError struct {
@@ -2633,13 +2633,13 @@ type ObjectNotFoundError struct {
 
 ObjectNotFoundError error.
 
-### (*ObjectNotFoundError) Error <- 0.114.8
+#### (*ObjectNotFoundError) Error <- 0.114.8
 
 ``` go
 func (e *ObjectNotFoundError) Error() string
 ```
 
-### (*ObjectNotFoundError) Is <- 0.114.8
+#### (*ObjectNotFoundError) Is <- 0.114.8
 
 ``` go
 func (e *ObjectNotFoundError) Is(err error) bool
@@ -2647,7 +2647,7 @@ func (e *ObjectNotFoundError) Is(err error) bool
 
 Is interface.
 
-## type Page 
+### type Page 
 
 ``` go
 type Page struct {
@@ -2679,7 +2679,7 @@ Page represents the webpage. We try to hold as less states as possible. When a p
 
 ``` go
 ```
-### (*Page) Activate <- 0.86.3
+#### (*Page) Activate <- 0.86.3
 
 ``` go
 func (p *Page) Activate() (*Page, error)
@@ -2687,7 +2687,7 @@ func (p *Page) Activate() (*Page, error)
 
 Activate (focuses) the page.
 
-### (*Page) AddScriptTag 
+#### (*Page) AddScriptTag 
 
 ``` go
 func (p *Page) AddScriptTag(url, content string) error
@@ -2695,7 +2695,7 @@ func (p *Page) AddScriptTag(url, content string) error
 
 AddScriptTag to page. If url is empty, content will be used.
 
-### (*Page) AddStyleTag 
+#### (*Page) AddStyleTag 
 
 ``` go
 func (p *Page) AddStyleTag(url, content string) error
@@ -2703,7 +2703,7 @@ func (p *Page) AddStyleTag(url, content string) error
 
 AddStyleTag to page. If url is empty, content will be used.
 
-### (*Page) Browser <- 0.101.7
+#### (*Page) Browser <- 0.101.7
 
 ``` go
 func (p *Page) Browser() *Browser
@@ -2711,7 +2711,7 @@ func (p *Page) Browser() *Browser
 
 Browser of the page.
 
-### (*Page) Call <- 0.70.0
+#### (*Page) Call <- 0.70.0
 
 ``` go
 func (p *Page) Call(ctx context.Context, sessionID, methodName string, params interface{}) (res []byte, err error)
@@ -2719,7 +2719,7 @@ func (p *Page) Call(ctx context.Context, sessionID, methodName string, params in
 
 Call implements the [proto.Client](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#Client).
 
-### (*Page) CancelTimeout 
+#### (*Page) CancelTimeout 
 
 ``` go
 func (p *Page) CancelTimeout() *Page
@@ -2727,7 +2727,7 @@ func (p *Page) CancelTimeout() *Page
 
 CancelTimeout cancels the current timeout context and returns a clone with the parent context.
 
-### (*Page) CaptureDOMSnapshot <- 0.113.0
+#### (*Page) CaptureDOMSnapshot <- 0.113.0
 
 ``` go
 func (p *Page) CaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSnapshotResult, err error)
@@ -2735,7 +2735,7 @@ func (p *Page) CaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSnapsh
 
 CaptureDOMSnapshot Returns a document snapshot, including the full DOM tree of the root node (including iframes, template contents, and imported documents) in a flattened array, as well as layout and white-listed computed style information for the nodes. Shadow DOM in the returned DOM tree is flattened. `Documents` The nodes in the DOM tree. The DOMNode at index 0 corresponds to the root document. `Strings` Shared string table that all string properties refer to with indexes. Normally use `Strings` is enough.
 
-### (*Page) Close 
+#### (*Page) Close 
 
 ``` go
 func (p *Page) Close() error
@@ -2743,7 +2743,7 @@ func (p *Page) Close() error
 
 Close tries to close page, running its beforeunload hooks, if has any.
 
-### (*Page) Context 
+#### (*Page) Context 
 
 ``` go
 func (p *Page) Context(ctx context.Context) *Page
@@ -2751,7 +2751,7 @@ func (p *Page) Context(ctx context.Context) *Page
 
 Context returns a clone with the specified ctx for chained sub-operations.
 
-### (*Page) Cookies 
+#### (*Page) Cookies 
 
 ``` go
 func (p *Page) Cookies(urls []string) ([]*proto.NetworkCookie, error)
@@ -2759,7 +2759,7 @@ func (p *Page) Cookies(urls []string) ([]*proto.NetworkCookie, error)
 
 Cookies returns the page cookies. By default it will return the cookies for current page. The urls is the list of URLs for which applicable cookies will be fetched.
 
-### (*Page) DisableDomain 
+#### (*Page) DisableDomain 
 
 ``` go
 func (p *Page) DisableDomain(method proto.Request) (restore func())
@@ -2767,7 +2767,7 @@ func (p *Page) DisableDomain(method proto.Request) (restore func())
 
 DisableDomain and returns a restore function to restore previous state.
 
-### (*Page) EachEvent 
+#### (*Page) EachEvent 
 
 ``` go
 func (p *Page) EachEvent(callbacks ...interface{}) (wait func())
@@ -2793,7 +2793,7 @@ go page.EachEvent(func(e *proto.PageJavascriptDialogOpening) {
 })()
 ```
 
-### (*Page) Element 
+#### (*Page) Element 
 
 ``` go
 func (p *Page) Element(selector string) (*Element, error)
@@ -2801,7 +2801,7 @@ func (p *Page) Element(selector string) (*Element, error)
 
 Element retries until an element in the page that matches the CSS selector, then returns the matched element.
 
-### (*Page) ElementByJS 
+#### (*Page) ElementByJS 
 
 ``` go
 func (p *Page) ElementByJS(opts *EvalOptions) (*Element, error)
@@ -2809,7 +2809,7 @@ func (p *Page) ElementByJS(opts *EvalOptions) (*Element, error)
 
 ElementByJS returns the element from the return value of the js function. If sleeper is nil, no retry will be performed. By default, it will retry until the js function doesn't return null. To customize the retry logic, check the examples of Page.Sleeper.
 
-### (*Page) ElementFromNode <- 0.47.0
+#### (*Page) ElementFromNode <- 0.47.0
 
 ``` go
 func (p *Page) ElementFromNode(node *proto.DOMNode) (*Element, error)
@@ -2817,7 +2817,7 @@ func (p *Page) ElementFromNode(node *proto.DOMNode) (*Element, error)
 
 ElementFromNode creates an Element from the node, [proto.DOMNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMNodeID) or [proto.DOMBackendNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMBackendNodeID) must be specified.
 
-### (*Page) ElementFromObject <- 0.47.0
+#### (*Page) ElementFromObject <- 0.47.0
 
 ``` go
 func (p *Page) ElementFromObject(obj *proto.RuntimeRemoteObject) (*Element, error)
@@ -2825,7 +2825,7 @@ func (p *Page) ElementFromObject(obj *proto.RuntimeRemoteObject) (*Element, erro
 
 ElementFromObject creates an Element from the remote object id.
 
-### (*Page) ElementFromPoint <- 0.48.0
+#### (*Page) ElementFromPoint <- 0.48.0
 
 ``` go
 func (p *Page) ElementFromPoint(x, y int) (*Element, error)
@@ -2833,7 +2833,7 @@ func (p *Page) ElementFromPoint(x, y int) (*Element, error)
 
 ElementFromPoint creates an Element from the absolute point on the page. The point should include the window scroll offset.
 
-### (*Page) ElementR <- 0.57.0
+#### (*Page) ElementR <- 0.57.0
 
 ``` go
 func (p *Page) ElementR(selector, jsRegex string) (*Element, error)
@@ -2841,7 +2841,7 @@ func (p *Page) ElementR(selector, jsRegex string) (*Element, error)
 
 ElementR retries until an element in the page that matches the css selector and it's text matches the jsRegex, then returns the matched element.
 
-### (*Page) ElementX 
+#### (*Page) ElementX 
 
 ``` go
 func (p *Page) ElementX(xPath string) (*Element, error)
@@ -2849,7 +2849,7 @@ func (p *Page) ElementX(xPath string) (*Element, error)
 
 ElementX retries until an element in the page that matches one of the XPath selectors, then returns the matched element.
 
-### (*Page) Elements 
+#### (*Page) Elements 
 
 ``` go
 func (p *Page) Elements(selector string) (Elements, error)
@@ -2857,7 +2857,7 @@ func (p *Page) Elements(selector string) (Elements, error)
 
 Elements returns all elements that match the css selector.
 
-### (*Page) ElementsByJS 
+#### (*Page) ElementsByJS 
 
 ``` go
 func (p *Page) ElementsByJS(opts *EvalOptions) (Elements, error)
@@ -2865,7 +2865,7 @@ func (p *Page) ElementsByJS(opts *EvalOptions) (Elements, error)
 
 ElementsByJS returns the elements from the return value of the js.
 
-### (*Page) ElementsX 
+#### (*Page) ElementsX 
 
 ``` go
 func (p *Page) ElementsX(xpath string) (Elements, error)
@@ -2873,7 +2873,7 @@ func (p *Page) ElementsX(xpath string) (Elements, error)
 
 ElementsX returns all elements that match the XPath selector.
 
-### (*Page) Emulate <- 0.42.1
+#### (*Page) Emulate <- 0.42.1
 
 ``` go
 func (p *Page) Emulate(device devices.Device) error
@@ -2881,7 +2881,7 @@ func (p *Page) Emulate(device devices.Device) error
 
 Emulate the device, such as iPhone9. If device is devices.Clear, it will clear the override.
 
-### (*Page) EnableDomain 
+#### (*Page) EnableDomain 
 
 ``` go
 func (p *Page) EnableDomain(method proto.Request) (restore func())
@@ -2889,7 +2889,7 @@ func (p *Page) EnableDomain(method proto.Request) (restore func())
 
 EnableDomain and returns a restore function to restore previous state.
 
-### (*Page) Eval 
+#### (*Page) Eval 
 
 ``` go
 func (p *Page) Eval(js string, args ...interface{}) (*proto.RuntimeRemoteObject, error)
@@ -2897,7 +2897,7 @@ func (p *Page) Eval(js string, args ...interface{}) (*proto.RuntimeRemoteObject,
 
 Eval is a shortcut for [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate) with AwaitPromise, ByValue set to true.
 
-### (*Page) EvalOnNewDocument <- 0.44.0
+#### (*Page) EvalOnNewDocument <- 0.44.0
 
 ``` go
 func (p *Page) EvalOnNewDocument(js string) (remove func() error, err error)
@@ -2905,7 +2905,7 @@ func (p *Page) EvalOnNewDocument(js string) (remove func() error, err error)
 
 EvalOnNewDocument Evaluates given script in every frame upon creation (before loading frame's scripts).
 
-### (*Page) Evaluate <- 0.67.0
+#### (*Page) Evaluate <- 0.67.0
 
 ``` go
 func (p *Page) Evaluate(opts *EvalOptions) (res *proto.RuntimeRemoteObject, err error)
@@ -2913,7 +2913,7 @@ func (p *Page) Evaluate(opts *EvalOptions) (res *proto.RuntimeRemoteObject, err 
 
 Evaluate js on the page.
 
-### (*Page) Event <- 0.70.2
+#### (*Page) Event <- 0.70.2
 
 ``` go
 func (p *Page) Event() <-chan *Message
@@ -2921,7 +2921,7 @@ func (p *Page) Event() <-chan *Message
 
 Event of the page.
 
-### (*Page) Expose <- 0.49.1
+#### (*Page) Expose <- 0.49.1
 
 ``` go
 func (p *Page) Expose(name string, fn func(gson.JSON) (interface{}, error)) (stop func() error, err error)
@@ -2929,7 +2929,7 @@ func (p *Page) Expose(name string, fn func(gson.JSON) (interface{}, error)) (sto
 
 Expose fn to the page's window object with the name. The exposure survives reloads. Call stop to unbind the fn.
 
-### (*Page) ExposeHelpers <- 0.85.1
+#### (*Page) ExposeHelpers <- 0.85.1
 
 ``` go
 func (p *Page) ExposeHelpers(list ...*js.Function)
@@ -2937,7 +2937,7 @@ func (p *Page) ExposeHelpers(list ...*js.Function)
 
 ExposeHelpers helper functions to page's js context so that we can use the Devtools' console to debug them.
 
-### (*Page) GetContext 
+#### (*Page) GetContext 
 
 ``` go
 func (p *Page) GetContext() context.Context
@@ -2945,7 +2945,7 @@ func (p *Page) GetContext() context.Context
 
 GetContext of current instance.
 
-### (*Page) GetNavigationHistory <- 0.116.2
+#### (*Page) GetNavigationHistory <- 0.116.2
 
 ``` go
 func (p *Page) GetNavigationHistory() (*proto.PageGetNavigationHistoryResult, error)
@@ -2953,7 +2953,7 @@ func (p *Page) GetNavigationHistory() (*proto.PageGetNavigationHistoryResult, er
 
 GetNavigationHistory get navigation history.
 
-### (*Page) GetResource <- 0.76.6
+#### (*Page) GetResource <- 0.76.6
 
 ``` go
 func (p *Page) GetResource(url string) ([]byte, error)
@@ -2961,7 +2961,7 @@ func (p *Page) GetResource(url string) ([]byte, error)
 
 GetResource content by the url. Such as image, css, html, etc. Use the [proto.PageGetResourceTree](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageGetResourceTree) to list all the resources.
 
-### (*Page) GetSessionID <- 0.72.0
+#### (*Page) GetSessionID <- 0.72.0
 
 ``` go
 func (p *Page) GetSessionID() proto.TargetSessionID
@@ -2969,7 +2969,7 @@ func (p *Page) GetSessionID() proto.TargetSessionID
 
 GetSessionID interface.
 
-### (*Page) GetWindow 
+#### (*Page) GetWindow 
 
 ``` go
 func (p *Page) GetWindow() (*proto.BrowserBounds, error)
@@ -2977,7 +2977,7 @@ func (p *Page) GetWindow() (*proto.BrowserBounds, error)
 
 GetWindow position and size info.
 
-### (*Page) HTML <- 0.94.0
+#### (*Page) HTML <- 0.94.0
 
 ``` go
 func (p *Page) HTML() (string, error)
@@ -2985,7 +2985,7 @@ func (p *Page) HTML() (string, error)
 
 HTML of the page.
 
-### (*Page) HandleDialog 
+#### (*Page) HandleDialog 
 
 ``` go
 func (p *Page) HandleDialog() (
@@ -3003,7 +3003,7 @@ wait()
 handle(true, "")
 ```
 
-### (*Page) HandleFileDialog <- 0.109.0
+#### (*Page) HandleFileDialog <- 0.109.0
 
 ``` go
 func (p *Page) HandleFileDialog() (func([]string) error, error)
@@ -3011,7 +3011,7 @@ func (p *Page) HandleFileDialog() (func([]string) error, error)
 
 HandleFileDialog return a functions that waits for the next file chooser dialog pops up and returns the element for the event.
 
-### (*Page) Has 
+#### (*Page) Has 
 
 ``` go
 func (p *Page) Has(selector string) (bool, *Element, error)
@@ -3019,7 +3019,7 @@ func (p *Page) Has(selector string) (bool, *Element, error)
 
 Has an element that matches the css selector.
 
-### (*Page) HasR <- 0.61.0
+#### (*Page) HasR <- 0.61.0
 
 ``` go
 func (p *Page) HasR(selector, jsRegex string) (bool, *Element, error)
@@ -3027,7 +3027,7 @@ func (p *Page) HasR(selector, jsRegex string) (bool, *Element, error)
 
 HasR an element that matches the css selector and its display text matches the jsRegex.
 
-### (*Page) HasX 
+#### (*Page) HasX 
 
 ``` go
 func (p *Page) HasX(selector string) (bool, *Element, error)
@@ -3035,7 +3035,7 @@ func (p *Page) HasX(selector string) (bool, *Element, error)
 
 HasX an element that matches the XPath selector.
 
-### (*Page) HijackRequests 
+#### (*Page) HijackRequests 
 
 ``` go
 func (p *Page) HijackRequests() *HijackRouter
@@ -3049,7 +3049,7 @@ browser --req-> rod ---> server ---> rod --res-> browser
 
 The --req-> and --res-> are the parts that can be modified.
 
-### (*Page) Info <- 0.42.1
+#### (*Page) Info <- 0.42.1
 
 ``` go
 func (p *Page) Info() (*proto.TargetTargetInfo, error)
@@ -3057,7 +3057,7 @@ func (p *Page) Info() (*proto.TargetTargetInfo, error)
 
 Info of the page, such as the URL or title of the page.
 
-### (*Page) InsertText <- 0.107.0
+#### (*Page) InsertText <- 0.107.0
 
 ``` go
 func (p *Page) InsertText(text string) error
@@ -3065,7 +3065,7 @@ func (p *Page) InsertText(text string) error
 
 InsertText is like pasting text into the page.
 
-### (*Page) IsIframe 
+#### (*Page) IsIframe 
 
 ``` go
 func (p *Page) IsIframe() bool
@@ -3073,7 +3073,7 @@ func (p *Page) IsIframe() bool
 
 IsIframe tells if it's iframe.
 
-### (*Page) KeyActions <- 0.107.0
+#### (*Page) KeyActions <- 0.107.0
 
 ``` go
 func (p *Page) KeyActions() *KeyActions
@@ -3081,7 +3081,7 @@ func (p *Page) KeyActions() *KeyActions
 
 KeyActions simulates the type actions on a physical keyboard. Useful when input shortcuts like ctrl+enter .
 
-### (*Page) LoadState 
+#### (*Page) LoadState 
 
 ``` go
 func (p *Page) LoadState(method proto.Request) (has bool)
@@ -3089,7 +3089,7 @@ func (p *Page) LoadState(method proto.Request) (has bool)
 
 LoadState into the method.
 
-### (*Page) MustActivate <- 0.86.3
+#### (*Page) MustActivate <- 0.86.3
 
 ``` go
 func (p *Page) MustActivate() *Page
@@ -3097,7 +3097,7 @@ func (p *Page) MustActivate() *Page
 
 MustActivate is similar to [Page.Activate](https://pkg.go.dev/github.com/go-rod/rod#Page.Activate).
 
-### (*Page) MustAddScriptTag <- 0.50.0
+#### (*Page) MustAddScriptTag <- 0.50.0
 
 ``` go
 func (p *Page) MustAddScriptTag(url string) *Page
@@ -3105,7 +3105,7 @@ func (p *Page) MustAddScriptTag(url string) *Page
 
 MustAddScriptTag is similar to [Page.AddScriptTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddScriptTag).
 
-### (*Page) MustAddStyleTag <- 0.50.0
+#### (*Page) MustAddStyleTag <- 0.50.0
 
 ``` go
 func (p *Page) MustAddStyleTag(url string) *Page
@@ -3113,7 +3113,7 @@ func (p *Page) MustAddStyleTag(url string) *Page
 
 MustAddStyleTag is similar to [Page.AddStyleTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddStyleTag).
 
-### (*Page) MustCaptureDOMSnapshot <- 0.113.0
+#### (*Page) MustCaptureDOMSnapshot <- 0.113.0
 
 ``` go
 func (p *Page) MustCaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSnapshotResult)
@@ -3121,7 +3121,7 @@ func (p *Page) MustCaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSn
 
 MustCaptureDOMSnapshot is similar to [Page.CaptureDOMSnapshot](https://pkg.go.dev/github.com/go-rod/rod#Page.CaptureDOMSnapshot).
 
-### (*Page) MustClose <- 0.50.0
+#### (*Page) MustClose <- 0.50.0
 
 ``` go
 func (p *Page) MustClose()
@@ -3129,7 +3129,7 @@ func (p *Page) MustClose()
 
 MustClose is similar to [Page.Close](https://pkg.go.dev/github.com/go-rod/rod#Page.Close).
 
-### (*Page) MustCookies <- 0.50.0
+#### (*Page) MustCookies <- 0.50.0
 
 ``` go
 func (p *Page) MustCookies(urls ...string) []*proto.NetworkCookie
@@ -3137,7 +3137,7 @@ func (p *Page) MustCookies(urls ...string) []*proto.NetworkCookie
 
 MustCookies is similar to [Page.Cookies](https://pkg.go.dev/github.com/go-rod/rod#Page.Cookies).
 
-### (*Page) MustElement <- 0.50.0
+#### (*Page) MustElement <- 0.50.0
 
 ``` go
 func (p *Page) MustElement(selector string) *Element
@@ -3145,7 +3145,7 @@ func (p *Page) MustElement(selector string) *Element
 
 MustElement is similar to [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element).
 
-### (*Page) MustElementByJS <- 0.50.0
+#### (*Page) MustElementByJS <- 0.50.0
 
 ``` go
 func (p *Page) MustElementByJS(js string, params ...interface{}) *Element
@@ -3153,7 +3153,7 @@ func (p *Page) MustElementByJS(js string, params ...interface{}) *Element
 
 MustElementByJS is similar to [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS).
 
-### (*Page) MustElementFromNode <- 0.50.0
+#### (*Page) MustElementFromNode <- 0.50.0
 
 ``` go
 func (p *Page) MustElementFromNode(node *proto.DOMNode) *Element
@@ -3161,7 +3161,7 @@ func (p *Page) MustElementFromNode(node *proto.DOMNode) *Element
 
 MustElementFromNode is similar to [Page.ElementFromNode](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromNode).
 
-### (*Page) MustElementFromPoint <- 0.50.0
+#### (*Page) MustElementFromPoint <- 0.50.0
 
 ``` go
 func (p *Page) MustElementFromPoint(left, top int) *Element
@@ -3169,7 +3169,7 @@ func (p *Page) MustElementFromPoint(left, top int) *Element
 
 MustElementFromPoint is similar to [Page.ElementFromPoint](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromPoint).
 
-### (*Page) MustElementR <- 0.57.0
+#### (*Page) MustElementR <- 0.57.0
 
 ``` go
 func (p *Page) MustElementR(selector, jsRegex string) *Element
@@ -3177,7 +3177,7 @@ func (p *Page) MustElementR(selector, jsRegex string) *Element
 
 MustElementR is similar to [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR).
 
-### (*Page) MustElementX <- 0.50.0
+#### (*Page) MustElementX <- 0.50.0
 
 ``` go
 func (p *Page) MustElementX(xPath string) *Element
@@ -3185,7 +3185,7 @@ func (p *Page) MustElementX(xPath string) *Element
 
 MustElementX is similar to [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX).
 
-### (*Page) MustElements <- 0.50.0
+#### (*Page) MustElements <- 0.50.0
 
 ``` go
 func (p *Page) MustElements(selector string) Elements
@@ -3193,7 +3193,7 @@ func (p *Page) MustElements(selector string) Elements
 
 MustElements is similar to [Page.Elements](https://pkg.go.dev/github.com/go-rod/rod#Page.Elements).
 
-### (*Page) MustElementsByJS <- 0.50.0
+#### (*Page) MustElementsByJS <- 0.50.0
 
 ``` go
 func (p *Page) MustElementsByJS(js string, params ...interface{}) Elements
@@ -3201,7 +3201,7 @@ func (p *Page) MustElementsByJS(js string, params ...interface{}) Elements
 
 MustElementsByJS is similar to [Page.ElementsByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsByJS).
 
-### (*Page) MustElementsX <- 0.50.0
+#### (*Page) MustElementsX <- 0.50.0
 
 ``` go
 func (p *Page) MustElementsX(xpath string) Elements
@@ -3209,7 +3209,7 @@ func (p *Page) MustElementsX(xpath string) Elements
 
 MustElementsX is similar to [Page.ElementsX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsX).
 
-### (*Page) MustEmulate <- 0.50.0
+#### (*Page) MustEmulate <- 0.50.0
 
 ``` go
 func (p *Page) MustEmulate(device devices.Device) *Page
@@ -3217,7 +3217,7 @@ func (p *Page) MustEmulate(device devices.Device) *Page
 
 MustEmulate is similar to [Page.Emulate](https://pkg.go.dev/github.com/go-rod/rod#Page.Emulate).
 
-### (*Page) MustEval <- 0.50.0
+#### (*Page) MustEval <- 0.50.0
 
 ``` go
 func (p *Page) MustEval(js string, params ...interface{}) gson.JSON
@@ -3225,7 +3225,7 @@ func (p *Page) MustEval(js string, params ...interface{}) gson.JSON
 
 MustEval is similar to [Page.Eval](https://pkg.go.dev/github.com/go-rod/rod#Page.Eval).
 
-### (*Page) MustEvalOnNewDocument <- 0.50.0
+#### (*Page) MustEvalOnNewDocument <- 0.50.0
 
 ``` go
 func (p *Page) MustEvalOnNewDocument(js string)
@@ -3233,7 +3233,7 @@ func (p *Page) MustEvalOnNewDocument(js string)
 
 MustEvalOnNewDocument is similar to [Page.EvalOnNewDocument](https://pkg.go.dev/github.com/go-rod/rod#Page.EvalOnNewDocument).
 
-### (*Page) MustEvaluate <- 0.67.0
+#### (*Page) MustEvaluate <- 0.67.0
 
 ``` go
 func (p *Page) MustEvaluate(opts *EvalOptions) *proto.RuntimeRemoteObject
@@ -3241,7 +3241,7 @@ func (p *Page) MustEvaluate(opts *EvalOptions) *proto.RuntimeRemoteObject
 
 MustEvaluate is similar to [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate).
 
-### (*Page) MustExpose <- 0.50.0
+#### (*Page) MustExpose <- 0.50.0
 
 ``` go
 func (p *Page) MustExpose(name string, fn func(gson.JSON) (interface{}, error)) (stop func())
@@ -3249,7 +3249,7 @@ func (p *Page) MustExpose(name string, fn func(gson.JSON) (interface{}, error)) 
 
 MustExpose is similar to [Page.Expose](https://pkg.go.dev/github.com/go-rod/rod#Page.Expose).
 
-### (*Page) MustGetWindow <- 0.50.0
+#### (*Page) MustGetWindow <- 0.50.0
 
 ``` go
 func (p *Page) MustGetWindow() *proto.BrowserBounds
@@ -3257,7 +3257,7 @@ func (p *Page) MustGetWindow() *proto.BrowserBounds
 
 MustGetWindow is similar to [Page.GetWindow](https://pkg.go.dev/github.com/go-rod/rod#Page.GetWindow).
 
-### (*Page) MustHTML <- 0.94.0
+#### (*Page) MustHTML <- 0.94.0
 
 ``` go
 func (p *Page) MustHTML() string
@@ -3265,7 +3265,7 @@ func (p *Page) MustHTML() string
 
 MustHTML is similar to [Page.HTML](https://pkg.go.dev/github.com/go-rod/rod#Page.HTML).
 
-### (*Page) MustHandleDialog <- 0.50.0
+#### (*Page) MustHandleDialog <- 0.50.0
 
 ``` go
 func (p *Page) MustHandleDialog() (wait func() *proto.PageJavascriptDialogOpening, handle func(bool, string))
@@ -3273,7 +3273,7 @@ func (p *Page) MustHandleDialog() (wait func() *proto.PageJavascriptDialogOpenin
 
 MustHandleDialog is similar to [Page.HandleDialog](https://pkg.go.dev/github.com/go-rod/rod#Page.HandleDialog).
 
-### (*Page) MustHandleFileDialog <- 0.109.0
+#### (*Page) MustHandleFileDialog <- 0.109.0
 
 ``` go
 func (p *Page) MustHandleFileDialog() func(...string)
@@ -3281,7 +3281,7 @@ func (p *Page) MustHandleFileDialog() func(...string)
 
 MustHandleFileDialog is similar to [Page.HandleFileDialog](https://pkg.go.dev/github.com/go-rod/rod#Page.HandleFileDialog).
 
-### (*Page) MustHas <- 0.50.0
+#### (*Page) MustHas <- 0.50.0
 
 ``` go
 func (p *Page) MustHas(selector string) bool
@@ -3289,7 +3289,7 @@ func (p *Page) MustHas(selector string) bool
 
 MustHas is similar to [Page.Has](https://pkg.go.dev/github.com/go-rod/rod#Page.Has).
 
-### (*Page) MustHasR <- 0.61.0
+#### (*Page) MustHasR <- 0.61.0
 
 ``` go
 func (p *Page) MustHasR(selector, regex string) bool
@@ -3297,7 +3297,7 @@ func (p *Page) MustHasR(selector, regex string) bool
 
 MustHasR is similar to [Page.HasR](https://pkg.go.dev/github.com/go-rod/rod#Page.HasR).
 
-### (*Page) MustHasX <- 0.50.0
+#### (*Page) MustHasX <- 0.50.0
 
 ``` go
 func (p *Page) MustHasX(selector string) bool
@@ -3305,7 +3305,7 @@ func (p *Page) MustHasX(selector string) bool
 
 MustHasX is similar to [Page.HasX](https://pkg.go.dev/github.com/go-rod/rod#Page.HasX).
 
-### (*Page) MustInfo <- 0.50.0
+#### (*Page) MustInfo <- 0.50.0
 
 ``` go
 func (p *Page) MustInfo() *proto.TargetTargetInfo
@@ -3313,7 +3313,7 @@ func (p *Page) MustInfo() *proto.TargetTargetInfo
 
 MustInfo is similar to [Page.Info](https://pkg.go.dev/github.com/go-rod/rod#Page.Info).
 
-### (*Page) MustInsertText <- 0.107.0
+#### (*Page) MustInsertText <- 0.107.0
 
 ``` go
 func (p *Page) MustInsertText(text string) *Page
@@ -3321,7 +3321,7 @@ func (p *Page) MustInsertText(text string) *Page
 
 MustInsertText is similar to [Page.InsertText](https://pkg.go.dev/github.com/go-rod/rod#Page.InsertText).
 
-### (*Page) MustNavigate <- 0.50.0
+#### (*Page) MustNavigate <- 0.50.0
 
 ``` go
 func (p *Page) MustNavigate(url string) *Page
@@ -3329,7 +3329,7 @@ func (p *Page) MustNavigate(url string) *Page
 
 MustNavigate is similar to [Page.Navigate](https://pkg.go.dev/github.com/go-rod/rod#Page.Navigate).
 
-### (*Page) MustNavigateBack <- 0.61.4
+#### (*Page) MustNavigateBack <- 0.61.4
 
 ``` go
 func (p *Page) MustNavigateBack() *Page
@@ -3337,7 +3337,7 @@ func (p *Page) MustNavigateBack() *Page
 
 MustNavigateBack is similar to [Page.NavigateBack](https://pkg.go.dev/github.com/go-rod/rod#Page.NavigateBack).
 
-### (*Page) MustNavigateForward <- 0.61.4
+#### (*Page) MustNavigateForward <- 0.61.4
 
 ``` go
 func (p *Page) MustNavigateForward() *Page
@@ -3345,7 +3345,7 @@ func (p *Page) MustNavigateForward() *Page
 
 MustNavigateForward is similar to [Page.NavigateForward](https://pkg.go.dev/github.com/go-rod/rod#Page.NavigateForward).
 
-### (*Page) MustObjectToJSON <- 0.50.0
+#### (*Page) MustObjectToJSON <- 0.50.0
 
 ``` go
 func (p *Page) MustObjectToJSON(obj *proto.RuntimeRemoteObject) gson.JSON
@@ -3353,7 +3353,7 @@ func (p *Page) MustObjectToJSON(obj *proto.RuntimeRemoteObject) gson.JSON
 
 MustObjectToJSON is similar to [Page.ObjectToJSON](https://pkg.go.dev/github.com/go-rod/rod#Page.ObjectToJSON).
 
-### (*Page) MustObjectsToJSON <- 0.50.0
+#### (*Page) MustObjectsToJSON <- 0.50.0
 
 ``` go
 func (p *Page) MustObjectsToJSON(list []*proto.RuntimeRemoteObject) gson.JSON
@@ -3361,7 +3361,7 @@ func (p *Page) MustObjectsToJSON(list []*proto.RuntimeRemoteObject) gson.JSON
 
 MustObjectsToJSON is similar to [Page.ObjectsToJSON].
 
-### (*Page) MustPDF <- 0.50.0
+#### (*Page) MustPDF <- 0.50.0
 
 ``` go
 func (p *Page) MustPDF(toFile ...string) []byte
@@ -3369,7 +3369,7 @@ func (p *Page) MustPDF(toFile ...string) []byte
 
 MustPDF is similar to [Page.PDF](https://pkg.go.dev/github.com/go-rod/rod#Page.PDF). If the toFile is "", it Page.will save output to "tmp/pdf" folder, time as the file name.
 
-### (*Page) MustRelease <- 0.50.0
+#### (*Page) MustRelease <- 0.50.0
 
 ``` go
 func (p *Page) MustRelease(obj *proto.RuntimeRemoteObject) *Page
@@ -3377,7 +3377,7 @@ func (p *Page) MustRelease(obj *proto.RuntimeRemoteObject) *Page
 
 MustRelease is similar to [Page.Release](https://pkg.go.dev/github.com/go-rod/rod#Page.Release).
 
-### (*Page) MustReload <- 0.61.4
+#### (*Page) MustReload <- 0.61.4
 
 ``` go
 func (p *Page) MustReload() *Page
@@ -3385,7 +3385,7 @@ func (p *Page) MustReload() *Page
 
 MustReload is similar to [Page.Reload](https://pkg.go.dev/github.com/go-rod/rod#Page.Reload).
 
-### (*Page) MustResetNavigationHistory <- 0.116.2
+#### (*Page) MustResetNavigationHistory <- 0.116.2
 
 ``` go
 func (p *Page) MustResetNavigationHistory() *Page
@@ -3393,7 +3393,7 @@ func (p *Page) MustResetNavigationHistory() *Page
 
 MustResetNavigationHistory is similar to [Page.ResetNavigationHistory](https://pkg.go.dev/github.com/go-rod/rod#Page.ResetNavigationHistory).
 
-### (*Page) MustScreenshot <- 0.50.0
+#### (*Page) MustScreenshot <- 0.50.0
 
 ``` go
 func (p *Page) MustScreenshot(toFile ...string) []byte
@@ -3401,7 +3401,7 @@ func (p *Page) MustScreenshot(toFile ...string) []byte
 
 MustScreenshot is similar to [Page.Screenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.Screenshot). If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
 
-### (*Page) MustScreenshotFullPage <- 0.50.0
+#### (*Page) MustScreenshotFullPage <- 0.50.0
 
 ``` go
 func (p *Page) MustScreenshotFullPage(toFile ...string) []byte
@@ -3409,7 +3409,7 @@ func (p *Page) MustScreenshotFullPage(toFile ...string) []byte
 
 MustScreenshotFullPage is similar to [Page.ScreenshotFullPage]. If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
 
-### (*Page) MustScrollScreenshot <- 0.116.2
+#### (*Page) MustScrollScreenshot <- 0.116.2
 
 ``` go
 func (p *Page) MustScrollScreenshot(toFile ...string) []byte
@@ -3417,7 +3417,7 @@ func (p *Page) MustScrollScreenshot(toFile ...string) []byte
 
 MustScrollScreenshot is similar to [Page.ScrollScreenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.ScrollScreenshot). If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
 
-### (*Page) MustSearch <- 0.50.0
+#### (*Page) MustSearch <- 0.50.0
 
 ``` go
 func (p *Page) MustSearch(query string) *Element
@@ -3425,7 +3425,7 @@ func (p *Page) MustSearch(query string) *Element
 
 MustSearch is similar to [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search). It only returns the first element in the search result.
 
-### (*Page) MustSetBlockedURLs <- 0.112.3
+#### (*Page) MustSetBlockedURLs <- 0.112.3
 
 ``` go
 func (p *Page) MustSetBlockedURLs(urls ...string) *Page
@@ -3433,7 +3433,7 @@ func (p *Page) MustSetBlockedURLs(urls ...string) *Page
 
 MustSetBlockedURLs is similar to [Page.SetBlockedURLs](https://pkg.go.dev/github.com/go-rod/rod#Page.SetBlockedURLs).
 
-### (*Page) MustSetCookies <- 0.50.0
+#### (*Page) MustSetCookies <- 0.50.0
 
 ``` go
 func (p *Page) MustSetCookies(cookies ...*proto.NetworkCookieParam) *Page
@@ -3441,7 +3441,7 @@ func (p *Page) MustSetCookies(cookies ...*proto.NetworkCookieParam) *Page
 
 MustSetCookies is similar to [Page.SetCookies](https://pkg.go.dev/github.com/go-rod/rod#Page.SetCookies). If the len(cookies) is 0 it will clear all the cookies.
 
-### (*Page) MustSetDocumentContent <- 0.104.0
+#### (*Page) MustSetDocumentContent <- 0.104.0
 
 ``` go
 func (p *Page) MustSetDocumentContent(html string) *Page
@@ -3449,7 +3449,7 @@ func (p *Page) MustSetDocumentContent(html string) *Page
 
 MustSetDocumentContent is similar to [Page.SetDocumentContent](https://pkg.go.dev/github.com/go-rod/rod#Page.SetDocumentContent).
 
-### (*Page) MustSetExtraHeaders <- 0.50.0
+#### (*Page) MustSetExtraHeaders <- 0.50.0
 
 ``` go
 func (p *Page) MustSetExtraHeaders(dict ...string) (cleanup func())
@@ -3457,7 +3457,7 @@ func (p *Page) MustSetExtraHeaders(dict ...string) (cleanup func())
 
 MustSetExtraHeaders is similar to [Page.SetExtraHeaders](https://pkg.go.dev/github.com/go-rod/rod#Page.SetExtraHeaders).
 
-### (*Page) MustSetUserAgent <- 0.50.0
+#### (*Page) MustSetUserAgent <- 0.50.0
 
 ``` go
 func (p *Page) MustSetUserAgent(req *proto.NetworkSetUserAgentOverride) *Page
@@ -3465,7 +3465,7 @@ func (p *Page) MustSetUserAgent(req *proto.NetworkSetUserAgentOverride) *Page
 
 MustSetUserAgent is similar to [Page.SetUserAgent](https://pkg.go.dev/github.com/go-rod/rod#Page.SetUserAgent).
 
-### (*Page) MustSetViewport <- 0.64.0
+#### (*Page) MustSetViewport <- 0.64.0
 
 ``` go
 func (p *Page) MustSetViewport(width, height int, deviceScaleFactor float64, mobile bool) *Page
@@ -3473,7 +3473,7 @@ func (p *Page) MustSetViewport(width, height int, deviceScaleFactor float64, mob
 
 MustSetViewport is similar to [Page.SetViewport](https://pkg.go.dev/github.com/go-rod/rod#Page.SetViewport).
 
-### (*Page) MustSetWindow <- 0.64.0
+#### (*Page) MustSetWindow <- 0.64.0
 
 ``` go
 func (p *Page) MustSetWindow(left, top, width, height int) *Page
@@ -3481,7 +3481,7 @@ func (p *Page) MustSetWindow(left, top, width, height int) *Page
 
 MustSetWindow is similar to [Page.SetWindow](https://pkg.go.dev/github.com/go-rod/rod#Page.SetWindow).
 
-### (*Page) MustStopLoading <- 0.50.0
+#### (*Page) MustStopLoading <- 0.50.0
 
 ``` go
 func (p *Page) MustStopLoading() *Page
@@ -3489,7 +3489,7 @@ func (p *Page) MustStopLoading() *Page
 
 MustStopLoading is similar to [Page.StopLoading](https://pkg.go.dev/github.com/go-rod/rod#Page.StopLoading).
 
-### (*Page) MustTriggerFavicon <- 0.113.2
+#### (*Page) MustTriggerFavicon <- 0.113.2
 
 ``` go
 func (p *Page) MustTriggerFavicon() *Page
@@ -3497,7 +3497,7 @@ func (p *Page) MustTriggerFavicon() *Page
 
 MustTriggerFavicon is similar to [PageTriggerFavicon].
 
-### (*Page) MustWait <- 0.50.0
+#### (*Page) MustWait <- 0.50.0
 
 ``` go
 func (p *Page) MustWait(js string, params ...interface{}) *Page
@@ -3505,7 +3505,7 @@ func (p *Page) MustWait(js string, params ...interface{}) *Page
 
 MustWait is similar to [Page.Wait](https://pkg.go.dev/github.com/go-rod/rod#Page.Wait).
 
-### (*Page) MustWaitDOMStable <- 0.114.0
+#### (*Page) MustWaitDOMStable <- 0.114.0
 
 ``` go
 func (p *Page) MustWaitDOMStable() *Page
@@ -3513,7 +3513,7 @@ func (p *Page) MustWaitDOMStable() *Page
 
 MustWaitDOMStable is similar to [Page.WaitDOMStable](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitDOMStable).
 
-### (*Page) MustWaitElementsMoreThan <- 0.97.3
+#### (*Page) MustWaitElementsMoreThan <- 0.97.3
 
 ``` go
 func (p *Page) MustWaitElementsMoreThan(selector string, num int) *Page
@@ -3521,7 +3521,7 @@ func (p *Page) MustWaitElementsMoreThan(selector string, num int) *Page
 
 MustWaitElementsMoreThan is similar to [Page.WaitElementsMoreThan](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitElementsMoreThan).
 
-### (*Page) MustWaitIdle <- 0.50.0
+#### (*Page) MustWaitIdle <- 0.50.0
 
 ``` go
 func (p *Page) MustWaitIdle() *Page
@@ -3529,7 +3529,7 @@ func (p *Page) MustWaitIdle() *Page
 
 MustWaitIdle is similar to [Page.WaitIdle](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitIdle).
 
-### (*Page) MustWaitLoad <- 0.50.0
+#### (*Page) MustWaitLoad <- 0.50.0
 
 ``` go
 func (p *Page) MustWaitLoad() *Page
@@ -3537,7 +3537,7 @@ func (p *Page) MustWaitLoad() *Page
 
 MustWaitLoad is similar to [Page.WaitLoad](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitLoad).
 
-### (*Page) MustWaitNavigation <- 0.63.2
+#### (*Page) MustWaitNavigation <- 0.63.2
 
 ``` go
 func (p *Page) MustWaitNavigation() func()
@@ -3545,7 +3545,7 @@ func (p *Page) MustWaitNavigation() func()
 
 MustWaitNavigation is similar to [Page.WaitNavigation](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitNavigation).
 
-### (*Page) MustWaitOpen <- 0.50.0
+#### (*Page) MustWaitOpen <- 0.50.0
 
 ``` go
 func (p *Page) MustWaitOpen() (wait func() (newPage *Page))
@@ -3553,7 +3553,7 @@ func (p *Page) MustWaitOpen() (wait func() (newPage *Page))
 
 MustWaitOpen is similar to [Page.WaitOpen](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitOpen).
 
-### (*Page) MustWaitRequestIdle <- 0.50.0
+#### (*Page) MustWaitRequestIdle <- 0.50.0
 
 ``` go
 func (p *Page) MustWaitRequestIdle(excludes ...string) (wait func())
@@ -3561,7 +3561,7 @@ func (p *Page) MustWaitRequestIdle(excludes ...string) (wait func())
 
 MustWaitRequestIdle is similar to [Page.WaitRequestIdle](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitRequestIdle).
 
-### (*Page) MustWaitStable <- 0.113.0
+#### (*Page) MustWaitStable <- 0.113.0
 
 ``` go
 func (p *Page) MustWaitStable() *Page
@@ -3569,7 +3569,7 @@ func (p *Page) MustWaitStable() *Page
 
 MustWaitStable is similar to [Page.WaitStable](https://pkg.go.dev/github.com/go-rod/rod#Page.WaitStable).
 
-### (*Page) MustWindowFullscreen <- 0.50.0
+#### (*Page) MustWindowFullscreen <- 0.50.0
 
 ``` go
 func (p *Page) MustWindowFullscreen() *Page
@@ -3577,7 +3577,7 @@ func (p *Page) MustWindowFullscreen() *Page
 
 MustWindowFullscreen is similar to [Page.WindowFullscreen].
 
-### (*Page) MustWindowMaximize <- 0.50.0
+#### (*Page) MustWindowMaximize <- 0.50.0
 
 ``` go
 func (p *Page) MustWindowMaximize() *Page
@@ -3585,7 +3585,7 @@ func (p *Page) MustWindowMaximize() *Page
 
 MustWindowMaximize is similar to [Page.WindowMaximize].
 
-### (*Page) MustWindowMinimize <- 0.50.0
+#### (*Page) MustWindowMinimize <- 0.50.0
 
 ``` go
 func (p *Page) MustWindowMinimize() *Page
@@ -3593,7 +3593,7 @@ func (p *Page) MustWindowMinimize() *Page
 
 MustWindowMinimize is similar to [Page.WindowMinimize].
 
-### (*Page) MustWindowNormal <- 0.50.0
+#### (*Page) MustWindowNormal <- 0.50.0
 
 ``` go
 func (p *Page) MustWindowNormal() *Page
@@ -3601,7 +3601,7 @@ func (p *Page) MustWindowNormal() *Page
 
 MustWindowNormal is similar to [Page.WindowNormal].
 
-### (*Page) Navigate 
+#### (*Page) Navigate 
 
 ``` go
 func (p *Page) Navigate(url string) error
@@ -3609,7 +3609,7 @@ func (p *Page) Navigate(url string) error
 
 Navigate to the url. If the url is empty, "about:blank" will be used. It will return immediately after the server responds the http header.
 
-### (*Page) NavigateBack <- 0.61.4
+#### (*Page) NavigateBack <- 0.61.4
 
 ``` go
 func (p *Page) NavigateBack() error
@@ -3617,7 +3617,7 @@ func (p *Page) NavigateBack() error
 
 NavigateBack history.
 
-### (*Page) NavigateForward <- 0.61.4
+#### (*Page) NavigateForward <- 0.61.4
 
 ``` go
 func (p *Page) NavigateForward() error
@@ -3625,7 +3625,7 @@ func (p *Page) NavigateForward() error
 
 NavigateForward history.
 
-### (*Page) ObjectToJSON 
+#### (*Page) ObjectToJSON 
 
 ``` go
 func (p *Page) ObjectToJSON(obj *proto.RuntimeRemoteObject) (gson.JSON, error)
@@ -3633,7 +3633,7 @@ func (p *Page) ObjectToJSON(obj *proto.RuntimeRemoteObject) (gson.JSON, error)
 
 ObjectToJSON by object id.
 
-### (*Page) Overlay 
+#### (*Page) Overlay 
 
 ``` go
 func (p *Page) Overlay(left, top, width, height float64, msg string) (remove func())
@@ -3641,7 +3641,7 @@ func (p *Page) Overlay(left, top, width, height float64, msg string) (remove fun
 
 Overlay a rectangle on the main frame with specified message.
 
-### (*Page) PDF 
+#### (*Page) PDF 
 
 ``` go
 func (p *Page) PDF(req *proto.PagePrintToPDF) (*StreamReader, error)
@@ -3649,7 +3649,7 @@ func (p *Page) PDF(req *proto.PagePrintToPDF) (*StreamReader, error)
 
 PDF prints page as PDF.
 
-### (*Page) Race <- 0.57.0
+#### (*Page) Race <- 0.57.0
 
 ``` go
 func (p *Page) Race() *RaceContext
@@ -3657,7 +3657,7 @@ func (p *Page) Race() *RaceContext
 
 Race creates a context to race selectors.
 
-### (*Page) Release 
+#### (*Page) Release 
 
 ``` go
 func (p *Page) Release(obj *proto.RuntimeRemoteObject) error
@@ -3665,7 +3665,7 @@ func (p *Page) Release(obj *proto.RuntimeRemoteObject) error
 
 Release the remote object. Usually, you don't need to call it. When a page is closed or reloaded, all remote objects will be released automatically. It's useful if the page never closes or reloads.
 
-### (*Page) Reload <- 0.61.4
+#### (*Page) Reload <- 0.61.4
 
 ``` go
 func (p *Page) Reload() error
@@ -3673,7 +3673,7 @@ func (p *Page) Reload() error
 
 Reload page.
 
-### (*Page) ResetNavigationHistory <- 0.116.2
+#### (*Page) ResetNavigationHistory <- 0.116.2
 
 ``` go
 func (p *Page) ResetNavigationHistory() error
@@ -3681,7 +3681,7 @@ func (p *Page) ResetNavigationHistory() error
 
 ResetNavigationHistory reset history.
 
-### (*Page) Screenshot 
+#### (*Page) Screenshot 
 
 ``` go
 func (p *Page) Screenshot(fullPage bool, req *proto.PageCaptureScreenshot) ([]byte, error)
@@ -3689,7 +3689,7 @@ func (p *Page) Screenshot(fullPage bool, req *proto.PageCaptureScreenshot) ([]by
 
 Screenshot captures the screenshot of current page.
 
-### (*Page) ScrollScreenshot <- 0.114.7
+#### (*Page) ScrollScreenshot <- 0.114.7
 
 ``` go
 func (p *Page) ScrollScreenshot(opt *ScrollScreenshotOptions) ([]byte, error)
@@ -3699,7 +3699,7 @@ ScrollScreenshot Scroll screenshot does not adjust the size of the viewport, but
 
 Only support png and jpeg format yet, webP is not supported because no suitable processing library was found in golang.
 
-### (*Page) Search <- 0.47.0
+#### (*Page) Search <- 0.47.0
 
 ``` go
 func (p *Page) Search(query string) (*SearchResult, error)
@@ -3707,7 +3707,7 @@ func (p *Page) Search(query string) (*SearchResult, error)
 
 Search for the given query in the DOM tree until the result count is not zero, before that it will keep retrying. The query can be plain text or css selector or xpath. It will search nested iframes and shadow doms too.
 
-### (*Page) SetBlockedURLs <- 0.112.3
+#### (*Page) SetBlockedURLs <- 0.112.3
 
 ``` go
 func (p *Page) SetBlockedURLs(urls []string) error
@@ -3715,7 +3715,7 @@ func (p *Page) SetBlockedURLs(urls []string) error
 
 SetBlockedURLs For some requests that do not want to be triggered, such as some dangerous operations, delete, quit logout, etc. Wildcards ('*') are allowed, such as ["*/api/logout/*","delete"]. NOTE: if you set empty pattern "", it will block all requests.
 
-### (*Page) SetCookies 
+#### (*Page) SetCookies 
 
 ``` go
 func (p *Page) SetCookies(cookies []*proto.NetworkCookieParam) error
@@ -3723,7 +3723,7 @@ func (p *Page) SetCookies(cookies []*proto.NetworkCookieParam) error
 
 SetCookies is similar to Browser.SetCookies .
 
-### (*Page) SetDocumentContent <- 0.104.0
+#### (*Page) SetDocumentContent <- 0.104.0
 
 ``` go
 func (p *Page) SetDocumentContent(html string) error
@@ -3731,7 +3731,7 @@ func (p *Page) SetDocumentContent(html string) error
 
 SetDocumentContent sets the page document html content.
 
-### (*Page) SetExtraHeaders 
+#### (*Page) SetExtraHeaders 
 
 ``` go
 func (p *Page) SetExtraHeaders(dict []string) (func(), error)
@@ -3739,7 +3739,7 @@ func (p *Page) SetExtraHeaders(dict []string) (func(), error)
 
 SetExtraHeaders whether to always send extra HTTP headers with the requests from this page.
 
-### (*Page) SetUserAgent 
+#### (*Page) SetUserAgent 
 
 ``` go
 func (p *Page) SetUserAgent(req *proto.NetworkSetUserAgentOverride) error
@@ -3747,7 +3747,7 @@ func (p *Page) SetUserAgent(req *proto.NetworkSetUserAgentOverride) error
 
 SetUserAgent (browser brand, accept-language, etc) of the page. If req is nil, a default user agent will be used, a typical mac chrome.
 
-### (*Page) SetViewport <- 0.62.0
+#### (*Page) SetViewport <- 0.62.0
 
 ``` go
 func (p *Page) SetViewport(params *proto.EmulationSetDeviceMetricsOverride) error
@@ -3755,7 +3755,7 @@ func (p *Page) SetViewport(params *proto.EmulationSetDeviceMetricsOverride) erro
 
 SetViewport overrides the values of device screen dimensions.
 
-### (*Page) SetWindow <- 0.62.0
+#### (*Page) SetWindow <- 0.62.0
 
 ``` go
 func (p *Page) SetWindow(bounds *proto.BrowserBounds) error
@@ -3763,7 +3763,7 @@ func (p *Page) SetWindow(bounds *proto.BrowserBounds) error
 
 SetWindow location and size.
 
-### (*Page) Sleeper 
+#### (*Page) Sleeper 
 
 ``` go
 func (p *Page) Sleeper(sleeper func() utils.Sleeper) *Page
@@ -3771,7 +3771,7 @@ func (p *Page) Sleeper(sleeper func() utils.Sleeper) *Page
 
 Sleeper returns a clone with the specified sleeper for chained sub-operations.
 
-### (*Page) StopLoading 
+#### (*Page) StopLoading 
 
 ``` go
 func (p *Page) StopLoading() error
@@ -3779,7 +3779,7 @@ func (p *Page) StopLoading() error
 
 StopLoading forces the page stop navigation and pending resource fetches.
 
-### (*Page) String <- 0.88.0
+#### (*Page) String <- 0.88.0
 
 ``` go
 func (p *Page) String() string
@@ -3787,7 +3787,7 @@ func (p *Page) String() string
 
 String interface.
 
-### (*Page) Timeout 
+#### (*Page) Timeout 
 
 ``` go
 func (p *Page) Timeout(d time.Duration) *Page
@@ -3795,7 +3795,7 @@ func (p *Page) Timeout(d time.Duration) *Page
 
 Timeout returns a clone with the specified total timeout of all chained sub-operations.
 
-### (*Page) TriggerFavicon <- 0.113.2
+#### (*Page) TriggerFavicon <- 0.113.2
 
 ``` go
 func (p *Page) TriggerFavicon() error
@@ -3803,7 +3803,7 @@ func (p *Page) TriggerFavicon() error
 
 TriggerFavicon supports when browser in headless mode to trigger favicon's request. Pay attention to this function only supported when browser in headless mode, if you call it in no-headless mode, it will raise an error with the message "browser is no-headless".
 
-### (*Page) Wait 
+#### (*Page) Wait 
 
 ``` go
 func (p *Page) Wait(opts *EvalOptions) error
@@ -3811,7 +3811,7 @@ func (p *Page) Wait(opts *EvalOptions) error
 
 Wait until the js returns true.
 
-### (*Page) WaitDOMStable <- 0.114.0
+#### (*Page) WaitDOMStable <- 0.114.0
 
 ``` go
 func (p *Page) WaitDOMStable(d time.Duration, diff float64) error
@@ -3819,7 +3819,7 @@ func (p *Page) WaitDOMStable(d time.Duration, diff float64) error
 
 WaitDOMStable waits until the change of the DOM tree is less or equal than diff percent for d duration. Be careful, d is not the max wait timeout, it's the least stable time. If you want to set a timeout you can use the [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) function.
 
-### (*Page) WaitElementsMoreThan <- 0.97.3
+#### (*Page) WaitElementsMoreThan <- 0.97.3
 
 ``` go
 func (p *Page) WaitElementsMoreThan(selector string, num int) error
@@ -3827,7 +3827,7 @@ func (p *Page) WaitElementsMoreThan(selector string, num int) error
 
 WaitElementsMoreThan waits until there are more than num elements that match the selector.
 
-### (*Page) WaitEvent 
+#### (*Page) WaitEvent 
 
 ``` go
 func (p *Page) WaitEvent(e proto.Event) (wait func())
@@ -3835,7 +3835,7 @@ func (p *Page) WaitEvent(e proto.Event) (wait func())
 
 WaitEvent waits for the next event for one time. It will also load the data into the event object.
 
-### (*Page) WaitIdle 
+#### (*Page) WaitIdle 
 
 ``` go
 func (p *Page) WaitIdle(timeout time.Duration) (err error)
@@ -3843,7 +3843,7 @@ func (p *Page) WaitIdle(timeout time.Duration) (err error)
 
 WaitIdle waits until the next window.requestIdleCallback is called.
 
-### (*Page) WaitLoad 
+#### (*Page) WaitLoad 
 
 ``` go
 func (p *Page) WaitLoad() error
@@ -3851,7 +3851,7 @@ func (p *Page) WaitLoad() error
 
 WaitLoad waits for the `window.onload` event, it returns immediately if the event is already fired.
 
-### (*Page) WaitNavigation <- 0.63.2
+#### (*Page) WaitNavigation <- 0.63.2
 
 ``` go
 func (p *Page) WaitNavigation(name proto.PageLifecycleEventName) func()
@@ -3859,7 +3859,7 @@ func (p *Page) WaitNavigation(name proto.PageLifecycleEventName) func()
 
 WaitNavigation wait for a page lifecycle event when navigating. Usually you will wait for [proto.PageLifecycleEventNameNetworkAlmostIdle](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageLifecycleEventNameNetworkAlmostIdle).
 
-### (*Page) WaitOpen 
+#### (*Page) WaitOpen 
 
 ``` go
 func (p *Page) WaitOpen() func() (*Page, error)
@@ -3867,7 +3867,7 @@ func (p *Page) WaitOpen() func() (*Page, error)
 
 WaitOpen waits for the next new page opened by the current one.
 
-### (*Page) WaitRepaint <- 0.84.1
+#### (*Page) WaitRepaint <- 0.84.1
 
 ``` go
 func (p *Page) WaitRepaint() error
@@ -3875,7 +3875,7 @@ func (p *Page) WaitRepaint() error
 
 WaitRepaint waits until the next repaint. Doc: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 
-### (*Page) WaitRequestIdle 
+#### (*Page) WaitRequestIdle 
 
 ``` go
 func (p *Page) WaitRequestIdle(
@@ -3887,7 +3887,7 @@ func (p *Page) WaitRequestIdle(
 
 WaitRequestIdle returns a wait function that waits until no request for d duration. Be careful, d is not the max wait timeout, it's the least idle time. If you want to set a timeout you can use the [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) function. Use the includes and excludes regexp list to filter the requests by their url.
 
-### (*Page) WaitStable <- 0.113.0
+#### (*Page) WaitStable <- 0.113.0
 
 ``` go
 func (p *Page) WaitStable(d time.Duration) error
@@ -3895,7 +3895,7 @@ func (p *Page) WaitStable(d time.Duration) error
 
 WaitStable waits until the page is stable for d duration.
 
-### (*Page) WithCancel <- 0.69.0
+#### (*Page) WithCancel <- 0.69.0
 
 ``` go
 func (p *Page) WithCancel() (*Page, func())
@@ -3903,7 +3903,7 @@ func (p *Page) WithCancel() (*Page, func())
 
 WithCancel returns a clone with a context cancel function.
 
-### (*Page) WithPanic <- 0.100.0
+#### (*Page) WithPanic <- 0.100.0
 
 ``` go
 func (p *Page) WithPanic(fail func(interface{})) *Page
@@ -3911,7 +3911,7 @@ func (p *Page) WithPanic(fail func(interface{})) *Page
 
 WithPanic returns a page clone with the specified panic function. The fail must stop the current goroutine's execution immediately, such as use [runtime.Goexit](https://pkg.go.dev/runtime#Goexit) or panic inside it.
 
-## type PageCloseCanceledError <- 0.114.8
+### type PageCloseCanceledError <- 0.114.8
 
 ``` go
 type PageCloseCanceledError struct{}
@@ -3919,13 +3919,13 @@ type PageCloseCanceledError struct{}
 
 PageCloseCanceledError error.
 
-### (*PageCloseCanceledError) Error <- 0.114.8
+#### (*PageCloseCanceledError) Error <- 0.114.8
 
 ``` go
 func (e *PageCloseCanceledError) Error() string
 ```
 
-## type PageNotFoundError <- 0.114.8
+### type PageNotFoundError <- 0.114.8
 
 ``` go
 type PageNotFoundError struct{}
@@ -3933,13 +3933,13 @@ type PageNotFoundError struct{}
 
 PageNotFoundError error.
 
-### (*PageNotFoundError) Error <- 0.114.8
+#### (*PageNotFoundError) Error <- 0.114.8
 
 ``` go
 func (e *PageNotFoundError) Error() string
 ```
 
-## type Pages 
+### type Pages 
 
 ``` go
 type Pages []*Page
@@ -3947,7 +3947,7 @@ type Pages []*Page
 
 Pages provides some helpers to deal with page list.
 
-### (Pages) Empty <- 0.53.0
+#### (Pages) Empty <- 0.53.0
 
 ``` go
 func (ps Pages) Empty() bool
@@ -3955,7 +3955,7 @@ func (ps Pages) Empty() bool
 
 Empty returns true if the list is empty.
 
-### (Pages) Find 
+#### (Pages) Find 
 
 ``` go
 func (ps Pages) Find(selector string) (*Page, error)
@@ -3963,7 +3963,7 @@ func (ps Pages) Find(selector string) (*Page, error)
 
 Find the page that has the specified element with the css selector.
 
-### (Pages) FindByURL 
+#### (Pages) FindByURL 
 
 ``` go
 func (ps Pages) FindByURL(jsRegex string) (*Page, error)
@@ -3971,7 +3971,7 @@ func (ps Pages) FindByURL(jsRegex string) (*Page, error)
 
 FindByURL returns the page that has the url that matches the jsRegex.
 
-### (Pages) First <- 0.53.0
+#### (Pages) First <- 0.53.0
 
 ``` go
 func (ps Pages) First() *Page
@@ -3979,7 +3979,7 @@ func (ps Pages) First() *Page
 
 First returns the first page, if the list is empty returns nil.
 
-### (Pages) Last <- 0.53.0
+#### (Pages) Last <- 0.53.0
 
 ``` go
 func (ps Pages) Last() *Page
@@ -3987,7 +3987,7 @@ func (ps Pages) Last() *Page
 
 Last returns the last page, if the list is empty returns nil.
 
-### (Pages) MustFind <- 0.50.3
+#### (Pages) MustFind <- 0.50.3
 
 ``` go
 func (ps Pages) MustFind(selector string) *Page
@@ -3995,7 +3995,7 @@ func (ps Pages) MustFind(selector string) *Page
 
 MustFind is similar to [Browser.Find].
 
-### (Pages) MustFindByURL <- 0.50.0
+#### (Pages) MustFindByURL <- 0.50.0
 
 ``` go
 func (ps Pages) MustFindByURL(regex string) *Page
@@ -4003,7 +4003,7 @@ func (ps Pages) MustFindByURL(regex string) *Page
 
 MustFindByURL is similar to [Page.FindByURL].
 
-## type Pool <- 0.116.2
+### type Pool <- 0.116.2
 
 ``` go
 type Pool[T any] chan *T
@@ -4035,7 +4035,7 @@ func NewPool[T any](limit int) Pool[T]
 
 NewPool instance.
 
-### (Pool[T]) Cleanup <- 0.116.2
+#### (Pool[T]) Cleanup <- 0.116.2
 
 ``` go
 func (p Pool[T]) Cleanup(iteratee func(*T))
@@ -4043,7 +4043,7 @@ func (p Pool[T]) Cleanup(iteratee func(*T))
 
 Cleanup helper.
 
-### (Pool[T]) Get <- 0.116.2
+#### (Pool[T]) Get <- 0.116.2
 
 ``` go
 func (p Pool[T]) Get(create func() (*T, error)) (elem *T, err error)
@@ -4051,7 +4051,7 @@ func (p Pool[T]) Get(create func() (*T, error)) (elem *T, err error)
 
 Get a elem from the pool, allow error. Use the [Pool[T].Put] to make it reusable later.
 
-### (Pool[T]) MustGet <- 0.116.2
+#### (Pool[T]) MustGet <- 0.116.2
 
 ``` go
 func (p Pool[T]) MustGet(create func() *T) *T
@@ -4059,7 +4059,7 @@ func (p Pool[T]) MustGet(create func() *T) *T
 
 MustGet an elem from the pool. Use the [Pool[T].Put] to make it reusable later.
 
-### (Pool[T]) Put <- 0.116.2
+#### (Pool[T]) Put <- 0.116.2
 
 ``` go
 func (p Pool[T]) Put(elem *T)
@@ -4067,7 +4067,7 @@ func (p Pool[T]) Put(elem *T)
 
 Put an elem back to the pool.
 
-## type RaceContext <- 0.57.0
+### type RaceContext <- 0.57.0
 
 ``` go
 type RaceContext struct {
@@ -4077,7 +4077,7 @@ type RaceContext struct {
 
 RaceContext stores the branches to race.
 
-### (*RaceContext) Do <- 0.57.0
+#### (*RaceContext) Do <- 0.57.0
 
 ``` go
 func (rc *RaceContext) Do() (*Element, error)
@@ -4085,7 +4085,7 @@ func (rc *RaceContext) Do() (*Element, error)
 
 Do the race.
 
-### (*RaceContext) Element <- 0.57.0
+#### (*RaceContext) Element <- 0.57.0
 
 ``` go
 func (rc *RaceContext) Element(selector string) *RaceContext
@@ -4093,7 +4093,7 @@ func (rc *RaceContext) Element(selector string) *RaceContext
 
 Element is similar to [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element).
 
-### (*RaceContext) ElementByJS <- 0.57.0
+#### (*RaceContext) ElementByJS <- 0.57.0
 
 ``` go
 func (rc *RaceContext) ElementByJS(opts *EvalOptions) *RaceContext
@@ -4101,7 +4101,7 @@ func (rc *RaceContext) ElementByJS(opts *EvalOptions) *RaceContext
 
 ElementByJS is similar to [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS).
 
-### (*RaceContext) ElementFunc <- 0.107.1
+#### (*RaceContext) ElementFunc <- 0.107.1
 
 ``` go
 func (rc *RaceContext) ElementFunc(fn func(*Page) (*Element, error)) *RaceContext
@@ -4109,7 +4109,7 @@ func (rc *RaceContext) ElementFunc(fn func(*Page) (*Element, error)) *RaceContex
 
 ElementFunc takes a custom function to determine race success.
 
-### (*RaceContext) ElementR <- 0.57.0
+#### (*RaceContext) ElementR <- 0.57.0
 
 ``` go
 func (rc *RaceContext) ElementR(selector, regex string) *RaceContext
@@ -4117,7 +4117,7 @@ func (rc *RaceContext) ElementR(selector, regex string) *RaceContext
 
 ElementR is similar to [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR).
 
-### (*RaceContext) ElementX <- 0.57.0
+#### (*RaceContext) ElementX <- 0.57.0
 
 ``` go
 func (rc *RaceContext) ElementX(selector string) *RaceContext
@@ -4125,7 +4125,7 @@ func (rc *RaceContext) ElementX(selector string) *RaceContext
 
 ElementX is similar to [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX).
 
-### (*RaceContext) Handle <- 0.81.0
+#### (*RaceContext) Handle <- 0.81.0
 
 ``` go
 func (rc *RaceContext) Handle(callback func(*Element) error) *RaceContext
@@ -4133,7 +4133,7 @@ func (rc *RaceContext) Handle(callback func(*Element) error) *RaceContext
 
 Handle adds a callback function to the most recent chained selector. The callback function is run, if the corresponding selector is present first, in the Race condition.
 
-### (*RaceContext) MustDo <- 0.57.0
+#### (*RaceContext) MustDo <- 0.57.0
 
 ``` go
 func (rc *RaceContext) MustDo() *Element
@@ -4141,7 +4141,7 @@ func (rc *RaceContext) MustDo() *Element
 
 MustDo is similar to [RaceContext.Do](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Do).
 
-### (*RaceContext) MustElementByJS <- 0.57.0
+#### (*RaceContext) MustElementByJS <- 0.57.0
 
 ``` go
 func (rc *RaceContext) MustElementByJS(js string, params []interface{}) *RaceContext
@@ -4149,7 +4149,7 @@ func (rc *RaceContext) MustElementByJS(js string, params []interface{}) *RaceCon
 
 MustElementByJS is similar to [RaceContext.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.ElementByJS).
 
-### (*RaceContext) MustHandle <- 0.81.0
+#### (*RaceContext) MustHandle <- 0.81.0
 
 ``` go
 func (rc *RaceContext) MustHandle(callback func(*Element)) *RaceContext
@@ -4157,7 +4157,7 @@ func (rc *RaceContext) MustHandle(callback func(*Element)) *RaceContext
 
 MustHandle is similar to [RaceContext.Handle](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Handle).
 
-### (*RaceContext) Search <- 0.112.0
+#### (*RaceContext) Search <- 0.112.0
 
 ``` go
 func (rc *RaceContext) Search(query string) *RaceContext
@@ -4165,7 +4165,7 @@ func (rc *RaceContext) Search(query string) *RaceContext
 
 Search is similar to [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search).
 
-## type ScrollScreenshotOptions <- 0.114.7
+### type ScrollScreenshotOptions <- 0.114.7
 
 ``` go
 type ScrollScreenshotOptions struct {
@@ -4190,7 +4190,7 @@ type ScrollScreenshotOptions struct {
 
 ScrollScreenshotOptions is the options for the ScrollScreenshot.
 
-## type SearchResult <- 0.97.0
+### type SearchResult <- 0.97.0
 
 ``` go
 type SearchResult struct {
@@ -4204,7 +4204,7 @@ type SearchResult struct {
 
 SearchResult handler.
 
-### (*SearchResult) All <- 0.97.0
+#### (*SearchResult) All <- 0.97.0
 
 ``` go
 func (s *SearchResult) All() (Elements, error)
@@ -4212,7 +4212,7 @@ func (s *SearchResult) All() (Elements, error)
 
 All returns all elements.
 
-### (*SearchResult) Get <- 0.97.0
+#### (*SearchResult) Get <- 0.97.0
 
 ``` go
 func (s *SearchResult) Get(i, l int) (Elements, error)
@@ -4220,7 +4220,7 @@ func (s *SearchResult) Get(i, l int) (Elements, error)
 
 Get l elements at the index of i from the remote search result.
 
-### (*SearchResult) Release <- 0.97.0
+#### (*SearchResult) Release <- 0.97.0
 
 ``` go
 func (s *SearchResult) Release()
@@ -4228,7 +4228,7 @@ func (s *SearchResult) Release()
 
 Release the remote search result.
 
-## type SelectorType <- 0.68.0
+### type SelectorType <- 0.68.0
 
 ``` go
 type SelectorType string
@@ -4247,7 +4247,7 @@ const (
 )
 ```
 
-## type StreamReader <- 0.63.0
+### type StreamReader <- 0.63.0
 
 ``` go
 type StreamReader struct {
@@ -4266,7 +4266,7 @@ func NewStreamReader(c proto.Client, h proto.IOStreamHandle) *StreamReader
 
 NewStreamReader instance.
 
-### (*StreamReader) Close <- 0.102.0
+#### (*StreamReader) Close <- 0.102.0
 
 ``` go
 func (sr *StreamReader) Close() error
@@ -4274,13 +4274,13 @@ func (sr *StreamReader) Close() error
 
 Close the stream, discard any temporary backing storage.
 
-### (*StreamReader) Read <- 0.63.0
+#### (*StreamReader) Read <- 0.63.0
 
 ``` go
 func (sr *StreamReader) Read(p []byte) (n int, err error)
 ```
 
-## type Touch <- 0.61.1
+### type Touch <- 0.61.1
 
 ``` go
 type Touch struct {
@@ -4290,7 +4290,7 @@ type Touch struct {
 
 Touch presents a touch device, such as a hand with fingers, each finger is a [proto.InputTouchPoint](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint). Touch events is stateless, we use the struct here only as a namespace to make the API style unified.
 
-### (*Touch) Cancel <- 0.61.1
+#### (*Touch) Cancel <- 0.61.1
 
 ``` go
 func (t *Touch) Cancel() error
@@ -4298,7 +4298,7 @@ func (t *Touch) Cancel() error
 
 Cancel touch action.
 
-### (*Touch) End <- 0.61.1
+#### (*Touch) End <- 0.61.1
 
 ``` go
 func (t *Touch) End() error
@@ -4306,7 +4306,7 @@ func (t *Touch) End() error
 
 End touch action.
 
-### (*Touch) Move <- 0.61.1
+#### (*Touch) Move <- 0.61.1
 
 ``` go
 func (t *Touch) Move(points ...*proto.InputTouchPoint) error
@@ -4314,7 +4314,7 @@ func (t *Touch) Move(points ...*proto.InputTouchPoint) error
 
 Move touch points. Use the [proto.InputTouchPoint.ID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint.ID) (Touch.identifier) to track points. Doc: https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
 
-### (*Touch) MustCancel <- 0.61.1
+#### (*Touch) MustCancel <- 0.61.1
 
 ``` go
 func (t *Touch) MustCancel() *Touch
@@ -4322,7 +4322,7 @@ func (t *Touch) MustCancel() *Touch
 
 MustCancel is similar to [Touch.Cancel](https://pkg.go.dev/github.com/go-rod/rod#Touch.Cancel).
 
-### (*Touch) MustEnd <- 0.61.1
+#### (*Touch) MustEnd <- 0.61.1
 
 ``` go
 func (t *Touch) MustEnd() *Touch
@@ -4330,7 +4330,7 @@ func (t *Touch) MustEnd() *Touch
 
 MustEnd is similar to [Touch.End](https://pkg.go.dev/github.com/go-rod/rod#Touch.End).
 
-### (*Touch) MustMove <- 0.61.1
+#### (*Touch) MustMove <- 0.61.1
 
 ``` go
 func (t *Touch) MustMove(points ...*proto.InputTouchPoint) *Touch
@@ -4338,7 +4338,7 @@ func (t *Touch) MustMove(points ...*proto.InputTouchPoint) *Touch
 
 MustMove is similar to [Touch.Move](https://pkg.go.dev/github.com/go-rod/rod#Touch.Move).
 
-### (*Touch) MustStart <- 0.61.1
+#### (*Touch) MustStart <- 0.61.1
 
 ``` go
 func (t *Touch) MustStart(points ...*proto.InputTouchPoint) *Touch
@@ -4346,7 +4346,7 @@ func (t *Touch) MustStart(points ...*proto.InputTouchPoint) *Touch
 
 MustStart is similar to [Touch.Start](https://pkg.go.dev/github.com/go-rod/rod#Touch.Start).
 
-### (*Touch) MustTap <- 0.61.1
+#### (*Touch) MustTap <- 0.61.1
 
 ``` go
 func (t *Touch) MustTap(x, y float64) *Touch
@@ -4354,7 +4354,7 @@ func (t *Touch) MustTap(x, y float64) *Touch
 
 MustTap is similar to [Touch.Tap](https://pkg.go.dev/github.com/go-rod/rod#Touch.Tap).
 
-### (*Touch) Start <- 0.61.1
+#### (*Touch) Start <- 0.61.1
 
 ``` go
 func (t *Touch) Start(points ...*proto.InputTouchPoint) error
@@ -4362,7 +4362,7 @@ func (t *Touch) Start(points ...*proto.InputTouchPoint) error
 
 Start a touch action.
 
-### (*Touch) Tap <- 0.61.1
+#### (*Touch) Tap <- 0.61.1
 
 ``` go
 func (t *Touch) Tap(x, y float64) error
@@ -4370,7 +4370,7 @@ func (t *Touch) Tap(x, y float64) error
 
 Tap dispatches a touchstart and touchend event.
 
-## type TraceType <- 0.59.0
+### type TraceType <- 0.59.0
 
 ``` go
 type TraceType string
@@ -4397,7 +4397,7 @@ const (
 )
 ```
 
-### (TraceType) String <- 0.88.0
+#### (TraceType) String <- 0.88.0
 
 ``` go
 func (t TraceType) String() string
@@ -4405,7 +4405,7 @@ func (t TraceType) String() string
 
 String interface.
 
-## type TryError <- 0.114.8
+### type TryError <- 0.114.8
 
 ``` go
 type TryError struct {
@@ -4416,13 +4416,13 @@ type TryError struct {
 
 TryError error.
 
-### (*TryError) Error <- 0.114.8
+#### (*TryError) Error <- 0.114.8
 
 ``` go
 func (e *TryError) Error() string
 ```
 
-### (*TryError) Is <- 0.114.8
+#### (*TryError) Is <- 0.114.8
 
 ``` go
 func (e *TryError) Is(err error) bool
@@ -4430,7 +4430,7 @@ func (e *TryError) Is(err error) bool
 
 Is interface.
 
-### (*TryError) Unwrap <- 0.114.8
+#### (*TryError) Unwrap <- 0.114.8
 
 ``` go
 func (e *TryError) Unwrap() error
