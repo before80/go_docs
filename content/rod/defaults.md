@@ -9,21 +9,21 @@ draft = false
 
 +++
 
-### Overview 
+> 原文：[https://pkg.go.dev/github.com/go-rod/rod/lib/defaults](https://pkg.go.dev/github.com/go-rod/rod/lib/defaults)
+>
+> 收录该文档时间：`2024-11-20T18:02:07+08:00`
+>
+> [Version: v0.116.2](https://pkg.go.dev/github.com/go-rod/rod/lib/defaults?tab=versions)
+
+# Overview 
 
 Package defaults of commonly used options parsed from environment. Check ResetWith for details.
 
-### Index 
-
-- [Variables](https://pkg.go.dev/github.com/go-rod/rod/lib/defaults#pkg-variables)
-- [func Reset()](https://pkg.go.dev/github.com/go-rod/rod/lib/defaults#Reset)
-- [func ResetWith(options string)](https://pkg.go.dev/github.com/go-rod/rod/lib/defaults#ResetWith)
-
-### Constants 
+# 常量
 
 This section is empty.
 
-### Variables 
+# 变量 
 
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/lib/defaults/defaults.go#L48)
 
@@ -121,9 +121,9 @@ var URL string
 
 URL is the default websocket url for remote control a browser. Option name is "url".
 
-### Functions 
+# 函数 
 
-#### func Reset <- 0.47.0
+## func Reset <- 0.47.0
 
 ``` go
 func Reset()
@@ -131,7 +131,7 @@ func Reset()
 
 Reset all flags to their init values.
 
-#### func ResetWith <- 0.106.0
+## func ResetWith <- 0.106.0
 
 ``` go
 func ResetWith(options string)
@@ -145,6 +145,6 @@ go run main.go -rod show,trace,slow=1s,monitor
 go run main.go --rod="slow=1s,dir=path/has /space,monitor=:9223"
 ```
 
-### Types 
+# 类型
 
 This section is empty.

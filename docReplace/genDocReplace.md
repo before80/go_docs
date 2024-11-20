@@ -46,6 +46,15 @@ elements.forEach(function(element) {
 ^#{4} \(\*
 //替换成
 ##### (*
+
+^#{4} \(([a-zA-Z])
+//替换成
+##### ($1
+
+^#{4} type
+//替换成
+## type
+
 ```
 
 
