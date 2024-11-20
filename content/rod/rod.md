@@ -3219,6 +3219,8 @@ func (els Elements) Last() *Element
 
 Last returns the last element, if the list is empty returns nil.
 
+​	`Last` 返回列表中的最后一个元素。如果列表为空，返回 `nil`。
+
 ### type EvalError <- 0.114.8
 
 ``` go
@@ -3229,11 +3231,15 @@ type EvalError struct {
 
 EvalError error.
 
+​	`EvalError` 错误。
+
 #### (*EvalError) Error <- 0.114.8
 
 ``` go
 func (e *EvalError) Error() string
 ```
+
+​	`Error` 方法返回错误的描述字符串。
 
 #### (*EvalError) Is <- 0.114.8
 
@@ -3249,14 +3255,18 @@ Is interface.
 type EvalOptions struct {
 	// If enabled the eval result will be a plain JSON value.
 	// If disabled the eval result will be a reference of a remote js object.
+    // 如果启用，eval 结果将是一个简单的 JSON 值。
+	// 如果禁用，eval 结果将是一个远程 JS 对象的引用。
 	ByValue bool
 
 	AwaitPromise bool
 
 	// ThisObj represents the "this" object in the JS
+    // `ThisObj` 表示 JS 中的 `this` 对象。
 	ThisObj *proto.RuntimeRemoteObject
 
 	// JS function definition to execute.
+    // 要执行的 JS 函数定义。
 	JS string
 
 	// JSArgs represents the arguments that will be passed to JS.
@@ -3266,14 +3276,23 @@ type EvalOptions struct {
 	// When the arg.Name exists in the page's cache, it reuse the cache without sending
 	// the definition to the browser again.
 	// Useful when you need to eval a huge js expression many times.
+    // `JSArgs` 表示将传递给 JS 的参数。
+	// 如果参数类型为 [*proto.RuntimeRemoteObject]，将使用对应的远程对象。
+	// 否则，将作为普通 JSON 值传递。
+	// 如果参数中存在 *js.Function，参数将缓存到页面的 JS 上下文。
+	// 当参数名称在页面缓存中存在时，将重用缓存，而无需再次将定义发送到浏览器。
+	// 适用于需要多次评估大型 JS 表达式的情况。
 	JSArgs []interface{}
 
 	// Whether execution should be treated as initiated by user in the UI.
+    // 是否将执行视为 UI 中由用户发起的操作。
 	UserGesture bool
 }
 ```
 
 EvalOptions for Page.Evaluate.
+
+​	`EvalOptions` 用于 `Page.Evaluate`。
 
 ### func Eval <- 0.67.0
 
@@ -3283,6 +3302,8 @@ func Eval(js string, args ...interface{}) *EvalOptions
 
 Eval creates a [EvalOptions](https://pkg.go.dev/github.com/go-rod/rod#EvalOptions) with ByValue set to true.
 
+​	`Eval` 创建一个 [EvalOptions](https://pkg.go.dev/github.com/go-rod/rod#EvalOptions)，并将 `ByValue` 设置为 `true`。
+
 #### (*EvalOptions) ByObject <- 0.50.0
 
 ``` go
@@ -3290,6 +3311,8 @@ func (e *EvalOptions) ByObject() *EvalOptions
 ```
 
 ByObject disables ByValue.
+
+​	`ByObject` 禁用 `ByValue`。
 
 #### (*EvalOptions) ByPromise <- 0.74.0
 
@@ -3299,6 +3322,8 @@ func (e *EvalOptions) ByPromise() *EvalOptions
 
 ByPromise enables AwaitPromise.
 
+​	`ByPromise` 启用 `AwaitPromise`。
+
 #### (*EvalOptions) ByUser <- 0.64.0
 
 ``` go
@@ -3306,6 +3331,8 @@ func (e *EvalOptions) ByUser() *EvalOptions
 ```
 
 ByUser enables UserGesture.
+
+​	`ByUser` 启用 `UserGesture`。
 
 #### (*EvalOptions) String <- 0.88.0
 
@@ -3315,6 +3342,8 @@ func (e *EvalOptions) String() string
 
 String interface.
 
+​	`String` 接口。
+
 #### (*EvalOptions) This <- 0.50.0
 
 ``` go
@@ -3322,6 +3351,8 @@ func (e *EvalOptions) This(obj *proto.RuntimeRemoteObject) *EvalOptions
 ```
 
 This set the obj as ThisObj.
+
+​	`This` 设置 `obj` 为 `ThisObj`。
 
 ### type ExpectElementError <- 0.114.8
 
@@ -3333,11 +3364,15 @@ type ExpectElementError struct {
 
 ExpectElementError error.
 
+​	`ExpectElementError` 错误。
+
 #### (*ExpectElementError) Error <- 0.114.8
 
 ``` go
 func (e *ExpectElementError) Error() string
 ```
+
+​	`Error` 方法返回错误的描述字符串。
 
 #### (*ExpectElementError) Is <- 0.114.8
 
@@ -3357,11 +3392,15 @@ type ExpectElementsError struct {
 
 ExpectElementsError error.
 
+​	`ExpectElementsError` 错误。
+
 #### (*ExpectElementsError) Error <- 0.114.8
 
 ``` go
 func (e *ExpectElementsError) Error() string
 ```
+
+​	`Error` 方法返回错误的描述字符串。
 
 #### (*ExpectElementsError) Is <- 0.114.8
 
@@ -3380,15 +3419,19 @@ type Hijack struct {
 	OnError  func(error)
 
 	// Skip to next handler
+    // 跳到下一个处理器
 	Skip bool
 
 	// CustomState is used to store things for this context
+    // CustomState 用于为此上下文存储内容
 	CustomState interface{}
 	// contains filtered or unexported fields
 }
 ```
 
 Hijack context.
+
+​	`Hijack` 上下文。
 
 #### (*Hijack) ContinueRequest <- 0.42.0
 
@@ -3398,6 +3441,8 @@ func (h *Hijack) ContinueRequest(cq *proto.FetchContinueRequest)
 
 ContinueRequest without hijacking. The RequestID will be set by the router, you don't have to set it.
 
+​	`ContinueRequest` 在不劫持的情况下继续。`RequestID` 将由路由器设置，您不需要设置它。
+
 #### (*Hijack) LoadResponse 
 
 ``` go
@@ -3406,6 +3451,8 @@ func (h *Hijack) LoadResponse(client *http.Client, loadBody bool) error
 
 LoadResponse will send request to the real destination and load the response as default response to override.
 
+​	`LoadResponse` 将请求发送到真实目标，并加载响应作为默认响应以覆盖。
+
 #### (*Hijack) MustLoadResponse <- 0.50.0
 
 ``` go
@@ -3413,6 +3460,8 @@ func (h *Hijack) MustLoadResponse()
 ```
 
 MustLoadResponse is similar to [Hijack.LoadResponse](https://pkg.go.dev/github.com/go-rod/rod#Hijack.LoadResponse).
+
+​	`MustLoadResponse` 是 [Hijack.LoadResponse](https://pkg.go.dev/github.com/go-rod/rod#Hijack.LoadResponse) 的简化版本。
 
 ### type HijackRequest 
 
@@ -3424,6 +3473,8 @@ type HijackRequest struct {
 
 HijackRequest context.
 
+​	`HijackRequest` 上下文。
+
 #### (*HijackRequest) Body 
 
 ``` go
@@ -3431,6 +3482,8 @@ func (ctx *HijackRequest) Body() string
 ```
 
 Body of the request, devtools API doesn't support binary data yet, only string can be captured.
+
+​	请求的正文。`devtools API` 尚不支持二进制数据，仅支持捕获字符串。
 
 #### (*HijackRequest) Header 
 
@@ -3440,6 +3493,8 @@ func (ctx *HijackRequest) Header(key string) string
 
 Header via a key.
 
+​	通过`key`获取请求头。
+
 #### (*HijackRequest) Headers 
 
 ``` go
@@ -3447,6 +3502,8 @@ func (ctx *HijackRequest) Headers() proto.NetworkHeaders
 ```
 
 Headers of request.
+
+​	请求的头部。
 
 #### (*HijackRequest) IsNavigation <- 0.97.1
 
@@ -3456,6 +3513,8 @@ func (ctx *HijackRequest) IsNavigation() bool
 
 IsNavigation determines whether the request is a navigation request.
 
+​	`IsNavigation` 判断请求是否为导航请求。
+
 #### (*HijackRequest) JSONBody 
 
 ``` go
@@ -3463,6 +3522,8 @@ func (ctx *HijackRequest) JSONBody() gson.JSON
 ```
 
 JSONBody of the request.
+
+​	请求的 JSON 正文。
 
 #### (*HijackRequest) Method 
 
@@ -3472,6 +3533,8 @@ func (ctx *HijackRequest) Method() string
 
 Method of the request.
 
+​	请求的方法。
+
 #### (*HijackRequest) Req <- 0.52.0
 
 ``` go
@@ -3479,6 +3542,8 @@ func (ctx *HijackRequest) Req() *http.Request
 ```
 
 Req returns the underlying http.Request instance that will be used to send the request.
+
+​	返回将用于发送请求的基础 `http.Request` 实例。
 
 #### (*HijackRequest) SetBody 
 
@@ -3488,6 +3553,8 @@ func (ctx *HijackRequest) SetBody(obj interface{}) *HijackRequest
 
 SetBody of the request, if obj is []byte or string, raw body will be used, else it will be encoded as json.
 
+​	设置请求正文。如果 `obj` 为 `[]byte` 或 `string`，则使用原始正文；否则将其编码为 `JSON`。
+
 #### (*HijackRequest) SetContext <- 0.57.1
 
 ``` go
@@ -3495,6 +3562,8 @@ func (ctx *HijackRequest) SetContext(c context.Context) *HijackRequest
 ```
 
 SetContext of the underlying http.Request instance.
+
+​	设置基础 `http.Request` 实例的上下文。
 
 #### (*HijackRequest) Type <- 0.49.1
 
@@ -3504,6 +3573,8 @@ func (ctx *HijackRequest) Type() proto.NetworkResourceType
 
 Type of the resource.
 
+​	请求的资源类型。
+
 #### (*HijackRequest) URL 
 
 ``` go
@@ -3511,6 +3582,8 @@ func (ctx *HijackRequest) URL() *url.URL
 ```
 
 URL of the request.
+
+​	请求的 URL。
 
 ### type HijackResponse 
 
@@ -3523,6 +3596,8 @@ type HijackResponse struct {
 
 HijackResponse context.
 
+​	`HijackResponse` 上下文。
+
 #### (*HijackResponse) Body 
 
 ``` go
@@ -3530,6 +3605,8 @@ func (ctx *HijackResponse) Body() string
 ```
 
 Body of the payload.
+
+​	响应的正文。
 
 #### (*HijackResponse) Fail <- 0.48.1
 
@@ -3539,6 +3616,8 @@ func (ctx *HijackResponse) Fail(reason proto.NetworkErrorReason) *HijackResponse
 
 Fail request.
 
+​	失败请求。
+
 #### (*HijackResponse) Headers 
 
 ``` go
@@ -3546,6 +3625,8 @@ func (ctx *HijackResponse) Headers() http.Header
 ```
 
 Headers returns the clone of response headers. If you want to modify the response headers use HijackResponse.SetHeader .
+
+​	返回响应头的克隆。如果需要修改响应头，请使用 `HijackResponse.SetHeader`。
 
 #### (*HijackResponse) Payload <- 0.52.0
 
@@ -3555,6 +3636,8 @@ func (ctx *HijackResponse) Payload() *proto.FetchFulfillRequest
 
 Payload to respond the request from the browser.
 
+​	用于响应浏览器请求的负载。
+
 #### (*HijackResponse) SetBody 
 
 ``` go
@@ -3563,6 +3646,8 @@ func (ctx *HijackResponse) SetBody(obj interface{}) *HijackResponse
 
 SetBody of the payload, if obj is []byte or string, raw body will be used, else it will be encoded as json.
 
+​	设置负载的正文。如果 `obj` 为 `[]byte` 或 `string`，则使用原始正文；否则将其编码为 `JSON`。
+
 #### (*HijackResponse) SetHeader 
 
 ``` go
@@ -3570,6 +3655,8 @@ func (ctx *HijackResponse) SetHeader(pairs ...string) *HijackResponse
 ```
 
 SetHeader of the payload via key-value pairs.
+
+​	通过键值对设置负载的头部。
 
 ### type HijackRouter 
 
@@ -3581,6 +3668,8 @@ type HijackRouter struct {
 
 HijackRouter context.
 
+​	`HijackRouter` 上下文。
+
 #### (*HijackRouter) Add 
 
 ``` go
@@ -3588,6 +3677,8 @@ func (r *HijackRouter) Add(pattern string, resourceType proto.NetworkResourceTyp
 ```
 
 Add a hijack handler to router, the doc of the pattern is the same as "proto.FetchRequestPattern.URLPattern".
+
+​	向路由器添加劫持处理器。`pattern` 的文档与 `proto.FetchRequestPattern.URLPattern` 相同。
 
 #### (*HijackRouter) MustAdd <- 0.50.0
 
@@ -3597,6 +3688,8 @@ func (r *HijackRouter) MustAdd(pattern string, handler func(*Hijack)) *HijackRou
 
 MustAdd is similar to [HijackRouter.Add](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Add).
 
+​	`MustAdd` 是 [HijackRouter.Add](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Add) 的简化版本。
+
 #### (*HijackRouter) MustRemove <- 0.50.0
 
 ``` go
@@ -3604,6 +3697,8 @@ func (r *HijackRouter) MustRemove(pattern string) *HijackRouter
 ```
 
 MustRemove is similar to [HijackRouter.Remove](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Remove).
+
+​	`MustRemove` 是 [HijackRouter.Remove](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Remove) 的简化版本。
 
 #### (*HijackRouter) MustStop <- 0.50.0
 
@@ -3613,6 +3708,8 @@ func (r *HijackRouter) MustStop()
 
 MustStop is similar to [HijackRouter.Stop](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Stop).
 
+​	`MustStop` 是 [HijackRouter.Stop](https://pkg.go.dev/github.com/go-rod/rod#HijackRouter.Stop) 的简化版本。
+
 #### (*HijackRouter) Remove 
 
 ``` go
@@ -3620,6 +3717,8 @@ func (r *HijackRouter) Remove(pattern string) error
 ```
 
 Remove handler via the pattern.
+
+​	通过 `pattern` 移除处理器。
 
 #### (*HijackRouter) Run 
 
@@ -3629,6 +3728,8 @@ func (r *HijackRouter) Run()
 
 Run the router, after you call it, you shouldn't add new handler to it.
 
+​	运行路由器。在调用此方法后，不应再向路由器添加新的处理器。
+
 #### (*HijackRouter) Stop 
 
 ``` go
@@ -3636,6 +3737,8 @@ func (r *HijackRouter) Stop() error
 ```
 
 Stop the router.
+
+​	停止路由器。
 
 ### type InvisibleShapeError <- 0.114.8
 
@@ -3646,6 +3749,8 @@ type InvisibleShapeError struct {
 ```
 
 InvisibleShapeError error.
+
+​	`InvisibleShapeError` 错误。
 
 #### (*InvisibleShapeError) Error <- 0.114.8
 
@@ -3682,6 +3787,8 @@ type KeyAction struct {
 
 KeyAction to perform.
 
+​	执行的键盘操作。
+
 ### type KeyActionType <- 0.107.0
 
 ``` go
@@ -3690,15 +3797,19 @@ type KeyActionType int
 
 KeyActionType enum.
 
+​	键盘操作类型枚举。
+
 ``` go
 const (
-	KeyActionPress KeyActionType = iota
-	KeyActionRelease
-	KeyActionTypeKey
+	KeyActionPress KeyActionType = iota // 按下键
+	KeyActionRelease                    // 释放键
+	KeyActionTypeKey                    // 键操作类型
 )
 ```
 
 KeyActionTypes.
+
+​	键盘操作类型。
 
 ### type KeyActions <- 0.107.0
 
@@ -3711,6 +3822,8 @@ type KeyActions struct {
 
 KeyActions to simulate.
 
+​	模拟键盘操作。
+
 #### (*KeyActions) Do <- 0.107.0
 
 ``` go
@@ -3718,6 +3831,8 @@ func (ka *KeyActions) Do() (err error)
 ```
 
 Do the actions.
+
+​	执行键盘操作。
 
 #### (*KeyActions) MustDo <- 0.107.0
 
@@ -3727,6 +3842,8 @@ func (ka *KeyActions) MustDo()
 
 MustDo is similar to [KeyActions.Do](https://pkg.go.dev/github.com/go-rod/rod#KeyActions.Do).
 
+​	`MustDo` 是 [KeyActions.Do](https://pkg.go.dev/github.com/go-rod/rod#KeyActions.Do) 的简化版本。
+
 #### (*KeyActions) Press <- 0.107.0
 
 ``` go
@@ -3734,6 +3851,8 @@ func (ka *KeyActions) Press(keys ...input.Key) *KeyActions
 ```
 
 Press keys is guaranteed to have a release at the end of actions.
+
+​	按下键。确保在操作结束时释放键。
 
 #### (*KeyActions) Release <- 0.107.0
 
@@ -3743,6 +3862,8 @@ func (ka *KeyActions) Release(keys ...input.Key) *KeyActions
 
 Release keys.
 
+​	释放键。
+
 #### (*KeyActions) Type <- 0.107.0
 
 ``` go
@@ -3750,6 +3871,8 @@ func (ka *KeyActions) Type(keys ...input.Key) *KeyActions
 ```
 
 Type will release the key immediately after the pressing.
+
+​	输入键，并在按下后立即释放。
 
 ### type Keyboard 
 
@@ -3762,6 +3885,8 @@ type Keyboard struct {
 
 Keyboard represents the keyboard on a page, it's always related the main frame.
 
+​	页面上的键盘表示，与主框架始终相关联。
+
 #### (*Keyboard) MustType <- 0.107.0
 
 ``` go
@@ -3769,6 +3894,8 @@ func (k *Keyboard) MustType(key ...input.Key) *Keyboard
 ```
 
 MustType is similar to [Keyboard.Type](https://pkg.go.dev/github.com/go-rod/rod#Keyboard.Type).
+
+​	`MustType` 是 [Keyboard.Type](https://pkg.go.dev/github.com/go-rod/rod#Keyboard.Type) 的简化版本。
 
 #### (*Keyboard) Press 
 
@@ -3778,6 +3905,8 @@ func (k *Keyboard) Press(key input.Key) error
 
 Press the key down. To input characters that are not on the keyboard, such as Chinese or Japanese, you should use method like [Page.InsertText](https://pkg.go.dev/github.com/go-rod/rod#Page.InsertText).
 
+​	按下键。如果输入的是键盘上没有的字符（如中文或日文），应使用类似 [Page.InsertText](https://pkg.go.dev/github.com/go-rod/rod#Page.InsertText) 的方法。
+
 #### (*Keyboard) Release <- 0.107.0
 
 ``` go
@@ -3786,6 +3915,8 @@ func (k *Keyboard) Release(key input.Key) error
 
 Release the key.
 
+​	释放键。
+
 #### (*Keyboard) Type <- 0.107.0
 
 ``` go
@@ -3793,6 +3924,8 @@ func (k *Keyboard) Type(keys ...input.Key) (err error)
 ```
 
 Type releases the key after the press.
+
+​	输入键，并在按下后释放。
 
 ### type Message <- 0.74.0
 
@@ -3806,6 +3939,8 @@ type Message struct {
 
 Message represents a cdp.Event.
 
+​	`Message` 表示一个 `cdp.Event`。
+
 #### (*Message) Load <- 0.74.0
 
 ``` go
@@ -3813,6 +3948,8 @@ func (msg *Message) Load(e proto.Event) bool
 ```
 
 Load data into e, returns true if e matches the event type.
+
+​	将数据加载到 `e` 中，如果 `e` 匹配事件类型则返回 `true`。
 
 ### type Mouse 
 
@@ -3825,6 +3962,8 @@ type Mouse struct {
 
 Mouse represents the mouse on a page, it's always related the main frame.
 
+​	页面上的鼠标表示，与主框架始终相关联。
+
 #### (*Mouse) Click 
 
 ``` go
@@ -3832,6 +3971,8 @@ func (m *Mouse) Click(button proto.InputMouseButton, clickCount int) error
 ```
 
 Click the button. It's the combination of [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down) and [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up).
+
+​	点击按钮。它是 [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down) 和 [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up) 的组合。
 
 #### (*Mouse) Down 
 
@@ -3841,6 +3982,8 @@ func (m *Mouse) Down(button proto.InputMouseButton, clickCount int) error
 
 Down holds the button down.
 
+​	按下按钮。
+
 #### (*Mouse) MoveAlong <- 0.112.0
 
 ``` go
@@ -3848,6 +3991,8 @@ func (m *Mouse) MoveAlong(guide func() (proto.Point, bool)) error
 ```
 
 MoveAlong the guide function. Every time the guide function is called it should return the next mouse position, return true to stop. Read the source code of [Mouse.MoveLinear](https://pkg.go.dev/github.com/go-rod/rod#Mouse.MoveLinear) as an example to use this method.
+
+​	沿 `guide` 函数移动。每次调用 `guide` 函数时，它应返回鼠标的下一个位置，并返回 `true` 以停止移动。可以参考 [Mouse.MoveLinear](https://pkg.go.dev/github.com/go-rod/rod#Mouse.MoveLinear) 的源代码来了解此方法的用法。
 
 #### (*Mouse) MoveLinear <- 0.112.0
 
@@ -3857,6 +4002,8 @@ func (m *Mouse) MoveLinear(to proto.Point, steps int) error
 
 MoveLinear to the absolute position with the given steps. Such as move from (0,0) to (6,6) with 3 steps, the mouse will first move to (2,2) then (4,4) then (6,6).
 
+​	以给定步数移动到绝对位置。例如，从 `(0,0)` 移动到 `(6,6)`，步数为 3，鼠标会先移动到 `(2,2)`，然后是 `(4,4)`，最后到 `(6,6)`。
+
 #### (*Mouse) MoveTo <- 0.112.0
 
 ``` go
@@ -3864,6 +4011,8 @@ func (m *Mouse) MoveTo(p proto.Point) error
 ```
 
 MoveTo the absolute position.
+
+​	移动到绝对位置。
 
 #### (*Mouse) MustClick <- 0.50.0
 
@@ -3873,6 +4022,8 @@ func (m *Mouse) MustClick(button proto.InputMouseButton) *Mouse
 
 MustClick is similar to [Mouse.Click](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Click).
 
+​	`MustClick` 是 [Mouse.Click](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Click) 的简化版本。
+
 #### (*Mouse) MustDown <- 0.50.0
 
 ``` go
@@ -3880,6 +4031,8 @@ func (m *Mouse) MustDown(button proto.InputMouseButton) *Mouse
 ```
 
 MustDown is similar to [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down).
+
+​	`MustDown` 是 [Mouse.Down](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Down) 的简化版本。
 
 #### (*Mouse) MustMoveTo <- 0.112.0
 
@@ -3889,6 +4042,8 @@ func (m *Mouse) MustMoveTo(x, y float64) *Mouse
 
 MustMoveTo is similar to [Mouse.Move].
 
+​	`MustMoveTo` 是 [Mouse.Move](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Move) 的简化版本。
+
 #### (*Mouse) MustScroll <- 0.50.0
 
 ``` go
@@ -3896,6 +4051,8 @@ func (m *Mouse) MustScroll(x, y float64) *Mouse
 ```
 
 MustScroll is similar to [Mouse.Scroll](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Scroll).
+
+​	`MustScroll` 是 [Mouse.Scroll](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Scroll) 的简化版本。
 
 #### (*Mouse) MustUp <- 0.50.0
 
@@ -3905,6 +4062,8 @@ func (m *Mouse) MustUp(button proto.InputMouseButton) *Mouse
 
 MustUp is similar to [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up).
 
+​	`MustUp` 是 [Mouse.Up](https://pkg.go.dev/github.com/go-rod/rod#Mouse.Up) 的简化版本。
+
 #### (*Mouse) Position <- 0.112.0
 
 ``` go
@@ -3912,6 +4071,8 @@ func (m *Mouse) Position() proto.Point
 ```
 
 Position of current cursor.
+
+​	获取当前光标的位置。
 
 #### (*Mouse) Scroll 
 
@@ -3921,6 +4082,8 @@ func (m *Mouse) Scroll(offsetX, offsetY float64, steps int) error
 
 Scroll the relative offset with specified steps.
 
+​	以指定步数滚动相对偏移量。
+
 #### (*Mouse) Up 
 
 ``` go
@@ -3928,6 +4091,8 @@ func (m *Mouse) Up(button proto.InputMouseButton, clickCount int) error
 ```
 
 Up releases the button.
+
+​	释放按钮。
 
 ### type NavigationError <- 0.114.8
 
@@ -3938,6 +4103,8 @@ type NavigationError struct {
 ```
 
 NavigationError error.
+
+​	`NavigationError` 错误。
 
 #### (*NavigationError) Error <- 0.114.8
 
@@ -3963,6 +4130,8 @@ type NoPointerEventsError struct {
 
 NoPointerEventsError error.
 
+​	`NoPointerEventsError` 错误。
+
 #### (*NoPointerEventsError) Error <- 0.114.8
 
 ``` go
@@ -3987,6 +4156,8 @@ func (e *NoPointerEventsError) Unwrap() error
 
 Unwrap ...
 
+​	展开错误。
+
 ### type NoShadowRootError <- 0.114.8
 
 ``` go
@@ -3996,6 +4167,8 @@ type NoShadowRootError struct {
 ```
 
 NoShadowRootError error.
+
+​	`NoShadowRootError` 错误。
 
 #### (*NoShadowRootError) Error <- 0.114.8
 
@@ -4021,6 +4194,8 @@ type NotInteractableError struct{}
 
 NotInteractableError error. Check the doc of Element.Interactable for details.
 
+​	`NotInteractableError` 错误。详情请参考 `Element.Interactable` 的文档。
+
 #### (*NotInteractableError) Error <- 0.114.8
 
 ``` go
@@ -4036,6 +4211,8 @@ type ObjectNotFoundError struct {
 ```
 
 ObjectNotFoundError error.
+
+​	`ObjectNotFoundError` 错误。
 
 #### (*ObjectNotFoundError) Error <- 0.114.8
 
@@ -4057,19 +4234,28 @@ Is interface.
 type Page struct {
 	// TargetID is a unique ID for a remote page.
 	// It's usually used in events sent from the browser to tell which page an event belongs to.
+    // TargetID 是远程页面的唯一标识符。
+	// 通常用于浏览器发送的事件中，用于区分事件属于哪个页面。
 	TargetID proto.TargetTargetID
 
 	// FrameID is a unique ID for a browsing context.
 	// Usually, different FrameID means different javascript execution context.
 	// Such as an iframe and the page it belongs to will have the same TargetID but different FrameIDs.
+    // FrameID 是浏览上下文的唯一标识符。
+	// 通常，不同的 FrameID 表示不同的 JavaScript 执行上下文。
+	// 例如，iframe 和所属页面会有相同的 TargetID，但不同的 FrameID。
 	FrameID proto.PageFrameID
 
 	// SessionID is a unique ID for a page attachment to a controller.
 	// It's usually used in transport layer to tell which page to send the control signal.
 	// A page can attached to multiple controllers, the browser uses it distinguish controllers.
+    // SessionID 是页面附加到控制器的唯一标识符。
+	// 通常用于传输层，以区分信号应该发送到哪个页面。
+	// 一个页面可以附加到多个控制器，浏览器使用此标识符区分控制器。
 	SessionID proto.TargetSessionID
 
 	// devices
+    // 设备
 	Mouse    *Mouse
 	Keyboard *Keyboard
 	Touch    *Touch
@@ -4079,9 +4265,76 @@ type Page struct {
 
 Page represents the webpage. We try to hold as less states as possible. When a page is closed by Rod or not all the ongoing operations an events on it will abort.
 
-##### Example (Pool)
+​	`Page` 表示网页。我们尽量减少状态的持有。当页面被 `Rod` 或其他关闭时，所有进行中的操作和事件都会中止。
+
+#### Example (Pool)
+
+We can use [rod.PagePool](https://pkg.go.dev/github.com/go-rod/rod#PagePool) to concurrently control and reuse pages.
+
+​	我们可以使用 [rod.PagePool](https://pkg.go.dev/github.com/go-rod/rod#PagePool) 来并发控制和重用页面。
 
 ``` go
+package main
+
+import (
+	"fmt"
+	"sync"
+
+	"github.com/go-rod/rod"
+)
+
+func main() {
+	browser := rod.New().MustConnect()
+	defer browser.MustClose()
+
+	// We create a pool that will hold at most 3 pages which means the max concurrency is 3
+    // 我们创建一个最多容纳 3 个页面的池，这意味着最大并发数是 3
+	pool := rod.NewPagePool(3)
+
+	// Create a page if needed
+    // 如果需要，创建一个页面
+	create := func() *rod.Page {
+		// We use MustIncognito to isolate pages with each other
+        // 使用 MustIncognito 来相互隔离页面
+		return browser.MustIncognito().MustPage()
+	}
+
+	yourJob := func() {
+		page := pool.MustGet(create)
+
+		// Put the instance back to the pool after we're done,
+		// so the instance can be reused by other goroutines.
+        // 完成后将实例放回池中，
+		// 这样其他 goroutine 可以重用该实例。
+		defer pool.Put(page)
+
+		page.MustNavigate("http://mdn.dev").MustWaitLoad()
+		fmt.Println(page.MustInfo().Title)
+	}
+
+	// Run jobs concurrently
+    // 并发运行任务
+	wg := sync.WaitGroup{}
+	for range "...." {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			yourJob()
+		}()
+	}
+	wg.Wait()
+
+	// cleanup pool
+    // 清理池
+	pool.Cleanup(func(p *rod.Page) { p.MustClose() })
+
+}
+Output:
+
+MDN Web Docs
+MDN Web Docs
+MDN Web Docs
+MDN Web Docs
 ```
 #### (*Page) Activate <- 0.86.3
 
@@ -4091,6 +4344,8 @@ func (p *Page) Activate() (*Page, error)
 
 Activate (focuses) the page.
 
+​	激活（聚焦）页面。
+
 #### (*Page) AddScriptTag 
 
 ``` go
@@ -4098,6 +4353,8 @@ func (p *Page) AddScriptTag(url, content string) error
 ```
 
 AddScriptTag to page. If url is empty, content will be used.
+
+​	将 Script 标签添加到页面。如果 `url` 为空，将使用 `content`。
 
 #### (*Page) AddStyleTag 
 
@@ -4107,6 +4364,8 @@ func (p *Page) AddStyleTag(url, content string) error
 
 AddStyleTag to page. If url is empty, content will be used.
 
+​	将 Style 标签添加到页面。如果 `url` 为空，将使用 `content`。
+
 #### (*Page) Browser <- 0.101.7
 
 ``` go
@@ -4114,6 +4373,8 @@ func (p *Page) Browser() *Browser
 ```
 
 Browser of the page.
+
+​	返回页面所属的浏览器实例。
 
 #### (*Page) Call <- 0.70.0
 
@@ -4123,6 +4384,8 @@ func (p *Page) Call(ctx context.Context, sessionID, methodName string, params in
 
 Call implements the [proto.Client](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#Client).
 
+​	调用 [proto.Client](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#Client) 的方法。
+
 #### (*Page) CancelTimeout 
 
 ``` go
@@ -4130,6 +4393,8 @@ func (p *Page) CancelTimeout() *Page
 ```
 
 CancelTimeout cancels the current timeout context and returns a clone with the parent context.
+
+​	取消当前超时上下文，并返回一个包含父上下文的克隆。
 
 #### (*Page) CaptureDOMSnapshot <- 0.113.0
 
@@ -4139,6 +4404,8 @@ func (p *Page) CaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSnapsh
 
 CaptureDOMSnapshot Returns a document snapshot, including the full DOM tree of the root node (including iframes, template contents, and imported documents) in a flattened array, as well as layout and white-listed computed style information for the nodes. Shadow DOM in the returned DOM tree is flattened. `Documents` The nodes in the DOM tree. The DOMNode at index 0 corresponds to the root document. `Strings` Shared string table that all string properties refer to with indexes. Normally use `Strings` is enough.
 
+​	CaptureDOMSnapshot 返回一个文档快照，包括根节点的完整 DOM 树（包含 iframe、模板内容和导入的文档）以扁平化数组的形式表示，同时包含节点的布局和经过白名单的计算样式信息。返回的 DOM 树中的 Shadow DOM 是扁平化的。`Documents` 表示 DOM 树中的节点。索引为 0 的 DOMNode 对应于根文档。`Strings` 是一个共享字符串表，所有字符串属性通过索引引用该表。通常使用 `Strings` 即可满足需求。
+
 #### (*Page) Close 
 
 ``` go
@@ -4146,6 +4413,8 @@ func (p *Page) Close() error
 ```
 
 Close tries to close page, running its beforeunload hooks, if has any.
+
+​	Close 尝试关闭页面，如果有 beforeunload 钩子，则运行它们。
 
 #### (*Page) Context 
 
@@ -4155,6 +4424,8 @@ func (p *Page) Context(ctx context.Context) *Page
 
 Context returns a clone with the specified ctx for chained sub-operations.
 
+​	Context 返回一个克隆，并为链式子操作指定了 ctx。
+
 #### (*Page) Cookies 
 
 ``` go
@@ -4162,6 +4433,8 @@ func (p *Page) Cookies(urls []string) ([]*proto.NetworkCookie, error)
 ```
 
 Cookies returns the page cookies. By default it will return the cookies for current page. The urls is the list of URLs for which applicable cookies will be fetched.
+
+​	Cookies 返回页面的 cookies。默认情况下，它将返回当前页面的 cookies。`urls` 是一个 URL 列表，用于获取适用的 cookies。
 
 #### (*Page) DisableDomain 
 
@@ -4171,6 +4444,8 @@ func (p *Page) DisableDomain(method proto.Request) (restore func())
 
 DisableDomain and returns a restore function to restore previous state.
 
+​	DisableDomain 并返回一个恢复函数以恢复之前的状态。
+
 #### (*Page) EachEvent 
 
 ``` go
@@ -4179,17 +4454,23 @@ func (p *Page) EachEvent(callbacks ...interface{}) (wait func())
 
 EachEvent of the specified event types, if any callback returns true the wait function will resolve, The type of each callback is (? means optional):
 
+​	EachEvent 监听指定的事件类型，如果任一回调返回 true，则 `wait` 函数将完成。每个回调的类型如下（`?` 表示可选）：
+
 ``` go
 func(proto.Event, proto.TargetSessionID?) bool?
 ```
 
 You can listen to multiple event types at the same time like:
 
+​	你可以同时监听多个事件类型，例如：
+
 ```
 browser.EachEvent(func(a *proto.A) {}, func(b *proto.B) {})
 ```
 
 Such as subscribe the events to know when the navigation is complete or when the page is rendered. Here's an example to dismiss all dialogs/alerts on the page:
+
+​	例如，订阅事件以获知导航完成或页面渲染的时间。以下是一个示例，用于关闭页面上的所有对话框或警告：
 
 ```
 go page.EachEvent(func(e *proto.PageJavascriptDialogOpening) {
@@ -4205,6 +4486,8 @@ func (p *Page) Element(selector string) (*Element, error)
 
 Element retries until an element in the page that matches the CSS selector, then returns the matched element.
 
+​	Element 重试，直到页面中找到与 CSS 选择器匹配的元素，并返回匹配的元素。
+
 #### (*Page) ElementByJS 
 
 ``` go
@@ -4212,6 +4495,8 @@ func (p *Page) ElementByJS(opts *EvalOptions) (*Element, error)
 ```
 
 ElementByJS returns the element from the return value of the js function. If sleeper is nil, no retry will be performed. By default, it will retry until the js function doesn't return null. To customize the retry logic, check the examples of Page.Sleeper.
+
+​	ElementByJS 返回 JS 函数的返回值所表示的元素。如果 `sleeper` 为 nil，则不会进行重试。默认情况下，它会重试，直到 JS 函数返回的值不为 null。要自定义重试逻辑，请参考 Page.Sleeper 的示例。
 
 #### (*Page) ElementFromNode <- 0.47.0
 
@@ -4221,6 +4506,8 @@ func (p *Page) ElementFromNode(node *proto.DOMNode) (*Element, error)
 
 ElementFromNode creates an Element from the node, [proto.DOMNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMNodeID) or [proto.DOMBackendNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMBackendNodeID) must be specified.
 
+​	ElementFromNode 使用节点创建一个 Element，必须指定 [proto.DOMNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMNodeID) 或 [proto.DOMBackendNodeID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#DOMBackendNodeID)。
+
 #### (*Page) ElementFromObject <- 0.47.0
 
 ``` go
@@ -4228,6 +4515,8 @@ func (p *Page) ElementFromObject(obj *proto.RuntimeRemoteObject) (*Element, erro
 ```
 
 ElementFromObject creates an Element from the remote object id.
+
+​	ElementFromObject 使用远程对象 ID 创建一个 Element。
 
 #### (*Page) ElementFromPoint <- 0.48.0
 
@@ -4237,6 +4526,8 @@ func (p *Page) ElementFromPoint(x, y int) (*Element, error)
 
 ElementFromPoint creates an Element from the absolute point on the page. The point should include the window scroll offset.
 
+​	ElementFromPoint 使用页面上的绝对坐标创建一个 Element。坐标应包括窗口的滚动偏移量。
+
 #### (*Page) ElementR <- 0.57.0
 
 ``` go
@@ -4244,6 +4535,8 @@ func (p *Page) ElementR(selector, jsRegex string) (*Element, error)
 ```
 
 ElementR retries until an element in the page that matches the css selector and it's text matches the jsRegex, then returns the matched element.
+
+​	ElementR 重试，直到页面中找到与 CSS 选择器匹配且文本符合 jsRegex 的元素，然后返回匹配的元素。
 
 #### (*Page) ElementX 
 
@@ -4253,6 +4546,8 @@ func (p *Page) ElementX(xPath string) (*Element, error)
 
 ElementX retries until an element in the page that matches one of the XPath selectors, then returns the matched element.
 
+​	ElementX 重试，直到页面中找到与 XPath 选择器匹配的元素，并返回匹配的元素。
+
 #### (*Page) Elements 
 
 ``` go
@@ -4260,6 +4555,8 @@ func (p *Page) Elements(selector string) (Elements, error)
 ```
 
 Elements returns all elements that match the css selector.
+
+​	Elements 返回与 CSS 选择器匹配的所有元素。
 
 #### (*Page) ElementsByJS 
 
@@ -4269,6 +4566,8 @@ func (p *Page) ElementsByJS(opts *EvalOptions) (Elements, error)
 
 ElementsByJS returns the elements from the return value of the js.
 
+​	ElementsByJS 返回 JS 函数返回值所表示的元素。
+
 #### (*Page) ElementsX 
 
 ``` go
@@ -4276,6 +4575,8 @@ func (p *Page) ElementsX(xpath string) (Elements, error)
 ```
 
 ElementsX returns all elements that match the XPath selector.
+
+​	ElementsX 返回与 XPath 选择器匹配的所有元素。
 
 #### (*Page) Emulate <- 0.42.1
 
@@ -4285,6 +4586,8 @@ func (p *Page) Emulate(device devices.Device) error
 
 Emulate the device, such as iPhone9. If device is devices.Clear, it will clear the override.
 
+​	Emulate 模拟设备，例如 iPhone9。如果 `device` 为 `devices.Clear`，则清除覆盖。
+
 #### (*Page) EnableDomain 
 
 ``` go
@@ -4292,6 +4595,8 @@ func (p *Page) EnableDomain(method proto.Request) (restore func())
 ```
 
 EnableDomain and returns a restore function to restore previous state.
+
+​	EnableDomain 并返回一个恢复函数以恢复之前的状态。
 
 #### (*Page) Eval 
 
@@ -4301,6 +4606,8 @@ func (p *Page) Eval(js string, args ...interface{}) (*proto.RuntimeRemoteObject,
 
 Eval is a shortcut for [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate) with AwaitPromise, ByValue set to true.
 
+​	Eval 是 [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate) 的简化版本，设置了 `AwaitPromise` 和 `ByValue` 为 true。
+
 #### (*Page) EvalOnNewDocument <- 0.44.0
 
 ``` go
@@ -4308,6 +4615,8 @@ func (p *Page) EvalOnNewDocument(js string) (remove func() error, err error)
 ```
 
 EvalOnNewDocument Evaluates given script in every frame upon creation (before loading frame's scripts).
+
+​	EvalOnNewDocument 在每个框架创建时（加载框架脚本之前）执行给定的脚本。
 
 #### (*Page) Evaluate <- 0.67.0
 
@@ -4317,6 +4626,8 @@ func (p *Page) Evaluate(opts *EvalOptions) (res *proto.RuntimeRemoteObject, err 
 
 Evaluate js on the page.
 
+​	Evaluate 在页面上执行 JS。
+
 #### (*Page) Event <- 0.70.2
 
 ``` go
@@ -4324,6 +4635,8 @@ func (p *Page) Event() <-chan *Message
 ```
 
 Event of the page.
+
+​	Event 返回页面的事件通道。
 
 #### (*Page) Expose <- 0.49.1
 
@@ -4333,6 +4646,8 @@ func (p *Page) Expose(name string, fn func(gson.JSON) (interface{}, error)) (sto
 
 Expose fn to the page's window object with the name. The exposure survives reloads. Call stop to unbind the fn.
 
+​	Expose 将指定的函数 `fn` 暴露为页面 `window` 对象上的指定名称 `name`。暴露操作在页面重新加载时依然有效。调用 `stop` 可解除函数绑定。
+
 #### (*Page) ExposeHelpers <- 0.85.1
 
 ``` go
@@ -4340,6 +4655,8 @@ func (p *Page) ExposeHelpers(list ...*js.Function)
 ```
 
 ExposeHelpers helper functions to page's js context so that we can use the Devtools' console to debug them.
+
+​	ExposeHelpers 将帮助函数暴露到页面的 JS 上下文中，以便通过 DevTools 的控制台进行调试。
 
 #### (*Page) GetContext 
 
@@ -4349,6 +4666,8 @@ func (p *Page) GetContext() context.Context
 
 GetContext of current instance.
 
+​	GetContext 获取当前实例的上下文。
+
 #### (*Page) GetNavigationHistory <- 0.116.2
 
 ``` go
@@ -4356,6 +4675,8 @@ func (p *Page) GetNavigationHistory() (*proto.PageGetNavigationHistoryResult, er
 ```
 
 GetNavigationHistory get navigation history.
+
+​	GetNavigationHistory 获取导航历史。
 
 #### (*Page) GetResource <- 0.76.6
 
@@ -4365,6 +4686,8 @@ func (p *Page) GetResource(url string) ([]byte, error)
 
 GetResource content by the url. Such as image, css, html, etc. Use the [proto.PageGetResourceTree](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageGetResourceTree) to list all the resources.
 
+​	GetResource 根据 URL 获取资源内容，例如图片、CSS、HTML 等。使用 [proto.PageGetResourceTree](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageGetResourceTree) 列出所有资源。
+
 #### (*Page) GetSessionID <- 0.72.0
 
 ``` go
@@ -4372,6 +4695,8 @@ func (p *Page) GetSessionID() proto.TargetSessionID
 ```
 
 GetSessionID interface.
+
+​	GetSessionID 返回会话 ID。
 
 #### (*Page) GetWindow 
 
@@ -4381,6 +4706,8 @@ func (p *Page) GetWindow() (*proto.BrowserBounds, error)
 
 GetWindow position and size info.
 
+​	GetWindow 获取窗口的位置和尺寸信息。
+
 #### (*Page) HTML <- 0.94.0
 
 ``` go
@@ -4388,6 +4715,8 @@ func (p *Page) HTML() (string, error)
 ```
 
 HTML of the page.
+
+​	HTML 获取页面的 HTML 内容。
 
 #### (*Page) HandleDialog 
 
