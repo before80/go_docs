@@ -1,7 +1,7 @@
 +++
 title = "defaults"
 date = 2024-11-20T18:01:34+08:00
-weight = 1
+weight = 20
 type = "docs"
 description = ""
 isCJKLanguage = true

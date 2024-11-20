@@ -1,7 +1,7 @@
 +++
 title = "launcher"
 date = 2024-11-20T18:01:46+08:00
-weight = 1
+weight = 30
 type = "docs"
 description = ""
 isCJKLanguage = true
@@ -459,7 +459,7 @@ func (l *Launcher) Cleanup()
 
 Cleanup wait until the Browser exits and remove [flags.UserDataDir](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/launcher/flags#UserDataDir).
 
-​	Cleanup 等待浏览器退出并移除 [flags.UserDataDir](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/launcher/flags#UserDataDir)。
+​	Cleanup 等待浏览器退出并移除 [flags.UserDataDir]({{< ref "/rod/flags#type-flag">}})。
 
 #### (*Launcher) Client 
 
@@ -469,6 +469,8 @@ func (l *Launcher) Client() (*cdp.Client, error)
 
 Client for launching browser remotely via the launcher.Manager.
 
+​	Client 用于通过 `launcher.Manager` 远程启动浏览器。
+
 #### (*Launcher) ClientHeader <- 0.106.0
 
 ``` go
@@ -476,6 +478,8 @@ func (l *Launcher) ClientHeader() (string, http.Header)
 ```
 
 ClientHeader for launching browser remotely via the launcher.Manager.
+
+​	ClientHeader 用于通过 `launcher.Manager` 远程启动浏览器。
 
 #### (*Launcher) Context 
 
@@ -485,6 +489,8 @@ func (l *Launcher) Context(ctx context.Context) *Launcher
 
 Context sets the context.
 
+​	Context 设置上下文。
+
 #### (*Launcher) Delete 
 
 ``` go
@@ -492,6 +498,8 @@ func (l *Launcher) Delete(name flags.Flag) *Launcher
 ```
 
 Delete a flag.
+
+​	Delete 删除一个标志。
 
 #### (*Launcher) Devtools 
 
@@ -501,6 +509,8 @@ func (l *Launcher) Devtools(autoOpenForTabs bool) *Launcher
 
 Devtools switch to auto open devtools for each tab.
 
+​	Devtools 开关，自动为每个标签页打开开发者工具。
+
 #### (*Launcher) Env <- 0.56.0
 
 ``` go
@@ -508,6 +518,8 @@ func (l *Launcher) Env(env ...string) *Launcher
 ```
 
 Env to launch the browser process. The default value is [os.Environ](https://pkg.go.dev/os#Environ)(). Usually you use it to set the timezone env. Such as:
+
+​	Env 设置启动浏览器进程的环境变量。默认值为 [os.Environ]({{< ref "/stdLib/os/os#func-environ">}})()。通常用于设置时区环境变量，例如：
 
 ```
 Env(append(os.Environ(), "TZ=Asia/Tokyo")...)
@@ -521,6 +533,8 @@ func (l *Launcher) FormatArgs() []string
 
 FormatArgs returns the formatted arg list for cli.
 
+​	FormatArgs 返回格式化后的命令行参数列表。
+
 #### (*Launcher) Get 
 
 ``` go
@@ -528,6 +542,8 @@ func (l *Launcher) Get(name flags.Flag) string
 ```
 
 Get flag's first value.
+
+​	Get 返回指定标志的第一个值。
 
 #### (*Launcher) GetFlags 
 
@@ -537,6 +553,8 @@ func (l *Launcher) GetFlags(name flags.Flag) ([]string, bool)
 
 GetFlags from settings.
 
+​	GetFlags 获取指定标志的所有值及其是否存在。
+
 #### (*Launcher) Has <- 0.98.0
 
 ``` go
@@ -544,6 +562,8 @@ func (l *Launcher) Has(name flags.Flag) bool
 ```
 
 Has flag or not.
+
+​	Has 检查指定标志是否存在。
 
 #### (*Launcher) Headless 
 
@@ -553,6 +573,8 @@ func (l *Launcher) Headless(enable bool) *Launcher
 
 Headless switch. Whether to run browser in headless mode. A mode without visible UI.
 
+​	Headless 开关，决定是否以无头模式运行浏览器（无可见 UI）。
+
 #### (*Launcher) HeadlessNew <- 0.116.1
 
 ``` go
@@ -560,6 +582,8 @@ func (l *Launcher) HeadlessNew(enable bool) *Launcher
 ```
 
 HeadlessNew switch is the "--headless=new" switch: https://developer.chrome.com/docs/chromium/new-headless
+
+​	HeadlessNew 开关，启用 `--headless=new` 模式：[参考文档](https://developer.chrome.com/docs/chromium/new-headless)。
 
 #### (*Launcher) IgnoreCerts <- 0.112.1
 
@@ -569,6 +593,8 @@ func (l *Launcher) IgnoreCerts(pks []crypto.PublicKey) error
 
 IgnoreCerts configure the Chrome's ignore-certificate-errors-spki-list argument with the public keys.
 
+​	IgnoreCerts 配置 Chrome 的 `ignore-certificate-errors-spki-list` 参数，设置公钥以忽略证书错误。
+
 #### (*Launcher) JSON 
 
 ``` go
@@ -576,6 +602,8 @@ func (l *Launcher) JSON() []byte
 ```
 
 JSON serialization.
+
+​	JSON 返回序列化后的 JSON 数据。
 
 #### (*Launcher) KeepUserDataDir 
 
@@ -585,6 +613,8 @@ func (l *Launcher) KeepUserDataDir() *Launcher
 
 KeepUserDataDir after remote browser is closed. By default launcher.FlagUserDataDir will be removed.
 
+​	KeepUserDataDir 在关闭远程浏览器后保留用户数据目录。默认情况下 `Launcher.FlagUserDataDir`（个人注释：未找到该方法） 会被移除。
+
 #### (*Launcher) Kill <- 0.59.0
 
 ``` go
@@ -592,6 +622,8 @@ func (l *Launcher) Kill()
 ```
 
 Kill the browser process.
+
+​	Kill 终止浏览器进程。
 
 #### (*Launcher) Launch 
 
@@ -601,7 +633,11 @@ func (l *Launcher) Launch() (string, error)
 
 Launch a standalone temp browser instance and returns the debug url. bin and profileDir are optional, set them to empty to use the default values. If you want to reuse sessions, such as cookies, set the [Launcher.UserDataDir](https://pkg.go.dev/github.com/go-rod/rod/lib/launcher#Launcher.UserDataDir) to the same location.
 
+​	Launch 启动一个独立的临时浏览器实例，并返回调试 URL。`bin` 和 `profileDir` 为可选参数，设置为空则使用默认值。如果希望重用会话（如 Cookie），可以将 [Launcher.UserDataDir](https://pkg.go.dev/github.com/go-rod/rod/lib/launcher#Launcher.UserDataDir) 设置为相同位置。
+
 Please note launcher can only be used once.
+
+​	注意：Launcher 只能使用一次。
 
 #### (*Launcher) Leakless <- 0.57.1
 
@@ -611,6 +647,8 @@ func (l *Launcher) Leakless(enable bool) *Launcher
 
 Leakless switch. If enabled, the browser will be force killed after the Go process exits. The doc of leakless: https://github.com/ysmood/leakless.
 
+​	Leakless 开关。如果启用，当 Go 进程退出时，浏览器将被强制终止。Leakless 文档：[leakless](https://github.com/ysmood/leakless)。
+
 #### (*Launcher) Logger <- 0.56.0
 
 ``` go
@@ -619,7 +657,9 @@ func (l *Launcher) Logger(w io.Writer) *Launcher
 
 Logger to handle stdout and stderr from browser. For example, pipe all browser output to stdout:
 
-```
+​	Logger 用于处理浏览器的标准输出和错误输出。例如，将所有浏览器输出重定向到标准输出：
+
+```go
 launcher.New().Logger(os.Stdout)
 ```
 
@@ -631,6 +671,8 @@ func (l *Launcher) MustClient() *cdp.Client
 
 MustClient similar to Launcher.Client.
 
+​	MustClient 类似于 `Launcher.Client`，但会在失败时直接引发错误。
+
 #### (*Launcher) MustLaunch <- 0.50.0
 
 ``` go
@@ -639,13 +681,17 @@ func (l *Launcher) MustLaunch() string
 
 MustLaunch is similar to Launch.
 
+​	MustLaunch 类似于 `Launch`，但会在失败时直接引发错误。
+
 #### (*Launcher) NoSandbox <- 0.94.3
 
 ``` go
 func (l *Launcher) NoSandbox(enable bool) *Launcher
 ```
 
-NoSandbox switch. Whether to run browser in no-sandbox mode. Linux users may face "running as root without --no-sandbox is not supported" in some Linux/Chrome combinations. This function helps switch mode easily. Be aware disabling sandbox is not trivial. Use at your own risk. Related doc: https://bugs.chromium.org/p/chromium/issues/detail?id=638180
+NoSandbox switch. Whether to run browser in no-sandbox mode. Linux users may face "running as root without `--no-sandbox` is not supported" in some Linux/Chrome combinations. This function helps switch mode easily. Be aware disabling sandbox is not trivial. Use at your own risk. Related doc: https://bugs.chromium.org/p/chromium/issues/detail?id=638180
+
+​	NoSandbox 开关。是否以无沙盒模式运行浏览器。对于 Linux 用户，在某些 Linux/Chrome 组合中可能会遇到“以 root 身份运行时不支持无 `--no-sandbox`”问题，此函数可轻松切换模式。注意：禁用沙盒可能带来安全风险，需自行承担风险。相关文档：[No Sandbox](https://bugs.chromium.org/p/chromium/issues/detail?id=638180)。
 
 #### (*Launcher) PID 
 
@@ -655,6 +701,8 @@ func (l *Launcher) PID() int
 
 PID returns the browser process pid.
 
+​	PID 返回浏览器进程的 PID。
+
 #### (*Launcher) Preferences <- 0.114.4
 
 ``` go
@@ -662,6 +710,8 @@ func (l *Launcher) Preferences(pref string) *Launcher
 ```
 
 Preferences set chromium user preferences, such as set the default search engine or disable the pdf viewer. The pref is a json string, the doc is here https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc
+
+​	Preferences 设置 Chromium 用户首选项，例如设置默认搜索引擎或禁用 PDF 查看器。`pref` 是一个 JSON 字符串，参考文档：[首选项文档](https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc)。
 
 #### (*Launcher) ProfileDir <- 0.78.3
 
@@ -671,6 +721,8 @@ func (l *Launcher) ProfileDir(dir string) *Launcher
 
 ProfileDir is the browser profile the browser will use. When set to empty, the profile 'Default' is used. Related article: https://superuser.com/a/377195
 
+​	ProfileDir 指定浏览器将使用的用户配置目录。如果设置为空，将使用默认的配置目录“Default”。相关文章：[浏览器配置目录](https://superuser.com/a/377195)。
+
 #### (*Launcher) Proxy <- 0.57.2
 
 ``` go
@@ -678,6 +730,8 @@ func (l *Launcher) Proxy(host string) *Launcher
 ```
 
 Proxy for the browser.
+
+​	Proxy 为浏览器设置代理。
 
 #### (*Launcher) RemoteDebuggingPort 
 
@@ -687,6 +741,8 @@ func (l *Launcher) RemoteDebuggingPort(port int) *Launcher
 
 RemoteDebuggingPort to launch the browser. Zero for a random port. Zero is the default value. If it's not zero and the Launcher.Leakless is disabled, the launcher will try to reconnect to it first, if the reconnection fails it will launch a new browser.
 
+​	RemoteDebuggingPort 设置浏览器的调试端口。默认值为 0（随机端口）。如果值为 0 并且 `Launcher.Leakless` 被禁用，Launcher 将尝试重新连接到它，如果重新连接失败，将启动新的浏览器。
+
 #### (*Launcher) Revision <- 0.103.0
 
 ``` go
@@ -694,6 +750,8 @@ func (l *Launcher) Revision(rev int) *Launcher
 ```
 
 Revision of the browser to auto download.
+
+​	Revision 设置浏览器的版本号以自动下载。
 
 #### (*Launcher) Set 
 
@@ -703,6 +761,8 @@ func (l *Launcher) Set(name flags.Flag, values ...string) *Launcher
 
 Set a command line argument when launching the browser. Be careful the first argument is a flag name, it shouldn't contain values. The values the will be joined with comma. A flag can have multiple values. If no values are provided the flag will be a boolean flag. You can use the [Launcher.FormatArgs](https://pkg.go.dev/github.com/go-rod/rod/lib/launcher#Launcher.FormatArgs) to debug the final CLI arguments. List of available flags: https://peter.sh/experiments/chromium-command-line-switches
 
+​	Set 在启动浏览器时设置命令行参数。注意，第一个参数是标志名称，不应包含值。值将用逗号连接。一个标志可以有多个值。如果未提供值，标志将成为布尔标志。可以使用 [Launcher.FormatArgs](https://pkg.go.dev/github.com/go-rod/rod/lib/launcher#Launcher.FormatArgs) 调试最终的 CLI 参数。可用标志列表：[Chromium 命令行标志](https://peter.sh/experiments/chromium-command-line-switches)。
+
 #### (*Launcher) StartURL <- 0.81.3
 
 ``` go
@@ -710,6 +770,8 @@ func (l *Launcher) StartURL(u string) *Launcher
 ```
 
 StartURL to launch.
+
+​	StartURL 设置启动时的 URL。
 
 #### (*Launcher) UserDataDir 
 
@@ -719,6 +781,8 @@ func (l *Launcher) UserDataDir(dir string) *Launcher
 
 UserDataDir is where the browser will look for all of its state, such as cookie and cache. When set to empty, browser will use current OS home dir. Related doc: https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md
 
+​	UserDataDir 设置浏览器用于存储状态（如 Cookie 和缓存）的目录。如果设置为空，浏览器将使用当前操作系统的主目录。相关文档：[用户数据目录](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md)。
+
 #### (*Launcher) WorkingDir <- 0.56.0
 
 ``` go
@@ -726,6 +790,8 @@ func (l *Launcher) WorkingDir(path string) *Launcher
 ```
 
 WorkingDir to launch the browser process.
+
+​	WorkingDir 设置启动浏览器进程的工作目录。
 
 #### (*Launcher) XVFB <- 0.86.1
 
@@ -735,24 +801,32 @@ func (l *Launcher) XVFB(args ...string) *Launcher
 
 XVFB enables to run browser in by XVFB. Useful when you want to run headful mode on linux.
 
+​	XVFB 启用 XVFB 运行浏览器。适用于希望在 Linux 上以有头模式运行浏览器的情况。
+
 ### type Manager <- 0.98.0
 
 ``` go
 type Manager struct {
 	// Logger for key events
+    // Logger 用于记录关键事件
 	Logger utils.Logger
 
 	// Defaults should return the default Launcher settings
+    // Defaults 返回默认的 Launcher 设置
 	Defaults func(http.ResponseWriter, *http.Request) *Launcher
 
 	// BeforeLaunch hook is called right before the launching with the Launcher instance that will be used
 	// to launch the browser.
 	// Such as use it to filter malicious values of Launcher.UserDataDir, Launcher.Bin, or Launcher.WorkingDir.
+    // BeforeLaunch 在启动浏览器之前调用，用于过滤 Launcher 实例的恶意值，
+    // 如 Launcher.UserDataDir、Launcher.Bin 或 Launcher.WorkingDir。
 	BeforeLaunch func(*Launcher, http.ResponseWriter, *http.Request)
 }
 ```
 
 Manager is used to launch browsers via http server on another machine. The reason why we have Manager is after we launcher a browser, we can't dynamically change its CLI arguments, such as "--headless". The Manager allows us to decide what CLI arguments to pass to the browser when launch it remotely. The work flow looks like:
+
+​	Manager 用于通过 HTTP 服务器在另一台机器上启动浏览器。Manager 的设计目的是在启动浏览器后无法动态更改其 CLI 参数（如 `--headless`）。通过 Manager 可以在远程启动浏览器时决定传递的 CLI 参数。工作流程如下：
 
 ```
 |      Machine X       |                             Machine Y                                    |
@@ -762,6 +836,11 @@ Manager is used to launch browsers via http server on another machine. The reaso
 2. X start a websocket connect to Y with the Launcher settings
 3. Y launches a browser with the Launcher settings X
 4. Y transparently proxy the websocket connect between X and the launched browser
+
+1. X 向 Y 发送 HTTP 请求，Y 根据 Y 的操作系统返回默认的 Launcher 设置。
+2. X 使用 Launcher 设置开始与 Y 的 WebSocket 连接。
+3. Y 使用 X 的 Launcher 设置启动浏览器。
+4. Y 透明地代理 X 与启动的浏览器之间的 WebSocket 连接。
 ```
 
 ### func NewManager <- 0.98.0
@@ -771,6 +850,8 @@ func NewManager() *Manager
 ```
 
 NewManager instance.
+
+​	NewManager 创建一个新的 Manager 实例。
 
 #### (*Manager) ServeHTTP <- 0.98.0
 
@@ -783,12 +864,14 @@ func (m *Manager) ServeHTTP(w http.ResponseWriter, r *http.Request)
 ``` go
 type URLParser struct {
 	URL    chan string
-	Buffer string // buffer for the browser stdout
+	Buffer string // buffer for the browser stdout 缓存浏览器标准输出
 	// contains filtered or unexported fields
 }
 ```
 
 URLParser to get control url from stderr.
+
+​	NewURLParser 创建一个新的 URLParser 实例。
 
 ### func NewURLParser <- 0.56.0
 
@@ -798,6 +881,8 @@ func NewURLParser() *URLParser
 
 NewURLParser instance.
 
+​	NewURLParser 创建一个新的 URLParser 实例。
+
 #### (*URLParser) Context <- 0.101.0
 
 ``` go
@@ -805,6 +890,8 @@ func (r *URLParser) Context(ctx context.Context) *URLParser
 ```
 
 Context sets the context.
+
+​	Context 设置上下文。
 
 #### (*URLParser) Err <- 0.89.2
 
@@ -814,6 +901,8 @@ func (r *URLParser) Err() error
 
 Err returns the common error parsed from stdout and stderr.
 
+​	Err 返回从标准输出和标准错误中解析出的常见错误。
+
 #### (*URLParser) Write <- 0.56.0
 
 ``` go
@@ -821,3 +910,5 @@ func (r *URLParser) Write(p []byte) (n int, err error)
 ```
 
 Write interface.
+
+​	Write 接口实现，用于写入数据。
