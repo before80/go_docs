@@ -747,6 +747,8 @@ type Device struct {
 
 Device represents a emulated device.
 
+​	Device 表示一个模拟设备。
+
 #### (Device) IsClear <- 0.84.0
 
 ``` go
@@ -754,6 +756,8 @@ func (device Device) IsClear() bool
 ```
 
 IsClear type.
+
+​	IsClear 类型。
 
 #### (Device) Landscape <- 0.112.1
 
@@ -763,6 +767,8 @@ func (device Device) Landscape() Device
 
 Landscape clones the device and set it to landscape mode.
 
+​	Landscape 克隆设备并设置为横屏模式。
+
 #### (Device) MetricsEmulation <- 0.84.0
 
 ``` go
@@ -770,6 +776,8 @@ func (device Device) MetricsEmulation() *proto.EmulationSetDeviceMetricsOverride
 ```
 
 MetricsEmulation config.
+
+​	MetricsEmulation 配置。
 
 #### (Device) TouchEmulation <- 0.84.0
 
@@ -779,6 +787,8 @@ func (device Device) TouchEmulation() *proto.EmulationSetTouchEmulationEnabled
 
 TouchEmulation config.
 
+​	TouchEmulation 配置。
+
 #### (Device) UserAgentEmulation <- 0.84.0
 
 ``` go
@@ -786,6 +796,8 @@ func (device Device) UserAgentEmulation() *proto.NetworkSetUserAgentOverride
 ```
 
 UserAgentEmulation config.
+
+​	UserAgentEmulation 配置。
 
 ### type Screen <- 0.84.0
 
@@ -799,6 +811,8 @@ type Screen struct {
 
 Screen represents the screen of a device.
 
+​	Screen 表示设备的屏幕。
+
 ### type ScreenSize <- 0.84.0
 
 ``` go
@@ -809,3 +823,5 @@ type ScreenSize struct {
 ```
 
 ScreenSize represents the size of the screen.
+
+​	ScreenSize 表示屏幕的尺寸。

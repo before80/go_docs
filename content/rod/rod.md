@@ -4729,6 +4729,8 @@ func (p *Page) HandleDialog() (
 
 HandleDialog accepts or dismisses next JavaScript initiated dialog (alert, confirm, prompt, or onbeforeunload). Because modal dialog will block js, usually you have to trigger the dialog in another goroutine. For example:
 
+​	HandleDialog 接受或拒绝下一个由 JavaScript 触发的对话框（如 alert、confirm、prompt 或 onbeforeunload）。由于模态对话框会阻塞 JS，通常需要在另一个 goroutine 中触发对话框。例如：
+
 ```
 wait, handle := page.MustHandleDialog()
 go page.MustElement("button").MustClick()
@@ -4744,6 +4746,8 @@ func (p *Page) HandleFileDialog() (func([]string) error, error)
 
 HandleFileDialog return a functions that waits for the next file chooser dialog pops up and returns the element for the event.
 
+​	HandleFileDialog 返回一个函数，用于等待下一个文件选择对话框弹出，并返回该事件的元素。
+
 #### (*Page) Has 
 
 ``` go
@@ -4751,6 +4755,8 @@ func (p *Page) Has(selector string) (bool, *Element, error)
 ```
 
 Has an element that matches the css selector.
+
+​	Has 检查页面中是否存在与 CSS 选择器匹配的元素。
 
 #### (*Page) HasR <- 0.61.0
 
@@ -4760,6 +4766,8 @@ func (p *Page) HasR(selector, jsRegex string) (bool, *Element, error)
 
 HasR an element that matches the css selector and its display text matches the jsRegex.
 
+​	HasR 检查页面中是否存在与 CSS 选择器匹配且显示文本符合 jsRegex 的元素。
+
 #### (*Page) HasX 
 
 ``` go
@@ -4767,6 +4775,8 @@ func (p *Page) HasX(selector string) (bool, *Element, error)
 ```
 
 HasX an element that matches the XPath selector.
+
+​	HasX 检查页面中是否存在与 XPath 选择器匹配的元素。
 
 #### (*Page) HijackRequests 
 
@@ -4776,11 +4786,15 @@ func (p *Page) HijackRequests() *HijackRouter
 
 HijackRequests creates a new router instance for requests hijacking. When use Fetch domain outside the router should be stopped. Enabling hijacking disables page caching, but such as 304 Not Modified will still work as expected. The entire process of hijacking one request:
 
+​	HijackRequests 创建一个用于请求劫持的新路由器实例。如果使用 Fetch 域名，需停止路由器之外的操作。启用劫持会禁用页面缓存，但如 304 Not Modified 的行为仍将正常工作。完整的请求劫持流程如下：
+
 ```
 browser --req-> rod ---> server ---> rod --res-> browser
 ```
 
 The --req-> and --res-> are the parts that can be modified.
+
+​	`--req->` 和 `--res->` 是可以被修改的部分。
 
 #### (*Page) Info <- 0.42.1
 
@@ -4790,6 +4804,8 @@ func (p *Page) Info() (*proto.TargetTargetInfo, error)
 
 Info of the page, such as the URL or title of the page.
 
+​	Info 获取页面的信息，例如页面的 URL 或标题。
+
 #### (*Page) InsertText <- 0.107.0
 
 ``` go
@@ -4797,6 +4813,8 @@ func (p *Page) InsertText(text string) error
 ```
 
 InsertText is like pasting text into the page.
+
+​	InsertText 类似于将文本粘贴到页面中。
 
 #### (*Page) IsIframe 
 
@@ -4806,6 +4824,8 @@ func (p *Page) IsIframe() bool
 
 IsIframe tells if it's iframe.
 
+​	IsIframe 检查页面是否是 iframe。
+
 #### (*Page) KeyActions <- 0.107.0
 
 ``` go
@@ -4813,6 +4833,8 @@ func (p *Page) KeyActions() *KeyActions
 ```
 
 KeyActions simulates the type actions on a physical keyboard. Useful when input shortcuts like ctrl+enter .
+
+​	KeyActions 模拟物理键盘上的键入操作。在输入快捷键（如 ctrl+enter）时非常有用。
 
 #### (*Page) LoadState 
 
@@ -4822,6 +4844,8 @@ func (p *Page) LoadState(method proto.Request) (has bool)
 
 LoadState into the method.
 
+​	LoadState 检查页面加载状态。
+
 #### (*Page) MustActivate <- 0.86.3
 
 ``` go
@@ -4829,6 +4853,8 @@ func (p *Page) MustActivate() *Page
 ```
 
 MustActivate is similar to [Page.Activate](https://pkg.go.dev/github.com/go-rod/rod#Page.Activate).
+
+​	MustActivate 是 [Page.Activate](https://pkg.go.dev/github.com/go-rod/rod#Page.Activate) 的简化版本。
 
 #### (*Page) MustAddScriptTag <- 0.50.0
 
@@ -4838,6 +4864,8 @@ func (p *Page) MustAddScriptTag(url string) *Page
 
 MustAddScriptTag is similar to [Page.AddScriptTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddScriptTag).
 
+​	MustAddScriptTag 是 [Page.AddScriptTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddScriptTag) 的简化版本。
+
 #### (*Page) MustAddStyleTag <- 0.50.0
 
 ``` go
@@ -4845,6 +4873,8 @@ func (p *Page) MustAddStyleTag(url string) *Page
 ```
 
 MustAddStyleTag is similar to [Page.AddStyleTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddStyleTag).
+
+​	MustAddStyleTag 是 [Page.AddStyleTag](https://pkg.go.dev/github.com/go-rod/rod#Page.AddStyleTag) 的简化版本。
 
 #### (*Page) MustCaptureDOMSnapshot <- 0.113.0
 

@@ -17,11 +17,19 @@ draft = false
 
 A lib to encode/decode the data of the cdp protocol.
 
+​	一个用于编码/解码 CDP 协议数据的库。
+
 This lib is standalone and stateless, you can use it independently. Such as use it to encode/decode JSON with other libs that can drive browsers.
+
+​	此库是独立且无状态的，可以单独使用。例如，可以与其他能够驱动浏览器的库一起使用，用于编码/解码 JSON。
 
 Here's an [usage example](https://github.com/go-rod/rod/raw/9e847f3bab313a1d233c0c868fe5125e2e70de70/examples_test.go#L370-L393).
 
+​	这是一个[使用示例](https://github.com/go-rod/rod/raw/9e847f3bab313a1d233c0c868fe5125e2e70de70/examples_test.go#L370-L393)。
+
 Package proto is a lib to encode/decode the data of the cdp protocol.https://pkg.go.dev/github.com/go-rod/rod/lib/proto#WebAuthnVirtualAuthenticatorOptions)
+
+​	**proto** 包是一个用于编码/解码 CDP 协议数据的库。[参考链接](https://pkg.go.dev/github.com/go-rod/rod/lib/proto#WebAuthnVirtualAuthenticatorOptions)
 
 ## 常量 
 
@@ -32,6 +40,8 @@ const Version = "v1.3"
 ```
 
 Version of cdp protocol.
+
+​	**Version** 表示 CDP 协议的版本。
 
 ## 变量
 
@@ -47,6 +57,8 @@ func GetType(methodName string) reflect.Type
 
 GetType from method name of this package, such as proto.GetType("Page.enable") will return the type of proto.PageEnable.
 
+​	**GetType** 根据方法名称获取类型。例如，`proto.GetType("Page.enable")` 将返回 `proto.PageEnable` 的类型。
+
 ### func ParseMethodName 
 
 ``` go
@@ -55,6 +67,8 @@ func ParseMethodName(method string) (domain, name string)
 
 ParseMethodName to domain and name.
 
+​	**ParseMethodName** 将方法名称解析为域和名称。
+
 ### func PatternToReg 
 
 ``` go
@@ -62,6 +76,8 @@ func PatternToReg(pattern string) string
 ```
 
 PatternToReg FetchRequestPattern.URLPattern to regular expression.
+
+​	**PatternToReg** 将 `FetchRequestPattern.URLPattern` 转换为正则表达式。
 
 ## 类型
 

@@ -17,6 +17,8 @@ draft = false
 
 A lib to help encode inputs.
 
+​	一种库，用于帮助编码输入。
+
 ## Overview 
 
 Package input ...
@@ -36,6 +38,8 @@ const (
 
 Modifier values.
 
+​	Modifier 的值。
+
 ## 变量
 
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/lib/input/keymap.go#L5)
@@ -43,6 +47,7 @@ Modifier values.
 ``` go
 var (
 	// Functions row.
+    // 函数键行
 	//
 	Escape = AddKey("Escape", "", "Escape", 27, 0)
 	F1     = AddKey("F1", "", "F1", 112, 0)
@@ -175,6 +180,8 @@ var (
 
 Key names Reference: https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/usKeyboardLayout.ts
 
+​	键名参考: [键名参考链接](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/usKeyboardLayout.ts)
+
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/lib/input/mac_comands.go#L6)
 
 ``` go
@@ -182,6 +189,8 @@ var IsMac = runtime.GOOS == "darwin"
 ```
 
 IsMac OS.
+
+​	**IsMac** 表示操作系统是否为 macOS。
 
 [View Source](https://github.com/go-rod/rod/blob/v0.116.2/lib/input/mouse.go#L6)
 
@@ -197,6 +206,8 @@ var MouseKeys = map[proto.InputMouseButton]int{
 
 MouseKeys is the map for mouse keys.
 
+​	**MouseKeys** 是一个鼠标按键映射表。
+
 ## 函数
 
 ### func EncodeMouseButton 
@@ -206,6 +217,8 @@ func EncodeMouseButton(buttons []proto.InputMouseButton) (proto.InputMouseButton
 ```
 
 EncodeMouseButton into button flag.
+
+​	将鼠标按键编码为按钮标志。
 
 ## 类型
 
@@ -217,6 +230,8 @@ type Key rune
 
 Key symbol.
 
+​	**Key** 表示按键符号。
+
 #### func AddKey added in v0.107.0
 
 ``` go
@@ -224,6 +239,8 @@ func AddKey(key string, shiftedKey string, code string, keyCode int, location in
 ```
 
 AddKey to KeyMap.
+
+​	**AddKey** 向 KeyMap 添加按键。
 
 #### (Key) Encode added in v0.107.0
 
@@ -233,6 +250,8 @@ func (k Key) Encode(t proto.InputDispatchKeyEventType, modifiers int) *proto.Inp
 
 Encode general key event.
 
+​	**Encode** 将按键编码为通用按键事件。
+
 #### (Key) Info added in v0.107.0
 
 ``` go
@@ -240,6 +259,8 @@ func (k Key) Info() KeyInfo
 ```
 
 Info of the key.
+
+​	返回按键的**信息**。
 
 #### (Key) Modifier added in v0.107.0
 
@@ -249,6 +270,8 @@ func (k Key) Modifier() int
 
 Modifier returns the modifier value of the key.
 
+​	**Modifier** 返回按键的修饰符值。
+
 #### (Key) Printable added in v0.107.0
 
 ``` go
@@ -257,6 +280,8 @@ func (k Key) Printable() bool
 
 Printable returns true if the key is printable.
 
+​	**Printable** 如果按键是可打印的，则返回 true。
+
 #### (Key) Shift 
 
 ``` go
@@ -264,6 +289,8 @@ func (k Key) Shift() (Key, bool)
 ```
 
 Shift returns the shifted key, such as shifted "1" is "!".
+
+​	**Shift** 返回按键的 Shift 后值，例如 Shift 后的 "1" 是 "!"。
 
 ### type KeyInfo added in v0.107.0
 
@@ -277,3 +304,5 @@ type KeyInfo struct {
 ```
 
 KeyInfo of a key https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+
+​	**KeyInfo** 是按键的信息。[查看更多](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
