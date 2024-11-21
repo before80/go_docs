@@ -1119,7 +1119,7 @@ Why the default is not RequestAnimationFrame or DOM change events is because of 
 
 ## 函数 
 
-## func NotFoundSleeper <- 0.88.9
+### func NotFoundSleeper <- 0.88.9
 
 ``` go
 func NotFoundSleeper() utils.Sleeper
@@ -1129,7 +1129,7 @@ NotFoundSleeper returns ErrElementNotFound on the first call.
 
 ​	`NotFoundSleeper` 在首次调用时返回 `ErrElementNotFound`。
 
-## func Try <- 0.46.0
+### func Try <- 0.46.0
 
 ``` go
 func Try(fn func()) (err error)
