@@ -56,7 +56,7 @@ go run .
 
 ![first-program](get-started_img/first-program.png)
 
-## xxxxxxxxxx15 1func main() {2    _, err := page.Element("a")3    handleError(err)4}5​6func handleError(err error) {7    var evalErr *rod.EvalError8    if errors.Is(err, context.DeadlineExceeded) { // 超时错误9        fmt.Println("timeout err")10    } else if errors.As(err, &evalErr) { // eval 错误11        fmt.Println(evalErr.LineNumber)12    } else if err != nil {13        fmt.Println("can't handle", err)14    }15}go
+## 了解发生了什么
 
 ​	对于有经验的开发者，可以跳过这里的所有内容、阅读[这个文件](https://github.com/go-rod/rod/blob/main/examples_test.go)。
 

@@ -1,7 +1,7 @@
 +++
 title = "入门"
 date = 2024-11-21T08:04:06+08:00
-weight = 1
+weight = 10
 type = "docs"
 description = ""
 isCJKLanguage = true
