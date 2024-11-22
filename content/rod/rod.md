@@ -4884,6 +4884,8 @@ func (p *Page) MustCaptureDOMSnapshot() (domSnapshot *proto.DOMSnapshotCaptureSn
 
 MustCaptureDOMSnapshot is similar to [Page.CaptureDOMSnapshot](https://pkg.go.dev/github.com/go-rod/rod#Page.CaptureDOMSnapshot).
 
+​	MustCaptureDOMSnapshot 是 [Page.CaptureDOMSnapshot](https://pkg.go.dev/github.com/go-rod/rod#Page.CaptureDOMSnapshot) 的简化版本。
+
 #### (*Page) MustClose <- 0.50.0
 
 ``` go
@@ -4891,6 +4893,8 @@ func (p *Page) MustClose()
 ```
 
 MustClose is similar to [Page.Close](https://pkg.go.dev/github.com/go-rod/rod#Page.Close).
+
+​	MustClose 是 [Page.Close](https://pkg.go.dev/github.com/go-rod/rod#Page.Close) 的简化版本。
 
 #### (*Page) MustCookies <- 0.50.0
 
@@ -4900,6 +4904,8 @@ func (p *Page) MustCookies(urls ...string) []*proto.NetworkCookie
 
 MustCookies is similar to [Page.Cookies](https://pkg.go.dev/github.com/go-rod/rod#Page.Cookies).
 
+​	MustCookies 是 [Page.Cookies](https://pkg.go.dev/github.com/go-rod/rod#Page.Cookies) 的简化版本。
+
 #### (*Page) MustElement <- 0.50.0
 
 ``` go
@@ -4907,6 +4913,8 @@ func (p *Page) MustElement(selector string) *Element
 ```
 
 MustElement is similar to [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element).
+
+​	MustElement 是 [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element) 的简化版本。
 
 #### (*Page) MustElementByJS <- 0.50.0
 
@@ -4916,6 +4924,8 @@ func (p *Page) MustElementByJS(js string, params ...interface{}) *Element
 
 MustElementByJS is similar to [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS).
 
+​	MustElementByJS 是 [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS) 的简化版本。
+
 #### (*Page) MustElementFromNode <- 0.50.0
 
 ``` go
@@ -4923,6 +4933,8 @@ func (p *Page) MustElementFromNode(node *proto.DOMNode) *Element
 ```
 
 MustElementFromNode is similar to [Page.ElementFromNode](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromNode).
+
+​	MustElementFromNode 是 [Page.ElementFromNode](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromNode) 的简化版本。
 
 #### (*Page) MustElementFromPoint <- 0.50.0
 
@@ -4932,6 +4944,8 @@ func (p *Page) MustElementFromPoint(left, top int) *Element
 
 MustElementFromPoint is similar to [Page.ElementFromPoint](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromPoint).
 
+​	MustElementFromPoint 是 [Page.ElementFromPoint](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementFromPoint) 的简化版本。
+
 #### (*Page) MustElementR <- 0.57.0
 
 ``` go
@@ -4939,6 +4953,8 @@ func (p *Page) MustElementR(selector, jsRegex string) *Element
 ```
 
 MustElementR is similar to [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR).
+
+​	MustElementR 是 [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR) 的简化版本。
 
 #### (*Page) MustElementX <- 0.50.0
 
@@ -4948,6 +4964,8 @@ func (p *Page) MustElementX(xPath string) *Element
 
 MustElementX is similar to [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX).
 
+​	MustElementX 是 [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX) 的简化版本。
+
 #### (*Page) MustElements <- 0.50.0
 
 ``` go
@@ -4955,6 +4973,8 @@ func (p *Page) MustElements(selector string) Elements
 ```
 
 MustElements is similar to [Page.Elements](https://pkg.go.dev/github.com/go-rod/rod#Page.Elements).
+
+​	MustElements 是 [Page.Elements](https://pkg.go.dev/github.com/go-rod/rod#Page.Elements) 的简化版本。
 
 #### (*Page) MustElementsByJS <- 0.50.0
 
@@ -4964,6 +4984,8 @@ func (p *Page) MustElementsByJS(js string, params ...interface{}) Elements
 
 MustElementsByJS is similar to [Page.ElementsByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsByJS).
 
+​	MustElementsByJS 是 [Page.ElementsByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsByJS) 的简化版本。
+
 #### (*Page) MustElementsX <- 0.50.0
 
 ``` go
@@ -4971,6 +4993,8 @@ func (p *Page) MustElementsX(xpath string) Elements
 ```
 
 MustElementsX is similar to [Page.ElementsX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsX).
+
+​	MustElementsX 是 [Page.ElementsX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementsX) 的简化版本。
 
 #### (*Page) MustEmulate <- 0.50.0
 
@@ -4980,6 +5004,8 @@ func (p *Page) MustEmulate(device devices.Device) *Page
 
 MustEmulate is similar to [Page.Emulate](https://pkg.go.dev/github.com/go-rod/rod#Page.Emulate).
 
+​	MustEmulate 是 [Page.Emulate](https://pkg.go.dev/github.com/go-rod/rod#Page.Emulate) 的简化版本。
+
 #### (*Page) MustEval <- 0.50.0
 
 ``` go
@@ -4987,6 +5013,8 @@ func (p *Page) MustEval(js string, params ...interface{}) gson.JSON
 ```
 
 MustEval is similar to [Page.Eval](https://pkg.go.dev/github.com/go-rod/rod#Page.Eval).
+
+​	MustEval 是 [Page.Eval](https://pkg.go.dev/github.com/go-rod/rod#Page.Eval) 的简化版本。
 
 #### (*Page) MustEvalOnNewDocument <- 0.50.0
 
@@ -4996,6 +5024,8 @@ func (p *Page) MustEvalOnNewDocument(js string)
 
 MustEvalOnNewDocument is similar to [Page.EvalOnNewDocument](https://pkg.go.dev/github.com/go-rod/rod#Page.EvalOnNewDocument).
 
+​	MustEvalOnNewDocument 是 [Page.EvalOnNewDocument](https://pkg.go.dev/github.com/go-rod/rod#Page.EvalOnNewDocument) 的简化版本。
+
 #### (*Page) MustEvaluate <- 0.67.0
 
 ``` go
@@ -5004,6 +5034,8 @@ func (p *Page) MustEvaluate(opts *EvalOptions) *proto.RuntimeRemoteObject
 
 MustEvaluate is similar to [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate).
 
+​	MustEvaluate 是 [Page.Evaluate](https://pkg.go.dev/github.com/go-rod/rod#Page.Evaluate) 的简化版本。
+
 #### (*Page) MustExpose <- 0.50.0
 
 ``` go
@@ -5011,6 +5043,8 @@ func (p *Page) MustExpose(name string, fn func(gson.JSON) (interface{}, error)) 
 ```
 
 MustExpose is similar to [Page.Expose](https://pkg.go.dev/github.com/go-rod/rod#Page.Expose).
+
+​	MustExpose 是 [Page.Expose](https://pkg.go.dev/github.com/go-rod/rod#Page.Expose) 的简化版本。
 
 #### (*Page) MustGetWindow <- 0.50.0
 
@@ -5132,6 +5166,8 @@ func (p *Page) MustPDF(toFile ...string) []byte
 
 MustPDF is similar to [Page.PDF](https://pkg.go.dev/github.com/go-rod/rod#Page.PDF). If the toFile is "", it Page.will save output to "tmp/pdf" folder, time as the file name.
 
+​	MustPDF 是 [Page.PDF](https://pkg.go.dev/github.com/go-rod/rod#Page.PDF) 的简化版本。如果 `toFile` 为空，页面会将截图保存到 "tmp/screenshots" 文件夹，并以时间作为文件名。
+
 #### (*Page) MustRelease <- 0.50.0
 
 ``` go
@@ -5164,6 +5200,8 @@ func (p *Page) MustScreenshot(toFile ...string) []byte
 
 MustScreenshot is similar to [Page.Screenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.Screenshot). If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
 
+​	MustScreenshot 是 [Page.Screenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.Screenshot) 的简化版本。如果 `toFile` 为空，页面会将截图保存到 "tmp/screenshots" 文件夹，并以时间作为文件名。
+
 #### (*Page) MustScreenshotFullPage <- 0.50.0
 
 ``` go
@@ -5171,6 +5209,8 @@ func (p *Page) MustScreenshotFullPage(toFile ...string) []byte
 ```
 
 MustScreenshotFullPage is similar to [Page.ScreenshotFullPage]. If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
+
+​	MustScreenshotFullPage 是 [Page.ScreenshotFullPage] 的简化版本。如果 `toFile` 为空，页面会将完整页面截图保存到 "tmp/screenshots" 文件夹，并以时间作为文件名。
 
 #### (*Page) MustScrollScreenshot <- 0.116.2
 
@@ -5180,6 +5220,8 @@ func (p *Page) MustScrollScreenshot(toFile ...string) []byte
 
 MustScrollScreenshot is similar to [Page.ScrollScreenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.ScrollScreenshot). If the toFile is "", it Page.will save output to "tmp/screenshots" folder, time as the file name.
 
+​	MustScrollScreenshot 是 [Page.ScrollScreenshot](https://pkg.go.dev/github.com/go-rod/rod#Page.ScrollScreenshot) 的简化版本。如果 `toFile` 为空，页面会将滚动截图保存到 "tmp/screenshots" 文件夹，并以时间作为文件名。
+
 #### (*Page) MustSearch <- 0.50.0
 
 ``` go
@@ -5187,6 +5229,8 @@ func (p *Page) MustSearch(query string) *Element
 ```
 
 MustSearch is similar to [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search). It only returns the first element in the search result.
+
+​	MustSearch 是 [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search) 的简化版本。仅返回搜索结果中的第一个元素。
 
 #### (*Page) MustSetBlockedURLs <- 0.112.3
 
@@ -5196,6 +5240,8 @@ func (p *Page) MustSetBlockedURLs(urls ...string) *Page
 
 MustSetBlockedURLs is similar to [Page.SetBlockedURLs](https://pkg.go.dev/github.com/go-rod/rod#Page.SetBlockedURLs).
 
+​	MustSetBlockedURLs 是 [Page.SetBlockedURLs](https://pkg.go.dev/github.com/go-rod/rod#Page.SetBlockedURLs) 的简化版本。
+
 #### (*Page) MustSetCookies <- 0.50.0
 
 ``` go
@@ -5204,6 +5250,8 @@ func (p *Page) MustSetCookies(cookies ...*proto.NetworkCookieParam) *Page
 
 MustSetCookies is similar to [Page.SetCookies](https://pkg.go.dev/github.com/go-rod/rod#Page.SetCookies). If the len(cookies) is 0 it will clear all the cookies.
 
+​	MustSetCookies 是 [Page.SetCookies](https://pkg.go.dev/github.com/go-rod/rod#Page.SetCookies) 的简化版本。如果 `cookies` 长度为 0，将清除所有 cookies。
+
 #### (*Page) MustSetDocumentContent <- 0.104.0
 
 ``` go
@@ -5211,6 +5259,8 @@ func (p *Page) MustSetDocumentContent(html string) *Page
 ```
 
 MustSetDocumentContent is similar to [Page.SetDocumentContent](https://pkg.go.dev/github.com/go-rod/rod#Page.SetDocumentContent).
+
+​	MustSetDocumentContent 是 [Page.SetDocumentContent](https://pkg.go.dev/github.com/go-rod/rod#Page.SetDocumentContent) 的简化版本。
 
 #### (*Page) MustSetExtraHeaders <- 0.50.0
 
@@ -5372,6 +5422,8 @@ func (p *Page) Navigate(url string) error
 
 Navigate to the url. If the url is empty, "about:blank" will be used. It will return immediately after the server responds the http header.
 
+​	Navigate 导航到指定的 URL。如果 URL 为空，将使用 `"about:blank"`。它会在服务器响应 HTTP 头后立即返回。
+
 #### (*Page) NavigateBack <- 0.61.4
 
 ``` go
@@ -5379,6 +5431,8 @@ func (p *Page) NavigateBack() error
 ```
 
 NavigateBack history.
+
+​	NavigateBack 返回到历史记录中的上一页。
 
 #### (*Page) NavigateForward <- 0.61.4
 
@@ -5388,6 +5442,8 @@ func (p *Page) NavigateForward() error
 
 NavigateForward history.
 
+​	NavigateForward 前进到历史记录中的下一页。
+
 #### (*Page) ObjectToJSON 
 
 ``` go
@@ -5395,6 +5451,8 @@ func (p *Page) ObjectToJSON(obj *proto.RuntimeRemoteObject) (gson.JSON, error)
 ```
 
 ObjectToJSON by object id.
+
+​	ObjectToJSON 将对象 ID 转换为 JSON。
 
 #### (*Page) Overlay 
 
@@ -5404,6 +5462,8 @@ func (p *Page) Overlay(left, top, width, height float64, msg string) (remove fun
 
 Overlay a rectangle on the main frame with specified message.
 
+​	Overlay 在主框架上以指定消息覆盖一个矩形。
+
 #### (*Page) PDF 
 
 ``` go
@@ -5411,6 +5471,8 @@ func (p *Page) PDF(req *proto.PagePrintToPDF) (*StreamReader, error)
 ```
 
 PDF prints page as PDF.
+
+​	PDF 打印页面为 PDF。
 
 #### (*Page) Race <- 0.57.0
 
@@ -5420,6 +5482,8 @@ func (p *Page) Race() *RaceContext
 
 Race creates a context to race selectors.
 
+​	Race 创建一个上下文，用于竞争选择器。
+
 #### (*Page) Release 
 
 ``` go
@@ -5427,6 +5491,8 @@ func (p *Page) Release(obj *proto.RuntimeRemoteObject) error
 ```
 
 Release the remote object. Usually, you don't need to call it. When a page is closed or reloaded, all remote objects will be released automatically. It's useful if the page never closes or reloads.
+
+​	Release 释放远程对象。通常不需要调用此方法。当页面关闭或重新加载时，所有远程对象将自动释放。如果页面不会关闭或重新加载，此方法会很有用。
 
 #### (*Page) Reload <- 0.61.4
 
@@ -5436,6 +5502,8 @@ func (p *Page) Reload() error
 
 Reload page.
 
+​	Reload 重新加载页面。
+
 #### (*Page) ResetNavigationHistory <- 0.116.2
 
 ``` go
@@ -5443,6 +5511,8 @@ func (p *Page) ResetNavigationHistory() error
 ```
 
 ResetNavigationHistory reset history.
+
+​	ResetNavigationHistory 重置历史记录。
 
 #### (*Page) Screenshot 
 
@@ -5452,6 +5522,8 @@ func (p *Page) Screenshot(fullPage bool, req *proto.PageCaptureScreenshot) ([]by
 
 Screenshot captures the screenshot of current page.
 
+​	Screenshot 捕获当前页面的截图。
+
 #### (*Page) ScrollScreenshot <- 0.114.7
 
 ``` go
@@ -5460,7 +5532,11 @@ func (p *Page) ScrollScreenshot(opt *ScrollScreenshotOptions) ([]byte, error)
 
 ScrollScreenshot Scroll screenshot does not adjust the size of the viewport, but achieves it by scrolling and capturing screenshots in a loop, and then stitching them together. Note that this method also has a flaw: when there are elements with fixed positioning on the page (usually header navigation components), these elements will appear repeatedly, you can set the FixedTop parameter to optimize it.
 
+​	ScrollScreenshot 滚动截图不调整视口大小，而是通过循环滚动并截图然后拼接实现。需要注意的是，该方法有一个缺陷：当页面中有固定定位的元素（通常是头部导航组件）时，这些元素会重复出现。可以通过设置 `FixedTop` 参数进行优化。
+
 Only support png and jpeg format yet, webP is not supported because no suitable processing library was found in golang.
+
+​	仅支持 PNG 和 JPEG 格式，暂不支持 webP，因为在 Golang 中未找到合适的处理库。
 
 #### (*Page) Search <- 0.47.0
 
@@ -5470,6 +5546,8 @@ func (p *Page) Search(query string) (*SearchResult, error)
 
 Search for the given query in the DOM tree until the result count is not zero, before that it will keep retrying. The query can be plain text or css selector or xpath. It will search nested iframes and shadow doms too.
 
+​	Search 在 DOM 树中搜索给定的查询，直到结果数量不为零。在此之前会不断重试。查询可以是纯文本、CSS 选择器或 XPath。它也会搜索嵌套的 iframe 和 shadow DOM。
+
 #### (*Page) SetBlockedURLs <- 0.112.3
 
 ``` go
@@ -5477,6 +5555,8 @@ func (p *Page) SetBlockedURLs(urls []string) error
 ```
 
 SetBlockedURLs For some requests that do not want to be triggered, such as some dangerous operations, delete, quit logout, etc. Wildcards ('*') are allowed, such as ["*/api/logout/*","delete"]. NOTE: if you set empty pattern "", it will block all requests.
+
+​	SetBlockedURLs 设置不想触发的一些请求，例如某些危险操作（删除、退出登录等）。支持通配符（`*`），例如 `["*/api/logout/*","delete"]`。注意：如果设置空模式 `""`，将阻止所有请求。
 
 #### (*Page) SetCookies 
 
@@ -5486,6 +5566,8 @@ func (p *Page) SetCookies(cookies []*proto.NetworkCookieParam) error
 
 SetCookies is similar to Browser.SetCookies .
 
+​	SetCookies 类似于 Browser.SetCookies。
+
 #### (*Page) SetDocumentContent <- 0.104.0
 
 ``` go
@@ -5493,6 +5575,8 @@ func (p *Page) SetDocumentContent(html string) error
 ```
 
 SetDocumentContent sets the page document html content.
+
+​	SetDocumentContent 设置页面文档的 HTML 内容。
 
 #### (*Page) SetExtraHeaders 
 
@@ -5502,6 +5586,8 @@ func (p *Page) SetExtraHeaders(dict []string) (func(), error)
 
 SetExtraHeaders whether to always send extra HTTP headers with the requests from this page.
 
+​	SetExtraHeaders 设置页面请求始终发送的额外 HTTP 头。
+
 #### (*Page) SetUserAgent 
 
 ``` go
@@ -5509,6 +5595,8 @@ func (p *Page) SetUserAgent(req *proto.NetworkSetUserAgentOverride) error
 ```
 
 SetUserAgent (browser brand, accept-language, etc) of the page. If req is nil, a default user agent will be used, a typical mac chrome.
+
+​	SetUserAgent 设置页面的用户代理（浏览器品牌、语言等）。如果 `req` 为 nil，将使用默认用户代理（典型的 Mac Chrome）。
 
 #### (*Page) SetViewport <- 0.62.0
 
@@ -5518,6 +5606,8 @@ func (p *Page) SetViewport(params *proto.EmulationSetDeviceMetricsOverride) erro
 
 SetViewport overrides the values of device screen dimensions.
 
+​	SetViewport 覆盖设备屏幕尺寸的值。
+
 #### (*Page) SetWindow <- 0.62.0
 
 ``` go
@@ -5525,6 +5615,8 @@ func (p *Page) SetWindow(bounds *proto.BrowserBounds) error
 ```
 
 SetWindow location and size.
+
+​	SetWindow 设置窗口的位置和大小。
 
 #### (*Page) Sleeper 
 
@@ -5534,6 +5626,8 @@ func (p *Page) Sleeper(sleeper func() utils.Sleeper) *Page
 
 Sleeper returns a clone with the specified sleeper for chained sub-operations.
 
+​	Sleeper 返回一个克隆页面，带有指定的休眠器用于链式子操作。
+
 #### (*Page) StopLoading 
 
 ``` go
@@ -5541,6 +5635,8 @@ func (p *Page) StopLoading() error
 ```
 
 StopLoading forces the page stop navigation and pending resource fetches.
+
+​	StopLoading 强制页面停止导航和挂起的资源获取。
 
 #### (*Page) String <- 0.88.0
 
@@ -5558,6 +5654,8 @@ func (p *Page) Timeout(d time.Duration) *Page
 
 Timeout returns a clone with the specified total timeout of all chained sub-operations.
 
+​	Timeout 返回一个克隆页面，带有指定的所有链式子操作的总超时时间。
+
 #### (*Page) TriggerFavicon <- 0.113.2
 
 ``` go
@@ -5565,6 +5663,8 @@ func (p *Page) TriggerFavicon() error
 ```
 
 TriggerFavicon supports when browser in headless mode to trigger favicon's request. Pay attention to this function only supported when browser in headless mode, if you call it in no-headless mode, it will raise an error with the message "browser is no-headless".
+
+​	TriggerFavicon 支持在无头模式下触发 favicon 的请求。注意，此方法仅支持无头模式，如果在非无头模式下调用，会引发错误，错误消息为 `"browser is no-headless"`。
 
 #### (*Page) Wait 
 
@@ -5574,6 +5674,8 @@ func (p *Page) Wait(opts *EvalOptions) error
 
 Wait until the js returns true.
 
+​	Wait 等待 JavaScript 返回 `true`。
+
 #### (*Page) WaitDOMStable <- 0.114.0
 
 ``` go
@@ -5581,6 +5683,8 @@ func (p *Page) WaitDOMStable(d time.Duration, diff float64) error
 ```
 
 WaitDOMStable waits until the change of the DOM tree is less or equal than diff percent for d duration. Be careful, d is not the max wait timeout, it's the least stable time. If you want to set a timeout you can use the [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) function.
+
+​	WaitDOMStable 等待 DOM 树的变化少于或等于 `diff` 百分比，持续时间为 `d`。注意，`d` 不是最大等待超时时间，而是最短稳定时间。如果想设置超时时间，可以使用 [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) 方法。
 
 #### (*Page) WaitElementsMoreThan <- 0.97.3
 
@@ -5590,6 +5694,8 @@ func (p *Page) WaitElementsMoreThan(selector string, num int) error
 
 WaitElementsMoreThan waits until there are more than num elements that match the selector.
 
+​	WaitElementsMoreThan 等待与选择器匹配的元素数量多于 `num`。
+
 #### (*Page) WaitEvent 
 
 ``` go
@@ -5597,6 +5703,8 @@ func (p *Page) WaitEvent(e proto.Event) (wait func())
 ```
 
 WaitEvent waits for the next event for one time. It will also load the data into the event object.
+
+​	WaitEvent 等待下一个事件（只触发一次）。也会将数据加载到事件对象中。
 
 #### (*Page) WaitIdle 
 
@@ -5606,6 +5714,8 @@ func (p *Page) WaitIdle(timeout time.Duration) (err error)
 
 WaitIdle waits until the next window.requestIdleCallback is called.
 
+​	WaitIdle 等待下一个 `window.requestIdleCallback` 被调用。
+
 #### (*Page) WaitLoad 
 
 ``` go
@@ -5613,6 +5723,8 @@ func (p *Page) WaitLoad() error
 ```
 
 WaitLoad waits for the `window.onload` event, it returns immediately if the event is already fired.
+
+​	WaitLoad 等待 `window.onload` 事件，如果事件已经触发，将立即返回。
 
 #### (*Page) WaitNavigation <- 0.63.2
 
@@ -5622,6 +5734,8 @@ func (p *Page) WaitNavigation(name proto.PageLifecycleEventName) func()
 
 WaitNavigation wait for a page lifecycle event when navigating. Usually you will wait for [proto.PageLifecycleEventNameNetworkAlmostIdle](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageLifecycleEventNameNetworkAlmostIdle).
 
+​	WaitNavigation 等待页面导航时的生命周期事件。通常会等待 [proto.PageLifecycleEventNameNetworkAlmostIdle](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#PageLifecycleEventNameNetworkAlmostIdle)。
+
 #### (*Page) WaitOpen 
 
 ``` go
@@ -5630,6 +5744,8 @@ func (p *Page) WaitOpen() func() (*Page, error)
 
 WaitOpen waits for the next new page opened by the current one.
 
+​	WaitOpen 等待当前页面打开的下一个新页面。
+
 #### (*Page) WaitRepaint <- 0.84.1
 
 ``` go
@@ -5637,6 +5753,8 @@ func (p *Page) WaitRepaint() error
 ```
 
 WaitRepaint waits until the next repaint. Doc: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+
+​	WaitRepaint 等待下一个重新绘制。文档：https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame。
 
 #### (*Page) WaitRequestIdle 
 
@@ -5650,6 +5768,8 @@ func (p *Page) WaitRequestIdle(
 
 WaitRequestIdle returns a wait function that waits until no request for d duration. Be careful, d is not the max wait timeout, it's the least idle time. If you want to set a timeout you can use the [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) function. Use the includes and excludes regexp list to filter the requests by their url.
 
+​	WaitRequestIdle 返回一个等待函数，直到没有请求超过 `d` 时间。注意，`d` 不是最大等待超时时间，而是最短空闲时间。如果想设置超时时间，可以使用 [Page.Timeout](https://pkg.go.dev/github.com/go-rod/rod#Page.Timeout) 方法。使用 `includes` 和 `excludes` 正则表达式列表通过 URL 过滤请求。
+
 #### (*Page) WaitStable <- 0.113.0
 
 ``` go
@@ -5657,6 +5777,8 @@ func (p *Page) WaitStable(d time.Duration) error
 ```
 
 WaitStable waits until the page is stable for d duration.
+
+​	WaitStable 等待页面在 `d` 时间内保持稳定。
 
 #### (*Page) WithCancel <- 0.69.0
 
@@ -5666,6 +5788,8 @@ func (p *Page) WithCancel() (*Page, func())
 
 WithCancel returns a clone with a context cancel function.
 
+​	WithCancel 返回一个克隆页面，并带有上下文取消函数。
+
 #### (*Page) WithPanic <- 0.100.0
 
 ``` go
@@ -5673,6 +5797,8 @@ func (p *Page) WithPanic(fail func(interface{})) *Page
 ```
 
 WithPanic returns a page clone with the specified panic function. The fail must stop the current goroutine's execution immediately, such as use [runtime.Goexit](https://pkg.go.dev/runtime#Goexit) or panic inside it.
+
+​	WithPanic 返回一个克隆页面，并带有指定的 panic 函数。`fail` 必须立即停止当前 goroutine 的执行，例如在函数内部使用 [runtime.Goexit](https://pkg.go.dev/runtime#Goexit) 或 `panic`。
 
 ### type PageCloseCanceledError <- 0.114.8
 
@@ -5710,6 +5836,8 @@ type Pages []*Page
 
 Pages provides some helpers to deal with page list.
 
+​	Pages 提供了一些处理页面列表的辅助方法。
+
 #### (Pages) Empty <- 0.53.0
 
 ``` go
@@ -5717,6 +5845,8 @@ func (ps Pages) Empty() bool
 ```
 
 Empty returns true if the list is empty.
+
+​	Empty 返回列表是否为空。
 
 #### (Pages) Find 
 
@@ -5726,13 +5856,17 @@ func (ps Pages) Find(selector string) (*Page, error)
 
 Find the page that has the specified element with the css selector.
 
+​	Find 查找包含指定 CSS 选择器元素的页面。
+
 #### (Pages) FindByURL 
 
 ``` go
 func (ps Pages) FindByURL(jsRegex string) (*Page, error)
 ```
 
-FindByURL returns the page that has the url that matches the jsRegex.
+FindByURL returns the page that has the url that matches the jsRegex.	
+
+​	FindByURL 返回 URL 匹配 `jsRegex` 的页面。
 
 #### (Pages) First <- 0.53.0
 
@@ -5742,6 +5876,8 @@ func (ps Pages) First() *Page
 
 First returns the first page, if the list is empty returns nil.
 
+​	First 返回第一个页面，如果列表为空则返回 nil。
+
 #### (Pages) Last <- 0.53.0
 
 ``` go
@@ -5749,6 +5885,8 @@ func (ps Pages) Last() *Page
 ```
 
 Last returns the last page, if the list is empty returns nil.
+
+​	Last 返回最后一个页面，如果列表为空则返回 nil。
 
 #### (Pages) MustFind <- 0.50.3
 
@@ -5766,6 +5904,8 @@ func (ps Pages) MustFindByURL(regex string) *Page
 
 MustFindByURL is similar to [Page.FindByURL].
 
+​	MustFindByURL 是 [Page.FindByURL](https://pkg.go.dev/github.com/go-rod/rod#Page.FindByURL) 的简化版本。
+
 ### type Pool <- 0.116.2
 
 ``` go
@@ -5773,6 +5913,8 @@ type Pool[T any] chan *T
 ```
 
 Pool is used to thread-safely limit the number of elements at the same time. It's a common practice to use a channel to limit concurrency, it's not special for rod. This helper is more like an example to use Go Channel. Reference: https://golang.org/doc/effective_go#channels
+
+​	Pool 用于线程安全地限制同时存在的元素数量。这是一种使用通道（channel）来限制并发的常见实践，这个工具更像是 Go Channel 的一个示例。参考文档：[Effective Go](https://golang.org/doc/effective_go#channels)
 
 ### func NewBrowserPool <- 0.101.7
 
@@ -5782,6 +5924,8 @@ func NewBrowserPool(limit int) Pool[Browser]
 
 NewBrowserPool instance.
 
+​	NewBrowserPool 实例。
+
 ### func NewPagePool <- 0.73.2
 
 ``` go
@@ -5789,6 +5933,8 @@ func NewPagePool(limit int) Pool[Page]
 ```
 
 NewPagePool instance.
+
+​	NewPagePool 实例。
 
 ### func NewPool <- 0.116.2
 
@@ -5798,6 +5944,8 @@ func NewPool[T any](limit int) Pool[T]
 
 NewPool instance.
 
+​	NewPool 实例。
+
 #### (Pool[T]) Cleanup <- 0.116.2
 
 ``` go
@@ -5805,6 +5953,8 @@ func (p Pool[T]) Cleanup(iteratee func(*T))
 ```
 
 Cleanup helper.
+
+​	Cleanup 辅助方法。
 
 #### (Pool[T]) Get <- 0.116.2
 
@@ -5814,6 +5964,8 @@ func (p Pool[T]) Get(create func() (*T, error)) (elem *T, err error)
 
 Get a elem from the pool, allow error. Use the [Pool[T].Put] to make it reusable later.
 
+​	Get 从池中获取一个元素，允许返回错误。使用 [Pool[T\].Put](https://pkg.go.dev/github.com/go-rod/rod#Pool.Put) 将其重用。
+
 #### (Pool[T]) MustGet <- 0.116.2
 
 ``` go
@@ -5822,6 +5974,8 @@ func (p Pool[T]) MustGet(create func() *T) *T
 
 MustGet an elem from the pool. Use the [Pool[T].Put] to make it reusable later.
 
+​	MustGet 是 [Pool[T\].Get](https://pkg.go.dev/github.com/go-rod/rod#Pool.Get) 的简化版本。
+
 #### (Pool[T]) Put <- 0.116.2
 
 ``` go
@@ -5829,6 +5983,8 @@ func (p Pool[T]) Put(elem *T)
 ```
 
 Put an elem back to the pool.
+
+​	Put 将一个元素放回池中。
 
 ### type RaceContext <- 0.57.0
 
@@ -5840,6 +5996,8 @@ type RaceContext struct {
 
 RaceContext stores the branches to race.
 
+​	RaceContext 用于存储需要竞争的分支。
+
 #### (*RaceContext) Do <- 0.57.0
 
 ``` go
@@ -5847,6 +6005,8 @@ func (rc *RaceContext) Do() (*Element, error)
 ```
 
 Do the race.
+
+​	Do 执行竞争操作。
 
 #### (*RaceContext) Element <- 0.57.0
 
@@ -5856,6 +6016,8 @@ func (rc *RaceContext) Element(selector string) *RaceContext
 
 Element is similar to [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element).
 
+​	Element 是 [Page.Element](https://pkg.go.dev/github.com/go-rod/rod#Page.Element) 的简化版本。
+
 #### (*RaceContext) ElementByJS <- 0.57.0
 
 ``` go
@@ -5863,6 +6025,8 @@ func (rc *RaceContext) ElementByJS(opts *EvalOptions) *RaceContext
 ```
 
 ElementByJS is similar to [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS).
+
+​	ElementByJS 是 [Page.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementByJS) 的简化版本。
 
 #### (*RaceContext) ElementFunc <- 0.107.1
 
@@ -5872,6 +6036,8 @@ func (rc *RaceContext) ElementFunc(fn func(*Page) (*Element, error)) *RaceContex
 
 ElementFunc takes a custom function to determine race success.
 
+​	ElementFunc 接收一个自定义函数来判断竞争成功。
+
 #### (*RaceContext) ElementR <- 0.57.0
 
 ``` go
@@ -5879,6 +6045,8 @@ func (rc *RaceContext) ElementR(selector, regex string) *RaceContext
 ```
 
 ElementR is similar to [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR).
+
+​	ElementR 是 [Page.ElementR](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementR) 的简化版本。
 
 #### (*RaceContext) ElementX <- 0.57.0
 
@@ -5888,6 +6056,8 @@ func (rc *RaceContext) ElementX(selector string) *RaceContext
 
 ElementX is similar to [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX).
 
+​	ElementX 是 [Page.ElementX](https://pkg.go.dev/github.com/go-rod/rod#Page.ElementX) 的简化版本。
+
 #### (*RaceContext) Handle <- 0.81.0
 
 ``` go
@@ -5895,6 +6065,8 @@ func (rc *RaceContext) Handle(callback func(*Element) error) *RaceContext
 ```
 
 Handle adds a callback function to the most recent chained selector. The callback function is run, if the corresponding selector is present first, in the Race condition.
+
+​	Handle 为最近链式调用的选择器添加回调函数。在竞争条件下，如果对应的选择器优先出现，则运行该回调函数。
 
 #### (*RaceContext) MustDo <- 0.57.0
 
@@ -5904,6 +6076,8 @@ func (rc *RaceContext) MustDo() *Element
 
 MustDo is similar to [RaceContext.Do](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Do).
 
+​	MustDo 是 [RaceContext.Do](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Do) 的简化版本。
+
 #### (*RaceContext) MustElementByJS <- 0.57.0
 
 ``` go
@@ -5911,6 +6085,8 @@ func (rc *RaceContext) MustElementByJS(js string, params []interface{}) *RaceCon
 ```
 
 MustElementByJS is similar to [RaceContext.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.ElementByJS).
+
+​	MustElementByJS 是 [RaceContext.ElementByJS](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.ElementByJS) 的简化版本。
 
 #### (*RaceContext) MustHandle <- 0.81.0
 
@@ -5920,6 +6096,8 @@ func (rc *RaceContext) MustHandle(callback func(*Element)) *RaceContext
 
 MustHandle is similar to [RaceContext.Handle](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Handle).
 
+​	MustHandle 是 [RaceContext.Handle](https://pkg.go.dev/github.com/go-rod/rod#RaceContext.Handle) 的简化版本。
+
 #### (*RaceContext) Search <- 0.112.0
 
 ``` go
@@ -5928,30 +6106,40 @@ func (rc *RaceContext) Search(query string) *RaceContext
 
 Search is similar to [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search).
 
+​	Search 是 [Page.Search](https://pkg.go.dev/github.com/go-rod/rod#Page.Search) 的简化版本。
+
 ### type ScrollScreenshotOptions <- 0.114.7
 
 ``` go
 type ScrollScreenshotOptions struct {
 	// Format (optional) Image compression format (defaults to png).
+    // Format (optional) 图像压缩格式（默认为 png）。
 	Format proto.PageCaptureScreenshotFormat `json:"format,omitempty"`
 
 	// Quality (optional) Compression quality from range [0..100] (jpeg only).
+    // Quality (optional) 压缩质量，范围 [0..100]（仅适用于 jpeg）。
 	Quality *int `json:"quality,omitempty"`
 
 	// FixedTop (optional) The number of pixels to skip from the top.
 	// It is suitable for optimizing the screenshot effect when there is a fixed
 	// positioning element at the top of the page.
+    // FixedTop (optional) 从顶部跳过的像素数。
+	// 适用于页面顶部有固定定位元素时优化截图效果。
 	FixedTop float64
 
 	// FixedBottom (optional) The number of pixels to skip from the bottom.
+    // FixedBottom (optional) 从底部跳过的像素数。
 	FixedBottom float64
 
 	// WaitPerScroll until no animation (default is 300ms)
+    // WaitPerScroll 直到没有动画（默认值为 300ms）。
 	WaitPerScroll time.Duration
 }
 ```
 
 ScrollScreenshotOptions is the options for the ScrollScreenshot.
+
+​	ScrollScreenshotOptions 是 ScrollScreenshot 的选项。
 
 ### type SearchResult <- 0.97.0
 
@@ -5960,12 +6148,15 @@ type SearchResult struct {
 	*proto.DOMPerformSearchResult
 
 	// First element in the search result
+    // 搜索结果中的第一个元素
 	First *Element
 	// contains filtered or unexported fields
 }
 ```
 
 SearchResult handler.
+
+​	SearchResult 处理程序。
 
 #### (*SearchResult) All <- 0.97.0
 
@@ -5975,6 +6166,8 @@ func (s *SearchResult) All() (Elements, error)
 
 All returns all elements.
 
+​	All 返回所有元素。
+
 #### (*SearchResult) Get <- 0.97.0
 
 ``` go
@@ -5982,6 +6175,8 @@ func (s *SearchResult) Get(i, l int) (Elements, error)
 ```
 
 Get l elements at the index of i from the remote search result.
+
+​	Get 从远程搜索结果中返回索引为 i、长度为 l 的元素。
 
 #### (*SearchResult) Release <- 0.97.0
 
@@ -5991,6 +6186,8 @@ func (s *SearchResult) Release()
 
 Release the remote search result.
 
+​	Release 释放远程搜索结果。
+
 ### type SelectorType <- 0.68.0
 
 ``` go
@@ -5998,6 +6195,8 @@ type SelectorType string
 ```
 
 SelectorType enum.
+
+​	SelectorType 枚举。
 
 ``` go
 const (
@@ -6021,6 +6220,8 @@ type StreamReader struct {
 
 StreamReader for browser data stream.
 
+​	StreamReader 用于浏览器数据流。
+
 ### func NewStreamReader <- 0.63.0
 
 ``` go
@@ -6029,6 +6230,8 @@ func NewStreamReader(c proto.Client, h proto.IOStreamHandle) *StreamReader
 
 NewStreamReader instance.
 
+​	NewStreamReader 实例。
+
 #### (*StreamReader) Close <- 0.102.0
 
 ``` go
@@ -6036,6 +6239,8 @@ func (sr *StreamReader) Close() error
 ```
 
 Close the stream, discard any temporary backing storage.
+
+​	Close 关闭流，丢弃任何临时备份存储。
 
 #### (*StreamReader) Read <- 0.63.0
 
@@ -6053,6 +6258,8 @@ type Touch struct {
 
 Touch presents a touch device, such as a hand with fingers, each finger is a [proto.InputTouchPoint](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint). Touch events is stateless, we use the struct here only as a namespace to make the API style unified.
 
+​	Touch 表示一个触摸设备，例如手指，每个手指是一个 [proto.InputTouchPoint](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint)。触摸事件是无状态的，这个结构体仅作为命名空间以统一 API 风格。
+
 #### (*Touch) Cancel <- 0.61.1
 
 ``` go
@@ -6060,6 +6267,8 @@ func (t *Touch) Cancel() error
 ```
 
 Cancel touch action.
+
+​	Cancel 取消触摸操作。
 
 #### (*Touch) End <- 0.61.1
 
@@ -6069,6 +6278,8 @@ func (t *Touch) End() error
 
 End touch action.
 
+​	End 结束触摸操作。
+
 #### (*Touch) Move <- 0.61.1
 
 ``` go
@@ -6076,6 +6287,8 @@ func (t *Touch) Move(points ...*proto.InputTouchPoint) error
 ```
 
 Move touch points. Use the [proto.InputTouchPoint.ID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint.ID) (Touch.identifier) to track points. Doc: https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
+
+​	Move 移动触摸点。使用 [proto.InputTouchPoint.ID](https://pkg.go.dev/github.com/go-rod/rod@v0.116.2/lib/proto#InputTouchPoint.ID)（Touch.identifier）来跟踪触摸点。文档： https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
 
 #### (*Touch) MustCancel <- 0.61.1
 
@@ -6085,6 +6298,8 @@ func (t *Touch) MustCancel() *Touch
 
 MustCancel is similar to [Touch.Cancel](https://pkg.go.dev/github.com/go-rod/rod#Touch.Cancel).
 
+​	MustCancel 是 [Touch.Cancel](https://pkg.go.dev/github.com/go-rod/rod#Touch.Cancel) 的简化版本。
+
 #### (*Touch) MustEnd <- 0.61.1
 
 ``` go
@@ -6092,6 +6307,8 @@ func (t *Touch) MustEnd() *Touch
 ```
 
 MustEnd is similar to [Touch.End](https://pkg.go.dev/github.com/go-rod/rod#Touch.End).
+
+​	MustEnd 是 [Touch.End](https://pkg.go.dev/github.com/go-rod/rod#Touch.End) 的简化版本。
 
 #### (*Touch) MustMove <- 0.61.1
 
@@ -6101,6 +6318,8 @@ func (t *Touch) MustMove(points ...*proto.InputTouchPoint) *Touch
 
 MustMove is similar to [Touch.Move](https://pkg.go.dev/github.com/go-rod/rod#Touch.Move).
 
+​	MustMove 是 [Touch.Move](https://pkg.go.dev/github.com/go-rod/rod#Touch.Move) 的简化版本。
+
 #### (*Touch) MustStart <- 0.61.1
 
 ``` go
@@ -6108,6 +6327,8 @@ func (t *Touch) MustStart(points ...*proto.InputTouchPoint) *Touch
 ```
 
 MustStart is similar to [Touch.Start](https://pkg.go.dev/github.com/go-rod/rod#Touch.Start).
+
+​	MustStart 是 [Touch.Start](https://pkg.go.dev/github.com/go-rod/rod#Touch.Start) 的简化版本。
 
 #### (*Touch) MustTap <- 0.61.1
 
@@ -6117,6 +6338,8 @@ func (t *Touch) MustTap(x, y float64) *Touch
 
 MustTap is similar to [Touch.Tap](https://pkg.go.dev/github.com/go-rod/rod#Touch.Tap).
 
+​	MustTap 是 [Touch.Tap](https://pkg.go.dev/github.com/go-rod/rod#Touch.Tap) 的简化版本。
+
 #### (*Touch) Start <- 0.61.1
 
 ``` go
@@ -6124,6 +6347,8 @@ func (t *Touch) Start(points ...*proto.InputTouchPoint) error
 ```
 
 Start a touch action.
+
+​	Start 开始一个触摸操作。
 
 #### (*Touch) Tap <- 0.61.1
 
@@ -6133,6 +6358,8 @@ func (t *Touch) Tap(x, y float64) error
 
 Tap dispatches a touchstart and touchend event.
 
+​	Tap 分派一个 `touchstart` 和 `touchend` 事件。
+
 ### type TraceType <- 0.59.0
 
 ``` go
@@ -6140,6 +6367,8 @@ type TraceType string
 ```
 
 TraceType for logger.
+
+​	TraceType 是用于日志记录的类型。
 
 ``` go
 const (
@@ -6200,3 +6429,5 @@ func (e *TryError) Unwrap() error
 ```
 
 Unwrap stdlib interface.
+
+​	Unwrap 标准库接口。
