@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Queue 
+### type Queue 
 
 ``` go
 type Queue[T comparable] interface {

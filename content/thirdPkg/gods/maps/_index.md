@@ -42,7 +42,7 @@ This section is empty.
 
 ## 类型 
 
-#### type BidiMap 
+### type BidiMap 
 
 ``` go
 type BidiMap[K comparable, V comparable] interface {
@@ -54,7 +54,7 @@ type BidiMap[K comparable, V comparable] interface {
 
 BidiMap interface that all bidirectional maps implement (extends the Map interface)
 
-#### type Map 
+### type Map 
 
 ``` go
 type Map[K comparable, V any] interface {

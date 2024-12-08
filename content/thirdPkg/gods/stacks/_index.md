@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Stack 
+### type Stack 
 
 ``` go
 type Stack[T any] interface {

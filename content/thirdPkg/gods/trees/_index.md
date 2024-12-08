@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Tree 
+### type Tree 
 
 ``` go
 type Tree[V any] interface {

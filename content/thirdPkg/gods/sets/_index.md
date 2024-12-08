@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Set 
+### type Set 
 
 ``` go
 type Set[T comparable] interface {

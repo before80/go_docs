@@ -53,7 +53,7 @@ ToString converts a value to string.
 
 ## 类型 
 
-#### type Comparator 
+### type Comparator 
 
 ``` go
 type Comparator[T any] func(x, y T) int

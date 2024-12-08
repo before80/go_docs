@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Iterator 
+### type Iterator 
 
 ``` go
 type Iterator[T comparable] struct {
@@ -125,7 +125,7 @@ func (iterator *Iterator[T]) Value() T
 
 Value returns the current element's value. Does not modify the state of the iterator.
 
-#### type Set 
+### type Set 
 
 ``` go
 type Set[T comparable] struct {

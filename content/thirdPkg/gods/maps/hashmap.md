@@ -39,7 +39,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Map 
+### type Map 
 
 ``` go
 type Map[K comparable, V any] struct {
@@ -57,7 +57,7 @@ func New[K comparable, V any]() *Map[K, V]
 
 New instantiates a hash map.
 
-#### func (*Map[K, V]) [Clear](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L83) 
+#### (*Map[K, V]) Clear 
 
 ``` go
 func (m *Map[K, V]) Clear()
@@ -65,7 +65,7 @@ func (m *Map[K, V]) Clear()
 
 Clear removes all elements from the map.
 
-#### func (*Map[K, V]) [Empty](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L51) 
+#### (*Map[K, V]) Empty 
 
 ``` go
 func (m *Map[K, V]) Empty() bool
@@ -73,7 +73,7 @@ func (m *Map[K, V]) Empty() bool
 
 Empty returns true if map does not contain any elements
 
-#### func (*Map[K, V]) [FromJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/serialization.go#L23) 
+#### (*Map[K, V]) FromJSON 
 
 ``` go
 func (m *Map[K, V]) FromJSON(data []byte) error
@@ -81,7 +81,7 @@ func (m *Map[K, V]) FromJSON(data []byte) error
 
 FromJSON populates the map from the input JSON representation.
 
-#### func (*Map[K, V]) [Get](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L40) 
+#### (*Map[K, V]) Get 
 
 ``` go
 func (m *Map[K, V]) Get(key K) (value V, found bool)
@@ -89,7 +89,7 @@ func (m *Map[K, V]) Get(key K) (value V, found bool)
 
 Get searches the element in the map by key and returns its value or nil if key is not found in map. Second return parameter is true if key was found, otherwise false.
 
-#### func (*Map[K, V]) [Keys](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L61) 
+#### (*Map[K, V]) Keys 
 
 ``` go
 func (m *Map[K, V]) Keys() []K
@@ -97,7 +97,7 @@ func (m *Map[K, V]) Keys() []K
 
 Keys returns all keys (random order).
 
-#### func (*Map[K, V]) [MarshalJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/serialization.go#L33) 
+#### (*Map[K, V]) MarshalJSON 
 
 ``` go
 func (m *Map[K, V]) MarshalJSON() ([]byte, error)
@@ -105,7 +105,7 @@ func (m *Map[K, V]) MarshalJSON() ([]byte, error)
 
 MarshalJSON @implements json.Marshaler
 
-#### func (*Map[K, V]) [Put](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L34) 
+#### (*Map[K, V]) Put 
 
 ``` go
 func (m *Map[K, V]) Put(key K, value V)
@@ -113,7 +113,7 @@ func (m *Map[K, V]) Put(key K, value V)
 
 Put inserts element into the map.
 
-#### func (*Map[K, V]) [Remove](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L46) 
+#### (*Map[K, V]) Remove 
 
 ``` go
 func (m *Map[K, V]) Remove(key K)
@@ -121,7 +121,7 @@ func (m *Map[K, V]) Remove(key K)
 
 Remove removes the element from the map by key.
 
-#### func (*Map[K, V]) [Size](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L56) 
+#### (*Map[K, V]) Size 
 
 ``` go
 func (m *Map[K, V]) Size() int
@@ -129,7 +129,7 @@ func (m *Map[K, V]) Size() int
 
 Size returns number of elements in the map.
 
-#### func (*Map[K, V]) [String](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L88) 
+#### (*Map[K, V]) String 
 
 ``` go
 func (m *Map[K, V]) String() string
@@ -137,7 +137,7 @@ func (m *Map[K, V]) String() string
 
 String returns a string representation of container
 
-#### func (*Map[K, V]) [ToJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/serialization.go#L18) 
+#### (*Map[K, V]) ToJSON 
 
 ``` go
 func (m *Map[K, V]) ToJSON() ([]byte, error)
@@ -145,7 +145,7 @@ func (m *Map[K, V]) ToJSON() ([]byte, error)
 
 ToJSON outputs the JSON representation of the map.
 
-#### func (*Map[K, V]) [UnmarshalJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/serialization.go#L28) 
+#### (*Map[K, V]) UnmarshalJSON 
 
 ``` go
 func (m *Map[K, V]) UnmarshalJSON(bytes []byte) error
@@ -153,7 +153,7 @@ func (m *Map[K, V]) UnmarshalJSON(bytes []byte) error
 
 UnmarshalJSON @implements json.Unmarshaler
 
-#### func (*Map[K, V]) [Values](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/maps/hashmap/hashmap.go#L72) 
+#### (*Map[K, V]) Values 
 
 ``` go
 func (m *Map[K, V]) Values() []V

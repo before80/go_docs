@@ -37,7 +37,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Heap 
+### type Heap 
 
 ``` go
 type Heap[T comparable] struct {
@@ -168,7 +168,7 @@ func (heap *Heap[T]) Values() []T
 
 Values returns all elements in the heap.
 
-#### type Iterator 
+### type Iterator 
 
 ``` go
 type Iterator[T comparable] struct {

@@ -37,7 +37,7 @@ This section is empty.
 
 ## 类型 
 
-#### type Iterator 
+### type Iterator 
 
 ``` go
 type Iterator[K comparable, V any] struct {
@@ -47,7 +47,7 @@ type Iterator[K comparable, V any] struct {
 
 Iterator holding the iterator's state
 
-#### func (*Iterator[K, V]) [Begin](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L136) 
+#### (*Iterator[K, V]) Begin 
 
 ``` go
 func (iterator *Iterator[K, V]) Begin()
@@ -55,7 +55,7 @@ func (iterator *Iterator[K, V]) Begin()
 
 Begin resets the iterator to its initial state (one-before-first) Call Next() to fetch the first element if any.
 
-#### func (*Iterator[K, V]) [End](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L143) 
+#### (*Iterator[K, V]) End 
 
 ``` go
 func (iterator *Iterator[K, V]) End()
@@ -63,7 +63,7 @@ func (iterator *Iterator[K, V]) End()
 
 End moves the iterator past the last element (one-past-the-end). Call Prev() to fetch the last element if any.
 
-#### func (*Iterator[K, V]) [First](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L151) 
+#### (*Iterator[K, V]) First 
 
 ``` go
 func (iterator *Iterator[K, V]) First() bool
@@ -71,7 +71,7 @@ func (iterator *Iterator[K, V]) First() bool
 
 First moves the iterator to the first element and returns true if there was a first element in the container. If First() returns true, then first element's key and value can be retrieved by Key() and Value(). Modifies the state of the iterator
 
-#### func (*Iterator[K, V]) [Key](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L124) 
+#### (*Iterator[K, V]) Key 
 
 ``` go
 func (iterator *Iterator[K, V]) Key() K
@@ -79,7 +79,7 @@ func (iterator *Iterator[K, V]) Key() K
 
 Key returns the current element's key. Does not modify the state of the iterator.
 
-#### func (*Iterator[K, V]) [Last](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L159) 
+#### (*Iterator[K, V]) Last 
 
 ``` go
 func (iterator *Iterator[K, V]) Last() bool
@@ -87,7 +87,7 @@ func (iterator *Iterator[K, V]) Last() bool
 
 Last moves the iterator to the last element and returns true if there was a last element in the container. If Last() returns true, then last element's key and value can be retrieved by Key() and Value(). Modifies the state of the iterator.
 
-#### func (*Iterator[K, V]) [Next](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L39) 
+#### (*Iterator[K, V]) Next 
 
 ``` go
 func (iterator *Iterator[K, V]) Next() bool
@@ -95,7 +95,7 @@ func (iterator *Iterator[K, V]) Next() bool
 
 Next moves the iterator to the next element and returns true if there was a next element in the container. If Next() returns true, then next element's key and value can be retrieved by Key() and Value(). If Next() was called for the first time, then it will point the iterator to the first element if it exists. Modifies the state of the iterator.
 
-#### func (*Iterator[K, V]) [NextTo](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L168) 
+#### (*Iterator[K, V]) NextTo 
 
 ``` go
 func (iterator *Iterator[K, V]) NextTo(f func(key K, value V) bool) bool
@@ -103,7 +103,7 @@ func (iterator *Iterator[K, V]) NextTo(f func(key K, value V) bool) bool
 
 NextTo moves the iterator to the next element from current position that satisfies the condition given by the passed function, and returns true if there was a next element in the container. If NextTo() returns true, then next element's key and value can be retrieved by Key() and Value(). Modifies the state of the iterator.
 
-#### func (*Iterator[K, V]) [Node](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L130) 
+#### (*Iterator[K, V]) Node 
 
 ``` go
 func (iterator *Iterator[K, V]) Node() *Node[K, V]
@@ -111,7 +111,7 @@ func (iterator *Iterator[K, V]) Node() *Node[K, V]
 
 Node returns the current element's node. Does not modify the state of the iterator.
 
-#### func (*Iterator[K, V]) [Prev](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L79) 
+#### (*Iterator[K, V]) Prev 
 
 ``` go
 func (iterator *Iterator[K, V]) Prev() bool
@@ -119,7 +119,7 @@ func (iterator *Iterator[K, V]) Prev() bool
 
 Prev moves the iterator to the previous element and returns true if there was a previous element in the container. If Prev() returns true, then previous element's key and value can be retrieved by Key() and Value(). Modifies the state of the iterator.
 
-#### func (*Iterator[K, V]) [PrevTo](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L182) 
+#### (*Iterator[K, V]) PrevTo 
 
 ``` go
 func (iterator *Iterator[K, V]) PrevTo(f func(key K, value V) bool) bool
@@ -127,7 +127,7 @@ func (iterator *Iterator[K, V]) PrevTo(f func(key K, value V) bool) bool
 
 PrevTo moves the iterator to the previous element from current position that satisfies the condition given by the passed function, and returns true if there was a next element in the container. If PrevTo() returns true, then next element's key and value can be retrieved by Key() and Value(). Modifies the state of the iterator.
 
-#### func (*Iterator[K, V]) [Value](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L118) 
+#### (*Iterator[K, V]) Value 
 
 ``` go
 func (iterator *Iterator[K, V]) Value() V
@@ -135,7 +135,7 @@ func (iterator *Iterator[K, V]) Value() V
 
 Value returns the current element's value. Does not modify the state of the iterator.
 
-#### type Node 
+### type Node 
 
 ``` go
 type Node[K comparable, V any] struct {
@@ -151,7 +151,7 @@ type Node[K comparable, V any] struct {
 
 Node is a single element within the tree
 
-#### func (*Node[K, V]) [Size](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L162) 
+#### (*Node[K, V]) Size 
 
 ``` go
 func (node *Node[K, V]) Size() int
@@ -159,13 +159,13 @@ func (node *Node[K, V]) Size() int
 
 Size returns the number of elements stored in the subtree. Computed dynamically on each call, i.e. the subtree is traversed to count the number of the nodes.
 
-#### func (*Node[K, V]) [String](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L291) 
+#### (*Node[K, V]) String 
 
 ``` go
 func (node *Node[K, V]) String() string
 ```
 
-#### type Tree 
+### type Tree 
 
 ``` go
 type Tree[K comparable, V any] struct {
@@ -194,7 +194,7 @@ func NewWith[K comparable, V any](comparator utils.Comparator[K]) *Tree[K, V]
 
 NewWith instantiates a red-black tree with the custom comparator.
 
-#### func (*Tree[K, V]) [Ceiling](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L255) 
+#### (*Tree[K, V]) Ceiling 
 
 ``` go
 func (tree *Tree[K, V]) Ceiling(key K) (ceiling *Node[K, V], found bool)
@@ -206,7 +206,7 @@ Ceiling node is defined as the smallest node that is larger than or equal to the
 
 Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [Clear](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L277) 
+#### (*Tree[K, V]) Clear 
 
 ``` go
 func (tree *Tree[K, V]) Clear()
@@ -214,7 +214,7 @@ func (tree *Tree[K, V]) Clear()
 
 Clear removes all nodes from the tree.
 
-#### func (*Tree[K, V]) [Empty](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L151) 
+#### (*Tree[K, V]) Empty 
 
 ``` go
 func (tree *Tree[K, V]) Empty() bool
@@ -222,7 +222,7 @@ func (tree *Tree[K, V]) Empty() bool
 
 Empty returns true if tree does not contain any nodes
 
-#### func (*Tree[K, V]) [Floor](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L226) 
+#### (*Tree[K, V]) Floor 
 
 ``` go
 func (tree *Tree[K, V]) Floor(key K) (floor *Node[K, V], found bool)
@@ -234,7 +234,7 @@ Floor node is defined as the largest node that is smaller than or equal to the g
 
 Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [FromJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/serialization.go#L28) 
+#### (*Tree[K, V]) FromJSON 
 
 ``` go
 func (tree *Tree[K, V]) FromJSON(data []byte) error
@@ -242,7 +242,7 @@ func (tree *Tree[K, V]) FromJSON(data []byte) error
 
 FromJSON populates the tree from the input JSON representation.
 
-#### func (*Tree[K, V]) [Get](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L104) 
+#### (*Tree[K, V]) Get 
 
 ``` go
 func (tree *Tree[K, V]) Get(key K) (value V, found bool)
@@ -250,7 +250,7 @@ func (tree *Tree[K, V]) Get(key K) (value V, found bool)
 
 Get searches the node in the tree by key and returns its value or nil if key is not found in tree. Second return parameter is true if key was found, otherwise false. Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [GetNode](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L114) 
+#### (*Tree[K, V]) GetNode 
 
 ``` go
 func (tree *Tree[K, V]) GetNode(key K) *Node[K, V]
@@ -258,7 +258,7 @@ func (tree *Tree[K, V]) GetNode(key K) *Node[K, V]
 
 GetNode searches the node in the tree by key and returns its node or nil if key is not found in tree. Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [Iterator](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L26) 
+#### (*Tree[K, V]) Iterator 
 
 ``` go
 func (tree *Tree[K, V]) Iterator() *Iterator[K, V]
@@ -266,7 +266,7 @@ func (tree *Tree[K, V]) Iterator() *Iterator[K, V]
 
 Iterator returns a stateful iterator whose elements are key/value pairs.
 
-#### func (*Tree[K, V]) [IteratorAt](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/iterator.go#L31) 
+#### (*Tree[K, V]) IteratorAt 
 
 ``` go
 func (tree *Tree[K, V]) IteratorAt(node *Node[K, V]) *Iterator[K, V]
@@ -274,7 +274,7 @@ func (tree *Tree[K, V]) IteratorAt(node *Node[K, V]) *Iterator[K, V]
 
 IteratorAt returns a stateful iterator whose elements are key/value pairs that is initialised at a particular node.
 
-#### func (*Tree[K, V]) [Keys](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L177) 
+#### (*Tree[K, V]) Keys 
 
 ``` go
 func (tree *Tree[K, V]) Keys() []K
@@ -282,7 +282,7 @@ func (tree *Tree[K, V]) Keys() []K
 
 Keys returns all keys in-order
 
-#### func (*Tree[K, V]) [Left](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L197) 
+#### (*Tree[K, V]) Left 
 
 ``` go
 func (tree *Tree[K, V]) Left() *Node[K, V]
@@ -290,7 +290,7 @@ func (tree *Tree[K, V]) Left() *Node[K, V]
 
 Left returns the left-most (min) node or nil if tree is empty.
 
-#### func (*Tree[K, V]) [MarshalJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/serialization.go#L46) 
+#### (*Tree[K, V]) MarshalJSON 
 
 ``` go
 func (tree *Tree[K, V]) MarshalJSON() ([]byte, error)
@@ -298,7 +298,7 @@ func (tree *Tree[K, V]) MarshalJSON() ([]byte, error)
 
 MarshalJSON @implements json.Marshaler
 
-#### func (*Tree[K, V]) [Put](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L60) 
+#### (*Tree[K, V]) Put 
 
 ``` go
 func (tree *Tree[K, V]) Put(key K, value V)
@@ -306,7 +306,7 @@ func (tree *Tree[K, V]) Put(key K, value V)
 
 Put inserts node into the tree. Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [Remove](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L120) 
+#### (*Tree[K, V]) Remove 
 
 ``` go
 func (tree *Tree[K, V]) Remove(key K)
@@ -314,7 +314,7 @@ func (tree *Tree[K, V]) Remove(key K)
 
 Remove remove the node from the tree by key. Key should adhere to the comparator's type assertion, otherwise method panics.
 
-#### func (*Tree[K, V]) [Right](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L208) 
+#### (*Tree[K, V]) Right 
 
 ``` go
 func (tree *Tree[K, V]) Right() *Node[K, V]
@@ -322,7 +322,7 @@ func (tree *Tree[K, V]) Right() *Node[K, V]
 
 Right returns the right-most (max) node or nil if tree is empty.
 
-#### func (*Tree[K, V]) [Size](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L156) 
+#### (*Tree[K, V]) Size 
 
 ``` go
 func (tree *Tree[K, V]) Size() int
@@ -330,7 +330,7 @@ func (tree *Tree[K, V]) Size() int
 
 Size returns number of nodes in the tree.
 
-#### func (*Tree[K, V]) [String](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L283) 
+#### (*Tree[K, V]) String 
 
 ``` go
 func (tree *Tree[K, V]) String() string
@@ -338,7 +338,7 @@ func (tree *Tree[K, V]) String() string
 
 String returns a string representation of container
 
-#### func (*Tree[K, V]) [ToJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/serialization.go#L18) 
+#### (*Tree[K, V]) ToJSON 
 
 ``` go
 func (tree *Tree[K, V]) ToJSON() ([]byte, error)
@@ -346,7 +346,7 @@ func (tree *Tree[K, V]) ToJSON() ([]byte, error)
 
 ToJSON outputs the JSON representation of the tree.
 
-#### func (*Tree[K, V]) [UnmarshalJSON](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/serialization.go#L41) 
+#### (*Tree[K, V]) UnmarshalJSON 
 
 ``` go
 func (tree *Tree[K, V]) UnmarshalJSON(bytes []byte) error
@@ -354,7 +354,7 @@ func (tree *Tree[K, V]) UnmarshalJSON(bytes []byte) error
 
 UnmarshalJSON @implements json.Unmarshaler
 
-#### func (*Tree[K, V]) [Values](https://github.com/emirpasic/gods/blob/v2.0.0-alpha/trees/redblacktree/redblacktree.go#L187) 
+#### (*Tree[K, V]) Values 
 
 ``` go
 func (tree *Tree[K, V]) Values() []V

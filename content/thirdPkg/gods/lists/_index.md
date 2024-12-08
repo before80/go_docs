@@ -35,7 +35,7 @@ This section is empty.
 
 ## 类型 
 
-#### type List 
+### type List 
 
 ``` go
 type List[T comparable] interface {
