@@ -17,16 +17,26 @@ draft = false
 
 Package maps provides an abstract Map interface.
 
+​	包 `maps` 提供了一个抽象的 `Map` 接口。
+
 In computer science, an associative array, map, symbol table, or dictionary is an abstract data type composed of a collection of (key, value) pairs, such that each possible key appears just once in the collection.
 
-Operations associated with this data type allow: - the addition of a pair to the collection - the removal of a pair from the collection - the modification of an existing pair - the lookup of a value associated with a particular key
+​	在计算机科学中，关联数组、映射、符号表或字典是一种抽象数据类型，由一组 (键, 值) 对组成，使得每个可能的键在集合中只出现一次。
+
+Operations associated with this data type allow: 
+
+​	与此数据类型相关的操作包括：
+
+- the addition of a pair to the collection 
+  - 向集合中添加一对键值对
+- the removal of a pair from the collection 
+  - 从集合中删除一对键值对
+- the modification of an existing pair 
+  - 修改现有的键值对
+- the lookup of a value associated with a particular key
+  - 查找与特定键相关联的值
 
 Reference: https://en.wikipedia.org/wiki/Associative_array
-
-### Index 
-
-- [type BidiMap](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps#BidiMap)
-- [type Map](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/maps#Map)
 
 ## 常量
 
@@ -54,6 +64,8 @@ type BidiMap[K comparable, V comparable] interface {
 
 BidiMap interface that all bidirectional maps implement (extends the Map interface)
 
+​	`BidiMap` 接口是所有双向映射实现的接口（扩展自 `Map` 接口）。
+
 ### type Map 
 
 ``` go
@@ -68,3 +80,5 @@ type Map[K comparable, V any] interface {
 ```
 
 Map interface that all maps implement
+
+​	`Map` 接口是所有映射实现的接口。

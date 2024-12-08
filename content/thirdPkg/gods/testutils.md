@@ -13,10 +13,6 @@ draft = false
 >
 > 收录该文档时间： `2024-12-07T11:08:59+08:00`
 
-### Index 
-
-- [func SameElements[T comparable](t *testing.T, actual, expected [\]T)](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/testutils#SameElements)
-
 ## 常量
 
 This section is empty.

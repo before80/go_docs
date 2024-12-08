@@ -17,7 +17,19 @@ draft = false
 
 Package stacks provides an abstract Stack interface.
 
-In computer science, a stack is an abstract data type that serves as a collection of elements, with two principal operations: push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. The order in which elements come off a stack gives rise to its alternative name, LIFO (for last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+​	包 `stacks` 提供了一个抽象的 `Stack` 接口。
+
+In computer science, a stack is an abstract data type that serves as a collection of elements, with two principal operations: 
+
+​	在计算机科学中，栈是一种抽象数据类型，它作为元素的集合，有两个主要操作：
+
+push, which adds an element to the collection, and pop, which removes the most recently added element that was not yet removed. 
+
+​	`push`，将一个元素添加到集合中；`pop`，移除最先被添加但尚未移除的元素。
+
+The order in which elements come off a stack gives rise to its alternative name, LIFO (for last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+
+​	栈中元素的移除顺序引出了它的另一个名称，LIFO（后进先出）。此外，还可以通过 `peek` 操作访问栈顶元素而不修改栈的内容。
 
 Reference: [https://en.wikipedia.org/wiki/Stack_%28abstract_data_type%29](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 
@@ -48,3 +60,5 @@ type Stack[T any] interface {
 ```
 
 Stack interface that all stacks implement
+
+​	`Stack` 接口是所有栈实现的基础。

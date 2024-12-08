@@ -17,13 +17,12 @@ draft = false
 
 Package utils provides common utility functions.
 
-Provided functionalities: - sorting - comparators
+​	`utils` 包提供了常用的工具函数。
 
-### Index 
+Provided functionalities: 提供的功能：
 
-- [func TimeComparator(a, b time.Time) int](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils#TimeComparator)
-- [func ToString(value interface{}) string](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils#ToString)
-- [type Comparator](https://pkg.go.dev/github.com/emirpasic/gods/v2@v2.0.0-alpha/utils#Comparator)
+- sorting  排序
+- comparators 排序
 
 ## 常量
 
@@ -43,6 +42,8 @@ func TimeComparator(a, b time.Time) int
 
 TimeComparator provides a basic comparison on time.Time
 
+​	`TimeComparator` 提供对 `time.Time` 类型的基本比较。
+
 #### func ToString 
 
 ``` go
@@ -50,6 +51,8 @@ func ToString(value interface{}) string
 ```
 
 ToString converts a value to string.
+
+​	`ToString` 将一个值转换为字符串。
 
 ## 类型 
 

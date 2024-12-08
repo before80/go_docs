@@ -65,7 +65,7 @@ GetSortedValuesFunc is the equivalent of GetSortedValues for containers of value
 
 ​	`GetSortedValuesFunc` 是 `GetSortedValues` 的扩展，适用于值不可排序的容器。
 
-## 类型 
+## xxxxxxxxxx1 1type Comparator[T any] func(x, y T) intgo
 
 ### type Container 
 
