@@ -76,7 +76,7 @@ dlv dap [flags]
 
 ```
       --client-addr string   Address where the DAP client is waiting for the DAP server to dial in. Prefix with 'unix:' to use a unix domain socket.
-      								DAP 客户端等待 DAP 服务器拨入的地址。使用 'unix:' 前缀来使用 Unix 域套接字。
+      							DAP 客户端等待 DAP 服务器拨入的地址。使用 'unix:' 前缀来使用 Unix 域套接字。
   -h, --help                 help for dap
   									显示 dap 的帮助信息
 ```
@@ -89,25 +89,25 @@ dlv dap [flags]
 
 ```
       --check-go-version    Exits if the version of Go in use is not compatible (too old or too new) with the version of Delve. (default true)
-      							如果正在使用的 Go 版本与 Delve 的版本不兼容（过旧或过新），则退出。（默认值为 true）
-      							
+      						如果正在使用的 Go 版本与 Delve 的版本不兼容（过旧或过新），则退出。（默认值为 true）
+      						
       --disable-aslr        Disables address space randomization
-      							禁用地址空间随机化
-      							
+      						禁用地址空间随机化
+      						
   -l, --listen string       Debugging server listen address. Prefix with 'unix:' to use a unix domain socket. (default "127.0.0.1:0")
   								调试服务器监听地址。使用 'unix:' 前缀来使用 Unix 域套接字。（默认值为 "127.0.0.1:0"）
   								
       --log                 Enable debugging server logging.
-      							启用调试服务器日志。
-      							
+      						启用调试服务器日志。
+      						
       --log-dest string     Writes logs to the specified file or file descriptor (see 'dlv help log').
-      							将日志写入指定的文件或文件描述符（参见 'dlv help log'）。
-      							
+      						将日志写入指定的文件或文件描述符（参见 'dlv help log'）。
+      						
       --log-output string   Comma separated list of components that should produce debug output (see 'dlv help log')
-      							逗号分隔的组件列表，这些组件应生成调试输出（参见 'dlv help log'）。
-      							
+      						逗号分隔的组件列表，这些组件应生成调试输出（参见 'dlv help log'）。
+      						
       --only-same-user      Only connections from the same user that started this instance of Delve are allowed to connect. (default true)
-      							仅允许与启动当前 Delve 实例的同一用户连接。（默认值为 true）
+      						仅允许与启动当前 Delve 实例的同一用户连接。（默认值为 true）
 ```
 
 

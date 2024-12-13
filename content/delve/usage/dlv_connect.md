@@ -52,19 +52,19 @@ dlv connect addr [flags]
 
 ```
       --backend string      Backend selection (see 'dlv help backend'). (default "default")
-      							后端选择（参见 'dlv help backend'）。（默认 "default"）
-      							
+      						后端选择（参见 'dlv help backend'）。（默认 "default"）
+      						
       --init string         Init file, executed by the terminal client.
-      							初始化文件，由终端客户端执行。
-      							
+      						初始化文件，由终端客户端执行。
+      						
       --log                 Enable debugging server logging.
-      							启用调试服务器日志。
-      							
+      						启用调试服务器日志。
+      						
       --log-dest string     Writes logs to the specified file or file descriptor (see 'dlv help log').
-      							将日志写入指定的文件或文件描述符（参见 'dlv help log'）。
-      							
+      						将日志写入指定的文件或文件描述符（参见 'dlv help log'）。
+      						
       --log-output string   Comma separated list of components that should produce debug output (see 'dlv help log')
-      							逗号分隔的组件列表，这些组件应生成调试输出（参见 'dlv help log'）。
+      						逗号分隔的组件列表，这些组件应生成调试输出（参见 'dlv help log'）。
 ```
 
 
