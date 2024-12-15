@@ -15,7 +15,7 @@ draft = false
 
 # Assertions - 断言
 
-[Edit](https://github.com/smartystreets/goconvey/wiki/Assertions/_edit) [New page](https://github.com/smartystreets/goconvey/wiki/_new)
+
 
 Tony Grosinger edited this page on Oct 2, 2015 · [14 revisions](https://github.com/smartystreets/goconvey/wiki/Assertions/_history)
 

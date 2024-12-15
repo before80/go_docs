@@ -29,7 +29,7 @@ Basically, GoConvey is an extension of the built-in Go test tool. It facilitates
 
 ​	基本上，GoConvey 是对内置 Go 测试工具的扩展。它支持 [行为驱动开发 (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)，但这并不是唯一的用途。许多人仍然编写传统的 Go 测试，但更喜欢使用 [GoConvey 的 Web UI](https://github.com/smartystreets/goconvey/wiki/Web-UI) 来报告测试结果。
 
-There are two main parts to GoConvey:
+xxxxxxxxxx26 1Convey("Top-level", t, func() {2​3    // setup (run before each `Convey` at this scope):4    // 初始化（在此作用域的每个 `Convey` 之前运行）:5    db.Open()6    db.Initialize()7​8    Convey("Test a query", t, func() {9        db.Query()10        // TODO: assertions here11        // TODO: 在此添加断言12    })13​14    Convey("Test inserts", t, func() {15        db.Insert()16        // TODO: assertions here17        // TODO: 在此添加断言18    })19​20    Reset(func() {21        // This reset is run after each `Convey` at the same scope.22        // 此 Reset 会在同一作用域内每个 `Convey` 之后运行。23        db.Close()24    })25​26})go
 
 ​	GoConvey 主要包括两个部分：
 

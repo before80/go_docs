@@ -108,11 +108,15 @@ http://localhost:8080
 
 Click the "Code Gen" link in the top-right corner to open the code generator. Type your test descriptors in the textbox, and use Tab to indent. Test stubs will automatically be created for you which you can then copy+paste into your Go test file.
 
-​	
+​	点击右上角的 "Code Gen" 链接以打开代码生成器。在文本框中输入您的测试描述符，并使用 Tab 缩进。测试模板将自动为您生成，您可以将其复制并粘贴到您的 Go 测试文件中。
 
 The idea is to describe your program's behavior in a natural, flowing way.
 
+​	其理念是以一种自然、流畅的方式描述您的程序行为。
+
 For example (make sure to convert spaces to tabs, as GitHub transformed them to spaces):
+
+​	例如（请确保将空格转换为 Tab，因为 GitHub 会将 Tab 转换为空格）：
 
 ```
 Test Integer Stuff
@@ -130,21 +134,29 @@ Test Integer Stuff
 
 There are a few to notice:
 
-- Lines starting with "Test" (case-sensitive), without indentation, are treated as the name of the test function
-- Tab indentation defines scope
-- Assertions are not made here; you'll do that later after pasting the generated code into your `_test.go` file.
+​	需要注意以下几点：
 
-### Graphical feature tour
+- Lines starting with "Test" (case-sensitive), without indentation, are treated as the name of the test function
+  - 以 "Test"（区分大小写）开头且没有缩进的行将被视为测试函数的名称。
+
+- Tab indentation defines scope
+  - 使用 Tab 缩进来定义作用域。
+
+- Assertions are not made here; you'll do that later after pasting the generated code into your `_test.go` file.
+  - 此处不会生成断言；您需要在将生成的代码粘贴到 `_test.go` 文件后再添加断言。
+
+
+### 图形功能演示 Graphical feature tour
 
 
 
 ![GoConvey web UI](webUI_img/687474703a2f2f692e696d6775722e636f6d2f4f377556766f712e706e67.png)
 
-### Server command line flags
+### 服务器命令行标志 Server command line flags
 
 
 
-```
+```sh
 $GOPATH/bin/goconvey -help
 
 Usage of goconvey:
