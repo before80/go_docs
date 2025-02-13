@@ -154,8 +154,8 @@ GOPATH=F:\GoPath
 GOBIN=%GOPATH%\bin
 GOPROXY=https://goproxy.cn,direct
 
-# Path将go自动设置的有关go的环境变量删除掉
-# 新增以下行：
+# 在Path环境变量中将go自动设置的有关go的环境变量删除掉
+# 并新增以下两行：
 
 %GOROOT%\bin
 %GOPATH%\bin

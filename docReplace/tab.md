@@ -4,188 +4,6 @@
 
 {{< tabpane text=true persist=disabled >}}
 
-{{% tab header="" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-{{% tab header="`--mount`" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="`-v`" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-{{% tab header="`--mount`" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="`--tmpfs`" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
-{{% tab header="CLI" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header=" Docker Desktop" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
-{{% tab header="Latest" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="Specific version" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
-{{% tab header="Latest" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="Specific version" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
-{{% tab header="Docker Hub" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header=" Admin Console" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
-{{% tab header="Using the GUI" %}}
-
-
-
-{{% /tab  %}}
-
-{{% tab header="Using the CLI" %}}
-
-
-
-{{% /tab  %}}
-
-{{< /tabpane >}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{< tabpane text=true persist=disabled >}}
-
 {{% tab header="Go" %}}
 
 
@@ -253,3 +71,15 @@
 {{% /tab  %}}
 
 {{< /tabpane >}}
+
+
+
+
+
+
+
+Go、Python、Java、Rust、C/C++、JavaScript、TypeScript、C#、Erlang、PHP、Ruby、Lua
+
+
+
+详细介绍下Go、Python、Java、Rust、C/C++、JavaScript、TypeScript、C#、Erlang、PHP、Ruby、Lua各个编程语言中关于
