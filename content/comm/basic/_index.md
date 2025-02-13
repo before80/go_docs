@@ -337,7 +337,37 @@ yield from
 
 {{% tab header="Go" %}}
 
+​	Go 语言的模块管理工具是 **Go Modules**，自 Go 1.11 版本起引入，并在 Go 1.13 版本后成为官方推荐的标准。
 
+​	**Go Modules 的核心文件：**
+
+- **go.mod：** 定义了模块的名称、Go 版本以及项目的依赖关系（可以通过`go mod init <模块路径>`自动生成文件，并可通过`go mod tidy`、`go mod edit`、`go get`等命令进行编辑）。
+- **go.sum：** 记录了每个依赖包的哈希值，用于校验依赖包的完整性（通过`go mod tidy`或`go build`等命令自动生成）。
+
+​	常用的 Go Modules 命令
+
+| 命令                 | 描述                                                     | 示例                                                  |
+| -------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
+| `go mod init`        | 初始化一个新的模块，创建 `go.mod` 文件。                 | `go mod init github.com/username/projectname`         |
+| `go mod tidy`        | 清理 `go.mod` 和 `go.sum` 文件，移除不再需要的依赖项。   | `go mod tidy`                                         |
+| `go mod vendor`      | 将所有依赖项复制到 `vendor` 目录，方便离线构建。         | `go mod vendor`                                       |
+| `go get`             | 下载并安装指定的包及其依赖项。                           | `go get github.com/some/package`                      |
+| `go get -u`          | 更新指定的包及其依赖项到最新版本。                       | `go get -u github.com/some/package`                   |
+| `go get -d`          | 仅下载指定的包及其依赖项，不进行安装。                   | `go get -d github.com/some/package`                   |
+| `go list -m all`     | 列出当前模块的所有依赖项及其版本。                       | `go list -m all`                                      |
+| `go mod verify`      | 校验 `go.mod` 和 `go.sum` 文件中的依赖项是否与实际一致。 | `go mod verify`                                       |
+| `go clean -modcache` | 清理模块缓存，释放磁盘空间。                             | `go clean -modcache`                                  |
+| `go build`           | 编译当前模块的所有包。                                   | `go build`                                            |
+| `go test`            | 运行当前模块的所有测试。                                 | `go test`                                             |
+| `go run`             | 编译并运行指定的 Go 源文件。                             | `go run main.go`                                      |
+| `go install`         | 编译并安装指定的包或可执行文件。                         | `go install github.com/some/package`                  |
+| `go mod graph`       | 打印模块的依赖图。                                       | `go mod graph`                                        |
+| `go mod edit`        | 编辑 `go.mod` 文件，例如添加、删除或修改依赖项。         | `go mod edit -require=github.com/some/package@v1.2.3` |
+| `go mod download`    | 下载 `go.mod` 中列出的所有依赖项到本地缓存。             | `go mod download`                                     |
+| `go mod why`         | 解释为什么需要某个包或模块。                             | `go mod why github.com/some/package`                  |
+| `go mod graph`       | 打印模块的依赖图。                                       | `go mod graph`                                        |
+| `go mod edit`        | 编辑 `go.mod` 文件，例如添加、删除或修改依赖项。         | `go mod edit -require=github.com/some/package@v1.2.3` |
+| `go mod vendor`      | 将所有依赖项复制到 `vendor` 目录，方便离线构建。         | `go mod vendor`                                       |
 
 {{% /tab  %}}
 
@@ -572,6 +602,10 @@ pip install --timeout 60 scipy
 {{% /tab  %}}
 
 {{% tab header="Java" %}}
+
+
+
+
 
 
 
