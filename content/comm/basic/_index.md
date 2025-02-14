@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-Go、Python、Java、Rust、C/C++、JavaScript、TypeScript、C#、Erlang、PHP、Ruby
+给出Go、Python、Java、Rust、C/C++、JavaScript、TypeScript、C#、Erlang、PHP、Ruby各个编程语言各自的
 
 ## 安装、配置、卸载、更新、运行代码
 
@@ -339,12 +339,12 @@ yield from
 
 ​	Go 语言的模块管理工具是 **Go Modules**，自 Go 1.11 版本起引入，并在 Go 1.13 版本后成为官方推荐的标准。
 
-​	**Go Modules 的核心文件：**
+**Go Modules 的核心文件**
 
 - **go.mod：** 定义了模块的名称、Go 版本以及项目的依赖关系（可以通过`go mod init <模块路径>`自动生成文件，并可通过`go mod tidy`、`go mod edit`、`go get`等命令进行编辑）。
 - **go.sum：** 记录了每个依赖包的哈希值，用于校验依赖包的完整性（通过`go mod tidy`或`go build`等命令自动生成）。
 
-​	常用的 Go Modules 命令
+**常用的 Go Modules 命令**
 
 | 命令                 | 描述                                                     | 示例                                                  |
 | -------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
@@ -373,7 +373,7 @@ yield from
 
 {{% tab header="Python" %}}
 
-`pip`是Python自带的，无需安装，若有新版本只需更新。
+​	`pip`是Python自带的，无需安装，若有新版本只需更新。
 
 **`pip`默认的配置文件**
 
@@ -433,7 +433,7 @@ PS C:\Windows\System32>
 
 **`pip`的常用命令**
 
-查看包的可用版本
+（1）查看包的可用版本
 
 ```sh
 # 查看 numpy的可用版本（仅限 pip 23.0+）
@@ -456,7 +456,7 @@ Would install numpy-2.2.2
   
 ```
 
-安装包
+（2）安装包
 
 a.基本安装
 
@@ -506,7 +506,7 @@ pip install -r requirements.txt
 # 可以使用 # 来添加注释，注释内容会被忽略。
 ```
 
-升级包
+（3）升级包
 
 ```sh
 # 升级 requests 到最新版
@@ -516,14 +516,14 @@ pip install --upgrade requests
 pip install -U requests
 ```
 
-卸载包
+（4）卸载包
 
 ```sh
 #  卸载 pandsa
 pip uninstall pandas
 ```
 
-依赖管理
+（5）依赖管理
 
 ```sh
 # 导出当前环境所有依赖
@@ -542,7 +542,7 @@ pip-compile requirements.in
 pip-compile --upgrade requirements.in
 ```
 
-列出已安装的包
+（6）列出已安装的包
 
 ```sh
 # 列出所有包
@@ -552,7 +552,7 @@ pip list
 pip list --outdated
 ```
 
-查看包详情
+（7）查看包详情
 
 ```sh
 # 列出所有包
@@ -562,7 +562,7 @@ pip list
 pip list --outdated
 ```
 
-设置全局镜像源
+（8）设置全局镜像源
 
 ```sh
 # 永久配置清华镜像（Linux/macOS）
@@ -570,27 +570,27 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ```
 
-查看当前配置
+（9）查看当前配置
 
 ```sh
 pip config list
 ```
 
-安装开发模式（可编辑模式）
+（10）安装开发模式（可编辑模式）
 
 ```sh
 # 本地开发时直接链接代码（无需重复安装）
 pip install -e ./my_package
 ```
 
-忽略缓存安装
+（11）忽略缓存安装
 
 ```sh
 # 避免使用旧缓存文件
 pip install --no-cache-dir torch
 ```
 
-限制超时时间
+（12）限制超时时间
 
 ```sh
 # 设置超时为 60 秒
@@ -603,7 +603,93 @@ pip install --timeout 60 scipy
 
 {{% tab header="Java" %}}
 
+Maven 是 Java 项目的构建、依赖管理和项目管理工具，提供了丰富的命令来支持项目的各个阶段。
 
+**Maven的安装**
+
+1. 下载 Maven
+
+- 访问 Maven 官网：https://maven.apache.org/download.cgi
+- 在 "Files" 部分，找到 "Binary Distributions" 下的最新版本（例如 apache-maven-3.9.2-bin.zip），点击下载。
+
+2. 解压 Maven
+
+- 将下载的压缩包解压到你想要安装 Maven 的目录，例如：`C:\Program Files\Apache\apache-maven-3.9.2`。
+
+3. 配置环境变量
+
+- **设置 MAVEN_HOME 变量：**
+  - 在 Windows 搜索栏中输入 "环境变量"，选择 "编辑系统环境变量"。
+  - 点击 "环境变量" 按钮。
+  - 在 "系统变量" 部分，点击 "新建"。
+  - 变量名输入 `MAVEN_HOME`，变量值输入 Maven 的安装目录，例如 `C:\Program Files\Apache\apache-maven-3.9.2`。
+  - 点击 "确定"。
+- **将 Maven 的 bin 目录添加到 Path 变量：**
+  - 在 "系统变量" 部分，找到名为 "Path" 的变量，选中并点击 "编辑"。
+  - 点击 "新建"，输入 `%MAVEN_HOME%\bin`。
+  - 点击 "确定"。
+
+4. 验证安装
+
+- 打开命令提示符（CMD）或 PowerShell。
+- 输入 `mvn -v` 命令，按回车键。
+- 如果显示 Maven 的版本信息，则表示安装成功。
+
+5. 配置 Maven（可选）
+
+- **设置本地仓库：**
+
+  - 在 Maven 安装目录下，找到 `conf` 文件夹，打开 `settings.xml` 文件。
+
+  - 找到 `<localRepository>` 标签，取消注释，并设置本地仓库路径，例如：
+
+    ```xml
+    <localRepository>D:/maven/repository</localRepository>
+    ```
+
+  - 如果没有 `repository` 文件夹，需要手动创建。
+
+- **配置阿里云镜像（可选，加速下载）：**
+
+  详细请参见：[https://developer.aliyun.com/mvn/guide](https://developer.aliyun.com/mvn/guide)
+
+  - 在 `settings.xml` 文件中，找到 `<mirrors>` 标签，添加以下内容：
+
+    ```xml
+    <mirror>
+      <id>aliyunmaven</id>
+      <mirrorOf>*</mirrorOf>
+      <name>阿里云公共仓库</name>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+    ```
+
+**常用的 Maven 命令及其示例**
+
+| 命令                               | 描述                                         | 示例                                                         |
+| ---------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| `mvn clean`                        | 清理项目，删除 `target` 目录下的所有生成物。 | `mvn clean`                                                  |
+| `mvn compile`                      | 编译项目的源代码。                           | `mvn compile`                                                |
+| `mvn test`                         | 运行项目的单元测试。                         | `mvn test`                                                   |
+| `mvn package`                      | 打包项目，生成 JAR 或 WAR 文件。             | `mvn package`                                                |
+| `mvn install`                      | 将打包后的文件安装到本地仓库。               | `mvn install`                                                |
+| `mvn deploy`                       | 将打包后的文件部署到远程仓库。               | `mvn deploy`                                                 |
+| `mvn validate`                     | 验证项目是否正确，检查项目的有效性。         | `mvn validate`                                               |
+| `mvn verify`                       | 运行集成测试，验证项目是否满足质量标准。     | `mvn verify`                                                 |
+| `mvn clean install`                | 清理项目并安装到本地仓库。                   | `mvn clean install`                                          |
+| `mvn clean package`                | 清理项目并打包。                             | `mvn clean package`                                          |
+| `mvn clean deploy`                 | 清理项目并部署到远程仓库。                   | `mvn clean deploy`                                           |
+| `mvn site`                         | 生成项目相关信息的网站。                     | `mvn site`                                                   |
+| `mvn dependency:tree`              | 打印项目的依赖关系树。                       | `mvn dependency:tree`                                        |
+| `mvn dependency:list`              | 列出项目的所有依赖。                         | `mvn dependency:list`                                        |
+| `mvn dependency:copy-dependencies` | 将项目的依赖复制到指定目录。                 | `mvn dependency:copy-dependencies -DoutputDirectory=libs`    |
+| `mvn archetype:generate`           | 创建一个新的 Maven 项目。                    | `mvn archetype:generate -DgroupId=com.example -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart` |
+| `mvn clean validate`               | 清理项目并验证项目的有效性。                 | `mvn clean validate`                                         |
+| `mvn clean compile`                | 清理项目并编译源代码。                       | `mvn clean compile`                                          |
+| `mvn clean test`                   | 清理项目并运行单元测试。                     | `mvn clean test`                                             |
+| `mvn clean package`                | 清理项目并打包。                             | `mvn clean package`                                          |
+| `mvn clean install`                | 清理项目并安装到本地仓库。                   | `mvn clean install`                                          |
+| `mvn clean deploy`                 | 清理项目并部署到远程仓库。                   | `mvn clean deploy`                                           |
 
 
 
@@ -613,7 +699,69 @@ pip install --timeout 60 scipy
 
 {{% tab header="Rust" %}}
 
+**内联模块**
 
+​	直接在文件中用 `mod module_name { ... }` 定义。模块可以包含其他模块，形成层次结构，即模块可以嵌套模块。
+
+**文件模块**
+
+- 文件 `src/my_module.rs` 自动成为模块 `my_module`。
+- 目录 `src/my_module/` 需包含 `mod.rs` 文件作为入口。
+
+**使用模块**
+
+​	使用 `use` 关键字引入模块或其成员。
+
+```rust
+use my_module::my_function;
+
+fn main() {
+    my_function();
+}
+```
+
+**Crate：Rust 的包和构建单元**
+
+​	在 Rust 中，`crate` 是编译单元，可以是一个库或一个二进制可执行文件。每个 crate 都有一个根文件，通常是 `src/main.rs`（对于二进制 crate）或 `src/lib.rs`（对于库 crate）。
+
+- **库 crate**：如果项目包含 `src/lib.rs` 文件，则该项目是一个库 crate。
+- **二进制 crate**：如果项目包含 `src/main.rs` 文件，则该项目是一个二进制 crate。
+- **多二进制 crate**：如果项目的 `src` 目录下包含多个源文件，Cargo 会将它们视为多个二进制 crate。
+
+**Crate 根的具体规则**
+
+1. **二进制 crate**（生成可执行文件）：
+   - crate 根是 `src/main.rs` 文件。
+   - 例如：当你运行 `cargo new my_project`，默认生成的 `src/main.rs` 就是这个 crate 的根。
+2. **库 crate**（生成 `.rlib` 库文件）：
+   - crate 根是 `src/lib.rs` 文件。
+   - 例如：当你运行 `cargo new my_lib --lib`，生成的 `src/lib.rs` 是根。
+
+ **包（Package）**
+
+​	包是一个包含一个或多个 crate 的集合。每个包都有一个 `Cargo.toml` 配置文件，定义了包的元数据和依赖关系。
+
+（1）**创建包**：使用 `cargo new` 命令创建一个新包。
+
+```sh
+cargo new my_package
+```
+
+（2）**包结构**：包的目录结构通常如下：
+
+```sh
+my_package/
+├── Cargo.toml
+└── src/
+    └── main.rs
+```
+
+（3）**依赖管理**：在 `Cargo.toml` 文件的 `[dependencies]` 部分添加依赖项。
+
+```toml
+[dependencies]
+serde = "1.0"
+```
 
 {{% /tab  %}}
 
@@ -1084,67 +1232,685 @@ print(result)
 
 {{% tab header="Go" %}}
 
+- 内置类型：
+  - 布尔型：`bool`，表示真或假。
+  - 数值型：
+    - 整数：`int`、`int8`、`int16`、`int32`、`int64`、`uint`、`uint8`（`byte` 别名）、`uint16`、`uint32`、`uint64`、`uintptr`。
+    - 浮点数：`float32`、`float64`。
+    - 复数：`complex64`、`complex128`。
+  - 字符串型：`string`，用于存储文本数据。
+- 复合类型：
+  - 数组：`[n]T`，固定长度，`n` 为长度，`T` 为元素类型。
+  - 切片：`[]T`，长度可变，基于数组实现。
+  - 映射：`map[K]V`，键值对集合，`K` 为键类型，`V` 为值类型。
+  - 结构体：`struct`，用于组合不同类型的数据。
+  - 接口：`interface`，定义一组方法签名。
+- 自定义类型：
+  - 使用 `type` 关键字，如 `type MyInt int` 定义 `MyInt` 为 `int` 类型的别名；`type Person struct { Name string; Age int }` 定义一个结构体类型。
 
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // 内置类型
+    var b bool = true       // 布尔型
+    var i int = 10         // 整型
+    var i8 int8 = 8        // 8位整型
+    var i16 int16 = 16      // 16位整型
+    var i32 int32 = 32      // 32位整型
+    var i64 int64 = 64      // 64位整型
+    var ui uint = 10       // 无符号整型
+    var ui8 uint8 = 8      // 8位无符号整型
+    var ui16 uint16 = 16    // 16位无符号整型
+    var ui32 uint32 = 32    // 32位无符号整型
+    var ui64 uint64 = 64    // 64位无符号整型
+    var f float32 = 3.14    // 浮点型
+    var f64 float64 = 3.1415926  // 双精度浮点型
+    var c complex128 = 1 + 2i // 复数型
+    var s string = "hello"   // 字符串型
+    var by byte = 'a'      // 字节型
+    var r rune = '中'      // 符文型
+
+    fmt.Println(b, i, i8, i16, i32, i64, ui, ui8, ui16, ui32, ui64, f, f64, c, s, by, r)
+    // true 10 8 16 32 64 10 8 16 32 64 3.14 3.1415926 (1+2i) hello 97 20013
+
+    // 复合类型
+    var arr [3]int = [3]int{1, 2, 3} // 数组
+    var slice []int = []int{1, 2, 3} // 切片
+    var m map[string]int = map[string]int{"a": 1, "b": 2} // 映射
+    type Person struct { // 结构体
+        Name string
+        Age  int
+    }
+    var p Person = Person{"Alice", 30}
+    var ptr *int = &i // 指针
+    var f1 func(int) int = func(x int) int { return x * 2 } // 函数类型
+    type MyInterface interface { // 接口
+        MyMethod()
+    }
+
+    fmt.Println(arr, slice, m, p, ptr, f1)
+    // [1 2 3] [1 2 3] map[a:1 b:2] {Alice 30} 0xc0000140a0 0xc0000100c0
+
+    // 自定义类型
+    type MyInt int // 类型别名
+    type MyStruct struct { // 结构体
+        Name string
+    }
+    var myInt MyInt = 20
+    var myStruct MyStruct = MyStruct{"Bob"}
+
+    fmt.Println(myInt, myStruct)
+    // 20 {Bob}
+}
+```
 
 {{% /tab  %}}
 
 {{% tab header="Python" %}}
 
+- 内置类型：
+  - 布尔型：`bool`，`True` 或 `False`。
+  - 数值型：
+    - 整数：`int`，任意大小的整数。
+    - 浮点数：`float`，带小数点的数。
+    - 复数：`complex`，如 `3 + 4j`。
+  - 字符串型：`str`，用于存储文本，用单引号、双引号或三引号表示。
+  - 序列类型：
+    - 列表：`list`，有序可变元素集合，如 `[1, 2, "hello"]`。
+    - 元组：`tuple`，有序不可变元素集合，如 `(1, 2, "world")`。
+  - 集合类型：
+    - 集合：`set`，无序不重复元素集合，如 `{1, 2, 3}`。
+    - 冻结集合：`frozenset`，不可变的集合。
+  - 映射类型：`dict`，键值对集合，如 `{"name": "Alice", "age": 25}`。
+- 自定义类型：
+  - 使用 `class` 关键字定义类，如 `class Person: def __init__(self, name, age): self.name = name; self.age = age`。
 
+```python
+# 内置类型
+b = True  # 布尔型
+i = 10  # 整型
+f = 3.14  # 浮点型
+c = 1 + 2j  # 复数型
+s = "hello"  # 字符串型
+by = b"hello"  # 字节型
+l = [1, 2, 3]  # 列表
+t = (1, 2, 3)  # 元组
+s1 = {1, 2, 3}  # 集合
+d = {"a": 1, "b": 2}  # 字典
+by_arr = bytearray(b"hello")  # 字节数组
+
+print(b, i, f, c, s, by, l, t, s1, d, by_arr)
+# True 10 3.14 (1+2j) hello b'hello' [1, 2, 3] (1, 2, 3) {1, 2, 3} {'a': 1, 'b': 2} bytearray(b'hello')
+
+# 自定义类型
+class MyClass:  # 类
+    pass
+
+my_object = MyClass()
+
+print(my_object)
+# <__main__.MyClass object at 0x...>
+```
 
 {{% /tab  %}}
 
 {{% tab header="Java" %}}
 
+- 内置类型（基本数据类型）：
+  - 布尔型：`boolean`，值为 `true` 或 `false`。
+  - 数值型：
+    - 整数：`byte`（8 位）、`short`（16 位）、`int`（32 位）、`long`（64 位）。
+    - 浮点数：`float`（32 位）、`double`（64 位）。
+    - 字符型：`char`，表示单个字符，用单引号括起来。
+- 复合类型（引用类型）：
+  - 类：`class`，用于封装数据和行为。
+  - 接口：`interface`，定义一组方法签名。
+  - 数组：`type[]`，如 `int[] numbers = new int[5];`。
+  - 枚举：`enum`，自 Java 5 引入，用于定义一组常量。
+- 自定义类型：
+  - 使用 `class` 关键字定义类，如 `class Person { String name; int age; }`；使用 `interface` 关键字定义接口；使用 `enum` 关键字定义枚举类型。
 
+```java
+public class Main {
+    public static void main(String[] args) {
+        // 内置类型（原始类型）
+        boolean b = true; // 布尔型
+        byte by = 10; // 字节型
+        short s = 20; // 短整型
+        int i = 30; // 整型
+        long l = 40L; // 长整型
+        float f = 3.14f; // 单精度浮点型
+        double d = 3.14159; // 双精度浮点型
+        char c = 'a'; // 字符型
+
+        System.out.println(b + " " + by + " " + s + " " + i + " " + l + " " + f + " " + d + " " + c);
+        // true 10 20 30 40 3.14 3.14159 a
+
+        // 复合类型（引用类型）
+        int[] arr = {1, 2, 3}; // 数组
+        class MyClass { // 类
+            String name;
+        }
+        MyClass myObj = new MyClass();
+        myObj.name = "Alice";
+        interface MyInterface { // 接口
+            void myMethod();
+        }
+        enum MyEnum { // 枚举
+            A, B, C
+        }
+
+        System.out.println(arr[0] + " " + myObj.name + " " + MyEnum.A);
+        // 1 Alice A
+
+        // 自定义类型
+        class MyOtherClass { // 类
+            int value;
+        }
+
+        MyOtherClass myOtherObj = new MyOtherClass();
+        myOtherObj.value = 100;
+
+        System.out.println(myOtherObj.value);
+        // 100
+    }
+}
+```
 
 {{% /tab  %}}
 
 {{% tab header="Rust" %}}
 
+- 内置类型：
+  - 布尔型：`bool`，`true` 或 `false`。
+  - 数值型：
+    - 整数：`i8`、`i16`、`i32`、`i64`、`i128`、`isize`、`u8`、`u16`、`u32`、`u64`、`u128`、`usize`。
+    - 浮点数：`f32`、`f64`。
+    - 字符型：`char`，表示单个 Unicode 字符。
+  - 字符串类型：
+    - `str`（字符串切片），不可变借用字符串。
+    - `String`，可变字符串。
+- 复合类型：
+  - 元组：`(type1, type2,...)`，固定长度，元素类型可以不同。
+  - 数组：`[T; n]`，固定长度，`T` 为元素类型，`n` 为长度。
+  - 结构体：`struct`，用于组合不同类型的数据。
+  - 枚举：`enum`，用于定义多种可能的类型。
+  - 联合体：`union`（不稳定特性）。
+- 自定义类型：
+  - 使用 `type` 关键字定义类型别名，如 `type MyInt = i32;`；使用 `struct` 关键字定义结构体，如 `struct Person { name: String, age: u32 }`；使用 `enum` 关键字定义枚举，如 `enum Color { Red, Green, Blue }`。
 
+```rust
+fn main() {
+    // 内置类型
+    let b: bool = true; // 布尔型
+    let i: i32 = 10; // 整型
+    let i8: i8 = 8; // 8位整型
+    let i16: i16 = 16; // 16位整型
+    let i32: i32 = 32; // 32位整型
+    let i64: i64 = 64; // 64位整型
+    let isize: isize = 123; // 根据平台大小而定的整型
+    let u8: u8 = 8; // 8位无符号整型
+    let u16: u16 = 16; // 16位无符号整型
+    let u32: u32 = 32; // 32位无符号整型
+    let u64: u64 = 64; // 64位无符号整型
+    let usize: usize = 123; // 根据平台大小而定的无符号整型
+    let f: f32 = 3.14; // 浮点型
+    let f64: f64 = 3.1415926; // 双精度浮点型
+    let c: char = 'a'; // 字符型
+    let s: &str = "hello"; // 字符串切片
+    let string: String = String::from("world"); // 字符串
+
+    println!("{} {} {} {} {} {} {} {} {} {} {} {} {} {} {} {}", b, i, i8, i16, i32, i64, isize, u8, u16, u32, u64, usize, f, f64, c, s, string);
+    // true 10 8 16 32 64 123 8 16 32 64 123 3.14 3.1415926 a hello world
+
+    // 复合类型
+    let arr: [i32; 3] = [1, 2, 3]; // 数组
+    let slice: &[i32] = &arr[..]; // 切片
+    let tuple: (i32, &str) = (1, "hello"); // 元组
+    struct MyStruct { // 结构体
+        name: String,
+    }
+    let my_struct: MyStruct = MyStruct { name: String::from("Alice") };
+    enum MyEnum { // 枚举
+        A,
+        B,
+    }
+    let my_enum: MyEnum = MyEnum::A;
+    let ptr: *const i32 = &i; // const指针
+    let mut mutable_i: i32 = 20;
+    let mutable_ptr: *mut i32 = &mut mutable_i;// 可变指针
+    type MyType = i32; // 类型别名
+
+    println!("{:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?} {:?}", arr, slice, tuple, my_struct, my_enum, ptr, mutable_ptr, MyType::default());
+    // [1, 2, 3] [1, 2, 3] (1, "hello") MyStruct { name: "Alice" } A 0x7ff7b5a041f0 0x7ff7b5a04204 0
+
+    // 自定义类型
+    struct MyOtherStruct { // 结构体
+        value: i32,
+    }
+
+    let my_other_struct: MyOtherStruct = MyOtherStruct { value: 100 };
+
+    println!("{}", my_other_struct.value);
+    // 100
+}
+```
 
 {{% /tab  %}}
 
 {{% tab header="C/C++" %}}
 
+- C 语言：
 
+  - 内置类型：
+    - 布尔型：`_Bool`（C99 引入，通常用 `stdbool.h` 头文件中的 `bool` 宏，值为 `true` 或 `false`）。
+    - 数值型：
+      - 整数：`char`、`short`、`int`、`long`、`long long`（C99 引入），每种又分 `signed` 和 `unsigned`。
+      - 浮点数：`float`、`double`、`long double`。
+    - 空类型：`void`，表示无类型。
+  - 复合类型：
+    - 数组：`type array_name[size];`，固定长度。
+    - 结构体：`struct`，用于组合不同类型的数据。
+    - 联合体：`union`，用于共享内存空间。
+    - 指针：`type *pointer_name;`，存储变量地址。
+  - 自定义类型：
+    - 使用 `typedef` 关键字定义类型别名，如 `typedef int MyInt;`；使用 `struct` 关键字定义结构体，如 `struct Person { char name[20]; int age; };`。
+
+- C++ 语言：
+
+  - **内置类型**：在 C 语言基础上，布尔型为 `bool`，值为 `true` 或 `false`。
+  - 复合类型：
+    - 数组：`type array_name[size];`，固定长度，C++11 引入 `std::array` 更安全易用。
+    - 结构体：`struct`，与 C 类似，但更面向对象。
+    - 类：`class`，用于封装数据和行为，是 C++ 面向对象的核心。
+    - 联合体：`union`，与 C 类似。
+    - 指针：`type *pointer_name;`，存储变量地址，C++11 引入智能指针 `std::unique_ptr`、`std::shared_ptr`、`std::weak_ptr` 等。
+    - 引用：`type &reference_name = variable;`，为变量的别名。
+    - 枚举：`enum`，可以定义强类型枚举 `enum class`（C++11 引入）。
+  - 自定义类型：
+    - 使用 `typedef` 关键字定义类型别名；使用 `class` 关键字定义类，如 `class Person { public: string name; int age; };`；使用 `struct` 关键字定义结构体；使用 `enum` 或 `enum class` 定义枚举类型。
+
+  ```c++
+  #include <iostream>
+  #include <string>
+  #include <vector>
+  
+  using namespace std;
+  
+  int main() {
+      // 内置类型（基本类型）
+      bool b = true; // 布尔型
+      int i = 10; // 整型
+      float f = 3.14f; // 单精度浮点型
+      double d = 3.14159; // 双精度浮点型
+      char c = 'a'; // 字符型
+      string s = "hello"; // 字符串
+  
+      cout << b << " " << i << " " << f << " " << d << " " << c << " " << s << endl; // 1 10 3.14 3.14159 a hello
+  
+      // 复合类型（派生类型）
+      int arr[] = {1, 2, 3}; // 数组
+      int* ptr = &i; // 指针
+      struct MyStruct { // 结构体
+          string name;
+          int age;
+      };
+      MyStruct myStruct = {"Alice", 30};
+      enum MyEnum { // 枚举
+          A, B, C
+      };
+      MyEnum myEnum = MyEnum::A;
+      vector<int> vec = {1, 2, 3}; // 动态数组（vector）
+  
+      cout << arr[0] << " " << *ptr << " " << myStruct.name << " " << myEnum << " "; // 1 10 Alice 0
+      for (int val : vec) {
+          cout << val << " "; // 1 2 3
+      }
+      cout << endl;
+  
+      // 自定义类型
+      class MyClass { // 类
+      public:
+          int value;
+      };
+  
+      MyClass myObj;
+      myObj.value = 100;
+  
+      cout << myObj.value << endl; // 100
+  
+      return 0;
+  }
+  ```
+
+  
 
 {{% /tab  %}}
 
 {{% tab header="JavaScript" %}}
 
+- 内置类型：
+  - 原始类型：
+    - 布尔型：`boolean`，`true` 或 `false`。
+    - 数值型：`number`，表示整数和浮点数。
+    - 字符串型：`string`，用于存储文本。
+    - 空值：`null`，表示空对象指针。
+    - 未定义：`undefined`，表示变量未赋值。
+    - 符号：`symbol`（ES6 引入），用于创建唯一标识符。
+  - 对象类型：`object`，用于存储键值对集合，如 `{ name: "Alice", age: 25 }`。
+- 自定义类型：
+  - 使用构造函数、类（ES6 引入 `class` 语法糖，本质还是构造函数）等方式创建自定义对象，如 `class Person { constructor(name, age) { this.name = name; this.age = age; } }`。
 
+```javascript
+// 原始类型
+let b = true; // 布尔型
+let n = 10; // 数值型
+let s = "hello"; // 字符串型
+let nu = null; // 空值
+let un = undefined; // 未定义
+let sy = Symbol("a"); // 符号
+let bi = 1234567890123456789012345678901234567890n; // BigInt
+
+console.log(b, n, s, nu, un, sy, bi); // true 10 hello null undefined Symbol(a) 1234567890123456789012345678901234567890n
+
+// 复合类型（对象类型）
+let obj = { name: "Alice", age: 30 }; // 对象
+let arr = [1, 2, 3]; // 数组
+function myFunction(x, y) { return x + y; } // 函数
+
+console.log(obj, arr, myFunction(2, 3)); // { name: 'Alice', age: 30 } [ 1, 2, 3 ] 5
+
+// 自定义类型
+class MyClass { // 类
+    constructor(value) {
+        this.value = value;
+    }
+}
+
+let myObj = new MyClass(100);
+
+console.log(myObj.value); // 100
+```
 
 {{% /tab  %}}
 
 {{% tab header="TypeScript" %}}
 
+- 内置类型：
+  - 与 JavaScript 原始类型类似：`boolean`、`number`、`string`、`null`、`undefined`、`symbol`。
+  - 新增：
+    - 任意类型：`any`，可以是任何类型。
+    - 未知类型：`unknown`，与 `any` 类似但更安全。
+    - 空类型：`void`，表示函数没有返回值。
+    - never 类型：`never`，表示从不会出现的值。
+  - 数组类型：`type[]` 或 `Array<type>`，如 `number[]` 或 `Array<number>`。
+  - 元组类型：`[type1, type2,...]`，固定长度，元素类型固定。
+- 自定义类型：
+  - 使用 `type` 关键字定义类型别名，如 `type MyNumber = number;`；使用 `interface` 关键字定义接口，如 `interface Person { name: string; age: number; }`；使用 `class` 关键字定义类，如 `class Person { constructor(public name: string, public age: number) {} }`。
 
+```typescript
+// 原始类型
+let b: boolean = true; // 布尔型
+let n: number = 10; // 数值型
+let s: string = "hello"; // 字符串型
+let nu: null = null; // 空值
+let un: undefined = undefined; // 未定义
+let sy: symbol = Symbol("a"); // 符号
+let bi: bigint = 1234567890123456789012345678901234567890n; // BigInt
+
+console.log(b, n, s, nu, un, sy, bi); // true 10 hello null undefined Symbol(a) 1234567890123456789012345678901234567890n
+
+// 复合类型（对象类型）
+let obj: { name: string; age: number } = { name: "Alice", age: 30 }; // 对象
+let arr: number[] = [1, 2, 3]; // 数组
+let myFunction: (x: number, y: number) => number = (x, y) => x + y; // 函数
+let tuple: [string, number] = ["hello", 10]; // 元组
+enum MyEnum { A, B, C } // 枚举
+let myEnum: MyEnum = MyEnum.A;
+
+console.log(obj, arr, myFunction(2, 3), tuple, myEnum); // { name: 'Alice', age: 30 } [ 1, 2, 3 ] 5 [ 'hello', 10 ] 0
+
+// 自定义类型
+class MyClass { // 类
+    value: number;
+    constructor(value: number) {
+        this.value = value;
+    }
+}
+
+interface MyInterface { // 接口
+    value: number;
+}
+
+type MyType = { // 类型别名
+    value: number;
+};
+
+let myObj = new MyClass(100);
+let myInterfaceObj: MyInterface = { value: 200 };
+let myTypeObj: MyType = { value: 300 };
+
+console.log(myObj.value, myInterfaceObj.value, myTypeObj.value); // 100 200 300
+```
 
 {{% /tab  %}}
 
 {{% tab header="C#" %}}
 
+- 内置类型（值类型）：
+  - 布尔型：`bool`，`true` 或 `false`。
+  - 数值型：
+    - 整数：`sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`。
+    - 浮点数：`float`、`double`、`decimal`。
+    - 字符型：`char`，表示单个 Unicode 字符。
+  - 枚举类型：`enum`，用于定义一组命名常量。
+  - 结构体类型：`struct`，轻量级对象，值类型。
+- 内置类型（引用类型）：
+  - 对象类型：`object`，所有类型的基类。
+  - 字符串类型：`string`，用于存储文本。
+  - 数组类型：`type[]`，如 `int[] numbers = new int[5];`。
+  - 类：`class`，用于封装数据和行为。
+  - 接口：`interface`，定义一组方法签名。
+  - 委托：`delegate`，用于实现回调函数。
+  - 事件：基于委托，用于对象间的通信。
+- 自定义类型：
+  - 使用 `class` 关键字定义类，如 `class Person { public string name; public int age; }`；使用 `struct` 关键字定义结构体；使用 `interface` 关键字定义接口；使用 `enum` 关键字定义枚举类型；使用 `delegate` 关键字定义委托类型。
 
+```c#
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // 值类型
+        bool b = true; // 布尔型
+        byte by = 10; // 字节型
+        short s = 20; // 短整型
+        int i = 30; // 整型
+        long l = 40L; // 长整型
+        float f = 3.14f; // 单精度浮点型
+        double d = 3.14159; // 双精度浮点型
+        char c = 'a'; // 字符型
+        decimal de = 100.00M; // 十进制型
+        enum MyEnum { A, B, C } // 枚举
+        MyEnum myEnum = MyEnum.A;
+        struct MyStruct { public string name; public int age; } // 结构体
+        MyStruct myStruct = new MyStruct { name = "Alice", age = 30 };
+
+        Console.WriteLine($"{b} {by} {s} {i} {l} {f} {d} {c} {de} {(int)myEnum} {myStruct.name} {myStruct.age}"); // True 10 20 30 40 3.14 3.14159 a 100.00 0 Alice 30
+
+        // 引用类型
+        string str = "hello"; // 字符串
+        int[] arr = { 1, 2, 3 }; // 数组
+        class MyClass { public int value; } // 类
+        MyClass myObj = new MyClass { value = 100 };
+        interface MyInterface { int MyMethod(); } // 接口
+        delegate int MyDelegate(int x); // 委托
+
+        Console.WriteLine($"{str} {arr[0]} {myObj.value}"); // hello 1 100
+
+        // 自定义类型
+        class MyOtherClass : MyClass { } // 类
+        interface MyOtherInterface : MyInterface { } // 接口
+
+        Console.WriteLine(new MyOtherClass().value); // 0
+    }
+}
+```
 
 {{% /tab  %}}
 
 {{% tab header="Erlang" %}}
 
+- 内置类型：
+  - 布尔型：`true`、`false`。
+  - 数值型：
+    - 整数：任意精度整数。
+    - 浮点数：`float`。
+  - 原子：`atom`，常量，以小写字母开头或用单引号括起来，如 `ok`、`'MyAtom'`。
+  - 字符串：实际上是整数列表，如 `[97, 98, 99]` 表示 `"abc"`。
+  - 列表：`[element1, element2,...]`，元素类型可以不同。
+  - 元组：`{element1, element2,...}`，固定长度，元素类型可以不同。
+- 自定义类型：
+  - 使用 `record` 语法定义记录类型，如 `-record(person, {name, age}).`，使用时 `#person{name = "Alice", age = 25}`。
 
+```erlang
+-module(main).
+-export([main/0]).
+
+main() ->
+    % 基本类型
+    B = true, % 布尔型
+    I = 10, % 整数
+    F = 3.14, % 浮点数
+    A = atom, % 原子
+    S = "hello", % 字符串
+    Bs = <<1, 2, 3>>, % 位串
+    N = nil, % 空列表
+
+    io:format("~p ~p ~p ~p ~p ~p ~p~n", [B, I, F, A, S, Bs, N]), % true 10 3.14 atom "hello" <<1,2,3>> []
+
+    % 复合类型
+    Tuple = {1, "hello", 3.14}, % 元组
+    List = [1, 2, 3], % 列表
+    Map = #{a => 1, b => 2}, % 映射
+    Binary = <<1, 2, 3>>, % 二进制型
+
+    io:format("~p ~p ~p ~p~n", [Tuple, List, Map, Binary]), % {1,"hello",3.14} [1,2,3] #{a => 1,b => 2} <<1,2,3>>
+
+    % 自定义类型
+    -type my_int() :: integer(). % 类型别名
+    -record(person, {name = "", age = 0}). % 记录
+
+    MyInt :: my_int() = 20.
+    Person = #person{name = "Alice", age = 30}.
+
+    io:format("~p ~p~n", [MyInt, Person]). % 20 {person, "Alice", 30}
+```
 
 {{% /tab  %}}
 
 {{% tab header="PHP" %}}
 
+- 内置类型：
+  - 布尔型：`bool`，`true` 或 `false`。
+  - 数值型：
+    - 整数：`int`，表示整数。
+    - 浮点数：`float`（`double` 别名），表示浮点数。
+  - 字符串型：`string`，用于存储文本。
+  - 数组：`array`，可以是索引数组、关联数组等多种形式，如 `$arr = [1, 2, 3];` 或 `$assocArr = ["name" => "Alice", "age" => 25];`。
+  - 对象：`object`，使用 `class` 定义的类的实例。
+  - 资源：`resource`，用于表示外部资源，如数据库连接等。
+  - 空值：`null`，表示变量没有值。
+- 自定义类型：
+  - 使用 `class` 关键字定义类，如 `class Person { public $name; public $age; }`。
 
+```php
+<?php
+// 标量类型
+$b = true; // 布尔型
+$i = 10; // 整型
+$f = 3.14; // 浮点型
+$s = "hello"; // 字符串型
+
+echo $b . " " . $i . " " . $f . " " . $s . "\n"; // 1 10 3.14 hello
+
+// 复合类型
+$arr = array(1, 2, 3); // 数组
+$obj = new stdClass(); // 对象
+$obj->name = "Alice";
+
+echo $arr[0] . " " . $obj->name . "\n"; // 1 Alice
+
+// 特殊类型
+$null = NULL; // NULL 类型
+
+echo var_export($null) . "\n"; // NULL
+
+// 自定义类型
+class MyClass { // 类
+    public $value;
+}
+
+$myObj = new MyClass();
+$myObj->value = 100;
+
+echo $myObj->value . "\n"; // 100
+?>
+```
 
 {{% /tab  %}}
 
 {{% tab header="Ruby" %}}
 
+- 内置类型：
+  - 布尔型：`true`、`false`。
+  - 数值型：
+    - 整数：`Fixnum`（小整数，范围有限）、`Bignum`（大整数，任意精度），在 Ruby 2.4 后统一为 `Integer`。
+    - 浮点数：`Float`。
+  - 字符串型：`String`，用于存储文本。
+  - 数组：`Array`，有序元素集合，元素类型可以不同，如 `[1, "hello", true]`。
+  - 哈希：`Hash`，键值对集合，如 `{name: "Alice", age: 25}`。
+  - 范围：`Range`，表示一个范围，如 `1..10`。
+  - 符号：`Symbol`，不可变的字符串 - like 对象，用于标识符等，如 `:name`。
+  - 正则表达式：`Regexp`，用于模式匹配。
+  - proc 和 lambda：`Proc`、`lambda`，用于创建可调用的代码块。
+- 自定义类型：
+  - 使用 `class` 关键字定义类，如 `class Person attr_accessor :name, :age def initialize(name, age) @name = name @age = age end end`。
 
+```ruby
+# 内置类型
+b = true # 布尔型
+i = 10 # 整型
+f = 3.14 # 浮点型
+s = "hello" # 字符串型
+sym = :symbol # 符号
+
+puts "#{b} #{i} #{f} #{s} #{sym}" # true 10 3.14 hello symbol
+
+# 复合类型
+arr = [1, 2, 3] # 数组
+hash = { "a" => 1, "b" => 2 } # 哈希
+range = 1..10 # 范围
+
+puts "#{arr} #{hash} #{range}" # [1, 2, 3] {"a"=>1, "b"=>2} 1..10
+
+# 自定义类型
+class MyClass # 类
+  def initialize(value)
+    @value = value
+  end
+end
+
+my_obj = MyClass.new(100)
+
+puts my_obj.instance_variable_get(:@value) # 100
+```
 
 {{% /tab  %}}
 
