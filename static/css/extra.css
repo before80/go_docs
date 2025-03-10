@@ -524,3 +524,7 @@ p > strong, .td-content li > strong {
 .td-max-width-on-larger-screens, .td-card.card, .td-content .td-card.highlight, .td-card-group.card-group, .td-content .footnotes, .td-content > .alert, .td-content > .highlight, .td-content > .lead, .td-content > .td-table, .td-box .td-content > table, .td-content > table, .td-content > blockquote, .td-content > dl dd, .td-content > h1, .td-content > .h1, .td-content > h2, .td-content > .h2, .td-content > ol, .td-content > p, .td-content > pre, .td-content > ul {
     max-width: 98% !important;
 }
+/* 针对 代码块中的注释的修改 */
+span > span > span {
+    font-style: normal !important;
+}
