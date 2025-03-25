@@ -1461,64 +1461,62 @@ More precisely, if `T` is not an interface type, `x.(T)` asserts that the dynami
 > 
 > 	// 断言无效
 > 	var i1 interface{ Set() }
-> 	v, ok := i1.(interface{ Set() })
-> 	fmt.Printf("%T,%#v,%t\n", i1, v, ok) // <nil>,<nil>,false
+> 	v1, ok1 := i1.(interface{ Set() })
+> 	fmt.Printf("%T,%#v,%t\n", i1, v1, ok1) // <nil>,<nil>,false
 > 
 > 	// 断言无效
 > 	var i2 T1
-> 	v, ok = i2.(T1)
-> 	fmt.Printf("%T,%#v,%t\n", i2, v, ok) // <nil>,<nil>,false
+> 	v2, ok2 := i2.(T1)
+> 	fmt.Printf("%T,%#v,%t\n", i2, v2, ok2) // <nil>,<nil>,false
 > 
 > 	//var i3 St1
-> 	//v, ok = i3.(T1) // invalid operation: i3 (variable of type St1) is not an interface
-> 	//fmt.Printf("%T,%#v,%t", i3, v, ok)
+> 	//v3, ok3 := i3.(T1) // invalid operation: i3 (variable of type St1) is not an interface
+> 	//fmt.Printf("%T,%#v,%t", i3, v3, ok3)
 > 
 > 	//i4 := St1{}
-> 	//v, ok = i4.(T1) // invalid operation: i4 (variable of type St1) is not an interface
-> 	//fmt.Printf("%T,%#v,%t", i4, v, ok)
+> 	//v4, ok4 := i4.(T1) // invalid operation: i4 (variable of type St1) is not an interface
+> 	//fmt.Printf("%T,%#v,%t", i4, v4, ok4)
 > 
 > 	//断言： i5 的动态类型实现了 T1 接口
 > 	var i5 interface{}
 > 	i5 = St1{}
-> 	v, ok = i5.(T1)
-> 	fmt.Printf("%T,%#v,%t\n", i5, v, ok) // main.St1,main.St1{},true
+> 	v5, ok5 := i5.(T1)
+> 	fmt.Printf("%T,%#v,%t\n", i5, v5, ok5) // main.St1,main.St1{},true
 > 
 > 	// T 不是接口的情况
 > 
 > 	//i20 := MyInt(10)
-> 	//v, ok = i20.(int) // invalid operation: i20 (variable of type MyInt) is not an interface
-> 	//fmt.Printf("%T,%#v,%t\n", i20, v, ok)
+> 	//v20, ok20 := i20.(int) // invalid operation: i20 (variable of type MyInt) is not an interface
+> 	//fmt.Printf("%T,%#v,%t\n", i20, v20, ok20)
 > 
-> 	//var i21 interface{}
-> 	//i21 = MyInt(10)
-> 	//v, ok = i21.(int) // cannot use i21.(int) (value of type int) as interface{Set()} value in assignment: int does not implement interface{Set()} (missing method Set)
-> 	//fmt.Printf("%T,%#v,%t\n", i21, v, ok)
+> 	var i21 interface{}
+> 	i21 = MyInt(10)
+> 	v21, ok21 := i21.(int)
+> 	fmt.Printf("%T,%#v,%t\n", i21, v21, ok21) // main.MyInt,0,false
 > 
 > 	//i22 := St1{}
-> 	//v, ok = i22.(St1) // invalid operation: i22 (variable of type St1) is not an interface
-> 	//fmt.Printf("%T,%#v,%t\n", i22, v, ok)
+> 	//v22, ok22 := i22.(St1) // invalid operation: i22 (variable of type St1) is not an interface
+> 	//fmt.Printf("%T,%#v,%t\n", i22, v22, ok22)
 > 
 > 	//断言： i23 的动态类型与 St1 类型一致
 > 	var i23 interface{}
 > 	i23 = St1{}
-> 	v, ok = i23.(St1)
-> 	fmt.Printf("%T,%#v,%t\n", i23, v, ok) // main.St1,main.St1{},true
+> 	v23, ok23 := i23.(St1)
+> 	fmt.Printf("%T,%#v,%t\n", i23, v23, ok23) // main.St1,main.St1{},true
 > 
 > 	// 断言无效
 > 	var i24 T1
-> 	v, ok = i24.(St1)
-> 	fmt.Printf("%T,%#v,%t\n", i24, v, ok) // <nil>,main.St1{},false
+> 	v24, ok24 := i24.(St1)
+> 	fmt.Printf("%T,%#v,%t\n", i24, v24, ok24) // <nil>,main.St1{},false
 > 
 > 	//断言： i25 的动态类型与 St1 类型一致
 > 	var i25 T1
 > 	i25 = St1{}
-> 	v, ok = i25.(St1)
-> 	fmt.Printf("%T,%#v,%t\n", i25, v, ok) // main.St1,main.St1{},true
-> 
+> 	v25, ok25 := i25.(St1)
+> 	fmt.Printf("%T,%#v,%t\n", i25, v25, ok25) // main.St1,main.St1{},true
 > }
-> 
 > ```
->
+> 
 > 
 
 If the type assertion holds, the value of the expression is the value stored in `x` and its type is `T`. If the type assertion is false, a [run-time panic](https://go.dev/ref/spec#Run_time_panics) occurs. In other words, even though the dynamic type of `x` is known only at run time, the type of `x.(T)` is known to be `T` in a correct program.
