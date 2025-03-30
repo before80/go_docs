@@ -129,7 +129,7 @@ If regex is specified only function arguments with a name matching it will be re
 ​	如果指定了 regex，只有与之匹配的函数参数名称才会被返回。如果指定了 -v，会显示更多关于每个函数参数的信息。
 
 
-## break
+## break <- b
 Sets a breakpoint.
 
 ​	设置断点。
@@ -193,7 +193,7 @@ Aliases: b
 
 ​	别名： b
 
-## breakpoints
+## breakpoints <- bp
 Print out info for active breakpoints.
 
 ​	打印活动断点的信息。	
@@ -243,7 +243,7 @@ Current limitations:
 
 
 
-## check
+## check <- checkpoint
 Creates a checkpoint at the current position.
 
 ​	在当前的位置创建一个检查点。
@@ -272,7 +272,7 @@ Deletes breakpoint.
 	clear <breakpoint name or id>
 
 
-## clear-checkpoint
+## clear-checkpoint <- clearcheck
 Deletes checkpoint.
 
 ​	删除检查点。
@@ -295,7 +295,7 @@ If called with the locspec argument it will delete all the breakpoints matching 
 ​	如果带有locspec参数，则删除所有匹配该位置规范的断点。如果省略locspec，则删除所有断点。
 
 
-## condition
+## condition <- cond
 Set breakpoint condition.
 
 ​	设置断点条件。
@@ -406,7 +406,7 @@ Adds, removes or clears debug-info-directories.
 ​	添加、移除或清除 debug-info-directories。
 
 
-## continue
+## continue <- c
 Run until breakpoint or program termination.
 
 ​	运行直到断点或程序终止。
@@ -440,7 +440,7 @@ Executes the specified command (print, args, locals) in the context of the n-th 
 ​	在当前帧的第 n 个延迟调用的上下文中执行指定的命令（打印、参数、局部变量等）。
 
 
-## disassemble
+## disassemble <- disass
 Disassembler.
 
 ​	反汇编。
@@ -503,7 +503,7 @@ The core dump is always written in ELF, even on systems (windows, macOS) where t
 ​	核心转储总是以 ELF 格式写入，即使在一些非 Linux 系统（如 Windows 和 macOS）上，这种格式并不常见。对于非 linux/amd64 环境，线程和寄存器会以 Delve 专用格式转储。
 
 
-## edit
+## edit <- ed
 Open where you are in `$DELVE_EDITOR` or `$EDITOR`
 
 ​	在 `$DELVE_EDITOR` 或 `$EDITOR` 中打开当前位置。
@@ -518,7 +518,7 @@ Aliases: ed
 
 ​	别名：ed
 
-## examinemem
+## examinemem <- x
 Examine raw memory at the given address.
 
 ​	检查给定地址的原始内存。
@@ -547,7 +547,7 @@ Aliases: x
 
 ​	别名：x
 
-## exit
+## exit <- quit/q
 Exit the debugger.
 
 ​	退出调试器。		
@@ -587,7 +587,7 @@ If regex is specified only the functions matching it will be returned.
 ​	如果指定了 regex，仅返回匹配的函数。
 
 
-## goroutine
+## goroutine <- gr
 Shows or changes current goroutine
 
 ​	显示或切换当前 goroutine。
@@ -612,7 +612,7 @@ Aliases: gr
 
 ​	别名：gr
 
-## goroutines
+## goroutines <- grs
 List program goroutines.
 
 ​	列出程序的所有 goroutines。
@@ -745,7 +745,7 @@ Groups goroutines by the value of the label with the specified key.
 
 ​	根据指定键值的标签分组 goroutine。
 
-### EXEC
+### EXEC 
 
 	goroutines -exec <command>
 
@@ -757,7 +757,7 @@ Aliases: grs
 
 ​	别名：`grs`
 
-## help
+## help <- h
 Prints the help message.
 
 ​	打印帮助信息。
@@ -778,7 +778,7 @@ List loaded dynamic libraries
 ​	列出已加载的动态库。
 
 
-## list
+## list <- ls/l
 Show source code.
 
 ​	显示源代码。
@@ -818,7 +818,7 @@ If regex is specified only local variables with a name matching it will be retur
 ​	如果指定了正则表达式，只会返回名称匹配的局部变量。如果使用 `-v`，则会显示每个局部变量的更多信息。
 
 
-## next
+## next <- n
 Step over to next source line.
 
 ​	执行下一行源代码。
@@ -833,7 +833,7 @@ Aliases: n
 
 ​	别名：`n`
 
-## next-instruction
+## next-instruction <- ni/nexti
 Single step a single cpu instruction, skipping function calls.
 
 ​	单步执行一个 CPU 指令，跳过函数调用。
@@ -880,7 +880,7 @@ If regex is specified only the packages matching it will be returned.
 ​	如果指定了正则表达式，则仅返回匹配的包。
 
 
-## print
+## print <- p
 Evaluate an expression.
 
 ​	求值一个表达式。
@@ -917,7 +917,7 @@ Argument -a shows more registers. Individual registers can also be displayed by 
 ​	`-a` 参数显示更多寄存器。单个寄存器也可以通过 `print` 和 `display` 显示。请参阅 [Documentation/cli/expr.md](http://github.com/go-delve/delve/tree/master/Documentation/cli/expr.md)。
 
 
-## restart
+## restart <- r
 Restart process.
 
 ​	重新启动进程。
@@ -973,7 +973,7 @@ Currently, rev next, step, step-instruction and stepout commands are supported.
 ​	目前，支持 `rev next`，`rev step`，`rev step-instruction` 和 `rev stepout` 命令。
 
 
-## rewind
+## rewind <- rw
 Run backwards until breakpoint or start of recorded history.
 
 ​	倒退执行，直到断点或录制历史的开始。
@@ -1022,7 +1022,7 @@ If regex is specified only the source files matching it will be returned.
 ​	如果指定了正则表达式，则仅返回匹配的源文件。
 
 
-## stack
+## stack <- bt
 Print stack trace.
 
 ​	打印栈跟踪。
@@ -1059,7 +1059,7 @@ Aliases: bt
 
 ​	别名：`bt`
 
-## step
+## step <- s
 Single step through program.
 
 ​	单步执行程序。
@@ -1068,7 +1068,7 @@ Aliases: s
 
 ​	别名：`s`
 
-## step-instruction
+## step-instruction <- si/stepi
 Single step a single cpu instruction.
 
 ​	单步执行一个 CPU 指令。
@@ -1077,7 +1077,7 @@ Aliases: si、 stepi
 
 ​	别名：`si`、 `stepi`
 
-## stepout
+## stepout <- so
 Step out of the current function.
 
 ​	跳出当前函数。
@@ -1110,7 +1110,7 @@ Switches to the specified process.
 ​	切换到指定的进程。
 
 
-## thread
+## thread <- tr
 Switch to the specified thread.
 
 ​	切换到指定的线程。
@@ -1135,7 +1135,7 @@ Toggles on or off a breakpoint.
 	toggle <breakpoint name or id>
 
 
-## trace
+## trace <- t
 Set tracepoint.
 
 ​	设置追踪点。
