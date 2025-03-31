@@ -11,6 +11,8 @@ draft = false
 
 # Range Over Function Types - 遍历函数类型
 
+> 原文：[https://go.dev/blog/range-functions](https://go.dev/blog/range-functions)
+
 Ian Lance Taylor
 20 August 2024
 
@@ -22,6 +24,8 @@ Ian Lance Taylor
 This is the blog post version of my talk at GopherCon 2024.
 
 ​	这篇博客文章是我在 GopherCon 2024 上演讲的版本。
+
+{{< youtube "i9zwUT9dlVc" >}}
 
 Range over function types is a new language feature in the Go 1.23 release. This blog post will explain why we are adding this new feature, what exactly it is, and how to use it.
 

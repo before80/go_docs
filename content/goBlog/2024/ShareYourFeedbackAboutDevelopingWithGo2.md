@@ -11,6 +11,8 @@ draft = false
 
 # Share your feedback about developing with Go - 分享你对 Go 开发的反馈
 
+> 原文：[https://go.dev/blog/survey2024-h2](https://go.dev/blog/survey2024-h2)
+
 Alice Merrick, for the Go team
 9 September 2024
 

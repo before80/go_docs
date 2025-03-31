@@ -11,6 +11,8 @@ draft = false
 
 # Telemetry in Go 1.23 and beyond - Go 1.23及以后版本的遥测
 
+> 原文：[https://go.dev/blog/gotelemetry](https://go.dev/blog/gotelemetry)
+
 Robert Findley
 3 September 2024
 

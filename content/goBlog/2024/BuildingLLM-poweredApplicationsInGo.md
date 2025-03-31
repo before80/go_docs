@@ -11,6 +11,8 @@ draft = false
 
 # Building LLM-powered applications in Go - 在 Go 中构建基于LLM的应用程序
 
+> 原文：[https://go.dev/blog/llmpowered](https://go.dev/blog/llmpowered)
+
 Eli Bendersky
 12 September 2024
 

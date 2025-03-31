@@ -11,6 +11,8 @@ draft = false
 
 # Go 1.23 is released
 
+> 原文：[https://go.dev/blog/go1.23](https://go.dev/blog/go1.23)
+
 Dmitri Shuralyov, on behalf of the Go team
 13 August 2024
 

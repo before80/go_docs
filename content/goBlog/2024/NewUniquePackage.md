@@ -11,6 +11,8 @@ draft = false
 
 # New unique package - 新的 unique 包
 
+> 原文：[https://go.dev/blog/unique](https://go.dev/blog/unique)
+
 Michael Knyszek
 27 August 2024
 

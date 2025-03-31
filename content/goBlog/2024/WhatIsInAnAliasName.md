@@ -11,6 +11,8 @@ draft = false
 
 # What's in an (Alias) Name? - 名字（别名）中有什么？
 
+> 原文：[https://go.dev/blog/alias-names](https://go.dev/blog/alias-names)
+
 Robert Griesemer
 17 September 2024
 
