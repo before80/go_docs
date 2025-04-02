@@ -1,0 +1,1291 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-cn class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><link rel="shortcut icon" href=/go_docs/favicons/favicon.ico><link rel=apple-touch-icon href=/go_docs/favicons/apple-touch-icon-180x180.png sizes=180x180><link rel=icon type=image/png href=/go_docs/favicons/favicon-16x16.png sizes=16x16><link rel=icon type=image/png href=/go_docs/favicons/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/go_docs/favicons/android-36x36.png sizes=36x36><link rel=icon type=image/png href=/go_docs/favicons/android-48x48.png sizes=48x48><link rel=icon type=image/png href=/go_docs/favicons/android-72x72.png sizes=72x72><link rel=icon type=image/png href=/go_docs/favicons/android-96x96.png sizes=96x96><link rel=icon type=image/png href=/go_docs/favicons/android-144x144.png sizes=144x144><link rel=icon type=image/png href=/go_docs/favicons/android-192x192.png sizes=192x192><title>pack | Go 中文档集</title><meta name=description content="pack 原文：https://pkg.go.dev/cmd/pack@go1.19.3 Overview 概述 Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go. ​ pack是传统"><meta property="og:title" content="pack"><meta property="og:description" content="pack 原文：https://pkg.go.dev/cmd/pack@go1.19.3 Overview 概述 Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go. ​ pack是传统"><meta property="og:type" content="article"><meta property="og:url" content="https://before80.github.io/go_docs/cmd/pack/"><meta property="article:section" content="cmd"><meta property="article:published_time" content="2023-05-17T09:59:21+08:00"><meta property="article:modified_time" content="2024-10-10T15:07:50+08:00"><meta itemprop=name content="pack"><meta itemprop=description content="pack 原文：https://pkg.go.dev/cmd/pack@go1.19.3 Overview 概述 Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go. ​ pack是传统"><meta itemprop=datePublished content="2023-05-17T09:59:21+08:00"><meta itemprop=dateModified content="2024-10-10T15:07:50+08:00"><meta itemprop=wordCount content="4275"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="pack"><meta name=twitter:description content="pack 原文：https://pkg.go.dev/cmd/pack@go1.19.3 Overview 概述 Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go. ​ pack是传统"><link rel=preload href=/go_docs/scss/main.min.2412d9ce8d59c0bc460230f66fb6de2f724f349b5e83810ed8155cc1ecc54c1e.css as=style><link href=/go_docs/scss/main.min.2412d9ce8d59c0bc460230f66fb6de2f724f349b5e83810ed8155cc1ecc54c1e.css rel=stylesheet integrity><link href=/go_docs/css/extra.css rel=stylesheet><link href=/go_docs/css/tocbot.css rel=stylesheet><script src=https://code.jquery.com/jquery-3.7.1.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@docsearch/css@3.6.0 integrity="sha512-AyDFDkYyALC5qoao077IqAOV7UC4oKCBTp+mJfjIt306AIRoBxoEZYDo0kAx/R7RbT+3EYEky1po/F1w1eQt7g==" crossorigin=anonymous></head><body class=td-page><header><nav class="td-navbar navbar-dark js-navbar-scroll" data-bs-theme=dark><div class="container-fluid flex-column flex-md-row"><a class=navbar-brand href=/go_docs/><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class=navbar-brand__name>Go 中文档集</span></a><div class="td-navbar-nav-scroll ms-md-auto" id=main_navbar><ul class=navbar-nav><li class="nav-item mr-4 mb-2 mb-lg-0"><a class=nav-link href=javascript:; id=show-timer style=color:#fe4512f5!important></a></li><li class=nav-item><a class=nav-link href=/go_docs/refs/><span>参考</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/comm/><span>对比</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/tools/><span>工具</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/langSpec/><span>语规</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/styleGuide/><span>编规</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/example/><span>示例</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/asu/><span>汇总</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/fx/><span>分析</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/docs/><span>文档</span></a></li><li class=nav-item><a class="nav-link active" href=/go_docs/cmd/><span>go命令</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/stdLib/><span>标准库</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/thirdPkg/><span>第三方包</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/delve/><span>delve</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/rod/><span>rod</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/goframe/><span>goframe</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/gorm/><span>gorm</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/echo/><span>echo</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/fiber/><span>fiber</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/buffalo/><span>buffalo</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/beego/><span>beego</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/goBlog/><span>官博</span></a></li><li class=nav-item><a class=nav-link href=/go_docs/proposal/><span>提案</span></a></li><li class="td-light-dark-menu nav-item dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none"><symbol id="check2" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5.0 010 .708l-7 7a.5.5.0 01-.708.0l-3.5-3.5a.5.5.0 11.708-.708L6.5 10.293l6.646-6.647a.5.5.0 01.708.0z"/></symbol><symbol id="circle-half" viewBox="0 0 16 16"><path d="M8 15A7 7 0 108 1v14zm0 1A8 8 0 118 0a8 8 0 010 16z"/></symbol><symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768.0 01.08.858 7.208 7.208.0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527.0 1.04-.055 1.533-.16a.787.787.0 01.81.316.733.733.0 01-.031.893A8.349 8.349.0 018.344 16C3.734 16 0 12.286.0 7.71.0 4.266 2.114 1.312 5.124.06A.752.752.0 016 .278z"/><path d="M10.794 3.148a.217.217.0 01.412.0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217.0 010 .412l-1.162.387A1.734 1.734.0 0011.593 7.69l-.387 1.162a.217.217.0 01-.412.0l-.387-1.162A1.734 1.734.0 009.31 6.593l-1.162-.387a.217.217.0 010-.412l1.162-.387a1.734 1.734.0 001.097-1.097l.387-1.162zM13.863.099a.145.145.0 01.274.0l.258.774c.115.346.386.617.732.732l.774.258a.145.145.0 010 .274l-.774.258a1.156 1.156.0 00-.732.732l-.258.774a.145.145.0 01-.274.0l-.258-.774a1.156 1.156.0 00-.732-.732l-.774-.258a.145.145.0 010-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/></symbol><symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 0zm0 13a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 13zm8-5a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2a.5.5.0 01.5.5zM3 8a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2A.5.5.0 013 8zm10.657-5.657a.5.5.0 010 .707l-1.414 1.415a.5.5.0 11-.707-.708l1.414-1.414a.5.5.0 01.707.0zm-9.193 9.193a.5.5.0 010 .707L3.05 13.657a.5.5.0 01-.707-.707l1.414-1.414a.5.5.0 01.707.0zm9.193 2.121a.5.5.0 01-.707.0l-1.414-1.414a.5.5.0 01.707-.707l1.414 1.414a.5.5.0 010 .707zM4.464 4.465a.5.5.0 01-.707.0L2.343 3.05a.5.5.0 11.707-.707l1.414 1.414a.5.5.0 010 .708z"/></symbol></svg><button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" id=bd-theme type=button aria-expanded=false data-bs-toggle=dropdown data-bs-display=static aria-label="Toggle theme (auto)"><svg class="bi my-1 theme-icon-active"><use href="#circle-half"/></svg></button><ul class="dropdown-menu dropdown-menu-end" aria-labelledby=bd-theme-text><li><button type=button class="dropdown-item d-flex align-items-center" data-bs-theme-value=light aria-pressed=false><svg class="bi me-2 opacity-50"><use href="#sun-fill"/></svg>
+Light<svg class="bi ms-auto d-none"><use href="#check2"/></svg></button></li><li><button type=button class="dropdown-item d-flex align-items-center" data-bs-theme-value=dark aria-pressed=false><svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"/></svg>
+Dark<svg class="bi ms-auto d-none"><use href="#check2"/></svg></button></li><li><button type=button class="dropdown-item d-flex align-items-center active" data-bs-theme-value=auto aria-pressed=true><svg class="bi me-2 opacity-50"><use href="#circle-half"/></svg>
+Auto<svg class="bi ms-auto d-none"><use href="#check2"/></svg></button></li></ul></li></ul></div><div class="d-none d-lg-block"><div class=td-search><div class=td-search--algolia id=docsearch-1></div></div></div></div></nav></header><div class="container-fluid td-outer"><div class=td-main><div class="row flex-xl-nowrap"><aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none"><div id=td-sidebar-menu class=td-sidebar__inner><form class="td-sidebar__search d-flex align-items-center"><div class=td-search><div class=td-search--algolia id=docsearch-0></div></div><button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type=button data-bs-toggle=collapse data-bs-target=#td-section-nav aria-controls=td-section-nav aria-expanded=false aria-label="Toggle section navigation"></button></form><nav class="td-sidebar-nav collapse foldable-nav" id=td-section-nav><ul class="td-sidebar-nav__section pe-md-3 ul-0"><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-go_docscmd-li><a href=/go_docs/cmd/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-go_docscmd><span>go命令</span></a><ul class=ul-1><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdfullcommandreference-li><input type=checkbox id=m-go_docscmdfullcommandreference-check>
+<label for=m-go_docscmdfullcommandreference-check><a href=/go_docs/cmd/FullCommandReference/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdfullcommandreference><span>全部命令</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdinternal-li><input type=checkbox id=m-go_docscmdinternal-check>
+<label for=m-go_docscmdinternal-check><a href=/go_docs/cmd/internal/ class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id=m-go_docscmdinternal><span>internal</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdfirst_index_table-li><input type=checkbox id=m-go_docscmdfirst_index_table-check>
+<label for=m-go_docscmdfirst_index_table-check><a href=/go_docs/cmd/first_index_table/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdfirst_index_table><span>go 命令首页表格</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgo1_23-li><input type=checkbox id=m-go_docscmdgo1_23-check>
+<label for=m-go_docscmdgo1_23-check><a href=/go_docs/cmd/go1_23/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgo1_23><span>go</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgo-li><input type=checkbox id=m-go_docscmdgo-check>
+<label for=m-go_docscmdgo-check><a href=/go_docs/cmd/go/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgo><span>go1.21</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgo1-li><input type=checkbox id=m-go_docscmdgo1-check>
+<label for=m-go_docscmdgo1-check><a href=/go_docs/cmd/go1/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgo1><span>go1.19.3</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpbuild-li><input type=checkbox id=m-go_docscmdgohelpbuild-check>
+<label for=m-go_docscmdgohelpbuild-check><a href=/go_docs/cmd/gohelpbuild/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpbuild><span>go help build</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpbuildconstraint-li><input type=checkbox id=m-go_docscmdgohelpbuildconstraint-check>
+<label for=m-go_docscmdgohelpbuildconstraint-check><a href=/go_docs/cmd/gohelpbuildconstraint/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpbuildconstraint><span>go help buildconstraint</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpbuildmode-li><input type=checkbox id=m-go_docscmdgohelpbuildmode-check>
+<label for=m-go_docscmdgohelpbuildmode-check><a href=/go_docs/cmd/gohelpbuildmode/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpbuildmode><span>go help buildmode</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpc-li><input type=checkbox id=m-go_docscmdgohelpc-check>
+<label for=m-go_docscmdgohelpc-check><a href=/go_docs/cmd/gohelpc/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpc><span>go help c</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpcache-li><input type=checkbox id=m-go_docscmdgohelpcache-check>
+<label for=m-go_docscmdgohelpcache-check><a href=/go_docs/cmd/gohelpcache/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpcache><span>go help cache</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpenv-li><input type=checkbox id=m-go_docscmdgohelpenv-check>
+<label for=m-go_docscmdgohelpenv-check><a href=/go_docs/cmd/gohelpenv/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpenv><span>go help env</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpenvironment-li><input type=checkbox id=m-go_docscmdgohelpenvironment-check>
+<label for=m-go_docscmdgohelpenvironment-check><a href=/go_docs/cmd/gohelpenvironment/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpenvironment><span>go help environment</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpfiletype-li><input type=checkbox id=m-go_docscmdgohelpfiletype-check>
+<label for=m-go_docscmdgohelpfiletype-check><a href=/go_docs/cmd/gohelpfiletype/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpfiletype><span>go help filetype</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpgomod-li><input type=checkbox id=m-go_docscmdgohelpgomod-check>
+<label for=m-go_docscmdgohelpgomod-check><a href=/go_docs/cmd/gohelpgomod/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpgomod><span>go help go.mod</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpgopath-li><input type=checkbox id=m-go_docscmdgohelpgopath-check>
+<label for=m-go_docscmdgohelpgopath-check><a href=/go_docs/cmd/gohelpgopath/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpgopath><span>go help gopath</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpgopath-get-li><input type=checkbox id=m-go_docscmdgohelpgopath-get-check>
+<label for=m-go_docscmdgohelpgopath-get-check><a href=/go_docs/cmd/gohelpgopath-get/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpgopath-get><span>go help gopath-get</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpgoproxy-li><input type=checkbox id=m-go_docscmdgohelpgoproxy-check>
+<label for=m-go_docscmdgohelpgoproxy-check><a href=/go_docs/cmd/gohelpgoproxy/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpgoproxy><span>go help proxy</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpimportpath-li><input type=checkbox id=m-go_docscmdgohelpimportpath-check>
+<label for=m-go_docscmdgohelpimportpath-check><a href=/go_docs/cmd/gohelpimportpath/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpimportpath><span>go help importpath</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelplist-li><input type=checkbox id=m-go_docscmdgohelplist-check>
+<label for=m-go_docscmdgohelplist-check><a href=/go_docs/cmd/gohelplist/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelplist><span>go help list</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpmodule-auth-li><input type=checkbox id=m-go_docscmdgohelpmodule-auth-check>
+<label for=m-go_docscmdgohelpmodule-auth-check><a href=/go_docs/cmd/gohelpmodule-auth/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpmodule-auth><span>go help module-auth</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpmodule-get-li><input type=checkbox id=m-go_docscmdgohelpmodule-get-check>
+<label for=m-go_docscmdgohelpmodule-get-check><a href=/go_docs/cmd/gohelpmodule-get/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpmodule-get><span>go help module-get</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpmodules-li><input type=checkbox id=m-go_docscmdgohelpmodules-check>
+<label for=m-go_docscmdgohelpmodules-check><a href=/go_docs/cmd/gohelpmodules/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpmodules><span>go help modules</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelppackages-li><input type=checkbox id=m-go_docscmdgohelppackages-check>
+<label for=m-go_docscmdgohelppackages-check><a href=/go_docs/cmd/gohelppackages/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelppackages><span>go help packages</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpprivate-li><input type=checkbox id=m-go_docscmdgohelpprivate-check>
+<label for=m-go_docscmdgohelpprivate-check><a href=/go_docs/cmd/gohelpprivate/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpprivate><span>go help private</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelptest-li><input type=checkbox id=m-go_docscmdgohelptest-check>
+<label for=m-go_docscmdgohelptest-check><a href=/go_docs/cmd/gohelptest/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelptest><span>go help test</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelptestflag-li><input type=checkbox id=m-go_docscmdgohelptestflag-check>
+<label for=m-go_docscmdgohelptestflag-check><a href=/go_docs/cmd/gohelptestflag/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelptestflag><span>go help testflag</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelptestfunc-li><input type=checkbox id=m-go_docscmdgohelptestfunc-check>
+<label for=m-go_docscmdgohelptestfunc-check><a href=/go_docs/cmd/gohelptestfunc/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelptestfunc><span>go help testfunc</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgohelpvcs-li><input type=checkbox id=m-go_docscmdgohelpvcs-check>
+<label for=m-go_docscmdgohelpvcs-check><a href=/go_docs/cmd/gohelpvcs/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgohelpvcs><span>go help vcs</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdaddr2line-li><input type=checkbox id=m-go_docscmdaddr2line-check>
+<label for=m-go_docscmdaddr2line-check><a href=/go_docs/cmd/addr2line/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdaddr2line><span>addr2line</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdapi-li><input type=checkbox id=m-go_docscmdapi-check>
+<label for=m-go_docscmdapi-check><a href=/go_docs/cmd/api/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdapi><span>api</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdasm-li><input type=checkbox id=m-go_docscmdasm-check>
+<label for=m-go_docscmdasm-check><a href=/go_docs/cmd/asm/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdasm><span>asm</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdbuildid-li><input type=checkbox id=m-go_docscmdbuildid-check>
+<label for=m-go_docscmdbuildid-check><a href=/go_docs/cmd/buildid/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdbuildid><span>buildid</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdcgo-li><input type=checkbox id=m-go_docscmdcgo-check>
+<label for=m-go_docscmdcgo-check><a href=/go_docs/cmd/cgo/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdcgo><span>cgo</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdcompile-li><input type=checkbox id=m-go_docscmdcompile-check>
+<label for=m-go_docscmdcompile-check><a href=/go_docs/cmd/compile/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdcompile><span>compile</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdcover-li><input type=checkbox id=m-go_docscmdcover-check>
+<label for=m-go_docscmdcover-check><a href=/go_docs/cmd/cover/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdcover><span>cover</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmddist-li><input type=checkbox id=m-go_docscmddist-check>
+<label for=m-go_docscmddist-check><a href=/go_docs/cmd/dist/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmddist><span>dist</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmddoc-li><input type=checkbox id=m-go_docscmddoc-check>
+<label for=m-go_docscmddoc-check><a href=/go_docs/cmd/doc/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmddoc><span>doc</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdfix-li><input type=checkbox id=m-go_docscmdfix-check>
+<label for=m-go_docscmdfix-check><a href=/go_docs/cmd/fix/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdfix><span>fix</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgodoc-li><input type=checkbox id=m-go_docscmdgodoc-check>
+<label for=m-go_docscmdgodoc-check><a href=/go_docs/cmd/godoc/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgodoc><span>godoc</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdgofmt-li><input type=checkbox id=m-go_docscmdgofmt-check>
+<label for=m-go_docscmdgofmt-check><a href=/go_docs/cmd/gofmt/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdgofmt><span>gofmt</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdfmt-li><input type=checkbox id=m-go_docscmdfmt-check>
+<label for=m-go_docscmdfmt-check><a href=/go_docs/cmd/fmt/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdfmt><span>gofmt 2</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdlink-li><input type=checkbox id=m-go_docscmdlink-check>
+<label for=m-go_docscmdlink-check><a href=/go_docs/cmd/link/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdlink><span>link</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdnm-li><input type=checkbox id=m-go_docscmdnm-check>
+<label for=m-go_docscmdnm-check><a href=/go_docs/cmd/nm/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdnm><span>nm</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdobjabi-li><input type=checkbox id=m-go_docscmdobjabi-check>
+<label for=m-go_docscmdobjabi-check><a href=/go_docs/cmd/objabi/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdobjabi><span>objabi</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdobjdump-li><input type=checkbox id=m-go_docscmdobjdump-check>
+<label for=m-go_docscmdobjdump-check><a href=/go_docs/cmd/objdump/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdobjdump><span>objdump</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-go_docscmdpack-li><input type=checkbox id=m-go_docscmdpack-check checked>
+<label for=m-go_docscmdpack-check><a href=/go_docs/cmd/pack/ class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id=m-go_docscmdpack><span class=td-sidebar-nav-active-item>pack</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdpprof-li><input type=checkbox id=m-go_docscmdpprof-check>
+<label for=m-go_docscmdpprof-check><a href=/go_docs/cmd/pprof/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdpprof><span>pprof</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdtest2json-li><input type=checkbox id=m-go_docscmdtest2json-check>
+<label for=m-go_docscmdtest2json-check><a href=/go_docs/cmd/test2json/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdtest2json><span>test2json</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdtrace-li><input type=checkbox id=m-go_docscmdtrace-check>
+<label for=m-go_docscmdtrace-check><a href=/go_docs/cmd/trace/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdtrace><span>trace</span></a></label></li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-go_docscmdvet-li><input type=checkbox id=m-go_docscmdvet-check>
+<label for=m-go_docscmdvet-check><a href=/go_docs/cmd/vet/ class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id=m-go_docscmdvet><span>vet</span></a></label></li></ul></li></ul></nav></div></aside><aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none"><div class="td-page-meta ms-2 pb-1 pt-2 mb-0"><a href=https://before80.github.io/go_docs/comm/coffee class="td-page-meta--view td-page-meta__view" style=color:#2bf518!important target=_blank rel=noopener><i class="fa-solid fa-mug-hot fa-fw"></i> 请作者喝杯咖啡吧</a>
+<a href=https://github.com/before80/go_docs/tree/main/content/cmd/pack.md class="td-page-meta--view td-page-meta__view" target=_blank rel=noopener><i class="fa-solid fa-file-lines fa-fw"></i> 查看页面源码</a>
+<a href=https://github.com/before80/go_docs/edit/main/content/cmd/pack.md class="td-page-meta--edit td-page-meta__edit" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/before80/go_docs/new/main/content/cmd?filename=change-me.md&amp;value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" class="td-page-meta--child td-page-meta__child" target=_blank rel=noopener><i class="fa-solid fa-pen-to-square fa-fw"></i> 添加子页面</a>
+<a href="https://github.com/before80/go_docs/issues/new?title=pack" class="td-page-meta--issue td-page-meta__issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> 提交文档问题</a>
+<a href=https://github.com/before80/go_docs/issues/new class="td-page-meta--project td-page-meta__project-issue" target=_blank rel=noopener><i class="fa-solid fa-list-check fa-fw"></i> 提交项目问题</a></div><div class=td-toc><nav id=TableOfContents><ul><li><a href=#pack>pack</a><ul><li><ul><li><a href=#overview-概述>Overview 概述</a></li></ul></li></ul></li></ul></nav></div></aside><main class="col-12 col-md-9 col-xl-8 ps-md-5" role=main><nav aria-label=breadcrumb class=td-breadcrumbs><ol class=breadcrumb><li class=breadcrumb-item><a href=/go_docs/cmd/>go命令</a></li><li class="breadcrumb-item active" aria-current=page>pack</li></ol></nav><div class=td-content><h1>pack</h1><header class=article-meta><p class=reading-time><i class="fa-solid fa-clock" style=color:#e90 aria-hidden=true></i>&nbsp; <span style=font-size:3rem;color:#006400 id=advice-reading-time>9 </span>分钟阅读 &nbsp;</p></header><h1 id=pack>pack</h1><blockquote><p>原文：<a href=https://pkg.go.dev/cmd/pack@go1.19.3>https://pkg.go.dev/cmd/pack@go1.19.3</a></p></blockquote><h3 id=overview-概述>Overview 概述</h3><p>Pack is a simple version of the traditional Unix ar tool. It implements only the operations needed by Go.</p><p>​ <code>pack</code>是传统<code>Unix ar</code>工具的一个简单版本。它只实现Go所需的操作。</p><p>使用方法：</p><pre tabindex=0><code>go tool pack op file.a [name...]
+</code></pre><p>Pack applies the operation to the archive, using the names as arguments to the operation.</p><p>​ pack将操作应用于存档，使用名称（names ）作为操作的参数。</p><p>The operation op is given by one of these letters:</p><p>​ 操作<code>op</code>由下列字母中之一给出：</p><pre tabindex=0><code>c	append files (from the file system) to a new archive
+	=&gt; 将文件（来自文件系统）追加到一个新的存档中
+	
+p	print files from the archive
+	=&gt; 打印存档中的文件
+	
+r	append files (from the file system) to the archive
+	=&gt; 将文件（从文件系统）追加到存档中
+	
+t	list files from the archive
+	=&gt; 列出存档中的文件
+	
+x	extract files from the archive
+	=&gt; 从存档中提取文件
+</code></pre><p>The archive argument to the c command must be non-existent or a valid archive file, which will be cleared before adding new entries. It is an error if the file exists but is not an archive.</p><p>​ <code>c</code>命令的存档参数必须是不存在的，或者是一个有效的（在添加新条目之前会被清除的）存档文件。如果文件存在但不是归档文件，则会是一个错误。</p><p>For the p, t, and x commands, listing no names on the command line causes the operation to apply to all files in the archive.</p><p>​ 对于<code>p</code>、<code>t</code>和<code>x</code>命令，在命令行中不列出名称将导致操作应用于存档中的所有文件。</p><p>In contrast to Unix ar, the r operation always appends to the archive, even if a file with the given name already exists in the archive. In this way pack&rsquo;s r operation is more like Unix ar&rsquo;s rq operation.</p><p>​ 与<code>Unix ar</code>不同的是，<code>r</code>操作总是追加到归档文件中，即使归档文件中已经存在一个给定名称的文件。在这种情况下，<code>pack</code>的<code>r</code>操作更像<code>Unix ar</code>的<code>rq</code>操作。</p><p>Adding the letter v to an operation, as in pv or rv, enables verbose operation: For the c and r commands, names are printed as files are added. For the p command, each file is prefixed by the name on a line by itself. For the t command, the listing includes additional file metadata. For the x command, names are printed as files are extracted.</p><p>​ 在操作中添加字母<code>v</code>，如<code>pv</code>或<code>rv</code>，可以启用详细操作：</p><ul><li><p>对于<code>c</code>和<code>r</code>命令，在添加文件的时候会打印文件名。</p></li><li><p>对于<code>p</code>命令，每个文件的前缀都是一行中单独的名称。</p></li><li><p>对于<code>t</code>命令，列表中包括额外的文件元数据。</p></li><li><p>对于<code>x</code>命令，在提取文件时打印名称。</p></li></ul><p>=== &ldquo;doc.go&rdquo;</p><pre><code>``` go 
+// Copyright 2014 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+/*
+Pack is a simple version of the traditional Unix ar tool.
+It implements only the operations needed by Go.
+
+Usage:
+
+	go tool pack op file.a [name...]
+
+Pack applies the operation to the archive, using the names as arguments to the operation.
+
+The operation op is given by one of these letters:
+
+	c	append files (from the file system) to a new archive
+	p	print files from the archive
+	r	append files (from the file system) to the archive
+	t	list files from the archive
+	x	extract files from the archive
+
+The archive argument to the c command must be non-existent or a
+valid archive file, which will be cleared before adding new entries. It
+is an error if the file exists but is not an archive.
+
+For the p, t, and x commands, listing no names on the command line
+causes the operation to apply to all files in the archive.
+
+In contrast to Unix ar, the r operation always appends to the archive,
+even if a file with the given name already exists in the archive. In this way
+pack's r operation is more like Unix ar's rq operation.
+
+Adding the letter v to an operation, as in pv or rv, enables verbose operation:
+For the c and r commands, names are printed as files are added.
+For the p command, each file is prefixed by the name on a line by itself.
+For the t command, the listing includes additional file metadata.
+For the x command, names are printed as files are extracted.
+*/
+
+```
+</code></pre><p>=== &ldquo;pack.go&rdquo;</p><div class=highlight><div style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">142
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">143
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">144
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">145
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">146
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">147
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">148
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">149
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">150
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">151
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">152
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">153
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">154
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">155
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">156
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">157
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">158
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">159
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">160
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">161
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">162
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">163
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">164
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">165
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">166
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">167
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">168
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">169
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">170
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">171
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">172
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">173
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">174
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">175
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">176
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">177
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">178
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">179
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">180
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">181
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">182
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">183
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">184
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">185
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">186
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">187
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">188
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">189
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">190
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">191
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">192
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">193
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">194
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">195
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">196
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">197
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">198
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">199
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">200
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">201
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">202
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">203
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">204
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">205
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">206
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">207
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">208
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">209
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">210
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">211
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">212
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">213
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">214
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">215
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">216
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">217
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">218
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">219
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">220
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">221
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">222
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">223
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">224
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">225
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">226
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">227
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">228
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">229
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">230
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">231
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">232
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">233
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">234
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">235
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">236
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">237
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">238
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">239
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">240
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">241
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">242
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">243
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">244
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">245
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">246
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">247
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">248
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">249
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">250
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">251
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">252
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">253
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">254
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">255
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">256
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">257
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">258
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">259
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">260
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">261
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">262
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">263
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">264
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">265
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">266
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">267
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">268
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">269
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">270
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">271
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">272
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">273
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">274
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">275
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">276
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">277
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">278
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">279
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">280
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">281
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">282
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">283
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">284
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">285
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">286
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">287
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">288
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">289
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">290
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">291
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">292
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">293
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">294
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">295
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">296
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">297
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">298
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">299
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">300
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">301
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">302
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">303
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">304
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">305
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">306
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">307
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">308
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">309
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">310
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">311
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">312
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">313
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">314
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">315
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">316
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">317
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">318
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">319
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">320
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">321
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">322
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">323
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">324
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">325
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">326
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">327
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">328
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">329
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">330
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">331
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">332
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">333
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">334
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">335
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">336
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">337
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">338
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">339
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">340
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">341
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">342
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">343
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#58626f">344
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#98c379>```go 
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// Copyright 2014 The Go Authors. All rights reserved.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// Use of this source code is governed by a BSD-style
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// license that can be found in the LICENSE file.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>package main
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>import (
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;cmd/internal/archive&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;fmt&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;io&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;io/fs&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;log&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;os&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    &#34;path/filepath&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>const usageMessage = `</span><span style=color:#aa89ea>Usage</span><span style=color:#abb2bf>:</span> <span style=color:#aa89ea>pack</span> <span style=color:#aa89ea>op</span> <span style=color:#aa89ea>file</span><span style=color:#abb2bf>.</span><span style=color:#aa89ea>a</span> <span style=color:#abb2bf>[</span><span style=color:#aa89ea>name</span><span style=color:#54b1c7>...</span><span style=color:#abb2bf>.]</span>
+</span></span><span style=display:flex><span><span style=color:#aa89ea>Where</span> <span style=color:#aa89ea>op</span> <span style=color:#aa89ea>is</span> <span style=color:#aa89ea>one</span> <span style=color:#aa89ea>of</span> <span style=color:#aa89ea>cprtx</span> <span style=color:#aa89ea>optionally</span> <span style=color:#aa89ea>followed</span> <span style=color:#aa89ea>by</span> <span style=color:#aa89ea>v</span> <span style=color:#76a9f9>for</span> <span style=color:#aa89ea>verbose</span> <span style=color:#aa89ea>output</span><span style=color:#abb2bf>.</span>
+</span></span><span style=display:flex><span><span style=color:#aa89ea>For</span> <span style=color:#aa89ea>compatibility</span> <span style=color:#aa89ea>with</span> <span style=color:#aa89ea>old</span> <span style=color:#aa89ea>Go</span> <span style=color:#aa89ea>build</span> <span style=color:#aa89ea>environments</span> <span style=color:#aa89ea>the</span> <span style=color:#aa89ea>op</span> <span style=color:#e5c07b>string</span> <span style=color:#aa89ea>grc</span> <span style=color:#aa89ea>is</span>
+</span></span><span style=display:flex><span><span style=color:#aa89ea>accepted</span> <span style=color:#aa89ea>as</span> <span style=color:#aa89ea>a</span> <span style=color:#aa89ea>synonym</span> <span style=color:#76a9f9>for</span> <span style=color:#aa89ea>c</span><span style=color:#abb2bf>.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#aa89ea>For</span> <span style=color:#aa89ea>more</span> <span style=color:#aa89ea>information</span><span style=color:#abb2bf>,</span> <span style=color:#aa89ea>run</span>
+</span></span><span style=display:flex><span>    <span style=color:#76a9f9>go</span> <span style=color:#aa89ea>doc</span> <span style=color:#aa89ea>cmd</span><span style=color:#54b1c7>/</span><span style=color:#aa89ea>pack</span><span style=color:#98c379>`
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func usage() {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    fmt.Fprintln(os.Stderr, usageMessage)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    os.Exit(2)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func main() {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    log.SetFlags(0)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    log.SetPrefix(&#34;pack: &#34;)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // need &#34;pack op archive&#34; at least.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if len(os.Args) &lt; 3 {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Print(&#34;not enough arguments&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        fmt.Fprintln(os.Stderr)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    setOp(os.Args[1])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    var ar *Archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    switch op {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case &#39;p&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar = openArchive(os.Args[2], os.O_RDONLY, os.Args[3:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.scan(ar.printContents)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case &#39;r&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar = openArchive(os.Args[2], os.O_RDWR|os.O_CREATE, os.Args[3:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.addFiles()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case &#39;c&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar = openArchive(os.Args[2], os.O_RDWR|os.O_TRUNC|os.O_CREATE, os.Args[3:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.addPkgdef()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.addFiles()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case &#39;t&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar = openArchive(os.Args[2], os.O_RDONLY, os.Args[3:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.scan(ar.tableOfContents)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case &#39;x&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar = openArchive(os.Args[2], os.O_RDONLY, os.Args[3:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.scan(ar.extractContents)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    default:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Printf(&#34;invalid operation %q&#34;, os.Args[1])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        fmt.Fprintln(os.Stderr)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if len(ar.files) &gt; 0 {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatalf(&#34;file %q not in archive&#34;, ar.files[0])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// The unusual ancestry means the arguments are not Go-standard.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// These variables hold the decoded operation specified by the first argument.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// op holds the operation we are doing (prtx).
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// verbose tells whether the &#39;v&#39; option was specified.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>var (
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    op      rune
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    verbose bool
+</span></span></span><span style=display:flex><span><span style=color:#98c379>)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// setOp parses the operation string (first argument).
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func setOp(arg string) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // Recognize &#39;go tool pack grc&#39; because that was the
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // formerly canonical way to build a new archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // from a set of input files. Accepting it keeps old
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // build systems working with both Go 1.2 and Go 1.3.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if arg == &#34;grc&#34; {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        arg = &#34;c&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    for _, r := range arg {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        switch r {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        case &#39;c&#39;, &#39;p&#39;, &#39;r&#39;, &#39;t&#39;, &#39;x&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if op != 0 {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                // At most one can be set.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            op = r
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        case &#39;v&#39;:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if verbose {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                // Can be set only once.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            verbose = true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        default:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>const (
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    arHeader = &#34;!&lt;arch&gt;\n&#34;
+</span></span></span><span style=display:flex><span><span style=color:#98c379>)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// An Archive represents an open archive file. It is always scanned sequentially
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// from start to end, without backing up.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>type Archive struct {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    a        *archive.Archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    files    []string // Explicit list of files to be processed.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    pad      int      // Padding bytes required at end of current archive file
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    matchAll bool     // match all files in archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// archive opens (and if necessary creates) the named archive.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func openArchive(name string, mode int, files []string) *Archive {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    f, err := os.OpenFile(name, mode, 0666)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    var a *archive.Archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if mode&amp;os.O_TRUNC != 0 { // the c command
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        a, err = archive.New(f)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    } else {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        a, err = archive.Parse(f, verbose)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if err != nil &amp;&amp; mode&amp;os.O_CREATE != 0 { // the r command
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            a, err = archive.New(f)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    return &amp;Archive{
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        a:        a,
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        files:    files,
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        matchAll: len(files) == 0,
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// scan scans the archive and executes the specified action on each entry.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) scan(action func(*archive.Entry)) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    for i := range ar.a.Entries {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        e := &amp;ar.a.Entries[i]
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        action(e)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// listEntry prints to standard output a line describing the entry.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func listEntry(e *archive.Entry, verbose bool) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if verbose {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        fmt.Fprintf(stdout, &#34;%s\n&#34;, e.String())
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    } else {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        fmt.Fprintf(stdout, &#34;%s\n&#34;, e.Name)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// output copies the entry to the specified writer.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) output(e *archive.Entry, w io.Writer) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    r := io.NewSectionReader(ar.a.File(), e.Offset, e.Size)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    n, err := io.Copy(w, r)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if n != e.Size {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatal(&#34;short file&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// match reports whether the entry matches the argument list.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// If it does, it also drops the file from the to-be-processed list.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) match(e *archive.Entry) bool {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if ar.matchAll {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        return true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    for i, name := range ar.files {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if e.Name == name {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            copy(ar.files[i:], ar.files[i+1:])
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            ar.files = ar.files[:len(ar.files)-1]
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            return true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    return false
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// addFiles adds files to the archive. The archive is known to be
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// sane and we are positioned at the end. No attempt is made
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// to check for existing files.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) addFiles() {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if len(ar.files) == 0 {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        usage()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    for _, file := range ar.files {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if verbose {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            fmt.Printf(&#34;%s\n&#34;, file)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        f, err := os.Open(file)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        aro, err := archive.Parse(f, false)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if err != nil || !isGoCompilerObjFile(aro) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            f.Seek(0, io.SeekStart)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            ar.addFile(f)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            goto close
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        for _, e := range aro.Entries {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if e.Type != archive.EntryGoObj || e.Name != &#34;_go_.o&#34; {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                continue
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            ar.a.AddEntry(archive.EntryGoObj, filepath.Base(file), 0, 0, 0, 0644, e.Size, io.NewSectionReader(f, e.Offset, e.Size))
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    close:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        f.Close()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    ar.files = nil
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// FileLike abstracts the few methods we need, so we can test without needing real files.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>type FileLike interface {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    Name() string
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    Stat() (fs.FileInfo, error)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    Read([]byte) (int, error)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    Close() error
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// addFile adds a single file to the archive
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) addFile(fd FileLike) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // Format the entry.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // First, get its info.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    info, err := fd.Stat()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    // mtime, uid, gid are all zero so repeated builds produce identical output.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    mtime := int64(0)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    uid := 0
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    gid := 0
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    ar.a.AddEntry(archive.EntryNativeObj, info.Name(), mtime, uid, gid, info.Mode(), info.Size(), fd)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// addPkgdef adds the __.PKGDEF file to the archive, copied
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// from the first Go object file on the file list, if any.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// The archive is known to be empty.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) addPkgdef() {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    done := false
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    for _, file := range ar.files {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        f, err := os.Open(file)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        aro, err := archive.Parse(f, false)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if err != nil || !isGoCompilerObjFile(aro) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            goto close
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        for _, e := range aro.Entries {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if e.Type != archive.EntryPkgDef {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                continue
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if verbose {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                fmt.Printf(&#34;__.PKGDEF # %s\n&#34;, file)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            ar.a.AddEntry(archive.EntryPkgDef, &#34;__.PKGDEF&#34;, 0, 0, 0, 0644, e.Size, io.NewSectionReader(f, e.Offset, e.Size))
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            done = true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    close:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        f.Close()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if done {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            break
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// Finally, the actual commands. Each is an action.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// can be modified for testing.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>var stdout io.Writer = os.Stdout
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// printContents implements the &#39;p&#39; command.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) printContents(e *archive.Entry) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    ar.extractContents1(e, stdout)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// tableOfContents implements the &#39;t&#39; command.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) tableOfContents(e *archive.Entry) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if ar.match(e) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        listEntry(e, verbose)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// extractContents implements the &#39;x&#39; command.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) extractContents(e *archive.Entry) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    ar.extractContents1(e, nil)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func (ar *Archive) extractContents1(e *archive.Entry, out io.Writer) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    if ar.match(e) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if verbose {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            listEntry(e, false)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        if out == nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            f, err := os.OpenFile(e.Name, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0444 /*e.Mode*/)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if err != nil {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                log.Fatal(err)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            defer f.Close()
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            out = f
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        ar.output(e, out)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// isGoCompilerObjFile reports whether file is an object file created
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// by the Go compiler, which is an archive file with exactly one entry
+</span></span></span><span style=display:flex><span><span style=color:#98c379>// of __.PKGDEF, or _go_.o, or both entries.
+</span></span></span><span style=display:flex><span><span style=color:#98c379>func isGoCompilerObjFile(a *archive.Archive) bool </span><span style=color:#98c379>{
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    switch len(a.Entries) {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case 1:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        return (a.Entries[0].Type == archive.EntryGoObj &amp;&amp; a.Entries[0].Name == &#34;_go_.o&#34;) ||
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            (a.Entries[0].Type == archive.EntryPkgDef &amp;&amp; a.Entries[0].Name == &#34;__.PKGDEF&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    case 2:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        var foundPkgDef, foundGo bool
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        for _, e := range a.Entries {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if e.Type == archive.EntryPkgDef &amp;&amp; e.Name == &#34;__.PKGDEF&#34; {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                foundPkgDef = true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            if e.Type == archive.EntryGoObj &amp;&amp; e.Name == &#34;_go_.o&#34; {
+</span></span></span><span style=display:flex><span><span style=color:#98c379>                foundGo = true
+</span></span></span><span style=display:flex><span><span style=color:#98c379>            }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        return foundPkgDef &amp;&amp; foundGo
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    default:
+</span></span></span><span style=display:flex><span><span style=color:#98c379>        return false
+</span></span></span><span style=display:flex><span><span style=color:#98c379>    }
+</span></span></span><span style=display:flex><span><span style=color:#98c379>}
+</span></span></span><span style=display:flex><span><span style=color:#98c379>```</span>
+</span></span></code></pre></td></tr></table></div></div><p>=== &ldquo;pack_test.go&rdquo;</p><pre><code>```go 
+// Copyright 2014 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+package main
+
+import (
+	&quot;bufio&quot;
+	&quot;bytes&quot;
+	&quot;cmd/internal/archive&quot;
+	&quot;fmt&quot;
+	&quot;internal/testenv&quot;
+	&quot;io&quot;
+	&quot;io/fs&quot;
+	&quot;os&quot;
+	&quot;os/exec&quot;
+	&quot;path/filepath&quot;
+	&quot;testing&quot;
+	&quot;time&quot;
+)
+
+// testCreate creates an archive in the specified directory.
+func testCreate(t *testing.T, dir string) {
+	name := filepath.Join(dir, &quot;pack.a&quot;)
+	ar := openArchive(name, os.O_RDWR|os.O_CREATE, nil)
+	// Add an entry by hand.
+	ar.addFile(helloFile.Reset())
+	ar.a.File().Close()
+	// Now check it.
+	ar = openArchive(name, os.O_RDONLY, []string{helloFile.name})
+	var buf bytes.Buffer
+	stdout = &amp;buf
+	verbose = true
+	defer func() {
+		stdout = os.Stdout
+		verbose = false
+	}()
+	ar.scan(ar.printContents)
+	ar.a.File().Close()
+	result := buf.String()
+	// Expect verbose output plus file contents.
+	expect := fmt.Sprintf(&quot;%s\n%s&quot;, helloFile.name, helloFile.contents)
+	if result != expect {
+		t.Fatalf(&quot;expected %q got %q&quot;, expect, result)
+	}
+}
+
+// Test that we can create an archive, write to it, and get the same contents back.
+// Tests the rv and then the pv command on a new archive.
+func TestCreate(t *testing.T) {
+	dir := t.TempDir()
+	testCreate(t, dir)
+}
+
+// Test that we can create an archive twice with the same name (Issue 8369).
+func TestCreateTwice(t *testing.T) {
+	dir := t.TempDir()
+	testCreate(t, dir)
+	testCreate(t, dir)
+}
+
+// Test that we can create an archive, put some files in it, and get back a correct listing.
+// Tests the tv command.
+func TestTableOfContents(t *testing.T) {
+	dir := t.TempDir()
+	name := filepath.Join(dir, &quot;pack.a&quot;)
+	ar := openArchive(name, os.O_RDWR|os.O_CREATE, nil)
+
+	// Add some entries by hand.
+	ar.addFile(helloFile.Reset())
+	ar.addFile(goodbyeFile.Reset())
+	ar.a.File().Close()
+
+	// Now print it.
+	var buf bytes.Buffer
+	stdout = &amp;buf
+	verbose = true
+	defer func() {
+		stdout = os.Stdout
+		verbose = false
+	}()
+	ar = openArchive(name, os.O_RDONLY, nil)
+	ar.scan(ar.tableOfContents)
+	ar.a.File().Close()
+	result := buf.String()
+	// Expect verbose listing.
+	expect := fmt.Sprintf(&quot;%s\n%s\n&quot;, helloFile.Entry(), goodbyeFile.Entry())
+	if result != expect {
+		t.Fatalf(&quot;expected %q got %q&quot;, expect, result)
+	}
+
+	// Do it again without verbose.
+	verbose = false
+	buf.Reset()
+	ar = openArchive(name, os.O_RDONLY, nil)
+	ar.scan(ar.tableOfContents)
+	ar.a.File().Close()
+	result = buf.String()
+	// Expect non-verbose listing.
+	expect = fmt.Sprintf(&quot;%s\n%s\n&quot;, helloFile.name, goodbyeFile.name)
+	if result != expect {
+		t.Fatalf(&quot;expected %q got %q&quot;, expect, result)
+	}
+
+	// Do it again with file list arguments.
+	verbose = false
+	buf.Reset()
+	ar = openArchive(name, os.O_RDONLY, []string{helloFile.name})
+	ar.scan(ar.tableOfContents)
+	ar.a.File().Close()
+	result = buf.String()
+	// Expect only helloFile.
+	expect = fmt.Sprintf(&quot;%s\n&quot;, helloFile.name)
+	if result != expect {
+		t.Fatalf(&quot;expected %q got %q&quot;, expect, result)
+	}
+}
+
+// Test that we can create an archive, put some files in it, and get back a file.
+// Tests the x command.
+func TestExtract(t *testing.T) {
+	dir := t.TempDir()
+	name := filepath.Join(dir, &quot;pack.a&quot;)
+	ar := openArchive(name, os.O_RDWR|os.O_CREATE, nil)
+	// Add some entries by hand.
+	ar.addFile(helloFile.Reset())
+	ar.addFile(goodbyeFile.Reset())
+	ar.a.File().Close()
+	// Now extract one file. We chdir to the directory of the archive for simplicity.
+	pwd, err := os.Getwd()
+	if err != nil {
+		t.Fatal(&quot;os.Getwd: &quot;, err)
+	}
+	err = os.Chdir(dir)
+	if err != nil {
+		t.Fatal(&quot;os.Chdir: &quot;, err)
+	}
+	defer func() {
+		err := os.Chdir(pwd)
+		if err != nil {
+			t.Fatal(&quot;os.Chdir: &quot;, err)
+		}
+	}()
+	ar = openArchive(name, os.O_RDONLY, []string{goodbyeFile.name})
+	ar.scan(ar.extractContents)
+	ar.a.File().Close()
+	data, err := os.ReadFile(goodbyeFile.name)
+	if err != nil {
+		t.Fatal(err)
+	}
+	// Expect contents of file.
+	result := string(data)
+	expect := goodbyeFile.contents
+	if result != expect {
+		t.Fatalf(&quot;expected %q got %q&quot;, expect, result)
+	}
+}
+
+// Test that pack-created archives can be understood by the tools.
+func TestHello(t *testing.T) {
+	testenv.MustHaveGoBuild(t)
+
+	dir := t.TempDir()
+	hello := filepath.Join(dir, &quot;hello.go&quot;)
+	prog := `
+		package main
+		func main() {
+			println(&quot;hello world&quot;)
+		}
+	`
+	err := os.WriteFile(hello, []byte(prog), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	run := func(args ...string) string {
+		return doRun(t, dir, args...)
+	}
+
+	goBin := testenv.GoToolPath(t)
+	run(goBin, &quot;build&quot;, &quot;cmd/pack&quot;) // writes pack binary to dir
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=main&quot;, &quot;hello.go&quot;)
+	run(&quot;./pack&quot;, &quot;grc&quot;, &quot;hello.a&quot;, &quot;hello.o&quot;)
+	run(goBin, &quot;tool&quot;, &quot;link&quot;, &quot;-o&quot;, &quot;a.out&quot;, &quot;hello.a&quot;)
+	out := run(&quot;./a.out&quot;)
+	if out != &quot;hello world\n&quot; {
+		t.Fatalf(&quot;incorrect output: %q, want %q&quot;, out, &quot;hello world\n&quot;)
+	}
+}
+
+// Test that pack works with very long lines in PKGDEF.
+func TestLargeDefs(t *testing.T) {
+	if testing.Short() {
+		t.Skip(&quot;skipping in -short mode&quot;)
+	}
+	testenv.MustHaveGoBuild(t)
+
+	dir := t.TempDir()
+	large := filepath.Join(dir, &quot;large.go&quot;)
+	f, err := os.Create(large)
+	if err != nil {
+		t.Fatal(err)
+	}
+	b := bufio.NewWriter(f)
+
+	printf := func(format string, args ...any) {
+		_, err := fmt.Fprintf(b, format, args...)
+		if err != nil {
+			t.Fatalf(&quot;Writing to %s: %v&quot;, large, err)
+		}
+	}
+
+	printf(&quot;package large\n\ntype T struct {\n&quot;)
+	for i := 0; i &lt; 1000; i++ {
+		printf(&quot;f%d int `tag:\&quot;&quot;, i)
+		for j := 0; j &lt; 100; j++ {
+			printf(&quot;t%d=%d,&quot;, j, j)
+		}
+		printf(&quot;\&quot;`\n&quot;)
+	}
+	printf(&quot;}\n&quot;)
+	if err = b.Flush(); err != nil {
+		t.Fatal(err)
+	}
+	if err = f.Close(); err != nil {
+		t.Fatal(err)
+	}
+
+	main := filepath.Join(dir, &quot;main.go&quot;)
+	prog := `
+		package main
+		import &quot;large&quot;
+		var V large.T
+		func main() {
+			println(&quot;ok&quot;)
+		}
+	`
+	err = os.WriteFile(main, []byte(prog), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	run := func(args ...string) string {
+		return doRun(t, dir, args...)
+	}
+
+	goBin := testenv.GoToolPath(t)
+	run(goBin, &quot;build&quot;, &quot;cmd/pack&quot;) // writes pack binary to dir
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=large&quot;, &quot;large.go&quot;)
+	run(&quot;./pack&quot;, &quot;grc&quot;, &quot;large.a&quot;, &quot;large.o&quot;)
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=main&quot;, &quot;-I&quot;, &quot;.&quot;, &quot;main.go&quot;)
+	run(goBin, &quot;tool&quot;, &quot;link&quot;, &quot;-L&quot;, &quot;.&quot;, &quot;-o&quot;, &quot;a.out&quot;, &quot;main.o&quot;)
+	out := run(&quot;./a.out&quot;)
+	if out != &quot;ok\n&quot; {
+		t.Fatalf(&quot;incorrect output: %q, want %q&quot;, out, &quot;ok\n&quot;)
+	}
+}
+
+// Test that &quot;\n!\n&quot; inside export data doesn't result in a truncated
+// package definition when creating a .a archive from a .o Go object.
+func TestIssue21703(t *testing.T) {
+	testenv.MustHaveGoBuild(t)
+
+	dir := t.TempDir()
+
+	const aSrc = `package a; const X = &quot;\n!\n&quot;`
+	err := os.WriteFile(filepath.Join(dir, &quot;a.go&quot;), []byte(aSrc), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	const bSrc = `package b; import _ &quot;a&quot;`
+	err = os.WriteFile(filepath.Join(dir, &quot;b.go&quot;), []byte(bSrc), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	run := func(args ...string) string {
+		return doRun(t, dir, args...)
+	}
+
+	goBin := testenv.GoToolPath(t)
+	run(goBin, &quot;build&quot;, &quot;cmd/pack&quot;) // writes pack binary to dir
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=a&quot;, &quot;a.go&quot;)
+	run(&quot;./pack&quot;, &quot;c&quot;, &quot;a.a&quot;, &quot;a.o&quot;)
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=b&quot;, &quot;-I&quot;, &quot;.&quot;, &quot;b.go&quot;)
+}
+
+// Test the &quot;c&quot; command can &quot;see through&quot; the archive generated by the compiler.
+// This is peculiar. (See issue #43271)
+func TestCreateWithCompilerObj(t *testing.T) {
+	testenv.MustHaveGoBuild(t)
+
+	dir := t.TempDir()
+	src := filepath.Join(dir, &quot;p.go&quot;)
+	prog := &quot;package p; var X = 42\n&quot;
+	err := os.WriteFile(src, []byte(prog), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	run := func(args ...string) string {
+		return doRun(t, dir, args...)
+	}
+
+	goBin := testenv.GoToolPath(t)
+	run(goBin, &quot;build&quot;, &quot;cmd/pack&quot;) // writes pack binary to dir
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-pack&quot;, &quot;-p=p&quot;, &quot;-o&quot;, &quot;p.a&quot;, &quot;p.go&quot;)
+	run(&quot;./pack&quot;, &quot;c&quot;, &quot;packed.a&quot;, &quot;p.a&quot;)
+	fi, err := os.Stat(filepath.Join(dir, &quot;p.a&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat p.a failed: %v&quot;, err)
+	}
+	fi2, err := os.Stat(filepath.Join(dir, &quot;packed.a&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat packed.a failed: %v&quot;, err)
+	}
+	// For compiler-generated object file, the &quot;c&quot; command is
+	// expected to get (essentially) the same file back, instead
+	// of packing it into a new archive with a single entry.
+	if want, got := fi.Size(), fi2.Size(); want != got {
+		t.Errorf(&quot;packed file with different size: want %d, got %d&quot;, want, got)
+	}
+
+	// Test -linkobj flag as well.
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=p&quot;, &quot;-linkobj&quot;, &quot;p2.a&quot;, &quot;-o&quot;, &quot;p.x&quot;, &quot;p.go&quot;)
+	run(&quot;./pack&quot;, &quot;c&quot;, &quot;packed2.a&quot;, &quot;p2.a&quot;)
+	fi, err = os.Stat(filepath.Join(dir, &quot;p2.a&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat p2.a failed: %v&quot;, err)
+	}
+	fi2, err = os.Stat(filepath.Join(dir, &quot;packed2.a&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat packed2.a failed: %v&quot;, err)
+	}
+	if want, got := fi.Size(), fi2.Size(); want != got {
+		t.Errorf(&quot;packed file with different size: want %d, got %d&quot;, want, got)
+	}
+
+	run(&quot;./pack&quot;, &quot;c&quot;, &quot;packed3.a&quot;, &quot;p.x&quot;)
+	fi, err = os.Stat(filepath.Join(dir, &quot;p.x&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat p.x failed: %v&quot;, err)
+	}
+	fi2, err = os.Stat(filepath.Join(dir, &quot;packed3.a&quot;))
+	if err != nil {
+		t.Fatalf(&quot;stat packed3.a failed: %v&quot;, err)
+	}
+	if want, got := fi.Size(), fi2.Size(); want != got {
+		t.Errorf(&quot;packed file with different size: want %d, got %d&quot;, want, got)
+	}
+}
+
+// Test the &quot;r&quot; command creates the output file if it does not exist.
+func TestRWithNonexistentFile(t *testing.T) {
+	testenv.MustHaveGoBuild(t)
+
+	dir := t.TempDir()
+	src := filepath.Join(dir, &quot;p.go&quot;)
+	prog := &quot;package p; var X = 42\n&quot;
+	err := os.WriteFile(src, []byte(prog), 0666)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	run := func(args ...string) string {
+		return doRun(t, dir, args...)
+	}
+
+	goBin := testenv.GoToolPath(t)
+	run(goBin, &quot;build&quot;, &quot;cmd/pack&quot;) // writes pack binary to dir
+	run(goBin, &quot;tool&quot;, &quot;compile&quot;, &quot;-p=p&quot;, &quot;-o&quot;, &quot;p.o&quot;, &quot;p.go&quot;)
+	run(&quot;./pack&quot;, &quot;r&quot;, &quot;p.a&quot;, &quot;p.o&quot;) // should succeed
+}
+
+// doRun runs a program in a directory and returns the output.
+func doRun(t *testing.T, dir string, args ...string) string {
+	cmd := exec.Command(args[0], args[1:]...)
+	cmd.Dir = dir
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf(&quot;%v: %v\n%s&quot;, args, err, string(out))
+	}
+	return string(out)
+}
+
+// Fake implementation of files.
+
+var helloFile = &amp;FakeFile{
+	name:     &quot;hello&quot;,
+	contents: &quot;hello world&quot;, // 11 bytes, an odd number.
+	mode:     0644,
+}
+
+var goodbyeFile = &amp;FakeFile{
+	name:     &quot;goodbye&quot;,
+	contents: &quot;Sayonara, Jim&quot;, // 13 bytes, another odd number.
+	mode:     0644,
+}
+
+// FakeFile implements FileLike and also fs.FileInfo.
+type FakeFile struct {
+	name     string
+	contents string
+	mode     fs.FileMode
+	offset   int
+}
+
+// Reset prepares a FakeFile for reuse.
+func (f *FakeFile) Reset() *FakeFile {
+	f.offset = 0
+	return f
+}
+
+// FileLike methods.
+
+func (f *FakeFile) Name() string {
+	// A bit of a cheat: we only have a basename, so that's also ok for FileInfo.
+	return f.name
+}
+
+func (f *FakeFile) Stat() (fs.FileInfo, error) {
+	return f, nil
+}
+
+func (f *FakeFile) Read(p []byte) (int, error) {
+	if f.offset &gt;= len(f.contents) {
+		return 0, io.EOF
+	}
+	n := copy(p, f.contents[f.offset:])
+	f.offset += n
+	return n, nil
+}
+
+func (f *FakeFile) Close() error {
+	return nil
+}
+
+// fs.FileInfo methods.
+
+func (f *FakeFile) Size() int64 {
+	return int64(len(f.contents))
+}
+
+func (f *FakeFile) Mode() fs.FileMode {
+	return f.mode
+}
+
+func (f *FakeFile) ModTime() time.Time {
+	return time.Time{}
+}
+
+func (f *FakeFile) IsDir() bool {
+	return false
+}
+
+func (f *FakeFile) Sys() any {
+	return nil
+}
+
+// Special helpers.
+
+func (f *FakeFile) Entry() *archive.Entry {
+	return &amp;archive.Entry{
+		Name:  f.name,
+		Mtime: 0, // Defined to be zero.
+		Uid:   0, // Ditto.
+		Gid:   0, // Ditto.
+		Mode:  f.mode,
+		Data:  archive.Data{Size: int64(len(f.contents))},
+	}
+}
+```
+</code></pre><div class=td-page-meta__lastmod>最后修改 October 10, 2024: <a href=https://github.com/before80/go_docs/commit/a4b8f854f736d720ad19943e1274acc7bb0e3264>更新 (a4b8f85)</a></div></div></main></div></div><footer class="td-footer row d-print-none"><div class=container-fluid><div class="row mx-md-2"><div class="td-footer__left col-6 col-sm-4 order-sm-1"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title="User mailing list" aria-label="User mailing list"><a target=_blank rel=noopener href=https://example.org/mail aria-label="User mailing list"><i class="fa fa-envelope"></i></a></li><li class=td-footer__links-item data-bs-toggle=tooltip title=Twitter aria-label=Twitter><a target=_blank rel=noopener href=https://example.org/twitter aria-label=Twitter><i class="fab fa-twitter"></i></a></li><li class=td-footer__links-item data-bs-toggle=tooltip title="Stack Overflow" aria-label="Stack Overflow"><a target=_blank rel=noopener href=https://example.org/stack aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a></li></ul></div><div class="td-footer__right col-6 col-sm-4 order-sm-3"><ul class=td-footer__links-list><li class=td-footer__links-item data-bs-toggle=tooltip title=GitHub aria-label=GitHub><a target=_blank rel=noopener href=https://github.com/before80/go_docs aria-label=GitHub><i class="fab fa-github"></i></a></li><li class=td-footer__links-item data-bs-toggle=tooltip title=Slack aria-label=Slack><a target=_blank rel=noopener href=https://example.org/slack aria-label=Slack><i class="fab fa-slack"></i></a></li><li class=td-footer__links-item data-bs-toggle=tooltip title="Developer mailing list" aria-label="Developer mailing list"><a target=_blank rel=noopener href=https://example.org/mail aria-label="Developer mailing list"><i class="fa fa-envelope"></i></a></li></ul></div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2"><span class=td-footer__copyright>&copy;
+2025
+<span class=td-footer__authors>作者zlongx</span></span><span class=td-footer__all_rights_reserved>保留所有权利</span><span class=ms-2><a href=https://policies.google.com/privacy target=_blank rel=noopener>隐私政策</a></span><p class="td-footer__about mt-2"><a href=/go_docs/thirdPkg/lua/about/>关于</a></p></div></div></div></footer></div><style>.markmap>svg{width:100%;height:300px}</style><script>window.markmap={autoLoader:{manual:!0,onReady(){const{autoLoader:e,builtInPlugins:t}=window.markmap;e.transformPlugins=t.filter(e=>e.name!=="prism")}}}</script><script src=https://cdn.jsdelivr.net/npm/markmap-autoloader></script>
+<script src=/go_docs/js/main.min.4fb55790d81bdab4cd314586e186d385cad5508994c45abe27c6daee34d84160.js integrity="sha256-T7VXkNgb2rTNMUWG4YbThcrVUImUxFq+J8ba7jTYQWA=" crossorigin=anonymous></script>
+<script defer src=/go_docs/js/click-to-copy.min.14c7dd84004258325d147b971421f1d4dfd3f28500954f32ef71d1cfd0938f51.js integrity="sha256-FMfdhABCWDJdFHuXFCHx1N/T8oUAlU8y73HRz9CTj1E=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@docsearch/js@3.6.0 integrity="sha512-FtDaTWf3IS29TLuYzTPlytjGqcXkwrzG9ivq7xXElnOZeiYTbcIy/hwXAgrrRNnI0+PfN+WFz4/+4phhJmuS8Q==" crossorigin=anonymous></script>
+<script type=text/javascript>const containers=["#docsearch-0","#docsearch-1"];for(let e of containers)docsearch({container:e,appId:"DV76UK9EIH",apiKey:"227dec0ac6cbc8dfad748f27b2974507",indexName:"go-"})</script><script src=/go_docs/js/tabpane-persist.js></script>
+<script src=/go_docs/js/tocbot.min.js></script>
+<script src=/go_docs/js/markmap-autoloader.js></script>
+<script type=text/javascript>window.addEventListener("load",function(){tocbot.init({tocSelector:".td-toc",contentSelector:".td-content",headingSelector:"h2, h3, h4, h5, h6",ignoreHiddenElements:!0,collapseDepth:6});let t=0,e=0,n=document.getElementById("show-timer"),s=document.getElementById("advice-reading-time"),o=s.textContent.trim();function i(){e++,e>=60&&(e=0,t++);let i=e<10?"0"+e:e;s!==null?n.textContent=t+":"+i+" <- "+o:n.textContent=t+":"+i}setInterval(i,1e3)})</script><script src=/go_docs/js/jquery-3.6.3.min.js></script>
+<script src=/go_docs/js/deal-zero-width-space.js></script>
+<script src=/go_docs/js/tabpane-persist.js></script></body></html>
