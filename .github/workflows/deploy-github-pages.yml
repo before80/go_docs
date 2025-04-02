@@ -1,0 +1,44 @@
+name: Deployment to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main  # <-- specify the branch you want to deploy from
+  pull_request:
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+  REPO_OWNER: ${{ github.repository_owner }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.117.0'
+          extended: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - run: npm ci
+      - run: hugo --baseURL https://${REPO_OWNER}.github.io/${REPO_NAME} --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: ${{ github.ref == 'refs/heads/main' }} # <-- specify same branch as above here
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
