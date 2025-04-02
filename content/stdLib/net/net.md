@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net@go1.23.0](https://pkg.go.dev/net@go1.23.0)
+> 原文：[https://pkg.go.dev/net@go1.24.2](https://pkg.go.dev/net@go1.24.2)
 
 Package net provides a portable interface for network I/O, including TCP/IP, UDP, domain name resolution, and Unix domain sockets.
 
@@ -1165,6 +1165,14 @@ Output:
 2001:db8::68
 <nil>
 ```
+
+#### (IP) AppendText <- 1.24.0
+
+```go
+func (ip IP) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements the [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) interface. The encoding is the same as returned by [IP.String](https://pkg.go.dev/net@go1.24.2#IP.String), with one exception: When len(ip) is zero, it appends nothing.
 
 #### (IP) DefaultMask 
 

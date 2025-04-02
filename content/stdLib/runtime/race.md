@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/runtime/race@go1.23.0](https://pkg.go.dev/runtime/race@go1.23.0)
+> 原文：[https://pkg.go.dev/runtime/race@go1.24.2](https://pkg.go.dev/runtime/race@go1.24.2)
 
 Package race implements data race detection logic. No public interface is provided. For details about the race detector see https://golang.org/doc/articles/race_detector.html
 

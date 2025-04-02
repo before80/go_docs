@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/runtime@go1.23.0](https://pkg.go.dev/runtime@go1.23.0)
+> 原文：[https://pkg.go.dev/runtime@go1.24.2](https://pkg.go.dev/runtime@go1.24.2)
 
 Package runtime contains operations that interact with Go's runtime system, such as functions to control goroutines. It also includes the low-level type information used by the reflect package; see reflect's documentation for the programmable interface to the run-time type system.
 
@@ -1042,6 +1042,98 @@ type BlockProfileRecord struct {
 BlockProfileRecord describes blocking events originated at a particular call sequence (stack trace).
 
 ​	BlockProfileRecord 描述了在特定调用序列（栈跟踪）中源自的阻塞事件。
+
+### type Cleanup <- 1.24.0
+
+```go
+type Cleanup struct {
+	// contains filtered or unexported fields
+}
+```
+
+Cleanup is a handle to a cleanup call for a specific object.
+
+#### func AddCleanup <- 1.24.0
+
+```go
+func AddCleanup[T, S any](ptr *T, cleanup func(S), arg S) Cleanup
+```
+
+AddCleanup attaches a cleanup function to ptr. Some time after ptr is no longer reachable, the runtime will call cleanup(arg) in a separate goroutine.
+
+A typical use is that ptr is an object wrapping an underlying resource (e.g., a File object wrapping an OS file descriptor), arg is the underlying resource (e.g., the OS file descriptor), and the cleanup function releases the underlying resource (e.g., by calling the close system call).
+
+There are few constraints on ptr. In particular, multiple cleanups may be attached to the same pointer, or to different pointers within the same allocation.
+
+If ptr is reachable from cleanup or arg, ptr will never be collected and the cleanup will never run. As a protection against simple cases of this, AddCleanup panics if arg is equal to ptr.
+
+There is no specified order in which cleanups will run. In particular, if several objects point to each other and all become unreachable at the same time, their cleanups all become eligible to run and can run in any order. This is true even if the objects form a cycle.
+
+Cleanups run concurrently with any user-created goroutines. Cleanups may also run concurrently with one another (unlike finalizers). If a cleanup function must run for a long time, it should create a new goroutine to avoid blocking the execution of other cleanups.
+
+If ptr has both a cleanup and a finalizer, the cleanup will only run once it has been finalized and becomes unreachable without an associated finalizer.
+
+The cleanup(arg) call is not always guaranteed to run; in particular it is not guaranteed to run before program exit.
+
+Cleanups are not guaranteed to run if the size of T is zero bytes, because it may share same address with other zero-size objects in memory. See https://go.dev/ref/spec#Size_and_alignment_guarantees.
+
+It is not guaranteed that a cleanup will run for objects allocated in initializers for package-level variables. Such objects may be linker-allocated, not heap-allocated.
+
+Note that because cleanups may execute arbitrarily far into the future after an object is no longer referenced, the runtime is allowed to perform a space-saving optimization that batches objects together in a single allocation slot. The cleanup for an unreferenced object in such an allocation may never run if it always exists in the same batch as a referenced object. Typically, this batching only happens for tiny (on the order of 16 bytes or less) and pointer-free objects.
+
+A cleanup may run as soon as an object becomes unreachable. In order to use cleanups correctly, the program must ensure that the object is reachable until it is safe to run its cleanup. Objects stored in global variables, or that can be found by tracing pointers from a global variable, are reachable. A function argument or receiver may become unreachable at the last point where the function mentions it. To ensure a cleanup does not get called prematurely, pass the object to the [KeepAlive](https://pkg.go.dev/runtime@go1.24.2#KeepAlive) function after the last point where the object must remain reachable.
+
+#### AddCleanup Example 
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+	"runtime"
+)
+
+func main() {
+	tempFile, err := os.CreateTemp(os.TempDir(), "file.*")
+	if err != nil {
+		fmt.Println("failed to create temp file:", err)
+		return
+	}
+
+	ch := make(chan struct{})
+
+	// Attach a cleanup function to the file object.
+	runtime.AddCleanup(&tempFile, func(fileName string) {
+		if err := os.Remove(fileName); err == nil {
+			fmt.Println("temp file has been removed")
+		}
+		ch <- struct{}{}
+	}, tempFile.Name())
+
+	if err := tempFile.Close(); err != nil {
+		fmt.Println("failed to close temp file:", err)
+		return
+	}
+
+	// Run the garbage collector to reclaim unreachable objects
+	// and enqueue their cleanup functions.
+	runtime.GC()
+
+	// Wait until cleanup function is done.
+	<-ch
+
+}
+
+```
+
+#### (Cleanup) Stop <- 1.24.0
+
+```go
+func (c Cleanup) Stop()
+```
+
+Stop cancels the cleanup call. Stop will have no effect if the cleanup call has already been queued for execution (because ptr became unreachable). To guarantee that Stop removes the cleanup function, the caller must ensure that the pointer that was passed to AddCleanup is reachable across the call to Stop.
 
 ### type Error 
 

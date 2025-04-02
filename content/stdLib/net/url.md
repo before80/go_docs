@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/url@go1.23.0](https://pkg.go.dev/net/url@go1.23.0)
+> 原文：[https://pkg.go.dev/net/url@go1.24.2](https://pkg.go.dev/net/url@go1.24.2)
 
 Package url parses URLs and implements query escaping.
 
@@ -359,6 +359,12 @@ func ParseRequestURI(rawURL string) (*URL, error)
 ParseRequestURI parses a raw url into a URL structure. It assumes that url was received in an HTTP request, so the url is interpreted only as an absolute URI or an absolute path. The string url is assumed not to have a #fragment suffix. (Web browsers strip #fragment before sending the URL to a web server.)
 
 ​	ParseRequestURI 将原始 URL 解析为 URL 结构。它假定在 HTTP 请求中收到了 URL，因此 URL 仅解释为绝对 URI 或绝对路径。假定字符串 URL 没有 #fragment 后缀。（Web 浏览器在将 URL 发送到 Web 服务器之前会删除 #fragment。）
+
+#### (*URL) AppendBinary <- 1.24.0
+
+```go
+func (u *URL) AppendBinary(b []byte) ([]byte, error)
+```
 
 #### (*URL) EscapedFragment <- go1.15
 

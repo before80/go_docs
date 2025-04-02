@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/crypto/ecdsa@go1.23.0](https://pkg.go.dev/crypto/ecdsa@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/ecdsa@go1.24.2](https://pkg.go.dev/crypto/ecdsa@go1.24.2)
 
 Package ecdsa implements the Elliptic Curve Digital Signature Algorithm, as defined in FIPS 186-4 and SEC 1, Version 2.0.
 

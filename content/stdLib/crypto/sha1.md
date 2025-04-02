@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/sha1@go1.23.0](https://pkg.go.dev/crypto/sha1@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/sha1@go1.24.2](https://pkg.go.dev/crypto/sha1@go1.24.2)
 
 Package sha1 implements the SHA-1 hash algorithm as defined in [RFC 3174](https://rfc-editor.org/rfc/rfc3174.html).
 

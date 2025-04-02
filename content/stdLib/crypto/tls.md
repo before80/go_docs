@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/tls@go1.23.0](https://pkg.go.dev/crypto/tls@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/tls@go1.24.2](https://pkg.go.dev/crypto/tls@go1.24.2)
 
 Package tls partially implements TLS 1.2, as specified in [RFC 5246](https://rfc-editor.org/rfc/rfc5246.html), and TLS 1.3, as specified in [RFC 8446](https://rfc-editor.org/rfc/rfc8446.html).
 
@@ -997,6 +997,9 @@ type Config struct {
 	//
 	// 从 Go 1.23 开始，默认包括 X25519Kyber768Draft00 混合后量子密钥交换。
 	// 要禁用它，请显式设置 CurvePreferences 或使用 GODEBUG=tlskyber=0 环境变量。
+    // From Go 1.24, the default includes the [X25519MLKEM768] hybrid
+	// post-quantum key exchange. To disable it, set CurvePreferences explicitly
+	// or use the GODEBUG=tlsmlkem=0 environment variable.
 	CurvePreferences []CurveID
 
 	// DynamicRecordSizingDisabled disables adaptive sizing of TLS records.
@@ -1782,6 +1785,28 @@ The client may treat an ECHRejectionError with an empty set of RetryConfigs as a
 ``` go
 func (e *ECHRejectionError) Error() string
 ```
+
+### type EncryptedClientHelloKey <- 1.24.0
+
+```go
+type EncryptedClientHelloKey struct {
+	// Config should be a marshalled ECHConfig associated with PrivateKey. This
+	// must match the config provided to clients byte-for-byte. The config
+	// should only specify the DHKEM(X25519, HKDF-SHA256) KEM ID (0x0020), the
+	// HKDF-SHA256 KDF ID (0x0001), and a subset of the following AEAD IDs:
+	// AES-128-GCM (0x0000), AES-256-GCM (0x0001), ChaCha20Poly1305 (0x0002).
+	Config []byte
+	// PrivateKey should be a marshalled private key. Currently, we expect
+	// this to be the output of [ecdh.PrivateKey.Bytes].
+	PrivateKey []byte
+	// SendAsRetry indicates if Config should be sent as part of the list of
+	// retry configs when ECH is requested by the client but rejected by the
+	// server.
+	SendAsRetry bool
+}
+```
+
+EncryptedClientHelloKey holds a private key that is associated with a specific ECH config known to a client.
 
 ### type QUICConfig <-go1.21.0
 

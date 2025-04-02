@@ -8,7 +8,7 @@ draft = false
 
 +++
 
-> 原文：[https://pkg.go.dev/go/build/constraint@go1.23.0](https://pkg.go.dev/go/build/constraint@go1.23.0)
+> 原文：[https://pkg.go.dev/go/build/constraint@go1.24.2](https://pkg.go.dev/go/build/constraint@go1.24.2)
 
 Package constraint implements parsing and evaluation of build constraint lines. See https://golang.org/cmd/go/#hdr-Build_constraints for documentation about build constraints themselves.
 

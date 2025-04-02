@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/slog@go1.23.0](https://pkg.go.dev/slog@go1.23.0)
+> 原文：[https://pkg.go.dev/slog@go1.24.2](https://pkg.go.dev/slog@go1.24.2)
 
 > 注意
 >
@@ -1428,6 +1428,14 @@ level=ERROR msg=error
 
 
 
+#### (Level) AppendText <- 1.24.0
+
+```go
+func (l Level) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) by calling [Level.String](https://pkg.go.dev/log/slog@go1.24.2#Level.String).
+
 #### (Level) Level 
 
 ``` go
@@ -1504,6 +1512,14 @@ type LevelVar struct {
 A LevelVar is a Level variable, to allow a Handler level to change dynamically. It implements Leveler as well as a Set method, and it is safe for use by multiple goroutines. The zero LevelVar corresponds to LevelInfo.
 
 ​	LevelVar 是一个 Level 变量，用于动态更改 Handler 的级别。它实现了 Leveler 接口以及 Set 方法，且可安全用于多个协程。初始 LevelVar 对应于 LevelInfo。
+
+#### (*LevelVar) AppendText <- 1.24.0
+
+```go
+func (v *LevelVar) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) by calling [Level.AppendText](https://pkg.go.dev/log/slog@go1.24.2#Level.AppendText).
 
 #### (*LevelVar) Level 
 

@@ -5,8 +5,9 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-> 原文：[https://pkg.go.dev/net/http@go1.23.0](https://pkg.go.dev/net/http@go1.23.0)
+> 原文：[https://pkg.go.dev/net/http@go1.24.2](https://pkg.go.dev/net/http@go1.24.2)
 
 Package http provides HTTP client and server implementations.
 
@@ -1590,6 +1591,75 @@ Note that even for ResponseWriters that support Flush, if the client is connecte
 
 ​	请注意，即使对于支持 Flush 的 ResponseWriter，如果客户端通过 HTTP 代理连接，则缓冲的数据可能要等到响应完成后才能到达客户端。
 
+### type HTTP2Config <- 1.24.0
+
+```go
+type HTTP2Config struct {
+	// MaxConcurrentStreams optionally specifies the number of
+	// concurrent streams that a peer may have open at a time.
+	// If zero, MaxConcurrentStreams defaults to at least 100.
+	MaxConcurrentStreams int
+
+	// MaxDecoderHeaderTableSize optionally specifies an upper limit for the
+	// size of the header compression table used for decoding headers sent
+	// by the peer.
+	// A valid value is less than 4MiB.
+	// If zero or invalid, a default value is used.
+	MaxDecoderHeaderTableSize int
+
+	// MaxEncoderHeaderTableSize optionally specifies an upper limit for the
+	// header compression table used for sending headers to the peer.
+	// A valid value is less than 4MiB.
+	// If zero or invalid, a default value is used.
+	MaxEncoderHeaderTableSize int
+
+	// MaxReadFrameSize optionally specifies the largest frame
+	// this endpoint is willing to read.
+	// A valid value is between 16KiB and 16MiB, inclusive.
+	// If zero or invalid, a default value is used.
+	MaxReadFrameSize int
+
+	// MaxReceiveBufferPerConnection is the maximum size of the
+	// flow control window for data received on a connection.
+	// A valid value is at least 64KiB and less than 4MiB.
+	// If invalid, a default value is used.
+	MaxReceiveBufferPerConnection int
+
+	// MaxReceiveBufferPerStream is the maximum size of
+	// the flow control window for data received on a stream (request).
+	// A valid value is less than 4MiB.
+	// If zero or invalid, a default value is used.
+	MaxReceiveBufferPerStream int
+
+	// SendPingTimeout is the timeout after which a health check using a ping
+	// frame will be carried out if no frame is received on a connection.
+	// If zero, no health check is performed.
+	SendPingTimeout time.Duration
+
+	// PingTimeout is the timeout after which a connection will be closed
+	// if a response to a ping is not received.
+	// If zero, a default of 15 seconds is used.
+	PingTimeout time.Duration
+
+	// WriteByteTimeout is the timeout after which a connection will be
+	// closed if no data can be written to it. The timeout begins when data is
+	// available to write, and is extended whenever any bytes are written.
+	WriteByteTimeout time.Duration
+
+	// PermitProhibitedCipherSuites, if true, permits the use of
+	// cipher suites prohibited by the HTTP/2 spec.
+	PermitProhibitedCipherSuites bool
+
+	// CountError, if non-nil, is called on HTTP/2 errors.
+	// It is intended to increment a metric for monitoring.
+	// The errType contains only lowercase letters, digits, and underscores
+	// (a-z, 0-9, _).
+	CountError func(errType string)
+}
+```
+
+HTTP2Config defines HTTP/2 configuration parameters common to both [Transport](https://pkg.go.dev/net/http@go1.24.2#Transport) and [Server](https://pkg.go.dev/net/http@go1.24.2#Server).
+
 ### type Handler 
 
 ``` go 
@@ -2147,6 +2217,132 @@ func (pe *ProtocolError) Is(err error) bool
 Is lets http.ErrNotSupported match errors.ErrUnsupported.
 
 ​	`Is` 允许 `http.ErrNotSupported` 与 `errors.ErrUnsupported` 匹配。
+
+### type Protocols <- 1.24.0
+
+```go
+type Protocols struct {
+	// contains filtered or unexported fields
+}
+```
+
+Protocols is a set of HTTP protocols. The zero value is an empty set of protocols.
+
+The supported protocols are:
+
+- HTTP1 is the HTTP/1.0 and HTTP/1.1 protocols. HTTP1 is supported on both unsecured TCP and secured TLS connections.
+- HTTP2 is the HTTP/2 protcol over a TLS connection.
+- UnencryptedHTTP2 is the HTTP/2 protocol over an unsecured TCP connection.
+
+Example (Http1)
+
+```go
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+func main() {
+	srv := http.Server{
+		Addr: ":8443",
+	}
+
+	// Serve only HTTP/1.
+	srv.Protocols = new(http.Protocols)
+	srv.Protocols.SetHTTP1(true)
+
+	log.Fatal(srv.ListenAndServeTLS("cert.pem", "key.pem"))
+}
+Output:
+
+2009/11/10 23:00:00 open cert.pem: no such file or directory
+```
+
+Example (Http1or2)
+
+```go
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+func main() {
+	t := http.DefaultTransport.(*http.Transport).Clone()
+
+	// Use either HTTP/1 and HTTP/2.
+	t.Protocols = new(http.Protocols)
+	t.Protocols.SetHTTP1(true)
+	t.Protocols.SetHTTP2(true)
+
+	cli := &http.Client{Transport: t}
+	res, err := cli.Get("http://www.google.com/robots.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	res.Body.Close()
+}
+Output:
+
+2009/11/10 23:00:00 Get "http://www.google.com/robots.txt": dial tcp: lookup www.google.com on 169.254.169.254:53: dial udp 169.254.169.254:53: connect: no route to host
+```
+
+#### (Protocols) HTTP1 <- 1.24.0
+
+```
+func (p Protocols) HTTP1() bool
+```
+
+HTTP1 reports whether p includes HTTP/1.
+
+#### (Protocols) HTTP2 <- 1.24.0
+
+```
+func (p Protocols) HTTP2() bool
+```
+
+HTTP2 reports whether p includes HTTP/2.
+
+#### (*Protocols) SetHTTP1 <- 1.24.0
+
+```
+func (p *Protocols) SetHTTP1(ok bool)
+```
+
+SetHTTP1 adds or removes HTTP/1 from p.
+
+#### (*Protocols) SetHTTP2 <- 1.24.0
+
+```
+func (p *Protocols) SetHTTP2(ok bool)
+```
+
+SetHTTP2 adds or removes HTTP/2 from p.
+
+#### (*Protocols) SetUnencryptedHTTP2 <- 1.24.0
+
+```
+func (p *Protocols) SetUnencryptedHTTP2(ok bool)
+```
+
+SetUnencryptedHTTP2 adds or removes unencrypted HTTP/2 from p.
+
+#### (Protocols) String <- 1.24.0
+
+```
+func (p Protocols) String() string
+```
+
+#### (Protocols) UnencryptedHTTP2 <- 1.24.0
+
+```
+func (p Protocols) UnencryptedHTTP2() bool
+```
+
+UnencryptedHTTP2 reports whether p includes unencrypted HTTP/2.
 
 ### type PushOptions  <- go1.8
 

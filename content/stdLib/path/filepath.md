@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/path/filepath@go1.23.0](https://pkg.go.dev/path/filepath@go1.23.0)
+> 原文：[https://pkg.go.dev/path/filepath@go1.24.2](https://pkg.go.dev/path/filepath@go1.24.2)
 
 Package filepath implements utility routines for manipulating filename paths in a way compatible with the target operating system-defined file paths.
 

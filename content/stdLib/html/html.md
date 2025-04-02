@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/html@go1.23.0](https://pkg.go.dev/html@go1.23.0)
+> 原文：[https://pkg.go.dev/html@go1.24.2](https://pkg.go.dev/html@go1.24.2)
 
 Package html provides functions for escaping and unescaping HTML text.
 

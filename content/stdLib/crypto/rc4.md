@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/rc4@go1.23.0](https://pkg.go.dev/crypto/rc4@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/rc4@go1.24.2](https://pkg.go.dev/crypto/rc4@go1.24.2)
 
 Package rc4 implements RC4 encryption, as defined in Bruce Schneier's Applied Cryptography.
 

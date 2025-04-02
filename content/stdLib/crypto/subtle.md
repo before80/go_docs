@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/subtle@go1.23.0](https://pkg.go.dev/crypto/subtle@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/subtle@go1.24.2](https://pkg.go.dev/crypto/subtle@go1.24.2)
 
 Package subtle implements functions that are often useful in cryptographic code but require careful thought to use correctly.
 
@@ -81,6 +81,22 @@ func ConstantTimeSelect(v, x, y int) int
 ConstantTimeSelect returns x if v == 1 and y if v == 0. Its behavior is undefined if v takes any other value.
 
 ​	如果 v == 1，则 ConstantTimeSelect 返回 x；如果 v == 0，则返回 y。如果 v 采用任何其他值，则其行为未定义。
+
+### func WithDataIndependentTiming <- 1.24.0
+
+```go
+func WithDataIndependentTiming(f func())
+```
+
+WithDataIndependentTiming enables architecture specific features which ensure that the timing of specific instructions is independent of their inputs before executing f. On f returning it disables these features.
+
+WithDataIndependentTiming should only be used when f is written to make use of constant-time operations. WithDataIndependentTiming does not make variable-time code constant-time.
+
+WithDataIndependentTiming may lock the current goroutine to the OS thread for the duration of f. Calls to WithDataIndependentTiming may be nested.
+
+On Arm64 processors with FEAT_DIT, WithDataIndependentTiming enables PSTATE.DIT. See https://developer.arm.com/documentation/ka005181/1-0/?lang=en.
+
+Currently, on all other architectures WithDataIndependentTiming executes f immediately with no other side-effects.
 
 ### func XORBytes  <- go1.20
 

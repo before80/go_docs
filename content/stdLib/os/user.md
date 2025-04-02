@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/os/user@go1.23.0](https://pkg.go.dev/os/user@go1.23.0)
+> 原文：[https://pkg.go.dev/os/user@go1.24.2](https://pkg.go.dev/os/user@go1.24.2)
 
 Package user allows user account lookups by name or id.
 

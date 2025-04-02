@@ -9,7 +9,7 @@ draft = false
 
 +++
 
-> 原文：[https://pkg.go.dev/math/rand/v2@go1.23.0](https://pkg.go.dev/math/rand/v2@go1.23.0)
+> 原文：[https://pkg.go.dev/math/rand/v2@go1.24.2](https://pkg.go.dev/math/rand/v2@go1.24.2)
 
 > 注意
 >
@@ -433,6 +433,14 @@ NewChaCha8 returns a new ChaCha8 seeded with the given seed.
 
 ​	NewChaCha8 返回一个使用给定种子初始化的新的 ChaCha8 实例。
 
+#### (*ChaCha8) AppendBinary <- 1.24.0
+
+```go
+func (c *ChaCha8) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.BinaryAppender](https://pkg.go.dev/encoding#BinaryAppender) interface.
+
 #### (*ChaCha8) MarshalBinary 
 
 ``` go
@@ -506,6 +514,14 @@ func NewPCG(seed1, seed2 uint64) *PCG
 NewPCG returns a new PCG seeded with the given values.
 
 ​	NewPCG 返回一个使用给定值初始化的新 PCG 实例。
+
+#### (*PCG) AppendBinary <- 1.24.0
+
+```go
+func (p *PCG) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.BinaryAppender](https://pkg.go.dev/encoding#BinaryAppender) interface.
 
 #### (*PCG) MarshalBinary 
 

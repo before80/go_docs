@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/net/http/pprof@go1.23.0](https://pkg.go.dev/net/http/pprof@go1.23.0)
+> 原文：[https://pkg.go.dev/net/http/pprof@go1.24.2](https://pkg.go.dev/net/http/pprof@go1.24.2)
 
 Package pprof serves via its HTTP server runtime profiling data in the format expected by the pprof visualization tool.
 

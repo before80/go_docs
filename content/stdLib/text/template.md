@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/text/template@go1.23.0](https://pkg.go.dev/text/template@go1.23.0)
+> 原文：[https://pkg.go.dev/text/template@go1.24.2](https://pkg.go.dev/text/template@go1.24.2)
 
 Package template implements data-driven templates for generating textual output.
 

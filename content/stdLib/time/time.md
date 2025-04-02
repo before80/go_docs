@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/time@go1.23.0](https://pkg.go.dev/time@go1.23.0)
+> 原文：[https://pkg.go.dev/time@go1.24.2](https://pkg.go.dev/time@go1.24.2)
 
 Package time provides functionality for measuring and displaying time.
 
@@ -1686,6 +1686,14 @@ year3000.After(year2000) = true
 year2000.After(year3000) = false
 ```
 
+#### (Time) AppendBinary <- 1.24.0
+
+```go
+func (t Time) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.BinaryAppender](https://pkg.go.dev/encoding#BinaryAppender) interface.
+
 #### (Time) AppendFormat  <- go1.5
 
 ``` go 
@@ -1717,6 +1725,14 @@ Output:
 
 Time: 11:00AM
 ```
+
+#### (Time) AppendText <- 1.24.0
+
+```go
+func (t Time) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements the [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) interface. The time is formatted in [RFC 3339](https://rfc-editor.org/rfc/rfc3339.html) format with sub-second precision. If the timestamp cannot be represented as valid [RFC 3339](https://rfc-editor.org/rfc/rfc3339.html) (e.g., the year is out of range), then an error is returned.
 
 #### (Time) Before 
 

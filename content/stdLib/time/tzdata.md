@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/time/tzdata@go1.23.0](https://pkg.go.dev/time/tzdata@go1.23.0)
+> 原文：[https://pkg.go.dev/time/tzdata@go1.24.2](https://pkg.go.dev/time/tzdata@go1.24.2)
 
 Package tzdata provides an embedded copy of the timezone database. If this package is imported anywhere in the program, then if the time package cannot find tzdata files on the system, it will use this embedded information.
 

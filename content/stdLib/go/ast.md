@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/ast@go1.23.0](https://pkg.go.dev/go/ast@go1.23.0)
+> 原文：[https://pkg.go.dev/go/ast@go1.24.2](https://pkg.go.dev/go/ast@go1.24.2)
 
 Package ast declares the types used to represent syntax trees for Go packages.
 

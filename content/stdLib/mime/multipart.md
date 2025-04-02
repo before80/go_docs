@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/mime/multipart@go1.23.0](https://pkg.go.dev/mime/multipart@go1.23.0)
+> 原文：[https://pkg.go.dev/mime/multipart@go1.24.2](https://pkg.go.dev/mime/multipart@go1.24.2)
 
 Package multipart implements MIME multipart parsing, as defined in [RFC 2046](https://rfc-editor.org/rfc/rfc2046.html).
 

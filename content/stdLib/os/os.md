@@ -5,8 +5,9 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-> 原文：[https://pkg.go.dev/os@go1.23.0](https://pkg.go.dev/os@go1.23.0)
+> 原文：[https://pkg.go.dev/os@go1.24.2](https://pkg.go.dev/os@go1.24.2)
 
 Package os provides a platform-independent interface to operating system functionality. The design is Unix-like, although the error handling is Go-like; failing calls return values of type error rather than error numbers. Often, more information is available within the error. For example, if a call that takes a file name fails, such as Open or Stat, the error will include the failing file name when printed and will be of type *PathError, which may be unpacked for more information.
 
@@ -2426,7 +2427,17 @@ func main() {
 
 ```
 
+#### func OpenInRoot <- 1.24.0
 
+```
+func OpenInRoot(dir, name string) (*File, error)
+```
+
+OpenInRoot opens the file name in the directory dir. It is equivalent to OpenRoot(dir) followed by opening the file in the root.
+
+OpenInRoot returns an error if any component of the name references a location outside of dir.
+
+See [Root](https://pkg.go.dev/os@go1.24.2#Root) for details and limitations.
 
 #### (*File) Chdir 
 
@@ -3078,6 +3089,136 @@ func (p *ProcessState) UserTime() time.Duration
 UserTime returns the user CPU time of the exited process and its children.
 
 ​	UserTime方法返回已退出进程及其子进程的用户CPU时间。
+
+### type Root <- 1.24.0
+
+```go
+type Root struct {
+	// contains filtered or unexported fields
+}
+```
+
+Root may be used to only access files within a single directory tree.
+
+Methods on Root can only access files and directories beneath a root directory. If any component of a file name passed to a method of Root references a location outside the root, the method returns an error. File names may reference the directory itself (.).
+
+Methods on Root will follow symbolic links, but symbolic links may not reference a location outside the root. Symbolic links must not be absolute.
+
+Methods on Root do not prohibit traversal of filesystem boundaries, Linux bind mounts, /proc special files, or access to Unix device files.
+
+Methods on Root are safe to be used from multiple goroutines simultaneously.
+
+On most platforms, creating a Root opens a file descriptor or handle referencing the directory. If the directory is moved, methods on Root reference the original directory in its new location.
+
+Root's behavior differs on some platforms:
+
+- When GOOS=windows, file names may not reference Windows reserved device names such as NUL and COM1.
+- When GOOS=js, Root is vulnerable to TOCTOU (time-of-check-time-of-use) attacks in symlink validation, and cannot ensure that operations will not escape the root.
+- When GOOS=plan9 or GOOS=js, Root does not track directories across renames. On these platforms, a Root references a directory name, not a file descriptor.
+
+#### func OpenRoot <- 1.24.0
+
+```go
+func OpenRoot(name string) (*Root, error)
+```
+
+OpenRoot opens the named directory. If there is an error, it will be of type *PathError.
+
+#### (*Root) Close <- 1.24.0
+
+```go
+func (r *Root) Close() error
+```
+
+Close closes the Root. After Close is called, methods on Root return errors.
+
+#### (*Root) Create <- 1.24.0
+
+```go
+func (r *Root) Create(name string) (*File, error)
+```
+
+Create creates or truncates the named file in the root. See [Create](https://pkg.go.dev/os@go1.24.2#Create) for more details.
+
+#### (*Root) FS <- 1.24.0
+
+```go
+func (r *Root) FS() fs.FS
+```
+
+FS returns a file system (an fs.FS) for the tree of files in the root.
+
+The result implements [io/fs.StatFS](https://pkg.go.dev/io/fs#StatFS), [io/fs.ReadFileFS](https://pkg.go.dev/io/fs#ReadFileFS) and [io/fs.ReadDirFS](https://pkg.go.dev/io/fs#ReadDirFS).
+
+#### (*Root) Lstat <- 1.24.0
+
+```go
+func (r *Root) Lstat(name string) (FileInfo, error)
+```
+
+Lstat returns a [FileInfo](https://pkg.go.dev/os@go1.24.2#FileInfo) describing the named file in the root. If the file is a symbolic link, the returned FileInfo describes the symbolic link. See [Lstat](https://pkg.go.dev/os@go1.24.2#Lstat) for more details.
+
+#### (*Root) Mkdir <- 1.24.0
+
+```go
+func (r *Root) Mkdir(name string, perm FileMode) error
+```
+
+Mkdir creates a new directory in the root with the specified name and permission bits (before umask). See [Mkdir](https://pkg.go.dev/os@go1.24.2#Mkdir) for more details.
+
+If perm contains bits other than the nine least-significant bits (0o777), OpenFile returns an error.
+
+#### (*Root) Name <- 1.24.0
+
+```go
+func (r *Root) Name() string
+```
+
+Name returns the name of the directory presented to OpenRoot.
+
+It is safe to call Name after [Close].
+
+#### (*Root) Open <- 1.24.0
+
+```go
+func (r *Root) Open(name string) (*File, error)
+```
+
+Open opens the named file in the root for reading. See [Open](https://pkg.go.dev/os@go1.24.2#Open) for more details.
+
+#### (*Root) OpenFile <- 1.24.0
+
+```go
+func (r *Root) OpenFile(name string, flag int, perm FileMode) (*File, error)
+```
+
+OpenFile opens the named file in the root. See [OpenFile](https://pkg.go.dev/os@go1.24.2#OpenFile) for more details.
+
+If perm contains bits other than the nine least-significant bits (0o777), OpenFile returns an error.
+
+#### (*Root) OpenRoot <- 1.24.0
+
+```go
+func (r *Root) OpenRoot(name string) (*Root, error)
+```
+
+OpenRoot opens the named directory in the root. If there is an error, it will be of type *PathError.
+
+#### (*Root) Remove <- 1.24.0
+
+```go
+func (r *Root) Remove(name string) error
+```
+
+Remove removes the named file or (empty) directory in the root. See [Remove](https://pkg.go.dev/os@go1.24.2#Remove) for more details.
+
+#### (*Root) Stat <- 1.24.0
+
+```go
+func (r *Root) Stat(name string) (FileInfo, error)
+```
+
+Stat returns a [FileInfo](https://pkg.go.dev/os@go1.24.2#FileInfo) describing the named file in the root. See [Stat](https://pkg.go.dev/os@go1.24.2#Stat) for more details.
 
 ### type Signal 
 

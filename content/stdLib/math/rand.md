@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/math/rand@go1.23.0](https://pkg.go.dev/math/rand@go1.23.0)
+> 原文：[https://pkg.go.dev/math/rand@go1.24.2](https://pkg.go.dev/math/rand@go1.24.2)
 
 Package rand implements pseudo-random number generators unsuitable for security-sensitive work.
 
@@ -349,6 +349,8 @@ Prior to Go 1.20, the generator was seeded like Seed(1) at program startup. To f
 Deprecated: Programs that call Seed and then expect a specific sequence of results from the global random source (using functions such as Int) can be broken when a dependency changes how much it consumes from the global random source. To avoid such breakages, programs that need a specific result sequence should use NewRand(NewSource(seed)) to obtain a random generator that other packages cannot access.
 
 已弃用：程序在调用 `Seed` 然后期望全局随机源具有特定结果序列的情况下，当依赖项更改其从全局随机源消耗的数据量时，可能会导致问题。为避免此类问题，需要特定结果序列的程序应该使用 `NewRand(NewSource(seed))` 来获取其他包无法访问的随机生成器。
+
+As of Go 1.24 [Seed](https://pkg.go.dev/math/rand@go1.24.2#Seed) is a no-op. To restore the previous behavior set `GODEBUG=randseednop=0`.
 
 ### func Shuffle  <- go1.10
 

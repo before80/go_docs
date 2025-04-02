@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/ascii85@go1.23.0](https://pkg.go.dev/encoding/ascii85@go1.23.0)
+> 原文：[https://pkg.go.dev/encoding/ascii85@go1.24.2](https://pkg.go.dev/encoding/ascii85@go1.24.2)
 
 Package ascii85 implements the ascii85 data encoding as used in the btoa tool and Adobe's PostScript and PDF document formats.
 

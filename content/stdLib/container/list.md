@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/container/list@go1.23.0](https://pkg.go.dev/container/list@go1.23.0)
+> 原文：[https://pkg.go.dev/container/list@go1.24.2](https://pkg.go.dev/container/list@go1.24.2)
 
 Package list implements a doubly linked list.
 

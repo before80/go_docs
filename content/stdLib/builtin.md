@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/builtin@go1.23.0](https://pkg.go.dev/builtin@go1.23.0)
+> 原文：[https://pkg.go.dev/builtin@go1.24.2](https://pkg.go.dev/builtin@go1.24.2)
 
 Package builtin provides documentation for Go's predeclared identifiers. The items documented here are not actually in package builtin but their descriptions here allow godoc to present documentation for the language's special identifiers.
 

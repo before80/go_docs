@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/x509/pkix@go1.23.0](https://pkg.go.dev/crypto/x509/pkix@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/x509/pkix@go1.24.2](https://pkg.go.dev/crypto/x509/pkix@go1.24.2)
 
 Package pkix contains shared, low level structures used for ASN.1 parsing and serialization of X.509 certificates, CRL and OCSP.
 

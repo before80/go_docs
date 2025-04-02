@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/debug/elf@go1.23.0](https://pkg.go.dev/debug/elf@go1.23.0)
+> 原文：[https://pkg.go.dev/debug/elf@go1.24.2](https://pkg.go.dev/debug/elf@go1.24.2)
 
 Package elf implements access to ELF object files.
 
@@ -586,6 +586,58 @@ func (i DynTag) GoString() string
 func (i DynTag) String() string
 ```
 
+### type DynamicVersion <- 1.24.0
+
+```go
+type DynamicVersion struct {
+	Name  string // Name of version defined by this index.
+	Index uint16 // Version index.
+	Flags DynamicVersionFlag
+	Deps  []string // Names of versions that this version depends upon.
+}
+```
+
+DynamicVersion is a version defined by a dynamic object. This describes entries in the ELF SHT_GNU_verdef section. We assume that the vd_version field is 1. Note that the name of the version appears here; it is not in the first Deps entry as it is in the ELF file.
+
+### type DynamicVersionDep <- 1.24.0
+
+```go
+type DynamicVersionDep struct {
+	Flags DynamicVersionFlag
+	Index uint16 // Version index.
+	Dep   string // Name of required version.
+}
+```
+
+DynamicVersionDep is a version needed from some shared library.
+
+### type DynamicVersionFlag <- 1.24.0
+
+```go
+type DynamicVersionFlag uint16
+```
+
+Dynamic version flags.
+
+```go
+const (
+	VER_FLG_BASE DynamicVersionFlag = 0x1 /* Version definition of the file. */
+	VER_FLG_WEAK DynamicVersionFlag = 0x2 /* Weak version identifier. */
+	VER_FLG_INFO DynamicVersionFlag = 0x4 /* Reference exists for informational purposes. */
+)
+```
+
+### type DynamicVersionNeed <- 1.24.0
+
+```go
+type DynamicVersionNeed struct {
+	Name  string              // Shared library name.
+	Needs []DynamicVersionDep // Dependencies.
+}
+```
+
+DynamicVersionNeed describes a shared library needed by a dynamic object, with a list of the versions needed from that shared library. This describes entries in the ELF SHT_GNU_verneed section. We assume that the vn_version field is 1.
+
 ### type File
 
 ```go
@@ -678,6 +730,22 @@ If f has a symbol version table, the returned Symbols will have initialized Vers
 For compatibility with Symbols, DynamicSymbols omits the null symbol at index 0. After retrieving the symbols as symtab, an externally supplied index x corresponds to symtab[x-1], not symtab[x].
 
 ​	为了与 Symbols 兼容，DynamicSymbols 省略了索引 0 处的空符号。在将符号作为 symtab 检索后，外部提供的索引 x 对应于 symtab[x-1]，而不是 symtab[x]。
+
+#### (*File) DynamicVersionNeeds <- 1.24.0
+
+```go
+func (f *File) DynamicVersionNeeds() ([]DynamicVersionNeed, error)
+```
+
+DynamicVersionNeeds returns version dependencies for a dynamic object.
+
+#### (*File) DynamicVersions <- 1.24.0
+
+```go
+func (f *File) DynamicVersions() ([]DynamicVersion, error)
+```
+
+DynamicVersions returns version information for a dynamic object.
 
 #### (*File) ImportedLibraries
 
@@ -1141,7 +1209,7 @@ A Prog represents a single ELF program header in an ELF binary.
 
 ​	Prog 表示 ELF 二进制文件中的单个 ELF 程序头。
 
-#### (*Prog) Open （*程序）打开
+#### (*Prog) Open
 
 ```go
 func (p *Prog) Open() io.ReadSeeker
@@ -3120,3 +3188,27 @@ func (i Version) GoString() string
 ``` go 
 func (i Version) String() string
 ```
+
+### type VersionIndex <- 1.24.0
+
+```go
+type VersionIndex uint16
+```
+
+VersionIndex is the type of a [Symbol](https://pkg.go.dev/debug/elf@go1.24.2#Symbol) version index.
+
+#### (VersionIndex) Index <- 1.24.0
+
+```go
+func (vi VersionIndex) Index() uint16
+```
+
+Index returns the version index. If this is the value 0, it means that the symbol is local, and is not visible externally. If this is the value 1, it means that the symbol is in the base version, and has no specific version; it may or may not match a [DynamicVersion.Index] in the slice returned by [File.DynamicVersions](https://pkg.go.dev/debug/elf@go1.24.2#File.DynamicVersions). Other values will match either [DynamicVersion.Index] in the slice returned by [File.DynamicVersions](https://pkg.go.dev/debug/elf@go1.24.2#File.DynamicVersions), or [DynamicVersionDep.Index] in the Needs field of the elements of the slice returned by [File.DynamicVersionNeeds](https://pkg.go.dev/debug/elf@go1.24.2#File.DynamicVersionNeeds). In general, a defined symbol will have an index referring to DynamicVersions, and an undefined symbol will have an index referring to some version in DynamicVersionNeeds.
+
+#### (VersionIndex) IsHidden <- 1.24.0
+
+```go
+func (vi VersionIndex) IsHidden() bool
+```
+
+IsHidden reports whether the symbol is hidden within the version. This means that the symbol can only be seen by specifying the exact version.

@@ -7,7 +7,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/compress/flate@go1.23.0](https://pkg.go.dev/compress/flate@go1.23.0)
+> 原文：[https://pkg.go.dev/compress/flate@go1.24.2](https://pkg.go.dev/compress/flate@go1.24.2)
 
 Package flate implements the DEFLATE compressed data format, described in [RFC 1951](https://rfc-editor.org/rfc/rfc1951.html). The gzip and zlib packages implement access to DEFLATE-based file formats.
 

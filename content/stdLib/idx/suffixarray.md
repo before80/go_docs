@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/index/suffixarray@go1.23.0](https://pkg.go.dev/index/suffixarray@go1.23.0)
+> 原文：[https://pkg.go.dev/index/suffixarray@go1.24.2](https://pkg.go.dev/index/suffixarray@go1.24.2)
 
 Package suffixarray implements substring search in logarithmic time using an in-memory suffix array.
 
@@ -16,7 +16,7 @@ Example use:
 
 ​	示例用法：
 
-```
+```go
 // create index for some data
 index := suffixarray.New(data)
 

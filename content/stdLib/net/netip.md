@@ -5,8 +5,9 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-> 原文：[https://pkg.go.dev/net/netip@go1.23.0](https://pkg.go.dev/net/netip@go1.23.0)
+> 原文：[https://pkg.go.dev/net/netip@go1.24.2](https://pkg.go.dev/net/netip@go1.24.2)
 
 Package netip defines an IP address type that’s a small value type. Building on that Addr type, the package also defines AddrPort (an IP address and a port), and Prefix (an IP address and a bit length prefix).
 
@@ -149,6 +150,22 @@ func ParseAddr(s string) (Addr, error)
 ParseAddr parses s as an IP address, returning the result. The string s can be in dotted decimal (“192.0.2.1”), IPv6 (“2001:db8::68”), or IPv6 with a scoped addressing zone (“fe80::1cc0:3e8c:119f:c2e1%ens18”).
 
 ​	ParseAddr 将 s 解析为 IP 地址，并返回结果。字符串 s 可以是点分十进制 (“192.0.2.1”)、IPv6 (“2001:db8::68”) 或带作用域寻址区域的 IPv6 (“fe80::1cc0:3e8c:119f:c2e1%ens18”)。
+
+#### (Addr) AppendBinary <- 1.24.0
+
+```
+func (ip Addr) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.BinaryAppender](https://pkg.go.dev/encoding#BinaryAppender) interface.
+
+#### (Addr) AppendText <- 1.24.0
+
+```
+func (ip Addr) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements the [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) interface, It is the same as [Addr.AppendTo](https://pkg.go.dev/net/netip@go1.24.2#Addr.AppendTo).
 
 #### (Addr) AppendTo
 
@@ -562,6 +579,22 @@ Addr returns p’s IP address.
 
 ​	Addr 返回 p 的 IP 地址。
 
+#### (AddrPort) AppendBinary <- 1.24.0
+
+```
+func (p AddrPort) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.BinaryAppendler](https://pkg.go.dev/encoding#BinaryAppendler) interface. It returns [Addr.AppendBinary](https://pkg.go.dev/net/netip@go1.24.2#Addr.AppendBinary) with an additional two bytes appended containing the port in little-endian.
+
+#### (AddrPort) AppendText <- 1.24.0
+
+```
+func (p AddrPort) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements the [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) interface. The encoding is the same as returned by [AddrPort.AppendTo](https://pkg.go.dev/net/netip@go1.24.2#AddrPort.AppendTo).
+
 #### (AddrPort) Compare <-go1.22.0
 
 ``` go
@@ -715,6 +748,22 @@ func (p Prefix) Addr() Addr
 Addr returns p’s IP address.
 
 ​	Addr 返回 p 的 IP 地址。
+
+#### (Prefix) AppendBinary <- 1.24.0
+
+```
+func (p Prefix) AppendBinary(b []byte) ([]byte, error)
+```
+
+AppendBinary implements the [encoding.AppendMarshaler](https://pkg.go.dev/encoding#AppendMarshaler) interface. It returns [Addr.AppendBinary](https://pkg.go.dev/net/netip@go1.24.2#Addr.AppendBinary) with an additional byte appended containing the prefix bits.
+
+#### (Prefix) AppendText <- 1.24.0
+
+```
+func (p Prefix) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements the [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender) interface. It is the same as [Prefix.AppendTo](https://pkg.go.dev/net/netip@go1.24.2#Prefix.AppendTo).
 
 #### (Prefix) AppendTo
 

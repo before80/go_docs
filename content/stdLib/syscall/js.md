@@ -8,7 +8,7 @@ draft = false
 +++
 
 
-> 原文：[https://pkg.go.dev/syscall/js@go1.23.0](https://pkg.go.dev/syscall/js@go1.23.0)
+> 原文：[https://pkg.go.dev/syscall/js@go1.24.2](https://pkg.go.dev/syscall/js@go1.24.2)
 
 Package js gives access to the WebAssembly host environment when using the js/wasm architecture. Its API is based on JavaScript semantics.
 

@@ -7,7 +7,11 @@ isCJKLanguage = true
 draft = false
 +++
 
-> 原文：[https://pkg.go.dev/cmp@go1.23.0](https://pkg.go.dev/cmp@go1.23.0)
+> 原文：[https://pkg.go.dev/cmp@go1.24.2](https://pkg.go.dev/cmp@go1.24.2)
+
+> 注意
+>
+>  	从go1.21.0开始才有该包。
 
 ## 概述
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/cipher@go1.23.0](https://pkg.go.dev/crypto/cipher@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/cipher@go1.24.2](https://pkg.go.dev/crypto/cipher@go1.24.2)
 
 Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html and NIST Special Publication 800-38A.
 
@@ -187,6 +187,20 @@ NewGCMWithNonceSize returns the given 128-bit, block cipher wrapped in Galois Co
 Only use this function if you require compatibility with an existing cryptosystem that uses non-standard nonce lengths. All other users should use NewGCM, which is faster and more resistant to misuse.
 
 ​	仅当您需要与使用非标准随机数长度的现有密码系统兼容时才使用此功能。所有其他用户都应使用 NewGCM，它速度更快，并且更能抵抗误用。
+
+#### func NewGCMWithRandomNonce <-1.24.0
+
+```go
+func NewGCMWithRandomNonce(cipher Block) (AEAD, error)
+```
+
+NewGCMWithRandomNonce returns the given cipher wrapped in Galois Counter Mode, with randomly-generated nonces. The cipher must have been created by [aes.NewCipher](https://pkg.go.dev/crypto/internal/fips140/aes#NewCipher).
+
+It generates a random 96-bit nonce, which is prepended to the ciphertext by Seal, and is extracted from the ciphertext by Open. The NonceSize of the AEAD is zero, while the Overhead is 28 bytes (the combination of nonce size and tag size).
+
+A given key MUST NOT be used to encrypt more than 2^32 messages, to limit the risk of a random nonce collision to negligible levels.
+
+
 
 #### func NewGCMWithTagSize  <- go1.11
 

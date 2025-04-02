@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/hash/maphash@go1.23.0](https://pkg.go.dev/hash/maphash@go1.23.0)
+> 原文：[https://pkg.go.dev/hash/maphash@go1.24.2](https://pkg.go.dev/hash/maphash@go1.24.2)
 
 Package maphash provides hash functions on byte sequences. These hash functions are intended to be used to implement hash tables or other data structures that need to map arbitrary strings or byte sequences to a uniform distribution on unsigned 64-bit integers. Each different instance of a hash table or data structure should use its own Seed.
 
@@ -87,6 +87,14 @@ h.Write(b)
 return h.Sum64()
 ```
 
+### func Comparable <- 1.24.0
+
+```go
+func Comparable[T comparable](seed Seed, v T) uint64
+```
+
+Comparable returns the hash of comparable value v with the given seed such that Comparable(s, v1) == Comparable(s, v2) if v1 == v2. If v != v, then the resulting hash is randomly distributed.
+
 ### func String <- go1.19
 
 ```go
@@ -107,6 +115,14 @@ h.SetSeed(seed)
 h.WriteString(s)
 return h.Sum64()
 ```
+
+#### func WriteComparable <- 1.24.0
+
+```go
+func WriteComparable[T comparable](h *Hash, x T)
+```
+
+WriteComparable adds x to the data hashed by h.
 
 ## 类型
 

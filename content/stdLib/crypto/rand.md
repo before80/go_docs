@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/crypto/rand@go1.23.0](https://pkg.go.dev/crypto/rand@go1.23.0)
+> 原文：[https://pkg.go.dev/crypto/rand@go1.24.2](https://pkg.go.dev/crypto/rand@go1.24.2)
 
 Package rand implements a cryptographically secure random number generator.
 
@@ -91,7 +91,13 @@ Output:
 false
 ```
 
+### func Text <- 1.24.0
 
+```go
+func Text() string
+```
+
+Text returns a cryptographically random string using the standard [RFC 4648](https://rfc-editor.org/rfc/rfc4648.html) base32 alphabet for use when a secret string, token, password, or other text is needed. The result contains at least 128 bits of randomness, enough to prevent brute force guessing attacks and to make the likelihood of collisions vanishingly small. A future version may return longer texts as needed to maintain those properties.
 
 ## 类型
 

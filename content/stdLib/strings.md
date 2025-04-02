@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/strings@go1.23.0](https://pkg.go.dev/strings@go1.23.0)
+> 原文：[https://pkg.go.dev/strings@go1.24.2](https://pkg.go.dev/strings@go1.24.2)
 
 Package strings implements simple functions to manipulate UTF-8 encoded strings.
 
@@ -367,6 +367,22 @@ Output:
 
 Fields are: ["foo1" "bar2" "baz3"]
 ```
+
+### func FieldsFuncSeq <- 1.24.0
+
+```go
+func FieldsFuncSeq(s string, f func(rune) bool) iter.Seq[string]
+```
+
+FieldsFuncSeq returns an iterator over substrings of s split around runs of Unicode code points satisfying f(c). The iterator yields the same strings that would be returned by [FieldsFunc](https://pkg.go.dev/strings@go1.24.2#FieldsFunc)(s), but without constructing the slice.
+
+### func FieldsSeq <- 1.24.0
+
+```go
+func FieldsSeq(s string) iter.Seq[string]
+```
+
+FieldsSeq returns an iterator over substrings of s split around runs of whitespace characters, as defined by [unicode.IsSpace](https://pkg.go.dev/unicode#IsSpace). The iterator yields the same strings that would be returned by [Fields](https://pkg.go.dev/strings@go1.24.2#Fields)(s), but without constructing the slice.
 
 ### func HasPrefix 
 
@@ -737,6 +753,14 @@ Output:
 -1
 ```
 
+### func Lines <- 1.24.0
+
+```go
+func Lines(s string) iter.Seq[string]
+```
+
+Lines returns an iterator over the newline-terminated lines in the string s. The lines yielded by the iterator include their terminating newlines. If s is empty, the iterator yields no lines at all. If s does not end in a newline, the final yielded line will not end in a newline. It returns a single-use iterator.
+
 ### func Map 
 
 ``` go 
@@ -989,6 +1013,14 @@ Output:
 ["a," "b,c"]
 ```
 
+#### func SplitAfterSeq <- 1.24.0
+
+```go
+func SplitAfterSeq(s, sep string) iter.Seq[string]
+```
+
+SplitAfterSeq returns an iterator over substrings of s split after each instance of sep. The iterator yields the same strings that would be returned by [SplitAfter](https://pkg.go.dev/strings@go1.24.2#SplitAfter)(s, sep), but without constructing the slice. It returns a single-use iterator.
+
 ### func SplitN 
 
 ``` go 
@@ -1036,6 +1068,14 @@ Output:
 ["a" "b,c"]
 [] (nil = true)
 ```
+
+### func SplitSeq <- 1.24.0
+
+```go
+func SplitSeq(s, sep string) iter.Seq[string]
+```
+
+SplitSeq returns an iterator over all substrings of s separated by sep. The iterator yields the same strings that would be returned by [Split](https://pkg.go.dev/strings@go1.24.2#Split)(s, sep), but without constructing the slice. It returns a single-use iterator.
 
 ### func Title <- DEPRECATED
 

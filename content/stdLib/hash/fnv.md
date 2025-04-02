@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/hash/fnv@go1.23.0](https://pkg.go.dev/hash/fnv@go1.23.0)
+> 原文：[https://pkg.go.dev/hash/fnv@go1.24.2](https://pkg.go.dev/hash/fnv@go1.24.2)
 
 Package fnv implements FNV-1 and FNV-1a, non-cryptographic hash functions created by Glenn Fowler, Landon Curt Noll, and Phong Vo. See https://en.wikipedia.org/wiki/Fowler-Noll-Vo_hash_function.
 

@@ -5,8 +5,9 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-> 原文：[https://pkg.go.dev/bytes@go1.23.0](https://pkg.go.dev/bytes@go1.23.0)
+> 原文：[https://pkg.go.dev/bytes@go1.24.2](https://pkg.go.dev/bytes@go1.24.2)
 
 ![image-20231109160722609](bytes_img/image-20231109160722609.png)
 
@@ -491,6 +492,24 @@ Fields are: ["foo1" "bar2" "baz3"]
 ["a " " c"]
 ```
 
+
+
+### func FieldsFuncSeq <- 1.24.0
+
+```go
+func FieldsFuncSeq(s []byte, f func(rune) bool) iter.Seq[[]byte]
+```
+
+FieldsFuncSeq returns an iterator over subslices of s split around runs of Unicode code points satisfying f(c). The iterator yields the same subslices that would be returned by [FieldsFunc](https://pkg.go.dev/bytes@go1.24.2#FieldsFunc)(s), but without constructing a new slice containing the subslices.
+
+### func FieldsSeq <- 1.24.0
+
+```go
+func FieldsSeq(s []byte) iter.Seq[[]byte]
+```
+
+FieldsSeq returns an iterator over subslices of s split around runs of whitespace characters, as defined by [unicode.IsSpace](https://pkg.go.dev/unicode#IsSpace). The iterator yields the same subslices that would be returned by [Fields](https://pkg.go.dev/bytes@go1.24.2#Fields)(s), but without constructing a new slice containing the subslices.
+
 ### func HasPrefix 
 
 ``` go 
@@ -857,6 +876,16 @@ Output:
 -1
 ```
 
+### func Lines <- 1.24.0
+
+```go
+func Lines(s []byte) iter.Seq[[]byte]
+```
+
+Lines returns an iterator over the newline-terminated lines in the byte slice s. The lines yielded by the iterator include their terminating newlines. If s is empty, the iterator yields no lines at all. If s does not end in a newline, the final yielded line will not end in a newline. It returns a single-use iterator.
+
+
+
 ### func Map 
 
 ``` go 
@@ -1128,6 +1157,14 @@ Output:
 ["a," "b,c"]
 ```
 
+### func SplitAfterSeq <- 1.24.0
+
+```go
+func SplitAfterSeq(s, sep []byte) iter.Seq[[]byte]
+```
+
+SplitAfterSeq returns an iterator over subslices of s split after each instance of sep. The iterator yields the same subslices that would be returned by [SplitAfter](https://pkg.go.dev/bytes@go1.24.2#SplitAfter)(s, sep), but without constructing a new slice containing the subslices. It returns a single-use iterator.
+
 ### func SplitN 
 
 ``` go 
@@ -1201,6 +1238,43 @@ func main() {
 	fmt.Printf("%s", bytes.Title([]byte("her royal highness")))
 }
 
+```
+
+### func SplitSeq <- 1.24.0
+
+```go
+func SplitSeq(s, sep []byte) iter.Seq[[]byte]
+```
+
+SplitSeq returns an iterator over all subslices of s separated by sep. The iterator yields the same subslices that would be returned by [Split](https://pkg.go.dev/bytes@go1.24.2#Split)(s, sep), but without constructing a new slice containing the subslices. It returns a single-use iterator.
+
+### func Title <- DEPRECATED
+
+```go
+func Title(s []byte) []byte
+```
+
+Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin words mapped to their title case.
+
+Deprecated: The rule Title uses for word boundaries does not handle Unicode punctuation properly. Use golang.org/x/text/cases instead.
+
+#### Title  Example 
+
+```go
+package main
+
+import (
+	"bytes"
+	"fmt"
+)
+
+func main() {
+	fmt.Printf("%s", bytes.Title([]byte("her royal highness")))
+}
+
+Output:
+
+Her Royal Highness
 ```
 
 

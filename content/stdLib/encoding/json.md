@@ -8,7 +8,7 @@ draft = false
 
 +++
 
-> 原文：[https://pkg.go.dev/encoding/json@go1.23.0](https://pkg.go.dev/encoding/json@go1.23.0)
+> 原文：[https://pkg.go.dev/encoding/json@go1.24.2](https://pkg.go.dev/encoding/json@go1.24.2)
 
 Package json implements encoding and decoding of JSON as defined in [RFC 7159](https://rfc-editor.org/rfc/rfc7159.html). The mapping between JSON and Go values is described in the documentation for the Marshal and Unmarshal functions.
 

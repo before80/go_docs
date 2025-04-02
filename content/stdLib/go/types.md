@@ -5,8 +5,9 @@ type = "docs"
 description = ""
 isCJKLanguage = true
 draft = false
+
 +++
-> 原文：[https://pkg.go.dev/go/types@go1.23.0](https://pkg.go.dev/go/types@go1.23.0)
+> 原文：[https://pkg.go.dev/go/types@go1.24.2](https://pkg.go.dev/go/types@go1.24.2)
 
 Package types declares the data types and implements the algorithms for type-checking of Go packages. Use Config.Check to invoke the type checker for a package. Alternatively, create a new type checker with NewChecker and invoke it incrementally by calling Checker.Files.
 
@@ -323,6 +324,109 @@ WriteType writes the string representation of typ to buf. The Qualifier controls
 ​	WriteType 将 typ 的字符串表示形式写入 buf。Qualifier 控制包级对象的打印，可以为 nil。
 
 ## 类型
+
+### type Alias <- 1.22
+
+```
+type Alias struct {
+	// contains filtered or unexported fields
+}
+```
+
+An Alias represents an alias type.
+
+Alias types are created by alias declarations such as:
+
+```
+type A = int
+```
+
+The type on the right-hand side of the declaration can be accessed using [Alias.Rhs](https://pkg.go.dev/go/types@go1.24.2#Alias.Rhs). This type may itself be an alias. Call [Unalias](https://pkg.go.dev/go/types@go1.24.2#Unalias) to obtain the first non-alias type in a chain of alias type declarations.
+
+Like a defined ([Named](https://pkg.go.dev/go/types@go1.24.2#Named)) type, an alias type has a name. Use the [Alias.Obj](https://pkg.go.dev/go/types@go1.24.2#Alias.Obj) method to access its [TypeName](https://pkg.go.dev/go/types@go1.24.2#TypeName) object.
+
+Historically, Alias types were not materialized so that, in the example above, A's type was represented by a Basic (int), not an Alias whose [Alias.Rhs](https://pkg.go.dev/go/types@go1.24.2#Alias.Rhs) is int. But Go 1.24 allows you to declare an alias type with type parameters or arguments:
+
+```
+type Set[K comparable] = map[K]bool
+s := make(Set[String])
+```
+
+and this requires that Alias types be materialized. Use the [Alias.TypeParams](https://pkg.go.dev/go/types@go1.24.2#Alias.TypeParams) and [Alias.TypeArgs](https://pkg.go.dev/go/types@go1.24.2#Alias.TypeArgs) methods to access them.
+
+To ease the transition, the Alias type was introduced in go1.22, but the type-checker would not construct values of this type unless the GODEBUG=gotypesalias=1 environment variable was provided. Starting in go1.23, this variable is enabled by default. This setting also causes the predeclared type "any" to be represented as an Alias, not a bare [Interface](https://pkg.go.dev/go/types@go1.24.2#Interface).
+
+#### func [NewAlias](https://cs.opensource.google/go/go/+/go1.24.2:src/go/types/alias.go;l=57) <- 1.22
+
+```
+func NewAlias(obj *TypeName, rhs Type) *Alias
+```
+
+NewAlias creates a new Alias type with the given type name and rhs. rhs must not be nil.
+
+#### (*Alias) Obj <- 1.22
+
+```
+func (a *Alias) Obj() *TypeName
+```
+
+Obj returns the type name for the declaration defining the alias type a. For instantiated types, this is same as the type name of the origin type.
+
+#### (*Alias) Origin <- 1.23.0
+
+```
+func (a *Alias) Origin() *Alias
+```
+
+Origin returns the generic Alias type of which a is an instance. If a is not an instance of a generic alias, Origin returns a.
+
+#### (*Alias) Rhs <- 1.23.0
+
+```
+func (a *Alias) Rhs() Type
+```
+
+Rhs returns the type R on the right-hand side of an alias declaration "type A = R", which may be another alias.
+
+#### (*Alias) SetTypeParams <- 1.23.0
+
+```
+func (a *Alias) SetTypeParams(tparams []*TypeParam)
+```
+
+SetTypeParams sets the type parameters of the alias type a. The alias a must not have type arguments.
+
+#### (*Alias) String <- 1.22
+
+```
+func (a *Alias) String() string
+```
+
+#### (*Alias) TypeArgs <- 1.23.0
+
+```
+func (a *Alias) TypeArgs() *TypeList
+```
+
+TypeArgs returns the type arguments used to instantiate the Alias type. If a is not an instance of a generic alias, the result is nil.
+
+#### (*Alias) TypeParams <- 1.23.0
+
+```
+func (a *Alias) TypeParams() *TypeParamList
+```
+
+TypeParams returns the type parameters of the alias type a, or nil. A generic Alias and its instances have the same type parameters.
+
+#### (*Alias) Underlying <- 1.22
+
+```
+func (a *Alias) Underlying() Type
+```
+
+Underlying returns the [underlying type](https://go.dev/ref/spec#Underlying_types.) of the alias type a, which is the underlying type of the aliased type. Underlying types are never Named, TypeParam, or Alias types.
+
+
 
 ### type ArgumentError <- go1.18
 
@@ -1101,6 +1205,14 @@ Scope returns the scope of the function’s body block. The result is nil for im
 
 ​	Scope 返回函数主体块的范围。对于导入或实例化的函数和方法，结果为 nil（但也没有机制可以访问实例化的函数）。
 
+#### (*Func) Signature <- 1.23.0
+
+```
+func (obj *Func) Signature() *Signature
+```
+
+Signature returns the signature (type) of the function or method.
+
 #### (*Func) String 
 
 ```go
@@ -1443,6 +1555,18 @@ Precondition: the Uses and Defs maps are populated.
 
 ​	前提条件：Uses 和 Defs 映射已填充。
 
+#### (*Info) PkgNameOf <- 1.22
+
+```
+func (info *Info) PkgNameOf(imp *ast.ImportSpec) *PkgName
+```
+
+PkgNameOf returns the local package name defined by the import, or nil if not found.
+
+For dot-imports, the package name is ".".
+
+Precondition: the Defs and Implicts maps are populated.
+
 #### (*Info) TypeOf 
 
 ```go
@@ -1563,6 +1687,18 @@ EmbeddedType returns the i’th embedded type of interface t for 0 <= i < t.NumE
 
 ​	EmbeddedType 返回接口 t 的第 i 个嵌入式类型，其中 0 <= i < t.NumEmbeddeds()。
 
+
+
+#### (*Interface) EmbeddedTypes <- 1.24.0
+
+```
+func (t *Interface) EmbeddedTypes() iter.Seq[Type]
+```
+
+EmbeddedTypes returns a go1.23 iterator over the types embedded within an interface.
+
+Example: for e := range t.EmbeddedTypes() { ... }
+
 #### (*Interface) Empty 
 
 ```go
@@ -1582,6 +1718,14 @@ func (t *Interface) ExplicitMethod(i int) *Func
 ExplicitMethod returns the i’th explicitly declared method of interface t for 0 <= i < t.NumExplicitMethods(). The methods are ordered by their unique Id. 
 
 ​	ExplicitMethod 返回接口 t 的第 i 个显式声明的方法，其中 0 <= i < t.NumExplicitMethods()。这些方法按其唯一 Id 排序。
+
+#### (*Interface) ExplicitMethods <- 1.24.0
+
+```
+func (t *Interface) ExplicitMethods() iter.Seq[*Func]
+```
+
+ExplicitMethods returns a go1.23 iterator over the explicit methods of an interface, ordered by Id.
 
 #### (*Interface) IsComparable <- go1.18
 
@@ -1632,6 +1776,16 @@ func (t *Interface) Method(i int) *Func
 Method returns the i’th method of interface t for 0 <= i < t.NumMethods(). The methods are ordered by their unique Id.
 
 ​	方法返回接口 t 的第 i 个方法，其中 0 <= i < t.NumMethods()。这些方法按其唯一 Id 排序。
+
+#### (*Interface) Methods <- 1.24.0
+
+```
+func (t *Interface) Methods() iter.Seq[*Func]
+```
+
+Methods returns a go1.23 iterator over all the methods of an interface, ordered by Id.
+
+Example: for m := range t.Methods() { ... }
 
 #### (*Interface) NumEmbeddeds
 
@@ -1953,6 +2107,16 @@ Lookup returns the method with matching package and name, or nil if not found.
 
 ​	Lookup 返回具有匹配包和名称的方法，如果未找到，则返回 nil。
 
+#### (*MethodSet) Methods <- 1.24.0
+
+```
+func (s *MethodSet) Methods() iter.Seq[*Selection]
+```
+
+Methods returns a go1.23 iterator over the methods of a method set.
+
+Example: for method := range s.Methods() { ... }
+
 #### (*MethodSet) String 
 
 ```go
@@ -2004,6 +2168,16 @@ Method returns the i’th method of named type t for 0 <= i < t.NumMethods().
 For an ordinary or instantiated type t, the receiver base type of this method is the named type t. For an uninstantiated generic type t, each method receiver is instantiated with its receiver type parameters.
 
 ​	对于普通或实例化类型 t，此方法的接收器基类型是命名类型 t。对于未实例化的泛型类型 t，每个方法接收器都使用其接收器类型参数进行实例化。
+
+#### (*Named) Methods <- 1.24.0
+
+```
+func (t *Named) Methods() iter.Seq[*Func]
+```
+
+Methods returns a go1.23 iterator over the declared methods of a named type.
+
+Example: for m := range t.Methods() { ... }
 
 #### (*Named) NumMethods 
 
@@ -2663,6 +2837,16 @@ Child returns the i’th child scope for 0 <= i < NumChildren().
 
 ​	Child 返回 0 <= i < NumChildren() 的第 i 个子范围。
 
+#### (*Scope) Children <- 1.24.0
+
+```
+func (s *Scope) Children() iter.Seq[*Scope]
+```
+
+Children returns a go1.23 iterator over the child scopes nested within scope s.
+
+Example: for child := range scope.Children() { ... }
+
 #### (*Scope) Contains
 
 ```go
@@ -3185,6 +3369,16 @@ func (s *Struct) Field(i int) *Var
 
 Field returns the i’th field for 0 <= i < NumFields(). 重试 错误原因
 
+#### (*Struct) Fields <- 1.24.0
+
+```
+func (s *Struct) Fields() iter.Seq[*Var]
+```
+
+Fields returns a go1.23 iterator over the fields of a struct type.
+
+Example: for field := range s.Fields() { ... }
+
 #### (*Struct) NumFields
 
 ```go
@@ -3308,6 +3502,16 @@ func (t *Tuple) String() string
 ```go
 func (t *Tuple) Underlying() Type
 ```
+
+#### (*Tuple) Variables <- 1.24.0
+
+```
+func (t *Tuple) Variables() iter.Seq[*Var]
+```
+
+Variables returns a go1.23 iterator over the variables of a tuple type.
+
+Example: for v := range tuple.Variables() { ... }
 
 ### type Type
 
@@ -3496,6 +3700,16 @@ func (l *TypeList) Len() int
 Len returns the number of types in the list. It is safe to call on a nil receiver.
 
 ​	Len 返回列表中的类型数。对 nil 接收器调用是安全的。
+
+#### (*TypeList) Types <- 1.24.0
+
+```
+func (l *TypeList) Types() iter.Seq[Type]
+```
+
+Types returns a go1.23 iterator over the elements of a list of types.
+
+Example: for t := range l.Types() { ... }
 
 ### type TypeName
 
@@ -3723,6 +3937,16 @@ Len returns the number of type parameters in the list. It is safe to call on a n
 
 ​	Len 返回列表中的类型参数数量。对 nil 接收器调用是安全的。
 
+#### (*TypeParamList) TypeParams <- 1.24.0
+
+```
+func (l *TypeParamList) TypeParams() iter.Seq[*TypeParam]
+```
+
+TypeParams returns a go1.23 iterator over a list of type parameters.
+
+Example: for tparam := range l.TypeParams() { ... }
+
 ### type Union <- go1.18
 
 ```go
@@ -3762,6 +3986,16 @@ func (u *Union) String() string
 ```go
 func (u *Union) Term(i int) *Term
 ```
+
+#### (*Union) Terms <- 1.24.0
+
+```
+func (u *Union) Terms() iter.Seq[*Term]
+```
+
+Terms returns a go1.23 iterator over the terms of a union.
+
+Example: for term := range union.Terms() { ... }
 
 #### (*Union) Underlying <- go1.18 
 

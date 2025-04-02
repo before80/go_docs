@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/encoding/binary@go1.23.0](https://pkg.go.dev/encoding/binary@go1.23.0)
+> 原文：[https://pkg.go.dev/encoding/binary@go1.24.2](https://pkg.go.dev/encoding/binary@go1.24.2)
 
 Package binary implements simple translation between numbers and byte sequences and encoding and decoding of varints.
 

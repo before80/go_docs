@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/go/scanner@go1.23.0](https://pkg.go.dev/go/scanner@go1.23.0)
+> 原文：[https://pkg.go.dev/go/scanner@go1.24.2](https://pkg.go.dev/go/scanner@go1.24.2)
 
 Package scanner implements a scanner for Go source text. It takes a []byte as source which can then be tokenized through repeated calls to the Scan method.
 

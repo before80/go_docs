@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/unsafe@go1.23.0](https://pkg.go.dev/unsafe@go1.23.0)
+> 原文：[https://pkg.go.dev/unsafe@go1.24.2](https://pkg.go.dev/unsafe@go1.24.2)
 
 ![image-20231113093004634](unsafe_img/image-20231113093004634.png)
 

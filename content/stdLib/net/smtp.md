@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/net/smtp@go1.23.0](https://pkg.go.dev/net/smtp@go1.23.0)
+> 原文：[https://pkg.go.dev/net/smtp@go1.24.2](https://pkg.go.dev/net/smtp@go1.24.2)
 
 Package smtp implements the Simple Mail Transfer Protocol as defined in [RFC 5321](https://rfc-editor.org/rfc/rfc5321.html). It also implements the following extensions:
 

@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/text/scanner@go1.23.0](https://pkg.go.dev/text/scanner@go1.23.0)
+> 原文：[https://pkg.go.dev/text/scanner@go1.24.2](https://pkg.go.dev/text/scanner@go1.24.2)
 
 Package scanner provides a scanner and tokenizer for UTF-8-encoded text. It takes an io.Reader providing the source, which then can be tokenized through repeated calls to the Scan function. For compatibility with existing tools, the NUL character is not allowed. If the first character in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
 

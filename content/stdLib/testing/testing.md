@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/testing@go1.23.0](https://pkg.go.dev/testing@go1.23.0)
+> 原文：[https://pkg.go.dev/testing@go1.24.2](https://pkg.go.dev/testing@go1.24.2)
 
 Package testing provides support for automated testing of Go packages. It is intended to be used in concert with the "go test" command, which automates execution of any function of the form
 
@@ -598,6 +598,16 @@ Like in tests, benchmark logs are accumulated during execution and dumped to sta
 
 ​	与测试类似，基准测试日志在执行期间累积，并在完成时转储到标准输出。与测试不同，基准测试日志始终打印，以不隐藏可能影响基准测试结果的输出。
 
+#### (*B) Chdir <- 1.24.0
+
+```go
+func (c *B) Chdir(dir string)
+```
+
+Chdir calls os.Chdir(dir) and uses Cleanup to restore the current working directory to its original value after the test. On Unix, it also sets PWD environment variable for the duration of the test.
+
+Because Chdir affects the whole process, it cannot be used in parallel tests or tests with parallel ancestors.
+
 #### (*B) Cleanup  <- go1.14
 
 ``` go 
@@ -607,6 +617,16 @@ func (c *B) Cleanup(f func())
 Cleanup registers a function to be called when the test (or subtest) and all its subtests complete. Cleanup functions will be called in last added, first called order.
 
 ​	Cleanup方法注册一个函数，以在测试(或子测试)及其所有子测试完成时调用。清理函数将按最后添加的先调用的顺序调用。
+
+#### (*B) Context <- 1.24.0
+
+```go
+func (c *B) Context() context.Context
+```
+
+Context returns a context that is canceled just before Cleanup-registered functions are called.
+
+Cleanup functions can wait for any resources that shut down on Context.Done before the test or benchmark completes.
 
 #### (*B) Elapsed  <- go1.20
 
@@ -717,6 +737,86 @@ func (c *B) Logf(format string, args ...any)
 Logf formats its arguments according to the format, analogous to Printf, and records the text in the error log. A final newline is added if not provided. For tests, the text will be printed only if the test fails or the -test.v flag is set. For benchmarks, the text is always printed to avoid having performance depend on the value of the -test.v flag.
 
 ​	Logf方法根据格式对其参数进行格式化，类似于 Printf，并将文本记录在错误日志中。如果没有提供最终换行符，则会添加。对于测试，只有在测试失败或设置了 `-test.v` 标志时，才会打印该文本。对于基准测试，始终会打印文本，以避免性能依赖于 `-test.v` 标志的值。
+
+#### (*B) Loop <- 1.24.0
+
+```go
+func (b *B) Loop() bool
+```
+
+Loop returns true as long as the benchmark should continue running.
+
+A typical benchmark is structured like:
+
+```go
+func Benchmark(b *testing.B) {
+	... setup ...
+	for b.Loop() {
+		... code to measure ...
+	}
+	... cleanup ...
+}
+```
+
+Loop resets the benchmark timer the first time it is called in a benchmark, so any setup performed prior to starting the benchmark loop does not count toward the benchmark measurement. Likewise, when it returns false, it stops the timer so cleanup code is not measured.
+
+The compiler never optimizes away calls to functions within the body of a "for b.Loop() { ... }" loop. This prevents surprises that can otherwise occur if the compiler determines that the result of a benchmarked function is unused. The loop must be written in exactly this form, and this only applies to calls syntactically between the curly braces of the loop. Optimizations are performed as usual in any functions called by the loop.
+
+After Loop returns false, b.N contains the total number of iterations that ran, so the benchmark may use b.N to compute other average metrics.
+
+Prior to the introduction of Loop, benchmarks were expected to contain an explicit loop from 0 to b.N. Benchmarks should either use Loop or contain a loop to b.N, but not both. Loop offers more automatic management of the benchmark timer, and runs each benchmark function only once per measurement, whereas b.N-based benchmarks must run the benchmark function (and any associated setup and cleanup) several times.
+
+##### Loop Example
+
+```go
+package main
+
+import (
+	"math/rand/v2"
+	"testing"
+)
+
+// ExBenchmark shows how to use b.Loop in a benchmark.
+//
+// (If this were a real benchmark, not an example, this would be named
+// BenchmarkSomething.)
+func ExBenchmark(b *testing.B) {
+	// Generate a large random slice to use as an input.
+	// Since this is done before the first call to b.Loop(),
+	// it doesn't count toward the benchmark time.
+	input := make([]int, 128<<10)
+	for i := range input {
+		input[i] = rand.Int()
+	}
+
+	// Perform the benchmark.
+	for b.Loop() {
+		// Normally, the compiler would be allowed to optimize away the call
+		// to sum because it has no side effects and the result isn't used.
+		// However, inside a b.Loop loop, the compiler ensures function calls
+		// aren't optimized away.
+		sum(input)
+	}
+
+	// Outside the loop, the timer is stopped, so we could perform
+	// cleanup if necessary without affecting the result.
+}
+
+func sum(data []int) int {
+	total := 0
+	for _, value := range data {
+		total += value
+	}
+	return total
+}
+
+func main() {
+	testing.Benchmark(ExBenchmark)
+}
+
+```
+
+
 
 #### (*B) Name  <- go1.8
 
@@ -1157,6 +1257,16 @@ Add will add the arguments to the seed corpus for the fuzz test. This will be a 
 
 ​	`Add`方法将参数添加到 fuzz 测试的种子语料库中。如果在模糊目标之后或其中调用，将不起作用，并且 `args` 必须与模糊目标的参数匹配。
 
+#### (*F) Chdir <- 1.24.0
+
+```go
+func (c *F) Chdir(dir string)
+```
+
+Chdir calls os.Chdir(dir) and uses Cleanup to restore the current working directory to its original value after the test. On Unix, it also sets PWD environment variable for the duration of the test.
+
+Because Chdir affects the whole process, it cannot be used in parallel tests or tests with parallel ancestors.
+
 #### (*F) Cleanup  <- go1.18
 
 ``` go 
@@ -1166,6 +1276,16 @@ func (c *F) Cleanup(f func())
 Cleanup registers a function to be called when the test (or subtest) and all its subtests complete. Cleanup functions will be called in last added, first called order.
 
 ​	`Cleanup`方法注册一个在测试(或子测试)及其所有子测试完成时调用的函数。Cleanup方法将按照最后添加的先调用的顺序调用。
+
+#### (*F) Context <- 1.24.0
+
+```go
+func (c *F) Context() context.Context
+```
+
+Context returns a context that is canceled just before Cleanup-registered functions are called.
+
+Cleanup functions can wait for any resources that shut down on Context.Done before the test or benchmark completes.
 
 #### (*F) Error  <- go1.18
 
@@ -1503,6 +1623,16 @@ The other reporting methods, such as the variations of Log and Error, may be cal
 
 ​	其他报告方法，如`Log`方法和`Error`方法的变体，可以同时从多个goroutine调用。
 
+#### (*T) Chdir <- 1.24.0
+
+```go
+func (t *T) Chdir(dir string)
+```
+
+Chdir calls os.Chdir(dir) and uses Cleanup to restore the current working directory to its original value after the test. On Unix, it also sets PWD environment variable for the duration of the test.
+
+Because Chdir affects the whole process, it cannot be used in parallel tests or tests with parallel ancestors.
+
 #### (*T) Cleanup  <- go1.14
 
 ``` go 
@@ -1532,7 +1662,15 @@ func TestExample(t *testing.T) {
 }
 ```
 
+#### (*T) Context <- 1.24.0
 
+```go
+func (c *T) Context() context.Context
+```
+
+Context returns a context that is canceled just before Cleanup-registered functions are called.
+
+Cleanup functions can wait for any resources that shut down on Context.Done before the test or benchmark completes.
 
 #### (*T) Deadline  <- go1.15
 

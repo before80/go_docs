@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/database/sql/driver@go1.23.0](https://pkg.go.dev/database/sql/driver@go1.23.0)
+> 原文：[https://pkg.go.dev/database/sql/driver@go1.24.2](https://pkg.go.dev/database/sql/driver@go1.24.2)
 
 Package driver defines interfaces to be implemented by database drivers as used by package sql.
 

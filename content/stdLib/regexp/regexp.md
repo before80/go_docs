@@ -7,7 +7,7 @@ isCJKLanguage = true
 draft = false
 
 +++
-> 原文：[https://pkg.go.dev/regexp@go1.23.0](https://pkg.go.dev/regexp@go1.23.0)
+> 原文：[https://pkg.go.dev/regexp@go1.24.2](https://pkg.go.dev/regexp@go1.24.2)
 
 Package regexp implements regular expression search.
 
@@ -292,6 +292,16 @@ func MustCompilePOSIX(str string) *Regexp
 MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed. It simplifies safe initialization of global variables holding compiled regular expressions.
 
 ​	MustCompilePOSIX函数类似于 CompilePOSIX，但如果无法解析表达式，则会 panic。它简化了持有已编译的正则表达式的全局变量的安全初始化。
+
+#### (*Regexp) AppendText <- 1.24.0
+
+```go
+func (re *Regexp) AppendText(b []byte) ([]byte, error)
+```
+
+AppendText implements [encoding.TextAppender](https://pkg.go.dev/encoding#TextAppender). The output matches that of calling the [Regexp.String](https://pkg.go.dev/regexp@go1.24.2#Regexp.String) method.
+
+Note that the output is lossy in some cases: This method does not indicate POSIX regular expressions (i.e. those compiled by calling [CompilePOSIX](https://pkg.go.dev/regexp@go1.24.2#CompilePOSIX)), or those for which the [Regexp.Longest](https://pkg.go.dev/regexp@go1.24.2#Regexp.Longest) method has been called.
 
 #### (*Regexp)Copy <-DEPRECATED
 

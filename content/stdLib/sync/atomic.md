@@ -6,7 +6,7 @@ description = ""
 isCJKLanguage = true
 draft = false
 +++
-> 原文：[https://pkg.go.dev/sync/atomic@go1.23.0](https://pkg.go.dev/sync/atomic@go1.23.0)
+> 原文：[https://pkg.go.dev/sync/atomic@go1.24.2](https://pkg.go.dev/sync/atomic@go1.24.2)
 
 ![image-20231110170148590](atomic_img/image-20231110170148590.png)
 
