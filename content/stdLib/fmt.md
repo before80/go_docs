@@ -835,7 +835,7 @@ Append formats using the default formats for its operands, appends the result to
 
 ​	Append函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
-#### Example My Append
+#### My Append Example 
 
 ```go
 package main
@@ -866,7 +866,7 @@ Appendf formats according to a format specifier, appends the result to the byte 
 
 ​	Appendf函数按照格式说明符进行格式化，将结果附加到字节切片中，并返回更新后的切片。
 
-#### Example My Appendf
+#### My Appendf Example 
 
 ```go
 package main
@@ -903,7 +903,7 @@ Appendln formats using the default formats for its operands, appends the result 
 
 ​	Appendln函数使用操作数的默认格式进行格式化，将结果附加到字节切片中，并返回更新后的切片。在操作数之间始终添加空格，并附加一个换行符。
 
-#### Example My Appendln 
+#### My Appendln Example 
 
 ```go
 package main
@@ -986,6 +986,103 @@ func FormatString(state State, verb rune) string
 FormatString returns a string representing the fully qualified formatting directive captured by the State, followed by the argument verb. (State does not itself contain the verb.) The result has a leading percent sign followed by any flags, the width, and the precision. Missing flags, width, and precision are omitted. This function allows a Formatter to reconstruct the original directive triggering the call to Format.
 
 ​	FormatString函数返回一个字符串，表示由State捕获的完全限定的格式化指令，后跟操作数verb。(State本身不包含操作数。)结果具有一个前导百分号，后跟任何标志、宽度和精度。缺少的标志、宽度和精度将被省略。此函数允许Formatter重建触发调用Format的原始指令。
+
+#### My FormatString Example 
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// MyType 是一个自定义类型
+type MyType struct {
+	Value int
+}
+
+// Format 实现 fmt.Formatter 接口
+func (mt MyType) Format(s fmt.State, verb rune) {
+	formatString := fmt.FormatString(s, verb)
+	fmt.Println("formatString=", formatString)
+	// 可以根据 formatString 中的宽度等进行更复杂的处理
+	width, _ := s.Width()
+	fmt.Println("width=", width)
+	precision, _ := s.Precision()
+	fmt.Println("precision=", precision)
+	fmt.Println("s.Flag(int('+'))=", s.Flag(int('+')))
+
+	switch verb {
+	case 'X': // 自定义大写十六进制输出
+		if formatString == "%X" { // 如果没有指定宽度等
+			_, _ = fmt.Fprintf(s, "%X", mt.Value)
+		} else if formatString == "%#X" { // 如果指定了 # 标志
+			_, _ = fmt.Fprintf(s, "0x%X", mt.Value)
+		} else {
+
+			formatted := fmt.Sprintf("%X", mt.Value)
+			padding := ""
+			if width > len(formatted) {
+				for i := 0; i < width-len(formatted); i++ {
+					padding += " "
+				}
+			}
+			_, _ = fmt.Fprintf(s, "%s%s", padding, formatted)
+		}
+	case 'd':
+		if s.Flag(int('+')) { // 将 '+' 转换为 int 类型
+			_, _ = fmt.Fprintf(s, "+%d", mt.Value)
+		} else {
+			_, _ = fmt.Fprintf(s, "%d", mt.Value)
+		}
+	default:
+		_, _ = fmt.Fprintf(s, "%%!%c(MyType=%d)", verb, mt.Value)
+	}
+}
+
+func main() {
+	my := MyType{Value: 255}
+	fmt.Printf("%X\n", my)   // 输出: FF
+	fmt.Printf("%#X\n", my)  // 输出: 0xFF
+	fmt.Printf("%10X\n", my) // 输出:         FF
+	fmt.Printf("%q\n", my)   // 输出:%!q(MyType=255)
+	fmt.Printf("%d\n", my)
+	fmt.Printf("%+d\n", my)
+}
+Output:
+formatString= %X
+width= 0
+precision= 0
+s.Flag(int('+'))= false
+FF
+formatString= %#X
+width= 0
+precision= 0
+s.Flag(int('+'))= false
+0xFF
+formatString= %10X
+width= 10
+precision= 0
+s.Flag(int('+'))= false
+        FF
+formatString= %q
+width= 0
+precision= 0
+s.Flag(int('+'))= false
+%!q(MyType=255)
+formatString= %d
+width= 0
+precision= 0
+s.Flag(int('+'))= false
+255
+formatString= %+d
+width= 0
+precision= 0
+s.Flag(int('+'))= true
++255
+```
+
+
 
 ### func Fprint 
 
@@ -1108,6 +1205,105 @@ Fscan scans text read from r, storing successive space-separated values into suc
 
 ​	Fscan函数从r中读取文本，将连续的以空格分隔的值存储到连续的参数中。换行符也被视为空格。它返回成功扫描的条目数。如果返回值小于参数个数，则err报告失败的原因。
 
+#### My Fscan Example 
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	// 模拟从某个 io.Reader 读取的输入，这里使用 strings.Reader
+	input := "张三 30 true 98.5"
+	reader := strings.NewReader(input)
+
+	var name string
+	var age int
+	var isStudent bool
+	var score float64
+
+	// 使用 fmt.Fscan 从 reader 中读取数据，并按顺序存储到变量中
+	n, err := fmt.Fscan(reader, &name, &age, &isStudent, &score)
+	if err != nil {
+		fmt.Println("扫描错误:", err)
+	}
+
+	fmt.Printf("成功扫描了 %d 个值:\n", n)
+	fmt.Printf("姓名: %s\n", name)
+	fmt.Printf("年龄: %d\n", age)
+	fmt.Printf("是学生: %t\n", isStudent)
+	fmt.Printf("分数: %f\n", score)
+
+	fmt.Println("\n--- 更多示例 ---")
+
+	// 包含换行符的输入
+	input2 := `Apple 10
+Banana 20
+Cherry 30`
+	reader2 := strings.NewReader(input2)
+
+	var fruit1 string
+	var count1 int
+	var fruit2 string
+	var count2 int
+	var fruit3 string
+	var count3 int
+
+	n2, err2 := fmt.Fscan(reader2, &fruit1, &count1, &fruit2, &count2, &fruit3, &count3)
+	if err2 != nil {
+		fmt.Println("扫描错误 (示例2):", err2)
+	}
+
+	fmt.Printf("成功扫描了 %d 个值 (示例2):\n", n2)
+	fmt.Printf("%s: %d\n", fruit1, count1)
+	fmt.Printf("%s: %d\n", fruit2, count2)
+	fmt.Printf("%s: %d\n", fruit3, count3)
+
+	fmt.Println("\n--- 类型不匹配示例 ---")
+
+	input3 := "Hello world 123"
+	reader3 := strings.NewReader(input3)
+
+	var str1 string
+	var num int
+	var str2 string
+
+	n3, err3 := fmt.Fscan(reader3, &str1, &num, &str2)
+	if err3 != nil {
+		fmt.Println("扫描错误 (示例3):", err3)
+	}
+
+	fmt.Printf("成功扫描了 %d 个值 (示例3):\n", n3)
+	fmt.Printf("字符串 1: %s\n", str1)
+	fmt.Printf("数字: %d\n", num)
+	fmt.Printf("字符串 2: %s\n", str2)
+}
+Output:
+成功扫描了 4 个值:
+姓名: 张三
+年龄: 30
+是学生: true
+分数: 98.500000
+
+--- 更多示例 ---
+成功扫描了 6 个值 (示例2):
+Apple: 10
+Banana: 20
+Cherry: 30
+
+--- 类型不匹配示例 ---
+扫描错误 (示例3): expected integer
+成功扫描了 1 个值 (示例3):
+字符串 1: Hello
+数字: 0
+字符串 2:
+```
+
+
+
 ### func Fscanf 
 
 ``` go 
@@ -1147,6 +1343,56 @@ Output:
 5 true gophers
 3
 ```
+
+#### My Fscanf Example
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	var (
+		i1, i2, i3 int
+		b1, b2, b3 bool
+		s1, s2, s3 string
+		n1, n2, n3 int
+		err        error
+	)
+	r := strings.NewReader("5 true gophers")
+	n1, err = fmt.Fscanf(r, "%d %t %s", &i1, &b1, &s1)
+	if err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "Fscanf 1 : %v\n", err)
+	}
+	fmt.Printf("%d,%t,%q,%d\n", i1, b1, s1, n1)
+    
+	r = strings.NewReader("5\ntrue gophers")
+	n2, err = fmt.Fscanf(r, "%d %t %s", &i2, &b2, &s2)
+	if err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "Fscanf 2: %v\n", err)
+	}
+	fmt.Printf("%d,%t,%q,%d\n", i2, b2, s2, n2)
+
+	r = strings.NewReader("5 true\ngophers")
+	n3, err = fmt.Fscanf(r, "%d %t %s", &i3, &b3, &s3)
+	if err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "Fscanf 3: %v\n", err)
+	}
+	fmt.Printf("%d,%t,%q,%d\n", i3, b3, s3, n3)
+}
+Output:
+5,true,"gophers",3
+Fscanf 2: newline in input does not match format
+5,false,"",1
+Fscanf 3: newline in input does not match format
+5,true,"",2
+```
+
+
 
 ### func Fscanln 
 
@@ -1223,6 +1469,22 @@ Output:
 Kim is 22 years old.
 ```
 
+#### My Print Example
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Print("a", "b", 1, "c", 3, "d", 4, 5, 6)
+}
+Output:
+ab1c3d4 5 6
+```
+
+
+
 ### func Printf 
 
 ``` go 
@@ -1294,6 +1556,14 @@ func Scan(a ...any) (n int, err error)
 Scan scans text read from standard input, storing successive space-separated values into successive arguments. Newlines count as space. It returns the number of items successfully scanned. If that is less than the number of arguments, err will report why.
 
 ​	Scan函数扫描从`标准输入`读取的文本，将连续的以空格分隔的值存储到连续的参数中。换行符会被视为空格。它返回成功扫描的项数。如果它小于参数个数，那么 err 将会报告原因。
+
+#### My Scan Example
+
+```go
+
+```
+
+
 
 ### func Scanf 
 
