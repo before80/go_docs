@@ -1575,6 +1575,14 @@ Scanf scans text read from standard input, storing successive space-separated va
 
 ​	Scanf函数扫描从`标准输入`读取的文本，根据`format`将连续的以空格分隔的值存储到连续的参数中。它返回成功解析的项数。如果它小于参数个数，那么 err 将会报告原因。输入中的换行符必须与格式中的换行符相匹配。唯一的例外是，%c 动词总是扫描输入中的下一个符文，即使它是空格(或制表符等)或换行符。
 
+#### My Scanf Example
+
+```go
+
+```
+
+
+
 ### func Scanln 
 
 ``` go 
