@@ -1,1 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>image on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/image/</link><description>Recent content in image on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 17 May 2023 11:11:20 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/image/index.xml" rel="self" type="application/rss+xml"/><item><title>color</title><link>https://before80.github.io/go_docs/stdLib/image/color/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/color/</guid><description>原文：https://pkg.go.dev/image/color@go1.24.2 Package color implements a basic color library. ​ color 包实现了一个基本的颜色库。 常量 This section is empty.</description></item><item><title>color/palette</title><link>https://before80.github.io/go_docs/stdLib/image/color_palette/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/color_palette/</guid><description>原文：https://pkg.go.dev/image/color/palette@go1.24.2 Package palette provides standard color palettes. ​ palette 包提供标准调色板。 常量 This</description></item><item><title>draw</title><link>https://before80.github.io/go_docs/stdLib/image/draw/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/draw/</guid><description>原文：https://pkg.go.dev/image/draw@go1.24.2 Package draw provides image composition functions. ​ draw 包提供图像合成函数。 See “The Go image/draw pack</description></item><item><title>gif</title><link>https://before80.github.io/go_docs/stdLib/image/gif/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/gif/</guid><description>原文：https://pkg.go.dev/image/gif@go1.24.2 Package gif implements a GIF image decoder and encoder. ​ gif 包实现了一个 GIF 图像解码器和编码器。 The GIF</description></item><item><title>image</title><link>https://before80.github.io/go_docs/stdLib/image/image/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/image/</guid><description>原文：https://pkg.go.dev/image@go1.24.2 Package image implements a basic 2-D image library. ​ image 包实现了一个基本的 2-D 图像库。 The fundamental interface is called Image. An Image contains colors,</description></item><item><title>jpeg</title><link>https://before80.github.io/go_docs/stdLib/image/jpeg/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/jpeg/</guid><description>原文：https://pkg.go.dev/image/jpeg@go1.24.2 Package jpeg implements a JPEG image decoder and encoder. ​ jpeg 包实现了一个 JPEG 图像解码器和编码器。 JPEG</description></item><item><title>png</title><link>https://before80.github.io/go_docs/stdLib/image/png/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/png/</guid><description>原文：https://pkg.go.dev/image/png@go1.24.2 Package png implements a PNG image decoder and encoder. ​ png 包实现了一个 PNG 图像解码器和编码器。 The PNG</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>image on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/image/</link><description>Recent content in image on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/image/index.xml" rel="self" type="application/rss+xml"/><item><title>color</title><link>https://before80.github.io/go_docs/stdLib/image/color/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/color/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/color@go1.24.2">https://pkg.go.dev/image/color@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package color implements a basic color library.&lt;/p>
+&lt;p>​	color 包实现了一个基本的颜色库。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/color.go;l=342">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">var&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">Black&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">Gray16&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#d19a66">0&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">White&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">Gray16&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#d19a66">0xffff&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">Transparent&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">Alpha16&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#d19a66">0&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">Opaque&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">Alpha16&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#d19a66">0xffff&lt;/span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Standard colors.&lt;/p></description></item><item><title>color/palette</title><link>https://before80.github.io/go_docs/stdLib/image/color_palette/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/color_palette/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/color/palette@go1.24.2">https://pkg.go.dev/image/color/palette@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package palette provides standard color palettes.&lt;/p>
+&lt;p>​	palette 包提供标准调色板。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/image/color/palette/palette.go;l=23">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">var&lt;/span> &lt;span style="color:#aa89ea">Plan9&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">color&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Color&lt;/span>&lt;span style="color:#abb2bf">{}&lt;/span>&lt;span style="color:#8a93a5;font-style:italic">/* 256 elements not displayed */&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Plan9 is a 256-color palette that partitions the 24-bit RGB space into 4×4×4 subdivision, with 4 shades in each subcube. Compared to the WebSafe, the idea is to reduce the color resolution by dicing the color cube into fewer cells, and to use the extra space to increase the intensity resolution. This results in 16 gray shades (4 gray subcubes with 4 samples in each), 13 shades of each primary and secondary color (3 subcubes with 4 samples plus black) and a reasonable selection of colors covering the rest of the color cube. The advantage is better representation of continuous tones.&lt;/p></description></item><item><title>draw</title><link>https://before80.github.io/go_docs/stdLib/image/draw/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/draw/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/draw@go1.24.2">https://pkg.go.dev/image/draw@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package draw provides image composition functions.&lt;/p>
+&lt;p>​	draw 包提供图像合成函数。&lt;/p>
+&lt;p>See “The Go image/draw package” for an introduction to this package: &lt;a href="https://golang.org/doc/articles/image_draw.html">https://golang.org/doc/articles/image_draw.html&lt;/a>&lt;/p>
+&lt;p>​	有关此包的介绍，请参阅“Go image/draw 包”：https://golang.org/doc/articles/image_draw.html&lt;/p></description></item><item><title>gif</title><link>https://before80.github.io/go_docs/stdLib/image/gif/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/gif/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/gif@go1.24.2">https://pkg.go.dev/image/gif@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gif implements a GIF image decoder and encoder.&lt;/p>
+&lt;p>​	 gif 包实现了一个 GIF 图像解码器和编码器。&lt;/p>
+&lt;p>The GIF specification is at &lt;a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">https://www.w3.org/Graphics/GIF/spec-gif89a.txt&lt;/a>.&lt;/p>
+&lt;p>​	GIF 规范位于 &lt;a href="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">https://www.w3.org/Graphics/GIF/spec-gif89a.txt&lt;/a>。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/image/gif/reader.go;l=45">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">DisposalNone&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x01&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">DisposalBackground&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x02&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">DisposalPrevious&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x03&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Disposal Methods.&lt;/p></description></item><item><title>image</title><link>https://before80.github.io/go_docs/stdLib/image/image/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/image/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image@go1.24.2">https://pkg.go.dev/image@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package image implements a basic 2-D image library.&lt;/p>
+&lt;p>​	image 包实现了一个基本的 2-D 图像库。&lt;/p>
+&lt;p>The fundamental interface is called Image. An Image contains colors, which are described in the image/color package.&lt;/p>
+&lt;p>​	基本接口称为 Image。Image 包含颜色，这些颜色在 image/color 包中进行了描述。&lt;/p></description></item><item><title>jpeg</title><link>https://before80.github.io/go_docs/stdLib/image/jpeg/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/jpeg/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/jpeg@go1.24.2">https://pkg.go.dev/image/jpeg@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package jpeg implements a JPEG image decoder and encoder.&lt;/p>
+&lt;p>​	 jpeg 包实现了一个 JPEG 图像解码器和编码器。&lt;/p>
+&lt;p>JPEG is defined in ITU-T T.81: &lt;a href="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">https://www.w3.org/Graphics/JPEG/itu-t81.pdf&lt;/a>.&lt;/p>
+&lt;p>​	JPEG 在 ITU-T T.81 中定义：&lt;a href="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">https://www.w3.org/Graphics/JPEG/itu-t81.pdf&lt;/a>。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/image/jpeg/writer.go;l=565">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#aa89ea">DefaultQuality&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">75&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>DefaultQuality is the default quality encoding parameter.&lt;/p>
+&lt;p>​	DefaultQuality 是默认质量编码参数。&lt;/p></description></item><item><title>png</title><link>https://before80.github.io/go_docs/stdLib/image/png/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/image/png/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/image/png@go1.24.2">https://pkg.go.dev/image/png@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package png implements a PNG image decoder and encoder.&lt;/p>
+&lt;p>​	png 包实现了一个 PNG 图像解码器和编码器。&lt;/p>
+&lt;p>The PNG specification is at &lt;a href="https://www.w3.org/TR/PNG/">https://www.w3.org/TR/PNG/&lt;/a>.&lt;/p>
+&lt;p>​	PNG 规范位于 &lt;a href="https://www.w3.org/TR/PNG/">https://www.w3.org/TR/PNG/&lt;/a>。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-decode">func Decode&lt;a class="td-heading-self-link" href="#func-decode" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Decode&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">r&lt;/span> &lt;span style="color:#aa89ea">io&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Reader&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">image&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Image&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Decode reads a PNG image from r and returns it as an image.Image. The type of Image returned depends on the PNG contents.&lt;/p></description></item></channel></rss>

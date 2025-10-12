@@ -1,1 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gorm on Go 中文档集</title><link>https://before80.github.io/go_docs/gorm/</link><description>Recent content in gorm on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 28 Oct 2023 14:21:54 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/gorm/index.xml" rel="self" type="application/rss+xml"/><item><title>gorm API</title><link>https://before80.github.io/go_docs/gorm/gormAPI/</link><pubDate>Mon, 30 Oct 2023 18:37:28 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/gormAPI/</guid><description>原文：https://pkg.go.dev/gorm.io/gorm@v1.25.10 The fantastic ORM library for Golang, aims to be developer friendly. Overview Full-Featured ORM Associations (Has One, Has Many, Belongs To, Many To Many, Polymorphism, Single-table inheritance)</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>gorm on Go 中文档集</title><link>https://before80.github.io/go_docs/gorm/</link><description>Recent content in gorm on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/gorm/index.xml" rel="self" type="application/rss+xml"/><item><title>gorm API</title><link>https://before80.github.io/go_docs/gorm/gormAPI/</link><pubDate>Mon, 30 Oct 2023 18:37:28 +0800</pubDate><guid>https://before80.github.io/go_docs/gorm/gormAPI/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/gorm.io/gorm@v1.25.10">https://pkg.go.dev/gorm.io/gorm@v1.25.10&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>The fantastic ORM library for Golang, aims to be developer friendly.&lt;/p>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>Full-Featured ORM&lt;/li>
+&lt;li>Associations (Has One, Has Many, Belongs To, Many To Many, Polymorphism, Single-table inheritance)&lt;/li>
+&lt;li>Hooks (Before/After Create/Save/Update/Delete/Find)&lt;/li>
+&lt;li>Eager loading with &lt;code>Preload&lt;/code>, &lt;code>Joins&lt;/code>&lt;/li>
+&lt;li>Transactions, Nested Transactions, Save Point, RollbackTo to Saved Point&lt;/li>
+&lt;li>Context, Prepared Statement Mode, DryRun Mode&lt;/li>
+&lt;li>Batch Insert, FindInBatches, Find To Map&lt;/li>
+&lt;li>SQL Builder, Upsert, Locking, Optimizer/Index/Comment Hints, NamedArg, Search/Update/Create with SQL Expr&lt;/li>
+&lt;li>Composite Primary Key&lt;/li>
+&lt;li>Auto Migrations&lt;/li>
+&lt;li>Logger&lt;/li>
+&lt;li>Extendable, flexible plugin API: Database Resolver (Multiple Databases, Read/Write Splitting) / Prometheus…&lt;/li>
+&lt;li>Every feature comes with tests&lt;/li>
+&lt;li>Developer Friendly&lt;/li>
+&lt;/ul>
+&lt;h2 id="getting-started">Getting Started&lt;a class="td-heading-self-link" href="#getting-started" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;ul>
+&lt;li>GORM Guides &lt;a href="https://gorm.io/">https://gorm.io&lt;/a>&lt;/li>
+&lt;li>Gen Guides &lt;a href="https://gorm.io/gen/index.html">https://gorm.io/gen/index.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="contributing">Contributing&lt;a class="td-heading-self-link" href="#contributing" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://gorm.io/contribute.html">You can help to deliver a better GORM, check out things you can do&lt;/a>&lt;/p></description></item></channel></rss>

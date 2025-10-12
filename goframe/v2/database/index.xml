@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>database on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/database/</link><description>Recent content in database on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Mar 2024 17:47:23 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/database/index.xml" rel="self" type="application/rss+xml"/><item><title>gdebug</title><link>https://before80.github.io/go_docs/goframe/v2/database/gdebug/</link><pubDate>Thu, 21 Mar 2024 17:47:51 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gdebug/</guid><description>原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis Package gredis provides convenient</description></item><item><title>gredis</title><link>https://before80.github.io/go_docs/goframe/v2/database/gredis/</link><pubDate>Thu, 21 Mar 2024 17:47:42 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gredis/</guid><description>原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/debug/gdebug Package gdebug contains facilities for programs to</description></item><item><title>gdb</title><link>https://before80.github.io/go_docs/goframe/v2/database/gdb/</link><pubDate>Thu, 21 Mar 2024 17:47:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gdb/</guid><description>原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gdb Package gdb provides ORM features for popular</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>database on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/database/</link><description>Recent content in database on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/database/index.xml" rel="self" type="application/rss+xml"/><item><title>gdebug</title><link>https://before80.github.io/go_docs/goframe/v2/database/gdebug/</link><pubDate>Thu, 21 Mar 2024 17:47:51 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gdebug/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gredis&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gredis provides convenient client for redis server.&lt;/p>
+&lt;p>​	软件包 gredis 为 redis 服务器提供了便捷的客户端。&lt;/p>
+&lt;p>Redis Client.&lt;/p>
+&lt;p>​	Redis 客户端。&lt;/p>
+&lt;p>Redis Commands Official: &lt;a href="https://redis.io/commands">https://redis.io/commands&lt;/a>&lt;/p>
+&lt;p>​	Redis 命令官方：https://redis.io/commands&lt;/p></description></item><item><title>gredis</title><link>https://before80.github.io/go_docs/goframe/v2/database/gredis/</link><pubDate>Thu, 21 Mar 2024 17:47:42 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gredis/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/debug/gdebug">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/debug/gdebug&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gdebug contains facilities for programs to debug themselves while they are running.&lt;/p>
+&lt;p>​	软件包 gdebug 包含程序在运行时自行调试的工具。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h4 id="func-binversion">func BinVersion&lt;a class="td-heading-self-link" href="#func-binversion" aria-label="Heading self-link">&lt;/a>&lt;/h4>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">BinVersion&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>BinVersion returns the version of current running binary. It uses ghash.BKDRHash+BASE36 algorithm to calculate the unique version of the binary.&lt;/p></description></item><item><title>gdb</title><link>https://before80.github.io/go_docs/goframe/v2/database/gdb/</link><pubDate>Thu, 21 Mar 2024 17:47:34 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/database/gdb/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gdb">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/database/gdb&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gdb provides ORM features for popular relationship databases.&lt;/p>
+&lt;p>​	软件包 gdb 为流行的关系数据库提供 ORM 功能。&lt;/p>
+&lt;p>TODO use context.Context as required parameter for all DB operations.&lt;/p>
+&lt;p>​	TODO 使用上下文。上下文作为所有数据库操作的必需参数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://github.com/gogf/gf/blob/v2.6.4/database/gdb/gdb.go#L413">View Source&lt;/a>&lt;/p></description></item></channel></rss>

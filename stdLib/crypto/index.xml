@@ -1,1 +1,510 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crypto on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/crypto/</link><description>Recent content in crypto on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 17 May 2023 11:11:20 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>fips140</title><link>https://before80.github.io/go_docs/stdLib/crypto/fips140/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/fips140/</guid><description>原文：https://pkg.go.dev/crypto/fips140@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 常量 This</description></item><item><title>hkdf</title><link>https://before80.github.io/go_docs/stdLib/crypto/hkdf/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/hkdf/</guid><description>原文：https://pkg.go.dev/crypto/hkdf@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 Overview Package hkdf implements the HMAC-based</description></item><item><title>mlkem</title><link>https://before80.github.io/go_docs/stdLib/crypto/mlkem/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/mlkem/</guid><description>原文：https://pkg.go.dev/crypto/mlkem@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 Overview Package mlkem implements the</description></item><item><title>pbkdf2</title><link>https://before80.github.io/go_docs/stdLib/crypto/pbkdf2/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/pbkdf2/</guid><description>原文：https://pkg.go.dev/crypto/fips140@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 Overview Package pbkdf2</description></item><item><title>sha3</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha3/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha3/</guid><description>原文：https://pkg.go.dev/crypto/sha3@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 Overview Package sha3 implements the SHA-3</description></item><item><title>aes</title><link>https://before80.github.io/go_docs/stdLib/crypto/aes/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/aes/</guid><description>原文：https://pkg.go.dev/crypto/aes@go1.24.2 Package aes implements AES encryption (formerly Rijndael), as defined in U.S. Federal Information Processing Standards Publication 197. ​ aes 包实现了 AES 加密（以前</description></item><item><title>cipher</title><link>https://before80.github.io/go_docs/stdLib/crypto/cipher/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/cipher/</guid><description>原文：https://pkg.go.dev/crypto/cipher@go1.24.2 Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html and NIST Special Publication 800-38A. ​ cipher 包</description></item><item><title>crypto</title><link>https://before80.github.io/go_docs/stdLib/crypto/crypto/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/crypto/</guid><description>原文：https://pkg.go.dev/crypto@go1.24.2 Package crypto collects common cryptographic constants. ​ crypto 包收集常见的加密常量。 常量 This section is empty. 变量 This section is empty. 函数</description></item><item><title>des</title><link>https://before80.github.io/go_docs/stdLib/crypto/des/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/des/</guid><description>原文：https://pkg.go.dev/crypto/des@go1.24.2 Package des implements the Data Encryption Standard (DES) and the Triple Data Encryption Algorithm (TDEA) as defined in U.S. Federal Information Processing Standards Publication 46-3. ​ des 包实</description></item><item><title>dsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/dsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/dsa/</guid><description>原文：https://pkg.go.dev/crypto/dsa@go1.24.2 Package dsa implements the Digital Signature Algorithm, as defined in FIPS 186-3. ​ dsa 包实现了数字签名算法，如 FIPS 186-3 中</description></item><item><title>ecdh</title><link>https://before80.github.io/go_docs/stdLib/crypto/ecdh/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ecdh/</guid><description>原文：https://pkg.go.dev/crypto/ecdh@go1.24.2 Package ecdh implements Elliptic Curve Diffie-Hellman over NIST curves and Curve25519. ​ ecdh 包实现了 NIST 曲线和 Curve25519 上的椭圆曲线</description></item><item><title>ecdsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/ecdsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ecdsa/</guid><description>原文：https://pkg.go.dev/crypto/ecdsa@go1.24.2 Package ecdsa implements the Elliptic Curve Digital Signature Algorithm, as defined in FIPS 186-4 and SEC 1, Version 2.0. ​ ecdsa 包实现了椭圆</description></item><item><title>ed25519</title><link>https://before80.github.io/go_docs/stdLib/crypto/ed25519/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ed25519/</guid><description>原文：https://pkg.go.dev/crypto/ed25519@go1.24.2 Package ed25519 implements the Ed25519 signature algorithm. See https://ed25519.cr.yp.to/. ​ ed25519 包实现了 Ed25519 签名算法。请参阅 h</description></item><item><title>elliptic</title><link>https://before80.github.io/go_docs/stdLib/crypto/elliptic/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/elliptic/</guid><description>原文：https://pkg.go.dev/crypto/elliptic@go1.24.2 Package elliptic implements the standard NIST P-224, P-256, P-384, and P-521 elliptic curves over prime fields. ​ elliptic 包实现标准 NIST</description></item><item><title>hmac</title><link>https://before80.github.io/go_docs/stdLib/crypto/hmac/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/hmac/</guid><description>原文：https://pkg.go.dev/crypto/hmac@go1.24.2 Package hmac implements the Keyed-Hash Message Authentication Code (HMAC) as defined in U.S. Federal Information Processing Standards Publication 198. An HMAC is a cryptographic hash that uses a</description></item><item><title>md5</title><link>https://before80.github.io/go_docs/stdLib/crypto/md5/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/md5/</guid><description>原文：https://pkg.go.dev/crypto/md5@go1.24.2 Package md5 implements the MD5 hash algorithm as defined in RFC 1321. ​ Package md5 实现 RFC 1321 中定义的 MD5 哈希算法。</description></item><item><title>rand</title><link>https://before80.github.io/go_docs/stdLib/crypto/rand/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rand/</guid><description>原文：https://pkg.go.dev/crypto/rand@go1.24.2 Package rand implements a cryptographically secure random number generator. ​ Package rand 实现了一个密码安全随机数生成器。</description></item><item><title>rc4</title><link>https://before80.github.io/go_docs/stdLib/crypto/rc4/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rc4/</guid><description>原文：https://pkg.go.dev/crypto/rc4@go1.24.2 Package rc4 implements RC4 encryption, as defined in Bruce Schneier&amp;rsquo;s Applied Cryptography. ​ rc4 包实现 RC4 加密，如 Bruce Schneier 的应用密码</description></item><item><title>rsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/rsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rsa/</guid><description>原文：https://pkg.go.dev/crypto/rsa@go1.24.2 Package rsa implements RSA encryption as specified in PKCS #1 and RFC 8017. ​ RSA 包实现了 PKCS #1 和 RFC 8017 中指定的 RSA</description></item><item><title>sha1</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha1/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha1/</guid><description>原文：https://pkg.go.dev/crypto/sha1@go1.24.2 Package sha1 implements the SHA-1 hash algorithm as defined in RFC 3174. ​ sha1 包实现了 RFC 3174 中定义的 SHA-1 哈希算</description></item><item><title>sha256</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha256/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha256/</guid><description>原文：https://pkg.go.dev/crypto/sha256@go1.24.2 Package sha256 implements the SHA224 and SHA256 hash algorithms as defined in FIPS 180-4. ​ sha256 包实现 FIPS 180-4 中定义的 SHA224</description></item><item><title>sha512</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha512/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha512/</guid><description>原文：https://pkg.go.dev/crypto/sha512@go1.24.2 Package sha512 implements the SHA-384, SHA-512, SHA-512/224, and SHA-512/256 hash algorithms as defined in FIPS 180-4. ​ sha512 包实现 FIPS 180-4 中定义</description></item><item><title>subtle</title><link>https://before80.github.io/go_docs/stdLib/crypto/subtle/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/subtle/</guid><description>原文：https://pkg.go.dev/crypto/subtle@go1.24.2 Package subtle implements functions that are often useful in cryptographic code but require careful thought to use correctly. ​ Package subtle 实现通常在</description></item><item><title>tls</title><link>https://before80.github.io/go_docs/stdLib/crypto/tls/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/tls/</guid><description>原文：https://pkg.go.dev/crypto/tls@go1.24.2 Package tls partially implements TLS 1.2, as specified in RFC 5246, and TLS 1.3, as specified in RFC 8446. ​ tls 包部分实现了 TLS 1</description></item><item><title>x509</title><link>https://before80.github.io/go_docs/stdLib/crypto/x509/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/x509/</guid><description>原文：https://pkg.go.dev/crypto/x509@go1.24.2 Package x509 implements a subset of the X.509 standard. ​ x509 包实现 X.509 标准的子集。 It allows parsing and generating certificates, certificate</description></item><item><title>x509/pkix</title><link>https://before80.github.io/go_docs/stdLib/crypto/x509_pkix/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/x509_pkix/</guid><description>原文：https://pkg.go.dev/crypto/x509/pkix@go1.24.2 Package pkix contains shared, low level structures used for ASN.1 parsing and serialization of X.509 certificates, CRL and OCSP. ​ pkix 包包</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crypto on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/crypto/</link><description>Recent content in crypto on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/crypto/index.xml" rel="self" type="application/rss+xml"/><item><title>fips140</title><link>https://before80.github.io/go_docs/stdLib/crypto/fips140/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/fips140/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/fips140@go1.24.2">https://pkg.go.dev/crypto/fips140@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-enabled">func Enabled&lt;a class="td-heading-self-link" href="#func-enabled" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Enabled&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#e5c07b">bool&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Enabled reports whether the cryptography libraries are operating in FIPS 140-3 mode.&lt;/p>
+&lt;p>It can be controlled at runtime using the GODEBUG setting &amp;ldquo;fips140&amp;rdquo;. If set to &amp;ldquo;on&amp;rdquo;, FIPS 140-3 mode is enabled. If set to &amp;ldquo;only&amp;rdquo;, non-approved cryptography functions will additionally return errors or panic.&lt;/p></description></item><item><title>hkdf</title><link>https://before80.github.io/go_docs/stdLib/crypto/hkdf/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/hkdf/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/hkdf@go1.24.2">https://pkg.go.dev/crypto/hkdf@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package hkdf implements the HMAC-based Extract-and-Expand Key Derivation Function (HKDF) as defined in &lt;a href="https://rfc-editor.org/rfc/rfc5869.html">RFC 5869&lt;/a>.&lt;/p>
+&lt;p>HKDF is a cryptographic key derivation function (KDF) with the goal of expanding limited input keying material into one or more cryptographically strong secret keys.&lt;/p>
+&lt;h3 id="exampleusage">Example(Usage)&lt;a class="td-heading-self-link" href="#exampleusage" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;p>Usage example that expands one master secret into three other cryptographically secure keys.&lt;/p></description></item><item><title>mlkem</title><link>https://before80.github.io/go_docs/stdLib/crypto/mlkem/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/mlkem/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/mlkem@go1.24.2">https://pkg.go.dev/crypto/mlkem@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package mlkem implements the quantum-resistant key encapsulation method ML-KEM (formerly known as Kyber), as specified in &lt;a href="https://doi.org/10.6028/NIST.FIPS.203">NIST FIPS 203&lt;/a>.&lt;/p>
+&lt;p>Most applications should use the ML-KEM-768 parameter set, as implemented by &lt;a href="https://pkg.go.dev/crypto/mlkem@go1.24.2#DecapsulationKey768">DecapsulationKey768&lt;/a> and &lt;a href="https://pkg.go.dev/crypto/mlkem@go1.24.2#EncapsulationKey768">EncapsulationKey768&lt;/a>.&lt;/p>
+&lt;h3 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">33
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">34
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">35
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">36
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">37
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">38
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">39
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">40
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">41
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">42
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">43
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">package&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">import&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;crypto/mlkem&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;log&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">main&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Alice generates a new key pair and sends the encapsulation key to Bob.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">dk&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">mlkem&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">GenerateKey768&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#e5c07b">nil&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">err&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">encapsulationKey&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">dk&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">EncapsulationKey&lt;/span>&lt;span style="color:#abb2bf">().&lt;/span>&lt;span style="color:#00b1f7">Bytes&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Bob uses the encapsulation key to encapsulate a shared secret, and sends&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// back the ciphertext to Alice.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">ciphertext&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#00b1f7">Bob&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">encapsulationKey&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Alice decapsulates the shared secret from the ciphertext.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">sharedSecret&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">dk&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Decapsulate&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">ciphertext&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#e5c07b">nil&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">err&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Alice and Bob now share a secret.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">_&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">sharedSecret&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">Bob&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">encapsulationKey&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">ciphertext&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Bob encapsulates a shared secret using the encapsulation key.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">ek&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">mlkem&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">NewEncapsulationKey768&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">encapsulationKey&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#aa89ea">err&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#e5c07b">nil&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#aa89ea">log&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Fatal&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">err&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">sharedSecret&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">ciphertext&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">ek&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Encapsulate&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Alice and Bob now share a secret.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">_&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">sharedSecret&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Bob sends the ciphertext to Alice.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">ciphertext&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// SharedKeySize is the size of a shared key produced by ML-KEM.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">SharedKeySize&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">32&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// SeedSize is the size of a seed used to generate a decapsulation key.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">SeedSize&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">64&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// CiphertextSize768 is the size of a ciphertext produced by ML-KEM-768.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">CiphertextSize768&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">1088&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// EncapsulationKeySize768 is the size of an ML-KEM-768 encapsulation key.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">EncapsulationKeySize768&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">1184&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// CiphertextSize1024 is the size of a ciphertext produced by ML-KEM-1024.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">CiphertextSize1024&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">1568&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// EncapsulationKeySize1024 is the size of an ML-KEM-1024 encapsulation key.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">EncapsulationKeySize1024&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">1568&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>pbkdf2</title><link>https://before80.github.io/go_docs/stdLib/crypto/pbkdf2/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/pbkdf2/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/fips140@go1.24.2">https://pkg.go.dev/crypto/fips140@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package pbkdf2 implements the key derivation function PBKDF2 as defined in &lt;a href="https://rfc-editor.org/rfc/rfc8018.html">RFC 8018&lt;/a> (PKCS #5 v2.1).&lt;/p>
+&lt;p>A key derivation function is useful when encrypting data based on a password or any other not-fully-random data. It uses a pseudorandom function to derive a secure encryption key based on the password.&lt;/p></description></item><item><title>sha3</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha3/</link><pubDate>Tue, 01 Apr 2025 13:15:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha3/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/sha3@go1.24.2">https://pkg.go.dev/crypto/sha3@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package sha3 implements the SHA-3 hash algorithms and the SHAKE extendable output functions defined in FIPS 202.&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-sum224">func Sum224&lt;a class="td-heading-self-link" href="#func-sum224" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;pre tabindex="0">&lt;code>func Sum224(data []byte) [28]byte
+&lt;/code>&lt;/pre>&lt;p>Sum224 returns the SHA3-224 hash of data.&lt;/p></description></item><item><title>aes</title><link>https://before80.github.io/go_docs/stdLib/crypto/aes/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/aes/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/aes@go1.24.2">https://pkg.go.dev/crypto/aes@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package aes implements AES encryption (formerly Rijndael), as defined in U.S. Federal Information Processing Standards Publication 197.&lt;/p>
+&lt;p>​	aes 包实现了 AES 加密（以前称为 Rijndael），如美国联邦信息处理标准出版物 197 中所定义。&lt;/p>
+&lt;p>The AES operations in this package are not implemented using constant-time algorithms. An exception is when running on systems with enabled hardware support for AES that makes these operations constant-time. Examples include amd64 systems using AES-NI extensions and s390x systems using Message-Security-Assist extensions. On such systems, when the result of NewCipher is passed to cipher.NewGCM, the GHASH operation used by GCM is also constant-time.&lt;/p></description></item><item><title>cipher</title><link>https://before80.github.io/go_docs/stdLib/crypto/cipher/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/cipher/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/cipher@go1.24.2">https://pkg.go.dev/crypto/cipher@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package cipher implements standard block cipher modes that can be wrapped around low-level block cipher implementations. See &lt;a href="https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html">https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html&lt;/a> and NIST Special Publication 800-38A.&lt;/p>
+&lt;p>​	cipher 包实现标准分组密码模式，该模式可以包装在低级分组密码实现中。请参阅 &lt;a href="https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html">https://csrc.nist.gov/groups/ST/toolkit/BCM/current_modes.html&lt;/a> 和 NIST 特别出版物 800-38A。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>crypto</title><link>https://before80.github.io/go_docs/stdLib/crypto/crypto/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/crypto/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto@go1.24.2">https://pkg.go.dev/crypto@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package crypto collects common cryptographic constants.&lt;/p>
+&lt;p>​	crypto 包收集常见的加密常量。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-registerhash">func RegisterHash&lt;a class="td-heading-self-link" href="#func-registerhash" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">RegisterHash&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">h&lt;/span> &lt;span style="color:#aa89ea">Hash&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">f&lt;/span> &lt;span style="color:#76a9f9">func&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#aa89ea">hash&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Hash&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>RegisterHash registers a function that returns a new instance of the given hash function. This is intended to be called from the init function in packages that implement hash functions.&lt;/p></description></item><item><title>des</title><link>https://before80.github.io/go_docs/stdLib/crypto/des/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/des/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/des@go1.24.2">https://pkg.go.dev/crypto/des@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package des implements the Data Encryption Standard (DES) and the Triple Data Encryption Algorithm (TDEA) as defined in U.S. Federal Information Processing Standards Publication 46-3.&lt;/p>
+&lt;p>​	des 包实现了美国联邦信息处理标准出版物 46-3 中定义的数据加密标准 (DES) 和三重数据加密算法 (TDEA)。&lt;/p></description></item><item><title>dsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/dsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/dsa/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/dsa@go1.24.2">https://pkg.go.dev/crypto/dsa@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package dsa implements the Digital Signature Algorithm, as defined in FIPS 186-3.&lt;/p>
+&lt;p>​	dsa 包实现了数字签名算法，如 FIPS 186-3 中所定义。&lt;/p>
+&lt;p>The DSA operations in this package are not implemented using constant-time algorithms.&lt;/p>
+&lt;p>​	此包中的 DSA 操作并非使用恒定时间算法实现。&lt;/p>
+&lt;p>Deprecated: DSA is a legacy algorithm, and modern alternatives such as Ed25519 (implemented by package crypto/ed25519) should be used instead. Keys with 1024-bit moduli (L1024N160 parameters) are cryptographically weak, while bigger keys are not widely supported. Note that FIPS 186-5 no longer approves DSA for signature generation.&lt;/p></description></item><item><title>ecdh</title><link>https://before80.github.io/go_docs/stdLib/crypto/ecdh/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ecdh/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/ecdh@go1.24.2">https://pkg.go.dev/crypto/ecdh@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package ecdh implements Elliptic Curve Diffie-Hellman over NIST curves and Curve25519.&lt;/p>
+&lt;p>​	 ecdh 包实现了 NIST 曲线和 Curve25519 上的椭圆曲线 Diffie-Hellman。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="type-curve">type Curve&lt;a class="td-heading-self-link" href="#type-curve" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">Curve&lt;/span> &lt;span style="color:#76a9f9">interface&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// GenerateKey generates a new PrivateKey from rand.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#00b1f7">GenerateKey&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">rand&lt;/span> &lt;span style="color:#aa89ea">io&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Reader&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">PrivateKey&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// NewPrivateKey checks that key is valid and returns a PrivateKey.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">//&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// For NIST curves, this follows SEC 1, Version 2.0, Section 2.3.6, which&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// amounts to decoding the bytes as a fixed length big endian integer and&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// checking that the result is lower than the order of the curve. The zero&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// private key is also rejected, as the encoding of the corresponding public&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// key would be irregular.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">//&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// For X25519, this only checks the scalar length.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#00b1f7">NewPrivateKey&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">key&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">PrivateKey&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// NewPublicKey checks that key is valid and returns a PublicKey.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">//&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// For NIST curves, this decodes an uncompressed point according to SEC 1,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Version 2.0, Section 2.3.4. Compressed encodings and the point at&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// infinity are rejected.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">//&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// For X25519, this only checks the u-coordinate length. Adversarially&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// selected public keys can cause ECDH to return an error.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#00b1f7">NewPublicKey&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">key&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#54b1c7">*&lt;/span>&lt;span style="color:#aa89ea">PublicKey&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#e5c07b">error&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// contains filtered or unexported methods&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="func-p256">func P256&lt;a class="td-heading-self-link" href="#func-p256" aria-label="Heading self-link">&lt;/a>&lt;/h4>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">P256&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#aa89ea">Curve&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>P256 returns a Curve which implements NIST P-256 (FIPS 186-3, section D.2.3), also known as secp256r1 or prime256v1.&lt;/p></description></item><item><title>ecdsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/ecdsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ecdsa/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/ecdsa@go1.24.2">https://pkg.go.dev/crypto/ecdsa@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package ecdsa implements the Elliptic Curve Digital Signature Algorithm, as defined in FIPS 186-4 and SEC 1, Version 2.0.&lt;/p>
+&lt;p>​	ecdsa 包实现了椭圆曲线数字签名算法，如 FIPS 186-4 和 SEC 1（版本 2.0）中所定义。&lt;/p>
+&lt;p>Signatures generated by this package are not deterministic, but entropy is mixed with the private key and the message, achieving the same level of security in case of randomness source failure.&lt;/p></description></item><item><title>ed25519</title><link>https://before80.github.io/go_docs/stdLib/crypto/ed25519/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/ed25519/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/ed25519@go1.24.2">https://pkg.go.dev/crypto/ed25519@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package ed25519 implements the Ed25519 signature algorithm. See &lt;a href="https://ed25519.cr.yp.to/">https://ed25519.cr.yp.to/&lt;/a>.&lt;/p>
+&lt;p>​	ed25519 包实现了 Ed25519 签名算法。请参阅 &lt;a href="https://ed25519.cr.yp.to/">https://ed25519.cr.yp.to/&lt;/a>。&lt;/p>
+&lt;p>These functions are also compatible with the “Ed25519” function defined in &lt;a href="https://rfc-editor.org/rfc/rfc8032.html">RFC 8032&lt;/a>. However, unlike &lt;a href="https://rfc-editor.org/rfc/rfc8032.html">RFC 8032&lt;/a>’s formulation, this package’s private key representation includes a public key suffix to make multiple signing operations with the same key more efficient. This package refers to the &lt;a href="https://rfc-editor.org/rfc/rfc8032.html">RFC 8032&lt;/a> private key as the “seed”.&lt;/p></description></item><item><title>elliptic</title><link>https://before80.github.io/go_docs/stdLib/crypto/elliptic/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/elliptic/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/elliptic@go1.24.2">https://pkg.go.dev/crypto/elliptic@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package elliptic implements the standard NIST P-224, P-256, P-384, and P-521 elliptic curves over prime fields.&lt;/p>
+&lt;p>​	elliptic 包实现标准 NIST P-224、P-256、P-384 和 P-521 素数域上的椭圆曲线。&lt;/p>
+&lt;p>The P224(), P256(), P384() and P521() values are necessary to use the crypto/ecdsa package. Most other uses should migrate to the more efficient and safer crypto/ecdh package.&lt;/p></description></item><item><title>hmac</title><link>https://before80.github.io/go_docs/stdLib/crypto/hmac/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/hmac/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/hmac@go1.24.2">https://pkg.go.dev/crypto/hmac@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package hmac implements the Keyed-Hash Message Authentication Code (HMAC) as defined in U.S. Federal Information Processing Standards Publication 198. An HMAC is a cryptographic hash that uses a key to sign a message. The receiver verifies the hash by recomputing it using the same key.&lt;/p>
+&lt;p>​	hmac 包实现了美国联邦信息处理标准发布的 198 中定义的密钥散列消息认证码 (HMAC)。HMAC 是一种使用密钥对消息进行签名的加密哈希。接收方使用相同的密钥重新计算哈希值来验证哈希值。&lt;/p></description></item><item><title>md5</title><link>https://before80.github.io/go_docs/stdLib/crypto/md5/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/md5/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/md5@go1.24.2">https://pkg.go.dev/crypto/md5@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package md5 implements the MD5 hash algorithm as defined in &lt;a href="https://rfc-editor.org/rfc/rfc1321.html">RFC 1321&lt;/a>.&lt;/p>
+&lt;p>​	Package md5 实现 RFC 1321 中定义的 MD5 哈希算法。&lt;/p>
+&lt;p>MD5 is cryptographically broken and should not be used for secure applications.&lt;/p>
+&lt;p>​	MD5 在密码学上已遭破解，不应在安全应用程序中使用。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/md5/md5.go;l=28">View Source&lt;/a>&lt;/p></description></item><item><title>rand</title><link>https://before80.github.io/go_docs/stdLib/crypto/rand/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rand/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/rand@go1.24.2">https://pkg.go.dev/crypto/rand@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package rand implements a cryptographically secure random number generator.&lt;/p>
+&lt;p>​	Package rand 实现了一个密码安全随机数生成器。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/rand/rand.go;l=20">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">var&lt;/span> &lt;span style="color:#aa89ea">Reader&lt;/span> &lt;span style="color:#aa89ea">io&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Reader&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Reader is a global, shared instance of a cryptographically secure random number generator.&lt;/p>
+&lt;p>​	Reader 是一个密码安全随机数生成器的全局共享实例。&lt;/p></description></item><item><title>rc4</title><link>https://before80.github.io/go_docs/stdLib/crypto/rc4/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rc4/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/rc4@go1.24.2">https://pkg.go.dev/crypto/rc4@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package rc4 implements RC4 encryption, as defined in Bruce Schneier&amp;rsquo;s Applied Cryptography.&lt;/p>
+&lt;p>​	 rc4 包实现 RC4 加密，如 Bruce Schneier 的应用密码术中所定义。&lt;/p>
+&lt;p>RC4 is cryptographically broken and should not be used for secure applications.&lt;/p>
+&lt;p>​	RC4 在密码学上已被攻破，不应将其用于安全应用程序。&lt;/p></description></item><item><title>rsa</title><link>https://before80.github.io/go_docs/stdLib/crypto/rsa/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/rsa/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/rsa@go1.24.2">https://pkg.go.dev/crypto/rsa@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package rsa implements RSA encryption as specified in PKCS #1 and &lt;a href="https://rfc-editor.org/rfc/rfc8017.html">RFC 8017&lt;/a>.&lt;/p>
+&lt;p>​	RSA 包实现了 PKCS #1 和 RFC 8017 中指定的 RSA 加密。&lt;/p>
+&lt;p>RSA is a single, fundamental operation that is used in this package to implement either public-key encryption or public-key signatures.&lt;/p>
+&lt;p>​	RSA 是一个单一的基本操作，用于此包中实现公钥加密或公钥签名。&lt;/p></description></item><item><title>sha1</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha1/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha1/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/sha1@go1.24.2">https://pkg.go.dev/crypto/sha1@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package sha1 implements the SHA-1 hash algorithm as defined in &lt;a href="https://rfc-editor.org/rfc/rfc3174.html">RFC 3174&lt;/a>.&lt;/p>
+&lt;p>​	sha1 包实现了 RFC 3174 中定义的 SHA-1 哈希算法。&lt;/p>
+&lt;p>SHA-1 is cryptographically broken and should not be used for secure applications.&lt;/p>
+&lt;p>​	SHA-1 在密码学上已遭破解，不应将其用于安全应用程序。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/sha1/sha1.go;l=26">View Source&lt;/a>&lt;/p></description></item><item><title>sha256</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha256/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha256/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/sha256@go1.24.2">https://pkg.go.dev/crypto/sha256@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package sha256 implements the SHA224 and SHA256 hash algorithms as defined in FIPS 180-4.&lt;/p>
+&lt;p>​	sha256 包实现 FIPS 180-4 中定义的 SHA224 和 SHA256 哈希算法。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/sha256/sha256.go;l=29">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#aa89ea">BlockSize&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">64&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The blocksize of SHA256 and SHA224 in bytes.&lt;/p>
+&lt;p>​	SHA256 和 SHA224 的块大小（以字节为单位）。&lt;/p></description></item><item><title>sha512</title><link>https://before80.github.io/go_docs/stdLib/crypto/sha512/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/sha512/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/sha512@go1.24.2">https://pkg.go.dev/crypto/sha512@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package sha512 implements the SHA-384, SHA-512, SHA-512/224, and SHA-512/256 hash algorithms as defined in FIPS 180-4.&lt;/p>
+&lt;p>​	sha512 包实现 FIPS 180-4 中定义的 SHA-384、SHA-512、SHA-512/224 和 SHA-512/256 哈希算法。&lt;/p>
+&lt;p>All the hash.Hash implementations returned by this package also implement encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to marshal and unmarshal the internal state of the hash.&lt;/p></description></item><item><title>subtle</title><link>https://before80.github.io/go_docs/stdLib/crypto/subtle/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/subtle/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/subtle@go1.24.2">https://pkg.go.dev/crypto/subtle@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package subtle implements functions that are often useful in cryptographic code but require careful thought to use correctly.&lt;/p>
+&lt;p>​	Package subtle 实现通常在加密代码中很有用但需要仔细考虑才能正确使用的函数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-constanttimebyteeq">func ConstantTimeByteEq&lt;a class="td-heading-self-link" href="#func-constanttimebyteeq" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">ConstantTimeByteEq&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">x&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">y&lt;/span> &lt;span style="color:#e5c07b">uint8&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ConstantTimeByteEq returns 1 if x == y and 0 otherwise.&lt;/p></description></item><item><title>tls</title><link>https://before80.github.io/go_docs/stdLib/crypto/tls/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/tls/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/tls@go1.24.2">https://pkg.go.dev/crypto/tls@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package tls partially implements TLS 1.2, as specified in &lt;a href="https://rfc-editor.org/rfc/rfc5246.html">RFC 5246&lt;/a>, and TLS 1.3, as specified in &lt;a href="https://rfc-editor.org/rfc/rfc8446.html">RFC 8446&lt;/a>.&lt;/p>
+&lt;p>​	tls 包部分实现了 TLS 1.2，如 &lt;a href="https://rfc-editor.org/rfc/rfc5246.html">RFC 5246&lt;/a> 中所述，以及 TLS 1.3，如 &lt;a href="https://rfc-editor.org/rfc/rfc8446.html">RFC 8446&lt;/a> 中所述。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/crypto/tls/cipher_suites.go;l=664">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">33
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">34
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">35
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">36
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">37
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">38
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">39
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// TLS 1.0 - 1.2 cipher suites.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_RC4_128_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x0005&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_3DES_EDE_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x000a&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_AES_128_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x002f&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_AES_256_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x0035&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_AES_128_CBC_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x003c&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_AES_128_GCM_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x009c&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_RSA_WITH_AES_256_GCM_SHA384&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x009d&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_RC4_128_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc007&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc009&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc00a&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_RC4_128_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc011&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc012&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc013&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc014&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc023&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc027&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc02f&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc02b&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc030&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xc02c&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xcca8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0xcca9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// TLS 1.3 cipher suites.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_AES_128_GCM_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x1301&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_AES_256_GCM_SHA384&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x1302&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_CHACHA20_POLY1305_SHA256&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x1303&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// TLS_FALLBACK_SCSV isn&amp;#39;t a standard cipher suite but an indicator&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// that the client is doing version fallback. See RFC 7507.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_FALLBACK_SCSV&lt;/span> &lt;span style="color:#e5c07b">uint16&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#d19a66">0x5600&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// Legacy names for the corresponding cipher suites with the correct _SHA256&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// suffix, retained for backward compatibility.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>A list of cipher suite IDs that are, or have been, implemented by this package.&lt;/p></description></item><item><title>x509</title><link>https://before80.github.io/go_docs/stdLib/crypto/x509/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/x509/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/x509@go1.24.2">https://pkg.go.dev/crypto/x509@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package x509 implements a subset of the X.509 standard.&lt;/p>
+&lt;p>​	x509 包实现 X.509 标准的子集。&lt;/p>
+&lt;p>It allows parsing and generating certificates, certificate signing requests, certificate revocation lists, and encoded public and private keys. It provides a certificate verifier, complete with a chain builder.&lt;/p>
+&lt;p>​	它允许解析和生成证书、证书签名请求、证书吊销列表以及编码的公钥和私钥。它提供了一个证书验证器，并配有一个链构建器。&lt;/p></description></item><item><title>x509/pkix</title><link>https://before80.github.io/go_docs/stdLib/crypto/x509_pkix/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/crypto/x509_pkix/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/crypto/x509/pkix@go1.24.2">https://pkg.go.dev/crypto/x509/pkix@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package pkix contains shared, low level structures used for ASN.1 parsing and serialization of X.509 certificates, CRL and OCSP.&lt;/p>
+&lt;p>​	 pkix 包包含用于 ASN.1 解析和 X.509 证书、CRL 和 OCSP 序列化的共享低级结构。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item></channel></rss>

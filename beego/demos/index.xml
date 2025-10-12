@@ -1,1 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>演示 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/demos/</link><description>Recent content in 演示 on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 04 Feb 2024 09:34:31 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/demos/index.xml" rel="self" type="application/rss+xml"/><item><title>URL 缩短器</title><link>https://before80.github.io/go_docs/beego/demos/urlShortener/</link><pubDate>Sun, 04 Feb 2024 09:34:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/urlShortener/</guid><description>原文：https://beego.wiki/docs/examples/shorturl/ URL Shortener - URL缩短器 URL Shortener API service - URL缩短器 API 服务 This sample</description></item><item><title>聊天室</title><link>https://before80.github.io/go_docs/beego/demos/chatRoom/</link><pubDate>Sun, 04 Feb 2024 09:34:42 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/chatRoom/</guid><description>原文：https://beego.wiki/docs/examples/chat/ Chat Room 聊天室 This demo shows two ways of implementing a Web Instant Messaging application: ​ 此演示展示了实现 Web 即时</description></item><item><title>待办事项列表</title><link>https://before80.github.io/go_docs/beego/demos/todoList/</link><pubDate>Sun, 04 Feb 2024 09:35:09 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/todoList/</guid><description>原文：https://beego.wiki/docs/examples/todo/ To-do List 待办事项列表 An AngularJS + Beego project ​ 一个 AngularJS + Beego 项目 1 2 3 4 5 6 7 8</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>演示 on Go 中文档集</title><link>https://before80.github.io/go_docs/beego/demos/</link><description>Recent content in 演示 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/beego/demos/index.xml" rel="self" type="application/rss+xml"/><item><title>URL 缩短器</title><link>https://before80.github.io/go_docs/beego/demos/urlShortener/</link><pubDate>Sun, 04 Feb 2024 09:34:58 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/urlShortener/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/demos/urlShortener/">https://beego.wiki/docs/examples/shorturl/&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h1 id="url-shortener---url缩短器">URL Shortener - URL缩短器&lt;a class="td-heading-self-link" href="#url-shortener---url%e7%bc%a9%e7%9f%ad%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;h1 id="url-shortener-api-service---url缩短器-api-服务">URL Shortener API service - URL缩短器 API 服务&lt;a class="td-heading-self-link" href="#url-shortener-api-service---url%e7%bc%a9%e7%9f%ad%e5%99%a8-api-%e6%9c%8d%e5%8a%a1" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>This sample is an API application based on Beego. It has two API endpoints:&lt;/p>
+&lt;p>​	此示例是一个基于 Beego 的 API 应用程序。它有两个 API 端点：&lt;/p></description></item><item><title>聊天室</title><link>https://before80.github.io/go_docs/beego/demos/chatRoom/</link><pubDate>Sun, 04 Feb 2024 09:34:42 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/chatRoom/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://before80.github.io/go_docs/beego/demos/chatRoom/">https://beego.wiki/docs/examples/chat/&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h1 id="chat-room-聊天室">Chat Room 聊天室&lt;a class="td-heading-self-link" href="#chat-room-%e8%81%8a%e5%a4%a9%e5%ae%a4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>This demo shows two ways of implementing a Web Instant Messaging application:&lt;/p>
+&lt;p>​	此演示展示了实现 Web 即时消息应用程序的两种方式：&lt;/p>
+&lt;p>Using long polling. Using WebSocket.&lt;/p>
+&lt;p>​	使用长轮询。使用 WebSocket。&lt;/p>
+&lt;p>Both of them save data in memory by default so everything will be lost every time the application restarts, but you can change this setting in &lt;code>conf/app.conf&lt;/code> to enable a database adapter for data persistence.&lt;/p></description></item><item><title>待办事项列表</title><link>https://before80.github.io/go_docs/beego/demos/todoList/</link><pubDate>Sun, 04 Feb 2024 09:35:09 +0800</pubDate><guid>https://before80.github.io/go_docs/beego/demos/todoList/</guid><description>&lt;blockquote>
+&lt;p>原文：https://beego.wiki/docs/examples/todo/&lt;/p>&lt;/blockquote>
+&lt;h1 id="to-do-list-待办事项列表">To-do List 待办事项列表&lt;a class="td-heading-self-link" href="#to-do-list-%e5%be%85%e5%8a%9e%e4%ba%8b%e9%a1%b9%e5%88%97%e8%a1%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>An AngularJS + Beego project&lt;/p>
+&lt;p>​	一个 AngularJS + Beego 项目&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span> bee new todo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">[&lt;/span>INFO&lt;span style="color:#54b1c7">]&lt;/span> Creating application...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/conf/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/controllers/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/models/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/static/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/static/js/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/static/css/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/static/img/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/views/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/conf/app.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/controllers/default.go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/views/index.tpl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/Users/astaxie/gopath/src/todo/main.go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>13-12-14 10:05:44 &lt;span style="color:#54b1c7">[&lt;/span>SUCC&lt;span style="color:#54b1c7">]&lt;/span> New application successfully created!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="https://github.com/beego/samples/tree/master/todo">Browse the code on GitHub
+在 GitHub 上浏览代码&lt;/a>&lt;/p></description></item></channel></rss>

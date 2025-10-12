@@ -1,1 +1,355 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>标准库 on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/</link><description>Recent content in 标准库 on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 17 May 2023 09:59:21 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/index.xml" rel="self" type="application/rss+xml"/><item><title>weak</title><link>https://before80.github.io/go_docs/stdLib/weak/</link><pubDate>Wed, 02 Apr 2025 16:15:43 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/weak/</guid><description>原文：https://pkg.go.dev/weak@go1.24.2 注意 ​ 从go1.24.0开始才可以使用该包。 Overview Package weak provides ways to safely reference memory weakly, that is, without</description></item><item><title>unique</title><link>https://before80.github.io/go_docs/stdLib/unique/</link><pubDate>Fri, 06 Sep 2024 11:48:45 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unique/</guid><description>原文：https://pkg.go.dev/unique@go1.24.2 注意 ​ 从go1.23.0开始才可以使用该包。 Overview The unique package provides facilities for canonicalizing (&amp;ldquo;interning&amp;rdquo;) comparable values.</description></item><item><title>structs</title><link>https://before80.github.io/go_docs/stdLib/structs/</link><pubDate>Fri, 06 Sep 2024 10:46:23 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/structs/</guid><description>原文：https://pkg.go.dev/structs@go1.24.2 注意 ​ 从go1.23.0开始才可以使用该包。 Overview Package structs defines marker types that can be used</description></item><item><title>iter</title><link>https://before80.github.io/go_docs/stdLib/iter/</link><pubDate>Thu, 05 Sep 2024 11:11:18 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/iter/</guid><description>原文：https://pkg.go.dev/iter@go1.24.2 注意 ​ 从go1.23.0开始才有该包。 Package iter provides basic definitions and operations related to iterators over sequences. ​ iter 包提</description></item><item><title>maps</title><link>https://before80.github.io/go_docs/stdLib/maps/</link><pubDate>Sun, 05 Nov 2023 14:27:43 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/maps/</guid><description>原文：https://pkg.go.dev/maps@go1.24.2 注意 ​ 从go1.21.0开始才有该包。 概述 Package maps defines various functions useful with maps of any type. ​ ma</description></item><item><title>cmp</title><link>https://before80.github.io/go_docs/stdLib/cmp/</link><pubDate>Sun, 05 Nov 2023 14:26:38 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/cmp/</guid><description>原文：https://pkg.go.dev/cmp@go1.24.2 注意 从go1.21.0开始才有该包。 概述 Package cmp provides types and functions related to comparing ordered values. ​ cmp包</description></item><item><title>slices</title><link>https://before80.github.io/go_docs/stdLib/slices/</link><pubDate>Sun, 05 Nov 2023 14:26:18 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/slices/</guid><description>原文：https://pkg.go.dev/slices 注意 ​ 从go1.21.0开始才有该包。 概述 Package slices defines various functions useful with slices of any type. ​ slices 包定义了各种类型</description></item><item><title>bufio</title><link>https://before80.github.io/go_docs/stdLib/bufio/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/bufio/</guid><description>原文：https://pkg.go.dev/bufio@go1.24.2 Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O. ​ b</description></item><item><title>builtin</title><link>https://before80.github.io/go_docs/stdLib/builtin/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/builtin/</guid><description>原文：https://pkg.go.dev/builtin@go1.24.2 Package builtin provides documentation for Go&amp;rsquo;s predeclared identifiers. The items documented here are not actually in package builtin but their descriptions here allow godoc to present documentation for the language&amp;rsquo;s special identifiers.</description></item><item><title>bytes</title><link>https://before80.github.io/go_docs/stdLib/bytes/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/bytes/</guid><description>原文：https://pkg.go.dev/bytes@go1.24.2 Package bytes implements functions for the manipulation of byte slices. It is analogous to the facilities of the strings package. ​ bytes包实现了操作字节</description></item><item><title>context</title><link>https://before80.github.io/go_docs/stdLib/context/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/context/</guid><description>原文：https://pkg.go.dev/context@go1.24.2 Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes. ​ context包定义</description></item><item><title>embed</title><link>https://before80.github.io/go_docs/stdLib/embed/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/embed/</guid><description>原文：https://pkg.go.dev/embed@go1.24.2 Package embed provides access to files embedded in the running Go program. ​ embed包提供了访问嵌入在运行的 Go 程序中</description></item><item><title>errors</title><link>https://before80.github.io/go_docs/stdLib/errors/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/errors/</guid><description>原文：https://pkg.go.dev/errors@go1.24.2 Package errors implements functions to manipulate errors. ​ errors 包实现了操作错误的函数。 The New function creates errors whose only content is a text message.</description></item><item><title>expvar</title><link>https://before80.github.io/go_docs/stdLib/expvar/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/expvar/</guid><description>原文：https://pkg.go.dev/expvar@go1.24.2 Package expvar provides a standardized interface to public variables, such as operation counters in servers. It exposes these variables via HTTP at /debug/vars in JSON format. As of Go 1.22, the /debug/vars request</description></item><item><title>flag</title><link>https://before80.github.io/go_docs/stdLib/flag/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/flag/</guid><description>原文：https://pkg.go.dev/flag@go1.24.2 Package flag implements command-line flag parsing. ​ flag包实现了命令行标志解析。 Usage Define flags using flag.String(), Bool(), Int(), etc. ​ 使用 f</description></item><item><title>fmt</title><link>https://before80.github.io/go_docs/stdLib/fmt/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/fmt/</guid><description>原文：https://pkg.go.dev/fmt@go1.24.2 Package fmt implements formatted I/O with functions analogous to C&amp;rsquo;s printf and scanf. The format &amp;lsquo;verbs&amp;rsquo; are derived from C&amp;rsquo;s but are simpler. ​ fmt包实现了类似于C的</description></item><item><title>plugin</title><link>https://before80.github.io/go_docs/stdLib/plugin/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/plugin/</guid><description>原文：https://pkg.go.dev/plugin@go1.24.2 Package plugin implements loading and symbol resolution of Go plugins. ​ plugin 包实现了Go插件的加载和符号解析。 A plugin is a</description></item><item><title>reflect</title><link>https://before80.github.io/go_docs/stdLib/reflect/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/reflect/</guid><description>原文：https://pkg.go.dev/reflect@go1.24.2 Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information</description></item><item><title>sort</title><link>https://before80.github.io/go_docs/stdLib/sort/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sort/</guid><description>原文：https://pkg.go.dev/sort@go1.24.2 注意 ​ 从go1.21.0开始才有该包。 Package sort provides primitives for sorting slices and user-defined collections. ​ sort包</description></item><item><title>strconv</title><link>https://before80.github.io/go_docs/stdLib/strconv/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/strconv/</guid><description>原文：https://pkg.go.dev/strconv@go1.24.2 Package strconv implements conversions to and from string representations of basic data types. ​ strconv包实现了基本数据类型的</description></item><item><title>strings</title><link>https://before80.github.io/go_docs/stdLib/strings/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/strings/</guid><description>原文：https://pkg.go.dev/strings@go1.24.2 Package strings implements simple functions to manipulate UTF-8 encoded strings. ​ strings包实现了一些简单的函数来操作</description></item><item><title>unsafe</title><link>https://before80.github.io/go_docs/stdLib/unsafe/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unsafe/</guid><description>原文：https://pkg.go.dev/unsafe@go1.24.2 Package unsafe contains operations that step around the type safety of Go programs. ​ unsafe包包含了绕过Go程序类型安</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>标准库 on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/</link><description>Recent content in 标准库 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 18 Apr 2025 12:38:53 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/index.xml" rel="self" type="application/rss+xml"/><item><title>weak</title><link>https://before80.github.io/go_docs/stdLib/weak/</link><pubDate>Wed, 02 Apr 2025 16:15:43 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/weak/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/weak@go1.24.2">https://pkg.go.dev/weak@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.24.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package weak provides ways to safely reference memory weakly, that is, without preventing its reclamation.&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="type-pointer">type Pointer&lt;a class="td-heading-self-link" href="#type-pointer" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">Pointer&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">T&lt;/span> &lt;span style="color:#e5c07b">any&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// contains filtered or unexported fields&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Pointer is a weak pointer to a value of type T.&lt;/p></description></item><item><title>unique</title><link>https://before80.github.io/go_docs/stdLib/unique/</link><pubDate>Fri, 06 Sep 2024 11:48:45 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unique/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/unique@go1.24.2">https://pkg.go.dev/unique@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.23.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The unique package provides facilities for canonicalizing (&amp;ldquo;interning&amp;rdquo;) comparable values.&lt;/p>
+&lt;p>​	&lt;code>unique&lt;/code> 包提供了用于规范化（“驻留”）可比较值的功能。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>structs</title><link>https://before80.github.io/go_docs/stdLib/structs/</link><pubDate>Fri, 06 Sep 2024 10:46:23 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/structs/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/structs@go1.24.2">https://pkg.go.dev/structs@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.23.0开始才可以使用该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package structs defines marker types that can be used as struct fields to modify the properties of a struct.&lt;/p>
+&lt;p>​	&lt;code>structs&lt;/code> 包定义了标记类型，这些类型可以用作结构体字段来修改结构体的属性。&lt;/p></description></item><item><title>iter</title><link>https://before80.github.io/go_docs/stdLib/iter/</link><pubDate>Thu, 05 Sep 2024 11:11:18 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/iter/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/iter@go1.24.2">https://pkg.go.dev/iter@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.23.0开始才有该包。&lt;/p>&lt;/blockquote>
+&lt;p>Package iter provides basic definitions and operations related to iterators over sequences.&lt;/p>
+&lt;p>​	&lt;code>iter&lt;/code> 包提供了与序列迭代器相关的基本定义和操作。&lt;/p>
+&lt;h2 id="迭代器-iterators">迭代器 Iterators&lt;a class="td-heading-self-link" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8-iterators" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>An iterator is a function that passes successive elements of a sequence to a callback function, conventionally named yield. The function stops either when the sequence is finished or when yield returns false, indicating to stop the iteration early. This package defines &lt;a href="https://pkg.go.dev/iter@go1.23.0#Seq">Seq&lt;/a> and &lt;a href="https://pkg.go.dev/iter@go1.23.0#Seq2">Seq2&lt;/a> (pronounced like seek—the first syllable of sequence) as shorthands for iterators that pass 1 or 2 values per sequence element to yield:&lt;/p></description></item><item><title>maps</title><link>https://before80.github.io/go_docs/stdLib/maps/</link><pubDate>Sun, 05 Nov 2023 14:27:43 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/maps/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/maps@go1.24.2">https://pkg.go.dev/maps@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.21.0开始才有该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package maps defines various functions useful with maps of any type.&lt;/p>
+&lt;p>​	maps包定义了各种类型映射的有用函数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>cmp</title><link>https://before80.github.io/go_docs/stdLib/cmp/</link><pubDate>Sun, 05 Nov 2023 14:26:38 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/cmp/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/cmp@go1.24.2">https://pkg.go.dev/cmp@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>从go1.21.0开始才有该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package cmp provides types and functions related to comparing ordered values.&lt;/p>
+&lt;p>​	&lt;code>cmp&lt;/code>包提供了与比较有序值相关的类型和函数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>slices</title><link>https://before80.github.io/go_docs/stdLib/slices/</link><pubDate>Sun, 05 Nov 2023 14:26:18 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/slices/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/slices">https://pkg.go.dev/slices&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.21.0开始才有该包。&lt;/p>&lt;/blockquote>
+&lt;h2 id="概述">概述&lt;a class="td-heading-self-link" href="#%e6%a6%82%e8%bf%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package slices defines various functions useful with slices of any type.&lt;/p>
+&lt;p>​	&lt;code>slices&lt;/code> 包定义了各种类型切片的有用函数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="常量-1">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f-1" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-all---go1230">func All &amp;lt;- go1.23.0&lt;a class="td-heading-self-link" href="#func-all---go1230" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#aa89ea">All&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">Slice&lt;/span> &lt;span style="color:#abb2bf">~[]&lt;/span>&lt;span style="color:#aa89ea">E&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">E&lt;/span> &lt;span style="color:#e5c07b">any&lt;/span>&lt;span style="color:#abb2bf">](&lt;/span>&lt;span style="color:#aa89ea">s&lt;/span> &lt;span style="color:#aa89ea">Slice&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#aa89ea">iter&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Seq2&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">E&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>All returns an iterator over index-value pairs in the slice in the usual order.&lt;/p></description></item><item><title>bufio</title><link>https://before80.github.io/go_docs/stdLib/bufio/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/bufio/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/bufio@go1.24.2">https://pkg.go.dev/bufio@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/stdLib/bufio_img/image-20231109085559633.png"
+ alt="image-20231109085559633" data-cur-dir="stdLib" data-rg="/bufio_img/image-20231109085559633.png" data-rg1="bufio_img/image-20231109085559633.png" data-rel="/go_docs/bufio_img/image-20231109085559633.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O.&lt;/p>
+&lt;p>​	&lt;code>bufio&lt;/code>包实现了带缓冲的 I/O 操作。它包装了一个 &lt;code>io.Reader&lt;/code> 或 &lt;code>io.Writer&lt;/code> 对象，创建另一个实现相同接口的对象(&lt;code>Reader&lt;/code> 或 &lt;code>Writer&lt;/code>)，但提供了缓冲和一些文本 I/O 的辅助。&lt;/p></description></item><item><title>builtin</title><link>https://before80.github.io/go_docs/stdLib/builtin/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/builtin/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/builtin@go1.24.2">https://pkg.go.dev/builtin@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package builtin provides documentation for Go&amp;rsquo;s predeclared identifiers. The items documented here are not actually in package builtin but their descriptions here allow godoc to present documentation for the language&amp;rsquo;s special identifiers.&lt;/p>
+&lt;p>​	builtin包提供了 Go 的预声明标识符的文档。&lt;code>这里所记录的条目实际上并不在 builtin 包中&lt;/code>，但它们在这里的描述使得 godoc 能够展示语言特殊标识符的文档。&lt;/p></description></item><item><title>bytes</title><link>https://before80.github.io/go_docs/stdLib/bytes/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/bytes/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/bytes@go1.24.2">https://pkg.go.dev/bytes@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/stdLib/bytes_img/image-20231109160722609.png"
+ alt="image-20231109160722609" data-cur-dir="stdLib" data-rg="/bytes_img/image-20231109160722609.png" data-rg1="bytes_img/image-20231109160722609.png" data-rel="/go_docs/bytes_img/image-20231109160722609.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Package bytes implements functions for the manipulation of byte slices. It is analogous to the facilities of the strings package.&lt;/p>
+&lt;p>​	&lt;code>bytes&lt;/code>包实现了操作字节切片的功能。它类似于&lt;code>strings&lt;/code>包的功能。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://cs.opensource.google/go/go/+/go1.20.1:src/bytes/buffer.go;l=191">View Source&lt;/a>&lt;/p></description></item><item><title>context</title><link>https://before80.github.io/go_docs/stdLib/context/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/context/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/context@go1.24.2">https://pkg.go.dev/context@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package context defines the Context type, which carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes.&lt;/p>
+&lt;p>​	&lt;code>context&lt;/code>包定义了 &lt;code>Context&lt;/code> 类型，它在 API 边界和进程之间传递截止时间、取消信号和其他请求作用域值。&lt;/p></description></item><item><title>embed</title><link>https://before80.github.io/go_docs/stdLib/embed/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/embed/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/embed@go1.24.2">https://pkg.go.dev/embed@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package embed provides access to files embedded in the running Go program.&lt;/p>
+&lt;p>​	&lt;code>embed&lt;/code>包提供了访问嵌入在运行的 Go 程序中的文件的功能。&lt;/p>
+&lt;p>Go source files that import &amp;ldquo;embed&amp;rdquo; can use the //go:embed directive to initialize a variable of type string, []byte, or FS with the contents of files read from the package directory or subdirectories at compile time.&lt;/p></description></item><item><title>errors</title><link>https://before80.github.io/go_docs/stdLib/errors/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/errors/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/errors@go1.24.2">https://pkg.go.dev/errors@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package errors implements functions to manipulate errors.&lt;/p>
+&lt;p>​	 errors 包实现了操作错误的函数。&lt;/p>
+&lt;p>The New function creates errors whose only content is a text message.&lt;/p>
+&lt;p>​	New函数创建的错误只包含文本消息。&lt;/p>
+&lt;p>An error e wraps another error if e&amp;rsquo;s type has one of the methods&lt;/p>
+&lt;p>​	如果e的类型具有下列方法之一：&lt;/p></description></item><item><title>expvar</title><link>https://before80.github.io/go_docs/stdLib/expvar/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/expvar/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/expvar@go1.24.2">https://pkg.go.dev/expvar@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package expvar provides a standardized interface to public variables, such as operation counters in servers. It exposes these variables via HTTP at /debug/vars in JSON format. As of Go 1.22, the /debug/vars request must use GET.&lt;/p>
+&lt;p>​	&lt;code>expvar&lt;/code> 包提供了一个标准化的接口，用于公开变量，如服务器中的操作计数器。它通过 HTTP 在 &lt;code>/debug/vars&lt;/code> 以 JSON 格式公开这些变量。从 Go 1.22 开始，&lt;code>/debug/vars&lt;/code> 请求必须使用 GET 方法。&lt;/p></description></item><item><title>flag</title><link>https://before80.github.io/go_docs/stdLib/flag/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/flag/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/flag@go1.24.2">https://pkg.go.dev/flag@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package flag implements command-line flag parsing.&lt;/p>
+&lt;p>​	&lt;code>flag&lt;/code>包实现了命令行标志解析。&lt;/p>
+&lt;h2 id="usage">Usage&lt;a class="td-heading-self-link" href="#usage" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Define flags using flag.String(), Bool(), Int(), etc.&lt;/p>
+&lt;p>​	使用 flag.String()、Bool()、Int() 等函数定义标志。&lt;/p></description></item><item><title>fmt</title><link>https://before80.github.io/go_docs/stdLib/fmt/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/fmt/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/fmt@go1.24.2">https://pkg.go.dev/fmt@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package fmt implements formatted I/O with functions analogous to C&amp;rsquo;s printf and scanf. The format &amp;lsquo;verbs&amp;rsquo; are derived from C&amp;rsquo;s but are simpler.&lt;/p>
+&lt;p>​	fmt包实现了类似于C的printf和scanf的格式化I/O输入Input 和输出 Ouput)功能。格式化的&amp;quot;verbs(动词)&amp;ldquo;来自于C，但更简单。&lt;/p></description></item><item><title>plugin</title><link>https://before80.github.io/go_docs/stdLib/plugin/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/plugin/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/plugin@go1.24.2">https://pkg.go.dev/plugin@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package plugin implements loading and symbol resolution of Go plugins.&lt;/p>
+&lt;p>​	plugin 包实现了Go插件的加载和符号解析。&lt;/p>
+&lt;p>A plugin is a Go main package with exported functions and variables that has been built with:&lt;/p>
+&lt;p>​	plugin 是一个带有导出函数和变量的 Go 主包，它是通过以下方式构建的：&lt;/p></description></item><item><title>reflect</title><link>https://before80.github.io/go_docs/stdLib/reflect/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/reflect/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/reflect@go1.24.2">https://pkg.go.dev/reflect@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package reflect implements run-time reflection, allowing a program to manipulate objects with arbitrary types. The typical use is to take a value with static type interface{} and extract its dynamic type information by calling TypeOf, which returns a Type.&lt;/p>
+&lt;p>​	&lt;code>reflect&lt;/code>包实现了运行时反射，允许程序操作任意类型的对象。典型用法是将静态类型为&lt;code>interface{}&lt;/code>的值传递给&lt;code>TypeOf&lt;/code>函数提取其动态类型信息，&lt;code>TypeOf&lt;/code>函数返回一个&lt;code>Type&lt;/code>。&lt;/p></description></item><item><title>sort</title><link>https://before80.github.io/go_docs/stdLib/sort/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sort/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/sort@go1.24.2">https://pkg.go.dev/sort@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	从go1.21.0开始才有该包。&lt;/p>&lt;/blockquote>
+&lt;p>Package sort provides primitives for sorting slices and user-defined collections.&lt;/p>
+&lt;p>​	&lt;code>sort&lt;/code>包提供了对切片和用户定义集合进行排序的基本功能。&lt;/p>
+&lt;h2 id="example">Example&lt;a class="td-heading-self-link" href="#example" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">33
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">34
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">35
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">36
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">37
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">38
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">39
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">40
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">41
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">42
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">43
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">44
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">45
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">46
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">47
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">48
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">49
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">50
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">51
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">52
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">53
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">54
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">55
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">56
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">57
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">58
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">59
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">60
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">61
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">62
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">63
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">package&lt;/span> &lt;span style="color:#aa89ea">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">import&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#98c379">&amp;#34;sort&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">Person&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">Name&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">Age&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">p&lt;/span> &lt;span style="color:#aa89ea">Person&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">String&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Sprintf&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;%s: %d&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">p&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Name&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">p&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">Age&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// ByAge implements sort.Interface for []Person based on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// the Age field.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// ByAge 实现了基于 Age 字段对 []Person 进行 sort.Interface 排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">type&lt;/span> &lt;span style="color:#aa89ea">ByAge&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">Person&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span> &lt;span style="color:#aa89ea">ByAge&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Len&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span> &lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#e5c07b">len&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span> &lt;span style="color:#aa89ea">ByAge&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Swap&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">j&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">],&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">j&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">j&lt;/span>&lt;span style="color:#abb2bf">],&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span> &lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">a&lt;/span> &lt;span style="color:#aa89ea">ByAge&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#00b1f7">Less&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">j&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">bool&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span> &lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">].&lt;/span>&lt;span style="color:#aa89ea">Age&lt;/span> &lt;span style="color:#abb2bf">&amp;lt;&lt;/span> &lt;span style="color:#aa89ea">a&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">j&lt;/span>&lt;span style="color:#abb2bf">].&lt;/span>&lt;span style="color:#aa89ea">Age&lt;/span> &lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">main&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">people&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#aa89ea">Person&lt;/span>&lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#98c379">&amp;#34;Bob&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">31&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#98c379">&amp;#34;John&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">42&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#98c379">&amp;#34;Michael&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">17&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#abb2bf">{&lt;/span>&lt;span style="color:#98c379">&amp;#34;Jenny&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">26&lt;/span>&lt;span style="color:#abb2bf">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// There are two ways to sort a slice. First, one can define&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// a set of methods for the slice type, as with ByAge, and&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// call sort.Sort. In this first example we use that technique.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 排序一个 slice 有两种方法。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 首先，可以为 slice 类型定义一组方法，就像 ByAge 一样，&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 然后调用 sort.Sort。在这个第一个示例中，我们使用了这种技术。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">sort&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Sort&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#00b1f7">ByAge&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// The other way is to use sort.Slice with a custom Less&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// function, which can be provided as a closure. In this&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// case no methods are needed. (And if they exist, they&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// are ignored.) Here we re-sort in reverse order: compare&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// the closure with ByAge.Less.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 另一种方法是使用 sort.Slice 和自定义的 Less 函数，&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 该函数可以作为闭包提供。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 在这种情况下，不需要方法。(如果它们存在，则会被忽略。)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8a93a5;font-style:italic">// 这里我们按相反的顺序重新排序：比较闭包和 ByAge.Less。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">sort&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Slice&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#76a9f9">func&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">j&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">bool&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">i&lt;/span>&lt;span style="color:#abb2bf">].&lt;/span>&lt;span style="color:#aa89ea">Age&lt;/span> &lt;span style="color:#abb2bf">&amp;gt;&lt;/span> &lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">j&lt;/span>&lt;span style="color:#abb2bf">].&lt;/span>&lt;span style="color:#aa89ea">Age&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#abb2bf">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">people&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">Output&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">Bob&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">31&lt;/span> &lt;span style="color:#aa89ea">John&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">42&lt;/span> &lt;span style="color:#aa89ea">Michael&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">17&lt;/span> &lt;span style="color:#aa89ea">Jenny&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">26&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">Michael&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">17&lt;/span> &lt;span style="color:#aa89ea">Jenny&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">26&lt;/span> &lt;span style="color:#aa89ea">Bob&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">31&lt;/span> &lt;span style="color:#aa89ea">John&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">42&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">[&lt;/span>&lt;span style="color:#aa89ea">John&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">42&lt;/span> &lt;span style="color:#aa89ea">Bob&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">31&lt;/span> &lt;span style="color:#aa89ea">Jenny&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">26&lt;/span> &lt;span style="color:#aa89ea">Michael&lt;/span>&lt;span style="color:#abb2bf">:&lt;/span> &lt;span style="color:#d19a66">17&lt;/span>&lt;span style="color:#abb2bf">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="examplesortkeys">Example(SortKeys)&lt;a class="td-heading-self-link" href="#examplesortkeys" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	ExampleSortKeys 展示了使用可编程排序标准对结构体类型进行排序的技术。&lt;/p></description></item><item><title>strconv</title><link>https://before80.github.io/go_docs/stdLib/strconv/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/strconv/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/strconv@go1.24.2">https://pkg.go.dev/strconv@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package strconv implements conversions to and from string representations of basic data types.&lt;/p>
+&lt;p>​	&lt;code>strconv&lt;/code>包实现了基本数据类型的字符串表示与其相互转换的功能。&lt;/p>
+&lt;h2 id="数字转换-numeric-conversions">数字转换 Numeric Conversions&lt;a class="td-heading-self-link" href="#%e6%95%b0%e5%ad%97%e8%bd%ac%e6%8d%a2-numeric-conversions" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>The most common numeric conversions are Atoi (string to int) and Itoa (int to string).&lt;/p></description></item><item><title>strings</title><link>https://before80.github.io/go_docs/stdLib/strings/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/strings/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/strings@go1.24.2">https://pkg.go.dev/strings@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package strings implements simple functions to manipulate UTF-8 encoded strings.&lt;/p>
+&lt;p>​	&lt;code>strings&lt;/code>包实现了一些简单的函数来操作 UTF-8 编码的字符串。&lt;/p>
+&lt;p>For information about UTF-8 strings in Go, see &lt;a href="https://blog.golang.org/strings">https://blog.golang.org/strings&lt;/a>.&lt;/p>
+&lt;p>​	有关 Go 中的 UTF-8 字符串的信息，请参阅 &lt;a href="https://blog.golang.org/strings">https://blog.golang.org/strings&lt;/a>。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>unsafe</title><link>https://before80.github.io/go_docs/stdLib/unsafe/</link><pubDate>Wed, 17 May 2023 09:59:21 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/unsafe/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/unsafe@go1.24.2">https://pkg.go.dev/unsafe@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/stdLib/unsafe_img/image-20231113093004634.png"
+ alt="image-20231113093004634" data-cur-dir="stdLib" data-rg="/unsafe_img/image-20231113093004634.png" data-rg1="unsafe_img/image-20231113093004634.png" data-rel="/go_docs/unsafe_img/image-20231113093004634.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Package unsafe contains operations that step around the type safety of Go programs.&lt;/p>
+&lt;p>​	&lt;code>unsafe&lt;/code>包包含了绕过Go程序类型安全的操作。&lt;/p>
+&lt;p>Packages that import unsafe may be non-portable and are not protected by the Go 1 compatibility guidelines.&lt;/p>
+&lt;p>​	导入&lt;code>unsafe&lt;/code>包的程序可能是不可移植的，并且不受Go 1兼容性指南的保护。&lt;/p></description></item></channel></rss>

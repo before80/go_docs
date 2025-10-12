@@ -1,1 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sync on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/sync/</link><description>Recent content in sync on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 17 May 2023 11:11:20 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/sync/index.xml" rel="self" type="application/rss+xml"/><item><title>atomic</title><link>https://before80.github.io/go_docs/stdLib/sync/atomic/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sync/atomic/</guid><description>原文：https://pkg.go.dev/sync/atomic@go1.24.2 Package atomic provides low-level atomic memory primitives useful for implementing synchronization algorithms. ​ atomic包提供了低级别的原</description></item><item><title>sync</title><link>https://before80.github.io/go_docs/stdLib/sync/sync/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sync/sync/</guid><description>原文：https://pkg.go.dev/sync@go1.24.2 Package sync provides basic synchronization primitives such as mutual exclusion locks. Other than the Once and WaitGroup types, most are intended for use by low-level library routines. Higher-level synchronization is better done via channels and</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sync on Go 中文档集</title><link>https://before80.github.io/go_docs/stdLib/sync/</link><description>Recent content in sync on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Apr 2025 16:27:58 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/stdLib/sync/index.xml" rel="self" type="application/rss+xml"/><item><title>atomic</title><link>https://before80.github.io/go_docs/stdLib/sync/atomic/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sync/atomic/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/sync/atomic@go1.24.2">https://pkg.go.dev/sync/atomic@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/stdLib/sync/atomic_img/image-20231110170148590.png"
+ alt="image-20231110170148590" data-cur-dir="stdLib/sync" data-rg="/atomic_img/image-20231110170148590.png" data-rg1="atomic_img/image-20231110170148590.png" data-rel="/go_docs/atomic_img/image-20231110170148590.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Package atomic provides low-level atomic memory primitives useful for implementing synchronization algorithms.&lt;/p>
+&lt;p>​	&lt;code>atomic&lt;/code>包提供了低级别的原子内存原语，用于实现同步算法。&lt;/p>
+&lt;p>These functions require great care to be used correctly. Except for special, low-level applications, synchronization is better done with channels or the facilities of the &lt;a href="https://pkg.go.dev/sync">sync&lt;/a> package. Share memory by communicating; don&amp;rsquo;t communicate by sharing memory.&lt;/p></description></item><item><title>sync</title><link>https://before80.github.io/go_docs/stdLib/sync/sync/</link><pubDate>Wed, 17 May 2023 11:11:20 +0800</pubDate><guid>https://before80.github.io/go_docs/stdLib/sync/sync/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/sync@go1.24.2">https://pkg.go.dev/sync@go1.24.2&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/stdLib/sync/sync_img/image-20231110174318814.png"
+ alt="image-20231110174318814" data-cur-dir="stdLib/sync" data-rg="/sync_img/image-20231110174318814.png" data-rg1="sync_img/image-20231110174318814.png" data-rel="/go_docs/sync_img/image-20231110174318814.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Package sync provides basic synchronization primitives such as mutual exclusion locks. Other than the Once and WaitGroup types, most are intended for use by low-level library routines. Higher-level synchronization is better done via channels and communication.&lt;/p>
+&lt;p>​	 &lt;code>sync&lt;/code>包提供了基本的同步原语，如互斥锁。除了 &lt;code>Once&lt;/code> 和 &lt;code>WaitGroup&lt;/code> 类型外，大多数都是用于低级库例程的。更高级别的同步最好通过通道和通信实现。&lt;/p></description></item></channel></rss>

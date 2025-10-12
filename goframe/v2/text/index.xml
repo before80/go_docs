@@ -1,1 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>text on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/text/</link><description>Recent content in text on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Mar 2024 17:58:22 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/text/index.xml" rel="self" type="application/rss+xml"/><item><title>gstr</title><link>https://before80.github.io/go_docs/goframe/v2/text/gstr/</link><pubDate>Thu, 21 Mar 2024 17:58:55 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/text/gstr/</guid><description>原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gstr Package gstr provides functions for string handling. ​ 软件</description></item><item><title>gregex</title><link>https://before80.github.io/go_docs/goframe/v2/text/gregex/</link><pubDate>Thu, 21 Mar 2024 17:58:48 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/text/gregex/</guid><description>原文：https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gregex Package gregex provides high performance API for regular</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>text on Go 中文档集</title><link>https://before80.github.io/go_docs/goframe/v2/text/</link><description>Recent content in text on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goframe/v2/text/index.xml" rel="self" type="application/rss+xml"/><item><title>gstr</title><link>https://before80.github.io/go_docs/goframe/v2/text/gstr/</link><pubDate>Thu, 21 Mar 2024 17:58:55 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/text/gstr/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gstr">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gstr&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gstr provides functions for string handling.&lt;/p>
+&lt;p>​	软件包 gstr 提供字符串处理函数。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://github.com/gogf/gf/blob/v2.6.4/text/gstr/gstr.go#L10">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#8a93a5;font-style:italic">// NotFoundIndex is the position index for string not found in searching functions.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#aa89ea">NotFoundIndex&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#54b1c7">-&lt;/span>&lt;span style="color:#d19a66">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>gregex</title><link>https://before80.github.io/go_docs/goframe/v2/text/gregex/</link><pubDate>Thu, 21 Mar 2024 17:58:48 +0800</pubDate><guid>https://before80.github.io/go_docs/goframe/v2/text/gregex/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gregex">https://pkg.go.dev/github.com/gogf/gf/v2@v2.6.4/text/gregex&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Package gregex provides high performance API for regular expression functionality.&lt;/p>
+&lt;p>​	软件包 gregex 为正则表达式功能提供高性能 API。&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h4 id="func-ismatch">func IsMatch&lt;a class="td-heading-self-link" href="#func-ismatch" aria-label="Heading self-link">&lt;/a>&lt;/h4>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">IsMatch&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">pattern&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">src&lt;/span> &lt;span style="color:#abb2bf">[]&lt;/span>&lt;span style="color:#e5c07b">byte&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span> &lt;span style="color:#e5c07b">bool&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>IsMatch checks whether given bytes &lt;code>src&lt;/code> matches &lt;code>pattern&lt;/code>.&lt;/p>
+&lt;p>​	IsMatch 检查给定的字节是否 &lt;code>src&lt;/code> 匹配 &lt;code>pattern&lt;/code> 。&lt;/p></description></item></channel></rss>

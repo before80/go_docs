@@ -1,1 +1,445 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>基础 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/Go/basic/</link><description>Recent content in 基础 on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 19 Aug 2024 09:07:49 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/Go/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>安装、配置、卸载、更新、运行代码</title><link>https://before80.github.io/go_docs/comm/Go/basic/installs/</link><pubDate>Mon, 19 Aug 2024 09:29:49 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/installs/</guid><description>安装和配置 安装包来源 https://go.dev/dl/ https://mirrors.aliyun.com/golang/ https://github.com/golang/go/tags https://golang.google.cn/dl/ https://studygolang.com/dl 在Linux上安装和配置 CentOS （a）下载安装包： 1 2 3 4 5 cd /tmp # 请从 https://go.dev/dl/页面中查看</description></item><item><title>关键字、保留字</title><link>https://before80.github.io/go_docs/comm/Go/basic/keywords/</link><pubDate>Mon, 19 Aug 2024 09:31:22 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/keywords/</guid><description>​ Go目前有25个关键字。 ​ 来源：https://go.dev/ref/spec#Keywords 1 2 3 4 5 break default func interface select case defer go map struct chan else goto package switch const</description></item><item><title>操作符和标点符号</title><link>https://before80.github.io/go_docs/comm/Go/basic/operators/</link><pubDate>Mon, 19 Aug 2024 09:31:38 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/operators/</guid><description>操作符和标点符号（48个） 1 2 3 4 5 6 + &amp;amp; += &amp;amp;= &amp;amp;&amp;amp; == != ( ) - | -= |= || &amp;lt; &amp;lt;= [ ] * ^ *= ^= &amp;lt;- &amp;gt; &amp;gt;= { } / &amp;lt;&amp;lt; /= &amp;lt;&amp;lt;= ++ = := , ; % &amp;gt;&amp;gt; %= &amp;gt;&amp;gt;= -- ! ... . : &amp;amp;^ &amp;amp;^= ~ 原码、</description></item><item><title>数据类型</title><link>https://before80.github.io/go_docs/comm/Go/basic/types/</link><pubDate>Mon, 19 Aug 2024 09:33:07 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/types/</guid><description>Go的内置数据类型 序号 数据类型 名称 别名 默认值 占用字节数 数据最小值 数据最大值 备注 链接 1 bool 布尔型 false 1 无 无 只有true和false两种值 2 byte 字节型</description></item><item><title>funcs</title><link>https://before80.github.io/go_docs/comm/Go/basic/funcs/</link><pubDate>Mon, 19 Aug 2024 09:33:07 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/funcs/</guid><description/></item><item><title>declarescope</title><link>https://before80.github.io/go_docs/comm/Go/basic/declarescope/</link><pubDate>Mon, 19 Aug 2024 09:33:46 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/declarescope/</guid><description/></item><item><title>ctrlstatements</title><link>https://before80.github.io/go_docs/comm/Go/basic/ctrlstatements/</link><pubDate>Mon, 19 Aug 2024 09:34:27 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/ctrlstatements/</guid><description/></item><item><title>strs</title><link>https://before80.github.io/go_docs/comm/Go/basic/strs/</link><pubDate>Mon, 19 Aug 2024 09:35:19 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/strs/</guid><description/></item><item><title>内置函数</title><link>https://before80.github.io/go_docs/comm/Go/basic/builtinfuncs/</link><pubDate>Mon, 19 Aug 2024 09:36:18 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/builtinfuncs/</guid><description>截止至go1.23，目前有18个内置函数！append(slice []Type, elems &amp;hellip;Type) []Type append(slice []Type, elems ...Type) []Type 注意 ​ 仅用于切片类型变量追加元素。 elems为切片+..</description></item><item><title>exceptionerrors</title><link>https://before80.github.io/go_docs/comm/Go/basic/exceptionerrors/</link><pubDate>Mon, 19 Aug 2024 09:37:54 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/exceptionerrors/</guid><description/></item><item><title>regexp</title><link>https://before80.github.io/go_docs/comm/Go/basic/regexp/</link><pubDate>Mon, 19 Aug 2024 09:43:26 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/regexp/</guid><description/></item><item><title>pointer</title><link>https://before80.github.io/go_docs/comm/Go/basic/pointer/</link><pubDate>Mon, 19 Aug 2024 09:35:31 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/pointer/</guid><description/></item><item><title>extend</title><link>https://before80.github.io/go_docs/comm/Go/basic/extend/</link><pubDate>Mon, 19 Aug 2024 09:42:34 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/extend/</guid><description/></item><item><title>module</title><link>https://before80.github.io/go_docs/comm/Go/basic/module/</link><pubDate>Mon, 19 Aug 2024 09:35:57 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/module/</guid><description/></item><item><title>coding</title><link>https://before80.github.io/go_docs/comm/Go/basic/coding/</link><pubDate>Mon, 19 Aug 2024 09:43:15 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/coding/</guid><description/></item><item><title>io</title><link>https://before80.github.io/go_docs/comm/Go/basic/io/</link><pubDate>Mon, 19 Aug 2024 09:49:58 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/io/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>基础 on Go 中文档集</title><link>https://before80.github.io/go_docs/comm/Go/basic/</link><description>Recent content in 基础 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 13 Feb 2025 15:41:09 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/comm/Go/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>安装、配置、卸载、更新、运行代码</title><link>https://before80.github.io/go_docs/comm/Go/basic/installs/</link><pubDate>Mon, 19 Aug 2024 09:29:49 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/installs/</guid><description>&lt;h2 id="安装和配置">安装和配置&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e5%92%8c%e9%85%8d%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="安装包来源">安装包来源&lt;a class="td-heading-self-link" href="#%e5%ae%89%e8%a3%85%e5%8c%85%e6%9d%a5%e6%ba%90" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://go.dev/dl/">https://go.dev/dl/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mirrors.aliyun.com/golang/">https://mirrors.aliyun.com/golang/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/golang/go/tags">https://github.com/golang/go/tags&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://studygolang.com/dl">https://studygolang.com/dl&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="在linux上安装和配置">在Linux上安装和配置&lt;a class="td-heading-self-link" href="#%e5%9c%a8linux%e4%b8%8a%e5%ae%89%e8%a3%85%e5%92%8c%e9%85%8d%e7%bd%ae" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;h4 id="centos">CentOS&lt;a class="td-heading-self-link" href="#centos" aria-label="Heading self-link">&lt;/a>&lt;/h4>
+&lt;p>（a）下载安装包：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e5c07b">cd&lt;/span> /tmp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic"># 请从 https://go.dev/dl/页面中查看相关系统架构的最新版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c https://go.dev/dl/go1.21.2.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic"># 或者使用其他来源，例如：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c https://mirrors.aliyun.com/golang/go1.21.2.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>（b）解压&lt;code>go1.21.2.linux-amd64.tar.gz&lt;/code>压缩包至&lt;code>/usr/local&lt;/code>目录：&lt;/p></description></item><item><title>关键字、保留字</title><link>https://before80.github.io/go_docs/comm/Go/basic/keywords/</link><pubDate>Mon, 19 Aug 2024 09:31:22 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/keywords/</guid><description>&lt;p>​	Go目前有25个关键字。&lt;/p>
+&lt;p>​	来源：&lt;a href="https://go.dev/ref/spec#Keywords">https://go.dev/ref/spec#Keywords&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">break&lt;/span> &lt;span style="color:#76a9f9">default&lt;/span> &lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#76a9f9">interface&lt;/span> &lt;span style="color:#76a9f9">select&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">case&lt;/span> &lt;span style="color:#76a9f9">defer&lt;/span> &lt;span style="color:#76a9f9">go&lt;/span> &lt;span style="color:#76a9f9">map&lt;/span> &lt;span style="color:#76a9f9">struct&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">chan&lt;/span> &lt;span style="color:#76a9f9">else&lt;/span> &lt;span style="color:#76a9f9">goto&lt;/span> &lt;span style="color:#76a9f9">package&lt;/span> &lt;span style="color:#76a9f9">switch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#76a9f9">fallthrough&lt;/span> &lt;span style="color:#76a9f9">if&lt;/span> &lt;span style="color:#76a9f9">range&lt;/span> &lt;span style="color:#76a9f9">type&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">continue&lt;/span> &lt;span style="color:#76a9f9">for&lt;/span> &lt;span style="color:#76a9f9">import&lt;/span> &lt;span style="color:#76a9f9">return&lt;/span> &lt;span style="color:#76a9f9">var&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>操作符和标点符号</title><link>https://before80.github.io/go_docs/comm/Go/basic/operators/</link><pubDate>Mon, 19 Aug 2024 09:31:38 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/operators/</guid><description>&lt;h2 id="操作符和标点符号48个">操作符和标点符号（48个）&lt;a class="td-heading-self-link" href="#%e6%93%8d%e4%bd%9c%e7%ac%a6%e5%92%8c%e6%a0%87%e7%82%b9%e7%ac%a6%e5%8f%b748%e4%b8%aa" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">+&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&lt;/span> &lt;span style="color:#54b1c7">+=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;=&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#54b1c7">==&lt;/span> &lt;span style="color:#54b1c7">!=&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span> &lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">-&lt;/span> &lt;span style="color:#abb2bf">|&lt;/span> &lt;span style="color:#54b1c7">-=&lt;/span> &lt;span style="color:#54b1c7">|=&lt;/span> &lt;span style="color:#54b1c7">||&lt;/span> &lt;span style="color:#abb2bf">&amp;lt;&lt;/span> &lt;span style="color:#54b1c7">&amp;lt;=&lt;/span> &lt;span style="color:#abb2bf">[&lt;/span> &lt;span style="color:#abb2bf">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">*&lt;/span> &lt;span style="color:#abb2bf">^&lt;/span> &lt;span style="color:#54b1c7">*=&lt;/span> &lt;span style="color:#abb2bf">^=&lt;/span> &lt;span style="color:#54b1c7">&amp;lt;-&lt;/span> &lt;span style="color:#abb2bf">&amp;gt;&lt;/span> &lt;span style="color:#54b1c7">&amp;gt;=&lt;/span> &lt;span style="color:#abb2bf">{&lt;/span> &lt;span style="color:#abb2bf">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">/&lt;/span> &lt;span style="color:#54b1c7">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#54b1c7">/=&lt;/span> &lt;span style="color:#54b1c7">&amp;lt;&amp;lt;=&lt;/span> &lt;span style="color:#54b1c7">++&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#abb2bf">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#54b1c7">%&lt;/span> &lt;span style="color:#54b1c7">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#54b1c7">%=&lt;/span> &lt;span style="color:#54b1c7">&amp;gt;&amp;gt;=&lt;/span> &lt;span style="color:#54b1c7">--&lt;/span> &lt;span style="color:#abb2bf">!&lt;/span> &lt;span style="color:#54b1c7">...&lt;/span> &lt;span style="color:#abb2bf">.&lt;/span> &lt;span style="color:#abb2bf">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#54b1c7">&amp;amp;^&lt;/span> &lt;span style="color:#54b1c7">&amp;amp;^=&lt;/span> &lt;span style="color:#abb2bf">~&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="原码反码补码">原码、反码、补码&lt;a class="td-heading-self-link" href="#%e5%8e%9f%e7%a0%81%e5%8f%8d%e7%a0%81%e8%a1%a5%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	正数的反码和补码与原码相同；负数的反码是除了符号位外按位取反，负数的补码是在反码基础上加1。&lt;/p></description></item><item><title>数据类型</title><link>https://before80.github.io/go_docs/comm/Go/basic/types/</link><pubDate>Mon, 19 Aug 2024 09:33:07 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/types/</guid><description>&lt;h2 id="go的内置数据类型">Go的内置数据类型&lt;a class="td-heading-self-link" href="#go%e7%9a%84%e5%86%85%e7%bd%ae%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>序号&lt;/th>
+ &lt;th>数据类型&lt;/th>
+ &lt;th>名称&lt;/th>
+ &lt;th>别名&lt;/th>
+ &lt;th>默认值&lt;/th>
+ &lt;th>占用字节数&lt;/th>
+ &lt;th>数据最小值&lt;/th>
+ &lt;th>数据最大值&lt;/th>
+ &lt;th>备注&lt;/th>
+ &lt;th>链接&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>1&lt;/td>
+ &lt;td>bool&lt;/td>
+ &lt;td>布尔型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>false&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>只有true和false两种值&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>2&lt;/td>
+ &lt;td>byte&lt;/td>
+ &lt;td>字节型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&amp;lsquo;\x00&amp;rsquo;（使用%q）0（使用%d）&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>&amp;lsquo;\x00&amp;rsquo;（使用%q）0（使用%d）&lt;/td>
+ &lt;td>&amp;lsquo;\x7f&amp;rsquo;（使用%q）127（使用%d）&lt;/td>
+ &lt;td>是uint8的别名&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>3&lt;/td>
+ &lt;td>complex64&lt;/td>
+ &lt;td>复数型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>(0+0i)&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>4&lt;/td>
+ &lt;td>complex128&lt;/td>
+ &lt;td>复数型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>(0+0i)&lt;/td>
+ &lt;td>16&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>5&lt;/td>
+ &lt;td>float32&lt;/td>
+ &lt;td>浮点型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>4&lt;/td>
+ &lt;td>1.401298464324817070923729583289916131280e-45 最小正非零值（使用%.39e保留39位小数）&lt;/td>
+ &lt;td>3.40282346638528859811704183484516925440e+38 （使用%.38e保留38位小数）&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>6&lt;/td>
+ &lt;td>float64&lt;/td>
+ &lt;td>浮点型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>4.94065645841246544176568792868221372365059803e-324 最小正非零值（使用%.44e保留44位小数）&lt;/td>
+ &lt;td>1.797693134862315708145274237317043567980706e+308 （使用%.42e保留42位小数）&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>7&lt;/td>
+ &lt;td>int8&lt;/td>
+ &lt;td>有符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>-128&lt;/td>
+ &lt;td>127&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>8&lt;/td>
+ &lt;td>int16&lt;/td>
+ &lt;td>有符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;td>-32768&lt;/td>
+ &lt;td>32767&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>9&lt;/td>
+ &lt;td>int32&lt;/td>
+ &lt;td>有符号整型&lt;/td>
+ &lt;td>rune&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>4&lt;/td>
+ &lt;td>-2147483648&lt;/td>
+ &lt;td>2147483647&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>10&lt;/td>
+ &lt;td>int64&lt;/td>
+ &lt;td>有符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>-9223372036854775808&lt;/td>
+ &lt;td>9223372036854775807（&amp;gt;922亿亿）&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>11&lt;/td>
+ &lt;td>int&lt;/td>
+ &lt;td>有符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>-9223372036854775808&lt;/td>
+ &lt;td>9223372036854775807（&amp;gt;922亿亿）&lt;/td>
+ &lt;td>请注意：这里给出的是64位系统的情况！&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>12&lt;/td>
+ &lt;td>uint8&lt;/td>
+ &lt;td>无符号整型&lt;/td>
+ &lt;td>byte&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>255&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>13&lt;/td>
+ &lt;td>uint16&lt;/td>
+ &lt;td>无符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>65535&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>14&lt;/td>
+ &lt;td>uint32&lt;/td>
+ &lt;td>无符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>4&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>4294967295&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>15&lt;/td>
+ &lt;td>uint64&lt;/td>
+ &lt;td>无符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>18446744073709551615&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>16&lt;/td>
+ &lt;td>uint&lt;/td>
+ &lt;td>无符号整型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;td>0&lt;/td>
+ &lt;td>18446744073709551615&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>17&lt;/td>
+ &lt;td>rune&lt;/td>
+ &lt;td>符文型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&amp;lsquo;\x00&amp;rsquo;（使用%q）0（使用%d）&lt;/td>
+ &lt;td>4&lt;/td>
+ &lt;td>&amp;lsquo;\x00&amp;rsquo;（使用%q）0（使用%d）&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>是int32的别名，而非uint32的别名&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>18&lt;/td>
+ &lt;td>uintptr&lt;/td>
+ &lt;td>指针整数型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>uintptr 是一个整数类型，它足够大，可以容纳任何指针的比特模式&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>19&lt;/td>
+ &lt;td>string&lt;/td>
+ &lt;td>字符串型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&amp;quot;&amp;quot;&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>20&lt;/td>
+ &lt;td>[n]T&lt;/td>
+ &lt;td>数组&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>空数组&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>21&lt;/td>
+ &lt;td>[]T&lt;/td>
+ &lt;td>切片&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>nil&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>22&lt;/td>
+ &lt;td>map[K]V&lt;/td>
+ &lt;td>映射&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>23&lt;/td>
+ &lt;td>struct{}&lt;/td>
+ &lt;td>结构体&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>各自字段的零值&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>24&lt;/td>
+ &lt;td>chan&lt;/td>
+ &lt;td>通道&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>nil&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>25&lt;/td>
+ &lt;td>*T&lt;/td>
+ &lt;td>指针&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>26&lt;/td>
+ &lt;td>interface&lt;/td>
+ &lt;td>接口&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>27&lt;/td>
+ &lt;td>error&lt;/td>
+ &lt;td>错误类型&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>无&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>funcs</title><link>https://before80.github.io/go_docs/comm/Go/basic/funcs/</link><pubDate>Mon, 19 Aug 2024 09:33:07 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/funcs/</guid><description/></item><item><title>declarescope</title><link>https://before80.github.io/go_docs/comm/Go/basic/declarescope/</link><pubDate>Mon, 19 Aug 2024 09:33:46 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/declarescope/</guid><description/></item><item><title>ctrlstatements</title><link>https://before80.github.io/go_docs/comm/Go/basic/ctrlstatements/</link><pubDate>Mon, 19 Aug 2024 09:34:27 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/ctrlstatements/</guid><description/></item><item><title>strs</title><link>https://before80.github.io/go_docs/comm/Go/basic/strs/</link><pubDate>Mon, 19 Aug 2024 09:35:19 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/strs/</guid><description/></item><item><title>内置函数</title><link>https://before80.github.io/go_docs/comm/Go/basic/builtinfuncs/</link><pubDate>Mon, 19 Aug 2024 09:36:18 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/builtinfuncs/</guid><description>&lt;blockquote>
+&lt;p>截止至go1.23，目前有18个内置函数！append(slice []Type, elems &amp;hellip;Type) []Type&lt;/p>&lt;/blockquote>
+&lt;h2 id="appendslice-type-elems-type-type">&lt;code>append(slice []Type, elems ...Type) []Type&lt;/code>&lt;a class="td-heading-self-link" href="#appendslice-type-elems-type-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;blockquote>
+&lt;p>注意&lt;/p>
+&lt;p>​	仅用于切片类型变量追加元素。&lt;/p>&lt;/blockquote>
+&lt;h3 id="elems为切片">&lt;code>elems&lt;/code>为切片+&lt;code>...&lt;/code>&lt;a class="td-heading-self-link" href="#elems%e4%b8%ba%e5%88%87%e7%89%87" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="elems为字符串">&lt;code>elems&lt;/code>为字符串+&lt;code>...&lt;/code>&lt;a class="td-heading-self-link" href="#elems%e4%b8%ba%e5%ad%97%e7%ac%a6%e4%b8%b2" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="capv-type-int">&lt;code>cap(v Type) int&lt;/code>&lt;a class="td-heading-self-link" href="#capv-type-int" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="cleart-type--maptypetype1t-t">&lt;code>clear[T ~[]Type | ~map[Type]Type1](t T)&lt;/code>&lt;a class="td-heading-self-link" href="#cleart-type--maptypetype1t-t" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="closec-chan--type">&lt;code>close(c chan&amp;lt;- Type)&lt;/code>&lt;a class="td-heading-self-link" href="#closec-chan--type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="complexr-i-floattype-complextype">&lt;code>complex(r, i FloatType) ComplexType&lt;/code>&lt;a class="td-heading-self-link" href="#complexr-i-floattype-complextype" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="copydst-src-type-int">&lt;code>copy(dst, src []Type) int&lt;/code>&lt;a class="td-heading-self-link" href="#copydst-src-type-int" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="deletem-maptypetype1-key-type">&lt;code>delete(m map[Type]Type1, key Type)&lt;/code>&lt;a class="td-heading-self-link" href="#deletem-maptypetype1-key-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="imagc-complextype-floattype">&lt;code>imag(c ComplexType) FloatType&lt;/code>&lt;a class="td-heading-self-link" href="#imagc-complextype-floattype" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="lenv-type-int">&lt;code>len(v Type) int&lt;/code>&lt;a class="td-heading-self-link" href="#lenv-type-int" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="maket-type-size-integertype-type">&lt;code>make(t Type, size ...IntegerType) Type&lt;/code>&lt;a class="td-heading-self-link" href="#maket-type-size-integertype-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="maxt-cmporderedx-t-y-t-t">&lt;code>max[T cmp.Ordered](x T, y ...T) T&lt;/code>&lt;a class="td-heading-self-link" href="#maxt-cmporderedx-t-y-t-t" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="mint-cmporderedx-t-y-t-t">&lt;code>min[T cmp.Ordered](x T, y ...T) T&lt;/code>&lt;a class="td-heading-self-link" href="#mint-cmporderedx-t-y-t-t" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="newtype-type">&lt;code>new(Type) *Type&lt;/code>&lt;a class="td-heading-self-link" href="#newtype-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="panicv-any">&lt;code>panic(v any)&lt;/code>&lt;a class="td-heading-self-link" href="#panicv-any" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="printargs-type">&lt;code>print(args ...Type)&lt;/code>&lt;a class="td-heading-self-link" href="#printargs-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="printlnargs-type">&lt;code>println(args ...Type)&lt;/code>&lt;a class="td-heading-self-link" href="#printlnargs-type" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="realc-complextype-floattype">&lt;code>real(c ComplexType) FloatType&lt;/code>&lt;a class="td-heading-self-link" href="#realc-complextype-floattype" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h2 id="recover-any">&lt;code>recover() any&lt;/code>&lt;a class="td-heading-self-link" href="#recover-any" aria-label="Heading self-link">&lt;/a>&lt;/h2></description></item><item><title>exceptionerrors</title><link>https://before80.github.io/go_docs/comm/Go/basic/exceptionerrors/</link><pubDate>Mon, 19 Aug 2024 09:37:54 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/exceptionerrors/</guid><description/></item><item><title>regexp</title><link>https://before80.github.io/go_docs/comm/Go/basic/regexp/</link><pubDate>Mon, 19 Aug 2024 09:43:26 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/regexp/</guid><description/></item><item><title>pointer</title><link>https://before80.github.io/go_docs/comm/Go/basic/pointer/</link><pubDate>Mon, 19 Aug 2024 09:35:31 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/pointer/</guid><description/></item><item><title>extend</title><link>https://before80.github.io/go_docs/comm/Go/basic/extend/</link><pubDate>Mon, 19 Aug 2024 09:42:34 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/extend/</guid><description/></item><item><title>module</title><link>https://before80.github.io/go_docs/comm/Go/basic/module/</link><pubDate>Mon, 19 Aug 2024 09:35:57 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/module/</guid><description/></item><item><title>coding</title><link>https://before80.github.io/go_docs/comm/Go/basic/coding/</link><pubDate>Mon, 19 Aug 2024 09:43:15 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/coding/</guid><description/></item><item><title>io</title><link>https://before80.github.io/go_docs/comm/Go/basic/io/</link><pubDate>Mon, 19 Aug 2024 09:49:58 +0800</pubDate><guid>https://before80.github.io/go_docs/comm/Go/basic/io/</guid><description/></item></channel></rss>

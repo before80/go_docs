@@ -1,1 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>echo on Go 中文档集</title><link>https://before80.github.io/go_docs/echo/</link><description>Recent content in echo on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 09 Jul 2023 21:47:52 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/echo/index.xml" rel="self" type="application/rss+xml"/><item><title>介绍</title><link>https://before80.github.io/go_docs/echo/Introduction/</link><pubDate>Sun, 09 Jul 2023 21:48:49 +0800</pubDate><guid>https://before80.github.io/go_docs/echo/Introduction/</guid><description>Introduction - 介绍 原文：https://echo.labstack.com/docs Echo 项目 ​ Echo 项目是一个功能强大且多用途（versatile ）的 Web 框架</description></item><item><title>echo 在pkg.go.dev上的文档</title><link>https://before80.github.io/go_docs/echo/echo/</link><pubDate>Tue, 22 Aug 2023 08:44:25 +0800</pubDate><guid>https://before80.github.io/go_docs/echo/echo/</guid><description>echo 在pkg.go.dev上的文档 原文：https://pkg.go.dev/github.com/labstack/echo/v4 version: v4.11.1 published: 2023.7.16 支</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>echo on Go 中文档集</title><link>https://before80.github.io/go_docs/echo/</link><description>Recent content in echo on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/echo/index.xml" rel="self" type="application/rss+xml"/><item><title>介绍</title><link>https://before80.github.io/go_docs/echo/Introduction/</link><pubDate>Sun, 09 Jul 2023 21:48:49 +0800</pubDate><guid>https://before80.github.io/go_docs/echo/Introduction/</guid><description>&lt;h1 id="introduction---介绍">Introduction - 介绍&lt;a class="td-heading-self-link" href="#introduction---%e4%bb%8b%e7%bb%8d" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://echo.labstack.com/docs">https://echo.labstack.com/docs&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;h2 id="echo-项目">Echo 项目&lt;a class="td-heading-self-link" href="#echo-%e9%a1%b9%e7%9b%ae" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	Echo 项目是一个功能强大且多用途（versatile ）的 Web 框架，用于使用 Go 编程语言构建可伸缩（scalable ）且高性能的（high-performance） Web 应用程序。它遵循简单（simplicity）、灵活（flexibility）和高性能的原则，为开发人员提供了一个高效的工具包，用于构建健壮的（robust） Web 应用程序。&lt;/p></description></item><item><title>echo 在pkg.go.dev上的文档</title><link>https://before80.github.io/go_docs/echo/echo/</link><pubDate>Tue, 22 Aug 2023 08:44:25 +0800</pubDate><guid>https://before80.github.io/go_docs/echo/echo/</guid><description>&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/echo/echo_img/echo-logo.svg"
+ alt="img" data-cur-dir="echo" data-rg="/echo_img/echo-logo.svg" data-rg1="echo_img/echo-logo.svg" data-rel="/go_docs/echo_img/echo-logo.svg" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;h1 id="echo-在pkggodev上的文档">echo 在pkg.go.dev上的文档&lt;a class="td-heading-self-link" href="#echo-%e5%9c%a8pkggodev%e4%b8%8a%e7%9a%84%e6%96%87%e6%a1%a3" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/labstack/echo/v4">https://pkg.go.dev/github.com/labstack/echo/v4&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>version: v4.11.1&lt;/p>
+&lt;p>published: 2023.7.16&lt;/p>&lt;/blockquote>
+&lt;h2 id="支持的-go-版本">支持的 Go 版本&lt;a class="td-heading-self-link" href="#%e6%94%af%e6%8c%81%e7%9a%84-go-%e7%89%88%e6%9c%ac" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	最新版本的 Echo 支持最近四个 Go 主要版本&lt;a href="https://go.dev/doc/devel/release">发布&lt;/a>，并且可能与旧版本一起使用。&lt;/p>
+&lt;p>​	从版本4.0.0开始，Echo 作为一个&lt;a href="https://github.com/golang/go/wiki/Modules">Go 模块&lt;/a>可用。因此，需要一个能理解/vN后缀导入的 Go 版本：&lt;/p></description></item></channel></rss>

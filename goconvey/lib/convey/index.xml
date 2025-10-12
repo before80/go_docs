@@ -1,1 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>convey on Go 中文档集</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/</link><description>Recent content in convey on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 15 Dec 2024 21:19:13 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goconvey/lib/convey/index.xml" rel="self" type="application/rss+xml"/><item><title>gotest</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/gotest/</link><pubDate>Sun, 15 Dec 2024 21:19:36 +0800</pubDate><guid>https://before80.github.io/go_docs/goconvey/lib/convey/gotest/</guid><description>原文：https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/</description></item><item><title>reporting</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/reporting/</link><pubDate>Sun, 15 Dec 2024 21:19:44 +0800</pubDate><guid>https://before80.github.io/go_docs/goconvey/lib/convey/reporting/</guid><description>原文：https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>convey on Go 中文档集</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/</link><description>Recent content in convey on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 15 Dec 2024 21:48:26 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goconvey/lib/convey/index.xml" rel="self" type="application/rss+xml"/><item><title>gotest</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/gotest/</link><pubDate>Sun, 15 Dec 2024 21:19:36 +0800</pubDate><guid>https://before80.github.io/go_docs/goconvey/lib/convey/gotest/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/gotest">https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/gotest&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-12-15T21:19:36+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package gotest contains internal functionality. Although this package contains one or more exported names it is not intended for public consumption. See the examples package for how to use this project.&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="变量">变量&lt;a class="td-heading-self-link" href="#%e5%8f%98%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p>
+&lt;h2 id="函数">函数&lt;a class="td-heading-self-link" href="#%e5%87%bd%e6%95%b0" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;h3 id="func-resolveexternalcaller">func ResolveExternalCaller&lt;a class="td-heading-self-link" href="#func-resolveexternalcaller" aria-label="Heading self-link">&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">func&lt;/span> &lt;span style="color:#00b1f7">ResolveExternalCaller&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span> &lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">file&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">line&lt;/span> &lt;span style="color:#e5c07b">int&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">name&lt;/span> &lt;span style="color:#e5c07b">string&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="类型">类型&lt;a class="td-heading-self-link" href="#%e7%b1%bb%e5%9e%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>This section is empty.&lt;/p></description></item><item><title>reporting</title><link>https://before80.github.io/go_docs/goconvey/lib/convey/reporting/</link><pubDate>Sun, 15 Dec 2024 21:19:44 +0800</pubDate><guid>https://before80.github.io/go_docs/goconvey/lib/convey/reporting/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/reporting">https://pkg.go.dev/github.com/smartystreets/goconvey@v1.8.1/convey/reporting&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-12-15T21:19:44+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h2 id="overview">Overview&lt;a class="td-heading-self-link" href="#overview" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Package reporting contains internal functionality related to console reporting and output. Although this package has exported names is not intended for public consumption. See the examples package for how to use this project.&lt;/p>
+&lt;h2 id="常量">常量&lt;a class="td-heading-self-link" href="#%e5%b8%b8%e9%87%8f" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>&lt;a href="https://github.com/smartystreets/goconvey/blob/v1.8.1/convey/reporting/json.go#L80">View Source&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#76a9f9">const&lt;/span> &lt;span style="color:#aa89ea">CloseJson&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#98c379">&amp;#34;&amp;lt;-&amp;lt;-&amp;lt;-CLOSE-JSON&amp;lt;-&amp;lt;-&amp;lt;&amp;#34;&lt;/span> &lt;span style="color:#8a93a5;font-style:italic">// &amp;#34;⌫&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="https://github.com/smartystreets/goconvey/blob/v1.8.1/convey/reporting/json.go#L79">View Source&lt;/a>&lt;/p></description></item></channel></rss>

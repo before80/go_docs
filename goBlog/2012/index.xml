@@ -1,1 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2012 [6篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2012/</link><description>Recent content in 2012 [6篇] on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 18 May 2023 17:02:08 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2012/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 三周年</title><link>https://before80.github.io/go_docs/goBlog/2012/GoTurnsThree/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoTurnsThree/</guid><description>Go turns three - Go 三周年 原文：https://go.dev/blog/3years Russ Cox 10 November 2012 The Go open source project is three years old today. Go开源项目今天已经三岁了。 It’s</description></item><item><title>App Engine 1.7.1中的 Go 更新</title><link>https://before80.github.io/go_docs/goBlog/2012/GoUpdatesInAppEngine1_7_1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoUpdatesInAppEngine1_7_1/</guid><description>Go updates in App Engine 1.7.1 - App Engine 1.7.1中的 Go 更新 原文：https://go.dev/blog/appengine-171 Andrew Gerrand 22 August 2012 This week we released version 1.7.1 of the App Engine</description></item><item><title>组织 Go 代码</title><link>https://before80.github.io/go_docs/goBlog/2012/OrganizingGoCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/OrganizingGoCode/</guid><description>Organizing Go code - 组织 Go 代码 原文：https://go.dev/blog/organizing-go-code Andrew Gerrand 16 August 2012 Introduction 简介 Go code is organized differently to that of other languages. This post</description></item><item><title>Gccgo in GCC 4.7.1</title><link>https://before80.github.io/go_docs/goBlog/2012/GccgoInGC-4_7_1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GccgoInGC-4_7_1/</guid><description>Gccgo in GCC 4.7.1 原文：https://go.dev/blog/gccgo-in-gcc-471 Ian Lance Taylor 11 July 2012 The Go language has always been defined by a spec, not an implementation. The Go team has written two different compilers</description></item><item><title>2012年谷歌I/O大会的视频</title><link>https://before80.github.io/go_docs/goBlog/2012/GoVideosFromGoogleIO2012/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoVideosFromGoogleIO2012/</guid><description>Go videos from Google I/O 2012 - 2012年谷歌I/O大会的视频 原文：https://go.dev/blog/io2012-videos Andrew Gerrand 2 July 2012 Introduction 简介 Phew! Google I/O is</description></item><item><title>Go 第一版发布</title><link>https://before80.github.io/go_docs/goBlog/2012/GoVersion1IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoVersion1IsReleased/</guid><description>Go version 1 is released - Go 第一版发布 原文：https://go.dev/blog/go1 Andrew Gerrand 28 March 2012 Today marks a major milestone in the development of the Go programming language. We’re announcing Go version 1, or Go 1 for short,</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2012 [6篇] on Go 中文档集</title><link>https://before80.github.io/go_docs/goBlog/2012/</link><description>Recent content in 2012 [6篇] on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 10 Oct 2024 15:07:50 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/goBlog/2012/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 三周年</title><link>https://before80.github.io/go_docs/goBlog/2012/GoTurnsThree/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoTurnsThree/</guid><description>&lt;h1 id="go-turns-three---go-三周年">Go turns three - Go 三周年&lt;a class="td-heading-self-link" href="#go-turns-three---go-%e4%b8%89%e5%91%a8%e5%b9%b4" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/3years">https://go.dev/blog/3years&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Russ Cox
+10 November 2012&lt;/p>
+&lt;p>The Go open source project is &lt;a href="http://google-opensource.blogspot.com/2009/11/hey-ho-lets-go.html">three years old today&lt;/a>.&lt;/p>
+&lt;p>Go开源项目今天已经三岁了。&lt;/p>
+&lt;p>It’s great to look at how far Go has come in those three years. When we launched, Go was an idea backed by two implementations that worked on Linux and OS X. The syntax, semantics, and libraries changed regularly as we reacted to feedback from users and experience with the language.&lt;/p></description></item><item><title>App Engine 1.7.1中的 Go 更新</title><link>https://before80.github.io/go_docs/goBlog/2012/GoUpdatesInAppEngine1_7_1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoUpdatesInAppEngine1_7_1/</guid><description>&lt;h1 id="go-updates-in-app-engine-171----app-engine-171中的-go-更新">Go updates in App Engine 1.7.1 - App Engine 1.7.1中的 Go 更新&lt;a class="td-heading-self-link" href="#go-updates-in-app-engine-171----app-engine-171%e4%b8%ad%e7%9a%84-go-%e6%9b%b4%e6%96%b0" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/appengine-171">https://go.dev/blog/appengine-171&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Andrew Gerrand
+22 August 2012&lt;/p>
+&lt;p>This week we released version 1.7.1 of the App Engine SDK. It includes some significant updates specific to the App Engine runtime for Go.&lt;/p>
+&lt;p>本周我们发布了App Engine SDK的1.7.1版本。它包括一些专门针对Go的App Engine运行时的重要更新。&lt;/p></description></item><item><title>组织 Go 代码</title><link>https://before80.github.io/go_docs/goBlog/2012/OrganizingGoCode/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/OrganizingGoCode/</guid><description>&lt;h1 id="organizing-go-code---组织-go-代码">Organizing Go code - 组织 Go 代码&lt;a class="td-heading-self-link" href="#organizing-go-code---%e7%bb%84%e7%bb%87-go-%e4%bb%a3%e7%a0%81" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/organizing-go-code">https://go.dev/blog/organizing-go-code&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Andrew Gerrand
+16 August 2012&lt;/p>
+&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Go code is organized differently to that of other languages. This post discusses how to name and package the elements of your Go program to best serve its users.&lt;/p>
+&lt;p>Go代码的组织方式与其他语言的代码不同。本篇文章讨论了如何命名和打包您的 Go 程序中的元素，以便为其用户提供最佳服务。&lt;/p></description></item><item><title>Gccgo in GCC 4.7.1</title><link>https://before80.github.io/go_docs/goBlog/2012/GccgoInGC-4_7_1/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GccgoInGC-4_7_1/</guid><description>&lt;h1 id="gccgo-in-gcc-471">Gccgo in GCC 4.7.1&lt;a class="td-heading-self-link" href="#gccgo-in-gcc-471" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/gccgo-in-gcc-471">https://go.dev/blog/gccgo-in-gcc-471&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Ian Lance Taylor
+11 July 2012&lt;/p>
+&lt;p>The Go language has always been defined by a &lt;a href="https://go.dev/ref/spec">spec&lt;/a>, not an implementation. The Go team has written two different compilers that implement that spec: gc and gccgo. Having two different implementations helps ensure that the spec is complete and correct: when the compilers disagree, we fix the spec, and change one or both compilers accordingly. Gc is the original compiler, and the Go tool uses it by default. Gccgo is a different implementation with a different focus, and in this post we’ll take a closer look at it.&lt;/p></description></item><item><title>2012年谷歌I/O大会的视频</title><link>https://before80.github.io/go_docs/goBlog/2012/GoVideosFromGoogleIO2012/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoVideosFromGoogleIO2012/</guid><description>&lt;h1 id="go-videos-from-google-io-2012---2012年谷歌io大会的视频">Go videos from Google I/O 2012 - 2012年谷歌I/O大会的视频&lt;a class="td-heading-self-link" href="#go-videos-from-google-io-2012---2012%e5%b9%b4%e8%b0%b7%e6%ad%8cio%e5%a4%a7%e4%bc%9a%e7%9a%84%e8%a7%86%e9%a2%91" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/io2012-videos">https://go.dev/blog/io2012-videos&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Andrew Gerrand
+2 July 2012&lt;/p>
+&lt;h2 id="introduction-简介">Introduction 简介&lt;a class="td-heading-self-link" href="#introduction-%e7%ae%80%e4%bb%8b" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>Phew! Google I/O is over for another year, and what an event it was. Thanks to our guest speakers and everyone who attended the four Go sessions. It was a lot of fun.&lt;/p></description></item><item><title>Go 第一版发布</title><link>https://before80.github.io/go_docs/goBlog/2012/GoVersion1IsReleased/</link><pubDate>Thu, 18 May 2023 17:03:08 +0800</pubDate><guid>https://before80.github.io/go_docs/goBlog/2012/GoVersion1IsReleased/</guid><description>&lt;h1 id="go-version-1-is-released---go-第一版发布">Go version 1 is released - Go 第一版发布&lt;a class="td-heading-self-link" href="#go-version-1-is-released---go-%e7%ac%ac%e4%b8%80%e7%89%88%e5%8f%91%e5%b8%83" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go.dev/blog/go1">https://go.dev/blog/go1&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;p>Andrew Gerrand
+28 March 2012&lt;/p>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/goBlog/2012/GoVersion1IsReleased_img/gophermega.jpg"
+ alt="img" data-cur-dir="goBlog/2012" data-rg="/GoVersion1IsReleased_img/gophermega.jpg" data-rg1="GoVersion1IsReleased_img/gophermega.jpg" data-rel="/go_docs/GoVersion1IsReleased_img/gophermega.jpg" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>Today marks a major milestone in the development of the Go programming language. We’re announcing Go version 1, or Go 1 for short, which defines a language and a set of core libraries to provide a stable foundation for creating reliable products, projects, and publications.&lt;/p></description></item></channel></rss>

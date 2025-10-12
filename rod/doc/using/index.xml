@@ -1,1 +1,137 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>使用手册 on Go 中文档集</title><link>https://before80.github.io/go_docs/rod/doc/using/</link><description>Recent content in 使用手册 on Go 中文档集</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Nov 2024 08:06:06 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/rod/doc/using/index.xml" rel="self" type="application/rss+xml"/><item><title>自定义浏览器启动</title><link>https://before80.github.io/go_docs/rod/doc/using/custom-launch/</link><pubDate>Thu, 21 Nov 2024 08:06:18 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/custom-launch/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/custom-launch 收录该文档时间： 2024-11-21T08:08:39+08:00 自定义浏览器启</description></item><item><title>选择器</title><link>https://before80.github.io/go_docs/rod/doc/using/selectors/</link><pubDate>Thu, 21 Nov 2024 08:07:59 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/selectors/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/selectors/README 收录该文档时间： 2024-11-21T08:07:59+08:00 选择器 ​</description></item><item><title>事件</title><link>https://before80.github.io/go_docs/rod/doc/using/events/</link><pubDate>Thu, 21 Nov 2024 08:08:12 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/events/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/events/README 收录该文档时间： 2024-11-21T08:08:12+08:00 事件 ​ 事件是在</description></item><item><title>输入</title><link>https://before80.github.io/go_docs/rod/doc/using/input/</link><pubDate>Thu, 21 Nov 2024 08:08:27 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/input/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/input 收录该文档时间： 2024-11-21T08:08:27+08:00 输入 ​ Rod 提供了很多方法来模拟人</description></item><item><title>模拟 / Emulation</title><link>https://before80.github.io/go_docs/rod/doc/using/emulation/</link><pubDate>Thu, 21 Nov 2024 08:08:39 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/emulation/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/emulation 收录该文档时间： 2024-11-21T08:08:39+08:00 模拟 / Emulation ​ Rod 提供了多种</description></item><item><title>network</title><link>https://before80.github.io/go_docs/rod/doc/using/network/</link><pubDate>Thu, 21 Nov 2024 08:08:52 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/network/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/network/README 收录该文档时间： 2024-11-21T08:08:52+08:00 网络 代理 ​ 您</description></item><item><title>页面资源</title><link>https://before80.github.io/go_docs/rod/doc/using/page-resources/</link><pubDate>Thu, 21 Nov 2024 08:09:06 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/page-resources/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/page-resources/README 收录该文档时间：</description></item><item><title>JavaScript 运行时</title><link>https://before80.github.io/go_docs/rod/doc/using/javascript-runtime/</link><pubDate>Thu, 21 Nov 2024 08:09:20 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/javascript-runtime/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/javascript-runtime 收录该文档时间： 2024-11-21T08:09:20+08:00 JavaScript 运</description></item><item><title>多浏览器与多页面</title><link>https://before80.github.io/go_docs/rod/doc/using/browsers-pages/</link><pubDate>Thu, 21 Nov 2024 08:09:52 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/browsers-pages/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/browsers-pages 收录该文档时间： 2024-11-21T08:09:52+08:00 多浏览器与多</description></item><item><title>custom-websocket</title><link>https://before80.github.io/go_docs/rod/doc/using/custom-websocket/</link><pubDate>Thu, 21 Nov 2024 08:10:21 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/custom-websocket/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/custom-websocket 收录该文档时间： 2024-11-21T08:10:21+08:00 自定义 WebSocket</description></item><item><title>端到端测试</title><link>https://before80.github.io/go_docs/rod/doc/using/end-to-end-testing/</link><pubDate>Thu, 21 Nov 2024 08:10:39 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/end-to-end-testing/</guid><description>原文：https://go-rod.github.io/i18n/zh-CN/#/end-to-end-testing 收录该文档时间： 2024-11-21T08:10:39+08:00 端到</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>使用手册 on Go 中文档集</title><link>https://before80.github.io/go_docs/rod/doc/using/</link><description>Recent content in 使用手册 on Go 中文档集</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 21 Nov 2024 08:56:13 +0800</lastBuildDate><atom:link href="https://before80.github.io/go_docs/rod/doc/using/index.xml" rel="self" type="application/rss+xml"/><item><title>自定义浏览器启动</title><link>https://before80.github.io/go_docs/rod/doc/using/custom-launch/</link><pubDate>Thu, 21 Nov 2024 08:06:18 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/custom-launch/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/custom-launch">https://go-rod.github.io/i18n/zh-CN/#/custom-launch&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:08:39+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="自定义浏览器启动">自定义浏览器启动&lt;a class="td-heading-self-link" href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e6%b5%8f%e8%a7%88%e5%99%a8%e5%90%af%e5%8a%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;h2 id="连接到正在运行的浏览器">连接到正在运行的浏览器&lt;a class="td-heading-self-link" href="#%e8%bf%9e%e6%8e%a5%e5%88%b0%e6%ad%a3%e5%9c%a8%e8%bf%90%e8%a1%8c%e7%9a%84%e6%b5%8f%e8%a7%88%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	查找您的浏览器的可执行路径，例如 macOS 运行：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#63c381">&amp;#34;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&amp;#34;&lt;/span> --headless --remote-debugging-port&lt;span style="color:#54b1c7">=&lt;/span>&lt;span style="color:#d19a66">9222&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>​	它将输出类似于：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-txt" data-lang="txt">&lt;span style="display:flex;">&lt;span>DevTools listening on ws://127.0.0.1:9222/devtools/browser/4dcf09f2-ba2b-463a-8ff5-90d27c6cc913
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的 &lt;code>ws://127.0.0.1:9222/devtools/browser/4dcf09f2-ba2b-463a-8ff5-90d27c6cc913&lt;/code> 就是控制浏览器的接口：&lt;/p></description></item><item><title>选择器</title><link>https://before80.github.io/go_docs/rod/doc/using/selectors/</link><pubDate>Thu, 21 Nov 2024 08:07:59 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/selectors/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/selectors/README">https://go-rod.github.io/i18n/zh-CN/#/selectors/README&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:07:59+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="选择器">选择器&lt;a class="td-heading-self-link" href="#%e9%80%89%e6%8b%a9%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	Rod 提供了很多获取元素的方法。 它们的名称都以 &lt;code>MustElement&lt;/code> 或 &lt;code>Element&lt;/code> 作为前缀。 如果你在 IDE 中键入 &lt;code>Element&lt;/code>，你会看到如下所有可用的选择器：&lt;/p></description></item><item><title>事件</title><link>https://before80.github.io/go_docs/rod/doc/using/events/</link><pubDate>Thu, 21 Nov 2024 08:08:12 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/events/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/events/README">https://go-rod.github.io/i18n/zh-CN/#/events/README&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:08:12+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="事件">事件&lt;a class="td-heading-self-link" href="#%e4%ba%8b%e4%bb%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	事件是在你控制的浏览器中发生的动作或事件，浏览器会告诉你这些事件，这样你就可以在需要的时候以某种方式响应它们。 例如，当我们让页面导航到一个新的 URL 时，我们可以订阅事件来知道导航何时完成或者页面何时渲染完毕。&lt;/p></description></item><item><title>输入</title><link>https://before80.github.io/go_docs/rod/doc/using/input/</link><pubDate>Thu, 21 Nov 2024 08:08:27 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/input/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/input">https://go-rod.github.io/i18n/zh-CN/#/input&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:08:27+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="输入">输入&lt;a class="td-heading-self-link" href="#%e8%be%93%e5%85%a5" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	Rod 提供了很多方法来模拟人工输入，比如鼠标点击或者键盘按键。&lt;/p>
+&lt;h2 id="鼠标点击">鼠标点击&lt;a class="td-heading-self-link" href="#%e9%bc%a0%e6%a0%87%e7%82%b9%e5%87%bb" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	模拟鼠标点击一个元素：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// 左击&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">page&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">MustElement&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;button&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">MustClick&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8a93a5;font-style:italic">// 右击&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">_&lt;/span> &lt;span style="color:#abb2bf">=&lt;/span> &lt;span style="color:#aa89ea">page&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">MustElement&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;button&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">).&lt;/span>&lt;span style="color:#00b1f7">Click&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">proto&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#aa89ea">InputMouseButtonRight&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#d19a66">1&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="文本输入">文本输入&lt;a class="td-heading-self-link" href="#%e6%96%87%e6%9c%ac%e8%be%93%e5%85%a5" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	模拟输入：&lt;/p></description></item><item><title>模拟 / Emulation</title><link>https://before80.github.io/go_docs/rod/doc/using/emulation/</link><pubDate>Thu, 21 Nov 2024 08:08:39 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/emulation/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/emulation">https://go-rod.github.io/i18n/zh-CN/#/emulation&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:08:39+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="模拟--emulation">模拟 / Emulation&lt;a class="td-heading-self-link" href="#%e6%a8%a1%e6%8b%9f--emulation" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	Rod 提供了多种方法来模拟页面环境。&lt;/p>
+&lt;h2 id="设备">设备&lt;a class="td-heading-self-link" href="#%e8%ae%be%e5%a4%87" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	要同时为页面设置视区、User-Agent、方向等，可以使用预定义的设备：&lt;/p></description></item><item><title>network</title><link>https://before80.github.io/go_docs/rod/doc/using/network/</link><pubDate>Thu, 21 Nov 2024 08:08:52 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/network/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/network/README">https://go-rod.github.io/i18n/zh-CN/#/network/README&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:08:52+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="网络">网络&lt;a class="td-heading-self-link" href="#%e7%bd%91%e7%bb%9c" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;h2 id="代理">代理&lt;a class="td-heading-self-link" href="#%e4%bb%a3%e7%90%86" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	您可以设置一个浏览器实例使用代理服务器。 为此，您必须用参数 &lt;code>--proxy-server&lt;/code> 来启动浏览器浏览器。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>备注&lt;/strong>: 单个浏览器只能使用单个代理。 如果您需要使用多个 代理，您将需要创建多个浏览器连接。&lt;/p></description></item><item><title>页面资源</title><link>https://before80.github.io/go_docs/rod/doc/using/page-resources/</link><pubDate>Thu, 21 Nov 2024 08:09:06 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/page-resources/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/page-resources/README">https://go-rod.github.io/i18n/zh-CN/#/page-resources/README&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:09:06+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="页面资源">页面资源&lt;a class="td-heading-self-link" href="#%e9%a1%b5%e9%9d%a2%e8%b5%84%e6%ba%90" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	可以使用 &lt;code>Page.GetResource&lt;/code> 来从这里获取文件：&lt;/p>
+&lt;p>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ &lt;img src="https://before80.github.io/go_docs/rod/doc/using/page-resources_img/page-resources.png"
+ alt="page-resources" data-cur-dir="rod/doc/using" data-rg="/page-resources_img/page-resources.png" data-rg1="page-resources_img/page-resources.png" data-rel="/go_docs/page-resources_img/page-resources.png" data-c4my="/go_docs"
+ 
+ />
+ 
+ 
+&lt;/p>
+&lt;p>​	比如说获取图片：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">bin&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">_&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">page&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">GetResource&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#98c379">&amp;#34;https://test.com/a.png&amp;#34;&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">bin&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="元素资源">元素资源&lt;a class="td-heading-self-link" href="#%e5%85%83%e7%b4%a0%e8%b5%84%e6%ba%90" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	也可以使用 &lt;code>Element.Resource&lt;/code> 方法来获取 &lt;code>src&lt;/code> 属性中的文件。 比如说对于元素 &lt;code>&amp;lt;img src=&amp;quot;a.jpg&amp;quot;&amp;gt;&lt;/code>，可以使用如下代码获取 &lt;code>a.jpg&lt;/code>：&lt;/p></description></item><item><title>JavaScript 运行时</title><link>https://before80.github.io/go_docs/rod/doc/using/javascript-runtime/</link><pubDate>Thu, 21 Nov 2024 08:09:20 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/javascript-runtime/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/javascript-runtime">https://go-rod.github.io/i18n/zh-CN/#/javascript-runtime&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:09:20+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="javascript-运行时">JavaScript 运行时&lt;a class="td-heading-self-link" href="#javascript-%e8%bf%90%e8%a1%8c%e6%97%b6" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	我们可以使用 Rod 在页面上执行任意 JavaScript 代码。 例如用它来读取或修改页面的 HTML 内容。&lt;/p>
+&lt;h2 id="在页面上-eval">在页面上 eval&lt;a class="td-heading-self-link" href="#%e5%9c%a8%e9%a1%b5%e9%9d%a2%e4%b8%8a-eval" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	例如，使用 &lt;code>Page.Eval&lt;/code> 设置全局变量：&lt;/p></description></item><item><title>多浏览器与多页面</title><link>https://before80.github.io/go_docs/rod/doc/using/browsers-pages/</link><pubDate>Thu, 21 Nov 2024 08:09:52 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/browsers-pages/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/browsers-pages">https://go-rod.github.io/i18n/zh-CN/#/browsers-pages&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:09:52+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="多浏览器与多页面">多浏览器与多页面&lt;a class="td-heading-self-link" href="#%e5%a4%9a%e6%b5%8f%e8%a7%88%e5%99%a8%e4%b8%8e%e5%a4%9a%e9%a1%b5%e9%9d%a2" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	你可以很直观的使用 Rod 同时控制多个浏览器或页面。&lt;/p>
+&lt;h2 id="多个浏览器">多个浏览器&lt;a class="td-heading-self-link" href="#%e5%a4%9a%e4%b8%aa%e6%b5%8f%e8%a7%88%e5%99%a8" aria-label="Heading self-link">&lt;/a>&lt;/h2>
+&lt;p>​	启动多个浏览器：&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#58626f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#b0c4de;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">browser1&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">rod&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">().&lt;/span>&lt;span style="color:#00b1f7">MustConnect&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">browser2&lt;/span> &lt;span style="color:#54b1c7">:=&lt;/span> &lt;span style="color:#aa89ea">rod&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">New&lt;/span>&lt;span style="color:#abb2bf">().&lt;/span>&lt;span style="color:#00b1f7">MustConnect&lt;/span>&lt;span style="color:#abb2bf">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#aa89ea">fmt&lt;/span>&lt;span style="color:#abb2bf">.&lt;/span>&lt;span style="color:#00b1f7">Println&lt;/span>&lt;span style="color:#abb2bf">(&lt;/span>&lt;span style="color:#aa89ea">browser1&lt;/span>&lt;span style="color:#abb2bf">,&lt;/span> &lt;span style="color:#aa89ea">browser2&lt;/span>&lt;span style="color:#abb2bf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>​	所有 API 都是线程安全的，同样适用于多个 Go routines。&lt;/p></description></item><item><title>custom-websocket</title><link>https://before80.github.io/go_docs/rod/doc/using/custom-websocket/</link><pubDate>Thu, 21 Nov 2024 08:10:21 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/custom-websocket/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/custom-websocket">https://go-rod.github.io/i18n/zh-CN/#/custom-websocket&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:10:21+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="自定义-websocket">自定义 WebSocket&lt;a class="td-heading-self-link" href="#%e8%87%aa%e5%ae%9a%e4%b9%89-websocket" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	如果你想要代理传输层或调优性能的话这会很有用。 请看这里的&lt;a href="https://github.com/go-rod/rod/blob/main/lib/examples/custom-websocket/main.go">代码&lt;/a>。&lt;/p></description></item><item><title>端到端测试</title><link>https://before80.github.io/go_docs/rod/doc/using/end-to-end-testing/</link><pubDate>Thu, 21 Nov 2024 08:10:39 +0800</pubDate><guid>https://before80.github.io/go_docs/rod/doc/using/end-to-end-testing/</guid><description>&lt;blockquote>
+&lt;p>原文：&lt;a href="https://go-rod.github.io/i18n/zh-CN/#/end-to-end-testing">https://go-rod.github.io/i18n/zh-CN/#/end-to-end-testing&lt;/a>&lt;/p>
+&lt;p>收录该文档时间： &lt;code>2024-11-21T08:10:39+08:00&lt;/code>&lt;/p>&lt;/blockquote>
+&lt;h1 id="端到端测试">端到端测试&lt;a class="td-heading-self-link" href="#%e7%ab%af%e5%88%b0%e7%ab%af%e6%b5%8b%e8%af%95" aria-label="Heading self-link">&lt;/a>&lt;/h1>
+&lt;p>​	见这个&lt;a href="https://github.com/go-rod/rod/tree/master/lib/examples/e2e-testing">示例项目&lt;/a>&lt;/p></description></item></channel></rss>
