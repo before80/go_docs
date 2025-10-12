@@ -1,0 +1,19 @@
+<style>
+    .markmap > svg {
+        width: {{ .Get "width" | default "100%" }} !important;
+        height: {{ .Get "height" | default "600px" }} !important;
+    }
+    .markmap-foreign > div {
+        font-weight: 400 !important;
+    }
+    .td-content pre {
+    	padding: 0 !important;
+    }
+</style>
+<script>
+    document.querySelector("div.td-main > div.row > aside:nth-child(2)").remove();
+    document.querySelector(".td-breadcrumbs").remove();
+    document.querySelector(".article-meta").remove();
+    document.querySelectorAll("h1").forEach(h1 => { h1.remove() });
+    document.querySelector("main").setAttribute("class","col-12 col-md-12 col-xl-12 ps-md-12");
+</script>
